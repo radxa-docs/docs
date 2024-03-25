@@ -146,7 +146,6 @@ jobs:
           path: "contents"
       - name: Build
         run: |
-          python3 contributors.py $GITHUB_REPOSITORY ${{ github.token }}
           yarn install
           yarn build
       - name: Upload artifact
