@@ -2,9 +2,6 @@
 sidebar_position: 1
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Images Download
 
 The Radxa team developed RadxaOS as the official operating system based on Debian.

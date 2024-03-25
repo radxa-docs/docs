@@ -1,5 +1,4 @@
 ---
-sidebar_label: "E25 "
 sidebar_position: 4
 ---
 

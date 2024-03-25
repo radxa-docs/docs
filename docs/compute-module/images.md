@@ -2,9 +2,6 @@
 sidebar_position: 1
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # 镜像下载
 
 瑞莎团队以 Debian 为基础开发了 Radxa OS 作为官方操作系统。

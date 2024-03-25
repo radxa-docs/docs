@@ -143,7 +143,7 @@ jobs:
       - name: Checkout contents
         uses: actions/checkout@v4
         with:
-          path: 'contents'
+          path: "contents"
       - name: Build
         run: |
           python3 contributors.py $GITHUB_REPOSITORY ${{ github.token }}

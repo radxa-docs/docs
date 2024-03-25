@@ -1,5 +1,4 @@
 ---
-sidebar_label: "Debian 系统安装"
 sidebar_position: 2
 ---
 

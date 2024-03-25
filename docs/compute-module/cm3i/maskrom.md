@@ -1,10 +1,6 @@
 ---
-sidebar_label: "Maskrom"
 sidebar_position: 2
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # Maskrom 模式
 

@@ -1,5 +1,4 @@
 ---
-sidebar_label: "Install Debian System"
 sidebar_position: 2
 ---
 

@@ -1,5 +1,4 @@
 ---
-sidebar_label: "Getting Started"
 sidebar_position: 1
 ---
 
@@ -30,8 +29,8 @@ such as HMI, robots, video intercoms, smart home and so on.
 ### Hardware
 
 - CPU:Quad core Cortex‑A55 (ARM v8) 64‑bit SoC @ 2.0GHz
-- GPU:Arm Mali™‑G52‑2EE、OpenGL® ES1.1/2.0/3.0/3.1/3.2、Vulkan® 1.1、OpenCL™ 2.1
-- NPU:1个TOPs@INT8,Support INT8 INT16 FP16 BFP16,SupportTensorFlow Caffe Tflite Pytorch Onnx Android™ NN and other deep learning frameworks
+- GPU:Arm Mali™‑G52‑2EE, OpenGL® ES1.1/2.0/3.0/3.1/3.2, Vulkan® 1.1, OpenCL™ 2.1
+- NPU:1TOPs@INT8,Support INT8 INT16 FP16 BFP16,SupportTensorFlow Caffe Tflite Pytorch Onnx Android™ NN and other deep learning frameworks
 - Memory: 1GB, 2GB, 4GB or 8GB LPDDR4
 - Storage:
   - eMMC5.1 NA / 8GB / 16GB / 32GB / 64GB, Maximum 256GB
@@ -52,7 +51,7 @@ such as HMI, robots, video intercoms, smart home and so on.
   - SPDIF_TX
   - PDM, support mic array
 - High Speed Interface:
-  - 1x USB 3.0 HOST、1x USB 3.0 OTG、2x USB 2.0 HOST
+  - 1x USB 3.0 HOST, 1x USB 3.0 OTG, 2x USB 2.0 HOST
   - 3x SATA (1 shared with USB 3.0 HOST, 1 shared with PCIe, and one USB 3 OTG)
   - 1x PCIe 3.0 2 lanes
   - 1x PCIe 2.0 1 lane

@@ -1,5 +1,4 @@
 ---
-sidebar_label: "开始使用"
 sidebar_position: 1
 ---
 
