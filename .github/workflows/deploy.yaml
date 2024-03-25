@@ -1,0 +1,170 @@
+name: Deploy
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+  merge_group:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test: [""]
+        stage: ["commit", "push"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: pre-commit checks
+        shell: bash
+        run: |
+          set -o pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends webp
+          pip install pre-commit
+
+          CI_FAIL=false
+          EXTRA_ARGS=("--all-files")
+
+          if [ "${{ github.event_name }}" == "push" ]
+          then
+            if [ "${{ github.event.created }}" != "true" ]
+            then
+              git fetch origin ${{ github.event.before }}:old_head
+              FROM_REF="${{ github.event.before }}"
+              TO_REF="${{ github.event.after }}"
+              EXTRA_ARGS=("--from-ref" "$FROM_REF" "--to-ref" "$TO_REF")
+            fi
+          elif [ "${{ github.event_name }}" == "pull_request" ]
+          then
+            FROM_REF="${{ github.event.pull_request.base.sha }}"
+            TO_REF="${{ github.event.pull_request.head.sha }}"
+            EXTRA_ARGS=("--from-ref" "$FROM_REF" "--to-ref" "$TO_REF")
+          elif [ "${{ github.event_name }}" == "merge_group" ]
+          then
+            git fetch origin ${{ github.event.merge_group.base_sha }}:old_head
+            FROM_REF="${{ github.event.merge_group.base_sha }}"
+            TO_REF="${{ github.event.merge_group.head_sha }}"
+            EXTRA_ARGS=("--from-ref" "$FROM_REF" "--to-ref" "$TO_REF")
+          fi
+
+          EXTRA_ARGS+=("--hook-stage" "${{ matrix.stage }}" "${{ matrix.test }}")
+
+          if ! pre-commit run --show-diff-on-failure "${EXTRA_ARGS[@]}" 2>&1 | tee /tmp/ci_result.log
+          then
+            CI_FAIL=true
+          fi
+
+          if $CI_FAIL
+          then
+            echo ''
+            echo '=== Issue detected! ==='
+            echo 'Suggest changes are listed above.'
+            echo 'Please install pre-commit and run `pre-commit run --all-files` to fix it.'
+            echo 'Strongly recommended to run `pre-commit install` to catch issues before pushing.'
+            echo 'You can learn more abour pre-commit from https://pre-commit.com/'
+            exit 1
+          fi
+  test-optional:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test: ["check-external-links", "gitown"]
+        stage: ["manual"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: pre-commit check-external-links
+        shell: bash
+        run: |
+          set -o pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends webp
+          pip install pre-commit
+
+          CI_FAIL=false
+          EXTRA_ARGS=("--all-files")
+
+          if [ "${{ github.event_name }}" == "push" ]
+          then
+            if [ "${{ github.event.created }}" != "true" ]
+            then
+              git fetch origin ${{ github.event.before }}:old_head
+              FROM_REF="${{ github.event.before }}"
+              TO_REF="${{ github.event.after }}"
+              EXTRA_ARGS=("--from-ref" "$FROM_REF" "--to-ref" "$TO_REF")
+            fi
+          elif [ "${{ github.event_name }}" == "pull_request" ]
+          then
+            FROM_REF="${{ github.event.pull_request.base.sha }}"
+            TO_REF="${{ github.event.pull_request.head.sha }}"
+            EXTRA_ARGS=("--from-ref" "$FROM_REF" "--to-ref" "$TO_REF")
+          elif [ "${{ github.event_name }}" == "merge_group" ]
+          then
+            git fetch origin ${{ github.event.merge_group.base_sha }}:old_head
+            FROM_REF="${{ github.event.merge_group.base_sha }}"
+            TO_REF="${{ github.event.merge_group.head_sha }}"
+            EXTRA_ARGS=("--from-ref" "$FROM_REF" "--to-ref" "$TO_REF")
+          fi
+
+          EXTRA_ARGS+=("--hook-stage" "${{ matrix.stage }}" "${{ matrix.test }}")
+
+          if ! pre-commit run --show-diff-on-failure "${EXTRA_ARGS[@]}" 2>&1 | tee /tmp/ci_result.log
+          then
+            CI_FAIL=true
+          fi
+
+          if $CI_FAIL
+          then
+            echo ''
+            echo '=== Issue detected! ==='
+            echo 'Suggest changes are listed above.'
+            echo 'Please install pre-commit and run `pre-commit run --all-files` to fix it.'
+            echo 'Strongly recommended to run `pre-commit install` to catch issues before pushing.'
+            echo 'You can learn more abour pre-commit from https://pre-commit.com/'
+            exit 1
+          fi
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout template
+        uses: actions/checkout@v4
+        with:
+          repository: "radxa-docs/docs-template"
+      - name: Checkout contents
+        uses: actions/checkout@v4
+        with:
+          path: 'contents'
+      - name: Build
+        run: |
+          python3 contributors.py $GITHUB_REPOSITORY ${{ github.token }}
+          yarn install
+          yarn build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: "./build"
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request' && github.event_name != 'merge_group' && github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      pages: write
+    steps:
+      - name: Setup Pages
+        id: setup-pages
+        uses: actions/configure-pages@v4
+        continue-on-error: true
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        if: steps.setup-pages.outcome == 'success'
