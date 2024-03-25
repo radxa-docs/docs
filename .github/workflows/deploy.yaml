@@ -138,6 +138,7 @@ jobs:
       - name: Checkout template
         uses: actions/checkout@v4
         with:
+          token: "${{ secrets.PRIVATE_REPO_TOKEN }}"
           repository: "radxa-docs/docs-template"
       - name: Checkout contents
         uses: actions/checkout@v4
