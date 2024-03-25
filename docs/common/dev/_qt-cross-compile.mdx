@@ -1,0 +1,253 @@
+# 在 x86 平台上交叉 QT 编译到 rockchip arm64 平台
+
+## 在 x86 平台上
+
+### 设置交叉编译工具链
+
+```
+sudo apt-get install build-essential cmake
+wget https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/aarch64-linux-gnu/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
+sudo tar xvf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz  -C /usr/local/
+```
+
+### 下载 QT 源码
+
+```
+mkdir -p pro/qtSourceDir && cd pro/qtSourceDir
+wget https://download.qt.io/archive/qt/5.12/5.12.2/single/qt-everywhere-src-5.12.2.tar.xz
+tar -xvf qt-everywhere-src-5.12.2.tar.xz
+```
+
+[其他版本下载。](https://download.qt.io/archive/qt/)
+
+### 安装 QT 环境
+
+- 修改 qmake.conf
+
+修改之前
+
+```
+#
+# qmake configuration for building with aarch64-linux-gnu-g++
+#
+
+MAKEFILE_GENERATOR      = UNIX
+CONFIG                 += incremental
+QMAKE_INCREMENTAL_STYLE = sublib
+
+include(../common/linux.conf)
+include(../common/gcc-base-unix.conf)
+include(../common/g++-unix.conf)
+
+# modifications to g++.conf
+QMAKE_CC                = aarch64-linux-gnu-gcc
+QMAKE_CXX               = aarch64-linux-gnu-g++
+QMAKE_LINK              = aarch64-linux-gnu-g++d
+QMAKE_LINK_SHLIB        = aarch64-linux-gnu-g++
+
+# modifications to linux.conf
+QMAKE_AR                = aarch64-linux-gnu-ar cqs
+QMAKE_OBJCOPY           = aarch64-linux-gnu-objcopy
+QMAKE_NM                = aarch64-linux-gnu-nm -P
+QMAKE_STRIP             = aarch64-linux-gnu-strip
+load(qt_config)
+
+```
+
+修改之后
+
+```
+#
+# qmake configuration for building with aarch64-linux-gnu-g++
+#
+
+MAKEFILE_GENERATOR      = UNIX
+CONFIG                 += incremental
+QMAKE_INCREMENTAL_STYLE = sublib
+
+QT_QPA_DEFAULT_PLATFORM = linuxfb
+QMAKE_CFLAGS_RELEASE += -O2 -march=armv8-a -lts
+QMAKE_CXXFLAGS_RELEASE += -O2 -march=armv8-a -lts
+
+
+include(../common/linux.conf)
+include(../common/gcc-base-unix.conf)
+include(../common/g++-unix.conf)
+
+# modifications to g++.conf
+QMAKE_CC                = /usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc
+QMAKE_CXX               = /usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-g++
+QMAKE_LINK              = /usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-g++
+QMAKE_LINK_SHLIB        = /usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-g++
+
+# modifications to linux.conf
+QMAKE_AR                = /usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-ar cqs
+QMAKE_OBJCOPY           = /usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-objcopy
+QMAKE_NM                = /usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-nm -P
+QMAKE_STRIP             = /usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-strip
+load(qt_config)
+```
+
+- 在根 QT 源码根目录下新建一个自动配置脚本文件
+
+vi auto.sh
+
+```
+#!/bin/sh
+
+export CROSS_COMPILE=/usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+export PATH=/usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin:$PATH
+export ARCH=arm64
+
+./configure \
+-prefix /opt/qtdir \
+-confirm-license \
+-opensource \
+-release \
+-make libs \
+-xplatform linux-aarch64-gnu-g++ \
+-pch \
+-qt-libjpeg \
+-qt-libpng \
+-qt-zlib \
+-no-opengl \
+-no-sse2 \
+-no-openssl \
+-no-cups \
+-no-glib \
+-no-dbus \
+-no-xcb \
+-no-separate-debug-info \
+-no-ssl \
+-nomake tests \
+-nomake examples \
+-nomake tools \
+-no-sql-sqlite \
+-no-iconv \
+-skip qt3d \
+-skip qtactiveqt \
+-skip qtcanvas3d \
+-skip qtcharts \
+-skip qtconnectivity \
+-skip qtdatavis3d \
+-skip qtdeclarative \
+-skip qtgamepad \
+-skip qtandroidextras \
+-skip qtdoc \
+-skip qtwebchannel \
+-skip qtwebengine \
+-skip qtwebglplugin \
+-skip qtwebview \
+-skip qtvirtualkeyboard \
+-recheck
+
+make  -j4
+sudo make install
+```
+
+- 执行自动配置脚本
+
+```
+sudo chmod +x auto.sh
+sudo ./auto.sh
+```
+
+如果您遇到类似以下的错误
+
+```
+error: 'numeric_limits' is not a member of 'std'
+```
+
+在 sol.hpp 文件下添加
+
+```
+#include <limits>
+```
+
+- 检查是否安装成功
+
+```
+test@test-desktop:/opt$ ls /opt/qtInstallDir/
+bin  doc  include  lib  mkspecs  plugins  translations
+
+test@test-desktop:/opt$ ls /opt/qt5.9.4-arm/
+ bin  lib  mkspecs
+```
+
+### 安装 QTCreator
+
+- 下载安装工具
+
+```
+wget https://download.qt.io/archive/qt/5.12/5.12.2/qt-opensource-linux-x64-5.12.2.run
+```
+
+或从 [此处](https://download.qt.io/archive/qt/) 下载。
+
+- 安装
+
+```
+sudo chmod +x qt-opensource-linux-x64-5.12.2.run
+sudo ./qt-opensource-linux-x64-5.12.2.run
+```
+
+<img src="/img/common/qt/qt_installation.webp" width="500" />
+
+### Demo 示例工程
+
+- 所需环境
+
+```
+sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev -y
+```
+
+- 添加工具
+
+<img src="/img/common/qt/qt_kits.webp" width="500" />
+<img src="/img/common/qt/qt_kits_build_essential.webp" width="500" />
+<img src="/img/common/qt/qt_kits_select.webp" width="500" />
+
+然后就可以像上面的 gcc/g++ 一样添加 gdb
+
+- 添加设备
+
+<img src="/img/common/qt/qt_device.webp" width="500" />
+
+- 新建工程
+
+<img src="/img/common/qt/qt_location.webp" width="500" />
+<img src="/img/common/qt/qt_demo_info.webp" width="500" />
+<img src="/img/common/qt/qt_demo_kit_select.webp" width="500" />
+
+- 示例代码
+
+<img src="/img/common/qt/qt_demo_code.webp" width="500" />
+
+- 编译
+
+点击 Debugger->rock->Debug
+
+- 复制编译后的工程到板子上
+
+```
+scp -r build-demo4-ext4-Debug radxa@192.168.2.xxx:~
+```
+
+## 在开发板上
+
+### 环境
+
+```
+sudo apt-get install libqt5gui5 -y
+```
+
+### 执行程序
+
+```
+sudo chmod +x ./demo4
+./demo4
+```
+
+或者在桌面上直接点击该程序
+
+<img src="/img/common/qt/qt_execute.webp" width="500" />

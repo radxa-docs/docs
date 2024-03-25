@@ -1,0 +1,161 @@
+# GPIOD 简介
+
+自 Linux 4.8 起，GPIO sysfs 接口已被弃用。用户空间应改用 `libgpiod` 来于 GPIO 字符设备进行交互。
+
+## 主要特点
+
+- 简单易用：`libgpiod` 提供了简洁的 API，使得控制和操作 GPIO 设备变得简单易懂。开发者只需了解基本的 GPIO 概念和函数接口即可使用。
+- 独立性：`libgpiod` 是一个独立的用户空间库，不依赖于任何特定的硬件平台或芯片。它适用于多种支持 GPIO 控制的嵌入式平台，如 Radxa ROCK 系列、树莓派、BeagleBone 等。
+- 支持多种编程语言：`libgpiod` 原生支持 C 语言，同时也提供了 Python 绑定（`python3-libgpiod`）和其他语言的封装，使得在不同的编程语言下都可以方便地使用。
+- 高效的事件监听：`libgpiod` 提供了用于异步事件监听的功能，例如等待 GPIO 状态变化等。这使得开发者可以实现高效的事件驱动应用程序。
+- GPIO 规格支持：`libgpiod` 提供了对不同 GPIO 规格和编号方式的支持，包括基于 GPIO 编号和基于物理引脚编号两种方式。
+
+## 命令行工具
+
+`libgpiod` 提供了命令行工具，用于查看和控制 GPIO 设备。
+
+### `gpioinfo`
+
+显示 GPIO 设备信息：
+
+```bash
+radxa@radxa-zero2:~$ gpioinfo
+gpiochip0 - 85 lines:
+        line   0:     "PIN_27"       unused   input  active-high
+        line   1:     "PIN_28"       unused   input  active-high
+        line   2:      "PIN_7"       unused   input  active-high
+        line   3:     "PIN_11"       unused   input  active-high
+        line   4:     "PIN_13"       unused   input  active-high
+        line   5:     "PIN_15"       unused   input  active-high
+        line   6:     "PIN_18"       unused   input  active-high
+        line   7:     "PIN_40"       unused   input  active-high
+        line   8:      unnamed       unused   input  active-high
+        line   9:      unnamed       unused   input  active-high
+...
+```
+
+### `gpiodetect`
+
+列出系统中所有 GPIO 控制器：
+
+```bash
+radxa@rock-pi-s:~$ gpiodetect
+gpiochip0 [gpio0] (32 lines)
+gpiochip1 [gpio1] (32 lines)
+gpiochip2 [gpio2] (32 lines)
+gpiochip3 [gpio3] (32 lines)
+gpiochip4 [gpio4] (32 lines)
+```
+
+### `gpioget`
+
+读取 GPIO 输入：
+
+```bash
+radxa@radxa-zero2:~$ gpioget gpiochip0 0
+1
+```
+
+### `gpioset`
+
+:::info
+与传统的 `sysfs` 不同，默认情况下 `gpioset` 会在设置电平后立即退出。此时的 GPIO 状态则是硬件定义的，在不同产品上会有不同的表现。
+
+如果需要持久的将电平保持在某一水平，请如以下例子一般，指定工作模式为 `signal`。
+:::
+
+设置 GPIO 输出：
+
+```bash
+radxa@radxa-zero2:~$ gpioset -m signal gpiochip0 0=1
+(Press Ctrl+C to stop)
+```
+
+### `gpiomon`
+
+监控 GPIO 事件：
+
+```bash
+radxa@radxa-zero2:~$ gpiomon gpiochip0 0
+(GPIO event output)
+```
+
+### `gpiofind`
+
+查找 GPIO 编号：
+
+```bash
+radxa@radxa-zero2:~$ gpiofind PIN_27
+gpiochip0 0
+```
+
+:::tip
+你可以组合使用 `gpiofind` 以及 `gpioget`/`gpioset`/`gpiomon` ，从而避免在脚本里硬编码 GPIO 信息：
+
+```bash
+radxa@radxa-zero2:~$ gpioget $(gpiofind PIN_27)
+1
+```
+
+:::
+
+## 编程参考
+
+<Tabs queryString="lang">
+<TabItem value="C">
+
+使用前需要先安装相关头文件：
+
+```bash
+sudo apt-get update
+sudo apt-get install libgpiod-dev
+```
+
+- [示例代码](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/tree/examples)
+- [官方文档](https://libgpiod.readthedocs.io/en/latest/index.html)
+
+</TabItem>
+<TabItem value="Python">
+
+使用前需要先安装相关 Python 库：
+
+```bash
+sudo apt-get update
+sudo apt-get install python3-libgpiod
+```
+
+- [示例代码](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/tree/bindings/python/examples)
+- [官方文档](https://libgpiod.readthedocs.io/en/latest/index.html)
+- [官方代码实现](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/tree/bindings/python/gpiod)
+
+</TabItem>
+</Tabs>
+
+## 将 vendor gpio 转换成 libgpiod
+
+<Tabs queryString="vendorTolibgpiod">
+
+<TabItem value="Rokchip">
+
+- 命名规范
+
+Rockchip 平台的 GPIO 通常有 5 组（也叫做 bank）： GPIO0~GPIO4（不同的芯片会不一样），每组有 32 个 GPIO。
+每组 GPIO 又分为 A/B/C/D 4个小组， 每个小组 8 个 GPIO（0~7，也叫做 [bank_idx](https://github.com/torvalds/linux/blob/master/include/dt-bindings/pinctrl/rockchip.h)）。所以 GPIO 的命名可以从： GPIO0_A0 到 GPIO4_D7。
+以 GPIO3_C5 为例，我们可以推断出，它的 bank 是 3，它的 bank_idx 是 21，即 GPIO3_C5 是第 3 组中的第 21 个 GPIO。
+
+- 与 libgpiod 对应关系
+
+Rockchip 平台的 GPIO bank 对应 libgpiod 中的 gpiochip， bank_idx 对应 gpio line。
+以 GPIO3_C5 为例，它在 libgpiod 中，gpiochip 为 3， line 为 21。
+
+</TabItem>
+
+<TabItem value="Amlogic">
+
+Amlogic 平台的 GPIO 一般定义在[内核头文件中](https://github.com/torvalds/linux/blob/master/include/dt-bindings/gpio/)。
+以 Amlogic S905 和 A311D 为例，这两个 Soc 为例，其 GPIO 的定义都在 [meson-g12a-gpio.h](https://github.com/torvalds/linux/blob/master/include/dt-bindings/gpio/meson-g12a-gpio.h) 中。
+如 GPIOH_1 的 gpiochip 为 1，line 为 17。
+
+</TabItem>
+
+</Tabs>

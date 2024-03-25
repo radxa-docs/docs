@@ -1,0 +1,390 @@
+## 通过脚本备份
+
+:::danger
+备份脚本不保证支持所有非官方系统、使用前请**备份重要数据**。
+:::
+
+我们提供了一个脚本，将您的操作系统备份 **img** 格式的镜像。
+
+:::tip
+该脚本仅在瑞莎官方系统进行充分测试。
+
+该脚本不支持`安卓系统`。
+:::
+
+备份脚本允许备份正在运行的操作系统，也允许离线备份。
+
+### 安装
+
+<Tabs  groupId="method" queryString>
+  <TabItem value="online" label="在线备份" default>
+    在您的开发板上运行以下命令
+  </TabItem>
+  <TabItem value="offline" label="离线备份">
+在您的计算机中运行以下命令
+
+:::tip
+仅支持 Linux 操作系统，推荐使用 `Debian` 或 `Ubuntu`，其他 Linux 发行版可能有兼容性问题。
+:::
+
+  </TabItem>
+</Tabs>
+
+```bash
+curl -sL https://rock.sh/rockpi-backup -o rockpi-backup.sh
+chmod +x rockpi-backup.sh
+```
+
+### 帮助
+
+```bash
+sudo ./rockpi-backup.sh -h
+```
+
+```text
+Usage:
+  sudo ./rockpi-backup.sh [-o path|-e pattern|-u|-m path]
+    -o Specify output position, default is $PWD.
+    -e Exclude files matching pattern for rsync.
+    -u Unattended, no need to confirm in the backup process.
+    -m Back up the root mount point, and support backups from other disks as well.
+```
+
+### 备份
+
+:::tip
+如果您需要将文件**重命名**或备份到**指定目录**请参考：[备份到指定路径](#备份到指定路径)
+:::
+
+<Tabs  groupId="method" queryString>
+  <TabItem value="online" label="在线备份" default>
+在您的开发板板上运行以下命令，并根据提示进行操作。
+
+```bash
+sudo ./rockpi-backup.sh
+```
+
+:::info
+
+<details>
+<summary>该命令大致会进行以下操作：</summary>
+<div>
+
+1. 检查 root 权限
+2. 检查并安装依赖
+3. 读取运行系统内核名称，根据内核名设置文件名。
+4. 检查分区详情
+5. 将根路径挂载点设置为 `/`
+6. 寻找到与根路径相同磁盘的其他分区
+7. 安装自动扩容脚本到根分区
+8. 根据文件名创建磁盘文件
+9. 克隆非根分区
+10. 使用 `rsync` 同步根分区内容，并排除当前所输出的文件
+11. 清理与完成
+
+</div>
+</details>
+
+:::
+
+<details>
+<summary>您可能需要安装依赖，输入 y 自动安装依赖。</summary>
+<div>
+
+```text
+Welcome to rockpi-backup.sh, part of the ROCK Pi toolkit.
+
+  Enter rockpi-backup.sh -h to view help.
+  For a description and example usage, see the README.md at:
+    https://rock.sh/rockpi-toolbox
+
+--------------------
+Command not found: rsync,      package required: rsync
+
+Do you want to apt-get install the packages? [y/N]
+```
+
+</div>
+</details>
+
+</TabItem>
+<TabItem value="offline" label="离线备份">
+
+如果您将您所需要备份的系统安装在可移动介质上。
+:::info
+
+1. [非板载eMMC](https://radxa.com/products/accessories/emmc-module/)
+   > 请使用 [eMMC reader](https://radxa.com/products/accessories/emmc-usb3-reader) 转化为 USB
+2. SD卡
+   > 请使用SD card reader 转化为 USB
+3. NVME
+   > 请使用转接器转化为 USB
+4. 其他
+
+:::
+
+将您的安装介质通过USB或其他方式连接到您的计算机，并执行以下操作。
+
+1. 挂载所需要备份的文件根分区至某个路径下。这个分区为当前磁盘的**最后一个分区**，详情请见[支持的文件系统](#支持的文件系统)。
+
+:::tip
+以下操作默认在 root 用户下执行，请酌情添加 `sudo` 命令。
+
+请将脚本中 `ROOT_DIR` 替换为您的路径，如： `/mnt/root` （您可能需要创建这个目录， 使用 `mkdir /mnt/root`）
+
+请将 `/dev/sdx3` 替换为真实的分区路径，如： `/dev/sda3` （具体可以使用 `lsblk` 这个命令查看分区信息，替换为当前磁盘的**最后一个分区**）
+:::
+
+```bash
+ROOT_MOUNT_POINT=ROOT_DIR # ROOT_DIR 替换为您的真实路径
+mount /dev/sdx3 $ROOT_MOUNT_POINT # /dev/sdx3 替换为真实的分区路径
+```
+
+2. 运行以下命令，并根据提示进行操作。 <InlineInfo> 您通常需要重命名输出文件名称，参考[备份到指定路径](#备份到指定路径)。 </InlineInfo>
+
+```bash
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT
+# sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o xxx.img
+```
+
+:::info
+
+<details>
+<summary>该命令大致会进行以下操作：</summary>
+<div>
+
+1. 检查 root 权限
+2. 检查并安装依赖
+3. 读取运行系统内核名称，根据内核名设置文件名（通常该步骤会被重命名文件所覆盖，参考[备份到指定路径](#备份到指定路径) ）。
+4. 检查分区详情
+5. 将根路径挂载点设置为 `$ROOT_MOUNT_POINT`
+6. 寻找到与根路径相同磁盘的其他分区
+7. 安装自动扩容脚本到根分区
+8. 根据文件名创建磁盘文件
+9. 克隆非根分区
+10. 使用 `rsync` 同步根分区内容，并排除当前所输出的文件
+11. 清理与完成
+
+</div>
+</details>
+
+:::
+
+<details>
+<summary>您可能需要安装依赖，输入 y 自动安装依赖。</summary>
+<div>
+
+:::caution
+如果您的操作系统不支持`apt-get`命令，您可能需要根据提示自行安装相应依赖包。不同 Linux 发行版包名可能不尽相同，请善用搜索引擎。
+:::
+
+```text
+Welcome to rockpi-backup.sh, part of the ROCK Pi toolkit.
+
+  Enter rockpi-backup.sh -h to view help.
+  For a description and example usage, see the README.md at:
+    https://rock.sh/rockpi-toolbox
+
+--------------------
+Command not found: rsync,      package required: rsync
+
+Do you want to apt-get install the packages? [y/N]
+```
+
+</div>
+</details>
+
+</TabItem>
+</Tabs>
+
+<details>
+<summary>安装完依赖后您会看到以下内容，输入 y 开始备份。</summary>
+<div>
+
+```text
+--------------------
+Checking disk...
+The backup file will be saved at /home/radxa/xxx.img
+After this operation, 4560 MB of additional disk space will be used.
+
+Do you want to continue? [y/N]
+```
+
+</div>
+</details>
+
+<details>
+<summary>如果备份成功，您会看到以下内容。</summary>
+<div>
+
+```text
+Checking disk...
+The backup file will be saved at /home/radxaxxx.img
+After this operation, 4560 MB of additional disk space will be used.
+
+Do you want to continue? [y/N] y
+Create service...
+Generate the base images. This might take some time.
+0+0 records in
+0+0 records out
+0 bytes copied, 0.000508975 s, 0.0 kB/s
+Copy other partition
+31565312 bytes (32 MB, 30 MiB) copied, 1 s, 31.6 MB/s
+65535+0 records in
+65535+0 records out
+33553920 bytes (34 MB, 32 MiB) copied, 1.064 s, 31.5 MB/s
+Rebuild root partition...
+Delete inappropriate partition and fix
+Create new root partition...
+Change part GUID
+Change part Label
+Change part type
+Change attribute_flag
+Mount loop device...
+Format root partition...
+Mounting...
+Start rsync...
+
+Number of files: 137,155 (reg: 112,451, dir: 10,850, link: 13,853, special: 1)
+Number of created files: 137,154 (reg: 112,451, dir: 10,849, link: 13,853, special: 1)
+Number of deleted files: 0
+Number of regular files transferred: 112,406
+Total file size: 4,588,642,152 bytes
+Total transferred file size: 3,869,510,742 bytes
+Literal data: 3,869,510,742 bytes
+Matched data: 0 bytes
+File list size: 4,718,099
+File list generation time: 0.003 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 3,879,593,182
+Total bytes received: 2,241,928
+
+sent 3,879,593,182 bytes  received 2,241,928 bytes  11,962,511.90 bytes/sec
+total size is 4,588,642,152  speedup is 1.18
+
+Backup done, the file is /home/radxa/xxx.img
+```
+
+</div>
+</details>
+
+### 备份到指定路径
+
+备份脚本允许改变文件输出的位置。仅需加上 `-o` 参数即可。
+
+命令参考：
+
+<Tabs  groupId="method" queryString>
+<TabItem value="online" label="在线备份" default>
+
+```bash
+sudo ./rockpi-backup.sh -o xxx.img # 进行重命名，不改变输出位置
+
+sudo ./rockpi-backup.sh -o /mnt/sda1/ # 不进行重命名，改变输出位置
+
+sudo ./rockpi-backup.sh -o /mnt/sda1/xxx.img # 进行重命名并改变输出位置
+```
+
+</TabItem>
+<TabItem value="offline" label="离线备份">
+
+```bash
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o xxx.img # 进行重命名，不改变输出位置
+
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/ # 不进行重命名，改变输出位置
+
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/xxx.img # 进行重命名并改变输出位置
+```
+
+</TabItem>
+</Tabs>
+
+:::tip
+您可以备份到外置存储
+
+仅需要将外置存储挂载到某个路径下即可，例如： `mount /dev/sda1 /mnt/sda1`
+:::
+
+### 排除文件
+
+<Tabs  groupId="method" queryString>
+<TabItem value="online" label="在线备份" default>
+
+您可以使用一个或多个`-e`参数进行排除文件或文件夹。请使用**绝对路径**。
+
+所生成的镜像文件已自动排除。
+
+脚本不会跨文件系统备份吗，即不会备份到您挂载的设备，故无需手动排除挂载点文件夹。
+
+</TabItem>
+<TabItem value="offline" label="离线备份">
+
+您可以使用一个或多个`-e`参数进行排除文件或文件夹。请使用以根路径**挂载点**为根的**绝对路径**。
+
+</TabItem>
+</Tabs>
+
+:::tip
+`-e` 的排除语法与 `rsync --exclude`相同。
+:::
+
+### 支持的文件系统
+
+如果您使用的是官方提供的系统，该脚本通常是支持的。
+
+如果您对分区进行修改，则需要满足以下条件：
+:::tip
+如果您满足以下条件，则非官方系统也可支持，包括但不限于`x86`, `arm`。
+
+如果您不满足以下条件，则可以[通过 dd 进行全盘备份](#通过-dd-进行全盘备份)
+:::
+
+:::caution
+您所排除的文件大小依旧会计算到您总镜像大小中。但并不会复制到您所生成的镜像中。因为这会使计算文件大小变得十分复杂。
+:::
+
+1. 硬盘格式需要为 `GPT`
+
+2. 系统根分区应该在磁盘的末尾。（0扇区为开头）
+
+3. 根分区文件系统应该为 `ext4`
+
+4. 非**磁盘加密**
+
+5. 非**RAID**
+
+6. 非**LVM**
+
+7. 使用**systemd**管理系统服务
+
+## 通过 dd 进行全盘备份
+
+:::caution
+该方法仅允许**离线备份**。
+:::
+
+如果您将您所需要备份的系统安装在可移动介质上。
+
+:::info
+
+1. [非板载eMMC](https://radxa.com/products/accessories/emmc-module/)
+   > 请使用 [eMMC reader](https://radxa.com/products/accessories/emmc-usb3-reader) 转化为 USB
+2. SD卡
+   > 请使用SD card reader 转化为 USB
+3. NVME
+   > 请使用转接器转化为 USB
+4. 其他
+
+:::
+
+将您的安装介质通过USB或其他方式连接到您的计算机，并执行以下操作。
+
+```bash
+dd if=/dev/sdx of=xxx.img bs=4M status=progress # /dev/sdx 替换为真实的设备路径 xxx.img替换为输出的文件名
+```
+
+## 恢复系统
+
+通过上述方法生成的文件为正常可刷入的镜像，使用常规的**安装系统**方法即可。
+
+[//]: # "参考[安装操作系统](../getting-started/install-os)章节。"

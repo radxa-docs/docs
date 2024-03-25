@@ -1,0 +1,26 @@
+---
+sidebar_position: 1
+---
+
+# 概览
+
+- Radxa CM5
+
+![Radxa CM5](/img/cm5/cm5-overview.webp)
+
+![Radxa CM5 IO Board](/img/cm5/cm5-io-board-overview.webp)
+
+| 特征     | 描述                                                                                                                                                                                                                                                                                                                                                                        |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SoC      | Rockchip RK3588S                                                                                                                                                                                                                                                                                                                                                            |
+| CPU      | 四核 Cortex®‑A76 @ 2.2~2.4GHz and 四核 Cortex®‑A55 @ 1.8GHz<br/>based on Arm® DynamIQ™ configuration                                                                                                                                                                                                                                                                    |
+| GPU      | ARM Mali G610MP4 GPU ‑ OpenGL® ES1.1, ES2.0, and ES3.2 ‑ OpenCL®<br/>1.1, 1.2 and 2.2 ‑ Vulkan® 1.1 and 1.2 ‑ Embedded high performance 2D<br/>image acceleration module                                                                                                                                                                                                 |
+| NPU      | NPU 支持格式 INT4 / INT8 / INT16 / FP16 / BF16 and TF32 <br/> 算力最高可达 6TOPs@INT8                                                                                                                                                                                                                                                                                       |
+| 内存     | 4GB, 8GB or 16GB LPDDR4X 内存                                                                                                                                                                                                                                                                                                                                               |
+| 存储     | 可以选择 4GB / 8GB / 16GB / 32GB, 板载 eMMC <br />支持 SDMMC 接口实现 Micro SD 卡用于大容量存储和启动 OS                                                                                                                                                                                                                                                                    |
+| 多媒体   | VP9 / H.265 / AVS2 解码高达 8K@60fps <br /> H.264 / H.265 编码高达 8K@30fps                                                                                                                                                                                                                                                                                                 |
+| 以太网   | 板载千兆以太网 PHY                                                                                                                                                                                                                                                                                                                                                          |
+| 视频输出 | 1x HDMI TX 最高支持 8K@60hz <br /> 1x eDP TX 最高支持 4K@60Hz <br /> 1x DP TX 最高支持 8K@30Hz <br /> 1x 2-lane MIPI D/C PHY TX <br /> 1x 4-lane MIPI D/C PHY TX                                                                                                                                                                                                            |
+| 视频输入 | 1x 2-lane MIPI DPHY CSI RX <br /> 1x 4-lane MIPI_D/C PHY RX                                                                                                                                                                                                                                                                                                                 |
+| 音频     | 最高支持 2x I2S <br /> 最高支持 2x PDM <br /> 最高支持 2x SPDIF TX                                                                                                                                                                                                                                                                                                          |
+| I/O      | 2 × USB 2.0 Host Port <br /> 1 x USB 3.0 Host Port <br /> 1 x USB 3.0 OTG Port <br /> 2 x PCIe2.0 1‑lane, 其中一个跟 USB3.0 和 SATA 复用, 另一个跟 SATA 复用 <br /> 2 x SATA ports, 其中一个跟 USB3.0 和 PCIe2.0 复用, 另外一个跟 PCIe2.0 复用 <br /> 最高支持 10x UART <br /> 最高支持 5x SPI <br /> 最高支持 3x CAN <br /> 最高支持 7x I2C <br /> 最高支持 15x PWM <br /> |

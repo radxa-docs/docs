@@ -1,0 +1,50 @@
+{
+  "item.label.About": {
+    "description": "Navbar item with label About",
+    "message": "About"
+  },
+  "item.label.Community": {
+    "description": "Navbar item with label Community",
+    "message": "Community"
+  },
+  "item.label.Forum": {
+    "description": "Navbar item with label Forum",
+    "message": "Forum"
+  },
+  "item.label.Github": {
+    "description": "Navbar item with label Github",
+    "message": "Github"
+  },
+  "item.label.Home": {
+    "description": "Navbar item with label Home",
+    "message": "Home"
+  },
+  "item.label.News": {
+    "description": "Navbar item with label News",
+    "message": "News"
+  },
+  "item.label.Products": {
+    "description": "Navbar item with label Products",
+    "message": "Products"
+  },
+  "item.label.Services": {
+    "description": "Navbar item with label Services",
+    "message": "Services"
+  },
+  "item.label.Support": {
+    "description": "Navbar item with label Support",
+    "message": "Support"
+  },
+  "item.label.Welcome": {
+    "description": "Navbar item with label Welcome",
+    "message": "Welcome"
+  },
+  "item.label.WiKi": {
+    "description": "Navbar item with label WiKi",
+    "message": "WiKi"
+  },
+  "logo.alt": {
+    "description": "The alt text of navbar logo",
+    "message": "Radxa"
+  }
+}

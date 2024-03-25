@@ -1,0 +1,392 @@
+## Backup via Script
+
+:::danger
+The backup script does not guarantee support for all unofficial systems. Please **backup important data** before use.
+:::
+
+We provide a script to backup your operating system into an **img** format image.
+
+:::tip
+This script has been thoroughly tested only on the official RuiShan systems.
+
+This script does not support `Android` systems.
+:::
+
+The backup script allows you to back up the running operating system as well as perform offline backups.
+
+### Installation
+
+<Tabs groupId="method" queryString>
+  <TabItem value="online" label="Online Backup" default>
+    Run the following command on your development board:
+  </TabItem>
+  <TabItem value="offline" label="Offline Backup">
+    Run the following command on your computer:
+
+:::tip
+Only Linux operating systems are supported. We recommend using `Debian` or `Ubuntu`; other Linux distributions may have compatibility issues.
+:::
+
+  </TabItem>
+</Tabs>
+
+```bash
+curl -sL https://rock.sh/rockpi-backup -o rockpi-backup.sh
+chmod +x rockpi-backup.sh
+```
+
+### Help
+
+```bash
+sudo ./rockpi-backup.sh -h
+```
+
+```text
+Usage:
+  sudo ./rockpi-backup.sh [-o path|-e pattern|-u|-m path]
+    -o Specify output position, default is $PWD.
+    -e Exclude files matching pattern for rsync.
+    -u Unattended, no need to confirm in the backup process.
+    -m Back up the root mount point, and support backups from other disks as well.
+```
+
+### Backup
+
+:::tip
+If you need to **rename** files or backup to a **specific directory**, please refer to: [Backup to Specified Path](#backup-to-specified-path)
+:::
+
+<Tabs groupId="method" queryString>
+  <TabItem value="online" label="Online Backup" default>
+Run the following command on your development board and follow the prompts.
+
+```bash
+sudo ./rockpi-backup.sh
+```
+
+:::info
+
+<details>
+<summary>This command will roughly perform the following operations:</summary>
+<div>
+
+1. Check root permission
+2. Check and install dependencies
+3. Read the running system kernel name and set the file name based on the kernel name.
+4. Check partition details
+5. Set the root path mount point to `/`
+6. Find other partitions on the same disk as the root path
+7. Install auto-expand script to the root partition
+8. Create a disk file based on the file name
+9. Clone non-root partitions
+10. Synchronize root partition contents using `rsync` and exclude files currently output
+11. Cleanup and finish
+
+</div>
+</details>
+
+:::
+
+<details>
+<summary>You may need to install dependencies. Enter y to install dependencies automatically.</summary>
+<div>
+
+```text
+Welcome to rockpi-backup.sh, part of the ROCK Pi toolkit.
+
+  Enter rockpi-backup.sh -h to view help.
+  For a description and example usage, see the README.md at:
+    https://rock.sh/rockpi-toolbox
+
+--------------------
+Command not found: rsync,      package required: rsync
+
+Do you want to apt-get install the packages? [y/N]
+```
+
+</div>
+</details>
+
+</TabItem>
+<TabItem value="offline" label="Offline Backup">
+
+If your system to be backed up is installed on removable media.
+:::info
+
+1. [Off-board eMMC](https://radxa.com/products/accessories/emmc-module/)
+   > Please use [eMMC reader](https://radxa.com/products/accessories/emmc-usb3-reader) to convert to USB
+2. SD card
+   > Please use an SD card reader to convert to USB
+3. NVME
+   > Please use an adapter to convert to USB
+4. Others
+
+:::
+
+Connect your installation media to your computer via USB or other means, and perform the following steps.
+
+1. Mount the root partition of the files you need to back up to a specific path. This partition is the **last partition** on the current disk, see [Supported File Systems](#supported-file-systems) for details.
+
+:::tip
+The following operations are performed by default as the root user. Add the `sudo` command as needed.
+
+Replace `ROOT_DIR` in the script with your actual path, such as: `/mnt/root` (you may need to create this directory using `mkdir /mnt/root`)
+
+Replace `/dev/sdx3` with the actual partition path, such as: `/dev/sda3` (you can use the `lsblk` command to view partition information and replace it with the **last partition** of the current disk)
+:::
+
+```bash
+ROOT_MOUNT_POINT=ROOT_DIR # Replace ROOT_DIR with your actual path
+mount /dev/sdx3 $ROOT_MOUNT_POINT # Replace /dev/sdx3 with the actual partition path
+```
+
+2. Run the following command and follow the prompts. <InlineInfo> You usually need to rename the output file name, refer to [Backup to Specified Path](#backup-to-specified-path) for details. </InlineInfo>
+
+```bash
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT
+# sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o xxx.img
+```
+
+:::info
+
+<details>
+<summary>This command will roughly perform the following operations:</summary>
+<div>
+
+1. Check root permission
+2. Check and install dependencies
+3. Read the running system kernel name and set the file name based on the kernel name (usually overwritten by renaming the file, see [Backup to Specified Path](#backup-to-specified-path)).
+4. Check partition details
+5. Set the root path mount point to `$ROOT_MOUNT_POINT`
+6. Find other partitions on the same disk as the root path
+7. Install auto-expand script to the root partition
+8. Create a disk file based on the file name
+9. Clone non-root partitions
+10. Synchronize root partition contents using `rsync` and exclude files currently output
+11. Cleanup and finish
+
+</div>
+</details>
+
+:::
+
+<details>
+<summary>You may need to install dependencies. Enter y to install dependencies automatically.</summary>
+<div>
+
+:::caution
+If your operating system does not support the `apt-get` command, you may need to install the corresponding dependencies manually as prompted. Package names may vary between different Linux distributions, so use a search engine as needed.
+:::
+
+```text
+Welcome to rockpi-backup.sh, part of the ROCK Pi toolkit.
+
+  Enter rockpi-backup.sh -h to view help.
+  For a description and example usage, see the README.md at:
+    https://rock.sh/rockpi-toolbox
+
+--------------------
+Command not found: rsync,      package required: rsync
+
+Do you want to apt-get install the packages? [y/N]
+```
+
+</div>
+</details>
+
+</TabItem>
+</Tabs>
+
+<details>
+<summary>After installing dependencies, you will see the following content. Enter y to start the backup.</summary>
+<div>
+
+```text
+--------------------
+Checking disk...
+The backup file will be saved at /home/radxa/xxx.img
+After this operation, 4560 MB of additional disk space will be
+
+ used.
+
+Do you want to continue? [y/N]
+```
+
+</div>
+</details>
+
+<details>
+<summary>If the backup is successful, you will see the following content.</summary>
+<div>
+
+```text
+Checking disk...
+The backup file will be saved at /home/radxaxxx.img
+After this operation, 4560 MB of additional disk space will be used.
+
+Do you want to continue? [y/N] y
+Create service...
+Generate the base images. This might take some time.
+0+0 records in
+0+0 records out
+0 bytes copied, 0.000508975 s, 0.0 kB/s
+Copy other partition
+31565312 bytes (32 MB, 30 MiB) copied, 1 s, 31.6 MB/s
+65535+0 records in
+65535+0 records out
+33553920 bytes (34 MB, 32 MiB) copied, 1.064 s, 31.5 MB/s
+Rebuild root partition...
+Delete inappropriate partition and fix
+Create new root partition...
+Change part GUID
+Change part Label
+Change part type
+Change attribute_flag
+Mount loop device...
+Format root partition...
+Mounting...
+Start rsync...
+
+Number of files: 137,155 (reg: 112,451, dir: 10,850, link: 13,853, special: 1)
+Number of created files: 137,154 (reg: 112,451, dir: 10,849, link: 13,853, special: 1)
+Number of deleted files: 0
+Number of regular files transferred: 112,406
+Total file size: 4,588,642,152 bytes
+Total transferred file size: 3,869,510,742 bytes
+Literal data: 3,869,510,742 bytes
+Matched data: 0 bytes
+File list size: 4,718,099
+File list generation time: 0.003 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 3,879,593,182
+Total bytes received: 2,241,928
+
+sent 3,879,593,182 bytes  received 2,241,928 bytes  11,962,511.90 bytes/sec
+total size is 4,588,642,152  speedup is 1.18
+
+Backup done, the file is /home/radxa/xxx.img
+```
+
+</div>
+</details>
+
+### Backup to Specified Path
+
+The backup script allows changing the location where the files are output. Simply add the `-o` parameter.
+
+Command reference:
+
+<Tabs groupId="method" queryString>
+<TabItem value="online" label="Online Backup" default>
+
+```bash
+sudo ./rockpi-backup.sh -o xxx.img # Rename without changing the output location
+
+sudo ./rockpi-backup.sh -o /mnt/sda1/ # Do not rename, change the output location
+
+sudo ./rockpi-backup.sh -o /mnt/sda1/xxx.img # Rename and change the output location
+```
+
+</TabItem>
+<TabItem value="offline" label="Offline Backup">
+
+```bash
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o xxx.img # Rename without changing the output location
+
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/ # Do not rename, change the output location
+
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/xxx.img # Rename and change the output location
+```
+
+</TabItem>
+</Tabs>
+
+:::tip
+You can backup to external storage
+
+Simply mount the external storage to a certain path, for example: `mount /dev/sda1 /mnt/sda1`
+:::
+
+### Exclude Files
+
+<Tabs groupId="method" queryString>
+<TabItem value="online" label="Online Backup" default>
+
+You can use one or more `-e` parameters to exclude files or directories. Please use **absolute paths**.
+
+The generated image files are automatically excluded.
+
+The script does not back up across file systems, i.e., it does not back up to the device you mounted, so you do not need to manually exclude mounted point folders.
+
+</TabItem>
+<TabItem value="offline" label="Offline Backup">
+
+You can use one or more `-e` parameters to exclude files or directories. Please use **absolute paths** relative to the root path **mount point**.
+
+</TabItem>
+</Tabs>
+
+:::tip
+The exclusion syntax of `-e` is the same as `rsync --exclude`.
+:::
+
+### Supported File Systems
+
+If you are using an officially provided system, this script is usually supported.
+
+If you modify the partitions, you need to meet the following conditions:
+:::tip
+If you meet the following conditions, unofficial systems can also be supported, including but not limited to `x86`, `arm`.
+
+If you do not meet the following conditions, you can perform a [full disk backup using dd](#full-disk-backup-using-dd).
+:::
+
+:::caution
+The size of the files you exclude is still counted towards your total image size. However, they will not be copied to the generated image. This would make calculating file sizes very complex.
+:::
+
+1. Hard disk format must be `GPT`
+
+2. The system root partition should be at the end of the disk. (Sector 0 is the beginning)
+
+3. Root partition file system should be `ext4`
+
+4. Non-**disk encryption**
+
+5. Non-**RAID**
+
+6. Non-**LVM**
+
+7. System services managed by **systemd**
+
+## Full Disk Backup using dd
+
+:::caution
+This method only allows for **offline backups**.
+:::
+
+If your system to be backed up is installed on removable media.
+
+:::info
+
+1. [Off-board eMMC](https://radxa.com/products/accessories/emmc-module/)
+   > Please use [eMMC reader](https://radxa.com/products/accessories/emmc-usb3-reader) to convert to USB
+2. SD card
+   > Please use an SD card reader to convert to USB
+3. NVME
+   > Please use an adapter to convert to USB
+4. Others
+
+:::
+
+Connect your installation media to your computer via USB or other means, and perform the following steps.
+
+```bash
+dd if=/dev/sdx of=xxx.img bs=4M status=progress # Replace /dev/sdx with the actual device path, and replace xxx.img with the output file name
+```
+
+## Restore System
+
+The file generated by the above method is a normal flashable image, and can be installed using conventional **system installation** methods.
+
+[//]: # "Refer to the [Install Operating System](../getting-started/install-os) section."

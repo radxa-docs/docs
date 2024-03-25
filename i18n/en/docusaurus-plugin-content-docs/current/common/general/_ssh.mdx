@@ -1,0 +1,22 @@
+import { Section, Image } from "@site/src/utils/docs";
+
+After connecting to the network, you can use SSH to debug remotely, the official Debian image has enabled SSH by default, you just need to get the IP of the board to use SSH to connect.
+
+- Debian/Ubuntu
+
+```
+ssh [username]@[hostname]
+or
+ssh [username]@[IP address]
+Example:
+ssh radxa@192.168.1.100
+You can connect to the Debian system after entering your user password.
+```
+
+- Windows
+
+There are a number of SSH tools available for Windows, here's [Mobaxterm](https://mobaxterm.mobatek.net/) to show you how to connect.
+
+Click `Session` in the upper left corner to create a new SSH connection, enter the IP of the board in the `Remote host` field, tick `Specify usernema` and fill in the user who logs in, and then double-click on the session to start the connection and enter the login password to connect.
+
+![mobaxterm ssh ](/img/zero/zero3/mobaxterm-ssh.webp)

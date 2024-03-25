@@ -1,0 +1,13 @@
+## 修改 Linux 启动参数
+
+```bash
+sudo nano /etc/kernel/cmdline   # 添加或修改你所需要的选项
+sudo u-boot-update  # 执行命令以更新启动参数
+```
+
+## 重启
+
+```bash
+# 可以使用 cat /boot/extlinux/extlinux.conf 检查参数
+sudo reboot
+```

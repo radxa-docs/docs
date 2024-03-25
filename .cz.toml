@@ -1,0 +1,5 @@
+[tool.commitizen]
+name = "cz_customize"
+
+[tool.commitizen.customize]
+schema_pattern = "(?s)(build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert|bump)(\\(\\S+\\))?!?:(?!.*\\b(?:update|Update)\\b)[^\\n\\r]+((\\n\\n.*)|(\\s*))?$"

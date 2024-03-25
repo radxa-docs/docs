@@ -1,0 +1,58 @@
+### Install 3rd party overlay
+
+Device Tree Overlays make it possible to support many hardware configurations with a single kernel and without the need to explicitly load or blacklist kernel modules.
+
+You can use `rsetup` to manage overlays.
+
+:::info
+The Install 3rd party overlay feature of rsetup installs both device tree overlay files (DTBO) and source code (DTS).
+
+Pre-compiled files from the official DTBO repository radxa/overlays can be downloaded [from here](https://github.com/radxa/overlays/actions).
+:::
+
+#### Get radxa/overlays source code
+
+```bash
+git clone https://github.com/radxa/overlays.git
+cd overlays
+```
+
+#### Load the overlay using rsetup
+
+Select `Overlays` in `rsetup`'s main interface:
+
+```
+Configure Device Tree Overlay
+        Manage overlays
+        View overlay info
+        Install 3rd party overlay"
+        Reset overlays
+        <Ok>             <Cancel>
+```
+
+Then, select `Install 3rd party overlay`:
+
+```
+Configure Device Tree Overlay
+        Manage overlays
+        View overlay info
+        Install 3rd party overlay
+        Reset overlays
+
+
+      <Ok>            <Cancel>
+```
+
+:::info
+The following is the path to the source code of the Rexchip SOC device tree overlay file.
+
+arch/arm64/boot/dts/rockchip/overlays/\*.dts
+
+If the SOC vendor is Amlogic, you need to replace rockchip with amlogic in the above path.
+:::
+
+Then select the overlay you want to load, then exit rsetup, and finally reboot.
+
+:::tip
+You can check the parameters using cat /boot/extlinux/extlinux.conf
+:::

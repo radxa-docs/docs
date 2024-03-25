@@ -1,0 +1,3603 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="1697"
+   height="1409"
+   viewBox="-0.5 -0.5 1697 1409"
+   id="svg78"
+   sodipodi:docname="hw_soc_g1200_block.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <sodipodi:namedview
+     id="namedview78"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.64752147"
+     inkscape:cx="922.74932"
+     inkscape:cy="850.93703"
+     inkscape:window-width="1944"
+     inkscape:window-height="1213"
+     inkscape:window-x="202"
+     inkscape:window-y="145"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="switch72" />
+  <defs
+     id="defs1" />
+  <g
+     id="g77">
+    <rect
+       x="630"
+       y="393"
+       width="337.5"
+       height="345"
+       fill="#f5f5f5"
+       stroke="none"
+       pointer-events="none"
+       id="rect1" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g1">
+      <switch
+         id="switch1">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 223px; height: 1px; padding-top: 269px; margin-left: 421px;">
+            <xhtml:div
+               data-drawio-colors="color: #333333; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 18px">Display<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="533"
+           y="287"
+           fill="#333333"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text1">Display</text>
+      </switch>
+    </g>
+    <rect
+       x="0"
+       y="93"
+       width="615"
+       height="645"
+       fill="#f5f5f5"
+       stroke="none"
+       pointer-events="none"
+       id="rect2" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g2">
+      <switch
+         id="switch2">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 408px; height: 1px; padding-top: 69px; margin-left: 1px;">
+            <xhtml:div
+               data-drawio-colors="color: #333333; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 18px">Application Processing<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="205"
+           y="87"
+           fill="#333333"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text2">Application Processing</text>
+      </switch>
+    </g>
+    <rect
+       x="0"
+       y="753"
+       width="337.5"
+       height="615"
+       fill="#f5f5f5"
+       stroke="none"
+       pointer-events="none"
+       id="rect3" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g3">
+      <switch
+         id="switch3">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 223px; height: 1px; padding-top: 509px; margin-left: 1px;">
+            <xhtml:div
+               data-drawio-colors="color: #333333; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 18px;">Storage<xhtml:br
+   style="font-size: 18px;" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="113"
+           y="527"
+           fill="#333333"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text3">Storage</text>
+      </switch>
+    </g>
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g4">
+      <switch
+         id="switch4">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 154px; height: 1px; padding-top: 92px; margin-left: 493px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">MT8395</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="570"
+           y="97"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text4">MT8395</text>
+      </switch>
+    </g>
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g5">
+      <switch
+         id="switch5">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 154px; height: 1px; padding-top: 1052px; margin-left: 451px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 28px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;"> </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="528"
+           y="1060"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="28px"
+           text-anchor="middle"
+           id="text5"> </text>
+      </switch>
+    </g>
+    <rect
+       x="45"
+       y="546.75"
+       width="525"
+       height="73.5"
+       rx="10.29"
+       ry="10.29"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect7" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g8">
+      <switch
+         id="switch8">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 348px; height: 1px; padding-top: 389px; margin-left: 31px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">2MB Shared L3</xhtml:font>
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="205"
+           y="394"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text8">2MB Shared L3</text>
+      </switch>
+    </g>
+    <rect
+       x="45"
+       y="632.25"
+       width="255"
+       height="73.5"
+       rx="10.29"
+       ry="10.29"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect8" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g9">
+      <switch
+         id="switch9">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 446px; margin-left: 31px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">GIC-600</xhtml:font>
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="115"
+           y="451"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text9">GIC-600</text>
+      </switch>
+    </g>
+    <rect
+       x="315"
+       y="632.25"
+       width="255"
+       height="73.5"
+       rx="10.29"
+       ry="10.29"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect9" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g10">
+      <switch
+         id="switch10">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 446px; margin-left: 211px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">DMA</xhtml:font>
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="295"
+           y="451"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text10">DMA</text>
+      </switch>
+    </g>
+    <rect
+       x="41.25"
+       y="813"
+       width="255"
+       height="120"
+       rx="16.799999"
+       ry="16.799999"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect10" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g11">
+      <switch
+         id="switch11">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 582px; margin-left: 29px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">3 x MSDC<xhtml:br
+   style="" />
+eMMC/SD/SDIO<xhtml:br
+   style="font-size: 18px;" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="113"
+           y="587"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text11">3 x MSDC...</text>
+      </switch>
+    </g>
+    <rect
+       x="41.25"
+       y="1219.5"
+       width="255"
+       height="120"
+       rx="14.4"
+       ry="14.4"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect11" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g12">
+      <switch
+         id="switch12">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 853px; margin-left: 29px;">
+            <xhtml:div
+               data-drawio-colors="color: #808080; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">SPI NAND Flash</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="113"
+           y="858"
+           fill="#808080"
+           font-family="Helvetica"
+           font-size="16px"
+           text-anchor="middle"
+           id="text12">SPI NAND Flash</text>
+      </switch>
+    </g>
+    <rect
+       x="360"
+       y="753"
+       width="360"
+       height="615"
+       fill="#f5f5f5"
+       stroke="none"
+       pointer-events="none"
+       id="rect12" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g13">
+      <switch
+         id="switch13">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 238px; height: 1px; padding-top: 509px; margin-left: 241px;">
+            <xhtml:div
+               data-drawio-colors="color: #333333; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 18px">Audio<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="360"
+           y="527"
+           fill="#333333"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text13">Audio</text>
+      </switch>
+    </g>
+    <rect
+       x="416.25"
+       y="924"
+       width="255"
+       height="93"
+       rx="13.02"
+       ry="13.02"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect13" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g14">
+      <switch
+         id="switch14">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 647px; margin-left: 279px;">
+            <xhtml:div
+               data-drawio-colors="color: #808080; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">S/PDIF In/Out</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="363"
+           y="652"
+           fill="#808080"
+           font-family="Helvetica"
+           font-size="16px"
+           text-anchor="middle"
+           id="text14">S/PDIF In/Out</text>
+      </switch>
+    </g>
+    <rect
+       x="416.25"
+       y="1032"
+       width="255"
+       height="93"
+       rx="13.02"
+       ry="13.02"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect14" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g15">
+      <switch
+         id="switch15">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 719px; margin-left: 279px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">4 x PDM</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="363"
+           y="724"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text15">4 x PDM</text>
+      </switch>
+    </g>
+    <rect
+       x="416.25"
+       y="1140"
+       width="255"
+       height="93"
+       rx="13.02"
+       ry="13.02"
+       fill="#f0a30a"
+       stroke="none"
+       pointer-events="none"
+       id="rect15" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g16">
+      <switch
+         id="switch16">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 791px; margin-left: 279px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">PCM</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="363"
+           y="796"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="16px"
+           text-anchor="middle"
+           id="text16">PCM</text>
+      </switch>
+    </g>
+    <rect
+       x="416.25"
+       y="814.5"
+       width="255"
+       height="93"
+       rx="13.02"
+       ry="13.02"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect16" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g17">
+      <switch
+         id="switch17">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 574px; margin-left: 279px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">5 x I2S/TDM</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="363"
+           y="579"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text17">5 x I2S/TDM</text>
+      </switch>
+    </g>
+    <rect
+       x="416.25"
+       y="1248"
+       width="255"
+       height="93"
+       rx="13.02"
+       ry="13.02"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect17" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g18">
+      <switch
+         id="switch18">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 863px; margin-left: 279px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">HDMI/DP Audio</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="363"
+           y="868"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text18">HDMI/DP Audio</text>
+      </switch>
+    </g>
+    <rect
+       x="735"
+       y="753"
+       width="345"
+       height="615"
+       fill="#f5f5f5"
+       stroke="none"
+       pointer-events="none"
+       id="rect18" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g19">
+      <switch
+         id="switch19">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 228px; height: 1px; padding-top: 509px; margin-left: 491px;">
+            <xhtml:div
+               data-drawio-colors="color: #333333; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 18px">Miscellaneous<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="605"
+           y="527"
+           fill="#333333"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text19">Miscellaneous</text>
+      </switch>
+    </g>
+    <rect
+       x="776.25"
+       y="924"
+       width="255"
+       height="91.5"
+       rx="12.81"
+       ry="12.81"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect19" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g20">
+      <switch
+         id="switch20">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 647px; margin-left: 519px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">PWRAP</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="603"
+           y="652"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text20">PWRAP</text>
+      </switch>
+    </g>
+    <rect
+       x="776.25"
+       y="1032"
+       width="255"
+       height="91.5"
+       rx="12.81"
+       ry="12.81"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect20" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g21">
+      <switch
+         id="switch21">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 719px; margin-left: 519px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">SYSTMR</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="603"
+           y="724"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text21">SYSTMR</text>
+      </switch>
+    </g>
+    <rect
+       x="776.25"
+       y="1141.5"
+       width="255"
+       height="91.5"
+       rx="12.81"
+       ry="12.81"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect21" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g22">
+      <switch
+         id="switch22">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 792px; margin-left: 519px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">Thermal Sensors</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="603"
+           y="797"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text22">Thermal Sensors</text>
+      </switch>
+    </g>
+    <rect
+       x="776.25"
+       y="813"
+       width="255"
+       height="91.5"
+       rx="12.81"
+       ry="12.81"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect22" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g23">
+      <switch
+         id="switch23">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 573px; margin-left: 519px;">
+            <xhtml:div
+               data-drawio-colors="color: #808080; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;"><xhtml:b>12-bit AUXADC</xhtml:b>
+<xhtml:br />
+(6-channel)<xhtml:br
+   style="font-size: 18px" />
+</xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="603"
+           y="578"
+           fill="#808080"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text23">12-bit AUXADC...</text>
+      </switch>
+    </g>
+    <rect
+       x="776.25"
+       y="1248"
+       width="255"
+       height="91.5"
+       rx="12.81"
+       ry="12.81"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect23" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g24">
+      <switch
+         id="switch24">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 863px; margin-left: 519px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">WDT</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="603"
+           y="868"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text24">WDT</text>
+      </switch>
+    </g>
+    <rect
+       x="1095"
+       y="753"
+       width="600"
+       height="615"
+       fill="#f5f5f5"
+       stroke="none"
+       pointer-events="none"
+       id="rect24" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g25">
+      <switch
+         id="switch25">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 398px; height: 1px; padding-top: 509px; margin-left: 731px;">
+            <xhtml:div
+               data-drawio-colors="color: #333333; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 18px">Connectivity<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="930"
+           y="527"
+           fill="#333333"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text25">Connectivity</text>
+      </switch>
+    </g>
+    <rect
+       x="1136.25"
+       y="993"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect25" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g26">
+      <switch
+         id="switch26">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 687px; margin-left: 759px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">6 x UART</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="843"
+           y="692"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text26">6 x UART</text>
+      </switch>
+    </g>
+    <rect
+       x="1136.25"
+       y="1083"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#f0a30a"
+       stroke="none"
+       pointer-events="none"
+       id="rect26" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g27">
+      <switch
+         id="switch27">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 747px; margin-left: 759px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">4 x PWM</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="843"
+           y="752"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="16px"
+           text-anchor="middle"
+           id="text27">4 x PWM</text>
+      </switch>
+    </g>
+    <rect
+       x="1136.25"
+       y="813"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect27" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g28">
+      <switch
+         id="switch28">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 567px; margin-left: 759px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">GPIO</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="843"
+           y="572"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text28">GPIO</text>
+      </switch>
+    </g>
+    <rect
+       x="1136.25"
+       y="1173"
+       width="121.5"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect28" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g29">
+      <switch
+         id="switch29">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 79px; height: 1px; padding-top: 807px; margin-left: 759px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">6 x I2C</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="798"
+           y="812"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text29">6 x I2C</text>
+      </switch>
+    </g>
+    <rect
+       x="1410"
+       y="903"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect29" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g30">
+      <switch
+         id="switch30">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 627px; margin-left: 941px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">Ethernet<xhtml:br />
+NIC<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="1025"
+           y="632"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text30">Ethernet...</text>
+      </switch>
+    </g>
+    <rect
+       x="1410"
+       y="993"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect30" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g31">
+      <switch
+         id="switch31">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 687px; margin-left: 941px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">SS USB DRD<xhtml:br />
+2 x HS USB DRD<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="1025"
+           y="692"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text31">SS USB DRD...</text>
+      </switch>
+    </g>
+    <rect
+       x="1410"
+       y="1083"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect31" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g32">
+      <switch
+         id="switch32">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 747px; margin-left: 941px;">
+            <xhtml:div
+               data-drawio-colors="color: #CCCCCC; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(204, 204, 204); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:font
+                   style="font-size: 17px;"
+                   color="#808080"><xhtml:b>Keypad </xhtml:b>
+<xhtml:br />
+(3x3)</xhtml:font>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="1025"
+           y="752"
+           fill="#CCCCCC"
+           font-family="Helvetica"
+           font-size="16px"
+           text-anchor="middle"
+           id="text32"
+           style="fill:#9d9d9d;fill-opacity:1">Keypad...</text>
+      </switch>
+    </g>
+    <rect
+       x="1401"
+       y="1261.5"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect32" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g33">
+      <switch
+         id="switch33">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 866px; margin-left: 935px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">PCIe</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="1019"
+           y="871"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text33">PCIe</text>
+      </switch>
+    </g>
+    <rect
+       x="1136.25"
+       y="903"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect33" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g34">
+      <switch
+         id="switch34">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 627px; margin-left: 759px;">
+            <xhtml:div
+               data-drawio-colors="color: #808080; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">2 x SPI Slave<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="843"
+           y="632"
+           fill="#808080"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text34">2 x SPI Slave</text>
+      </switch>
+    </g>
+    <rect
+       x="30"
+       y="153"
+       width="555"
+       height="375"
+       rx="22.5"
+       ry="22.5"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="rect34" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g35">
+      <switch
+         id="switch35">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 368px; height: 1px; padding-top: 109px; margin-left: 21px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 18px">Arm DynamIQ<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="205"
+           y="127"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text35">Arm DynamIQ</text>
+      </switch>
+    </g>
+    <rect
+       x="45"
+       y="198"
+       width="255"
+       height="307.5"
+       rx="15.3"
+       ry="15.3"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect35" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g36">
+      <switch
+         id="switch36">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 139px; margin-left: 31px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">Quad-Core<xhtml:br />
+Arm Cortex-A78<xhtml:br />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="115"
+           y="157"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text36">Quad-Core...</text>
+      </switch>
+    </g>
+    <rect
+       x="315"
+       y="198"
+       width="255"
+       height="307.5"
+       rx="15.3"
+       ry="15.3"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect36" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g37">
+      <switch
+         id="switch37">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 139px; margin-left: 211px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">Quad-Core<xhtml:br />
+Arm Cortex-A55<xhtml:br />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="295"
+           y="157"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text37">Quad-Core...</text>
+      </switch>
+    </g>
+    <rect
+       x="60"
+       y="288"
+       width="112.5"
+       height="60"
+       rx="12"
+       ry="12"
+       fill="#ffe6cc"
+       stroke="#d79b00"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect37" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g38">
+      <switch
+         id="switch38">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 73px; height: 1px; padding-top: 212px; margin-left: 41px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:font
+                   style="font-size: 13px;">64KB L1I</xhtml:font>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="78"
+           y="216"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="14px"
+           text-anchor="middle"
+           id="text38">64KB L1I</text>
+      </switch>
+    </g>
+    <rect
+       x="60"
+       y="355.5"
+       width="225"
+       height="60"
+       rx="12"
+       ry="12"
+       fill="#ffe6cc"
+       stroke="#d79b00"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect38" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g39">
+      <switch
+         id="switch39">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 148px; height: 1px; padding-top: 257px; margin-left: 41px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 13px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 13px;">256KB L2<xhtml:br
+   style="font-size: 13px;" />
+</xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="115"
+           y="261"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="13px"
+           text-anchor="middle"
+           id="text39">256KB L2</text>
+      </switch>
+    </g>
+    <rect
+       x="60"
+       y="423"
+       width="225"
+       height="60"
+       rx="12"
+       ry="12"
+       fill="#ffe6cc"
+       stroke="#d79b00"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect39" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g40">
+      <switch
+         id="switch40">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 148px; height: 1px; padding-top: 302px; margin-left: 41px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 13px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 13px;">Generic Timers<xhtml:br
+   style="font-size: 13px;" />
+</xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="115"
+           y="306"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="13px"
+           text-anchor="middle"
+           id="text40">Generic Timers</text>
+      </switch>
+    </g>
+    <rect
+       x="180"
+       y="288"
+       width="105"
+       height="60"
+       rx="12"
+       ry="12"
+       fill="#ffe6cc"
+       stroke="#d79b00"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect40" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g41">
+      <switch
+         id="switch41">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 68px; height: 1px; padding-top: 212px; margin-left: 121px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:font
+                   style="font-size: 13px;">64KB L1D</xhtml:font>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="155"
+           y="216"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="14px"
+           text-anchor="middle"
+           id="text41">64KB L1D</text>
+      </switch>
+    </g>
+    <rect
+       x="330"
+       y="288"
+       width="112.5"
+       height="60"
+       rx="12"
+       ry="12"
+       fill="#ffe6cc"
+       stroke="#d79b00"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect41" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g42">
+      <switch
+         id="switch42">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 73px; height: 1px; padding-top: 212px; margin-left: 221px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 13px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 13px;">32KB L1I<xhtml:br
+   style="font-size: 13px;" />
+</xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="258"
+           y="216"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="13px"
+           text-anchor="middle"
+           id="text42">32KB L1I</text>
+      </switch>
+    </g>
+    <rect
+       x="450"
+       y="288"
+       width="105"
+       height="60"
+       rx="12"
+       ry="12"
+       fill="#ffe6cc"
+       stroke="#d79b00"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect42" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g43">
+      <switch
+         id="switch43">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 68px; height: 1px; padding-top: 212px; margin-left: 301px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 13px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 13px;">32KB L1D<xhtml:br
+   style="font-size: 13px;" />
+</xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="335"
+           y="216"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="13px"
+           text-anchor="middle"
+           id="text43">32KB L1D</text>
+      </switch>
+    </g>
+    <rect
+       x="330"
+       y="355.5"
+       width="225"
+       height="60"
+       rx="12"
+       ry="12"
+       fill="#ffe6cc"
+       stroke="#d79b00"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect43" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g44">
+      <switch
+         id="switch44">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 148px; height: 1px; padding-top: 257px; margin-left: 221px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:font
+                   style="font-size: 13px;">128KB L2</xhtml:font>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="295"
+           y="261"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="14px"
+           text-anchor="middle"
+           id="text44">128KB L2</text>
+      </switch>
+    </g>
+    <rect
+       x="330"
+       y="423"
+       width="225"
+       height="60"
+       rx="12"
+       ry="12"
+       fill="#ffe6cc"
+       stroke="#d79b00"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect44" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g45">
+      <switch
+         id="switch45">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 148px; height: 1px; padding-top: 302px; margin-left: 221px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 13px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 13px;">Generic Timers<xhtml:br
+   style="font-size: 13px;" />
+</xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="295"
+           y="306"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="13px"
+           text-anchor="middle"
+           id="text45">Generic Timers</text>
+      </switch>
+    </g>
+    <rect
+       x="630"
+       y="93"
+       width="480"
+       height="285"
+       fill="#f5f5f5"
+       stroke="none"
+       pointer-events="none"
+       id="rect45" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g46">
+      <switch
+         id="switch46">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 318px; height: 1px; padding-top: 69px; margin-left: 421px;">
+            <xhtml:div
+               data-drawio-colors="color: #333333; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 18px">Memory<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="580"
+           y="87"
+           fill="#333333"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text46">Memory</text>
+      </switch>
+    </g>
+    <rect
+       x="660"
+       y="153"
+       width="420"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect46" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g47">
+      <switch
+         id="switch47">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 278px; height: 1px; padding-top: 127px; margin-left: 441px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;"><xhtml:b
+   style="font-size: 17px;">2 x EMI</xhtml:b>
+<xhtml:br
+   style="font-size: 17px;" />
+(64-bit LPDDR4X)<xhtml:br
+   style="font-size: 17px;" />
+</xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="580"
+           y="132"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text47">2 x EMI...</text>
+      </switch>
+    </g>
+    <rect
+       x="660"
+       y="243"
+       width="420"
+       height="45"
+       rx="6.3000002"
+       ry="6.3000002"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect47" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g48">
+      <switch
+         id="switch48">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 278px; height: 1px; padding-top: 177px; margin-left: 441px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">
+                  <xhtml:font
+                     style="font-size: 17px;">128KB On-chip Boot ROM</xhtml:font>
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="580"
+           y="182"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text48">128KB On-chip Boot ROM</text>
+      </switch>
+    </g>
+    <rect
+       x="660"
+       y="303"
+       width="420"
+       height="45"
+       rx="6.3000002"
+       ry="6.3000002"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect48" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g49">
+      <switch
+         id="switch49">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 278px; height: 1px; padding-top: 217px; margin-left: 441px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">
+                  <xhtml:font
+                     style="font-size: 17px;">192KB On-chip SRAM</xhtml:font>
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="580"
+           y="222"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text49">192KB On-chip SRAM</text>
+      </switch>
+    </g>
+    <rect
+       x="1125"
+       y="93"
+       width="570"
+       height="285"
+       fill="#f5f5f5"
+       stroke="none"
+       pointer-events="none"
+       id="rect49" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g50">
+      <switch
+         id="switch50">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 378px; height: 1px; padding-top: 69px; margin-left: 751px;">
+            <xhtml:div
+               data-drawio-colors="color: #333333; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 18px;">Compute Engines</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="940"
+           y="86"
+           fill="#333333"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text50">Compute Engines</text>
+      </switch>
+    </g>
+    <rect
+       x="1146"
+       y="151.5"
+       width="255"
+       height="90"
+       rx="12.6"
+       ry="12.6"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect50" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g51">
+      <switch
+         id="switch51">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 131px; margin-left: 765px;">
+            <xhtml:div
+               data-drawio-colors="color: #808080; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;">
+                  <xhtml:b
+                     style="font-size: 17px;">HiFi 4<xhtml:br
+   style="font-size: 17px;" />
+Audio DSP</xhtml:b>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="849"
+           y="136"
+           fill="#808080"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text51">HiFi 4...</text>
+      </switch>
+    </g>
+    <rect
+       x="1146"
+       y="255.75"
+       width="255"
+       height="93.75"
+       rx="13.13"
+       ry="13.13"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect51" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g52">
+      <switch
+         id="switch52">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 202px; margin-left: 765px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;">
+                  <xhtml:b
+                     style="font-size: 17px;">Dual-Core APU<xhtml:br
+   style="font-size: 17px;" />
+VP6 + AIA</xhtml:b>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="849"
+           y="207"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text52">Dual-Core APU...</text>
+      </switch>
+    </g>
+    <rect
+       x="1416"
+       y="151.5"
+       width="255"
+       height="90"
+       rx="12.6"
+       ry="12.6"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect52" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g53">
+      <switch
+         id="switch53">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 131px; margin-left: 945px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;">
+                  <xhtml:b
+                     style="font-size: 17px;">2D/3D GPU<xhtml:br
+   style="font-size: 17px;" />
+Mali-G57</xhtml:b>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="1029"
+           y="136"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text53">2D/3D GPU...</text>
+      </switch>
+    </g>
+    <rect
+       x="1416"
+       y="255.75"
+       width="255"
+       height="93.75"
+       rx="13.13"
+       ry="13.13"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect53" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g54">
+      <switch
+         id="switch54">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 202px; margin-left: 945px;">
+            <xhtml:div
+               data-drawio-colors="color: #808080; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;">
+                  <xhtml:b
+                     style="font-size: 17px;">Dual-Core SCP<xhtml:br
+   style="font-size: 17px;" />
+MDSP RV33</xhtml:b>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="1029"
+           y="207"
+           fill="#808080"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text54">Dual-Core SCP...</text>
+      </switch>
+    </g>
+    <rect
+       x="670.5"
+       y="513"
+       width="123.75"
+       height="58.5"
+       rx="8.1899996"
+       ry="8.1899996"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect54" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g55">
+      <switch
+         id="switch55">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 81px; height: 1px; padding-top: 362px; margin-left: 448px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 16px;">MIPI DSI0</xhtml:font>
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="488"
+           y="367"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text55">MIPI DSI0</text>
+      </switch>
+    </g>
+    <rect
+       x="671.25"
+       y="645.75"
+       width="123.75"
+       height="58.5"
+       rx="8.1899996"
+       ry="8.1899996"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect55" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g56">
+      <switch
+         id="switch56">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 81px; height: 1px; padding-top: 450px; margin-left: 449px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">
+                  <xhtml:font
+                     style="font-size: 17px;">DP</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="489"
+           y="455"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text56">DP</text>
+      </switch>
+    </g>
+    <rect
+       x="982.5"
+       y="393"
+       width="262.5"
+       height="345"
+       fill="#f5f5f5"
+       stroke="none"
+       pointer-events="none"
+       id="rect56" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g57">
+      <switch
+         id="switch57">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 173px; height: 1px; padding-top: 269px; margin-left: 656px;">
+            <xhtml:div
+               data-drawio-colors="color: #333333; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 18px">Video<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="743"
+           y="287"
+           fill="#333333"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text57">Video</text>
+      </switch>
+    </g>
+    <rect
+       x="1005"
+       y="453"
+       width="221.25"
+       height="120"
+       rx="16.799999"
+       ry="16.799999"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect57" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g58">
+      <switch
+         id="switch58">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 146px; height: 1px; padding-top: 342px; margin-left: 671px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;"><xhtml:b>Video Decoder</xhtml:b>
+<xhtml:br />
+(4K@90fps)<xhtml:br
+   style="font-size: 17px;" />
+</xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="744"
+           y="347"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text58">Video Decoder...</text>
+      </switch>
+    </g>
+    <rect
+       x="1260"
+       y="393"
+       width="435"
+       height="345"
+       fill="#f5f5f5"
+       stroke="none"
+       pointer-events="none"
+       id="rect58" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g59">
+      <switch
+         id="switch59">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 288px; height: 1px; padding-top: 269px; margin-left: 841px;">
+            <xhtml:div
+               data-drawio-colors="color: #333333; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 18px">Imaging<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="985"
+           y="287"
+           fill="#333333"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text59">Imaging</text>
+      </switch>
+    </g>
+    <rect
+       x="1005"
+       y="585.75"
+       width="221.25"
+       height="120"
+       rx="16.799999"
+       ry="16.799999"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect59" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g60">
+      <switch
+         id="switch60">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 146px; height: 1px; padding-top: 431px; margin-left: 671px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;"><xhtml:b>Video Encoder</xhtml:b>
+<xhtml:br />
+(4K@60fps)<xhtml:br
+   style="font-size: 17px;" />
+</xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="744"
+           y="436"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text60">Video Encoder...</text>
+      </switch>
+    </g>
+    <rect
+       x="1283.25"
+       y="453"
+       width="249.75"
+       height="120"
+       rx="16.799999"
+       ry="16.799999"
+       fill="#f0a30a"
+       stroke="none"
+       pointer-events="none"
+       id="rect60" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g61">
+      <switch
+         id="switch61">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 165px; height: 1px; padding-top: 342px; margin-left: 857px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;">
+                  <xhtml:font><xhtml:b
+   style="font-size: 17px;">3 x MIPI CSI-2<xhtml:br />
+</xhtml:b>
+(4-lane D-PHY)<xhtml:br />
+<xhtml:font
+   color="#808080">(3-trio C-PHY)</xhtml:font>
+</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="939"
+           y="347"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text61">3 x MIPI CSI-2...</text>
+      </switch>
+    </g>
+    <rect
+       x="1548"
+       y="453"
+       width="120"
+       height="120"
+       rx="16.799999"
+       ry="16.799999"
+       fill="#bac8d3"
+       stroke="none"
+       pointer-events="none"
+       id="rect61" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g62">
+      <switch
+         id="switch62">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 78px; height: 1px; padding-top: 342px; margin-left: 1033px;">
+            <xhtml:div
+               data-drawio-colors="color: #808080; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;">
+                  <xhtml:b
+                     style="font-size: 17px;">FD</xhtml:b>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="1072"
+           y="347"
+           fill="#808080"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text62">FD</text>
+      </switch>
+    </g>
+    <rect
+       x="1283.25"
+       y="585.75"
+       width="384.75"
+       height="120"
+       rx="16.799999"
+       ry="16.799999"
+       fill="#f0a30a"
+       stroke="none"
+       pointer-events="none"
+       id="rect62" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g63">
+      <switch
+         id="switch63">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 255px; height: 1px; padding-top: 431px; margin-left: 857px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:span
+                   style="font-size: 17px;">
+                  <xhtml:font><xhtml:b
+   style="font-size: 17px;">ISP<xhtml:br />
+</xhtml:b>
+(Single: 48MP@30fps)<xhtml:br />
+<xhtml:font
+   color="#808080">(Dual: 16MP+16MP@30fps)</xhtml:font>
+</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:span>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="984"
+           y="436"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text63">ISP...</text>
+      </switch>
+    </g>
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g64">
+      <switch
+         id="switch64">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 17px; margin-left: 486px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 28px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">MT8395</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="580"
+           y="25"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="28px"
+           text-anchor="middle"
+           id="text64">MT8395</text>
+      </switch>
+    </g>
+    <rect
+       x="1270.5"
+       y="1173"
+       width="121.5"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect64" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g65">
+      <switch
+         id="switch65">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 79px; height: 1px; padding-top: 807px; margin-left: 848px;">
+            <xhtml:div
+               data-drawio-colors="color: #CCCCCC; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(204, 204, 204); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;"
+                     color="#808080">2 x I3C</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="888"
+           y="812"
+           fill="#CCCCCC"
+           font-family="Helvetica"
+           font-size="16px"
+           text-anchor="middle"
+           id="text65"
+           style="fill:#808080;fill-opacity:1">2 x I3C</text>
+      </switch>
+    </g>
+    <rect
+       x="670.5"
+       y="581.25"
+       width="123.75"
+       height="58.5"
+       rx="8.1899996"
+       ry="8.1899996"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect66" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g67">
+      <switch
+         id="switch67">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 81px; height: 1px; padding-top: 407px; margin-left: 448px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 16px;">HDMI TX</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="488"
+           y="412"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text67">HDMI TX</text>
+      </switch>
+    </g>
+    <rect
+       x="803.25"
+       y="578.25"
+       width="124.98"
+       height="58.5"
+       rx="8.1899996"
+       ry="8.1899996"
+       fill="#f0a30a"
+       stroke="none"
+       pointer-events="none"
+       id="rect67" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g68">
+      <switch
+         id="switch68">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 81px; height: 1px; padding-top: 405px; margin-left: 536px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 16px;">HDMI RX</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="577"
+           y="410"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text68">HDMI RX</text>
+      </switch>
+    </g>
+    <rect
+       x="801"
+       y="645.75"
+       width="123.75"
+       height="58.5"
+       rx="8.1899996"
+       ry="8.1899996"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect68" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g69">
+      <switch
+         id="switch69">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 81px; height: 1px; padding-top: 450px; margin-left: 535px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">
+                  <xhtml:font
+                     style="font-size: 17px;">eDP</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 17px;" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="575"
+           y="455"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text69">eDP</text>
+      </switch>
+    </g>
+    <rect
+       x="41.25"
+       y="949.5"
+       width="255"
+       height="120"
+       rx="16.799999"
+       ry="16.799999"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect69" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g70">
+      <switch
+         id="switch70">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 673px; margin-left: 29px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">UFS<xhtml:br
+   style="font-size: 18px;" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="113"
+           y="678"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text70">UFS</text>
+      </switch>
+    </g>
+    <rect
+       x="41.25"
+       y="1084.5"
+       width="255"
+       height="120"
+       rx="14.4"
+       ry="14.4"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect70" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g71">
+      <switch
+         id="switch71">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 763px; margin-left: 29px;">
+            <xhtml:div
+               data-drawio-colors="color: #808080; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;">Serial NOR Flash</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="113"
+           y="768"
+           fill="#808080"
+           font-family="Helvetica"
+           font-size="16px"
+           text-anchor="middle"
+           id="text71">Serial NOR Flash</text>
+      </switch>
+    </g>
+    <rect
+       x="1136.25"
+       y="1263"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect71" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g72">
+      <switch
+         id="switch72">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 867px; margin-left: 759px;">
+            <xhtml:div
+               data-drawio-colors="color: #CCCCCC; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(204, 204, 204); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 17px;"
+                     color="#808080">IRRX</xhtml:font>
+                  <xhtml:br
+                     style="font-size: 18px" />
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="843"
+           y="872"
+           fill="#CCCCCC"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text72"
+           style="fill:#909090;fill-opacity:1">IRRX</text>
+      </switch>
+    </g>
+    <rect
+       x="1401"
+       y="1173"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect72" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g73">
+      <switch
+         id="switch73">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 807px; margin-left: 935px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">SS USB Host<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="1019"
+           y="812"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text73">SS USB Host</text>
+      </switch>
+    </g>
+    <rect
+       x="1410"
+       y="813"
+       width="255"
+       height="75"
+       rx="10.5"
+       ry="10.5"
+       fill="#f0a30a"
+       stroke="#f0a30a"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect73" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g74">
+      <switch
+         id="switch74">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 567px; margin-left: 941px;">
+            <xhtml:div
+               data-drawio-colors="color: #000000; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 18px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="font-size: 17px;">6 x SPI Master<xhtml:br
+   style="font-size: 18px" />
+</xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="1025"
+           y="572"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="18px"
+           text-anchor="middle"
+           id="text74">6 x SPI Master</text>
+      </switch>
+    </g>
+    <rect
+       x="801.75"
+       y="513"
+       width="123.75"
+       height="58.5"
+       rx="8.1899996"
+       ry="8.1899996"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect74" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g75">
+      <switch
+         id="switch75">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 81px; height: 1px; padding-top: 362px; margin-left: 536px;">
+            <xhtml:div
+               data-drawio-colors="color: #808080; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 16px;">MIPI DSI1</xhtml:font>
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="576"
+           y="367"
+           fill="#808080"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text75">MIPI DSI1</text>
+      </switch>
+    </g>
+    <rect
+       x="670.5"
+       y="447"
+       width="255"
+       height="58.5"
+       rx="8.1899996"
+       ry="8.1899996"
+       fill="#bac8d3"
+       stroke="#bac8d3"
+       stroke-width="1.5"
+       pointer-events="none"
+       id="rect75" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-0.5,-0.5)"
+       id="g76">
+      <switch
+         id="switch76">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 318px; margin-left: 448px;">
+            <xhtml:div
+               data-drawio-colors="color: #808080; "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 17px; font-family: Helvetica; color: rgb(128, 128, 128); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:b
+                   style="">
+                  <xhtml:font
+                     style="font-size: 16px;">DPI</xhtml:font>
+                </xhtml:b>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="532"
+           y="323"
+           fill="#808080"
+           font-family="Helvetica"
+           font-size="17px"
+           text-anchor="middle"
+           id="text76">DPI</text>
+      </switch>
+    </g>
+  </g>
+  <switch
+     id="switch78">
+    <g
+       requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+       id="g78" />
+    <a
+       transform="translate(0,-5)"
+       xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems"
+       target="_blank"
+       id="a78">
+      <text
+         text-anchor="middle"
+         font-size="10px"
+         x="50%"
+         y="100%"
+         id="text78">Text is not SVG - cannot display</text>
+    </a>
+  </switch>
+</svg>

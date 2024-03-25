@@ -1,0 +1,91 @@
+## 使用 bsp
+
+bsp 是 Radxa 提供的一套快速构建 U-Boot Kernel 的工具，使用 bsp 非常方便就能构建出自己的 U-Boot 和 Kernel.
+
+下面将为您展示，以 Radxa ZERO 3 为例如何使用 bsp 构建内核。
+
+### bsp 环境配置
+
+以下为 `bsp` 推荐使用环境:  
+硬件：推荐使用x86_64 PC  
+系统：Ubuntu 或者 Debian
+
+#### 安装依赖
+
+```bash
+sudo apt update
+sudo apt install -y git qemu-user-static binfmt-support
+
+# Podman (推荐)
+sudo apt install -y podman podman-docker
+sudo touch /etc/containers/nodocker
+# Docker
+#sudo apt install docker.io
+
+# 次要功能的可选依赖
+sudo apt install -y systemd-container
+```
+
+#### 获取代码
+
+`bsp` 使用了 git 子模块。因此，请使用以下命令获取代码：
+
+```bash
+git clone --recurse-submodules https://github.com/radxa-repo/bsp.git
+```
+
+#### 了解 `bsp` 的用法
+
+在您的机器上获取了 `bsp` 代码后，您可以运行 `bsp` 查看内置帮助：
+
+```bash
+cd bsp
+./bsp
+```
+
+### 构建内核
+
+完成 bsp 环境配置后，需要先编译一次内核才会从仓库拉取内核代码。  
+直接运行 `./bsp` 会显示所有参数及其解释，根据提示可知命令 `bsp [options] <linux|u-boot> <profile> [product]`。  
+以 Radxa ZERO 3 为例，烧录官方镜像，等待系统正常运行后，在开发板上执行 `uname -r` 获取内核名称为 `5.10.160-28-rk356x`。  
+然后将内核名称后缀 `rk356x` 填入 bsp 命令的 `profile` 参数例如：`./bsp linux rk356x`，即可构建内核。  
+内核源码的路径位于 bsp 目录下的 `.src/linux`，在修改内核源码后，可再次构建内核：
+
+```
+cd bsp
+./bsp --no-prepare-source linux rk356x -r 20
+
+参数说明：
+--no-prepare-source   # 使用本地修改进行编译，如果不加这个参数将会从 Radxa kernel 仓库同步最新代码并覆盖本地修改
+-r 20                 # 指定内核的版本号为 20
+```
+
+编译完成后会在当前目录生成许多 `deb` 包， 只需要安装下面两个 `deb` 即可
+
+```
+linux-headers-5.10.160-20-rk356x_5.10.160-20_arm64.deb
+linux-image-5.10.160-20-rk356x_5.10.160-20_arm64.deb
+```
+
+将上面两个 `deb` 包复制到板子上使用 `dpkg` 指令安装即可完成内核安装
+
+```
+sudo dpkg -i linux-image-5.10.160-20-rk356x_5.10.160-20_arm64.deb
+sudo dpkg -i linux-headers-5.10.160-20-rk356x_5.10.160-20_arm64.deb
+sudo reboot
+```
+
+重启完成后可以通过 `uname -a` 查看当前启动的内核版本号来查看是否安装成功
+
+## 手动编译
+
+:::tip
+`bsp` 是目前唯一在维护的编译方式，并且在编译的时候会对源代码进行额外的修改。
+如果想要基于我们正式发布的软件进行开发，则最低限度也需要使用 `bsp` 来下载和配置代码。
+
+如果需要使用自定义的 `make` 命令来进行编译，请参照 [Prepare working tree](https://radxa-repo.github.io/bsp/dev_flow.html#prepare-working-tree) 部分来配置代码。
+:::
+
+## 参考文档
+
+- [bsp 官方文档](https://radxa-repo.github.io/bsp)

@@ -1,0 +1,184 @@
+import { Details } from "@site/src/utils/docs";
+
+import Led from "./rsetup/_led.mdx";
+import Addled from "./rsetup/_add-led.mdx";
+import Devicetree from "./rsetup/_devicetree.mdx";
+import InstallOverlays from "./rsetup/_install-overlays.mdx";
+import DisableFIQ from "./rsetup/_disable-fiq.mdx";
+import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
+
+## rsetup
+
+`rsetup` 是一个适用于 Radxa OS 的系统配置工具。
+
+要启动 `rsetup`，请在终端中执行 `rsetup` 命令，或从系统菜单中找到 `rsetup` 应用：
+
+:::tip
+`rsetup` 运行时需要管理员权限，请确保你拥有 `sudo` 权限。
+
+下面列出的选项仅供参考，请以实际程序输出为准。
+:::
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select an option below:                                               │
+│                                                                              │
+│                             System Maintenance                               │
+│                             Hardware                                         │
+│                             Overlays                                         │
+│                             Connectivity                                     │
+│                             User Settings                                    │
+│                             Localization                                     │
+│                             About                                            │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+## 界面操作
+
+使用 `Up` 和 `Down` 键来切换选项。当前选中的项目会高亮显示。
+
+使用 `Tab` 键来切换菜单区域和命令区域。
+
+使用 `Left` 和 `Right` 键来切换 `<Ok>` 和 `<Cancel>` 命令。使用 `Enter` 键来执行选中的命令。
+当命令没有被选中时按下 `Enter` 键，会立即执行 `<Ok>` 命令。
+
+使用 `Space` 键选择选项。选项会包含 `[ ]` （多项选择） 或 `( )` （单项选择）前缀来显示当前的选择状态。
+
+:::tip
+使用 `Enter` 键不会选择选项。它会直接执行 `<Ok>` 命令。
+:::
+
+使用 `Esc` 键回到前一个菜单。
+
+## System Maintenance
+
+本菜单包含以下选项：
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ System Maintenance                                                           │
+│                                                                              │
+│                         System Update                                        │
+│                         Update Bootloader                                    │
+│                         Update SPI Bootloader                                │
+│                         Update eMMC Boot partition                           │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### System Update
+
+本选项会更新你的系统中安装的软件包到最新状态。
+
+由于 RadxaOS 提供了一些和上游 Debian 有所冲突的软件包，为了保证系统一致性，建议通过此方式进行系统更新。
+
+### Update Bootloader
+
+本选项会更新根文件系统所在磁盘上的启动器。
+
+### Update SPI Bootloader
+
+本选项会更新 SPI Flash 上的启动器。
+
+### Update eMMC Boot Bootloader
+
+本选项会更新 eMMC Boot 分区上的启动器。
+
+## Hardware
+
+在这个菜单上可以修改一些外围设备，下面是对它们的介绍。
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Manage on-board hardware                                                     │
+│                                                                              │
+│                      Video capture devices                                   │
+│                      GPIO LEDs                                               │
+│                      Thermal governor                                        │
+│                      Configure DSI display mirroring                         │
+│                                                                              │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Video capture devices
+
+如果你有连接一个视频设备，这个选项可以帮助你测试该设备。
+
+### GPIO LEDs
+
+在这个选项上，你可以改变板子上的电源 LED 和用户 LED 的状态（有时只有一个）。
+
+<Details summary="LED 设置">
+
+<Led />
+
+</Details>
+
+### Thermal governor
+
+该模块用于调整风扇和其他温度选项。
+一般来说，当使用直流风扇或不使用风扇时，选择 `power_allocator`，当使用 PWM 风扇时，选择 `step_wise`。
+
+**注意：如果你将风扇直接连接到 GPIO 的 5V 和 GND 引脚上，它将不受控制且一直工作。**
+
+### Configure DSI display mirroring
+
+在同时使用 HDMI 显示器和 DSI 显示器时，如果 DSI 显示器有一些问题，启用这个选项会有所帮助。
+
+## Overlays
+
+该选项用于配置设备树 Overlays。
+
+<Details summary="设备树配置">
+
+<Devicetree />
+
+</Details>
+
+<Details summary="安装第三方 Overlay">
+
+<InstallOverlays />
+
+</Details>
+
+<Details summary="添加 LED">
+
+<Addled />
+
+</Details>
+
+<Details summary="将 Pin8 和 Pin10 配置为 GPIO">
+
+<DisableFIQ />
+
+</Details>
+
+<Details summary="将 UART2_M0 配置为普通串口">
+
+<EnableUart2 />
+
+</Details>
+
+## Connectivity
+
+该选项与网络设置类似。
+
+## User Settings
+
+可以在这个选项上更改当前登录账户的 `Password` 和设备的 `Hostname`。
+
+## Localization
+
+在这个选项中, 你可以改变 `Timezone` `Locale` `Keybaed layout` `Wi-Fi Country`.
+
+## About
+
+这里是 `rsetup` 的相关信息。

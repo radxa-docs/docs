@@ -1,0 +1,20 @@
+## 将 PIN 8 和 PIN 10 配置为 GPIO
+
+:::tip
+默认情况下 UART2_M0 接口为 FIQ 调试串口，可输出 DDR Init、U-Boot、Linux Kernel 等日志用于调试。所以如非必要可以使用其他串口，不建议取消此配置。
+:::
+
+## 禁用 FIQ-Debugger
+
+```bash
+rsetup
+
+# 按照以下选项进入设备树管理界面
+# Overlays -> Manage overlays
+```
+
+勾选 `Disable FIQ Debugger`
+
+![Disable FIQ Debugger](/img/general-tutorial/disable-fiq-debugger.webp)
+
+勾选后选择 OK， 然后退出 rsetup， 重启系统后， PIN 8 && PIN 10 就能作为普通 GPIO 使用了。

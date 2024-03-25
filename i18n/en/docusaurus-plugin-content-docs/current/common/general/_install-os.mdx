@@ -1,0 +1,118 @@
+import { Section } from "@site/src/utils/docs";
+
+import Etcher from "./_etcher.mdx";
+import Rkdeveloptool from "../dev/_rkdeveloptool.mdx";
+import Rkdevtool from "../dev/_rkdevtool.mdx";
+import Upgradetool from "../dev/_upgrade-tool.mdx";
+
+:::tip
+The default account/password for the official images is **radxa**/**radxa**
+:::
+
+This tutorial applies to all official images of Radxa products.
+There are two main methods of installing the operating system
+
+1. Burning the system image to a microSD card, eMMC Module or SSD via an reader. (**Recommended**)
+2. Burning the system image directly to eMMC, Nand Flash via USB cable.
+
+## Method I
+
+<Tabs queryString="target">
+
+  <TabItem value="microSD" label="microSD">
+
+### Preparations
+
+- Prepare a microSD card
+- Prepare a microSD card reader
+- Download [corresponding product](/productlist) of the official system image
+- Insert the microSD card into the microSD card reader and plug it into the USB port of the computer
+
+### Writing OS image to microSD card
+
+<Etcher model={props.model} />
+
+  </TabItem>
+
+  <TabItem value="emmc-module" label="eMMC Module">
+
+### Preparations
+
+:::caution Notice
+This tutorial is only applicable to write removable eMMC modules, onboard eMMCs need to be flashed using rkdevtool.
+:::
+
+- Prepare an eMMC module and a [Radxa eMMC reader](/accessories/emmc_reader)
+
+![Radxa eMMC](/img/accessories/emmc_related_01.webp)
+
+- Download [corresponding product](/productlist) of the official system image
+
+- Install the eMMC module into the Radxa eMMC USB reader and plug it into the USB port of the computer
+
+:::caution Notice
+When installing eMMC module, point the notched edges outwards, align them with their seats and press to tighten.
+:::
+
+![Install eMMC](/img/accessories/emmc-install2.webp)
+
+### Writing OS image to EMMC Module
+
+<Etcher model={props.model} />
+
+  </TabItem>
+
+  <TabItem value="nvme-ssd" label="NVMe SSD">
+
+### Preparation
+
+- A Radxa products that support NVMe SSD
+- Suitable power adapter
+- M.2 NVMe SSD
+- **NVMe to USB 3.0 reader**
+- Download [corresponding product](/productlist) of the official system image
+- Insert the NVMe SSD into the NVMe SSD to USB 3.0 reader and plug it into the USB port of the computer
+
+### Writing OS images to M.2 NVMe SSD
+
+<Etcher model={props.model} />
+
+Done! You have now successfully installed the OS image on your M.2 NVMe SSD.
+
+#### Erase M.2 NVMe SSDs
+
+If the M.2 NVMe SSD was previously burned with an Android (or Linux) image,
+it is recommended that you erase the M.2 NVMe SSD before re-burning and then write the target image.
+
+#### Boot from NVMe SSD
+
+After writing the image to the NVMe SSD, to boot from the NVMe SSD you need to write the bootloader to the SPI Flash.
+
+{/* For more information, please check [Installing the bootloader to SPI Flash]/general-tutorial/rksdk/rkdevtool for details. */}
+
+  </TabItem>
+</Tabs>
+
+<Section compatible="^aml" platform={props.platform}>
+
+## Method II
+
+If your device uses a Rockchip chip, refer to the following tutorial:
+
+### My computer is Windows
+
+#### rkdevtool
+
+<Rkdevtool />
+
+### My computer is Linux / macOS
+
+#### Rkdeveloptool
+
+<Rkdeveloptool />
+
+#### upgrade-tool (Multiple devices can be burned at the same time)
+
+<Upgradetool />
+
+</Section>

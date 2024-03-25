@@ -1,0 +1,106 @@
+---
+sidebar_position: 1
+title: Install OS
+---
+
+This document introduces how to install Radxa OS image to Radxa CM5.
+
+CM5 can boot from microSD card or eMMC, so install os on microSD card or eMMC based on your choose.
+
+<Tabs queryString="target">
+
+<TabItem value="microSD " label="Install OS on microSD card">
+
+## Preparation
+
+### Prepare the installation media
+
+- microSD card (recommended class10 rating or higher)
+
+- USB card reader
+
+### Prepare the image file
+
+Please go to [Download Summary](../getting-started/download.md) to download image.
+
+## System installation
+
+1. Download [Etcher](https://etcher.balena.io/)
+   ![ROCK5A via Etcher 01](/img/rock5a/rock5a-etcher.webp)
+
+2. Open Etcher and flash the prepared OS image to the microSD card. In the Etcher window, click `Flash from file` to select the OS image you just downloaded.
+   ![ROCK5A via Etcher 02](/img/rock5a/rock5a-etcher-1.webp)
+
+3. In the Etcher window, click `Select target`.
+   ![ROCK5A via Etcher 03](/img/rock5a/rock5a-etcher-2.webp)
+
+4. In the Etcher window, click `Flash!` and wait for a progress bar to be flushed.
+   ![ROCK5A via Etcher 04](/img/rock5a/rock5a-etcher-3.webp)
+
+5. In the Etcher window, `Flash Complete!` will be displayed when the flush is successful.
+   ![ROCK5A via Etcher 05](/img/rock5a/rock5a-etcher-4.webp)
+
+## System startup
+
+### Starting CM5 IO
+
+1. Insert the microSD card with the operating system installed.
+2. Power up the CM5 IO via the DC 12V power adapter.
+3. The CM5 IO will boot up with the green power LED on, and the blue LED will start blinking when it enters the system.
+
+</TabItem>
+
+<TabItem value="eMMC" label="Install OS on eMMC ">
+
+## Preparation
+
+### Prepare the installation media
+
+- Type A to C Interface Cable
+
+### Prepare the image file
+
+Please go to [Download Summary](../getting-started/download.md) to download image.
+
+## System installation
+
+1. Connect the type-c cable to the host computer.
+
+2. Press and hold the maskrom button and power on the device.
+
+<Tabs queryString="target">
+
+<TabItem value="Linux/Mac" label="Linux">
+
+#### Linux/Mac systems use rkdeveloptool to write to
+
+&emsp;[rkdeveloptool](./low-level-dev/rkdeveloptool.md)
+
+&emsp;[upgrade_tool](./low-level-dev/upgrade-tool.md) (Can be installed to multiple devices simultaneously)
+
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
+
+#### Windows system write with RKDevTool
+
+&emsp;[rkdevtool](./low-level-dev/rkdevtool.md)
+
+</TabItem>
+
+</Tabs>
+
+## System startup
+
+### CM5 IO
+
+1. Power on the CM5 IO via the DC adapter.
+2. The CM5 IO will boot up with the green power LED on, and the blue LED will start blinking when it enters the system.
+
+</TabItem>
+
+</Tabs>
+
+## Frequently Asked Questions
+
+## Reference

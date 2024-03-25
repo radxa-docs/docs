@@ -1,0 +1,114 @@
+import { Section } from "@site/src/utils/docs";
+
+import Etcher from "./_etcher.mdx";
+import Rkdeveloptool from "../dev/_rkdeveloptool.mdx";
+import Rkdevtool from "../dev/_rkdevtool.mdx";
+import Upgradetool from "../dev/_upgrade-tool.mdx";
+
+:::tip
+官方镜像的默认账号/密码为 **radxa**/**radxa**。
+:::
+
+本教程适用于所有 Radxa 产品的官方镜像。安装操作系统主要使用以下两种方法：
+
+1. 通过读卡器将系统镜像烧写到 microSD 卡、eMMC Module 或 SSD 上。 （**推荐**）
+2. 使用 USB 线将系统镜像直接刷写到 eMMC、Nand Flash 上。
+
+## 方法一
+
+<Tabs queryString="target">
+
+  <TabItem value="microSD" label="microSD">
+
+### 准备
+
+- 准备一个 microSD 卡
+- 准备一个 microSD 卡读卡器
+- 下载[对应产品](/productlist)的官方系统镜像
+- 把 microSD 卡插入 microSD 读卡器, 然后把它插入计算机的 USB 接口
+
+### 写入操作系统镜像到 microSD
+
+<Etcher model={props.model} />
+
+  </TabItem>
+
+  <TabItem value="emmc-module" label="eMMC Module">
+
+### 准备
+
+:::caution 注意
+此教程仅适用于刷写可移动 eMMC 模块，板载 eMMC 需使用线刷的方式。
+:::
+
+- 准备一个 eMMC 模块和一个[Radxa eMMC读卡器](/accessories/emmc_reader)
+
+![Radxa eMMC](/img/accessories/emmc_related_01.webp)
+
+- 下载[对应产品](/productlist)的官方系统镜像
+
+- 将 eMMC 模块安装到 Radxa eMMC USB 读卡器，然后把它插入计算机的 USB 接口
+
+:::caution 注意
+安装 eMMC 模块时，把有缺口的方向朝外边，对准它们的座子然后按压扣紧。
+:::
+
+![Install eMMC](/img/accessories/emmc-install2.webp)
+
+### 写入操作系统镜像到 eMMC Module
+
+<Etcher model={props.model} />
+
+  </TabItem>
+
+  <TabItem value="nvme-ssd" label="NVMe SSD">
+
+### 准备
+
+- 支持 NVMe SSD 的瑞莎产品
+- 良好的电源适配器
+- M.2 NVMe SSD
+- **NVMe 转 USB 3.0 读卡器**
+- 下载[对应产品](/productlist)的官方系统镜像
+- 将 NVMe SSD 插入 NVMe SSD 转 USB 3.0 读卡器，然后把它插入计算机的 USB 接口
+
+### 写入操作系统镜像到 M.2 NVMe SSD
+
+<Etcher model={props.model} />
+
+完毕！现在您已成功在 M.2 NVMe SSD 上安装操作系统镜像。
+
+#### 擦除 M.2 NVMe SSD
+
+如果之前 M.2 NVMe SSD 烧录了 Android（或 Linux）镜像，在重新烧录前建议您先擦除 M.2 NVMe SSD，然后写入目标镜像。
+
+#### 从 NVMe SSD 启动
+
+将镜像写入 NVMe SSD 后，要从 NVMe SSD 启动，您需要将 bootloader 写入 SPI Flash。
+
+  </TabItem>
+</Tabs>
+
+<Section compatible="^aml" platform={props.platform}>
+
+## 方法二
+
+如果您的设备使用 Rockchip 芯片，可参考以下教程：
+
+### 我的电脑是 Windows
+
+#### rkdevtool
+
+<Rkdevtool />
+
+### 我是电脑是 Linux / macOS
+
+#### Rkdeveloptool
+
+<Rkdeveloptool />
+
+#### upgrade-tool （可同时烧录多台设备）
+
+<Upgradetool />
+
+</Section>

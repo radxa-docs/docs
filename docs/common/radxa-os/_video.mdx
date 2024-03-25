@@ -1,0 +1,23 @@
+- Dragon Player 是 Debian 系统默认自带的媒体播放器。如果系统中没有安装 Dragon Player，可以执行以下命令进行安装。
+
+```bash
+sudo apt-get update
+sudo apt-get install dragonplayer
+```
+
+- 如果出现提示，请输入您的密码，然后等待安装完成。
+  安装 Dragon Player 后，您可以使用以下命令打开视频：
+
+```bash
+dragon /path/to/video/file
+```
+
+- 将 "/path/to/video/file" 替换为您要播放的视频的实际路径和文件名。 例如，如果您的视频位于主目录的 `Videos` 文件夹中并且名为 "myvideo.mp4"，则命令如下所示：
+
+```bash
+dragon ~/Videos/myvideo.mp4
+```
+
+- 当然，您也可以直接双击视频文件图标进行播放。
+
+关于 Dragon Player 支持的视频格式，它可以解码 FFmpeg 库支持的任何格式。 这包括流行的视频格式，如 MP4、AVI、MKV、WMV、FLV、MOV 等。

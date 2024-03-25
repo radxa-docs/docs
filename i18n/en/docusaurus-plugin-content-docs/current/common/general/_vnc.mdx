@@ -1,0 +1,69 @@
+import { Section, Image } from "@site/src/utils/docs";
+
+- Installing the VNC Server
+
+1. Installing TigerVNC Server and dbus-x11 dependencies
+
+```
+sudo apt-get update
+sudo apt-get install tigervnc-standalone-server
+sudo apt-get install dbus-x11
+```
+
+2. To complete the initial configuration of the VNC server after installation, use the vncserver command to set the security password and create the initial configuration file:
+
+```
+vncserver
+```
+
+:::tip
+Would you like to enter a view-only password (y/n)? n
+
+Prompt whether just watch, it is recommended to choose no, enter n, so that the remote can be operated, rather than just watch, you can choose their own practical situation
+:::
+
+3. Configuring the VNC Server
+
+```
+vncserver -kill :*
+touch ~/.vnc/xstartup
+chmod +x ~/.vnc/xstartup
+```
+
+Edit `~/.vnc/xstartup`, copy the following configuration in and save it
+
+```
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+unset XDG_RUNTIME_DIR
+/etc/X11/xinit/xinitrc
+[ -x /etc/vnc/xstartup  ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+#vncconfig -iconic &
+startkde &
+```
+
+4. Once the configuration is edited, restart the VNC server:
+
+```
+vncserver -localhost no
+```
+
+5. Viewing the VNC Server
+
+```
+vncserver -list
+
+TigerVNC server sessions:
+
+X DISPLAY #     RFB PORT #      PROCESS ID      SERVER
+:1              5901            4029 (stale)    Xtigervnc
+```
+
+6. Using mobaxterm to connect to remote desktop
+
+Click `Session` in the upper left corner to create a new VNC connection, enter the board's IP in the `Remote hostname of IP address` field, and the port number obtained by `vncserver -list`.
+
+![mobaxterm vnc ](/img/zero/zero3/mobaxterm-vnc.webp)

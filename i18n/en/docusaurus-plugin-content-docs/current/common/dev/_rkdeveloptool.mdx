@@ -1,0 +1,104 @@
+import Loader from "../general/_loader.mdx";
+
+# rkdeveloptool
+
+:::tip
+This article is not about RKDevTool (for Windows).
+:::
+
+rkdeveloptool is a USB flashing software developed by Rockchip for Linux/macOS platforms.
+
+rkdeveloptool can be thought of as upgrade_tool for [open source version](https://opensource.rock-chips.com/wiki_Rkdeveloptool).
+
+---
+
+## Installation for rkdeveloptool
+
+If your operating system does not provide rkdeveloptool, you will need to compile and install it from source.
+
+<Tabs queryString="host-os">
+<TabItem value="archlinux" label="Arch Linux">
+
+The rkdeveloptool can be installed from [AUR](https://aur.archlinux.org/packages/rkdeveloptool).
+
+</TabItem>
+<TabItem value="debian" label="Debian">
+
+Execute the following command from the command line to install:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
+git clone https://github.com/rockchip-linux/rkdeveloptool
+cd rkdeveloptool
+wget https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+wget https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+git am *.patch
+autoreconf -i
+./configure
+make -j $(nproc)
+sudo cp rkdeveloptool /usr/local/sbin/
+```
+
+</TabItem>
+<TabItem value="macos" label="macOS">
+
+Please install [Homebrew](https://brew.sh/) first, then run the following command from the command line to install it:
+
+```bash
+brew install automake autoconf libusb pkg-config git wget
+git clone https://github.com/rockchip-linux/rkdeveloptool
+cd rkdeveloptool
+wget https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+wget https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+git am *.patch
+autoreconf -i
+./configure
+make -j $(nproc)
+cp rkdeveloptool /opt/homebrew/bin/
+```
+
+</TabItem>
+</Tabs>
+
+---
+
+## Usage for rkdeveloptool
+
+### View connected Maskrom devices
+
+```bash
+rkdeveloptool ld
+```
+
+### Write file
+
+:::tip
+rkdeveloptool does not automatically decompress compressed files when writing to them.
+
+First extract the used files and specify the extracted files in rkdeveloptool.
+:::
+
+:::tip
+rkdeveloptool does not support the selection of Maskrom devices, nor can it select the storage media to be written to.
+Normally when using rkdeveloptool, only a device and a storage medium are connected in hardware. This step cannot be controlled by software.
+
+If you need to write to multiple devices at the same time, use upgrade_tool.
+:::
+
+```bash
+sudo rkdeveloptool db <loader>
+sudo rkdeveloptool wl 0 <image>
+```
+
+Download links for the required Loader and Image files can be found below.
+
+### SPI U-Boot and Loader
+
+<Loader />
+
+### Reboot device
+
+```bash
+sudo rkdeveloptool rd
+```

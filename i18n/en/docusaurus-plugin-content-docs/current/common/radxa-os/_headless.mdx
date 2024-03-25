@@ -1,0 +1,50 @@
+This guide is intended to guide you in the use without the keyboard or the monitor.
+
+The SSH service is automatically enabled when no monitor is connected during the first boot. Despite this, you still need to link to LAN so that you can get the **_IP address_** of SBC.
+
+## Ethernet
+
+You can refer to this guide: [Network Settings](network).
+Connect the SBC to **the same network** as your computer via wired connection.
+
+## Wireless
+
+:::tip
+Some solutions require a WiFi module to be installed in order to connect to the wireless network.
+:::
+
+After flashing the image to a microSD card, keep it connected with your Linux or Windows machines, the config folder will be available on file system. There are two files **before.txt** and **config.txt** in it.
+
+**before.txt**: Radxa First Boot Configuration, it will be copied into the correct location in the Linux root file system, the machine will use those settings to start up wireless networking.
+
+**config.txt**: rsetup config file, it will be applied on every boot.
+
+To enable automatic Wi-Fi connection, add the following line in **before.txt**:
+
+```bash
+connect_wi-fi YOUR_WIFI_SSID YOUR_WIFI_PASSWORD
+```
+
+Check out [Network Settings](network) for more useful information.
+
+## Get IP Address
+
+It will be simple when you can connect the SBC to your personal computer by serial port tool:
+Please refer to the [UART Serial Console](../low-level-dev/serial).
+
+- Access to the terminal via the serial software like `putty` or `minicom`.
+- Turn on the product and wait for login prompt.
+- Login with the default account.
+- Run `ip a` to check the IP address.
+
+You can also get the IP from your router's DHCP lease page. Refer to your router manufacturer's documentation.
+
+## SSH Connection
+
+There is the [Remote Access - SSH](remote-access#ssh).
+
+After installing the ssh service, connect remotely directly on terminal via username and ip address like following code.
+`ssh <username>@[IP address]`
+
+For example, `ssh radxa@192.168.42.100`.
+![ssh connect](/img/configuration/ssh-connect.webp)

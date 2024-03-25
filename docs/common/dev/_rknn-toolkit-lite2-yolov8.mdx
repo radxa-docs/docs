@@ -1,0 +1,99 @@
+:::tip
+本文档旨在演示如何在 rk3588 上运行板端推理 YOLOv8 目标检测模型，所需环境配置请参考[ RKNN 安装](./rknn_install)
+:::
+
+此示例用 [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) 中预训练好的 ONNX 格式模型为例子通过模型转换到板端推理做完整示例，此示例目标平台为 rk3588
+
+利用 rknn 部署YOLOv8 需要两个步骤
+
+- PC 端利用 rknn-toolkit2 将不同框架下的模型转换成 rknn 格式模型
+- 板端利用 rknn-toolkit2-lite 的 Python API 板端推理模型
+
+### PC端模型转换
+
+- 如使用 conda 请先激活 rknn conda 环境
+
+  ```bash
+  conda activate rknn
+  ```
+
+- 下载 yolov8.onnx 模型
+
+  ```bash
+  cd rknn_model_zoo/examples/yolov8/model
+  # 下载预训练好的 yolov8n.onnx 模型
+  bash download_model.sh
+  ```
+
+  如遇到网络问题，可访问 [此页 ](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) 下载对应的模型到对应文件夹
+
+- 使用 rknn-toolkit2 转换成 yolov8n.rknn
+
+  ```bash
+  cd rknn_model_zoo/examples/yolov8/python
+  python3 convert.py ../model/yolov8n.onnx rk3588
+  ```
+
+  参数解析：
+
+  `<onnx_model>`: 指定 ONNX 模型路径
+
+  `<TARGET_PLATFORM>`: 指定 NPU 平台名称。支持的平台请参考[这里](rknn_install#RKNN-简介)
+
+  `<dtype>(可选)`: 指定为 `i8` 或 `fp`。`i8` 用于 int8 量化，`fp` 用于 fp16 量化。默认为 `i8`
+
+  `<output_rknn_path>(可选)`: 指定 RKNN 模型的保存路径，默认保存在与 ONNX 模型相同的目录中，文件名为 `yolov8.rknn`
+
+- 将 yolov8n.rknn 模型拷贝到板端
+
+### 板端推理 YOLOv8
+
+- 下载 rknn-model-zoo-rk3588 获取 yolov8 demo
+
+  ```bash
+   sudo apt install rknn-model-zoo-rk3588
+  ```
+
+  如您使用的是 CLI 版本可访问 rknn-model-zoo-rk3588 [deb 包下载地址](https://github.com/radxa-pkg/rknn_model_zoo/releases/tag/1.6.0-1)
+
+- 将 PC 端拷贝过来的 yolov8n.rknn 放入 /usr/share/rknn_model_zoo/examples/yolov8/model 目录，运行 yolov8.py 程序
+
+  ```bash
+  cd /usr/share/rknn_model_zoo/examples/yolov8/python
+  sudo python3 yolov8.py --model_path ../model/yolov8n.rknn --img_save
+  ```
+
+  ```bash
+  $ sudo python3 yolov8.py --model_path ../model/yolov8n.rknn --img_save
+  import rknn failed,try to import rknnlite
+  --> Init runtime environment
+  I RKNN: [09:01:01.819] RKNN Runtime Information, librknnrt version: 1.6.0 (9a7b5d24c@2023-12-13T17:31:11)
+  I RKNN: [09:01:01.819] RKNN Driver Information, version: 0.8.2
+  W RKNN: [09:01:01.819] Current driver version: 0.8.2, recommend to upgrade the driver to the new version: >= 0.8.8
+  I RKNN: [09:01:01.819] RKNN Model Information, version: 6, toolkit version: 1.6.0+81f21f4d(compiler version: 1.6.0 (585b3edcf@2023-12-11T07:56:14)), target: RKNPU v2, target platform: rk3588, framework name: ONNX, framework layout: NCHW, model inference type: static_shape
+  W RKNN: [09:01:01.836] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
+  W Query dynamic range failed. Ret code: RKNN_ERR_MODEL_INVALID. (If it is a static shape RKNN model, please ignore the above warning message.)
+  done
+  Model-../model/yolov8n.rknn is rknn model, starting val
+  infer 1/1
+
+  IMG: bus.jpg
+  person @ (211 241 282 507) 0.872
+  person @ (109 235 225 536) 0.860
+  person @ (477 225 560 522) 0.856
+  person @ (79 327 116 513) 0.306
+  bus  @ (95 136 549 449) 0.860
+  Detection result save to ./result/bus.jpg
+  ```
+
+  参数解析：
+
+  `--model_path`: 指定 rknn 模型路径
+
+  `--img_folder`: 进行推理的图片库, 默认 ../model
+
+  `--img_save`: 是否保存推理结果图到 ./result，默认 False
+
+- 所有推理结果保存在 ./result 中
+
+![result0](/img/general-tutorial/rknn/result.webp)

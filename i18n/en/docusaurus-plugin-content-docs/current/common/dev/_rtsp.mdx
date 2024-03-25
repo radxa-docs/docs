@@ -1,0 +1,121 @@
+## Preparation
+
+1. Compatible Cameras
+2. If using the ROCK 5B, you can also use the HDMI RX as a video source
+
+## Server Configuration
+
+<Tabs queryString="target">
+
+<TabItem value="ffmpeg" label="Based on FFmpeg">
+
+:::tip
+Input sources with lower than 720P resolution may cause encoding failure when using HDMI RX.
+:::
+
+### Install build dependencies
+
+```bash
+sudo apt update
+sudo apt install librockchip-mpp-dev librockchip-vpu0 librga-dev libyuv-dev libdrm-dev pkg-config libx264-dev build-essential git
+```
+
+### Compile and install the latest MPP
+
+```bash
+git clone https://github.com/rockchip-linux/mpp
+pushd mpp
+cmake -DRKPLATFORM=ON -DHAVE_DRM=ON && make -j$(nproc)
+sudo make install
+sudo cp ./mpp/librockchip_mpp.so* /lib/aarch64-linux-gnu
+sudo cp ./mpp/legacy/librockchip_vpu.so* /lib/aarch64-linux-gnu
+popd
+```
+
+### Compile and install FFmpeg
+
+```bash
+git clone https://github.com/hbiyik/FFmpeg.git
+pushd FFmpeg/
+./configure --enable-rkmpp --enable-version3 --enable-libdrm --enable-libx264 --enable-gpl
+make -j$(nproc)
+sudo make install
+popd
+```
+
+### Running mediamtx and FFmpeg
+
+:::info
+Here we assume that `/dev/video0` is the video source you want to use. If your camera is assigned to a different name, replace the corresponding device name in the following command line.
+:::
+
+```bash
+wget https://github.com/bluenviron/mediamtx/releases/download/v1.0.0/mediamtx_v1.0.0_linux_arm64v8.tar.gz
+tar -xzvf mediamtx_v1.0.0_linux_arm64v8.tar.gz
+nohup ./mediamtx &
+sudo ffmpeg -re -f v4l2 -i /dev/video0 -c:v hevc -rc_mode 0 -level 30 -f rtsp rtsp://0.0.0.0:8554/stream
+```
+
+</TabItem>
+
+<TabItem value="gstreamer" label="Based on Gstreamer">
+
+:::tip
+When using HDMI RX, gst-mppenc does not support NV24(YCbCr444) and RBG inputs currently, you need to switch the colour format of HDMI input to NV12(YCbCr420) or NV16(YCbCr422), or use FFmpeg for streaming.
+:::
+
+### Install build dependencies
+
+```bash
+sudo apt update
+sudo apt install libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev build-essential meson libcgroup-dev gobject-introspection libgirepository1.0-dev
+```
+
+### Get gst-rtsp-server source code
+
+```bash
+wget https://gstreamer.freedesktop.org/src/gst-rtsp-server/gst-rtsp-server-1.18.6.tar.xz
+tar -xvf gst-rtsp-server-1.18.6.tar.xz
+```
+
+### Build gst-rtsp-server
+
+```bash
+cd gst-rtsp-server-1.18.6/
+meson build
+cd build
+ninja
+```
+
+### Run gst-rtsp-server
+
+:::info
+Here we assume that `/dev/video0` is the video source you want to use. If your camera is assigned to a different name, replace the corresponding device name in the following command line.
+:::
+
+```bash
+cd examples/
+./test-launch --gst-debug-level=3 "( v4l2src device=/dev/video0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr !  rtph265pay name=pay0 pt=97 )"
+```
+
+</TabItem>
+
+</Tabs>
+
+## Client Configuration
+
+The following is an example of how to watch RTSP video stream by running [VLC](https://www.videolan.org/vlc/) under Windows.
+
+1. Download and install VLC
+   ![VLC-Main](/img/general-tutorial/rtsp/VLC-Main-en.webp)
+
+1. Click "Media - Open Network Streaming" to enter the RTSP stream address.
+
+:::tip
+A communicable IP address is necessary.
+:::
+
+![VLC-Open-RTSP](/img/general-tutorial/rtsp/VLC-Open-RTSP-en.webp)
+
+3. Click `Play` to view the RTSP remote streaming content.
+   ![VLC-View-RTSP](/img/general-tutorial/rtsp/VLC-View-RTSP-en.webp)

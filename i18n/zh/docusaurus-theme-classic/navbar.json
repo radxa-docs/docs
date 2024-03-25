@@ -1,0 +1,38 @@
+{
+  "item.label.About": {
+    "description": "Navbar item with label About",
+    "message": "关于"
+  },
+  "item.label.Community": {
+    "description": "Navbar item with label Community",
+    "message": "社区"
+  },
+  "item.label.Home": {
+    "description": "Navbar item with label Home",
+    "message": "主页"
+  },
+  "item.label.News": {
+    "description": "Navbar item with label News",
+    "message": "新闻"
+  },
+  "item.label.Products": {
+    "description": "Navbar item with label Products",
+    "message": "产品"
+  },
+  "item.label.Services": {
+    "description": "Navbar item with label Services",
+    "message": "服务"
+  },
+  "item.label.Support": {
+    "description": "Navbar item with label Support",
+    "message": "支持"
+  },
+  "item.label.Welcome": {
+    "description": "Navbar item with label Welcome",
+    "message": "欢迎"
+  },
+  "title": {
+    "description": "The title in the navbar",
+    "message": ""
+  }
+}

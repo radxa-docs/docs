@@ -1,0 +1,58 @@
+### 安装第三方 Overlay
+
+设备树 Overlays 使得用一个内核支持多个硬件配置成为可能，而且不需要明确地加载或屏蔽内核模块。
+
+你可以使用 `rsetup` 来管理 overlays。
+
+:::info
+rsetup 的 Install 3rd party overlay 功能既可安装设备树 overlay 文件（DTBO）也可安装源码（DTS）。
+
+官方设备树覆盖文件仓库 radxa/overlays 的预编译文件可以[从此下载](https://github.com/radxa/overlays/actions)。
+:::
+
+#### 获取 radxa/overlays 源码
+
+```bash
+git clone https://github.com/radxa/overlays.git
+cd overlays
+```
+
+#### 使用 rsetup 加载 overlay
+
+在 `rsetup` 的主界面选择 `Overlays`:
+
+```
+Configure Device Tree Overlay
+        Manage overlays
+        View overlay info
+        Install 3rd party overlay"
+        Reset overlays
+        <Ok>             <Cancel>
+```
+
+然后， 选择 `Install 3rd party overlay`:
+
+```
+Configure Device Tree Overlay
+        Manage overlays
+        View overlay info
+        Install 3rd party overlay
+        Reset overlays
+
+
+      <Ok>            <Cancel>
+```
+
+:::info
+以下为瑞芯微 SOC 设备树覆盖文件源码的路径:
+
+arch/arm64/boot/dts/rockchip/overlays/\*.dts
+
+如果 SOC 厂商为晶晨需要更换以上路径里的 rockchip 为 amlogic。
+:::
+
+然后选择你需要加载的 overlay，选择之后退出 rsetup，最后重启。
+
+:::tip
+可以使用 cat /boot/extlinux/extlinux.conf 检查参数
+:::

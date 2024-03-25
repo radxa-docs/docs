@@ -1,0 +1,75 @@
+# CANBUS Introduction
+
+A controller area network (CAN bus) is a vehicle bus standard designed to allow microcontrollers and devices to communicate with each other.
+It is a message-based protocol, designed originally for multiplex electrical wiring within automobiles to save on copper, but it can also be used in many other contexts.
+For each device, the data in a frame is transmitted serially but in such a way that if more than one device transmits at the same time, the highest priority device can continue while the others back off.
+Frames are received by all devices, including by the transmitting device.
+
+## Preparation
+
+- two Radxa development boards with CANBUS
+- two CANBUS modules
+
+## Enable Overlay
+
+Please refer to [Device Tree Configuration](../os-config/rsetup#overlays) to enable CANBUS-related Overlay, eg: "Enable CAN1-M0"。
+
+## Connection
+
+```
+master            CAN module          CAN module         主设备
+3.3V     <-->     VCC                 VCC      <-->      VCC
+GND      <-->     GND                 GND      <-->      GND
+CAN_TX   <-->     CTX                 CTX      <-->      CAN_TX
+CAN_RX   <-->     CRX                 CRX      <-->      CAN_RX
+                  CANH      <-->      CANH
+                  CANL      <-->      CANL
+```
+
+## Installation of test tools
+
+```
+sudo apt update
+sudo apt-get install can-utils iproute2
+```
+
+## Check CAN node
+
+```
+$ ip a
+can0: flags=193<UP,RUNNING,NOARP>  mtu 72
+       unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
+       RX packets 144  bytes 1152 (1.1 KiB)
+       RX errors 175  dropped 0  overruns 0  frame 35
+       TX packets 0  bytes 0 (0.0 B)
+       TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+       device interrupt 62
+```
+
+## Loopback test
+
+One board acts as the transmitter and the other as the receiver
+
+- sending end
+
+```
+$ sudo ip link set can0 down
+$ sudo ip link set can0 type can bitrate 1000000 dbitrate 1000000 loopback on fd on
+$ sudo ip link set can0 up
+$ sudo cansend can0 123#11223344
+```
+
+- receiving end
+
+```
+$ sudo ip link set can0 down
+$ sudo ip link set can0 type can bitrate 1000000 dbitrate 1000000 loopback on fd on
+$ sudo ip link set can0 up
+$ sudo candump can0
+can0  123   [4]  11 22 33 44
+```
+
+## Development Reference
+
+- [c-can-socket](https://github.com/nascs/sample_code/tree/main/bsp_test/can_test)
+- [python-can](https://python-can.readthedocs.io/en/stable/)

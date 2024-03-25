@@ -1,0 +1,20 @@
+## Configure Pins 8 and 10 as GPIOs
+
+:::tip
+By default, the UART2_M0 interface is a FIQ debugging serial port, which can output logs of DDR Init, U-Boot, Linux Kernel, etc. for debugging. Therefore, it is not recommended to cancel this configuration as you can use other serial ports if not necessary.
+:::
+
+## Disable the FIQ-Debugger configuration.
+
+```bash
+rsetup
+
+# Follow these options to access the Manage overlays interface
+# Overlays -> Manage overlays
+```
+
+Tick `Disable FIQ Debugger.`
+
+![Disable FIQ Debugger](/img/general-tutorial/disable-fiq-debugger.webp)
+
+Check the box and select OK, then exit rsetup and reboot the system, PIN 8 && PIN 10 can be used as normal GPIOs.

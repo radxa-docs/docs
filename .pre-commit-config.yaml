@@ -1,0 +1,78 @@
+default_install_hook_types:
+  - commit-msg
+  - pre-commit
+  - pre-push
+
+repos:
+  - repo: https://github.com/radxa-docs/pre-commit-hooks
+    rev: 1985d9abac63823842beb7d68216685915dd5130
+    hooks:
+      - id: use-webp-image
+      - id: fix-en-dash-list
+      - id: tab-with-querystring-undefined
+      - id: tab-without-querystring
+      - id: no-full-uri-for-internal-pages
+      - id: check-external-links
+      - id: disable-sidebar_label
+      - id: index-to-README
+      - id: globally-available-components
+      - id: remove-category-json
+      - id: check-chinese
+        files: "i18n/en/docusaurus-plugin-content-docs/current"
+  - repo: https://github.com/detailyang/pre-commit-shell
+    rev: v1.0.6
+    hooks:
+      - id: shell-lint
+        args: [-x]
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        stages:
+          - pre-commit
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=2048]
+      - id: check-case-conflict
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: pretty-format-json
+        args: [--autofix, --no-ensure-ascii]
+      - id: trailing-whitespace
+        args: ["--markdown-linebreak-ext=md,mdx"]
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        stages:
+          - pre-commit
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.18.2
+    hooks:
+      - id: typos
+  - repo: https://github.com/milin/gitown
+    rev: v0.1.7
+    hooks:
+      - id: gitown
+        args:
+          [
+            "--ownership_threshold=34",
+            "--codeowners_filename=.github/CODEOWNERS",
+          ]
+        stages:
+          - manual
+        exclude: .github/CODEOWNERS
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.16.0
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        args: [--rev-range, $PRE_COMMIT_FROM_REF..$PRE_COMMIT_TO_REF]
+        stages:
+          - pre-push

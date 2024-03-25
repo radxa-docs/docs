@@ -1,0 +1,122 @@
+:::tip
+本文档旨在演示如何在 x86 PC 上使用 rknn-toolkit2 脱离开发板模拟推理 YOLOv5 目标分割模型，所需环境配置请参考[ RKNN 安装](./rknn_install)
+:::
+
+## 准备模型
+
+此示例用 [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) 中预训练好的 ONNX 格式模型为例子通过模型转换, 并在 PC 端做模拟推理
+
+- 如使用 conda 请先激活 rknn conda 环境
+
+  ```bash
+  conda activate rknn
+  ```
+
+- 下载 yolov5s-seg.onnx 模型
+
+  ```bash
+  cd rknn_model_zoo/examples/yolov5_seg/model
+  # 下载预训练好的 yolov5s-seg.onnx 模型
+  bash download_model.sh
+  ```
+
+  如遇到网络问题，可访问 [此页 ](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) 下载对应的模型到对应文件夹
+
+- 使用 rknn-toolkit2 转换成 yolov5s-seg.rknn
+
+  ```bash
+  cd rknn_model_zoo/examples/yolov5_seg/python
+  python3 convert.py ../model/yolov5s-seg.onnx rk3588
+  ```
+
+  参数解析：
+
+  `<onnx_model>`: 指定 ONNX 模型路径
+
+  `<TARGET_PLATFORM>`: 指定 NPU 平台名称。支持的平台请参考[这里](rknn_install#RKNN-简介)
+
+  `<dtype>(可选)`: 指定为 `i8` 或 `fp`。`i8` 用于 int8 量化，`fp` 用于 fp16 量化。默认为 `i8`
+
+  `<output_rknn_path>(可选)`: 指定RKNN模型的保存路径，默认保存在与ONNX模型相同的目录中，文件名为 `yolov5s-seg.rknn`
+
+## 运行 yolov5_seg 模拟推理 Python demo
+
+- pip3 安装所需依赖
+
+  ```bash
+  pip3 install torchvision==0.11.2 pycocotools
+  ```
+
+- 运行模拟推理程序
+
+  - 修改 rknn_model_zoo/py_utils/rknn_executor.py 为以下代码，**并务必备份一份原版代码**
+
+  ```python
+  from rknn.api import RKNN
+
+  class RKNN_model_container():
+      def __init__(self, model_path, target=None, device_id=None) -> None:
+          rknn = RKNN()
+
+          # # Direct Load RKNN Model
+          # rknn.load_rknn(model_path)
+
+          print('--> Init runtime environment')
+          if target==None:
+              DATASET_PATH = '../../../datasets/COCO/coco_subset_20.txt'
+              onnx_model = model_path[:-4] + 'onnx'
+              print('--> Config model')
+              rknn.config(mean_values=[[0, 0, 0]], std_values=[[255, 255, 255]], target_platform='rk3588')
+              print('done')
+              # Load model
+              print('--> Loading model')
+              ret = rknn.load_onnx(model=onnx_model)
+              if ret != 0:
+                  print('Load model failed!')
+                  exit(ret)
+              print('done')
+
+              # Build model
+              print('--> Building model')
+              ret = rknn.build(do_quantization=True, dataset=DATASET_PATH)
+              if ret != 0:
+                  print('Build model failed!')
+                  exit(ret)
+              print('done')
+              ret = rknn.init_runtime()
+          else:
+              ret = rknn.init_runtime(target=target, device_id=device_id)
+          if ret != 0:
+              print('Init runtime environment failed')
+              exit(ret)
+          print('done')
+
+          self.rknn = rknn
+
+      def run(self, inputs):
+          if isinstance(inputs, list) or isinstance(inputs, tuple):
+              pass
+          else:
+              inputs = [inputs]
+
+          result = self.rknn.inference(inputs=inputs)
+
+          return result
+  ```
+
+  - 修改 rknn_model_zoo/examples/yolov5_seg/python/yolov5_seg.py 第 260 行，设置 target 默认值为 None
+
+  ```python
+  # parser.add_argument('--target', type=str, default=‘rk3566’, help='target RKNPU platform')
+  parser.add_argument('--target', type=str, default=None, help='target RKNPU platform')
+  ```
+
+  - 运行模拟推理程序
+
+  ```bash
+  python3 yolov5_seg.py --model_path ../model/yolov5s-seg.rknn --img_show
+  ```
+
+  - 模拟推理结果 （模拟器仅模拟 NPU 计算结果，实际效果与精度以板端推理为准）
+
+  ![yolov5_seg_result/webp](/img/general-tutorial/rknn/yolov5_seg_result.webp)

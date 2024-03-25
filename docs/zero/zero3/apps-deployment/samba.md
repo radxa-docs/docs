@@ -1,0 +1,74 @@
+---
+sidebar_position: 2
+---
+
+# Samba
+
+Samba 是 Linux 下常用的 SMB/CIFS 工具。通过 Samba ，您可以和包含 Windows 和 Android 在内的多种不同操作系统间进行文件分享。
+
+1. 安装 samba
+
+```
+sudo apt-get update
+sudo apt-get install samba
+```
+
+2. 编辑Samba配置文件,打开 /etc/samba/smb.conf 文件
+
+```
+sudo nano /etc/samba/smb.conf
+```
+
+3. 在文件末尾添加以下配置
+
+```
+[radxa]
+comment = Shared from my Radxa device
+path = /media/samba
+available = yes
+valid users = radxa
+public = yes
+writable = yes
+```
+
+4. 创建共享文件夹
+
+```
+sudo mkdir /media/samba
+sudo chmod 755 /media/samba
+```
+
+5. 创建 Samba 用户和密码
+
+```
+sudo smbpasswd -a radxa
+```
+
+6. 重新启动 Samba 服务以加载更新后的配置
+
+```
+sudo systemctl restart
+```
+
+7. 执行 `systemctl status smbd` 查看 samba 运行状态
+
+```
+radxa@radxa-zero3:~$ systemctl status smbd
+● smbd.service - Samba SMB Daemon
+     Loaded: loaded (/lib/systemd/system/smbd.service; enabled; vendor preset: >
+     Active: active (running) since Tue 2023-12-19 03:24:00 UTC; 14s ago
+       Docs: man:smbd(8)
+             man:samba(7)
+             man:smb.conf(5)
+    Process: 1963 ExecStartPre=/usr/share/samba/update-apparmor-samba-profile (>
+   Main PID: 1964 (smbd)
+     Status: "smbd: ready to serve connections..."
+      Tasks: 4 (limit: 9191)
+     Memory: 6.5M
+        CPU: 564ms
+     CGroup: /system.slice/smbd.service
+             ├─1964 /usr/sbin/smbd --foreground --no-process-group
+             ├─1966 /usr/sbin/smbd --foreground --no-process-group
+             ├─1967 /usr/sbin/smbd --foreground --no-process-group
+             └─1968 /usr/sbin/smbd --foreground --no-process-group
+```

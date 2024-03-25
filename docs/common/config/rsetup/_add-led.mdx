@@ -1,0 +1,69 @@
+:::info
+Radxa 发售的单板计算机或者计算模块一般默认情况下拥有两个 LED：
+一颗电源灯（软件不可修改）和一颗系统心跳灯。
+是否想拥有像 PC 一样的硬盘状态灯或者网口状态灯，那就跟着教程来做吧！
+以 Radxa 5B 为例，需要根据使用的 GPIO 修改设备树覆写文件（DTBO）。
+:::
+
+## 硬件连接
+
+```
+GPIO3_C1(PIN11)(3.3V) <----> 电阻 (根据 LED 的数据手册选择大小) <----> LED正极 <----> LED负极 <----> GND(PIN9)
+```
+
+## 编写设备树覆写文件（DTBO）
+
+```bash
+nano ~/user_led3.dts
+```
+
+### 以下为文件内容：
+
+:::info
+可使用的触发器有：none rc-feedback rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock tcpm-source-psy-4-0022-online disk-activity disk-read disk-write ide-disk mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic mmc2 mmc1 mmc0 default-on heartbeat pattern timer rfkill1 phy0rx phy0tx phy0assoc phy0radio rfkill2 rfkill3
+:::
+
+```
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+    fragment@0 {
+        target-path = "/";                                      /* 要修改的主 dts 节点 */
+        __overlay__ {                                           /* 再此花括号内添加或修改内容 */
+            custom-leds{                                        /* 添加 custom-leds 节点 */
+                compatible = "gpio-leds";
+                status = "okay";
+                microsd-led {                                   /* 添加 microsd-led 节点 */
+                    gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_HIGH>;   /* 将 GPIO3_C1 注册为 microsd-led 的使能引脚，默认使能为电平拉高。 */
+                    linux,default-trigger = "mmc1";             /* 设置默认触发器为 mmc1(SD Card) */
+                };
+            };
+        };
+    };
+};
+```
+
+## 加载 DTBO
+
+```bash
+rsetup
+
+# 按照以下选项进入加载设备树覆写文件（DTBO）界面
+# Overlays -> Install 3rd party overlay
+```
+
+## 选择 user_led3.dts
+
+![enable-user_led3](/img/general-tutorial/enable-user-led3.webp)
+
+## 重启
+
+```bash
+sudo reboot
+```
+
+重启后即可看见 LED 灯会跟着硬盘状态闪动。

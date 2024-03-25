@@ -1,0 +1,183 @@
+import { Details } from "@site/src/utils/docs";
+
+import Led from "./rsetup/_led.mdx";
+import Addled from "./rsetup/_add-led.mdx";
+import Devicetree from "./rsetup/_devicetree.mdx";
+import InstallOverlays from "./rsetup/_install-overlays.mdx";
+import DisableFIQ from "./rsetup/_disable-fiq.mdx";
+import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
+
+## rsetup
+
+`rsetup` is a system configuration tool for Radxa OS.
+
+To start `rsetup`, execute the `rsetup` command in a terminal, or find the `rsetup` application from the system menu:
+
+:::tip
+`rsetup` requires administrator privileges to run. Please make sure you have `sudo` privilege.
+
+The options listed below are for reference only and are subject to the actual program output.
+:::
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select an option below:                                               │
+│                                                                              │
+│                             System Maintenance                               │
+│                             Hardware                                         │
+│                             Overlays                                         │
+│                             Connectivity                                     │
+│                             User Settings                                    │
+│                             Localization                                     │
+│                             About                                            │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+## Interface Operation
+
+Use the `Up` and `Down` keys to select between the menu options. The currently selected item is highlighted.
+
+Use the `Tab` key to select between the menu area and the command area.
+
+Use the `Left` and `Right` keys to toggle between the `<Ok>` and `<Cancel>` commands. Use the `Enter` key to execute the selected command.
+Pressing the `Enter` key, when the command area is not selected, will immediately execute the `<Ok>` command.
+
+Use the `Space` key to select items. Items are prefixed with `[ ]` (indicating multiple selections) or `( )` (indicating single selection) to show the current selection status.
+
+:::tip
+Using the `Enter` key does not select any item. It executes the `<Ok>` command directly.
+:::.
+
+Use the `Esc` key to return to the previous menu.
+
+## System Maintenance
+
+This menu contains the following options:
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ System Maintenance                                                           │
+│                                                                              │
+│                         System Update                                        │
+│                         Update Bootloader                                    │
+│                         Update SPI Bootloader                                │
+│                         Update eMMC Boot partition                           │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### System Update
+
+This option will update the packages installed on your system to the latest release.
+
+Since RadxaOS provides some packages that conflict with the upstream Debian, it is recommended to update your system in this way to ensure system consistency.
+
+### Update Bootloader
+
+This option updates the bootloader on the disk where the root file system is located.
+
+### Update SPI Bootloader
+
+This option updates the bootloader on the SPI Flash.
+
+### Update eMMC Boot partition
+
+This option updates the bootloader on the eMMC Boot partition.
+
+## Hardware
+
+Some peripherals can be modified on this menu, the following is the introduction of them.
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Manage on-board hardware                                                     │
+│                                                                              │
+│                      Video capture devices                                   │
+│                      GPIO LEDs                                               │
+│                      Thermal governor                                        │
+│                      Configure DSI display mirroring                         │
+│                                                                              │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Video capture devices
+
+If you have connect a video device, this option can help you to capture an image for testing.
+
+### GPIO LEDs
+
+On this option, you can change the status of power LED and user LED on the board (Sometimes only one).
+
+<Details summary="LED Setup">
+
+<Led />
+
+</Details>
+
+### Thermal governor
+
+This module is used to adjust the fan and other temperature options.
+Generally, we select `power_allocator` when using DC fan or fanless, select `step_wise` when using PWM fan.
+**Note: If you connect the fan directly to the GPIO on 5V and GND pins, it would not be controlled and always work.**
+
+### Configure DSI display mirroring
+
+If DSI display has some problems when using HDMI display and DSI display at the same time, enable this option will helpful.
+
+## Overlays
+
+This option is for Configure Device Tree Overlay.
+
+<Details summary="Device Tree Configuration">
+
+<Devicetree />
+
+</Details>
+
+<Details summary="Install 3rd party overlay">
+
+<InstallOverlays />
+
+</Details>
+
+<Details summary="Adding LEDs">
+
+<Addled />
+
+</Details>
+
+<Details summary="Configure Pins 8 and 10 as GPIOs">
+
+<DisableFIQ />
+
+</Details>
+
+<Details summary="Configure UART2_M0 as normal serial port">
+
+<EnableUart2 />
+
+</Details>
+
+## Connectivity
+
+This option is normally similar to network setting.
+
+## User Settings
+
+The `Password` of the current login account and the `Hostname` of the device can be changed on this option.
+
+## Localization
+
+On this option, you can change `Timezone` `Locale` `Keybaed layout` `Wi-Fi Country`.
+
+## About
+
+Here is the information of `rsetup`.

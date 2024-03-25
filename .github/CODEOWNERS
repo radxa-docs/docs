@@ -1,0 +1,295 @@
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+# These owners will be the default owners for everything in the repo.
+# * <@insert_github_username>
+#
+# Order is important. The last matching pattern has the most precedence.
+
+
+# This file is also being managed automatically by the gitown tool.
+####################Global####################
+*                   @radxa-docs/Editor
+######################SBC#####################
+**/compute-module   @vamrs-feng @Ken-Vamrs
+**/cm3              @vamrs-feng
+**/cm3i             @vamrs-feng
+**/cm5              @Ken-Vamrs
+**/nx5              @vamrs-feng
+**/nio              @RadxaStephen
+**/rock3            @Radxa-Alvin @RadxaMitchell @Ken-Vamrs
+**/e25              @Radxa-Alvin
+**/rock3a           @RadxaMitchell
+**/rock3b           @Ken-Vamrs
+**/rock3c           @Radxa-Alvin
+**/rock4            @RadxaStephen
+**/rock5            @RadxaStephen @yjxyx
+**/rock5a           @RadxaStephen
+**/rock5b           @RadxaStephen
+**/rock5itx         @yjxyx
+**/rockpi           @RadxaMitchell @Ken-Vamrs
+**/rockpie          @RadxaMitchell
+**/rockpis          @RadxaMitchell
+**/rocks0           @Ken-Vamrs
+**/x                @shawnchainw
+**/zero             @RadxaYuntian @Radxa-Alvin @CodeChenL
+**/zero/zero        @CodeChenL
+**/zero2pro         @RadxaYuntian
+**/zero3            @Radxa-Alvin
+**/common/radxa-os  @RadxaYuntian
+**/common/config    @RadxaYuntian
+###################Front End##################
+*.js                @xzuoqi @akgnah
+*.ts                @xzuoqi @akgnah
+*.css               @xzuoqi @akgnah
+*.json              @xzuoqi @akgnah
+src                 @xzuoqi @akgnah
+static              @xzuoqi @akgnah
+#####################CI/CD####################
+.github             @RadxaYuntian
+.pre-commit-config.* @CodeChenL @RadxaYuntian
+####################gitown####################
+.github/CODEOWNERS @radxa-docs/Editor
+.gitownrc @CodeChenL
+.cz.toml @CodeChenL
+####################Others####################
+static/img/rock3/Rock3C-bottom-800px.webp @Maycides
+zh/rock3/rock3c/os-config/rsetup.md @u7985
+src/components/CustomDocItem/Footer/styles.module.css @xzuoqi
+en/rock5/rock5b/low-level-dev/README.md @u7985
+en/rock3/rock3a/os-config/rsetup.md @nascs
+static/img/common/etcher/rock5a-step3.webp @u7985
+zh/compute-module/nx5/radxa-os/apps-deploy/README.md @peterwang2050
+en/nio/nio12l/download/README.md @peterwang2050
+en/zero/zero3/os-config/rsetup.md @peterwang2050
+zh/rock3/images.md @Maycides
+static/img/rock3/3b/rock3b-otg.webp @Maycides
+en/compute-module/cm5/radxa-os/os-usage/README.md @Ken-Vamrs
+static/img/zero/zero3/radxa_zero_3w.webp @Radxa-Alvin
+zh/x/x2l/bios/bios-clear.md @melooooooooooo
+src/components/CustomDocItem/Content/index.d.ts @xzuoqi
+static/img/rock5b/rock5b-4k-camera.webp @Maycides
+zh/rock3/rock3b/hardware/rock3b-gpio.md @nascs
+zh/nio/nio12l/getting-started.md @jack-ma @Radxa-Alvin
+zh/zero/zero3/getting-started/install-os.md @peterwang2050
+zh/compute-module/nx5/radxa-os/app-dev/README.md @peterwang2050
+zh/compute-module/cm5/radxa-os/low-level-dev/kernel.md @Ken-Vamrs
+static/img/general-tutorial/rtsp/VLC-Open-RTSP.webp @Maycides
+en/compute-module/nx5/radxa-os/install-os.mdx @peterwang2050 @vamrs-feng
+static/img/rock5b/downloads/Jelos.webp @Maycides
+zh/x/README.md @jack-ma @melooooooooooo
+zh/accessories/radxa-23w-poe.md @Maycides
+en/template/sbc/os-config/rsetup.md @peterwang2050 @nascs
+en/template/sbc/radxa-os/locale.md @nascs
+zh/template/sbc/radxa-os/using-apt.md @nascs
+zh/template/sbc/os-config/bootparam.md @nascs
+zh/template/sbc/radxa-os/display.md @nascs
+zh/x/x2l/software-development/c_sdk_examples.md @nascs
+static/img/rock3/3a/rock3a-rpi-imx219.webp @nascs
+en/compute-module/cm5/radxa-os/apps-deploy/samba.md @Ken-Vamrs
+zh/rock3/rock3a/other-os/android/remote-login.md @skljfi
+en/rock5/rock5a/accessories-guides/lcd-8-hd.md @Maycides
+zh/rock5/rock5itx/low-level-dev/rkdevtool.md @u7985
+zh/template/sbc/other-os/android/download.md @peterwang2050
+en/template/sbc/hardware-design/hardware-interface.md @peterwang2050
+zh/rock5/rock5b/os-config/README.md @u7985
+zh/rock5/rock5b/low-level-dev/README.md @u7985
+en/rock5/rock5b/os-config/README.md @u7985
+en/rock5/rock5b/hardware-design/README.md @nascs
+en/rock5/rock5b/apps-deployment/README.md @nascs
+zh/rock5/rock5b/getting-started/preparation.md @nascs
+en/rock5/rock5b/getting-started/preparation.md @nascs
+zh/compute-module/cm5/android/install-os.mdx @y0w0
+static/img/rock5b/rock5b-4k-camera-connected.webp @Maycides
+static/img/rock5b/downloads/OpenMandriva.webp @Maycides
+zh/rock3/rock3b/install-os.md @u7985
+zh/compute-module/nx5/getting-started/accessory-usage.md @peterwang2050
+zh/compute-module/nx5/README.md @peterwang2050
+src/components/CustomDocItem/TOC/Desktop/index.js @xzuoqi
+zh/zero/zero3/app-development/gpiod.md @nascs
+en/template/module/radxa-os/low-level-dev/README.md @peterwang2050
+zh/x/x2l/software-development/flash.md @nascs
+en/rock5/rock5b/low-level-dev/install-os-on-nvme.md @nascs
+zh/rock5/rock5b/getting-started/install-os.md @nascs
+en/template/sbc/os-config/rsetup/led.md @peterwang2050
+zh/rock5/rock5a/getting-started/before-start.md @Maycides @melooooooooooo
+zh/compute-module/cm3/mp-deployment/backup.md @u7985
+en/zero/zero3/app-development/README.md @peterwang2050
+en/rock3/rock3b/accessories-guides/lcd-10-fhd.md @RadxaMitchell
+zh/nio/nio12l/install-yocto-system.md @peterwang2050
+zh/rock3/rock3a/README.md @nascs
+en/compute-module/nx5/getting-started/preparation.md @vamrs-feng @peterwang2050
+zh/rock5/rock5b/low-level-dev/serial.md @u7985
+zh/template/sbc/other-os/android/README.md @peterwang2050
+zh/rock5/rock5a/getting-started/overview.md @Maycides
+en/compute-module/cm5/radxa-os/app-dev/wiringx.md @Ken-Vamrs
+zh/zero/zero3/app-development/rtsp.md @u7985
+zh/compute-module/cm5/getting-started/install-os.md @Ken-Vamrs
+zh/rock5/rock5b/README.md @nascs
+en/rock5/rock5itx/hardware-design/README.md @Ken-Vamrs
+en/template/tcm/accessories/pd-30w.md @peterwang2050
+en/rock3/rock3a/getting-started/_maskrom.mdx @nascs
+zh/zero/zero3/other-os/android/remote-login.md @y0w0
+en/rock5/rock5b/other-os/README.md @nascs
+zh/template/sbc/radxa-os/README.md @peterwang2050
+zh/compute-module/cm5/radxa-os/low-level-dev/README.md @u7985
+en/rock5/rock5b/getting-started/install-os.md @nascs
+zh/rock5/rock5b/other-os/android/download.md @nascs
+zh/rock5/rock5b/other-os/android/preparation.md @nascs
+static/img/rock3/3a/rock3a-actual-sci.webp @nascs
+static/img/rock5b/downloads/AmiRock.webp @Maycides
+en/zero/zero2pro/low-level-dev/README.md @u7985
+zh/template/tcm/other-os/android/remote-login.md @peterwang2050
+zh/compute-module/nx5/radxa-os/low-level-dev/rbuild.md @peterwang2050
+en/rock5/rock5b/getting-started/accessory-usage.md @nascs
+en/rock5/rock5b/getting-started/download.md @nascs
+zh/rock5/rock5b/low-level-dev/install-os-on-emmc.md @nascs
+en/rock5/rock5b/other-os/android/install-os.md @nascs
+zh/rock5/rock5b/getting-started/download.md @nascs
+zh/rock5/rock5b/hardware-design/hardware-interface.md @nascs
+en/rock5/rock5b/hardware-design/hardware-interface.md @nascs
+zh/rock5/rock5b/getting-started/accessory-usage.md @nascs
+zh/rock5/rock5b/low-level-dev/install-os-on-nvme.md @nascs
+zh/rock5/rock5b/low-level-dev/bootloader_spi_flash.md @nascs
+en/rockpi/rocks0/app-development/gpiod.md @Ken-Vamrs
+zh/accessories/cm3-io-board.md @melooooooooooo
+static/img/cm3/ethernet_combo.webp @melooooooooooo
+zh/template/module/hardware/hw-interface.md @peterwang2050
+zh/zero/zero3/other-os/android/download.md @peterwang2050
+static/img/general-tutorial/rknn/space_shuttle_224.webp @CodeChenL
+zh/rockpi/rockpis/README.md @melooooooooooo
+en/rock5/lowlevel-development/bootloader_spi_flash.md @Maycides
+en/rock5/products.md @Maycides
+en/rock5/rock5b/low-level-dev/install-os-on-emmc.md @nascs
+zh/rock5/rock5b/apps-deployment/README.md @nascs
+zh/rock5/rock5b/app-development/panfork.md @nascs
+zh/rock5/rock5b/app-development/canbus.md @nascs
+zh/rock5/rock5b/low-level-dev/rbuild.md @nascs
+zh/rock5/rock5b/accessories/README.md @nascs
+en/rock5/rock5b/accessories/wifi_bt_access.md @nascs
+zh/rock5/rock5b/low-level-dev/install-os-on-emmc-from-usb-otg.md @nascs
+en/rock5/rock5b/low-level-dev/install-os-on-emmc-from-usb-otg.md @nascs
+zh/rock5/rock5b/faq.md @nascs
+zh/productlist.md @melooooooooooo
+.pre-commit-config.yaml @CodeChenL
+en/rock5/rock5b/accessories/camera_4k.md @nascs
+en/rock5/rock5b/other-os/android/low-level-dev.md @nascs
+en/rock5/rock5b/radxa-os/backup.md @nascs
+en/rock5/rock5b/radxa-os/README.md @nascs
+zh/rock5/rock5b/radxa-os/audio.md @nascs
+static/img/rock5itx/rock5itx-debug-console.webp @Ken-Vamrs
+zh/template/sbc/getting-started/install-os.md @peterwang2050
+x5/radxa-os/sys-config/bootparam.md @u7985
+en/rockpi/rocks0/low-level-dev/rkdevtool.md @Ken-Vamrs
+en/compute-module/nx5/radxa-os/sys-config/bootparam.md @u7985
+en/template/module/radxa-os/low-level-dev/rkdevtool.md @peterwang2050
+zh/rock5/rock5b/apps-deployment/docker.md @nascs
+zh/rock5/rock5b/radxa-os/display.md @nascs
+en/rock5/rock5b/radxa-os/user.md @nascs
+en/rock5/rock5b/radxa-os/office.md @nascs
+en/rock5/rock5b/low-level-dev/rbuild.md @nascs
+zh/rock5/rock5b/radxa-os/README.md @nascs
+en/productlist.md @melooooooooooo
+en/rock5/rock5b/low-level-dev/bootloader_spi_flash.md @nascs
+zh/common/dev/_qt-cross-compile.mdx @nascs
+static/img/common/qt/qt_demo_kit_select.webp @nascs
+en/zero/zero3/app-development/qt_cross_compile.md @nascs
+en/rock5/rock5b/app-development/qt_cross_compile.md @nascs
+zh/zero/zero3/app-development/qt_cross_compile.md @nascs
+static/img/common/qt/qt_demo_info.webp @nascs
+static/img/common/qt/qt_installation.webp @nascs
+static/img/common/qt/qt_kits_build_essential.webp @nascs
+static/img/common/qt/qt_location.webp @nascs
+static/img/common/qt/qt_device.webp @nascs
+zh/rock5/rock5b/app-development/qt_cross_compile.md @nascs
+en/rock5/rock5b/accessories/display_use.md @nascs
+zh/common/radxa-os/_remote-access.mdx @u7985
+zh/zero/zero/apps-deployment/docker.md @CodeChenL
+zh/zero/zero/other-os/android/remote-login.md @CodeChenL
+zh/zero/zero/other-os/android/install-os.md @CodeChenL
+zh/zero/zero/other-os/android/low-level-dev.md @CodeChenL
+zh/zero/zero/other-os/android/download.md @CodeChenL
+zh/zero/zero/other-os/android/preparation.md @CodeChenL
+zh/zero/zero/other-os/android/README.md @CodeChenL
+zh/zero/zero/os-config/README.md @CodeChenL @CodeChenL
+zh/zero/zero/radxa-os/network.md @CodeChenL @CodeChenL
+zh/zero/zero/low-level-dev/rbuild.md @CodeChenL
+zh/zero/zero/os-config/bootparam.md @CodeChenL
+zh/zero/zero/radxa-os/remote-access.md @CodeChenL
+zh/zero/zero/getting-started/_maskrom.mdx @CodeChenL
+zh/zero/zero/radxa-os/video.md @CodeChenL
+zh/compute-module/cm5/radxa-os/sys-config/README.md @Ken-Vamrs
+en/compute-module/cm5/getting-started/accessory-usage.md @Ken-Vamrs
+en/rockpi/rocks0/getting-started/preparation.md @melooooooooooo
+zh/compute-module/nx5/radxa-os/install-os.mdx @peterwang2050 @vamrs-feng
+en/zero/zero3/low-level-dev/upgrade-tool.md @u7985
+zh/rock4/rock4c+/getting-started/before-start.md @Maycides
+zh/zero/zero3/radxa-os/user.md @u7985
+en/rock3/e25/os-config/rsetup.md @u7985
+zh/template/sbc/low-level-dev/kernel.md @peterwang2050
+zh/template/module/radxa-os/install-os.mdx @peterwang2050
+zh/zero/zero/accessories/README.md @CodeChenL
+zh/zero/zero/getting-started/install-os.md @CodeChenL
+zh/zero/zero/os-config/rsetup.md @CodeChenL
+zh/zero/zero/accessories/pd-30w.md @CodeChenL
+static/img/zero/zero/zero-block-digram.webp.webp @CodeChenL
+zh/zero/zero/hardware-design/hardware-interface.md @CodeChenL
+zh/zero/zero/low-level-dev/erase-emmc.md @CodeChenL
+zh/zero/zero/low-level-dev/install-os-on-emmc.md @CodeChenL
+zh/zero/zero/low-level-dev/README.md @CodeChenL
+zh/zero/zero/getting-started/preparation.md @CodeChenL
+zh/zero/zero/radxa-os/social.md @CodeChenL
+zh/zero/zero/radxa-os/headless.md @CodeChenL
+zh/zero/zero/radxa-os/office.md @CodeChenL
+zh/zero/zero/low-level-dev/u-boot.md @CodeChenL
+zh/zero/zero/getting-started/README.md @CodeChenL
+zh/zero/zero/low-level-dev/kernel.md @CodeChenL
+zh/zero/zero/app-development/gpiod.md @CodeChenL
+zh/zero/zero/README.md @CodeChenL
+zh/zero/zero/low-level-dev/serial.md @CodeChenL
+static/img/zero/zero/zero-block-digram.webp @CodeChenL
+zh/zero/zero/getting-started/download.md @CodeChenL
+zh/zero/zero/getting-started/accessory-usage.md @CodeChenL
+.github/workflows/deploy.yaml @CodeChenL
+en/zero/zero/hardware-design/hardware-interface.md @CodeChenL
+en/zero/zero/os-config/README.md @CodeChenL
+en/zero/zero/radxa-os/office.md @CodeChenL
+en/zero/zero/radxa-os/headless.md @CodeChenL
+en/zero/zero/accessories/pd-30w.md @CodeChenL
+en/zero/zero/radxa-os/autologin.md @CodeChenL
+en/zero/zero/radxa-os/display.md @CodeChenL
+en/zero/zero/low-level-dev/install-os-on-emmc.md @CodeChenL
+en/zero/zero/os-config/rsetup.md @CodeChenL
+en/zero/zero/radxa-os/user.md @CodeChenL
+en/zero/zero/accessories/README.md @CodeChenL
+zh/rock4/FAQ.md @RadxaYuntian
+en/rock4/FAQ.md @RadxaYuntian
+en/rock3/rock3c/radxa-os/audio.md @Radxa-Alvin
+zh/common/radxa-os/xfce/_display.mdx @Radxa-Alvin
+zh/compute-module/cm5/radxa-os/app-dev/mraa.md @nascs @Ken-Vamrs
+en/zero/zero/low-level-dev/rbuild.md @CodeChenL
+en/zero/zero/other-os/android/remote-login.md @CodeChenL
+en/zero/zero/radxa-os/README.md @CodeChenL
+en/zero/zero/README.md @CodeChenL
+en/zero/zero/app-development/gpiod.md @CodeChenL
+en/zero/zero/other-os/README.md @CodeChenL
+en/zero/zero/getting-started/download.md @CodeChenL
+en/zero/zero/other-os/android/download.md @CodeChenL
+en/zero/zero/getting-started/install-os.md @CodeChenL
+en/zero/zero/radxa-os/locale.md @CodeChenL
+en/zero/zero/low-level-dev/u-boot.md @CodeChenL
+eChenL
+en/zero/zero/other-os/android/README.md @CodeChenL
+en/zero/zero/getting-started/preparation.md @CodeChenL
+zh/zero/zero/radxa-os/display.md @CodeChenL
+en/zero/zero/other-os/android/install-os.md @CodeChenL
+zh/zero/zero/radxa-os/autologin.md @CodeChenL
+en/rock3/rock3c/hardware-design/hardware-interface.md @Radxa-Alvin
+static/img/zero/zero/S905Y2-block-digram.webp @CodeChenL
+zh/zero/zero/radxa-os/README.md @CodeChenL
+en/zero/zero/os-config/bootparam.md @CodeChenL
+en/zero/zero/getting-started/accessory-usage.md @CodeChenL
+en/zero/zero/other-os/3rd-images.md @CodeChenL
+en/zero/zero/low-level-dev/kernel.md @CodeChenL
+zh/zero/zero/other-os/README.md @CodeChenL
+en/zero/zero/other-os/android/low-level-dev.md @CodeChenL
+en/zero/zero/radxa-os/remote-access.md @CodeChenL

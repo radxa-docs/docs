@@ -1,0 +1,108 @@
+:::tip
+This document aims to demonstrate how to install the RKNN SDK. For more information, please refer to the [RKNN Toolkit2 repository](https://github.com/rockchip-linux/rknn-toolkit2) doc directory.
+:::
+
+## Introduction to RKNN
+
+Rockchip RK3566/RK3568 series, RK3588 series, K3562 series, RV1103/RV1106 series chips are equipped with a neural network processor (NPU). Using RKNN, users can quickly deploy AI models to Rockchip chips for NPU hardware-accelerated inference. To use RKNPU, users need to first use the RKNN-Toolkit2 tool on an x86 computer to convert the trained model into the RKNN format, and then use the RKNN C API or Python API for inference on the development board.
+
+Required Tools:
+
+- RKNN-Toolkit2 is a software development kit for users to perform model conversion, inference, and performance evaluation on PC and Rockchip NPU platforms.
+- RKNN-Toolkit-Lite2 provides a Python programming interface for Rockchip NPU platforms, helping users deploy RKNN models and accelerate AI applications.
+- RKNN Runtime provides C/C++ programming interfaces for Rockchip NPU platforms, helping users deploy RKNN models and accelerate AI applications.
+- RKNPU kernel driver is responsible for interacting with the NPU hardware.
+
+The overall framework is as follows:
+
+![framework.png](/img/general-tutorial/rknn/framework.webp)
+
+## Set up the RKNN Environment
+
+### Configure RKNN-Toolkit2 Environment on PC
+
+- Download the RKNN Repository
+
+  It is recommended to create a directory to store the RKNN repository. For example, create a folder named Projects and place the RKNN-Toolkit2 v1.6.0 and RKNN Model Zoo v1.6.0 repositories under this directory. The commands are as follows:
+
+  ```bash
+  # Create Projects folder
+  mkdir Projects
+  cd Projects
+
+  # Download RKNN-Toolkit2 repository
+  git clone https://github.com/airockchip/rknn-toolkit2.git -b v1.6.0
+
+  # Download RKNN Model Zoo repository
+  git clone https://github.com/airockchip/rknn_model_zoo.git -b v1.6.0
+  ```
+
+- (Optional) Install [Anaconda](https://www.anaconda.com/)
+
+  If Python 3.8 (recommended version) is not installed in the system, or if there are multiple Python environments installed simultaneously, it is recommended to use [Anaconda](https://www.anaconda.com/) to create a new Python 3.8 environment.
+
+  - Install Anaconda
+
+    Execute the following command in the computer's terminal window to check if Anaconda is installed. If Anaconda is already installed, this step can be skipped.
+
+    ```bash
+    $ conda --version
+    conda 23.10.0
+    ```
+
+    If "conda: command not found" appears, it means Anaconda is not installed. Please refer to the [Anaconda](https://www.anaconda.com/) official website for installation.
+
+  - Create a conda environment
+
+    ```bash
+    conda create -n rknn python=3.8
+    ```
+
+  - Activate the conda environment
+
+    ```bash
+    conda activate rknn
+    ```
+
+  - Deactivate the environment
+
+    ```bash
+    conda deactivate
+    ```
+
+### Install Dependencies and RKNN-Toolkit2 on PC
+
+- After activating the conda rknn environment, navigate to the rknn-toolkit2 directory and install dependencies libraries based on your Python version by selecting the corresponding requirements_cpXX.txt file. Then install RKNN-Toolkit2 using the wheel package. The commands are as follows:
+
+  ```bash
+  # Navigate to the rknn-toolkit2 directory
+  cd Projects/rknn-toolkit2/rknn-toolkit2
+  # Choose the appropriate requirements file according to your python version
+  pip install -r packages/requirements_cp38-1.6.0.txt -i https://mirror.baidu.com/pypi/simple
+  # Choose the appropriate wheel package file according to your python version and processor architecture:
+  pip install packages/rknn_toolkit2-1.6.0+81f21f4d-cp38-cp38-linux_x86_64.whl
+  ```
+
+- Verify if the installation is successful
+
+  Execute the following command. If no errors occur, it means that the RKNN-Toolkit2 environment is successfully installed.
+
+  ```bash
+  $ python3
+  >>> from rknn.api import RKNN
+  ```
+
+### Install RKNN Toolkit Lite2 and Its Dependencies on the Board
+
+:::info
+Radxa official image has RKNPU2 and its dependencies installed by default. Only python3-rknnlite2 needs to be installed. If it doesn't work, try to comment out the command.
+:::
+
+```bash
+sudo apt update
+sudo apt install python3-rknnlite2
+# sudo apt install rknpu2-rk3588   # For SOC RK3588 series
+# sudo apt install rknpu2-rk356x python3-rknnlite2 # For SOC RK356X series
+```
+
+If you are using the CLI version, you can visit the RKNN Toolkit Lite2 [deb package download page](https://github.com/radxa-pkg/rknn2/releases).

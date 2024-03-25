@@ -1,0 +1,13 @@
+## Modify the Linux boot parameters
+
+```bash
+sudo nano /etc/kernel/cmdline   # Add or modify the options you need
+sudo u-boot-update  # Execute the command to update the boot parameters
+```
+
+## Reboot
+
+```bash
+# You can check the parameters using cat /boot/extlinux/extlinux.conf
+sudo reboot
+```

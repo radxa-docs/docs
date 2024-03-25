@@ -1,0 +1,101 @@
+## Using bsp
+
+bsp is a set of tools provided by Radxa to quickly build a U-Boot Kernel. It is very easy to build your own U-Boot and Kernel using bsp.
+
+Below you will find an example of how to build a U-Boot with bsp using the Radxa ZERO 3.
+
+### bsp environment configuration
+
+The following is the `bsp` recommended environment.  
+Hardware: x86_64 PC recommended  
+System: Ubuntu or Debian
+
+#### Install dependencies
+
+```bash
+sudo apt update
+sudo apt install -y git qemu-user-static binfmt-support
+
+# Podman (recommend)
+sudo apt install -y podman podman-docker
+sudo touch /etc/containers/nodocker
+# Docker
+#sudo apt install docker.io
+
+# Optional dependencies for minor functions
+sudo apt install -y systemd-container
+```
+
+#### Get Code
+
+`bsp` uses the git submodule. Therefore, use the following command to get the code:
+
+```bash
+git clone --recurse-submodules https://github.com/radxa-repo/bsp.git
+```
+
+#### Understanding `bsp` Usage
+
+After getting the `bsp` code on your machine, you can run `bsp` to see the built-in help:
+
+```bash
+cd bsp
+./bsp
+```
+
+### Build U-Boot
+
+After finishing the bsp environment configuration, you need to compile U-Boot once before pulling U-Boot code from the repository.  
+Running `. /bsp` will show all the parameters and their explanations, and the command `bsp [options] <linux|u-boot> <profile> [product]` can be found from the prompt.  
+Take Radxa ZERO 3 as an example, flash the official image, wait for the system to run normally, and then execute `sudo apt list --installed | grep u-boot` on the development board to get the U-Boot package name `u-boot-latest`.  
+Then fill in the `profile` parameter of the bsp command with the U-Boot package name suffix `latest` e.g. `. /bsp u-boot latest radxa-zero3` to build U-Boot.  
+The path to the U-Boot source code is located at `.src/u-boot` in the bsp directory. You can build U-Boot again after modifying the U-Boot source code:
+
+```
+./bsp --no-prepare-source u-boot latest radxa-zero3
+
+Parameter Description:
+--no-prepare-source
+
+#Compile with local changes, if you don't add this parameter it will sync the latest code from the Radxa U-Boot repository and overwrite the local changes.
+```
+
+For more bsp parameter usage instructions, you can execute `./bsp` to view.
+
+After compilation, many `deb` packages will be generated in the current directory, you just need to install the following `deb` packages.
+
+```
+u-boot-latest_2023.10-1_arm64.deb
+```
+
+Copy the above two `deb` packages to the board and install them with the `dpkg` command to complete the U-Boot installation.
+
+```
+sudo dpkg -i u-boot-latest_2023.10-1_arm64.deb
+```
+
+U-Boot needs to be flashed onto the boot media after the installation is complete.
+
+```
+cd /usr/lib/u-boot/radxa-zero3/
+sudo ./setup.sh update_bootloader /dev/mmcblk1   #/dev/mmcblk1 is the boot media you are currently using, you need to select it according to the actual device you are using
+sudo reboot
+```
+
+After reboot, you can observe the U-Boot boot log to see if U-Boot has been successfully updated.
+
+## Manual compilation
+
+:::tip
+`bsp` is the only compilation method that is currently supported, and it makes additional changes to the source code during the build.
+If you want to develop based on our official releases, you should at least use `bsp` to download and configure the source code.
+
+If you want to use a custom `make` command to compile, please refer to the [Prepare working tree](https://radxa-repo.github.io/bsp/dev_flow.html#prepare-working-tree) section to prepare the code.
+:::
+
+## Reference
+
+- [bsp official documentation](https://radxa-repo.github.io/bsp)
+- [U-Boot | Build U-Boot](https://u-boot.readthedocs.io/en/latest/build/index.html)
+- [U-Boot | Amlogic](https://docs.u-boot.org/en/latest/board/amlogic/)
+- [U-Boot | Rockchip](https://u-boot.readthedocs.io/en/latest/board/rockchip/)

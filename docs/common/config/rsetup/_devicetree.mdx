@@ -1,0 +1,88 @@
+### 设备树设置
+
+设备树 Overlays 使得用一个内核支持多个硬件配置成为可能，而且不需要明确地加载或屏蔽内核模块。
+
+你可以使用 `rsetup` 来管理 overlays。
+
+#### 如何启用一个 Overlay
+
+在 `rsetup` 的主界面选择 `Overlays`:
+
+```
+Configure Device Tree Overlay
+        Manage overlays
+        View overlay info
+        Install 3rd party overlay
+        Reset overlays
+        <Ok>             <Cancel>
+```
+
+然后， 选择 `Manage overlays`:
+
+```
+Configure Device Tree Overlay
+        Manage overlays
+        View overlay info
+        Install 3rd party overlay
+        Reset overlays
+
+
+      <Ok>            <Cancel>
+```
+
+接下来，已兼容的设备树会显示出来，它可能在不同的产品上有所不同。
+
+例如，下面是 ROCK 5A 的可用 overlays：
+
+```
+Please select overlays:
+        [ ] Enable 1-Wire on GPIO4_B1
+        [ ] Enable FIQ Debugger on UART4-M2
+        [ ] Enable FIQ Debugger on UART6-M1
+        [ ] Enable FIQ Debugger on UART7-M2
+        [ ] Enable FIQ Debugger on UART8-M0
+        [ ] Enable I2C1-M0
+        [ ] Enable I2C2-M4
+        [ ] Enable I2C4-M3
+        [ ] Enable I2C6-M0
+        [ ] Enable I2C6-M3
+        [ ] Enable I2C7-M3
+        [ ] Enable PWM0-M2
+        [ ] Enable PWM1-M2
+        [ ] Enable PWM11-M1
+        [ ] Enable PWM14-M1
+        [ ] Enable PWM14-M2
+        [ ] Enable PWM15-M1
+        [ ] Enable PWM15-M3
+        [ ] Enable PWM6-M0
+        [ ] Enable PWM7-M0
+        [ ] Enable Radxa Camera 4K
+        [ ] Enable Radxa Display 10HD
+        [ ] Enable Radxa Display 8HD
+        [ ] Enable Raspberry Pi Camera V2
+        [ ] Enable UART2-M0
+        [ ] Enable UART2-M2
+        [ ] Enable UART3-M1
+        [ ] Enable UART4-M2
+        [ ] Enable UART6-M1
+        [ ] Enable UART7-M1
+        [ ] Enable UART7-M1 with Hardware Flow Control
+        [ ] Enable UART7-M2
+        [ ] Enable UART8-M0
+        [ ] Enable spidev on SPI0-M1 over CS0
+        [ ] Enable spidev on SPI0-M2 over CS0
+        [ ] Enable spidev on SPI4-M2 over CS0
+        [ ] Set OTG port to Host modeq
+        [ ] Set OTG port to Peripheral mode
+        <Ok>                   <Cancel>
+```
+
+**注意：支持的选项可能会改变。**
+
+用空格键来选择你要加载的 Overlay。
+
+```
+[*] Enable Radxa Camera 4K
+```
+
+Overlay 有 `*` 标记表示它已启用， 重启后即可正常工作。

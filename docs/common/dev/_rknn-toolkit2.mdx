@@ -1,0 +1,100 @@
+:::tip
+本文档旨在演示如何运行官方示例，更多资料请查看 [RKNN Toolkit2 源码库](https://github.com/rockchip-linux/rknn-toolkit2) 的 doc 目录。
+:::
+
+<Tabs queryString="target">
+
+<TabItem value="pc" label="PC 端 RKNN Toolkit">
+
+## 安装依赖
+
+```bash
+sudo apt install git python-is-python3 python3-pip libxslt1-dev zlib1g-dev libglib2.0-dev libsm6 libgl1-mesa-glx libprotobuf-dev build-essential adb
+```
+
+## 拉取和安装 RKNN Toolkit2
+
+```bash
+git clone https://github.com/rockchip-linux/rknn-toolkit2.git
+cd rknn-toolkit2/
+pip install ./packages/rknn_toolkit2-1.5.2+b642f30c-cp310-cp310-linux_x86_64.whl
+```
+
+## 运行 yolov5 例程
+
+```bash
+cd examples/onnx/yolov5
+python test.py
+```
+
+:::info
+转换模型和推理脚本 test.py 运行成功后，转换后的模型默认保存路径为 examples/onnx/yolov5/yolov5s_relu.rknn，推理的图片结果保存在 examples/onnx/yolov5/result.jpg
+:::
+
+![推理结果](/img/general-tutorial/rknn/result.webp)
+
+</TabItem >
+
+<TabItem value="board" label="板子端 RKNN Toolkit">
+
+## 安装 RKNN Toolkit Lite2 及依赖
+
+:::info
+Radxa 官方镜像已默认安装 RKNN Toolkit Lite2 及其所需依赖，如无法运行可尝试以下命令。
+:::
+
+```bash
+sudo apt update
+sudo apt install rknpu2-rk3588 python3-rknnlite2    # SOC 为 RK3588 系列
+sudo apt install rknpu2-rk356x python3-rknnlite2    # SOC 为 RK356X 系列
+```
+
+## 安装 RKNN Toolkit Lite2 例程
+
+```bash
+sudo apt update
+sudo apt install python3-rknnlite2-example
+```
+
+## 运行 Resnet18 示例
+
+:::tip
+RKNN Toolkit Lite2 主要用于 RKNN 模型在 Rockchip NPU 上的部署。
+在使用 RKNN Toolkit Lite2 之前，我们需要先在 PC 端通过 RKNN Toolkit2 将各框架导出的模型转成 RKNN 模型。
+:::
+
+```bash
+cd /usr/share/python3-rknnlite2
+python test.py
+--> Load RKNN model
+done
+--> Init runtime environment
+I RKNN: [14:34:53.240] RKNN Runtime Information: librknnrt version: 1.5.2 (c6b7b351a@2023-08-23T15:28:22)
+I RKNN: [14:34:53.242] RKNN Driver Information: version: 0.8.2
+W RKNN: [14:34:53.242] Current driver version: 0.8.2, recommend to upgrade the driver to the new version: >= 0.8.8
+I RKNN: [14:34:53.250] RKNN Model Information: version: 6, toolkit version: 1.5.2-source_code(compiler version: 1.5.2 (71720f3fc@2023-08-21T09:35:42)), target: RKNPU v2, target platform: rk3588, framework name: PyTorch, framework layout: NCHW, model inference type: static_shape
+done
+--> Running model
+resnet18
+-----TOP 5-----
+[812]: 0.9996760487556458
+[404]: 0.00024927023332566023
+[657]: 1.449744013370946e-05
+[466 833]: 9.023910024552606e-06
+[466 833]: 9.023910024552606e-06
+
+done
+```
+
+:::info
+执行该示例将加载 Resnet18 模型并进行推理，得到测试图片的 top5 分类结果。
+在这里，类别 812 的概率最高，所以模型可能认为输入图像属于类别 812。
+要了解类别 812 代表的是什么，我们需要查看模型训练时使用的数据集或标签，或者查找与该模型相关的文档或资源，以确定类别 812 的含义。
+在这里类别 812 表示的应该是航天飞机。
+:::
+
+![Input image](/img/general-tutorial/rknn/space_shuttle_224.webp)
+
+</TabItem>
+
+</Tabs>

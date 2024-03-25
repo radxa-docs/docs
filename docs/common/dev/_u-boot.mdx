@@ -1,0 +1,100 @@
+## 使用 bsp
+
+bsp 是 Radxa 提供的一套快速构建 U-Boot Kernel 的工具，使用 bsp 非常方便就能构建出自己的 U-Boot 和 Kernel.
+
+下面将为您展示，以 Radxa ZERO 3 为例如何使用 bsp 构建 U-Boot 。
+
+### bsp 环境配置
+
+以下为 `bsp` 推荐使用环境:  
+硬件：推荐使用x86_64 PC  
+系统：Ubuntu 或者 Debian
+
+#### 安装依赖
+
+```bash
+sudo apt update
+sudo apt install -y git qemu-user-static binfmt-support
+
+# Podman (推荐)
+sudo apt install -y podman podman-docker
+sudo touch /etc/containers/nodocker
+# Docker
+#sudo apt install docker.io
+
+# 次要功能的可选依赖
+sudo apt install -y systemd-container
+```
+
+#### 获取代码
+
+`bsp` 使用了 git 子模块。因此，请使用以下命令获取代码：
+
+```bash
+git clone --recurse-submodules https://github.com/radxa-repo/bsp.git
+```
+
+#### 了解 `bsp` 的用法
+
+在您的机器上获取了 `bsp` 代码后，您可以运行 `bsp` 查看内置帮助：
+
+```bash
+cd bsp
+./bsp
+```
+
+### 构建 U-Boot
+
+完成 bsp 环境配置后，需要先编译一次 U-Boot 才会从仓库拉取 U-Boot 代码。  
+直接运行 `./bsp` 会显示所有参数及其解释，根据提示可知命令 `bsp [options] <linux|u-boot> <profile> [product]`。  
+以 Radxa ZERO 3 为例，烧录官方镜像，等待系统正常运行后，在开发板上执行 `sudo apt list --installed | grep u-boot` 获取 U-Boot 包名为 `u-boot-latest`。  
+然后将 U-Boot 包名后缀 `latest` 填入 bsp 命令的 `profile` 参数例如：`./bsp u-boot latest radxa-zero3`，即可构建 U-Boot。  
+U-Boot 源码的路径位于 bsp 目录下的 `.src/u-boot`，在修改 U-Boot 源码后，可再次构建 U-Boot：
+
+```
+cd bsp
+./bsp --no-prepare-source u-boot latest radxa-zero3
+
+参数说明：
+--no-prepare-source   # 使用本地修改进行编译，如果不加这个参数将会从 Radxa U-Boot 仓库同步最新代码并覆盖本地修改
+```
+
+更多 bsp 参数使用说明可以执行 `./bsp`查看
+
+编译完成后会在当前目录生成许多 `deb` 包， 只需要安装下面的 `deb` 即可
+
+```
+u-boot-latest_2023.10-1_arm64.deb
+```
+
+将上面两个 `deb` 包复制到板子上使用 `dpkg` 指令安装即可完成 U-Boot 安装
+
+```
+sudo dpkg -i u-boot-latest_2023.10-1_arm64.deb
+```
+
+安装完成后需要将 U-Boot 刷到启动介质中
+
+```
+cd /usr/lib/u-boot/radxa-zero3/
+sudo ./setup.sh update_bootloader /dev/mmcblk1   #/dev/mmcblk1 为你当前使用的启动介质，需要根据实际使用的设备来选择
+sudo reboot
+```
+
+重启后可以观察 U-Boot 启动 log 查看 U-Boot 是否更新成功。
+
+## 手动编译
+
+:::tip
+`bsp` 是目前唯一在维护的编译方式，并且在编译的时候会对源代码进行额外的修改。
+如果想要基于我们正式发布的软件进行开发，则最低限度也需要使用 `bsp` 来下载和配置代码。
+
+如果需要使用自定义的 `make` 命令来进行编译，请参照 [Prepare working tree](https://radxa-repo.github.io/bsp/dev_flow.html#prepare-working-tree) 部分来配置代码。
+:::
+
+## 参考
+
+- [bsp 官方文档](https://radxa-repo.github.io/bsp)
+- [U-Boot | Build U-Boot](https://u-boot.readthedocs.io/en/latest/build/index.html)
+- [U-Boot | Amlogic](https://docs.u-boot.org/en/latest/board/amlogic/)
+- [U-Boot | Rockchip](https://u-boot.readthedocs.io/en/latest/board/rockchip/)

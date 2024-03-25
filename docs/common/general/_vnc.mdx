@@ -1,0 +1,67 @@
+import { Section, Image } from "@site/src/utils/docs";
+
+- 安装 VNC 服务器
+
+1. 安装 TigerVNC Server 和 dbus-x11 依赖项
+
+```
+sudo apt-get update
+sudo apt-get install tigervnc-standalone-server
+sudo apt-get install dbus-x11
+```
+
+2. 安装后完成VNC服务器的初始配置，请使用vncserver命令来设置安全密码并创建初始配置文件：
+
+```
+vncserver
+```
+
+:::tip
+Would you like to enter a view-only password (y/n)? n 提示是否只是观看，建议选择no，输入n，这样远程就可以操作，而不是仅仅观看，可以自身实际情况选择
+:::
+
+3. 配置 VNC 服务器
+
+```
+vncserver -kill :*
+touch ~/.vnc/xstartup
+chmod +x ~/.vnc/xstartup
+```
+
+编辑 `~/.vnc/xstartup`，将下列的配置复制进去并保存
+
+```
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+unset XDG_RUNTIME_DIR
+/etc/X11/xinit/xinitrc
+[ -x /etc/vnc/xstartup  ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+#vncconfig -iconic &
+startkde &
+```
+
+4. 配置编辑好后，重新启动VNC服务器：
+
+```
+vncserver -localhost no
+```
+
+5. 查看 VNC 服务器
+
+```
+vncserver -list
+
+TigerVNC server sessions:
+
+X DISPLAY #     RFB PORT #      PROCESS ID      SERVER
+:1              5901            4029 (stale)    Xtigervnc
+```
+
+6. 使用 mobaxterm 连接远程桌面
+
+点击左上角的 `Session` 新建 VNC 连接，在 `Remote hostname of IP address` 处输入板子的 IP，Port为 `vncserver -list` 获取到的端口号
+
+![mobaxterm vnc ](/img/zero/zero3/mobaxterm-vnc.webp)

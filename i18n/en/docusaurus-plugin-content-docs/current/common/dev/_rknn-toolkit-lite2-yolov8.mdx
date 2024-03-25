@@ -1,0 +1,99 @@
+:::tip
+This document demonstrates how to perform edge device inference of YOLOv8 object detection model on RK3588. Please refer to [RKNN Installation](./rknn_install) for environment setup requirements.
+:::
+
+In this case we would use a pretrained yolov8n ONNX format model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as an example, we'll convert it for edge device inference target RK3588 and provide a complete example.
+
+Deploy YOLOv8 with RKNN involves two steps:
+
+- Model conversion from different frameworks to rknn format models using rknn-toolkit2 on the PC side.
+- Edge device inference with RKNN using the Python API of rknn-toolkit2-lite.
+
+### PC-side Model Conversion
+
+- Activate the rknn conda environment (if using conda).
+
+  ```bash
+  conda activate rknn
+  ```
+
+- Download the yolov8n.onnx model.
+
+  ```bash
+  cd rknn_model_zoo/examples/yolov8/model
+  # Download the pretrained yolov8n.onnx model
+  bash download_model.sh
+  ```
+
+  In case of network issues, you can download from [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support).
+
+- Convert it to yolov8n.rknn using rknn-toolkit2.
+
+  ```bash
+  cd rknn_model_zoo/examples/yolov8/python
+  python3 convert.py ../model/yolov8n.onnx rk3588
+  ```
+
+  Parameter interpretation:
+
+  `<onnx_model>`: Specify the path to the ONNX model.
+
+  `<TARGET_PLATFORM>`: Specify the name of the NPU platform. Refer to [here](rknn_install#introduction-to-rknn) for supported platforms.
+
+  `<dtype>(optional)`: Specify as `i8` or `fp`. `i8` is for int8 quantization, `fp` is for fp16 quantization. Default is `i8`.
+
+  `<output_rknn_path>(optional)`: Specify the path to save the RKNN model. By default, it is saved in the same directory as the ONNX model, with the file name `yolov8.rknn`.
+
+- Copy the yolov8n.rknn model to the edge device.
+
+### Inference YOLOv8 on the Board
+
+- Download rknn-model-zoo-rk3588 to get the yolov8 demo.
+
+  ```bash
+  sudo apt install rknn-model-zoo-rk3588
+  ```
+
+  If you are using the CLI version, you can access the rknn-model-zoo-rk3588 [deb package download link](https://github.com/radxa-pkg/rknn_model_zoo/releases/tag/1.6.0-1).
+
+- Copy the yolov8n.rknn model from the PC to the /usr/share/rknn_model_zoo/examples/yolov8/model directory on the edge device and run the yolov8.py program.
+
+  ```bash
+  cd /usr/share/rknn_model_zoo/examples/yolov8/python
+  sudo python3 yolov8.py --model_path ../model/yolov8n.rknn --img_save
+  ```
+
+  ```bash
+  $ sudo python3 yolov8.py --model_path ../model/yolov8n.rknn --img_save
+  import rknn failed,try to import rknnlite
+  --> Init runtime environment
+  I RKNN: [09:01:01.819] RKNN Runtime Information, librknnrt version: 1.6.0 (9a7b5d24c@2023-12-13T17:31:11)
+  I RKNN: [09:01:01.819] RKNN Driver Information, version: 0.8.2
+  W RKNN: [09:01:01.819] Current driver version: 0.8.2, recommend to upgrade the driver to the new version: >= 0.8.8
+  I RKNN: [09:01:01.819] RKNN Model Information, version: 6, toolkit version: 1.6.0+81f21f4d(compiler version: 1.6.0 (585b3edcf@2023-12-11T07:56:14)), target: RKNPU v2, target platform: rk3588, framework name: ONNX, framework layout: NCHW, model inference type: static_shape
+  W RKNN: [09:01:01.836] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
+  W Query dynamic range failed. Ret code: RKNN_ERR_MODEL_INVALID. (If it is a static shape RKNN model, please ignore the above warning message.)
+  done
+  Model-../model/yolov8n.rknn is rknn model, starting val
+  infer 1/1
+
+  IMG: bus.jpg
+  person @ (211 241 282 507) 0.872
+  person @ (109 235 225 536) 0.860
+  person @ (477 225 560 522) 0.856
+  person @ (79 327 116 513) 0.306
+  bus  @ (95 136 549 449) 0.860
+  Detection result save to ./result/bus.jpg
+  ```
+
+  Parameter interpretation:
+
+  `--model_path`: Specify the rknn model path.
+
+  `--img_folder`: Folder containing images for inference, default is ../model.
+
+  `--img_save`: Whether to save the inference result image to ./result, default is False.
+
+- All inference results are saved in ./result.
+
+![result0](/img/general-tutorial/rknn/result.webp)
