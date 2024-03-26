@@ -55,7 +55,11 @@ Pins 1-31 widened to 0.3mm, two locator pins widened to 0.7mm
 Except for the above mirrors, which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues, and are for evaluation purposes only.
 :::
 
-For more mirrors, please check: [ROCK 5B Release](https://github.com/radxa-build/rock-5b/releases/latest)
+For more images, please check:
+
+[ROCK 5B Release](https://github.com/radxa-build/rock-5b/releases/latest)
+
+[Third Part Images(Not include Android)](../other-os/)
 
 ## Quality Approvals
 

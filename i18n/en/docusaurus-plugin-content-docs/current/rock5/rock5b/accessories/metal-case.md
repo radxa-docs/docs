@@ -34,3 +34,5 @@ Radxa has designed a specially customized metal enclosure for the ROCK 5 Model B
 ![](/img/accessories/use-metal-case-4.webp)
 
 - Finally secure the bottom cover with screws.
+
+[** Buy Now **](https://radxa.com/products/accessories/rock5b-metal-case#buy)

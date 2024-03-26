@@ -57,3 +57,5 @@ mmcblk1boot1 179:64   0     4M  1 disk
 ```
 
 - 你可以用dd或fio命令测试读写速度，但前提是你要保护你的数据。
+
+[** 购买链接 **](https://radxa.com/products/accessories/m2-ekey-to-sata-board/#buy)

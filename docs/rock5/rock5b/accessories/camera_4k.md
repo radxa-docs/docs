@@ -44,3 +44,5 @@ gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-ra
 ```bash
 gst-launch-1.0 v4l2src num-buffers=512 device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/radxa/file.name.mp4
 ```
+
+[** 购买链接 **](https://radxa.com/products/accessories/camera4k#buy)

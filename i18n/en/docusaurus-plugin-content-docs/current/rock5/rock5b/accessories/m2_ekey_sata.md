@@ -57,3 +57,5 @@ mmcblk1boot1 179:64 0 4M 1 disk
 ```
 
 - You can test read and write speeds with the dd or fio commands, but only if you protect your data.
+
+[** Buy Now **](https://radxa.com/products/accessories/m2-ekey-to-sata-board/#buy)

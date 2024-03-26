@@ -23,3 +23,5 @@ radxa@rock-5b:~$ rsetup
 2. 在启用成功显示 `[*] Enable Radxa Display 8 HD` 后退出重启才能使配置生效。
 
 :::
+
+[** 购买链接 **](https://radxa.com/products/accessories/display-8hd#buy)

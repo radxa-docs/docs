@@ -122,3 +122,5 @@ root@rock-5b:~# bluetoothctl
 ```
 
 7. 现在您可以听音乐了。
+
+[** A8 模块购买链接 **](https://radxa.com/products/accessories/wireless-module-a8#buy)

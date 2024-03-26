@@ -55,7 +55,11 @@ L2203 L2205 L2300 L2301 L2303 改成 3225 封装的 RHP322512T-R24M
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
 :::
 
-更多镜像请查看：[ROCK 5B Release](https://github.com/radxa-build/rock-5b/releases/latest)
+更多镜像请查看：
+
+[ROCK 5B Release](https://github.com/radxa-build/rock-5b/releases/latest)
+
+[第三方镜像(不包括Android)](../other-os/)
 
 ## 质量认证
 
