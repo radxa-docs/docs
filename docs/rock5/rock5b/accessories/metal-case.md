@@ -34,3 +34,5 @@ Radxa 为 ROCK 5 Model B单板电脑设计了特别定制的金属外壳。 该�
 ![](/img/accessories/use-metal-case-4.webp)
 
 - 最后用螺丝固定底盖。
+
+[**购买链接**](https://radxa.com/products/accessories/rock5b-metal-case#buy)

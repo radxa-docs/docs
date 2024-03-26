@@ -129,3 +129,5 @@ If you want to use other speed gears, just change the numbers. If you want to tu
 ```
 echo 0 | sudo tee /sys/class/thermal/cooling_device1/cur_state
 ```
+
+[** Buy Now **](https://radxa.com/products/accessories/heatsink-4012#buy)
