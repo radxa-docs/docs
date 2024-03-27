@@ -44,7 +44,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## Image Download
 
-Please go to [Resource Download Summary](./download) to download the corresponding image file.
+Please go to [Resource Download Summary](./download) to download the corresponding image file.(**Official Images Recommended**)
 
 ## Install the system
 
@@ -58,6 +58,16 @@ Please go to [Resource Download Summary](./download) to download the correspondi
 :::tip
 The ROCK 5B supports USB Type-C PD 2.0 with 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using the [Radxa Power PD30W](../accessories/pd-30W).
 :::.
+
+## Login
+
+There are two default users for official system.
+
+1. username: radxa password: radxa
+
+2. username: rock password: rock
+
+More info please refer to [RadxaOS](../radxa-os)
 
 ## Reference Documentation
 

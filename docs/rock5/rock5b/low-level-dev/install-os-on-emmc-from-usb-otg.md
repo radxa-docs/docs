@@ -1,6 +1,5 @@
 ---
-sidebar_position: 1
-sidebar_class_name: hidden
+sidebar_position: 21
 ---
 
 # 安装系统到 EMMC
@@ -48,5 +47,15 @@ Output:Bus 001 Device 030: ID 2207:350b Fuzhou Rockchip Electronics Company
 :::tip
 ROCK 5B 支持 `5V/12V/20V` 供电。瑞莎推荐使用 [Radxa Power PD30W](../accessories/pd-30w)。
 :::
+
+## 登录系统
+
+官方镜像默认有两个账号：
+
+1. 用户名: radxa 密码: radxa
+
+2. 用户名: rock 密码: rock
+
+更多信息请参考 [RadxaOS](../radxa-os)
 
 ## 常见问题

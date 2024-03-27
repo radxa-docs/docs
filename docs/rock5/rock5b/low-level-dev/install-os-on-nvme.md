@@ -1,6 +1,5 @@
 ---
-sidebar_position: 5
-sidebar_class_name: hidden
+sidebar_position: 22
 ---
 
 import Etcher from '../../../common/general/\_etcher.mdx'

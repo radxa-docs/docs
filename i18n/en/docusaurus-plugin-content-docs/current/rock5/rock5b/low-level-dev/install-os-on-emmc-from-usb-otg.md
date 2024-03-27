@@ -1,6 +1,5 @@
 ---
-sidebar_position: 1
-sidebar_class_name: hidden
+sidebar_position: 21
 ---
 
 # Install the system to EMMC
@@ -48,5 +47,15 @@ Open RKDevTool and you will see that the device is in the Found One MASKROM Devi
 :::tip
 ROCK 5B supports `5V/12V/20V` power supply. Radxa recommends using [Radxa Power PD30W](../accessories/pd-30w).
 :::
+
+## Login
+
+There are two default users for official system.
+
+1. username: radxa password: radxa
+
+2. username: rock password: rock
+
+More info please refer to [RadxaOS](../radxa-os)
 
 ## Frequently Asked Questions
