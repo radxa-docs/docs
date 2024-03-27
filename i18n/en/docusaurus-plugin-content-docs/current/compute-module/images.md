@@ -46,9 +46,8 @@ Radxa CM5 IO: [test-build-5](https://github.com/radxa-build/radxa-cm5-io/release
 
 ## Radxa NX5
 
-### Official Images
-
-NX5 IO Image Address: [radxa-nx5-io_debian_bullseye_kde_b15.img.xz](https://github.com/radxa-build/radxa-nx5-io/releases/download/b15/radxa-nx5-io_debian_bullseye_kde_b15.img.xz)
+    Radxa NX5 IO Debian: [radxa-nx5-io_debian_bullseye_kde_b15.img.xz](https://github.com/radxa-build/radxa-nx5-io/releases/download/b15/radxa-nx5-io_debian_bullseye_kde_b15.img.xz)
+    Radxa NX5 IO Adroid: [radxa nx5 android12 rkr14](https://github.com/radxa/manifests/releases/download/radxa-nx5-android12-rkr14-20240326/Radxa-NX5-Android12-rkr14-20240326-update.zip)
 
 </TabItem>
 </Tabs>
