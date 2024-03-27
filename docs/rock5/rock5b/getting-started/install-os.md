@@ -44,7 +44,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## 镜像下载
 
-请到 [资源下载汇总](./download) 下载对应的镜像文件
+请到 [资源下载汇总](./download) 下载对应的镜像文件（**推荐使用官方镜像**）
 
 ## 安装系统
 
@@ -58,6 +58,16 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 :::tip
 ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](../accessories/pd-30w)。
 :::
+
+## 登录系统
+
+官方镜像默认有两个账号：
+
+1. 用户名: radxa 密码: radxa
+
+2. 用户名: rock 密码: rock
+
+更多信息请参考 [RadxaOS](../radxa-os)
 
 ## 参考文档
 
