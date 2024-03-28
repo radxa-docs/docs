@@ -392,6 +392,13 @@ sidebar_custom_props: { product_docs: [
                 url: "/compute-module/cm5/radxa-os/low-level-dev",
               },
               {
+                title_zh: "系统配置",
+                info_zh: "系统配置指南",
+                title_en: "System Configurations",
+                info_en: "System Configuration Guide",
+                url: "/compute-module/cm5/radxa-os",
+              },
+              {
                 title_zh: "相关认证信息",
                 info_zh: "CM5 认证文件",
                 title_en: "Certification Information",
@@ -403,7 +410,7 @@ sidebar_custom_props: { product_docs: [
                 info_zh: "支持多种镜像下载",
                 title_en: "Image Download",
                 info_en: "Support Multiple Images Download",
-                url: "/compute-module/images",
+                url: "/compute-module/images?model=Radxa+CM5",
               },
             ],
         },
