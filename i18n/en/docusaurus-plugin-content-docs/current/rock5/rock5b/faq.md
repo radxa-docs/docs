@@ -54,6 +54,18 @@ To troubleshoot if ROCK 5B is defective in the following steps:
 - you can manually add the HDMI resolution and framerate in the /boot/extlinux/extlinux.conf
 - just add video=1920x1080@60 to the append line (just change the resolution and framerate to a resolution your monitor supports)
 
+### Question 3: I flashed image on Emmc with RKDevTool successfully, but after powering on, the Led doesn't flash and there is no output on the screen.
+
+Confirm the cause:
+
+Remove the EMMC Module, MicroSD and NVME devices, and then connect the board and PC via USB cable, then see if the device enters the [Maskrom Mode](./low-level-dev/maskrom.md), if it is not in the Maskrom mode, the probability is due to the following reason:
+
+**you did not press the MaskRom button when you [install system to EMMC via USB ota](./low-level-dev/install-os-on-emmc-from-usb-otg.md), resulting in the system being flashed to the [SPI Flash](README.md), and when the system boots up, it reads the SPI information first, and then an error occurs and the system cannot boot up normally. **
+
+Solution:
+
+[Empty SPI Flash](./low-level-dev/erase-spi-from-usb-otg.md), then follow the steps again [Install system to EMMC via USB OTG](./low-level-dev/install-os-on-emmc-from-usb-otg.md)
+
 ## OS
 
 ### Question 1: Radxa APT public key is not available

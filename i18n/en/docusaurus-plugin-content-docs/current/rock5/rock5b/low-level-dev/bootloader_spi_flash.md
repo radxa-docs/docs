@@ -45,7 +45,7 @@ There are two ways to burn SPI
    ```
 
    - Download the latest version of the spi bootloader
-     The generic version is recommended for all but Armbian users, note that this img disables the u-boot serial console.
+     (The latest version below is recommended for all but Armbian users, note that this img disables the u-boot serial console)
 
    ```bash
    wget https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-g49da44e116d.img

@@ -54,6 +54,20 @@ ROCK 5B 支持将 USB PD 电源协商至更高的电压，如 9V、12V、15V、2
 - 您可以在 /boot/extlinux/extlinux.conf 中手动添加 HDMI 分辨率和帧速率
 - 只需在附加行中添加 video=1920x1080@60（只需将分辨率和帧频改为显示器支持的分辨率即可）
 
+### 问题三： 我通过RKDevTool工具烧录 Emmc 成功了，但是上电之后，Led不闪，屏幕无输出
+
+原因确认:
+
+去掉 EMMC Module, MicroSD 及 NVME 设备，然后通过 USB 线连接板子和PC，此时看设备是否进入 [Maskrom 状态](./low-level-dev/maskrom.md)，
+如果不是MaskRom状态，则大概率是下面的原因:
+
+**在 [通过USB烧录系统到EMMC](./low-level-dev/install-os-on-emmc-from-usb-otg.md) 的时候没有按照说明 按 Maskrom 按键，导致烧录系统到了
+[SPI Flash](./README.md)中, 而系统启动的时候，先读取SPI的信息，此时出现错误，无法正常启动。**
+
+解决办法：
+
+[清空 SPI Flash](./low-level-dev/erase-spi-from-usb-otg.md), 然后重新按步骤 [通过USB烧录系统到EMMC](./low-level-dev/install-os-on-emmc-from-usb-otg.md)
+
 ## 系统
 
 ### 问题一： Radxa APT 公钥不可用
