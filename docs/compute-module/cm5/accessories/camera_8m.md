@@ -17,7 +17,7 @@ Radxa Camera 8M、OKDO 5MP、RPI Camera V13、RPI Camera V2。
 radxa@radxa-cm5-io:~$ rsetup
 ```
 
-- 通过[设备树配置](../os-config/rsetup#overlays)来启用瑞莎 8M 摄像头的 Overlay。
+- 通过[设备树配置](../radxa-os/sys-config/rsetup#overlays)来启用瑞莎 8M 摄像头的 Overlay。
 
 :::caution [注意]
 

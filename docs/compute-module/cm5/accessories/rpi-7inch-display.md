@@ -16,7 +16,7 @@ Radxa CM5 IO LCD0 接口，使用反向15pin排线，兼容的5寸和7寸屏。
 radxa@radxa-cm5-io:~$ rsetup
 ```
 
-- 通过[设备树配置](../os-config/rsetup#overlays)来启用树莓派7寸屏的 Overlay。
+- 通过[设备树配置](../radxa-os/sys-config/rsetup#overlays)来启用树莓派7寸屏的 Overlay。
 
 :::caution [注意]
 

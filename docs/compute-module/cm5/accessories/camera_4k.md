@@ -14,7 +14,7 @@ sidebar_position: 4
 radxa@radxa-cm5-io:~$ rsetup
 ```
 
-- 通过[设备树配置](../os-config/rsetup#overlays)来启用瑞莎 4K 摄像头的 Overlay。
+- 通过[设备树配置](../radxa-os/sys-config/rsetup#overlays)来启用瑞莎 4K 摄像头的 Overlay。
 
 :::caution [注意]
 
