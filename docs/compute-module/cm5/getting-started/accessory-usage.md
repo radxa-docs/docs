@@ -80,4 +80,16 @@ Radxa-CM5-IO 带有一个 4-lane 的 DSI 接口和有一个 2-lane 的 DSI 接�
 4lane Radxa8寸屏使用请参见[屏幕使用教程](../accessories/8hd-display_use)  
 2lane 树莓派7寸屏使用请参见[屏幕使用教程](../accessories/rpi-7inch-display)
 
+## WIFI & BT 支持模块列表
+
+| NO. | Model                    | Chip        | WiFi          | BT  | WIFI Throughput                      | Remark |
+| --- | ------------------------ | ----------- | ------------- | --- | ------------------------------------ | ------ |
+| 1   | Radxa wireless A8        | RTL8852BE   | 2.4G&5G&WIFI6 | 5.0 | up:600 Mbits/sec down: 900 Mbits/sec |        |
+| 2   | Intel 0MHK36 (PCIE+USB)  | Intel 3165  | 2.4G&5G       | 4.2 | up:283 Mbits/sec down: 334 Mbits/sec |        |
+| 3   | Intel 7265NGW (PCIE+USB) | Intel 7265  | 2.4G&5G       | 4.2 | up:363 Mbits/sec down: 619 Mbits/sec |        |
+| 4   | Intel AX210 (PCIE+USB)   | Intel AX210 | WiFi 6        | 5.2 | up:859 Mbits/sec down: 813 Mbits/sec |        |
+
+- Radxa CM5 搭配 Radxa CM5 IO 板，没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
+  无线模块使用请参见[WIFI/BT教程](../accessories/wifi_bt_access.md)
+
 更多配件信息可参考 [配件列表](../accessories)

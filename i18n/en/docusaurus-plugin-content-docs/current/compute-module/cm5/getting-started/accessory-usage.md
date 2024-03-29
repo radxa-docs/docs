@@ -80,4 +80,16 @@ The Radxa-CM5-IO comes with a 4-lane DSI interface and has a 2-lane DSI interfac
 For 4lane Radxa 8" screen use see [Screen Usage](../accessories/8hd-display_use)  
 For 2lane Raspberry Pi 7 inch screen use please refer to [Screen Usage](../accessories/rpi-7inch-display)
 
+## WIFI & BT Support Module List
+
+| NO. | Model                    | Chip        | WiFi          | BT  | WIFI Throughput                      | Remark |
+| --- | ------------------------ | ----------- | ------------- | --- | ------------------------------------ | ------ |
+| 1   | Radxa wireless A8        | RTL8852BE   | 2.4G&5G&WIFI6 | 5.0 | up:600 Mbits/sec down: 900 Mbits/sec |        |
+| 2   | Intel 0MHK36 (PCIE+USB)  | Intel 3165  | 2.4G&5G       | 4.2 | up:283 Mbits/sec down: 334 Mbits/sec |        |
+| 3   | Intel 7265NGW (PCIE+USB) | Intel 7265  | 2.4G&5G       | 4.2 | up:363 Mbits/sec down: 619 Mbits/sec |        |
+| 4   | Intel AX210 (PCIE+USB)   | Intel AX210 | WiFi 6        | 5.2 | up:859 Mbits/sec down: 813 Mbits/sec |        |
+
+- Radxa CM5 with Radxa CM5 IO board does not have an on-board WiFi/BT module and requires an external module. The above are supported and tested WITI/BT cards.
+  For wireless module usage, please refer to [WIFI/BT Usage](../accessories/wifi_bt_access.md)
+
 For more information on accessories see [Accessories List](../accessories)
