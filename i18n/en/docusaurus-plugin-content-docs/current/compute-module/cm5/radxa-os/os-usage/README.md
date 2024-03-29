@@ -168,13 +168,3 @@ X DISPLAY #     RFB PORT #      PROCESS ID      SERVER
 Click `Session` in the upper left corner to create a new VNC connection, enter the board's IP in the `Remote hostname of IP address` field, and the port number obtained by `vncserver -list`.
 
 ![mobaxterm vnc ](/img/zero/zero3/mobaxterm-vnc.webp)
-
-## Audio and video usage
-
-## Chat video use
-
-## Game
-
-## Office
-
-## Android In Container

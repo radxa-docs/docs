@@ -15,7 +15,7 @@ sidebar_position: 3
 radxa@rock-5b:~$ rsetup
 ```
 
-- Pass the [device tree configuration] (../os-config/rsetup#overlays) to enable Overlay for the Radxa 8" touchscreen.
+- Pass the [device tree configuration](../os-config/rsetup#overlays) to enable Overlay for the Radxa 8" touchscreen.
 
 :::caution [Caution]
 

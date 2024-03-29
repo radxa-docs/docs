@@ -33,10 +33,6 @@ The Radxa CM5 IO is equipped with a full-size HDMI connector. It is recommended 
 
 Used for `fastboot`/`adb` command and maskrom mode communication.
 
-### USB to TTL serial cable.
-
-Used for [Serial Debugging](../radxa-os/low-level-dev/serial).
-
 ### USB Mouse/Keyboard
 
 Plugs in standard mouse and keyboard peripherals for system debugging and operation.

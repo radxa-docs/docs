@@ -78,7 +78,7 @@ Radxa CM5 IO provides a 40pin GPIO socket, which is compatible with most sensor 
 **_Tips:_ The actual compatibility is subject to usage. **
 
 <Tabs queryString="revision">
-<TabItem value="x2_2" label="x2.2">
+<TabItem value="v2_21" label="v2.21">
 
 <div className='gpio_style'>
 
@@ -107,7 +107,7 @@ Radxa CM5 IO provides a 40pin GPIO socket, which is compatible with most sensor 
 
 </div>
 
-### Additional information about the 40-pin docking station for the X2.2 hardware version.
+### Additional information about the 40-pin docking station for the v2.21 hardware version.
 
 - The pins marked in orange are used for debug console.
 - PWM: x7, PWM6 / PWM7 / PWM10 / PWM11 / PWM13 / PWM14 / PWM15
