@@ -15,7 +15,7 @@ sidebar_position: 2
 | 5   | Radxa wireless A8                                   | RTL8852BE   | 2.4G&5G&WIFI6 | 5.0 | up:600Mbits/sec down:900 Mbits/sec    |                                                     |
 | 6   | Intel 0MHK36 (PCIE+USB)                             | Intel 3165  | 2.4G&5G       | 4.2 | up:283 Mbits/sec down: 334 Mbits/sec  |                                                     |
 | 7   | Intel 7265NGW (PCIE+USB)                            | Intel 7265  | 2.4G&5G       | 4.2 | up:363 Mbits/sec down: 619 Mbits/sec  |                                                     |
-| 8   | Intel AX210 (PCIE+USB)                              | Intel AX210 | WiFi 6        | 5.2 | up: 859 Mbits/sec down: 813 Mbits/sec | Only WIFI is supported currently, BT is not working |
+| 8   | Intel AX210 (PCIE+USB)                              | Intel AX210 | WiFi 6        | 5.2 | up: 859 Mbits/sec down: 813 Mbits/sec |                                                     |
 
 - ROCK 5B 没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
 - 这里演示的 M.2 无线模块是： Radxa 无线模块 A8。
