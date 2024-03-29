@@ -1,5 +1,9 @@
 ---
-sidebar_position: 5
+sidebar_position: 9
 ---
 
-# Accessories
+# Accessory List
+
+Introduces information about supported accessories.
+
+<DocCardList />

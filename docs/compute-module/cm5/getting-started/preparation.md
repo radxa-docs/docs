@@ -33,16 +33,6 @@ Radxa CM5 IO 配备了全尺寸 HDMI 接口。建议使用具有 HDMI 功能的�
 
 用于 `fastboot`/`adb` 命令和 maskrom 模式通信。
 
-### USB 转 TTL 串口线:
-
-用于[串口调试](../radxa-os/low-level-dev/serial)。
-
 ### USB 鼠标/键盘
 
 可插入标准的鼠标键盘外设，用于系统调试和操作
-
-## 常见问题
-
-## 注意事项
-
-## 参考文档

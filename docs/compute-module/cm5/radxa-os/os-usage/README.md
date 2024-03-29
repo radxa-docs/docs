@@ -162,13 +162,3 @@ X DISPLAY #     RFB PORT #      PROCESS ID      SERVER
 点击左上角的 `Session` 新建 VNC 连接，在 `Remote hostname of IP address` 处输入板子的 IP，Port为 `vncserver -list` 获取到的端口号
 
 ![mobaxterm vnc ](/img/zero/zero3/mobaxterm-vnc.webp)
-
-## 音视频
-
-## 聊天视频
-
-## 游戏
-
-## 办公
-
-## Android In Container
