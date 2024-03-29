@@ -40,9 +40,3 @@ Used for [Serial Debugging](../radxa-os/low-level-dev/serial).
 ### USB Mouse/Keyboard
 
 Plugs in standard mouse and keyboard peripherals for system debugging and operation.
-
-### Frequently asked questions
-
-### Notes
-
-### Documentation
