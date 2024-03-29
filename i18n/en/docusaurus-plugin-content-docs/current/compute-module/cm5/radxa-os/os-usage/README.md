@@ -17,10 +17,6 @@ User name：radxa/rock
 Password： radxa/rock
 ```
 
-## Serial Debug
-
-<Serial platform="rk" model="nx5"/>
-
 ## Setting Network
 
 ### Connect WiFi

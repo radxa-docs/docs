@@ -17,10 +17,6 @@ Radxa ROCK 系列默认添加的用户名和密码为：
 密码：  radxa/rock
 ```
 
-## 串口登录
-
-<Serial platform="rk" model="nx5"/>
-
 ## 设置网络
 
 ### 连接WiFi

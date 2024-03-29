@@ -19,3 +19,13 @@ import Installandroid from "../android/install-os.mdx";
 
   </TabItem>
 </Tabs>
+
+## Login
+
+There are two default users for official system.
+
+1. username: radxa password: radxa
+
+2. username: rock password: rock
+
+More info please refer to [RadxaOS](../radxa-os)
