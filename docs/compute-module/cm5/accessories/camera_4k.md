@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Radxa Camera 4K
 
-![Camera-4K 安装](/img/cm5/cm5io-4k-camera-connected.webp)  
+![Camera-4K 安装](/img/cm5/cm5io-4k-camera-connected.webp)
 
 - 准备好 Radxa Camera 4K，通过 FPC 线接上 Radxa CM5 IO板Camera 1接口。
 

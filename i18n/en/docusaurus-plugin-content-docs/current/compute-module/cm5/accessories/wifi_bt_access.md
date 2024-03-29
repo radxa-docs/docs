@@ -6,12 +6,12 @@ sidebar_position: 2
 
 ## WIFI & BT Supported Modules List
 
-| NO. | Model | Chip | WiFi | BT | WIFI Throughput | Remark |
-| --- | --------------------------------------------------- | ----------- | ------------- | --- | ------------------------------------- | ----- ---------------------------------------------- |
-| 1 | Radxa wireless A8 | RTL8852BE | 2.4G&5G&WIFI6 | 5.0 | up:600 Mbits/sec down: 900 Mbits/sec | |
-| 2 | Intel 0MHK36 (PCIE+USB) | Intel 3165 | 2.4G&5G | 4.2 | up:283 Mbits/sec down: 334 Mbits/sec | |
-| 3 | Intel 7265NGW (PCIE+USB) | Intel 7265 | 2.4G&5G | 4.2 | up:363 Mbits/sec down: 619 Mbits/sec | | 4 | Intel AXA (PCIE+USB)
-| 4 | Intel AX210 (PCIE+USB) | Intel AX210 | WiFi 6 | 5.2 | up:859 Mbits/sec down: 813 Mbits/sec | |
+| NO. | Model                    | Chip        | WiFi          | BT  | WIFI Throughput                      | Remark |
+| --- | ------------------------ | ----------- | ------------- | --- | ------------------------------------ | ------ | --- | -------------------- |
+| 1   | Radxa wireless A8        | RTL8852BE   | 2.4G&5G&WIFI6 | 5.0 | up:600 Mbits/sec down: 900 Mbits/sec |        |
+| 2   | Intel 0MHK36 (PCIE+USB)  | Intel 3165  | 2.4G&5G       | 4.2 | up:283 Mbits/sec down: 334 Mbits/sec |        |
+| 3   | Intel 7265NGW (PCIE+USB) | Intel 7265  | 2.4G&5G       | 4.2 | up:363 Mbits/sec down: 619 Mbits/sec |        | 4   | Intel AXA (PCIE+USB) |
+| 4   | Intel AX210 (PCIE+USB)   | Intel AX210 | WiFi 6        | 5.2 | up:859 Mbits/sec down: 813 Mbits/sec |        |
 
 - Radxa CM5 with Radxa CM5 IO board, there is no on-board WiFi/BT module, external module is required. The above are supported and tested WITI/BT cards.
 - The M.2 wireless module demonstrated here is: Radxa Wireless Module A8.

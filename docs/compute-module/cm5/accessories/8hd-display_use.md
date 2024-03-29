@@ -3,7 +3,8 @@ sidebar_position: 3
 ---
 
 # Radxa Display 8 HD
-准备好 Radxa Display 8HD、Radxa Display 10HD  或者 Radxa Display 10FHD，通过 FPC 线接上 Radxa CM5 IO板 LCD1接口。
+
+准备好 Radxa Display 8HD、Radxa Display 10HD 或者 Radxa Display 10FHD，通过 FPC 线接上 Radxa CM5 IO板 LCD1接口。
 
 ## 以连接radxd 8寸屏为例
 
