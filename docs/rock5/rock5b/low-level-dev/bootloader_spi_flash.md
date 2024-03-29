@@ -45,7 +45,7 @@ ROCK 5B 上有一个 SPI Flash（SPI 闪存），它包含用于备份引导的b
    ```
 
    - 下载最新版本 spi bootloader
-     推荐除 Armbian 用户之外的用户使用通用版本，注意这个 img 已经关闭 u-boot 串行控制台
+     (推荐除 Armbian 用户之外的用户使用下面这个通用版本，注意这个 img 已经关闭 u-boot 串行控制台)
 
    ```bash
    wget https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-g49da44e116d.img
