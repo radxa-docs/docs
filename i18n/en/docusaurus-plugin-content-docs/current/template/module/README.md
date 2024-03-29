@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Radxa Module
 
-<!-- Module 更改为具体的产品名 -->
+<!-- Module Change to specific product name -->
 
 ## Product Description
 

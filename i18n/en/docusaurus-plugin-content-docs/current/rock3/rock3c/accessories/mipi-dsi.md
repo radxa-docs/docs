@@ -50,7 +50,7 @@ To use the Raspberry Pi 7-inch screen, you only need to connect `5v` and `GND`. 
 
 <img src="../../../img/rock3/3c/rock3c-rpi-7hd-connect.webp" width = "700" alt="rock 3c dsi connect"/>
 
-使用[`rsetup`](/rock3/rock3c/os-config/rsetup)开启 `Enable Raspberry Pi 7-inch Touchscreen` overlay
+Use[`rsetup`](/rock3/rock3c/os-config/rsetup)to `Enable Raspberry Pi 7-inch Touchscreen` overlay
 
 ## FAQ
 

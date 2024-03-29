@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Radxa SBC
 
-<!-- SBC 产品型号 -->
+<!-- SBC Product Model -->
 
 ## Product Description
 

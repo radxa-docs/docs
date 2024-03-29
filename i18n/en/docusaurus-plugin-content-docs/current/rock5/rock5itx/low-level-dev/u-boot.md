@@ -44,7 +44,7 @@ U-Boot needs to be flashed onto the boot media after the installation is complet
 
 ```
 cd /usr/lib/u-boot/rock-5-itx/
-sudo ./setup.sh update_bootloader /dev/mmcblk1   #/dev/mmcblk1 为你当前使用的启动介质，需要根据实际使用的设备来选择
+sudo ./setup.sh update_bootloader /dev/mmcblk1   #/dev/mmcblk1 is the boot media you are currently using, you need to select it according to the actual device you are using
 sudo reboot
 ```
 

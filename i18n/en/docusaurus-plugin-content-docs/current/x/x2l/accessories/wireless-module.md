@@ -26,7 +26,7 @@ sidebar_position: 10
 
 ## AX210 Driver Installation
 
-- Installer Download [AX210 驱动](https://dl.radxa.com/x/x2l/accessories/ax210_module.zip)
+- Installer Download [AX210 driver](https://dl.radxa.com/x/x2l/accessories/ax210_module.zip)
 
 - Copy the installation package, AX210 Driver, into the Radxa X2L.
 

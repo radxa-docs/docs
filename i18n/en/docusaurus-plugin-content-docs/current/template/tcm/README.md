@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Radxa TCM
 
-<!-- TCM 产品型号 -->
+<!-- TCM Product Model -->
 
 ## Product Description
 
