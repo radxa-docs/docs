@@ -3,11 +3,13 @@ sidebar_position: 5
 ---
 
 # Radxa Camera 8M
-Radxa CM5 IO Camera0 interface, using reverse 15pin cable, compatible cameras are:   
+
+Radxa CM5 IO Camera0 interface, using reverse 15pin cable, compatible cameras are:  
 Radxa Camera 8M, OKDO 5MP, RPI Camera V13, RPI Camera V2.
 
 ## Take connecting Radxa Camera 8M as an example:
-![Camera-8M installation](/img/cm5/cm5io-8m-camera-connected.webp)  
+
+![Camera-8M installation](/img/cm5/cm5io-8m-camera-connected.webp)
 
 - Prepare the Radxa Camera 8M and connect it to the Camera 0 connector of the Radxa CM5 IO board via the FPC cable.
 
@@ -40,7 +42,8 @@ Take a picture with the following command.
 gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=file.name.jpg
 ```
 
-Take a video with the following command: 
+Take a video with the following command:
+
 ```bash
 gst-launch-1.0 v4l2src num-buffers=512 device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/radxa/file.name.mp4
 ```

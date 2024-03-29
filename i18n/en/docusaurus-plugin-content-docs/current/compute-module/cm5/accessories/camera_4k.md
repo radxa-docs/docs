@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Radxa Camera 4K
 
-![Camera-4K installation](/img/cm5/cm5io-4k-camera-connected.webp)  
+![Camera-4K installation](/img/cm5/cm5io-4k-camera-connected.webp)
 
 - Prepare the Radxa Camera 4K and connect it to the Camera 1 connector of the Radxa CM5 IO board via the FPC cable.
 
@@ -37,7 +37,8 @@ Take a picture with the following command.
 gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=file.name.jpg
 ```
 
-Take a video with the following command: 
+Take a video with the following command:
+
 ```bash
 gst-launch-1.0 v4l2src num-buffers=512 device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/radxa/file.name.mp4
 ```
