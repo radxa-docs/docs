@@ -18,7 +18,7 @@ Please [Resource Download Summary](/rock5/rock5itx/getting-started/download.md) 
 1. Remove the microSD card and power cable
 2. Press the Maskrom button
 3. Connect the USB of PC host via USB-A to USB-C cable, If the PC detects a device, it enters into Maskrom mode
-   ![Maskrom 按钮](/img/rock5itx/rock5itx-maskrom.webp)
+   ![Maskrom button](/img/rock5itx/rock5itx-maskrom.webp)
 
 The OTG connector on the Radxa ROCK 5 ITX is TYPE-C, which allows communication between the host computer and the motherboard entering the Maskrom via a USB-C to USB-A cable.
 

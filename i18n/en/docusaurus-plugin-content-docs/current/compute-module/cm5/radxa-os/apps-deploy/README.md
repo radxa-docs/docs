@@ -4,6 +4,6 @@ sidebar_position: 4
 
 # Application Deployment
 
-主要介绍类似 Samba, Docker, PVE, OMV, LAMP, Cheese, 远程控制面板等常见应用的配置及使用
+Mainly introduces the configuration and use of common applications such as Samba, Docker, PVE, OMV, LAMP, Cheese, remote control panel and so on.
 
 <DocCardList />
