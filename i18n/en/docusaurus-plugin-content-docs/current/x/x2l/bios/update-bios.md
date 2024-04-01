@@ -8,7 +8,7 @@ sidebar_position: 10
 
 **Radxa X2L BIOS**
 
-- [Radxa X2L BIOS Install](https://dl.radxa.com/x/x2l/radxa_x2l_v0013.zip)
+- [Radxa X2L BIOS Install](https://dl.radxa.com/x/x2l/radxa_x2l_v00014.zip)
 
 ## Preparation for the Update
 
