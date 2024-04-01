@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 硬件接口说明
+# Hardware interface description
 
 ## Interfaces Overview
 
@@ -23,15 +23,15 @@ This interface can be used to connect peripherals such as keyboards, mice, and U
 
 #### GPIO voltage
 
-| GPIO        | Voltage | Max voltage |
-| ----------- | ------- | ----------- |
-| 所有的 GPIO | 3.3V    | 3.3V        |
+| GPIO     | Voltage | Max voltage |
+| -------- | ------- | ----------- |
+| All GPIO | 3.3V    | 3.3V        |
 
 #### GPIO Interface
 
 The ZERO 2 PRO provides a 40 pin GPIO socket that is compatible with most SBC accessories on the market.
 
-**Hint: Actual compatibility is subject to usage. \*\*\*\***
+**Hint: Actual compatibility is subject to usage.**
 
 <div className='gpio_style'>
 
