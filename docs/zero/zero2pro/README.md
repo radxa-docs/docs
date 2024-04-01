@@ -25,7 +25,7 @@ sidebar_position: 40
 
 ### 芯片框图
 
-![A311D block diagram](/img/zero/zero2pro/A311D-block-digram.png)
+![A311D block diagram](/img/zero/zero2pro/A311D-block-digram.webp)
 
 ### 特性
 
