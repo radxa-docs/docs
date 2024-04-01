@@ -164,7 +164,7 @@ jobs:
     steps:
       - name: Setup Pages
         id: setup-pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
         continue-on-error: true
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
