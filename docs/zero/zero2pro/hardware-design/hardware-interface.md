@@ -35,13 +35,6 @@ ZERO 2 PRO 提供了一个40 pin 针脚的 GPIO 座子，与市场上大多数�
 
 <div className='gpio_style'>
 
-:::caution
-根据硬件版本的不同，引脚 35 和 38 其中一个引脚连接到了电源 LED，而不是连接到 40 引脚针座上。如果您的设计使用了这些引脚，请在购买前确认硬件版本。  
-GPIOAO_8 和 GPIOAO_10 在 v1.51 及更高的硬件版本中可用。  
-GPIOA_14 和 GPIOA_15 连接到了上拉电阻和 USB-C 控制器，因此不能用于一般 GPIO。  
-引脚 22 (GPIOC_7) 和引脚 36 (GPIOH_8) 是开漏引脚。这意味着在用于输入时，它们需要连接到 GND 或 VCC（浮动状态未定义）；在用于输入时，它们需要外部上拉。除此之外，GPIOH_8 采用 5V 逻辑电平。
-:::
-
 |  Function5  |   Function4   |   Function3   |   Function2   | Function1  |               Pin#               |              Pin#               | Function1  |                  Function2                  |   Function3   |   Function4   |  Function5  |
 | :---------: | :-----------: | :-----------: | :-----------: | :--------: | :------------------------------: | :-----------------------------: | :--------: | :-----------------------------------------: | :-----------: | :-----------: | :---------: |
 |             |               |               |               |   +3.3V    | <div className='yellow'>1</div>  |  <div className='red'>2</div>   |   +5.0V    |                                             |               |               |             |
@@ -111,7 +104,7 @@ GPIOA_14 和 GPIOA_15 连接到了上拉电阻和 USB-C 控制器，因此不能
 |  38 |    VCC_LEDA   |
 |  39 |    VCC_LEDA   |
 
-## MIPI DSI
+## MIPI CSI
 
 | PIN |     PIN定义    |
 | :-: | :------------: |
@@ -165,6 +158,7 @@ ZERO 2 PRO 板载一个 Wi-Fi 5 (802.11 b/g/n/ac) & BT 5.0 with BLE 无线模块
 用于 MicroSD 卡启动或数据存储。
 
 ## Power 按钮
+
 用于开关机
 
 ## Maskrom 按钮
