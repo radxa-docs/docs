@@ -47,8 +47,20 @@ cd bsp
 
 After finishing the bsp environment configuration, you need to compile U-Boot once before pulling U-Boot code from the repository.  
 Running `. /bsp` will show all the parameters and their explanations, and the command `bsp [options] <linux|u-boot> <profile> [product]` can be found from the prompt.  
-Take Radxa ZERO 3 as an example, flash the official image, wait for the system to run normally, and then execute `sudo apt list --installed | grep u-boot` on the development board to get the U-Boot package name `u-boot-latest`.  
-Then fill in the `profile` parameter of the bsp command with the U-Boot package name suffix `latest` e.g. `. /bsp u-boot latest radxa-zero3` to build U-Boot.  
+In the case of the Radxa ZERO 3, the U-Boot profile is `latest`. Here are the profiles for other products:
+
+|      models      |  profile |
+| :--------------: | :------: |
+|   Radxa ROCK 5A  |  rknext  |
+|   Radxa ROCK 5B  |  rknext  |
+|   Radxa ROCK 5C  |  rknext  |
+| Radxa ROCK 5 ITX |  rknext  |
+|   Radxa ROCK 3A  |  latest  |
+|   Radxa ROCK 3C  |  latest  |
+| Radxa CM3 series |  latest  |
+|  Radxa ROCK PI S |  latest  |
+
+Then put the product profile `latest` into the `profile` parameter of the bsp command, e.g. `./bsp u-boot latest radxa-zero3` to build U-Boot.  
 The path to the U-Boot source code is located at `.src/u-boot` in the bsp directory. You can build U-Boot again after modifying the U-Boot source code:
 
 ```

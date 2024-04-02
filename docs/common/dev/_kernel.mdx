@@ -47,8 +47,20 @@ cd bsp
 
 完成 bsp 环境配置后，需要先编译一次内核才会从仓库拉取内核代码。  
 直接运行 `./bsp` 会显示所有参数及其解释，根据提示可知命令 `bsp [options] <linux|u-boot> <profile> [product]`。  
-以 Radxa ZERO 3 为例，烧录官方镜像，等待系统正常运行后，在开发板上执行 `uname -r` 获取内核名称为 `5.10.160-28-rk356x`。  
-然后将内核名称后缀 `rk356x` 填入 bsp 命令的 `profile` 参数例如：`./bsp linux rk356x`，即可构建内核。  
+以 Radxa ZERO 3 为例，linux profile 为 `rk356x`。以下是其他产品的 profile：
+
+|       型号       |  profile |
+| :--------------: | :------: |
+|   Radxa ROCK 5A  | rockchip |
+|   Radxa ROCK 5B  | rockchip |
+|   Radxa ROCK 5C  | rockchip |
+| Radxa ROCK 5 ITX | rockchip |
+|   Radxa ROCK 3A  |  rk356x  |
+|   Radxa ROCK 3C  |  rk356x  |
+|  Radxa CM3 系列  |  rk356x  |
+|  Radxa ROCK PI S |  stable  |
+
+然后将产品对应 profile `rk356x` 填入 bsp 命令的 `profile` 参数例如：`./bsp linux rk356x`，即可构建内核。  
 内核源码的路径位于 bsp 目录下的 `.src/linux`，在修改内核源码后，可再次构建内核：
 
 ```
