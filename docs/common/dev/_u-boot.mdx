@@ -47,8 +47,20 @@ cd bsp
 
 完成 bsp 环境配置后，需要先编译一次 U-Boot 才会从仓库拉取 U-Boot 代码。  
 直接运行 `./bsp` 会显示所有参数及其解释，根据提示可知命令 `bsp [options] <linux|u-boot> <profile> [product]`。  
-以 Radxa ZERO 3 为例，烧录官方镜像，等待系统正常运行后，在开发板上执行 `sudo apt list --installed | grep u-boot` 获取 U-Boot 包名为 `u-boot-latest`。  
-然后将 U-Boot 包名后缀 `latest` 填入 bsp 命令的 `profile` 参数例如：`./bsp u-boot latest radxa-zero3`，即可构建 U-Boot。  
+以 Radxa ZERO 3 为例，U-Boot profile 为 `latest`。以下是其他产品的 profile：
+
+|       型号       | profile |
+| :--------------: | :-----: |
+|  Radxa ROCK 5A   | rknext  |
+|  Radxa ROCK 5B   | rknext  |
+|  Radxa ROCK 5C   | rknext  |
+| Radxa ROCK 5 ITX | rknext  |
+|  Radxa ROCK 3A   | latest  |
+|  Radxa ROCK 3C   | latest  |
+|  Radxa CM3 系列  | latest  |
+| Radxa ROCK PI S  | latest  |
+
+然后将产品对应 profile `latest` 填入 bsp 命令的 `profile` 参数例如：`./bsp u-boot latest radxa-zero3`，即可构建 U-Boot。  
 U-Boot 源码的路径位于 bsp 目录下的 `.src/u-boot`，在修改 U-Boot 源码后，可再次构建 U-Boot：
 
 ```
