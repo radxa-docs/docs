@@ -6,4 +6,4 @@ sidebar_position: 9
 
 Using accessories with ROCK 5C.
 
-<DocCardList />
+<!-- <DocCardList /> -->

@@ -41,4 +41,4 @@ If you have purchased a Radxa X-Series SBC with eMMC, you can manually flash the
 
 ### [ROOBI OS User Guide](https://palmshell.feishu.cn/wiki/NVJmwuCpsikcREkV3OfcWGbnnLd)
 
-<DocCardList />
+<!-- <DocCardList /> -->

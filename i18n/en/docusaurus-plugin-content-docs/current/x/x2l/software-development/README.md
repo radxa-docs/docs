@@ -5,4 +5,4 @@ sidebar_position: 60
 slug: /x/x2l/software-development
 ---
 
-<DocCardList />
+<!-- <DocCardList /> -->

@@ -7,4 +7,4 @@ slug: /rock5/alt-os
 
 Many other OSes already supports ROCK 5 family
 
-<DocCardList />
+<!-- <DocCardList /> -->

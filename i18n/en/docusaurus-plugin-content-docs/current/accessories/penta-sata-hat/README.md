@@ -3,4 +3,4 @@
 
 # Radxa Penta SATA HAT
 
-<DocCardList />
+<!-- <DocCardList /> -->

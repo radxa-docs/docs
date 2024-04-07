@@ -6,4 +6,4 @@ sidebar_position: 7
 
 Introduces how to build and pack uboot, kernel, debian os and so on.
 
-<DocCardList />
+<!-- <DocCardList /> -->

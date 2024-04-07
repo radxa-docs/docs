@@ -6,4 +6,4 @@ sidebar_position: 10
 
 Start with your ROCK 4C+ from here.
 
-<DocCardList />
+<!-- <DocCardList /> -->

@@ -5,4 +5,4 @@ sidebar_class_name: hidden
 
 # Template
 
-<DocCardList />
+<!-- <DocCardList /> -->

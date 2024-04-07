@@ -6,4 +6,4 @@ sidebar_position: 3
 
 Introduces how to use tools (such as rsetup) or command line to use some devices or functions.
 
-<DocCardList />
+<!-- <DocCardList /> -->

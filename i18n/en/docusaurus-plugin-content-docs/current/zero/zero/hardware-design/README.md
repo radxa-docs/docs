@@ -6,4 +6,4 @@ sidebar_position: 35
 
 Introduces hardware information, such as hardware interfaces, supported accessories, etc.
 
-<DocCardList />
+<!-- <DocCardList /> -->

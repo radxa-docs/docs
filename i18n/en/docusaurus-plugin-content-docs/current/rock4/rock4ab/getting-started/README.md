@@ -6,4 +6,4 @@ sidebar_position: 10
 
 Start your ROCK 4A/4B.
 
-<DocCardList />
+<!-- <DocCardList /> -->

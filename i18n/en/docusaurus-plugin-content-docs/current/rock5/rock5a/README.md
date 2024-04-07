@@ -6,4 +6,4 @@ sidebar_position: 10
 
 A credit card size computer with 8K + 4K dual display
 
-<DocCardList />
+<!-- <DocCardList /> -->
