@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+displayed_sidebar: home
 ---
 
 # 关于

@@ -1,7 +1,7 @@
 ---
 label: "NIO 12L"
 description: "瑞莎 NIO 12L 单板机"
-sidebar_position: 1
+sidebar_position: 2
 slug: /nio/12l
 ---
 
@@ -25,8 +25,8 @@ NIO 12L 的设计理念在于结合高性能处理能力与低能耗优势，使
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 片上系统   | 联发科 MT8395 (Genio 1200)                                                                                                                          |
 | 中央处理器 | 四大核 Cortex-A78 2.2Ghz + 四小核 Cortex-A55 2.0Ghz                                                                                                 |
-| 图形处理器 | Arm Mali™-G57 MC5 3D Graphics Accelerator (GPU) with Vulkan® 1.1, OpenGL ES 3.2 and OpenCL™ 2.2                                                  |
-| AI 处理器  | Dual-core AI Processor Unit(APU) Cadence® Tensilica® VP6 processor with AI Accelerator (AIA)                                                      |
+| 图形处理器 | Arm Mali™-G57 MC5 3D Graphics Accelerator (GPU) with Vulkan® 1.1, OpenGL ES 3.2 and OpenCL™ 2.2                                                     |
+| AI 处理器  | Dual-core AI Processor Unit(APU) Cadence® Tensilica® VP6 processor with AI Accelerator (AIA)                                                        |
 | 内存       | 4 / 8 /16 GB LPDDR4X 4266MT/s                                                                                                                       |
 | 存储       | 板载 128GB / 256GB / 512GB UFS 2.0 <br/> 一个 microSD 存储卡卡槽，支持高速模式 <br/> 一个板载 eMMC 预留，默认不焊                                   |
 | 显示       | 一路 HDMI 2.0b 输出最高分辨率4KP60 <br/> 一路 TYPE-C DP 1.4 输出最高分辨率: 4KP60 <br/> 一路 MIPI LCD 四通道显示输出 <br/> 最多支持任意两屏同时工作 |

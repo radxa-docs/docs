@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+slug: /rock5
 ---
 
 # ROCK 5 系列

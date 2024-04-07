@@ -7,4 +7,4 @@ slug: /compliance/accessories-compliance
 
 Radxa Accessories compliance
 
-<DocCardList />
+<!-- <DocCardList /> -->

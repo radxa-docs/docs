@@ -1,7 +1,7 @@
 ---
 label: "X Family"
 description: "X Family"
-sidebar_position: 100
+sidebar_position: 1
 slug: /x
 ---
 
@@ -15,4 +15,4 @@ But the true charm of the Radxa X series lies in its versatility. With GPIO expa
 
 Experience true computing freedom and choose the Radxa X series - your ideal single board computing partner.
 
-<DocCardList />
+<!-- <DocCardList /> -->
