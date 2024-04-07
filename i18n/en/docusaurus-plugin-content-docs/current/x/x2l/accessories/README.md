@@ -28,4 +28,4 @@ slug: /x/x2l/accessories
 
 ## Tutorial Catalog
 
-<DocCardList />
+<!-- <DocCardList /> -->

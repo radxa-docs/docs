@@ -6,4 +6,4 @@ sidebar_position: 1
 
 Start with your ROCK 5C from here.
 
-<DocCardList />
+<!-- <DocCardList /> -->

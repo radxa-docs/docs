@@ -7,4 +7,4 @@ slug: /rock4/alt-os
 
 Many other OSes already supports ROCK 4 family
 
-<DocCardList />
+<!-- <DocCardList /> -->

@@ -6,4 +6,4 @@ sidebar_position: 10
 
 A highly scalable SBC powered by RK3399-T.
 
-<DocCardList />
+<!-- <DocCardList /> -->

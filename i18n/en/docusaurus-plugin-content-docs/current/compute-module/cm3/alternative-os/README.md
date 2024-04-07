@@ -7,4 +7,4 @@ slug: /compute-module/cm3/alt-os
 
 Many other OSes already supports Radxa CM3
 
-<DocCardList />
+<!-- <DocCardList /> -->

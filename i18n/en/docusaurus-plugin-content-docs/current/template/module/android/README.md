@@ -6,4 +6,4 @@ sidebar_position: 3
 
 Introduces how to build and use Android System
 
-<DocCardList />
+<!-- <DocCardList /> -->

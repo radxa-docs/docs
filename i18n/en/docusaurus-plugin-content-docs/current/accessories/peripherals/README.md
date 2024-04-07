@@ -3,4 +3,4 @@
 
 # Third Party Peripheral Configuration
 
-<DocCardList />
+<!-- <DocCardList /> -->

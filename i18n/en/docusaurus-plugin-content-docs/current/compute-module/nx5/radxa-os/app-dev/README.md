@@ -6,4 +6,4 @@ sidebar_position: 5
 
 Introduces upper-layer application development, such as QT, Mraa, etc.
 
-<DocCardList />
+<!-- <DocCardList /> -->

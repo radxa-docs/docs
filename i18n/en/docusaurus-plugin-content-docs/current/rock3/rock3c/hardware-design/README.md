@@ -6,4 +6,4 @@ sidebar_position: 20
 
 Hardware Information about ROCK 3C
 
-<DocCardList />
+<!-- <DocCardList /> -->

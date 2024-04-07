@@ -6,4 +6,4 @@ sidebar_position: 50
 
 The hardware information of ROCK 4 series.
 
-<DocCardList />
+<!-- <DocCardList /> -->

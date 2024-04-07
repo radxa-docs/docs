@@ -6,4 +6,4 @@ sidebar_position: 9
 
 Introduces information about supported accessories
 
-<DocCardList />
+<!-- <DocCardList /> -->

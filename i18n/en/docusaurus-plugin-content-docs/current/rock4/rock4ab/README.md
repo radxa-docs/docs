@@ -6,4 +6,4 @@ sidebar_position: 10
 
 A High expansion and high compatibility SBC based on RK3399.
 
-<DocCardList />
+<!-- <DocCardList /> -->

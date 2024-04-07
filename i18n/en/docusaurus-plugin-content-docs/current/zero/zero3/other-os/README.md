@@ -6,4 +6,4 @@ sidebar_position: 45
 
 Introduces other systems than Radxa OS, such as Android.
 
-<DocCardList />
+<!-- <DocCardList /> -->

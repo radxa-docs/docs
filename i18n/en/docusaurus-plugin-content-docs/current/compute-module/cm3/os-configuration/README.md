@@ -7,4 +7,4 @@ slug: /compute-module/cm3/os-config
 
 The system configuration of Radxa CM3
 
-<DocCardList />
+<!-- <DocCardList /> -->

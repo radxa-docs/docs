@@ -6,4 +6,4 @@ sidebar_position: 40
 
 Mainly introduces uboot, kernel, debian os compilation and packaging and so on.
 
-<DocCardList />
+<!-- <DocCardList /> -->

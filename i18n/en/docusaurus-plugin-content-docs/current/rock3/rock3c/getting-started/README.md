@@ -6,4 +6,4 @@ sidebar_position: 1
 
 Start with your ROCK 3C from here
 
-<DocCardList />
+<!-- <DocCardList /> -->

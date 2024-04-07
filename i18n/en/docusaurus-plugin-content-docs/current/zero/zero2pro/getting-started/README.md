@@ -6,4 +6,4 @@ sidebar_position: 10
 
 Start setting up your SBC.
 
-<DocCardList />
+<!-- <DocCardList /> -->

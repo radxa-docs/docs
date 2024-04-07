@@ -6,4 +6,4 @@ sidebar_position: 7
 
 主要介绍系统如何使用
 
-<DocCardList />
+<!-- <DocCardList /> -->

@@ -6,4 +6,4 @@ sidebar_position: 4
 
 Introduce how to install, use android system and how to do development on it.
 
-<DocCardList />
+<!-- <DocCardList /> -->
