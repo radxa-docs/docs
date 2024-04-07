@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+slug: /rock4
 ---
 
 # ROCK 4 系列
