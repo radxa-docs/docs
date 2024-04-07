@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+displayed_sidebar: home
 ---
 
 # 使用注意事项
