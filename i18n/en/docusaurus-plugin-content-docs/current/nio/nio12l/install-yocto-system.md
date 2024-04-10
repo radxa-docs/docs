@@ -38,7 +38,7 @@ If your version of pip3 is older than 20.3. Please upgrade it by running:
 pip3 install --upgrade pip
 ```
 
-### 2. Fstboot Install
+### 2. Fastboot Install
 
 ```
 sudo apt update

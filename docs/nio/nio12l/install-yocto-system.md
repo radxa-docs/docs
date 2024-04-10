@@ -38,7 +38,7 @@ pip 21.2.4 from /usr/bin/pip3 (python 3.9)
 pip3 install --upgrade pip
 ```
 
-### 2. Fstboot 安装
+### 2. Fastboot 安装
 
 ```
 sudo apt update
