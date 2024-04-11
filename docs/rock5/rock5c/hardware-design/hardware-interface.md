@@ -103,13 +103,73 @@ ROCK 5C 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 
 ## MIPI CSI
 
-支持 MIPI 摄像头
+支持 MIPI 摄像头, 采用了 31PIN 0.3mm 脚距 FH35C-31S-0.3SHW(50) 镀金座子。
+
+<img src="/img/rock5c/rock-5c-csi-interface.webp" alt="rock 5c csi" width="500"/>
+
+<br></br>
+<br></br>
+
+<div className='gpio_style' style={{ overflow :"auto"}}>
+
+| Number |   Pin Name   | Voltage |               &                | Number |   Pin Name   | Voltage |
+| :----: | :----------: | :-----: | :----------------------------: | :----: | :----------: | :-----: |
+|   1    |     GND      |         | <div className='black'>&</div> |   2    |  CSI_RX_D3N  |         |
+|   3    |  CSI_RX_D3P  |         | <div className='black'>&</div> |   4    |     GND      |         |
+|   5    |  CSI_RX_D2N  |         | <div className='black'>&</div> |   6    |  CSI_RX_D2P  |         |
+|   7    |     GND      |         | <div className='black'>&</div> |   8    | CSI_RX_CLK1N |         |
+|   9    | CSI_RX_CLK1P |         | <div className='black'>&</div> |   10   |     GND      |         |
+|   11   |  CSI_RX_D1N  |         | <div className='black'>&</div> |   12   |  CSI_RX_D1P  |         |
+|   13   |     GND      |         | <div className='black'>&</div> |   14   |  CSI_RX_D0N  |         |
+|   15   |  CSI_RX_D0P  |         | <div className='black'>&</div> |   16   |     GND      |         |
+|   17   | CSI_RX_CLK0N |         | <div className='black'>&</div> |   18   | CSI_RX_CLK0P |         |
+|   19   |     GND      |         | <div className='black'>&</div> |   20   | CAMERA2_CLK  |         |
+|   21   |     GND      |         | <div className='black'>&</div> |   22   | CAMERA1_CLK  |         |
+|   23   |  CAM1_PDN_H  |  1.8V   | <div className='black'>&</div> |   24   |   SCL_CAM    |  1.8V   |
+|   25   |   SDA_CAM    |  1.8V   | <div className='black'>&</div> |   26   |  CAM0_PDN_H  |  1.8V   |
+|   27   |   CAM_RST    |  1.8V   | <div className='black'>&</div> |   28   |   VCC_3V3    |  3.3V   |
+|   29   |   VCC_3V3    |  3.3V   | <div className='black'>&</div> |   30   |   VCC_5V0    |   5V    |
+|   31   |   VCC_5V0    |   5V    | <div className='black'>&</div> |        |              |         |
+
+</div>
 
 参考 [摄像头配件](../accessories/camera)
 
 ## MIPI DSI
 
-支持 MIPI 屏幕
+支持 MIPI 屏幕，采用了卧式 39PIN 0.3mm 脚距 FH35C-39S-0.3SHW(50) 镀金座子。
+
+<img src="/img/rock5c/rock-5c-dsi-interface.webp" alt="rock 5c dsi" width="500"/>
+
+<br></br>
+<br></br>
+
+<div className='gpio_style' style={{ overflow :"auto"}}>
+
+| Number | Pin Name | Voltage |               &                | Number |   Pin Name   | Voltage |
+| :----: | :------: | :-----: | :----------------------------: | :----: | :----------: | :-----: |
+|   1    |  VDD3V3  |  3.3V   | <div className='black'>&</div> |   2    | IOVCC1V8-3V3 |  1.8V   |
+|   3    |   NULL   |         | <div className='black'>&</div> |   4    |    RESET     |  3.3V   |
+|   5    |   NULL   |         | <div className='black'>&</div> |   6    |     GND1     |         |
+|   7    | MIPI-0N  |         | <div className='black'>&</div> |   8    |   MIPI-0P    |         |
+|   9    |   GND2   |         | <div className='black'>&</div> |   10   |   MIPI-1N    |         |
+|   11   | MIPI-1P  |         | <div className='black'>&</div> |   12   |     GND3     |         |
+|   13   | MIPI-CKN |         | <div className='black'>&</div> |   14   |   MIPI-CKP   |         |
+|   15   |   GND4   |         | <div className='black'>&</div> |   16   |   MIPI-2N    |         |
+|   17   | MIPI-2P  |         | <div className='black'>&</div> |   18   |     GND5     |         |
+|   19   | MIPI-3N  |         | <div className='black'>&</div> |   20   |   MIPI-3P    |         |
+|   21   |   GND6   |         | <div className='black'>&</div> |   22   |     GND7     |         |
+|   23   | TP-RESET |  3.3V   | <div className='black'>&</div> |   24   |    TP-VCC    |  3.3V   |
+|   25   |  TP-INT  |  3.3V   | <div className='black'>&</div> |   26   |    TP-SDA    |  3.3V   |
+|   27   |  TP-SCL  |  3.3V   | <div className='black'>&</div> |   28   |     GND8     |         |
+|   29   |   GND9   |         | <div className='black'>&</div> |   30   |   VCC3V31    |  3.3V   |
+|   31   | VCC3V32  |  3.3V   | <div className='black'>&</div> |   32   |    GND11     |         |
+|   33   |  GND12   |         | <div className='black'>&</div> |   34   |    LED-1     |         |
+|   35   |   LED-   |         | <div className='black'>&</div> |   36   |     NULL     |         |
+|   37   |   NULL   |         | <div className='black'>&</div> |   38   |    LED+1     |         |
+|   39   |   LED+   |         |
+
+</div>
 
 参考 [屏幕配件](../accessories/display)
 
