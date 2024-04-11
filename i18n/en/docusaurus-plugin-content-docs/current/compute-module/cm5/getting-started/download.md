@@ -6,7 +6,7 @@ sidebar_position: 4
 
 ### Hardware Design
 
-#### V2.2 version
+#### V2.21 version
 
 - Radxa CM5 Board, Radxa CM5 IO Board
 
@@ -29,7 +29,7 @@ sidebar_position: 4
 
 - Radxa OS
 
-  Radxa CM5 IO: [radxa-cm5-io_debian_bullseye-test_kde_t5.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/test-build-5/radxa-cm5-io_debian_bullseye-test_kde_t5.img.xz)
+  Radxa CM5 IO: [radxa-cm5-io_debian_bullseye-test_kde_b1.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/b1/radxa-cm5-io_debian_bullseye_kde_b1.img.xz)
 
 - Android
 

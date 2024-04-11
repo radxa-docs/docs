@@ -6,7 +6,7 @@ sidebar_position: 4
 
 ### 硬件设计
 
-#### V2.2 版本
+#### V2.21 版本
 
 - 核心板、底板
 
@@ -29,7 +29,7 @@ sidebar_position: 4
 
 - Radxa OS
 
-  Radxa CM5 IO: [radxa-cm5-io_debian_bullseye-test_kde_t5.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/test-build-5/radxa-cm5-io_debian_bullseye-test_kde_t5.img.xz)
+  Radxa CM5 IO: [radxa-cm5-io_debian_bullseye-test_kde_b1.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/b1/radxa-cm5-io_debian_bullseye_kde_b1.img.xz)
 
 - Android
 
