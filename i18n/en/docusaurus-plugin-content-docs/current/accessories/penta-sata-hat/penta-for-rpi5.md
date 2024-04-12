@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Raspberry Pi 5 Use Penta
 
 The Raspberry Pi 5 has a PCIe port that works well with the Radxa Penta SATA HAT.
