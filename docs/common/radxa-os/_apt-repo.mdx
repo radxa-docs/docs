@@ -164,22 +164,11 @@ sudo apt-get update
 ```
 
   </TabItem>
-  <TabItem value="LZUOSS">
-
-本镜像由 [LZUOSS](mailto:oss.lzu.edu.cn@gmail.com) 提供。
-
-```bash
-sudo sed -i "s|https://radxa-repo.github.io|https://mirrors.lzu.edu.cn/git/radxa-apt/raw/branch/gh-pages|g" /etc/apt/sources.list.d/radxa*.list
-sudo apt-get update
-```
-
-  </TabItem>
   <TabItem value="default" label="恢复默认">
 
 ```bash
 sudo sed -e "s|https://radxa-apt.aghost.cn|https://radxa-repo.github.io|g" \
-         -e "s|http://apt.chenjaly.cn|https://radxa-repo.github.io|g" \ 
-         -e "s|https://mirrors.lzu.edu.cn/git/radxa-apt/raw/branch/gh-pages|https://radxa-repo.github.io|g" \
+         -e "s|http://apt.chenjaly.cn|https://radxa-repo.github.io|g" \
          -i /etc/apt/sources.list.d/radxa*.list
 sudo apt-get update
 ```
