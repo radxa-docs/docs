@@ -1,5 +1,5 @@
 ---
-sidebar_position: 30
+sidebar_position: 1
 ---
 
 # Radxa Penta SATA HAT
