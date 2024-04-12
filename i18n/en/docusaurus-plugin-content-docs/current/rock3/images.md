@@ -94,9 +94,9 @@ Radxa E25: [Build 21](https://github.com/radxa-build/radxa-e25/releases/download
 
 ### Third-party Images
 
-| System | Download | introduction |
-|---------|----------|---|
-| OpenWrt | [Flippy OpenWrt Radxa E25](https://dl.radxa.com/cm3i/e25/openwrt/openwrt_rk3568_e25_R24.01.26_k6.1.75-flippy-87+.7z) | Contributor:Flippy <br/> Login account:root <br/> Password:password  |
+| System  | Download                                                                                                             | introduction                                                        |
+| ------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| OpenWrt | [Flippy OpenWrt Radxa E25](https://dl.radxa.com/cm3i/e25/openwrt/openwrt_rk3568_e25_R24.01.26_k6.1.75-flippy-87+.7z) | Contributor:Flippy <br/> Login account:root <br/> Password:password |
 
 </TabItem>
 </Tabs>

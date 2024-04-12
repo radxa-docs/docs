@@ -64,6 +64,34 @@ sidebar_custom_props: { product_docs: [
         },
         {
           # 产品代号
+          product_code: "rs118",
+          # 产品名
+          product_name_zh: "ROCK 3B",
+          product_name_en: "ROCK 3B",
+          # 产品系列
+          Product_Line_zh: "ROCK 3 系列",
+          Product_Line_en: "ROCK 3 Family",
+          # 产品对应的所有文档
+          docs:
+            [
+              {
+                title_zh: "ROCK 3B 概览",
+                info_zh: "ROCK 3B 概览",
+                title_en: "Overview",
+                info_en: "Overview of the ROCK 3B",
+                url: "/rock3/rock3b/",
+              },
+              {
+                title_zh: "新手入门指南",
+                info_zh: "从这里开始你的 ROCK 3B 之旅",
+                title_en: "Getting Started",
+                info_en: "Start Your ROCK 3B Journey Here",
+                url: "/rock3/rock3b/getting-started",
+              },
+            ],
+        },
+        {
+          # 产品代号
           product_code: "rs112",
           # 产品名
           product_name_zh: "ROCK 3C",
@@ -115,6 +143,34 @@ sidebar_custom_props: { product_docs: [
                 title_en: "Third Party OS",
                 info_en: "Support Third Party OS Download",
                 url: "/rock3/images",
+              },
+            ],
+        },
+        {
+          # 产品代号
+          product_code: "rc118",
+          # 产品名
+          product_name_zh: "Radxa E25",
+          product_name_en: "Radxa E25",
+          # 产品系列
+          Product_Line_zh: "ROCK 3 系列",
+          Product_Line_en: "ROCK 3 Family",
+          # 产品对应的所有文档
+          docs:
+            [
+              {
+                title_zh: "Radxa E25 概览",
+                info_zh: "Radxa E25 概览",
+                title_en: "Overview",
+                info_en: "Overview of the Radxa E25",
+                url: "/rock3/e25/",
+              },
+              {
+                title_zh: "新手入门指南",
+                info_zh: "从这里开始你的 ROCK 3B 之旅",
+                title_en: "Getting Started",
+                info_en: "Start Your ROCK 3B Journey Here",
+                url: "/rock3/e25/getting-started",
               },
             ],
         },
@@ -307,7 +363,6 @@ sidebar_custom_props: { product_docs: [
               },
             ],
         },
-
         {
           # 产品代号
           product_code: "rm116",
@@ -354,6 +409,34 @@ sidebar_custom_props: { product_docs: [
                 title_en: "Image Download",
                 info_en: "/compute-module/cm3/alt-os",
                 url: "",
+              },
+            ],
+        },
+        {
+          # 产品代号
+          product_code: "rm118",
+          # 产品名
+          product_name_zh: "CM3I",
+          product_name_en: "CM3I",
+          # 产品系列
+          Product_Line_zh: "计算模块系列",
+          Product_Line_en: "Compute Module Family",
+          # 产品对应的所有文档
+          docs:
+            [
+              {
+                title_zh: "新手入门指南",
+                info_zh: "从这里开始你的 CM3I 之旅",
+                title_en: "Getting Started Guide",
+                info_en: "Start Your CM3 Journey Here",
+                url: "/compute-module/cm3i/getting-started",
+              },
+              {
+                title_zh: "配件使用指南",
+                info_zh: "使用 CM3 配件",
+                title_en: "Accessories Guide",
+                info_en: "Using CM3 Accessories",
+                url: "/compute-module/cm3i/accessories-guides",
               },
             ],
         },
@@ -626,6 +709,35 @@ sidebar_custom_props: { product_docs: [
                 title_en: "Software development",
                 info_en: "Software development",
                 url: "/x/x2l/software-development",
+              },
+            ],
+        },
+
+        {
+          # 产品代号
+          product_code: "rs004",
+          # 产品名
+          product_name_zh: "NIO 12L",
+          product_name_en: "NIO 12L",
+          # 产品系列
+          Product_Line_zh: "NIO 系列",
+          Product_Line_en: "NIO Family",
+          # 产品对应的所有文档
+          docs:
+            [
+              {
+                title_zh: "新手入门指南",
+                info_zh: "从这里开始你的 NIO 12L 之旅",
+                title_en: "Getting Started Guide",
+                info_en: "Start Your NIO 12L Here",
+                url: "/nio/nio12l/getting-started",
+              },
+              {
+                title_zh: "yocto 镜像安装",
+                info_zh: "yocto 镜像安装",
+                title_en: "yocto image install",
+                info_en: "yocto image install",
+                url: "/nio/nio12l/install-yocto-system",
               },
             ],
         },

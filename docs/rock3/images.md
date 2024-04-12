@@ -96,9 +96,9 @@ Radxa E25: [Build 21](https://github.com/radxa-build/radxa-e25/releases/download
 
 ### 第三方镜像
 
-| 系统 | 下载链接 | 说明 |
-|---------|----------|---|
-| OpenWrt | [Flippy OpenWrt Radxa E25](https://dl.radxa.com/cm3i/e25/openwrt/openwrt_rk3568_e25_R24.01.26_k6.1.75-flippy-87+.7z) | 贡献者：Flippy <br/> 登录账号：root <br/> 密码：password  |
+| 系统    | 下载链接                                                                                                             | 说明                                                     |
+| ------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| OpenWrt | [Flippy OpenWrt Radxa E25](https://dl.radxa.com/cm3i/e25/openwrt/openwrt_rk3568_e25_R24.01.26_k6.1.75-flippy-87+.7z) | 贡献者：Flippy <br/> 登录账号：root <br/> 密码：password |
 
 </TabItem>
 </Tabs>
