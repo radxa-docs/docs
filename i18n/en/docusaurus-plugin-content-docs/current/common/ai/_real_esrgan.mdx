@@ -1,0 +1,72 @@
+Real-ESRGAN-TPU is an application for super-resolution of videos/images, which achieves resolution enhancement up to 2560x1920 using the Tencent ARC Lab's open-source [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) series models. These models have been ported to the SG2300X chip series products for local TPU hardware-accelerated inference using the Sophon SDK. This application can be used to upscale videos/images to 2560x1920 resolution and provides various optimization models for different scenarios. It can optimize real scenes, anime videos, and achieve real-face enhancement ([CodeFormer](https://github.com/sczhou/CodeFormer)) restoration. This application utilizes Gradio and Streamlit for user-friendly interaction interfaces.
+
+- Clone the repository:
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/Real-ESRGAN-tpu_Web.git
+  ```
+
+- Clone the face enhancement toolbox:
+
+  ```bash
+  cd Real-ESRGAN-tpu_Web
+  git clone https://github.com/zifeng-radxa/FACEXLIB.git
+  ```
+
+- Create a virtual environment:
+
+  **It's necessary to create a virtual environment; otherwise, it may affect the normal operation of other applications.** For virtual environment usage, please refer [here](../ai-tools/virtualenv_usage).
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Download dependencies:
+
+  ```bash
+  pip3 install --upgrade pip setuptools wheel
+  pip3 install basicsr --use-pep517
+  pip3 install -r requirements.txt
+  pip3 install https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/tpu_perf-1.2.31-py3-none-manylinux2014_aarch64.whl
+  ```
+
+- Fix the basicsr package dependency bug:
+
+  Change functional_tensor to functional in the basicsr package. Refer to [https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/13985](https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/13985) for details.
+
+  ```bash
+  vim .venv/lib/python3.8/site-packages/basicsr/data/degradations.py
+  #from torchvision.transforms.functional_tensor import rgb_to_grayscale
+  from torchvision.transforms.functional import rgb_to_grayscale
+  ```
+
+- Download models:
+
+  ```bash
+  python3 download_models.py
+  ```
+
+- Start the application:
+
+  - Start with gradio:
+
+  ```bash
+  bash run_gr.sh
+  ```
+
+  Access port 7860 of the Airbox IP address in a web browser.
+
+  - (Optional) Start with streamlit:
+
+  ```bash
+  bash run_st.sh
+  ```
+
+  Access port 8501 of the Airbox IP address in a web browser.
+
+### Application Display
+
+![re_1.webp](/img/general-tutorial/tpu_ai/re_1.webp)
+
+![re_4.webp](/img/general-tutorial/tpu_ai/re_4.webp)

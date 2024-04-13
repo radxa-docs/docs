@@ -1,0 +1,79 @@
+### App Construction Method
+
+Before referring to the App construction method, it's advisable to familiarize yourself with the entire application deployment process and details by referring to the [Manual Deployment Application](../local-ai-deploy) document.
+
+Third-party applications in CasaOS utilize Docker images to create containers and install them into CasaOS. CasaOS can set and manage container configurations. Before this, we need to prepare our Docker image and Dockerfile. Here, we will use radxa stable diffusion as an example to explain the construction process of the large model App's Docker image.
+
+The radxa large model App image is built in four layers based on Ubuntu 20.04. Each layer is built on top of the previous one, including the Ubuntu 20.04 layer, SDK base layer, App environment layer required to run, and the top layer App code + model source code and model.
+
+![casaos_docker_1.webp](/img/general-tutorial/tpu_ai/casaos_docker_1.webp)
+
+#### SDK Base Layer
+
+The SDK base layer installs essential tools: libncurses5, libatomic1, kmod, python3, python3-pip, vim, and installs sophon SDK: libsophon-0.5.0, sophon-ffmpeg_0.7.1, sophon-opencv_0.7.1, sophon-sail, and tpu-perf modules.
+
+**_Dockerfile_**
+
+```dockerfile
+FROM ubuntu:20.04
+
+LABEL maintainer="Zifeng ZHANG <zhangzifeng@radxa.com>"
+
+WORKDIR /tools
+
+COPY tools .
+
+RUN apt update && \
+    apt install -y libncurses5 libatomic1 kmod python3 python3-pip vim && \
+    apt install -y ./sophon-soc-libsophon_0.5.0_arm64.deb && \
+    apt install -y ./sophon-mw-soc-sophon-ffmpeg_0.7.1_arm64.deb && \
+    apt install -y ./sophon-mw-soc-sophon-opencv_0.7.1_arm64.deb && \
+    pip3 install ./sophon_arm-3.7.0-py3-none-any.whl && \
+    pip3 install ./tpu_perf-1.2.31-py3-none-manylinux2014_aarch64.whl
+```
+
+#### App Environment Layer
+
+In the App environment layer, we add the necessary environment required for running the App based on the SDK base image, such as python modules and some special deb installations. The purpose of splitting this layer is to reduce the installation speed of App source code updates under unchanged environments and to directly start the service by externally mounting the App source code and model volumes with App env + SDK base images.
+
+![casaos_docker_2.webp](/img/general-tutorial/tpu_ai/casaos_docker_2.webp)
+
+**_Dockerfile_**
+
+```dockerfile
+FROM radxazifeng278/radxa_min:0.1.4
+
+LABEL maintainer="Zifeng ZHANG <zhangzifeng@radxa.com>"
+
+WORKDIR /env
+
+COPY requirements.txt .
+
+RUN pip3 install -r requirements.txt
+
+WORKDIR /StableDiffusion_v2-TPU
+
+CMD ["bash", "run.sh"]
+```
+
+- ### App Source Code with Model Layer
+
+  In this layer, the complete App is built by placing the source code with models into the App environment image. Additionally, the App startup command CMD is added.
+
+  ![casaos_docker_3.webp](/img/general-tutorial/tpu_ai/casaos_docker_3.webp)
+
+  **_Dockerfile_**
+
+  ```dockerfile
+  FROM radxazifeng278/radxa_sd_env:0.1.0
+
+  LABEL maintainer="Zifeng ZHANG <zhangzifeng@radxa.com>"
+
+  WORKDIR /StableDiffusion_v2-TPU
+
+  COPY StableDiffusion_v2-TPU .
+
+  CMD ["bash", "run.sh"]
+  ```
+
+After obtaining the complete App image, refer to [Install radxa One-Click Start Large Model Apps](casaos_app_install#install-radxa-one-click-start-large-model-apps) to install your custom App in CasaOS.

@@ -1,0 +1,37 @@
+每个 python 应用之间因为依赖包版本可能存在不一致或者版本冲突，所以每个应用应创建一个虚拟环境以安装各自的依赖，保持相互隔离。我们推荐使用 virtualenv 来构建应用的运行环境，下面将介绍使用 virtualenv 来管理虚拟环境
+
+### 虚拟环境建立与使用教程
+
+- 下载 virtualenv（如已经安装，可跳过）
+
+  ```bash
+  pip3 install virtualenv
+  ```
+
+- 在需要创建虚拟环境的应用目录下创建虚拟环境
+
+  ```bash
+  python3 -m virtualenv .venv
+  ```
+
+- 启动虚拟环境
+
+  ```bash
+  source .venv/bin/activate
+  ```
+
+- 更新虚拟环境里的pip3
+  ```bash
+  pip3 install --upgrade pip
+  ```
+- 退出虚拟环境
+
+  ```bash
+  deactivate
+  ```
+
+- 删除虚拟环境
+
+  ```bash
+  rm -rf .venv
+  ```

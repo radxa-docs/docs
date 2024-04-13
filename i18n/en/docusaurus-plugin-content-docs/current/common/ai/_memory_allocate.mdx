@@ -1,0 +1,60 @@
+The memory_edit tool is used to modify the system memory and TPU memory of the SG2300X system, allowing developers to adjust the memory distribution of the entire machine as needed.
+
+### Install Memory Edit Tool (Pre-installed on the system)
+
+```bash
+wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/memory_edit_V1.6.1.deb
+sudo apt install ./memory_edit_V1.6.1.deb
+```
+
+### Usage
+
+Check the current TPU memory allocation status:
+
+```bash
+memory_edit.sh -p bm1684x_sm7m_v1.0.dtb # Check the current TPU memory allocation status
+```
+
+Modify TPU memory:
+
+```bash
+memory_edit.sh -c -npu 7360 -vpu 2360 -vpp 4096 bm1684x_sm7m_v1.0.dtb
+sudo cp /opt/sophon/memory_edit/emmcboot.itb /boot/emmcboot.itb && sync
+sudo reboot
+```
+
+### Parameter Explanation
+
+- `-p [dts name]`: Check the current device's TPU memory distribution status.
+
+- `-c [dts name]`: Modify TPU memory.
+
+  - `-npu`: Modify NPU memory.
+
+  - `-vpp`: Modify VPP memory.
+
+  - `-vpu`: Modify VPU memory.
+
+### Example
+
+```bash
+/opt/sophon/memory_edit/memory_edit.sh -p [dts name] # Print the current TPU memory allocation status
+/opt/sophon/memory_edit/memory_edit.sh -c -npu 2048 -vpu 2048 -vpp 2048 [dts name] # Allocate memory for each hardware accelerator, unit in M
+```
+
+### Common Issues
+
+**How to determine the current device dts name?**
+
+Use the serial port tool [minicom](https://wiki.emacinc.com/wiki/Getting_Started_With_Minicom) to monitor the boot log. Download the tool according to the [official documentation](https://wiki.emacinc.com/wiki/Getting_Started_With_Minicom).
+
+```bash
+sudo minicom -D /dev/ttyUSB0
+```
+
+Look for dtb (in this case, bm1684x_sm7m_v1.0.dtb) at the beginning of the boot log:
+
+```bash
+found dtb@139: bitmain-bm1684x-sm7m-v1.0
+Selecting config 'bitmain-bm1684x-sm7m-v1.0'
+```

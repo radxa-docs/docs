@@ -1,0 +1,104 @@
+EmotiVoice-TPU is an application that uses the [EmotiVoice](https://github.com/netease-youdao/EmotiVoice) model, open-sourced by Netease, and the [OpenVoice](https://github.com/myshell-ai/OpenVoice) model by MyShell. These models are ported to SG2300X chip series products using the Sophon SDK for local TPU hardware-accelerated inference. This application can generate speech (TTS) with emotions based on text input and utilize OpenVoice to convert the generated speech into different tones. It uses Gradio to provide a user-friendly interaction interface.
+
+- Clone the repository:
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/EmotiVoice-TPU -b radxa_v0.1.2
+  ```
+
+- Download models:
+
+  ```bash
+  cd EmotiVoice-TPU/model_file
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/EmotiVoice/EmotiVoice_bmodels.tar.gz
+  ```
+
+- Place the bmodel in the EmotiVoice-TPU/model_file directory:
+
+  ```bash
+  tar -xvf EmotiVoice_bmodels.tar.gz
+  mv ./EmotiVoice_bmodels/* .
+  ```
+
+  The file structure will be as follows:
+
+  ```bash
+  .
+  ├── assets
+  │   └── audio
+  ├── config
+  ├── data
+  │   ├── inference
+  │   └── youdao
+  │       └── text
+  ├── frontend
+  │   ├── cn2an
+  │   └── lexicon
+  ├── model_file
+  │   ├── EmotiVoice_bmodels
+  │   ├── converter
+  │   ├── simbert-base-chinese
+  │   └── tts
+  ├── models
+  │   ├── hifigan
+  │   └── prompt_tts_modified
+  │       └── modules
+  ├── temp
+  └── tone_color_conversion
+  ```
+
+- Create a virtual environment:
+
+  **It's necessary to create a virtual environment; otherwise, it may affect the normal operation of other applications.** For virtual environment usage, please refer [here](../ai-tools/virtualenv_usage).
+
+  ```bash
+  cd EmotiVoice-TPU
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Install dependencies:
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/tpu_perf-1.2.31-py3-none-manylinux2014_aarch64.whl
+  pip3 install -r requirements.txt
+  ```
+
+- Install silero-vad manually:
+
+  ```bash
+  cd ~/.cache/torch/hub/
+  # If this folder does not exist, please create it manually in ~/.cache directory
+  # mkdir -p torch/hub
+  wget https://github.com/snakers4/silero-vad/archive/refs/tags/v4.0.zip
+  unzip v4.0.zip
+  mv silero-vad-4.0 snakers4_silero-vad_master
+  ```
+
+- Start the application:
+
+  ```bash
+  cd EmotiVoice-TPU
+  bash run_gr.py
+  ```
+
+  Access port 7860 of the Airbox IP address in a web browser.
+
+### Common Issues
+
+- Getting an OSError: cannot load library 'libsndfile.so': libsndfile.so: cannot open shared object file: No such file or directory on startup
+
+  Solution: Install libsndfile1.
+
+  ```bash
+  sudo apt install libsndfile1
+  ```
+
+- Slow startup on the first run?
+
+  Reason: The first run requires downloading nltk_data. If you encounter network issues, please check your network connection.
+
+### Application Display
+
+![ev_1.webp](/img/general-tutorial/tpu_ai/ev_1.webp)

@@ -1,0 +1,114 @@
+Stable Diffusion is a generative model that can generate scene photos based on text descriptions. Currently, it uses [StableDiffusion 1.5](https://huggingface.co/runwayml/stable-diffusion-v1-5) open-source models, which have been ported to SG2300X chip series products for local TPU hardware-accelerated inference using the Sophon SDK. Combined with the LCM LoRa acceleration module and the LoRa style, it achieves fast inference generation of characteristic style images and utilizes Gradio for user interaction.
+
+- Clone the repository and switch to the radxa_v0.2.0 branch:
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/SD-lcm-tpu.git -b radxa_v0.2.0
+  ```
+
+- Download the Stable Diffusion v1.5 LoRa models' compressed package:
+
+  Currently available precompiled bmodel files include:
+
+  - [awportrait](https://civitai.com/models/61170/awportrait)
+  - [majicMIX_realistic](https://civitai.com/models/43331/majicmix-realistic)
+  - [majicMIX_lux](https://civitai.com/models/56967/majicmix-lux)
+  - [majicMIX_fantasy](https://civitai.com/models/41865/majicmix-fantasy)
+  - [RealCartoon2.5D](https://civitai.com/models/218376/realcartoon-25d)
+
+  Users can also compile any stable_diffusion v1.5 checkpoints using model_export.py and [TPU-MLIR](../../model-compile). For details, please refer to [model_export/README.md](https://github.com/zifeng-radxa/SD-lcm-tpu/blob/radxa_v0.2.0/model_export/README.md).
+
+  Currently, only awportrait.tar.gz contains VAE. If needed, please download VAE separately and refer to and modify the model_path.py for each model path.
+
+  ```bash
+  cd SD-lcm-tpu
+  mkdir -p models/basic & cd models/basic
+
+  # awportrait
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/awportrait/tar_downloader.sh
+  bash tar_downloader.sh
+  tar -xvf awportrait.tar.gz
+
+  # majicMIX_realistic
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/majicMIX_realistic/tar_downloader.sh
+  bash tar_downloader.sh
+  tar -xvf majicMIX_realistic.tar.gz
+
+  # majicMIX_fantasy
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/majicMIX_fantasy/tar_downloader.sh
+  bash tar_downloader.sh
+  tar -xvf majicMIX_fantasy.tar.gz
+
+  # majicMIX_lux
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/majicMIX_lux/tar_downloader.sh
+  bash tar_downloader.sh
+  tar -xvf majicMIX_lux.tar.gz
+
+  # RealCartoon2.5D
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/RealCartoon2.5D/tar_downloader.sh
+  bash tar_downloader.sh
+  tar -xvf RealCartoon2.5D.tar.gz
+
+  # vae only
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/vae/vae.tar.gz
+  tar -xvf vae.tar.gz
+  ```
+
+  The file tree structure looks like this:
+
+  ```bash
+  .
+  ├── __pycache__
+  ├── model_export
+  ├── models
+  │   └── basic
+  │       └── awportrait
+  │  
+  ├── sd
+  │   └── __pycache__
+  ├── tokenizer
+  └── tokenizer_2
+  ```
+
+- Set up the environment
+
+  **It's necessary to create a virtual environment; otherwise, it may affect the normal operation of other applications.** For virtual environment usage, please refer [here](../ai-tools/virtualenv_usage).
+
+  ```bash
+  cd SD-lcm-tpu
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Install dependencies
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install -r requirements.txt
+  ```
+
+- Start the web service
+
+  ```bash
+  bash run.sh
+  ```
+
+- Access the Airbox IP address on port 8999 using a web browser.
+
+### Application Display
+
+#### Text-to-Image
+
+![sd_1.webp](/img/general-tutorial/tpu_ai/sd_1.webp)
+
+```bash
+time cost:  1.5556528568267822 s
+```
+
+#### Image-to-Image
+
+![sd_2.webp](/img/general-tutorial/tpu_ai/sd_2.webp)
+
+```bash
+time cost:  1.580855369567871 s
+```
