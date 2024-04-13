@@ -1,0 +1,141 @@
+- Enter the Radxa Model-zoo ResNet directory
+  ```bash
+  cd Radxa-Model-Zoo/sample/ResNet
+  ```
+- Download the models, you can choose from F32/F16/INT8 quantized models
+
+  ```bash
+  # F32
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/model-zoo/resnet50_fp32_1b.bmodel
+
+  # F16
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/model-zoo/resnet50_fp16_1b.bmodel
+
+  # INT8
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/model-zoo/resnet50_int8_1b.bmodel
+  ```
+
+- Download test images to the data folder
+
+  ```bash
+  mkdir images && cd images
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/model-zoo/grace_hopper.bmp
+  ```
+
+- Create a virtual environment
+
+  **It's necessary to create a virtual environment to avoid potential interference with other applications**, for instructions on using virtual environments, please refer [here](../ai-tools/virtualenv_usage)
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Install python dependencies
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install numpy
+  pip3 install https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/sophon_arm-3.7.0-py3-none-any.whl
+  ```
+- Run the python examples
+
+  Under the python directory, a series of Python routines are provided, as follows:
+
+  | No. | Python Example   | Description                                                          |
+  | --- | ---------------- | -------------------------------------------------------------------- |
+  | 1   | resnet_opencv.py | Decoding with OpenCV, preprocessing with OpenCV, inference with SAIL |
+  | 2   | resnet_bmcv.py   | Decoding with SAIL, preprocessing with BMCV, inference with SAIL     |
+
+  - Run resnet_opencv.py
+
+    ```bash
+    export LD_LIBRARY_PATH=/opt/sophon/libsophon-current/lib:$LD_LIBRARY_PATH
+    export PYTHONPATH=$PYTHONPATH:/opt/sophon/sophon-opencv-latest/opencv-python/
+    python3 python/resnet_opencv.py --input ./images --bmodel ./resnet50_int8_1b.bmodel
+    ```
+
+    **Parameter explanation**
+
+    resnet_opencv.py [--input IMG_PATH] [--bmodel BMODEL]
+
+    `--input`: path to the images for inference, the path to the **folder** containing the images can be input
+
+    `--bmodel`: path to the bmodel used for inference
+
+    ```bash
+    (.venv) linaro@bm1684:/data/ssd/docs_check/Radxa-Model-Zoo/sample/ResNet$ python3 python/resnet_opencv.py --input ./images --bmodel ./resnet50_int8_1b.bmodel
+    [BMRT][bmcpu_setup:406] INFO:cpu_lib 'libcpuop.so' is loaded.
+    bmcpu init: skip cpu_user_defined
+    open usercpu.so, init user_cpu_init
+    [BMRT][load_bmodel:1084] INFO:Loading bmodel from [./resnet50_int8_1b.bmodel]. Thanks for your patience...
+    [BMRT][load_bmodel:1023] INFO:pre net num: 0, load net num: 1
+    INFO:root:filename: ./images/grace_hopper.bmp, res: (457, 0.12794505059719086)
+    INFO:root:result saved in ./results/resnet50_int8_1b.bmodel_dataset_opencv_python_result.json
+    INFO:root:------------------ Inference Time Info ----------------------
+    INFO:root:decode_time(ms): 2.94
+    INFO:root:preprocess_time(ms): 17.86
+    INFO:root:inference_time(ms): 4.36
+    INFO:root:postprocess_time(ms): 0.35
+    ```
+
+    The results will be saved in `./results/resnet50_int8_1b.bmodel_dataset_opencv_python_result.json`
+
+    ```json
+    [
+      {
+        "filename": "./dataset/grace_hopper.bmp",
+        "prediction": 457,
+        "score": 0.12794505059719086
+      }
+    ]
+    ```
+
+  - Run resnet_bmcv.py
+
+    ```bash
+    export LD_LIBRARY_PATH=/opt/sophon/libsophon-current/lib:$LD_LIBRARY_PATH
+    export PYTHONPATH=$PYTHONPATH:/opt/sophon/sophon-opencv-latest/opencv-python/
+    python3 python/resnet_bmcv.py  --input ./images --bmodel ./resnet50_int8_1b.bmodel
+    ```
+
+    **Parameter explanation**
+
+    resnet_bmcv.py [--input IMG_PATH] [--bmodel BMODEL]
+
+    `--input`: path to the images for inference, the path to the **folder** containing the images can be input
+
+    `--bmodel`: path to the bmodel used for inference
+
+    ```bash
+    (.venv) linaro@bm1684:/data/ssd/docs_check/Radxa-Model-Zoo/sample/ResNet$ python3 python/resnet_bmcv.py  --input ./images --bmodel ./resnet50_int8_1b.bmodel
+    [BMRT][bmcpu_setup:406] INFO:cpu_lib 'libcpuop.so' is loaded.
+    bmcpu init: skip cpu_user_defined
+    open usercpu.so, init user_cpu_init
+    [BMRT][load_bmodel:1084] INFO:Loading bmodel from [./resnet50_int8_1b.bmodel]. Thanks for your patience...
+    [BMRT][load_bmodel:1023] INFO:pre net num: 0, load net num: 1
+    INFO:root:filename: ./images/grace_hopper.bmp, res: (457, 0.14356361329555511)
+    INFO:root:result saved in ./results/resnet50_int8_1b.bmodel_images_bmcv_python_result.json
+    INFO:root:------------------ Inference Time Info ----------------------
+    INFO:root:decode_time(ms): 4.01
+    INFO:root:preprocess_time(ms): 5.56
+    INFO:root:inference_time(ms): 1.86
+    INFO:root:postprocess_time(ms): 0.30
+    ```
+
+    The results will be saved in `./results/resnet50_int8_1b.bmodel_images_bmcv_python_result.json`
+
+    ```json
+    [
+      {
+        "filename": "./images/grace_hopper.bmp",
+        "prediction": 457,
+        "score": 0.14356361329555511
+      }
+    ]
+    ```
+
+## FAQ
+
+For more information on model conversion, model quantization details, and model accuracy testing, please refer to:
+
+[Model Conversion](../../model-compile) and [Radxa Model-Zoo ResNet](https://github.com/zifeng-radxa/Radxa-Model-Zoo/tree/release/sample/ResNet)

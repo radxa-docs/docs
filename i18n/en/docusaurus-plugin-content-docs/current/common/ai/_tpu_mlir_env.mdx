@@ -1,0 +1,37 @@
+TPU-MLIR is the compiler toolchain for Sophon AI chips' TPU, which can transform pre-trained neural network models from different frameworks into bmodel format models that can be efficiently computed on Sophon SG2300 and SG2300X series TPUs. Currently supported frameworks include PyTorch, ONNX, Caffe, and TFLite. Models from other frameworks need to be converted into ONNX models. For instructions on how to convert neural network models from other deep learning frameworks to ONNX, you can refer to the ONNX official website: [https://github.com/onnx/tutorials](https://github.com/onnx/tutorials).
+
+Model conversion needs to be performed on specified docker on an **X86** workstation. It mainly consists of two steps: first, using `model_transform.py` to convert the original model into an mlir file, and second, using `model_deploy.py` to convert the mlir file into a bmodel. If you want to convert to an INT8 model, you need to prepare a calibration dataset and then call `run_calibration.py` to generate the calibration table. Finally, use `model_deploy.py` to generate the INT8 quantized bmodel. If the INT8 model does not meet the accuracy requirements, you can generate a mixed precision quantization table by calling `run_qtable.py` after completing the INT8 quantized bmodel operation. This table is used to decide which layers to use floating-point calculations for, and finally passed to `model_deploy.py` to generate the mixed precision bmodel model.
+
+### Overall Architecture of TPU-MLIR
+
+![framework.webp](/img/general-tutorial/tpu_ai/framework.webp)
+
+### Environment Setup
+
+- Clone the TPU-MLIR remote repository into the same level directory as the project to be compiled on the X86 workstation.
+
+  ```bash
+  git clone https://github.com/sophgo/tpu-mlir
+  ```
+
+- Pull the latest TPU-MLIR docker image.
+
+  The docker image version should be synchronized with the latest version of TPU-MLIR. It is recommended to change the tag after the first pull to prevent inconsistency between the version used for subsequent pulls of TPU-MLIR and backup a clean TPU-MLIR.
+
+  ```bash
+  docker pull sophgo/tpuc_dev:latest
+  ```
+
+- Start the TPU-MLIR docker image system.
+
+  ```bash
+  docker run --privileged --name myname -v $PWD:/workspace -it sophgo/tpuc_dev:latest
+  ```
+
+- After entering the docker, initialize the TPU-MLIR project environment.
+
+  ```bash
+  cd /workspace/tpu-mlir
+  source ./envsetup.sh
+  ./build.sh
+  ```

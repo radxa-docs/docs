@@ -1,0 +1,77 @@
+ImageSearch-TPU is a text-based image search application that uses the Image CLIP model, ported to SG2300X chip series products using the Sophon SDK for local TPU hardware-accelerated inference. It enables quick searching of image libraries based on text using a large number of existing images and provides a user-friendly interaction interface using Streamlit.
+
+- Clone the repository:
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/ImageSearch-tpu
+  ```
+
+- Download the CLIP bmodel:
+
+  ```bahs
+  cd ImageSearch-tpu/clip_image_search/clip
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/ImageSearch/ImageSearch_bmodel.zip
+  unzip ImageSearch_bmodel.zip
+  ```
+
+  Place the bmodel in ImageSearch_bmodel/bmodels/.
+
+  ```bash
+  rm -rf bmodels/
+  mv ./ImageSearch_bmodel/bmodels/ .
+  ```
+
+  The file tree structure will be as follows:
+
+  ```bash
+  .
+  └── ImageSearch-tpu
+      ├── __pycache__
+      ├── clip_image_search
+      │   ├── __pycache__
+      │   └── clip
+      │       ├── ImageSearch_bmodel
+      │       ├── __pycache__
+      │       ├── bmodels
+      │       │   ├── CH
+      │       │   └── EN
+      │       └── saved_tokenizer
+      │           ├── bert_chinese_tokenizer-fast
+      │           └── bert_chinese_tokenizer-slow
+      ├── gallery_collection
+      ├── images
+      └── results
+          ├── CH
+          └── EN
+  ```
+
+- Create a virtual environment:
+
+  **It's necessary to create a virtual environment; otherwise, it may affect the normal operation of other applications.** For virtual environment usage, please refer [here](../ai-tools/virtualenv_usage).
+
+  ```bash
+  cd ImageSearch-tpu
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Install dependencies:
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install -r requirements.txt
+  pip3 install https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/tpu_perf-1.2.31-py3-none-manylinux2014_aarch64.whl
+  ```
+
+- Start the web service:
+
+  ```bash
+  streamlit run app.py EN # for CLIP-VIT-B32
+  streamlit run app.py CH # for ChineseCLIP VIT-B16
+  ```
+
+  Access port 8501 of the Airbox IP address in a web browser.
+
+### Application Display
+
+![is_1.webp](/img/general-tutorial/tpu_ai/is_1.webp)

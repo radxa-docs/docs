@@ -1,0 +1,37 @@
+TPU-MLIR 是算能 AI 芯片的 TPU 编译器工具链，其可以将不同框架下预训练的神经网络模型,
+转化为可以在算能 SG2300 和 SG2300X 系列 TPU 上高效运算的 bmodel 格式模型。
+目前直接支持的框架有 PyTorch, ONNX, Caffe 和 TFLite。其他框架的模型需要转换成 ONNX 模型，如何将其他深度学习架构的网络模型转换成ONNX,
+可以参考ONNX官网: [https://github.com/onnx/tutorials](https://github.com/onnx/tutorials)。
+
+模型转换需要在指定的 docker 在 **X86** 工作站上执行, 主要分两步, 第一是通过 `model_transform.py` 将原始模型转换成 mlir 文件, 第二是通过 `model_deploy.py` 将 mlir 文件转换成 bmodel。
+如果要转 INT8 模型, 则需要准备校准数据集然后调用 `run_calibration.py` 生成校准表, 最后使用 `model_deploy.py` 生成 INT8 量化 bmodel。
+如果 INT8 模型不满足精度需要, 可以在完成 INT8 量化 bmodel 操作后调用 `run_qtable.py` 生成混合精度量化表, 用来决定哪些层采用浮点计算， 最后传给 `model_deploy.py` 生成混精度 bmodel 模型。
+
+### TPU-MLIR 的整体架构
+
+![framework.webp](/img/general-tutorial/tpu_ai/framework.webp)
+
+### 环境配置
+
+- 在 X86 工作站上对需要编译的工程同级目录中克隆 TPU-MLIR 远程仓库
+
+  ```bash
+  git clone https://github.com/sophgo/tpu-mlir
+  ```
+
+- 拉取最新的 TPU-MLIR docker 镜像， docker 镜像版本与 TPU-MLIR 要保持同期最新，建议首次拉取后更改 tag 防止后续使用拉取 TPU-MLIR 时版本不一致，并且备份一份纯净的 TPU-MLIR
+  ```bash
+  docker pull sophgo/tpuc_dev:latest
+  ```
+- 启动 TPU-MLIR docker 镜像系统
+
+  ```bash
+  docker run --privileged --name myname -v $PWD:/workspace -it sophgo/tpuc_dev:latest
+  ```
+
+- 进入 docker 后初始化 TPU-MLIR 工程环境
+  ```bash
+  cd /workspace/tpu-mlir
+  source ./envsetup.sh
+  ./build.sh
+  ```

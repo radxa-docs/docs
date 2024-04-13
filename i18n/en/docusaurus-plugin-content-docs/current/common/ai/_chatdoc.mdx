@@ -1,0 +1,92 @@
+ChatDoc-TPU is an application that ports the open-source [ChatGLM2](https://github.com/THUDM/ChatGLM2-6B) model from Tsinghua University's KEG Lab to SG2300X chip series products using the Sophon SDK to achieve hardware-accelerated inference with local TPU. It is designed as an easy-to-use file chatbot using Streamlit for user interaction.
+
+- Installation Requirements
+
+  Before installing ChatDoc-TPU, please use the memory_edit tool to modify the memory allocation of the current device. TPU memory requires 12GB. Refer to [Memory Allocation Modification Tool](../ai-tools/memory_allocate) for usage.
+
+  > Recommended: NPU 7168 MB, VPU 2048 MB, VPP 3072 MB
+
+- Clone the repository:
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/chatdoc
+  ```
+
+- Download the ChatDoc embedding file and chatglm2-int8-2048 bmodel:
+
+  ```bash
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/chatglm-int8-2048/tar_downloader.sh
+  bash tar_downloader.sh
+  tar -xvf chatglm-int8-2048.tar.gz
+  ```
+
+  ```bash
+  cd chatdoc
+  # TPU version
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/embedding/embedding_tpu.zip
+  # CPU version
+  # wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/embedding/embedding.zip
+
+  unzip embedding_tpu.zip
+  # CPU version
+  # unzip embedding.zip
+  ```
+
+- The resulting file structure will be as follows:
+
+  ```bash
+  .
+  ├── chatdoc
+  │   ├── data
+  │   │   ├── db
+  │   │   └── uploaded
+  │   ├── embedding
+  │   │   └── 1_Pooling
+  │   ├── embedding_tpu
+  │   │   ├── __pycache__
+  │   │   └── text2vec
+  │   │       ├── __pycache__
+  │   │       ├── model_file
+  │   │       ├── tokenizer_cache
+  │   │       └── utils
+  │   │           └── __pycache__
+  │   └── static
+  └── chatglm-int8-2048
+  ```
+
+- Create a virtual environment:
+
+  **It is necessary to create a virtual environment to avoid potential interference with other applications.** For virtual environment usage, please refer to [this guide](../ai-tools/virtualenv_usage).
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Install dependencies:
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install -r requirements.txt
+  pip3 install https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/tpu_perf-1.2.31-py3-none-manylinux2014_aarch64.whl
+  ```
+
+- Start the web service:
+
+  - (Recommended) Start in TPU embedding mode (occupies more TPU memory):
+
+    ```bash
+    bash run_emb_tpu.sh
+    ```
+
+  - Start in CPU embedding mode (occupies more system memory):
+
+    ```bash
+    bash run.sh
+    ```
+
+- Access the 8501 port of the Airbox IP address in the browser.
+
+### Application Display
+
+![chatdoc_1.webp](/img/general-tutorial/tpu_ai/chatdoc_1.webp)

@@ -1,0 +1,86 @@
+ChatBot-TPU is an application that utilizes the Sophon SDK to port the open-source [ChatGLM2](https://github.com/THUDM/ChatGLM2-6B) model from Tsinghua University's KEG Lab to the SG2300X chip series products. This enables hardware-accelerated inference using local TPU. The application is designed as a chatbot using Gradio, allowing users to ask real-life questions.
+
+- Clone the repository:
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/chatbot
+  ```
+
+- Download the chatglm2 model. This example provides three chatglm2 models: int8-2048, int8-1024, and int4-512.
+
+  Assuming we are using the int4-512 model (quantized to int4 with a maximum token length of 512):
+
+  ```bash
+  # chatglm-int4-512
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/chatglm-int4-512/tar_downloader.sh
+  bash tar_downloader.sh
+  tar -xvf chatglm-int4-512.tar.gz
+
+  # chatglem-int8-1024
+  # wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/chatglm-int8-1024/tar_downloader.sh
+  # bash tar_downloader.sh
+  # tar -xvf chatglm-int8-1024.tar.gz
+
+  # chatglm-int8-2048
+  # wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/chatglm-int8-2048/tar_downloader.sh
+  # bash tar_downloader.sh
+  # tar -xvf chatglm-int8-2048.tar.gz
+  ```
+
+  The resulting file structure will be as follows:
+
+  ```bash
+  .
+  ├── chatbot
+  └── chatglm-int4-512
+  ```
+
+- Modify the `config.ini` configuration file according to the selected model:
+
+  ```bash
+  cd chatbot
+  vim config.ini
+  ```
+
+  ```ini
+  [llm_model]
+  libtpuchat_path = ../chatglm-int4-512/libtpuchat.so
+  bmodel_path = ../chatglm-int4-512/chatglm2-6b_512_int4.bmodel
+  token_path = ../chatglm-int4-512/tokenizer.model
+  ```
+
+  The `config.ini` file needs to have the correct model files configured. If you want to switch to other model files, please modify the paths in the configuration file accordingly.
+
+- Set up the environment:
+
+  **It is necessary to create a virtual environment to avoid potential interference with other applications.** For virtual environment usage, please refer to [this guide](../ai-tools/virtualenv_usage).
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Install dependencies:
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install -r requirements.txt
+  ```
+
+- Set environment variables:
+
+  ```bash
+  export LD_LIBRARY_PATH=/opt/sophon/libsophon-current/lib:$LD_LIBRARY_PATH
+  ```
+
+- Start the web service:
+
+  ```bash
+  python3 web_demo.py
+  ```
+
+- Access the 7860 port of the Airbox IP address in the browser.
+
+### Application Display
+
+![cb_1.webp](/img/general-tutorial/tpu_ai/cb_1.webp)
