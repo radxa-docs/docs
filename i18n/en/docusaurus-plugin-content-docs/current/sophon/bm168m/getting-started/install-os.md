@@ -27,7 +27,6 @@ Balena Etcher is a cross-platform and user-friendly image burning tool that we r
 
 ![](/img/common/etcher/rock5a-step1.webp)
 
-
 2. Open Etcher and click `Flash from file` to select the image you want to write to.
 
 ![](/img/common/etcher/rock5a-step2.webp)
