@@ -10,7 +10,7 @@ sidebar_position: 4
 
 ![](/img/bm168m/radxa_fogwise_bm168m.webp)
 
-## 
+##
 
 **Supports 20V / 65W power input.**
 
