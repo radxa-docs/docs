@@ -4,7 +4,7 @@ sidebar_position: 10
 
 # 移远 LTE EC25
 
-以下以 ROCK 4B+ 为例，介绍移远 LTE EC25-AU 模块的配置方法。
+以下以 ROCK 5B 为例，介绍移远 LTE EC25-AU 模块的配置方法。
 
 ## 安装相关软件
 
@@ -12,194 +12,127 @@ sidebar_position: 10
 
 ```bash
 sudo apt update
-sudo apt install ppp picocom
+sudo apt install libqmi-utils modemmanager
 ```
 
 ## 连结外设
 
-首先，请通过 USB 连结 ROCK 4B+ 以及移远 LTE EC25-AU。
+首先，请通过 USB 连接 ROCK 4B+ 以及移远 LTE EC25-AU。
 
 你可以通过以下命令检查设备是否已连接：
 
 ```bash
-rock@rock-pi-4b-plus:~$ lsusb | grep -i Quectel
+rock@rock-5b:~$ lsusb | grep -i Quectel
 Bus 002 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
 
-调制解调器通常是通过串口和宿主机进行通信。请检查系统是否正确枚举出对应的串口设备：
+请检查系统是否正确枚举出对应的 cdc-wdm 设备：
 
 ```bash
-rock@rock-pi-4b-plus:~$ ls /dev/ttyUSB*
-/dev/ttyUSB0  /dev/ttyUSB1  /dev/ttyUSB2  /dev/ttyUSB3
+rock@rock-5b:~$ ls /dev/cdc-wdm*
+/dev/cdc-wdm0
 ```
 
-## 使用 `at` 指令测试调制解调器
-
-首先，使用 `picocom` 打开串口：
+检查数据格式与网络接口：
 
 ```bash
-sudo picocom -b 115200 /dev/ttyUSB3
+rock@rock-5b:~$ sudo qmicli -d /dev/cdc-wdm0 -e
+raw-ip
+rock@rock-5b:~$ sudo qmicli -d /dev/cdc-wdm0 -w
+wwan0
+rock@rock-5b:~$
 ```
 
-程序启动后，可输入以下 `at` 指令检查调制解调器状态：
+:::info
+如果数据格式非 `raw-ip`,可使用 `sudo qmicli -d /dev/cdc-wdm0 -E raw-ip` 命令设置，并重启板子。
+:::
+
+## 创建网络接口配置接口
+
+首先，使用 `nmcli` 创建接口配置：
 
 ```bash
-at+cpin?
-+CPIN: READY
-
-OK  #查看 SIM 卡是否就位
-
-at+csq
-+CSQ: 14,99
-
-OK  #检测信号，99 代表无信号。
-
-at+cops?
-+COPS: 1,0,"CHN-UNICOM",7
-
-OK  #查看运营商
-
-at+creg?
-+CREG: 0,1
-
-OK  #获得手机的注册状态(0,1:表示注册正常)
-
-at+qeng="servingcell"
-+QENG: "servingcell","NOCONN","LTE","FDD",460,01,19A358C,366,100,1,5,5,774E,-108,-5,-83,9,13
-
-OK  #显示当前连接服务小区的信号强度和质量
+rock@rock-5b:~$ sudo nmcli connection add type gsm ifname cdc-wdm0
+Connection 'gsm-cdc-wdm0' (e26d1d79-ba6b-44f3-9135-1ef7a80d982a) successfully added.
 ```
 
-如果调制解调器均返回正常状态，可使用 `Ctrl+A Ctrl+X` 组合键退出 `picocom`。
+然后根据运营商要求编辑接口配置（可选）：
 
-## 通过 `ppp` 进行拨号上网
+:::info
+此操作为可选项，如果连接不正常，可仿照以下操作编辑 apn、username、password 等运营商相关配置。
+输入 `print` 可输出所有配置信息。
+:::
 
-在终端中，执行以下命令来添加 `ppp` 拨号配置脚本。
+```
+rock@rock-5b:~$ sudo nmcli connection edit gsm-cdc-wdm0
 
-你将鼠标移动到代码框右上角，使用复制按钮来复制全文，然后将命令粘贴到终端中。
+===| nmcli interactive connection editor |===
+
+Editing existing 'gsm' connection: 'gsm-cdc-wdm0'
+
+Type 'help' or '?' for available commands.
+Type 'print' to show all the connection properties.
+Type 'describe [<setting>.<prop>]' for detailed property description.
+
+You may edit the following settings: connection, gsm, serial, ppp, match, ipv4, ipv6, hostname, tc, proxy
+nmcli> set gsm.apn ctlte
+nmcli> save
+Connection 'gsm-cdc-wdm0' (e26d1d79-ba6b-44f3-9135-1ef7a80d982a) successfully updated.
+nmcli> quit
+```
+
+## 检查网络
+
+检查 wwan 接口是否已配置 IP，如果此接口无 IP，可使用 `sudo nmcli connection up gsm-cdc-wdm0` 命令重新连接：
 
 ```bash
-cat << EOF
-# 连接调试时隐藏密码
-hide-password
-
-# 该手机不需要身份验证
-noauth
-
-# 用于呼叫控制脚本
-connect '/usr/sbin/chat -s -v -f /etc/ppp/peers/rasppp-chat-connect'
-
-# 断开连接脚本
-disconnect '/usr/sbin/chat -s -v -f /etc/ppp/peers/rasppp-chat-disconnect'
-
-# 调试信息
-debug
-
-# 4G模块
-/dev/ttyUSB3
-
-# 串口波特率
-115200
-
-# 使用默认路由
-defaultroute
-
-# 不使用默认IP
-noipdefault
-
-# 不使用PPP压缩
-novj
-novjccomp
-noccp
-ipcp-accept-local
-ipcp-accept-remote
-local
-
-# 最好锁定串行总线，创建一个锁定文件，其他程序在发现存在这个文件后，就能得知相应的串口已经被使用。
-lock
-dump
-
-nodetach
-
-# 用户名 密码 （配置因运营商不同而不同）
-user ctnet@mycdma.cn
-password vnet.mobi
-
-# 硬件控制流
-crtscts
-remotename 3gppp
-ipparam 3gppp
-
-# 使用服务器端协商的DNS就可以设置参数usepeerdns
-usepeerdns
-EOF | sudo tee /etc/ppp/peers/rasppp
-
-cat << EOF
-TIMEOUT 15
-ABORT   "BUSY"
-ABORT   "ERROR"
-ABORT   "NO ANSWER"
-ABORT   "NO CARRTER"
-ABORT   "NO DIALTONE"
-
-""AT
-OK \rATZ
-
-OK \rAT+CGDCONT=1,"IP",""
-
-OK-AT-OK ATDT#777
-CONNECT \d\c
-EOF | sudo tee /etc/ppp/peers/rasppp-chat-connect
-
-cat << EOF
-ABORT "ERROR"
-ABORT "NO DIALTONE"
-SAY "\NSending break to the modem\n"
-
-""\k"
-
-""+++ATH"
-SAY "\nGood bye !\n"
-EOF | sudo tee /etc/ppp/peers/rasppp-chat-disconnect
+rock@rock-5b:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: enP4p65s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 92:f3:c7:c0:ad:c9 brd ff:ff:ff:ff:ff:ff permaddr 02:2b:ab:02:ab:a8
+3: wlP2p33s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 20:0b:74:70:fc:62 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.31.215/24 brd 192.168.31.255 scope global dynamic noprefixroute wlP2p33s0
+       valid_lft 3529sec preferred_lft 3529sec
+    inet6 fe80::2d68:bb6a:934b:a41b/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+7: wwan0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
+    link/none
+    inet 10.10.239.91/29 brd 10.10.239.95 scope global noprefixroute wwan0
+       valid_lft forever preferred_lft forever
+rock@rock-5b:~$
 ```
 
-你现在可以使用 `ppp` 尝试拨号：
+使用 `ping` 命令指定 `wwan` 接口检查网络是否正常：
 
 ```bash
-sudo pppd call rasppp &    #后台进行拨号
+rock@rock-5b:~$ sudo ping baidu.com -I wwan0 -c 5
+PING baidu.com (39.156.66.10) from 10.10.239.91 wwan0: 56(84) bytes of data.
+64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=1 ttl=48 time=172 ms
+64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=2 ttl=48 time=63.7 ms
+64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=3 ttl=48 time=61.2 ms
+64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=4 ttl=48 time=88.9 ms
+64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=5 ttl=48 time=80.5 ms
+
+--- baidu.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4004ms
+rtt min/avg/max/mdev = 61.224/93.320/172.271/40.800 ms
 ```
-
-完整拨号过程如图所示。
-
-![拨号过程一](/img/4G-module/pppd_process1.webp)
-![拨号过程二](/img/4G-module/pppd_process2.webp)
-
-从程序的输出中我们可以获得以下信息：
-
-1. 本机 IP 地址： `10.224.236.90`
-2. 主要 DNS 服务器： `120.80.80.80`
-3. 次要 DNS 服务器： `221.5.88.88`
-
-我们现在可以根据以上信息来配置网络：
-
-```bash
-sudo ip route add default via 10.224.236.90 # 配置网关
-echo "nameserver 120.80.80.80" | sudo tee -a /etc/resolv.conf # 配置主要 DNS
-echo "nameserver 221.5.88.88" | sudo tee -a /etc/resolv.conf # 配置次要 DNS
-```
-
-你现在可以使用 `ping` 命令检查是否连接到互联网：
-
-![成功上网](/img/4G-module/ping-success.webp)
 
 ## 疑难解答
 
-1. 我的系统没有列出 USB 串口设备。
+1. 我的系统没有列出 cdc-wdm 串口设备。
 
 请检查对应的驱动是否包含在你当前运行的系统中。你可以执行以下命令检查：
 
 ```bash
-rock@rock-pi-4b-plus:~$ lsmod | grep usb
-usb_wwan               20480  1 option
-usbserial              36864  2 usb_wwan,option
+rock@rock-5b:~$ sudo lsmod | grep qmi_wwan
+qmi_wwan               36864  0
+cdc_wdm                28672  2 qmi_wwan
+usbnet                 36864  1 qmi_wwan
 ```
