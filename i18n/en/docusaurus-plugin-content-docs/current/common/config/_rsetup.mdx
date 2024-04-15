@@ -74,8 +74,9 @@ This menu contains the following options:
 ### System Update
 
 :::warning
-Instead of using the `apt update` command to update the system, use the `apt full-upgrade` command.
-:::
+Do not use the `apt-get update` command to update the system, as this will result in an incomplete update, which may lead to abnormal or missing functionality, or even a failure to boot the system.  
+Use the `apt full-upgrade` command to update the system.
+:::.
 
 This option will update the packages installed on your system to the latest release.
 
