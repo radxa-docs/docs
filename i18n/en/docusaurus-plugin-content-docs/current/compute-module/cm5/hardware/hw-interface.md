@@ -60,7 +60,7 @@ Supports standard 3.5mm headset (with microphone)
 
 ## RTC
 
-Connects to RTC battery
+Connects to RTC battery， Battery Mode for CM5 IO is CR1220
 
 ## 40 PIN GPIO
 

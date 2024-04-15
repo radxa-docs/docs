@@ -1,0 +1,37 @@
+### Virtual Environment Establishment and Usage Tutorial
+
+- Download virtualenv (skip if already installed):
+
+  ```bash
+  pip3 install virtualenv
+  ```
+
+- Create a virtual environment in the directory of the application that needs it:
+
+  ```bash
+  python3 -m virtualenv .venv
+  ```
+
+- Activate the virtual environment:
+
+  ```bash
+  source .venv/bin/activate
+  ```
+
+- Update pip3 in the virtual environment:
+
+  ```bash
+  pip3 install --upgrade pip
+  ```
+
+- Deactivate the virtual environment:
+
+  ```bash
+  deactivate
+  ```
+
+- Delete the virtual environment:
+
+  ```bash
+  rm -rf .venv
+  ```

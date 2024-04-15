@@ -1,0 +1,130 @@
+### 安装 radxa 一键启动大模型 Apps
+
+这里将介绍如何在 CasaOS 安装 radxa 大模型 App, CasaOS 中的第三方 App 以 docker image 的形式进行安装，
+上传到 CasaOS App store [可参考这里](https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main)，
+radxa 目前已将 `Stable Diffusion`, `whisper`, `chatdoc`, `imagesearch` 四个大模型App上传至 [docker hub](https://hub.docker.com/u/radxazifeng278)，
+更多详细信息清参考 [App 构建方法](casaos_app_build)
+
+| App                                                               | Docker Image                             | Container port |
+| ----------------------------------------------------------------- | ---------------------------------------- | -------------- |
+| [Radxa Stable Diffusion](#安装-radxa-stable-diffusion-文生图-app) | radxazifeng278/radxa_sd_app:0.1.0        | 8999           |
+| [Radxa whisper](#安装-radxa-whisper-语音识别总结-app)             | radxazifeng278/radxa_whisper_app:0.1.0   | 7860           |
+| [Radxa ImageSearch](#安装-radxa-imagesearch-图片搜索-app)         | radxazifeng278/radxa_imgsearch_app:0.1.0 | 8501           |
+| [Radxa chatdoc](#安装-radxa-chatdoc-文档聊天-app)                 | radxazifeng278/radxa_chatdoc_app:0.1.0   | 8501           |
+
+- 点击 CasaOS App 栏的 "+" 标志，选择 Install a customized app
+
+![casaos_2.webp](/img/general-tutorial/tpu_ai/casaos_2.webp)
+
+### 安装 radxa stable diffusion 文生图 App
+
+- 填入 radxa stable diffusion 容器安装所需信息
+
+![casaos_sd_0.1.0.webp](/img/general-tutorial/tpu_ai/casaos_sd_0.1.0.webp)
+
+- 信息详解
+
+  **Docker Image** 镜像名字，填入会自动在docker hub中拉取镜像
+
+  ```bash
+  radxazifeng278/radxa_sd_app:0.1.0
+  ```
+
+  **Title** App 名字，用户自定义
+
+  Icon URL App 图标（可选）
+
+  **Web UI 端口** 指定访问 App 时的默认访问端口, 建议用户可以在 7000-10000中选取，不可与其他 CasaOS 的 APP 端口冲突
+
+  **Port** docker 容器端口映射，Host 端口为 Web UI 指定的端口， **容器端口为 8999**
+
+  ```bash
+  8999
+  ```
+
+  **Devices** 设备挂载，将 TPU 挂载进 Docker 容器中，建议全部挂载
+
+  - Host:
+    ```bash
+    /dev
+    ```
+  - Container:
+    ```bash
+    /dev
+    ```
+
+  **Privileges** 开启取得最高权限
+
+  **Memory limit** 容器内存限制，建议拉满，否则可能无法启动服务
+
+  **CPU Shares** CPU 能力，建议 Medium
+
+  |                       | radxa Stable Diffusion            |
+  | --------------------- | --------------------------------- |
+  | **Docker Image**      | radxazifeng278/radxa_sd_app:0.1.0 |
+  | **Title**             | stable diffusion                  |
+  | **Web UI port**       | 9001                              |
+  | **Host Port**         | 9001                              |
+  | **Container Port**    | 8999                              |
+  | **Host Devices**      | /dev                              |
+  | **Container Devices** | /dev                              |
+  | **CPU Shares**        | Medium                            |
+
+### 安装 radxa whisper 语音识别总结 App
+
+- 填入 radxa whisper 容器安装所需信息
+
+  |                       | radxa Whisper                          |
+  | --------------------- | -------------------------------------- |
+  | **Docker Image**      | radxazifeng278/radxa_whisper_app:0.1.0 |
+  | **Title**             | whisper                                |
+  | **Web UI port**       | 8004                                   |
+  | **Host Port**         | 8004                                   |
+  | **Container Port**    | 7860                                   |
+  | **Host Devices**      | /dev                                   |
+  | **Container Devices** | /dev                                   |
+  | **CPU Shares**        | Medium                                 |
+
+### 安装 radxa ImageSearch 图片搜索 App
+
+- 填入 radxa ImageSearch 容器安装所需信息
+
+  |                       | radxa ImageSearch                      |
+  | --------------------- | -------------------------------------- |
+  | **Docker Image**      | radxazifeng278/radxa_chatdoc_app:0.1.0 |
+  | **Title**             | Image_Search                           |
+  | **Web UI port**       | 8007                                   |
+  | **Host Port**         | 8007                                   |
+  | **Container Port**    | 8501                                   |
+  | **Host Devices**      | /dev                                   |
+  | **Container Devices** | /dev                                   |
+  | **CPU Shares**        | Medium                                 |
+
+### 安装 radxa chatdoc 文档聊天 App
+
+**安装 chatdoc 前必须参考[内存分布修改工具](../local-ai-deploy/ai-tools/memory_allocate) 修改 SG2300X 内存分配**
+
+建议分配 -NPU 7168, -VPU 2048, -VPP 3072
+
+- 填入 radxa chatdoc 容器安装所需信息
+
+  |                       | radxa Chatdoc                            |
+  | --------------------- | ---------------------------------------- |
+  | **Docker Image**      | radxazifeng278/radxa_imgsearch_app:0.1.0 |
+  | **Title**             | chatdoc                                  |
+  | **Web UI port**       | 8009                                     |
+  | **Host Port**         | 8009                                     |
+  | **Container Port**    | 8501                                     |
+  | **Host Devices**      | /dev                                     |
+  | **Container Devices** | /dev                                     |
+  | **CPU Shares**        | Medium                                   |
+
+### App 启动与卸载
+
+CasaOS 中 App 开启状态为 App 图标颜色高亮，关闭状态为 App 图标灰色状态
+
+启动 App 单击图标即可，也可以在选中 App 右上角图标更多功能选项中启动
+
+卸载 App 单击 Uninstall 即可
+
+![casaos_3.webp](/img/general-tutorial/tpu_ai/casaos_3.webp)

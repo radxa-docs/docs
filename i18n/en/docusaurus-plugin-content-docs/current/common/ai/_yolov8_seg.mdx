@@ -1,0 +1,138 @@
+- Enter the Radxa Model-Zoo YOLOv8_seg directory
+  ```bash
+  cd Radxa-Model-Zoo/sample/YOLOv8_seg
+  ```
+- Download the model, choose from F32/F16/INT8 quantized models
+
+  ```bash
+  # F32
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/model-zoo/yolov8s_fp32_1b.bmodel
+
+  # F16
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/model-zoo/yolov8s_fp16_1b.bmodel
+
+  # INT8
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/model-zoo/yolov8s_int8_1b.bmodel
+  ```
+
+- Download test images to the data folder
+
+  ```bash
+  mkdir images && cd images
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/model-zoo/dog_bike_car.jpg
+  ```
+
+- Create a virtual environment
+
+  **It's necessary to create a virtual environment, otherwise it may affect the normal operation of other applications**, please refer to [here](../ai-tools/virtualenv_usage) for virtual environment usage
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Install python dependencies
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install numpy pycocotools
+  pip3 install https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/sophon_arm-3.7.0-py3-none-any.whl
+  ```
+- Run python examples
+
+  Under the python directory, there are a series of Python routines, as follows:
+
+  | No. | Python Routine   | Description                                                     |
+  | --- | ---------------- | --------------------------------------------------------------- |
+  | 1   | yolov8_opencv.py | Decode with OpenCV, preprocess with OpenCV, and infer with SAIL |
+  | 2   | yolov8_bmcv.py   | Decode with SAIL, preprocess with BMCV, and infer with SAIL     |
+
+  - Run yolov8_opencv.py
+
+    ```bash
+    export LD_LIBRARY_PATH=/opt/sophon/libsophon-current/lib:$LD_LIBRARY_PATH
+    export PYTHONPATH=$PYTHONPATH:/opt/sophon/sophon-opencv-latest/opencv-python/
+    python3 python/yolov8_opencv.py --input ./images --bmodel ./yolov8s_int8_1b.bmodel
+    ```
+
+    **Parameter explanation**
+
+    yolov8_opencv.py [--input IMG_PATH] [--bmodel BMODEL]
+
+    `--input`: Inference image path, you can input the entire image **folder** path or video path
+
+    `--bmodel`: Path of the bmodel used for inference
+
+    ```bash
+    (.venv) linaro@bm1684:/data/ssd/docs_check/Radxa-Model-Zoo/sample/YOLOv8_seg$ python3 python/yolov8_opencv.py --input ./images --bmodel ./yolov8s_int8_1b.bmodel
+    [BMRT][bmcpu_setup:406] INFO:cpu_lib 'libcpuop.so' is loaded.
+    bmcpu init: skip cpu_user_defined
+    open usercpu.so, init user_cpu_init
+    [BMRT][load_bmodel:1084] INFO:Loading bmodel from [./yolov8s_int8_1b.bmodel]. Thanks for your patience...
+    [BMRT][load_bmodel:1023] INFO:pre net num: 0, load net num: 1
+    INFO:root:load ./yolov8s_int8_1b.bmodel success!
+    INFO:root:1, img_file: ./images/dog_bike_car.jpg
+    sampleFactor=6, cinfo->num_components=3 (1x2, 1x1, 1x1)
+    Open /dev/jpu successfully, device index = 0, jpu fd = 23, vpp fd = 24
+    INFO:root:result saved in ./results/yolov8s_int8_1b.bmodel_images_opencv_python_result.json
+    INFO:root:------------------ Predict Time Info ----------------------
+    INFO:root:decode_time(ms): 16.52
+    INFO:root:preprocess_time(ms): 30.85
+    INFO:root:inference_time(ms): 16.11
+    INFO:root:postprocess_time(ms): 71.09
+    all done.
+    ```
+
+    The results will be saved in `./results/yolov8s_int8_1b.bmodel_images_opencv_python_result.json`
+
+    Image results are saved in `./result/images`
+
+    ![yolov8_seg_1.webp](/img/general-tutorial/tpu_ai/yolov8_seg_1.webp)
+
+  - Run yolov8_bmcv.py
+
+    ```bash
+    export LD_LIBRARY_PATH=/opt/sophon/libsophon-current/lib:$LD_LIBRARY_PATH
+    export PYTHONPATH=$PYTHONPATH:/opt/sophon/sophon-opencv-latest/opencv-python/
+    python3 python/yolov8_bmcv.py  --input ./images --bmodel ./yolov8s_int8_1b.bmodel
+    ```
+
+    **Parameter explanation**
+
+    yolov8_bmcv.py [--input IMG_PATH] [--bmodel BMODEL]
+
+    `--input`: Inference image path, you can input the entire image **folder** path or video path
+
+    `--bmodel`: Path of the bmodel used for inference
+
+    ```bash
+    (.venv) linaro@bm1684:/data/ssd/docs_check/Radxa-Model-Zoo/sample/YOLOv8_seg$ python3 python/yolov8_bmcv.py  --input ./images --bmodel ./yolov8s_int8_1b.bmodel
+    [BMRT][bmcpu_setup:406] INFO:cpu_lib 'libcpuop.so' is loaded.
+    bmcpu init: skip cpu_user_defined
+    open usercpu.so, init user_cpu_init
+    [BMRT][load_bmodel:1084] INFO:Loading bmodel from [./yolov8s_int8_1b.bmodel]. Thanks for your patience...
+    [BMRT][load_bmodel:1023] INFO:pre net num: 0, load net num: 1
+    INFO:root:1, img_file: ./images/dog_bike_car.jpg
+    sampleFactor=6, cinfo->num_components=3 (1x2, 1x1, 1x1)
+    Open /dev/jpu successfully, device index = 0, jpu fd = 42, vpp fd = 43
+    INFO:root:result saved in ./results/yolov8s_int8_1b.bmodel_images_bmcv_python_result.json
+    INFO:root:------------------ Predict Time
+
+    Info ----------------------
+    INFO:root:decode_time(ms): 15.48
+    INFO:root:preprocess_time(ms): 2.65
+    INFO:root:inference_time(ms): 13.13
+    INFO:root:postprocess_time(ms): 66.66
+    all done.
+    ```
+
+    The results will be saved in `./results/yolov8s_int8_1b.bmodel_images_bmcv_python_result.json`
+
+    Image results are saved in `./result/images`
+
+    ![yolov8_seg_2.webp](/img/general-tutorial/tpu_ai/yolov8_seg_2.webp)
+
+## FAQ
+
+For more information on model conversion, model quantization details, and model accuracy testing, please refer to:
+
+[Model Conversion](../../model-compile) and [Radxa Model-Zoo YOLOv8-seg](https://github.com/zifeng-radxa/Radxa-Model-Zoo/tree/release/sample/YOLOv8_seg)
