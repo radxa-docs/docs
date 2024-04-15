@@ -1,0 +1,40 @@
+## Idea:
+
+* Get an SD card or eMMC to act as a boot disk
+
+* Use system tool rsetup to brush SPI
+
+* Brush the system image to the NVME SSD
+
+* Unplug the SD card /eMMC and boot from NVME
+
+### Get an SD card or eMMC to act as a boot disk
+
+Here the SD card /eMMC function is equivalent to x86 boot disk, the purpose is to get SPi.img, spI.img brush into the spi flash. After booting from the SD card /eMMC, execute the following command to update the system:
+
+```
+sudo apt-get update
+sudo apt-get full-upgrade
+```
+
+### Use system tool rsetup to brush SPI
+
+<img src="/img/common/nvme/system_maintenance.webp" width="1000" height="500" alt="system maintenance" />
+
+<img src="/img/common/nvme/update_spi_bootloader.webp" width="1000" alt="update spi bootloader" />
+
+<img src="/img/common/nvme/rock-3c.webp" width="1000" alt="rock-3c" />
+
+<img src="/img/common/nvme/writing_mtd.webp" width="1000" alt="writing to mtd" />
+
+<img src="/img/common/nvme/success.webp" width="1000" alt="success" />
+
+### Brush the system image to the NVME SSD
+
+Verify that the NVME is recognized by the system and copy the system image to the current system (for example, the following path is /home/radxa).
+
+```
+sudo xzcat /home/radxa/rock-3c_debian_bullseye_xfce_b42.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
+```
+
+### Unplug SD card /eMMC and boot from NVME

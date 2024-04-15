@@ -1,0 +1,40 @@
+## 思路：
+
+* 准备一张 SD 卡或者 eMMC， 充当启动盘
+
+* 使用系统工具 rsetup 刷 SPI
+
+* 将系统镜像刷到 NVME SSD 里面
+
+* 拔掉 SD 卡/eMMC, 从 NVME 启动
+
+### 准备一张 SD 卡或者 eMMC， 充当启动盘
+
+这里 SD卡/eMMC 的作用相当于 x86 的启动盘，目的是拿到 spi.img， 将 spi.img 刷到 spi flash 中。从 SD 卡/eMMC 启动后，执行一下命令以更新系统:
+
+```
+sudo apt-get update 
+sudo apt-get full-upgrade
+```
+
+### 使用系统工具 rsetup 刷 SPI
+
+<img src="/img/common/nvme/system_maintenance.webp" width="1000" height="500" alt="system maintenance" />
+
+<img src="/img/common/nvme/update_spi_bootloader.webp" width="1000" alt="update spi bootloader" />
+
+<img src="/img/common/nvme/rock-3c.webp" width="1000" alt="rock-3c" />
+
+<img src="/img/common/nvme/writing_mtd.webp" width="1000" alt="writing to mtd" />
+
+<img src="/img/common/nvme/success.webp" width="1000" alt="success" />
+
+### 将系统镜像刷到 NVME SSD 里面
+
+确认 NVME 是否被系统识别，将系统镜像拷贝到当前系统下（如，以下是 /home/radxa/ 路径）
+
+```
+sudo xzcat /home/radxa/rock-3c_debian_bullseye_xfce_b42.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
+```
+
+### 拔掉 SD 卡/eMMC, 从 NVME 启动
