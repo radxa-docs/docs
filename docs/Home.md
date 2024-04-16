@@ -365,6 +365,63 @@ sidebar_custom_props: { product_docs: [
         },
         {
           # 产品代号
+          product_code: "rs131",
+          # 产品名
+          product_name_zh: "ROCK 5C",
+          product_name_en: "ROCK 5C",
+          # 产品系列
+          Product_Line_zh: "ROCK 5 系列",
+          Product_Line_en: "ROCK 5 Family",
+          # 产品对应的所有文档
+          docs:
+            [
+              {
+                title_zh: "概览",
+                info_zh: "ROCK 5C 概览",
+                title_en: "Overview",
+                info_en: "Overview of the ROCK 5C",
+                url: "/rock5/rock5c",
+              },
+              {
+                title_zh: "新手入门指南",
+                info_zh: "从这里开始你的 ROCK 5C 之旅",
+                title_en: "Getting Started Guide",
+                info_en: "Start Your ROCK 5C Journey Here",
+                url: "/rock5/rock5c/getting-started",
+              },
+              {
+                title_zh: "瑞莎官方系统",
+                info_zh: "瑞莎官方系统操作指南",
+                title_en: "Radxa OS",
+                info_en: "Radxa Official System Operation Guide",
+                url: "/rock5/rock5c/radxa-os",
+              },
+              {
+                title_zh: "系统配置",
+                info_zh: "系统配置指南",
+                title_en: "System Configurations",
+                info_en: "System Configuration Guide",
+                url: "/rock5/rock5c/os-config",
+              },
+              {
+                title_zh: "配件支持",
+                info_zh: "配件支持指南",
+                title_en: "Accessories",
+                info_en: "Accessories Support Guide",
+                url: "/rock5/rock5c/accessories",
+              },
+              {
+                title_zh: "应用部署",
+                info_zh: "常见应用部署指南",
+                title_en: "Application Deployment",
+                info_en: "Application Deployment Guide",
+                url: "/rock5/rock5c/apps-deployment",
+              },
+            ],
+        },
+
+        {
+          # 产品代号
           product_code: "rm116",
           # 产品名
           product_name_zh: "CM3",
