@@ -73,6 +73,11 @@ This menu contains the following options:
 
 ### System Update
 
+:::warning
+Do not use the `apt-get update` command to update the system, as this will result in an incomplete update, which may lead to abnormal or missing functionality, or even a failure to boot the system.  
+You should use `rsetup` to update the system.
+:::.
+
 This option will update the packages installed on your system to the latest release.
 
 Since RadxaOS provides some packages that conflict with the upstream Debian, it is recommended to update your system in this way to ensure system consistency.

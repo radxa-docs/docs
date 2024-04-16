@@ -43,29 +43,29 @@ lv0 = 35
 lv1 = 40
 lv2 = 45
 lv3 = 50
- 
+
 [key]
 # You can customize the function of the key, currently available functions are
 # slider: oled display next page
 # switch: fan turn on/off switch
 # reboot, poweroff
-# If you have any good suggestions for key functions, 
+# If you have any good suggestions for key functions,
 # please add an issue on https://rock.sh/rockpi-sata
 click = slider
 twice = switch
 press = none
- 
+
 [time]
 # twice: maximum time between double clicking (seconds)
 # press: long press time (seconds)
 twice = 0.7
 press = 1.8
- 
+
 [slider]
 # Whether the oled auto display next page and the time interval (seconds)
 auto = true
 time = 10
- 
+
 [oled]
 # Whether rotate the text of oled 180 degrees, whether use Fahrenheit
 rotate = false

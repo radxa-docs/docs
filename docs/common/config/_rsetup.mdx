@@ -73,6 +73,11 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 
 ### System Update
 
+:::warning
+请不要使用 `apt-get update` 命令更新系统，这会导致系统更新不完全，从而导致功能异常或缺失，甚至系统无法启动。  
+应使用 `rsetup` 更新系统。
+:::
+
 本选项会更新你的系统中安装的软件包到最新状态。
 
 由于 RadxaOS 提供了一些和上游 Debian 有所冲突的软件包，为了保证系统一致性，建议通过此方式进行系统更新。
