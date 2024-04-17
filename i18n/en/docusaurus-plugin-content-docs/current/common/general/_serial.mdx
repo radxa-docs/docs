@@ -148,14 +148,12 @@ Boot your ROCK boards and you will see the serial console output:
 
 Alternatively, some of Radxa's boards such as the Zero 3 only support baud rates of 1.5 Mbaud. Connecting to these won't work with some of the more familiar command line utilities such as MacOS's bundled version of `screen`. See [this post](https://forum.radxa.com/t/macos-pi-4-e-s-working-1-5mbps-ttl-baudrate-with-picocom/8121) for an earlier discussion on the issue.
 
-To connect at higher speeds: 
+To connect at higher speeds:
 
 1. Connect your usb to serial device. Using a device capable of high speed rates (search for 'Ultra Compact USB to UART TTL Converter with USB C-Type Connector (FTDI FT231 3.3V / 5V Tolerant)' on Amazon) is ideal. However, a device not capable of the 1.5Mbaud will work as well, with some dropped text. For instance, a Xiao Samd21 flashed with [cmsis-dap](https://wiki.seeedstudio.com/Seeeduino-XIAO-DAPLink/) or Xiao RP2040 flashed with [picoprobe](https://github.com/jancumps/picoprobe/releases/tag/picoprobe-cmsis-xiao-v1.5.0) will work in a pinch, but will not be able to keep up with the output from `htop`.
 2. `brew install picocom`
 3. Run `picocom -b 1500000 -d 8 $(ls /dev/tty.usb*)` (Assuming you only have one usb serial device plugged in... adjust accordingly if necessary!)
 4. If this fails to work, you may need to `brew uninstall picocom` and `brew install --build-from-source radxa/picocom/picocom`, then try running step 3 again.
-
-
 
 </TabItem>
 
