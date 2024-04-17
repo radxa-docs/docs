@@ -1,53 +1,90 @@
-## Idea:
+import { Image } from "@site/src/utils/docs";
+import { PreView } from "@site/src/utils/docs";
 
-- Get an SD card or eMMC to act as a boot disk
+### Overall steps:
 
-- Use system tool rsetup to brush SPI
+- Prepare an SD card or eMMC Module as a boot disk.
 
-- Brush the system image to the NVME SSD
+- Use the system utility rsetup to flash the SPI.
 
-- Unplug the SD card /eMMC and boot from NVME
+- Flush the system image to the NVME SSD.
 
-### Get an SD card or eMMC to act as a boot disk
+- Unplug the SD card/eMMC Module and boot from NVME.
 
-Here the SD card /eMMC function is equivalent to x86 boot disk, the purpose is to get SPi.img, spI.img brush into the spi flash. After booting from the SD card /eMMC, execute the following command to update the system:
+### Prepare an SD card or eMMC Module as a boot disk.
+
+Refer to the <a href={props.install_os_path}>Installing the OS section</a> to install the system on the SD card/eMMC Module.
+
+Here the SD card/eMMC Module acts as a boot disk for x86, the purpose is to get the spi.img, and flush the spi.img to the spi flash.
+
+After booting from the SD card/eMMC Module, execute the following command to update the system.
 
 ```
 sudo apt-get update
 sudo apt-get full-upgrade
 ```
 
-### Use system tool rsetup to brush SPI
+### Use the system utility rsetup to flush the SPI.
 
 <img
   src="/img/common/nvme/system_maintenance.webp"
-  width="1000"
+  width="700"
   height="500"
   alt="system maintenance"
 />
 
 <img
   src="/img/common/nvme/update_spi_bootloader.webp"
-  width="1000"
+  width="700"
   alt="update spi bootloader"
 />
 
-<img src="/img/common/nvme/rock-3c.webp" width="1000" alt="rock-3c" />
-
-<img
-  src="/img/common/nvme/writing_mtd.webp"
-  width="1000"
-  alt="writing to mtd"
+<Image
+  src="/img/common/nvme/rsetup-select-bootloader-#model#.webp"
+  model={props.model}
+  fallback={props.model}
+  width="700"
 />
 
-<img src="/img/common/nvme/success.webp" width="1000" alt="success" />
+<img src="/img/common/nvme/writing_mtd.webp" width="700" alt="writing to mtd" />
 
-### Brush the system image to the NVME SSD
+<img src="/img/common/nvme/success.webp" width="700" alt="success" />
 
-Verify that the NVME is recognized by the system and copy the system image to the current system (for example, the following path is /home/radxa).
+### Flashing the system image to the NVME SSD
 
-```
-sudo xzcat /home/radxa/rock-3c_debian_bullseye_xfce_b42.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
-```
+Verify that NVME is recognized by the system.
 
-### Unplug SD card /eMMC and boot from NVME
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ lsblk
+  NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+  mmcblk0 179:0 0 14.5G 0 disk
+  ├─mmcblk0p1 179:1 0 16M 0 part /config
+  └─mmcblk0p2 179:2 0 14.4G 0 part /config
+  mmcblk0boot0 179:32 0 4M 1 disk
+  mmcblk0boot1 179:64 0 4M 1 disk
+  zram0 254:0 0 3.8G 0 disk [SWAP]
+  nvme0n1 259:0 0 238.5G 0 disk
+  `}
+</PreView>
+
+As shown above the system has recognized the NVME SSD as nvme0n1.
+
+Copy the system image to the current system.
+
+<PreView params={{ model: props.model, release_num: props.release_num }}>
+  {`
+  PC Host: scp /path/to/img radxa@boardIP:/home/radxa/
+  Example:
+  scp ~/Download/#model#_debian_bullseye_xfce_#release_num#.img.xz radxa@192.168.2.66:/home/xxa/
+  `}
+</PreView>
+
+Then dd the system image into NVME on the **board**.
+
+<PreView params={{ model: props.model, release_num: props.release_num }}>
+  sudo xzcat /home/radxa/#model#_debian_bullseye_xfce_#release_num#.img.xz | dd
+  of=/dev/nvme0n1 bs=1M status=progress
+</PreView>
+
+### Unplug SD card/eMMC Module, boot from NVME

@@ -1,16 +1,23 @@
-## 思路：
+import { Image } from "@site/src/utils/docs";
+import { PreView } from "@site/src/utils/docs";
 
-- 准备一张 SD 卡或者 eMMC， 充当启动盘
+### 整体步骤：
+
+- 准备一张 SD 卡或者 eMMC Module， 充当启动盘
 
 - 使用系统工具 rsetup 刷 SPI
 
 - 将系统镜像刷到 NVME SSD 里面
 
-- 拔掉 SD 卡/eMMC, 从 NVME 启动
+- 拔掉 SD 卡/eMMC Module, 从 NVME 启动
 
-### 准备一张 SD 卡或者 eMMC， 充当启动盘
+### 准备一张 SD 卡或者 eMMC Module， 充当启动盘
 
-这里 SD卡/eMMC 的作用相当于 x86 的启动盘，目的是拿到 spi.img， 将 spi.img 刷到 spi flash 中。从 SD 卡/eMMC 启动后，执行一下命令以更新系统:
+参考<a href={props.install_os_path}>安装操作系统部分</a>将系统安装在 SD 卡/eMMC Module 当中。
+
+这里 SD 卡/eMMC Module 的作用相当于 x86 的启动盘，目的是拿到 spi.img， 将 spi.img 刷到 spi flash 中。
+
+从 SD 卡/eMMC Module 启动后，执行一下命令以更新系统:
 
 ```
 sudo apt-get update
@@ -21,33 +28,63 @@ sudo apt-get full-upgrade
 
 <img
   src="/img/common/nvme/system_maintenance.webp"
-  width="1000"
+  width="700"
   height="500"
   alt="system maintenance"
 />
 
 <img
   src="/img/common/nvme/update_spi_bootloader.webp"
-  width="1000"
+  width="700"
   alt="update spi bootloader"
 />
 
-<img src="/img/common/nvme/rock-3c.webp" width="1000" alt="rock-3c" />
-
-<img
-  src="/img/common/nvme/writing_mtd.webp"
-  width="1000"
-  alt="writing to mtd"
+<Image
+  src="/img/common/nvme/rsetup-select-bootloader-#model#.webp"
+  model={props.model}
+  fallback={props.model}
+  width="700"
 />
 
-<img src="/img/common/nvme/success.webp" width="1000" alt="success" />
+<img src="/img/common/nvme/writing_mtd.webp" width="700" alt="writing to mtd" />
+
+<img src="/img/common/nvme/success.webp" width="700" alt="success" />
 
 ### 将系统镜像刷到 NVME SSD 里面
 
-确认 NVME 是否被系统识别，将系统镜像拷贝到当前系统下（如，以下是 /home/radxa/ 路径）
+确认 NVME 是否被系统识别，
 
-```
-sudo xzcat /home/radxa/rock-3c_debian_bullseye_xfce_b42.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ lsblk
+  NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+  mmcblk0      179:0    0  14.5G  0 disk
+  ├─mmcblk0p1  179:1    0    16M  0 part /config
+  └─mmcblk0p2  179:2    0  14.4G  0 part /
+  mmcblk0boot0 179:32   0     4M  1 disk
+  mmcblk0boot1 179:64   0     4M  1 disk
+  zram0        254:0    0   3.8G  0 disk [SWAP]
+  nvme0n1      259:0    0 238.5G  0 disk
+  `}
+</PreView>
 
-### 拔掉 SD 卡/eMMC, 从 NVME 启动
+如上所示系统已经识别到 NVME SSD 即 nvme0n1。
+
+将系统镜像拷贝到当前系统下，
+
+<PreView params={{ model: props.model, release_num: props.release_num }}>
+  {`
+  PC Host: scp  /path/to/img radxa@boardIP:/home/radxa/
+  例如：
+  scp ~/Download/#model#_debian_bullseye_xfce_#release_num#.img.xz radxa@192.168.2.66:/home/xxa/
+  `}
+</PreView>
+
+然后在**板子**上将系统镜像 dd 到 NVME 中。
+
+<PreView params={{ model: props.model, release_num: props.release_num }}>
+  sudo xzcat /home/radxa/#model#_debian_bullseye_xfce_#release_num#.img.xz | dd
+  of=/dev/nvme0n1 bs=1M status=progress
+</PreView>
+
+### 拔掉 SD 卡/eMMC Module, 从 NVME 启动
