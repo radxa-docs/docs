@@ -99,7 +99,7 @@ After obtaining the board IP:
 ssh [username]@[hostname]
 or
 ssh [username]@[IP address]
-例如：
+example:
 ssh linaro@192.168.1.100
 ```
 

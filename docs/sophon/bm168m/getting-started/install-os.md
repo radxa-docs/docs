@@ -1,6 +1,5 @@
 ---
 sidebar_position: 2
-sidebar_label: 系统安装
 title: 系统安装
 ---
 
