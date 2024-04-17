@@ -24,7 +24,7 @@ sudo apt-get update
 sudo apt-get full-upgrade
 ```
 
-### Use the system utility rsetup to flush the SPI.
+### Use the system utility <a href={props.rsetup_path}> rsetup </a> to flush the SPI.
 
 <img
   src="/img/common/nvme/system_maintenance.webp"
@@ -52,7 +52,7 @@ sudo apt-get full-upgrade
 
 ### Flashing the system image to the NVME SSD
 
-Verify that NVME is recognized by the system.
+Insert the NVME SSD into the board and verify that the NVME is recognized by the system,
 
 <PreView params={{ model: props.model }}>
   {`
@@ -68,23 +68,33 @@ Verify that NVME is recognized by the system.
   `}
 </PreView>
 
-As shown above the system has recognized the NVME SSD as nvme0n1.
+As shown above the system already recognizes the NVME SSD as nvme0n1 (in Linux NVMe devices are usually recognized as nvmeXnY)
 
-Copy the system image to the current system.
+Download the following system image to your PC,
+
+<PreView params={{ model: props.model, release_num: props.release_num }}>
+https://github.com/radxa-build/#model#/releases/download/#release_num#/#model#_debian_bullseye_xfce_#release_num#.img.xz
+</PreView>
+
+Copy the system image to the current system,
 
 <PreView params={{ model: props.model, release_num: props.release_num }}>
   {`
   PC Host: scp /path/to/img radxa@boardIP:/home/radxa/
   Example:
-  scp ~/Download/#model#_debian_bullseye_xfce_#release_num#.img.xz radxa@192.168.2.66:/home/xxa/
+  scp ~/Download/#model#_debian_bullseye_xfce_#release_num#.img.xz radxa@192.168.2.66:/home/radxa/
   `}
 </PreView>
 
 Then dd the system image into NVME on the **board**.
 
 <PreView params={{ model: props.model, release_num: props.release_num }}>
-  sudo xzcat /home/radxa/#model#_debian_bullseye_xfce_#release_num#.img.xz | dd
-  of=/dev/nvme0n1 bs=1M status=progress
+  {`
+  On Board:
+  sudo xzcat /path/to/img | dd of=/path/to/nvme bs=1M status=progress
+  Example:
+  sudo xzcat /home/radxa/#model#_debian_bullseye_xfce_#release_num#.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
+  `}
 </PreView>
 
 ### Unplug SD card/eMMC Module, boot from NVME

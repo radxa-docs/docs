@@ -62,7 +62,6 @@ Radxa CM5 IO 支持 MIPI DSI 显示功能。
 
 连接 RTC 电池, CM5 IO 使用的 RTC 电池型号：CR1220
 
-
 ## 40 PIN GPIO
 
 ### GPIO 电压
