@@ -296,3 +296,6 @@ en/zero/zero/radxa-os/remote-access.md @CodeChenL
 static/img/rock3/3c/rock3c-8hd-overlay.webp @Radxa-Alvin
 docs/nio/nio12l/install-yocto-system.md @Radxa-Alvin
 i18n/en/docusaurus-plugin-content-docs/current/nio/nio12l/install-yocto-system.md @Radxa-Alvin
+static/img/common/nvme/writing_mtd.webp @nascs
+i18n/en/docusaurus-plugin-content-docs/current/common/dev/_nvme.mdx @nascs
+static/img/common/nvme/success.webp @nascs
