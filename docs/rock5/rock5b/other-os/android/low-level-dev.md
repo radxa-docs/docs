@@ -17,29 +17,42 @@ Docker是一个开源的应用容器引擎，可以帮助开发者更有效地�
 Dockerfile 是一个构建 Docker 镜像的文本文件，可以根据以下内容构建编译 Android 所需环境。
 
 ```
-   FROM ubuntu:xenial
+FROM ubuntu:20.04
 
-   RUN apt-get update -y && apt-get install -y openjdk-8-jdk python git-core gnupg flex bison gperf build-essential \
-       zip curl liblz4-tool zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \
-       lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \
-       libgl1-mesa-dev libxml2-utils xsltproc unzip mtools u-boot-tools \
-       htop iotop sysstat iftop pigz bc device-tree-compiler lunzip \
-       dosfstools vim-common parted udev libssl-dev python3 python-pip lzop swig
+RUN rm /etc/apt/sources.list
+RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse" | tee /etc/apt/sources.list
+RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse" >> /etc/apt/sources.list
 
-   #### For China
-   RUN curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo > /usr/local/bin/repo && \
-       chmod +x /usr/local/bin/repo && \
-       which repo
-   ENV REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
-   #### For China End
+ENV DEBIAN_FRONTEND noninteractive
 
-   RUN pip install pycrypto
-   ENV USER=android12-docker
-   ARG USER_ID=0
-   ARG GROUP_ID=0
-   RUN groupadd -g ${GROUP_ID} jenkins-docker && useradd -m -g jenkins-docker -u ${USER_ID} android12-docker
+RUN apt-get update -y && apt-get install -y software-properties-common apt-utils
+RUN add-apt-repository -y ppa:deadsnakes/ppa
+RUN apt-get update -y && apt-get install -y python3.8
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 150
+RUN apt-get install -y python3-pip && pip install pycrypto
 
-   USER android12-docker
+RUN apt-get update -y && apt-get install -y openjdk-8-jdk python git-core gnupg flex bison gperf build-essential \
+    zip curl gawk liblz4-tool zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \
+    libncurses5 libncurses-dev x11proto-core-dev libx11-dev lib32z-dev ccache \
+    libgl1-mesa-dev libxml2-utils xsltproc unzip mtools u-boot-tools \
+    htop iotop sysstat iftop pigz bc device-tree-compiler lunzip \
+    dosfstools vim-common parted udev libssl-dev  sudo rsync python3-pyelftools cpio
+
+
+RUN curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo > /usr/local/bin/repo && \
+    chmod +x /usr/local/bin/repo && \
+    which repo
+
+ENV REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
+ENV PS1="\[\033[01;37m\]\u@build\[\033[00m\]:\[\033[01;32m\]\w\[\033[00m\]:$ "
+
+RUN apt-get install -y lzop swig
+RUN apt-get update -y && apt-get install -y tzdata
+RUN apt-get install -y net-tools gcc-arm-linux-gnueabihf gcc-arm-none-eabi
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 ```
 
@@ -58,16 +71,18 @@ Repo 是 Android 开发中用于管理多个 Git 仓库的工具，它是一个P
 #### Repo下载
 
 ```bash
-
- radxa$ docker build -t android-builder:12.x --build-arg USER_ID=`id -u` --build-arg GROUP_ID=`id -g` $(which-dir-dockerfile-in)
-
+$ echo "export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'" >> ~/.bashrc
+$ source ~/.bashrc
+$ curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo -o /tmp/repo
+$ sudo cp /tmp/repo /usr/local/bin/repo
+$ sudo chmod +x /usr/local/bin/repo
 ```
 
 ## 源码下载
 
 ```bash
 
-$ repo init -u git@192.168.2.13:rockchip_android_s/rk3588-manifests.git -b Android12_Radxa_rkr14 -m rockchip-s-local.xml
+$ repo init -u https://github.com/radxa/manifests -b Android12_Radxa_rk14 -m rockchip-s-release.xml
 $ repo sync -d --no-tags -j4
 
 ```

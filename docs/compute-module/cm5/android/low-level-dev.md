@@ -49,13 +49,6 @@ ENV PS1="\[\033[01;37m\]\u@build\[\033[00m\]:\[\033[01;32m\]\w\[\033[00m\]:$ "
 RUN apt-get install -y lzop swig
 RUN apt-get update -y && apt-get install -y tzdata
 RUN mkdir /opt/toolchains
-COPY ./gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf /opt/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf
-COPY ./gcc-linaro-aarch64-none-elf-4.8-2013.11_linux /opt/gcc-linaro-aarch64-none-elf-4.8-2013.11_linux
-COPY ./gcc-linaro-aarch64-none-elf-4.8-2013.11_linux /opt/toolchains/gcc-linaro-aarch64-none-elf-4.8-2013.11_linux
-COPY ./gcc-arm-none-eabi-6-2017-q2-update /opt/toolchains/gcc-arm-none-eabi-6-2017-q2-update
-COPY ./gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf /opt/toolchains/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf
-COPY ./gcc-linaro-6.3.1-2017.02-x86_64_aarch64-linux-gnu /opt/toolchains/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-linux-gnu
-COPY ./gcc-linaro-7.2.1-2017.11-x86_64_aarch64-elf /opt/toolchains/gcc-linaro-7.2.1-2017.11-x86_64_aarch64-elf
 RUN apt-get install -y net-tools gcc-arm-linux-gnueabihf gcc-arm-none-eabi
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -90,7 +83,7 @@ $ sudo chmod +x /usr/local/bin/repo
 #### 代码下载
 
 ```bash
-$ repo init -u https://github.com/radxa/manifests.git -b Android12_Radxa_rk14 -m rockchip-r-release.xml
+$ repo init -u https://github.com/radxa/manifests.git -b Android12_Radxa_rk14 -m rockchip-s-release.xml
 $ repo sync -d --no-tags -j4
 ```
 
