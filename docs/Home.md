@@ -34,13 +34,31 @@ sidebar_custom_props: {
           products_name: "ROCK 3B",
           products_photo_url: "/home/product-pictures/rock3b.webp",
           products_link: "/rock3/rock3b",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rock3/rock3b",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK 3B 概览",
+              docs_info_en: "Overview of the ROCK 3B",
+              docs_info_zh: "ROCK 3B 概览",
+            },
+          ]
         },
         {
           products_name: "ROCK 3C",
           products_photo_url: "/home/product-pictures/rock3c.webp",
           products_link: "/rock3/rock3c",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rock3/rock3c",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK 3C 概览",
+              docs_info_en: "Overview of the ROCK 3C",
+              docs_info_zh: "ROCK 3C 概览",
+            },
+          ]
         }
       ],
     },
@@ -54,25 +72,61 @@ sidebar_custom_props: {
           products_name: "ROCK 4A",
           products_photo_url: "/home/product-pictures/rock4a.webp",
           products_link: "/rock4/rock4ab",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rock4/rock4ab",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK 4A 概览",
+              docs_info_en: "Overview of the ROCK 4A",
+              docs_info_zh: "ROCK 4A 概览",
+            },
+          ]
         },
         {
           products_name: "ROCK 4B",
           products_photo_url: "/home/product-pictures/rock4b.webp",
           products_link: "/rock4/rock4ab",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rock4/rock4ab",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK 4B 概览",
+              docs_info_en: "Overview of the ROCK 4B",
+              docs_info_zh: "ROCK 4B 概览",
+            },
+          ]
         },
         {
           products_name: "ROCK 4C+",
           products_photo_url: "/home/product-pictures/rock4cp.webp",
           products_link: "/rock4/rock4c+",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rock4/rock4c+",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK 4C+ 概览",
+              docs_info_en: "Overview of the ROCK 4C+",
+              docs_info_zh: "ROCK 4C+ 概览",
+            },
+          ]
         },
         {
           products_name: "ROCK 4SE",
           products_photo_url: "/home/product-pictures/rock4se.webp",
           products_link: "/rock4/rock4se",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rock4/rock4se",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK 4SE 概览",
+              docs_info_en: "Overview of the ROCK 4SE",
+              docs_info_zh: "ROCK 4SE 概览",
+            },
+          ]
         }
       ],
     },
@@ -86,19 +140,46 @@ sidebar_custom_props: {
           products_name: "ROCK 5A",
           products_photo_url: "/home/product-pictures/rock5a.webp",
           products_link: "/rock5/rock5a",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rock5/rock5a",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK 5A 概览",
+              docs_info_en: "Overview of the ROCK 5A",
+              docs_info_zh: "ROCK 5A 概览",
+            },
+          ]
         },
         {
           products_name: "ROCK 5B",
           products_photo_url: "/home/product-pictures/rock5b.webp",
           products_link: "/rock5/rock5b",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rock5/rock5b",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK 5B 概览",
+              docs_info_en: "Overview of the ROCK 5B",
+              docs_info_zh: "ROCK 5B 概览",
+            },
+          ]
         },
         {
           products_name: "ROCK 5C",
           products_photo_url: "/home/product-pictures/rock5c.webp",
           products_link: "/rock5/rock5c",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rock5/rock5c",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK 5C 概览",
+              docs_info_en: "Overview of the ROCK 5C",
+              docs_info_zh: "ROCK 5C 概览",
+            },
+          ]
         },
       ],
     },
@@ -112,19 +193,46 @@ sidebar_custom_props: {
           products_name: "ROCK Pi E",
           products_photo_url: "/home/product-pictures/rockpie.webp",
           products_link: "/rockpi/rockpie",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rockpi/rockpie",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK Pi E 概览",
+              docs_info_en: "Overview of the ROCK Pi E",
+              docs_info_zh: "ROCK Pi E 概览",
+            },
+          ]
         },
         {
           products_name: "ROCK Pi S",
           products_photo_url: "/home/product-pictures/rockpis.webp",
           products_link: "/rockpi/rockpis",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rockpi/rockpis",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK Pi S 概览",
+              docs_info_en: "Overview of the ROCK Pi S",
+              docs_info_zh: "ROCK Pi S 概览",
+            },
+          ]
         },
         {
           products_name: "ROCK S0",
           products_photo_url: "/home/product-pictures/rocks0.webp",
           products_link: "/rockpi/rocks0",
-          docs: []
+          docs: [
+            {
+              docs_link: "/rockpi/rocks0",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK Pi S0 概览",
+              docs_info_en: "Overview of the ROCK Pi S0",
+              docs_info_zh: "ROCK Pi S0 概览",
+            },
+          ]
         },
       ],
     },
@@ -138,31 +246,76 @@ sidebar_custom_props: {
           products_name: "Radxa CM5",
           products_photo_url: "/home/product-pictures/cm5.webp",
           products_link: "/compute-module/cm5",
-          docs: []
+          docs: [
+            {
+              docs_link: "/compute-module/cm5",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa CM5 概览",
+              docs_info_en: "Overview of the Radxa CM5",
+              docs_info_zh: "Radxa CM5 概览",
+            },
+          ]
         },
         {
           products_name: "Radxa CM3",
           products_photo_url: "/home/product-pictures/cm3.webp",
           products_link: "/compute-module/cm3",
-          docs: []
+          docs: [
+            {
+              docs_link: "/compute-module/cm3",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa CM3 概览",
+              docs_info_en: "Overview of the Radxa CM3",
+              docs_info_zh: "Radxa CM3 概览",
+            },
+          ]
         },
         {
           products_name: "Radxa CM3I",
           products_photo_url: "/home/product-pictures/cm3i.webp",
           products_link: "/compute-module/cm3i",
-          docs: []
+          docs: [
+            {
+              docs_link: "/compute-module/cm3i",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa CM3I 概览",
+              docs_info_en: "Overview of the Radxa CM3I",
+              docs_info_zh: "Radxa CM3I 概览",
+            },
+          ]
         },
         {
           products_name: "Radxa CM3S",
           products_photo_url: "/home/product-pictures/cm3s.webp",
           products_link: "",
-          docs: []
+          docs: [
+            {
+              docs_link: "/compute-module/cm3i",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa CM3S 概览",
+              docs_info_en: "Overview of the Radxa CM3S",
+              docs_info_zh: "Radxa CM3S 概览",
+            },
+          ]
         },
         {
           products_name: "Radxa NX5",
           products_photo_url: "/home/product-pictures/nx5.webp",
           products_link: "/compute-module/nx5",
-          docs: []
+          docs: [
+            {
+              docs_link: "/compute-module/nx5",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa NX5 概览",
+              docs_info_en: "Overview of the Radxa NX5",
+              docs_info_zh: "Radxa NX5 概览",
+            },
+          ]
         },
       ],
     },
@@ -176,25 +329,61 @@ sidebar_custom_props: {
           products_name: "ZERO",
           products_photo_url: "/home/product-pictures/zero.webp",
           products_link: "/zero/zero",
-          docs: []
+          docs: [
+            {
+              docs_link: "/zero/zero",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa ZERO 概览",
+              docs_info_en: "Overview of the Radxa ZERO",
+              docs_info_zh: "Radxa ZERO 概览",
+            },
+          ]
         },
         {
           products_name: "ZERO 3E",
           products_photo_url: "/home/product-pictures/zero3e.webp",
           products_link: "/zero/zero3?model=zero-3e",
-          docs: []
+          docs: [
+            {
+              docs_link: "/zero/zero3",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa ZERO 3E 概览",
+              docs_info_en: "Overview of the Radxa ZERO 3E",
+              docs_info_zh: "Radxa ZERO 3E 概览",
+            },
+          ]
         },
         {
           products_name: "ZERO 3W",
           products_photo_url: "/home/product-pictures/zero3w.webp",
           products_link: "/zero/zero3",
-          docs: []
+          docs: [
+            {
+              docs_link: "/zero/zero3",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa ZERO 3W 概览",
+              docs_info_en: "Overview of the Radxa ZERO 3W",
+              docs_info_zh: "Radxa ZERO 3W 概览",
+            },
+          ]
         },
         {
           products_name: "ZERO 2 PRO",
           products_photo_url: "/home/product-pictures/zero2pro.webp",
           products_link: "/zero/zero2pro",
-          docs: []
+          docs: [
+            {
+              docs_link: "/zero/zero2pro",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa ZERO 2 Pro 概览",
+              docs_info_en: "Overview of the Radxa ZERO 2 Pro",
+              docs_info_zh: "Radxa ZERO 2 Pro 概览",
+            },
+          ]
         },
       ],
     },
@@ -208,7 +397,16 @@ sidebar_custom_props: {
           products_name: "NIO 12L",
           products_photo_url: "/home/product-pictures/nio12l.webp",
           products_link: "/nio/12l",
-          docs: []
+          docs: [
+            {
+              docs_link: "/nio/12l",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa NIO 12L 概览",
+              docs_info_en: "Overview of the Radxa NIO 12L",
+              docs_info_zh: "Radxa NIO 12L 概览",
+            },
+          ]
         },
       ],
     },
@@ -222,7 +420,16 @@ sidebar_custom_props: {
           products_name: "Radxa X2L",
           products_photo_url: "/home/product-pictures/x2l.webp",
           products_link: "/x/x2l",
-          docs: []
+          docs: [
+            {
+              docs_link: "/x/x2l",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa X2L 概览",
+              docs_info_en: "Overview of the Radxa X2L",
+              docs_info_zh: "Radxa X2L 概览",
+            },
+          ]
         },
       ],
     },
@@ -236,13 +443,31 @@ sidebar_custom_props: {
           products_name: "AICore SG2300X",
           products_photo_url: "/home/product-pictures/sg2300x.webp",
           products_link: "/sophon/aicore-sg2300x",
-          docs: []
+          docs: [
+            {
+              docs_link: "/sophon/aicore-sg2300x",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa AICore SG2300X 概览",
+              docs_info_en: "Overview of the Radxa AICore SG2300X",
+              docs_info_zh: "Radxa AICore SG2300X 概览",
+            },
+          ]
         },
         {
           products_name: "Fogwise AirBox",
           products_photo_url: "/home/product-pictures/airbox.webp",
           products_link: "/sophon/bm168m",
-          docs: []
+          docs: [
+            {
+              docs_link: "/sophon/bm168m",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "Radxa Fogwise BM168M 概览",
+              docs_info_en: "Overview of the Radxa Fogwise BM168M",
+              docs_info_zh: "Radxa Fogwise BM168M 概览",
+            },
+          ]
         },
       ],
     }
