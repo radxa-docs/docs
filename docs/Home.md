@@ -19,36 +19,38 @@ sidebar_custom_props: {
           products_name: "ROCK 3A",
           products_photo_url: "/home/product-pictures/rock3a.webp",
           products_link: "/rock3/rock3a",
+          docs: [
+            {
+              docs_link: "/rock3/rock3a",
+              docs_photo_type: "Overview",
+              docs_name_en: "Overview",
+              docs_name_zh: "ROCK 3A 概览",
+              docs_info_en: "Overview of the ROCK 3A",
+              docs_info_zh: "ROCK 3A 概览",
+            },
+            {
+              docs_link: "/rock3",
+              docs_photo_type: "Overview",
+              docs_name_en: "",
+              docs_name_zh: "ROCK 3 系列产品",
+              docs_info_en: "rock 3 series documentation",
+              docs_info_zh: "rock 3系列 文档描述",
+            },
+          ]
         }, 
         {
           products_name: "ROCK 3B",
           products_photo_url: "/home/product-pictures/rock3b.webp",
           products_link: "/rock3/rock3b",
+          docs: []
         },
         {
           products_name: "ROCK 3C",
           products_photo_url: "/home/product-pictures/rock3c.webp",
           products_link: "/rock3/rock3c",
+          docs: []
         }
       ],
-      docs: [
-        # {
-        #   docs_link: "/rock3/rock3a",
-        #   docs_photo_type: "Overview",
-        #   docs_name_en: "Overview",
-        #   docs_name_zh: "ROCK 3A 概览",
-        #   docs_info_en: "Overview of the ROCK 3A",
-        #   docs_info_zh: "ROCK 3A 概览",
-        # },
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "Overview",
-        #   docs_name_en: "",
-        #   docs_name_zh: "ROCK 3 系列产品",
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # },
-      ]
     },
     {
       series_en: "ROCK 4 Family",
@@ -60,41 +62,27 @@ sidebar_custom_props: {
           products_name: "ROCK 4A",
           products_photo_url: "/home/product-pictures/rock4a.webp",
           products_link: "/rock4/rock4ab",
+          docs: []
         },
         {
           products_name: "ROCK 4B",
           products_photo_url: "/home/product-pictures/rock4b.webp",
           products_link: "/rock4/rock4ab",
+          docs: []
         },
         {
           products_name: "ROCK 4C+",
           products_photo_url: "/home/product-pictures/rock4cp.webp",
           products_link: "/rock4/rock4c+",
+          docs: []
         },
         {
           products_name: "ROCK 4SE",
           products_photo_url: "/home/product-pictures/rock4se.webp",
           products_link: "/rock4/rock4se",
+          docs: []
         }
       ],
-      docs: [
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "Download",
-        #   docs_name_en: "", 
-        #   docs_name_zh: "", 
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # },
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "GettingStart",
-        #   docs_name_en: "",
-        #   docs_name_zh: "",
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # }
-      ]
     },
     {
       series_en: "ROCK 5 Family",
@@ -106,36 +94,21 @@ sidebar_custom_props: {
           products_name: "ROCK 5A",
           products_photo_url: "/home/product-pictures/rock5a.webp",
           products_link: "/rock5/rock5a",
+          docs: []
         },
         {
           products_name: "ROCK 5B",
           products_photo_url: "/home/product-pictures/rock5b.webp",
           products_link: "/rock5/rock5b",
+          docs: []
         },
         {
           products_name: "ROCK 5C",
           products_photo_url: "/home/product-pictures/rock5c.webp",
           products_link: "/rock5/rock5c",
+          docs: []
         },
       ],
-      docs: [
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "Download",
-        #   docs_name_en: "", 
-        #   docs_name_zh: "", 
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # },
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "GettingStart",
-        #   docs_name_en: "",
-        #   docs_name_zh: "",
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # }
-      ]
     },
     {
       series_en: "ROCK Pi Family",
@@ -147,36 +120,21 @@ sidebar_custom_props: {
           products_name: "ROCK Pi E",
           products_photo_url: "/home/product-pictures/rockpie.webp",
           products_link: "/rockpi/rockpie",
+          docs: []
         },
         {
           products_name: "ROCK Pi S",
           products_photo_url: "/home/product-pictures/rockpis.webp",
           products_link: "/rockpi/rockpis",
+          docs: []
         },
         {
           products_name: "ROCK S0",
           products_photo_url: "/home/product-pictures/rocks0.webp",
           products_link: "/rockpi/rocks0",
+          docs: []
         },
       ],
-      docs: [
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "Download",
-        #   docs_name_en: "", 
-        #   docs_name_zh: "", 
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # },
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "GettingStart",
-        #   docs_name_en: "",
-        #   docs_name_zh: "",
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # }
-      ]
     },
     {
       series_en: "Compute Module",
@@ -188,46 +146,33 @@ sidebar_custom_props: {
           products_name: "Radxa CM5",
           products_photo_url: "/home/product-pictures/cm5.webp",
           products_link: "/compute-module/cm5",
+          docs: []
         },
         {
           products_name: "Radxa CM3",
           products_photo_url: "/home/product-pictures/cm3.webp",
           products_link: "/compute-module/cm3",
+          docs: []
         },
         {
           products_name: "Radxa CM3I",
           products_photo_url: "/home/product-pictures/cm3i.webp",
           products_link: "/compute-module/cm3i",
+          docs: []
         },
         {
           products_name: "Radxa CM3S",
           products_photo_url: "/home/product-pictures/cm3s.webp",
           products_link: "",
+          docs: []
         },
         {
           products_name: "Radxa NX5",
           products_photo_url: "/home/product-pictures/nx5.webp",
           products_link: "/compute-module/nx5",
+          docs: []
         },
       ],
-      docs: [
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "Download",
-        #   docs_name_en: "", 
-        #   docs_name_zh: "", 
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # },
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "GettingStart",
-        #   docs_name_en: "",
-        #   docs_name_zh: "",
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # }
-      ]
     },
     {
       series_en: "ZERO Family",
@@ -239,41 +184,27 @@ sidebar_custom_props: {
           products_name: "ZERO",
           products_photo_url: "/home/product-pictures/zero.webp",
           products_link: "/zero/zero",
+          docs: []
         },
         {
           products_name: "ZERO 3E",
           products_photo_url: "/home/product-pictures/zero3e.webp",
           products_link: "/zero/zero3?model=zero-3e",
+          docs: []
         },
         {
           products_name: "ZERO 3W",
           products_photo_url: "/home/product-pictures/zero3w.webp",
           products_link: "/zero/zero3",
+          docs: []
         },
         {
           products_name: "ZERO 2 PRO",
           products_photo_url: "/home/product-pictures/zero2pro.webp",
           products_link: "/zero/zero2pro",
+          docs: []
         },
       ],
-      docs: [
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "Download",
-        #   docs_name_en: "", 
-        #   docs_name_zh: "", 
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # },
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "GettingStart",
-        #   docs_name_en: "",
-        #   docs_name_zh: "",
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # }
-      ]
     },
     {
       series_en: "NIO Family",
@@ -285,26 +216,9 @@ sidebar_custom_props: {
           products_name: "NIO 12L",
           products_photo_url: "/home/product-pictures/nio12l.webp",
           products_link: "/nio/12l",
+          docs: []
         },
       ],
-      docs: [
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "Download",
-        #   docs_name_en: "", 
-        #   docs_name_zh: "", 
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # },
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "GettingStart",
-        #   docs_name_en: "",
-        #   docs_name_zh: "",
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # }
-      ]
     },
     {
       series_en: "X Family",
@@ -316,26 +230,9 @@ sidebar_custom_props: {
           products_name: "Radxa X2L",
           products_photo_url: "/home/product-pictures/x2l.webp",
           products_link: "/x/x2l",
+          docs: []
         },
       ],
-      docs: [
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "Download",
-        #   docs_name_en: "", 
-        #   docs_name_zh: "", 
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # },
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "GettingStart",
-        #   docs_name_en: "",
-        #   docs_name_zh: "",
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # }
-      ]
     },
     {
       series_en: "SG Family",
@@ -347,31 +244,15 @@ sidebar_custom_props: {
           products_name: "AICore SG2300X",
           products_photo_url: "/home/product-pictures/sg2300x.webp",
           products_link: "/sophon/aicore-sg2300x",
+          docs: []
         },
         {
           products_name: "Fogwise AirBox",
           products_photo_url: "/home/product-pictures/airbox.webp",
           products_link: "/sophon/bm168m",
+          docs: []
         },
       ],
-      docs: [
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "Download",
-        #   docs_name_en: "", 
-        #   docs_name_zh: "", 
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # },
-        # {
-        #   docs_link: "/rock3",
-        #   docs_photo_type: "GettingStart",
-        #   docs_name_en: "",
-        #   docs_name_zh: "",
-        #   docs_info_en: "rock 3 series documentation",
-        #   docs_info_zh: "rock 3系列 文档描述",
-        # }
-      ]
     }
   ]
 }
