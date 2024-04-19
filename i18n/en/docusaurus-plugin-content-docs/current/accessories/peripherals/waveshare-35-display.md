@@ -14,13 +14,14 @@ Connect the screen with the development board as follows:
 
 - after entering rsetup, enter the device tree management interface.
 <!-- - after entering rsetup, follow [Device Tree Settings](/radxa-os/rsetup/devicetree) to enter the device tree management interface. -->
+
 - Enable the overlay of Waveshare 3.5 inch Display
 
 ```
 [*] Enable Waveshare 3.5 inch Display on SPI1
 ```
 
-## Config the screen
+## Config the display
 
 - backup /etc/X11/xorg.conf.d/20-modesetting.conf
 
@@ -40,6 +41,18 @@ EndSection
 ```
 
 please check whether the device is /dev/fb0 or /dev/fb1.
+
+## Configure Touch
+
+Add a configuration file 99-touchscreen-calibration.conf under /etc/X11/xorg.conf.d with the following contents:
+
+```
+Section "InputClass"
+    Identifier "calibration"
+    MatchProduct "ADS7846 Touchscreen"
+    Option "TransformationMatrix" "-1 0 1 0 1 0 0 0 1"
+EndSection
+```
 
 ## Reboot the system
 
