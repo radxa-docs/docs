@@ -36,7 +36,7 @@ Output:Bus 001 Device 030: ID 2207:350b Fuzhou Rockchip Electronics Company
 
 ## 安装系统到 eMMC
 
-[Windows 环境下安装](../low-level-dev/rkdeveloptool)
+[Windows 环境下安装](../low-level-dev/rkdevtool)
 
 [Linux 环境下安装](../low-level-dev/rkdeveloptool)
 
