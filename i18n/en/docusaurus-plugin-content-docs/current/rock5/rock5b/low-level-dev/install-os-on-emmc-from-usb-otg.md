@@ -36,7 +36,7 @@ Open RKDevTool and you will see that the device is in the Found One MASKROM Devi
 
 ## Install system to eMMC
 
-[Installation in Windows environment](../low-level-dev/rkdeveloptool)
+[Installation in Windows environment](../low-level-dev/rkdevtool)
 
 [Installation on Linux](../low-level-dev/rkdeveloptool)
 
