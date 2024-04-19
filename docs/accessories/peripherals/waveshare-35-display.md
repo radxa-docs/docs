@@ -21,7 +21,7 @@ sidebar_position: 10
 [*] Enable Waveshare 3.5 inch Display on SPI1
 ```
 
-## 配置屏幕
+## 配置显示
 
 - 备份 /etc/X11/xorg.conf.d/20-modesetting.conf
 
@@ -41,6 +41,18 @@ EndSection
 ```
 
 需要检查一下具体设备是 /dev/fb0 还是 /dev/fb1
+
+## 配置触摸
+
+在 /etc/X11/xorg.conf.d 下添加一个配置文件 99-touchscreen-calibration.conf，内容如下：
+
+```
+Section "InputClass"
+    Identifier "calibration"
+    MatchProduct "ADS7846 Touchscreen"
+    Option "TransformationMatrix" "-1 0 1 0 1 0 0 0 1"
+EndSection
+```
 
 ## 重启系统
 
