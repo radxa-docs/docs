@@ -2,18 +2,18 @@
 sidebar_position: 4
 ---
 
-# Radxa AICore SG2300X
+# AICore SG2300X
 
 <Tabs queryString="target">
-  <TabItem value="AICore SG2300X" label="Radxa AICore SG2300X">
+  <TabItem value="AICore SG2300X" label="AICore SG2300X">
 
 ## Products
 
-The Radxa AICore SG2300X is a core board featuring the advanced SOPHON AI processor SG2300X for powerful performance. It can be equipped with up to 16GB of RAM and supports 128GB of eMMC storage. With an impressive 32TOPS INT8 computing power, it excels in a variety of tasks and fully supports mainstream deep learning frameworks.
+The AICore SG2300X is a core board featuring the advanced SOPHON AI processor SG2300X for powerful performance. It can be equipped with up to 16GB of RAM and supports 128GB of eMMC storage. With an impressive 32TOPS INT8 computing power, it excels in a variety of tasks and fully supports mainstream deep learning frameworks.
 
 With an open SDK and a comprehensive all-in-one AI development kit and user-friendly toolchain, you can easily deploy and migrate algorithms, simplifying the complex AI development process. This versatility spans the security, transportation, retail, and industrial sectors, opening up exciting possibilities for your projects.
 
-The Radxa AICore SG2300X operates in SOC mode as well as in PCIe mode, i.e. the Radxa AICore SG2300X can be used as a PCIe slave device.
+The AICore SG2300X operates in SOC mode as well as in PCIe mode, i.e. the AICore SG2300X can be used as a PCIe slave device.
 
 #### Photograph of sth.
 
@@ -39,15 +39,15 @@ The Radxa AICore SG2300X operates in SOC mode as well as in PCIe mode, i.e. the 
 
 </TabItem>
 
-<TabItem value="Radxa Fogwise AirBox" label="Radxa Fogwise AirBox">
+<TabItem value=" Fogwise AirBox" label=" Fogwise AirBox">
 
 ## Products
 
-Radxa Fogwise AirBox is an embedded AI micro-server with arithmetic power up to 32TOPS@INT8, supports multiple precision (INT8, FP16/BF16, FP32), supports private GPT, text-to-image, and other mainstream AI model deployments, and is equipped with an aluminum alloy casing for deployment in harsh environments.
+Fogwise AirBox is an embedded AI micro-server with arithmetic power up to 32TOPS@INT8, supports multiple precision (INT8, FP16/BF16, FP32), supports private GPT, text-to-image, and other mainstream AI model deployments, and is equipped with an aluminum alloy casing for deployment in harsh environments.
 
 #### Characterization
 
-|           module           | Radxa Fogwise AirBox                                                                                                                                                                                                                                                                                                                                                                                          |
+|           module           | Fogwise AirBox                                                                                                                                                                                                                                                                                                                                                                                                |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |         **sizes**          | 104 mm × 84 mm × 50.2 mm                                                                                                                                                                                                                                                                                                                                                                                      |
 |    **processing unit**     | SOPHON SG2300X SoC，octa-core Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                                                                                                                                             |
