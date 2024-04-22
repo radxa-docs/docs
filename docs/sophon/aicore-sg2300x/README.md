@@ -39,17 +39,17 @@ Radxa AICore SG2300X 即可在 SOC 模式下工作 也可在 PCIe 模式下工�
 
 </TabItem>
 
-<TabItem value="Radxa Fogwise BM168M" label="瑞莎 Fogwise BM168M">
+<TabItem value="Radxa Fogwise AirBox" label="瑞莎 Fogwise AirBox">
 
 ## 产品介绍
 
-Radxa Fogwise BM168M 是一款基于 **AICore SG2300X核心板** 的嵌入式人工智能微型服务器，算力高达 32TOPS@INT8，支持多种精度（INT8、FP16/BF16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备铝合金外壳，可在恶劣环境中部署。
+Radxa Fogwise AirBox 是一款基于 **AICore SG2300X核心板** 的嵌入式人工智能微型服务器，算力高达 32TOPS@INT8，支持多种精度（INT8、FP16/BF16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备铝合金外壳，可在恶劣环境中部署。
 
-**这个介绍 Fogwise BM168M 是为了方便介绍 AICore SG2300X 的功能。**
+**这个介绍 Fogwise AirBox 是为了方便介绍 AICore SG2300X 的功能。**
 
 #### 特性
 
-|       模块       | Radxa Fogwise BM168M                                                                                                                                                                                                                                                              |
+|       模块       | Radxa Fogwise AirBox                                                                                                                                                                                                                                                              |
 | :--------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     **尺寸**     | 104 mm × 84 mm × 50.2 mm                                                                                                                                                                                                                                                          |
 |    **处理器**    | SOPHON SG2300X SoC，八核 Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                      |
@@ -64,7 +64,7 @@ Radxa Fogwise BM168M 是一款基于 **AICore SG2300X核心板** 的嵌入式人
 
 #### 实物照片
 
-![Fogwise BM168M Overview](/img/bm168m/radxa_fogwise_bm168m.webp)
+![Fogwise AirBox Overview](/img/airbox/radxa_fogwise_airbox.webp)
 
 ### 芯片框图
 

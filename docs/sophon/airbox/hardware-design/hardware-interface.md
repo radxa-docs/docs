@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ## 接口总览
 
-<img src="/img/bm168m/radxa_fogwise_bm168m.webp" alt="radxa-aicore-sg2300x interfaces" />
+<img src="/img/airbox/radxa_fogwise_airbox.webp" alt="radxa-aicore-sg2300x interfaces" />
 
 ## 电源接口
 
@@ -28,6 +28,6 @@ sidebar_position: 4
 
 ## 底盖内视
 
-<img src="/img/bm168m/mark_fogwise_bm168m_02.webp" alt="radxa-aicore-sg2300x interfaces" />
+<img src="/img/airbox/mark_fogwise_airbox_02.webp" alt="radxa-aicore-sg2300x interfaces" />
 
 如上图， M-KEY 可接 PM991 NVME SSD 。 E-KEY 可接 Intel 7265NGW 和 Intel AX210 两种 WIFI & BT 模块
