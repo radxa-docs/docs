@@ -2,19 +2,19 @@
 sidebar_position: 4
 ---
 
-# 瑞莎 Fogwise AirBox
+# Fogwise AirBox
 
 <Tabs queryString="target">
 
-<TabItem value="Radxa Fogwise AirBox" label="瑞莎 Fogwise AirBox">
+<TabItem value="Fogwise AirBox" label="Fogwise AirBox">
 
 ## 产品介绍
 
-Radxa Fogwise AirBox 是一款嵌入式人工智能微型服务器，算力高达 32TOPS@INT8，支持多种精度（INT8、FP16/BF16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备铝合金外壳，可在恶劣环境中部署。
+Fogwise AirBox 是一款嵌入式人工智能微型服务器，算力高达 32TOPS@INT8，支持多种精度（INT8、FP16/BF16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备铝合金外壳，可在恶劣环境中部署。
 
 #### 特性
 
-|       模块       | Radxa Fogwise AirBox                                                                                                                                                                                                                                                              |
+|       模块       | Fogwise AirBox                                                                                                                                                                                                                                                                    |
 | :--------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     **尺寸**     | 104 mm × 84 mm × 50.2 mm                                                                                                                                                                                                                                                          |
 |    **处理器**    | SOPHON SG2300X SoC，八核 Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                      |
