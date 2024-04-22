@@ -2,18 +2,18 @@
 sidebar_position: 4
 ---
 
-# 瑞莎 AICore SG2300X 核心板
+# AICore SG2300X 核心板
 
 <Tabs queryString="target">
-  <TabItem value="AICore SG2300X" label="瑞莎 AICore SG2300X 核心板">
+  <TabItem value="AICore SG2300X" label="AICore SG2300X 核心板">
 
 ## 产品介绍
 
-Radxa AICore SG2300X 是一款采用先进的 SOPHON AI 处理器 SG2300X 的核心板，可提供强大的性能。它最高可配备 16GB 内存，支持 128GB eMMC 存储。它拥有令人印象深刻的 32TOPS INT8 计算能力，在各种任务中表现出色，并完全支持主流深度学习框架。
+AICore SG2300X 是一款采用先进的 SOPHON AI 处理器 SG2300X 的核心板，可提供强大的性能。它最高可配备 16GB 内存，支持 128GB eMMC 存储。它拥有令人印象深刻的 32TOPS INT8 计算能力，在各种任务中表现出色，并完全支持主流深度学习框架。
 
 通过使用开放式 SDK 和全面的一体化人工智能开发包以及用户友好型工具链，您可以轻松部署和迁移算法，简化复杂的人工智能开发流程。这种多功能性跨越了安防、交通、零售和工业等领域，为您的项目提供了令人兴奋的可能性。
 
-Radxa AICore SG2300X 即可在 SOC 模式下工作 也可在 PCIe 模式下工作，即 Radxa AICore SG2300X 可用作 PCIe 从设备。
+AICore SG2300X 即可在 SOC 模式下工作 也可在 PCIe 模式下工作，即 AICore SG2300X 可用作 PCIe 从设备。
 
 #### 实物照片
 
@@ -39,17 +39,17 @@ Radxa AICore SG2300X 即可在 SOC 模式下工作 也可在 PCIe 模式下工�
 
 </TabItem>
 
-<TabItem value="Radxa Fogwise AirBox" label="瑞莎 Fogwise AirBox">
+<TabItem value="Fogwise AirBox" label="Fogwise AirBox">
 
 ## 产品介绍
 
-Radxa Fogwise AirBox 是一款基于 **AICore SG2300X核心板** 的嵌入式人工智能微型服务器，算力高达 32TOPS@INT8，支持多种精度（INT8、FP16/BF16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备铝合金外壳，可在恶劣环境中部署。
+Fogwise AirBox 是一款基于 **AICore SG2300X核心板** 的嵌入式人工智能微型服务器，算力高达 32TOPS@INT8，支持多种精度（INT8、FP16/BF16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备铝合金外壳，可在恶劣环境中部署。
 
 **这个介绍 Fogwise AirBox 是为了方便介绍 AICore SG2300X 的功能。**
 
 #### 特性
 
-|       模块       | Radxa Fogwise AirBox                                                                                                                                                                                                                                                              |
+|       模块       | Fogwise AirBox                                                                                                                                                                                                                                                                    |
 | :--------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     **尺寸**     | 104 mm × 84 mm × 50.2 mm                                                                                                                                                                                                                                                          |
 |    **处理器**    | SOPHON SG2300X SoC，八核 Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                      |
