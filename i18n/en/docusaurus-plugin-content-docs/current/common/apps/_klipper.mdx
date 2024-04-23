@@ -35,32 +35,64 @@ Perform action option 1 to enter the plugin installation list.
 
 2. Install klipper
 
-<img src="/img/common/klipper/installation_menu.webp" alt="installation menu" width="500" />
+<img
+  src="/img/common/klipper/installation_menu.webp"
+  alt="installation menu"
+  width="500"
+/>
 
 Python3 is recommended.
 
-<img src="/img/common/klipper/klipper_installation.webp" alt="install klipper" width="500" />
+<img
+  src="/img/common/klipper/klipper_installation.webp"
+  alt="install klipper"
+  width="500"
+/>
 
 The next step asks how many instances of Klipper to install, so you can install as many instances as you have printers connected.
 Here is an example of one printer. Press Enter to continue.
 
-<img src="/img/common/klipper/num_of_instance.webp" alt="num of instance" width="500" />
+<img
+  src="/img/common/klipper/num_of_instance.webp"
+  alt="num of instance"
+  width="500"
+/>
 
-<img src="/img/common/klipper/klipper_dependencies.webp" alt="klipper dependencies" width="500" />
+<img
+  src="/img/common/klipper/klipper_dependencies.webp"
+  alt="klipper dependencies"
+  width="500"
+/>
 
 Add the user to the tty/dialout group, to solve the problem that you may not be able to connect to the lower unit
 
-<img src="/img/common/klipper/add_to_group.webp" alt="add to group" width="500" />
+<img
+  src="/img/common/klipper/add_to_group.webp"
+  alt="add to group"
+  width="500"
+/>
 
 3. install moonraker
 
-<img src="/img/common/klipper/install_menu.webp" alt="install menu" width="500" />
+<img
+  src="/img/common/klipper/install_menu.webp"
+  alt="install menu"
+  width="500"
+/>
 
-<img src="/img/common/klipper/install_moonraker.webp" alt="install moonraker" width="500" />
+<img
+  src="/img/common/klipper/install_moonraker.webp"
+  alt="install moonraker"
+  width="500"
+/>
 
 When the installation is complete, the IP address of Moonraker will be displayed.
 
-<img src="/img/common/klipper/moonraker_ip.webp" alt="moonraker ip" width="500" />
+<img
+  src="/img/common/klipper/moonraker_ip.webp"
+  alt="moonraker ip"
+  width="500"
+/>
 
 4. Install Fluidd or Mainsail
 
@@ -68,25 +100,33 @@ If you are installing on a system with a browser and a graphical interface, you 
 
 <img src="/img/common/klipper/fluidd.webp" alt="fluidd" width="500" />
 
-5. Install KlipperScreen 
+5. Install KlipperScreen
 
-<img src="/img/common/klipper/select_klipper.webp" alt="select klipper" width="500" />
+<img
+  src="/img/common/klipper/select_klipper.webp"
+  alt="select klipper"
+  width="500"
+/>
 
-<img src="/img/common/klipper/enable_boot_console.webp" alt="enable boot console" width="500" />
+<img
+  src="/img/common/klipper/enable_boot_console.webp"
+  alt="enable boot console"
+  width="500"
+/>
 
 6. Setup
 
 Plug the device into the board's USB port and view the device
 
 ```
-ls /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0 
+ls /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 ```
 
 Add the device in printer_data/config/printer.cfg
 
 ```
-cat printer_data/config/printer.cfg 
+cat printer_data/config/printer.cfg
 [include fluidd.cfg]
 [include mainsail.cfg]
 [mcu]
