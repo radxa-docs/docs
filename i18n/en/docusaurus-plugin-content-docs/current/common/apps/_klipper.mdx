@@ -1,0 +1,156 @@
+### Updating software sources
+
+```
+sudo apt-get update -y
+```
+
+### Install base tools
+
+```
+sudo apt-get install git build-essential python3-pip -y
+```
+
+### Download the install script
+
+```
+git clone https://github.com/dw-0/kiauh.git
+```
+
+Or
+
+```
+git clone https://gitee.com/miroky/kiauh.git
+```
+
+### Run the kiauh script to install the required plugins.
+
+1. Run kiauh.sh and the following screen will appear
+
+```
+. /kiauh/kiauh.sh
+<img src="/img/common/klipper/kiau_main_menu.webp" alt="kiau main menu" width="500" />
+```
+
+Perform action option 1 to enter the plugin installation list.
+
+2. Install klipper
+
+<img
+  src="/img/common/klipper/installation_menu.webp"
+  alt="installation menu"
+  width="500"
+/>
+
+Python3 is recommended.
+
+<img
+  src="/img/common/klipper/klipper_installation.webp"
+  alt="install klipper"
+  width="500"
+/>
+
+The next step asks how many instances of Klipper to install, so you can install as many instances as you have printers connected.
+Here is an example of one printer. Press Enter to continue.
+
+<img
+  src="/img/common/klipper/num_of_instance.webp"
+  alt="num of instance"
+  width="500"
+/>
+
+<img
+  src="/img/common/klipper/klipper_dependencies.webp"
+  alt="klipper dependencies"
+  width="500"
+/>
+
+Add the user to the tty/dialout group, to solve the problem that you may not be able to connect to the lower unit
+
+<img
+  src="/img/common/klipper/add_to_group.webp"
+  alt="add to group"
+  width="500"
+/>
+
+3. install moonraker
+
+<img
+  src="/img/common/klipper/install_menu.webp"
+  alt="install menu"
+  width="500"
+/>
+
+<img
+  src="/img/common/klipper/install_moonraker.webp"
+  alt="install moonraker"
+  width="500"
+/>
+
+When the installation is complete, the IP address of Moonraker will be displayed.
+
+<img
+  src="/img/common/klipper/moonraker_ip.webp"
+  alt="moonraker ip"
+  width="500"
+/>
+
+4. Install Fluidd or Mainsail
+
+If you are installing on a system with a browser and a graphical interface, you can access 127.0.0.1 or localhost in your browser, and the installation will be completed when the web page loads successfully.
+
+<img src="/img/common/klipper/fluidd.webp" alt="fluidd" width="500" />
+
+5. Install KlipperScreen
+
+<img
+  src="/img/common/klipper/select_klipper.webp"
+  alt="select klipper"
+  width="500"
+/>
+
+<img
+  src="/img/common/klipper/enable_boot_console.webp"
+  alt="enable boot console"
+  width="500"
+/>
+
+6. Setup
+
+Plug the device into the board's USB port and view the device
+
+```
+ls /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+```
+
+Add the device in printer_data/config/printer.cfg
+
+```
+cat printer_data/config/printer.cfg
+[include fluidd.cfg]
+[include mainsail.cfg]
+[mcu]
+serial: /dev/serial/by-id/<your-mcu-id>
+
+[virtual_sdcard]
+path: /home/radxa/printer_data/gcodes
+on_error_gcode: CANCEL_PRINT
+
+[printer]
+kinematics: none
+max_velocity: 1000
+max_accel: 1000
+
+[mcu]
+serial:/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+```
+
+Reboot the system to access the klipper
+
+7. Optimizing startup
+
+When not connected to the network, it may take more than ten seconds to connect after booting, this is because some services need to wait for the network to start, it has been optimized on the newest system, on the old system you need to make the following changes
+
+```
+sudo systemctl mask systemd-networkd-wait-online.service
+```
