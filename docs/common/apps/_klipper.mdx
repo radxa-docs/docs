@@ -1,0 +1,116 @@
+### 更新软件源
+
+```
+sudo apt-get update -y
+```
+
+### 安装基础工具
+
+```
+sudo apt-get install git build-essential python3-pip -y
+```
+
+### 下载安装脚本
+
+```
+git clone https://github.com/dw-0/kiauh.git
+```
+
+或者
+
+```
+git clone https://gitee.com/miroky/kiauh.git
+```
+
+### 运行 kiauh 脚本安装所需要的插件
+
+1. 运行kiauh.sh，出现如下界面
+
+```
+./kiauh/kiauh.sh
+
+<img src="/img/common/klipper/kiau_main_menu.webp" alt="kiau main menu" width="500" />
+
+```
+
+Perform action 选择 1， 进入插件安装列表
+
+2. 安装 klipper
+
+<img src="/img/common/klipper/installation_menu.webp" alt="installation menu" width="500" />
+
+推荐使用 Python3
+
+<img src="/img/common/klipper/klipper_installation.webp" alt="install klipper" width="500" />
+
+下一步会询问安装Klipper的实例数量，连接几台打印机就安装几个实例。
+这里以一台打印机为例，按回车继续
+
+<img src="/img/common/klipper/num_of_instance.webp" alt="num of instance" width="500" />
+
+<img src="/img/common/klipper/klipper_dependencies.webp" alt="klipper dependencies" width="500" />
+
+将用户添加到 tty/dialout 组，用于解决可能无法连接下位机的问题
+
+<img src="/img/common/klipper/add_to_group.webp" alt="add to group" width="500" />
+
+3. 安装 moonraker
+
+<img src="/img/common/klipper/install_menu.webp" alt="install menu" width="500" />
+
+<img src="/img/common/klipper/install_moonraker.webp" alt="install moonraker" width="500" />
+
+安装完成后会显示Moonraker的IP地址
+
+<img src="/img/common/klipper/moonraker_ip.webp" alt="moonraker ip" width="500" />
+
+4. 安装 Fluidd或 Mainsail
+   如果在已经登陆图形界面且带有浏览器的系统安装，可进入浏览器访问127.0.0.1或 localhost，网页加载成功即为完成安装。
+
+<img src="/img/common/klipper/fluidd.webp" alt="fluidd" width="500" />
+
+5. 安装 KlipperScreen 
+
+<img src="/img/common/klipper/select_klipper.webp" alt="select klipper" width="500" />
+<img src="/img/common/klipper/enable_boot_console.webp" alt="enable boot console" width="500" />
+
+6. 设置
+
+将设备插入板子 USB 口，查看设备
+
+```
+ls /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0 
+/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+```
+
+在 printer_data/config/printer.cfg 中添加设备
+
+```
+cat printer_data/config/printer.cfg 
+[include fluidd.cfg]
+[include mainsail.cfg]
+[mcu]
+serial: /dev/serial/by-id/<your-mcu-id>
+
+[virtual_sdcard]
+path: /home/radxa/printer_data/gcodes
+on_error_gcode: CANCEL_PRINT
+
+[printer]
+kinematics: none
+max_velocity: 1000
+max_accel: 1000
+
+[mcu]
+serial:/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+```
+
+重启系统即可进入 klipper
+
+7. 优化启动
+
+在未连接网络的情况下，开机后连接可能需要十多秒，这是因为一些服务需要等待网络启动，在最新的系统上已经优化了，在老系统中需要做如下修改
+
+```
+sudo systemctl mask systemd-networkd-wait-online.service
+```
