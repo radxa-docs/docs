@@ -7,10 +7,7 @@ hide_title: true
 # 主要在sidebar_custom_props对象中自定义信息
 # docs_photo_type 作用图标，取值范围 [Overview,Download,Accessories,GettingStart,Certification,SystemConfigurations,Android,FAQ]
 # products_photo_url 产品图片，图片尺寸330 X 150(找Vicky)，webp格式
-sidebar_custom_props:
-  {
-    product_docs:
-      [
+sidebar_custom_props: { product_docs: [
         {
           series_en: "ROCK 3 Family",
           series_zh: "ROCK 3 系列",
@@ -508,6 +505,213 @@ sidebar_custom_props:
               },
             ],
         },
-      ],
-  }
+        {
+          # 产品代号
+          product_code: "rs102",
+          # 产品名
+          product_name_zh: "ZERO",
+          product_name_en: "ZERO",
+          # 产品系列
+          Product_Line_zh: "ZERO 系列",
+          Product_Line_en: "ZERO Family",
+          # 产品对应的所有文档
+          docs:
+            [
+              {
+                title_zh: "概览",
+                info_zh: "ZERO 概览",
+                title_en: "Overview",
+                info_en: "Overview of the ZERO",
+                url: "/zero/zero",
+              },
+              {
+                title_zh: "新手入门指南",
+                info_zh: "从这里开始你的 ZERO 之旅",
+                title_en: "Getting Started",
+                info_en: "Start Your ZERO Journey Here",
+                url: "/zero/zero/getting-started",
+              },
+              {
+                title_zh: "瑞莎官方系统",
+                info_zh: "瑞莎官方系统操作指南",
+                title_en: "Radxa OS",
+                info_en: "Radxa Official System Operation Guide",
+                url: "/zero/zero/radxa-os",
+              },
+              {
+                title_zh: "系统配置",
+                info_zh: "系统配置指南",
+                title_en: "System Configurations",
+                info_en: "System Configuration Guide",
+                url: "/zero/zero/os-config",
+              },
+              {
+                title_zh: "配件支持",
+                info_zh: "配件支持指南",
+                title_en: "Accessories",
+                info_en: "Accessories Support Guide",
+                url: "/zero/zero/accessories",
+              },
+              {
+                title_zh: "Apps 部署",
+                info_zh: "常见 APP 部署指南",
+                title_en: "Application Deployment",
+                info_en: "Application Deployment Guide",
+                url: "/zero/zero/apps-deployment",
+              },
+            ],
+        },
+
+        {
+          # 产品代号
+          product_code: "rs105",
+          # 产品名
+          product_name_zh: "ZERO 2 PRO",
+          product_name_en: "ZERO 2 PRO",
+          # 产品系列
+          Product_Line_zh: "ZERO 系列",
+          Product_Line_en: "ZERO Family",
+          # 产品对应的所有文档
+          docs:
+            [
+              {
+                title_zh: "概览",
+                info_zh: "ZERO 2 PRO 概览",
+                title_en: "Overview",
+                info_en: "Overview of the ZERO 2 PRO",
+                url: "/zero/zero",
+              },
+              {
+                title_zh: "新手入门指南",
+                info_zh: "从这里开始你的 ZERO 2 PRO 之旅",
+                title_en: "Getting Started",
+                info_en: "Start Your ZERO 2 PRO Journey Here",
+                url: "/zero/zero/getting-started",
+              },
+              {
+                title_zh: "瑞莎官方系统",
+                info_zh: "瑞莎官方系统操作指南",
+                title_en: "Radxa OS",
+                info_en: "Radxa Official System Operation Guide",
+                url: "/zero/zero/radxa-os",
+              },
+              {
+                title_zh: "系统配置",
+                info_zh: "系统配置指南",
+                title_en: "System Configurations",
+                info_en: "System Configuration Guide",
+                url: "/zero/zero/os-config",
+              },
+              {
+                title_zh: "配件支持",
+                info_zh: "配件支持指南",
+                title_en: "Accessories",
+                info_en: "Accessories Support Guide",
+                url: "/zero/zero/accessories",
+              },
+              {
+                title_zh: "Apps 部署",
+                info_zh: "常见 APP 部署指南",
+                title_en: "Application Deployment",
+                info_en: "Application Deployment Guide",
+                url: "/zero/zero/apps-deployment",
+              },
+            ],
+        },
+
+        {
+          # 产品代号
+          product_code: "rs107",
+          # 产品名
+          product_name_zh: "ZERO 3",
+          product_name_en: "ZERO 3",
+          # 产品系列
+          Product_Line_zh: "ZERO 系列",
+          Product_Line_en: "ZERO Family",
+          # 产品对应的所有文档
+          docs:
+            [
+              {
+                title_zh: "新手入门指南",
+                info_zh: "从这里开始你的 ZERO 3W / 3E 之旅",
+                title_en: "Getting Started Guide",
+                info_en: "Start Your ZERO 3W / 3E Here",
+                url: "/zero/zero3",
+              },
+              {
+                title_zh: "配件使用指南",
+                info_zh: "使用 ZERO 3W / 3E 配件",
+                title_en: "Accessories Guide",
+                info_en: "Using ZERO 3W / 3E Accessories",
+                url: "/zero/zero3/accessories-guides",
+              },
+            ],
+        },
+
+        {
+          # 产品代号
+          product_code: "rs006",
+          # 产品名
+          product_name_zh: "X2L",
+          product_name_en: "X2L",
+          # 产品系列
+          Product_Line_zh: "X 系列",
+          Product_Line_en: "X Family",
+          # 产品对应的所有文档
+          docs:
+            [
+              {
+                title_zh: "新手入门指南",
+                info_zh: "从这里开始你的 Radxa X2L 之旅",
+                title_en: "Getting Started Guide",
+                info_en: "Start Your ZERO Here",
+                url: "/x/x2l/getting-started",
+              },
+              {
+                title_zh: "驱动安装",
+                info_zh: "基础必备驱动安装",
+                title_en: "Driver Installation Guide",
+                info_en: "Driver Installation",
+                url: "/x/x2l/driver",
+              },
+              {
+                title_zh: "BIOS 设置指南",
+                info_zh: "BIOS 设置",
+                title_en: "BIOS Setting",
+                info_en: "BIOS Setting on Radxa X2L",
+                url: "/x/x2l/bios",
+              },
+              {
+                title_zh: "配件使用指南",
+                info_zh: "使用 X2L 配件",
+                title_en: "Accessories Guide",
+                info_en: "Using X2L Accessories",
+                url: "/x/x2l/accessories",
+              },
+              {
+                title_zh: "软件开发指南",
+                info_zh: "X2L 软件开发",
+                title_en: "Software development",
+                info_en: "Software development",
+                url: "/x/x2l/software-development",
+              },
+            ],
+        },
+
+        {
+          product_name_zh: "RadxaOS",
+          product_name_en: "RadxaOS",
+          product_code: "radxa-os",
+          Product_Line_zh: "Radxa 软件",
+          Product_Line_en: "Radxa Software",
+          docs:
+            [
+              {
+                title_zh: "用户手册",
+                title_en: "User Manual",
+                url: "/radxa-os",
+              },
+            ],
+        },
+      ] }
 ---
