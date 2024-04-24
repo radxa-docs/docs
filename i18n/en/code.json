@@ -12,6 +12,18 @@
   "homepage.hero.hello": {
     "message": "Hello, world!"
   },
+  "radxa.docs": {
+    "description": "文档中心",
+    "message": "Radxa Documentation Center"
+  },
+  "radxa.docs.hot": {
+    "description": "hot",
+    "message": "Hot Series"
+  },
+  "radxa.docs.info1": {
+    "description": "选择一个产品",
+    "message": "Choose A Product"
+  },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "description": "The ARIA label for close button of announcement bar",
     "message": "Close"
@@ -413,17 +425,5 @@
   "theme.tags.tagsPageTitle": {
     "description": "The title of the tag list page",
     "message": "Tags"
-  },
-  "radxa.docs": {
-    "description": "文档中心",
-    "message": "Radxa Documentation Center"
-  },
-  "radxa.docs.info1": {
-    "description": "选择一个产品",
-    "message": "Choose A Product"
-  },
-  "radxa.docs.hot": {
-    "description": "hot",
-    "message": "Hot Series"
   }
 }

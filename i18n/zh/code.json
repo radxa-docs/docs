@@ -14,6 +14,18 @@
   "homepage.hero.hello": {
     "message": "你好，世界！"
   },
+  "radxa.docs": {
+    "description": "文档中心",
+    "message": "Radxa 文档中心"
+  },
+  "radxa.docs.hot": {
+    "description": "hot",
+    "message": "热门系列"
+  },
+  "radxa.docs.info1": {
+    "description": "选择一个产品",
+    "message": "选择一个产品"
+  },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
     "description": "The ARIA label for close button of announcement bar",
     "message": "关闭"
@@ -284,17 +296,5 @@
   "theme.tags.tagsPageTitle": {
     "description": "The title of the tag list page",
     "message": "标签"
-  },
-  "radxa.docs": {
-    "description": "文档中心",
-    "message": "Radxa 文档中心"
-  },
-  "radxa.docs.info1": {
-    "description": "选择一个产品",
-    "message": "选择一个产品"
-  },
-  "radxa.docs.hot": {
-    "description": "hot",
-    "message": "热门系列"
   }
 }

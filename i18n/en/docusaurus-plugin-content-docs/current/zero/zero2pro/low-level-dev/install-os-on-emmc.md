@@ -1,55 +1,135 @@
 ---
-sidebar_position: 1
+sidebar_position: 5
 ---
 
-# Install OS on eMMC
+## Install the system to eMMC
 
 ## Preparation
 
+- 1x USB cable (USB C on one end, USB A on the other)
+- 1x 5V power adapter, recommended to use a power adapter with a rated maximum current greater than 2A (recommended [Radxa Power PD30W](/accessories/pd_30w))
+
 ## Image download
 
-## Enter Maskrom Mode
+Please go to [Resource Download Summary](/zero/zero/getting-started/download.md) to download the corresponding image file.
 
-<Tabs queryString="model">
-<TabItem value="zero-3w" label="ZERO 3W">
+### Put it in Maskrom mode
 
-![ZERO 3W Overview](/img/zero/zero3/radxa_zero_3w.webp)
+Please follow the steps below to enter Maskrom mode:
 
-How to enter Maskrom mode on Radxa ZERO 3W
+1. Press and hold the USB BOOT button
+2. Connect the USB-A port of the USB-A to USB-C cable to the PC, and the USB-C port to the OTG port of the ZERO.
+3. Release the USB BOOT button
 
-1. Remove the microSD card and power cable
-2. Press and hold the Maskrom button on the back of the
-3. Connect the USB of PC host via USB-A to USB-C cable, if the green light of the power supply is always on, it will enter the Maskrom mode successfully
+![ZERO Maskrom](/img/zero/zero/Zero_ports.webp)
+
+## Installing the system to eMMC
+
+### Environment preparation
+
+<Tabs queryString="host_os">
+<TabItem value="Windows">
+
+1. Connect the Radxa ZERO to your computer in [Maskrom Mode](#Put-it-in-Maskrom-mode).
+
+2. Download and install the [Zagdig](https://zadig.akeo.ie/) USB driver.
+
+   Make sure the information shown is `GX-CHIP`, the USB ID is `1B8E:C003`, select `libusb-win32`, and click `Install Driver` to install the driver.
+
+   ![Zagdig libusb](/img/zero/zero2pro/Zagdig-libusb.webp)
+
+   Alternatively, you can install fastboot using nexus-tools by running the following command in PowerShell:
+
+   :::tip
+   fastboot is used to install Android or manually clear the eMMC bootloader. If you don't need these, you can skip this step.
+   :::
+
+   ```bash
+   iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/corbindavenport/nexus-tools/master/install.ps1'))
+   ```
+
+   You will also need the [Android driver](https://dl.google.com/android/repository/usb_driver_r13-windows.zip) provided by Google.
+
+   Unzip and right click on the .inf file to install the driver.
+
+   ![Android driver](/img/zero/zero2pro/Install-win-android-driver.webp)
+
+   [RZ USB Boot Helper](https://dl.radxa.com/zero/tools/windows/RZ_USB_Boot_Helper_V1.0.0.zip) is a Windows utility made by Radxa for Maskrom communication.
+
+   The tool will list the current mode on its interface. Right now we are using the Maskrom mode:
+
+   ![Rz maskrom](/img/zero/zero2pro/Rz-usb-helper-maskrom.webp)
 
 </TabItem>
-<TabItem value="zero-3e" label="ZERO 3E">
+<TabItem value="Linux/MacOS">
 
-![ZERO 3E Overview](/img/zero/zero3/radxa_zero_3e.webp)
+On such platforms, we can use the Amlogic boot tool to load binaries. First make sure that the [python](https://www.python.org/) environment is installed, then run the following command in a new terminal:
 
-How to enter Maskrom mode on Radxa ZERO 3E
+<Tabs queryString="nix">
+<TabItem value="MacOS">
 
-1. Remove the microSD card and power cable
-2. Connect the USB of PC host via USB-A to USB-C cable, if the green light of the power supply is always on, it will enter the Maskrom mode successfully
+```bash
+brew install python lsusb libusb
+pip3 install pyamlboot
+```
+
+Similar to the Windows platform, you can also install fastboot using nexus-tools by running the following commands in the terminal, or skip this step if you don't need these:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/corbindavenport/nexus-tools/master/install.sh)
+```
+
+</TabItem>
+<TabItem value="Linux">
+
+```bash
+sudo apt update
+sudo apt install python3-pip
+sudo pip3 install pyamlboot
+```
+
+Similar to the Windows platform, you can also install fastboot using nexus-tools by running the following commands in the terminal, or skip this step if you don't need these:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/corbindavenport/nexus-tools/master/install.sh)
+```
 
 </TabItem>
 </Tabs>
+</TabItem>
+</Tabs>
 
-The OTG interface on the Radxa ZERO 3 is TYPE-C, which allows communication between the host computer and the motherboard entering the Maskrom via a USB-C to USB-A cable.
+### Flash the firmware
 
-In Maskrom mode, you can use the [Rockchip Development Kit](/general-tutorial/rksdk) to erase, wire-flash, etc. your product.
+<Tabs queryString="host_os">
+<TabItem value="Windows">
 
-## Install OS on eMMC
+Once the tool detects the Maskrom mode, you can click the `Select` button to select the [radxa-zero-erase-emmc.bin](https://dl.radxa.com/zero/images/loader/radxa-zero-erase-emmc.bin) file and then click the `Run` button to load it:
 
-[Windows Flash eMMC](rkdevtool)
+![Rz fastboot](/img/zero/zero2pro/Rz-usb-helper-fastboot.webp)
 
-[Linux Flash eMMC](rkdeveloptool)
+The results of the run are shown above.
 
-## Boot the system
+After this, your computer will recognize the Radxa ZERO as a USB storage device, and you can simply flash the system image to it as described in the [Operating System Installation Guide](../getting-started/install-os) and boot up normally.
 
-- Power the board via [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface.md). Then board will start up with the led blink.
+</TabItem>
+<TabItem value="Linux/MacOS">
 
-:::tip
-Radxa ZERO 3 only supports `5V` power supply.Radxa Recommended [Radxa Power PD30W](/accessories/pd_30w).
-:::
+Under this platform, you can use the boot-g12.py utility.
 
-## FAQ
+Run the following command for loading the firmware:
+
+```bash
+boot-g12.py radxa-zero-erase-emmc.bin
+```
+
+On Linux platforms, you will also need to add `sudo` to obtain permissions:
+
+```bash
+sudo boot-g12.py radxa-zero-erase-emmc.bin
+```
+
+After this, your computer will recognize the Radxa ZERO as a USB storage device, and you can simply flash the system image to it as described in the [Operating System Installation Guide](../getting-started/install-os) and boot up normally.
+
+</TabItem>
+</Tabs>
