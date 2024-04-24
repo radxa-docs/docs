@@ -6,10 +6,30 @@ sidebar_position: 50
 
 ## GPIO Voltage
 
+<Tabs queryString="revision">
+<TabItem value="x1_1" label="x1.1">
+
+<div className='voltage'>
+
 | GPIO       | Voltage | Max Voltage |
 | ---------- | ------- | ----------- |
 | All GPIO   | 3.3V    | 3.63V       |
-| SARADC_IN4 | 3.3V    | 3.3V        |
+| SARADC_IN5 | 1.8V    | 1.8V        |
+
+</div>
+</TabItem>
+<TabItem value="x1_2" label="x1.2/v1.1">
+
+<div className='voltage'>
+
+| GPIO        | Voltage | Max Voltage |
+| ----------- | ------- | ----------- |
+| All GPIO    | 3.3V    | 3.63V       |
+| SARADC_VIN2 | 1.8V    | 1.8V        |
+
+</div>
+</TabItem>
+</Tabs>
 
 ## GPIO Interface
 
