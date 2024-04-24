@@ -6,10 +6,30 @@ sidebar_position: 50
 
 ## GPIO 电压
 
+<Tabs queryString="revision">
+<TabItem value="x1_1" label="x1.1">
+
+<div className='voltage'>
+
 | GPIO       | 电压 | 最高  |
 | ---------- | ---- | ----- |
 | 所有的GPIO | 3.3V | 3.63V |
-| SARADC_IN5 | 3.3V | 3.3V  |
+| SARADC_IN5 | 1.8V | 1.8V  |
+
+</div>
+</TabItem>
+<TabItem value="x1_2" label="x1.2/v1.1">
+
+<div className='voltage'>
+
+| GPIO       | 电压 | 最高  |
+| ---------- | ---- | ----- |
+| 所有的GPIO | 3.3V | 3.63V |
+| SARADC_IN2 | 1.8V | 1.8V  |
+
+</div>
+</TabItem>
+</Tabs>
 
 ## GPIO接口
 
