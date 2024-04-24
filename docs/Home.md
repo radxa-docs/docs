@@ -493,16 +493,16 @@ sidebar_custom_props:
               {
                 products_name: "Fogwise AirBox",
                 products_photo_url: "/home/product-pictures/airbox.webp",
-                products_link: "/sophon/bm168m",
+                products_link: "/sophon/airbox",
                 docs:
                   [
                     {
-                      docs_link: "/sophon/bm168m",
+                      docs_link: "/sophon/airbox",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
-                      docs_name_zh: "Radxa Fogwise BM168M 概览",
-                      docs_info_en: "Overview of the Radxa Fogwise BM168M",
-                      docs_info_zh: "Radxa Fogwise BM168M 概览",
+                      docs_name_zh: "Radxa Fogwise AirBox 概览",
+                      docs_info_en: "Overview of the Radxa Fogwise AirBox",
+                      docs_info_zh: "Radxa Fogwise AirBox 概览",
                     },
                   ],
               },

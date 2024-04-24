@@ -2,19 +2,19 @@
 sidebar_position: 4
 ---
 
-# Radxa Fogwise BM168M
+# Fogwise AirBox
 
 <Tabs queryString="target">
 
-<TabItem value="Radxa Fogwise BM168M" label="Radxa Fogwise BM168M">
+<TabItem value="Fogwise AirBox" label="Fogwise AirBox">
 
 ## Products
 
-Radxa Fogwise BM168M is an embedded AI micro-server with arithmetic power up to 32TOPS@INT8, supports multiple precision (INT8, FP16/BF16, FP32), supports private GPT, text-to-image, and other mainstream AI model deployments, and is equipped with an aluminum alloy casing for deployment in harsh environments.
+Fogwise AirBox is an embedded AI micro-server with arithmetic power up to 32TOPS@INT8, supports multiple precision (INT8, FP16/BF16, FP32), supports private GPT, text-to-image, and other mainstream AI model deployments, and is equipped with an aluminum alloy casing for deployment in harsh environments.
 
 #### Characterization
 
-|           module           | Radxa Fogwise BM168M                                                                                                                                                                                                                                                                                                                                                                                          |
+|           module           | Fogwise AirBox                                                                                                                                                                                                                                                                                                                                                                                                |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |         **sizes**          | 104 mm × 84 mm × 50.2 mm                                                                                                                                                                                                                                                                                                                                                                                      |
 |    **processing unit**     | SOPHON SG2300X SoC，octa-core Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                                                                                                                                             |
@@ -29,7 +29,7 @@ Radxa Fogwise BM168M is an embedded AI micro-server with arithmetic power up to 
 
 #### Photograph of sth.
 
-![Fogwise BM168M Overview](/img/bm168m/radxa_fogwise_bm168m.webp)
+![Fogwise AirBox Overview](/img/airbox/radxa_fogwise_airbox.webp)
 
 ### Chip block diagram
 
@@ -37,7 +37,7 @@ Radxa Fogwise BM168M is an embedded AI micro-server with arithmetic power up to 
 
 ### System block diagram
 
-![Fogwise BM168M Block Diagram](/img/bm168m/bm168m-block-diagram.webp)
+![Fogwise AirBox Block Diagram](/img/airbox/airbox-block-diagram.webp)
 
 </TabItem>
 

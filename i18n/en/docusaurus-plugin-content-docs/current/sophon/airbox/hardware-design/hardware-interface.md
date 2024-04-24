@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ## Interface Overview
 
-![](/img/bm168m/radxa_fogwise_bm168m.webp)
+![](/img/airbox/radxa_fogwise_airbox.webp)
 
 ##
 
@@ -28,6 +28,6 @@ One is a WAN port and one is a LAN port.
 
 ## Inside view of bottom cover
 
-![](/img/bm168m/mark_fogwise_bm168m_02.webp)
+![](/img/airbox/mark_fogwise_airbox_02.webp)
 
 As shown above, M-KEY can connect to PM991 NVME SSD. E-KEY can connect to Intel 7265NGW and Intel AX210 WIFI & BT modules.
