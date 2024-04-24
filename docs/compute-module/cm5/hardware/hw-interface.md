@@ -5,7 +5,7 @@ sidebar_position: 4
 # 硬件接口说明
 
 :::warning
-不能把CM5 放到 Radxa CM3 IO板上使用，否则会烧板子，具体原因请参考 [faq](../faq.md)
+不能把CM5 放到 Radxa CM3 IO板上使用，硬件不兼容，具体原因请参考 [faq](../faq.md)
 :::
 
 ## 接口总览
