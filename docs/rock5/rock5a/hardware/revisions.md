@@ -9,4 +9,4 @@ sidebar_position: 20
 | X1.0     | ROCK 5A初始版本，仅供瑞莎内部研发                                                                                                                                                                        |
 | X1.1     | 首个开发者版本，提供给社区开发者                                                                                                                                                                         |
 | V1.1     | 首个量产版本，在X1.1基础上有以下改动：<br></br>• 为ROCK 5A增加了一个板卡ID(SARADC_IN5)<br></br>• R1505从NC改为100K<br></br>• R1507从100K改为20K<br></br>• 移除USB和以太网的测试点<br></br>• 丝印改为V1.1 |
-| V1.2     | [ROCK 5A V1.2 改版点](https://dl.radxa.com/rock5/5a/docs/hw/5A_V1.2_%e6%94%b9%e7%89%88%e7%82%b9.docx)|
+| V1.2     | [ROCK 5A V1.2 改版点](https://dl.radxa.com/rock5/5a/docs/hw/5A_V1.2_%e6%94%b9%e7%89%88%e7%82%b9.docx)                                                                                                    |
