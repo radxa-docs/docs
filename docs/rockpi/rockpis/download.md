@@ -13,4 +13,3 @@ sidebar_position: 4
 :::
 
 更多镜像请查看：[Radxa ROCK PI S Release](https://github.com/radxa-build/rock-pi-s/releases)
-
