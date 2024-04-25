@@ -36,7 +36,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## Image Download
 
-Please go to [Resource Download Summary](./download) to download the corresponding image file.
+Please go to [Resource Download Summary](../download) to download the corresponding image file.
 
 ## Install the system
 
