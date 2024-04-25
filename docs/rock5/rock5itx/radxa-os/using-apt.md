@@ -1,5 +1,5 @@
 import Apt from "../../../common/radxa-os/\_apt-repo.mdx";
 
-# 使用 APT
+# 在线更新
 
 <Apt />

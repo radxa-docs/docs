@@ -1,7 +1,7 @@
 大多数radxa产品都预留了一个USB端口作为OTG端口，在运行Android时也作为adb调试端口。你可以在此查阅相应[产品](https://radxa.com/products)的端口定义。
 你可以通过OTG端口连接两个产品来建立一个共享网络。现在官方支持最新的linux和android图像。
 
-## 准备工作
+### 准备工作
 
 **线缆**： 首先，你将需要一条USB-A转USB-A的线来连接两个SBC。
 
@@ -25,7 +25,7 @@ sudo systemctl status radxa-usbnet.service
 
 服务运行时的活动状态信息为 `active(exited)`。
 
-## OTG设置
+### OTG设置
 
 首先，用USB-A转USB-A数据线连接两个SBC的OTG端口。
 共享网络里的设备性质由你所启用的[overlay](../os-config/rsetup#overlay)决定，主机的设备名称为host。
@@ -43,7 +43,7 @@ sudo systemctl status radxa-usbnet.service
 
 启用设置后需要重启。
 
-### 主机设置
+#### 主机设置
 
 为了给设备机共享网络，主机需要连接到外部网络，有线和无线网络都可以。
 接下来，我们需要给设备机的连接设置一个共享适配器，在KDE桌面和终端上都可以设置。
@@ -128,7 +128,7 @@ ip a
 
 如果它与你的结果相似，接下来就可以设置从设备了。
 
-### 从设备设置
+#### 从设备设置
 
 **启用usb网络连接：**
 相对于主机来说，从设备较容易设置。
