@@ -14,7 +14,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## Image download
 
-Please go to [Resource Download Summary](/rock5/rock5itx/getting-started/download.md) to download the corresponding image
+Please go to [Resource Download Summary](../getting-started/download) to download the corresponding image
 
 ## Install System
 
@@ -31,4 +31,4 @@ Radxa ROCK 5 ITX also supports standard `ATX` power supply power.
 
 ## Reference
 
-[Install OS on eMMC](/rock5/rock5itx/low-level-dev/install-os-on-emmc.md)
+[Install OS on eMMC](../low-level-dev/install-os-on-emmc)
