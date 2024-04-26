@@ -6,53 +6,62 @@ sidebar_position: 5
 
 ## Product Description
 
+The Radxa ROCK 5 ITX is a fully Mini-ITX form factor compatible single board computer/motherboard utilizing the Rockchip RK3588 SoC.
+With open source software and hardware documentation, it is an ideal platform for makers, IoT enthusiasts, hobbyists, gamers and PC users.
+
 ### Physical Photos
 
-### Chip Block Diagram
+  <img src=“/img/rock5itx/rock5itx-real.webp” width=“500” />
+
+### Chip block diagram
+
+<img src=“/img/rock5b/rk3588-block-diagram.webp” alt=“rk3588 system diagram” width=“700” />
 
 ### Features
 
 ### System block diagram
 
-### Documentation guidelines
+<img src=“/img/rock5itx/rock5itx-system-block-diagram.webp” alt=“rk3588 system diagram” width=“700” />
+
+## Documentation guidelines
 
 :::tip
-Except for the **other systems** directory below, the other contents are based on Radxa OS (Radxa's customized system based on Debian).
+With the exception of the **Other Systems** directory below, everything else revolves around Radxa OS (Radxa's customized system based on Debian).
 :::
 
-### Getting started
+### [Getting Started](./getting-started/README)
 
-By introducing system programming, system login, accessory usage, etc., let user can get started quickly.
+This section describes how to burn in the system, log in, and accessorize the system so that you can get started quickly.
 
-### Radxa OS
+### [radxa-os](./radxa-os/README)
 
-Radxa OS is an operating system customized by Radxa based on Debian OS.
-This chapter introduces system login, network connection, etc to let user to be familiar with the system quickly.
+Radxa OS is a customized operating system based on Debian OS. Here we introduce the system login, network connection, and other contents.
+This is a brief introduction to the system login, network connection, etc., to help users quickly familiarize themselves with the system and use it.
 
-### System Configuration
+### [System Configuration](./os-config/README)
 
-Introduces how to use tools like rsetup or command line to use devices or function.
+This section describes how to configure devices and features with tools (such as rsetup) and commands.
 
-### Application Deployment
+### [Apps Deployment](./apps-deployment/README)
 
-Introduces how to deploy the applications such as Samba, Docker, PVE, OMV, LAMP, Cheese, remote control panel, etc.
+This section describes the configuration and use of common applications such as Samba, Docker, PVE, OMV, LAMP, Cheese, and Remote Control.
 
-### Application Development
+### [apps-development](./app-development/README)
 
-Introduces upper-layer application development, such as QT, WiringX, Mraa, etc.
+Introduces upper-level application development, such as QT, WiringX, Mraa and so on.
 
-### Hardware Development
+### [Hardware Development](./hardware-design/README)
 
-Introduces hardware information, such as hardware interfaces, supported accessories, etc.
+Introduces hardware information, such as hardware interfaces, supported accessories, and so on.
 
-### Lower level Development
+### [Low-level development](./low-level-dev/README)
 
-Introduces uboot, kernel, debian os compilation and packaging, etc.
+Introduces uboot, kernel, debian os compilation and packaging.
 
-### Other Systems
+### [Other systems](./other-os/README)
 
-Introduces other systems than Radxa OS, such as Android
+Introduces other systems than Radxa OS, such as Android.
 
-### Accessories
+### [Accessory list](./accessories/README)
 
-Introduces supported accessory models and instructions for use.
+This section describes the supported accessory models and describes how to use them.

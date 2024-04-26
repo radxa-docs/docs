@@ -8,7 +8,7 @@ sidebar_position: 4
 
 - **ROCK 5 ITX**
 
-  <img src=“/img/rock5itx/rock5itx-real.webp” width=“500” />
+  <img src="/img/rock5itx/rock5itx-real.webp" width="500" />
 
 ## Interface Description
 
