@@ -7,7 +7,7 @@ slug: /x/x2l
 
 # Radxa X2L
 
-Radxa X2L 是瑞莎全新推出的 基于 Intel J4125 的 X86 单板机。
+Radxa X2L 是瑞莎全新推出的基于 Intel J4125 的 X86 单板机。
 
 ## 标注图
 
@@ -32,3 +32,7 @@ Radxa X2L 是瑞莎全新推出的 基于 Intel J4125 的 X86 单板机。
 |  电源  | USB Type-C 12V / 2A                                                                                     |
 |  按钮  | 1 个用户按钮， 1 个电源按钮， 1 个BOOTSEL 按钮（用于重置 RP2040），1 个Clear CMOS 按钮（用于重置 BIOS） |
 |  尺寸  | 155mm x 80mm                                                                                            |
+
+## 文档使用指引
+
+<DocCardList />

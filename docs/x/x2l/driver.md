@@ -85,3 +85,7 @@ sidebar_position: 15
 ![Realtek Audio_01](/img/x/x2l/realtek_audio_01.webp)
 
 ![Realtek Audio_02](/img/x/x2l/realtek_audio_02.webp)
+
+## 无线模块[可选]
+
+参考[此处](accessories/wireless-module)
