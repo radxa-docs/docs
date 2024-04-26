@@ -2,42 +2,42 @@
 sidebar_position: 4
 ---
 
-# 摄像头
+# Webcam
 
-<img src=“/img/rock5itx/rock5itx-cam1.webp” alt=“rock5itx cam1 connection” width=“300” /> 准备好 Radxa 摄像机 4K，通过 FPC 线接上 ROCK 5ITX。
+<img src=“/img/rock5itx/rock5itx-cam1.webp” alt=“rock5itx cam1 connection” width= “300” /> Prepare the Radxa Camera 4K and connect it to the ROCK 5ITX via the FPC cable.
 
-- 准备好 Radxa Camera 4K，通过 FPC 线接上 ROCK 5ITX。
+- Prepare the Radxa Camera 4K and connect it to the ROCK 5ITX via the FPC cable.
 
-- 通过左下角 Application Launcher 打开 Kconsole 终端, 运行 `rsetup` 命令：
+- Open the Kconsole terminal via the Application Launcher in the lower left corner and run the `rsetup` command:
 
-命令
+Command
 radxa@rock-5itx:~$ rsetup
 ```
 
-- 通过[设备树配置](../os-config/rsetup#overlays)来启用瑞莎 4K 摄像头的覆盖。
+- Pass the [Device Tree Configuration](... /os-config/rsetup#overlays) to enable overlay for the Rxa 4K camera.
 
-注意
+Attention.
 
-1. 请启用 `[] 在 CAM1 上启用 Radxa Camera 4K ` 项覆盖。
-2. 在启用成功显示 `[*] Enable Radxa Camera 4K on CAM1` 后退出重启才能使配置生效。
+1. enable the `[] Enable Radxa Camera 4K ` item overlay on CAM1.
+2. Quit and reboot after enabling successfully displaying `[*] Enable Radxa Camera 4K on CAM1` for the configuration to take effect.
 
 :::
 
-## 测试 Radxa Camera 4K
+## Testing Radxa Camera 4K
 
-你也可以使用终端命令打开相机预览：
+You can also open the camera preview using the terminal command:
+
+``bash
+gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
+``
+
+Take a picture using the following command:
 
 ```bash
-gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink；
+gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=file.name.jpg;
 ```
 
-使用以下命令拍照：
-
-```bash
-gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=file.name.jpg；
-```
-
-使用以下命令拍摄视频：
+Take a video using the following command:
 
 ```bash
 v4l2src num-buffers=512 device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/radxa/file.name.mp4
