@@ -48,4 +48,4 @@ Used for USB port expansion to connect devices such as USB mouse and USB keyboar
 
 ## Documentation
 
-[Supported Accessories](... /accessories)
+[Supported Accessories](../accessories)

@@ -17,7 +17,7 @@ After configuring the bsp environment, you need to compile the U-Boot before pul
 cd bsp
 mkdir output
 cd output
-... /bsp --no-prepare-source u-boot rknext rock-5-itx
+../bsp --no-prepare-source u-boot rknext rock-5-itx
 
 Parameter description:
 --no-prepare-source # Compile with local changes, without this parameter the latest code will be synchronized from the Radxa U-Boot repository and overwrite the local changes.
