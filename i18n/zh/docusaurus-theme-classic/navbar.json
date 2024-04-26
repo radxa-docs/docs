@@ -31,6 +31,10 @@
     "description": "Navbar item with label Welcome",
     "message": "欢迎"
   },
+  "item.label.Docs": {
+    "description": "Navbar item with label Docs",
+    "message": "文档首页"
+  },
   "title": {
     "description": "The title in the navbar",
     "message": ""

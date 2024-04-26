@@ -31,7 +31,7 @@ ROOBI OS 将会附带在您所购买的机器中，通常您无需手动安装�
 
 :::
 
-如果您购买的设备为带eMMC的 radxa X 系列单板，你可以通过这个[教程](/x/roobi/install-roobi)手动刷入ROOBI OS。
+如果您购买的设备为带 eMMC 的 radxa X 系列单板，你可以通过这个[教程](/x/roobi/install-roobi)手动刷入ROOBI OS。
 
 ## 支持设备
 
@@ -40,5 +40,3 @@ ROOBI OS 将会附带在您所购买的机器中，通常您无需手动安装�
 ## 使用说明
 
 ### [ROOBI OS使用说明](https://palmshell.feishu.cn/wiki/EdOYwLvJIi8N63kAkpDcpm9ZnZd)
-
-<DocCardList />

@@ -35,7 +35,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## 镜像下载
 
-请到 [资源下载汇总](./download) 下载对应的镜像文件
+请到 [资源下载汇总](../download.md) 下载对应的镜像文件
 
 ## 安装系统
 
