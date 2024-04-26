@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Display
 
-<img src=“/img/rock5itx/rock5itx-lcd0.webp” alt=“rock5itx lcd0” width=“700” />
+<img src="/img/rock5itx/rock5itx-lcd0.webp" alt="rock5itx lcd0" width="700" />
 
 - Prepare the Radxa Display 8HD or Radxa Display 10HD and connect it to the ROCK 5ITX via the FPC cable.
 
@@ -14,7 +14,7 @@ sidebar_position: 3
 radxa@rock-5itx:~$ rsetup
 ```
 
-- Pass the [device tree configuration] (../os-config/rsetup#overlays) to enable Overlay for the Rxa 8” touchscreen.
+- Pass the [device tree configuration] (../os-config/rsetup#overlays) to enable Overlay for the Rxa 8" touchscreen.
 
 :::caution [Caution]
 

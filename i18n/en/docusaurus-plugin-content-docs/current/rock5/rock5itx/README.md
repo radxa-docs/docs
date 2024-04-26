@@ -11,17 +11,17 @@ With open source software and hardware documentation, it is an ideal platform fo
 
 ### Physical Photos
 
-  <img src=“/img/rock5itx/rock5itx-real.webp” width=“500” />
+  <img src="/img/rock5itx/rock5itx-real.webp" width="500" />
 
 ### Chip block diagram
 
-<img src=“/img/rock5b/rk3588-block-diagram.webp” alt=“rk3588 system diagram” width=“700” />
+<img src="/img/rock5b/rk3588-block-diagram.webp" alt="rk3588 system diagram" width="700" />
 
 ### Features
 
 ### System block diagram
 
-<img src=“/img/rock5itx/rock5itx-system-block-diagram.webp” alt=“rk3588 system diagram” width=“700” />
+<img src="/img/rock5itx/rock5itx-system-block-diagram.webp" alt="rk3588 system diagram" width="700" />
 
 ## Documentation guidelines
 

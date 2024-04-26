@@ -8,7 +8,7 @@ This section describes the common accessories supported by the ROCK 5ITX and how
 
 ## Interface overview
 
-<img src=“/img/rock5itx/rock5itx-interface-overview.webp” width=“800” alt=“rock 5ITX interfaces overview” />
+<img src="/img/rock5itx/rock5itx-interface-overview.webp" width="800" alt="rock 5ITX interfaces overview" />
 
 ## Camera
 

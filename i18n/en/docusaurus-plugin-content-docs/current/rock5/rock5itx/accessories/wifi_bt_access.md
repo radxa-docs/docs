@@ -48,7 +48,7 @@ nmcli dev wifi
 1. Connecting to a wifi network
 
 ```
-nmcli dev wifi connect “wifi_name” password “wifi_password”
+nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
 ## Bluetooth usage

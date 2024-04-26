@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Webcam
 
-<img src=“/img/rock5itx/rock5itx-cam1.webp” alt=“rock5itx cam1 connection” width= “300” /> Prepare the Radxa Camera 4K and connect it to the ROCK 5ITX via the FPC cable.
+<img src="/img/rock5itx/rock5itx-cam1.webp" alt="rock5itx cam1 connection" width= "300" /> Prepare the Radxa Camera 4K and connect it to the ROCK 5ITX via the FPC cable.
 
 - Prepare the Radxa Camera 4K and connect it to the ROCK 5ITX via the FPC cable.
 
@@ -14,7 +14,7 @@ Command
 radxa@rock-5itx:~$ rsetup
 ```
 
-- Pass the [Device Tree Configuration](... /os-config/rsetup#overlays) to enable overlay for the Rxa 4K camera.
+- Pass the [Device Tree Configuration](../os-config/rsetup#overlays) to enable overlay for the Rxa 4K camera.
 
 Attention.
 
@@ -27,9 +27,9 @@ Attention.
 
 You can also open the camera preview using the terminal command:
 
-``bash
+```bash
 gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
-``
+```
 
 Take a picture using the following command:
 
