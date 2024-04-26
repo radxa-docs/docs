@@ -43,6 +43,10 @@
     "description": "Navbar item with label WiKi",
     "message": "WiKi"
   },
+  "item.label.Docs": {
+    "description": "Navbar item with label Docs",
+    "message": "Documentation"
+  },
   "logo.alt": {
     "description": "The alt text of navbar logo",
     "message": "Radxa"
