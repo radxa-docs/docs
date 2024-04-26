@@ -41,7 +41,7 @@ sudo dpkg -i u-boot-rknext_2017.09-1_arm64.deb
 
 ```
 cd /usr/lib/u-boot/rock-5-itx/
-sudo ./setup.sh update_bootloader /dev/mmcblk1   #/dev/mmcblk1 为你当前使用的启动介质，需要根据实际使用的设备来选择
+sudo ./setup.sh update_bootloader /dev/mmcblk1   #/dev/mmcblk1 is the boot media you are currently using, which needs to be selected based on the actual device being used
 sudo reboot
 ```
 
