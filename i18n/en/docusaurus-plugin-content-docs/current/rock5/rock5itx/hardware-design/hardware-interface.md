@@ -12,15 +12,15 @@ sidebar_position: 4
 
 ## Interface Description
 
-<table
+<table>
   <tr>
     <th>Number</th>
     <th>Interface Name</th>
     <th>Number</th>
     <th>Interface name</th>
-    <th>No.</th>
+    <th>Number</th>
     <th>Interface name</th>
-    <th>No.</th>
+    <th>Number</th>
     <th>Interface Name</th>
   </tr>
   <tr>
@@ -32,7 +32,7 @@ sidebar_position: 4
     <td>POE Interface</td>
     <td>25</td>
     <td>PCIE M KEY</td>
-  </td>
+  </tr>
   <tr>
     <td>2</td>
     <td>LCD Screen Interface</td>
@@ -42,7 +42,7 @@ sidebar_position: 4
     <td>ATX power connector</td>
     <td>26</td>
     <td>PCIE E KEY</td>
-  </td>
+  </tr>
   <tr>
     <td>3</td>
     <td>Camera Interface</td>
@@ -52,7 +52,7 @@ sidebar_position: 4
     <td>SATA</td>
     <td>27</td>
     <td>RK3588 CPU</td>
-  </td>
+  </tr>
   <tr>
     <td>4</td>
     <td>Micro SD</td>
@@ -62,7 +62,7 @@ sidebar_position: 4
     <td>12V/GND/GND/5V</td>
     <td>28</td>
     <td>LPDDR5</td>
-  </td>
+  </tr>
   <tr>
     <td>5</td>
     <td>UART</td>
@@ -88,7 +88,7 @@ sidebar_position: 4
     <td>Full-Featured Type-C</td>
     <td>23</td>
     <td>Maskrom Key</td>
-  </td> <td>23</td> <td>Maskrom Key</td> </tr>
+  </tr>
   <tr>
     <td>8</td>
     <td>SPDIF Audio Interface</td>
