@@ -1,7 +1,7 @@
 ---
-sidebar_position: 10
+sidebar_position: 1
 ---
 
 # Getting Started
 
-<!-- <DocCardList /> -->
+<DocCardList />
