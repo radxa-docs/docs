@@ -11,7 +11,7 @@ sidebar_position: 1
 
 ## Image download
 
-Please [Resource Download Summary](/rock5/rock5itx/getting-started/download.md) download the image file
+Please [Resource Download Summary](../getting-started/download) download the image file
 
 ## Enter Maskrom Mode
 

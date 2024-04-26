@@ -11,7 +11,7 @@ sidebar_position: 1
 
 ## 镜像下载
 
-请到 [资源下载汇总](/rock5/rock5itx/getting-started/download.md) 下载对应的镜像文件
+请到 [资源下载汇总](../getting-started/download) 下载对应的镜像文件
 
 ## 进入 Maskrom 模式
 
