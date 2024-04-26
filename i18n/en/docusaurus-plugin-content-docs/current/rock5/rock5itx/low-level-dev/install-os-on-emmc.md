@@ -62,9 +62,9 @@ In Maskrom mode, you can use [rkdevtool](rkdevtool) or [upgrade-tool](upgrade-to
 
 <Rkdeveloptool />
 
-</TabItem
+</TabItem>
 
-</Tabs
+</Tabs>
 
 ## Booting the system
 
