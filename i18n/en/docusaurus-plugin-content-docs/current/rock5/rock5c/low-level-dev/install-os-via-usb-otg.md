@@ -14,7 +14,7 @@ sidebar_class_name: hidden
 
 ## Image Download
 
-Please go to [Resource Download Summary](../getting-started/download) to download the corresponding image file.
+Please go to [Resource Download Summary](../download) to download the corresponding image file.
 
 ## Enter Maskrom mode
 
