@@ -1,12 +1,16 @@
+import { PreView } from "@site/src/utils/docs";
+
 ## Using bsp
 
-bsp is a set of tools provided by Radxa to quickly build U-Boot Kernel, using bsp it is very easy to build your own U-Boot and Kernel.
+bsp is a set of tools provided by Radxa to quickly build U-Boot Kernels. It is very easy to build your own U-Boot and Kernel with bsp.
 
-Below you will find an example of how to build a kernel with bsp using the Radxa ZERO 3.
+<PreView params={{ model: props.model }}>
+The following shows you how to build a kernel with bsp using #props.model# as an example.
+</PreView>
 
 ### bsp environment configuration
 
-The following is the `bsp` recommended environment.  
+The following is the recommended environment for `bsp`.  
 Hardware: x86_64 PC recommended  
 System: Ubuntu or Debian
 
@@ -16,17 +20,17 @@ System: Ubuntu or Debian
 sudo apt update
 sudo apt install -y git qemu-user-static binfmt-support
 
-# Podman (recommend)
+# Podman (recommended)
 sudo apt install -y podman podman-docker
 sudo touch /etc/containers/nodocker
 # Docker
-#sudo apt install docker.io
+# sudo apt install docker.io
 
-# Optional dependencies for minor functions
+# Optional dependencies for minor features
 sudo apt install -y systemd-container
 ```
 
-#### Get Code
+#### Getting the code
 
 `bsp` uses the git submodule. Therefore, use the following command to get the code:
 
@@ -34,76 +38,77 @@ sudo apt install -y systemd-container
 git clone --recurse-submodules https://github.com/radxa-repo/bsp.git
 ```
 
-#### Understanding `bsp` Usage
+#### Understanding `bsp` usage
 
-After getting the `bsp` code on your machine, you can run `bsp` to see the built-in help:
+Once you have the `bsp` code on your machine, you can run `bsp` to see the built-in help:
 
 ```bash
 cd bsp
-./bsp
+. /bsp
 ```
 
-### Build Kernel
+### Build the kernel
 
-After completing the bsp environment configuration, you need to compile the kernel once before pulling the kernel code from the repository.  
-Running `. /bsp` will show all the parameters and their explanations, and the command `bsp [options] <linux|u-boot> <profile> [product]` can be found from the prompt.  
-In the case of Radxa ZERO 3, the linux profile is `rk356x`. Here are the profiles for other products:
-
-|      models      | profile  |
+<PreView params={{ model: props.model, soc: props.soc }}>
+  {`
+Once you've finished configuring your bsp environment, you need to compile the kernel once before pulling the kernel code from the repository.  
+Running . /bsp will show you all the arguments and their explanations, and the command "bsp [options] <linux|u-boot> <profile> [product]" will be available at the prompt.  
+Taking #model# as an example, the linux profile is "#soc#". The following are profiles for other products:
+| model | profile |
 | :--------------: | :------: |
-|  Radxa ROCK 5A   | rockchip |
-|  Radxa ROCK 5B   | rockchip |
-|  Radxa ROCK 5C   | rockchip |
-| Radxa ROCK 5 ITX | rockchip |
-|  Radxa ROCK 3A   |  rk356x  |
-|  Radxa ROCK 3C   |  rk356x  |
-| Radxa CM3 series |  rk356x  |
-| Radxa ROCK PI S  |  stable  |
+| Radxa ROCK 5A | rockchip |
+| Radxa ROCK 5B | rockchip | Radxa ROCK 5B | rockchip | Radxa ROCK 5B | rockchip
+Radxa ROCK 5A | rockchip | Radxa ROCK 5B | rockchip | Radxa ROCK 5C | rockchip |
+Radxa ROCK 5B | rockchip | Radxa ROCK 5C | rockchip | Radxa ROCK 5 ITX | rockchip |
+| Radxa ROCK 3A | rk356x | Radxa ROCK 3A | rk356x | Radxa ROCK 3A | rk356x
+| Radxa ROCK 3C | rk356x | Radxa CM3 Series
+Radxa ROCK 3A | rk356x | Radxa ROCK 3C | rk356x | Radxa ROCK 3C | rk356x
+| Radxa ROCK PI S | stable | Radxa ROCK 3C | rk356x | Radxa CM3 series | rk356x
+Then fill in the **profile** parameter of the bsp command with the product profile **#soc#** e.g.: **. /bsp linux #soc#** to build the kernel.  
+The kernel source code is located in **.src/linux** in the bsp directory, and you can build the kernel again after modifying the kernel source code:
+`}
+</PreView>
 
-Then put the product profile `rk356x` into the `profile` parameter of the bsp command, e.g. `./bsp linux rk356x` to build the kernel.  
-The path to the kernel source code is located in the bsp directory at `.src/linux`, and the kernel can be built again after modifying the kernel source code:
+<PreView params={{ soc: props.soc }}>
+  {`
+    cd bsp
+    . /bsp --no-prepare-source linux #soc# -r 20
+    Parameter description:
+    --no-prepare-source # Compile with local changes, without this parameter the latest code will be synchronized from the Radxa kernel repository and overwrite the local changes.
+    -r 20 # Specify the kernel version as 20.
+`}
+</PreView>
 
-```
-./bsp --no-prepare-source linux rk356x -r 20
+After compilation, a number of `deb` packages will be generated in the current directory, you only need to install the following two `deb` packages
 
-Parameter Description:
---no-prepare-source
+<PreView params={{ soc: props.soc }}>
+  {`
+    linux-headers-5.10.160-20-#soc#_5.10.160-20_arm64.deb
+    linux-image-5.10.160-20-#soc#_5.10.160-20_arm64.deb
+`}
+</PreView>
 
-# Compile using local modifications. If this parameter is not added, the latest code will be synchronized from the Radxa kernel warehouse and the local modifications will be overwritten.
+Copy the above two `deb` packages to the board and install them with the `dpkg` command to complete the kernel installation
 
--r 20
+<PreView params={{ soc: props.soc }}>
+  {`
+    sudo dpkg -i linux-image-5.10.160-20-#soc#_5.10.160-20_arm64.deb
+    sudo dpkg -i linux-headers-5.10.160-20-#soc#_5.10.160-20_arm64.deb
+    sudo reboot
+`}
+</PreView>
 
-# Specify the kernel version number as 20
-```
+After the reboot is complete, you can check if the installation was successful by checking the version number of the currently booted kernel with `uname -a`.
 
-For more bsp parameter usage instructions, you can execute `./bsp` to view.
-
-After compilation is completed, many `deb` packages will be generated in the current directory. You only need to install the following two `deb` packages.
-
-```
-linux-headers-5.10.160-20-rk356x_5.10.160-20_arm64.deb
-linux-image-5.10.160-20-rk356x_5.10.160-20_arm64.deb
-```
-
-Copy the above two `deb` packages to the board and use the `dpkg` command to install them to complete the kernel installation.
-
-```
-sudo dpkg -i linux-image-5.10.160-20-rk356x_5.10.160-20_arm64.deb
-sudo dpkg -i linux-headers-5.10.160-20-rk356x_5.10.160-20_arm64.deb
-sudo reboot
-```
-
-After the restart is complete, you can use `uname -a` to check the currently started kernel version number to see whether the installation was successful.
-
-## Manual compilation
+## Compile manually
 
 :::tip
-`bsp` is the only compilation method that is currently supported, and it makes additional changes to the source code during the build.
-If you want to develop based on our official releases, you should at least use `bsp` to download and configure the source code.
+`bsp` is the only compilation method currently being maintained, and it makes additional changes to the source code when compiling.
+If you want to develop based on our officially released software, you should at least use `bsp` to download and configure the code.
 
-If you want to use a custom `make` command to compile, please refer to the [Prepare working tree](https://radxa-repo.github.io/bsp/dev_flow.html#prepare-working-tree) section to prepare the code.
+If you want to build with a custom `make` command, please refer to the [Prepare working tree](https://radxa-repo.github.io/bsp/dev_flow.html#prepare-working-tree) section to configure the code.
 :::
 
-## Reference
+## Documentation
 
 - [bsp official documentation](https://radxa-repo.github.io/bsp)
