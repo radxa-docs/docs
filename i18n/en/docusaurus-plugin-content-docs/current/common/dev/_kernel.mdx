@@ -54,16 +54,16 @@ cd bsp
 Once you've finished configuring your bsp environment, you need to compile the kernel once before pulling the kernel code from the repository.  
 Running . /bsp will show you all the arguments and their explanations, and the command "bsp [options] <linux|u-boot> <profile> [product]" will be available at the prompt.  
 Taking #model# as an example, the linux profile is "#soc#". The following are profiles for other products:
-| model | profile |
+|       型号       | profile  |
 | :--------------: | :------: |
-| Radxa ROCK 5A | rockchip |
-| Radxa ROCK 5B | rockchip | Radxa ROCK 5B | rockchip | Radxa ROCK 5B | rockchip
-Radxa ROCK 5A | rockchip | Radxa ROCK 5B | rockchip | Radxa ROCK 5C | rockchip |
-Radxa ROCK 5B | rockchip | Radxa ROCK 5C | rockchip | Radxa ROCK 5 ITX | rockchip |
-| Radxa ROCK 3A | rk356x | Radxa ROCK 3A | rk356x | Radxa ROCK 3A | rk356x
-| Radxa ROCK 3C | rk356x | Radxa CM3 Series
-Radxa ROCK 3A | rk356x | Radxa ROCK 3C | rk356x | Radxa ROCK 3C | rk356x
-| Radxa ROCK PI S | stable | Radxa ROCK 3C | rk356x | Radxa CM3 series | rk356x
+|  Radxa ROCK 5A   | rockchip |
+|  Radxa ROCK 5B   | rockchip |
+|  Radxa ROCK 5C   | rockchip |
+| Radxa ROCK 5 ITX | rockchip |
+|  Radxa ROCK 3A   |  rk356x  |
+|  Radxa ROCK 3C   |  rk356x  |
+|  Radxa CM3 系列  |  rk356x  |
+| Radxa ROCK PI S  |  stable  |
 Then fill in the **profile** parameter of the bsp command with the product profile **#soc#** e.g.: **. /bsp linux #soc#** to build the kernel.  
 The kernel source code is located in **.src/linux** in the bsp directory, and you can build the kernel again after modifying the kernel source code:
 `}
