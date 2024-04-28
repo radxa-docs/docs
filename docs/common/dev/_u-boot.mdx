@@ -1,3 +1,5 @@
+import { PreView } from "@site/src/utils/docs";
+
 ## 使用 bsp
 
 bsp 是 Radxa 提供的一套快速构建 U-Boot Kernel 的工具，使用 bsp 非常方便就能构建出自己的 U-Boot 和 Kernel.
@@ -45,53 +47,62 @@ cd bsp
 
 ### 构建 U-Boot
 
-完成 bsp 环境配置后，需要先编译一次 U-Boot 才会从仓库拉取 U-Boot 代码。  
-直接运行 `./bsp` 会显示所有参数及其解释，根据提示可知命令 `bsp [options] <linux|u-boot> <profile> [product]`。  
-以 Radxa ZERO 3 为例，U-Boot profile 为 `latest`。以下是其他产品的 profile：
+<PreView params={{ model: props.model, profile: props.profile, product: props.product }}>
+  {`
+    完成 bsp 环境配置后，需要先编译一次 U-Boot 才会从仓库拉取 U-Boot 代码。  
+    直接运行 ./bsp 会显示所有参数及其解释，根据提示可知命令 "bsp [options] <linux|u-boot> <profile> [product]"。  
+    以 #model# 为例，U-Boot profile 为 **#profile#**。以下是其他产品的 profile：
+    |       Model      | profile |
+    | :--------------: | :-----: |
+    |  Radxa ROCK 5A   | rknext  |
+    |  Radxa ROCK 5B   | rknext  |
+    |  Radxa ROCK 5C   | rknext  |
+    | Radxa ROCK 5 ITX | rknext  |
+    |  Radxa ROCK 3A   | latest  |
+    |  Radxa ROCK 3C   | latest  |
+    |  Radxa CM3 Series| latest  |
+    | Radxa ROCK PI S  | latest  |
+    然后将产品对应 profile **#profile#** 填入 bsp 命令的 profile 参数例如："./bsp u-boot #profile# #product#"，即可构建 U-Boot。  
+    U-Boot 源码的路径位于 bsp 目录下的 ".src/u-boot"，在修改 U-Boot 源码后，可再次构建 U-Boot：
+  `}
+</PreView>
 
-|       型号       | profile |
-| :--------------: | :-----: |
-|  Radxa ROCK 5A   | rknext  |
-|  Radxa ROCK 5B   | rknext  |
-|  Radxa ROCK 5C   | rknext  |
-| Radxa ROCK 5 ITX | rknext  |
-|  Radxa ROCK 3A   | latest  |
-|  Radxa ROCK 3C   | latest  |
-|  Radxa CM3 系列  | latest  |
-| Radxa ROCK PI S  | latest  |
-
-然后将产品对应 profile `latest` 填入 bsp 命令的 `profile` 参数例如：`./bsp u-boot latest radxa-zero3`，即可构建 U-Boot。  
-U-Boot 源码的路径位于 bsp 目录下的 `.src/u-boot`，在修改 U-Boot 源码后，可再次构建 U-Boot：
-
-```
-cd bsp
-./bsp --no-prepare-source u-boot latest radxa-zero3
-
-参数说明：
---no-prepare-source   # 使用本地修改进行编译，如果不加这个参数将会从 Radxa U-Boot 仓库同步最新代码并覆盖本地修改
-```
+<PreView params={{ profile: props.profile, product: props.product }}>
+  {`
+    cd bsp
+    ./bsp --no-prepare-source u-boot #profile# #product#
+    参数说明：
+    --no-prepare-source   # 使用本地修改进行编译，如果不加这个参数将会从 Radxa U-Boot 仓库同步最新代码并覆盖本地修改
+  `}
+</PreView>
 
 更多 bsp 参数使用说明可以执行 `./bsp`查看
 
 编译完成后会在当前目录生成许多 `deb` 包， 只需要安装下面的 `deb` 即可
 
-```
-u-boot-latest_2023.10-1_arm64.deb
-```
+<PreView params={{ profile: props.profile }}>
+  {`
+    u-boot-#profile#_2023.10-1_arm64.deb
+  `}
+</PreView>
 
 将上面两个 `deb` 包复制到板子上使用 `dpkg` 指令安装即可完成 U-Boot 安装
 
-```
-sudo dpkg -i u-boot-latest_2023.10-1_arm64.deb
-```
+<PreView params={{ profile: props.profile }}>
+  {`
+    sudo dpkg -i u-boot-#profile#_2023.10-1_arm64.deb
+  `}
+</PreView>
 
 安装完成后需要将 U-Boot 刷到启动介质中
 
-```
-cd /usr/lib/u-boot/radxa-zero3/
-sudo ./setup.sh update_bootloader /dev/mmcblk1   #/dev/mmcblk1 为你当前使用的启动介质，需要根据实际使用的设备来选择
-sudo reboot
-```
+<PreView params={{ profile: props.profile, product: props.product }}>
+  {`
+    cd /usr/lib/u-boot/#product#/
+    sudo ./setup.sh update_bootloader /dev/mmcblk1   #/dev/mmcblk1 为你当前使用的启动介质，需要根据实际使用的设备来选择
+    sudo reboot
+  `}
+</PreView>
 
 重启后可以观察 U-Boot 启动 log 查看 U-Boot 是否更新成功。
 
