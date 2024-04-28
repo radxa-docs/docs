@@ -2,31 +2,60 @@ import { Section, Image } from "@site/src/utils/docs";
 
 Most of radxa's products define pins 8 (TX) and 10 (RX) on the GPIO pins as UART serial communication interfaces to make it easier to troubleshoot problems in the early startup phase of the system.
 
-## USB to TTL serial cable
+## Preparation
 
-The definition of each pin of USB to TTL cable is showing like this:
+- Radxa product with GPIO, compatible power supply
+- PC
+- USB to TTL Serial Cable
 
 ![USB to TTL](/img/accessories/600px-Usb2ttl-cable-definition.webp)
 
-Connect the USB to TTL serial cable as below.
+:::tip
+
+<Section compatible="aml" platform={props.platform}>
+For Radxa products based on Amlogic chips, the default UART configuration is 115200n8 without flow control.
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+For Radxa products based on MediaTek chips, the default UART configuration is 921600n8 without flow control.
+
+</Section>
+
+<Section compatible="rk" platform={props.platform}>
+For Radxa products based on Rockchip chips, the default UART configuration is 1500000n8 without flow control.
+
+Please check if your USB to TTL serial cable supports 1.5M baud rate:
+
+- Based on [CP210X](https://www.silabs.com/interface/usb-bridges) and [PL2303x](https://www.prolific.com.tw/US/index.aspx) some products have baud rate limitations.
+- Based on FT232RL, some products have [power issues](https://forum.radxa.com/t/u-boot-cant-boot-with-serial-console-attached/7684).
+
+</Section>
+
+The Flowing text uses a serial cable based on [CH340](http://wch-ic.com/products/CH340.html).
+:::
+
+## Serial Connection
+
+As shown below, connect the USB to TTL serial cable:
 
 <Section compatible="^rock5itx" model={props.model}>
 
-| Radxa SBC       | connect     | USB to TTL cable |
-| --------------- | ----------- | ---------------- |
-| **GND** (pin 6) | &lt;---&gt; | Black wire       |
-| **TX** (pin 8)  | &lt;---&gt; | White wire       |
-| **RX** (pin 10) | &lt;---&gt; | Green wire       |
+| Radxa SBC       | Connection  | Serial Cable |
+| --------------- | ----------- | ------------ |
+| **GND** (pin 6) | &lt;---&gt; | Black line   |
+| **TX** (pin 8)  | &lt;---&gt; | White line   |
+| **RX** (pin 10) | &lt;---&gt; | Green line   |
 
 </Section>
 
 <Section compatible="rock5itx" model={props.model}>
 
-| Radxa SBC       | connect     | USB to TTL cable |
-| --------------- | ----------- | ---------------- |
-| **GND** (pin 1) | &lt;---&gt; | Black wire       |
-| **TX** (pin 2)  | &lt;---&gt; | White wire       |
-| **RX** (pin 3)  | &lt;---&gt; | Green wire       |
+| Radxa SBC       | Connection  | Serial Cable |
+| --------------- | ----------- | ------------ |
+| **GND** (pin 1) | &lt;---&gt; | Black line   |
+| **TX** (pin 2)  | &lt;---&gt; | White line   |
+| **RX** (pin 3)  | &lt;---&gt; | Green line   |
 
 </Section>
 
@@ -38,78 +67,220 @@ Connect the USB to TTL serial cable as below.
 
 :::danger
 
-Don't connect the red wire (VCC pin)!
+Please do not connect the red power line!
 
 :::
+
+## Using Serial Tools
+
+<Section compatible="aml" platform={props.platform}>
+For Radxa products based on Amlogic chips, the default UART configuration is as follows:
+
+```
+baudrate: 115200
+data bit: 8
+stop bit: 1
+parity  : none
+flow control: none
+```
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+For Radxa products based on MediaTek chips, the default UART configuration is as follows:
+
+```
+baudrate: 921600
+data bit: 8
+stop bit: 1
+parity  : none
+flow control: none
+```
+
+</Section>
+
+<Section compatible="rk" platform={props.platform}>
+For Radxa products based on Rockchip chips, the default UART configuration is as follows:
+
+```
+baudrate: 1500000
+data bit: 8
+stop bit: 1
+parity  : none
+flow control: none
+```
+
+</Section>
 
 <Tabs queryString="os">
 <TabItem value="windows" label="Windows" default>
 
-## Windows
+### Windows
 
-Plug in the USB to TTL cable to you windows PC. Viewing the device manager you can find the COM number.
+Putty is a serial tool that supports multiple baud rates on Windows. Here's how to use Putty to connect to the serial port.
 
-Using serial tool like Putty,SecureCRTPortable and MobaXterm, as Putty for example, other tools have similar oeration。
+1. Download [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it.
 
-Launch the application Putty on your windows PC. And do the setting as follows:
-For category Session, set serial line as COM11, speed as 1500000, connection type as Serial.
-Write radxa in the Saved Sessions column and press Save.
+2. Plug the USB to TTL serial cable into the PC, check the **Device Manager** to find the COM number. Here, assume it is COM3.
 
-![Putty](/img/configuration/Putty-setting-session.webp)
+3. Open Putty and set it up as follows:
 
-For category Connection---Serial, do the setting:
+<Section compatible="aml" platform={props.platform}>
 
-![Putty](/img/configuration/Putty-setting-serial.webp)
+  - Select Session in the left column, set the serial line to COM3, baud rate to 115200, and connection type to Serial.
+  - Write radxa-zero in the Saved Sessions column and click Save.
 
-Once finish the setting, press Open button to start.
+  ![Putty](/img/common/putty/putty-aml-1.webp)
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+
+  - Select Session in the left column, set the serial line to COM3, baud rate to 921600, and connection type to Serial.
+  - Write radxa-nio12l in the Saved Sessions column and click Save.
+
+  ![Putty](/img/common/putty/putty-mtk-1.webp)
+
+</Section>
+
+<Section compatible="rk" platform={props.platform}>
+
+  - Select Session in the left column, set the serial line to COM3, baud rate to 1500000, and connection type to Serial.
+  - Write radxa-rock5 in the Saved Sessions column and click Save.
+
+  ![Putty](/img/common/putty/putty-rk-1.webp)
+
+</Section>
+
+4. Select Serial at the bottom of the left column and configure it as follows:
+
+<Section compatible="aml" platform={props.platform}>
+
+   ![Putty](/img/common/putty/putty-aml-2.webp)
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+
+   ![Putty](/img/common/putty/putty-mtk-2.webp)
+
+</Section>
+
+<Section compatible="rk" platform={props.platform}>
+
+   ![Putty](/img/common/putty/putty-rk-2.webp)
+
+</Section>
+
+5. After setting up, click Open to open the serial port. Make sure the TTL end is correctly connected, then turn on the power to the board.
 
 </TabItem>
+
 <TabItem value="linux" label="Linux">
 
-## Linux
+### Linux
 
-Minicom is the serial tool that supports wide range baud rate.
-Install minicom:
+Minicom is a serial tool that supports multiple baud rates on Linux. Here's how to use Minicom to connect to the serial port.
 
-```bash
-sudo apt update
-sudo apt install minicom
-```
+1. Plug the USB end of the serial cable into the host PC, then find the serial device:
 
-Plug in the USB to TTL cable, kernel `dmesg | tail` should show the following device:
+On the terminal, type `dmesg | tail` to get a printout similar to the following:
 
 ```bash
-[1036835.654076] usb 1-6.4.3: new full-speed USB device number 103 using xhci_hcd
-[1036835.755730] usb 1-6.4.3: New USB device found, idVendor=0403, idProduct=6001
-[1036835.755732] usb 1-6.4.3: New USB device strings: Mfr=1, Product=2, SerialNumber=0
-[1036835.755733] usb 1-6.4.3: Product: USB <-> Serial
-[1036835.755734] usb 1-6.4.3: Manufacturer: FTDI
-[1036835.756728] ftdi_sio 1-6.4.3:1.0: FTDI USB Serial Device converter detected
-[1036835.756750] usb 1-6.4.3: Detected FT232BM
-[1036835.757195] usb 1-6.4.3: FTDI USB Serial Device converter now attached to ttyUSB0
+[10.654076] usb 1-6.4.3: new full-speed USB device number 103 using xhci_hcd
+[10.755730] usb 1-6.4.3: New USB device found, idVendor=0403, idProduct=6001
+[10.755732] usb 1-6.4.3: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[10.755733] usb 1-6.4.3: Product: USB <-> Serial
+[10.755734] usb 1-6.4.3: Manufacturer: FTDI
+[10.756728] ftdi_sio 1-6.4.3:1.0: FTDI USB Serial Device converter detected
+[10.756750] usb 1-6.4.3: Detected FT232BM
+[10.757195] usb 1-6.4.3: FTDI USB Serial Device converter now attached to ttyUSB0
 ```
 
-**/dev/ttyUSB0** is our device here.
+As shown in the last line, **/dev/ttyUSB0** is the newly inserted serial device.
 
-### Setup Minicom
+:::tip
+Maybe there is no permission to read and write the serial port.
 
-First add current user to plugdev group to use minicom without sudo or root.
+**Temporary solution: Change the permission with the chmod command**
 
 ```bash
-sudo usermod -a -G plugdev $USER
+sudo chmod 777 /dev/ttyUSB0
 ```
 
-Edit your **~/.bashrc** and add the following line with some default parameter
+**Permanent solution: Add the current user to the dialout group**
+
+```bash
+sudo usermod -aG dialout $USER
+```
+
+:::
+
+2. Install minicom:
+
+```bash
+sudo apt-get update
+sudo apt-get install minicom
+```
+
+3. Set up minicom:
+
+Please add the current non-root or non-sudo user to the plugdev group first.
+
+```bash
+sudo usermod -aG plugdev $USER
+```
+
+Edit ~/.bashrc and add the following parameters. After reopening a new terminal, it will take effect.
 
 ```bash
 alias minicom='minicom -w -t xterm -l -R UTF-8'
 ```
 
-Login to a new terminal to take effect.
+<Section compatible="aml" platform={props.platform}>
+Create and edit the file ~/.minirc.115200-usb0, add the following content:
 
-Create and edit file ~/.minirc.radxa, add the following content:
+```
+pu port             /dev/ttyUSB0
+pu baudrate         115200
+pu bits             8
+pu parity           N
+pu stopbits         1
+pu rtscts           No
+```
+
+4. Run the following command to connect to the device, specifying the parameter 115200-usb0 to use the above configuration.
 
 ```bash
+minicom 115200-usb0
+```
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+Create and edit the file ~/.minirc.921600-usb0, add the following content:
+
+```
+pu port             /dev/ttyUSB0
+pu baudrate         921600
+pu bits             8
+pu parity           N
+pu stopbits         1
+pu rtscts           No
+```
+
+4. Run the following command to connect to the device, specifying the parameter 921600-usb0 to use the above configuration.
+
+```bash
+minicom 921600-usb0
+```
+
+</Section>
+
+<Section compatible="rk" platform={props.platform}>
+Create and edit the file ~/.minirc.1500000-usb0, add the following content:
+
+```
 pu port             /dev/ttyUSB0
 pu baudrate         1500000
 pu bits             8
@@ -118,43 +289,59 @@ pu stopbits         1
 pu rtscts           No
 ```
 
-Now run
+4. Run the following command to connect to the device, specifying the parameter 1500000-usb0 to use the above configuration.
 
 ```bash
-minicom radxa
+minicom 1500000-usb0
 ```
 
-to use the config above and connects to the ROCK board serial console.
+</Section>
 
 </TabItem>
 
 <TabItem value="mac" label="Mac" >
 
-## Mac
+### Mac
 
-1.  Download and install the [PL2303 Mac OS X Driver](http://www.prolific.com.tw/UserFiles/files/PL2303HXD_G_Mac%20Driver_v2_1_0_20210311.zip)
-2.  Install [CoolTerm](https://freeware.the-meiers.org/previous/CoolTermMacUniversal147.zip)
-3.  Click the Option menu and set the following
-    >
-        Port: select usbserial-xxx
-        Baud rate: choose custom and input 1500000
-        No flow control nor DTR/RTS
+Picocom is a serial tool that supports multiple baud rates on Mac. Here's how to use Picocom to connect to the serial port.
 
-![mac serial](/img/configuration/Coolterm-serialport-setting.webp)
+1. Install picocom
 
-Click save icon to save the configuration as radxa and click connect icon.
-Boot your ROCK boards and you will see the serial console output:
-![mac serial output](/img/configuration/Coolterm-output.webp)
+```bash
+% brew install --build-from-source radxa/picocom/picocom
+```
 
-Alternatively, some of Radxa's boards such as the Zero 3 only support baud rates of 1.5 Mbaud. Connecting to these won't work with some of the more familiar command line utilities such as MacOS's bundled version of `screen`. See [this post](https://forum.radxa.com/t/macos-pi-4-e-s-working-1-5mbps-ttl-baudrate-with-picocom/8121) for an earlier discussion on the issue.
+2. Open picocom
 
-To connect at higher speeds:
+<Section compatible="aml" platform={props.platform}>
 
-1. Connect your usb to serial device. Using a device capable of high speed rates (search for 'Ultra Compact USB to UART TTL Converter with USB C-Type Connector (FTDI FT231 3.3V / 5V Tolerant)' on Amazon) is ideal. However, a device not capable of the 1.5Mbaud will work as well, with some dropped text. For instance, a Xiao Samd21 flashed with [cmsis-dap](https://wiki.seeedstudio.com/Seeeduino-XIAO-DAPLink/) or Xiao RP2040 flashed with [picoprobe](https://github.com/jancumps/picoprobe/releases/tag/picoprobe-cmsis-xiao-v1.5.0) will work in a pinch, but will not be able to keep up with the output from `htop`.
-2. `brew install picocom`
-3. Run `picocom -b 1500000 -d 8 $(ls /dev/tty.usb*)` (Assuming you only have one usb serial device plugged in... adjust accordingly if necessary!)
-4. If this fails to work, you may need to `brew uninstall picocom` and `brew install --build-from-source radxa/picocom/picocom`, then try running step 3 again.
+```bash
+% picocom -b 115200 -d 8 /dev/tty.usbserial-2130
+```
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+
+```bash
+% picocom -b 921600 -d 8 /dev/tty.usbserial-2130
+```
+
+</Section>
+
+<Section compatible="rk" platform={props.platform}>
+
+```bash
+% picocom -b 1500000 -d 8 /dev/tty.usbserial-2130
+```
+
+</Section>
 
 </TabItem>
-
 </Tabs>
+
+
+## FAQs
+
+1. When using the debug console, the system startup information is displayed on the screen, but I cannot enter text using the keyboard?
+   It may be that `Hardware Flow Control` is enabled by default. After turning off `Hardware Flow Control`, it should return to normal.

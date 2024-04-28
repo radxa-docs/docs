@@ -2,7 +2,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 瑞莎的绝大多数产品将 GPIO 引脚上的第 8 (TX)、第 10 (RX) 引脚定义为 UART 串口通信接口，以方便排查系统早期启动阶段的问题。
 
-## 必要准备
+## 准备事项
 
 - 任意瑞莎提供了 GPIO 引脚的产品，及兼容供电方案
 - 个人电脑
@@ -14,6 +14,11 @@ import { Section, Image } from "@site/src/utils/docs";
 
 <Section compatible="aml" platform={props.platform}>
 基于 Amlogic 芯片的瑞莎产品，UART 默认配置为 115200n8，无流量控制。
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+基于 MediaTek 芯片的瑞莎产品，UART 默认配置为 921600n8，无流量控制。
 
 </Section>
 
@@ -66,13 +71,26 @@ import { Section, Image } from "@site/src/utils/docs";
 
 :::
 
-## 主机串口连接主板
+## 使用串口工具
 
 <Section compatible="aml" platform={props.platform}>
 基于 Amlogic 芯片的瑞莎产品的串口默认配置如下：
 
 ```
 baudrate: 115200
+data bit: 8
+stop bit: 1
+parity  : none
+flow control: none
+```
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+基于 MediaTek 芯片的瑞莎产品的串口默认配置如下：
+
+```
+baudrate: 921600
 data bit: 8
 stop bit: 1
 parity  : none
@@ -94,9 +112,75 @@ flow control: none
 
 </Section>
 
-### minicom
+<Tabs queryString="os">
+<TabItem value="windows" label="Windows" default>
 
-**_支持 Linux_**
+### Windows
+
+Putty 是一个可以在 Windows 上使用，支持多种波特率的串口工具。下面介绍如何使用 Putty 连接串口。
+
+1. 下载 [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) 并安装。
+
+2. 将 USB 转 TTL 串口线的 USB 一端插到 PC，查看**设备管理器**，以找到 COM 编号。这里假设是 COM3。
+
+3. 打开 Putty，并按如下方式进行设置：
+
+<Section compatible="aml" platform={props.platform}>
+
+  - 在左边栏目中选择 Session，将串行线路设置为 COM3，波特率设置 115200，连接类型为 Serial。
+  - 在 Saved Sessions 列中写入 radxa-zero ，然后按 Save。
+
+  ![Putty](/img/common/putty/putty-aml-1.webp)
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+
+  - 在左边栏目中选择 Session，将串行线路设置为 COM3，波特率设置 921600，连接类型为 Serial。
+  - 在 Saved Sessions 列中写入 radxa-nio12l ，然后按 Save。
+
+  ![Putty](/img/common/putty/putty-mtk-1.webp)
+
+</Section>
+
+<Section compatible="rk" platform={props.platform}>
+
+  - 在左边栏目中选择 Session，将串行线路设置为 COM3，波特率设置 1500000，连接类型为 Serial。
+  - 在 Saved Sessions 列中写入 radxa-rock5 ，然后按 Save。
+
+  ![Putty](/img/common/putty/putty-rk-1.webp)
+
+</Section>
+
+4. 在左边栏目选择最底下的 Serial 并按照以下参数配置：
+
+<Section compatible="aml" platform={props.platform}>
+
+  ![Putty](/img/common/putty/putty-aml-2.webp)
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+
+  ![Putty](/img/common/putty/putty-mtk-2.webp)
+
+</Section>
+
+<Section compatible="rk" platform={props.platform}>
+
+  ![Putty](/img/common/putty/putty-rk-2.webp)
+
+</Section>
+
+5. 设置完成后，点击 Open 打开串口，确保 TTL 端正确接入之后，接通主板的电源即可。
+
+</TabItem>
+
+<TabItem value="linux" label="Linux">
+
+### Linux
+
+Minicom 是一个可以在 Linux 上使用，支持多种波特率的串口工具。下面介绍如何使用 Minicom 连接串口。
 
 1. 将串口 USB 端插入主机 PC 后，请先找到串口设备：
 
@@ -165,10 +249,30 @@ pu stopbits         1
 pu rtscts           No
 ```
 
-4. 执行以下命令以连接设备，指定参数 usb0-115200 来使用上面的配置。
+4. 执行以下命令以连接设备，指定参数 115200-usb0 来使用上面的配置。
 
 ```bash
 minicom 115200-usb0
+```
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+创建并且编辑文件 ~/.minirc.921600-usb0，添加下列内容：
+
+```
+pu port             /dev/ttyUSB0
+pu baudrate         921600
+pu bits             8
+pu parity           N
+pu stopbits         1
+pu rtscts           No
+```
+
+4. 执行以下命令以连接设备，指定参数 921600-usb0 来使用上面的配置。
+
+```bash
+minicom 921600-usb0
 ```
 
 </Section>
@@ -185,7 +289,7 @@ pu stopbits         1
 pu rtscts           No
 ```
 
-4. 执行以下命令以连接设备，指定参数 usb0-1500000 来使用上面的配置。
+4. 执行以下命令以连接设备，指定参数 1500000-usb0 来使用上面的配置。
 
 ```bash
 minicom 1500000-usb0
@@ -193,48 +297,13 @@ minicom 1500000-usb0
 
 </Section>
 
-### Putty
+</TabItem>
 
-**_支持 Windows_**
+<TabItem value="mac" label="Mac" >
 
-1. 将 USB 转 TTL 串口线的 USB 一端插入 Windows PC。 查看**设备管理器**，您可以找到 COM 编号。 这里是 COM3。
+### Mac
 
-2. 在 Windows PC 上启动应用程序 Putty，并按如下方式进行设置：
-
-   - 在左边栏目中选择Session，将串行线路设置为 COM3，波特率设置 1500000，连接类型为 Serial。
-   - 在 Saved Sessions 列中写入 rockchip ，然后按 Save。
-
-   ![Putty](/img/configuration/Putty-setting-session.webp)
-
-3. 在左边栏目选择最底下的 Serial 并按照以下参数配置：
-
-   ![Putty](/img/configuration/Putty-setting-serial.webp)
-
-4. 设置完成后，点击 Open 打开串口，确保TTL端正确接入之后，接通主板的电源即可。
-
-### Tabby
-
-**_支持 Windows、Linux、MacOS_**
-
-1. 打开 Tabby 后，点击图中红色方框：
-
-   ![Tabby-Setting-01](/img/configuration/rock-5b-tabby-01.webp)
-
-2. 下拉找到自动识别的串口设备，点击打开：
-
-   ![Tabby-Setting-02](/img/configuration/rock-5b-tabby-02.webp)
-
-3. 选择波特率 1500000：
-
-   ![Tabby-Setting-03](/img/configuration/rock-5b-tabby-03.webp)
-
-4. 显示串口打开即可。这里存在 Linux 无权限读取串口，请查看该页面下 minicom 的串口权限设置方法。
-
-   ![Tabby-Setting-04](/img/configuration/rock-5b-tabby-04.webp)
-
-### Picocom
-
-**_支持 MacOS_**
+Picocom 是一个可以在 Mac 上使用，支持多种波特率的串口工具。下面介绍如何使用 Picocom 连接串口。
 
 1. 安装 picocom
 
@@ -244,11 +313,35 @@ minicom 1500000-usb0
 
 2. 开启 picocom
 
+<Section compatible="aml" platform={props.platform}>
+
+```bash
+% picocom -b 115200 -d 8 /dev/tty.usbserial-2130
+```
+
+</Section>
+
+<Section compatible="mtk" platform={props.platform}>
+
+```bash
+% picocom -b 921600 -d 8 /dev/tty.usbserial-2130
+```
+
+</Section>
+
+<Section compatible="rk" platform={props.platform}>
+
 ```bash
 % picocom -b 1500000 -d 8 /dev/tty.usbserial-2130
 ```
 
+</Section>
+
+</TabItem>
+</Tabs>
+
+
 ## FAQs
 
 1. 使用调试控制台时，屏幕上有系统启动信息，但无法使用键盘输入文字？
-   可能是默认开启了 Hardware Flow Control 。关闭 Hardware Flow Control后应能恢复正常。
+   可能是默认开启了 Hardware Flow Control。关闭 Hardware Flow Control 后应该能恢复正常。
