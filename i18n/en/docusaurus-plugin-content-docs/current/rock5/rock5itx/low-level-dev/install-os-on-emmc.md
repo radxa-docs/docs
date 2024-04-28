@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-import Rkdeveloptool from "../../../common/dev/\_rkdeveloptool.mdx".
+import Rkdeveloptool from "../../../common/dev/\_rkdeveloptool.mdx"
 import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
 
 # Install the system to EMMC
@@ -31,7 +31,7 @@ Go to [Resource Download Summary](../getting-started/download) to download the i
 If it works, RKDevTool will prompt ``A MASKROM device was found``:
 
    <img src="/img/configuration/rkdevtool-zh-maskrom.webp" alt="RKDevTool zh maskrom" />
-</TabItem
+</TabItem>
 
 <TabItem value="Linux">
 
@@ -56,7 +56,7 @@ In Maskrom mode, you can use [rkdevtool](rkdevtool) or [upgrade-tool](upgrade-to
 
 <RKDevTool />
 
-</TabItem
+</TabItem>
 
 <TabItem value="Linux">
 
