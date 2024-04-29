@@ -16,7 +16,7 @@ sidebar_position: 2
 | 6   | Intel 7265NGW (PCIE+USB)                           | Intel 7265  | 2.4G&5G       | 4.2 | up:363 Mbits/sec down: 619 Mbits/sec  |                                                     |
 | 7   | Intel AX210 (PCIE+USB)                             | Intel AX210 | WiFi 6        | 5.2 | up: 859 Mbits/sec down: 813 Mbits/sec | Only WIFI is supported currently, BT is not working |
 
-- ROCK 5ITX 没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
+- ROCK 5 ITX 没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
 - 这里演示的 M.2 无线模块是： Radxa 无线模块 A8。
 
 [Radxa 无线模块A8](/zh/img/accessories/a8-module-01.webp)

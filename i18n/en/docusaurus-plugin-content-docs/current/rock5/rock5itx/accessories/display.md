@@ -6,7 +6,7 @@ sidebar_position: 3
 
 <img src="/img/rock5itx/rock5itx-lcd0.webp" alt="rock5itx lcd0" width="700" />
 
-- Prepare the Radxa Display 8HD or Radxa Display 10HD and connect it to the ROCK 5ITX via the FPC cable.
+- Prepare the Radxa Display 8HD or Radxa Display 10HD and connect it to the ROCK 5 ITX via the FPC cable.
 
 - Open the Kconsole terminal via the Application Launcher in the lower left corner, and run the `rsetup` command:
 

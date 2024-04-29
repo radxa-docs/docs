@@ -4,9 +4,9 @@ sidebar_position: 4
 
 # Webcam
 
-<img src="/img/rock5itx/rock5itx-cam1.webp" alt="rock5itx cam1 connection" width= "300" /> Prepare the Radxa Camera 4K and connect it to the ROCK 5ITX via the FPC cable.
+<img src="/img/rock5itx/rock5itx-cam1.webp" alt="rock5itx cam1 connection" width= "300" /> Prepare the Radxa Camera 4K and connect it to the ROCK 5 ITX via the FPC cable.
 
-- Prepare the Radxa Camera 4K and connect it to the ROCK 5ITX via the FPC cable.
+- Prepare the Radxa Camera 4K and connect it to the ROCK 5 ITX via the FPC cable.
 
 - Open the Kconsole terminal via the Application Launcher in the lower left corner and run the `rsetup` command:
 

@@ -117,7 +117,7 @@ Radxa ROCK 5 ITX 是一款完全兼容 Mini-ITX 外形的单板计算机/主板�
 <table>
   <tr>
     <th>型号</th>
-    <th>ROCK 5ITX</th>
+    <th>ROCK 5 ITX</th>
   </tr>
   <tr>
     <th>SoC</th>

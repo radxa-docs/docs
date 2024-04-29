@@ -4,15 +4,15 @@ sidebar_position: 4
 
 # Accessory usage instructions
 
-This section describes the common accessories supported by the ROCK 5ITX and how to use them.
+This section describes the common accessories supported by the ROCK 5 ITX and how to use them.
 
 ## Interface overview
 
-<img src="/img/rock5itx/rock5itx-interface-overview.webp" width="800" alt="rock 5ITX interfaces overview" />
+<img src="/img/rock5itx/rock5itx-interface-overview.webp" width="800" alt="ROCK 5 ITX interfaces overview" />
 
 ## Camera
 
-The ROCK 5ITX comes with a 4-lane CSI interface. Here is the list of currently supported cameras:
+The ROCK 5 ITX comes with a 4-lane CSI interface. Here is the list of currently supported cameras:
 
 <table>
   <tr>
@@ -41,7 +41,7 @@ For camera usage, please refer to [Camera Tutorial](../accessories/camera)
 
 ## Screen
 
-The ROCK 5ITX comes with a 4-lane DSI interface. The following is a list of currently supported screens:
+The ROCK 5 ITX comes with a 4-lane DSI interface. The following is a list of currently supported screens:
 
 <table>
   <tr>

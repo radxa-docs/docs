@@ -6,7 +6,7 @@ sidebar_position: 4
 
 <img src="/img/rock5itx/rock5itx-cam1.webp" alt="rock5itx cam1 connection" width="300" />
 
-- 准备好 Radxa Camera 4K，通过 FPC 线接上 ROCK 5ITX。
+- 准备好 Radxa Camera 4K，通过 FPC 线接上 ROCK 5 ITX。
 
 - 通过左下角 Application Launcher 打开 Kconsole 终端, 运行 `rsetup` 命令：
 

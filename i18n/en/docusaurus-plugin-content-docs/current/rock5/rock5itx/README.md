@@ -117,7 +117,7 @@ With open source software and hardware documentation, it is an ideal platform fo
 <table>
   <tr>
     <td>Model</td>
-    <td>ROCK 5ITX</td>
+    <td>ROCK 5 ITX</td>
   </tr>
   <tr>
     <td>SoC</td>

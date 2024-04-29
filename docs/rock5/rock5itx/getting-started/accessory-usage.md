@@ -4,15 +4,15 @@ sidebar_position: 4
 
 # 配件使用说明
 
-这个章节主要介绍 ROCK 5ITX 支持的常见配件以及如何使用。
+这个章节主要介绍 ROCK 5 ITX 支持的常见配件以及如何使用。
 
 ## 接口总览
 
-<img src="/img/rock5itx/rock5itx-interface-overview.webp" width="800" alt="rock 5ITX interfaces overview" />
+<img src="/img/rock5itx/rock5itx-interface-overview.webp" width="800" alt="ROCK 5 ITX interfaces overview" />
 
 ## 摄像头
 
-ROCK 5ITX 带有一个 4-lane 的 CSI 接口。以下是目前支持的摄像头列表：
+ROCK 5 ITX 带有一个 4-lane 的 CSI 接口。以下是目前支持的摄像头列表：
 
 <table>
   <tr>
@@ -41,7 +41,7 @@ ROCK 5ITX 带有一个 4-lane 的 CSI 接口。以下是目前支持的摄像头
 
 ## 屏幕
 
-ROCK 5ITX 带有一个 4-lane 的 DSI 接口。以下是目前支持的屏幕列表：
+ROCK 5 ITX 带有一个 4-lane 的 DSI 接口。以下是目前支持的屏幕列表：
 
 <table>
   <tr>
