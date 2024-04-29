@@ -74,10 +74,10 @@ The kernel source code is located in **.src/linux** in the bsp directory, and yo
 <PreView params={{ soc: props.soc }}>
   {`
     cd bsp
-    . /bsp --no-prepare-source linux #soc# -r 20
+    . /bsp --no-prepare-source linux #soc# -r 999
     Parameter description:
     --no-prepare-source # Compile with local changes, without this parameter the latest code will be synchronized from the Radxa kernel repository and overwrite the local changes.
-    -r 20 # Specify the kernel version as 20.
+    -r 999 # Specify the kernel version number as 999 for priority use.
 `}
 </PreView>
 
@@ -85,8 +85,8 @@ After compilation, a number of `deb` packages will be generated in the current d
 
 <PreView params={{ soc: props.soc }}>
   {`
-    linux-headers-5.10.160-20-#soc#_5.10.160-20_arm64.deb
-    linux-image-5.10.160-20-#soc#_5.10.160-20_arm64.deb
+    linux-headers-5.10.160-999-#soc#_5.10.160-20_arm64.deb
+    linux-image-5.10.160-999-#soc#_5.10.160-20_arm64.deb
 `}
 </PreView>
 
@@ -94,8 +94,8 @@ Copy the above two `deb` packages to the board and install them with the `dpkg` 
 
 <PreView params={{ soc: props.soc }}>
   {`
-    sudo dpkg -i linux-image-5.10.160-20-#soc#_5.10.160-20_arm64.deb
-    sudo dpkg -i linux-headers-5.10.160-20-#soc#_5.10.160-20_arm64.deb
+    sudo dpkg -i linux-image-5.10.160-999-#soc#_5.10.160-20_arm64.deb
+    sudo dpkg -i linux-headers-5.10.160-999-#soc#_5.10.160-20_arm64.deb
     sudo reboot
 `}
 </PreView>

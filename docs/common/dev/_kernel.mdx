@@ -74,10 +74,10 @@ cd bsp
 <PreView params={{ soc: props.soc }}>
   {`
     cd bsp
-    ./bsp --no-prepare-source linux #soc# -r 20
+    ./bsp --no-prepare-source linux #soc# -r 999
     参数说明：
     --no-prepare-source   # 使用本地修改进行编译，如果不加这个参数将会从 Radxa kernel 仓库同步最新代码并覆盖本地修改
-    -r 20                 # 指定内核的版本号为 20
+    -r 999                 # 指定内核的版本号为 999，以优先使用
 `}
 </PreView>
 
@@ -85,8 +85,8 @@ cd bsp
 
 <PreView params={{ soc: props.soc }}>
   {`
-    linux-headers-5.10.160-20-#soc#_5.10.160-20_arm64.deb
-    linux-image-5.10.160-20-#soc#_5.10.160-20_arm64.deb
+    linux-headers-5.10.160-999-#soc#_5.10.160-20_arm64.deb
+    linux-image-5.10.160-999-#soc#_5.10.160-20_arm64.deb
 `}
 </PreView>
 
@@ -94,8 +94,8 @@ cd bsp
 
 <PreView params={{ soc: props.soc }}>
   {`
-    sudo dpkg -i linux-image-5.10.160-20-#soc#_5.10.160-20_arm64.deb
-    sudo dpkg -i linux-headers-5.10.160-20-#soc#_5.10.160-20_arm64.deb
+    sudo dpkg -i linux-image-5.10.160-999-#soc#_5.10.160-20_arm64.deb
+    sudo dpkg -i linux-headers-5.10.160-999-#soc#_5.10.160-20_arm64.deb
     sudo reboot
 `}
 </PreView>
