@@ -2,18 +2,84 @@
 sidebar_position: 6
 ---
 
-# Radxa Wireless Module A8
+# 瑞莎无线模块 A8
 
-Radxa 无线模块 A8 是基于 Realtek RTL8852BE 的标准 M.2 2230 无线模块，这是一款高度集成的单芯片，支持两个数据流传输的 Wi-Fi 6 （原 802.11ax） 解决方案，具有多用户 MIMO（多输入，多输出）和无线局域网（ WLAN ）PCI Express 网络接口控制器，集成 BT5 USB 接口控制器。 它将 WLAN MAC、支持 2T2R 的 WLAN 基带和 RF 组合在一个芯片中。
+瑞莎无线模块 A8 是一款采用 Realtek RTL8852BE 芯片的标准 M.2 2230 规格无线模块，支持 Wi-Fi 6 和蓝牙 5.2 技术。
 
-![Radxa Wireless Module A8](/img/accessories/a8-module-01.webp)
+目前，瑞莎无线模块 A8 提供两个版本。
 
-## 兼容性
+- V1.0
 
-- Radxa ROCK 3A
-- Radxa ROCK 3B
-- Radxa ROCK 5B
-- Radxa ROCK 5A
+![Radxa Wireless Module A8 V1.0](/img/accessories/a8-module-01.webp)
+
+- V2.0
+
+![Radxa Wireless Module A8 V2.0](/img/accessories/a8-module-03.webp)
+
+## 硬件信息
+
+### 基本规格
+
+| 特征     | 描述                                                                                 |
+| -------- | ------------------------------------------------------------------------------------ |
+| 名字     | Radxa Wireless Module A8                                                             |
+| 产品描述 | IEEE 802.11a/b/g/n/ac/ax 无线局域网 2T2R 和蓝牙 5.2 组合模块 (M.2 2230)              |
+| 芯片     | RTL8852BE                                                                            |
+| 主接口   | Wi-Fi: PCIe BT: USB                                                                  |
+| 尺寸     | 22mm x 30mm x 2.25mm                                                                 |
+| 接口规格 | M.2 2230 E Key                                                                       |
+| 天线接口 | I-PEX MHF4 接头插座 (20449) ANT1(Main): WiFi/Bluetooth  TX/RX ANT2(AUX): WiFi  TX/RX |
+| 工作温度 | 0 to +70°C                                                                           |
+| 重量     | 3g                                                                                   |
+
+### 无线局域网
+
+- IEEE 802.11 a/b/g/n/ac/ax 无线局域网
+- IEEE 802.11 ac/ax 支持 2T2R，并且符合 Wave 2 技术标准，支持多用户多输入多输出( MU-MIMO )技术。
+- IEEE 802.11 n 支持标准的 MIMO（多输入多输出），并且适用于 2.4 GHz 和 5 GHz 两个频段。
+- 使用 20MHz 带宽时最大 PHY 数据速率高达 286.8 Mbps，使用 40MHz 带宽时高达 573.5Mbps，使用 80MHz 带宽时高达 1201Mbps
+- 以 802.11n 数据速率运行时向后兼容 802.11a/b/g 设备
+- 以 802.11ax 数据速率运行时向后兼容 802.11a/n/ac 设备
+- 支持 IEEE 802.11i,包括 WPA, WPA2, WPA3 安全协议，并且还支持 WAPI 安全协议。
+- 802.11g 的最大数据传输速率为 54Mbps，802.11n 的最大数据传输速率为 300Mbps，而 802.11ax 的最大数据传输速率则为 1201Mbps。
+
+### 蓝牙
+
+- 支持蓝牙 V5.2
+- 兼容蓝牙 V2.1 + EDR
+- 支持无线局域网和蓝牙共存
+- 支持蓝牙低能耗（BLE）模式
+- 支持在基本速率（BR）和增强数据率（EDR）下的所有蓝牙数据包类型
+
+## ID 列表
+
+| 版本 | 无线局域网 VID | 无线局域网 PID | 蓝牙 VID | 蓝牙 PID |
+| ---- | -------------- | -------------- | -------- | -------- |
+| V1.0 | 10EC           | B852           | 0BDA     | B85B     |
+| V2.0 | 10EC           | B852           | 13D3     | 3570     |
+
+## 支持列表
+
+| 版本                                | V1.0 版本 | V1.0 版本 | V1.0 版本 | V2.0 版本          | V2.0 版本 | V2.0 版本 |
+| ----------------------------------- | --------- | --------- | --------- | ------------------ | --------- | --------- |
+| 系统                                | Linux     | Android   | Windows   | Linux              | Android   | Windows   |
+| Radxa X2L                           | 支持      | N/A       | 支持      | 内核大于 6.7才支持 | N/A       | 支持      |
+| Radxa ROCK 3A                       | 支持      | 支持      | N/A       | 支持               | 正在调试  | N/A       |
+| Radxa ROCK 3B                       | 支持      | 支持      | N/A       | 支持               | 正在调试  | N/A       |
+| Radxa ROCK 5A                       | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
+| Radxa ROCK 5B                       | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
+| Radxa ROCK 5 ITX                    | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
+| Radxa CM3I 搭配 Radxa CM3I IO Board | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
+| Radxa NX5 搭配 Radxa NX5 IO Board   | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
+| Radxa CM5 搭配 Radxa CM5 IO Board   | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
+
+### 原理框图
+
+![原理框图](/img/accessories/wireless-a8-block-diagram.webp)
+
+### 尺寸
+
+![2D 尺寸图](/img/accessories/radxa-wireless-module-2d.webp)
 
 ## 使用教程
 
@@ -110,41 +176,3 @@ hci0:   Type: Primary  Bus: UART
    [bluetooth]# pair 41:42:1A:8D:A9:65
    [bluetooth]# connect 41:42:1A:8D:A9:65
    ```
-
-## 硬件信息
-
-### 特征
-
-- IEEE 802.11a/b/g/n/ac/ax 兼容无线局域网
-- 支持 BT5 系统（BT 5.2 Logo Compliant）
-- 适用于 2.4GHz 和 5Ghz 频段的完整 802.11n MIMO 解决方案
-- 使用 20MHz 带宽时最大 PHY 数据速率高达 286.8 Mbps，使用 40MHz 带宽时高达 573.5Mbps，使用 80MHz 带宽时高达 1201Mbps
-- 以 802.11n 数据速率运行时向后兼容 802.11a/b/g 设备
-- 以 802.11ax 数据速率运行时向后兼容 802.11a/n/ac 设备
-- 符合 Windows 操作系统主机实现的 FIPS 140-2 安全要求
-- 支持 20/40/80MHz 5GHz
-- 支持WLAN-Bluetooth共存
-- 支持低功耗蓝牙
-- 兼容蓝牙 v2.1 + EDR
-
-### 结构框图
-
-![A8 结构](/img/accessories/wireless-a8-block-diagram.webp)
-
-### 规格
-
-| 特征     | 描述                                                                                             |
-| -------- | ------------------------------------------------------------------------------------------------ |
-| 名字     | Radxa Wireless Module A8                                                                         |
-| 产品描述 | IEEE 802.11a/b/g/n/ac/ax 无线 LAN 2T2R 和蓝牙 5.2 组合模块 (M.2 2230)                            |
-| 芯片     | RTL8852BE                                                                                        |
-| 主接口   | Wi-Fi: PCIe BT: USB                                                                              |
-| 尺寸     | 22mm x 30mm x 2.25mm                                                                             |
-| 接口规格 | M.2 2230 E Key                                                                                   |
-| 天线     | I-PEX MHF4 Connector Receptacle (20449) ANT1(Main): WiFi/Bluetooth  TX/RX ANT2(AUX): WiFi  TX/RX |
-| 工作温度 | 0 to +70°C                                                                                       |
-| 重量     | 3g                                                                                               |
-
-### 尺寸
-
-![A8 2D size](/img/accessories/radxa-wireless-module-2d.webp)
