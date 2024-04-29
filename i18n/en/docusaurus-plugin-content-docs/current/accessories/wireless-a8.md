@@ -4,16 +4,82 @@ sidebar_position: 6
 
 # Radxa Wireless Module A8
 
-Radxa Wireless Module A8 is a standard M.2 2230 Wireless Module based on Realtek RTL8852BE, a highly integrated single-chip that support 2-stream Wi-Fi 6 (802.11ax) solutions with multi-user MIMO (Multiple-Input, Multiple-Output) with Wireless LAN (WLAN) PCI Express network interface controller with integrated Bluetooth 5 USB interface controller. It combines a WLAN MAC, a 2T2R capable WLAN baseband, and RF in a single chip.
+The Radxa Wireless Module A8 is a standard M.2 2230 form factor wireless module using the Realtek RTL8852BE chip, supporting Wi-Fi 6 and Bluetooth 5.2.
 
-![Radxa Wireless Module A8](/img/accessories/a8-module-01.webp)
+The Radxa Wireless Module A8 is currently available in two versions.
 
-## Compatibility
+- V1.0
 
-- Radxa ROCK 3A
-- Radxa ROCK 3B
-- Radxa ROCK 5B
-- Radxa ROCK 5A
+![Radxa Wireless Module A8 V1.0](/img/accessories/a8-module-01.webp)
+
+- V2.0
+
+![Radxa Wireless Module A8 V2.0](/img/accessories/a8-module-03.webp)
+
+## Hardware
+
+### Specifications
+
+| Features              | Description                                                                                      |
+| --------------------- | ------------------------------------------------------------------------------------------------ |
+| Name                  | Radxa Wireless Module A8                                                                         |
+| Product Description   | IEEE 802.11a/b/g/n/ac/ax Wireless LAN 2T2R and Bluetooth 5.2 Combo Module (M.2 2230)             |
+| Chipset               | RTL8852BE                                                                                        |
+| Host Interface        | Wi-Fi: PCIe BT: USB                                                                              |
+| Dimension             | 22mm x 30mm x 2.25mm                                                                             |
+| Form Factor           | M.2 2230 E Key                                                                                   |
+| Antenna               | I-PEX MHF4 Connector Receptacle (20449) ANT1(Main): WiFi/Bluetooth  TX/RX ANT2(AUX): WiFi  TX/RX |
+| Operating Temperature | 0 to +70°C                                                                                       |
+| Weight                | 3g                                                                                               |
+
+### WLAN
+
+- IEEE 802.11 a/b/g/n/ac/ax Wireless LANs
+- IEEE 802.11 ac/ax supports 2T2R and is compliant with the Wave 2 technology standard for Multi-User Multiple-Input Multiple-Output (MU-MIMO) technology.
+- IEEE 802.11 n supports standard MIMO (Multiple Input Multiple Output) and is available in both the 2.4 GHz and 5 GHz bands.
+- Maximum PHY data rates are up to 286.8 Mbps with 20MHz bandwidth, 573.5Mbps with 40MHz bandwidth, and 1201Mbps with 80MHz bandwidth.
+- Backward compatible with 802.11a/b/g devices when operating at 802.11n data rates
+- Backward compatible with 802.11a/n/ac devices when operating at 802.11ax data rates
+- Supports IEEE 802.11i, including WPA, WPA2, WPA3 security protocols, and also supports WAPI security protocols.
+- 802.11g has a maximum data rate of 54Mbps, 802.11n has a maximum data rate of 300Mbps, and 802.11ax has a maximum data rate of 1201Mbps.
+
+### Bluetooth
+
+- Support Bluetooth V5.2
+- Compatible with Bluetooth V2.1 + EDR
+- Supports WLAN and Bluetooth coexistence
+- Supports Bluetooth Low Energy (BLE) mode
+- Supports all Bluetooth packet types at Basic Rate (BR) and Enhanced Data Rate (EDR)
+
+## ID Table
+
+| Version | WLAN VID | WLAN PID | Bluetooth VID | Bluetooth PID |
+| ------- | -------- | -------- | ------------- | ------------- |
+| V1.0    | 10EC     | B852     | 0BDA          | B85B          |
+| V2.0    | 10EC     | B852     | 13D3          | 3570          |
+
+## Support List
+
+| Version                             | V1.0    | V1.0    | V1.0    | V2.0                      | V2.0      | V2.0    |
+| ----------------------------------- | ------- | ------- | ------- | ------------------------- | --------- | ------- |
+| 系统                                | Linux   | Android | Windows | Linux                     | Android   | Windows |
+| Radxa X2L                           | Support | N/A     | Support | Supported by kernel > 6.7 | N/A       | Support |
+| Radxa ROCK 3A                       | Support | Support | N/A     | Support                   | Debugging | N/A     |
+| Radxa ROCK 3B                       | Support | Support | N/A     | Support                   | Debugging | N/A     |
+| Radxa ROCK 5A                       | Support | Support | N/A     | Support                   | Support   | N/A     |
+| Radxa ROCK 5B                       | Support | Support | N/A     | Support                   | Support   | N/A     |
+| Radxa ROCK 5 ITX                    | Support | Support | N/A     | Support                   | Support   | N/A     |
+| Radxa CM3I with Radxa CM3I IO Board | Support | Support | N/A     | Support                   | Support   | N/A     |
+| Radxa NX5 with Radxa NX5 IO Board   | Support | Support | N/A     | Support                   | Support   | N/A     |
+| Radxa CM5 with Radxa CM5 IO Board   | Support | Support | N/A     | Support                   | Support   | N/A     |
+
+### Block Diagram
+
+![A8 Block Diagram](/img/accessories/wireless-a8-block-diagram.webp)
+
+### Dimensions
+
+![A8 2D](/img/accessories/radxa-wireless-module-2d.webp)
 
 ## Tutorial
 
@@ -109,41 +175,3 @@ hci0: Type: Primary Bus: UART
    [bluetooth]# pair 41:42:1A:8D:A9:65
    [bluetooth]# connect 41:42:1A:8D:A9:65
    ```
-
-## Hardware
-
-### Features
-
-- IEEE 802.11a/b/g/n/ac/ax compatible WLAN
-- Support Bluetooth 5 system (BT 5.2 Logo Compliant)
-- Complete 802.11n MIMO solution for 2.4GHz and 5Ghz band
-- Maximum PHY data rate up to 286.8 Mbps using 20MHz bandwidth, 573.5Mbps using 40MHz bandwidth, and 1201Mbps using 80MHz bandwidth
-- Backward compatible with 802.11a/b/g devices while operating at 802.11n data rates
-- Backward compatible with 802.11a/n/ac devices while operating at 802.11ax data rates
-- Compliance with Windows operating system host-implemented FIPS 140-2 security requirements
-- Support 20/40/80MHz 5GHz
-- supports WLAN-Bluetooth coexistence
-- supports low power Bluetooth
-- Compatible with Bluetooth v2.1+EDR
-
-### Block Diagram
-
-![A8 design](/img/accessories/wireless-a8-block-diagram.webp)
-
-### Specifications
-
-| Features              | Description                                                                                      |
-| --------------------- | ------------------------------------------------------------------------------------------------ |
-| Name                  | Radxa Wireless Module A8                                                                         |
-| Product Description   | IEEE 802.11a/b/g/n/ac/ax Wireless LAN 2T2R and Bluetooth 5.2 Combo Module (M.2 2230)             |
-| Chipset               | RTL8852BE                                                                                        |
-| Host Interface        | Wi-Fi: PCIe BT: USB                                                                              |
-| Dimension             | 22mm x 30mm x 2.25mm                                                                             |
-| Form Factor           | M.2 2230 E Key                                                                                   |
-| Antenna               | I-PEX MHF4 Connector Receptacle (20449) ANT1(Main): WiFi/Bluetooth  TX/RX ANT2(AUX): WiFi  TX/RX |
-| Operating Temperature | 0 to +70°C                                                                                       |
-| Weight                | 3g                                                                                               |
-
-### Dimensions
-
-![A8 2D](/img/accessories/radxa-wireless-module-2d.webp)
