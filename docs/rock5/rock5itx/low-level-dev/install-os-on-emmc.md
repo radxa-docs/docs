@@ -54,7 +54,7 @@ DevNo=1	Vid=0x2207,Pid=0x350b,LocationID=109	Maskrom
 
 <TabItem value="Windows">
 
-<RKDevTool />
+<RKDevTool series="rock5" />
 
 </TabItem>
 
