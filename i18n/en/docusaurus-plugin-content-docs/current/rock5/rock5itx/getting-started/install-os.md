@@ -31,5 +31,5 @@ Radxa ROCK 5 ITX also supports standard `ATX` power supply power.
 
 ## Reference
 
-* [Install OS on eMMC](../low-level-dev/install-os-on-emmc)
-* [Install OS on NVME](../low-level-dev/install-os-on-nvme)
+- [Install OS on eMMC](../low-level-dev/install-os-on-emmc)
+- [Install OS on NVME](../low-level-dev/install-os-on-nvme)
