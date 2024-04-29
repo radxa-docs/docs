@@ -21,14 +21,14 @@ Go to [Resource Download Summary](../getting-started/download) to download the i
 1. Disconnect the microSD card and power cord.
 2. Press and hold the Maskrom button
 3. Connect the USB of PC host via USB-A to USB-C cable, if the PC detects a device, it will enter into Maskrom mode (the OTG port of Radxa ROCK 5 ITX is TYPE-C, so you can connect the host via USB-C to USB-A cable to communicate with the motherboard entering into Maskrom).
-   
+
 <img src="/img/rock5itx/rock5itx-maskrom-new.webp" alt="maskrom new version" width="500" />
 
 <Tabs queryString="maskrom">
 
 <TabItem value="Windows">
 
-If it works, RKDevTool will prompt ``A MASKROM device was found``:
+If it works, RKDevTool will prompt `A MASKROM device was found`:
 
    <img src="/img/configuration/rkdevtool-zh-maskrom.webp" alt="RKDevTool zh maskrom" />
 </TabItem>

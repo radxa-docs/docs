@@ -6,15 +6,15 @@ sidebar_position: 2
 
 ## WIFI & BT 支持模块列表
 
-| NO. | Model                                               | Chip        | WiFi          | BT  | WIFI Throughput                       | Remark                                              |
-| --- | --------------------------------------------------- | ----------- | ------------- | --- | ------------------------------------- | --------------------------------------------------- |
-| 1   | ROCK Pi Wireless Module A1 (SDIO+UART) --- AP6236   | BCM43436B0  | 2.4G          | 4.2 | up:23.5 Mbits/sec down:40.4 Mbits/sec |                                                     |
-| 2   | ROCK Pi Wireless Module A2 (SDIO+UART) --- AP6256   | BCM43456    | 2.4G&5G       | 5.0 | up:196 Mbits/sec down: 187 Mbits/sec  |                                                     |
-| 3   | ROCK Pi Wireless Module A3 (SDIO+UART) --- AP6398S  | BCM43598    | 2.4G&5G       | 5.0 | up:336 Mbits/sec down: 315 Mbits/sec  |                                                     |
-| 4   | Radxa wireless A8                                   | RTL8852BE   | 2.4G&5G&WIFI6 | 5.0 | up:600Mbits/sec down:900 Mbits/sec    |                                                     |
-| 5   | Intel 0MHK36 (PCIE+USB)                             | Intel 3165  | 2.4G&5G       | 4.2 | up:283 Mbits/sec down: 334 Mbits/sec  |                                                     |
-| 6   | Intel 7265NGW (PCIE+USB)                            | Intel 7265  | 2.4G&5G       | 4.2 | up:363 Mbits/sec down: 619 Mbits/sec  |                                                     |
-| 7   | Intel AX210 (PCIE+USB)                              | Intel AX210 | WiFi 6        | 5.2 | up: 859 Mbits/sec down: 813 Mbits/sec | Only WIFI is supported currently, BT is not working |
+| NO. | Model                                              | Chip        | WiFi          | BT  | WIFI Throughput                       | Remark                                              |
+| --- | -------------------------------------------------- | ----------- | ------------- | --- | ------------------------------------- | --------------------------------------------------- |
+| 1   | ROCK Pi Wireless Module A1 (SDIO+UART) --- AP6236  | BCM43436B0  | 2.4G          | 4.2 | up:23.5 Mbits/sec down:40.4 Mbits/sec |                                                     |
+| 2   | ROCK Pi Wireless Module A2 (SDIO+UART) --- AP6256  | BCM43456    | 2.4G&5G       | 5.0 | up:196 Mbits/sec down: 187 Mbits/sec  |                                                     |
+| 3   | ROCK Pi Wireless Module A3 (SDIO+UART) --- AP6398S | BCM43598    | 2.4G&5G       | 5.0 | up:336 Mbits/sec down: 315 Mbits/sec  |                                                     |
+| 4   | Radxa wireless A8                                  | RTL8852BE   | 2.4G&5G&WIFI6 | 5.0 | up:600Mbits/sec down:900 Mbits/sec    |                                                     |
+| 5   | Intel 0MHK36 (PCIE+USB)                            | Intel 3165  | 2.4G&5G       | 4.2 | up:283 Mbits/sec down: 334 Mbits/sec  |                                                     |
+| 6   | Intel 7265NGW (PCIE+USB)                           | Intel 7265  | 2.4G&5G       | 4.2 | up:363 Mbits/sec down: 619 Mbits/sec  |                                                     |
+| 7   | Intel AX210 (PCIE+USB)                             | Intel AX210 | WiFi 6        | 5.2 | up: 859 Mbits/sec down: 813 Mbits/sec | Only WIFI is supported currently, BT is not working |
 
 - ROCK 5ITX 没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
 - 这里演示的 M.2 无线模块是： Radxa 无线模块 A8。

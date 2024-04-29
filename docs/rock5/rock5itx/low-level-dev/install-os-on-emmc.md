@@ -21,7 +21,7 @@ import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
 1. 拔出 microSD 卡和电源线
 2. 按住 Maskrom 按钮
 3. 通过 USB-A 转 USB-C 线连接PC 主机的 USB，如果如果PC端检测到有设备，则进入到 Maskrom 模式（Radxa ROCK 5 ITX 的 OTG 接口是 TYPE-C,可通过 USB-C 转 USB-A 线连接主机和进入 Maskrom 的主板进行通信）
-   
+
 <img src="/img/rock5itx/rock5itx-maskrom-new.webp" alt="maskrom new version" width="500" />
 
 <Tabs queryString="maskrom">

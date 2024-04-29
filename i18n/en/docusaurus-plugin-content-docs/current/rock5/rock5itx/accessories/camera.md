@@ -12,7 +12,8 @@ sidebar_position: 4
 
 Command
 radxa@rock-5itx:~$ rsetup
-```
+
+````
 
 - Pass the [Device Tree Configuration](../os-config/rsetup#overlays) to enable overlay for the Rxa 4K camera.
 
@@ -29,7 +30,7 @@ You can also open the camera preview using the terminal command:
 
 ```bash
 gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
-```
+````
 
 Take a picture using the following command:
 
