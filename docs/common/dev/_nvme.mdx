@@ -9,15 +9,15 @@ import { PreView } from "@site/src/utils/docs";
 
 - 将系统镜像刷到 NVME SSD 里面
 
-- 拔掉 SD 卡/eMMC Module, 从 NVME 启动
+- 拔掉 SD 卡, 从 NVME 启动
 
 ### 准备一张 SD 卡或者 eMMC Module， 充当启动盘
 
-参考<a href={props.install_os_path}>安装操作系统部分</a>将系统安装在 SD 卡/eMMC Module 当中。
+参考<a href={props.install_os_path}>安装操作系统部分</a>将系统安装在 SD 卡 当中。
 
-这里 SD 卡/eMMC Module 的作用相当于 x86 的启动盘，目的是拿到 spi.img， 将 spi.img 刷到 spi flash 中。
+这里 SD 卡 的作用相当于 x86 的启动盘，目的是拿到 spi.img， 将 spi.img 刷到 spi flash 中。
 
-从 SD 卡/eMMC Module 启动后，执行一下命令以更新系统:
+从 SD 卡 启动后，执行一下命令以更新系统:
 
 ```
 sudo apt-get update
@@ -97,4 +97,4 @@ sudo apt-get full-upgrade
   `}
 </PreView>
 
-### 拔掉 SD 卡/eMMC Module, 从 NVME 启动
+### 拔掉 SD 卡后，使用12V DC 电源适配器上电，然后系统开始从 NVME 中启动，HDMI显示桌面。
