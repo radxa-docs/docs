@@ -62,7 +62,7 @@ The Radxa Wireless Module A8 is currently available in two versions.
 
 | Version                             | V1.0    | V1.0    | V1.0    | V2.0                      | V2.0      | V2.0    |
 | ----------------------------------- | ------- | ------- | ------- | ------------------------- | --------- | ------- |
-| 系统                                | Linux   | Android | Windows | Linux                     | Android   | Windows |
+| System                              | Linux   | Android | Windows | Linux                     | Android   | Windows |
 | Radxa X2L                           | Support | N/A     | Support | Supported by kernel > 6.7 | N/A       | Support |
 | Radxa ROCK 3A                       | Support | Support | N/A     | Support                   | Debugging | N/A     |
 | Radxa ROCK 3B                       | Support | Support | N/A     | Support                   | Debugging | N/A     |
