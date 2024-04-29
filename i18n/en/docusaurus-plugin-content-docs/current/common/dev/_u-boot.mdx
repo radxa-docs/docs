@@ -1,4 +1,4 @@
-import { PreView } from "@site/src/utils/docs"
+import { PreView } from "@site/src/utils/docs";
 
 ## Using bsp
 
@@ -19,12 +19,16 @@ sudo apt update
 sudo apt install -y git qemu-user-static binfmt-support
 
 # Podman (recommended)
+
 sudo apt install -y podman podman-docker
 sudo touch /etc/containers/nodocker
+
 # Docker
+
 # sudo apt install docker.io
 
 # Optional dependencies for minor features
+
 sudo apt install -y systemd-container
 ``
 
@@ -47,7 +51,13 @@ cd bsp
 
 ### Build U-Boot
 
-<PreView params={{ model: props.model, profile: props.profile, product: props.product }}>
+<PreView
+  params={{
+    model: props.model,
+    profile: props.profile,
+    product: props.product,
+  }}
+>
   {`
     After configuring the bsp environment, you need to compile U-Boot once before pulling U-Boot code from the repository.  
     Running . /bsp will show you all the parameters and their explanations, and you can see the command "bsp [options] <linux|u-boot> <profile> [product]" from the prompt.  

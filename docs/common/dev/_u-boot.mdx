@@ -47,7 +47,13 @@ cd bsp
 
 ### 构建 U-Boot
 
-<PreView params={{ model: props.model, profile: props.profile, product: props.product }}>
+<PreView
+  params={{
+    model: props.model,
+    profile: props.profile,
+    product: props.product,
+  }}
+>
   {`
     完成 bsp 环境配置后，需要先编译一次 U-Boot 才会从仓库拉取 U-Boot 代码。  
     直接运行 ./bsp 会显示所有参数及其解释，根据提示可知命令 "bsp [options] <linux|u-boot> <profile> [product]"。  
