@@ -48,7 +48,7 @@ With open source software and hardware documentation, it is an ideal platform fo
   </tr>
   <tr>
     <th>3</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#camera Interface">camera Interface</a></th>
+    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#camera Interface">Camera Interface</a></th>
     <th>11</th>
     <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
     <th>19</th>
