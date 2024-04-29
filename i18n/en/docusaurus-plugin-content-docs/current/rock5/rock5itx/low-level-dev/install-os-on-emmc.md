@@ -60,7 +60,7 @@ In Maskrom mode, you can use [rkdevtool](rkdevtool) or [upgrade-tool](upgrade-to
 
 <TabItem value="Linux">
 
-<Rkdeveloptool />
+<Rkdeveloptool series="rock5"/>
 
 </TabItem>
 
