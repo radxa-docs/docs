@@ -60,7 +60,7 @@ DevNo=1	Vid=0x2207,Pid=0x350b,LocationID=109	Maskrom
 
 <TabItem value="Linux">
 
-<Rkdeveloptool />
+<Rkdeveloptool series="rock5"/>
 
 </TabItem>
 
