@@ -197,7 +197,7 @@ sidebar_custom_props:
                   ],
               },
               {
-                products_name: "ROCK 5ITX",
+                products_name: "ROCK 5 ITX",
                 products_photo_url: "/home/product-pictures/rock5itx.webp",
                 products_link: "/rock5/rock5itx",
                 docs:
@@ -206,9 +206,9 @@ sidebar_custom_props:
                       docs_link: "/rock5/rock5itx",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
-                      docs_name_zh: "ROCK 5ITX 概览",
-                      docs_info_en: "Overview of the ROCK 5ITX",
-                      docs_info_zh: "ROCK 5TIX 概览",
+                      docs_name_zh: "ROCK 5 ITX 概览",
+                      docs_info_en: "Overview of the ROCK 5 ITX",
+                      docs_info_zh: "ROCK 5 TIX 概览",
                     },
                   ],
               },
