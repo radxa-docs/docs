@@ -16,7 +16,7 @@ Radxa ROCK 5 ITX Version X1.1
 
 ## Operating system images
 
-- [Radxa ROCK 5 ITX Debian Build 2](https://github.com/radxa-build/rock-5-itx/releases/download/test-build-2/rock-5-itx_debian_bullseye- test_kde_test-build-2.img.xz)
+- [Radxa ROCK 5 ITX Debian Build 2](https://github.com/radxa-build/rock-5-itx/releases/download/test-build-2/rock-5-itx_debian_bullseye-test_kde_test-build-2.img.xz)
 
 :::caution
 Except for the above mirrors, which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues, and are intended for evaluation use only.
