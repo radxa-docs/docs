@@ -68,3 +68,7 @@ Please go to [Resource Download Summary](../getting-started/download) for more m
         <NVME model="rock-5-itx" release_num="b3" install_os_path="../getting-started/install-os" rsetup_path="../os-config/rsetup" />
     </TabItem>
 </Tabs>
+
+:::tip
+The entire process of powering up the system and booting it up lasts about 53 seconds before it enters the system desktop.
+:::

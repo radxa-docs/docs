@@ -68,3 +68,7 @@ import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
         <NVME model="rock-5-itx" release_num="b3" install_os_path="../getting-started/install-os" rsetup_path="../os-config/rsetup" />
     </TabItem>
 </Tabs>
+
+:::tip
+系统从上电到开机启动，整个过程持续约53秒，然后进入系统桌面。
+:::
