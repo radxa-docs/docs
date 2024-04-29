@@ -2,42 +2,72 @@
 sidebar_position: 1
 ---
 
-# Install OS on eMMC
+import Rkdeveloptool from "../../../common/dev/\_rkdeveloptool.mdx"
+import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
+
+# Install the system to EMMC
 
 ## Preparation
 
-- 1x USB cable (USB C to USB A)
-- 1x 12V DC Power Adapter
+- 1x USB cable (USB C on one end, USB A on the other)
+- 1x 12V DC power adapter
 
-## Image download
+## Image Download
 
-Please [Resource Download Summary](/rock5/rock5itx/getting-started/download.md) download the image file
+Go to [Resource Download Summary](../getting-started/download) to download the image file.
 
-## Enter Maskrom Mode
+## Enter Maskrom mode
 
-1. Remove the microSD card and power cable
-2. Press the Maskrom button
-3. Connect the USB of PC host via USB-A to USB-C cable, If the PC detects a device, it enters into Maskrom mode
-   ![Maskrom button](/img/rock5itx/rock5itx-maskrom.webp)
+1. Disconnect the microSD card and power cord.
+2. Press and hold the Maskrom button
+3. Connect the USB of PC host via USB-A to USB-C cable, if the PC detects a device, it will enter into Maskrom mode (the OTG port of Radxa ROCK 5 ITX is TYPE-C, so you can connect the host via USB-C to USB-A cable to communicate with the motherboard entering into Maskrom).
 
-The OTG connector on the Radxa ROCK 5 ITX is TYPE-C, which allows communication between the host computer and the motherboard entering the Maskrom via a USB-C to USB-A cable.
+<img src="/img/rock5itx/rock5itx-maskrom-new.webp" alt="maskrom new version" width="500" />
 
-If the operation is normal, RKDevTool will prompt `A MASKROM device was found`:
-![RKDevTool zh maskrom](/img/configuration/rkdevtool-zh-maskrom.webp)
+<Tabs queryString="maskrom">
+
+<TabItem value="Windows">
+
+If it works, RKDevTool will prompt `A MASKROM device was found`:
+
+   <img src="/img/configuration/rkdevtool-zh-maskrom.webp" alt="RKDevTool zh maskrom" />
+</TabItem>
+
+<TabItem value="Linux">
 
 If the operation is normal, `rkdeveloptool ld` will prompt to enter MASKROM mode:
-![rkdeveloptool zh](/img/rock5itx/rock5itx-rkdeveloptool.webp)
 
-In Maskrom mode, you can use the [rkdevtool](rkdevtool) or [upgrade-tool](upgrade-tool) to erase, wire-flash, etc. your product.
+```
+PC:~$ sudo rkdeveloptool ld
+DevNo=1 Vid=0x2207,Pid=0x350b,LocationID=109 Maskrom
+```
 
-## Install OS on eMMC
+</TabItem>
 
-[Windows Flash eMMC](rkdevtool)
+</Tabs>
 
-[Linux Flash eMMC](rkdeveloptool)
+In Maskrom mode, you can use [rkdevtool](rkdevtool) or [upgrade-tool](upgrade-tool) to erase, wire-flash, etc. your product.
 
-## Boot the system
+## Install system to eMMC
 
-- Use the 12V DC power adapter to power up the system, then the system starts booting and HDMI displays the desktop.
+<Tabs queryString="install-os-emmc-using-maskrom">
 
-## FAQ
+<TabItem value="Windows">
+
+<RKDevTool series="rock5" />
+
+</TabItem>
+
+<TabItem value="Linux">
+
+<Rkdeveloptool series="rock5"/>
+
+</TabItem>
+
+</Tabs>
+
+## Booting the system
+
+- Power up the system using the 12V DC power adapter, then the system starts booting and HDMI displays the desktop.
+
+## Frequently Asked Questions

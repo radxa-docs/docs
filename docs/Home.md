@@ -7,7 +7,10 @@ hide_title: true
 # 主要在sidebar_custom_props对象中自定义信息
 # docs_photo_type 作用图标，取值范围 [Overview,Download,Accessories,GettingStart,Certification,SystemConfigurations,Android,FAQ]
 # products_photo_url 产品图片，图片尺寸330 X 150(找Vicky)，webp格式
-sidebar_custom_props: { product_docs: [
+sidebar_custom_props:
+  {
+    product_docs:
+      [
         {
           series_en: "ROCK 3 Family",
           series_zh: "ROCK 3 系列",
@@ -190,6 +193,22 @@ sidebar_custom_props: { product_docs: [
                       docs_name_zh: "ROCK 5C 概览",
                       docs_info_en: "Overview of the ROCK 5C",
                       docs_info_zh: "ROCK 5C 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "ROCK 5 ITX",
+                products_photo_url: "/home/product-pictures/rock5itx.webp",
+                products_link: "/rock5/rock5itx",
+                docs:
+                  [
+                    {
+                      docs_link: "/rock5/rock5itx",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "ROCK 5 ITX 概览",
+                      docs_info_en: "Overview of the ROCK 5 ITX",
+                      docs_info_zh: "ROCK 5 TIX 概览",
                     },
                   ],
               },
@@ -505,5 +524,6 @@ sidebar_custom_props: { product_docs: [
               },
             ],
         },
-      ] }
+      ],
+  }
 ---

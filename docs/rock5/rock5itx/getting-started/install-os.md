@@ -14,7 +14,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## 镜像下载
 
-请到 [资源下载汇总](/rock5/rock5itx/getting-started/download.md) 下载对应的镜像文件
+请到 [资源下载汇总](../getting-started/download) 下载对应的镜像文件
 
 ## 安装系统
 
@@ -31,4 +31,5 @@ Radxa ROCK 5 ITX 还支持标准的`ATX`电源供电。
 
 ## 参考文档
 
-[安装操作系统镜像到 eMMC](/rock5/rock5itx/low-level-dev/install-os-on-emmc.md)
+- [安装操作系统镜像到 eMMC](../low-level-dev/install-os-on-emmc)
+- [安装操作系统镜像到 NVME](../low-level-dev/install-os-on-nvme)

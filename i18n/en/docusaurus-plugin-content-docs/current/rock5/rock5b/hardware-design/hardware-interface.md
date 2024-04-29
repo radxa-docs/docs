@@ -151,7 +151,7 @@ Please refer to MIPI [screen compatibility](../getting-started/accessory-usage#S
 | GPIO       | Voltage | Max.  |
 | ---------- | ------- | ----- |
 | All GPIOs  | 3.3V    | 3.63V |
-| SARADC_IN4 | 3.3V    | 1.8V |
+| SARADC_IN4 | 3.3V    | 1.8V  |
 
 #### GPIO Interface
 

@@ -7,6 +7,10 @@
     "description": "Navbar item with label Community",
     "message": "Community"
   },
+  "item.label.Docs": {
+    "description": "Navbar item with label Docs",
+    "message": "Documentation"
+  },
   "item.label.Forum": {
     "description": "Navbar item with label Forum",
     "message": "Forum"
@@ -42,10 +46,6 @@
   "item.label.WiKi": {
     "description": "Navbar item with label WiKi",
     "message": "WiKi"
-  },
-  "item.label.Docs": {
-    "description": "Navbar item with label Docs",
-    "message": "Documentation"
   },
   "logo.alt": {
     "description": "The alt text of navbar logo",

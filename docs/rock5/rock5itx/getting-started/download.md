@@ -25,3 +25,5 @@ Radxa ROCK 5 ITX X1.1版本
 更多镜像请查看：[Radxa ROCK 5 ITX Release](https://github.com/radxa-build/rock-5-itx/releases)
 
 ## 质量认证
+
+## 参考文档
