@@ -149,7 +149,7 @@ With open source software and hardware documentation, it is an ideal platform fo
   </tr>
   <tr>
     <td>Ethernet</td>
-    <td>2 x 2.5 Gigabit Ethernet ports, one of which supports PoE (requires an additional PoE module)</td>
+    <td>2 x 2.5 G Ethernet ports, one of which supports PoE (requires an additional PoE module)</td>
   </tr>
   <tr>
     <td>USB</td>

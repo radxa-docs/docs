@@ -149,7 +149,7 @@ Radxa ROCK 5 ITX 是一款完全兼容 Mini-ITX 外形的单板计算机/主板�
   </tr>
   <tr>
     <th>以太网</th>
-    <th>2 个 2.5 千兆以太网端口，其中一个支持 PoE（需要额外的 PoE 模块）</th>
+    <th>2 个 2.5 G 以太网端口，其中一个支持 PoE（需要额外的 PoE 模块）</th>
   </tr>
   <tr>
     <th>USB</th>
