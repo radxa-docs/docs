@@ -108,11 +108,11 @@ With open source software and hardware documentation, it is an ideal platform fo
   </tr>
 </table>
 
-### 芯片框图
+### Chip block diagram
 
 <img src="/img/rock5b/rk3588-block-diagram.webp" alt="rk3588 system diagram" width="700" />
 
-### 特性
+### Features
 
 <table>
   <tr>
@@ -178,7 +178,7 @@ With open source software and hardware documentation, it is an ideal platform fo
   </tr>
 </table>
 
-### 系统框图
+### System block diagram
 
 <img src="/img/rock5itx/rock5itx-system-block-diagram.webp" alt="rk3588 system diagram" width="700" />
 
