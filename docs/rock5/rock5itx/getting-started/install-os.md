@@ -32,3 +32,4 @@ Radxa ROCK 5 ITX 还支持标准的`ATX`电源供电。
 ## 参考文档
 
 [安装操作系统镜像到 eMMC](../low-level-dev/install-os-on-emmc)
+[安装操作系统镜像到 NVME](../low-level-dev/install-os-on-nvme)
