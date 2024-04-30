@@ -1,4 +1,4 @@
-## SSH
+### SSH
 
 这是一个教程，介绍如何从其他计算机使用 SSH 远程访问板子。
 
@@ -36,9 +36,9 @@ ssh radxa@192.168.2.100
 3.  需要输入用户密码才能成功连接到Debian系统。
     这是一个基本的 SSH 连接过程。 您可以使用其他 SSH 选项进行更高级的连接。
 
-### 查看 IP 地址
+#### 查看 IP 地址
 
-#### 通过命令查看 IP
+##### 通过命令查看 IP
 
 通过 `Ctrl + Alt + T` 打开终端，在终端中输入以下命令查看IP地址：
 
@@ -63,7 +63,7 @@ ip a
        valid_lft forever preferred_lft forever
 ```
 
-#### 使用 Angryip 查找 IP
+##### 使用 Angryip 查找 IP
 
 在无屏或远程情况下无法直接操作主板来获取 ip 地址时，可使用此方法查询ip地址。
 
@@ -75,11 +75,11 @@ ip a
 
 - Ctrl + F 查找 `rock` 关键词，找到板子的 IP 地址。
 
-## VNC
+### VNC
 
 这是一个教程，介绍如何从 Windows 计算机使用 VNC 远程访问系统。
 
-### 安装 VNC 服务器
+#### 安装 VNC 服务器
 
 1. 打开终端应用程序并输入以下命令以更新包列表:
 
@@ -109,7 +109,7 @@ vncserver
 Would you like to enter a view-only password (y/n)? n 提示是否只是观看，建议选择no，输入n，这样远程就可以操作，而不是仅仅观看，请根据自身实际情况
 :::
 
-### 配置 VNC 服务器
+#### 配置 VNC 服务器
 
 1. 一旦 TigerVNC 启动，它将创建一个 VNC 会话，其中包含 VNC 服务器的 IP 地址和端口号（通常为 5901）,因与要改变VNC服务器的配置方式，首先用以下命令停止运行在5901端口的VNC服务器实例：
 
@@ -158,33 +158,33 @@ X DISPLAY #	RFB PORT #	PROCESS ID	SERVER
 
 5. 在 VNC 查看器上测试连接：在您的 Windows PC 上，打开 VNC 查看器，输入您产品的 IP 地址和端口号，然后使用 VNC 服务器的用户名和密码进行身份验证。
 
-### 在 Windows PC 上安装 VNC 查看器
+#### 在 Windows PC 上安装 VNC 查看器
 
 1. 转到 Web 浏览器上的 VNC 查看器下载页面, e.g. https://www.realvnc.com/en/connect/download/viewer/
 2. 下载并安装 VNC 查看器。
 
-### 连接设置
+#### 连接设置
 
 1. 在 VNC 查看器上，输入产品的 IP 地址和端口号。
 2. 使用 VNC 服务器的用户名和密码进行身份验证。
 3. 连接成功后，即可远程控制。
 
-## TeamViewer
+### TeamViewer
 
-### 安装 TeamViewer
+#### 安装 TeamViewer
 
 ```bash
 wget https://download.teamviewer.com/download/linux/teamviewer-host_arm64.deb
 sudo apt install . /teamviewer-host_arm64.deb
 ```
 
-### 配置 TeamViewer
+#### 配置 TeamViewer
 
 ```bash
 sudo teamviewer setup   # 同意协议登陆并授权
 ```
 
-### 卸载 xfce4-screensaver
+#### 卸载 xfce4-screensaver
 
 :::info
 此项步骤可修复 TeamViewer 长时间挂机导致的键鼠控制失效的问题。
@@ -194,7 +194,7 @@ sudo teamviewer setup   # 同意协议登陆并授权
 sudo apt remove xfce4-screensaver
 ```
 
-### 配置虚拟显示器
+#### 配置虚拟显示器
 
 :::info
 如有连接真实显示器，此项步骤为可选项。
@@ -229,6 +229,6 @@ Section "Screen"
 EndSection
 ```
 
-### 连接 TeamViewer
+#### 连接 TeamViewer
 
 可参考[ TeamViewer 官方文档](https://community.teamviewer.com/Chinese/kb/articles/109101-%E9%80%9A%E8%BF%87teamviewer-%E8%BF%9E%E6%8E%A5)
