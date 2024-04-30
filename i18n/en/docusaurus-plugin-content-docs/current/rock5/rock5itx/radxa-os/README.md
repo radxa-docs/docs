@@ -28,4 +28,4 @@ Mainly introduces the basic usage of the Radxa OS system, and helps you to quick
 
 ## Serial login
 
-<Serial platform=“rk” />
+<Serial platform="rk" />

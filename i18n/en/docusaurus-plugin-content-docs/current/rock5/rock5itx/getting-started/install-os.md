@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 import Etcher from '../../../common/general/\_etcher.mdx'
@@ -7,7 +7,7 @@ import NVME from '../../../common/dev/\_nvme.mdx'
 import Rkdeveloptool from "../../../common/dev/\_rkdeveloptool.mdx";
 import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
 
-# Installing the operating system
+# Installing The Operating System
 
 ## Preparation
 

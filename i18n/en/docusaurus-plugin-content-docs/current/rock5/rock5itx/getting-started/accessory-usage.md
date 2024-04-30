@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
-# Accessory usage instructions
+# Accessory Usage Instructions
 
 This section describes the common accessories supported by the ROCK 5 ITX and how to use them.
 
