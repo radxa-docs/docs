@@ -9,15 +9,15 @@ import { PreView } from "@site/src/utils/docs";
 
 - Flush the system image to the NVME SSD.
 
-- Unplug the SD card/eMMC Module and boot from NVME.
+- Unplug the SD card and boot from NVME.
 
 ### Prepare an SD card or eMMC Module as a boot disk.
 
-Refer to the <a href={props.install_os_path}>Installing the OS section</a> to install the system on the SD card/eMMC Module.
+Refer to the <a href={props.install_os_path}>Installing the OS section</a> to install the system on the SD card.
 
-Here the SD card/eMMC Module acts as a boot disk for x86, the purpose is to get the spi.img, and flush the spi.img to the spi flash.
+Here the SD card acts as a boot disk for x86, the purpose is to get the spi.img, and flush the spi.img to the spi flash.
 
-After booting from the SD card/eMMC Module, execute the following command to update the system.
+After booting from the SD card, execute the following command to update the system.
 
 ```
 sudo apt-get update
@@ -97,4 +97,4 @@ Then dd the system image into NVME on the **board**.
   `}
 </PreView>
 
-### Unplug SD card/eMMC Module, boot from NVME
+### After removing the SD card, power up the system using the 12V DC power adapter, then the system starts booting from NVME and HDMI displays the desktop.

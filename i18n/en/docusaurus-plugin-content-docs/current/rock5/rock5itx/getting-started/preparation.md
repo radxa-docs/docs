@@ -30,22 +30,6 @@ Used to create a system boot disk
 
 A monitor with HDMI connector, Radxa ROCK 5 ITX supports 3840x2160 (i.e. 4K) resolution at 60Hz by default.
 
-### Network Connection
-
-The ROCK 5 ITX has two 2.5G Ethernet ports and an E-KEY Wi-Fi module for network access via Ethernet and Wi-Fi.
-
-### Type-C Hub
-
-Used for USB port expansion to connect devices such as USB mouse and USB keyboard.
-
 ### USB Mouse
 
 ### USB keyboard
-
-### Frequently Asked Questions
-
-### Precautions
-
-## Documentation
-
-[Supported Accessories](../accessories)

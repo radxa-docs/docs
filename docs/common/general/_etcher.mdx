@@ -2,7 +2,26 @@ import { Image } from "@site/src/utils/docs";
 
 Balena Etcher 是一个跨平台且，用户界面友好的镜像文件烧写工具，我们推荐你使用它。
 
-1. 下载 [Etcher](https://etcher.balena.io/#download-etcher/) 并安装。
+1. 下载 Etcher 并安装。
+
+<Tabs queryString="Platform">
+<TabItem value="Windows">
+
+请下载 [balenaEtcher-1.19.16.Setup.exe](https://github.com/balena-io/etcher/releases/download/v1.19.16/balenaEtcher-1.19.16.Setup.exe)。下载完成后，无需进行额外操作，双击即可打开使用。
+
+</TabItem>
+<TabItem value="Linux">
+
+请下载 [balena-etcher_1.19.16_amd64.deb](https://github.com/balena-io/etcher/releases/download/v1.19.16/balena-etcher_1.19.16_amd64.deb)。下载完成后，请在终端执行以下命令进行安装：
+
+```
+sudo dpkg -i balena-etcher_1.19.16_amd64.deb
+```
+
+</TabItem>
+</Tabs>
+
+2. 打开 Etcher
 
    <Image
      src="/img/common/etcher/#model#-step1.webp"
@@ -10,7 +29,7 @@ Balena Etcher 是一个跨平台且，用户界面友好的镜像文件烧写工
      fallback="rock5a"
    />
 
-2. 打开 Etcher，单击 `Flash from file` 以选择需要写入的镜像。
+3. 打开 Etcher，单击 `Flash from file` 以选择需要写入的镜像。
 
    <Image
      src="/img/common/etcher/#model#-step2.webp"
@@ -18,7 +37,7 @@ Balena Etcher 是一个跨平台且，用户界面友好的镜像文件烧写工
      fallback="rock5a"
    />
 
-3. 点击 `Select target` 以选择设备，请注意小心选择。
+4. 点击 `Select target` 以选择设备，请注意小心选择。
 
    <Image
      src="/img/common/etcher/#model#-step3.webp"
@@ -26,7 +45,7 @@ Balena Etcher 是一个跨平台且，用户界面友好的镜像文件烧写工
      fallback="rock5a"
    />
 
-4. 点击 `Flash!` 开始写入，然后等待写入进度条完成。
+5. 点击 `Flash!` 开始写入，然后等待写入进度条完成。
 
    <Image
      src="/img/common/etcher/#model#-step4.webp"
@@ -34,7 +53,7 @@ Balena Etcher 是一个跨平台且，用户界面友好的镜像文件烧写工
      fallback="rock5a"
    />
 
-5. 当写入镜像成功时，Etcher 将会显示 `Flash Complete!`。
+6. 当写入镜像成功时，Etcher 将会显示 `Flash Complete!`。
    <Image
      src="/img/common/etcher/#model#-step5.webp"
      model={props.model}
@@ -42,3 +61,11 @@ Balena Etcher 是一个跨平台且，用户界面友好的镜像文件烧写工
    />
 
 **如果刷写操作系统镜像错误, 请手动再试一次。**
+
+7. 启动系统
+
+<pre>
+  按照上述步骤成功烧录 microSD 卡后， 将 microSD 卡插入 {props.product} 的
+  MicroSD 插槽内， 使用 {props.power_supply}{" "}
+  电源适配器上电，然后系统开始启动，HDMI显示桌面。
+</pre>

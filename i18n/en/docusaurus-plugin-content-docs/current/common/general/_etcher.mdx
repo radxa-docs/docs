@@ -2,15 +2,26 @@ import { Image } from "@site/src/utils/docs";
 
 Balena Etcher is a cross-platform and user friendly image file burning tool that we recommend you use.
 
-1. Download [Etcher](https://etcher.balena.io/#download-etcher/) and install it.
+1. Download Etcher and install it.
 
-   <Image
-     src="/img/common/etcher/#model#-step1.webp"
-     model={props.model}
-     fallback="rock5a"
-   />
+<Tabs queryString="Platform">
+<TabItem value="Windows">
 
-2. Open Etcher and click `Flash from file` to select the image to write to.
+Please download [balenaEtcher-1.19.16.Setup.exe](https://github.com/balena-io/etcher/releases/download/v1.19.16/balenaEtcher-1.19.16.Setup.exe) After the download is complete, there is no need to perform any additional actions. After downloading, you can double click it to open it without any additional operation.
+
+</TabItem>
+<TabItem value="Linux">
+
+Please download [balena-etcher_1.19.16_amd64.deb](https://github.com/balena-io/etcher/releases/download/v1.19.16/balena-etcher_1.19.16_amd64. deb). Once the download is complete, please install it by executing the following command in the terminal:
+
+```
+sudo dpkg -i balena-etcher_1.19.16_amd64.deb
+```
+
+</TabItem>
+</Tabs>
+
+2. Open Etcher
 
    <Image
      src="/img/common/etcher/#model#-step2.webp"
@@ -18,7 +29,15 @@ Balena Etcher is a cross-platform and user friendly image file burning tool that
      fallback="rock5a"
    />
 
-3. Click `Select target` to select the device, please select carefully.
+3. Open Etcher and click `Flash from file` to select the image to write to.
+
+   <Image
+     src="/img/common/etcher/#model#-step2.webp"
+     model={props.model}
+     fallback="rock5a"
+   />
+
+4. Click `Select target` to select the device, please select carefully.
 
    <Image
      src="/img/common/etcher/#model#-step3.webp"
@@ -26,7 +45,7 @@ Balena Etcher is a cross-platform and user friendly image file burning tool that
      fallback="rock5a"
    />
 
-4. Click `Flash!` Start writing and wait for the write progress bar to complete.
+5. Click `Flash!` Start writing and wait for the write progress bar to complete.
 
    <Image
      src="/img/common/etcher/#model#-step4.webp"
@@ -34,7 +53,7 @@ Balena Etcher is a cross-platform and user friendly image file burning tool that
      fallback="rock5a"
    />
 
-5. When writing the image successfully, Etcher will display `Flash Complete!`.
+6. When writing the image successfully, Etcher will display `Flash Complete!`.
    <Image
      src="/img/common/etcher/#model#-step5.webp"
      model={props.model}
@@ -42,3 +61,12 @@ Balena Etcher is a cross-platform and user friendly image file burning tool that
    />
 
 **If there is an error in flashing, please try again. **
+
+7. Starting the system
+
+<pre>
+  After successfully burning the microSD card according to the above steps,
+  insert the microSD card into the MicroSD slot of {props.product}, power on the
+  system with the {props.power_supply} power adapter, and then the system will
+  start booting and HDMI will display the desktop.
+</pre>
