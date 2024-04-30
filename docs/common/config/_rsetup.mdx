@@ -121,11 +121,10 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 
 在这个选项上，你可以改变板子上的电源 LED 和用户 LED 的状态（有时只有一个）。
 
-<Details summary="LED 设置">
-
-<Led />
-
-</Details>
+<details>
+  <summary>LED 设置</summary>
+  <Led />
+</details>
 
 ### Thermal governor
 
@@ -142,35 +141,30 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 
 该选项用于配置设备树 Overlays。
 
-<Details summary="设备树配置">
+<details>
+  <summary>设备树配置</summary>
+  <Devicetree />
+</details>
 
-<Devicetree />
+<details>
+  <summary>安装第三方 Overlay</summary>
+  <InstallOverlays />
+</details>
 
-</Details>
+<details>
+  <summary>添加 LED</summary>
+  <Addled />
+</details>
 
-<Details summary="安装第三方 Overlay">
+<details>
+  <summary>将 Pin8 和 Pin10 配置为 GPIO</summary>
+  <DisableFIQ />
+</details>
 
-<InstallOverlays />
-
-</Details>
-
-<Details summary="添加 LED">
-
-<Addled />
-
-</Details>
-
-<Details summary="将 Pin8 和 Pin10 配置为 GPIO">
-
-<DisableFIQ />
-
-</Details>
-
-<Details summary="将 UART2_M0 配置为普通串口">
-
-<EnableUart2 />
-
-</Details>
+<details>
+  <summary>将 UART2_M0 配置为普通串口</summary>
+  <EnableUart2 />
+</details>
 
 ## Connectivity
 
