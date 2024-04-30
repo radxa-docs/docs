@@ -6,83 +6,28 @@
 
 #### 如何启用一个 Overlay
 
-在 `rsetup` 的主界面选择 `Overlays`:
+在 `rsetup` 的界面，使用方向键上下左右移动进行选择，
+<img src="/img/common/rsetup/main_menu.webp" width="700" />
 
-```
-Configure Device Tree Overlay
-        Manage overlays
-        View overlay info
-        Install 3rd party overlay
-        Reset overlays
-        <Ok>             <Cancel>
-```
+选择第三项 `Overlays`：
+<img src="/img/common/rsetup/overlays.webp" width="700" />
 
-然后， 选择 `Manage overlays`:
+选择 `Yes`，
+<img src="/img/common/rsetup/warning.webp" width="700" />
 
-```
-Configure Device Tree Overlay
-        Manage overlays
-        View overlay info
-        Install 3rd party overlay
-        Reset overlays
+选择 `Manage overlays`，
+<img src="/img/common/rsetup/mannage_overlays.webp" width="700" />
 
+按空格键选中你所需要的 Overlay，选中后有 `*` 标记表示它已启用，
 
-      <Ok>            <Cancel>
-```
+:::tip
+这里是以 ROCK 5 ITX 为例，不同的产品会有不同的 Overlay
+:::
 
-接下来，已兼容的设备树会显示出来，它可能在不同的产品上有所不同。
+<img src="/img/common/rsetup/select_overlays.webp" width="700" />
 
-例如，下面是 ROCK 5A 的可用 overlays：
+选择 `Yes`，Overlay 需要重启才能生效，
+<img src="/img/common/rsetup/next_boot.webp" width="700" />
 
-```
-Please select overlays:
-        [ ] Enable 1-Wire on GPIO4_B1
-        [ ] Enable FIQ Debugger on UART4-M2
-        [ ] Enable FIQ Debugger on UART6-M1
-        [ ] Enable FIQ Debugger on UART7-M2
-        [ ] Enable FIQ Debugger on UART8-M0
-        [ ] Enable I2C1-M0
-        [ ] Enable I2C2-M4
-        [ ] Enable I2C4-M3
-        [ ] Enable I2C6-M0
-        [ ] Enable I2C6-M3
-        [ ] Enable I2C7-M3
-        [ ] Enable PWM0-M2
-        [ ] Enable PWM1-M2
-        [ ] Enable PWM11-M1
-        [ ] Enable PWM14-M1
-        [ ] Enable PWM14-M2
-        [ ] Enable PWM15-M1
-        [ ] Enable PWM15-M3
-        [ ] Enable PWM6-M0
-        [ ] Enable PWM7-M0
-        [ ] Enable Radxa Camera 4K
-        [ ] Enable Radxa Display 10HD
-        [ ] Enable Radxa Display 8HD
-        [ ] Enable Raspberry Pi Camera V2
-        [ ] Enable UART2-M0
-        [ ] Enable UART2-M2
-        [ ] Enable UART3-M1
-        [ ] Enable UART4-M2
-        [ ] Enable UART6-M1
-        [ ] Enable UART7-M1
-        [ ] Enable UART7-M1 with Hardware Flow Control
-        [ ] Enable UART7-M2
-        [ ] Enable UART8-M0
-        [ ] Enable spidev on SPI0-M1 over CS0
-        [ ] Enable spidev on SPI0-M2 over CS0
-        [ ] Enable spidev on SPI4-M2 over CS0
-        [ ] Set OTG port to Host modeq
-        [ ] Set OTG port to Peripheral mode
-        <Ok>                   <Cancel>
-```
-
-**注意：支持的选项可能会改变。**
-
-用空格键来选择你要加载的 Overlay。
-
-```
-[*] Enable Radxa Camera 4K
-```
-
-Overlay 有 `*` 标记表示它已启用， 重启后即可正常工作。
+按 `ESC` 键直到退出 rsetup。
+<img src="/img/common/rsetup/mannage_overlays.webp" width="700" />
