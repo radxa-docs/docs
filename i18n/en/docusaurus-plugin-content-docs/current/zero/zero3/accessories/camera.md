@@ -16,6 +16,7 @@ Currently supported cameras are:
 
 - Raspberry Pi Camera V1.3 (OV5647)
 - Raspberry Pi Camera V2 (IMX219)
+- Radxa Camera 8M (IMX219)
 
 ## Usage
 

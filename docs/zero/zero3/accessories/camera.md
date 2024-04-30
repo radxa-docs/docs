@@ -16,6 +16,7 @@ Radxa ZERO 3 拥有一个22 PIN 的CSI 接口,接口定义如下:
 
 - Raspberry Pi Camera V1.3 (OV5647)
 - Raspberry Pi Camera V2 (IMX219)
+- Radxa Camera 8M (IMX219)
 
 ## 使用方法
 
