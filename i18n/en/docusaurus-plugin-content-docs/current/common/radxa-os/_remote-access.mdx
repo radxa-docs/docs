@@ -1,4 +1,4 @@
-## SSH
+### SSH
 
 This is a tutorial on how to access the board remotely from another computer using SSH.
 
@@ -36,9 +36,9 @@ ssh radxa@192.168.2.100
 3.  You need to enter the user password to successfully connect to the Debian system.
     This is a basic SSH connection process. You can use other SSH options for more advanced connections.
 
-### View IP Address
+#### View IP Address
 
-#### View IP via Command
+##### View IP via Command
 
 Open the terminal via `Ctrl + Alt + T`, enter the following command in the terminal to view the IP address
 
@@ -63,7 +63,7 @@ The IP address in the same network segment as the host is the IP address require
        valid_lft forever preferred_lft forever
 ```
 
-#### Find IP via Angryip
+##### Find IP via Angryip
 
 This method can be used to view the ip address when the SBC cannot be directly operated to obtain the ip address without a screen of remotely.
 
@@ -75,11 +75,11 @@ This method can be used to view the ip address when the SBC cannot be directly o
 
 - Ctrl + F Search `rock` keyword, find the IP address of the board.
 
-## Remote Desktop - KDE Desktop
+### Remote Desktop - KDE Desktop
 
 This is a tutorial on how to access your system remotely from a Windows computer using VNC.
 
-### Installing VNC Server
+#### Installing VNC Server
 
 1. Open the Terminal application and enter the following command to update the package list:
 
@@ -109,7 +109,7 @@ vncserver
 Would you like to enter a view-only password (y/n)? n Prompt for view-only password, it is recommended to select no and enter n, so that the remote can operate, not just watch, please according to their actual situation
 :::
 
-### Configure the VNC server
+#### Configure the VNC server
 
 Once TigerVNC starts, it will create a VNC session with the IP address and port number of the VNC server (usually 5901), because to change the way the VNC server is configured, first stop the VNC server instance running on port 5901 with the following command:
 
@@ -159,33 +159,33 @@ X DISPLAY # RFB PORT # PROCESS ID SERVER
 
 5. Test the connection on the VNC viewer: On your Windows PC, open the VNC viewer, enter the IP address and port number of your product, and then authenticate using the user name and password of the VNC server.
 
-### Installing the VNC viewer on your Windows PC
+#### Installing the VNC viewer on your Windows PC
 
 1. Go to the VNC Viewer download page on your web browser, e.g. https://www.realvnc.com/en/connect/download/viewer/
 2. Download and install the VNC viewer.
 
-### Connection setup
+#### Connection setup
 
 1. On the VNC viewer, enter the IP address and port number of the product.
 2. Use the user name and password of the VNC server to authenticate.
 3. After successful connection, you can control remotely.
 
-## TeamViewer
+### TeamViewer
 
-### Installation of TeamViewer
+#### Installation of TeamViewer
 
 ```bash
 wget https://download.teamviewer.com/download/linux/teamviewer-host_arm64.deb
 sudo apt install . /teamviewer-host_arm64.deb
 ```
 
-### Setup TeamViewer
+#### Setup TeamViewer
 
 ```bash
 sudo teamviewer setup   # Agree to the agreement, login and authorize
 ```
 
-### Uninstall xfce4-screensaver
+#### Uninstall xfce4-screensaver
 
 :::info
 This step fixes an issue where TeamViewer hangs for a long period of time causing the keyboard and mouse controls to fail.
@@ -195,7 +195,7 @@ This step fixes an issue where TeamViewer hangs for a long period of time causin
 sudo apt remove xfce4-screensaver
 ```
 
-### Configure a virtual monitor
+#### Configure a virtual monitor
 
 :::info
 this step is optional if a real monitor is connected.
@@ -230,6 +230,6 @@ Section "Screen"
 EndSection
 ```
 
-### Connect to TeamViewer
+#### Connect to TeamViewer
 
 Refer to [TeamViewer Official Documentation](https://community.teamviewer.com/English/kb/articles/109101-connect-via-teamviewer-classic)
