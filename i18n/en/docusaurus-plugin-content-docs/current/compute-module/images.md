@@ -28,7 +28,7 @@ CM3 IO： https://github.com/radxa-build/radxa-cm3-io/releases/download/b27/radx
 
 ### Official Images
 
-Coming soon......
+[CM3I-IO B4](https://github.com/radxa-build/radxa-cm3i-io/releases/download/b4/radxa-cm3i-io_debian_bullseye_xfce_b4.img.xz)
 
 </TabItem>
 
