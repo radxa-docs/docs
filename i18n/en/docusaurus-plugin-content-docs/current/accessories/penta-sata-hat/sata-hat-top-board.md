@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # SATA HAT top board
 
-The Radxa ROCK Penta SATA HAT has a 2x5 seat with the following signal:
+The Radxa Penta SATA HAT has a 2x5 seat with the following signal:
 
 | Pin | Signal   | Pin | Signal     |
 | --- | -------- | --- | ---------- |
