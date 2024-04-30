@@ -121,11 +121,10 @@ If you have connect a video device, this option can help you to capture an image
 
 On this option, you can change the status of power LED and user LED on the board (Sometimes only one).
 
-<Details summary="LED Setup">
-
-<Led />
-
-</Details>
+<details>
+  <summary>LED Setup</summary>
+  <Led />
+</details>
 
 ### Thermal governor
 
@@ -141,35 +140,30 @@ If DSI display has some problems when using HDMI display and DSI display at the 
 
 This option is for Configure Device Tree Overlay.
 
-<Details summary="Device Tree Configuration">
+<details>
+  <summary>Device Tree Configuration</summary>
+  <Devicetree />
+</details>
 
-<Devicetree />
+<details>
+  <summary>Install 3rd party overlay</summary>
+  <InstallOverlays />
+</details>
 
-</Details>
+<details>
+  <summary>Adding LEDs</summary>
+  <Addled />
+</details>
 
-<Details summary="Install 3rd party overlay">
+<details>
+  <summary>Configure Pins 8 and 10 as GPIOs</summary>
+  <DisableFIQ />
+</details>
 
-<InstallOverlays />
-
-</Details>
-
-<Details summary="Adding LEDs">
-
-<Addled />
-
-</Details>
-
-<Details summary="Configure Pins 8 and 10 as GPIOs">
-
-<DisableFIQ />
-
-</Details>
-
-<Details summary="Configure UART2_M0 as normal serial port">
-
-<EnableUart2 />
-
-</Details>
+<details>
+  <summary>Configure UART2_M0 as normal serial port</summary>
+  <EnableUart2 />
+</details>
 
 ## Connectivity
 
