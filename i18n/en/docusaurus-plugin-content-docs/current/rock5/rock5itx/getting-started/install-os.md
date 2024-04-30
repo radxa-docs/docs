@@ -17,7 +17,7 @@ import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
 
 ## Image Download
 
-Please download [this image](https://github.com/radxa-build/rock-5-itx/releases/download/test-build-2/rock-5-itx_debian_bullseye-test_kde_test-build-2 .img.xz), this document is used as an example.
+Please download [this image](https://github.com/radxa-build/rock-5-itx/releases/download/test-build-2/rock-5-itx_debian_bullseye-test_kde_test-build-2.img.xz), this document is used as an example.
 
 :::tip
 Please go to [Resource Download Summary](../getting-started/download) for more mirrors.
