@@ -3,6 +3,10 @@
     "description": "Contributors",
     "message": "贡献者"
   },
+  "docs.issue": {
+    "description": "Contributors",
+    "message": "报告问题"
+  },
   "home.page.HomePageIntroduction": {
     "description": "Home page introduction",
     "message": "选择一个产品"
