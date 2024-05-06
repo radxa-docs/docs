@@ -28,7 +28,11 @@ microSD 卡，容量不小于 8GB, 用于系统启动盘
 
 ### 显示器
 
-带有 HDMI 接口的显示器，Radxa ROCK 5 ITX 默认可以在 60Hz 下支持 3840x2160（即 4K）的分辨率。
+Radxa ROCK 5 ITX 支持 HDMI 显示接口，通过HDMI线缆连接开发板和显示器，支持图形化桌面显示。
+
+:::tip
+[接口说明](../getting-started/hardware-overview)中标号 14 是 HDMI RX，不可外接 HDMI 显示器，如果需要外接 HDMI 显示器，请将 HDMI 插入标号 10 或者标号 11 的 HDMI 接口中
+:::
 
 ### USB 鼠标
 

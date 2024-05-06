@@ -28,7 +28,11 @@ Used to create a system boot disk
 
 ### Monitor
 
-A monitor with HDMI connector, Radxa ROCK 5 ITX supports 3840x2160 (i.e. 4K) resolution at 60Hz by default.
+Radxa ROCK 5 ITX supports HDMI display interface to connect the development board and monitor via HDMI cable to support graphical desktop display.
+
+:::tip
+In the [description of the interface](../getting-started/hardware-overview), mark 14 is the HDMI RX, it can not be connected to an external HDMI monitor, if you need to connect to an external HDMI monitor, please plug the HDMI into the HDMI connector mark 10 or mark 11.
+:::
 
 ### USB Mouse
 
