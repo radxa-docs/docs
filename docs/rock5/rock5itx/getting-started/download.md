@@ -18,6 +18,8 @@ Radxa ROCK 5 ITX X1.1版本
 
 - [Radxa ROCK 5 ITX Debian Build 2](https://github.com/radxa-build/rock-5-itx/releases/download/test-build-2/rock-5-itx_debian_bullseye-test_kde_test-build-2.img.xz)
 
+- [Android 12]
+
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
 :::
