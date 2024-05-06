@@ -3,6 +3,10 @@
     "description": "Contributors",
     "message": "Contributors"
   },
+  "docs.issue": {
+    "description": "Issue",
+    "message": "Report Issue"
+  },
   "home.page.HomePageIntroduction": {
     "message": "Choose a product"
   },
