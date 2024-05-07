@@ -70,4 +70,11 @@ Place the RTC battery into the [interface description] (../getting-started/hardw
 
 <img src="/img/rock5itx/rock5itx-rtc.webp" width="700" alt="rock 5 itx rtc" />
 
+### Securing the motherboard
+
+Secure the motherboard to the bottom of the chassis.
+
+<img src="/img/rock5itx/rock5itx-fixed_to_the_chassis.webp" width="700" alt="rock 5 itx fixed to the chassis" />
+<img src="/img/rock5itx/rock5itx-connector_exposure.webp" width="700" alt="rock 5 itx connector exposure" />
+
 ## Video Tutorials

@@ -70,4 +70,11 @@ sidebar_position: 7
 
 <img src="/img/rock5itx/rock5itx-rtc.webp" width="700" alt="rock 5 itx rtc" />
 
+### 固定主板
+
+将主板固定在机箱底部。
+
+<img src="/img/rock5itx/rock5itx-fixed_to_the_chassis.webp" width="700" alt="rock 5 itx fixed to the chassis" />
+<img src="/img/rock5itx/rock5itx-connector_exposure.webp" width="700" alt="rock 5 itx connector exposure" />
+
 ## 视频教程
