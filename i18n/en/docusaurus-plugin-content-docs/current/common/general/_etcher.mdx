@@ -7,15 +7,15 @@ Balena Etcher is a cross-platform and user friendly image file burning tool that
 <Tabs queryString="Platform">
 <TabItem value="Windows">
 
-Please download [balenaEtcher-1.19.16.Setup.exe](https://github.com/balena-io/etcher/releases/download/v1.19.16/balenaEtcher-1.19.16.Setup.exe) After the download is complete, there is no need to perform any additional actions. After downloading, you can double click it to open it without any additional operation.
+Please download [balenaEtcher-Setup-1.18.11.exe](https://github.com/balena-io/etcher/releases/download/v1.18.11/balenaEtcher-Setup-1.18.11.exe) After the download is complete, there is no need to perform any additional actions. After downloading, you can double click it to open it without any additional operation.
 
 </TabItem>
 <TabItem value="Linux">
 
-Please download [balena-etcher_1.19.16_amd64.deb](https://github.com/balena-io/etcher/releases/download/v1.19.16/balena-etcher_1.19.16_amd64. deb). Once the download is complete, please install it by executing the following command in the terminal:
+Please download [balena-etcher_1.18.11_amd64.deb](https://github.com/balena-io/etcher/releases/download/v1.19.16/balena-etcher_1.19.16_amd64. deb). Once the download is complete, please install it by executing the following command in the terminal:
 
 ```
-sudo dpkg -i balena-etcher_1.19.16_amd64.deb
+sudo dpkg -i balena-etcher_1.18.11_amd64.deb
 ```
 
 </TabItem>
@@ -66,7 +66,9 @@ sudo dpkg -i balena-etcher_1.19.16_amd64.deb
 
 <pre>
   After successfully burning the microSD card according to the above steps,
-  insert the microSD card into the MicroSD slot of {props.product}, power on the
-  system with the {props.power_supply} power adapter, and then the system will
-  start booting and HDMI will display the desktop.
+  insert the microSD card into the MicroSD slot of {props.product}(as shown
+  below), power on the system with the {props.power_supply} power adapter, and
+  then the system will start booting and HDMI will display the desktop.
 </pre>
+
+<img src={props.sd_slot} alt="sd slot" style={{ width: "80%" }} />

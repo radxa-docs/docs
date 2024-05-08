@@ -27,7 +27,7 @@ Please go to [Resource Download Summary](../getting-started/download) for more m
 
 <Tabs queryString="install-os">
     <TabItem value="MicroSD">
-        <Etcher model="rock5itx" product="Radxa ROCK 5 ITX" power_supply="12V DC"/>
+        <Etcher model="rock5itx" product="Radxa ROCK 5 ITX" power_supply="12V DC" sd_slot="/img/rock5itx/rock5itx-sd-slot.webp" />
     </TabItem>
     <TabItem value="eMMC">
         <h3>Enter Maskrom mode</h3>
