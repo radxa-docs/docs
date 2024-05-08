@@ -6,7 +6,7 @@ import BasicSoftWareConf from "../../../common/radxa-os/\_basicSoftwareConf.mdx"
 
 # Basic Software Configuration
 
-<BasicSoftWareConf />
+<BasicSoftWareConf model="rock-5-itx" />
 
 :::tip
 Please refer to our [radxa-os](../radxa-os/) section for more on software configuration.

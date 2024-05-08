@@ -1,62 +1,45 @@
+import { PreView } from "@site/src/utils/docs";
+
 ### SSH
 
-这是一个教程，介绍如何从其他计算机使用 SSH 远程访问板子。
+本教程介绍如何使用 SSH 从另一台计算机远程访问电路板。
 
-1.  检查 SSH 服务状态。 在终端中运行以下命令：
+#### 查看用户名
 
-```bash
-sudo service ssh status
-```
+在电路板上打开终端，在终端中输入以下命令查看用户名
 
-    如果没有安装 SSH 服务，可以使用以下命令安装：
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ whoami
+  radxa
+  `}
+</PreView>
 
-```bash
-sudo apt-get update
-sudo apt-get install ssh
-```
-
-    如果 SSH 服务没有启动或者运行异常，可以使用以下命令重新启动：
-
-```bash
-sudo service sshd restart
-```
-
-2.  打开终端程序并输入以下命令：
-
-```bash
-ssh [username]@[IP address]  # 或者 ssh [username]@[hostname]
-```
-
-    例如：
-
-```bash
-ssh radxa@192.168.2.100
-```
-
-3.  需要输入用户密码才能成功连接到Debian系统。
-    这是一个基本的 SSH 连接过程。 您可以使用其他 SSH 选项进行更高级的连接。
+该命令显示当前用户的用户名，如上图所示，当前用户的用户名为 radxa
 
 #### 查看 IP 地址
 
 ##### 通过命令查看 IP
 
-通过 `Ctrl + Alt + T` 打开终端，在终端中输入以下命令查看IP地址：
+在电路板上打开终端，在终端中输入以下命令查看 IP 地址：
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ ip a
+  `}
+</PreView>
+
+与主机位于同一网段的 ip 地址就是 SSH 连接所需的 ip 地址，例如，以下输出中的 `192.168.2.100` 就是我们需要的 ip 地址。
 
 ```bash
-ip a
-```
-
-其中与主机同一个网段的IP地址即是SSH连接时所需要的 ip 地址，如以下输出中 `192.168.2.100` 即是我们需要的ip地址:
-
-```bash
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+1: lo： <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00 brd 00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
     inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 56:ae:03:82:18:51 brd ff:ff:ff:ff:ff:ff
+    link/ether 56:ae:03:82:18:51 brd ff:ff:ff:ff:ff:ff:ff:ff:ff
     inet 192.168.2.100/24 brd 192.168.2.255 scope global dynamic noprefixroute eth0
        valid_lft 43176sec preferred_lft 43176sec
     inet6 fe80::8e:d164:96ea:40b6/64 scope link noprefixroute
@@ -65,148 +48,234 @@ ip a
 
 ##### 使用 Angryip 查找 IP
 
-在无屏或远程情况下无法直接操作主板来获取 ip 地址时，可使用此方法查询ip地址。
+在无法直接操作主板获取无屏幕或远程 IP 地址时，可以使用此方法查找 IP 地址。
 
-- 首先主机 PC 需要下载[Angryip](https://angryip.org/download/)，然后确保主机 PC 和板子处于同一局域网。
+- 首先主机需要下载 [Angryip](https://angryip.org/download/)，然后确保主机和主板在同一个局域网内。
 
-- 打开 Angryip，选择 IP 范围，范围在 192.168.2.0 - 192.168.2.255（选择主机与主板所在的网段）， 点击开始，如图所示。
+- 打开 Angryip，选择 IP 范围为 192.168.2.0 - 192.168.2.255（选择主机和主板所在的网段），点击开始，如图所示。
 
-- ![Angryip](/img/configuration/ssh-Angryip.webp)
+- ! [Angryip](/img/configuration/ssh-Angryip.webp)
 
-- Ctrl + F 查找 `rock` 关键词，找到板子的 IP 地址。
+- Ctrl + F 查找 `rock` 关键字，找到主板的 IP 地址。
+
+#### 检查 SSH 服务状态
+
+在终端中运行以下命令：
+
+<PreView params={{ model: props.model}}>
+  {`
+  radxa@#model#:~$ sudo service ssh status
+  `}
+</PreView>
+
+此命令用于查看 ssh 服务的状态。如果运行该命令时提示 "找不到 ssh.service 单元"，则需要安装 SSH 服务。
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt-get update
+  radxa@#model#:~$ sudo apt-get install openssh-client openssh-server
+  `}
+</PreView>
+
+```bash
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2024-05-08 07:52:50 UTC; 24min ago
+TriggeredBy: ● ssh.socket
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 637 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 657 (sshd)
+      Tasks: 1 (limit: 3420)
+     Memory: 5.5M
+        CPU: 398ms
+     CGroup: /system.slice/ssh.service
+             └─657 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+May 08 07:52:49 radxa-zero systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+May 08 07:52:50 radxa-zero sshd[657]: Server listening on :: port 22.
+May 08 07:52:50 radxa-zero systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+May 08 07:53:22 radxa-zero sshd[783]: Accepted password for radxa from 192.168.31.1 port 49474 ssh2
+May 08 07:53:22 radxa-zero sshd[783]: pam_unix(sshd:session): session opened for user radxa(uid=1000) by (uid=0)
+May 08 07:53:22 radxa-zero sshd[783]: pam_env(sshd:session): deprecated reading of user environment enabled
+```
+
+- 如果 Active 状态为活动，则 ssh 处于运行状态。
+- 如果 Active 为非活动（死机），则 ssh 已停止，即服务未运行，需要重新启动。
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo service sshd restart
+  `}
+</PreView>
+
+#### SSH 连接到电路板
+
+```bash
+ssh [username]@[IP address] # or ssh [username]@[hostname]
+```
 
 ### VNC
 
-这是一个教程，介绍如何从 Windows 计算机使用 VNC 远程访问系统。
+本教程介绍如何使用 VNC 从 Windows 计算机远程访问系统。
 
 #### 安装 VNC 服务器
 
-1. 打开终端应用程序并输入以下命令以更新包列表:
+1. 打开终端应用程序，输入以下命令更新软件包列表。
 
-```bash
-sudo apt-get update
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt-get update
+  `}
+</PreView>
 
-2. 输入以下命令安装TigerVNC Server:
+2. 输入以下命令安装 TigerVNC 服务器。
 
-```bash
-sudo apt-get install tigervnc-standalone-server
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt-get install tigervnc-standalone-server
+  `}
+</PreView>
 
-3. 安装dbus-x11依赖项以确保与你的VNC服务器的正确连接：
+3. 安装 dbus-x11 依赖项以确保与 VNC 服务器的正常连接：
 
-```bash
-sudo apt-get install dbus-x11
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt-get install dbus-x11
+  `}
+</PreView>
 
-4. 安装后完成VNC服务器的初始配置，请使用vncserver命令来设置安全密码并创建初始配置文件：
+4. 安装完成后，要完成 VNC 服务器的初始配置，请使用 vncserver 命令设置安全密码并创建初始配置文件：
 
-```bash
-vncserver
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ vncserver
+  `}
+</PreView>
 
-:::note
-Would you like to enter a view-only password (y/n)? n 提示是否只是观看，建议选择no，输入n，这样远程就可以操作，而不是仅仅观看，请根据自身实际情况
+::注意
+您是否要输入只允许查看的密码（y/n）？ n 提示只允许查看，您是否要选择否并输入 n，这样您就可以根据自己的情况进行远程操作，而不仅仅是观看？
 :::
 
 #### 配置 VNC 服务器
 
-1. 一旦 TigerVNC 启动，它将创建一个 VNC 会话，其中包含 VNC 服务器的 IP 地址和端口号（通常为 5901）,因与要改变VNC服务器的配置方式，首先用以下命令停止运行在5901端口的VNC服务器实例：
+1. TigerVNC 启动后，将创建一个包含 VNC 服务器 IP 地址和端口号（通常为 5901）的 VNC 会话。要改变 VNC 服务器的配置方式，首先要使用以下命令停止运行在 5901 端口的 VNC 服务器实例：
 
-```bash
-vncserver -kill :1
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ vncserver -kill :1
+  `}
+</PreView>
 
-2. 运行vncserver命令时会在~/.vnc目录下生成一个xstartup，没有生成请手动创建并赋予可执行权限：
+2. 运行 vncserver 命令时，会在 ~/.vnc 目录中生成 xstartup。如果没有生成，请手动创建并赋予其可执行权限：
 
-```bash
-touch ~/.vnc/xstartup
-chmod +x ~/.vnc/xstartup
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ touch ~/.vnc/xstartup
+  radxa@#model#:~$ chmod +x ~/.vnc/xstartup
+`}
+</PreView>
 
-编辑xstartup配置文件如下：
+编辑 xstartup 配置文件如下：
 
-```bash
-radxa@rock-5b:~$ cat ~/.vnc/xstartup
-#!/bin/sh
-unset SESSION_MANAGER
-unset DBUS_SESSION_BUS_ADDRESS
-unset XDG_RUNTIME_DIR
-/etc/X11/xinit/xinitrc
-[ -x /etc/vnc/xstartup  ] && exec /etc/vnc/xstartup
-[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
-xsetroot -solid grey
-#vncconfig -iconic &
-startkde &
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ cat ~/.vnc/xstartup
+  #!/bin/sh
+  unset SESSION_MANAGER
+  unset DBUS_SESSION_BUS_ADDRESS
+  unset XDG_RUNTIME_DIR
+  /etc/X11/xinit/xinitrc
+  [ -x /etc/vnc/xstartup  ] && exec /etc/vnc/xstartup
+  [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+  xsetroot -solid grey
+  #vncconfig -iconic &
+  startkde &
+`}
+</PreView>
 
-3. 配置编辑好后，重新启动VNC服务器：
+3. 编辑配置后，重启 VNC 服务器：
 
-```bash
-vncserver -localhost no
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ vncserver -localhost no
+  `}
+</PreView>
 
-4. 查看VNC服务器：
+4. 查看 VNC 服务器：
 
-```bash
-vncserver -list
-TigerVNC server sessions:
-X DISPLAY #	RFB PORT #	PROCESS ID	SERVER
-:1         	5901      	2160      	Xtigervnc
-:2         	5902      	2872      	Xtigervnc
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ vncserver -list
+  TigerVNC server sessions:
+  X DISPLAY #	RFB PORT #	PROCESS ID	SERVER
+  :1         	5901      	2160      	Xtigervnc
+  :2         	5902      	2872      	Xtigervnc
+  `}
+</PreView>
 
-5. 在 VNC 查看器上测试连接：在您的 Windows PC 上，打开 VNC 查看器，输入您产品的 IP 地址和端口号，然后使用 VNC 服务器的用户名和密码进行身份验证。
+5. 在 VNC 查看器上测试连接： 在 Windows PC 上打开 VNC 查看器，输入产品的 IP 地址和端口号，然后使用 VNC 服务器的用户名和密码进行验证。
 
 #### 在 Windows PC 上安装 VNC 查看器
 
-1. 转到 Web 浏览器上的 VNC 查看器下载页面, e.g. https://www.realvnc.com/en/connect/download/viewer/
+1. 在浏览器上进入 VNC 查看器下载页面，如 https://www.realvnc.com/en/connect/download/viewer/。
 2. 下载并安装 VNC 查看器。
 
 #### 连接设置
 
-1. 在 VNC 查看器上，输入产品的 IP 地址和端口号。
-2. 使用 VNC 服务器的用户名和密码进行身份验证。
-3. 连接成功后，即可远程控制。
+1. 在 VNC 查看器上输入产品的 IP 地址和端口号。2.
+2. 使用 VNC 服务器的用户名和密码进行验证。
+3. 连接成功后，即可进行远程控制。
 
 ### TeamViewer
 
 #### 安装 TeamViewer
 
-```bash
-wget https://download.teamviewer.com/download/linux/teamviewer-host_arm64.deb
-sudo apt install . /teamviewer-host_arm64.deb
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ wget https://download.teamviewer.com/download/linux/teamviewer-host_arm64.deb
+  radxa@#model#:~$ sudo apt install . /teamviewer-host_arm64.deb
+  `}
+</PreView>
 
 #### 配置 TeamViewer
 
-```bash
-sudo teamviewer setup   # 同意协议登陆并授权
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo teamviewer setup    # Agree to protocol login and authorization
+  `}
+</PreView>
 
 #### 卸载 xfce4-screensaver
 
 :::info
-此项步骤可修复 TeamViewer 长时间挂机导致的键鼠控制失效的问题。
+此程序修复了 TeamViewer 的键盘和鼠标控件因长时间挂起而无法工作的问题。
 :::
 
-```bash
-sudo apt remove xfce4-screensaver
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt remove xfce4-screensaver
+  `}
+</PreView>
 
 #### 配置虚拟显示器
 
 :::info
-如有连接真实显示器，此项步骤为可选项。
+如果已连接真实显示器，则此步骤为可选步骤。
 :::
 
-```bash
-sudo apt update
-sudo apt install xserver-xorg-video-dummy
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt update
+  radxa@#model#:~$ sudo apt install xserver-xorg-video-dummy
+  radxa@#model#:~$ sudo mv /etc/X11/xorg.conf.d/20-modesetting.conf /etc/X11/xorg.conf.d/20-modesetting.bak
+  radxa@#model#:~$ sudo nano /etc/X11/xorg.conf.d/10-headless.conf
+`}
 
-sudo mv /etc/X11/xorg.conf.d/20-modesetting.conf /etc/X11/xorg.conf.d/20-modesetting.bak
-sudo nano /etc/X11/xorg.conf.d/10-headless.conf
-# 添加以下内容并重启
+</PreView>
+
+```
+# Add the following and reboot
 Section "Monitor"
         Identifier "dummy_monitor"
         HorizSync 28.0-80.0
@@ -229,6 +298,6 @@ Section "Screen"
 EndSection
 ```
 
-#### 连接 TeamViewer
+#### 连接到 TeamViewer
 
-可参考[ TeamViewer 官方文档](https://community.teamviewer.com/Chinese/kb/articles/109101-%E9%80%9A%E8%BF%87teamviewer-%E8%BF%9E%E6%8E%A5)
+您可以参考 [TeamViewer 官方文档](https://community.teamviewer.com/Chinese/kb/articles/109101-%E9%80%9A%E8%BF%87teamviewer-%E8%BF%9E%E6%8E%A5)。

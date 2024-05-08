@@ -1,212 +1,280 @@
+import { PreView } from "@site/src/utils/docs";
+
 ### SSH
 
 This is a tutorial on how to access the board remotely from another computer using SSH.
 
-1.  Check the SSH service status. Run the following command in the terminal:
+#### View username
 
-```bash
-sudo service ssh status
-```
+Open a terminal on the board and enter the following command in the terminal to view the username
 
-    If the SSH service is not installed, you can use the following command to install it:
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ whoami
+  radxa
+  `}
+</PreView>
 
-```bash
-sudo apt-get update
-sudo apt-get install ssh
-```
+This command displays the username of the current user, as shown above, the current user's username is radxa
 
-    If the SSH service is not started or runs abnormally, run the following command to restart it:
+#### View IP address
 
-```bash
-sudo service sshd restart
-```
+##### View IP by command
 
-2.  Open the terminal program and enter the following command:
+Open a terminal on the board and enter the following command in the terminal to view the IP address:
 
-```bash
-ssh [username]@[IP address]  # or ssh [username]@[hostname]
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ ip a
+  `}
+</PreView>
 
-    Example:
-
-```bash
-ssh radxa@192.168.2.100
-```
-
-3.  You need to enter the user password to successfully connect to the Debian system.
-    This is a basic SSH connection process. You can use other SSH options for more advanced connections.
-
-#### View IP Address
-
-##### View IP via Command
-
-Open the terminal via `Ctrl + Alt + T`, enter the following command in the terminal to view the IP address
-
-```bash
-ip a
-```
-
-The IP address in the same network segment as the host is the IP address required for SSH connection, as shown in the following output `192.168.42.100` is the IP address we need:
+The ip address on the same network segment as the host is the ip address we need for SSH connection, e.g. `192.168.2.100` in the following output is the ip address we need.
 
 ```bash
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
     inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 56:ae:03:82:18:51 brd ff:ff:ff:ff:ff:ff
+    link/ether 56:ae:03:82:18:51 brd ff:ff:ff:ff:ff:ff:ff
     inet 192.168.2.100/24 brd 192.168.2.255 scope global dynamic noprefixroute eth0
        valid_lft 43176sec preferred_lft 43176sec
     inet6 fe80::8e:d164:96ea:40b6/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
 
-##### Find IP via Angryip
+##### Finding IPs with Angryip
 
-This method can be used to view the ip address when the SBC cannot be directly operated to obtain the ip address without a screen of remotely.
+This method can be used to look up an ip address when you can't operate the motherboard directly to get an ip address without a screen or remotely.
 
-- First, the host PC needs to download [Angryip](https://angryip.org/download/), and then make sure the host PC and the board are in the same LAN.
+- First the host PC needs to download [Angryip](https://angryip.org/download/), then make sure the host PC and the board are on the same LAN.
 
-- Open Angryip, select the IP range, the range is 192.168.2.0 - 192.168.2.255 (select the network segment where the host and SBC are located). Click Start, as shown in the picture.
+- Open Angryip, select the IP range from 192.168.2.0 - 192.168.2.255 (select the network segment where the host PC and the motherboard are located), click Start, as shown in the figure.
 
-- ![Angryip](/img/configuration/ssh-Angryip.webp)
+- ! [Angryip](/img/configuration/ssh-Angryip.webp)
 
-- Ctrl + F Search `rock` keyword, find the IP address of the board.
+- Ctrl + F Look for the `rock` keyword to find the IP address of the board.
 
-### Remote Desktop - KDE Desktop
+#### Checking SSH Service Status
 
-This is a tutorial on how to access your system remotely from a Windows computer using VNC.
+Run the following command in a terminal:
+
+<PreView params={{ model: props.model}}>
+  {`
+  radxa@#model#:~$ sudo service ssh status
+  `}
+</PreView>
+
+This command is used to view the status of the ssh service. If you run this command and are prompted with "Unit ssh.service could not be found.", then you need to install the SSH service.
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt-get update
+  radxa@#model#:~$ sudo apt-get install openssh-client openssh-server
+  `}
+</PreView>
+
+```bash
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2024-05-08 07:52:50 UTC; 24min ago
+TriggeredBy: ● ssh.socket
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 637 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 657 (sshd)
+      Tasks: 1 (limit: 3420)
+     Memory: 5.5M
+        CPU: 398ms
+     CGroup: /system.slice/ssh.service
+             └─657 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+May 08 07:52:49 radxa-zero systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+May 08 07:52:50 radxa-zero sshd[657]: Server listening on :: port 22.
+May 08 07:52:50 radxa-zero systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+May 08 07:53:22 radxa-zero sshd[783]: Accepted password for radxa from 192.168.31.1 port 49474 ssh2
+May 08 07:53:22 radxa-zero sshd[783]: pam_unix(sshd:session): session opened for user radxa(uid=1000) by (uid=0)
+May 08 07:53:22 radxa-zero sshd[783]: pam_env(sshd:session): deprecated reading of user environment enabled
+```
+
+- If the status of Active is active, the state of ssh is running.
+- If Active is inactive (dead), then ssh is stopped, i.e. the service is not running and needs to be restarted.
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo service sshd restart
+  `}
+</PreView>
+
+#### SSH connection to the board
+
+```bash
+ssh [username]@[IP address] # or ssh [username]@[hostname]
+```
+
+### VNC
+
+This is a tutorial on how to remotely access your system from a Windows computer using VNC.
 
 #### Installing VNC Server
 
-1. Open the Terminal application and enter the following command to update the package list:
+1. Open the Terminal application and enter the following command to update the package list.
 
-```bash
-sudo apt-get update
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt-get update
+  `}
+</PreView>
 
-2. Enter the following command to install TigerVNC Server:
+2. Install TigerVNC Server by entering the following command.
 
-```bash
-sudo apt-get install tigervnc-standale-server
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt-get install tigervnc-standalone-server
+  `}
+</PreView>
 
-3. Install the dbus-x11 dependencies to ensure proper connection to your VNC server:
+3. Install the dbus-x11 dependency to ensure proper connection to your VNC server:
 
-```bash
-sudo apt-get install dbus-x11
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt-get install dbus-x11
+  `}
+</PreView>
 
-4. After installation complete the initial configuration of the VNC server, use the vncserver command to set the security password and create the initial configuration file:
+4. After installation to complete the initial configuration of your VNC server, use the vncserver command to set the security password and create the initial configuration file:
 
-```bash
-vncserver
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ vncserver
+  `}
+</PreView>
 
 :::note
-Would you like to enter a view-only password (y/n)? n Prompt for view-only password, it is recommended to select no and enter n, so that the remote can operate, not just watch, please according to their actual situation
+Would you like to enter a view-only password (y/n)? n Prompt for view-only, would you like to select no and enter n so that you can operate remotely instead of just watching, depending on your situation?
 :::
 
-#### Configure the VNC server
+#### Configuring the VNC Server
 
-Once TigerVNC starts, it will create a VNC session with the IP address and port number of the VNC server (usually 5901), because to change the way the VNC server is configured, first stop the VNC server instance running on port 5901 with the following command:
+1. Once TigerVNC starts, it will create a VNC session containing the IP address and port number (usually 5901) of the VNC server. To change the way the VNC server is configured, first stop the instance of the VNC server running on port 5901 with the following command:
 
-```bash
-vncserver -kill :1
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ vncserver -kill :1
+  `}
+</PreView>
 
-2. Run the vncserver command to generate an xstartup in the ~/.vnc directory, if not, please create it manually and give it executable privileges:
+2. When you run the vncserver command, an xstartup is generated in the ~/.vnc directory. If it is not generated, please create it manually and give it executable permissions:
 
-```bash
-touch ~/.vnc/xstartup
-chmod +x ~/.vnc/xstartup
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ touch ~/.vnc/xstartup
+  radxa@#model#:~$ chmod +x ~/.vnc/xstartup
+`}
+</PreView>
 
 Edit the xstartup configuration file as follows:
 
-```bash
-radxa@rock-5b:~$ cat ~/.vnc/xstartup
-#! /bin/sh
-unset SESSION_MANAGER
-unset DBUS_SESSION_BUS_ADDRESS
-unset XDG_RUNTIME_DIR
-/etc/X11/xinit/xinitrc
-[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
-[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
-xsetroot -solid grey
-#vncconfig -iconic &
-startkde &
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ cat ~/.vnc/xstartup
+  #!/bin/sh
+  unset SESSION_MANAGER
+  unset DBUS_SESSION_BUS_ADDRESS
+  unset XDG_RUNTIME_DIR
+  /etc/X11/xinit/xinitrc
+  [ -x /etc/vnc/xstartup  ] && exec /etc/vnc/xstartup
+  [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+  xsetroot -solid grey
+  #vncconfig -iconic &
+  startkde &
+`}
+</PreView>
 
-3. After the configuration is edited, restart the VNC server:
+3. Once the configuration is edited, restart the VNC server:
 
-```bash
-vncserver -localhost no
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ vncserver -localhost no
+  `}
+</PreView>
 
 4. View the VNC server:
 
-```bash
-vncserver -list
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ vncserver -list
+  TigerVNC server sessions:
+  X DISPLAY #	RFB PORT #	PROCESS ID	SERVER
+  :1         	5901      	2160      	Xtigervnc
+  :2         	5902      	2872      	Xtigervnc
+  `}
+</PreView>
 
-TigerVNC server sessions.
-X DISPLAY # RFB PORT # PROCESS ID SERVER
-:1 5901 2160 Xtigervnc
-:2 5902 2872 Xtigervnc
-```
+5. Test the connection on the VNC viewer: On your Windows PC, open the VNC viewer, enter the IP address and port number of your product, and then authenticate with the VNC server's username and password.
 
-5. Test the connection on the VNC viewer: On your Windows PC, open the VNC viewer, enter the IP address and port number of your product, and then authenticate using the user name and password of the VNC server.
+#### Installing the VNC Viewer on a Windows PC
 
-#### Installing the VNC viewer on your Windows PC
-
-1. Go to the VNC Viewer download page on your web browser, e.g. https://www.realvnc.com/en/connect/download/viewer/
+1. Go to the VNC viewer download page on your web browser, e.g. https://www.realvnc.com/en/connect/download/viewer/
 2. Download and install the VNC viewer.
 
-#### Connection setup
+#### Connection Setup
 
-1. On the VNC viewer, enter the IP address and port number of the product.
-2. Use the user name and password of the VNC server to authenticate.
-3. After successful connection, you can control remotely.
+1. On the VNC viewer, enter the IP address and port number of the product. 2.
+2. Use the VNC server's user name and password to authenticate.
+3. After a successful connection, you can remote control.
 
 ### TeamViewer
 
-#### Installation of TeamViewer
+#### Installing TeamViewer
 
-```bash
-wget https://download.teamviewer.com/download/linux/teamviewer-host_arm64.deb
-sudo apt install . /teamviewer-host_arm64.deb
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ wget https://download.teamviewer.com/download/linux/teamviewer-host_arm64.deb
+  radxa@#model#:~$ sudo apt install . /teamviewer-host_arm64.deb
+  `}
+</PreView>
 
-#### Setup TeamViewer
+#### configure TeamViewer
 
-```bash
-sudo teamviewer setup   # Agree to the agreement, login and authorize
-```
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo teamviewer setup    # Agree to protocol login and authorization
+  `}
+</PreView>
 
-#### Uninstall xfce4-screensaver
-
-:::info
-This step fixes an issue where TeamViewer hangs for a long period of time causing the keyboard and mouse controls to fail.
-:::
-
-```bash
-sudo apt remove xfce4-screensaver
-```
-
-#### Configure a virtual monitor
+#### uninstall xfce4-screensaver
 
 :::info
-this step is optional if a real monitor is connected.
+This procedure fixes a problem with TeamViewer's keyboard and mouse controls not working due to prolonged hang time.
 :::
 
-```bash
-sudo apt update
-sudo apt install xserver-xorg-video-dummy
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt remove xfce4-screensaver
+  `}
+</PreView>
 
-sudo mv /etc/X11/xorg.conf.d/20-modesetting.conf /etc/X11/xorg.conf.d/20-modesetting.bak
-sudo nano /etc/X11/xorg.conf.d/10-headless.conf
+#### Configuring virtual monitors
+
+:::info
+This step is optional if a real monitor is connected.
+:::
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo apt update
+  radxa@#model#:~$ sudo apt install xserver-xorg-video-dummy
+  radxa@#model#:~$ sudo mv /etc/X11/xorg.conf.d/20-modesetting.conf /etc/X11/xorg.conf.d/20-modesetting.bak
+  radxa@#model#:~$ sudo nano /etc/X11/xorg.conf.d/10-headless.conf
+`}
+
+</PreView>
+
+```
 # Add the following and reboot
 Section "Monitor"
         Identifier "dummy_monitor"
@@ -230,6 +298,6 @@ Section "Screen"
 EndSection
 ```
 
-#### Connect to TeamViewer
+#### Connecting to TeamViewer
 
-Refer to [TeamViewer Official Documentation](https://community.teamviewer.com/English/kb/articles/109101-connect-via-teamviewer-classic)
+You can refer to [TeamViewer official documentation](https://community.teamviewer.com/Chinese/kb/articles/109101-%E9%80%9A%E8%BF%87teamviewer-%E8%BF%9E%E6%8E%A5).
