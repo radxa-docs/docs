@@ -10,8 +10,6 @@ sidebar_position: 8
 
 - [ROCK 5C Debian 镜像 T2](https://github.com/radxa-build/rock-5c/releases/tag/test-build-2)
 
-- Android12 镜像
-
 ## 硬件设计
 
 ### V1.1

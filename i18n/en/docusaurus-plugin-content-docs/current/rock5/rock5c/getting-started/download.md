@@ -10,8 +10,6 @@ Test Version:
 
 - [ROCK 5C Debian Image T2](https://github.com/radxa-build/rock-5c/releases/tag/test-build-2)
 
-- Android12 Image
-
 ## Hardware Design
 
 ### V1.1
