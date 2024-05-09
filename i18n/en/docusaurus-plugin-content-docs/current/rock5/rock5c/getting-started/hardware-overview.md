@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Hardware interface description
+# Hardware interface overview
 
 ## Physical Photos
 
