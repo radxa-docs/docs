@@ -6,6 +6,9 @@ sidebar_position: 1
 
 Radxa ROCK 5 ITX 是瑞莎团队全力打造的一款全面兼容 Mini-ITX 规范的单板计算机/主板。搭载高性能Rockchip RK3588 SoC，此款主板标志着开源单板机领域全面迈向 ARM PC 时代。相较于传统的X86 PC主板，ROCK 5 ITX具备以下显著特点：
 
+
+<img src="/img/rock5itx/rock5itx-package.jpeg" width="500" />
+
 ## 完美兼容性
 
 ROCK 5 ITX 严格按照 PC 产业标准设计，完全符合 ATX 规范。它可以无缝适配标准 PC 机箱、散热器和电源等外设，提供了极高的兼容性和灵活性。
