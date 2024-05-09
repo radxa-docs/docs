@@ -3,60 +3,66 @@ sidebar_position: 3
 ---
 
 import Etcher from '../../../common/general/\_etcher.mdx'
+import NVME from '../../../common/dev/\_nvme.mdx'
+import Rkdeveloptool from "../../../common/dev/\_rkdeveloptool.mdx";
+import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
 
 # 安装操作系统
 
-## 准备工作
-
-- 电源供应
-
-  - ROCK 5C采用Type-C接口供电，输入电压5V。
-  - 推荐使用官方的 [Radxa Power PD 30W](../accessories/pd-30w)。
-
-- ROCK 5C 主板
-
-- 大容量存储卡（二选一）：
-
-  - microSD， 大于 8GB （用于从 SD 启动）
-  - eMMC Module， 大于8GB， 推荐使用 [Radxa eMMC Module](../accessories/emmc_module) （用于从 eMMC Module 启动）
-
-- 读卡器（二选一）
-
-  - microSD 读卡器（用于从 SD 启动）
-  - [eMMC 读卡器](../accessories/emmc_reader)（用于从 eMMC Module 启动）.
-
-- USB 键盘和鼠标
-
-  - ROCK 5C 配备四个 USB-A 接口，可配备全尺寸键盘和鼠标。
-
-- 显示器和 HDMI 线
-
-  - ROCK 5C 配备全尺寸 HDMI 接口，使用支持 HDMI 接口的显示器。
-
 ## 镜像下载
 
-请到 [资源下载汇总](../download.md) 下载对应的镜像文件
+请下载[此镜像](https://github.com/radxa-build/rock-5c/releases/download/test-build-2/rock-5c_debian_bullseye-test_kde_t2.img.xz)，本文档以此为例。
+
+:::tip
+请到[资源下载汇总](../getting-started/download)页面获取更多镜像资源。
+:::
 
 ## 安装系统
 
-<Etcher model="rock5c" />
+<Tabs queryString="install-os">
+    <TabItem value="MicroSD">
+        <Etcher model="rock5c" product="Radxa ROCK 5C" power_supply="12V DC" sd_slot="/img/rock5c/rock-5c-sd-slot.webp" />
+    </TabItem>
+    <TabItem value="eMMC">
+        <h3>进入 Maskrom 模式</h3>
+        <ol>
+            <li>拔出 microSD 卡和电源线</li>
+            <li>短接 maskrom 的两个孔</li>
+            <li>通过 USB-A 转 USB-A 线连接 ROCK 5C 上面那个 USB 3.0 和 PC 主机的 USB，如果如果PC端检测到有设备，则进入到 Maskrom 模式（Radxa ROCK 5C 的 OTG 接口是 TYPE-A,可通过 USB-A to USB-A 线连接主机和进入 Maskrom 的主板进行通信）</li>
+        </ol>
+        <img src="/img/rock5c/rock-5c-maskrom.webp" alt="rock 5c maskrom" width="500" />
+        <Tabs queryString="maskrom">
+        <TabItem value="Windows">
+            <p>如操作正常，RKDevTool 会提示 `发现一个MASKROM设备`：</p>
+            <img src="/img/configuration/rkdevtool-zh-maskrom.webp" alt="RKDevTool zh maskrom" />
+        </TabItem>
+        <TabItem value="Linux">
+            <p>如操作正常， `rkdeveloptool ld`会提示 进入MASKROM模式：</p>
+            <pre><code>PC:~$ sudo rkdeveloptool ld
+        DevNo=1	Vid=0x2207,Pid=0x350b,LocationID=109	Maskrom
+        </code></pre>
+        </TabItem>
+        </Tabs>
+        <p>在 Maskrom 模式下，您可使用 <a href="rkdevtool">rkdevtool</a> 或 <a href="upgrade-tool">upgrade-tool</a> 来对您的产品进行擦写、线刷等操作。</p>
+        <h3>安装系统到 eMMC</h3>
+        <Tabs queryString="install-os-emmc-using-maskrom">
+        <TabItem value="Windows">
+            <RKDevTool series="rock5" />
+        </TabItem>
+        <TabItem value="Linux">
+            <Rkdeveloptool series="rock5"/>
+        </TabItem>
+        </Tabs>
+        <h3>启动系统</h3>
+        <ul>
+            <li>使用 5V 电源适配器上电，然后系统开始启动，HDMI显示桌面。</li>
+        </ul>
+    </TabItem>
+    <TabItem value="NVME">
+        <NVME model="rock-5c" release_num="t2" install_os_path="../getting-started/install-os" rsetup_path="../os-config/rsetup" />
+    </TabItem>
+</Tabs>
 
-## 启动系统
-
-- 按照上述步骤成功烧录 microSD 卡/eMMC 后，将 microSD/eMMC 卡插入 ROCK 5C 的 MicroSD/eMMC 插槽内。
-- ROCK 5C 的供电接口为 [USB Type C port](../hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
-
-## 登录系统
-
-官方默认创建用户帐号：
-
-```bash
-用户名：radxa
-密码：  radxa
-```
-
-更多信息参考[瑞莎系统](../radxa-os/)
-
-## 参考文档
-
-- [从 USB OTG 口安装操作系统镜像到 eMMC](../low-level-dev/install-os-via-usb-otg)
+:::tip
+系统从上电到开机启动，整个过程持续约53秒，然后进入系统桌面。
+:::
