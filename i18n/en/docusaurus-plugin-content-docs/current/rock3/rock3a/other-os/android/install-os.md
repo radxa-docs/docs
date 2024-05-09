@@ -3,7 +3,7 @@ sidebar_position: 2
 title: Install OS
 ---
 
-import Ether from '../../../../common/general/\_etcher.mdx'
+import Etcher from '../../../../common/general/\_etcher.mdx'
 
 This document introduces how to install Android image to Rock 3a.
 
