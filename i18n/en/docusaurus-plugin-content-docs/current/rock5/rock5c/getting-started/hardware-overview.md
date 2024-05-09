@@ -8,6 +8,83 @@ sidebar_position: 5
 
 <img src="/img/rock5c/rock-5c-overview-new.webp" alt="rock 5c new overview" width="700" />
 
+## Interface description
+
+<table>
+  <tr>
+    <th>Num</th>
+    <th> Interface Name</th>
+    <th>Num</th>
+    <th> Interface Name</th>
+    <th>Num</th>
+    <th> Interface Name</th>
+    <th>Num</th>
+    <th> Interface Name</th>
+    <th>Num</th>
+    <th> Interface Name</th>
+  </tr>
+   <tr>
+    <th>1</th>
+    <th>User Led</th>
+    <th>6</th>
+    <th>MIPI DSI</th>
+    <th>11</th>
+    <th>FAN</th>
+    <th>16</th>
+    <th>PWKEY GND 5V DC IN</th>
+    <th>21</th>
+    <th>POE Header</th>
+  </tr>
+  <tr>
+    <th>2</th>
+    <th>Power Button</th>
+    <th>7</th>
+    <th>40-PIN GPIO</th>
+    <th>12</th>
+    <th>Headphone Jack</th>
+    <th>17</th>
+    <th>USB Type C</th>
+    <th>22</th>
+    <th>eMMC Socket</th>
+  </tr>
+  <tr>
+    <th>3</th>
+    <th>Power Led</th>
+    <th>8</th>
+    <th>Gigabit Ethernet</th>
+    <th>13</th>
+    <th>Recovery Key</th>
+    <th>18</th>
+    <th>Rockchip RK3588S2</th>
+    <th>23</th>
+    <th>RTC</th>
+  </tr>
+  <tr>
+    <th>4</th>
+    <th>Antenna Connector</th>
+    <th>9</th>
+    <th>USB 3.0</th>
+    <th>14</th>
+    <th>Maskrom Key</th>
+    <th>19</th>
+    <th>WIFI 6 && BT 5.4</th>
+    <th>24</th>
+    <th>MIPI CSI</th>
+  </tr>
+  <tr>
+    <th>5</th>
+    <th>FPC Connector</th>
+    <th>10</th>
+    <th>USB 2.0</th>
+    <th>15</th>
+    <th>HDMI</th>
+    <th>20</th>
+    <th>LPDDR4x RAM</th>
+    <th>25</th>
+    <th>MicroSD Slot</th>
+  </tr>
+</table>
+
 ## Features
 
 <table>
