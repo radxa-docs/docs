@@ -152,6 +152,10 @@ sidebar_position: 5
     </td>
   </tr>
   <tr>
+    <th>FAN</th>
+    <th>The ROCK 5 ITX offers 4x mount holes for the cooler with mounting hole distand 75mm, making it compatible with Intel LGA 151x type cooler. An ATX standard fan connector is provided for cooler with fan. The fan tach is not supported on ROCK 5 ITX.</th>
+  </tr>
+  <tr>
     <td>Display</td>
     <td>1 eDP port for eDP LCD panels<br/>2x MIPI LCD ports (quad-channel MIPI DSI)</td>
   </tr>

@@ -152,6 +152,10 @@ sidebar_position: 5
     </th>
   </tr>
   <tr>
+    <th>FAN</th>
+    <th>UROCK 5 ITX 提供 4 个散热器安装孔，安装孔距 75 毫米，可与英特尔 LGA 151x 型散热器兼容。为带风扇的散热器提供了 ATX 标准风扇连接器。ROCK 5 ITX 不支持风扇转速器。</th>
+  </tr>
+  <tr>
     <th>显示</th>
     <th>1 个 eDP 端口，用于 eDP LCD 面板<br/>2x MIPI LCD 端口（四通道 MIPI DSI）</th>
   </tr>
