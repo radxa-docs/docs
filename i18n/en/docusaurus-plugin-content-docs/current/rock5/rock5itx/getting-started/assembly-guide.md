@@ -56,7 +56,7 @@ Plug the WIFI module into [interface description] (../getting-started/hardware-o
 
 ### Install the cooling fan
 
-Plug the 4 PIN cable into the [connector description] (../getting-started/hardware-overview) at mark 29.
+Plug the 4 PIN cable into the [connector description](../getting-started/hardware-overview) at mark 29.
 
 <img src="/img/rock5itx/rock5itx-fan.webp" width="700" alt="rock 5 itx fan" />
 
