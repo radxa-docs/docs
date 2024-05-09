@@ -8,17 +8,6 @@ sidebar_position: 5
 
 <img src="/img/rock5c/rock-5c-overview-new.webp" alt="rock 5c new overview" width="700" />
 
-## 芯片框图
-
-<Tabs queryString="target">
-  <TabItem value="rk3588s2" label="RK3588S2">
-  <img src="/img/rock5c/rk3588s2_blockdiagram.webp" alt="rock 5c overview" width="700" />
-  </TabItem>
-  <TabItem value="rk3582" label="RK3582">
-  <img src="/img/rock5c/rk3582_blockdiagram.webp" alt="rock 5c lite overview" width="700" />
-  </TabItem>
-</Tabs>
-
 ## 特性
 
 <table>
@@ -93,3 +82,14 @@ sidebar_position: 5
 ## 系统框图
 
 <img src="/img/rock5c/rock-5c-system-block-diagram.webp" alt="rock 5c system diagram" width="700" />
+
+## 芯片框图
+
+<Tabs queryString="target">
+  <TabItem value="rk3588s2" label="RK3588S2">
+  <img src="/img/rock5c/rk3588s2_blockdiagram.webp" alt="rock 5c overview" width="700" />
+  </TabItem>
+  <TabItem value="rk3582" label="RK3582">
+  <img src="/img/rock5c/rk3582_blockdiagram.webp" alt="rock 5c lite overview" width="700" />
+  </TabItem>
+</Tabs>
