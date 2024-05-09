@@ -44,9 +44,10 @@ import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
         </TabItem>
         <TabItem value="Linux">
             <p>如操作正常， `rkdeveloptool ld`会提示 进入MASKROM模式：</p>
-            <pre><code>PC:~$ sudo rkdeveloptool ld
-        DevNo=1	Vid=0x2207,Pid=0x350b,LocationID=109	Maskrom
-        </code></pre>
+            <pre>
+            <code>PC:~$ sudo rkdeveloptool ld
+ DevNo=1	Vid=0x2207,Pid=0x350b,LocationID=109	Maskrom</code>
+        </pre>
         </TabItem>
         </Tabs>
         <p>在 Maskrom 模式下，您可使用 <a href="rkdevtool">rkdevtool</a> 或 <a href="upgrade-tool">upgrade-tool</a> 来对您的产品进行擦写、线刷等操作。</p>

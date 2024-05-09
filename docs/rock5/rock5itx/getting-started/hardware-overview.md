@@ -148,8 +148,7 @@ sidebar_position: 5
   </tr>
   <tr>
     <th>USB</th>
-    <th>USB Type-C：ROCK 5 ITX 配备了一个 USB 3.0 OTG Type-C 端口，支持 DP 接口，最大分辨率可达 4Kp60。不支持从 USB C 输入电源。<br/> 后 IO USB： 后 IO 提供 2 个 USB 2.0 HOST 端口（与 RJ5 共用连接器），这四个端口的总输出功率为 1A；后 IO 提供 2 个双 USB 3.0 HOST 端口（与 HDMI 共用连接器），每个双 USB 3.0 端口的总输出功率为 1.75A。<br/>前面板 USB： F_USB "连接器提供 2 个 USB 2.0 HOST 端口，这两个端口的总输出功率为 1A。
-    </th>
+    <th>USB Type-C：ROCK 5 ITX 配备了一个 USB 3.0 OTG Type-C 端口，支持 DP 接口，最大分辨率可达 4Kp60。不支持从 USB C 输入电源。<br/> 后 IO USB： 后 IO 提供 2 个 USB 2.0 HOST 端口（与 RJ5 共用连接器），这四个端口的总输出功率为 1A；后 IO 提供 2 个双 USB 3.0 HOST 端口（与 HDMI 共用连接器），每个双 USB 3.0 端口的总输出功率为 1.75A。<br/>前面板 USB： F_USB "连接器提供 2 个 USB 2.0 HOST 端口，这两个端口的总输出功率为 1A。</th>
   </tr>
   <tr>
     <th>FAN</th>

@@ -23,9 +23,9 @@ The following layout requirements should be considered for SATA 3.0꞉
 
 | Parameter                                      | Requirement                                 |
 | ---------------------------------------------- | ------------------------------------------- |
-| Trace Impedance                                | 100Ω ±10% differential                      |
-| Max intra‑pair skew                            | <12mil                                      |
-| Max trace length on carrier board              | <6 inches                                   |
+| Trace Impedance                                | 100Ω ±10% differential                      |
+| Max intra‑pair skew                            | \<12mil                                     |
+| Max trace length on carrier board              | \<6 inches                                  |
 | AC coupling capacitors                         | 10nF ±20%, discrete 0201 package preferable |
 | Minimum pair‑to‑pair spacing                   | ≥4 times the width of SATA trace            |
 | Minimum spacing between SATA and other signals | ≥4 times the width of SATA trace            |

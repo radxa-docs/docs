@@ -18,7 +18,7 @@ HDMI（高清多媒体接口）是一种通过 TMDS（最小化传输差分信�
 | 信号               | 阻抗          | 描述                                                                                  |
 | ------------------ | ------------- | ------------------------------------------------------------------------------------- |
 | HDMI_TX_DP/DN[2꞉0] | 100ohm±10%    | HDMI TX data transmission                                                             |
-| HDMI_TX_CLKP/CLKN  | 100ohm±10%    | HDMI TX clock transmission                                                            |
+| HDMI_TX_CLKP/CLKN  | 100ohm±10%    | HDMI TX clock transmission                                                            |
 | HDMI_TX_HPDIN      | Not specified | HDMI TX hot‑plug detection                                                            |
 | HDMI_TX_REXT       | Not specified | External resistor for HDMI reference connection(Default꞉ 1% precision 1.62k resistor) |
 | HDMITX_SCL/SDA     | Not specified | HDMI data communication channel                                                       |
@@ -32,10 +32,10 @@ HDMI（高清多媒体接口）是一种通过 TMDS（最小化传输差分信�
 
 | 范围                                           | 要求                                                                        |
 | ---------------------------------------------- | --------------------------------------------------------------------------- |
-| Trace Impedance                                | 100Ω ±10% differential                                                      |
-| Max intra‑pair skew                            | <12mil                                                                      |
-| Max mismatch between clock and data pairs      | <480mil                                                                     |
-| Max trace length on carrier board              | <6 inches                                                                   |
+| Trace Impedance                                | 100Ω ±10% differential                                                      |
+| Max intra‑pair skew                            | \<12mil                                                                     |
+| Max mismatch between clock and data pairs      | \<480mil                                                                    |
+| Max trace length on carrier board              | \<6 inches                                                                  |
 | Minimum pair to pair spacing                   | ≥5 times the width of HDMI trace (At least 4 times the width of HDMI trace) |
 | Minimum spacing between HDMI and other Signals | ≥5 times the width of HDMI trace (At least 4 times the width of HDMI trace) |
 | Maximum allowed via                            | Recommend ≤ 2 vias                                                          |
@@ -50,5 +50,5 @@ HDMI（高清多媒体接口）是一种通过 TMDS（最小化传输差分信�
 | HDMI_TX1P_PORT   | 1156.647mil  |
 | HDMI_TX2N_PORT   | 1122.794mil  |
 | HDMI_TX2P_PORT   | 1118.675mil  |
-| HDMI_TXCLKN_PORT | 1437.63mil   |
-| HDMI_TXCLKP_PORT | 1,398.265mil |
+| HDMI_TXCLKN_PORT | 1437.63mil   |
+| HDMI_TXCLKP_PORT | 1,398.265mil |

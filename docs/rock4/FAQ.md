@@ -19,7 +19,9 @@ import { Details } from "@site/src/utils/docs";
 但是如果您的系统已经预装了 `rsetup`，请使用上面提到的通过 rsetup 进行在线更新的方法进行系统升级，使用绕过的方式可能会后续在线升级过程中产生异常。
 :::
 
-<details><summary>ROCK 4SE 旧系统在旧的硬件版本上正常运行，但是在新的硬件版本 V1.53 上无法正常启动, 串口最终输出为 "ERR"</summary>
+<details>
+
+<summary>ROCK 4SE 旧系统在旧的硬件版本上正常运行，但是在新的硬件版本 V1.53 上无法正常启动, 串口最终输出为 "ERR"</summary>
 
 ### 现象
 
@@ -79,7 +81,9 @@ sudo ./setup.sh update_idbloader ___/dev/sdX_or_/dev/mmcblkX_or_system.img___
 
 </details>
 
-<details><summary>ROCK 4B 在使用 Manjaro-ARM-minimal-rockpi4b-22.06.img.xz 时系统内内存总大小在重启后可能会变化</summary>
+<details>
+
+<summary>ROCK 4B 在使用 Manjaro-ARM-minimal-rockpi4b-22.06.img.xz 时系统内内存总大小在重启后可能会变化</summary>
 
 ### 现象
 

@@ -148,8 +148,7 @@ sidebar_position: 5
   </tr>
   <tr>
     <td>USB</td>
-    <td>USB Type-C: Equipped with a USB 3.0 OTG Type-C port supporting DP interface, maximum resolution up to 4Kp60. Does not support power input via USB C.<br/>Rear IO USB: 2 USB 2.0 HOST ports shared with RJ45 connectors, total output power of these four ports is 1A; 2 dual USB 3.0 HOST ports shared with HDMI connectors, total output power per dual USB 3.0 port is 1.75A.<br/>Front Panel USB: F_USB connector provides 2 USB 2.0 HOST ports, total output power of these two ports is 1A.
-    </td>
+    <td>USB Type-C: Equipped with a USB 3.0 OTG Type-C port supporting DP interface, maximum resolution up to 4Kp60. Does not support power input via USB C.<br/>Rear IO USB: 2 USB 2.0 HOST ports shared with RJ45 connectors, total output power of these four ports is 1A; 2 dual USB 3.0 HOST ports shared with HDMI connectors, total output power per dual USB 3.0 port is 1.75A.<br/>Front Panel USB: F_USB connector provides 2 USB 2.0 HOST ports, total output power of these two ports is 1A.</td>
   </tr>
   <tr>
     <th>FAN</th>

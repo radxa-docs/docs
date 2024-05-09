@@ -30,9 +30,9 @@ eDP接口功能꞉
 
 | 范围                                          | 要求                                         |
 | --------------------------------------------- | -------------------------------------------- |
-| Trace Impedance                               | 100Ω ±10% differential                       |
-| Max intra‑pair skew                           | <12mil                                       |
-| Max trace length on carrier board             | <6 inches                                    |
+| Trace Impedance                               | 100Ω ±10% differential                       |
+| Max intra‑pair skew                           | \<12mil                                      |
+| Max trace length on carrier board             | \<6 inches                                   |
 | Minimum pair to pair spacing                  | Recommend ≥4 times the width of eDP trace    |
 | AC coupling capacitors                        | 100nF ±20%, discrete 0201 package preferable |
 | Minimum spacing between eDP and other signals | ≥4 times the width of eDP trace              |

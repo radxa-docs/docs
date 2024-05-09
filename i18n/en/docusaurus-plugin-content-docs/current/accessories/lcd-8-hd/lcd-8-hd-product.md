@@ -56,9 +56,9 @@ The Radxa Display 8 HD touch panel is powered by GT911, a new‑generation 5‑p
   - Self‑calibration during initialization
   - Automatic drift compensation
 - Response time
-  - Green mode: <48ms
-  - Sleep mode: <200ms
-  - Initialization: <200ms
+  - Green mode: \<48ms
+  - Sleep mode: \<200ms
+  - Initialization: \<200ms
 
 ## Pinout
 
