@@ -6,14 +6,7 @@ sidebar_position: 5
 
 ## Physical Photos
 
-<Tabs queryString="target">
-  <TabItem value="rock-5c" label="ROCK 5C">
-  <img src="/img/rock5c/rock-5c-overview.webp" alt="rock 5c overview" width="700" />
-  </TabItem>
-  <TabItem value="rock-5c-lite" label="ROCK 5C Lite">
-  <img src="/img/rock5c/rock-5c-lite-overview.webp" alt="rock 5c lite overview" width="700" />
-  </TabItem>
-</Tabs>
+<img src="/img/rock5c/rock-5c-overview-new.webp" alt="rock 5c new overview" width="700" />
 
 ## Chip block diagram
 
