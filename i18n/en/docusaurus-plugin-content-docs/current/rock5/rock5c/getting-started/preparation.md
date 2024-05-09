@@ -6,6 +6,8 @@ sidebar_position: 2
 
 ## Development preparation
 
+### ROCK 5C motherboard
+
 ### Power Supply
 
 The ROCK 5C is powered by a Type-C connector with an input voltage of 5V.

@@ -6,6 +6,8 @@ sidebar_position: 2
 
 ## 开发准备
 
+### ROCK 5C 主板
+
 ### 电源
 
 ROCK 5C采用 Type-C 接口供电，输入电压 5V。
