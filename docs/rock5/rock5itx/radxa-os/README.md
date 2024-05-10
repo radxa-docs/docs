@@ -2,8 +2,6 @@
 sidebar_position: 1
 ---
 
-import Serial from "../../../common/general/\_serial.mdx"
-
 # 瑞莎系统
 
 主要介绍 Radxa OS 系统的基本使用方法，帮助你快速了解常用的系统的配置。
@@ -26,6 +24,4 @@ import Serial from "../../../common/general/\_serial.mdx"
 
 ## [在线更新](/rock5/rock5itx/radxa-os/using-apt)
 
-## 串口登录
-
-<Serial platform="rk" />
+## [串口登录](/rock5/rock5c/radxa-os/serial)
