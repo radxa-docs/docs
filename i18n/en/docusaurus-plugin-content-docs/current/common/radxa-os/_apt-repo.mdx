@@ -116,7 +116,8 @@ echo "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg]" \
      "https://radxa-repo.github.io/$VERSION_CODENAME-test $VENDOR-$VERSION_CODENAME-test main" | \
      sudo tee "/etc/apt/sources.list.d/radxa-$VENDOR.list"
 sudo apt-get update
-``` 
+```
+
 </TabItem>
 
 <TabItem value="disable" label="Disable">
@@ -132,6 +133,7 @@ echo "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg]" \
      sudo tee "/etc/apt/sources.list.d/radxa-$VENDOR.list"
 sudo apt-get update
 ```
+
 </TabItem>
 
 </Tabs>
@@ -153,6 +155,7 @@ This mirror is provided by [aghost](mailto:ggg17226@gmail.com).
 sudo sed -i "s|https://radxa-repo.github.io|https://radxa-apt.aghost.cn|g" /etc/apt/sources.list.d/radxa*.list
 sudo apt-get update
 ```
+
 </TabItem>
   <TabItem value="chenjaly">
 
@@ -162,6 +165,7 @@ This mirror is provided by [chenjaly](mailto:2540735020@qq.com).
 sudo sed -i "s|https://radxa-repo.github.io|http://apt.chenjaly.cn|g" /etc/apt/sources.list.d/radxa*.list
 sudo apt-get update
 ```
+
 </TabItem>
   <TabItem value="LZUOSS">
 

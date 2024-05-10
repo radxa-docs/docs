@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## 包装清单
 
-<img src="/img/rock5itx/rock5itx-packlist-zh.jpeg" width="400" alt="rock 5 itx package list" />
+<img src="/img/rock5itx/rock5itx-packlist-zh.webp" width="400" alt="rock 5 itx package list" />
 
 ROCK 5 ITX 标准包装包括以下物品：
 
@@ -24,7 +24,7 @@ ROCK 5 ITX 标准包装包括以下物品：
 - 一根或两根网线以及支持以太网的交换机或路由器，因为 ROCK 5 ITX 有两个 2.5G RJ45 以太网口，安装和更新系统时需要联网。
 
 :::tip 注意
-在接口标注图中，[编号 ⑭](./introduction.md#主板概览) 是 HDMI 输入口，不能用来连接 HDMI 显示器。如需连接 HDMI 显示器，请使用[编号 ⑩  或 ⑪ ](./introduction.md#主板概览) HDMI 接口。
+在接口标注图中，[编号 ⑭](./introduction.md#主板概览) 是 HDMI 输入口，不能用来连接 HDMI 显示器。如需连接 HDMI 显示器，请使用[编号 ⑩ 或 ⑪ ](./introduction.md#主板概览) HDMI 接口。
 :::
 
 非必需但可增强 ROCK 5 ITX 基本功能的外设：

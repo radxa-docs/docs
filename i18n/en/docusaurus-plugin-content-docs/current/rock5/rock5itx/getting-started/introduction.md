@@ -6,7 +6,7 @@ sidebar_position: 1
 
 The Radxa ROCK 5 ITX, meticulously crafted by the Radxa team, is a fully Mini-ITX compliant single-board computer/motherboard. Equipped with the high-performance Rockchip RK3588 SoC, this motherboard marks a significant step into the ARM PC era for open-source single-board computers. Compared to traditional X86 PC motherboards, the ROCK 5 ITX offers the following distinct features:
 
-<img src="/img/rock5itx/rock5itx-package.jpeg" width="500" />
+<img src="/img/rock5itx/rock5itx-package.webp" width="500" />
 
 ## Perfect Compatibility
 
