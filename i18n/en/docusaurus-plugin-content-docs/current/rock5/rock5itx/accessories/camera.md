@@ -16,10 +16,12 @@ radxa@rock-5itx:~$ rsetup
 
 - Pass the [Device Tree Configuration](../os-config/rsetup#overlays) to enable overlay for the Rxa 4K camera.
 
-Attention.
+:::caution
 
 1. enable the `[] Enable Radxa Camera 4K ` item overlay on CAM1.
 2. Quit and reboot after enabling successfully displaying `[*] Enable Radxa Camera 4K on CAM1` for the configuration to take effect.
+
+:::
 
 ## Testing Radxa Camera 4K
 
