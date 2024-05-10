@@ -16,11 +16,9 @@ radxa@rock-5itx:~$ rsetup
 
 - 通过[设备树配置](../os-config/rsetup#overlays)来启用瑞莎 4K 摄像头的 Overlay。
 
-:::caution [注意]
-
+:::caution
 1. 请启用 `[] Enable Radxa Camera 4K on CAM1` 项 Overlay。
 2. 在启用成功显示 `[*] Enable Radxa Camera 4K on CAM1` 后退出重启才能使配置生效。
-
 :::
 
 ## 测试 Radxa Camera 4K

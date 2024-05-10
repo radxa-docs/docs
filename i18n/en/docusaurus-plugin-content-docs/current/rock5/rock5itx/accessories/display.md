@@ -10,17 +10,13 @@ sidebar_position: 3
 
 - Open the Kconsole terminal via the Application Launcher in the lower left corner, and run the `rsetup` command:
 
-``bash
+```bash
 radxa@rock-5itx:~$ rsetup
-
 ```
 
 - Pass the [device tree configuration] (../os-config/rsetup#overlays) to enable Overlay for the Rxa 8" touchscreen.
 
-:::caution [Caution]
-
+:::caution
 1. Please enable the `[] Enable Radxa Display 8HD on LCD0` item Overlay. 2.
 2. Quit and reboot after enabling the `[*] Enable Radxa Display 8HD on LCD0` successfully for the configuration to take effect.
-
 :::
-```
