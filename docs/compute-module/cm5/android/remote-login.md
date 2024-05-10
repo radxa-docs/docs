@@ -12,7 +12,7 @@ import Serial from "../../../common/general/\_serial.mdx"
 
 <TabItem value="serial" label="串口登录">
 
-<Serail platform="rk" model="nx5"/>
+<Serial platform="rk" model="nx5"/>
 
 </TabItem>
 

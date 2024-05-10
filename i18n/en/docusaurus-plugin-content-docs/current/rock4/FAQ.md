@@ -18,7 +18,8 @@ For old systems, if you do not migrate to the latest system, we will provide som
 However, if your system has been pre-installed with `rsetup`, please use the online update method through rsetup mentioned above to upgrade the system. Using a bypass method may cause exceptions during the subsequent online upgrade process!
 :::
 
-<details><summary>The ROCK 4SE old system cannot boot normally on the new hardware version V1.53, and the final output of the serial port is "ERR"</summary>
+<details>
+<summary>The ROCK 4SE old system cannot boot normally on the new hardware version V1.53, and the final output of the serial port is "ERR"</summary>
 
 ### Phenomenon
 
@@ -78,7 +79,8 @@ sudo ./setup.sh update_idbloader ___/dev/sdX_or_/dev/mmcblkX_or_system.img___
 
 </details>
 
-<details><summary>ROCK 4B when using Manjaro-ARM-minimal-rockpi4b-22.06.img.xz may show different total memory available after reboot</summary>
+<details>
+<summary>ROCK 4B when using Manjaro-ARM-minimal-rockpi4b-22.06.img.xz may show different total memory available after reboot</summary>
 
 ### Phenomenon
 

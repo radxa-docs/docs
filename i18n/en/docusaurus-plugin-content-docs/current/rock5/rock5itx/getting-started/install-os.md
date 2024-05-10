@@ -45,8 +45,7 @@ Please go to [Resource Download Summary](../getting-started/download) for more m
         <TabItem value="Linux">
             <p>If the operation is normal, `rkdeveloptool ld` will prompt to enter MASKROM mode:</p>
             <pre><code>PC:~$ sudo rkdeveloptool ld
-        DevNo=1 Vid=0x2207,Pid=0x350b,LocationID=109 Maskrom
-        </code></pre>
+        DevNo=1 Vid=0x2207,Pid=0x350b,LocationID=109 Maskrom</code></pre>
         </TabItem>
         </Tabs>
         <p>In Maskrom mode, you can use <a href="rkdevtool">rkdevtool</a> or <a href="upgrade-tool">upgrade-tool</a> to erase, wire-flush, etc. your product. </p>

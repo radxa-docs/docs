@@ -97,11 +97,12 @@ To ensure proper operation of your operating system, do not change your system's
 ## RadxaOS Testing Repository
 
 <Tabs queryString="test-repo">
-  <TabItem value="enable" label="Enable">
+
+<TabItem value="enable" label="Enable">
 
 :::warning
 The software inside the testing repository is not verified, please use it with caution.
-:::.
+:::
 
 Please run the following command to use the RadxaOS test repository:
 
@@ -115,10 +116,10 @@ echo "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg]" \
      "https://radxa-repo.github.io/$VERSION_CODENAME-test $VENDOR-$VERSION_CODENAME-test main" | \
      sudo tee "/etc/apt/sources.list.d/radxa-$VENDOR.list"
 sudo apt-get update
-```
+``` 
+</TabItem>
 
-  </TabItem>
-  <TabItem value="disable" label="Disable">
+<TabItem value="disable" label="Disable">
 
 ```bash
 VENDOR="$(tr $"\0" $"\n" < /proc/device-tree/compatible | tail -n 1 | cut -d "," -f 1)"
@@ -131,8 +132,8 @@ echo "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg]" \
      sudo tee "/etc/apt/sources.list.d/radxa-$VENDOR.list"
 sudo apt-get update
 ```
+</TabItem>
 
-  </TabItem>
 </Tabs>
 
 ## China Repository Mirror
@@ -152,8 +153,7 @@ This mirror is provided by [aghost](mailto:ggg17226@gmail.com).
 sudo sed -i "s|https://radxa-repo.github.io|https://radxa-apt.aghost.cn|g" /etc/apt/sources.list.d/radxa*.list
 sudo apt-get update
 ```
-
-  </TabItem>
+</TabItem>
   <TabItem value="chenjaly">
 
 This mirror is provided by [chenjaly](mailto:2540735020@qq.com).
@@ -162,8 +162,7 @@ This mirror is provided by [chenjaly](mailto:2540735020@qq.com).
 sudo sed -i "s|https://radxa-repo.github.io|http://apt.chenjaly.cn|g" /etc/apt/sources.list.d/radxa*.list
 sudo apt-get update
 ```
-
-  </TabItem>
+</TabItem>
   <TabItem value="LZUOSS">
 
 This mirror is provided by [LZUOSS](https://mirrors.lzu.edu.cn).
