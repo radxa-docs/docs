@@ -136,7 +136,7 @@ sidebar_position: 5
   </tr>
   <tr>
     <th>存储</th>
-    <th>板载 32GB eMMC</th>
+    <th>板载 8GB eMMC</th>
   </tr>
   <tr>
     <th>硬件编解码</th>

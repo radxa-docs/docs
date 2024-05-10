@@ -136,7 +136,7 @@ sidebar_position: 5
   </tr>
   <tr>
     <td>Storage</td>
-    <td>Onboard 32GB eMMC</td>
+    <td>Onboard 8GB eMMC</td>
   </tr>
   <tr>
     <td>Hardware Codec</td>
