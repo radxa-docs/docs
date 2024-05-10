@@ -10,14 +10,13 @@ sidebar_position: 4
 
 - Open the Kconsole terminal via the Application Launcher in the lower left corner and run the `rsetup` command:
 
-Command
+```bash
 radxa@rock-5itx:~$ rsetup
-
-````
+```
 
 - Pass the [Device Tree Configuration](../os-config/rsetup#overlays) to enable overlay for the Rxa 4K camera.
 
-Attention.
+:::caution
 
 1. enable the `[] Enable Radxa Camera 4K ` item overlay on CAM1.
 2. Quit and reboot after enabling successfully displaying `[*] Enable Radxa Camera 4K on CAM1` for the configuration to take effect.
@@ -30,7 +29,7 @@ You can also open the camera preview using the terminal command:
 
 ```bash
 gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
-````
+```
 
 Take a picture using the following command:
 

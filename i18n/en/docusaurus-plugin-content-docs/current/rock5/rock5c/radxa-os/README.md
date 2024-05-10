@@ -1,9 +1,31 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Radxa OS
+import Serial from "../../../common/general/\_serial.mdx"
 
-Introduces system login, network connection, etc to let user to be familiar with the system quickly.
+# Radxa System
 
-<!-- <DocCardList /> -->
+Mainly introduces the basic usage of the Radxa OS system, and helps you to quickly understand the configuration of commonly used systems.
+
+## [Autologin](/rock5/rock5c/radxa-os/autologin)
+
+## [Backup system](/rock5/rock5c/radxa-os/backup)
+
+## [Display Settings](/rock5/rock5c/radxa-os/display)
+
+## [Screenless Mode](/rock5/rock5c/radxa-os/headless)
+
+## [Multimedia](/rock5/rock5c/radxa-os/media)
+
+## [Applications](/rock5/rock5c/radxa-os/software)
+
+## [USB Network](/rock5/rock5c/radxa-os/usbnet)
+
+## [User Management](/rock5/rock5c/radxa-os/user)
+
+## [Online update](/rock5/rock5c/radxa-os/using-apt)
+
+## Serial login
+
+<Serial platform="rk" />
