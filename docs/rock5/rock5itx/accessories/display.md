@@ -16,7 +16,7 @@ radxa@rock-5itx:~$ rsetup
 
 - 通过[设备树配置](../os-config/rsetup#overlays)来启用瑞莎 8 寸触摸屏的 Overlay。
 
-:::caution [注意]
+:::caution
 
 1. 请启用 `[] Enable Radxa Display 8HD on LCD0` 项 Overlay。
 2. 在启用成功显示 `[*] Enable Radxa Display 8HD on LCD0` 后退出重启才能使配置生效。

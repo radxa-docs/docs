@@ -29,7 +29,7 @@ sidebar_position: 5
     <th>17</th>
     <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#poe">POE 接口</a></th>
     <th>25</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-m-key">PCIE M KEY</a></th>
+    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-m-key">PCIE M-KEY</a></th>
   </tr>
   <tr>
     <th>2</th>
@@ -39,7 +39,7 @@ sidebar_position: 5
     <th>18</th>
     <th>ATX 电源接口</th>
     <th>26</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-e-key">PCIE E KEY</a></th>
+    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-e-key">PCIE E-KEY</a></th>
   </tr>
   <tr>
     <th>3</th>
@@ -53,7 +53,7 @@ sidebar_position: 5
   </tr>
   <tr>
     <th>4</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">Miscro SD</a></th>
+    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">MicroSD</a></th>
     <th>12</th>
     <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#以太网--usb-20-12">以太网 + USB 2.0</a></th>
     <th>20</th>
@@ -87,7 +87,7 @@ sidebar_position: 5
     <th>15</th>
     <th>全功能 Type C</th>
     <th>23</th>
-    <th>MASK ROM 按键</th>
+    <th>MASKROM 按键</th>
     <th></th>
     <th></th>
   </tr>
@@ -136,7 +136,7 @@ sidebar_position: 5
   </tr>
   <tr>
     <th>存储</th>
-    <th>板载 32GB eMMC</th>
+    <th>板载 8GB eMMC</th>
   </tr>
   <tr>
     <th>硬件编解码</th>
