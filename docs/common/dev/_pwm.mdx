@@ -1,0 +1,88 @@
+import { PreView } from "@site/src/utils/docs";
+
+PWM 简介
+
+脉宽调制（PWM）是一种调制技术，可产生可变宽度的脉冲来表示模拟输入信号的幅度。
+对于高振幅信号，输出开关晶体管更多时间处于导通状态，而对于低振幅信号，输出开关晶体管更多时间处于关断状态。
+
+### 准备
+
+<ul>
+    <li>一块 {props.model}</li>
+    <li>一个 LED 灯</li>
+</ul>
+
+### 开启 Overlay
+
+<p>请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 PWM 相关 Overlay, eg: "Enable {props.pwm_name}"。</p>
+
+### 连接
+
+<p>如图所示，连接 {props.product_name} 的 {props.pwm_pin}</p>
+
+<img src={props.pwm_connection} alt="pwm connection" style={{ width: "80%" }} />
+
+### 测试
+
+- 打开终端，在终端中输入以下命令安装 python3-periphery 的 Python 库
+
+```
+sudo apt-get install python3-periphery
+```
+
+- 新建一个名为 Pwm_led_test.py 的 Python 文件，并将以下代码粘贴到文件中：
+
+<details>
+    <summary>Pwm_led_test.py</summary>
+
+    <code>
+        \#!/usr/bin/env python3
+        \# -*- encoding: utf-8 -*-
+
+        from periphery import PWM
+        import time
+
+        step = 0.05
+        Range = int(1/0.05)
+
+        pwmchip = int(input("pwmchip:"))
+        channel = int(input("channel:"))
+
+        pwm = PWM(pwmchip, channel)
+
+        try:
+            pwm.frequency = 1e3
+            pwm.duty_cycle = 0.00
+            pwm.enable()
+
+            while True:
+                for i in range(0,Range):
+                    time.sleep(step)
+                    pwm.duty_cycle = round(pwm.duty_cycle+step,2)
+
+                if pwm.duty_cycle == 1.5:
+                    time.sleep(1.5)
+                for i in range(0,Range):
+                    time.sleep(step)
+                    pwm.duty_cycle = round(pwm.duty_cycle-step,2)
+        except:
+            print("Error !\n")
+
+        finally:
+            pwm.duty_cycle = 1.0
+            pwm.close()
+    </code>
+
+</details>
+
+- 在终端中，执行以下命令进行测试
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo python3 Pwm_led_test.py
+  pwmchip:0
+  channel:0
+  `}
+</PreView>
+
+执行完以上命令后， Led 会有一个渐变的效果（由暗到亮，由亮到暗）。

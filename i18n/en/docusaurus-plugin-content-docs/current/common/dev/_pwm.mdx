@@ -1,0 +1,88 @@
+import { PreView } from "@site/src/utils/docs";
+
+PWM Introduction
+
+Pulse Width Modulation (PWM) is a modulation technique that produces variable width pulses to represent the amplitude of an analog input signal.
+For high amplitude signals, the output switching transistor is on more of the time, while for low amplitude signals, the output switching transistor is off more of the time.
+
+### Preparations
+
+<ul>
+    <li>One {props.model}</li>
+    <li>One LED</li>
+</ul>
+
+### Enable Overlay
+
+<p>Please refer to<a href="../os-config/rsetup#overlays">the device tree configuration </a> to enable PWM-related Overlay. eg: "Enable {props.pwm_name}".</p>
+
+### Connection
+
+<p>As shown in the picture，connect {props.product_name}'s {props.pwm_pin}</p>
+
+<img src={props.pwm_connection} alt="pwm connection" style={{ width: "80%" }} />
+
+### Test
+
+-  Open a terminal and install the Python library for python3-periphery by typing the following command in the terminal
+
+```
+sudo apt-get install python3-periphery
+```
+
+- Create a new Python file called Pwm_led_test.py and paste the following code into the file:
+
+<details>
+    <summary>Pwm_led_test.py</summary>
+
+    <code>
+        \#!/usr/bin/env python3
+        \# -*- encoding: utf-8 -*-
+
+        from periphery import PWM
+        import time
+
+        step = 0.05
+        Range = int(1/0.05)
+
+        pwmchip = int(input("pwmchip:"))
+        channel = int(input("channel:"))
+
+        pwm = PWM(pwmchip, channel)
+
+        try:
+            pwm.frequency = 1e3
+            pwm.duty_cycle = 0.00
+            pwm.enable()
+
+            while True:
+                for i in range(0,Range):
+                    time.sleep(step)
+                    pwm.duty_cycle = round(pwm.duty_cycle+step,2)
+
+                if pwm.duty_cycle == 1.5:
+                    time.sleep(1.5)
+                for i in range(0,Range):
+                    time.sleep(step)
+                    pwm.duty_cycle = round(pwm.duty_cycle-step,2)
+        except:
+            print("Error !\n")
+
+        finally:
+            pwm.duty_cycle = 1.0
+            pwm.close()
+    </code>
+
+</details>
+
+- In a terminal, execute the following command to test
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo python3 Pwm_led_test.py
+  pwmchip:0
+  channel:0
+  `}
+</PreView>
+
+After executing the above commands, Led will have a gradient effect (dark to light, light to dark).
