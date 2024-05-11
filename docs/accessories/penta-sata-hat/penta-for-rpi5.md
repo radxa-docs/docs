@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Raspberry Pi 5 使用 Penta
+# 树莓派 5 使用 Penta SATA 扩展板
 
 Raspberry Pi 5 有一个 PCIe 接口，它可以很好地和 Radxa Penta SATA HAT 一起工作。
 

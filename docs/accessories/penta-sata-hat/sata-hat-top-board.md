@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Penta SATA HAT top board
+# 瑞莎 Penta SATA HAT TOP 板
 
 Radxa Penta SATA HAT 有一个 2x5 的座子，座子的信号如下：
 

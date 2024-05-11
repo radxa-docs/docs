@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Radxa Penta SATA HAT
+# 瑞莎 Penta SATA 扩展板
 
 Radxa ROCK Penta SATA HAT 是为 ROCK 系列设计的附加 HAT。 它利用 ROCK 系列上的高速 PCIe 总线，提供基于 ROCK 系列的完整 NAS 解决方案。
 

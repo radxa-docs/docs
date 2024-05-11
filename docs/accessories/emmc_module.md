@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# eMMC 模块
+# 瑞莎 eMMC 模块
 
-Radxa eMMC模块采用eMMC 5.1规范，提供四种容量选择： 16g / 32g / 64g / 128g。同时，你可以选择支持工业级长寿命的型号。此外，该模块支持JEDEC的标准eMMC命令集，并为高速读写而设计，使数据传输更快。
+Radxa eMMC 模块采用eMMC 5.1规范，提供四种容量选择： 16g / 32g / 64g / 128g。同时，你可以选择支持工业级长寿命的型号。此外，该模块支持JEDEC的标准eMMC命令集，并为高速读写而设计，使数据传输更快。
 
 ![eMMC Module](/img/accessories/emmc-module.webp)
 

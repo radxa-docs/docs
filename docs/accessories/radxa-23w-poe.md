@@ -2,7 +2,7 @@
 sidebar_position: 33
 ---
 
-# Radxa 23W PoE HAT
+# 瑞莎 23W 供电模块
 
 ![Radxa 23W PoE HAT](/img/accessories/poe-hat/23w-poe.webp)
 

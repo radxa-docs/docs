@@ -1,0 +1,1 @@
+../../../accessories/heatsink-8418b.md

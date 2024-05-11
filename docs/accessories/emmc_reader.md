@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Radxa eMMC Reader
+# 瑞莎 eMMC 读写器
 
 Radxa eMMC USB3读卡器是一款真正具有USB3.0性能的eMMC读卡器。基于GL3227E芯片设计。GL3227E是一个USB 3.1 Gen1 eMMC控制器，它提供单一的LUN（逻辑单元编号），可以支持eMMC v5.0、1/4/8bit数据总线、高速SDR /高速DDR / HS200 / HS400模式。
 

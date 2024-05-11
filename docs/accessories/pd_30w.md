@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Radxa Power PD 30W
+# Radxa PD 30W 电源适配器
 
 Radxa Power PD 30W 是专为 Radxa 的 SBC 产品设计的适配器。 它可以在 5V 时提供高达 5A 的电流，以满足 Radxa SBC 连接多个外围设备的电源要求。 对于支持 PD/QC 协议的 SBC，它可以在 12V/2.5A 下提供总共 30W 的功率。 兼容所有 Radxa SBC。
 

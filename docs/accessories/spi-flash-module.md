@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Radxa SPI Flash Module
+# 瑞莎 SPI Flash 模块
 
 Radxa SPI Flash模块是一种闪存模块，具有可拆卸的极小外形。 它具有双板对板连接器，无需焊接即可轻松更换。 Radxa SPI Flash Module 的主要功能是在未预装 SPI Flash 的 Radxa 产品中启用 NVMe SSD、U 盘、硬盘和其他类似存储设备的启动。
 

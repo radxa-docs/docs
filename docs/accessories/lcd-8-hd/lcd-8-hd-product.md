@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Radxa Display 8 HD
+# 瑞莎 8 寸高清触摸屏
 
 ![Radxa Display 8 HD](/img/accessories/display-8-hd.webp)
 
