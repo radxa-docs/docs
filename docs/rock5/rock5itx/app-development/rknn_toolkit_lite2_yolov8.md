@@ -6,4 +6,4 @@ sidebar_position: 11
 
 import RKNNTOOLKITLITE2YOLOV8 from '../../../common/dev/\_rknn-toolkit-lite2-yolov8.mdx';
 
-< RKNNTOOLKITLITE2YOLOV8 />
+<RKNNTOOLKITLITE2YOLOV8 />
