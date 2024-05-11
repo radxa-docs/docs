@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# Heatsink 4012 for ROCK 5B
+# 瑞莎 Heatsink 4012
 
-Radxa Heatsink 4012是一款用于ROCK 5B的散热器，长40mm，宽40mm，高12mm。
+瑞莎 Heatsink 4012是一款用于 ROCK 5B / ROCK 3B 的散热器，长40mm，宽40mm，高12mm。
 ![Heatsink 4012](/img/accessories/heatsink-4012-1.webp)
 
 ## 物理规格

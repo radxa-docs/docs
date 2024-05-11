@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Radxa Camera 4K
+# 瑞莎 4K 摄像头
 
 ![Radxa Camera 4K](/img/accessories/camera-4k.webp)
 

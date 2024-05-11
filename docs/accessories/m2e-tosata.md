@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Radxa M.2 E key to SATA Breakout Board
+# 瑞莎 M.2 E 型转 SATA 板
 
 M.2 E key to SATA Breakout Board 是扩展嵌入式系统存储容量的解决方案。
 

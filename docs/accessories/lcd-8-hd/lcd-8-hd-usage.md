@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Radxa Display 8 HD 使用教程
+# 瑞莎 8 寸高清触摸屏
 
 ## 概述
 

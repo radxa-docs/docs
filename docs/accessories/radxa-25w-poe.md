@@ -2,7 +2,7 @@
 sidebar_position: 34
 ---
 
-# Radxa 25W PoE HAT
+# 瑞莎 25W 供电模块
 
 Radxa 25W PoE HAT 可以为与之兼容的 Radxa SBC 添加通过以太网供电启动的能力。
 

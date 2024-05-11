@@ -2,7 +2,7 @@
 sidebar_position: 81
 ---
 
-# Radxa CM3S IO Board
+# 瑞莎 CM3S IO 接口板
 
 # 介绍
 

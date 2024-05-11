@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Radxa M.2 M key to SATA Breakout Board
+# 瑞莎 M.2 M 型转 SATA 板
 
 Radxa M.2 M key to SATA Breakout Board 是一个硬件模块，可以让用户将计算机主板上的 M.2 M key 接口转换为 SATA 接口，从而连接 SATA 存储设备。 该模块采用紧凑型设计，可轻松安装在 M.2 插槽中，是想要为系统添加额外存储空间的用户的理想解决方案。
 

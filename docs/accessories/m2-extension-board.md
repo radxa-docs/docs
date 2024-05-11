@@ -2,7 +2,7 @@
 sidebar_position: 20
 ---
 
-# Radxa M.2 Extension Board
+# 瑞莎 M.2 2280 扩展板
 
 Radxa M.2 扩展板是用于扩展嵌入式系统存储容量的解决方案。
 
