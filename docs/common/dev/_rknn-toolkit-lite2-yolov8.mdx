@@ -4,14 +4,14 @@
 
 此示例用 [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) 中预训练好的 ONNX 格式模型为例子通过模型转换到板端推理做完整示例，此示例目标平台为 rk3588。
 
-**本文已提供预转换好的 yolov8.rknn 模型，用户可直接参考[板端推理 YOLOv8 ](#板端推理-yolov8)跳过 PC 端模型转换章节**
-
 利用 rknn 部署YOLOv8 需要两个步骤
 
 - PC 端利用 rknn-toolkit2 将不同框架下的模型转换成 rknn 格式模型
 - 板端利用 rknn-toolkit2-lite 的 Python API 板端推理模型
 
 ### PC端模型转换
+
+**本文已提供预转换好的 yolov8.rknn 模型，用户可直接参考[板端推理 YOLOv8 ](#板端推理-yolov8)跳过 PC 端模型转换章节**
 
 - 如使用 conda 请先激活 rknn conda 环境
 
@@ -58,15 +58,17 @@
 
   如您使用的是 CLI 版本可访问 rknn-model-zoo-rk3588 [deb 包下载地址](https://github.com/radxa-pkg/rknn_model_zoo/releases/tag/1.6.0-1)
 
-- 将 PC 端拷贝过来的 yolov8n.rknn 放入 /usr/share/rknn_model_zoo/examples/yolov8/model 目录，运行 yolov8.py 程序
+- 运行 yolov8 示例子代码
+
+  如你使用的是自己转换的模型需从 PC端拷贝到板端的 `/usr/share/rknn_model_zoo/examples/yolov8/model` 目录
 
   ```bash
   cd /usr/share/rknn_model_zoo/examples/yolov8/python
-  sudo python3 yolov8.py --model_path ../model/yolov8n.rknn --img_save
+  sudo python3 yolov8.py --model_path ../model/yolov8.rknn --img_save
   ```
 
   ```bash
-  $ sudo python3 yolov8.py --model_path ../model/yolov8n.rknn --img_save
+  $ sudo python3 yolov8.py --model_path ../model/yolov8.rknn --img_save
   import rknn failed,try to import rknnlite
   --> Init runtime environment
   I RKNN: [09:01:01.819] RKNN Runtime Information, librknnrt version: 1.6.0 (9a7b5d24c@2023-12-13T17:31:11)
@@ -76,7 +78,7 @@
   W RKNN: [09:01:01.836] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
   W Query dynamic range failed. Ret code: RKNN_ERR_MODEL_INVALID. (If it is a static shape RKNN model, please ignore the above warning message.)
   done
-  Model-../model/yolov8n.rknn is rknn model, starting val
+  Model-../model/yolov8.rknn is rknn model, starting val
   infer 1/1
 
   IMG: bus.jpg

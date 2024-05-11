@@ -4,14 +4,14 @@ This document demonstrates how to perform edge device inference of YOLOv8 object
 
 In this case we would use a pretrained yolov8n ONNX format model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as an example, we'll convert it for edge device inference target RK3588 and provide a complete example.
 
-**The pre-converted yolov8.rknn model has been provided in this document, users can directly refer to [Inference YOLOv8 on the Board](#inference-yolov8-on-the-board) to skip the PC-side Model Conversion section**
-
 Deploy YOLOv8 with RKNN involves two steps:
 
 - Model conversion from different frameworks to rknn format models using rknn-toolkit2 on the PC side.
 - Edge device inference with RKNN using the Python API of rknn-toolkit2-lite.
 
 ### PC-side Model Conversion
+
+**The pre-converted yolov8.rknn model has been provided in this document, users can directly refer to [Inference YOLOv8 on the Board](#inference-yolov8-on-the-board) to skip the PC-side Model Conversion section**
 
 - Activate the rknn conda environment (if using conda).
 
@@ -58,15 +58,17 @@ Deploy YOLOv8 with RKNN involves two steps:
 
   If you are using the CLI version, you can access the rknn-model-zoo-rk3588 [deb package download link](https://github.com/radxa-pkg/rknn_model_zoo/releases/tag/1.6.0-1).
 
-- Copy the yolov8n.rknn model from the PC to the /usr/share/rknn_model_zoo/examples/yolov8/model directory on the edge device and run the yolov8.py program.
+- Run the yolov8 example program
+
+  If you are using your own converted model you need to copy it from the PC to the `/usr/share/rknn_model_zoo/examples/yolov8/model` directory on the board.
 
   ```bash
   cd /usr/share/rknn_model_zoo/examples/yolov8/python
-  sudo python3 yolov8.py --model_path ../model/yolov8n.rknn --img_save
+  sudo python3 yolov8.py --model_path ../model/yolov8.rknn --img_save
   ```
 
   ```bash
-  $ sudo python3 yolov8.py --model_path ../model/yolov8n.rknn --img_save
+  $ sudo python3 yolov8.py --model_path ../model/yolov8.rknn --img_save
   import rknn failed,try to import rknnlite
   --> Init runtime environment
   I RKNN: [09:01:01.819] RKNN Runtime Information, librknnrt version: 1.6.0 (9a7b5d24c@2023-12-13T17:31:11)
@@ -76,7 +78,7 @@ Deploy YOLOv8 with RKNN involves two steps:
   W RKNN: [09:01:01.836] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
   W Query dynamic range failed. Ret code: RKNN_ERR_MODEL_INVALID. (If it is a static shape RKNN model, please ignore the above warning message.)
   done
-  Model-../model/yolov8n.rknn is rknn model, starting val
+  Model-../model/yolov8.rknn is rknn model, starting val
   infer 1/1
 
   IMG: bus.jpg
