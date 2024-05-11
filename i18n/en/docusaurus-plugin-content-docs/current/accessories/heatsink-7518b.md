@@ -36,4 +36,3 @@ The Radxa Heatsink 8418B is a Cooler for the ROCK 5 ITX.
 ![Heatsink 8418B](/img/accessories/heatsink_7518b_03.webp)
 
 - Finally, tighten the screws in diagonal order to secure the heat sink, which can effectively prevent damage to the ROCK 5 ITX motherboard during the fixing process.
-
