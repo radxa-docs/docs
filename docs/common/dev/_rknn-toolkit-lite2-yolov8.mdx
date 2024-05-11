@@ -2,7 +2,9 @@
 本文档旨在演示如何在 rk3588 上运行板端推理 YOLOv8 目标检测模型，所需环境配置请参考[ RKNN 安装](./rknn_install)
 :::
 
-此示例用 [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) 中预训练好的 ONNX 格式模型为例子通过模型转换到板端推理做完整示例，此示例目标平台为 rk3588
+此示例用 [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) 中预训练好的 ONNX 格式模型为例子通过模型转换到板端推理做完整示例，此示例目标平台为 rk3588。
+
+**本文已提供预转换好的 yolov8.rknn 模型，用户可直接参考[板端推理 YOLOv8 ](#板端推理-yolov8)跳过 PC 端模型转换章节**
 
 利用 rknn 部署YOLOv8 需要两个步骤
 

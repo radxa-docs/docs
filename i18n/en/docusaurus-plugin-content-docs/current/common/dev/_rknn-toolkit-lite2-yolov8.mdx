@@ -4,6 +4,8 @@ This document demonstrates how to perform edge device inference of YOLOv8 object
 
 In this case we would use a pretrained yolov8n ONNX format model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as an example, we'll convert it for edge device inference target RK3588 and provide a complete example.
 
+**The pre-converted yolov8.rknn model has been provided in this document, users can directly refer to [Inference YOLOv8 on the Board](#inference-yolov8-on-the-board) to skip the PC-side Model Conversion section**
+
 Deploy YOLOv8 with RKNN involves two steps:
 
 - Model conversion from different frameworks to rknn format models using rknn-toolkit2 on the PC side.
