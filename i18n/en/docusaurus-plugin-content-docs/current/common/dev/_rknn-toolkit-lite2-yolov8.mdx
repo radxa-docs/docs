@@ -11,7 +11,7 @@ Deploy YOLOv8 with RKNN involves two steps:
 
 ### PC-side Model Conversion
 
-**The pre-converted yolov8.rknn model has been provided in this document, users can directly refer to [Inference YOLOv8 on the Board](#inference-yolov8-on-the-board) to skip the PC-side Model Conversion section**
+**Radxa has provided pre-converted `yolov8.rknn` models, users can directly refer to [Inference YOLOv8 on the Board](#inference-yolov8-on-the-board) to skip the PC-side Model Conversion section**
 
 - Activate the rknn conda environment (if using conda).
 
@@ -60,7 +60,7 @@ Deploy YOLOv8 with RKNN involves two steps:
 
 - Run the yolov8 example program
 
-  If you are using your own converted model you need to copy it from the PC to the `/usr/share/rknn_model_zoo/examples/yolov8/model` directory on the board.
+  If you are using your own converted model you need to copy it from the PC to the board, and specify the model path with the --model_path parameter.
 
   ```bash
   cd /usr/share/rknn_model_zoo/examples/yolov8/python
