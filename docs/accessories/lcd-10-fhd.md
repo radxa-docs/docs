@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 瑞莎 10 全高清触摸屏
+# 瑞莎 10 寸全高清触摸屏
 
 ![Radxa Display 10 FHD](/img/accessories/display-10-fhd.webp)
 
