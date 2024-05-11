@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Camera
+# 摄像头
 
 <img src="/img/rock5itx/rock5itx-cam1.webp" alt="rock5itx cam1 connection" width="300" />
 

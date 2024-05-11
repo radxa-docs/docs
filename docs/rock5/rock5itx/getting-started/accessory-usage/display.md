@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Display
+# 显示屏
 
 <img src="/img/rock5itx/rock5itx-lcd0.webp" alt="rock5itx lcd0" width="700" />
 
@@ -14,7 +14,7 @@ sidebar_position: 3
 radxa@rock-5itx:~$ rsetup
 ```
 
-- 通过[设备树配置](../os-config/rsetup#overlays)来启用瑞莎 8 寸触摸屏的 Overlay。
+- 通过[设备树配置](../../os-config/rsetup#overlays)来启用瑞莎 8 寸触摸屏的 Overlay。
 
 :::caution
 
