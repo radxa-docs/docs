@@ -17,22 +17,19 @@ sidebar_position: 5
 - [v1.4 SMD pdf](https://dl.radxa.com/zero/docs/hw/radxa_zero_v1400_smd.pdf) - Download Points Chart for Radxa ZERO v1.4
 - [2D dxf for top and bottom](https://dl.radxa.com/zero/docs/hw/radxa_zero_v1400_2d.zip) - Download 2D CAD file for Radxa ZERO v1.4
 
-Corrected footprint for TYPE-C connectors
-Reduced footprint of ESD0402
-Separated 1L2 and 1L4 to reduce the possibility of circuit shorting
-Replaced FUSB340 with CH482
-Power LED can now be controlled by GPIOAO_8
-Therefore, pin 35 (GPIOAO_8) is not connected to the 40-pin header
+- Corrected footprint for TYPE-C connectors
+- Reduced footprint of ESD0402
+- Separated 1L2 and 1L4 to reduce the possibility of circuit shorting
+- Replaced FUSB340 with CH482
+- Power LED can now be controlled by GPIOAO_8, therefore pin 35 (GPIOAO_8) is not connected to the 40-pin header
 
 ### 1.5 (Fine tune)
 
-Switch to other USB configuration channel controllers due to chip shortage
+- Switch to other USB configuration channel controllers due to chip shortage
 
 ### 1.51 (Fine tune)
 
-Power LED can now be controlled by GPIOAO_10
-Therefore, pin 35 (GPIOAO_8) is now connected to the 40-pin header
-Pin 38 (GPIOAO_10) is now not connected to the 40-pin header
+- Power LED can now be controlled by GPIOAO_10, therefore pin 35 (GPIOAO_8) is now connected to the 40-pin header, pin 38 (GPIOAO_10) is now not connected to the 40-pin header
 
 ## Flash Tools
 
