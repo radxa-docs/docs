@@ -6,7 +6,7 @@ sidebar_position: 6
 
 瑞莎 8418B 散热器是一款用于 ROCK 5 ITX 的散热器。
 
-![Heatsink 8418B](/img/accessories/heatsink_7518b.webp)
+![Heatsink 8418B](/img/accessories/heatsink_8418b.webp)
 
 ## 物理规格
 
@@ -21,7 +21,7 @@ sidebar_position: 6
 
 ## 配件清单
 
-![Heatsink 8418B](/img/accessories/heatsink_7518b_package.webp)
+![Heatsink 8418B](/img/accessories/heatsink_8418b_package.webp)
 
 ## 安装说明
 
@@ -29,12 +29,12 @@ sidebar_position: 6
 
 **请注意风扇接口，有防呆设计**
 
-![Heatsink 8418B](/img/accessories/heatsink_7518b_01.webp)
+![Heatsink 8418B](/img/accessories/heatsink_8418b_01.webp)
 
 - 接下来，将扣具精准地对准ROCK 5 ITX主板背面的四个孔位，确保安装无误。
 
-![Heatsink 8418B](/img/accessories/heatsink_7518b_02.webp)
+![Heatsink 8418B](/img/accessories/heatsink_8418b_02.webp)
 
-![Heatsink 8418B](/img/accessories/heatsink_7518b_03.webp)
+![Heatsink 8418B](/img/accessories/heatsink_8418b_03.webp)
 
 - 最后，请按照**对角线的顺序拧紧螺丝**以固定散热器，这样可以有效防止在固定过程中损坏ROCK 5 ITX主板。
