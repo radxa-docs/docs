@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# RTC 电池
+# 2-Pin RTC 电池
 
 大部分的瑞莎单板机都支持板载 RTC (实时时钟)功能，RTC 关机保存时间需要外接 RTC 电池。瑞莎单板机的外接 RTC 电池规格如下:
 
