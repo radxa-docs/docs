@@ -25,5 +25,3 @@ No, as the 3 pins (94/96/98) (USB_5V_IN) of the current CM3 + Radxa CM3 IO board
    - Not support 3.5mm headphone audio, external CODEC is needed
    - Not support EDP: 15/17/21/23/27/29/33/35 pin, CM3 supports EDP, while CM5 is TYPE C
    - USB2_HOST3 not supported: 69/71 PIN CM3 is USB, while CM5 is I2C
-
-

@@ -27,11 +27,11 @@ The motherboard is equipped with a DC interface (outer diameter 5.5mm, inner dia
 
 The adapter power selection depends on the peripherals that need to be connected. ROCK 5 ITX motherboard supports directly powering 2.5/3.5-inch solid-state or mechanical hard drives. The typical power consumption of hard drives is as follows:
 
-| Hard Drive Type        |	Power Consumption |
-| ---------------------- | ------------------ |
-| SSD Solid State        |	less than 3W      |
-| 2.5-inch HDD	         |  3-5W              |
-| 3.5-inch HDD	         |  5-10W             |
+| Hard Drive Type | Power Consumption |
+| --------------- | ----------------- |
+| SSD Solid State | less than 3W      |
+| 2.5-inch HDD    | 3-5W              |
+| 3.5-inch HDD    | 5-10W             |
 
 Based on the type and number of external hard drives, choose an appropriate adapter. For example, if you are connecting 4 x 3.5-inch mechanical hard drives and powering them from the motherboard, you need to consider a 65W adapter for the motherboard's maximum load of 25W + 4 x 10W = 65W. You will need an adapter of at least 12V/5.5A.
 
@@ -43,6 +43,6 @@ PC case power supplies usually provide higher power, sufficient to meet the requ
 
 ROCK 5 ITX is equipped with dual 2.5G Ethernet interfaces, supporting PoE power supply. To use PoE power supply, you need to install the following module:
 
-## **Radxa 25W PoE+ Module
+## \*\*Radxa 25W PoE+ Module
 
 For instructions on using and installing this module, please refer to the accessory's [Radxa 25W PoE+ Module]. This module provides a maximum power of 25W, which is sufficient to support basic system requirements. It is not recommended to use the Radxa 25W PoE+ module to power high-power 3.5-inch mechanical hard drives.

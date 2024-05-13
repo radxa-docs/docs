@@ -65,7 +65,7 @@ Connect the ROCK 5 ITX via FPC cable as shown in the picture:
 
 ### Enabling Overlay
 
-- Open the Kconsole terminal via the Application Launcher in the lower left corner, and run the ``rsetup`` command:
+- Open the Kconsole terminal via the Application Launcher in the lower left corner, and run the `rsetup` command:
 
 ```bash
 radxa@rock-5itx:~$ rsetup

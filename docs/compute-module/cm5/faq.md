@@ -13,7 +13,7 @@ sidebar_position: 20
 
 1. 首先确认下当前 **CM3 + 底板**的硬件设计上，CM3的3个PIN(下图中2指向的位置) 94/96/98 (USB_5V_IN) 是否连接到 5V 上了，如果接到5V上，那就**不能替换**为CM5，
    否则会烧板子
-![cm3 vs cm5](/img/cm5/radxa_cm3_vs_cm5.webp)
+   ![cm3 vs cm5](/img/cm5/radxa_cm3_vs_cm5.webp)
 
 2. 如果上面1中提到的3个PIN没有连接5V，那么把CM3 替换成 CM5，更换之后，会有以下功能变化.
 
