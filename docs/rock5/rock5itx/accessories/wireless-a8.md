@@ -1,1 +1,0 @@
-../../../accessories/wireless-a8.md
