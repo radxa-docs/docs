@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 # 瑞莎 10 寸全高清触摸屏
@@ -54,3 +54,32 @@ Radxa Display 10 FHD 支持 10 点触摸，并拥有 10.1 英寸（10:16）显�
 ## 机械规格
 
 ![Radxa Display 10 FHD](/img/accessories/display_10_fhd_01.webp)
+
+## 使用教程
+
+### 连接
+
+通过 FPC 线接上 ROCK 5 ITX，如图所示：
+
+<img src="/img/rock5itx/rock5itx-lcd0.webp" alt="rock5itx lcd0" width="700" />
+
+### 开启 Overlay
+
+- 通过左下角 Application Launcher 打开 Kconsole 终端, 运行 `rsetup` 命令：
+
+```bash
+radxa@rock-5itx:~$ rsetup
+```
+
+- 通过[设备树配置](../../os-config/rsetup#overlays)来启用瑞莎 8 寸触摸屏的 Overlay。
+
+:::tip
+
+1. 请启用 `[] Enable Radxa Display 10FHD on LCD0` 项 Overlay。
+2. 在启用成功显示 `[*] Enable Radxa Display 10FHD on LCD0` 后退出重启才能使配置生效。
+
+:::
+
+### 测试
+
+重启后，瑞莎 10 寸全高清触摸屏能够显示系统画面，且支持触摸。
