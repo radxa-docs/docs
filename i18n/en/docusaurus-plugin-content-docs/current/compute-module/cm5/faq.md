@@ -4,9 +4,14 @@ sidebar_position: 20
 
 # FAQ
 
-### 1. Can we replace Radxa CM3 with Radxa CM5 for hardware upgrade on the baseboard we previously developed based on Radxa CM3?
+### 1. Can Radxa CM5 be used on Radxa CM3 IO board
 
-1. Please confirm whether the 3 pins (94/96/98) (USB_5V_IN) of the current CM3 + baseboard hardware design (**such as Radxa Official CM3 IO board**) are connected to 5V. If so, then cannot replace with CM5, otherwise the board will be damaged (CM3's 3rd connector's 94/96/98 pins are USB_5V_IN, while CM5 is GPIO).
+No, as the 3 pins (94/96/98) (USB_5V_IN) of the current CM3 + Radxa CM3 IO board  are connected to 5V, while CM5 is GPIO.
+![cm3 vs cm5](/img/cm5/radxa_cm3_vs_cm5.webp)
+
+### 2. Can we replace Radxa CM3 with Radxa CM5 for hardware upgrade on the baseboard we previously developed based on Radxa CM3?
+
+1. Please confirm whether the 3 pins (94/96/98) (USB_5V_IN) of the current CM3 + baseboard hardware design are connected to 5V. If so, then cannot replace with CM5, otherwise the board will be damaged (CM3's 3rd connector's 94/96/98 pins are USB_5V_IN, while CM5 is GPIO).
 
 ![cm3 vs cm5](/img/cm5/radxa_cm3_vs_cm5.webp)
 
