@@ -6,4 +6,4 @@ import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
 
 # RKDevTool
 
-<RKDevTool />
+<RKDevTool series="rock5" />
