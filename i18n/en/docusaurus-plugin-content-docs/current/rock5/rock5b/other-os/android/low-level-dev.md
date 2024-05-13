@@ -67,8 +67,8 @@ Repo is a tool for managing multiple Git repositories in Android development. It
 
 ````bash
 
-$ repo init -u git@192.168.2.13:rockchip_android_s/rk3588-manifests.git -b Android12_Radxa_rkr14 -m rockchip-s-local.xml
-$ repo sync -d --no-tags -j4
+$ repo init -u https://github.com/radxa/manifests -b Android12_Radxa_rk14 -m rockchip-s-release.xml
+$ repo sync -d -c -j4
 
 ``
 
