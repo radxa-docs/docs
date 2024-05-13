@@ -4,4 +4,4 @@ sidebar_position: 4
 
 import Rkdeveloptool from "../../../common/dev/\_rkdeveloptool.mdx";
 
-<Rkdeveloptool />
+<Rkdeveloptool series="rock5" />
