@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 1
 ---
 
 # 瑞莎 8 寸高清触摸屏
@@ -92,3 +92,32 @@ GT911 支持最多 5 点并发触控，实时追踪准确位置和运动轨迹�
 ## 物理规格
 
 ![Radxa Display 8 HD](/img/accessories/rock5a-display-8hd-spec.webp)
+
+## 使用教程
+
+### 连接
+
+通过 FPC 线接上 ROCK 5 ITX，如图所示：
+
+<img src="/img/accessories/8hd-connect-fpc.webp" alt="Radxa Display 8 HD"/>
+
+### 开启 Overlay
+
+- 通过左下角 Application Launcher 打开 Kconsole 终端, 运行 `rsetup` 命令：
+
+```bash
+radxa@rock-5itx:~$ rsetup
+```
+
+- 通过[设备树配置](../os-config/rsetup#overlays)来启用瑞莎 4K 摄像头的 Overlay。
+
+:::tip
+
+1. 请启用 `[] Enable Radxa Display 8HD on LCD0` 项 Overlay。
+2. 在启用成功显示 `[*] Enable Radxa Display 8HD on LCD0` 后退出重启才能使配置生效。
+
+:::
+
+### 测试
+
+重启后，瑞莎 8 寸全高清触摸屏能够显示系统画面，且支持触摸。
