@@ -33,7 +33,7 @@ ROCK 5 ITX 带有一个 4-lane 的 CSI 接口。以下是目前支持的摄像�
   </tr>
 </table>
 
-摄像头使用请参见[摄像头使用教程](./accessory-usage/camera)
+摄像头使用请参见[摄像头使用教程](/rock5/rock5itx/getting-started/accessory-usage/camera_4k)
 
 ## 屏幕
 
@@ -58,4 +58,4 @@ ROCK 5 ITX 带有一个 4-lane 的 DSI 接口。以下是目前支持的屏幕�
   </tr>
 </table>
 
-屏幕使用请参见[屏幕使用教程](../accessories/display)
+屏幕使用请参见[屏幕使用教程](/rock5/rock5itx/getting-started/accessory-usage/display)

@@ -13,7 +13,7 @@ ROCK 5 ITX 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以从
 
 在使用 microSD 卡/ eMMC 启动 ROCK 5 ITX 之前，需要擦除 SPI ，步骤如下：
 
-1. 前往 [资源下载汇总](rock5/rock5itx/getting-started/download.md) 下载 Loader 文件到本地
+1. 前往 [资源下载汇总](rock5/rock5itx/getting-started/download) 下载 Loader 文件到本地
 
 2. 设备进入 maskrom 模式，连接到PC端
 
@@ -63,7 +63,7 @@ rkdeveloptool rd
 
 ## 镜像下载
 
-请到 [资源下载汇总](rock5/rock5itx/getting-started/download.md) 下载对应的镜像文件
+请到 [资源下载汇总](rock5/rock5itx/getting-started/download) 下载对应的镜像文件
 
 ## 安装系统
 
@@ -88,7 +88,7 @@ rkdeveloptool rd
 
 ### 镜像下载
 
-请到 [资源下载汇总](rock5/rock5itx/getting-started/download.md) 下载对应的镜像文件
+请到 [资源下载汇总](rock5/rock5itx/getting-started/download) 下载对应的镜像文件
 
 ## 系统安装
 
@@ -140,7 +140,7 @@ rkdeveloptool rd
 
 ## 镜像下载
 
-请到 [资源下载汇总](rock5/rock5itx/getting-started/download.md) 下载对应的镜像文件
+请到 [资源下载汇总](rock5/rock5itx/getting-started/download) 下载对应的镜像文件
 
 ## 系统安装
 
