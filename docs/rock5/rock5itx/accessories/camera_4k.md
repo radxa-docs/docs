@@ -1,1 +1,0 @@
-../../../accessories/camera_4k.md
