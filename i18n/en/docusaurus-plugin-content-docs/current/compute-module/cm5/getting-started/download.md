@@ -33,4 +33,6 @@ sidebar_position: 4
 
 - Android
 
+  Radxa CM5 IO: [radxa-cm5-io-android12_rkr14](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240511/Radxa_CM5_Android12_rkr14_GMS_20240511-gpt.zip)
+
 ## Quality Certification
