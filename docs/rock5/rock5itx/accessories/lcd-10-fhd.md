@@ -1,1 +1,0 @@
-../../../accessories/lcd-10-fhd.md

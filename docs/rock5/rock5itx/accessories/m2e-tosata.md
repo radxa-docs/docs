@@ -1,1 +1,0 @@
-../../../accessories/m2e-tosata.md
