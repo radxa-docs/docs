@@ -10,6 +10,6 @@ sidebar_position: 5
 
 ## 操作系统镜像
 
-[ROCK 5B Android 12](https://github.com/radxa/manifests/releases/tag/Rock-android12-20230315)
+[ROCK 5B Android 12](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240419/Rock5B_Android12_rkr14_20240419-gpt.zip)
 
 ## 质量认证
