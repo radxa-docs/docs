@@ -7,7 +7,7 @@ import NVME from '../../../common/dev/\_nvme.mdx'
 import Rkdeveloptool from "../../../common/dev/\_rkdeveloptool.mdx";
 import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
 
-# 安装操作系统
+# 手动重装系统
 
 ## 准备工作
 
