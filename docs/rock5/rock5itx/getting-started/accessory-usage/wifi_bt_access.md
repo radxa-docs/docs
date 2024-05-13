@@ -45,7 +45,7 @@ nmcli r wifi on
 nmcli dev wifi
 ```
 
-1. 连接wifi网络
+4. 连接wifi网络
 
 ```
 nmcli dev wifi connect "wifi_name" password "wifi_password"
@@ -53,7 +53,7 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 ## 蓝牙使用
 
-- 使用Radxa无线A8模块时，必须添加以下黑名单才能使BT正常工作。
+- 使用 Radxa 无线 A8 模块时，必须添加以下黑名单才能使 BT 正常工作。
 
 ```
 root@rock-5-itx:~# cat /etc/modprobe.d/blacklist.conf
