@@ -11,7 +11,7 @@ ROOBI OS
 
 ## 简介
 
-- ROOBI 是由Palmshell团队开发的，用于快捷安装操作系统的操作系统软件。
+- ROOBI 是由 Radxa 团队开发的，用于快捷安装操作系统的操作系统软件。
 
 - ROOBI 能够在几乎不需要配置的情况下，安装计算机操作系统。
 
@@ -35,7 +35,8 @@ ROOBI OS 将会附带在您所购买的机器中，通常您无需手动安装�
 
 ## 支持设备
 
-[PS002(PuER N1)](https://palmshell.io/puer-n1)、[PS006(SLiM X2L)](https://palmshell.io/slim-x2l)
+- [PuER N1](https://palmshell.io/puer-n1)
+- [SLiM X2L](https://palmshell.io/slim-x2l)
 
 ## 使用说明
 
