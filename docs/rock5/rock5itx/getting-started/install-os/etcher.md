@@ -1,10 +1,10 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 import Etcher from '../../../../common/general/\_etcher.mdx';
 
-# 安装系统到 MicroSD
+# 制作 MicroSD 启动盘
 
 <Etcher model="rock5itx" product="Radxa ROCK 5 ITX" power_supply="12V DC" sd_slot="/img/rock5itx/rock5itx-sd-slot.webp" />
 
