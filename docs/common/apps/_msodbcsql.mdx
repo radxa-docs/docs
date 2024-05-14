@@ -6,6 +6,8 @@ Microsoft SQL Server ODBC 驱动是用于第三方应用连接到 SQL Server 数
 
 ## 常见问题
 
+您在参照上述说明执行安装时可能会遇到以下错误：
+
 ```bash
 dpkg: error processing archive /var/cache/apt/archives/msodbcsql18_18.3.3.1-1_arm64.deb (--unpack):
  unable to install new version of '/usr/lib64/libmsodbcsql-18.so': No such file or directory
@@ -14,19 +16,18 @@ Errors were encountered while processing:
 E: Sub-process /usr/bin/dpkg returned an error code (1)
 ```
 
-解决方法：
+此问题是由于微软所提供的安装包会试图同时在`/usr/lib`以及`/usr/lib64`下安装相关文件，然而 Rockchip 所提供的 Chromium 需要将 `/usr/lib64` 软链接到 `/usr/lib` 下方可正常运行，这导致了 `dpkg` 无法正确进行文件安装。
+
+## 解决方法
+
+请执行以下命令来删除软链接：
 
 ```bash
-sudo rm -rf /usr/lib64
+sudo rm /usr/lib64
 ```
+
+然后可继续从原教程中出错的那步开始重新执行。
 
 :::warning
-此操作会导致 chromium 功能不正常
+此操作会导致 Chromium 功能异常，并且无法安全回退。
 :::
-
-恢复方法：
-
-```bash
-sudo rm -rf /usr/lib64
-[ -e /usr/lib/aarch64-linux-gnu/ ] && ln -Tsf lib /usr/lib64
-```
