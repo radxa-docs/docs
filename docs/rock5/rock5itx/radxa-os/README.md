@@ -23,5 +23,3 @@ sidebar_position: 1
 ## [用户管理](/rock5/rock5itx/radxa-os/user)
 
 ## [在线更新](/rock5/rock5itx/radxa-os/using-apt)
-
-## [串口登录](/rock5/rock5c/radxa-os/serial)

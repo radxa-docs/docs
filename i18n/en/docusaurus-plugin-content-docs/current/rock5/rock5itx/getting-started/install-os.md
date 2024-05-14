@@ -7,7 +7,7 @@ import NVME from '../../../common/dev/\_nvme.mdx'
 import Rkdeveloptool from "../../../common/dev/\_rkdeveloptool.mdx";
 import RKDevTool from "../../../common/dev/\_rkdevtool.mdx"
 
-# Installing The Operating System
+# Manual reinstallation of the system
 
 ## Preparation
 

@@ -4,7 +4,7 @@ sidebar_position: 4
 
 import BasicSoftWareConf from "../../../common/radxa-os/\_basicSoftwareConf.mdx";
 
-# Basic Software Configuration
+# Quick Setup
 
 <BasicSoftWareConf model="rock-5-itx" />
 
