@@ -11,7 +11,7 @@ The Radxa Heatsink 8418B is a Cooler for the ROCK 5 ITX.
 ## Specification
 
 - Product Size: 84 x 84 x 18 mm
-- Fan Size: 70 x 70 x 10 毫米
+- Fan Size: 70 x 70 x 10 mm
 - Fan Interface：4-Pin with PWM Control
 - Material: All aluminium alloy
 - Speed: 1500 to 3000rpm ± 20%

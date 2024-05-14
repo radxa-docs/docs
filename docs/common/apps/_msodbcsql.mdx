@@ -1,0 +1,33 @@
+Microsoft SQL Server ODBC 驱动是用于第三方应用连接到 SQL Server 数据库的 ODBC 驱动程序。
+
+## 安装
+
+参考微软官方文档安装 [Install the Microsoft ODBC driver for SQL Server (Linux)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver16&tabs=debian18-install%2Calpine17-install%2Cdebian8-install%2Credhat7-13-install%2Crhel7-offline#18)。
+
+## 常见问题
+
+您在参照上述说明执行安装时可能会遇到以下错误：
+
+```bash
+dpkg: error processing archive /var/cache/apt/archives/msodbcsql18_18.3.3.1-1_arm64.deb (--unpack):
+ unable to install new version of '/usr/lib64/libmsodbcsql-18.so': No such file or directory
+Errors were encountered while processing:
+ /var/cache/apt/archives/msodbcsql18_18.3.3.1-1_arm64.deb
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+```
+
+此问题是由于微软所提供的安装包会试图同时在`/usr/lib`以及`/usr/lib64`下安装相关文件，然而 Rockchip 所提供的 Chromium 需要将 `/usr/lib64` 软链接到 `/usr/lib` 下方可正常运行，这导致了 `dpkg` 无法正确进行文件安装。
+
+## 解决方法
+
+请执行以下命令来删除软链接：
+
+```bash
+sudo rm /usr/lib64
+```
+
+然后可继续从原教程中出错的那步开始重新执行。
+
+:::warning
+此操作会导致 Chromium 功能异常，并且无法安全回退。
+:::
