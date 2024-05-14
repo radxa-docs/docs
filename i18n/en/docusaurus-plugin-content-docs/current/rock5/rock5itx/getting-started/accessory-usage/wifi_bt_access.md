@@ -120,4 +120,4 @@ root@rock-5-itx:~# bluetoothctl
 [bluetooth]# connect 41:42:1A:8D:A9:65
 ```
 
-7. Now you can  listen to music.
+7. Now you can listen to music.
