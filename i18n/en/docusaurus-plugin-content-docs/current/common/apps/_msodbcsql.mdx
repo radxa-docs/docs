@@ -1,0 +1,33 @@
+The Microsoft SQL Server ODBC Driver is an ODBC driver for third-party applications to connect to a SQL Server database.
+
+## Installation
+
+Refer to the official Microsoft documentation to install [Install the Microsoft ODBC driver for SQL Server (Linux)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver16&tabs=debian18-install%2Calpine17-install%2Cdebian8-install%2Credhat7-13-install%2Crhel7-offline#18).
+
+## FAQ
+
+You may encounter the following errors when performing the installation by referring to the above instructions:
+
+```bash
+dpkg: error processing archive /var/cache/apt/archives/msodbcsql18_18.3.3.1-1_arm64.deb (--unpack):
+ unable to install new version of '/usr/lib64/libmsodbcsql-18.so': No such file or directory
+Errors were encountered while processing:
+ /var/cache/apt/archives/msodbcsql18_18.3.3.1-1_arm64.deb
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+```
+
+This issue is due to the fact that Microsoft's installer tries to install files under both `/usr/lib` and `/usr/lib64`, but Rockchip's Chromium needs to soft-link `/usr/lib64` to `/usr/lib` in order to work properly, which causes `dpkg` to fail to install the files correctly installation.
+
+## Workaround
+
+Please execute the following command to remove the soft link:
+
+```bash
+sudo rm /usr/lib64
+```
+
+You can then proceed to re-execute from the step in the original tutorial where the error occurred.
+
+:::warning
+This will cause Chromium to function abnormally and it is not safe to back out.
+:::
