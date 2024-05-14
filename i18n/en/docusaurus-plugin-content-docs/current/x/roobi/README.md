@@ -11,7 +11,7 @@ ROOBI OS
 
 ## Introduction
 
-- ROOBI is an operating system software developed by the Palmshell team, designed for quick installation of operating systems.
+- ROOBI is an operating system software developed by the Radxa team, designed for quick installation of operating systems.
 
 - ROOBI allows for the installation of computer operating systems with minimal configuration required.
 
@@ -35,7 +35,8 @@ If you have purchased a Radxa X-Series SBC with eMMC, you can manually flash the
 
 ## Supported Devices
 
-[PS002(PuER N1)](https://palmshell.io/puer-n1), [PS006(SLiM X2L)](https://palmshell.io/slim-x2l)
+- [PuER N1](https://palmshell.io/puer-n1)
+- [SLiM X2L](https://palmshell.io/slim-x2l)
 
 ## User Guide
 
