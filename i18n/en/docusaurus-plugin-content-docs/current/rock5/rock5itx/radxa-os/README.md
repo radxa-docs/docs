@@ -25,7 +25,3 @@ Mainly introduces the basic usage of the Radxa OS system, and helps you to quick
 ## [User Management](/rock5/rock5itx/radxa-os/user)
 
 ## [Online update](/rock5/rock5itx/radxa-os/using-apt)
-
-## Serial login
-
-<Serial platform="rk" />
