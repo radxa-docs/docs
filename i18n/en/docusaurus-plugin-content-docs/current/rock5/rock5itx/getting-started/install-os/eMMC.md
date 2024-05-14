@@ -17,7 +17,7 @@ import RKDevTool from "../../../../common/dev/\_rkdevtool.mdx";
 
 <img src="/img/rock5itx/rock5itx-maskrom-new.webp" alt="maskrom new version" width="500" />
 
-<Tabs groupId="platform">
+<Tabs groupId="platform" queryString="platform">
     <TabItem value="Windows">
         <p>If the operation is normal, RKDevTool will prompt `A MASKROM device was found`:</p>
         <img src="/img/configuration/rkdevtool-zh-maskrom.webp" alt="RKDevTool zh maskrom" />
@@ -35,7 +35,7 @@ import RKDevTool from "../../../../common/dev/\_rkdevtool.mdx";
 
 ## Installing the system
 
-<Tabs groupId="platform">
+<Tabs groupId="platform" queryString="install the system">
     <TabItem value="Windows">
         <RKDevTool series="rock5" />
     </TabItem>
