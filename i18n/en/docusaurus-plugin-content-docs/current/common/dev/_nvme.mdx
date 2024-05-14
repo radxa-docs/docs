@@ -72,29 +72,51 @@ As shown above the system already recognizes the NVME SSD as nvme0n1 (in Linux N
 
 Download the following system image to your PC,
 
-<PreView params={{ model: props.model, release_num: props.release_num }}>
-  https://github.com/radxa-build/#model#/releases/download/#release_num#/#model#_debian_bullseye_xfce_#release_num#.img.xz
+<PreView
+  params={{
+    model: props.model,
+    release_num: props.release_num,
+    desktop: props.desktop,
+  }}
+>
+  {`
+https://github.com/radxa-build/#model#/releases/download/#release_num#/#model#_debian_bullseye_#desktop#_#release_num#.img.xz
+`}
 </PreView>
 
 Copy the system image to the current system,
 
-<PreView params={{ model: props.model, release_num: props.release_num }}>
+<PreView
+  params={{
+    model: props.model,
+    release_num: props.release_num,
+    desktop: props.desktop,
+  }}
+>
   {`
-  PC Host: scp /path/to/img radxa@boardIP:/home/radxa/
-  Example:
-  scp ~/Download/#model#_debian_bullseye_xfce_#release_num#.img.xz radxa@192.168.2.66:/home/radxa/
+  PC Host: scp  /path/to/img radxa@boardIP:/home/radxa/
+  例如：
+  scp ~/Download/#model#_debian_bullseye_#desktop#_#release_num#.img.xz radxa@192.168.2.66:/home/radxa/
   `}
 </PreView>
 
 Then dd the system image into NVME on the **board**.
 
-<PreView params={{ model: props.model, release_num: props.release_num }}>
+<PreView
+  params={{
+    model: props.model,
+    release_num: props.release_num,
+    desktop: props.desktop,
+  }}
+>
   {`
-  On Board:
+  On Board：
   sudo xzcat /path/to/img | dd of=/path/to/nvme bs=1M status=progress
-  Example:
-  sudo xzcat /home/radxa/#model#_debian_bullseye_xfce_#release_num#.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
+  例如：
+  sudo xzcat /home/radxa/#model#_debian_bullseye_#desktop#_#release_num#.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
   `}
 </PreView>
 
-### After removing the SD card, power up the system using the 12V DC power adapter, then the system starts booting from NVME and HDMI displays the desktop.
+### Unplug the SD card and boot from NVME
+
+After removing the SD card, power up the system using the 12V DC power adapter, then the system starts booting from NVME and HDMI displays the desktop.
