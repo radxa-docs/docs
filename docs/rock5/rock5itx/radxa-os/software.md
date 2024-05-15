@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 import Social from "../../../common/radxa-os/\_social.mdx";
 import Office from "../../../common/radxa-os/\_office.mdx";
 

@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 import Audio from "../../../common/radxa-os/\_audio.mdx";
 import Video from "../../../common/radxa-os/\_video.mdx";
 

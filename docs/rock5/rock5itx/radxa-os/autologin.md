@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 import AutoLogin from "../../../common/radxa-os/\_autologin.mdx";
 
 # 自动登录
