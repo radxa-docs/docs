@@ -1,5 +1,5 @@
 ---
-sidebar_position: 35
+sidebar_position: 7
 ---
 
 # 硬件信息
