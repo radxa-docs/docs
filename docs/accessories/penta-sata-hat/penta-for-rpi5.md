@@ -6,6 +6,14 @@ sidebar_position: 2
 
 Raspberry Pi 5 有一个 PCIe 接口，它可以很好地和 Radxa Penta SATA HAT 一起工作。
 
+:::info
+请不要同时使用 DC 电源和 Type-C 给 Penta SATA HAT 和 Raspberry Pi 5 供电。
+
+一般来讲，2.5 英寸硬盘的功耗 5W 左右，如果你使用 2 块或 2 块以上的硬盘，请考虑使用 DC 电源从 Penta 供电。
+
+DC 电源为 12V，DC 座子的规格为 5525。
+:::
+
 ## 组装
 
 请按照下面图片所示的顺序进行组装。
