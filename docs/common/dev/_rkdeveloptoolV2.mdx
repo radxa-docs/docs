@@ -84,6 +84,7 @@ rkdeveloptool 不支持选择 Maskrom 设备，也无法选择待写入的存储
 
 <PreView params={{ loader: props.loader, model: props.model, release_num: props.release_num, desktop: props.desktop }}>
     {`
+    xz -d #model#_debian_bullseye-test_#desktop#_#release_num#.img.xz
     sudo rkdeveloptool db #loader#
     sudo rkdeveloptool wl 0 #model#_debian_bullseye-test_#desktop#_#release_num#.img
     `}
