@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+description: "音视频相关设置"
 ---
 
 import Audio from "../../../common/radxa-os/\_audio.mdx";
