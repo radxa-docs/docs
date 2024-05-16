@@ -29,6 +29,10 @@ Radxa ROCK Penta SATA HAT 是为 ROCK 系列设计的附加 HAT。 它利用 ROC
 - 可选的 PWM 控制风扇用于 HDD 热量分配
 - 用于 IP/存储信息的可选 OLED 显示屏
 
+:::tip
+如果你在 Penta SATA HAT 上使用大容量的 3.5 英寸机械硬盘，需要查看硬盘规格书，以确定硬盘的峰值电流。我们建议使用峰值电流小于 1.7A 的硬盘。
+:::
+
 ## 产品列表
 
 - Radxa ROCK Penta SATA HAT
