@@ -2,16 +2,34 @@
 sidebar_position: 2
 ---
 
-# Raspberry Pi 5 Use Penta
+# Raspberry Pi 5 Use Penta HAT
 
 The Raspberry Pi 5 has a PCIe port that works well with the Radxa Penta SATA HAT.
 
+## Power supply selection
+
+Penta SATA HAT is equipped with a DC interface (socket specification is outer diameter 5.5mm, inner diameter 2.5mm, center is positive) and a D-shaped 4PIN interface. When used with Raspberry Pi 5, it supports three power supply modes to adapt to different usage scenarios:
+
+- Use a Type-C adapter to power the Raspberry Pi 5
+- Use a DC 12V adapter to power the Penta SATA HAT
+- Use a D-shaped 4PIN from an ATX or SFX power supply to power the Penta SATA HAT
+
+
+The choice of which power supply method to use depends on the number of hard drives we install and other external devices we need to use, such as U disks and fans. The Raspberry Pi 5 has a power consumption of about 8 watts under high load. Typical hard disk power consumption is as follows:
+
+|    Hard disk type    |   Power consumption  |
+| -------------------- | -------------------- |
+| 2.5-inch SSD         | Less than 3W         |
+| 2.5-inch HDD         | 3-5W                 |
+| 3.5-inch HDD         | 5-10W                |
+
+We can choose the appropriate power supply method according to the type and number of hard disks installed. Here are two examples:
+
+- If we install 2 2.5-inch solid-state drives and there are no other external devices on the Raspberry Pi 5, we can use a Type-C adapter for power, such as the Raspberry Pi official 27W PD adapter, which should meet the power supply requirements.
+- If we install 4 3.5-inch mechanical hard drives, considering the power consumption of the Raspberry Pi 5 itself, the total power consumption of the entire kit may exceed 50W. At this time, we can use a DC 12V adapter for power, such as a 12V/5A adapter. Or use a D-shaped 4PIN from an ATX/SFX power supply, D-shaped 4PIN interface generally can provide a larger power.
+
 :::info
-Do not use DC power and Type-C to power the Penta SATA HAT and Raspberry Pi 5 at the same time.
-
-Generally speaking, the power consumption of 2.5-inch hard drives is about 5W, if you use 2 or more hard drives, consider using DC power from Penta.
-
-If you choose DC power supply, use a power supply with a voltage of 12V and a current of 4A or above. The DC seat size is 5525.
+Please do not use two or more power supply methods at the same time.
 :::
 
 ## Assemble
