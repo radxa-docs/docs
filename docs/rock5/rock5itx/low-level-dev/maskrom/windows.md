@@ -8,11 +8,11 @@ import Images from "../../_image.mdx"
 
 # Windows 主机
 
-## 下载 Image
+## 文件下载
 
 <Images loader={true} system_img={true} spi_img={true} />
 
-<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3588_spl_loader_v1.08.111.bin" emmc={false} pcie={true} sata={false} >
+<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3588_spl_loader_v1.08.111.bin" emmc={false} pcie={false} sata={false} >
 <ol>
     <li>拔出 microSD 卡和电源线</li>
     <li>按住 Maskrom 按钮</li>

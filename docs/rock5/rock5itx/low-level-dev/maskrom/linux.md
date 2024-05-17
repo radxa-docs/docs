@@ -8,11 +8,9 @@ import Images from "../../_image.mdx"
 
 # Linux 主机
 
-## 下载 Image
+## 文件下载
 
 <Images loader={true} system_img={true} spi_img={false} />
-
-这里以 rock-5-itx_debian_bullseye_kde_b3.img.xz
 
 <Rkdeveloptool model="rock-5-itx" release_num="b3" desktop="kde" platform="linux" loader="rk3588_spl_loader_v1.08.111.bin">
 

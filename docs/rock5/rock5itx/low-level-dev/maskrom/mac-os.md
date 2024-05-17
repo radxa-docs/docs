@@ -8,7 +8,7 @@ import Images from "../../_image.mdx"
 
 # Mac OS 主机
 
-## 下载 Image
+## 文件下载
 
 <Images loader={true} system_img={true} spi_img={false} />
 
