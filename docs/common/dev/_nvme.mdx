@@ -70,21 +70,7 @@ sudo apt-get full-upgrade
 
 如上所示系统已经识别到 NVME SSD 即 nvme0n1（在 Linux 中，NVMe 设备通常被识别为 nvmeXnY）
 
-下载如下系统镜像到 PC 端，
-
-<PreView
-  params={{
-    model: props.model,
-    release_num: props.release_num,
-    desktop: props.desktop,
-  }}
->
-  {`
-https://github.com/radxa-build/#model#/releases/download/#release_num#/#model#_debian_bullseye_#desktop#_#release_num#.img.xz
-`}
-</PreView>
-
-将系统镜像拷贝到当前系统下，
+从<a href={props.download_path}>资源下载汇总</a>下载系统镜像，将系统镜像拷贝到当前系统下。
 
 <PreView
   params={{
@@ -96,7 +82,7 @@ https://github.com/radxa-build/#model#/releases/download/#release_num#/#model#_d
   {`
   PC Host: scp  /path/to/img radxa@boardIP:/home/radxa/
   例如：
-  scp ~/Download/#model#_debian_bullseye_#desktop#_#release_num#.img.xz radxa@192.168.2.66:/home/radxa/
+  scp ~/Download/#model#_xx.img.xz radxa@192.168.2.66:/home/radxa/
   `}
 </PreView>
 
@@ -113,7 +99,7 @@ https://github.com/radxa-build/#model#/releases/download/#release_num#/#model#_d
   On Board：
   sudo xzcat /path/to/img | dd of=/path/to/nvme bs=1M status=progress
   例如：
-  sudo xzcat /home/radxa/#model#_debian_bullseye_#desktop#_#release_num#.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
+  sudo xzcat /home/radxa/#model#_xx.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
   `}
 </PreView>
 
