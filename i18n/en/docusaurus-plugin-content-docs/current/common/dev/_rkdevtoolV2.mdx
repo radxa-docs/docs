@@ -1,0 +1,55 @@
+import Loader from "../general/_loader.mdx";
+import React, { Fragment } from "react";
+
+<h2> Install RKDevTool </h2>
+
+RKDevTool is Rockchip's software for USB burning on Windows platform. If RKDevTool is not installed on your Windows host, please follow the steps below to install it.
+
+Please download and extract the following files to install RKDevTool:
+
+- [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (Includes Chinese documentation)
+- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+
+### Installation of drivers
+
+Download and unzip DriverAssistant, then execute DriverInstall.exe and click the `Install Driver` button to install the driver.
+If you have already installed another version of driver, please click `Uninstall Driver` to uninstall the driver first, and then reinstall it again.
+
+![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
+
+### Install RKDevTool
+
+解压 RKDevTool_Release_v2.96_zh.zip 后，点击 RKDevTool.exe 即可使用。
+
+## Enter Maskrom mode
+
+<div>
+
+{props.children}
+
+</div>
+
+If the operation is normal, RKDevTool will prompt `A MASKROM device was found`.
+
+<img src="/img/rkdevtool/rkdevtool_maskrom.webp" alt="rkdevtool maskrom" />
+
+## Flash images into storage media.
+
+<Fragment style={{display: `${props.emmc ?"no": "block"}`}}>
+
+### eMMC
+
+- Select Loader (see File Download section above).
+- Right click, select Add item, select eMMC as the storage media.
+- Select the system image (see above section on file download, you need to unzip it into .img format after downloading).
+- Click Execute to start burning
+
+<img src={props.rkdevtool_emmc_img} alt="images path" />
+
+If there is a prompt **Download complete**, it means the burning is complete, the system will be restarted automatically after burning, and you can log in to the system via HDMI or serial port.
+
+:::tip
+Account and password are both radxa
+:::
+
+</Fragment>

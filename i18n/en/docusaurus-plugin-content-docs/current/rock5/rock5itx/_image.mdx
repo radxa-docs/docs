@@ -1,0 +1,27 @@
+import React, { Fragment } from "react";
+
+<ul>
+  <li style={{ display: `${props.loader ? "block" : "none"}` }}>
+    Loader:{" "}
+    <a href="https://dl.radxa.com/rock5/sw/images/loader/rock-5b/rk3588_spl_loader_v1.08.111.bin">
+      {" "}
+      RK3588_SPL_Loader_v1.08.111.bin{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.system_img ? "block" : "none"}` }}>
+    System Image:{" "}
+    <a href="https://github.com/radxa-build/rock-5-itx/releases/download/test-build-2/rock-5-itx_debian_bullseye-test_kde_test-build-2.img.xz">
+      {" "}
+      Radxa ROCK 5 ITX Debian Build 2{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.spi_img ? "block" : "none"}` }}>
+    SPI Image:{" "}
+    <a
+      href="https://dl.radxa.com/rock5/5itx/images/spi_image.img"
+      alt="spi image"
+    >
+      Spi.image{" "}
+    </a>
+  </li>
+</ul>
