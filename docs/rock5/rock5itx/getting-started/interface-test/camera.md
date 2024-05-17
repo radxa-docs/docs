@@ -1,12 +1,47 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-# 瑞莎 4K 摄像头
+# CSI 摄像头接口
+
+## 简介
+
+摄像头接口是用于连接摄像头模块和主控板的接口，用于传输图片/视频数据和控制信号。
+
+## 支持列表
+
+ROCK 5 ITX 带有两个 4-lane 的 CSI 接口。以下是目前支持的摄像头列表：
+
+<table>
+  <tr>
+    <th>Camera Name</th>
+    <th>Sensor 型号</th>
+    <th>分辨率</th>
+  </tr>
+  <tr>
+    <td>OKDO 5MP Camera</td>
+    <td>OV5647</td>
+    <td>500 万 像素</td>
+  </tr>
+  <tr>
+    <td>Radxa Camera 4K</td>
+    <td>IMX415</td>
+    <td>829 万 像素</td>
+  </tr>
+  <tr>
+    <td>Radxa Camera 8M 219</td>
+    <td>IMX219</td>
+    <td>800 万 像素</td>
+  </tr>
+</table>
+
+## 配件介绍
+
+### Radxa Camera 4K
 
 ![Radxa Camera 4K](/img/accessories/camera-4k.webp)
 
-## 概述
+#### 概述
 
 Radxa Camera 4K 是一款适用于 Radxa 产品的高分辨率相机模块，采用索尼 IMX415 图像传感器，具有 829 万像素和高达 4K 的分辨率。 Radxa Camera 4K Module 可用于以下应用：
 
@@ -14,7 +49,7 @@ Radxa Camera 4K 是一款适用于 Radxa 产品的高分辨率相机模块，采
 - FA相机
 - 工业相机
 
-## 规格
+#### 规格
 
 - 传感器：
   - SONY IMX415
@@ -38,17 +73,19 @@ Radxa Camera 4K 是一款适用于 Radxa 产品的高分辨率相机模块，采
 
 - 默认带状电缆长度: 150 mm
 
-## 数据手册
+#### 数据手册
 
 - [Radxa Camera 4K](https://dl.radxa.com/accessories/camera-4k/radxa_camera_4k_product_brief_Revision_1.0.pdf)
 - [SONY IMX415](https://dl.radxa.com/accessories/camera-4k/IMX415-AAQR-C_Datasheet_E19504.pdf)
 
-## 物理规格
+#### 物理规格
 
 ![Radxa Display 8 HD](/img/accessories/camera-4k-spec-1.webp)
 ![Radxa Display 8 HD](/img/accessories/camera-4k-spec-2.webp)
 
-## 使用教程
+## 接口测试方法
+
+以下教程以 Radxa Camera 4K 为例介绍如何测试摄像头 CSI 接口。
 
 ### 连接
 

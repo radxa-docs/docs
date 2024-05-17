@@ -1,10 +1,16 @@
 ---
-sidebar_position: 6
+sidebar_position: 17
 ---
 
-# WIFI & BT
+# PCIe E Key
 
-## WIFI & BT 支持模块列表
+## 简介
+
+PCIe E Key 是用于连接嵌入式设备的接口，通常用于连接存储卡、WiFi模块、蓝牙模块等设备。
+
+## 支持的配件
+
+### WIFI & BT 支持模块列表
 
 | NO. | Model                                              | Chip        | WiFi          | BT  | WIFI Throughput                       | Remark                                              |
 | --- | -------------------------------------------------- | ----------- | ------------- | --- | ------------------------------------- | --------------------------------------------------- |
@@ -19,39 +25,34 @@ sidebar_position: 6
 - ROCK 5 ITX 没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
 - 这里演示的 M.2 无线模块是： Radxa 无线模块 A8。
 
-[Radxa 无线模块A8](/zh/img/accessories/a8-module-01.webp)
 
-- 安装如图所示：
+#### WIFI 的使用
 
-[Radxa 无线模块A8](/zh/img/accessories/a8-module-02.webp)
-
-## WIFI 使用
-
-1. 首先进入ROOT用户模式。
+- 首先进入ROOT用户模式。
 
 ```
 sudo su
 ```
 
-2. 打开WIFI
+- 打开WIFI
 
 ```
 nmcli r wifi on
 ```
 
-3. 扫描WIFI
+- 扫描WIFI
 
 ```
 nmcli dev wifi
 ```
 
-4. 连接wifi网络
+- 连接wifi网络
 
 ```
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
-## 蓝牙使用
+#### 蓝牙的使用
 
 - 使用 Radxa 无线 A8 模块时，必须添加以下黑名单才能使 BT 正常工作。
 
@@ -73,19 +74,19 @@ root@rock-5-itx:~# apt-get update -y
 root@rock-5-itx:~# apt-get install -y broadcom-wifibt-firmware intel-wifibt-firmware
 ```
 
-1. 测试蓝牙模块的状态并检查蓝牙设备。
+- 测试蓝牙模块的状态并检查蓝牙设备。
 
 ```
 root@rock-5-itx:~# systemctl status bluetooth
 ```
 
-2. 运行蓝牙设备。
+- 运行蓝牙设备。
 
 ```
 root@rock-5-itx:~# systemctl start bluetooth
 ```
 
-3. 检测蓝牙设备
+- 检测蓝牙设备
 
 ```
 root@rock-5-itx:~# hciconfig
@@ -96,19 +97,19 @@ hci0:   Type: Primary Bus: UART
        TX bytes:2814 acl:0 sco:0 commands:58 errors:0
 ```
 
-4. 测试：连接蓝牙音箱，首先安装pulseaudio
+- 测试：连接蓝牙音箱，首先安装pulseaudio
 
 ```
 root@rock-5-itx:~# apt-get install -y pulseaudio-module-bluetooth pulseaudio
 ```
 
-5. 运行 pulseaudio
+- 运行 pulseaudio
 
 ```
 root@rock-5-itx:~# pulseaudio --start
 ```
 
-6. 使用 pulseaudio 连接
+- 使用 pulseaudio 连接
 
 ```
 root@rock-5-itx:~# bluetoothctl
@@ -120,4 +121,11 @@ root@rock-5-itx:~# bluetoothctl
 [bluetooth]# connect 41:42:1A:8D:A9:65
 ```
 
-7. 现在您可以听音乐了。
+- 现在您可以听音乐了。
+
+
+### 瑞莎 M.2 E 型转 SATA 板
+
+![M.2 E key to SATA Breakout Board](/img/accessories/m2e-to-sata-1.webp)
+
+- 该拓展版直接插在M2.E接口上，然后将SATA设备连接到扩展板上即可。

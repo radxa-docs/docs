@@ -1,14 +1,22 @@
 ---
-sidebar_position: 4
+sidebar_position: 15
 ---
 
-# 瑞莎 8418B 散热器
+# FAN
+
+## 简介
+
+## 支持列表
+
+- 瑞莎 8418B 散热器
+
+### 瑞莎 8418B 散热器
 
 瑞莎 8418B 散热器是一款用于 ROCK 5 ITX 的散热器。
 
 ![Heatsink 8418B](/img/accessories/heatsink_8418b.webp)
 
-## 物理规格
+#### 物理规格
 
 - 产品尺寸：84 x 84 x 18 毫米
 - 风扇尺寸：70 x 70 x 10 毫米
@@ -19,11 +27,11 @@ sidebar_position: 4
 - 噪音： 13 到 28 dB(A)
 - 额定电压：DC12V 0.16A(MAX) 1.92W
 
-## 配件清单
+#### 配件清单
 
 ![Heatsink 8418B](/img/accessories/heatsink_8418b_package.webp)
 
-## 安装说明
+#### 安装说明
 
 - 首先，将导热硅脂均匀地涂抹在SoC RK3588上，随后将散热器对准其上的四个孔位进行安装，具体步骤可参考图示说明。
 
