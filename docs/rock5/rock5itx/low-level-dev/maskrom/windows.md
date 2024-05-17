@@ -4,7 +4,7 @@ description: "Windows 下通过 Maskrom 刷机"
 ---
 
 import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
-import Images from "../../_image.mdx"
+import Images from "../../\_image.mdx"
 
 # Windows 主机
 

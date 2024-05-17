@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-import Images from "./_image.mdx"
+import Images from "./\_image.mdx"
 
 # 资源下载汇总
 

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-import Images from "../../_image.mdx"
+import Images from "../../\_image.mdx"
 
 # SD 卡启动做启动盘安装到 eMMC
 

@@ -4,7 +4,7 @@ description: "MacOS 下通过 Maskrom 刷机"
 ---
 
 import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
-import Images from "../../_image.mdx"
+import Images from "../../\_image.mdx"
 
 # Mac OS 主机
 
