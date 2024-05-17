@@ -4,13 +4,15 @@ description: "Linux 下通过 Maskrom 刷机"
 ---
 
 import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
+import Images from "../../_image.mdx"
 
 # Linux 主机
 
 ## 下载 Image
 
-- Loader: <a href="https://dl.radxa.com/rock5/sw/images/loader/rock-5b/rk3588_spl_loader_v1.08.111.bin"> RK3588_SPL_Loader_v1.08.111.bin </a>
-- 镜像: 从 <a href="../../download" > 资源下载汇总 </a> 下载一个镜像，这里以 rock-5-itx_debian_bullseye_kde_b3.img.xz 为例
+<Images loader={true} system_img={true} spi_img={false} />
+
+这里以 rock-5-itx_debian_bullseye_kde_b3.img.xz
 
 <Rkdeveloptool model="rock-5-itx" release_num="b3" desktop="kde" platform="linux" loader="rk3588_spl_loader_v1.08.111.bin">
 
