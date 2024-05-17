@@ -6,6 +6,8 @@ sidebar_position: 4
 
 ## 能启动 Linux
 
+- 打开终端，执行 rsetup
+
 - 选择 "System Maintenance"
 
 <img src="/img/common/rsetup/main_menu.webp" alt="main menu" style={{ width: "80%" }} />
@@ -20,4 +22,4 @@ sidebar_position: 4
 
 ## 不能启动到系统
 
-[参考 USB 线刷](/rock5/rock5itx/low-level-dev/usb-to-emmc)
+[参考 USB 线刷](/rock5/rock5itx/low-level-dev/maskrom)
