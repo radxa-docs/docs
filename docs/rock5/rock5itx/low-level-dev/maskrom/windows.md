@@ -13,7 +13,7 @@ import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 - 镜像: <a href="https://github.com/radxa-build/rock-5-itx/releases/download/b3/rock-5-itx_debian_bullseye_kde_b3.img.xz" > Radxa ROCK 5 ITX Debian Build 2 </a>
 - SPI Image: <a href="https://dl.radxa.com/rock5/5itx/images/spi_image.img" alt="spi image">Spi.image </a>
 
-<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3588_spl_loader_v1.08.111.bin" emmc={true} >
+<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3588_spl_loader_v1.08.111.bin" emmc={false} pcie={true} sata={false} >
 <ol>
     <li>拔出 microSD 卡和电源线</li>
     <li>按住 Maskrom 按钮</li>

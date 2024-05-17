@@ -54,10 +54,18 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 
 </Fragment>
 
+<Fragment style={{display: `${props.pcie ?"no": "block"}`}}>
+
 ### PCIe M.2 SSD
 
 - 选择 Loader，路径为指向 {props.loader_name} 所在的位置
 - 点击右键，选择添加项，并在储存介质选项中选择 SPINOR，路径则应指向 spi.image 所在的位置
 - 点击右键，选择添加项，并在储存介质选项中选择 PCIe，路径则应指向系统镜像所在的位置
 
+</Fragment>
+
+<Fragment style={{display: `${props.sata ?"no": "block"}`}}>
+
 ### Sata
+
+</Fragment>
