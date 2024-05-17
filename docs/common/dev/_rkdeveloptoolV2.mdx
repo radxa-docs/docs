@@ -1,7 +1,6 @@
 import Loader from "../general/_loader.mdx";
 import { PreView } from "@site/src/utils/docs";
 
-
 ## 安装 rkdeveloptool
 
 rkdeveloptool 是 Rockchip 为 Linux/macOS 平台下进行 USB 烧录所开发的软件。
@@ -11,56 +10,87 @@ rkdeveloptool 可以被认为是[开源版本](https://opensource.rock-chips.com
 如果你的操作系统没有提供 rkdeveloptool，则需要从源代码编译安装。
 
 <div>
-    {props.platform === "linux" ? (
-        <div>
-            <Tabs queryString="host">
-                <TabItem value="Debian">
-                    <p>从命令行中执行以下命令进行安装：</p>
-                    <PreView>
-                        sudo apt-get update<br/>
-                        sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget<br/>
-                        git clone https://github.com/rockchip-linux/rkdeveloptool<br/>
-                        cd rkdeveloptool<br/>
-                        wget https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch<br/>
-                        wget https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch<br/>
-                        git am *.patch<br/>
-                        autoreconf -i<br/>
-                        ./configure<br/>
-                        make -j $(nproc)<br/>
-                        sudo cp rkdeveloptool /usr/local/sbin/<br/>
-                    </PreView>
-                </TabItem>
-                <TabItem value="ArchLinux">
-                    <pre>可从 <a href="https://aur.archlinux.org/packages/rkdeveloptool"> AUR </a> 安装 rkdeveloptool。</pre>
-                </TabItem>
-            </Tabs>
-            {" "}
-        </div>
-    ) : null}
-    {props.platform === "macos" ? (
-        <div>
-            <p>请首先安装 <a href="https://brew.sh/">Homebrew</a>，然后从命令行中执行以下命令进行安装：</p>
-            <PreView>
-                brew install automake autoconf libusb pkg-config git wget<br/>
-                git clone https://github.com/rockchip-linux/rkdeveloptool<br/>
-                cd rkdeveloptool<br/>
-                wget https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch<br/>
-                wget https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch<br/>
-                git am *.patch<br/>
-                autoreconf -i<br/>
-                ./configure<br/>
-                make -j $(nproc)<br/>
-                cp rkdeveloptool /opt/homebrew/bin/<br/>
-            </PreView>
-            {" "}
-        </div>
-    ) : null}
+  {props.platform === "linux" ? (
+    <div>
+      <Tabs queryString="host">
+        <TabItem value="Debian">
+          <p>从命令行中执行以下命令进行安装：</p>
+          <PreView>
+            sudo apt-get update
+            <br />
+            sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf
+            pkg-config libusb-1.0 build-essential git wget
+            <br />
+            git clone https://github.com/rockchip-linux/rkdeveloptool
+            <br />
+            cd rkdeveloptool
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+            <br />
+            git am *.patch
+            <br />
+            autoreconf -i
+            <br />
+            ./configure
+            <br />
+            make -j $(nproc)
+            <br />
+            sudo cp rkdeveloptool /usr/local/sbin/
+            <br />
+          </PreView>
+        </TabItem>
+        <TabItem value="ArchLinux">
+          <pre>
+            可从{" "}
+            <a href="https://aur.archlinux.org/packages/rkdeveloptool"> AUR </a>{" "}
+            安装 rkdeveloptool。
+          </pre>
+        </TabItem>
+      </Tabs>{" "}
+    </div>
+  ) : null}
+  {props.platform === "macos" ? (
+    <div>
+      <p>
+        请首先安装 <a href="https://brew.sh/">Homebrew</a>
+        ，然后从命令行中执行以下命令进行安装：
+      </p>
+      <PreView>
+        brew install automake autoconf libusb pkg-config git wget
+        <br />
+        git clone https://github.com/rockchip-linux/rkdeveloptool
+        <br />
+        cd rkdeveloptool
+        <br />
+        wget
+        https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+        <br />
+        wget
+        https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+        <br />
+        git am *.patch
+        <br />
+        autoreconf -i
+        <br />
+        ./configure
+        <br />
+        make -j $(nproc)
+        <br />
+        cp rkdeveloptool /opt/homebrew/bin/
+        <br />
+      </PreView>{" "}
+    </div>
+  ) : null}
 </div>
 
 ## 进入 Maskrom
 
 <div>
- 
+
 {props.children}
 
 </div>
@@ -82,8 +112,15 @@ rkdeveloptool 不支持选择 Maskrom 设备，也无法选择待写入的存储
 如果需要同时写入多个设备，请使用 upgrade_tool。
 :::
 
-<PreView params={{ loader: props.loader, model: props.model, release_num: props.release_num, desktop: props.desktop }}>
-    {`
+<PreView
+  params={{
+    loader: props.loader,
+    model: props.model,
+    release_num: props.release_num,
+    desktop: props.desktop,
+  }}
+>
+  {`
     xz -d #model#_debian_bullseye-test_#desktop#_#release_num#.img.xz
     sudo rkdeveloptool db #loader#
     sudo rkdeveloptool wl 0 #model#_debian_bullseye-test_#desktop#_#release_num#.img

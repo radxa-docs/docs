@@ -25,7 +25,6 @@ PCIe E Key 是用于连接嵌入式设备的接口，通常用于连接存储卡
 - ROCK 5 ITX 没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
 - 这里演示的 M.2 无线模块是： Radxa 无线模块 A8。
 
-
 #### WIFI 的使用
 
 - 首先进入ROOT用户模式。
@@ -122,7 +121,6 @@ root@rock-5-itx:~# bluetoothctl
 ```
 
 - 现在您可以听音乐了。
-
 
 ### 瑞莎 M.2 E 型转 SATA 板
 

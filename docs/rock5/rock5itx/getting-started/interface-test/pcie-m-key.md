@@ -26,8 +26,8 @@ radxa@rock-5-itx:~$ sudo apt-get install nvme-cli
 
 ```bash
 radxa@rock-5-itx:~$ sudo nvme list
-[sudo] password for radxa: 
-Node             SN                   Model                                    Namespace Usage                      Format           FW Rev  
+[sudo] password for radxa:
+Node             SN                   Model                                    Namespace Usage                      Format           FW Rev
 ---------------- -------------------- ---------------------------------------- --------- -------------------------- ---------------- --------
 /dev/nvme0n1     50026B7684E3662B     KINGSTON OM8PDP3256B-A01                 1         256.06  GB / 256.06  GB    512   B +  0 B   EDFK0S03
 ```

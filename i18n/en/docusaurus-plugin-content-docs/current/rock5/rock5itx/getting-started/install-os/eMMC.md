@@ -35,7 +35,7 @@ import RKDevTool from "../../../../common/dev/\_rkdevtool.mdx";
 
 ## Installing the system
 
-<Tabs groupId="platform">
+<Tabs groupId="platform" queryString>
     <TabItem value="Windows">
         <RKDevTool series="rock5" />
     </TabItem>
