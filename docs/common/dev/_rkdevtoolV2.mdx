@@ -54,7 +54,7 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 
 </Fragment>
 
-<Fragment style={{display: `${props.pcie ?"no": "block"}`}}>
+{/* <Fragment style={{display: `${props.pcie ?"no": "block"}`}}>
 
 ### PCIe M.2 SSD
 
@@ -64,8 +64,8 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 
 </Fragment>
 
-<Fragment style={{display: `${props.sata ?"no": "block"}`}}>
+<Fragment style={{ display: props.sata ? 'none' : 'block' }}>
 
 ### Sata
 
-</Fragment>
+</Fragment> */}
