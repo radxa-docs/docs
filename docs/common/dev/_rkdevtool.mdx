@@ -54,11 +54,15 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 请首先将使用到的文件进行解压缩，并在 RKDevTool 中指定解压缩后的文件。
 :::
 
-点击空白单元格选择待使用的 Loader 和 Image 文件：
+点击空白单元格选择待使用的 Loader 和 Image（系统镜像）文件（见下面**文件下载**部分）：
 
 ![RKDevTool zh choose](/img/configuration/rkdevtool-zh-choose.webp)
 
 在 `存储` 选项中选择目标介质：
+
+:::tip
+一般情况下，如果从 EMMC 或者 MicroSD 卡启动，无需烧录 SPINOR
+:::
 
 <Tabs queryString="storage">
 <TabItem value="emmc" label="eMMC">
@@ -81,8 +85,12 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 
 ![RKDevTool zh complete](/img/configuration/rkdevtool-zh-complete.webp)
 
-可以在下面找到所需的 Loader 和 Image 文件的下载链接。
+## 文件下载
 
-# SPI U-Boot 及 Loader
+**SPI U-Boot 及 Loader**
 
 <Loader series={props.series} />
+
+**系统镜像**
+
+请参考对应产品的镜像下载目录

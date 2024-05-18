@@ -54,11 +54,15 @@ RKDevTool does not automatically decompress compressed files when writing to the
 First extract the used files and specify the extracted files in the RKDevTool.
 :::
 
-Click a blank cell to select the Loader and Image file to be used:
+Click a blank cell to select the Loader and Image file to be used(see the **File Download** at the below):
 
 ![RKDevTool choose](/img/configuration/rkdevtool-choose.webp)
 
 Select the target media in the `Storage` option:
+
+:::tip
+In general, if you just  want to boot from sdcard or Emmc, no need flash SPINOR
+:::
 
 <Tabs queryString="storage">
 <TabItem value="emmc" label="eMMC">
@@ -81,8 +85,12 @@ Wait for the write to complete, after which the device will reboot automatically
 
 ![RKDevTool complete](/img/configuration/rkdevtool-complete.webp)
 
-Download links for the required Loader and Image files can be found below.
+## File Download 
 
-### SPI U-Boot and Loader
+**SPI U-Boot and Loader:**
 
 <Loader series={props.series} />
+
+**Image:**
+
+Reference to the current product's  system os download page.
