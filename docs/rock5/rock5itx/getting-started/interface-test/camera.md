@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# CSI 摄像头接口
+# CSI
 
 ## 简介
 
