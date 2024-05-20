@@ -93,28 +93,28 @@ The GT911 supports up to 5 points of concurrent touch, tracking the exact positi
 
 #### Signal Definition
 
-| PIN | Name | Description | PIN | Name | Description |
-| --- | -------- | ------------------------------ | --- | -------- | ------------------------------------ |
-| 1 | NC | No connection | 21 | MIPI_3P | +MIPI differential data input |
-| 2 | VDD | 3.3V | 22 | GND | Ground | 3 | VCCIO | VCCIO | VCCIO | VCCIO | VCCIO | VCCIO
-| 2 | VDD | 3.3V | 22 | GND | Ground | 3 | VCCIO | IO VCC (1.8V-3.3V) | 23 | GND | Ground |
-| 4 | NC | INT 1 | 24 | TP_RESET | External interrupt to the host Reset | 5 | Reset | IO VCC | IO VCC (1.8V-3.3V)
-| 4 | NC | INT 1 | 24 | TP_RESET | External interrupt to the host Reset | 5 | Reset | RESET | 25 | TP_VCC | Power | 6 | NC | INT 1 | 24 | TP_RESET | External interrupt to the host
-| 6 | NC | INT 2 | 26 | TP_INT | External Low is active |
-| 7 | GND | Ground | 27 | TP_SDA | I2C data input and output | 8 | MIPI | MIPI | MIPI | MIPI | MIPI | MIPI | MIPI
-| 8 | MIPI_0N | -MIPI differential data input | 28 | TP_SCL | I2C clock input |
-| 9 | MIPI_0P | +MIPI differential data input | 29 | GND | Ground | 10 | GND | Ground | 10 | GND | Ground
-| 10 | GND | Ground | 30 | GND | Ground |
-| 11 | MIPI_1N | -MIPI differential data input | 31 | VDD | VDD 3.3V |
-| 12 | MIPI_1P | +MIPI differential data input | 32 | VDD | VDD 3.3V |
-| 12 | MIPI_1P | +MIPI differential data input | 32 | VDD | VDD 3.3V | 13 | GND | Ground | 33 | GND | Ground |
-| 13 | GND | Ground | 33 | GND | Ground | 14 | MIPI_CKN | -MIPI differential clock input | 34 | GND | Ground |
-| 14 | MIPI_CKN | -MIPI differential clock input | 34 | GND | Ground | 15 | MIPI_CKP | +MIPI differential clock input | 35 | LED- | LED Cathode |
-| 16 | GND | Ground | 36 | LED- | LED Cathode |
-| 17 | MIPI_2N | -MIPI differential data input | 37 | NC | No connection |
-| 18 | MIPI_2P | +MIPI differential data input | 38 | NC | No connection |
-| 19 | GND | Ground | 39 | LED+ | LED Anode | 20 | MIPI_2P | +MIPI differential data input | 38 | NC | No connection | 19
-| 20 | MIPI_3N | -MIPI differential data input | 40 | LED+ | LED Anode |
+| PIN | Name     | Description                    | PIN | Name     | Description                          |
+| --- | -------- | ------------------------------ | --- | -------- | ------------------------------------ | --- | -------- | ------------------------------ | ------------------ | ------ | ------------- | ----- | ---- | ----- | --- | -------- | ------------------------------ |
+| 1   | NC       | No connection                  | 21  | MIPI_3P  | +MIPI differential data input        |
+| 2   | VDD      | 3.3V                           | 22  | GND      | Ground                               | 3   | VCCIO    | VCCIO                          | VCCIO              | VCCIO  | VCCIO         | VCCIO |
+| 2   | VDD      | 3.3V                           | 22  | GND      | Ground                               | 3   | VCCIO    | IO VCC (1.8V-3.3V)             | 23                 | GND    | Ground        |
+| 4   | NC       | INT 1                          | 24  | TP_RESET | External interrupt to the host Reset | 5   | Reset    | IO VCC                         | IO VCC (1.8V-3.3V) |
+| 4   | NC       | INT 1                          | 24  | TP_RESET | External interrupt to the host Reset | 5   | Reset    | RESET                          | 25                 | TP_VCC | Power         | 6     | NC   | INT 1 | 24  | TP_RESET | External interrupt to the host |
+| 6   | NC       | INT 2                          | 26  | TP_INT   | External Low is active               |
+| 7   | GND      | Ground                         | 27  | TP_SDA   | I2C data input and output            | 8   | MIPI     | MIPI                           | MIPI               | MIPI   | MIPI          | MIPI  | MIPI |
+| 8   | MIPI_0N  | -MIPI differential data input  | 28  | TP_SCL   | I2C clock input                      |
+| 9   | MIPI_0P  | +MIPI differential data input  | 29  | GND      | Ground                               | 10  | GND      | Ground                         | 10                 | GND    | Ground        |
+| 10  | GND      | Ground                         | 30  | GND      | Ground                               |
+| 11  | MIPI_1N  | -MIPI differential data input  | 31  | VDD      | VDD 3.3V                             |
+| 12  | MIPI_1P  | +MIPI differential data input  | 32  | VDD      | VDD 3.3V                             |
+| 12  | MIPI_1P  | +MIPI differential data input  | 32  | VDD      | VDD 3.3V                             | 13  | GND      | Ground                         | 33                 | GND    | Ground        |
+| 13  | GND      | Ground                         | 33  | GND      | Ground                               | 14  | MIPI_CKN | -MIPI differential clock input | 34                 | GND    | Ground        |
+| 14  | MIPI_CKN | -MIPI differential clock input | 34  | GND      | Ground                               | 15  | MIPI_CKP | +MIPI differential clock input | 35                 | LED-   | LED Cathode   |
+| 16  | GND      | Ground                         | 36  | LED-     | LED Cathode                          |
+| 17  | MIPI_2N  | -MIPI differential data input  | 37  | NC       | No connection                        |
+| 18  | MIPI_2P  | +MIPI differential data input  | 38  | NC       | No connection                        |
+| 19  | GND      | Ground                         | 39  | LED+     | LED Anode                            | 20  | MIPI_2P  | +MIPI differential data input  | 38                 | NC     | No connection | 19    |
+| 20  | MIPI_3N  | -MIPI differential data input  | 40  | LED+     | LED Anode                            |
 
 #### Physical Specifications
 
@@ -212,7 +212,7 @@ Connect the ROCK 5 ITX via FPC cable as shown in the figure:
 
 - Enabling Overlay
 
-- Open the Kconsole terminal via the Application Launcher in the lower left corner, and run the ``rsetup`` command:
+- Open the Kconsole terminal via the Application Launcher in the lower left corner, and run the `rsetup` command:
 
 ```bash
 radxa@rock-5itx:~$ rsetup

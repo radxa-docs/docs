@@ -68,8 +68,8 @@ The Radxa Camera 4K is a high resolution camera module for Radxa products featur
   - FOV
 
 | Field of View (Diagonal/Horizontal/Vertical) | CRA |
-| ------------------------- | --- |
-| D=88.2±5° H=75±3° V=59±2° | 15° |
+| -------------------------------------------- | --- |
+| D=88.2±5° H=75±3° V=59±2°                    | 15° |
 
 - Default ribbon cable length: 150 mm
 
@@ -95,7 +95,7 @@ Connect the ROCK 5 ITX via FPC cable as shown in the picture:
 
 ### Enabling Overlay
 
-- Open the Kconsole terminal via the Application Launcher in the lower left corner, and run the ``rsetup`` command:
+- Open the Kconsole terminal via the Application Launcher in the lower left corner, and run the `rsetup` command:
 
 ```bash
 radxa@rock-5itx:~$ rsetup
