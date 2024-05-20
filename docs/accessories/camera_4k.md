@@ -45,5 +45,5 @@ Radxa Camera 4K 是一款适用于 Radxa 产品的高分辨率相机模块，采
 
 ## 物理规格
 
-![Radxa Display 8 HD](/img/accessories/camera-4k-spec-1.webp)
-![Radxa Display 8 HD](/img/accessories/camera-4k-spec-2.webp)
+![Radxa Camera 4K](/img/accessories/camera-4k-spec-1.webp)
+![Radxa Camera 4K](/img/accessories/camera-4k-spec-2.webp)
