@@ -16,7 +16,6 @@ The MAC address of the ROCK 5 ITX is unique and fixed. The MAC remains the same 
 
 #### Port Speed Test
 
-
 - Install the iperf3 utility
 
 ```bash

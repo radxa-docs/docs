@@ -95,6 +95,7 @@ sudo mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
 ```bash
 sudo update-initramfs -u
 ```
+
 RAID 0提供了高性能的读写能力，但不提供冗余。如果其中一块硬盘失败，将丢失所有数据。
 
 - 改变用户组
@@ -106,7 +107,7 @@ sudo chown -R radxa:radxa /mnt/raid/
 - 移除 RAID-5 阵列
 
 ```bash
-sudo mdadm --remove /dev/md0  
+sudo mdadm --remove /dev/md0
 sudo mdadm --stop /dev/md0
 sudo mdadm --zero-superblock /dev/sda1  # 清除超级块信息
 sudo mdadm --zero-superblock /dev/sdb1

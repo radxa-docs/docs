@@ -61,7 +61,7 @@ cat /proc/mdstat
 
 Before using a RAID device, it needs to be formatted. For example, to format a RAID device using the ext4 file system, execute the following command:
 
-```bash
+````bash
 sudo mkfs.ext4 /dev/md0
 ``
 
@@ -80,7 +80,7 @@ To automatically mount the RAID device when the system boots, you need to add it
 
 ```bash
 /dev/md0 /mnt/raid ext4 defaults 0 0
-```
+````
 
 - Saving the RAID Configuration
 
@@ -92,9 +92,10 @@ sudo mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
 
 - Update initialise ramdisk
 
-``` bash
+```bash
 sudo update-initramfs -u
 ```
+
 RAID 0 provides high performance read and write capability, but does not provide redundancy. If one of the drives fails, all data will be lost.
 
 - Change the user group
@@ -106,7 +107,7 @@ sudo chown -R radxa:radxa /mnt/raid/
 - Remove a RAID-5 array
 
 ```bash
-sudo mdadm --remove /dev/md0  
+sudo mdadm --remove /dev/md0
 sudo mdadm --stop /dev/md0
 sudo mdadm --zero-superblock /dev/sda1 # clear superblock information
 sudo mdadm --zero-superblock /dev/sdb1
