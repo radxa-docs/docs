@@ -1,10 +1,16 @@
 ---
-sidebar_position: 6
+sidebar_position: 17
 ---
 
-# WIFI & BT
+# PCIe E Key
 
-## WIFI & BT Supported Modules List
+## Introduction
+
+PCIe E Key is an interface for connecting embedded devices, usually used for connecting devices such as memory cards, WiFi modules, Bluetooth modules, etc.
+
+## Supported Accessories
+
+### WIFI & BT Supported Modules List
 
 | NO. | Model                                              | Chip        | WiFi          | BT  | WIFI Throughput                       | Remark                                              |
 | --- | -------------------------------------------------- | ----------- | ------------- | --- | ------------------------------------- | --------------------------------------------------- |
@@ -19,39 +25,33 @@ sidebar_position: 6
 - The ROCK 5 ITX does not have an on-board WiFi/BT module, an external module is required. The above are supported and tested WITI/BT cards.
 - The M.2 wireless module demonstrated here is: Radxa Wireless Module A8.
 
-[Radxa Wireless Module A8](/zh/img/accessories/a8-module-01.webp)
+#### WIFI Usage
 
-- Install as shown in the figure:
-
-[Radxa Wireless Module A8](/zh/img/accessories/a8-module-02.webp)
-
-## WIFI Usage
-
-1. First enter ROOT user mode.
+- First enter ROOT user mode.
 
 ```
 sudo su
 ```
 
-2. Turn on WIFI
+- Turn on WIFI
 
 ```
 nmcli r wifi on
 ```
 
-3. Scanning WIFI
+- Scanning WIFI
 
 ```
 nmcli dev wifi
 ```
 
-4. Connecting to wifi networks
+- Connecting to wifi networks
 
 ```
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
-## Bluetooth usage
+#### Bluetooth usage
 
 - When using the Radxa Wireless A8 module, the following blacklists must be added for BT to work properly.
 
@@ -73,19 +73,19 @@ root@rock-5-itx:~# apt-get update -y
 root@rock-5-itx:~# apt-get install -y broadcom-wifibt-firmware intel-wifibt-firmware
 ```
 
-1. Test the status of the Bluetooth module and check the Bluetooth device.
+- Test the status of the Bluetooth module and check the Bluetooth device.
 
 ```
 root@rock-5-itx:~# systemctl status bluetooth
 ```
 
-2. Run the Bluetooth device.
+- Run the Bluetooth device.
 
 ```
 root@rock-5-itx:~# systemctl start bluetooth
 ```
 
-3. Detecting Bluetooth devices
+- Detecting Bluetooth devices
 
 ```
 root@rock-5-itx:~# hciconfig
@@ -96,19 +96,19 @@ hci0:   Type: Primary Bus: UART
        TX bytes:2814 acl:0 sco:0 commands:58 errors:0
 ```
 
-4. Testing: Connecting the Bluetooth speaker, first installing pulseaudio
+- Test: Connecting the Bluetooth speaker, first install pulseaudio
 
 ```
 root@rock-5-itx:~# apt-get install -y pulseaudio-module-bluetooth pulseaudio
 ```
 
-5. Run pulseaudio
+- Run pulseaudio
 
 ```
 root@rock-5-itx:~# pulseaudio --start
 ```
 
-6. Connecting with pulseaudio
+- Connecting with pulseaudio
 
 ```
 root@rock-5-itx:~# bluetoothctl
@@ -120,4 +120,10 @@ root@rock-5-itx:~# bluetoothctl
 [bluetooth]# connect 41:42:1A:8D:A9:65
 ```
 
-7. Now you can listen to music.
+- Now you can listen to music.
+
+### Radxa M.2 E-Type to SATA Boards
+
+![M.2 E key to SATA Breakout Board](/img/accessories/m2e-to-sata-1.webp)
+
+- This expansion board plugs directly into the M2.E connector and then the SATA device can be connected to the expansion board.

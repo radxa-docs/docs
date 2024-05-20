@@ -96,7 +96,7 @@ hci0:   Type: Primary Bus: UART
        TX bytes:2814 acl:0 sco:0 commands:58 errors:0
 ```
 
-- 测试：连接蓝牙音箱，首先安装pulseaudio
+- 测试：连接蓝牙音箱，首先安装 pulseaudio
 
 ```
 root@rock-5-itx:~# apt-get install -y pulseaudio-module-bluetooth pulseaudio

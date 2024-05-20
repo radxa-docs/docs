@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# LCD 接口
+# LCD
 
 ## 简介
 

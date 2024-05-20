@@ -2,6 +2,6 @@
 sidebar_position: 3
 ---
 
-# Manual reinstallation of the system
+# Manual reinstallation
 
 <DocCardList />

@@ -2,20 +2,28 @@
 sidebar_position: 3
 ---
 
-# Radxa DC12 60W Power Adapter
+# DC Power
+
+## Introduction
+
+## Support List
+
+- Renesas DC12 60W Power Adapter
+
+### Radxa DC12 60W Power Adapter
 
 The Radxa DC12 60W Power Adapter is an adapter designed specifically for Radxa's SBC products. It can deliver up to 5A at 12V to meet the power requirements of Radxa SBCs for connecting multiple peripherals. Compatible with Radxa SBCs such as the Radxa ROCK 5 ITX.
 
-! [Power DC12 60W](/img/accessories/power-dc12-60w.webp)
+![Power DC12 60W](/img/accessories/power-dc12-60w.webp)
 
-## Product Specifications
+#### Product Specifications
 
-- Interface specification: 5525, which is 5.5mm outside diameter and 2.5mm inside diameter
+- Interface specification: 5525, i.e. 5.5mm outer diameter and 2.5mm inner diameter.
 - Power input: 100-240V ~ 50/60Hz 1.2A MAX
 - Power Output: 12V / 5A 60W
 - UL / CE / FCC certified.
 
-## Accessory List
+#### Accessory List
 
 - 1x Risa DC12 60W Power Adapter
 - 1x Australian Standard Adaptor

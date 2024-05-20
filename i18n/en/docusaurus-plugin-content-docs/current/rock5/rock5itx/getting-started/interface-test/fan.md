@@ -1,16 +1,24 @@
 ---
-sidebar_position: 4
+sidebar_position: 15
 ---
 
-# Radxa 8418B Cooler
+# FAN
 
-The Radxa 8418B Cooler is a cooler for the ROCK 5 ITX.
+## Introduction
+
+## Support List
+
+- Radxa 8418B Radiator
+
+### Radxa 8418B Radiator
+
+The Radxa 8418B Radiator is a radiator for the ROCK 5 ITX.
 
 ![Heatsink 8418B](/img/accessories/heatsink_8418b.webp)
 
-## Physical Specifications
+#### Physical Specifications
 
-- Product Size: 84 x 84 x 18 mm
+- Product size: 84 x 84 x 18 mm
 - Fan Size: 70 x 70 x 10 mm
 - Fan Connector: 4-Pin fan connector with PWM control
 - Material: All aluminium alloy
@@ -19,15 +27,15 @@ The Radxa 8418B Cooler is a cooler for the ROCK 5 ITX.
 - Sound: 13 to 28 dB(A)
 - Rated Voltage: DC12V 0.16A(MAX) 1.92W
 
-## Accessories List
+#### Accessories List
 
 ![Heatsink 8418B](/img/accessories/heatsink_8418b_package.webp)
 
-## Installation Instructions
+#### Installation Instructions
 
 - Firstly, apply the thermally conductive silicone grease evenly on the SoC RK3588, and then install the heatsink by aligning it with the four holes on it, please refer to the illustrated instructions for specific steps.
 
-**Please pay attention to the fan connector, it has anti-dulling design **!
+**Please pay attention to the fan connector, it has anti-dulling design**!
 
 ![Heatsink 8418B](/img/accessories/heatsink_8418b_01.webp)
 

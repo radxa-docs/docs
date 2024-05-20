@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# DC 电源接口
+# DC 电源
 
 ## 简介
 
