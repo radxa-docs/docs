@@ -45,5 +45,5 @@ Radxa Camera 4K is an high resolution camera module for Radxa products powered b
 
 ## Physical specifications
 
-![Radxa Display 8 HD](/img/accessories/camera-4k-spec-1.webp)
-![Radxa Display 8 HD](/img/accessories/camera-4k-spec-2.webp)
+![Radxa Camera 4K](/img/accessories/camera-4k-spec-1.webp)
+![Radxa Camera 4K](/img/accessories/camera-4k-spec-2.webp)
