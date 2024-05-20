@@ -2,7 +2,7 @@
 sidebar_position: 34
 ---
 
-# Radxa 25W PoE HAT
+# Radxa 25W PoE+ HAT
 
 The Radxa 25W PoE HAT provides boot over Power over Ethernet support for compatible Radxa SBCs.
 
