@@ -63,6 +63,8 @@ If there is a SATA power cable in the chassis, just plug the SATA power cable in
 Insert the F_PANEL cable into the F_PANEL slot as shown below.
 
 <img src="/img/rock5itx/rock5itx-pwr-led.webp" width="700" alt="rock 5 itx pwr led" />
+<img src="/img/rock5itx/rock5itx-pwr-sw.webp" width="700" alt="pwr sw" />
+<img src="/img/rock5itx/rock5itx-hdd-led.webp" width="700" alt="hdd led" />
 <img src="/img/rock5itx/rock5itx-reset-sw.webp" width="700" alt="reset sw" />
 
 ### Install F_USB cable

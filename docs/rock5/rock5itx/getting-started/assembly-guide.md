@@ -63,6 +63,8 @@ sidebar_position: 7
 将 F_PANEL 排线按照下图将排线插入到 F_PANEL 插槽中。
 
 <img src="/img/rock5itx/rock5itx-pwr-led.webp" width="700" alt="rock 5 itx pwr led" />
+<img src="/img/rock5itx/rock5itx-pwr-sw.webp" width="700" alt="pwr sw" />
+<img src="/img/rock5itx/rock5itx-hdd-led.webp" width="700" alt="hdd led" />
 <img src="/img/rock5itx/rock5itx-reset-sw.webp" width="700" alt="reset sw" />
 
 ### 安装 F_USB 排线
