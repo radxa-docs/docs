@@ -16,7 +16,7 @@ Micro SD，全称Micro Secure Digital，是一种小型存储卡，属于Secure 
 
 ```bash
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-mmcblk1     179:0    0 116.5G  0 disk 
+mmcblk1     179:0    0 116.5G  0 disk
 |-mmcblk1p1 179:1    0    16M  0 part /config
 |-mmcblk1p2 179:2    0   300M  0 part /boot/efi
 `-mmcblk1p3 179:3    0 116.2G  0 part /

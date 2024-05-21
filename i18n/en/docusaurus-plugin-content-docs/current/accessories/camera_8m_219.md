@@ -17,6 +17,7 @@ Radxa Camera 8M 219 is an high resolution camera module for Radxa products power
 # Specification
 
 - IMX 219 Sensor：
+
   - frame rate: Max. 30 frame/s in all-pixel scan mode
   - Pixel rate: 280Mpixel/s (All-pixels mode)
   - Data rate: Max. 912Mbps/Lane(@2lane)
@@ -29,11 +30,11 @@ Radxa Camera 8M 219 is an high resolution camera module for Radxa products power
   - TV-Distortion: ＜0.3%
   - Composition: 1G4P
   - Chief Ray Angle: 17°
-  - Fileter: 650nm±10nm@50%
+  - Filter: 650nm±10nm@50%
 
 | Field of view (Diagonal/Horizontal/Vertical) |
-|----------------------------------------------|
-| D=74°  H=62°  V=49°                          |
+| -------------------------------------------- |
+| D=74° H=62° V=49°                            |
 
 - Default FPC cable
   - length: 150 mm
