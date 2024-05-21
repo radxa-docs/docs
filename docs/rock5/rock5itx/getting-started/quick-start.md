@@ -40,7 +40,14 @@ ROCK 5 ITX 标准包装包括以下物品：
 
 1. 通过 HDMI 线将 ROCK 5 ITX 的任一 HDMI 输出接口连接到 HDMI 显示器。
 2. 将 USB 鼠标和键盘连接到 ROCK 5 ITX 的任一 USB 2.0 或 3.0 接口。
-3. 如果有 M.2 Wi-Fi 模块或 SSD，使用提供的 M.2 螺丝安装并固定。
-4. 如果有 2.5/3.5 英寸的 SATA 硬盘，连接 SATA 线和硬盘电源线。
-5. 将 12V DC 适配器插入 ROCK 5 ITX 的 DC 接口。设备会自动上电启动，电源指示灯将亮起。
-6. ROCK 5 ITX 配备了预装的 Radxa 自研 ROOBI OS 的 8GB eMMC。上电后几秒钟，HDMI 显示器将显示 ROOBI OS 的界面。
+3. 将网线连接到以太网口。
+
+<img src="/img/rock5itx/rock5itx-quick-start.webp" width="700" alt="quick start" />
+
+4. 如果有 M.2 Wi-Fi 模块或 SSD，使用提供的 M.2 螺丝安装并固定。
+
+<img src="/img/rock5itx/rock5itx-fan-wifi-pcie.webp" width="700" alt="rock 5 itx ssd/wifi-bt" />
+
+5. 如果有 2.5/3.5 英寸的 SATA 硬盘，连接 SATA 线和硬盘电源线。
+6. 将 12V DC 适配器插入 ROCK 5 ITX 的 DC 接口。设备会自动上电启动，电源指示灯将亮起。
+7. ROCK 5 ITX 配备了预装的 Radxa 自研 ROOBI OS 的 8GB eMMC。上电后几秒钟，HDMI 显示器将显示 ROOBI OS 的界面。
