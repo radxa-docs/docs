@@ -2,73 +2,86 @@
 sidebar_position: 7
 ---
 
-## Installation guide
+## Assembly Guide
 
-## Graphic tutorials
+## Materials
 
-### Installing the ATX Power
+- PC case
+- Screwdriver x1, Screws
+- Mouse and keyboard
+- Monitor
+- ROCK 5 ITX motherboard
+- [Radxa 8418B Cooler](./interface-test/fan)
+- PCIe M Key SSD
+- [Radxa WIFI-BT Module](./interface-test/pcie-e-key#wifi-bt-supported-module-list)
+- SATA Hard Drives x 4
 
-Insert the ATX Power cable into the ATX POWER slot as shown below.
+## Graphic tutorial
 
-<img src="/img/rock5itx/rock5itx-atx-power.webp" width="700" alt="rock 5 itx atx power" />
+### Install the RTC battery
 
-### Installing the F_PANEL cable
+Place the RTC battery in the [Interface Description](../getting-started/hardware-overview) marked 22.
 
-Insert the F_PANEL cable into the F_PANEL slot as shown below.
+<img src="/img/rock5itx/rock5itx-rtc.webp" width="700" alt="rock 5 itx rtc" />
 
-<img src="/img/rock5itx/rock5itx-f-panel-1.webp" width="700" alt="rock 5 itx f_panel 1" />
-<img src="/img/rock5itx/rock5itx-f-panel-2.webp" width="700" alt="rock 5 itx f_panel 2" />
-<img src="/img/rock5itx/rock5itx-f-panel-3.webp" width="700" alt="rock 5 itx f_panel 3" />
+### Install a cooling fan
 
-### Installing the F_USB cable
+- Firstly, apply the thermally conductive silicone grease evenly on the SoC RK3588, and then install the heat sink by aligning the four holes on it, please refer to the illustrated instructions for specific steps.
 
-Plug the F_USB cable into the [Interface Description] (../getting-started/hardware-overview) in mark 6.
+**Please pay attention to the fan connector, which has an anti-reverse design**.
 
-<img src="/img/rock5itx/rock5itx-f-usb.webp" width="700" alt="rock 5 itx f_usb " />
+<img src="/img/accessories/heatsink_8418b_01.webp" alt="Heatsink 8418B" style={{width: "80%" }} />
 
-### Installing the F_AUDIO cable
+- Next, align the fasteners precisely with the four holes on the back of the ROCK 5 ITX motherboard to ensure a flawless installation.
 
-Plug the F_AUDIO into [interface description] (../getting-started/hardware-overview) in mark 25.
+<img src="/img/accessories/heatsink_8418b_02.webp" alt="Heatsink 8418B 2" style={{width: "80%" }} />
 
-<img src="/img/rock5itx/rock5itx-f-audio.webp" width="700" alt="rock 5 itx f_audio " />
+<img src="/img/accessories/heatsink_8418b_03.webp" alt="Heatsink 8418B 3" style={{width: "80%" }} />
 
-### Installing SATA
+- Finally, please tighten the screws **in diagonal order** to secure the heat sink, this will effectively prevent damage to the ROCK 5 ITX motherboard during the securing process.
 
-The one on the top in the picture below is the cable, plug this cable into [interface description] (../getting-started/hardware-overview) into one of the 19's in [interface description](../getting-started/hardware-overview).
+### Install the SSD and WIFI-BT Module
+
+Insert the SSD into the [Interface Description](../getting-started/hardware-overview) labelled 25, then insert the WIFI-BT module into the [Interface Description](../getting-started/hardware-overview) labelled 26, and finally fix it with screws.
+
+<img src="/img/rock5itx/rock5itx-fan-wifi-pcie.webp" width="700" alt="rock 5 itx ssd/wifi-bt" />
+
+### Install the SATA Hard Drive
+
+If the motherboard has a SATA interface, wire it as follows.
+
+The upper one in the picture below is the data cable. Plug this cable into one of the cables labelled 19 in [Interface Description](../getting-started/hardware-overview).
 
 <img src="/img/rock5itx/rock5itx-sata_1.webp" width="700" alt="rock 5 itx sata_1 " />
 
-If there is a SATA power cable in the chassis, just plug the SATA power cable into the SATA disk, [interface description](../getting-started/hardware-overview) is empty.
+If there is a SATA power cable in the chassis, just plug the SATA power cable into the SATA disc, and just let the number 20 in [Interface Description](../getting-started/hardware-overview) empty.
 
-<img src="/img/rock5itx/rock5itx-sata_2.webp" width="700" alt="rock 5 itx sata_2 " />
+<img src="/img/rock5itx/rock5itx-sata-3.webp" width="700" alt="rock 5 itx sata_2 " />
 
-### Installing the SSD
+### Install the F_PANEL cable
 
-Insert the SSD into the [interface description] (../getting-started/hardware-overview) in mark 25.
+Insert the F_PANEL cable into the F_PANEL slot as shown below.
 
-<img src="/img/rock5itx/rock5itx-ssd.webp" width="700" alt="rock 5 itx ssd" />
+<img src="/img/rock5itx/rock5itx-pwr-led.webp" width="700" alt="rock 5 itx pwr led" />
+<img src="/img/rock5itx/rock5itx-reset-sw.webp" width="700" alt="reset sw" />
 
-### Install the WIFI module
+### Install F_USB cable
 
-Plug the WIFI module into [interface description] (../getting-started/hardware-overview) at mark 26.
+Insert the F_USB cable into mark 6 in [Interface description](../getting-started/hardware-overview) in mark 6.
 
-<img src="/img/rock5itx/rock5itx-wifi.webp" width="700" alt="rock 5 itx wifi" />
+<img src="/img/rock5itx/rock5itx-f-usb.webp" width="700" alt="rock 5 itx f_usb " />
 
-### Install the cooling fan
+### Install the F_AUDIO cable
 
-Plug the 4 PIN cable into the [connector description](../getting-started/hardware-overview) at mark 29.
+Insert F_AUDIO into [interface description](../getting-started/hardware-overview) at mark 25.
 
-<img src="/img/rock5itx/rock5itx-fan.webp" width="700" alt="rock 5 itx fan" />
+<img src="/img/rock5itx/rock5itx-f-audio.webp" width="700" alt="rock 5 itx f_audio " />
 
-Remove the base and stick it to the back of the Radxa ROCK 5 ITX, then tighten the screws to secure the fan to the base.
+### Install the ATX Power
 
-<img src="/img/rock5itx/rock5itx-fan-backside.webp" width="700" alt="rock 5 itx fan backside" />
+Insert the ATX Power cable into the ATX POWER cable slot as shown below.
 
-### Installing the RTC Battery
-
-Place the RTC battery into the [interface description] (../getting-started/hardware-overview) at mark 22.
-
-<img src="/img/rock5itx/rock5itx-rtc.webp" width="700" alt="rock 5 itx rtc" />
+<img src="/img/rock5itx/rock5itx-atx-power.webp" width="700" alt="rock 5 itx atx power" />
 
 ### Securing the motherboard
 
@@ -76,5 +89,3 @@ Secure the motherboard to the bottom of the chassis.
 
 <img src="/img/rock5itx/rock5itx-fixed_to_the_chassis.webp" width="700" alt="rock 5 itx fixed to the chassis" />
 <img src="/img/rock5itx/rock5itx-connector_exposure.webp" width="700" alt="rock 5 itx connector exposure" />
-
-## Video Tutorials
