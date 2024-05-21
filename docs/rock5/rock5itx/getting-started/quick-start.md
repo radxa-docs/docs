@@ -42,7 +42,7 @@ ROCK 5 ITX 标准包装包括以下物品：
 2. 将 USB 鼠标和键盘连接到 ROCK 5 ITX 的任一 USB 2.0 或 3.0 接口。
 3. 将网线连接到以太网口。
 
-<img src="/img/rock5itx/rock5itx-quick-start.webp" width="700" alt="quick start" />
+<img src="/img/rock5itx/rock5itx-quick-start.webp" width="500" alt="quick start" />
 
 4. 如果有 M.2 Wi-Fi 模块或 SSD，使用提供的 M.2 螺丝安装并固定。
 

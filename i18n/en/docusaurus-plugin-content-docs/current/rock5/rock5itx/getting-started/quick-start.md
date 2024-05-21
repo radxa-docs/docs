@@ -42,7 +42,7 @@ Peripherals that are not required but can enhance the basic functions of the ROC
 2. Connect the USB mouse and keyboard to any USB 2.0 or 3.0 port on the ROCK 5 ITX.
 3. Connect the network cable to the Ethernet port.
 
-<img src="/img/rock5itx/rock5itx-quick-start.webp" width="700" alt="quick start" />
+<img src="/img/rock5itx/rock5itx-quick-start.webp" width="500" alt="quick start" />
 
 4. If there is an M.2 Wi-Fi module or SSD, install and secure it using the M.2 screws provided.
 5. If you have a 2.5/3.5-inch SATA hard drive, connect the SATA cable and the drive's power cable.
