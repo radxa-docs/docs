@@ -30,19 +30,3 @@ sidebar_position: 15
 #### 配件清单
 
 ![Heatsink 8418B](/img/accessories/heatsink_8418b_package.webp)
-
-#### 安装说明
-
-- 首先，将导热硅脂均匀地涂抹在SoC RK3588上，随后将散热器对准其上的四个孔位进行安装，具体步骤可参考图示说明。
-
-**请注意风扇接口，有防呆设计**
-
-![Heatsink 8418B](/img/accessories/heatsink_8418b_01.webp)
-
-- 接下来，将扣具精准地对准ROCK 5 ITX主板背面的四个孔位，确保安装无误。
-
-![Heatsink 8418B](/img/accessories/heatsink_8418b_02.webp)
-
-![Heatsink 8418B](/img/accessories/heatsink_8418b_03.webp)
-
-- 最后，请按照**对角线的顺序拧紧螺丝**以固定散热器，这样可以有效防止在固定过程中损坏ROCK 5 ITX主板。
