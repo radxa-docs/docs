@@ -13,7 +13,7 @@ ROCK 5 ITX can be booted from microSD card , EMMC and SPI+NVME, depending on the
 
 Before starting ROCK 5 ITX using microSD card/eMMC, it is necessary to erase the SPI as follows:
 
-1. Go to [Resource Download Summary](rock5/rock5itx/getting-started/download) to download the Loader file locally
+1. Go to [Resource Download Summary](/rock5/rock5itx/download) to download the Loader file locally
 
 2. Enter maskrom mode
 
@@ -65,7 +65,7 @@ rkdeveloptool rd
 
 ## Image Download
 
-Please go to [Resource Download Summary](/rock5/rock5itx/getting-started/download) to download the corresponding image file.
+Please go to [Resource Download Summary](/rock5/rock5itx/download) to download the corresponding image file.
 
 ## Install the system
 
@@ -92,7 +92,7 @@ Please go to [Resource Download Summary](/rock5/rock5itx/getting-started/downloa
 
 ### Download the image
 
-Please go to [Resource Download Summary](/rock5/rock5itx/getting-started/download) to download the corresponding image file.
+Please go to [Resource Download Summary](/rock5/rock5itx/download) to download the corresponding image file.
 
 ## System Installation
 
@@ -144,7 +144,7 @@ Power up the ROCK 5 ITX via the adapter.
 
 ### Download the image
 
-Please go to [Resource Download Summary](/rock5/rock5itx/getting-started/download) to download the corresponding image file.
+Please go to [Resource Download Summary](/rock5/rock5itx/download) to download the corresponding image file.
 
 ## System Installation
 

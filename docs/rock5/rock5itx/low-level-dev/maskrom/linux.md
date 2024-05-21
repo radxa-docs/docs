@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-description: "Linux 下通过 Maskrom 刷机"
+description: "Linux 下通过 USB 刷机"
 ---
 
 import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";

@@ -29,12 +29,12 @@ ROCK 5 ITX 标准包装包括以下物品：
 
 非必需但可增强 ROCK 5 ITX 基本功能的外设：
 
-- 散热器，参考[散热器选型](./interface-test/fan)来安装散热器
-- M.2 无线模块；ROCK 5 ITX 支持标准的 M.2 Wi-Fi 卡。请查看[无线模块兼容列表](./interface-test/pcie-e-key#wifi--bt-支持模块列表)。一些较旧的免驱动 M.2 Wi-Fi 卡也可能支持即插即用。
+- 散热器，参考[散热器选型](./interface-usage/fan)来安装散热器
+- M.2 无线模块；ROCK 5 ITX 支持标准的 M.2 Wi-Fi 卡。请查看[无线模块兼容列表](./interface-usage/pcie-e-key#wifi--bt-支持模块列表)。一些较旧的免驱动 M.2 Wi-Fi 卡也可能支持即插即用。
 - M.2 NVMe SSD；ROCK 5 ITX 支持 2230/2242/2260/2280 尺寸的 M.2 NVMe SSD。不支持 SATA 协议的 M.2 SSD。推荐在 M.2 NVMe SSD 上安装操作系统。
 - 2.5 英寸或 3.5 英寸的机械硬盘或 SATA 固态硬盘，用于大容量数据存储。
   - ROCK 5 ITX 支持最多 4 个 SATA 接口，可连接 2.5 英寸或 3.5 英寸的机械硬盘或固态硬盘。
-  - 需要另外购买 SATA 数据线和电源线；详细信息，请查看配件列表的 [SATA 电源线](./interface-test/sata)说明。
+  - 需要另外购买 SATA 数据线和电源线；
 
 ## 接线和上电
 

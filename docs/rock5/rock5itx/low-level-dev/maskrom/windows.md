@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-description: "Windows 下通过 Maskrom 刷机"
+description: "Windows 下通过 USB 刷机"
 ---
 
 import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
