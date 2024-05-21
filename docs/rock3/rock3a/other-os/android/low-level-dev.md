@@ -69,7 +69,7 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 
 ```bash
 
- $ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-r-release.xml
+ $ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-s-release.xml
  $ repo sync -d --no-tags -j4
 
 ```
