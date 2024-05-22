@@ -29,18 +29,25 @@ ROCK 5 ITX 标准包装包括以下物品：
 
 非必需但可增强 ROCK 5 ITX 基本功能的外设：
 
-- 散热器，参考[散热器选型]来安装散热器
-- M.2 无线模块；ROCK 5 ITX 支持标准的 M.2 Wi-Fi 卡。请查看[无线模块兼容列表]。一些较旧的免驱动 M.2 Wi-Fi 卡也可能支持即插即用。
+- 散热器，参考[散热器选型](./interface-usage/fan)来安装散热器
+- M.2 无线模块；ROCK 5 ITX 支持标准的 M.2 Wi-Fi 卡。请查看[无线模块兼容列表](./interface-usage/pcie-e-key#wifi--bt-支持模块列表)。一些较旧的免驱动 M.2 Wi-Fi 卡也可能支持即插即用。
 - M.2 NVMe SSD；ROCK 5 ITX 支持 2230/2242/2260/2280 尺寸的 M.2 NVMe SSD。不支持 SATA 协议的 M.2 SSD。推荐在 M.2 NVMe SSD 上安装操作系统。
 - 2.5 英寸或 3.5 英寸的机械硬盘或 SATA 固态硬盘，用于大容量数据存储。
   - ROCK 5 ITX 支持最多 4 个 SATA 接口，可连接 2.5 英寸或 3.5 英寸的机械硬盘或固态硬盘。
-  - 需要另外购买 SATA 数据线和电源线；详细信息，请查看配件列表的 [SATA 电源线]说明。
+  - 需要另外购买 SATA 数据线和电源线；
 
 ## 接线和上电
 
 1. 通过 HDMI 线将 ROCK 5 ITX 的任一 HDMI 输出接口连接到 HDMI 显示器。
 2. 将 USB 鼠标和键盘连接到 ROCK 5 ITX 的任一 USB 2.0 或 3.0 接口。
-3. 如果有 M.2 Wi-Fi 模块或 SSD，使用提供的 M.2 螺丝安装并固定。
-4. 如果有 2.5/3.5 英寸的 SATA 硬盘，连接 SATA 线和硬盘电源线。
-5. 将 12V DC 适配器插入 ROCK 5 ITX 的 DC 接口。设备会自动上电启动，电源指示灯将亮起。
-6. ROCK 5 ITX 配备了预装的 Radxa 自研 ROOBI OS 的 8GB eMMC。上电后几秒钟，HDMI 显示器将显示 ROOBI OS 的界面。
+3. 将网线连接到以太网口。
+
+<img src="/img/rock5itx/rock5itx-quick-start.webp" width="500" alt="quick start" />
+
+4. 如果有 M.2 Wi-Fi 模块或 SSD，使用提供的 M.2 螺丝安装并固定。
+
+<img src="/img/rock5itx/rock5itx-fan-wifi-pcie.webp" width="700" alt="rock 5 itx ssd/wifi-bt" />
+
+5. 如果有 2.5/3.5 英寸的 SATA 硬盘，连接 SATA 线和硬盘电源线。
+6. 将 12V DC 适配器插入 ROCK 5 ITX 的 DC 接口。设备会自动上电启动，电源指示灯将亮起。
+7. ROCK 5 ITX 配备了预装的 Radxa 自研 ROOBI OS 的 8GB eMMC。上电后几秒钟，HDMI 显示器将显示 ROOBI OS 的界面。

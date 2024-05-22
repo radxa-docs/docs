@@ -3,6 +3,7 @@ sidebar_position: 2
 title: Install OS
 ---
 
+import Images from "../../\_image.mdx";
 import Etcher from '../../../../common/general/\_etcher.mdx'
 
 This document describes how to install an Android image to the ROCK 5 ITX.
@@ -13,7 +14,9 @@ ROCK 5 ITX can be booted from microSD card , EMMC and SPI+NVME, depending on the
 
 Before starting ROCK 5 ITX using microSD card/eMMC, it is necessary to erase the SPI as follows:
 
-1. Go to [Resource Download Summary](rock5/rock5itx/getting-started/download) to download the Loader file locally
+1. Download the Loader file locally
+
+<Images loader={false} system_img={false} spi_img={false} miniloader={true} />
 
 2. Enter maskrom mode
 
@@ -65,7 +68,7 @@ rkdeveloptool rd
 
 ## Image Download
 
-Please go to [Resource Download Summary](/rock5/rock5itx/getting-started/download) to download the corresponding image file.
+Please go to [Resource Download Summary](/rock5/rock5itx/download) to download the corresponding image file.
 
 ## Install the system
 
@@ -92,7 +95,7 @@ Please go to [Resource Download Summary](/rock5/rock5itx/getting-started/downloa
 
 ### Download the image
 
-Please go to [Resource Download Summary](/rock5/rock5itx/getting-started/download) to download the corresponding image file.
+Please go to [Resource Download Summary](/rock5/rock5itx/download) to download the corresponding image file.
 
 ## System Installation
 
@@ -144,7 +147,7 @@ Power up the ROCK 5 ITX via the adapter.
 
 ### Download the image
 
-Please go to [Resource Download Summary](/rock5/rock5itx/getting-started/download) to download the corresponding image file.
+Please go to [Resource Download Summary](/rock5/rock5itx/download) to download the corresponding image file.
 
 ## System Installation
 

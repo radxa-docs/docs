@@ -85,7 +85,6 @@ sidebar_position: 5
   </tr>
 </table>
 
-
 ## 特性
 
 <table>
@@ -156,7 +155,6 @@ sidebar_position: 5
         <td align="center" colspan="2">86 x 56 mm</td>
     </tr>
 </table>
-
 
 ## 系统框图
 

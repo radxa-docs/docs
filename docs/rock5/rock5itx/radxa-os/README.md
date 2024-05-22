@@ -1,25 +1,11 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 # 瑞莎系统
 
-主要介绍 Radxa OS 系统的基本使用方法，帮助你快速了解常用的系统的配置。
+瑞莎系统，即 Radxa OS，是由 Radxa 团队基于 Debian Linux 发行版自主研发的一套开源操作系统。Radxa OS 不仅集成了众多外设和实用的系统软件，能满足日常的办公、学习和娱乐需求，而且 Radxa 团队还自行开发了 [Rsetup](/rock5/rock5itx/radxa-os/rsetup) 这款便捷的系统配置工具，进一步简化了用户的操作流程。
 
-## [自动登录](/rock5/rock5itx/radxa-os/autologin)
+<img src="/img/common/desktop.webp"  /><br/>
 
-## [备份系统](/rock5/rock5itx/radxa-os/backup)
-
-## [显示设置](/rock5/rock5itx/radxa-os/display)
-
-## [无屏模式](/rock5/rock5itx/radxa-os/headless)
-
-## [多媒体](/rock5/rock5itx/radxa-os/media)
-
-## [应用](/rock5/rock5itx/radxa-os/software)
-
-## [USB 网络](/rock5/rock5itx/radxa-os/usbnet)
-
-## [用户管理](/rock5/rock5itx/radxa-os/user)
-
-## [在线更新](/rock5/rock5itx/radxa-os/using-apt)
+<DocCardList />

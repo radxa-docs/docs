@@ -1,25 +1,11 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-# Radxa System
+# Radxa OS
 
-Mainly introduces the basic usage of the Radxa OS system, and helps you to quickly understand the configuration of commonly used systems.
+Radxa OS, or Radxa OS, is an open source operating system developed by the Radxa team based on the Debian Linux distribution.Radxa OS not only integrates a number of peripherals and useful system software to meet the daily needs of office, learning and entertainment, but also the Radxa team has developed [Rsetup](/rock5/ rock5itx/radxa-os/rsetup), a convenient system configuration tool that further simplifies the user's operation process.
 
-## [Autologin](/rock5/rock5itx/radxa-os/autologin)
+<img src="/img/common/desktop.webp"  /><br/>
 
-## [Backup system](/rock5/rock5itx/radxa-os/backup)
-
-## [Display Settings](/rock5/rock5itx/radxa-os/display)
-
-## [Screenless Mode](/rock5/rock5itx/radxa-os/headless)
-
-## [Multimedia](/rock5/rock5itx/radxa-os/media)
-
-## [Applications](/rock5/rock5itx/radxa-os/software)
-
-## [USB Network](/rock5/rock5itx/radxa-os/usbnet)
-
-## [User Management](/rock5/rock5itx/radxa-os/user)
-
-## [Online update](/rock5/rock5itx/radxa-os/using-apt)
+<DocCardList />
