@@ -1,0 +1,74 @@
+<Tabs>
+
+<TabItem label="KDE 桌面" value="KDE">
+
+## 配置
+
+1. 进入系统设置。
+
+![Open Settings](/img/common/ap/ap-open-setting.webp)
+
+2. 依次选择 `Connections` ----> `+` ----> `Wi-Fi (shared)` ----> `Create` 按钮。
+
+![Connections](/img/common/ap/ap-connections.webp)
+
+3. 参考以下配置，填写你需要修改的配置。
+
+![Config](/img/common/ap/ap-config.webp)
+
+## 启用热点
+
+右键热点配置选择 `Connect` 开启 Wi-Fi 热点。
+
+![Config](/img/common/ap/ap-connect.webp)
+
+</TabItem>
+
+<TabItem label="命令行" value="Shell">
+
+## 配置
+
+1. 使用 `sudo nmtui` 进入 NetworkManager 配置界面。
+
+2. 依次选择 `Edit a connection` ----> `Add` ----> `Wi-Fi` 按钮。
+
+3. 参考以下配置，填写你需要修改的配置。
+
+```bash
+┌────────────────────────────┤ Edit Connection ├─────────────────────────────┐
+│                                                                          ↑│
+│            Profile name AP______________________________________          ▮│
+│                  Device ________________________________________          ▒│
+│                                                                           ▒│
+│ ╤ WI-FI                                                          <Hide>   ▒│
+│ │                  SSID AP______________________________________          ▒│
+│ │                  Mode <Access Point>                                    ▒│
+│ │               Channel <Automatic>                                       ▒│
+│ │                                                                         ▒│
+│ │              Security <WPA & WPA2 Personal>                             ▒│
+│ │              Password ********________________________________          ▒│
+│ │                       [ ] Show password                                 ▒│
+│ │                                                                         ▒│
+│ │                 BSSID ________________________________________          ▒│
+│ │    Cloned MAC address ________________________________________          ▒│
+│ │                   MTU __________ (default)                              ▒│
+│ └                                                                         ▒│
+│                                                                           ▒│
+│ ═ IPv4 CONFIGURATION    <Shared>                                 <Show>   ▒│
+│                                                                          ↓│
+└────────────────────────────────────────────────────────────────────────────┘
+```
+
+4. 保存并退出。
+
+5. 添加 NAT 规则指定流量出口 `sudo iptables -t nat -A POSTROUTING -o end0 -j MASQUERADE`，其中 `end0` 是出口网卡名称。
+
+## 启用热点
+
+```bash
+sudo nmcli connection up AP
+```
+
+</TabItem>
+
+</Tabs>
