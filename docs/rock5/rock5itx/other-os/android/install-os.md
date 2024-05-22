@@ -3,7 +3,7 @@ sidebar_position: 2
 title: 系统安装
 ---
 
-import Images from "../../\_image.mdx"
+import Images from "../../\_image.mdx";
 import Etcher from '../../../../common/general/\_etcher.mdx'
 
 本文档将介绍如何把 Android 镜像安装到 ROCK 5 ITX。
@@ -16,7 +16,7 @@ ROCK 5 ITX 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以从
 
 1. 下载 Loader 文件到本地
 
-<Images loader={true} system_img={false} spi_img={false} />
+<Images loader={false} system_img={false} spi_img={false} miniloader={true} />
 
 2. 设备进入 maskrom 模式，连接到PC端
 
