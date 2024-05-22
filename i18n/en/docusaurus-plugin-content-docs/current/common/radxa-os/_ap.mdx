@@ -1,0 +1,74 @@
+<Tabs>
+
+<TabItem label="KDE Desktop" value="KDE">
+
+## Configuration
+
+1. Access to system settings.
+
+![Open Settings](/img/common/ap/ap-open-setting.webp)
+
+2. Select the `Connections` ----> `+` ----> `Wi-Fi (shared)` ----> `Create` button in order.
+
+![Connections](/img/common/ap/ap-connections.webp)
+
+3. Refer to the following configuration and fill in the configuration you need to modify.
+
+![Config](/img/common/ap/ap-config.webp)
+
+## Enable Hotspot
+
+Right-click on the hotspot configuration and select `Connect` Enable Wi-Fi hotspot.
+
+![Config](/img/common/ap/ap-connect.webp)
+
+</TabItem>
+
+<TabItem label="Shell" value="Shell">
+
+## Configuration
+
+1. Use `sudo nmtui` to enter the NetworkManager configuration interface.
+
+2. Select the `Edit a connection` ----> `Add` ----> `Wi-Fi` button.
+
+3. Refer to the following configuration and fill in the configuration you need to modify.
+
+```bash
+┌────────────────────────────┤ Edit Connection ├─────────────────────────────┐
+│                                                                          ↑│
+│            Profile name AP______________________________________          ▮│
+│                  Device ________________________________________          ▒│
+│                                                                           ▒│
+│ ╤ WI-FI                                                          <Hide>   ▒│
+│ │                  SSID AP______________________________________          ▒│
+│ │                  Mode <Access Point>                                    ▒│
+│ │               Channel <Automatic>                                       ▒│
+│ │                                                                         ▒│
+│ │              Security <WPA & WPA2 Personal>                             ▒│
+│ │              Password ********________________________________          ▒│
+│ │                       [ ] Show password                                 ▒│
+│ │                                                                         ▒│
+│ │                 BSSID ________________________________________          ▒│
+│ │    Cloned MAC address ________________________________________          ▒│
+│ │                   MTU __________ (default)                              ▒│
+│ └                                                                         ▒│
+│                                                                           ▒│
+│ ═ IPv4 CONFIGURATION    <Shared>                                 <Show>   ▒│
+│                                                                          ↓│
+└────────────────────────────────────────────────────────────────────────────┘
+```
+
+4. Save and exit.
+
+5. Add a NAT rule to specify traffic egress `sudo iptables -t nat -A POSTROUTING -o end0 -j MASQUERADE`, where `end0` is the name of the egress NIC.
+
+## Enable hotspot
+
+```bash
+sudo nmcli connection up AP
+```
+
+</TabItem>
+
+</Tabs>
