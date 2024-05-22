@@ -1,0 +1,164 @@
+Llama3 ChatBot-TPU uses the Sophon SDK to port Meta's open-source [Llama3](https://ai.meta.com/blog/meta-llama-3/) model to the SG2300X series chips. This enables hardware-accelerated inference using local TPU and designs it into a chatbot with Gradio, allowing users to ask practical questions.
+
+## Llama3 Deployment
+
+- Clone the repository
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/LLM-TPU.git
+  ```
+
+- Open the Llama3 project directory
+
+  ```bash
+  cd LLM-TPU/models/Llama3/python_demo
+  ```
+
+- This example provides the Llama-3-8B-Instruct 4-bit quantized model `llama3-8b_int4_1dev_512.bmodel` and C++ precompiled files for download.
+
+  Users can refer to [Llama3 Model Conversion](#llama3-model-conversion) to convert Llama3 models to different quantization methods.
+
+  Users can refer to [Llama3 Cpython File Compilation](#llama3-cpython-file-compilation) to compile the cpython interface binding files themselves.
+
+  ```bash
+  # llama3-8b_int4_1dev_512.bmodel
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/llama3/tar_downloader.sh
+  bash tar_downloader.sh
+  tar -xvf llama3-8b_int4_1dev_512.tar.gz
+  ```
+
+- Configure the environment
+
+  **A virtual environment must be created to avoid affecting the normal operation of other applications.** For virtual environment usage, please refer [here](../ai-tools/virtualenv_usage).
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Install dependencies
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install -r requirements.txt
+  ```
+
+- Import environment variables
+
+  Use the `ldd` command to check if the `chat.cpython-38-aarch64-linux-gnu.so` is linked to the `libbmlib.so` at `LLM-TPU/support/lib_soc/libbmlib.so`.
+
+  If the `libbmlib.so` link path is incorrect, run the following command:
+
+  ```bash
+  export LD_LIBRARY_PATH=LLM-TPU/support/lib_soc:$LD_LIBRARY_PATH
+  ```
+
+- Start Llama3
+
+  **Terminal Mode**
+
+  ```bash
+  python3 pipeline.py -m ./llama3-8b_int4_1dev_512.bmodel -t ../tokem_config
+  ```
+
+  `-m`: Specify the model path
+
+  `-t`: Specify the token_config folder path
+
+  <img src="../../../../img/general-tutorial/tpu_ai/llama3_pipeline.webp" />
+
+  **Gradio Mode**
+
+  ```bash
+  python3 web_demo.py -m ./llama3-8b_int4_1dev_512.bmodel -t ../tokem_config
+  ```
+
+  `-m`: Specify the model path
+
+  `-t`: Specify the token_config folder path
+
+  Access the Airbox IP address at port 8003 in your browser.
+
+  <img src="../../../../img/general-tutorial/tpu_ai/llama3_web_demo.webp" />
+
+## Llama3 Model Conversion
+
+Users can refer to this document to convert Llama3 models of different quantization types to bmodel.
+
+- Prepare the environment on an X86 workstation
+
+  Please refer to [TPU-MLIR Installation](../../model-compile/tpu_mlir_env) to configure the TPU-MLIR environment.
+  Clone the repository
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/LLM-TPU.git
+  ```
+
+- Download the open-source Llama3 model by filling out the application form on [Huggingface](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct/tree/main).
+
+- Create a virtual environment in the `LLM-TPU/models/Llama3` directory.
+
+  For virtual environment usage, please refer [here](../ai-tools/virtualenv_usage).
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  pip3 install --upgrade pip
+  pip3 install -r requirements.txt
+  ```
+
+- Align the model environment
+
+  Copy `LLM-TPU/models/Llama3/compile/files/Meta-Llama-3-8B-Instruct/modeling_llama.py` to the transformers library, noting that the transformers library should be in the .venv.
+
+  ```bash
+  cp ./compile/files/Meta-Llama-3-8B-Instruct/modeling_llama.py .venv/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py
+  ```
+
+  Replace the `./compile/files/Meta-Llama-3-8B-Instruct/config.json` with the same file in the downloaded Llama-3-8B-Instruct path.
+
+- Generate the onnx file
+
+  ```bash
+  cd compile
+  python export_onnx.py --model_path your_model_path --seq_length 512
+  ```
+
+  `--model_path`: Path to the downloaded meta llama3 folder
+
+  `--seq_length`: Fixed sequence length to export, selectable as 512, 1024, 2048, etc., as needed
+
+- Generate the bmodel file
+
+  Exit the virtual environment before generating the bmodel
+
+  ```bash
+  deactivate
+  ```
+
+  Compile the model
+
+  ```bash
+  ./compile.sh --mode int4 --name llama3-8b --seq_length 512 # same as int8
+  ```
+
+  `--mode`: Quantization mode, options are int4, int8
+
+  `--seq_length`: Sequence length, should match the seq_length specified when generating the onnx file
+
+  `--name`: Model name, must be llama3-8b
+
+  Generating the bmodel takes about 2 hours or more. It is recommended to have 64G memory and over 200G of disk space, otherwise OOM or no space left errors are likely.
+
+## Llama3 Cpython File Compilation
+
+Compile executable files in the Airbox. Precompiled files are included in the `llama3-8b_int4_1dev_512.tar.gz` download package. If already downloaded, no need to compile.
+
+```bash
+cd python_demo
+mkdir build
+cd build
+cmake ..
+make
+cp *chat* ..
+```
