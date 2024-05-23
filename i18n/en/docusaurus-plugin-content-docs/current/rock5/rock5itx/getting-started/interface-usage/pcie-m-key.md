@@ -44,11 +44,11 @@ sudo apt install fio
 
 - Writing test
 
-<img src="/img/rock5itx/interface_test/fio-write.webp" alt="fio write" />
+<img src="/img/rock5itx/interface_usage/fio-write.webp" alt="fio write" />
 
 - Reading test
 
-<img src="/img/rock5itx/interface_test/fio-read.webp" alt="fio read" />
+<img src="/img/rock5itx/interface_usage/fio-read.webp" alt="fio read" />
 
 ### Booting the system from NVME
 
