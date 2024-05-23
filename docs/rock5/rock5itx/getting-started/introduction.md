@@ -198,7 +198,7 @@ ROCK 5 ITX 不仅是一款高性能的ARM基础PC板，更是一个多功能、�
     <th>16</th>
     <th>DC 电源接口</th>
     <th>24</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#recovery"></a></th>
+    <th>RECOVERY<a href="/rock5/rock5itx/hardware-design/hardware-interface#recovery"></a></th>
     <th></th>
     <th></th>
   </tr>

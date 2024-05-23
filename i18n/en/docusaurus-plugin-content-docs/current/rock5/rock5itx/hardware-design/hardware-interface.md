@@ -4,6 +4,18 @@ sidebar_position: 4
 
 # Hardware Interface Descriptions
 
+## Chip block diagram
+
+<img src="/img/rock5b/rk3588-block-diagram.webp" alt="rk3588 system diagram" width="700" />
+
+## system block diagram
+
+<img src="/img/rock5itx/rock5itx-system-block-diagram.webp" alt="rk3588 system diagram" width="700" />
+
+## Physical image
+
+<img src="/img/rock5itx/rock5itx-real.webp" width="600" />
+
 The following are the detailed interface wiring sequences and descriptions for each hardware interface.
 
 ## TP Interface

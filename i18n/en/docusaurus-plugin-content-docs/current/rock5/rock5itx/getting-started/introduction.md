@@ -198,7 +198,7 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
     <th>16</th>
     <th>DC Power Interface</th>
     <th>24</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#recovery"></a></th>
+    <th>RECOVERY<a href="/rock5/rock5itx/hardware-design/hardware-interface#recovery"></a></th>
     <th></th>
     <th></th>
   </tr>
