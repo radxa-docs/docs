@@ -55,6 +55,8 @@ Llama3 ChatBot-TPU uses the Sophon SDK to port Meta's open-source [Llama3](https
 
 - Start Llama3
 
+  (Optional) To modify Llama3's output language or role-playing character, please refer to [Modify Llama3 Background Information](#modify-llama3-background-information).
+
   **Terminal Mode**
 
   ```bash
@@ -161,4 +163,22 @@ cd build
 cmake ..
 make
 cp *chat* ..
+```
+
+## Modify Llama3 Background Information
+
+Users can modify Llama3's initialization background information to change Llama3 into different roles or output in different languages. By default, it is set as an English AI assistant: `You are Llama3, a helpful AI assistant.`
+
+Users can modify the `system_prompt` in `LLM-TPU/models/Llama3/python_demo/pipeline.py` to initialize Llama3.
+
+For example, to change Llama3 to respond in French, it can be set as:
+
+```python
+self.system_prompt = 'Vous êtes Llama3, un assistant IA français, et vos réponses doivent être en français'
+```
+
+To change Llama3 into an interesting role-playing character:
+
+```python
+self.system_prompt = 'Vous êtes Llama3, un chatbot pirate qui répond toujours en français Piratespeak'
 ```
