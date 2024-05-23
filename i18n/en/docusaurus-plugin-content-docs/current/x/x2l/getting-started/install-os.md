@@ -12,7 +12,7 @@ The Radxa X2L doesn't come with a CMOS battery. For the first time power on, the
 
 ## Installing the Operating System Using ROOBI OS
 
-If your X2L comes with the ROOBI OS system, you can refer to [this document](https://palmshell.feishu.cn/wiki/EdOYwLvJIi8N63kAkpDcpm9ZnZd) for usage instructions.
+If your X2L comes with the ROOBI OS system, you can refer to [this document](../../../roobi) for usage instructions.
 
 ## Manual Operating System Installation
 
@@ -87,7 +87,7 @@ Plug in a mouse and keyboard into any USB port.
 
 - After the display appears, immediately press `F7` to enter the boot selection interface.
 
-![Boot_menu](/img/x/roobi/boot_menu.webp)
+![Boot_menu](/img/roobi/boot_menu.webp)
 
 - Select your USB device and press `Enter` to choose the corresponding entry to boot the installation image.
 
