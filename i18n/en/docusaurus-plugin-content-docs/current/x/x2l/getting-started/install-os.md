@@ -12,7 +12,7 @@ The Radxa X2L doesn't come with a CMOS battery. For the first time power on, the
 
 ## Installing the Operating System Using ROOBI OS
 
-If your X2L comes with the ROOBI OS system, you can refer to [this document](https://palmshell.feishu.cn/wiki/EdOYwLvJIi8N63kAkpDcpm9ZnZd) for usage instructions.
+If your X2L comes with the ROOBI OS system, you can refer to [this document](../../../roobi) for usage instructions.
 
 ## Manual Operating System Installation
 

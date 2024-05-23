@@ -12,7 +12,7 @@ Radxa X2L 没有配备 CMOS 电池。首次开机时，BIOS 会初始化硬件�
 
 ## 使用 ROOBI OS 安装操作系统
 
-如果您购买的 X2L 附带有 ROOBI OS 系统，您可以参考[这篇文档](https://palmshell.feishu.cn/wiki/EdOYwLvJIi8N63kAkpDcpm9ZnZd)来使用。
+如果您购买的 X2L 附带有 ROOBI OS 系统，您可以参考[这篇文档](../../../roobi)来使用。
 
 ## 手动安装操作系统
 
