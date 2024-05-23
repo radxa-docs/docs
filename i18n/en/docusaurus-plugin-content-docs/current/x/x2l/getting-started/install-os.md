@@ -87,7 +87,7 @@ Plug in a mouse and keyboard into any USB port.
 
 - After the display appears, immediately press `F7` to enter the boot selection interface.
 
-![Boot_menu](/img/x/roobi/boot_menu.webp)
+![Boot_menu](/img/roobi/boot_menu.webp)
 
 - Select your USB device and press `Enter` to choose the corresponding entry to boot the installation image.
 

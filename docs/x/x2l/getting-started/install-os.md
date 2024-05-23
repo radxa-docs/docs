@@ -86,7 +86,7 @@ Radxa X2L 没有配备 CMOS 电池。首次开机时，BIOS 会初始化硬件�
 
 - 在显示画面后，立刻点击 `F7` 进入引导选择界面。
 
-![Boot_menu](/img/x/roobi/boot_menu.webp)
+![Boot_menu](/img/roobi/boot_menu.webp)
 
 - 选择您的U盘设备，按 `Enter` 选择相应条目，启动安装镜像。
 
