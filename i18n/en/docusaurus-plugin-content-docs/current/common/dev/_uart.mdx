@@ -1,0 +1,146 @@
+import { PreView } from "@site/src/utils/docs";
+
+UART Introduction
+
+A UART (Universal Asynchronous Receiver/Transmitter) is the microchip with programming that controls a computer's interface to its attached serial devices.
+
+### Preparation
+
+<ul>
+  <li>One {props.model}</li>
+  <li>Two female-to-female DuPont cable</li>
+</ul>
+
+### Loopback test
+
+#### Enable Overlay
+
+Please refer to <a href="../os-config/rsetup#overlays"> Device Tree Configuration </a> to enable UART Related Overlay, eg: "Enable {props.uart1_name}".
+
+#### Connection
+
+<p>
+  As shown in the figure, short the {props.product_name} {props.uart_name}'s{" "}
+  {props.tx1_pin} and {props.rx1_pin}{" "}
+</p>
+
+<img
+  src={props.uart_connection}
+  alt="uart connection"
+  style={{ width: "80%" }}
+/>
+
+#### Test
+
+- Open a terminal and enter the following command in the terminal to set the serial port parameters
+
+<PreView params={{ model: props.model, uart_dev1: props.uart_dev1 }}>
+  {`
+  radxa@#model#:~$ sudo stty -F /dev/#uart_dev1# speed 115200 cs8 -parenb -cstopb  -echo
+  `}
+</PreView>
+
+- In the terminal, enter the following command to send data cyclically
+
+<PreView params={{ model: props.model, uart_dev1: props.uart_dev1 }}>
+  {`
+  radxa@#model#:~$ while true ;do echo "sss" > /dev/#uart_dev1#; sleep 1; done;
+  `}
+</PreView>
+
+- Create a new terminal and enter the following command to receive data
+
+<PreView params={{ model: props.model, uart_dev1: props.uart_dev1 }}>
+  {`
+  radxa@#model#:~$ sudo cat  /dev/#uart_dev1#
+  `}
+</PreView>
+
+### Transceiver test
+
+#### Enable Overlay
+
+Please refer to <a href="../os-config/rsetup#overlays"> Device Tree Configuration </a> to enable UART Related Overlay, eg: "Enable {props.uart1_name} and {props.uart2_name}".
+
+#### Connection
+
+<p>
+  Connect {props.uart1_name} and {props.uart2_name} as follows{" "}
+</p>
+
+<table>
+  <tr>
+    <th>{props.uart1_name}</th>
+    <th>\<--\></th>
+    <th>{props.uart1_name}</th>
+  </tr>
+  <tr>
+    <td>{props.tx1_pin}</td>
+    <th>\<--\></th>
+    <td>{props.rx2_pin}</td>
+  </tr>
+  <tr>
+    <td>{props.rx1_pin}</td>
+    <th>\<--\></th>
+    <td>{props.tx2_pin}</td>
+  </tr>
+</table>
+
+As shown:
+
+<img
+  src={props.two_uart_connection}
+  alt="uart connection"
+  style={{ width: "80%" }}
+/>
+
+#### Test
+
+- Open a terminal and enter the following command in the terminal to set the serial port parameters
+
+<PreView
+  params={{
+    model: props.model,
+    uart_dev1: props.uart_dev1,
+    uart_dev2: props.uart_dev2,
+  }}
+>
+  {`
+  radxa@#model#:~$ sudo stty -F /dev/#uart_dev1# speed 115200 cs8 -parenb -cstopb  -echo
+  radxa@#model#:~$ sudo stty -F /dev/#uart_dev2# speed 115200 cs8 -parenb -cstopb  -echo
+  `}
+</PreView>
+
+- In the terminal, enter the following command to send data cyclically
+
+<p>
+  {props.uart1_name} i.e {props.uart_dev1} as the sender
+</p>
+<PreView
+  params={{
+    model: props.model,
+    uart_dev1: props.uart_dev1,
+    uart_dev2: props.uart_dev2,
+  }}
+>
+  {`
+  radxa@#model#:~$ sudo stty -F /dev/#uart_dev1# speed 115200 cs8 -parenb -cstopb  -echo
+  `}
+</PreView>
+
+- Create a new terminal and enter the following command to receive data
+
+<p>
+  {props.uart2_name} i.e {props.uart_dev2} as the receiver
+</p>
+<PreView params={{ model: props.model, uart_dev2: props.uart_dev2 }}>
+  {`
+  radxa@#model#:~$ sudo cat  /dev/#uart_dev2#
+  `}
+</PreView>
+
+- validate
+
+The test is successful if the sender successfully sends and the receiver successfully receives the character "ssss".
+
+- Swap sender and receiver for cross validation

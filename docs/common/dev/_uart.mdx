@@ -1,0 +1,152 @@
+import { PreView } from "@site/src/utils/docs";
+
+UART 简介
+
+UART（通用异步接收器/发送器）是一种带有编程功能的微型芯片，用于控制计算机与其连接的串行设备的接口。
+
+### 准备
+
+<ul>
+  <li>一块 {props.model}</li>
+  <li>两根母对母杜邦线</li>
+</ul>
+
+### 回环测试
+
+#### 开启 Overlay
+
+<p>
+  请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 UART 相关
+  Overlay, eg: "Enable {props.uart_name}"。
+</p>
+
+#### 连接
+
+<p>
+  如图所示，短接 {props.product_name} {props.uart_name} 的 {props.tx1_pin} 和{" "}
+  {props.rx1_pin}{" "}
+</p>
+
+<img
+  src={props.uart_connection}
+  alt="uart connection"
+  style={{ width: "80%" }}
+/>
+
+#### 测试
+
+- 打开终端，在终端中输入以下命令设置串口参数
+
+<PreView params={{ model: props.model, uart_dev1: props.uart_dev1 }}>
+  {`
+  radxa@#model#:~$ sudo stty -F /dev/#uart_dev1# speed 115200 cs8 -parenb -cstopb  -echo
+  `}
+</PreView>
+
+- 在终端中，输入一下命令循环发送数据
+
+<PreView params={{ model: props.model, uart_dev1: props.uart_dev1 }}>
+  {`
+  radxa@#model#:~$ while true ;do echo "sss" > /dev/#uart_dev1#; sleep 1; done;
+  `}
+</PreView>
+
+- 新建一个终端，输入以下命令进行接收数据
+
+<PreView params={{ model: props.model, uart_dev1: props.uart_dev1 }}>
+  {`
+  radxa@#model#:~$ sudo cat  /dev/#uart_dev1#
+  `}
+</PreView>
+
+### 收发测试
+
+#### 开启 Overlay
+
+<p>
+  请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 UART 相关
+  Overlay, eg: "Enable {props.uart1_name}" 和"Enable {props.uart2_name}"。
+</p>
+
+#### 连接
+
+<p>
+  按照以下方式连接 {props.uart1_name} 和 {props.uart2_name}{" "}
+</p>
+
+<table>
+  <tr>
+    <th>{props.uart1_name}</th>
+    <th>\<--\></th>
+    <th>{props.uart1_name}</th>
+  </tr>
+  <tr>
+    <td>{props.tx1_pin}</td>
+    <th>\<--\></th>
+    <td>{props.rx2_pin}</td>
+  </tr>
+  <tr>
+    <td>{props.rx1_pin}</td>
+    <th>\<--\></th>
+    <td>{props.tx2_pin}</td>
+  </tr>
+</table>
+
+如图所示：
+
+<img
+  src={props.two_uart_connection}
+  alt="uart connection"
+  style={{ width: "80%" }}
+/>
+
+#### 测试
+
+- 打开终端，在终端中输入以下命令设置串口参数
+
+<PreView
+  params={{
+    model: props.model,
+    uart_dev1: props.uart_dev1,
+    uart_dev2: props.uart_dev2,
+  }}
+>
+  {`
+  radxa@#model#:~$ sudo stty -F /dev/#uart_dev1# speed 115200 cs8 -parenb -cstopb  -echo
+  radxa@#model#:~$ sudo stty -F /dev/#uart_dev2# speed 115200 cs8 -parenb -cstopb  -echo
+  `}
+</PreView>
+
+- 在终端中，输入一下命令循环发送数据
+
+<p>
+  {props.uart1_name} 即 {props.uart_dev1} 作为发送端
+</p>
+<PreView
+  params={{
+    model: props.model,
+    uart_dev1: props.uart_dev1,
+    uart_dev2: props.uart_dev2,
+  }}
+>
+  {`
+  radxa@#model#:~$ sudo stty -F /dev/#uart_dev1# speed 115200 cs8 -parenb -cstopb  -echo
+  `}
+</PreView>
+
+- 新建一个终端，输入以下命令进行接收数据
+
+<p>
+  {props.uart2_name} 即 {props.uart_dev2} 作为接收端
+</p>
+<PreView params={{ model: props.model, uart_dev2: props.uart_dev2 }}>
+  {`
+  radxa@#model#:~$ sudo cat  /dev/#uart_dev2#
+  `}
+</PreView>
+
+- 验证
+
+若发送端成功发送和接收端成功接收字符 "sss"，则测试成功。
+
+- 互换发送端和接收端进行交叉验证

@@ -1,0 +1,47 @@
+import { PreView } from "@site/src/utils/docs";
+
+GPIO Introduction
+
+General Purpose Inputs/Outputs (GPIOs) are non-dedicated digital signal pins on the circuit board of an integrated circuit or electronic circuit (e.g., MCU/MPU) that can be used as inputs or outputs, or both, and can be controlled by software.
+
+### Preparations
+
+<ul>
+  <li>One {props.model}</li>
+  <li>One LED</li>
+</ul>
+
+### Connection
+
+<p>
+  Connecting {props.gpio_pin} of {props.product_name} as shown
+</p>{" "}
+
+<img
+  src={props.gpio_connection}
+  alt="gpio connection"
+  style={{ width: "80%" }}
+/>
+
+### Test
+
+#### Input Tests
+
+Ground {props.gpio_pin} or connect to 3.3V,
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ gpioget gpiochip0 0
+  `}
+</PreView>
+
+This command outputs 0 if ground is connected and 1 if 3.3V is connected.
+
+#### Output Test
+
+<PreView params={{ model: props.model, gpio_pin: props.gpio_pin }}>
+  {`
+  radxa@#model#:~$ sudo gpioset -m signal $(sudo gpiofind PIN_#gpio_pin#)=0 # Output low, Led off
+  radxa@#model#:~$ sudo gpioset -m signal $(sudo gpiofind PIN_#gpio_pin#)=1 # Output high, Led on
+  `}
+</PreView>

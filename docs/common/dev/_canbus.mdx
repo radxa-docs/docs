@@ -1,20 +1,20 @@
-# CANBUS 简介
+CANBUS 简介
 
 控制器区域网络(CAN总线)是一种车辆总线标准，旨在允许微控制器和设备相互通信。
 它是一种基于消息的协议，最初设计用于汽车内部的多路电气布线，以节省铜，但它也可以用于许多其他环境。
 对于每个设备，帧中的数据是串行传输的，但如果多个设备同时传输，则最高优先级设备可以继续传输，而其他设备则后退。
 帧被所有设备接收，包括发送设备。
 
-## 准备
+### 准备
 
 - 两块带有 CANBUS 的 Radxa 开发板
 - 两个 CANBUS 模块
 
-## 开启 Overlay
+### 开启 Overlay
 
 请参照[设备树配置](../os-config/rsetup#overlays) 启用 CANBUS 相关 Overlay, eg: "Enable CAN1-M0"。
 
-## 连接
+### 连接
 
 ```
 主设备             CAN 模块            CAN 模块            主设备
@@ -26,14 +26,14 @@ CAN_RX   <-->     CRX                 CRX      <-->      CAN_RX
                   CANL      <-->      CANL
 ```
 
-## 安装测试工具
+### 安装测试工具
 
 ```
 sudo apt update
 sudo apt-get install can-utils iproute2
 ```
 
-## 检查 CAN 节点
+### 检查 CAN 节点
 
 ```
 $ ip a
@@ -46,7 +46,7 @@ can0: flags=193<UP,RUNNING,NOARP>  mtu 72
        device interrupt 62
 ```
 
-## 回还测试
+### 回还测试
 
 一块板子作为发送端，另一块则作为接收端
 
@@ -69,7 +69,7 @@ $ sudo candump can0
 can0  123   [4]  11 22 33 44
 ```
 
-## 开发参考
+### 开发参考
 
 - [c-can-socket](https://github.com/nascs/sample_code/tree/main/bsp_test/can_test)
 - [python-can](https://python-can.readthedocs.io/en/stable/)

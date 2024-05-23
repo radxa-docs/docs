@@ -32,6 +32,946 @@ sudo apt-get install libmraa2 libmraa-dev libmraa-java python3-mraa mraa-tools -
 - mraa-uart dev dev_num baud customized_baud send str: send str to port dev_num
 - mraa-uart dev dev_num baud customized_baud recv 1000: receive 1000 bytes from port dev_num
 
+## Sample Code
+
+### GPIO
+
+<Tabs queryString="gpio">
+<TabItem value="C">
+<details>
+<summary>blink.c</summary>
+
+```c
+
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "mraa/gpio.h"
+
+/* gpio declaration */
+#define GPIO_PIN 3
+
+volatile sig_atomic_t flag = 1;
+
+void sig_handler(int signum) {
+    if(signum == SIGINT) {
+        fprintf(stdout, "Exiting...\n");
+        flag = 0;
+    }
+}
+
+int main(void) {
+    mraa_result_t status = MRAA_SUCCESS;
+    mraa_gpio_context gpio;
+
+    signal(SIGINT, sig_handler);
+
+    mraa_init();
+
+    /* initialize GPIO */
+    gpio = mraa_gpio_init(GPIO_PIN);
+    if(gpio == NULL) {
+        fprintf(stderr, "Failed to initialize GPIO %d\n", GPIO_PIN);
+        mraa_deinit();
+        return EXIT_FAILURE;
+    }
+
+    /* set output */
+    status = mraa_gpio_dir(gpio, MRAA_GPIO_OUT);
+    if(status != MRAA_SUCCESS) {
+        goto err_exit;
+    }
+
+    while(flag) {
+        status = mraa_gpio_write(gpio, 1);
+        if(status != MRAA_SUCCESS) {
+            goto err_exit;
+        }
+        sleep(1);
+
+        status = mraa_gpio_write(gpio, 0);
+        if(status != MRAA_SUCCESS) {
+            goto err_exit;
+        }
+
+        sleep(1);
+    }
+
+    /* release gpio's */
+    status = mraa_gpio_close(gpio);
+    if(status != MRAA_SUCCESS) {
+        goto err_exit;
+    }
+
+    mraa_deinit();
+
+    return EXIT_SUCCESS;
+
+err_exit:
+    mraa_result_print(status);
+
+    mraa_deinit();
+
+    return EXIT_FAILURE;
+}
+
+```
+
+</details>
+
+Usage:
+
+- Connect the led signal pin to PIN3, VCC to the board VCC, GND to the board GND
+
+- Test
+
+```bash
+gcc blink.c -lmraa -o blink && sudo . /blink
+```
+
+If the test is successful, the led will have a blinking effect.
+
+</TabItem>
+
+<TabItem value="Python">
+<details>
+<summary>blink.py</summary>
+
+```py
+
+#!/usr/bin/env python3
+# -*- encoding: utf-8 -*-
+
+import mraa
+import time
+
+pin = 3  # set pin num
+
+try:
+    gpio = mraa.Gpio(pin)
+    gpio.dir(mraa.DIR_OUT)  # set mode as input
+
+    while True:
+        gpio.write(1)
+        time.sleep(1)
+        gpio.write(0)
+        time.sleep(1)
+
+except KeyboardInterrupt:
+    print("\nstop\n")
+
+```
+
+</details>
+
+Usage:
+
+- Connect the led signal pin to PIN3, VCC to the board VCC, GND to the board GND
+
+- Test
+
+```bash
+sudo python3 Blink.py
+```
+
+If the test is successful, the led will have a blinking effect.
+
+</TabItem>
+
+</Tabs>
+
+### I2C
+
+<Tabs queryString="i2c">
+<TabItem value="C">
+<details>
+<summary>led_i2c_blink.c</summary>
+
+```c
+
+#include <math.h>
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "mraa/i2c.h"
+
+#define I2C_BUS 2
+#define LED_ADDRESS 0x20
+
+volatile sig_atomic_t flag = 1;
+
+void sig_handler(int signum) {
+	if (signum == SIGINT) {
+		fprintf(stdout, "Exiting...\n");
+		flag = 0;
+	}
+}
+
+int main() {
+	mraa_result_t status = MRAA_SUCCESS;
+	mraa_i2c_context i2c;
+
+	signal(SIGINT, sig_handler);
+	mraa_init();
+
+	i2c = mraa_i2c_init(I2C_BUS);
+	if(i2c == NULL) {
+		fprintf(stderr, "Failed to initialize I2C\n");
+		mraa_deinit();
+		return EXIT_FAILURE;
+	}
+
+	/* set slave address */
+	status = mraa_i2c_address(i2c, LED_ADDRESS);
+	if(status != MRAA_SUCCESS) {
+		return -1;
+	}
+
+	while(1) {
+		/**
+		 * Write a single word to an i2c context
+		 *
+		 * @param dev The i2c context
+		 * @param data The word to write
+		 * @param command The register
+		 * @return Result of operation
+		 */
+		mraa_i2c_write_byte_data(i2c, 0x23, 0x08);
+		sleep(1);
+		mraa_i2c_write_byte_data(i2c, 0x21, 0x01);
+		sleep(1);
+		mraa_i2c_write_byte_data(i2c, 0x33, 0x12);
+		sleep(1);
+		mraa_i2c_write_byte_data(i2c, 0x1f, 0x42);
+		sleep(1);
+	}
+
+	return 0;
+}
+
+```
+
+</details>
+
+Usage:
+
+- Turn on Overlay of I2C2 and reboot.
+
+- Wiring: SDA \<--\> SDA, SCL \<--\> SCL, GDN \<--\> GND, VCC \<--\> VCC
+
+- Open the terminal and enter the following command to test
+
+```bash
+gcc led_i2c_blink.c -lmraa -o led_i2c_blink && sudo ./led_i2c_blink
+```
+
+If the test is successful, the I2C Led will have a running light effect.
+
+</TabItem>
+
+<TabItem value="Python">
+<details>
+<summary>led_i2c_blink.py</summary>
+
+```py
+
+#!/usr/bin/env python3
+# -*- encoding: utf-8 -*-
+
+import mraa
+import time
+
+# initialise I2C
+x = mraa.I2c(2)
+x.address(0x20)
+
+while True:
+	x.writeReg(0x11, 0x01)
+	time.sleep(0.5)
+	x.writeReg(0x12, 0x02)
+	time.sleep(0.5)
+	x.writeReg(0x13, 0x03)
+	time.sleep(0.5)
+	x.writeReg(0x14, 0x04)
+	time.sleep(0.5)
+	x.writeReg(0x15, 0x05)
+	time.sleep(0.5)
+	x.writeReg(0x16, 0x06)
+
+```
+
+</details>
+
+Usage:
+
+- Turn on Overlay for I2C2 and restart the
+
+- Wiring: SDA \<--\> SDA, SCL \<--\> SCL, GDN \<--\> GND, VCC \<--\> VCC
+
+- Open a terminal and enter the following command to test
+
+```bash
+sudo python3 led_i2c_blink.py
+```
+
+</TabItem>
+</Tabs>
+
+### PWM
+
+<Tabs queryString="pwm">
+<TabItem value="C">
+<details>
+<summary>led_pwm_fade_out.c</summary>
+
+```c
+
+#include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <ctype.h>
+#include "mraa/pwm.h"
+
+/* PWM period in us */
+#define PWM_FREQ 1e3
+
+char *usage =
+	"Usage: %s pwm_pin\n"
+	"Example: %s 3\n";
+
+int main(int argc, char *argv[]) {
+	char usagestr[130];
+	char *str = NULL;
+	int invalid = 0, pwm_num = 0;
+	mraa_result_t status = MRAA_SUCCESS;
+	mraa_pwm_context pwm;
+	float output = 0.0;
+	float duty_cycle = 0.0;
+	float step = 0.05;
+
+	memset(usagestr, '\0', 130);
+	// expect only 1 argument => argc must be 2
+	if(argc != 2) {
+		snprintf(usagestr, 129, usage, argv[0], argv[0]);
+		puts(usagestr);
+		return -1;
+	}
+	// check for a valid, numeric argument
+	str = argv[1];
+	while(*str != '\0') {
+		if(!isdigit(*str)) {
+			invalid = 1;
+		}
+		str++;
+	}
+	if(invalid == 1) {
+		printf("%s: Invalid GPIO %s\n", argv[0], argv[2]);
+		return -1;
+	}
+	pwm_num = atoi(argv[1]);
+
+	mraa_init();
+
+	/* init pwm */
+	if((pwm = mraa_pwm_init(pwm_num)) == NULL) {
+		printf("Failed to initialize PWM\n");
+		mraa_deinit();
+		return -1;
+	}
+	/* set period */
+	if((status = mraa_pwm_period_us(pwm, PWM_FREQ))) {
+		printf("Failed to set pwm period\n");
+		return -1;
+	}
+	/* enable pwm */
+	if((status = mraa_pwm_enable(pwm, 1)) != MRAA_SUCCESS) {
+		printf("Failed to Enable PWM\n");
+		return -1;
+	}
+
+	while (1) {
+		// Set pwm duty cycle
+		mraa_pwm_write(pwm, duty_cycle);
+
+		// sleep 100 ms
+		usleep(100000);
+
+		// change the duty cycle
+		duty_cycle += step;
+		if (duty_cycle > 1.0) {
+			duty_cycle = 0.0;
+		}
+
+		printf("PWM value: %f\n", mraa_pwm_read(pwm));
+	}
+
+	mraa_pwm_close(pwm);
+
+	return 0;
+}
+```
+
+</details>
+
+Usage:
+
+- Turn on the PWM Overlay of a certain PIN and restart, take the PWM of PIN28 as an example.
+
+- Connect the signal pin of the led to the PIN28 pin, VCC to the VCC of the board, and GDN to the GND of the board.
+
+- Test
+
+```bash
+gcc led_pwm_fade_out.c -lmraa -o led_pwm_fade_out && sudo ./led_pwm_fade_out 28
+```
+
+If the test is successful, the led will have a breathing light effect.
+
+</TabItem>
+
+<TabItem value="Python">
+<details>
+<summary>led_pwm_fade_out.py</summary>
+
+```py
+
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+import mraa
+import time
+
+class Led_pwm_fade_out:
+    def __init__(self, pwm_pin):
+        self.pwm_pin = pwm_pin
+        self.pwm = mraa.Pwm(pwm_pin)
+        self.duty_cycle = 0.0
+        self.pwm_freq = 1e3
+        self.pwm_step = 0.05
+
+    def initialize(self):
+        if self.pwm == None:
+            exit()
+
+        if self.pwm.period_us(self.pwm_freq) != mraa.SUCCESS:
+            mraa.Pwm.close()
+            exit()
+
+        if self.pwm.enable(True) != mraa.SUCCESS:
+            mraa.Pwm.close()
+            exit()
+
+    def set_duty_cycle(self, duty_cycle):
+        self.duty_cycle = duty_cycle
+        self.pwm.write(duty_cycle)
+
+    def run(self):
+        try:
+            while True:
+                self.set_duty_cycle(self.duty_cycle)
+                self.duty_cycle += self.pwm_step
+                if self.duty_cycle > 1.0:
+                    self.duty_cycle = 0.0
+                print("0x%x\n" %self.pwm.read(self.pwm))
+                time.sleep(1)
+
+        except:
+            print("Error")
+
+        finally:
+            self.pwm.write(0)  # Stop PWM
+            self.pwm.disable()  # Disable PWM
+            self.pwm.close()  # Close PWM
+
+if __name__ == '__main__':
+
+    pwm_controller = Led_pwm_fade_out(28)
+
+    pwm_controller.initialize()
+
+    pwm_controller.run()
+
+```
+
+</details>
+
+How to use:
+
+- Turn on the PWM Overlay of a certain PIN and restart, take the PWM of PIN28 as an example.
+
+- Connect the signal pin of the led to the PIN28 pin, VCC to the VCC of the board, and GDN to the GND of the board.
+
+- Test
+
+```bash
+sudo python3 Led_pwm_fade_out.py
+```
+
+If the test is successful, the led will have a breathing light effect.
+
+</TabItem>
+
+</Tabs>
+
+### SPI
+
+<Tabs queryString="spi">
+<TabItem value="C">
+<details>
+<summary>spi_test.c</summary>
+
+```c
+
+#include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+/* mraa header */
+#include "mraa/spi.h"
+
+/* SPI declaration */
+#define SPI_BUS 0
+
+/* SPI frequency in Hz */
+#define SPI_FREQ 400000
+
+int main(int argc, char** argv) {
+	mraa_result_t status = MRAA_SUCCESS;
+	mraa_spi_context spi;
+	int i, j;
+
+	/* initialize mraa for the platform (not needed most of the times) */
+	mraa_init();
+
+	//! [Interesting]
+	/* initialize SPI bus */
+	spi = mraa_spi_init(SPI_BUS);
+	if (spi == NULL) {
+		fprintf(stderr, "Failed to initialize SPI\n");
+		mraa_deinit();
+		return EXIT_FAILURE;
+	}
+
+	/* set SPI frequency */
+	status = mraa_spi_frequency(spi, SPI_FREQ);
+	if (status != MRAA_SUCCESS)
+		goto err_exit;
+	/* set big endian mode */
+	status = mraa_spi_lsbmode(spi, 0);
+	if (status != MRAA_SUCCESS) {
+		goto err_exit;
+	}
+
+	while(1) {
+		printf("0x%x\n",mraa_spi_write(spi, 0xaa));
+		sleep(1);
+	}
+err_exit:
+	mraa_result_print(status);
+
+	/* stop spi */
+	mraa_spi_stop(spi);
+
+	/* deinitialize mraa for the platform (not needed most of the times) */
+	 mraa_deinit();
+
+	return EXIT_FAILURE;
+}
+
+```
+
+</details>
+
+Usage:
+
+- Turn on spi0 i.e. spidev0.0's Overlay and reboot!
+
+- Test
+
+Open a terminal and enter the following commands to test
+
+```bash
+gcc spi_test.c -o spi_test && sudo ./spi_test
+```
+
+If the test is successful, the terminal will output "0xaa".
+
+</TabItem>
+
+<TabItem value="Python">
+<details>
+<summary>Spi_test.py</summary>
+
+```py
+
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+import mraa
+import time
+
+class Spi_test:
+    def __init__(self, spi_index):
+        self.spidev = mraa.Spi(spi_index)
+        self.freq = 400000
+
+    def initialize(self):
+        if self.spidev.frequency(self.freq) != mraa.SUCCESS:
+            exit()
+
+        if self.spidev.lsbmode(False) != mraa.SUCCESS:
+            exit()
+
+    def write_byte(self, value):
+        return self.spidev.writeByte(value)
+
+    def close(self):
+        self.close()
+
+
+if __name__ == '__main__':
+    # create spi device
+    spi_device = Spi_test(0)
+
+    # init
+    spi_device.initialize()
+
+    try:
+        while True:
+            # value = ...
+            print("0x%x\n" % spi_device.write_byte(0xaa))
+            time.sleep(1)
+    except:
+        print("Error")
+    finally:
+        spi_device.close()
+
+```
+
+</details>
+
+Usage:
+
+- Turn on spi0 i.e. spidev0.0's Overlay and reboot!
+
+- Test
+
+Open a terminal and enter the following commands to test
+
+```bash
+sudo python3 Spi_test.py
+```
+
+If the test is successful, the terminal will output "0xaa".
+
+</TabItem>
+
+</Tabs>
+
+### UART
+
+<Tabs queryString="uart">
+<TabItem value="C">
+<details>
+<summary>snd.c</summary>
+
+```c
+
+#include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <ctype.h>
+#include "mraa/uart.h"
+
+#ifndef FALSE
+#define FALSE 0
+#define TRUE (!FALSE)
+#endif
+
+char *usage =
+	"Usage: %s uart_path_id msg\n"
+	"Example: %s 4 'this is test message'\n";
+
+int main(int argc, char *argv[]) {
+	char usagestr[130];
+	char *str = NULL;
+	int invalid = 0;
+	mraa_uart_context snd_uart;
+	mraa_result_t status = MRAA_SUCCESS;
+
+	memset(usagestr, '\0', 130);
+	if(argc != 3) {
+		snprintf(usagestr, 129, usage, argv[0], argv[0]);
+		puts(usagestr);
+		return -1;
+	}
+
+	mraa_init();
+
+    char uart_path[15];
+    snprintf(uart_path, sizeof(uart_path), "/dev/ttyS%d", atoi(argv[1]));
+	printf("uart_path: %s, msg: %s\n", uart_path, argv[2]);
+
+	if((snd_uart = mraa_uart_init_raw(uart_path)) == NULL) {
+		printf("Failed to initialize UART\n");
+		mraa_deinit();
+		return -1;
+	}
+
+    if ((status = mraa_uart_set_baudrate(snd_uart, 115200)) != MRAA_SUCCESS) {
+        return -1;
+    }
+
+    if ((status = mraa_uart_set_mode(snd_uart, 8, MRAA_UART_PARITY_NONE, 1)) != MRAA_SUCCESS) {
+        return -1;
+    }
+
+    if ((status = mraa_uart_set_flowcontrol(snd_uart, FALSE, FALSE)) != MRAA_SUCCESS) {
+        return -1;
+    }
+
+	while(1) {
+		mraa_uart_write(snd_uart, argv[2], strlen(argv[2]));
+		sleep(1);
+	}
+
+	mraa_uart_stop(snd_uart);
+	mraa_deinit();
+
+	return 0;
+}
+
+```
+
+</details>
+
+<details>
+<summary>recv.c</summary>
+
+```c
+
+#include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <ctype.h>
+#include "mraa/uart.h"
+
+#ifndef FALSE
+#define FALSE 0
+#define TRUE (!FALSE)
+#endif
+
+char *usage =
+	"Usage: %s uart_path_id\n"
+	"Example: %s 4\n";
+
+
+int main(int argc, char *argv[]) {
+	char usagestr[130];
+	char *str = NULL;
+	int invalid = 0, uart_id = 0;
+	mraa_uart_context recv_uart;
+	mraa_result_t status = MRAA_SUCCESS;
+
+	memset(usagestr, '\0', 130);
+	if(argc != 2) {
+		snprintf(usagestr, 129, usage, argv[0], argv[0]);
+		puts(usagestr);
+		return -1;
+	}
+	// check for a valid, numeric argument
+	str = argv[1];
+	while(*str != '\0') {
+		if(!isdigit(*str)) {
+			invalid = 1;
+		}
+		str++;
+	}
+	if(invalid == 1) {
+		printf("%s: Invalid GPIO %s\n", argv[0], argv[1]);
+		return -1;
+	}
+
+	mraa_init();
+
+	char uart_path[15];
+	snprintf(uart_path, sizeof(uart_path), "/dev/ttyS%d", atoi(argv[1]));
+	printf("uart_path: %s\n", uart_path);
+
+	if((recv_uart = mraa_uart_init_raw(uart_path)) == NULL) {
+		printf("Failed to initialize UART\n");
+		mraa_deinit();
+		return -1;
+	}
+
+	if ((status = mraa_uart_set_baudrate(recv_uart, 115200)) != MRAA_SUCCESS) {
+		return -1;
+	}
+
+	if ((status = mraa_uart_set_mode(recv_uart, 8, MRAA_UART_PARITY_NONE, 1)) != MRAA_SUCCESS) {
+		return -1;
+	}
+
+	if ((status = mraa_uart_set_flowcontrol(recv_uart, FALSE, FALSE)) != MRAA_SUCCESS) {
+		return -1;
+	}
+
+	char recv_buff[1024];
+	while(1) {
+		if (mraa_uart_data_available(recv_uart, 1) == TRUE) {
+			mraa_uart_read(recv_uart, recv_buff, sizeof(recv_buff));
+			printf("recv: %s\n", recv_buff);
+			sleep(1);
+		}
+	}
+}
+
+```
+
+</details>
+
+Usage:
+
+- Open the overlay of two UARTs, take uart4 and uart6 as an example, i.e. /dev/ttyS4 and /dev/ttyS6.
+
+- Cross-wire the TX and RX pins of the two UARTs.
+
+- Test
+
+Open two terminals and enter the following commands to test respectively.
+
+```bash
+gcc recv.c -lmraa -o recv && sudo ./recv 6 # /dev/ttyS6
+```
+
+```bash
+gcc snd.c -lmraa -o  snd && sudo ./snd 4 "hello, this is test"  # /dev/ttyS4
+```
+
+If the test is successful, uart6 receives the cyclic message "hello, this is test" from uart4.
+
+</TabItem>
+
+<TabItem value="Python">
+<details>
+<summary>Snd.py</summary>
+
+```py
+
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+import mraa
+import time
+
+class Snd:
+
+	def __init__(self, uart_id, baurd_rate, parity, stopbits):
+		self.uart_id = uart_id
+		self.uart_snd = mraa.Uart(uart_id)
+		self.uart_snd.setBaudRate(baurd_rate)
+		self.uart_snd.setMode(parity, mraa.UART_PARITY_NONE, stopbits)
+		self.uart_snd.setFlowcontrol(False, False)
+
+	def send_message(self, message):
+		snd_msg = bytearray(message, "ascii")
+		self.uart_snd.write(snd_msg)
+		self.uart_snd.flush()
+
+if __name__ == '__main__':
+	# init uart
+	uart_snd =  Snd(1, 115200, 8, 1)
+
+	while True:
+		uart_snd.send_message("Hello, this is snd side.\n")
+		time.sleep(1)
+
+```
+
+</details>
+
+<details>
+<summary>Recv.py</summary>
+
+```py
+
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+import mraa
+import time
+import sys
+
+class Recv:
+	def __init__(self, uart_id, baurd_rate, parity, stopbits):
+		self.uart_id = uart_id
+		self.baurd_rate = baurd_rate
+		self.parity = parity
+		self.stopbits = stopbits
+		self.uart = mraa.Uart(uart_id)
+		self.initialize_uart()
+
+	def initialize_uart(self):
+		self.uart.setBaudRate(self.baurd_rate)
+		self.uart.setMode(self.parity, mraa.UART_PARITY_NONE, self.stopbits)
+		self.uart.setFlowcontrol(False, False)
+
+	def run(self):
+		try:
+			while True:
+				if self.uart.dataAvailable():
+					data_byte = self.uart.readStr(125)
+					print(data_byte)
+
+					# Just a two-way half-duplex communication example, "X" is a flag
+					if data_byte == "X":
+						self.uart.writeStr("Yes, master!")
+
+		except KeyboardInterrupt:
+			print("Exiting...")
+			self.uart.writeStr("Exiting...")
+			self.uart.close()
+			sys.exit()
+
+if __name__ == '__main__':
+
+	uart_receiver = Recv(2, 115200, 8, 1)
+
+	uart_receiver.run()
+
+```
+
+</details>
+
+Usage:
+
+- Open the overlay of two UARTs, take uart4 and uart6 as an example, i.e. /dev/ttyS4 and /dev/ttyS6.
+
+- Cross-wire the TX and RX pins of the two UARTs.
+
+- Test
+
+Open two terminals and enter the following commands to test respectively.
+
+```bash
+sudo python3 Recv.py
+```
+
+```bash
+sudo python3 Snd.py
+```
+
+If the test is successful, uart6 receives the cyclic message "Hello, this is snd side." from uart4.
+
+</TabItem>
+
+</Tabs>
+
 ## More
 
 - [Mraa API reference](https://iotdk.intel.com/docs/master/mraa/index.html)
