@@ -53,6 +53,8 @@ Llama3 ChatBot-TPU 是使用 Sophon SDK 将 Meta 开源 [Llama3](https://ai.meta
 
 - 启动 Llama3
 
+  (可选) 修改 Llama3 输出语言或角色扮演, 请参考 [修改 Llama3 背景信息](#修改-llama3-背景信息)
+
   **终端模式**
 
   ```bash
@@ -129,7 +131,7 @@ Llama3 ChatBot-TPU 是使用 Sophon SDK 将 Meta 开源 [Llama3](https://ai.meta
   `--seq_length`： 是固定导出的 sequence length, 根据需要可选 512, 1024，2048 等长度
 
 - 生成 bmodel 文件
-
+  A
   生成 bmodel 之前需要退出虚拟环境
 
   ```bash
@@ -161,4 +163,22 @@ cd build
 cmake ..
 make
 cp *chat* ..
+```
+
+## 修改 Llama3 背景信息
+
+用户可以通过修改 Llama3 初始化背景信息，将 Llama3 换成不同角色扮演或不同语言输出，默认是英文 AI 助手 `You are Llama3, a helpful AI assistant.`
+
+用户修改 `LLM-TPU/models/Llama3/python_demo/pipeline.py` 中的 `system_prompt` 来初始化 Llama3
+
+例如，将Llama3 换成中文输出可以是
+
+```python3
+self.system_prompt = '你是 Llama3，一个中文 AI 助手，你的回答都需要用中文回答'
+```
+
+将 Llama3 换成有趣的角色扮演
+
+```python3
+self.system_prompt = '你是 Llama3，你是一个总是用中文海盗语回应的海盗聊天机器人'
 ```
