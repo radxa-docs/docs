@@ -8,17 +8,22 @@ PWM 简介
 ### 准备
 
 <ul>
-    <li>一块 {props.model}</li>
-    <li>一个 LED 灯</li>
+  <li>一块 {props.model}</li>
+  <li>一个 LED 灯</li>
 </ul>
 
 ### 开启 Overlay
 
-<p>请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 PWM 相关 Overlay, eg: "Enable {props.pwm_name}"。</p>
+<p>
+  请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 PWM 相关
+  Overlay, eg: "Enable {props.pwm_name}"。
+</p>
 
 ### 连接
 
-<p>如图所示，连接 {props.product_name} 的 {props.pwm_pin}</p>
+<p>
+  如图所示，连接 {props.product_name} 的 {props.pwm_pin}
+</p>
 
 <img src={props.pwm_connection} alt="pwm connection" style={{ width: "80%" }} />
 

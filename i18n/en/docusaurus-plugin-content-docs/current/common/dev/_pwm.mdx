@@ -8,23 +8,29 @@ For high amplitude signals, the output switching transistor is on more of the ti
 ### Preparations
 
 <ul>
-    <li>One {props.model}</li>
-    <li>One LED</li>
+  <li>One {props.model}</li>
+  <li>One LED</li>
 </ul>
 
 ### Enable Overlay
 
-<p>Please refer to<a href="../os-config/rsetup#overlays">the device tree configuration </a> to enable PWM-related Overlay. eg: "Enable {props.pwm_name}".</p>
+<p>
+  Please refer to
+  <a href="../os-config/rsetup#overlays">the device tree configuration </a> to enable
+  PWM-related Overlay. eg: "Enable {props.pwm_name}".
+</p>
 
 ### Connection
 
-<p>As shown in the picture，connect {props.product_name}'s {props.pwm_pin}</p>
+<p>
+  As shown in the picture，connect {props.product_name}'s {props.pwm_pin}
+</p>
 
 <img src={props.pwm_connection} alt="pwm connection" style={{ width: "80%" }} />
 
 ### Test
 
--  Open a terminal and install the Python library for python3-periphery by typing the following command in the terminal
+- Open a terminal and install the Python library for python3-periphery by typing the following command in the terminal
 
 ```
 sudo apt-get install python3-periphery

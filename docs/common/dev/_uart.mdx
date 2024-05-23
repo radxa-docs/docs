@@ -7,21 +7,31 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
 ### 准备
 
 <ul>
-    <li>一块 {props.model}</li>
-    <li>两根母对母杜邦线</li>
+  <li>一块 {props.model}</li>
+  <li>两根母对母杜邦线</li>
 </ul>
 
 ### 回环测试
 
 #### 开启 Overlay
 
-<p>请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 UART 相关 Overlay, eg: "Enable {props.uart_name}"。</p>
+<p>
+  请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 UART 相关
+  Overlay, eg: "Enable {props.uart_name}"。
+</p>
 
 #### 连接
 
-<p>如图所示，短接 {props.product_name} {props.uart_name} 的 {props.tx1_pin} 和 {props.rx1_pin} </p>
+<p>
+  如图所示，短接 {props.product_name} {props.uart_name} 的 {props.tx1_pin} 和{" "}
+  {props.rx1_pin}{" "}
+</p>
 
-<img src={props.uart_connection} alt="uart connection" style={{ width: "80%" }} />
+<img
+  src={props.uart_connection}
+  alt="uart connection"
+  style={{ width: "80%" }}
+/>
 
 #### 测试
 
@@ -53,11 +63,16 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
 
 #### 开启 Overlay
 
-<p>请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 UART 相关 Overlay, eg: "Enable {props.uart1_name}" 和"Enable {props.uart2_name}"。</p>
+<p>
+  请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 UART 相关
+  Overlay, eg: "Enable {props.uart1_name}" 和"Enable {props.uart2_name}"。
+</p>
 
 #### 连接
 
-<p>按照以下方式连接 {props.uart1_name} 和 {props.uart2_name} </p>
+<p>
+  按照以下方式连接 {props.uart1_name} 和 {props.uart2_name}{" "}
+</p>
 
 <table>
   <tr>
@@ -79,13 +94,23 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
 
 如图所示：
 
-<img src={props.two_uart_connection} alt="uart connection" style={{ width: "80%" }} />
+<img
+  src={props.two_uart_connection}
+  alt="uart connection"
+  style={{ width: "80%" }}
+/>
 
 #### 测试
 
 - 打开终端，在终端中输入以下命令设置串口参数
 
-<PreView params={{ model: props.model, uart_dev1: props.uart_dev1, uart_dev2: props.uart_dev2  }}>
+<PreView
+  params={{
+    model: props.model,
+    uart_dev1: props.uart_dev1,
+    uart_dev2: props.uart_dev2,
+  }}
+>
   {`
   radxa@#model#:~$ sudo stty -F /dev/#uart_dev1# speed 115200 cs8 -parenb -cstopb  -echo
   radxa@#model#:~$ sudo stty -F /dev/#uart_dev2# speed 115200 cs8 -parenb -cstopb  -echo
@@ -94,8 +119,16 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
 
 - 在终端中，输入一下命令循环发送数据
 
-<p>{props.uart1_name} 即 {props.uart_dev1} 作为发送端</p>
-<PreView params={{ model: props.model, uart_dev1: props.uart_dev1, uart_dev2: props.uart_dev2  }}>
+<p>
+  {props.uart1_name} 即 {props.uart_dev1} 作为发送端
+</p>
+<PreView
+  params={{
+    model: props.model,
+    uart_dev1: props.uart_dev1,
+    uart_dev2: props.uart_dev2,
+  }}
+>
   {`
   radxa@#model#:~$ sudo stty -F /dev/#uart_dev1# speed 115200 cs8 -parenb -cstopb  -echo
   `}
@@ -103,7 +136,9 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
 
 - 新建一个终端，输入以下命令进行接收数据
 
-<p>{props.uart2_name} 即 {props.uart_dev2} 作为接收端</p>
+<p>
+  {props.uart2_name} 即 {props.uart_dev2} 作为接收端
+</p>
 <PreView params={{ model: props.model, uart_dev2: props.uart_dev2 }}>
   {`
   radxa@#model#:~$ sudo cat  /dev/#uart_dev2#

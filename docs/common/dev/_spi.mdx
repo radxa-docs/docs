@@ -7,17 +7,22 @@ SPI 简介
 ### 准备
 
 <ul>
-    <li>一块 {props.model}</li>
-    <li>一根母对母杜邦线</li>
+  <li>一块 {props.model}</li>
+  <li>一根母对母杜邦线</li>
 </ul>
 
 ### 开启 Overlay
 
-<p>请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 SPIDEV 相关 Overlay, eg: "Enable {props.spi_overlay_name}"。</p>
+<p>
+  请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 SPIDEV 相关
+  Overlay, eg: "Enable {props.spi_overlay_name}"。
+</p>
 
 ### 连接
 
-<p>如图所示，短接 {props.spi_mosi} 和 {props.spi_miso}</p>
+<p>
+  如图所示，短接 {props.spi_mosi} 和 {props.spi_miso}
+</p>
 
 <img src={props.spi_connection} alt="spi connection" style={{ width: "80%" }} />
 
@@ -435,6 +440,7 @@ sudo apt-get install build-essential
             return ret;
         }
     ```
+
 </details>
 
 - 查看新增的 spidev 设备
@@ -443,9 +449,9 @@ sudo apt-get install build-essential
 ls /dev/spidev*
 ```
 
-- 根据具体的 spidev 设备修改 ``` static const char *device = "/dev/spidev0.0"; ``` 这一行
+- 根据具体的 spidev 设备修改 `static const char *device = "/dev/spidev0.0";` 这一行
 
-例如，实际的 spidev 是 /dev/spidev1.0， 则 ``` static const char *device = "/dev/spidev1.0"; ```
+例如，实际的 spidev 是 /dev/spidev1.0， 则 `static const char *device = "/dev/spidev1.0";`
 
 - 在终端中，输入以下命令进行编译
 
@@ -461,7 +467,7 @@ sudo ./a.out
 
 - 检查输出结果
 
-若输出结果和 *default_tx* 一致（若输出和以下一致），则表示 spi 回环测试成功
+若输出结果和 _default_tx_ 一致（若输出和以下一致），则表示 spi 回环测试成功
 
 ```bash
 spi mode: 0x0

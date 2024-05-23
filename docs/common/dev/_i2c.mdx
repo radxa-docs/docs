@@ -5,13 +5,16 @@ I2C（Inter-Integrated Circuit；发音为 "eye-squared-see "或 "eye-two-see"�
 ### 准备
 
 <ul>
-    <li>一块 {props.product_name}</li>
-    <li>一个 OLED </li>
+  <li>一块 {props.product_name}</li>
+  <li>一个 OLED </li>
 </ul>
 
 ### 开启 Overlay
 
-<p>请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 I2C 相关 Overlay, eg: "Enable {props.i2c_overlay_name}"。</p>
+<p>
+  请参照<a href="../os-config/rsetup#overlays">设备树配置</a>启用 I2C 相关
+  Overlay, eg: "Enable {props.i2c_overlay_name}"。
+</p>
 
 ### 连接
 
@@ -153,6 +156,7 @@ I2C（Inter-Integrated Circuit；发音为 "eye-squared-see "或 "eye-two-see"�
       oled.oled_show_char(0, 0, 'radxa')
       oled.oled_clear()
     </code>
+
 </details>
 
 - 在终端中，执行以下命令进行测试

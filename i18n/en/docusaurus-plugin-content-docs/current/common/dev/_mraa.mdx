@@ -157,11 +157,12 @@ try:
         time.sleep(1)
         gpio.write(0)
         time.sleep(1)
-        
+
 except KeyboardInterrupt:
     print("\nstop\n")
 
 ```
+
 </details>
 
 Usage:
@@ -227,7 +228,7 @@ int main() {
 	if(status != MRAA_SUCCESS) {
 		return -1;
 	}
-	
+
 	while(1) {
 		/**
 		 * Write a single word to an i2c context
@@ -263,7 +264,7 @@ Usage:
 - Open the terminal and enter the following command to test
 
 ```bash
-gcc led_i2c_blink.c -lmraa -o led_i2c_blink && sudo ./led_i2c_blink 
+gcc led_i2c_blink.c -lmraa -o led_i2c_blink && sudo ./led_i2c_blink
 ```
 
 If the test is successful, the I2C Led will have a running light effect.
@@ -382,12 +383,12 @@ int main(int argc, char *argv[]) {
 	}
 	/* set period */
 	if((status = mraa_pwm_period_us(pwm, PWM_FREQ))) {
-		printf("Faile to set pwm period\n");
+		printf("Failed to set pwm period\n");
 		return -1;
 	}
 	/* enable pwm */
 	if((status = mraa_pwm_enable(pwm, 1)) != MRAA_SUCCESS) {
-		printf("Faile to Enable PWM\n");
+		printf("Failed to Enable PWM\n");
 		return -1;
 	}
 
@@ -427,7 +428,7 @@ Usage:
 gcc led_pwm_fade_out.c -lmraa -o led_pwm_fade_out && sudo ./led_pwm_fade_out 28
 ```
 
-If the test is successful, the led will have a breathing light effect. 
+If the test is successful, the led will have a breathing light effect.
 
 </TabItem>
 
@@ -494,6 +495,7 @@ if __name__ == '__main__':
     pwm_controller.run()
 
 ```
+
 </details>
 
 How to use:
@@ -508,7 +510,7 @@ How to use:
 sudo python3 Led_pwm_fade_out.py
 ```
 
-If the test is successful, the led will have a breathing light effect. 
+If the test is successful, the led will have a breathing light effect.
 
 </TabItem>
 
@@ -526,10 +528,10 @@ If the test is successful, the led will have a breathing light effect.
 #include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>
-   
+
 /* mraa header */
 #include "mraa/spi.h"
-   
+
 /* SPI declaration */
 #define SPI_BUS 0
 
@@ -556,7 +558,7 @@ int main(int argc, char** argv) {
 	/* set SPI frequency */
 	status = mraa_spi_frequency(spi, SPI_FREQ);
 	if (status != MRAA_SUCCESS)
-		goto err_exit;	
+		goto err_exit;
 	/* set big endian mode */
 	status = mraa_spi_lsbmode(spi, 0);
 	if (status != MRAA_SUCCESS) {
@@ -665,11 +667,9 @@ sudo python3 Spi_test.py
 
 If the test is successful, the terminal will output "0xaa".
 
-
 </TabItem>
 
 </Tabs>
-
 
 ### UART
 
@@ -886,12 +886,13 @@ class Snd:
 if __name__ == '__main__':
 	# init uart
 	uart_snd =  Snd(1, 115200, 8, 1)
-	
+
 	while True:
 		uart_snd.send_message("Hello, this is snd side.\n")
 		time.sleep(1)
 
 ```
+
 </details>
 
 <details>
@@ -944,6 +945,7 @@ if __name__ == '__main__':
 	uart_receiver.run()
 
 ```
+
 </details>
 
 Usage:

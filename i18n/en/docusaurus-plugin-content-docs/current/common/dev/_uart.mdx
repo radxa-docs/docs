@@ -7,8 +7,8 @@ A UART (Universal Asynchronous Receiver/Transmitter) is the microchip with progr
 ### Preparation
 
 <ul>
-    <li>One {props.model}</li>
-    <li>Two female-to-female DuPont cable</li>
+  <li>One {props.model}</li>
+  <li>Two female-to-female DuPont cable</li>
 </ul>
 
 ### Loopback test
@@ -19,9 +19,16 @@ Please refer to <a href="../os-config/rsetup#overlays"> Device Tree Configuratio
 
 #### Connection
 
-<p>As shown in the figure, short the {props.product_name} {props.uart_name}'s {props.tx1_pin} and {props.rx1_pin} </p>
+<p>
+  As shown in the figure, short the {props.product_name} {props.uart_name}'s{" "}
+  {props.tx1_pin} and {props.rx1_pin}{" "}
+</p>
 
-<img src={props.uart_connection} alt="uart connection" style={{ width: "80%" }} />
+<img
+  src={props.uart_connection}
+  alt="uart connection"
+  style={{ width: "80%" }}
+/>
 
 #### Test
 
@@ -57,7 +64,9 @@ Please refer to <a href="../os-config/rsetup#overlays"> Device Tree Configuratio
 
 #### Connection
 
-<p>Connect {props.uart1_name} and {props.uart2_name} as follows </p>
+<p>
+  Connect {props.uart1_name} and {props.uart2_name} as follows{" "}
+</p>
 
 <table>
   <tr>
@@ -79,13 +88,23 @@ Please refer to <a href="../os-config/rsetup#overlays"> Device Tree Configuratio
 
 As shown:
 
-<img src={props.two_uart_connection} alt="uart connection" style={{ width: "80%" }} />
+<img
+  src={props.two_uart_connection}
+  alt="uart connection"
+  style={{ width: "80%" }}
+/>
 
 #### Test
 
 - Open a terminal and enter the following command in the terminal to set the serial port parameters
 
-<PreView params={{ model: props.model, uart_dev1: props.uart_dev1, uart_dev2: props.uart_dev2  }}>
+<PreView
+  params={{
+    model: props.model,
+    uart_dev1: props.uart_dev1,
+    uart_dev2: props.uart_dev2,
+  }}
+>
   {`
   radxa@#model#:~$ sudo stty -F /dev/#uart_dev1# speed 115200 cs8 -parenb -cstopb  -echo
   radxa@#model#:~$ sudo stty -F /dev/#uart_dev2# speed 115200 cs8 -parenb -cstopb  -echo
@@ -94,8 +113,16 @@ As shown:
 
 - In the terminal, enter the following command to send data cyclically
 
-<p>{props.uart1_name} i.e {props.uart_dev1} as the sender</p>
-<PreView params={{ model: props.model, uart_dev1: props.uart_dev1, uart_dev2: props.uart_dev2  }}>
+<p>
+  {props.uart1_name} i.e {props.uart_dev1} as the sender
+</p>
+<PreView
+  params={{
+    model: props.model,
+    uart_dev1: props.uart_dev1,
+    uart_dev2: props.uart_dev2,
+  }}
+>
   {`
   radxa@#model#:~$ sudo stty -F /dev/#uart_dev1# speed 115200 cs8 -parenb -cstopb  -echo
   `}
@@ -103,7 +130,9 @@ As shown:
 
 - Create a new terminal and enter the following command to receive data
 
-<p>{props.uart2_name} i.e {props.uart_dev2} as the receiver</p>
+<p>
+  {props.uart2_name} i.e {props.uart_dev2} as the receiver
+</p>
 <PreView params={{ model: props.model, uart_dev2: props.uart_dev2 }}>
   {`
   radxa@#model#:~$ sudo cat  /dev/#uart_dev2#
