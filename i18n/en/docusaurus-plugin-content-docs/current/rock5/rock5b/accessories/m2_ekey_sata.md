@@ -29,19 +29,7 @@ SATA power cable, yellow 12V, red 5V, black GND.
 
 ## Software Configuration
 
-- Add the following line to /boot/config.txt
-
-```
-dtoverlay=rock-5b-sata
-```
-
-- Switch root to execute commands
-
-```
-sudo su
-update_exlinux.sh
-reboot
-```
+Please refer to the [device tree configuration](../os-config/rsetup#overlays) to enable the Overlay named "Enable SATA1".
 
 - After rebooting the device, use `lsblk` to view your hard disk devices.
 

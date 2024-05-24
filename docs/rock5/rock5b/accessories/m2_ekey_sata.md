@@ -29,19 +29,7 @@ SATA电源线，黄色 12V，红色 5V，黑色 GND。
 
 ## 软件配置
 
-- 在/boot/config.txt添加如下一行
-
-```
-dtoverlay=rock-5b-sata
-```
-
-- 切换root执行命令
-
-```
-sudo su
-update_exlinux.sh
-reboot
-```
+请参照[设备树配置](../os-config/rsetup#overlays)，启用名为 "Enable SATA1" 的 Overlay。
 
 - 重启设备后，使用`lsblk`查看你的硬盘设备。
 
