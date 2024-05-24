@@ -76,7 +76,11 @@ cv2.destroyAllWindows()
 
 效果图：
 
-<img src="/img/common/opencv/harris_corner_detection_py.webp" alt="python harris corner detection" width="700" />
+<img
+  src="/img/common/opencv/harris_corner_detection_py.webp"
+  alt="python harris corner detection"
+  width="700"
+/>
 
 - Shi-Tomasi 角点检测
 
@@ -115,7 +119,11 @@ cv2.destroyAllWindows()
 
 效果图：
 
-<img src="/img/common/opencv/shi_tomasi_detection_py.webp" alt="python shi tomasi detection" width="700" />
+<img
+  src="/img/common/opencv/shi_tomasi_detection_py.webp"
+  alt="python shi tomasi detection"
+  width="700"
+/>
 
 - ORB 特征检测
 
@@ -198,7 +206,11 @@ while True:
 
 效果图：
 
-<img src="/img/common/opencv/pic_face_detect.webp" width="700" alt="pic face detect" />
+<img
+  src="/img/common/opencv/pic_face_detect.webp"
+  width="700"
+  alt="pic face detect"
+/>
 
 - 基于摄像头
 
@@ -262,7 +274,7 @@ def video():
 
     # saved as test_video_new.mp4, frame of saved video: 40,  Size of saved video: 1920 * 1080
     videoWriter = cv2.VideoWriter('./test_video_new.mp4', cv2.VideoWriter_fourcc('X','V','I','D'), 40, (1920, 1080))
- 
+
     while True:
         success, frame = videoCapture.read()
         if success:
@@ -270,11 +282,11 @@ def video():
         else:
             print('break')
             break
- 
+
     # Release the object, otherwise it may not be opened externally
     videoWriter.release()
- 
- 
+
+
 if __name__ == '__main__':
     video()
     print("program runs successfully !")
@@ -283,7 +295,7 @@ if __name__ == '__main__':
 
 </details>
 
-该程序会将原有视频帧率帧率调整为 40，大小调整为 1920 * 1080。
+该程序会将原有视频帧率帧率调整为 40，大小调整为 1920 \* 1080。
 
 ## 参考
 
