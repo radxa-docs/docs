@@ -1,0 +1,305 @@
+## Introduction
+
+OpenCV (Open Source Computer Vision Library) is a library of programming functions primarily used for real-time computer vision.
+
+## Application Areas
+
+- Image processing and analysis: OpenCV can be used to perform a variety of image processing and analysis operations, such as image enhancement, filtering, edge detection, morphological operations, colour space conversion and so on.
+
+- Target detection and tracking: OpenCV can be used for target detection and tracking, such as face recognition, vehicle recognition, pedestrian detection, etc.
+
+- Machine vision and industrial automation: OpenCV can be used for machine vision and industrial automation applications, such as automatic detection and classification, industrial quality control, etc.
+
+- Video Analysis and Processing: OpenCV can be used for video analysis and processing, such as motion detection, object tracking, video compression, video coding and decoding.
+
+- Medical Image Processing: OpenCV can also be used for medical image processing and analysis, such as segmentation, alignment, reconstruction of medical images.
+
+- Intelligent traffic system: OpenCV can be used for intelligent traffic system, including licence plate recognition, traffic flow statistics, road damage detection, etc.
+
+## Installation
+
+<Tabs>
+<TabItem value="C++ Lib">
+
+```bash
+sudo apt install libopencv-dev
+```
+
+</TabItem>
+<TabItem value="Python Lib">
+
+```bash
+pip3 install opencv-python
+```
+
+</TabItem>
+
+</Tabs>
+
+## Sample Code
+
+Here are some simple examples in Python.
+
+### Feature detection
+
+- Harris corner detection
+
+<details>
+<summary>harris_corner_detection.py</summary>
+
+```py
+
+#!/usr/bin/env python3
+# -*- encoding: utf-8 -*-
+
+import cv2
+import numpy as np
+
+# Read image
+img = cv2.imread('./pic1.png')
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Harris corner detection
+gray = np.float32(gray)
+dst = cv2.cornerHarris(gray, 2, 3, 0.08)
+dst = cv2.dilate(dst, None)
+img[dst > 0.01 * dst.max()] = [0, 0, 255]
+
+# Display image
+cv2.imshow('Harris Corner Detection', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+```
+
+</details>
+
+Renderings:
+
+<img
+  src="/img/common/opencv/harris_corner_detection_py.webp"
+  alt="python harris corner detection"
+  width="700"
+/>
+
+- Shi-Tomasi Corner Point Detection
+
+<details>
+<summary>shi_tomasi_detection.py</summary>
+
+```py
+
+import cv2
+import numpy as np
+
+# Read the image
+img = cv2.imread('./pic1.png')
+
+# Convert to greyscale
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Using Shi-Tomasi corner detection
+corners = cv2.goodFeaturesToTrack(gray, maxCorners=100, qualityLevel=0.01, minDistance=10, blockSize=3)
+
+# If a corner point is detected, it is converted to integer format and plotted
+if corners is not None:
+    corners = np.int0(corners)
+    for corner in corners:
+        x, y = corner.ravel()
+        cv2.circle(img, (x, y), 3, 255, -1)
+
+# Display image
+cv2.imshow('Shi-Tomasi Corner Detection', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+```
+
+</details>
+
+Renderings:
+
+<img
+  src="/img/common/opencv/shi_tomasi_detection_py.webp"
+  alt="python shi tomasi detection"
+  width="700"
+/>
+
+- ORB Feature Detection
+
+```bash
+pip install opencv-contrib-python
+```
+
+<details>
+<summary>orb.py</summary>
+
+```py
+
+import cv2
+import numpy as np
+
+# Read the image
+img = cv2.imread('pic1.png')
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Create ORB objects
+orb = cv2.ORB_create()
+
+# Detect keypoints and compute descriptors
+kp, des = orb.detectAndCompute(gray, None)
+
+# Mapping key points
+img = cv2.drawKeypoints(gray, kp, img, color=(0,255,0), flags=0)
+
+# Display image
+cv2.imshow('ORB', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+```
+
+</details>
+
+Renderings:
+
+<img src="/img/common/opencv/orb_py.webp" alt="python orb" width="700" />
+
+### Face recognition
+
+- Image-based
+
+<details>
+<summary>pic_face_detect.py</summary>
+
+```py
+
+import cv2
+
+# Load pre-trained Haar feature classifier for face detection
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+# Read the image of the face to be detected
+image_path = 'face-synthesis-online01.png'
+image = cv2.imread(image_path)
+
+# Convert to greyscale
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+# Detect faces in images using cascade classifiers
+faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+
+# Draw a rectangle around each detected face
+for (x, y, w, h) in faces:
+	cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
+
+# Display image
+cv2.imshow('Face Detection', image)
+
+while True:
+	if cv2.waitKey(100)==27:
+		cv2.destroyAllWindows()
+
+```
+
+</details>
+
+Renderings:
+
+<img
+  src="/img/common/opencv/pic_face_detect.webp"
+  width="700"
+  alt="pic face detect"
+/>
+
+- Camera-based
+
+<details>
+<summary> camera_face_detect.py </summary>
+
+```py
+import cv2
+
+# Load pre-trained Haar feature classifier for face detection
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+# Read the images captured by the camera(default /dev/video11 on rk3588)
+cap = cv2.VideoCapture(11)
+
+# Loop through each frame
+while True:
+    # Read a frame from the camera
+    ret, frame = cap.read()
+
+    # If the read is successful, the image is converted to greyscale
+    if ret:
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+        # Detect faces in images using cascade classifiers
+        faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+
+        # Draw a rectangle around each detected face
+        for (x, y, w, h) in faces:
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+            print("detect a face")
+
+        # Display image
+        cv2.imshow('Face Detection', frame)
+
+        # Press 'q' to exit the loop
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+# Release the camera and close all windows
+cap.release()
+cv2.destroyAllWindows()
+
+```
+
+</details>
+
+The demo opens the camera and frames the recognised face.
+
+### Video clip
+
+<details>
+<summary>video_cut.py</summary>
+
+```py
+
+import cv2
+
+def video():
+    videoCapture = cv2.VideoCapture('./test.mp4')
+
+    # saved as test_video_new.mp4, frame of saved video: 40,  Size of saved video: 1920 * 1080
+    videoWriter = cv2.VideoWriter('./test_video_new.mp4', cv2.VideoWriter_fourcc('X','V','I','D'), 40, (1920, 1080))
+
+    while True:
+        success, frame = videoCapture.read()
+        if success:
+            videoWriter.write(cv2.resize(frame, size))
+        else:
+            print('break')
+            break
+
+    # Release the object, otherwise it may not be opened externally
+    videoWriter.release()
+
+
+if __name__ == '__main__':
+    video()
+    print("program runs successfully !")
+
+```
+
+</details>
+
+The program will adjust the original video frame rate to 40 and resize it to 1920 \* 1080.
+
+## References
+
+- [OpenCV Official Web](https://opencv.org)
+- [OpenCV Documentation 4.x](https://docs.opencv.org/4.x/)
+- [OpenCV Tutorials](https://docs.opencv.org/4.x/d9/df8/tutorial_root.html)
+- [Face Recognition Github](https://github.com/ageitgey/face_recognition)
