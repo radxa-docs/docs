@@ -1,10 +1,10 @@
 ---
 sidebar_position: 1
-description: "You can configure the system to automatically log in without having to enter a password!"
+description: "您可以将系统配置为无需输入密码即可自动登录！"
 ---
 
 import AutoLogin from "../../../common/radxa-os/\_autologin.mdx";
 
-# AutoLogin
+# 自动登录
 
 <AutoLogin />
