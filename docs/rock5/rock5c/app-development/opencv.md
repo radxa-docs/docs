@@ -2,7 +2,7 @@
 sidebar_position: 9
 ---
 
-# OPENCV
+# OpenCV
 
 import OPENCV from '../../../common/dev/\_opencv.mdx';
 
