@@ -71,4 +71,12 @@ sudo dpkg -i balena-etcher_1.18.11_amd64.deb
   then the system will start booting and HDMI will display the desktop.
 </pre>
 
-<img src={props.sd_slot} alt="sd slot" style={{ width: "80%" }} />
+<img
+  src={props.sd_slot}
+  alt="sd slot"
+  style={{ width: "80%", display: `${props.sd_slot ? "block" : "none"}` }}
+/>
+
+8. Logging in to the system
+
+After the system has started, log in using the radxa account with the password radxa.
