@@ -135,3 +135,13 @@ sudo lspci -vvv -s 0000:01:00.1 | grep LnkSta
 看到使用 Gen3 后，我们可以再测一次写入速度。
 
 ![step6](/img/accessories/penta/rpi-using-6.webp)
+
+## 3D 打印外壳
+
+目前我们尚未生产用于销售的相应外壳。但我们以及社区的用户提供了一些非常好看的 3D 打印外壳，你可以尝试打印这些外壳：
+
+| 外壳名称 | 预览 | 下载地址 | 作者 | 备注 |
+| -------- | ---- | -------- | ---- | ---- |
+| Radxa Penta NAS   | <img src="/img/accessories/penta/case/case-1.webp" width="480" height="360" alt="case-1" /> | [GrabCAD](https://grabcad.com/library/radxa-penta-sata-hat-nas-case-1) | [Radxa Computer](https://radxa.com/) | 支持安装 [Top board](sata-hat-top-board)<br/>问题讨论：[Raspberry Pi 3D print penta hat case quirks ](https://forum.radxa.com/t/raspberry-pi-3d-print-penta-hat-case-quirks/21063/15) |
+| Pi 5 Four Bay NAS | <img src="/img/accessories/penta/case/case-2.webp" width="480" height="360" alt="case-2" /> | [MakerWorld](https://makerworld.com/en/models/464746#profileId-373433) | [Michael Klements](https://www.youtube.com/@MichaelKlements) | 视频： [I Built A 4-Bay NAS Using A Raspberry Pi 5](https://www.youtube.com/watch?v=vIEjdjS7uVg)|
+| Pi 5 NAS TOWER    | <img src="/img/accessories/penta/case/case-3.webp" width="480" height="360" alt="case-3" /> | [Cults 3D](https://cults3d.com/en/3d-model/gadget/pi-5-nas-tower-for-radxa-hat-with-option-noctua-fan) | [CeIIy](https://cults3d.com/en/users/CeIIy) | 80CM 猫扇，散热优秀 |

@@ -135,3 +135,13 @@ sudo lspci -vvv -s 0000:01:00.1 | grep LnkSta
 After seeing the Gen 3 in use, we can measure the write speed again.
 
 ![step6](/img/accessories/penta/rpi-using-6.webp)
+
+## 3D print case
+
+We have not yet produced the corresponding case for sale. But we and the community users have provided some very nice 3D printed cases, you can try to print these cases:
+
+| Case name | Preview | Download link | Author | Note |
+| --------- | ------- | ------------- | ------ | ---- |
+| Radxa Penta NAS | <img src="/img/accessories/penta/case/case-1.webp" width="480" height="360" alt="case-1" /> | [GrabCAD](https://grabcad.com/library/radxa-penta-sata-hat-nas-case-1) | [Radxa Computer](https://radxa.com/) | Supports installation of [Top board](sata-hat-top-board)<br/>Issue discussion: [Raspberry Pi 3D print penta hat case quirks ](https://forum.radxa.com/t/raspberry-pi-3d-print-penta-hat-case-quirks/21063/15) |
+| Pi 5 Four Bay NAS | <img src="/img/accessories/penta/case/case-2.webp" width="480" height="360" alt="case-2" /> | [MakerWorld](https://makerworld.com/en/models/464746#profileId-373433) | [Michael Klements](https://www.youtube.com/@MichaelKlements) | Video: [I Built A 4-Bay NAS Using A Raspberry Pi 5](https://www.youtube.com/watch?v=vIEjdjS7uVg) |
+| Pi 5 NAS TOWER | <img src="/img/accessories/penta/case/case-3.webp" width="480" height="360" alt="case-3" /> | [Cults 3D](https://cults3d.com/en/3d-model/gadget/pi-5-nas-tower-for-radxa-hat-with-option-noctua-fan) | [CeIIy](https://cults3d.com/en/users/CeIIy) | Noctua 80CM fan, excellent heat dissipation |
