@@ -1,78 +1,41 @@
-Stable Diffusion is a generative model that can generate scene photos based on text descriptions. Currently, it uses [StableDiffusion 1.5](https://huggingface.co/runwayml/stable-diffusion-v1-5) open-source models, which have been ported to SG2300X chip series products for local TPU hardware-accelerated inference using the Sophon SDK. Combined with the LCM LoRa acceleration module and the LoRa style, it achieves fast inference generation of characteristic style images and utilizes Gradio for user interaction.
+# Stable Diffusion
 
-- Clone the repository and switch to the radxa_v0.2.0 branch:
+Stable Diffusion is a generative model that can create scene photos based on text or images. The open-source [StableDiffusion 1.5](https://huggingface.co/runwayml/stable-diffusion-v1-5) model has been ported to the SG2300X chip series for local TPU hardware accelerated inference via the Sophon SDK. By combining the LCM Lora acceleration module and style LoRa, you can quickly generate images with distinctive styles, and use Gradio for user interaction.
+
+## Application Deployment
+
+- Clone the repository and switch to the `radxa_v0.3.0` branch
 
   ```bash
-  git clone https://github.com/zifeng-radxa/SD-lcm-tpu.git -b radxa_v0.2.0
+  git clone https://github.com/zifeng-radxa/SD-lcm-tpu.git -b radxa_v0.3.0
   ```
 
-- Download the Stable Diffusion v1.5 LoRa models' compressed package:
+- Download the Stable Diffusion models package provided by Radxa
 
-  Currently available precompiled bmodel files include:
+  Currently, the precompiled bmodels available are:
 
-  - [awportrait](https://civitai.com/models/61170/awportrait)
-  - [majicMIX_realistic](https://civitai.com/models/43331/majicmix-realistic)
-  - [majicMIX_lux](https://civitai.com/models/56967/majicmix-lux)
-  - [majicMIX_fantasy](https://civitai.com/models/41865/majicmix-fantasy)
-  - [RealCartoon2.5D](https://civitai.com/models/218376/realcartoon-25d)
+  - [AbsoluteReality v1.8.1](https://civitai.com/models/81458/absolutereality)
 
-  Users can also compile any stable_diffusion v1.5 checkpoints using model_export.py and [TPU-MLIR](../../model-compile). For details, please refer to [model_export/README](https://github.com/zifeng-radxa/SD-lcm-tpu/blob/radxa_v0.2.0/model_export/README.md).
-
-  Currently, only awportrait.tar.gz contains VAE. If needed, please download VAE separately and refer to and modify the model_path.py for each model path.
+  Users can also compile any Stable Diffusion v1.5 checkpoints by referring to [Model Conversion](#model-conversion).
 
   ```bash
   cd SD-lcm-tpu
   mkdir -p models/basic && cd models/basic
 
-  # awportrait
-  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/awportrait/tar_downloader.sh
+  # AbsoluteReality bmodels
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/sd_v3/tar_downloader.sh
   bash tar_downloader.sh
-  tar -xvf awportrait.tar.gz
+  tar -xvf AbsoluteReality_v1.8.1_sd15_original.tar.gz
 
-  # majicMIX_realistic
-  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/majicMIX_realistic/tar_downloader.sh
-  bash tar_downloader.sh
-  tar -xvf majicMIX_realistic.tar.gz
-
-  # majicMIX_fantasy
-  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/majicMIX_fantasy/tar_downloader.sh
-  bash tar_downloader.sh
-  tar -xvf majicMIX_fantasy.tar.gz
-
-  # majicMIX_lux
-  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/majicMIX_lux/tar_downloader.sh
-  bash tar_downloader.sh
-  tar -xvf majicMIX_lux.tar.gz
-
-  # RealCartoon2.5D
-  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/RealCartoon2.5D/tar_downloader.sh
-  bash tar_downloader.sh
-  tar -xvf RealCartoon2.5D.tar.gz
-
-  # vae only
-  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/vae/vae.tar.gz
-  tar -xvf vae.tar.gz
+  # Controlnet
+  cd SD-lcm-tpu
+  mkdir -p models/controlnet && cd models/controlnet
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/sd_v3/canny_multize.bmodel
   ```
 
-  The file tree structure looks like this:
+- Configure the environment
 
-  ```bash
-  .
-  ├── __pycache__
-  ├── model_export
-  ├── models
-  │   └── basic
-  │       └── awportrait
-  │  
-  ├── sd
-  │   └── __pycache__
-  ├── tokenizer
-  └── tokenizer_2
-  ```
-
-- Set up the environment
-
-  **It's necessary to create a virtual environment; otherwise, it may affect the normal operation of other applications.** For virtual environment usage, please refer [here](../ai-tools/virtualenv_usage).
+  **You must create a virtual environment to avoid affecting other applications**. For virtual environment usage, please refer to [here](../ai-tools/virtualenv_usage).
 
   ```bash
   cd SD-lcm-tpu
@@ -87,28 +50,156 @@ Stable Diffusion is a generative model that can generate scene photos based on t
   pip3 install -r requirements.txt
   ```
 
-- Start the web service
+- Start the Web service
 
   ```bash
   bash run.sh
   ```
 
-- Access the Airbox IP address on port 8999 using a web browser.
+- Access port 8999 of the Airbox IP address using a browser
 
-### Application Display
+## Application Showcase
 
 #### Text-to-Image
 
-![sd_1.webp](/img/general-tutorial/tpu_ai/sd_1.webp)
+Prompt
 
 ```bash
-time cost:  1.5556528568267822 s
+upper body photo, fashion photography of cute Hatsune Miku,
+very long turquoise pigtails and a school uniform-like outfit.
+She has teal eyes and very long pigtails held with black and
+red square-shaped ribbons that have become a signature of her design,
+moonlight passing through hair.
 ```
+
+<img width="700" src="../../../../img/general-tutorial/tpu_ai/sd_3.webp" />
 
 #### Image-to-Image
 
-![sd_2.webp](/img/general-tutorial/tpu_ai/sd_2.webp)
+Prompt
 
 ```bash
-time cost:  1.580855369567871 s
+1girl, ponytail, white hair, purple eyes, medium breasts, collarbone,
+flowers and petals, landscape, background, rose, abstract
 ```
+
+<img width="700" src="../../../../img/general-tutorial/tpu_ai/sd_4.webp" />
+
+## Model Conversion
+
+Users can refer to this section to convert any Stable Diffusion 1.5 models. You can download models from [Civitai](https://civitai.com/).
+
+Currently, there are two conversion modes available: [Command Line Mode Conversion](#command-line-mode-conversion) and [WebUI Interactive Mode Conversion](#webui-interactive-mode-conversion).
+
+#### Environment Preparation
+
+- x86 Workstation Environment Preparation
+
+  Refer to [TPU-MLIR Installation](../../model-compile/tpu_mlir_env) to configure the TPU-MLIR environment.
+
+  Create a Docker container
+
+  ```bash
+  docker run --privileged --name myname -p 8088:7860 -v $PWD:/workspace -it sophgo/tpuc_dev:latest
+  ```
+
+- Configure the environment
+
+  Clone the project repository
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/SD-lcm-tpu.git -b radxa_v0.3.0
+  ```
+
+  Download the [lcm-lora-sdv1-5](https://huggingface.co/latent-consistency/lcm-lora-sdv1-5/tree/main) Lora model files from Huggingface into the working directory
+
+  ```bash
+  git clone https://huggingface.co/latent-consistency/lcm-lora-sdv1-5
+  ```
+
+  Install dependency libraries
+
+  ```bash
+  cd SD-lcm-tpu/model_export
+  pip3 install --upgrade pip
+  pip3 install https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/tpu_mlir-1.6.502-py3-none-any.whl
+  pip3 install -r requirements.txt
+  ```
+
+#### Command Line Mode Conversion
+
+- Convert the model from safetensor to pt/onnx
+
+  ```bash
+  python3 export_from_safetensor_sd15_cli_wrapper.py -u xxxxx/model.safetensor -l xxxx/lora.safetensor -c xxxx/controlnet.safetensor -b 1 -o xxxxx/name
+  ```
+
+  `-u`: Path to the safetensors file of the model to be converted
+
+  `-l`: (Optional) Path to the lora file
+
+  `-c`: (Optional) Path to the controlnet file
+
+  If you want to use LCM to reduce the number of diffusion steps required to generate high-quality images, specify the `-l` parameter with the path to the `lcm-lora-sdv1-5` folder; otherwise, the generated model may require around 20 steps for the same quality of images.
+
+  The model will be saved to the directory specified by `-o`.
+
+  ```
+  .
+  ├── text_encoder
+  │   └── text_encoder.onnx
+  ├── unet
+  │   └── unet_fuse_1.pt
+  ├── vae_decoder
+  │   └── vae_decoder.pt
+  └── vae_encoder
+      └── vae_encoder.pt
+  ```
+
+- Convert pt/onnx to bmodel
+
+  ```sh
+  python3 convert_bmodel_cli_wrapper.py -n xxxxx/name -o xxxxx -s 512 512 768 512 512 768 -b 1 -v sd15
+  ```
+
+  `-n`: Path to the folder generated in the first step
+
+  `-s`: Input size, supports multiple sizes latent
+
+  `-o`: (Optional) Target directory path
+
+  The resulting bmodel will be in the directory specified by `-o`.
+
+  ```
+  .
+  ├── sdv15_text.bmodel
+  ├── sdv15_unet_multisize.bmodel
+  ├── sdv15_vd_multisize.bmodel
+  └── sdv15_ve_multisize.bmodel
+  ```
+
+  Copy this folder to the `SD-lcm-tpu/models/basic` folder on the Airbox.
+
+#### WebUI Interactive Mode Conversion
+
+Start the model converter service in Docker, then use a browser to access port 8088 of the host running this Docker container.
+
+```bash
+python3 gr_docker.py
+```
+
+- Step 1: Convert safetensor to onnx/pt format models
+
+  - Supports browser upload
+
+  - Supports selecting files within the container
+
+  - Supports URL auto-download (refer to [here](https://education.civitai.com/civitais-guide-to-downloading-via-api/) for obtaining Civitai API token)
+
+- Step 2: Convert onnx/pt format models to bmodel
+
+  - Refresh the page
+
+  - Select the **folder path** generated in Step 1, the parent directory of the onnx/pt model
+
+<img width="700" src="../../../../img/general-tutorial/tpu_ai/sd_5.webp" />

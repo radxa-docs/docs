@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Stable Diffusion LCM-TPU
+# Stable Diffusion-TPU
 
 import Sdlcm from '../../../../common/ai/\_sd_lcm.mdx';
 
