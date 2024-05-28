@@ -2,15 +2,16 @@
 
 这里将介绍如何在 CasaOS 安装 radxa 大模型 App, CasaOS 中的第三方 App 以 docker image 的形式进行安装，
 上传到 CasaOS App store [可参考这里](https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main)，
-radxa 目前已将 `Stable Diffusion`, `whisper`, `chatdoc`, `imagesearch` 四个大模型App上传至 [docker hub](https://hub.docker.com/u/radxazifeng278)，
+radxa 目前已将 `Stable Diffusion`, `whisper`, `chatglm2 chatdoc`, `imagesearch`, `llama3 chatbot` 五个大模型 App 上传至 [docker hub](https://hub.docker.com/u/radxazifeng278)，
 更多详细信息清参考 [App 构建方法](casaos_app_build)
 
-| App                                                               | Docker Image                             | Container port |
-| ----------------------------------------------------------------- | ---------------------------------------- | -------------- |
-| [Radxa Stable Diffusion](#安装-radxa-stable-diffusion-文生图-app) | radxazifeng278/radxa_sd_app:0.3.0        | 8999           |
-| [Radxa whisper](#安装-radxa-whisper-语音识别总结-app)             | radxazifeng278/radxa_whisper_app:0.1.0   | 7860           |
-| [Radxa ImageSearch](#安装-radxa-imagesearch-图片搜索-app)         | radxazifeng278/radxa_imgsearch_app:0.1.0 | 8501           |
-| [Radxa chatdoc](#安装-radxa-chatdoc-文档聊天-app)                 | radxazifeng278/radxa_chatdoc_app:0.1.0   | 8501           |
+| App                                                                 | Docker Image                             | Container port |
+| ------------------------------------------------------------------- | ---------------------------------------- | -------------- |
+| [Radxa Stable Diffusion](#安装-radxa-stable-diffusion-文生图-app)   | radxazifeng278/radxa_sd_app:0.3.0        | 8999           |
+| [Radxa whisper](#安装-radxa-whisper-语音识别总结-app)               | radxazifeng278/radxa_whisper_app:0.1.0   | 7860           |
+| [Radxa ImageSearch](#安装-radxa-imagesearch-图片搜索-app)           | radxazifeng278/radxa_imgsearch_app:0.1.0 | 8501           |
+| [Radxa ChatGLM2 chatdoc](#安装-radxa-chatglm2-chatdoc-文档聊天-app) | radxazifeng278/radxa_chatdoc_app:0.1.0   | 8501           |
+| [Radxa Llama3 chatbot](#安装-radxa-llama3-chatbot-聊天机器人-app)   | radxazifeng278/radxa_llama3_app:0.1.0    | 8003           |
 
 - 点击 CasaOS App 栏的 "+" 标志，选择 Install a customized app
 
@@ -100,24 +101,45 @@ radxa 目前已将 `Stable Diffusion`, `whisper`, `chatdoc`, `imagesearch` 四�
   | **Container Devices** | /dev                                     |
   | **CPU Shares**        | Medium                                   |
 
-### 安装 radxa chatdoc 文档聊天 App
+### 安装 radxa ChatGLM2 chatdoc 文档聊天 App
 
-**安装 chatdoc 前必须参考[内存分布修改工具](../local-ai-deploy/ai-tools/memory_allocate) 修改 SG2300X 内存分配**
+:::tip
+安装 chatdoc 前必须参考[内存分布修改工具](../local-ai-deploy/ai-tools/memory_allocate) 修改 SG2300X 内存分配
 
 建议分配 -NPU 7168, -VPU 2048, -VPP 3072
+:::
 
-- 填入 radxa chatdoc 容器安装所需信息
+- 填入 radxa ChatGLM2 chatdoc 容器安装所需信息
 
   |                       | radxa Chatdoc                          |
   | --------------------- | -------------------------------------- |
   | **Docker Image**      | radxazifeng278/radxa_chatdoc_app:0.1.0 |
-  | **Title**             | chatdoc                                |
+  | **Title**             | chatglm2 chatdoc                       |
   | **Web UI port**       | 8009                                   |
   | **Host Port**         | 8009                                   |
   | **Container Port**    | 8501                                   |
   | **Host Devices**      | /dev                                   |
   | **Container Devices** | /dev                                   |
   | **CPU Shares**        | Medium                                 |
+
+### 安装 radxa Llama3 Chatbot GPT App
+
+:::tip
+启动 Llama3 Chatbot 时请关闭其他 TPU 相关 App, 否则存在底层不兼容情况
+:::
+
+- 填入 radxa Llama3 Chatbot 容器安装所需信息
+
+  |                       | radxa Chatdoc                         |
+  | --------------------- | ------------------------------------- |
+  | **Docker Image**      | radxazifeng278/radxa_llama3_app:0.1.0 |
+  | **Title**             | llama3 chatbot                        |
+  | **Web UI port**       | 8008                                  |
+  | **Host Port**         | 8008                                  |
+  | **Container Port**    | 8003                                  |
+  | **Host Devices**      | /dev                                  |
+  | **Container Devices** | /dev                                  |
+  | **CPU Shares**        | Medium                                |
 
 ### App 启动与卸载
 

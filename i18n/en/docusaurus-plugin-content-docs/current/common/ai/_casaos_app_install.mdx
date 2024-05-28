@@ -1,13 +1,14 @@
 ### Install radxa One-Click Start Large Model Apps
 
-Here, we'll explain how to install radxa large model Apps on CasaOS. Third-party Apps in CasaOS are installed in the form of Docker images, uploaded to the CasaOS App store [refer here](https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main). Currently, radxa has uploaded four large model Apps (`Stable Diffusion`, `whisper`, `chatdoc`, `imagesearch`) to [docker hub](https://hub.docker.com/u/radxazifeng278). For more detailed information, please refer to [App construction methods](casaos_app_build).
+Here, we'll explain how to install radxa large model Apps on CasaOS. Third-party Apps in CasaOS are installed in the form of Docker images, uploaded to the CasaOS App store [refer here](https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main). Currently, radxa has uploaded four large model Apps (`Stable Diffusion`, `whisper`, `chatglm2 chatdoc`, `imagesearch`, `llama3 chatbot`) to [docker hub](https://hub.docker.com/u/radxazifeng278). For more detailed information, please refer to [App construction methods](casaos_app_build).
 
 | App                                                                            | Docker Image                             | Container port |
 | ------------------------------------------------------------------------------ | ---------------------------------------- | -------------- |
 | [Radxa Stable Diffusion](#install-radxa-stable-diffusion-literature-image-app) | radxazifeng278/radxa_sd_app:0.3.0        | 8999           |
 | [Radxa whisper](#install-radxa-whisper-speech-recognition-summary-app)         | radxazifeng278/radxa_whisper_app:0.1.0   | 7860           |
 | [Radxa ImageSearch](#install-radxa-imagesearch-image-search-app)               | radxazifeng278/radxa_imgsearch_app:0.1.0 | 8501           |
-| [Radxa chatdoc](#install-radxa-chatdoc-document-chat-app)                      | radxazifeng278/radxa_chatdoc_app:0.1.0   | 8501           |
+| [Radxa chatdoc](#install-radxa-chatglm2-chatdoc-document-chat-app)             | radxazifeng278/radxa_chatdoc_app:0.1.0   | 8501           |
+| [Radxa Llama3 chatbot](#install-radxa-llama3-chatbot-app)                      | radxazifeng278/radxa_llama3_app:0.1.0    | 8003           |
 
 - Click the "+" icon in the CasaOS App column and select "Install a customized app"
 
@@ -97,11 +98,13 @@ Here, we'll explain how to install radxa large model Apps on CasaOS. Third-party
   | **Container Devices** | /dev                                     |
   | **CPU Shares**        | Medium                                   |
 
-### Install radxa Chatdoc Document Chat App
+### Install radxa ChatGLM2 Chatdoc Document Chat App
 
-**Before installing chatdoc, it is necessary to refer to [Memory Allocation Modification Tool](../local-ai-deploy/ai-tools/memory_allocate) to modify the memory allocation of SG2300X**
+:::tip
+Before installing chatdoc, it is necessary to refer to [Memory Allocation Modification Tool](../local-ai-deploy/ai-tools/memory_allocate) to modify the memory allocation of SG2300X
 
 Recommended allocation -NPU 7168, -VPU 2048, -VPP 3072
+:::
 
 - Fill in the required information for installing radxa chatdoc container
 
@@ -115,6 +118,25 @@ Recommended allocation -NPU 7168, -VPU 2048, -VPP 3072
   | **Host Devices**      | /dev                                   |
   | **Container Devices** | /dev                                   |
   | **CPU Shares**        | Medium                                 |
+
+### Install radxa Llama3 Chatbot GPT App
+
+:::tip
+When starting the Llama3 Chatbot, please close other TPU-related apps to avoid underlying incompatibility issues.
+:::
+
+- Fill in the required information for installing the radxa Llama3 Chatbot container
+
+  |                       | Radxa Llama3 Chatbot                  |
+  | --------------------- | ------------------------------------- |
+  | **Docker Image**      | radxazifeng278/radxa_llama3_app:0.1.0 |
+  | **Title**             | llama3 chatbot                        |
+  | **Web UI port**       | 8008                                  |
+  | **Host Port**         | 8008                                  |
+  | **Container Port**    | 8003                                  |
+  | **Host Devices**      | /dev                                  |
+  | **Container Devices** | /dev                                  |
+  | **CPU Shares**        | Medium                                |
 
 ### App Startup and Uninstallation
 
