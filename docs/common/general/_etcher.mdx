@@ -1,4 +1,5 @@
 import { Image } from "@site/src/utils/docs";
+import React, { Fragment } from "react";
 
 Balena Etcher 是一个跨平台且，用户界面友好的镜像文件烧写工具，我们推荐你使用它。
 
@@ -69,6 +70,14 @@ sudo dpkg -i balena-etcher_1.18.11_amd64.deb
   MicroSD 插槽内（如下图所示）， 使用 {props.power_supply}{" "}
   电源适配器上电，然后系统开始启动，HDMI显示桌面。
 </pre>
+
+<div style={{display: `${props.pwr_tip ?"block": "none"}`}}>
+
+:::tip
+推荐使用官方 30W 适配器 **瑞莎PD30W适配器**。
+:::
+
+</div>
 
 <img
   src={props.sd_slot}
