@@ -1,0 +1,48 @@
+### 查看容量
+
+  1. 安装 NVME 相关工具
+
+    <pre>
+    radxa@{props.model}:~$ sudo apt-get install nvme-cli
+    </pre>
+
+  2. 查看容量
+
+    <pre>
+    radxa@{props.model}:~$ sudo nvme list
+    [sudo] password for radxa:
+    Node             SN                   Model                                    Namespace Usage                      Format           FW Rev
+    ---------------- -------------------- ---------------------------------------- --------- -------------------------- ---------------- --------
+    /dev/nvme0n1     50026B7684E3662B     KINGSTON OM8PDP3256B-A01                 1         256.06  GB / 256.06  GB    512   B +  0 B   EDFK0S03
+    </pre>
+
+### 测速
+
+  1. 安装 FIO 工具
+
+    <pre>
+    radxa@{props.model}:~$ sudo apt install fio
+    </pre>
+
+  2. 写测试
+
+    <pre>
+    radxa@{props.model}:~$  fio -rw=read -bs=1m -runtime=60 -iodepth 1 -numjobs=8 -size=1G -filename /dev/nvme0n1 -ioengine libaio -direct=1 -group_reporting -name seq_read 
+    </pre>
+
+  <img src={props.read_test_img} alt="camera connection" style={{ width: "80%" }} />
+
+  3. 读测试
+
+    <pre>
+    radxa@{props.model}:~$ fio -rw=write -bs=1m -runtime=60 -iodepth 1 -numjobs=8 -size=1G -filename /dev/nvme0n1 -ioengine libaio -direct=1 -group_reporting -name seq_write
+    </pre>
+
+  <img src={props.write_test_img} alt="camera connection" style={{ width: "80%" }} />
+
+### 从 NVME 启动系统
+
+  请参考以下文档：
+
+  1. <a href={props.boot_from_nvme_by_sd} > SD 卡启动系统再刷 NVME </a>
+  2. <a href={props.flash_by_rkdevtool} > RKDevtool 刷 NVME </a>
