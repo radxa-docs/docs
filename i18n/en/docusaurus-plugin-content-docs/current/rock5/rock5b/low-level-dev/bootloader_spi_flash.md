@@ -48,7 +48,7 @@ There are two ways to burn SPI
      (The latest version below is recommended for all but Armbian users, note that this img disables the u-boot serial console)
 
    ```bash
-   wget https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-g49da44e116d.img
+   wget https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gd1cf491-20240523.img
    ```
 
    If you want to boot armbian from an M.2 NVME SSD, use this option
@@ -60,7 +60,7 @@ There are two ways to burn SPI
    Bootloader for advanced users, with u-boot serial console already started.
 
    ```bash
-   wget https://dl.radxa.com/rock5/sw/images/loader/rock-5b/debug/rock-5b-spi-image-g3caf61a44c2-debug.img
+   wget https://dl.radxa.com/rock5/sw/images/loader/rock-5b/debug/rock-5b-spi-image-gd1cf491-20240523-debug.img
    ```
 
 3. Check the integrity of the downloaded file:
@@ -91,14 +91,14 @@ There are two ways to burn SPI
 5. Check the bootloader image you want.
 
    ```bash
-   md5sum rock-5b-spi-image-g49da44e116d.img
+   md5sum rock-5b-spi-image-gd1cf491-20240523.img
    ```
 
    The correct result is shown below:
 
    ```bash
-   46de85de37b8e670883e6f6a8bb95776 rock-5b-spi-image-g49da44e116d.img
-   958cbdb6cf9b2e0841fd76c26930db8f rock-5b-spi-image-g3caf61a44c2-debug.img
+   cf53d06b3bfaaf51bbb6f25896da4b3a rock-5b-spi-image-gd1cf491-20240523.img
+   fa14c99718f55b66e82aa1661e43c1ec rock-5b-spi-image-gd1cf491-20240523-debug.img
    1b83982a5979008b4407552152732156 rkspi_loader.img
    ```
 
@@ -127,13 +127,13 @@ There are two ways to burn SPI
    2c7ab85a893283e98c931e9511add182 zero.img
    ```
 
-   - Burn your downloaded bootloader to SPI Flash, e.g. rock-5b-spi-image-g49da44e116d.img
+   - Burn your downloaded bootloader to SPI Flash, e.g. rock-5b-spi-image-gd1cf491-20240523.img
 
    ```bash
-   sudo dd if=rock-5b-spi-image-g49da44e116d.img of=/dev/mtdblock0
+   sudo dd if=rock-5b-spi-image-gd1cf491-20240523.img of=/dev/mtdblock0
    sync
    # Check if the burn was successful
-   sudo md5sum /dev/mtdblock0 rock-5b-spi-image-g49da44e116d.img
+   sudo md5sum /dev/mtdblock0 rock-5b-spi-image-gd1cf491-20240523.img
    ```
 
    If the result is the same, it is correct. If not, please burn the bootloader again.
@@ -171,8 +171,8 @@ You have now finished burning the bootloader with NVMe boot support.
 - Download [loader images](https://dl.radxa.com/rock5/sw/images/loader/rk3588_spl_loader_v1.15.113.bin)
 - Download the latest SPI images
 
-  - [Official version](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-g49da44e116d.img), u-boot serial console off
-  - [Debug version](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/debug/rock-5b-spi-image-g3caf61a44c2-debug.img), u-boot serial console startup
+  - [Official version](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gd1cf491-20240523.img), u-boot serial console off
+  - [Debug version](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/debug/rock-5b-spi-image-gd1cf491-20240523-debug.img), u-boot serial console startup
   - [Armbian version](https://github.com/huazi-yg/rock5b/releases/download/rock5b/rkspi_loader.img), required when installing armbian image to M.2 NVME SSDs
 
 3. ROCK 5B enters Maskrom mode.

@@ -97,14 +97,14 @@ There are two methods available to flash the SPI:
 5. check your desired bootloader image:
 
    ```bash
-   md5sum rock-5b-spi-image-g49da44e116d.img
+   md5sum rock-5b-spi-image-gd1cf491-20240523.img
    ```
 
    it should report back one of the following lines:
 
    ```bash
-   46de85de37b8e670883e6f6a8bb95776  rock-5b-spi-image-g49da44e116d.img
-   958cbdb6cf9b2e0841fd76c26930db8f  rock-5b-spi-image-g3caf61a44c2-debug.img
+   cf53d06b3bfaaf51bbb6f25896da4b3a  rock-5b-spi-image-gd1cf491-20240523.img
+   fa14c99718f55b66e82aa1661e43c1ec  rock-5b-spi-image-gd1cf491-20240523-debug.img
    1b83982a5979008b4407552152732156  rkspi_loader.img
    ```
 
@@ -220,7 +220,7 @@ Next, write SPI image from PC/Mac to ROCK 5B SPI flash
 You can use the image download from Step 2.
 
 ```bash
-sudo  rkdeveloptool wl 0 rock-5b-spi-image-g49da44e116d.img
+sudo  rkdeveloptool wl 0 rock-5b-spi-image-gd1cf491-20240523.img
 Write LBA from file (100%)
 ```
 
