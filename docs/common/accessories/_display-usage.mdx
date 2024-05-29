@@ -1,0 +1,24 @@
+- 连接
+
+  通过 FPC 线接上 {props.product} ，如图所示：
+
+- 开启 Overlay
+
+  1. 通过左下角 Application Launcher 打开 Kconsole 终端, 运行 rsetup 命令：
+
+  <pre> radxa@{props.model}:~$ rsetup </pre>
+
+  2. 通过 <a href={props.rsetup_path}> 设备树配置 </a>来启用 {props.display_name} 的 Overlay。
+
+  :::tip
+
+  请启用 [] {props.overlays_title} 项 Overlay。<br/>
+  在启用成功显示 [*] {props.overlays_title} 后退出重启才能使配置生效。
+
+  :::
+
+  3. 重启系统
+
+- 测试
+
+  重启后，{props.display_name} 能够显示系统画面，且支持触摸。
