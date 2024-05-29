@@ -1,0 +1,55 @@
+本文档主要介绍如何使用 [tpu-perf](https://github.com/sophgo/tpu-perf) 使用 TPU 加载/推理经 [TPU-MLIR](tpu_mlir) 转换好的 bmodel,
+
+## 安装 TPU-PERF
+
+```bash
+pip3 install https://github.com/sophgo/tpu-perf/releases/download/v1.2.35/tpu_perf-1.2.35-py3-none-manylinux2014_aarch64.whl
+```
+
+### EngineOV
+
+EngineOV 是一个使用 tpu-perf 库用于加载/推理 bmodel 的类， 用户可使用此代码创建 EngineOV
+
+```python
+from tpu_perf.infer import SGInfer
+
+class EngineOV:
+    def __init__(self, model_path="", batch=1 ,device_id=0) :
+        if "DEVICE_ID" in os.environ:
+            device_id = int(os.environ["DEVICE_ID"])
+            print(">>>> device_id is in os.environ. and device_id = " ,device_id)
+        self.model = SGInfer(model_path , batch=batch, devices=[device_id])
+
+    def __str__(self):
+        return "EngineOV: model_path={}, device_id={}".format(self.model_path ,self.device_id)
+
+    def __call__(self, args):
+        if isinstance(args, list):
+            values = args
+        elif isinstance(args, dict):
+            values = list(args.values())
+        else:
+            raise TypeError("args is not list or dict")
+        task_id = self.model.put(*values)
+        task_id, results, valid = self.model.get()
+        return results
+```
+
+### 加载模型
+
+```python
+def load_model(model_path):
+    model = EngineOV(model_path=model_path, batch=1, device_id=0)
+    return model
+```
+
+### 推理模型
+
+推理时请使用与 bmodel 输入形状一致的 numpy 数据列表
+
+```python
+import numpy as np
+
+model = load_model('path_to_bmodel')
+res = model([np.random.rand(1, 3, 512, 512)])[0]
+```
