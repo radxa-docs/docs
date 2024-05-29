@@ -1,0 +1,56 @@
+This document mainly introduces how to use [tpu-perf](https://github.com/sophgo/tpu-perf) to load/infer bmodels converted by [TPU-MLIR](tpu_mlir) using a TPU.
+
+## Install TPU-PERF
+
+```bash
+pip3 install https://github.com/sophgo/tpu-perf/releases/download/v1.2.35/tpu_perf-1.2.35-py3-none-manylinux2014_aarch64.whl
+```
+
+### EngineOV
+
+EngineOV is a class that uses the tpu-perf library to load/infer bmodels. You can use this code to create EngineOV.
+
+```python
+from tpu_perf.infer import SGInfer
+import os
+
+class EngineOV:
+    def __init__(self, model_path="", batch=1, device_id=0):
+        if "DEVICE_ID" in os.environ:
+            device_id = int(os.environ["DEVICE_ID"])
+            print(">>>> device_id is in os.environ. and device_id =", device_id)
+        self.model = SGInfer(model_path, batch=batch, devices=[device_id])
+
+    def __str__(self):
+        return "EngineOV: model_path={}, device_id={}".format(self.model_path, self.device_id)
+
+    def __call__(self, args):
+        if isinstance(args, list):
+            values = args
+        elif isinstance(args, dict):
+            values = list(args.values())
+        else:
+            raise TypeError("args is not list or dict")
+        task_id = self.model.put(*values)
+        task_id, results, valid = self.model.get()
+        return results
+```
+
+### Load Model
+
+```python
+def load_model(model_path):
+    model = EngineOV(model_path=model_path, batch=1, device_id=0)
+    return model
+```
+
+### Inference Model
+
+During inference, please use a list of numpy data consistent with the input shape of the bmodel.
+
+```python
+import numpy as np
+
+model = load_model('path_to_bmodel')
+res = model([np.random.rand(1, 3, 512, 512)])[0]
+```
