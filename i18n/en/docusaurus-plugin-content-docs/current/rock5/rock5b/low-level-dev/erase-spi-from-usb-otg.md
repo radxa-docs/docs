@@ -24,7 +24,7 @@ First, put the device [into MaskRom mode] (./maskrom.md), then connect the PC an
 Then download [zero.img](https://dl.radxa.com/rock5/sw/images/others/zero.img.gz) and unzip it, then execute the following command
 
 ```bash
-rkdeveloptool db rk3588_spl_loader_v1.08.111.bin (other devices need to select the corresponding loader file)
+rkdeveloptool db rk3588_spl_loader_v1.15.113.bin (other devices need to select the corresponding loader file)
 rkdeveloptool wl 0 zero.img
 rkdeveloptool rd
 ```

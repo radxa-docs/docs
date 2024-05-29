@@ -12,7 +12,7 @@ import Images from "../../\_image.mdx"
 
 <Images loader={true} system_img={true} spi_img={true} />
 
-<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3588_spl_loader_v1.08.111.bin" emmc={false} pcie={false} sata={false} >
+<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3588_spl_loader_v1.15.113.bin" emmc={false} pcie={false} sata={false} >
 <ol>
     <li>拔出 microSD 卡和电源线</li>
     <li>按住 Maskrom 按钮</li>

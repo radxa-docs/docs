@@ -97,14 +97,14 @@ There are two methods available to flash the SPI:
 5. check your desired bootloader image:
 
    ```bash
-   md5sum rock-5b-spi-image-g49da44e116d.img
+   md5sum rock-5b-spi-image-gd1cf491-20240523.img
    ```
 
    it should report back one of the following lines:
 
    ```bash
-   46de85de37b8e670883e6f6a8bb95776  rock-5b-spi-image-g49da44e116d.img
-   958cbdb6cf9b2e0841fd76c26930db8f  rock-5b-spi-image-g3caf61a44c2-debug.img
+   cf53d06b3bfaaf51bbb6f25896da4b3a  rock-5b-spi-image-gd1cf491-20240523.img
+   fa14c99718f55b66e82aa1661e43c1ec  rock-5b-spi-image-gd1cf491-20240523-debug.img
    1b83982a5979008b4407552152732156  rkspi_loader.img
    ```
 
@@ -173,7 +173,7 @@ Now you are done flashing a bootloader supporting NVMe booting.
 
 2. Get RK3588 loader and U-Boot images
 
-- Download [loader images](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/rk3588_spl_loader_v1.08.111.bin)
+- Download [loader images](https://dl.radxa.com/rock5/sw/images/loader/rk3588_spl_loader_v1.15.113.bin)
 
 - Download the latest SPI image from:
   - [Release Edition](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gbf47e81-20230607.img), with u-boot serial console disabled
@@ -211,7 +211,7 @@ DevNo=1 Vid=0x2207,Pid=0x350b,LocationID=106 Maskrom
 This will load the loader (flash helper, downloaded from 2) to run on ROCK 5B and init the ram and prepare the flashing environment etc.
 
 ```bash
-sudo rkdeveloptool db /path/to/rk3588_spl_loader_v1.08.111.bin
+sudo rkdeveloptool db /path/to/rk3588_spl_loader_v1.15.113.bin
 Downloading bootloader succeeded.
 ```
 
@@ -220,7 +220,7 @@ Next, write SPI image from PC/Mac to ROCK 5B SPI flash
 You can use the image download from Step 2.
 
 ```bash
-sudo  rkdeveloptool wl 0 rock-5b-spi-image-g49da44e116d.img
+sudo  rkdeveloptool wl 0 rock-5b-spi-image-gd1cf491-20240523.img
 Write LBA from file (100%)
 ```
 
@@ -247,7 +247,7 @@ Right-click in the list box and select Load Config,Then select the configuration
 ![RKDevTool-02](/zh/img/rock5b/rock-5b-spi-flash-02.webp)
 
 Step 3: Select Loader
-Next, click the right last columns in the "Loader" row to select rk3588_spl_loader_v1.08.111.bin
+Next, click the right last columns in the "Loader" row to select rk3588_spl_loader_v1.15.113.bin
 
 Step 4: Select SPI image
 Next, click the right last columns in the "spi" row to select spi-image.
@@ -282,7 +282,7 @@ Option 2: Erase with Windows PC
 Before Erasing, please confirm that ROCK 5B is in maskrom mode
 
 - Open RKDevTool, Choose the "Advanced features" button
-- select `rk3588_spl_loader_v1.08.111.bin` on boot, click the "Download" button
+- select `rk3588_spl_loader_v1.15.113.bin` on boot, click the "Download" button
 - Click the "erase all" button after completion of Download
 - Reboot device
 

@@ -12,7 +12,7 @@ import Images from "../../\_image.mdx"
 
 <Images loader={true} system_img={true} spi_img={true} />
 
-<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3588_spl_loader_v1.08.111.bin" emmc={false} pcie={false} sata={false} >
+<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3588_spl_loader_v1.15.113.bin" emmc={false} pcie={false} sata={false} >
 <ol>
     <li>Remove the microSD card and power cable</li>
     <li>Press and hold the Maskrom button</li>

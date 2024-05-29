@@ -45,7 +45,7 @@ ROCK 5 支持 Maskrom 模式，这是 CPU 通过 USB OTG 端口接收命令的�
   鼠标左键点击最右边空格以选择文件：  
   ![Choose files](/img/rock5a/choose-files.webp)
 
-ROCK 5A 的 SPI 加载文件可以在此下载： **[RK3588 loader](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/rk3588_spl_loader_v1.08.111.bin)**  
+ROCK 5A 的 SPI 加载文件可以在此下载： **[RK3588 loader](https://dl.radxa.com/rock5/sw/images/loader/rk3588_spl_loader_v1.15.113.bin)**  
 系统镜像可在[官方系统镜像页面](../../official-images)下载。  
 **提示： RKDevTool 使用的镜像是在下载后解压产生的镜像文件。**
 

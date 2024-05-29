@@ -12,7 +12,7 @@ import Images from "../../\_image.mdx"
 
 <Images loader={true} system_img={true} spi_img={false} />
 
-<Rkdeveloptool model="rock-5-itx" release_num="b3" desktop="kde" platform="linux" loader="rk3588_spl_loader_v1.08.111.bin">
+<Rkdeveloptool model="rock-5-itx" release_num="b3" desktop="kde" platform="linux" loader="rk3588_spl_loader_v1.15.113.bin">
 
 <ol>
     <li>拔出 microSD 卡和电源线</li>

@@ -25,7 +25,7 @@ sync
 然后下载 [zero.img](https://dl.radxa.com/rock5/sw/images/others/zero.img.gz) 并解压，然后执行下面的命令
 
 ```bash
-rkdeveloptool db rk3588_spl_loader_v1.08.111.bin (其他设备需选择对应的loader文件)
+rkdeveloptool db rk3588_spl_loader_v1.15.113.bin (其他设备需选择对应的loader文件)
 rkdeveloptool wl 0 zero.img
 rkdeveloptool rd
 ```

@@ -47,7 +47,7 @@ Linux/Mac use [rkdevtool](/rock5/rock5itx/low-level-dev/rkdevtool)
 
 ```bash
 dd if=/dev/zero of=zero.img bs=16M count=1
-rkdeveloptool db rk3588_spl_loader_v1.08.111.bin (select the loader file downloaded in step 1)
+rkdeveloptool db rk3588_spl_loader_v1.15.113.bin (select the loader file downloaded in step 1)
 rkdeveloptool wl 0 zero.img
 rkdeveloptool rd
 ```
