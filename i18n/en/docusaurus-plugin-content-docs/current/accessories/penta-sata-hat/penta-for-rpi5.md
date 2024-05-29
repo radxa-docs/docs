@@ -28,7 +28,8 @@ We can choose the appropriate power supply method according to the type and numb
 - If we install 4 3.5-inch mechanical hard drives, considering the power consumption of the Raspberry Pi 5 itself, the total power consumption of the entire kit may exceed 50W. At this time, we can use a DC 12V adapter for power, such as a 12V/5A adapter. Or use a D-shaped 4PIN from an ATX/SFX power supply, D-shaped 4PIN interface generally can provide a larger power.
 
 :::info
-Please do not use two or more power supply methods at the same time.
+1. Please do not use two or more power supply methods at the same time. <br/>
+2. If you need to use the eSATA interface, you need to use a DC 12V adapter or ATX/SFX power supply.
 :::
 
 ## Assemble
