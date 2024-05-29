@@ -168,11 +168,11 @@ ROCK 5B 上有一个 SPI Flash（SPI 闪存），它包含用于备份引导的b
 
 2. 获取 RK3588 loader 和 U-boot images
 
-- 下载 [loader images](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/rk3588_spl_loader_v1.08.111.bin)
+- 下载 [loader images](https://dl.radxa.com/rock5/sw/images/loader/rk3588_spl_loader_v1.15.113.bin)
 - 下载最新 SPI 镜像
 
-  - [正式版本](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-g49da44e116d.img)，u-boot 串口控制台关闭
-  - [Debug版本](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/debug/rock-5b-spi-image-g3caf61a44c2-debug.img)，u-boot 串口控制台启动
+  - [正式版本](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gd1cf491-20240523.img)，u-boot 串口控制台关闭
+  - [Debug版本](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/debug/rock-5b-spi-image-gd1cf491-20240523-debug.img)，u-boot 串口控制台启动
   - [Armbian版本](https://github.com/huazi-yg/rock5b/releases/download/rock5b/rkspi_loader.img)，需要安装 armbian Image 到 M.2 NVME SSD 时使用
 
 3. ROCK 5B 进入 Maskrom 模式
@@ -198,7 +198,7 @@ DevNo=1 Vid=0x2207,Pid=0x350b,LocationID=106 Maskrom
 此命令操作：加载 loader 到 ROCK 5B 上运行并初始化内存并准备烧录环境等。
 
 ```bash
-sudo rkdeveloptool db /path/to/rk3588_spl_loader_v1.08.111.bin
+sudo rkdeveloptool db /path/to/rk3588_spl_loader_v1.15.113.bin
 Downloading bootloader succeeded.
 ```
 
@@ -234,7 +234,7 @@ Found One MASKROM Device
 ![RKDevTool-02](/zh/img/rock5b/rock-5b-spi-flash-02.webp)
 
 第3步：选择 loader
-接下来，单击“Loader”行中右侧的最后一列以选择 rk3588_spl_loader_v1.08.111.bin。图中圆圈4
+接下来，单击“Loader”行中右侧的最后一列以选择 rk3588_spl_loader_v1.15.113.bin。图中圆圈4
 
 第4步：选择 SPI image
 单击“spi”行中右侧的最后一列以选择 spi-image。
@@ -269,7 +269,7 @@ sync
 在擦除之前，请确保 ROCK 5B 进入 Maskrom 模式
 
 - 打开 RKDevTool，选择 Advanced Function。
-- 在 Boot 上选择 rk3588_spl_loader_v1.08.111.bin，然后点击下载按钮。
+- 在 Boot 上选择 rk3588_spl_loader_v1.15.113.bin，然后点击下载按钮。
 - 进度完成后，点击 EraseALL 按钮
 - 结束后重启设备 ResetDevice
 

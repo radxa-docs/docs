@@ -45,7 +45,7 @@ Linux/Mac 使用 [rkdevtool](/rock5/rock5itx/low-level-dev/rkdevtool)
 
 ```bash
 dd if=/dev/zero of=zero.img bs=16M count=1
-rkdeveloptool db rk3588_spl_loader_v1.08.111.bin (需选择步骤 1 中 下载的 loader 文件)
+rkdeveloptool db rk3588_spl_loader_v1.15.113.bin (需选择步骤 1 中 下载的 loader 文件)
 rkdeveloptool wl 0 zero.img
 rkdeveloptool rd
 ```

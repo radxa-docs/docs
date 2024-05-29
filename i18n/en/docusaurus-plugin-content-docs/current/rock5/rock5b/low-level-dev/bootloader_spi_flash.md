@@ -168,7 +168,7 @@ You have now finished burning the bootloader with NVMe boot support.
 
 2. Get the RK3588 loader and U-boot images.
 
-- Download [loader images](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/rk3588_spl_loader_v1.08.111.bin)
+- Download [loader images](https://dl.radxa.com/rock5/sw/images/loader/rk3588_spl_loader_v1.15.113.bin)
 - Download the latest SPI images
 
   - [Official version](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-g49da44e116d.img), u-boot serial console off
@@ -198,7 +198,7 @@ DevNo=1 Vid=0x2207,Pid=0x350b,LocationID=106 Maskrom
 This command does the following: loads the loader onto the ROCK 5B and initializes the memory and prepares the environment for burning.
 
 ```bash
-sudo rkdeveloptool db /path/to/rk3588_spl_loader_v1.08.111.bin
+sudo rkdeveloptool db /path/to/rk3588_spl_loader_v1.15.113.bin
 Downloading bootloader succeeded.
 ```
 
@@ -234,7 +234,7 @@ Right click in the list box and select Load Config, circle 3, then select the co
 ! [RKDevTool-02](/zh/img/rock5b/rock-5b-spi-flash-02.webp)
 
 Step 3: Select the loader
-Next, click on the last column on the right side of the "Loader" row to select rk3588_spl_loader_v1.08.111.bin. circle 4 in the figure.
+Next, click on the last column on the right side of the "Loader" row to select rk3588_spl_loader_v1.15.113.bin. circle 4 in the figure.
 
 Step 4: Select SPI image
 Click the last column on the right in the "spi" row to select spi-image.
@@ -269,7 +269,7 @@ Option 2: Erase on host Linux PC/Mac
 Before erasing, make sure the ROCK 5B is in Maskrom mode
 
 - Open RKDevTool and select Advanced Function.
-- Select rk3588_spl_loader_v1.08.111.bin on Boot and click the Download button.
+- Select rk3588_spl_loader_v1.15.113.bin on Boot and click the Download button.
 - When progress is complete, click the EraseALL button
 - Reboot the device when finished ResetDevice
 
