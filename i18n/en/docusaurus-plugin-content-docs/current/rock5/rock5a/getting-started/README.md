@@ -1,9 +1,7 @@
 ---
-sidebar_position: 10
+sidebar_position: 1
 ---
 
 # Getting Started
 
-Start with your ROCK 5A from here
-
-<!-- <DocCardList /> -->
+<DocCardList />

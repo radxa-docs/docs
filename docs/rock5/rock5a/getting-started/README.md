@@ -1,9 +1,7 @@
 ---
-sidebar_position: 10
+sidebar_position: 1
 ---
 
-# 新手入门
-
-开始你的ROCK 5a之旅
+# 上手指南
 
 <DocCardList />
