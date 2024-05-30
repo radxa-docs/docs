@@ -1,0 +1,62 @@
+- Connection
+
+  Connect the fan to {props.product} as shown here
+
+  <img src={props.fan_connection_img} alt="fan connection" style={{ width: "40%" }} />
+
+- Rsetup select Thermal Governor mode
+
+  1. Open a terminal, type rsetup, select Hardware.
+
+  <img src="/img/common/rsetup/rsetup-hardware.webp" alt="rsetup hardware" style={{ width: "60%" }} />
+
+  2. Enter to Thermal governor
+
+  <img src="/img/common/rsetup/rsetup-thermal-governor.webp" alt="rsetup hardware" style={{ width: "60%" }} />
+
+  3. The default governor should be power_allocator.
+
+  <img src="/img/common/rsetup/rsetup-select-thermal-governor.webp" alt="rsetup hardware" style={{ width: "60%" }} />
+
+- power_allocator
+
+  The system defaults to fanless mode or DC fan mode. Ensure that the machine can still work stably without a cooling fan
+
+- user_space
+
+  1. Select user_space
+
+  2. Locate the fan device with the following command.
+
+  <pre>
+  ls /sys/class/thermal/cooling_device*/type
+  cat /sys/class/thermal/cooling_device*/type
+  </pre>
+
+  <img src={props.pwm_fan_result_img} alt="pwm fan result img"  style={{ width: "80%" }} />
+
+  <h6>As shown, pwm-fan corresponds to cooling_device{props.pwm_fan_dev_id}.</h6>
+
+  3. Turn off the fan
+
+  <pre>
+  radxa@{props.model}:~$ echo 0 | sudo tee /sys/class/thermal/cooling_device{props.pwm_fan_dev_id}/cur_state
+  </pre>
+
+  4. Set the fan to the highest setting.
+
+  <pre>
+  radxa@{props.model}:~$ sudo cp /sys/class/thermal/cooling_device{props.pwm_fan_dev_id}/max_state /sys/class/thermal/cooling_device{props.pwm_fan_dev_id}/cur_state
+  </pre>
+
+- step_wise
+
+  When the CPU temperature reaches 60 degrees Celsius the fan starts to rotate.
+
+- Shutdown and sleep states
+
+  The fan should remain stationary during shutdown and sleep.
+
+- Refer to
+
+  See more at rsetup <a href={props.thermal_governor_path} > thermal-governor section</a>
