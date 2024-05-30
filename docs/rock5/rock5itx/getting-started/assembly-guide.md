@@ -20,7 +20,7 @@ sidebar_position: 7
 
 ### 安装 RTC 电池
 
-将 RTC 电池放入到[接口说明](../getting-started/introduction#主板概览)中标号 22 中。
+将 RTC 电池放入到[接口说明](../getting-started/introduction#主板概览)中标号 23 中。
 
 <img src="/img/rock5itx/rock5itx-rtc.webp" width="700" alt="rock 5 itx rtc" />
 
@@ -42,7 +42,7 @@ sidebar_position: 7
 
 ### 安装 SSD 和 WIFI-BT 模块
 
-将 SSD 插入[接口说明](../getting-started/introduction#主板概览)中标号 25 中，然后将 WIFI-BT 模块插入到[接口说明](../getting-started/introduction#主板概览)中标号 26 中，最后用螺丝固定。
+将 SSD 插入[接口说明](../getting-started/introduction#主板概览)中标号 26 中，然后将 WIFI-BT 模块插入到[接口说明](../getting-started/introduction#主板概览)中标号 27 中，最后用螺丝固定。
 
 <img src="/img/rock5itx/rock5itx-fan-wifi-pcie.webp" width="700" alt="rock 5 itx ssd/wifi-bt" />
 
@@ -50,17 +50,17 @@ sidebar_position: 7
 
 如果主板带有 SATA 接口，则请按以下方式接线。
 
-以下图片中偏上的那条为数据线，将该数据线插入[接口说明](../getting-started/introduction#主板概览)中标号 19 中的其中一个。
+以下图片中偏上的那条为数据线，将该数据线插入[接口说明](../getting-started/introduction#主板概览)中标号 20 中的其中一个。
 
 <img src="/img/rock5itx/rock5itx-sata_1.webp" width="700" alt="rock 5 itx sata_1 " />
 
-如果机箱中有 SATA 电源线的话，只需要将 SATA 电源线插入到 SATA 盘中即可，[接口说明](../getting-started/introduction#主板概览)中标号 20 则空着。
+如果机箱中有 SATA 电源线的话，只需要将 SATA 电源线插入到 SATA 盘中即可，[接口说明](../getting-started/introduction#主板概览)中标号 21 则空着。
 
 <img src="/img/rock5itx/rock5itx-sata-3.webp" width="700" alt="rock 5 itx sata_2 " />
 
 ### 安装 F_PANEL 排线
 
-将 F_PANEL 排线按照下图将排线插入到 F_PANEL 插槽中。
+将 F_PANEL 插入[接口说明](../getting-started/introduction#主板概览)中标号 8 中。
 
 <img src="/img/rock5itx/rock5itx-pwr-led.webp" width="700" alt="rock 5 itx pwr led" />
 <img src="/img/rock5itx/rock5itx-pwr-sw.webp" width="700" alt="pwr sw" />
@@ -75,7 +75,7 @@ sidebar_position: 7
 
 ### 安装 F_AUDIO 排线
 
-将 F_AUDIO 插入[接口说明](../getting-started/introduction#主板概览)中标号 25 中。
+将 F_AUDIO 插入[接口说明](../getting-started/introduction#主板概览)中标号 7 中。
 
 <img src="/img/rock5itx/rock5itx-f-audio.webp" width="700" alt="rock 5 itx f_audio " />
 
