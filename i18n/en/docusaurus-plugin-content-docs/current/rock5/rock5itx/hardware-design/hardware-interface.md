@@ -375,61 +375,28 @@ The following are the detailed interface wiring sequences and descriptions for e
 
 ## SATA
 
-### PORT0
+### SATA PORT
 
 | Pin | Name     |    Description    |
 | :-: | :------- | :---------------: |
 |  1  | GND      |      Ground       |
-|  2  | STXP0_64 | Serial TX+ Port 0 |
-|  3  | STXN0_64 | Serial TX- Port 0 |
+|  2  | STXP0_64 | Serial TX+ Port   |
+|  3  | STXN0_64 | Serial TX- Port   |
 |  4  | GND      |      Ground       |
-|  5  | SRXN0_64 | Serial RX- Port 0 |
-|  6  | SRXP0_64 | Serial RX+ Port 0 |
+|  5  | SRXN0_64 | Serial RX- Port   |
+|  6  | SRXP0_64 | Serial RX+ Port   |
 |  7  | GND      |      Ground       |
 |  8  | GND      |      Ground       |
 |  9  | GND      |      Ground       |
 
-### PORT1
+### SATA Power
 
-| Pin | Name     |    Description    |
-| :-: | :------- | :---------------: |
-|  1  | GND      |      Ground       |
-|  2  | STXP1_64 | Serial TX+ Port 1 |
-|  3  | STXN1_64 | Serial TX- Port 1 |
-|  4  | GND      |      Ground       |
-|  5  | SRXN1_64 | Serial RX- Port 1 |
-|  6  | SRXP1_64 | Serial RX+ Port 1 |
-|  7  | GND      |      Ground       |
-|  8  | GND      |      Ground       |
-|  9  | GND      |      Ground       |
-
-### PORT2
-
-| Pin | Name     |    Description    |
-| :-: | :------- | :---------------: |
-|  1  | GND      |      Ground       |
-|  2  | STXP2_64 | Serial TX+ Port 2 |
-|  3  | STXN2_64 | Serial TX- Port 2 |
-|  4  | GND      |      Ground       |
-|  5  | SRXN2_64 | Serial RX- Port 2 |
-|  6  | SRXP2_64 | Serial RX+ Port 2 |
-|  7  | GND      |      Ground       |
-|  8  | GND      |      Ground       |
-|  9  | GND      |      Ground       |
-
-### PORT3
-
-| Pin | Name     |    Description    |
-| :-: | :------- | :---------------: |
-|  1  | GND      |      Ground       |
-|  2  | STXP3_64 | Serial TX+ Port 3 |
-|  3  | STXN3_64 | Serial TX- Port 3 |
-|  4  | GND      |      Ground       |
-|  5  | SRXN3_64 | Serial RX- Port 3 |
-|  6  | SRXP3_64 | Serial RX+ Port 3 |
-|  7  | GND      |      Ground       |
-|  8  | GND      |      Ground       |
-|  9  | GND      |      Ground       |
+| Pin | Name         |    Description    |
+| :-: | :----------: | :---------------: |
+|  1  | VCC12V       |      12V Power    |
+|  2  | GND          |      Ground       |
+|  3  | GND          |      Ground       |
+|  4  | VCC5V0_SATA  |      5V Power     |
 
 ## FAN
 
