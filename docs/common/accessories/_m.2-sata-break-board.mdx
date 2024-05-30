@@ -1,0 +1,50 @@
+- 安装
+
+  1. 准备
+  
+  使用 M2.E 转 SATA 转接板时，需要准备一根 SATA 数据线用于连接 SATA 硬盘，一根 SATA 电源线用于供电。
+
+  2. 连接
+
+  如图，将 SATA 转接板的 M.2 E key 连接到 {props.product} 的 M.2 E 口，然后用 SATA 数据线连接 {props.product} 和 SATA SSD。
+  {props.product} 的红色 PIN 脚可用于 SATA 的 5V 供电，黑色 PIN 脚通常用于 GND，可用于 SATA 硬盘的供电。
+
+  <img src="/img/accessories/m2e-to-sata.webp" alt="m.2 e key to sata" />
+
+  3. 启用 SATA Overlay
+
+  打开终端，运行 rsetup
+
+  <img src="/img/common/rsetup/main_menu.webp" alt="main menu" style={{ width: "60%" }} />
+
+  选择 `Manage overlays`:
+
+  <img src="/img/common/rsetup/mannage_overlays.webp" alt="manage overlays" style={{ width: "60%" }} />
+
+  按空格选中 <strong> {props.rsetup_sata_title} </strong>
+
+  <img src={props.rsetup_sata_img} alt="rsetup sata" style={{ width: "60%" }} />
+
+  4. 按 <strong>ESC 键</strong> 退出 rsetup， 重启系统
+
+- 查看 SATA 是否挂载成功
+  
+  通过 `lsblk` 命令查看SSD是否被识别到
+
+  <pre>
+  radxa@{props.model}:~$ lsblk
+  NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+  sda            8:0    0 476.9G  0 disk
+  mmcblk0      179:0    0  14.5G  0 disk
+  ├─mmcblk0p1  179:1    0    16M  0 part /config
+  └─mmcblk0p2  179:2    0  14.4G  0 part /
+  mmcblk0boot0 179:32   0     4M  1 disk
+  mmcblk0boot1 179:64   0     4M  1 disk
+  zram0        254:0    0   3.9G  0 disk [SWAP]
+  </pre>
+
+  当系统识别到 SATA 时，可以查看到 **sda**
+
+- 参考
+
+关于 m.2 sata break board 的详细介绍参见 [Radxa M.2 E 型转 SATA 板](/accessories/m2e-tosata)
