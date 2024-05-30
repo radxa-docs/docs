@@ -1,0 +1,41 @@
+- 桌面切换分辨率
+
+  1. 打开系统设置，找到 `Display and Monitor`
+
+  <img src="/img/common/hdmi-display-monitor.webp" alt="display monitor" style={{ width: "80%" }} />
+
+  2. 点击 `Resolution` 切换不同分辨率
+
+  <img src="/img/common/hdmi-display-conf.webp" alt="display conf" style={{ width: "80%" }} />
+
+  切换不同的分辨率不会出现屏幕闪烁、花屏、条纹、撕裂等异常现象
+
+- 命令行切换不同分辨率
+
+  1. xrandr -q 参数来查看你的屏幕目前支持的分辨率的情况
+
+  ```bash
+  xrandr -q
+  Screen 0: minimum 320 x 200, current 2720 x 1280, maximum 16384 x 16384
+  HDMI-1 disconnected (normal left inverted right x axis y axis)
+  DSI-1 connected 800x1280+1920+0 (normal left inverted right x axis y axis) 0mm x 0mm
+  800x1280      60.22*+
+  DP-1 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+  1920x1080     59.99*+  50.00 
+  ```
+
+  2. xrandr -s 0 命令来将屏幕恢复到原来的分辨率
+
+  3. xrandr -s 指定屏幕的分辨率大小
+  
+  例如：
+
+  ```bash
+  xrandr -s 1024×768
+  ```
+
+  切换不同的分辨率不会出现屏幕闪烁、花屏、条纹、撕裂等异常现象
+
+- 多次拔插 HDMI 线
+
+  多次拔插 HDMI 线，是否能正常显示
