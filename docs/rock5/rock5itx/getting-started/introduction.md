@@ -107,7 +107,19 @@ ROCK 5 ITX 不仅是一款高性能的ARM基础PC板，更是一个多功能、�
 
 ## 主板概览
 
-<img src="/img/rock5itx/rock5itx-real.webp" width="800" />
+<Tabs queryString="HardwareVersion">
+
+<TabItem value="ROCK 5ITX v1.11">
+<img src="/img/rock5itx/rock5itx-real-side-v-1-11.webp" width="800" alt="rock 5itx side v1.11" />
+<img src="/img/rock5itx/rock5itx-real-up1-v-1-11.webp" width="800" alt="rock 5itx up v1.11" />
+</TabItem>
+
+<TabItem value="ROCK 5ITX+ V1.2">
+<img src="/img/rock5itx/rock5itx-real-side-v-1-2.webp" width="800" alt="rock 5itx side v1.2" />
+<img src="/img/rock5itx/rock5itx-real-up1-v-1-2.webp" width="800" alt="rock 5itx up v1.2" />
+</TabItem>
+
+</Tabs>
 
 ## 接口说明
 
