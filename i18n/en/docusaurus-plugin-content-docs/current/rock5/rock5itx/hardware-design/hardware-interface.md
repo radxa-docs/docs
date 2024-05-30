@@ -398,6 +398,8 @@ The following are the detailed interface wiring sequences and descriptions for e
 |  3  | GND          |      Ground       |
 |  4  | VCC5V0_SATA  |      5V Power     |
 
+SATA Power is a Floppy Power Header with 2.54 mm per pin spacing.
+
 ## FAN
 
 | Pin | Name      |   Description    |

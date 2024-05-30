@@ -398,6 +398,8 @@ sidebar_position: 4
 |  3  | GND          |      Ground       |
 |  4  | VCC5V0_SATA  |      5V Power     |
 
+SATA Power 是 Floppy Power Header，每个针脚间距为 2.54 mm
+
 ## FAN
 
 | Pin | Name      |   Description    |
