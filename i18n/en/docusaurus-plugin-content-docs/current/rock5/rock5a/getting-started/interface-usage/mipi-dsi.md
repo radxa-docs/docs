@@ -47,4 +47,4 @@ import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";
 
 ### Raspberry Pi 7" touchscreen display
 
-<DISPLAY product="ROCK 5A" display_connection_img="/img/rock5a/rock5a-rpi-7inch-display.webp" model="rock-5a" rsetup_path="../../radxa-os/rsetup#overlays" display_name="Raspberry Pi 7" touchscreen display" overlays_title="Enable Raspberry Pi 7-inch Touchscreen" />
+<DISPLAY product="ROCK 5A" display_connection_img="/img/rock5a/rock5a-rpi-7inch-display.webp" model="rock-5a" rsetup_path="../../radxa-os/rsetup#overlays" display_name="Raspberry Pi 7 inch touchscreen display" overlays_title="Enable Raspberry Pi 7-inch Touchscreen" />
