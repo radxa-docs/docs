@@ -2,9 +2,16 @@
 sidebar_position: 1
 ---
 
+import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcher.mdx';
 
 # 安装系统到 MicroSD 卡
+
+## 文件下载
+
+<Images loader={false} system_img={true} spi_img={false} />
+
+## 烧录镜像
 
 <Etcher model="rock5a" product="Radxa ROCK 5A" pwr_tip={true} power_supply="12V/2A" sd_slot="/img/rock5a/rock5a-sd-slot.webp" />
 
