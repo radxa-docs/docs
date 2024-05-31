@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## 电源
 
-Type-C 接口供电，至少 20V / 65W 的电源输入。
+Airbox 采用 USB Type-C 接口供电，支持 PD 电压协商，协商电压 20V。Airbox 满载功耗接近 42W，因此，需要 45W(20V/2.25A) 或者 65W(20V/3.25A) 的 PD 适配器支持。也可以使用 20V 直出 2.25A 以上的 Type-C 适配器。
 
 ## 访问设备
 
@@ -28,7 +28,7 @@ Type-C 接口供电，至少 20V / 65W 的电源输入。
 
 ### 串口登录
 
-使用 USB Type-A 转 Type-C 数据线连接整机 Debug 口和 PC 端，波特率设置为115200，连接示意图：
+使用 USB Type-A 转 Type-C 数据线连接整机 Debug 口和 PC 端，波特率设置为 `115200 8N1`，连接示意图：
 
 <img src="/img/airbox/connection-diagram-1.webp" alt="radxa-aicore-sg2300x interfaces" />
 
