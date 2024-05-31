@@ -1,43 +1,83 @@
 - 图片为带 Radxa PENTA SATA HAT 的 {props.product}。
 
-<img src="/img/rock5a/rock5a-penta-sata-hat-05.webp" alt="penta sata hat" style={{ width: "80%" }} />
+<img
+  src="/img/rock5a/rock5a-penta-sata-hat-05.webp"
+  alt="penta sata hat"
+  style={{ width: "80%" }}
+/>
 
 - 下图是 Radxa Penta SATA HAT 和包含的零件。
 
   **链接详情请点击 [Penta SATA HAT](/accessories/penta-sata-hat)**
 
-<img src="/img/accessories/penta-sata-hat-01.webp" alt="Install M.2 Extension Board" style={{ width: "80%" }} />
+<img
+  src="/img/accessories/penta-sata-hat-01.webp"
+  alt="Install M.2 Extension Board"
+  style={{ width: "80%" }}
+/>
 
 - 请先区分 IPEX 线缆的正反面。 如图所示。 **我们为 {props.product} 提供的 IPEX 线的两端方向相同。**
 
-<img src="/img/accessories/m2-extension-board-04.webp" alt="Install M.2 Extension Board" style={{ width: "80%" }} />
+<img
+  src="/img/accessories/m2-extension-board-04.webp"
+  alt="Install M.2 Extension Board"
+  style={{ width: "80%" }}
+/>
 
 - 请注意，环扣需要卡入连接器中。
 
-<img src="/img/accessories/ekey-to-mkey-01.webp" alt="E key to M key" style={{ width: "80%" }} />
+<img
+  src="/img/accessories/ekey-to-mkey-01.webp"
+  alt="E key to M key"
+  style={{ width: "80%" }}
+/>
 
 - 安装教程
 
   1. M.2 E key to M.2 M key Board带 IPEX 电缆。 **注意这里安装的IPEX线是正面朝上的，环扣需要卡在接口上，确保固定。**
 
-  <img src="/img/accessories/m2-extension-board-02.webp" alt="Install M.2 Extension Board" style={{ width: "80%" }} />
+  <img
+    src="/img/accessories/m2-extension-board-02.webp"
+    alt="Install M.2 Extension Board"
+    style={{ width: "80%" }}
+  />
 
   2. Radxa Penta SATA HAT 主板，带 IPEX 电缆。 **注意这里安装的IPEX线是正面朝上的，环扣需要卡在接口上，确保固定。**
 
-  <img src={props.installation2_img} alt="Install Penta SATA HAT" style={{ width: "80%" }} />
+  <img
+    src={props.installation2_img}
+    alt="Install Penta SATA HAT"
+    style={{ width: "80%" }}
+  />
 
   3. 请将产品附带的 M2.5x18+6 铜柱和 M2.5x5 铜柱安装在 {props.product} 上，如图所示。
 
-  <img src={props.installation3_img} alt="installation3" style={{ width: "80%" }} />
+  <img
+    src={props.installation3_img}
+    alt="installation3"
+    style={{ width: "80%" }}
+  />
 
   4. 请将 IPEX 线的一端连接到 M.2 E key to M Key board，另一端连接到 Radxa Penta SATA HAT 并将 M.2 E key to M key board 安装到 M.2 E key ROCK5A的连接器。 如图所示。
 
-  <img src={props.installation4_img} alt="installation4" style={{ width: "80%" }} />
+  <img
+    src={props.installation4_img}
+    alt="installation4"
+    style={{ width: "80%" }}
+  />
 
   5. 最后，使用 M2.5x5+5 铜柱组装 Radxa Penta SATA HAT。
 
-  <img src={props.installation5_1_img} alt="installation5 1" style={{ width: "80%" }} />
-  <img src={props.installation5_2_img} alt="installation5 2" style={{ width: "80%" }} />
+  <img
+    src={props.installation5_1_img}
+    alt="installation5 1"
+    style={{ width: "80%" }}
+  />
+  <img
+    src={props.installation5_2_img}
+    alt="installation5 2"
+    style={{ width: "80%" }}
+  />
 
 - 查看 Penta SATA HAT 挂载是否成功
 
@@ -67,23 +107,23 @@
 - 软件支持
 
   1. 我们提供了一个安装脚本来帮助您安装我们提供的软件，它能让 Penta 顶板显示信息和控制风扇。
-  
+
   ```
   curl -sL https://rock.sh/get-rockpi-penta | sudo -E bash -
   ```
-  
+
   只需复制上面的命令并将其粘贴到终端并按回车键即可。
-  
+
   2. 软件配置
-  
+
   编辑 /etc/rockpi-penta.conf, 并使用下面的命令使它生效。
-  
+
   ```
   sudo systemctl restart rockpi-penta.service
   ```
-  
+
   3. 默认配置
-  
+
   下面是 /etc/rockpi-penta.conf 的默认配置，你可以根据注释进行修改。
 
   ```

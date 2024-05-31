@@ -2,7 +2,11 @@
 
   Connect {props.product} through the FPC cable as shown:
 
-  <img src={props.camera_connection} alt="camera connection" style={{ width: "80%" }} />
+  <img
+    src={props.camera_connection}
+    alt="camera connection"
+    style={{ width: "80%" }}
+  />
 
 - Enable Overlay
 
@@ -24,25 +28,31 @@
 - Test
 
   1. Preview
-  
+
   Open a terminal and enter the following command to open the camera preview:
-  
+
   <pre>
-  gst-launch-1.0 v4l2src device={props.video_dev} io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
+    gst-launch-1.0 v4l2src device={props.video_dev} io-mode=4 ! videoconvert !
+    video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
   </pre>
-  
+
   2. Take a picture
-  
+
   Open a terminal and enter the following command to turn on the camera to take a picture:
-  
+
   <pre>
-  gst-launch-1.0 v4l2src device={props.video_dev} io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=file.name.jpg;
+    gst-launch-1.0 v4l2src device={props.video_dev} io-mode=4 ! videoconvert !
+    video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink
+    location=file.name.jpg;
   </pre>
-  
+
   3. Shooting videos
-  
+
   Open a terminal and enter the following command to turn the camera on to capture video:
-  
+
   <pre>
-  gst-launch-1.0 v4l2src num-buffers=512 device={props.video_dev} io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/radxa/file.name.mp4
+    gst-launch-1.0 v4l2src num-buffers=512 device={props.video_dev} io-mode=4 !
+    videoconvert ! video/x-raw, format=NV12, width=1920, height=1080,
+    framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse !
+    mpegtsmux ! filesink location=/home/radxa/file.name.mp4
   </pre>

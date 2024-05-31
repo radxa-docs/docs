@@ -1,43 +1,83 @@
 - Picture of {props.product} with Radxa PENTA SATA HAT.
 
-<img src="/img/rock5a/rock5a-penta-sata-hat-05.webp" alt="penta sata hat" style={{ width: "80%" }} />
+<img
+  src="/img/rock5a/rock5a-penta-sata-hat-05.webp"
+  alt="penta sata hat"
+  style={{ width: "80%" }}
+/>
 
 - The diagram below shows the Radxa Penta SATA HAT and the parts included.
 
   **For link details, click on [Penta SATA HAT](/accessories/penta-sata-hat)**
 
-<img src="/img/accessories/penta-sata-hat-01.webp" alt="Install M.2 Extension Board" style={{ width: "80%" }} />
+<img
+  src="/img/accessories/penta-sata-hat-01.webp"
+  alt="Install M.2 Extension Board"
+  style={{ width: "80%" }}
+/>
 
 - Please distinguish between the front and back of the IPEX cable first. As shown in the picture. **The IPEX cables we provide for {props.product} have the same orientation on both ends. **
 
-<img src="/img/accessories/m2-extension-board-04.webp" alt="Install M.2 Extension Board" style={{ width: "80%" }} />
+<img
+  src="/img/accessories/m2-extension-board-04.webp"
+  alt="Install M.2 Extension Board"
+  style={{ width: "80%" }}
+/>
 
 - Please note that the ring clips need to snap into the connectors.
 
-<img src="/img/accessories/ekey-to-mkey-01.webp" alt="E key to M key" style={{ width: "80%" }} />
+<img
+  src="/img/accessories/ekey-to-mkey-01.webp"
+  alt="E key to M key"
+  style={{ width: "80%" }}
+/>
 
 - Installation Tutorial
 
   1. M.2 E key to M.2 M key Board with IPEX cable. **Note that the IPEX cable is installed here with the front side up, and the ring clips need to snap onto the connector to ensure that it is secured. **
 
-  <img src="/img/accessories/m2-extension-board-02.webp" alt="Install M.2 Extension Board" style={{ width: "80%" }} />
+  <img
+    src="/img/accessories/m2-extension-board-02.webp"
+    alt="Install M.2 Extension Board"
+    style={{ width: "80%" }}
+  />
 
   2. Radxa Penta SATA HAT motherboard with IPEX cable. **Note that the IPEX cable is installed here with the front side up and the ring clips need to snap onto the connector to ensure retention. **
 
-  <img src={props.installation2_img} alt="Install Penta SATA HAT" style={{ width: "80%" }} />
+  <img
+    src={props.installation2_img}
+    alt="Install Penta SATA HAT"
+    style={{ width: "80%" }}
+  />
 
   3. Please install the M2.5x18+6 copper post and M2.5x5 copper post supplied with the product on {props.product} as shown.
 
-  <img src={props.installation3_img} alt="installation3" style={{ width: "80%" }} />
+  <img
+    src={props.installation3_img}
+    alt="installation3"
+    style={{ width: "80%" }}
+  />
 
   4. Please connect one end of the IPEX cable to the M.2 E key to M Key board and the other end to the Radxa Penta SATA HAT and install the M.2 E key to M key board to the connector of the M.2 E key ROCK5A. As shown in the figure.
 
-  <img src={props.installation4_img} alt="installation4" style={{ width: "80%" }} />
+  <img
+    src={props.installation4_img}
+    alt="installation4"
+    style={{ width: "80%" }}
+  />
 
   5. Finally, the Radxa Penta SATA HAT is assembled using M2.5x5+5 copper posts.
 
-  <img src={props.installation5_1_img} alt="installation5 1" style={{ width: "80%" }} />
-  <img src={props.installation5_2_img} alt="installation5 2" style={{ width: "80%" }} />
+  <img
+    src={props.installation5_1_img}
+    alt="installation5 1"
+    style={{ width: "80%" }}
+  />
+  <img
+    src={props.installation5_2_img}
+    alt="installation5 2"
+    style={{ width: "80%" }}
+  />
 
 - To see if the Penta SATA HAT mount is successful
 
@@ -67,17 +107,17 @@
 - Software Support
 
   1. We provide an installation script to help you install the software we provide that enables the Penta top panel to display messages and control fans.
-  
+
   ```
   curl -sL https://rock.sh/get-rockpi-penta | sudo -E bash -
   ```
-  
+
   Simply copy the command above and paste it into the terminal and press enter.
 
   2. Software Configuration
-  
+
   Edit /etc/rockpi-penta.conf, and use the following command to make it effective.
-  
+
   ```
   sudo systemctl restart rockpi-penta.service
   ```
