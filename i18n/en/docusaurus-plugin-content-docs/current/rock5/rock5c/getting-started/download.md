@@ -6,9 +6,8 @@ sidebar_position: 8
 
 ## Operating system images
 
-Test Version:
+- [ROCK 5C Debian_desktop b2](https://github.com/radxa-build/rock-5c/releases/download/b2/rock-5c_debian_bullseye_kde_b2.img.xz)
 
-- [ROCK 5C Debian Image T2](https://github.com/radxa-build/rock-5c/releases/tag/test-build-2)
 
 ## Hardware Design
 
