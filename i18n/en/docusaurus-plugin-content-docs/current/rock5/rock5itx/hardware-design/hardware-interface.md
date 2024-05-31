@@ -31,6 +31,8 @@ The following are the detailed interface wiring sequences and descriptions for e
 |  7  |     GND     |              Ground              |
 |  8  |     GND     |              Ground              |
 
+Spacing 0.5 mm
+
 ## LCD0
 
 | Pin |        Name        |                   Description                    |
@@ -76,6 +78,8 @@ The following are the detailed interface wiring sequences and descriptions for e
 | 38  |     VCC_LEDA1      |             Power supply for LED A1              |
 | 39  |     VCC_LEDA1      |             Power supply for LED A1              |
 | 40  |        GND         |                      Ground                      |
+
+The LCD holder is FH35C-39S-0.3SHW (50) with 0.3 mm pitch.
 
 ## Camera Interface
 
@@ -151,6 +155,8 @@ The following are the detailed interface wiring sequences and descriptions for e
 | 30  |      3V3_CAM1      |                3.3V power supply for Camera 1                |
 | 31  |      3V3_CAM1      |                3.3V power supply for Camera 1                |
 
+The camera holder is FH35C-31S-0.3SHW (50) with 0.3 mm pitch.
+
 ## Micro SD
 
 | Pin |    Name     |          Description          |
@@ -169,6 +175,8 @@ The following are the detailed interface wiring sequences and descriptions for e
 | 12  |     GND     |            Ground             |
 | 13  |     GND     |            Ground             |
 
+Spacing 1.85 mm
+
 ## DEBUG UART
 
 | Pin |    Name     |       Description        |
@@ -177,12 +185,16 @@ The following are the detailed interface wiring sequences and descriptions for e
 |  2  | UART2_TX_M0 | UART2 Transmit, Master 0 |
 |  1  |     GND     |          Ground          |
 
+Spacing 2.54 mm
+
 ## RECOVERY
 
 | Pin |   Name   |    Description    |
 | :-: | :------: | :---------------: |
 |  1  | RECOVERY | Recovery mode pin |
 |  2  |   GND    |      Ground       |
+
+Spacing 2.54 mm
 
 ## F_USB
 
@@ -198,6 +210,8 @@ The following are the detailed interface wiring sequences and descriptions for e
 |  8  |     GND      |           Ground            |
 | 10  |      NC      |        No Connection        |
 
+Spacing 2.54 mm
+
 ## F_AUDIO
 
 | Pin |   Name   |         Description         |
@@ -212,6 +226,8 @@ The following are the detailed interface wiring sequences and descriptions for e
 |  8  |    NC    |        No Connection        |
 |  9  |   HPOL   |    Headphone Output Left    |
 | 10  |   HPOL   |    Headphone Output Left    |
+
+Spacing 2.54 mm
 
 ## SPDIF audio interface
 
@@ -235,6 +251,8 @@ The following are the detailed interface wiring sequences and descriptions for e
 |  8  | POE_12V | 12V Power over Ethernet |
 |  9  |   GND   |         Ground          |
 | 10  |   GND   |         Ground          |
+
+Spacing 2.54 mm
 
 ## USB 3.0 + HDMI-10
 
@@ -373,6 +391,8 @@ The following are the detailed interface wiring sequences and descriptions for e
 |    3     | RTC_INT_L | RTC Interrupt Low |     6     | I2C6_SCL_M0 |     I2C Clock Line     |
 |    4     | GND       | Ground            |     5     | I2C6_SDA_M0 |     I2C Data Line      |
 
+RTC takes Lithium coin cell CR1220-3V.
+
 ## SATA
 
 ### SATA PORT
@@ -408,6 +428,8 @@ SATA Power is a Floppy Power Header with 2.54 mm per pin spacing.
 |  3  | FAN_SPEED | Fan Speed Signal |
 |  2  | VCC12V    | 12V Power Supply |
 |  1  | GND       |      Ground      |
+
+Pin spacing 2.54 mm
 
 ## PCIE M KEY
 
@@ -452,6 +474,8 @@ SATA Power is a Floppy Power Header with 2.54 mm per pin spacing.
 | 73  |         GND          |            Ground            | 74  |          NC           |      No Connection      |
 | 75  |         GND          |            Ground            | 76  |          NC           |      No Connection      |
 
+The PCIe M Key holders are LOTES APC10359-P001A with 0.5 mm pitch.
+
 ## PCIE E KEY
 
 | Pin | Name                      | Description                   | Pin | Name                   | Description                         |
@@ -490,3 +514,5 @@ SATA Power is a Floppy Power Header with 2.54 mm per pin spacing.
 | 71  | NC                        | Not Connected                 | 70  | BT_WAKE_L              | Bluetooth Low Energy Wake Signal    |
 | 73  | NC                        | Not Connected                 | 72  | VCC3V3_Ekey            | 3.3V Power Supply                   |
 | 75  | GND                       | Ground                        | 74  | VCC3V3_Ekey            | 3.3V Power Supply                   |
+
+The PCIe E Key holder is APCI0108-P001A with 0.5 mm pitch.
