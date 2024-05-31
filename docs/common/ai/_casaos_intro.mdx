@@ -18,3 +18,105 @@ Airbox 出厂镜像已预装 CasaOS 用户可通过 Airbox ip 地址的 81 端�
 CasaOS 系统界面
 
 ![casaos_4.webp](/img/general-tutorial/tpu_ai/casaos_4.webp)
+
+### CasaOS 安装方法
+
+#### Docker 更新方法
+
+- 查看当前 Docker 版本
+
+  ```bash
+  docker --version
+  ```
+
+- 如果版本低于 24.0.7 卸载 docker
+
+  ```bash
+  for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+  ```
+
+- 配置 Docker apt 仓库
+
+  ```bash
+  # Add Docker's official GPG key:
+  sudo apt-get update
+  sudo apt-get install ca-certificates curl gnupg
+  sudo install -m 0755 -d /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+  # Add the repository to Apt sources:
+  echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt-get update
+  ```
+
+- 获取预下载的新版 deb包（如无会无法安装最新版 docker），并手动安装
+
+  ```bash
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/Docker_Naspackage.zip
+  unzip Docker_Naspackage.zip
+
+  cd Docker_Naspackage
+  sudo apt install ./*.deb
+  ```
+
+- 安装新版 Docker
+  ```bash
+  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  ```
+
+#### Docker 镜像目录迁移
+
+因为 Docker 默认安装于根目录，此时拉取镜像会把镜像安装在 `/var/lib/docker` 里，很容易把根目录占满。
+
+在这里将讲述如何们利用软链接的方法将 docker 文件夹软链接到大容量的硬盘下（强烈建议在安装docker后立即建立）
+
+- 查看当前主机的磁盘空间
+
+  ```bash
+  df -h
+  ```
+
+  ![store.webp](/img/general-tutorial/tpu_ai/store.webp)
+
+  此时发现 `/data` 目录下有充足的空间（如有更大的空间请使用更大空间的目录），此案例使用`/data`
+
+- 利用**超级用户**将 `/var/lib/docker` 剪切到目标目录中(`/data`)
+
+  ```bash
+  sudo su
+  mv /var/lib/docker /data
+  ```
+
+- 利用**超级用户**建立软链接
+
+  ```bash
+  ln -s /data/docker /var/lib
+  ```
+
+  此时软链接就创建完成，输入命令 `ls -l /vae/lib/docker` 可以查看软链接的链接地址
+
+  ```bash
+  $ ls -l /var/lib/docker
+  lrwxrwxrwx 1 root root 16 Dec 20 17:42 /var/lib/docker -> /data/docker
+  ```
+
+#### CasaOS 安装
+
+- 安装 CasaOS 需要检查当前的 docker 版本，如版本低于24.0.7需要卸载并更新，docker 更新方法[可看这里](#docker-更新方法)
+
+  ```bash
+  curl -fsSL https://get.casaos.io | sudo bash
+  ```
+
+- 跟随安装引导安装
+
+  ![casaos_install.webp](/img/general-tutorial/tpu_ai/casaos_install.webp)
+
+  如果根目录空间低于 5GB， 仍然能通过输入 1 进行强制安装
+
+- 通过 Airbox ip 的 81 端口访问 CasaOS, 首次访问需要创建账户
+  ![casaos_1.webp](/img/general-tutorial/tpu_ai/casaos_1.webp)

@@ -19,3 +19,107 @@ The Airbox factory image comes pre-installed with CasaOS. Users can access CasaO
 CasaOS system interface
 
 ![casaos_4.webp](/img/general-tutorial/tpu_ai/casaos_4.webp)
+
+### CasaOS Installation Method
+
+#### Docker Update Method
+
+- Check the current Docker version
+
+  ```bash
+  docker --version
+  ```
+
+- If the version is lower than 24.0.7, uninstall Docker
+
+  ```bash
+  for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+  ```
+
+- Configure Docker apt repository
+
+  ```bash
+  # Add Docker's official GPG key:
+  sudo apt-get update
+  sudo apt-get install ca-certificates curl gnupg
+  sudo install -m 0755 -d /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+  # Add the repository to Apt sources:
+  echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt-get update
+  ```
+
+- Download the pre-downloaded deb package for the new version (it is necessary to manually install the latest Docker)
+
+  ```bash
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/Docker_Naspackage.zip
+  unzip Docker_Naspackage.zip
+
+  cd Docker_Naspackage
+  sudo apt install ./*.deb
+  ```
+
+- Install the new Docker version
+
+  ```bash
+  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  ```
+
+#### Docker Image Directory Migration
+
+Since Docker is installed in the root directory by default, pulling images will install them in `/var/lib/docker`, which can easily fill up the root directory.
+
+Here, we will describe how to use symbolic links to move the Docker folder to a larger capacity disk (strongly recommended to do this immediately after installing Docker).
+
+- Check the current disk space on the host
+
+  ```bash
+  df -h
+  ```
+
+  ![store.webp](/img/general-tutorial/tpu_ai/store.webp)
+
+  Here we see that the `/data` directory has sufficient space (use a directory with more space if available). In this case, we use `/data`.
+
+- Move `/var/lib/docker` to the target directory (`/data`) using a superuser
+
+  ```bash
+  sudo su
+  mv /var/lib/docker /data
+  ```
+
+- Create a symbolic link using a superuser
+
+  ```bash
+  ln -s /data/docker /var/lib
+  ```
+
+  The symbolic link is now created. Use the command `ls -l /var/lib/docker` to check the link address.
+
+  ```bash
+  $ ls -l /var/lib/docker
+  lrwxrwxrwx 1 root root 16 Dec 20 17:42 /var/lib/docker -> /data/docker
+  ```
+
+#### CasaOS Installation
+
+- Check the current Docker version. If the version is lower than 24.0.7, uninstall and update it. Docker update method can be found [here](#docker-update-method).
+
+  ```bash
+  curl -fsSL https://get.casaos.io | sudo bash
+  ```
+
+- Follow the installation guide
+
+  ![casaos_install.webp](/img/general-tutorial/tpu_ai/casaos_install.webp)
+
+  If the root directory space is less than 5GB, you can still proceed with the installation by entering 1 for a forced installation.
+
+- Access CasaOS through the 81 port of the Airbox IP. The first visit will require account creation.
+
+  ![casaos_1.webp](/img/general-tutorial/tpu_ai/casaos_1.webp)
