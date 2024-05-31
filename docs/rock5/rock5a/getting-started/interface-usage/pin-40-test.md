@@ -21,7 +21,7 @@ import UART from '../../../../common/dev/\_uart.mdx';
 
 ## I2C
 
-<I2C product_name="Radxa ROCK 5A" model="rock-5a" i2c_overlay_name="I2C8-M2" sda_pin="PIN_3" scl_pin="PIN_5" i2c_connection="/img/rock5c/i2c_connection.webp" />
+<I2C product_name="Radxa ROCK 5A" model="rock-5a" i2c_overlay_name="I2C8-M2" sda_pin="PIN_3" scl_pin="PIN_5" i2c_connection="/img/rock5a/rock-5a-i2c-connection.webp" />
 
 ## PWM
 
@@ -33,4 +33,4 @@ import UART from '../../../../common/dev/\_uart.mdx';
 
 ## UART
 
-<UART product_name="Radxa ROCK 5A" model="rock-5a" uart1_name="UART4-M2" uart_dev1="ttyS4" tx1_pin="PIN_7" rx1_pin="PIN_29" uart2_name="UART6-M1" uart_dev2="ttyS6" tx2_pin="PIN_19" rx2_pin="PIN_21" uart_connection="/img/rock5c/uart_loop.webp" two_uart_connection="/img/rock5c/trans_receive.webp" />
+<UART product_name="Radxa ROCK 5A" model="rock-5a" uart1_name="UART4-M2" uart_dev1="ttyS4" tx1_pin="PIN_7" rx1_pin="PIN_29" uart2_name="UART6-M1" uart_dev2="ttyS6" tx2_pin="PIN_19" rx2_pin="PIN_21" uart_connection="/img/rock5a/rock5a-uart-loop.webp" two_uart_connection="/img/rock5a/rock5a-two-uart-connection.webp" />
