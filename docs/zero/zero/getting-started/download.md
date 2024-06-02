@@ -29,6 +29,10 @@ sidebar_position: 5
 
 ### 1.51 （微调）
 
+- [v1.51 schematic pdf](https://dl.radxa.com/zero/docs/hw/v1510/radxa_zero_v1.51_schematic.pdf) - 下载 Radxa ZERO v1.51 的原理图
+- [v1.51 SMD pdf](https://dl.radxa.com/zero/docs/hw/v1510/radxa_zero_v1.51_components_placement_map.pdf) - 下载 Radxa ZERO v1.51 的点位图
+- [2D dxf for top and bottom](https://dl.radxa.com/zero/docs/hw/v1510/radxa_zero_v1.51_2d_dxf.zip) - 下载 Radxa ZERO v1.51 的 2D CAD 文件
+
 - 电源 LED 现在可由 GPIOAO_10 控制，因此引脚 35（GPIOAO_8）现在连接到了 40 针针座上，引脚 38（GPIOAO_10）现在没有连接到 40 针针座上
 
 ## 刷机工具
