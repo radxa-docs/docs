@@ -5,7 +5,7 @@ default_install_hook_types:
 
 repos:
   - repo: https://github.com/radxa-docs/pre-commit-hooks
-    rev: 1985d9abac63823842beb7d68216685915dd5130
+    rev: 5a4b5c737aed720c8c5515edb42f6eba77f3f809
     hooks:
       - id: use-webp-image
       - id: fix-en-dash-list
@@ -19,6 +19,7 @@ repos:
       - id: remove-category-json
       - id: check-chinese
         files: "i18n/en/docusaurus-plugin-content-docs/current"
+      - id: trademark-check
   - repo: https://github.com/detailyang/pre-commit-shell
     rev: v1.0.6
     hooks:

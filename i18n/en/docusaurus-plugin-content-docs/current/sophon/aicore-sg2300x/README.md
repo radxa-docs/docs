@@ -39,15 +39,15 @@ The AICore SG2300X operates in SOC mode as well as in PCIe mode, i.e. the AICore
 
 </TabItem>
 
-<TabItem value=" Fogwise AirBox" label=" Fogwise AirBox">
+<TabItem value=" Fogwise® AirBox" label=" Fogwise® AirBox">
 
 ## Products
 
-Fogwise AirBox is an embedded AI micro-server with arithmetic power up to 32TOPS@INT8, supports multiple precision (INT8, FP16/BF16, FP32), supports private GPT, text-to-image, and other mainstream AI model deployments, and is equipped with an aluminum alloy casing for deployment in harsh environments.
+Fogwise® AirBox is an embedded AI micro-server with arithmetic power up to 32TOPS@INT8, supports multiple precision (INT8, FP16/BF16, FP32), supports private GPT, text-to-image, and other mainstream AI model deployments, and is equipped with an aluminum alloy casing for deployment in harsh environments.
 
 #### Characterization
 
-|           module           | Fogwise AirBox                                                                                                                                                                                                                                                                                                                                                                                                |
+|           module           | Fogwise® AirBox                                                                                                                                                                                                                                                                                                                                                                                                |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |         **sizes**          | 104 mm × 84 mm × 50.2 mm                                                                                                                                                                                                                                                                                                                                                                                      |
 |    **processing unit**     | SOPHON SG2300X SoC，octa-core Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                                                                                                                                             |
@@ -62,7 +62,7 @@ Fogwise AirBox is an embedded AI micro-server with arithmetic power up to 32TOPS
 
 #### Photograph of sth.
 
-![Fogwise AirBox Overview](/img/airbox/radxa_fogwise_airbox.webp)
+![Fogwise® AirBox Overview](/img/airbox/radxa_fogwise_airbox.webp)
 
 ### Chip block diagram
 
@@ -70,7 +70,7 @@ Fogwise AirBox is an embedded AI micro-server with arithmetic power up to 32TOPS
 
 ### System block diagram
 
-![Fogwise AirBox Block Diagram](/img/airbox/airbox-block-diagram.webp)
+![Fogwise® AirBox Block Diagram](/img/airbox/airbox-block-diagram.webp)
 
 </TabItem>
 
