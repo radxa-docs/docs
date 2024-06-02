@@ -8,7 +8,6 @@ sidebar_position: 8
 
 - [ROCK 5C Debian_desktop b2](https://github.com/radxa-build/rock-5c/releases/download/b2/rock-5c_debian_bullseye_kde_b2.img.xz)
 
-
 ## Hardware Design
 
 ### V1.1

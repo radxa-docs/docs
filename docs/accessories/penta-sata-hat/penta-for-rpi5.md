@@ -28,8 +28,10 @@ Penta SATA HAT 配备了一个 DC 接口（座子规格为外径 5.5mm，内径 
 - 如果我们安装 4 块 3.5 寸机械硬盘，考虑到 Raspberry Pi 5 本身的功耗，整个套件总功耗可能会超过 50W，这时我们可以使用 DC 12V 适配器供电，如 12V/5A 的适配器。或者使用 D 形 4PIN 从 ATX/SFX 电源供电，D 形 4PIN 接口一般能提供较大的功率。
 
 :::info
+
 1. 请不要同时使用两种或两种以上的供电方式。<br/>
 2. 如果你需要使用 eSATA 接口，需要使用 DC 12V 适配器或 ATX/SFX 电源供电。
+
 :::
 
 ## 组装
@@ -141,8 +143,8 @@ sudo lspci -vvv -s 0000:01:00.1 | grep LnkSta
 
 目前我们尚未生产用于销售的相应外壳。但我们以及社区的用户提供了一些非常好看的 3D 打印外壳，你可以尝试打印这些外壳：
 
-| 外壳名称 | 预览 | 下载地址 | 作者 | 备注 |
-| -------- | ---- | -------- | ---- | ---- |
-| Radxa Penta NAS   | <img src="/img/accessories/penta/case/case-1.webp" width="480" height="360" alt="case-1" /> | [GrabCAD](https://grabcad.com/library/radxa-penta-sata-hat-nas-case-1) | [Radxa Computer](https://radxa.com/) | 支持安装 [Top board](sata-hat-top-board)<br/>问题讨论：[Raspberry Pi 3D print penta hat case quirks ](https://forum.radxa.com/t/raspberry-pi-3d-print-penta-hat-case-quirks/21063/15) |
-| Pi 5 Four Bay NAS | <img src="/img/accessories/penta/case/case-2.webp" width="480" height="360" alt="case-2" /> | [MakerWorld](https://makerworld.com/en/models/464746#profileId-373433) | [Michael Klements](https://www.youtube.com/@MichaelKlements) | 视频： [I Built A 4-Bay NAS Using A Raspberry Pi 5](https://www.youtube.com/watch?v=vIEjdjS7uVg)|
-| Pi 5 NAS TOWER    | <img src="/img/accessories/penta/case/case-3.webp" width="480" height="360" alt="case-3" /> | [Cults 3D](https://cults3d.com/en/3d-model/gadget/pi-5-nas-tower-for-radxa-hat-with-option-noctua-fan) | [CeIIy](https://cults3d.com/en/users/CeIIy) | 8CM 猫扇，散热优秀 |
+| 外壳名称          | 预览                                                                                        | 下载地址                                                                                               | 作者                                                         | 备注                                                                                                                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Radxa Penta NAS   | <img src="/img/accessories/penta/case/case-1.webp" width="480" height="360" alt="case-1" /> | [GrabCAD](https://grabcad.com/library/radxa-penta-sata-hat-nas-case-1)                                 | [Radxa Computer](https://radxa.com/)                         | 支持安装 [Top board](sata-hat-top-board)<br/>问题讨论：[Raspberry Pi 3D print penta hat case quirks ](https://forum.radxa.com/t/raspberry-pi-3d-print-penta-hat-case-quirks/21063/15) |
+| Pi 5 Four Bay NAS | <img src="/img/accessories/penta/case/case-2.webp" width="480" height="360" alt="case-2" /> | [MakerWorld](https://makerworld.com/en/models/464746#profileId-373433)                                 | [Michael Klements](https://www.youtube.com/@MichaelKlements) | 视频： [I Built A 4-Bay NAS Using A Raspberry Pi 5](https://www.youtube.com/watch?v=vIEjdjS7uVg)                                                                                      |
+| Pi 5 NAS TOWER    | <img src="/img/accessories/penta/case/case-3.webp" width="480" height="360" alt="case-3" /> | [Cults 3D](https://cults3d.com/en/3d-model/gadget/pi-5-nas-tower-for-radxa-hat-with-option-noctua-fan) | [CeIIy](https://cults3d.com/en/users/CeIIy)                  | 8CM 猫扇，散热优秀                                                                                                                                                                    |

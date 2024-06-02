@@ -28,8 +28,10 @@ We can choose the appropriate power supply method according to the type and numb
 - If we install 4 3.5-inch mechanical hard drives, considering the power consumption of the Raspberry Pi 5 itself, the total power consumption of the entire kit may exceed 50W. At this time, we can use a DC 12V adapter for power, such as a 12V/5A adapter. Or use a D-shaped 4PIN from an ATX/SFX power supply, D-shaped 4PIN interface generally can provide a larger power.
 
 :::info
+
 1. Please do not use two or more power supply methods at the same time. <br/>
 2. If you need to use the eSATA interface, you need to use a DC 12V adapter or ATX/SFX power supply.
+
 :::
 
 ## Assemble
@@ -141,8 +143,8 @@ After seeing the Gen 3 in use, we can measure the write speed again.
 
 We have not yet produced the corresponding case for sale. But we and the community users have provided some very nice 3D printed cases, you can try to print these cases:
 
-| Case name | Preview | Download link | Author | Note |
-| --------- | ------- | ------------- | ------ | ---- |
-| Radxa Penta NAS | <img src="/img/accessories/penta/case/case-1.webp" width="480" height="360" alt="case-1" /> | [GrabCAD](https://grabcad.com/library/radxa-penta-sata-hat-nas-case-1) | [Radxa Computer](https://radxa.com/) | Supports installation of [Top board](sata-hat-top-board)<br/>Issue discussion: [Raspberry Pi 3D print penta hat case quirks ](https://forum.radxa.com/t/raspberry-pi-3d-print-penta-hat-case-quirks/21063/15) |
-| Pi 5 Four Bay NAS | <img src="/img/accessories/penta/case/case-2.webp" width="480" height="360" alt="case-2" /> | [MakerWorld](https://makerworld.com/en/models/464746#profileId-373433) | [Michael Klements](https://www.youtube.com/@MichaelKlements) | Video: [I Built A 4-Bay NAS Using A Raspberry Pi 5](https://www.youtube.com/watch?v=vIEjdjS7uVg) |
-| Pi 5 NAS TOWER | <img src="/img/accessories/penta/case/case-3.webp" width="480" height="360" alt="case-3" /> | [Cults 3D](https://cults3d.com/en/3d-model/gadget/pi-5-nas-tower-for-radxa-hat-with-option-noctua-fan) | [CeIIy](https://cults3d.com/en/users/CeIIy) | Noctua 8CM fan, excellent heat dissipation |
+| Case name         | Preview                                                                                     | Download link                                                                                          | Author                                                       | Note                                                                                                                                                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Radxa Penta NAS   | <img src="/img/accessories/penta/case/case-1.webp" width="480" height="360" alt="case-1" /> | [GrabCAD](https://grabcad.com/library/radxa-penta-sata-hat-nas-case-1)                                 | [Radxa Computer](https://radxa.com/)                         | Supports installation of [Top board](sata-hat-top-board)<br/>Issue discussion: [Raspberry Pi 3D print penta hat case quirks ](https://forum.radxa.com/t/raspberry-pi-3d-print-penta-hat-case-quirks/21063/15) |
+| Pi 5 Four Bay NAS | <img src="/img/accessories/penta/case/case-2.webp" width="480" height="360" alt="case-2" /> | [MakerWorld](https://makerworld.com/en/models/464746#profileId-373433)                                 | [Michael Klements](https://www.youtube.com/@MichaelKlements) | Video: [I Built A 4-Bay NAS Using A Raspberry Pi 5](https://www.youtube.com/watch?v=vIEjdjS7uVg)                                                                                                              |
+| Pi 5 NAS TOWER    | <img src="/img/accessories/penta/case/case-3.webp" width="480" height="360" alt="case-3" /> | [Cults 3D](https://cults3d.com/en/3d-model/gadget/pi-5-nas-tower-for-radxa-hat-with-option-noctua-fan) | [CeIIy](https://cults3d.com/en/users/CeIIy)                  | Noctua 8CM fan, excellent heat dissipation                                                                                                                                                                    |
