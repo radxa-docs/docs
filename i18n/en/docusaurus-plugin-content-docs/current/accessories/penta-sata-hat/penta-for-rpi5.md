@@ -31,7 +31,8 @@ We can choose the appropriate power supply method according to the type and numb
 
 1. Please do not use two or more power supply methods at the same time. <br/>
 2. If you need to use the eSATA interface, you need to use a DC 12V adapter or ATX/SFX power supply.
-   :::
+
+:::
 
 ## Assemble
 

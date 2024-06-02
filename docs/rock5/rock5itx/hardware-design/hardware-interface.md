@@ -151,7 +151,7 @@ sidebar_position: 4
 | 30  |      3V3_CAM1      |                3.3V power supply for Camera 1                |
 | 31  |      3V3_CAM1      |                3.3V power supply for Camera 1                |
 
-## Miscro SD
+## Micro SD
 
 | Pin |    Name     |          Description          |
 | :-: | :---------: | :---------------------------: |

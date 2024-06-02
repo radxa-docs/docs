@@ -6,9 +6,7 @@ sidebar_position: 8
 
 ## 操作系统镜像
 
-测试版本：
-
-- [ROCK 5C Debian 镜像 T2](https://github.com/radxa-build/rock-5c/releases/tag/test-build-2)
+- [ROCK 5C Debian 镜像 B2](https://github.com/radxa-build/rock-5c/releases/download/b2/rock-5c_debian_bullseye_kde_b2.img.xz)
 
 ## 硬件设计
 

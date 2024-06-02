@@ -4,9 +4,9 @@ sidebar_position: 1
 
 # Preparation
 
-## power supply
+## Power supply
 
-AirBox Powered by Type-C connector, needs 20V / 65W power input.
+The Airbox is powered via a USB Type-C interface and supports PD (Power Delivery) voltage negotiation, with a negotiation voltage of 20V. When operating at full load, the Airbox has a power consumption close to 42W. Therefore, it requires a 45W (20V/2.25A) or 65W (20V/3.25A) PD adapter. Alternatively, a Type-C adapter with a direct output of 20V and at least 2.25A can also be used.
 
 ## Access to equipment
 
