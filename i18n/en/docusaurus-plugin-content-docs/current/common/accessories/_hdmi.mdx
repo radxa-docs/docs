@@ -1,0 +1,48 @@
+- Desktop Resolution Switching
+
+  1. Open the system settings and locate Display and Monitor
+
+  <img
+    src="/img/common/hdmi-display-monitor.webp"
+    alt="display monitor"
+    style={{ width: "80%" }}
+  />
+
+  2. Click on Resolution to switch to different resolutions.
+
+  <img
+    src="/img/common/hdmi-display-conf.webp"
+    alt="display conf"
+    style={{ width: "80%" }}
+  />
+
+  Switching to different resolutions should not cause screen flickering, artifacts, stripes, tearing, or other abnormal occurrences.
+
+- Command Line Resolution Switching
+
+  1. Use the xrandr -q command to check the supported resolutions for your screen.
+
+  ```bash
+  xrandr -q
+  Screen 0: minimum 320 x 200, current 2720 x 1280, maximum 16384 x 16384
+  HDMI-1 disconnected (normal left inverted right x axis y axis)
+  DSI-1 connected 800x1280+1920+0 (normal left inverted right x axis y axis) 0mm x 0mm
+  800x1280      60.22*+
+  DP-1 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+  1920x1080     59.99*+  50.00
+  ```
+
+  2. Use the xrandr -s 0 command to restore the screen to its original resolution.
+  3. Use the xrandr -s command to specify the screen resolution.
+
+  For example:
+
+  ```bash
+  xrandr -s 1024×768
+  ```
+
+  Switching to different resolutions should not cause screen flickering, artifacts, stripes, tearing, or other abnormal occurrences.
+
+- Multiple HDMI Cable Plugging and Unplugging
+
+  Plug and unplug the HDMI cable multiple times to test if the display functions properly.

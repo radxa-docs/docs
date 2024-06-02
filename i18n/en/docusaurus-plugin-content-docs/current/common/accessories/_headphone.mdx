@@ -1,0 +1,46 @@
+- Plugging in the Headset
+
+  Plug your headphones into the headphone jack of {props.product} as shown
+
+  <img src={props.headphone_img} alt="headphone" style={{ width: "80%" }} />
+
+- Confirm Hardware Connection
+
+  Ensure that the headphones are properly inserted into the headphone jack, firmly connected and not loose.
+
+- Check the sound settings
+
+  Open your system's sound settings, which can usually be found in System Settings or Control Panel. Ensure that the audio output device has been correctly set to headphones.
+
+  <img
+    src="/img/common/headphone-audio-setting.webp"
+    alt="-audio setting"
+    style={{ width: "80%" }}
+  />
+
+- Play Audio
+
+  Play an audio file, such as music, video, or other media file, to ensure that the sound will be output through the headphones.
+
+- Check the volume control
+
+  Make sure the system volume and application volume are set appropriately and are not muted.
+
+- Testing with Terminal Commands
+
+  Use command line tools in the terminal to test the audio output. You can use the aplay or speaker-test command. Example:
+
+  1. use aplay to play an audio file:
+
+  ```bash
+  aplay /path/to/audio/file.wav
+  ```
+
+  2. To record an audio file
+
+  ```bash
+  sudo amixer -c 1 cset numid=2 1 #Setup Recording
+  arecord -D "plughw:1,0" -f S16_LE -r 16000 -d 5 -t wav /tmp/tmp.wav  #Start recording
+  ```
+
+  After completing the recording, check that the recording is played back properly and without noise.

@@ -1,0 +1,100 @@
+- WIFI Usage
+
+  1. First enter ROOT user mode
+
+  {" "}
+
+  <pre>radxa@{props.model}:~$ sudo su</pre>
+
+  2. Turn on WIFI
+
+  {" "}
+
+  <pre>root@{props.model}:/home/radxa# nmcli r wifi on</pre>
+
+  3. Scan WIFI
+
+  {" "}
+
+  <pre>root@{props.model}:/home/radxa# nmcli dev wifi</pre>
+
+  4. Bluetooth usage
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# nmcli dev wifi connect "wifi_name" password
+    "wifi_password"
+  </pre>
+
+- Bluetooth Usage
+
+  1. If using the Radxa Wireless A8 module, the following blacklists must be added for BT to work properly.
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# cat /etc/modprobe.d/blacklist.conf blacklist
+    pgdrv blacklist btusb blacklist btrtl blacklist btbcm blacklist btintel
+    root@{props.model}:~# reboot
+  </pre>
+
+  2. Radxa APT includes the broadcom-wifibt-firmware package for Broadcom wireless modules and the intel-wifibt-firmware package for Intel wireless modules. The corresponding packages need to be downloaded
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# apt-get update -y root@{props.model}
+    :/home/radxa# apt-get install -y broadcom-wifibt-firmware intel-wifibt-firmware
+  </pre>
+
+  3. Test the status of the Bluetooth module and check the Bluetooth device
+
+  {" "}
+
+  <pre>root@{props.model}:/home/radxa# systemctl status bluetooth</pre>
+
+  4. Run the Bluetooth device.
+
+  {" "}
+
+  <pre>root@{props.model}:/home/radxa# systemctl start bluetooth</pre>
+
+  5. Detect Bluetooth devices
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# hciconfig hci0: Type: Primary Bus: UART BD
+    Address: 10:2C:6B:49:D5:53 ACL MTU: 1021:8 SCO MTU: 64:1 UP RUNNING RX
+    bytes:850 acl:0 sco:0 events:58 errors:0 TX bytes:2814 acl:0 sco:0
+    commands:58 errors:0
+  </pre>
+
+  6. Test: Connect the Bluetooth speaker, first install pulseaudio
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# apt-get install -y
+    pulseaudio-module-bluetooth pulseaudio
+  </pre>
+
+  7. Run pulseaudio
+
+  {" "}
+
+  <pre>root@{props.model}:/home/radxa# pulseaudio --start</pre>
+
+  8. Connect with pulseaudio
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# bluetoothctl [bluetooth]# default-agent
+    [bluetooth]# power on [bluetooth]# scan on [bluetooth]# trust
+    41:42:1A:8D:A9:65 #BT-280 [bluetooth]# pair 41:42:1A:8D:A9:65 [bluetooth]#
+    connect 41:42:1A:8D:A9:65
+  </pre>
+
+  9. Now you can listen to music

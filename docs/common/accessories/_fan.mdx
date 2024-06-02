@@ -1,0 +1,85 @@
+- 连接
+
+  如图所示，将风扇连接到 {props.product}
+
+  <img
+    src={props.fan_connection_img}
+    alt="fan connection"
+    style={{ width: "40%" }}
+  />
+
+- rsetup 选择 Thermal Governor 模式
+
+  1. 打开终端，输入 rsetup, 选择 Hardware
+
+  <img
+    src="/img/common/rsetup/rsetup-hardware.webp"
+    alt="rsetup hardware"
+    style={{ width: "60%" }}
+  />
+
+  2. 进入 Thermal governor
+
+  <img
+    src="/img/common/rsetup/rsetup-thermal-governor.webp"
+    alt="rsetup hardware"
+    style={{ width: "60%" }}
+  />
+
+  3. 默认的 governor 应该是 power_allocator
+
+  <img
+    src="/img/common/rsetup/rsetup-select-thermal-governor.webp"
+    alt="rsetup hardware"
+    style={{ width: "60%" }}
+  />
+
+- power_allocator
+
+  系统默认是无风扇模式或 DC 风扇模式，确保机器在没有散热风扇的前提下依旧能稳定工作
+
+- user_space
+
+  1. 选择 user_space
+
+  2. 通过以下命令找到风扇设备
+
+  <pre>
+    ls /sys/class/thermal/cooling_device*/type cat
+    /sys/class/thermal/cooling_device*/type
+  </pre>
+
+  <img
+    src={props.pwm_fan_result_img}
+    alt="pwm fan result img"
+    style={{ width: "80%" }}
+  />
+
+  <h6>如图所示，pwm-fan 对应 cooling_device{props.pwm_fan_dev_id}</h6>
+
+  3. 关闭风扇
+
+  <pre>
+    radxa@{props.model}:~$ echo 0 | sudo tee /sys/class/thermal/cooling_device
+    {props.pwm_fan_dev_id}/cur_state
+  </pre>
+
+  4. 将风扇调至最高档
+
+  <pre>
+    radxa@{props.model}:~$ sudo cp /sys/class/thermal/cooling_device
+    {props.pwm_fan_dev_id}/max_state /sys/class/thermal/cooling_device
+    {props.pwm_fan_dev_id}/cur_state
+  </pre>
+
+- step_wise
+
+  当CPU温度达到60摄氏度风扇开始转
+
+- 关机和睡眠状态
+
+  关机和睡眠状态下风扇应保持静止
+
+- 参考
+
+  更多请参考 rsetup <a href={props.thermal_governor_path} > thermal-governor 部分</a>

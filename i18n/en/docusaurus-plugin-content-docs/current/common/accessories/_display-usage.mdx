@@ -1,0 +1,30 @@
+- Connection
+
+  Connect {props.product} through the FPC cable as shown:
+
+  <img
+    src={props.display_connection_img}
+    alt="display connection"
+    style={{ width: "80%" }}
+  />
+
+- Enable Overlay
+
+  1. Open the Kconsole terminal via the Application Launcher in the lower left corner and run the rsetup command:
+
+  <pre> radxa@{props.model}:~$ rsetup </pre>
+
+  2. Enable {props.camera} Overlay by <a href={props.rsetup_path}> Device Tree Configuration </a>.
+
+  :::tip
+
+  Please enable [] {props.overlays_title} Overlay。<br/>
+  Exit and reboot after enabling the successful display of [*] {props.overlays_title} for the configuration to take effect.
+
+  :::
+
+  3. Reboot
+
+- Test
+
+  After reboot, {props.display_name} is able to display the system screen and supports touch.

@@ -1,0 +1,53 @@
+### Software reboot
+
+#### Shutting down or restarting in the graphical interface
+
+- Click on the icon in the bottom left corner and select the **Leave** option.
+
+- You will be able to see the system function options.
+
+- You can select the function you need** (Sleep, Reboot, Shutdown)**.
+
+<img
+  src="/img/rock5a/rock5a-GUI-leave.webp"
+  alt="Debian GUI 01"
+  style={{ width: "80%" }}
+/>
+
+#### Control via Terminal
+
+Open the terminal command on the desktop (or use the Ctrl+Alt+T shortcut).
+
+**Reboot**.  
+Type the following command and press Enter, followed by the password.
+If the password is correct, it will reboot the system.
+If it is incorrect, re-enter the correct password.
+
+```
+sudo reboot
+```
+
+**Shutdown**.  
+Type the following command and press enter followed by the password.
+If the password is correct, it will shut down the system.
+If it is incorrect, re-enter the correct password.
+
+```
+sudo shutdown now
+```
+
+### Power button
+
+As shown in the figure, the arrowed area is the power button.
+
+- When the device is off, pressing the power key will turn the device on. When working, the power green light will stay on and the status blue light will blink.
+
+<img src={props.model_img} alt="pwr" style={{ width: "80%" }} />
+
+- When the device is switched on, press the power button and the screen will pop up with the user status selection. You can choose to sleep, reboot, shutdown, or logout. When you turn off the device or the device is sleeping, the power green light and status blue light will be turned off.
+
+<img
+  src="/img/rock5a/rock5a-power-status.webp"
+  alt="pwr 2"
+  style={{ width: "80%" }}
+/>

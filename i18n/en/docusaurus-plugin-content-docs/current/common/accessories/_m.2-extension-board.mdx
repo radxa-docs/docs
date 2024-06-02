@@ -1,0 +1,70 @@
+- Preparation
+
+  1. The following figure shows the Radxa M.2 expansion board and the included components
+
+  <img
+    src="/img/accessories/m2-extension-board-03.webp"
+    alt="m.2 extension board package"
+    style={{ width: "80%" }}
+  />
+
+  2. Please distinguish between the front and back of the IPEX cable, as shown in the picture.
+
+  **The IPEX cables we provide for {props.product} are orientated in the same direction at both ends. **
+
+  <img
+    src="/img/accessories/m2-extension-board-04.webp"
+    alt="cable"
+    style={{ width: "80%" }}
+  />
+
+  3. Please note that the **loop** needs to be snapped into the connector.
+
+  <img
+    src="/img/accessories/ekey-to-mkey-01.webp"
+    alt=""
+    style={{ width: "80%" }}
+  />
+
+- Mounting
+
+  1. M.2 E-keyboard to M.2 M-keyboard with IPEX cable. **Note that the IPEX cable installed here is face up and the ring clips need to snap onto the connector to ensure retention. **
+
+  <img
+    src="/img/accessories/m2-extension-board-02.webp"
+    alt="step 1"
+    style={{ width: "80%" }}
+  />
+
+  2. M.2 expansion board with IPEX cable. **Note that the IPEX cable installed here is face up, and the ring clips need to snap onto the connector to ensure retention. **
+
+  <img
+    src="/img/accessories/m2-extension-board-01.webp"
+    alt="step 2"
+    style={{ width: "80%" }}
+  />
+
+  3. Please install the M2.5x18+6 copper post and M2.5x5 copper post supplied with the product on {props.product} as shown in the figure.
+
+  <img src={props.step3_img} alt="step 3" style={{ width: "80%" }} />
+
+  4. Connect one end of the IPEX cable to the M.2 E key to M Key board and the other end to the M.2 Extension Board and install the M.2 E key to M key board into the {props.product} M.2 E connector as shown.
+
+  <img src={props.step4_img} alt="step 4" style={{ width: "80%" }} />
+
+  5. Finally, the M.2 expansion board is assembled using M2.5x5+5 copper posts.
+
+  <img src={props.step5_img} alt="step 5" style={{ width: "80%" }} />
+
+- Viewing Mounts
+
+  1. You can check if the SSD card is recognised by `lsblk`.
+
+  <pre>
+    radxa@{props.model}:~$ lsblk NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT mmcblk0
+    179:0 0 14.5G 0 disk ├─mmcblk0p1 179:1 0 16M 0 part /config └─mmcblk0p2
+    179:2 0 14.4G 0 part / mmcblk0boot0 179:32 0 4M 1 disk mmcblk0boot1 179:64 0
+    4M 1 disk zram0 254:0 0 3.8G 0 disk [SWAP] nvme0n1 259:0 0 238.5G 0 disk
+  </pre>
+
+  2. At this point you can see that the system has recognised the SSD (**nvme0n1**).

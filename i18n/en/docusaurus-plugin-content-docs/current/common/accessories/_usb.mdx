@@ -1,0 +1,84 @@
+- Repeatedly unplugging peripherals
+
+  Repeatedly plug and unplug the USB peripherals to ensure that they are recognised and work properly every time.
+
+  1. Identify the mouse and keyboard
+
+  <pre>
+    lsusb Bus 008 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub Bus 007
+    Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub Bus 006 Device 001:
+    ID 1d6b:0003 Linux Foundation 3.0 root hub Bus 005 Device 001: ID 1d6b:0002
+    Linux Foundation 2.0 root hub
+    <strong>Bus 004 Device 002: ID c0f4:04c0 SZH usb keyboard</strong>
+    Bus 004 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub Bus 002
+    Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub Bus 003 Device 001:
+    ID 1d6b:0001 Linux Foundation 1.1 root hub
+    <strong>Bus 001 Device 003: ID 0000:3825 USB OPTICAL MOUSE</strong>
+    Bus 001 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub Bus 001 Device
+    001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+  </pre>
+
+  As shown above, the mouse (USB OPTICAL MOUSE) and keyboard (usb keyboard) have been successfully recognised here.
+
+  2. Identify the storage device.
+
+  <pre>
+    lsusb Bus 008 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub Bus 007
+    Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+    <strong>
+      Bus 006 Device 002: ID 067b:2731 Prolific Technology, Inc. USB SD Card
+      Reader
+    </strong>
+    Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub Bus 005
+    Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub Bus 004 Device 001:
+    ID 1d6b:0001 Linux Foundation 1.1 root hub Bus 002 Device 001: ID 1d6b:0002
+    Linux Foundation 2.0 root hub Bus 003 Device 001: ID 1d6b:0001 Linux
+    Foundation 1.1 root hub Bus 001 Device 002: ID 1a40:0101 Terminus Technology
+    Inc. Hub Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+  </pre>
+
+  As shown above, the Micro-SD Card Reader has been successfully recognised here.
+
+- Waking up peripherals
+
+  1. After 10 minutes of hibernation, operate the USB peripherals, such as keyboard and mouse, to see if the system wakes up normally.
+
+  2. Enter the account password, log in to the system, check whether the peripheral devices are waking up and working properly, such as WIFI, sound card, etc.
+
+  3. Operate three times
+
+  Note: USB OTG port detection
+
+- Transmission Rate
+
+  1. Identify the USB memory device
+
+  Confirm USB memory device via lsblk
+
+  <img
+    src={props.usb_dev_img}
+    alt="pwm fan result img"
+    style={{ width: "80%" }}
+  />
+
+  As shown above, the USB storage device inserted into {props.product} is /dev/{props.usb_dev}.
+
+  2. Read test
+
+  <pre>
+    radxa@{props.model}:~$ sudo dd if=/dev/{props.usb_dev} of=/dev/null bs=1M
+    count=100 100+0 records in 100+0 records out 104857600 bytes (105 MB, 100
+    MiB) copied, {props.usb_dev_sd_read_time}, {props.usb_dev_sd_read_speed}
+  </pre>
+
+  This command will read data from the USB device and write it to /dev/null in order to test the read speed. The block size specified here is 1M, and 100 blocks are specified to be read, so a total of 100 MB of data is read at {props.usb_dev_sd_read_speed}.
+
+  3. Write Test
+
+  <pre>
+    radxa@{props.model}:~$ sudo dd if=/dev/zero of=/dev/{props.usb_dev} bs=1M
+    count=100 100+0 records in 100+0 records out 104857600 bytes (105 MB, 100
+    MiB) copied, {props.usb_dev_sd_write_time}, {props.usb_dev_sd_write_speed}
+  </pre>
+
+  The block size specified here is 1M, 100 blocks were written, a total of 100 M of data was written, and the write speed was {props.usb_dev_sd_write_speed}.

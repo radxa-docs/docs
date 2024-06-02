@@ -1,0 +1,170 @@
+- Picture of {props.product} with Radxa PENTA SATA HAT.
+
+<img
+  src="/img/rock5a/rock5a-penta-sata-hat-05.webp"
+  alt="penta sata hat"
+  style={{ width: "80%" }}
+/>
+
+- The diagram below shows the Radxa Penta SATA HAT and the parts included.
+
+  **For link details, click on [Penta SATA HAT](/accessories/penta-sata-hat)**
+
+<img
+  src="/img/accessories/penta-sata-hat-01.webp"
+  alt="Install M.2 Extension Board"
+  style={{ width: "80%" }}
+/>
+
+- Please distinguish between the front and back of the IPEX cable first. As shown in the picture. **The IPEX cables we provide for {props.product} have the same orientation on both ends. **
+
+<img
+  src="/img/accessories/m2-extension-board-04.webp"
+  alt="Install M.2 Extension Board"
+  style={{ width: "80%" }}
+/>
+
+- Please note that the ring clips need to snap into the connectors.
+
+<img
+  src="/img/accessories/ekey-to-mkey-01.webp"
+  alt="E key to M key"
+  style={{ width: "80%" }}
+/>
+
+- Installation Tutorial
+
+  1. M.2 E key to M.2 M key Board with IPEX cable. **Note that the IPEX cable is installed here with the front side up, and the ring clips need to snap onto the connector to ensure that it is secured. **
+
+  <img
+    src="/img/accessories/m2-extension-board-02.webp"
+    alt="Install M.2 Extension Board"
+    style={{ width: "80%" }}
+  />
+
+  2. Radxa Penta SATA HAT motherboard with IPEX cable. **Note that the IPEX cable is installed here with the front side up and the ring clips need to snap onto the connector to ensure retention. **
+
+  <img
+    src={props.installation2_img}
+    alt="Install Penta SATA HAT"
+    style={{ width: "80%" }}
+  />
+
+  3. Please install the M2.5x18+6 copper post and M2.5x5 copper post supplied with the product on {props.product} as shown.
+
+  <img
+    src={props.installation3_img}
+    alt="installation3"
+    style={{ width: "80%" }}
+  />
+
+  4. Please connect one end of the IPEX cable to the M.2 E key to M Key board and the other end to the Radxa Penta SATA HAT and install the M.2 E key to M key board to the connector of the M.2 E key ROCK5A. As shown in the figure.
+
+  <img
+    src={props.installation4_img}
+    alt="installation4"
+    style={{ width: "80%" }}
+  />
+
+  5. Finally, the Radxa Penta SATA HAT is assembled using M2.5x5+5 copper posts.
+
+  <img
+    src={props.installation5_1_img}
+    alt="installation5 1"
+    style={{ width: "80%" }}
+  />
+  <img
+    src={props.installation5_2_img}
+    alt="installation5 2"
+    style={{ width: "80%" }}
+  />
+
+- To see if the Penta SATA HAT mount is successful
+
+  1. Check if the SATA device is recognised by `lsblk`.
+
+  ```
+  radxa@{props.product}:~$ lsblk
+  NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+  sda            8:0    0 465.8G  0 disk
+  └─sda1         8:1    0 465.8G  0 part
+  sdb            8:16   0 465.8G  0 disk
+  └─sdb1         8:17   0 465.8G  0 part
+  sdc            8:32   0 465.8G  0 disk
+  └─sdc1         8:33   0 465.8G  0 part
+  sdd            8:48   0 465.8G  0 disk
+  └─sdd1         8:49   0 465.8G  0 part
+  mmcblk0      179:0    0  14.5G  0 disk
+  ├─mmcblk0p1  179:1    0    16M  0 part /config
+  └─mmcblk0p2  179:2    0  14.4G  0 part /
+  mmcblk0boot0 179:32   0     4M  1 disk
+  mmcblk0boot1 179:64   0     4M  1 disk
+  zram0        254:0    0   3.8G  0 disk [SWAP]
+  ```
+
+  2. When the system recognises the Penta SATA HAT, you can see the SATA devices (sda/sdb/sdc/sdd).
+
+- Software Support
+
+  1. We provide an installation script to help you install the software we provide that enables the Penta top panel to display messages and control fans.
+
+  ```
+  curl -sL https://rock.sh/get-rockpi-penta | sudo -E bash -
+  ```
+
+  Simply copy the command above and paste it into the terminal and press enter.
+
+  2. Software Configuration
+
+  Edit /etc/rockpi-penta.conf, and use the following command to make it effective.
+
+  ```
+  sudo systemctl restart rockpi-penta.service
+  ```
+
+  3. Default configuration
+
+  The following is the default configuration of /etc/rockpi-penta.conf, which you can modify according to the comments.
+
+  ```
+  [fan]
+  # When the temperature is above lv0 (35'C), the fan at 25% power,
+  # and lv1 at 50% power, lv2 at 75% power, and lv3 at 100% power.
+  # When the temperature is below lv0, the fan is turned off.
+  # You can change these values if necessary.
+  lv0 = 35
+  lv1 = 40
+  lv2 = 45
+  lv3 = 50
+
+  [key]
+  # You can customize the function of the key, currently available functions are
+  # slider: oled display next page
+  # switch: fan turn on/off switch
+  # reboot, poweroff
+  # If you have any good suggestions for key functions,
+  # please add an issue on https://rock.sh/rockpi-sata
+  click = slider
+  twice = switch
+  press = none
+
+  [time]
+  # twice: maximum time between double clicking (seconds)
+  # press: long press time (seconds)
+  twice = 0.7
+  press = 1.8
+
+  [slider]
+  # Whether the oled auto display next page and the time interval (seconds)
+  auto = true
+  time = 10
+
+  [oled]
+  # Whether rotate the text of oled 180 degrees, whether use Fahrenheit
+  rotate = false
+  f-temp = false
+  ```
+
+- Refer
+
+See [Radxa Penta SATA Expansion Board](/accessories/penta-sata-hat/the-penta-sata-hat) for details.

@@ -1,0 +1,100 @@
+- WIFI 的使用
+
+  1. 首先进入 ROOT 用户模式
+
+  {" "}
+
+  <pre>radxa@{props.model}:~$ sudo su</pre>
+
+  2. 打开 WIFI
+
+  {" "}
+
+  <pre>root@{props.model}:/home/radxa# nmcli r wifi on</pre>
+
+  3. 扫描 WIFI
+
+  {" "}
+
+  <pre>root@{props.model}:/home/radxa# nmcli dev wifi</pre>
+
+  4. 连接 WIFI 网络
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# nmcli dev wifi connect "wifi_name" password
+    "wifi_password"
+  </pre>
+
+- 蓝牙的使用
+
+  1. 如果使用 Radxa 无线 A8 模块，必须添加以下黑名单才能使 BT 正常工作
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# cat /etc/modprobe.d/blacklist.conf blacklist
+    pgdrv blacklist btusb blacklist btrtl blacklist btbcm blacklist btintel
+    root@{props.model}:~# reboot
+  </pre>
+
+  2. Radxa APT 包括用于Broadcom无线模块的broadcom-wifibt-firmware软件包和用于Intel无线模块的intel-wifibt-firmware软件包。需要下载相应的软件包
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# apt-get update -y root@{props.model}
+    :/home/radxa# apt-get install -y broadcom-wifibt-firmware intel-wifibt-firmware
+  </pre>
+
+  3. 测试蓝牙模块的状态并检查蓝牙设备
+
+  {" "}
+
+  <pre>root@{props.model}:/home/radxa# systemctl status bluetooth</pre>
+
+  4. 运行蓝牙设备
+
+  {" "}
+
+  <pre>root@{props.model}:/home/radxa# systemctl start bluetooth</pre>
+
+  5. 检测蓝牙设备
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# hciconfig hci0: Type: Primary Bus: UART BD
+    Address: 10:2C:6B:49:D5:53 ACL MTU: 1021:8 SCO MTU: 64:1 UP RUNNING RX
+    bytes:850 acl:0 sco:0 events:58 errors:0 TX bytes:2814 acl:0 sco:0
+    commands:58 errors:0
+  </pre>
+
+  6. 测试：连接蓝牙音箱，首先安装 pulseaudio
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# apt-get install -y
+    pulseaudio-module-bluetooth pulseaudio
+  </pre>
+
+  7. 运行 pulseaudio
+
+  {" "}
+
+  <pre>root@{props.model}:/home/radxa# pulseaudio --start</pre>
+
+  8. 使用 pulseaudio 连接
+
+  {" "}
+
+  <pre>
+    root@{props.model}:/home/radxa# bluetoothctl [bluetooth]# default-agent
+    [bluetooth]# power on [bluetooth]# scan on [bluetooth]# trust
+    41:42:1A:8D:A9:65 #BT-280 [bluetooth]# pair 41:42:1A:8D:A9:65 [bluetooth]#
+    connect 41:42:1A:8D:A9:65
+  </pre>
+
+  9. 现在您可以听音乐了

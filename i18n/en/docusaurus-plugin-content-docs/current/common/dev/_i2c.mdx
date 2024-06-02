@@ -56,9 +56,9 @@ Please refer to <a href="../os-config/rsetup#overlays"> Device Tree Configuratio
 <details>
     <summary>Oled.py</summary>
 
-    <code>
-    \#!/usr/bin/env python3\
-    \# -*- encoding: utf-8 -*-
+    ```
+    #!/usr/bin/env python3
+    # -*- encoding: utf-8 -*-
 
     import time
     from periphery import I2C
@@ -152,7 +152,7 @@ Please refer to <a href="../os-config/rsetup#overlays"> Device Tree Configuratio
       oled = Oled("/dev/i2c-8", 0x3c)
       oled.oled_show_char(0, 0, 'radxa')
       oled.oled_clear()
-    </code>
+    ```
 
 </details>
 

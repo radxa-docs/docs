@@ -1,0 +1,53 @@
+- Installation
+
+  1. Preparation
+
+  When using the M2.E to SATA adapter board, you need to prepare a SATA cable for connecting the SATA hard drive and a SATA power cable for power supply.
+
+  2. Connect
+
+  As shown in the picture, connect the M.2 E key of the SATA adapter board to the M.2 E port of {props.product}, and then use the SATA cable to connect {props.product} to the SATA SSD.
+  The red PIN pin of {props.product} can be used for SATA 5V power supply, and the black PIN pin is usually used for GND, which can be used for SATA HDD power supply.
+
+  <img src="/img/accessories/m2e-to-sata.webp" alt="m.2 e key to sata" />
+
+  3. Enable SATA Overlay
+
+  Open a terminal and run rsetup
+
+  <img
+    src="/img/common/rsetup/main_menu.webp"
+    alt="main menu"
+    style={{ width: "60%" }}
+  />
+
+  Select `Manage overlays`:
+
+  <img
+    src="/img/common/rsetup/mannage_overlays.webp"
+    alt="manage overlays"
+    style={{ width: "60%" }}
+  />
+
+  Select by space <strong> {props.rsetup_sata_title} </strong>
+
+  <img src={props.rsetup_sata_img} alt="rsetup sata" style={{ width: "60%" }} />
+
+  4. Press <strong>ESC</strong> to exit rsetup and reboot the system.
+
+- Check if the SATA is mounted successfully
+
+  See if the SSD is recognised with the `lsblk` command
+
+  <pre>
+    radxa@{props.model}:~$ lsblk NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT sda 8:0
+    0 476.9G 0 disk mmcblk0 179:0 0 14.5G 0 disk ├─mmcblk0p1 179:1 0 16M 0 part
+    /config └─mmcblk0p2 179:2 0 14.4G 0 part / mmcblk0boot0 179:32 0 4M 1 disk
+    mmcblk0boot1 179:64 0 4M 1 disk zram0 254:0 0 3.9G 0 disk [SWAP]
+  </pre>
+
+  When SATA is recognised by the system, it can be viewed as **sda**
+
+- Refer
+
+For a detailed description of the m.2 sata break board see [Radxa M.2 E To SATA Board](/accessories/m2e-tosata)

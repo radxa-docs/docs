@@ -1,0 +1,64 @@
+### Viewing Capacity
+
+1. Installing NVME Related Tools
+
+   <pre>radxa@{props.model}:~$ sudo apt-get install nvme-cli</pre>
+
+2. Viewing Capacity
+
+   <pre>
+     radxa@{props.model}:~$ sudo nvme list [sudo] password for radxa: Node SN
+     Model Namespace Usage Format FW Rev ---------------- --------------------
+     ---------------------------------------- ---------
+     -------------------------- ---------------- -------- /dev/nvme0n1
+     50026B7684E3662B KINGSTON OM8PDP3256B-A01 1 256.06 GB / 256.06 GB 512 B + 0
+     B EDFK0S03
+   </pre>
+
+### Speed measurement
+
+1. Installing the FIO Tool
+
+   <pre>radxa@{props.model}:~$ sudo apt install fio</pre>
+
+2. Writing test
+
+   <pre>
+     radxa@{props.model}:~$ fio -rw=read -bs=1m -runtime=60 -iodepth 1
+     -numjobs=8 -size=1G -filename /dev/nvme0n1 -ioengine libaio -direct=1
+     -group_reporting -name seq_read
+   </pre>
+
+{" "}
+
+<img
+  src={props.read_test_img}
+  alt="camera connection"
+  style={{ width: "80%" }}
+/>
+
+3. Reading test
+
+   <pre>
+     radxa@{props.model}:~$ fio -rw=write -bs=1m -runtime=60 -iodepth 1
+     -numjobs=8 -size=1G -filename /dev/nvme0n1 -ioengine libaio -direct=1
+     -group_reporting -name seq_write
+   </pre>
+
+{" "}
+
+<img
+  src={props.write_test_img}
+  alt="camera connection"
+  style={{ width: "80%" }}
+/>
+
+### Booting the system from NVME
+
+Please refer to the following documentation:
+
+1. <a href={props.boot_from_nvme_by_sd}>
+     {" "}
+     Boot the system from the SD card and flash NVME{" "}
+   </a>
+2. <a href={props.flash_by_rkdevtool}> Flash NVME by RKDevtool </a>
