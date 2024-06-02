@@ -20,7 +20,7 @@ sidebar_position: 7
 
 ### Install the RTC battery
 
-Place the RTC battery in the [Interface Description](../getting-started/introduction#motherboard-overview) marked 22.
+Place the RTC battery in the [Interface Description](../getting-started/introduction#motherboard-overview) marked 23.
 
 <img src="/img/rock5itx/rock5itx-rtc.webp" width="700" alt="rock 5 itx rtc" />
 
@@ -42,7 +42,7 @@ Place the RTC battery in the [Interface Description](../getting-started/introduc
 
 ### Install the SSD and WIFI-BT Module
 
-Insert the SSD into the [Interface Description](../getting-started/introduction#motherboard-overview) labelled 25, then insert the WIFI-BT module into the [Interface Description](../getting-started/introduction#motherboard-overview) labelled 26, and finally fix it with screws.
+Insert the SSD into the [Interface Description](../getting-started/introduction#motherboard-overview) labelled 26, then insert the WIFI-BT module into the [Interface Description](../getting-started/introduction#motherboard-overview) labelled 27, and finally fix it with screws.
 
 <img src="/img/rock5itx/rock5itx-fan-wifi-pcie.webp" width="700" alt="rock 5 itx ssd/wifi-bt" />
 
@@ -50,17 +50,17 @@ Insert the SSD into the [Interface Description](../getting-started/introduction#
 
 If the motherboard has a SATA interface, wire it as follows.
 
-The upper one in the picture below is the data cable. Plug this cable into one of the cables labelled 19 in [Interface Description](../getting-started/introduction#motherboard-overview).
+The upper one in the picture below is the data cable. Plug this cable into one of the cables labelled 20 in [Interface Description](../getting-started/introduction#motherboard-overview).
 
 <img src="/img/rock5itx/rock5itx-sata_1.webp" width="700" alt="rock 5 itx sata_1 " />
 
-If there is a SATA power cable in the chassis, just plug the SATA power cable into the SATA disc, and just let the number 20 in [Interface Description](../getting-started/introduction#motherboard-overview) empty.
+If there is a SATA power cable in the chassis, just plug the SATA power cable into the SATA disc, and just let the number 21 in [Interface Description](../getting-started/introduction#motherboard-overview) empty.
 
 <img src="/img/rock5itx/rock5itx-sata-3.webp" width="700" alt="rock 5 itx sata_2 " />
 
 ### Install the F_PANEL cable
 
-Insert the F_PANEL cable into the F_PANEL slot as shown below.
+Insert F_PANEL into labelled 8 in [Interface Description] (../getting-started/introduction#motherboard-overview) in marker 8.
 
 <img src="/img/rock5itx/rock5itx-pwr-led.webp" width="700" alt="rock 5 itx pwr led" />
 <img src="/img/rock5itx/rock5itx-pwr-sw.webp" width="700" alt="pwr sw" />
@@ -75,7 +75,7 @@ Insert the F_USB cable into mark 6 in [Interface description](../getting-started
 
 ### Install the F_AUDIO cable
 
-Insert F_AUDIO into [interface description](../getting-started/introduction#motherboard-overview) at mark 25.
+Insert F_AUDIO into [interface description](../getting-started/introduction#motherboard-overview) at mark 7.
 
 <img src="/img/rock5itx/rock5itx-f-audio.webp" width="700" alt="rock 5 itx f_audio " />
 
