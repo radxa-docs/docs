@@ -25,6 +25,7 @@ import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";
     <td>Radxa Display 10FHD</td>
     <td>1200x1920 pixel </td>
   </tr>
+  
   <tr>
     <td>Raspberry Pi 7 inch Touchscreen</td>
     <td>800 x 480 pixels</td>
