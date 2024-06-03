@@ -11,7 +11,12 @@
 
 ### 首次访问
 
-Airbox 出厂镜像已预装 CasaOS 用户可通过 Airbox ip 地址的 81 端口访问 CasaOS, 首次访问需要创建账户
+Airbox 出厂镜像已预装 CasaOS 并包含 [Stable Diffusion](casaos_app_install#安装-radxa-stable-diffusion-文图生图-app) 与 [Llama3](casaos_app_install#安装-radxa-llama3-chatbot-gpt-app)，用户可通过 Airbox ip 地址的 81 端口访问 CasaOS, 首次访问需要登陆
+
+```bash
+Username: radxa
+Password: radxa
+```
 
 ![casaos_1.webp](/img/general-tutorial/tpu_ai/casaos_1.webp)
 
@@ -19,7 +24,16 @@ CasaOS 系统界面
 
 ![casaos_4.webp](/img/general-tutorial/tpu_ai/casaos_4.webp)
 
+修改 CasaOS 用户名与密码
+
+点击左上角用户图标，然后点击编辑图标既可更改用户名， 同理修改密码
+![casaos_5.webp](/img/general-tutorial/tpu_ai/casaos_5.webp)
+
 ### CasaOS 安装方法
+
+:::tip
+出厂镜像已预装，仅作参考
+:::
 
 #### Docker 更新方法
 
@@ -120,3 +134,9 @@ CasaOS 系统界面
 
 - 通过 Airbox ip 的 81 端口访问 CasaOS, 首次访问需要创建账户
   ![casaos_1.webp](/img/general-tutorial/tpu_ai/casaos_1.webp)
+
+#### CasaOS 卸载
+
+```bash
+casaos-uninstall
+```
