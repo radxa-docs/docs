@@ -1,12 +1,14 @@
 ---
-sidebar_position: 8
+sidebar_position: 2
 ---
+
+import Images from "./\_image.mdx"
 
 # 资源下载汇总
 
 ## 操作系统镜像
 
-- [ROCK 5C Debian 镜像 B2](https://github.com/radxa-build/rock-5c/releases/download/b2/rock-5c_debian_bullseye_kde_b2.img.xz)
+<Images loader={false} system_img={true} spi_img={false} />
 
 ## 硬件设计
 

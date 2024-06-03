@@ -1,12 +1,14 @@
 ---
-sidebar_position: 8
+sidebar_position: 2
 ---
 
 # Resource Download Summary
 
+import Images from "./\_image.mdx"
+
 ## Operating system images
 
-- [ROCK 5C Debian_desktop b2](https://github.com/radxa-build/rock-5c/releases/download/b2/rock-5c_debian_bullseye_kde_b2.img.xz)
+<Images loader={false} system_img={true} spi_img={false} />
 
 ## Hardware Design
 
