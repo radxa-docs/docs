@@ -1,11 +1,9 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Kernel 开发
+import KERNEL from '../../../common/dev/\_kernel.mdx'
 
-## 编译内核
+# Kernel Development
 
-import KERNEL from '../../../common/dev/\_kernel.mdx';
-
-<KERNEL />
+<KERNEL model="Radxa ROCK 5 ITX" soc="rk3588" />

@@ -1,5 +1,9 @@
-import Uboot from "../../../common/dev/\_u-boot.mdx"
+---
+sidebar_position: 2
+---
 
-# U-boot Develop
+import UBOOT from '../../../common/dev/\_u-boot.mdx'
 
-<Uboot />
+# U-boot 开发
+
+<UBOOT model="Radxa ROCK 5 ITX" profile="rknext" product="rock-5itx"/>
