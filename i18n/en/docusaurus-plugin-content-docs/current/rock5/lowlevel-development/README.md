@@ -1,5 +1,5 @@
 ---
-sidebar_position: 50
+sidebar_position: 6
 slug: /rock5/lowlevel-dev
 ---
 
