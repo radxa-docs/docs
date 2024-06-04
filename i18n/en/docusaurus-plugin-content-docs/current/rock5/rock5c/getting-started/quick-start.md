@@ -2,9 +2,9 @@
 sidebar_position: 2
 ---
 
-# 快速上手
+# Quick Start
 
-## 包装清单
+## Packing List
 
 <Tabs queryString="vendorTolibgpiod">
 
@@ -16,9 +16,9 @@ sidebar_position: 2
 </TabItem>
 </Tabs>
 
-ROCK 5C 标准包装包括以下物品：
+The ROCK 5C standard package includes the following items:
 
-- ROCK 5C 主板
+- ROCK 5C motherboard
 
 To start the ROCK 5C, you will also need the following equipment:
 
@@ -33,7 +33,7 @@ The power adapter is recommended to use the official [Radxa PD30W Adapter](./int
 
 Peripherals that are not required but enhance the basic functions of the ROCK 5C:
 
-- 散热器，参考[散热器选型](./interface-usage/fan)来安装散热器
+- For radiators, refer to [Radiator Selection](./interface-usage/fan) to install a radiator
 
 ## Installation of the operating system
 
