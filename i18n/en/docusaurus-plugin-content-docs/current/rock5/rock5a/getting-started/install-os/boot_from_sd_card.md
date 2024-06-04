@@ -24,9 +24,9 @@ Insert MicroSD Card into SDcard Reader, and then Insert Reader into PC's USB Por
 Once the System has been successfully installed in according to the above steps, insert the MicroSD Card into the SDCard slot (as shown in the following figure), and then power on the system, the system will start booting up and the HDMI will display the desktop.
 
 <img
-  src="/img/rock5a/rock5a-sd-slot.webp"
-  alt="sd slot"
-  style={{ width: "60%"}}
+src="/img/rock5a/rock5a-sd-slot.webp"
+alt="sd slot"
+style={{ width: "60%"}}
 />
 
 ## Login System

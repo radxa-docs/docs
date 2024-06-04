@@ -29,4 +29,3 @@ More System：[Radxa ROCK 5A Release](https://github.com/radxa-build/rock-5a/rel
 ## Quality Approvals
 
 ## Reference Documents
-

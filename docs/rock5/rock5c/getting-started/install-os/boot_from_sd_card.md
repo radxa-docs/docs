@@ -24,9 +24,9 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 按照上述步骤成功烧录 EMMC Module 后， 将 EMMC Module 插入到 EMMC Module 插槽内（如下图所示)，然后上电，系统开始启动，HDMI显示桌面。
 
 <img
-  src="/img/rock5c/rock-5c-sd-slot.webp"
-  alt="emmc slot"
-  style={{ width: "60%"}}
+src="/img/rock5c/rock-5c-sd-slot.webp"
+alt="emmc slot"
+style={{ width: "60%"}}
 />
 
 ## 登录系统

@@ -24,9 +24,9 @@ Insert the [EMMC Module](../../../../accessories/emmc_module) into the [EMMC Rea
 After successfully burning the EMMC Module according to the above steps, insert the EMMC Module into the EMMC Module slot (as shown in the following figure), and then power on the system, the system will start booting and HDMI will display the desktop.
 
 <img
-  src="/img/rock5c/rock5c_with_emmc_module.webp"
-  alt="emmc slot"
-  style={{ width: "60%"}}
+src="/img/rock5c/rock5c_with_emmc_module.webp"
+alt="emmc slot"
+style={{ width: "60%"}}
 />
 
 ## Log in to the System
