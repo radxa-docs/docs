@@ -44,7 +44,7 @@ import CAMERA from "../../../../common/accessories/\_camera-usage.mdx";
 
 ### Radxa Camera 4K
 
-<CAMERA product="ROCK 5C" camera_connection_img="/img/rock5c/rock5c-camera-4k.webp" model="rock-5c" rsetup_path="../../radxa-os/rsetup#overlays" camera="瑞莎 4K 摄像头" overlays_title="Enable Radxa Camera 4K" video_dev="/dev/video11" />
+<CAMERA product="ROCK 5C" camera_connection_img="/img/rock5c/rock5c-camera-4k.webp" model="rock-5c" rsetup_path="../../radxa-os/rsetup#overlays" camera="Radxa 4K Camera" overlays_title="Enable Radxa Camera 4K" video_dev="/dev/video11" />
 
 ### Raspberry Pi Camera V2
 
