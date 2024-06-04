@@ -73,4 +73,44 @@ Pin 3 and Pin 5 have additional pull-up to power downstream I2C devices, as such
 
 ## MIPI CSI
 
+| PIN | Name              |
+| --- | ----------------- |
+| 1   | VCC_CAM           |
+| 2   | I2C2_SDA_M1       |
+| 3   | I2C2_SCL_M1       |
+| 4   | CIF_CLKOUT        |
+| 5   | PWDN_GPIO3_C6     |
+| 6   | GND               |
+| 7   | MIPI_CSI_RX_CLK0P |
+| 8   | MIPI_CSI_RX_CLK0N |
+| 9   | GND               |
+| 10  | MIPI_CSI_RX_D1P   |
+| 11  | MIPI_CSI_RX_D1N   |
+| 12  | GND               |
+| 13  | MIPI_CSI_RX_D0P   |
+| 14  | MIPI_CSI_RX_D0N   |
+| 15  | GND               |
+
 ## MIPI DSI
+
+| PIN | Name              |
+| --- | ----------------- |
+| 1   | VCC_MIPI          |
+| 2   | VCC_MIPI          |
+| 3   | GND               |
+| 4   | I2C3_SDA_M1       |
+| 5   | I2C3_SCL_M1       |
+| 6   | GND               |
+| 7   | MIPI_DSI_TX1_D0P  |
+| 8   | MIPI_DSI_TX1_D0N  |
+| 9   | GND               |
+| 10  | MIPI_DSI_TX1_CLKP |
+| 11  | MIPI_DSI_TX1_CLKN |
+| 12  | GND               |
+| 13  | MIPI_DSI_TX1_D1P  |
+| 14  | MIPI_DSI_TX1_D1N  |
+| 15  | GND               |
+
+## FAN
+
+ROCK 3C has a `2PIN` fan power interface, the specification is `GH 2PIN 1.25mm`
