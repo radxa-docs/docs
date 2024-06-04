@@ -64,20 +64,37 @@ Pin 3、Pin 5、Pin 27 和 Pin 28 为 I2C 设备供电添加了额外的上拉�
 
 </div>
 
-## 功能控制接口
+## USB C 口
 
-## 蓝牙
-
-## USB C OTG 口
+共有两个 USB TYPE-C 口，分别为 USB 2.0 OTG 口 和 USB3.0 HOST 口，其中供电使用 USB 2.0 OTG口
 
 ## HDMI接口
 
-## USB 口
+提供一个 Micro HDMI 接口
 
 ## MIPI CSI
 
-## MIPI DSI
-
-## WIFI
-
-## MicroSD
+| PIN | Name              |
+| --- | ----------------- |
+| 1   | GND               |
+| 2   | MIPI_CSI_RX_D0N   |
+| 3   | MIPI_CSI_RX_D0P   |
+| 4   | GND               |
+| 5   | MIPI_CSI_RX_D1N   |
+| 6   | MIPI_CSI_RX_D1P   |
+| 7   | GND               |
+| 8   | MIPI_CSI_RX_CLK0N |
+| 9   | MIPI_CSI_RX_CLK0P |
+| 10  | GND               |
+| 11  | MIPI_CSI_RX_D2N   |
+| 12  | MIPI_CSI_RX_D2P   |
+| 13  | GND               |
+| 14  | MIPI_CSI_RX_D3N   |
+| 15  | MIPI_CSI_RX_D3P   |
+| 16  | GND               |
+| 17  | CAMERAB_PDN_L     |
+| 18  | CIF_CLKOUT        |
+| 19  | GND               |
+| 20  | I2C2_SCL_M1       |
+| 21  | I2C2_SDA_M1       |
+| 22  | VCC_3V3           |
