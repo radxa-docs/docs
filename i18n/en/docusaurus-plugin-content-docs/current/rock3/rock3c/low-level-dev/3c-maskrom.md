@@ -37,18 +37,18 @@ This guide will instruct you how to operate the ROCK 3C in Maskrom mode.
 
 3. Connect one port of the USB-A to USB-A cable to the host port and the other port to the OTG port of the ROCK 3C (which is located on top of the USB 3.0 port), as shown below
 
-   ! [OTG connection](/img/rock3/3c/3c-otg-connect.webp)
+   ![OTG connection](/img/rock3/3c/3c-otg-connect.webp)
 
 4. Connect the SPI port
 
-   ! [Connect SPI Pin](/img/rock3/3c/3c-shortconnect-spipin.webp)
+   ![Connect SPI Pin](/img/rock3/3c/3c-shortconnect-spipin.webp)
 
 5. Power on the device and check if it has successfully entered Maskrom mode by using the corresponding tool, the following is an example of the correct entry.
 
    <Tabs queryString="app">
    <TabItem value="RKDevTool">
 
-   ! [Connect SPI Pin](/img/configuration/rkdevtool-maskrom.webp)
+   ![Connect SPI Pin](/img/configuration/rkdevtool-maskrom.webp)
 
    </TabItem>
    <TabItem value="rkdeveloptool">
@@ -96,7 +96,7 @@ In particular, if you still cannot access the system by shorting the reserved SP
 - Power on
 - Disconnect after the serial port log indicates booting to U-Boot
 
-Power up and power on! [SPI clk connect](/img/rock3/3c/3c-spi-connect.webp)
+Power up and power on ![SPI clk connect](/img/rock3/3c/3c-spi-connect.webp)
 
 After entering the system, you can execute the following command to view the SPI Flash block number:
 
