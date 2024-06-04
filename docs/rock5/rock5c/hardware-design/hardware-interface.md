@@ -67,10 +67,10 @@ sidebar_position: 1
 
 ### 风扇接口
 
-| Pin |    Name     | Pin |    Name     |
-| :-: | :---------: | :-: | :---------: |
-|  1  |   FAN-PWM   |  2  |   VCC_5V0   |
-|  3  |     GND     |  4  |     GND     |      
+| Pin |  Name   | Pin |  Name   |
+| :-: | :-----: | :-: | :-----: |
+|  1  | FAN-PWM |  2  | VCC_5V0 |
+|  3  |   GND   |  4  |   GND   |
 
 ### 有线网口
 
@@ -80,15 +80,15 @@ sidebar_position: 1
 | :-: | :---------: | :-: | :---------: |
 |  1  | PHY1_MDI0+  |  2  | PHY1_MDI0-  |
 |  3  | PHY1_MDI1+  |  4  |     GND     |
-|  5  |    GND      |  6  | PHY1_MDI1-  |
+|  5  |     GND     |  6  | PHY1_MDI1-  |
 |  7  | PHY1_MDI2+  |  8  | PHY1_MDI2-  |
 |  9  | PHY1_MDI3+  | 10  | PHY1_MDI3-  |
 | 11  | PHY1_MDI0-  | 12  | PHY1_MDI0+  |
-| 13  |    GND      | 14  | PHY1_MDI1+  |
+| 13  |     GND     | 14  | PHY1_MDI1+  |
 | 15  | PHY1_LED_G+ | 16  | PHY1_G_LED- |
 | 17  | PHY1_Y_LED+ | 18  | PHY1_Y_LED  |
 
-###  40 PIN GPIO
+### 40 PIN GPIO
 
 - GPIO 电压
 
@@ -129,7 +129,7 @@ ROCK 5C 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 
 </div>
 
-###  HDMI
+### HDMI
 
 配备全尺寸 HDMI 接口，支持最高8K分辨率
 
@@ -139,32 +139,32 @@ ROCK 5C 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 
 - USB2.0
 
-| Pin |       Name       | Pin |       Name       |
-| :-: | :--------------: | :-: | :--------------: |
-|  1  | VCC5V0_USB_HOST  |  2  |   USB2_HOST1DM   |
-|  3  |   USB2_HOST1DP   |  4  |      GND         |
-|  5  | VCC5V0_USB_HOST  |  6  |   USB2_HOST2DM   |
-|  7  |   USB2_HOST2DP   |  8  |      GND         |
-|  9  |       GND        | 10  |      GND         |
-| 11  |       GND        |     |                  |
+| Pin |      Name       | Pin |     Name     |
+| :-: | :-------------: | :-: | :----------: |
+|  1  | VCC5V0_USB_HOST |  2  | USB2_HOST1DM |
+|  3  |  USB2_HOST1DP   |  4  |     GND      |
+|  5  | VCC5V0_USB_HOST |  6  | USB2_HOST2DM |
+|  7  |  USB2_HOST2DP   |  8  |     GND      |
+|  9  |       GND       | 10  |     GND      |
+| 11  |       GND       |     |              |
 
 - USB3.0
 
-| Pin |       Name       | Pin |       Name       |
-| :-: | :--------------: | :-: | :--------------: |
-|  1  | VCC5V0_USB_OTG0  |  2  |   USB3_OTG0DM    |
-|  3  | USB3_OTG0DP      |  4  |      GND         |
-|  5  | USB3_OTG0SSRXN   |  6  | USB3_OTG0SSRXP   |
-|  7  |    GND           |  8  | USB3_OTG0SSTXN   |
-|  9  | USB3_OTG0SSTXP   | 10  |      GND         |
-| 11  |    GND           | 12  | VCC5V0_USB_HOST  |
-| 13  | USB3_HOST1DM     | 14  | USB3_HOST1DP     |
-| 15  |    GND           | 16  | USB3_HOST1SSRXN  |
-| 17  | USB3_HOST1SSRXP  | 18  |      GND         |
-| 19  | USB3_HOST1SSTXN  | 20  | USB3_HOST1SSTXP  |
-| 21  |    GND           | 22  |      GND         |
+| Pin |      Name       | Pin |      Name       |
+| :-: | :-------------: | :-: | :-------------: |
+|  1  | VCC5V0_USB_OTG0 |  2  |   USB3_OTG0DM   |
+|  3  |   USB3_OTG0DP   |  4  |       GND       |
+|  5  | USB3_OTG0SSRXN  |  6  | USB3_OTG0SSRXP  |
+|  7  |       GND       |  8  | USB3_OTG0SSTXN  |
+|  9  | USB3_OTG0SSTXP  | 10  |       GND       |
+| 11  |       GND       | 12  | VCC5V0_USB_HOST |
+| 13  |  USB3_HOST1DM   | 14  |  USB3_HOST1DP   |
+| 15  |       GND       | 16  | USB3_HOST1SSRXN |
+| 17  | USB3_HOST1SSRXP | 18  |       GND       |
+| 19  | USB3_HOST1SSTXN | 20  | USB3_HOST1SSTXP |
+| 21  |       GND       | 22  |       GND       |
 
-###  MIPI CSI
+### MIPI CSI
 
 支持 MIPI 摄像头, 采用了 31PIN 0.3mm 脚距 FH35C-31S-0.3SHW(50) 镀金座子。
 
@@ -236,61 +236,61 @@ ROCK 5C 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 
 参考 [屏幕配件](../accessories/display)
 
-###  MicroSD
+### MicroSD
 
 可用于系统启动盘，也可以充当存储介质使用
 
-| Pin |    Name     | Pin |    Name     |
-| :-: | :---------: | :-: | :---------: |
-|  1  |  SDMMC_D2   |  2  |  SDMMC_D3   |
-|  3  |  SDMMC_CMD  |  4  | VCC_3V3_S3  |
-|  5  |  SDMMC_CLK  |  6  |    GND      |
-|  7  |  SDMMC_D0   |  8  |  SDMMC_D1   |
-|  9  | SDMMC_DET_L | 10  |    GND      |
-| 11  |    GND      | 12  |    GND      |
-| 13  |    GND      | 14  |    GND      |
-| 15  |    GND      | 16  |    GND      |
-| 17  |    GND      | 18  |    GND      |
+| Pin |    Name     | Pin |    Name    |
+| :-: | :---------: | :-: | :--------: |
+|  1  |  SDMMC_D2   |  2  |  SDMMC_D3  |
+|  3  |  SDMMC_CMD  |  4  | VCC_3V3_S3 |
+|  5  |  SDMMC_CLK  |  6  |    GND     |
+|  7  |  SDMMC_D0   |  8  |  SDMMC_D1  |
+|  9  | SDMMC_DET_L | 10  |    GND     |
+| 11  |     GND     | 12  |    GND     |
+| 13  |     GND     | 14  |    GND     |
+| 15  |     GND     | 16  |    GND     |
+| 17  |     GND     | 18  |    GND     |
 
-###  eMMC Socket &&  SPI Flash Connector
+### eMMC Socket && SPI Flash Connector
 
 支持 eMMC 存储设备，用于系统启动盘或充当存储介质使用
 
-| Pin |       Name        | Pin |       Name        |
-| :-: | :---------------: | :-: | :---------------: |
-|  1  |       GND         |  2  |      eMMC_D5      |
-|  3  |       GND         |  4  |      eMMC_D4      |  
-|  5  |       GND         |  6  |  eMMC_D0/FSPI_D0  |
-|  7  |       GND         |  8  |    eMMC_CLKOUT    |
-|  9  |       GND         | 10  |  eMMC_D3/FSPI_D3  |
-| 11  |       GND         | 12  |    VCCIO_FLASH    |
-| 13  |       GND         | 14  |       GND         |
-| 15  | eMMC_DATA_STROBE  | 16  |       GND         |
-| 17  |       GND         | 18  |       GND         |
-| 19  |       GND         | 20  |       GND         |
-| 21  |       GND         | 22  |       GND         |
-| 23  |       GND         | 24  |       GND         |
-| 25  | eMMC_CMD/FSPI_CLK | 26  |       GND         |
-| 27  |  eMMC_D2/FSPI_D2  | 28  |       GND         |
-| 29  |  eMMC_D1/FSPI_D1  | 30  |       GND         |
-| 31  |     eMMC_D7       | 32  |       GND         |
-| 33  | eMMC_D6/FSPI_CS0  | 34  |       GND         |
-| 35  |       GND         | 36  |       GND         |
-| 37  |       GND         | 38  |       GND         |
-| 39  |       GND         | 40  |       GND         |
-| 41  |       GND         | 42  |       GND         |
-| 43  |       GND         | 44  |       GND         |
-| 45  |       GND         | 46  |       GND         |
-| 47  |       GND         | 48  |       GND         |
-| 49  |       GND         | 50  |       GND         |
-| 51  |       GND         | 52  |       GND         |
-| 53  |       GND         | 54  |       GND         |
-| 55  |       GND         | 56  |       GND         |
-| 57  |       GND         | 58  |       GND         |
-| 59  |       GND         | 60  |       GND         |
-| 61  |       GND         | 62  |       GND         |
-| 63  |       GND         | 64  |       GND         |
+| Pin |       Name        | Pin |      Name       |
+| :-: | :---------------: | :-: | :-------------: |
+|  1  |        GND        |  2  |     eMMC_D5     |
+|  3  |        GND        |  4  |     eMMC_D4     |
+|  5  |        GND        |  6  | eMMC_D0/FSPI_D0 |
+|  7  |        GND        |  8  |   eMMC_CLKOUT   |
+|  9  |        GND        | 10  | eMMC_D3/FSPI_D3 |
+| 11  |        GND        | 12  |   VCCIO_FLASH   |
+| 13  |        GND        | 14  |       GND       |
+| 15  | eMMC_DATA_STROBE  | 16  |       GND       |
+| 17  |        GND        | 18  |       GND       |
+| 19  |        GND        | 20  |       GND       |
+| 21  |        GND        | 22  |       GND       |
+| 23  |        GND        | 24  |       GND       |
+| 25  | eMMC_CMD/FSPI_CLK | 26  |       GND       |
+| 27  |  eMMC_D2/FSPI_D2  | 28  |       GND       |
+| 29  |  eMMC_D1/FSPI_D1  | 30  |       GND       |
+| 31  |      eMMC_D7      | 32  |       GND       |
+| 33  | eMMC_D6/FSPI_CS0  | 34  |       GND       |
+| 35  |        GND        | 36  |       GND       |
+| 37  |        GND        | 38  |       GND       |
+| 39  |        GND        | 40  |       GND       |
+| 41  |        GND        | 42  |       GND       |
+| 43  |        GND        | 44  |       GND       |
+| 45  |        GND        | 46  |       GND       |
+| 47  |        GND        | 48  |       GND       |
+| 49  |        GND        | 50  |       GND       |
+| 51  |        GND        | 52  |       GND       |
+| 53  |        GND        | 54  |       GND       |
+| 55  |        GND        | 56  |       GND       |
+| 57  |        GND        | 58  |       GND       |
+| 59  |        GND        | 60  |       GND       |
+| 61  |        GND        | 62  |       GND       |
+| 63  |        GND        | 64  |       GND       |
 
-###  调试串口
+### 调试串口
 
 用于系统调试，底层日志消息输出

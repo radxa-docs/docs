@@ -45,7 +45,7 @@
   2. 通过以下命令找到风扇设备
 
   <pre>
-    ls /sys/class/thermal/cooling_device*/type
+    ls /sys/class/thermal/cooling_device*/type <br />
     cat /sys/class/thermal/cooling_device*/type
   </pre>
 
@@ -59,14 +59,14 @@
 
   3. 关闭风扇
 
-  <pre>
+  <pre style={{ whiteSpace: "nowrap" }}>
     radxa@{props.model}:~$ echo 0 | sudo tee /sys/class/thermal/cooling_device
     {props.pwm_fan_dev_id}/cur_state
   </pre>
 
   4. 将风扇调至最高档
 
-  <pre>
+  <pre style={{ whiteSpace: "nowrap" }}>
     radxa@{props.model}:~$ sudo cp /sys/class/thermal/cooling_device
     {props.pwm_fan_dev_id}/max_state /sys/class/thermal/cooling_device
     {props.pwm_fan_dev_id}/cur_state

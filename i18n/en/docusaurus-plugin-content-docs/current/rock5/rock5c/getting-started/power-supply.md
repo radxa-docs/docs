@@ -6,7 +6,7 @@ sidebar_position: 7
 
 The ROCK 5C supports a variety of power supplies, including intelligently negotiated power supplies as well as fixed voltage:
 
-- USB Type-C PD Protocol 2.0:  9V/2A, 12V/2A, 15V/2A and 20V/2A
+- USB Type-C PD Protocol 2.0: 9V/2A, 12V/2A, 15V/2A and 20V/2A
 
 - Snapdragon QC2.0 QC 3.0/2.0 adapter, 9V/2A, 12V/2A
 

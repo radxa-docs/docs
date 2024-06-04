@@ -397,26 +397,26 @@ RTC 采取 Lithium 纽扣电池 CR1220-3V。
 
 ### SATA PORT
 
-| Pin | Name     |    Description    |
-| :-: | :------- | :---------------: |
-|  1  | GND      |      Ground       |
-|  2  | STXP0_64 | Serial TX+ Port   |
-|  3  | STXN0_64 | Serial TX- Port   |
-|  4  | GND      |      Ground       |
-|  5  | SRXN0_64 | Serial RX- Port   |
-|  6  | SRXP0_64 | Serial RX+ Port   |
-|  7  | GND      |      Ground       |
-|  8  | GND      |      Ground       |
-|  9  | GND      |      Ground       |
+| Pin | Name     |   Description   |
+| :-: | :------- | :-------------: |
+|  1  | GND      |     Ground      |
+|  2  | STXP0_64 | Serial TX+ Port |
+|  3  | STXN0_64 | Serial TX- Port |
+|  4  | GND      |     Ground      |
+|  5  | SRXN0_64 | Serial RX- Port |
+|  6  | SRXP0_64 | Serial RX+ Port |
+|  7  | GND      |     Ground      |
+|  8  | GND      |     Ground      |
+|  9  | GND      |     Ground      |
 
 ### SATA Power
 
-| Pin | Name         |    Description    |
-| :-: | :----------: | :---------------: |
-|  1  | VCC12V       |      12V Power    |
-|  2  | GND          |      Ground       |
-|  3  | GND          |      Ground       |
-|  4  | VCC5V0_SATA  |      5V Power     |
+| Pin |    Name     | Description |
+| :-: | :---------: | :---------: |
+|  1  |   VCC12V    |  12V Power  |
+|  2  |     GND     |   Ground    |
+|  3  |     GND     |   Ground    |
+|  4  | VCC5V0_SATA |  5V Power   |
 
 SATA Power 是 Floppy Power Header，每个针脚间距为 2.54 mm
 

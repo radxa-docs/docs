@@ -31,22 +31,28 @@
 
   打开终端，输入以下命令打开相机预览:
 
-  <pre>
-    gst-launch-1.0 v4l2src device={props.video_dev} io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
+  <pre style={{ whiteSpace: "nowrap" }}>
+    gst-launch-1.0 v4l2src device={props.video_dev} io-mode=4 ! videoconvert !
+    video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
   </pre>
 
   2. 拍照
 
   打开终端，输入以下命令打开相机进行拍照:
 
-  <pre>
-    gst-launch-1.0 v4l2src device={props.video_dev} io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=file.name.jpg;
+  <pre style={{ whiteSpace: "nowrap" }}>
+    gst-launch-1.0 v4l2src device={props.video_dev} io-mode=4 ! videoconvert !
+    video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink
+    location=file.name.jpg;
   </pre>
 
   3. 拍摄视频
 
   打开终端，输入以下命令打开相机进行拍摄视频:
 
-  <pre>
-    gst-launch-1.0 v4l2src num-buffers=512 device={props.video_dev} io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/radxa/file.name.mp4
+  <pre style={{ whiteSpace: "nowrap" }}>
+    gst-launch-1.0 v4l2src num-buffers=512 device={props.video_dev} io-mode=4 !
+    videoconvert ! video/x-raw, format=NV12, width=1920, height=1080,
+    framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse !
+    mpegtsmux ! filesink location=/home/radxa/file.name.mp4
   </pre>
