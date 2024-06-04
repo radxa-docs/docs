@@ -40,16 +40,16 @@ import CAMERA from "../../../../common/accessories/\_camera-usage.mdx";
 
 ### OKDO 5MP Camera
 
-<CAMERA product="ROCK 5C" camera_connection_img="/img/rock5a/rock5a-okdo-5mp.webp" model="rock-5a" rsetup_path="../../radxa-os/rsetup#overlays" camera="OKDO 5MP Camera" overlays_title="Enable OKDO 5MP Camera" video_dev="/dev/video11" />
+<CAMERA product="ROCK 5C" camera_connection_img="/img/rock5c/rock5c-okdo-5mp.webp" model="rock-5c" rsetup_path="../../radxa-os/rsetup#overlays" camera="OKDO 5MP Camera" overlays_title="Enable OKDO 5MP Camera" video_dev="/dev/video11" />
 
 ### Radxa Camera 4K
 
-<CAMERA product="ROCK 5C" camera_connection_img="/img/rock5a/rock5a-camera-4k.webp" model="rock-5a" rsetup_path="../../radxa-os/rsetup#overlays" camera="瑞莎 4K 摄像头" overlays_title="Enable Radxa Camera 4K" video_dev="/dev/video11" />
+<CAMERA product="ROCK 5C" camera_connection_img="/img/rock5c/rock5c-camera-4k.webp" model="rock-5c" rsetup_path="../../radxa-os/rsetup#overlays" camera="瑞莎 4K 摄像头" overlays_title="Enable Radxa Camera 4K" video_dev="/dev/video11" />
 
 ### Raspberry Pi Camera V2
 
-<CAMERA product="ROCK 5C" camera_connection_img="/img/rock5a/rock5a-rpi-cam-v2.webp" model="rock-5a" rsetup_path="../../radxa-os/rsetup#overlays" camera="Raspberry Pi Camera V2" overlays_title="Enable Raspberry Pi Camera V2" video_dev="/dev/video11" />
+<CAMERA product="ROCK 5C" camera_connection_img="/img/rock5c/rock5c-rpi-cam-v2.webp" model="rock-5c" rsetup_path="../../radxa-os/rsetup#overlays" camera="Raspberry Pi Camera V2" overlays_title="Enable Raspberry Pi Camera V2" video_dev="/dev/video11" />
 
 ### Raspberry Pi Camera v1.3
 
-<CAMERA product="ROCK 5C" camera_connection_img="/img/rock5a/rock5a-rpi-cam1-3.webp" model="rock-5a" rsetup_path="../../radxa-os/rsetup#overlays" camera="Raspberry Pi Camera v1.3" overlays_title="Enable Raspberry Pi Camera v1.3" video_dev="/dev/video11" />
+<CAMERA product="ROCK 5C" camera_connection_img="/img/rock5c/rock5c-rpi-cam1-3.webp" model="rock-5c" rsetup_path="../../radxa-os/rsetup#overlays" camera="Raspberry Pi Camera v1.3" overlays_title="Enable Raspberry Pi Camera v1.3" video_dev="/dev/video11" />
