@@ -17,7 +17,21 @@ Insert MicroSD Card into SDCard Reader，then input Reader into PC's USB Port.
 
 ## Burn the image
 
-<Etcher model="rock5a" product="Radxa ROCK 5C" pwr_tip={true} power_supply="12V/2A" sd_slot="/img/rock5c/rock-5c-sd-slot.webp" />
+<Etcher />
+
+## Boot up the system
+
+After successfully burning the EMMC Module according to the above steps, insert the EMMC Module into the EMMC Module slot (as shown in the following figure), and then power on the system, the system will start booting and HDMI will display the desktop.
+
+<img
+  src="/img/rock5c/rock-5c-sd-slot.webp"
+  alt="emmc slot"
+  style={{ width: "60%"}}
+/>
+
+## Log in to the System
+
+After the system boots, log in using the radxa account with the password radxa.
 
 :::tip
 The entire process lasts about 40 seconds from powering up the system to booting it to the system desktop.
