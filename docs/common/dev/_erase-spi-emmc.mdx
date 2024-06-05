@@ -1,0 +1,121 @@
+## 进入 Maskrom 模式
+
+<div>
+
+{props.children}
+
+</div>
+
+## 清空 eMMC
+
+<Tabs queryString="Host">
+    <TabItem value="Linux/MacOS">
+    1. 生成 zero.img
+
+        ```bash
+        dd if=/dev/zero of=./zero.img bs=1M count=64
+        ```
+
+    2. 确保主机能识别到 Maskrom
+
+        ```
+        sudo rkdeveloptool ld
+        DevNo=1	Vid=0x2207,Pid=0x350a,LocationID=109	Maskrom
+        ```
+
+    3. 刷入 Loader
+
+    <pre>
+    sudo rkdeveloptool db {props.loader}
+    </pre>
+
+    4. 清空 eMMC
+
+    ```bash
+    sudo rkdeveloptool wl 0 zero.img
+    ```
+
+    5. 重启设备
+
+    ```bash
+    sudo rkdeveloptool rd
+    ```
+
+    </TabItem>
+    <TabItem value="Windows">
+    打开 RkDevTool 工具，我们用 RkDevTool 进行擦除
+
+    1. 确保主机能识别到 Maskrom
+
+    2. 点击 "下载" 左边的按钮选择 Loader
+
+    3. 点击 "下载"，刷入 Loader
+
+    4. 点击 "读取 Capability" 获取当前储存
+
+    5. 点击 "切换储存", 切换储存为 eMMC
+
+    6. 点击 "清除所有" 按钮清空 eMMC
+
+    7. 点击 "重启设备"
+
+    <img src={props.rkdevtool_erase_emmc_img} style={{ width: "80%" }} alt="rkdevtool img" />
+    </TabItem>
+</Tabs>
+
+## 清空 SPI Flash
+
+<Tabs queryString="Host">
+    <TabItem value="Linux/MacOS">
+    1. 生成 zero.img
+
+        ```bash
+        dd if=/dev/zero of=./zero.img bs=1M count=64
+        ```
+
+    2. 确保主机能识别到 Maskrom
+
+        ```
+        sudo rkdeveloptool ld
+        DevNo=1	Vid=0x2207,Pid=0x350a,LocationID=109	Maskrom
+        ```
+
+    3. 刷入 Loader
+
+    <pre>
+    sudo rkdeveloptool db {props.loader}
+    </pre>
+
+    4. 清空 SPI Flash
+
+    ```bash
+    sudo rkdeveloptool ef
+    ```
+
+    5. 重启设备
+
+    ```bash
+    sudo rkdeveloptool rd
+    ```
+
+    </TabItem>
+    <TabItem value="Windows">
+    打开 RkDevTool 工具，我们用 RkDevTool 进行擦除
+
+    1. 确保主机能识别到 Maskrom
+
+    2. 点击 "下载" 左边的按钮选择 Loader
+
+    3. 点击 "下载"，刷入 Loader
+
+    4. 点击 "读取 Capability" 获取当前储存
+
+    5. 点击 "切换储存", 切换储存为 SPINOR
+
+    6. 点击 "清除所有" 按钮清空 SPI Flash
+
+    7. 点击 "重启设备"
+
+    <img src={props.rkdevtool_erase_spi_flash_img} style={{ width: "80%" }} alt="rkdevtool img" />
+    </TabItem>
+</Tabs>
