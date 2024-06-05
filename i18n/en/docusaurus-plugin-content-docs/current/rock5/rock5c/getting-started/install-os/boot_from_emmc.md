@@ -5,15 +5,15 @@ sidebar_position: 2
 import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
-# 安装系统到 EMMC Module
+# Install the system on the eMMC Module
 
-## 文件下载
+## File download
 
 <Images loader={false} system_img={true} spi_img={false} />
 
-## EMMC Module 准备
+## eMMC Module Preparation
 
-Insert the [EMMC Module](../../../../accessories/emmc_module) into the [EMMC Reader](../../../../accessories/emmc_reader), and then insert the Reader into the USB port of the PC.
+Insert the [eMMC Module](../../../../accessories/emmc_module) into the [eMMC Reader](../../../../accessories/emmc_reader), and then insert the Reader into the USB port of the PC.
 
 ## Burn the image
 
@@ -21,7 +21,7 @@ Insert the [EMMC Module](../../../../accessories/emmc_module) into the [EMMC Rea
 
 ## Boot up the system
 
-After successfully burning the EMMC Module according to the above steps, insert the EMMC Module into the EMMC Module slot (as shown in the following figure), and then power on the system, the system will start booting and HDMI will display the desktop.
+After successfully burning the eMMC Module according to the above steps, insert the eMMC Module into the eMMC Module slot (as shown in the following figure), and then power on the system, the system will start booting and HDMI will display the desktop.
 
 <img
 src="/img/rock5c/rock5c_with_emmc_module.webp"
