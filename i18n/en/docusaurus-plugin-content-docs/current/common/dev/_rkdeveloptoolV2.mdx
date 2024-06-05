@@ -43,6 +43,40 @@ If your operating system does not provide rkdeveloptool, you will need to compil
             <br />
           </PreView>
         </TabItem>
+        <TabItem value="Ubuntu">
+          <p>Execute the following command from the command line to install:</p>
+          <PreView>
+            sudo apt-get update
+            <br />
+            sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf
+            pkg-config libusb-1.0 build-essential git wget
+            <br />
+            git clone https://github.com/rockchip-linux/rkdeveloptool
+            <br />
+            cd rkdeveloptool
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+            <br />
+            git am *.patch
+            <br />
+            autoreconf -i
+            <br />
+            ./configure
+            <br />
+            make -j $(nproc)
+            <br />
+            sudo cp rkdeveloptool /usr/local/sbin/
+            <br />
+          </PreView>
+          <strong>
+            On Ubuntu 22.10 and later you can install it from the command line:
+            sudo apt-get install rkdeveloptool
+          </strong>
+        </TabItem>
         <TabItem value="ArchLinux">
           <pre>
             rkdeveloptool can be installed from the{" "}

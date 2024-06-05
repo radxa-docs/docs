@@ -1,9 +1,9 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# 系统编译
+import RBUILD from '../../../common/dev/\_rbuild.mdx'
 
-import RBUILD from '../../../common/dev/\_rbuild.mdx';
+# RadxaOS 编译
 
 <RBUILD />

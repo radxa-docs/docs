@@ -45,8 +45,8 @@
   2. Locate the fan device with the following command.
 
   <pre>
-    ls /sys/class/thermal/cooling_device*/type cat
-    /sys/class/thermal/cooling_device*/type
+    ls /sys/class/thermal/cooling_device*/type <br />
+    cat /sys/class/thermal/cooling_device*/type
   </pre>
 
   <img
@@ -61,14 +61,14 @@
 
   3. Turn off the fan
 
-  <pre>
+  <pre style={{ whiteSpace: "nowrap" }}>
     radxa@{props.model}:~$ echo 0 | sudo tee /sys/class/thermal/cooling_device
     {props.pwm_fan_dev_id}/cur_state
   </pre>
 
   4. Set the fan to the highest setting.
 
-  <pre>
+  <pre style={{ whiteSpace: "nowrap" }}>
     radxa@{props.model}:~$ sudo cp /sys/class/thermal/cooling_device
     {props.pwm_fan_dev_id}/max_state /sys/class/thermal/cooling_device
     {props.pwm_fan_dev_id}/cur_state

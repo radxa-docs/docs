@@ -20,14 +20,12 @@ To start the ROCK 5A, you will also need the following equipment:
 - A network cable, which is required to update the system.
 
 :::tip
-The power adapter is recommended to use the official [Renesas PD30W Adapter](../accessories-guides/pd30w).
+The power adapter is recommended to use the official [Renesas PD30W Adapter](/accessories/pd_30w).
 :::
 
 Peripherals that are not required but enhance the basic functions of the ROCK 5A:
 
 - For radiators, refer to [Radiator Selection](. /interface-usage/fan) to install the heat sinks
-- M.2 wireless module; ROCK 5 ITX supports standard M.2 Wi-Fi cards. Please check [Wireless Module Compatibility List](./interface-usage/pcie-e-key#wifi--bt--list of supported modules). Some older driver-free M.2 Wi-Fi cards may also support plug-and-play.
-- M.2 NVMe SSDs. it is recommended to install the operating system on the M.2 NVMe SSDs.
 
 ## Installation of the operating system
 

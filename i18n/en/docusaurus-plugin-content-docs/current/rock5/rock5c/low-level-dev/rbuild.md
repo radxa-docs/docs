@@ -1,5 +1,9 @@
-import Rbuild from "../../../common/dev/\_rbuild.mdx"
+---
+sidebar_position: 4
+---
 
-# Build RadxaOS image
+import RBUILD from '../../../common/dev/\_rbuild.mdx'
 
-<Rbuild />
+# 生成 RadxaOS
+
+<RBUILD />

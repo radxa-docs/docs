@@ -1,0 +1,37 @@
+import React, { Fragment } from "react";
+
+<ul>
+  <li style={{ display: `${props.loader ? "block" : "none"}` }}>
+    {" "}
+    <a href="https://dl.radxa.com/rock5/sw/images/loader/rock-5a/rk3588_spl_loader_v1.15.113.bin">
+      {" "}
+      Loader: RK3588_SPL_Loader_v1.15.113.bin{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.system_img ? "block" : "none"}` }}>
+    {" "}
+    <a href="https://github.com/radxa-build/rock-5c/releases/download/b2/rock-5c_debian_bullseye_kde_b2.img.xz">
+      {" "}
+      System Image: Radxa ROCK 5C Debian b2{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.spi_img ? "block" : "none"}` }}>
+    {" "}
+    <a
+      href="https://dl.radxa.com/rock5/5c/images/loader/spi/rock-5c-spi-image-20240528.img"
+      alt="spi image"
+    >
+      SPI Image: spi_image.img{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.miniloader ? "block" : "none"}` }}>
+    {" "}
+    <a
+      href="https://dl.radxa.com/rock5/5itx/images/MiniLoaderAll.bin"
+      alt="MiniLoader"
+    >
+      {" "}
+      MiniLoader.bin{" "}
+    </a>
+  </li>
+</ul>

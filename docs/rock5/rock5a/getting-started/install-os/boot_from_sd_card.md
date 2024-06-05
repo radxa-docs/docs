@@ -24,9 +24,9 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 按照上述步骤成功烧录 MicroSD Card 后， 将 MicroSD Card 插入到 MicroSD Card 插槽内（如下图所示)，然后上电，系统开始启动，HDMI显示桌面。
 
 <img
-  src="/img/rock5a/rock5a-sd-slot.webp"
-  alt="sd slot"
-  style={{ width: "60%"}}
+src="/img/rock5a/rock5a-sd-slot.webp"
+alt="sd slot"
+style={{ width: "60%"}}
 />
 
 ## 登录系统

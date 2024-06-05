@@ -1,5 +1,9 @@
-import Kernel from "../../../common/dev/\_kernel.mdx"
+---
+sidebar_position: 3
+---
 
-# Kernel Develop
+import KERNEL from '../../../common/dev/\_kernel.mdx'
 
-<Kernel />
+# Kernel 开发
+
+<KERNEL model="Radxa ROCK 5 ITX" soc="rk3588" />
