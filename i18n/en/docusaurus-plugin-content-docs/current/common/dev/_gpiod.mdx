@@ -139,7 +139,7 @@ sudo apt-get install python3-libgpiod
 
 - Naming conventions
 
-There are usually 5 groups (also called banks) of GPIOs on the Rockchip platform: GPIO0~GPIO4 (varies from chip to chip), each group has 32 GPIOs.
+There are usually 5 groups (also called banks) of GPIOs on the Rockchip platform: GPIO0 ~ GPIO4 (varies from chip to chip), each group has 32 GPIOs.
 Each group of GPIOs is divided into 4 groups, A/B/C/D, with 8 GPIOs in each group (0~7, also called [bank_idx](https://github.com/torvalds/linux/blob/master/include/dt-bindings/pinctrl/)). rockchip.h)). So the GPIOs can be named from GPIO0_A0 to GPIO4_D7.
 Taking GPIO3_C5 as an example, we can deduce that its bank is 3 and its bank_idx is 21, i.e. GPIO3_C5 is the 21st GPIO in group 3.
 
