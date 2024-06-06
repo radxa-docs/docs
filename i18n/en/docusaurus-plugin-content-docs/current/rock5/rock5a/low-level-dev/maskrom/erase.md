@@ -3,7 +3,7 @@ sidebar_position: 4
 description: "Empty eMMC or SPI Flash via Maskrom"
 ---
 
-import ERASE from  "../../../../common/dev/\_erase-spi-emmc.mdx";
+import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
 
 # Clear eMMC or SPI Flash
 
