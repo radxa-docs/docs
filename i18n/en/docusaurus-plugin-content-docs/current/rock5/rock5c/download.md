@@ -8,7 +8,7 @@ import Images from "./\_image.mdx"
 
 ## Operating system images
 
-<Images loader={false} system_img={true} spi_img={false} />
+<Images loader={false} system_img={true} lite_system_img={true} spi_img={false} />
 
 ## Hardware Design
 
