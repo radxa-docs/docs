@@ -291,6 +291,12 @@ ROCK 5C 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 | 61  |        GND        | 62  |       GND       |
 | 63  |        GND        | 64  |       GND       |
 
+:::tip
+
+eMMC 和 SPI Flash 是互斥的，连接器同一时间只能连接 eMMC 或者 SPI Flash 其中一个
+
+:::
+
 ### 调试串口
 
 用于系统调试，底层日志消息输出

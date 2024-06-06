@@ -291,6 +291,12 @@ Supports emmc storage devices for use as system boot disks or as storage media.
 | 61  |        GND        | 62  |       GND       |
 | 63  |        GND        | 64  |       GND       |
 
+:::tip
+
+eMMC and SPI Flash are mutually exclusive, the connector can only connect to one of eMMC or SPI Flash at a time
+
+:::
+
 ## Debug Serial Port
 
 For system debugging, underlying log message output

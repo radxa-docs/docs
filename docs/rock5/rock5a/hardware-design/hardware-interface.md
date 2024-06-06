@@ -55,6 +55,12 @@ sidebar_position: 1
 | 61  |                   | 62  |       GND       |
 | 63  |                   | 64  |       GND       |
 
+:::tip
+
+eMMC 和 SPI Flash 是互斥的，连接器同一时间只能连接 eMMC 或者 SPI Flash 其中一个
+
+:::
+
 ### FAN Header
 
 | Pin |  Name   | Pin |  Name   |

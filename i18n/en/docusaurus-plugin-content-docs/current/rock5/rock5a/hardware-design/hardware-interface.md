@@ -55,6 +55,12 @@ sidebar_position: 1
 | 61  |                   | 62  |       GND       |
 | 63  |                   | 64  |       GND       |
 
+:::tip
+
+eMMC and SPI Flash are mutually exclusive, the connector can only connect to one of eMMC or SPI Flash at a time.
+
+:::
+
 ### FAN Header
 
 | Pin |  Name   | Pin |  Name   |
