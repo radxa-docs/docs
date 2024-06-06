@@ -16,4 +16,6 @@ import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
     <li>通过 USB-A to USB-A 线连接PC 主机的 USB，如果如果 PC 端检测到有设备，则进入到 Maskrom 模式（Radxa ROCK 5C 的 OTG 接口是位于上面的那个 USB 3.0 口 ,可通过 USB-A to USB-A 线连接主机和进入 Maskrom 的主板进行通信）</li>
 </ul>
 
+<img src="/img/rock5c/rock-5c-maskrom.webp" alt="rock 5c maskrom wire" width="500" />
+
 </ERASE>
