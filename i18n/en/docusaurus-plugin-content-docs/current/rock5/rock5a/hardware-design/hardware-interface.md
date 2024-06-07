@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-## Hardware Interface Description
+# Hardware Interface Description
 
 ## Chip block diagram
 
