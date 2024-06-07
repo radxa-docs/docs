@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ## Support List
 
-- Renesas DC12 60W Power Adapter
+- Radxa DC12 60W Power Adapter
 
 ### Radxa DC12 60W Power Adapter
 
@@ -25,7 +25,7 @@ The Radxa DC12 60W Power Adapter is an adapter designed specifically for Radxa's
 
 #### Accessory List
 
-- 1x Risa DC12 60W Power Adapter
+- 1x Radxa DC12 60W Power Adapter
 - 1x Australian Standard Adaptor
 - 1x European Standard Adaptor
 - 1x British Standard Adaptor

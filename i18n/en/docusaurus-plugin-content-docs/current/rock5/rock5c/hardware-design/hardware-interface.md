@@ -63,7 +63,7 @@ sidebar_position: 1
 
 ## Power connector
 
-Powered by DC power interface, supports 5V input only.
+Power adapter with fixed voltage in 5V range on the USB Type-C port
 
 ### FAN Header
 
@@ -290,6 +290,12 @@ Supports emmc storage devices for use as system boot disks or as storage media.
 | 59  |        GND        | 60  |       GND       |
 | 61  |        GND        | 62  |       GND       |
 | 63  |        GND        | 64  |       GND       |
+
+:::tip
+
+eMMC and SPI Flash are mutually exclusive, the connector can only connect to one of eMMC or SPI Flash at a time
+
+:::
 
 ## Debug Serial Port
 

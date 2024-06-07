@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-## Hardware Interface Description
+# Hardware Interface Description
 
 ## Chip block diagram
 
@@ -54,6 +54,12 @@ sidebar_position: 1
 | 59  |                   | 60  |       GND       |
 | 61  |                   | 62  |       GND       |
 | 63  |                   | 64  |       GND       |
+
+:::tip
+
+eMMC and SPI Flash are mutually exclusive, the connector can only connect to one of eMMC or SPI Flash at a time.
+
+:::
 
 ### FAN Header
 

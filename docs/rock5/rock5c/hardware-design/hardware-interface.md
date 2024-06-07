@@ -63,7 +63,7 @@ sidebar_position: 1
 
 ### 电源接口
 
-采用 DC 电源接口供电，仅支持 5V 输入
+USB Type-C 端口上带有 5V 固定电压的电源适配器
 
 ### 风扇接口
 
@@ -290,6 +290,12 @@ ROCK 5C 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 | 59  |        GND        | 60  |       GND       |
 | 61  |        GND        | 62  |       GND       |
 | 63  |        GND        | 64  |       GND       |
+
+:::tip
+
+eMMC 和 SPI Flash 是互斥的，连接器同一时间只能连接 eMMC 或者 SPI Flash 其中一个
+
+:::
 
 ### 调试串口
 
