@@ -6,6 +6,6 @@ import HDMI from "../../../../common/accessories/\_hdmi.mdx";
 
 # HDMI Interface
 
-##  Interface Test Methods
+## Interface Test Methods
 
 <HDMI />
