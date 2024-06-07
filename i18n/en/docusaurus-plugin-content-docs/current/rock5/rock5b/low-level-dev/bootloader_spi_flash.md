@@ -53,10 +53,6 @@ There are two ways to burn SPI
 
    If you want to boot armbian from an M.2 NVME SSD, use this option
 
-   ```bash
-   wget https://github.com/huazi-yg/rock5b/releases/download/rock5b/rkspi_loader.img
-   ```
-
    Bootloader for advanced users, with u-boot serial console already started.
 
    ```bash
@@ -99,7 +95,6 @@ There are two ways to burn SPI
    ```bash
    cf53d06b3bfaaf51bbb6f25896da4b3a rock-5b-spi-image-gd1cf491-20240523.img
    fa14c99718f55b66e82aa1661e43c1ec rock-5b-spi-image-gd1cf491-20240523-debug.img
-   1b83982a5979008b4407552152732156 rkspi_loader.img
    ```
 
 6. Burn SPI Flash
@@ -173,7 +168,6 @@ You have now finished burning the bootloader with NVMe boot support.
 
   - [Official version](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gd1cf491-20240523.img), u-boot serial console off
   - [Debug version](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/debug/rock-5b-spi-image-gd1cf491-20240523-debug.img), u-boot serial console startup
-  - [Armbian version](https://github.com/huazi-yg/rock5b/releases/download/rock5b/rkspi_loader.img), required when installing armbian image to M.2 NVME SSDs
 
 3. ROCK 5B enters Maskrom mode.
 

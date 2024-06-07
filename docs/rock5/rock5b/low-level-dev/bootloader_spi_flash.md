@@ -51,12 +51,6 @@ ROCK 5B 上有一个 SPI Flash（SPI 闪存），它包含用于备份引导的b
    wget https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gd1cf491-20240523.img
    ```
 
-   如果您想从 M.2 NVME SSD 启动 armbian ，请使用此选项
-
-   ```bash
-   wget https://github.com/huazi-yg/rock5b/releases/download/rock5b/rkspi_loader.img
-   ```
-
    针对高级用户的 bootloader ，已启动 u-boot 串行控制台。
 
    ```bash
@@ -99,7 +93,6 @@ ROCK 5B 上有一个 SPI Flash（SPI 闪存），它包含用于备份引导的b
    ```bash
    cf53d06b3bfaaf51bbb6f25896da4b3a  rock-5b-spi-image-gd1cf491-20240523.img
    fa14c99718f55b66e82aa1661e43c1ec  rock-5b-spi-image-gd1cf491-20240523-debug.img
-   1b83982a5979008b4407552152732156  rkspi_loader.img
    ```
 
 6. 烧录 SPI Flash
@@ -173,7 +166,6 @@ ROCK 5B 上有一个 SPI Flash（SPI 闪存），它包含用于备份引导的b
 
   - [正式版本](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gd1cf491-20240523.img)，u-boot 串口控制台关闭
   - [Debug版本](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/debug/rock-5b-spi-image-gd1cf491-20240523-debug.img)，u-boot 串口控制台启动
-  - [Armbian版本](https://github.com/huazi-yg/rock5b/releases/download/rock5b/rkspi_loader.img)，需要安装 armbian Image 到 M.2 NVME SSD 时使用
 
 3. ROCK 5B 进入 Maskrom 模式
 
