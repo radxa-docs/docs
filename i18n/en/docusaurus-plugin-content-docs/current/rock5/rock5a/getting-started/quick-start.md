@@ -25,7 +25,7 @@ The power adapter is recommended to use the official [Radxa PD30W Adapter](/acce
 
 Peripherals that are not required but enhance the basic functions of the ROCK 5A:
 
-- For radiators, refer to [Radiator Selection](. /interface-usage/fan) to install the heat sinks
+- For radiators, refer to [Radiator Selection](./interface-usage/fan) to install the heat sinks
 
 ## Installation of the operating system
 
