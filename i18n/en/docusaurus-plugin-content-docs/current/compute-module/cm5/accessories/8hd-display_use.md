@@ -17,7 +17,7 @@ Prepare the Radxa Display 8HD, Radxa Display 10HD or Radxa Display 10FHD and con
 radxa@radxa-cm5-io:~$ rsetup
 ```
 
-- Via [device tree configuration](../radxa-os/sys-config/rsetup#overlays) to enable Overlay for the Renesas 8" touchscreen.
+- Via [device tree configuration](../radxa-os/sys-config/rsetup#overlays) to enable Overlay for the Radxa 8" touchscreen.
 
 :::caution [Note]
 

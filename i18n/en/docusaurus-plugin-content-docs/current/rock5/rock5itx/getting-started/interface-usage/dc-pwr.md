@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ## Support List
 
-- Renesas DC12 60W Power Adapter
+- Radxa DC12 60W Power Adapter
 
 ### Radxa DC12 60W Power Adapter
 

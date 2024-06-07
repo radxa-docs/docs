@@ -14,7 +14,7 @@ sidebar_position: 4
 radxa@radxa-cm5-io:~$ rsetup
 ```
 
-- Via [device tree configuration](../radxa-os/sys-config/rsetup#overlays) to enable Overlay for the Renesas 4K camera.
+- Via [device tree configuration](../radxa-os/sys-config/rsetup#overlays) to enable Overlay for the Radxa 4K camera.
 
 :::caution [Note]
 

@@ -486,7 +486,7 @@ sidebar_custom_props:
         {
           series_en: "SG Family",
           series_zh: "SG 系列",
-          series_introduction_en: "SG series is a series of computing modules and edge computing boxes developed by Renesas based on SOPHGO SG2300X. It has up to 32TOPS@INT8 computing power, powerful and complete deep learning toolchain, and up to 32-channel video processing capability. It is widely used and highly reliable.",
+          series_introduction_en: "SG series is a series of computing modules and edge computing boxes developed by Radxa based on SOPHGO SG2300X. It has up to 32TOPS@INT8 computing power, powerful and complete deep learning toolchain, and up to 32-channel video processing capability. It is widely used and highly reliable.",
           series_introduction_zh: "SG 系列是瑞莎基于 SOPHGO SG2300X 研发的一系列计算模块和边缘智算盒子。它有高达32TOPS@INT8的算力， 具备强大完备的深度学习工具链、最高达32路视频处理能力。用途广泛，可靠性高。",
           products:
             [

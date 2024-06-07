@@ -19,7 +19,7 @@ Radxa Camera 8M, OKDO 5MP, RPI Camera V13, RPI Camera V2.
 radxa@radxa-cm5-io:~$ rsetup
 ```
 
-- Via [device tree configuration](../radxa-os/sys-config/rsetup#overlays) to enable Overlay for the Renesas 8M camera.
+- Via [device tree configuration](../radxa-os/sys-config/rsetup#overlays) to enable Overlay for the Radxa 8M camera.
 
 :::caution [Note].
 
