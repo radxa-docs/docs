@@ -63,7 +63,7 @@ sidebar_position: 1
 
 ## Power connector
 
-Powered by DC power interface, supports 5V input only.
+Power adapter with fixed voltage in 5V range on the USB Type-C port
 
 ### FAN Header
 
