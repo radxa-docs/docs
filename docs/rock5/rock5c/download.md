@@ -8,7 +8,7 @@ import Images from "./\_image.mdx"
 
 ## 操作系统镜像
 
-<Images loader={false} system_img={true} lite_system_img={true} spi_img={false} />
+<Images loader={false} system_img={true} lite_system_img={true} spi_img={false} android12_update={true} android12_gpt={true}  />
 
 ## 硬件设计
 
