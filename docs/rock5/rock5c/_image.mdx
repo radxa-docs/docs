@@ -41,4 +41,24 @@ import React, { Fragment } from "react";
       MiniLoader.bin{" "}
     </a>
   </li>
+  <li style={{ display: `${props.android12_update ? "block" : "none"}` }}>
+    {" "}
+    <a
+      href="https://github.com/radxa/manifests/releases/download/radxa-rock5c-20240606/ROCK5C_Android12_20240606_update.zip"
+      alt="android12_update"
+    >
+      {" "}
+      ROCK 5C Android12 Update{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.android12_gpt ? "block" : "none"}` }}>
+    {" "}
+    <a
+      href="https://github.com/radxa/manifests/releases/download/radxa-rock5c-20240606/ROCK5C_Android12_20240606_gpt.zip"
+      alt="android12_gpt"
+    >
+      {" "}
+      ROCK 5C Android12 GPT{" "}
+    </a>
+  </li>
 </ul>
