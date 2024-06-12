@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Chip block diagram
 
-<img src="/img/rock5b/rk3588-block-diagram.webp" alt="rk3588 system diagram" width="700" />
+<img src="/img/rock5a/rk3588s-chip-diagram.webp" alt="rk3588s chip diagram" width="700" />
 
 ## System block diagram
 
