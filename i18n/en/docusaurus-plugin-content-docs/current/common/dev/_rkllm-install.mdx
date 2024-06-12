@@ -1,0 +1,97 @@
+## Introduction to RKLLM
+
+RKLLM helps users deploy LLM models to Rockchip chips quickly. Currently, it supports the rk3588/rk3576 chips. The overall framework is shown below:
+
+![rkllm_1.webp](/img/general-tutorial/rknn/rkllm_1.webp)
+
+### Currently Supported Models
+
+- [TinyLLAMA 1.1B](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0/tree/fe8a4ea1ffedaf415f4da2f062534de366a451e6)
+- [Qwen 1.8B](https://huggingface.co/Qwen/Qwen-1_8B-Chat/tree/1d0f68de57b88cfde81f3c3e537f24464d889081)
+- [Qwen2 0.5B](https://huggingface.co/Qwen/Qwen1.5-0.5B/tree/8f445e3628f3500ee69f24e1303c9f10f5342a39)
+- [Phi-2 2.7B](https://hf-mirror.com/microsoft/phi-2/tree/834565c23f9b28b96ccbeabe614dd906b6db551a)
+- [Phi-3 3.8B](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/tree/291e9e30e38030c23497afa30f3af1f104837aa6)
+- [ChatGLM3 6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
+- [Gemma 2B](https://huggingface.co/google/gemma-2b-it/tree/de144fb2268dee1066f515465df532c05e699d48)
+- [InternLM2 1.8B](https://huggingface.co/internlm/internlm2-chat-1_8b/tree/ecccbb5c87079ad84e5788baa55dd6e21a9c614d)
+- [MiniCPM 2B](https://huggingface.co/openbmb/MiniCPM-2B-sft-bf16/tree/79fbb1db171e6d8bf77cdb0a94076a43003abd9e)
+
+## Install RKLLM
+
+To use RKNPU, users first need to run the RKLLM-Toolkit tool on an x86 workstation to convert the trained model to the RKLLM format, then use the RKLLM C API on the development board for inference.
+
+### x86 PC Workstation
+
+- (Optional) Install [Anaconda](https://www.anaconda.com/)
+
+  If Python 3.8 (required version) is not installed on your system or if you have multiple Python versions, it is recommended to use [Anaconda](https://www.anaconda.com/) to create a new Python 3.8 environment.
+
+  - Install Anaconda
+
+    To check if Anaconda is installed, run the following command in the terminal. If it is installed, you can skip this step.
+
+    ```bash
+    $ conda --version
+    conda 23.10.0
+    ```
+
+    If you see `conda: command not found`, Anaconda is not installed. Please refer to the [Anaconda](https://www.anaconda.com/) website for installation instructions.
+
+  - Create a conda environment
+
+    ```bash
+    conda create -n rkllm python=3.8
+    ```
+
+  - Activate the rkllm conda environment
+
+    ```bash
+    conda activate rkllm
+    ```
+
+  - Deactivate the environment
+
+    ```bash
+    conda deactivate
+    ```
+
+- RKLLM-Toolkit is a software development package for converting and quantizing Huggingface format LLM models on a PC.
+
+  ```bash
+  git clone https://github.com/airockchip/rknn-llm.git
+  pip3 install ./rknn-llm/rkllm-toolkit/packages/rkllm_toolkit-1.0.1-cp38-cp38-linux_x86_64.whl
+  ```
+
+  If the following command runs without errors, the installation is successful:
+
+  ```bash
+  python3
+  from rkllm.api import RKLLM
+  ```
+
+### Development Board
+
+- Check if the NPU driver version is 0.9.6 or higher. If it is lower, download and flash the latest Radxa 6.1 firmware.
+
+  ```bash
+  $ sudo cat /sys/kernel/debug/rknpu/version
+  RKNPU driver: v0.9.6
+  ```
+
+  (Optional) Manually compile the NPU kernel
+
+  If you are using a non-official firmware, you need to update the kernel. The RKNPU driver package supports two major kernel versions: [kernel-5.10](https://github.com/radxa/kernel/tree/stable-5.10-rock5) and [kernel-6.1](https://github.com/radxa/kernel/tree/linux-6.1-stan-rkr1). You can confirm the exact version number in the Makefile in the root directory of the kernel. Follow these steps to update the kernel:
+
+  1. Download the [rknpu_driver_0.9.6_20240322.tar.bz2](https://github.com/airockchip/rknn-llm/tree/main/rknpu-driver) archive.
+
+  2. Extract the archive and overwrite the current kernel code directory with the rknpu driver code.
+
+  3. Recompile the kernel.
+
+  4. Flash the newly compiled kernel to the device.
+
+- RKLLM Runtime provides C/C++ programming interfaces for the Rockchip NPU platform to help users deploy RKLLM models and accelerate LLM applications.
+
+  ```bash
+  git clone https://github.com/airockchip/rknn-llm.git
+  ```

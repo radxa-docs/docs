@@ -1,0 +1,173 @@
+This document explains how to deploy large language models in Huggingface format to the RK3588 with NPU for hardware-accelerated inference using RKLLM.
+
+#### Currently Supported Models
+
+- [TinyLLAMA 1.1B](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0/tree/fe8a4ea1ffedaf415f4da2f062534de366a451e6)
+- [Qwen 1.8B](https://huggingface.co/Qwen/Qwen-1_8B-Chat/tree/1d0f68de57b88cfde81f3c3e537f24464d889081)
+- [Qwen2 0.5B](https://huggingface.co/Qwen/Qwen1.5-0.5B/tree/8f445e3628f3500ee69f24e1303c9f10f5342a39)
+- [Phi-2 2.7B](https://hf-mirror.com/microsoft/phi-2/tree/834565c23f9b28b96ccbeabe614dd906b6db551a)
+- [Phi-3 3.8B](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/tree/291e9e30e38030c23497afa30f3af1f104837aa6)
+- [ChatGLM3 6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
+- [Gemma 2B](https://huggingface.co/google/gemma-2b-it/tree/de144fb2268dee1066f515465df532c05e699d48)
+- [InternLM2 1.8B](https://huggingface.co/internlm/internlm2-chat-1_8b/tree/ecccbb5c87079ad84e5788baa55dd6e21a9c614d)
+- [MiniCPM 2B](https://huggingface.co/openbmb/MiniCPM-2B-sft-bf16/tree/79fbb1db171e6d8bf77cdb0a94076a43003abd9e)
+
+This guide uses TinyLLAMA 1.1B as an example to show how to deploy a large language model from scratch on a development board equipped with the RK3588 chip and use the NPU for hardware-accelerated inference.
+
+:::tip
+If the RKLLM environment is not installed and configured, please refer to [RKLLM Installation](rkllm_install).
+:::
+
+### Model Conversion
+
+Using TinyLLAMA 1.1B as an example, users can also choose any of the links in the [currently supported models](#currently-supported-models) list.
+
+- Download all files of [TinyLLAMA 1.1B](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0) on an x86 PC workstation. If [git-lfs](https://git-lfs.com/) is not installed, please install it.
+  ```bash
+  git clone https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0
+  ```
+- Activate the rkllm conda environment. Refer to [RKLLM conda Installation](rkllm_install#x86-pc-workstation) if needed.
+  ```bash
+  conda activate rkllm
+  ```
+- Change the model path and rkllm export path in `rknn-llm/rkllm-toolkit/examples/huggingface/test.py`.
+  ```python
+  modelpath = 'Your Huggingface LLM model'
+  ret = llm.export_rkllm("./Your_Huggingface_LLM_model.rkllm")
+  ```
+- Run the model conversion script.
+  ```bash
+  cd rknn-llm/rkllm-toolkit/examples/huggingface
+  python3 test.py
+  ```
+  After successful conversion, you will get an rkllm model.
+
+### Compile Executable File
+
+- Download the cross-compilation toolchain [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11).
+- Modify the main program code. Here are two changes:
+  ```vim
+  74 param.num_npu_core = 3; // The value range for rk3588 num_npu_core is [1,3]
+  118 string text = PROMPT_TEXT_PREFIX + input_str + PROMPT_TEXT_POSTFIX;
+  119 // string text = input_str;
+  ```
+- Modify the gcc path in the `rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build-linux.sh` compilation script.
+  ```bash
+  GCC_COMPILER_PATH=gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
+  ```
+- Run the model conversion script.
+  ```bash
+  cd rknn-llm/rkllm-runtime/examples/rkllm_api_demo
+  bash build-linux.sh
+  ```
+  The generated executable file is located in `build/build_linux_aarch64_Release/llm_demo`.
+
+### Board Deployment
+
+#### Local Terminal Mode
+
+- Copy the converted rkllm model and the compiled binary file llm_demo to the board.
+- Import environment variables.
+  ```bash
+  ulimit -n 102400
+  export LD_LIBRARY_PATH=rknn-llm/rkllm-runtime/runtime/Linux/librkllm_api/aarch64:$LD_LIBRARY_PATH
+  ```
+- Run llm_demo and enter `exit` to quit.
+  ```bash
+  taskset f0 ./llm_demo your_rkllm_path
+  ```
+  ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_2.webp)
+
+#### Gradio Mode
+
+##### Server Side
+
+- Install gradio.
+  ```bash
+  pip3 install gradio
+  ```
+- Copy `librkllmrt.so` to `rkllm_server/lib`.
+  ```bash
+  cd rknn-llm/rkllm-runtime
+  cp ./runtime//Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib
+  ```
+- Modify gradio_server.py to disable GPU for prefill acceleration.
+  ```python
+  rknnllm_param.use_gpu = False
+  ```
+- Start the gradio server.
+  ```bash
+  cd examples/rkllm_server_demo/rkllm_server
+  python3 gradio_server.py --target_platform rk3588 --rkllm_model_path your_model_path
+  ```
+- Access the development board's IP port 8080 in your browser.
+  ![rkllm_3.webp](/img/general-tutorial/rknn/rkllm_3.webp)
+
+##### Client Side
+
+After starting the gradio server on the development board, users can call the LLM gradio server through the Gradio API on other devices in the same network environment.
+
+- Install gradio_client.
+  ```bash
+  pip3 install gradio_client
+  ```
+- Modify the IP address in chat_api_gradio.py. Users need to adjust this according to their deployment's specific address.
+  ```python
+  # Users need to modify according to their deployment's specific IP
+  client = Client("http://192.168.2.209:8080/")
+  ```
+- Run chat_api_gradio.py.
+  ```bash
+  cd rknn-llm/rkllm-runtime/examples/rkllm_server_demo
+  python3 chat_api_gradio.py
+  ```
+  ![rkllm_4.webp](/img/general-tutorial/rknn/rkllm_4.webp)
+
+#### Flask Mode
+
+##### Server Side
+
+- Install flask.
+  ```bash
+  pip3 install flask==2.2.2 Werkzeug==2.2.2
+  ```
+- Copy `librkllmrt.so` to `rkllm_server/lib`.
+  ```bash
+  cd rknn-llm/rkllm-runtime
+  cp ./runtime//Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib
+  ```
+- Modify flask_server.py to disable GPU for prefill acceleration.
+  ```python
+  rknnllm_param.use_gpu = False
+  ```
+- Start the flask server on port 8080.
+  ```bash
+  cd examples/rkllm_server_demo/rkllm_server
+  python3 flask_server.py --target_platform rk3588 --rkllm_model_path your_model_path
+  ```
+  ![rkllm_5.webp](/img/general-tutorial/rknn/rkllm_5.webp)
+
+##### Client Side
+
+After starting the flask server on the development board, users can call the flask server through the flask API on other devices in the same network environment. Users can refer to this API access example to develop custom functions, using the corresponding send/receive structures for data packaging and parsing.
+
+- Modify the IP address in chat_api_flask.py. Users need to adjust this according to their deployment's specific address.
+  ```python
+  # Users need to modify according to their deployment's specific IP
+  server_url = 'http://192.168.2.209:8080/rkllm_chat'
+  ```
+- Run chat_api_flask.py.
+  ```bash
+  cd rknn-llm/rkllm-runtime/examples/rkllm_server_demo
+  python3 chat_api_flask.py
+  ```
+  ![rkllm_6.webp](/img/general-tutorial/rknn/rkllm_6.webp)
+
+### Performance Comparison of Some Models
+
+| Model     | Parameter Size | Chip   | Chip Count | Inference Speed |
+| --------- | -------------- | ------ | ---------- | --------------- |
+| TinyLlama | 1.1B           | RK3588 | 1          | 15.03 token/s   |
+| Qwen      | 1.8B           | RK3588 | 1          | 14.18 token/s   |
+| Phi3      | 3.8B           | RK3588 | 1          | 6.46 token/s    |
+| ChatGLM3  | 6B             | RK3588 | 1          | 3.67 token/s    |

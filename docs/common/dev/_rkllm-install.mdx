@@ -1,0 +1,90 @@
+## RKLLM 简介
+
+RKLLM 可以帮助用户快速将 LLM 模型部署到 Rockchip 芯片中，目前支持芯片：rk3588/rk3576，整体框架如下：
+
+![rkllm_1.webp](/img/general-tutorial/rknn/rkllm_1.webp)
+
+#### 目前支持模型
+
+- [TinyLLAMA 1.1B](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0/tree/fe8a4ea1ffedaf415f4da2f062534de366a451e6)
+- [Qwen 1.8B](https://huggingface.co/Qwen/Qwen-1_8B-Chat/tree/1d0f68de57b88cfde81f3c3e537f24464d889081)
+- [Qwen2 0.5B](https://huggingface.co/Qwen/Qwen1.5-0.5B/tree/8f445e3628f3500ee69f24e1303c9f10f5342a39)
+- [Phi-2 2.7B](https://hf-mirror.com/microsoft/phi-2/tree/834565c23f9b28b96ccbeabe614dd906b6db551a)
+- [Phi-3 3.8B](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/tree/291e9e30e38030c23497afa30f3af1f104837aa6)
+- [ChatGLM3 6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
+- [Gemma 2B](https://huggingface.co/google/gemma-2b-it/tree/de144fb2268dee1066f515465df532c05e699d48)
+- [InternLM2 1.8B](https://huggingface.co/internlm/internlm2-chat-1_8b/tree/ecccbb5c87079ad84e5788baa55dd6e21a9c614d)
+- [MiniCPM 2B](https://huggingface.co/openbmb/MiniCPM-2B-sft-bf16/tree/79fbb1db171e6d8bf77cdb0a94076a43003abd9e)
+
+## RKLLM 安装
+
+要使用 RKNPU，用户需要先在 x86 工作站上运行 RKLLM-Toolkit 工具，将训练好的模型转换为 RKLLM 格式的模型，然后在开发板上使用 RKLLM C API 进行推理
+
+### x86 PC 工作站
+
+- （可选）安装 [Anaconda](https://www.anaconda.com/)
+
+  如果系统中没有安装 Python 3.8（必要版本），或者同时有多个版本的 Python 环境，建议使用 [Anaconda](https://www.anaconda.com/) 创建新的 Python 3.8 环境
+
+  - 安装 Anaconda
+
+    在计算机的终端窗口中执行以下命令，检查是否安装 Anaconda，若已安装则可省略此节步骤
+
+    ```bash
+    $ conda --version
+    conda 23.10.0
+    ```
+
+    如出现 conda: command not found, 则表示未安装 anaconda, 请参考 [Anaconda](https://www.anaconda.com/) 官网进行安装
+
+  - 创建 conda 环境
+    ```bash
+    conda create -n rkllm python=3.8
+    ```
+  - 进入 rkllm conda 环境
+
+    ```bash
+    conda activate rkllm
+    ```
+
+  - 退出环境
+    ```bash
+    conda deactivate
+    ```
+
+- RKLLM-Toolkit是一套软件开发包，供用户在 PC 上进行 Huggingface 格式的 LLM 模型转换和量化
+  ```bash
+  git clone https://github.com/airockchip/rknn-llm.git
+  pip3 install ./rknn-llm/rkllm-toolkit/packages/rkllm_toolkit-1.0.1-cp38-cp38-linux_x86_64.whl
+  ```
+  若执行以下命令没有报错，则安装成功
+  ```bash
+  python3
+  from rkllm.api import RKLLM
+  ```
+
+### 开发板
+
+- 检查 NPU 驱动版本是否大于等于 0.9.6，如小于此版本请下载并烧录最新 radxa 6.1 固件
+
+  ```bash
+  $ sudo cat /sys/kernel/debug/rknpu/version
+  RKNPU driver: v0.9.6
+  ```
+
+  （可选）手动编译 NPU 内核
+
+  若用户所使用的为非官方固件，需要对内核进行更新；其中，RKNPU 驱动包支持两个主要内核版本：[kernel-5.10](https://github.com/radxa/kernel/tree/stable-5.10-rock5) 和 [kernel-6.1](https://github.com/radxa/kernel/tree/linux-6.1-stan-rkr1)；用户可在内核根目录下的 Makefile 中确认具体版本号。内核的具体的更新步骤如下：
+
+  1） 下载压缩包 [rknpu_driver_0.9.6_20240322.tar.bz2](https://github.com/airockchip/rknn-llm/tree/main/rknpu-driver)
+
+  2） 解压该压缩包，将其中的 rknpu 驱动代码覆盖到当前内核代码目录
+
+  3） 重新编译内核
+
+  4） 将新编译的内核烧录到设备中
+
+- RKLLM Runtime 为 Rockchip NPU 平台提供 C/C++ 编程接口，帮助用户部署 RKLLM 模型，加速 LLM 应用的实现
+  ```bash
+  git clone https://github.com/airockchip/rknn-llm.git
+  ```
