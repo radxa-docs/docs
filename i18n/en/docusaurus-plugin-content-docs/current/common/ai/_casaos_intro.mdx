@@ -12,7 +12,14 @@ Some key features of CasaOS include:
 
 ### First Visit
 
-The Airbox factory image comes pre-installed with CasaOS. Users can access CasaOS through the Airbox IP address on port 81. An account needs to be created during the first visit.
+The Airbox factory image comes pre-installed with CasaOS include [Stable Diffusion](casaos_app_install#install-radxa-stable-diffusion-app) and [Llama3](casaos_app_install#install-radxa-llama3-chatbot-gpt-app). Users can access CasaOS through the Airbox IP address on port 81.
+
+Login required for first visit.
+
+```bash
+Username: radxa
+Password: radxa
+```
 
 ![casaos_1.webp](/img/general-tutorial/tpu_ai/casaos_1.webp)
 
@@ -20,7 +27,21 @@ CasaOS system interface
 
 ![casaos_4.webp](/img/general-tutorial/tpu_ai/casaos_4.webp)
 
+Modify CasaOS Username and Password
+
+To change the username and password in CasaOS:
+
+1. Click on the user icon in the top left corner.
+2. Click on the edit icon to modify the username.
+3. Similarly, modify the password by clicking the corresponding option.
+
+![casaos_5.webp](/img/general-tutorial/tpu_ai/casaos_5.webp)
+
 ### CasaOS Installation Method
+
+:::tip
+Factory installed, Reference only
+:::
 
 #### Docker Update Method
 
@@ -123,3 +144,9 @@ Here, we will describe how to use symbolic links to move the Docker folder to a 
 - Access CasaOS through the 81 port of the Airbox IP. The first visit will require account creation.
 
   ![casaos_1.webp](/img/general-tutorial/tpu_ai/casaos_1.webp)
+
+#### CasaOS Uninstall
+
+```bash
+casaos-uninstall
+```
