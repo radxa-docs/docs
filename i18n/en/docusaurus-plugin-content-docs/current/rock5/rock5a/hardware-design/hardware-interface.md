@@ -8,10 +8,6 @@ sidebar_position: 1
 
 <img src="/img/rock5a/rk3588s-chip-diagram.webp" alt="rk3588s chip diagram" width="700" />
 
-## System block diagram
-
-<img src="/img/rock5a/rock5a-system-block-diagram.webp" width="700" alt="rock 5a system block diagram" />
-
 ## Physical photographs
 
 <img src="/img/rock5a/rock5a-real.webp" width="800" alt="rock 5a real" />
