@@ -13,7 +13,7 @@ title: 资源下载
 
 大小：1.2G
 
-- [瑞莎下载站] https://dl.radxa.com/sg2300x/images/sdcard-radxa-airbox-b5-20240606-basic.img
+- [瑞莎下载站](https://dl.radxa.com/sg2300x/images/sdcard-radxa-airbox-b5-20240606-basic.img)
 
 
 #### 完整镜像
