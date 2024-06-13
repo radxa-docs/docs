@@ -13,6 +13,8 @@ title: 资源下载
 
 大小：1.2G
 
+MD5: 2c384ae51ce63cf2ea10ebce597408c4
+
 - [瑞莎下载站](https://dl.radxa.com/sg2300x/images/sdcard-radxa-airbox-b5-20240606-basic.img)
 
 
@@ -23,6 +25,8 @@ title: 资源下载
 版本：`Radxa Airbox B5 0606`
 
 大小：9.5G
+
+MD5: 8f4604533c67f5198417dea1a532af99
 
 - [瑞莎下载站](https://dl.radxa.com/sg2300x/images/sdcard-radxa-airbox-b5-20240606.img)
 
