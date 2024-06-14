@@ -6,7 +6,7 @@
 
 2. 查看容量
 
-   <pre>
+   <pre style={{ whiteSpace: "nowrap" }}>
      radxa@{props.model}:~$ sudo nvme list<br/>[sudo] password for radxa: Node SN
      Model Namespace Usage Format FW Rev ---------------- --------------------
      ---------------------------------------- ---------
@@ -23,7 +23,7 @@
 
 2. 写测试
 
-   <pre>
+   <pre style={{ whiteSpace: "nowrap" }}>
      radxa@{props.model}:~$ fio -rw=read -bs=1m -runtime=60 -iodepth 1
      -numjobs=8 -size=1G -filename /dev/nvme0n1 -ioengine libaio -direct=1
      -group_reporting -name seq_read
@@ -39,7 +39,7 @@
 
 3. 读测试
 
-   <pre>
+   <pre style={{ whiteSpace: "nowrap" }}>
      radxa@{props.model}:~$ fio -rw=write -bs=1m -runtime=60 -iodepth 1
      -numjobs=8 -size=1G -filename /dev/nvme0n1 -ioengine libaio -direct=1
      -group_reporting -name seq_write
