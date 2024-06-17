@@ -25,7 +25,7 @@ import UART from '../../../../common/dev/\_uart.mdx';
 
 ## PWM
 
-<PWM product_name="Radxa ROCK 5A" model="rock-5a" pwm_name="PWM0_M2" pwm_pin="23" pwm_connection="/img/rock5c/pwm_connection.webp" />
+<PWM product_name="Radxa ROCK 5A" model="rock-5a" pwm_name="PWM0_M2" pwm_pin="23" chip="0" pwm_connection="/img/rock5c/pwm_connection.webp" />
 
 ## SPI
 

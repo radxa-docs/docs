@@ -84,10 +84,10 @@ sudo apt-get install python3-periphery
 
 - In a terminal, execute the following command to test
 
-<PreView params={{ model: props.model }}>
+<PreView params={{ model: props.model, chip: props.chip }}>
   {`
   radxa@#model#:~$ sudo python3 Pwm_led_test.py
-  pwmchip:0
+  pwmchip:#chip#
   channel:0
   `}
 </PreView>
