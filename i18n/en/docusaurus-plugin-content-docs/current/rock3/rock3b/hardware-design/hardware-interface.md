@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ## Physical photographs
 
-<img src="/img/rock3/3b/rock3b_v1-51_real.webp" alt="rk3568 chip block diagram" style={{ width: "80%" }} />
+<img src="/img/rock3/3b/rock3b_v1-5_real.webp" alt="rk3568 chip block diagram" style={{ width: "80%" }} />
 
 ## Interface details
 
