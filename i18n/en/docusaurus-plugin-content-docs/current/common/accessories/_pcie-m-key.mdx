@@ -7,8 +7,10 @@
 2. Viewing Capacity
 
    <pre style={{ whiteSpace: "nowrap" }}>
-     radxa@{props.model}:~$ sudo nvme list<br/>[sudo] password for radxa: Node SN
-     Model Namespace Usage Format FW Rev ---------------- --------------------
+     radxa@{props.model}:~$ sudo nvme list
+     <br />
+     [sudo] password for radxa: Node SN Model Namespace Usage Format FW Rev
+     ---------------- --------------------
      ---------------------------------------- ---------
      -------------------------- ---------------- -------- /dev/nvme0n1
      50026B7684E3662B KINGSTON OM8PDP3256B-A01 1 256.06 GB / 256.06 GB 512 B + 0
@@ -31,11 +33,7 @@
 
 {" "}
 
-<img
-  src={props.read_test_img}
-  alt="write test"
-  style={{ width: "80%" }}
-/>
+<img src={props.read_test_img} alt="write test" style={{ width: "80%" }} />
 
 3. Reading test
 
@@ -47,11 +45,7 @@
 
 {" "}
 
-<img
-  src={props.write_test_img}
-  alt="read test"
-  style={{ width: "80%" }}
-/>
+<img src={props.write_test_img} alt="read test" style={{ width: "80%" }} />
 
 ### Booting the system from NVME
 
