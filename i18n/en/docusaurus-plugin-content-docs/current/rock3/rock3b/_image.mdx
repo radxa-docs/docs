@@ -1,0 +1,28 @@
+import React, { Fragment } from "react";
+
+<ul>
+  <li style={{ display: `${props.loader ? "block" : "none"}` }}>
+    {" "}
+    <a href=""> Loader: RK356x_SPL_Loader_v1.15.113.bin </a>
+  </li>
+  <li style={{ display: `${props.system_img ? "block" : "none"}` }}>
+    {" "}
+    <a href="https://github.com/radxa-build/rock-3b/releases/download/b18/rock-3b_debian_bullseye_xfce_b18.img.xz">
+      {" "}
+      System Image: Radxa ROCK 3B Debian b18{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.spi_img ? "block" : "none"}` }}>
+    {" "}
+    <a href="" alt="spi image">
+      SPI Image: spi_image.img{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.miniloader ? "block" : "none"}` }}>
+    {" "}
+    <a href="" alt="MiniLoader">
+      {" "}
+      MiniLoader.bin{" "}
+    </a>
+  </li>
+</ul>
