@@ -29,10 +29,6 @@ import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";
 
 ## 配件使用
 
-### 瑞莎 5 寸高清显示屏
-
-<DISPLAY product="ROCK 3B" display_connection_img="/img/rock3/3b/rock3b-5inch-display.webp" model="rock-3b" rsetup_path="../../radxa-os/rsetup#overlays" display_name="瑞莎 5 寸高清显示屏" overlays_title="Enable Radxa 5-inch Touchscreen" />
-
 ### 瑞莎 8 寸 HD 高清显示屏
 
 <DISPLAY product="ROCK 3B" display_connection_img="/img/rock3/3b/rock3b-8inch-display.webp" model="rock-3b" rsetup_path="../../radxa-os/rsetup#overlays" display_name="瑞莎 8 寸 HD 高清显示屏" overlays_title="Enable Radxa Display 8HD" />
