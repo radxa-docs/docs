@@ -6,7 +6,7 @@ import BasicSoftWareConf from "../../../common/radxa-os/\_basicSoftwareConf.mdx"
 
 # Quick Setup
 
-<BasicSoftWareConf model="rock-3b" rsetup_path="../radxa-os/rsetup#system-update" />
+<BasicSoftWareConf model="rock-3b" rsetup_path="../radxa-os/rsetup#system-update" product="Radxa ROCK 3B" />
 
 :::tip
 Please refer to our [radxa-os section](../radxa-os/) for more information on software configuration.
