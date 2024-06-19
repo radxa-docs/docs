@@ -17,6 +17,7 @@ import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
     <li>Plug in the power cord and power up, if the green light of the power supply is always on, then it has successfully entered the Maskrom mode.</li>
 </ol>
 
-<img src="/img/rock3/3b/rock3b-maskrom-wire.webp" alt="rock 3b maskrom wire" width="500" />
+<img src="/img/rock3/3b/rock3b-otg.webp" alt="rock 3b otg" width="500" />
+<img src="/img/rock3/3b/rock3b-maskrom.webp" alt="rock 3b maskrom wire" width="500" />
 
 </ERASE>

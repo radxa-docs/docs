@@ -16,7 +16,7 @@ import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
     <li>使用 USB-A 转 USB-A 线从 OTG 端口连接 PC 主机</li>
     <li>插入电源线上电，如果电源绿灯常亮则成功进入 Maskrom 模式</li>
 </ol>
-
-<img src="/img/rock3/3b/rock3b-maskrom-wire.webp" alt="rock 3b maskrom wire" width="500" />
+<img src="/img/rock3/3b/rock3b-otg.webp" alt="rock 3b otg" width="500" />
+<img src="/img/rock3/3b/rock3b-maskrom.webp" alt="rock 3b maskrom wire" width="500" />
 
 </ERASE>
