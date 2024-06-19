@@ -40,63 +40,63 @@ ROCK 3B provides complete hardware design schematics and software source code, a
 
 <table>
   <tr>
-    <th>Model</th>
-    <th>ROCK 3B</th>
+    <td>Model</td>
+    <td>ROCK 3B</td>
   </tr>
   <tr>
-    <th>CPU</th>
-    <th>Quad Cortex®-A55 @ 2 GHz based on Arm® DynamIQ™ configuration</th>
+    <td>CPU</td>
+    <td>Quad Cortex®-A55 @ 2 GHz based on Arm® DynamIQ™ configuration</td>
   </tr>
   <tr>
-    <th>GPU</th>
-    <th>Mali G52 GPU supporting:<br/>OpenGL ES 1.1/2.0/3.2<br/> OpenCL 2.0 <br/> Vulkan 1.1</th>
+    <td>GPU</td>
+    <td>Mali G52 GPU supporting:<br/>OpenGL ES 1.1/2.0/3.2<br/> OpenCL 2.0 <br/> Vulkan 1.1</td>
   </tr>
   <tr>
-    <th>RAM</th>
-    <th>64-bit LPDDR4 RAM optional:<br/>2/4/8 GB</th>
+    <td>RAM</td>
+    <td>64-bit LPDDR4 RAM optional:<br/>2/4/8 GB</td>
   </tr>
   <tr>
-    <th>Memory</th>
-    <th>Features a high-speed eMMC slot designed specifically for eMMC modules that can be used as an operating system and data storage solution. This eMMC slot is fully compatible with widely adopted industry standards for pinouts and form factors.</th>
+    <td>Memory</td>
+    <td>Features a high-speed eMMC slot designed specifically for eMMC modules that can be used as an operating system and data storage solution. This eMMC slot is fully compatible with widely adopted industry standards for pinouts and form factors.</td>
   </tr>
   <tr>
-    <th>Hardware codec</th>
-    <th>H.265/VP9 (HEVC) hardware decoding (up to 4Kp60)<br/>H.264 hardware decoding (up to 1080p60)</th>
+    <td>Hardware codec</td>
+    <td>H.265/VP9 (HEVC) hardware decoding (up to 4Kp60)<br/>H.264 hardware decoding (up to 1080p60)</td>
   </tr>
   <tr>
-    <th>Display</th>
-    <th>Triple display via HDMI, 2x MIPI DSI or eDP</th>
+    <td>Display</td>
+    <td>Triple display via HDMI, 2x MIPI DSI or eDP</td>
   </tr>
   <tr>
-    <th>Ethernet</th>
-    <th>2 Gigabit Ethernet ports (one PoE-enabled with additional PoE HAT)</th>
+    <td>Ethernet</td>
+    <td>2 Gigabit Ethernet ports (one PoE-enabled with additional PoE HAT)</td>
   </tr>
   <tr>
-    <th>USB</th>
-    <th>2 x USB2 HOST host<br/>1 x USB3 HOST host<br/>1 x USB3 OTG </th>
+    <td>USB</td>
+    <td>2 x USB2 HOST host<br/>1 x USB3 HOST host<br/>1 x USB3 OTG </td>
   </tr>
   <tr>
-    <th>FAN</th>
-    <th>There is a 2-pin 1.25mm connector that allows the user to connect a 5V fan (or other peripheral)<br/>The fan can be controlled by PWM without speed feedback.</th>
+    <td>FAN</td>
+    <td>There is a 2-pin 1.25mm connector that allows the user to connect a 5V fan (or other peripheral)<br/>The fan can be controlled by PWM without speed feedback.</td>
   </tr>
   <tr>
-    <th>Camera Interface</th>
-    <th>Equipped with a versatile 2-channel MIPI CSI camera port that is compatible with a wide range of widely used industrial camera peripherals.<br/>This not only ensures flexibility and easy integration, but also provides users with a wide range of camera options to meet specific needs.</th>
+    <td>Camera Interface</td>
+    <td>Equipped with a versatile 2-channel MIPI CSI camera port that is compatible with a wide range of widely used industrial camera peripherals.<br/>This not only ensures flexibility and easy integration, but also provides users with a wide range of camera options to meet specific needs.</td>
   </tr>
   <tr>
-    <th>M.2 Connector</th>
-    <th>Equipped with M.2 M Key 2280 SSD slot and PCIe 3.0 x2 lane interface<br/>Featuring an M.2 E Key slot offering multiple interfaces including SDIO, UART, PCIe 2.0, SATA and USB, this configuration greatly facilitates high-speed WiFi and Bluetooth connectivity, including support for the latest WiFi 6 standard. The slot is fully compatible with standard M.2 wireless modules of the SDIO type, ensuring easy integration and enhanced wireless functionality.<br/>A USB interface is provided through its M.2 B Key slot. When used in conjunction with a SIM card (the ROCK 3B has a SIM slot), it enables high-speed 4G mobile phone connectivity and ensures compatibility with standard M.2 3042 B Key modules.</th>
+    <td>M.2 Connector</td>
+    <td>Equipped with M.2 M Key 2280 SSD slot and PCIe 3.0 x2 lane interface<br/>Featuring an M.2 E Key slot offering multiple interfaces including SDIO, UART, PCIe 2.0, SATA and USB, this configuration greatly facilitates high-speed WiFi and Bluetooth connectivity, including support for the latest WiFi 6 standard. The slot is fully compatible with standard M.2 wireless modules of the SDIO type, ensuring easy integration and enhanced wireless functionality.<br/>A USB interface is provided through its M.2 B Key slot. When used in conjunction with a SIM card (the ROCK 3B has a SIM slot), it enables high-speed 4G mobile phone connectivity and ensures compatibility with standard M.2 3042 B Key modules.</td>
   </tr>
   <tr>
-    <th>audio interface</th>
-    <th>Excellent analogue audio functionality is provided through the 4-ring 3.5mm headphone jack, delivering near CD-quality output. This analogue audio output is powerful enough to directly power 32-ohm headphones, ensuring a powerful and immersive audio experience.</th>
+    <td>audio interface</td>
+    <td>Excellent analogue audio functionality is provided through the 4-ring 3.5mm headphone jack, delivering near CD-quality output. This analogue audio output is powerful enough to directly power 32-ohm headphones, ensuring a powerful and immersive audio experience.</td>
   </tr>
   <tr>
-    <th>40-PIN Header</th>
-    <th>1 x ADC<br/>2 x CAN<br/>27 x GPIO<br/>3 x I2C<br/>7 x PWM<br/>1 x SPI<br/>6 x UART<br/></th>
+    <td>40-PIN Header</td>
+    <td>1 x ADC<br/>2 x CAN<br/>27 x GPIO<br/>3 x I2C<br/>7 x PWM<br/>1 x SPI<br/>6 x UART<br/></td>
   </tr>
   <tr>
-    <th>Size</th>
-    <th>100 mm x 75 mm </th>
+    <td>Size</td>
+    <td>100 mm x 75 mm </td>
   </tr>
 </table>

@@ -40,63 +40,63 @@ ROCK 3B 提供了完整的硬件设计原理图和软件源代码，这一特性
 
 <table>
   <tr>
-    <th>型号</th>
-    <th>ROCK 3B</th>
+    <td>型号</td>
+    <td>ROCK 3B</td>
   </tr>
   <tr>
-    <th>CPU</th>
-    <th>基于 Arm® DynamIQ™ 配置的四路 Cortex®-A55 @ 2 GHz</th>
+    <td>CPU</td>
+    <td>基于 Arm® DynamIQ™ 配置的四路 Cortex®-A55 @ 2 GHz</td>
   </tr>
   <tr>
-    <th>GPU</th>
-    <th>Mali G52 GPU supporting:<br/>OpenGL ES 1.1/2.0/3.2<br/> OpenCL 2.0 <br/> Vulkan 1.1</th>
+    <td>GPU</td>
+    <td>Mali G52 GPU supporting:<br/>OpenGL ES 1.1/2.0/3.2<br/> OpenCL 2.0 <br/> Vulkan 1.1</td>
   </tr>
   <tr>
-    <th>内存</th>
-    <th>64 位 LPDDR4 RAM 可选：<br/>2/4/8 GB</th>
+    <td>内存</td>
+    <td>64 位 LPDDR4 RAM 可选：<br/>2/4/8 GB</td>
   </tr>
   <tr>
-    <th>存储</th>
-    <th> 具有专为 eMMC 模块设计的高速 eMMC 插槽，可用作操作系统和数据存储解决方案。此 eMMC 插槽与广泛采用的工业引脚排列和外形尺寸标准完全兼容。</th>
+    <td>存储</td>
+    <td> 具有专为 eMMC 模块设计的高速 eMMC 插槽，可用作操作系统和数据存储解决方案。此 eMMC 插槽与广泛采用的工业引脚排列和外形尺寸标准完全兼容。</td>
   </tr>
   <tr>
-    <th>硬件编解码</th>
-    <th>H.265/VP9 (HEVC) 硬件解码（最高 4Kp60）<br/>H.264 硬件解码（最高 1080p60）</th>
+    <td>硬件编解码</td>
+    <td>H.265/VP9 (HEVC) 硬件解码（最高 4Kp60）<br/>H.264 硬件解码（最高 1080p60）</td>
   </tr>
   <tr>
-    <th>显示</th>
-    <th>通过 HDMI、2x MIPI DSI 或 eDP 实现三重显示</th>
+    <td>显示</td>
+    <td>通过 HDMI、2x MIPI DSI 或 eDP 实现三重显示</td>
   </tr>
   <tr>
-    <th>以太网</th>
-    <th>2 个千兆以太网端口（其中一个支持 PoE，带有附加 PoE HAT）</th>
+    <td>以太网</td>
+    <td>2 个千兆以太网端口（其中一个支持 PoE，带有附加 PoE HAT）</td>
   </tr>
   <tr>
-    <th>USB</th>
-    <th>2 个 USB2 HOST 端口<br/>1 个 USB3 HOST 端口<br/>1 个 USB3 OTG 口</th>
+    <td>USB</td>
+    <td>2 个 USB2 HOST 端口<br/>1 个 USB3 HOST 端口<br/>1 个 USB3 OTG 口</td>
   </tr>
   <tr>
-    <th>FAN</th>
-    <th>有一个 2 针 1.25mm 接头，可让用户连接 5V 风扇（或其他外设）<br/>风扇可由 PWM 控制，无速度反馈。</th>
+    <td>FAN</td>
+    <td>有一个 2 针 1.25mm 接头，可让用户连接 5V 风扇（或其他外设）<br/>风扇可由 PWM 控制，无速度反馈。</td>
   </tr>
   <tr>
-    <th>摄像头接口</th>
-    <th>配备多功能 2 通道 MIPI CSI 摄像头端口，可与各种广泛使用的工业摄像头外设兼容。<br/>这不仅保证了灵活性和易于集成，还为用户提供了多种摄像头选项，以满足特定需求。</th>
+    <td>摄像头接口</td>
+    <td>配备多功能 2 通道 MIPI CSI 摄像头端口，可与各种广泛使用的工业摄像头外设兼容。<br/>这不仅保证了灵活性和易于集成，还为用户提供了多种摄像头选项，以满足特定需求。</td>
   </tr>
   <tr>
-    <th>M.2 连接器</th>
-    <th>配备 M.2 M Key 2280 SSD 插槽和 PCIe 3.0 x2 通道接口<br/>拥有 M.2 E Key 插槽，提供多种接口，包括 SDIO、UART、PCIe 2.0、SATA 和 USB。此配置极大地促进了高速 WiFi 和蓝牙连接，包括对最新 WiFi 6 标准的支持。该插槽与 SDIO 类型的标准 M.2 无线模块完全兼容，确保轻松集成并增强无线功能。<br/>通过其 M.2 B Key 插槽提供 USB 接口。与 SIM 卡结合使用时（ROCK 3B 具有 SIM 插槽），可实现高速 4G 手机连接，并确保与标准 M.2 3042 B Key 模块兼容。</th>
+    <td>M.2 连接器</td>
+    <td>配备 M.2 M Key 2280 SSD 插槽和 PCIe 3.0 x2 通道接口<br/>拥有 M.2 E Key 插槽，提供多种接口，包括 SDIO、UART、PCIe 2.0、SATA 和 USB。此配置极大地促进了高速 WiFi 和蓝牙连接，包括对最新 WiFi 6 标准的支持。该插槽与 SDIO 类型的标准 M.2 无线模块完全兼容，确保轻松集成并增强无线功能。<br/>通过其 M.2 B Key 插槽提供 USB 接口。与 SIM 卡结合使用时（ROCK 3B 具有 SIM 插槽），可实现高速 4G 手机连接，并确保与标准 M.2 3042 B Key 模块兼容。</td>
   </tr>
   <tr>
-    <th>音频接口</th>
-    <th>通过 4 环 3.5 毫米耳机插孔提供出色的模拟音频功能，提供接近 CD 质量的输出。此模拟音频输出足够强大，可直接为 32 欧姆耳机供电，确保强劲而身临其境的音频体验。</th>
+    <td>音频接口</td>
+    <td>通过 4 环 3.5 毫米耳机插孔提供出色的模拟音频功能，提供接近 CD 质量的输出。此模拟音频输出足够强大，可直接为 32 欧姆耳机供电，确保强劲而身临其境的音频体验。</td>
   </tr>
   <tr>
-    <th>40-PIN Header</th>
-    <th>1 x ADC<br/>2 x CAN<br/>27 x GPIO<br/>3 x I2C<br/>7 x PWM<br/>1 x SPI<br/>6 x UART<br/></th>
+    <td>40-PIN Header</td>
+    <td>1 x ADC<br/>2 x CAN<br/>27 x GPIO<br/>3 x I2C<br/>7 x PWM<br/>1 x SPI<br/>6 x UART<br/></td>
   </tr>
   <tr>
-    <th>尺寸</th>
-    <th>100 mm x 75 mm </th>
+    <td>尺寸</td>
+    <td>100 mm x 75 mm </td>
   </tr>
 </table>
