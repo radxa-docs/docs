@@ -10,7 +10,7 @@ The Radxa ROCK 3B is a single board computer (SBC) based on the Pico-ITX form fa
 
 ### Interfaces galore
 
-The ROCK 3B offers a wealth of interfaces, including multiple USB, HDMI and other ports, making it easy to connect external devices and expand functionality. See [Parameter Configuration](#Parameter-Configuration) for details.
+The ROCK 3B offers a wealth of interfaces, including multiple USB, HDMI and other ports, making it easy to connect external devices and expand functionality. See **Parameter Configuration** part below for details.
 
 ### Accessory Eco-Rich
 
