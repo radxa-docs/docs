@@ -6,9 +6,11 @@
 
 2. 查看容量
 
-   <pre>
-     radxa@{props.model}:~$ sudo nvme list [sudo] password for radxa: Node SN
-     Model Namespace Usage Format FW Rev ---------------- --------------------
+   <pre style={{ whiteSpace: "nowrap" }}>
+     radxa@{props.model}:~$ sudo nvme list
+     <br />
+     [sudo] password for radxa: Node SN Model Namespace Usage Format FW Rev
+     ---------------- --------------------
      ---------------------------------------- ---------
      -------------------------- ---------------- -------- /dev/nvme0n1
      50026B7684E3662B KINGSTON OM8PDP3256B-A01 1 256.06 GB / 256.06 GB 512 B + 0
@@ -23,7 +25,7 @@
 
 2. 写测试
 
-   <pre>
+   <pre style={{ whiteSpace: "nowrap" }}>
      radxa@{props.model}:~$ fio -rw=read -bs=1m -runtime=60 -iodepth 1
      -numjobs=8 -size=1G -filename /dev/nvme0n1 -ioengine libaio -direct=1
      -group_reporting -name seq_read
@@ -31,15 +33,11 @@
 
 {" "}
 
-<img
-  src={props.read_test_img}
-  alt="camera connection"
-  style={{ width: "80%" }}
-/>
+<img src={props.read_test_img} alt="write test" style={{ width: "80%" }} />
 
 3. 读测试
 
-   <pre>
+   <pre style={{ whiteSpace: "nowrap" }}>
      radxa@{props.model}:~$ fio -rw=write -bs=1m -runtime=60 -iodepth 1
      -numjobs=8 -size=1G -filename /dev/nvme0n1 -ioengine libaio -direct=1
      -group_reporting -name seq_write
@@ -47,11 +45,7 @@
 
 {" "}
 
-<img
-  src={props.write_test_img}
-  alt="camera connection"
-  style={{ width: "80%" }}
-/>
+<img src={props.write_test_img} alt="read test" style={{ width: "80%" }} />
 
 ### 从 NVME 启动系统
 

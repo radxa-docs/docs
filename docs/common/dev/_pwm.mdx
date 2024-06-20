@@ -8,7 +8,7 @@ PWM 简介
 ### 准备
 
 <ul>
-  <li>一块 {props.model}</li>
+  <li>一块 {props.product_name}</li>
   <li>一个 LED 灯</li>
 </ul>
 
@@ -84,10 +84,10 @@ sudo apt-get install python3-periphery
 
 - 在终端中，执行以下命令进行测试
 
-<PreView params={{ model: props.model }}>
+<PreView params={{ model: props.model, chip: props.chip }}>
   {`
   radxa@#model#:~$ sudo python3 Pwm_led_test.py
-  pwmchip:0
+  pwmchip:#chip#
   channel:0
   `}
 </PreView>

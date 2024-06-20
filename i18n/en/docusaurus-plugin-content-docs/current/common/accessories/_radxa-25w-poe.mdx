@@ -1,0 +1,35 @@
+## List of materials
+
+- As shown
+
+![25W PoE pkg](/img/accessories/poe-hat/25w-poe-pkg.webp)
+
+## Installation Procedure
+
+Please refer to [Radxa 25W PoE HAT](/accessories/radxa-25w-poe)
+
+## Fan speed control
+
+### Enable 25W PoE Overlay
+
+If you need to enable the temperature control fan and temperature sensor, you need to enable the corresponding Overlay.
+
+Please refer to [Device Tree Configuration](../../radxa-os/rsetup#overlays) to enable the Overlay named "Enable Radxa 25W PoE HAT".
+
+```bash.
+  [*] Enable Radxa 25W PoE HAT
+```
+
+Finally, reboot the device to load the Overlay.
+
+:::info
+If you cannot find the corresponding Overlay in `rsetup`, please refer to the [System Update Guide](../../radxa-os/rsetup#system-update) to perform a system update first, and then perform the above actions.
+:::
+
+### Check the temperature sensor reading
+
+After executing the following command, the second line outputs `t=XXYYYY` which is the current temperature (XX.YYY degrees Celsius):
+
+```bash
+cat /sys/bus/w1/devices/28-*/w1_slave
+```

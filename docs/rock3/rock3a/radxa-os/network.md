@@ -2,4 +2,4 @@ import Network from "../../../common/radxa-os/\_network.mdx";
 
 # 网络设置
 
-<Network />
+<Network product="Radxa ROCK 3A" />
