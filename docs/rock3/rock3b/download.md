@@ -10,14 +10,6 @@ import Images from "./\_image.mdx"
 
 <Images loader={false} system_img={true} spi_img={false} />
 
-:::caution
-
-非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到对应的社区寻求帮助。
-
-:::
-
-更多镜像请查看：[Radxa ROCK 3B Release](https://github.com/radxa-build/rock-3b/releases)
-
 ## 硬件设计
 
 ### V1.5

@@ -10,14 +10,6 @@ import Images from "./\_image.mdx"
 
 <Images loader={false} system_img={true} spi_img={false} />
 
-:::caution
-
-Radxa cannot guarantee the full functionality of mirrors that are not officially maintained by Radxa. If you encounter problems, please seek help from the corresponding community.
-
-:::
-
-For more Images check out: [Radxa ROCK 3B Release](https://github.com/radxa-build/rock-3b/releases)
-
 ## Hardware Design
 
 ### V1.5
