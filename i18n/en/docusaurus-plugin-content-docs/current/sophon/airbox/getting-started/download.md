@@ -2,6 +2,7 @@
 sidebar_position: 4
 title: Resource Download
 ---
+
 ### Image
 
 #### Base image
@@ -15,7 +16,6 @@ Size: 1.2G
 MD5: 2c384ae51ce63cf2ea10ebce597408c4
 
 - [Radxa Download Station](https://dl.radxa.com/sg2300x/images/sdcard-radxa-airbox-b5-20240606-basic.img)
-
 
 #### Full image
 

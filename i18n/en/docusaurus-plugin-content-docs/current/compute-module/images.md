@@ -38,7 +38,8 @@ CM3 IO： https://github.com/radxa-build/radxa-cm3-io/releases/download/b27/radx
 
 ### Official Images
 
-Radxa CM5 IO: [radxa-cm5-io_debian_bullseye-test_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/b2/radxa-cm5-io_debian_bullseye_kde_b2.img.xz)   
+Radxa CM5 IO: [radxa-cm5-io_debian_bullseye-test_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/b2/radxa-cm5-io_debian_bullseye_kde_b2.img.xz)
+
 Radxa CM5 on RPI CM4 IO : [radxa-cm5-rpi-cm4-io_debian_bullseye_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/b2/radxa-cm5-rpi-cm4-io_debian_bullseye_kde_b2.img.xz)
 
 </TabItem>
