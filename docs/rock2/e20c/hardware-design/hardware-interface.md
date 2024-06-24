@@ -54,8 +54,6 @@ sidebar_position: 1
 
 ## Gigabit Ethernet Port
 
-有两个
-
 ## right
 
 提供以太网接口，可接入千兆以太网
