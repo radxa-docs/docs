@@ -4,7 +4,7 @@ The SSH service is automatically enabled when no monitor is connected during the
 
 ## Ethernet
 
-You can refer to this guide: [Network Settings](network).
+You can refer to this guide: <a href={props.network}>Network Settings</a>.
 Connect the SBC to **the same network** as your computer via wired connection.
 
 ## Wireless
@@ -25,12 +25,12 @@ To enable automatic Wi-Fi connection, add the following line in **before.txt**:
 connect_wi-fi YOUR_WIFI_SSID YOUR_WIFI_PASSWORD
 ```
 
-Check out [Network Settings](network) for more useful information.
+Check out <a href={props.network}>Network Settings</a> for more useful information.
 
 ## Get IP Address
 
 It will be simple when you can connect the SBC to your personal computer by serial port tool:
-Please refer to the [UART Serial Console](../low-level-dev/serial).
+Please refer to the <a href={props.serial} >UART Serial Console</a>.
 
 - Access to the terminal via the serial software like `putty` or `minicom`.
 - Turn on the product and wait for login prompt.
@@ -41,7 +41,7 @@ You can also get the IP from your router's DHCP lease page. Refer to your router
 
 ## SSH Connection
 
-There is the [Remote Access - SSH](remote-access#ssh).
+There is the <a href={props.remote_ssh}> Remote Access - SSH</a>.
 
 After installing the ssh service, connect remotely directly on terminal via username and ip address like following code.
 `ssh <username>@[IP address]`

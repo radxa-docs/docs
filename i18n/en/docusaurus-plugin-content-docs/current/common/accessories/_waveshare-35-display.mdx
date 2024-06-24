@@ -1,0 +1,59 @@
+- Connecting this display
+
+Connect the screen to the development board as follows:
+
+<img
+  src={props.waveshare_lcd}
+  style={{ width: "80%" }}
+  alt="waveshare spi tft display"
+/>
+
+- Use rsetup to enable the corresponding overlay
+
+- After entering rsetup, enter the device tree management interface
+
+:::tip
+
+Please enable [] {props.overlays_title} Overlay。<br/>
+Exit and reboot after enabling the successful display of [*] {props.overlays_title} for the configuration to take effect.
+
+:::
+
+- Enable Waveshare 3.5 inch Display overlay
+
+<pre>[*] {props.overlays_title}</pre>
+
+- Configuration Display
+
+- Backup /etc/X11/xorg.conf.d/20-modesetting.conf
+
+```
+sudo cp /etc/X11/xorg.conf.d/20-modesetting.conf /etc/X11/xorg.conf.d/20-modesetting.conf.bak
+```
+
+- Clear the existing content and add the following
+
+<pre>
+  Section "Device" &nbsp;&nbsp;&nbsp;&nbsp;Identifier "Rockchip Graphics"
+  &nbsp;&nbsp;&nbsp;&nbsp;Driver "fbdev" &nbsp;&nbsp;&nbsp;&nbsp;Option "fbdev"
+  "/dev/{props.fbdev}" &nbsp;&nbsp;&nbsp;&nbsp;Option "DRI" "2" EndSection
+</pre>
+
+-
+
+Add a configuration file 99-touchscreen-calibration.conf under /etc/X11/xorg.conf.d with the following contents:
+
+<pre>
+  Section "InputClass" &nbsp;&nbsp;&nbsp;&nbsp;Identifier "calibration"
+  &nbsp;&nbsp;&nbsp;&nbsp;MatchProduct "ADS7846 Touchscreen"
+  &nbsp;&nbsp;&nbsp;&nbsp;Option "TransformationMatrix" "-1 0 1 0 1 0 0 0 1"
+  EndSection
+</pre>
+
+- Reboot
+
+```
+sudo reboot
+```
+
+After rebooting the system, the screen should now display normally.

@@ -2,4 +2,4 @@ import Network from "../../../common/radxa-os/\_network.mdx";
 
 # Network Settings
 
-<Network />
+<Network product="Radxa ZERO" />

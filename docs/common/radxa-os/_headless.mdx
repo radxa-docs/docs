@@ -4,7 +4,7 @@
 
 ## 以太网
 
-网络设置可以参考这个指南： [网络设置](network)。
+网络设置可以参考这个指南： <a href={props.network} >网络设置</a> 。
 通过有线连接将SBC连接到与你的计算机**相同的网络**。
 
 ## 无线网
@@ -25,12 +25,12 @@
 connect_wi-fi YOUR_WIFI_SSID YOUR_WIFI_PASSWORD
 ```
 
-查看 [网络设置](network) 以获取更多有用信息。
+查看 <a href={props.network} >网络设置</a> 以获取更多有用信息。
 
 ## 获取IP地址
 
 相对来说， 使用串口工具连接SBC和你的电脑后会更简单：
-请参考[UART 串口控制台](../low-level-dev/serial)。
+请参考<a href={props.serial}> UART 串口控制台 </a>。
 
 - 通过串口通讯软件如`putty`或`minicom`访问终端。
 - 将机器开机并等待登录提示。
@@ -41,7 +41,7 @@ connect_wi-fi YOUR_WIFI_SSID YOUR_WIFI_PASSWORD
 
 ## SSH连接
 
-请查阅[远程访问 - SSH](remote-access#ssh)。
+请查阅<a href={props.remote_ssh}>远程访问 - SSH</a>。
 
 安装ssh服务后，通过用户名和ip地址直接在终端上进行远程连接，如以下代码：
 `ssh <username>@[IP address]`
