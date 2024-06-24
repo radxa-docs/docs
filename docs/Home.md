@@ -12,20 +12,20 @@ sidebar_custom_props:
     product_docs:
       [
         {
-          series_en: "ROCK 2 Family",
-          series_zh: "ROCK 2 系列",
-          series_introduction_en: "ROCK 2 is a series of Rockchip RK3528A based SBC(Single Board Computer) by Radxa. It can run android or some Linux distributions.",
-          series_introduction_zh: "ROCK 2 是 Radxa 推出的一系列基于 Rockchip RK3528A 的 SBC（单板计算机）。它可以运行安卓或某些 Linux 发行版。",
+          series_en: "E Family",
+          series_zh: "E 系列",
+          series_introduction_en: "E is a family of network computing products from Radxa. It can run Debian, Openwrt and other systems.",
+          series_introduction_zh: "E 是 Radxa 推出的网络计算产品系列。它可以运行 Debian,Openwrt等系统",
           products:
             [
               {
                 products_name: "Radxa E20C",
-                products_photo_url: "/home/product-pictures/rock3a.webp",
-                products_link: "/rock2/e20c",
+                products_photo_url: "/home/product-pictures/e20c.webp",
+                products_link: "/e/e20c",
                 docs:
                   [
                     {
-                      docs_link: "/rock2/e20c",
+                      docs_link: "/e/e20c",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
                       docs_name_zh: "Radxa E20C 概览",

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 6
 ---
 
 import Images from "./\_image.mdx"
@@ -15,15 +15,9 @@ Radxa E20C V1.1 版本
 
 ## 操作系统镜像
 
-<Images loader={false} system_img={true} />
+istoreos:
 
-:::caution
-
-非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到对应的社区寻求帮助。
-
-:::
-
-更多镜像请查看：[Radxa E20C Release](https://github.com/radxa-build/rock-2a/releases)
+[istoreos-22.03.6-2024061415-e20c-squashfs.img.xz](https://dl.radxa.com/rock2/images/istoreos/istoreos-22.03.6-2024061415-e20c-squashfs.img.gz)
 
 ## 质量认证
 
