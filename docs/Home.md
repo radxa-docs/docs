@@ -20,7 +20,7 @@ sidebar_custom_props:
             [
               {
                 products_name: "Radxa E20C",
-                products_photo_url: "/home/product-pictures/rock3a.webp",
+                products_photo_url: "/home/product-pictures/e20c-real.webp",
                 products_link: "/rock2/e20c",
                 docs:
                   [
