@@ -8,7 +8,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 ## 实物图
 
-<img src="/img/radxa-e20c/radxa-e20c-machine.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-machine.webp" width="500" alt="radxa-e20c pack" />
 
 要启动 Radxa E20C，您需要以下设备：
 
@@ -30,21 +30,21 @@ import { Section, Image } from "@site/src/utils/docs";
 
 1.将 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接 Radxa E20C 调试口，波特率设置为1500000
 
-<img src="/img/radxa-e20c/radxa-e20c-serial-login1.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-serial-login1.webp" width="500" alt="radxa-e20c pack" />
 
 2.将电源适配器插入 Radxa E20C 的电源接口。设备上电启动，系统状态灯将亮起。
 
-<img src="/img/radxa-e20c/radxa-e20c-serial-login2.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-serial-login2.webp" width="500" alt="radxa-e20c pack" />
 
 3.系统起来之后，系统状态灯会闪烁
 
-<img src="/img/radxa-e20c/radxa-e20c-power1.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-power1.webp" width="500" alt="radxa-e20c pack" />
 
 4.如果是 windows 系统，确保电脑已安装 CH340 驱动
 
 将 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接 Radxa E20C 调试口，在电脑的设备管理器查看是否已经有 CH340 驱动
 
-<img src="/img/radxa-e20c/radxa-e20c-ch340-install.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-ch340-install.webp" width="500" alt="radxa-e20c pack" />
 
 能看到上图中的 USB-SERIAL CH340 表示已有驱动，如果没有，请安装 [CH340驱动](https://www.wch.cn/download/CH341SER_EXE.html)
 
@@ -181,15 +181,15 @@ Picocom 是一个可以在 Mac 上使用，支持多种波特率的串口工具�
 
 1.将网线接到 WAN 或者 LAN 口，下面以接入 WAN 口举例说明如何用 SSH 方式访问设备
 
-<img src="/img/radxa-e20c/radxa-e20c-serial-net-login1.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-serial-net-login1.webp" width="500" alt="radxa-e20c pack" />
 
 2.将电源适配器插入 Radxa E20C 的电源接口。设备上电启动，系统状态灯将亮起。
 
-<img src="/img/radxa-e20c/radxa-e20c-serial-net-login2.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-serial-net-login2.webp" width="500" alt="radxa-e20c pack" />
 
 3.系统起来之后，系统状态灯会闪烁，WAN 口的灯也将会亮起
 
-<img src="/img/radxa-e20c/radxa-e20c-power2.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-power2.webp" width="500" alt="radxa-e20c pack" />
 
 4.使用 Angryip 查找 IP
 

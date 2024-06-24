@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## 接口预览
 
-<img src="/img/radxa-e20c/radxa-e20c-hardware-overview.webp" width="800" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-hardware-overview.webp" width="800" alt="radxa-e20c pack" />
 
 ## 接口使用说明
 

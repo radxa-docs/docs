@@ -6,15 +6,15 @@ sidebar_position: 1
 
 ## 芯片框图
 
-<img src="/img/radxa-e20c/radxa-e20c-chip-diagram.webp" width="800" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-chip-diagram.webp" width="800" alt="radxa-e20c pack" />
 
 ## 系统框图
 
-<img src="/img/radxa-e20c/radxa-e20c-system-diagram.webp" width="800" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-system-diagram.webp" width="800" alt="radxa-e20c pack" />
 
 ## 硬件概览
 
-<img src="/img/radxa-e20c/radxa-e20c-hardware-overview.webp" width="800" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-hardware-overview.webp" width="800" alt="radxa-e20c pack" />
 
 以下是各个硬件接口的详细接口线序。
 
