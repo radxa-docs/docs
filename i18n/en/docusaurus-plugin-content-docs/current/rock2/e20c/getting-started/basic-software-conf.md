@@ -4,10 +4,10 @@ sidebar_position: 4
 
 import BasicSoftWareConf from "../../../common/radxa-os/\_basicSoftwareConf.mdx";
 
-# 快速设置
+# Quick Setup
 
 <BasicSoftWareConf model="e20c" />
 
 :::tip
-请参考我们的[瑞莎系统](../radxa-os/)章节，了解更多软件配置内容。
+Please refer to our [radxa-os](../radxa-os/) section for more information on software configuration.
 :::
