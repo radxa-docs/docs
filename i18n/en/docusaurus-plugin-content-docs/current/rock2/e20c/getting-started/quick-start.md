@@ -108,7 +108,7 @@ There may be cases where you do not have permission to read or write to the seri
 sudo chmod 777 /dev/ttyUSB0
 ```
 
-**Permanent: add the current user to the dialout group** ``bash sudo chmod 777 /dev/ttyUSB0**.
+**Permanent: add the current user to the dialout group** ``bash sudo chmod 777 /dev/ttyUSB0\*\*.
 
 ```bash
 sudo usermod -aG dialout $USER
@@ -127,7 +127,7 @@ sudo apt-get install minicom
 
 First, add the current non-root or non-sudo user to the plugdev group.
 
-```bash
+````bash
 sudo usermod -aG plugdev $USER
 ``
 
@@ -135,7 +135,7 @@ Edit ~/.bashrc, add the following parameters, and reopen a new terminal.
 
 ```bash
 alias minicom='minicom -w -t xterm -l -R UTF-8'
-```
+````
 
 Create and edit the file ~/.minirc.1500000-usb0 to add the following:
 

@@ -133,7 +133,7 @@ Micro SD, known as Micro Secure Digital, is a small memory card that is a varian
 
 #### recognises
 
-```bash
+````bash
 $ lsblk
 NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 mmcblk0 179:0 0 58G 0 disk
@@ -169,3 +169,4 @@ Read speed 274 MB/s
 ``
 
 Write speed: 52.0 MB/s
+````
