@@ -65,7 +65,7 @@ Radxa E20C 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者�
 
 ### 软件
 
-支持 Debian Linux，支持 OpenWrt，提供 Linux 硬件访问/控制库。
+支持 Debian Linux，支持 OpenWrt。
 
 ## 主板预览
 

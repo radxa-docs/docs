@@ -17,7 +17,7 @@ Radxa E20C V1.1 版本
 
 istoreos:
 
-[istoreos-22.03.6-2024061415-e20c-squashfs.img.xz](https://dl.radxa.com/rock2/images/istoreos/istoreos-22.03.6-2024061415-e20c-squashfs.img.gz)
+[istoreos-22.03.6-2024062511-e20c-squashfs.img.gz](https://dl.radxa.com/e/e20c/image/istoreos-22.03.6-2024062511-e20c-squashfs.img.gz)
 
 ## 质量认证
 

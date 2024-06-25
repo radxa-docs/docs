@@ -12,23 +12,23 @@ import { Section, Image } from "@site/src/utils/docs";
 
 要启动 Radxa E20C，您需要以下设备：
 
-- 一个 5V 的 DC 适配器，插头规格为 5.5x2.5mm，内为正极，外为地线。更多过供电详情，请参考[电源方案](./power-supply)。
+- 一个 5V/2A 的电源头（E20C 只支持 5V 输入，可以使用支持 5V 的 PD 电源头）更多过供电详情，请参考[电源方案](./power-supply)。
 - 一根 USB TYPE-A 转 TYPE-C 数据线，查看日志输出和访问系统。
 - 一根网线，通过 ssh 访问系统。
 
-:::tip
-电源适配器推荐使用官方的 [瑞莎 PD30W 适配器](../accessories-guides/pd30w)。
-:::
-
 ## 安装操作系统
 
-参考[安装系统](./install-os/) 部分安装操作系统。
+参考[安装系统](./install-os/) 安装操作系统。
 
 ## 接线和上电
 
 ### 串口访问
 
-1.将 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接 Radxa E20C 调试口，波特率设置为1500000
+1.将 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接 Radxa E20C 调试口，波特率设置为115200
+
+:::tip
+早期版本设置的波特率是1500000, 后面更改为了115200，如果115200无法工作，请尝试更换为1500000
+:::
 
 <img src="/img/e/e20c/radxa-e20c-serial-login1.webp" width="500" alt="radxa-e20c pack" />
 

@@ -527,7 +527,7 @@ sidebar_custom_props:
         {
           series_en: "E Family",
           series_zh: "E 系列",
-          series_introduction_en: "E is a family of network computing products from Radxa. It can run Debian, Openwrt and other systems.",
+          series_introduction_en: "E is a series of network computing products from Radxa. It can run Debian, Openwrt and other systems.",
           series_introduction_zh: "E 是 Radxa 推出的网络计算产品系列。它可以运行 Debian,Openwrt等系统",
           products:
             [
@@ -542,7 +542,7 @@ sidebar_custom_props:
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
                       docs_name_zh: "Radxa E20C 概览",
-                      docs_info_en: "Overview of the ROCK 2A",
+                      docs_info_en: "Overview of the E20C",
                       docs_info_zh: "Radxa E20C 概览",
                     },
                   ],
