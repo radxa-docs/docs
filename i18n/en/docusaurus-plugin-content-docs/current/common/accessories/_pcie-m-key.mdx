@@ -23,7 +23,7 @@
 
    <pre>radxa@{props.model}:~$ sudo apt install fio</pre>
 
-2. Writing test
+2. Reading test
 
    <pre style={{ whiteSpace: "nowrap" }}>
      radxa@{props.model}:~$ fio -rw=read -bs=1m -runtime=60 -iodepth 1
@@ -33,9 +33,9 @@
 
 {" "}
 
-<img src={props.read_test_img} alt="write test" style={{ width: "80%" }} />
+<img src={props.write_test_img} alt="read test" style={{ width: "80%" }} />
 
-3. Reading test
+3. Writing test
 
    <pre style={{ whiteSpace: "nowrap" }}>
      radxa@{props.model}:~$ fio -rw=write -bs=1m -runtime=60 -iodepth 1
@@ -45,7 +45,7 @@
 
 {" "}
 
-<img src={props.write_test_img} alt="read test" style={{ width: "80%" }} />
+<img src={props.read_test_img} alt="write test" style={{ width: "80%" }} />
 
 ### Booting the system from NVME
 
