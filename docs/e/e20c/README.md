@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 50
 ---
 
-# Radxa E20C
+# E20C
 
 一台具有 4K 解码的网络计算机
 
