@@ -294,13 +294,11 @@ zh/zero/zero/other-os/README.md @CodeChenL
 en/zero/zero/other-os/android/low-level-dev.md @CodeChenL
 en/zero/zero/radxa-os/remote-access.md @CodeChenL
 static/img/rock3/3c/rock3c-8hd-overlay.webp @Radxa-Alvin
-<<<<<<< HEAD
 docs/nio/nio12l/install-yocto-system.md @Radxa-Alvin
 i18n/en/docusaurus-plugin-content-docs/current/nio/nio12l/install-yocto-system.md @Radxa-Alvin
 static/img/common/nvme/writing_mtd.webp @nascs
 i18n/en/docusaurus-plugin-content-docs/current/common/dev/_nvme.mdx @nascs
 static/img/common/nvme/success.webp @nascs
-=======
 i18n/en/docusaurus-plugin-content-docs/current/zero/zero2pro/radxa-os/office.md @CodeChenL
 i18n/en/docusaurus-plugin-content-docs/current/zero/zero2pro/app-development/gpiod.md @CodeChenL
 docs/zero/zero2pro/radxa-os/autologin.md @CodeChenL
@@ -321,4 +319,7 @@ i18n/en/docusaurus-plugin-content-docs/current/zero/zero2pro/getting-started/ins
 i18n/en/docusaurus-plugin-content-docs/current/zero/zero2pro/low-level-dev/kernel.md @CodeChenL
 i18n/en/docusaurus-plugin-content-docs/current/zero/zero2pro/radxa-os/README.md @CodeChenL
 i18n/en/docusaurus-plugin-content-docs/current/zero/zero2pro/apps-deployment/docker.md @CodeChenL
->>>>>>> docs_zero2
+docs/common/accessories/_wifi-bt.mdx @nascs
+docs/rock5/rock5c/radxa-os/media.md @nascs
+docs/rock5/rock5a/getting-started/install-os/boot_from_emmc.md @peterwang2050
+static/img/roobi/select_image_cn.webp @shawnchainw
