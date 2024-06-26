@@ -1,0 +1,177 @@
+import Loader from "../general/_loader.mdx";
+import { PreView } from "@site/src/utils/docs";
+
+## Install rkdeveloptool
+
+rkdeveloptool is Rockchip's software for USB burning on Linux/macOS platforms.
+
+The rkdeveloptool can be thought of as an upgrade_tool for the [open source version](https://opensource.rock-chips.com/wiki_Rkdeveloptool).
+
+If your operating system does not provide rkdeveloptool, you will need to compile and install it from source.
+
+<div>
+  {props.platform === "linux" ? (
+    <div>
+      <Tabs queryString="host">
+        <TabItem value="Debian">
+          <p>Execute the following command from the command line to install:</p>
+          <PreView>
+            sudo apt-get update
+            <br />
+            sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf
+            pkg-config libusb-1.0 build-essential git wget
+            <br />
+            git clone https://github.com/rockchip-linux/rkdeveloptool
+            <br />
+            cd rkdeveloptool
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+            <br />
+            git am *.patch
+            <br />
+            autoreconf -i
+            <br />
+            ./configure
+            <br />
+            make -j $(nproc)
+            <br />
+            sudo cp rkdeveloptool /usr/local/sbin/
+            <br />
+          </PreView>
+        </TabItem>
+        <TabItem value="Ubuntu">
+          <p>Execute the following command from the command line to install:</p>
+          <PreView>
+            sudo apt-get update
+            <br />
+            sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf
+            pkg-config libusb-1.0 build-essential git wget
+            <br />
+            git clone https://github.com/rockchip-linux/rkdeveloptool
+            <br />
+            cd rkdeveloptool
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+            <br />
+            git am *.patch
+            <br />
+            autoreconf -i
+            <br />
+            ./configure
+            <br />
+            make -j $(nproc)
+            <br />
+            sudo cp rkdeveloptool /usr/local/sbin/
+            <br />
+          </PreView>
+          <strong>
+            On Ubuntu 22.10 and later you can install it from the command line:
+            sudo apt-get install rkdeveloptool
+          </strong>
+        </TabItem>
+        <TabItem value="ArchLinux">
+          <pre>
+            rkdeveloptool can be installed from the{" "}
+            <a href="https://aur.archlinux.org/packages/rkdeveloptool">
+              {" "}
+              AUR .
+            </a>{" "}
+          </pre>
+        </TabItem>
+      </Tabs>{" "}
+    </div>
+  ) : null}
+  {props.platform === "macos" ? (
+    <div>
+      <p>
+        Please install <a href="https://brew.sh/">Homebrew</a> first and then
+        run the following command from the command line to install it:
+      </p>
+      <PreView>
+        brew install automake autoconf libusb pkg-config git wget
+        <br />
+        git clone https://github.com/rockchip-linux/rkdeveloptool
+        <br />
+        cd rkdeveloptool
+        <br />
+        wget
+        https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+        <br />
+        wget
+        https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+        <br />
+        git am *.patch
+        <br />
+        autoreconf -i
+        <br />
+        ./configure
+        <br />
+        make -j $(nproc)
+        <br />
+        cp rkdeveloptool /opt/homebrew/bin/
+        <br />
+      </PreView>{" "}
+    </div>
+  ) : null}
+</div>
+
+## 进入 Maskrom
+
+<div>
+
+{props.children}
+
+</div>
+
+## Using rkdeveloptool
+
+### Write to a file
+
+:::tip
+rkdeveloptool does not automatically decompress compressed files when writing to them.
+
+You must first extract the used files and specify the extracted files in rkdeveloptool.
+:::
+
+:::tip
+rkdeveloptool does not support the selection of a Maskrom device, nor the selection of a storage medium to be written to.
+Normally, when using rkdeveloptool, only one device and one storage medium are connected in hardware. This step cannot be controlled by software.
+
+If you need to write to multiple devices at the same time, use upgrade_tool.
+:::
+
+1. Extract the image file (See **File Download** above for details of the image file, here rock5_debian_bullseye-test_desktop_release_b39.img.xz is used as an example)
+
+```bash
+xz -d rock5_debian_bullseye-test_desktop_release_b39.img.xz
+```
+
+2. Flash Loader(See **File Download** above for details of the loader file，here rk3528_spl_loader_v1.xxx.bin is just an example)
+
+```bash
+sudo rkdeveloptool db rk3528_spl_loader_v1.xxx.bin
+```
+
+3. Flash System Image (Here rock5_debian_bullseye-test_desktop_release_b39.img is an example, use the file got from step1 as a replacement)
+
+```bash
+sudo rkdeveloptool wl 0 ock5_debian_bullseye-test_desktop_release_b39.img
+```
+
+## Reboot
+
+```bash
+sudo rkdeveloptool rd
+```
+
+## Login
+
+After rebooting the device, you can log in to the system via HDMI or serial port.
