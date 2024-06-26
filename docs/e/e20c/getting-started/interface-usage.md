@@ -129,7 +129,7 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
 Micro SD，全称Micro Secure Digital，是一种小型存储卡，属于Secure Digital（SD）卡的一种变种。它是由SD卡协会（SD Association）制定和推出的，旨在为便携设备提供可扩展的存储解决方案。
 
-### eMMc
+### eMMC
 
 #### 识别
 

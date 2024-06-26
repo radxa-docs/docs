@@ -129,9 +129,9 @@ Maskrom button to enter Maskrom mode to complete the flashing.
 
 Micro SD, known as Micro Secure Digital, is a small memory card that is a variant of the Secure Digital (SD) card. It was developed and introduced by the SD Association to provide expandable storage solutions for portable devices.
 
-### eMMc
+### eMMC
 
-#### recognises
+#### List Disk
 
 ````bash
 $ lsblk
