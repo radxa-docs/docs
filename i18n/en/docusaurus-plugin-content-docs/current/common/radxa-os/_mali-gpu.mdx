@@ -1,0 +1,33 @@
+Rock 5 series uses Panthor GPU driver by default in Debian Bookworm version, if you need to switch to Mali GPU driver, please follow the tutorial below.
+
+## Use Rockchip's proprietary xorg-xserver version
+
+Add `/etc/apt/preferences.d/mali` file with the following contents:
+
+```bash
+Package: *xserver*
+Pin: release a=rk3588-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3588s2-bookworm
+Pin-Priority: 1001
+```
+
+Then refer to [System Upgrade Using `rsetup`](./rsetup#system-update) to reinstall Rockchip proprietary packages.
+
+## Installing the Mali User Level Driver
+
+```bash
+sudo apt-get install libmali-valhall-g610-g13p0-x11-gbm
+```
+
+## Enable Mali GPU Overlay
+
+Refer to [Overlay opening tutorial](./rsetup#overlays)，enable `Enable Arm Mali GPU driver` Overlay.
+
+## Reboot system
+
+```
+sudo reboot
+```

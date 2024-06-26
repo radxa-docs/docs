@@ -1,0 +1,33 @@
+ROCK 5 系列在 Debian 12 (Bookworm) 版本默认使用 Panthor GPU 驱动，如需切换到 Mali GPU 驱动，请根据下方教程操作。
+
+## 使用 Rockchip 专有 xorg-xserver 版本
+
+添加 `/etc/apt/preferences.d/mali` 文件，内容为：
+
+```bash
+Package: *xserver*
+Pin: release a=rk3588-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3588s2-bookworm
+Pin-Priority: 1001
+```
+
+然后参考[使用 `rsetup` 进行系统升级](./rsetup#system-update)来重新安装 Rockchip 专有软件包。
+
+## 安装 Mali 用户层驱动
+
+```bash
+sudo apt-get install libmali-valhall-g610-g13p0-x11-gbm
+```
+
+## 开启 Mali GPU Overlay
+
+参考 [Overlay 开启教程](./rsetup#overlays)，开启 `Enable Arm Mali GPU driver` Overlay。
+
+## 重启系统
+
+```
+sudo reboot
+```
