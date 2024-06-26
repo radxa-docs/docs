@@ -85,7 +85,7 @@ Support Debian, OpenWrt
 
 ### Back
 
-<img src="/img/e/e20c/radxa-e20c-board-nagative.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-board-negative.webp" width="500" alt="radxa-e20c pack" />
 
 ### Side
 

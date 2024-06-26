@@ -82,7 +82,7 @@ Radxa E20C 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者�
 
 ### 背面
 
-<img src="/img/e/e20c/radxa-e20c-board-nagative.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-board-negative.webp" width="500" alt="radxa-e20c pack" />
 
 ### 侧面
 

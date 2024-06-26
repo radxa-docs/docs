@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-import RemoteAccess from "/docs/common/radxa-os/_remote-access.mdx";
+import RemoteAccess from "/docs/common/radxa-os/\_remote-access.mdx";
 
 # Quick Setup
 

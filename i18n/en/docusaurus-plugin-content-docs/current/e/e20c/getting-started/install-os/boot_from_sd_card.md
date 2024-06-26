@@ -27,4 +27,10 @@ After successfully installed OS in the MicroSD Card, insert the MicroSD Card int
 
 ## Logging in to the system
 
-After the system boots, log in using the radxa account with the password radxa.
+For RadxaOS
+
+User: radxa, Password: radxa
+
+For iStoreOS
+
+User: root, Password: password

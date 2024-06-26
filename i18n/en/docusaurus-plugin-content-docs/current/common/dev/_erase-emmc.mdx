@@ -1,0 +1,69 @@
+## Enter to Maskrom Mode
+
+<div>
+
+{props.children}
+
+</div>
+
+## Clear eMMC
+
+<Tabs queryString="Host">
+    <TabItem value="Linux/MacOS">
+    1. Generate zero.img
+
+        ```bash
+        dd if=/dev/zero of=./zero.img bs=1M count=64
+        ```
+
+    2. Make sure the host recognises Maskrom
+
+        ```
+        sudo rkdeveloptool ld
+        DevNo=1	Vid=0x2207,Pid=0x350a,LocationID=109	Maskrom
+        ```
+
+    3. Flash Loader
+
+    <pre>
+
+    Download the loader file <a href={props.loader}> Loader </a>, then installll the downloaded loader file (replace xxx_loader.bin with the downloaded file name in the following command)
+
+    sudo rkdeveloptool db xxx_loader.bin
+
+    </pre>
+
+    4. Erase eMMC
+
+    ```bash
+    sudo rkdeveloptool wl 0 zero.img
+    ```
+
+    5. Reboot
+
+    ```bash
+    sudo rkdeveloptool rd
+    ```
+
+    </TabItem>
+    <TabItem value="Windows">
+    Open the RkDevTool tool and we'll use the RkDevTool to erase
+
+    1. Make sure the host recognises Maskrom
+
+    2. Click on the button to the left of "Download" to select the Loader
+
+    3. Click "Download" to flash the  <a href={props.loader}> Loader </a>
+
+    4. Click "ReadCapability" to get current storage
+
+    5. Click on "Switch storage" to switch the storage to eMMC
+
+    6.  Click the "EraseAll" button to clear the eMMC
+
+    7. Click "ResetDevice"
+
+    <img src={props.rkdevtool_erase_emmc_img} style={{ width: "80%" }} alt="rkdevtool img" />
+    </TabItem>
+
+</Tabs>

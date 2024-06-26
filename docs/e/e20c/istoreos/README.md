@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
-# iStoreOS
+# iStoreOS 使用

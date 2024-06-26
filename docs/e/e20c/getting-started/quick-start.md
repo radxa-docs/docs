@@ -8,15 +8,15 @@ import { Section, Image } from "@site/src/utils/docs";
 
 ## 实物图
 
-目前 E20C 有多种配置，有带外壳的，有裸板的，有带板载 EMMC 的，有 EMMC 空贴的，请在操作前注意分辨自己的产品型号; 
+目前 E20C 有多种配置，有带外壳的，有裸板的，有带板载 EMMC 的，有 EMMC 空贴的，请在操作前注意分辨自己的产品型号;
 
 <img src="/img/e/e20c/radxa-e20c-machine.webp" width="500" alt="radxa-e20c pack" />
 
 要启动 Radxa E20C，您需要以下设备：
 
 - 一个 5V/2A 的电源头（E20C 只支持 5V 输入，可以使用支持 5V 的 PD 电源头）更多过供电详情，请参考[电源方案](./power-supply)。
-- 一根 USB TYPE-A 转 TYPE-C 数据线，查看日志输出和访问系统。
-- 一根网线，通过 ssh 访问系统。
+- 两根 USB TYPE-A 转 TYPE-C 数据线，供电及查看日志输出和访问系统。
+- 两根以太网网线
 
 ## 安装操作系统
 
@@ -45,7 +45,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 ### 浏览器登录
 
-如果此时 LAN 口接到 PC 上，在 PC 上可以通过浏览器通过 iStoreOS 默认的 ip 192.168.100.1 登录到 iStoreOS系统后台, iStoreOS 后台默认用户名为 root， 密码为 password. 
+如果此时 LAN 口接到 PC 上，在 PC 上可以通过浏览器通过 iStoreOS 默认的 ip 192.168.100.1 登录到 iStoreOS系统后台, iStoreOS 后台默认用户名为 root， 密码为 password.
 
 <img src="/img/e/e20c/e20c-istoreos-login.webp" width="700" alt="e20c-istoreos" />
 
@@ -53,11 +53,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 ### 串口登录
 
-1.将 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接 Radxa E20C 调试口，波特率设置为115200
-
-:::tip
-早期版本设置的波特率是1500000, 后面更改为了115200，如果115200无法工作，请尝试更换为1500000
-:::
+1.将 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接 Radxa E20C 调试口，波特率设置为1500000
 
 <img src="/img/e/e20c/radxa-e20c-serial-login1.webp" width="500" alt="radxa-e20c pack" />
 
@@ -236,8 +232,9 @@ iStoreOS 系统默认ip地址是 192.168.100.1
 
   5.SSH 连接到 Radxa E20C
 
-```bash
-ssh [username]@[IP address] # or ssh [username]@[hostname]
-```
-默认用户名: root
-默认密码: password
+  ```bash
+  ssh [username]@[IP address] # or ssh [username]@[hostname]
+  ```
+
+  默认用户名: root
+  默认密码: password

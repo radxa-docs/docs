@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # 快速设置
 
-import RemoteAccess from "/docs/common/radxa-os/_remote-access.mdx";
+import RemoteAccess from "/docs/common/radxa-os/\_remote-access.mdx";
 
 ## 用户名和密码
 
