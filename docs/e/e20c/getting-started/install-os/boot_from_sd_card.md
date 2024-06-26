@@ -27,4 +27,5 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## 登录系统
 
-系统启动后，使用 radxa 账号登录，密码为 radxa。
+如果是 RadxaOS 系统启动后， 默认账号是 radxa，密码为 radxa
+如果是 iStoreOS 系统启动后，默认账号是 root，密码是 password

@@ -8,6 +8,8 @@ import { Section, Image } from "@site/src/utils/docs";
 
 ## 实物图
 
+目前 E20C 有多种配置，有带外壳的，有裸板的，有带板载 EMMC 的，有 EMMC 空贴的，请在操作前注意分辨自己的产品型号; 
+
 <img src="/img/e/e20c/radxa-e20c-machine.webp" width="500" alt="radxa-e20c pack" />
 
 要启动 Radxa E20C，您需要以下设备：
@@ -18,11 +20,38 @@ import { Section, Image } from "@site/src/utils/docs";
 
 ## 安装操作系统
 
-参考[安装系统](./install-os/) 安装操作系统。
+<Tabs queryString="mode">
+
+<TabItem value="withemmc" label="带板载EMMC" default>
+
+出厂自带 [istoreos](../istoreos/istoreos.md) 系统，上电自启动，不需要烧录。
+
+</TabItem>
+
+<TabItem value="withoutemmc" label="不带板载EMMC">
+
+准备MicroSD卡, 参考[安装系统](./install-os/) 安装操作系统。
+
+</TabItem>
+</Tabs>
 
 ## 接线和上电
 
-### 串口访问
+连接 WAN 和 LAN， 然后上电，系统会自动起来
+
+<img src="/img/e/e20c/e20c-connect.webp" width="500" alt="e20c connect" />
+
+## 登录
+
+### 浏览器登录
+
+如果此时 LAN 口接到 PC 上，在 PC 上可以通过浏览器通过 iStoreOS 默认的 ip 192.168.100.1 登录到 iStoreOS系统后台, iStoreOS 后台默认用户名为 root， 密码为 password. 
+
+<img src="/img/e/e20c/e20c-istoreos-login.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/e20c-istoreos-login-enter.webp" width="700" alt="e20c-istoreos" />
+
+### 串口登录
 
 1.将 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接 Radxa E20C 调试口，波特率设置为115200
 
@@ -177,7 +206,7 @@ Picocom 是一个可以在 Mac 上使用，支持多种波特率的串口工具�
 </TabItem>
 </Tabs>
 
-### SSH 访问
+### SSH 登录
 
 1.将网线接到 WAN 或者 LAN 口，下面以接入 WAN 口举例说明如何用 SSH 方式访问设备
 
@@ -191,9 +220,11 @@ Picocom 是一个可以在 Mac 上使用，支持多种波特率的串口工具�
 
 <img src="/img/e/e20c/radxa-e20c-power2.webp" width="500" alt="radxa-e20c pack" />
 
-4.使用 Angryip 查找 IP
+4.查找 IP
 
-在无法直接操作主板获取无屏幕或远程 IP 地址时，可以使用此方法查找 IP 地址。
+iStoreOS 系统默认ip地址是 192.168.100.1
+
+但是如果用户自己修改了可以使用 Angryip 这个工具去查询
 
 - 首先主机需要下载 [Angryip](https://angryip.org/download/)，然后确保主机和主板在同一个局域网内。
 
@@ -208,20 +239,5 @@ Picocom 是一个可以在 Mac 上使用，支持多种波特率的串口工具�
 ```bash
 ssh [username]@[IP address] # or ssh [username]@[hostname]
 ```
-
-## 系统登录
-
-<table>
-  <tr>
-    <th>User name</th>
-    <th>Password</th>
-  </tr>
-  <tr>
-    <th>radxa</th>
-    <th>radxa</th>
-  </tr>
-  <tr>
-    <th>rock</th>
-    <th>rock</th>
-  </tr>
-</table>
+默认用户名: root
+默认密码: password
