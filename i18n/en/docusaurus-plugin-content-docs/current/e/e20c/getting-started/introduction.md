@@ -27,23 +27,23 @@ Radxa E20C provides a reliable and powerful platform for creators, IoT enthusias
     </tr>
     <tr>
         <td align="center">GPU</td>
-        <td colspan="2" align="center">ARM Mali-450 GPU，Supports OpenGL® ES1.1, ES2.0，OpenVG® 1.1</td>
+        <td colspan="2" align="center">ARM Mali-450 GPU, Supports OpenGL® ES1.1, ES2.0, OpenVG® 1.1</td>
     </tr>
     <tr>
         <td align="center">DDR</td>
-        <td colspan="2" align="center">1/2/4 64 bit LPDDR4</td>
+        <td colspan="2" align="center">1GB / 2GB / 4GB 32-bit LPDDR4</td>
     </tr>
     <tr>
         <td align="center">Storage</td>
-        <td align="center">eMMC onBoard：0/8/16/32/64 GB<br/>microSD Card</td>
+        <td align="center">eMMC onBoard: 0 / 8GB / 16GB / 32GB / 64GB<br/>microSD Card</td>
     </tr>
     <tr>
         <td align="center">Multimedia</td>
-        <td colspan="2" align="center">H.264、H.265 和 AVS2 decoder，up to 4Kx2K@60fps<br/>H.264、H.265 encoder，up to 1920x1080@60fps</td>
+        <td colspan="2" align="center">H.264, H.265 and AVS2 decoder, up to 4Kx2K@60fps<br/>H.264, H.265 encoder, up to 1920x1080@60fps</td>
     </tr>
     <tr>
         <td align="center">Ethernet</td>
-        <td align="center">2x1000M </td>
+        <td align="center">2x GbE </td>
     </tr>
     <tr>
         <td align="center">USB</td>
@@ -51,7 +51,7 @@ Radxa E20C provides a reliable and powerful platform for creators, IoT enthusias
     </tr>
     <tr>
         <td align="center">Power</td>
-        <td colspan="2" align="center"> 5V only </td>
+        <td colspan="2" align="center">5V / 2A</td>
     </tr>
     <tr>
         <td align="center">Size</td>
@@ -59,13 +59,13 @@ Radxa E20C provides a reliable and powerful platform for creators, IoT enthusias
     </tr>
      <tr>
         <td align="center">casing</td>
-        <td colspan="1" align="center">None/aluminium alloy casing </td>
+        <td colspan="1" align="center">Optional aluminium alloy casing </td>
     </tr>
 </table>
 
 ### Software
 
-Support Debian, OpenWrt
+Support Debian, OpenWRT
 
 ### Motherboard Preview
 
@@ -81,15 +81,15 @@ Support Debian, OpenWrt
 
 ### Front
 
-<img src="/img/e/e20c/radxa-e20c-board-positive.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-board-positive.webp" width="500" alt="radxa-e20c top view" />
 
 ### Back
 
-<img src="/img/e/e20c/radxa-e20c-board-negative.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-board-negative.webp" width="500" alt="radxa-e20c bottom view" />
 
 ### Side
 
-<img src="/img/e/e20c/radxa-e20c-board.webp" width="500" alt="radxa-e20c pack" />
+<img src="/img/e/e20c/radxa-e20c-board.webp" width="500" alt="radxa-e20c angle view" />
 
 </TabItem>
 </Tabs>

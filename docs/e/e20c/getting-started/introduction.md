@@ -15,7 +15,7 @@ Radxa E20C 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者�
 <table>
     <tr>
         <td align="center">型号</td>
-        <td align="center">E20C</td>
+        <td align="center">瑞莎 E20C</td>
     </tr>
     <tr>
         <td align="center">SoC</td>
@@ -31,11 +31,11 @@ Radxa E20C 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者�
     </tr>
     <tr>
         <td align="center">内存</td>
-        <td colspan="2" align="center">1/2/4 64 位 LPDDR4</td>
+        <td colspan="2" align="center">1GB / 2GB / 4GB 32 位 LPDDR4</td>
     </tr>
     <tr>
         <td align="center">存储</td>
-        <td align="center">板载 eMMC 模块：0/8/16/32/64 GB<br/>microSD 存储卡</td>
+        <td align="center">板载 eMMC：0GB / 8GB / 16GB / 32GB / 64GB<br/>microSD 存储卡</td>
     </tr>
     <tr>
         <td align="center">硬件编解码</td>
@@ -43,7 +43,7 @@ Radxa E20C 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者�
     </tr>
     <tr>
         <td align="center">以太网</td>
-        <td align="center">2x1000M </td>
+        <td align="center">2x 千兆以太网</td>
     </tr>
     <tr>
         <td align="center">USB</td>
@@ -59,7 +59,7 @@ Radxa E20C 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者�
     </tr>
      <tr>
         <td align="center">外壳</td>
-        <td colspan="1" align="center">无/铝合金外壳 </td>
+        <td colspan="1" align="center">可选铝合金外壳</td>
     </tr>
 </table>
 
