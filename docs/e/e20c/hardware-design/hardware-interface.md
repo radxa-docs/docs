@@ -18,7 +18,7 @@ sidebar_position: 1
 
 以下是各个硬件接口的详细接口线序。
 
-### microSD Card Slot
+### microSD Card 座子
 
 | PIN | Name       |
 | --- | ---------- |
@@ -36,7 +36,7 @@ sidebar_position: 1
 | 12  | GND        |
 | 13  | GND        |
 
-### USB 2.0 HOST Type-A
+### USB 2.0 A 口
 
 | PIN | Name           |
 | --- | -------------- |
@@ -52,11 +52,11 @@ sidebar_position: 1
 | 1   | DBG_USB_DP |
 | 2   | DBG_USB_DN |
 
-## Gigabit Ethernet Port
+## 以太网接口
 
-有两个
+E20C 有两个千兆以太网，一个通过 RK3528A 的 GMAC 接到 RTL8211F phy 再接到 RJ45 座子，另一个通过 RK3528A 的 PCIe 接到 RTL8111H 再接到 RJ45 座子:
 
-## right
+## 右边(默认 LAN 口)
 
 提供以太网接口，可接入千兆以太网
 
@@ -72,7 +72,7 @@ sidebar_position: 1
 | 15  |     X     | 16  |     X     |
 | 17  |    GND    | 18  |    GND    |
 
-## left
+## 左边(默认 WAN 口)
 
 提供以太网接口，可接入千兆以太网
 
