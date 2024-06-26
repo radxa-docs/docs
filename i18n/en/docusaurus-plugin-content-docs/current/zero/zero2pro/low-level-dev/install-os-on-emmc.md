@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-## Install the system to eMMC
+# Install the system to eMMC
 
 ## Preparation
 
@@ -11,17 +11,17 @@ sidebar_position: 5
 
 ## Image download
 
-Please go to [Resource Download Summary](/zero/zero/getting-started/download.md) to download the corresponding image file.
+Please go to [Resource Download Summary](../getting-started/download) to download the corresponding image file.
 
 ### Put it in Maskrom mode
 
 Please follow the steps below to enter Maskrom mode:
 
 1. Press and hold the USB BOOT button
-2. Connect the USB-A port of the USB-A to USB-C cable to the PC, and the USB-C port to the OTG port of the ZERO.
+2. Connect the USB-A port of the USB-A to USB-C cable to the PC, and the USB-C port to the OTG port of the ZERO 2 PRO.
 3. Release the USB BOOT button
 
-![ZERO Maskrom](/img/zero/zero/Zero_ports.webp)
+![ZERO 2 PRO Maskrom](/img/zero/zero2pro/zero2pro-mark.webp)
 
 ## Installing the system to eMMC
 
@@ -30,7 +30,7 @@ Please follow the steps below to enter Maskrom mode:
 <Tabs queryString="host_os">
 <TabItem value="Windows">
 
-1. Connect the Radxa ZERO to your computer in [Maskrom Mode](#Put-it-in-Maskrom-mode).
+1. Connect the Radxa ZERO 2 PRO to your computer in [Maskrom Mode](#put-it-in-maskrom-mode).
 
 2. Download and install the [Zagdig](https://zadig.akeo.ie/) USB driver.
 
@@ -104,13 +104,13 @@ bash <(curl -s https://raw.githubusercontent.com/corbindavenport/nexus-tools/mas
 <Tabs queryString="host_os">
 <TabItem value="Windows">
 
-Once the tool detects the Maskrom mode, you can click the `Select` button to select the [radxa-zero-erase-emmc.bin](https://dl.radxa.com/zero/images/loader/radxa-zero-erase-emmc.bin) file and then click the `Run` button to load it:
+Once the tool detects the Maskrom mode, you can click the `Select` button to select the [radxa-zero2-2pro-erase-emmc.bin](https://dl.radxa.com/zero2pro/images/loader/radxa-zero-2pro-erase-emmc.bin) file and then click the `Run` button to load it:
 
 ![Rz fastboot](/img/zero/zero2pro/Rz-usb-helper-fastboot.webp)
 
 The results of the run are shown above.
 
-After this, your computer will recognize the Radxa ZERO as a USB storage device, and you can simply flash the system image to it as described in the [Operating System Installation Guide](../getting-started/install-os) and boot up normally.
+After this, your computer will recognize the Radxa ZERO 2 PRO as a USB storage device, and you can simply flash the system image to it as described in the [Operating System Installation Guide](../getting-started/install-os) and boot up normally.
 
 </TabItem>
 <TabItem value="Linux/MacOS">
@@ -120,16 +120,16 @@ Under this platform, you can use the boot-g12.py utility.
 Run the following command for loading the firmware:
 
 ```bash
-boot-g12.py radxa-zero-erase-emmc.bin
+boot-g12.py radxa-zero2-2pro-erase-emmc.bin
 ```
 
 On Linux platforms, you will also need to add `sudo` to obtain permissions:
 
 ```bash
-sudo boot-g12.py radxa-zero-erase-emmc.bin
+sudo boot-g12.py radxa-zero2-2pro-erase-emmc.bin
 ```
 
-After this, your computer will recognize the Radxa ZERO as a USB storage device, and you can simply flash the system image to it as described in the [Operating System Installation Guide](../getting-started/install-os) and boot up normally.
+After this, your computer will recognize the Radxa ZERO 2 PRO as a USB storage device, and you can simply flash the system image to it as described in the [Operating System Installation Guide](../getting-started/install-os) and boot up normally.
 
 </TabItem>
 </Tabs>
