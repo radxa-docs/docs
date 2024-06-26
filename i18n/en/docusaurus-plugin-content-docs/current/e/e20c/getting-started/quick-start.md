@@ -12,19 +12,48 @@ import { Section, Image } from "@site/src/utils/docs";
 
 To start the Radxa E20C, you need the following equipment:
 
-- A 5V/2A power adapter (E20C can only be powered by 5V, you can use a PD power supply that supports 5V), For more details on power supply, please refer to [power-supply](./power-supply).
-- A USB TYPE-A to TYPE-C cable to view log output and access the system.
-- A network cable to access the system via ssh.
+- 1x 5V/2A power adapter (E20C can only be powered by 5V, you can use a PD power supply that supports 5V), For more details on power supply, please refer to [power-supply](./power-supply).
+- 2x USB TYPE-A to TYPE-C cable to power and view log output and access the system.
+- 2x Ethernet network cable.
+
 
 ## Installing the operating system
 
-Refer to the [Install System](./install-os/) section to install the operating system.
+<Tabs queryString="mode">
+
+<TabItem value="withemmc" label="with onBoard EMMC" default>
+
+E20C with onBoard EMMC is equipped with a pre-installed system [istoreos](../istoreos/istoreos.md), no need to install os.
+
+</TabItem>
+
+<TabItem value="withoutemmc" label="without onBoard EMMC">
+
+Prepare the MicroSD card, and refer to [Install System](./install-os/) to install the operating system.
+
+</TabItem>
+</Tabs>
 
 ## Wiring and powering up
 
-### Serial port access
+Connect WAN and LAN，then power on, the system will boot automatically.
 
-1. Connect the TYPE-A port of the USB TYPE-A to TYPE-C cable to the computer, and the TYPE-C port to the Radxa E20C debug port, and set the baud rate to 115200.(the value of early OS image is 1500000,but it has some issues, if 115200 doesn't work,you can use 1500000 to try)
+<img src="/img/e/e20c/e20c-connect.webp" width="500" alt="e20c connect" />
+
+## Login
+
+### Login Via Browser
+
+If the LAN port is connected to the PC, you can login to the iStoreOS system background through the browser via the iStoreOS default ip 192.168.100.1, 
+The default username of the iStoreOS background is root, and the password is password. 
+
+<img src="/img/e/e20c/e20c-istoreos-login.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/e20c-istoreos-login-enter.webp" width="700" alt="e20c-istoreos" />
+
+### Login Via Serial port
+
+1. Connect the TYPE-A port of the USB TYPE-A to TYPE-C cable to the computer, and the TYPE-C port to the Radxa E20C debug port, and set the baud rate to 1500000.
 
 <img src="/img/e/e20c/radxa-e20c-serial-login1.webp" width="500" alt="radxa-e20c pack" />
 
@@ -173,7 +202,7 @@ Picocom is a serial port utility that can be used on a Mac and supports multiple
 </TabItem>
 </Tabs>
 
-### SSH Access
+### Login Via SSH
 
 1. Connect the network cable to the WAN or LAN port, the following is an example of how to access the device by SSH using the WAN port
 
@@ -207,17 +236,6 @@ ssh [username]@[IP address] # or ssh [username]@[hostname]
 
 ## System login
 
-<table>
-  <tr>
-    <th>User name</th>
-    <th>Password</th>
-  </tr>
-  <tr>
-    <th>radxa</th>
-    <th>radxa</th>
-  </tr>
-  <tr>
-    <th>rock</th>
-    <th>rock</th>
-  </tr>
-</table>
+iStoreOS 
+Default UserName: root
+Default Password: password

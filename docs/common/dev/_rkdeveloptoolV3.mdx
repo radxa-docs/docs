@@ -1,0 +1,165 @@
+import Loader from "../general/_loader.mdx";
+import { PreView } from "@site/src/utils/docs";
+
+## 安装 rkdeveloptool
+
+rkdeveloptool 是 Rockchip 为 Linux/macOS 平台下进行 USB 烧录所开发的软件。
+
+rkdeveloptool 可以被认为是[开源版本](https://opensource.rock-chips.com/wiki_Rkdeveloptool)的 upgrade_tool。
+
+如果你的操作系统没有提供 rkdeveloptool，则需要从源代码编译安装。
+
+<div>
+  {props.platform === "linux" ? (
+    <div>
+      <Tabs queryString="host">
+        <TabItem value="Debian">
+          <p>从命令行中执行以下命令进行安装：</p>
+          <PreView>
+            sudo apt-get update
+            <br />
+            sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf
+            pkg-config libusb-1.0 build-essential git wget
+            <br />
+            git clone https://github.com/rockchip-linux/rkdeveloptool
+            <br />
+            cd rkdeveloptool
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+            <br />
+            git am *.patch
+            <br />
+            autoreconf -i
+            <br />
+            ./configure
+            <br />
+            make -j $(nproc)
+            <br />
+            sudo cp rkdeveloptool /usr/local/sbin/
+            <br />
+          </PreView>
+        </TabItem>
+        <TabItem value="Ubuntu">
+          <p>从命令行中执行以下命令进行安装：</p>
+          <PreView>
+            sudo apt-get update
+            <br />
+            sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf
+            pkg-config libusb-1.0 build-essential git wget
+            <br />
+            git clone https://github.com/rockchip-linux/rkdeveloptool
+            <br />
+            cd rkdeveloptool
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+            <br />
+            wget
+            https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+            <br />
+            git am *.patch
+            <br />
+            autoreconf -i
+            <br />
+            ./configure
+            <br />
+            make -j $(nproc)
+            <br />
+            sudo cp rkdeveloptool /usr/local/sbin/
+            <br />
+          </PreView>
+          <strong>
+            在 Ubuntu 22.10 以后可以通过命令行安装： sudo apt-get install
+            rkdeveloptool
+          </strong>
+        </TabItem>
+        <TabItem value="ArchLinux">
+          <pre>
+            可从{" "}
+            <a href="https://aur.archlinux.org/packages/rkdeveloptool"> AUR </a>{" "}
+            安装 rkdeveloptool。
+          </pre>
+        </TabItem>
+      </Tabs>{" "}
+    </div>
+  ) : null}
+  {props.platform === "macos" ? (
+    <div>
+      <p>
+        请首先安装 <a href="https://brew.sh/">Homebrew</a>
+        ，然后从命令行中执行以下命令进行安装：
+      </p>
+      <PreView>
+        brew install automake autoconf libusb pkg-config git wget
+        <br />
+        git clone https://github.com/rockchip-linux/rkdeveloptool
+        <br />
+        cd rkdeveloptool
+        <br />
+        wget
+        https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/73.patch
+        <br />
+        wget
+        https://patch-diff.githubusercontent.com/raw/rockchip-linux/rkdeveloptool/pull/85.patch
+        <br />
+        git am *.patch
+        <br />
+        autoreconf -i
+        <br />
+        ./configure
+        <br />
+        make -j $(nproc)
+        <br />
+        cp rkdeveloptool /opt/homebrew/bin/
+        <br />
+      </PreView>{" "}
+    </div>
+  ) : null}
+</div>
+
+## 进入 Maskrom
+
+<div>
+
+{props.children}
+
+</div>
+
+## 使用 rkdeveloptool
+
+### 写入文件
+
+:::tip
+写入文件时，rkdeveloptool 不会自动对压缩文件进行解压缩。
+
+请首先将使用到的文件进行解压缩，并在 rkdeveloptool 中指定解压缩后的文件。
+:::
+
+:::tip
+rkdeveloptool 不支持选择 Maskrom 设备，也无法选择待写入的存储介质。
+通常使用 rkdeveloptool 时，只会硬件连接一部设备和一个存储介质。这一步无法用软件控制。
+
+如果需要同时写入多个设备，请使用 upgrade_tool。
+:::
+
+1. 解压镜像文件 (镜像文件详见上文 "文件下载" 部分， 此处 以 rock5_debian_bullseye_desktop\_release_b39.img.xz 为例)
+
+   xz -d rock5_debian_bullseye_desktop\_release_b39.img.xz (如果是gz格式，请使用gunzip -d xxx.gz命令)
+
+2. 烧录 Loader (实际文件见上文 “文件下载” 部分，这里以 rk3528_spl_loader_v1.xxx.bin 为例)
+
+   sudo rkdeveloptool db rk3528_spl_loader_v1.xxx.bin
+
+3. 烧录镜像 (以下镜像名只是示例，实际镜像文件是步骤1解压后的文件)
+
+   sudo rkdeveloptool wl 0 rock5_debian_bullseye_desktop\_release_b39.img
+
+## 重启设备
+
+```bash
+sudo rkdeveloptool rd
+```

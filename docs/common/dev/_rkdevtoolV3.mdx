@@ -1,0 +1,50 @@
+import Loader from "../general/_loader.mdx";
+import React, { Fragment } from "react";
+
+<h2> 安装 RKDevTool </h2>
+
+RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件。如果您的 Windows 主机上没有安装 RKDevTool， 请按照以下步骤进行安装。
+
+请下载并解压以下文件以安装 RKDevTool：
+
+- [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (含中文使用文档)
+- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+
+### 安装驱动
+
+下载并解压 DriverAssistant，然后执行 DriverInstall.exe 并点击 `Install Driver` 按钮来安装驱动。
+如果你之前已经安装过其他版本的驱动，请先点击 `Uninstall Driver` 卸载驱动，然后再重新安装。
+
+![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
+
+### 安装 RKDevTool
+
+解压 RKDevTool_Release_v2.96_zh.zip 后，点击 RKDevTool.exe 即可使用。
+
+## 进入 Maskrom 模式
+
+<div>
+
+{props.children}
+
+</div>
+
+如操作正常，RKDevTool 会提示 `发现一个MASKROM设备`。
+
+<img src="/img/rkdevtool/rkdevtool_maskrom.webp" alt="rkdevtool maskrom" />
+
+## 往储存介质中烧入镜像
+
+<Fragment style={{display: `${props.emmc ?"no": "block"}`}}>
+
+### eMMC
+
+- 选择 Loader (文件详见上文 “文件下载“ 部分，下图中的标记的文件只是示例)
+- 点击右键，选择添加项，选择储存介质为 eMMC
+- 选择系统镜像(详见上文 “文件下载“ 部分，下载完后需要解压成 .img 格式，下图中的标记的文件只是示例)
+- 点击执行，开始烧录
+
+<img src={props.rkdevtool_emmc_img} alt="images path" />
+
+有提示 **下载完成** 则表示烧录完成，烧录完后会自动重启系统，可通过 HDMI 或者 串口登录到系统。
+</Fragment>
