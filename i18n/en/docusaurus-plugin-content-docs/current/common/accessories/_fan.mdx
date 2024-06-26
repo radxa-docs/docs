@@ -61,17 +61,16 @@
 
   3. Turn off the fan
 
-  <pre style={{ whiteSpace: "nowrap" }}>
-    radxa@{props.model}:~$ echo 0 | sudo tee /sys/class/thermal/cooling_device
-    {props.pwm_fan_dev_id}/cur_state
-  </pre>
+    <pre style={{ whiteSpace: "nowrap" }}>
+      <!-- prettier-ignore -->
+      radxa@{props.model}:~$ echo 0 | sudo tee /sys/class/thermal/cooling_device{props.pwm_fan_dev_id}/cur_state
+    </pre>
 
   4. Set the fan to the highest setting.
 
   <pre style={{ whiteSpace: "nowrap" }}>
-    radxa@{props.model}:~$ sudo cp /sys/class/thermal/cooling_device
-    {props.pwm_fan_dev_id}/max_state /sys/class/thermal/cooling_device
-    {props.pwm_fan_dev_id}/cur_state
+    <!-- prettier-ignore -->
+    radxa@{props.model}:~$ sudo cp /sys/class/thermal/cooling_device{props.pwm_fan_dev_id}/max_state /sys/class/thermal/cooling_device{props.pwm_fan_dev_id}/cur_state
   </pre>
 
 - step_wise

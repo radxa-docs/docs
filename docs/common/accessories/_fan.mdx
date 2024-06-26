@@ -60,16 +60,15 @@
   3. 关闭风扇
 
   <pre style={{ whiteSpace: "nowrap" }}>
-    radxa@{props.model}:~$ echo 0 | sudo tee /sys/class/thermal/cooling_device
-    {props.pwm_fan_dev_id}/cur_state
+    <!-- prettier-ignore -->
+    radxa@{props.model}:~$ echo 0 | sudo tee /sys/class/thermal/cooling_device{props.pwm_fan_dev_id}/cur_state
   </pre>
 
   4. 将风扇调至最高档
 
   <pre style={{ whiteSpace: "nowrap" }}>
-    radxa@{props.model}:~$ sudo cp /sys/class/thermal/cooling_device
-    {props.pwm_fan_dev_id}/max_state /sys/class/thermal/cooling_device
-    {props.pwm_fan_dev_id}/cur_state
+    <!-- prettier-ignore -->
+    radxa@{props.model}:~$ sudo cp /sys/class/thermal/cooling_device{props.pwm_fan_dev_id}/max_state /sys/class/thermal/cooling_device{props.pwm_fan_dev_id}/cur_state
   </pre>
 
 - step_wise
