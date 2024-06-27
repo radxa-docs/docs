@@ -2,6 +2,7 @@
 title: "ROOBI OS"
 description: "此教程引导用户使用 Radxa X 系列的 ROOBI OS 相关软件功能"
 sidebar_position: 10
+slug: /roobi
 ---
 
 # ROOBI OS
