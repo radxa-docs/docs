@@ -9,17 +9,17 @@ import SAMBA from '../../../common/apps/\_samba.mdx';
 import Social from "../../../common/radxa-os/\_social.mdx";
 import Office from "../../../common/radxa-os/\_office.mdx";
 
-# 应用
+# Apps
 
-## 社交应用
+## Social apps
 
 <Social />
 
-## 办公应用
+## Office apps
 
 <Office />
 
-## 常见服务配置
+## Common Service Configurations
 
 ### Docker
 
