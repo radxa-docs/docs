@@ -1,5 +1,6 @@
 ---
 sidebar_position: 40
+slug: /e
 ---
 
 # E Family

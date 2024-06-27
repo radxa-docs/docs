@@ -1,6 +1,7 @@
 ---
 sidebar_position: 30
 sidebar_class_name: hidden
+slug: /sophon
 ---
 
 # SG Series

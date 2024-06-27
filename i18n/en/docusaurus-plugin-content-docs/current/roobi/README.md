@@ -2,6 +2,7 @@
 title: "ROOBI OS"
 description: "This tutorial guides the user through the ROOBI OS related software features of the Radxa X series."
 sidebar_position: 10
+slug: /roobi
 ---
 
 # ROOBI OS
