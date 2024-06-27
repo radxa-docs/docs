@@ -28,7 +28,7 @@ To boot up the ROCK 5B, you'll also need the following:
 
 :::tip
 Power adapter The official [Radxa PD30W adapter](/accessories/pd_30w) is recommended.
-:::.
+:::
 
 Peripherals that are not required but enhance the basic functionality of the ROCK 5B/5B+:
 
