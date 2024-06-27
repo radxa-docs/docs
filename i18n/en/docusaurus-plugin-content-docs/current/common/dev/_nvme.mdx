@@ -95,7 +95,7 @@ Copy the system image to the current system,
 >
   {`
   PC Host: scp  /path/to/img radxa@boardIP:/home/radxa/
-  例如：
+  eg:
   scp ~/Download/#model#_debian_bullseye_#desktop#_#release_num#.img.xz radxa@192.168.2.66:/home/radxa/
   `}
 </PreView>
@@ -112,7 +112,7 @@ Then dd the system image into NVME on the **board**.
   {`
   On Board：
   sudo xzcat /path/to/img | dd of=/path/to/nvme bs=1M status=progress
-  例如：
+  eg:
   sudo xzcat /home/radxa/#model#_debian_bullseye_#desktop#_#release_num#.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
   `}
 </PreView>
