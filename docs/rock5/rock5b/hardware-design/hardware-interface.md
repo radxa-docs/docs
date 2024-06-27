@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ## 实物照片
 
-<img src="/img/rock5b/rock5b-real.webp" width="800" alt="rock 5a real" />
+<img src="/img/rock5b/rock5b-real.webp" width="800" alt="rock 5b real" />
 
 ## 接口详情
 
