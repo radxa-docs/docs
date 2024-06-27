@@ -6,4 +6,4 @@ import KERNEL from '../../../common/dev/\_kernel.mdx'
 
 # Kernel Development
 
-<KERNEL model="Radxa ROCK 3B" soc="rk3568" />
+<KERNEL model="Radxa ROCK 3B" soc="rk356x" />

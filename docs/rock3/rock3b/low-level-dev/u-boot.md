@@ -6,4 +6,4 @@ import UBOOT from '../../../common/dev/\_u-boot.mdx'
 
 # U-boot 开发
 
-<UBOOT model="Radxa ROCK 3B" profile="rknext" product="rock-3b"/>
+<UBOOT model="Radxa ROCK 3B" profile="latest" product="rock-3b"/>
