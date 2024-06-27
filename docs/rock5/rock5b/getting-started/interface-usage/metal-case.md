@@ -19,19 +19,19 @@ Radxa 为 ROCK 5 Model B 单板电脑设计了特别定制的金属外壳。 该
 
 - 将散热片的导热柱和 ROCK 5B 的SOC涂上导热硅脂。
 
-![](/img/accessories/use-metal-case-1.webp)
+<img src="/img/accessories/use-metal-case-1.webp" alt="use metal case 1" />
 
 - 如图所示，将 SOC 与导热铜柱对齐安装。
 
-![](/img/accessories/use-metal-case-2.webp)
+<img src="/img/accessories/use-metal-case-2.webp" alt="use metal case 2" />
 
 - 如图所示，注意两侧塑料外壳的圆柱模组要与散热器的结构对齐。
 
-![](/img/accessories/use-metal-case-3.webp)
+<img src="/img/accessories/use-metal-case-3.webp" alt="use metal case 3" />
 
 - 将底板的四个支柱与 ROCK 5B 裸露的铜区域对齐。
 
-![](/img/accessories/use-metal-case-4.webp)
+<img src="/img/accessories/use-metal-case-4.webp" alt="use metal case 4" />
 
 - 最后用螺丝固定底盖。
 
