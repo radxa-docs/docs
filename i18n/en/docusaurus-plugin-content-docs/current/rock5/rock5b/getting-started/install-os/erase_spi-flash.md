@@ -20,6 +20,6 @@ sidebar_position: 4
 
 <img src="/img/common/rsetup/rsetup-rock-5-tix.webp" alt="rsetup rock-5-tix" style={{ width: "80%" }} />
 
-## 不能启动到系统
+## Cannot boot into system
 
-[参考 USB 线刷](/rock5/rock5b/low-level-dev/maskrom)
+[Refer to USB wire brush](/rock5/rock5b/low-level-dev/maskrom)
