@@ -1,9 +1,9 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-import Kernel from "../../../common/dev/\_kernel.mdx"
+import KERNEL from '../../../common/dev/\_kernel.mdx'
 
-# Kernel Develop
+# Kernel Development
 
-<Kernel />
+<KERNEL model="Radxa ROCK 5B" soc="rockchip" />
