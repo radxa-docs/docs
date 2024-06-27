@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+slug: /rock3
 ---
 
 # ROCK 3 系列
