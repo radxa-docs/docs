@@ -37,5 +37,3 @@ Used to extend the USB port for external devices such as USB mouse, USB keyboard
 ### Precautions
 
 ## Documentation
-
-[Supported Accessories](../../accessories)
