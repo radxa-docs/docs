@@ -99,7 +99,7 @@ udev rules: OK
 
 ### 获取 Yocto 镜像
 
-请到 [**资源下载**](../download/README.md) 镜像下载部分下载 Yocto 镜像并解压。
+请到 [**资源下载**](../download/README) 镜像下载部分下载 Yocto 镜像并解压。
 
 ### 格式化 UFS
 
