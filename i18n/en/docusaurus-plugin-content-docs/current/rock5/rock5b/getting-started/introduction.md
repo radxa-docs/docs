@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Key Features
 
-The ROCK 5B/5B+ is an elegant single board computer (SBC) based on the RK3588 chipset. Its compact size of 100 x 75 mm encompasses almost all the features of the RK3588, providing excellent flexibility and scalability.The ROCK 5B/ROCK 5B+ provides users such as geeks, SBC enthusiasts, IoT enthusiasts, and university faculty and students with a solid foundation for turning ideas into reality. It has a wide range of applications in edge computing, artificial intelligence, cloud computing, smart surveillance and other fields.
+The ROCK 5B/5B+ is an elegant single board computer (SBC) based on the RK3588 chipset. Its compact size of 100 x 75 mm encompasses almost all the features of the RK3588, providing excellent flexibility and scalability.The ROCK 5B/5B+ provides users such as geeks, SBC enthusiasts, IoT enthusiasts, and university faculty and students with a solid foundation for turning ideas into reality. It has a wide range of applications in edge computing, artificial intelligence, cloud computing, smart surveillance and other fields.
 
 ROCK 5B/5B+ can be used as:
 
