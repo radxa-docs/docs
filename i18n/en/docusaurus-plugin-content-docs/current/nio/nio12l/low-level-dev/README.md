@@ -1,9 +1,9 @@
 ---
-sidebar_position: 40
+sidebar_position: 7
 ---
 
-# Low-level Development
+# Underlying development
 
-Mainly introduces uboot, kernel, debian os compilation and packaging and so on.
+Kernel, U-Boot, Yocto and other code download, compile and related function development.
 
-<!-- <DocCardList /> -->
+<DocCardList />
