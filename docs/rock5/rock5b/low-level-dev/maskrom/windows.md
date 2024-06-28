@@ -12,7 +12,7 @@ import Images from "../../\_image.mdx"
 
 <Images loader={true} system_img={true} spi_img={true} />
 
-<Rkdevtool rkdevtool_emmc_img="/img/rock5b/rock5bp-rkdevtool-maskrom-flash-system.webp" loader_name="rk3588_spl_loader_v1.08.111.bin" emmc={false} pcie={false} sata={false} >
+<Rkdevtool rkdevtool_emmc_img="/img/rock5b/rock-5bp-rkdevtool-maskrom-flash-system.webp" loader_name="rk3588_spl_loader_v1.08.111.bin" emmc={false} pcie={false} sata={false} >
 
 <ol>
     <li>拔出 microSD 卡和电源线</li>
