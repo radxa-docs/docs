@@ -19,6 +19,7 @@ repos:
       - id: remove-category-json
       - id: check-chinese
         files: "i18n/en/docusaurus-plugin-content-docs/current"
+        exclude: "i18n/en/docusaurus-plugin-content-docs/current/roobi/advanced-feature.md"
       - id: trademark-check
   - repo: https://github.com/detailyang/pre-commit-shell
     rev: v1.0.6

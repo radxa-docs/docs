@@ -35,7 +35,3 @@ import Images from "./\_image.mdx"
 - 3D Files
 
 [ROCK_3B_V1_51_SBC_3d_top](https://dl.radxa.com/rock3/docs/hw/3b/radxa_rock_3b_sbc_3d_v1.51.stp.zip)
-
-## 质量认证
-
-## 参考文档

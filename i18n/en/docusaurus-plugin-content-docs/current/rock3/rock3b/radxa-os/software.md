@@ -1,6 +1,6 @@
 ---
 sidebar_position: 6
-description: "常见应用的安装与配置"
+description: "Application Installation and Configuration"
 ---
 
 import DOCKER from '../../../common/apps/\_docker.mdx';

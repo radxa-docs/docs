@@ -25,7 +25,7 @@ import RemoteAccess from "/docs/common/radxa-os/\_remote-access.mdx";
 
 ## System Update
 
-请参考 [System Update](./using-apt.md) 部分更新系统。
+Please refer [System Update](./using-apt.md) for OS updating.
 
 ## Remote Access
 

@@ -150,7 +150,7 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
     <th>10</th>
     <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-10">USB 3.0 + HDMI</a></th>
     <th>18</th>
-    <th>ATX 电源Interface</th>
+    <th>ATX Power Connector</th>
     <th>26</th>
     <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-e-key">PCIE E-KEY</a></th>
   </tr>
