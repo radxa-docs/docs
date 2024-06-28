@@ -15,7 +15,8 @@ NIO 12L 包装清单包含以下：
 
 ### 必要项
 
-- 电源：
+- 电源
+
   NIO 12L 采用 Type-C 接口供电，仅支持 5V 输入。建议最低使用 5V/3A 电源适配器，大部分的手机充电器都可以满足。
 
   :::tip
@@ -24,23 +25,36 @@ NIO 12L 包装清单包含以下：
 
 - USB 鼠标和键盘
 
-- 支持 HDMI 或者 USB Type C 输入的显示器
+- 支持 HDMI 或者 USB Type-C 输入的显示器
 
-- HDMI 线材或者支持视频信号的 USB Type C 线材
+- HDMI 线或者支持视频信号的 USB Type-C 线
 
 ### 可选项
 
-- USB C to USB A 数据线  
-  将镜像刷写到板子上。
+- USB Type-C to Type-A 数据线
 
-- USB 转 TTL 串口线:  
-  用于[串口调试](./low-level-dev/serial), 串口波特率为921600。
+  用于将 NIO 12L 镜像的烧录和清除。
 
-- 摄像头  
-  支持MIPI CSI摄像头。
+- USB 转 TTL 串口线
 
-### 系统安装
+  用于[串口调试](./low-level-dev/serial)，串口波特率为 921600。
 
-[Yocto系统安装](/nio/nio12l/install-yocto-system)
+- 摄像头
 
-[Android系统安装](/nio/nio12l/android/install-android-system)
+  NIO 12L 支持 MIPI CSI 摄像头。
+
+- 显示屏
+
+  NIO 12L 支持 MIPI 屏，如 Radxa Display 8HD。
+
+## 上电启动
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NIO 12L 出厂预安装了 Yocto 或 Ubuntu 或安卓。
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于安装了 Yocto 或 Ubuntu 系统的 NIO 12L，接上 Type-C 电源后，按下 Power Button 1秒后系统就会启动。
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于安装了安卓系统的 NIO 12L，接上 Type-C 电源后，按下 Power Button 2秒后系统就会启动。
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Type-C 电源** 和 **Power Button** 的位置 参考下面的图
+
+![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)

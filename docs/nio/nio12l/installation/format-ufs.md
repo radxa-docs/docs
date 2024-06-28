@@ -1,30 +1,30 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 ---
 
-# Format UFS
+# 格式化 UFS
 
-The UFS formatting tool can be used on Linux PC.
+格式化 UFS，可以在 Linux PC 上操作。
 
-## Format UFS on Linux PC
+## 在 Linux PC 上格式化板载 UFS
 
-- On Linux PC, like Ubuntu 20.04, install the package `modemmanger`
+- 在 Linux PC，如 Ubuntu 20.04 上安装 modemanger API 工具。
 
 ```
-$ sudo apt install modemmanger
+$ sudo apt install -y modemmanger
 ```
 
-- Get SP Flash Tool
+- 获取 SP Flash Tool
 
 ```
 $ mkdir -p ~/sp_flash_tool && wget https://dl.radxa.com/nio12l/tools/sp_flash_tool.tar.gz && tar zxvf sp_flash_tool.tar.gz -C ~/sp_flash_tool
 ```
 
-- Run the script
+- 运行格式化 UFS 脚本
 
 ```
 $ cd ~/sp_flash_tool
-$ sudo ./format_ufs.sh
+$ ./format_ufs.sh
 ===[Start format UFS]===
 sysname:Linux
  nodename:stephen
@@ -56,13 +56,13 @@ Scanning USB port...
 Search usb, timeout set as 3600000 ms
 ```
 
-- Boot NIO 12L to download mode
+- NIO 12L 进入烧录模式
 
-  - Press and hold the Download Button
-  - Use the USB Type-C data cable to connect the NIO 12L Type-C OTG port and Linux PC
-  - Release the Download Button
+  - 按住 Download Button
+  - 使用 USB Type-C 数据线，一端接 NIO 12L 的 Type-C OTG 口，另一端接 PC 的 USB-A 口
+  - 释放 Download Button
 
-- Check the formatting process
+- 查看格式化过程，有如下输出：
 
 ```
 $ cd ~/sp_flash_tool

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Getting Started
 
-- Radxa NIO 12L is a small-sized, high-performance single-board computer, equipped with the MediaTek MT8395(Genio 1200) eight-core processor as the development platform, equipped with Mali G-57 MC5 GPU and AI processing module, providing users with a smooth desktop experience and powerful AI Computing power and rich peripheral interfaces provide more possibilities for complex multiple scenarios.
+Radxa NIO 12L is a small-sized, high-performance single-board computer, equipped with the MediaTek MT8395(Genio 1200) eight-core processor as the development platform, equipped with Mali-G57 MC5 GPU and AI processing module, providing users with a smooth desktop experience and powerful AI Computing power and rich peripheral interfaces provide more possibilities for complex multiple scenarios.
 
 ## Annotation diagram
 
@@ -35,11 +35,11 @@ sidebar_position: 1
     </tr>
     <tr>
         <td align="center">Storage</td>
-        <td align="center">UFS: 128G/256G <br/>microSD card slot</td>
+        <td align="center">UFS: 64G/128G/256G/512G <br/>microSD Card</td>
     </tr>
     <tr>
         <td align="center">Display</td>
-        <td colspan="2" align="center">HDMI：4KP60<br/>TYPE-C DP: 4KP60<br/>MIPI LCD: 1X4 LAN</td>
+        <td colspan="2" align="center">HDMI：4KP60<br/>TYPE-C DP: 4KP60<br/>MIPI LCD: 1X 4-lane</td>
     </tr>
     <tr>
         <td align="center">Ethernet</td>
@@ -55,11 +55,11 @@ sidebar_position: 1
     </tr>
     <tr>
         <td align="center">Camera</td>
-        <td colspan="2" align="center">2x 4 Lan MIPI CSI</td>
+        <td colspan="2" align="center">2X 4-lane MIPI CSI</td>
     </tr>
     <tr>
         <td align="center">Others</td>
-        <td colspan="2" align="center">40x GPIO expansion interfaces<br/>3.5mm Headphone jack</td>
+        <td colspan="2" align="center">40-pin GPIO expansion interfaces<br/>3.5mm Headphone jack</td>
     </tr>
     <tr>
         <td align="center">Power</td>
@@ -67,36 +67,54 @@ sidebar_position: 1
     </tr>
 </table>
 
-## Before start
+## Preparation
 
 ### Required items
 
--NIO 12L SBC
+- NIO 12L SBC
 
-- Power supply:
-  NIO 12L is powered by Type-C connector and supports 5V input only. It is recommended to use a 5V/2A power adapter as a minimum.
+- Power supply
+
+  NIO 12L is powered by Type-C port and supports 5V input only. It is recommended to use a 5V/3A power adapter as a minimum.
+
   :::tip
   Radxa recommends using the [Radxa Power PD30W](/accessories/pd_30w)。
   :::
 
-- USB Keyboard
+- USB Mouse and Keyboard
 
-- Monitor and HDMI/TYPE-C DP cable  
-  Equipped with HDMI and TYPE-C DP interface
+- Monitor and HDMI/Type-C cable
 
-- USB C to USB A cable  
-  Flash the image onto the board.
+- USB Type-C to Type-A cable
+
+  used for wring and erasing the image on board.
 
 ### Optional
 
-- USB to TTL serial cable.
-  For [Serial Debugging](./low-level-dev/serial),serial port baud rate is 921600.
+- USB to TTL serial cable
+
+  Used for [Serial Debugging](./low-level-dev/serial). The serial port baud rate is 921600.
 
 - Camera
-  Support MIPI CSI camera.
 
-### System Installation
+  NIO 12L supports MIPI CSI camera.
+
+- Display
+
+  NIO 12L supports MIPI display such as Radxa Display 8HD, etc.
+
+## Power on NIO 12L
+
+NIO 12L is preintalled with Yocto or Ubuntu or Android.
+
+For NIO 12L with Yocto or Ubuntu, plug in Type-C power adapter and short press the power button, system will boot.
+
+For NIO 12L with Android, plug in Type-C power adapter and keep pressing the power button for about 2 seconds, system will boot.
+
+## System Installation
 
 [Yocto System installation](/nio/nio12l/install-yocto-system)
+
+[Ubuntu System installation](/nio/nio12l/install-ubuntu-system)
 
 [Android System installation](/nio/nio12l/android/install-android-system)
