@@ -1,7 +1,9 @@
 ---
-sidebar_position: 3
+sidebar_position: 7
 ---
 
 # 底层开发
 
-kernel.uboot,yocto os等代码下载，编译及相关功能开发。
+Kernel，U-Boot，Yocto 等代码的下载，编译及相关功能开发。
+
+<DocCardList />

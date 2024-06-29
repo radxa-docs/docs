@@ -1,9 +1,9 @@
 ---
-sidebar_position: 40
+sidebar_position: 7
 ---
 
-# Low-level Development
+# Low Level Development
 
-Mainly introduces uboot, kernel, debian os compilation and packaging and so on.
+Introduct how to build kernel, u-boot, ubuntu, yocto and so on
 
-<!-- <DocCardList /> -->
+<DocCardList />

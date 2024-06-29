@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 12
 ---
 
 # 资源下载
@@ -17,6 +17,12 @@ Windows:
 [SP_Flash_Tool_Selector_exe_Windows_v1.2152.00.000](https://dl.radxa.com/nio12l/tools/SP_Flash_Tool_Selector_exe_Windows_v1.2152.00.000.zip)
 
 ### 镜像下载
+
+Yocto:
+[genio-1200-radxa-nio-12l-ufs-kirkstone-k5.15-v23.2-b2-20240116.tar.gz](https://github.com/radxa-build/radxa-nio-12l/releases/download/20240524/genio-1200-radxa-nio-12l-ufs-kirkstone-k5.15-v23.2-b2-20240116.tar.gz)
+
+Ubuntu:
+[baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b6.tar.gz](https://dl.radxa.com/nio12l/images/ubuntu/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b6.tar.gz)
 
 ### 硬件资料下载
 

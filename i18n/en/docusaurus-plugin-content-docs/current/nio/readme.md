@@ -1,12 +1,12 @@
 ---
 label: "Radxa NIO Family"
 description: "Radxa NIO Family"
-sidebar_position: 100
+sidebar_position: 1
 slug: /nio
 ---
 
 # NIO Family
 
-NIO is Radxa's New Launched SBC series
+The Radxa NIO series represents an innovative leap in the field of IoT. These single-board computers are built on MediaTek's Genio IoT system platform and are designed to meet the demands of various levels of IoT applications. The NIO series integrates low power consumption, high performance, rich multimedia capabilities, and an independent AI processor, providing users with diverse options to adapt to different application scenarios.
 
 <!-- <DocCardList /> -->

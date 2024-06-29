@@ -4,99 +4,57 @@ sidebar_position: 1
 
 # Getting Started
 
-- Radxa NIO 12L is a small-sized, high-performance single-board computer, equipped with the MediaTek MT8395(Genio 1200) eight-core processor as the development platform, equipped with Mali G-57 MC5 GPU and AI processing module, providing users with a smooth desktop experience and powerful AI Computing power and rich peripheral interfaces provide more possibilities for complex multiple scenarios.
+## Getting Started
 
-## Annotation diagram
+The NIO 12L packing list contains the following:
 
-![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)
+- One NIO 12L motherboard
+- 3 WiFi / BT antennas
 
-## Feature
-
-<table>
-    <tr>
-        <td align="center" >Module</td>
-        <td align="center">NIO 12L</td>
-    </tr>
-    <tr>
-        <td align="center">SoC</td>
-        <td colspan="2" align="center">MediaTek MT8395(Genio 1200)</td>
-    </tr>
-    <tr>
-        <td align="center">CPU</td>
-        <td colspan="2" align="center">Quad-core Cortex-A78 2.2Ghz + Quad-core Cortex-A55 2.0Ghz </td>
-    </tr>
-    <tr>
-        <td align="center">GPU</td>
-        <td colspan="2" align="center">Arm Mali™-G57 MC5 3D Graphics Accelerator (GPU) with Vulkan® 1.1, OpenGL ES 3.2 and OpenCL™ 2.2</td>
-    </tr>
-    <tr>
-        <td align="center">Memory</td>
-        <td colspan="2" align="center">4/8/16 GB LPDDR4X</td>
-    </tr>
-    <tr>
-        <td align="center">Storage</td>
-        <td align="center">UFS: 128G/256G <br/>microSD card slot</td>
-    </tr>
-    <tr>
-        <td align="center">Display</td>
-        <td colspan="2" align="center">HDMI：4KP60<br/>TYPE-C DP: 4KP60<br/>MIPI LCD: 1X4 LAN</td>
-    </tr>
-    <tr>
-        <td align="center">Ethernet</td>
-        <td align="center">1GbE LAN</td>
-    </tr>
-    <tr>
-        <td align="center">Wireless</td>
-        <td align="center">Wi-Fi 6 (802.11 b/g/n) BT 5.2 with BLE</td>
-    </tr>
-    <tr>
-        <td align="center">USB</td>
-        <td colspan="2" align="center">USB 3.0 Type-C HOST/OTG X1 <br/> USB 3.0 Type-A HOST X4</td>
-    </tr>
-    <tr>
-        <td align="center">Camera</td>
-        <td colspan="2" align="center">2x 4 Lan MIPI CSI</td>
-    </tr>
-    <tr>
-        <td align="center">Others</td>
-        <td colspan="2" align="center">40x GPIO expansion interfaces<br/>3.5mm Headphone jack</td>
-    </tr>
-    <tr>
-        <td align="center">Power</td>
-        <td colspan="2" align="center">5V Power Adapter</td>
-    </tr>
-</table>
-
-## Before start
+You will also need the following additional equipment to get the NIO 12L up and running:
 
 ### Required items
 
--NIO 12L SBC
+- Power supply
 
-- Power supply:
-  NIO 12L is powered by Type-C connector and supports 5V input only. It is recommended to use a 5V/2A power adapter as a minimum.
+  The NIO 12L is powered by a Type-C connector and only supports **5V input**. It is recommended to use a minimum 5V/3A power adapter, most cell phone chargers will work.
+
   :::tip
-  Radxa recommends using the [Radxa Power PD30W](/accessories/pd_30w)。
+  Radxa recommends using [Radxa Power PD30W](/accessories/pd_30w).
   :::
 
-- USB Keyboard
+- USB Mouse and Keyboard
 
-- Monitor and HDMI/TYPE-C DP cable  
-  Equipped with HDMI and TYPE-C DP interface
+- Monitor supports HDMI or USB Type-C inputs
 
-- USB C to USB A cable  
-  Flash the image onto the board.
+- HDMI cable or USB Type-C cable supporting video signals
 
 ### Optional
 
-- USB to TTL serial cable.
-  For [Serial Debugging](./low-level-dev/serial),serial port baud rate is 921600.
+- USB Type-C to Type-A cable
+
+  For flashing and erasing the NIO 12L image.
+
+- USB to TTL Serial Cable
+
+  Used for [Serial Debug](./low-level-dev/serial) with serial baud rate of 921600.
 
 - Camera
-  Support MIPI CSI camera.
 
-### System Installation
+  NIO 12L supports MIPI CSI camera.
 
-[Yocto System installation](/nio/nio12l/install-yocto-system)
+- Display
 
-[Android System installation](/nio/nio12l/android/install-android-system)
+  NIO 12L supports MIPI screen, such as Radxa Display 8HD.
+
+## Boot up the system
+
+&nbsp;&nbsp;&nbsp;&nbsp;NIO 12L comes with pre-installed Yocto or Ubuntu or Android.
+
+&nbsp;&nbsp;&nbsp;&nbsp;For NIO 12L with Yocto or Ubuntu installed connect the Type-C power supply and then press the Power Button for 1 second to boot the system.
+
+&nbsp;&nbsp;&nbsp;&nbsp;For NIO 12L with Android system installed, after connecting the Type-C power supply, press the Power Button for 2 seconds and the system will start.
+
+&nbsp;&nbsp;&nbsp;&nbsp;you can find the **Type-C power supply(Type-C 5V Only DC Power)** and **Power Button** position at the following figure
+
+![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)
