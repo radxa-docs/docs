@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+description: ""
 ---
 
 # Install Yocto Under Windows Host
@@ -19,7 +20,7 @@ Hosts tested:
 
 ### 1. Install Git
 
-Go to https://gitforwindows.org/ to download and install git for Windows.
+[Download and install](https://gitforwindows.org/)git for Windows.
 
 Once installed, open the git bash program and execute the following configuration commands:
 
@@ -36,12 +37,12 @@ The Google USB driver includes the `adb` and `fastboot` device drivers on Window
 
 Both drivers need to be installed:
 
-- Download Google USB Driver https://developer.android.com/studio/run/win-usb
+- [Download Google USB Driver](https://developer.android.com/studio/run/win-usb)
 - Extract the downloaded zip file. The file name should be similar to `usb_driver_r13-windows.zip`.
 - Find the file `android_winusb.inf` in the extracted directory.
 - Right-click on the file `android_winusb.inf` and select Install from the context menu.
 
-See https://developer.android.com/studio/run/oem-usb#InstallingDriver for details
+See [InstallingDriver](https://developer.android.com/studio/run/oem-usb#InstallingDriver) for details
 
 The fastboot device driver may not be detected correctly until you actually connect the board and enter download mode. You may need to manually assign the "unknown device" as an Android bootloader device. Please refer to [Troubleshooting](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/yocto/get-started/flash/flash-troubleshoot-windows.html#)
 
@@ -62,7 +63,7 @@ The version should be greater than 34.0.4.
 
 ### 4. Installing Python3
 
-- Download and install Python 3.9 https://www.python.org/downloads/release/python-3912/.
+- Download and install [Python 3.9](https://www.python.org/downloads/release/python-3912/).
 
 :::tip
 A known issue with Python 3.10 was reported when installing genio-tools on Windows platforms. If you are using Windows, we recommend that you install Python 3.9.
@@ -132,7 +133,7 @@ Enter the command "genio-flash".
 
 #### Enter Download Mode
 
-Steps for NIO 12L to enter Download Mode:
+Steps:
 
 - Press and hold the **Download Button**
 - Use a USB Type-C cable, connect one end to the NIO 12L's **Type-C OTG port**, and the other end to the PC's USB-A port

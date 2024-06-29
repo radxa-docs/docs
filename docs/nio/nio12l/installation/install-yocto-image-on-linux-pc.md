@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+description: ""
 ---
 
 # 在 Linux 主机上烧录 Yocto 系统

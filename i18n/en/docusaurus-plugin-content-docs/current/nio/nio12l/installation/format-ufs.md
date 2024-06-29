@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+description: ""
 ---
 
 # Format UFS
@@ -56,7 +57,7 @@ Scanning USB port...
 Search usb, timeout set as 3600000 ms
 ```
 
-- NIO 12L enters burn mode
+- NIO 12L enters Download Mode
 
   - Press and hold the Download Button
   - Use a USB Type-C cable with one end connected to the Type-C OTG port of the NIO 12L and the other end connected to the USB-A port of the PC.

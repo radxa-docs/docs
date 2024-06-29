@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: ""
 ---
 
 # 在 Linux 主机上烧录 Ubuntu 系统

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: ""
 ---
 
 # Install Ubuntu Under Linux Host
@@ -132,7 +133,7 @@ INFO:aiot:Continue flashing...
 
 #### Enter Download Mode
 
-Steps to enter Download Mode on the NIO 12L:
+Steps:
 
 - Press and hold the **Download Button**
 - Use a USB Type-C cable with one end connected to the NIO 12L's **Type-C OTG port** and the other end connected to the PC's USB-A port

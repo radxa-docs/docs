@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: ""
 ---
 
 # 在 Windows 主机上烧录 Ubuntu 系统
@@ -19,7 +20,7 @@ Ubuntu 系统的烧录需要使用联发科提供的 Genio Tools 烧录工具，
 
 ### 1. 安装 Git
 
-访问 https://gitforwindows.org/ 下载并安装适用于 Windows 的 git
+[下载并安装](https://gitforwindows.org/)适用于 Windows 的 git
 
 安装完成后，打开git bash程序，执行以下配置命令：
 
@@ -36,12 +37,12 @@ Google USB 驱动程序包含 Windows 上的 `adb` 和 `fastboot` 设备驱动�
 
 需要安装这两个驱动程序：
 
-- 下载 Google USB 驱动 https://developer.android.com/studio/run/win-usb
+- [下载 Google USB 驱动](https://developer.android.com/studio/run/win-usb)
 - 解压缩下载的 zip 文件。文件名应该类似于 `usb_driver_r13-windows.zip`
 - 在解压后的目录中找到该文件 `android_winusb.inf`
 - 右键单击文件 `android_winusb.inf` 并从上下文菜单中选择安装
 
-详情请参阅 https://developer.android.com/studio/run/oem-usb#InstallingDriver
+详情请参阅 [InstallingDriver](https://developer.android.com/studio/run/oem-usb#InstallingDriver)
 
 在实际连接开发板并进入下载模式之前，可能无法正确检测到 fastboot 设备驱动程序。 您可能需要手动将“未知设备”分配为 Android 引导加载程序设备。 请参考[故障排除](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/yocto/get-started/flash/flash-troubleshoot-windows.html#missing-yocto-driver)来执行此操作。
 
@@ -62,7 +63,7 @@ fastboot version 34.0.4-10411341
 
 ### 4. 安装 Python3
 
-- 下载并安装 Python 3.9 https://www.python.org/downloads/release/python-3912/.
+- 下载并安装 [Python 3.9](https://www.python.org/downloads/release/python-3912/)。
 
 :::tip
 在 Windows 平台上安装 genio-tools 时报告了 Python 3.10 的已知问题。如果您使用 Windows，我们建议您安装 Python 3.9。
@@ -132,7 +133,7 @@ fastboot: OK
 
 #### NIO 12L 进入烧录模式
 
-NIO 12L 进入烧录模式的步骤：
+步骤：
 
 - 按住 **Download Button**
 - 使用 USB Type-C 数据线，一端接 NIO 12L 的 **Type-C OTG 口**，另一端接 PC 的 USB-A 口
