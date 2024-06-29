@@ -2,15 +2,15 @@
 sidebar_position: 4
 ---
 
-# Burning a Yocto System on a Linux Host
+# Install Yocto Under Linux Host
 
-To burn a Yocto system, you need to use Genio Tools provided by MediaTek. Genio Tools contains the following tools:
+To install Yocto system, you need to use Genio Tools provided by MediaTek. Genio Tools contains the following tools:
 
 - `genio-config` Checks if the Linux or Windows host is properly configured.
 - `genio-flash` provides image writing functionality.
 - `genio-board` Allows programmatic reset of MediaTek evaluation boards.
 
-Tested Ubuntu hosts:
+Linux hosts Tested:
 
 - Ubuntu20
 - Ubuntu22
@@ -31,7 +31,7 @@ $ python3 --version
 Python 3.9.2
 $ pip3 --version
 pip 21.2.4 from /usr/bin/pip3 (python 3.9)
-``
+```
 
 If pip3 is less than 20.3, upgrade by running the following command:
 
@@ -107,24 +107,23 @@ udev rules: OK
 
 For more information, please refer to the [official MediaTek documentation](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/yocto/get-started/env-setup/flash-env-linux.html).
 
-## Burning a Yocto image
+## Install Yocto image
 
 ### Getting the Yocto image
 
-Please go to the [**Resource Download**](../download/README) image download section to download the Yocto image and extract it.
+Please go to the [**Resource Download**](../download) image download section to download the Yocto image and extract it.
 
 ### Formatting the UFS
 
-Before burning the system to UFS, you need to [format UFS](/nio/nio12l/installation/format-ufs).
+Before Installing the system to UFS, you need to [format UFS](/nio/nio12l/installation/format-ufs).
 
-### Starting to burn a Yocto system
+### Starting to install a Yocto system
 
-#### Execute genio-flash
+#### Run genio-flash
 
 Go to the directory where the files are placed and execute the command genio-flash.
 
 ```
-
 stephen@stephen:~$ cd ~/genio-1200-radxa-nio-12l-ufs
 stephen@stephen:~/genio-1200-radxa-nio-12l-ufs$ genio-flash
 AIoT Tools: v1.3.6
@@ -141,24 +140,26 @@ WARNING:aiot:Unable to find and reset the board. Possible causes are:
 1. This is not a Genio 350/700 EVK, nor a Pumpkin board.
 2. The board port UART0 is not connected.
 3. The UART0 port is being opened by another tool, such as TeraTerm on Windows.
-   You can now manually reset the board into DOWNLOAD mode.
+   You can now manually reset the board into DOWNLOAD Mode.
 
 INFO:aiot:Continue flashing...
-
 ```
 
-#### NIO 12L Entering Burn-in Mode
+#### Enter Download Mode
 
-Steps to enter burn mode on the NIO 12L: - Press and hold the **Download Button** - Use a USB Type-C cable with one end connected to the NIO 12L's **Type-C OTG port** and the other end connected to the PC's USB-A port - Release the **Download Button** and press the **Download Button** to enter burn mode on the NIO 12L.
+Steps to enter Download Mode on the NIO 12L:
 
-! [NIO 12L Download](/img/nio/nio12l/n12l_download.webp)
-After successfully entering the burn mode, the burn steps will be executed.
+- Press and hold the **Download Button**
+- Use a USB Type-C cable with one end connected to the NIO 12L's **Type-C OTG port** and the other end connected to the PC's USB-A port
+- Release the **Download Button** and press the **Download Button** to enter Download Mode on the NIO 12L.
+
+![NIO 12L Download](/img/nio/nio12l/n12l_download.webp)
+After successfully entering the Download Mode, the download process will begin.
 
 :::tip
-You have to execute the step "Execute command genio-flash" first, and then execute the step "Board enters burn mode".
+You have to execute the step "Run genio-flash" first, and then execute the step "Enter Download Mode".
 :::
 
 ## Documentation
 
 [MT8395 (Genio 1200) Development Manual](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/hw/mt8395-soc.html)
-```

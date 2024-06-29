@@ -33,7 +33,7 @@ You will also need the following additional equipment to get the NIO 12L up and 
 
 - USB Type-C to Type-A cable
 
-  For burning and erasing the NIO 12L image.
+  For flashing and erasing the NIO 12L image.
 
 - USB to TTL Serial Cable
 
@@ -47,14 +47,14 @@ You will also need the following additional equipment to get the NIO 12L up and 
 
   NIO 12L supports MIPI screen, such as Radxa Display 8HD.
 
-## Power On Startup
+## Boot up the system
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NIO 12L comes pre-installed with Yocto or Ubuntu or Android.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NIO 12L comes with pre-installed Yocto or Ubuntu or Android.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For NIO 12L with Yocto or Ubuntu installed, connect the Type-C power supply and then press the Power Button for 1 second to boot the system.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For NIO 12L with Android system installed, after connecting the Type-C power supply, press the Power Button for 2 seconds and the system will start.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Type-C power supply** and **Power Button** position Refer to the following figure
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; you can find the **Type-C power supply(Type-C 5V Only DC Power)** and **Power Button** position at the following figure
 
-! [NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)
+![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)

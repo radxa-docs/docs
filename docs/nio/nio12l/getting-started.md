@@ -55,6 +55,6 @@ NIO 12L 包装清单包含以下：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于安装了安卓系统的 NIO 12L，接上 Type-C 电源后，按下 Power Button 2秒后系统就会启动。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Type-C 电源** 和 **Power Button** 的位置 参考下面的图
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Type-C 电源(Type-C 5V Only DC Power)** 和 **Power Button** 的位置 参考下面的图
 
 ![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)

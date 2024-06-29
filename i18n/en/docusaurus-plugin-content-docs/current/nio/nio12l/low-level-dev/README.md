@@ -2,8 +2,8 @@
 sidebar_position: 7
 ---
 
-# Underlying development
+# Low Level Development
 
-Kernel, U-Boot, Yocto and other code download, compile and related function development.
+Introduct how to build kernel, u-boot, ubuntu, yocto and so on
 
 <DocCardList />

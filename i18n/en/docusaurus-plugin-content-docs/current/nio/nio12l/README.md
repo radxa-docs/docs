@@ -1,19 +1,19 @@
 ---
 label: "NIO 12L"
-description: "瑞莎 NIO 12L 单板机"
+description: "Radxa NIO 12L SBC"
 sidebar_position: 2
 slug: /nio/12l
 ---
 
 # NIO 12L
 
-The Renesas NIO 12L is a compact, low-power and high-performance single board computer the size of a cell phone. It is developed on a MediaTek MT8395 (codenamed Genio 1200) octa-core processor with an integrated Mali-G57 MC5 GPU and a standalone AI processing module. This single-board computer provides users with a smooth desktop experience and superior AI computing capabilities. Its rich peripheral interfaces support a wide range of complex application scenarios, thus expanding its application possibilities.
+The Radxa NIO 12L is a compact, low-power and high-performance single board computer the size of a cell phone. It is developed on a MediaTek MT8395 (codenamed Genio 1200) octa-core processor with an integrated Mali-G57 MC5 GPU and a standalone AI processing module. This single-board computer provides users with a smooth desktop experience and superior AI computing capabilities. Its rich peripheral interfaces support a wide range of complex application scenarios, thus expanding its application possibilities.
 
 The NIO 12L is designed to combine high-performance processing power with low power consumption, making it ideal for a wide range of advanced applications including, but not limited to, advanced multimedia processing, complex AI and Internet of Things (IoT) solutions.
 
 ## Physical Photos
 
-! [NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)
+![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)
 
 ## Chip Block Diagram
 

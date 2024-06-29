@@ -2,15 +2,15 @@
 sidebar_position: 2
 ---
 
-# Burning Ubuntu on a Linux Host
+# Install Ubuntu Under Linux Host
 
-To burn Ubuntu system, you need to use Genio Tools provided by MediaTek. Genio Tools includes the following tools:
+To install Ubuntu system, you need to use Genio Tools provided by MediaTek. Genio Tools includes the following tools:
 
 - `genio-config` Checks if the Linux or Windows host is properly configured.
 - `genio-flash` provides image writing functionality.
 - `genio-board` Allows programmatic reset of MediaTek evaluation boards.
 
-Tested Ubuntu hosts:
+Ubuntu hosts Tested:
 
 - Ubuntu20
 - Ubuntu22
@@ -93,21 +93,21 @@ fastboot: OK
 udev rules: OK
 ```
 
-For more information, please refer to [MediaTek Official Documentation].(https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/yocto/get-started/env-setup/flash-env-linux.html)
+For more information, please refer to [MediaTek Official Documentation](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/yocto/get-started/env-setup/flash-env-linux.html)
 
-## Burning an Ubuntu image
+## Install Ubuntu image
 
-### Getting the Ubuntu image
+### Get the Ubuntu image
 
-Go to the [**Resource Downloads**](.... /download/README) image download section to download the Ubuntu image and extract it.
+Go to the [**Resource Download**](../download) to download the Ubuntu image and extract it.
 
-### Formatting the UFS
+### Format the UFS
 
-Before burning the system to UFS, you need to [format UFS](/nio/nio12l/installation/format-ufs).
+Before installing the system on UFS, you need to [Format UFS](/nio/nio12l/installation/format-ufs).
 
-### Starting to burn an Ubuntu system
+### Begin to install an Ubuntu system
 
-#### run genio-flash
+#### Run genio-flash
 
 Go to the directory where the files are located and execute the command genio-flash.
 
@@ -125,20 +125,24 @@ WARNING:aiot:Unable to find and reset the board. Possible causes are:
 1. This is not a Genio 350/700 EVK, nor a Pumpkin board.
 2. The board port UART0 is not connected.
 3. The UART0 port is being opened by another tool, such as TeraTerm on Windows.
-You can now manually reset the board into DOWNLOAD mode.
+You can now manually reset the board into DOWNLOAD Mode.
 
 INFO:aiot:Continue flashing...
 ```
 
-#### NIO 12L Entering Burn-in Mode
+#### Enter Download Mode
 
-Steps to enter burn mode on the NIO 12L: - Press and hold the **Download Button** - Use a USB Type-C cable with one end connected to the NIO 12L's **Type-C OTG port** and the other end connected to the PC's USB-A port - Release the **Download Button**
+Steps to enter Download Mode on the NIO 12L:
+
+- Press and hold the **Download Button**
+- Use a USB Type-C cable with one end connected to the NIO 12L's **Type-C OTG port** and the other end connected to the PC's USB-A port
+- Release the **Download Button**
 
 ![NIO 12L Download](/img/nio/nio12l/n12l_download.webp)
-After successfully entering the burn mode, the burn steps will be executed.
+After successfully entering the Download Mode, the download process will begin.
 
 :::tip
-You must first execute the step "Execute command genio-flash" and then execute the step "Board enters burn mode".
+You must first execute the step "Run genio-flash" and then do the step "Enter Download Mode".
 :::
 
 ## Reference document
