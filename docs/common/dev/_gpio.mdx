@@ -29,9 +29,9 @@ GPIO 简介
 
 将 {props.gpio_pin} 接地或者接 3.3V，
 
-<PreView params={{ model: props.model }}>
+<PreView params={{ model: props.model, chip: props.chip, line: props.line }}>
   {`
-  radxa@#model#:~$ gpioget gpiochip0 0
+  radxa@#model#:~$ gpioget gpiochip#chip# #line#
   `}
 </PreView>
 

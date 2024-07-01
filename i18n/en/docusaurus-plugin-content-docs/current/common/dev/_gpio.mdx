@@ -29,9 +29,9 @@ General Purpose Inputs/Outputs (GPIOs) are non-dedicated digital signal pins on 
 
 Ground {props.gpio_pin} or connect to 3.3V,
 
-<PreView params={{ model: props.model }}>
+<PreView params={{ model: props.model, chip: props.chip, line: props.line }}>
   {`
-  radxa@#model#:~$ gpioget gpiochip0 0
+  radxa@#model#:~$ gpioget gpiochip#chip# #line#
   `}
 </PreView>
 

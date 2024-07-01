@@ -1,9 +1,9 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 ---
 
 import HdmiRX from '../../../common/dev/\_hdmi-rx.mdx';
 
-# HDMI RX 使用
+# HDMI RX Usage
 
 <HdmiRX />

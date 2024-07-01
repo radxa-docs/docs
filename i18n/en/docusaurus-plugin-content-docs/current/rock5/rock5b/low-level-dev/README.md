@@ -2,8 +2,8 @@
 sidebar_position: 7
 ---
 
-# Low-level-development
+# Low-level Development
 
-It mainly introduces uboot, kernel, and debian os compilation and packaging.
+Mainly introduces uboot, kernel, debian os compilation and packaging and so on.
 
-<!-- <DocCardList /> -->
+<DocCardList />

@@ -13,7 +13,7 @@ import PATA_SATA_HAT from "../../../../common/accessories/\_penta-sata-hat.mdx";
 
 ### E to sata board
 
-<M_2_SATA product="ROCK 5A" model="rock-5a" rsetup_sata_img="/img/rock5a/rock5a-rsetup-overlays-sata0.webp" rsetup_sata_title="Enable SATA0" />
+<M_2_SATA product="ROCK 5A" model="rock-5a" em2tosata="/img/accessories/m2e-to-sata.webp" rsetup_sata_img="/img/rock5a/rock5a-rsetup-overlays-sata0.webp" rsetup_sata_title="Enable SATA0" />
 
 ### Penta sata hat
 

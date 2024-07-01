@@ -17,7 +17,7 @@ import UART from '../../../common/dev/\_uart.mdx';
 
 ## GPIO
 
-<GPIO product_name="Radxa ROCK 5C" model="rock-5c" gpio_pin="3" gpio_connection="/img/rock5c/led_connection.webp" />
+<GPIO product_name="Radxa ROCK 5A" model="rock-5a" gpio_pin="3" chip="1" line="31" gpio_connection="/img/rock5c/led_connection.webp" />
 
 ## I2C
 

@@ -1,9 +1,9 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-import Rbuild from "../../../common/dev/\_rbuild.mdx"
+import RBUILD from '../../../common/dev/\_rbuild.mdx'
 
-# Build RadxaOS image
+# Build RadxaOS
 
-<Rbuild />
+<RBUILD />
