@@ -20,8 +20,8 @@ istoreos:
 
 Radxa E20C V1.1 版本
 
-[V1.1 原理图 pdf](https://dl.radxa.com/e/e20c/v1.10/radxa_e20c_v1100_Components_Placement_map.pdf)  
-[V1.1 位号图 pdf](https://dl.radxa.com/e/e20c/v1.10/radxa_e20c_v1100_schematic.pdf)
+[V1.1 位号图 pdf](https://dl.radxa.com/e/e20c/v1.10/radxa_e20c_v1100_Components_Placement_map.pdf)  
+[V1.1 原理图 pdf](https://dl.radxa.com/e/e20c/v1.10/radxa_e20c_v1100_schematic.pdf)
 
 ## 质量认证
 
