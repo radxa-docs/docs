@@ -4,9 +4,9 @@ sidebar_position: 2
 
 # Radxa Products
 
-## Radxa SBCs
+## Radxa SBC Family
 
-### ROCK 3 Family
+### ROCK 3 Series
 
 | Model                            | Description                       |
 | -------------------------------- | --------------------------------- |
@@ -14,7 +14,7 @@ sidebar_position: 2
 | [ROCK 3B](/rock3/rock3b/) (2023) | RK3568(J) with Multiple Interface |
 | [ROCK 3C](/rock3/rock3c/) (2022) | RK3566 and Credit-Card Size SBC   |
 
-### ROCK 4 Family
+### ROCK 4 Series
 
 | Model                                  | Description                       |
 | -------------------------------------- | --------------------------------- |
@@ -24,26 +24,26 @@ sidebar_position: 2
 | [ROCK 4SE](/rock4/rock4se/) (2022)     | RK3399-T with 4K HDMI             |
 | [ROCK 4C+](/rock4/rock4c+/) (2022)     | RK3399-T with 4K + 2K HDMI        |
 
-### ROCK 5 Family
+### ROCK 5 Series
 
 | Model                            | Description                               |
 | -------------------------------- | ----------------------------------------- |
 | [ROCK 5A](/rock5/rock5a/) (2023) | Credit-Card Size SBC with 4K + 8K Display |
 | [ROCK 5B](/rock5/rock5b/) (2023) | 8K SBC with Quad Display                  |
 
-### X Family
+### X Series
 
-| model                | summary                   |
+| Model                | Description               |
 | -------------------- | ------------------------- |
 | [X2L](/x/x2l) (2023) | Intel J4125 with RPi 2040 |
 
-### NIO Family
+### NIO Series
 
-| model                      | summary                          |
+| Model                      | Description                      |
 | -------------------------- | -------------------------------- |
 | [NIO 12L](/nio/12l) (2024) | MediaTek Genio 1200 with 4K HDMI |
 
-## Radxa Compute Module Family
+## Radxa Computer on Module Family
 
 | Model                                      | Description                      |
 | ------------------------------------------ | -------------------------------- |
@@ -53,7 +53,7 @@ sidebar_position: 2
 | [Radxa CM5](/compute-module/cm5/)          | RK3588S with a B2B Interface     |
 | [Radxa NX5](/compute-module/nx5/) (2023)   | RK3588S with an SODIMM Interface |
 
-## Radxa Network Computer
+## Radxa Network Computer Family
 
 | Model                             | Description                                |
 | --------------------------------- | ------------------------------------------ |
