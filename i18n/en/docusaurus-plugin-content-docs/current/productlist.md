@@ -52,3 +52,9 @@ sidebar_position: 2
 | [Radxa CM3I](/compute-module/cm3i/) (2023) | RK3568(J) with a B2B Interface   |
 | [Radxa CM5](/compute-module/cm5/)          | RK3588S with a B2B Interface     |
 | [Radxa NX5](/compute-module/nx5/) (2023)   | RK3588S with an SODIMM Interface |
+
+## Radxa Network Computer
+
+| Model                             | Description                                |
+| --------------------------------- | ------------------------------------------ |
+| [Radxa E20C](/e/e20c/) (2024)     | Dual GbE Network Computer based on RK3528A |
