@@ -10,7 +10,7 @@ import Images from "./\_image.mdx"
 
 ### 官方镜像
 
-<Images loader={false} system_img={true} lite_system_img={true} spi_img={false} android12_update={true} android12_gpt={true}  />
+<Images loader={false} rock5b_system_img={true} rock5bp_system_img={true} lite_rock5b_system_img={true} spi_img={false} android12_update={true} android12_gpt={true}  />
 
 ### 第三方镜像
 

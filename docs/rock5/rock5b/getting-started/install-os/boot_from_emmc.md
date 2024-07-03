@@ -9,7 +9,7 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## 文件下载
 
-<Images loader={false} system_img={true} spi_img={false} />
+<Images loader={false} rock5b_system_img={true} rock5bp_system_img={true} spi_img={false} />
 
 ## eMMC Module 准备
 

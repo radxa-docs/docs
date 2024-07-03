@@ -8,11 +8,18 @@ import React, { Fragment } from "react";
       Loader: RK3588_SPL_Loader_v1.15.113.bin{" "}
     </a>
   </li>
-  <li style={{ display: `${props.system_img ? "block" : "none"}` }}>
+  <li style={{ display: `${props.rock5b_system_img ? "block" : "none"}` }}>
     {" "}
     <a href="https://github.com/radxa-build/rock-5b/releases/download/b39/rock-5b_debian_bullseye_kde_b39.img.xz">
       {" "}
-      系统镜像: Radxa ROCK 5B Debian b39{" "}
+      ROCK 5B 系统镜像: Radxa ROCK 5B Debian b39{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.rock5bp_system_img ? "block" : "none"}` }}>
+    {" "}
+    <a href="https://github.com/radxa-build/rock-5b-plus/releases/download/test-build-5/rock-5b-plus_debian_bullseye-test_kde_t5.img.xz">
+      {" "}
+      ROCK 5B+ 系统镜像: Radxa ROCK 5B+ Debian test build 5{" "}
     </a>
   </li>
   <li style={{ display: `${props.spi_img ? "block" : "none"}` }}>
