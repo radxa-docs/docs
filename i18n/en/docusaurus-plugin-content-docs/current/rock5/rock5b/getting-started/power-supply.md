@@ -5,9 +5,9 @@ description: "Power supply details for ROCK 5B/5B+"
 
 # Power supply options
 
-The ROCK 5B+ supports a variety of power supply technologies, including smart power adapters and fixed voltage:
+The ROCK 5B/5B+ supports a variety of power supply technologies, including smart power adapters and fixed voltage:
 
-- USB Type-C PD version 2.0 with 9V, 12V, 15V and 20V input support
+- USB Type-C PD Version 2.0 with 9V/2A, 12V/2A, 15V/2A and 20V/2A.
 
 - Power adapter with 5V to 20V fixed voltage on USB Type-C port
 
