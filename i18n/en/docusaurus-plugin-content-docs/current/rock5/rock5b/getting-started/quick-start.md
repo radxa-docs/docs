@@ -20,7 +20,7 @@ The ROCK 5B/5B+ standard package includes the following items:
 
 - ROCK 5B/5B+ motherboard
 
-To boot up the ROCK 5B, you'll also need the following:
+To boot up the ROCK 5B/5B+, you'll also need the following:
 
 - A 12V/2A or higher power DC adapter with a 5.5x2.5mm plug, positive inside and ground outside.The ROCK 5B/5B+ also supports PoE power supply. For more details on power supply, please refer to [power-supply](../power-supply).
 - An HDMI cable and an HDMI-enabled monitor with a recommended resolution of 1080P or higher, a 4K / 8K monitor will provide the best experience.
