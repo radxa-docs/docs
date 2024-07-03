@@ -44,7 +44,14 @@ ROCK 5C provides complete hardware design schematics and software source code, a
 
 ## Motherboard Preview
 
-<img src="/img/rock5c/rock-5c-overview-new.webp" alt="rock 5c new overview" width="700" />
+<Tabs queryString="Soc">
+    <TabItem value="RK3588S2">
+        <img src="/img/rock5c/rock-5c-rk3588s2-real.webp" alt="rock 5c rk3588s2" width="700" />
+    </TabItem>
+    <TabItem value="RK3582">
+        <img src="/img/rock5c/rock-5c-rk3582-real.webp" alt="rock 5c rk3582" width="700" />
+    </TabItem>
+</Tabs>
 
 ## Parameter-Configuration
 

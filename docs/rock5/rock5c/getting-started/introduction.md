@@ -44,7 +44,14 @@ ROCK 5C 提供了完整的硬件设计原理图和软件源代码，这一特性
 
 ## 主板预览
 
-<img src="/img/rock5c/rock-5c-overview-new.webp" alt="rock 5c new overview" width="700" />
+<Tabs queryString="Soc">
+    <TabItem value="RK3588S2">
+        <img src="/img/rock5c/rock-5c-rk3588s2-real.webp" alt="rock 5c rk3588s2" width="700" />
+    </TabItem>
+    <TabItem value="RK3582">
+        <img src="/img/rock5c/rock-5c-rk3582-real.webp" alt="rock 5c rk3582" width="700" />
+    </TabItem>
+</Tabs>
 
 ## 参数配置
 
