@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+description: "Introduces common settings to help first-time users quickly configure the environment and get up and running."
 ---
 
 import BasicSoftWareConf from "../../../common/radxa-os/\_basicSoftwareConf.mdx";

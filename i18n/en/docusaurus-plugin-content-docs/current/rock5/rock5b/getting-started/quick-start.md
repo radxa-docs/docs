@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: "Getting started quickly with the ROCK 5B/5B+ makes it easy to start using and exploring its features."
 ---
 
 # Quick start

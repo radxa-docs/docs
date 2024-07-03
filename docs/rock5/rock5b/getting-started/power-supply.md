@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+description: "ROCK 5B/5B+ 的供电详情"
 ---
 
 # 电源选择

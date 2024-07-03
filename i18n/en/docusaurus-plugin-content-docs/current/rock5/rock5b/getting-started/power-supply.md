@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+description: "Power supply details for ROCK 5B/5B+"
 ---
 
 # Power supply options

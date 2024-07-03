@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "简单介绍 ROCK 5B/5B+"
 ---
 
 # 产品介绍

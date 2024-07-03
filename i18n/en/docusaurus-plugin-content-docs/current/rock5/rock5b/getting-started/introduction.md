@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "A brief introduction to the ROCK 5B/5B+"
 ---
 
 # Product Introduction
