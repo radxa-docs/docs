@@ -78,11 +78,19 @@ Please go to [Resource Download Summary](./download) to download the correspondi
 
 <Tabs queryString="target">
 
-<TabItem value="linux/mac" label="Linux/mac">
+<TabItem value="linux" label="Linux">
 
-#### Linux/Mac systems are written using rkdeveloptool
+#### Linux systems are written using rkdeveloptool
 
-[rkdeveloptool](../../low-level-dev/maskrom)
+[rkdeveloptool](../../low-level-dev/maskrom/linux)
+
+</TabItem>
+
+<TabItem value="mac" label="Mac">
+
+#### Mac systems are written using rkdeveloptool
+
+[rkdeveloptool](../../low-level-dev/maskrom/mac-os)
 
 </TabItem>
 
@@ -90,7 +98,7 @@ Please go to [Resource Download Summary](./download) to download the correspondi
 
 #### Windows systems write with rkdevetool
 
-[rkdevtool](/rock5/rock5b/low-level-dev/maskrom)
+[rkdevtool](/rock5/rock5b/low-level-dev/maskrom/windows)
 
 </TabItem>
 

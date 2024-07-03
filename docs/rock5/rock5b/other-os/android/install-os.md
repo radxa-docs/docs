@@ -78,11 +78,19 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 <Tabs queryString="target">
 
-<TabItem value="linux/mac" label="Linux/mac">
+<TabItem value="linux" label="Linux">
 
-#### Linux/Mac 系统使用 rkdeveloptool 写入
+#### Linux 系统使用 rkdeveloptool 写入
 
-[rkdeveloptool](../../low-level-dev/maskrom)
+[rkdeveloptool](../../low-level-dev/maskrom/linux)
+
+</TabItem>
+
+<TabItem value="mac" label="Mac">
+
+#### Mac 系统使用 rkdeveloptool 写入
+
+[rkdeveloptool](../../low-level-dev/maskrom/mac-os)
 
 </TabItem>
 
@@ -90,7 +98,7 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 #### Windows 系统使用 rkdevetool 写入
 
-[rkdevtool](/rock5/rock5b/low-level-dev/maskrom)
+[rkdevtool](/rock5/rock5b/low-level-dev/maskrom/windows)
 
 </TabItem>
 
