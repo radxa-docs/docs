@@ -21,7 +21,7 @@ More other usage scenarios are waiting for you to discover!
 
 ### Rich Interface
 
-ROCK 5B/5B+ provides rich interfaces, including multiple USB and HDMI ports, which are convenient for connecting external devices and expanding functions. For details, please refer to [Parameter Configuration](#Parameter-Configuration).
+ROCK 5B/5B+ provides rich interfaces, including multiple USB and HDMI ports, which are convenient for connecting external devices and expanding functions. For details, please refer to [Parameter Configuration](#parameter-configuration).
 
 ### Accessory Eco-Rich
 
