@@ -9,8 +9,8 @@ sidebar_position: 1
 ### Power supply
 
 :::tip
-The ROCK 5B supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using [Radxa Power PD30W](../../accessories/pd_30w).
-:::.
+The ROCK 5B supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using [Radxa Power PD30W]((/accessories/pd_30w).
+:::
 
 ### Storage
 
