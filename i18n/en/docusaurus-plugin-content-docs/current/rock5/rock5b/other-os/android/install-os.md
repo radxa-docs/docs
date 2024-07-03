@@ -52,7 +52,7 @@ The ROCK 5B supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radx
 
 ### Download the image
 
-Please go to [Resource Download Summary](../../download) to download the corresponding image file.
+Please go to [Resource Download Summary](./download) to download the corresponding image file.
 
 ### System Installation
 
