@@ -123,95 +123,197 @@ ROCK 5 ITX 不仅是一款高性能的ARM基础PC板，更是一个多功能、�
 
 ## 接口说明
 
-<table>
-  <tr>
-    <th>编号</th>
-    <th>接口名</th>
-    <th>编号</th>
-    <th>接口名</th>
-    <th>编号</th>
-    <th>接口名</th>
-    <th>编号</th>
-    <th>接口名</th>
-  </tr>
-  <tr>
-    <th>1</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#tp-接口">TP 接口</a></th>
-    <th>9</th>
-    <th>AUDIO</th>
-    <th>17</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#poe">POE 接口</a></th>
-    <th>25</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-m-key">PCIE M-KEY</a></th>
-  </tr>
-  <tr>
-    <th>2</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#lcd0">LCD 屏接口</a></th>
-    <th>10</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-10">USB 3.0 + HDMI</a></th>
-    <th>18</th>
-    <th>ATX 电源接口</th>
-    <th>26</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-e-key">PCIE E-KEY</a></th>
-  </tr>
-  <tr>
-    <th>3</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#摄像头接口">摄像头接口</a></th>
-    <th>11</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
-    <th>19</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">SATA</a></th>
-    <th>27</th>
-    <th>RK3588 SOC</th>
-  </tr>
-  <tr>
-    <th>4</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">MicroSD</a></th>
-    <th>12</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#以太网--usb-20-12">以太网 + USB 2.0</a></th>
-    <th>20</th>
-    <th>5V/GND/GND/12V</th>
-    <th>28</th>
-    <th>LPDDR5</th>
-  </tr>
-  <tr>
-    <th>5</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#debug-uart">DEBUG UART</a></th>
-    <th>13</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#以太网--usb-20-13">以太网 + USB 2.0</a></th>
-    <th>21</th>
-    <th>EDP</th>
-    <th>29</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#fan">FAN</a></th>
-  </tr>
-  <tr>
-    <th>6</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#f_usb">F_USB</a></th>
-    <th>14</th>
-    <th>HDMI 输入</th>
-    <th>22</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#rtc">RTC 电源</a></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <th>7</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#f_audio">F_AUDIO</a></th>
-    <th>15</th>
-    <th>全功能 Type C</th>
-    <th>23</th>
-    <th>MASKROM 按键</th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <th>8</th>
-    <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#spdif-音频接口">SPDIF 音频接口</a></th>
-    <th>16</th>
-    <th>DC 电源接口</th>
-    <th>24</th>
-    <th>RECOVERY<a href="/rock5/rock5itx/hardware-design/hardware-interface#recovery"></a></th>
-    <th></th>
-    <th></th>
-  </tr>
-</table>
+<Tabs queryString="HardwareVersion">
+  <TabItem value="ROCK 5ITX v1.11">
+    <table>
+      <tr>
+        <th>编号</th>
+        <th>接口名</th>
+        <th>编号</th>
+        <th>接口名</th>
+        <th>编号</th>
+        <th>接口名</th>
+        <th>编号</th>
+        <th>接口名</th>
+        <th>编号</th>
+        <th>接口名</th>
+      </tr>
+      <tr>
+        <th>1</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#tp-接口">TP 接口</a></th>
+        <th>9</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#spdif-音频接口">SPDIF 音频接口</a></th>
+        <th>17</th>
+        <th>DC 电源接口</th>
+        <th>25</th>
+        <th>Recovery Header</th>
+        <th>33</th>
+        <th>eMMC</th>
+      </tr>
+      <tr>
+        <th>2</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#lcd0">LCD 屏接口</a></th>
+        <th>10</th>
+        <th><a href="">上： Headphone Jack; 下： Microphone Jack</a></th>
+        <th>18</th>
+        <th>POE Header</th>
+        <th>26</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-m-key">M.2 M Key</a></th>
+      </tr>
+      <tr>
+        <th>3</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#摄像头接口">摄像头接口</a></th>
+        <th>11</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-10">USB 3.0 + HDMI</a></th>
+        <th>19</th>
+        <th>标准 24-Pin ATX 电源接口</th>
+        <th>27</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-e-key">M.2 E Key</a></th>
+      </tr>
+      <tr>
+        <th>4</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">MicroSD</a></th>
+        <th>12</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
+        <th>20</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4个带供电的 SATA 接口</a></th>
+        <th>28</th>
+        <th>Rockchip RK3588</th>
+      </tr>
+      <tr>
+        <th>5</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#debug-uart">DEBUG UART</a></th>
+        <th>13</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#以太网--usb-20-12">以太网 + USB 2.0</a></th>
+        <th>21</th>
+        <th>5V/GND/GND/12V</th>
+        <th>29</th>
+        <th>LPDDR5 RAM</th>
+      </tr>
+      <tr>
+        <th>6</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#f_usb">F_USB</a></th>
+        <th>14</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#以太网--usb-20-13">以太网 + USB 2.0</a></th>
+        <th>22</th>
+        <th>EDP</th>
+        <th>30</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#fan">FAN</a></th>
+      </tr>
+      <tr>
+        <th>7</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#f_audio">F_AUDIO</a></th>
+        <th>15</th>
+        <th>HDMI IN</th>
+        <th>23</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#rtc">RTC</a></th>
+        <th>31</th>
+        <th>风扇螺丝孔</th>
+      </tr>
+      <tr>
+        <th>8</th>
+        <th>F_PANEL</th>
+        <th>16</th>
+        <th>全功能 Type C</th>
+        <th>24</th>
+        <th>Maskrom 按键</th>
+        <th>32</th>
+        <th>SPI Flash</th>
+      </tr>
+    </table>
+  </TabItem>
+  <TabItem value="ROCK 5ITX+ V1.2">
+    <table>
+      <tr>
+        <th>编号</th>
+        <th>接口名</th>
+        <th>编号</th>
+        <th>接口名</th>
+        <th>编号</th>
+        <th>接口名</th>
+        <th>编号</th>
+        <th>接口名</th>
+      </tr>
+      <tr>
+        <th>1</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#tp-接口">TP 接口</a></th>
+        <th>9</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#spdif-音频接口">SPDIF 音频接口</a></th>
+        <th>17</th>
+        <th>DC 电源接口</th>
+        <th>25</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-m-key">M.2 M Key</a></th>
+      </tr>
+      <tr>
+        <th>2</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#lcd0">LCD 屏接口</a></th>
+        <th>10</th>
+        <th><a href="">上： Headphone Jack; 下： Microphone Jack</a></th>
+        <th>18</th>
+        <th>POE Header</th>
+        <th>26</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-e-key">M.2 E Key</a></th>
+      </tr>
+      <tr>
+        <th>3</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#摄像头接口">摄像头接口</a></th>
+        <th>11</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-10">USB 3.0 + HDMI</a></th>
+        <th>19</th>
+        <th>标准 24-Pin ATX 电源接口</th>
+        <th>27</th>
+        <th>Rockchip RK3588</th>
+      </tr>
+      <tr>
+        <th>4</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">MicroSD</a></th>
+        <th>12</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
+        <th>20</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#pcie-m-key">M.2 M Key</a></th>
+        <th>28</th>
+        <th>LPDDR5 RAM</th>
+      </tr>
+      <tr>
+        <th>5</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#debug-uart">DEBUG UART</a></th>
+        <th>13</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#以太网--usb-20-12">以太网 + USB 2.0</a></th>
+        <th>21</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#rtc">RTC</a></th>
+        <th>29</th>
+        <th>SPI Flash</th>
+      </tr>
+      <tr>
+        <th>6</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#f_usb">F_USB</a></th>
+        <th>14</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#以太网--usb-20-13">以太网 + USB 2.0</a></th>
+        <th>22</th>
+        <th>EDP</th>
+        <th>30</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#fan">FAN</a></th>
+      </tr>
+      <tr>
+        <th>7</th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#f_audio">F_AUDIO</a></th>
+        <th>15</th>
+        <th>HDMI IN</th>
+        <th>23</th>
+        <th>Maskrom 按键</th>
+        <th>31</th>
+        <th>eMMC</th>
+      </tr>
+      <tr>
+        <th>8</th>
+        <th>F_PANEL</th>
+        <th>16</th>
+        <th>全功能 Type C</th>
+        <th>24</th>
+        <th>Recovery</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </table>
+  </TabItem>
+</Tabs>
