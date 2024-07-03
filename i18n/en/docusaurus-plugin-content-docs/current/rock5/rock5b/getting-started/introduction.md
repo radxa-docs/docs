@@ -45,7 +45,7 @@ ROCK 5B provides complete hardware design schematics and software source code, a
 
 <Tabs queryString="versions">
     <TabItem value="ROCK 5B">
-        <img src="/img/rock5b/rock-5b-overview.webp" alt="rock 5b overview" width="700" />
+        <img src="/img/rock5b/rock-5b-overview-v1-45.webp" alt="rock 5b overview" width="700" />
     </TabItem>
     <TabItem value="ROCK 5B+">
         <img src="/img/rock5b/rock5b-plus-overview.webp" alt="rock 5b+ overview" width="700" />

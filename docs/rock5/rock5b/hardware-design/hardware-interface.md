@@ -10,7 +10,14 @@ sidebar_position: 1
 
 ## 实物照片
 
-<img src="/img/rock5b/rock5b-real.webp" width="800" alt="rock 5b real" />
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5B">
+        <img src="/img/rock5b/rock-5b-overview-v1-45.webp" alt="rock 5b overview" width="700" />
+    </TabItem>
+    <TabItem value="ROCK 5B+">
+        <img src="/img/rock5b/rock5b-plus-overview.webp" alt="rock 5b+ overview" width="700" />
+    </TabItem>
+</Tabs>
 
 ## 接口详情
 

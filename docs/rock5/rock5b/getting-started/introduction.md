@@ -45,7 +45,7 @@ ROCK 5B 提供了完整的硬件设计原理图和软件源代码，这一特性
 
 <Tabs queryString="versions">
     <TabItem value="ROCK 5B">
-        <img src="/img/rock5b/rock-5b-overview.webp" alt="rock 5b overview" width="700" />
+        <img src="/img/rock5b/rock-5b-overview-v1-45.webp" alt="rock 5b overview" width="700" />
     </TabItem>
     <TabItem value="ROCK 5B+">
         <img src="/img/rock5b/rock5b-plus-overview.webp" alt="rock 5b+ overview" width="700" />
