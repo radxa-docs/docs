@@ -55,7 +55,7 @@ Confirmation: Remove eMMC Module, MicroSD and NVME devices.
 Remove the eMMC Module, MicroSD and NVME device, then connect the board and PC via USB cable, then see if the device enters [Maskrom state](./low-level-dev/maskrom/).
 If it's not in MaskRom state, it's most likely due to the following reasons.
 
-**In [Burning system to eMMC via USB](./low-level-dev/maskrom/), did not follow the instructions to press the Maskrom button, causing the system to reach the [SPI Flash](./low-level-dev/maskrom/), and when the system starts, it reads the SPI information first, and then there is an error and it cannot start normally. **
+In [Burning system to eMMC via USB](./low-level-dev/maskrom/), did not follow the instructions to press the Maskrom button, causing the system to reach the [SPI Flash](./low-level-dev/maskrom/), and when the system starts, it reads the SPI information first, and then there is an error and it cannot start normally.
 
 Solution:
 
