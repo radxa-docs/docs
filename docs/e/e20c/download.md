@@ -28,5 +28,7 @@ Radxa E20C V1.1 版本
 ## 参考文档
 
 ## 3D 文件
+
 ### 第三方外壳
+
 - [E20C 外壳，支持被动散热式上盖](https://makerworld.com/en/models/519794#profileId-436182) 来自 [JasonYANG17](https://makerworld.com/en/@Jasonyang170)

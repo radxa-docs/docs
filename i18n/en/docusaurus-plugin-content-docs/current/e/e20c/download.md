@@ -27,5 +27,7 @@ Radxa E20C Version V1.1
 ## Reference Documentation
 
 ## 3D Design
+
 ### Third Party Enclosure
+
 - [E20C Enclosure with fan support](https://makerworld.com/en/models/519794#profileId-436182) by [JasonYANG17](https://makerworld.com/en/@Jasonyang170)

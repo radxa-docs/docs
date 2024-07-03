@@ -55,6 +55,6 @@ sidebar_position: 2
 
 ## Radxa Network Computer Family
 
-| Model                             | Description                                |
-| --------------------------------- | ------------------------------------------ |
-| [Radxa E20C](/e/e20c/) (2024)     | Dual GbE Network Computer based on RK3528A |
+| Model                         | Description                                |
+| ----------------------------- | ------------------------------------------ |
+| [Radxa E20C](/e/e20c/) (2024) | Dual GbE Network Computer based on RK3528A |
