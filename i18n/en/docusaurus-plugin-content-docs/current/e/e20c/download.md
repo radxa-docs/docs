@@ -9,7 +9,7 @@ import Images from "./\_image.mdx"
 ## OS image
 
 istoreos:
-[istoreos-22.03.6-2024062511-e20c-squashfs.img.gz](https://dl.radxa.com/e/e20c/image/istoreos-22.03.6-2024062511-e20c-squashfs.img.gz)
+[istoreos-22.03.6-2024062810-e20c-squashfs.img.gz](https://dl.radxa.com/rock2/images/istoreos/istoreos-22.03.6-2024062810-e20c-squashfs.img.gz)
 
 ## Loader
 
