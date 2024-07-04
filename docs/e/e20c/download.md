@@ -32,3 +32,4 @@ Radxa E20C V1.1 版本
 ### 第三方外壳
 
 - [E20C 外壳，支持被动散热式上盖](https://makerworld.com/en/models/519794#profileId-436182) 来自 [JasonYANG17](https://makerworld.com/en/@Jasonyang170)
+- [Radxa E20C Box](https://www.printables.com/model/931601-radxa-e20c-box) 来自 [cclll](https://www.printables.com/@cclll_947574)
