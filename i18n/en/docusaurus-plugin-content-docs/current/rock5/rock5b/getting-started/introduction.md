@@ -90,7 +90,8 @@ ROCK 5B provides complete hardware design schematics and software source code, a
     </tr>
     <tr>
         <td align="center">Display</td>
-        <td colspan="2" align="center">Provides 4 display outputs via two HDMI, one DP (C-Type) and one MIPI DSI<br/>Resolution up to 3x 4K@60FPS + 1x 1080P@60FPS or 1x 8K@60FPS + 1x 4K@60FPS + 1x 1080P@60FPS<br/>1x standard HDMI input port, supports up to 4Kp60 display inputs</td>
+        <td align="center">Provides 4 display outputs via two HDMI, one DP (C-Type) and one MIPI DSI<br/>Resolution up to 3x 4K@60FPS + 1x 1080P@60FPS or 1x 8K@60FPS + 1x 4K@60FPS + 1x 1080P@60FPS<br/>1x Micro HDMI input port, supporting up to 4Kp60 display input</td>
+        <td align="center">Provides 4 display outputs via two HDMI, one DP (C-Type) and one MIPI DSI<br/>Resolution up to 3x 4K@60FPS + 1x 1080P@60FPS or 1x 8K@60FPS + 1x 4K@60FPS + 1x 1080P@60FPS<br/>1x standard HDMI input port, supports up to 4Kp60 display inputs</td>
     </tr>
     <tr>
         <td align="center">Hardware Codecs</td>

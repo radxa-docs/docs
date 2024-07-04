@@ -90,7 +90,8 @@ ROCK 5B 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">显示</td>
-        <td colspan="2" align="center">可通过两个 HDMI、一个 DP（C 型）和一个 MIPI DSI 提供 4 路显示输出<br/>分辨率高达 3x 4K@60FPS + 1x 1080P@60FPS 或者 1x 8K@60FPS + 1x 4K@60FPS + 1x 1080P@60FPS<br/>1x 标准 HDMI 输入端口，最高支持 4Kp60 显示输入</td>
+        <td align="center">可通过两个 HDMI、一个 DP（C 型）和一个 MIPI DSI 提供 4 路显示输出<br/>分辨率高达 3x 4K@60FPS + 1x 1080P@60FPS 或者 1x 8K@60FPS + 1x 4K@60FPS + 1x 1080P@60FPS<br/>1x Micro HDMI输入端口，支持最高4Kp60的显示输入</td>
+        <td align="center">可通过两个 HDMI、一个 DP（C 型）和一个 MIPI DSI 提供 4 路显示输出<br/>分辨率高达 3x 4K@60FPS + 1x 1080P@60FPS 或者 1x 8K@60FPS + 1x 4K@60FPS + 1x 1080P@60FPS<br/>1x 标准 HDMI 输入端口，最高支持 4Kp60 显示输入</td>
     </tr>
     <tr>
         <td align="center">硬件编解码</td>
