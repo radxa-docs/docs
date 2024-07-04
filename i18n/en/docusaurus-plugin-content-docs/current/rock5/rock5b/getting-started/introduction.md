@@ -80,12 +80,12 @@ ROCK 5B provides complete hardware design schematics and software source code, a
     </tr>
     <tr>
         <td align="center">RAM</td>
-        <td align="center">4/8/16 64 bit LPDDR4x</td>
-        <td align="center">4/8/16/32 64 bit LPDDR5x</td>
+        <td align="center">4/8/16 64 bit LPDDR4</td>
+        <td align="center">4/8/16/32 64 bit LPDDR5</td>
     </tr>
     <tr>
         <td align="center">Storage</td>
-        <td align="center">Onboard eMMC module: 0/8/16/32/64 GB<br/>microSD memory card</td>
+        <td align="center">eMMC Connector<br/>microSD memory card</td>
         <td align="center">Onboard eMMC module: 32/64/128/256 GB<br/>microSD memory card</td>
     </tr>
     <tr>

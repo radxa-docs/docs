@@ -80,12 +80,12 @@ ROCK 5B 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">内存</td>
-        <td align="center">4/8/16 64 位 LPDDR4x</td>
-        <td align="center">4/8/16/32 64 位 LPDDR5x</td>
+        <td align="center">4/8/16 64 位 LPDDR4</td>
+        <td align="center">4/8/16/32 64 位 LPDDR5</td>
     </tr>
     <tr>
         <td align="center">存储</td>
-        <td align="center">板载 eMMC 模块：0/8/16/32/64 GB<br/>microSD 存储卡</td>
+        <td align="center">eMMC 连接器<br/>microSD 存储卡</td>
         <td align="center">板载 eMMC 模块：32/64/128/256 GB<br/>microSD 存储卡</td>
     </tr>
     <tr>
