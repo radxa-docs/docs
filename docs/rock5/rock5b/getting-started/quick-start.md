@@ -61,7 +61,7 @@ description: "快速上手 ROCK 5B/5B+，让您能够轻松开始使用和探索
 
 <img src="/img/rock5b/rock5bp-ethernet.webp" width="500" alt="rock5b+ ethernet" />
 
-4. 将电源适配器插入 ROCK 5B/5B+ 的电源接口。设备上电，电源指示灯显示蓝色，启动正常后，指示灯开始闪烁。
+4. 将电源适配器插入 ROCK 5B/5B+ 的电源接口。设备上电，电源指示灯显示绿色，启动正常后，指示灯开始闪烁。
 
 <img src="/img/rock5b/rock5bp-pwr.webp" alt="rock5b+ pwr" width="500" />
 

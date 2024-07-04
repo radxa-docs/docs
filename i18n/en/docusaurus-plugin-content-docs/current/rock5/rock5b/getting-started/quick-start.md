@@ -61,7 +61,7 @@ Refer to the [install-os](./install-os/) section to install the operating system
 
 <img src="/img/rock5b/rock5bp-ethernet.webp" width="500" alt="rock5b+ ethernet" />
 
-4. Plug the power adapter into the power port on the ROCK 5B/5B+. When the device is powered on, the power indicator light will display a solid blue color. After the normal startup process completes, the indicator light will start to blink.
+4. Plug the power adapter into the power port on the ROCK 5B/5B+. When the device is powered on, the power indicator light will display a solid green color. After the normal startup process completes, the indicator light will start to blink.
 
 <img src="/img/rock5b/rock5bp-pwr.webp" alt="rock5b+ pwr" width="500" />
 
