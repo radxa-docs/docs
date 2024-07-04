@@ -21,7 +21,7 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## 启动系统
 
-按照上述步骤成功烧录 MicroSD Card 后， 将 MicroSD Card 插入到 MicroSD Card 插槽内（如下图所示)，然后上电，系统开始启动，HDMI显示桌面。
+按照上述步骤成功烧录 MicroSD Card 后， 将 MicroSD Card 插入到 MicroSD Card 插槽内(如下图所示)，然后上电，电源指示灯显示绿色，系统开始启动，启动正常后，指示灯开始闪烁，一段时间后 HDMI 显示桌面。
 
 <img
 src="/img/rock5b/rock5b-interface-2.webp"

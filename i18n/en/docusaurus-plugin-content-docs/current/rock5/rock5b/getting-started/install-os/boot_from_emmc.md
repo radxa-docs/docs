@@ -27,7 +27,7 @@ For on-board eMMC, please refer to [USB Flashing section](../../low-level-dev/ma
 
 ## Boot System
 
-After successfully burning the eMMC Module according to the above steps, insert the eMMC Module into the eMMC Module slot (as shown in the following figure), and then power on the system, the system will start to boot up and HDMI will display the desktop.
+After successfully flashing the eMMC Module using the previous steps, insert the eMMC Module into the eMMC Module slot (as shown in the image below). Then, power on the device. The power indicator light will display a solid green color, indicating the system has started booting up. Once the normal startup process completes, the indicator light will begin blinking. After a short period of time, the HDMI output will display the desktop.
 
 <img
 src="/img/rock5b/rock5b-interface-3.webp"
