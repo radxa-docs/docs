@@ -31,3 +31,4 @@ Radxa E20C Version V1.1
 ### Third Party Enclosure
 
 - [E20C Enclosure with fan support](https://makerworld.com/en/models/519794#profileId-436182) by [JasonYANG17](https://makerworld.com/en/@Jasonyang170)
+- [Radxa E20C Box](https://www.printables.com/model/931601-radxa-e20c-box) by [cclll](https://www.printables.com/@cclll_947574)
