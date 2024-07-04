@@ -16,9 +16,17 @@ description: "Getting started quickly with the ROCK 5B/5B+ makes it easy to star
     </TabItem>
 </Tabs>
 
-The ROCK 5B/5B+ standard package includes the following items:
-
-- ROCK 5B/5B+ motherboard
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5B">
+        The ROCK 5B standard package includes the following items:
+            - ROCK 5B motherboard
+    </TabItem>
+    <TabItem value="ROCK 5B+">
+        The ROCK 5B+ standard package includes the following items:
+            - ROCK 5B+ motherboard
+            - Wi-FI antenna
+    </TabItem>
+</Tabs>
 
 To boot up the ROCK 5B/5B+, you'll also need the following:
 

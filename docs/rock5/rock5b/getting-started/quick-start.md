@@ -16,9 +16,17 @@ description: "快速上手 ROCK 5B/5B+，让您能够轻松开始使用和探索
     </TabItem>
 </Tabs>
 
-ROCK 5B/5B+ 标准包装包括以下物品：
-
-- ROCK 5B/5B+ 主板
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5B">
+        ROCK 5B 标准包装包括以下物品：
+            - ROCK 5B主板
+    </TabItem>
+    <TabItem value="ROCK 5B+">
+        ROCK 5B+ 标准包装包括以下物品：
+            - ROCK 5B+ 主板
+            - Wi-FI 天线
+    </TabItem>
+</Tabs>
 
 要启动 ROCK 5B/5B+，您还需要一下设备：
 
