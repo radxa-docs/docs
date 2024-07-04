@@ -16,9 +16,9 @@ sidebar_position: 4
 
 <img src="/img/common/rsetup/system-maintenance.webp" alt="System Maintenance" style={{ width: "80%" }} />
 
-- Select "OK", press the space bar and select "rock-5b"
+- Select "OK", press the space bar and select "rock-5b"/"rock-5b-plus"
 
-<img src="/img/common/rsetup/rsetup-rock-5-tix.webp" alt="rsetup rock-5-tix" style={{ width: "80%" }} />
+<img src="/img/common/rsetup/rsetup-rock-5bp.webp" alt="rsetup rock-5bp" style={{ width: "80%" }} />
 
 ## Cannot boot into system
 
