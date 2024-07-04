@@ -29,6 +29,8 @@ ROCK 5B/5B+ supports a variety of cameras and displays.
 
 ### Powerful multimedia processing capability
 
+Supports 8K video encoding and decoding, as well as advanced graphics processing. Integrates an AI acceleration unit, making it well-suited for high-definition smart TVs and multimedia applications.
+
 ### Rich OS support
 
 ROCK 5B/5B+ supports a variety of operating systems, including Debian and Android, as well as third-party operating systems such as FydeOS/Armbian, etc., which are suitable for various application scenarios.
