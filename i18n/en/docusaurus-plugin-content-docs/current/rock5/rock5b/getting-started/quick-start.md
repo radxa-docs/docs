@@ -41,7 +41,7 @@ Refer to the [install-os](./install-os/) section to install the operating system
 
 ## Wiring and Powering Up
 
-1. Connect any of the HDMI output ports of the ROCK 5B/5B+ to an HDMI monitor via a Micro HDMI to HDMI cable.
+1. Connect any of the HDMI output ports of the ROCK 5B/5B+ to HDMI cable.
 
 <img src="/img/rock5b/rock5bp-hdmi.webp" width="500" alt="rock5b+ hdmi" /> 2. Connect a USB mouse and keyboard to the ROCK 5B/5B+ via the Micro HDMI to HDMI cable.
 

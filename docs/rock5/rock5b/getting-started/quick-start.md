@@ -41,7 +41,7 @@ ROCK 5B/5B+ 标准包装包括以下物品：
 
 ## 接线和上电
 
-1. 通过 Micro HDMI 转 HDMI 线将 ROCK 5B/5B+ 的任一 HDMI 输出接口连接到 HDMI 显示器。
+1. 通过 HDMI 线将 ROCK 5B/5B+ 的任一 HDMI 输出接口连接到 HDMI 显示器。
 
 <img src="/img/rock5b/rock5bp-hdmi.webp" width="500" alt="rock5b+ hdmi" />
 
