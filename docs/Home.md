@@ -181,6 +181,22 @@ sidebar_custom_props:
                   ],
               },
               {
+                products_name: "ROCK 5B+",
+                products_photo_url: "/home/product-pictures/rock5bp.webp",
+                products_link: "/rock5/rock5b",
+                docs:
+                  [
+                    {
+                      docs_link: "/rock5/rock5b",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "ROCK 5B+ 概览",
+                      docs_info_en: "Overview of the ROCK 5B+",
+                      docs_info_zh: "ROCK 5B+ 概览",
+                    },
+                  ],
+              },
+              {
                 products_name: "ROCK 5C",
                 products_photo_url: "/home/product-pictures/rock5c.webp",
                 products_link: "/rock5/rock5c",
