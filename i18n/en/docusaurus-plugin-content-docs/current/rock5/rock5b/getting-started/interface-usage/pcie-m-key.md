@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 6
 ---
 
 import PCIe_M from "../../../../common/accessories/\_pcie-m-key.mdx";

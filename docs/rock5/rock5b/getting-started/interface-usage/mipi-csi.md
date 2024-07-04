@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 ---
 
 import CAMERA from "../../../../common/accessories/\_camera-usage.mdx";

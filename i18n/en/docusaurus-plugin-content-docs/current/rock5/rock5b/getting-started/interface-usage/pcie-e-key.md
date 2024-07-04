@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 5
 ---
 
 import WIFI_BT from "../../../../common/accessories/\_wifi-bt.mdx";

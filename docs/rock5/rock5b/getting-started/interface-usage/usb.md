@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 1
 ---
 
 import USB from "../../../../common/accessories/\_usb.mdx";
