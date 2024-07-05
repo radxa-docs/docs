@@ -1,0 +1,183 @@
+Qwen2 ChatBot-TPU 是使用 Sophon SDK 将 Alibaba 开源 [Qwen2](https://huggingface.co/Qwen/Qwen2-7B-Instruct) 模型移植到 SG2300X 芯片系列产品上， 使其能利用本地 TPU 进行硬件加速推理，并使用 Gradio 设计成聊天机器人, 用户可以向其询问一些实际问题
+
+## Qwen2 部署
+
+- 克隆仓库
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/LLM-TPU.git
+  ```
+
+- 打开 Qwen2 项目路径
+  ```bash
+  cd LLM-TPU/models/Qwen2/python_demo
+  ```
+- 本案例提供 Qwen2-7B-Instruct 4bit 量化模型 qwen2-7b_int4_seq512_1dev.bmodel 与 C++ 预编译文件下载
+
+  用户可以参考 [Qwen2 模型转换](#Qwen2-模型转换) 自行转换不同量化方式的 Qwen2 模型
+
+  用户可以参考 [Qwen2 cpython 文件编译](#Qwen2-cpython-文件编译) 自行编译 cpython 接口绑定文件
+
+  ```bash
+  # qwen2-7b_int4_seq512_1dev.bmodel
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/qwen2/tar_downloader.sh
+  bash tar_downloader.sh
+  tar -xvf qwen2-7b_int4_seq512_1dev.tar.gz
+  ```
+
+- 配置环境
+
+  **必须创建虚拟环境，否则可能会影响其他应用的正常运行**， 虚拟环境使用请参考[这里](../ai-tools/virtualenv_usage)
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- 安装依赖包
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install gradio transformers
+  ```
+
+- 导入环境变量
+
+  请使用 ldd 命令检查 chat.cpython-38-aarch64-linux-gnu.so 链接的 libbmlib.so 的路径是否为 `LLM-TPU/support/lib_soc/libbmlib.so`
+
+  如 `libbmlib.so` 链接路径有误可运行下面的命令，**请正确指定 LLM-TPU 路径**
+
+  ```bash
+  export LD_LIBRARY_PATH=LLM-TPU/support/lib_soc:$LD_LIBRARY_PATH
+  ```
+
+- 启动 Qwen2
+
+  (可选) 修改 Qwen2 输出语言或角色扮演, 请参考 [修改 Qwen2 背景信息](#修改-Qwen2-背景信息)
+
+  **终端模式**
+
+  ```bash
+  python3 pipeline.py --model_path your_bmodel_path --tokenizer_path ../support/token_config/
+  ```
+
+  `-m; --model_path`： 指定模型路径
+
+  `-t; --tokenizer_path`： 指定 token_config 文件夹路径， 默认为 ../support/token_config
+
+  <img src="/img/general-tutorial/tpu_ai/qwen2_2.webp" />
+
+  **Gradio 模式**
+
+  ```bash
+  python3 web_demo.py -m your_bmodel_path -t ../support/token_config/
+  ```
+
+  `-m; --model_path`： 指定模型路径
+
+  `-t; --tokenizer_path`： 指定 token_config 文件夹路径， 默认为 ../support/token_config
+
+  浏览器访问 Airbox ip 地址的 8003 端口
+
+  <img src="/img/general-tutorial/tpu_ai/qwen2_1.webp" />
+
+## Qwen2 模型转换
+
+用户可以参考本文自行转换不同量化类型的 Qwen2-7B-Instruct 模型到 bmodel
+
+- X86 工作站中准备环境
+
+  请参考 [TPU-MLIR 安装](../../model-compile/tpu_mlir_env) 配置 TPU-MLIR 环境
+
+  克隆仓库
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/LLM-TPU.git
+  ```
+
+- 通过 [Huggingface](https://huggingface.co/Qwen/Qwen2-7B-Instruct) 下载 Qwen2 开源模型
+  :::tip
+  请确保已安装 [git lfs](https://git-lfs.com/)
+  :::
+
+  ```bash
+  git clone https://huggingface.co/Qwen/Qwen2-7B-Instruct
+  ```
+
+- 在工作目录 `LLM-TPU/models/Qwen2` 中创建虚拟环境
+
+  虚拟环境使用请参考[这里](../ai-tools/virtualenv_usage)
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  pip3 install --upgrade pip
+  pip3 install transformers_stream_generator einops tiktoken accelerate torch==2.0.1+cpu torchvision==0.15.2 transformers==4.41.2
+  ```
+
+- 对齐模型环境
+
+  将 `LLM-TPU/models/Qwen2/compile/files/Qwen2-7B-Instruct/modeling_llama.py` 复制到 transformers 库中,
+  注意此时 transformers 库应在 .venv 里
+
+  ```bash
+  cp ./compile/files/Qwen2-7B-Instruct/modeling_llama.py .venv/lib/python3.10/site-packages/transformers/models/qwen2
+  ```
+
+- 生成 onnx 文件
+
+  ```bash
+  cd compile
+  python export_onnx.py --model_path your_model_path --seq_length 512
+  ```
+
+  `--model_path`： 是下载的 Qwen2 文件夹路径
+
+  `--seq_length`： 是固定导出的 sequence length, 根据需要可选 512, 1024，2048 等长度
+
+- 生成 bmodel 文件
+
+  生成 bmodel 之前需要退出虚拟环境
+
+  ```bash
+  deactivate
+  ```
+
+  编译模型
+
+  ```bash
+  ./compile.sh --mode int4 --name qwen2-7b --addr_mode io_alone --seq_length 512 # same as int8
+  ```
+
+  `--mode`：量化模式，可选 int4, int8
+
+  `--seq_length`： 序列长度，需和生成 onnx 文件时指定相同 seq_length
+
+  `--name`： 模型名称，此处必须为 qwen2-7b
+
+  `--addr_mode`： 记录网络的地址分配模式，此处选择 io_alone 模式
+  :::tip
+  生成 bmodel 耗时大概 1 小时以上，建议 64G 内存以及 100G 以上硬盘空间，不然很可能 OOM 或者 no space left
+  :::
+
+## Qwen2 cpython 文件编译
+
+在 Airbox 中编译可执行文件, 预编译文件已经包含在 qwen2-7b_int4_seq512_1dev.tar.gz 下载包中，如已下载无需编译
+
+```bash
+cd python_demo
+mkdir build
+cd build && cmake .. && make && cp *cpython* .. && cd ..
+```
+
+## 修改 Qwen2 背景信息
+
+用户可以通过修改 Qwen2 初始化背景信息，将 Qwen2 换成不同角色扮演或不同语言输出，默认是英文 AI 助手 `You are a helpful assistant.`
+
+用户修改 `LLM-TPU/models/Qwen2/python_demo/pipeline.py` 中的 `system_prompt` 来初始化 Qwen2
+
+例如，将 Qwen2 换成有趣的角色扮演
+
+```python3
+self.system_prompt = '你是 Qwen2，你是一个总是用中文海盗语回应的海盗聊天机器人'
+```
