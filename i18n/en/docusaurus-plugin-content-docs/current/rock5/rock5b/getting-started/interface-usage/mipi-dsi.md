@@ -6,11 +6,6 @@ import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";
 
 # MIPI DSI Interface
 
-## Interface differences
-
-- The ROCK 5B has one four-lane MIPI DSI Display connector
-- The ROCK 5B+ is equipped with one four-channel MIPI DSI connector
-
 ## Support List
 
 <Tabs queryString="versions">

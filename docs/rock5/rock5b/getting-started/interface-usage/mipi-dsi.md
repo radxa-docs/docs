@@ -6,11 +6,6 @@ import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";
 
 # MIPI DSI 接口
 
-## 接口差异
-
-- ROCK 5B 有一个四通道 MIPI DSI 显示器连接器
-- ROCK 5B+ 配备了一个四通道 MIPI DSI 连接器
-
 ## 支持列表
 
 <Tabs queryString="versions">
