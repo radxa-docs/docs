@@ -68,7 +68,7 @@ import CAMERA from "../../../../common/accessories/\_camera-usage.mdx";
 
 :::tip
 
-以下两个仅作为示例，除了可能的排线和Overlay不同外，其他摄像头的操作步骤类似。
+以下两个仅作为示例，除了可能的排线和 Overlay 不同外，其他摄像头的操作步骤类似。
 
 :::
 
