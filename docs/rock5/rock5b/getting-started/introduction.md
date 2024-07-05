@@ -102,6 +102,11 @@ ROCK 5B 提供了完整的硬件设计原理图和软件源代码，这一特性
         <td colspan="2" align="center">支持以太网供电（PoE）的千兆以太网<br/>PoE 需要额外的可选 HAT</td>
     </tr>
     <tr>
+        <td align="center">板载 WIFI</td>
+        <td align="center">无板载 WiFi</td>
+        <td align="center">配备板载 WiFi Realtek 8852BE</td>
+    </tr>
+    <tr>
         <td align="center">M.2</td>
         <td align="center">M.2 E Key 连接器，提供 PCIe 2.1 单通道、USB、SATA、SDIO、PCM 和 UART 信号，支持工业标准 M.2 WiFi 6 模块。<br/>M.2 M Key 连接器，带有四通道 PCIe 3.0 接口。电路板上有一个标准 M.2 2280 安装孔，可安装 M.2 2280 NVMe 固态硬盘。请注意，不支持 M.2 SATA 固态硬盘。</td>
         <td>M.2 B Key 连接器，可提供 USB 信号并支持 4G 模块。通过使用 SIM 卡，可方便地连接移动网络。<br/>M.2 M Key 连接器，共提供两个双通道 PCIe 3.0 接口，标准的 M.2 2280 安装孔，可以安装 M.2 2280 NVMe 固态硬盘。值得注意的是，不支持 M.2 SATA 固态硬盘。</td>

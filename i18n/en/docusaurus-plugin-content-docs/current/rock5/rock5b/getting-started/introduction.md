@@ -102,6 +102,11 @@ ROCK 5B provides complete hardware design schematics and software source code, a
         <td colspan="2" align="center">Gigabit Ethernet with Power over Ethernet (PoE) support<br/>PoE requires additional optional HAT</td>
     </tr>
     <tr>
+        <td align="center">On-board WIFI</td>
+        <td align="center">No on-board WiFi</td>
+        <td align="center">Equipped with on-board WiFi Realtek 8852BE</td>
+    </tr>   
+    <tr>
         <td align="center">M.2</td>
         <td align="center">M.2 E Key connector providing PCIe 2.1 single channel, USB, SATA, SDIO, PCM, and UART signals supporting industry standard M.2 WiFi 6 modules.<br/>M.2 M Key connector with quad-channel PCIe 3.0 interface. The board has a standard M.2 2280 mounting hole for an M.2 2280 NVMe SSD. Note that M.2 SATA SSDs are not supported.</td>
         <td>M.2 B Key connector that provides USB signaling and supports 4G modules. Easy connection to mobile networks through the use of a SIM card.<br/>The M.2 M Key connector provides a total of two dual-channel PCIe 3.0 ports and standard M.2 2280 mounting holes for M.2 2280 NVMe SSDs. It is worth noting that M.2 SATA SSDs are not supported.</td>
