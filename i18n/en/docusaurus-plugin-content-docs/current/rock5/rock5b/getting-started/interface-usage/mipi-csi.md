@@ -8,8 +8,8 @@ import CAMERA from "../../../../common/accessories/\_camera-usage.mdx";
 
 ## Interface differences
 
-- The ROCK 5B has one four-lane(can be split into 2x two-lane) MIPI CSI Camera connector. 
-- The ROCK 5B+ is equipped with two four-channel MIPI CSI camera connectors connector. 
+- The ROCK 5B has one four-lane(can be split into 2x two-lane) MIPI CSI Camera connector.
+- The ROCK 5B+ is equipped with two four-channel MIPI CSI camera connectors connector.
 
 ## Support List
 

@@ -105,7 +105,7 @@ ROCK 5B provides complete hardware design schematics and software source code, a
         <td align="center">On-board WIFI</td>
         <td align="center">No on-board WiFi</td>
         <td align="center">Equipped with on-board WiFi Realtek 8852BE</td>
-    </tr>   
+    </tr>  
     <tr>
         <td align="center">M.2</td>
         <td align="center">M.2 E Key connector providing PCIe 2.1 single channel, USB, SATA, SDIO, PCM, and UART signals supporting industry standard M.2 WiFi 6 modules.<br/>M.2 M Key connector with quad-channel PCIe 3.0 interface. The board has a standard M.2 2280 mounting hole for an M.2 2280 NVMe SSD. Note that M.2 SATA SSDs are not supported.</td>
