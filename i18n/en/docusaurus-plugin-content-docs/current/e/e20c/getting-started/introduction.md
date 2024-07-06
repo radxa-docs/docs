@@ -54,8 +54,8 @@ Radxa E20C provides a reliable and powerful platform for creators, IoT enthusias
         <td colspan="2" align="center">5V / 2A</td>
     </tr>
     <tr>
-        <td align="center">Size</td>
-        <td colspan="2" align="center">56 x 56 mm</td>
+        <td align="center">Size(Motherboard)</td>
+        <td colspan="2" align="center">66mm x 66 mm</td>
     </tr>
      <tr>
         <td align="center">casing</td>
