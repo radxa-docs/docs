@@ -54,8 +54,8 @@ Radxa E20C 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者�
         <td colspan="2" align="center">仅支持 5V </td>
     </tr>
     <tr>
-        <td align="center">尺寸</td>
-        <td colspan="2" align="center">56 x 56 mm</td>
+        <td align="center">尺寸(主板)</td>
+        <td colspan="2" align="center">66 x 66 mm</td>
     </tr>
      <tr>
         <td align="center">外壳</td>
