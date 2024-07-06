@@ -1,0 +1,183 @@
+Qwen2 ChatBot-TPU uses the Sophon SDK to port the Alibaba open-source [Qwen2](https://huggingface.co/Qwen/Qwen2-7B-Instruct) model to the SG2300X series chips, enabling hardware-accelerated inference using local TPUs. The model is designed as a chatbot using Gradio, allowing users to ask practical questions.
+
+## Qwen2 Deployment
+
+- Clone the repository
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/LLM-TPU.git
+  ```
+
+- Open the Qwen2 project path
+  ```bash
+  cd LLM-TPU/models/Qwen2/python_demo
+  ```
+- This example provides the Qwen2-7B-Instruct 4-bit quantized model qwen2-7b_int4_seq512_1dev.bmodel and the C++ precompiled file download
+
+  Users can refer to [Qwen2 Model Conversion](#qwen2-model-conversion) to convert different quantization methods of the Qwen2 model
+
+  Users can refer to [Qwen2 cpython File Compilation](#qwen2-cpython-file-compilation) to compile the cpython interface binding file
+
+  ```bash
+  # qwen2-7b_int4_seq512_1dev.bmodel
+  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/qwen2/tar_downloader.sh
+  bash tar_downloader.sh
+  tar -xvf qwen2-7b_int4_seq512_1dev.tar.gz
+  ```
+
+- Set up the environment
+
+  **You must create a virtual environment to avoid affecting other applications**, please refer to [here](../ai-tools/virtualenv_usage) for virtual environment usage
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Install dependencies
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install gradio transformers
+  ```
+
+- Import environment variables
+
+  Please use the ldd command to check if the path linked by chat.cpython-38-aarch64-linux-gnu.so to libbmlib.so is `LLM-TPU/support/lib_soc/libbmlib.so`
+
+  If the link path of `libbmlib.so` is incorrect, you can run the following command, **please specify the LLM-TPU path correctly**
+
+  ```bash
+  export LD_LIBRARY_PATH=LLM-TPU/support/lib_soc:$LD_LIBRARY_PATH
+  ```
+
+- Start Qwen2
+
+  (Optional) Modify Qwen2 output language or role-playing, please refer to [Modify Qwen2 Background Information](#modify-qwen2-background-information)
+
+  **Terminal mode**
+
+  ```bash
+  python3 pipeline.py --model_path your_bmodel_path --tokenizer_path ../support/token_config/
+  ```
+
+  `-m; --model_path`: Specify the model path
+
+  `-t; --tokenizer_path`: Specify the token_config folder path, default is ../support/token_config
+
+  <img src="../../../../img/general-tutorial/tpu_ai/qwen2_2.webp" />
+
+  **Gradio mode**
+
+  ```bash
+  python3 web_demo.py -m your_bmodel_path -t ../support/token_config/
+  ```
+
+  `-m; --model_path`: Specify the model path
+
+  `-t; --tokenizer_path`: Specify the token_config folder path, default is ../support/token_config
+
+  Access the Airbox IP address on port 8003 in your browser
+
+  <img src="../../../../img/general-tutorial/tpu_ai/qwen2_1.webp" />
+
+## Qwen2 Model Conversion
+
+Users can refer to this document to convert different quantization types of the Qwen2-7B-Instruct model to bmodel
+
+- Prepare the environment on an X86 workstation
+
+  Please refer to [TPU-MLIR Installation](../../model-compile/tpu_mlir_env) to configure the TPU-MLIR environment
+
+  Clone the repository
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/LLM-TPU.git
+  ```
+
+- Download the Qwen2 open-source model from [Huggingface](https://huggingface.co/Qwen/Qwen2-7B-Instruct)
+  :::tip
+  Ensure you have installed [git lfs](https://git-lfs.com/)
+  :::
+
+  ```bash
+  git clone https://huggingface.co/Qwen/Qwen2-7B-Instruct
+  ```
+
+- Create a virtual environment in the working directory `LLM-TPU/models/Qwen2`
+
+  Refer to [here](../ai-tools/virtualenv_usage) for virtual environment usage
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  pip3 install --upgrade pip
+  pip3 install transformers_stream_generator einops tiktoken accelerate torch==2.0.1+cpu torchvision==0.15.2 transformers==4.41.2
+  ```
+
+- Align the model environment
+
+  Copy `LLM-TPU/models/Qwen2/compile/files/Qwen2-7B-Instruct/modeling_llama.py` to the transformers library,
+  note that the transformers library should be in .venv
+
+  ```bash
+  cp ./compile/files/Qwen2-7B-Instruct/modeling_llama.py .venv/lib/python3.10/site-packages/transformers/models/qwen2
+  ```
+
+- Generate the onnx file
+
+  ```bash
+  cd compile
+  python export_onnx.py --model_path your_model_path --seq_length 512
+  ```
+
+  `--model_path`: The path to the downloaded Qwen2 folder
+
+  `--seq_length`: The fixed sequence length for export, choose 512, 1024, 2048, etc., as needed
+
+- Generate the bmodel file
+
+  Exit the virtual environment before generating the bmodel
+
+  ```bash
+  deactivate
+  ```
+
+  Compile the model
+
+  ```bash
+  ./compile.sh --mode int4 --name qwen2-7b --addr_mode io_alone --seq_length 512 # same as int8
+  ```
+
+  `--mode`: Quantization mode, choose int4, int8
+
+  `--seq_length`: Sequence length, must match the seq_length specified when generating the onnx file
+
+  `--name`: Model name, must be qwen2-7b
+
+  `--addr_mode`: Network address allocation mode, choose io_alone mode
+  :::tip
+  Generating bmodel takes more than 1 hour. It is recommended to have 64G memory and more than 100G disk space to avoid OOM or no space left
+  :::
+
+## Qwen2 cpython File Compilation
+
+Compile the executable file in Airbox, the precompiled file is included in the qwen2-7b_int4_seq512_1dev.tar.gz download package, no need to compile if already downloaded
+
+```bash
+cd python_demo
+mkdir build
+cd build && cmake .. && make && cp *cpython* .. && cd ..
+```
+
+## Modify Qwen2 Background Information
+
+Users can modify Qwen2's initial background information to change Qwen2 into different role-playing or different language outputs, the default is English AI assistant `You are a helpful assistant.`
+
+Users can modify the `system_prompt` in `LLM-TPU/models/Qwen2/python_demo/pipeline.py` to initialize Qwen2
+
+For example, to change Qwen2 into an interesting role-playing:
+
+```python
+self.system_prompt = 'Vous êtes Qwen2, un chatbot pirate qui répond toujours en français Piratespeak''
+```
