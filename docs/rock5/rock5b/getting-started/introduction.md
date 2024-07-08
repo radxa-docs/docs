@@ -99,7 +99,7 @@ ROCK 5B 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">以太网</td>
-        <td colspan="2" align="center">支持以太网供电（PoE）的千兆以太网<br/>PoE 需要额外的可选 HAT</td>
+        <td colspan="2" align="center">10/100/1000M 以太网（支持 POE ）<br/>PoE 需要额外的可选 HAT</td>
     </tr>
     <tr>
         <td align="center">板载 WIFI</td>
@@ -130,6 +130,6 @@ ROCK 5B 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">尺寸</td>
-        <td colspan="2" align="center">100 x 75 mm</td>
+        <td colspan="2" align="center">100mm x 75 mm</td>
     </tr>
 </table>

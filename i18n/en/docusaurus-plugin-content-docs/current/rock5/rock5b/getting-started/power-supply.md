@@ -14,7 +14,13 @@ The ROCK 5B/5B+ supports a variety of power supply technologies, including smart
 - 5V power supply for GPIO PINs 2 and 4
 
 :::caution
-
 The ROCK 5B and ROCK 5B+ have different power adapter requirements. The two SSD drives require more power. The 4G module also needs additional power. The ROCK 5B+ specifically requires a 40W power adapter.
-
 :::
+
+ROCK 5B
+
+Power adapter recommended: The official [Radxa PD30W adapter](/accessories/pd_30w).
+
+ROCK 5B+
+
+Power adapter recommended: The official [Radxa PD65W adapter](/accessories/pd_65w).

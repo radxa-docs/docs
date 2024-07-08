@@ -30,14 +30,10 @@ description: "Getting started quickly with the ROCK 5B/5B+ makes it easy to star
 
 To boot up the ROCK 5B/5B+, you'll also need the following:
 
-- A 12V/2A pd charger, positive inside and ground outside.The ROCK 5B/5B+ also supports PoE power supply. For more details on power supply, please refer to [power-supply](../power-supply).
+- A charger(PD charge recommended), positive inside and ground outside.The ROCK 5B/5B+ also supports PoE power supply. For more details on power supply, please refer to [power-supply](../power-supply).
 - An HDMI cable and an HDMI-enabled monitor with a recommended resolution of 1080P or higher, a 4K / 8K monitor will provide the best experience.
 - A set of USB mouse and keyboard, common USB input devices support plug and play.
 - A network cable, you need to connect to the Internet to update your system.
-
-:::tip
-Power adapter The official [Radxa PD30W adapter](/accessories/pd_30w) is recommended.
-:::
 
 Peripherals that are not required but enhance the basic functionality of the ROCK 5B/5B+:
 
