@@ -238,3 +238,21 @@ iStoreOS 系统默认ip地址是 192.168.100.1
 
   默认用户名: root
   默认密码: password
+
+## istoreos 扩容
+
+请按照下面照片提示进行扩容
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-1.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-2.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-3.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-4.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-5.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-6.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-7.webp" width="700" alt="e20c-istoreos" />
