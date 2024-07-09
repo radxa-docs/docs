@@ -238,3 +238,21 @@ ssh [username]@[IP address] # or ssh [username]@[hostname]
 iStoreOS
 Default UserName: root
 Default Password: password
+
+## istoreos expansion
+
+Please follow the instructions in the picture to expand/scale up the capacity.
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-1.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-8.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-9.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-10.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-5.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-11.webp" width="700" alt="e20c-istoreos" />
+
+<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-7.webp" width="700" alt="e20c-istoreos" />
