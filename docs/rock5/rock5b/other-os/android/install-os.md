@@ -19,7 +19,7 @@ ROCK 5B 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 
 - 1x microSD 卡(容量 >=8GB)
 - 1x microSD 读卡器
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../accessories/pd-30w))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](/accessories/pd_30w))
 
 ## 镜像下载
 
@@ -35,7 +35,7 @@ ROCK 5B 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 - Radxa ROCK 5B 的供电接口为 [USB 2.0 OTG Type C port](/rock5/rock5b/hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
 
 :::tip
-ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](../../accessories/pd-30w)。
+ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](/accessories/pd_30w)。
 :::
 
 ## 参考文档
@@ -52,7 +52,7 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 ### 镜像下载
 
-请到 [资源下载汇总](../../getting-started/download) 下载对应的镜像文件
+请到 [资源下载汇总](./download) 下载对应的镜像文件
 
 ## 系统安装
 
@@ -78,11 +78,19 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 <Tabs queryString="target">
 
-<TabItem value="linux/mac" label="Linux/mac">
+<TabItem value="linux" label="Linux">
 
-#### Linux/Mac 系统使用 rkdeveloptool 写入
+#### Linux 系统使用 rkdeveloptool 写入
 
-[rkdeveloptool](../../low-level-dev/rkdeveloptool)
+[rkdeveloptool](../../low-level-dev/maskrom/linux)
+
+</TabItem>
+
+<TabItem value="mac" label="Mac">
+
+#### Mac 系统使用 rkdeveloptool 写入
+
+[rkdeveloptool](../../low-level-dev/maskrom/mac-os)
 
 </TabItem>
 
@@ -90,7 +98,7 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 #### Windows 系统使用 rkdevetool 写入
 
-[rkdevtool](/rock5/rock5b/low-level-dev/rkdevtool)
+[rkdevtool](/rock5/rock5b/low-level-dev/maskrom/windows)
 
 </TabItem>
 

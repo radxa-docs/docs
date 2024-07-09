@@ -19,7 +19,7 @@ ROCK 5B can be booted from microSD card or EMMC, depending on the boot method, t
 
 - 1x microSD card (capacity >=8GB)
 - 1x microSD card reader
-- 5V power adapter (Recommended [Radxa Power PD30W](../../accessories/pd-30w))
+- 5V power adapter (Recommended [Radxa Power PD30W](/accessories/pd_30w))
 
 ## Image Download
 
@@ -35,7 +35,7 @@ Please go to [Resource Download Summary](./download) to download the correspondi
 - The power supply interface of Radxa ROCK 5B is [USB 2.0 OTG Type C port](/rock5/rock5b/hardware-design/hardware-interface), please connect the power supply port and the adapter with Type-C cable.
 
 :::tip
-The ROCK 5B supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using the [Radxa Power PD30W](../../accessories/pd-30w).
+The ROCK 5B supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using the [Radxa Power PD30W](/accessories/pd_30w).
 :::
 
 ## Reference Documentation
@@ -52,7 +52,7 @@ The ROCK 5B supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radx
 
 ### Download the image
 
-Please go to [Resource Download Summary](../../getting-started/download) to download the corresponding image file.
+Please go to [Resource Download Summary](./download) to download the corresponding image file.
 
 ### System Installation
 
@@ -78,11 +78,19 @@ Please go to [Resource Download Summary](../../getting-started/download) to down
 
 <Tabs queryString="target">
 
-<TabItem value="linux/mac" label="Linux/mac">
+<TabItem value="linux" label="Linux">
 
-#### Linux/Mac systems are written using rkdeveloptool
+#### Linux systems are written using rkdeveloptool
 
-[rkdeveloptool](../../low-level-dev/rkdeveloptool)
+[rkdeveloptool](../../low-level-dev/maskrom/linux)
+
+</TabItem>
+
+<TabItem value="mac" label="Mac">
+
+#### Mac systems are written using rkdeveloptool
+
+[rkdeveloptool](../../low-level-dev/maskrom/mac-os)
 
 </TabItem>
 
@@ -90,7 +98,7 @@ Please go to [Resource Download Summary](../../getting-started/download) to down
 
 #### Windows systems write with rkdevetool
 
-[rkdevtool](/rock5/rock5b/low-level-dev/rkdevtool)
+[rkdevtool](/rock5/rock5b/low-level-dev/maskrom/windows)
 
 </TabItem>
 

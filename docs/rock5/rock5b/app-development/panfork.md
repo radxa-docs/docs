@@ -1,9 +1,9 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 import Panfork from '../../../common/dev/\_panfork.mdx';
 
-# Panfork GPU 驱动
+# Panfork GPU Driver
 
 <Panfork />
