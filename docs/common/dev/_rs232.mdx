@@ -1,0 +1,25 @@
+- 确认串口设备
+
+  {props.product} 的 RS232 串口设备为 {props.rs232id}
+
+- 回环测试
+
+  - 短接 {props.product} 的 RS232 TX 和 RX
+
+  - 使用 <a href={props.rsetup_url}>rsetup</a> 打开 {props.rs232id} 的 Overlay
+
+  - 设置串口参数
+
+  <pre>sudo stty -F {props.rs232id} speed 115200 cs8 -parenb -cstopb -echo</pre>
+
+  - 打开两个终端， 一个作为接收端，一个作为发送端
+
+  - 接收端使用 cat 命令接收
+
+  <pre>sudo cat {props.rs232id}</pre>
+
+  - 发送端向 {props.rs232id} 发送任意值，如
+
+  <pre>while true ;do echo "sss" > /dev/ttyAML0; sleep 1; done;</pre>
+
+  - 验证成功的话，接收端可以收到发送端的消息

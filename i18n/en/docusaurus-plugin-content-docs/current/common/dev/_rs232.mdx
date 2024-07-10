@@ -1,0 +1,25 @@
+- Confirmation of serial devices
+
+  The RS232 serial device for {props.product} is {props.rs232id}.
+
+- loop test
+
+  - Short the RS232 TX and RX of {props.product}.
+
+  - Use <a href={props.rsetup_url}>rsetup</a> to open the Overlay for {props.rs232id}
+
+  - Setting Serial Port Parameters
+
+  <pre>sudo stty -F {props.rs232id} speed 115200 cs8 -parenb -cstopb -echo</pre>
+
+  - Open two terminals, one as a receiver and one as a sender.
+
+  - The receiving end uses the cat command to receive
+
+  <pre>sudo cat {props.rs232id}</pre>
+
+  - The sender sends any value to {props.rs232id}, such as
+
+  <pre>while true ;do echo "sss" > /dev/ttyAML0; sleep 1; done;</pre>
+
+  - If the authentication is successful, the receiver can receive a message from the sender.
