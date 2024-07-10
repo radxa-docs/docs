@@ -35,7 +35,7 @@ ROCK 3B 标准包装包括以下物品：
 
 ## 接线和上电
 
-1. 通过 Micro HDMI 转 HDMI 线将 ROCK 3B 的任一 HDMI 输出接口连接到 HDMI 显示器。
+1. 通过 HDMI 线将 ROCK 3B 的任一 HDMI 输出接口连接到 HDMI 显示器。
 
 <img src="/img/rock3/3b/rock3b_hdmi.webp" width="500" alt="rock3b hdmi" />
 

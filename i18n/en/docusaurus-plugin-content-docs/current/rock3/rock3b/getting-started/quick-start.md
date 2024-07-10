@@ -35,7 +35,7 @@ Refer to the [Install System](./install-os/) section to install the operating sy
 
 ## Wiring and Powering Up
 
-1. Connect any of the HDMI output ports of the ROCK 3B to the HDMI monitor via the Micro HDMI to HDMI cable.
+1. Connect any of the HDMI output ports of the ROCK 3B to the HDMI monitor via the HDMI cable.
 
 <img src="/img/rock3/3b/rock3b_hdmi.webp" width="500" alt="rock3b hdmi" /> 2. Connect the USB mouse and keyboard to the ROCK 3B.
 
