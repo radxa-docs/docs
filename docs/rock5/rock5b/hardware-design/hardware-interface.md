@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "详细介绍 ROCK 5B/5B+ 硬件信息"
 ---
 
 # 硬件接口说明
