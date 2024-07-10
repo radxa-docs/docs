@@ -11,7 +11,11 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## Download
 
-<Images loader={true} system_img={true} spi_img={false} />
+Please go to [Download page](../../../download.md) to download loader and system image.
+
+Note:
+
+you can choose one of the system images(such as istoreos, debian cli) depends on your need, but the loader is the same one.
 
 <Rkdeveloptool>
 <Maskrom/>

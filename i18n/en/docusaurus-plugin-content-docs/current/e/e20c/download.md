@@ -9,7 +9,12 @@ import Images from "./\_image.mdx"
 ## OS image
 
 istoreos:
+
 [istoreos-22.03.6-2024062810-e20c-squashfs.img.gz](https://dl.radxa.com/rock2/images/istoreos/istoreos-22.03.6-2024062810-e20c-squashfs.img.gz)
+
+debian cli:
+
+[e20c_debian_cli_b1.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
 
 ## Loader
 
