@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: "Take a Deep Dive into GPIOD"
 ---
 
 # GPIOD Usage

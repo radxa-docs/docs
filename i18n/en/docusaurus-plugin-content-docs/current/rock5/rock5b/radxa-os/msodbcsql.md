@@ -1,5 +1,6 @@
 ---
 sidebar_position: 12
+description: "Helps you to enable Microsoft SQL Server ODBC driver"
 ---
 
 # Microsoft SQL Server ODBC Driver

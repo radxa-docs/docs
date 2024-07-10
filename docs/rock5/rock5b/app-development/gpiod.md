@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: "深入了解 GPIOD"
 ---
 
 # GPIOD 使用

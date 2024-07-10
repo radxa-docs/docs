@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "Detailed hardware information for ROCK 5B/5B+"
 ---
 
 # Hardware Interface Description
