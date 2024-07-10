@@ -1,5 +1,6 @@
 ---
 sidebar_position: 10
+description: "拥抱 FydeOS，享受在 ROCK 5 系列上的流畅操作系统体验"
 ---
 
 # Open FydeOS
