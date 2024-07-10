@@ -55,11 +55,11 @@ Radxa E20C 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者�
     </tr>
     <tr>
         <td align="center">尺寸(主板)</td>
-        <td colspan="2" align="center">66 x 66 mm</td>
+        <td colspan="2" align="center">66mm x 66mm</td>
     </tr>
      <tr>
         <td align="center">外壳</td>
-        <td colspan="1" align="center">可选铝合金外壳</td>
+        <td colspan="1" align="center">72mm x 72mm x 28.7mm 可选铝合金外壳</td>
     </tr>
 </table>
 
