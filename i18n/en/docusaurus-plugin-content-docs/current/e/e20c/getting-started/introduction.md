@@ -55,11 +55,11 @@ Radxa E20C provides a reliable and powerful platform for creators, IoT enthusias
     </tr>
     <tr>
         <td align="center">Size(Motherboard)</td>
-        <td colspan="2" align="center">66mm x 66 mm</td>
+        <td colspan="2" align="center">66mm x 66mm</td>
     </tr>
      <tr>
         <td align="center">casing</td>
-        <td colspan="1" align="center">Optional aluminium alloy casing </td>
+        <td colspan="1" align="center">72mm x 72mm x 28.7mm Optional aluminium alloy casing </td>
     </tr>
 </table>
 
