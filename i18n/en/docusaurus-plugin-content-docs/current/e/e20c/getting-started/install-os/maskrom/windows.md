@@ -11,7 +11,11 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## File Download
 
-<Images loader={true} system_img={true} spi_img={true} />
+Please go to [Download page](../../../download.md) to download loader and system image.
+
+Note:
+
+You can choose one of the system images(such as istoreos, debian cli) depends on your need, but the loader is the same one.
 
 <Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3528_spl_loader_v1.07.104.bin" emmc={false} pcie={false} sata={false} >
 <Maskrom/>
