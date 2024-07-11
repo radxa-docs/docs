@@ -17,10 +17,10 @@ description: "清空 SPI  Flash"
 
 <img src="/img/common/rsetup/system-maintenance.webp" alt="System Maintenance" style={{ width: "80%" }} />
 
-- 选择 "OK" 之后，按空格键，选中 "rock-3b"
+- 选择 "OK" 之后，按空格键，选中 "radxa-cm3i-io"
 
 <img src="" alt="rsetup rock-5-tix" style={{ width: "80%" }} />
 
 ## 不能启动到系统
 
-[参考 USB 线刷](/cm3i/rock3b/low-level-dev/maskrom)
+[参考 USB 线刷](/compute-module/cm3i/low-level-dev/maskrom)
