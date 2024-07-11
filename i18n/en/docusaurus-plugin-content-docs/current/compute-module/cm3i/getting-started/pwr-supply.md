@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 电源选择
+# Power Supply options
 
 <Tabs queryString="model">
     <TabItem value="CM3I Core Board">
