@@ -30,4 +30,4 @@ sidebar_position: 4
 
 <img src="/img/airbox/mark_fogwise_airbox_02.webp" alt="radxa-aicore-sg2300x interfaces" />
 
-如上图， M-KEY 可接 PM991 NVME SSD 。 E-KEY 可接 Intel 7265NGW 和 Intel AX210 两种 WIFI & BT 模块
+如上图，M.2 M-KEY 可接 2230 NVME SSD，如 PM991 NVME SSD。M.2 E-KEY 可接 Wi-Fi/BT 模块，如 Intel 7265NGW 和 Radxa Wireless A8。

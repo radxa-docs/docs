@@ -30,4 +30,4 @@ One is a WAN port and one is a LAN port.
 
 ![](/img/airbox/mark_fogwise_airbox_02.webp)
 
-As shown above, M-KEY can connect to PM991 NVME SSD. E-KEY can connect to Intel 7265NGW and Intel AX210 WIFI & BT modules.
+As shown above, M.2 M-KEY is used for 2230 NVME SSD such as PM991 NVME SSD. M.2 E-KEY is used for Wi-Fi/BT modules such as Intel 7265NGW and Radxa Wireless A8.
