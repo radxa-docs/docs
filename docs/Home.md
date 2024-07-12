@@ -12,6 +12,31 @@ sidebar_custom_props:
     product_docs:
       [
         {
+          series_en: "ROCK 2 Family",
+          series_zh: "ROCK 2 系列",
+          series_introduction_en: "ROCK 2 series is a high-performance SBC (Single Board Computer) based on Rockchip's RK3528A from Radxa. This SBC is not only suitable for the development of Internet of Things (IoT) devices, but also provides an excellent multimedia entertainment experience.",
+          series_introduction_zh: "ROCK 2 系列是瑞莎基于 Rockchip 的 RK3528A 的高性能 SBC。这款 SBC 不仅适用于物联网(IoT)设备的开发,还能够提供出色的多媒体娱乐体验。",
+          products:
+            [
+              {
+                products_name: "ROCK 2A",
+                products_photo_url: "/home/product-pictures/rock2a.webp",
+                products_link: "/rock2/rock2a",
+                docs:
+                  [
+                    {
+                      docs_link: "/rock2/rock2a",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "ROCK 2A 概览",
+                      docs_info_en: "Overview of the ROCK 2A",
+                      docs_info_zh: "ROCK 2A 概览",
+                    },
+                  ],
+              },
+            ],
+        },
+        {
           series_en: "ROCK 3 Family",
           series_zh: "ROCK 3 系列",
           series_introduction_en: "ROCK 3 is a series of Rockchip RK3566/RK3568 based SBC(Single Board Computer) by Radxa. It can run android or some Linux distributions.",
