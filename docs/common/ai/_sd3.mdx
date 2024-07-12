@@ -1,0 +1,80 @@
+Stable Diffusion 3 Medium 是一种多模态扩散变换器 (MMDiT) 文本到图像模型，在图像质量、排版、复杂提示理解和资源效率方面具有显著提升的性能。目前使用 [Stable Diffusion 3 Medium](https://huggingface.co/stabilityai/stable-diffusion-3-medium)
+开源模型通过 sophon SDK 移植到 SG2300X 芯片系列产品上进行本地 TPU 硬件加速推理，实现快速推理生成特色风格带文本的图片，并使用 Gradio 实现用户交互。
+
+有关 Stable Diffusion 3 Medium 更多技术细节，请参阅[官方网站](https://stability.ai/news/stable-diffusion-3)和[研究论文](https://stability.ai/news/stable-diffusion-3-research-paper)。
+
+<img width="500" src="/img/general-tutorial/tpu_ai/sd3_1.webp" />
+
+## 应用部署
+
+- 克隆仓库
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/SD3-Medium-TPU.git
+  ```
+
+- 下载 radxa 提供的 Stable Diffusion 3 Medium models 压缩包
+
+  用户也可通过参考 [模型转换](#模型转换) 编译 Stable Diffusion 3 Medium 模型
+
+  ```bash
+  cd SD3-Medium-TPU/python_demo/
+  bash tar_downloader.sh
+  ```
+
+- 当前路径解压模型
+
+  ```bash
+  tar -xvf models.tar.gz
+  ```
+
+- 配置环境
+
+  **必须创建虚拟环境，否则可能会影响其他应用的正常运行**， 虚拟环境使用请参考[这里](../ai-tools/virtualenv_usage)
+
+  ```bash
+  cd SD3-Medium-TPU/python_demo/
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- 安装依赖
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install -r requirements.txt
+  ```
+
+- 启动 Web 服务
+
+  ```bash
+  python3 gr.py
+  ```
+
+- 浏览器访问 Airbox ip 地址的 8999 端口
+
+---
+
+## 应用展示
+
+#### Text-to-Image
+
+```bash
+Prompt: A cat with a sign text Welcome to radxa!
+```
+
+<img width="700" src="/img/general-tutorial/tpu_ai/sd3_2.webp" />
+
+---
+
+## 模型转换
+
+TODO
+
+---
+
+## License 许可
+
+社区许可： 免费用于研究、非商业和商业用途。只有当您的年收入超过 100 万美元并在商业产品或服务中使用 Stability AI 模型时，才需要付费的企业许可证。更多信息：https://stability.ai/license
+
+对于超过此收入门槛的公司：请联系： https://stability.ai/enterprise
