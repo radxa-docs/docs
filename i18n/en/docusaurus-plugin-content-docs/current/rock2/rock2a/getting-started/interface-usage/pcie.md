@@ -32,11 +32,11 @@ Connect the PCIe to M.2 adapter as shown in the diagram, and insert the SSD.
   1. The SSD device can be recognized.
 
   ```bash
-  $ lsblk 
+  $ lsblk
   ...
-  nvme0n1     259:0    0 953.9G  0 disk 
-  ├─nvme0n1p1 259:1    0    16M  0 part 
-  ├─nvme0n1p2 259:2    0   300M  0 part 
+  nvme0n1     259:0    0 953.9G  0 disk
+  ├─nvme0n1p1 259:1    0    16M  0 part
+  ├─nvme0n1p2 259:2    0   300M  0 part
   └─nvme0n1p3 259:3    0 953.5G  0 part
   ...
   ```
@@ -52,9 +52,9 @@ Connect the PCIe to M.2 adapter as shown in the diagram, and insert the SSD.
   ```
 
   2. Writing to the Device
-  
+
   ```bash
-  # dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=2048 status=progress                              
+  # dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=2048 status=progress
   2098200576 bytes (2.1 GB, 2.0 GiB) copied, 6 s, 350 MB/s
   2048+0 records in
   2048+0 records out

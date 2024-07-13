@@ -20,18 +20,28 @@ sidebar_position: 2
 
 ## 接线和上电
 
-1. 通过 HDMI 线将 ROCK 2A 的 HDMI 输出接口连接到 HDMI 显示器。
+1. 按照上述步骤成功烧录 MicroSD Card 后， 将 MicroSD Card 插入到 MicroSD Card 插槽内（如下图所示)
+
+<img src="/img/rock2a/rock-2a-insert-sd.webp" width="500" alt="rock-2a pack" />
+
+2. 通过 HDMI 线将 ROCK 2A 的 HDMI 输出接口连接到 HDMI 显示器。
 
 <img src="/img/rock2a/rock2a_hdmi.webp" width="500" alt="rock2a hdmi" />
 
-2. 将 USB 鼠标和键盘连接到 ROCK 2A 的任一 USB 2.0 或 3.0 接口。
+3. 将 USB 鼠标和键盘连接到 ROCK 2A 的任一 USB 2.0 或 3.0 接口。
 
 <img src="/img/rock2a/rock2a_usb.webp" width="500" alt="rock2a usb" />
 
-3. 将电源适配器插入 ROCK 2A 的电源接口。设备上电启动，电源指示灯将亮起。
+4. 将电源适配器插入 ROCK 2A 的电源接口。设备上电启动，电源指示灯将亮起。
 
 <img src="/img/rock2a/rock2a_power.webp" alt="rock2a pwr" width="500" />
 
 :::tip
 系统从上电到开机启动，整个过程持续约 40 秒，然后进入系统桌面。
 :::
+
+## 登录系统
+
+瑞莎系统(RadxaOS)
+
+系统启动后，使用 radxa 账号登录，密码为 radxa。

@@ -50,7 +50,7 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 # hciconfig
 hci0:   Type: Primary  Bus: USB
         BD Address: 88:00:01:00:00:A2  ACL MTU: 1021:9  SCO MTU: 255:4
-        UP RUNNING 
+        UP RUNNING
         RX bytes:789 acl:0 sco:0 events:62 errors:0
         TX bytes:3736 acl:0 sco:0 commands:62 errors:0
 ```

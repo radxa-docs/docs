@@ -4,12 +4,11 @@ sidebar_position: 3
 
 # AV out 接口
 
-## Vedio 测试
+## Video 测试
 
 使用 MINI AV 转 HDMI 视频转换器连接 ROCK 2A 的 AV Out，和 HDMI 显示屏，
 
 <img src="/img/rock2a/rock-2a-av-out.webp" width="800" alt="rock 2a pack" />
-
 
 - 开启 Overlay
 
@@ -31,7 +30,6 @@ sidebar_position: 3
 - 测试
 
   重启后，HDMI 屏能成功显示系统画面。
-
 
 ## 音频测试
 
@@ -66,5 +64,5 @@ sidebar_position: 3
   ```bash
   aplay test.wav
   ```
-  
+
   检查播放是否正常、是否有杂音。

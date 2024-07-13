@@ -18,17 +18,3 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 ## 镜像烧录
 
 <Etcher/>
-
-## 启动系统
-
-按照上述步骤成功烧录 MicroSD Card 后， 将 MicroSD Card 插入到 MicroSD Card 插槽内（如下图所示)，然后上电，系统开始启动，HDMI显示桌面。
-
-<img src="/img/rock2a/rock-2a-insert-sd.webp" width="500" alt="rock-2a pack" />
-
-## 登录系统
-
-系统启动后，使用 radxa 账号登录，密码为 radxa。
-
-:::tip
-系统从上电到开机启动，整个过程持续约 40 秒，然后进入系统桌面。
-:::

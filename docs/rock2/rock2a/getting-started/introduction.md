@@ -17,7 +17,7 @@ ROCK 2A 是一款功能强大且多功能的单板电脑（SBC）。它提供了
   </tr>
   <tr>
     <th>CPU</th>
-    <th>四核 ARM Cortex-A53 频率最高达 2.0GHz</th>
+    <th>四核 ARM Cortex-A53 频率最高达 1.5GHz</th>
   </tr>
   <tr>
     <th>GPU</th>
@@ -71,7 +71,7 @@ ROCK 2A 是一款功能强大且多功能的单板电脑（SBC）。它提供了
 
 ### 软件
 
-支持 Debian Linux。
+支持 Debian / android / armbian 等系统
 
 ## 主板预览
 

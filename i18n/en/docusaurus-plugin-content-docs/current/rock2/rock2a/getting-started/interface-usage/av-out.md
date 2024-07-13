@@ -10,7 +10,6 @@ Use a MINI AV to HDMI video converter to connect the AV Out on the ROCK 2A to an
 
 <img src="/img/rock2a/rock-2a-av-out.webp" width="800" alt="rock 2a pack" />
 
-
 - Enable Overlay
 
   1. Open the Kconsole terminal and run the rsetup command:
@@ -31,7 +30,6 @@ Use a MINI AV to HDMI video converter to connect the AV Out on the ROCK 2A to an
 - Testing
 
   After rebooting, the HDMI screen should successfully display the system interface.
-
 
 ## Audio Testing
 
@@ -59,12 +57,12 @@ Use a MINI AV to HDMI video converter to connect the AV Out on the ROCK 2A to an
 
 - Test Using Terminal Commands
 
-  Use command-line tools in the terminal to test audio output. You can use the aplay or speaker-test commands, for example: 
+  Use command-line tools in the terminal to test audio output. You can use the aplay or speaker-test commands, for example:
 
-  To play an audio file using aplay: 
+  To play an audio file using aplay:
 
   ```bash
   aplay test.wav
   ```
-  
+
   Check if the playback is normal and if there is any noise.
