@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 description: "Using the System Without a Keyboard or Display"
+sidebar_class_name: hidden
 ---
 
 import Headless from "../../../common/radxa-os/\_headless.mdx";

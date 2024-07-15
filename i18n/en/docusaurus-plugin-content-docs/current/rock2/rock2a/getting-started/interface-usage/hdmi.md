@@ -10,8 +10,6 @@ sidebar_position: 2
 
   2. Click on Resolution to switch between different resolutions.
 
-  Switching between different resolutions should not cause screen flickering, artifacts, stripes, tearing, or other abnormal phenomena.
-
 - Switching Resolutions via Command Line
 
   1. Use the xrandr -q command to check the currently supported resolutions for your screen.
@@ -43,8 +41,6 @@ sidebar_position: 2
   ```bash
   xrandr -s 1920x1080
   ```
-
-  Switching between different resolutions should not cause screen flickering, artifacts, stripes, tearing, or other abnormal phenomena.
 
 - Repeatedly plugging and unplugging the HDMI cable
 

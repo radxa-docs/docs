@@ -1,15 +1,15 @@
 ---
 sidebar_position: 2
-description: "Linux 下通过 USB 刷机"
+description: "Flashing via USB on Linux"
 ---
 
 import Rkdeveloptool from "../../../../../common/dev/\_rkdeveloptoolV3.mdx";
 import Images from "../../../\_image.mdx"
 import Maskrom from "./\_maskrom.mdx"
 
-# MacOS主机
+# MacOS Host
 
-## 文件下载
+## File Download
 
 <Images loader={true} system_img={true} spi_img={false} />
 
@@ -17,6 +17,6 @@ import Maskrom from "./\_maskrom.mdx"
 <Maskrom/>
 </Rkdeveloptool>
 
-## 设备登录
+## Login
 
-详情请参考 [快速上手](../../quick-start.md)
+For more details, please refer to the [Quick Start Guide](../../quick-start.md)

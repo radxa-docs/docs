@@ -13,7 +13,7 @@ import Maskrom from "./\_maskrom.mdx"
 
 <Images loader={true} system_img={true} spi_img={false} />
 
-<Rkdeveloptool>
+<Rkdeveloptool platform="linux">
 <Maskrom/>
 </Rkdeveloptool>
 
