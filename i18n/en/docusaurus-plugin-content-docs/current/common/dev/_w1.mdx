@@ -1,0 +1,105 @@
+One Wire Introduction
+
+The 1-wire bus is a simple master-slave bus that communicates via a single signal wire (plus ground, so two wires).
+
+### Preparation
+
+<ul>
+  <li>One {props.product_name}</li>
+  <li>One One-Wire Sensor </li>
+</ul>
+
+### 开启 Overlay
+
+<p>
+  Please refer to{" "}
+  <a href="../../radxa-os/rsetup#overlays">device tree config </a>Enable One Wire
+  Related Overlay, eg: "Enable {props.w1_overlay_name}"。
+</p>
+
+### Connection
+
+<p>Connect {props.product_name} and One Wire device as follows </p>
+
+<table>
+  <tr>
+    <th>{props.product_name}</th>
+    <th>\<--\></th>
+    <th>Onw Wire</th>
+  </tr>
+  <tr>
+    <td>{props.w1_pin}</td>
+    <th>\<--\></th>
+    <td>One Wire Pin</td>
+  </tr>
+  <tr>
+    <td>PIN_1</td>
+    <th>\<--\></th>
+    <td>VCC</td>
+  </tr>
+  <tr>
+    <td>PIN_9</td>
+    <th>\<--\></th>
+    <td>GND</td>
+  </tr>
+</table>
+
+<img src={props.w1_connection} alt="one wire connection" style={{ width: "80%" }} />
+
+### Test
+
+- After booting up the {props.product_name}, check the /sys/bus/w1/devices/ directory - there should be a device starting with '28-'
+
+- Create a new file called 'w1_test.py', then copy and paste the following code into that file and save it
+
+	<details>
+		<summary>w1_test.py</summary>
+
+		```py
+		import os
+		import glob
+		import time
+		
+		os.system('modprobe w1-gpio')
+		os.system('modprobe w1-therm')
+
+		#open the file /sys/bus/w1/devices/28*/w1_slave
+		base_dir = '/sys/bus/w1/devices/'
+		device_folder = glob.glob(base_dir + '28*')[0]
+		device_file = device_folder + '/w1_slave'
+
+		# read the file line by line
+		def read_temp_raw():
+			f = open(device_file, 'r')
+			lines = f.readlines()
+			f.close()
+			return lines
+		
+		#6e 01 ff ff 7f ff ff ff ae : crc=ae YES
+		#6e 01 ff ff 7f ff ff ff ae t=22875
+		def read_temp():
+			lines = read_temp_raw()
+			while lines[0].strip()[-3:] != 'YES':
+				time.sleep(0.2)
+				lines = read_temp_raw()
+			equals_pos = lines[1].find('t=')
+			if equals_pos != -1:
+				temp_string = lines[1][equals_pos+2:]
+				temp_c = float(temp_string) / 1000.0
+				temp_f = temp_c * 9.0 / 5.0 + 32.0
+				return temp_c, temp_f
+
+		# (Celsius， Fahrenheit)
+		while True:
+			print(read_temp())	
+			time.sleep(1)
+		```
+	</details>
+
+- Run the program
+
+	```bash
+	sudo python3 w1_test.py
+	```
+
+	If the program runs correctly, it will output the current temperature.
