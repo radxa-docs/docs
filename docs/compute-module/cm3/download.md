@@ -34,6 +34,12 @@ import Images from "./\_image.mdx"
 
     [B2B Connector Param](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_b2b_connector_20230718.asc)
 
+- 核心板连接器 PINOUT
+
+    - [Radxa CM3 V1.3 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1.3_pinout.xlsx)
+
+    - [Radxa CM3 V1300 To V1320 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1300_to_1320_pinout.xlsx)
+
 ## 质量认证
 
 [AU RCM](https://dl.radxa.com/cm3/compliance/AU_RCM/)
