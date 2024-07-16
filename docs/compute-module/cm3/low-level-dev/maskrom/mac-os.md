@@ -16,7 +16,7 @@ import Images from "../../\_image.mdx"
 
 <ol>
     <li>把 CM3 安装到 IO 板上</li>
-    <li>移除 MicroSD 卡，插入 eMMC</li>
+    <li>移除 MicroSD 卡</li>
     <li>按住 SPI Disable 按键</li>
     <li>将 USB-A 转 MicroUSB 连接线插入 Radxa CM3 IO OTG 端口（Micro USB 端口），另一端插入电脑</li>
     <li>插入电源线上电，如果电源绿灯常亮则成功进入 Maskrom 模式</li>

@@ -1,25 +1,25 @@
 ---
 sidebar_position: 3
-description: "Windows 下通过 USB 刷机"
+description: "Flash via Maskrom under Windows"
 ---
 
 import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 import Images from "../../\_image.mdx"
 
-# Windows 主机
+# Windows Host
 
-## 文件下载
+## File Download
 
 <Images loader={true} system_img={true} spi_img={true} />
 
 <Rkdevtool rkdevtool_emmc_img="/img/cm3/cm3-io-rkdevtool-maskrom-flash-system.webp" loader_name="rk356x_spl_loader_ddr1056_v1.10.111.bin" emmc={false} pcie={false} sata={false} >
 
 <ol>
-    <li>把 CM3 安装到 IO 板上</li>
-    <li>移除 MicroSD 卡</li>
-    <li>按住 SPI Disable 按键</li>
-    <li>将 USB-A 转 MicroUSB 连接线插入 Radxa CM3 IO OTG 端口（Micro USB 端口），另一端插入电脑</li>
-    <li>插入电源线上电，如果电源绿灯常亮则成功进入 Maskrom 模式</li>
+    <li>Install the CM3 core board onto the CM3 IO Board</li>
+    <li>Remove MicroSD Card</li>
+    <li>Press and hold the SPI Disable button</li>
+    <li>Connect the USB-A to Micro USB cable by plugging the Micro USB end into the Radxa CM3 IO OTG port (Micro USB port), and then plug the other USB-A end into your computer</li>
+    <li>Plug in the power cable to power on the board. If the power LED is steadily illuminated, that indicates the board has successfully entered Maskrom mode</li>
 </ol>
 
 <img src="/img/cm3/cm3-button.webp" alt="cm3 core button" style={{ width: "40%" }} />
