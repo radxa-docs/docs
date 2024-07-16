@@ -45,7 +45,7 @@ sidebar_position: 2
 
 1. 通过 HDMI 线将 Radxa CM3 IO Board 的任一 HDMI 输出接口连接到 HDMI 显示器。
 
-<img src="/img/cm3/cm3-io-hdmi-connect.webp" alt="cm3 io board hdmi" style={{ width: "80%" }}  />
+<img src="/img/cm3/cm3-io-hdmi-connect.webp" alt="cm3 io board hdmi" style={{ width: "80%" }} />
 
 2. 将 USB 鼠标和键盘连接到 Radxa CM3 IO Board 的任一 USB 2.0 或 3.0 接口。
 
@@ -53,7 +53,7 @@ sidebar_position: 2
 
 3. 将网线连接到以太网口。
 
-<img src="/img/cm3/cm3-io-ethernet-connect.webp" alt="cm3 io board ethernet" style={{ width: "80%" }}  />
+<img src="/img/cm3/cm3-io-ethernet-connect.webp" alt="cm3 io board ethernet" style={{ width: "80%" }} />
 
 4. 将电源适配器插入 Radxa CM3 IO Board 的电源接口。设备上电，电源指示灯显示绿色，启动正常后，指示灯开始闪烁。
 

@@ -13,8 +13,8 @@ The 1-wire bus is a simple master-slave bus that communicates via a single signa
 
 <p>
   Please refer to{" "}
-  <a href="../../radxa-os/rsetup#overlays">device tree config </a>Enable One Wire
-  Related Overlay, eg: "Enable {props.w1_overlay_name}"。
+  <a href="../../radxa-os/rsetup#overlays">device tree config </a>Enable One
+  Wire Related Overlay, eg: "Enable {props.w1_overlay_name}"。
 </p>
 
 ### Connection
@@ -25,7 +25,7 @@ The 1-wire bus is a simple master-slave bus that communicates via a single signa
   <tr>
     <th>{props.product_name}</th>
     <th>\<--\></th>
-    <th>Onw Wire</th>
+    <th>One Wire</th>
   </tr>
   <tr>
     <td>{props.w1_pin}</td>
@@ -44,7 +44,11 @@ The 1-wire bus is a simple master-slave bus that communicates via a single signa
   </tr>
 </table>
 
-<img src={props.w1_connection} alt="one wire connection" style={{ width: "80%" }} />
+<img
+  src={props.w1_connection}
+  alt="one wire connection"
+  style={{ width: "80%" }}
+/>
 
 ### Test
 
@@ -52,54 +56,56 @@ The 1-wire bus is a simple master-slave bus that communicates via a single signa
 
 - Create a new file called 'w1_test.py', then copy and paste the following code into that file and save it
 
-	<details>
-		<summary>w1_test.py</summary>
+      <details>
 
-		```py
-		import os
-		import glob
-		import time
-		
-		os.system('modprobe w1-gpio')
-		os.system('modprobe w1-therm')
+  <summary>w1_test.py</summary>
 
-		#open the file /sys/bus/w1/devices/28*/w1_slave
-		base_dir = '/sys/bus/w1/devices/'
-		device_folder = glob.glob(base_dir + '28*')[0]
-		device_file = device_folder + '/w1_slave'
+          ```py
+          import os
+          import glob
+          import time
 
-		# read the file line by line
-		def read_temp_raw():
-			f = open(device_file, 'r')
-			lines = f.readlines()
-			f.close()
-			return lines
-		
-		#6e 01 ff ff 7f ff ff ff ae : crc=ae YES
-		#6e 01 ff ff 7f ff ff ff ae t=22875
-		def read_temp():
-			lines = read_temp_raw()
-			while lines[0].strip()[-3:] != 'YES':
-				time.sleep(0.2)
-				lines = read_temp_raw()
-			equals_pos = lines[1].find('t=')
-			if equals_pos != -1:
-				temp_string = lines[1][equals_pos+2:]
-				temp_c = float(temp_string) / 1000.0
-				temp_f = temp_c * 9.0 / 5.0 + 32.0
-				return temp_c, temp_f
+          os.system('modprobe w1-gpio')
+          os.system('modprobe w1-therm')
 
-		# (Celsius， Fahrenheit)
-		while True:
-			print(read_temp())	
-			time.sleep(1)
-		```
-	</details>
+          #open the file /sys/bus/w1/devices/28*/w1_slave
+          base_dir = '/sys/bus/w1/devices/'
+          device_folder = glob.glob(base_dir + '28*')[0]
+          device_file = device_folder + '/w1_slave'
+
+          # read the file line by line
+          def read_temp_raw():
+          	f = open(device_file, 'r')
+          	lines = f.readlines()
+          	f.close()
+          	return lines
+
+          #6e 01 ff ff 7f ff ff ff ae : crc=ae YES
+          #6e 01 ff ff 7f ff ff ff ae t=22875
+          def read_temp():
+          	lines = read_temp_raw()
+          	while lines[0].strip()[-3:] != 'YES':
+          		time.sleep(0.2)
+          		lines = read_temp_raw()
+          	equals_pos = lines[1].find('t=')
+          	if equals_pos != -1:
+          		temp_string = lines[1][equals_pos+2:]
+          		temp_c = float(temp_string) / 1000.0
+          		temp_f = temp_c * 9.0 / 5.0 + 32.0
+          		return temp_c, temp_f
+
+          # (Celsius， Fahrenheit)
+          while True:
+          	print(read_temp())
+          	time.sleep(1)
+          ```
+
+      </details>
 
 - Run the program
 
-	```bash
-	sudo python3 w1_test.py
-	```
+  ```bash
+  sudo python3 w1_test.py
+  ```
 
-	If the program runs correctly, it will output the current temperature.
+  If the program runs correctly, it will output the current temperature.

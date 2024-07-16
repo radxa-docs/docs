@@ -35,21 +35,21 @@ The following outlines the comprehensive interface details for the Radxa CM3 IO 
     |  1  |  BAT_3V7_PLUS    |  2  |       TS         |
     |  3  |  BAT_3V7_LOSE    |     |                  |
 
-###  DIP_2.54MM_3PIN_180
+### DIP_2.54MM_3PIN_180
 
 - U31
 
-    | Pin |       Name       | Pin |       Name       |
-    | :-: | :--------------: | :-: | :--------------: |
-    |  1  |     WL_nDis      |  2  |       GND        |
-    |  3  |     BT_nDis      |     |                  |
+  | Pin |  Name   | Pin | Name |
+  | :-: | :-----: | :-: | :--: |
+  |  1  | WL_nDis |  2  | GND  |
+  |  3  | BT_nDis |     |      |
 
 - U32
 
-    | Pin |       Name       | Pin |       Name       |
-    | :-: | :--------------: | :-: | :--------------: |
-    |  1  |    PWRON_KEY     |  2  |       GND        |
-    |  3  |      RUN_PG      |     |                  |
+  | Pin |   Name    | Pin | Name |
+  | :-: | :-------: | :-: | :--: |
+  |  1  | PWRON_KEY |  2  | GND  |
+  |  3  |  RUN_PG   |     |      |
 
 ### EDP
 
@@ -59,50 +59,50 @@ For the coupled differential signals in the eDP interface, it is recommended to 
 
 - eDP Interface Features:
 
-    - Supports 1 eDP 1.3 interface
-    - Supports up to 4 physical channels of 2.7Gbps
-    - Supports Panel Self-Refresh (PSR)
-    - Supports resolutions up to 2560x1600@60Hz
-    - Supports up to 10-bit RGB format
+  - Supports 1 eDP 1.3 interface
+  - Supports up to 4 physical channels of 2.7Gbps
+  - Supports Panel Self-Refresh (PSR)
+  - Supports resolutions up to 2560x1600@60Hz
+  - Supports up to 10-bit RGB format
 
 - Impedance and Description of eDP Interface Signals:
 
-    | Signal           | Impedance  | Description                                    |
-    | ---------------- | ---------- | ---------------------------------------------- |
-    | eDP_TX_DP/DN[3:0]| 100ohm±10% | eDP TX data transmission, with 100nF capacitor |
-    | eDP_TX_AUXP/N    | 100ohm±10% | eDP TX auxiliary channel, with 100nF capacitor |
-    | eDP_HPDIN        | N/A        | No eDP TX insertion detection                  |
+  | Signal            | Impedance  | Description                                    |
+  | ----------------- | ---------- | ---------------------------------------------- |
+  | eDP_TX_DP/DN[3:0] | 100ohm±10% | eDP TX data transmission, with 100nF capacitor |
+  | eDP_TX_AUXP/N     | 100ohm±10% | eDP TX auxiliary channel, with 100nF capacitor |
+  | eDP_HPDIN         | N/A        | No eDP TX insertion detection                  |
 
-    <img src="/img/cm3/edp-design.webp" alt="EDP" style={{ width: "80%" }}  />
+  <img src="/img/cm3/edp-design.webp" alt="EDP" style={{ width: "80%" }} />
 
 - eDP Layout Requirements
 
-    | Range                                         | Requirements                                 |
-    | --------------------------------------------- | -------------------------------------------- |
-    | Trace Impedance                               | 100Ω ±10% differential                       |
-    | Max intra‑pair skew                           | \<12mil                                      |
-    | Max trace length on carrier board             | \<6 inches                                   |
-    | Minimum pair to pair spacing                  | Recommend ≥4 times the width of eDP trace    |
-    | AC coupling capacitors                        | 100nF ±20%, discrete 0201 package preferable |
-    | Minimum spacing between eDP and other signals | ≥4 times the width of eDP trace              |
-    | Maximum allowed via Recommend                 | ≤ 4 vias                                     |
+  | Range                                         | Requirements                                 |
+  | --------------------------------------------- | -------------------------------------------- |
+  | Trace Impedance                               | 100Ω ±10% differential                       |
+  | Max intra‑pair skew                           | \<12mil                                      |
+  | Max trace length on carrier board             | \<6 inches                                   |
+  | Minimum pair to pair spacing                  | Recommend ≥4 times the width of eDP trace    |
+  | AC coupling capacitors                        | 100nF ±20%, discrete 0201 package preferable |
+  | Minimum spacing between eDP and other signals | ≥4 times the width of eDP trace              |
+  | Maximum allowed via Recommend                 | ≤ 4 vias                                     |
 
 - The trace length for the eDP (Embedded DisplayPort) signals on the compute module.
 
-    | Signal      | Length       |
-    | ----------- | ------------ |
-    | EDP_TX_AUXN | 1125.784mil  |
-    | EDP_TX_AUXP | 1145.200mil  |
-    | EDP_TX_D0N  | 1,551.442mil |
-    | EDP_TX_D0P  | 1,605.627mil |
-    | EDP_TX_D1N  | 1,394.502mil |
-    | EDP_TX_D1P  | 1,387.683mil |
-    | EDP_TX_D2N  | 1,223.146mil |
-    | EDP_TX_D2P  | 1,278.783mil |
-    | EDP_TX_D3N  | 1,074.909mil |
-    | EDP_TX_D3P  | 1,092.072mil |
+  | Signal      | Length       |
+  | ----------- | ------------ |
+  | EDP_TX_AUXN | 1125.784mil  |
+  | EDP_TX_AUXP | 1145.200mil  |
+  | EDP_TX_D0N  | 1,551.442mil |
+  | EDP_TX_D0P  | 1,605.627mil |
+  | EDP_TX_D1N  | 1,394.502mil |
+  | EDP_TX_D1P  | 1,387.683mil |
+  | EDP_TX_D2N  | 1,223.146mil |
+  | EDP_TX_D2P  | 1,278.783mil |
+  | EDP_TX_D3N  | 1,074.909mil |
+  | EDP_TX_D3P  | 1,092.072mil |
 
-    **Note: On the connector end of the eDP display, it is recommended to reserve a 100k pull-down resistor for AUXP and a 100k pull-up resistor for AUXN.**
+  **Note: On the connector end of the eDP display, it is recommended to reserve a 100k pull-down resistor for AUXP and a 100k pull-up resistor for AUXN.**
 
 ### Ethernet
 
@@ -112,11 +112,11 @@ The Radxa CM3 board integrates the Gigabit PHY chip RTL8211F. The four sets of d
 
 ** Please refer to the schematic diagram for the specific signal definitions **
 
-<img src="/img/cm3/ethernet-phy-design.webp" alt="Ethernet Phy Design" style={{ width: "80%" }}  />
+<img src="/img/cm3/ethernet-phy-design.webp" alt="Ethernet Phy Design" style={{ width: "80%" }} />
 
 The Radxa CM3 IO Board utilizes an integrated transformer and Ethernet port design. Please refer to the provided design reference as follows:
 
-<img src="/img/cm3/ethernet_combo.webp" alt="Ethernet Combo" style={{ width: "80%" }}  />
+<img src="/img/cm3/ethernet_combo.webp" alt="Ethernet Combo" style={{ width: "80%" }} />
 
 The trace length for the MDI signals on the compute module.
 
@@ -144,131 +144,131 @@ For Gigabit Ethernet, the MDI (Medium Dependent Interface) differential signals 
 
 HDMI (High-Definition Multimedia Interface) is a unified method of transmitting video and audio data to audio/video display devices through a TMDS (Transition Minimized Differential Signaling) compatible physical link. The HDMI interface is electrically compatible with the DVI (Digital Visual Interface) standard.
 
--  Features
+- Features
 
-    - HPD (Hot Plug Detect) input analog comparator
-    - 13.5–600 MHz input reference clock range
-    - Supports up to 10-bit deep color mode
-    - Aggregate bandwidth up to 18Gbps
-    - Supports video resolutions up to 1080p@120Hz and 4096x2304@60Hz
-    - Compatibility with 3D video formats
+  - HPD (Hot Plug Detect) input analog comparator
+  - 13.5–600 MHz input reference clock range
+  - Supports up to 10-bit deep color mode
+  - Aggregate bandwidth up to 18Gbps
+  - Supports video resolutions up to 1080p@120Hz and 4096x2304@60Hz
+  - Compatibility with 3D video formats
 
-    | Signal             | Impedance     | Description                                                                             |
-    | ------------------ | ------------- | ------------------------------------------------------------------------------------- |
-    | HDMI_TX_DP/DN[2꞉0] | 100ohm±10%    | HDMI TX data transmission                                                             |
-    | HDMI_TX_CLKP/CLKN  | 100ohm±10%    | HDMI TX clock transmission                                                            |
-    | HDMI_TX_HPDIN      | Not specified | HDMI TX hot‑plug detection                                                            |
-    | HDMI_TX_REXT       | Not specified | External resistor for HDMI reference connection(Default꞉ 1% precision 1.62k resistor) |
-    | HDMITX_SCL/SDA     | Not specified | HDMI data communication channel                                                       |
-    | HDMITX_CEC         | Not specified | HDMI Consumer Electronics Control pin                                                 |
+  | Signal             | Impedance     | Description                                                                           |
+  | ------------------ | ------------- | ------------------------------------------------------------------------------------- |
+  | HDMI_TX_DP/DN[2꞉0] | 100ohm±10%    | HDMI TX data transmission                                                             |
+  | HDMI_TX_CLKP/CLKN  | 100ohm±10%    | HDMI TX clock transmission                                                            |
+  | HDMI_TX_HPDIN      | Not specified | HDMI TX hot‑plug detection                                                            |
+  | HDMI_TX_REXT       | Not specified | External resistor for HDMI reference connection(Default꞉ 1% precision 1.62k resistor) |
+  | HDMITX_SCL/SDA     | Not specified | HDMI data communication channel                                                       |
+  | HDMITX_CEC         | Not specified | HDMI Consumer Electronics Control pin                                                 |
 
-    On the Radxa CM3 compute module, the HDMITX_SCL/SDA and HDMITX_CEC signals have already gone through level translation processing. The HDMI_TX_HPDIN signal has a 100k ohm pull-down resistor and is connected in series with a 1k ohm resistor to the RK3566. When designing the baseboard, users don't need to worry about level translation issues. Please refer to the following design guide:
+  On the Radxa CM3 compute module, the HDMITX_SCL/SDA and HDMITX_CEC signals have already gone through level translation processing. The HDMI_TX_HPDIN signal has a 100k ohm pull-down resistor and is connected in series with a 1k ohm resistor to the RK3566. When designing the baseboard, users don't need to worry about level translation issues. Please refer to the following design guide:
 
-    <img src="/img/cm3/hdmi-design.webp" alt="HDMI Design" style={{ width: "80%" }}  />
+  <img src="/img/cm3/hdmi-design.webp" alt="HDMI Design" style={{ width: "80%" }} />
 
 - HDMI 2.0 Layout Requirements
 
-    | Range                                          | Requirements                                                                |
-    | ---------------------------------------------- | --------------------------------------------------------------------------- |
-    | Trace Impedance                                | 100Ω ±10% differential                                                      |
-    | Max intra‑pair skew                            | \<12mil                                                                     |
-    | Max mismatch between clock and data pairs      | \<480mil                                                                    |
-    | Max trace length on carrier board              | \<6 inches                                                                  |
-    | Minimum pair to pair spacing                   | ≥5 times the width of HDMI trace (At least 4 times the width of HDMI trace) |
-    | Minimum spacing between HDMI and other Signals | ≥5 times the width of HDMI trace (At least 4 times the width of HDMI trace) |
-    | Maximum allowed via                            | Recommend ≤ 2 vias                                                          |
+  | Range                                          | Requirements                                                                |
+  | ---------------------------------------------- | --------------------------------------------------------------------------- |
+  | Trace Impedance                                | 100Ω ±10% differential                                                      |
+  | Max intra‑pair skew                            | \<12mil                                                                     |
+  | Max mismatch between clock and data pairs      | \<480mil                                                                    |
+  | Max trace length on carrier board              | \<6 inches                                                                  |
+  | Minimum pair to pair spacing                   | ≥5 times the width of HDMI trace (At least 4 times the width of HDMI trace) |
+  | Minimum spacing between HDMI and other Signals | ≥5 times the width of HDMI trace (At least 4 times the width of HDMI trace) |
+  | Maximum allowed via                            | Recommend ≤ 2 vias                                                          |
 
 - The trace length for the HDMI signal on the compute module
 
-    | Signal           | Length       |
-    | ---------------- | ------------ |
-    | HDMI_TX0N_PORT   | 1310.556mil  |
-    | HDMI_TX0P_PORT   | 1302.62mil   |
-    | HDMI_TX1N_PORT   | 1218.286mil  |
-    | HDMI_TX1P_PORT   | 1156.647mil  |
-    | HDMI_TX2N_PORT   | 1122.794mil  |
-    | HDMI_TX2P_PORT   | 1118.675mil  |
-    | HDMI_TXCLKN_PORT | 1437.63mil   |
-    | HDMI_TXCLKP_PORT | 1,398.265mil |
+  | Signal           | Length       |
+  | ---------------- | ------------ |
+  | HDMI_TX0N_PORT   | 1310.556mil  |
+  | HDMI_TX0P_PORT   | 1302.62mil   |
+  | HDMI_TX1N_PORT   | 1218.286mil  |
+  | HDMI_TX1P_PORT   | 1156.647mil  |
+  | HDMI_TX2N_PORT   | 1122.794mil  |
+  | HDMI_TX2P_PORT   | 1118.675mil  |
+  | HDMI_TXCLKN_PORT | 1437.63mil   |
+  | HDMI_TXCLKP_PORT | 1,398.265mil |
 
 ### MIPI CSI
 
 - Camera_1
 
-    | Pin |        Name       | Pin |        Name       |
-    | :-: | :---------------: | :-: | :---------------: |
-    |  1  |   VCC3V3_SYS      |  2  |  I2C0_SDA_PMIC    |
-    |  3  |   I2C0_SCL_PMIC   |  4  |  CAM_CLKOUT0      |
-    |  5  |   CAM_GPIO        |  6  |      GND          |
-    |  7  | MIPI_CSI_RX_CLK0P |  8  | MIPI_CSI_RX_CLK0N |
-    |  9  |       GND         | 10  | MIPI_CSI_RX_D1P   |
-    | 11  | MIPI_CSI_RX_D1N   | 12  |      GND          |
-    | 13  | MIPI_CSI_RX_D0P   | 14  | MIPI_CSI_RX_D0N   |
-    | 15  |       GND         | 16  |      GND          |
-    | 17  |       GND         |     |                   |
+  | Pin |       Name        | Pin |       Name        |
+  | :-: | :---------------: | :-: | :---------------: |
+  |  1  |    VCC3V3_SYS     |  2  |   I2C0_SDA_PMIC   |
+  |  3  |   I2C0_SCL_PMIC   |  4  |    CAM_CLKOUT0    |
+  |  5  |     CAM_GPIO      |  6  |        GND        |
+  |  7  | MIPI_CSI_RX_CLK0P |  8  | MIPI_CSI_RX_CLK0N |
+  |  9  |        GND        | 10  |  MIPI_CSI_RX_D1P  |
+  | 11  |  MIPI_CSI_RX_D1N  | 12  |        GND        |
+  | 13  |  MIPI_CSI_RX_D0P  | 14  |  MIPI_CSI_RX_D0N  |
+  | 15  |        GND        | 16  |        GND        |
+  | 17  |        GND        |     |                   |
 
 - Camera_2
 
-    | Pin |        Name       | Pin |       Name        |
-    | :-: | :---------------: | :-: | :---------------: |
-    |  1  |   VCC3V3_SYS      |  2  |  I2C2_SDA_M1      |
-    |  3  |   I2C2_SCL_M1     |  4  |  CAM_CLKOUT1      |
-    |  5  |   CAM_PWR_2       |  6  |      GND          |
-    |  7  | MIPI_CSI_RX_CLK1P |  8  | MIPI_CSI_RX_CLK1N |
-    |  9  |      GND          | 10  | MIPI_CSI_RX_D3P   |
-    | 11  | MIPI_CSI_RX_D3N   | 12  |      GND          |
-    | 13  | MIPI_CSI_RX_D2P   | 14  | MIPI_CSI_RX_D2N   |
-    | 15  |       GND         | 16  |      GND          |
-    | 17  |       GND         |     |                   |
+  | Pin |       Name        | Pin |       Name        |
+  | :-: | :---------------: | :-: | :---------------: |
+  |  1  |    VCC3V3_SYS     |  2  |    I2C2_SDA_M1    |
+  |  3  |    I2C2_SCL_M1    |  4  |    CAM_CLKOUT1    |
+  |  5  |     CAM_PWR_2     |  6  |        GND        |
+  |  7  | MIPI_CSI_RX_CLK1P |  8  | MIPI_CSI_RX_CLK1N |
+  |  9  |        GND        | 10  |  MIPI_CSI_RX_D3P  |
+  | 11  |  MIPI_CSI_RX_D3N  | 12  |        GND        |
+  | 13  |  MIPI_CSI_RX_D2P  | 14  |  MIPI_CSI_RX_D2N  |
+  | 15  |        GND        | 16  |        GND        |
+  | 17  |        GND        |     |                   |
 
 ### MIPI DSI
 
 - LCD_1
 
-    | Pin |             Name              | Pin |               Name                |
-    | :-: | :---------------------------: | :-: | :-------------------------------: |
-    |  1  |       VCC_LEDA1                 |  2  |        VCC_LEDA1                |
-    |  3  |       VCC_LEDA1                 |  4  |            GND                  |
-    |  5  |       VCC_LEDK1                 |  6  |        VCC_LEDK1                |
-    |  7  |       VCC_LEDK1                 |  8  |        VCC_LEDK1                |
-    |  9  |           GND                   | 10  |            GND                  |
-    | 11  | MIPI_DSI_TX0_D2P/LVDS_TX0_D2P   | 12  | MIPI_DSI_TX0_D2N/LVDS_TX0_D2N   |
-    | 13  |           GND                   | 14  | MIPI_DSI_TX0_D1P/LVDS_TX0_D1P   |
-    | 15  | MIPI_DSI_TX0_D1N/LVDS_TX0_D1N   | 16  |            GND                  |
-    | 17  | MIPI_DSI_TX0_CLKP/LVDS_TX0_CLKP | 18  | MIPI_DSI_TX0_CLKN/LVDS_TX0_CLKN |
-    | 19  |           GND                   | 20  | MIPI_DSI_TX0_D0P/LVDS_TX0_D0P   |
-    | 21  | MIPI_DSI_TX0_D0N/LVDS_TX0_D0N   | 22  |            GND                  |
-    | 23  | MIPI_DSI_TX0_D3P/LVDS_TX0_D3P   | 24  | MIPI_DSI_TX0_D3N/LVDS_TX0_D3N   |
-    | 25  |           GND                   | 26  |        Not Connected            |
-    | 27  |       MIPI_RESET_1              | 28  |            GND                  |
-    | 29  |        VCC_1V8_1                | 30  |         VCC_LCD_MIPI            |
-    | 31  |       VCC_LCD_MIPI              |     |                                 |
+  | Pin |              Name               | Pin |              Name               |
+  | :-: | :-----------------------------: | :-: | :-----------------------------: |
+  |  1  |            VCC_LEDA1            |  2  |            VCC_LEDA1            |
+  |  3  |            VCC_LEDA1            |  4  |               GND               |
+  |  5  |            VCC_LEDK1            |  6  |            VCC_LEDK1            |
+  |  7  |            VCC_LEDK1            |  8  |            VCC_LEDK1            |
+  |  9  |               GND               | 10  |               GND               |
+  | 11  |  MIPI_DSI_TX0_D2P/LVDS_TX0_D2P  | 12  |  MIPI_DSI_TX0_D2N/LVDS_TX0_D2N  |
+  | 13  |               GND               | 14  |  MIPI_DSI_TX0_D1P/LVDS_TX0_D1P  |
+  | 15  |  MIPI_DSI_TX0_D1N/LVDS_TX0_D1N  | 16  |               GND               |
+  | 17  | MIPI_DSI_TX0_CLKP/LVDS_TX0_CLKP | 18  | MIPI_DSI_TX0_CLKN/LVDS_TX0_CLKN |
+  | 19  |               GND               | 20  |  MIPI_DSI_TX0_D0P/LVDS_TX0_D0P  |
+  | 21  |  MIPI_DSI_TX0_D0N/LVDS_TX0_D0N  | 22  |               GND               |
+  | 23  |  MIPI_DSI_TX0_D3P/LVDS_TX0_D3P  | 24  |  MIPI_DSI_TX0_D3N/LVDS_TX0_D3N  |
+  | 25  |               GND               | 26  |          Not Connected          |
+  | 27  |          MIPI_RESET_1           | 28  |               GND               |
+  | 29  |            VCC_1V8_1            | 30  |          VCC_LCD_MIPI           |
+  | 31  |          VCC_LCD_MIPI           |     |                                 |
 
 - LCD_2
 
-    | Pin |       Name       | Pin |       Name       |
-    | :-: | :--------------: | :-: | :--------------: |
-    |  1  |  VCC_LCD_MIPI_2  |  2  |   VCC_1V8_2      |
-    |  3  |  Not Connected   |  4  |   MIPI_RESET_2   |
-    |  5  |  Not Connected   |  6  |      GND         |
-    |  7  | MIPI_DSI_TX1_D0N |  8  | MIPI_DSI_TX1_D0P |
-    |  9  |      GND         | 10  | MIPI_DSI_TX1_D1N |
-    | 11  | MIPI_DSI_TX1_D1P | 12  |      GND         |
-    | 13  | MIPI_DSI_TX1_CLKN| 14  | MIPI_DSI_TX1_CLKP|
-    | 15  |      GND         | 16  | MIPI_DSI_TX1_D2N |
-    | 17  | MIPI_DSI_TX1_D2P | 18  |      GND         |
-    | 19  | MIPI_DSI_TX1_D3N | 20  | MIPI_DSI_TX1_D3P |
-    | 21  |      GND         | 22  |      GND         |
-    | 23  |    TP_RST_LCD    | 24  |    VCC_TP        |
-    | 25  |    TP_INT_LCD    | 26  | I2C2_SDA_LCD     |
-    | 27  | I2C2_SCL_LCD     | 28  |      GND         |
-    | 29  |      GND         | 30  | VCC_LCD_MIPI_2   |
-    | 31  | VCC_LCD_MIPI_2   | 32  |      GND         |
-    | 33  |      GND         | 34  | VCC_LEDK2        |
-    | 35  | VCC_LEDK2        | 36  | Not Connected    |
-    | 37  | Not Connected    | 38  | VCC_LEDA2        |
-    | 39  | VCC_LEDA2        | 40  |      GND         |
-    | 41  | VCC_LCD_MIPI_2   |     |                  |
+  | Pin |       Name        | Pin |       Name        |
+  | :-: | :---------------: | :-: | :---------------: |
+  |  1  |  VCC_LCD_MIPI_2   |  2  |     VCC_1V8_2     |
+  |  3  |   Not Connected   |  4  |   MIPI_RESET_2    |
+  |  5  |   Not Connected   |  6  |        GND        |
+  |  7  | MIPI_DSI_TX1_D0N  |  8  | MIPI_DSI_TX1_D0P  |
+  |  9  |        GND        | 10  | MIPI_DSI_TX1_D1N  |
+  | 11  | MIPI_DSI_TX1_D1P  | 12  |        GND        |
+  | 13  | MIPI_DSI_TX1_CLKN | 14  | MIPI_DSI_TX1_CLKP |
+  | 15  |        GND        | 16  | MIPI_DSI_TX1_D2N  |
+  | 17  | MIPI_DSI_TX1_D2P  | 18  |        GND        |
+  | 19  | MIPI_DSI_TX1_D3N  | 20  | MIPI_DSI_TX1_D3P  |
+  | 21  |        GND        | 22  |        GND        |
+  | 23  |    TP_RST_LCD     | 24  |      VCC_TP       |
+  | 25  |    TP_INT_LCD     | 26  |   I2C2_SDA_LCD    |
+  | 27  |   I2C2_SCL_LCD    | 28  |        GND        |
+  | 29  |        GND        | 30  |  VCC_LCD_MIPI_2   |
+  | 31  |  VCC_LCD_MIPI_2   | 32  |        GND        |
+  | 33  |        GND        | 34  |     VCC_LEDK2     |
+  | 35  |     VCC_LEDK2     | 36  |   Not Connected   |
+  | 37  |   Not Connected   | 38  |     VCC_LEDA2     |
+  | 39  |     VCC_LEDA2     | 40  |        GND        |
+  | 41  |  VCC_LCD_MIPI_2   |     |                   |
 
 ### PCIe
 
@@ -311,43 +311,42 @@ SATA (Serial Advanced Technology Attachment) is a serial communication hard driv
 
 The table below provides the impedance and description of SATA interface signals:
 
-| Signal        | Impedance  | Description                                                                           |
-| ------------- | ---------- | ------------------------------------------------------------------------------------- |
-| SATAx_TXP/N   | 90ohm±10%  | SATA data transmission, coupling capacitor 10nF placed near the motherboard connector |
-| SATAx_RXP/N   | 90ohm±10%  | SATA data reception, coupling capacitor 10nF placed near the motherboard connector    |
+| Signal      | Impedance | Description                                                                           |
+| ----------- | --------- | ------------------------------------------------------------------------------------- |
+| SATAx_TXP/N | 90ohm±10% | SATA data transmission, coupling capacitor 10nF placed near the motherboard connector |
+| SATAx_RXP/N | 90ohm±10% | SATA data reception, coupling capacitor 10nF placed near the motherboard connector    |
 
 SATA 3.0: Consider the following layout requirements
 
-| Parameter                         | Requirement                                         |
-| --------------------------------- | --------------------------------------------------- |
-| Line Impedance                    | 100Ω ±10% differential                              |
-| Maximum intra-pair skew           | \<1200 ps                                           |
-| Maximum trace length on the board | \<6 inches                                          |
-| AC coupling capacitor             | 10nF ±20%, preferably using discrete 0201 package   |
-| Minimum spacing between pairs     | ≥4 times the SATA trace width                       |
-| Minimum spacing from SATA to other signals | ≥4 times the SATA trace width              |
-| Maximum allowed via count         | Recommended ≤ 2 vias                                |
-
+| Parameter                                  | Requirement                                       |
+| ------------------------------------------ | ------------------------------------------------- |
+| Line Impedance                             | 100Ω ±10% differential                            |
+| Maximum intra-pair skew                    | \<1200 ps                                         |
+| Maximum trace length on the board          | \<6 inches                                        |
+| AC coupling capacitor                      | 10nF ±20%, preferably using discrete 0201 package |
+| Minimum spacing between pairs              | ≥4 times the SATA trace width                     |
+| Minimum spacing from SATA to other signals | ≥4 times the SATA trace width                     |
+| Maximum allowed via count                  | Recommended ≤ 2 vias                              |
 
 - SATA3.0 Port2 J7
 
-    | Pin |       Name       | Pin |       Name       |
-    | :-: | :--------------: | :-: | :--------------: |
-    |  1  |       GND        |  2  |    SATA1_TXP     |
-    |  3  |    SATA1_TXN     |  4  |       GND        |
-    |  5  |    SATA1_RXN     |  6  |    SATA1_RXP     |
-    |  7  |       GND        |  8  |       GND        |
-    |  9  | SATA30_7P_V_DIP  |     |                  |
+  | Pin |      Name       | Pin |   Name    |
+  | :-: | :-------------: | :-: | :-------: |
+  |  1  |       GND       |  2  | SATA1_TXP |
+  |  3  |    SATA1_TXN    |  4  |    GND    |
+  |  5  |    SATA1_RXN    |  6  | SATA1_RXP |
+  |  7  |       GND       |  8  |    GND    |
+  |  9  | SATA30_7P_V_DIP |     |           |
 
 - SATA3.0 Port2 J20
 
-    | Pin |       Name       | Pin |       Name       |
-    | :-: | :--------------: | :-: | :--------------: |
-    |  1  |       GND        |  2  |    SATA2_TXP     |
-    |  3  |    SATA2_TXN     |  4  |       GND        |
-    |  5  |    SATA2_RXN     |  6  |    SATA2_RXP     |
-    |  7  |       GND        |  8  |       GND        |
-    |  9  | SATA30_7P_V_DIP  |     |                  |
+  | Pin |      Name       | Pin |   Name    |
+  | :-: | :-------------: | :-: | :-------: |
+  |  1  |       GND       |  2  | SATA2_TXP |
+  |  3  |    SATA2_TXN    |  4  |    GND    |
+  |  5  |    SATA2_RXN    |  6  | SATA2_RXP |
+  |  7  |       GND       |  8  |    GND    |
+  |  9  | SATA30_7P_V_DIP |     |           |
 
 ### TP
 
@@ -362,25 +361,25 @@ SATA 3.0: Consider the following layout requirements
 
 - USB2.0
 
-    | Pin |       Name       | Pin |       Name       |
-    | :-: | :--------------: | :-: | :--------------: |
-    |  1  |   VCC5V0_USB1    |  2  |     USB2_DM      |
-    |  3  |     USB2_DP      |  4  |       GND        |
-    |  5  |   VCC5V0_USB1    |  6  |     USB1_DM      |
-    |  7  |     USB1_DP      |  8  |       GND        |
-    |  9  |       GND        | 10  |       GND        |
-    | 11  |       GND        | 12  |       GND        |
+  | Pin |    Name     | Pin |  Name   |
+  | :-: | :---------: | :-: | :-----: |
+  |  1  | VCC5V0_USB1 |  2  | USB2_DM |
+  |  3  |   USB2_DP   |  4  |   GND   |
+  |  5  | VCC5V0_USB1 |  6  | USB1_DM |
+  |  7  |   USB1_DP   |  8  |   GND   |
+  |  9  |     GND     | 10  |   GND   |
+  | 11  |     GND     | 12  |   GND   |
 
 - USB3.0
 
-    | Pin |       Name       | Pin |       Name       |
-    | :-: | :--------------: | :-: | :--------------: |
-    |  1  |     5V0_USB30    |  2  |   USB3_HOST1_DM  |
-    |  3  |  USB3_HOST1_DP   |  4  |       GND        |
-    |  5  |   USB3_SSRXN     |  6  |    USB3_SSRXP    |
-    |  7  |       GND        |  8  |    USB3_SSTXN    |
-    |  9  |   USB3_SSTXP     | 10  |       GND        |
-    | 11  |       GND        |     |                  |
+  | Pin |     Name      | Pin |     Name      |
+  | :-: | :-----------: | :-: | :-----------: |
+  |  1  |   5V0_USB30   |  2  | USB3_HOST1_DM |
+  |  3  | USB3_HOST1_DP |  4  |      GND      |
+  |  5  |  USB3_SSRXN   |  6  |  USB3_SSRXP   |
+  |  7  |      GND      |  8  |  USB3_SSTXN   |
+  |  9  |  USB3_SSTXP   | 10  |      GND      |
+  | 11  |      GND      |     |               |
 
 ### 40-PIN GPIO
 

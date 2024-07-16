@@ -20,25 +20,25 @@ import Images from "./\_image.mdx"
 
 - Schmatic
 
-    [Radxa CM3 IO Board V1.32 Schematic](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_schematic.pdf)
+  [Radxa CM3 IO Board V1.32 Schematic](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_schematic.pdf)
 
 - Bit Map
 
-    [Radxa CM3 IO Board V1.32 Placement Map](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_components_placement_map.pdf)
+  [Radxa CM3 IO Board V1.32 Placement Map](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_components_placement_map.pdf)
 
 - 2D Map
 
-    [Radxa CM3 IO Board V1.1 2D DXF](https://dl.radxa.com/cm3/io_board/CM3_IO_V1.1_2D_dxf_20211208.zip)
+  [Radxa CM3 IO Board V1.1 2D DXF](https://dl.radxa.com/cm3/io_board/CM3_IO_V1.1_2D_dxf_20211208.zip)
 
 - GENERAL PARAMETERS OF THE PCB DESIGN
 
-    [B2B Connector Param](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_b2b_connector_20230718.asc)
+  [B2B Connector Param](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_b2b_connector_20230718.asc)
 
 - Core Board Connector PINOUT
 
-    - [Radxa CM3 V1.3 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1.3_pinout.xlsx)
+  - [Radxa CM3 V1.3 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1.3_pinout.xlsx)
 
-    - [Radxa CM3 V1300 To V1320 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1300_to_1320_pinout.xlsx)
+  - [Radxa CM3 V1300 To V1320 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1300_to_1320_pinout.xlsx)
 
 ## 质量认证
 

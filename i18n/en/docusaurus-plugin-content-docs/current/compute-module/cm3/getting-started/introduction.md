@@ -46,6 +46,7 @@ description: "A brief introduction to the CM3/CM3 IO Board"
     Radxa CM3 IO supports a variety of cameras and display screens, enhancing its versatility in different applications.
 
     </TabItem>
+
 </Tabs>
 
 ## Motherboard Preview
