@@ -10,4 +10,4 @@ sidebar_position: 2
 
 import UBOOT from '../../../common/dev/\_u-boot.mdx';
 
-<UBOOT />
+<UBOOT model="Radxa ROCK 3A" profile="latest" product="rock-3a"/>
