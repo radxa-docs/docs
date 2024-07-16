@@ -1,5 +1,5 @@
-import Kernel from "../../../common/dev/\_kernel.mdx"
+import KERNEL from "../../../common/dev/\_kernel.mdx"
 
 # Kernel Develop
 
-<Kernel />
+<KERNEL model="Radxa ZERO 2 PRO" soc="stable"/>
