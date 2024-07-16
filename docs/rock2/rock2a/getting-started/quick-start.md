@@ -16,7 +16,7 @@ sidebar_position: 2
 
 ## 安装操作系统
 
-参考[安装系统](./install-os/) 部分安装操作系统。
+参考[安装系统](./install-os/boot_from_sd_card) 部分安装操作系统。
 
 ## 接线和上电
 
