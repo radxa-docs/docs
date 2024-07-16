@@ -1,4 +1,13 @@
-Rock 5 series uses Panthor GPU driver by default in Debian Bookworm version, if you need to switch to Mali GPU driver, please follow the tutorial below.
+ROCK 5 series uses Panthor GPU driver by default in Debian 12 (Bookworm) version, you can follow the tutorial to switch GPU driver according to your needs.
+
+| Driver  | OpenGL | OpenGL ES | OpenCL |
+| :-----: | :----: | :-------: | :----: |
+|  Mali   |   ❌   |    ✔     |   ✔   |
+| Panthor |   ✔   |    ✔     |   ❌   |
+
+<Tabs queryString="Driver">
+
+    <TabItem value="Mali">
 
 ## Use Rockchip's proprietary xorg-xserver version
 
@@ -19,12 +28,43 @@ Then refer to [System Upgrade Using `rsetup`](./rsetup#system-update) to reinsta
 ## Installing the Mali User Level Driver
 
 ```bash
+sudo apt-get update
 sudo apt-get install libmali-valhall-g610-g13p0-x11-gbm
 ```
 
 ## Enable Mali GPU Overlay
 
 Refer to [Overlay opening tutorial](./rsetup#overlays)，enable `Enable Arm Mali GPU driver` Overlay.
+
+    </TabItem>
+
+    <TabItem value="Panthor">
+
+## Revert to using Debian's officially packaged version of mainline xorg-xserver
+
+Remove `/etc/apt/preferences.d/mali` file:
+
+```bash
+sudo rm /etc/apt/preferences.d/mali
+```
+
+Then refer to [System Upgrade Using `rsetup`](./rsetup#system-update) to reinstall Debian's officially packages.
+
+## Uninstall the Mali user level driver and install the upstream Mesa driver
+
+```bash
+sudo apt-get update
+sudo apt-get remove libmali-valhall-g610-g13p0-x11-gbm
+sudo apt-get install mesa-utils mesa-utils-extra libglx-mesa0 libgl1-mesa-dri
+```
+
+## Disable Mali GPU Overlay
+
+Refer to [Overlay opening tutorial](./rsetup#overlays)，disable `Enable Arm Mali GPU driver` Overlay.
+
+    </TabItem>
+
+</Tabs>
 
 ## Reboot system
 
