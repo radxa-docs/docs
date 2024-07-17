@@ -38,7 +38,7 @@ sidebar_position: 4
 
 - Radxa OS
 
-  CM5 搭载 CM5 IO: [radxa-cm5-io_debian_bullseye-test_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/b2/radxa-cm5-io_debian_bullseye_kde_b2.img.xz)
+  CM5 搭载 CM5 IO: [radxa-cm5-io_debian_bullseye_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/b2/radxa-cm5-io_debian_bullseye_kde_b2.img.xz)
 
   CM5 搭载 RPI CM4 IO : [radxa-cm5-rpi-cm4-io_debian_bullseye_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/b2/radxa-cm5-rpi-cm4-io_debian_bullseye_kde_b2.img.xz)
 
