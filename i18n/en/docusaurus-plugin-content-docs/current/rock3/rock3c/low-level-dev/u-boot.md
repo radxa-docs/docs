@@ -1,5 +1,5 @@
-import Uboot from "../../../common/dev/\_u-boot.mdx"
+import UBOOT from "../../../common/dev/\_u-boot.mdx"
 
 # U-Boot Develop
 
-<Uboot />
+<UBOOT model="Radxa ROCK 3C" profile="latest" product="rock-3c"/>

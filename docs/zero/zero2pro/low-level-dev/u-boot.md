@@ -8,4 +8,4 @@ sidebar_position: 2
 
 import UBOOT from '../../../common/dev/\_u-boot.mdx';
 
-<UBOOT />
+<UBOOT model="Radxa ZERO 2 PRO" profile="latest" product="radxa-zero-2pro"/>

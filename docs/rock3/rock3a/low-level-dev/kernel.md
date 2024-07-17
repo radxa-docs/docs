@@ -8,4 +8,4 @@ sidebar_position: 2
 
 import KERNEL from '../../../common/dev/\_kernel.mdx';
 
-<KERNEL />
+<KERNEL model="Radxa ROCK 3A" soc="rk356x"/>
