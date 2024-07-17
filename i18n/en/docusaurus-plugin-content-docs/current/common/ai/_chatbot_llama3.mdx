@@ -24,7 +24,7 @@ Llama3 ChatBot-TPU uses the Sophon SDK to port Meta's open-source [Llama3](https
   # llama3-8b_int4_1dev_512.bmodel
   wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/llama3/tar_downloader.sh
   bash tar_downloader.sh
-  tar -xvf llama3-8b_int4_1dev_512.tar.gz
+  tar --strip-components=1 -xvf llama3-8b_int4_1dev_512.tar.gz
   ```
 
 - Configure the environment
@@ -60,7 +60,7 @@ Llama3 ChatBot-TPU uses the Sophon SDK to port Meta's open-source [Llama3](https
   **Terminal Mode**
 
   ```bash
-  python3 pipeline.py -m ./llama3-8b_int4_1dev_512.bmodel -t ../tokem_config
+  python3 pipeline.py -m ./llama3-8b_int4_1dev_512.bmodel -t ../token_config
   ```
 
   `-m`: Specify the model path
@@ -72,7 +72,7 @@ Llama3 ChatBot-TPU uses the Sophon SDK to port Meta's open-source [Llama3](https
   **Gradio Mode**
 
   ```bash
-  python3 web_demo.py -m ./llama3-8b_int4_1dev_512.bmodel -t ../tokem_config
+  python3 web_demo.py -m ./llama3-8b_int4_1dev_512.bmodel -t ../token_config
   ```
 
   `-m`: Specify the model path
@@ -120,6 +120,9 @@ Users can refer to this document to convert Llama3 models of different quantizat
   Replace the `./compile/files/Meta-Llama-3-8B-Instruct/config.json` with the same file in the downloaded Llama-3-8B-Instruct path.
 
 - Generate the onnx file
+  :::tip
+  please use torch==1.12.0
+  :::
 
   ```bash
   cd compile

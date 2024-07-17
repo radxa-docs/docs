@@ -22,7 +22,7 @@ Llama3 ChatBot-TPU 是使用 Sophon SDK 将 Meta 开源 [Llama3](https://ai.meta
   # llama3-8b_int4_1dev_512.bmodel
   wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/llama3/tar_downloader.sh
   bash tar_downloader.sh
-  tar -xvf llama3-8b_int4_1dev_512.tar.gz
+  tar --strip-components=1 -xvf llama3-8b_int4_1dev_512.tar.gz
   ```
 
 - 配置环境
@@ -58,7 +58,7 @@ Llama3 ChatBot-TPU 是使用 Sophon SDK 将 Meta 开源 [Llama3](https://ai.meta
   **终端模式**
 
   ```bash
-  python3 pipeline.py -m ./llama3-8b_int4_1dev_512.bmodel -t ../tokem_config
+  python3 pipeline.py -m ./llama3-8b_int4_1dev_512.bmodel -t ../token_config
   ```
 
   `-m`： 指定模型路径
@@ -70,7 +70,7 @@ Llama3 ChatBot-TPU 是使用 Sophon SDK 将 Meta 开源 [Llama3](https://ai.meta
   **Gradio 模式**
 
   ```bash
-  python3 web_demo.py -m ./llama3-8b_int4_1dev_512.bmodel -t ../tokem_config
+  python3 web_demo.py -m ./llama3-8b_int4_1dev_512.bmodel -t ../token_config
   ```
 
   `-m`： 指定模型路径
@@ -119,6 +119,9 @@ Llama3 ChatBot-TPU 是使用 Sophon SDK 将 Meta 开源 [Llama3](https://ai.meta
   同时将 `./compile/files/Meta-Llama-3-8B-Instruct/config.json` 替换下载好的 Llama-3-8B-Instruct 路径下的同名文件。
 
 - 生成 onnx 文件
+  :::tip
+  请使用 torch==1.12.0
+  :::
 
   ```bash
   cd compile
