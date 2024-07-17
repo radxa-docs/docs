@@ -9,7 +9,7 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## 文件下载
 
-请到[镜像下载页面](../../download.md)下载对应的操作系统镜像。
+请到[镜像下载页面](../../download)下载对应的操作系统镜像。
 
 ## MicroSD 卡准备
 

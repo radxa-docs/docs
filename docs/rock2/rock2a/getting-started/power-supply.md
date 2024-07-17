@@ -18,8 +18,6 @@ ROCK 2A 支持各种电源，固定电压为 5V 输入：
 
 - 倍思适配器 65W
 
-- DC 5V 适配器
-
 :::tip
-推荐使用官方30W适配器 [瑞莎 PD 30W 适配器](/accessories/pd_30w.md)
+推荐使用官方30W适配器 [瑞莎 PD 30W 适配器](/accessories/pd_30w)
 :::

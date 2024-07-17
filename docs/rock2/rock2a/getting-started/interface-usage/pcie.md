@@ -16,7 +16,7 @@ sidebar_position: 6
 
   <pre> $ rsetup </pre>
 
-  2. 通过 [设备树配置](/rock2/rock2a/radxa-os/rsetup.md)。来启用 Enable PCIe 的 Overlay。
+  2. 通过 [设备树配置](/rock2/rock2a/radxa-os/rsetup)。来启用 Enable PCIe 的 Overlay。
 
   :::tip
 
