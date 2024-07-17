@@ -2,20 +2,39 @@
 sidebar_position: 30
 ---
 
-# Micro-Pythonss
+# MicroPython
 
-- Download [Micro Python](https://micropython.org/download/RPI_PICO/), download RPI_PICO_W-20231027-v1.22.0-preview.61.g6cd99910c.uf2 complete
+To use MicroPython, you leverage the embedded RP2040 SoC, which communicates with the main core over UART and has access to the (GPIOs[gpio]).
 
-- Open the rp2040 usb device (source usb.sh)
+## Instructions
 
-- Drag RPI_PICO_W-20231027-v1.22.0-preview.61.g6cd99910c.uf2 into the usb and wait for the usb device to disappear.
+- Download [MicroPython](https://micropython.org/download/RPI_PICO/) for the Pi Pico, filename (at the time of writing): 'RPI_PICO_W-20231027-v1.22.0-preview.61.g6cd99910c.uf2'.
 
-- Install Thonny ide
+- Open the RP2040 as a USB device by using the [usb.sh](https://docs.radxa.com/en/x/x2l/software-development/flash)) method.
+
+- Drag RPI_PICO_W-20231027-v1.22.0-preview.61.g6cd99910c.uf2 into the RP2040 USB mass storage, and wait for the USB device to disappear.
+
+- Install Thonny IDE
 
 ```
-sudo apt-get install Thonny -y
+sudo apt-get install thonny -y
 ```
 
-- Open Thonny ide and start writing the micro-python program, now we have successfully set up the micro-python environment.
+- Open Thonny IDE and writing your MicroPython program, now we have successfully set up the MicroPython environment.
 
 <img src="/img/x/x2l/flash_micro_python.webp" alt="Flash Micro Python" height="350" width="700" />
+
+## Further Examples
+
+Please see [UART](uart)
+
+## Errata
+
+As the RP2040 is acting as if it's a USB and UART attached Pi Pico, you can use it in nearly any way you would normally a Pi Pico, including software/firmware images such as CircuitPython and Arduino code.
+
+If the RP2040 core crashes, you can pull GPIO 60 high for 1 second to reset the SoC:
+```
+sudo gpioset gpiochip1 60=1
+sleep 1
+sudo gpioset gpiochip1 60=0 
+```
