@@ -110,11 +110,56 @@ udev rules: OK
 
 #### 执行 genio-flash
 
-进到放置文件的目录下，执行命令 genio-flash。
+对于 DDR 4GB NIO 12L，烧录指令是
 
 ```
-radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b6/
-radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b6$ genio-flash
+radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ cp fip-ddr4g.bin fip.bin && cp u-boot-initial-env-ddr4g u-boot-initial-env
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ genio-flash
+Genio Tools: v1.3.6
+Ubuntu Image:
+	edition:  Ubuntu classic/core images
+	version:  22.04
+	codename: jammy
+
+WARNING:aiot:No 'ftdi-cbus' device found
+WARNING:aiot:Unable to find and reset the board. Possible causes are:
+1. This is not a Genio 350/700 EVK, nor a Pumpkin board.
+2. The board port UART0 is not connected.
+3. The UART0 port is being opened by another tool, such as TeraTerm on Windows.
+You can now manually reset the board into DOWNLOAD mode.
+
+INFO:aiot:Continue flashing...
+```
+
+对于 DDR 8GB NIO 12L，烧录指令是
+
+```
+radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ cp fip-ddr8g.bin fip.bin && cp u-boot-initial-env-ddr8g u-boot-initial-env
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ genio-flash
+Genio Tools: v1.3.6
+Ubuntu Image:
+	edition:  Ubuntu classic/core images
+	version:  22.04
+	codename: jammy
+
+WARNING:aiot:No 'ftdi-cbus' device found
+WARNING:aiot:Unable to find and reset the board. Possible causes are:
+1. This is not a Genio 350/700 EVK, nor a Pumpkin board.
+2. The board port UART0 is not connected.
+3. The UART0 port is being opened by another tool, such as TeraTerm on Windows.
+You can now manually reset the board into DOWNLOAD mode.
+
+INFO:aiot:Continue flashing...
+```
+
+对于 DDR 16GB NIO 12L，烧录指令是
+
+```
+radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ cp fip-ddr16g.bin fip.bin && cp u-boot-initial-env-ddr16g u-boot-initial-env
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ genio-flash
 Genio Tools: v1.3.6
 Ubuntu Image:
 	edition:  Ubuntu classic/core images
