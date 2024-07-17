@@ -129,7 +129,27 @@ Before installing the system to UFS, you need to [format UFS](/nio/nio12l/instal
 #### Run genio-flash
 
 On the host computer, go to the directory where the Ubuntu system files are stored. Right-click on an empty window and select "Open in Terminal" to enter the PowerShell environment.
-Enter the command "genio-flash".
+
+For NIO 12L with 4GB DDR, please run
+
+```
+> cp fip-ddr4g.bin fip.bin && cp u-boot-initial-env-ddr4g u-boot-initial-env
+> genio-flash
+```
+
+For NIO 12L with 8GB DDR, please run
+
+```
+> cp fip-ddr8g.bin fip.bin && cp u-boot-initial-env-ddr8g u-boot-initial-env
+> genio-flash
+```
+
+For NIO 12L with 16GB DDR, please run
+
+```
+> cp fip-ddr16g.bin fip.bin && cp u-boot-initial-env-ddr16g u-boot-initial-env
+> genio-flash
+```
 
 #### Enter Download Mode
 

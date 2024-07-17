@@ -112,9 +112,34 @@ Before installing the system on UFS, you need to [Format UFS](/nio/nio12l/instal
 
 Go to the directory where the files are located and execute the command genio-flash.
 
+For NIO 12L with 4GB DDR, please run
+
 ```
-radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b6/
-radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b6$ genio-flash
+radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ cp fip-ddr4g.bin fip.bin && cp u-boot-initial-env-ddr4g u-boot-initial-env
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ genio-flash
+Genio Tools: v1.3.6
+Ubuntu Image:
+	edition:  Ubuntu classic/core images
+	version:  22.04
+	codename: jammy
+
+WARNING:aiot:No 'ftdi-cbus' device found
+WARNING:aiot:Unable to find and reset the board. Possible causes are:
+1. This is not a Genio 350/700 EVK, nor a Pumpkin board.
+2. The board port UART0 is not connected.
+3. The UART0 port is being opened by another tool, such as TeraTerm on Windows.
+You can now manually reset the board into DOWNLOAD mode.
+
+INFO:aiot:Continue flashing...
+```
+
+For NIO 12L with 8GB DDR, please run
+
+```
+radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ cp fip-ddr8g.bin fip.bin && cp u-boot-initial-env-ddr8g u-boot-initial-env
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ genio-flash
 Genio Tools: v1.3.6
 Ubuntu Image:
 	edition:  Ubuntu classic/core images
@@ -127,6 +152,28 @@ WARNING:aiot:Unable to find and reset the board. Possible causes are:
 2. The board port UART0 is not connected.
 3. The UART0 port is being opened by another tool, such as TeraTerm on Windows.
 You can now manually reset the board into DOWNLOAD Mode.
+
+INFO:aiot:Continue flashing...
+```
+
+For NIO 12L with 16GB DDR, please run
+
+```
+radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ cp fip-ddr16g.bin fip.bin && cp u-boot-initial-env-ddr16g u-boot-initial-env
+radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ genio-flash
+Genio Tools: v1.3.6
+Ubuntu Image:
+	edition:  Ubuntu classic/core images
+	version:  22.04
+	codename: jammy
+
+WARNING:aiot:No 'ftdi-cbus' device found
+WARNING:aiot:Unable to find and reset the board. Possible causes are:
+1. This is not a Genio 350/700 EVK, nor a Pumpkin board.
+2. The board port UART0 is not connected.
+3. The UART0 port is being opened by another tool, such as TeraTerm on Windows.
+You can now manually reset the board into DOWNLOAD mode.
 
 INFO:aiot:Continue flashing...
 ```

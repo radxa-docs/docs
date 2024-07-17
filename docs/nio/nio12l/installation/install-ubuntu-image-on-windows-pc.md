@@ -129,7 +129,27 @@ fastboot: OK
 #### 执行 genio-flash
 
 在主机上，进入存放 Ubuntu 系统文件的目录。在窗口空白处，单机鼠标右键，选择“在终端中打开”，进入 PowerShell 环境。
-输入命令 “genio-flash”。
+
+对于 DDR 4GB NIO 12L，烧录指令是
+
+```
+> cp fip-ddr4g.bin fip.bin && cp u-boot-initial-env-ddr4g u-boot-initial-env
+> genio-flash
+```
+
+对于 DDR 8GB NIO 12L，烧录指令是
+
+```
+> cp fip-ddr8g.bin fip.bin && cp u-boot-initial-env-ddr8g u-boot-initial-env
+> genio-flash
+```
+
+对于 DDR 16GB NIO 12L，烧录指令是
+
+```
+> cp fip-ddr16g.bin fip.bin && cp u-boot-initial-env-ddr16g u-boot-initial-env
+> genio-flash
+```
 
 #### NIO 12L 进入烧录模式
 
