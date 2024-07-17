@@ -1,4 +1,13 @@
-ROCK 5 系列在 Debian 12 (Bookworm) 版本默认使用 Panthor GPU 驱动，如需切换到 Mali GPU 驱动，请根据下方教程操作。
+ROCK 5 系列在 Debian 12 (Bookworm) 版本默认使用 Panthor GPU 驱动，您可根据需求依据下方教程操作进行 GPU 驱动切换。
+
+| Driver  | OpenGL | OpenGL ES | OpenCL |
+| :-----: | :----: | :-------: | :----: |
+|  Mali   |   ❌   |    ✔     |   ✔   |
+| Panthor |   ✔   |    ✔     |   ❌   |
+
+<Tabs queryString="Driver">
+
+    <TabItem value="Mali">
 
 ## 使用 Rockchip 专有 xorg-xserver 版本
 
@@ -19,12 +28,43 @@ Pin-Priority: 1001
 ## 安装 Mali 用户层驱动
 
 ```bash
+sudo apt-get update
 sudo apt-get install libmali-valhall-g610-g13p0-x11-gbm
 ```
 
 ## 开启 Mali GPU Overlay
 
 参考 [Overlay 开启教程](./rsetup#overlays)，开启 `Enable Arm Mali GPU driver` Overlay。
+
+    </TabItem>
+
+    <TabItem value="Panthor">
+
+## 恢复使用 Debian 官方打包的主线 xorg-xserver 版本
+
+删除 `/etc/apt/preferences.d/mali` 文件：
+
+```bash
+sudo rm /etc/apt/preferences.d/mali
+```
+
+然后参考[使用 `rsetup` 进行系统升级](./rsetup#system-update)来重新安装 Debian 官方软件包。
+
+## 卸载 Mali 用户层驱动，并安装上游 Mesa 驱动
+
+```bash
+sudo apt-get update
+sudo apt-get remove libmali-valhall-g610-g13p0-x11-gbm
+sudo apt-get install mesa-utils mesa-utils-extra libglx-mesa0 libgl1-mesa-dri
+```
+
+## 关闭 Mali GPU Overlay
+
+参考 [Overlay 开启教程](./rsetup#overlays)，关闭 `Enable Arm Mali GPU driver` Overlay。
+
+    </TabItem>
+
+</Tabs>
 
 ## 重启系统
 
