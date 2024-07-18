@@ -8,11 +8,9 @@ To use MicroPython, you leverage the embedded RP2040 SoC, which communicates wit
 
 ## Instructions
 
-- Download [MicroPython](https://micropython.org/download/RPI_PICO/) for the Pi Pico, filename (at the time of writing): 'RPI_PICO_W-20231027-v1.22.0-preview.61.g6cd99910c.uf2'.
+- Download [MicroPython](https://micropython.org/download/RPI_PICO) for the Pi Pico,(at the time of writing) v1.22.0 is recommended as we tested.
 
-- Open the RP2040 as a USB device by using the [usb.sh](https://docs.radxa.com/en/x/x2l/software-development/flash)) method.
-
-- Drag RPI_PICO_W-20231027-v1.22.0-preview.61.g6cd99910c.uf2 into the RP2040 USB mass storage, and wait for the USB device to disappear.
+- Open the RP2040 as a USB device by using the [usb.sh](flash) method.
 
 - Install Thonny IDE
 
@@ -33,8 +31,9 @@ Please see [UART](uart)
 As the RP2040 is acting as if it's a USB and UART attached Pi Pico, you can use it in nearly any way you would normally a Pi Pico, including software/firmware images such as CircuitPython and Arduino code.
 
 If the RP2040 core crashes, you can pull GPIO 60 high for 1 second to reset the SoC:
+
 ```
 sudo gpioset gpiochip1 60=1
 sleep 1
-sudo gpioset gpiochip1 60=0 
+sudo gpioset gpiochip1 60=0
 ```
