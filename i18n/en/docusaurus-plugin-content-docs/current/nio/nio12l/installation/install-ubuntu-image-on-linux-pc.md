@@ -11,10 +11,10 @@ To install Ubuntu system, you need to use Genio Tools provided by MediaTek. Geni
 - `genio-flash` provides image writing functionality.
 - `genio-board` Allows programmatic reset of MediaTek evaluation boards.
 
-Ubuntu hosts Tested:
+Ubuntu host tested:
 
-- Ubuntu20
-- Ubuntu22
+- Ubuntu 20.04
+- Ubuntu 22.04
 
 ## Genio Tools environment configuration
 
@@ -54,7 +54,8 @@ If the host is running a Linux distribution other than Ubuntu, see the [Android 
 In order for the host to be able to communicate with the device via USB without root privileges, we need to create a udev rule that grants the user access to the device:
 
 ```
-$ echo -n 'SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="201c", MODE="0660", TAG+="uaccess"
+$ echo -n \
+'SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="201c", MODE="0660", TAG+="uaccess"
 SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="0003", MODE="0660", TAG+="uaccess"
 SUBSYSTEM=="usb", ATTR{idVendor}=="0403", MODE="0660", TAG+="uaccess"
 SUBSYSTEM=="gpio", MODE="0660", TAG+="uaccess"
@@ -68,7 +69,8 @@ $ sudo udevadm trigger
 Also, if using adb to connect to the development board, add a new udev rule and add your user account to the plugdev group:
 
 ```
-$ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="201c", MODE="0660", $ GROUP="plugdev"' | sudo tee -a /etc/udev/rules.d/96-rity.rules
+$ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="201c", MODE="0660", $ GROUP="plugdev"' \
+ | sudo tee -a /etc/udev/rules.d/96-rity.rules
 $ sudo udevadm control --reload-rules
 $ sudo udevadm trigger
 $ sudo usermod -a -G plugdev $USER
@@ -110,58 +112,29 @@ Before installing the system on UFS, you need to [Format UFS](/nio/nio12l/instal
 
 #### Run genio-flash
 
-Go to the directory where the files are located and execute the command genio-flash.
+Go to the directory where the files are located and execute the `genio-flash` command.
 
-For NIO 12L with 4GB DDR, please run
-
-```
-radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
-radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ cp fip-ddr4g.bin fip.bin && cp u-boot-initial-env-ddr4g u-boot-initial-env
-radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ genio-flash
-Genio Tools: v1.3.6
-Ubuntu Image:
-	edition:  Ubuntu classic/core images
-	version:  22.04
-	codename: jammy
-
-WARNING:aiot:No 'ftdi-cbus' device found
-WARNING:aiot:Unable to find and reset the board. Possible causes are:
-1. This is not a Genio 350/700 EVK, nor a Pumpkin board.
-2. The board port UART0 is not connected.
-3. The UART0 port is being opened by another tool, such as TeraTerm on Windows.
-You can now manually reset the board into DOWNLOAD mode.
-
-INFO:aiot:Continue flashing...
-```
-
-For NIO 12L with 8GB DDR, please run
 
 ```
 radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
-radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ cp fip-ddr8g.bin fip.bin && cp u-boot-initial-env-ddr8g u-boot-initial-env
-radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ genio-flash
-Genio Tools: v1.3.6
-Ubuntu Image:
-	edition:  Ubuntu classic/core images
-	version:  22.04
-	codename: jammy
-
-WARNING:aiot:No 'ftdi-cbus' device found
-WARNING:aiot:Unable to find and reset the board. Possible causes are:
-1. This is not a Genio 350/700 EVK, nor a Pumpkin board.
-2. The board port UART0 is not connected.
-3. The UART0 port is being opened by another tool, such as TeraTerm on Windows.
-You can now manually reset the board into DOWNLOAD Mode.
-
-INFO:aiot:Continue flashing...
 ```
-
-For NIO 12L with 16GB DDR, please run
-
+- For NIO 12L with 4GB RAM:
 ```
-radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
-radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ cp fip-ddr16g.bin fip.bin && cp u-boot-initial-env-ddr16g u-boot-initial-env
-radxa@ubuntu:~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7$ genio-flash
+    radxa@ubuntu:~/baoshan...ufs-b7$ cp fip-ddr4g.bin fip.bin && cp u-boot-initial-env-ddr4g u-boot-initial-env
+```
+- For NIO 12L with 8GB RAM:
+```
+    radxa@ubuntu:~/baoshan...ufs-b7$ cp fip-ddr8g.bin fip.bin && cp u-boot-initial-env-ddr8g u-boot-initial-env
+```
+- For NIO 12L with 16GB RAM:
+```
+    radxa@ubuntu:~/baoshan...ufs-b7$ cp fip-ddr16g.bin fip.bin && cp u-boot-initial-env-ddr16g u-boot-initial-env
+```
+```
+radxa@ubuntu:~/baoshan...ufs-b7$ genio-flash
+```
+Output:
+```
 Genio Tools: v1.3.6
 Ubuntu Image:
 	edition:  Ubuntu classic/core images
