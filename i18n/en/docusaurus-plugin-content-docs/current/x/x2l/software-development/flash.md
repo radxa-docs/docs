@@ -23,6 +23,11 @@ sudo gpioset gpiochip1 61=0
 
 - Execute the usb.sh program and the RP2040 will appear as a usb device.
 
+  ```
+  chmod a+x usb.sh
+  source usb.sh
+  ```
+
 - Drag the .uf2 file into the usb device, after the usb device disappears, the program will start to execute.
 
 <img src="/img/x/x2l/flash_program.webp" alt="Pico Example" height="350" width="700" />
