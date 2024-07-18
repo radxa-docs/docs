@@ -18,7 +18,6 @@ import UART from '../../../../common/dev/\_uart.mdx';
 
 <I2C product_name="Radxa ROCK 2A" model="rock-2a" i2c_overlay_name="I2C0-M1" sda_pin="PIN_3" scl_pin="PIN_5" i2c_connection="/img/rock2a/rock-2a-i2c-connection.webp" />
 
-
 ## PWM
 
 <PWM product_name="Radxa ROCK 2A" model="rock-2a" pwm_name="PWM0_M0" pwm_pin="PIN_32" chip="0" pwm_connection="/img/rock2a/pwm_connection.webp" />
