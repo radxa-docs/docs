@@ -9,13 +9,23 @@ import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
 
 <ERASE loader="https://dl.radxa.com/rock5/sw/images/loader/rock-5a/rk3588_spl_loader_v1.15.113.bin"  loader_name="rk3588_spl_loader_v1.15.113.bin" rkdevtool_erase_emmc_img="/img/common/rkdevtool/rk3588-rkdevtool-erase-eMMC.webp" rkdevtool_erase_spi_flash_img="/img/common/rkdevtool/rk3588-rkdevtool-erase-spi-flash.webp">
 
-<ul>
-    <li>拔出 microSD 卡和电源线</li>
-    <li>安装 eMMC 或者 SPI Flash Module</li>
-    <li>用杜邦线短接 Maskrom 针脚孔</li>
-    <li>通过 USB-A to USB-A 线连接PC 主机的 USB，如果如果 PC 端检测到有设备，则进入到 Maskrom 模式（Radxa ROCK 5A 的 OTG 接口是位于上面的那个 USB 3.0 口 ,可通过 USB-A to USB-A 线连接主机和进入 Maskrom 的主板进行通信）</li>
-</ul>
-
-<img src="/img/rock5a/rock5a-maskrom-wire.webp" alt="rock 5a maskrom wire" width="500" />
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5B">
+        <ol>
+            <li>拔出 microSD 卡和电源线</li>
+            <li>按住 Maskrom button</li>
+            <li>将 USB A-C 电缆插入 ROCK 5B 的 Type-C 端口，另一端插入电脑，此时正常情况下会进入 Maskrom 状态</li>
+        </ol>
+        <img src="/img/rock5b/rock-5b-typec-maskrom-400px.webp" alt="rock 5b maskrom wire" width="500" />
+    </TabItem>
+    <TabItem value="ROCK 5B+">
+        <ol>
+            <li>拔出 microSD 卡和电源线</li>
+            <li>按住 Maskrom button</li>
+            <li>将 USB A-C 电缆插入 ROCK 5B+ 的 Type-C 端口，另一端插入电脑，给 ROCK 5B+ 上电，此时正常情况下会进入 Maskrom 状态</li>
+        </ol>
+        <img src="/img/rock5b/rock-5bp-typec-maskrom.webp" alt="rock 5b maskrom wire" width="500" />
+    </TabItem>
+</Tabs>
 
 </ERASE>
