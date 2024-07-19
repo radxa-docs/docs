@@ -1,0 +1,36 @@
+import Network from "../../radxa-os/xfce/_network.mdx";
+import Locale from "../../radxa-os/xfce/_locale.mdx";
+import RemoteAccess from "../../radxa-os/xfce/_remote-access.mdx";
+
+## 用户名和密码
+
+<table>
+  <tr>
+    <th>User name</th>
+    <th>Password</th>
+  </tr>
+  <tr>
+    <th>radxa</th>
+    <th>radxa</th>
+  </tr>
+  <tr>
+    <th>rock</th>
+    <th>rock</th>
+  </tr>
+</table>
+
+## 更新系统
+
+请参考 <a href={props.rsetup_path}>System Update</a>部分更新系统。
+
+## 网络配置
+
+<Network product={props.product} />
+
+## 区域设置
+
+<Locale />
+
+## 远程访问
+
+<RemoteAccess model={props.model} />
