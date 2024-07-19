@@ -10,7 +10,7 @@ import Images from "../../\_image.mdx"
 
 ## 文件下载
 
-<Images loader={true} rock5b_system_img={true} rock5bp_system_img={true} spi_img={false} />
+<Images loader={true} rock5b_system_img={true} rock5b_system_img_61={true} rock5bp_system_img={true} spi_img={false} />
 
 <Rkdeveloptool model="rock-5b" release_num="b39" desktop="kde" platform="macos" loader="rk3588_spl_loader_v1.08.111.bin">
 
