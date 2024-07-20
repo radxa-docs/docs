@@ -1,0 +1,100 @@
+### 更改系统语言
+
+**注意：**系统默认设置为英文，如需其他语言，请按照以下说明操作。
+
+1.  打开命令终端并输入以下命令：
+
+```bash
+sudo dpkg-reconfigure locales
+```
+
+2.  使用箭头键导航并选择您想要的语言，然后按空格键进行选择。选择完成后，按下 Enter 键确认。
+
+![rock2a_system_language_1](/img/rock2a/rock2a_system_language_1.webp)
+
+3.  接下来，系统会询问您要设置为默认的语言。同样使用箭头键选择并按 Enter 键确认。
+
+![rock2a_system_language_2](/img/rock2a/rock2a_system_language_2.webp)
+
+3.  重启系统，更改生效需要重启系统。
+
+```bash
+sudo reboot
+```
+
+### 更改语言输入法
+
+Debian系统默认只有英文输入法，如果需要其他语言的输入法，需要单独安装。 这里我们举例说明如何安装拼音。
+
+#### 环境配置
+
+如果使用的Debian环境不是中文环境，需要切换到中文环境，可以使用如下命令切换，然后输入用户密码
+
+```bash
+sudo dpkg-reconfigure locales
+```
+
+按空格或回车选择确定，准备下一步安装。
+
+![rock2a_language_input_1](/img/rock2a/rock2a_language_input_1.webp)
+![rock2a_language_input_2](/img/rock2a/rock2a_language_input_2.webp)
+
+执行以下命令更新并安装系统环境软件：
+
+```bash
+sudo apt update
+```
+
+#### 安装fcitx中文输入法
+
+1.  打开命令终端并输入以下命令：
+
+```bash
+sudo apt install fcitx  # 输入 "Y"，将安装包。
+```
+
+2.  执行你需要安装的中文输入法命令，然后输入用户密码。
+
+```bash
+sudo apt install fcitx-googlepinyin  # 输入“Y”完成安装。
+```
+
+安装成功后，请重启电脑，电脑任务栏会显示键盘图标。
+
+右键单击键盘图片，然后单击配置
+
+![rock2a_language_input_3](/img/rock2a/rock2a_language_input_3.webp)
+
+点击“+”添加新的语言输入法。
+
+![rock2a_language_input_4](/img/rock2a/rock2a_language_input_4.webp)
+
+点击方框取消 "only show current language"
+
+![rock2a_language_input_5](/img/rock2a/rock2a_language_input_5.webp)
+
+在搜索框中输入*Google pinyin*，点击确定，完成添加新的语言输入法。
+
+![rock2a_language_input_6](/img/rock2a/rock2a_language_input_6.webp)
+
+单击 ^ 调整语言优先级，如图所示。
+
+![rock2a_language_input_7](/img/rock2a/rock2a_language_input_7.webp)
+
+现在您可以开始使用拼音了。如果要切换语言，只需 按快捷键 Ctrl + 空格
+
+### 键盘布局
+
+如以下操作所示：
+
+    Applications >> Settings >> Keyboard
+
+![rock2a_keyboard_1](/img/rock2a/rock2a_keyboard_1.webp)
+
+单击`Layouts`，然后单击`Add`以选择所需的键盘布局。
+
+![rock2a_keyboard_2](/img/rock2a/rock2a_keyboard_2.webp)
+
+你可以点击箭头所指的方框提升优先级然后点击`Close`。
+
+![rock2a_keyboard_3](/img/rock2a/rock2a_keyboard_3.webp)

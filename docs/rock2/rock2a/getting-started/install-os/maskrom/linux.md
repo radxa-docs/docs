@@ -19,4 +19,4 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## 设备登录
 
-详情请参考 [快速上手](../../quick-start.md)
+详情请参考 [快速上手](../../quick-start)

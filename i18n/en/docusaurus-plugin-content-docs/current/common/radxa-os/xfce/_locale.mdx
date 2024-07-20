@@ -1,0 +1,100 @@
+### Change System Language
+
+**Note: **The system is set to English by default. If you need another language, please follow the instructions below.
+
+1.  Open the command terminal and enter the following command:
+
+```bash
+sudo dpkg-reconfigure locales
+```
+
+2.  Use the arrow keys to navigate and select the language you want. Press the spacebar to select it. After making your selection, press the Enter key to confirm.
+
+![rock2a_system_language_1](/img/rock2a/rock2a_system_language_1.webp)
+
+3.  Next, the system will ask you to set the default language. Use the arrow keys to select and press the Enter key to confirm.
+
+![rock2a_system_language_2](/img/rock2a/rock2a_system_language_2.webp)
+
+3.  Restart the system. The changes will take effect after the system restarts.
+
+```bash
+sudo reboot
+```
+
+### Change Language Input Method
+
+Debian systems come with only the English input method by default. If you need an input method for another language, you need to install it separately. Here, we will use the installation of Pinyin as an example
+
+#### Environment Configuration
+
+If your Debian environment is not in Chinese, you need to switch to the Chinese environment. You can switch using the following command, then enter the user password.
+
+```bash
+sudo dpkg-reconfigure locales
+```
+
+Press the spacebar or Enter to select OK and prepare for the next step of the installation.
+
+![rock2a_language_input_1](/img/rock2a/rock2a_language_input_1.webp)
+![rock2a_language_input_2](/img/rock2a/rock2a_language_input_2.webp)
+
+Run the following commands to update and install the system environment software:
+
+```bash
+sudo apt update
+```
+
+#### Install the fcitx Chinese input method
+
+1.  Open the command terminal and enter the following command:
+
+```bash
+sudo apt install fcitx  # Enter 'Y' to install the package.
+```
+
+2.  Execute the command to install the Chinese input method you need, then enter the user password.
+
+```bash
+sudo apt install fcitx-googlepinyin  # Enter 'Y' to install the package.
+```
+
+After the installation is successful, please restart the computer. A keyboard icon will appear in the taskbar.
+
+Right-click the keyboard icon, then click Configure.
+
+![rock2a_language_input_3](/img/rock2a/rock2a_language_input_3.webp)
+
+Click the '+' to add a new language input method.
+
+![rock2a_language_input_4](/img/rock2a/rock2a_language_input_4.webp)
+
+Uncheck the box for 'only show current language'
+
+![rock2a_language_input_5](/img/rock2a/rock2a_language_input_5.webp)
+
+Type Google Pinyin in the search box, click OK, and complete the addition of the new language input method.
+
+![rock2a_language_input_6](/img/rock2a/rock2a_language_input_6.webp)
+
+Click the ^ to adjust the language priority, as shown in the figure.
+
+![rock2a_language_input_7](/img/rock2a/rock2a_language_input_7.webp)
+
+Now you can start using Pinyin. To switch languages, simply press the shortcut keys Ctrl + Space.
+
+### Keyboard Layout
+
+As shown in the following steps:
+
+    Applications >> Settings >> Keyboard
+
+![rock2a_keyboard_1](/img/rock2a/rock2a_keyboard_1.webp)
+
+Click Layouts, then click Add to select the desired keyboard layout.
+
+![rock2a_keyboard_2](/img/rock2a/rock2a_keyboard_2.webp)
+
+You can click the box indicated by the arrow to raise the priority, then click Close.
+
+![rock2a_keyboard_3](/img/rock2a/rock2a_keyboard_3.webp)

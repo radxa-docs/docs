@@ -19,4 +19,4 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## Login
 
-For more details, please refer to the [Quick Start Guide](../../quick-start.md)
+For more details, please refer to the [Quick Start Guide](../../quick-start)
