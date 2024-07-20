@@ -10,7 +10,7 @@ sidebar_position: 30
 
 - 下载 [Micro Python](https://micropython.org/download/RPI_PICO/) (推荐使用我们验证过的v1.22.0版本), 保存为 .uf2 后缀的文件。
 
-- 打开 rp2040 usb 设备 (使用 [usb.sh](flash))
+- 打开 RP2040 USB 设备 (使用 [usb.sh](flash))
 
 - 安装 Thonny IDE
 
@@ -18,7 +18,7 @@ sidebar_position: 30
   sudo apt-get install thonny -y
   ```
 
-- 打开 Thonny IED 开始写 MicroPython 程序，至此，我们已经成功搭建 micro-python 环境
+- 打开 Thonny IDE 开始写 MicroPython 程序，至此，我们已经成功搭建 micro-python 环境
 
 <img src="/img/x/x2l/flash_micro_python.webp" alt="Flash Micro Python" height="350" width="700" />
 
