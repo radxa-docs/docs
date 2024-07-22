@@ -11,7 +11,7 @@ sidebar_position: 1
         Radxa CM3I is a system-on-module (SoM) based on the Rockchip RK3568(J) system-on-chip (SoC). Radxa CM3I integrates a central processing unit (CPU), power management unit (PMU), DRAM memory, flash storage, and wireless connectivity (WiFi 5 and BT 5.0). With a compact form factor of just 70mm x 40mm, Radxa CM3I offers a cost-effective solution for a wide range of applications.
     </TabItem>
     <TabItem value="CM3I IO Board">
-        Radxa CM3I IO Board is designed specifically for the Radxa CM3I (Radxa Compute Module 3 Industrial Edition), aiming to comprehensively validate the functionalities of Radxa CM3I. With Radxa CM3I IO Board, developers can easily verify the processing capabilities, storage expansion options, multimedia support, and various interface functionalities of Radxa CM3I.
+        Radxa CM3I IO Board is designed specifically for the Radxa CM3I, aiming to comprehensively validate the functionalities of Radxa CM3I. With Radxa CM3I IO Board, developers can easily verify the processing capabilities, storage expansion options, multimedia support, and various interface functionalities of Radxa CM3I.
     </TabItem>
 </Tabs>
 

@@ -11,7 +11,7 @@ sidebar_position: 1
         Radxa CM3I 是基于 Rockchip RK3568(J) 片上系统 (SoC) 的系统模块 (SoM)。Radxa CM3I 集成了中央处理器 (CPU)、电源管理单元 (PMU)、DRAM 存储器、闪存和无线连接（WiFi 5 和 BT 5.0），外形小巧，仅为 70 毫米 x 40 毫米。Radxa CM3I 为许多不同的应用提供了高性价比的解决方案。
     </TabItem>
     <TabItem value="CM3I IO 板">
-        Radxa CM3I IO 板专为 Radxa CM3I（Radxa 计算模块 3 工业版）设计，旨在对 Radxa CM3I 的功能进行全面验证。利用 Radxa CM3I IO 板，开发人员可以轻松验证 Radxa CM3I 的处理能力、存储扩展、多媒体支持和各种接口的功能。
+        Radxa CM3I IO 板专为 Radxa CM3I 设计，旨在对 Radxa CM3I 的功能进行全面验证。利用 Radxa CM3I IO 板，开发人员可以轻松验证 Radxa CM3I 的处理能力、存储扩展、多媒体支持和各种接口的功能。
     </TabItem>
 </Tabs>
 
