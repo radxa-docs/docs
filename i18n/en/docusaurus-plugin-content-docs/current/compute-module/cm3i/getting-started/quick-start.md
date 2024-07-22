@@ -26,7 +26,7 @@ sidebar_position: 2
 
 To start the Radxa CM3I + Radxa CM3I IO Board, you also need the following items:
 
-- A DC 12V/3A power adapter. The Radxa CM3I IO Board also supports PoE power supply. For more details on power supply, please refer to the [Power Supply section](./power-supply).
+- A DC 12V/3A power adapter. The Radxa CM3I IO Board also supports PoE power supply. For more details on power supply, please refer to the [Power Supply section](./pwr-supply).
 - An HDMI cable and an HDMI-supported display, with a recommended resolution of 1080P or higher. A 4K display will provide the best experience.
 - A USB mouse and keyboard set, common USB input devices are plug-and-play supported.
 - An Ethernet cable, as a network connection is required for system updates.

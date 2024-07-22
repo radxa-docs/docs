@@ -26,7 +26,7 @@ sidebar_position: 2
 
 要启动 Radxa CM3I + Radxa CM3I IO Board, 你还需要以下物品：
 
-- DC 12V/3A 适配器。Radxa CM3I IO Board 还支持 PoE 供电。更过供电详情，请参考[电源方案](./power-supply)。
+- DC 12V/3A 适配器。Radxa CM3I IO Board 还支持 PoE 供电。更过供电详情，请参考[电源方案](./pwr-supply)。
 - 一个 HDMI 线和一个支持 HDMI 的显示器，推荐分辨率为 1080P 或更高，4K 显示器将提供最佳体验。
 - 一套 USB 鼠标和键盘，常见的 USB 输入设备均支持即插即用。
 - 一根网线，更新系统时需要联网。
