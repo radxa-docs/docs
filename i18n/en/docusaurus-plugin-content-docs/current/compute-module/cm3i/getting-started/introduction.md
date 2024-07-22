@@ -15,25 +15,32 @@ sidebar_position: 1
     </TabItem>
 </Tabs>
 
-### Rich Interface Options
+<Tabs queryString="model">
+    <TabItem value="CM3I Core Board">
+        
+        ### Powerful Multimedia Processing Capabilities
 
-Radxa CM3I IO provides a rich array of interfaces, including multiple USB and HDMI ports, facilitating connections to external devices and expanding functionality. See detailed specifications for more information.
+        The CPU adopts the advanced ARM Cortex-A55 architecture, integrating a powerful GPU that supports high-definition video decoding and encoding, capable of handling various video formats and resolutions. Additionally, the RK3568J is equipped with a high-performance DSP and NPU (Neural Processing Unit) for audio processing and artificial intelligence applications, making it outstanding in multimedia processing.
 
-### Open Source Support
+        ### Potential for Development
 
-Radxa CM3I IO offers complete hardware schematics and software source code, enabling DIY enthusiasts and developers to customize and extend functionalities. This feature attracts a vibrant community of open-source enthusiasts, fostering knowledge sharing and technological innovation.
+        As a powerful development platform, the Radxa CM3I has significant potential in fields such as artificial intelligence, edge computing, and embedded systems.
+    </TabItem>
+    <TabItem value="CM3I IO Board">
+        ### Rich Interfaces
 
-### Diverse Accessory Ecosystem
+        The Radxa CM3I IO provides a wealth of interfaces, including multiple USB and HDMI ports, making it easy to connect external devices and expand functionality. See the specifications for details.
 
-Radxa CM3I IO supports a variety of cameras and display screens.
+        ### Rich Accessory Ecosystem
 
-### Powerful Multimedia Processing Capabilities
+        The Radxa CM3I IO supports multiple cameras and displays.
 
-The CPU adopts the advanced ARM Cortex-A55 architecture, integrating robust graphics processing units (GPU) that support high-definition video decoding and encoding. It can handle various video formats and resolutions. Additionally, the RK3568J is equipped with high-performance DSP and NPU (Neural Processing Unit) for audio processing and AI applications, demonstrating exceptional multimedia processing capabilities.
+        ### Open Source Support
 
-### Potential for Development
+        The Radxa CM3I IO offers complete hardware design schematics and software source code. This feature allows DIY enthusiasts and developers to make personalized modifications and feature expansions, attracting a community of open-source enthusiasts, which promotes knowledge sharing and technological innovation.
 
-As a robust development platform, Radxa CM3I IO holds significant potential in fields such as artificial intelligence, edge computing, and embedded systems.
+    </TabItem>
+</Tabs>
 
 ## Motherboard Preview
 
