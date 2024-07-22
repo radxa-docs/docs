@@ -2,11 +2,9 @@
 sidebar_position: 5
 ---
 
-## Resource Download Summary
+# Resource Download Summary
 
-## Hardware Design
-
-## Brush Tools
+## Flashing tools
 
 - [Zagdig](https://zadig.akeo.ie/)：Windows Maskrom Driver.
 - [RZ USB Boot Helper](https://dl.radxa.com/zero/tools/windows/RZ_USB_Boot_Helper_V1.0.0.zip)：Windows bootloader Load Tool.
