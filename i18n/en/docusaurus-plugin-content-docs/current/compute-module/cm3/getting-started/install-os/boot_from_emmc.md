@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: "Install System to eMMC On board"
 ---
 
 import Images from "../../\_image.mdx"

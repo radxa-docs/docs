@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "安装系统到 SD 卡"
 ---
 
 import Images from "../../\_image.mdx"

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "Install System to MicroSD Card"
 ---
 
 import Images from "../../\_image.mdx"

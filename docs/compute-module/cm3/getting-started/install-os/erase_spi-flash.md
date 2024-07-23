@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+description: "清空 SPI Flash"
 ---
 
 # 手动清空 SPI Flash

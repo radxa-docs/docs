@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+description: "Clear SPI Flash"
 ---
 
 # Clear SPI Flash manually

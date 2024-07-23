@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-
+description: "安装系统到板载 eMMC"
 ---
 
 import Images from "../../\_image.mdx"
