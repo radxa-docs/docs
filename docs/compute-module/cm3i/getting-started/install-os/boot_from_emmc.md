@@ -3,7 +3,6 @@ sidebar_position: 1
 description: "安装系统到 eMMC"
 ---
 
-import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 # 安装系统到 eMMC

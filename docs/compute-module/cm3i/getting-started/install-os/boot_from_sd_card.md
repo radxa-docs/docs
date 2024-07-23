@@ -3,14 +3,13 @@ sidebar_position: 2
 description: "安装系统到 SD Card"
 ---
 
-import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 # 安装系统到 MicroSD 卡
 
 ## 文件下载
 
-<Images loader={false} system_img={true} spi_img={false} />
+请到 [资源下载汇总](../../download) 下载操作系统镜像。
 
 ## MicroSD 卡准备
 

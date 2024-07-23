@@ -2,13 +2,15 @@
 sidebar_position: 2
 ---
 
-import Images from "./\_image.mdx"
-
 # 资源下载汇总
 
 ## 操作系统镜像
 
-<Images loader={false} system_img={true} spi_img={false} />
+- [Radxa CM3I IO Board Debian b4](https://github.com/radxa-build/radxa-cm3i-io/releases/download/b4/radxa-cm3i-io_debian_bullseye_xfce_b4.img.xz)
+
+- [Loader: RK356x_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock3/images/loader/rock-3b/rk356x_spl_loader_ddr1056_v1.10.111.bin)
+
+- [SPI Image](https://dl.radxa.com/rock3/images/loader/rock-3b/rock-3b-spi.img)
 
 ## 硬件设计
 

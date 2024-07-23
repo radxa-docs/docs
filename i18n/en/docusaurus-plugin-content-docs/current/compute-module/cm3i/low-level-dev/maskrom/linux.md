@@ -4,13 +4,12 @@ description: "Flash via Maskrom under Linux"
 ---
 
 import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
-import Images from "../../\_image.mdx"
 
 # Linux Host
 
 ## File Download
 
-<Images loader={true} system_img={true} spi_img={false} />
+Please download the system image refer to [Summary of resource downloads](../../download).
 
 <Rkdeveloptool model="cm3i-io" release_num="4" desktop="xfce" platform="linux" loader="rk356x_spl_loader__v1.15.113.bin">
 

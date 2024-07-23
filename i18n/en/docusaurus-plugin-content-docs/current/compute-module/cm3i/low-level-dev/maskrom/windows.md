@@ -4,13 +4,12 @@ description: "Flash via Maskrom under  Windows"
 ---
 
 import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
-import Images from "../../\_image.mdx"
 
 # Windows Host
 
 ## File Download
 
-<Images loader={true} system_img={true} spi_img={true} />
+Please download the system image refer to [Summary of resource downloads](../../download).
 
 <Rkdevtool rkdevtool_emmc_img="/img/cm3i/cm3i-io-rkdevtool-maskrom-flash-system.webp" loader_name="rk356x_spl_loader__v1.15.113.bin" emmc={false} pcie={false} sata={false} >
 

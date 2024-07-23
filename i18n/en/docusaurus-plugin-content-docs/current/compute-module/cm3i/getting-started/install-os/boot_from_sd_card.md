@@ -3,14 +3,13 @@ sidebar_position: 2
 description: "Install OS to SD Card"
 ---
 
-import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 # Install OS to MicroSD Card
 
 ## File download
 
-<Images loader={false} system_img={true} spi_img={false} />
+Please download the system image refer to [Summary of resource downloads](../../download).
 
 ## MicroSD card preparation
 

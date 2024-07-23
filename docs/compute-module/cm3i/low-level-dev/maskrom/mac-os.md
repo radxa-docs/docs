@@ -4,13 +4,12 @@ description: "MacOS 下通过 USB 刷机"
 ---
 
 import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
-import Images from "../../\_image.mdx"
 
 # Mac OS 主机
 
 ## 文件下载
 
-<Images loader={true} system_img={true} spi_img={false} />
+请到 [资源下载汇总](../../download) 下载操作系统镜像。
 
 <Rkdeveloptool model="cm3i-io" release_num="4" desktop="xfce" platform="macos" loader="rk356x_spl_loader_ddr1056_v1.10.111.bin">
 
