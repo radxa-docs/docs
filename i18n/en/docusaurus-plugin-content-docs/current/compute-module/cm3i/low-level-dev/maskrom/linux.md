@@ -3,15 +3,15 @@ sidebar_position: 1
 description: "Flash via Maskrom under Linux"
 ---
 
-import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
+import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV3.mdx";
 
 # Linux Host
 
 ## File Download
 
-Please download the system image refer to [Summary of resource downloads](../../download).
+Please download the system image and Loader refer to [Summary of resource downloads](../../download).
 
-<Rkdeveloptool model="cm3i-io" release_num="4" desktop="xfce" platform="linux" loader="rk356x_spl_loader__v1.15.113.bin">
+<Rkdeveloptool>
 
 <ol>
     <li>Remove the MicroSD card from the base Board</li>

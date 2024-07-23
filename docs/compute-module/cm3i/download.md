@@ -4,17 +4,17 @@ sidebar_position: 2
 
 # 资源下载汇总
 
-## 官方引导加载程序和系统镜像像
+## 引导加载程序和系统镜像
 
-### SPL Loader
+### Loader
 
-- [Loader: RK356x_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock3/images/loader/rock-3b/rk356x_spl_loader_ddr1056_v1.10.111.bin)
+- [RK356x_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock3/images/loader/rock-3b/rk356x_spl_loader_ddr1056_v1.10.111.bin)
 
 ### SPI Image
 
-- [SPI Image](https://dl.radxa.com/rock3/images/loader/rk356x_spi_image_20220210.img)
+- [k356x_spi_image_20220210.img](https://dl.radxa.com/rock3/images/loader/rk356x_spi_image_20220210.img)
 
-### 操作系统镜像
+### 系统镜像
 
 - [Radxa CM3I IO Board Debian b4](https://github.com/radxa-build/radxa-cm3i-io/releases/download/b4/radxa-cm3i-io_debian_bullseye_xfce_b4.img.xz)
 

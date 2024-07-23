@@ -148,22 +148,22 @@ Normally, when using rkdeveloptool, only one device and one storage medium are c
 If you need to write to multiple devices at the same time, use upgrade_tool.
 :::
 
-1. Extract the image file (See **File Download** above for details of the image file, here rock5_debian_bullseye-test_desktop_release_b39.img.xz is used as an example)
+1. Extract the image file (See **File Download** above for details of the image file, here rock_debian_bullseye-\_desktop_release_b1.img.xz is used as an example)
 
 ```bash
-xz -d rock5_debian_bullseye-test_desktop_release_b39.img.xz
+xz -d rock_debian_bullseye-_desktop_release_b1.img.xz (if the image file is gz format，then use `gunzip -d xxx.gz` command)
 ```
 
-2. Flash Loader(See **File Download** above for details of the loader file，here rk3528_spl_loader_v1.xxx.bin is just an example)
+2. Flash Loader(See **File Download** above for details of the loader file，here rkxxxx_spl_loader_v1.xxx.bin is just an example)
 
 ```bash
-sudo rkdeveloptool db rk3528_spl_loader_v1.xxx.bin
+sudo rkdeveloptool db rkxxxx_spl_loader_v1.xxx.bin
 ```
 
-3. Flash System Image (Here rock5_debian_bullseye-test_desktop_release_b39.img is an example, use the file got from step1 as a replacement)
+3. Flash System Image (Here rock_debian_bullseye-\_desktop_release_b1.img is an example, use the file got from step1 as a replacement)
 
 ```bash
-sudo rkdeveloptool wl 0 ock5_debian_bullseye-test_desktop_release_b39.img
+sudo rkdeveloptool wl 0 rock_debian_bullseye-_desktop_release_b1.img
 ```
 
 ## Reboot

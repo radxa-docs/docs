@@ -3,15 +3,15 @@ sidebar_position: 2
 description: "Flash via Maskrom under MacOS"
 ---
 
-import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
+import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV3.mdx";
 
 # Mac OS Host
 
 ## File Download
 
-Please download the system image refer to [Summary of resource downloads](../../download).
+Please download the system image and Loader refer to [Summary of resource downloads](../../download).
 
-<Rkdeveloptool model="cm3i-io" release_num="4" desktop="xfce" platform="macos" loader="rk356x_spl_loader_ddr1056_v1.10.111.bin">
+<Rkdeveloptool >
 
 <ol>
     <li>Remove the MicroSD card from the base Board</li>

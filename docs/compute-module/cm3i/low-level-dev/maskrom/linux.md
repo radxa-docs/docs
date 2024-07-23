@@ -3,15 +3,15 @@ sidebar_position: 1
 description: "Linux 下通过 USB 刷机"
 ---
 
-import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
+import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV3.mdx";
 
 # Linux 主机
 
 ## 文件下载
 
-请到 [资源下载汇总](../../download) 下载操作系统镜像。
+请到 [资源下载汇总](../../download) 下载系统镜像和 Loader 文件
 
-<Rkdeveloptool model="cm3i-io" release_num="4" desktop="xfce" platform="linux" loader="rk356x_spl_loader__v1.15.113.bin">
+<Rkdeveloptool >
 
 <ol>
     <li>移除底板上的 MicroSD 卡</li>
