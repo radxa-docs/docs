@@ -10,7 +10,7 @@ sidebar_position: 2
 
 - [Loader: RK356x_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock3/images/loader/rock-3b/rk356x_spl_loader_ddr1056_v1.10.111.bin)
 
-- [SPI Image](https://dl.radxa.com/rock3/images/loader/rock-3b/rock-3b-spi.img)
+- [SPI Image](https://dl.radxa.com/rock3/images/loader/rk356x_spi_image_20220210.img)
 
 ## Hardware Design
 
