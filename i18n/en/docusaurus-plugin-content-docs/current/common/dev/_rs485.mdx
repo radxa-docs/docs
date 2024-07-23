@@ -1,0 +1,36 @@
+- Introduction of RS485 to USB Module
+
+  This is an RS485 to USB module as shown in the figure.
+
+  <img src="/img/cm3i/rs485-to-usb.webp" style={{ width: "40%" }} />
+
+- Connections
+
+<table>
+    <tr>
+        <th>RS485 to USB Module</th>
+        <th>\<--\></th>
+        <th>{props.product}</th>
+    </tr>
+    <tr>
+        <th>GND</th>
+        <th>\<--\></th>
+        <th>GND</th>
+    </tr>
+    <tr>
+        <th>A</th>
+        <th>\<--\></th>
+        <th>RS485_A</th>
+    </tr>
+    <tr>
+        <th>B</th>
+        <th>\<--\></th>
+        <th>RS485_B</th>
+    </tr>
+</table>
+
+- RS485 USB serial port to PC, {props.product} set RS485 baud rate to 115200.
+
+- Open the serial port tool on the PC side, and set the corresponding serial port and baud rate, here take Linux as an example.
+
+- {props.product} send any value, the host side serial port print can be received

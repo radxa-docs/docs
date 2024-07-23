@@ -1,0 +1,36 @@
+- RS485 转 USB 模块介绍
+
+  如图所示，这是一个 RS485 转 USB 的模块
+
+  <img src="/img/cm3i/rs485-to-usb.webp" style={{ width: "40%" }} />
+
+- 连接
+
+<table>
+    <tr>
+        <th>RS485 转 USB 模块</th>
+        <th>\<--\></th>
+        <th>{props.product}</th>
+    </tr>
+    <tr>
+        <th>GND</th>
+        <th>\<--\></th>
+        <th>GND</th>
+    </tr>
+    <tr>
+        <th>A</th>
+        <th>\<--\></th>
+        <th>RS485_A</th>
+    </tr>
+    <tr>
+        <th>B</th>
+        <th>\<--\></th>
+        <th>RS485_B</th>
+    </tr>
+</table>
+
+- RS485 USB 串口接到 PC 端， {props.product} 设置 RS485 波特率为 115200
+
+- PC端打开串口工具，并设置好对应的串口和波特率，这里以 Linux 为例
+
+- {props.product} 发送任意值，主机端串口打印均可以收到

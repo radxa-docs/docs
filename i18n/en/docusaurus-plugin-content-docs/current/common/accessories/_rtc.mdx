@@ -1,0 +1,35 @@
+- Install the Battery
+
+  As shown in the image, install the RTC (Real-Time Clock) battery into the RTC interface on the {props.product}.
+
+  <img
+    src={props.rtc_connection_img}
+    alt="rtc connection"
+    style={{ width: "40%" }}
+  />
+
+- Power On the {props.product}
+
+- Check the Device
+
+  The RTC is typically mapped to a Linux device file. You can check the /dev/rtc\* or /sys/class/rtc/ directory to confirm if the RTC device has been recognized and loaded.
+
+- Read the Current RTC Time
+
+  Use the hwclock command to read the current time from the RTC:
+
+  ```bash
+  sudo hwclock -r
+  ```
+
+- Set the Time
+
+  If you need to set the RTC time, you can use the hwclock command with the --set option and provide a new time value. For example, to set the time to the current system time:
+
+  ```bash
+  sudo hwclock --set --date="2024-07-09 15:43:15"
+  ```
+
+- Continuous Testing
+
+  Disconnect the {props.product} from the network and power, and after 10 minutes or longer, read the RTC time again. The time should have incremented from the previously set time based on the elapsed time.
