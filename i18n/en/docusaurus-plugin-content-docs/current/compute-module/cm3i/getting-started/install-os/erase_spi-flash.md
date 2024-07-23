@@ -19,7 +19,7 @@ description: "Clear SPI  Flash"
 
 - After selecting "OK", press the space bar and select "radxa-cm3i-io"
 
-<img src="" alt="rsetup rock-5-tix" style={{ width: "80%" }} />
+<img src="/img/common/nvme/rsetup-select-bootloader-radxa-cm3i-io.webp" alt="rsetup radxa cm3i io" style={{ width: "80%" }} />
 
 ## Cannot boot into system
 

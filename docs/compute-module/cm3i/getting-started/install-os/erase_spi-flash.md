@@ -19,7 +19,7 @@ description: "清空 SPI  Flash"
 
 - 选择 "OK" 之后，按空格键，选中 "radxa-cm3i-io"
 
-<img src="" alt="rsetup rock-5-tix" style={{ width: "80%" }} />
+<img src="/img/common/nvme/rsetup-select-bootloader-radxa-cm3i-io.webp" alt="rsetup radxa cm3i io" style={{ width: "80%" }} />
 
 ## 不能启动到系统
 
