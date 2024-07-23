@@ -1,5 +1,6 @@
 ---
 sidebar_position: 6
+description: "Power supply details for CM3I/CM3I IO Board"
 ---
 
 # Power Supply options

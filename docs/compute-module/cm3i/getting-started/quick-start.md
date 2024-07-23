@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: "快速上手 CM3I/CM3I IO Board，让您能够轻松开始使用和探索其功能。"
 ---
 
 # 快速上手

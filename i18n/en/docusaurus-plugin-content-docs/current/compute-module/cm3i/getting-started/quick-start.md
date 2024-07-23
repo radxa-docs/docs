@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: "Getting started quickly with the CM3I/CM3I IO Board makes it easy to start using and exploring its features."
 ---
 
 # Quick start

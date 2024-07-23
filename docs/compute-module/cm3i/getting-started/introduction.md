@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "简单介绍 CM3I/CM3I IO Board"
 ---
 
 # 产品介绍

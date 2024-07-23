@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "A brief introduction to the CM3I/CM3I IO Board"
 ---
 
 # Product Introduction
