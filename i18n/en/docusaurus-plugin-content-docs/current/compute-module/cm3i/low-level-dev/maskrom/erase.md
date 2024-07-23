@@ -7,7 +7,7 @@ import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
 
 # Clear eMMC or SPI Flash
 
-<ERASE loader="https://dl.radxa.com/rock3/images/loader/rock-3b/rk356x_spl_loader_ddr1056_v1.10.111.bin" rkdevtool_erase_emmc_img="/img/common/rkdevtool/rk3588-rkdevtool-erase-eMMC.webp" rkdevtool_erase_spi_flash_img="/img/common/rkdevtool/rk3588-rkdevtool-erase-spi-flash.webp">
+<ERASE loader="https://dl.radxa.com/rock3/images/loader/rock-3b/rk356x_spl_loader_ddr1056_v1.10.111.bin" rkdevtool_erase_emmc_img="/img/common/rkdevtool/rkdevtool_erase_all.webp" rkdevtool_erase_spi_flash_img="/img/common/rkdevtool/rkdevtool_erase_all.webp">
 
 <ol>
     <li>Remove the MicroSD card from the base Board</li>
