@@ -2,15 +2,19 @@
 sidebar_position: 2
 ---
 
-import Images from "./\_image.mdx"
-
 # Summary of resource downloads
 
 ## Operating System Image
 
 ### Official Images
 
-<Images loader={false} cm3io_system_img={true} cm3_rpi_cm4io_system_img={true} spi_img={false} miniloader={false} />
+- [Loader: RK356x_SPL_Loader_v1.10.111.bin](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/rk356x_spl_loader_ddr1056_v1.10.111.bin)
+
+- [Radxa CM3 IO Debian b27](https://github.com/radxa-build/radxa-cm3-io/releases/download/b27/radxa-cm3-io_debian_bullseye_kde_b27.img.xz)
+
+- [Radxa CM3 With Raspberry CM4 IO Debian b15](https://github.com/radxa-build/radxa-cm3-rpi-cm4-io/releases/download/b15/radxa-cm3-rpi-cm4-io_debian_bullseye_kde_b15.img.xz)
+
+- [SPI Image](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/radxa-cm3-io-spi-image-g8684d740b9f.img.gz)
 
 ### Third Part Images
 
