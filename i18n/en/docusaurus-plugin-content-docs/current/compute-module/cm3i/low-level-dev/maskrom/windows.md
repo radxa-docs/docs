@@ -11,7 +11,7 @@ import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 
 Please download the system image refer to [Summary of resource downloads](../../download).
 
-<Rkdevtool rkdevtool_emmc_img="/img/cm3i/cm3i-io-rkdevtool-maskrom-flash-system.webp" loader_name="rk356x_spl_loader__v1.15.113.bin" emmc={false} pcie={false} sata={false} >
+<Rkdevtool rkdevtool_emmc_img="/img/common/rkdevtool/rkdevtool_genenal_maskrom_flash.webp" loader_name="rk356x_spl_loader__v1.15.113.bin" emmc={false} pcie={false} sata={false} >
 
 <ol>
     <li>Remove the MicroSD card from the base Board</li>
