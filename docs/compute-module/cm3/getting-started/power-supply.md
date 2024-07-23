@@ -1,5 +1,6 @@
 ---
 sidebar_position: 6
+description: "CM3 IO Board 的供电详情"
 ---
 
 # 电源选择
