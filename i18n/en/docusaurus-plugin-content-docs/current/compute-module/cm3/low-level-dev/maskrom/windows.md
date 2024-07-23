@@ -11,7 +11,7 @@ import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 
 Please download the related Images refer to [Summary of resource downloads](../../download)
 
-<Rkdevtool rkdevtool_emmc_img="/img/cm3/cm3-io-rkdevtool-maskrom-flash-system.webp" loader_name="rk356x_spl_loader_ddr1056_v1.10.111.bin" emmc={false} pcie={false} sata={false} >
+<Rkdevtool rkdevtool_emmc_img="/img/common/rkdevtool/rkdevtool_genenal_maskrom_flash.webp" loader_name="rk356x_spl_loader_ddr1056_v1.10.111.bin" emmc={false} pcie={false} sata={false} >
 
 <ol>
     <li>Install the CM3 core board onto the CM3 IO Board</li>

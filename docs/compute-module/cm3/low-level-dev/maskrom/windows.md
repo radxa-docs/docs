@@ -11,7 +11,7 @@ import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 
 请到[资源汇总](../../download)部分下载对应的 Image
 
-<Rkdevtool rkdevtool_emmc_img="/img/cm3/cm3-io-rkdevtool-maskrom-flash-system.webp" loader_name="rk356x_spl_loader_ddr1056_v1.10.111.bin" emmc={false} pcie={false} sata={false} >
+<Rkdevtool rkdevtool_emmc_img="/img/common/rkdevtool/rkdevtool_genenal_maskrom_flash.webp" loader_name="rk356x_spl_loader_ddr1056_v1.10.111.bin" emmc={false} pcie={false} sata={false} >
 
 <ol>
     <li>把 CM3 安装到 IO 板上</li>
