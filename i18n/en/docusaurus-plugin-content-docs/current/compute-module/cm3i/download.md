@@ -4,13 +4,17 @@ sidebar_position: 2
 
 # Summary of resource downloads
 
-## System Image
+## Official bootloader and system image
 
-- [Radxa CM3I IO Board Debian b4](https://github.com/radxa-build/radxa-cm3i-io/releases/download/b4/radxa-cm3i-io_debian_bullseye_xfce_b4.img.xz)
+### Bootloaders
 
 - [Loader: RK356x_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock3/images/loader/rock-3b/rk356x_spl_loader_ddr1056_v1.10.111.bin)
 
 - [SPI Image](https://dl.radxa.com/rock3/images/loader/rk356x_spi_image_20220210.img)
+
+### System Images
+
+- [Radxa CM3I IO Board Debian b4](https://github.com/radxa-build/radxa-cm3i-io/releases/download/b4/radxa-cm3i-io_debian_bullseye_xfce_b4.img.xz)
 
 ## Hardware Design
 
