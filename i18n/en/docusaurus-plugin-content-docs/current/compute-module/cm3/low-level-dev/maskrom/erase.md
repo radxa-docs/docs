@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-description: "通过 Maskrom 清除 eMMC 或者 SPI Flash"
+description: "Empty eMMC or SPI Flash via Maskrom"
 ---
 
 import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
