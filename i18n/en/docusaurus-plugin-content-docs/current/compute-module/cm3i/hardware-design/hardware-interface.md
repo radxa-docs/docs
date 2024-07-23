@@ -122,7 +122,7 @@ sidebar_position: 1
             | 47  |      AVDD10         | 48  |         RSET            |
             | 49  |       GND           |     |                         |
 
-        ### 400-PIN 定义
+        ### 400-PIN Definition
 
         - <a href="https://dl.radxa.com/cm3i/docs/hw/radxa_cm3i_v1310_pinout.xlsx"> V1310 pinout </a>
 
