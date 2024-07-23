@@ -3,9 +3,9 @@ sidebar_position: 4
 description: "Clear SPI  Flash"
 ---
 
-# Clear SPI Flash manually
+# Erase SPI Flash manually
 
-## Can boot Linux
+## Erase after System Boot
 
 - Open a terminal and run rsetup
 
@@ -21,6 +21,6 @@ description: "Clear SPI  Flash"
 
 <img src="/img/common/nvme/rsetup-select-bootloader-radxa-cm3i-io.webp" alt="rsetup radxa cm3i io" style={{ width: "80%" }} />
 
-## Cannot boot into system
+## Erase SPI via USB
 
-[Refer to USB Wire Flash](/compute-module/cm3i/low-level-dev/maskrom)
+[Refer to Install OS Via USB](/compute-module/cm3i/low-level-dev/maskrom)

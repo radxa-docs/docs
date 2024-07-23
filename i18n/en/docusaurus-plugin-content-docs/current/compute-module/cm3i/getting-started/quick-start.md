@@ -42,7 +42,7 @@ It is recommended to use the official [Power DC12 36W](https://radxa.com/product
 
 A heatsink, refer to the [Heatsink Selection guide](./interface-usage/fan) to install the heatsink.
 
-- An M.2 wireless module: The Radxa CM3I IO Board supports standard M.2 Wi-Fi cards. Please check [the Wireless Module Compatibility List](./interface-usagepcie-e-key#wifi--bt-support-module-list). Some older non-driver M.2 Wi-Fi cards may also be plug-and-play supported.
+- An M.2 wireless module: The Radxa CM3I IO Board supports standard M.2 Wi-Fi cards. Please check [the Wireless Module Compatibility List](./interface-usage/pcie-e-key#wifi--bt-support-module-list). Some older non-driver M.2 Wi-Fi cards may also be plug-and-play supported.
 - An M.2 NVMe SSD. It is recommended to install the operating system on an M.2 NVMe SSD.
 
 ## Install the Operating System

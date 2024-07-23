@@ -9,6 +9,6 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 :::tip
 
-Please refer to <a href="../../low-level-dev/maskrom">Flash OS via USB Section</a>
+Please refer to <a href="../../low-level-dev/maskrom">Install OS via USB Section</a>
 
 :::
