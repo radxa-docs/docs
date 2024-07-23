@@ -1,5 +1,6 @@
 ---
 sidebar_position: 10
+description: "Test 40-PIN GPIO"
 ---
 
 import GPIO from '../../../../common/dev/\_gpio.mdx';

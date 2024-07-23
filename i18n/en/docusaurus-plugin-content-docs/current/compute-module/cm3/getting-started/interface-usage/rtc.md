@@ -1,5 +1,6 @@
 ---
 sidebar_position: 8
+description: "Test RTC Interface"
 ---
 
 <!-- import RTC from "../../../../common/accessories/\_rtc.mdx"; -->

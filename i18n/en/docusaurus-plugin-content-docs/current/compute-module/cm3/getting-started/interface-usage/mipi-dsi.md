@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+description: "Test MIPI DSI Interface"
 ---
 
 import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";

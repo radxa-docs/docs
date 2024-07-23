@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "测试 HDMI 接口"
 ---
 
 import HDMI from "../../../../common/accessories/\_hdmi.mdx";

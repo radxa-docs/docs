@@ -1,5 +1,6 @@
 ---
 sidebar_position: 6
+description: "测试 EDP 接口"
 ---
 
 import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";

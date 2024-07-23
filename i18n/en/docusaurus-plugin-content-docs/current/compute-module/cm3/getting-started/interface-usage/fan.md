@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+description: "Test Fan Interface"
 ---
 
 import FAN from "../../../../common/accessories/\_fan.mdx";

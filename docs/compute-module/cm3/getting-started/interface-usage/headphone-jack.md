@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+description: "测试耳机接口"
 ---
 
 import HEADPHONE from "../../../../common/accessories/\_headphone.mdx";

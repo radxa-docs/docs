@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: "Test USB Interface"
 ---
 
 import USB from "../../../../common/accessories/\_usb.mdx";

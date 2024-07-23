@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+description: "Test Headphone Interface"
 ---
 
 import HEADPHONE from "../../../../common/accessories/\_headphone.mdx";

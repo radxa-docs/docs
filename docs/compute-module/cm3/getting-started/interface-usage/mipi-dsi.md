@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+description: "测试 MIPI DSI 接口"
 ---
 
 import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";

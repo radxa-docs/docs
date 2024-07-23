@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+description: "测试风扇接口"
 ---
 
 import FAN from "../../../../common/accessories/\_fan.mdx";

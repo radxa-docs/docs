@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+description: "测试 MIPI CSI 接口"
 ---
 
 import CAMERA from "../../../../common/accessories/\_camera-usage.mdx";
