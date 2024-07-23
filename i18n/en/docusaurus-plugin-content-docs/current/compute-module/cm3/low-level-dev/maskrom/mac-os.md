@@ -4,13 +4,12 @@ description: "Flash via Maskrom under MacOS"
 ---
 
 import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
-import Images from "../../\_image.mdx"
 
 # Mac OS Host
 
 ## File Download
 
-<Images loader={true} system_img={true} spi_img={false} />
+Please download the related Images refer to [Summary of resource downloads](../../download)
 
 <Rkdeveloptool model="radxa-cm3-io" release_num="27" desktop="xfce" platform="macos" loader="rk356x_spl_loader_v1.15.113.bin">
 

@@ -4,13 +4,12 @@ description: "Windows 下通过 USB 刷机"
 ---
 
 import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
-import Images from "../../\_image.mdx"
 
 # Windows 主机
 
 ## 文件下载
 
-<Images loader={true} system_img={true} spi_img={true} />
+请到[资源汇总](../../download)部分下载对应的 Image
 
 <Rkdevtool rkdevtool_emmc_img="/img/cm3/cm3-io-rkdevtool-maskrom-flash-system.webp" loader_name="rk356x_spl_loader_ddr1056_v1.10.111.bin" emmc={false} pcie={false} sata={false} >
 

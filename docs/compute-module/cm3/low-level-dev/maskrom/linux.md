@@ -4,13 +4,12 @@ description: "Linux 下通过 USB 刷机"
 ---
 
 import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
-import Images from "../../\_image.mdx"
 
 # Linux 主机
 
 ## 文件下载
 
-<Images loader={true} system_img={true} spi_img={false} />
+请到[资源汇总](../../download)部分下载对应的 Image
 
 <Rkdeveloptool model="radxa-cm3-io" release_num="27" desktop="xfce" platform="linux" loader="rk356x_spl_loader_v1.15.113.bin">
 
