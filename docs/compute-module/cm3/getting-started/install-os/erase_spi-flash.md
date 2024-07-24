@@ -23,4 +23,4 @@ description: "清空 SPI Flash"
 
 ## 不能启动到系统
 
-[参考 USB 线刷](/compute-module/cm3/low-level-dev/maskrom)
+参考 [USB 线刷](/compute-module/cm3/low-level-dev/maskrom)

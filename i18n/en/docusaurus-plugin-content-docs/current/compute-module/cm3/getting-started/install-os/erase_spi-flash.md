@@ -23,4 +23,4 @@ description: "Clear SPI Flash"
 
 ## Cannot boot into system
 
-[Please refer to the section on flashing an image using a USB cable](/compute-module/cm3/low-level-dev/maskrom)
+Please refer to the section on [flashing an image using a USB cable](/compute-module/cm3/low-level-dev/maskrom)
