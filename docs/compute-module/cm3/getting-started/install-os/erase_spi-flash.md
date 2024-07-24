@@ -5,7 +5,7 @@ description: "清空 SPI Flash"
 
 # 手动清空 SPI Flash
 
-## 能启动 Linux
+## 能启动 Linux 的情况
 
 - 打开终端，执行 rsetup
 
@@ -21,6 +21,6 @@ description: "清空 SPI Flash"
 
 <img src="/img/common/rsetup/rsetup-radxa-cm3-io.webp" alt="rsetup rock-5-tix" style={{ width: "80%" }} />
 
-## 不能启动到系统
+## 不能启动到系统的情况
 
 参考 [USB 线刷](/compute-module/cm3/low-level-dev/maskrom)

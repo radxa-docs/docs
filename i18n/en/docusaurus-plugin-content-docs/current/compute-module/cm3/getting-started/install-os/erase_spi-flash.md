@@ -5,7 +5,7 @@ description: "Clear SPI Flash"
 
 # Clear SPI Flash manually
 
-## Can boot Linux
+## When Linux can be booted
 
 - Open a terminal and run rsetup
 
