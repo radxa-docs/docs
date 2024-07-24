@@ -2,41 +2,8 @@
 sidebar_position: 30
 ---
 
-# C SDK EXAMPLES
+import SDK_EXAMPLE from "../../../common/dev/\_pico-sdk-example.mdx";
 
-## PICO-SDK
+# Pico SDK && Pico EXAMPLES
 
-### 安装必要工具
-
-```
-sudo apt update -y
-sudo apt install -y git cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
-```
-
-### 获取代码
-
-```
-git clone https://github.com/raspberrypi/pico-sdk.git
-cd pico-sdk
-git submodule update --init
-```
-
-## PICO-EXAMPLES
-
-### 获取代码
-
-```
-git clone https://github.com/raspberrypi/pico-examples.git --branch master
-```
-
-### 编译
-
-```
-export PICO_SDK_PATH=path/to/pico-sdk
-cd pico-examples
-mkdir build
-cd build
-cmake .. && make -j4
-```
-
-### [烧录](./flash)
+<SDK_EXAMPLE flash_url="./flash" />
