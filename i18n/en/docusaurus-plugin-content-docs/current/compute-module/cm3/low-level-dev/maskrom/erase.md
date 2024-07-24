@@ -5,7 +5,7 @@ description: "Empty eMMC or SPI Flash via Maskrom"
 
 import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
 
-# Clear eMMC or SPI Flash
+# Erase eMMC or SPI Flash
 
 <ERASE loader="https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/rk356x_spl_loader_ddr1056_v1.10.111.bin" rkdevtool_erase_emmc_img="/img/common/rkdevtool/rk3588-rkdevtool-erase-eMMC.webp" rkdevtool_erase_spi_flash_img="/img/common/rkdevtool/rk3588-rkdevtool-erase-spi-flash.webp">
 
@@ -18,7 +18,7 @@ import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
 </ol>
 
 :::tip
-To clear eMMC, press and hold SPI Disable button; to clear SPI Flash, press and hold eMMC Disable button.
+To erase eMMC, press and hold SPI Disable button; to erase SPI Flash, press and hold eMMC Disable button.
 :::
 
 <img src="/img/cm3/cm3-button.webp" alt="cm3 core button" style={{ width: "40%" }} />

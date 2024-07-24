@@ -3,9 +3,19 @@ sidebar_position: 4
 description: "Clear SPI Flash"
 ---
 
-# Clear SPI Flash manually
+# Erase SPI Flash manually
 
-## When Linux can be booted
+There are two ways to clear the data in SPI Flash.
+
+- On Board:
+
+  If the board can boot up success, we can erase through the rsetup tool after system up.
+
+- On PC:
+
+  If the board can't boot up or you don't want to erase on board, you can erase via usb port.
+
+## On Board
 
 - Open a terminal and run rsetup
 
@@ -21,6 +31,6 @@ description: "Clear SPI Flash"
 
 <img src="/img/common/rsetup/rsetup-radxa-cm3-io.webp" alt="rsetup rock-5-tix" style={{ width: "80%" }} />
 
-## Cannot boot into system
+## On PC
 
-Please refer to the section on [flashing an image using a USB cable](/compute-module/cm3/low-level-dev/maskrom)
+Please refer to [Erase eMMC or SPI Flash](/compute-module/cm3/low-level-dev/maskrom/erase)
