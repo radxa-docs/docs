@@ -16,9 +16,9 @@ sidebar_position: 2
 
 ### 操作系统镜像
 
-- [Radxa CM3 IO Debian b27](https://github.com/radxa-build/radxa-cm3-io/releases/download/b27/radxa-cm3-io_debian_bullseye_kde_b27.img.xz)
+- Radxa CM3 IO Board 系统镜像： [Radxa CM3 IO Debian b27](https://github.com/radxa-build/radxa-cm3-io/releases/download/b27/radxa-cm3-io_debian_bullseye_kde_b27.img.xz)
 
-- [Radxa CM3 With Raspberry CM4 IO Debian b15](https://github.com/radxa-build/radxa-cm3-rpi-cm4-io/releases/download/b15/radxa-cm3-rpi-cm4-io_debian_bullseye_kde_b15.img.xz)
+- Radxa CM3 + RPI CM4 IO Board 系统镜像： [Radxa CM3 With Raspberry CM4 IO Debian b15](https://github.com/radxa-build/radxa-cm3-rpi-cm4-io/releases/download/b15/radxa-cm3-rpi-cm4-io_debian_bullseye_kde_b15.img.xz)
 
 ## 第三方镜像
 
