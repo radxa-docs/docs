@@ -9,7 +9,7 @@ import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
 
 ## 文件下载
 
-请到[资源汇总](../../download)部分下载对应的 Image
+请到[资源汇总](../../download)部分下载对应的系统镜像以及 Loader
 
 <Rkdeveloptool model="radxa-cm3-io" release_num="27" desktop="xfce" platform="macos" loader="rk356x_spl_loader_v1.15.113.bin">
 
