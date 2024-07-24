@@ -9,7 +9,7 @@ import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 
 ## 文件下载
 
-请到[资源汇总](../../download)部分下载对应的 Image
+请到[资源汇总](../../download)部分下载对应的系统镜像以及 Loader
 
 <Rkdevtool rkdevtool_emmc_img="/img/common/rkdevtool/rkdevtool_genenal_maskrom_flash.webp" loader_name="rk356x_spl_loader_ddr1056_v1.10.111.bin" emmc={false} pcie={false} sata={false} >
 

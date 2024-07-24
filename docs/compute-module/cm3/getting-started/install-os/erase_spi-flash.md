@@ -5,7 +5,17 @@ description: "清空 SPI Flash"
 
 # 手动清空 SPI Flash
 
-## 能启动 Linux
+有两种方式去擦除 SPI Flash 里面的数据
+
+- 在板子上操作：
+
+  如果板子上的系统能正常运行，可以通过系统自带的 rsetup 工具进行操作。
+
+- 在 PC 上操作：
+
+  如果板子不能正常启动或者我们不想在板子上进行操作，我们可以通过 USB 线连接 PC 和板子，在 PC 侧通过工具进行擦除。
+
+## 在板子上操作
 
 - 打开终端，执行 rsetup
 
@@ -21,6 +31,6 @@ description: "清空 SPI Flash"
 
 <img src="/img/common/rsetup/rsetup-radxa-cm3-io.webp" alt="rsetup rock-5-tix" style={{ width: "80%" }} />
 
-## 不能启动到系统
+## 在 PC 上操作
 
-[参考 USB 线刷](/compute-module/cm3/low-level-dev/maskrom)
+参考 [清除 eMMC 或者 SPI Flash](/compute-module/cm3/low-level-dev/maskrom/erase)

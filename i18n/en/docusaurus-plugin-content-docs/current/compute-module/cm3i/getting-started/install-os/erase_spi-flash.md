@@ -5,7 +5,17 @@ description: "Clear SPI  Flash"
 
 # Erase SPI Flash manually
 
-## Erase after System Boot
+There are two ways to clear the data in SPI Flash.
+
+- On Board:
+
+  If the board can boot up success, we can erase through the rsetup tool after system up.
+
+- On PC:
+
+  If the board can't boot up or you don't want to erase on board, you can erase via usb port.
+
+## On Board
 
 - Open a terminal and run rsetup
 
@@ -21,6 +31,6 @@ description: "Clear SPI  Flash"
 
 <img src="/img/common/nvme/rsetup-select-bootloader-radxa-cm3i-io.webp" alt="rsetup radxa cm3i io" style={{ width: "80%" }} />
 
-## Erase SPI via USB
+## On PC
 
-[Refer to Install OS Via USB](/compute-module/cm3i/low-level-dev/maskrom)
+Refer to [Erase eMMC or SPI Flash](/compute-module/cm3i/low-level-dev/maskrom/erase)
