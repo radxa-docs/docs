@@ -6,7 +6,7 @@ sidebar_position: 10
 
 ## GPIO Definition
 
-<div className='gpio-pinout'>
+<div className='gpio_style' style={{ overflow :"auto"}} >
 
 | Function5 | Function4 | Function3 | Function2 | Function1 |              Pin#               |              Pin#               | Function1 | Function2 | Function3 | Function4 | Function5 |
 | --------- | :-------: | :-------: | :-------: | :-------: | :-----------------------------: | :-----------------------------: | :-------: | :-------: | :-------: | :-------: | --------- |
