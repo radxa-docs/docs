@@ -24,9 +24,9 @@ In order to get the top panel OLED display and fan working properly, we provide 
 
 ```shell
 sudo apt update
-sudo apt install python3-dev
-wget https://github.com/radxa/rockpi-penta/releases/download/0.2/rockpi-penta-v0.2.deb
-sudo apt install -y ./rockpi-penta-v0.2.deb
+sudo apt install wget
+wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta-0.2.2.deb
+sudo apt install -y ./rockpi-penta-0.2.2.deb
 ```
 
 ### Software configuration
