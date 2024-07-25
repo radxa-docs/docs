@@ -24,9 +24,9 @@ Radxa Penta SATA HAT 有一个 2x5 的座子，座子的信号如下：
 
 ```shell
 sudo apt update
-sudo apt install python3-dev
-wget https://github.com/radxa/rockpi-penta/releases/download/0.2/rockpi-penta-v0.2.deb
-sudo apt install -y ./rockpi-penta-v0.2.deb
+sudo apt install wget
+wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta-0.2.2.deb
+sudo apt install -y ./rockpi-penta-0.2.2.deb
 ```
 
 ### 软件配置
