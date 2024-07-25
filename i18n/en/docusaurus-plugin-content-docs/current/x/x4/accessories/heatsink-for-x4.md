@@ -20,6 +20,10 @@ sidebar_position: 15
 
 - First, install the M2.5x3+3 copper standoffs and thermal silicone sheet in the specified positions.
 
+:::tip
+Before adhering the thermal silicone pad, please ensure to remove the protective films covering both sides of its surface.
+:::
+
 ![install_heatsink_02](/img/x/x4/heatsink_for_x4_02.webp)
 
 - Next, install the Radxa X4 and secure it with 4 CM2.5x3 screws.

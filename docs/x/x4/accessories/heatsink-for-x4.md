@@ -20,6 +20,10 @@ sidebar_position: 15
 
 - 首先，在指定位置安装 M2.5x3+3 铜支座和导热硅胶片。
 
+:::tip
+在粘贴导热硅胶片之前，请务必撕去其两侧表面的保护膜。
+:::
+
 ![install_heatsink_02](/img/x/x4/heatsink_for_x4_02.webp)
 
 - 然后，安装 Radxa X4 并用 4 颗 CM2.5x3 螺钉固定。
