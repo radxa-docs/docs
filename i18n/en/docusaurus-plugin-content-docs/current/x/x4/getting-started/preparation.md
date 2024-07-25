@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ### Power Supply
 
-The Radxa X4 supports power adapters that utilize the PD protocol, but is not compatible with power adapters that use the QC protocol.
+The Radxa X4 supports power adapters that using the PD protocol, but doesn't support those with QC protocol.
 
 :::tip
 Radxa recommends using [Radxa Power PD30W](../accessories/pd-30w).

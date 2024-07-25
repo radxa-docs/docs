@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ### 电源
 
-Radxa X4 支持采用 PD 协议的电源适配器进行供电，但不兼容使用 QC 协议的电源适配器。
+Radxa X4 支持 PD 协议的电源适配器，但不支持 QC 协议的。
 
 :::tip
 瑞莎推荐使用 [Radxa Power PD30W](../accessories/pd-30w)。
