@@ -13,4 +13,4 @@ slug: /x/x4/accessories
 
 ## Tutorial Catalog
 
-<!-- <DocCardList /> -->
+<DocCardList />

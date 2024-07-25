@@ -5,4 +5,4 @@ sidebar_position: 55
 slug: /x/x4/bios
 ---
 
-<!-- <DocCardList /> -->
+<DocCardList />
