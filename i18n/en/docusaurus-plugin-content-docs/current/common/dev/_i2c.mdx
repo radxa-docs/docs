@@ -57,104 +57,92 @@ Please refer to <a href="../../radxa-os/rsetup#overlays"> Device Tree Configurat
     <summary>Oled.py</summary>
 
     ```
-    #!/usr/bin/env python3
-    # -*- encoding: utf-8 -*-
-
-    import time
     from periphery import I2C
+    import time
 
-    class Oled:
-      def __init__(self, bus, dev_addr):
-        self.bus = I2C(bus)
-        self.dev_addr = dev_addr
-        self.size = 16
-        self.max_column = 128
-        self.oled_data = 0x40
-        self.oled_init()
+    I2C_ADDR = 0x3c
+    I2C_BUS = "/dev/i2c-8"
 
-      def oled_write_cmd(self, cmd):
-        self.bus.transfer(self.dev_addr, [I2C.Message([0x00, cmd])])
+    i2c = I2C(I2C_BUS)
 
-      def oled_init(self):
-        print("... init ...")
-        time.sleep(1)
-        self.oled_write_cmd(0xAE)
-        self.oled_write_cmd(0x00)
-        self.oled_write_cmd(0x10)
-        self.oled_write_cmd(0x40)
-        self.oled_write_cmd(0xB0)
-        self.oled_write_cmd(0x81)
-        self.oled_write_cmd(0xFF)
-        self.oled_write_cmd(0xA1)
-        self.oled_write_cmd(0xA6)
-        self.oled_write_cmd(0xA8)
-        self.oled_write_cmd(0x3F)
-        self.oled_write_cmd(0xC8)
-        self.oled_write_cmd(0xD3)
-        self.oled_write_cmd(0x00)
-        self.oled_write_cmd(0xD5)
-        self.oled_write_cmd(0x80)
-        self.oled_write_cmd(0xD9)
-        self.oled_write_cmd(0x22)
-        self.oled_write_cmd(0xDA)
-        self.oled_write_cmd(0x12)
-        self.oled_write_cmd(0xDB)
-        self.oled_write_cmd(0x20)
-        self.oled_write_cmd(0x8D)
-        self.oled_write_cmd(0x14)
-        self.oled_write_cmd(0xAF)
+    # SSD1306 init_cmds
+    init_cmds = [
+        0xAE,  # Display off
+        0x00,  # Set lower column address
+        0x10,  # Set higher column address
+        0x40,  # Set display start line
+        0xB0,  # Set page address
+        0x81,  # Set contrast control
+        0xCF,
+        0xA1,  # Set segment remap
+        0xA6,  # Normal display
+        0xA8,  # Set multiplex ratio
+        0x3F,
+        0xC8,  # Set COM output scan direction
+        0xD3,  # Set display offset
+        0x00,
+        0xD5,  # Set display clock divide ratio/oscillator frequency
+        0x80,
+        0xD9,  # Set pre-charge period
+        0xF1,
+        0xDA,  # Set COM pins hardware configuration
+        0x12,
+        0xDB,  # Set VCOMH deselect level
+        0x40,
+        0x8D,  # Enable charge pump regulator
+        0x14,
+        0xAF   # Display on
+    ]
 
-      def oled_clear(self, clear_data):
-        for i in range(8):
-          self.oled_write_cmd(0xB0 + i)
-          # page0-page1
-          self.oled_write_cmd(0x00)
-          # low column start address
-          self.oled_write_cmd(0x10)
-          # high column start address
-          for j in range(128):
-            self.oled_write_data(clear_data)
+    for cmd in init_cmds:
+        i2c.transfer(I2C_ADDR, [I2C.Message([0x00, cmd])])
 
-      def oled_display_on(self):
-        self.oled_write_cmd(0x8D)
-        self.oled_write_cmd(0x14)
-        self.oled_write_cmd(0xAF)
+    def oled_clear():
+        for page in range(8):
+            i2c.transfer(I2C_ADDR, [I2C.Message([0x00, 0xB0 + page])])
+            i2c.transfer(I2C_ADDR, [I2C.Message([0x00, 0x00])])
+            i2c.transfer(I2C_ADDR, [I2C.Message([0x00, 0x10])])
+            for _ in range(128):
+                i2c.transfer(I2C_ADDR, [I2C.Message([0x40, 0x00])])
 
-      def oled_display_off(self):
-        self.oled_write_cmd(0x8E)
-        self.oled_write_cmd(0x8D)
-        self.oled_write_cmd(0x10)
+    char_map = {
+        "H": [0x00, 0x7F, 0x08, 0x08, 0x08, 0x7F,],
+        "R": [0x00, 0x7F, 0x09, 0x19, 0x29, 0x46],
+        "e": [0x00, 0x38, 0x54, 0x54, 0x54, 0x18],
+        "l": [0x00, 0x00, 0x41, 0x7F, 0x40, 0x00],
+        "o": [0x00, 0x38, 0x44, 0x44, 0x44, 0x38],
+        "r": [0x00, 0x7C, 0x08, 0x04, 0x04, 0x08],
+        "a": [0x00, 0x20, 0x54, 0x54, 0x54, 0x78],
+        "d": [0x00, 0x38, 0x44, 0x44, 0x48, 0x7F],
+        "x": [0x00, 0x44, 0x28, 0x10, 0x28, 0x44]
+    }
 
-      def oled_set_pos(self, x, y):
-        self.oled_write_cmd(0xB0 + y)
-        self.oled_write_cmd(x&0x0f)
-        self.oled_write_cmd(((x&0xf0)>>4)|0x10)
+    def string_to_bytes(string):
+        bytes_list = []
+        for char in string:
+            bytes_list.extend(char_map.get(char, [0x00] * 4))
+            bytes_list.append(0x00)
+        return bytes_list
 
-      def oled_show_char(self, x, y, chr):
-        c = chr - ord(' ')
-        if x > self.max_column:
-          x = 0
-          y += 2
+    oled_clear()
+    hello_world_bytes = string_to_bytes("Hello Radxa")
+    i2c.transfer(I2C_ADDR, [I2C.Message([0x00, 0xB0])])
+    i2c.transfer(I2C_ADDR, [I2C.Message([0x00, 0x00])])
+    i2c.transfer(I2C_ADDR, [I2C.Message([0x00, 0x10])])
+    for byte in hello_world_bytes:
+        i2c.transfer(I2C_ADDR, [I2C.Message([0x40, byte])])
 
-        if self.size == 16:
-          self.oled_set_pos(x, y)
-          for i in range(8):
-            self.bus.transfer(self.bus.transfer(self.dev_addr, [self.oled_data, F8X16[c*16+i]]))
-          self.oled_set_pos(x, y+1)
-          for i in range(8):
-            self.bus.transfer(self.bus.transfer(self.dev_addr, [self.oled_data, F8X16[c*16+i+8]]))
-        else:
-          self.oled_set_pos(x, y)
-          for i in range(6):
-            self.bus.transfer(self.bus.transfer(self.dev_addr, [self.oled_data, F6x8[c][i]]))
+    i2c.close()
 
-    if __name__ == "main":
-      oled = Oled("/dev/i2c-8", 0x3c)
-      oled.oled_show_char(0, 0, 'radxa')
-      oled.oled_clear()
     ```
 
 </details>
+
+:::tip
+
+This script is only an example, you need to modify the variable I2C_BUS according to the actual situation.
+
+:::.
 
 - In a terminal, execute the following command to test
 
