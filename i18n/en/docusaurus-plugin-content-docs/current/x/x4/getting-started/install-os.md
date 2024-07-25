@@ -49,20 +49,7 @@ Plug in a mouse and keyboard into any USB port.
 
 ### Boot to Installation Media
 
-<Tabs  groupId="to" queryString>
-<TabItem value="nvme" label="Install to NVMe" default>
-<ul>
-<li>Power on your device</li>
-</ul>
-</TabItem>
-<TabItem value="emmc" label="Install to eMMC">
-
-<ul>
-<p><li>Power on your device</li> </p>
-</ul>
-
-</TabItem>
-</Tabs>
+- Power on your Radxa X4 device.
 
 - After the display appears, immediately press `F7` to enter the boot selection interface.
 

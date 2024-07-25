@@ -48,20 +48,7 @@ sidebar_position: 11
 
 ### 引导至安装介质
 
-<Tabs  groupId="to" queryString>
-<TabItem value="nvme" label="安装到 NVMe" default>
-<ul>
-<li>将您的设备接上电源</li>
-</ul>
-</TabItem>
-<TabItem value="emmc" label="安装到 eMMC">
-
-<ul>
-<p><li>将您的设备接上电源</li> </p>
-</ul>
-
-</TabItem>
-</Tabs>
+- 将瑞莎 X4 接上电源
 
 - 在显示画面后，立刻点击 `F7` 进入引导选择界面。
 
