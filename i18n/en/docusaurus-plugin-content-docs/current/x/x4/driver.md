@@ -115,5 +115,3 @@ The Radxa X4 offers two configurations to choose from: WiFi 5 with Bluetooth 5 a
 - Open the BT folder, right-click, and run InstallDriver.cmd in administrator mode to install the BT driver.
 
 ![Radxa Wireless Module A8](/img/x/x2l/a8_install_02.webp)
-
-

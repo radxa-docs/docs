@@ -37,7 +37,3 @@ Before adhering the thermal silicone pad, please ensure to remove the protective
 - Finally, secure the heatsink bracket with 6 KM2x4 screws.
 
 ![install_heatsink_05](/img/x/x4/heatsink_for_x4_05.webp)
-
-
-
-

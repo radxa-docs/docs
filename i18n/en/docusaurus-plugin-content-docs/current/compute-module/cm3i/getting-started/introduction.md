@@ -18,7 +18,7 @@ description: "A brief introduction to the CM3I/CM3I IO Board"
 
 <Tabs queryString="model">
     <TabItem value="CM3I Core Board">
-        
+
         ### Powerful Multimedia Processing Capabilities
 
         The CPU adopts the advanced ARM Cortex-A55 architecture, integrating a powerful GPU that supports high-definition video decoding and encoding, capable of handling various video formats and resolutions. Additionally, the RK3568J is equipped with a high-performance DSP and NPU (Neural Processing Unit) for audio processing and artificial intelligence applications, making it outstanding in multimedia processing.
@@ -41,6 +41,7 @@ description: "A brief introduction to the CM3I/CM3I IO Board"
         The Radxa CM3I IO offers complete hardware design schematics and software source code. This feature allows DIY enthusiasts and developers to make personalized modifications and feature expansions, attracting a community of open-source enthusiasts, which promotes knowledge sharing and technological innovation.
 
     </TabItem>
+
 </Tabs>
 
 ## Motherboard Preview

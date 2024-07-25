@@ -114,26 +114,34 @@ Before installing the system on UFS, you need to [Format UFS](/nio/nio12l/instal
 
 Go to the directory where the files are located and execute the `genio-flash` command.
 
-
 ```
 radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
 ```
+
 - For NIO 12L with 4GB RAM:
+
 ```
     radxa@ubuntu:~/baoshan...ufs-b7$ cp fip-ddr4g.bin fip.bin && cp u-boot-initial-env-ddr4g u-boot-initial-env
 ```
+
 - For NIO 12L with 8GB RAM:
+
 ```
     radxa@ubuntu:~/baoshan...ufs-b7$ cp fip-ddr8g.bin fip.bin && cp u-boot-initial-env-ddr8g u-boot-initial-env
 ```
+
 - For NIO 12L with 16GB RAM:
+
 ```
     radxa@ubuntu:~/baoshan...ufs-b7$ cp fip-ddr16g.bin fip.bin && cp u-boot-initial-env-ddr16g u-boot-initial-env
 ```
+
 ```
 radxa@ubuntu:~/baoshan...ufs-b7$ genio-flash
 ```
+
 Output:
+
 ```
 Genio Tools: v1.3.6
 Ubuntu Image:

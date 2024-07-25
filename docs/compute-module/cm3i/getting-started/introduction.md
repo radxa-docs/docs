@@ -18,7 +18,7 @@ description: "简单介绍 CM3I/CM3I IO Board"
 
 <Tabs queryString="model">
     <TabItem value="CM3I 核心板">
-        
+
         ### 强大的多媒体处理能力
 
         CPU 采用了先进的 ARM Cortex-A55 架构，集成了强大的图像处理单元（GPU），支持高清视频解码和编码，能够处理多种视频格式和分辨率。此外，RK3568J还配备了高性能的 DSP 和 NPU（神经网络处理单元），用于音频处理和人工智能应用，使其在多媒体处理方面表现出色。
@@ -41,6 +41,7 @@ description: "简单介绍 CM3I/CM3I IO Board"
         Radxa CM3I IO 提供了完整的硬件设计原理图和软件源代码，这一特性使得大多 DIY 设计爱好者和开发者进行个性化修改和功能拓展，吸引了一众开源爱好者活跃在社区，有利于促进知识共享和技术创新。
 
     </TabItem>
+
 </Tabs>
 
 ## 主板预览
