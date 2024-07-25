@@ -32,7 +32,7 @@ sidebar_position: 20
 
 ![WOL Setting 02](/img/x/x4/wol-setting-03.webp)
 
-### 记录网卡 MAC 地址
+### Recording Network Card MAC Address
 
 - Connect Radxa X4 to the local network using an Ethernet cable.
 - Open Windows Settings and select Network & Internet.
@@ -42,7 +42,7 @@ sidebar_position: 20
 
 ![WOL Setting 03](/img/x/x4/wol-setting-04.webp)
 
-### 局域网唤醒
+### LAN Wake-Up
 
 ** Using [Wake On LAN](https://apps.microsoft.com/detail/9WZDNCRDFSHB?activetab=pivot%3Aoverviewtab&hl=en-us&gl=US) Software for Wake-Up**
 
