@@ -522,6 +522,22 @@ sidebar_custom_props:
                     },
                   ],
               },
+              {
+                products_name: "Radxa X4",
+                products_photo_url: "/home/product-pictures/x4.webp",
+                products_link: "/x/x4",
+                docs:
+                  [
+                    {
+                      docs_link: "/x/x4",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa X4 概览",
+                      docs_info_en: "Overview of the Radxa X4",
+                      docs_info_zh: "Radxa X4 概览",
+                    },
+                  ],
+              },
             ],
         },
         {
