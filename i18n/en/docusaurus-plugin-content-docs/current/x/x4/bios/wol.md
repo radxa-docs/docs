@@ -6,7 +6,9 @@ sidebar_position: 20
 
 ## Turn on the WOL function
 
-** Default Wake On LAN (WOL) Functionality Disable in the BIOS **
+:::tip
+Default Wake On LAN (WOL) Functionality Disable in the BIOS
+:::
 
 - Power on the system and press the DEL key to access the BIOS settings.
 - On the Advanced--ACPI setting page, set the Wake up by PCIE LAN option to enable
@@ -15,7 +17,9 @@ sidebar_position: 20
 
 ## WOL Functionality Usage
 
-** Using Windows System as an Example **
+:::tip
+Using Windows System as an Example
+:::
 
 ### Enabling WOL Function
 
@@ -44,7 +48,9 @@ sidebar_position: 20
 
 ### LAN Wake-Up
 
-** Using [Wake On LAN](https://apps.microsoft.com/detail/9WZDNCRDFSHB?activetab=pivot%3Aoverviewtab&hl=en-us&gl=US) Software for Wake-Up**
+:::tip
+Using [Wake On LAN](https://apps.microsoft.com/detail/9WZDNCRDFSHB?activetab=pivot%3Aoverviewtab&hl=en-us&gl=US) Software for Wake-Up
+:::
 
 - Employ any other terminal device (Windows PC) within the same local network to send a network wake-up magic packet (multiple methods available; using Microsoft's WOL software as an example).
 - Install the Wake On LAN software.

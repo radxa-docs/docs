@@ -6,7 +6,9 @@ sidebar_position: 20
 
 ## 打开 WOL 功能
 
-** Radxa X4 的 BIOS 默认关闭 WOL 功能 **
+:::tip
+Radxa X4 的 BIOS 默认关闭 WOL 功能
+:::
 
 - 接通电源,开机按住DEL键进入BIOS设置页面
 - 在Advanced--ACPI setting页面下，设置Wake up by PCIE LAN选项为enable状态
@@ -15,7 +17,9 @@ sidebar_position: 20
 
 ## WOL 功能使用
 
-** 此处使用 Windows 系统为例 **
+:::tip
+此处使用 Windows 系统为例
+:::
 
 ### 启动 WOL 功能
 
@@ -46,7 +50,9 @@ sidebar_position: 20
 
 ### 局域网唤醒
 
-** 此处使用 [Wake On LAN](https://apps.microsoft.com/detail/9WZDNCRDFSHB?activetab=pivot%3Aoverviewtab&hl=en-us&gl=US) 软件唤醒 **
+:::tip
+此处使用 [Wake On LAN](https://apps.microsoft.com/detail/9WZDNCRDFSHB?activetab=pivot%3Aoverviewtab&hl=en-us&gl=US) 软件唤醒
+:::
 
 - 使用同一个局域网内另一台任意终端设备(Windows PC)，发送网络唤醒 magic 包(多种方式可选，选用 MicroSoft 的 WOL 软件为例)
 - 安装 Wake On LAN 软件

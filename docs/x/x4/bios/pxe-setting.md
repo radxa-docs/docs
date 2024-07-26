@@ -6,7 +6,9 @@ sidebar_position: 50
 
 - PXE 的全称是 Preboot Execute Environment，是指通过网络引导系统启动的功能
 
-** 局域网内需要有 PXE 服务器提供服务，Radxa X4 即可通过 PXE 服务器进行各类系统的安装和启动 (PXE服务器的架设此文档不包含)**
+:::tip
+局域网内需要有 PXE 服务器提供服务，Radxa X4 即可通过 PXE 服务器进行各类系统的安装和启动 (PXE服务器的架设此文档不包含)
+:::
 
 ## PXE 功能设置
 
