@@ -17,7 +17,6 @@ Radxa ROCK 2F V1.0 版本
 
 [rk3528_spl_loader_v1.07.104.bin](https://dl.radxa.com/rock2/images/loader/rk3528_spl_loader_v1.07.104.bin)
 
-
 ## 操作系统镜像
 
 <Images loader={false} system_img={true} spi_img={false} />
