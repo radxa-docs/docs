@@ -6,7 +6,9 @@ sidebar_position: 50
 
 - PXE stands for Preboot Execute Environment, referring to the capability to boot the system via network.
 
-** A PXE server is required within the local network to provide services. Radxa X2L can then install and boot various systems through the PXE server (setting up a PXE server is not covered in this document).**
+:::tip
+A PXE server is required within the local network to provide services. Radxa X2L can then install and boot various systems through the PXE server (setting up a PXE server is not covered in this document).
+:::
 
 ## PXE Function Configuration
 
