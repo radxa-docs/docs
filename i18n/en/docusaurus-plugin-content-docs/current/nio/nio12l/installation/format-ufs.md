@@ -9,10 +9,10 @@ Formatting UFS can be done on a Linux PC.
 
 ## Formatting the onboard UFS on a Linux PC
 
-- Install the modemanger API tool on Linux PC, such as Ubuntu 20.04.
+- Install the ModemManager API tool on Linux PC, such as Ubuntu 20.04.
 
 ```
-$ sudo apt install -y modemmanger
+$ sudo apt install -y modemmanager
 ```
 
 - Get SP Flash Tool

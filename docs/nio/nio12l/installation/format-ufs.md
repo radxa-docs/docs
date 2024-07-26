@@ -9,10 +9,10 @@ description: ""
 
 ## 在 Linux PC 上格式化板载 UFS
 
-- 在 Linux PC，如 Ubuntu 20.04 上安装 modemanger API 工具。
+- 在 Linux PC，如 Ubuntu 20.04 上安装 ModemManager API 工具。
 
 ```
-$ sudo apt install -y modemmanger
+$ sudo apt install -y modemmanager
 ```
 
 - 获取 SP Flash Tool
