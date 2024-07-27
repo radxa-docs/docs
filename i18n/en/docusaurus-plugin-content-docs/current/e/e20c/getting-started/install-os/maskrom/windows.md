@@ -11,7 +11,7 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## File Download
 
-Please go to [Download page](../../../download.md) to download loader and system image.
+Please go to [Download page](../../../download) to download loader and system image.
 
 Note:
 

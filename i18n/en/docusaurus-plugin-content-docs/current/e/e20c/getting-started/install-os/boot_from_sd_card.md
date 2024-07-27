@@ -9,7 +9,7 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## File download
 
-Please refer to [download](../../download.md) to download the system os image.
+Please refer to [download](../../download) to download the system os image.
 
 ## MicroSD card preparation
 

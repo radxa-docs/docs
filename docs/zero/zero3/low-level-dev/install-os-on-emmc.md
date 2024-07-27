@@ -11,7 +11,7 @@ sidebar_position: 1
 
 ## 镜像下载
 
-请到 [资源下载汇总](/zero/zero3/getting-started/download.md) 下载对应的镜像文件
+请到 [资源下载汇总](/zero/zero3/getting-started/download) 下载对应的镜像文件
 
 ## 进入 Maskrom 模式
 
@@ -23,7 +23,7 @@ sidebar_position: 1
 Radxa ZERO 3W 进入 Maskrom 模式的方法
 
 1. 拔出 microSD 卡和电源线
-2. 按住背面的 [Maskrom 按钮](/zero/zero3/hardware-design/hardware-interface.md)
+2. 按住背面的 [Maskrom 按钮](/zero/zero3/hardware-design/hardware-interface)
 3. 通过 USB-A 转 USB-C 线连接PC 主机的 USB，如果电源绿灯常亮则成功进入 Maskrom 模式
 
 </TabItem>
@@ -51,7 +51,7 @@ Radxa ZERO 3 的 OTG 接口是 TYPE-C,可通过 USB-C 转 USB-A 线连接主机�
 
 ## 启动系统
 
-- 使用USB线连接板子的 [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface.md) 到电源适配器上，然后系统开始启动，状态灯闪烁。
+- 使用USB线连接板子的 [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface) 到电源适配器上，然后系统开始启动，状态灯闪烁。
 
 :::tip
 Radxa ZERO 3 只支持 `5V` 供电。瑞莎推荐使用 [Radxa Power PD30W](/accessories/pd_30w)。

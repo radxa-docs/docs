@@ -15,5 +15,5 @@ The ROCK 5A supports a variety of power supplies, including intelligently negoti
 - GPIO 2 & 4 pin pin 5V inputs
 
 :::tip
-Recommended official 30W adapter [Radxa PD 30W Adapter](/accessories/pd_30w.md)
+Recommended official 30W adapter [Radxa PD 30W Adapter](/accessories/pd_30w)
 :::

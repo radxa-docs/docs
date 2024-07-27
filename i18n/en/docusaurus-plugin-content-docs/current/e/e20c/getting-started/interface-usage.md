@@ -24,7 +24,7 @@ User button.
 
 ### USB Type-C 5V Power Connector
 
-Power input, Radxa E20C fixed voltage is 5V input, please refer to [Power Supply ](/e/e20c/getting-started/power-supply.md).
+Power input, Radxa E20C fixed voltage is 5V input, please refer to [Power Supply ](/e/e20c/getting-started/power-supply).
 
 ### Gigabit Ethernet Port
 

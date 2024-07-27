@@ -8,7 +8,7 @@ Introduces how to install Android os on ZERO 3
 
 ## Image download
 
-Please go to [Resource Download Summary](/zero/zero3/other-os/android/download.md) to download the corresponding image file
+Please go to [Resource Download Summary](/zero/zero3/other-os/android/download) to download the corresponding image file
 
 ## Install OS
 
@@ -75,7 +75,7 @@ If the board doesn't come with eMMC, you can't boot from eMMC, such as Radxa ZER
 
 ##### Enter MaskRom
 
-Press the [Maskrom Button](/zero/zero3/hardware-design/hardware-interface.md), and then connect the ZERO 3W's OTG Type C port to the PC's USB port, then release the Maskrom Key.
+Press the [Maskrom Button](/zero/zero3/hardware-design/hardware-interface), and then connect the ZERO 3W's OTG Type C port to the PC's USB port, then release the Maskrom Key.
 ![zero3w](/img/zero/zero3/radxa_zero_3w.webp)
 
 ##### My PC is Windows
@@ -96,11 +96,11 @@ Press the [Maskrom Button](/zero/zero3/hardware-design/hardware-interface.md), a
 #### Boot from SDcard
 
 - Insert the SDCard (System OS inside) on the board's sdcard slot, and power the board via
-  [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface.md). Then board will start up with the led blink.
+  [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface). Then board will start up with the led blink.
 
 #### Boot from eMMC
 
-- Power the board via [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface.md). Then board will start up with the led blink.
+- Power the board via [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface). Then board will start up with the led blink.
 
 :::tip
 Radxa ZERO 3 only supports `5V` power supply.Radxa Recommended [Radxa Power PD30W](/accessories/pd_30w).

@@ -29,7 +29,7 @@ Radxa X4 是瑞莎全新推出的基于 Intel N100(Alder Lake-N) 的 X86 单板�
 |  USB   | 3 个 USB 3.2 HOST 端口，1个 USB 2.0 HOST 端口                             |
 | 以太网 | 支持 2.5G 以太网，支持 PoE 功能                                           |
 |   IO   | 通过 RP2040 扩展 40-Pin GPIO                                              |
-|  电源  | USB Type-C PD 12V / 2.5A                                                  |
+|  电源  | USB Type-C PD （支持12V, 12V 对应的电流 >= 2.5A）                         |
 |  按钮  | 1 个电源按钮， 1 个BOOTSEL 按钮（用于 RP2040）                            |
 |  接口  | 1 个风扇接口， 1 个 RTC 电池接口                                          |
 |  尺寸  | 85mm x 56mm                                                               |

@@ -14,7 +14,7 @@ title: 系统安装
 
 ## 镜像下载
 
-请到 [资源下载](/sophon/airbox/getting-started/download.md)下载对应的镜像文件
+请到 [资源下载](/sophon/airbox/getting-started/download)下载对应的镜像文件
 
 ## 系统安装
 
@@ -46,7 +46,7 @@ Balena Etcher 是一个跨平台且，用户界面友好的镜像文件烧写工
 
 ### 2.SD卡刷机
 
-请将 Fogwise® AirBox 断电，插入 SD 卡，并连接串口终端（使用usb type-a转type-c数据线，type-c接 Fogwise® AirBox 的debug口，type a连接电脑，波特率设置成115200，debug口位置在[Fogwise® AirBox硬件开发下的硬件接口说明](../../airbox/hardware-design/hardware-interface.md)寻找），然后给整机上电。您将看到
+请将 Fogwise® AirBox 断电，插入 SD 卡，并连接串口终端（使用usb type-a转type-c数据线，type-c接 Fogwise® AirBox 的debug口，type a连接电脑，波特率设置成115200，debug口位置在[Fogwise® AirBox硬件开发下的硬件接口说明](../../airbox/hardware-design/hardware-interface)寻找），然后给整机上电。您将看到
 SG2300X 自动进入刷机流程：
 
 ```

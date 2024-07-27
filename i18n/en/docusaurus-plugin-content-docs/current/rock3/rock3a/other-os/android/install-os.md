@@ -79,7 +79,7 @@ Please go to [Download Summary](../../getting-started/download) to download imag
 
 #### Windows system write with rkdevtool
 
-&emsp;[rkdevtool](../../low-level-dev/rkdevtool.md)
+&emsp;[rkdevtool](../../low-level-dev/rkdevtool)
 
 </TabItem>
 

@@ -29,7 +29,7 @@ The Radxa X4 is a new X86 SBC launched by Radxa, featuring the Intel N100(Alder 
 |    USB     | 3x USB 3.2 Type A HOST ports, 1x USB2.0 Type A HOST port                                                  |
 |  Ethernet  | 1x 2.5 Gigabit Ethernet with PoE(Additional PoE HAT Required)                                             |
 |     IO     | 40-Pin GPIO Header                                                                                        |
-|   Power    | USB Type-C PD 12V/2.5A                                                                                    |
+|   Power    | USB Type-C PD (supports 12V, and the current >= 2.5A under 12V)                                           |
 |   Button   | 1x Power Button, 1x BOOTSEL Button for RP2040                                                             |
 |   Others   | 1x Fan Header, 1x RTC Battery Header                                                                      |
 | Form Fator | 85mm x 56mm                                                                                               |
