@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ### Power Supply
 
-The Radxa X4 supports power adapters that using the PD protocol, but doesn't support those with QC protocol.
+Radxa X4 recommends using a power adapter that supports the USB Type-C PD protocol (supports 12V and the current >= 2.5A under 12V), but it does not support the Qualcomm QC protocol.
 
 :::tip
 Radxa recommends using [Radxa Power PD30W](../accessories/pd-30w).

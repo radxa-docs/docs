@@ -13,7 +13,7 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## EMMC Module Preparation
 
-Insert [EMMC Module](../../../../accessories/emmc_module.md) into [EMMC Reader](../../../../accessories/emmc_reader.md), and then Insert Reader into PC's USB Port
+Insert [EMMC Module](../../../../accessories/emmc_module) into [EMMC Reader](../../../../accessories/emmc_reader), and then Insert Reader into PC's USB Port
 
 ## Flash the image
 

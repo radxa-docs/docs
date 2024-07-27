@@ -31,6 +31,10 @@ sidebar_position: 11
 
 ### 上电前操作
 
+:::tip
+请注意，Radxa X4是否配备板载eMMC取决于您购买的具体配置。
+:::
+
 <Tabs  groupId="to" queryString>
 <TabItem value="nvme" label="安装到 NVMe" default>
 将 M.2 2230 NVMe 固态硬盘轻轻插入相应的 M.2 M Key 插槽，并使用 M2 x 4 平头螺钉将其固定到位。

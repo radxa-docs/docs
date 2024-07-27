@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ### 电源
 
-Radxa X4 支持 PD 协议的电源适配器，但不支持 QC 协议的。
+Radxa X4 推荐使用符合 USB Type-C PD 协议（支持12V, 12V 对应的电流 >= 2.5A）的电源适配器，但不支持 高通QC 协议。
 
 :::tip
 瑞莎推荐使用 [Radxa Power PD30W](../accessories/pd-30w)。

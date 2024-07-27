@@ -5,7 +5,7 @@ sidebar_position: 4
 # Hardware interface description
 
 :::warning
-Don't put CM5 on Radxa CM3 IO board, otherwise the board will be demanged, more info please refer [faq](../faq.md)
+Don't put CM5 on Radxa CM3 IO board, otherwise the board will be demanged, more info please refer [faq](../faq)
 :::
 
 ## Interface overview

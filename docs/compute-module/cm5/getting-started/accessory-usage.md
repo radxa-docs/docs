@@ -90,6 +90,6 @@ Radxa-CM5-IO 带有一个 4-lane 的 DSI 接口和有一个 2-lane 的 DSI 接�
 | 4   | Intel AX210 (PCIE+USB)   | Intel AX210 | WiFi 6        | 5.2 | up:859 Mbits/sec down: 813 Mbits/sec |        |
 
 - Radxa CM5 搭配 Radxa CM5 IO 板，没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
-  无线模块使用请参见[WIFI/BT教程](../accessories/wifi_bt_access.md)
+  无线模块使用请参见[WIFI/BT教程](../accessories/wifi_bt_access)
 
 更多配件信息可参考 [配件列表](../accessories)

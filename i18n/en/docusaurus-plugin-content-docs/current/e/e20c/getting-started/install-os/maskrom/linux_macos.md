@@ -11,7 +11,7 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## Download
 
-Please go to [Download page](../../../download.md) to download loader and system image.
+Please go to [Download page](../../../download) to download loader and system image.
 
 Note:
 
@@ -23,4 +23,4 @@ you can choose one of the system images(such as istoreos, debian cli) depends on
 
 ## Login
 
-Please refer to [Quick Start](../../quick-start.md)
+Please refer to [Quick Start](../../quick-start)

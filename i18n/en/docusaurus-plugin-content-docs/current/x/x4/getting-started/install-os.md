@@ -32,6 +32,10 @@ You'll need to operate on another Windows device.
 
 ### Pre-Power-On Operations
 
+:::tip
+Radxa X4 is equipped with onboard eMMC depends on the specific configuration you purchase.
+:::
+
 <Tabs  groupId="to" queryString>
 <TabItem value="nvme" label="Install to NVMe" default>
 Gently insert the M.2 2230 NVMe SSD into the corresponding M.2 M Key slot and secure it in place with M2 x 4 flat head screws.

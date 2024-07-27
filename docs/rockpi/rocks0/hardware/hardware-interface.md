@@ -17,7 +17,7 @@ Radxa ROCK S0 的供电接口为 4-Pin USB 2.0 OTG 接口，请使用 USB OTG �
 
 ## 调试串口
 
-[调试串口](/rockpi/rocks0/low-level-dev/serial.md)用于输入调试指令
+[调试串口](/rockpi/rocks0/low-level-dev/serial)用于输入调试指令
 
 ## USB OTG 接口
 

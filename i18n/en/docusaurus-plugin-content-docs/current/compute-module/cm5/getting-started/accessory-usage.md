@@ -90,6 +90,6 @@ For 2lane Raspberry Pi 7 inch screen use please refer to [Screen Usage](../acces
 | 4   | Intel AX210 (PCIE+USB)   | Intel AX210 | WiFi 6        | 5.2 | up:859 Mbits/sec down: 813 Mbits/sec |        |
 
 - Radxa CM5 with Radxa CM5 IO board does not have an on-board WiFi/BT module and requires an external module. The above are supported and tested WITI/BT cards.
-  For wireless module usage, please refer to [WIFI/BT Usage](../accessories/wifi_bt_access.md)
+  For wireless module usage, please refer to [WIFI/BT Usage](../accessories/wifi_bt_access)
 
 For more information on accessories see [Accessories List](../accessories)

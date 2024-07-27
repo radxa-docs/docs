@@ -46,7 +46,7 @@ In Maskrom mode, you can use the [Rockchip Development Kit](/general-tutorial/rk
 
 ## Boot the system
 
-- Power the board via [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface.md). Then board will start up with the led blink.
+- Power the board via [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface). Then board will start up with the led blink.
 
 :::tip
 Radxa ZERO 3 only supports `5V` power supply.Radxa Recommended [Radxa Power PD30W](/accessories/pd_30w).

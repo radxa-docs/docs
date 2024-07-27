@@ -15,7 +15,7 @@ ROCK S0 has AP6212(WiFi&BT) module on board, there is one on-board antenna and o
 
 ## Using External Antenna
 
-If you need to use external antenna, you need to enable the overlay of the external antenna, using [rsetup](../os-config/rsetup.md)。
+If you need to use external antenna, you need to enable the overlay of the external antenna, using [rsetup](../os-config/rsetup)。
 
 ```bash
 sudo rsetup

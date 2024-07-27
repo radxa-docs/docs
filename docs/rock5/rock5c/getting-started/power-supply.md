@@ -9,5 +9,5 @@ sidebar_position: 7
 - GPIO 2 & 4 pin 脚 5V 输入
 
 :::tip
-推荐使用官方30W适配器 [瑞莎 PD 30W 适配器](/accessories/pd_30w.md)
+推荐使用官方30W适配器 [瑞莎 PD 30W 适配器](/accessories/pd_30w)
 :::

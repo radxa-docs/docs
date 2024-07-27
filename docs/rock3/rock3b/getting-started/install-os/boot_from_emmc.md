@@ -13,7 +13,7 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## EMMC Module 准备
 
-将 [EMMC Module](/accessories/emmc_module) 插入到 [EMMC Reader](/accessories/emmc_reader.md) 中，然后将 Reader 插入到 PC 的 USB 端口上
+将 [EMMC Module](/accessories/emmc_module) 插入到 [EMMC Reader](/accessories/emmc_reader) 中，然后将 Reader 插入到 PC 的 USB 端口上
 
 ## 镜像烧录
 
