@@ -34,6 +34,22 @@ sidebar_custom_props:
                     },
                   ],
               },
+              {
+                products_name: "ROCK 2F",
+                products_photo_url: "/home/product-pictures/rock2f.webp",
+                products_link: "/rock2/rock2f",
+                docs:
+                  [
+                    {
+                      docs_link: "/rock2/rock2f",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "ROCK 2F 概览",
+                      docs_info_en: "Overview of the ROCK 2F",
+                      docs_info_zh: "ROCK 2F 概览",
+                    },
+                  ],
+              },
             ],
         },
         {
