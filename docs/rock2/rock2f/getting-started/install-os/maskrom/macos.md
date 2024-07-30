@@ -7,13 +7,13 @@ import Rkdeveloptool from "../../../../../common/dev/\_rkdeveloptoolV3.mdx";
 import Images from "../../../\_image.mdx"
 import Maskrom from "./\_maskrom.mdx"
 
-# Linux/MacOS主机
+# MacOS主机
 
 ## 文件下载
 
-<Images loader={true} system_img={true} spi_img={false} />
+请到[下载页面](../../../download.md)下载 Loader 和 系统镜像文件
 
-<Rkdeveloptool>
+<Rkdeveloptool platform="macos">
 <Maskrom/>
 </Rkdeveloptool>
 

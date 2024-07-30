@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "安装系统到 MicroSD 卡上"
 ---
 
 import Images from "../../\_image.mdx"
@@ -9,7 +10,7 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## 文件下载
 
-请到[镜像下载页面](../../download)下载对应的操作系统镜像。
+请到[下载页面](../../download)下载对应的操作系统镜像。
 
 ## MicroSD 卡准备
 
@@ -24,8 +25,6 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 按照上述步骤成功烧录 MicroSD Card 后， 将 MicroSD Card 插入到 MicroSD Card 插槽内（如下图所示)，然后上电，系统开始启动，HDMI显示桌面。
 
 <img src="/img/rock2f/rock-2f-insert-sd.webp" width="500" alt="rock-2a pack" />
-
-## 登录系统
 
 ## 登录系统
 

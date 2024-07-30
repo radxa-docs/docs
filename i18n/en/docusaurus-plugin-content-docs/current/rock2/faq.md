@@ -2,6 +2,6 @@
 sidebar_position: 99
 ---
 
-# ROCK 2 Series Frequently Asked Questions
+# FAQ
 
 ## ROCK 2A Frequently Asked Questions

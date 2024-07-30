@@ -1,17 +1,16 @@
 ---
 sidebar_position: 1
-description: "Windows 下通过 USB 刷机"
+description: "Install OS via USB Under Windows"
 ---
 
 import Rkdevtool from "../../../../../common/dev/\_rkdevtoolV3.mdx";
-import Images from "../../../\_image.mdx"
 import Maskrom from "./\_maskrom.mdx"
 
-# Windows 主机
+# Windows Host
 
-## 文件下载
+## File Download
 
-请到[下载页面](../../../download.md)下载 Loader 和 系统镜像文件
+Please go to [Download Page](../../../download.md) to download Loader file and System Image
 
 <Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3528_spl_loader_v1.07.104.bin" emmc={false} pcie={false} sata={false} >
 <Maskrom/>
