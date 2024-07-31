@@ -4,7 +4,6 @@ description: "Linux 下通过 USB 刷机"
 ---
 
 import Rkdeveloptool from "../../../../../common/dev/\_rkdeveloptoolV3.mdx";
-import Images from "../../../\_image.mdx"
 import Maskrom from "./\_maskrom.mdx"
 
 # Linux 主机

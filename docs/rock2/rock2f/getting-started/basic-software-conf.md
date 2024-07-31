@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+description: ""
 ---
 
 import BasicSoftWareConf from "../../../common/radxa-os/xfce/\_basicSoftwareConf.mdx";

@@ -1,9 +1,8 @@
 ---
 sidebar_position: 1
-description: "安装系统到 MicroSD 卡上"
+description: "安装系统到 MicroSD 卡"
 ---
 
-import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 # 安装系统到 MicroSD 卡
