@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+description: ""
 ---
 
 import GPIO from '../../../../common/dev/\_gpio.mdx';

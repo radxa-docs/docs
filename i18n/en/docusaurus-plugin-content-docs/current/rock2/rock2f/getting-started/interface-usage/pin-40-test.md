@@ -8,7 +8,7 @@ import PWM from '../../../../common/dev/\_pwm.mdx';
 import SPI from '../../../../common/dev/\_spi.mdx';
 import UART from '../../../../common/dev/\_uart.mdx';
 
-# 40-PIN
+# 40 PIN
 
 ## GPIO
 

@@ -4,7 +4,6 @@ description: "Windows 下通过 USB 刷机"
 ---
 
 import Rkdevtool from "../../../../../common/dev/\_rkdevtoolV3.mdx";
-import Images from "../../../\_image.mdx"
 import Maskrom from "./\_maskrom.mdx"
 
 # Windows 主机

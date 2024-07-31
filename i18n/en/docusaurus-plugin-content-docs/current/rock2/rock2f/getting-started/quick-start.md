@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: ""
 ---
 
 # Quick start
@@ -10,7 +11,7 @@ sidebar_position: 2
 
 To boot the ROCK 2F, you will also need the following devices:
 
-- A 5V power supply header with current >=2A (ROCK 2F only supports 5V input, you can use a PD power header that supports 5V) For more details on power supply, please refer to [power-supply](./power-supply).
+- A 5V power supply header with current >=2A (ROCK 2F only supports 5V input, you can use a PD power header that supports 5V) For more details on power supply, please refer to [power supply](./power-supply).
 - An HDMI cable and an HDMI-enabled monitor with a recommended resolution of 1080P or higher, a 4K monitor will provide the best experience.
 - A USB mouse and keyboard. Common USB input devices are plug-and-play.
 

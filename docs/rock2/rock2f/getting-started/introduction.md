@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: ""
 ---
 
 # 产品介绍
@@ -41,7 +42,7 @@ sidebar_position: 1
   </tr>
   <tr>
     <th>PCIE 接口</th>
-    <th>一线的 PCIe 2.0 接口</th>
+    <th>1 lane PCIe 2.0 接口</th>
   </tr>
   <tr>
     <th>无线网</th>
@@ -53,7 +54,7 @@ sidebar_position: 1
   </tr>
   <tr>
     <th>供电</th>
-    <th>仅支持 5V</th>
+    <th>仅支持 5V, 电流要求 >= 2A </th>
   </tr>
   <tr>
     <th>尺寸</th>
@@ -63,7 +64,7 @@ sidebar_position: 1
 
 ### 软件
 
-支持 Debian Linux。
+支持 Debian Linux
 
 ## 主板预览
 

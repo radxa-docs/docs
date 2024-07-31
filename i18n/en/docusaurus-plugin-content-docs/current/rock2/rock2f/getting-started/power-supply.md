@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+description: "Power Supply Specs"
 ---
 
 # Power Supply
