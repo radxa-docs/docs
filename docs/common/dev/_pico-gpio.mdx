@@ -1,0 +1,85 @@
+##### GPIO
+
+- 准备
+
+    - 一块 {props.product_name}
+    - 一个 LED
+
+- 连接
+
+<table>
+    <tr>
+        <th>{props.product_name}</th>
+        <th>\<--\></th>
+        <th>LED</th>
+    </tr>
+    <tr>
+        <td>{props.led_pin}</td>
+        <th>\<--\></th>
+        <td>LED</td>
+    </tr>
+    <tr>
+        <td>PIN_1</td>
+        <th>\<--\></th>
+        <td>VCC</td>
+    </tr>
+    <tr>
+        <td>PIN_9</td>
+        <th>\<--\></th>
+        <td>GND</td>
+    </tr>
+
+</table>
+
+:::tip
+
+这里的 {props.led_pin} 对应 下面代码中的 GPIO29, 详细请参考 <a href={props.gpio_definition}>GPIO 定义</a>
+
+:::
+
+- 测试
+
+    - 将以下代码替换 pico-examples/blink/blink.c
+
+    <details>
+
+      <summary>blink.c</summary>
+
+        ```c
+
+        #include "pico/stdlib.h"
+        #define BLINK_PIN 29 // GPIO29
+
+        int main() {
+
+            gpio_init(BLINK_PIN);
+            gpio_set_dir(BLINK_PIN, GPIO_OUT);
+
+            while (true) {
+                gpio_put(BLINK_PIN, 1);
+                sleep_ms(250);
+                gpio_put(BLINK_PIN, 0);
+                sleep_ms(250);
+            }
+        }
+
+        ```
+
+    </details>
+
+    - 编译
+
+        ```bash
+        cd pico-examples/build
+        rm -rf *
+        cmake ..
+        make -j$(nproc)
+        ```
+
+        成功编译后，在 pico-examples/build/blink/ 目录下会产生一个名为 blink.uf2 的文件
+
+    - 烧录
+
+        - <a href={props.flash_url}>重启 RP2040</a>
+
+        - 将 blink.uf2 文件拖入到 RP2040 中，待 RP2040 消失后， LED 会开始闪烁

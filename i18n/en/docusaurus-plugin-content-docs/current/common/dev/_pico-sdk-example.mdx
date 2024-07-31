@@ -1,36 +1,56 @@
-## PICO-SDK
+#### PICO-SDK
 
-### Install the necessary tools
+- Introduction
 
-```
-sudo apt update -y
-sudo apt install -y git cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
-```
+    The Raspberry Pi Pico SDK (henceforth the SDK) provides the headers, libraries and build system necessary to write programs for the RP2040-based devices (such as the Raspberry Pi Pico/{props.product_name}) in C, C++ or assembly language.
 
-### Get the code
+    The SDK is designed to provide an API and programming environment that is familiar both to non-embedded C developers and embedded C developers alike. A single program runs on the device at a time and starts with a conventional main() method.
+    Standard C/C++ libraries are supported along with C level libraries/APIs for accessing all of the RP2040's hardware include PIO (Programmable IO).
 
-```
-git clone https://github.com/raspberrypi/pico-sdk.git
-cd pico-sdk
-git submodule update --init
-```
+- Usage
 
-## PICO-EXAMPLES
+    - Install the necessary tools
 
-### Get the code
+    ```
+    sudo apt update -y
+    sudo apt install -y git cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
+    ```
 
-```
-git clone https://github.com/raspberrypi/pico-examples.git --branch master
-```
+    :::tip
 
-### Compile
+    You can either download pico-sdk/pico-examples and install the tools on your PC in a Linux environment, or you can do it in the Linux environment of {props.product_name}. For convenience, we can do this directly in the Linux environment of {props.product_name}.
 
-```
-export PICO_SDK_PATH=path/to/pico-sdk
-cd pico-examples
-mkdir build
-cd build
-cmake .. && make -j4
-```
+    :::
 
-### <a href={props.flash_url}>Burning</a>
+    - Get the code
+
+    ```
+    git clone https://github.com/raspberrypi/pico-sdk.git
+    cd pico-sdk
+    git submodule update --init
+    ```
+
+#### PICO-EXAMPLES
+
+- Introduction
+
+    pico-examples is an official example codebase that shows how to use the Raspberry Pi Pico and the Pico SDK to implement a variety of features.
+    It provides a range of examples covering everything from basic GPIO operations to complex communication protocols to get developers up to speed and understanding how to develop on the Pico.
+
+- Usage
+
+    - Get the code
+
+    ```
+    git clone https://github.com/raspberrypi/pico-examples.git --branch master
+    ```
+
+    - Compile
+
+    ```
+    export PICO_SDK_PATH=path/to/pico-sdk
+    cd pico-examples
+    mkdir build
+    cd build
+    cmake .. && make -j4
+    ```

@@ -1,0 +1,208 @@
+##### FAN
+
+    The purpose of this paragraph is to provide the user with an example of the host CPU communicating with the MCU RP2040 by obtaining the temperature of the host CPU and making the fan spin up when the specified temperature is reached.
+
+- Connetion
+
+    Connect the fan's pwm pin to PIN_3, the fan VCC to {props.product_name}'s vCC, and the fan GND to {props.product_name}'s GND.
+
+- Install the required Python libraries On the Host
+
+  ```bash
+  pip install pyserial psutil
+  sudo apt-get update
+  sudo apt-get install stress
+  sudo apt-get install minicom
+  ```
+
+- Create a new Temperature.py file on the host with the following contents:
+
+    <details>
+
+    <summary>Temperature.py</summary>
+
+    ```py
+
+        import psutil
+        import serial
+        import time
+
+        SERIAL_PORT = '/dev/ttyS0'
+        BAUD_RATE = 115200
+
+        set = serial.Serial(SERIAL_PORT, BAUD_RATE)
+
+        def get_cpu_temperature():
+            # get temperature from PC Host
+            temps = psutil.sensors_temperatures()
+            if 'coretemp' in temps:
+                cpu_temp = temps['coretemp'][0].current
+                return cpu_temp
+            else:
+                return None
+
+        try:
+            while True:
+                temp = get_cpu_temperature()
+                if temp is not None:
+                    print(f"CPU Temperature: {temp}°C")
+                    set.write(f"{temp}\n".encode())
+                else:
+                    print("Unable to read temperature.")
+                time.sleep(1)
+        except KeyboardInterrupt:
+            set.close()
+            print("Program terminated.")
+
+    ```
+    </details>
+
+- Add a directory for pwm_fan inside pico-examples/pwm/CMakeLists.txt
+
+    <details>
+    <summary>CMakeLists.txt</summary>
+    ```txt
+        add_executable(pwm_fan
+            pwm_fan.c
+            )
+
+        # pull in common dependencies and additional pwm hardware support
+        target_link_libraries(pwm_fan pico_stdlib hardware_pwm)
+
+        # create map/bin/hex file etc.
+        pico_add_extra_outputs(pwm_fan)
+
+        # add url via pico_set_program_url
+        example_auto_set_url(pwm_fan)
+    ```
+    </details>
+
+- Create a new CMakeLists.txt in the pico-examples/pwm/pwm_fan/ directory with the following contents:
+
+    <details>
+
+    <summary>CMakeLists.txt</summary>
+
+    ```txt
+        add_executable(pwm_fan
+            pwm_fan.c
+            )
+
+        # pull in common dependencies and additional pwm hardware support
+        target_link_libraries(pwm_fan pico_stdlib hardware_pwm)
+
+        # create map/bin/hex file etc.
+        pico_add_extra_outputs(pwm_fan)
+
+        # add url via pico_set_program_url
+        example_auto_set_url(pwm_fan)
+
+    ```
+    </details>
+
+- Create a new pwm_fan.c in the pico-examples/pwm/pwm_fan/ directory with the following contents:
+
+<details>
+
+<summary>pwm_fan.c</summary>
+
+```c
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include "pico/stdlib.h"
+    #include "hardware/uart.h"
+    #include "hardware/pwm.h"
+
+    #define UART_ID uart0
+    #define BAUD_RATE 115200
+    #define UART_TX_PIN 0
+    #define UART_RX_PIN 1
+    #define FAN_PWM_PIN 28
+    #define TEMP_THRESHOLD 60.0
+
+    void set_pwm_duty_cycle(uint slice_num, uint channel, float duty_cycle) {
+        if (duty_cycle < 0.0f) duty_cycle = 0.0f;
+        if (duty_cycle > 100.0f) duty_cycle = 100.0f;
+        uint16_t level = (uint16_t)(duty_cycle * (float)(1 << 16) / 100.0f);
+        pwm_set_gpio_level(FAN_PWM_PIN, level);
+    }
+
+    int main() {
+        stdio_init_all();
+
+        uart_init(UART_ID, BAUD_RATE);
+        gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+        gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+
+        uart_set_format(UART_ID, 8, 1, UART_PARITY_NONE);
+        uart_set_fifo_enabled(UART_ID, false);
+
+        gpio_set_function(FAN_PWM_PIN, GPIO_FUNC_PWM);
+        uint slice_num = pwm_gpio_to_slice_num(FAN_PWM_PIN);
+        pwm_config config = pwm_get_default_config();
+        pwm_config_set_clkdiv(&config, 4.0f);
+        pwm_init(slice_num, &config, true);
+
+        char buffer[32];
+        int index = 0;
+
+        printf("Waiting for data...\n");
+
+        while (1) {
+            if (uart_is_readable(UART_ID)) {
+                char c = uart_getc(UART_ID);
+                if (c == '\n') {
+                    buffer[index] = '\0';
+                    float temperature = atof(buffer);
+                    printf("Received temperature: %.2f°C\n", temperature);
+                    if (temperature > TEMP_THRESHOLD) {
+                        set_pwm_duty_cycle(slice_num, PWM_CHAN_A, 100.0f);
+                    } else {
+                        set_pwm_duty_cycle(slice_num, PWM_CHAN_A, 0.0f);
+                    }
+                    index = 0;
+                } else {
+                    buffer[index++] = c;
+                    if (index >= sizeof(buffer)) {
+                        index = sizeof(buffer) - 1;
+                    }
+                }
+            }
+        }
+
+        return 0;
+    }
+```
+</details>
+
+- Compile
+
+```bash
+cd pico-example/build
+rm -rf *
+cmake ..
+make -j$(nproc)
+```
+
+After successful compilation, a file named pwm_fan.uf2 is generated in the build/pwm/pwm_fan directory
+
+- Flash
+
+    - <a href={props.flash_url}>Reboot RP2040</a>
+    - Drag the pwm_fan.uf2 file into the RP2040, and after the RP2040 disappears, the program starts to read the messages from /dev/ttyS0.
+
+- Run Temperature.py on the board
+
+    ```bash
+    sudo python3 Temperature.py
+    ```
+
+    If the program runs successfully, the program gets the current temperature of the host computer, sends the temperature to the serial port /dev/ttyS0, and formats the output temperature such as “CPU Temperature: 42.0°C”
+
+- Run the minicom on the board
+
+    ```bash
+    sudo minicom -D /dev/ttyS0 -b 115200
+    ```
+
+    Check if the RP2040 has received the temperature from the host, if it has, the minicom will output the corresponding temperature, e.g. “Received temperature: 42.00°C”.

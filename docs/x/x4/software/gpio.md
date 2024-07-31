@@ -5,7 +5,7 @@ description: "X4 GPIO 定义"
 
 # GPIO 定义
 
-<Tabs>
+<Tabs queryString="version">
 <TabItem value="v1.110">
     <div className='gpio_style' style={{ overflow :"auto"}} >
 
@@ -33,6 +33,7 @@ description: "X4 GPIO 定义"
     |           |           |           |           |    GND    | <div className='black'>39</div> | <div className='green'>40</div> |  GPIO25   | SPI1 CSn  | UART1 RX  | I2C0 SCL  | PWM4 B    |
 
     </div>
+
 </TabItem>
 
 <TabItem value="v1.110 之前">
@@ -61,6 +62,7 @@ description: "X4 GPIO 定义"
     | PWM7 A    | I2C1 SDA  | UART0 CTS | SPI1 SCK  |  GPIO14   | <div className='green'>19</div> | <div className='green'>22</div> |  GPIO02   | SPI0 SCK  | UART0 CTS | I2C1 SDA  | PWM1 A    |
     |           |           |           |           |    GND    | <div className='black'>20</div> | <div className='green'>21</div> |  GPIO25   | SPI1 CSn  | UART1 RX  | I2C0 SCL  | PWM4 B    |
     </div>
+
 </TabItem>
 </Tabs>
 

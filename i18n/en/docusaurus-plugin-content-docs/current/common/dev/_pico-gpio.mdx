@@ -1,0 +1,86 @@
+##### GPIO
+
+- Preparation
+
+    - One {props.product_name}
+    - One LED
+
+- Connetion
+
+<table>
+    <tr>
+        <th>{props.product_name}</th>
+        <th>\<--\></th>
+        <th>LED</th>
+    </tr>
+    <tr>
+        <td>{props.led_pin}</td>
+        <th>\<--\></th>
+        <td>LED</td>
+    </tr>
+    <tr>
+        <td>PIN_1</td>
+        <th>\<--\></th>
+        <td>VCC</td>
+    </tr>
+    <tr>
+        <td>PIN_9</td>
+        <th>\<--\></th>
+        <td>GND</td>
+    </tr>
+
+</table>
+
+:::tip
+
+Here {props.led_pin} corresponds to GPIO29 in the following code, please refer to <a href={props.gpio_definition}>GPIO Definition</a> for details.
+
+:::
+
+- Test
+
+    - Replace pico-examples/blink/blink.c with the following code
+
+    <details>
+
+      <summary>blink.c</summary>
+
+        ```c
+
+        #include "pico/stdlib.h"
+        #define BLINK_PIN 29 // GPIO29
+
+        int main() {
+
+            gpio_init(BLINK_PIN);
+            gpio_set_dir(BLINK_PIN, GPIO_OUT);
+
+            while (true) {
+                gpio_put(BLINK_PIN, 1);
+                sleep_ms(250);
+                gpio_put(BLINK_PIN, 0);
+                sleep_ms(250);
+            }
+        }
+
+        ```
+
+    </details>
+
+
+    - Compile
+
+        ```bash
+        cd pico-examples/build
+        rm -rf *
+        cmake ..
+        make -j$(nproc)
+        ```
+
+        After successful compilation, a file named blink.uf2 will be created in the pico-examples/build/blink/ directory.
+
+  - Flash
+
+    - <a href={props.flash_url}>Reboot RP2040</a>
+
+    - Drag the blink.uf2 file into the RP2040, and when the RP2040 disappears, the LED will start blinking.
