@@ -1,5 +1,9 @@
 Real-ESRGAN-TPU 视频/图片分辨率超分应用，通过使用腾讯 ARC 实验室开源 [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) 系列模型，使用 Sophon SDK 移植到 SG2300X 芯片系列产品上，实现本地 TPU 进行硬件加速推理，
-此应用可用于对视频/图片进行分辨率提升达到 2560x1920 画质，并提供多种针对不同场景使用的优化模型，可对真实场景，动漫视频进行针对性优化，并实现真实人面增强 （[CodeFormer](https://github.com/sczhou/CodeFormer)）还原功能，此应用使用 Gradio 和 Streamlit 实现用户友好交互界面
+此应用可用于对视频/图片进行分辨率提升到 2560x1920 像素，并提供多种针对不同场景使用的优化模型，可对真实场景，动漫视频进行针对性优化。
+加入真实人面增强 [CodeFormer](https://github.com/sczhou/CodeFormer) 与 [GFPGAN](https://github.com/TencentARC/GFPGAN) 模型。
+加入 [RMBG](https://github.com/chenxwh/cog-RMBG) 针对主体进行背景移除模型，并可 DIY 任意背景（如证件照背景）。 此应用使用 Gradio 实现用户友好交互界面。
+
+### 应用安装
 
 - 克隆仓库
 
@@ -27,19 +31,8 @@ Real-ESRGAN-TPU 视频/图片分辨率超分应用，通过使用腾讯 ARC 实�
 
   ```bash
   pip3 install --upgrade pip setuptools wheel
-  pip3 install basicsr --use-pep517
   pip3 install -r requirements.txt
   pip3 install https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/tpu_perf-1.2.31-py3-none-manylinux2014_aarch64.whl
-  ```
-
-- 修复 basicsr 包依赖 bug 错误
-
-  将 functional_tensor 改成 functional，具体参考 [https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/13985](https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/13985)
-
-  ```bash
-  vim .venv/lib/python3.8/site-packages/basicsr/data/degradations.py
-  #from torchvision.transforms.functional_tensor import rgb_to_grayscale
-  from torchvision.transforms.functional import rgb_to_grayscale
   ```
 
 - 下载模型
@@ -58,16 +51,8 @@ Real-ESRGAN-TPU 视频/图片分辨率超分应用，通过使用腾讯 ARC 实�
 
   浏览器访问 Airbox ip 地址的 7860 端口
 
-  -（可选）通过 streamlit 启动
-
-  ```bash
-  bash run_st.sh
-  ```
-
-  浏览器访问 Airbox ip 地址的 8501 端口
-
 ### 应用展示
 
-![re_1.webp](/img/general-tutorial/tpu_ai/re_1.webp)
+![re_1.webp](/img/general-tutorial/tpu_ai/re_2.webp)
 
 ![re_4.webp](/img/general-tutorial/tpu_ai/re_4.webp)
