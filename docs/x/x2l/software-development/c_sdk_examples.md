@@ -7,11 +7,11 @@ import GPIO from "../../../common/dev/\_pico-gpio.mdx";
 import PWM from "../../../common/dev/\_pico-pwm.mdx";
 import I2C from "../../../common/dev/\_pico-i2c.mdx";
 import FAN from "../../../common/dev/\_pico-fan.mdx";
-import RELATION from "./_relation.mdx"
+import RELATION from "./\_relation.mdx"
 
 # 40-PIN 使用指南
 
-##  Intel N100 与 RP2040 和 40-PIN GPIO 的关系介绍
+## Intel N100 与 RP2040 和 40-PIN GPIO 的关系介绍
 
 <RELATION />
 

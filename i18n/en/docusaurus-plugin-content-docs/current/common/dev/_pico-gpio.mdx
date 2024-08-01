@@ -1,11 +1,11 @@
 ##### GPIO
 
-- Preparation
+###### 1. Preparation
 
-    - One {props.product_name}
-    - One LED
+- One {props.product_name}
+- One LED
 
-- Connetion
+###### 2. Connection
 
 <table>
     <tr>
@@ -37,50 +37,49 @@ Here {props.led_pin} corresponds to GPIO29 in the following code, please refer t
 
 :::
 
-- Test
+###### 3. Test
 
-    - Replace pico-examples/blink/blink.c with the following code
+- Replace pico-examples/blink/blink.c with the following code
 
-    <details>
+  <details>
 
-      <summary>blink.c</summary>
+  <summary>blink.c</summary>
 
-        ```c
+      ```c
 
-        #include "pico/stdlib.h"
-        #define BLINK_PIN 29 // GPIO29
+      #include "pico/stdlib.h"
+      #define BLINK_PIN 29 // GPIO29
 
-        int main() {
+      int main() {
 
-            gpio_init(BLINK_PIN);
-            gpio_set_dir(BLINK_PIN, GPIO_OUT);
+          gpio_init(BLINK_PIN);
+          gpio_set_dir(BLINK_PIN, GPIO_OUT);
 
-            while (true) {
-                gpio_put(BLINK_PIN, 1);
-                sleep_ms(250);
-                gpio_put(BLINK_PIN, 0);
-                sleep_ms(250);
-            }
-        }
+          while (true) {
+              gpio_put(BLINK_PIN, 1);
+              sleep_ms(250);
+              gpio_put(BLINK_PIN, 0);
+              sleep_ms(250);
+          }
+      }
 
-        ```
+      ```
 
-    </details>
+  </details>
 
+- Compile
 
-    - Compile
+  ```bash
+  cd pico-examples/build
+  rm -rf *
+  cmake ..
+  make -j$(nproc)
+  ```
 
-        ```bash
-        cd pico-examples/build
-        rm -rf *
-        cmake ..
-        make -j$(nproc)
-        ```
+  After successful compilation, a file named blink.uf2 will be created in the pico-examples/build/blink/ directory.
 
-        After successful compilation, a file named blink.uf2 will be created in the pico-examples/build/blink/ directory.
+- Flash
 
-  - Flash
+  - <a href={props.flash_url}>Reboot RP2040</a>
 
-    - <a href={props.flash_url}>Reboot RP2040</a>
-
-    - Drag the blink.uf2 file into the RP2040, and when the RP2040 disappears, the LED will start blinking.
+  - Drag the blink.uf2 file into the RP2040, and when the RP2040 disappears, the LED will start blinking.

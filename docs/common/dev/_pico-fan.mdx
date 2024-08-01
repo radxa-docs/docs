@@ -1,110 +1,116 @@
 ##### FAN
 
-    本段示例旨在为用户提供一个主机 CPU 与 MCU RP2040 通信的例子，通过获取主机 CPU 的温度，当达到指定温度时，让风扇转起来。
+本段示例旨在为用户提供一个 {props.product_name} CPU 与 MCU RP2040 通信的例子，通过获取 {props.product_name} CPU 的温度，当达到指定温度时，让风扇转起来。
 
-- 连接
+###### 1. 连接
 
-    将风扇的 pwm 引脚连接到 PIN_3, 风扇 VCC 连接 {props.product_name} 的 vCC, 风扇 GND 连接 {props.product_name} 的 GND
+将风扇的 pwm 引脚连接到 PIN_3, 风扇 VCC 连接 {props.product_name} 的 vCC, 风扇 GND 连接 {props.product_name} 的 GND
 
-- 主机安装所需要的 Python 库
+###### 2. {props.product_name} 安装所需要的 Python 库
 
-    ```bash
-    pip install pyserial psutil
-    sudo apt-get update
-    sudo apt-get install stress
-    sudo apt-get install minicom
-    ```
+```bash
+pip install pyserial psutil
+sudo apt-get update
+sudo apt-get install stress
+sudo apt-get install minicom
+```
 
-- 在主机上新建一个 Temperature.py 的文件，内容如下：
-
-    <details>
-
-    <summary>Temperature.py</summary>
-
-    ```py
-
-        import psutil
-        import serial
-        import time
-
-        SERIAL_PORT = '/dev/ttyS0'
-        BAUD_RATE = 115200
-
-        set = serial.Serial(SERIAL_PORT, BAUD_RATE)
-
-        def get_cpu_temperature():
-            # get temperature from PC Host
-            temps = psutil.sensors_temperatures()
-            if 'coretemp' in temps:
-                cpu_temp = temps['coretemp'][0].current
-                return cpu_temp
-            else:
-                return None
-
-        try:
-            while True:
-                temp = get_cpu_temperature()
-                if temp is not None:
-                    print(f"CPU Temperature: {temp}°C")
-                    set.write(f"{temp}\n".encode())
-                else:
-                    print("Unable to read temperature.")
-                time.sleep(1)
-        except KeyboardInterrupt:
-            set.close()
-            print("Program terminated.")
-
-    ```
-    </details>
-
-- 在 pico-examples/pwm/CMakeLists.txt 里面添加一个 pwm_fan 的目录
-
-    <details>
-    <summary>CMakeLists.txt</summary>
-    ```txt
-        add_executable(pwm_fan
-            pwm_fan.c
-            )
-
-        # pull in common dependencies and additional pwm hardware support
-        target_link_libraries(pwm_fan pico_stdlib hardware_pwm)
-
-        # create map/bin/hex file etc.
-        pico_add_extra_outputs(pwm_fan)
-
-        # add url via pico_set_program_url
-        example_auto_set_url(pwm_fan)
-    ```
-    </details>
-
-- 在 pico-examples/pwm/pwm_fan/ 目录下新建一个 CMakeLists.txt， 内容如下：
-
-    <details>
-
-    <summary>CMakeLists.txt</summary>
-
-    ```txt
-        add_executable(pwm_fan
-            pwm_fan.c
-            )
-
-        # pull in common dependencies and additional pwm hardware support
-        target_link_libraries(pwm_fan pico_stdlib hardware_pwm)
-
-        # create map/bin/hex file etc.
-        pico_add_extra_outputs(pwm_fan)
-
-        # add url via pico_set_program_url
-        example_auto_set_url(pwm_fan)
-
-    ```
-    </details>
-
-- 在 pico-examples/pwm/pwm_fan/ 目录下新建一个 pwm_fan.c，内容如下：
+###### 3. 在 {props.product_name} 上新建一个 Temperature.py 的文件，内容如下：
 
 <details>
 
-<summary>pwm_fan.c</summary>
+    <summary>Temperature.py</summary>
+
+```py
+
+    import psutil
+    import serial
+    import time
+
+    SERIAL_PORT = '/dev/ttyS0'
+    BAUD_RATE = 115200
+
+    set = serial.Serial(SERIAL_PORT, BAUD_RATE)
+
+    def get_cpu_temperature():
+        # get temperature from PC Host
+        temps = psutil.sensors_temperatures()
+        if 'coretemp' in temps:
+            cpu_temp = temps['coretemp'][0].current
+            return cpu_temp
+        else:
+            return None
+
+    try:
+        while True:
+            temp = get_cpu_temperature()
+            if temp is not None:
+                print(f"CPU Temperature: {temp}°C")
+                set.write(f"{temp}\n".encode())
+            else:
+                print("Unable to read temperature.")
+            time.sleep(1)
+    except KeyboardInterrupt:
+        set.close()
+        print("Program terminated.")
+
+```
+
+</details>
+
+###### 4. 在 pico-examples/pwm/CMakeLists.txt 里面添加一个 pwm_fan 的目录
+
+<details>
+<summary>CMakeLists.txt</summary>
+```txt
+
+    add_executable(pwm_fan
+        pwm_fan.c
+        )
+
+    # pull in common dependencies and additional pwm hardware support
+    target_link_libraries(pwm_fan pico_stdlib hardware_pwm)
+
+    # create map/bin/hex file etc.
+    pico_add_extra_outputs(pwm_fan)
+
+    # add url via pico_set_program_url
+    example_auto_set_url(pwm_fan)
+
+````
+
+</details>
+
+###### 5. 在 pico-examples/pwm/pwm_fan/ 目录下新建一个 CMakeLists.txt， 内容如下：
+
+<details>
+
+    <summary>CMakeLists.txt</summary>
+
+```txt
+
+    add_executable(pwm_fan
+        pwm_fan.c
+        )
+
+    # pull in common dependencies and additional pwm hardware support
+    target_link_libraries(pwm_fan pico_stdlib hardware_pwm)
+
+    # create map/bin/hex file etc.
+    pico_add_extra_outputs(pwm_fan)
+
+    # add url via pico_set_program_url
+    example_auto_set_url(pwm_fan)
+
+```
+
+</details>
+
+###### 6. 在 pico-examples/pwm/pwm_fan/ 目录下新建一个 pwm_fan.c，内容如下：
+
+<details>
+
+    <summary>pwm_fan.c</summary>
 
 ```c
     #include <stdio.h>
@@ -172,10 +178,12 @@
 
         return 0;
     }
+
 ```
+
 </details>
 
-- 编译
+###### 7. 编译
 
 ```bash
 cd pico-example/build
@@ -186,23 +194,24 @@ make -j$(nproc)
 
 成功编译后，在 build/pwm/pwm_fan 目录下会产生一个名为 pwm_fan.uf2 的文件
 
-- 烧录
+###### 8. 烧录
 
-    - <a href={props.flash_url}>重启 RP2040</a>
-    - 将 pwm_fan.uf2 文件拖入到 RP2040 中，待 RP2040 消失后， 程序开始读取 /dev/ttyS0 的消息
+  - <a href={props.flash_url}>重启 RP2040</a>
+  - 将 pwm_fan.uf2 文件拖入到 RP2040 中，待 RP2040 消失后， 程序开始读取 /dev/ttyS0 的消息
 
-- 板端运行 Temperature.py
+###### 9. 板端运行 Temperature.py
 
-    ```bash
-    sudo python3 Temperature.py
-    ```
+```bash
+sudo python3 Temperature.py
+```
 
-    程序成功运行的话，该程序会获取主机当前温度，将温度发送到串口 /dev/ttyS0，并格式化输出温度，如 "CPU Temperature: 42.0°C"
+程序成功运行的话，该程序会获取 {props.product_name} 当前温度，将温度发送到串口 /dev/ttyS0，并格式化输出温度，如 "CPU Temperature: 42.0°C"
 
-- 板端运行 minicom
+###### 10. 板端运行 minicom
 
-    ```bash
-    sudo minicom -D /dev/ttyS0 -b 115200
-    ```
+```bash
+sudo minicom -D /dev/ttyS0 -b 115200
+```
 
-    查看 RP2040 是否有接收到来自主机发送的温度，若成功接收到， minicom 会输出相应温度，如： "Received temperature: 42.00°C"
+查看 RP2040 是否有接收到来自 {props.product_name} 发送的温度，若成功接收到， minicom 会输出相应温度，如： "Received temperature: 42.00°C"
+````

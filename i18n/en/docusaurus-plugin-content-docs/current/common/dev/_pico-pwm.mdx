@@ -1,116 +1,118 @@
 ##### PWM
 
-- Preparation
+###### 1. Preparation
 
-  - One {props.product_name}
-  - One LED
+- One {props.product_name}
+- One LED
 
-- Connetion
+###### 2. Connection
 
-    <table>
-        <tr>
-            <th>{props.product_name}</th>
-            <th>\<--\></th>
-            <th>LED</th>
-        </tr>
-        <tr>
-            <td>{props.led_pin}</td>
-            <th>\<--\></th>
-            <td>LED</td>
-        </tr>
-        <tr>
-            <td>PIN_1</td>
-            <th>\<--\></th>
-            <td>VCC</td>
-        </tr>
-        <tr>
-            <td>PIN_9</td>
-            <th>\<--\></th>
-            <td>GND</td>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <th>{props.product_name}</th>
+        <th>\<--\></th>
+        <th>LED</th>
+    </tr>
+    <tr>
+        <td>{props.led_pin}</td>
+        <th>\<--\></th>
+        <td>LED</td>
+    </tr>
+    <tr>
+        <td>PIN_1</td>
+        <th>\<--\></th>
+        <td>VCC</td>
+    </tr>
+    <tr>
+        <td>PIN_9</td>
+        <th>\<--\></th>
+        <td>GND</td>
+    </tr>
+</table>
 
-    :::tip
+:::tip
 
-    Here {props.led_pin} corresponds to GPIO29 in the following code, please refer to <a href={props.gpio_definition}>GPIO Definition</a> for details.
+Here {props.led_pin} corresponds to GPIO29 in the following code, please refer to <a href={props.gpio_definition}>GPIO Definition</a> for details.
 
-    :::
+:::
 
-- Test
+###### 3. Test
 
-    - Replace the following code with pico-examples/pwm/led_fade/pwm_led_fade.c
+- Replace the following code with pico-examples/pwm/led_fade/pwm_led_fade.c
 
-    <details>
+<details>
 
-    <summary>pwm_led_fade.c</summary>{" "}
+<summary>pwm_led_fade.c</summary>{" "}
 
-    ```
-        #include "pico/stdlib.h"
-        #include <stdio.h>
-        #include "pico/time.h"
-        #include "hardware/irq.h"
-        #include "hardware/pwm.h"
+```c
 
-        #define PWD_FADE_LED_PIN 29
+    #include "pico/stdlib.h"
+    #include <stdio.h>
+    #include "pico/time.h"
+    #include "hardware/irq.h"
+    #include "hardware/pwm.h"
 
-        void on_pwm_wrap() {
-            static int fade = 0;
-            static bool going_up = true;
+    #define PWD_FADE_LED_PIN 29
 
-            pwm_clear_irq(pwm_gpio_to_slice_num(PWD_FADE_LED_PIN));
+    void on_pwm_wrap() {
+        static int fade = 0;
+        static bool going_up = true;
 
-            if (going_up) {
-                ++fade;
-                if (fade > 255) {
-                    fade = 255;
-                    going_up = false;
-                }
-            } else {
-                --fade;
-                if (fade < 0) {
-                    fade = 0;
-                    going_up = true;
-                }
+        pwm_clear_irq(pwm_gpio_to_slice_num(PWD_FADE_LED_PIN));
+
+        if (going_up) {
+            ++fade;
+            if (fade > 255) {
+                fade = 255;
+                going_up = false;
             }
-
-            pwm_set_gpio_level(PWD_FADE_LED_PIN, fade * fade);
+        } else {
+            --fade;
+            if (fade < 0) {
+                fade = 0;
+                going_up = true;
+            }
         }
 
-        int main() {
+        pwm_set_gpio_level(PWD_FADE_LED_PIN, fade * fade);
+    }
 
-            gpio_set_function(PWD_FADE_LED_PIN, GPIO_FUNC_PWM);
+    int main() {
 
-            uint slice_num = pwm_gpio_to_slice_num(PWD_FADE_LED_PIN);
+        gpio_set_function(PWD_FADE_LED_PIN, GPIO_FUNC_PWM);
 
-            pwm_clear_irq(slice_num);
-            pwm_set_irq_enabled(slice_num, true);
-            irq_set_exclusive_handler(PWM_IRQ_WRAP, on_pwm_wrap);
-            irq_set_enabled(PWM_IRQ_WRAP, true);
+        uint slice_num = pwm_gpio_to_slice_num(PWD_FADE_LED_PIN);
 
-            pwm_config config = pwm_get_default_config();
-            pwm_config_set_clkdiv(&config, 4.f);
-            pwm_init(slice_num, &config, true);
+        pwm_clear_irq(slice_num);
+        pwm_set_irq_enabled(slice_num, true);
+        irq_set_exclusive_handler(PWM_IRQ_WRAP, on_pwm_wrap);
+        irq_set_enabled(PWM_IRQ_WRAP, true);
 
-            while (1)
-                tight_loop_contents();
-        }
-    ```
+        pwm_config config = pwm_get_default_config();
+        pwm_config_set_clkdiv(&config, 4.f);
+        pwm_init(slice_num, &config, true);
 
-    </details>
+        while (1)
+            tight_loop_contents();
+    }
 
-    - Compile
+```
 
-        ```bash
-        cd pico-examples/build
-        rm -rf *
-        cmake ..
-        make -j$(nproc)
-        ```
+</details>
 
-        After successful compilation, a file named pwm_led_fade.uf2 will be created in the pico-examples/build/pwm/led_fade/ directory.
+- Compile
 
-    - Flash
+  ```bash
+  cd pico-examples/build
+  rm -rf *
+  cmake ..
+  make -j$(nproc)
+  ```
 
-        - <a href={props.flash_url}>Reboot RP2040</a>
+  After successful compilation, a file named pwm_led_fade.uf2 will be created in the pico-examples/build/pwm/led_fade/ directory.
 
-        - Drag the pwm_led_fade.uf2 file into the RP2040, after the RP2040 disappears, the LED will fade from dark to light/bright to dark.
+- Flash
+
+  - <a href={props.flash_url}>Reboot RP2040</a>
+
+  - Drag the pwm_led_fade.uf2 file into the RP2040, after the RP2040 disappears, the LED will fade from dark to light/bright to dark.
