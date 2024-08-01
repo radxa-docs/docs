@@ -66,4 +66,4 @@ description: "X4 GPIO 定义"
 </TabItem>
 </Tabs>
 
-- GPIO26//GPIO27/GPIO28/GPIO29: User IO 或者 ADC Input
+- GPIO26/GPIO27/GPIO28/GPIO29: User IO 或者 ADC Input
