@@ -1,10 +1,10 @@
-##### FAN
+##### 风扇
 
 本段示例旨在为用户提供一个 {props.product_name} CPU 与 MCU RP2040 通信的例子，通过获取 {props.product_name} CPU 的温度，当达到指定温度时，让风扇转起来。
 
 ###### 1. 连接
 
-将风扇的 pwm 引脚连接到 PIN_3, 风扇 VCC 连接 {props.product_name} 的 vCC, 风扇 GND 连接 {props.product_name} 的 GND
+将风扇的 pwm 引脚连接到 PIN_3, 风扇 VCC 连接 {props.product_name} 的 VCC, 风扇 GND 连接 {props.product_name} 的 GND
 
 ###### 2. {props.product_name} 安装所需要的 Python 库
 
@@ -61,9 +61,7 @@ sudo apt-get install minicom
 ###### 4. 在 pico-examples/pwm/CMakeLists.txt 里面添加一个 pwm_fan 的目录
 
 :::tip
-
-请参考上面 pico-sdk/pico-examples 部分
-
+关于 pico-examples 如何使用请参考上面 pico-sdk/pico-examples 部分
 :::
 
 <details>

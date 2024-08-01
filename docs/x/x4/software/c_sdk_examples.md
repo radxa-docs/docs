@@ -11,7 +11,7 @@ import RELATION from "./\_relation.mdx"
 
 # 40-PIN 使用指南
 
-## Intel N100 与 RP2040 和 40-PIN GPIO 的关系介绍
+## 40-PIN 与 Intel N100 及 RP2040 的关系介绍
 
 <RELATION />
 
@@ -25,7 +25,7 @@ import RELATION from "./\_relation.mdx"
 
 ### 示例
 
-#### RP2040 单独控制
+#### RP2040 控制 40-PIN
 
 <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" />
 
@@ -33,6 +33,6 @@ import RELATION from "./\_relation.mdx"
 
 <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" />
 
-#### CPU 与 RP2040 通信
+#### CPU N100 通过 RP2040 控制 40-PIN
 
 <FAN flash_url="./flash" product_name="Radxa X4" />

@@ -11,7 +11,7 @@ import RELATION from "./\_relation.mdx"
 
 # 40-PIN Usage
 
-## Introduction to Intel N100 and RP2040 and 40-PIN GPIO Relationships
+## Introducing the Relationship between 40 PIN , Intel N100 and RP2040
 
 <RELATION />
 
@@ -25,7 +25,7 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 
 ### Examples
 
-#### RP2040 Individually control the 40-PIN GPIO
+#### RP2040 Individually control the 40-PIN
 
 <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" />
 
@@ -33,6 +33,6 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 
 <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" />
 
-#### CPU controls the RP2040's 40-PIN GPIO via UART
+#### CPU controls the RP2040's 40 PIN via UART
 
 <FAN flash_url="./flash" product_name="Radxa X4" />
