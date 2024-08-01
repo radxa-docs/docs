@@ -32,3 +32,11 @@ Radxa 25W PoE+ HAT X4 special, including an additional 2-Pin female connector fo
 :::tip
 Please make sure that your network device (such as a switch, router, or hub) supports PoE (Power over Ethernet) functionality.
 :::
+
+## Usage
+
+::tip
+
+Please refer to the [fan usage](../software/c_sdk_examples) section of the documentation
+
+:::
