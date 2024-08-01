@@ -50,7 +50,7 @@ The analog audio output can directly drive 32-ohm headphones.</th>
   </tr>
   <tr>
     <th>Wi-Fi</th>
-    <th>IEEE 802.11 a/b/g/n/ac/ax (WiFi 6) and BT 5.4 with BLE 自带内部天线</th>
+    <th>IEEE 802.11 a/b/g/n/ac/ax (WiFi 6) and BT 5.4 with BLE Self-contained Internal Antenna</th>
   </tr>
   <tr>
     <th>40-PIN Header</th>

@@ -19,7 +19,7 @@ Insert the MicroSD card into the SD card reader, and then insert the card reader
 
 <Etcher />
 
-## 启动系统
+## Boot System
 
 After successfully flashing the MicroSD Card using the previous steps, insert the MicroSD Card into the MicroSD Card slot (as shown in the image below). Then, power on the device. The power indicator light will display a solid green color, indicating the system has started booting up. Once the normal startup process completes, the indicator light will begin blinking. After a short period of time, the HDMI output will display the desktop.
 
