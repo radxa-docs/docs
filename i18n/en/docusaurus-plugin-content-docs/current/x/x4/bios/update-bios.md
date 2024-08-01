@@ -8,7 +8,7 @@ sidebar_position: 10
 
 **Radxa X4 BIOS**
 
-- [Radxa X4 BIOS Install](https://dl.radxa.com/x/x4/radxa_x4_bios_update_018.zip)
+- [Radxa X4 BIOS Install](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_Upgrade.zip )
 
 ## Preparation for the Update
 
