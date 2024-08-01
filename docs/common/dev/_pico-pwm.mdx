@@ -1,0 +1,116 @@
+##### PWM
+
+###### 1. 准备
+
+- 一块 {props.product_name}
+- 一个 LED
+
+###### 2. 连接
+
+<table>
+    <tr>
+        <th>{props.product_name}</th>
+        <th>\<--\></th>
+        <th>LED</th>
+    </tr>
+    <tr>
+        <td>{props.led_pin}</td>
+        <th>\<--\></th>
+        <td>LED</td>
+    </tr>
+    <tr>
+        <td>PIN_1</td>
+        <th>\<--\></th>
+        <td>VCC</td>
+    </tr>
+    <tr>
+        <td>PIN_9</td>
+        <th>\<--\></th>
+        <td>GND</td>
+    </tr>
+</table>
+
+:::tip
+
+这里的 {props.led_pin} 对应 下面代码中的 GPIO29, 详细请参考 <a href={props.gpio_definition}>GPIO 定义</a>
+
+:::
+
+###### 3. 测试
+
+- 将以下代码替换 pico-examples/pwm/led_fade/pwm_led_fade.c
+
+<details>
+    <summary>pwm_led_fade.c</summary>
+
+```c
+#include "pico/stdlib.h"
+#include <stdio.h>
+#include "pico/time.h"
+#include "hardware/irq.h"
+#include "hardware/pwm.h"
+
+#define PWD_FADE_LED_PIN 29
+
+void on_pwm_wrap() {
+    static int fade = 0;
+    static bool going_up = true;
+
+    pwm_clear_irq(pwm_gpio_to_slice_num(PWD_FADE_LED_PIN));
+
+    if (going_up) {
+        ++fade;
+        if (fade > 255) {
+            fade = 255;
+            going_up = false;
+        }
+    } else {
+        --fade;
+        if (fade < 0) {
+            fade = 0;
+            going_up = true;
+        }
+    }
+
+    pwm_set_gpio_level(PWD_FADE_LED_PIN, fade * fade);
+}
+
+int main() {
+
+    gpio_set_function(PWD_FADE_LED_PIN, GPIO_FUNC_PWM);
+
+    uint slice_num = pwm_gpio_to_slice_num(PWD_FADE_LED_PIN);
+
+    pwm_clear_irq(slice_num);
+    pwm_set_irq_enabled(slice_num, true);
+    irq_set_exclusive_handler(PWM_IRQ_WRAP, on_pwm_wrap);
+    irq_set_enabled(PWM_IRQ_WRAP, true);
+
+    pwm_config config = pwm_get_default_config();
+    pwm_config_set_clkdiv(&config, 4.f);
+    pwm_init(slice_num, &config, true);
+
+    while (1)
+        tight_loop_contents();
+}
+
+```
+
+</details>
+
+- 编译
+
+```bash
+cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)
+```
+
+编译成功后， 在 pico-examples/build/pwm/led_fade/ 目录下会产生一个名为 pwm_led_fade.uf2 的文件
+
+- 烧录
+
+  - <a href={props.flash_url}>重启 RP2040</a>
+
+  - 将 pwm_led_fade.uf2 文件拖入到 RP2040 中，待 RP2040 消失后， LED 会由暗到亮/由亮到暗渐变

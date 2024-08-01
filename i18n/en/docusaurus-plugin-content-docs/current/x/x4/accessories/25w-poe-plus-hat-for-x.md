@@ -32,3 +32,11 @@ Radxa 25W PoE+ HAT X4 special, including an additional 2-Pin female connector fo
 :::tip
 Please make sure that your network device (such as a switch, router, or hub) supports PoE (Power over Ethernet) functionality.
 :::
+
+## Enable FAN
+
+:::tip
+
+Please refer to the [CPU controls the RP2040's 40 PIN via UART](../software/c_sdk_examples#cpu-controls-the-rp2040s-40-pin-via-uart) **_FAN_** section of the documentation
+
+:::

@@ -32,3 +32,11 @@ sidebar_position: 10
 :::tip
 请务必确认您的网络设备（如交换机、路由器或集线器）支持PoE（以太网供电）功能。
 :::
+
+## 使能风扇
+
+:::tip
+
+请参考 [CPU N100 通过 RP2040 控制 40-PIN ](../software/c_sdk_examples#cpu-n100-通过-rp2040-控制-40-pin) 中的 **_风扇_** 部分文档
+
+:::

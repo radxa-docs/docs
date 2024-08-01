@@ -1,13 +1,28 @@
-## PICO-SDK
+#### PICO-SDK
 
-### 安装必要工具
+##### 1. 简介
+
+Raspberry Pi Pico SDK（以下简称 SDK）提供了使用 C、C++ 或汇编语言为基于 RP2040 的设备（如 Raspberry Pi Pico/{props.product_name}）编写程序所需的标头、库和构建系统。
+
+SDK 旨在提供非嵌入式 C 开发人员和嵌入式 C 开发人员都熟悉的 API 和编程环境。单个程序一次在设备上运行，并以常规方法启动main()。
+支持标准 C/C++ 库以及用于访问 RP2040 的所有硬件（包括 PIO（可编程 IO））的 C 级库/API。
+
+##### 2. 使用
+
+:::tip
+
+既可以在 PC 端的 Linux 环境中下载 pico-sdk/pico-examples 以及安装相应工具，也可以在 {props.product_name} 的 Linux 环境下。为方便起见，我们可以直接在 {props.product_name} 的 Linux 环境中进行操作。
+
+:::
+
+- 安装必要工具
 
 ```
 sudo apt update -y
 sudo apt install -y git cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
 ```
 
-### 获取代码
+- 获取代码
 
 ```
 git clone https://github.com/raspberrypi/pico-sdk.git
@@ -15,15 +30,28 @@ cd pico-sdk
 git submodule update --init
 ```
 
-## PICO-EXAMPLES
+#### PICO-EXAMPLES
 
-### 获取代码
+##### 1.简介
+
+pico-examples 是一个官方示例代码库，展示了如何使用 Raspberry Pi Pico 和 Pico SDK 来实现各种功能。
+它提供了一系列的示例，涵盖了从基本 GPIO 操作到复杂的通信协议，使开发者能够快速上手并理解如何在 Pico 上进行开发。
+
+##### 2. 使用
+
+:::tip
+
+既可以在 PC 端的 Linux 环境中下载 pico-sdk/pico-examples 以及安装相应工具，也可以在 {props.product_name} 的 Linux 环境下。为方便起见，我们可以直接在 {props.product_name} 的 Linux 环境中进行操作。
+
+:::
+
+- 获取代码
 
 ```
 git clone https://github.com/raspberrypi/pico-examples.git --branch master
 ```
 
-### 编译
+- 编译
 
 ```
 export PICO_SDK_PATH=path/to/pico-sdk
@@ -32,5 +60,3 @@ mkdir build
 cd build
 cmake .. && make -j4
 ```
-
-### <a href={props.flash_url}>烧录</a>
