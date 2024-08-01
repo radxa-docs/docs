@@ -32,3 +32,5 @@ sidebar_position: 10
 |           |           |           |           |    GND    | <div className='black'>20</div> | <div className='green'>21</div> |  GPIO25   | SPI1 CSn  | UART1 RX  | I2C0 SCL  | PWM4 B    |
 
 </div>
+
+- GPIO26/GPIO27/GPIO28/GPIO29: User IO or ADC Input
