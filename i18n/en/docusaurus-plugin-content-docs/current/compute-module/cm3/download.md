@@ -48,7 +48,7 @@ sidebar_position: 2
 
   - [Radxa CM3 V1300 To V1320 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1300_to_1320_pinout.xlsx)
 
-## 质量认证
+## Quality certification
 
 - [AU RCM](https://dl.radxa.com/cm3/compliance/AU_RCM/)
 
