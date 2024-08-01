@@ -23,7 +23,7 @@ import RELATION from "./\_relation.mdx"
 
 ### 示例
 
-#### RP2040 单独控制
+#### RP2040 单独控制 40-PIN GPIO
 
 <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X2L"  led_pin="PIN_5" />
 
@@ -31,6 +31,6 @@ import RELATION from "./\_relation.mdx"
 
 <PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" />
 
-#### CPU 与 RP2040 通信
+#### CPU 通过 UART 来控制 RP2040 的 40-PIN GPIO
 
 <FAN flash_url="./flash" product_name="Radxa X2L" />

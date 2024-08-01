@@ -25,7 +25,7 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 
 ### Examples
 
-#### RP2040 Individually control
+#### RP2040 Individually control the 40-PIN GPIO
 
 <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" />
 
@@ -33,6 +33,6 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 
 <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" />
 
-#### Communication between CPU and RP2040
+#### CPU controls the RP2040's 40-PIN GPIO via UART
 
 <FAN flash_url="./flash" product_name="Radxa X4" />
