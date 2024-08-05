@@ -20,16 +20,11 @@ ROOBI Flasher is a flashing tool used to restore ROOBI OS. If your ROOBI system 
 
 1. Obtain the flashing image:
 
-<details>
-<summary>Please select the appropriate model to download</summary>
-
 > [SLiM X2L](https://gate.radxa.com/palmshell/RoobiOS/releases/download/ps006_flasher_v1.1.3/ps006_flasher-v1.1.3.img.xz)
 >
 > PuER N1 Coming Soon
 >
 > [ROCK 5 ITX](https://gate.radxa.com/radxa/roobi-config/releases/download/Rock5-itx-ROOBI-v1.2.1ROCK5-itx-ROOBI-Flasher-v1.2.1/ROCK5-itx-ROOBI-Flasher-v1.2.1.img.xz)
-
-</details>
 
 <Tabs queryString="devices">
   <TabItem value="x" label="X Series">
