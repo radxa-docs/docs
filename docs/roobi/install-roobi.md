@@ -24,8 +24,6 @@ ROOBI Flasher 是用于恢复 ROOBI OS 的一个刷入工具，如果您因为�
 
 1. 获取刷入镜像：
 
-<details>
-<summary>请选择合适的型号下载</summary>
 
 > [SLiM X2L](https://gate.radxa.com/palmshell/RoobiOS/releases/download/ps006_flasher_v1.1.3/ps006_flasher-v1.1.3.img.xz)
 >
@@ -33,7 +31,6 @@ ROOBI Flasher 是用于恢复 ROOBI OS 的一个刷入工具，如果您因为�
 >
 > [ROCK 5 ITX](https://gate.radxa.com/radxa/roobi-config/releases/download/Rock5-itx-ROOBI-v1.2.1ROCK5-itx-ROOBI-Flasher-v1.2.1/ROCK5-itx-ROOBI-Flasher-v1.2.1.img.xz)
 
-</details>
 
 <Tabs queryString="devices">
   <TabItem value="x" label="X 系列">
