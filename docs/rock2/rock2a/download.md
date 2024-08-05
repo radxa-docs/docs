@@ -12,7 +12,17 @@ import Images from "./\_image.mdx"
 
 ## 操作系统镜像
 
-<Images loader={false} system_img={true} spi_img={false} />
+debian xfce:
+
+[rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
+
+:::tip
+这个镜像完全兼容 E20C、ROCK 2A 和 ROCK 2F 设备，所有这些设备都采用RK3528芯片。为确保兼容性：
+
+- 这三款产品中的每一款在相同的ADC引脚上使用不同的下拉电阻。
+- 每个设备都有预定义的ADC范围值。
+- 在u-boot初始化阶段，根据读取的ADC值动态选择适当的设备树，从而实现这些平台之间的无缝兼容。
+  :::
 
 ## 硬件设计
 

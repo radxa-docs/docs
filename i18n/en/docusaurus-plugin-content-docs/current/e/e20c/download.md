@@ -14,7 +14,15 @@ istoreos:
 
 debian xfce:
 
-[e20c_debian_xfce_b1.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
+[https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
+
+:::tip
+This image is fully compatible with E20C, ROCK 2A, and ROCK 2F devices, all incorporating the RK3528 chip. To ensure compatibility:
+
+- Each of these three products employs distinct pull-down resistors on a shared ADC pin.
+- Each device comes with a predefined ADC range value.
+- During the u-boot initialization phase, the appropriate device tree is dynamically selected based on the read ADC value, thereby achieving seamless compatibility across these platforms.
+  :::
 
 ## Loader
 

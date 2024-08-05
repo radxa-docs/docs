@@ -11,7 +11,7 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## File Download
 
-<Images loader={true} system_img={true} spi_img={false} />
+Please go to [Download page](../../../download) to download loader and system image.
 
 <Rkdeveloptool platform="linux">
 <Maskrom/>

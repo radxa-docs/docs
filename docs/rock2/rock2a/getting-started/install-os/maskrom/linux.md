@@ -11,7 +11,7 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## 文件下载
 
-<Images loader={true} system_img={true} spi_img={false} />
+请到 [资源下载页面汇总](../../../download) 下载对应的 Loader 和 镜像文件
 
 <Rkdeveloptool platform="linux">
 <Maskrom/>
