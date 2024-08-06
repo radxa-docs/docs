@@ -37,6 +37,6 @@ sidebar_position: 10
 
 :::tip
 
-请参考 [CPU N100 通过 RP2040 控制 40-PIN ](../software/c_sdk_examples#cpu-n100-通过-rp2040-控制-40-pin) 中的 **_风扇_** 部分文档
+请参考 [PoE FAN ](../software/c_sdk_examples) 中的 **_风扇_** 部分文档
 
 :::
