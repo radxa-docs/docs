@@ -1,0 +1,122 @@
+import { Image } from "@site/src/utils/docs";
+
+##### PoE FAN
+
+###### 1. 准备
+
+- 一块 {props.product_name}
+- 一个 {props.poe_name}
+
+###### 2. 连接
+
+如图所示，将 {props.poe_name} 安装在 {props.product_name} 上：
+
+<img src={props.poe_img} style={{ width: "60%" }} alt="POE Img" />
+
+###### 3. 测试
+
+- 将以下代码替换 pico-examples/pio/onewire/onewire.c
+
+<details>
+<summary>onewire.c</summary>
+
+```c
+#include <stdio.h>
+#include "pico/stdlib.h"
+#include "pico/binary_info.h"
+
+#include "onewire_library.h"    // onewire library functions
+#include "ow_rom.h"             // onewire ROM command codes
+#include "ds18b20.h"            // ds18b20 function codes
+
+#define FAN_PIN 13
+#define TEMP_THRESHOLD 45.0
+#define CONVERSION_DELAY_MS 750 // DS18B20 conversion time is about 750ms
+#define SLEEP_BETWEEN_READS_MS 1000 // Delay between consecutive temperature reads
+
+int main() {
+    stdio_init_all();
+
+    PIO pio = pio0;
+    uint gpio = 4;
+
+    // configure PIN 13
+    gpio_init(FAN_PIN);
+    gpio_set_dir(FAN_PIN, GPIO_OUT);
+
+    OW ow;
+    uint offset;
+    if (pio_can_add_program(pio, &onewire_program)) {
+        offset = pio_add_program(pio, &onewire_program);
+        if (ow_init(&ow, pio, offset, gpio)) {
+            int maxdevs = 10;
+            uint64_t romcode[maxdevs];
+            int num_devs = ow_romsearch(&ow, romcode, maxdevs, OW_SEARCH_ROM);
+
+            printf("Found %d devices\n", num_devs);
+            for (int i = 0; i < num_devs; i++) {
+                printf("\t%d: 0x%llx\n", i, romcode[i]);
+            }
+
+            while (true) {
+                // start temperature conversion in parallel on all devices
+                ow_reset(&ow);
+                ow_send(&ow, OW_SKIP_ROM);
+                ow_send(&ow, DS18B20_CONVERT_T);
+
+                // wait for the conversion to finish
+                sleep_ms(CONVERSION_DELAY_MS);
+
+                for (int i = 0; i < num_devs; i++) {
+                    ow_reset(&ow);
+                    ow_send(&ow, OW_MATCH_ROM);
+                    for (int b = 0; b < 64; b += 8) {
+                        ow_send(&ow, romcode[i] >> b);
+                    }
+                    ow_send(&ow, DS18B20_READ_SCRATCHPAD);
+                    int16_t temp = ow_read(&ow) | (ow_read(&ow) << 8);
+
+                    float temperature = temp / 16.0;
+                    // set fan speed to max
+                    if (temperature >= TEMP_THRESHOLD) {
+                        printf("\tTemperature >= 45, Device %d: temp: %.2f\n", i, temperature);
+                        gpio_put(FAN_PIN, 0);
+                    } else {
+                        // set fan speed to min
+                        printf("\tTemperature < 45, Device %d: temp: %.2f\n", i, temperature);
+                        gpio_put(FAN_PIN, 1);
+                    }
+                }
+
+                // sleep between consecutive reads
+                sleep_ms(SLEEP_BETWEEN_READS_MS);
+            }
+        } else {
+            puts("could not initialise the driver");
+        }
+    } else {
+        puts("could not add the program");
+    }
+
+    return 0;
+}
+
+```
+</details>
+
+- 编译
+
+```bash
+cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)
+```
+
+成功编译后，在 pico-examples/build/pio/onewire/ 目录下会产生一个名为 pio_onwire.uf2 的文件
+
+- 烧录
+
+- <a href={props.flash_url}>重启 RP2040</a>
+
+- 将 pio_onwire.uf2 文件拖入到 RP2040 中，待 RP2040 消失后， 程序开始执行，如果 PoE 温度大于等于 45 摄氏度，风扇会全速转，否则风扇会停下
