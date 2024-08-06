@@ -9,13 +9,7 @@ sidebar_position: 3
 <Tabs queryString="flash_way">
     <TabItem value="Hardware">
 
-        - Press and hold the RECOVERY button
-
-        - Power up X4
-
-        - Release the button after booting
-
-        - Once in the system, you'll find a USB device (i.e. RP2040)
+        - Press the BOOTSEL button
 
     </TabItem>
     <TabItem value="Software">

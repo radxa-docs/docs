@@ -9,13 +9,7 @@ sidebar_position: 3
 <Tabs queryString="flash_way">
     <TabItem value="Hardware">
 
-        - 按住 RECOVERY 按键
-
-        - 给 X4 上电
-
-        - 启动后松开按钮
-
-        - 进入系统后，你会发现有一个 USB 设备（即 RP2040）
+        - 按一下 BOOTSEL 按键
 
     </TabItem>
     <TabItem value="Software">
