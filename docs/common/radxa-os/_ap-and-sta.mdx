@@ -1,0 +1,44 @@
+想要同时支持ap模式和station模式，需要网卡本身和驱动支持。
+
+请按照下面步骤进行操作：
+
+1.创建两个接口（一个作为基站，另一个作为接入点）
+
+```bash
+sudo iw phy phy0 interface add mySta type station
+sudo iw phy phy0 interface add myAcc type __ap
+```
+
+创建成功后，会多出两个网口节点：mySta 和 myAcc，名字可自行设置。
+
+```bash
+$ ip a
+...
+3: mySta: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 88:00:02:00:00:03 brd ff:ff:ff:ff:ff:ff
+4: myAcc: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state DORMANT group default qlen 1000
+    link/ether 88:00:02:00:00:02 brd ff:ff:ff:ff:ff:ff
+...
+```
+
+2.连接 WIFI
+
+```bash
+sudo nmcli d w c test-5G password 12345678 ifname mySta
+```
+
+通过上面命令中的 ifname 去选择接口接入网络，此时选择的 mySta 将被设置成 station 模式。输入好要连接的 WIFI 名称和正确的密码，即可连接上网络。
+
+3.设置热点
+
+```bash
+sudo nmcli device wifi hotspot ifname myAcc con-name MyHotspot ssid MyHotspotSSID password 12345678
+```
+
+命令中的 ifname 选择了 myAcc 作为热点即 myAcc 此时被设置成 AP 模式。您可通过 ssid xxx 和 password xxx 自行设置热点的名字和密码。
+
+5.连接开启的热点
+
+打开手机，找到名称为 MyHotspotSSID 的热点并连接，如果接入点 mySta 连接的 WIFI，如上面的 test-5G 可以访问外网，那么手机连接 MyHotspotSSID 也应该能访问网络。
+
+按照上面步骤进行完，那么网卡就是同时支持了 station 模式和 ap 模式。
