@@ -35,7 +35,3 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" />
 
 <PoE flash_url="./flash" product_name="Radxa X4" poe_name="Radxa 25W PoE+ HAT for X4" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" />
-
-#### CPU controls the RP2040's 40 PIN via UART
-
-<FAN flash_url="./flash" product_name="Radxa X4" />
