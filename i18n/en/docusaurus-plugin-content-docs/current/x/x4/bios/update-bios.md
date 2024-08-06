@@ -8,7 +8,7 @@ sidebar_position: 10
 
 **Radxa X4 BIOS**
 
-- [Radxa X4 BIOS Install](http://rock.sh/x4-bios-update)
+- [Radxa X4 BIOS Install](https://rock.sh/x4-bios-update)
 
 ## Preparation for the Update
 

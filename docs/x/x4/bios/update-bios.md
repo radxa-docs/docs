@@ -8,7 +8,7 @@ sidebar_position: 10
 
 **Radxa X4 BIOS**
 
-- [Radxa X4 BIOS 下载](http://rock.sh/x4-bios-update)
+- [Radxa X4 BIOS 下载](https://rock.sh/x4-bios-update)
 
 ## 更新前准备
 
