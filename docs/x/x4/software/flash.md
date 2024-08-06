@@ -9,7 +9,7 @@ sidebar_position: 3
 <Tabs queryString="flash_way">
     <TabItem value="Hardware">
 
-        - 按一下 BOOTSEL 按键
+        - 按一下 BOOTSEL 按键，松开之后，你会发现有一个 USB 大容量存储设（即 RP2040）
 
     </TabItem>
     <TabItem value="Software">
@@ -30,7 +30,7 @@ sidebar_position: 3
 
             ```
 
-        - 执行脚本 usb.sh 后， 你会发现有一个 USB 设备（即 RP2040）
+        - 执行脚本 usb.sh 后， 你会发现有一个 USB 大容量存储设备（即 RP2040）
 
             ```bash
             sudo chmod a+x usb.sh
