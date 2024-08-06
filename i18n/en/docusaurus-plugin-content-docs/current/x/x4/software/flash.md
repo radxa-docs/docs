@@ -9,7 +9,7 @@ sidebar_position: 3
 <Tabs queryString="flash_way">
     <TabItem value="Hardware">
 
-        - Press the BOOTSEL button
+        - Press the BOOTSEL button and when you release it, you will find a USB mass storage device (i.e. RP2040).
 
     </TabItem>
     <TabItem value="Software">
@@ -30,7 +30,7 @@ sidebar_position: 3
 
             ```
 
-        - After executing the script usb.sh, you will see that there is a USB device (i.e. RP2040)
+        - After executing the script usb.sh, you will see that there is a USB mass storage devices (i.e. RP2040)
 
             ```bash
             sudo chmod a+x usb.sh
