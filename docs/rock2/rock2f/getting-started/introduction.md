@@ -18,38 +18,38 @@ description: ""
   </tr>
   <tr>
     <th>GPU</th>
-    <th>ARM Mali-450 GPU，支持 OpenGL® ES1.1, ES2.0，OpenVG® 1.1</th>
+    <th>ARM Mali-450 GPU<br/>支持 OpenGL® ES1.1, ES2.0，OpenVG® 1.1</th>
   </tr>
   <tr>
     <th>内存</th>
-    <th>64 位 LPDDR4 RAM 可选：<br/>1/2/4 GB</th>
+    <th>64 位 LPDDR4 RAM 可选：<br/>1GB / 2GB / 4GB</th>
   </tr>
   <tr>
     <th>存储</th>
-    <th>板载 eMMC 模块：0/8/16/32/64 GB<br/>microSD 存储卡</th>
+    <th>板载 eMMC：0GB / 8GB / 16GB / 32GB / 64GB<br/>microSD 存储卡</th>
   </tr>
   <tr>
     <th>显示</th>
-    <th>可通过一个 HDMI 和一个 AV Out 提供 2 路显示输出<br/>HDMI 支持 CEC 和 HDMI 2.0，分辨率分别为 4Kp60 和 720x576@60。</th>
+    <th>可通过一个 HDMI 和一个 AV Out 提供 2 路显示输出<br/>HDMI 支持最高 4Kp60，AV Out 最高支持 720x576@60<br/>HDMI 支持 CEC 和 HDMI 2.0</th>
   </tr>
   <tr>
     <th>USB</th>
-    <th>2 个 USB2.0 Type A HOST 端口</th>
+    <th>2 个 USB2.0 Type A HOST 端口<br/>1 个 USB2.0 Type C OTG / HOST 接口</th>
   </tr>
   <tr>
-    <th>音频接口</th>
+    <th>音频</th>
     <th>通过一个 4 环 3.5 毫米耳机插孔支持高质量模拟音频输出。<br/>模拟音频输出可直接驱动 32 欧姆耳机。</th>
   </tr>
   <tr>
-    <th>PCIE 接口</th>
-    <th>1 lane PCIe 2.0 接口</th>
+    <th>PCIe</th>
+    <th>FPC 接口支持 PCIe 2.0 x1 通道</th>
   </tr>
   <tr>
-    <th>无线网</th>
-    <th>IEEE 802.11 a/b/g/n/ac/ax (WiFi 6) and BT 5.4 with BLE 自带内部天线</th>
+    <th>无线网络</th>
+    <th>IEEE 802.11 a/b/g/n/ac/ax (WiFi 6) and BT 5.4 with BLE<br/>板载天线或外接天线座可选</th>
   </tr>
   <tr>
-    <th>40-PIN Header</th>
+    <th>40-Pin GPIO Header</th>
     <th>1 x ADC<br/>2 x I2C<br/>1 x SPI<br/>4 x UART<br/>5 x PWM<br/>2 x 5V DC power in/out<br/>2 x 3.3V power out<br/>28 x GPIO<br/></th>
   </tr>
   <tr>
