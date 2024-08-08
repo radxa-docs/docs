@@ -15,7 +15,7 @@ debian xfce:
 [https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
 
 :::tip
-This image is fully compatible with E20C, ROCK 2A, and ROCK 2F devices, all incorporating the RK3528 chip. To ensure compatibility:
+This image is fully compatible with E20C, ROCK 2A, and ROCK 2F devices, all incorporating the RK3528 chip. The compatible method is as follow:
 
 - Each of these three products employs distinct pull-down resistors on a shared ADC pin.
 - Each device comes with a predefined ADC range value.
