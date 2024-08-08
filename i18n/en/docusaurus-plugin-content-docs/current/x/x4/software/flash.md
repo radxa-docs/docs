@@ -9,13 +9,7 @@ sidebar_position: 3
 <Tabs queryString="flash_way">
     <TabItem value="Hardware">
 
-        - Press and hold the RECOVERY button
-
-        - Power up X4
-
-        - Release the button after booting
-
-        - Once in the system, you'll find a USB device (i.e. RP2040)
+        - Press the BOOTSEL button and when you release it, you will find a USB mass storage device (i.e. RP2040).
 
     </TabItem>
     <TabItem value="Software">
@@ -36,7 +30,7 @@ sidebar_position: 3
 
             ```
 
-        - After executing the script usb.sh, you will see that there is a USB device (i.e. RP2040)
+        - After executing the script usb.sh, you will see that there is a USB mass storage devices (i.e. RP2040)
 
             ```bash
             sudo chmod a+x usb.sh
