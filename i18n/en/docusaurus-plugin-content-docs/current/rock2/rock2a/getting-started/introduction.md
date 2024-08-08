@@ -17,43 +17,42 @@ sidebar_position: 1
   </tr>
   <tr>
     <th>GPU</th>
-    <th>ARM Mali-450 GPU，Supports OpenGL® ES1.1, ES2.0，OpenVG® 1.1</th>
+    <th>ARM Mali-450 GPU<br/>Supports OpenGL® ES1.1, ES2.0，OpenVG® 1.1</th>
   </tr>
   <tr>
     <th>Memory</th>
-    <th>1/2/4 64 bit LPDDR4</th>
+    <th>1GB / 2GB / 4GB 64 bit LPDDR4</th>
   </tr>
   <tr>
     <th>Storage</th>
-    <th>eMMC onBoard：0/8/16/32/64 GB<br/>microSD Card</th>
+    <th>Onboard eMMC: 0GB / 8GB / 16GB / 32GB / 64GB<br/>microSD Card</th>
   </tr>
   <tr>
     <th>Display</th>
-    <th>Supports dual display output via one HDMI port and one AV Out port.<br/>HDMI supports CEC and HDMI 2.0, with resolutions of 4Kp60 and 720x576@60, respectively.</th>
+    <th>Supports dual display output via one HDMI port and one AV Out port.<br/>HDMI supports up to 4Kp60, AV Out supports up to 720x576@60.<br/>HDMI supports CEC and HDMI 2.0</th>
   </tr>
   <tr>
     <th>Ethernet</th>
-    <th>1x Gigabit Ethernet port (PoE not supported)</th>
+    <th>1x Gigabit Ethernet port with PoE Support (Additional PoE HAT Required)</th>
   </tr>
   <tr>
     <th>USB</th>
     <th>3x USB 2.0 Type A HOST ports<br/>1x USB 3.0 Type A OTG/HOST port</th>
   </tr>
   <tr>
-    <th>Audio Interface</th>
-    <th>Supports high-quality analog audio output via a 4-ring 3.5mm headphone jack.
-The analog audio output can directly drive 32-ohm headphones.</th>
+    <th>Audio</th>
+    <th>Supports high-quality analog audio output via a 4-ring 3.5mm headphone jack.<br/>The analog audio output can directly drive 32-ohm headphones.</th>
   </tr>
   <tr>
-    <th>PCIE Interface</th>
-    <th>OneWire PCIe 2.0 Interface</th>
+    <th>PCIe</th>
+    <th>FPC Interface with PCIe 2.0 1-lane</th>
   </tr>
   <tr>
-    <th>Wi-Fi</th>
-    <th>IEEE 802.11 a/b/g/n/ac/ax (WiFi 6) and BT 5.4 with BLE Self-contained Internal Antenna</th>
+    <th>Wireless</th>
+    <th>IEEE 802.11 a/b/g/n/ac/ax (WiFi 6) and BT 5.4 with BLE<br/>Onboard Antenna or Antenna Connector (Optional)</th>
   </tr>
   <tr>
-    <th>40-PIN Header</th>
+    <th>40-Pin GPIO Header</th>
     <th>1 x ADC<br/>2 x I2C<br/>1 x SPI<br/>4 x UART<br/>5 x PWM<br/>2 x 5V DC power in/out<br/>2 x 3.3V power out<br/>28 x GPIO<br/></th>
   </tr>
   <tr>
@@ -61,7 +60,7 @@ The analog audio output can directly drive 32-ohm headphones.</th>
     <th>Only supports 5V</th>
   </tr>
   <tr>
-    <th>Dimensions</th>
+    <th>Form Factor</th>
     <th>85mm x 56 mm </th>
   </tr>
 </table>

@@ -40,6 +40,16 @@ sidebar_position: 15
 
 ![Intel_ISH_Driver_01](/img/x/x4/intel_ish_driver_01.webp)
 
+## Intel GPIO 驱动安装
+
+- 安装包下载 [Intel GPIO Driver](https://dl.radxa.com/x/x4/radxa_x4_gpio_driver.zip)
+
+- 将安装包 Intel GPIO Driver 复制到 Radxa X4 内。
+
+- 右键点击选择安装，安装完成后重启即可。
+
+![Intel_GPIO_Driver_01](/img/x/x4/intel_gpio_driver_01.webp)
+
 ## GPU 驱动安装
 
 - 安装包下载 [Graphics Driver Installer](https://dl.radxa.com/x/x4/Intel_Graphics_driver.zip)
@@ -66,7 +76,7 @@ sidebar_position: 15
 
 ![Intel_Ethernet_Driver_03](/img/x/x2l/realtek_ethernet_controller_driver_03.webp)
 
-## 40-Pin GPIO 驱动下载
+## RP2040 驱动下载
 
 - 安装包下载 [Zadig](https://dl.radxa.com/x/x2l/radxa_x2l_rp2040_driver.zip)
 

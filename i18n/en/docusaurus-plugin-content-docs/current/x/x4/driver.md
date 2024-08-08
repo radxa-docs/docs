@@ -40,6 +40,16 @@ sidebar_position: 15
 
 ![Intel_ISH_Driver_01](/img/x/x4/intel_ish_driver_01.webp)
 
+## Intel GPIO Drivers
+
+- Installer Download [Intel GPIO Driver](https://dl.radxa.com/x/x4/radxa_x4_gpio_driver.zip)
+
+- Copy the installation package, Intel GPIO Driver, into the Radxa X4.
+
+- Right click to select installation, and restart after installation is complete.
+
+![Intel_GPIO_Driver_01](/img/x/x4/intel_gpio_driver_01.webp)
+
 ## GPU Driver Installation
 
 - Installer Download [Graphics Driver Installer](https://dl.radxa.com/x/x4/Intel_Graphics_driver.zip)
@@ -66,7 +76,7 @@ sidebar_position: 15
 
 ![Intel_Ethernet_Driver_03](/img/x/x2l/realtek_ethernet_controller_driver_03.webp)
 
-## 40-Pin GPIO Driver Installation
+## RP2040 Driver Installation
 
 - Installer Download [Zadig](https://dl.radxa.com/x/x2l/radxa_x2l_rp2040_driver.zip)
 
