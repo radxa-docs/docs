@@ -1,0 +1,44 @@
+To simultaneously support AP mode and Station mode, both the network card and its driver must provide support.
+
+Please follow the steps below:
+
+1.Create two interfaces (one as a station and the other as an access point)
+
+```bash
+sudo iw phy phy0 interface add mySta type station
+sudo iw phy phy0 interface add myAcc type __ap
+```
+
+After successful creation, two additional network interface nodes will appear: mySta and myAcc. You can set the names as desired.
+
+```bash
+$ ip a
+...
+3: mySta: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 88:00:02:00:00:03 brd ff:ff:ff:ff:ff:ff
+4: myAcc: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state DORMANT group default qlen 1000
+    link/ether 88:00:02:00:00:02 brd ff:ff:ff:ff:ff:ff
+...
+```
+
+2.Connect to Wi-Fi
+
+```bash
+sudo nmcli d w c test-5G password 12345678 ifname mySta
+```
+
+Use the ifname parameter in the above commands to select the interface for network connection. At this point, the chosen mySta will be set to station mode. Enter the WiFi name and the correct password to connect to the network.
+
+3.Set up the hotspot
+
+```bash
+sudo nmcli device wifi hotspot ifname myAcc con-name MyHotspot ssid MyHotspotSSID password 12345678
+```
+
+In the command, select myAcc as the hotspot by using the ifname parameter; at this point, myAcc will be set to AP mode. You can set the hotspot's name and password by specifying ssid xxx and password xxx.
+
+5.Connect to the activated hotspot.
+
+Turn on your phone and find the hotspot named MyHotspotSSID. Connect to it. If the access point mySta is connected to a WiFi network, such as the test-5G mentioned above, which has internet access, then your phone connected to MyHotspotSSID should also be able to access the internet.
+
+Following the steps above, the network card will then simultaneously support both station mode and AP mode.
