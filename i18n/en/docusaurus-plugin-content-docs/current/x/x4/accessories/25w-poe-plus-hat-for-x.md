@@ -37,6 +37,6 @@ Please make sure that your network device (such as a switch, router, or hub) sup
 
 :::tip
 
-Please refer to the [CPU controls the RP2040's 40 PIN via UART](../software/c_sdk_examples#cpu-controls-the-rp2040s-40-pin-via-uart) **_FAN_** section of the documentation
+Please refer to [PoE FAN ](../software/c_sdk_examples#1)
 
 :::

@@ -6,6 +6,7 @@ import SDK_EXAMPLE from "../../../common/dev/\_pico-sdk-example.mdx";
 import GPIO from "../../../common/dev/\_pico-gpio.mdx";
 import PWM from "../../../common/dev/\_pico-pwm.mdx";
 import I2C from "../../../common/dev/\_pico-i2c.mdx";
+import PoE from "../../../common/dev/\_pico-poe-fan.mdx";
 import FAN from "../../../common/dev/\_pico-fan.mdx";
 import RELATION from "./\_relation.mdx"
 
@@ -33,6 +34,6 @@ import RELATION from "./\_relation.mdx"
 
 <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" />
 
-#### CPU N100 通过 RP2040 控制 40-PIN
+<div id="1"> </div>
 
-<FAN flash_url="./flash" product_name="Radxa X4" />
+<PoE flash_url="./flash" product_name="Radxa X4" poe_name="瑞莎 25W PoE+ HAT X4 专用款" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" />
