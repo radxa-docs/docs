@@ -37,6 +37,6 @@ Please make sure that your network device (such as a switch, router, or hub) sup
 
 :::tip
 
-Please refer to the [PoE FAN ](../software/c_sdk_examples) **_FAN_** section of the documentation
+Please refer to [PoE FAN ](../software/c_sdk_examples#1)
 
 :::

@@ -37,6 +37,6 @@ sidebar_position: 10
 
 :::tip
 
-请参考 [PoE FAN ](../software/c_sdk_examples) 中的 **_风扇_** 部分文档
+请参考 [PoE FAN ](../software/c_sdk_examples#1) 文档
 
 :::
