@@ -12,28 +12,31 @@ import RELATION from "./\_relation.mdx"
 
 # 40-PIN Usage
 
-## Introducing the Relationship between 40 PIN , Intel N100 and RP2040
+## OverView
 
 <RELATION />
 
-## 40-PIN Usage
+## Tools Introduction
 
-### Tools Introduction
-
-In order to operate the IO resources on RP2040, we need a complete software environment, such as MicroPython or C/C++ SDK, here we mainly introduce a set of C/C++ SDKs, namely pico-sdk and pico-examples. pico-sdk mainly provides some APIs to operate the RP2040, while pico-examples provides a compilation framework for us to add our own programs according to the compilation framework provided by pico-examples. pico-sdk provides some APIs to operate the RP2040, while pico-examples provides a compilation framework for us to add our own programs according to the compilation framework provided by pico-examples.
+In order to operate the IO resources on RP2040, we need a complete software environment, here we mainly introduce a set of C/C++ SDKs, namely pico-sdk and pico-examples. pico-sdk mainly provides some APIs to operate the RP2040, while pico-examples provides a compilation framework for us to add our own programs according to the compilation framework provided by pico-examples. pico-sdk provides some APIs to operate the RP2040, while pico-examples provides a compilation framework for us to add our own programs according to the compilation framework provided by pico-examples.
 
 <SDK_EXAMPLE flash_url="./flash" product_name="Radxa X4" />
 
-### Examples
+## Examples
 
-#### RP2040 Individually control the 40-PIN
+### RP2040 Control the 40-PIN
 
-<GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" />
-
-<I2C flash_url="./flash" product_name="Radxa X4"  scl_pin="PIN_5" sda_pin="PIN_3" />
-
-<PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" />
-
-<div id="1"> </div>
-
-<PoE flash_url="./flash" product_name="Radxa X4" poe_name="Radxa 25W PoE+ HAT for X4" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" />
+<Tabs queryString="type">
+    <TabItem value="GPIO">
+       <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" />
+    </TabItem>
+    <TabItem value="I2C">
+        <I2C flash_url="./flash" product_name="Radxa X4"  scl_pin="PIN_5" sda_pin="PIN_3" />
+    </TabItem>
+     <TabItem value="PWM">
+       <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" />
+    </TabItem>
+     <TabItem value="PoE FAN">
+       <PoE flash_url="./flash" product_name="Radxa X4" poe_name="Radxa 25W PoE+ HAT for X4" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" />
+    </TabItem>
+</Tabs>
