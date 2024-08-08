@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-## Flash the program to the RP2040
+# Flash program to RP2040
 
 ## Reboot RP2040
 
@@ -48,7 +48,7 @@ sidebar_position: 3
 
 </Tabs>
 
-## Burn the program
+## Flash the program
 
 - Drag the .uf2 file into the usb device, and when the usb device disappears, the program starts executing
 

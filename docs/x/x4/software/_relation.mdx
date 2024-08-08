@@ -1,6 +1,4 @@
-在 Radxa X4 上集成了 Intel N100 的 CPU 和一块 [RP2040](https://en.wikipedia.org/wiki/RP2040) MCU，两者通过 USB 和 UART 两种方式进行通信。
-RP2040 在系统中以 USB 存储设备的形式存在，程序烧录时只需将文件拖拽至该 USB 设备中即可。
-此外，它们还共用 UART 通信接口，使得 Intel N100 能够通过 UART 控制 RP2040，例如，通过 UART 接口实现对 RP2040 GPIO 的操控。
-两者关系，如图所示:
+在 Radxa X4 上集成了 一块 Intel N100 的 CPU 和 一块 [RP2040](https://en.wikipedia.org/wiki/RP2040) MCU，两者通过 USB 或 UART 进行通信。
+40-PIN 是从 RP2040 拉出来的 IO 扩展口，CPU 通过与 RP2040 通信来控制 40-PIN. 其中 RP2040 通过 PICO SDK 来操作 40-PIN。
 
 <img src="/img/x/x4/intel-rp2040.webp" />

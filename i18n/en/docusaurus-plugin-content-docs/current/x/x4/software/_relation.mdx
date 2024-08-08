@@ -1,6 +1,5 @@
-The Radxa X4 integrates an Intel N100 CPU and a [RP2040](https://en.wikipedia.org/wiki/RP2040) MCU, which communicate with each other via USB and UART.
-The RP2040 exists as a USB memory device in the system, and the program can be burned by dragging and dropping the files to the USB device.
-In addition, they share the same UART communication interface, which enables Intel N100 to control the RP2040 through UART, for example, to realize the control of RP2040 GPIO through the UART interface.
-The relationship between the two is shown in the following figure:
+The Radxa X4 integrates an Intel N100 CPU and a [RP2040](https://en.wikipedia.org/wiki/RP2040) MCU, which communicate with each other via USB or UART.
+The 40-PIN interface serves as an I/O expansion port extending from the RP2040 microcontroller. The CPU exerts control over this interface through communication with the RP2040,
+which leverages the Pico SDK for efficient manipulation and operation of the 40-PIN interface.
 
 <img src="/img/x/x4/intel-rp2040.webp" />
