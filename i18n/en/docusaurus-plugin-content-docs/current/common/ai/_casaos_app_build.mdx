@@ -56,24 +56,24 @@ WORKDIR /StableDiffusion_v2-TPU
 CMD ["bash", "run.sh"]
 ```
 
-- ### App Source Code with Model Layer
+#### App Source Code with Model Layer
 
-  In this layer, the complete App is built by placing the source code with models into the App environment image. Additionally, the App startup command CMD is added.
+In this layer, the complete App is built by placing the source code with models into the App environment image. Additionally, the App startup command CMD is added.
 
-  ![casaos_docker_3.webp](/img/general-tutorial/tpu_ai/casaos_docker_3.webp)
+![casaos_docker_3.webp](/img/general-tutorial/tpu_ai/casaos_docker_3.webp)
 
-  **_Dockerfile_**
+**_Dockerfile_**
 
-  ```dockerfile
-  FROM radxazifeng278/radxa_sd_env:0.1.0
+```dockerfile
+FROM radxazifeng278/radxa_sd_env:0.1.0
 
-  LABEL maintainer="Zifeng ZHANG <zhangzifeng@radxa.com>"
+LABEL maintainer="Zifeng ZHANG <zhangzifeng@radxa.com>"
 
-  WORKDIR /StableDiffusion_v2-TPU
+WORKDIR /StableDiffusion_v2-TPU
 
-  COPY StableDiffusion_v2-TPU .
+COPY StableDiffusion_v2-TPU .
 
-  CMD ["bash", "run.sh"]
-  ```
+CMD ["bash", "run.sh"]
+```
 
 After obtaining the complete App image, refer to [Install radxa One-Click Start Large Model Apps](casaos_app_install#install-radxa-one-click-start-large-model-apps) to install your custom App in CasaOS.
