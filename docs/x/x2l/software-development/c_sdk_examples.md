@@ -8,6 +8,7 @@ import PWM from "../../../common/dev/\_pico-pwm.mdx";
 import I2C from "../../../common/dev/\_pico-i2c.mdx";
 import FAN from "../../../common/dev/\_pico-fan.mdx";
 import RELATION from "./\_relation.mdx"
+import UART from "../../../common/dev/\_pico-uart.mdx";
 
 # 40-PIN 使用指南
 
@@ -30,6 +31,8 @@ import RELATION from "./\_relation.mdx"
 <I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" />
 
 <PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" />
+
+<UART />
 
 #### CPU 通过 UART 来控制 RP2040 的 40-PIN GPIO
 
