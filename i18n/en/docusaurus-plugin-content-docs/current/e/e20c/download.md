@@ -17,12 +17,14 @@ debian xfce:
 [https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
 
 :::tip
-This image is fully compatible with E20C, ROCK 2A, and ROCK 2F devices, all incorporating the RK3528 chip. The compatible method is as follow:
+This image is a unified image for the ROCK 2 series and supports the following devices based on the RK3528A:
 
-- Each of these three products employs distinct pull-down resistors on a shared ADC pin.
-- Each device comes with a predefined ADC range value.
-- During the u-boot initialization phase, the appropriate device tree is dynamically selected based on the read ADC value, thereby achieving seamless compatibility across these platforms.
-  :::
+- E20C
+- ROCK 2A
+- ROCK 2F
+
+These devices are equipped with distinct Board IDs at the hardware level. During the boot phase, the bootloader reads the corresponding hardware description (device tree) based on the Board ID, thereby allocating system resources to enable a single firmware to be compatible with multiple hardware devices.
+:::
 
 ## Loader
 
