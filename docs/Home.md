@@ -518,8 +518,8 @@ sidebar_custom_props:
         {
           series_en: "X Family",
           series_zh: "X 系列",
-          series_introduction_en: "Radxa proudly announced the launch of its latest innovative product, the X series, a single board computer (SBC) series based on the X86 platform. These revolutionary devices are not only based on the powerful X86 architecture, but also fully support UEFI BIOS, making them perfectly compatible with all standard X86 operating systems. Whether it's Windows 10, Windows 11, Ubuntu, or OpenWRT X86, the X series can easily handle it.",
-          series_introduction_zh: "Radxa 自豪地宣布推出其最新的创新产品—— X 系列，这是一个基于 X86 平台的单板计算机 (SBC) 系列。这些革命性的设备不仅基于强大的 X86 架构，而且完全支持 UEFI BIOS，使其与所有标准的 X86 操作系统完美兼容。不论是 Windows 10、Windows 11、Ubuntu 还是 OpenWRT X86，X 系列都能轻松驾驭。",
+          series_introduction_en: "Radxa proudly announced the launch of its latest innovative product, the X series, a single board computer (SBC) series based on the X86 platform. These revolutionary devices are not only based on the powerful X86 architecture, but also fully support UEFI BIOS, making them perfectly compatible with all standard X86 operating systems. Whether it's Windows 10, Windows 11, Ubuntu, or OpenWrt X86, the X series can easily handle it.",
+          series_introduction_zh: "Radxa 自豪地宣布推出其最新的创新产品—— X 系列，这是一个基于 X86 平台的单板计算机 (SBC) 系列。这些革命性的设备不仅基于强大的 X86 架构，而且完全支持 UEFI BIOS，使其与所有标准的 X86 操作系统完美兼容。不论是 Windows 10、Windows 11、Ubuntu 还是 OpenWrt X86，X 系列都能轻松驾驭。",
           products:
             [
               {
@@ -600,8 +600,8 @@ sidebar_custom_props:
         {
           series_en: "E Family",
           series_zh: "E 系列",
-          series_introduction_en: "E is a series of network computing products from Radxa. It can run Debian, Openwrt and other systems.",
-          series_introduction_zh: "E 是 Radxa 推出的网络计算产品系列。它可以运行 Debian,Openwrt等系统",
+          series_introduction_en: "E is a series of network computing products from Radxa. It can run Debian, OpenWrt and other systems.",
+          series_introduction_zh: "E 是 Radxa 推出的网络计算产品系列。它可以运行 Debian,OpenWrt等系统",
           products:
             [
               {

@@ -65,7 +65,7 @@ Radxa E20C provides a reliable and powerful platform for creators, IoT enthusias
 
 ### Software
 
-Support Debian, OpenWRT
+Support Debian, OpenWrt
 
 ### Motherboard Preview
 
