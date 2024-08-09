@@ -31,7 +31,3 @@ import LCD35 from '../../../../common/accessories/\_waveshare-35-display.mdx';
 ## SPI
 
 <SPI product_name="Radxa CM3 IO" model="radxa-cm3-io" spi_overlay_name="spidev on SPI3-M1 over CS0" spidev="/dev/spidev0.0" spi_mosi="19" spi_miso="21" spi_connection="/img/cm3/cm3_io_spi_connection.webp" />
-
-## 微雪 3.5 inch SPI TFT LCD 屏幕
-
-<LCD35 waveshare_lcd="/img/cm3/cm3_io_waveshare35_spi_display.webp" rsetup_path="../../radxa-os/rsetup" overlays_title="Enable Waveshare 3.5inch RPi LCD (C) on SPI3" fbdev="fb0" />
