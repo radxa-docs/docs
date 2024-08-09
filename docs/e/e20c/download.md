@@ -20,7 +20,7 @@ flippyWRT:
 
 [Radxa E20C Flippy OpenWRT](https://dl.radxa.com/e/e20c/image/openwrt_rk3528_e20c_R24.07.07_k5.10.160-rk35xx-flippy-2407a.7z)
 
-[Flippy OpenWRT Github](https://github.com/ophub/flippy-openwrt-actions?tab=readme-ov-file)
+[Flippy OpenWRT Github](https://github.com/unifreq/openwrt_packit)
 
 :::tip
 这个镜像完全兼容 E20C、ROCK 2A 和 ROCK 2F 设备，所有这些设备都采用RK3528芯片。兼容的方法如下：
