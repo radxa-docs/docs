@@ -9,6 +9,7 @@ import I2C from "../../../common/dev/\_pico-i2c.mdx";
 import PoE from "../../../common/dev/\_pico-poe-fan.mdx";
 import FAN from "../../../common/dev/\_pico-fan.mdx";
 import RELATION from "./\_relation.mdx"
+import UART from "../../../common/dev/\_pico-uart.mdx";
 
 # 40-PIN Usage
 
@@ -38,5 +39,8 @@ In order to operate the IO resources on RP2040, we need a complete software envi
     </TabItem>
      <TabItem value="PoE FAN">
        <PoE flash_url="./flash" product_name="Radxa X4" poe_name="Radxa 25W PoE+ HAT for X4" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" />
+    </TabItem>
+     <TabItem value="UART">
+      <UART />
     </TabItem>
 </Tabs>
