@@ -1,0 +1,85 @@
+import { PreView } from "@site/src/utils/docs";
+
+- 准备
+
+  - 一块 {props.product_name}
+
+  - 一个 Led
+
+- 连接
+
+<!-- prettier-ignore-start -->
+
+    <p>按照以下方式连接 {props.product_name} 和 Led </p>
+
+    <table>
+        <tr>
+            <th>{props.product_name}</th>
+            <th>\<--\></th>
+            <th>Led</th>
+        </tr>
+        <tr>
+            <td>PIN_{props.pwm_pin}</td>
+            <th>\<--\></th>
+            <td>S</td>
+        </tr>
+        <tr>
+            <td>PIN_1</td>
+            <th>\<--\></th>
+            <td>VCC</td>
+        </tr>
+        <tr>
+            <td>PIN_9</td>
+            <th>\<--\></th>
+            <td>GND</td>
+        </tr>
+    </table>
+
+<!-- prettier-ignore-end -->
+
+- 打开 Thonny IDE， 新建一个 pwm_fade.py 文件，内容如下：
+
+<!-- prettier-ignore-start -->
+
+<details>
+
+<summary>pwm_fade.py</summary>
+
+<PreView params={{ gpio_pin: props.gpio_pin }}>
+{`
+
+import time
+from machine import Pin, PWM
+
+pwm = PWM(Pin(#gpio_pin#))
+
+# Set the PWM frequency.
+pwm.freq(1000)
+
+duty = 0
+direction = 1
+
+while True:
+    duty += direction
+    if duty > 255:
+        duty = 255
+        direction = -1
+    elif duty < 0:
+        duty = 0
+        direction = 1
+    pwm.duty_u16(duty * duty)
+    time.sleep(0.003)
+
+`}
+
+</PreView>
+
+</details>
+
+<!-- prettier-ignore-end -->
+
+- 测试
+
+  - 点击 'Run' 按钮
+
+  - Led 会有一个由暗到亮再由亮到暗的效果

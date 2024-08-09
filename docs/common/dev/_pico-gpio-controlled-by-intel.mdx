@@ -1,0 +1,125 @@
+import { PreView } from "@site/src/utils/docs";
+
+该实例目的是通过 Intel CPU 去控制 RP2040 的 GPIO 资源，诠释 Intel CPU 与 RP2040 的 Uart 通信。
+
+#### Intel CPU 通过 Uart 去控制 40-PIN 上的 GPIO
+
+##### 1. 准备
+
+    - 一块 {props.product_name}
+
+    - 一个 LED
+
+##### 2. 连接
+
+<table>
+    <tr>
+        <th>{props.product_name}</th>
+        <th>\<--\></th>
+        <th>LED</th>
+    </tr>
+    <tr>
+        <td>{props.led_pin}</td>
+        <th>\<--\></th>
+        <td>LED</td>
+    </tr>
+    <tr>
+        <td>PIN_1</td>
+        <th>\<--\></th>
+        <td>VCC</td>
+    </tr>
+    <tr>
+        <td>PIN_9</td>
+        <th>\<--\></th>
+        <td>GND</td>
+    </tr>
+
+</table>
+
+:::tip
+
+这里的 {props.led_pin} 对应 下面代码中的 GPIO{props.gpio_num}, 详细请参考 <a href={props.gpio_definition}>GPIO 定义</a>
+
+:::
+
+##### 3. 测试
+
+- 将以下代码替换 pico-examples/uart/hello_uart/hello_uart.c
+
+<!-- prettier-ignore-start -->
+
+<details>
+    <summary>hello_uart.c</summary>
+
+
+<PreView params={{ gpio_num: props.gpio_num, uart_id: props.uart_id, uart_tx_pin: props.uart_tx_pin, uart_rx_pin: props.uart_rx_pin }}>
+{`
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include "pico/stdlib.h"
+    #include "hardware/uart.h"
+
+    #define UART_ID #uart_id#
+    #define BAUD_RATE 115200
+
+    #define UART_TX_PIN #uart_tx_pin#
+    #define UART_RX_PIN #uart_rx_pin#
+
+    #define BLINK_PIN #gpio_num#
+
+    int main() {
+
+        gpio_init(BLINK_PIN);
+        gpio_set_dir(BLINK_PIN, GPIO_OUT);
+
+        uart_init(UART_ID, BAUD_RATE);
+        gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+        gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+        uart_set_hw_flow(UART_ID, false, false);
+
+        while(1) {
+            if(uart_is_readable(UART_ID)) {
+                uint8_t ch = uart_getc(UART_ID);
+                uart_puts(UART_ID, "Received data!\\r\\n");
+                uart_putc(UART_ID, ch);
+            } else {
+                gpio_put(BLINK_PIN, 0);
+                uart_puts(UART_ID, "Uart is not readable!\\r\\n");
+            }
+
+            sleep_ms(500);
+        }
+
+        return 0;
+    }
+
+`}
+
+</PreView>
+
+</details>
+
+<!-- prettier-ignore-end -->
+
+- 编译
+
+```bash
+cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)
+```
+
+编译成功后， 在 pico-examples/build/pwm/led_fade/ 目录下会产生一个名为 hello_uart.uf2 的文件
+
+- 烧录
+
+  - <a href={props.flash_url}>重启 RP2040</a>
+
+- 验证
+
+  - 打开终端， 向 {props.uart_dev} 发送字符串
+
+  - RP2040 接收到字符串， Led 则亮起，否则 Led 不亮

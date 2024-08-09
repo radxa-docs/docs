@@ -1,0 +1,88 @@
+import { PreView } from "@site/src/utils/docs";
+
+- Preparation
+
+  - One {props.product_name}
+
+  - One Led
+
+- Connection
+
+<!-- prettier-ignore-start -->
+
+    <p>Connect {props.product_name} and Led as flows: </p>
+
+    <table>
+        <tr>
+            <th>{props.product_name}</th>
+            <th>\<--\></th>
+            <th>Led</th>
+        </tr>
+        <tr>
+            <td>PIN_{props.gpio_pin}</td>
+            <th>\<--\></th>
+            <td>S</td>
+        </tr>
+        <tr>
+            <td>PIN_1</td>
+            <th>\<--\></th>
+            <td>VCC</td>
+        </tr>
+        <tr>
+            <td>PIN_9</td>
+            <th>\<--\></th>
+            <td>GND</td>
+        </tr>
+    </table>
+
+<!-- prettier-ignore-end -->
+
+- oOpen Thonny IDE， create a new file named blink.py, content as flows:
+
+<!-- prettier-ignore-start -->
+
+<details>
+
+<summary>blink.py</summary>
+
+<PreView params={{ time: props.time, gpio: props.gpio }}>
+{`
+import machine
+import time
+
+class Blinker:
+
+def __init__(self, pin_num, interval):
+        self.pin = machine.Pin(pin_num, machine.Pin.OUT)
+        self.interval = interval
+        self.pin.off()
+
+    def blink(self):
+        self.pin.toggle()
+        time.sleep(self.interval)
+
+def main():
+    blinker = Blinker(#gpio#, #time#)
+
+    try:
+        while True:
+            blinker.blink()
+    except KeyboardInterrupt:
+        print("Blink stopped.")
+
+if __name__ == "__main__":
+    main()
+
+`}
+
+</PreView>
+
+</details>
+
+<!-- prettier-ignore-end -->
+
+- Test
+
+  - Click the 'Run' buttons
+
+  - Led will blink every {props.time} seconds.
