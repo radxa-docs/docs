@@ -10,6 +10,7 @@ import PoE from "../../../common/dev/\_pico-poe-fan.mdx";
 import FAN from "../../../common/dev/\_pico-fan.mdx";
 import RELATION from "./\_relation.mdx"
 import UART from "../../../common/dev/\_pico-uart.mdx";
+import INTEL_UART from "../../../common/dev/\_pico-gpio-controlled-by-intel.mdx";
 
 # 40-PIN Usage
 
