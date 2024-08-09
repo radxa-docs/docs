@@ -8,6 +8,7 @@ import PWM from "../../../common/dev/\_pico-pwm.mdx";
 import I2C from "../../../common/dev/\_pico-i2c.mdx";
 import FAN from "../../../common/dev/\_pico-fan.mdx";
 import RELATION from "./\_relation.mdx"
+import UART from "../../../common/dev/\_pico-uart.mdx";
 
 # 40-PIN Usage
 
@@ -30,6 +31,8 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 <I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" />
 
 <PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" />
+
+<UART />
 
 #### Communication between CPU and RP2040
 
