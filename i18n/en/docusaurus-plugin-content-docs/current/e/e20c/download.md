@@ -4,7 +4,7 @@ sidebar_position: 2
 
 import Images from "./\_image.mdx"
 
-# Summary of resource downloads
+# Resource Download
 
 ## OS image
 
