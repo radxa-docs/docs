@@ -10,6 +10,7 @@ import PoE from "../../../common/dev/\_pico-poe-fan.mdx";
 import FAN from "../../../common/dev/\_pico-fan.mdx";
 import RELATION from "./\_relation.mdx"
 import UART from "../../../common/dev/\_pico-uart.mdx";
+import INTEL_UART from "../../../common/dev/\_pico-gpio-controlled-by-intel.mdx";
 
 # 40-PIN 使用指南
 
@@ -44,3 +45,7 @@ import UART from "../../../common/dev/\_pico-uart.mdx";
       <UART />
     </TabItem>
 </Tabs>
+
+### Intel CPU 通过 Uart 控制 RP2040
+
+<INTEL_UART product_name="Radxa X4" led_pin="PIN_3" uart_id="uart0" uart_tx_pin="0" uart_rx_pin="1" gpio_num="29" uart_dev="/dev/ttyS4" />

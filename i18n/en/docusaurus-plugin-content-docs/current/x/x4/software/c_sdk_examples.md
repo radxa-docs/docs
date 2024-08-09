@@ -44,3 +44,7 @@ In order to operate the IO resources on RP2040, we need a complete software envi
       <UART />
     </TabItem>
 </Tabs>
+
+### Intel CPU Controls RP2040 via Uart
+
+<INTEL_UART product_name="Radxa X4" led_pin="PIN_3" uart_id="uart0" uart_tx_pin="0" uart_rx_pin="1" gpio_num="29" uart_dev="/dev/ttyS4" />
