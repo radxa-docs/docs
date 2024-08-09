@@ -16,7 +16,7 @@ debian xfce:
 
 [https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
 
-flippyWRT:
+Flippy OpenWRT:
 
 [Radxa E20C Flippy OpenWRT](https://dl.radxa.com/e/e20c/image/openwrt_rk3528_e20c_R24.07.07_k5.10.160-rk35xx-flippy-2407a.7z)
 
