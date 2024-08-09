@@ -60,24 +60,24 @@ WORKDIR /StableDiffusion_v2-TPU
 CMD ["bash", "run.sh"]
 ```
 
-- ### App source code with model 层
+#### App source code with model 层
 
-  App source code with model 层将基于上一 App env 镜像中放入源码与模型从而构建成一个完整的 App，并且加入 App 启动命令 CMD
+App source code with model 层将基于上一 App env 镜像中放入源码与模型从而构建成一个完整的 App，并且加入 App 启动命令 CMD
 
-  ![casaos_docker_3.webp](/img/general-tutorial/tpu_ai/casaos_docker_3.webp)
+![casaos_docker_3.webp](/img/general-tutorial/tpu_ai/casaos_docker_3.webp)
 
-  **_Dockerfile_**
+**_Dockerfile_**
 
-  ```dockerfile
-  FROM radxazifeng278/radxa_sd_env:0.1.0
+```dockerfile
+FROM radxazifeng278/radxa_sd_env:0.1.0
 
-  LABEL maintainer="Zifeng ZHANG <zhangzifeng@radxa.com>"
+LABEL maintainer="Zifeng ZHANG <zhangzifeng@radxa.com>"
 
-  WORKDIR /StableDiffusion_v2-TPU
+WORKDIR /StableDiffusion_v2-TPU
 
-  COPY StableDiffusion_v2-TPU .
+COPY StableDiffusion_v2-TPU .
 
-  CMD ["bash", "run.sh"]
-  ```
+CMD ["bash", "run.sh"]
+```
 
 当得到完整的 App 镜像后可参考 [安装 radxa 一键启动大模型 Apps](casaos_app_install#安装-radxa-一键启动大模型-apps) 对自定义 App 在 CasaOS 中进行安装
