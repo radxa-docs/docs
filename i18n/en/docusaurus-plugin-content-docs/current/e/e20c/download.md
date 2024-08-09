@@ -16,11 +16,11 @@ debian xfce:
 
 [rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
 
-Flippy OpenWRT:
+Flippy OpenWrt:
 
-[Radxa E20C Flippy OpenWRT](https://dl.radxa.com/e/e20c/image/openwrt_rk3528_e20c_R24.07.07_k5.10.160-rk35xx-flippy-2407a.7z)
+[Radxa E20C Flippy OpenWrt](https://dl.radxa.com/e/e20c/image/openwrt_rk3528_e20c_R24.07.07_k5.10.160-rk35xx-flippy-2407a.7z)
 
-[Flippy OpenWRT Github](https://github.com/unifreq/openwrt_packit)
+[Flippy OpenWrt Github](https://github.com/unifreq/openwrt_packit)
 
 :::tip
 This image is a unified image for the ROCK 2 series and supports the following devices based on the RK3528A:
