@@ -1,0 +1,159 @@
+## 简介
+
+ROS 2 是一个开源机器人操作系统，提供跨平台支持和实时通信功能，以简化机器人软件开发。它通过模块化设计和强大的社区支持，推动机器人技术的创新和应用。
+
+## 安装
+
+- 检查桌面是否为 debian 11 bullseye
+
+- 下载 ros2 debian 包
+
+```bash
+wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bullseye/ros-humble-desktop-0.3.1_arm64.deb
+```
+
+- 安装
+
+```bash
+sudo dpkg -i ros-humble-desktop-0.3.1_arm64.deb
+
+sudo apt-get install -f
+```
+
+- 设置环境变量
+
+```bash
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+
+source ~/.bashrc
+```
+
+- 验证
+
+设置完环境变量之后，我们可以通过一些简单的命令来验证一下安装是否成功， 如：
+
+```bash
+ros2 run demo_nodes_cpp talker
+[INFO] [1723457773.043009495] [talker]: Publishing: 'Hello World: 1'
+[INFO] [1723457774.043132850] [talker]: Publishing: 'Hello World: 2'
+[INFO] [1723457775.043130211] [talker]: Publishing: 'Hello World: 3'
+[INFO] [1723457776.043112992] [talker]: Publishing: 'Hello World: 4'
+[INFO] [1723457777.043111816] [talker]: Publishing: 'Hello World: 5'
+[INFO] [1723457778.042962770] [talker]: Publishing: 'Hello World: 6'
+[INFO] [1723457779.043007680] [talker]: Publishing: 'Hello World: 7'
+[INFO] [1723457780.043084967] [talker]: Publishing: 'Hello World: 8'
+```
+
+## 示例
+
+### Hello World
+
+- 创建一个新的 ROS 2 工作空间和包
+
+```bash
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws/src
+ros2 pkg create --build-type ament_python my_hello_world
+```
+
+- 导航到包目录并创建 Python 脚本
+
+```bash
+cd ~/ros2_ws/src/my_hello_world/my_hello_world
+```
+
+- 创建一个名为 hello_world.py 的文件
+
+```bash
+touch hello_world.py
+```
+
+<!-- prettier-ignore-start -->
+
+<details>
+
+<summary>hello_world.py</summary>
+
+```py
+
+import rclpy
+from rclpy.node import Node
+
+class HelloWorldNode(Node):
+    def __init__(self):
+        super().__init__('hello_world_node')
+        self.get_logger().info('Hello, World!')
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = HelloWorldNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+
+```
+
+</details>
+
+<!-- prettier-ignore-end -->
+
+- 更新 src/my_hello_world/setup.py
+
+<details>
+<summary>setup.py</summary>
+
+```py
+
+from setuptools import setup
+
+package_name = 'my_hello_world'
+
+setup(
+    name=package_name,
+    version='0.0.0',
+    packages=[package_name],
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='radxa',
+    maintainer_email='radxa@todo.todo',
+    description='TODO: Package description',
+    license='TODO: License declaration',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+        	'hello_world = my_hello_world.hello_world:main'
+	],
+    },
+)
+
+```
+
+</details>
+
+- 构建包
+
+```bash
+cd ~/ros2_ws
+colcon build
+```
+
+- 运行节点
+
+```bash
+source install/setup.bash
+ros2 run my_hello_world hello_world
+```
+
+## 参考
+
+- [ROS 2 Documentation](https://docs.ros.org/en/foxy/index.html)
+
+- [ROS2 Design](https://design.ros2.org/)
