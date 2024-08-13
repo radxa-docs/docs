@@ -79,7 +79,7 @@ For more images, please check: [ROCK 3B radxa-build](https://github.com/radxa-bu
 
 The following systems have been officially tested and verified by Radxa:
 
-ROCK 3C: [Build 42](https://github.com/radxa-build/rock-3c/releases/download/b42/rock-3c_debian_bullseye_xfce_b42.img.xz)
+ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
 
 </TabItem>
 <TabItem value="E25">
