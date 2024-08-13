@@ -25,4 +25,4 @@ sidebar_position: 7
 
 ## System images
 
-ROCK 3C: [Build 42](https://github.com/radxa-build/rock-3c/releases/download/b42/rock-3c_debian_bullseye_xfce_b42.img.xz)
+ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)

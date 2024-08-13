@@ -81,7 +81,7 @@ ROCK 3B：[Build 18](https://github.com/radxa-build/rock-3b/releases/download/b1
 
 以下系统已由瑞莎官方测试验证：
 
-ROCK 3C: [Build 42](https://github.com/radxa-build/rock-3c/releases/download/b42/rock-3c_debian_bullseye_xfce_b42.img.xz)
+ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
 
 </TabItem>
 <TabItem value="E25">
