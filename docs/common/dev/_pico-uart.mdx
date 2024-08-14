@@ -88,6 +88,24 @@ pico_enable_stdio_uart(hello_uart 1)
 
 </details>
 
+- 编译
+
+```bash
+cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)
+```
+
+编译成功后， 在 pico-examples/build/uart/hello_uart/ 目录下会产生一个名为 hello_uart.uf2 的文件
+
+- 烧录
+
+  - <a href={props.flash_url}>重启 RP2040</a>
+
+  - 将 hello_uart.uf2 文件拖入到 RP2040 中，待 RP2040 消失后， 程序开始执行
+
+
 - 终端输入以下命令，查看串口输出
 
 ```bash

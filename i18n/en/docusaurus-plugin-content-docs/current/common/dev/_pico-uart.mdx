@@ -88,6 +88,24 @@ pico_enable_stdio_uart(hello_uart 1)
 
 </details>
 
+- Compile
+
+```bash
+cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)
+```
+
+After successful compilation, a file named hello_uart.uf2 will be created in the pico-examples/build/uart/hello_uart/ directory.
+
+- Flash
+
+  - <a href={props.flash_url}>Reboot RP2040</a>
+
+  - Drag the hello_uart.uf2 file into the RP2040, after the RP2040 disappears, the program starts to execute.
+
+
 - Enter the following command in the terminal to view the serial port output
 
 ```bash
