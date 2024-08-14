@@ -68,6 +68,7 @@ sudo apt-get install minicom
 
 <details>
 <summary>CMakeLists.txt</summary>
+
 ```txt
 
     if (TARGET hardware_pwm)
@@ -198,8 +199,8 @@ make -j$(nproc)
 
 ###### 8. 烧录
 
-  - <a href={props.flash_url}>重启 RP2040</a>
-  - 将 pwm_fan.uf2 文件拖入到 RP2040 中，待 RP2040 消失后， 程序开始读取 /dev/ttyS0 的消息
+- <a href={props.flash_url}>重启 RP2040</a>
+- 将 pwm_fan.uf2 文件拖入到 RP2040 中，待 RP2040 消失后， 程序开始读取 /dev/ttyS0 的消息
 
 ###### 9. 板端运行 Temperature.py
 
