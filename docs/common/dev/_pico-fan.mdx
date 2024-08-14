@@ -64,24 +64,22 @@ sudo apt-get install minicom
 关于 pico-examples 如何使用请参考上面 pico-sdk/pico-examples 部分
 :::
 
+将 pico-example/pwm/CMakeLists.txt 替换称以下代码
+
 <details>
 <summary>CMakeLists.txt</summary>
 ```txt
 
-    add_executable(pwm_fan
-        pwm_fan.c
-        )
+    if (TARGET hardware_pwm)
+        add_subdirectory_exclude_platforms(hello_pwm)
+        add_subdirectory_exclude_platforms(led_fade)
+        add_subdirectory_exclude_platforms(measure_duty_cycle)
+        add_subdirectory_exclude_platforms(pwm_fan)
+    else()
+        message("Skipping PWM examples as hardware_pwm is unavailable on this platform")
+    endif()
 
-    # pull in common dependencies and additional pwm hardware support
-    target_link_libraries(pwm_fan pico_stdlib hardware_pwm)
-
-    # create map/bin/hex file etc.
-    pico_add_extra_outputs(pwm_fan)
-
-    # add url via pico_set_program_url
-    example_auto_set_url(pwm_fan)
-
-````
+```
 
 </details>
 
@@ -218,4 +216,3 @@ sudo minicom -D /dev/ttyS0 -b 115200
 ```
 
 查看 RP2040 是否有接收到来自 {props.product_name} 发送的温度，若成功接收到， minicom 会输出相应温度，如： "Received temperature: 42.00°C"
-````
