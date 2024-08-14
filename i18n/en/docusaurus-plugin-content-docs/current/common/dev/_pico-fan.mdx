@@ -64,24 +64,21 @@ sudo apt-get install minicom
 About how to use pico-examples, Please refer to the pico-sdk/pico-examples section above
 :::
 
-<details>
+Replace pico-example/pwm/CMakeLists.txt with the following code
 
-    <summary>CMakeLists.txt</summary>
+<details>
+<summary>CMakeLists.txt</summary>
 
 ```txt
 
-    add_executable(pwm_fan
-        pwm_fan.c
-        )
-
-    # pull in common dependencies and additional pwm hardware support
-    target_link_libraries(pwm_fan pico_stdlib hardware_pwm)
-
-    # create map/bin/hex file etc.
-    pico_add_extra_outputs(pwm_fan)
-
-    # add url via pico_set_program_url
-    example_auto_set_url(pwm_fan)
+    if (TARGET hardware_pwm)
+        add_subdirectory_exclude_platforms(hello_pwm)
+        add_subdirectory_exclude_platforms(led_fade)
+        add_subdirectory_exclude_platforms(measure_duty_cycle)
+        add_subdirectory_exclude_platforms(pwm_fan)
+    else()
+        message("Skipping PWM examples as hardware_pwm is unavailable on this platform")
+    endif()
 
 ```
 
@@ -184,6 +181,7 @@ About how to use pico-examples, Please refer to the pico-sdk/pico-examples secti
 
         return 0;
     }
+
 ```
 
 </details>
@@ -212,7 +210,7 @@ sudo python3 Temperature.py
 
 If the program runs successfully, the program gets the current temperature of the {props.product_name} computer, sends the temperature to the serial port /dev/ttyS0, and formats the output temperature such as “CPU Temperature: 42.0°C”
 
-###### 9. Run the minicom on the board
+###### 10. Run the minicom on the board
 
 ```bash
 sudo minicom -D /dev/ttyS0 -b 115200

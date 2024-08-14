@@ -1,0 +1,85 @@
+import { PreView } from "@site/src/utils/docs";
+
+- Preparation
+
+  - One {props.product_name}
+
+  - One Led
+
+- Connection
+
+<!-- prettier-ignore-start -->
+
+    <p>Connect {props.product_name} and Led as flows </p>
+
+    <table>
+        <tr>
+            <th>{props.product_name}</th>
+            <th>\<--\></th>
+            <th>Led</th>
+        </tr>
+        <tr>
+            <td>PIN_{props.pwm_pin}</td>
+            <th>\<--\></th>
+            <td>S</td>
+        </tr>
+        <tr>
+            <td>PIN_1</td>
+            <th>\<--\></th>
+            <td>VCC</td>
+        </tr>
+        <tr>
+            <td>PIN_9</td>
+            <th>\<--\></th>
+            <td>GND</td>
+        </tr>
+    </table>
+
+<!-- prettier-ignore-end -->
+
+- Open Thonny IDE, create a file named pwm_fade.py, content as flows:
+
+<!-- prettier-ignore-start -->
+
+<details>
+
+<summary>pwm_fade.py</summary>
+
+<PreView params={{ gpio_pin: props.gpio_pin }}>
+{`
+
+import time
+from machine import Pin, PWM
+
+pwm = PWM(Pin(#gpio_pin#))
+
+# Set the PWM frequency.
+pwm.freq(1000)
+
+duty = 0
+direction = 1
+
+while True:
+    duty += direction
+    if duty > 255:
+        duty = 255
+        direction = -1
+    elif duty < 0:
+        duty = 0
+        direction = 1
+    pwm.duty_u16(duty * duty)
+    time.sleep(0.003)
+
+`}
+
+</PreView>
+
+</details>
+
+<!-- prettier-ignore-end -->
+
+- Test
+
+  - Click 'Run' button
+
+  - Led will have a dark-to-light and light-to-dark effect.

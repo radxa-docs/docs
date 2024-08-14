@@ -1,0 +1,117 @@
+##### UART
+
+- Replace pico-examples/uart/hello_uart/hello_uart.c with the following code
+
+<details>
+
+<summary>hello_uart.c</summary>
+
+```c
+
+/**
+ * Copyright (c) 2020 Raspberry Pi (Trading) Ltd.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+
+#include <stdio.h>
+#include "pico/stdlib.h"
+#include "hardware/uart.h"
+
+/// \tag::hello_uart[]
+
+#define UART_ID uart0
+#define BAUD_RATE 115200
+
+// We are using pins 0 and 1, but see the GPIO function select table in the
+// datasheet for information on which other pins can be used.
+#define UART_TX_PIN 0
+#define UART_RX_PIN 1
+
+int main() {
+    // Set up our UART with the required speed.
+    uart_init(UART_ID, BAUD_RATE);
+
+    // Set the TX and RX pins by using the function select on the GPIO
+    // Set datasheet for more information on function select
+    gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+    gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+
+    // Use some the various UART functions to send out data
+    // In a default system, printf will also output via the default UART
+
+    // Send out a character without any conversions
+    uart_putc_raw(UART_ID, 'A');
+
+    // Send out a character but do CR/LF conversions
+    uart_putc(UART_ID, 'B');
+
+    // Send out a string, with CR/LF conversions
+    while(1) {
+        uart_puts(UART_ID, "Hello, UART!\r\n");
+        sleep_ms(1000);
+    }
+
+}
+
+/// \end::hello_uart[]
+
+```
+
+</details>
+
+- Replace pico-examples/uart/hello_uart/CMakeLists.txt with the following code
+
+<details>
+<summary>CMakeLists.txt</summary>
+
+```txt
+
+add_executable(hello_uart
+        hello_uart.c
+        )
+
+# pull in common dependencies
+target_link_libraries(hello_uart pico_stdlib)
+
+# create map/bin/hex file etc.
+pico_add_extra_outputs(hello_uart)
+
+# add url via pico_set_program_url
+example_auto_set_url(hello_uart)
+
+pico_enable_stdio_usb(hello_uart 1)
+pico_enable_stdio_uart(hello_uart 1)
+
+```
+
+</details>
+
+- Compile
+
+```bash
+cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)
+```
+
+After successful compilation, a file named hello_uart.uf2 will be created in the pico-examples/build/uart/hello_uart/ directory.
+
+- Flash
+
+  - <a href={props.flash_url}>Reboot RP2040</a>
+
+  - Drag the hello_uart.uf2 file into the RP2040, after the RP2040 disappears, the program starts to execute.
+
+
+- Enter the following command in the terminal to view the serial port output
+
+```bash
+sudo minicom -D /dev/ttyS4 -b 115200
+```
+
+- Verification
+
+In minicom, you will see the terminal output the line "Hello, UART!" every second.
