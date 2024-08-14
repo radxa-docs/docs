@@ -42,10 +42,17 @@ In order to operate the IO resources on RP2040, we need a complete software envi
        <PoE flash_url="./flash" product_name="Radxa X4" poe_name="Radxa 25W PoE+ HAT for X4" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" />
     </TabItem>
      <TabItem value="UART">
-      <UART />
+      <UART flash_url="./flash" />
     </TabItem>
 </Tabs>
 
 ### Intel CPU Controls RP2040 via Uart
 
-<INTEL_UART product_name="Radxa X4" led_pin="PIN_3" uart_id="uart0" uart_tx_pin="0" uart_rx_pin="1" gpio_num="29" uart_dev="/dev/ttyS4" />
+<Tabs queryString="type">
+     <TabItem value="PWM">
+       <FAN product_name="Radxa X4" flash_url="./flash" />
+    </TabItem>
+     <TabItem value="UART">
+      <INTEL_UART product_name="Radxa X4" led_pin="PIN_3" uart_id="uart0" uart_tx_pin="0" uart_rx_pin="1" gpio_num="29" uart_dev="/dev/ttyS4" />
+    </TabItem>
+</Tabs>
