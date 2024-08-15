@@ -4,21 +4,21 @@ sidebar_position: 1
 
 # 硬件概览
 
-# 芯片框图
+## 芯片框图
 
 <img src="/img/rock2f/rock-2f-chip-diagram.webp" alt="rk3528A chip diagram" width="700" />
 
-# 系统框图
+## 系统框图
 
 <img src="/img/rock2f/rock-2f-system-diagram.webp" width="800" alt="rock 2f pack" />
 
-# 硬件概览
+## 硬件概览
 
 <img src="/img/rock2f/rock-2f-hardware-overview.webp" width="800" alt="rock 2f pack" />
 
 以下是各个硬件接口的详细接口线序。
 
-## microSD Card Slot
+### microSD Card Slot
 
 | PIN | Name        |
 | --- | ----------- |
@@ -33,7 +33,7 @@ sidebar_position: 1
 | 9   | SDMMC_DET_L |
 | 10  | GND         |
 
-## HDMI
+### HDMI
 
 | Pin |       Name       | Pin |       Name       |
 | :-: | :--------------: | :-: | :--------------: |
@@ -50,7 +50,7 @@ sidebar_position: 1
 | 21  |       GND        | 22  |       GND        |
 | 23  |       GND        |
 
-## WIFI 6 & BT 5.4
+### WIFI 6 & BT 5.4
 
 | Pin |       Name       | Pin |      Name      |
 | :-: | :--------------: | :-: | :------------: |
@@ -81,7 +81,7 @@ sidebar_position: 1
 | 49  |       GND        | 50  |      GND       |
 | 51  |       GND        | 52  |      GND       |
 
-## FPC Connector with PCIE 2.0
+### FPC Connector with PCIE 2.0
 
 | Pin |            Name             | Pin |            Name             |
 | :-: | :-------------------------: | :-: | :-------------------------: |
@@ -94,7 +94,7 @@ sidebar_position: 1
 | 13  |           PCIE_EN           | 14  |       PCIE20_WAKEn_M1       |
 | 15  |      PCIE20_CLKREQn_M1      | 16  |      PCIE20_PERSTn_M1       |
 
-## AV Out
+### AV Out
 
 | Pin | Name | Pin |   Name   |
 | :-: | :--: | :-: | :------: |
@@ -103,7 +103,7 @@ sidebar_position: 1
 |  5  | GND  |  6  |   ROUT   |
 |  7  |  X   |  8  |    X     |
 
-## 2X USB 2.0 HOST
+### 2X USB 2.0 HOST
 
 | Pin |     Name     | Pin |  Name   |
 | :-: | :----------: | :-: | :-----: |
@@ -117,7 +117,7 @@ sidebar_position: 1
 |  3  |   USB3_DP    |  4  |   GND   |
 |  5  |     GND      |  6  |   GND   |
 
-## 40-Pin GPIO Header
+### 40-Pin GPIO Header
 
 - GPIO 电压
 
@@ -161,7 +161,7 @@ ROCK 2F 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 
 </div>
 
-### 40-Pin 功能说明
+#### 40-Pin 功能说明
 
 在 ROCK 2F 的 40-Pin 接口中，以下引脚可以配置为 USB 2.0：
 
