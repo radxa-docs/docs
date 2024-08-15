@@ -165,6 +165,28 @@ The ROCK 5A provides a 40 pin GPIO socket that is compatible with most sensor ap
 
 </Tabs>
 
+#### 40-Pin Function Description
+
+On the ROCK 5A's 40-Pin interface, the following pins can be configured for USB 2.0:
+
+- USB4_DM: Pin number 28, resistor location R104.
+- USB4_DP: Pin number 27, resistor location R106.
+
+By default, these pins are configured for **I2C** functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
+
+- **Remove the 0-ohm resistors at R169 and R170.**
+- **Solder 0-ohm resistors at R104 and R106.**
+
+:::tip
+The schematic and resistor locations can be viewed and downloaded from the hardware documentation.[Hardware Documentation Download](../download)
+:::
+
+:::caution [Operation Note]
+
+This procedure requires soldering skills, and it is recommended that it be performed by an experienced technician.
+
+:::
+
 ### Gigabit Ethernet
 
 | Pin |    Name     | Pin |    Name     |

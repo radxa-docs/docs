@@ -88,7 +88,7 @@ USB Type-C 端口上带有 5V 固定电压的电源适配器
 | 15  | PHY1_LED_G+ | 16  | PHY1_G_LED- |
 | 17  | PHY1_Y_LED+ | 18  | PHY1_Y_LED  |
 
-### 40 PIN GPIO
+### 40 PIN GPIO Header
 
 - GPIO 电压
 
@@ -128,6 +128,27 @@ ROCK 5C 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 |             |              |              |              |             |             |               |     GND     | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO4_B1  |                UART8_RX_M0                | I2C6_SCL_M3 |            | SPDIF1_TX_M1 | I2S1_SDO0_M0 | SPI0_CS1_M1  |     137     |
 
 </div>
+
+#### 40-Pin 功能说明
+
+在 ROCK 5C 的 40-Pin 接口中，以下引脚可以配置为 USB 2.0：
+
+- USB4_DM：引脚编号为 28，对应电阻位号为 R104。
+- USB4_DP：引脚编号为 27，对应电阻位号为 R106。
+
+默认情况下，这些引脚被配置为 **I2C** 功能，USB 信号未激活。要将这些引脚改为 USB 功能，需要通过以下步骤修改预留电阻：
+
+- **移除 R169 和 R170 的 0 欧电阻。**
+- **焊接 0 欧电阻到 R104 和 R106 上。**
+
+:::tip
+原理图和位号信息可在硬件资料中查阅和下载，[硬件资料下载](../download)
+:::
+
+:::caution [操作提示]
+
+此操作需要具备一定的焊接技巧，建议由有经验的技术人员完成。
+:::
 
 ### HDMI
 

@@ -61,7 +61,7 @@ sidebar_position: 1
 
 ## Interface details
 
-## Power connector
+### Power connector
 
 Power adapter with fixed voltage in 5V range on the USB Type-C port
 
@@ -72,7 +72,7 @@ Power adapter with fixed voltage in 5V range on the USB Type-C port
 |  1  | FAN-PWM |  2  | VCC_5V0 |
 |  3  |   GND   |  4  |   GND   |
 
-## Ethernet Port
+### Ethernet Port
 
 Provides Ethernet interface to Gigabit Ethernet.
 
@@ -88,7 +88,7 @@ Provides Ethernet interface to Gigabit Ethernet.
 | 15  | PHY1_LED_G+ | 16  | PHY1_G_LED- |
 | 17  | PHY1_Y_LED+ | 18  | PHY1_Y_LED  |
 
-## 40 PIN GPIO
+### 40 PIN GPIO Header
 
 - GPIO voltage
 
@@ -129,11 +129,33 @@ ROCK 5C provides a 40pin GPIO socket, which is compatible with most sensor appli
 
 </div>
 
-## HDMI
+#### 40-Pin Function Description
+
+On the ROCK 5C's 40-Pin interface, the following pins can be configured for USB 2.0:
+
+- USB4_DM: Pin number 28, resistor location R104.
+- USB4_DP: Pin number 27, resistor location R106.
+
+By default, these pins are configured for **I2C** functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
+
+- **Remove the 0-ohm resistors at R169 and R170.**
+- **Solder 0-ohm resistors at R104 and R106.**
+
+:::tip
+The schematic and resistor locations can be viewed and downloaded from the hardware documentation.[Hardware Documentation Download](../download)
+:::
+
+:::caution [Operation Note]
+
+This procedure requires soldering skills, and it is recommended that it be performed by an experienced technician.
+
+:::
+
+### HDMI
 
 Equipped with a full-size HDMI connector that supports resolutions up to 8K.
 
-## USB
+### USB
 
 Provides two USB3.0 ports and two USB2.0 ports, upper USB3.0 port with OTG function.
 
@@ -164,7 +186,7 @@ Provides two USB3.0 ports and two USB2.0 ports, upper USB3.0 port with OTG funct
 | 19  | USB3_HOST1SSTXN | 20  | USB3_HOST1SSTXP |
 | 21  |       GND       | 22  |       GND       |
 
-## MIPI CSI
+### MIPI CSI
 
 MIPI camera support. Utilizes a 31-pin, 0.3 mm pitch, gold-plated connector, model FH35C-31S-0.3SHW(50).
 
@@ -198,7 +220,7 @@ MIPI camera support. Utilizes a 31-pin, 0.3 mm pitch, gold-plated connector, mod
 
 Refer [Camera accessories](../accessories/camera)
 
-## MIPI DSI
+### MIPI DSI
 
 MIPI screen support. Utilizes a 39-pin, 0.3 mm pitch, gold-plated connector, model FH35C-39S-0.3SHW(50).
 
@@ -236,7 +258,7 @@ MIPI screen support. Utilizes a 39-pin, 0.3 mm pitch, gold-plated connector, mod
 
 Refer [Display accessories](../accessories/display)
 
-## MicroSD
+### MicroSD
 
 Can be used as a system boot disk or as a storage medium.
 
@@ -297,6 +319,6 @@ eMMC and SPI Flash are mutually exclusive, the connector can only connect to one
 
 :::
 
-## Debug Serial Port
+### Debug Serial Port
 
 For system debugging, underlying log message output
