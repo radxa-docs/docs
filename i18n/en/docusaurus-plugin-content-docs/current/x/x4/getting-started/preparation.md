@@ -23,3 +23,10 @@ In order to support an HDMI display, you will need an additional Micro HDMI to H
 ### USB Mouse
 
 ### USB Keyboard
+
+### Heatsink
+
+:::tip
+To ensure the stable operation of the Radxa X4, it is essential to equip it with a heatsink. Without proper cooling, the device may experience high temperatures, which could negatively impact performance and even lead to system instability.
+Radxa recommends using [Radxa Heatsink for X4](../accessories/heatsink-for-x4)
+:::
