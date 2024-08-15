@@ -20,14 +20,14 @@ sidebar_position: 4
 
 ## 40 PIN GPIO
 
-#### GPIO voltage
+### GPIO voltage
 
 | GPIO       | Voltage | Maximum |
 | ---------- | ------- | ------- |
 | All GPIOs  | 3.3V    | 3.63V   |
 | SARADC_IN5 | 3.3V    | 3.3V    |
 
-#### GPIO interface
+### GPIO interface
 
 Radxa ZERO 3 provides a 40-pin GPIO header, which is compatible with most SBC accessories on the market.
 
@@ -63,6 +63,28 @@ Pin 3, Pin 5, Pin 27, and Pin 28 add extra pull-up resistors for I2C device powe
 |             |             |              |                 |              |    GND    | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO3_A5  |                                           |           |             | I2S3_SDO_M0  | 101         |
 
 </div>
+
+### 40-Pin Function Description
+
+On the ZERO 3W / 3E's 40-Pin interface, the following pins can be configured for USB 2.0:
+
+- USB2_HOST2_DM: Pin number 28, resistor location R46.
+- USB2_HOST2_DP: Pin number 27, resistor location R45.
+
+By default, these pins are configured for **I2C** functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
+
+- **Remove the 0-ohm resistors at R32 and R39.**
+- **Solder 0-ohm resistors at R45 and R46.**
+
+:::tip
+The schematic and resistor locations can be viewed and downloaded from the hardware documentation.[Hardware Documentation Download](../getting-started/download)
+:::
+
+:::caution [Operation Note]
+
+This procedure requires soldering skills, and it is recommended that it be performed by an experienced technician.
+
+:::
 
 ## USB C
 

@@ -165,8 +165,8 @@ The ROCK 2F is supplied with a 40pin pin GPIO Header that is compatible with mos
 
 On the ROCK 2F's 40-Pin interface, the following pins can be configured for USB 2.0:
 
-- USB 2.0 DM: Pin number 28, resistor location R2417.
-- USB 2.0 DP: Pin number 27, resistor location R2416.
+- USB1_DM: Pin number 28, resistor location R2417.
+- USB1_DP: Pin number 27, resistor location R2416.
 
 By default, these pins are configured for **I2C** functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
 

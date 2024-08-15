@@ -20,14 +20,14 @@ sidebar_position: 4
 
 ## 40 PIN GPIO
 
-#### GPIO 电压
+### GPIO 电压
 
 | GPIO        | 电压 | 最高  |
 | ----------- | ---- | ----- |
 | 所有的 GPIO | 3.3V | 3.63V |
 | SARADC_IN5  | 3.3V | 3.3V  |
 
-#### GPIO 接口
+### GPIO 接口
 
 ZERO 3W/3E 提供了一个40 pin 针脚的 GPIO 座子，与市场上大多数的 SBC 配件兼容。
 
@@ -63,6 +63,27 @@ Pin 3、Pin 5、Pin 27 和 Pin 28 为 I2C 设备供电添加了额外的上拉�
 |             |             |              |                 |              |    GND    | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO3_A5  |                                           |           |             | I2S3_SDO_M0  | 101         |
 
 </div>
+
+### 40-Pin 功能说明
+
+在 ZERO 3W / 3E 的 40-Pin 接口中，以下引脚可以配置为 USB 2.0：
+
+- USB2_HOST2_DM：引脚编号为 28，对应电阻位号为 R46。
+- USB2_HOST2_DP：引脚编号为 27，对应电阻位号为 R45。
+
+默认情况下，这些引脚被配置为 **I2C** 功能，USB 信号未激活。要将这些引脚改为 USB 功能，需要通过以下步骤修改预留电阻：
+
+- **移除 R32 和 R39 的 0 欧电阻。**
+- **焊接 0 欧电阻到 R45 和 R46 上。**
+
+:::tip
+原理图和位号信息可在硬件资料中查阅和下载，[硬件资料下载](../getting-started/download)
+:::
+
+:::caution [操作提示]
+
+此操作需要具备一定的焊接技巧，建议由有经验的技术人员完成。
+:::
 
 ## USB C 口
 
