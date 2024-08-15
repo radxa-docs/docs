@@ -168,7 +168,7 @@ On the ROCK 2F's 40-Pin interface, the following pins can be configured for USB 
 - USB 2.0 DM: Pin number 28, resistor location R2417.
 - USB 2.0 DP: Pin number 27, resistor location R2416.
 
-By default, these pins are configured for I2C functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
+By default, these pins are configured for **I2C** functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
 
 - **Remove the 0-ohm resistors at R2406 and R2407.**
 - **Solder 0-ohm resistors at R2416 and R2417.**
