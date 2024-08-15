@@ -2,23 +2,23 @@
 sidebar_position: 1
 ---
 
-## Hardware Overview
+# Hardware Overview
 
-## Chip block diagram
+# Chip block diagram
 
 <img src="/img/rock2f/rock-2f-chip-diagram.webp" alt="rk3528A chip diagram" width="700" />
 
-## System block diagram
+# System block diagram
 
 <img src="/img/rock2f/rock-2f-system-diagram.webp" width="800" alt="rock 2f pack" />
 
-## Hardware overview
+# Hardware overview
 
 <img src="/img/rock2f/rock-2f-hardware-overview.webp" width="800" alt="rock 2f pack" />
 
 Below is the detailed interface wiring sequence for each hardware interface.
 
-### microSD Card Slot
+## microSD Card Slot
 
 | PIN | Name        |
 | --- | ----------- |
@@ -33,7 +33,7 @@ Below is the detailed interface wiring sequence for each hardware interface.
 | 9   | SDMMC_DET_L |
 | 10  | GND         |
 
-### HDMI
+## HDMI
 
 | Pin |       Name       | Pin |       Name       |
 | :-: | :--------------: | :-: | :--------------: |
@@ -50,7 +50,7 @@ Below is the detailed interface wiring sequence for each hardware interface.
 | 21  |       GND        | 22  |       GND        |
 | 23  |       GND        |
 
-### WIFI 6 & BT 5.4
+## WIFI 6 & BT 5.4
 
 | Pin |       Name       | Pin |      Name      |
 | :-: | :--------------: | :-: | :------------: |
@@ -81,7 +81,7 @@ Below is the detailed interface wiring sequence for each hardware interface.
 | 49  |       GND        | 50  |      GND       |
 | 51  |       GND        | 52  |      GND       |
 
-### FPC Connector with PCIE 2.0
+## FPC Connector with PCIE 2.0
 
 | Pin |            Name             | Pin |            Name             |
 | :-: | :-------------------------: | :-: | :-------------------------: |
@@ -94,7 +94,7 @@ Below is the detailed interface wiring sequence for each hardware interface.
 | 13  |           PCIE_EN           | 14  |       PCIE20_WAKEn_M1       |
 | 15  |      PCIE20_CLKREQn_M1      | 16  |      PCIE20_PERSTn_M1       |
 
-### AV Out
+## AV Out
 
 | Pin | Name | Pin |   Name   |
 | :-: | :--: | :-: | :------: |
@@ -103,7 +103,7 @@ Below is the detailed interface wiring sequence for each hardware interface.
 |  5  | GND  |  6  |   ROUT   |
 |  7  |  X   |  8  |    X     |
 
-### 2 X USB 2.0 HOST
+## 2 X USB 2.0 HOST
 
 | Pin |     Name     | Pin |  Name   |
 | :-: | :----------: | :-: | :-----: |
@@ -117,7 +117,7 @@ Below is the detailed interface wiring sequence for each hardware interface.
 |  3  |   USB3_DP    |  4  |   GND   |
 |  5  |     GND      |  6  |   GND   |
 
-### 40-Pin GPIO Header
+## 40-Pin GPIO Header
 
 - GPIO Voltage
 
@@ -160,3 +160,25 @@ The ROCK 2F is supplied with a 40pin pin GPIO Header that is compatible with mos
 |             |             |               |              |    GND     | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO1_C0  |  I2S0_SDO_M1  |  SPI1_MISO  |                                           |     48      |
 
 </div>
+
+### 40-Pin Function Description
+
+On the ROCK 2F's 40-Pin interface, the following pins can be configured for USB 2.0:
+
+- USB 2.0 DM: Pin number 28, resistor location R2417.
+- USB 2.0 DP: Pin number 27, resistor location R2416.
+
+By default, these pins are configured for I2C functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
+
+- **Remove the 0-ohm resistors at R2406 and R2407.**
+- **Solder 0-ohm resistors at R2416 and R2417.**
+
+:::tip
+The schematic and resistor locations can be viewed and downloaded from the hardware documentation.[Hardware Documentation Download](../download)
+:::
+
+:::caution [Operation Note]
+
+This procedure requires soldering skills, and it is recommended that it be performed by an experienced technician.
+
+:::
