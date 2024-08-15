@@ -76,6 +76,28 @@ Actual compatibility is subject to actual use.
 </TabItem>
 </Tabs>
 
+### 40-Pin Function Description
+
+On the ROCK 3B's 40-Pin interface, the following pins can be configured for USB 2.0:
+
+- USB3_DM: Pin number 28, resistor location R90538.
+- USB3_DP: Pin number 27, resistor location R90536.
+
+By default, these pins are configured for **I2C** functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
+
+- **Remove the 0-ohm resistors at R90535 and R90537.**
+- **Solder 0-ohm resistors at R90536 and R90538.**
+
+:::tip
+The schematic and resistor locations can be viewed and downloaded from the hardware documentation.[Hardware Documentation Download](../download)
+:::
+
+:::caution [Operation Note]
+
+This procedure requires soldering skills, and it is recommended that it be performed by an experienced technician.
+
+:::
+
 ### eMMC && SPI Flash Connector
 
 | Pin |       Name       | Pin |       Name       |

@@ -135,7 +135,7 @@ On the ROCK 3A's 40-Pin interface, the following pins can be configured for USB 
 
 By default, these pins are configured for **I2C** functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
 
-- **Remove the 0-ohm resistors at R90526 and R90536.**
+- **Remove the 0-ohm resistors at R90526 and R90527.**
 - **Solder 0-ohm resistors at R90537 and R90536.**
 
 :::tip
