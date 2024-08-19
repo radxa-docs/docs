@@ -277,7 +277,6 @@ en/zero/zero/other-os/android/download.md @CodeChenL
 en/zero/zero/getting-started/install-os.md @CodeChenL
 en/zero/zero/radxa-os/locale.md @CodeChenL
 en/zero/zero/low-level-dev/u-boot.md @CodeChenL
-eChenL
 en/zero/zero/other-os/android/README.md @CodeChenL
 en/zero/zero/getting-started/preparation.md @CodeChenL
 zh/zero/zero/radxa-os/display.md @CodeChenL
@@ -323,3 +322,11 @@ docs/common/accessories/_wifi-bt.mdx @nascs
 docs/rock5/rock5c/radxa-os/media.md @nascs
 docs/rock5/rock5a/getting-started/install-os/boot_from_emmc.md @peterwang2050
 static/img/roobi/select_image_cn.webp @shawnchainw
+docs/compute-module/cm3/download.md @nascs
+docs/rock5/rock5itx/getting-started/assembly-guide.md @nascs
+static/img/x/x2l/heatsink_9010b_01.webp @melooooooooooo
+i18n/en/docusaurus-plugin-content-docs/current/compute-module/cm3/hardware-design/README.md @nascs
+static/img/zero/zero2pro/zero2pro-block-digram.webp @CodeChenL
+static/img/common/rsetup/system-maintenance.webp @nascs
+static/img/aicore-sg2300x/sg2300x-block-diagram.webp @peterwang2050
+i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5itx/getting-started/interface-usage/pcie-m-key.md @nascs
