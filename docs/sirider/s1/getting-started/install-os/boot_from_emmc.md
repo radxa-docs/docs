@@ -2,18 +2,16 @@
 sidebar_position: 2
 ---
 
-# 安装系统到 eMMC
+# 安装系统到 eMMC/UFS
 
 ## 文件下载
 
+镜像及刷机工具请到[资源下载汇总](../../download) 下载.
+
 ## 镜像烧录
 
-## 启动系统
-
-## 登录系统
-
-系统启动后，使用 radxa 账号登录，密码为 radxa。
-
 :::tip
-系统从上电到开机启动，整个过程持续约 40 秒，然后进入系统桌面。
+当前文档只提供了windows下的系统烧录方式
 :::
+
+请参考文档 [UG_SE1000_Download_Tool_User_Guide.pdf](https://dl.radxa.com/sirider/s1/siengine_downloadtool_V7.5/UG_SE1000_Download_Tool_User_Guide.pdf)

@@ -3,25 +3,23 @@ sidebar_position: 7
 sidebar_class_name: hidden
 ---
 
-# MIPI CSI 接口
+# MIPI CSI
 
-## 接口差异
-
-## 支持列表
+## Support List
 
   <table>
     <tr>
       <th>Camera Name</th>
-      <th>Sensor 型号</th>
-      <th>分辨率</th>
+      <th>Sensor Model</th>
+      <th>Resolution</th>
     </tr>
     <tr>
       <td>Raspberry Pi Camera V2</td>
       <td>IMX219</td>
-      <td>800 万 像素</td>
+      <td>800M</td>
     </tr>
   </table>
 
-## 配件的使用
+## Usage
 
 ###  Raspberry Pi Camera V2

@@ -13,7 +13,7 @@ description: "快速上手SiRider S1，让您能够轻松开始使用和探索�
         - SiRider S1 主板
         - 散热风扇
  
-要启动 SiRider，您还需要一下设备：
+要启动 SiRider S1，您还需要以下设备：
 
 - 一个充电器(推荐使用支持12V的 PD 充电器), 更多方案请参考[电源方案](./power-supply)。
 - 一个 HDMI 线和一个支持 HDMI 的显示器，推荐分辨率为 1080P 或更高。

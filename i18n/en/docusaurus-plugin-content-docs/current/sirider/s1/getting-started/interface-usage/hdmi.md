@@ -3,6 +3,6 @@ sidebar_position: 2
 sidebar_class_name: hidden
 ---
 
-# HDMI 接口
+# HDMI
 
 ## Interface Test Method

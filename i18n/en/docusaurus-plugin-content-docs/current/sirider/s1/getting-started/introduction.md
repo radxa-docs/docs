@@ -1,28 +1,28 @@
 ---
 sidebar_position: 1
-description: "简单介绍 SiRider S1"
+description: "Introduces SiRider S1"
 ---
 
-# 产品介绍
+# Introduction
 
-SiRider S1 是 Radxa 与芯擎科技及安谋科技联合推出工业单板计算机，融合芯擎科技的工业级 “龍鹰一号” 7nm AIoT应用处理器SE1000-I，安谋科技自研“周易”NPU，以及Radxa的工业级产品设计经验，为市场提供高性能、高可靠的工业级产品，应对未来多元化的应用场景需求。
+SiRider S1 is an industrial single-board computer jointly launched by Radxa, Siengine Technology and Arm China. It integrates Siengine Technology's industrial-grade "龍鹰一号" 7nm AIoT application processor SE1000-I, Arm China's self-developed "周易" NPU, and Radxa's industrial product design experience to provide the market with high-performance and reliable industrial-grade products that can meet the diverse application requirements in the future.
 
-## 主板预览
+## Motherboard OverView
 
 <img src="/img/sirider/s1/sirider-s1-overview.webp" alt="sirider s1 Overview" width="700" />
 
 <table>
       <tr>
-        <th>编号</th>
-        <th>接口名</th>
-        <th>编号</th>
-        <th>接口名</th>
-        <th>编号</th>
-        <th>接口名</th>
-        <th>编号</th>
-        <th>接口名</th>
-        <th>编号</th>
-        <th>接口名</th>
+        <th>Number</th>
+        <th>Interface name</th>
+        <th>Number</th>
+        <th>Interface name</th>
+        <th>Number</th>
+        <th>Interface name</th>
+        <th>Number</th>
+        <th>Interface name</th>
+        <th>Number</th>
+        <th>Interface name</th>
       </tr>
       <tr>
         <th>1</th>
@@ -30,7 +30,7 @@ SiRider S1 是 Radxa 与芯擎科技及安谋科技联合推出工业单板计�
         <th>9</th>
         <th>Ethernet</th>
         <th>17</th>
-        <th>电源输入</th>
+        <th>Power Input</th>
         <th>25</th>
         <th>40-pin GPIO Header</th>
         <th>33</th>
@@ -70,7 +70,7 @@ SiRider S1 是 Radxa 与芯擎科技及安谋科技联合推出工业单板计�
         <th>28</th>
         <th>B KEY</th>
         <th>36</th>
-        <th>MCU烧录口</th>
+        <th>MCU Programming Interface</th>
       </tr>
       <tr>
         <th>5</th>
@@ -112,7 +112,7 @@ SiRider S1 是 Radxa 与芯擎科技及安谋科技联合推出工业单板计�
         <th>8</th>
         <th>Ethernet</th>
         <th>16</th>
-        <th>MaskRom 按键</th>
+        <th>MaskRom Button</th>
         <th>24</th>
         <th> FAN </th>
         <th>32</th>
@@ -120,15 +120,15 @@ SiRider S1 是 Radxa 与芯擎科技及安谋科技联合推出工业单板计�
       </tr>
     </table>
 
-### 芯片架构
+### Chip Architecture
 
 <img src="/img/sirider/s1/se1000-architecture.webp" alt="sirider s1 architecture" width="700" />
 
-## 参数配置
+## Specifications
 
 <table>
   <tr>
-    <th>型号</th>
+    <th>Model</th>
     <th>SiRider S1</th>
   </tr>
   <tr>
@@ -137,35 +137,35 @@ SiRider S1 是 Radxa 与芯擎科技及安谋科技联合推出工业单板计�
   </tr>
   <tr>
     <th>CPU</th>
-    <th> 分两个Custer，Cluster0: 4个A76，最大频率2.4G,2个A55，最大频率1.8G；Cluster1： 2个 A55，最大1.8G</th>
+    <th> Contains two clusters <br/> Cluster0: <br/>A76 x4，Maximum Frequency: 2.4G, <br/> A55 x2, Maximum Frequency: 1.8G; <br/>Cluster1：<br/> A55 x2，Maximum Frequency: 1.8G;</th>
   </tr>
   <tr>
     <th>GPU</th>
-    <th>包含3D GPU0，3D GPU1 和 2D/2.5D 图形核心，支持OpenGL ES1.1/2.0/3.2, Vulkan 1.0和 OpenCL2.0</th>
+    <th>Contains 3D GPU0, 3D GPU1, and a 2D/2.5D graphics core, supporting OpenGL ES1.1/2.0/3.2, Vulkan 1.0, and OpenCL 2.0.</th>
   </tr>
   <tr>
     <th>NPU</th>
-    <th>两个NPU核，NPU0: 3.34TOPS， NPU1: 3.5 TOPS</th>
+    <th>Contains tow NPU Core，NPU0: 3.34TOPS， NPU1: 3.5 TOPS</th>
   </tr>
   <tr>
-    <th>内存</th>
-    <th>支持 LPDDR4/LPDDR4X/LPDDR5, 最大容量16G</th>
+    <th>Memory</th>
+    <th>Support LPDDR4/LPDDR4X/LPDDR5, maximum capacity is 16G</th>
   </tr>
   <tr>
-    <th>存储</th>
-    <th>支持EMMC和UFS，目前测试过的UFS最大为128G</th>
+    <th>Storage</th>
+    <th>Support EMMC and UFS，the maximum capacity of UFS tested is 128G</th>
   </tr>
   <tr>
-    <th>硬件编解码</th>
-    <th>丰富的多媒体接口,支持 4k 120fps解码，4K 60fps编码</th>
+    <th>Hardware Codec</th>
+    <th>Supports 4K 120fps decoding and 4K 60fps encoding</th>
   </tr>
   <tr>
-    <th>显示</th>
+    <th>Display</th>
     <th>HDMI x1</th>
   </tr>
   <tr>
-    <th>以太网</th>
-    <th>2 个 1000M 以太网端口</th>
+    <th>Ethernet</th>
+    <th>1000M x2</th>
   </tr>
   <tr>
     <th>USB</th>
@@ -173,23 +173,22 @@ SiRider S1 是 Radxa 与芯擎科技及安谋科技联合推出工业单板计�
   </tr>
   <tr>
     <th>FAN</th>
-    <th>提供 4 个散热器安装孔，安装孔距 60 毫米</th>
+    <th>Provides 4 heat sink mounting holes with a hole spacing of 60mm.</th>
   </tr>
   <tr>
-    <th>屏接口</th>
+    <th>Display</th>
     <th> MIPI DSI</th>
   </tr>
   <tr>
-    <th>摄像头</th>
+    <th>Camera</th>
     <th>2 lan MIPI CSI  x2 </th>
   </tr>
- 
   <tr>
-    <th>供电</th>
-    <th>一个支持 8 ~ 12V 输入的Type-C 供电口 <br/>一个 8 ~ 12V 2P DC IN </th>
+    <th>Power</th>
+    <th>A Type-C power port supporting 8 ~ 12V input & <br/>An 8~12V 2P DC IN port </th>
   </tr>
   <tr>
-    <th>尺寸</th>
+    <th>Size</th>
     <th>100mm x 150mm</th>
   </tr>
 </table>

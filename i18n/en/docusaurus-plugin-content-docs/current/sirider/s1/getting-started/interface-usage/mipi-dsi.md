@@ -3,19 +3,19 @@ sidebar_position: 8
 sidebar_class_name: hidden
 ---
 
-# MIPI DSI 接口
+# MIPI DSI
 
-## 支持列表
+## Supported List
 
   <table>
     <tr>
       <th>Screen Name</th>
-      <th>分辨率</th>
+      <th>Resolution</th>
     </tr>
     <tr>
       <td>Radxa Display 8 HD</td>
-      <td>1280x800 像素</td>
+      <td>1280x800</td>
     </tr>
   </table>
 
-## 配件使用
+## Usage
