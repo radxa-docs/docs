@@ -7,4 +7,4 @@ description: "Explore the Eclipse Mraa, a versatile I/O communication library fo
 
 import MRAA from '../../../common/dev/\_mraa.mdx';
 
-<MRAA />
+<MRAA install_by_apt={true} />

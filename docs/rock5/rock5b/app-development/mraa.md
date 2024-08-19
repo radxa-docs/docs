@@ -7,4 +7,4 @@ description: "探索适用于 Linux 的多功能 I/O 通信库 Eclipse Mraa"
 
 import MRAA from '../../../common/dev/\_mraa.mdx';
 
-<MRAA />
+<MRAA install_by_apt={true} />
