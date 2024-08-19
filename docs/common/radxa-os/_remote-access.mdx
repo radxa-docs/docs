@@ -100,8 +100,8 @@ May 08 07:53:22 radxa-zero sshd[783]: pam_unix(sshd:session): session opened for
 May 08 07:53:22 radxa-zero sshd[783]: pam_env(sshd:session): deprecated reading of user environment enabled
 ```
 
-- 如果 Active 状态为活动，则 SSH 处于运行状态。
-- 如果 Active 为非活动（死机），则 SSH 已停止，即服务未运行，需要重新启动。
+- 如果 `Active` 状态为 `active (running)`，则 SSH 处于运行状态。
+- 如果 `Active` 状态为 `inactive (dead)`，则 SSH 已停止，即服务未运行，需要重新启动。
 
 <PreView params={{ model: props.model }}>
   {`

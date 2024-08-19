@@ -100,8 +100,8 @@ May 08 07:53:22 radxa-zero sshd[783]: pam_unix(sshd:session): session opened for
 May 08 07:53:22 radxa-zero sshd[783]: pam_env(sshd:session): deprecated reading of user environment enabled
 ```
 
-- If the status of Active is active, the state of SSH is running.
-- If Active is inactive (dead), then SSH is stopped, i.e. the service is not running and needs to be restarted.
+- If the status of `Active` is `active (running)`, the state of SSH is running.
+- If the status of `Active` is `inactive (dead)`, then SSH is stopped, i.e. the service is not running and needs to be restarted.
 
 <PreView params={{ model: props.model }}>
   {`
