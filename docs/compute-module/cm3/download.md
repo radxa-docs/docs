@@ -26,6 +26,10 @@ sidebar_position: 2
 
 ## 硬件设计
 
+- 数据手册
+
+  [Radxa CM3 Datasheet](https://dl.radxa.com/cm3/docs/radxa_cm3_datasheet.pdf)
+
 - 原理图
 
   [Radxa CM3 IO Board V1.32 Schematic](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_schematic.pdf)
