@@ -1,13 +1,38 @@
+import { PreView } from "@site/src/utils/docs";
+
 # MRAA Introduction
 
 Eclipse Mraa (Libmraa) is a C/C++ library with Java, Python, and JavaScript bindings for connecting I/O pins and buses on a variety of IoT and edge platforms, with a well-structured API and port names/numbers that match the boards on which they are located.
 
 ## Install MRAA
 
+<div style={{ display: `${props.install_by_apt ? "block" : "none"}` }}>
+
 ```bash
 sudo apt-get update -y
 sudo apt-get install libmraa2 libmraa-dev libmraa-java python3-mraa mraa-tools -y
 ```
+
+</div>
+
+<div style={{ display: `${props.install_by_source_code ? "block" : "none"}` }}>
+
+<PreView params={{ branch: props.branch }}>
+{`
+
+sudo apt-get update -y
+sudo apt-get install git cmake build-essential -y
+git clone https://github.com/nascs/mraa.git
+cd mraa
+git checkout -b #branch# origin/#branch#
+mkdir build && cd build
+cmake .. && make -j\${nproc\} && sudo make install && sudo ldconfig
+
+`}
+
+</PreView>
+
+</div>
 
 ## MRAA Command Line Tools
 
