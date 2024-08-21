@@ -66,7 +66,7 @@ eMMC and SPI Flash are mutually exclusive, the connector can only connect to one
 
 ### GPIO
 
-- GPIO Voltage
+#### GPIO Voltage
 
 <Tabs queryString="gpio_revision">
 <TabItem value="x1_2" label="x1.2/v1.1">
@@ -95,7 +95,7 @@ eMMC and SPI Flash are mutually exclusive, the connector can only connect to one
 
 </Tabs>
 
-- GPIO Pinout
+#### GPIO Pinout
 
 The ROCK 5A provides a 40 pin GPIO socket that is compatible with most sensor applications on the market.
 
@@ -164,6 +164,28 @@ The ROCK 5A provides a 40 pin GPIO socket that is compatible with most sensor ap
 </TabItem>
 
 </Tabs>
+
+#### USB Function Configuration on 40-Pin
+
+On the ROCK 5A's 40-Pin interface, the following pins can be configured for USB 2.0:
+
+- USB4_DM: Pin number 28, resistor location R104.
+- USB4_DP: Pin number 27, resistor location R106.
+
+By default, Pin-27 can be configured in software for functions such as GPIO0_C7 (see 40-Pin Pinout), while the USB4_DP signal is not activated on the hardware. Pin-28 can be configured in software for functions such as GPIO0_D0 (see 40-Pin Pinout), and the USB4_DM signal is also not activated on the hardware. To change these pins to USB functions, please follow the steps below to modify the reserved resistors:
+
+- **Remove the 0-ohm resistors at R169 and R170.**
+- **Solder 0-ohm resistors at R104 and R106.**
+
+:::tip
+The schematic and resistor locations can be viewed and downloaded from the hardware documentation.[Hardware Documentation Download](../download)
+:::
+
+:::caution [Operation Note]
+
+This procedure requires soldering skills, and it is recommended that it be performed by an experienced technician.
+
+:::
 
 ### Gigabit Ethernet
 

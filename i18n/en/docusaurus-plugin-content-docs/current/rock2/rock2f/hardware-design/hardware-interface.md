@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-## Hardware Overview
+# Hardware Overview
 
 ## Chip block diagram
 
@@ -103,7 +103,7 @@ Below is the detailed interface wiring sequence for each hardware interface.
 |  5  | GND  |  6  |   ROUT   |
 |  7  |  X   |  8  |    X     |
 
-### 2 X USB 2.0 HOST
+### 2x USB 2.0 HOST
 
 | Pin |     Name     | Pin |  Name   |
 | :-: | :----------: | :-: | :-----: |
@@ -119,14 +119,14 @@ Below is the detailed interface wiring sequence for each hardware interface.
 
 ### 40-Pin GPIO Header
 
-- GPIO Voltage
+#### GPIO Voltage
 
 | GPIO          | Voltage | Max  |
 | ------------- | ------- | ---- |
 | All the GPIOs | 3.3V    | 3.3V |
 | SARADC_IN3    | 1.8V    | 1.8V |
 
-- GPIO Pinout
+#### GPIO Pinout
 
 The ROCK 2F is supplied with a 40pin pin GPIO Header that is compatible with most sensor applications on the market.
 
@@ -160,3 +160,25 @@ The ROCK 2F is supplied with a 40pin pin GPIO Header that is compatible with mos
 |             |             |               |              |    GND     | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO1_C0  |  I2S0_SDO_M1  |  SPI1_MISO  |                                           |     48      |
 
 </div>
+
+#### USB Function Configuration on 40-Pin
+
+On the ROCK 2F's 40-Pin interface, the following pins can be configured for USB 2.0:
+
+- USB1_DM: Pin number 28, resistor location R2417.
+- USB1_DP: Pin number 27, resistor location R2416.
+
+By default, Pin-27 can be configured in software for functions such as GPIO4_A2 (see 40-Pin Pinout), while the USB1_DP signal is not activated on the hardware. Pin-28 can be configured in software for functions such as GPIO4_A3 (see 40-Pin Pinout), and the USB1_DM signal is also not activated on the hardware. To change these pins to USB functions, please follow the steps below to modify the reserved resistors:
+
+- **Remove the 0-ohm resistors at R2406 and R2407.**
+- **Solder 0-ohm resistors at R2416 and R2417.**
+
+:::tip
+The schematic and resistor locations can be viewed and downloaded from the hardware documentation.[Hardware Documentation Download](../download)
+:::
+
+:::caution [Operation Note]
+
+This procedure requires soldering skills, and it is recommended that it be performed by an experienced technician.
+
+:::

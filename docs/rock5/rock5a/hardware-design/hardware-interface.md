@@ -66,7 +66,7 @@ eMMC 和 SPI Flash 是互斥的，连接器同一时间只能连接 eMMC 或者 
 
 ### GPIO
 
-- GPIO 电压
+#### GPIO 电压
 
 <Tabs queryString="gpio_revision">
 <TabItem value="x1_2" label="x1.2/v1.1">
@@ -95,7 +95,7 @@ eMMC 和 SPI Flash 是互斥的，连接器同一时间只能连接 eMMC 或者 
 
 </Tabs>
 
-- GPIO Pinout
+#### GPIO Pinout
 
 ROCK 5A 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传感器的应用。
 
@@ -164,6 +164,27 @@ ROCK 5A 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 </TabItem>
 
 </Tabs>
+
+#### 40-Pin 引脚 USB 功能配置
+
+在 ROCK 5A 的 40-Pin 接口中，以下引脚可以配置为 USB 2.0：
+
+- USB4_DM：引脚编号为 28，对应电阻位号为 R104。
+- USB4_DP：引脚编号为 27，对应电阻位号为 R106。
+
+默认情况下，Pin-27 可以在软件中配置为 GPIO0_C7 等功能（详见 40-Pin Pinout），同时 USB4_DP 信号在硬件上未激活。Pin-28 可以在软件中配置为 GPIO0_D0 等功能（详见 40-Pin Pinout），USB4_DM 信号在硬件上也未激活。如需将这些引脚改为 USB 功能，请按照以下步骤修改预留电阻：
+
+- **移除 R169 和 R170 的 0 欧电阻。**
+- **焊接 0 欧电阻到 R104 和 R106 上。**
+
+:::tip
+原理图和位号信息可在硬件资料中查阅和下载，[硬件资料下载](../download)
+:::
+
+:::caution [操作提示]
+
+此操作需要具备一定的焊接技巧，建议由有经验的技术人员完成。
+:::
 
 ### Gigabit Ethernet
 

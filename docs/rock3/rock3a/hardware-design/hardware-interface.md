@@ -16,9 +16,9 @@ sidebar_position: 4
 
 ## 有线网口
 
-## 40 PIN GPIO
+## 40 PIN GPIO 接口
 
-#### GPIO 电压
+### GPIO 电压
 
 电压范围
 
@@ -27,7 +27,7 @@ sidebar_position: 4
 | GPIO | 3.3V    | 3.63V     |
 | ADC  | 1.8V    | 1.98V     |
 
-#### GPIO 接口
+### GPIO 接口
 
 ROCK 3A 提供一个 40 pin GPIO 扩展座，兼容市场上大多数传感器应用。
 
@@ -125,6 +125,27 @@ ROCK 3A 提供一个 40 pin GPIO 扩展座，兼容市场上大多数传感器�
 
 </TabItem>
 </Tabs>
+
+### 40-Pin 引脚 USB 功能配置
+
+在 ROCK 3A 的 40-Pin 接口中，以下引脚可以配置为 USB 2.0：
+
+- USB2_CON_DM：引脚编号为 28，对应电阻位号为 R90537。
+- USB3_CON_DP：引脚编号为 27，对应电阻位号为 R90536。
+
+默认情况下，Pin-27 可以在软件中配置为 GPIO0_B4 等功能（详见 40-Pin Pinout），同时 USB3_CON_DP 信号在硬件上未激活。Pin-28 可以在软件中配置为 GPIO0_B3 等功能（详见 40-Pin Pinout），USB2_CON_DM 信号在硬件上也未激活。如需将这些引脚改为 USB 功能，请按照以下步骤修改预留电阻：
+
+- **移除 R90526 和 R90527 的 0 欧电阻。**
+- **焊接 0 欧电阻到 R90537 和 R90536 上。**
+
+:::tip
+原理图和位号信息可在硬件资料中查阅和下载，[硬件资料下载](../getting-started/download)
+:::
+
+:::caution [操作提示]
+
+此操作需要具备一定的焊接技巧，建议由有经验的技术人员完成。
+:::
 
 ## 蓝牙
 

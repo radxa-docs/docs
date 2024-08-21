@@ -16,9 +16,9 @@ Support QC 3.0/2.0 adapter, 9V/2A, 12V/1.5A
 
 ## Ethernet Port
 
-## 40 PIN GPIO
+## 40 PIN GPIO Header
 
-#### GPIO voltage
+### GPIO voltage
 
 Voltage Range
 
@@ -27,7 +27,7 @@ Voltage Range
 | GPIO | 3.3V    | 3.63V     |
 | ADC  | 1.8V    | 1.98V     |
 
-#### GPIO interface
+### GPIO interface
 
 ROCK 3A provides a 40pin GPIO socket, which is compatible with most sensor applications on the market.
 
@@ -125,6 +125,28 @@ Tip: Actual compatibility is subject to actual usage.
 
 </TabItem>
 </Tabs>
+
+### USB Function Configuration on 40-Pin
+
+On the ROCK 3A's 40-Pin interface, the following pins can be configured for USB 2.0:
+
+- USB2_CON_DM: Pin number 28, resistor location R90537.
+- USB3_CON_DP: Pin number 27, resistor location R90536.
+
+By default, Pin-27 can be configured in software for functions such as GPIO0_B4 (see 40-Pin Pinout), while the USB3_CON_DP signal is not activated on the hardware. Pin-28 can be configured in software for functions such as GPIO0_B3 (see 40-Pin Pinout), and the USB2_CON_DM signal is also not activated on the hardware. To change these pins to USB functions, please follow the steps below to modify the reserved resistors:
+
+- **Remove the 0-ohm resistors at R90526 and R90527.**
+- **Solder 0-ohm resistors at R90537 and R90536.**
+
+:::tip
+The schematic and resistor locations can be viewed and downloaded from the hardware documentation.[Hardware Documentation Download](../getting-started/download)
+:::
+
+:::caution [Operation Note]
+
+This procedure requires soldering skills, and it is recommended that it be performed by an experienced technician.
+
+:::
 
 ## Bluetooth
 

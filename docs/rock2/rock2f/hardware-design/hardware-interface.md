@@ -103,7 +103,7 @@ sidebar_position: 1
 |  5  | GND  |  6  |   ROUT   |
 |  7  |  X   |  8  |    X     |
 
-### 2 X USB 2.0 HOST
+### 2x USB 2.0 HOST
 
 | Pin |     Name     | Pin |  Name   |
 | :-: | :----------: | :-: | :-----: |
@@ -119,14 +119,14 @@ sidebar_position: 1
 
 ### 40-Pin GPIO Header
 
-- GPIO 电压
+#### GPIO 电压
 
 | GPIO       | 电压 | 最高 |
 | ---------- | ---- | ---- |
 | 所有的GPIO | 3.3V | 3.3V |
 | SARADC_IN3 | 1.8V | 1.8V |
 
-- GPIO Pinout
+#### GPIO Pinout
 
 ROCK 2F 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传感器的应用。
 
@@ -160,3 +160,25 @@ ROCK 2F 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 |             |             |               |              |    GND     | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO1_C0  |  I2S0_SDO_M1  |  SPI1_MISO  |                                           |     48      |
 
 </div>
+
+#### 40-Pin 引脚 USB 功能配置
+
+在 ROCK 2F 的 40-Pin 接口中，以下引脚可以配置为 USB 2.0：
+
+- USB1_DM：引脚编号为 28，对应电阻位号为 R2417。
+- USB1_DP：引脚编号为 27，对应电阻位号为 R2416。
+
+默认情况下，Pin-27 可以在软件中配置为 GPIO4_A2 等功能（详见 40-Pin Pinout），同时 USB1_DP 信号在硬件上未激活。Pin-28 可以在软件中配置为 GPIO4_A3 等功能（详见 40-Pin Pinout），USB1_DM 信号在硬件上也未激活。如需将这些引脚改为 USB 功能，请按照以下步骤修改预留电阻：
+
+- **移除 R2406 和 R2407 的 0 欧电阻。**
+- **焊接 0 欧电阻到 R2416 和 R2417 上。**
+
+:::tip
+原理图和位号信息可在硬件资料中查阅和下载，[硬件资料下载](../download)
+:::
+
+:::caution [操作提示]
+
+此操作需要具备一定的焊接技巧，建议由有经验的技术人员完成。
+
+:::
