@@ -20,7 +20,7 @@ $ sudo apt-get install git fakeroot libncurses-dev gcc-aarch64-linux-gnu
 ## 获取内核代码
 
 ```
-$ git clone git@gitlab.com:mediatek-iot-yocto/linux.git -b Ubuntu-mtk-5.15.0-1029.33
+$ git clone https://github.com/radxa/kernel.git -b Ubuntu-mtk-5.15.0-1029.33 linux
 $ cd linux
 ```
 
