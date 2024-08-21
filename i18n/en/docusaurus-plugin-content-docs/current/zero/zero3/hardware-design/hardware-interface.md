@@ -64,14 +64,14 @@ Pin 3, Pin 5, Pin 27, and Pin 28 add extra pull-up resistors for I2C device powe
 
 </div>
 
-### 40-Pin Function Description
+### USB Function Configuration on 40-Pin
 
 On the ZERO 3W / 3E's 40-Pin interface, the following pins can be configured for USB 2.0:
 
 - USB2_HOST2_DM: Pin number 28, resistor location R46.
 - USB2_HOST2_DP: Pin number 27, resistor location R45.
 
-By default, these pins are configured for **I2C** functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
+By default, Pin-27 can be configured in software for functions such as GPIO4_B2 (see 40-Pin Pinout), while the USB2_HOST2_DP signal is not activated on the hardware. Pin-28 can be configured in software for functions such as GPIO4_B3 (see 40-Pin Pinout), and the USB2_HOST2_DM signal is also not activated on the hardware. To change these pins to USB functions, please follow the steps below to modify the reserved resistors:
 
 - **Remove the 0-ohm resistors at R32 and R39.**
 - **Solder 0-ohm resistors at R45 and R46.**

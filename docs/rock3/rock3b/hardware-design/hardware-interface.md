@@ -16,14 +16,14 @@ sidebar_position: 1
 
 ### 40-PIN GPIO Header
 
-- 电压范围
+#### 电压范围
 
 | Type | Voltage | Tolerance |
 | ---- | ------- | --------- |
 | GPIO | 3.3V    | 3.63V     |
 | ADC  | 1.8V    | 1.98V     |
 
-- GPIO Pinout
+#### GPIO Pinout
 
 ROCK 3B 提供一个 40 pin GPIO 扩展座，兼容市场上大多数传感器应用。
 
@@ -63,27 +63,27 @@ ROCK 3B 提供一个 40 pin GPIO 扩展座，兼容市场上大多数传感器�
 
 </div>
 
-- 关于 V1.1 硬件版本的 40-pin 扩展座的补充
+#### 关于 V1.1 硬件版本的 40-pin 扩展座的补充
 
-  - 标有橙色的引脚用于 debug console。
-  - PWM: x7, PWM1 / PWM2 / PWM9 / PWM12 / PWM13 / PWM14 / PWM15
-  - SPI: x1, SPI3
-  - I2C: x3, I2C1 / I2C2 / I2C3
-  - UART: x6, UART0 / UART2 /UART3 / UART5 / UART7 / UART9
-  - ADC: x1, SARADC_VIN5
-  - CAN: x2, CAN0 / CAN1
+- 标有橙色的引脚用于 debug console。
+- PWM: x7, PWM1 / PWM2 / PWM9 / PWM12 / PWM13 / PWM14 / PWM15
+- SPI: x1, SPI3
+- I2C: x3, I2C1 / I2C2 / I2C3
+- UART: x6, UART0 / UART2 /UART3 / UART5 / UART7 / UART9
+- ADC: x1, SARADC_VIN5
+- CAN: x2, CAN0 / CAN1
 
 </TabItem>
 </Tabs>
 
-#### 40-Pin 功能说明
+#### 40-Pin 引脚 USB 功能配置
 
 在 ROCK 3B 的 40-Pin 接口中，以下引脚可以配置为 USB 2.0：
 
 - USB3_DM：引脚编号为 28，对应电阻位号为 R90538。
 - USB3_DP：引脚编号为 27，对应电阻位号为 R90536。
 
-默认情况下，这些引脚被配置为 **I2C** 功能，USB 信号未激活。要将这些引脚改为 USB 功能，需要通过以下步骤修改预留电阻：
+默认情况下，Pin-27 可以在软件中配置为 GPIO0_B4 等功能（详见 40-Pin Pinout），同时 USB3_DP 信号在硬件上未激活。Pin-28 可以在软件中配置为 GPIO0_B3 等功能（详见 40-Pin Pinout），USB3_DM 信号在硬件上也未激活。如需将这些引脚改为 USB 功能，请按照以下步骤修改预留电阻：
 
 - **移除 R90535 和 R90537 的 0 欧电阻。**
 - **焊接 0 欧电阻到 R90536 和 R90538 上。**

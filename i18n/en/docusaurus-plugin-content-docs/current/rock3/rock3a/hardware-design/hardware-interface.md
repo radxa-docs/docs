@@ -126,14 +126,14 @@ Tip: Actual compatibility is subject to actual usage.
 </TabItem>
 </Tabs>
 
-### 40-Pin Function Description
+### USB Function Configuration on 40-Pin
 
 On the ROCK 3A's 40-Pin interface, the following pins can be configured for USB 2.0:
 
 - USB2_CON_DM: Pin number 28, resistor location R90537.
 - USB3_CON_DP: Pin number 27, resistor location R90536.
 
-By default, these pins are configured for **I2C** functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
+By default, Pin-27 can be configured in software for functions such as GPIO0_B4 (see 40-Pin Pinout), while the USB3_CON_DP signal is not activated on the hardware. Pin-28 can be configured in software for functions such as GPIO0_B3 (see 40-Pin Pinout), and the USB2_CON_DM signal is also not activated on the hardware. To change these pins to USB functions, please follow the steps below to modify the reserved resistors:
 
 - **Remove the 0-ohm resistors at R90526 and R90527.**
 - **Solder 0-ohm resistors at R90537 and R90536.**

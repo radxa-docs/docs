@@ -16,14 +16,14 @@ sidebar_position: 1
 
 ### 40-PIN GPIO Header
 
-- GPIO Voltage
+#### GPIO Voltage
 
 | Type | Voltage | Tolerance |
 | ---- | ------- | --------- |
 | GPIO | 3.3V    | 3.63V     |
 | ADC  | 1.8V    | 1.98V     |
 
-- GPIO Pinout
+#### GPIO Pinout
 
 ROCK 3B provides a 40 pin GPIO socket that is compatible with most sensor applications on the market.
 
@@ -76,14 +76,14 @@ Actual compatibility is subject to actual use.
 </TabItem>
 </Tabs>
 
-### 40-Pin Function Description
+#### USB Function Configuration on 40-Pin
 
 On the ROCK 3B's 40-Pin interface, the following pins can be configured for USB 2.0:
 
 - USB3_DM: Pin number 28, resistor location R90538.
 - USB3_DP: Pin number 27, resistor location R90536.
 
-By default, these pins are configured for **I2C** functionality, with the USB signals not activated. To configure these pins for USB functionality, follow these steps to modify the reserved resistors:
+By default, Pin-27 can be configured in software for functions such as GPIO0_B4 (see 40-Pin Pinout), while the USB3_DP signal is not activated on the hardware. Pin-28 can be configured in software for functions such as GPIO0_B3 (see 40-Pin Pinout), and the USB3_DM signal is also not activated on the hardware. To change these pins to USB functions, please follow the steps below to modify the reserved resistors:
 
 - **Remove the 0-ohm resistors at R90535 and R90537.**
 - **Solder 0-ohm resistors at R90536 and R90538.**
