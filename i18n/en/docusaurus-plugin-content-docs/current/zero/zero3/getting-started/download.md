@@ -33,6 +33,8 @@ ZERO 3E V1.2 Production Version
 
 ## Operating System Images
 
+### Official Image
+
 - [Radxa ZERO 3 Debian Build 6](https://github.com/radxa-build/radxa-zero3/releases/download/b6/radxa-zero3_debian_bullseye_xfce_b6.img.xz)
 
 :::caution
@@ -40,5 +42,9 @@ In addition to the above image has been officially fully tested, other images ha
 :::
 
 For more images, please refer to: [ZERO 3 Release](https://github.com/radxa-build/radxa-zero3/releases/latest)
+
+### Third-party Images
+
+- [Radxa Zero 3w OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)
 
 ## Quality Certification
