@@ -34,6 +34,8 @@ Radxa ZERO 3E V1.2 量产版本
 
 ## 操作系统镜像
 
+### 官方镜像
+
 - [Radxa ZERO 3 Debian Build 6](https://github.com/radxa-build/radxa-zero3/releases/download/b6/radxa-zero3_debian_bullseye_xfce_b6.img.xz)
 
 :::caution
@@ -41,5 +43,9 @@ Radxa ZERO 3E V1.2 量产版本
 :::
 
 更多镜像请查看：[Radxa ZERO 3 Release](https://github.com/radxa-build/radxa-zero3/releases/latest)
+
+### 第三方镜像
+
+- [Radxa Zero 3w OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)
 
 ## 质量认证
