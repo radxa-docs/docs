@@ -6,4 +6,4 @@ sidebar_position: 2
 
 import MRAA from '../../../../common/dev/\_mraa.mdx';
 
-<MRAA />
+<MRAA install_by_apt={true} />
