@@ -26,6 +26,10 @@ sidebar_position: 2
 
 ## Hardware Design
 
+- Datasheet
+
+  [Radxa CM3 Datasheet](https://dl.radxa.com/cm3/docs/radxa_cm3_datasheet.pdf)
+
 - Schmatic
 
   [Radxa CM3 IO Board V1.32 Schematic](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_schematic.pdf)
