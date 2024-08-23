@@ -64,16 +64,16 @@ Run the following command in a terminal:
 
 <PreView params={{ model: props.model }}>
   {`
-  radxa@#model#:~$ sudo service ssh status
+  radxa@#model#:~$ sudo systemctl status ssh
   `}
 </PreView>
 
-This command is used to view the status of the ssh service. If you run this command and are prompted with "Unit ssh.service could not be found.", then you need to install the SSH service.
+This command is used to view the status of the SSH service. If you run this command and are prompted with "Unit ssh.service could not be found.", then you need to install the SSH service.
 
 <PreView params={{ model: props.model }}>
   {`
   radxa@#model#:~$ sudo apt-get update
-  radxa@#model#:~$ sudo apt-get install openssh-client openssh-server
+  radxa@#model#:~$ sudo apt-get install openssh-server openssh-sftp-server
   `}
 </PreView>
 
@@ -100,12 +100,20 @@ May 08 07:53:22 radxa-zero sshd[783]: pam_unix(sshd:session): session opened for
 May 08 07:53:22 radxa-zero sshd[783]: pam_env(sshd:session): deprecated reading of user environment enabled
 ```
 
-- If the status of Active is active, the state of ssh is running.
-- If Active is inactive (dead), then ssh is stopped, i.e. the service is not running and needs to be restarted.
+- If the status of `Active` is `active (running)`, the state of SSH is running.
+- If the status of `Active` is `inactive (dead)`, then SSH is stopped, i.e. the service is not running and needs to be restarted.
 
 <PreView params={{ model: props.model }}>
   {`
-  radxa@#model#:~$ sudo service sshd restart
+  radxa@#model#:~$ sudo systemctl restart ssh
+  `}
+</PreView>
+
+- If you need to start the SSH service automatically at boot, please run the following command:
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo systemctl enable --now ssh
   `}
 </PreView>
 

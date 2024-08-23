@@ -64,16 +64,16 @@ import { PreView } from "@site/src/utils/docs";
 
 <PreView params={{ model: props.model }}>
   {`
-  radxa@#model#:~$ sudo service ssh status
+  radxa@#model#:~$ sudo systemctl status ssh
   `}
 </PreView>
 
-此命令用于查看 ssh 服务的状态。如果运行该命令时提示 "找不到 ssh.service 单元"，则需要安装 SSH 服务。
+此命令用于查看 SSH 服务的状态。如果运行该命令时提示 "找不到 ssh.service 单元"，则需要安装 SSH 服务。
 
 <PreView params={{ model: props.model }}>
   {`
   radxa@#model#:~$ sudo apt-get update
-  radxa@#model#:~$ sudo apt-get install openssh-client openssh-server
+  radxa@#model#:~$ sudo apt-get install openssh-server openssh-sftp-server
   `}
 </PreView>
 
@@ -100,12 +100,20 @@ May 08 07:53:22 radxa-zero sshd[783]: pam_unix(sshd:session): session opened for
 May 08 07:53:22 radxa-zero sshd[783]: pam_env(sshd:session): deprecated reading of user environment enabled
 ```
 
-- 如果 Active 状态为活动，则 ssh 处于运行状态。
-- 如果 Active 为非活动（死机），则 ssh 已停止，即服务未运行，需要重新启动。
+- 如果 `Active` 状态为 `active (running)`，则 SSH 处于运行状态。
+- 如果 `Active` 状态为 `inactive (dead)`，则 SSH 已停止，即服务未运行，需要重新启动。
 
 <PreView params={{ model: props.model }}>
   {`
-  radxa@#model#:~$ sudo service sshd restart
+  radxa@#model#:~$ sudo systemctl restart ssh
+  `}
+</PreView>
+
+- 如果需要开机自启 SSH 服务，请运行以下命令：
+
+<PreView params={{ model: props.model }}>
+  {`
+  radxa@#model#:~$ sudo systemctl enable --now ssh
   `}
 </PreView>
 
