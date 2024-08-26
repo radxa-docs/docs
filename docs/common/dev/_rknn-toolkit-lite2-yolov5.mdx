@@ -34,8 +34,6 @@ Radxa 已提供预转换好的 `yolov5s_rk35XX.rknn` 模型，用户可直接参
   ```bash
   cd rknn_model_zoo/examples/yolov5/python
   python3 convert.py ../model/yolov5s_relu.onnx <TARGET_PLATFORM> <dtype> <output_rknn_path>
-  # RK3588 python3 convert.py ../model/yolov5s_relu.onnx rk3588
-  # RK3566 python3 convert.py ../model/yolov5s_relu.onnx rk3566
   ```
 
   参数解析：
@@ -52,13 +50,14 @@ Radxa 已提供预转换好的 `yolov5s_rk35XX.rknn` 模型，用户可直接参
 
 ### 板端推理 YOLOv5
 :::tip
-ZERO3 用户使用 NPU 前需要在 rsetup overlays 中开启, 具体请参考 [rsetup](../os-config/rsetup)
+RK3566/3568 芯片用户使用 NPU 前需要在 rsetup overlays 中开启, 具体请参考 [rsetup](../os-config/rsetup)
 :::
 
 - （可选）下载 radxa 准备的 yolov5s rknn 模型
-    | Platform | Link                                                         |
+    | 平台 | 下载链接                                                         |
     | -------- | ------------------------------------------------------------ |
     | rk3566   | [yolov5s_rk3566.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3566.rknn) |
+    | rk3568   | [yolov5s_rk3568.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3568.rknn) |
     | rk3588   | [yolov5s_rk3588.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3588.rknn) |
 
 - 修改 `rknn_model_zoo/py_utils/rknn_executor.py` 代码
