@@ -1,5 +1,5 @@
 ---
-sidebar_position: 11
+sidebar_position: 12
 description: "Deploying YOLOv8 on the RK3588 board side opens a new era of intelligent target detection, allowing technology and humanistic care to merge perfectly in accurate identification"
 ---
 

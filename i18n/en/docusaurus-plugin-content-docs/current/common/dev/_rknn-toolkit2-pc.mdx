@@ -1,55 +1,55 @@
 :::tip
-This document demonstrates how to simulate YOLOv5 target segmentation rknn model inference on an x86 PC using rknn-toolkit2. For environment setup, please refer to [RKNN Installation](./rknn_install).
+This document aims to demonstrate how to use `rknn-toolkit2` on an x86 PC to simulate inference of the YOLOv5 object segmentation model without the need for a development board. For the required environment setup, please refer to [RKNN Installation](./rknn_install).
 :::
 
 ## Prepare the Model
 
-In this example, the pretrained ONNX format model in the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) is used to demonstrate model conversion and simulated inference on the PC.
+In this example, we will use a pre-trained ONNX format model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as an example, convert the model, and perform simulated inference on the PC.
 
-- If using conda, activate the rknn conda environment first.
+- If you are using conda, please activate the rknn conda environment first.
 
   ```bash
   conda activate rknn
   ```
 
-- Download the yolov5s-seg.onnx model.
+- Download the `yolov5s-seg.onnx` model
 
   ```bash
   cd rknn_model_zoo/examples/yolov5_seg/model
-  # Download the pretrained yolov5s-seg.onnx model
+  # Download the pre-trained yolov5s-seg.onnx model
   bash download_model.sh
   ```
 
-  If encountering network issues, you can download the appropriate model to the appropriate folder from [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support).
+  If you encounter network issues, you can visit [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) to download the corresponding model into the appropriate folder.
 
-- Use rknn-toolkit2 to convert it to yolov5s-seg.rknn.
+- Use `rknn-toolkit2` to convert it into `yolov5s-seg.rknn`
 
   ```bash
   cd rknn_model_zoo/examples/yolov5_seg/python
-  python3 convert.py ../model/yolov5s-seg.onnx rk3588
+  python3 convert.py ../model/yolov5s-seg.onnx <TARGET_PLATFORM>
   ```
 
-  Parameter interpretation:
+  Parameter explanations:
 
-  `<onnx_model>`: Specify the path to the ONNX model.
+  `<onnx_model>`: Specify the path to the ONNX model
 
-  `<TARGET_PLATFORM>`: Specify the name of the NPU platform. Refer to [here](rknn_install#introduction-to-rknn) for supported platforms.
+  `<TARGET_PLATFORM>`: Specify the name of the NPU platform. Supported platforms can be found [here](rknn_install#RKNN-Introduction)
 
-  `<dtype>(optional)`: Specify as `i8` or `fp`. `i8` is for int8 quantization, `fp` is for fp16 quantization. Default is `i8`.
+  `<dtype>(optional)`: Specify `i8` for int8 quantization or `fp` for fp16 quantization. The default is `i8`.
 
-  `<output_rknn_path>(optional)`: Specify the path to save the RKNN model. By default, it is saved in the same directory as the ONNX model, with the file name `yolov5s-seg.rknn`.
+  `<output_rknn_path>(optional)`: Specify the save path for the RKNN model. By default, it is saved in the same directory as the ONNX model with the filename `yolov5s-seg.rknn`.
 
-## Run the yolov5_seg Simulated Inference Python Demo
+## Run the YOLOv5 Segmentation Simulated Inference Python Demo
 
-- pip3 install the required dependencies.
+- Install the required dependencies via pip3
 
   ```bash
   pip3 install torchvision==0.11.2 pycocotools
   ```
 
-- Run the simulated inference program.
+- Run the simulated inference program
 
-  - Modify rknn_model_zoo/py_utils/rknn_executor.py to the following code, **and be sure to backup the original code**
+  - Modify `rknn_model_zoo/py_utils/rknn_executor.py` to the following code, **and make sure to back up the original code**
 
   ```python
   from rknn.api import RKNN
@@ -57,10 +57,6 @@ In this example, the pretrained ONNX format model in the [rknn_model_zoo](https:
   class RKNN_model_container():
       def __init__(self, model_path, target=None, device_id=None) -> None:
           rknn = RKNN()
-
-          # # Direct Load RKNN Model
-          # rknn.load_rknn(model_path)
-
           print('--> Init runtime environment')
           if target==None:
               DATASET_PATH = '../../../datasets/COCO/coco_subset_20.txt'
@@ -75,7 +71,6 @@ In this example, the pretrained ONNX format model in the [rknn_model_zoo](https:
                   print('Load model failed!')
                   exit(ret)
               print('done')
-
               # Build model
               print('--> Building model')
               ret = rknn.build(do_quantization=True, dataset=DATASET_PATH)
@@ -100,23 +95,22 @@ In this example, the pretrained ONNX format model in the [rknn_model_zoo](https:
               inputs = [inputs]
 
           result = self.rknn.inference(inputs=inputs)
-
           return result
   ```
 
-  - Modify rknn_model_zoo/examples/yolov5_seg/python/yolov5_seg.py line 260, set target default value to None
+  - Modify `rknn_model_zoo/examples/yolov5_seg/python/yolov5_seg.py` line 260 to set the default value of `target` to None
 
   ```python
   # parser.add_argument('--target', type=str, default=‘rk3566’, help='target RKNPU platform')
   parser.add_argument('--target', type=str, default=None, help='target RKNPU platform')
   ```
 
-  - Run the simulated inference program.
+  - Run the simulated inference program
 
   ```bash
   python3 yolov5_seg.py --model_path ../model/yolov5s-seg.rknn --img_show
   ```
 
-  - Simulated inference result (The simulator only simulates the NPU calculation result, the actual effect and accuracy depend on the board-side inference).
+  - Simulated inference results (the simulator only simulates NPU computation results; actual effects and accuracy are based on board inference)
 
-  ![yolov5_seg_result/webp](/img/general-tutorial/rknn/yolov5_seg_result.webp)
+  ![yolov5_seg_result](/img/general-tutorial/rknn/yolov5_seg_result.webp)

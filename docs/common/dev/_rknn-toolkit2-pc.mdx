@@ -26,7 +26,7 @@
 
   ```bash
   cd rknn_model_zoo/examples/yolov5_seg/python
-  python3 convert.py ../model/yolov5s-seg.onnx rk3588
+  python3 convert.py ../model/yolov5s-seg.onnx <TARGET_PLATFORM>
   ```
 
   参数解析：
@@ -57,10 +57,6 @@
   class RKNN_model_container():
       def __init__(self, model_path, target=None, device_id=None) -> None:
           rknn = RKNN()
-
-          # # Direct Load RKNN Model
-          # rknn.load_rknn(model_path)
-
           print('--> Init runtime environment')
           if target==None:
               DATASET_PATH = '../../../datasets/COCO/coco_subset_20.txt'
@@ -75,7 +71,6 @@
                   print('Load model failed!')
                   exit(ret)
               print('done')
-
               # Build model
               print('--> Building model')
               ret = rknn.build(do_quantization=True, dataset=DATASET_PATH)
@@ -100,7 +95,6 @@
               inputs = [inputs]
 
           result = self.rknn.inference(inputs=inputs)
-
           return result
   ```
 

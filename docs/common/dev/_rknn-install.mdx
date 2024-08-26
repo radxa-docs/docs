@@ -4,15 +4,15 @@
 
 ## RKNN 简介
 
-Rockchip RK3566/RK3568 系列， RK3588 系列， K3562 系列， RV1103/RV1106 系列芯片搭载神经网络处理器 NPU，
+Rockchip RK3566/RK3568 系列， RK3588 系列， RK3562 系列， RV1103/RV1106 系列芯片搭载神经网络处理器 NPU，
 利用 RKNN 可以帮助用户快速部署 AI 模型到 Rockchip 芯片上使用 NPU 硬件加速模型推理。
 为了使用 RKNPU，用户首先需要在 x86 计算机上使用 RKNN-Toolkit2 工具，将训练好的模型转换为 RKNN 格式的模型，然后在开发板上使用 RKNN C API 或 Python API进行推断。
 
 所需工具：
 
 - RKNN-Toolkit2 是一个软件开发工具包，供用户在 PC 和 Rockchip NPU 平台上执行模型转换、推断和性能评估。
-- RKNN-Toolkit-Lite2 为 Rockchip NPU 平台提供了 Python 编程接口，帮助用户部署 RKNN 模型并加速实施AI应用。
-- RKNN Runtime 为 Rockchip NPU 平台提供了 C/C++ 编程接口，帮助用户部署 RKNN 模型并加速实施AI应用。
+- RKNN-Toolkit-Lite2 为 Rockchip NPU 平台提供了 Python 编程接口，帮助用户部署 RKNN 模型并加速实施 AI 应用。
+- RKNN Runtime 为 Rockchip NPU 平台提供了 C/C++ 编程接口，帮助用户部署 RKNN 模型并加速实施 AI 应用。
 - RKNPU 内核驱动负责与 NPU 硬件交互。
 
 整体框架如下：
@@ -26,7 +26,7 @@ Rockchip RK3566/RK3568 系列， RK3588 系列， K3562 系列， RV1103/RV1106 
 - 下载 RKNN 仓库
 
   建议新建一个目录用来存放 RKNN 仓库，例如新建一个名称为 Projects 的文件夹，并将
-  RKNN-Toolkit2 v1.6.0 和 RKNN Model Zoo v1.6.0 仓库存放至该目录下，参考命令如下
+  RKNN-Toolkit2 和 RKNN Model Zoo 仓库存放至该目录下，参考命令如下
 
   ```bash
   # 新建 Projects 文件夹
@@ -34,10 +34,10 @@ Rockchip RK3566/RK3568 系列， RK3588 系列， K3562 系列， RV1103/RV1106 
   cd Projects
 
   # 下载 RKNN-Toolkit2 仓库
-  git clone https://github.com/airockchip/rknn-toolkit2.git -b v1.6.0
+  git clone https://github.com/airockchip/rknn-toolkit2.git
 
   # 下载 RKNN Model Zoo 仓库
-  git clone https://github.com/airockchip/rknn_model_zoo.git -b v1.6.0
+  git clone https://github.com/airockchip/rknn_model_zoo.git
   ```
 
 - （可选）安装 [Anaconda](https://www.anaconda.com/)
@@ -79,7 +79,7 @@ Rockchip RK3566/RK3568 系列， RK3588 系列， K3562 系列， RV1103/RV1106 
   ```bash
   # 进入 rknn-toolkit2 目录
   cd Projects/rknn-toolkit2/rknn-toolkit2
-  # 请根据不同的 python 版本，选择不同的 requirements 文件
+  # 请根据不同的 python 版本，选择不同的 requirements 文件, 这里以 python3.8 为例子
   pip install -r packages/requirements_cp38-1.6.0.txt -i https://mirror.baidu.com/pypi/simple
   # 请根据不同的 python 版本及处理器架构，选择不同的 wheel 安装包文件：
   pip install packages/rknn_toolkit2-1.6.0+81f21f4d-cp38-cp38-linux_x86_64.whl
@@ -104,7 +104,15 @@ Radxa 官方镜像已默认安装 RKNPU2 及其所需依赖，仅需安装 pytho
 sudo apt update
 sudo apt install python3-rknnlite2
 # sudo apt install rknpu2-rk3588   #SOC为RK3588系列
-# sudo apt install rknpu2-rk356x python3-rknnlite2 #SOC为RK356X系列
+# sudo apt install rknpu2-rk356x   #SOC为RK356X系列
 ```
 
 如您使用的是 CLI 版本可访问 rknn toolkit lite2 [deb 包下载地址](https://github.com/radxa-pkg/rknn2/releases)
+
+### (可选) 板端安装 RKNN Model Zoo
+  ```bash
+  # 下载 RKNN Model Zoo 仓库
+  git clone https://github.com/airockchip/rknn_model_zoo.git
+  ```
+
+

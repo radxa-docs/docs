@@ -23,7 +23,7 @@ The overall framework is as follows:
 
 - Download the RKNN Repository
 
-  It is recommended to create a directory to store the RKNN repository. For example, create a folder named Projects and place the RKNN-Toolkit2 v1.6.0 and RKNN Model Zoo v1.6.0 repositories under this directory. The commands are as follows:
+  It is recommended to create a directory to store the RKNN repository. For example, create a folder named Projects and place the RKNN-Toolkit2 and RKNN Model Zoo repositories under this directory. The commands are as follows:
 
   ```bash
   # Create Projects folder
@@ -31,10 +31,10 @@ The overall framework is as follows:
   cd Projects
 
   # Download RKNN-Toolkit2 repository
-  git clone https://github.com/airockchip/rknn-toolkit2.git -b v1.6.0
+  git clone https://github.com/airockchip/rknn-toolkit2.git
 
   # Download RKNN Model Zoo repository
-  git clone https://github.com/airockchip/rknn_model_zoo.git -b v1.6.0
+  git clone https://github.com/airockchip/rknn_model_zoo.git
   ```
 
 - (Optional) Install [Anaconda](https://www.anaconda.com/)
@@ -102,7 +102,14 @@ Radxa official image has RKNPU2 and its dependencies installed by default. Only 
 sudo apt update
 sudo apt install python3-rknnlite2
 # sudo apt install rknpu2-rk3588   # For SOC RK3588 series
-# sudo apt install rknpu2-rk356x python3-rknnlite2 # For SOC RK356X series
+# sudo apt install rknpu2-rk356x   # For SOC RK356X series
 ```
 
 If you are using the CLI version, you can visit the RKNN Toolkit Lite2 [deb package download page](https://github.com/radxa-pkg/rknn2/releases).
+
+### (Optional) Install RKNN Model Zoo on the Board
+
+```bash
+# Download the RKNN Model Zoo repository
+git clone https://github.com/airockchip/rknn_model_zoo.git
+```
