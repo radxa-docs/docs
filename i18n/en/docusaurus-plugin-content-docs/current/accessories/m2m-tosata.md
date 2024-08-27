@@ -12,8 +12,8 @@ This breakout board is very easy to use. Simply insert it directly into the M.2 
 
 ## Feature
 
-Description: Converts M.2 M Key port to SATA port
-Dimensions: 22mm x 30mm x 7mm
+- Description: Converts M.2 M Key port to SATA port
+- Dimensions: 22mm x 30mm x 7mm
 
 ## Installation and Use
 
