@@ -8,7 +8,9 @@ import Images from "./\_image.mdx"
 
 ## Loader file
 
-[rk3528_spl_loader_v1.07.104.bin](https://dl.radxa.com/rock2/images/loader/rk3528_spl_loader_v1.07.104.bin)
+[rk3528_spl_loader_v1.07.104.bin](https://dl.radxa.com/rock2/images/loader/rk3528_spl_loader_v1.07.104.bin) (for debian)
+
+[rock2a_android13_box_20240619_MiniLoader](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20240726/rock2a_android13_box_20240619_MiniLoader.bin) (for Android)
 
 ## Operating System Image
 
@@ -16,8 +18,14 @@ debian xfce:
 
 [https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
 
+Android13 ：
+
+[rock2a_android13_box_20240619_gpt.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20240726/rock2a_android13_box_20240619_gpt.zip) (used to start from SD-Card)
+
+[rock2a_android13_box_20240619_update.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20240726/rock2a_android13_box_20240619_update.zip) (used to start from EMMC)
+
 :::tip
-This image is fully compatible with E20C, ROCK 2A, and ROCK 2F devices, all incorporating the RK3528 chip. The compatible method is as follow:
+These image is fully compatible with E20C, ROCK 2A, and ROCK 2F devices, all incorporating the RK3528 chip. The compatible method is as follow:
 
 - Each of these three products employs distinct pull-down resistors on a shared ADC pin.
 - Each device comes with a predefined ADC range value.
