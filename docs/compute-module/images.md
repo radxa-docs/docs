@@ -30,6 +30,8 @@ CM3 IO：https://github.com/radxa-build/radxa-cm3-io/releases/download/b27/radxa
 
 [CM3I-IO B4](https://github.com/radxa-build/radxa-cm3i-io/releases/download/b4/radxa-cm3i-io_debian_bullseye_xfce_b4.img.xz)
 
+[CM3I-IO Android11](https://github.com/radxa/manifests/releases/download/android11-radxa-20240719/Rrdxa_CM3_Android11-rkr12-20240719-update.zip)
+
 </TabItem>
 
 <TabItem value="Radxa CM5">
@@ -40,8 +42,11 @@ CM3 IO：https://github.com/radxa-build/radxa-cm3-io/releases/download/b27/radxa
 
 Radxa CM5 IO: [radxa-cm5-io_debian_bullseye_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/b2/radxa-cm5-io_debian_bullseye_kde_b2.img.xz)
 
+Radxa CM5 IO: [radxa-cm5-io Android12](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240511/Radxa_CM5_Android12_rkr14_GMS_20240511-update.zip)
+
 Radxa CM5 on RPI CM4 IO : [radxa-cm5-rpi-cm4-io_debian_bullseye_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/b2/radxa-cm5-rpi-cm4-io_debian_bullseye_kde_b2.img.xz)
 
+Radxa CM5 on RPI CM4 IO : [radxa-cm5-rpi-cm4-io_Android12](https://github.com/radxa/manifests/releases/download/radxa-cm5-android12-20240626/Radxa-cm5-rpi_cm4io-Android12-rkr14-GMS-20240626-gpt.zip)
 </TabItem>
 
 <TabItem value="Radxa NX5">
