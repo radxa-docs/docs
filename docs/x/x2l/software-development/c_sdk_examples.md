@@ -12,7 +12,7 @@ import UART from "../../../common/dev/\_pico-uart.mdx";
 
 # 40-PIN 使用指南
 
-## Intel N100 与 RP2040 和 40-PIN GPIO 的关系介绍
+## Intel J4125 与 RP2040 和 40-PIN GPIO 的关系介绍
 
 <RELATION />
 
