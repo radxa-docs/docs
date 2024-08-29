@@ -183,7 +183,7 @@ SiRider S1 是 Radxa 与芯擎科技及安谋科技联合推出工业单板计�
     <th>摄像头</th>
     <th>2 lan MIPI CSI  x2 </th>
   </tr>
- 
+
   <tr>
     <th>供电</th>
     <th>一个支持 8 ~ 12V 输入的Type-C 供电口 <br/>一个 8 ~ 12V 2P DC IN </th>
