@@ -8,18 +8,7 @@ sidebar_position: 4
 
 ## 环境配置
 
-安装以下资源包
-
-```bash
-
-apt-get update -y && apt-get install -y openjdk-8-jdk python git-core gnupg flex bison gperf build-essential \
-zip curl liblz4-tool zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \
-lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \
-libgl1-mesa-dev libxml2-utils xsltproc unzip mtools u-boot-tools \
-htop iotop sysstat iftop pigz bc device-tree-compiler lunzip \
-dosfstools vim-common parted udev libssl-dev python3 python-pip lzop swig
-
-```
+建议使用 Ubuntu 16.04 及以上版本
 
 ### Repo
 
@@ -39,69 +28,58 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 
 ```bash
 
- $ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-r-release.xml
- $ repo sync -d --no-tags -j4
+$ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-r-release.xml
+$ repo sync -d -c -j4
 
 ```
 
 ## 镜像编译
 
-镜像编译可以使用两种方法
+### 全部编译
 
-### 方法一 (**推荐**)
+适合第一次编译
 
-使用 SDK 编译脚本方式编译
+CM3 IO
 
 ```bash
-  radxa:rock-android11 $ source build/envsetup.sh
-
-  # for Rock 3A
-  radxa:rock-android11 $ lunch rk356x_rock_3a_r-userdebug
-  # for Rock 3A if you want a box software
-  radxa:rock-android11 $ lunch rk356x_rock_3a_box-userdebug
-
-  radxa:rock-android11 $ ./build.sh -UACKup
+radxa:rock-android12 $ source build/envsetup.sh
+radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ ./build.sh -UACKup
+# get images from IMAGE directory
 ```
 
 等待编译完成就可以在 IMAGE 目录找到镜像
 
-### 方法二
+### 单独编译
 
-可以根据这个方法一步一步编译镜像
+适合小修改后编译
 
-1. 设置编译项目的环境
+例如，只修改过
 
-```bash
-radxa:rock-android11 $ source build/envsetup.sh
-
-# for Rock 3A
-radxa:rock-android11 $ lunch rk356x_rock_3a_r-userdebug
-# for Rock 3A if you want a box software
-radxa:rock-android11 $ lunch rk356x_rock_3a_box-userdebug
-```
-
-2. 编译 U-boot
+U-boot
 
 ```bash
-radxa:rock-android11 $ ./build.sh -U
+radxa:rock-android12 $ source build/envsetup.sh
+radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ ./build.sh -AUup
 ```
 
-3. 编译内核
+Kernel
 
 ```bash
-radxa:rock-android11 $ ./build.sh -CK
+radxa:rock-android12 $ source build/envsetup.sh
+radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ ./build.sh -ACKup
 ```
 
-4. 编译AOSP
+AOSP
 
 ```bash
-radxa:rock-android11 $ ./build.sh -A
+radxa:rock-android12 $ source build/envsetup.sh
+radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ ./build.sh -Aup
 ```
 
-5. 制作 Images
-
-```bash
-radxa:rock-android11 $ ./build.sh -u
-```
+等待编译完成就可以在 IMAGE 目录找到镜像
 
 ## 常见问题
