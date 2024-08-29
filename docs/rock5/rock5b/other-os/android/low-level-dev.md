@@ -34,7 +34,7 @@ radxa:rock-android12 $ ./build.sh -UACKup
 # get images from IMAGE directory
 ```
 
-Rock5BPlus
+Rock5B+
 
 ```bash
 radxa:rock-android12 $ source build/envsetup.sh
