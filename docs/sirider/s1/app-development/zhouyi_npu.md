@@ -10,10 +10,41 @@ sidebar_position: 1
 “周易” Z2 AIPU 将主要面向中高端安防、智能座舱和 ADAS、边缘服务器等应用场景。
 ## 周易 Z2 AIPU 使用教程
 
-### x86 PC 端安装 周易 AIPU SDK
+### x86 PC 端安装周易 AIPU SDK
 周易 SDK 是一个全栈平台，可为用户提供快速上市的开发和部署能力。
 ![image](https://user-images.githubusercontent.com/85479712/198521602-49e13a31-bb49-424f-b782-5108274d63c3.png)
 
+- 准备一个 python3.8 的环境
+  - （可选）安装 [Anaconda](https://www.anaconda.com/)
+
+    如果系统中没有安装 Python 3.8（必要版本），或者同时有多个版本的 Python 环境，建议使用 [Anaconda](https://www.anaconda.com/) 创建新的 Python 3.8 环境
+
+    - 安装 Anaconda
+
+      在计算机的终端窗口中执行以下命令，检查是否安装 Anaconda，若已安装则可省略此节步骤
+
+      ```bash
+      $ conda --version
+      conda 23.10.0
+      ```
+
+      如出现 conda: command not found, 则表示未安装 anaconda, 请参考 [Anaconda](https://www.anaconda.com/) 官网进行安装
+
+    - 创建 conda 环境
+      ```bash
+      conda create -n aipu python=3.8
+      ```
+    - 进入 aipu conda 环境
+
+      ```bash
+      conda activate aipu
+      ```
+
+    - 退出环境 
+      ```bash
+      conda deactivate
+      ```
+      
 - 在[瑞莎下载站](https://dl.radxa.com/sirider/s1/)下载周易 Z2 SDK 安装包后解压安装
     ```bash
     tar -xvf Zhouyi_Z2.tar.gz
@@ -73,6 +104,10 @@ nn-compiler 可以将 TensorFlow、ONNX 等框架模型转换成可以在周易 
   aipubuild build.cfg
   ```
   在 ./restnet50 中得到 aipu_mlperf_resnet50.bin
+
+  :::tip
+  如果找不到 `aipubuild` 命令，可尝试 `export PATH=$PATH:/root/.local/bin`
+  :::
 
 ### 板端使用周易 Z2 推理 AIPU 模型
 在使用周易 Z2 AIPU 推理前需要在 x86 主机进行交叉编译生成可执行文件 `aiputest`，然后拷贝到 Sirider S1 中执行

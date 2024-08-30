@@ -18,6 +18,41 @@ The Zhouyi SDK is a full-stack platform that provides users with rapid developme
 
 ![image](https://user-images.githubusercontent.com/85479712/198521602-49e13a31-bb49-424f-b782-5108274d63c3.png)
 
+
+- Prepare a python 3.8 environment
+  - (Optional) Install [Anaconda](https://www.anaconda.com/)
+
+    If Python 3.8 (required version) is not installed on your system or if you have multiple Python versions, it is recommended to use [Anaconda](https://www.anaconda.com/) to create a new Python 3.8 environment.
+
+    - Install Anaconda
+
+      To check if Anaconda is installed, run the following command in the terminal. If it is installed, you can skip this step.
+
+      ```bash
+      $ conda --version
+      conda 23.10.0
+      ```
+
+      If you see `conda: command not found`, Anaconda is not installed. Please refer to the [Anaconda](https://www.anaconda.com/) website for installation instructions.
+
+    - Create a conda environment
+
+      ```bash
+      conda create -n aipu python=3.8
+      ```
+
+    - Activate the aipu conda environment
+
+      ```bash
+      conda activate aipu
+      ```
+
+    - Deactivate the environment
+
+      ```bash
+      conda deactivate
+      ```
+
 - Download the Zhouyi Z2 SDK installation package from the [Radxa Download Station](https://dl.radxa.com/sirider/s1/) and extract it for installation:
     ```bash
     tar -xvf Zhouyi_Z2.tar.gz
@@ -78,8 +113,11 @@ For the complete SDK documentation, please refer to `AI610-SDK-r1p3-AIoT/AI610-S
   cd ./restnet50
   aipubuild build.cfg
   ```
-  The aipu model is generated in ./restnet50 as aipu_mlperf_resnet50.bin.
-
+  The aipu model is generated in ./restnet50 as aipu_mlperf_resnet50.bin. 
+  
+  :::tip 
+  If `aipubuild` command not found, try `export PATH=$PATH:/root/.local/bin`.
+  :::
 ### Use Zhouyi Z2 for AIPU Model Inference on the Board
 
 Before using Zhouyi Z2 AIPU for inference, a cross-compiled executable file `aiputest` needs to be generated on the x86 host and then copied to the Sirider S1 for execution.
