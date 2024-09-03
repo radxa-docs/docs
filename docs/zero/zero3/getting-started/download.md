@@ -49,3 +49,8 @@ Radxa ZERO 3E V1.2 量产版本
 - [Radxa Zero 3w OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)
 
 ## 质量认证
+
+## 外壳
+- [Case For Radxa Zero 3E](https://www.printables.com/model/994372-case-for-radxa-zero-3e) by [@leavic](https://www.printables.com/@leavic)
+- [Case for Radxa 3E with PoE HAT](https://www.printables.com/model/848702-case-for-radxa-3e-with-poe-hat) by [@brockhold](https://www.printables.com/@brockhold_268073)
+
