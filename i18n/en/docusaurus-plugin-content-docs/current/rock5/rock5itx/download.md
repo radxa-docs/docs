@@ -20,6 +20,12 @@ Radxa ROCK 5 ITX Version X1.1
 
 <Images loader={false} system_img={true} spi_img={false} />
 
+<Images loader={false} system_img={false} spi_img={false} miniloader={true} />
+
+[Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_gpt](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_gpt.zip)(for SD-card)
+[Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_update](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_update.zip)(for EMMC)
+[Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_spi_nvme](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_spi_nvme.zip)(for SSD)
+
 :::caution
 If you encounter any problems, please go to the corresponding community for help.
 :::.

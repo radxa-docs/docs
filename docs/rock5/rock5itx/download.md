@@ -20,6 +20,12 @@ Radxa ROCK 5 ITX X1.1版本
 
 <Images loader={false} system_img={true} spi_img={false} />
 
+<Images loader={false} system_img={false} spi_img={false} miniloader={true} />
+
+[Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_gpt](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_gpt.zip)（用于 sd 卡启动）
+[Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_update](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_update.zip)（用于 EMMC 启动）
+[Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_spi_nvme](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_spi_nvme.zip)（用于 SSD 启动）
+
 :::caution
 非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到对应的社区寻求帮助。
 :::

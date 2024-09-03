@@ -3,7 +3,7 @@ sidebar_position: 2
 title: 系统安装
 ---
 
-import Etcher from '../../../../common/general/\_etcher.mdx'
+import Etcher from '../../../../common/general/\_etcherV2.mdx'
 
 本文档将介绍如何把 Android 镜像安装到 ROCK 5B。
 
