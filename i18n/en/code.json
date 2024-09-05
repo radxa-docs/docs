@@ -7,6 +7,34 @@
     "description": "Issue",
     "message": "Report Issue"
   },
+  "home.page.welcome": {
+    "description": " ",
+    "message": "Welcome"
+  },
+  "home.page.home": {
+    "description": " ",
+    "message": "Home"
+  },
+  "home.page.product": {
+    "description": " ",
+    "message": "Products"
+  },
+  "home.page.news": {
+    "description": " ",
+    "message": "News"
+  },
+  "home.page.services": {
+    "description": " ",
+    "message": "Serices"
+  },
+  "home.page.support": {
+    "description": " ",
+    "message": "Support"
+  },
+  "home.page.series": {
+    "description": " ",
+    "message": "Series"
+  },
   "home.page.HomePageIntroduction": {
     "message": "Choose a product"
   },
