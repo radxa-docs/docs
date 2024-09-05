@@ -7,21 +7,29 @@
     "description": "Contributors",
     "message": "报告问题"
   },
-  "home.page.welcome": {
-    "description": " ",
-    "message": "欢迎"
+  "home.page.HomePageIntroduction": {
+    "description": "Home page introduction",
+    "message": "选择一个产品"
+  },
+  "home.page.HomePageTitle": {
+    "description": "Home Page Title",
+    "message": "瑞莎文档中心"
   },
   "home.page.home": {
     "description": " ",
     "message": "首页"
   },
+  "home.page.news": {
+    "description": " ",
+    "message": "新闻"
+  },
   "home.page.product": {
     "description": " ",
     "message": "产品"
   },
-  "home.page.news": {
+  "home.page.series": {
     "description": " ",
-    "message": "新闻"
+    "message": "系列"
   },
   "home.page.services": {
     "description": " ",
@@ -31,17 +39,9 @@
     "description": " ",
     "message": "支持"
   },
-  "home.page.series": {
+  "home.page.welcome": {
     "description": " ",
-    "message": "系列"
-  },
-  "home.page.HomePageIntroduction": {
-    "description": "Home page introduction",
-    "message": "选择一个产品"
-  },
-  "home.page.HomePageTitle": {
-    "description": "Home Page Title",
-    "message": "瑞莎文档中心"
+    "message": "欢迎"
   },
   "homepage.hero.hello": {
     "message": "你好，世界！"
