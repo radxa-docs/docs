@@ -112,7 +112,7 @@ SiRider S1 is an industrial single-board computer jointly launched by Radxa, Sie
         <th>8</th>
         <th>Ethernet</th>
         <th>16</th>
-        <th>MaskRom Button</th>
+        <th>FastBoot Button</th>
         <th>24</th>
         <th> FAN </th>
         <th>32</th>
