@@ -15,6 +15,34 @@
     "description": "Home Page Title",
     "message": "瑞莎文档中心"
   },
+  "home.page.home": {
+    "description": " ",
+    "message": "首页"
+  },
+  "home.page.news": {
+    "description": " ",
+    "message": "新闻"
+  },
+  "home.page.product": {
+    "description": " ",
+    "message": "产品"
+  },
+  "home.page.series": {
+    "description": " ",
+    "message": "系列"
+  },
+  "home.page.services": {
+    "description": " ",
+    "message": "服务"
+  },
+  "home.page.support": {
+    "description": " ",
+    "message": "支持"
+  },
+  "home.page.welcome": {
+    "description": " ",
+    "message": "欢迎"
+  },
   "homepage.hero.hello": {
     "message": "你好，世界！"
   },
