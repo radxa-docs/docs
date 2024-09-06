@@ -112,7 +112,7 @@ SiRider S1 是 Radxa 与芯擎科技及安谋科技联合推出工业单板计�
         <th>8</th>
         <th>Ethernet</th>
         <th>16</th>
-        <th>MaskRom 按键</th>
+        <th>FastBoot 按键</th>
         <th>24</th>
         <th> FAN </th>
         <th>32</th>
