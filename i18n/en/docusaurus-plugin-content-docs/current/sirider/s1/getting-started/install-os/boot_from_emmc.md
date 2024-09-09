@@ -4,9 +4,20 @@ sidebar_position: 2
 
 # Install System On eMMC/UFS
 
-## File Download
+## Resource Download
 
 For image and flashing tool, please refer to [download](../../download).
+
+## Enter Flash mode
+
+Connect the Type-C data cable to the debug port and the PC. This will display four serial port devices on the PC.
+Open the last one in the sequence (Baud rate is 115200). Hold the FastBoot button and power on the board to enter flashing mode.
+At this point, data will output on the serial port. Run the `fastboot devices`  command to detect the device.
+
+```bash
+name@your-pc:$ fastboot devices
+14007211532C0033        fastboot
+```
 
 ## Image Installation
 
