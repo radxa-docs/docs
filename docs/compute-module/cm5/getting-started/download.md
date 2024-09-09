@@ -43,9 +43,11 @@ sidebar_position: 4
 
 - Radxa OS
 
-  CM5 搭载 CM5 IO: [radxa-cm5-io_debian_bullseye_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/b2/radxa-cm5-io_debian_bullseye_kde_b2.img.xz)
+  CM5 搭载 CM5 IO: [Desktop 系统镜像](https://github.com/radxa-build/radxa-cm5-io/releases/download/rsdk-b3/radxa-cm5-io_bookworm_kde_b3.output.img.xz)  
+  CM5 Lite 搭载 CM5 IO: [CLI 系统镜像](https://github.com/radxa-build/radxa-cm5-io/releases/download/rsdk-b3/radxa-cm5-io_bookworm_cli_b3.output.img.xz)
 
-  CM5 搭载 RPI CM4 IO : [radxa-cm5-rpi-cm4-io_debian_bullseye_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/b2/radxa-cm5-rpi-cm4-io_debian_bullseye_kde_b2.img.xz)
+  CM5 搭载 RPI CM4 IO : [Desktop 系统镜像](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/rsdk-b3/radxa-cm5-rpi-cm4-io_bookworm_kde_b3.output.img.xz)  
+  CM5 Lite 搭载 RPI CM4 IO : [CLI 系统镜像](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/rsdk-b3/radxa-cm5-rpi-cm4-io_bookworm_cli_b3.output.img.xz)
 
 - Android
 
