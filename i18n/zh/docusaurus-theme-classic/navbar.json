@@ -9,7 +9,7 @@
   },
   "item.label.Docs": {
     "description": "Navbar item with label Docs",
-    "message": "文档首页"
+    "message": "所有文档"
   },
   "item.label.Home": {
     "description": "Navbar item with label Home",
