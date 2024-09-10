@@ -43,6 +43,12 @@ sidebar_position: 2
 | -------------------------- | -------------------------------- |
 | [NIO 12L](/nio/12l) (2024) | MediaTek Genio 1200 with 4K HDMI |
 
+### SiRider Series
+
+| Model                      | Description           |
+| -------------------------- | ----------------------|
+| [SiRider S1](/sirider/s1) (2024) | Siengine SE1000 |
+
 ## Radxa Computer on Module Family
 
 | Model                                      | Description                      |
