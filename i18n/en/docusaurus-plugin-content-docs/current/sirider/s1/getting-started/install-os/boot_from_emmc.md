@@ -21,8 +21,19 @@ name@your-pc:$ fastboot devices
 
 ## Image Installation
 
-:::tip
-The current document only provides the installation method under windows.
-:::
+For Linux users:
 
-Please refer to the document [UG_SE1000_Download_Tool_User_Guide.pdf](https://dl.radxa.com/sirider/s1/siengine_downloadtool_V7.5/UG_SE1000_Download_Tool_User_Guide.pdf)
+- Download the Linux platform flashing tool [siengine_downloadtool_linux](https://gitlab.com/siengine-ubuntu-sdk/tools/-/blob/test/siengine_downloader/siengine_downloadtool_linux_V7.6.2.tar.gz?ref_type=heads). After extracting, check the PDF document in the directory to understand the relevant content.
+- We provide a simple flashing script [burn.sh](https://gitlab.com/siengine-ubuntu-sdk/tools/-/blob/test/siengine_downloader/burn.sh?ref_type=heads) for Linux users to download the Sirider S1 image. Please copy this script to the directory where the `siengine_download_tool` tool is located after extraction, and copy the files generated under SDK `depoly/build` to the same level directory.
+Run the following commands, and for more commands, please check the script content:
+
+```shell
+$ ./burn.sh all # Flash all LUNs
+$ ./burn.sh lun0 # Flash a single LUN
+```
+
+For Windows users:
+
+Download the Windows platform flashing tool [siengine_downloadtool](https://gitlab.com/siengine-ubuntu-sdk/tools/-/blob/test/siengine_downloader/siengine_downloadtool_V7.6.3.rar?ref_type=heads). 
+
+For more details, please refer to the document  [UG_SE1000_Download_Tool_User_Guide.pdf](https://dl.radxa.com/sirider/s1/siengine_downloadtool_V7.5/UG_SE1000_Download_Tool_User_Guide.pdf)
