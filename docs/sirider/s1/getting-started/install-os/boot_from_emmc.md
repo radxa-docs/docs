@@ -20,8 +20,17 @@ name@your-pc:$ fastboot devices
 
 ## 镜像烧录
 
-:::tip
-当前文档只提供了windows下的系统烧录方式
-:::
+linux 用户：
 
-请参考文档 [UG_SE1000_Download_Tool_User_Guide.pdf](https://dl.radxa.com/sirider/s1/siengine_downloadtool_V7.5/UG_SE1000_Download_Tool_User_Guide.pdf)
+- 下载linux平台烧录工具，查看目录下的PDF文档了解相关内容 [siengine_downloadtool_linux](https://gitlab.com/siengine-ubuntu-sdk/tools/-/blob/test/siengine_downloader/siengine_downloadtool_linux_V7.6.2.tar.gz?ref_type=heads)
+- 我们提供了一个简单的烧录脚本[burn.sh](https://gitlab.com/siengine-ubuntu-sdk/tools/-/blob/test/siengine_downloader/burn.sh?ref_type=heads)用于linux 用户下载 Sirider S1 的镜像，请将脚本复制到解压后`siengine_download_tool` 工具所在目录，并将SDK `depoly/build` 下生成的文件复制到同级目录下，执行以下命令，更多命令请查看脚本内容。
+
+```shell
+$ ./burn.sh all # 烧录所有LUN
+$ ./burn.sh lun0 # 烧录单个LUN
+```
+windows 用户：
+
+下载windows平台烧录工具[siengine_downloadtool](https://gitlab.com/siengine-ubuntu-sdk/tools/-/blob/test/siengine_downloader/siengine_downloadtool_V7.6.3.rar?ref_type=heads)
+
+更多内容请参考文档 [UG_SE1000_Download_Tool_User_Guide.pdf](https://dl.radxa.com/sirider/s1/siengine_downloadtool_V7.5/UG_SE1000_Download_Tool_User_Guide.pdf)
