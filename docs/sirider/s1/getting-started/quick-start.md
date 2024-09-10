@@ -8,11 +8,11 @@ description: "快速上手SiRider S1，让您能够轻松开始使用和探索�
 ## 包装清单
 
     <img src="/img/sirider/s1/sirider_s1_overview_1.webp" alt="sirider s1 overview" width="700" />
-  
+
     SiRider S1 标准包装包括以下物品：
         - SiRider S1 主板
         - 散热风扇
- 
+
 要启动 SiRider S1，您还需要以下设备：
 
 - 一个充电器(推荐使用支持12V的 PD 充电器), 更多方案请参考[电源方案](./power-supply)。
@@ -34,7 +34,7 @@ SiRider S1 出厂默认自带 Ubuntu 系统, 如果想重新刷系统，请参�
 
 4. 将电源适配器插入 SiRider S1 的电源接口。设备上电，然后短按Power 键一下，电源指示灯显示绿色，启动正常后，指示灯开始闪烁。
 
-    <img src="/img/sirider/s1/sirider_s1_power_on.webp" alt="sirider s1 overview" width="700" />
+<img src="/img/sirider/s1/sirider_s1_power_on.webp" alt="sirider s1 overview" width="700" />
 
 ## 系统登录
 

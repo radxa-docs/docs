@@ -29,7 +29,7 @@ CM3 IO
 
 ```bash
 radxa:rock-android12 $ source build/envsetup.sh
-radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ lunch rk356x_rock_cm3_r-userdebug
 radxa:rock-android12 $ ./build.sh -UACKup
 # get images from IMAGE directory
 ```
@@ -46,7 +46,7 @@ U-boot
 
 ```bash
 radxa:rock-android12 $ source build/envsetup.sh
-radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ lunch rk356x_rock_cm3_r-userdebug
 radxa:rock-android12 $ ./build.sh -AUup
 
 ```
@@ -55,7 +55,7 @@ Kernel
 
 ```bash
 radxa:rock-android12 $ source build/envsetup.sh
-radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ lunch rk356x_rock_cm3_r-userdebug
 radxa:rock-android12 $ ./build.sh -ACKup
 ```
 
@@ -63,7 +63,7 @@ AOSP
 
 ```bash
 radxa:rock-android12 $ source build/envsetup.sh
-radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ lunch rk356x_rock_cm3_r-userdebug
 radxa:rock-android12 $ ./build.sh -Aup
 ```
 

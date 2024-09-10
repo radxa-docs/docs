@@ -1,0 +1,108 @@
+---
+sidebar_position: 2
+title: 系统安装
+---
+
+本文档将介绍如何把 Android 镜像安装到 Radxa CM3。
+
+CM3 可以从 microSD 卡启动，也可以从板载 EMMC 启动，基于不同的启动方式，安装系统到不同的介质上.
+
+<Tabs queryString="target">
+
+<TabItem value="microsd" label="安装系统到 microSD 卡">
+
+## 准备工作
+
+### 准备安装介质
+
+- microSD 卡 (建议class10等级以上)
+
+- USB 读卡器
+
+### 镜像下载
+
+请到 [资源下载汇总](../getting-started/download) 下载对应的镜像文件
+
+## 系统安装
+
+1. 下载 [Etcher](https://etcher.balena.io/)。
+   ![ROCK5A via Etcher 01](/img/rock5a/rock5a-etcher.webp)
+
+2. 打开 Etcher，将准备的操作系统镜像刷写到 microSD 卡。在 Etcher 窗口中，单击 `Flash from file` 选择刚下载的操作系统镜像。
+   ![ROCK5A via Etcher 02](/img/rock5a/rock5a-etcher-1.webp)
+
+3. 在 Etcher 窗口中，点击 `Select target`。
+   ![ROCK5A via Etcher 03](/img/rock5a/rock5a-etcher-2.webp)
+
+4. 在 Etcher 窗口中，点击 `Flash!` 然后等待刷写进度条。
+   ![ROCK5A via Etcher 04](/img/rock5a/rock5a-etcher-3.webp)
+
+5. 在 Etcher 窗口中，当刷写成功时将会显示 `Flash Complete!`
+   ![ROCK5A via Etcher 05](/img/rock5a/rock5a-etcher-4.webp)
+
+## 系统启动
+
+### 启动 CM3 Kit(CM3 + CM3 IO)
+
+1. 插入安装好操作系统的microSD卡
+2. 通过适配器为 CM3 Kit 供电
+3. CM3 Kit 将在绿色电源 LED 亮起的情况下启动
+
+</TabItem>
+
+<TabItem value="emmc" label="安装系统到 eMMC ">
+
+## 准备工作
+
+### 准备安装介质
+
+- micro usb 转 typea usb 接口线缆
+
+### 镜像下载
+
+请到 [资源下载汇总](../getting-started/download) 下载对应的镜像文件
+
+## 系统安装
+
+### 系统安装
+
+1. 将micro usb 线缆连接到主机
+
+2. 按住 maskrom 按键后上电，此时会进入 maskrom 模式
+
+<Tabs queryString="target">
+
+<TabItem value="linux/mac" label="Linux">
+
+#### Linux/Mac 系统使用 rkdeveloptool 写入
+
+&emsp;[rkdeveloptool](../radxa-os/low-level-dev/rkdeveloptool)
+
+&emsp;[upgrade_tool](../radxa-os/low-level-dev/upgrade-tool)（可同时烧录多台设备）
+
+</TabItem>
+
+<TabItem value="windows" label="Windows">
+
+#### Windows 系统使用 rkdevetool 写入
+
+&emsp;[rkdevtool](../radxa-os/low-level-dev/rkdevtool)
+
+</TabItem>
+
+</Tabs>
+
+## 系统启动
+
+### 启动 CM3 Kit (CM3 + CM3 IO)
+
+1. 通过适配器为 CM3 Kit 供电
+2. CM3 Kit 将在绿色电源 LED 亮起的情况下启动
+
+</TabItem>
+
+</Tabs>
+
+## 常见问题
+
+## 参考文档

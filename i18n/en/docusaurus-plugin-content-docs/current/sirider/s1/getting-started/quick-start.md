@@ -12,7 +12,7 @@ description: "SiRider S1 Quick Start"
     The SiRider S1 standard package includes the following items:
         - SiRider S1 motherboard
         - Cooling Fan
- 
+
 To start the SiRider, you will also need the following equipment:
 
 - A charger (PD charger supporting 12V is recommended),more info please refer to [power supply](./power-supply).
@@ -32,7 +32,7 @@ SiRider S1 comes with Ubuntu by default, if you want to re-install the system, p
 
 3. Connect the network cable to the Ethernet port.
 
-4. Plug the power adapter into the power connector of the SiRider S1. Power up the device, then press the **Power button** once briefly, the power indicator will show green, 
+4. Plug the power adapter into the power connector of the SiRider S1. Power up the device, then press the **Power button** once briefly, the power indicator will show green,
    and the indicator will start blinking when the startup is normal.
 
     <img src="/img/sirider/s1/sirider_s1_power_on.webp" alt="sirider s1 overview" width="700" />

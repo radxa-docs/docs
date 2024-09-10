@@ -10,9 +10,11 @@ Deploying YOLOv5 with RKNN requires two steps:
 - On the board, use the Python API of `rknn-toolkit2-lite` for on-board model inference.
 
 ### PC Model Conversion
+
 :::tip
 Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model, and users can directly refer to [YOLOv5 On-Board Inference](#yolov5-on-board-inference) to skip the PC model conversion section.
 :::
+
 - If you are using conda, please activate the rknn conda environment first.
 
   ```bash
@@ -49,32 +51,33 @@ Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model, and users can direct
 - Copy the `yolov5.rknn` model to the board.
 
 ### YOLOv5 On-Board Inference
+
 :::tip
 For RK3566/3568 chip users, NPU must be enabled in rsetup overlays before use. Please refer to [rsetup](../radxa-os/rsetup) for details.
 :::
 
 - (Optional) Download the Radxa-provided YOLOv5s RKNN model.
-    | Platform | Download Link                                                         |
-    | -------- | --------------------------------------------------------------------- |
-    | rk3566   | [yolov5s_rk3566.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3566.rknn) |
-    | rk3568   | [yolov5s_rk3568.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3568.rknn) |
-    | rk3588   | [yolov5s_rk3588.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3588.rknn) |
+  | Platform | Download Link |
+  | -------- | --------------------------------------------------------------------- |
+  | rk3566 | [yolov5s_rk3566.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3566.rknn) |
+  | rk3568 | [yolov5s_rk3568.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3568.rknn) |
+  | rk3588 | [yolov5s_rk3588.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3588.rknn) |
 
 - Modify the `rknn_model_zoo/py_utils/rknn_executor.py` code
-    ```python
-    1 # from rknn.api import RKNN
-    2 try:
-    3     from rknn.api import RKNN
-    4 except:
-    5     from rknnlite.api import RKNNLite as RKNN
-    ...
-    ...
-    18 ret = rknn.init_runtime()
-    ```
+  ```python
+  1 # from rknn.api import RKNN
+  2 try:
+  3     from rknn.api import RKNN
+  4 except:
+  5     from rknnlite.api import RKNNLite as RKNN
+  ...
+  ...
+  18 ret = rknn.init_runtime()
+  ```
 - Modify the `rknn_model_zoo/examples/yolov5/python` code
-    ```python
-    262 outputs = model.run([np.expand_dims(input_data, 0)])
-    ```
+  ```python
+  262 outputs = model.run([np.expand_dims(input_data, 0)])
+  ```
 - Run the YOLOv5 example code
   Please configure the RKNN Model Zoo code repository according to [Install RKNN Model Zoo on the Board](./rknn_install#optional-install-rknn-model-zoo-on-the-board).
 
@@ -82,6 +85,7 @@ For RK3566/3568 chip users, NPU must be enabled in rsetup overlays before use. P
   cd rknn_model_zoo/examples/yolov5/python
   python3 yolov5.py --model_path <your model path> --img_save
   ```
+
   If you are using a self-converted model, copy it from the PC to the board, and specify the model path with the `--model_path` parameter.
 
   ```bash
