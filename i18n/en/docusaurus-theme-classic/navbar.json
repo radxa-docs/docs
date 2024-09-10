@@ -55,6 +55,10 @@
     "description": "Navbar item with label NIO 系列",
     "message": "NIO Series"
   },
+  "item.label.SiRider 系列": {
+    "description": "Navbar item with label SiRider 系列",
+    "message": "SiRider Series"
+  },
   "item.label.NX5": {
     "description": "Navbar item with label NX5",
     "message": "NX5"
