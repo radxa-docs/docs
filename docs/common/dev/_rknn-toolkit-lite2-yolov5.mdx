@@ -10,9 +10,11 @@
 - 板端利用 rknn-toolkit2-lite 的 Python API 板端推理模型
 
 ### PC端模型转换
+
 :::tip
 Radxa 已提供预转换好的 `yolov5s_rk35XX.rknn` 模型，用户可直接参考[板端推理 YOLOv5 ](#板端推理-yolov5)跳过 PC 端模型转换章节
 :::
+
 - 如使用 conda 请先激活 rknn conda 环境
 
   ```bash
@@ -49,41 +51,49 @@ Radxa 已提供预转换好的 `yolov5s_rk35XX.rknn` 模型，用户可直接参
 - 将 yolov5.rknn 模型拷贝到板端
 
 ### 板端推理 YOLOv5
+
 :::tip
 RK3566/3568 芯片用户使用 NPU 前需要在 rsetup overlays 中开启, 具体请参考 [rsetup](../radxa-os/rsetup)
 :::
 
 - （可选）下载 radxa 准备的 yolov5s rknn 模型
-    | 平台 | 下载链接                                                         |
-    | -------- | ------------------------------------------------------------ |
-    | rk3566   | [yolov5s_rk3566.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3566.rknn) |
-    | rk3568   | [yolov5s_rk3568.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3568.rknn) |
-    | rk3588   | [yolov5s_rk3588.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3588.rknn) |
+  | 平台 | 下载链接 |
+  | -------- | ------------------------------------------------------------ |
+  | rk3566 | [yolov5s_rk3566.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3566.rknn) |
+  | rk3568 | [yolov5s_rk3568.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3568.rknn) |
+  | rk3588 | [yolov5s_rk3588.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3588.rknn) |
 
 - 修改 `rknn_model_zoo/py_utils/rknn_executor.py` 代码
-    ```python
-    1 # from rknn.api import RKNN
-    2 try:
-    3     from rknn.api import RKNN
-    4 except:
-    5     from rknnlite.api import RKNNLite as RKNN
-    ...
-    ...
-    18 ret = rknn.init_runtime()
-    ```
-- 修改 `rknn_model_zoo/examples/yolov5/python` 代码
-    ```python
-    262 outputs = model.run([np.expand_dims(input_data, 0)])
-    ```
+
+  请根据[板端安装 RKNN Model Zoo](./rknn_install#可选-板端安装-rknn-model-zoo) 配置 RKNN Model Zoo 代码仓库
+
+  ```python
+  1 # from rknn.api import RKNN
+  2 try:
+  3     from rknn.api import RKNN
+  4 except:
+  5     from rknnlite.api import RKNNLite as RKNN
+  ...
+  ...
+  18 ret = rknn.init_runtime()
+  ```
+
+- 修改 `rknn_model_zoo/examples/yolov5/python/yolov5.py` 代码
+  ```python
+  262 outputs = model.run([np.expand_dims(input_data, 0)])
+  ```
+- 安装依赖环境
+  ```bash
+  pip3 install opencv-python-headless
+  ```
 - 运行 yolov5 示例代码
-  请根据[板端安装 RKNN Model Zoo](./rknn_install#可选-板端安装-rknn-model-zoo)配置 RKNN Model Zoo 代码仓库
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/python
   python3 yolov5.py --model_path <your model path> --img_save
   ```
-  如你使用的是自己转换的模型需从 PC 端拷贝到板端，并用 --model_path 参数指定模型路径
 
+  如你使用的是自己转换的模型需从 PC 端拷贝到板端，并用 --model_path 参数指定模型路径
 
   ```bash
   rock@radxa-zero3:~/rknn_model_zoo/examples/yolov5/python$ python3 yolov5.py --model_path ./yolov5s_rk3566.rknn --target rk3566 --img_save
