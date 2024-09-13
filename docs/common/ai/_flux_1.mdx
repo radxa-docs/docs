@@ -1,0 +1,78 @@
+[FLUX.1](https://flux-1.ai/) 是最先进的开源图像生成模型，由 Stable Diffusion 的创建者 [Black Forest Labs](https://blackforestlabs.ai/) 开发。
+它根据用户提示提供快速、高质量的输出，改变了数字图像的生成方式。FLUX.1 的主要优势之一是能够精确匹配用户的提示，无论这些提示是简单还是复杂。这使其成为一个多功能工具，适用于从艺术项目到商业应用的所有领域。该模型的架构采用了整流变压器和并行关注层等先进技术，可生成高效、逼真和高度精细的图像。
+
+FLUX.1 有三个版本--FLUX.1[Schnell]、FLUX.1[Dev] 和 FLUX.1[Pro]--每个版本都是为满足不同需求而设计的。FLUX.1[Schnell]以速度为先，生成图像的速度快达 10 倍，质量适中。FLUX.1[Dev]为开发人员提供图像到图像生成等高级功能，是技术和创意项目的理想选择。
+FLUX.1[Pro]是功能最强大的版本，拥有 120 亿个参数，可通过应用程序接口提供顶级图像质量。有关 FLUX.1 更多技术细节，请参阅[官方网站](https://flux-1.ai/)。
+
+FLUX.1_TPU 通过 sophon SDK 移植 Schnell 和 Dev 两个版本到 SG2300X 芯片系列产品上进行本地 TPU 硬件加速推理。
+
+<img width="700" src="/img/general-tutorial/tpu_ai/flux_1_1.webp" />
+
+---
+
+### TPU 设置
+
+**TPU 推荐内存设置：NPU->7615MB, VPU->2360MB, VPP->2360MB**，[如何修改？](../ai-tools/memory_allocate)
+
+### 应用部署
+
+- 克隆仓库
+
+  ```bash
+  git git clone https://github.com/zifeng-radxa/flux.1_tpu.git
+  ```
+
+- 使用 [git LFS](https://git-lfs.com/) 从 [ModelScope](https://modelscope.cn/models/tpu-mlir/FLUX.1_TPU) 下载 FLUX.1 bmodel
+
+  ```bash
+  cd flux.1_tpu
+  git clone https://www.modelscope.cn/tpu-mlir/FLUX.1_TPU.git
+  mv FLUX.1_TPU/ models/
+  ```
+
+- 安装依赖
+
+  **推荐创建虚拟环境，否则可能会影响其他应用的正常运行**， 虚拟环境使用请参考[这里](../ai-tools/virtualenv_usage)
+
+  ```bash
+  pip3 install -r requirements.txt
+  ```
+
+- 启动程序
+
+  ```bash
+  # schnell
+  python3 flux_pipeline.py --models schnell
+  # dev
+  python3 flux_pipeline.py -m dev -s 28
+  ```
+
+  参数解析：
+
+  `-m`, `--models`, 模型选择，必填，选择 [schnell, dev]
+
+  `-s`, `--steps`, 推理步数，选填，默认 4, dev 建议填 28
+
+  `-g`, `--gfc`, GFC 值， 选填，默认 0.0
+
+  `-r,` `--seed`, 随机种子, 选填， 默认 None
+
+---
+
+### 应用展示
+
+#### Text-to-Image
+
+```bash
+Prompt: high detailed texture, photograph, realistic, RAW photo of young lady, emo, dark hair, makeup, depth of field, soft split ambient window light, soft realistic shadows, perfect composition
+```
+
+![flux_1_3](/img/general-tutorial/tpu_ai/flux_1_3.webp)
+
+<img width="512" src="/img/general-tutorial/tpu_ai/flux_1_2.webp" />
+
+---
+
+### 模型转换
+
+TODO
