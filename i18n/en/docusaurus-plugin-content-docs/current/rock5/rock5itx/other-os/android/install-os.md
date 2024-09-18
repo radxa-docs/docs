@@ -157,7 +157,7 @@ If the operation is normal, RKDevTool will prompt `A MASKROM device was found`.
 
 ## Follow the steps below to flash the operation image
 
-![RK Android update](/img/rock5itx/rock5itx_android_update_eh.webp)
+![RK Android update](/img/rock5itx/rock5itx_android_update_en.webp)
 
 </TabItem>
 
@@ -243,7 +243,7 @@ If the operation is normal, RKDevTool will prompt `A MASKROM device was found`.
 
 ## Follow the steps below to flash the operation image
 
-![RK Android update](/img/rock5itx/rock5itx_android_update_eh.webp)
+![RK Android update](/img/rock5itx/rock5itx_android_update_en.webp)
 
 </TabItem>
 
