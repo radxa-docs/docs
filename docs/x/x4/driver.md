@@ -66,15 +66,15 @@ sidebar_position: 15
 
 - 安装包下载 [Intel Ethernet Driver](https://dl.radxa.com/x/x4/Intel_Ethernet_Driver.zip)
 
-- 将安装包 Realtek Ethernet Controller Driver 复制到 Radxa X4 内。
+- 将安装包 Intel Ethernet Controller Driver 复制到 Radxa X4 内。
 
 - 双击打开安装包，安装完成后重启即可。
 
 ![Intel_Ethernet_Driver_01](/img/x/x4/intel_network_connection_01.webp)
 
-![Intel_Ethernet_Driver_02](/img/x/x2l/realtek_ethernet_controller_driver_02.webp)
+![Intel_Ethernet_Driver_02](/img/x/x4/intel_network_connection_02.webp)
 
-![Intel_Ethernet_Driver_03](/img/x/x2l/realtek_ethernet_controller_driver_03.webp)
+![Intel_Ethernet_Driver_03](/img/x/x4/intel_network_connection_03.webp)
 
 ## RP2040 驱动下载
 
