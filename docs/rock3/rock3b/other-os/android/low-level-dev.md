@@ -39,8 +39,8 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 
 ```bash
 
- $ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-r-release.xml
- $ repo sync -d --no-tags -j4
+$ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-r-release.xml
+$ repo sync -d --no-tags -j4
 
 ```
 
@@ -53,14 +53,13 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 使用 SDK 编译脚本方式编译
 
 ```bash
-  radxa:rock-android11 $ source build/envsetup.sh
+radxa:rock-android11 $ source build/envsetup.sh
 
-  # for Rock 3A
-  radxa:rock-android11 $ lunch rk356x_rock_3a_r-userdebug
-  # for Rock 3A if you want a box software
-  radxa:rock-android11 $ lunch rk356x_rock_3a_box-userdebug
+# for Rock 3B
+radxa:rock-android11 $ lunch rk356x_rock_3b_r-userdebug
 
-  radxa:rock-android11 $ ./build.sh -UACKup
+radxa:rock-android11 $ ./build.sh -UACKu
+
 ```
 
 等待编译完成就可以在 IMAGE 目录找到镜像
@@ -74,10 +73,8 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 ```bash
 radxa:rock-android11 $ source build/envsetup.sh
 
-# for Rock 3A
-radxa:rock-android11 $ lunch rk356x_rock_3a_r-userdebug
-# for Rock 3A if you want a box software
-radxa:rock-android11 $ lunch rk356x_rock_3a_box-userdebug
+# for Rock 3B
+radxa:rock-android11 $ lunch rk356x_rock_3b_r-userdebug
 ```
 
 2. 编译 U-boot

@@ -51,10 +51,8 @@ $ repo sync -d --no-tags -j4
 ```bash
 radxa:rock-android11 $ source build/envsetup.sh
 
-# for Rock 3A
-radxa:rock-android11 $ lunch rk356x_rock_3a_r-userdebug
-# for Rock 3A if you want a box software
-radxa:rock-android11 $ lunch rk356x_rock_3a_box-userdebug
+# for Rock 3B
+radxa:rock-android11 $ lunch rk356x_rock_3b_r-userdebug
 
 radxa:rock-android11 $ ./build.sh -UACKup
 ```
@@ -68,10 +66,8 @@ If you dont' want to use "Use all-in-one build script", you can follow this way 
 ```bash
 radxa:rock-android11 $ source build/envsetup.sh
 
-# for Rock 3A
-radxa:rock-android11 $ lunch rk356x_rock_3a_r-userdebug
-# for Rock 3A if you want a box software
-radxa:rock-android11 $ lunch rk356x_rock_3a_box-userdebug
+# for Rock 3B
+radxa:rock-android11 $ lunch rk356x_rock_3b_r-userdebug
 ```
 
 2. Compile U-boot

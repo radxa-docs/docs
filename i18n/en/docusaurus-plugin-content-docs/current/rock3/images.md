@@ -68,6 +68,10 @@ The following systems have been officially tested and verified by Radxa:
 
 ROCK 3B: [Build 18](https://github.com/radxa-build/rock-3b/releases/download/b18/rock-3b_debian_bullseye_xfce_b18.img.xz)
 
+- [Rock3B-An11-r12-sd-or-emmc-boot-20240619-gpt.img](https://github.com/radxa/manifests/releases/download/Rock-android11-20240619/Rock3B-An11-r12-sd-or-emmc-boot-20240619-gpt.zip)(Used to flash the system into EMMC and SD card using a card reader)
+
+- [Rock3B-An11-r12-spi_nvme-boot-20240619-update.img](https://github.com/radxa/manifests/releases/download/Rock-android11-20240619/Rock3B-An11-r12-spi_nvme-boot-20240619-update.zip)(Used to flash the system into SSD)
+
 For more images, please check: [ROCK 3B radxa-build](https://github.com/radxa-build/rock-3b/releases/latest)
 
 </TabItem>
@@ -80,6 +84,12 @@ For more images, please check: [ROCK 3B radxa-build](https://github.com/radxa-bu
 The following systems have been officially tested and verified by Radxa:
 
 ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
+
+- [Rock3C-Android11_r12-20240806-gpt.img](https://github.com/radxa/manifests/releases/download/android11-radxa-20240806/Rock3C-Android11_r12-20240806-gpt.zip)(Used to flash the system into EMMC and SD card using a card reader)
+
+:::tip
+The usage method of Rock 3C's Android 11 image is the same as Rock 3A, and can be referred to for use
+:::
 
 </TabItem>
 <TabItem value="E25">
