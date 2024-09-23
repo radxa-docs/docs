@@ -17,7 +17,7 @@
 
 ```bash
 sudo apt-get update
-sudo apt-get install build-essential cmake git librockchip-mpp-dev librga-dev libdrm-dev libsdl2*-dev libx264-dev libx265-dev pkg-config
+sudo apt-get install build-essential cmake git libdrm-dev librga-dev librockchip-mpp-dev libsdl2*-dev libx264-dev libx265-dev pkg-config
 ```
 
 ### 编译并安装 ffmpeg-rockchip
@@ -62,7 +62,7 @@ ffmpeg-rockchip/ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -
 
 ```bash
 sudo apt update
-sudo apt install libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev build-essential meson libcgroup-dev gobject-introspection libgirepository1.0-dev
+sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev meson
 ```
 
 ### 获取 gst-rtsp-server 源码
