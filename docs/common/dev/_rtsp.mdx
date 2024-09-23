@@ -36,18 +36,17 @@ popd
 :::info
 此处我们假定 `/dev/video-camera0` 是你想要使用的视频源。如果你的摄像头被分配到了其他的名称下，请替换以下命令行中对应的设备名。  
 `-vf "fps=30"` 与 `-s 3840x2160` 分别对应帧率与分辨率，需根据命令 `sudo v4l2-ctl -d /dev/video-camera0 --all` 的输出进行调整，否则可能会因为无法自动读取到摄像头信息而影响编码性能甚至启动推流失败。
+`-c:v` 选项可以指定使用的编码器，目前 ffmpeg-rockchip 支持的硬件编码器有 `h264_rkmpp`、`hevc_rkmpp` 和 `mjpeg_rkmpp`。
 :::
 
 ```bash
 wget https://github.com/bluenviron/mediamtx/releases/download/v1.9.0/mediamtx_v1.9.0_linux_arm64v8.tar.gz
 tar -xzvf mediamtx_v1.9.0_linux_arm64v8.tar.gz
 nohup ./mediamtx &
-pushd ffmpeg-rockchip/
-./ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -c:v h264_rkmpp -rc_mode AVBR -b:v 20M -minrate 10M -maxrate 40M -profile:v main -level 5.1 -f rtsp rtsp://0.0.0.0:8554/stream
+ffmpeg-rockchip/ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -c:v h264_rkmpp -rc_mode AVBR -b:v 20M -minrate 10M -maxrate 40M -profile:v main -level 5.1 -f rtsp rtsp://0.0.0.0:8554/stream
 
 # 如果仅想将摄像头录制成文件，请使用以下命令
-# ./ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -c:v h264_rkmpp -rc_mode AVBR -b:v 20M -minrate 10M -maxrate 40M -profile:v main -level 5.1 /tmp/tmp.mp4
-popd
+# ffmpeg-rockchip/ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -c:v h264_rkmpp -rc_mode AVBR -b:v 20M -minrate 10M -maxrate 40M -profile:v main -level 5.1 /tmp/tmp.mp4
 ```
 
 </TabItem>
@@ -55,7 +54,7 @@ popd
 <TabItem value="gstreamer" label="基于 Gstreamer">
 
 :::tip
-因为 Gstreamer 在 6.1 内核的 Radxa OS 编解码效率很差，此方法不太适用于 6.1 内核的 Radxa OS。
+因为 mpph264enc 在 Rockchip 6.1 Linux 内核的 Radxa OS 编解码效率很差，推荐优先使用 mpph265enc。
 使用 HDMI RX 时，目前 gst-mppenc 暂不支持 NV24(YCbCr444) 与 RGB 输入，需要 HDMI 输入端切换颜色格式为 NV12(YCbCr420) 或 NV16(YCbCr422)，或者使用 FFmpeg 进行推流。
 :::
 
@@ -90,7 +89,11 @@ ninja
 
 ```bash
 cd examples/
-./test-launch --gst-debug-level=3 "( v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr !  rtph265pay name=pay0 pt=97 )"
+# mpph264enc 编码器目前在 Rockchip 6.1 Linux 内核下有卡顿问题，建议使用 mpph265enc 编码器
+# 可用的编码器有 mpph264enc、mpph265enc、mppjpegenc、mppvp8enc，修改编码器需要修改 pipeline 后的 rtp*pay 或 *parse
+./test-launch --gst-debug-level=3 "( v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr ! rtph265pay name=pay0 pt=97 )"
+# 如果仅想将摄像头录制成文件，请使用以下命令
+# gst-launch-1.0 --gst-debug-level=3 v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr ! h265parse ! mp4mux ! filesink location=output.mp4
 ```
 
 </TabItem>
@@ -99,7 +102,9 @@ cd examples/
 
 ## 客户端配置
 
-### 以下以 Windows 下运行 [VLC](https://www.videolan.org/vlc/) 为例，介绍如何收看 RTSP 视频推流。
+### 使用 VLC 播放器
+
+以下以 Windows 下运行 [VLC](https://www.videolan.org/vlc/) 为例，介绍如何收看 RTSP 视频推流。
 
 1. 下载并安装 VLC
    ![VLC-Main](/img/general-tutorial/rtsp/VLC-Main.webp)
@@ -115,14 +120,19 @@ cd examples/
 1. 点击播放后即可查看 RTSP 远程推流内容
    ![VLC-View-RTSP](/img/general-tutorial/rtsp/VLC-View-RTSP.webp)
 
-### 也可直接使用上面提到的 FFmpeg 的 ffplay 工具进行播放
+### 在开发板上使用 ffplay 播放器
+
+也可直接使用上面提到的 FFmpeg 的 ffplay 工具进行播放
 
 :::tip
 需替换为服务端命令行中指定的 URL 与 IP 地址。
+`-vcodec` 选项为指定的解码器，请根据 RTSP 流的编码进行调整，目前 ffmpeg-rockchip 支持的硬件解码器有 `av1_rkmpp`、`h263_rkmpp`、`h264_rkmpp`、`hevc_rkmpp`、`mpeg1_rkmpp`、`mpeg2_rkmpp`、`mpeg4_rkmpp`、`vp8_rkmpp`、`vp9_rkmpp`。
 :::
 
 ```bash
-pushd ffmpeg-rockchip/
-./ffplay -vcodec h264_rkmpp rtsp://192.168.10.9:8554/stream
-popd
+ffmpeg-rockchip/ffplay -vcodec h264_rkmpp rtsp://192.168.10.9:8554/stream
 ```
+
+## 参考链接
+
+- [ffmpeg-rockchip](https://github.com/nyanmisaka/ffmpeg-rockchip/wiki)
