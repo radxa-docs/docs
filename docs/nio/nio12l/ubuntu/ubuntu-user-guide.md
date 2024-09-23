@@ -86,3 +86,11 @@ $ genio-flash board-assets
 这样主机将会把新的 `u-boot-initial-env` 更新到设备中。
 
 断电重启设备后，将会看到 8HD 触摸屏显示桌面。
+
+## 安装 QT
+
+安装 qtcreator。
+
+<pre>
+$ sudo apt update && sudo apt install -y qtcreator
+</pre>

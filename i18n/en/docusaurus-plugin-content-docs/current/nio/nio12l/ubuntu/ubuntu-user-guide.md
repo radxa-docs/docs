@@ -86,3 +86,11 @@ Please refer to [NIO 12L Download mode](/en/nio/nio12l/installation/install-ubun
 The Host PC will update the `u-boot-initial-env` to the device OS.
 
 Power cycle the device and you will see the Desktop on the 8HD touchscreen.
+
+## Install QT
+
+Install qtcreator.
+
+<pre>
+$ sudo apt update && sudo apt install -y qtcreator
+</pre>
