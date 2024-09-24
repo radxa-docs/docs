@@ -6,7 +6,7 @@ sidebar_position: 4
 
 ## Interface overview
 
-![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)
+![NIO 12L Overview](/img/nio/nio12l/nio-12l-v131-overview.webp)
 
 ## Interface details
 
