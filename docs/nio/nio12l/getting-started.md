@@ -57,4 +57,4 @@ NIO 12L 包装清单包含以下：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Type-C 电源(Type-C 5V Only DC Power)** 和 **Power Button** 的位置 参考下面的图
 
-![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)
+![NIO 12L Overview](/img/nio/nio12l/nio-12l-v131-overview.webp)

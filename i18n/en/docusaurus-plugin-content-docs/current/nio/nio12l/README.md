@@ -13,7 +13,7 @@ The NIO 12L is designed to combine high-performance processing power with low po
 
 ## Physical Photos
 
-![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)
+![NIO 12L Overview](/img/nio/nio12l/nio-12l-v131-overview.webp)
 
 ## Chip Block Diagram
 
