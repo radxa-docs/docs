@@ -19,10 +19,10 @@ Yocto 默认的用户名是 `root`。不需要输入用户密码。
 SSH 服务默认是使能的。
 可以在路由器管理界面查看设备的 IP；或者是通过电脑主机的 [angryip](https://angryip.org/) 来找到设备的 IP。
 
-<pre>
+```
 $ ping ip-of-device
 $ ssh root@ip-of-device
-</pre>
+```
 
 ### 选项三：USB 访问（adb）
 
@@ -32,15 +32,15 @@ Yocto 系统默认开启了 adbd 服务。
 
 在主机上查看 adb 设备
 
-<pre>
+```
 adb devices
-</pre>
+```
 
 在主机上访问设备
 
-<pre>
+```
 adb shell
-</pre>
+```
 
 ### 选项四：串口
 
@@ -52,7 +52,7 @@ adb shell
 
 使用 `lsblk` 查看 UFS 设备。`/dev/sda`，`/dev/sdb` 和 `/dev/sdc` 都属于 UFS 设备文件。
 
-<pre>
+```
 NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda       8:0    0     4M  0 disk
 sdb       8:16   0     4M  0 disk
@@ -67,28 +67,28 @@ sdc       8:32   0 119.2G  0 disk
 |-sdc8    8:40   0   100M  0 part
 |-sdc9    8:41   0    32M  0 part
 `-sdc10   8:42   0 118.9G  0 part /
-</pre>
+```
 
 ### MicroSD 卡
 
 使用 `lsblk | grep mmc` 查看 MicroSD 卡。如这里的 `/dev/mmcblk1`。
 
-<pre>
+```
 mmcblk1     179:0    0  58.9G  0 disk
 |-mmcblk1p1 179:1    0     1G  0 part
 `-mmcblk1p2 179:2    0  57.9G  0 part
-</pre>
+```
 
 ## 内存
 
 使用 `free -h` 查看内存容量。
 
-<pre>
+```
                total        used        free      shared  buff/cache   available
 Mem:           7.6Gi       508Mi       6.8Gi        51Mi       386Mi       6.8Gi
 Swap:             0B          0B          0B
 
-</pre>
+```
 
 ## 显示
 
@@ -123,10 +123,10 @@ Type-C 口是有 USB host/device 和显示功能。系统根据插入的设备�
 
 - 使用命令 `ifconfig` 查看以太网是否正常。可以看到网卡名，IP 等信息。使用 `ping` 去连接一个正常的域名。
 
-<pre>
+```
 ifconfig
 ping www.baidu.com
-</pre>
+```
 
 - 可以使用 `iperf3` 测试性能。
 
@@ -138,21 +138,21 @@ ping www.baidu.com
 
 - 打开 Wi-Fi
 
-<pre>
+```
 nmcli radio wifi on
-</pre>
+```
 
 - 扫描热点
 
-<pre>
+```
 nmcli dev wifi
-</pre>
+```
 
 - 连接热点
 
-<pre>
+```
 nmcli dev wifi connect "wifi_name" password "wifi_password"
-</pre>
+```
 
 - 可以使用 `iperf3` 测试性能。
 
@@ -160,27 +160,27 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 - 查看蓝牙状态
 
-<pre>
+```
 hciconfig -a
-</pre>
+```
 
 - 开启蓝牙
 
-<pre>
+```
 hciconfig hci0 up
-</pre>
+```
 
 - 设置蓝牙为可发现
 
-<pre>
+```
 hciconfig hci0 piscan
-</pre>
+```
 
 - 扫描周边蓝牙设备
 
-<pre>
+```
 hcitool lescan
-</pre>
+```
 
 ## 音频
 
@@ -188,24 +188,24 @@ hcitool lescan
 
 使用指令：
 
-<pre>
+```
 aplay -D hdmi_dp_out ./test.wav
-</pre>
+```
 
 ### 耳机
 
 录音
 
-<pre>
+```
 amixer -c mt8395evk cset name='PGA1 Volume' 3
 arecord -D jack_mic -r 48000 -f S32_LE sample.wav
-</pre>
+```
 
 录音
 
-<pre>
+```
 aplay -D jack_speaker ./sample.wav
-</pre>
+```
 
 ## 摄像头
 
@@ -213,7 +213,7 @@ aplay -D jack_speaker ./sample.wav
 
 通过 `ls -l /sys/class/video4linux` 查看 v4l2 设备节点。可以看到有设备 `/dev/vidoe6`。
 
-<pre>
+```
 ls -l /sys/class/video4linux
 total 0
 lrwxrwxrwx 1 root root 0 Jan  1 02:44 video0 -> ../../devices/platform/soc/14001000.mdp3-rdma0/video4linux/video0
@@ -224,13 +224,13 @@ lrwxrwxrwx 1 root root 0 Jan  1 02:44 video4 -> ../../devices/platform/soc/1a020
 lrwxrwxrwx 1 root root 0 Jan  1 02:44 video5 -> ../../devices/platform/soc/14001000.mdp3-rdma0/video4linux/video5
 lrwxrwxrwx 1 root root 0 Jan  1 02:50 video6 -> ../../devices/platform/soc/112f0000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb5/5-1/5-1.4/5-1.4:1.0/video4linux/video6
 lrwxrwxrwx 1 root root 0 Jan  1 02:50 video7 -> ../../devices/platform/soc/112f0000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb5/5-1/5-1.4/5-1.4:1.0/video4linux/video7
-</pre>
+```
 
 捕获预览指令为：
 
-<pre>
+```
 gst-launch-1.0 v4l2src device=/dev/video6 io-mode=mmap ! videoconvert ! waylandsink sync=false
-</pre>
+```
 
 ## HDMI RX
 
@@ -240,6 +240,6 @@ gst-launch-1.0 v4l2src device=/dev/video6 io-mode=mmap ! videoconvert ! waylands
 
 在 NIO 12L Yocto 系统上，执行指令：
 
-<pre>
+```
 gst-launch-1.0 -v v4l2src device=/dev/video5 ! video/x-raw,width=3840,height=2160,format=YUY2 ! queue ! fpsdisplaysink video-sink=waylandsink text-overlay=false
-</pre>
+```
