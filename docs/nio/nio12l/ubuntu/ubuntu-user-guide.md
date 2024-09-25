@@ -6,10 +6,10 @@ sidebar_position: 5
 
 ## 默认用户名和密码
 
-<pre>
+```
 username : ubuntu
 password : ubuntu
-</pre>
+```
 
 ## 访问设备
 
@@ -22,10 +22,10 @@ password : ubuntu
 SSH 服务默认是使能的。
 可以在路由器管理界面查看设备的 IP；或者是通过电脑主机的 [angryip](https://angryip.org/) 来找到设备的 IP。
 
-<pre>
+```
 $ ping ip-of-device
 $ ssh ubuntu@ip-of-device
-</pre>
+```
 
 第一次登陆，会强制让用户修改密码。请按照提示操作。
 
@@ -35,7 +35,7 @@ $ ssh ubuntu@ip-of-device
 
 ## 添加源并安装视频硬件包
 
-<pre>
+```
 $ sudo apt-add-repository ppa:mediatek-genio/genio-public
 $ sudo apt update
 $ sudo apt install mediatek-vpud-genio1200
@@ -43,17 +43,17 @@ $ sudo apt install gstreamer1.0-plugins-base
 $ sudo apt install gstreamer1.0-plugins-good
 $ sudo apt install gstreamer1.0-plugins-bad
 $ sudo rm ~/.cache/gstreamer-1.0/registry.aarch64.bin
-</pre>
+```
 
 ## 更新内核
 
 下载最新的 kernel 包，并安装
 
-<pre>
+```
 $ wget https://dl.radxa.com/nio12l/images/ubuntu/radxa-nio-12l-kernel-5.15.0-1029.33-packages.tar.gz
 $ tar zxvf radxa-nio-12l-kernel-5.15.0-1029.33-packages.tar.gz
 $ sudo dpkg -i radxa-nio-12l-kernel-5.15.0-1029.33-packages/*.deb
-</pre>
+```
 
 安装完内核后，需要重启才生效。
 
@@ -69,19 +69,19 @@ $ sudo dpkg -i radxa-nio-12l-kernel-5.15.0-1029.33-packages/*.deb
 修改文件 `u-boot-initial-env`。
 找到 `list_dtbo=` 行，追加写入 `radxa-nio-12l-radxa-display-8hd.dtbo` 字符串。如：
 
-<pre>
+```
 list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo radxa-nio-12l-radxa-display-8hd.dtbo
-</pre>
+```
 
 ### 步骤三：执行命令 `genio-flash board-assets`
 
-<pre>
+```
 $ genio-flash board-assets
-</pre>
+```
 
 ### 步骤四：板子进入下载模式
 
-参照[NIO 12L 进入烧录模式](/en/nio/nio12l/installation/install-ubuntu-image-on-linux-pc#enter-download-mode)
+参照[NIO 12L 进入烧录模式](/nio/nio12l/installation/install-ubuntu-image-on-linux-pc#enter-download-mode)
 
 这样主机将会把新的 `u-boot-initial-env` 更新到设备中。
 
@@ -91,6 +91,6 @@ $ genio-flash board-assets
 
 安装 qtcreator。
 
-<pre>
+```
 $ sudo apt update && sudo apt install -y qtcreator
-</pre>
+```
