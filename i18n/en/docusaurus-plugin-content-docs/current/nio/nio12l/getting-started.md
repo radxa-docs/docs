@@ -57,4 +57,4 @@ You will also need the following additional equipment to get the NIO 12L up and 
 
 &nbsp;&nbsp;&nbsp;&nbsp;you can find the **Type-C power supply(Type-C 5V Only DC Power)** and **Power Button** position at the following figure
 
-![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)
+![NIO 12L Overview](/img/nio/nio12l/nio-12l-v131-overview.webp)
