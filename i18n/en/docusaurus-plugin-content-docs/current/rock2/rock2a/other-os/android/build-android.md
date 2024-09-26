@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Low Level Development
+# Build Android
 
 Introduces how to build and pack uboot, kernel, aosp and so on.
 
@@ -18,7 +18,7 @@ sudo apt-get install openjdk-8-jdk
 
 ## Download Radxa Android SDK
 
-Radxa Android SDK contains hundreds of Git repositories, and it would be very tedious to download them one by one without repo.
+Radxa Android SDK contains hundreds of Git repositories, it use repo to download 
 
 ### Repo
 
@@ -34,20 +34,20 @@ $ sudo cp /tmp/repo /usr/local/bin/repo
 $ sudo chmod +x /usr/local/bin/repo
 ```
 
-#### Code download
+#### Download Code
 
 ```bash
 $ repo init -u https://github.com/radxa/manifests -b Android13_RK3528 -m radxa.xml
 $ repo sync -d --no-tags -j4
 ```
 
-## Mirror compilation
+## Build Android
 
-Mirror compilation can be done using two methods
+There are two ways to build android.
 
-### Method 1 (**recommended**)
+### Method I (**recommended**)
 
-Compile using the SDK compilation script method
+Build and pack the image in one command.
 
 ```bash
 radxa:rock-android13 $ source build/envsetup.sh
@@ -56,38 +56,38 @@ radxa:rock-android13 $ . /build.sh -UACKu
 # get images from rockdev directory
 ```
 
-Wait for the build to complete and you will find the images in the rockdev directory.
+Wait for the building to complete and you will find the images in the rockdev directory.
 
-### Method two
+### Method II
 
-You can compile the image step by step according to this method
+Build the image step by step.
 
-1. Set up the environment for compiling the project
+1. set up the environment
 
 ```bash
 radxa:rock-android13 $ source build/envsetup.sh
 radxa:rock-android13 $ lunch rk3528_rock_2a-userdebug
 ```
 
-2. Compile U-boot
+2. build U-boot
 
 ```bash
 radxa:rock-android13 $ . /build.sh -U
 ```
 
-3. Compile the kernel
+3. build kernel
 
 ```bash
 radxa:rock-android13 $ . /build.sh -CK
 ```
 
-4. Compile AOSP
+4. build AOSP
 
 ```bash
 radxa:rock-android13 $ . /build.sh -A
 ```
 
-5. Make Images
+5. Pack Image
 
 ```bash
 radxa:rock-android13 $ . /build.sh -u

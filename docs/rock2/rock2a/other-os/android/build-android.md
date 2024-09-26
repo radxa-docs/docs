@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 底层开发
+# 编译 Android
 
 主要介绍 uboot, kernel, aosp 编译打包等内容
 
@@ -17,7 +17,7 @@ sudo apt-get install openjdk-8-jdk
 
 ## 下载 Radxa Android SDK
 
-Radxa Android SDK 包含数百个 Git 仓库，如果不用 repo 逐个下载会非常繁琐。
+Radxa Android SDK 包含数百个 Git 仓库， 使用 Repo 进行管理。 
 
 ### Repo
 
