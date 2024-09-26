@@ -87,8 +87,35 @@ Enter maskrom mode
 
 <TabItem value="windows" label="Windows">
 
-<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="false" emmc={false} pcie={false} sata={false} >
-</Rkdevtool>
+### Install RKDevTool
+
+RKDevTool is Rockchip's software for USB burning on Windows platform. If RKDevTool is not installed on your Windows host, please follow the steps below to install it.
+
+Please download and extract the following files to install RKDevTool:
+
+- [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (Includes Chinese documentation)
+- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+
+### Installation of drivers
+
+Download and unzip DriverAssistant, then execute DriverInstall.exe and click the `Install Driver` button to install the driver.
+If you have already installed another version of driver, please click `Uninstall Driver` to uninstall the driver first, and then reinstall it again.
+
+![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
+
+### Install RKDevTool
+
+unzip RKDevTool_Release_v2.96_zh.zip ，click RKDevTool.exe to open.
+
+### Enter Maskrom mode
+
+If the operation is normal, RKDevTool will prompt `A MASKROM device was found`.
+
+<img src="/img/rkdevtool/rkdevtool_maskrom.webp" alt="rkdevtool maskrom" />
+
+### Follow the steps below to flash the operation image
+
+![RK Android update](/img/rock5itx/rock5itx_android_update_en.webp)
 
 </TabItem>
 
