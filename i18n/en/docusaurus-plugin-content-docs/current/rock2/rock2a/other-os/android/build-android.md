@@ -6,7 +6,7 @@ sidebar_position: 4
 
 Introduces how to build and pack uboot, kernel, aosp and so on.
 
-## Environment configuration
+## Set up Environment
 
 For Ubuntu >= 15.04 ,use Open JDK
 
