@@ -74,7 +74,7 @@ ROCK 2A 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 
 </TabItem>
 
-<TabItem value="mac" label="mac">
+<TabItem value="mac" label="Mac">
 
 <Rkdeveloptool platform="macos">
 </Rkdeveloptool>
