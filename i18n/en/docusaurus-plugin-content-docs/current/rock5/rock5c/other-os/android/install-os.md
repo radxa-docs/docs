@@ -3,7 +3,11 @@ sidebar_position: 2
 title: Install OS
 ---
 
-import Etcher from '../../../../common/general/\_etcher.mdx'
+import Etcher from '../../../../common/general/\_etcherV2.mdx'
+import Rkdevtool from "../../../../common/dev/\_rkdevtoolV3.mdx";
+import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV3.mdx";
+
+# Install the operating system
 
 This document describes how to install an Android image to the ROCK 5C.
 
@@ -12,8 +16,6 @@ ROCK 5C can be booted from microSD card or EMMC, depending on the boot method, t
 <Tabs queryString="target">
 
 <TabItem value="microsd" label="Install system to microSD card">
-
-# Install the operating system
 
 ## Preparation
 
@@ -69,19 +71,24 @@ Enter maskrom mode
 
 <Tabs queryString="target">
 
-<TabItem value="linux/mac" label="Linux/mac">
+<TabItem value="linux" label="Linux">
 
-#### Linux/Mac systems are written using rkdeveloptool
+<Rkdeveloptool platform="linux">
+</Rkdeveloptool>
 
-[rkdeveloptool](../../low-level-dev/rkdeveloptool)
+</TabItem>
+
+<TabItem value="mac" label="mac">
+
+<Rkdeveloptool platform="macos">
+</Rkdeveloptool>
 
 </TabItem>
 
 <TabItem value="windows" label="Windows">
 
-#### Windows systems write with rkdevetool
-
-[rkdevtool](/rock5/rock5c/low-level-dev/rkdevtool)
+<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="false" emmc={false} pcie={false} sata={false} >
+</Rkdevtool>
 
 </TabItem>
 

@@ -16,9 +16,27 @@ Radxa ROCK 5 ITX X1.1版本
 
 ## 刷机工具
 
-## 操作系统镜像
+## Loader & 操作系统镜像
+
+Loader (For Linux):
+
+[rk3588_spl_loader_v1.15.113.bin](https://dl.radxa.com/rock5/sw/images/loader/rk3588_spl_loader_v1.15.113.bin)
+
+Debian:
 
 <Images loader={false} system_img={true} spi_img={false} />
+
+Loader(For Android):
+
+<Images loader={false} system_img={false} spi_img={false} miniloader={true} />
+
+Android:
+
+[Android12_ROCK5_ITX_gpt](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_gpt.zip)（用于 sd 卡启动）
+
+[Android12_ROCK5_ITX_update](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_update.zip)（用于 EMMC 启动）
+
+[Android12_ROCK5_ITX_spi_nvme](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_spi_nvme.zip)（用于 SSD 启动）
 
 :::caution
 非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到对应的社区寻求帮助。
