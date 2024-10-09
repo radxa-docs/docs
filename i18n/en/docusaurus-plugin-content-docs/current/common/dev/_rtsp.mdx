@@ -1,7 +1,7 @@
-## Preparation
+## Requirements
 
-1. Compatible Cameras
-2. If using the ROCK 5B, you can also use the HDMI RX as a video source
+1. compatible camera
+2. If you use ROCK 5B, you can also use HDMI RX as the video source.
 
 ## Server Configuration
 
@@ -10,50 +10,43 @@
 <TabItem value="ffmpeg" label="Based on FFmpeg">
 
 :::tip
-Input sources with lower than 720P resolution may cause encoding failure when using HDMI RX.
+When using HDMI RX, input sources with lower than 720P resolution may cause encoding failure.
 :::
 
-### Install build dependencies
+### Installation of compilation dependencies
 
 ```bash
-sudo apt update
-sudo apt install librockchip-mpp-dev librockchip-vpu0 librga-dev libyuv-dev libdrm-dev pkg-config libx264-dev build-essential git
+sudo apt-get update
+sudo apt-get install build-essential cmake git libdrm-dev librga-dev librockchip-mpp-dev libsdl2*-dev libx264-dev libx265-dev pkg-config
 ```
 
-### Compile and install the latest MPP
+### Compile and install ffmpeg-rockchip
 
 ```bash
-git clone https://github.com/rockchip-linux/mpp
-pushd mpp
-cmake -DRKPLATFORM=ON -DHAVE_DRM=ON && make -j$(nproc)
-sudo make install
-sudo cp ./mpp/librockchip_mpp.so* /lib/aarch64-linux-gnu
-sudo cp ./mpp/legacy/librockchip_vpu.so* /lib/aarch64-linux-gnu
-popd
-```
-
-### Compile and install FFmpeg
-
-```bash
-git clone https://github.com/hbiyik/FFmpeg.git
-pushd FFmpeg/
-./configure --enable-rkmpp --enable-version3 --enable-libdrm --enable-libx264 --enable-gpl
+git clone https://github.com/nyanmisaka/ffmpeg-rockchip
+pushd ffmpeg-rockchip/
+./configure --prefix=/usr --enable-gpl --enable-version3 --enable-libdrm --enable-rkmpp --enable-rkrga --enable-libx264 --enable-libx265 --enable-ffplay
 make -j$(nproc)
 sudo make install
 popd
 ```
 
-### Running mediamtx and FFmpeg
+### Running mediamtx and ffmpeg-rockchip
 
 :::info
-Here we assume that `/dev/video0` is the video source you want to use. If your camera is assigned to a different name, replace the corresponding device name in the following command line.
+Here we assume that `/dev/video-camera0` is the video source you want to use. If your camera is assigned a different name, replace the corresponding device name in the following command line.  
+`-vf “fps=30”` and `-s 3840x2160` correspond to the frame rate and resolution respectively, which need to be adjusted according to the output of the command `sudo v4l2-ctl -d /dev/video-camera0 --all`, or else the encoding performance will be affected or even the startup of the push stream will fail due to the failure of reading the camera information automatically.
+The `-c:v` option specifies the encoder to be used, currently ffmpeg-rockchip supports `h264_rkmpp`, `hevc_rkmpp` and `mjpeg_rkmpp` hardware encoders.
 :::
 
 ```bash
-wget https://github.com/bluenviron/mediamtx/releases/download/v1.0.0/mediamtx_v1.0.0_linux_arm64v8.tar.gz
-tar -xzvf mediamtx_v1.0.0_linux_arm64v8.tar.gz
+wget https://github.com/bluenviron/mediamtx/releases/download/v1.9.0/mediamtx_v1.9.0_linux_arm64v8.tar.gz
+tar -xzvf mediamtx_v1.9.0_linux_arm64v8.tar.gz
 nohup ./mediamtx &
-sudo ffmpeg -re -f v4l2 -i /dev/video0 -c:v hevc -rc_mode 0 -level 30 -f rtsp rtsp://0.0.0.0:8554/stream
+ffmpeg-rockchip/ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -c:v h264_rkmpp -rc_mode AVBR -b:v 20M -minrate 10M -maxrate 40M -profile:v main -level 5.1 -f rtsp rtsp://0.0.0.0:8554/stream
+
+# If you only want to record the camera to a file, use the following command
+# ffmpeg-rockchip/ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -c:v h264_rkmpp -rc_mode AVBR -b:v 20M -minrate 10M -maxrate 40M -profile:v main -level 5.1 /tmp/tmp.mp4
 ```
 
 </TabItem>
@@ -61,14 +54,15 @@ sudo ffmpeg -re -f v4l2 -i /dev/video0 -c:v hevc -rc_mode 0 -level 30 -f rtsp rt
 <TabItem value="gstreamer" label="Based on Gstreamer">
 
 :::tip
-When using HDMI RX, gst-mppenc does not support NV24(YCbCr444) and RBG inputs currently, you need to switch the colour format of HDMI input to NV12(YCbCr420) or NV16(YCbCr422), or use FFmpeg for streaming.
+Because mpph264enc is poorly encoded and decoded by Radxa OS in Rockchip 6.1 Linux kernel, it is recommended to use mpph265enc in preference.
+When using HDMI RX, gst-mppenc does not support NV24(YCbCr444) and RGB input, you need to switch the color format of HDMI input to NV12(YCbCr420) or NV16(YCbCr422), or use FFmpeg to push the stream.
 :::
 
-### Install build dependencies
+### Installation of compilation dependencies
 
 ```bash
 sudo apt update
-sudo apt install libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev build-essential meson libcgroup-dev gobject-introspection libgirepository1.0-dev
+sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev meson
 ```
 
 ### Get gst-rtsp-server source code
@@ -78,7 +72,7 @@ wget https://gstreamer.freedesktop.org/src/gst-rtsp-server/gst-rtsp-server-1.18.
 tar -xvf gst-rtsp-server-1.18.6.tar.xz
 ```
 
-### Build gst-rtsp-server
+### Compile gst-rtsp-server
 
 ```bash
 cd gst-rtsp-server-1.18.6/
@@ -90,26 +84,32 @@ ninja
 ### Run gst-rtsp-server
 
 :::info
-Here we assume that `/dev/video0` is the video source you want to use. If your camera is assigned to a different name, replace the corresponding device name in the following command line.
+Here we assume that `/dev/video-camera0` is the video source you want to use. If your camera is assigned a different name, replace the corresponding device name in the following command line.
 :::
 
 ```bash
 cd examples/
-./test-launch --gst-debug-level=3 "( v4l2src device=/dev/video0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr !  rtph265pay name=pay0 pt=97 )"
+# mpph264enc encoder currently has lagging problem under Rockchip 6.1 Linux kernel, we suggest to use mpph265enc encoder.
+# mpph264enc, mpph265enc, mppjpegenc, mppvp8enc encoders are available. To change the encoder, you need to change the rtp*pay or *parse in the pipeline.
+./test-launch --gst-debug-level=3 "( v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr ! rtph265pay name=pay0 pt=97 )"
+# If you only want to record the camera to a file, use the following command
+# gst-launch-1.0 --gst-debug-level=3 v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr ! h265parse ! mp4mux ! filesink location=output.mp4
 ```
 
 </TabItem>
 
 </Tabs>
 
-## Client Configuration
+## Client configuration
+
+### Using VLC Player
 
 The following is an example of how to watch RTSP video stream by running [VLC](https://www.videolan.org/vlc/) under Windows.
 
 1. Download and install VLC
    ![VLC-Main](/img/general-tutorial/rtsp/VLC-Main-en.webp)
 
-1. Click "Media - Open Network Streaming" to enter the RTSP stream address.
+2. Click "Media - Open Network Streaming" to enter the RTSP stream address.
 
 :::tip
 A communicable IP address is necessary.
@@ -119,3 +119,20 @@ A communicable IP address is necessary.
 
 3. Click `Play` to view the RTSP remote streaming content.
    ![VLC-View-RTSP](/img/general-tutorial/rtsp/VLC-View-RTSP-en.webp)
+
+### Using the ffplay player on a development board
+
+It is also possible to play directly with the ffplay utility for FFmpeg mentioned above
+
+:::tip
+Should be replaced with the URL and IP address specified in the server command line.
+The `-vcodec` option is the specified codec, please adjust it according to the encoding of the RTSP stream. The hardware decoders supported by ffmpeg-rockchip are `av1_rkmpp`, `h263_rkmpp`, `h264_rkmpp`, `hevc_rkmpp`, `mpeg1_rkmpp`, `mpeg2_rkmpp`, `mpeg4_rkmpp`, `vp8_rkmpp`, `vp9_rkmpp`.
+:::
+
+```bash
+ffmpeg-rockchip/ffplay -vcodec h264_rkmpp rtsp://192.168.10.9:8554/stream
+```
+
+## Reference Links
+
+- [ffmpeg-rockchip](https://github.com/nyanmisaka/ffmpeg-rockchip/wiki)
