@@ -330,3 +330,10 @@ static/img/zero/zero2pro/zero2pro-block-digram.webp @CodeChenL
 static/img/common/rsetup/system-maintenance.webp @nascs
 static/img/aicore-sg2300x/sg2300x-block-diagram.webp @peterwang2050
 i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5itx/getting-started/interface-usage/pcie-m-key.md @nascs
+static/img/rock5a/rock5a-maskrom-wire.webp @nascs
+static/img/cm3i/cm3i-io-usb-wire.webp @nascs
+static/img/common/ap/ap-open-setting.webp @CodeChenL
+static/img/rock5c/rk3588s2_blockdiagram.webp @vamrs-feng
+i18n/en/docusaurus-plugin-content-docs/current/compute-module/cm3i/app-development/README.md @nascs
+docs/compute-module/cm3/app-development/rtsp.md @nascs
+i18n/en/docusaurus-plugin-content-docs/current/rock3/rock3b/getting-started/interface-usage/hdmi.md @nascs
