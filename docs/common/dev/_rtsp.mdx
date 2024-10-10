@@ -10,7 +10,9 @@
 <TabItem value="ffmpeg" label="基于 FFmpeg">
 
 :::tip
-使用 HDMI RX 时，低于 720P 分辨率的输入源可能会导致编码失败。
+使用 HDMI RX 时，低于 720P 分辨率的输入源可能会导致编码失败。  
+经测试，ffmpeg-rockchip 与我们发布的 Debian 11 系统的 rkmpp 和 librga 版本不兼容，Debian 12 系统不受影响。  
+如果你使用的是我们发布的 Debian 11 系统请移步[ ffmpeg-rockchip 官方编译教程](https://github.com/nyanmisaka/ffmpeg-rockchip/wiki/Compilation)，构建 rkmpp 和 librga 后构建 ffmpeg-rockchip。
 :::
 
 ### 安装编译依赖
@@ -54,7 +56,7 @@ ffmpeg-rockchip/ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -
 <TabItem value="gstreamer" label="基于 Gstreamer">
 
 :::tip
-因为 mpph264enc 在 Rockchip 6.1 Linux 内核的 Radxa OS 编解码效率很差，推荐优先使用 mpph265enc。
+因为 mpph264enc 在 Rockchip 6.1 Linux 内核的 Radxa OS 编解码效率很差，推荐优先使用 mpph265enc。  
 使用 HDMI RX 时，目前 gst-mppenc 暂不支持 NV24(YCbCr444) 与 RGB 输入，需要 HDMI 输入端切换颜色格式为 NV12(YCbCr420) 或 NV16(YCbCr422)，或者使用 FFmpeg 进行推流。
 :::
 
@@ -125,7 +127,7 @@ cd examples/
 也可直接使用上面提到的 FFmpeg 的 ffplay 工具进行播放
 
 :::tip
-需替换为服务端命令行中指定的 URL 与 IP 地址。
+需替换为服务端命令行中指定的 URL 与 IP 地址。  
 `-vcodec` 选项为指定的解码器，请根据 RTSP 流的编码进行调整，目前 ffmpeg-rockchip 支持的硬件解码器有 `av1_rkmpp`、`h263_rkmpp`、`h264_rkmpp`、`hevc_rkmpp`、`mpeg1_rkmpp`、`mpeg2_rkmpp`、`mpeg4_rkmpp`、`vp8_rkmpp`、`vp9_rkmpp`。
 :::
 
