@@ -10,7 +10,9 @@
 <TabItem value="ffmpeg" label="Based on FFmpeg">
 
 :::tip
-When using HDMI RX, input sources with lower than 720P resolution may cause encoding failure.
+When using HDMI RX, input sources with lower than 720P resolution may cause encoding failure.  
+After testing, ffmpeg-rockchip is not compatible with the rkmpp and librga versions we released for Debian 11 systems, Debian 12 systems are not affected.  
+If you are using our Debian 11 system, please go to [ ffmpeg-rockchip official build tutorial ](https://github.com/nyanmisaka/ffmpeg-rockchip/wiki/Compilation), build rkmpp and librga and then build ffmpeg-rockchip.
 :::
 
 ### Installation of compilation dependencies
@@ -54,7 +56,7 @@ ffmpeg-rockchip/ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -
 <TabItem value="gstreamer" label="Based on Gstreamer">
 
 :::tip
-Because mpph264enc is poorly encoded and decoded by Radxa OS in Rockchip 6.1 Linux kernel, it is recommended to use mpph265enc in preference.
+Because mpph264enc is poorly encoded and decoded by Radxa OS in Rockchip 6.1 Linux kernel, it is recommended to use mpph265enc in preference.  
 When using HDMI RX, gst-mppenc does not support NV24(YCbCr444) and RGB input, you need to switch the color format of HDMI input to NV12(YCbCr420) or NV16(YCbCr422), or use FFmpeg to push the stream.
 :::
 
@@ -125,7 +127,7 @@ A communicable IP address is necessary.
 It is also possible to play directly with the ffplay utility for FFmpeg mentioned above
 
 :::tip
-Should be replaced with the URL and IP address specified in the server command line.
+Should be replaced with the URL and IP address specified in the server command line.  
 The `-vcodec` option is the specified codec, please adjust it according to the encoding of the RTSP stream. The hardware decoders supported by ffmpeg-rockchip are `av1_rkmpp`, `h263_rkmpp`, `h264_rkmpp`, `hevc_rkmpp`, `mpeg1_rkmpp`, `mpeg2_rkmpp`, `mpeg4_rkmpp`, `vp8_rkmpp`, `vp9_rkmpp`.
 :::
 
