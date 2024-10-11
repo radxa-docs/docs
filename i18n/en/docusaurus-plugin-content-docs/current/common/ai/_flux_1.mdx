@@ -38,22 +38,29 @@ FLUX.1_TPU ports the Schnell and Dev versions to the SG2300X chip series for loc
 
 - Start the program
 
-  ```bash
-  # schnell
-  python3 flux_pipeline.py --models schnell
-  # dev
-  python3 flux_pipeline.py -m dev -s 28
-  ```
+  - (Recommend) gradio
+    ```bash
+    python3 gr.py
+    ```
+    Access the Airbox IP address on port 8999 via a browser
+  - (Optional) CLI
 
-  Parameter explanation:
+    ```bash
+    # schnell
+    python3 flux_pipeline.py --models schnell
+    # dev
+    python3 flux_pipeline.py -m dev -s 28
+    ```
 
-  `-m`, `--models`, model selection, required, choose from [schnell, dev]
+    Parameter explanation:
 
-  `-s`, `--steps`, inference steps, optional, default is 4, dev recommends 28
+    `-m`, `--models`, model selection, required, choose from [schnell, dev]
 
-  `-g`, `--gfc`, GFC value, optional, default is 0.0
+    `-s`, `--steps`, inference steps, optional, default is 4, dev recommends 28
 
-  `-r`, `--seed`, random seed, optional, default is None
+    `-g`, `--cfg`, CFG value, optional, default is 0.0
+
+    `-r`, `--seed`, random seed, optional, default is None
 
 ---
 
