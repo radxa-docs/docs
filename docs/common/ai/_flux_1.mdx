@@ -40,22 +40,32 @@ FLUX.1_TPU 通过 sophon SDK 移植 Schnell 和 Dev 两个版本到 SG2300X 芯�
 
 - 启动程序
 
-  ```bash
-  # schnell
-  python3 flux_pipeline.py --models schnell
-  # dev
-  python3 flux_pipeline.py -m dev -s 28
-  ```
+  - （推荐）gradio
 
-  参数解析：
+    ```bash
+     python3 gr.py
+    ```
 
-  `-m`, `--models`, 模型选择，必填，选择 [schnell, dev]
+    使用浏览器访问 Airbox IP 地址 8999 端口
 
-  `-s`, `--steps`, 推理步数，选填，默认 4, dev 建议填 28
+  - （可选）CLI
 
-  `-g`, `--gfc`, GFC 值， 选填，默认 0.0
+    ```bash
+    # schnell
+    python3 flux_pipeline.py --models schnell
+    # dev
+    python3 flux_pipeline.py -m dev -s 28
+    ```
 
-  `-r,` `--seed`, 随机种子, 选填， 默认 None
+    参数解析：
+
+    `-m`, `--models`, 模型选择，必填，选择 [schnell, dev]
+
+    `-s`, `--steps`, 推理步数，选填，默认 4, dev 建议填 28
+
+    `-g`, `--cfg`, CFG 值， 选填，默认 0.0
+
+    `-r,` `--seed`, 随机种子, 选填， 默认 None
 
 ---
 
