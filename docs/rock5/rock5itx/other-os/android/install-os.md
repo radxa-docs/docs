@@ -4,7 +4,9 @@ title: 系统安装
 ---
 
 import Images from "../../\_image.mdx";
-import Etcher from '../../../../common/general/\_etcher.mdx'
+import Etcher from '../../../../common/general/\_etcherV2.mdx'
+import Rkdevtool from "../../../../common/dev/\_rkdevtoolV3.mdx";
+import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV3.mdx";
 
 本文档将介绍如何把 Android 镜像安装到 ROCK 5 ITX。
 
@@ -34,14 +36,14 @@ ROCK 5 ITX 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以从
 
 <TabItem value="windows" label="Windows">
 
-Windows 使用 [rkdeveloptool](/rock5/rock5itx/low-level-dev/rkdeveloptool)
+Windows 使用 rkdevtool 工具进行操作
 ![ROCK 5 ITX erase SPI](/img/rock5itx/rock5itx_erase_spi_zh.webp)
 
 </TabItem>
 
 <TabItem value="linux/mac" label="Linux/Mac">
 
-Linux/Mac 使用 [rkdevtool](/rock5/rock5itx/low-level-dev/rkdevtool)
+Linux/Mac 使用 rkdeveloptool 工具进行操作
 
 ```bash
 dd if=/dev/zero of=zero.img bs=16M count=1
@@ -107,19 +109,47 @@ rkdeveloptool rd
 
 <Tabs queryString="target">
 
-<TabItem value="windows" label="Windows">
+<TabItem value="linux" label="Linux">
 
-#### Windows 系统使用 rkdevetool 写入
-
-[rkdeveloptool](/rock5/rock5itx/low-level-dev/rkdeveloptool)
+<Rkdeveloptool platform="linux">
+</Rkdeveloptool>
 
 </TabItem>
 
-<TabItem value="linux/mac" label="Linux/mac">
+<TabItem value="mac" label="mac">
 
-#### Linux/Mac 系统使用 rkdeveloptool 写入
+<Rkdeveloptool platform="macos">
+</Rkdeveloptool>
 
-[rkdevtool](/rock5/rock5itx/low-level-dev/rkdevtool)
+</TabItem>
+
+<TabItem value="windows" label="Windows">
+
+### 安装 RKDevTool
+
+RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件。如果您的 Windows 主机上没有安装 RKDevTool， 请按照以下步骤进行安装。
+
+请下载并解压以下文件以安装 RKDevTool：
+
+- [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (含中文使用文档)
+- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+
+### 安装驱动
+
+下载并解压 DriverAssistant，然后执行 DriverInstall.exe 并点击 `Install Driver` 按钮来安装驱动。
+如果你之前已经安装过其他版本的驱动，请先点击 `Uninstall Driver` 卸载驱动，然后再重新安装。
+
+![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
+
+### 安装 RKDevTool
+
+解压 RKDevTool_Release_v2.96_zh.zip 后，点击 RKDevTool.exe 即可使用。
+
+### 进入 Maskrom 模式
+
+### 按照以下操作烧入镜像
+
+![RK Android update](/img/rock5itx/rock5itx_android_update_zh.webp)
 
 </TabItem>
 
@@ -161,19 +191,47 @@ rkdeveloptool rd
 
 <Tabs queryString="target">
 
-<TabItem value="windows" label="Windows">
+<TabItem value="linux" label="Linux">
 
-#### Windows 系统使用 rkdevetool 写入
-
-[rkdeveloptool](/rock5/rock5itx/low-level-dev/rkdeveloptool)
+<Rkdeveloptool platform="linux">
+</Rkdeveloptool>
 
 </TabItem>
 
-<TabItem value="linux/mac" label="Linux/mac">
+<TabItem value="mac" label="mac">
 
-#### Linux/Mac 系统使用 rkdeveloptool 写入
+<Rkdeveloptool platform="macos">
+</Rkdeveloptool>
 
-[rkdevtool](/rock5/rock5itx/low-level-dev/rkdevtool)
+</TabItem>
+
+<TabItem value="windows" label="Windows">
+
+### 安装 RKDevTool
+
+RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件。如果您的 Windows 主机上没有安装 RKDevTool， 请按照以下步骤进行安装。
+
+请下载并解压以下文件以安装 RKDevTool：
+
+- [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (含中文使用文档)
+- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+
+### 安装驱动
+
+下载并解压 DriverAssistant，然后执行 DriverInstall.exe 并点击 `Install Driver` 按钮来安装驱动。
+如果你之前已经安装过其他版本的驱动，请先点击 `Uninstall Driver` 卸载驱动，然后再重新安装。
+
+![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
+
+### 安装 RKDevTool
+
+解压 RKDevTool_Release_v2.96_zh.zip 后，点击 RKDevTool.exe 即可使用。
+
+### 进入 Maskrom 模式
+
+### 按照以下操作烧入镜像
+
+![RK Android update](/img/rock5itx/rock5itx_android_update_zh.webp)
 
 </TabItem>
 

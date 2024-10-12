@@ -64,6 +64,9 @@ For RK3566/3568 chip users, NPU must be enabled in rsetup overlays before use. P
   | rk3588 | [yolov5s_rk3588.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3588.rknn) |
 
 - Modify the `rknn_model_zoo/py_utils/rknn_executor.py` code
+
+  Please configure the RKNN Model Zoo code repository according to [Install RKNN Model Zoo on the Board](./rknn_install#optional-install-rknn-model-zoo-on-the-board).
+
   ```python
   1 # from rknn.api import RKNN
   2 try:
@@ -74,12 +77,18 @@ For RK3566/3568 chip users, NPU must be enabled in rsetup overlays before use. P
   ...
   18 ret = rknn.init_runtime()
   ```
-- Modify the `rknn_model_zoo/examples/yolov5/python` code
+
+- Modify the `rknn_model_zoo/examples/yolov5/python/yolov5.py` code
+
   ```python
   262 outputs = model.run([np.expand_dims(input_data, 0)])
   ```
+
+- Install the required environment
+  ```bash
+  pip3 install opencv-python-headless
+  ```
 - Run the YOLOv5 example code
-  Please configure the RKNN Model Zoo code repository according to [Install RKNN Model Zoo on the Board](./rknn_install#optional-install-rknn-model-zoo-on-the-board).
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/python

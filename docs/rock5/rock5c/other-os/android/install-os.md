@@ -3,7 +3,11 @@ sidebar_position: 2
 title: 系统安装
 ---
 
-import Etcher from '../../../../common/general/\_etcher.mdx'
+import Etcher from '../../../../common/general/\_etcherV2.mdx'
+import Rkdevtool from "../../../../common/dev/\_rkdevtoolV3.mdx";
+import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV3.mdx";
+
+# 安装操作系统
 
 本文档将介绍如何把 Android 镜像安装到 ROCK 5C。
 
@@ -12,8 +16,6 @@ ROCK 5C 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 <Tabs queryString="target">
 
 <TabItem value="microsd" label="安装系统到 microSD 卡">
-
-# 安装操作系统
 
 ## 准备工作
 
@@ -65,19 +67,24 @@ ROCK 5C 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 
 <Tabs queryString="target">
 
-<TabItem value="linux/mac" label="Linux/mac">
+<TabItem value="linux" label="Linux">
 
-#### Linux/Mac 系统使用 rkdeveloptool 写入
+<Rkdeveloptool platform="linux">
+</Rkdeveloptool>
 
-[rkdeveloptool](../../low-level-dev/rkdeveloptool)
+</TabItem>
+
+<TabItem value="mac" label="mac">
+
+<Rkdeveloptool platform="macos">
+</Rkdeveloptool>
 
 </TabItem>
 
 <TabItem value="windows" label="Windows">
 
-#### Windows 系统使用 rkdevetool 写入
-
-[rkdevtool](/rock5/rock5c/low-level-dev/rkdevtool)
+<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="false" emmc={false} pcie={false} sata={false} >
+</Rkdevtool>
 
 </TabItem>
 

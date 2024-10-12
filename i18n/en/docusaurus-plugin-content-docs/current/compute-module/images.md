@@ -38,9 +38,17 @@ CM3 IO： https://github.com/radxa-build/radxa-cm3-io/releases/download/b27/radx
 
 ### Official Images
 
-Radxa CM5 IO: [radxa-cm5-io_debian_bullseye_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-io/releases/download/b2/radxa-cm5-io_debian_bullseye_kde_b2.img.xz)
+Radxa CM5 on CM5 IO: [Desktop Image](https://github.com/radxa-build/radxa-cm5-io/releases/download/rsdk-b3/radxa-cm5-io_bookworm_kde_b3.output.img.xz)
 
-Radxa CM5 on RPI CM4 IO : [radxa-cm5-rpi-cm4-io_debian_bullseye_kde_b2.img.xz](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/b2/radxa-cm5-rpi-cm4-io_debian_bullseye_kde_b2.img.xz)
+Radxa CM5 Lite on CM5 IO: [CLI Image](https://github.com/radxa-build/radxa-cm5-io/releases/download/rsdk-b3/radxa-cm5-io_bookworm_cli_b3.output.img.xz)
+
+Radxa CM5 IO: [radxa-cm5-io Android12](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240511/Radxa_CM5_Android12_rkr14_GMS_20240511-update.zip)
+
+Radxa CM5 on RPI CM4 IO: [Desktop Image](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/rsdk-b3/radxa-cm5-rpi-cm4-io_bookworm_kde_b3.output.img.xz)
+
+Radxa CM5 Lite on RPI CM4 IO: [CLI Image](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/rsdk-b3/radxa-cm5-rpi-cm4-io_bookworm_cli_b3.output.img.xz)
+
+Radxa CM5 on RPI CM4 IO : [radxa-cm5-rpi-cm4-io_Android12](https://github.com/radxa/manifests/releases/download/radxa-cm5-android12-20240626/Radxa-cm5-rpi_cm4io-Android12-rkr14-GMS-20240626-gpt.zip)
 
 </TabItem>
 

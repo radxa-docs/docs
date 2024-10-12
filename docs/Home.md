@@ -622,6 +622,31 @@ sidebar_custom_props:
               },
             ],
         },
+        {
+          series_en: "SiRider Family",
+          series_zh: "SiRider 系列",
+          series_introduction_en: "SiRider is a high-performance single board computer series jointly launched by Radxa and Siengine.",
+          series_introduction_zh: "SiRider 是 Radxa 和 Siengine 联合推出的高性能单板计算机系列",
+          products:
+            [
+              {
+                products_name: "SiRider S1",
+                products_photo_url: "/home/product-pictures/siriders1.webp",
+                products_link: "/sirider/s1",
+                docs:
+                  [
+                    {
+                      docs_link: "/sirider/s1",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "SiRider S1 概览",
+                      docs_info_en: "Overview of the SiRider S1",
+                      docs_info_zh: "Radxa SiRider S1 概览",
+                    },
+                  ],
+              },
+            ],
+        },
       ],
   }
 ---

@@ -10,10 +10,24 @@ Introduces how to download and build uboot, kernel, os etc.
 
 Ubuntu 16.04 and above are recommended
 
+Install the following resource packs
+
+### Repo
+
+Repo is a tool used in Android development to manage multiple Git repositories. It is a Python script that facilitates developers to version control and manage multiple Git libraries.
+
+### Install Repo
+
+```bash
+wget https://storage.googleapis.com/git-repo-downloads/repo -P ~/bin/
+or
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+
+```
+
 ## code download
 
 ```bash
-
 $ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-r-release.xml
 $ repo sync -d -c -j4
 ```

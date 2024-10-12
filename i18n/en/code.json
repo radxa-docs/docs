@@ -13,6 +13,34 @@
   "home.page.HomePageTitle": {
     "message": "Radxa Documentation Center"
   },
+  "home.page.home": {
+    "description": " ",
+    "message": "Home"
+  },
+  "home.page.news": {
+    "description": " ",
+    "message": "News"
+  },
+  "home.page.product": {
+    "description": " ",
+    "message": "Products"
+  },
+  "home.page.series": {
+    "description": " ",
+    "message": "Series"
+  },
+  "home.page.services": {
+    "description": " ",
+    "message": "Services"
+  },
+  "home.page.support": {
+    "description": " ",
+    "message": "Support"
+  },
+  "home.page.welcome": {
+    "description": " ",
+    "message": "Welcome"
+  },
   "homepage.hero.hello": {
     "message": "Hello, world!"
   },

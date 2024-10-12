@@ -48,3 +48,7 @@ For more images, please refer to: [ZERO 3 Release](https://github.com/radxa-buil
 - [Radxa Zero 3w OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)
 
 ## Quality Certification
+
+## Enclosures
+- [Case For Radxa Zero 3E](https://www.printables.com/model/994372-case-for-radxa-zero-3e) by [@leavic](https://www.printables.com/@leavic)
+- [Case for Radxa 3E with PoE HAT](https://www.printables.com/model/848702-case-for-radxa-3e-with-poe-hat) by [@brockhold](https://www.printables.com/@brockhold_268073)

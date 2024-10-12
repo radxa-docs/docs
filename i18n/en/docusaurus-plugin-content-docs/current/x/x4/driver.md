@@ -66,15 +66,15 @@ sidebar_position: 15
 
 - Installer Download [Intel Ethernet Driver](https://dl.radxa.com/x/x4/Intel_Ethernet_Driver.zip)
 
-- Copy the installation package, Realtek Ethernet Controller Driver, into the Radxa X4.
+- Copy the installation package, Intel Ethernet Controller Driver, into the Radxa X4.
 
 - Double-click to open the installation package, restart the system after the installation is complete.
 
 ![Intel_Ethernet_Driver_01](/img/x/x4/intel_network_connection_01.webp)
 
-![Intel_Ethernet_Driver_02](/img/x/x2l/realtek_ethernet_controller_driver_02.webp)
+![Intel_Ethernet_Driver_02](/img/x/x4/intel_network_connection_02.webp)
 
-![Intel_Ethernet_Driver_03](/img/x/x2l/realtek_ethernet_controller_driver_03.webp)
+![Intel_Ethernet_Driver_03](/img/x/x4/intel_network_connection_03.webp)
 
 ## RP2040 Driver Installation
 

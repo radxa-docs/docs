@@ -13,7 +13,7 @@ NIO 12L 的设计理念在于结合高性能处理能力与低能耗优势，使
 
 ## 实物照片
 
-![NIO 12L Overview](/img/nio/nio12l/n12l_overview.webp)
+![NIO 12L Overview](/img/nio/nio12l/nio-12l-v131-overview.webp)
 
 ## 芯片框图
 

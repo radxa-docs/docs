@@ -4,7 +4,9 @@ title: Install OS
 ---
 
 import Images from "../../\_image.mdx";
-import Etcher from '../../../../common/general/\_etcher.mdx'
+import Etcher from '../../../../common/general/\_etcherV2.mdx'
+import Rkdevtool from "../../../../common/dev/\_rkdevtoolV3.mdx";
+import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV3.mdx";
 
 This document describes how to install an Android image to the ROCK 5 ITX.
 
@@ -36,14 +38,14 @@ Before starting ROCK 5 ITX using microSD card/eMMC, it is necessary to erase the
 
 <TabItem value="windows" label="Windows">
 
-Windows use [rkdeveloptool](/rock5/rock5itx/low-level-dev/rkdeveloptool)
+Windows use rkdevtool
 ![ROCK 5 ITX erase SPI](/img/rock5itx/rock5itx_erase_spi_en.webp)
 
 </TabItem>
 
 <TabItem value="linux/mac" label="Linux/Mac">
 
-Linux/Mac use [rkdevtool](/rock5/rock5itx/low-level-dev/rkdevtool)
+Linux/Mac use rkdeveloptool
 
 ```bash
 dd if=/dev/zero of=zero.img bs=16M count=1
@@ -111,19 +113,51 @@ Enter maskrom mode
 
 <Tabs queryString="target">
 
-<TabItem value="windows" label="Windows">
+<TabItem value="linux" label="Linux">
 
-#### Windows systems write with rkdevetool
-
-[rkdeveloptool](../../low-level-dev/rkdeveloptool)
+<Rkdeveloptool platform="linux">
+</Rkdeveloptool>
 
 </TabItem>
 
-<TabItem value="linux/mac" label="Linux/mac">
+<TabItem value="mac" label="mac">
 
-#### Linux/Mac systems are written using rkdeveloptool
+<Rkdeveloptool platform="macos">
+</Rkdeveloptool>
 
-[rkdevtool](../../low-level-dev/rkdevtool)
+</TabItem>
+
+<TabItem value="windows" label="Windows">
+
+### Install RKDevTool
+
+RKDevTool is Rockchip's software for USB burning on Windows platform. If RKDevTool is not installed on your Windows host, please follow the steps below to install it.
+
+Please download and extract the following files to install RKDevTool:
+
+- [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (Includes Chinese documentation)
+- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+
+### Installation of drivers
+
+Download and unzip DriverAssistant, then execute DriverInstall.exe and click the `Install Driver` button to install the driver.
+If you have already installed another version of driver, please click `Uninstall Driver` to uninstall the driver first, and then reinstall it again.
+
+![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
+
+### Install RKDevTool
+
+unzip RKDevTool_Release_v2.96_zh.zip ，click RKDevTool.exe to open.
+
+## Enter Maskrom mode
+
+If the operation is normal, RKDevTool will prompt `A MASKROM device was found`.
+
+<img src="/img/rkdevtool/rkdevtool_maskrom.webp" alt="rkdevtool maskrom" />
+
+## Follow the steps below to flash the operation image
+
+![RK Android update](/img/rock5itx/rock5itx_android_update_en.webp)
 
 </TabItem>
 
@@ -163,21 +197,57 @@ Enter maskrom mode
 
 ## Install the system
 
+<Tabs queryString="target">
+
+<TabItem value="linux" label="Linux">
+
+<Rkdeveloptool platform="linux">
+</Rkdeveloptool>
+
+</TabItem>
+
+<TabItem value="mac" label="mac">
+
+<Rkdeveloptool platform="macos">
+</Rkdeveloptool>
+
+</TabItem>
+
 <TabItem value="windows" label="Windows">
 
-#### Windows systems write with rkdevetool
+### Install RKDevTool
 
-[rkdeveloptool](../../low-level-dev/rkdeveloptool)
+RKDevTool is Rockchip's software for USB burning on Windows platform. If RKDevTool is not installed on your Windows host, please follow the steps below to install it.
+
+Please download and extract the following files to install RKDevTool:
+
+- [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (Includes Chinese documentation)
+- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+
+### Installation of drivers
+
+Download and unzip DriverAssistant, then execute DriverInstall.exe and click the `Install Driver` button to install the driver.
+If you have already installed another version of driver, please click `Uninstall Driver` to uninstall the driver first, and then reinstall it again.
+
+![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
+
+### Install RKDevTool
+
+unzip RKDevTool_Release_v2.96_zh.zip ，click RKDevTool.exe to open.
+
+## Enter Maskrom mode
+
+If the operation is normal, RKDevTool will prompt `A MASKROM device was found`.
+
+<img src="/img/rkdevtool/rkdevtool_maskrom.webp" alt="rkdevtool maskrom" />
+
+## Follow the steps below to flash the operation image
+
+![RK Android update](/img/rock5itx/rock5itx_android_update_en.webp)
 
 </TabItem>
 
-<TabItem value="linux/mac" label="Linux/mac">
-
-#### Linux/Mac systems are written using rkdeveloptool
-
-[rkdevtool](../../low-level-dev/rkdevtool)
-
-</TabItem>
+</Tabs>
 
 ## Boot the system
 

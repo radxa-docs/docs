@@ -1,7 +1,27 @@
 {
+  "item.label.AICore SG2300x": {
+    "description": "Navbar item with label AICore SG2300x",
+    "message": "AICore SG2300x"
+  },
   "item.label.About": {
     "description": "Navbar item with label About",
     "message": "About"
+  },
+  "item.label.Airbox": {
+    "description": "Navbar item with label Airbox",
+    "message": "Airbox"
+  },
+  "item.label.CM3": {
+    "description": "Navbar item with label CM3",
+    "message": "CM3"
+  },
+  "item.label.CM3I": {
+    "description": "Navbar item with label CM3I",
+    "message": "CM3I"
+  },
+  "item.label.CM5": {
+    "description": "Navbar item with label CM5",
+    "message": "CM5"
   },
   "item.label.Community": {
     "description": "Navbar item with label Community",
@@ -9,7 +29,11 @@
   },
   "item.label.Docs": {
     "description": "Navbar item with label Docs",
-    "message": "Documentation"
+    "message": "All Docs"
+  },
+  "item.label.E20C": {
+    "description": "Navbar item with label E20C",
+    "message": "E20C"
   },
   "item.label.Forum": {
     "description": "Navbar item with label Forum",
@@ -23,6 +47,22 @@
     "description": "Navbar item with label Home",
     "message": "Home"
   },
+  "item.label.NIO 12L": {
+    "description": "Navbar item with label NIO 12L",
+    "message": "NIO 12L"
+  },
+  "item.label.NIO 系列": {
+    "description": "Navbar item with label NIO 系列",
+    "message": "NIO Series"
+  },
+  "item.label.SiRider 系列": {
+    "description": "Navbar item with label SiRider 系列",
+    "message": "SiRider Series"
+  },
+  "item.label.NX5": {
+    "description": "Navbar item with label NX5",
+    "message": "NX5"
+  },
   "item.label.News": {
     "description": "Navbar item with label News",
     "message": "News"
@@ -30,6 +70,30 @@
   "item.label.Products": {
     "description": "Navbar item with label Products",
     "message": "Products"
+  },
+  "item.label.ROCK 2 系列": {
+    "description": "Navbar item with label ROCK 2 系列",
+    "message": "ROCK 2 Series"
+  },
+  "item.label.ROCK 3 系列": {
+    "description": "Navbar item with label ROCK 3 系列",
+    "message": "ROCK 3 Series"
+  },
+  "item.label.ROCK 4": {
+    "description": "Navbar item with label ROCK 4",
+    "message": "ROCK 4 Series"
+  },
+  "item.label.ROCK 5": {
+    "description": "Navbar item with label ROCK 5",
+    "message": "ROCK 5 Series"
+  },
+  "item.label.ROCK Pi": {
+    "description": "Navbar item with label ROCK Pi",
+    "message": "ROCK Pi Series"
+  },
+  "item.label.ROCK 系列": {
+    "description": "Navbar item with label ROCK 系列",
+    "message": "ROCK Series"
   },
   "item.label.Services": {
     "description": "Navbar item with label Services",
@@ -46,6 +110,106 @@
   "item.label.WiKi": {
     "description": "Navbar item with label WiKi",
     "message": "WiKi"
+  },
+  "item.label.X 系列": {
+    "description": "Navbar item with label X 系列",
+    "message": "X Series"
+  },
+  "item.label.X2L": {
+    "description": "Navbar item with label X2L",
+    "message": "X2L"
+  },
+  "item.label.X4": {
+    "description": "Navbar item with label X4",
+    "message": "X4"
+  },
+  "item.label.ZERO": {
+    "description": "Navbar item with label ZERO",
+    "message": "ZERO"
+  },
+  "item.label.ZERO 2 Pro": {
+    "description": "Navbar item with label ZERO 2 Pro",
+    "message": "ZERO 2 Pro"
+  },
+  "item.label.ZERO 3W/3E": {
+    "description": "Navbar item with label ZERO 3W/3E",
+    "message": "ZERO 3W/3E"
+  },
+  "item.label.ZERO 系列": {
+    "description": "Navbar item with label ZERO 系列",
+    "message": "ZERO Series"
+  },
+  "item.label.→  ROCK 5 ITX": {
+    "description": "Navbar item with label →  ROCK 5 ITX",
+    "message": "→  ROCK 5 ITX"
+  },
+  "item.label.→  ROCK 5A": {
+    "description": "Navbar item with label →  ROCK 5A",
+    "message": "→  ROCK 5A"
+  },
+  "item.label.→  ROCK 5B/5B+": {
+    "description": "Navbar item with label →  ROCK 5B/5B+",
+    "message": "→  ROCK 5B/5B+"
+  },
+  "item.label.→  ROCK 5C": {
+    "description": "Navbar item with label →  ROCK 5C",
+    "message": "→  ROCK 5C"
+  },
+  "item.label.→ ROCK 2A": {
+    "description": "Navbar item with label → ROCK 2A",
+    "message": "→ ROCK 2A"
+  },
+  "item.label.→ ROCK 2F": {
+    "description": "Navbar item with label → ROCK 2F",
+    "message": "→ ROCK 2F"
+  },
+  "item.label.→ ROCK 3A": {
+    "description": "Navbar item with label → ROCK 3A",
+    "message": "→ ROCK 3A"
+  },
+  "item.label.→ ROCK 3B/3B+": {
+    "description": "Navbar item with label → ROCK 3B/3B+",
+    "message": "→ ROCK 3B/3B+"
+  },
+  "item.label.→ ROCK 3C": {
+    "description": "Navbar item with label → ROCK 3C",
+    "message": "→ ROCK 3C"
+  },
+  "item.label.→ ROCK 4A/4B/4A+/4B+": {
+    "description": "Navbar item with label → ROCK 4A/4B/4A+/4B+",
+    "message": "→ ROCK 4A/4B/4A+/4B+"
+  },
+  "item.label.→ ROCK 4C+": {
+    "description": "Navbar item with label → ROCK 4C+",
+    "message": "→ ROCK 4C+"
+  },
+  "item.label.→ ROCK 4SE": {
+    "description": "Navbar item with label → ROCK 4SE",
+    "message": "→ ROCK 4SE"
+  },
+  "item.label.→ ROCK Pi E": {
+    "description": "Navbar item with label → ROCK Pi E",
+    "message": "→ ROCK Pi E"
+  },
+  "item.label.→ ROCK Pi S": {
+    "description": "Navbar item with label → ROCK Pi S",
+    "message": "→ ROCK Pi S"
+  },
+  "item.label.→ ROCK S0": {
+    "description": "Navbar item with label → ROCK S0",
+    "message": "→ ROCK S0"
+  },
+  "item.label.核心板": {
+    "description": "Navbar item with label 核心板",
+    "message": "System on Modules"
+  },
+  "item.label.生成式 AI": {
+    "description": "Navbar item with label 生成式 AI",
+    "message": "Gen AI"
+  },
+  "item.label.网络计算": {
+    "description": "Navbar item with label 网络计算",
+    "message": "Network Computing"
   },
   "logo.alt": {
     "description": "The alt text of navbar logo",
