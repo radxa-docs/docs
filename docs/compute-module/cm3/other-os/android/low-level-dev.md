@@ -8,13 +8,13 @@ sidebar_position: 4
 
 ## 环境配置
 
-建议使用 Ubuntu 20.04 及以上版本
+建议使用 Ubuntu 16.04 及以上版本
 
 ## 源码下载
 
 ```bash
 
-$ repo init -u https://github.com/radxa/manifests.git -b Android12_Radxa_rk14 -m rockchip-s-release.xml
+$ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-r-release.xml
 $ repo sync -d -c -j4
 
 ```
@@ -25,10 +25,13 @@ $ repo sync -d -c -j4
 
 适合第一次编译
 
+CM3 IO
+
 ```bash
-android12 $ source build/envsetup.sh
-android12 $ lunch RadxaRockNX5-userdebug
-android12 $ ./build.sh -AUCKup
+radxa:rock-android12 $ source build/envsetup.sh
+radxa:rock-android12 $ lunch rk356x_rock_cm3_r-userdebug
+radxa:rock-android12 $ ./build.sh -UACKup
+# get images from IMAGE directory
 ```
 
 等待编译完成就可以在 IMAGE 目录找到镜像
@@ -43,7 +46,7 @@ U-boot
 
 ```bash
 radxa:rock-android12 $ source build/envsetup.sh
-radxa:rock-android12 $ lunch RadxaRockNX5-userdebug
+radxa:rock-android12 $ lunch rk356x_rock_cm3_r-userdebug
 radxa:rock-android12 $ ./build.sh -AUup
 
 ```
@@ -52,7 +55,7 @@ Kernel
 
 ```bash
 radxa:rock-android12 $ source build/envsetup.sh
-radxa:rock-android12 $ lunch RadxaRocRadxaRockNX5k5B-userdebug
+radxa:rock-android12 $ lunch rk356x_rock_cm3_r-userdebug
 radxa:rock-android12 $ ./build.sh -ACKup
 ```
 
@@ -60,7 +63,7 @@ AOSP
 
 ```bash
 radxa:rock-android12 $ source build/envsetup.sh
-radxa:rock-android12 $ lunch RadxaRockNX5-userdebug
+radxa:rock-android12 $ lunch rk356x_rock_cm3_r-userdebug
 radxa:rock-android12 $ ./build.sh -Aup
 ```
 

@@ -8,18 +8,7 @@ Introduces how to download and build uboot, kernel, os etc.
 
 ## Environment configuration
 
-Install the following resource packs
-
-```bash
-
-apt-get update -y && apt-get install -y openjdk-8-jdk python git-core gnupg flex bison gperf build-essential \
-zip curl liblz4-tool zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \
-lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \
-libgl1-mesa-dev libxml2-utils xsltproc unzip mtools u-boot-tools \
-htop iotop sysstat iftop pigz bc device-tree-compiler lunzip \
-dosfstools vim-common parted udev libssl-dev python3 python-pip lzop swig
-
-```
+Ubuntu 16.04 and above are recommended
 
 ### Repo
 
@@ -28,74 +17,63 @@ Repo is a tool used in Android development to manage multiple Git repositories. 
 ### Install Repo
 
 ```bash
-
 wget https://storage.googleapis.com/git-repo-downloads/repo -P ~/bin/
 or
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-
 ```
 
 ## code download
 
 ```bash
-
 $ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-r-release.xml
-$ repo sync -d --no-tags -j4
-
+$ repo sync -d -c -j4
 ```
 
 ## build
 
-### Use all-in-one build script
+Suitable for first compilation
+
+CM3 IO
 
 ```bash
-radxa:rock-android11 $ source build/envsetup.sh
-
-# for Rock 3A
-radxa:rock-android11 $ lunch rk356x_rock_3a_r-userdebug
-# for Rock 3A if you want a box software
-radxa:rock-android11 $ lunch rk356x_rock_3a_box-userdebug
-
-radxa:rock-android11 $ ./build.sh -UACKup
+radxa:rock-android12 $ source build/envsetup.sh
+radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ ./build.sh -UACKup
+# get images from IMAGE directory
 ```
 
-### Step by step Build
+Wait for the compilation to complete and you can find the image in the IMAGE directory
 
-If you dont' want to use "Use all-in-one build script", you can follow this way to build image step by step.
+### Compile separately
 
-1. Set up the environment for compiling the project
+Suitable for compiling after minor modifications
+
+For example, only modify
+
+U-boot
 
 ```bash
-radxa:rock-android11 $ source build/envsetup.sh
-
-# for Rock 3A
-radxa:rock-android11 $ lunch rk356x_rock_3a_r-userdebug
-# for Rock 3A if you want a box software
-radxa:rock-android11 $ lunch rk356x_rock_3a_box-userdebug
+radxa:rock-android12 $ source build/envsetup.sh
+radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ ./build.sh -AUup
 ```
 
-2. Compile U-boot
+Kernel
 
 ```bash
-radxa:rock-android11 $ . /build.sh -U
+radxa:rock-android12 $ source build/envsetup.sh
+radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ ./build.sh -ACKup
 ```
 
-3. Compile the kernel
+AOSP
 
 ```bash
-radxa:rock-android11 $ . /build.sh -CK
+radxa:rock-android12 $ source build/envsetup.sh
+radxa:rock-android12 $ lunch rk356x_rock_3a_r-userdebug
+radxa:rock-android12 $ ./build.sh -Aup
 ```
 
-4. Compile AOSP
-
-```bash
-radxa:rock-android11 $ . /build.sh -A
-```
-
-5. Make Images
-
-```bash
-radxa:rock-android11 $ . /build.sh -u
-```
+Wait for the compilation to complete and you can find the image in the IMAGE directory
 
 ## FAQ
