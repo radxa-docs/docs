@@ -78,7 +78,7 @@ The kernel source code is located in **.src/linux** in the bsp directory, and yo
     cd bsp
     . /bsp --no-prepare-source linux #soc# -r 999
     Parameter description:
-    --no-prepare-source # Compile with local changes, without this parameter the latest code will be synchronized from the Radxa kernel repository and overwrite the local changes.
+    --no-prepare-source # This parameter is not needed for the first build, it is added to compile with local changes, if not it will synchronize the latest code from the Radxa kernel repository and overwrite the local changes.
     -r 999 # Specify the kernel version number as 999 for priority use.
 `}
 </PreView>
