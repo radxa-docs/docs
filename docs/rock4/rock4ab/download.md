@@ -6,4 +6,4 @@ sidebar_position: 2
 
 ## 操作系统镜像
 
-- [Radxa ROCK Pi 4A](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_4)
+- [Radxa ROCK Pi 4A OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_4)
