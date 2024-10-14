@@ -24,6 +24,8 @@ sidebar_position: 5
 Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
 :::
 
+- [Radxa ROCK 3A OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3a)
+
 For more mirrors, please check: [Radxa ROCK 3A Release](https://github.com/radxa-build/rock-3a/releases/latest)
 
 ## Quality Certification
