@@ -21,32 +21,46 @@ pip install Pillow
 ```py
 
 from PIL import Image
+import os
 import sys
 
-class BMPImageInfo:
-    def __init__(self, image_path):
-        self.image_path = image_path
+class ImageConverter:
+    def __init__(self, input_path, output_path):
+        self.input_path = input_path
+        self.output_path = output_path
+        self.target_size = 0.5 * 1024 * 1024  # 0.5 MB in bytes (512 KB)
 
-    def get_image_info(self):
-        with Image.open(self.image_path) as img:
+    def convert_to_bmp(self):
+        with Image.open(self.input_path) as img:
+            # Convert to RGB since BMP doesn't support transparency
+            img = img.convert("RGB")
 
+            # Resize the image if the file size exceeds 0.5 MB
+            img = self.resize_to_fit(img)
+
+            # Save as BMP
+            img.save(self.output_path, format='BMP')
+
+    def resize_to_fit(self, img):
+        # Gradually reduce the size of the image until it fits within the target size
+        while True:
+            img.save(self.output_path, format='BMP')
+            if os.path.getsize(self.output_path) <= self.target_size:
+                break
+            # Reduce the size by 10%
             width, height = img.size
+            img = img.resize((int(width * 0.9), int(height * 0.9)), Image.ANTIALIAS)
+        return img
 
-            total_pixels = width * height
-            return width, height, total_pixels
-
-def main(image_file):
-    image_info = BMPImageInfo(image_file)
-    width, height, total_pixels = image_info.get_image_info()
-    print(f"Image Width: {width} pixels")
-    print(f"Image Height: {height} pixels")
-    print(f"Total Pixels: {total_pixels}")
+def main(input_file, output_file):
+    converter = ImageConverter(input_file, output_file)
+    converter.convert_to_bmp()
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 get_bmp_info.py <image.bmp>")
+    if len(sys.argv) != 3:
+        print("Usage: python3 convert_logo.py <input.jpg> <output.bmp>")
     else:
-        main(sys.argv[1])
+        main(sys.argv[1], sys.argv[2])
 
 ```
 
