@@ -1,0 +1,74 @@
+## 定制 Logo
+
+### 确认 U-boot 是否是 rknext
+
+### 准备一张或者两张图片
+
+### 将图片转为 .bmp 格式
+
+1. 安装所需要的库
+
+```bash
+pip install Pillow
+```
+
+2. 新建一个 convert.py 的文件， 将以下内容保存到 convert.py 中
+
+<details>
+
+    <summary>convert.py</summary>
+
+```py
+
+from PIL import Image
+import sys
+
+class BMPImageInfo:
+    def __init__(self, image_path):
+        self.image_path = image_path
+
+    def get_image_info(self):
+        with Image.open(self.image_path) as img:
+
+            width, height = img.size
+
+            total_pixels = width * height
+            return width, height, total_pixels
+
+def main(image_file):
+    image_info = BMPImageInfo(image_file)
+    width, height, total_pixels = image_info.get_image_info()
+    print(f"Image Width: {width} pixels")
+    print(f"Image Height: {height} pixels")
+    print(f"Total Pixels: {total_pixels}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python3 get_bmp_info.py <image.bmp>")
+    else:
+        main(sys.argv[1])
+
+```
+
+</details>
+
+3. 将图片转为 .bmp 格式
+
+```bash
+python3 pic1.jpg logo.bmp
+python3 pic1.jpg logo_kernel.bmp
+```
+
+### 将以上两张 bmp 图片保存到 config 分区
+
+```bash
+sudo mount /dev/mmcblk0p1 /mnt/
+sudo cp logo.bmp /mnt/
+sudo cp logo_kernel.bmp /mnt/
+sudo sync /mnt
+sudo umount /mnt
+```
+
+### 重启系统
+
+连接 HDMI 后，系统重新启动，HDMI 将显示刚设定的 logo，直至桌面出现。
