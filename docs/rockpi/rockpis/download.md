@@ -8,6 +8,8 @@ sidebar_position: 4
 
 - [Radxa ROCK PI S Debian Build 40](https://github.com/radxa-build/rock-pi-s/releases/download/b40/rock-pi-s_debian_bookworm_cli_b40.img.xz)
 
+- [Radxa ROCK PI S OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_s)
+
 :::caution
 非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到对应的社区寻求帮助。
 :::
