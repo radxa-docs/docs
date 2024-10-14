@@ -1,0 +1,74 @@
+## Customize Logo
+
+### Verify that U-boot is rknext
+
+### Prepare one or two images
+
+### Convert the image to .bmp format
+
+1. Install the required libraries
+
+```bash
+pip install Pillow
+```
+
+2. Create a new convert.py file and save the following to convert.py
+
+<details>
+
+    <summary>convert.py</summary>
+
+```py
+
+from PIL import Image
+import sys
+
+class BMPImageInfo:
+    def __init__(self, image_path):
+        self.image_path = image_path
+
+    def get_image_info(self):
+        with Image.open(self.image_path) as img:
+
+            width, height = img.size
+
+            total_pixels = width * height
+            return width, height, total_pixels
+
+def main(image_file):
+    image_info = BMPImageInfo(image_file)
+    width, height, total_pixels = image_info.get_image_info()
+    print(f"Image Width: {width} pixels")
+    print(f"Image Height: {height} pixels")
+    print(f"Total Pixels: {total_pixels}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python3 get_bmp_info.py <image.bmp>")
+    else:
+        main(sys.argv[1])
+
+```
+
+</details>
+
+3. Converting images to .bmp format
+
+```bash
+python3 pic1.jpg logo.bmp
+python3 pic1.jpg logo_kernel.bmp
+```
+
+### Save the above two bmp images to the config partition
+
+```bash
+sudo mount /dev/mmcblk0p1 /mnt/
+sudo cp logo.bmp /mnt/
+sudo cp logo_kernel.bmp /mnt/
+sudo sync /mnt
+sudo umount /mnt
+```
+
+### Reboot System
+
+After connecting the HDMI, the system will reboot and the HDMI will display the logo you just set until the desktop appears.
