@@ -1,0 +1,117 @@
+### 系统要求
+
+- Debian 12 BookWorm
+
+### 设置语言环境
+
+```bash
+echo -e "export LC_ALL=en_US.UTF-8\nexport LANG=en_US.UTF-8\n" >> $HOME/.bashrc
+source $HOME/.bashrc
+```
+
+### 安装所需要的工具
+
+```bash
+sudo apt update && sudo apt full-upgrade
+
+sudo apt install -y \
+    python3-flake8-blind-except \
+    python3-flake8-class-newline \
+    python3-flake8-deprecated \
+    python3-mypy \
+    python3-pip \
+    python3-pytest \
+    python3-pytest-cov \
+    python3-pytest-mock \
+    python3-pytest-repeat \
+    python3-pytest-rerunfailures \
+    python3-pytest-runner \
+    python3-pytest-timeout \
+
+pip install vcstool
+
+sudo apt install build-essential
+```
+
+### 容量
+
+- 确保工作区至少有 15 GB 的可用空间，以用于编译源码。
+
+### 编译
+
+- 创建工作目录
+
+```bash
+mkdir -p ros2_humble/src
+cd ros2_humble
+```
+
+- 获取源码
+
+```bash
+wget https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos
+vcs import src < ros2.repos
+```
+
+- 安装依赖
+
+```bash
+sudo rosdep init
+rosdep update
+rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers python3-vcstool"
+```
+
+- 编译源码
+
+```bash
+colcon build --symlink-install
+```
+
+### 使用方法
+
+- 设置环境
+
+```bash
+echo -e "source ${path_to_ros2_source}/ros2_humble/install/setup.bash" >> $HOME/.bashrc
+source $HOME/.bashrc
+```
+
+- 示例
+
+1. 打开一个终端， 运行 c++ talker 示例
+
+```bash
+ros2 run demo_nodes_cpp talker
+```
+
+2. 打开另外一个终端，运行 python listener 示例
+
+```bash
+ros2 run demo_nodes_py listener
+```
+
+3. 验证
+
+执行完，这两条命令后，您应该会看到 talker 端的消息：
+
+```bash
+ros2 run demo_nodes_cpp talker
+[INFO] [1728966840.691346935] [talker]: Publishing: 'Hello World: 1'
+[INFO] [1728966841.691537928] [talker]: Publishing: 'Hello World: 2'
+[INFO] [1728966842.691572879] [talker]: Publishing: 'Hello World: 3'
+[INFO] [1728966843.691563207] [talker]: Publishing: 'Hello World: 4'
+[INFO] [1728966844.691568120] [talker]: Publishing: 'Hello World: 5'
+```
+
+和 listener 端的消息：
+
+```bash
+ros2 run demo_nodes_py listener
+[INFO] [1728966840.716456921] [listener]: I heard: [Hello World: 1]
+[INFO] [1728966841.698002748] [listener]: I heard: [Hello World: 2]
+[INFO] [1728966842.697675740] [listener]: I heard: [Hello World: 3]
+[INFO] [1728966843.697643318] [listener]: I heard: [Hello World: 4]
+[INFO] [1728966844.697551980] [listener]: I heard: [Hello World: 5]
+```
+
+这可验证 C++ 和 Python API 均正常运行。
