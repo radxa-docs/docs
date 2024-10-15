@@ -24,6 +24,8 @@ sidebar_position: 5
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
 :::
 
+- [Radxa ROCK 3A OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3a)
+
 更多镜像请查看：[Radxa ROCK 3A Release](https://github.com/radxa-build/rock-3a/releases/latest)
 
 ## 质量认证
