@@ -4,10 +4,11 @@ title: 系统安装
 ---
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
+import AndroidSSDboot from "../../../../common/dev/\_android-name.mdx";
 
 本文档将介绍如何把 Android 镜像安装到 ROCK 5B。
 
-ROCK 5B 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的启动方式，安装系统到不同的介质上.
+ROCK 5B 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以从 SSD 启动，基于不同的启动方式，安装系统到不同的介质上.
 
 <Tabs queryString="target">
 
@@ -113,6 +114,10 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 </TabItem>
 
+<TabItem value="ssd" label="安装系统到 Spi Nvme">
+
+<AndroidSSDboot model="rock5b" />
+</TabItem>
 </Tabs>
 
 ## 常见问题
