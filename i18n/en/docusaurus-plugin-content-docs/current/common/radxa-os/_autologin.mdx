@@ -2,8 +2,25 @@ You can configure your system to automatically log in without entering the passw
 
 As shown in the figure, click the system setting interface and select `Startup and Shutdown`.
 
+<Tabs>
+	<TabItem value="Debian 11">
 ![ROCK5A_Auto_Login](/img/rock5a/rock5a_auto_login_1.webp)
 
 Switch to `Advanced` as shown in the figure, click the box to select the user who is automatically logged in, and then click apply to complete the automatic login setting. Restarting your computer now will no longer require you to enter your login password.
 
 ![ROCK5A_Auto_Login](/img/rock5a/rock5a_auto_login_2.webp)
+
+    </TabItem>
+    <TabItem value="Debian 12">
+
+As shown , use `Ctrl + Alt + T` to open the terminal, then edit the file with: `sudo vim /etc/gdm3/daemon.conf`
+
+![ROCK5T_Auto_Login](/img/rock5t/rock5t-autologin-1.webp)
+
+Press `i` to enter edit mode, modify the content as shown below, then press `Esc` and type `:wq` to save and exit. This completes the auto-login setup. Now, when you restart the computer, you won't need to enter a login password.
+
+![ROCK5T_Auto_Login](/img/rock5t/rock5t-autologin-2.webp)
+
+    </TabItem>
+
+</Tabs>
