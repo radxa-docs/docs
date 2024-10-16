@@ -126,6 +126,9 @@ Mount ili9486 and ads7846 under spi3 node
 	status = "okay";
 	#address-cells = <1>;
 	#size-cells = <0>;
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+	pinctrl-1 = <&spi3m1_cs1 &spi3m1_pins_hs>;
 
 	ili9486: ili9486@0 {
 		compatible = "ilitek,ili9486";
