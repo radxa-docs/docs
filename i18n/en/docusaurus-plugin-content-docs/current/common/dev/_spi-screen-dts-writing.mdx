@@ -17,7 +17,7 @@ We can search the kernel source code for the corresponding driver based on these
 
 Open the kernel source code and search for the keyword “ili9486” as shown below.
 
-<img src="/img/common/ili9486_search_results.webp" style={{ width: "40%" }} />
+<img src="/img/common/ili9486_search_results.webp" style={{ width: "40%" }}  alt="ili9486 search results" />
 
 According to the official website or the manual, we can know that the Waveshare 3.5 inch SPI LCD Model B is a small TFT display.
 
@@ -26,6 +26,8 @@ So we can identify the driver code path of this screen display IC ili9486 as: dr
 - Find ads7846 driver
 
 Open the kernel source code and search for the keyword “ads7846” as shown below.
+
+<img src="/img/common/ili9486_search_results.webp" style={{ width: "40%" }} alt="ads7846 search results" />
 
 ads7846 is a touch type IC, so the driver should be in the input subsystem inside the touch screen class driver, so we can determine the screen touch IC ads7846 driver code path: drivers/input/touchscreen/ads7846.c
 
