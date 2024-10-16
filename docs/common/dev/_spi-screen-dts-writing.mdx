@@ -51,6 +51,8 @@ ads7846 是属于触摸类型的 IC，所以该驱动应该在输入子系统中
 
 :::
 
+- 新建一个 dts 文件，并命名为 rock-3c-waveshare35.dts
+
 - 添加所需要的头文件
 
 ```dts
@@ -163,8 +165,6 @@ HDMI CEC function will be turned off when this overlay is enabled.";
 2. 触摸节点需要根据实际驱动要求来填写
 
 ### 编译
-
-- 将该 dts 文件命名为 rock-3c-waveshare35.dts
 
 - 将该文件移动到 radxa-overlays/arch/arm64/boot/dts/rockchip/overlays/ 目录下
 
