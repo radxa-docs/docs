@@ -1,10 +1,10 @@
-## 将 UART2_M0 配置为普通串口
+### 将 UART2_M0 配置为普通串口
 
 :::tip
 默认情况下 UART2_M0 接口为 FIQ 调试串口，可输出 DDR Init、U-Boot、Linux Kernel 等日志用于调试。所以如非必要可以使用其他串口，不建议取消此配置。
 :::
 
-## 启用 UART2_M0
+- 启用 UART2_M0
 
 ```bash
 rsetup
@@ -19,6 +19,6 @@ rsetup
 
 勾选后选择 OK，然后退出 rsetup。
 
-## 修改 Linux 启动参数
+- 修改 Linux 启动参数
 
 跟随[Linux 启动参数](bootparam)的操作，删除 `/etc/kernel/cmdline` 文件所有 ttyFIQ0 和 ttyS2 相关的 console 参数，如 "console=ttyFIQ0,1500000n8"

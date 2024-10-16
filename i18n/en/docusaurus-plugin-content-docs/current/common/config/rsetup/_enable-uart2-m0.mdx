@@ -1,10 +1,10 @@
-## Configure UART2_M0 as normal serial port
+### Configure UART2_M0 as normal serial port
 
 :::tip
 By default, the UART2_M0 interface is a FIQ debugging serial port, which can output logs of DDR Init, U-Boot, Linux Kernel and other logs for debugging. Therefore, it is not recommended to cancel this configuration as you can use other serial ports if not necessary.
 :::
 
-## Enable UART2_M0
+- Enable UART2_M0
 
 ```bash
 rsetup
@@ -19,6 +19,6 @@ Tick `Enable UART2-M0`
 
 Select OK, then exit rsetup.
 
-## Modify Linux boot parameters
+- Modify Linux boot parameters
 
 Following [Linux boot parameters](bootparam), remove all ttyFIQ0 and ttyS2 related console parameters from the `/etc/kernel/cmdline` file, e.g. "console=ttyFIQ0,1500000n8".
