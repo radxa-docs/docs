@@ -104,6 +104,9 @@ HDMI CEC function will be turned off when this overlay is enabled.";
 	status = "okay";
 	#address-cells = <1>;
 	#size-cells = <0>;
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+	pinctrl-1 = <&spi3m1_cs1 &spi3m1_pins_hs>;
 
 	ili9486: ili9486@0 {
 	};
@@ -159,7 +162,9 @@ HDMI CEC function will be turned off when this overlay is enabled.";
 1. 显示节点属性使用于大部分 fbtft 屏幕，实际的值需要根据实际情况改
 
    a. 如果 IC 不同，则改节点名和 compatible 的值
+
    b. reset-gpios 和 dc-gpios 需要根据实际连接来改
+
    c. debug 属性的值，可填 0~7 之间的数字， 数字越大，打印的信息越多，越有利于 debug
 
 2. 触摸节点需要根据实际驱动要求来填写
@@ -178,7 +183,7 @@ make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-7-rk356x CONFIG_ARCH_MESON=n C
 
 - 按照 dts 的配置进行连接
 
-- 将文件 radxa-overlays/arch/arm64/boot/dts/rockchip/overlays/rock-3c-waveshare35.dtbo 拷贝到 Radxa ROCK 3C
+- 将文件 radxa-overlays/arch/arm64/boot/dts/rockchip/overlays/rock-3c-waveshare35.dtbo 拷贝到 Radxa ROCK 3C 的 /boot/dtbo/ 目录下
 
 - <a href={props.load_overlay}> 使用 rsetup 加载该 Overlay</a>
 

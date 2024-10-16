@@ -104,6 +104,12 @@ Mount ili9486 and ads7846 under spi3 node
 	status = "okay";
 	#address-cells = <1>;
 	#size-cells = <0>;
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+	pinctrl-1 = <&spi3m1_cs1 &spi3m1_pins_hs>;
 
 	ili9486: ili9486@0 {
 	};
@@ -159,7 +165,9 @@ Mount ili9486 and ads7846 under spi3 node
 1. The display node attribute is used on most fbtft screens, but the actual value needs to be changed according to the actual situation.
 
    a. If the ICs are different, change the node name and compatible values. b. reset-gpios and dc-gpios need to be changed based on the actual connection.
+
    b. reset-gpios and dc-gpios need to be changed according to the actual connection. c. The value of the debug attribute can be changed from 0~0.
+
    c. The value of the debug attribute can be filled with a number between 0 and 7, the larger the number, the more information will be printed, the better for debugging.
 
 2. Touch nodes need to be filled in according to the actual driver requirements.
@@ -178,7 +186,7 @@ make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-7-rk356x CONFIG_ARCH_MESON=n C
 
 - Connect as per dts configuration
 
-- Copy the file radxa-overlays/arch/arm64/boot/dts/rockchip/overlays/rock-3c-waveshare35.dtbo to Radxa ROCK 3C
+- Copy the file radxa-overlays/arch/arm64/boot/dts/rockchip/overlays/rock-3c-waveshare35.dtbo to the /boot/dtbo/ directory of the Radxa ROCK 3C.
 
 - <a href={props.load_overlay}> Load the Overlay with rsetup </a>
 
