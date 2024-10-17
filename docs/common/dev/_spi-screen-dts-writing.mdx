@@ -41,7 +41,7 @@ ads7846 是属于触摸类型的 IC，所以该驱动应该在输入子系统中
 
 ### 准备 Overlay 开发环境
 
-- 根据 <a href={props.load_overlay} >Overlays 开发</a> 准备 Overlay 开发环境
+- 根据 <a href={props.overlay_dev} >Overlays 开发</a> 准备 Overlay 开发环境
 
 ### 编写 Overlay dts
 
@@ -176,7 +176,7 @@ HDMI CEC function will be turned off when this overlay is enabled.";
 
 - 在 radxa-overlays/arch/arm64/boot/dts/rockchip/overlays/Makefile 中添加该文件名
 
-- 根据 <a href={props.load_overlay} >Overlays 开发</a> 中编译 编译 linux-rk356x 的方法进行编译
+- 根据 <a href={props.overlay_dev} >Overlays 开发</a> 中编译 编译 linux-rk356x 的方法进行编译
 
 ```
 make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-7-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip

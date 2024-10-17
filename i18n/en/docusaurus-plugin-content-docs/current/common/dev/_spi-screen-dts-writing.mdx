@@ -41,7 +41,7 @@ ads7846 is a touch type IC, so the driver should be in the input subsystem insid
 
 ### Prepare the Overlay development environment
 
-- Prepare the Overlay development environment according to <a href={props.load_overlay} >Overlay Development</a>.
+- Prepare the Overlay development environment according to <a href={props.overlay_dev} >Overlay Development</a>.
 
 ### Write Overlay dts
 
@@ -179,7 +179,7 @@ Mount ili9486 and ads7846 under spi3 node
 
 - Add the file name to radxa-overlays/arch/arm64/boot/dts/rockchip/overlays/Makefile
 
-- Compiling linux from <a href={props.load_overlay} >Overlay Development</a> Compile linux-rk356x as follows
+- Compiling linux from <a href={props.overlay_dev} >Overlay Development</a> Compile linux-rk356x as follows
 
 ```
 make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-7-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
