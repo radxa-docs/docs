@@ -82,6 +82,48 @@ sudo apt-get install mesa-utils mesa-utils-extra libglx-mesa0 libgl1-mesa-dri
 
 ## 重启系统
 
-```
+```bash
 sudo reboot
+```
+
+## 验证 GPU 驱动
+
+### 验证内核驱动
+
+查看是否有对应的 GPU 驱动加载信息：
+
+```bash
+# mali
+sudo dmesg | grep fb000000.gpu-mali
+
+# Panthor
+sudo dmesg | grep fb000000.gpu
+```
+
+### 验证 xorg-xserver 版本
+
+运行以下命令，查看当前 `[installed,automatic]` 对应的 xorg-xserver 版本，使用 mali 驱动时，为 `rk3588*-bookworm`，使用 Panthor 驱动时，版本为 `stable*`。
+
+```bash
+rock@radxa-cm5-io:~$ sudo apt list -a xserver-common xserver-xorg-core xserver-xorg-legacy
+Listing... Done
+xserver-common/stable-security,stable 2:21.1.7-3+deb12u7 all
+xserver-common/rk3588s2-bookworm,rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 all [installed,automatic]
+
+xserver-xorg-core/stable-security,stable 2:21.1.7-3+deb12u7 arm64
+xserver-xorg-core/rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 arm64 [installed,automatic]
+
+xserver-xorg-legacy/stable-security,stable 2:21.1.7-3+deb12u7 arm64
+xserver-xorg-legacy/rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 arm64 [installed,automatic]
+```
+
+### 验证用户层驱动
+
+运行以下命令，使用 mali 驱动则为 `[installed]` 字样，使用 Panthor 则没有 `[installed]` 字样：
+
+```bash
+rock@radxa-cm5-io:~$ sudo apt list libmali-valhall-g610-g13p0-x11-gbm
+Listing... Done
+libmali-valhall-g610-g13p0-x11-gbm/rk3588s2-bookworm,now 1.9-1 arm64 [installed]
+rock@radxa-cm5-io:~$
 ```
