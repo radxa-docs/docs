@@ -1,9 +1,13 @@
-ROCK 5 series uses Panthor GPU driver by default in Debian 12 (Bookworm) version, you can follow the tutorial to switch GPU driver according to your needs.
+Products equipped with RK3588 (excluding RK3582) series SOCs use Panthor GPU driver by default when using Debian 12 (Bookworm) version system, you can follow the tutorial below to switch GPU driver according to your needs.
 
-| Driver  | OpenGL | OpenGL ES | OpenCL |
-| :-----: | :----: | :-------: | :----: |
-|  Mali   |   ❌   |    ✔     |   ✔   |
-| Panthor |   ✔   |    ✔     |   ❌   |
+::: warn
+This document applies only to products equipped with the RK3588 (excluding RK3582) series SOC.
+:::
+
+| Driver  | OpenGL | OpenGL ES | OpenCL | 8K HDMI |
+| :-----: | :----: | :-------: | :----: | :-----: |
+|  Mali   |   ❌   |    ✔     |   ✔   |   ✔    |
+| Panthor |   ✔   |    ✔     |   ❌   |   ❌    |
 
 <Tabs queryString="Driver">
 
@@ -11,7 +15,7 @@ ROCK 5 series uses Panthor GPU driver by default in Debian 12 (Bookworm) version
 
 ## Use Rockchip's proprietary xorg-xserver version
 
-Add `/etc/apt/preferences.d/mali` file with the following contents:
+1. Add `/etc/apt/preferences.d/mali` file with the following contents:
 
 ```bash
 Package: *xserver*
@@ -23,7 +27,10 @@ Pin: release a=rk3588s2-bookworm
 Pin-Priority: 1001
 ```
 
-Then refer to [System Upgrade Using `rsetup`](./rsetup#system-update) to reinstall Rockchip proprietary packages.
+2. <div className="red">
+     **Then refer to [System Upgrade Using `rsetup`](./rsetup#system-update) to
+     reinstall the Rockchip proprietary software packages. **
+   </div>
 
 ## Installing the Mali User Level Driver
 
@@ -42,13 +49,16 @@ Refer to [Overlay opening tutorial](./rsetup#overlays)，enable `Enable Arm Mali
 
 ## Revert to using Debian's officially packaged version of mainline xorg-xserver
 
-Remove `/etc/apt/preferences.d/mali` file:
+1. Remove `/etc/apt/preferences.d/mali` file:
 
 ```bash
 sudo rm /etc/apt/preferences.d/mali
 ```
 
-Then refer to [System Upgrade Using `rsetup`](./rsetup#system-update) to reinstall Debian's officially packages.
+2. <div className="red">
+     **Then refer to [System Upgrade Using `rsetup`](./rsetup#system-update) to
+     reinstall the Debian's officially packages. **
+   </div>
 
 ## Uninstall the Mali user level driver and install the upstream Mesa driver
 
@@ -68,6 +78,54 @@ Refer to [Overlay opening tutorial](./rsetup#overlays)，disable `Enable Arm Mal
 
 ## Reboot system
 
-```
+```bash
 sudo reboot
+```
+
+## Verify GPU drivers
+
+### Verify the kernel driver
+
+Check if the corresponding GPU driver is loaded:
+
+```bash
+# mali
+rock@radxa-cm5-io:~$ lsmod | grep bifrost_kbase
+bifrost_kbase        1015808  3
+
+# Panthor
+rock@radxa-cm5-io:~$ lsmod | grep panthor
+panthor                98304  1
+drm_gpuvm              24576  1 panthor
+drm_exec               16384  2 drm_gpuvm,panthor
+drm_shmem_helper       20480  1 panthor
+gpu_sched              36864  1 panthor
+```
+
+### Verify the xorg-xserver version
+
+Run the following command to see the current xorg-xserver source for `[installed,automatic]`. This is `rk3588*-bookworm` when using the mali driver, or `stable` when using the Panthor driver.
+
+```bash
+rock@radxa-cm5-io:~$ sudo apt list -a xserver-common xserver-xorg-core xserver-xorg-legacy
+Listing... Done
+xserver-common/stable-security,stable 2:21.1.7-3+deb12u7 all
+xserver-common/rk3588s2-bookworm,rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 all [installed,automatic]
+
+xserver-xorg-core/stable-security,stable 2:21.1.7-3+deb12u7 arm64
+xserver-xorg-core/rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 arm64 [installed,automatic]
+
+xserver-xorg-legacy/stable-security,stable 2:21.1.7-3+deb12u7 arm64
+xserver-xorg-legacy/rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 arm64 [installed,automatic]
+```
+
+### Verify the user level driver
+
+Run the following command with the word `[installed]` for mali drivers and without the word `[installed]` for Panthor:
+
+```bash
+rock@radxa-cm5-io:~$ sudo apt list libmali-valhall-g610-g13p0-x11-gbm
+Listing... Done
+libmali-valhall-g610-g13p0-x11-gbm/rk3588s2-bookworm,now 1.9-1 arm64 [installed]
+rock@radxa-cm5-io:~$
 ```

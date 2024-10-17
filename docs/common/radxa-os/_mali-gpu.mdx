@@ -1,9 +1,13 @@
-ROCK 5 系列在 Debian 12 (Bookworm) 版本默认使用 Panthor GPU 驱动，您可根据需求依据下方教程操作进行 GPU 驱动切换。
+搭载 RK3588（不包含 RK3582）系列 SOC 的产品在使用 Debian 12 (Bookworm) 版本系统时默认使用 Panthor GPU 驱动，您可根据需求依据下方教程操作进行 GPU 驱动切换。
 
-| Driver  | OpenGL | OpenGL ES | OpenCL |
-| :-----: | :----: | :-------: | :----: |
-|  Mali   |   ❌   |    ✔     |   ✔   |
-| Panthor |   ✔   |    ✔     |   ❌   |
+::: warn
+本文档仅适用于搭载 RK3588（不包含 RK3582）系列 SOC 的产品。
+:::
+
+| Driver  | OpenGL | OpenGL ES | OpenCL | 8K HDMI |
+| :-----: | :----: | :-------: | :----: | :-----: |
+|  Mali   |   ❌   |    ✔     |   ✔   |   ✔    |
+| Panthor |   ✔   |    ✔     |   ❌   |   ❌    |
 
 <Tabs queryString="Driver">
 
@@ -11,7 +15,7 @@ ROCK 5 系列在 Debian 12 (Bookworm) 版本默认使用 Panthor GPU 驱动，�
 
 ## 使用 Rockchip 专有 xorg-xserver 版本
 
-添加 `/etc/apt/preferences.d/mali` 文件，内容为：
+1. 添加 `/etc/apt/preferences.d/mali` 文件，内容为：
 
 ```bash
 Package: *xserver*
@@ -19,11 +23,22 @@ Pin: release a=rk3588-bookworm
 Pin-Priority: 1001
 
 Package: *xserver*
+Pin: release a=rk3588-bookworm-test
+Pin-Priority: 1001
+
+Package: *xserver*
 Pin: release a=rk3588s2-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3588s2-bookworm-test
 Pin-Priority: 1001
 ```
 
-然后参考[使用 `rsetup` 进行系统升级](./rsetup#system-update)来重新安装 Rockchip 专有软件包。
+2. <div className="red">
+     **然后参考[使用 `rsetup` 进行系统升级](./rsetup#system-update)来重新安装
+     Rockchip 专有软件包。**
+   </div>
 
 ## 安装 Mali 用户层驱动
 
@@ -42,13 +57,16 @@ sudo apt-get install libmali-valhall-g610-g13p0-x11-gbm
 
 ## 恢复使用 Debian 官方打包的主线 xorg-xserver 版本
 
-删除 `/etc/apt/preferences.d/mali` 文件：
+1. 删除 `/etc/apt/preferences.d/mali` 文件：
 
 ```bash
 sudo rm /etc/apt/preferences.d/mali
 ```
 
-然后参考[使用 `rsetup` 进行系统升级](./rsetup#system-update)来重新安装 Debian 官方软件包。
+2. <div className="red">
+     **然后参考[使用 `rsetup` 进行系统升级](./rsetup#system-update)来重新安装
+     Debian 官方软件包。**
+   </div>
 
 ## 卸载 Mali 用户层驱动，并安装上游 Mesa 驱动
 
@@ -68,6 +86,54 @@ sudo apt-get install mesa-utils mesa-utils-extra libglx-mesa0 libgl1-mesa-dri
 
 ## 重启系统
 
-```
+```bash
 sudo reboot
+```
+
+## 验证 GPU 驱动
+
+### 验证内核驱动
+
+查看是否有对应的 GPU 驱动加载信息：
+
+```bash
+# mali
+rock@radxa-cm5-io:~$ lsmod | grep bifrost_kbase
+bifrost_kbase        1015808  3
+
+# Panthor
+rock@radxa-cm5-io:~$ lsmod | grep panthor
+panthor                98304  1
+drm_gpuvm              24576  1 panthor
+drm_exec               16384  2 drm_gpuvm,panthor
+drm_shmem_helper       20480  1 panthor
+gpu_sched              36864  1 panthor
+```
+
+### 验证 xorg-xserver 版本
+
+运行以下命令，查看当前 `[installed,automatic]` 对应的 xorg-xserver 来源。使用 mali 驱动时，为 `rk3588*-bookworm`，使用 Panthor 驱动时，为 `stable`。
+
+```bash
+rock@radxa-cm5-io:~$ sudo apt list -a xserver-common xserver-xorg-core xserver-xorg-legacy
+Listing... Done
+xserver-common/stable-security,stable 2:21.1.7-3+deb12u7 all
+xserver-common/rk3588s2-bookworm,rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 all [installed,automatic]
+
+xserver-xorg-core/stable-security,stable 2:21.1.7-3+deb12u7 arm64
+xserver-xorg-core/rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 arm64 [installed,automatic]
+
+xserver-xorg-legacy/stable-security,stable 2:21.1.7-3+deb12u7 arm64
+xserver-xorg-legacy/rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 arm64 [installed,automatic]
+```
+
+### 验证用户层驱动
+
+运行以下命令，使用 mali 驱动则为 `[installed]` 字样，使用 Panthor 则没有 `[installed]` 字样：
+
+```bash
+rock@radxa-cm5-io:~$ sudo apt list libmali-valhall-g610-g13p0-x11-gbm
+Listing... Done
+libmali-valhall-g610-g13p0-x11-gbm/rk3588s2-bookworm,now 1.9-1 arm64 [installed]
+rock@radxa-cm5-io:~$
 ```
