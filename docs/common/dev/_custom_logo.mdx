@@ -10,11 +10,40 @@
 U-Boot SPL latest-2023.07.02-6-4257d241-g4257d241 (Oct 12 2023 - 07:58:46 +0000)
 ```
 
+<Tabs queryString="version">
+<TabItem value="U-boot 是 2024 年 10 月份之前的">
+</TabItem>
+<TabItem value="U-boot 是 2024 年 10 月份之后的">
+- 参考 <a href={props.uboot_develop}> U-boot 开发</a>， 编译 rknext 的 U-boot
+
+```
+./bsp u-boot rknext -r 99
+```
+
+- 将 {props.product} 的 U-boot 拷贝到板子上
+
+<pre style={{ margin: 0 }}>
+  scp -r .root/.root/usr/lib/u-boot/{props.product_dir}/ radxa@192.168.xx.xx:~/
+</pre>
+
+- 在 {props.product} 上执行以下命令以替换最新的 U-boot
+
+<pre style={{ margin: 0 }}>
+  cd {props.product_dir}
+  sudo bash setup.sh update_bootloader /dev/mmcblk0
+</pre>
+
 :::tip
 
-该篇文章是以 "U-boot 已经是 2024 年 10 月份之后的 rknext" 为前提条件的
+/dev/mmcblk0 这里是 eMMC, 如果系统安装在 SD 卡上， 那就是 /dev/mmcblk1
+如果系统安装在 nvme 等设备上，那就需要更新 SPI Flash 上的 U-boot
 
 :::
+
+- 重启系统，确认 U-boot 更新到了最新的 rknext
+
+</TabItem>
+</Tabs>
 
 ### 准备一张或者两张图片
 

@@ -10,11 +10,42 @@ For example:
 U-Boot SPL latest-2023.07.02-6-4257d241-g4257d241 (Oct 12 2023 - 07:58:46 +0000)
 ```
 
+<Tabs queryString="version">
+<TabItem value="U-boot 是 2024 年 10 月份之前的">
+</TabItem>
+<TabItem value="U-boot 是 2024 年 10 月份之后的">
+- Refer to <a href={props.uboot_develop}> U-boot development</a> to compile rknext's U-boot.
+
+```
+./bsp u-boot rknext -r 99
+```
+
+- Copy the U-boot of {props.product} to the board
+
+<pre style={{ margin: 0 }}>
+  scp -r .root/.root/usr/lib/u-boot/{props.product_dir}/ radxa@192.168.xx.xx:~/
+</pre>
+
+- Execute the following command on {props.product} to replace the latest U-boot
+
+<pre style={{ margin: 0 }}>
+  cd {props.product_dir}
+  sudo bash setup.sh update_bootloader /dev/mmcblk0
+</pre>
+
+sh setup.sh update_bootloader /dev/mmcblk0{" "}
+
 :::tip
 
-The article is predicated on the premise that "U-boot is already rknext after October 2024"
+/dev/mmcblk0 is eMMC, or /dev/mmcblk1 if the system is installed on an SD card.
+If the system is installed on a device such as nvme, then you need to update the U-boot on the SPI Flash
 
 :::
+
+- Reboot the system and make sure the U-boot is updated to the latest rknext.
+
+</TabItem>
+</Tabs>
 
 ### Prepare one or two images
 
