@@ -1,0 +1,195 @@
+### 根据 IC 找驱动
+
+#### 查看 IC
+
+首先，拿到一块 SPI LCD，我们需要先看一下该屏幕有哪些 IC。
+以 Waveshare 3.5 inch SPI LCD Model B 为例，我们可以根据说明书或者官网信息找到，该屏幕配备两个 IC:
+
+- 显示 IC: ILI9486
+
+- 触摸 IC: ADS7846
+
+#### 找驱动
+
+我们可以根据这两个 IC 去内核源码中搜索对应的驱动.
+
+- 查找 ili9486 驱动
+
+打开内核源代码，搜索关键字 "ili9486"，如图所示:
+
+<img
+  src="/img/common/ili9486_search_results.webp"
+  style={{ width: "40%" }}
+  alt="ili9486 search results"
+/>
+
+根据[微雪官网](<https://www.waveshare.com/wiki/3.5inch_RPi_LCD_(B)>)或者说明书，我们可以得知， Waveshare 3.5 inch SPI LCD Model B 是一个小型 TFT 显示屏，
+
+所以我们可以确定该屏幕显示 IC ili9486 的驱动代码路径为： drivers/staging/fbtft/fb_ili9486.c
+
+- 查找 ads7846 驱动
+
+打开内核源代码，搜索关键字 "ads7846"，如图所示:
+
+<img
+  src="/img/common/ili9486_search_results.webp"
+  style={{ width: "40%" }}
+  alt="ads7846 search results"
+/>
+
+ads7846 是属于触摸类型的 IC，所以该驱动应该在输入子系统中的触摸屏类驱动里面，所以我们可以确定该屏幕触摸 IC ads7846 的驱动代码路径为： drivers/input/touchscreen/ads7846.c
+
+### 准备 Overlay 开发环境
+
+- 根据 <a href={props.overlay_dev} >Overlays 开发</a> 准备 Overlay 开发环境
+
+### 编写 Overlay dts
+
+:::tip
+
+以下教程以 Radxa ROCK 3C 为例
+
+:::
+
+- 在 radxa-overlays/arch/arm64/boot/dts/rockchip/overlays/ 目录下新建一个 dts 文件，并命名为 rock-3c-waveshare35.dts
+
+- 添加所需要的头文件
+
+```dts
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+```
+
+- 填写用于 rsetup 识别的 metadata
+
+```dts
+/ {
+	metadata {
+		title = "Enable Waveshare 3.5inch RPi LCD (C) on SPI3-M1";
+		compatible = "radxa,rock-3c", "radxa,zero3";
+		category = "display";
+		exclusive = "GPIO4_A6", "GPIO4_C6", "GPIO3_C1", "GPIO3_B2", "GPIO3_A1", "GPIO4_D1", "GPIO4_B2", "GPIO4_B3";
+		description = "Enable Waveshare 3.5inch RPi LCD (C) on SPI3-M1.
+HDMI CEC function will be turned off when this overlay is enabled.";
+	};
+};
+```
+
+- 使能 SPI 节点
+
+```dts
+&spi3 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+	pinctrl-1 = <&spi3m1_cs1 &spi3m1_pins_hs>;
+};
+```
+
+:::tip
+
+将 ili9486 和 ads7846 挂载到该 spi 节点下需要有两个 cs 引脚
+
+:::
+
+- 挂载节点
+
+将 ili9486 和 ads7846 挂在 spi3 节点下
+
+```dts
+&spi3 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+	pinctrl-1 = <&spi3m1_cs1 &spi3m1_pins_hs>;
+
+	ili9486: ili9486@0 {
+	};
+
+	ads7846: ads7846@1 {
+	};
+};
+```
+
+- 根据驱动源码，填写对应属性
+
+```dts
+&spi3 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+	pinctrl-1 = <&spi3m1_cs1 &spi3m1_pins_hs>;
+
+	ili9486: ili9486@0 {
+		compatible = "ilitek,ili9486";
+		reg = <0>;
+		spi-max-frequency = <16000000>;
+		txbuflen = <32768>;
+		rotate = <90>;
+		bgr = <0>;
+		fps = <30>;
+		buswidth = <8>;
+		regwidth = <16>;
+		reset-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
+		dc-gpios = <&gpio3 RK_PB2 GPIO_ACTIVE_HIGH>;
+		debug = <0>;
+	};
+
+	ads7846: ads7846@1 {
+		compatible = "ti,ads7846";
+		status = "okay";
+		reg = <1>;
+		id = <1>;
+		spi-max-frequency = <2000000>;
+		ti,x-plate-ohms = /bits/ 16 <60>;
+		ti,pressure-max = /bits/ 16 <255>;
+		ti,swap-xy = <0>;
+		ti,invert-y = <1>;
+		interrupts = <RK_PA1 IRQ_TYPE_EDGE_FALLING>;  // interrupts 与  pendown-gpio 引脚需要保持一致
+		interrupt-parent = <&gpio3>;
+		pendown-gpio = <&gpio3 RK_PA1 GPIO_ACTIVE_HIGH>; // 根据实际连接填写具体的 GPIO
+		vcc-supply = <&vcc5v0_sys>; // 填写根据实际供电电路的电压
+	};
+};
+```
+
+- 总结
+
+1. 显示节点属性使用于大部分 fbtft 屏幕，实际的值需要根据实际情况改
+
+   a. 如果 IC 不同，则改节点名和 compatible 的值
+
+   b. reset-gpios 和 dc-gpios 需要根据实际连接来改
+
+   c. debug 属性的值，可填 0~7 之间的数字， 数字越大，打印的信息越多，越有利于 debug
+
+2. 触摸节点需要根据实际驱动要求来填写
+
+### 编译
+
+- 在 radxa-overlays/arch/arm64/boot/dts/rockchip/overlays/Makefile 中添加该文件名
+
+- 根据 <a href={props.overlay_dev} >Overlays 开发</a> 中编译 编译 linux-rk356x 的方法进行编译
+
+```
+make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-7-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
+```
+
+### 验证
+
+- 按照 dts 的配置进行连接
+
+- 将文件 radxa-overlays/arch/arm64/boot/dts/rockchip/overlays/rock-3c-waveshare35.dtbo 拷贝到 Radxa ROCK 3C 的 /boot/dtbo/ 目录下
+
+- <a href={props.load_overlay}> 使用 rsetup 加载该 Overlay</a>
+
+- 重启，使该 Overlay 生效
+
+- 根据 <a href={props.lcd_docs} >Waveshare 3.5 inch LCD 文档</a> 进行测试
