@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## 电源
 
-Airbox 采用 USB Type-C 接口供电，支持 PD 电压协商，协商电压 20V。Airbox 满载功耗接近 42W，因此，需要 45W(20V/2.25A) 或者 65W(20V/3.25A) 的 PD 适配器支持。也可以使用 20V 直出 2.25A 以上的 Type-C 适配器。
+Airbox 采用 USB Type-C 接口供电，支持 PD 电压协商，协商电压 20V。Airbox 满载功耗接近 65W，因此，需要 65W(20V/3.25A) 的 PD 适配器支持。也可以使用 20V 直出 3.25A 以上的 Type-C 适配器。
 
 ## 访问设备
 
