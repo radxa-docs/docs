@@ -16,9 +16,9 @@ import PCIe_M from "../../../../common/accessories/\_pcie-m-key.mdx";
 | -------- | ---------------------- | ---------- | ------------ | ---------------- | ------------ | -------------------------------- | -------------------------------------------------- |
 | 三星     | 980 EVO                | 512GB      | 3.3V/1.9A    | Radxa OS         | 可识别       | Read:1.0GB/s<br/>Write:991MB/s   |                                                    |
 | 三星     | PM9A1 (MZVL2256HCHQ)   | 256GB      | 3.3V/2.8A    | Armbian          | 可识别       | Read:14.8MB/s<br/>Write:9.72MB/s |                                                    |
-| 三星     | 970 EVO Plus           | 1TB        | 3.3V/1.9A    | Radxa OS         | 可识别       |                                  |                                                    |
+| 三星     | 970 EVO Plus           | 1TB        | 3.3V/1.9A    | Radxa OS         | 可识别       | Read: 3.0GB/s<br/>Write:2.9GB/s  |                                                    |
 | 三星     | PM983a                 | 1TB        | 3.3V/3.9A    |                  | **不可识别** |                                  |                                                    |
-| 金士顿   | OM8PDP3256B-A01        | 256GB      | 3.3V/1A      | Radxa OS         | 可识别       |                                  |                                                    |
+| 金士顿   | OM8PDP3256B-A01        | 256GB      | 3.3V/1A      | Radxa OS         | 可识别       | Read:904MB/s<br/>Write:802MB/s   |                                                    |
 | 金士顿   | A2000 (SA2000M8/1000G) | 1TB        | 3.3V/3A      | Radxa OS/Armbian | 可识别       | Read:980MB/s<br/>Write:888MB/s   |                                                    |
 | 英特尔   | Optane Memory M10      | 32GB       | 3.3V/1.2A    | Radxa OS         | 可识别       |                                  |                                                    |
 | 英特尔   | Optane Memory M10      | 16GB       | 3.3V/1.2A    | Radxa OS         | 可识别       |                                  |                                                    |
