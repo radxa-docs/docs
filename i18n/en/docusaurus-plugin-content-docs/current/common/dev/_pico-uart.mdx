@@ -107,9 +107,7 @@ After successful compilation, a file named hello_uart.uf2 will be created in the
 
 - Enter the following command in the terminal to view the serial port output
 
-```bash
-sudo minicom -D /dev/ttyS4 -b 115200
-```
+<pre>sudo minicom -D /dev/{props.tty_num} -b 115200</pre>
 
 - Verification
 

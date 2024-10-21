@@ -107,9 +107,7 @@ make -j$(nproc)
 
 - 终端输入以下命令，查看串口输出
 
-```bash
-sudo minicom -D /dev/ttyS4 -b 115200
-```
+<pre>sudo minicom -D /dev/{props.tty_num} -b 115200</pre>
 
 - 验证
 
