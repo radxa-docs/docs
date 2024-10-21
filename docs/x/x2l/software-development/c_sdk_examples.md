@@ -32,7 +32,7 @@ import UART from "../../../common/dev/\_pico-uart.mdx";
 
 <PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" />
 
-<UART tty_num="ttyS0"/>
+<UART flash_url="./flash" tty_num="ttyS0"/>
 
 #### CPU 通过 UART 来控制 RP2040 的 40-PIN GPIO
 

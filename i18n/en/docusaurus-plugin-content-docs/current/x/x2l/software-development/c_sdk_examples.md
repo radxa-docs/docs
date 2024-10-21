@@ -32,7 +32,7 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 
 <PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" />
 
-<UART tty_num="ttyS0"/>
+<UART flash_url="./flash" tty_num="ttyS0"/>
 
 #### Communication between CPU and RP2040
 
