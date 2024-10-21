@@ -22,10 +22,10 @@ The ROCK 5C standard package includes the following items:
 
 To start the ROCK 5C, you will also need the following equipment:
 
-A 12V/2A or higher power DC adapter with a 5.5x2.5mm plug, positive inside and ground outside.The ROCK 5A also supports PoE power supply. For more details on power supply, please refer to [power-supply](./power-supply) for more details on power supply.
-A Micro-HDMI cable and a HDMI-enabled monitor with a recommended resolution of 1080P or higher, a 4K/8K monitor will provide the best experience.
-A USB mouse and keyboard set, common USB input devices support plug and play.
-A network cable, which is required to update the system.
+- A USB Type-C power adapter that supports 5V 3A output, or a PoE powered device and a PoE HAT compatible with the ROCK 5C. refer to [power supply options](./power-supply) for details.
+  A Micro-HDMI cable and a HDMI-enabled monitor with a recommended resolution of 1080P or higher, a 4K/8K monitor will provide the best experience.
+  A USB mouse and keyboard set, common USB input devices support plug and play.
+  A network cable, which is required to update the system.
 
 :::tip
 The power adapter is recommended to use the official [Radxa PD30W Adapter](./interface-usage/fan).
