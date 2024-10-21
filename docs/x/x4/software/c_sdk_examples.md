@@ -42,7 +42,7 @@ import INTEL_UART from "../../../common/dev/\_pico-gpio-controlled-by-intel.mdx"
        <PoE flash_url="./flash" product_name="Radxa X4" poe_name="瑞莎 25W PoE+ HAT X4 专用款" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" />
     </TabItem>
      <TabItem value="UART">
-      <UART flash_url="./flash" />
+      <UART flash_url="./flash" tty_num="ttyS4" />
     </TabItem>
 </Tabs>
 

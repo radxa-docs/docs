@@ -42,7 +42,7 @@ In order to operate the IO resources on RP2040, we need a complete software envi
        <PoE flash_url="./flash" product_name="Radxa X4" poe_name="Radxa 25W PoE+ HAT for X4" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" />
     </TabItem>
      <TabItem value="UART">
-      <UART flash_url="./flash" />
+      <UART flash_url="./flash" tty_num="ttyS4" />
     </TabItem>
 </Tabs>
 
