@@ -143,7 +143,110 @@ description: "详细介绍 ROCK 5B/5B+ 硬件信息"
 
 ### MIPI CSI
 
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5B">
+        <div className='gpio_style' style={{ overflow :"auto"}} >
+
+| Pin# | Name               | Pin# | Name               |
+| :--: | :----------------- | :--: | :----------------- |
+|  1   | GND                |  17  | MIPI_CSI0_RX_CLK0N |
+|  2   | MIPI_CSI0_RX_D3N   |  18  | MIPI_CSI0_RX_CLK0P |
+|  3   | MIPI_CSI0_RX_D3P   |  19  | GND                |
+|  4   | GND                |  20  | MIPI_CAM3_CLKOUT   |
+|  5   | MIPI_CSI0_RX_D2N   |  21  | GND                |
+|  6   | MIPI_CSI0_RX_D2P   |  22  | MIPI_CAM1_CLKOUT   |
+|  7   | GND                |  23  | MIPI_CSI0_PDN0_H   |
+|  8   | MIPI_CSI0_RX_CLK1N |  24  | I2C3_SCL_M0_MIPI   |
+|  9   | MIPI_CSI0_RX_CLK1P |  25  | I2C3_SDA_M0_MIPI   |
+|  10  | GND                |  26  | MIPI_CSI0_PDN1_H   |
+|  11  | MIPI_CSI0_RX_D1N   |  27  | CM_RST_L           |
+|  12  | MIPI_CSI0_RX_D1P   |  28  | VCC_3V3_S3         |
+|  13  | GND                |  29  | VCC_3V3_S3         |
+|  14  | MIPI_CSI0_RX_D0N   |  30  | VCC5V0_SYS         |
+|  15  | MIPI_CSI0_RX_D0P   |  31  | VCC5V0_SYS         |
+|  16  | GND                |
+
+        </div>
+    </TabItem>
+
+<TabItem value="ROCK 5B+">
+        <div className='gpio_style' style={{ overflow :"auto"}} >
+#### CAM0
+| Pin# | Name                    | Pin# | Name                      |
+| :--: | :---------------------- | :--: | :------------------------ |
+|  1   | GND                     |  17  | MIPI_CSI0_RX_CLK0N        |
+|  2   | MIPI_CSI0_RX_D3N        |  18  | MIPI_CSI0_RX_CLK0P        |  
+|  3   | MIPI_CSI0_RX_D3P        |  19  | GND                       |
+|  4   | GND                     |  20  | MIPI_CAM3_CLKOUT          |
+|  5   | MIPI_CSI0_RX_D2N        |  21  | GND                       |
+|  6   | MIPI_CSI0_RX_D2P        |  22  | MIPI_CAM1_CLKOUT          |
+|  7   | GND                     |  23  | MIPI_CSI0_PDN0_H          |
+|  8   | MIPI_CSI0_RX_CLK1N      |  24  | I2C3_SCL_M0_MIPI          |
+|  9   | MIPI_CSI0_RX_CLK1P      |  25  | I2C3_SDA_M0_MIPI          |
+|  10  | GND                     |  26  | MIPI_CSI0_PDN1_H          |
+|  11  | MIPI_CSI0_RX_D1N        |  27  | CM_RST_L_1                |
+|  12  | MIPI_CSI0_RX_D1P        |  28  | VCC_3V3_S3                |
+|  13  | GND                     |  29  | VCC_3V3_S3                |
+|  14  | MIPI_CSI0_RX_D0N        |  30  | VCC_5V                    |
+|  15  | MIPI_CSI0_RX_D0P        |  31  | VCC_5V                    |
+|  16  | GND                     |
+
+#### CAM1
+
+| Pin# | Name               | Pin# | Name               |
+| :--: | :----------------- | :--: | :----------------- |
+|  1   | GND                |  17  | MIPI_CSI1_RX_CLK0N |
+|  2   | MIPI_CSI1_RX_D3N   |  18  | MIPI_CSI1_RX_CLK0P |
+|  3   | MIPI_CSI1_RX_D3P   |  19  | GND                |
+|  4   | GND                |  20  | MIPI_CAM4_CLKOUT   |
+|  5   | MIPI_CSI1_RX_D2N   |  21  | GND                |
+|  6   | MIPI_CSI1_RX_D2P   |  22  | MIPI_CAM2_CLKOUT   |
+|  7   | GND                |  23  | MIPI_CSI1_PDN2_H   |
+|  8   | MIPI_CSI1_RX_CLK1N |  24  | I2C4_SCL           |
+|  9   | MIPI_CSI1_RX_CLK1P |  25  | I2C4_SDA           |
+|  10  | GND                |  26  | MIPI_CSI1_PDN4_H   |
+|  11  | MIPI_CSI1_RX_D1N   |  27  | CAM2_RST_L         |
+|  12  | MIPI_CSI1_RX_D1P   |  28  | VCC_3V3_S3         |
+|  13  | GND                |  29  | VCC_3V3_S3         |
+|  14  | MIPI_CSI1_RX_D0N   |  30  | VCC_5V             |
+|  15  | MIPI_CSI1_RX_D0P   |  31  | VCC_5V             |
+|  16  | GND                |
+
+        </div>
+    </TabItem>
+
+</Tabs>
+
 ### MIPI DSI
+
+#### ROCK 5B/5B+
+
+<div className='gpio_style' style={{ overflow :"auto"}} >
+
+| Pin# | Name               | Pin# | Name        |
+| :--: | :----------------- | :--: | :---------- |
+|  1   | LCD_3V3            |  21  | GND         |
+|  2   | VCC_1V8_S0         |  22  | GND         |
+|  3   | GPIO0-A0           |  23  | TP_RST_L    |
+|  4   | LCD_RESET          |  24  | LCD_3V3     |
+|  5   | NC                 |  25  | TP_INT_L    |
+|  6   | GND                |  26  | I2C6_SDA_M0 |
+|  7   | MIPI_DPHY1_TX_D0N  |  27  | I2C6_SCL_M0 |
+|  8   | MIPI_DPHY1_TX_D0P  |  28  | GND         |
+|  9   | GND                |  29  | GND         |
+|  10  | MIPI_DPHY1_TX_D1N  |  30  | LCD_3V3     |
+|  11  | MIPI_DPHY1_TX_D1P  |  31  | LCD_3V3     |
+|  12  | GND                |  32  | GND         |
+|  13  | MIPI_DPHY1_TX_CLKN |  33  | GND         |
+|  14  | MIPI_DPHY1_TX_CLKP |  34  | VCC_LEDK    |
+|  15  | GND                |  35  | VCC_LEDK    |
+|  16  | MIPI_DPHY1_TX_D2N  |  36  | NC          |
+|  17  | MIPI_DPHY1_TX_D2P  |  37  | NC          |
+|  18  | GND                |  38  | VCC_LEDA    |
+|  19  | MIPI_DPHY1_TX_D3N  |  39  | VCC_LEDA    |
+|  20  | MIPI_DPHY1_TX_D3P  |  40  | GND         |
+
+ </div>
 
 ### PCIe
 
