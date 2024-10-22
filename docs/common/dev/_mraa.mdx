@@ -348,6 +348,10 @@ sudo python3 led_i2c_blink.py
 
 ### PWM
 
+:::warning
+由于 pwmchip 驱动的改动，MRAA 的 PWM 功能在 6.1 内核上无法正常工作
+:::
+
 <Tabs queryString="pwm">
 <TabItem value="C">
 <details>
