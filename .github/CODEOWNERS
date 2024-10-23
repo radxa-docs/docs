@@ -337,3 +337,12 @@ static/img/rock5c/rk3588s2_blockdiagram.webp @vamrs-feng
 i18n/en/docusaurus-plugin-content-docs/current/compute-module/cm3i/app-development/README.md @nascs
 docs/compute-module/cm3/app-development/rtsp.md @nascs
 i18n/en/docusaurus-plugin-content-docs/current/rock3/rock3b/getting-started/interface-usage/hdmi.md @nascs
+docs/rock5/rock5a/getting-started/interface-usage/README.md @nascs
+docs/rock5/rock5c/low-level-dev/README.md @vamrs-feng
+docs/accessories/camera_8m_219.md @melooooooooooo
+static/img/accessories/penta/case/case-2.webp @u7985
+static/img/general-tutorial/rknn/rkllm_1.webp @vamrs-feng
+docs/sophon/airbox/local-ai-deploy/ai-tools/memory_allocate.md @peterwang2050
+i18n/en/docusaurus-plugin-content-docs/current/rock3/rock3b/radxa-os/backup.md @nascs
+docs/common/radxa-os/_mali-gpu.mdx @CodeChenL
+i18n/en/docusaurus-plugin-content-docs/current/docs/common/radxa-os/_mali-gpu.mdx @CodeChenL
