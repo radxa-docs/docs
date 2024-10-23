@@ -1,6 +1,6 @@
 搭载 RK3588（不包含 RK3582）系列 SOC 的产品在使用 Debian 12 (Bookworm) 版本系统时默认使用 Panthor GPU 驱动，您可根据需求依据下方教程操作进行 GPU 驱动切换。
 
-::: warn
+:::warning
 本文档仅适用于搭载 RK3588（不包含 RK3582）系列 SOC 的产品。
 :::
 
@@ -36,8 +36,10 @@ Pin-Priority: 1001
 ```
 
 2. <div className="red">
-     **然后参考[使用 `rsetup` 进行系统升级](./rsetup#system-update)来重新安装
-     Rockchip 专有软件包。**
+     <strong>
+       然后参考[使用 `rsetup` 进行系统升级](./rsetup#system-update)来重新安装
+       Rockchip 专有软件包，如果不执行此步骤会导致桌面闪退或者颜色翻转。
+     </strong>
    </div>
 
 ## 安装 Mali 用户层驱动
@@ -64,8 +66,10 @@ sudo rm /etc/apt/preferences.d/mali
 ```
 
 2. <div className="red">
-     **然后参考[使用 `rsetup` 进行系统升级](./rsetup#system-update)来重新安装
-     Debian 官方软件包。**
+     <strong>
+       然后参考[使用 `rsetup` 进行系统升级](./rsetup#system-update)来重新安装
+       Debian 官方软件包，如果不执行此步骤会导致桌面闪退或者颜色翻转。
+     </strong>
    </div>
 
 ## 卸载 Mali 用户层驱动，并安装上游 Mesa 驱动
