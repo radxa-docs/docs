@@ -46,7 +46,7 @@ DP-1 disconnected (normal left inverted right x axis y axis)
 
 ## 显示旋转
 
-你可以通过修改[Display Settings](display#system-settings-display-settings)-Orientation来旋转你的屏幕显示。
+你可以通过修改[系统设置-显示设置](./display#系统设置-显示设置)来旋转你的屏幕显示。
 或者你也可以通过命令实现：
 
 ```bash
@@ -58,6 +58,16 @@ Single Screen:
    xrandr -s 1024x768 # Set the resolution
    xrandr -s 0        # Set the default resolution, which generally defaults to the highest resolution
    xrandr -rate       # Set refresh rate
+```
+
+如果你想要持久化此配置可参考以下配置文件（KDE 桌面环境会严格遵循自己的系统设置请参考[系统设置-显示设置](./display#系统设置-显示设置)）：
+
+```bash
+root@radxa-zero:~# cat /etc/X11/xorg.conf.d/99-rotate.conf
+Section "Monitor"
+   Identifier "HDMI-1"
+   Option "Rotate" "left"
+EndSection
 ```
 
 ## 使用 MIPI 屏幕
@@ -91,4 +101,5 @@ Dual Screen:
    xrandr --output HDMI-1 --right-of DP-1 --auto # DP-1 is the main display, the HDMI-1 is an extension and to the right of DP-1
 ```
 
-更多信息请查看[X.Org Server RandR](https://en.wikipedia.org/wiki/X.Org_Server#Other_DDX_components)。
+更多信息请查看[X.Org Server RandR](https://en.wikipedia.org/wiki/X.Org_Server#Other_DDX_components)。  
+更多关于 `xorg.conf` 的持久化配置请查看 [xorg.conf](https://www.x.org/archive/X11R7.6/doc/man/man5/xorg.conf.5.xhtml)。
