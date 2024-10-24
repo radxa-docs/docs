@@ -1,5 +1,6 @@
 显示设置只有在你在显示器上操作时可用，你可以通过以下方式进行显示设置。
 
+<a id="system-settings-display-settings"></a>
 ## 系统设置-显示设置
 
 在KDE桌面上，左键点击左下角的 `Application Launcher`，就可以看到 `System Settings` 。
@@ -46,7 +47,7 @@ DP-1 disconnected (normal left inverted right x axis y axis)
 
 ## 显示旋转
 
-你可以通过修改[系统设置-显示设置](./display#系统设置-显示设置)来旋转你的屏幕显示。
+你可以通过修改[系统设置-显示设置](display#system-settings-display-settings)来旋转你的屏幕显示。
 或者你也可以通过命令实现：
 
 ```bash
@@ -60,7 +61,7 @@ Single Screen:
    xrandr -rate       # Set refresh rate
 ```
 
-如果你想要持久化此配置可参考以下配置文件（KDE 桌面环境会严格遵循自己的系统设置请参考[系统设置-显示设置](./display#系统设置-显示设置)）：
+如果你想要持久化此配置可参考以下配置文件（KDE 桌面环境会严格遵循自己的系统设置请参考[系统设置-显示设置](display#system-settings-display-settings)）：
 
 ```bash
 root@radxa-zero:~# cat /etc/X11/xorg.conf.d/99-rotate.conf
