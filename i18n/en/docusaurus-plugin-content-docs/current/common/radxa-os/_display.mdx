@@ -46,7 +46,7 @@ You can check which monitor is connected and the corresponding resolution.
 
 ## Display Rotation
 
-You can rotate your screen display by modifying the [Display Settings](display#system-settings-display-settings)-Orientation.
+You can rotate your screen display by modifying the [System Settings-Display Settings](display#system-settings-display-settings).
 Or you can also achieving by command:
 
 ```bash
@@ -58,6 +58,16 @@ Single Screen:
    xrandr -s 1024x768 # Set the resolution
    xrandr -s 0        # Set the default resolution, which generally defaults to the highest resolution
    xrandr -rate       # Set refresh rate
+```
+
+If you want to make this configuration persistent, you can refer to the following configuration file (KDE desktop environments strictly follow their own system settings, please refer to [System Settings-Display Settings](display#system-settings-display-settings)):
+
+```bash
+root@radxa-zero:~# cat /etc/X11/xorg.conf.d/99-rotate.conf
+Section "Monitor"
+   Identifier "HDMI-1"
+   Option "Rotate" "left"
+EndSection
 ```
 
 ## Using MIPI Screen
@@ -91,4 +101,5 @@ Dual Screen:
    xrandr --output HDMI-1 --right-of DP-1 --auto # DP-1 is the main display, the HDMI-1 is an extension and to the right of DP-1
 ```
 
-For more information , please check [X.Org Server RandR](https://en.wikipedia.org/wiki/X.Org_Server#Other_DDX_components).
+For more information , please check [X.Org Server RandR](https://en.wikipedia.org/wiki/X.Org_Server#Other_DDX_components).  
+For more on `xorg.conf` persistence configuration see [xorg.conf](https://www.x.org/archive/X11R7.6/doc/man/man5/xorg.conf.5.xhtml).
