@@ -156,10 +156,10 @@ sudo apt-get update
   </TabItem>
   <TabItem value="chenjaly">
 
-本镜像由 [chenjaly](mailto:2540735020@qq.com) 提供。
+本镜像由 [chenjaly](mailto:chenjiali@radxa.com) 提供。
 
 ```bash
-sudo sed -i "s|https://radxa-repo.github.io|http://apt.chenjaly.cn|g" /etc/apt/sources.list.d/radxa*.list
+sudo sed -i "s|https://radxa-repo.github.io|https://apt.chenjaly.cn|g" /etc/apt/sources.list.d/*radxa*.list
 sudo apt-get update
 ```
 
@@ -169,7 +169,7 @@ sudo apt-get update
 本镜像由 [LZUOSS](https://mirrors.lzu.edu.cn) 提供。
 
 ```bash
-sudo sed -i "s|https://radxa-repo.github.io|https://mirrors.lzu.edu.cn/radxa-apt|g" /etc/apt/sources.list.d/radxa*.list
+sudo sed -i "s|https://radxa-repo.github.io|https://mirrors.lzu.edu.cn/radxa-apt|g" /etc/apt/sources.list.d/*radxa*.list
 sudo apt-get update
 ```
 
@@ -179,8 +179,9 @@ sudo apt-get update
 ```bash
 sudo sed -e "s|https://radxa-apt.aghost.cn|https://radxa-repo.github.io|g" \
          -e "s|http://apt.chenjaly.cn|https://radxa-repo.github.io|g" \
+         -e "s|https://apt.chenjaly.cn|https://radxa-repo.github.io|g" \
          -e "s|https://mirrors.lzu.edu.cn/radxa-apt|https://radxa-repo.github.io|g" \
-         -i /etc/apt/sources.list.d/radxa*.list
+         -i /etc/apt/sources.list.d/*radxa*.list
 sudo apt-get update
 ```
 
