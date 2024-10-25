@@ -36,6 +36,10 @@ import PWM from "../../../common/dev/\_micropython-pwm.mdx"
 
     <img src="/img/x/x4/interpreter.webp" style={{ width: "80%" }} alt="thonny tools interpreter" />
 
+    :::tip
+    如果没有找到 MicroPython 解释器, 请下载安装[最新版本的 Thonny](https://github.com/thonny/thonny/releases)
+    :::
+
   - 点击 "Port" 选择 "Board in FS mode - Board CDC (/dev/ttyACM0)"
 
     <img src="/img/x/x4/port.webp" style={{ width: "80%" }} alt="thonny tools port" />
