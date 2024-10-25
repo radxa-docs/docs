@@ -17,17 +17,24 @@ sudo apt-get install libmraa2 libmraa-dev libmraa-java python3-mraa mraa-tools -
 
 <div style={{ display: `${props.install_by_source_code ? "block" : "none"}` }}>
 
+- Uninstall the system stock package:
+
+```bash
+cd /
+sudo apt purge *mraa*
+```
+
+- Source code installation
+
 <PreView params={{ branch: props.branch }}>
 {`
-
 sudo apt-get update -y
-sudo apt-get install git cmake build-essential -y
+sudo apt-get install git cmake build-essential swig4.0 python-dev python3-dev libnode-dev  cmake libjson-c-dev libgtest-dev pkg-config cmake-data -y
 git clone https://github.com/nascs/mraa.git
 cd mraa
 git checkout -b #branch# origin/#branch#
 mkdir build && cd build
 cmake .. && make -j\${nproc\} && sudo make install && sudo ldconfig
-
 `}
 
 </PreView>
