@@ -36,6 +36,10 @@ sudo apt-get install thonny -y
 
     <img src="/img/x/x4/interpreter.webp" style={{ width: "80%" }} alt="thonny tools interpreter" />
 
+    :::tip
+    If you don't find the MicroPython interpreter, please download and install [the latest version of Thonny](https://github.com/thonny/thonny/releases)
+    :::
+
   - Click "Port" and select "Board in FS mode - Board CDC (/dev/ttyACM0)".
 
     <img src="/img/x/x4/port.webp" style={{ width: "80%" }} alt="thonny tools port" />
