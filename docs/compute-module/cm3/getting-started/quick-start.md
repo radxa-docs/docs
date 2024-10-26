@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import InstallCoreBoard from "../../\_install_uninstall_coreboard_guide.mdx";
+
 # 快速上手
 
 ## 包装清单
@@ -36,6 +38,10 @@ sidebar_position: 2
 非必需但可增强 Radxa CM3 IO Board 基本功能的外设：
 
 - 散热器，参考[散热器选型](./interface-usage/fan)来安装散热器
+
+## 组装
+
+<InstallCoreBoard />
 
 ## 安装操作系统
 

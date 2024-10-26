@@ -4,6 +4,13 @@ sidebar_position: 2
 
 import Installdebian from "../radxa-os/install-os.mdx";
 import Installandroid from "../android/install-os.mdx";
+import InstallCoreBoard from "../../\_install_uninstall_coreboard_guide.mdx";
+
+# 系统安装
+
+## 组装
+
+<InstallCoreBoard />
 
 # 系统安装
 

@@ -3,6 +3,8 @@ sidebar_position: 2
 description: "Getting started quickly with the CM3I/CM3I IO Board makes it easy to start using and exploring its features."
 ---
 
+import InstallCoreBoard from "../../\_install_uninstall_coreboard_guide.mdx";
+
 # Quick start
 
 ## Packing List
@@ -44,6 +46,10 @@ A heatsink, refer to the [Heatsink Selection guide](./interface-usage/fan) to in
 
 - An M.2 wireless module: The Radxa CM3I IO Board supports standard M.2 Wi-Fi cards. Please check [the Wireless Module Compatibility List](./interface-usage/pcie-e-key#wifi--bt-support-module-list). Some older non-driver M.2 Wi-Fi cards may also be plug-and-play supported.
 - An M.2 NVMe SSD. It is recommended to install the operating system on an M.2 NVMe SSD.
+
+## assembly
+
+<InstallCoreBoard />
 
 ## Install the Operating System
 
