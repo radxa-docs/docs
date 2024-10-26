@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import InstallCoreBoard from "../../\_install_uninstall_coreboard_guide.mdx";
+
 # Quick Start
 
 ## Packing List
@@ -36,6 +38,10 @@ To start using the Radxa CM3 IO Board, you will also need the following:
 Optional peripherals to enhance the basic functionality of the Radxa CM3 IO Board:
 
 - Heat sink, refer to [Heat Sink Selection](./interface-usage/fan) for installation instructions.
+
+## assembly
+
+<InstallCoreBoard />
 
 ## Installing the Operating System
 

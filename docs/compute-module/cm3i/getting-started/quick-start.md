@@ -3,6 +3,8 @@ sidebar_position: 2
 description: "快速上手 CM3I/CM3I IO Board，让您能够轻松开始使用和探索其功能。"
 ---
 
+import InstallCoreBoard from "../../\_install_uninstall_coreboard_guide.mdx";
+
 # 快速上手
 
 ## 包装清单
@@ -43,6 +45,10 @@ description: "快速上手 CM3I/CM3I IO Board，让您能够轻松开始使用�
 - 散热器，参考[散热器选型](./interface-usage/fan)来安装散热器
 - M.2 无线模块： Radxa CM3I IO Board 支持标准的 M.2 Wi-Fi 卡。请查看[无线模块兼容列表](./interface-usage/pcie-e-key#wifi--bt-支持模块列表)。一些较旧的免驱动 M.2 Wi-Fi 卡也可能支持即插即用。
 - M.2 NVMe SSD。推荐在 M.2 NVMe SSD 上安装操作系统。
+
+## 组装
+
+<InstallCoreBoard />
 
 ## 安装操作系统
 
