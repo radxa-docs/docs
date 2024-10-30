@@ -44,7 +44,7 @@ sidebar_position: 10
 ![ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-01.webp)
 ![ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-02.webp)
 
-## 查看Penta SATA HAT挂载是否成功
+## 检查 Penta SATA HAT 挂载状态
 
 1、通过`lsblk`查看SATA设备是否被识别。
 

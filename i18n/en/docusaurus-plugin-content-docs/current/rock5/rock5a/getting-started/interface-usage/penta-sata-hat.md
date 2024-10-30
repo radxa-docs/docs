@@ -44,7 +44,7 @@ sidebar_position: 10
 ! [ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-01.webp)
 ! [ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-02.webp)
 
-## Check whether Penta SATA HAT mount is successful or not
+## Checking the Penta SATA HAT mount status
 
 1. Check if the SATA device is recognized by `lsblk`.
 
