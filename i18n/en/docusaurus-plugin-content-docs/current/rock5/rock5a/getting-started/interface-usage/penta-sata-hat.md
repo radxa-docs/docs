@@ -4,16 +4,19 @@ sidebar_position: 10
 
 # Penta SATA HAT Usage Tutorial
 
+## Preparation
+
 - Picture of ROCK 5A with Radxa PENTA SATA HAT.
 
 ![ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-05.webp)
 
-- The following pictures show the RADXA Penta SATA HAT and the parts included.
-- **For link details click on [Penta SATA HAT](/accessories/penta-sata-hat)**
+- The following pictures show the [RADXA Penta SATA HAT](/accessories/penta-sata-hat) and the parts included.
 
 ![ROCK5A Install M.2 Extension Board](/img/accessories/penta-sata-hat-01.webp)
 
-- Please distinguish between the front and back side of the IPEX cable. As shown in the figure. **The IPEX cables we provide for the ROCK5A have the same direction at both ends. **
+- Please distinguish between the front and back side of the IPEX cable. As shown in the figure.
+
+**The IPEX cables we provide for the ROCK5A have the same direction at both ends.**
 
 ![ROCK5A Install M.2 Extension Board](/img/accessories/m2-extension-board-04.webp)
 
@@ -23,11 +26,13 @@ sidebar_position: 10
 
 ## Installation Tutorial
 
-1, M.2 E key to M.2 M key Board with IPEX cable. **Note that the IPEX cable is installed here with the front side up, and the ring clips need to snap onto the connector to ensure that it is fixed. **
+### Steps
+
+1, M.2 E key to M.2 M key Board with IPEX cable. **Note that the IPEX cable is installed here with the front side up, and the ring clips need to snap onto the connector to ensure that it is fixed.**
 
 ![ROCK5A Install M.2 Extension Board](/img/accessories/m2-extension-board-02.webp)
 
-2. Radxa Penta SATA HAT motherboard with IPEX cable. **Note that the IPEX cable installed here is face up, and the ring clips need to snap onto the connector to ensure fixation. **
+2. Radxa Penta SATA HAT motherboard with IPEX cable. **Note that the IPEX cable installed here is face up, and the ring clips need to snap onto the connector to ensure fixation.**
 
 ![ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-04.webp)
 
@@ -44,7 +49,7 @@ sidebar_position: 10
 ![ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-01.webp)
 ![ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-02.webp)
 
-## Checking the Penta SATA HAT mount status
+### Checking the Penta SATA HAT mount status
 
 1. Check if the SATA device is recognized by `lsblk`.
 
