@@ -1,0 +1,46 @@
+## Preparation:
+
+- A FAT(32) formatted SSD.
+- A USB cable to connect the PC and Radxa SOC.
+- Radxa SOC.
+- Android spi nvme image corresponding to Radxa SOC.
+- Windows platform requires RkDevTool v2.93 or above, Android12 rkr14 image requires RkDevTool v3.13 or above.
+- Linux platform requires upgrade_tool v2.17 or above.
+
+## Burning steps
+
+### Windows burning
+
+1. Install SSD to the corresponding interface of Radxa SOC.
+
+2. Open RkDevTool burning tool and click Upgrade firmware to enter the firmware upgrade page.
+
+3. Press and hold the maskrom button on the board, connect PC and Radxa SOC with a data cable, and observe whether the word "MASKROM" appears at the bottom of the RkDevTool tool.
+
+4. Click the RkDevTool "Firmware" button to find the Android spi nvme image of the current Radxa SOC.
+
+5. Click the RkDevTool "Upgrade" button to start burning the firmware and wait for the burning to complete.
+
+<img
+  src="/img/rock5itx/rock5itx_android_update_en.webp"
+  width="700"
+  alt="update to en"
+/>
+
+### Linux burning
+
+1. Install SSD to the corresponding interface of Radxa SOC.
+
+2. Connect PC and Radxa SOC with a data cable.
+
+3. Use ./upgrade_tool ld in the terminal and observe whether the result has the word "maskrom".
+
+4. Use ./upgrade_tool uf xxx.img (corresponding firmware of Radxa SOC) in the terminal to start burning the firmware and wait for the burning to complete.
+
+## FAQ
+
+- Failed to switch PCIE storage, loader does not support switching
+
+1. Check whether the SSD is inserted into the corresponding interface of Radxa SOC. If there are dual interfaces, try the other interface.
+
+2. Check whether the SSD format is FAT32 format.

@@ -4,6 +4,7 @@ title: Install OS
 ---
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
+import AndroidSSDboot from "../../../../common/dev/\_android-name.mdx";
 
 This document describes how to install an Android image to the ROCK 5B.
 
@@ -111,6 +112,11 @@ Please go to [Resource Download Summary](./download) to download the correspondi
 1. Power up the ROCK 5B via the adapter.
 2. The ROCK 5B will start up with the green power LED on.
 
+</TabItem>
+
+<TabItem value="ssd" label="安装系统到 Spi Nvme">
+
+<AndroidSSDboot model="rock5b" />
 </TabItem>
 
 </Tabs>
