@@ -33,7 +33,7 @@ The ZERO 2 PRO provides a 40 pin GPIO socket that is compatible with most SBC ac
 
 **Hint: Actual compatibility is subject to usage.**
 
-<div className='gpio_style'>
+<div className='gpio_style' style={{ overflow :"auto" }}>
 
 | GPIO number | Function6 |   Function5   |   Function4   |   Function3   |   Function2   | Function1 |               Pin#               |              Pin#               | Function1  |                  Function2                  |   Function3   |   Function4   |   Function5   |   Function5   | GPIO number |
 | :---------: | :-------: | :-----------: | :-----------: | :-----------: | :-----------: | :-------: | :------------------------------: | :-----------------------------: | :--------: | :-----------------------------------------: | :-----------: | :-----------: | :-----------: | :-----------: | :---------: |
