@@ -5,7 +5,7 @@ description: "Introduces SiRider S1"
 
 # Introduction
 
-SiRider S1 is an industrial single-board computer jointly launched by Radxa, Siengine Technology and Arm China. It integrates Siengine Technology's industrial-grade "龍鹰一号" 7nm AIoT application processor SE1000-I, Arm China's self-developed "周易" NPU, and Radxa's industrial product design experience to provide the market with high-performance and reliable industrial-grade products that can meet the diverse application requirements in the future.
+SiRider S1 is an industrial single-board computer jointly launched by Radxa, Siengine Technology and Arm China. It integrates Siengine Technology's industrial-grade "Dragon Eagle No.1" 7nm AIoT application processor SE1000-I, Arm China's self-developed "Zhouyi" NPU, and Radxa's industrial product design experience to provide the market with high-performance and reliable industrial-grade products that can meet the diverse application requirements in the future.
 
 ## Motherboard OverView
 
@@ -137,7 +137,7 @@ SiRider S1 is an industrial single-board computer jointly launched by Radxa, Sie
   </tr>
   <tr>
     <th>CPU</th>
-    <th> Contains two clusters <br/> Cluster0: <br/>A76 x4，Maximum Frequency: 2.4G, <br/> A55 x2, Maximum Frequency: 1.8G; <br/>Cluster1：<br/> A55 x2，Maximum Frequency: 1.8G;</th>
+    <th> Contains two clusters <br/> Cluster0: <br/>A76 x4, Maximum Frequency: 2.4G, <br/> A55 x2, Maximum Frequency: 1.8G; <br/>Cluster1: <br/> A55 x2，Maximum Frequency: 1.8G; </th>
   </tr>
   <tr>
     <th>GPU</th>
@@ -145,7 +145,7 @@ SiRider S1 is an industrial single-board computer jointly launched by Radxa, Sie
   </tr>
   <tr>
     <th>NPU</th>
-    <th>Contains tow NPU Core，NPU0: 3.34TOPS， NPU1: 3.5 TOPS</th>
+    <th>Contains tow NPU Core，NPU0: 3.34TOPS, NPU1: 3.5 TOPS</th>
   </tr>
   <tr>
     <th>Memory</th>
@@ -153,7 +153,7 @@ SiRider S1 is an industrial single-board computer jointly launched by Radxa, Sie
   </tr>
   <tr>
     <th>Storage</th>
-    <th>Support EMMC and UFS，the maximum capacity of UFS tested is 128G</th>
+    <th>Support EMMC and UFS, the maximum capacity of UFS tested is 128G</th>
   </tr>
   <tr>
     <th>Hardware Codec</th>
