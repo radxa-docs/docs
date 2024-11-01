@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Zhouyi Model Zoo
@@ -7,12 +7,13 @@ sidebar_position: 2
 The [Zhouyi Model Zoo](https://github.com/Arm-China/Model_zoo) repository provides a set of AI models for reference used by Zhouyi SDK.
 
 #### **FTP Model Download (Recommended FTP Tool: [FileZilla](https://filezilla-project.org/))**
-  - `Host`: sftp://sftp01.armchina.com
-  - `Account`: zhouyi.armchina
-  - `Password`: 114r3cJd 
 
-| Model                   | Framework | Input Shape                                 | Model Source                                                                                                                                      | Quant Model |
-|---------------------------|-----------|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+- `Host`: sftp://sftp01.armchina.com
+- `Account`: zhouyi.armchina
+- `Password`: 114r3cJd
+
+| Model                     | Framework | Input Shape                                 | Model Source                                                                                                                                      | Quant Model |
+| ------------------------- | --------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | mobilenet_v2              | caffe     | [1,3,224,224]                               | https://github.com/shicai/MobileNet-Caffe                                                                                                         | No          |
 | inception_v4              | tf1       | [1,299,299,3]                               | https://github.com/tensorflow/models/tree/archive/research/slim/nets                                                                              | No          |
 | deeplab_v2                | onnx      | [1, 3, 513, 513]                            | https://github.com/kazuto1011/deeplab-pytorch                                                                                                     | No          |
@@ -88,7 +89,7 @@ The [Zhouyi Model Zoo](https://github.com/Arm-China/Model_zoo) repository provid
 | squeezenet                | onnx      | [1, 3, 224, 224]                            | https://github.com/onnx/models/tree/master/vision/classification/squeezenet                                                                       | No          |
 | resnet_v2_101             | caffe     | [1, 3, 448, 448]                            | https://github.com/soeaver/caffe-model                                                                                                            | No          |
 | densenet_121              | caffe     | [1, 3, 224, 224]                            | https://github.com/soeaver/caffe-model                                                                                                            | No          |
-| yolo_v2                   | onnx      | [1,  3, 416, 416]                           | https://github.com/onnx/models/tree/master/vision/object_detection_segmentation/yolov2-coco                                                       | No          |
+| yolo_v2                   | onnx      | [1, 3, 416, 416]                            | https://github.com/onnx/models/tree/master/vision/object_detection_segmentation/yolov2-coco                                                       | No          |
 | yolo_v2_tiny              | onnx      | [1, 3, 416, 416]                            | https://github.com/onnx/models/tree/master/vision/object_detection_segmentation/tiny-yolov2                                                       | No          |
 | inception_v2              | tf1       | [1, 224, 224, 3]                            | https://github.com/tensorflow/models/tree/master/research/slim#Pretrained                                                                         | No          |
 | lightface                 | onnx      | [1, 3, 240, 320]                            | https://hailo.ai/devzone-model-zoo/face-detection/                                                                                                | No          |
@@ -186,7 +187,7 @@ The [Zhouyi Model Zoo](https://github.com/Arm-China/Model_zoo) repository provid
 | codeformer_256            | onnx      | [1,3,256,256]                               | https://github.com/sczhou/CodeFormer/releases/tag/v0.1.0                                                                                          | No          |
 | resnet_18                 | onnx      | [1, 3, 224, 224]                            | https://github.com/onnx/models/tree/main/vision/classification/resnet/model                                                                       | No          |
 | resnext_101               | onnx      | [1, 3, 224, 224]                            | https://github.com/Cadene/pretrained-models.pytorch                                                                                               | No          |
-| unet_3d                   | onnx      |  [1, 3, 224, 224, 32]                       | https://zenodo.org/record/3904138#.YbBtatDP1PY                                                                                                    | No          |
+| unet_3d                   | onnx      | [1, 3, 224, 224, 32]                        | https://zenodo.org/record/3904138#.YbBtatDP1PY                                                                                                    | No          |
 | sne_roadseg               | onnx      | [1,3,384,1248]                              | https://github.com/hlwang1124/SNE-RoadSeg                                                                                                         | No          |
 | maskrcnn                  | pytorch   | [0]                                         | https://pytorch.org/vision/main/models/mask_rcnn.html                                                                                             | No          |
 | yolo_v6s                  | onnx      | [1,3,640,640]                               | https://github.com/DefTruth/lite.ai.toolkit                                                                                                       | No          |
@@ -195,7 +196,7 @@ The [Zhouyi Model Zoo](https://github.com/Arm-China/Model_zoo) repository provid
 | xception                  | tf2       | [1, 299, 299, 3]                            | https://www.tensorflow.org/versions/r2.6/api_docs/python/tf/keras/applications                                                                    | No          |
 | efficientnet_b5           | tf2       | [1,456,456,3]                               | https://www.tensorflow.org/versions/r2.6/api_docs/python/tf/keras/applications                                                                    | No          |
 | mobilenet_v1_ssd          | tflite    | [300, 300]                                  | https://tfhub.dev/tensorflow/lite-model/ssd_mobilenet_v1/1/metadata/2                                                                             | No          |
-| transformer_official      | tf1       |  [1, 32]                                    | https://github.com/Kyubyong/transformer                                                                                                           | No          |
+| transformer_official      | tf1       | [1, 32]                                     | https://github.com/Kyubyong/transformer                                                                                                           | No          |
 | ViT_B_16                  | pytorch   | [1, 3, 224, 224]                            | https://pytorch.org/vision/stable/models/vision_transformer.html                                                                                  | No          |
 | efficientnet_b4_quant     | tflite    | [1,380,380,3]                               | https://ai-benchmark.com/download.html                                                                                                            | Yes         |
 | dped_quant                | tflite    | [1,1536,2048,3]                             | https://ai-benchmark.com/download.html                                                                                                            | Yes         |
