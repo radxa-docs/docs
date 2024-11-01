@@ -4,11 +4,16 @@ title: 系统安装
 ---
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
-import AndroidSSDboot from "../../../../common/dev/\_android-name.mdx";
+import AndroidSSDboot from "../../../../common/dev/\_android-spi-nvme.mdx";
+import Erase_spi from "../../../../common/dev/\_android-erase-spi.mdx";
 
 本文档将介绍如何把 Android 镜像安装到 ROCK 5B。
 
 ROCK 5B 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以从 SSD 启动，基于不同的启动方式，安装系统到不同的介质上.
+
+### 清除 SPI Flash
+
+<Erase_spi model="rock5b/5b+" />
 
 <Tabs queryString="target">
 
@@ -117,9 +122,24 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 <TabItem value="ssd" label="安装系统到 Spi Nvme">
 
 <AndroidSSDboot model="rock5b" />
+
+### 启动 ROCK 5B
+
+1. 通过适配器为 ROCK 5B 供电
+2. ROCK 5B 将在绿色电源 LED 亮起的情况下启动
+
 </TabItem>
 </Tabs>
 
+:::tip
+Android 系统在刷机完成后的第一次启动时常相对较长，还请耐心等待
+:::
+
 ## 常见问题
+
+- 切换 PCIE 存储失败，loader 不支持切换
+
+  1. 检查 SSD 是否插入 Radxa SBC 对应的接口，ROCK 5B+ 仅有一个 M.2 接口支持 SPI-NVME 启动，启动失败可换接口尝试.
+  2. 检查 SSD 格式是否为 FAT32 格式.
 
 ## 参考文档

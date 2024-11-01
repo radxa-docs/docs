@@ -1,0 +1,42 @@
+在使用 microSD 卡/ eMMC 启动带有 SPI Flash 的 SBC 之前，需要擦除 SPI ，步骤如下：
+
+1. 前往资源下载中心下载对应的 Loader 文件到本地
+
+2. 设备进入 maskrom 模式，连接到PC端
+
+- 断开开发板电源
+- 用 USB 线缆连接 Radxa SBC 和 PC 端
+- 按住 maskrom 按键，给开发板上电
+- 查看是否有 USB 设备
+  - Linux/macOS: 检查执行 lsusb 后是否有显示 "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company"
+  - Windows: 打开 RKDevTool 您会看到设备处于 "maskrom mode".
+
+:::tip
+部分 SBC 没有 maskrom 按键，需要短接对应引脚再上电
+:::
+
+3. 按以下操作擦除 SPI
+
+<Tabs queryString="target">
+
+<TabItem value="windows" label="Windows">
+
+Windows 使用 rkdevtool 工具进行操作
+![erase SPI](/img/rock5itx/rock5itx_erase_spi_zh.webp)
+
+</TabItem>
+
+<TabItem value="linux/mac" label="Linux/Mac">
+
+Linux/Mac 使用 rkdeveloptool 工具进行操作
+
+```bash
+dd if=/dev/zero of=zero.img bs=16M count=1
+rkdeveloptool db rk3588_spl_loader_v1.15.113.bin (需选择步骤 1 中 下载的 loader 文件)
+rkdeveloptool wl 0 zero.img
+rkdeveloptool rd
+```
+
+</TabItem>
+
+</Tabs>

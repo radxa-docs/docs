@@ -1,0 +1,42 @@
+Before using a microSD card/eMMC to boot an SBC with SPI Flash, the SPI needs to be erased. The steps are as follows:
+
+1. Go to the resource download center to download the corresponding Loader file locally
+
+2. Enter maskrom mode
+
+- Disconnect the board from the power supply.
+- Connect the Radxa SBC to the PC side with USB cable.
+- Press and hold the Maskrom key，Power up the board.
+- Check for USB devices
+  - Linux/macOS: Check if "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company" is displayed after running lsusb.
+  - Windows: Open RKDevTool and you will see the device in "maskrom mode".
+
+:::tip
+Some SBCs do not have maskrom buttons and need to short-circuit the corresponding pins before powering on
+:::
+
+3. Erase SPI as follows
+
+<Tabs queryString="target">
+
+<TabItem value="windows" label="Windows">
+
+Windows use rkdevtool
+![erase SPI](/img/rock5itx/rock5itx_erase_spi_en.webp)
+
+</TabItem>
+
+<TabItem value="linux/mac" label="Linux/Mac">
+
+Linux/Mac use rkdeveloptool
+
+```bash
+dd if=/dev/zero of=zero.img bs=16M count=1
+rkdeveloptool db rk3588_spl_loader_v1.15.113.bin (select the loader file downloaded in step 1)
+rkdeveloptool wl 0 zero.img
+rkdeveloptool rd
+```
+
+</TabItem>
+
+</Tabs>

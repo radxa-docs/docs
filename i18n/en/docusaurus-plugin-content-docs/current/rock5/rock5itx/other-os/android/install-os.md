@@ -23,7 +23,6 @@ Before starting ROCK 5 ITX using microSD card/eMMC, it is necessary to erase the
 2. Enter maskrom mode
 
 - Disconnect the board from the power supply.
-- Remove the SD card and insert the eMMC module.
 - Connect the USB3.0 port of the Radxa ROCK 5 ITX to the PC side with USB cable.
 - Press and hold the Maskrom key，Power up the board.
 - Remove the right yellow jumper cap and keep the left yellow jumper cap.

@@ -4,10 +4,16 @@ title: Install OS
 ---
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
+import AndroidSSDboot from "../../../../common/dev/\_android-spi-nvme.mdx";
+import Erase_spi from "../../../../common/dev/\_android-erase-spi.mdx";
 
-This document describes how to install an Android image to the ROCK 5B.
+This document describes how to install an Android image to the ROCK 5B/5B+.
 
-ROCK 5B can be booted from microSD card or EMMC, depending on the boot method, the system will be installed on different media.
+ROCK 5B/5B+ can be booted from microSD card or EMMC, depending on the boot method, the system will be installed on different media.
+
+### Erase SPI Flash
+
+<Erase_spi model="rock5b/5b+" />
 
 <Tabs queryString="target">
 
@@ -113,8 +119,29 @@ Please go to [Resource Download Summary](./download) to download the correspondi
 
 </TabItem>
 
+<TabItem value="spi-nvme" label="Install system to SPI-NVME">
+
+<AndroidSSDboot model="rock5b" />
+
+## Boot the system
+
+1. Power the ROCK 5B through an adapter
+2. ROCK 5B/5B+ will start when the green power LED lights up
+
+:::tip
+The first startup of the Android system after flashing is often relatively long, please be patient and wait
+:::
+
+## Reference Documentation
+
+</TabItem>
+
 </Tabs>
 
 ## Frequently asked questions
+
+- Switching PCIE storage failed, loader does not support switching
+  1. Check if the SSD is plugged into the corresponding interface of Radxa SBC. The ROCK 5B+only has one M.2 interface that supports SPI-NVME startup. If the startup fails, try changing the interface
+  2. Check if the SSD format is FAT32 format
 
 ## Documentation
