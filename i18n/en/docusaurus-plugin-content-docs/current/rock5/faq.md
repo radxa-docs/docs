@@ -8,8 +8,8 @@ sidebar_position: 8
 
 ### Does the ROCK 5A ship with a SPI Flash Module as standard?
 
-- The ROCK 5A is sold with a Radxa SPI Flash Module.
-  This interface is shared with the Radxa eMMC module.
+- The ROCK 5A is sold without the Radxa SPI Flash module.
+  This module needs to be purchased separately and the interface is shared with the Radxa eMMC module.
   The Radxa SPI Flash Module cannot be used when using an eMMC module.
 
 ## ROCK 5B FAQ
