@@ -71,7 +71,7 @@ sdc       8:32   0 119.2G  0 disk
 
 ### MicroSD Card
 
-Use `lsblk | grep mmc` to check MicroSD card. For example, here `/dev/mmcblk1`。
+Use `lsblk | grep mmc` to check MicroSD card. For example, here `/dev/mmcblk1`.
 
 ```
 mmcblk1     179:0    0  58.9G  0 disk
@@ -212,7 +212,7 @@ aplay -D jack_speaker ./sample.wav
 
 ### Use USB camear
 
-Find v4l2 设备节点 via command `ls -l /sys/class/video4linux`. There are `/dev/vidoe6` here。
+Find v4l2 device node via command `ls -l /sys/class/video4linux`. There is `/dev/video6` here.
 
 ```
 ls -l /sys/class/video4linux

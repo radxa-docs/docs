@@ -41,14 +41,14 @@ The ZERO provides a 40 pin GPIO header that is compatible with most peer accesso
 
 **Hint: Actual compatibility is based on usage. **
 
-<div className='gpio_style'>
-
 :::caution
 Depending on the hardware version, one of the pins 35 and 38 is connected to the power LED instead of the 40-pin header. If your design uses these pins, please check the hardware version before purchasing.  
 GPIOAO_8 and GPIOAO_10 are available in hardware versions v1.51 and higher.  
 GPIOA_14 and GPIOA_15 are connected to pull-up resistors and USB-C controllers and therefore cannot be used for general GPIOs.  
 Pin 22 (GPIOC_7) and pin 36 (GPIOH_8) are open-drain pins. This means that they need to be connected to GND or VCC (floating state undefined), and they need an external pull-up when used as inputs. In addition, GPIOH_8 utilizes a 5V logic level.
 :::
+
+<div className='gpio_style' style={{ overflow :"auto" }}>
 
 | GPIO number |   Function4   |   Function3   |   Function2   | Function1  |               Pin#               |              Pin#               | Function1  |                  Function2                  |   Function3   |   Function4   | GPIO number |
 | ----------- | :-----------: | :-----------: | :-----------: | :--------: | :------------------------------: | :-----------------------------: | :--------: | :-----------------------------------------: | :-----------: | :-----------: | ----------- |
