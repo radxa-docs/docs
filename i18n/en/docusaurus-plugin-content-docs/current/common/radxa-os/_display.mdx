@@ -1,5 +1,13 @@
 Display setting is just available when you operating on the monitor, you can change the display setting by following ways.
 
+:::info
+KDE and GDM will strictly follow their own settings. If you need to modify, please refer to [System Settings-Display Settings](display?method=KDE) and [GDM display settings](display?method=GDM).
+:::
+
+<Tabs queryString="method">
+
+  <TabItem value="KDE">
+
 ## System Settings-Display Settings
 
 On KDE desktop, you would see the `System Settings` after left clicking on the `Application Launcher` in the lower left corner.
@@ -9,6 +17,76 @@ Select the `System Settings`, find `Display and Monitor` in the `Hardware` optio
 You can modify the following settings in it:
 ![Display Settings](/img/configuration/display_setting.webp)
 **Note: If you are using multiple monitors, the same steps are effective.**
+
+  </TabItem>
+
+  <TabItem value="GDM">
+
+## GDM display settings
+
+Get the display information:
+
+```bash
+rock@radxa-cm5-io:~$ cat /var/log/Xorg.0.log|grep -e "connected" -e "EDID vendor" \
+-e "Monitor name:" -e "Serial No:" | grep -v "disconnected"
+[  6898.854] (II) modeset(0): Serial No: 2DH76826BL7L #Display serial number
+[  6898.854] (II) modeset(0): Monitor name: DELL U2417H #Display model
+[  6898.855] (II) modeset(0): Output HDMI-1 connected #Display interface name
+[  6899.751] (II) modeset(0): EDID vendor "DEL", prod id 16616 #Display manufacturer
+[  6901.098] (II) modeset(0): EDID vendor "DEL", prod id 16616
+rock@radxa-cm5-io:~$
+```
+
+According to the above information, modify the `/var/lib/gdm3/.config/monitors.xml` file `monitorspec` Part:
+
+```xml
+<monitors version="2">
+  <configuration>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <!-- Scaling multiple -->
+      <scale>1</scale>
+      <primary>yes</primary>
+      <transform>
+        <!-- Clockwise rotation -->
+        <rotation>left</rotation>
+        <flipped>no</flipped>
+      </transform>
+      <monitor>
+        <monitorspec>
+          <!-- Display interface name -->
+          <connector>HDMI-1</connector>
+          <!-- Display manufacturer -->
+          <vendor>DEL</vendor>
+          <!-- Display model -->
+          <product>DELL U2417H</product>
+          <!-- Display serial number -->
+          <serial>2DH76826BL7L</serial>
+        </monitorspec>
+        <mode>
+          <!-- Wide resolution -->
+          <width>1920</width>
+          <!-- High resolution -->
+          <height>1080</height>
+          <!-- Refresh rate -->
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+  </configuration>
+</monitors>
+```
+
+Restart `GDM`
+
+```bash
+sudo systemctl restart gdm
+```
+
+  </TabItem>
+
+  <TabItem value="CLI">
 
 ## Terminal Command Settings
 
@@ -46,8 +124,7 @@ You can check which monitor is connected and the corresponding resolution.
 
 ## Display Rotation
 
-You can rotate your screen display by modifying the [System Settings-Display Settings](display#system-settings-display-settings).
-Or you can also achieving by command:
+You can rotate your screen display by command:
 
 ```bash
 Single Screen:
@@ -60,7 +137,7 @@ Single Screen:
    xrandr -rate       # Set refresh rate
 ```
 
-If you want to make this configuration persistent, you can refer to the following configuration file (KDE desktop environments strictly follow their own system settings, please refer to [System Settings-Display Settings](display#system-settings-display-settings)):
+If you want to make this configuration persistent, you can refer to the following configuration file:
 
 ```bash
 root@radxa-zero:~# cat /etc/X11/xorg.conf.d/99-rotate.conf
@@ -69,6 +146,30 @@ Section "Monitor"
    Option "Rotate" "left"
 EndSection
 ```
+
+  </TabItem>
+
+  <TabItem value="CMDLINE">
+
+## Kernel startup parameter settings
+
+Only connect to the display that needs to be set, and then find the display port that is connected in the following command:
+
+```bash
+rock@radxa-cm5-io:~$ grep -xH 'connected' /sys/class/drm/card*-*/status
+/sys/class/drm/card0-HDMI-A-1/status:connected
+rock@radxa-cm5-io:~$
+```
+
+As shown above, the display port we need to set is called `HDMI-A-1`, and you can add the `video` option to rotate the screen according to the [Boot parameters](bootparam).
+
+```
+video=HDMI-A-1:1920x1080,rotate=90
+```
+
+  </TabItem>
+
+</Tabs>
 
 ## Using MIPI Screen
 
@@ -102,4 +203,5 @@ Dual Screen:
 ```
 
 For more information , please check [X.Org Server RandR](https://en.wikipedia.org/wiki/X.Org_Server#Other_DDX_components).  
-For more on `xorg.conf` persistence configuration see [xorg.conf](https://www.x.org/archive/X11R7.6/doc/man/man5/xorg.conf.5.xhtml).
+For more on `xorg.conf` persistence configuration see [xorg.conf](https://www.x.org/archive/X11R7.6/doc/man/man5/xorg.conf.5.xhtml).  
+For more configurations about the `video` launch option, please see [modedb default video mode support](https://docs.kernel.org/fb/modedb.html).

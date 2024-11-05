@@ -1,6 +1,13 @@
 显示设置只有在你在显示器上操作时可用，你可以通过以下方式进行显示设置。
 
-<a id="system-settings-display-settings"></a>
+:::info
+KDE 和 GDM 会严格遵循自己的设置，如需修改请参考[系统设置-显示设置](display?method=KDE)和[GDM显示设置](display?method=GDM)。
+:::
+
+<Tabs queryString="method">
+
+  <TabItem value="KDE">
+
 ## 系统设置-显示设置
 
 在KDE桌面上，左键点击左下角的 `Application Launcher`，就可以看到 `System Settings` 。
@@ -10,6 +17,76 @@
 你可以在其中修改以下设置：
 ![Display Settings](/img/configuration/display_setting.webp)
 **注意：如果你使用的是多个显示器，也是同样的步骤。**
+
+  </TabItem>
+
+  <TabItem value="GDM">
+
+## GDM显示设置
+
+获取显示器信息：
+
+```bash
+rock@radxa-cm5-io:~$ cat /var/log/Xorg.0.log|grep -e "connected" -e "EDID vendor" \
+-e "Monitor name:" -e "Serial No:" | grep -v "disconnected"
+[  6898.854] (II) modeset(0): Serial No: 2DH76826BL7L #显示器序列号
+[  6898.854] (II) modeset(0): Monitor name: DELL U2417H #显示器型号
+[  6898.855] (II) modeset(0): Output HDMI-1 connected #显示接口名称
+[  6899.751] (II) modeset(0): EDID vendor "DEL", prod id 16616 #显示器厂商
+[  6901.098] (II) modeset(0): EDID vendor "DEL", prod id 16616
+rock@radxa-cm5-io:~$
+```
+
+根据以上信息，修改 `/var/lib/gdm3/.config/monitors.xml` 文件 `monitorspec` 部分：
+
+```xml
+<monitors version="2">
+  <configuration>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <!-- 缩放倍数 -->
+      <scale>1</scale>
+      <primary>yes</primary>
+      <transform>
+        <!-- 顺时针旋转 -->
+        <rotation>left</rotation>
+        <flipped>no</flipped>
+      </transform>
+      <monitor>
+        <monitorspec>
+          <!-- 显示接口名称 -->
+          <connector>HDMI-1</connector>
+          <!-- 显示器厂商 -->
+          <vendor>DEL</vendor>
+          <!-- 显示器型号 -->
+          <product>DELL U2417H</product>
+          <!-- 显示器序列号 -->
+          <serial>2DH76826BL7L</serial>
+        </monitorspec>
+        <mode>
+          <!-- 分辨率宽 -->
+          <width>1920</width>
+          <!-- 分辨率高 -->
+          <height>1080</height>
+          <!-- 刷新率 -->
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+  </configuration>
+</monitors>
+```
+
+重启 `GDM`
+
+```bash
+sudo systemctl restart gdm
+```
+
+  </TabItem>
+
+  <TabItem value="CLI">
 
 ## 命令行设置
 
@@ -47,8 +124,7 @@ DP-1 disconnected (normal left inverted right x axis y axis)
 
 ## 显示旋转
 
-你可以通过修改[系统设置-显示设置](display#system-settings-display-settings)来旋转你的屏幕显示。
-或者你也可以通过命令实现：
+你可以通过以下命令来旋转你的屏幕显示。
 
 ```bash
 Single Screen:
@@ -61,7 +137,7 @@ Single Screen:
    xrandr -rate       # Set refresh rate
 ```
 
-如果你想要持久化此配置可参考以下配置文件（KDE 桌面环境会严格遵循自己的系统设置请参考[系统设置-显示设置](display#system-settings-display-settings)）：
+如果你想要持久化此配置可参考以下配置文件：
 
 ```bash
 root@radxa-zero:~# cat /etc/X11/xorg.conf.d/99-rotate.conf
@@ -71,11 +147,35 @@ Section "Monitor"
 EndSection
 ```
 
+  </TabItem>
+
+  <TabItem value="CMDLINE">
+
+## Kernel 启动参数设置
+
+仅连接需要设置的显示器，然后按照下面的命令查找正在连接的显示端口：
+
+```bash
+rock@radxa-cm5-io:~$ grep -xH 'connected' /sys/class/drm/card*-*/status
+/sys/class/drm/card0-HDMI-A-1/status:connected
+rock@radxa-cm5-io:~$
+```
+
+如上所示，我们需要设置的显示端口名为 `HDMI-A-1`，即可按照[启动参数](bootparam)指导添加 `video` 选项旋转屏幕。
+
+```
+video=HDMI-A-1:1920x1080,rotate=90
+```
+
+  </TabItem>
+
+</Tabs>
+
 ## 使用 MIPI 屏幕
 
 Radxa 的一些产品支持通过带状线缆连接的 MIPI 显示器。但是它们在默认情况下是被禁用的。
 
-你可以从[overlay 菜单](../os-config/rsetup#overlays)获得支持的 MIPI 屏幕型号。
+你可以从 [overlay 菜单](../os-config/rsetup#overlays)获得支持的 MIPI 屏幕型号。
 
 在使用 MIPI 屏幕之前，你需要启用相应的 overlay 并重启。
 
@@ -90,7 +190,7 @@ Radxa 的一些产品支持通过带状线缆连接的 MIPI 显示器。但是�
 
 ## 多屏设置
 
-除设置 之外，以下命令也能够修改显示设置：
+除设置之外，以下命令也能够修改显示设置：
 
 ```bash
 Dual Screen:
@@ -102,5 +202,6 @@ Dual Screen:
    xrandr --output HDMI-1 --right-of DP-1 --auto # DP-1 is the main display, the HDMI-1 is an extension and to the right of DP-1
 ```
 
-更多信息请查看[X.Org Server RandR](https://en.wikipedia.org/wiki/X.Org_Server#Other_DDX_components)。  
-更多关于 `xorg.conf` 的持久化配置请查看 [xorg.conf](https://www.x.org/archive/X11R7.6/doc/man/man5/xorg.conf.5.xhtml)。
+更多信息请查看 [X.Org Server RandR](https://en.wikipedia.org/wiki/X.Org_Server#Other_DDX_components)。  
+更多关于 `xorg.conf` 的持久化配置请查看 [xorg.conf](https://www.x.org/archive/X11R7.6/doc/man/man5/xorg.conf.5.xhtml)。  
+更多关于 `video` 启动选项的配置请查看 [modedb default video mode support](https://docs.kernel.org/fb/modedb.html)。
