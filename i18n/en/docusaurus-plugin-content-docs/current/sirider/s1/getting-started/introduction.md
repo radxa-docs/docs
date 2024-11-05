@@ -5,7 +5,7 @@ description: "Introduces SiRider S1"
 
 # Introduction
 
-SiRider S1 is an industrial single-board computer jointly launched by Radxa, Siengine Technology and Arm China. It integrates Siengine Technology's industrial-grade "Dragon Eagle No.1" 7nm AIoT application processor SE1000-I, Arm China's self-developed "Zhouyi" NPU, and Radxa's industrial product design experience to provide the market with high-performance and reliable industrial-grade products that can meet the diverse application requirements in the future.
+SiRider S1 is an industrial single-board computer jointly launched by Radxa, Siengine Technology and Arm China. It integrates Siengine Technology's industrial-grade "StarEagle No.1" 7nm AIoT application processor SE1000-I, Arm China's self-developed "Zhouyi" NPU, and Radxa's industrial product design experience to provide the market with high-performance and reliable industrial-grade products that can meet the diverse application requirements in the future.
 
 ## Motherboard OverView
 
