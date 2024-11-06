@@ -15,8 +15,8 @@ ROCK S0 v1.1 版本
 ROCK S0 v1.2 版本
 
 [ROCK S0 v1.2 原理图 pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_schematic.pdf)  
-[ROCK S0 v1.2 位号图 pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_smd.pdf)
-[ROCK S0 v1.2 3D stp](https://dl.radxa.com/rockpis0/radxa_rockpi_s0_v1200_pcba_3d_stp.zip)
+[ROCK S0 v1.2 位号图 pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_smd.pdf)  
+[ROCK S0 v1.2 3D stp](https://dl.radxa.com/rockpis0/radxa_rockpi_s0_v1200_pcba_3d_stp.zip)  
 [ROCK S0 v1.2 2D stp](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_2d_dxf.zip)
 
 
