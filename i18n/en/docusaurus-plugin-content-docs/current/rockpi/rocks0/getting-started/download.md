@@ -8,9 +8,22 @@ sidebar_position: 4
 
 ROCK S0 v1.1 Version
 
-[ROCK S0 v1.1 product brief pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_product_brief_Revision_1.0.pdf)  
-[ROCK S0 v1.1 schematic pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_schematic.pdf)  
+[ROCK S0 v1.1 product brief pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_product_brief_Revision_1.0.pdf)
+
+[ROCK S0 v1.1 schematic pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_schematic.pdf)
+
 [ROCK S0 v1.1 smd pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_smd.pdf)
+
+ROCK S0 v1.2 版本
+
+[ROCK S0 v1.2 schematic pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_schematic.pdf)
+
+[ROCK S0 v1.2 smd pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_smd.pdf)
+
+[ROCK S0 v1.2 3D stp](https://dl.radxa.com/rockpis0/radxa_rockpi_s0_v1200_pcba_3d_stp.zip)
+
+[ROCK S0 v1.2 2D dxf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_2d_dxf.zip)
+
 
 ## Tools
 
