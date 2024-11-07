@@ -9,6 +9,18 @@ description: "Buildroot"
 
 We need one Ubuntu 20.04/22.04 x86_64 PC.
 
+We can also use virtual machine
+
+- ubuntu-22.04.5-live-server-amd64 virtual machine with 120G disk used.
+
+## Install build dependencies
+
+```
+sudo apt update
+sudo apt install python2 git rsync gcc g++ make device-tree-compiler bc flex bison lz4 libssl-dev libgmp-dev libmpc-dev expect expect-dev file unzip bzip2 fakeroot bsdmainutils
+sudo ln -s /bin/python2 /bin/python
+```
+
 ## Get rockchip original SDK
 
 - Mega: https://mega.nz/file/JugCGDDC#NNL5_qRDRr-NL6TS3F1FSzkoXFwRCwDTNTW3KAiTtpI
@@ -30,6 +42,7 @@ Use Radxa reposiory, rockchip.
 ```
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
+git fetch radxa
 git checkout -b rk3566_rk3568-linux-5.10 remotes/radxa/rk3566_rk3568-linux-5.10
 ```
 
@@ -38,6 +51,7 @@ Use Radxa repository, kernel.
 ```
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
+git fetch radxa
 git checkout -b linux-5.10-gen-rkr8-buildroot remotes/radxa/linux-5.10-gen-rkr8-buildroot
 ```
 

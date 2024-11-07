@@ -9,6 +9,18 @@ description: "Buildroot"
 
 需要准备一台 Ubuntu 20.04/22.04 x86_64 主机。
 
+也可以使用虚拟主机
+
+- ubuntu-22.04.5-live-server-amd64 虚拟主机，带 120G 硬盘容量。
+
+## 安装编译依赖包
+
+```
+sudo apt update
+sudo apt install python2 git rsync gcc g++ make device-tree-compiler bc flex bison lz4 libssl-dev libgmp-dev libmpc-dev expect expect-dev file unzip bzip2 fakeroot bsdmainutils
+sudo ln -s /bin/python2 /bin/python
+```
+
 ## 获取 Rockchip 原始 SDK
 
 - Mega：https://mega.nz/file/JugCGDDC#NNL5_qRDRr-NL6TS3F1FSzkoXFwRCwDTNTW3KAiTtpI
@@ -30,6 +42,7 @@ tar xvf rk356x_linux5.10_rkr8_sdk.repo.tar
 ```
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
+git fetch radxa
 git checkout -b rk3566_rk3568-linux-5.10 remotes/radxa/rk3566_rk3568-linux-5.10
 ```
 
@@ -38,6 +51,7 @@ git checkout -b rk3566_rk3568-linux-5.10 remotes/radxa/rk3566_rk3568-linux-5.10
 ```
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
+git fetch radxa
 git checkout -b linux-5.10-gen-rkr8-buildroot remotes/radxa/linux-5.10-gen-rkr8-buildroot
 ```
 
