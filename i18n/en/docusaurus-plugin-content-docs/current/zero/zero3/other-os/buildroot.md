@@ -30,6 +30,7 @@ Use Radxa reposiory, rockchip.
 ```
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
+git fetch radxa
 git checkout -b rk3566_rk3568-linux-5.10 remotes/radxa/rk3566_rk3568-linux-5.10
 ```
 
@@ -38,6 +39,7 @@ Use Radxa repository, kernel.
 ```
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
+git fetch radxa
 git checkout -b linux-5.10-gen-rkr8-buildroot remotes/radxa/linux-5.10-gen-rkr8-buildroot
 ```
 
