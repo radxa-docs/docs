@@ -10,7 +10,7 @@ import Images from "./\_image.mdx"
 
 **iStoreOS:**
 
-[istoreos-22.03.7-2024101020-e52c-squashfs.img.gz](https://dl.radxa.com/e/e52c/images/istoreos-22.03.7-2024101020-e52c-squashfs.img.gz)
+[istoreos-22.03.7-2024110111-e52c-squashfs.img.gz](https://fw0.koolcenter.com/iStoreOS/e52c/istoreos-22.03.7-2024110111-e52c-squashfs.img.gz)
 
 **Debian:**
 

@@ -128,13 +128,13 @@ Maskrom button to enter Maskrom mode to complete the flashing.
 
 ### microSD Card Slot
 
-#### 简介
+#### Introduction
 
 Micro SD, known as Micro Secure Digital, is a small memory card that is a variant of the Secure Digital (SD) card. It was developed and introduced by the SD Association to provide expandable storage solutions for portable devices.
 
 ### eMMC
 
-#### 识别
+#### List Disk
 
 ```bash
 $ lsblk
@@ -160,7 +160,7 @@ mmcblk0 is the eMMC.
 104857600 bytes (105 MB, 100 MiB) copied, 0.541958 s, 193 MB/s
 ```
 
-读取速度 193 MB/s
+Read speed: 193 MB/s
 
 #### Write test
 

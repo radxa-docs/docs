@@ -57,7 +57,7 @@ The default username of the iStoreOS background is root, and the password is pas
 
 ### Login Via Serial port
 
-1. 将 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接 Radxa E52C 调试口，波特率设置为1500000
+1. Connect the TYPE-A port of the USB TYPE-A to TYPE-C cable to the computer and the TYPE-C port to the Radxa E52C debug port, and set the baud rate to 1500000.
 
 <img src="/img/e/e52c/radxa-e52c-serial-login1.webp" width="500" alt="radxa-e52c pack" />
 
@@ -71,11 +71,11 @@ The default username of the iStoreOS background is root, and the password is pas
 
 4. If you are on windows system, make sure the CH340 driver is installed on your computer.
 
-Connect the TYPE-A port of the USB TYPE-A to TYPE-C cable to the computer, and the TYPE-C port to the Radxa E52C debug port, and check whether there is a CH340 driver in the device manager of the computer.
+   Connect the TYPE-A port of the USB TYPE-A to TYPE-C cable to the computer, and the TYPE-C port to the Radxa E52C debug port, and check whether there is a CH340 driver in the device manager of the computer.
 
-<img src="/img/e/e52c/radxa-e52c-ch340-install.webp" width="500" alt="radxa-e52c pack" />
+   <img src="/img/e/e52c/radxa-e52c-ch340-install.webp" width="500" alt="radxa-e52c pack" />
 
-You can see the USB-SERIAL CH340 in the picture above, it means there is a driver, if not, please install the [CH340 driver](https://www.wch.cn/download/CH341SER_EXE.html).
+   You can see the USB-SERIAL CH340 in the picture above, it means there is a driver, if not, please install the [CH340 driver](https://www.wch.cn/download/CH341SER_EXE.html).
 
 5. Use the serial port tool
 
@@ -220,21 +220,21 @@ Picocom is a serial port utility that can be used on a Mac and supports multiple
 
 <img src="/img/e/e52c/radxa-e52c-power2.webp" width="500" alt="radxa-e52c pack" />
 
-4.Use Angryip to find IP
+4. Use Angryip to find IP
 
-This method can be used to find IP address when you can't directly operate the motherboard to get no screen or remote IP address.
+   This method can be used to find IP address when you can't directly operate the motherboard to get no screen or remote IP address.
 
-The default ip address of the iStoreOS system is 192.168.100.1.
+   The default ip address of the iStoreOS system is 192.168.100.1.
 
-If the user has changed it himself, he can use the Angryip tool to look it up.
+   If the user has changed it himself, he can use the Angryip tool to look it up.
 
-    - First of all, the host needs to download [Angryip](https://angryip.org/download/), and then make sure the host and motherboard are in the same LAN.
+   - First of all, the host needs to download [Angryip](https://angryip.org/download/), and then make sure the host and motherboard are in the same LAN.
 
-    - Open Angryip, select the IP range 192.168.2.0 - 192.168.2.255 (select the network segment where the host computer and motherboard are located), click Start, as shown in the figure.
+   - Open Angryip, select the IP range 192.168.2.0 - 192.168.2.255 (select the network segment where the host computer and motherboard are located), click Start, as shown in the figure.
 
-    - ![Angryip](/img/configuration/ssh-Angryip.webp)
+   - ![Angryip](/img/configuration/ssh-Angryip.webp)
 
-    - Ctrl + F Look for the `e52c` keyword to find the IP address of the motherboard.
+   - Ctrl + F Look for the `e52c` keyword to find the IP address of the motherboard.
 
 5. Connecting to Radxa E52C via SSH
 
