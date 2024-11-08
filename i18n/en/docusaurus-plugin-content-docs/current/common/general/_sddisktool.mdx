@@ -1,0 +1,29 @@
+SDDiskTool is Rockchip's official SD card flashing tool.
+
+## 1.Download SDDiskTool
+
+SDDiskTool currently only has a Windows version, so please use it on a Windows computer.
+
+Download link:[SDDiskTool_en_v1.74.zip](https://dl.radxa.com/tools/windows/SDDiskTool_en_v1.74.zip)
+
+## 2.Flash SD card
+
+We need to flash the corresponding complete image in RK format.
+
+Complete image in RK format refers to **The `update.img` image compiled using a series of Linux SDKs released by Rockchip based on Buildroot**
+
+Open the executable file `SD_Firmware_Tool.exe` of SDDiskTool and insert the SD card.
+
+:::warning
+When multiple storage devices are connected, please ensure you select the correct SD card to flash, otherwise other storage devices may be overwritten.
+:::
+
+Select the SD card to flash from the removable disk devices, choose **SD Boot** as the function mode, ensure that the firmware upgrade is a complete image in RK format, and finally click **Create** to flash the image.
+
+<img
+  src="/img/common/sddisktool-en.webp"
+  alt="ssdisk tool"
+  style={{ width: "80" }}
+/>
+
+Please be patient during the flashing process. The image contains many partitions, and if the image is large, the flashing time will be longer.

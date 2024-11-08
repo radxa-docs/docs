@@ -1,0 +1,29 @@
+SDDiskTool 是瑞芯微官方的 SD 卡烧录工具。
+
+## 1.下载 SDDiskTool
+
+SDDiskTool 目前只有 Windows 版本，所以请在 Windows 电脑下操作。
+
+下载链接：[SDDiskTool_cn_v1.74.zip](https://dl.radxa.com/tools/windows/SDDiskTool_cn_v1.74.zip)
+
+## 2.烧录 SD 卡
+
+我们需要烧录相对应的 RK 格式的完整镜像。
+
+RK 格式的完整镜像指**使用 Rockchip 基于 Buildroot 发布的一系列 Linux SDK 所编译出的 `update.img` 镜像**
+
+打开 SDDiskTool 的可执行文件 SD_Firmware_Tool.exe，插入 SD 卡。
+
+:::warning
+插入多个存储设备时，请确认好要烧录的 SD 卡，否则将导致其他存储设备被覆盖。
+:::
+
+可移动磁盘设备选择要烧录的 SD 卡，功能模式选择 **SD 启动**，升级固件要是 RK 格式的完整镜像，最后点击**开始创建**烧录镜像。
+
+<img
+  src="/img/common/sddisktool-cn.webp"
+  alt="ssdisk tool"
+  style={{ width: "80" }}
+/>
+
+烧录过程请耐心等待，镜像分区很多，如果镜像很大，烧录时间会较长。
