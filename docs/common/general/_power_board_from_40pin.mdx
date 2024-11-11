@@ -1,0 +1,38 @@
+# 如何通过 GPIO 给板子供电
+
+大部分 radxa sbc 都可以从 40 PIN 上的 GPIO 接口来供电启动，少部分启动电压超过 5V 的除外.  5B/5B+ 5V可以启动，这里以 5B+ 为例来进行讲解。
+
+## 准备工作
+
+- 5V 电源
+- 杜邦线 4根
+- ROCK 5B+ 一块
+
+## 步骤
+
+:::caution
+供电的电源必须是稳定 5V 输出的电源，如果出现有电源波动超过5.2V，可能会烧掉板子
+:::
+
+- 先确定 40 PIN 上 5V 和 GND 的 GPIO 位置 (一般在该产品文档的**硬件信息**部分能找到)
+  
+  <img src="/img//rock5b/rock5bp_40pin_power_3.webp" alt="rock 40 pin" width="300" />
+
+- 用杜邦线分别接电源的正负极, 2 根接正极, 2 根接负极.
+
+- 调整电源电压为 5V，然后电源上电
+
+- 用一端接电源正极的杜邦线接 40 PIN 的 5V 输入的 PIN 上，负极的杜邦线接到 40 PIN 的GND上
+
+  <img src="/img//rock5b/rock5bp_40pin_power_1.webp" alt="rock 40 pin power" width="700" />
+  <img src="/img//rock5b/rock5bp_40pin_power_2.webp" alt="rock 40 pin power" width="700" />
+
+## 常见问题
+
+- 是否一定要同时接 2 个 5V 的 PIN ?
+
+  这个看实际情况，如果板子的负载较小，功耗较低， 接一个 5V GPIO 供电也可以满足要求。
+
+- GPIO 供电 最大支持的功率是多少?
+  
+  在接两个 5V 输入和 所有GND的情况下 支持功率可以到 25W. 另外如果达不到25W，建议使用好一点的线材.

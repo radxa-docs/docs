@@ -1,0 +1,35 @@
+# How to power the board via GPIO
+
+Most radxa sbc's can be powered from the GPIO connector on the 40 PIN, except for a few that have a startup voltage of more than 5V. The 5B/5B+ can be powered up with 5V, so we will use the 5B+ as an example.
+
+## Preparation
+
+- 5V power supply
+- Dupont cable 4 pcs
+- ROCK 5B+ 1 piece
+
+## Steps
+
+:::caution
+The power supply must be a stable 5V output, if the power supply fluctuates more than 5.2V, it may burn the board.
+:::
+
+- Find 5V and GND in 40 PIN GPIO (you can find the infomation at **Hardware Info** Part of the product's docs)
+
+  <img src="/img//rock5b/rock5bp_40pin_power_2.webp" alt="rock 40 pin power" width="700" />
+
+- Use DuPont cables to connect the positive and negative terminals of the power supply, 2 to the positive terminal and 2 to the negative terminal.
+- Adjust the power supply voltage to 5V, then power on the board.
+- Connect the positive end of the DuPont cable to the 5V input PIN of the 40 PIN, and the negative end of the DuPont cable to the GND of the 40 PIN.
+  <img src="/img//rock5b/rock5bp_40pin_power_3.webp" alt="rock 40 pin" width="300" />
+  <img src="/img//rock5b/rock5bp_40pin_power_1.webp" alt="rock 40 pin power" width="700" />
+
+## Frequently Asked Questions
+
+- Is it necessary to connect 2 5V PINs at the same time?
+
+  It depends on the actual situation, if the load of the board is small and the power consumption is low, connecting one 5V GPIO supply can also meet the requirement.
+
+- What is the maximum power supported by GPIO supply?
+
+  If you connect two 5V inputs and all GNDs, it can support up to 25W. If you can't reach 25W, it is recommended to use better cables.
