@@ -14,7 +14,7 @@ import Images from "./\_image.mdx"
 
 **Debian:**
 
-[radxa-e52c_bookworm_cli_b3.output.img.xz](https://github.com/radxa-build/radxa-e52c/releases/download/rsdk-b3/radxa-e52c_bookworm_cli_b3.output.img.xz)
+[radxa-e52c_bookworm_cli_b4.output.img.xz](https://github.com/radxa-build/radxa-e52c/releases/download/rsdk-b4/radxa-e52c_bookworm_cli_b4.output.img.xz)
 
 ## Loader
 
