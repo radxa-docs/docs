@@ -1,29 +1,96 @@
-SDDiskTool 是瑞芯微官方的 SD 卡烧录工具。
+**SDDiskTool 是瑞芯微官方的 SD 卡烧录工具。**
 
-## 1.下载 SDDiskTool
+- 下载 SDDiskTool
 
-SDDiskTool 目前只有 Windows 版本，所以请在 Windows 电脑下操作。
+  - SDDiskTool 目前只有 Windows 版本，所以请在 Windows 电脑下操作。
 
-下载链接：[SDDiskTool_cn_v1.74.zip](https://dl.radxa.com/tools/windows/SDDiskTool_cn_v1.74.zip)
+  - 下载链接：[SDDiskTool_cn_v1.74.zip](https://dl.radxa.com/tools/windows/SDDiskTool_cn_v1.74.zip)
 
-## 2.烧录 SD 卡
+- 烧录 SD 卡
 
-我们需要烧录相对应的 RK 格式的完整镜像。
+  - 我们需要烧录相对应的 RK 格式的完整镜像。
 
-RK 格式的完整镜像指**使用 Rockchip 基于 Buildroot 发布的一系列 Linux SDK 所编译出的 `update.img` 镜像**
+  - RK 格式的完整镜像指**使用 Rockchip 基于 Buildroot 发布的一系列 Linux SDK 所编译出的 `update.img` 镜像**
 
-打开 SDDiskTool 的可执行文件 SD_Firmware_Tool.exe，插入 SD 卡。
+  - 打开 SDDiskTool 的可执行文件 SD_Firmware_Tool.exe，插入 SD 卡。
 
-:::warning
-插入多个存储设备时，请确认好要烧录的 SD 卡，否则将导致其他存储设备被覆盖。
-:::
+    :::warning
+    插入多个存储设备时，请确认好要烧录的 SD 卡，否则将导致其他存储设备被覆盖。
+    :::
 
-可移动磁盘设备选择要烧录的 SD 卡，功能模式选择 **SD 启动**，升级固件要是 RK 格式的完整镜像，最后点击**开始创建**烧录镜像。
+  - 可移动磁盘设备选择要烧录的 SD 卡，功能模式选择 **SD 启动**，升级固件要是 RK 格式的完整镜像，最后点击**开始创建**烧录镜像。
 
-<img
-  src="/img/common/sddisktool-cn.webp"
-  alt="ssdisk tool"
-  style={{ width: "80" }}
-/>
+    <img
+      src="/img/common/sddisktool-cn.webp"
+      alt="ssdisk tool"
+      style={{ width: "80" }}
+    />
 
-烧录过程请耐心等待，镜像分区很多，如果镜像很大，烧录时间会较长。
+  - 烧录过程请耐心等待，镜像分区很多，如果镜像很大，烧录时间会较长。
+
+**在烧录时，如果遇到清空 MBR 的问题，需要把 SD 卡磁盘标签类型从 dos 改为 gpt**
+
+<Tabs queryString="sdcard">
+
+<TabItem value="windows" label="Windows" default>
+
+- windows 下使用命令提示符删除所有分区并转换为 gpt
+
+  - 按 Win + X，选择 Windows Terminal（管理员） 或 命令提示符（管理员）。
+
+  - 输入以下命令并按回车：
+
+    ```
+    diskpart
+    ```
+
+  - 然后，输入以下命令来列出所有磁盘：
+
+    ```
+    list disk
+    ```
+
+  - 找到你的 SD 卡（假设它是磁盘 3），输入：
+
+    ```
+    select disk 1
+    ```
+
+    - （如果你的 SD 卡是其他磁盘号，请相应修改 3 为正确的数字。）
+
+  - 清除磁盘上的所有分区：
+
+    ```
+    clean
+    ```
+
+    - （这将删除 SD 卡上的所有分区和数据。）
+
+  - 转换磁盘为 GPT 格式：
+
+    ```
+    convert gpt
+    ```
+
+  - 输入 exit 退出 diskpart 工具。
+
+</TabItem>
+
+<TabItem value="linux" label="Linux">
+
+- Linux 下用 fdisk 命令将标签格式改为 gpt
+
+  - 找到你的 SD 卡（假设它是 /dev/sdb ），输入：
+
+    ```
+    sudo fdisk /dev/sdb
+    ```
+
+  - 输入 `p` ，会显示当前磁盘的标签格式及分区
+
+  - 接着输入 `g` 将磁盘转换为 gpt 格式
+
+  - 然后输入 `wq` 保存退出即可
+
+</TabItem>
+</Tabs>
