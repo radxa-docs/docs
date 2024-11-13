@@ -1,0 +1,47 @@
+---
+sidebar_position: 2
+title: Install OS
+---
+
+import Etcher from "../../../../common/general/_etcherV2.mdx";
+
+This document introduces how to install Android image to Radxa CM3I.
+
+CM3I can boot from microSD card or eMMC, so install os on microSD card or eMMC based on your choose.
+
+## Image download
+
+Please download the system image from [Summary of resource downloads](../../download).
+
+## Install OS
+
+<Tabs queryString="target">
+
+<TabItem value="microsd" label="Installing the system to EMMC">
+
+Installing the system to EMMC refer to <a href="../../low-level-dev/maskrom">Install OS via USB Section</a>
+
+</TabItem>
+
+<TabItem value="emmc" label="Install the system to the microSD card">
+
+#### MicroSD card preparation
+
+Insert the MicroSD card into the SD card reader, and then insert the card reader into the USB port of the PC.
+
+#### Image burning
+
+<Etcher />
+
+#### Boot the system
+
+After successfully burning the MicroSD Card according to the above steps, insert the MicroSD Card into the MicroSD Card slot (as shown in the following figure), and then power on the system, the system will start booting up and HDMI will display the desktop.
+
+<img
+  src="/img/cm3i/radxa-cm3i-io-board-sd-slot.webp"
+  alt="sd slot"
+  style={{ width: "60%" }}
+/>
+
+</TabItem>
+</Tabs>

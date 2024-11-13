@@ -1,0 +1,47 @@
+---
+sidebar_position: 2
+title: 系统安装
+---
+
+import Etcher from "../../../../common/general/_etcherV2.mdx";
+
+本文档将介绍如何把 Android 镜像安装到 Radxa CM3I。
+
+CM3I 可以从 microSD 卡启动，也可以从板载 EMMC 启动，基于不同的启动方式，安装系统到不同的介质上.
+
+## 镜像下载
+
+请到 [资源下载汇总](../../download) 下载系统镜像
+
+## 系统安装
+
+<Tabs queryString="target">
+
+<TabItem value="microsd" label="安装系统到 EMMC">
+
+安装系统到 EMMC 参考 <a href="../../low-level-dev/maskrom">通过 USB 刷机部分</a>
+
+</TabItem>
+
+<TabItem value="emmc" label="安装系统到 microSD 卡">
+
+#### MicroSD 卡准备
+
+将 MicroSD 卡插入到 SD 卡读卡器中，然后将读卡器插入到 PC 的 USB 端口上
+
+#### 镜像烧录
+
+<Etcher />
+
+#### 启动系统
+
+按照上述步骤成功烧录 MicroSD Card 后， 将 MicroSD Card 插入到 MicroSD Card 插槽内 （如下图所示），然后上电，系统开始启动，HDMI显示桌面。
+
+<img
+  src="/img/cm3i/radxa-cm3i-io-board-sd-slot.webp"
+  alt="sd slot"
+  style={{ width: "60%" }}
+/>
+
+</TabItem>
+</Tabs>
