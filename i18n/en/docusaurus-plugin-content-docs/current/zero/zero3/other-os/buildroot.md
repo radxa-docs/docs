@@ -68,6 +68,6 @@ Navigate to the top-level directory of the SDK, run command.
 And select defconfig `rockchip_rk3566_radxa_zero_3e_defconfig`.
 The target images will be stored on rockdev directory.
 
-## Use the SDDiskTool burning tool to map the compiled image to the SDCard
+## Use the SDDiskTool to flash the image into the SDCard
 
 <SSDISKTOOL />
