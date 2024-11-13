@@ -18,6 +18,8 @@ sidebar_position: 2
 
 - [Radxa CM3I IO Board Debian b4](https://github.com/radxa-build/radxa-cm3i-io/releases/download/b4/radxa-cm3i-io_debian_bullseye_xfce_b4.img.xz)
 
+- [Android11 Image](https://github.com/radxa/manifests/releases/download/android11-radxa-20240724/Radxa_CM3I_Android11_r12-20240724-gpt.zip)
+
 ## 硬件设计
 
 <Tabs queryString="model">
