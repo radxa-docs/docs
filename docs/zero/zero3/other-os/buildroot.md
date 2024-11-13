@@ -3,6 +3,8 @@ sidebar_position: 10
 description: "Buildroot"
 ---
 
+import SSDISKTOOL from "../../../common/general/\_sddisktool.mdx"
+
 # Buildroot
 
 ## 环境准备
@@ -66,3 +68,7 @@ git checkout -b linux-5.10-gen-rkr8-buildroot remotes/radxa/linux-5.10-gen-rkr8-
 然后选中配置文件 `rockchip_rk3566_radxa_zero_3e_defconfig`。
 
 构建完成后，将会在 `rockdev/` 目录下生成镜像。
+
+## 使用 SDDiskTool 将生成的镜像烧录到 SDCard 中
+
+<SSDISKTOOL />

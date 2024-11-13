@@ -1,29 +1,96 @@
-SDDiskTool is Rockchip's official SD card flashing tool.
+**SDDiskTool is Rockchip's official SD card flashing tool.**
 
-## 1.Download SDDiskTool
+- Download SDDiskTool
 
-SDDiskTool currently only has a Windows version, so please use it on a Windows computer.
+  - SDDiskTool currently only has a Windows version, so please use it on a Windows computer.
 
-Download link:[SDDiskTool_en_v1.74.zip](https://dl.radxa.com/tools/windows/SDDiskTool_en_v1.74.zip)
+  - Download link:[SDDiskTool_en_v1.74.zip](https://dl.radxa.com/tools/windows/SDDiskTool_en_v1.74.zip)
 
-## 2.Flash SD card
+- Flash SD card
 
-We need to flash the corresponding complete image in RK format.
+  - We need to flash the corresponding complete image in RK format.
 
-Complete image in RK format refers to **The `update.img` image compiled using a series of Linux SDKs released by Rockchip based on Buildroot**
+  - Complete image in RK format refers to **The `update.img` image compiled using a series of Linux SDKs released by Rockchip based on Buildroot**
 
-Open the executable file `SD_Firmware_Tool.exe` of SDDiskTool and insert the SD card.
+  - Open the executable file `SD_Firmware_Tool.exe` of SDDiskTool and insert the SD card.
 
-:::warning
-When multiple storage devices are connected, please ensure you select the correct SD card to flash, otherwise other storage devices may be overwritten.
-:::
+    :::warning
+    When multiple storage devices are connected, please ensure you select the correct SD card to flash, otherwise other storage devices may be overwritten.
+    :::
 
-Select the SD card to flash from the removable disk devices, choose **SD Boot** as the function mode, ensure that the firmware upgrade is a complete image in RK format, and finally click **Create** to flash the image.
+  - Select the SD card to flash from the removable disk devices, choose **SD Boot** as the function mode, ensure that the firmware upgrade is a complete image in RK format, and finally click **Create** to flash the image.
 
-<img
-  src="/img/common/sddisktool-en.webp"
-  alt="ssdisk tool"
-  style={{ width: "80" }}
-/>
+    <img
+      src="/img/common/sddisktool-en.webp"
+      alt="ssdisk tool"
+      style={{ width: "80" }}
+    />
 
-Please be patient during the flashing process. The image contains many partitions, and if the image is large, the flashing time will be longer.
+  - Please be patient during the flashing process. The image contains many partitions, and if the image is large, the flashing time will be longer.
+
+**If you encounter problems clearing the MBR while burning, you need to change the SD card disk label type from dos to gpt.**
+
+<Tabs queryString="sdcard">
+
+<TabItem value="windows" label="Windows" default>
+
+- Delete all partitions and convert to gpt using command prompt under windows
+
+  - Press Win + X and select Windows Terminal (Administrator) or Command Prompt (Administrator).
+
+  - Enter the following command and press Enter:
+
+    ```
+    diskpart
+    ```
+
+  - Then, enter the following command to list all disks:
+
+    ```
+    list disk
+    ```
+
+  - Locate your SD card (assuming it is disk 3) and enter:
+
+    ```
+    select disk 1
+    ```
+
+    - (If your SD card has a different disk number, change 3 to the correct number accordingly.)
+
+  - Clear all partitions on the disk:
+
+    ```
+    clean
+    ```
+
+    - (This deletes all partitions and data on the SD card.)
+
+  - Converts a disk to GPT format:
+
+    ```
+    convert gpt
+    ```
+
+  - Type `exit` to exit the diskpart utility.
+
+</TabItem>
+
+<TabItem value="linux" label="Linux">
+
+- Use the fdisk command to change the label format to gpt on Linux.
+
+  - Find your SD card (assuming it's /dev/sdb) and enter:
+
+    ```
+    sudo fdisk /dev/sdb
+    ```
+
+  - Type `p` and the label format and partition of the current disk will be displayed.
+
+  - Then type `g` to convert the disk to gpt format
+
+  - Then just type `wq` to save and exit.
+
+</TabItem>
+</Tabs>
