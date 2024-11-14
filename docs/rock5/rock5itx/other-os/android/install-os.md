@@ -177,9 +177,7 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 
 ## 系统安装
 
-1. 将micro usb 线缆连接到主机
-
-2. 进入 maskrom 模式
+进入 maskrom 模式
 
 - 断开开发板电源
 - 移除 SD 卡，将 NVME ssd 插入到 ROCK 5 ITX 的 M.2 插槽内

@@ -21,6 +21,10 @@ $ repo sync -d -c -j4
 
 ## build
 
+There are two ways to compile an image: Full compilation and Fartial compilation. Full compilation takes a longer time, while partial compilation takes a shorter time
+After the code download is completed, the first compilation should use full compilation. In the subsequent debugging process, it is recommended to use partial compilation, such as compiling the kernel separately if only the kernel has been modified
+
+### Full compilation 
 Suitable for first compilation
 
 Rock5B
@@ -43,11 +47,9 @@ radxa:rock-android12 $ ./build.sh -UACKup
 
 Wait for the compilation to complete and you can find the image in the IMAGE directory
 
-### Compile separately
+### Partial compilation
 
 Suitable for compiling after minor modifications
-
-For example, only modify
 
 U-boot
 
