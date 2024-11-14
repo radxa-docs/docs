@@ -1,0 +1,76 @@
+## GPIOD 简介
+
+为了便于 gpio 测试与控制，在保留传统 sysfs 的情况下集成了 libgpiod 到 Android 系统中。用户可以使用 `libgpiod` 来于 GPIO 字符设备进行交互。
+
+### 主要特点
+
+- 简单易用：`libgpiod` 提供了简洁的 API，使得控制和操作 GPIO 设备变得简单易懂。开发者只需了解基本的 GPIO 概念和函数接口即可使用。
+- 高效的事件监听：`libgpiod` 提供了用于异步事件监听的功能，例如等待 GPIO 状态变化等。这使得开发者可以实现高效的事件驱动应用程序。
+- GPIO 规格支持：`libgpiod` 提供了对不同 GPIO 规格和编号方式的支持，包括基于 GPIO 编号和基于物理引脚编号两种方式。
+
+### 命令行工具
+
+`libgpiod` 提供了命令行工具，用于查看和控制 GPIO 设备。
+
+#### `gpiodetect`
+
+列出系统中所有 GPIO 控制器：
+
+```bash
+radxa：/$ gpiodetect
+gpiochip0 [gpio0] (32 lines)
+gpiochip1 [gpio1] (32 lines)
+gpiochip2 [gpio2] (32 lines)
+gpiochip3 [gpio3] (32 lines)
+gpiochip4 [gpio4] (32 lines)
+```
+
+#### `gpioinfo`
+
+显示 GPIO 设备信息：
+
+```bash
+radxa：/$ gpioinfo 0
+gpiochip0 - 85 lines:
+        line   0:     "PIN_27"       unused   input  active-high
+        line   1:     "PIN_28"       unused   input  active-high
+        line   2:      "PIN_7"       unused   input  active-high
+        line   3:     "PIN_11"       unused   input  active-high
+        line   4:     "PIN_13"       unused   input  active-high
+        line   5:     "PIN_15"       unused   input  active-high
+        line   6:     "PIN_18"       unused   input  active-high
+        line   7:     "PIN_40"       unused   input  active-high
+        line   8:      unnamed       unused   input  active-high
+        line   9:      unnamed       unused   input  active-high
+...
+```
+
+:::info
+在使用 'libgpiod' 命令行工具控制 GPIO 时需确保 GPIO 为 unused 状态
+:::
+
+#### `gpioget`
+
+设置 GPIO 为输入模式，并获取 GPIO 的输入状态：
+
+```bash
+radxa：/$ gpioget gpiochip0 0
+1
+```
+
+#### `gpioset`
+
+设置 GPIO 为输出模式，并设置输出状态：
+
+```bash
+radxa：/$ gpioset gpiochip0 0=1
+```
+
+#### `gpiomon`
+
+监控 GPIO 事件：
+
+```bash
+radxa：/$ gpiomon gpiochip0 0
+(GPIO event output)
+```
