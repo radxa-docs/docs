@@ -1,0 +1,106 @@
+:::info
+Rockchip Anti Copy Board technology solutions are divided into three levels: low-level solution, mid-level solution and high-level solution.  
+The low-level solution can directly refer to the
+[Rockchip Anti Copy Board Developer's Guide](https://gitlab.com/rockchip_linux_sdk_6.1/linux/bsp/docs/-/raw/en/Common/SECURITY/Rockchip_Developer_Guide_Anti_Copy_Board_EN.pdf?ref_type=heads&inline=false)
+to develop anticopy board applications on our products without modifying the bootloader.
+
+Mid-level solution and high-level solution rely on enabling BL32 to run optee to read/write OTP data, you can continue to refer to `Rockchip Anti Copy Board Developer's Guide` for anticopy board applications development after [Enable BL32](#enable-bl32) in the following sections.
+:::
+
+:::warning
+The OTP storage of each chip can only be written once, so please exercise caution. Radxa is not responsible for the consequences of user error.
+:::
+
+## Enable BL32
+
+### Get code
+
+Compile and package the bootloader once according to [U-boot Development](./u-boot) to compile and package the bootloader once.
+
+### Enable BL32 and compile the package again
+
+```bash
+# bsp repo root directory
+mv u-boot/rknext/0101-enable-package-bl32.patch.disable u-boot/rknext/0101-enable-package-bl32.patch
+echo "CONFIG_OPTEE_ALWAYS_USE_SECURITY_PARTITION=y" >> u-boot/rknext/kconfig.conf
+./bsp u-boot rknext
+```
+
+### Install and flash the bootloader
+
+Copy the `deb` package to the board and use `setup.sh` to flash the bootloader according to [U-boot development](./u-boot).
+
+## Q&A
+
+### Error reported when reading or writing data when using the low-level solution?
+
+Check if you have used `rsetup` [System Update](../radxa-os/rsetup#system-update) and [U-boot](../radxa-os/rsetup#update-bootloader).
+
+### How is `mid.bin` generated for mid-level solution?
+
+```bash
+# You can change the parameter after echo to the data you want.
+echo "00112233445566778899AABBCCDDEEFF" > mid.hex && xxd -r -p mid.hex mid.bin
+```
+
+### Error reported when reading or writing data when using the mid-level solution and high-level solution
+
+The `tee-supplicant` service may be missing.
+
+```bash
+sudo apt install tee-supplicant python3-pycryptodome optee-client-dev libteec1 gcc-arm-linux-gnueabihf
+sudo systemctl enable --now tee-supplicant
+```
+
+May forget to copy `optee` Trusted Applications
+
+```bash
+sudo cp rk_tee_user/v2/out/ta/rk_anti_copy_board/3d4fc699-2065-7bb9-33c7-b6529b43c91a.ta /lib/optee_armtz
+```
+
+### How to get the `BoardProofTool`, `ProofDll` source code and `rk_tee_user` mentioned in Rockchip official documentation?
+
+`BoardProofTool`: [BoardProofTool_v1.01_20240823_02.zip](https://dl.radxa.com/tools/windows/BoardProofTool_v1.01_20240823_02.zip)
+
+`ProofDll` source code: [ProofDll.zip](https://dl.radxa.com/tools/windows/ProofDll.zip)
+
+`rk_tee_user`:
+
+```
+git clone https://gitlab.com/rockchip_linux_sdk_6.1/android/rk/platform/system/rk_tee_user.git -b develop-next
+```
+
+### How to compile `rk_tee_user` on board side?
+
+Install the dependencies:
+
+```bash
+sudo apt install tee-supplicant python3-pycryptodome optee-client-dev \
+libteec1 build-essential crossbuild-essential-armhf
+sudo systemctl enable --now tee-supplicant
+```
+
+Refer to the diff below and modify the `build.sh` build script:
+
+```diff
+diff --git a/v2/build.sh b/v2/build.sh
+index 35a39f4..65f4168 100755
+--- a/v2/build.sh
++++ b/v2/build.sh
+@@ -19,10 +19,10 @@ else
+        if [ ! -d "$TOOLCHAIN_PREBUILTS" ]; then
+                TOOLCHAIN_PREBUILTS=$WORK_DIR_TOP/../../../prebuilts
+        fi
+-       TOOLCHAIN_PATH_ARM32=$TOOLCHAIN_PREBUILTS/gcc/linux-x86/arm/gcc-arm-10.2-2020.11-x86_64-arm-none-linux-gnueabihf/bin
+-       TOOLCHAIN_PATH_AARCH64=$TOOLCHAIN_PREBUILTS/gcc/linux-x86/aarch64/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin
+-       CROSS_COMPILE32=arm-none-linux-gnueabihf-
+-       CROSS_COMPILE64=aarch64-none-linux-gnu-
++       TOOLCHAIN_PATH_ARM32=/usr/bin/
++       TOOLCHAIN_PATH_AARCH64=/usr/bin
++       CROSS_COMPILE32=arm-linux-gnueabihf-
++       CROSS_COMPILE64=aarch64-linux-gnu-
+ fi
+
+ if [ -z "$AARCH64_TOOLCHAIN" ]; then
+
+```
