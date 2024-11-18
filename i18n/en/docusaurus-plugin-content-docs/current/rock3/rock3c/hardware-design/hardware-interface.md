@@ -28,7 +28,6 @@ voltage range
 | Type | Voltage | Tolerance |
 | ---- | ------- | --------- |
 | GPIO | 3.3V    | 3.63V     |
-| ADC  | 1.8V    | 1.98V     |
 
 #### GPIO Interfaces
 

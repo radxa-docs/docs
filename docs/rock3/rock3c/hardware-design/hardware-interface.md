@@ -28,7 +28,6 @@ sidebar_position: 4
 | Type | Voltage | Tolerance |
 | ---- | ------- | --------- |
 | GPIO | 3.3V    | 3.63V     |
-| ADC  | 1.8V    | 1.98V     |
 
 #### GPIO 接口
 
