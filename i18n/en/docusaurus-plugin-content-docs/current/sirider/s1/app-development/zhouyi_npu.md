@@ -2,236 +2,108 @@
 sidebar_position: 1
 ---
 
-# Zhouyi Z2 AIPU
+# Zhouyi AIPU SDK
 
-The "Zhouyi" AIPU is an innovative AI-specific processor independently developed by Arm China for deep learning. It features an innovative architecture design, providing a complete hardware and software ecosystem with the best balance of PPA (Performance, Power, Area).  
-Arm China also provides a range of tools for "Zhouyi" AIPU customers to assist in development, including simulators, compilers, and debuggers for data collection and analysis.  
-The "Zhouyi" AIPU supports mainstream AI frameworks, including TensorFlow and ONNX, and will support more extended frameworks in the future.
+The "Zhouyi" AIPU is an innovative AI processor specifically designed for deep learning by Arm China. It features a unique architecture, providing a complete hardware and software ecosystem with optimal PPA balance. Arm China also offers a range of tools for "Zhouyi" AIPU customers to assist with development, including simulators, compilers, and debuggers for data collection and analysis.
 
-The "Zhouyi" Z2 AIPU is primarily targeted at high-end security, intelligent cockpits and ADAS (Advanced Driver Assistance Systems), edge servers, and other application scenarios.
+The "Zhouyi" AIPU supports mainstream AI frameworks such as TensorFlow and ONNX and will extend to support more frameworks in the future.
 
-## Quick Example
+The "Zhouyi" Z2 AIPU is primarily designed for mid-to-high-end applications, including security, smart cockpits, ADAS, and edge servers.
 
-Radxa provides a ready-to-use object classification example, aiming for users to directly use the AIPU to infer the ResNet50 model on Sirider S1, eliminating the need for complex model compilation and code execution. This is the best choice for users who want to use the AIPU without compiling models from scratch. If you are interested in the complete workflow, please refer to the [Zhouyi Z2 AIPU User Guide](zhouyi_npu#zhouyi-z2-aipu-user-guide).
+## Zhouyi AIPU SDK Installation Guide
 
-- Clone the repository
-  ```bash
-  git clone https://github.com/zifeng-radxa/siriders1_NPU_example.git
-  ```
-- Install dependencies
-  ```bash
-  cd siriders1_NPU_example
-  pip3 install -r requirements.txt
-  ```
-- Generate input file for the model
+:::tip
+The Zhouyi AIPU SDK must be installed on an X86 platform computer.
+:::
+The Zhouyi SDK is a full-stack platform designed to provide users with rapid development and deployment capabilities. Its overall architecture is shown below:  
+![input.webp](/img/sirider/s1/aipu_0.webp)
 
-  ```bash
-  python3 input_gen.py --img_path <your_image_path>
-  ```
+### Preparing the Installation Environment
 
-- Model inference
-  ```bash
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)/libs
-  ./aipu_test aipu_mlperf_resnet50.bin input_3_224_224.bin
-  ```
+The Zhouyi SDK requires a clean Python 3.8 environment. Before proceeding, ensure you have Python 3.8 set up.
 
-## Zhouyi Z2 AIPU User Guide
+- _(Optional)_ Install [Anaconda](https://www.anaconda.com/)
 
-### Install Zhouyi AIPU SDK on x86 PC
+  If Python 3.8 (the required version) is not installed, or multiple versions of Python are present, it is recommended to use [Anaconda](https://www.anaconda.com/) to create a new Python 3.8 environment.
 
-The Zhouyi SDK is a full-stack platform that provides users with rapid development and deployment capabilities.
+  - **Install Anaconda**
 
-![image](https://user-images.githubusercontent.com/85479712/198521602-49e13a31-bb49-424f-b782-5108274d63c3.png)
+    Open a terminal window and run the following command to check if Anaconda is installed. If installed, skip these steps.
 
-- Prepare a python 3.8 environment
+    ```bash
+    $ conda --version
+    conda 23.10.0
+    ```
 
-  - (Optional) Install [Anaconda](https://www.anaconda.com/)
+    If you see `conda: command not found`, it indicates Anaconda is not installed. Please refer to the [Anaconda](https://www.anaconda.com/) website for installation instructions.
 
-    If Python 3.8 (required version) is not installed on your system or if you have multiple Python versions, it is recommended to use [Anaconda](https://www.anaconda.com/) to create a new Python 3.8 environment.
+  - **Create a Conda Environment**
 
-    - Install Anaconda
+    ```bash
+    conda create -n aipu python=3.8
+    ```
 
-      To check if Anaconda is installed, run the following command in the terminal. If it is installed, you can skip this step.
+  - **Activate the `aipu` Conda Environment**
 
-      ```bash
-      $ conda --version
-      conda 23.10.0
-      ```
+    ```bash
+    conda activate aipu
+    ```
 
-      If you see `conda: command not found`, Anaconda is not installed. Please refer to the [Anaconda](https://www.anaconda.com/) website for installation instructions.
+  - **Exit the Environment**
+    ```bash
+    conda deactivate
+    ```
 
-    - Create a conda environment
+### Download the SDK Installation Package
 
-      ```bash
-      conda create -n aipu python=3.8
-      ```
+Download the `Zhouyi_Z2.tar.gz` installation package from [Radxa's download site](https://dl.radxa.com/sirider/s1/) and extract it:
 
-    - Activate the aipu conda environment
+```bash
+tar -xvf Zhouyi_Z2.tar.gz
+cd Zhouyi_Z2 && bash +x SETUP.SH
+```
 
-      ```bash
-      conda activate aipu
-      ```
+After installation, the complete SDK directory will include the following:
 
-    - Deactivate the environment
+- `AI610-SDK-r1p3-AIoT`: ARM Zhouyi Z2 toolkit.
+- `siengine`: Example demos provided by siengine for ARM Zhouyi Z2 model compilation (`nn-compiler-user-case-example`) and board deployment (`nn-runtime-user-case-example`).
 
-      ```bash
-      conda deactivate
-      ```
+### Configure the `nn-compiler` Environment
 
-- Download the Zhouyi Z2 SDK installation package from the [Radxa Download Station](https://dl.radxa.com/sirider/s1/) and extract it for installation:
-  ```bash
-  tar -xvf Zhouyi_Z2.tar.gz
-  cd Zhouyi_Z2 && bash +x SETUP.SH
-  ```
-- After installation, the complete SDK files are as follows:
-
-  - `AI610-SDK-r1p3-AIoT`: ARM Zhouyi Z2 toolkit
-
-  - `siengine`: Demos provided by siengine for ARM Zhouyi Z2 model compilation (nn-compiler-user-case-example) and board deployment (nn-runtime-user-case-example)
-
-- Configure the nn-compiler environment:
+- **Install Dependencies**
 
   ```bash
   cd AI610-SDK-r1p3-AIoT/AI610-SDK-r1p3-00eac0/Out-Of-Box/out-of-box-nn-compiler
   pip3 install -r lib_dependency.txt
   ```
 
-  Since this SDK does not include simulation functionality, errors may occur when installing AIPUSimProfiler. These can be ignored.
+  :::tip
+  Since this SDK does not include simulation features, errors during the installation of `AIPUSimProfiler` can be ignored.
+  :::
 
-  If using a virtual environment (venv), please remove the --user option from the pip3 install part in env_setup.sh:
+- **Start the `nn-compiler` Environment**
+
+  For users of `venv`, remove the `--user` option in the `pip3 install` section of `env_setup.sh`.
 
   ```bash
   source env_setup.sh
   ```
 
-### Model Conversion on x86 PC
+## SDK Documentation References
 
-The nn-compiler can convert models from frameworks like TensorFlow and ONNX into models that can be accelerated by the Zhouyi AIPU for inference.
+- Open Source Code Repository: [https://github.com/Arm-China](https://github.com/Arm-China)
+- GitHub SDK Documentation: [https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs](https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs)
+- SDK Included Documentation Path:  
+  `AI610-SDK-r1p3-AIoT/AI610-SDK-r1p3-00eac0/AI610-DOC-1001-r1p3-eac0`
 
-:::tip
-This case introduces an out-of-the-box example: resnet50 for object classification.
+### Recommended Reading Order:
 
-For the complete SDK documentation, please refer to `AI610-SDK-r1p3-AIoT/AI610-SDK-r1p3-00eac0/AI610-DOC-1001-r1p3-eac0`.
-:::
-
-- Enter the siengine nn-compiler-user-case-example directory.
-
-  If the nn-compiler environment is not configured, please follow [Install Zhouyi AIPU SDK on x86 PC](#install-zhouyi-aipu-sdk-on-x86-pc) to configure.
-
-  ```bash
-  cd  siengine/nn-compiler-user-case-example/onnx
-  ```
-
-- Generate the quantization calibration set:
-  ```bash
-  python3 generate_calibration_data.py
-  ```
-- Generate image files for model inference:
-
-  ```bash
-  python3 generate_input_binary.py
-  ```
-
-  The file is located in ./resnet50/input_3_224_224.bin.
-
-- (Optional) Configure build.cfg (provided in out-of-the-box example):
-  ```bash
-  vim ./resnet50/build.cfg
-  ```
-- Generate the aipu model:
-
-  ```bash
-  cd ./restnet50
-  aipubuild build.cfg
-  ```
-
-  The aipu model is generated in ./restnet50 as aipu_mlperf_resnet50.bin.
-
-  :::tip
-  If `aipubuild` command not found, try `export PATH=$PATH:/root/.local/bin`.
-  :::
-
-### Use Zhouyi Z2 for AIPU Model Inference on the Board
-
-Before using Zhouyi Z2 AIPU for inference, a cross-compiled executable file `aiputest` needs to be generated on the x86 host and then copied to the Sirider S1 for execution.
-
-#### Cross-compiling the Binary Executable on x86 PC
-
-- Install the [gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu](https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/) cross-compilation toolchain:
-  ```bash
-  tar -xvf gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar
-  cp -r gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu /opt
-  ```
-- Compile aiputest:
-
-  - Modify the UMDSRC variable:
-
-  ```bash
-  cd siengine/nn-runtime-user-case-example
-  vim CMakeLists.txt
-  #set(UMDSRC "${CMAKE_SOURCE_DIR}/../AI610-SDK-${AIPU_VERSION}-00eac0/AI610-SDK-1012-${AIPU_VERSION}-eac0/Linux-driver/driver/umd")
-  set(UMDSRC "${CMAKE_SOURCE_DIR}/../../AI610-SDK-${AIPU_VERSION}-AIoT/AI610-SDK-r1p3-00eac0/AI610-SDK-1012-${AIPU_VERSION}-eac0/Linux-driver/driver/umd")
-  ```
-
-  - Cross-compile:
-
-  ```bash
-  mkdir build && cd build
-  cmake -DCMAKE_BUILD_TYPE=Release ..
-  make
-  ```
-
-  The compiled file is located in `siengine/nn-runtime-user-case-example/out/linux/aipu_test`.
-
-#### Inference on the Sirider S1
-
-- Copy the generated `aipu_mlperf_resnet50.bin` model file, `input_3_224_224.bin` image file, `aipu_test` executable file, and `out/linux/libs` dynamic library folder to the Sirider S1.
-- Execute aipu_test:
-
-  ```bash
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<your libs path>
-  ./aipu_test aipu_mlperf_resnet50.bin input_3_224_224.bin
-  ```
-
-  ```bash
-  (aiot-focal_overlayfs)root@linux:~/ssd# ./aipu_test aipu_mlperf_resnet50.bin input_3_224_224.bin
-  usage: ./aipu_test aipu.bin input0.bin
-  aipu_init_context success
-  aipu_load_graph_helper success: aipu_mlperf_resnet50.bin
-  aipu_create_job success
-  Frame #0
-  aipu_finish_job success
-  No profiler data
-  get output tensor 0 success (1/1)
-  output_desc zero_point: 0.0000 scale: 5.5835
-  idx: 637  fval: 21.4919
-  idx: 749  fval: 19.8800
-  idx: 415  fval: 16.1189
-  idx: 412  fval: 15.0443
-  idx: 791  fval: 14.1488
-  Frame #1
-  aipu_finish_job success
-  No profiler data
-  get output tensor 0 success (1/1)
-  output_desc zero_point: 0.0000 scale: 5.5835
-  idx: 637  fval: 21.4919
-  idx: 749  fval: 19.8800
-  idx: 415  fval: 16.1189
-  idx: 412  fval: 15.0443
-  idx: 791  fval: 14.1488
-  aipu_clean_job success
-  aipu_unload_graph success
-  aipu_deinit_ctx success
-  ```
-
-  The total time for two inferences:
-
-  ```bash
-  real	0m0.043s
-  user	0m0.008s
-  sys	0m0.023s
-  ```
-
-  The result here only shows the labels of the inference results, with the highest confidence being 637, corresponding to `mailbag, postbag` in [imagenet1000](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a).
-
-![input.webp](/img/sirider/s1/aipu_1.webp)
+1. [Zhouyi Compass Software Technical Overview](https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs/blob/main/Zhouyi_Compass_Software_Technical_Overview_61010011_0103_00_en.pdf)
+2. [Zhouyi Compass Getting Started Guide](https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs/blob/main/Zhouyi_Compass_Getting_Started_Guide_61010012_0303_00_en.pdf)
+3. [Zhouyi Compass Driver Runtime User Guide](https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs/blob/main/Zhouyi_Compass_Driver_Runtime_User_Guide_61010023_0001_00_en.pdf)
+4. [Zhouyi Compass NN Compiler User Guide](https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs/blob/main/Zhouyi_Compass_NN_Compiler_User_Guide_61010024_0001_00_en.pdf)
+5. [Zhouyi Compass C Programming Guide](https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs/blob/main/Zhouyi_Compass_C_Programming_Guide_61010015_0114_00_en.pdf)
+6. [Zhouyi Compass Debugger User Guide](https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs/blob/main/Zhouyi_Compass_Debugger_User_Guide_61010016_0110_00_en.pdf)
+7. [Zhouyi Compass IR Definition Application Note](https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs/blob/main/Zhouyi_Compass_IR_Definition_Application_Note_61010013_010_en.pdf)
+8. [Zhouyi Compass Operators Specification Application Note](https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs/blob/main/Zhouyi_Compass_Operators_Specification_Application_Note_61010017_010_en.pdf)
+9. [Zhouyi CompassStudio User Guide (Chinese)](https://github.com/zifeng-radxa/siriders1_Zhouyi_SDK_docs/blob/main/Zhouyi_CompassStudio_User_Guide_61010019_0300_06_zh.pdf)
