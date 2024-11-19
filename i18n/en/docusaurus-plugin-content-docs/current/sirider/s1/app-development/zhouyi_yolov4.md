@@ -1,17 +1,17 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # YOLOv4 Object Detection
 
-This document provides a detailed guide on how to use NPU hardware acceleration for inference with the [YOLOv4](https://github.com/hunglc007/tensorflow-yolov4-tflite) model on the Sirider S1.
+This document explains in detail how to utilize NPU hardware acceleration on the Sirider S1 to infer the [YOLOv4](https://github.com/hunglc007/tensorflow-yolov4-tflite) model.
 
-The document is divided into two sections:
+The document is divided into two parts:
 [Quick Start](#quick-start) and [Detailed Tutorial](#detailed-tutorial).
 
 ## Quick Start
 
-Radxa provides a ready-to-use YOLOv4 object detection example that allows users to run the yolov4_tiny model with AIPU on the Sirider S1 directly. This example eliminates the need for complex model and execution code compilation, making it ideal for users who want to use the AIPU quickly without compiling from scratch. If you're interested in the full workflow, please refer to the [Detailed Tutorial](#detailed-tutorial) section.
+Radxa provides a ready-to-use YOLOv4 object detection example, allowing users to run the `yolov4_tiny` model on the Sirider S1 using AIPU for inference. This eliminates the need for complex model compilation and execution code setup, making it an ideal choice for those who want to quickly use AIPU without building models from scratch. For those interested in the full workflow, refer to the [Detailed Tutorial](#detailed-tutorial) section.
 
 - Clone the repository:
 
@@ -21,7 +21,7 @@ Radxa provides a ready-to-use YOLOv4 object detection example that allows users 
 
 - Install dependencies:
   :::tip
-  It is recommended to use virtualenv.
+  It is recommended to use `virtualenv`.
   :::
 
   ```bash
@@ -29,34 +29,42 @@ Radxa provides a ready-to-use YOLOv4 object detection example that allows users 
   pip3 install -r requirements.txt
   ```
 
-- Run the yolov4 demo program:
+- Run the YOLOv4 demo program:
 
   ```bash
   python3 yolov4_aipu.py -m [mode] -i [your_input_path] -r
-  # python3 yolov4_aipu,py -m camera -r
+  # Example: python3 yolov4_aipu.py -m camera -r
   ```
 
-  Parameters:
+  Parameter details:
 
         `-h`, `--help`: Print parameter information.
 
-        `-m`, `--mode`: Input mode selection, supports ['camera', 'video', 'image'].
+        `-m`, `--mode`: Select input mode, supports ['camera', 'video', 'image'].
 
-        `-i`, `--input`: Input file path; please provide the file path when mode is set to ['video', 'image'].
+        `-i`, `--input`: Input file path, required when mode is ['video', 'image'].
 
         `-r`, `--real_time`: Real-time preview.
 
-        `-s`, `--save`: Save output to the `output` folder.
+        `-s`, `--save`: Save the output to the `output` folder.
 
   ![input.webp](/img/sirider/s1/yolov4_1.webp)
 
 ## Detailed Tutorial
 
+To deploy the target model on the Zhouyi Z2, there are three main steps: model conversion, compiling the inference file, and application-level programming.
+
 ### Model Conversion
 
 :::tip
-This process is done on an x86 host machine. Before converting the model, install the Zhouyi SDK and complete the **nn-compiler environment setup** as described in the [**Zhouyi Z2 AIPU Usage Guide**](./zhouyi_npu#zhouyi-z2-aipu-user-guide).
+This step is completed on an x86 host. Before starting model conversion, install the Zhouyi SDK according to the [**Zhouyi AIPU SDK Installation Guide**](./zhouyi_npu#zhouyi-aipu-sdk-installation-guide) and complete the [**Configure the nn-compiler Environment**](./zhouyi_npu#configure-the-nn-compiler-environment).
 :::
+
+- Clone the repository:
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/siriders1_NPU_yolov4_tiny_demo.git
+  ```
 
 - Generate quantization data:
 
@@ -65,28 +73,36 @@ This process is done on an x86 host machine. Before converting the model, instal
   python3 preprocess.py
   ```
 
-- Generate the aipu model:
+- Generate the AIPU model:
   ```bash
   aipubuild tflite_yolo_v4_tinybuild.cfg
   ```
-  The generated model is saved in `./aipu_yolov4_tiny.bin`.
+  :::tip  
+  If the `aipubuild` command is not found, try adding it to your path:
+  ```bash
+  export PATH=$PATH:/root/.local/bin
+  ```
+  :::
+  The target model is generated at `./aipu_yolov4_tiny.bin`.
 
-### Compile the AIPU Executable Inference File
+### Compile AIPU Executable Inference File
 
-Compile an executable file for inference with the Zhouyi Z2 AIPU model.
+Compile an executable file for inferring the Zhouyi Z2 AIPU model.
 
-- Copy the `compile` folder from the [repository](https://github.com/zifeng-radxa/siriders1_NPU_yolov4_tiny_demo) to the Zhouyi SDK:
+- Copy the `compile` folder from the [repository](https://github.com/zifeng-radxa/siriders1_NPU_yolov4_tiny_demo) to the Zhouyi SDK.
 
-  Copy the `compile` folder from the [siriders1_NPU_yolov4_tiny_demo](https://github.com/zifeng-radxa/siriders1_NPU_yolov4_tiny_demo) repository to `YOUR_SDK_PATH/siengine`. **Be sure to replace YOUR_SDK_PATH with your actual path.**
+  Copy the `compile` folder from the `siriders1_NPU_yolov4_tiny_demo` repository to `YOUR_SDK_PATH/siengine`. **Make sure to replace YOUR_SDK_PATH with your actual path.**
 
   ```bash
   cp -r compile YOUR_SDK_PATH/siengine
   ```
 
-- Cross-compilation:
+- Cross-compile:
 
   :::tip
-  Modify the `Linux_Tool_ROOT` path in `CMakeList.txt` according to your cross-compilation toolchain path. The default is `/opt/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin`.
+  Modify the `Linux_Tool_ROOT` in `CMakeLists.txt` to match your cross-compilation toolchain path. The default path is `/opt/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin`.
+
+  Download the cross-compilation toolchain: [gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu](https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/).
   :::
 
   ```bash
@@ -96,15 +112,15 @@ Compile an executable file for inference with the Zhouyi Z2 AIPU model.
   cd ..
   ```
 
-  The output file is saved in the `out` folder.
+  The output files are located in the `out` folder.
 
-- Transfer to the board and test
+### Testing on the Board
 
-  Transfer the generated `aipu_yolov4_tiny.bin` model file and the files in `out/linux` to the Sirider S1.
+Transfer the generated `aipu_yolov4_tiny.bin` model file and the files under `out/linux` to the Sirider S1.
 
-  Test the results using [yolov4_aipu.py](https://github.com/zifeng-radxa/siriders1_NPU_yolov4_tiny_demo/blob/main/demo/yolov4_aipu.py):
+Use [yolov4_aipu.py](https://github.com/zifeng-radxa/siriders1_NPU_yolov4_tiny_demo/blob/main/demo/yolov4_aipu.py) to test the results:
 
-  ```bash
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:linux/libs
-  python3 yolov4_aipu.py -m image -i YOUR_IMAGE_PATH -r
-  ```
+```bash
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:linux/libs
+python3 yolov4_aipu.py -m image -i YOUR_IMAGE_PATH -r
+```

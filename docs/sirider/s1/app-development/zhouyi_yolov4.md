@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # YOLOv4 目标检测
@@ -54,11 +54,19 @@ radxa 提供一个开箱即用的 YOLOv4 目标检测例子，旨在用户可以
 
 ## 详细教程
 
+要使用周易 Z2 部署目标模型，需要分三步走，模型转换，编译推理文件，应用层程序设计
+
 ### 模型转换
 
 :::tip
-此过程在 x86 主机上完成，进行模型转换前，请根据 [**周易 Z2 AIPU 使用教程**](./zhouyi_npu#周易-z2-aipu-使用教程) 安装 周易SDK 并完成 **配置 nn-compiler 环境**
+此过程在 x86 主机上完成，进行模型转换前，请根据 [**周易 AIPU SDK 安装教程**](./zhouyi_npu#周易-aipu-sdk-安装教程) 安装 周易SDK 并完成 [**配置 nn-compiler 环境**](./zhouyi_npu#配置-nn-compiler-环境)
 :::
+
+- 克隆仓库代码
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/siriders1_NPU_yolov4_tiny_demo.git
+  ```
 
 - 生成量化数据
   ```bash
@@ -87,6 +95,8 @@ radxa 提供一个开箱即用的 YOLOv4 目标检测例子，旨在用户可以
 
   :::tip
   请根据您的交叉编译工具链条路径修改 CMakeList.txt 中的 Linux_Tool_ROOT， 默认为 `/opt/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin`
+
+  交叉编译工具链下载地址： [gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu](https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/)
   :::
 
   ```bash
@@ -98,13 +108,13 @@ radxa 提供一个开箱即用的 YOLOv4 目标检测例子，旨在用户可以
 
   生成的输出文件在 `out` 文件夹中
 
-- 转移至板端并测试
+### 板端测试
 
-  将生成的 `aipu_yolov4_tiny.bin` 模型文件和 `out/linux` 下的文件到 sirider s1 上。
+将生成的 `aipu_yolov4_tiny.bin` 模型文件和 `out/linux` 下的文件到 sirider s1 上。
 
-  利用 [yolov4_aipu.py](https://github.com/zifeng-radxa/siriders1_NPU_yolov4_tiny_demo/blob/main/demo/yolov4_aipu.py) 测试结果
+利用 [yolov4_aipu.py](https://github.com/zifeng-radxa/siriders1_NPU_yolov4_tiny_demo/blob/main/demo/yolov4_aipu.py) 测试结果
 
-  ```bash
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:linux/libs
-  python3 yolov4_aipu.py -m image -i YOUR_IMAGE_PATH -r
-  ```
+```bash
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:linux/libs
+python3 yolov4_aipu.py -m image -i YOUR_IMAGE_PATH -r
+```
