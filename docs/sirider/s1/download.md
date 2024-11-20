@@ -7,6 +7,10 @@ description: "镜像,刷机工具等资料"
 
 ## 操作系统镜像
 
+[Radxa SiRider S1 镜像 DDR 8G](https://dl.radxa.com/sirider/s1/images/ubuntu/sirider_s1_ubuntu20_8g_ddr_20241109.zip);
+
+[Radxa SiRider S1 镜像 DDR 16G](https://dl.radxa.com/sirider/s1/images/ubuntu/sirider_s1_ubuntu20_16g_ddr_20241109.zip);
+
 ## 刷机工具
 
 [驱动 & 刷机教程](https://dl.radxa.com/sirider/s1/siengine_downloadtool_V7.5.zip);
