@@ -31,7 +31,8 @@ NX5 & NX5 IO Board
 
 - Radxa OS
 
-  Radxa NX5 IO: [radxa-nx5-io_debian_bullseye_kde_b15.img.xz](https://github.com/radxa-build/radxa-nx5-io/releases/download/b15/radxa-nx5-io_debian_bullseye_kde_b15.img.xz)
+  Radxa NX5 IO (Kernel 5.10): [radxa-nx5-io_debian_bullseye_kde_b15.img.xz](https://github.com/radxa-build/radxa-nx5-io/releases/download/b15/radxa-nx5-io_debian_bullseye_kde_b15.img.xz)  
+  Radxa NX5 IO (Kernel 6.1): [radxa-nx5-io_debian_bookworm_kde_b2.img.xz](https://github.com/radxa-build/radxa-nx5-io/releases/download/rsdk-b2/radxa-nx5-io_bookworm_kde_b2.output.img.xz)
 
 - Android
   Radxa NX5 IO Adroid: [radxa nx5 android12 rkr14](https://github.com/radxa/manifests/releases/download/radxa-nx5-android12-rkr14-20240326/Radxa-NX5-Android12-rkr14-20240326-update.zip)
