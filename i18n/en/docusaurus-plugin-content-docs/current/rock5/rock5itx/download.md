@@ -16,29 +16,27 @@ Radxa ROCK 5 ITX Version X1.1
 
 [x1.1 bitmap pdf](https://dl.radxa.com/rock5/5itx/radxa_rock_5_itx_X1100_components_placement_map.pdf)
 
+Radxa ROCK 5 ITX Version V1.11
+
+[V1.11 2D dxf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_2d_dxf.zip)
+
+[V1.11 3D dxf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_3d_v1110.zip)
+
+[V1.11 Schematic pdf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_schematic.pdf)
+
+[V1.11 bitmap pdf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_components_placement_map.pdf)
+
 ## Tools
 
-## Loader & OS image
+## Linux Loader & System image
 
-Loader (For Linux):
+<Images loader={true} system_img={true} spi_img={false} />
 
-[rk3588_spl_loader_v1.15.113.bin](https://dl.radxa.com/rock5/sw/images/loader/rk3588_spl_loader_v1.15.113.bin)
+## Android Loader & System image
 
-Debian:
-
-[rock-5-itx_debian_bullseye_kde_b6.img.xz](https://github.com/radxa-build/rock-5-itx/releases/download/b6/rock-5-itx_debian_bullseye_kde_b6.img.xz)
-
-Loader(For Android):
-
-[MiniLoaderAll.bin](https://dl.radxa.com/rock5/5itx/images/MiniLoaderAll.bin)
-
-Android:
-
-[Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_gpt](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_gpt.zip)(for MicroSD Card)
-
-[Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_update](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_update.zip)(for EMMC)
-
-[Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_spi_nvme](https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_spi_nvme.zip)(for SSD)
+<Images miniloader={true} android_sd_img={true} spi_img={false} />
+<Images miniloader={false} android_emmc_img={true} spi_img={false} />
+<Images miniloader={false} android_ssd_img={true} spi_img={false} />
 
 :::caution
 If you encounter any problems, please go to the corresponding community for help.

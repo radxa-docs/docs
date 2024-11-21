@@ -5,14 +5,21 @@ import React, { Fragment } from "react";
     {" "}
     <a href="https://dl.radxa.com/rock5/sw/images/loader/rk3588_spl_loader_v1.15.113.bin">
       {" "}
-      Loader: rk3588_spl_loader_v1.15.113.bin{" "}
+      Loader For Linux: rk3588_spl_loader_v1.15.113.bin{" "}
     </a>
   </li>
   <li style={{ display: `${props.system_img ? "block" : "none"}` }}>
     {" "}
     <a href="https://github.com/radxa-build/rock-5-itx/releases/download/b6/rock-5-itx_debian_bullseye_kde_b6.img.xz">
       {" "}
-      System Image: Radxa ROCK 5 ITX Debian Build 6{" "}
+      ROCK 5 ITX 系统镜像（5.10 内核）: Radxa ROCK 5 ITX Debian11 b6{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.system_img ? "block" : "none"}` }}>
+    {" "}
+    <a href="https://github.com/radxa-build/rock-5-itx/releases/download/rsdk-b3/rock-5-itx_bookworm_kde_b3.output.img.xz">
+      {" "}
+      ROCK 5 ITX 系统镜像（6.1 内核）: Radxa ROCK 5 ITX Debian12 b3{" "}
     </a>
   </li>
   <li style={{ display: `${props.spi_img ? "block" : "none"}` }}>
@@ -31,7 +38,28 @@ import React, { Fragment } from "react";
       alt="MiniLoader"
     >
       {" "}
-      Android: MiniLoader.bin{" "}
+      Loader For Android: MiniLoader.bin{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.android_sd_img ? "block" : "none"}` }}>
+    {" "}
+    <a href="https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_gpt.zip">
+      {" "}
+      Android（用于SD卡启动）: Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_gpt{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.android_emmc_img ? "block" : "none"}` }}>
+    {" "}
+    <a href="https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_update.zip">
+      {" "}
+      Android（用于EMMC启动）: Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_update{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.android_ssd_img ? "block" : "none"}` }}>
+    {" "}
+    <a href="https://github.com/radxa/manifests/releases/download/Android12_rkr12_20240522/ROCK5_ITX_hdmi0_dp0_dp1_dsi0_spi_nvme.zip">
+      {" "}
+      Android（用于SSD启动）: Android12_ROCK5_ITX_hdmi0_dp0_dp1_dsi0_spi_nvme{" "}
     </a>
   </li>
 </ul>
