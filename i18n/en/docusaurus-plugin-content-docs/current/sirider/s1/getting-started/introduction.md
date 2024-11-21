@@ -153,7 +153,7 @@ SiRider S1 is an industrial single-board computer jointly launched by Radxa, Sie
   </tr>
   <tr>
     <th>Storage</th>
-    <th>Support EMMC and UFS, the maximum capacity of UFS tested is 128G</th>
+    <th>Support UFS 3.0, the maximum capacity of UFS tested is 128G</th>
   </tr>
   <tr>
     <th>Hardware Codec</th>
