@@ -153,7 +153,7 @@ SiRider S1 是 Radxa 与芯擎科技及安谋科技联合推出工业单板计�
   </tr>
   <tr>
     <th>存储</th>
-    <th>支持EMMC和UFS，目前测试过的UFS最大为128G</th>
+    <th>支持UFS 3.0，目前测试过的UFS最大为128G</th>
   </tr>
   <tr>
     <th>硬件编解码</th>
