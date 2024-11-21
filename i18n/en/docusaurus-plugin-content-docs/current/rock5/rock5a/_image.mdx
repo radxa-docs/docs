@@ -12,7 +12,14 @@ import React, { Fragment } from "react";
     {" "}
     <a href="https://github.com/radxa-build/rock-5a/releases/download/b18/rock-5a_debian_bullseye_kde_b18.img.xz">
       {" "}
-      System Image: Radxa ROCK 5A Debian b18{" "}
+      ROCK 5A (Kernel 5.10): Radxa ROCK 5A Debian11 b18{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.system_img ? "block" : "none"}` }}>
+    {" "}
+    <a href="https://github.com/radxa-build/rock-5a/releases/download/rsdk-b3/rock-5a_bookworm_kde_b3.output.img.xz">
+      {" "}
+      ROCK 5A (Kernel 6.1): Radxa ROCK 5A Debian12 b3{" "}
     </a>
   </li>
   <li style={{ display: `${props.spi_img ? "block" : "none"}` }}>
