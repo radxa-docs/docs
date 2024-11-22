@@ -176,3 +176,35 @@ hci0:   Type: Primary  Bus: UART
    [bluetooth]# pair 41:42:1A:8D:A9:65
    [bluetooth]# connect 41:42:1A:8D:A9:65
    ```
+
+## 常见问题
+
+### 使用 Radxa OS Bookworm 系统时，不会出现两个 wlan 设备
+
+这是因为 wifi 驱动差异导致的。Radxa OS Bookworm 使用的 `rtw89` 驱动相对于小内存设备的性能更好，Radxa OS Bullseye 使用的 `8852be` 驱动相对则有更多特性。
+
+可通过以下操作更换驱动：
+
+```bash
+sudo apt-get update
+sudo apt-get install make gcc linux-headers-$(uname -r) build-essential git
+git clone https://github.com/lwfinger/rtw8852be.git
+cd rtw8852be
+
+echo "EXTRA_CFLAGS += -Wno-error=address" >> Makefile
+sed -i "s/CONFIG_CONCURRENT_MODE = n/CONFIG_CONCURRENT_MODE = y/g" Makefile
+
+make
+sudo make install
+
+echo "alias   pci:v000010ecd0000b852sv*sd*bc*sc*i* 8852be" | sudo tee /etc/modprobe.d/8852be.conf
+echo "blacklist       rtw_8852be" | sudo tee -a /etc/modprobe.d/8852be.conf
+sudo update-initramfs -u -k all
+sudo reboot
+```
+
+更多信息参见[rtw8852be](https://github.com/lwfinger/rtw8852be)
+
+### 使用 `NetworkManager` 无法开启 5G 热点
+
+[尝试指定信道](../template/sbc/radxa-os/ap#常见问题)

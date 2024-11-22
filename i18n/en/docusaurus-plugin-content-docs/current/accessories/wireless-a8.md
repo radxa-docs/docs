@@ -175,3 +175,35 @@ hci0: Type: Primary Bus: UART
    [bluetooth]# pair 41:42:1A:8D:A9:65
    [bluetooth]# connect 41:42:1A:8D:A9:65
    ```
+
+## Q&A
+
+### When using the Radxa OS Bookworm system, there will not be two wlan devices
+
+This is due to wifi driver differences. The `rtw89` driver used by Radxa OS Bookworm has better performance with small memory devices, while the `8852be` driver used by Radxa OS Bullseye has more features.
+
+The driver can be replaced by the following operation:
+
+```bash
+sudo apt-get update
+sudo apt-get install make gcc linux-headers-$(uname -r) build-essential git
+git clone https://github.com/lwfinger/rtw8852be.git
+cd rtw8852be
+
+echo "EXTRA_CFLAGS += -Wno-error=address" >> Makefile
+sed -i "s/CONFIG_CONCURRENT_MODE = n/CONFIG_CONCURRENT_MODE = y/g" Makefile
+
+make
+sudo make install
+
+echo "alias   pci:v000010ecd0000b852sv*sd*bc*sc*i* 8852be" | sudo tee /etc/modprobe.d/8852be.conf
+echo "blacklist       rtw_8852be" | sudo tee -a /etc/modprobe.d/8852be.conf
+sudo update-initramfs -u -k all
+sudo reboot
+```
+
+For more information see [rtw8852be](https://github.com/lwfinger/rtw8852be)
+
+### Unable to turn on 5G hotspot using `NetworkManager`
+
+[Trying to specify a channel](../template/sbc/radxa-os/ap#Q&A)
