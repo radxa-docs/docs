@@ -18,7 +18,7 @@ import Images from "./\_image.mdx"
 
 [Radxa_ROCK_3B_V1.51_SCH](https://dl.radxa.com/rock3/docs/hw/3b/Radxa_ROCK_3B_V1.51_SCH.pdf)
 
-- Bitmap
+- Compents Placement Map
 
 [Radxa_ROCK_3B_V1.51_SMD](https://dl.radxa.com/rock3/docs/hw/3b/Radxa_ROCK_3B_V1.51_SMD.pdf)
 
