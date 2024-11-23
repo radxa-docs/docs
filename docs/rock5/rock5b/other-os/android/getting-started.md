@@ -13,6 +13,8 @@ description: "快速上手 ROCK 5B/5B+，让您能够轻松开始使用和探索
 
 请参考 [快速上手](../../getting-started/quick-start.md)
 
+***Note: 系统安装部分 要参考[这里](./install-os.md)***
+
 ## 电源选择
 
 请参考 [电源选择](../../getting-started/power-supply.md)

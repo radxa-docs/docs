@@ -4,6 +4,7 @@ title: Install OS
 ---
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
+import EnterMaskromMode from '../../_enter_maskrom_mode.mdx'
 
 This document describes how to install an Android image to the ROCK 5B/5B+.
 
@@ -27,7 +28,7 @@ Before using a microSD card/eMMC to boot an SBC with SPI Flash, the SPI needs to
 
 #### Image Download
 
-Please go to [Resource Download Summary](./download) to download the corresponding image file.
+Please go to [Resource Download Summary](../../download) to download the corresponding image file.
 
 #### Install the system
 
@@ -35,11 +36,11 @@ Please go to [Resource Download Summary](./download) to download the correspondi
 
 #### Boot the system
 
-- After successfully burning the microSD card as described above, insert the microSD card into the microSD slot of Radxa ROCK 5B.
+- After successfully burning the microSD card as described above, insert the microSD card into the microSD slot of Radxa ROCK 5B/5B+.
 - The power supply interface of Radxa ROCK 5B is [USB 2.0 OTG Type C port](/rock5/rock5b/hardware-design/hardware-interface), please connect the power supply port and the adapter with Type-C cable.
 
 :::tip
-The ROCK 5B supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using the [Radxa Power PD30W](/accessories/pd_30w).
+The ROCK 5B/5B+ supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using the [Radxa Power PD30W](/accessories/pd_30w).
 :::
 
 #### Reference Documentation
@@ -54,27 +55,9 @@ The ROCK 5B supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radx
 
 #### Download the image
 
-Please go to [Resource Download Summary](./download) to download the corresponding image file.
+Please go to [Resource Download Summary](../../download) to download the corresponding image file.
 
 #### System Installation
-
-1. Connect the micro usb cable to the host computer. 2.
-
-2. Enter maskrom mode
-
-- Disconnect the board from the power supply.
-- Remove the SD card and insert the eMMC module.
-- Connect the USB3.0 port of the Radxa ROCK 5B to the PC side with USB A-A.
-- Short the following pins
-- Power up the board.
-- Remove the right yellow jumper cap and keep the left yellow jumper cap.
-
-<img src="/img/rock5b/rock-5b-maskrom-01.webp" alt="ROCK 5B maskrom" width="500" />
-
-- Check for USB devices
-  - Linux/macOS: Check if "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company" is displayed after running lsusb.
-  - Windows: Open RKDevTool and you will see the device in "maskrom mode".
-    <img src="/img/rock5b/rock-5b-select-loader-bin.webp" alt="ROCK 5B select loader bin" width="500" />
 
 <Tabs queryString="target">
 
@@ -96,7 +79,7 @@ Please go to [Resource Download Summary](./download) to download the correspondi
 
 <TabItem value="windows" label="Windows">
 
-#### Windows systems write with rkdevetool
+#### Windows systems write with rkdevtool
 
 [rkdevtool](/rock5/rock5b/low-level-dev/maskrom/windows)
 
@@ -104,14 +87,14 @@ Please go to [Resource Download Summary](./download) to download the correspondi
 
 </Tabs>
 
-#### Starting the ROCK 5B
+#### Starting the ROCK 5B/5B+
 
-1. Power up the ROCK 5B via the adapter.
-2. The ROCK 5B will start up with the green power LED on.
+1. Power up the ROCK 5B/5B+ via the adapter.
+2. The ROCK 5B/5B++ will start up with the green power LED on.
 
 </TabItem>
 
-<TabItem value="spi-nvme" label="Install system to SPI-NVME">
+<TabItem value="spi-nvme" label="Install system to NVME">
 
 #### Prepare installation media
 
@@ -121,29 +104,15 @@ Please go to [Resource Download Summary](./download) to download the correspondi
 
 #### Download the image
 
-Please go to [Resource Download Summary](./download.md) to download the corresponding image file.
+Please go to [Resource Download Summary](../../download) to download the corresponding image file.
 
 #### System Installation
-
-Enter maskrom mode
-
-- Disconnect the board from the power supply.
-- Remove the SD card and insert the NVME SSD into the M.2 slot of the Radxa SBC
-- Use  USB cable to connect Radxa SBC and PC
-- Press and hold the Maskrom key，Power up the board.
-- Check for USB devices
-  - Linux/macOS: Check if "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company" is displayed after running lsusb.
-  - Windows: Open RKDevTool and you will see the device in "maskrom mode".
-
-:::tip
-Some SBCs do not have maskrom buttons and need to short-circuit the corresponding pins before powering on
-:::
 
 #### Install the system
 
 <Tabs queryString="target">
 
-<TabItem value="linux" label="Linux">
+<TabItem value="linux" label="Linux(Rock 5B)">
 
 #### Linux systems are written using rkdeveloptool
 
@@ -151,7 +120,7 @@ Some SBCs do not have maskrom buttons and need to short-circuit the correspondin
 
 </TabItem>
 
-<TabItem value="mac" label="Mac">
+<TabItem value="mac" label="Mac(Rock 5B)">
 
 #### Mac systems are written using rkdeveloptool
 
@@ -159,7 +128,7 @@ Some SBCs do not have maskrom buttons and need to short-circuit the correspondin
 
 </TabItem>
 
-<TabItem value="windows" label="Windows">
+<TabItem value="windows" label="Windows(Rock 5B/5B+)">
 
 #### Install RKDevTool
 
@@ -183,9 +152,7 @@ unzip RKDevTool_Release_v2.96_zh.zip ，click RKDevTool.exe to open.
 
 #### Enter Maskrom mode
 
-If the operation is normal, RKDevTool will prompt `A MASKROM device was found`.
-
-<img src="/img/rkdevtool/rkdevtool_maskrom.webp" alt="rkdevtool maskrom" />
+<EnterMaskromMode/>
 
 ##### Follow the steps below to flash the operation image
 
@@ -197,7 +164,7 @@ If the operation is normal, RKDevTool will prompt `A MASKROM device was found`.
 
 #### Boot the system
 
-1. Power the ROCK 5B through an adapter
+1. Power the ROCK 5B/5B+ through an adapter
 2. ROCK 5B/5B+ will start when the green power LED lights up
 
 </TabItem>

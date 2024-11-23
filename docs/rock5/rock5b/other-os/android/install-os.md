@@ -4,14 +4,26 @@ title: 系统安装
 ---
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
+import EnterMaskromMode from '../../_enter_maskrom_mode.mdx'
 
-本文档将介绍如何把 Android 镜像安装到 ROCK 5B。
+本文档将介绍如何把 Android 镜像安装到 ROCK 5B/5B+。
 
-ROCK 5B 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以从 SSD 启动，基于不同的启动方式，安装系统到不同的介质上.
+ROCK 5B/5B+ 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以从 SSD 启动，基于不同的启动方式，安装系统到不同的介质上。
 
 ### 清除 SPI Flash
 
-在使用 microSD 卡/ eMMC 启动带有 SPI Flash 的 SBC 之前，需要清空 SPI ，参考 [清除 SPI Flash](../../low-level-dev/maskrom/erase.md)
+在使用 microSD 卡/ eMMC 启动时，如果SPI Flash 里面有数据，需要先清空 SPI Flash，参考 [清除 SPI Flash](../../low-level-dev/maskrom/erase.md)。
+
+<details>
+
+<summary>什么情况下 SPI Flash 会有数据</summary>
+
+一般有两种情况下会有数据
+
+1. 在 EMMC 和 SPI Flash 都是空的清空下， 通过 USB 接口刷写镜像到板载 EMMC,此时板子是 Maskrom 模式，如果此时**不去按 Maskrom 按键**直接烧录系统，就会将数据写入到 SPI FLASH 中
+2. 主动烧录，例如需要从 nvme 启动系统，需要先烧录SPI Flash 镜像
+
+</details>
 
 ## 安装操作系统
 
@@ -25,21 +37,17 @@ ROCK 5B 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以从 SS
 - 1x microSD 读卡器
 - 5V 电源适配器 (推荐使用 [Radxa Power PD30W](/accessories/pd_30w))
 
-#### 镜像下载
-
-请到 [资源下载汇总](./download) 下载对应的镜像文件
-
 #### 安装系统
 
 <Etcher model="rock5b" />
 
 #### 启动系统
 
-- 按照上述步骤成功烧录 microSD 卡后，将 microSD 卡插入 Radxa ROCK 5B 的 MicroSD 插槽内。
-- Radxa ROCK 5B 的供电接口为 [USB 2.0 OTG Type C port](/rock5/rock5b/hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
+- 按照上述步骤成功烧录 microSD 卡后，将 microSD 卡插入 Radxa ROCK 5B/5B+ 的 MicroSD 插槽内。
+- Radxa ROCK 5B/5B+ 的供电接口为 [USB 2.0 OTG Type C port](/rock5/rock5b/hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
 
 :::tip
-ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](/accessories/pd_30w)。
+ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](/accessories/pd_30w)。
 :::
 
 #### 参考文档
@@ -52,29 +60,7 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 - usb 接口线缆
 
-#### 镜像下载
-
-请到 [资源下载汇总](./download) 下载对应的镜像文件
-
 #### 系统安装
-
-1. 将micro usb 线缆连接到主机
-
-2. 进入 maskrom 模式
-
-- 断开开发板电源
-- 移除 SD 卡，并插入 eMMC 模块
-- 用 USB A-A 连接 Radxa ROCK 5B 的 USB3.0 口 和 PC 端
-- 短接下面引脚
-- 给开发板上电
-- 摘下右边的黄色跳线帽，保留左边的黄色跳线帽
-
-<img src="/img/rock5b/rock-5b-maskrom-01.webp" alt="ROCK 5B maskrom" width="500" />
-
-- 查看是否有 USB 设备
-  - Linux/macOS: 检查执行 lsusb 后是否有显示 "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company"
-  - Windows: 打开 RKDevTool 您会看到设备处于 "maskrom mode".
-    <img src="/img/rock5b/rock-5b-select-loader-bin.webp" alt="ROCK 5B select loader bin" width="500" />
 
 <Tabs queryString="target">
 
@@ -96,7 +82,7 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 <TabItem value="windows" label="Windows">
 
-#### Windows 系统使用 rkdevetool 写入
+#### Windows 系统使用 rkdevtool 写入
 
 [rkdevtool](/rock5/rock5b/low-level-dev/maskrom/windows)
 
@@ -104,14 +90,14 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 </Tabs>
 
-#### 启动 ROCK 5B
+#### 启动 ROCK 5B/5B+
 
-1. 通过适配器为 ROCK 5B 供电
-2. ROCK 5B 将在绿色电源 LED 亮起的情况下启动
+1. 通过适配器为 ROCK 5B/5B+ 供电
+2. ROCK 5B/5B+ 将在绿色电源 LED 亮起的情况下启动
 
 </TabItem>
 
-<TabItem value="ssd" label="安装系统到 Spi Nvme">
+<TabItem value="ssd" label="安装系统到 Nvme">
 
 #### 准备工作
 
@@ -121,27 +107,13 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 #### 镜像下载
 
-请到 [资源下载中心](./download.md) 下载对应的镜像文件
+请到 [资源下载中心](../../download.md) 下载对应的镜像文件
 
 #### 系统安装
 
-进入 maskrom 模式
-
-- 断开开发板电源
-- 移除 SD 卡，将 NVME ssd 插入到 Radxa SBC 的 M.2 插槽内
-- 用 USB 线缆连接 Radxa SBC 和 PC 端
-- 按住 maskrom 按键，给开发板上电
-- 查看是否有 USB 设备
-  - Linux/macOS: 检查执行 lsusb 后是否有显示 "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company"
-  - Windows: 打开 RKDevTool 您会看到设备处于 "maskrom mode".
-
-:::tip
-部分 SBC 没有 maskrom 按键，需要短接对应引脚再上电
-:::
-
 <Tabs queryString="target">
 
-<TabItem value="linux" label="Linux">
+<TabItem value="linux" label="Linux(适用于 Rock5B)">
 
 #### Linux 系统使用 rkdeveloptool 写入
 
@@ -149,7 +121,7 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 </TabItem>
 
-<TabItem value="mac" label="mac">
+<TabItem value="mac" label="mac(适用于Rock 5B)">
 
 #### Mac 系统使用 rkdeveloptool 写入
 
@@ -157,7 +129,7 @@ ROCK 5B 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎
 
 </TabItem>
 
-<TabItem value="windows" label="Windows">
+<TabItem value="windows" label="Windows（适用于Rock 5B/5B+）">
 
 ##### 安装 RKDevTool
 
@@ -181,6 +153,8 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 
 #### 进入 Maskrom 模式
 
+<EnterMaskromMode/>
+
 ##### 按照以下操作烧入镜像
 
 ![RK Android update](/img/rock5itx/rock5itx_android_update_zh.webp)
@@ -189,10 +163,10 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 
 </Tabs>
 
-#### 启动 ROCK 5B
+#### 启动 ROCK 5B/5B+
 
-1. 通过适配器为 ROCK 5B 供电
-2. ROCK 5B 将在绿色电源 LED 亮起的情况下启动
+1. 通过适配器为 ROCK 5B/5B+ 供电
+2. ROCK 5B/5B+ 将在绿色电源 LED 亮起的情况下启动
 
 </TabItem>
 </Tabs>
