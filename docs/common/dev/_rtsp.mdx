@@ -12,7 +12,8 @@
 :::tip
 使用 HDMI RX 时，低于 720P 分辨率的输入源可能会导致编码失败。  
 经测试，ffmpeg-rockchip 与我们发布的 Debian 11 系统的 rkmpp 和 librga 版本不兼容，Debian 12 系统不受影响。  
-如果你使用的是我们发布的 Debian 11 系统请移步[ ffmpeg-rockchip 官方编译教程](https://github.com/nyanmisaka/ffmpeg-rockchip/wiki/Compilation)，构建 rkmpp 和 librga 后构建 ffmpeg-rockchip。
+如果你使用的是我们发布的 Debian 11 系统请移步 [ffmpeg-rockchip 官方编译教程](https://github.com/nyanmisaka/ffmpeg-rockchip/wiki/Compilation)，构建 rkmpp 和 librga 后构建 ffmpeg-rockchip，
+并运行 `sudo apt-get update && sudo apt-get install librga2=2.2.0-1`。
 :::
 
 ### 安装编译依赖
@@ -53,7 +54,42 @@ ffmpeg-rockchip/ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -
 
 </TabItem>
 
-<TabItem value="gstreamer" label="基于 Gstreamer">
+<TabItem value="gstreamer-mediamtx" label="基于 Gstreamer + mediamtx">
+
+:::tip
+因为 mpph264enc 在 Rockchip 6.1 Linux 内核的 Radxa OS 编解码效率很差，推荐优先使用 mpph265enc。  
+使用 HDMI RX 时，目前 gst-mppenc 暂不支持 NV24(YCbCr444) 与 RGB 输入，需要 HDMI 输入端切换颜色格式为 NV12(YCbCr420) 或 NV16(YCbCr422)，或者使用 FFmpeg 进行推流。
+:::
+
+### 安装依赖
+
+```bash
+sudo apt-get update
+sudo apt-get install gstreamer1.0-rtsp
+```
+
+### 运行 mediamtx 和 Gstreamer
+
+:::info
+此处我们假定 `/dev/video-camera0` 是你想要使用的视频源。如果你的摄像头被分配到了其他的名称下，请替换以下命令行中对应的设备名。
+:::
+
+```bash
+wget https://github.com/bluenviron/mediamtx/releases/download/v1.9.0/mediamtx_v1.9.0_linux_arm64v8.tar.gz
+tar -xzvf mediamtx_v1.9.0_linux_arm64v8.tar.gz
+nohup ./mediamtx &
+
+# mpph264enc 编码器目前在 Rockchip 6.1 Linux 内核下有卡顿问题，建议使用 mpph265enc 编码器
+# 可用的编码器有 mpph264enc、mpph265enc、mppjpegenc、mppvp8enc，修改编码器需要修改 pipeline 后的 rtp*pay 或 *parse
+gst-launch-1.0 -v v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr ! rtspclientsink location=rtsp://localhost:8554/test
+
+# 如果仅想将摄像头录制成文件，请使用以下命令
+# gst-launch-1.0 --gst-debug-level=3 v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr ! h265parse ! mp4mux ! filesink location=output.mp4
+```
+
+</TabItem>
+
+<TabItem value="gst-rtsp-server" label="基于 Gstreamer + gst-rtsp-server">
 
 :::tip
 因为 mpph264enc 在 Rockchip 6.1 Linux 内核的 Radxa OS 编解码效率很差，推荐优先使用 mpph265enc。  
@@ -64,20 +100,23 @@ ffmpeg-rockchip/ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -
 
 ```bash
 sudo apt update
-sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev meson
+sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev meson librga-dev
 ```
 
 ### 获取 gst-rtsp-server 源码
 
 ```bash
-wget https://gstreamer.freedesktop.org/src/gst-rtsp-server/gst-rtsp-server-1.18.6.tar.xz
-tar -xvf gst-rtsp-server-1.18.6.tar.xz
+git clone https://gitlab.freedesktop.org/gstreamer/gstreamer.git
+cd gstreamer/subprojects/gst-rtsp-server
+# 查询系统内 gstreamer-rtsp-1.0 的版本号
+pkg-config --modversion gstreamer-rtsp-1.0
+# 此处的 1.22 对应上面查询到的版本号，所有可用版本号可使用 `git branch -a` 查询，使用最相近的版本号即可
+git switch 1.22
 ```
 
 ### 编译 gst-rtsp-server
 
 ```bash
-cd gst-rtsp-server-1.18.6/
 meson build
 cd build
 ninja

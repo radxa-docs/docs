@@ -12,7 +12,8 @@
 :::tip
 When using HDMI RX, input sources with lower than 720P resolution may cause encoding failure.  
 After testing, ffmpeg-rockchip is not compatible with the rkmpp and librga versions we released for Debian 11 systems, Debian 12 systems are not affected.  
-If you are using our Debian 11 system, please go to [ ffmpeg-rockchip official build tutorial ](https://github.com/nyanmisaka/ffmpeg-rockchip/wiki/Compilation), build rkmpp and librga and then build ffmpeg-rockchip.
+If you are using our Debian 11 system, please go to [ffmpeg-rockchip official build tutorial ](https://github.com/nyanmisaka/ffmpeg-rockchip/wiki/Compilation), build rkmpp and librga and then build ffmpeg-rockchip，
+and run `sudo apt-get update && sudo apt-get install librga2=2.2.0-1`。
 :::
 
 ### Installation of compilation dependencies
@@ -53,7 +54,43 @@ ffmpeg-rockchip/ffmpeg -f v4l2 -i /dev/video-camera0 -vf "fps=30" -s 3840x2160 -
 
 </TabItem>
 
-<TabItem value="gstreamer" label="Based on Gstreamer">
+<TabItem value="gstreamer-mediamtx" label="Based on Gstreamer + mediamtx">
+
+:::tip
+Because mpph264enc is poorly encoded and decoded by Radxa OS in Rockchip 6.1 Linux kernel, it is recommended to use mpph265enc in preference.  
+When using HDMI RX, gst-mppenc does not support NV24(YCbCr444) and RGB input, you need to switch the color format of HDMI input to NV12(YCbCr420) or NV16(YCbCr422), or use FFmpeg to push the stream,
+and run `sudo apt-get update && sudo apt-get install librga2=2.2.0-1`.
+:::
+
+### Installation dependencies
+
+```bash
+sudo apt-get update
+sudo apt-get install gstreamer1.0-rtsp
+```
+
+### Running mediamtx and Gstreamer
+
+:::info
+Here we assume that `/dev/video-camera0` is the video source you want to use. If your camera is assigned a different name, replace the corresponding device name in the following command line.
+:::
+
+```bash
+wget https://github.com/bluenviron/mediamtx/releases/download/v1.9.0/mediamtx_v1.9.0_linux_arm64v8.tar.gz
+tar -xzvf mediamtx_v1.9.0_linux_arm64v8.tar.gz
+nohup ./mediamtx &
+
+# mpph264enc encoder currently has lagging problem under Rockchip 6.1 Linux kernel, we suggest to use mpph265enc encoder.
+# mpph264enc, mpph265enc, mppjpegenc, mppvp8enc encoders are available. To change the encoder, you need to change the rtp*pay or *parse in the pipeline.
+gst-launch-1.0 -v v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr ! rtspclientsink location=rtsp://localhost:8554/test
+
+# If you only want to record the camera to a file, use the following command
+# gst-launch-1.0 --gst-debug-level=3 v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=51200000 rc-mode=vbr ! h265parse ! mp4mux ! filesink location=output.mp4
+```
+
+</TabItem>
+
+<TabItem value="gst-rtsp-server" label="Based Gstreamer + gst-rtsp-server">
 
 :::tip
 Because mpph264enc is poorly encoded and decoded by Radxa OS in Rockchip 6.1 Linux kernel, it is recommended to use mpph265enc in preference.  
@@ -64,20 +101,23 @@ When using HDMI RX, gst-mppenc does not support NV24(YCbCr444) and RGB input, yo
 
 ```bash
 sudo apt update
-sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev meson
+sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev meson librga-dev
 ```
 
 ### Get gst-rtsp-server source code
 
 ```bash
-wget https://gstreamer.freedesktop.org/src/gst-rtsp-server/gst-rtsp-server-1.18.6.tar.xz
-tar -xvf gst-rtsp-server-1.18.6.tar.xz
+git clone https://gitlab.freedesktop.org/gstreamer/gstreamer.git
+cd gstreamer/subprojects/gst-rtsp-server
+# Check the version number of gstreamer-rtsp-1.0 on your system.
+pkg-config --modversion gstreamer-rtsp-1.0
+# The 1.22 here corresponds to the version number queried above, all available version numbers can be queried using `git branch -a`, just use the closest version number
+git switch 1.22
 ```
 
 ### Compile gst-rtsp-server
 
 ```bash
-cd gst-rtsp-server-1.18.6/
 meson build
 cd build
 ninja
