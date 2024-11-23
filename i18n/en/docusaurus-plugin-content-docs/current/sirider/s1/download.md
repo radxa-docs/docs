@@ -7,9 +7,9 @@ description: "Image, tools & docs"
 
 ## System images
 
-[Radxa SiRider S1 镜像 DDR 8G](https://dl.radxa.com/sirider/s1/images/ubuntu/sirider_s1_ubuntu20_8g_ddr_20241109.zip);
+[Radxa SiRider S1 Image for DDR 8G](https://dl.radxa.com/sirider/s1/images/ubuntu/sirider_s1_ubuntu20_8g_ddr_20241109.zip);
 
-[Radxa SiRider S1 镜像 DDR 16G](https://dl.radxa.com/sirider/s1/images/ubuntu/sirider_s1_ubuntu20_16g_ddr_20241109.zip);
+[Radxa SiRider S1 Image for DDR 16G](https://dl.radxa.com/sirider/s1/images/ubuntu/sirider_s1_ubuntu20_16g_ddr_20241109.zip);
 
 ## Tools
 
