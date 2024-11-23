@@ -35,7 +35,7 @@ V1.3
 
 [v1.3 schematic](https://dl.radxa.com/nio12l/docs/hw/radxa_nio_12l_v1300_schematic.pdf)
 
-[v1.3 bitmap](https://dl.radxa.com/nio12l/docs/hw/radxa_nio_12l_v1300_components_placement_map.pdf)
+[v1.3 compents placement map](https://dl.radxa.com/nio12l/docs/hw/radxa_nio_12l_v1300_components_placement_map.pdf)
 
 [v1.3 2D back](https://dl.radxa.com/nio12l/docs/hw/radxa_nio_12l_v1300_2d_bot.pdf)
 
@@ -47,7 +47,7 @@ V1.2
 
 [v1.2 schematic](https://dl.radxa.com/nio12l/docs/hw/V1.2/RADXA_NIO12L_v1.2_Schematic.pdf)
 
-[v1.2 bitmap](https://dl.radxa.com/nio12l/docs/hw/V1.2/RADXA_NIO12L_v1.2_Components_Placement_map.pdf)
+[v1.2 compents placement map](https://dl.radxa.com/nio12l/docs/hw/V1.2/RADXA_NIO12L_v1.2_Components_Placement_map.pdf)
 
 [v1.2 2D back](https://dl.radxa.com/nio12l/docs/hw/V1.2/RADXA_NIO12L_V1.2_BOT.dxf)
 

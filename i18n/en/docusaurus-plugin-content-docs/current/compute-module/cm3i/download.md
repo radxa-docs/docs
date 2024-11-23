@@ -28,7 +28,7 @@ sidebar_position: 2
             <li><a href="https://dl.radxa.com/cm3i/docs/hw/radxa_cm3i_v1310_2d_dxf.zip">Radxa CM3I 2D DXF</a></li>
             <li><a href="https://dl.radxa.com/cm3i/docs/hw/radxa_cm3i_pcba.stp">Radxa CM3I PCBA 2D CAD</a></li>
             <li><a href="https://dl.radxa.com/cm3i/docs/hw/radxa_cm3i_pcba_3d.zip">Radxa CM3I PCBA 3D CAD</a></li>
-            <li><a href="https://dl.radxa.com/cm3i/docs/hw/radxa_cm3i_v1310_components_placement_map.pdf">Radxa CM3I bitmap</a></li>
+            <li><a href="https://dl.radxa.com/cm3i/docs/hw/radxa_cm3i_v1310_components_placement_map.pdf">Radxa CM3I compents placement map </a></li>
             <li><a href="https://dl.radxa.com/cm3i/docs/hw/radxa_cm3i_v1310_schematic.pdf">Radxa CM3I V1.3 schematic</a></li>
             <li><a href="https://dl.radxa.com/cm3i/docs/hw/radxa_cm3i_v1310_pinout.xlsx">Connector PINOUT</a></li>
             <li><a href="https://dl.radxa.com/cm3i/docs/hw/radxa_cm3i_product_brief.pdf">Radxa CM3I Product Brief</a></li>
@@ -38,7 +38,7 @@ sidebar_position: 2
     <TabItem value="CM3I IO Board">
         <ul>
             <li><a href="https://dl.radxa.com/cm3i/io_board/radxa_cm3i_io_board_v1300_schematic.pdf">Radxa CM3I IO Board V1.3 schematic</a></li>
-            <li><a href="https://dl.radxa.com/cm3i/io_board/radxa_cm3i_io_board_v1300_components_placement_map.pdf">Radxa CM3I IO Board V1.3 bitmap</a></li>
+            <li><a href="https://dl.radxa.com/cm3i/io_board/radxa_cm3i_io_board_v1300_components_placement_map.pdf">Radxa CM3I IO Board V1.3 compents placement map </a></li>
             <li><a href="https://dl.radxa.com/cm3i/io_board/radxa_cm3i_io_board_v1300_bottom_2d.pdf">Radxa CM3I IO Board V1.3 Bottom 2D</a></li>
             <li><a href="https://dl.radxa.com/cm3i/io_board/radxa_cm3_io_board_reference_dimension_20231120.pdf">Radxa CM3I IO Board V1.3 Dimension</a></li>
             <li><a href="https://dl.radxa.com/cm3i/io_board/cm3i-assembly.PDF">Radxa CM3I IO Board Assembly</a></li>
