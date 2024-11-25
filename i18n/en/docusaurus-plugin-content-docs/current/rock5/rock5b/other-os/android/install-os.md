@@ -12,7 +12,24 @@ ROCK 5B/5B+ can be booted from microSD card or EMMC, depending on the boot metho
 
 ### Erase SPI Flash
 
-Before using a microSD card/eMMC to boot an SBC with SPI Flash, the SPI needs to be erased. Refer to [Erase SPI Flash](../../low-level-dev/maskrom/erase.md)
+Before using a microSD card/eMMC to boot an SBC with SPI Flash, If there is data in SPI Flash, the SPI Flash needs to be erased. Refer to [Erase SPI Flash](../../low-level-dev/maskrom/erase.md)
+
+<details>
+
+<summary> When will SPI FLASH have data? </summary>
+
+There are generally two scenarios where data will be written:
+
+-  Flash image in MaskROM Mode Without Pressing the MaskROM Button
+
+In the case where both the eMMC and SPI Flash are empty, the board enters Maskrom mode for writing an image to the onboard eMMC via the USB interface. If the specific Maskrom button is not pressed during Maskrom mode, the system will automatically write the data (such as an operating system image) to the SPI Flash instead.
+
+- Intentional writing, e.g., Booting from NVMe
+
+For scenarios where an NVMe drive is needed to boot the system, the SPI Flash image must first be programmed.
+
+</details>
+
 
 ## Installation System
 
@@ -180,5 +197,4 @@ The first startup of the Android system after flashing is often relatively long,
 - SPI-NVME encountered the following error during system installation: Switching PCIE storage failed, loader does not support switching
   1. Check if the SSD is plugged into the corresponding interface of Radxa SBC. The ROCK 5B+only has one M.2 interface that supports SPI-NVME startup. If the startup fails, try changing the interface
   2. Check if the SSD format is FAT32 format
-
-## Documentation
+  
