@@ -4,13 +4,12 @@ description: "Windows 下通过 USB 刷机"
 ---
 
 import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
-import Images from "../../\_image.mdx"
 
 # Windows 主机
 
 ## 文件下载
 
-<Images loader={true} rock5b_system_img={true} rock5b_system_img_61={true} rock5bp_system_img={true} spi_img={true} />
+请到[下载页面](../../download.md) 下载对应的镜像及Loader文件
 
 <Rkdevtool rkdevtool_emmc_img="/img/rock5b/rock-5bp-rkdevtool-maskrom-flash-system.webp" loader_name="rk3588_spl_loader_v1.08.111.bin" emmc={false} pcie={false} sata={false} >
 

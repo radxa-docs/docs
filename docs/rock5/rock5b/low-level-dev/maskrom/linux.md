@@ -4,13 +4,12 @@ description: "Linux 下通过 USB 刷机"
 ---
 
 import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
-import Images from "../../\_image.mdx"
 
 # Linux 主机
 
 ## 文件下载
 
-<Images loader={true} rock5b_system_img={true} rock5b_system_img_61={true} rock5bp_system_img={true} spi_img={false} />
+请到[下载页面](../../download.md) 下载对应的镜像及Loader文件
 
 <Rkdeveloptool model="rock-5b" release_num="39" desktop="kde" platform="linux" loader="rk3588_spl_loader_v1.08.111.bin">
 

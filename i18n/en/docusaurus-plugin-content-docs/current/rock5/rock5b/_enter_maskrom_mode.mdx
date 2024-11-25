@@ -1,0 +1,50 @@
+{" "}
+
+<Tabs queryString="versions">
+  <TabItem value="ROCK 5B">
+    <ol>
+      <li>Unplug the microSD card and power cable</li>
+      <li>
+        If you need to burn the system to EMMC or NVME, please install them to
+        the corresponding ports on the board at this time.
+      </li>
+      <li>Keep pressing Maskrom button</li>
+      <li>
+        Plug the USB A-C cable into the Type-C port of the ROCK 5B, and the
+        other end into the computer, then it will enter the Maskrom state under
+        normal circumstances.
+      </li>
+      <li>Release the Maskrom button</li>
+    </ol>
+    <img
+      src="/img/rock5b/rock-5b-typec-maskrom-400px.webp"
+      alt="rock 5b maskrom wire"
+      width="500"
+    />
+  </TabItem>
+  <TabItem value="ROCK 5B+">
+    <ol>
+      <li>Unplug the microSD card and power cable</li>
+      <li>
+        If you need to burn the system to EMMC or NVME, please install them to
+        the corresponding ports on the board at this time.
+      </li>
+      <li>Keep pressing Maskrom button</li>
+      <li>
+        Plug the USB A-C cable into the Type-C port of the ROCK 5B, and the
+        other end into the computer, then it will enter the Maskrom state under
+        normal circumstances.
+      </li>
+      <li>Release the Maskrom button</li>
+    </ol>
+    <img
+      src="/img/rock5b/rock-5bp-typec-maskrom.webp"
+      alt="rock 5b maskrom wire"
+      width="500"
+    />
+  </TabItem>
+</Tabs>
+
+- PC to see if there is a USB device
+  - Linux/macOS: Check if "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company" is displayed after executing lsusb.
+  - Windows: Open RKDevTool and you will see the device in "maskrom mode".

@@ -24,7 +24,6 @@ ROCK S0 v1.2 版本
 
 [ROCK S0 v1.2 2D dxf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_2d_dxf.zip)
 
-
 ## Tools
 
 1. [Etcher](https://etcher.balena.io/#download-etcher/)

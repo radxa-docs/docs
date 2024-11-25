@@ -2,14 +2,13 @@
 sidebar_position: 1
 ---
 
-import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 # Install the system on the MicroSD card
 
 ## File download
 
-<Images loader={false} rock5b_system_img={true} rock5b_system_img_61={true} rock5bp_system_img={true} spi_img={false} />
+Please go to [download](../../download) to download system and loader file.
 
 ## MicroSD Card Preparation
 

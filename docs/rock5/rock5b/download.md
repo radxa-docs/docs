@@ -2,15 +2,39 @@
 sidebar_position: 2
 ---
 
-import Images from "./\_image.mdx"
-
 # 资源下载汇总
 
 ## 操作系统镜像
 
-### 官方镜像
+### 官方镜像及Loader
 
-<Images loader={false} rock5b_system_img={true} rock5b_system_img_61={true} rock5bp_system_img={true} lite_rock5b_system_img={true} spi_img={false} android12_update={true} android12_gpt={true}  />
+SPI Image:
+
+[spi_image.img](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gd1cf491-20240523.img)
+
+Linux：
+
+<pre>
+    Loader： [RK3588_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rk3588_spl_loader_v1.15.113.bin)
+
+    ROCK 5B 系统镜像 (5.10 内核): [rock-5b_debian_bullseye_kde_b39](https://github.com/radxa-build/rock-5b/releases/download/b39/rock-5b_debian_bullseye_kde_b39.img.xz)
+
+    ROCK 5B 系统镜像 (6.1 内核): [rock-5b_bookworm_kde_b5](https://github.com/radxa-build/rock-5b/releases/download/rsdk-b5/rock-5b_bookworm_kde_b5.output.img.xz)
+
+    ROCK 5B+ 系统镜像: [rock-5b-plus_bookworm_kde_b2](https://github.com/radxa-build/rock-5b-plus/releases/download/rsdk-b2/rock-5b-plus_bookworm_kde_b2.output.img.xz)
+</pre>
+
+Android：
+
+<pre>
+    Loader: [MiniLoader.bin](https://dl.radxa.com/rock5/5itx/images/MiniLoaderAll.bin)
+
+    [ROCK 5B Android 12](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240419/Rock5B_Android12_rkr14_20240419-gpt.zip)(用于 sdcard/emmc/nvme 启动)
+
+    [ROCK_5B+_Android12_gpt](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SD-or-eMMC-20240705-1-gpt.zip)(用于 sdcard/emmc 启动)
+
+    [ROCK_5B+_Android12_update](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SPI_NVME-20240705-update.zip)(用于 SPI-NVME 启动)
+</pre>
 
 ### 第三方镜像
 

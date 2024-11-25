@@ -18,7 +18,7 @@ sudo apt-get install openjdk-8-jdk
 
 ## Download Radxa Android SDK
 
-Radxa Android SDK contains hundreds of Git repositories, it use repo to download 
+Radxa Android SDK contains hundreds of Git repositories, it use repo to download
 
 ### Repo
 

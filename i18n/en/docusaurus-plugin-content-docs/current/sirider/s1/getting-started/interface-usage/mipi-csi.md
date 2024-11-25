@@ -22,4 +22,4 @@ sidebar_class_name: hidden
 
 ## Usage
 
-###  Raspberry Pi Camera V2
+### Raspberry Pi Camera V2

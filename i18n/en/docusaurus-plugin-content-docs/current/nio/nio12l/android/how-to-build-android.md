@@ -12,7 +12,7 @@ Please send an email to support@radxa.com to contact us.
 
 ### Prepare Environment
 
-- x86 PC 
+- x86 PC
 - Ubuntu 20.04 or Later Version
 
 ```
@@ -22,6 +22,7 @@ Please send an email to support@radxa.com to contact us.
  libgl1-mesa-dev libncurses5 lib32ncurses5-dev libssl-dev libx11-dev libxml2-utils m4 unzip x11proto-core-dev xsltproc zip \
  zlib1g-dev bsdmainutils cgpt libswitch-perl bc rsync xxd git-core parallel
 ```
+
 #### Build Commands
 
 ```

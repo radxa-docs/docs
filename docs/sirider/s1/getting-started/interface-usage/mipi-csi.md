@@ -24,4 +24,4 @@ sidebar_class_name: hidden
 
 ## 配件的使用
 
-###  Raspberry Pi Camera V2
+### Raspberry Pi Camera V2

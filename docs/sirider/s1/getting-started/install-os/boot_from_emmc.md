@@ -29,6 +29,7 @@ linux 用户：
 $ ./burn.sh all # 烧录所有LUN
 $ ./burn.sh lun0 # 烧录单个LUN
 ```
+
 windows 用户：
 
 下载windows平台烧录工具[siengine_downloadtool](https://gitlab.com/siengine-ubuntu-sdk/tools/-/blob/test/siengine_downloader/siengine_downloadtool_V7.6.3.rar?ref_type=heads)
