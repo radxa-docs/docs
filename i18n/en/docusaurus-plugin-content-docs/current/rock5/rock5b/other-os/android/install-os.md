@@ -68,7 +68,10 @@ The ROCK 5B/5B+ supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. 
 
 #### Preparation
 
-- usb connector cable
+- usb A-C 线 x1
+- x86 PC 
+- rock5b/5b+
+- EMMC Module
 
 #### Download the image
 
@@ -116,7 +119,7 @@ Please go to [Resource Download Summary](../../download) to download the corresp
 #### Prepare installation media
 
 - Type-C to Type-A USB connector cable
-- 1x NVME ssd （M.2）
+- 1x NVME ssd （M.2, FAT32 Format）
 - 12V Power Supply
 
 #### Download the image
@@ -197,4 +200,3 @@ The first startup of the Android system after flashing is often relatively long,
 - SPI-NVME encountered the following error during system installation: Switching PCIE storage failed, loader does not support switching
   1. Check if the SSD is plugged into the corresponding interface of Radxa SBC. The ROCK 5B+only has one M.2 interface that supports SPI-NVME startup. If the startup fails, try changing the interface
   2. Check if the SSD format is FAT32 format
-  

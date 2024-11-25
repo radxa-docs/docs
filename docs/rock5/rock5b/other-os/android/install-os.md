@@ -58,7 +58,10 @@ ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。�
 
 #### 准备工作
 
-- usb 接口线缆
+- usb A-C 线 x1
+- x86 PC 
+- rock5b/5b+
+- EMMC Module
 
 #### 系统安装
 
@@ -101,7 +104,7 @@ ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。�
 
 #### 准备工作
 
-- 1x NVME ssd （M.2）
+- 1x NVME ssd （M.2 FAT32 格式）
 - USB 接口线缆
 - 电源
 
@@ -181,4 +184,3 @@ Android 系统在刷机完成后的第一次启动时常相对较长，还请耐
 
   1. 检查 SSD 是否插入 Radxa SBC 对应的接口，ROCK 5B+ 仅有一个 M.2 接口支持 SPI-NVME 启动，启动失败可换接口尝试.
   2. 检查 SSD 格式是否为 FAT32 格式.
-  
