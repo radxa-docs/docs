@@ -45,8 +45,8 @@ sidebar_position: 2
 
 ### SiRider Series
 
-| Model                      | Description           |
-| -------------------------- | ----------------------|
+| Model                            | Description     |
+| -------------------------------- | --------------- |
 | [SiRider S1](/sirider/s1) (2024) | Siengine SE1000 |
 
 ## Radxa Computer on Module Family

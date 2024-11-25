@@ -24,7 +24,8 @@ $ repo sync -d -c -j4
 There are two ways to compile an image: Full compilation and Fartial compilation. Full compilation takes a longer time, while partial compilation takes a shorter time
 After the code download is completed, the first compilation should use full compilation. In the subsequent debugging process, it is recommended to use partial compilation, such as compiling the kernel separately if only the kernel has been modified
 
-### Full compilation 
+### Full compilation
+
 Suitable for first compilation
 
 Rock5B

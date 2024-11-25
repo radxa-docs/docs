@@ -23,7 +23,9 @@ Linux：
 
     ROCK 5B+ 系统镜像: [rock-5b-plus_bookworm_kde_b2](https://github.com/radxa-build/rock-5b-plus/releases/download/rsdk-b2/rock-5b-plus_bookworm_kde_b2.output.img.xz)
 </pre>
+
 Android：
+
 <pre>
     Loader: [MiniLoader.bin](https://dl.radxa.com/rock5/5itx/images/MiniLoaderAll.bin)
 
@@ -33,6 +35,7 @@ Android：
 
     [ROCK_5B+_Android12_update](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SPI_NVME-20240705-update.zip)(用于 SPI-NVME 启动)
 </pre>
+
 ### 第三方镜像
 
 - 完整镜像

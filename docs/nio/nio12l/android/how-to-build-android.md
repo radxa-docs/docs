@@ -22,6 +22,7 @@ sidebar_position: 4
  libgl1-mesa-dev libncurses5 lib32ncurses5-dev libssl-dev libx11-dev libxml2-utils m4 unzip x11proto-core-dev xsltproc zip \
  zlib1g-dev bsdmainutils cgpt libswitch-perl bc rsync xxd git-core parallel
 ```
+
 ### 编译命令
 
 ```

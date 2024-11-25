@@ -13,7 +13,7 @@ Please refer to [Product Introduction](../../getting-started/introduction.md)
 
 Please refer to [Quick Start](../../getting-started/quick-start.md)
 
-***Note: ‘Installing the operating system' part needs to refer to[ here](./install-os.md)***
+**_Note: ‘Installing the operating system' part needs to refer to[ here](./install-os.md)_**
 
 ## Power supply
 

@@ -15,4 +15,3 @@ sidebar_position: 2
 - Removed R140 and optimized the design to prevent charging standard batteries.
 - Changed the PCB thickness to 1.6mm.
 - Optimized the selection of the SIM card slot.
-

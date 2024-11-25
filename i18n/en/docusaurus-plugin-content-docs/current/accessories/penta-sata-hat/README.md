@@ -56,32 +56,30 @@ If you use large capacity 3.5-inch mechanical hard drives on the Penta SATA HAT,
 
   ![Radxa M.2 Extension Board](/img/accessories/penta-sata-hat-04.webp)
 
-
 ## 40Pin Pinout
 
 | Description   | Function | Pin# | Pin# | Function | Description |
-|---------------|----------|------|------|----------|-------------|
-|               |          | 1    | 2    |   VCC    |             |
-|   OLED I2C    | I2C_SDA  | 3    | 4    |   VCC    |             |
-|   OLED I2C    | I2C_SCL  | 5    | 6    |   GND    |             |
+| ------------- | -------- | ---- | ---- | -------- | ----------- |
+|               |          | 1    | 2    | VCC      |             |
+| OLED I2C      | I2C_SDA  | 3    | 4    | VCC      |             |
+| OLED I2C      | I2C_SCL  | 5    | 6    | GND      |             |
 |               |          | 7    | 8    |          |             |
-|               |   GND    | 9    | 10   |          |             |
-| top board key |   GPIO   | 11   | 12   |          |             |
-|               |          | 13   | 14   |   GND    |             |
-|               |          | 15   | 16   |   GPIO   | reset OLED  |
+|               | GND      | 9    | 10   |          |             |
+| top board key | GPIO     | 11   | 12   |          |             |
+|               |          | 13   | 14   | GND      |             |
+|               |          | 15   | 16   | GPIO     | reset OLED  |
 |               |          | 17   | 18   |          |             |
-|               |          | 19   | 20   |   GND    |             |
+|               |          | 19   | 20   | GND      |             |
 |               |          | 21   | 22   |          |             |
 |               |          | 23   | 24   |          |             |
-|               |   GND    | 25   | 26   |          |             |
+|               | GND      | 25   | 26   |          |             |
 |               |          | 27   | 28   |          |             |
-|               |          | 29   | 30   |   GND    |             |
+|               |          | 29   | 30   | GND      |             |
 |               |          | 31   | 32   |          |             |
-| tb-fan speed  |   PWM    | 33   | 34   |   GND    |             |
+| tb-fan speed  | PWM      | 33   | 34   | GND      |             |
 |               |          | 35   | 36   |          |             |
 |               |          | 37   | 38   |          |             |
-|               |   GND    | 39   | 40   |          |             |
-
+|               | GND      | 39   | 40   |          |             |
 
 ## User Guide
 

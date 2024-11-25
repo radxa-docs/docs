@@ -13,13 +13,11 @@ sidebar_position: 1
 
 1. 参考文档 [SE1000 Linux SDK 编译参考手册](https://gitlab.com/siengine-ubuntu-sdk/docs/-/blob/master/UM_SE1000_AIoT_Linux_SDK_User_Manual.pdf?ref_type=heads) 进行环境搭建和镜像编译
 
-
 2. 编译出来的相关固件将会存在 `deploy/build/` 目录下，请根据对应的 DDR 容量下载相应的 `LUN5` 固件替换目录下的 `lun5_fip.bin`
 
 - [lun5_fip_LP5_4GB_5500_DS.bin](https://dl.radxa.com/sirider/s1/lun5_fip_LP5_4GB_5500_DS.bin) 单颗4GB下载
 
 - [lun5_fip_LP5_8GB_5500_DS.bin](https://dl.radxa.com/sirider/s1/lun5_fip_LP5_8GB_5500_DS.bin) 单颗8GB下载
-
 
 ## 参考
 

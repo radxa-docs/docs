@@ -4,7 +4,7 @@ title: Install OS
 ---
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
-import EnterMaskromMode from '../../_enter_maskrom_mode.mdx'
+import EnterMaskromMode from '../../\_enter_maskrom_mode.mdx'
 
 This document describes how to install an Android image to the ROCK 5B/5B+.
 
@@ -20,7 +20,7 @@ Before using a microSD card/eMMC to boot an SBC with SPI Flash, If there is data
 
 There are generally two scenarios where data will be written:
 
--  Flash image in MaskROM Mode Without Pressing the MaskROM Button
+- Flash image in MaskROM Mode Without Pressing the MaskROM Button
 
 In the case where both the eMMC and SPI Flash are empty, the board enters Maskrom mode for writing an image to the onboard eMMC via the USB interface. If the specific Maskrom button is not pressed during Maskrom mode, the system will automatically write the data (such as an operating system image) to the SPI Flash instead.
 
@@ -29,7 +29,6 @@ In the case where both the eMMC and SPI Flash are empty, the board enters Maskro
 For scenarios where an NVMe drive is needed to boot the system, the SPI Flash image must first be programmed.
 
 </details>
-
 
 ## Installation System
 
@@ -69,7 +68,7 @@ The ROCK 5B/5B+ supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. 
 #### Preparation
 
 - usb A-C 线 x1
-- x86 PC 
+- x86 PC
 - rock5b/5b+
 - EMMC Module
 

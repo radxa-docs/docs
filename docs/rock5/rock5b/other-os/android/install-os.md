@@ -4,7 +4,7 @@ title: 系统安装
 ---
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
-import EnterMaskromMode from '../../_enter_maskrom_mode.mdx'
+import EnterMaskromMode from '../../\_enter_maskrom_mode.mdx'
 
 本文档将介绍如何把 Android 镜像安装到 ROCK 5B/5B+。
 
@@ -59,7 +59,7 @@ ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。�
 #### 准备工作
 
 - usb A-C 线 x1
-- x86 PC 
+- x86 PC
 - rock5b/5b+
 - EMMC Module
 
