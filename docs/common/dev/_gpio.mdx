@@ -45,3 +45,8 @@ GPIO 简介
   radxa@#model#:~$ sudo gpioset -m signal $(sudo gpiofind PIN_#gpio_pin#)=1 # 输出高电平， Led 亮
   `}
 </PreView>
+
+:::tip
+同一个 GPIO 不允许被两个进程同时使用，否则会提示资源占用。
+因此，需要手动按下 'Ctrl + C' 终止后，才可以执行第二个命令。
+:::
