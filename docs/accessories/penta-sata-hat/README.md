@@ -27,7 +27,7 @@ sidebar_position: 1
 - 4x SATA + 1x eSATA 带电源
 - 在 ROCK 系列上使用 PCIe 总线
 - 外置标准ATX电源支持HDD和ROCK系列
-- 12V DC 电源输入，适用于 2.5/3.5 HDD 电源和 ROCK 系列
+- 12V DC 电源输入，适用于 2.5/3.5 HDD 电源和 ROCK 系列（极性：内正外负）
 - 支持硬盘挂起模式
 - 支持软件RAID 0/1/5
 - 可选的 PWM 控制风扇用于 HDD 热量分配
