@@ -27,7 +27,7 @@ Currently supported Raspberry Pi models:
 - 4x SATA + 1x eSATA with power
 - Utilize PCIe buses on ROCK Series and Raspberry Pi
 - External standard ATX power supply support for HDDs and SBC itself
-- 12V DC power input for 2.5/3.5 HDD power and SBC itself
+- 12V DC power input for 2.5/3.5 HDD power and SBC itself (polarity: center positive)
 - Support HDD suspend mode
 - Support software RAID 0/1/5
 - Optional PWM control fan for HDD heat dispatching
