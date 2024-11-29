@@ -22,6 +22,13 @@ import React, { Fragment } from "react";
       ROCK 5A 系统镜像（6.1 内核）: Radxa ROCK 5A Debian12 b3{" "}
     </a>
   </li>
+  <li style={{ display: `${props.system_img ? "block" : "none"}` }}>
+    {" "}
+    <a href="https://github.com/radxa/manifests/releases/download/radxa-rock5a-20241129/Rock5A-Android12-r14-gms-20241129-gpt.zip">
+      {" "}
+      ROCK 5A Android12 : Radxa ROCK 5A Android{" "}
+    </a>
+  </li>
   <li style={{ display: `${props.spi_img ? "block" : "none"}` }}>
     {" "}
     <a
@@ -38,7 +45,7 @@ import React, { Fragment } from "react";
       alt="MiniLoader"
     >
       {" "}
-      MiniLoader.bin{" "}
+      ROCK 5A Android Loader 文件：MiniLoader.bin{" "}
     </a>
   </li>
 </ul>
