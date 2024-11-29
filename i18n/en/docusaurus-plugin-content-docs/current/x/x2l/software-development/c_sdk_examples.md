@@ -10,13 +10,13 @@ import FAN from "../../../common/dev/\_pico-fan.mdx";
 import RELATION from "./\_relation.mdx"
 import UART from "../../../common/dev/\_pico-uart.mdx";
 
-# 40-PIN Usage
+# Control RP2040 on Linux
 
 ## Introduction to Intel N100 and RP2040 and 40-PIN GPIO Relationships
 
 <RELATION />
 
-## 40-PIN Usage
+## Control RP2040 on Linux
 
 In order to operate the IO resources on RP2040, we need a complete software environment, such as MicroPython or C/C++ SDK, here we mainly introduce a set of C/C++ SDKs, namely pico-sdk and pico-examples. pico-sdk mainly provides some APIs to operate the RP2040, while pico-examples provides a compilation framework for us to add our own programs according to the compilation framework provided by pico-examples. pico-sdk provides some APIs to operate the RP2040, while pico-examples provides a compilation framework for us to add our own programs according to the compilation framework provided by pico-examples.
 
