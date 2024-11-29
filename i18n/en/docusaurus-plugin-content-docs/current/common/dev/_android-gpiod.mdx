@@ -1,0 +1,76 @@
+## GPIOD Introduction
+
+The GPIO sysfs interface has been deprecated since Linux 4.8. Userspace should instead use `libgpiod` to interact with GPIO character devices.
+
+### Key features
+
+- Easy to use: `libgpiod` provides a simple API that makes controlling and operating GPIO devices easy to understand. Developers only need to understand basic GPIO concepts and function interfaces to use it.
+- Efficient Event Listening: `libgpiod` provides functionality for asynchronous event listening, such as waiting for GPIO state changes. This allows developers to implement efficient event-driven applications.
+- GPIO specification support: `libgpiod` provides support for different GPIO specifications and numbering methods, including GPIO numbering and physical pin numbering.
+
+### Command Line Tools
+
+`libgpiod` provides a variety of command line tools, for viewing and control GPIO devices.
+
+#### `gpiodetect`
+
+List all GPIO controllers in the system:
+
+```bash
+radxa：/$ gpiodetect
+gpiochip0 [gpio0] (32 lines)
+gpiochip1 [gpio1] (32 lines)
+gpiochip2 [gpio2] (32 lines)
+gpiochip3 [gpio3] (32 lines)
+gpiochip4 [gpio4] (32 lines)
+```
+
+#### `gpioinfo`
+
+Display GPIO device information:
+
+```bash
+radxa：/$ gpioinfo
+gpiochip0 - 85 lines:
+        line   0:     "PIN_27"       unused   input  active-high
+        line   1:     "PIN_28"       unused   input  active-high
+        line   2:      "PIN_7"       unused   input  active-high
+        line   3:     "PIN_11"       unused   input  active-high
+        line   4:     "PIN_13"       unused   input  active-high
+        line   5:     "PIN_15"       unused   input  active-high
+        line   6:     "PIN_18"       unused   input  active-high
+        line   7:     "PIN_40"       unused   input  active-high
+        line   8:      unnamed       unused   input  active-high
+        line   9:      unnamed       unused   input  active-high
+...
+```
+
+:::info
+When using the 'libgpiod' command-line tool to control GPIO, ensure that GPIO is in an unused state
+:::
+
+#### `gpioget`
+
+Set GPIO to input mode and obtain the input status of GPIO:
+
+```bash
+radxa：/$ gpioget gpiochip0 0
+1
+```
+
+#### `gpioset`
+
+Set GPIO to output mode and set the output status of GPIO:
+
+```bash
+radxa：/$ gpioset gpiochip0 0=1
+```
+
+#### `gpiomon`
+
+Monitor GPIO events:
+
+```bash
+radxa：/$ gpiomon gpiochip0 0
+(GPIO event output)
+```
