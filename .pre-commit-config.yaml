@@ -47,6 +47,7 @@ repos:
       - id: mixed-line-ending
       - id: pretty-format-json
         args: [--autofix, --no-ensure-ascii]
+        exclude: ^(i18n/en/code.json|i18n/en/docusaurus-plugin-content-blog/options.json|i18n/en/docusaurus-plugin-content-docs/current.json|i18n/en/docusaurus-theme-classic/footer.json|i18n/en/docusaurus-theme-classic/navbar.json)$
       - id: trailing-whitespace
         args: ["--markdown-linebreak-ext=md,mdx"]
   - repo: https://github.com/pre-commit/mirrors-prettier
