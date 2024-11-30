@@ -10,7 +10,7 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## File Download
 
-Please go to [Download Page](../../../download.md) to download Loader file and system image.
+Please go to [Download Page](../../../download) to download Loader file and system image.
 
 <Rkdeveloptool platform="macos">
 <Maskrom/>

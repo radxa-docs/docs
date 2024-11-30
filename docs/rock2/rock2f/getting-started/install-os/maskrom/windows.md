@@ -10,7 +10,7 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## 文件下载
 
-请到[下载页面](../../../download.md)下载 Loader 和 系统镜像文件
+请到[下载页面](../../../download)下载 Loader 和 系统镜像文件
 
 <Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3528_spl_loader_v1.07.104.bin" emmc={false} pcie={false} sata={false} >
 <Maskrom/>

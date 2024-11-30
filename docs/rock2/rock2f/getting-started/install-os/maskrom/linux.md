@@ -10,7 +10,7 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## 文件下载
 
-请到[下载页面](../../../download.md)下载 Loader 和 系统镜像文件
+请到[下载页面](../../../download)下载 Loader 和 系统镜像文件
 
 <Rkdeveloptool platform="linux">
 <Maskrom/>
