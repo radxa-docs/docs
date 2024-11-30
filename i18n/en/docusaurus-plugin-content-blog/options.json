@@ -1,14 +1,14 @@
 {
   "description": {
-    "description": "The description for the blog used in SEO",
-    "message": "Blog"
+    "message": "Blog",
+    "description": "The description for the blog used in SEO"
   },
   "sidebar.title": {
-    "description": "The label for the left sidebar",
-    "message": "Recent posts"
+    "message": "Recent posts",
+    "description": "The label for the left sidebar"
   },
   "title": {
-    "description": "The title for the blog used in SEO",
-    "message": "Blog"
+    "message": "Blog",
+    "description": "The title for the blog used in SEO"
   }
 }

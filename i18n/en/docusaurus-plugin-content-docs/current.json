@@ -1,0 +1,614 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.rock2.category.ROCK 2A": {
+    "message": "ROCK 2A",
+    "description": "The label for category ROCK 2A in sidebar rock2"
+  },
+  "sidebar.rock2.category.Getting Started Guide": {
+    "message": "Getting Started Guide",
+    "description": "The label for category Getting Started Guide in sidebar rock2"
+  },
+  "sidebar.rock2.category.Installing the System": {
+    "message": "Installing the System",
+    "description": "The label for category Installing the System in sidebar rock2"
+  },
+  "sidebar.rock2.category.Installing the System onto eMMC": {
+    "message": "Installing the System onto eMMC",
+    "description": "The label for category Installing the System onto eMMC in sidebar rock2"
+  },
+  "sidebar.rock2.category.Interface Usage Instructions": {
+    "message": "Interface Usage Instructions",
+    "description": "The label for category Interface Usage Instructions in sidebar rock2"
+  },
+  "sidebar.rock2.category.Radxa System": {
+    "message": "Radxa System",
+    "description": "The label for category Radxa System in sidebar rock2"
+  },
+  "sidebar.rock2.category.Application development": {
+    "message": "Application development",
+    "description": "The label for category Application development in sidebar rock2"
+  },
+  "sidebar.rock2.category.Hardware Information": {
+    "message": "Hardware Information",
+    "description": "The label for category Hardware Information in sidebar rock2"
+  },
+  "sidebar.rock2.category.ROCK 2F": {
+    "message": "ROCK 2F",
+    "description": "The label for category ROCK 2F in sidebar rock2"
+  },
+  "sidebar.rock2.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar rock2"
+  },
+  "sidebar.rock2.category.Install OS on EMMC": {
+    "message": "Install OS on EMMC",
+    "description": "The label for category Install OS on EMMC in sidebar rock2"
+  },
+  "sidebar.rock2.category.Interface Usage": {
+    "message": "Interface Usage",
+    "description": "The label for category Interface Usage in sidebar rock2"
+  },
+  "sidebar.rock3.category.ROCK 3A": {
+    "message": "ROCK 3A",
+    "description": "The label for category ROCK 3A in sidebar rock3"
+  },
+  "sidebar.rock3.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar rock3"
+  },
+  "sidebar.rock3.category.Radxa OS": {
+    "message": "Radxa OS",
+    "description": "The label for category Radxa OS in sidebar rock3"
+  },
+  "sidebar.rock3.category.Application deployment": {
+    "message": "Application deployment",
+    "description": "The label for category Application deployment in sidebar rock3"
+  },
+  "sidebar.rock3.category.Application development": {
+    "message": "Application development",
+    "description": "The label for category Application development in sidebar rock3"
+  },
+  "sidebar.rock3.category.System Configuration": {
+    "message": "System Configuration",
+    "description": "The label for category System Configuration in sidebar rock3"
+  },
+  "sidebar.rock3.category.Hardware development": {
+    "message": "Hardware development",
+    "description": "The label for category Hardware development in sidebar rock3"
+  },
+  "sidebar.rock3.category.Low-level Development": {
+    "message": "Low-level Development",
+    "description": "The label for category Low-level Development in sidebar rock3"
+  },
+  "sidebar.rock3.category.Other System": {
+    "message": "Other System",
+    "description": "The label for category Other System in sidebar rock3"
+  },
+  "sidebar.rock3.category.Android OS": {
+    "message": "Android OS",
+    "description": "The label for category Android OS in sidebar rock3"
+  },
+  "sidebar.rock3.category.Accessories": {
+    "message": "Accessories",
+    "description": "The label for category Accessories in sidebar rock3"
+  },
+  "sidebar.rock3.category.ROCK 3B": {
+    "message": "ROCK 3B",
+    "description": "The label for category ROCK 3B in sidebar rock3"
+  },
+  "sidebar.rock3.category.Installing the system": {
+    "message": "Installing the system",
+    "description": "The label for category Installing the system in sidebar rock3"
+  },
+  "sidebar.rock3.category.Interface Usage Guidelines": {
+    "message": "Interface Usage Guidelines",
+    "description": "The label for category Interface Usage Guidelines in sidebar rock3"
+  },
+  "sidebar.rock3.category.Hardware Information": {
+    "message": "Hardware Information",
+    "description": "The label for category Hardware Information in sidebar rock3"
+  },
+  "sidebar.rock3.category.Install os via usb": {
+    "message": "Install os via usb",
+    "description": "The label for category Install os via usb in sidebar rock3"
+  },
+  "sidebar.rock3.category.ROCK 3C": {
+    "message": "ROCK 3C",
+    "description": "The label for category ROCK 3C in sidebar rock3"
+  },
+  "sidebar.rock3.category.Hardware": {
+    "message": "Hardware",
+    "description": "The label for category Hardware in sidebar rock3"
+  },
+  "sidebar.rock3.category.E25": {
+    "message": "E25",
+    "description": "The label for category E25 in sidebar rock3"
+  },
+  "sidebar.rock4.category.Application development": {
+    "message": "Application development",
+    "description": "The label for category Application development in sidebar rock4"
+  },
+  "sidebar.rock4.category.ROCK 4A/4B": {
+    "message": "ROCK 4A/4B",
+    "description": "The label for category ROCK 4A/4B in sidebar rock4"
+  },
+  "sidebar.rock4.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar rock4"
+  },
+  "sidebar.rock4.category.ROCK 4C Plus": {
+    "message": "ROCK 4C Plus",
+    "description": "The label for category ROCK 4C Plus in sidebar rock4"
+  },
+  "sidebar.rock4.category.Low-level Development": {
+    "message": "Low-level Development",
+    "description": "The label for category Low-level Development in sidebar rock4"
+  },
+  "sidebar.rock4.category.ROCK 4SE": {
+    "message": "ROCK 4SE",
+    "description": "The label for category ROCK 4SE in sidebar rock4"
+  },
+  "sidebar.rock4.category.System Configuration": {
+    "message": "System Configuration",
+    "description": "The label for category System Configuration in sidebar rock4"
+  },
+  "sidebar.rock4.category.Alternative OS": {
+    "message": "Alternative OS",
+    "description": "The label for category Alternative OS in sidebar rock4"
+  },
+  "sidebar.rock4.category.Hardware Information": {
+    "message": "Hardware Information",
+    "description": "The label for category Hardware Information in sidebar rock4"
+  },
+  "sidebar.rock5.category.ROCK 5A": {
+    "message": "ROCK 5A",
+    "description": "The label for category ROCK 5A in sidebar rock5"
+  },
+  "sidebar.rock5.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar rock5"
+  },
+  "sidebar.rock5.category.Installing the system": {
+    "message": "Installing the system",
+    "description": "The label for category Installing the system in sidebar rock5"
+  },
+  "sidebar.rock5.category.Interface Usage Guidelines": {
+    "message": "Interface Usage Guidelines",
+    "description": "The label for category Interface Usage Guidelines in sidebar rock5"
+  },
+  "sidebar.rock5.category.Radxa OS": {
+    "message": "Radxa OS",
+    "description": "The label for category Radxa OS in sidebar rock5"
+  },
+  "sidebar.rock5.category.Application development": {
+    "message": "Application development",
+    "description": "The label for category Application development in sidebar rock5"
+  },
+  "sidebar.rock5.category.Hardware Information": {
+    "message": "Hardware Information",
+    "description": "The label for category Hardware Information in sidebar rock5"
+  },
+  "sidebar.rock5.category.Low-level Development": {
+    "message": "Low-level Development",
+    "description": "The label for category Low-level Development in sidebar rock5"
+  },
+  "sidebar.rock5.category.Install os via usb": {
+    "message": "Install os via usb",
+    "description": "The label for category Install os via usb in sidebar rock5"
+  },
+  "sidebar.rock5.category.ROCK 5B/5B+": {
+    "message": "ROCK 5B/5B+",
+    "description": "The label for category ROCK 5B/5B+ in sidebar rock5"
+  },
+  "sidebar.rock5.category.Other System": {
+    "message": "Other System",
+    "description": "The label for category Other System in sidebar rock5"
+  },
+  "sidebar.rock5.category.Android OS": {
+    "message": "Android OS",
+    "description": "The label for category Android OS in sidebar rock5"
+  },
+  "sidebar.rock5.category.ROCK 5C": {
+    "message": "ROCK 5C",
+    "description": "The label for category ROCK 5C in sidebar rock5"
+  },
+  "sidebar.rock5.category.ROCK 5 ITX": {
+    "message": "ROCK 5 ITX",
+    "description": "The label for category ROCK 5 ITX in sidebar rock5"
+  },
+  "sidebar.rock5.category.Manual reinstallation": {
+    "message": "Manual reinstallation",
+    "description": "The label for category Manual reinstallation in sidebar rock5"
+  },
+  "sidebar.rock5.category.Interface Usage": {
+    "message": "Interface Usage",
+    "description": "The label for category Interface Usage in sidebar rock5"
+  },
+  "sidebar.rock5.category.Lowlevel Development": {
+    "message": "Lowlevel Development",
+    "description": "The label for category Lowlevel Development in sidebar rock5"
+  },
+  "sidebar.rock5.link.ROOBI": {
+    "message": "ROOBI",
+    "description": "The label for link ROOBI in sidebar rock5, linking to /roobi"
+  },
+  "sidebar.rockpi.category.ROCK Pi E": {
+    "message": "ROCK Pi E",
+    "description": "The label for category ROCK Pi E in sidebar rockpi"
+  },
+  "sidebar.rockpi.category.Hardware Development": {
+    "message": "Hardware Development",
+    "description": "The label for category Hardware Development in sidebar rockpi"
+  },
+  "sidebar.rockpi.category.ROCK Pi S": {
+    "message": "ROCK Pi S",
+    "description": "The label for category ROCK Pi S in sidebar rockpi"
+  },
+  "sidebar.rockpi.category.ROCK S0": {
+    "message": "ROCK S0",
+    "description": "The label for category ROCK S0 in sidebar rockpi"
+  },
+  "sidebar.rockpi.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar rockpi"
+  },
+  "sidebar.rockpi.category.Radxa OS": {
+    "message": "Radxa OS",
+    "description": "The label for category Radxa OS in sidebar rockpi"
+  },
+  "sidebar.rockpi.category.System Configuration": {
+    "message": "System Configuration",
+    "description": "The label for category System Configuration in sidebar rockpi"
+  },
+  "sidebar.rockpi.category.Application deployment": {
+    "message": "Application deployment",
+    "description": "The label for category Application deployment in sidebar rockpi"
+  },
+  "sidebar.rockpi.category.Application development": {
+    "message": "Application development",
+    "description": "The label for category Application development in sidebar rockpi"
+  },
+  "sidebar.rockpi.category.Hardware development": {
+    "message": "Hardware development",
+    "description": "The label for category Hardware development in sidebar rockpi"
+  },
+  "sidebar.rockpi.category.Low level Development": {
+    "message": "Low level Development",
+    "description": "The label for category Low level Development in sidebar rockpi"
+  },
+  "sidebar.accessories.category.Radxa Penta SATA HAT": {
+    "message": "Radxa Penta SATA HAT",
+    "description": "The label for category Radxa Penta SATA HAT in sidebar accessories"
+  },
+  "sidebar.accessories.category.Radxa Display 8 HD": {
+    "message": "Radxa Display 8 HD",
+    "description": "The label for category Radxa Display 8 HD in sidebar accessories"
+  },
+  "sidebar.accessories.category.Third Party Peripheral Configuration": {
+    "message": "Third Party Peripheral Configuration",
+    "description": "The label for category Third Party Peripheral Configuration in sidebar accessories"
+  },
+  "sidebar.compute-module.category.Radxa CM5": {
+    "message": "Radxa CM5",
+    "description": "The label for category Radxa CM5 in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Radxa OS": {
+    "message": "Radxa OS",
+    "description": "The label for category Radxa OS in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.System Configuration": {
+    "message": "System Configuration",
+    "description": "The label for category System Configuration in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Application Deployment": {
+    "message": "Application Deployment",
+    "description": "The label for category Application Deployment in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Application development": {
+    "message": "Application development",
+    "description": "The label for category Application development in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Low-level Development": {
+    "message": "Low-level Development",
+    "description": "The label for category Low-level Development in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Android": {
+    "message": "Android",
+    "description": "The label for category Android in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Accessory List": {
+    "message": "Accessory List",
+    "description": "The label for category Accessory List in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Hardware": {
+    "message": "Hardware",
+    "description": "The label for category Hardware in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Radxa NX5": {
+    "message": "Radxa NX5",
+    "description": "The label for category Radxa NX5 in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Low level Development": {
+    "message": "Low level Development",
+    "description": "The label for category Low level Development in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Hardware Info": {
+    "message": "Hardware Info",
+    "description": "The label for category Hardware Info in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Accessories": {
+    "message": "Accessories",
+    "description": "The label for category Accessories in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Radxa CM3": {
+    "message": "Radxa CM3",
+    "description": "The label for category Radxa CM3 in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Installing the system": {
+    "message": "Installing the system",
+    "description": "The label for category Installing the system in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Interface Usage Guidelines": {
+    "message": "Interface Usage Guidelines",
+    "description": "The label for category Interface Usage Guidelines in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Hardware Information": {
+    "message": "Hardware Information",
+    "description": "The label for category Hardware Information in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Install os via usb": {
+    "message": "Install os via usb",
+    "description": "The label for category Install os via usb in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Other System": {
+    "message": "Other System",
+    "description": "The label for category Other System in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Radxa CM3I": {
+    "message": "Radxa CM3I",
+    "description": "The label for category Radxa CM3I in sidebar compute-module"
+  },
+  "sidebar.compute-module.category.Other OS": {
+    "message": "Other OS",
+    "description": "The label for category Other OS in sidebar compute-module"
+  },
+  "sidebar.x.category.Radxa X2L": {
+    "message": "Radxa X2L",
+    "description": "The label for category Radxa X2L in sidebar x"
+  },
+  "sidebar.x.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar x"
+  },
+  "sidebar.x.category.Accessory Support": {
+    "message": "Accessory Support",
+    "description": "The label for category Accessory Support in sidebar x"
+  },
+  "sidebar.x.category.BIOS Setting": {
+    "message": "BIOS Setting",
+    "description": "The label for category BIOS Setting in sidebar x"
+  },
+  "sidebar.x.category.Hardware Information": {
+    "message": "Hardware Information",
+    "description": "The label for category Hardware Information in sidebar x"
+  },
+  "sidebar.x.category.Software Development": {
+    "message": "Software Development",
+    "description": "The label for category Software Development in sidebar x"
+  },
+  "sidebar.x.category.Radxa X4": {
+    "message": "Radxa X4",
+    "description": "The label for category Radxa X4 in sidebar x"
+  },
+  "sidebar.x.link.ROOBI": {
+    "message": "ROOBI",
+    "description": "The label for link ROOBI in sidebar x, linking to /roobi"
+  },
+  "sidebar.zero.category.ZERO 3": {
+    "message": "ZERO 3",
+    "description": "The label for category ZERO 3 in sidebar zero"
+  },
+  "sidebar.zero.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar zero"
+  },
+  "sidebar.zero.category.Radxa OS": {
+    "message": "Radxa OS",
+    "description": "The label for category Radxa OS in sidebar zero"
+  },
+  "sidebar.zero.category.System Configuration": {
+    "message": "System Configuration",
+    "description": "The label for category System Configuration in sidebar zero"
+  },
+  "sidebar.zero.category.Application deployment": {
+    "message": "Application deployment",
+    "description": "The label for category Application deployment in sidebar zero"
+  },
+  "sidebar.zero.category.Application development": {
+    "message": "Application development",
+    "description": "The label for category Application development in sidebar zero"
+  },
+  "sidebar.zero.category.Hardware development": {
+    "message": "Hardware development",
+    "description": "The label for category Hardware development in sidebar zero"
+  },
+  "sidebar.zero.category.Low level Development": {
+    "message": "Low level Development",
+    "description": "The label for category Low level Development in sidebar zero"
+  },
+  "sidebar.zero.category.Other System": {
+    "message": "Other System",
+    "description": "The label for category Other System in sidebar zero"
+  },
+  "sidebar.zero.category.Android OS": {
+    "message": "Android OS",
+    "description": "The label for category Android OS in sidebar zero"
+  },
+  "sidebar.zero.category.Accessories": {
+    "message": "Accessories",
+    "description": "The label for category Accessories in sidebar zero"
+  },
+  "sidebar.zero.category.ZERO": {
+    "message": "ZERO",
+    "description": "The label for category ZERO in sidebar zero"
+  },
+  "sidebar.zero.category.Getting started": {
+    "message": "Getting started",
+    "description": "The label for category Getting started in sidebar zero"
+  },
+  "sidebar.zero.category.Hardware Development": {
+    "message": "Hardware Development",
+    "description": "The label for category Hardware Development in sidebar zero"
+  },
+  "sidebar.zero.category.Android": {
+    "message": "Android",
+    "description": "The label for category Android in sidebar zero"
+  },
+  "sidebar.zero.category.ZERO 2 PRO": {
+    "message": "ZERO 2 PRO",
+    "description": "The label for category ZERO 2 PRO in sidebar zero"
+  },
+  "sidebar.zero.category.Other systems": {
+    "message": "Other systems",
+    "description": "The label for category Other systems in sidebar zero"
+  },
+  "sidebar.nio.category.NIO 12L": {
+    "message": "NIO 12L",
+    "description": "The label for category NIO 12L in sidebar nio"
+  },
+  "sidebar.nio.category.System installation": {
+    "message": "System installation",
+    "description": "The label for category System installation in sidebar nio"
+  },
+  "sidebar.nio.category.Low Level Development": {
+    "message": "Low Level Development",
+    "description": "The label for category Low Level Development in sidebar nio"
+  },
+  "sidebar.nio.category.Android": {
+    "message": "Android",
+    "description": "The label for category Android in sidebar nio"
+  },
+  "sidebar.nio.category.Hardware Design": {
+    "message": "Hardware Design",
+    "description": "The label for category Hardware Design in sidebar nio"
+  },
+  "sidebar.sophon.category.AICore SG2300X": {
+    "message": "AICore SG2300X",
+    "description": "The label for category AICore SG2300X in sidebar sophon"
+  },
+  "sidebar.sophon.category.Fogwise® AirBox": {
+    "message": "Fogwise® AirBox",
+    "description": "The label for category Fogwise® AirBox in sidebar sophon"
+  },
+  "sidebar.sophon.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar sophon"
+  },
+  "sidebar.sophon.category.CasaOS": {
+    "message": "CasaOS",
+    "description": "The label for category CasaOS in sidebar sophon"
+  },
+  "sidebar.sophon.category.Local AI Model Deployment": {
+    "message": "Local AI Model Deployment",
+    "description": "The label for category Local AI Model Deployment in sidebar sophon"
+  },
+  "sidebar.sophon.category.Deployment Tools": {
+    "message": "Deployment Tools",
+    "description": "The label for category Deployment Tools in sidebar sophon"
+  },
+  "sidebar.sophon.category.Deployment of Large AI Models": {
+    "message": "Deployment of Large AI Models",
+    "description": "The label for category Deployment of Large AI Models in sidebar sophon"
+  },
+  "sidebar.sophon.category.Model-Zoo": {
+    "message": "Model-Zoo",
+    "description": "The label for category Model-Zoo in sidebar sophon"
+  },
+  "sidebar.sophon.category.Model Conversion": {
+    "message": "Model Conversion",
+    "description": "The label for category Model Conversion in sidebar sophon"
+  },
+  "sidebar.sophon.category.hardware development": {
+    "message": "hardware development",
+    "description": "The label for category hardware development in sidebar sophon"
+  },
+  "sidebar.e.category.E20C": {
+    "message": "E20C",
+    "description": "The label for category E20C in sidebar e"
+  },
+  "sidebar.e.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar e"
+  },
+  "sidebar.e.category.Install the system": {
+    "message": "Install the system",
+    "description": "The label for category Install the system in sidebar e"
+  },
+  "sidebar.e.category.Install OS on EMMC": {
+    "message": "Install OS on EMMC",
+    "description": "The label for category Install OS on EMMC in sidebar e"
+  },
+  "sidebar.e.category.iStoreOS Usage": {
+    "message": "iStoreOS Usage",
+    "description": "The label for category iStoreOS Usage in sidebar e"
+  },
+  "sidebar.e.category.Other System": {
+    "message": "Other System",
+    "description": "The label for category Other System in sidebar e"
+  },
+  "sidebar.e.category.Hardware Information": {
+    "message": "Hardware Information",
+    "description": "The label for category Hardware Information in sidebar e"
+  },
+  "sidebar.sirider.category.SiRider S1": {
+    "message": "SiRider S1",
+    "description": "The label for category SiRider S1 in sidebar sirider"
+  },
+  "sidebar.sirider.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar sirider"
+  },
+  "sidebar.sirider.category.Install OS": {
+    "message": "Install OS",
+    "description": "The label for category Install OS in sidebar sirider"
+  },
+  "sidebar.sirider.category.Interface Usage": {
+    "message": "Interface Usage",
+    "description": "The label for category Interface Usage in sidebar sirider"
+  },
+  "sidebar.sirider.category.Application development": {
+    "message": "Application development",
+    "description": "The label for category Application development in sidebar sirider"
+  },
+  "sidebar.sirider.category.Low-level Development": {
+    "message": "Low-level Development",
+    "description": "The label for category Low-level Development in sidebar sirider"
+  },
+  "sidebar.compliance.category.Compute Module Family": {
+    "message": "Compute Module Family",
+    "description": "The label for category Compute Module Family in sidebar compliance"
+  },
+  "sidebar.compliance.category.ROCK 3 Family": {
+    "message": "ROCK 3 Family",
+    "description": "The label for category ROCK 3 Family in sidebar compliance"
+  },
+  "sidebar.compliance.category.ROCK 4 Family": {
+    "message": "ROCK 4 Family",
+    "description": "The label for category ROCK 4 Family in sidebar compliance"
+  },
+  "sidebar.compliance.category.ROCK 5 Family": {
+    "message": "ROCK 5 Family",
+    "description": "The label for category ROCK 5 Family in sidebar compliance"
+  },
+  "sidebar.compliance.category.Radiofrequency Compliance Guidance": {
+    "message": "Radiofrequency Compliance Guidance",
+    "description": "The label for category Radiofrequency Compliance Guidance in sidebar compliance"
+  }
+}
