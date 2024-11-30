@@ -3,10 +3,6 @@
     "message": "AICore SG2300x",
     "description": "Navbar item with label AICore SG2300x"
   },
-  "item.label.About": {
-    "description": "Navbar item with label About",
-    "message": "About"
-  },
   "item.label.Airbox": {
     "message": "Airbox",
     "description": "Navbar item with label Airbox"
@@ -23,10 +19,6 @@
     "message": "CM5",
     "description": "Navbar item with label CM5"
   },
-  "item.label.Community": {
-    "description": "Navbar item with label Community",
-    "message": "Community"
-  },
   "item.label.Docs": {
     "message": "All Docs",
     "description": "Navbar item with label Docs"
@@ -35,17 +27,9 @@
     "message": "E20C",
     "description": "Navbar item with label E20C"
   },
-  "item.label.Forum": {
-    "description": "Navbar item with label Forum",
-    "message": "Forum"
-  },
-  "item.label.Github": {
-    "description": "Navbar item with label Github",
-    "message": "Github"
-  },
-  "item.label.Home": {
-    "description": "Navbar item with label Home",
-    "message": "Home"
+  "item.label.E52C": {
+    "message": "E52C",
+    "description": "Navbar item with label E52C"
   },
   "item.label.NIO 12L": {
     "message": "NIO 12L",
@@ -58,14 +42,6 @@
   "item.label.NX5": {
     "message": "NX5",
     "description": "Navbar item with label NX5"
-  },
-  "item.label.News": {
-    "description": "Navbar item with label News",
-    "message": "News"
-  },
-  "item.label.Products": {
-    "description": "Navbar item with label Products",
-    "message": "Products"
   },
   "item.label.ROCK 2 系列": {
     "message": "ROCK 2 Series",
@@ -91,25 +67,13 @@
     "message": "ROCK Series",
     "description": "Navbar item with label ROCK 系列"
   },
-  "item.label.Services": {
-    "description": "Navbar item with label Services",
-    "message": "Services"
+  "item.label.SiRider S1": {
+    "message": "SiRider S1",
+    "description": "Navbar item with label SiRider S1"
   },
   "item.label.SiRider 系列": {
-    "description": "Navbar item with label SiRider 系列",
-    "message": "SiRider Series"
-  },
-  "item.label.Support": {
-    "description": "Navbar item with label Support",
-    "message": "Support"
-  },
-  "item.label.Welcome": {
-    "description": "Navbar item with label Welcome",
-    "message": "Welcome"
-  },
-  "item.label.WiKi": {
-    "description": "Navbar item with label WiKi",
-    "message": "WiKi"
+    "message": "SiRider Series",
+    "description": "Navbar item with label SiRider 系列"
   },
   "item.label.X 系列": {
     "message": "X Series",
@@ -214,17 +178,5 @@
   "logo.alt": {
     "message": "Radxa",
     "description": "The alt text of navbar logo"
-  },
-  "item.label.SiRider 系列": {
-    "message": "SiRider 系列",
-    "description": "Navbar item with label SiRider 系列"
-  },
-  "item.label.SiRider S1": {
-    "message": "SiRider S1",
-    "description": "Navbar item with label SiRider S1"
-  },
-  "item.label.E52C": {
-    "message": "E52C",
-    "description": "Navbar item with label E52C"
   }
 }

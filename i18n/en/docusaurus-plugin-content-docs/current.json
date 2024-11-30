@@ -499,6 +499,14 @@
     "message": "Hardware Design",
     "description": "The label for category Hardware Design in sidebar nio"
   },
+  "sidebar.nio.category.Ubuntu": {
+    "message": "Ubuntu",
+    "description": "The label for category Ubuntu in sidebar nio"
+  },
+  "sidebar.nio.category.Yocto": {
+    "message": "Yocto",
+    "description": "The label for category Yocto in sidebar nio"
+  },
   "sidebar.sophon.category.AICore SG2300X": {
     "message": "AICore SG2300X",
     "description": "The label for category AICore SG2300X in sidebar sophon"
@@ -523,10 +531,6 @@
     "message": "Deployment Tools",
     "description": "The label for category Deployment Tools in sidebar sophon"
   },
-  "sidebar.sophon.category.Deployment of Large AI Models": {
-    "message": "Deployment of Large AI Models",
-    "description": "The label for category Deployment of Large AI Models in sidebar sophon"
-  },
   "sidebar.sophon.category.Model-Zoo": {
     "message": "Model-Zoo",
     "description": "The label for category Model-Zoo in sidebar sophon"
@@ -538,6 +542,22 @@
   "sidebar.sophon.category.hardware development": {
     "message": "hardware development",
     "description": "The label for category hardware development in sidebar sophon"
+  },
+  "sidebar.sophon.category.LLM": {
+    "message": "LLM",
+    "description": "The label for category LLM in sidebar sophon"
+  },
+  "sidebar.sophon.category.Text-to-Image": {
+    "message": "Text-to-Image",
+    "description": "The label for category Text-to-Image in sidebar sophon"
+  },
+  "sidebar.sophon.category.Vector search": {
+    "message": "Vector search",
+    "description": "The label for category Vector search in sidebar sophon"
+  },
+  "sidebar.sophon.category.TTS/STT": {
+    "message": "TTS/STT",
+    "description": "The label for category TTS/STT in sidebar sophon"
   },
   "sidebar.e.category.E20C": {
     "message": "E20C",
@@ -566,6 +586,10 @@
   "sidebar.e.category.Hardware Information": {
     "message": "Hardware Information",
     "description": "The label for category Hardware Information in sidebar e"
+  },
+  "sidebar.e.category.E52C": {
+    "message": "E52C",
+    "description": "The label for category E52C in sidebar e"
   },
   "sidebar.sirider.category.SiRider S1": {
     "message": "SiRider S1",
@@ -610,5 +634,17 @@
   "sidebar.compliance.category.Radiofrequency Compliance Guidance": {
     "message": "Radiofrequency Compliance Guidance",
     "description": "The label for category Radiofrequency Compliance Guidance in sidebar compliance"
+  },
+  "sidebar.rock2.category.Other System": {
+    "message": "Other System",
+    "description": "The label for category Other System in sidebar rock2"
+  },
+  "sidebar.rock2.category.Android OS": {
+    "message": "Android OS",
+    "description": "The label for category Android OS in sidebar rock2"
+  },
+  "sidebar.compute-module.category.Android OS": {
+    "message": "Android OS",
+    "description": "The label for category Android OS in sidebar compute-module"
   }
 }

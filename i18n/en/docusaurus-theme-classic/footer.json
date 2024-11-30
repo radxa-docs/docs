@@ -43,34 +43,6 @@
     "message": "Wiki",
     "description": "The label of footer link with label=Wiki linking to https://wiki.radxa.com/"
   },
-  "link.item.label.产品": {
-    "description": "The label of footer link with label=产品 linking to http://www.radxa.com/product",
-    "message": "Products"
-  },
-  "link.item.label.关于我们": {
-    "description": "The label of footer link with label=关于我们 linking to http://www.radxa.com/about",
-    "message": "About Us"
-  },
-  "link.item.label.支持": {
-    "description": "The label of footer link with label=支持 linking to http://www.radxa.com/sustain",
-    "message": "Support"
-  },
-  "link.item.label.新闻": {
-    "description": "The label of footer link with label=新闻 linking to http://www.radxa.com/news",
-    "message": "News"
-  },
-  "link.item.label.社区": {
-    "description": "The label of footer link with label=社区 linking to http://www.radxa.com/association",
-    "message": "Community"
-  },
-  "link.item.label.联系我们": {
-    "description": "The label of footer link with label=联系我们 linking to http://www.radxa.com/about?contact_us",
-    "message": "Contact Us"
-  },
-  "link.item.label.首页": {
-    "description": "The label of footer link with label=首页 linking to http://www.radxa.com/",
-    "message": "Home"
-  },
   "link.title.About": {
     "message": "About",
     "description": "The title of the footer links column with title=About in the footer"
@@ -82,13 +54,5 @@
   "link.title.Support": {
     "message": "Support",
     "description": "The title of the footer links column with title=Support in the footer"
-  },
-  "link.title.关于": {
-    "description": "The title of the footer links column with title=关于 in the footer",
-    "message": "About"
-  },
-  "link.title.其他站点": {
-    "description": "The title of the footer links column with title=其他站点 in the footer",
-    "message": "Other sites"
   }
 }
