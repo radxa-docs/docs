@@ -12,7 +12,7 @@ ROCK 5B/5B+ 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以�
 
 ### 清除 SPI Flash
 
-在使用 microSD 卡/ eMMC 启动时，如果SPI Flash 里面有数据，需要先清空 SPI Flash，参考 [清除 SPI Flash](../../low-level-dev/maskrom/erase.md)。
+在使用 microSD 卡/ eMMC 启动时，如果SPI Flash 里面有数据，需要先清空 SPI Flash，参考 [清除 SPI Flash](../../low-level-dev/maskrom/erase)。
 
 <details>
 
@@ -110,7 +110,7 @@ ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。�
 
 #### 镜像下载
 
-请到 [资源下载中心](../../download.md) 下载对应的镜像文件
+请到 [资源下载中心](../../download) 下载对应的镜像文件
 
 #### 系统安装
 
@@ -120,7 +120,7 @@ ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。�
 
 #### Linux 系统使用 rkdeveloptool 写入
 
-[rkdeveloptool](../../low-level-dev/maskrom/linux.md)
+[rkdeveloptool](../../low-level-dev/maskrom/linux)
 
 </TabItem>
 
@@ -128,7 +128,7 @@ ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。�
 
 #### Mac 系统使用 rkdeveloptool 写入
 
-[rkdeveloptool](../../low-level-dev/maskrom/mac-os.md)
+[rkdeveloptool](../../low-level-dev/maskrom/mac-os)
 
 </TabItem>
 

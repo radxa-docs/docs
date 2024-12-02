@@ -9,7 +9,7 @@ import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
 
 ## 文件下载
 
-请到[下载页面](../../download.md) 下载对应的镜像及Loader文件
+请到[下载页面](../../download) 下载对应的镜像及Loader文件
 
 <Rkdeveloptool model="rock-5b" release_num="39" desktop="kde" platform="linux" loader="rk3588_spl_loader_v1.08.111.bin">
 

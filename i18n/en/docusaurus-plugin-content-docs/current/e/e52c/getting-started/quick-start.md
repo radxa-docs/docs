@@ -26,7 +26,7 @@ To start the Radxa E52C, you need the following equipment:：
 
 <TabItem value="withemmc" label="with onBoard EMMC" default>
 
-E52C with onBoard EMMC is equipped with a pre-installed system [istoreos](../istoreos/istoreos.md), no need to install os.
+E52C with onBoard EMMC is equipped with a pre-installed system [istoreos](../istoreos), no need to install os.
 
 </TabItem>
 

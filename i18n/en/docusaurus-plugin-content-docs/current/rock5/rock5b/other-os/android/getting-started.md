@@ -7,14 +7,14 @@ description: "Quickly get started with ROCK 5B/5B+, allowing you to easily start
 
 ## Product Introduction
 
-Please refer to [Product Introduction](../../getting-started/introduction.md)
+Please refer to [Product Introduction](../../getting-started/introduction)
 
 ## Get started quickly
 
-Please refer to [Quick Start](../../getting-started/quick-start.md)
+Please refer to [Quick Start](../../getting-started/quick-start)
 
-**_Note: ‘Installing the operating system' part needs to refer to[ here](./install-os.md)_**
+**_Note: ‘Installing the operating system' part needs to refer to[ here](./install-os)_**
 
 ## Power supply
 
-Please refer to [Power Selection](../../getting-started/power-supply.md)
+Please refer to [Power Selection](../../getting-started/power-supply)

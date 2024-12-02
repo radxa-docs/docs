@@ -26,7 +26,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 <TabItem value="withemmc" label="带板载EMMC" default>
 
-出厂自带 [iStoreOS](../istoreos/istoreos.md) 系统，上电自启动，不需要烧录。
+出厂自带 [iStoreOS](../istoreos) 系统，上电自启动，不需要烧录。
 
 </TabItem>
 

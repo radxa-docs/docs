@@ -12,7 +12,7 @@ ROCK 5B/5B+ can be booted from microSD card or EMMC, depending on the boot metho
 
 ### Erase SPI Flash
 
-Before using a microSD card/eMMC to boot an SBC with SPI Flash, If there is data in SPI Flash, the SPI Flash needs to be erased. Refer to [Erase SPI Flash](../../low-level-dev/maskrom/erase.md)
+Before using a microSD card/eMMC to boot an SBC with SPI Flash, If there is data in SPI Flash, the SPI Flash needs to be erased. Refer to [Erase SPI Flash](../../low-level-dev/maskrom/erase)
 
 <details>
 
@@ -67,7 +67,7 @@ The ROCK 5B/5B+ supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. 
 
 #### Preparation
 
-- usb A-C 线 x1
+- 1x USB Type-A to Type-C cable
 - x86 PC
 - rock5b/5b+
 - EMMC Module
@@ -135,7 +135,7 @@ Please go to [Resource Download Summary](../../download) to download the corresp
 
 #### Linux systems are written using rkdeveloptool
 
-[rkdeveloptool](../../low-level-dev/maskrom/linux.md)
+[rkdeveloptool](../../low-level-dev/maskrom/linux)
 
 </TabItem>
 
@@ -143,7 +143,7 @@ Please go to [Resource Download Summary](../../download) to download the corresp
 
 #### Mac systems are written using rkdeveloptool
 
-[rkdeveloptool](../../low-level-dev/maskrom/mac-os.md)
+[rkdeveloptool](../../low-level-dev/maskrom/mac-os)
 
 </TabItem>
 
