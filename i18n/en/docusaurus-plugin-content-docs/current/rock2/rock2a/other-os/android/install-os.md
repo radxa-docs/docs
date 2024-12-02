@@ -21,7 +21,7 @@ ROCK 2A can be booted from microSD card or EMMC, depending on the boot method, t
 
 - 1x microSD card (capacity >=16GB, speed level >= class10)
 - 1x microSD card reader
-- 5V power adapter (Recommended [Radxa Power PD30W](../../../../accessories/pd_30w.md))
+- 5V power adapter (Recommended [Radxa Power PD30W](../../../../accessories/pd_30w))
 
 ## Image Download
 
@@ -34,7 +34,7 @@ Please go to [Resource Download Summary](../../download) to download the corresp
 ## Boot the system
 
 - After successfully burning the microSD card as described above, insert the microSD card into the microSD slot of ROCK 2A.
-- The power supply interface of ROCK 2A is [Type C port](../../hardware-design/hardware-interface.md), please connect the power supply port and the adapter with Type-C cable.
+- The power supply interface of ROCK 2A is [Type C port](../../hardware-design/hardware-interface), please connect the power supply port and the adapter with Type-C cable.
 
 ## Reference Documentation
 
@@ -48,7 +48,7 @@ Please go to [Resource Download Summary](../../download) to download the corresp
 
 - USB connector cable (A-A)
 - 1x ROCK 2A with eMMC
-- 5V power adapter (Recommended [Radxa Power PD30W](../../../../accessories/pd_30w.md))
+- 5V power adapter (Recommended [Radxa Power PD30W](../../../../accessories/pd_30w))
 
 ### Download the image
 

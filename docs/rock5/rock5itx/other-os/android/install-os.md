@@ -68,7 +68,7 @@ rkdeveloptool rd
 
 ## 镜像下载
 
-请到 [资源下载汇总](/rock5/rock5itx/download) 下载对应的镜像文件
+请到 [资源下载汇总](../../download) 下载对应的镜像文件
 
 ## 安装系统
 
@@ -93,7 +93,7 @@ rkdeveloptool rd
 
 ### 镜像下载
 
-请到 [资源下载汇总](/rock5/rock5itx/download) 下载对应的镜像文件
+请到 [资源下载汇总](../../download) 下载对应的镜像文件
 
 ## 系统安装
 
@@ -173,7 +173,7 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 
 ## 镜像下载
 
-请到 [资源下载汇总](/rock5/rock5itx/download) 下载对应的镜像文件
+请到 [资源下载汇总](../../download) 下载对应的镜像文件
 
 ## 系统安装
 

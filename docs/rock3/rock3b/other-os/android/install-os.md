@@ -19,7 +19,7 @@ import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV3.mdx";
 
 在使用 microSD 卡/ eMMC 启动 ROCK 3B 之前，需要擦除 SPI ，步骤如下：
 
-1. 前往[资源下载汇总](../../../images.md)下载 Loader 文件到本地
+1. 前往[资源下载汇总](../../../images)下载 Loader 文件到本地
 
 2. 设备进入 maskrom 模式，连接到PC端
 
@@ -62,11 +62,11 @@ rkdeveloptool rd
 
 - 1x microSD 卡/ eMMC (容量 >=8GB)
 - 1x microSD / eMMC 读卡器
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../accessories/pd-30w))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w))
 
 ## 镜像下载
 
-请到 [资源下载汇总](../../../images.md) 下载对应的镜像文件
+请到 [资源下载汇总](../../../images) 下载对应的镜像文件
 
 ## 安装系统
 
@@ -75,10 +75,10 @@ rkdeveloptool rd
 ## 启动系统
 
 - 按照上述步骤成功烧录 microSD 卡/ eMMC 后，插入 Radxa ROCK 3B 的对应插槽内。
-- ROCK 3B 的供电接口为 [USB 2.0 OTG Type C port](/rock3/rock3b/hardware-design/hardware-interface.md)，请使用 Type-C 线缆连接供电口和适配器。
+- ROCK 3B 的供电接口为 [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
 
 :::tip
-Radxa ROCK 3B 支持 QC 3.0/2.0 适配器, 9V/2A，12V/1.5A。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w.md)。
+Radxa ROCK 3B 支持 QC 3.0/2.0 适配器, 9V/2A，12V/1.5A。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w)。
 :::
 
 ## 参考文档
@@ -90,11 +90,11 @@ Radxa ROCK 3B 支持 QC 3.0/2.0 适配器, 9V/2A，12V/1.5A。瑞莎推荐使用
 ## 准备工作
 
 - 1x NVME ssd （M.2）
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../accessories/pd-30w))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w))
 
 ## 镜像下载
 
-请到 [资源下载汇总](../../../images.md) 下载对应的镜像文件
+请到 [资源下载汇总](../../../images) 下载对应的镜像文件
 
 ## 系统安装
 

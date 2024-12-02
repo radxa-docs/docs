@@ -19,7 +19,7 @@ Rock 3B can boot from microSD card, eMMC, SSD, so install os on microSD card, eM
 
 Before starting ROCK 3B using microSD card/eMMC, it is necessary to erase the SPI as follows:
 
-1. Please go to [Download Summary](../../../images.md) to download image.
+1. Please go to [Download Summary](../../../images) to download image.
 
 2. Enter maskrom mode
 
@@ -66,7 +66,7 @@ rkdeveloptool rd
 
 ## Image Download
 
-Please go to [Resource Download Summary](../../../images.md) to download the corresponding image file.
+Please go to [Resource Download Summary](../../../images) to download the corresponding image file.
 
 ## Install the system
 
@@ -75,10 +75,10 @@ Please go to [Resource Download Summary](../../../images.md) to download the cor
 ## Start the system
 
 - After successfully burning the microSD card/ eMMC as described above, insert the slot of the ROCK 3B.
-- The power supply interface of ROCK 3B is [USB 2.0 OTG Type C port](/rock3/rock3b/hardware-design/hardware-interface.md), please use Type-C cable to connect the power supply port and the adapter.
+- The power supply interface of ROCK 3B is [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface), please use Type-C cable to connect the power supply port and the adapter.
 
 :::tip
-Radxa ROCK 3B supports QC 3.0/2.0 adapter, 9V/2A, 12V/1.5A. Radxa recommends using the [Radxa Power PD30W](../../../../accessories/pd-30w.md).
+Radxa ROCK 3B supports QC 3.0/2.0 adapter, 9V/2A, 12V/1.5A. Radxa recommends using the [Radxa Power PD30W](../../../../accessories/pd_30w).
 :::
 
 </TabItem>
@@ -93,7 +93,7 @@ Radxa ROCK 3B supports QC 3.0/2.0 adapter, 9V/2A, 12V/1.5A. Radxa recommends usi
 
 ### Prepare the image file
 
-Please go to [Download Summary](../../../images.md) to download image.
+Please go to [Download Summary](../../../images) to download image.
 
 ## System installation
 

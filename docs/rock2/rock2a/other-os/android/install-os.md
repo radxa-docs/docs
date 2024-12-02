@@ -21,7 +21,7 @@ ROCK 2A 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 
 - 1x microSD 卡(容量 >=16GB，读写速度等级 >= class10)
 - 1x microSD 读卡器
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w.md))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w))
 
 ## 镜像下载
 
@@ -34,7 +34,7 @@ ROCK 2A 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 ## 启动系统
 
 - 按照上述步骤成功烧录 microSD 卡后，将 microSD 卡插入 ROCK 2A 的 MicroSD 插槽内。
-- ROCK 2A 的供电接口为 [Type C port](../../hardware-design/hardware-interface.md)，请使用 Type-C 线缆连接供电口和适配器。
+- ROCK 2A 的供电接口为 [Type C port](../../hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
 
 </TabItem>
 
@@ -46,7 +46,7 @@ ROCK 2A 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 
 - USB 接口线缆(A-A)
 - 1x 带有 eMMC 的 ROCK 2A
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w.md))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w))
 
 ### 镜像下载
 
