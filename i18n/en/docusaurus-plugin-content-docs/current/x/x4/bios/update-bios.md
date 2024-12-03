@@ -24,7 +24,7 @@ sidebar_position: 10
 
 - Power on the system, and press F7 to access the BIOS page.
 
-![BIOS_update_01](/img/x/x2l/bios_update_01.webp)
+![BIOS_update_01](/img/x/x4/bios_update_01.webp)
 
 - Choose to boot in UEFI mode from the USB flash drive, and the BIOS will automatically refresh. Wait for the process to complete.
 

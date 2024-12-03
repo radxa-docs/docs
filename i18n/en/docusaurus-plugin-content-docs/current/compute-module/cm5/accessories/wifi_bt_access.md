@@ -16,11 +16,11 @@ sidebar_position: 2
 - Radxa CM5 with Radxa CM5 IO board, there is no on-board WiFi/BT module, external module is required. The above are supported and tested WITI/BT cards.
 - The M.2 wireless module demonstrated here is: Radxa Wireless Module A8.
 
-![Radxa Wireless Module A8](/zh/img/accessories/a8-module-01.webp)
+![Radxa Wireless Module A8](/img/accessories/a8-module-01.webp)
 
 - Installation is as shown in the figure:
 
-![Radxa Wireless Module A8](/zh/img/accessories/a8-module-02.webp)
+![Radxa Wireless Module A8](/img/accessories/a8-module-02.webp)
 
 ## WIFI Usage
 
@@ -119,4 +119,6 @@ root@radxa-cm5-io:~# bluetoothctl
 
 7. Now you can listen to music.
 
-[** A8 Module Buy Now **](https://radxa.com/products/accessories/wireless-module-a8#buy)
+## Where to buy
+
+[** A8 Module Buy Now **]((https://radxa.com/products/accessories/wireless-module-a8#buy)
