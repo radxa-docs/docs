@@ -1,5 +1,5 @@
 ---
-sidebar_position: 31
+sidebar_position: 5
 ---
 
 import PICO_SDK_WINDOWS from "../../../common/dev/\_pico-sdk-windows.mdx";

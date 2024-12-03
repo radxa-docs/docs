@@ -1,5 +1,5 @@
 ---
-sidebar_position: 30
+sidebar_position: 4
 ---
 
 import SDK_EXAMPLE from "../../../common/dev/\_pico-sdk-example.mdx";
