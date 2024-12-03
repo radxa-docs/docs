@@ -11,7 +11,7 @@ sidebar_position: 2
 
 ## Image Download
 
-Please go to [Resource Download Summary](./download) to download the corresponding image file.
+Please go to [Resource Download](./download) to download the corresponding image file.
 
 ## Installation
 

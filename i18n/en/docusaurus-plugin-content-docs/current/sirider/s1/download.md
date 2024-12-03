@@ -1,9 +1,10 @@
 ---
 sidebar_position: 2
+title: Resource Download
 description: "Image, tools & docs"
 ---
 
-# Resource Download Summary
+# Resource Download
 
 ## System images
 

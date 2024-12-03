@@ -1,8 +1,9 @@
 ---
 sidebar_position: 9
+title: Resource Download
 ---
 
-# Resource Download Summary
+# Resource Download
 
 ## Operating system images
 

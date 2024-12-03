@@ -1,8 +1,9 @@
 ---
 sidebar_position: 4
+title: Resource Download
 ---
 
-## Resource Download Summary
+# Resource Download
 
 ## Hardware Design
 
@@ -14,7 +15,7 @@ ROCK S0 v1.1 Version
 
 [ROCK S0 v1.1 smd pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_smd.pdf)
 
-ROCK S0 v1.2 版本
+ROCK S0 v1.2 Version
 
 [ROCK S0 v1.2 schematic pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_schematic.pdf)
 
@@ -37,7 +38,7 @@ ROCK S0 v1.2 版本
 
 :::caution
 Except for the above mirrors, which have been fully tested officially, the other mirrors have not been rigorously tested, may have unknown issues, and are for evaluation use only.
-:::.
+:::
 
 For more mirrors, please check: [Radxa ROCK S0 Release](https://github.com/radxa-build/rock-s0/releases)
 

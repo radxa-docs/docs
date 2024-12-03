@@ -44,7 +44,7 @@ For scenarios where an NVMe drive is needed to boot the system, the SPI Flash im
 
 #### Image Download
 
-Please go to [Resource Download Summary](../../download) to download the corresponding image file.
+Please go to [Resource Download](../../download) to download the corresponding image file.
 
 #### Install the system
 
@@ -74,7 +74,7 @@ The ROCK 5B/5B+ supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. 
 
 #### Download the image
 
-Please go to [Resource Download Summary](../../download) to download the corresponding image file.
+Please go to [Resource Download](../../download) to download the corresponding image file.
 
 #### System Installation
 
@@ -123,7 +123,7 @@ Please go to [Resource Download Summary](../../download) to download the corresp
 
 #### Download the image
 
-Please go to [Resource Download Summary](../../download) to download the corresponding image file.
+Please go to [Resource Download](../../download) to download the corresponding image file.
 
 #### System Installation
 

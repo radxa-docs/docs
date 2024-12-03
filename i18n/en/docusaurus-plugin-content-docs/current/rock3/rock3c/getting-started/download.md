@@ -1,8 +1,9 @@
 ---
 sidebar_position: 7
+title: Resource Download
 ---
 
-# Resource Download Summary
+# Resource Download
 
 ## Hardware Design
 

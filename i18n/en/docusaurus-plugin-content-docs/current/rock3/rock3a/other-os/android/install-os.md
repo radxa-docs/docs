@@ -23,7 +23,7 @@ Rock 3a can boot from microSD card or eMMC, so install os on microSD card or eMM
 
 ## Image Download
 
-Please go to [Resource Download Summary](./download) to download the corresponding image file.
+Please go to [Resource Download](./download) to download the corresponding image file.
 
 ## Install the system
 

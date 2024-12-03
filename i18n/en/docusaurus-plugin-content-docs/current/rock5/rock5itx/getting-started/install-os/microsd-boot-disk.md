@@ -10,7 +10,7 @@ import Images from "../../\_image.mdx"
 
 <Images loader={false} system_img={true} spi_img={false} />
 
-For third-party systems, please refer to [Resource Download Summary](../../download)
+For third-party systems, please refer to [Resource Download](../../download)
 
 ### Creating a boot disk
 

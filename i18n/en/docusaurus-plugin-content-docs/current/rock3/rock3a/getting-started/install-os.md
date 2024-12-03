@@ -14,7 +14,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## Image Download
 
-Please go to [Resource Download Summary](/rock3/rock3a/getting-started/download) to download the corresponding image file.
+Please go to [Resource Download](/rock3/rock3a/getting-started/download) to download the corresponding image file.
 
 ## Install the system
 

@@ -66,7 +66,7 @@ rkdeveloptool rd
 
 ## Image Download
 
-Please go to [Resource Download Summary](../../../images) to download the corresponding image file.
+Please go to [Resource Download](../../../images) to download the corresponding image file.
 
 ## Install the system
 
@@ -93,7 +93,7 @@ Radxa ROCK 3B supports QC 3.0/2.0 adapter, 9V/2A, 12V/1.5A. Radxa recommends usi
 
 ### Prepare the image file
 
-Please go to [Download Summary](../../../images) to download image.
+Please go to [Resource Download](../../../images) to download image.
 
 ## System installation
 

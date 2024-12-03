@@ -8,7 +8,7 @@ Introduces how to install Android os on ZERO 3
 
 ## Image download
 
-Please go to [Resource Download Summary](/zero/zero3/other-os/android/download) to download the corresponding image file
+Please go to [Resource Download](/zero/zero3/other-os/android/download) to download the corresponding image file
 
 ## Install OS
 

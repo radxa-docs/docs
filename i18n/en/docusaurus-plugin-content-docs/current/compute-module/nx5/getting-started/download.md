@@ -1,8 +1,9 @@
 ---
 sidebar_position: 4
+title: Resource Download
 ---
 
-# Resource Download Summary
+# Resource Download
 
 ## Hardware Info
 

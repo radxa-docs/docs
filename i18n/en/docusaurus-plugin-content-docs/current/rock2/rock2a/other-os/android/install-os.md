@@ -25,7 +25,7 @@ ROCK 2A can be booted from microSD card or EMMC, depending on the boot method, t
 
 ## Image Download
 
-Please go to [Resource Download Summary](../../download) to download the corresponding image file.
+Please go to [Resource Download](../../download) to download the corresponding image file.
 
 ## Install the system
 
@@ -52,7 +52,7 @@ Please go to [Resource Download Summary](../../download) to download the corresp
 
 ### Download the image
 
-Please go to [Resource Download Summary](../../download) to download the corresponding image file.
+Please go to [Resource Download](../../download) to download the corresponding image file.
 
 ## System Installation
 
