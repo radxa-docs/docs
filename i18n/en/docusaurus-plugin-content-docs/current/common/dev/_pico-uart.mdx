@@ -1,3 +1,5 @@
+import { PreView } from "@site/src/utils/docs";
+
 ##### UART
 
 - Replace pico-examples/uart/hello_uart/hello_uart.c with the following code
@@ -90,12 +92,7 @@ pico_enable_stdio_uart(hello_uart 1)
 
 - Compile
 
-```bash
-cd pico-examples/build
-rm -rf *
-cmake ..
-make -j$(nproc)
-```
+  <PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
 
 After successful compilation, a file named hello_uart.uf2 will be created in the pico-examples/build/uart/hello_uart/ directory.
 
