@@ -10,7 +10,7 @@ import FAN from "../../../common/dev/\_pico-fan.mdx";
 import RELATION from "./\_relation.mdx"
 import UART from "../../../common/dev/\_pico-uart.mdx";
 
-# Linux 下控制 RP2040
+# 在 Linux 下控制 RP2040
 
 ## Intel J4125 与 RP2040 和 40-PIN GPIO 的关系介绍
 

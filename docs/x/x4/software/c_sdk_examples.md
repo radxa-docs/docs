@@ -12,7 +12,7 @@ import RELATION from "./\_relation.mdx"
 import UART from "../../../common/dev/\_pico-uart.mdx";
 import INTEL_UART from "../../../common/dev/\_pico-gpio-controlled-by-intel.mdx";
 
-# Linux 下控制 RP2040
+# 在 Linux 下控制 RP2040
 
 ## 概述
 
