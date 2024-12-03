@@ -45,3 +45,8 @@ This command outputs 0 if ground is connected and 1 if 3.3V is connected.
   radxa@#model#:~$ sudo gpioset -m signal $(sudo gpiofind PIN_#gpio_pin#)=1 # Output high, Led on
   `}
 </PreView>
+
+:::tip
+The same GPIO cannot be used by two processes at the same time, otherwise it will indicate resource usage. 
+Therefore, you need to wait for the first command to finish executing before you can execute the second command.
+:::
