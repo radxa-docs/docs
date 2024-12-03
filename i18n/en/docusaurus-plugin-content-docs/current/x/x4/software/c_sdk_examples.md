@@ -16,6 +16,8 @@ import INTEL_UART from "../../../common/dev/\_pico-gpio-controlled-by-intel.mdx"
 
 ## OverView
 
+## Relation introduction between J4215 and 40-PIN GPIO
+
 <RELATION />
 
 ## Tools Introduction

@@ -13,6 +13,10 @@ import UART from "../../../common/dev/\_pico-uart.mdx";
 
 # Control RP2040 on Windows
 
+## Relation introduction between J4215 and 40-PIN GPIO
+
+<RELATION />
+
 <PICO_SDK_WINDOWS />
 
 ## Flash

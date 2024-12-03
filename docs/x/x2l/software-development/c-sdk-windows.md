@@ -7,8 +7,13 @@ import GPIO from "../../../common/dev/\_pico-gpio.mdx";
 import PWM from "../../../common/dev/\_pico-pwm.mdx";
 import I2C from "../../../common/dev/\_pico-i2c.mdx";
 import UART from "../../../common/dev/\_pico-uart.mdx";
+import RELATION from "./\_relation.mdx"
 
 # 在 Windows 下控制 RP2040
+
+## Intel J4125 与 RP2040 和 40-PIN GPIO 的关系介绍
+
+<RELATION />
 
 <PICO_SDK_WINDOWS />
 

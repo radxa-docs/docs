@@ -13,6 +13,10 @@ import UART from "../../../common/dev/\_pico-uart.mdx";
 
 # 在 Windows 下控制 RP2040
 
+## Intel J4125 与 RP2040 和 40-PIN GPIO 的关系介绍
+
+<RELATION />
+
 <PICO_SDK_WINDOWS />
 
 ## 烧录
