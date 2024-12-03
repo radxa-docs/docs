@@ -1,3 +1,5 @@
+import { PreView } from "@site/src/utils/docs";
+
 ##### FAN
 
 The purpose of this paragraph is to provide the user with an example of the {props.product_name} CPU communicating with the MCU RP2040 by obtaining the temperature of the {props.product_name} CPU and making the fan spin up when the specified temperature is reached.
@@ -188,12 +190,9 @@ Replace pico-example/pwm/CMakeLists.txt with the following code
 
 ###### 7. Compile
 
-```bash
-cd pico-example/build
-rm -rf *
-cmake ..
-make -j$(nproc)
-```
+{" "}
+
+<PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
 
 After successful compilation, a file named pwm_fan.uf2 is generated in the build/pwm/pwm_fan directory
 

@@ -1,3 +1,5 @@
+import { PreView } from "@site/src/utils/docs";
+
 #### I2C
 
 ##### 1. 准备
@@ -202,12 +204,7 @@
 
 - 编译
 
-```bash
-cd pico-examples/build
-rm -rf *
-cmake ..
-make -j$(nproc)
-```
+  <PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
 
 成功编译后，在 pico-examples/build/i2c/lcd_1602_i2c/ 目录下会产生一个名为 lcd_1602_i2c.uf2 的文件
 

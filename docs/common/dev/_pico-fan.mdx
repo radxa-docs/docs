@@ -1,3 +1,5 @@
+import { PreView } from "@site/src/utils/docs";
+
 ##### 风扇
 
 本段示例旨在为用户提供一个 {props.product_name} CPU 与 MCU RP2040 通信的例子，通过获取 {props.product_name} CPU 的温度，当达到指定温度时，让风扇转起来。
@@ -188,12 +190,9 @@ sudo apt-get install minicom
 
 ###### 7. 编译
 
-```bash
-cd pico-example/build
-rm -rf *
-cmake ..
-make -j$(nproc)
-```
+{" "}
+
+<PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
 
 成功编译后，在 build/pwm/pwm_fan 目录下会产生一个名为 pwm_fan.uf2 的文件
 

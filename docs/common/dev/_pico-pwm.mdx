@@ -1,3 +1,5 @@
+import { PreView } from "@site/src/utils/docs";
+
 #### PWM
 
 ##### 1. 准备
@@ -100,12 +102,7 @@ int main() {
 
 - 编译
 
-```bash
-cd pico-examples/build
-rm -rf *
-cmake ..
-make -j$(nproc)
-```
+  <PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
 
 编译成功后， 在 pico-examples/build/pwm/led_fade/ 目录下会产生一个名为 pwm_led_fade.uf2 的文件
 

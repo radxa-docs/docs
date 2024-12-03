@@ -28,7 +28,10 @@ import UART from "../../../common/dev/\_pico-uart.mdx";
 
 <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X2L"  led_pin="PIN_5" />
 
-<I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" />
+<I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" cmd= "cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)" />
 
 <PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" />
 

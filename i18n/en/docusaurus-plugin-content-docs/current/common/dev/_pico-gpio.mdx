@@ -69,12 +69,7 @@ Here {props.led_pin} corresponds to GPIO29 in the following code, please refer t
 
 - Compile
 
-  ```bash
-  cd pico-examples/build
-  rm -rf *
-  cmake ..
-  make -j$(nproc)
-  ```
+  <PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
 
   After successful compilation, a file named blink.uf2 will be created in the pico-examples/build/blink/ directory.
 

@@ -105,12 +105,7 @@ Here {props.led_pin} corresponds to GPIO{props.gpio_num} in the following code, 
 
 - Compile
 
-```bash
-cd pico-examples/build
-rm -rf *
-cmake ..
-make -j$(nproc)
-```
+  <PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
 
 After successful compilation, a file named hello_uart.uf2 will be created in the pico-examples/build/pwm/led_fade/ directory.
 

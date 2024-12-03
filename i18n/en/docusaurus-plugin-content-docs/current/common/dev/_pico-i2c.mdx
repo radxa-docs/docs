@@ -202,12 +202,7 @@ Here {props.scl_pin} corresponds to I2C0 SDA for GPIO29 in the following code, a
 
 - Compile
 
-  ```bash
-  cd pico-examples/build
-  rm -rf *
-  cmake ..
-  make -j$(nproc)
-  ```
+  <PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
 
   After successful compilation, a file named lcd_1602_i2c.uf2 will be created in the pico-examples/build/i2c/lcd_1602_i2c/ directory
 
