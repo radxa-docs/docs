@@ -26,14 +26,29 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 
 #### RP2040 Individually control
 
-<GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X2L"  led_pin="PIN_5" />
+<GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X2L"  led_pin="PIN_5" cmd="cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)" />
 
-<I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" />
+<I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" cmd="cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)" />
 
-<PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" />
+<PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" cmd="cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)"/>
 
-<UART flash_url="./flash" tty_num="ttyS0"/>
+<UART flash_url="./flash" tty_num="ttyS0" cmd="cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)" />
 
 #### Communication between CPU and RP2040
 
-<FAN flash_url="./flash" product_name="Radxa X2L" />
+<FAN flash_url="./flash" product_name="Radxa X2L" cmd="cd pico-examples/build
+rm -rf *
+cmake ..
+make -j$(nproc)" />
