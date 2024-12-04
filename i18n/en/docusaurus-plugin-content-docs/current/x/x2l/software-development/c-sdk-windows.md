@@ -7,6 +7,7 @@ import GPIO from "../../../common/dev/\_pico-gpio.mdx";
 import PWM from "../../../common/dev/\_pico-pwm.mdx";
 import I2C from "../../../common/dev/\_pico-i2c.mdx";
 import UART from "../../../common/dev/\_pico-uart.mdx";
+import RELATION from "./\_relation.mdx"
 
 # Control RP2040 on Windows
 
