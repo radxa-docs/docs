@@ -192,7 +192,36 @@ Replace pico-example/pwm/CMakeLists.txt with the following code
 
 {" "}
 
-<PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
+{" "}
+
+<div>
+  {props.platform === "Linux" ? (
+    <div>
+      <PreView>
+        cd pico-examples/build
+        <br />
+        rm -rf *<br />
+        cmake ..
+        <br />
+        make -j$(nproc)
+        <br />
+      </PreView>{" "}
+    </div>
+  ) : null}
+  {props.platform === "Windows" ? (
+    <div>
+      <PreView>
+        cd pico-examples/build/
+        <br />
+        rm -rf *<br />
+        cmake -G "Ninja" ..
+        <br />
+        ninja
+        <br />
+      </PreView>{" "}
+    </div>
+  ) : null}
+</div>
 
 After successful compilation, a file named pwm_fan.uf2 is generated in the build/pwm/pwm_fan directory
 

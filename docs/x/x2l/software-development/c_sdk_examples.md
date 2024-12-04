@@ -26,29 +26,14 @@ import UART from "../../../common/dev/\_pico-uart.mdx";
 
 #### RP2040 单独控制 40-PIN GPIO
 
-<GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X2L"  led_pin="PIN_5" cmd="cd pico-examples/build
-rm -rf *
-cmake ..
-make -j$(nproc)" />
+<GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X2L"  led_pin="PIN_5" platform="Linux" />
 
-<I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" cmd="cd pico-examples/build
-rm -rf *
-cmake ..
-make -j$(nproc)" />
+<I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" platform="Linux" />
 
-<PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" cmd="cd pico-examples/build
-rm -rf *
-cmake ..
-make -j$(nproc)"/>
+<PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" platform="Linux"/>
 
-<UART flash_url="./flash" tty_num="ttyS0" cmd="cd pico-examples/build
-rm -rf *
-cmake ..
-make -j$(nproc)" />
+<UART flash_url="./flash" tty_num="ttyS0" platform="Linux" />
 
 #### CPU 通过 UART 来控制 RP2040 的 40-PIN GPIO
 
-<FAN flash_url="./flash" product_name="Radxa X2L" cmd="cd pico-examples/build
-rm -rf *
-cmake ..
-make -j$(nproc)" />
+<FAN flash_url="./flash" product_name="Radxa X2L" platform="Linux" />

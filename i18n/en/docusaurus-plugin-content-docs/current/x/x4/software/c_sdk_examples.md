@@ -32,34 +32,19 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 
 <Tabs queryString="type">
     <TabItem value="GPIO">
-       <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" cmd= "cd pico-examples/build
-       rm -rf *
-       cmake -G ''Ninja'' ..
-       ninja" />
+       <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" platform="Linux" />
     </TabItem>
     <TabItem value="I2C">
-        <I2C flash_url="./flash" product_name="Radxa X4"  scl_pin="PIN_5" sda_pin="PIN_3" cmd="cd pico-examples/build
-        rm -rf *
-        cmake ..
-        make -j$(nproc)" />
+        <I2C flash_url="./flash" product_name="Radxa X4"  scl_pin="PIN_5" sda_pin="PIN_3" platform="Linux" />
     </TabItem>
      <TabItem value="PWM">
-       <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" cmd="cd pico-examples/build
-        rm -rf *
-        cmake ..
-        make -j$(nproc)"/>
+       <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" platform="Linux"/>
     </TabItem>
      <TabItem value="PoE FAN">
-       <PoE flash_url="./flash" product_name="Radxa X4" poe_name="Radxa 25W PoE+ HAT for X4" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" cmd="cd pico-examples/build
-        rm -rf *
-        cmake ..
-        make -j$(nproc)"/>
+       <PoE flash_url="./flash" product_name="Radxa X4" poe_name="Radxa 25W PoE+ HAT for X4" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" platform="Linux"/>
     </TabItem>
      <TabItem value="UART">
-      <UART flash_url="./flash" tty_num="ttyS4" cmd="cd pico-examples/build
-        rm -rf *
-        cmake ..
-        make -j$(nproc)"/>
+      <UART flash_url="./flash" tty_num="ttyS4" platform="Linux"/>
     </TabItem>
 </Tabs>
 
@@ -67,15 +52,9 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 
 <Tabs queryString="type">
      <TabItem value="PWM">
-       <FAN product_name="Radxa X4" flash_url="./flash" cmd="cd pico-examples/build
-        rm -rf *
-        cmake ..
-        make -j$(nproc)" />
+       <FAN product_name="Radxa X4" flash_url="./flash" platform="Linux" />
     </TabItem>
      <TabItem value="UART">
-      <INTEL_UART product_name="Radxa X4" led_pin="PIN_3" uart_id="uart0" uart_tx_pin="0" uart_rx_pin="1" gpio_num="29" uart_dev="/dev/ttyS4" cmd="cd pico-examples/build
-        rm -rf *
-        cmake ..
-        make -j$(nproc)" />
+      <INTEL_UART product_name="Radxa X4" led_pin="PIN_3" uart_id="uart0" uart_tx_pin="0" uart_rx_pin="1" gpio_num="29" uart_dev="/dev/ttyS4" platform="Linux" />
     </TabItem>
 </Tabs>

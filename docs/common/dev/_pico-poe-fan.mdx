@@ -108,7 +108,34 @@ int main() {
 
 - 编译
 
-  <PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
+  <div>
+    {props.platform === "Linux" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build
+          <br />
+          rm -rf *<br />
+          cmake ..
+          <br />
+          make -j$(nproc)
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+    {props.platform === "Windows" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build/
+          <br />
+          rm -rf *<br />
+          cmake -G "Ninja" ..
+          <br />
+          ninja
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+  </div>
 
 成功编译后，在 pico-examples/build/pio/onewire/ 目录下会产生一个名为 pio_onwire.uf2 的文件
 

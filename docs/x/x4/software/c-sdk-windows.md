@@ -29,33 +29,18 @@ import UART from "../../../common/dev/\_pico-uart.mdx";
 
 <Tabs queryString="type">
     <TabItem value="GPIO">
-       <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" cmd="cd pico-examples/build
-        rm -rf *
-        cmake -G ''Ninja'' ..
-        ninja" />
+       <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" platform="Windows" />
     </TabItem>
     <TabItem value="I2C">
-        <I2C flash_url="./flash" product_name="Radxa X4"  scl_pin="PIN_5" sda_pin="PIN_3" cmd="cd pico-examples/build
-        rm -rf *
-        cmake -G ''Ninja'' ..
-        ninja" />
+        <I2C flash_url="./flash" product_name="Radxa X4"  scl_pin="PIN_5" sda_pin="PIN_3" platform="Windows" />
     </TabItem>
      <TabItem value="PWM">
-       <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" cmd="cd pico-examples/build
-        rm -rf *
-        cmake -G ''Ninja'' ..
-        ninja" />
+       <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" platform="Windows" />
     </TabItem>
      <TabItem value="PoE FAN">
-       <PoE flash_url="./flash" product_name="Radxa X4" poe_name="瑞莎 25W PoE+ HAT X4 专用款" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" cmd="cd pico-examples/build
-        rm -rf *
-        cmake -G ''Ninja'' ..
-        ninja" />
+       <PoE flash_url="./flash" product_name="Radxa X4" poe_name="瑞莎 25W PoE+ HAT X4 专用款" poe_img="/img/x/x4/25w_poe_plus_for_x4_04.webp" platform="Windows" />
     </TabItem>
      <TabItem value="UART">
-      <UART flash_url="./flash" tty_num="ttyS4" cmd="cd pico-examples/build
-        rm -rf *
-        cmake -G ''Ninja'' ..
-        ninja" />
+      <UART flash_url="./flash" tty_num="ttyS4" platform="Windows" />
     </TabItem>
 </Tabs>

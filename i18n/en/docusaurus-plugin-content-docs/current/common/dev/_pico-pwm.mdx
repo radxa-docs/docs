@@ -102,12 +102,34 @@ Here {props.led_pin} corresponds to GPIO29 in the following code, please refer t
 
 - Compile
 
-  ```bash
-  cd pico-examples/build
-  rm -rf *
-  cmake ..
-  make -j$(nproc)
-  ```
+  <div>
+    {props.platform === "Linux" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build
+          <br />
+          rm -rf *<br />
+          cmake ..
+          <br />
+          make -j$(nproc)
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+    {props.platform === "Windows" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build/
+          <br />
+          rm -rf *<br />
+          cmake -G "Ninja" ..
+          <br />
+          ninja
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+  </div>
 
   After successful compilation, a file named pwm_led_fade.uf2 will be created in the pico-examples/build/pwm/led_fade/ directory.
 

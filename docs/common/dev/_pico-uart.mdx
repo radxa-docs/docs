@@ -92,7 +92,34 @@ pico_enable_stdio_uart(hello_uart 1)
 
 - 编译
 
-  <PreView params={{ cmd: props.cmd }}>#cmd#</PreView>
+  <div>
+    {props.platform === "Linux" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build
+          <br />
+          rm -rf *<br />
+          cmake ..
+          <br />
+          make -j$(nproc)
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+    {props.platform === "Windows" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build/
+          <br />
+          rm -rf *<br />
+          cmake -G "Ninja" ..
+          <br />
+          ninja
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+  </div>
 
 编译成功后， 在 pico-examples/build/uart/hello_uart/ 目录下会产生一个名为 hello_uart.uf2 的文件
 
