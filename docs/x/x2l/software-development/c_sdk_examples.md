@@ -26,13 +26,20 @@ import UART from "../../../common/dev/\_pico-uart.mdx";
 
 #### RP2040 单独控制 40-PIN GPIO
 
-<GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X2L"  led_pin="PIN_5" platform="Linux" />
-
-<I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" platform="Linux" />
-
-<PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" platform="Linux"/>
-
-<UART flash_url="./flash" tty_num="ttyS0" platform="Linux" />
+<Tabs queryString="type">
+     <TabItem value="GPIO">
+       <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X2L"  led_pin="PIN_5" platform="Linux" />
+    </TabItem>
+     <TabItem value="I2C">
+      <I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" platform="Linux" />
+    </TabItem>
+     <TabItem value="PWM">
+      <PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" platform="Linux"/>
+    </TabItem>
+     <TabItem value="UART">
+      <UART flash_url="./flash" tty_num="ttyS0" platform="Linux" />
+    </TabItem>
+</Tabs>
 
 #### CPU 通过 UART 来控制 RP2040 的 40-PIN GPIO
 

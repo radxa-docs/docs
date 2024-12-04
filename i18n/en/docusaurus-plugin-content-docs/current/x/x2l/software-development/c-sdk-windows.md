@@ -22,10 +22,17 @@ Press the BOOTSEL key and a USB device will pop up. Copy the compiled .uf2 file 
 
 ## Examples
 
-<GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X2L"  led_pin="PIN_5" platform="Windows"/>
-
-<I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" platform="Windows" />
-
-<PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" platform="Windows"/>
-
-<UART flash_url="./flash" tty_num="ttyS0" platform="Windows"/>
+<Tabs queryString="type">
+     <TabItem value="GPIO">
+       <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X2L"  led_pin="PIN_5" platform="Windows"/>
+    </TabItem>
+     <TabItem value="I2C">
+      <I2C flash_url="./flash" product_name="Radxa X2L"  scl_pin="PIN_5" sda_pin="PIN_3" platform="Windows" />
+    </TabItem>
+     <TabItem value="PWM">
+      <PWM flash_url="./flash" product_name="Radxa X2L" led_pin="PIN_5" platform="Windows"/>
+    </TabItem>
+     <TabItem value="UART">
+      <UART flash_url="./flash" tty_num="ttyS0" platform="Windows" />
+    </TabItem>
+</Tabs>
