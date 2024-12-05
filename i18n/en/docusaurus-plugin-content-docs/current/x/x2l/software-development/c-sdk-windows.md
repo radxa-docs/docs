@@ -11,7 +11,7 @@ import RELATION from "./\_relation.mdx"
 
 # Control RP2040 on Windows
 
-## introducts relationship between J4215 and 40-PIN GPIO
+## Introducts relationship between Intel N100,RP2040 and 40-PIN GPIO
 
 <RELATION />
 
