@@ -105,12 +105,34 @@ import { PreView } from "@site/src/utils/docs";
 
 - 编译
 
-```bash
-cd pico-examples/build
-rm -rf *
-cmake ..
-make -j$(nproc)
-```
+  <div>
+    {props.platform === "Linux" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build
+          <br />
+          rm -rf *<br />
+          cmake ..
+          <br />
+          make -j$(nproc)
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+    {props.platform === "Windows" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build/
+          <br />
+          rm -rf *<br />
+          cmake -G "Ninja" ..
+          <br />
+          ninja
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+  </div>
 
 编译成功后， 在 pico-examples/build/pwm/led_fade/ 目录下会产生一个名为 hello_uart.uf2 的文件
 

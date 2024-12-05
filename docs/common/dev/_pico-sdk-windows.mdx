@@ -1,0 +1,99 @@
+### 安装必要工具
+
+- [Git for Windows](https://github.com/git-for-windows/git/releases/download/v2.47.1.windows.1/Git-2.47.1-64-bit.exe)
+
+  该工具主要方便用户使用 git 命令， 以及为用户提供一些 Linux 命令， 我们可以在该工具下进行编译
+
+  {" "}
+
+  <img
+    src="/img/x/git_for_windows.webp"
+    style={{ width: "80%" }}
+    alt="git for windows"
+  />
+
+- [Vscode for Windows](https://code.visualstudio.com/download)
+
+  {" "}
+
+  <img
+    src="/img/x/vscode_install.webp"
+    style={{ width: "80%" }}
+    alt="vscode for windows"
+  />
+
+- [CMAKE](https://github.com/Kitware/CMake/releases/download/v3.31.1/cmake-3.31.1-windows-x86_64.msi)
+
+  {" "}
+
+  <img
+    src="/img/x/vscode_install.webp"
+    style={{ width: "80%" }}
+    alt="cmake for windows"
+  />
+
+- [Pico Setup Windows](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe)
+
+  {" "}
+
+  <img
+    src="/img/x/pico-sdk_install.webp"
+    style={{ width: "80%" }}
+    alt="cmake for windows"
+  />
+
+- [Ninja](https://github.com/ninja-build/ninja/releases)
+
+  下载后解压即可，
+
+- [Python3 for Windows](https://www.python.org/downloads/windows/)
+
+### 设置环境变量
+
+- 在搜索栏搜索 "编辑系统环境"
+
+- 点击 "环境变量"
+
+- 添加系统变量或者用户变量
+
+  - 添加变量 PICO_INSTALL_PATH 和 PICO-SDK_PATH
+
+  {" "}
+
+  <img
+    src="/img/x/pico_install_path.webp"
+    style={{ width: "80%" }}
+    alt="pico install path"
+  />
+
+  {" "}
+
+  <img
+    src="/img/x/pico-sdk_path.webp"
+    style={{ width: "80%" }}
+    alt="pico sdk path"
+  />
+
+- 添加 PATH
+
+  {" "}
+
+  <img
+    src="/img/x/pico_var_env.webp"
+    style={{ width: "80%" }}
+    alt="pico path env"
+  />
+
+### 构建编译
+
+打开 git bash， 进入到 pico-examples/build 目录下，执行以下命令进行构建编译
+
+```bash
+cmake -G "Ninja" ..
+
+ninja
+```
+
+    <img src="/img/x/cmake_ninja.webp" style= {{ width: "80%"}} alt="cmake ninja" />
+
+    <img src="/img/x/ninja_build.webp" style= {{ width: "80%"}} alt="ninja build" />
