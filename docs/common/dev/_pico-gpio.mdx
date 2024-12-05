@@ -1,3 +1,5 @@
+import { PreView } from "@site/src/utils/docs";
+
 #### GPIO
 
 ##### 1. 准备
@@ -69,12 +71,34 @@
 
 - 编译
 
-  ```bash
-  cd pico-examples/build
-  rm -rf *
-  cmake ..
-  make -j$(nproc)
-  ```
+  <div>
+    {props.platform === "Linux" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build
+          <br />
+          rm -rf *<br />
+          cmake ..
+          <br />
+          make -j$(nproc)
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+    {props.platform === "Windows" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build/
+          <br />
+          rm -rf *<br />
+          cmake -G "Ninja" ..
+          <br />
+          ninja
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+  </div>
 
   成功编译后，在 pico-examples/build/blink/ 目录下会产生一个名为 blink.uf2 的文件
 

@@ -1,0 +1,99 @@
+### Install necessary Tools
+
+- [Git for Windows](https://github.com/git-for-windows/git/releases/download/v2.47.1.windows.1/Git-2.47.1-64-bit.exe)
+
+  This tool facilitates the use of git commands and provides you with some Linux commands that you can use to build the
+
+  {" "}
+
+  <img
+    src="/img/x/git_for_windows.webp"
+    style={{ width: "80%" }}
+    alt="git for windows"
+  />
+
+- [Vscode for Windows](https://code.visualstudio.com/download)
+
+  {" "}
+
+  <img
+    src="/img/x/vscode_install.webp"
+    style={{ width: "80%" }}
+    alt="vscode for windows"
+  />
+
+- [CMAKE](https://github.com/Kitware/CMake/releases/download/v3.31.1/cmake-3.31.1-windows-x86_64.msi)
+
+  {" "}
+
+  <img
+    src="/img/x/vscode_install.webp"
+    style={{ width: "80%" }}
+    alt="cmake for windows"
+  />
+
+- [Pico Setup Windows](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe)
+
+  {" "}
+
+  <img
+    src="/img/x/pico-sdk_install.webp"
+    style={{ width: "80%" }}
+    alt="cmake for windows"
+  />
+
+- [Ninja](https://github.com/ninja-build/ninja/releases)
+
+  Download and unzip it.
+
+- [Python3 for Windows](https://www.python.org/downloads/windows/)
+
+### Set Environment Variables
+
+- Search for ‘Edit the system environment’ in the search bar.
+
+- Click "Environment Variables"
+
+- Add system or user variables
+
+  - Add variables PICO_INSTALL_PATH and PICO-SDK_PATH
+
+  {" "}
+
+  <img
+    src="/img/x/pico_install_path.webp"
+    style={{ width: "80%" }}
+    alt="pico install path"
+  />
+
+  {" "}
+
+  <img
+    src="/img/x/pico-sdk_path.webp"
+    style={{ width: "80%" }}
+    alt="pico sdk path"
+  />
+
+- Ads PATH
+
+  {" "}
+
+  <img
+    src="/img/x/pico_var_env.webp"
+    style={{ width: "80%" }}
+    alt="pico path env"
+  />
+
+### Build
+
+Open git bash, go to the pico-examples/build directory, and execute the following command to build the system
+
+```bash
+cmake -G "Ninja" ..
+
+ninja
+```
+
+    <img src="/img/x/cmake_ninja.webp" style= {{ width: "80%"}} alt="cmake ninja" />
+
+    <img src="/img/x/ninja_build.webp" style= {{ width: "80%"}} alt="ninja build" />
