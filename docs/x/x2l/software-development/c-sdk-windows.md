@@ -15,13 +15,17 @@ import RELATION from "./\_relation.mdx"
 
 <RELATION />
 
+## 40-PIN 使用
+
+为了操作 RP2040 上的 IO 资源， 我们需要一套完善的软件环境，如 MicroPython 或者 C/C++ SDK，在这里我们主要介绍一套 C/C++ SDK，即 pico-sdk 和 pico-example。 pico-sdk 主要是提供了一些操作 RP2040 的 API， 而 pico-examples 则为我们提供了一套程序编译框架，我们可以根据 pico-examples 提供的编译框架来添加我们自己的程序。
+
 <PICO_SDK_WINDOWS />
 
-## 烧录
+### 烧录
 
 按下 BOOTSEL 键后， 会弹出一个 USB 设备。将编译后产生的 .uf2 文件拷贝到 RP2040 的 USB 设备中， 待该 USB 设备消失后， 程序开始执行。
 
-## 示例
+### 示例
 
 <Tabs queryString="type">
      <TabItem value="GPIO">
