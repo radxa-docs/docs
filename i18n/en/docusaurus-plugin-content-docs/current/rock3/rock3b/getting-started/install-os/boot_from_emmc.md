@@ -13,7 +13,7 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## EMMC Module preparation
 
-Insert [EMMC Module](/accessories/emmc_module) into [EMMC Reader](accessories/emmc_reader), and then insert the reader into the USB port of your PC.
+Insert [EMMC Module](../../../../accessories/emmc_module) into [EMMC Reader](accessories/emmc_reader), and then insert the reader into the USB port of your PC.
 
 ## Image burning
 

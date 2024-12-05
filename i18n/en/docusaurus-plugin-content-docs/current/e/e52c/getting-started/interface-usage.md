@@ -24,7 +24,7 @@ User button.
 
 ### USB Type-C 5V Power Connector
 
-Power input, Radxa E52C fixed voltage is 5V input, please refer to [Power Supply](/e/e52c/getting-started/power-supply)。
+Power input, Radxa E52C fixed voltage is 5V input, please refer to [Power Supply](./power-supply)。
 
 ### Gigabit Ethernet Port
 

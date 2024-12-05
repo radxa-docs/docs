@@ -69,7 +69,7 @@ rkdeveloptool rd
 
 ## Image Download
 
-Please go to [Resource Download](/rock5/rock5itx/download) to download the corresponding image file.
+Please go to [Resource Download](../../download) to download the corresponding image file.
 
 ## Install the system
 
@@ -96,7 +96,7 @@ Please go to [Resource Download](/rock5/rock5itx/download) to download the corre
 
 ### Download the image
 
-Please go to [Resource Download](/rock5/rock5itx/download) to download the corresponding image file.
+Please go to [Resource Download](../../download) to download the corresponding image file.
 
 ## System Installation
 
@@ -180,7 +180,7 @@ Power up the ROCK 5 ITX via the adapter.
 
 ### Download the image
 
-Please go to [Resource Download](/rock5/rock5itx/download) to download the corresponding image file.
+Please go to [Resource Download](../../download) to download the corresponding image file.
 
 ## System Installation
 

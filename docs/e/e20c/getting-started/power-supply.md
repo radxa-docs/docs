@@ -15,5 +15,5 @@ Radxa E20C 支持各种电源，固定电压为 5V 输入，电流建议 2A 或�
 - DC 5V 适配器
 
 :::tip
-推荐使用官方30W适配器 [瑞莎 PD 30W 适配器](/accessories/pd_30w)
+推荐使用官方30W适配器 [瑞莎 PD 30W 适配器](../../../accessories/pd_30w)
 :::

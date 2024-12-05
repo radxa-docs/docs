@@ -14,7 +14,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## Image Download
 
-Please go to [Download Summary](/rockpi/rocks0/getting-started/download) to download the corresponding image file.
+Please go to [Download Summary](./download) to download the corresponding image file.
 
 ## Install System
 
@@ -32,4 +32,4 @@ ROCK S0 only supports `5V` power supply.
 
 ## Install OS to eMMC
 
-[Install OS on eMMC](/rockpi/rocks0/low-level-dev/install-os-to-emmc)
+[Install OS on eMMC](../low-level-dev/install-os-to-emmc)

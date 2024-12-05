@@ -14,7 +14,7 @@ title: 系统安装
 
 ## 镜像下载
 
-请到 [资源下载](/sophon/airbox/getting-started/download)下载对应的镜像文件
+请到 [资源下载](./download)下载对应的镜像文件
 
 ## 系统安装
 

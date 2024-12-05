@@ -29,6 +29,6 @@ The difference between ROCK 4A and ROCK 4B is that ROCK 4A is equipped with onbo
 |   USB    |     USB 3.0 OTG X1, hardware switch for host/device switch, upper one<br/>USB 3.0 HOST X1, dedicated USB 3.0 channel, lower one<br/>USB 2.0 HOST X2      |
 | Ethernet |                             GbE LAN with Power over Ethernet (PoE) support additional HAT is required for powering from PoE                              |
 |  Others  |                                                                           RTC                                                                            |
-|   GPIO   |                                                        [40 pin GPIO](/rock4/hardware/rock4-gpio)                                                         |
+|   GPIO   |                                                         [40 pin GPIO](../../hardware/rock4-gpio)                                                         |
 |  Power   |     USB PD 2.0 Support USB Type C PD 2.0, 9V/2A, 12V/2A, 15V/2A, 20V/2A<br/>Qualcomm® Quick Charge™ 2.0 Support QC3.0/2.0 adapter, 9V/2A, 12V/1.5A     |
 |   Size   |                                                                       85mm x 54mm                                                                        |

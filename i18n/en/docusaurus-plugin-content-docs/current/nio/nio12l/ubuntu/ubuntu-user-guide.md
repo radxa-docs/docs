@@ -31,7 +31,7 @@ The first login will force the user to change their password. Please follow the 
 
 ### Option three: Serial port
 
-Please refer to [NIO 12L serial port usage](/nio/nio12l/low-level-dev/serial).
+Please refer to [NIO 12L serial port usage](../low-level-dev/serial).
 
 ## Add APT source and install video hardware packages
 

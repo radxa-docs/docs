@@ -14,7 +14,7 @@ sidebar_position: 1
 xxx 采用 Type-C 接口供电，仅支持 5V 输入。建议最低使用 5V/2A 电源适配器。
 
 :::tip
-瑞莎推荐使用 [Radxa Power PD30W](/accessories/pd_30w)。
+瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w)。
 :::
 -->
 

@@ -20,5 +20,5 @@ ROCK 2A supports various power supplies with a fixed voltage input of 5V:
 - Baseus Adapter 65W
 
 :::tip
-It is recommended to use the official 30W adapter [Radxa PD 30W Adapter](/accessories/pd_30w)
+It is recommended to use the official 30W adapter [Radxa PD 30W Adapter](../../../accessories/pd_30w)
 :::

@@ -15,5 +15,5 @@ ROCK 5A 支持各种电源，包括智能协商电源以及固定电压：
 - GPIO 2 & 4 pin 脚 5V 输入
 
 :::tip
-推荐使用官方30W适配器 [瑞莎 PD 30W 适配器](/accessories/pd_30w)
+推荐使用官方30W适配器 [瑞莎 PD 30W 适配器](../../../accessories/pd_30w)
 :::

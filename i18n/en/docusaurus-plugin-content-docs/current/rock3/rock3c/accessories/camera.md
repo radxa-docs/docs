@@ -27,7 +27,7 @@ Please pay attention to the direction of the camera cable interface!
 
 <img src="../../../img/rock3/3c/rock3c-camera-connect.webp" width = "400" alt="rock 3c camera connect"/>
 
-### 2. [rsetup enable camera overlay](/rock3/rock3c/os-config/rsetup)
+### 2. [rsetup enable camera overlay](../os-config/rsetup)
 
 ### 3. Preview
 

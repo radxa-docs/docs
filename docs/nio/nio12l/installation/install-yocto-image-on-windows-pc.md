@@ -122,7 +122,7 @@ fastboot: OK
 
 ### 格式化 UFS
 
-烧录系统到 UFS 之前，需要先[格式化 UFS](/nio/nio12l/installation/format-ufs)。
+烧录系统到 UFS 之前，需要先[格式化 UFS](./format-ufs)。
 
 ### 开始烧录 Yocto 系统
 

@@ -16,7 +16,7 @@ Use a MINI AV to HDMI video converter to connect the AV Out on the ROCK 2A to an
 
   <pre> $ rsetup </pre>
 
-  2. Through [Device Tree Configuration](/rock2/rock2a/radxa-os/rsetup) to enable the "Enable analog video output" overlay.
+  2. Through [Device Tree Configuration](../../radxa-os/rsetup) to enable the "Enable analog video output" overlay.
 
   :::tip
 

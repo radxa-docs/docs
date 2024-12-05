@@ -14,5 +14,5 @@ The Radxa E20C supports a variety of power supplies with a fixed voltage of 5V /
 - Bessie Adapter 65W
 
 :::tip
-Recommended Official 30W Adapter [Radxa PD 30W Adapter](/accessories/pd_30w)
+Recommended Official 30W Adapter [Radxa PD 30W Adapter](../../../accessories/pd_30w)
 :::

@@ -44,7 +44,7 @@ adb shell
 
 ### 选项四：串口
 
-可以参照 [NIO 12L 串口使用](/nio/nio12l/low-level-dev/serial)。
+可以参照 [NIO 12L 串口使用](../low-level-dev/serial)。
 
 ## 存储
 

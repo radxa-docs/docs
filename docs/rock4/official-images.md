@@ -65,4 +65,4 @@ ROCK 4 官方操作系统镜像可从以下方式下载：
 
 ## 第三方操作系统
 
-请参阅[第三方操作系统](/rock4/alternative-os/third-party-images)。
+请参阅[第三方操作系统](./alternative-os/third-party-images)。

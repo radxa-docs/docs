@@ -31,7 +31,7 @@ ROOBI OS 将会附带在您所购买的机器中，通常您无需手动安装�
 
 :::
 
-如果您购买的设备在[支持设备](#支持设备)列表中，且带有 eMMC，你可以通过这个[教程](/roobi/install-roobi)手动刷入ROOBI OS。
+如果您购买的设备在[支持设备](#支持设备)列表中，且带有 eMMC，你可以通过这个[教程](./install-roobi)手动刷入ROOBI OS。
 
 ## 支持设备
 
@@ -41,4 +41,4 @@ ROOBI OS 将会附带在您所购买的机器中，通常您无需手动安装�
 
 ## 使用说明
 
-### [ROOBI OS使用说明](/roobi/roobi-usage)
+### [ROOBI OS使用说明](./roobi-usage)

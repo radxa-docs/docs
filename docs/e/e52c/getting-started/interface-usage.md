@@ -24,7 +24,7 @@ WAN / LAN 网口信号灯，其亮灭跟随 WAN / LAN 网口的信号变化。
 
 ### USB Type-C 5V 电源接口
 
-电源输入，Radxa E52C 固定电压为 5V 输入，可参考[电源选择](/e/e52c/getting-started/power-supply)。
+电源输入，Radxa E52C 固定电压为 5V 输入，可参考[电源选择](./power-supply)。
 
 ### Gigabit Ethernet Port
 

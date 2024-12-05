@@ -34,7 +34,7 @@ Using Radxa 10HD and Radxa 8HD on RCOK 3C requires the use of specific DSI cable
 
 <img src="../../../img/rock3/3c/rock3c-8hd-connect.webp" width = "700" alt="rock 3c dsi connect"/>
 
-2. Use [`rsetup`](/rock3/rock3c/os-config/rsetup) to enable `Radxa 10HD overlay`
+2. Use [`rsetup`](../os-config/rsetup) to enable `Radxa 10HD overlay`
 
 <img src="../../../img/rock3/3c/rock3c-8hd-overlay.webp" width = "500" alt="rock 3c 10hd overlay"/>
 
@@ -50,7 +50,7 @@ To use the Raspberry Pi 7-inch screen, you only need to connect `5v` and `GND`. 
 
 <img src="../../../img/rock3/3c/rock3c-rpi-7hd-connect.webp" width = "700" alt="rock 3c dsi connect"/>
 
-Use[`rsetup`](/rock3/rock3c/os-config/rsetup)to `Enable Raspberry Pi 7-inch Touchscreen` overlay
+Use[`rsetup`](../os-config/rsetup)to `Enable Raspberry Pi 7-inch Touchscreen` overlay
 
 ## FAQ
 

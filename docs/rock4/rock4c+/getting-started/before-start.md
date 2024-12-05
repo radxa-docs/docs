@@ -16,7 +16,7 @@ sidebar_position: 20
 - 电源适配器：ROCK 4C+ 仅支持 5V/3A 供电
 
 :::tip
-官方推荐使用 [Radxa Power PD 30W](/accessories/pd_30w)。
+官方推荐使用 [Radxa Power PD 30W](../../../accessories/pd_30w)。
 :::
 
 - USB 鼠标键盘
@@ -40,13 +40,13 @@ HDMI 2k、HDMI 4K 和 MIPI DSI 中只有两种可以同时工作。
 - eMMC 模块，至少 16 GB
 
 :::tip
-官方提供可选 [eMMC 模块](/accessories/emmc_module)。
+官方提供可选 [eMMC 模块](../../../accessories/emmc_module)。
 :::
 
 - eMMC 读卡器
 
 :::tip
-官方推荐使用 [Radxa eMMC 读卡器](/accessories/emmc_reader).
+官方推荐使用 [Radxa eMMC 读卡器](../../../accessories/emmc_reader).
 :::
 
 - 以太网线
@@ -67,7 +67,7 @@ ROCK 4C+ 支持千兆以太网。
 ROCK 4C+ 支持摄像头功能。
 
 :::tip
-官方推荐使用 [Radxa Camera 4K](/accessories/camera_4k).
+官方推荐使用 [Radxa Camera 4K](../../../accessories/camera_4k).
 :::
 
 - LCD 屏
@@ -75,7 +75,7 @@ ROCK 4C+ 支持摄像头功能。
 ROCK 4C+ 支持 LCD 显示功能。
 
 :::tip
-官方推荐使用 [Radxa Display 10 FHD](/accessories/lcd-10-fhd)。
+官方推荐使用 [Radxa Display 10 FHD](../../../accessories/lcd-10-fhd)。
 :::
 
 - 音频设备
@@ -84,6 +84,6 @@ ROCK 4C+ 支持 LCD 显示功能。
 
 ## 系统安装
 
-首先，请从 [ROCK 4 官方镜像下载页](/rock4/official-images)下载 ROCK 4C+ 的官方镜像。  
+首先，请从 [ROCK 4 官方镜像下载页](../../official-images)下载 ROCK 4C+ 的官方镜像。  
 然后，参照[操作系统安装指南](install-os)安装操作系统。  
 最后，将系统存储介质：microSD 卡或 eMMC 模块插入主板上的插口，并通过 Type-C 供电启动 ROCK 4C+。

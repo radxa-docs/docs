@@ -106,7 +106,7 @@ Go to the [**Resource Download**](../download) to download the Ubuntu image and 
 
 ### Format the UFS
 
-Before installing the system on UFS, you need to [Format UFS](/nio/nio12l/installation/format-ufs).
+Before installing the system on UFS, you need to [Format UFS](./format-ufs).
 
 ### Begin to install an Ubuntu system
 

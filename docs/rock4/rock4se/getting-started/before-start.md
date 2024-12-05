@@ -19,7 +19,7 @@ sidebar_position: 20
 - 骁龙® QC 快充: 支持 QC 3.0/2.0 协议, 9V/2A, 12V/1.5A
 
 :::tip
-官方推荐使用 [Radxa Power PD 30W](/accessories/pd_30w)。
+官方推荐使用 [Radxa Power PD 30W](../../../accessories/pd_30w)。
 :::
 
 - USB 鼠标键盘
@@ -39,13 +39,13 @@ ROCK 4SE 配备 HDMI 接口，最高支持 4K@60。建议使用支持 HDMI 功�
 - eMMC 模块， 至少 16 GB
 
 :::tip
-官方提供可选 [eMMC 模块](/accessories/emmc_module)。
+官方提供可选 [eMMC 模块](../../../accessories/emmc_module)。
 :::
 
 - eMMC 读卡器
 
 :::tip
-官方推荐使用 [Radxa eMMC 读卡器](/accessories/emmc_reader).
+官方推荐使用 [Radxa eMMC 读卡器](../../../accessories/emmc_reader).
 :::
 
 - 以太网线
@@ -66,7 +66,7 @@ ROCK 4SE 支持千兆以太网。
 ROCK 4SE 支持摄像头功能。
 
 :::tip
-官方推荐使用 [Radxa Camera 4K](/accessories/camera_4k).
+官方推荐使用 [Radxa Camera 4K](../../../accessories/camera_4k).
 :::
 
 - LCD 屏
@@ -74,7 +74,7 @@ ROCK 4SE 支持摄像头功能。
 ROCK 4SE 支持 LCD 显示功能。
 
 :::tip
-官方推荐使用 [Radxa Display 8 HD](/accessories/lcd-8-hd) 或 [Radxa Display 10 FHD](/accessories/lcd-10-fhd)。
+官方推荐使用 [Radxa Display 8 HD](/accessories/lcd-8-hd) 或 [Radxa Display 10 FHD](../../../accessories/lcd-10-fhd)。
 :::
 
 - 音频设备
@@ -83,6 +83,6 @@ ROCK 4SE 支持 LCD 显示功能。
 
 ## 系统安装
 
-首先，请从 [ROCK 4 官方镜像下载页](/rock4/official-images)下载 ROCK 4SE 的官方镜像。  
+首先，请从 [ROCK 4 官方镜像下载页](../../official-images)下载 ROCK 4SE 的官方镜像。  
 然后，参照[操作系统安装指南](install-os)安装操作系统。  
 最后，将系统存储介质：microSD 卡或 eMMC 模块插入主板上的插口，并通过 Type-C 供电启动 ROCK 4SE 。

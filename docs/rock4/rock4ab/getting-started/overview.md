@@ -29,6 +29,6 @@ ROCK 4B 相比于 ROCK 4A 额外搭载了板载无线模块，同时支持 PoE �
 |    USB    |  USB 3.0 OTG X1，位于上方的 USB 3.0 插口，可通过软件配置为 Host 或 Peripheral<br/>USB 3.0 X1<br/>USB 2.0 X2   |
 |  以太网   |                       千兆以太网<br/>ROCK 4B 可通过额外选购的 HAT 支持以太网供电（PoE）                       |
 |   其他    |                                                      RTC                                                      |
-| GPIO 扩展 |                                   [40 pin GPIO](/rock4/hardware/rock4-gpio)                                   |
+| GPIO 扩展 |                                   [40 pin GPIO](../../hardware/rock4-gpio)                                    |
 |   电源    |                                             支持 USB Type-C 5V/3A                                             |
 |   尺寸    |                                                  85mm x 54mm                                                  |

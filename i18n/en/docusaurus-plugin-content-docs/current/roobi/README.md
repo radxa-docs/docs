@@ -29,7 +29,7 @@ ROOBI OS will be included with the machine you purchase, so manual installation 
 
 :::
 
-If your purchased device is in the [supported devices](#supported-devices) list and has eMMC, you can manually flash the ROOBI OS through this [tutorial](/roobi/install-roobi).
+If your purchased device is in the [supported devices](#supported-devices) list and has eMMC, you can manually flash the ROOBI OS through this [tutorial](./install-roobi).
 
 ## Supported Devices
 
@@ -39,4 +39,4 @@ If your purchased device is in the [supported devices](#supported-devices) list 
 
 ## User Guide
 
-### [ROOBI OS User Guide](/roobi/roobi-usage)
+### [ROOBI OS User Guide](./roobi-usage)

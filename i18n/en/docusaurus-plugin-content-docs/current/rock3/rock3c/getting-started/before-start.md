@@ -14,12 +14,12 @@ We will introduce the board information as much as possible.
 
 - One of the Storage media below:  
   microSD card, at least 8GB  
-  [eMMC module](/accessories/emmc_module), at least 8GB
+  [eMMC module](../../../accessories/emmc_module), at least 8GB
 
 - Power Supply:  
   The ROCK 3 is powered by Type-C port and support 5V input only. The suggested power adapter is 5V/3A when using without SSD, 5V/5A when using with SSD.  
   :::tip
-  The official recommendation is to use [Radxa Power PD30W](/accessories/pd_30w).
+  The official recommendation is to use [Radxa Power PD30W](../../../accessories/pd_30w).
   :::
 
 - USB Keyboard and Mouse  
@@ -50,7 +50,7 @@ We will introduce the board information as much as possible.
 - LCD Module  
   ROCK 3C supports 2-lanes MIPI DSI display function.  
   :::tip
-  The official recommendation is to use [Radxa Display 8 HD](/accessories/lcd-8-hd) or [Radxa Display 10 FHD](/accessories/lcd-10-fhd)
+  The official recommendation is to use [Radxa Display 8 HD](/accessories/lcd-8-hd) or [Radxa Display 10 FHD](../../../accessories/lcd-10-fhd)
   :::
 
 - Audio cable  
@@ -58,7 +58,7 @@ We will introduce the board information as much as possible.
 
 ## OS Installation
 
-First, choose the [official image](/rock3/images) that you want to flash and download it.
+First, choose the [official image](../../images) that you want to flash and download it.
 
 Then, flash the image to the storage media by referring the [OS Installation guide](install-os).
 

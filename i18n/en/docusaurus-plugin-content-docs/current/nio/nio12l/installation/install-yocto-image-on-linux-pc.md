@@ -116,7 +116,7 @@ Please go to the [**Resource Download**](../download) image download section to 
 
 ### Formatting the UFS
 
-Before Installing the system to UFS, you need to [format UFS](/nio/nio12l/installation/format-ufs).
+Before Installing the system to UFS, you need to [format UFS](./format-ufs).
 
 ### Starting to install a Yocto system
 
