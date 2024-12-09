@@ -29,11 +29,12 @@ ROCK S0 v1.2 Version
 
 1. [Etcher](https://etcher.balena.io/#download-etcher/)
 2. [rkdeveloptool open source version](https://opensource.rock-chips.com/wiki_Rkdeveloptool)
-3. [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip)
+3. [RKDevTool v2.86](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.86.zip)  
    [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) (related driver)
 
 ## Operating system images
 
+- [Loader](https://dl.radxa.com/rockpis/images/loader/rk3308_loader_ddr589MHz_uart0_m0_v2.06.136sd.bin)
 - [Radxa ROCK S0 Debian Build 6](https://github.com/radxa-build/rock-s0/releases/download/b6/rock-s0_debian_bookworm_cli_b6.img.xz)
 
 :::caution
