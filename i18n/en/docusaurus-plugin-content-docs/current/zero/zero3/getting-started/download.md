@@ -38,6 +38,8 @@ ZERO 3E V1.2 Production Version
 
 - [Radxa ZERO 3 Debian Build 6](https://github.com/radxa-build/radxa-zero3/releases/download/b6/radxa-zero3_debian_bullseye_xfce_b6.img.xz)
 
+- [Radxa ZERO 3 DietPi](https://dietpi.com/downloads/images/DietPi_RadxaZERO3-ARMv8-Bookworm.img.xz)
+
 :::caution
 In addition to the above image has been officially fully tested, other images have not been rigorously tested, there may be unknown problems, only for evaluation use.
 :::
