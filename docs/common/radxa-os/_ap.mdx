@@ -85,7 +85,7 @@ sudo nmcli connection up AP
 又因为部分网卡不支持 `WPA3`，导致只能扫描到热点但是连接失败，可通过添加以下参数关闭 `WPA3` 能力。
 
 ```
-sudo nmcli connection modify {Connection name/Profile name} wifi-sec.key-mgmt wpa-psk
-sudo nmcli connection down {Connection name/Profile name} connection
-sudo nmcli connection up {Connection name/Profile name} connection --ask
+sudo nmcli connection modify <CONNECTION NAME> wifi-sec.key-mgmt wpa-psk
+sudo nmcli connection down <CONNECTION NAME> connection
+sudo nmcli connection up <CONNECTION NAME> connection --ask
 ```
