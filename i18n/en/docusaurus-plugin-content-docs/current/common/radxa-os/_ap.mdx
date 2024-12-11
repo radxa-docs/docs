@@ -75,6 +75,20 @@ sudo nmcli connection up AP
 
 ## Q&A
 
-### Can't turn on 5G hotspot
+### 1. Can't turn on 5G hotspot
 
 Try specifying the `Channel` parameter as `<A (5 GHz)> 36`.
+
+### 2. The client can scan the hotspot but connection fails.
+
+This is because the front-end of `NetworkManager` is wrongly described,
+and the encryption method selected is `WPA2`, but the actual encryption method is `WPA3`,
+and some WIFI devices do not support `WPA3`.
+Because some WIFI devices don't support `WPA3`, it can only scan the hotspot but fail to connect,
+you can disable `WPA3` by adding the following parameter.
+
+```
+sudo nmcli connection modify <CONNECTION NAME> wifi-sec.key-mgmt wpa-psk
+sudo nmcli connection down <CONNECTION NAME> connection
+sudo nmcli connection up <CONNECTION NAME> connection --ask
+```
