@@ -49,6 +49,8 @@ sidebar_position: 5
 
 - [Radxa ZERO Debian Build 23](https://github.com/radxa-build/radxa-zero/releases/download/b23/radxa-zero_debian_bullseye_kde_b23.img.xz)
 
+- [Radxa ZERO DietPi](https://dietpi.com/downloads/images/DietPi_RadxaZero-ARMv8-Bookworm.img.xz)
+
 :::caution
 Except for the above image which has been fully tested by the officials, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation use only.
 :::

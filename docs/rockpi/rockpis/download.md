@@ -10,6 +10,8 @@ sidebar_position: 4
 
 - [Radxa ROCK PI S OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_s)
 
+- [Radxa ROCK PI S DietPi](https://dietpi.com/downloads/images/DietPi_ROCKPiS-ARMv8-Bookworm.img.xz)
+
 :::caution
 非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到对应的社区寻求帮助。
 :::

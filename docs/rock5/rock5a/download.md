@@ -16,7 +16,7 @@ Radxa ROCK 5A V1.1 版本
 
 ## 操作系统镜像
 
-<Images loader={false} system_img={true} spi_img={false} miniloader={true}/>
+<Images loader={false} system_img={true} spi_img={false} miniloader={true} dietpi={true} />
 
 :::caution
 
