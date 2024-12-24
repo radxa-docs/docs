@@ -53,7 +53,7 @@ sidebar_position: 1
     </tr>
     <tr>
         <td align="center">无线通讯</td>
-        <td align="center">Wi-Fi 6 (802.11 b/g/n) BT 5.0 with BLE</td>
+        <td align="center"> 支持 Radxa Wireless Module A8(Wi-Fi 6 & BT 5.2)</td>
     </tr>
     <tr>
         <td align="center">USB</td>

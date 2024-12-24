@@ -28,7 +28,7 @@ With a monitor with HDMI interface, the Radxa ROCK 3A can support resolutions up
 
 ### Network Connection
 
-The ROCK 3A has an Ethernet port for network access via Ethernet and an onboard Wi-Fi module for network access via Wi-Fi.
+The ROCK 3A has an Ethernet port for network access via Ethernet and a PCIe E key for network access via Wi-Fi.
 
 ### Type-C Hub
 
