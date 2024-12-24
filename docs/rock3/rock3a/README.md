@@ -53,7 +53,7 @@ sidebar_position: 1
     </tr>
     <tr>
         <td align="center">无线通讯</td>
-        <td align="center"> 支持 Radxa Wireless Module A8(Wi-Fi 6 & BT 5.2)</td>
+        <td align="center">M.2 E Key 支持外接 Radxa Wireless Module A8(Wi-Fi 6 & BT 5.2)</td>
     </tr>
     <tr>
         <td align="center">USB</td>
