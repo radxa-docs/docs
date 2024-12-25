@@ -1,0 +1,171 @@
+[MiniCPM-V 2.6](https://github.com/OpenBMB/MiniCPM-V) 是一款端侧多模态 LLM（MLLM），专为视觉语言理解而设计。MiniCPM-V 2.6 TPU 是使用 Sophon SDK 将 OpenBMB 开源 [MiniCPM-V 2.6](https://github.com/OpenBMB/MiniCPM-V) 多模态语言模型移植到 SG2300X 芯片系列产品上，
+使其能利用本地 TPU 进行硬件加速推理，用户可以向其询问一些关于输入图像内容的问题
+
+### TPU 设置
+
+**TPU 推荐内存设置：NPU->7615MB, VPU->2360MB, VPP->2360MB**，[如何修改？](../ai-tools/memory_allocate)
+
+## 应用部署
+
+- 克隆仓库
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/LLM-TPU.git
+  ```
+
+- 本案例提供 minicpmv26_bm1684x_int4_seq1024.bmodel 量化模型与 C++ 预编译动态库下载
+
+  用户可以参考 [MiniCPM-V 2.6 模型转换](#minicpm-v-26-模型转换)自行转换不同长度的 MiniCPM-V 2.6 模型
+
+  用户可以参考 [MiniCPM-V 2.6 cpython 文件编译](#minicpm-v-26-cpython-文件编译) 自行编译 cpython 接口绑定文件
+
+- 使用 [git LFS](https://git-lfs.com/) 从 [ModelScope](https://modelscope.cn/models/radxa/MINICPM-V26_TPU) 下载预编译好的 bmodel
+  ```bash
+  cd LLM-TPU/models/MiniCPM-V-2_6/python_demo
+  git clone https://www.modelscope.cn/radxa/MINICPM-V26_TPU.git
+  mv MINICPM-V26_TPU/* .
+  ```
+- 配置环境
+
+  **推荐创建虚拟环境，否则可能会影响其他应用的正常运行**， 虚拟环境使用请参考[这里](../ai-tools/virtualenv_usage)
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- 安装依赖包
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install torch torchvision pillow transformers
+  ```
+
+- 导入环境变量
+
+  请使用 ldd 命令检查 chat.cpython-38-aarch64-linux-gnu.so 链接的 libbmlib.so 的路径是否为 `LLM-TPU/models/MiniCPM-V-2_6/support/lib_soc/libbmlib.so.0`
+
+  如 `libbmlib.so` 链接路径有误可运行下面的命令
+
+  ```bash
+  export LD_LIBRARY_PATH=LLM-TPU/models/MiniCPM-V-2_6/support/lib_soc:$LD_LIBRARY_PATH
+  ```
+
+- 启动 MiniCPM-V 2.6
+
+  **终端模式**
+
+  ```bash
+  python3 pipeline.py -m ./minicpmv26_bm1684x_int4_seq1024.bmodel
+  ```
+
+  `-m`： 指定模型路径
+
+- 运行示例
+
+---
+
+<img width="600" src="/img/general-tutorial/tpu_ai/minicpmv_2.webp" />
+<img width="600" src="/img/general-tutorial/tpu_ai/minicpmv_1.webp" />
+---
+
+```bash
+Question: Describe the content of the image
+
+Image Path: radxa_web.png
+
+Answer:
+The webpage is from a company named Radxa, which specializes in Single Board Computers (SBCs. The page is structured with a navigation bar at the top containing links to Home, Products, Blog, Services, Documentation, Support, and About. The main content of the page discusses Radxa Single Board Computers, highlighting their features of being complete computers built on a a single circuit board, featuring a microprocessor, memory, input/output (I/O), and other functions required for a a computer. They are described as compact and powerful, and can be used! to control your smart home, function as a game machine, or for endless DIY projects. The flexibility to modify! software! and connect a variety of peripherals is emphasized, positioning Radxa SBCs as the ultimate! all-in-one solution for any application! requiring a complete computer.
+
+The page also features a heading "Experience the Power of a Complete Computer" and a paragraph that further explains that their single-board computers offer all the features you would expect from a traditional PC, including a variety of interfaces! such as 4 display output, wireless LAN connectivity, Bluetooth, and USB, as well as powerful processing power and memory in a compact design. With a wide range of sizes and configurations available, Radxa SBCs are the ultimate all-in-one solution for any application requiring a complete computer.
+
+There is also an image on the right side of the page showing a a computer setup with a a computer board, a a fan, and a a keyboard and mouse, which likely represents a practical application of a Radxa Single Board Computer.
+FTL: 7.334 s
+TPS: 10.765 token/s
+
+```
+
+## MiniCPM-V 2.6 模型转换
+
+用户可以参考本文自行转换不同长度和量化类型的 MiniCPM-V 2.6 模型到 bmodel
+
+- X86 工作站中准备 docker 环境
+
+请参考 [TPU-MLIR 安装](../../model-compile/tpu_mlir_env) 配置 TPU-MLIR 环境
+
+克隆仓库
+
+```bash
+git clone https://github.com/zifeng-radxa/LLM-TPU.git
+```
+
+- 通过 [ModelScope](https://modelscope.cn/models/OpenBMB/MiniCPM-V-2_6/summary) 下载 MiniCPM-V 2.6 开源模型
+
+- 在工作目录 `LLM-TPU/models/MiniCPM-V-2_6/compile` 中创建虚拟环境
+
+  虚拟环境使用请参考[这里](../ai-tools/virtualenv_usage)
+
+  ```bash
+  cd LLM-TPU/models/MiniCPM-V-2_6/compile
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  pip3 install --upgrade pip
+  pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+  pip3 install transformers_stream_generator einops tiktoken accelerate transformers==4.40.0 onnx
+
+  ```
+
+- 对齐模型环境
+
+  将 `LLM-TPU/models/MiniCPM-V 2.6/compile/files/MiniCPM-V-2_6/modeling_qwen2.py` 复制到 transformers 库中,
+  注意此时 transformers 库应在 .venv 里
+
+  ```bash
+  cp files/MiniCPM-V-2_6/modeling_qwen2.py .venv/lib/python3.10/site-packages/transformers/models/qwen2
+  cp files/MiniCPM-V-2_6/resampler.py YOUR_MiniCPM-V-2_6_PATH
+  cp files/MiniCPM-V-2_6/modeling_navit_siglip.py YOUR_MiniCPM-V-2_6_PATH
+  ```
+
+- 生成 onnx 文件
+
+  ```bash
+  python3 export_onnx.py --model_path YOUR_MiniCPM-V-2_6_PATH --seq_length 1024 --device cpu --image_file ../python_demo/test0.jpg
+  ```
+
+  `--model_path`： 是下载的 MiniCPM-V-2_6 文件夹路径
+
+  `--seq_length`： 是固定导出的 sequence length, 根据需要可选 512, 1024，2048 等长度
+
+- 生成 bmodel 文件
+
+  生成 bmodel 之前需要退出虚拟环境
+
+  ```bash
+  deactivate
+  ```
+
+  编译模型
+
+  ```bash
+  ./compile.sh --mode int4 --name minicpmv26 --seq_length 1024
+  ```
+
+  `--mode`：量化模式，可选 int4, int8, bf16
+
+  `--seq_length`： 序列长度，需和生成 onnx 文件时指定相同 seq_length
+
+  `--name`： 模型名称，此处必须为 minicpmv26
+  :::tip
+  生成 bmodel 耗时大概 1 小时以上，建议 64G 内存以及 200G 以上硬盘空间，不然很可能 OOM 或者 no space left
+  :::
+
+## MiniCPM-V 2.6 cpython 文件编译
+
+在 Airbox 中编译可执行文件, 预编译文件已经包含在模型下载包中，如已下载无需编译
+
+```bash
+cd python_demo
+pip3 install pybind11
+cmake -B build && cmake --build build
+cp ./build/*.so .
+```

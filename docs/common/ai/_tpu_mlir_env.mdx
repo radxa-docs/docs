@@ -29,7 +29,16 @@ TPU-MLIR 是算能 AI 芯片的 TPU 编译器工具链，其可以将不同框�
   docker run --privileged --name myname -v $PWD:/workspace -it sophgo/tpuc_dev:latest
   ```
 
-- 进入 docker 后初始化 TPU-MLIR 工程环境
+#### 安装 tpu-mlir
+
+- (推荐) pip3 在线安装
+  ```bash
+  pip3 install tpu_mlir
+  ```
+- 手动编译
+
+  进入 docker 后初始化 TPU-MLIR 工程环境
+
   ```bash
   cd /workspace/tpu-mlir
   source ./envsetup.sh

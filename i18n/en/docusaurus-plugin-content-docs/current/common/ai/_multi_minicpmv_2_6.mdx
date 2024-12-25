@@ -1,0 +1,168 @@
+[MiniCPM-V 2.6](https://github.com/OpenBMB/MiniCPM-V), a multimodal LLM designed for edge devices. MiniCPM-V 2.6 TPU is the adaptation of the OpenBMB open-source [MiniCPM-V 2.6](https://github.com/OpenBMB/MiniCPM-V) multimodal language model to the SG2300X chip series using the Sophon SDK. This adaptation enables hardware-accelerated inference via local TPUs, allowing users to ask questions about the content of input images.
+
+### TPU Configuration
+
+**Recommended TPU Memory Settings:**  
+NPU -> 7615MB, VPU -> 2360MB, VPP -> 2360MB. [How to modify?](../ai-tools/memory_allocate)
+
+## Application Deployment
+
+- Clone the Repository
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/LLM-TPU.git
+  ```
+
+- Download Quantized Models and Precompiled C++ Libraries
+
+  This example provides a pre-quantized `minicpmv26_bm1684x_int4_seq1024.bmodel` and precompiled dynamic libraries.  
+   Refer to [MiniCPM-V 2.6 Model Conversion](#minicpm-v-26-model-conversion) for converting models of different lengths.
+  Refer to [MiniCPM-V 2.6 CPython Compilation](#minicpm-v-26-cpython-compilation) for building CPython binding files.
+
+- Download Precompiled Models Using [git LFS](https://git-lfs.com/)
+  Models are available on [ModelScope](https://modelscope.cn/models/radxa/MINICPM-V26_TPU).
+
+  ```bash
+  cd LLM-TPU/models/MiniCPM-V-2_6/python_demo
+  git clone https://www.modelscope.cn/radxa/MINICPM-V26_TPU.git
+  mv MINICPM-V26_TPU/* .
+  ```
+
+- Set Up the Environment
+
+  **It is recommended to create a virtual environment** to avoid conflicts with other applications. Refer to [this guide](../ai-tools/virtualenv_usage) for virtual environment usage.
+
+  ```bash
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  ```
+
+- Install Dependencies
+
+  ```bash
+  pip3 install --upgrade pip
+  pip3 install torch torchvision pillow transformers
+  ```
+
+- Set Environment Variables
+  Ensure the path for `libbmlib.so` linked to `chat.cpython-38-aarch64-linux-gnu.so` is correct. Use the `ldd` command to verify.  
+   If the path is incorrect, update it as follows:
+
+  ```bash
+  export LD_LIBRARY_PATH=LLM-TPU/models/MiniCPM-V-2_6/support/lib_soc:$LD_LIBRARY_PATH
+  ```
+
+- Start MiniCPM-V 2.6
+
+  Terminal Mode
+
+  ```bash
+  python3 pipeline.py -m ./minicpmv26_bm1684x_int4_seq1024.bmodel
+  ```
+
+  `-m`: Specify the model path.
+
+- Run Example
+
+  ***
+
+  <img
+    width="600"
+    src="../../../../img/general-tutorial/tpu_ai/minicpmv_2.webp"
+  />
+  <img
+    width="600"
+    src="../../../../img/general-tutorial/tpu_ai/minicpmv_1.webp"
+  />
+  ---
+
+```bash
+Question: Describe the content of the image
+
+Image Path: radxa_web.png
+
+Answer:
+The webpage is from a company named Radxa, which specializes in Single Board Computers (SBCs. The page is structured with a navigation bar at the top containing links to Home, Products, Blog, Services, Documentation, Support, and About. The main content of the page discusses Radxa Single Board Computers, highlighting their features of being complete computers built on a a single circuit board, featuring a microprocessor, memory, input/output (I/O), and other functions required for a a computer. They are described as compact and powerful, and can be used! to control your smart home, function as a game machine, or for endless DIY projects. The flexibility to modify! software! and connect a variety of peripherals is emphasized, positioning Radxa SBCs as the ultimate! all-in-one solution for any application! requiring a complete computer.
+
+The page also features a heading "Experience the Power of a Complete Computer" and a paragraph that further explains that their single-board computers offer all the features you would expect from a traditional PC, including a variety of interfaces! such as 4 display output, wireless LAN connectivity, Bluetooth, and USB, as well as powerful processing power and memory in a compact design. With a wide range of sizes and configurations available, Radxa SBCs are the ultimate all-in-one solution for any application requiring a complete computer.
+
+There is also an image on the right side of the page showing a a computer setup with a a computer board, a a fan, and a a keyboard and mouse, which likely represents a practical application of a Radxa Single Board Computer.
+FTL: 7.334 s
+TPS: 10.765 token/s
+```
+
+## MiniCPM-V 2.6 Model Conversion
+
+Follow these steps to convert MiniCPM-V 2.6 models to different lengths and quantization of `bmodel`.
+
+- Prepare Docker Environment on an x86 Workstation
+
+  Refer to [TPU-MLIR Installation](../../model-compile/tpu_mlir_env) for setup instructions.  
+   Clone the repository:
+
+  ```bash
+  git clone https://github.com/zifeng-radxa/LLM-TPU.git
+  ```
+
+- Download the MiniCPM-V 2.6 Model
+  From [ModelScope](https://modelscope.cn/models/OpenBMB/MiniCPM-V-2_6/summary).
+
+- Create a Virtual Environment in the Work Directory
+
+  ```bash
+  cd LLM-TPU/models/MiniCPM-V-2_6/compile
+  python3 -m virtualenv .venv
+  source .venv/bin/activate
+  pip3 install --upgrade pip
+  pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+  pip3 install transformers_stream_generator einops tiktoken accelerate transformers==4.40.0 onnx
+  ```
+
+- Align Model Environment
+
+  Copy `LLM-TPU/models/MiniCPM-V 2.6/compile/files/MiniCPM-V-2_6/modeling_qwen2.py` into the Transformers library.
+  Ensure that the Transformers library is located within the `.venv` environment.
+
+  ```bash
+  cp files/MiniCPM-V-2_6/modeling_qwen2.py .venv/lib/python3.10/site-packages/transformers/models/qwen2
+  cp files/MiniCPM-V-2_6/resampler.py YOUR_MiniCPM-V-2_6_PATH
+  cp files/MiniCPM-V-2_6/modeling_navit_siglip.py YOUR_MiniCPM-V-2_6_PATH
+  ```
+
+- Generate ONNX File
+
+  ```bash
+  python3 export_onnx.py --model_path YOUR_MiniCPM-V-2_6_PATH --seq_length 1024 --device cpu --image_file ../python_demo/test0.jpg
+  ```
+
+- Generate BModel File
+
+  Exit the virtual environment:
+
+  ```bash
+  deactivate
+  ```
+
+  Compile the model:
+
+  ```bash
+  ./compile.sh --mode int4 --name minicpmv26 --seq_length 1024
+  ```
+
+  - `--mode`: Quantization mode (int4, int8, bf16).
+  - `--seq_length`: Sequence length (e.g., 512, 1024, 2048).
+
+  :::tip  
+   Model compilation takes over 1 hour and requires at least 64GB memory and 200GB storage.  
+   :::
+
+## MiniCPM-V 2.6 CPython Compilation
+
+Precompiled files are included in the model package. To compile manually:
+
+```bash
+cd python_demo
+pip3 install pybind11
+cmake -B build && cmake --build build
+cp ./build/*.so .
+```
