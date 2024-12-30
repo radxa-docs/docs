@@ -27,6 +27,8 @@ Except for the above mirrors which have been fully tested officially, the other 
 
 - [Radxa ROCK 3A OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3a)
 
+- [Radxa ROCK 3A DietPi](https://dietpi.com/downloads/images/DietPi_ROCK3A-ARMv8-Bookworm.img.xz)
+
 For more mirrors, please check: [Radxa ROCK 3A Release](https://github.com/radxa-build/rock-3a/releases/latest)
 
 ## Quality Certification

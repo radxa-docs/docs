@@ -26,6 +26,8 @@ sidebar_position: 5
 
 - [Radxa ROCK 3A OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3a)
 
+- [Radxa ROCK 3A DietPi](https://dietpi.com/downloads/images/DietPi_ROCK3A-ARMv8-Bookworm.img.xz)
+
 更多镜像请查看：[Radxa ROCK 3A Release](https://github.com/radxa-build/rock-3a/releases/latest)
 
 ## 质量认证
