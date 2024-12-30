@@ -20,9 +20,9 @@ debian xfce:
 
 Android13 ：
 
-[rock2a_android13_box_20240619_gpt.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20240726/rock2a_android13_box_20240619_gpt.zip) (used to start from SD-Card)
+[rock2a_android13_box_20241230_gpt.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_gpt.zip) (used to start from SD-Card)
 
-[rock2a_android13_box_20240619_update.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20240726/rock2a_android13_box_20240619_update.zip) (used to start from EMMC)
+[rock2a_android13_box_20241230_update.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_update.zip) (used to start from EMMC)
 
 :::tip
 These image is fully compatible with E20C, ROCK 2A, and ROCK 2F devices, all incorporating the RK3528 chip. The compatible method is as follow:
