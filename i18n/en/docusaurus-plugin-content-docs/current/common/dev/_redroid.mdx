@@ -1,0 +1,83 @@
+# Introduction to Redroid
+
+Redroid is an open-source project based on Android, which is one of several cloud phone solutions aimed at providing developers and users with a flexible Android environment. It can run on different platforms, including desktop operating systems, allowing users to experience the features and applications of the Android system.
+
+## Main features
+
+- Containerization: Redroid uses container technology (such as Docker) to run the Android system, allowing users to quickly set up and run the Android environment on their existing operating system.
+- Compatibility: Supports multiple Android applications and games, and users can install and run these applications in Redroid to enjoy the rich ecosystem of Android.
+- Efficiency: Redroid aims to provide a high-performance Android experience, optimize resource utilization, and run well on systems with lower hardware configurations.
+- Open source: Redroid is an open source project where users and developers can freely view, modify, and contribute code.
+- Easy to deploy: With tools such as Docker, users can quickly deploy and update Redroid environments, simplifying the setup process.
+
+## Source code download
+
+```bash
+mkdir ~/redroid && cd ~/redroid
+repo init -u https://github.com/redroid-rockchip/platform_manifests.git -b redroid-12.0.0 --depth=1 --git-lfs
+repo sync -c
+sudo apt install git-lfs
+repo forall -g lfs -c git lfs pull
+```
+
+## Docker download and image compilation
+
+Redroid officially provides a Docker image for compilation in the form of a Dockerfile, which can avoid many compilation issues when compiling using this image
+
+```bash
+sudo apt install docker.io -y #install docker
+sudo usermod -aG docker $USER
+sudo chmod a+rw /var/run/docker.sock
+
+git clone https://github.com/remote-android/redroid-doc.git 
+cd redroid-doc/android-builder-docker/
+docker build --build-arg userid=$(id -u) --build-arg groupid=$(id -g) \
+        --build-arg username=$(id -un) -t redroid-builder . #Build Docker image for compilation
+```
+
+The configuration of the apt source is in the sources.list under the redroid doc/android-builder-doc/, which defaults to 163 sources and can be changed to other sources at your discretion
+
+```bash
+docker run -it --rm --hostname redroid-builder --name redroid-builder \
+        -v ~/redroid:/src --privileged redroid-builder #RUN docker image
+
+#compilation redroid image
+cd /src
+. build/envsetup.sh
+lunch redroid_arm64-userdebug
+export TARGET_BOARD_PLATFORM_GPU=mali-G52
+export TARGET_RK_GRALLOC_VERSION=4
+m
+
+#Packaging Redroid Images
+cd out/target/product/redroid_arm64
+sudo mount system.img system -o ro
+sudo mount vendor.img vendor -o ro
+sudo tar --xattrs -avcf redroid.tar.xz vendor -C system --exclude="./vendor" . 
+sudo umount system vendor
+```
+
+After packaging is complete, upload the redroid.tar.xz image from the out/target/product/redroid_arm64/ to SBC, import the image using the following command, and start it
+
+```bash
+#Import image
+sudo xz -dcT0 redroid.tar.xz | docker import -c 'ENTRYPOINT ["/init", "androidboot.hardware=redroid"]' - redroid
+#Start container
+docker run -d -p 5555:5555 -v ~/redroid-build:/data --name redroid-build -v /dev/mali0:/dev/mali0 \
+        --privileged redroid \
+        androidboot.redroid_height=1920 \
+        androidboot.redroid_width=1080 \
+        androidboot.redroid_gpu_mode=mali
+```
+
+## Frequently Asked Questions
+
+1. After the container is started, an error message will be printed in a loop with 'init: critical process' lmkd 'exited 4 times before boot completion'
+- Solution: Add psi=1 to the Linux startup parameters
+
+2. Redroid cannot start after configuring GPU acceleration
+- Solution: Check if the GPU Mali driver is enabled on Linux. If it is not enabled, the GPU cannot be used normally
+
+## Reference Documents
+- [redroid-doc](https://github.com/remote-android/redroid-doc)
+- [github](https://github.com/redroid-rockchip)

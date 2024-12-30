@@ -1,0 +1,83 @@
+# Redroid 简介
+
+Redroid 是一个基于 Android 的开源项目，是多个云手机方案中的一种，旨在为开发者和用户提供一个灵活的 Android 环境。它可以在不同的平台上运行，包括桌面操作系统，让用户能够体验 Android 系统的功能和应用。
+
+## 主要特点
+
+- 容器化：Redroid 使用容器技术（如 Docker）来运行 Android 系统，允许用户在现有的操作系统上快速设置和运行 Android 环境。
+- 兼容性：支持多种 Android 应用和游戏，用户可以在 Redroid 中安装和运行这些应用，享受 Android 的丰富生态。
+- 高效性：Redroid 旨在提供高性能的 Android 体验，优化了资源的使用，能够在较低硬件配置的系统上良好运行。
+- 开源：Redroid 是一个开源项目，用户和开发者可以自由地查看、修改和贡献代码。
+- 易于部署：通过 Docker 等工具，用户可以快速部署和更新 Redroid 环境，简化了设置过程。
+
+## 源码下载
+
+```bash
+mkdir ~/redroid && cd ~/redroid
+repo init -u https://github.com/redroid-rockchip/platform_manifests.git -b redroid-12.0.0 --depth=1 --git-lfs
+repo sync -c
+sudo apt install git-lfs
+repo forall -g lfs -c git lfs pull
+```
+
+## docker 下载和镜像编译
+
+Redroid 官方以 dockerfile 的方式提供了一个用于编译的 docker 镜像，使用这个镜像编译可以避免很多编译问题
+
+```bash
+sudo apt install docker.io -y #安装 docker
+sudo usermod -aG docker $USER
+sudo chmod a+rw /var/run/docker.sock
+
+git clone https://github.com/remote-android/redroid-doc.git 
+cd redroid-doc/android-builder-docker/
+docker build --build-arg userid=$(id -u) --build-arg groupid=$(id -g) \
+        --build-arg username=$(id -un) -t redroid-builder . #构建用于编译的 docker 镜像
+```
+
+在 redroid-doc/android-builder-docker/ 目录下的 sources.list 中是 apt 源的配置，默认是 163 的源，可以自行更改为其他的源
+
+```bash
+docker run -it --rm --hostname redroid-builder --name redroid-builder \
+        -v ~/redroid:/src --privileged redroid-builder #运行 docker 镜像
+
+#编译 redroid 镜像
+cd /src
+. build/envsetup.sh
+lunch redroid_arm64-userdebug
+export TARGET_BOARD_PLATFORM_GPU=mali-G52
+export TARGET_RK_GRALLOC_VERSION=4
+m
+
+#打包 redroid 镜像
+cd out/target/product/redroid_arm64
+sudo mount system.img system -o ro
+sudo mount vendor.img vendor -o ro
+sudo tar --xattrs -avcf redroid.tar.xz vendor -C system --exclude="./vendor" . 
+sudo umount system vendor
+```
+
+打包完成后将 out/target/product/redroid_arm64/ 目录下 redroid.tar.xz 镜像上传到 SBC，按以下命令导入镜像并启动
+
+```bash
+#导入镜像
+sudo xz -dcT0 redroid.tar.xz | docker import -c 'ENTRYPOINT ["/init", "androidboot.hardware=redroid"]' - redroid
+#启动容器
+docker run -d -p 5555:5555 -v ~/redroid-build:/data --name redroid-build -v /dev/mali0:/dev/mali0 \
+        --privileged redroid \
+        androidboot.redroid_height=1920 \
+        androidboot.redroid_width=1080 \
+        androidboot.redroid_gpu_mode=mali
+```
+
+## 常见问题
+
+1. 容器启动后报错循环打印 init: critical process 'lmkd' exited 4 times before boot completed
+- 解决方法：在 Linux 启动参数中添加：psi=1
+
+2. 配置 GPU 加速后，redroid 无法启动
+- 解决方法：查看 linux 是否启用 GPU mali 驱动，如未启用，GPU 则无法正常使用
+
+## 参考
+- [redroid-doc](https://github.com/remote-android/redroid-doc)
+- [github](https://github.com/redroid-rockchip)
