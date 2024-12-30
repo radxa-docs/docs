@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 ---
+
 # 硬件接口
 
 ## 实物照片
@@ -33,17 +34,17 @@ AP-APCI0270-P
 
 ## PCIE E KEY
 
-PCIe E Key 座子采用的是 H4.2mm  0.5mm脚距<br />
+PCIe E Key 座子采用的是 H4.2mm 0.5mm脚距<br />
 APCI0108-P001A
 
 ## PCIE B KEY
 
-PCIe B Key 座子采用的是H8.5mm  0.5mm脚距<br />
+PCIe B Key 座子采用的是H8.5mm 0.5mm脚距<br />
 AP-APCI0161
 
 ## 6PIN 座子
 
-6PIN 立贴 10.75x4.05x4.25mm  1.25mm脚距<br />
+6PIN 立贴 10.75x4.05x4.25mm 1.25mm脚距<br />
 BM06B-GHS-TBT
 
 <img src="/img/sirider/s1/6pin_header.webp" alt="6pin_header" width="500" />
