@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 ---
+
 # Hardware Interfaces
 
 ## Physical Photo

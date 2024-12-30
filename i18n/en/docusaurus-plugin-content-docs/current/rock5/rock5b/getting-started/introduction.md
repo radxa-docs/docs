@@ -99,7 +99,7 @@ ROCK 5B provides complete hardware design schematics and software source code, a
     </tr>
     <tr>
         <td align="center">Ethernet</td>
-        <td colspan="2" align="center">Gigabit Ethernet with Power over Ethernet (PoE) support<br/>PoE requires additional optional HAT</td>
+        <td colspan="2" align="center">2.5G Ethernet with Power over Ethernet (PoE) support<br/>PoE requires additional optional HAT</td>
     </tr>
     <tr>
         <td align="center">On-board WIFI</td>
