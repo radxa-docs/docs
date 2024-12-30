@@ -20,9 +20,9 @@ debian xfce:
 
 Android13 ：
 
-[rock2a_android13_box_20240619_gpt.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20240726/rock2a_android13_box_20240619_gpt.zip) （用于 SD 卡启动）
+[rock2a_android13_box_20241230_gpt.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_gpt.zip) （用于 SD 卡启动）
 
-[rock2a_android13_box_20240619_update.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20240726/rock2a_android13_box_20240619_update.zip) （用于 EMMC 启动）
+[rock2a_android13_box_20241230_update.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_update.zip) （用于 EMMC 启动）
 
 :::tip
 镜像完全兼容 E20C、ROCK 2A 和 ROCK 2F 设备，所有这些设备都采用RK3528芯片。兼容的方法如下：
