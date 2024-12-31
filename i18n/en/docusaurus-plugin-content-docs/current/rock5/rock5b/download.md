@@ -188,12 +188,14 @@ L2203 L2205 L2300 L2301 L2303 Converted to 3225 RHP322512T-R24M
 Changed the package of 31P holder:
 Pins 1-31 widened to 0.3mm, two locator pins widened to 0.7mm
 </TabItem>
+
 <TabItem value="ROCK 5B+">
 
 - [v1.2 Schematic pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_schematic.pdf)
 - [v1.2 Components Placement Map pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_components_placement_map.pdf)
 - [v1.2 3D STP](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_3d_stp.zip)
-  </TabItem>
+
+</TabItem>
 
 </Tabs>
 
