@@ -29,7 +29,7 @@ sudo apt install docker.io -y #安装 docker
 sudo usermod -aG docker $USER
 sudo chmod a+rw /var/run/docker.sock
 
-git clone https://github.com/remote-android/redroid-doc.git 
+git clone https://github.com/remote-android/redroid-doc.git
 cd redroid-doc/android-builder-docker/
 docker build --build-arg userid=$(id -u) --build-arg groupid=$(id -g) \
         --build-arg username=$(id -un) -t redroid-builder . #构建用于编译的 docker 镜像
@@ -53,7 +53,7 @@ m
 cd out/target/product/redroid_arm64
 sudo mount system.img system -o ro
 sudo mount vendor.img vendor -o ro
-sudo tar --xattrs -avcf redroid.tar.xz vendor -C system --exclude="./vendor" . 
+sudo tar --xattrs -avcf redroid.tar.xz vendor -C system --exclude="./vendor" .
 sudo umount system vendor
 ```
 
@@ -73,11 +73,14 @@ docker run -d -p 5555:5555 -v ~/redroid-build:/data --name redroid-build -v /dev
 ## 常见问题
 
 1. 容器启动后报错循环打印 init: critical process 'lmkd' exited 4 times before boot completed
+
 - 解决方法：在 Linux 启动参数中添加：psi=1
 
 2. 配置 GPU 加速后，redroid 无法启动
+
 - 解决方法：查看 linux 是否启用 GPU mali 驱动，如未启用，GPU 则无法正常使用
 
 ## 参考
+
 - [redroid-doc](https://github.com/remote-android/redroid-doc)
 - [github](https://github.com/redroid-rockchip)
