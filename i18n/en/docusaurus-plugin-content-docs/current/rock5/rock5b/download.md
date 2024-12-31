@@ -193,8 +193,7 @@ Pins 1-31 widened to 0.3mm, two locator pins widened to 0.7mm
 - [v1.2 Schematic pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_schematic.pdf)
 - [v1.2 Components Placement Map pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_components_placement_map.pdf)
 - [v1.2 3D STP](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_3d_stp.zip)
-  </TabItem>
-
+</TabItem>
 </Tabs>
 
 ## Quality certification

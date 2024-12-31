@@ -187,6 +187,7 @@ L2203 L2205 L2300 L2301 L2303 改成 3225 封装的 RHP322512T-R24M
 更改了 31P 座子的封装：
 1-31脚加宽到0.3mm，两个定位脚加宽到0.7mm
 </TabItem>
+
 <TabItem value="ROCK 5B+">
 
 ### V1.2
@@ -194,8 +195,9 @@ L2203 L2205 L2300 L2301 L2303 改成 3225 封装的 RHP322512T-R24M
 - [v1.2 原理图 pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_schematic.pdf)
 - [v1.2 位号图 pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_components_placement_map.pdf)
 - [v1.2 3D STP](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_3d_stp.zip)
-  </TabItem>
-  </Tabs>
+
+</TabItem>
+</Tabs>
 
 ## 质量认证
 
