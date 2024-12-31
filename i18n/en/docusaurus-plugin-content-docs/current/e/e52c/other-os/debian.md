@@ -1,16 +1,15 @@
 ---
 sidebar_position: 1
+title: Debian
 ---
 
 # Debian
 
-## System InstallationS
+## Installation Steps
 
-Please refer to [Install the system](../getting-started/install-os/)
+1. First, please follow our [Installation Guide](../getting-started/install-os) to prepare your system.
 
-## Usage
-
-Please refer to [Getting Guide](../getting-started/)
+2. For detailed instructions on getting started, please refer to our [Getting Started Guide](../getting-started).
 
 ## Login
 

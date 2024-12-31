@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## 镜像下载
 
-请到[资源下载汇总](/zero/zero3/other-os/android/download) 下载对应的镜像文件。
+请到[资源下载汇总](./download) 下载对应的镜像文件。
 
 ## 系统安装
 
@@ -35,7 +35,7 @@ sidebar_position: 2
 
 1. 1x microSD 卡
 2. 1x SD 卡读卡器
-3. 1x 5V 电源适配器 （瑞莎推荐电源适配器 [Radxa Power PD30W](/accessories/pd_30w)）
+3. 1x 5V 电源适配器 （瑞莎推荐电源适配器 [Radxa Power PD30W](../../../../accessories/pd_30w)）
 
 #### 通过 Etcher 刷入操作系统镜像到 microSD
 
@@ -68,13 +68,13 @@ sidebar_position: 2
 
 - 准备一条 USB 线 (一端USB C，一端 USB A)
   <img src="/img/common/usb-cable-usb-a-usb-c.webp" width = "400" alt="USB Cable"/>
-- 1x 5V 电源适配器 (推荐使用 [Radxa Power PD30W](/accessories/pd_30w))
+- 1x 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w))
 
 #### 安装系统
 
 ##### 进入MaskRom Mode
 
-按住 [Maskrom 按键](/zero/zero3/hardware-design/hardware-interface)，用 USB 线连接计算机的 USB 接口和 Radxa Zero 3W 的 OTG Type C 接口，然后松开Maskrom
+按住 [Maskrom 按键](../../hardware-design/hardware-interface)，用 USB 线连接计算机的 USB 接口和 Radxa Zero 3W 的 OTG Type C 接口，然后松开Maskrom
 ![zero3w](/img/zero/zero3/radxa_zero_3w.webp)
 
 ##### 我的电脑是Windows
@@ -94,15 +94,15 @@ sidebar_position: 2
 
 #### 从 SD 卡启动
 
-- 插入刚烧录过系统的 SD 卡到板子的 SD 卡槽，连接板子的 [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface) 到电源适配器上，
+- 插入刚烧录过系统的 SD 卡到板子的 SD 卡槽，连接板子的 [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface) 到电源适配器上，
   然后系统开始启动，状态灯闪烁。
 
 #### 从板载 EMMC 启动
 
-- 直接连接板子的 [USB 2.0 OTG Type C port](/zero/zero3/hardware-design/hardware-interface) 到电源适配器上，然后系统开始启动，状态灯闪烁。
+- 直接连接板子的 [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface) 到电源适配器上，然后系统开始启动，状态灯闪烁。
 
 :::tip
-Radxa ZERO 3 只支持 `5V` 供电。瑞莎推荐使用 [Radxa Power PD30W](/accessories/pd_30w)。
+Radxa ZERO 3 只支持 `5V` 供电。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w)。
 :::
 
 ## 常见问题

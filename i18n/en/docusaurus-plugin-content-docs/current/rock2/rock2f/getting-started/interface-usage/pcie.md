@@ -16,7 +16,7 @@ Follow the diagram below to connect the PCIE to M.2 adapter board properly, and 
 
   <pre> $ rsetup </pre>
 
-  2. Enable PCIe's Overlay via [Device Tree Configuration](/rock2/rock2f/radxa-os/rsetup).
+  2. Enable PCIe's Overlay via [Device Tree Configuration](../../radxa-os/rsetup).
 
   :::tip
 

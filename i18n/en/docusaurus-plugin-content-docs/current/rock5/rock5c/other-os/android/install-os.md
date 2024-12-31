@@ -34,7 +34,7 @@ Please go to [Resource Download](../../download) to download the corresponding i
 ## Boot the system
 
 - After successfully burning the microSD card as described above, insert the microSD card into the microSD slot of ROCK 5C.
-- The power supply interface of ROCK 5C is [Type C port](/rock5/rock5c/hardware-design/hardware-interface), please connect the power supply port and the adapter with Type-C cable.
+- The power supply interface of ROCK 5C is [Type C port](../../hardware-design/hardware-interface), please connect the power supply port and the adapter with Type-C cable.
 
 ## Reference Documentation
 

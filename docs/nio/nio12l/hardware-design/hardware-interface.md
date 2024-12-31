@@ -27,7 +27,7 @@ DDR 是 LPDDR4X。
 NIO 12L 的供电口是 Type-C DC 口，仅支持 5V 输入。建议最低使用 5V/3A 电源适配器。大部分的手机充电器都可以满足。
 
 :::tip
-瑞莎推荐使用 [Radxa Power PD30W](/accessories/pd_30w)。
+瑞莎推荐使用 [Radxa Power PD30W](../../../accessories/pd_30w)。
 :::
 
 ### 按键

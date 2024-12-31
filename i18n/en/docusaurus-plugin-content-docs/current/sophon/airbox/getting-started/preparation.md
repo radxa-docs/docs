@@ -34,7 +34,7 @@ Use the USB Type-A to Type-C cable to connect the Debug port of the whole machin
 
 #### Serial port usage under WIndows
 
-Serial port driver is required under WIndows:[Installation of Serial Driver](/sophon/airbox/getting-started/serial-driver-install)
+Serial port driver is required under WIndows:[Installation of Serial Driver](./serial-driver-install)
 
 After you have installed it, illustrated with the Putty tool:
 

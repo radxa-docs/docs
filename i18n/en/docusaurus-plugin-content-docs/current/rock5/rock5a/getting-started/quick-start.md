@@ -20,7 +20,7 @@ To start the ROCK 5A, you will also need the following equipment:
 - A network cable, which is required to update the system.
 
 :::tip
-The power adapter is recommended to use the official [Radxa PD30W Adapter](/accessories/pd_30w).
+The power adapter is recommended to use the official [Radxa PD30W Adapter](../../../accessories/pd_30w).
 :::
 
 Peripherals that are not required but enhance the basic functions of the ROCK 5A:

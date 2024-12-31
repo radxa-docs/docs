@@ -51,7 +51,7 @@ Radxa CM5 IO 支持摄像头功能
 
 Radxa CM5 IO 支持 MIPI DSI 显示功能。
 :::tip
-瑞莎建议使用 [Radxa Display 8 HD](/accessories/lcd-8-hd) 或 [Radxa Display 10 FHD](/accessories/lcd-10-fhd)。
+瑞莎建议使用 [Radxa Display 8 HD](/accessories/lcd-8-hd) 或 [Radxa Display 10 FHD](../../../accessories/lcd-10-fhd)。
 :::
 
 ## MicroSD

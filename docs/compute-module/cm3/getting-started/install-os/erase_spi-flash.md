@@ -33,4 +33,4 @@ description: "清空 SPI Flash"
 
 ## 在 PC 上操作
 
-参考 [清除 eMMC 或者 SPI Flash](/compute-module/cm3/low-level-dev/maskrom/erase)
+参考 [清除 eMMC 或者 SPI Flash](../../low-level-dev/maskrom/erase)

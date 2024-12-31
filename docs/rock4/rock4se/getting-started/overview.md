@@ -26,7 +26,7 @@ ROCK 4 SE 为专业人士、工业 OEM、物联网发烧友、业余爱好者、
 | 无线连接 |                                                                           Wi-Fi 5，蓝牙 5.0，带板载或外置天线                                                                            |
 |   USB    |                                      USB 3.0 OTG X1，位于上方的 USB 3.0 插口，可通过硬件开关配置为 Host 或 Peripheral<br/>USB 3.0 X1<br/>USB 2.0 X2                                      |
 |  以太网  |                                                                千兆以太网<br/>可通过额外选购的 HAT 支持以太网供电（PoE）                                                                 |
-|    IO    |                                                                        [40 pin GPIO](/rock4/hardware/rock4-gpio)                                                                         |
+|    IO    |                                                                         [40 pin GPIO](../../hardware/rock4-gpio)                                                                         |
 |   其他   |                                                                       RTC<br/>用于备份时间的 RTC 电池连接器 (选装)                                                                       |
 |   电源   |                                     USB PD协议：支持 USB Type-C PD 2.0, 9V/2A, 12V/2A<br/>Qualcomm® QC 快充：支持 3.0/2.0 adapter, 9V/2A, 12V/1.5A                                      |
 |   尺寸   |                                                                                       85mm x 54mm                                                                                        |

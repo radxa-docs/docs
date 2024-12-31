@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Hardware interface description
+# Hardware Interface
 
 :::warning
 Don't put CM5 on Radxa CM3 IO board, otherwise the board will be demanged, more info please refer [faq](../faq)
@@ -51,7 +51,7 @@ Radxa CM5 IO Support for Camera Functions
 
 The Radxa CM5 IO supports the MIPI DSI display function.
 :::tip
-Radxa recommends using [Radxa Display 8 HD](/accessories/lcd-8-hd) or [Radxa Display 10 FHD](/accessories/lcd-10-fhd).
+Radxa recommends using [Radxa Display 8 HD](/accessories/lcd-8-hd) or [Radxa Display 10 FHD](../../../accessories/lcd-10-fhd).
 :::
 
 ## MicroSD

@@ -18,6 +18,6 @@ ROCK 3B supports multiple power supply options, smart power adapters, and fixed 
 
 :::tip
 
-Recommended official 30W adapter [Radxa PD 30W Adapter](/accessories/pd_30w)
+Recommended official 30W adapter [Radxa PD 30W Adapter](../../../accessories/pd_30w)
 
 :::

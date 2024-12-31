@@ -30,7 +30,7 @@ Please go to [Resource Download](../../download) to download the corresponding i
 #### Boot the system
 
 - After successfully burning the microSD card as described above, insert the microSD card into the microSD slot of ROCK 5A.
-- The power supply interface of ROCK 5A is [Type C port](/rock5/rock5a/hardware-design/hardware-interface), please connect the power supply port and the adapter with Type-C cable.
+- The power supply interface of ROCK 5A is [Type C port](../../hardware-design/hardware-interface), please connect the power supply port and the adapter with Type-C cable.
 
 </TabItem>
 
@@ -85,7 +85,7 @@ Enter maskrom mode
 
 #### Windows systems write with rkdevtool
 
-[rkdevtool](/rock5/rock5b/low-level-dev/maskrom/windows)
+[rkdevtool](../../../rock5b/low-level-dev/maskrom/windows)
 
 </TabItem>
 

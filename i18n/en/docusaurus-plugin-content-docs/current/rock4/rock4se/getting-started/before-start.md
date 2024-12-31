@@ -20,7 +20,7 @@ USB PD, support USB Type-C PD 2.0, 9V/2A, 12V/2A.
 Qualcomm® Quick ChargeTM: Supports QC 3.0/2.0 adapter, 9V/2A, 12V/1.5A
 
 :::tip
-The official recommendation is to use [Radxa Power PD30W](/accessories/pd_30w).
+The official recommendation is to use [Radxa Power PD30W](../../../accessories/pd_30w).
 :::
 
 - USB Keyboard and Mouse
@@ -40,13 +40,13 @@ For flashing the image to the microSD Card.
 - eMMC module, larger than 8GB
 
 :::tip
-You can learn about the information through [eMMC module](/accessories/emmc_module)
+You can learn about the information through [eMMC module](../../../accessories/emmc_module)
 :::
 
 - eMMC reader
 
 :::tip
-The official recommendation is to use [Radxa eMMC reader](/accessories/emmc_reader).
+The official recommendation is to use [Radxa eMMC reader](../../../accessories/emmc_reader).
 :::
 
 - Ethernet cable
@@ -67,7 +67,7 @@ This is needed for [serial console](../low-level-dev/serial).
 ROCK 4SE supports camera function.
 
 :::tip
-The official recommendation is to use [Radxa Camera 4K](/accessories/camera_4k).
+The official recommendation is to use [Radxa Camera 4K](../../../accessories/camera_4k).
 :::
 
 - LCD Module
@@ -75,7 +75,7 @@ The official recommendation is to use [Radxa Camera 4K](/accessories/camera_4k).
 ROCK 4SE supports LCD display function.
 
 :::tip
-The official recommendation is to use [Radxa Display 8 HD](/accessories/lcd-8-hd) or [Radxa Display 10 FHD](/accessories/lcd-10-fhd).
+The official recommendation is to use [Radxa Display 8 HD](/accessories/lcd-8-hd) or [Radxa Display 10 FHD](../../../accessories/lcd-10-fhd).
 :::
 
 - Audio device
@@ -84,6 +84,6 @@ Audio can be played through speaker or headphones using a standard 3.5mm jack.
 
 ## OS Installation
 
-First, please download the official images of ROCK 4SE on the [ROCK 4 Official Images Download](/rock4/official-images).  
+First, please download the official images of ROCK 4SE on the [ROCK 4 Official Images Download](../../official-images).  
 Then, you can install the OS by referring the [OS Installation Guide](install-os).  
 Finally, insert the system storage media, microSD Card or eMMC Module into the socket on the board and power on ROCK 4SE by adapter with Type-C port.

@@ -33,4 +33,4 @@ There are two ways to clear the data in SPI Flash.
 
 ## On PC
 
-Please refer to [Erase eMMC or SPI Flash](/compute-module/cm3/low-level-dev/maskrom/erase)
+Please refer to [Erase eMMC or SPI Flash](../../low-level-dev/maskrom/erase)

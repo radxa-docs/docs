@@ -14,12 +14,12 @@ sidebar_position: 2
 
 - 以下存储介质之一：  
   microSD 卡，容量不小于 8GB  
-  [eMMC 模块](/accessories/emmc_module)，容量不小于 8GB
+  [eMMC 模块](../../../accessories/emmc_module)，容量不小于 8GB
 
 - 电源：  
   ROCK 3C 采用 Type-C 接口供电，仅支持 5V 输入。不使用固态硬盘时，建议最低使用 5V/3A 电源适配器；使用固态硬盘时，建议使用 5V/5A 电源适配器。
   :::tip
-  瑞莎推荐使用 [Radxa Power PD30W](/accessories/pd_30w)。
+  瑞莎推荐使用 [Radxa Power PD30W](../../../accessories/pd_30w)。
   :::
 
 - USB 键鼠  
@@ -50,7 +50,7 @@ sidebar_position: 2
 - LCD 屏  
   ROCK 3C 支持 2-lane MIPI DSI 显示功能。
   :::tip
-  瑞莎建议使用 [Radxa Display 8 HD](/accessories/lcd-8-hd) 或 [Radxa Display 10 FHD](/accessories/lcd-10-fhd)。
+  瑞莎建议使用 [Radxa Display 8 HD](/accessories/lcd-8-hd) 或 [Radxa Display 10 FHD](../../../accessories/lcd-10-fhd)。
   :::
 
 - 音频线  
@@ -58,7 +58,7 @@ sidebar_position: 2
 
 ## 系统安装
 
-首先，选择您要使用的[官方镜像](/rock3/images)并下载。
+首先，选择您要使用的[官方镜像](../../images)并下载。
 
 然后，参考[操作系统安装指南](install-os)将镜像刷写到存储介质中。
 

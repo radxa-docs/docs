@@ -20,7 +20,7 @@ You will also need the following additional equipment to get the NIO 12L up and 
   The NIO 12L is powered by a Type-C connector and only supports **5V input**. It is recommended to use a minimum 5V/3A power adapter, most cell phone chargers will work.
 
   :::tip
-  Radxa recommends using [Radxa Power PD30W](/accessories/pd_30w).
+  Radxa recommends using [Radxa Power PD30W](../../accessories/pd_30w).
   :::
 
 - USB Mouse and Keyboard

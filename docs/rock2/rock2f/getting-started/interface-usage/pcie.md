@@ -17,7 +17,7 @@ description: ""
 
   <pre> $ rsetup </pre>
 
-  2. 通过 [设备树配置](/rock2/rock2f/radxa-os/rsetup)。来启用 Enable PCIe 的 Overlay。
+  2. 通过 [设备树配置](../../radxa-os/rsetup)。来启用 Enable PCIe 的 Overlay。
 
   :::tip
 

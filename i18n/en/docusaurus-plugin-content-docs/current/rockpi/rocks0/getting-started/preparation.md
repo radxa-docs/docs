@@ -68,7 +68,7 @@ The ROCK S0 has an on-board Wi-Fi module. The network can be accessed via Wi-Fi 
 
 ### Serial Debugging
 
-Please refer to [Serial Debugging Documentation](/rockpi/rocks0/low-level-dev/serial).
+Please refer to [Serial Debugging Documentation](../low-level-dev/serial).
 
 ## Antenna Switch
 

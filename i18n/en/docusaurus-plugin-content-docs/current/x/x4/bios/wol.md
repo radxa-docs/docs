@@ -57,4 +57,4 @@ Using [Wake On LAN](https://apps.microsoft.com/detail/9WZDNCRDFSHB?activetab=piv
 - Open the Wake On LAN software, input any Device Name for identification (for convenience), enter the previously recorded MAC address of Radxa X4's network card, and click "Wake."
 - At this point, Radxa X4 will be awakened from a powered-off state.
 
-![WOL Setting 04](/img/x/x2l/wol-setting-04.webp)
+![WOL Setting 04](/img/x/x4/wol-setting-04.webp)

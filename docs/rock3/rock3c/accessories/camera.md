@@ -27,7 +27,7 @@ Radxa ROCK 3C 拥有一个 15 PIN 的 CSI 接口,接口定义如下:
 
 <img src="../../../img/rock3/3c/rock3c-camera-connect.webp" width = "400" alt="rock 3c camera connect"/>
 
-### 2. [rsetup 开启摄像头 overlay](/rock3/rock3c/os-config/rsetup)
+### 2. [rsetup 开启摄像头 overlay](../os-config/rsetup)
 
 ### 3. 图像预览
 

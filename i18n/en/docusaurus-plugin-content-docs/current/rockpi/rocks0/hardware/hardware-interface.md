@@ -15,7 +15,7 @@ The power supply interface of Radxa ROCK S0 is [4 Pin USB 2.0 OTG port](/img/roc
 
 ## Debug Serial Port
 
-[Debug Serial Port](/rockpi/rocks0/low-level-dev/serial) for debugging commands
+[Debug Serial Port](../low-level-dev/serial) for debugging commands
 
 ## OTG Interface
 

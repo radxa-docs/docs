@@ -29,7 +29,7 @@ sudo apt install docker.io -y #install docker
 sudo usermod -aG docker $USER
 sudo chmod a+rw /var/run/docker.sock
 
-git clone https://github.com/remote-android/redroid-doc.git 
+git clone https://github.com/remote-android/redroid-doc.git
 cd redroid-doc/android-builder-docker/
 docker build --build-arg userid=$(id -u) --build-arg groupid=$(id -g) \
         --build-arg username=$(id -un) -t redroid-builder . #Build Docker image for compilation
@@ -53,7 +53,7 @@ m
 cd out/target/product/redroid_arm64
 sudo mount system.img system -o ro
 sudo mount vendor.img vendor -o ro
-sudo tar --xattrs -avcf redroid.tar.xz vendor -C system --exclude="./vendor" . 
+sudo tar --xattrs -avcf redroid.tar.xz vendor -C system --exclude="./vendor" .
 sudo umount system vendor
 ```
 
@@ -73,11 +73,14 @@ docker run -d -p 5555:5555 -v ~/redroid-build:/data --name redroid-build -v /dev
 ## Frequently Asked Questions
 
 1. After the container is started, an error message will be printed in a loop with 'init: critical process' lmkd 'exited 4 times before boot completion'
+
 - Solution: Add psi=1 to the Linux startup parameters
 
 2. Redroid cannot start after configuring GPU acceleration
+
 - Solution: Check if the GPU Mali driver is enabled on Linux. If it is not enabled, the GPU cannot be used normally
 
 ## Reference Documents
+
 - [redroid-doc](https://github.com/remote-android/redroid-doc)
 - [github](https://github.com/redroid-rockchip)

@@ -34,7 +34,7 @@ Airbox 采用 USB Type-C 接口供电，支持 PD 电压协商，协商电压 20
 
 #### Windows 下串口使用
 
-Windows 下需要安装串口驱动，请参考：[安装串口驱动](/sophon/airbox/getting-started/serial-driver-install)
+Windows 下需要安装串口驱动，请参考：[安装串口驱动](./serial-driver-install)
 
 在安装好后，以 Putty 工具说明：
 

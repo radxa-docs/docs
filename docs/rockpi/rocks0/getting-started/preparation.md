@@ -68,7 +68,7 @@ ROCK S0 板载 Wi-Fi 模块。可通过 Wi-Fi 和 4-Pin 100Mbps 以太网接口�
 
 ### 串口调试
 
-请参考[串口调试文档](/rockpi/rocks0/low-level-dev/serial)。
+请参考[串口调试文档](../low-level-dev/serial)。
 
 ## 天线切换
 

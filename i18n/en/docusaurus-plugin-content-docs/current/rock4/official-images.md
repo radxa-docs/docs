@@ -65,4 +65,4 @@ Official ROCK 4 OS images can also be downloaded from:
 
 ## Third party images
 
-Please check [third party images](/rock4/alternative-os/third-party-images).
+Please check [third party images](./alternative-os/third-party-images).

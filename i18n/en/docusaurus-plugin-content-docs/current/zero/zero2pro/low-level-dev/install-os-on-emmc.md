@@ -7,7 +7,7 @@ sidebar_position: 5
 ## Preparation
 
 - 1x USB cable (USB C on one end, USB A on the other)
-- 1x 5V power adapter, recommended to use a power adapter with a rated maximum current greater than 2A (recommended [Radxa Power PD30W](/accessories/pd_30w))
+- 1x 5V power adapter, recommended to use a power adapter with a rated maximum current greater than 2A (recommended [Radxa Power PD30W](../../../accessories/pd_30w))
 
 ## Image download
 
