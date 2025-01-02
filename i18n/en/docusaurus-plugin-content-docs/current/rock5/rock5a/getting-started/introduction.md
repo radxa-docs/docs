@@ -99,7 +99,7 @@ ROCK 5A provides complete hardware design schematics and software source code, a
   </tr>
   <tr>
     <th>40-PIN Header</th>
-    <th>1 x ADC<br/>1 x CAN<br/>27 x GPIO<br/>6 x I2C<br/>1 x PCM/I2S<br/>7 x PWM<br/> 2 x SPDIF<br/>3 x SPI<br/>5 x UART (2 x with flow control)<br/></th>
+    <th>1 x ADC<br/>27 x GPIO<br/>6 x I2C<br/>1 x PCM/I2S<br/>7 x PWM<br/> 2 x SPDIF<br/>3 x SPI<br/>5 x UART (2 x with flow control)<br/></th>
   </tr>
   <tr>
     <th>Size</th>
