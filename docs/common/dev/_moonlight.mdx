@@ -1,0 +1,57 @@
+[Moonlight PC](https://moonlight-stream.org) 是一个用于 NVIDIA GameStream 和
+[Sunshine](https://github.com/LizardByte/Sunshine) 的开源 PC 客户端，以下简称 “Moonlight”。
+
+:::info
+由于 GPU 驱动限制，Moonlight 只有在使用 Radxa OS Bookworm 操作系统的 RK3588
+系列的产品具有良好的体验。其他产品可以自行测试，但是可能效果不佳。
+:::
+
+## 编译安装 rockchip-ffmpeg
+
+参考 [RTSP 推流](rtsp?target=ffmpeg)，无需参考全部文档，
+参考至[编译并安装 ffmpeg-rockchip](rtsp?target=ffmpeg#编译并安装-ffmpeg-rockchip)
+即可安装 rockchip-ffmpeg。
+
+## 安装 Moonlight 编译依赖
+
+```bash
+sudo apt-get update
+sudo apt-get install libegl1-mesa-dev libgl1-mesa-dev libopus-dev libsdl2-dev libsdl2-ttf-dev libssl-dev \
+libavcodec-dev libavformat-dev libswscale-dev libva-dev libvdpau-dev libxkbcommon-dev wayland-protocols \
+libdrm-dev qt6-base-dev qt6-declarative-dev libqt6svg6-dev qml6-module-qtquick-controls qml6-module-qtquick-templates \
+qml6-module-qtquick-layouts qml6-module-qtqml-workerscript qml6-module-qtquick-window qml6-module-qtquick
+```
+
+## 获取 Moonlight 源码
+
+```bash
+git clone https://github.com/moonlight-stream/moonlight-qt.git
+cd moonlight-qt
+git submodule update --init --recursive
+```
+
+## 添加 rockchip-ffmpeg 路径及依赖参数
+
+```bash
+echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> app/app.pro
+echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> moonlight-qt.pro
+```
+
+## 编译 Moonlight
+
+```bash
+qmake6 moonlight-qt.pro
+make release -j$(nproc)
+```
+
+## 运行 Moonlight
+
+```bash
+app/moonlight
+```
+
+## 参考文档及链接
+
+- [ffmpeg-rockchip](https://github.com/nyanmisaka/ffmpeg-rockchip/wiki)
+- [Moonlight PC](https://github.com/moonlight-stream/moonlight-qt)
+- [原始用户问题及编译方法](https://github.com/radxa-build/rock-5b/issues/26#issuecomment-2539197643)

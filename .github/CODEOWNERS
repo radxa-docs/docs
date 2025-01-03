@@ -349,3 +349,7 @@ i18n/en/docusaurus-plugin-content-docs/current/docs/common/radxa-os/_mali-gpu.md
 docs/compute-module/_install_uninstall_coreboard_guide.mdx @peterwang2050
 docs/accessories/wireless-a8.md @melooooooooooo
 i18n/en/docusaurus-plugin-content-docs/current/accessories/wireless-a8.md @melooooooooooo
+docs/common/dev/_moonlight.mdx @CodeChenL
+docs/rock5/rock5c/app-development/moonlight.md @CodeChenL
+i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5b/app-development/moonlight.md @CodeChenL
+docs/rock5/rock5itx/app-development/moonlight.md @CodeChenL
