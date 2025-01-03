@@ -1,0 +1,139 @@
+### Verify that the U-boot is rknext
+
+Since we have only integrated this feature in rknext, you need to check if the U-boot on your board is from October 2024 onwards.
+
+U-boot version can be viewed in the boot log
+
+For example:
+
+```bash
+U-Boot SPL latest-2023.07.02-6-4257d241-g4257d241 (Oct 12 2023 - 07:58:46 +0000)
+```
+
+<Tabs queryString="version">
+<TabItem value="U-boot is before October 2024.">
+</TabItem>
+<TabItem value="U-boot is after October 2024.">
+- Refer to <a href={props.uboot_develop}> U-boot development</a> to compile rknext's U-boot.
+
+```
+./bsp u-boot rknext -r 99
+```
+
+- Copy the U-boot of {props.product} to the board
+
+<pre style={{ margin: 0 }}>
+  scp -r .root/.root/usr/lib/u-boot/{props.product_dir}/ radxa@192.168.xx.xx:~/
+</pre>
+
+- Execute the following command on {props.product} to replace the latest U-boot
+
+<pre style={{ margin: 0 }}>
+  cd {props.product_dir}
+  sudo bash setup.sh update_bootloader /dev/mmcblk0
+</pre>
+
+sh setup.sh update_bootloader /dev/mmcblk0{" "}
+
+:::tip
+
+/dev/mmcblk0 is eMMC, or /dev/mmcblk1 if the system is installed on an SD card.
+If the system is installed on a device such as nvme, then you need to update the U-boot on the SPI Flash
+
+:::
+
+- Reboot the system and make sure the U-boot is updated to the latest rknext.
+
+</TabItem>
+</Tabs>
+
+### Prepare one or two images
+
+:::tip
+
+Image width \* height must not exceed 200000
+
+:::
+
+### Convert the image to .bmp format
+
+1. Install the required libraries
+
+```bash
+pip install Pillow
+```
+
+2. Create a new convert.py file and save the following to convert.py
+
+<details>
+
+    <summary>convert.py</summary>
+
+```py
+
+from PIL import Image
+import os
+import sys
+
+class ImageConverter:
+    def __init__(self, input_path, output_path):
+        self.input_path = input_path
+        self.output_path = output_path
+        self.target_size = 0.5 * 1024 * 1024  # 0.5 MB in bytes (512 KB)
+
+    def convert_to_bmp(self):
+        with Image.open(self.input_path) as img:
+            # Convert to RGB since BMP doesn't support transparency
+            img = img.convert("RGB")
+
+            # Resize the image if the file size exceeds 0.5 MB
+            img = self.resize_to_fit(img)
+
+            # Save as BMP
+            img.save(self.output_path, format='BMP')
+
+    def resize_to_fit(self, img):
+        # Gradually reduce the size of the image until it fits within the target size
+        while True:
+            img.save(self.output_path, format='BMP')
+            if os.path.getsize(self.output_path) <= self.target_size:
+                break
+            # Reduce the size by 10%
+            width, height = img.size
+            img = img.resize((int(width * 0.9), int(height * 0.9)), Image.ANTIALIAS)
+        return img
+
+def main(input_file, output_file):
+    converter = ImageConverter(input_file, output_file)
+    converter.convert_to_bmp()
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: python3 convert_logo.py <input.jpg> <output.bmp>")
+    else:
+        main(sys.argv[1], sys.argv[2])
+
+```
+
+</details>
+
+3. Converting images to .bmp format
+
+```bash
+python3 convert.py pic1.jpg logo.bmp
+python3 convert.py pic1.jpg logo_kernel.bmp
+```
+
+### Save the above two bmp images to the config partition
+
+```bash
+sudo mount /dev/mmcblk0p1 /mnt/
+sudo cp logo.bmp /mnt/
+sudo cp logo_kernel.bmp /mnt/
+sudo sync /mnt
+sudo umount /mnt
+```
+
+### Reboot System
+
+After connecting the HDMI, the system will reboot and the HDMI will display the logo you just set until the desktop appears.
