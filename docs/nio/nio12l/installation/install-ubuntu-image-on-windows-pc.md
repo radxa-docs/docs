@@ -120,10 +120,6 @@ fastboot: OK
 
 请到 [**资源下载**](../download) 镜像下载部分下载 Ubuntu 镜像, 然后解压。
 
-### 格式化 UFS
-
-烧录系统到 UFS 之前，需要先[格式化 UFS](./format-ufs)。
-
 ### 开始烧录 Ubuntu 系统
 
 #### 执行 genio-flash
@@ -160,7 +156,7 @@ fastboot: OK
 - 释放 **Download Button**
 
 ![NIO 12L Download](/img/nio/nio12l/n12l_download.webp)
-成功进入烧录模式后，会自动开始下载。
+成功进入烧录模式后，NIO 12L 的绿灯会闪烁，然后会自动开始烧录镜像。
 
 :::tip
 必须先执行步骤“执行genio-flash”，再执行步骤“进入烧录模式”。

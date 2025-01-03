@@ -114,10 +114,6 @@ For more information, please refer to the [official MediaTek documentation](http
 
 Please go to the [**Resource Download**](../download) image download section to download the Yocto image and extract it.
 
-### Formatting the UFS
-
-Before Installing the system to UFS, you need to [format UFS](./format-ufs).
-
 ### Starting to install a Yocto system
 
 #### Run genio-flash
@@ -155,7 +151,7 @@ Steps:
 - Release the **Download Button** and press the **Download Button** to enter Download Mode on the NIO 12L.
 
 ![NIO 12L Download](/img/nio/nio12l/n12l_download.webp)
-After successfully entering the Download Mode, the download process will begin.
+After successfully entering the Download Mode, the green LED will flash and the download process will begin.
 
 :::tip
 You have to execute the step "Run genio-flash" first, and then execute the step "Enter Download Mode".

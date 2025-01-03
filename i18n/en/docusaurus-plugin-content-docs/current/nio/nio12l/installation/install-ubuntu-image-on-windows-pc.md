@@ -120,10 +120,6 @@ For more information, please refer to [MTK official documentation](https://media
 
 Go to the [**Resource Download**](../download) image download section to download the Ubuntu image, then extract it.
 
-### Format the UFS
-
-Before installing the system to UFS, you need to [format UFS](./format-ufs).
-
 ### Starting to Install an Ubuntu system
 
 #### Run genio-flash
@@ -160,7 +156,7 @@ Steps:
 - Release the **Download Button** and press the **Download Button** to enter Download mode.
 
 ![NIO 12L Download](/img/nio/nio12l/n12l_download.webp)
-After successfully entering the Download mode, the download process will begin.
+After successfully entering the Download Mode, the green LED will flash and the download process will begin.
 
 :::tip
 You have to execute the step "Run genio-flash" first, and then execute the step "Enter the download mode".

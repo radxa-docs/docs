@@ -104,10 +104,6 @@ For more information, please refer to [MediaTek Official Documentation](https://
 
 Go to the [**Resource Download**](../download) to download the Ubuntu image and extract it.
 
-### Format the UFS
-
-Before installing the system on UFS, you need to [Format UFS](./format-ufs).
-
 ### Begin to install an Ubuntu system
 
 #### Run genio-flash
@@ -168,7 +164,7 @@ Steps:
 - Release the **Download Button**
 
 ![NIO 12L Download](/img/nio/nio12l/n12l_download.webp)
-After successfully entering the Download Mode, the download process will begin.
+After successfully entering the Download Mode, the green LED will flash and the download process will begin.
 
 :::tip
 You must first execute the step "Run genio-flash" and then do the step "Enter Download Mode".
