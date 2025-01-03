@@ -13,14 +13,18 @@ Switch to `Advanced` as shown in the figure, click the box to select the user wh
     </TabItem>
     <TabItem value="Debian 12">
 
-As shown , use `Ctrl + Alt + T` to open the terminal, then edit the file with: `sudo vim /etc/gdm3/daemon.conf`
+As shown , use `Ctrl + Alt + T` to open the terminal, then enter `rsetup ` and select `User Settings` to configure.
 
 ![ROCK5T_Auto_Login](/img/rock5t/rock5t-autologin-1.webp)
 
-Press `i` to enter edit mode, modify the content as shown below, then press `Esc` and type `:wq` to save and exit. This completes the auto-login setup. Now, when you restart the computer, you won't need to enter a login password.
+Select `Configure auto login`,
 
 ![ROCK5T_Auto_Login](/img/rock5t/rock5t-autologin-2.webp)
 
-    </TabItem>
+Select `gdm.service` by the space, and then select `OK` to complete the automatic login setup. Now restarting the computer will no longer require you to enter a login password.
+
+![ROCK5T_Auto_Login](/img/rock5t/rock5t-autologin-3.webp)
+
+</TabItem>
 
 </Tabs>

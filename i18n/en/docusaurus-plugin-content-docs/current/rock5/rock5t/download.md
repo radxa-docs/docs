@@ -10,15 +10,17 @@ import Images from "./\_image.mdx"
 
 ### Official Image
 
-<Images loader={false} rock5t_system_img_61={true}  spi_img={false} android12_update={true} android12_gpt={true}  />
+<Images loader={true} rock5t_system_img_61={true}  spi_img={false} android12_update={true} android12_gpt={true}  />
+
+### Tool
+
+&emsp;&emsp; [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (Windows flash tool)
+
+&emsp;&emsp; [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)（USB driver）
 
 ## Hardware Design
 
-### X1.0(Developer version)
-
-<!-- [x1.0 Schematic pdf](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5b_v13_sch.pdf)
-[x1.0 2D Top&Bottom dxf](https://dl.radxa.com/rock5/5t/docs/hw/ROCK5B_V13_2D_20220519)
-[x1.0 SMD pdf](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5b_v13_smd.pdf) -->
+### V1.2
 
 ## Quality certification
 

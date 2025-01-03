@@ -12,7 +12,7 @@ import Images from "../../\_image.mdx"
 
 <Images loader={true} rock5t_system_img_61={true} spi_img={false} />
 
-<Rkdeveloptool model="rock-5t" release_num="t1" desktop="kde" platform="linux" loader="rk3588_spl_loader_v1.08.111.bin">
+<Rkdeveloptool model="rock-5t" release_num="b2" desktop="kde" platform="macos" loader="rk3588_spl_loader_v1.08.111.bin">
 
 <TabItem value="ROCK 5T">
         <ol>

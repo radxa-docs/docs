@@ -7,7 +7,7 @@ description: "A brief introduction to the ROCK 5T"
 
 ## Key Features
 
-ROCK 5T is an elegant single-board computer (SBC) based on the RK3588 chipset. Its 110 x 90 mm size encompasses almost all features of the RK3588, offering exceptional flexibility and scalability. ROCK 5T provides a solid foundation for geeks, SBC enthusiasts, IoT hobbyists, and students and teachers in academia to bring their ideas to life. It has broad applications in edge computing, artificial intelligence, cloud computing, smart surveillance, and other fields.
+ROCK 5T is an elegant single-board computer (SBC) based on the RK3588 chipset. Its 110 x 82 mm size encompasses almost all features of the RK3588, offering exceptional flexibility and scalability. ROCK 5T provides a solid foundation for geeks, SBC enthusiasts, IoT hobbyists, and students and teachers in academia to bring their ideas to life. It has broad applications in edge computing, artificial intelligence, cloud computing, smart surveillance, and other fields.
 
 ROCK 5T can be used as:
 
@@ -45,8 +45,8 @@ ROCK 5T provides complete hardware design schematics and software source code, a
 
 ## Motherboard Preview
 
-<TabItem value="ROCK 5T X1.0">
-<img src="/img/rock5t/rock-5t-overview-x1-0.webp" width="800" alt="rock 5t x1.0" />
+<TabItem value="ROCK 5T V1.2">
+<img src="/img/rock5t/rock-5t-overview-v12.webp" width="800" alt="rock 5t v1.2" />
 </TabItem>
 
 ## Parameter Configuration
@@ -118,10 +118,10 @@ ROCK 5T provides complete hardware design schematics and software source code, a
     </tr>
     <tr>
         <td align="center">Power Supply</td>
-        <td colspan="2" align="center">Supports USB Type-C PD 2.0 with 9V/2A, 12V/2A, 15V/2A, and 20V/2A<br/>Power adapter with fixed voltage of 5V to 20V on USB Type-C port<br/>Provides 5V power to GPIO PINs 2 and 4</td>
+        <td colspan="2" align="center">Supports DC 12V power adapter<br/>Provides 5V power to GPIO PINs 2 and 4</td>
     </tr>
     <tr>
         <td align="center">Size</td>
-        <td colspan="2" align="center">110mm x 90 mm</td>
+        <td colspan="2" align="center">110mm x 82 mm</td>
     </tr>
 </table>
