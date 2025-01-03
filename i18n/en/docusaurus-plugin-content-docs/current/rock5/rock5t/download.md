@@ -14,11 +14,7 @@ import Images from "./\_image.mdx"
 
 ## Hardware Design
 
-### X1.0(Developer version)
-
-<!-- [x1.0 Schematic pdf](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5b_v13_sch.pdf)
-[x1.0 2D Top&Bottom dxf](https://dl.radxa.com/rock5/5t/docs/hw/ROCK5B_V13_2D_20220519)
-[x1.0 SMD pdf](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5b_v13_smd.pdf) -->
+### V1.2
 
 ## Quality certification
 

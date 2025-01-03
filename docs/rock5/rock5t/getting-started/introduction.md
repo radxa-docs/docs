@@ -45,8 +45,8 @@ ROCK 5T 提供了完整的硬件设计原理图和软件源代码，这一特性
 
 ## 主板预览
 
-<TabItem value="ROCK 5T X1.0">
-<img src="/img/rock5t/rock-5t-overview-x1-0.webp" width="800" alt="rock 5t x1.0" />
+<TabItem value="ROCK 5T V1.2">
+<img src="/img/rock5t/rock-5t-overview-v12.webp" width="800" alt="rock 5t v1.2" />
 </TabItem>
 
 ## 参数配置
@@ -118,7 +118,7 @@ ROCK 5T 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">供电</td>
-        <td colspan="2" align="center">支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0<br/>USB Type-C 端口上固定电压为 5V 至 20V 的电源适配器<br/>向 GPIO PIN 2 和 4 提供 5V 电源</td>
+        <td colspan="2" align="center">支持 DC 12V 的电源适配器<br/>支持向 GPIO PIN 2 和 4 提供 5V 电源</td>
     </tr>
     <tr>
         <td align="center">尺寸</td>

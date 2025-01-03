@@ -13,14 +13,18 @@
     </TabItem>
     <TabItem value="Debian 12">
 
-如图，使用` Ctrl + Alt + T` 调出终端, 然后编辑文件`sudo vim /etc/gdm3/daemon.conf`
+如图，使用` Ctrl + Alt + T` 调出终端, 然后输入`rsetup`, 选择 `User Settings` 进行配置。
 
 ![ROCK5T_Auto_Login](/img/rock5t/rock5t-autologin-1.webp)
 
-按 `i` 进入编辑模式，修改成如下内容，然后按 `Esc` 输入 `:wq` 保存并退出，完成自动登录设置。 现在重新启动计算机将不再需要您输入登录密码。
+选择`Configure auto login`，
 
 ![ROCK5T_Auto_Login](/img/rock5t/rock5t-autologin-2.webp)
 
-    </TabItem>
+按空格选中 `gdm.service`, 然后选中`OK`完成自动登录设置。 现在重新启动计算机将不再需要您输入登录密码。
+
+![ROCK5T_Auto_Login](/img/rock5t/rock5t-autologin-3.webp)
+
+</TabItem>
 
 </Tabs>
