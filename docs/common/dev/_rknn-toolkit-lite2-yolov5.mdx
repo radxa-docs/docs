@@ -21,6 +21,10 @@ Radxa 已提供预转换好的 `yolov5s_rk35XX.rknn` 模型，用户可直接参
   conda activate rknn
   ```
 
+- 克隆 rknn_model_zoo 代码仓库
+  ```bash
+  git clone -b v2.3.0 https://github.com/airockchip/rknn_model_zoo.git
+  ```
 - 下载 yolov5s_relu.onnx 模型
 
   ```bash
@@ -35,27 +39,28 @@ Radxa 已提供预转换好的 `yolov5s_rk35XX.rknn` 模型，用户可直接参
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/python
-  python3 convert.py ../model/yolov5s_relu.onnx <TARGET_PLATFORM> <dtype> <output_rknn_path>
+  python3 convert.py <onnx_model> <TARGET_PLATFORM> <dtype> <output_rknn_path>
+  # python3 convert.py ../model/yolov5s_relu.onnx rk3588 i8 ../model/yolov5s_relu_rk3588.rknn
   ```
 
   参数解析：
 
   `<onnx_model>`: 指定 ONNX 模型路径
 
-  `<TARGET_PLATFORM>`: 指定 NPU 平台名称。支持的平台请参考[这里](rknn_install#RKNN-简介)
+  `<TARGET_PLATFORM>`: 指定 NPU 平台名称。可选 `rk3562, rk3566, rk3568, rk3576, rk3588, rk1808, rv1109, rv1126`
 
-  `<dtype>(可选)`: 指定为 `i8` 或 `fp`。`i8` 用于 int8 量化，`fp` 用于 fp16 量化。默认为 `i8`
+  `<dtype>`: 指定为 `i8` 或 `fp`。`i8` 用于 int8 量化，`fp` 用于 fp16 量化。默认为 `i8`
 
-  `<output_rknn_path>(可选)`: 指定 RKNN 模型的保存路径，默认保存在与 ONNX 模型相同的目录中，文件名为 `yolov5.rknn`
+  `<output_rknn_path>`: 指定 RKNN 模型的保存路径，默认保存在与 ONNX 模型相同的目录
 
-- 将 yolov5.rknn 模型拷贝到板端
+- 将 rknn 模型拷贝到板端
 
 ### 板端推理 YOLOv5
 
 :::tip
-RK3566/3568 芯片用户使用 NPU 前需要在 rsetup overlays 中开启, 具体请参考 [rsetup](../radxa-os/rsetup)
+RK356X 芯片用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: sudo rsetup -> overlays -> Enable NPU，最后重启系统。
 
-如 `overlays` 选项中无 `Enable NPU` 选项，请通过 rsetup -> system -> system update 升级系统, 然后重启
+如 overlays 选项中无 `Enable NPU` 选项，请通过: sudo rsetup -> system -> System Update 升级系统, 重启后执行上述步骤开启 NPU。
 :::
 
 - （可选）下载 radxa 准备的 yolov5s rknn 模型
@@ -65,25 +70,50 @@ RK3566/3568 芯片用户使用 NPU 前需要在 rsetup overlays 中开启, 具�
   | rk3568 | [yolov5s_rk3568.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3568.rknn) |
   | rk3588 | [yolov5s_rk3588.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3588.rknn) |
 
-- 修改 `rknn_model_zoo/py_utils/rknn_executor.py` 代码
+- 修改 `rknn_model_zoo/py_utils/rknn_executor.py` 代码，**请备份原版代码**
 
   请根据[板端安装 RKNN Model Zoo](./rknn_install#可选-板端安装-rknn-model-zoo) 配置 RKNN Model Zoo 代码仓库
 
   ```python
-  1 # from rknn.api import RKNN
-  2 try:
-  3     from rknn.api import RKNN
-  4 except:
-  5     from rknnlite.api import RKNNLite as RKNN
-  ...
-  ...
-  18 ret = rknn.init_runtime()
+  from rknnlite.api import RKNNLite as RKNN
+
+  class RKNN_model_container():
+      def __init__(self, model_path, target=None, device_id=None) -> None:
+          rknn = RKNN()
+          rknn.load_rknn(model_path)
+          ret = rknn.init_runtime()
+          self.rknn = rknn
+
+      def run(self, inputs):
+          if self.rknn is None:
+              print("ERROR: rknn has been released")
+              return []
+
+          if isinstance(inputs, list) or isinstance(inputs, tuple):
+              pass
+          else:
+              inputs = [inputs]
+
+          result = self.rknn.inference(inputs=inputs)
+
+          return result
+
+      def release(self):
+          self.rknn.release()
+          self.rknn = None
+
   ```
 
-- 修改 `rknn_model_zoo/examples/yolov5/python/yolov5.py` 代码
+- 修改 `rknn_model_zoo/examples/yolov5/python/yolov5.py` 262 行的代码, **请备份原版代码**
   ```python
   262 outputs = model.run([np.expand_dims(input_data, 0)])
   ```
+- 进入虚拟环境
+
+  虚拟环境使用请参考: [Python 虚拟环境使用](./venv_usage)
+
+  安装 rknn_toolkit-lite2 Python API 请参考 [虚拟环境中安装 rknn_toolkit-lite2 Python API](./rknn_install#可选-板端安装-rknn-model-zoo)
+
 - 安装依赖环境
   ```bash
   pip3 install opencv-python-headless
@@ -98,17 +128,15 @@ RK3566/3568 芯片用户使用 NPU 前需要在 rsetup overlays 中开启, 具�
   如你使用的是自己转换的模型需从 PC 端拷贝到板端，并用 --model_path 参数指定模型路径
 
   ```bash
-  rock@radxa-zero3:~/rknn_model_zoo/examples/yolov5/python$ python3 yolov5.py --model_path ./yolov5s_rk3566.rknn --target rk3566 --img_save
+  (.venv) rock@rock-5b-plus:~/rknn_model_zoo/examples/yolov5/python$ python3 yolov5.py --model_path ./yolov5s_relu_rk3588.rknn --img_save
   use anchors from '../model/anchors_yolov5.txt', which is [[[10.0, 13.0], [16.0, 30.0], [33.0, 23.0]], [[30.0, 61.0], [62.0, 45.0], [59.0, 119.0]], [[116.0, 90.0], [156.0, 198.0], [373.0, 326.0]]]
-  --> Init runtime environment
-  I RKNN: [09:28:50.071] RKNN Runtime Information, librknnrt version: 1.6.0 (9a7b5d24c@2023-12-13T17:31:11)
-  I RKNN: [09:28:50.071] RKNN Driver Information, version: 0.8.8
-  I RKNN: [09:28:50.073] RKNN Model Information, version: 6, toolkit version: 2.1.0+708089d1(compiler version: 2.1.0 (967d001cc8@2024-08-07T11:32:45)), target: RKNPU lite, target platform: rk3566, framework name: ONNX, framework layout: NCHW, model inference type: static_shape
-  W RKNN: [09:28:50.073] RKNN Model version: 2.1.0 not match with rknn runtime version: 1.6.0
-  W RKNN: [09:28:50.141] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
+  W rknn-toolkit-lite2 version: 2.3.0
+  I RKNN: [07:00:34.201] RKNN Runtime Information, librknnrt version: 2.3.0 (c949ad889d@2024-11-07T11:35:33)
+  I RKNN: [07:00:34.201] RKNN Driver Information, version: 0.9.6
+  I RKNN: [07:00:34.202] RKNN Model Information, version: 6, toolkit version: 2.3.0(compiler version: 2.3.0 (c949ad889d@2024-11-07T11:39:30)), target: RKNPU v2, target platform: rk3588, framework name: ONNX, framework layout: NCHW, model inference type: static_shape
+  W RKNN: [07:00:34.225] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
   W Query dynamic range failed. Ret code: RKNN_ERR_MODEL_INVALID. (If it is a static shape RKNN model, please ignore the above warning message.)
-  done
-  Model-./yolov5s_rk3566.rknn is rknn model, starting val
+  Model-./yolov5s_relu_rk3588.rknn is rknn model, starting val
   infer 1/1
 
   IMG: bus.jpg
