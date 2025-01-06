@@ -12,9 +12,9 @@ source $HOME/.bashrc
 ### 安装所需要的工具
 
 ```bash
-sudo apt update && sudo apt full-upgrade
+sudo apt-get update && sudo apt-get full-upgrade
 
-sudo apt install -y \
+sudo apt-get install -y \
     python3-flake8-blind-except \
     python3-flake8-class-newline \
     python3-flake8-deprecated \
@@ -27,10 +27,10 @@ sudo apt install -y \
     python3-pytest-rerunfailures \
     python3-pytest-runner \
     python3-pytest-timeout \
-
-pip install vcstool
-
-sudo apt install build-essential
+    python3-rosdep2 \
+    python3-colcon-core \
+    vcstool \
+    build-essential
 ```
 
 ### 容量
@@ -75,6 +75,12 @@ colcon build --symlink-install
 echo -e "source ${path_to_ros2_source}/ros2_humble/install/setup.bash" >> $HOME/.bashrc
 source $HOME/.bashrc
 ```
+
+:::tip
+
+这个 path_to_ros2_source 是 ros2_humble 目录所在的位置
+
+:::
 
 - 示例
 
