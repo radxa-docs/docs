@@ -4,7 +4,7 @@ import { PreView } from "@site/src/utils/docs";
 
 bsp is a set of tools provided by Radxa to quickly build U-Boot Kernels. It is very easy to build your own U-Boot and Kernel using bsp.
 
-Below is an example of how to build a U-Boot with bsp, using the {props.model} as an example.
+The following shows you how to build a kernel with bsp using Radxa ROCK 5B as an example.
 
 ### bsp environment configuration
 
@@ -51,70 +51,61 @@ cd bsp
 
 ### Build U-Boot
 
-<PreView
-  params={{
-    model: props.model,
-    profile: props.profile,
-    product: props.product,
-  }}
->
-  {`
-    After configuring the bsp environment, you need to compile U-Boot once before pulling U-Boot code from the repository.  
-    Running . /bsp will show you all the parameters and their explanations, and you can see the command "bsp [options] <linux|u-boot> <profile> [product]" from the prompt.  
-    Taking #model# as an example, the U-Boot profile is **#profile#**. The following are profiles for other products:
-    |       Model      | profile |
-    | :--------------: | :-----: |
-    |  Radxa ROCK 5A   | rknext  |
-    |  Radxa ROCK 5B   | rknext  |
-    |  Radxa ROCK 5C   | rknext  |
-    | Radxa ROCK 5 ITX | rknext  |
-    |  Radxa ROCK 3A   | latest  |
-    |  Radxa ROCK 3B   | latest  |
-    |  Radxa ROCK 3C   | latest  |
-    |  Radxa CM3 Series| latest  |
-    | Radxa CM3I Series| latest  |
-    | Radxa ROCK PI S  | latest  |
-    Then fill in the profile parameter of the bsp command with the corresponding product profile **#profile#** e.g. ". /bsp u-boot #profile# #product#" to build U-Boot.  
-    The path to the U-Boot source code is located in ".src/u-boot" in the bsp directory. After modifying the U-Boot source code, you can build U-Boot again:
-  `}
-</PreView>
+Running ./bsp will show you all the parameters and their explanations, and you can see the command `bsp [options] <linux|u-boot> <profile> [product]` from the prompt.  
+Taking Radxa ROCK 5B as an example, the U-Boot profile is "rk2410". The following are profiles for other products:
 
-<PreView params={{ profile: props.profile, product: props.product }}>
-  {`
-    cd bsp
-    . /bsp --no-prepare-source u-boot #profile# #product#
-    Parameter description:
-    --no-prepare-source # You don't need to add this parameter for the first time, it is added to compile with local changes, if you don't add this parameter it will synchronize the latest code from the Radxa U-Boot repository and overwrite the local changes.
-  `}
-</PreView>
+|    product     | profile |        product        | profile |       product        | profile |     product     | profile |
+| :------------: | :-----: | :-------------------: | :-----: | :------------------: | :-----: | :-------------: | :-----: |
+|     rock-2     | rk2410  |      radxa-e54c       | rk2410  |      radxa-zero      | latest  |    rock-pi-e    | latest  |
+| radxa-e24c-spi | rk2410  |     radxa-nx5-io      | rk2410  |   radxa-zero-2pro    | latest  |    rock-4se     | latest  |
+|   rock-5-itx   | rk2410  | radxa-cm4-rpi-cm4-io  | rk2410  |     radxa-cm3-io     | latest  | rock-pi-4a-plus | latest  |
+|    rock-5a     | rk2410  |     radxa-cm5-io      | rk2410  | radxa-cm3-rpi-cm4-io | latest  | rock-pi-4b-plus | latest  |
+|    rock-5b     | rk2410  | radxa-cm5-rpi-cm4-io  | rk2410  | radxa-cm3-sodimm-io  | latest  |  rock-4c-plus   | latest  |
+|  rock-5b-plus  | rk2410  | radxa-cm3j-rpi-cm4-io | rk2410  |      radxa-e23       | latest  |   rock-pi-4a    | latest  |
+|    rock-5c     | rk2410  |       radxa-e25       | rknext  |     radxa-zero3      | latest  |   rock-pi-4b    | latest  |
+|    rock-5d     | rk2410  |     radxa-cm3i-io     | rknext  |       rock-3a        | latest  |   rock-pi-4c    | latest  |
+|    rock-5t     | rk2410  |                       |         |       rock-3b        | latest  | rock-4-core-io  | latest  |
+|  rock-5a-spi   | rk2410  |                       |         |       rock-3c        | latest  |                 |         |
+|  rock-5c-spi   | rk2410  |                       |         |     rock-pi-n10      | latest  |                 |         |
+|  rock-5d-spi   | rk2410  |                       |         |       rock-s0        | latest  |                 |         |
+|   radxa-e52c   | rk2410  |                       |         |      rock-pi-s       | latest  |                 |         |
 
-For more information on how to use the bsp parameter, you can run `. /bsp`.
+Then fill in the `profile` parameter of the `bsp` command with the product's corresponding `profile`: `rk2410` to pull and configure the code, for example:
+
+```bash
+./bsp u-boot rk2410 rock-5b --no-build
+# `--no-build` only configure the code without compile
+```
+
+The path to the U-Boot source code is located in `.src/u-boot` in the bsp directory, and the U-Boot can be built again after modifying the kernel source code:
+
+```bash
+cd bsp
+./bsp --no-prepare-source u-boot rk2410 rock-5b -r 999
+# Parameter description:
+# `--no-prepare-source` # This parameter is not needed for first time compilation, it is added to compile with local modifications, if this parameter is not added, the latest code will be synchronized from the Radxa kernel repository and overwrite the local modifications.
+# `-r 999` # Specify the kernel version as 999 for priority use.
+```
 
 After compilation, many `deb` packages will be generated in the current directory, you just need to install the following `deb` packages.
 
-<PreView params={{ profile: props.profile }}>
-  {`
-    u-boot-#profile#_2023.10-1_arm64.deb
-  `}
-</PreView>
+```
+u-boot-rk2410_2017.09-999_arm64.deb
+```
 
-Copy the above two `deb` packages to the board and install them with the `dpkg` command to complete the U-Boot installation.
+Copy the above one `deb` packages to the board and install them with the `dpkg` command to complete the U-Boot installation.
 
-<PreView params={{ profile: props.profile }}>
-  {`
-    sudo dpkg -i u-boot-#profile#_2023.10-1_arm64.deb
-  `}
-</PreView>
+```
+sudo dpkg -i u-boot-rk2410_2017.09-999_arm64.deb
+```
 
 After the installation is complete, you need to flash U-Boot to the boot media
 
-<PreView params={{ profile: props.profile, product: props.product }}>
-  {`
-    cd /usr/lib/u-boot/#product#/
-    sudo . /setup.sh update_bootloader /dev/mmcblk1 #/dev/mmcblk1 is your current boot media, you need to select it according to the actual device you are using.
-    sudo reboot
-  `}
-</PreView>
+```
+cd /usr/lib/u-boot/rock-5b/                     # rock-5b 为你当前使用的型号，需要根据实际使用的设备来选择
+sudo ./setup.sh update_bootloader /dev/mmcblk1  # /dev/mmcblk1 为你当前使用的启动介质，需要根据实际使用的设备来选择
+sudo reboot
+```
 
 After reboot, you can observe the U-Boot boot log to see if U-Boot has been updated successfully.
 
