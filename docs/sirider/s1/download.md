@@ -7,9 +7,17 @@ description: "镜像,刷机工具等资料"
 
 ## 操作系统镜像
 
+Ubuntu
+
 [Radxa SiRider S1 镜像 DDR 8G](https://dl.radxa.com/sirider/s1/images/ubuntu/sirider_s1_ubuntu20_8g_ddr_20241109.zip);
 
 [Radxa SiRider S1 镜像 DDR 16G](https://dl.radxa.com/sirider/s1/images/ubuntu/sirider_s1_ubuntu20_16g_ddr_20241109.zip);
+
+Android
+
+[百度云盘](https://pan.baidu.com/s/1cyoRqG2M9y7j9d6hb5G0DQ) 提取码: dixx
+
+**_Note: 不同DDR容量的硬件版本，lun5_fip 不一样，8G 版本刷 lun5_fip(4+4).bin， 16G 版本刷 lun5_fip(8+8).bin， 刷系统之前请先确认板子的实际 DDR 容量， 否则会导致系统无法启动。_**
 
 ## 刷机工具
 
