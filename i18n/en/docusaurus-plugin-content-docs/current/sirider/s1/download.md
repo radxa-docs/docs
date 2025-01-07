@@ -12,6 +12,12 @@ description: "Image, tools & docs"
 
 [Radxa SiRider S1 Image for DDR 16G](https://dl.radxa.com/sirider/s1/images/ubuntu/sirider_s1_ubuntu20_16g_ddr_20241109.zip);
 
+Android
+
+[BaiduPan](https://pan.baidu.com/s/1cyoRqG2M9y7j9d6hb5G0DQ) code: dixx
+
+**_Note: Different DDR capacity hardware version, lun5_fip is not the same, 8G version choose lun5_fip(4+4).bin, 16G version choose lun5_fip(8+8).bin, please check the actual DDR capacity of the board first, or the system will be unable to start._**
+
 ## Tools
 
 [Driver & Installation Tutorials](https://dl.radxa.com/sirider/s1/siengine_downloadtool_V7.5.zip).
