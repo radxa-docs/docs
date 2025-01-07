@@ -120,10 +120,6 @@ For more information, please refer to [MTK official documentation](https://media
 
 Please go to [**Resource Download**](../download) image download section to download the Yocto image and extract it.
 
-### Format the UFS
-
-Before installing the system to UFS, you need to [format UFS](./format-ufs).
-
 ### Starting to install Yocto system
 
 #### Run genio-flash
@@ -140,7 +136,7 @@ Steps:
 - Release the **Download Button** and press the **Download Button** to enter Download Mode.
 
 ![NIO 12L Download](/img/nio/nio12l/n12l_download.webp)
-After successfully entering the Download Mode, the download process will begin.
+After successfully entering the Download Mode, the green LED will flash and the download process will begin.
 
 :::tip
 You have to execute the step "Run genio-flash" first, and then execute the step "Enter Download Mode".
