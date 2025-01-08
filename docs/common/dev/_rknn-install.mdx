@@ -19,46 +19,42 @@ Rockchip RK3566/RK3568 系列， RK3588 系列， RK3562 系列， RV1103/RV1106
 
 ![framework.png](/img/general-tutorial/rknn/framework.webp)
 
-## 配置 RKNN 环境
+## 安装 RKNN 环境
 
-### PC 端配置 RKNN-Toolkit2 环境
+### PC 端下载 RKNN-Toolkit2 仓库
 
 - 下载 RKNN 仓库
 
   建议新建一个目录用来存放 RKNN 仓库，例如新建一个名称为 Projects 的文件夹，并将
-  RKNN-Toolkit2 和 RKNN Model Zoo 仓库存放至该目录下，参考命令如下
+  RKNN-Toolkit2 和 RKNN Model Zoo 仓库存放至该目录下。
 
   ```bash
   # 新建 Projects 文件夹
-  mkdir Projects
-  cd Projects
-
+  mkdir Projects && cd Projects
   # 下载 RKNN-Toolkit2 仓库
-  git clone https://github.com/airockchip/rknn-toolkit2.git
-
+  git clone -b v2.3.0 https://github.com/airockchip/rknn-toolkit2.git
   # 下载 RKNN Model Zoo 仓库
-  git clone https://github.com/airockchip/rknn_model_zoo.git
+  git clone -b v2.3.0 https://github.com/airockchip/rknn_model_zoo.git
   ```
 
 - （可选）安装 [Anaconda](https://www.anaconda.com/)
 
-  如果系统中没有安装 Python 3.8（建议版本），或者同时有多个版本的 Python 环境，建议
-  使用 [Anaconda](https://www.anaconda.com/) 创建新的 Python 3.8 环境。
+  如果系统中没有安装 Python 3.8（建议版本），或者同时有多个版本的 Python 环境，建议使用 [Anaconda](https://www.anaconda.com/) 创建新的 Python 3.8 环境。
 
   - 安装 Anaconda
 
-    在计算机的终端窗口中执行以下命令，检查是否安装 Anaconda，若已安装则可省略此节步骤
+    在终端窗口中执行以下命令，检查是否安装 Anaconda，若已安装则可省略此节步骤。
 
     ```bash
     $ conda --version
-    conda 23.10.0
+    conda 24.9.2
     ```
 
-    如出现 conda: command not found, 则表示未安装 anaconda, 请参考 [Anaconda](https://www.anaconda.com/) 官网进行安装
+    如出现 conda: command not found, 则表示未安装 anaconda, 请参考 [Anaconda](https://www.anaconda.com/) 官网进行安装。
 
   - 创建 conda 环境
     ```bash
-    conda create -n rknn python=3.8
+    conda create -n rknn python=3.8.2
     ```
   - 进入 rknn conda 环境
 
@@ -71,19 +67,23 @@ Rockchip RK3566/RK3568 系列， RK3588 系列， RK3562 系列， RV1103/RV1106
     conda deactivate
     ```
 
-### PC 端安装依赖库和 RKNN-Toolkit2
+### PC 端安装 RKNN-Toolkit2
 
-- 激活 conda rknn 环境后，进入 rknn-toolkit2 目录，根据您的 Python 版本选择相应的 requirements_cpxx.txt 安装依赖
-  库，并通过 wheel 包安装 RKNN-Toolkit2，参考命令如下:
+- 激活 conda rknn 环境后，进入 rknn-toolkit2 目录，根据您的架构平台和 Python 版本选择相应的 requirements_cpxx.txt 安装依赖，
+  并通过 wheel 包安装 RKNN-Toolkit2，这里以 64 位 x86 架构 Python3.8 环境的 PC 为例子，参考命令如下:
 
   ```bash
   # 进入 rknn-toolkit2 目录
-  cd Projects/rknn-toolkit2/rknn-toolkit2
+  cd rknn-toolkit2/rknn-toolkit2/packages/x86_64/
   # 请根据不同的 python 版本，选择不同的 requirements 文件, 这里以 python3.8 为例子
-  pip install -r packages/requirements_cp38-1.6.0.txt -i https://mirror.baidu.com/pypi/simple
+  pip3 install -r requirements_cp38-2.3.0.txt
   # 请根据不同的 python 版本及处理器架构，选择不同的 wheel 安装包文件：
-  pip install packages/rknn_toolkit2-1.6.0+81f21f4d-cp38-cp38-linux_x86_64.whl
+  pip3 install ./rknn_toolkit2-2.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
   ```
+
+  :::tip
+  如果您使用的是 ARM 架构平台，请安装 arm64 下的依赖
+  :::
 
 - 验证是否安装成功
 
@@ -96,6 +96,11 @@ Rockchip RK3566/RK3568 系列， RK3588 系列， RK3562 系列， RV1103/RV1106
 
 ### 板端安装 RKNN Toolkit Lite2 及其所需依赖
 
+:::tip
+RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: sudo rsetup -> overlays -> Enable NPU，最后重启系统。
+
+如 overlays 选项中无 `Enable NPU` 选项，请通过: sudo rsetup -> system -> System Update 升级系统, 重启后执行上述步骤开启 NPU。
+:::
 :::info
 Radxa 官方镜像已默认安装 RKNPU2 及其所需依赖，仅需安装 python3-rknnlite2，如无法运行可尝试注释命令
 :::
@@ -107,11 +112,42 @@ sudo apt install python3-rknnlite2
 # sudo apt install rknpu2-rk356x   #SOC为RK356X系列
 ```
 
-如您使用的是 CLI 版本可访问 rknn toolkit lite2 [deb 包下载地址](https://github.com/radxa-pkg/rknn2/releases)
+- 如您使用的是 CLI 版本可访问 rknn toolkit lite2 [deb 包下载地址](https://github.com/radxa-pkg/rknn2/releases)
+
+- 检查 rknpu2 的驱动版本, 以下输出表示 rknpu2 驱动版本为 0.9.6
+  ```bash
+  sudo dmesg | grep "Initialized rknpu"
+  [   15.522298] [drm] Initialized rknpu 0.9.6 20240322 for fdab0000.npu on minor 1
+  ```
+
+### (可选) 板端虚拟环境中安装 rknn_toolkit-lite2 Python API
+
+若您偏好在板端系统中使用 python venv 虚拟环境，你须单独安装 rknn_toolkit-lite2 wheel
+
+虚拟环境使用方法请参考[Python 虚拟环境使用](./venv_usage)
+
+```bash
+cd rknn-toolkit2/rknn-toolkit-lite2/packages/
+```
+
+根据板端系统的 **python 版本**将对应的 `rknn_toolkit_lite2-2.3.0-cp3X-cp3X-manylinux_2_17_aarch64.manylinux2014_aarch64.whl` 复制到板端
+
+进入虚拟环境后使用 pip3 安装
+
+```bash
+pip3 install ./rknn_toolkit_lite2-2.3.0-cp3X-cp3X-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+```
+
+执行以下命令，若没有报错，则代表 rknn_toolkit-lite2 环境安装成功。
+
+```bash
+$ python3
+>>> from rknnlite.api import RKNNLite as RKNN
+```
 
 ### (可选) 板端安装 RKNN Model Zoo
 
 ```bash
 # 下载 RKNN Model Zoo 仓库
-git clone https://github.com/airockchip/rknn_model_zoo.git
+git clone -b v2.3.0 https://github.com/airockchip/rknn_model_zoo.git
 ```

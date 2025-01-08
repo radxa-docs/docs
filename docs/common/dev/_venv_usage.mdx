@@ -1,0 +1,42 @@
+在 radxa os 系统中通过 pip3 安装 python 库会受系统限制，用户可用虚拟环境与系统环境进行隔离。
+
+```bash
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+```
+
+### 安装虚拟环境
+
+以 python3.11 为例子
+
+```bash
+sudo apt install python3.11-venv
+```
+
+### 建立虚拟环境
+
+```bash
+python3 -m venv .venv
+```
+
+### 进入虚拟环境
+
+```bash
+source .venv/bin/activate
+```
+
+### 更新 pip
+
+```bash
+pip3 install --upgrade pip
+```
+
+### 退出虚拟环境
+
+```bash
+deactivate
+```

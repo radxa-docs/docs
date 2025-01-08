@@ -40,7 +40,7 @@
 
   `<onnx_model>`: 指定 ONNX 模型路径
 
-  `<TARGET_PLATFORM>`: 指定 NPU 平台名称。支持的平台请参考[这里](rknn_install#RKNN-简介)
+  `<TARGET_PLATFORM>`: 指定 NPU 平台名称。可选 `rk3562, rk3566, rk3568, rk3576, rk3588, rk1808, rv1109, rv1126`
 
   `<dtype>(可选)`: 指定为 `i8` 或 `fp`。`i8` 用于 int8 量化，`fp` 用于 fp16 量化。默认为 `i8`
 
@@ -100,4 +100,4 @@
 
 - 所有推理结果保存在 ./result 中
 
-![result0](/img/general-tutorial/rknn/result.webp)
+<img width="550" src="/img/general-tutorial/rknn/result.webp" />

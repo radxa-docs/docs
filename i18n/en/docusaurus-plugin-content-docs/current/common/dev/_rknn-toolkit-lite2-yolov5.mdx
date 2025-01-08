@@ -1,113 +1,136 @@
 :::tip
-This document aims to demonstrate how to run on-board inference of the YOLOv5 object detection model on Rockchip RK3588/3566 series chips. For the required environment setup, please refer to [RKNN Installation](./rknn_install).
+This document demonstrates how to perform on-device inference for YOLOv5 object detection models on Rockchip RK3588/3566 series chips. For environment setup, refer to [RKNN Installation](./rknn_install).
 :::
 
-This example uses a pre-trained ONNX format model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as an example to convert the model for on-board inference, providing a complete demonstration.
+This example uses a pre-trained ONNX model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as a case study, showcasing the complete workflow from model conversion to on-device inference.
 
-Deploying YOLOv5 with RKNN requires two steps:
+Deploying YOLOv5 with RKNN involves two steps:
 
-- On the PC, use `rknn-toolkit2` to convert models from different frameworks into RKNN format.
-- On the board, use the Python API of `rknn-toolkit2-lite` for on-board model inference.
+- Use `rknn-toolkit2` on a PC to convert models from various frameworks to RKNN format.
+- Use the Python API of `rknn-toolkit2-lite` on the device for model inference.
 
-### PC Model Conversion
+### Model Conversion on PC
 
 :::tip
-Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model, and users can directly refer to [YOLOv5 On-Board Inference](#yolov5-on-board-inference) to skip the PC model conversion section.
+Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model. Users can directly skip to [On-Device YOLOv5 Inference](#on-device-yolov5-inference) and skip the PC model conversion section.
 :::
 
-- If you are using conda, please activate the rknn conda environment first.
+- Activate the `rknn` Conda environment if you are using Conda:
 
   ```bash
   conda activate rknn
   ```
 
-- Download the `yolov5s_relu.onnx` model
+- Clone the `rknn_model_zoo` repository:
+
+  ```bash
+  git clone -b v2.3.0 https://github.com/airockchip/rknn_model_zoo.git
+  ```
+
+- Download the `yolov5s_relu.onnx` model:
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/model
-  # Download the pre-trained yolov5s_relu.onnx model
   bash download_model.sh
   ```
 
-  If you encounter network issues, you can visit [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) to download the corresponding model into the appropriate folder.
+  If network issues occur, download the model from [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) and place it in the appropriate directory.
 
-- Use `rknn-toolkit2` to convert it into `yolov5s_relu.rknn`
+- Convert the model to RKNN format using `rknn-toolkit2`:
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/python
-  python3 convert.py ../model/yolov5s_relu.onnx <TARGET_PLATFORM> <dtype> <output_rknn_path>
+  python3 convert.py <onnx_model> <TARGET_PLATFORM> <dtype> <output_rknn_path>
+  # Example:
+  python3 convert.py ../model/yolov5s_relu.onnx rk3588 i8 ../model/yolov5s_relu_rk3588.rknn
   ```
 
-  Parameter explanations:
+  Parameter explanation:
 
-  `<onnx_model>`: Specify the path to the ONNX model
+  - `<onnx_model>`: Path to the ONNX model.
+  - `<TARGET_PLATFORM>`: Target NPU platform. Options include `rk3562, rk3566, rk3568, rk3576, rk3588, rk1808, rv1109, rv1126`.
+  - `<dtype>`: Choose `i8` for int8 quantization or `fp` for fp16 quantization. Default is `i8`.
+  - `<output_rknn_path>`: Path to save the RKNN model. Defaults to the same directory as the ONNX model.
 
-  `<TARGET_PLATFORM>`: Specify the name of the NPU platform. Supported platforms can be found [here](rknn_install#RKNN-Introduction)
+- Transfer the RKNN model to the target device.
 
-  `<dtype>(optional)`: Specify `i8` for int8 quantization or `fp` for fp16 quantization. The default is `i8`.
-
-  `<output_rknn_path>(optional)`: Specify the save path for the RKNN model. By default, it is saved in the same directory as the ONNX model with the filename `yolov5.rknn`.
-
-- Copy the `yolov5.rknn` model to the board.
-
-### YOLOv5 On-Board Inference
+### On-Device YOLOv5 Inference
 
 :::tip
-For RK3566/3568 chip users, NPU must be enabled in rsetup overlays before use. Please refer to [rsetup](../radxa-os/rsetup) for details.
+For RK356X chips, enable the NPU before use: run `sudo rsetup -> overlays -> Enable NPU` and reboot the system.  
+If the `Enable NPU` option is missing, update the system via `sudo rsetup -> system -> System Update` and repeat the steps.
 :::
 
-- (Optional) Download the Radxa-provided YOLOv5s RKNN model.
-  | Platform | Download Link |
-  | -------- | --------------------------------------------------------------------- |
-  | rk3566 | [yolov5s_rk3566.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3566.rknn) |
-  | rk3568 | [yolov5s_rk3568.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3568.rknn) |
-  | rk3588 | [yolov5s_rk3588.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3588.rknn) |
+- (Optional) Download pre-converted YOLOv5s RKNN models provided by Radxa:
 
-- Modify the `rknn_model_zoo/py_utils/rknn_executor.py` code
-  Please configure the RKNN Model Zoo code repository according to [Install RKNN Model Zoo on the Board](./rknn_install#optional-install-rknn-model-zoo-on-the-board).
+  | Platform | Download Link                                                                                                            |
+  | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+  | rk3566   | [yolov5s_rk3566.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3566.rknn) |
+  | rk3568   | [yolov5s_rk3568.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3568.rknn) |
+  | rk3588   | [yolov5s_rk3588.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3588.rknn) |
+
+- Modify `rknn_model_zoo/py_utils/rknn_executor.py` (backup the original code):
 
   ```python
-  1 # from rknn.api import RKNN
-  2 try:
-  3     from rknn.api import RKNN
-  4 except:
-  5     from rknnlite.api import RKNNLite as RKNN
-  ...
-  ...
-  18 ret = rknn.init_runtime()
+  from rknnlite.api import RKNNLite as RKNN
+
+  class RKNN_model_container():
+      def __init__(self, model_path, target=None, device_id=None) -> None:
+          rknn = RKNN()
+          rknn.load_rknn(model_path)
+          ret = rknn.init_runtime()
+          self.rknn = rknn
+
+      def run(self, inputs):
+          if not self.rknn:
+              print("ERROR: RKNN has been released")
+              return []
+
+          inputs = [inputs] if not isinstance(inputs, (list, tuple)) else inputs
+          result = self.rknn.inference(inputs=inputs)
+          return result
+
+      def release(self):
+          self.rknn.release()
+          self.rknn = None
   ```
 
-- Modify the `rknn_model_zoo/examples/yolov5/python/yolov5.py` code
+- Update line 262 in `rknn_model_zoo/examples/yolov5/python/yolov5.py` (backup the original code):
 
   ```python
   262 outputs = model.run([np.expand_dims(input_data, 0)])
   ```
 
-- Install the required environment
+- Enter the virtual environment:
+
+  Refer to [Python Virtual Environment Usage](./venv_usage).  
+  Install the `rknn_toolkit-lite2` Python API as described in [Install rknn_toolkit-lite2 Python API in a virtual environment on the board](rknn_install#optional-install-rknn_toolkit-lite2-python-api-in-a-virtual-environment-on-the-board).
+
+- Install dependencies:
+
   ```bash
   pip3 install opencv-python-headless
   ```
-- Run the YOLOv5 example code
+
+- Run the YOLOv5 example:
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/python
   python3 yolov5.py --model_path <your model path> --img_save
   ```
 
-  If you are using a self-converted model, copy it from the PC to the board, and specify the model path with the `--model_path` parameter.
+  If using a custom-converted model, copy it from the PC to the device and specify the path with `--model_path`.
 
-  ```bash
-  rock@radxa-zero3:~/rknn_model_zoo/examples/yolov5/python$ python3 yolov5.py --model_path ./yolov5s_rk3566.rknn --target rk3566 --img_save
+  ````bash
+  (.venv) rock@rock-5b-plus:~/rknn_model_zoo/examples/yolov5/python$ python3 yolov5.py --model_path ./yolov5s_relu_rk3588.rknn --img_save
   use anchors from '../model/anchors_yolov5.txt', which is [[[10.0, 13.0], [16.0, 30.0], [33.0, 23.0]], [[30.0, 61.0], [62.0, 45.0], [59.0, 119.0]], [[116.0, 90.0], [156.0, 198.0], [373.0, 326.0]]]
-  --> Init runtime environment
-  I RKNN: [09:28:50.071] RKNN Runtime Information, librknnrt version: 1.6.0 (9a7b5d24c@2023-12-13T17:31:11)
-  I RKNN: [09:28:50.071] RKNN Driver Information, version: 0.8.8
-  I RKNN: [09:28:50.073] RKNN Model Information, version: 6, toolkit version: 2.1.0+708089d1(compiler version: 2.1.0 (967d001cc8@2024-08-07T11:32:45)), target: RKNPU lite, target platform: rk3566, framework name: ONNX, framework layout: NCHW, model inference type: static_shape
-  W RKNN: [09:28:50.073] RKNN Model version: 2.1.0 not match with rknn runtime version: 1.6.0
-  W RKNN: [09:28:50.141] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
+  W rknn-toolkit-lite2 version: 2.3.0
+  I RKNN: [07:00:34.201] RKNN Runtime Information, librknnrt version: 2.3.0 (c949ad889d@2024-11-07T11:35:33)
+  I RKNN: [07:00:34.201] RKNN Driver Information, version: 0.9.6
+  I RKNN: [07:00:34.202] RKNN Model Information, version: 6, toolkit version: 2.3.0(compiler version: 2.3.0 (c949ad889d@2024-11-07T11:39:30)), target: RKNPU v2, target platform: rk3588, framework name: ONNX, framework layout: NCHW, model inference type: static_shape
+  W RKNN: [07:00:34.225] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
   W Query dynamic range failed. Ret code: RKNN_ERR_MODEL_INVALID. (If it is a static shape RKNN model, please ignore the above warning message.)
-  done
-  Model-./yolov5s_rk3566.rknn is rknn model, starting val
+  Model-./yolov5s_relu_rk3588.rknn is rknn model, starting val
   infer 1/1
 
   IMG: bus.jpg
@@ -116,17 +139,20 @@ For RK3566/3568 chip users, NPU must be enabled in rsetup overlays before use. P
   person @ (109 238 231 534) 0.840
   person @ (79 353 121 517) 0.301
   bus  @ (91 129 555 464) 0.692
-  Detection result save to ./result/bus.jpg
-  ```
+  Detection result save to ./result/bus.jpg  ```
 
-  Parameter explanations:
+  Example Output:
 
-  `--model_path`: Specify the path to the RKNN model
+  ```plaintext
+  Detection result saved to ./result/bus.jpg
+  ````
 
-  `--img_folder`: Specify the image library for inference, default is `../model`
+  Parameter explanation:
 
-  `--img_save`: Whether to save the inference result image to `./result`, default is `False`
+  - `--model_path`: Path to the RKNN model.
+  - `--img_folder`: Folder of images for inference. Default: `../model`.
+  - `--img_save`: Save inference results to `./result`. Default: `False`.
 
 - All inference results are saved in `./result`.
 
-![result0](/img/general-tutorial/rknn/result.webp)
+<img width="550" src="../../../img/general-tutorial/rknn/result.webp" />

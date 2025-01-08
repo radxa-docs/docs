@@ -1,0 +1,42 @@
+In the Radxa OS system, installing Python libraries via `pip3` is restricted by the system. Users can use a virtual environment to isolate the virtual environment from the system environment.
+
+```bash
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+```
+
+### Install Virtual Environment
+
+Using Python 3.11 as an example:
+
+```bash
+sudo apt install python3.11-venv
+```
+
+### Create a Virtual Environment
+
+```bash
+python3 -m venv .venv
+```
+
+### Activate the Virtual Environment
+
+```bash
+source .venv/bin/activate
+```
+
+### Upgrade pip
+
+```bash
+pip3 install --upgrade pip
+```
+
+### Deactivate the Virtual Environment
+
+```bash
+deactivate
+```

@@ -1,25 +1,25 @@
 :::tip
-This document demonstrates how to perform edge device inference of YOLOv8 object detection model on RK3588. Please refer to [RKNN Installation](./rknn_install) for environment setup requirements.
+This document demonstrates how to run on-board inference of the YOLOv8 object detection model on the RK3588. For the required environment setup, please refer to [RKNN Installation](./rknn_install).  
 :::
 
-In this case we would use a pretrained yolov8n ONNX format model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as an example, we'll convert it for edge device inference target RK3588 and provide a complete example.
+This example uses a pretrained ONNX model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as an example to illustrate the complete process of converting the model and performing inference on the board. The target platform for this example is RK3588.
 
-Deploy YOLOv8 with RKNN involves two steps:
+Using RKNN to deploy YOLOv8 involves two steps:
 
-- Model conversion from different frameworks to rknn format models using rknn-toolkit2 on the PC side.
-- Edge device inference with RKNN using the Python API of rknn-toolkit2-lite.
+- On a PC, use **rknn-toolkit2** to convert models from different frameworks into RKNN format.
+- On the board, use **rknn-toolkit2-lite**'s Python API for model inference.
 
-### PC-side Model Conversion
+### Model Conversion on PC
 
-**Radxa has provided pre-converted `yolov8.rknn` models, users can directly refer to [Inference YOLOv8 on the Board](#inference-yolov8-on-the-board) to skip the PC-side Model Conversion section**
+**Radxa has provided a pre-converted `yolov8.rknn` model. Users can skip this section and refer to [YOLOv8 Inference on Board](#yolov8-inference-on-board).**
 
-- Activate the rknn conda environment (if using conda).
+- If using Conda, activate the RKNN environment first:
 
   ```bash
   conda activate rknn
   ```
 
-- Download the yolov8n.onnx model.
+- Download the YOLOv8 ONNX model:
 
   ```bash
   cd rknn_model_zoo/examples/yolov8/model
@@ -27,56 +27,54 @@ Deploy YOLOv8 with RKNN involves two steps:
   bash download_model.sh
   ```
 
-  In case of network issues, you can download from [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support).
+  If you encounter network issues, you can download the corresponding model manually from [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) and place it in the appropriate folder.
 
-- Convert it to yolov8n.rknn using rknn-toolkit2.
+- Convert the ONNX model to the RKNN format using **rknn-toolkit2**:
 
   ```bash
   cd rknn_model_zoo/examples/yolov8/python
   python3 convert.py ../model/yolov8n.onnx rk3588
   ```
 
-  Parameter interpretation:
+  **Parameter Explanation**:
 
-  `<onnx_model>`: Specify the path to the ONNX model.
+  - `<onnx_model>`: Specifies the path to the ONNX model.
+  - `<TARGET_PLATFORM>`: Specifies the NPU platform name. Options include `rk3562, rk3566, rk3568, rk3576, rk3588, rk1808, rv1109, rv1126`.
+  - `<dtype> (optional)`: Specifies the data type as `i8` (for int8 quantization) or `fp` (for fp16 quantization). The default is `i8`.
+  - `<output_rknn_path> (optional)`: Specifies the path for saving the RKNN model. By default, it is saved in the same directory as the ONNX model with the filename `yolov8.rknn`.
 
-  `<TARGET_PLATFORM>`: Specify the name of the NPU platform. Refer to [here](rknn_install#introduction-to-rknn) for supported platforms.
+- Copy the `yolov8n.rknn` model to the target board.
 
-  `<dtype>(optional)`: Specify as `i8` or `fp`. `i8` is for int8 quantization, `fp` is for fp16 quantization. Default is `i8`.
+### YOLOv8 Inference on Board
 
-  `<output_rknn_path>(optional)`: Specify the path to save the RKNN model. By default, it is saved in the same directory as the ONNX model, with the file name `yolov8.rknn`.
-
-- Copy the yolov8n.rknn model to the edge device.
-
-### Inference YOLOv8 on the Board
-
-- Download rknn-model-zoo-rk3588 to get the yolov8 demo (pre-converted yolov8.rknn model is included).
+- Download the `rknn-model-zoo-rk3588` package to obtain the YOLOv8 demo (includes the pre-converted `yolov8.rknn` model):
 
   ```bash
   sudo apt install rknn-model-zoo-rk3588
   ```
 
-  If you are using the CLI version, you can access the rknn-model-zoo-rk3588 [deb package download link](https://github.com/radxa-pkg/rknn_model_zoo/releases/tag/1.6.0-1).
+  If using a CLI version, you can download the package manually from the [deb package download page](https://github.com/radxa-pkg/rknn_model_zoo/releases/tag/1.6.0-1).
 
-- Run the yolov8 example program
+- Run the YOLOv8 example code:
 
-  If you are using your own converted model you need to copy it from the PC to the board, and specify the model path with the --model_path parameter.
+  If using a model converted on the PC, copy it to the board and specify the model path using the `--model_path` parameter:
 
   ```bash
   cd /usr/share/rknn_model_zoo/examples/yolov8/python
   sudo python3 yolov8.py --model_path ../model/yolov8.rknn --img_save
   ```
 
+  Example output:
+
   ```bash
   $ sudo python3 yolov8.py --model_path ../model/yolov8.rknn --img_save
-  import rknn failed,try to import rknnlite
+  import rknn failed, try to import rknnlite
   --> Init runtime environment
-  I RKNN: [09:01:01.819] RKNN Runtime Information, librknnrt version: 1.6.0 (9a7b5d24c@2023-12-13T17:31:11)
+  I RKNN: [09:01:01.819] RKNN Runtime Information, librknnrt version: 1.6.0
   I RKNN: [09:01:01.819] RKNN Driver Information, version: 0.8.2
-  W RKNN: [09:01:01.819] Current driver version: 0.8.2, recommend to upgrade the driver to the new version: >= 0.8.8
-  I RKNN: [09:01:01.819] RKNN Model Information, version: 6, toolkit version: 1.6.0+81f21f4d(compiler version: 1.6.0 (585b3edcf@2023-12-11T07:56:14)), target: RKNPU v2, target platform: rk3588, framework name: ONNX, framework layout: NCHW, model inference type: static_shape
-  W RKNN: [09:01:01.836] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
-  W Query dynamic range failed. Ret code: RKNN_ERR_MODEL_INVALID. (If it is a static shape RKNN model, please ignore the above warning message.)
+  W RKNN: [09:01:01.819] Current driver version: 0.8.2, recommend to upgrade the driver to version >= 0.8.8
+  I RKNN: [09:01:01.819] RKNN Model Information, version: 6, target platform: rk3588
+  W RKNN: [09:01:01.836] Query dynamic range failed. Ret code: RKNN_ERR_MODEL_INVALID.
   done
   Model-../model/yolov8.rknn is rknn model, starting val
   infer 1/1
@@ -87,17 +85,15 @@ Deploy YOLOv8 with RKNN involves two steps:
   person @ (477 225 560 522) 0.856
   person @ (79 327 116 513) 0.306
   bus  @ (95 136 549 449) 0.860
-  Detection result save to ./result/bus.jpg
+  Detection result saved to ./result/bus.jpg
   ```
 
-  Parameter interpretation:
+  **Parameter Explanation**:
 
-  `--model_path`: Specify the rknn model path.
+  - `--model_path`: Specifies the RKNN model path.
+  - `--img_folder`: Specifies the folder containing images for inference. Default is `../model`.
+  - `--img_save`: Whether to save the inference result images to the `./result` folder. Default is `False`.
 
-  `--img_folder`: Folder containing images for inference, default is ../model.
+- All inference results are saved in the `./result` folder.
 
-  `--img_save`: Whether to save the inference result image to ./result, default is False.
-
-- All inference results are saved in ./result.
-
-![result0](/img/general-tutorial/rknn/result.webp)
+<img width="550" src="../../../img/general-tutorial/rknn/result.webp" />
