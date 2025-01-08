@@ -1,0 +1,57 @@
+[Moonlight PC](https://moonlight-stream.org) is an open-source PC client for NVIDIA GameStream
+and [Sunshine](https://github.com/LizardByte/Sunshine), hereinafter referred to as "Moonlight".
+
+:::info
+Due to GPU driver limitations, Moonlight can only be experienced with the RK3588 series of products
+using the Radxa OS Bookworm operating system. Other products can be tested at your own discretion,
+but the results may be unsatisfactory.
+:::
+
+## Compile and install rockchip-ffmpeg
+
+Refer to [RTSP Streaming](rtsp?target=ffmpeg), there is no need to follow the entire documentation. Just follow the instructions up to
+[Compile and Install ffmpeg-rockchip](rtsp?target=ffmpeg#compile-and-install-ffmpeg-rockchip) to install rockchip-ffmpeg.
+
+## Install Moonlight build dependencies
+
+```bash
+sudo apt-get update
+sudo apt-get install libegl1-mesa-dev libgl1-mesa-dev libopus-dev libsdl2-dev libsdl2-ttf-dev libssl-dev \
+libavcodec-dev libavformat-dev libswscale-dev libva-dev libvdpau-dev libxkbcommon-dev wayland-protocols \
+libdrm-dev qt6-base-dev qt6-declarative-dev libqt6svg6-dev qml6-module-qtquick-controls qml6-module-qtquick-templates \
+qml6-module-qtquick-layouts qml6-module-qtqml-workerscript qml6-module-qtquick-window qml6-module-qtquick
+```
+
+## Clone Moonlight source code
+
+```bash
+git clone https://github.com/moonlight-stream/moonlight-qt.git
+cd moonlight-qt
+git submodule update --init --recursive
+```
+
+## Add rockchip-ffmpeg path and dependency parameters
+
+```bash
+echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> app/app.pro
+echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> moonlight-qt.pro
+```
+
+## Compile Moonlight
+
+```bash
+qmake6 moonlight-qt.pro
+make release -j$(nproc)
+```
+
+## Run Moonlight
+
+```bash
+app/moonlight
+```
+
+## Reference documentation and links
+
+- [ffmpeg-rockchip](https://github.com/nyanmisaka/ffmpeg-rockchip/wiki)
+- [Moonlight PC](https://github.com/moonlight-stream/moonlight-qt)
+- [Original user issues and compilation methods](https://github.com/radxa-build/rock-5b/issues/26#issuecomment-2539197643)
