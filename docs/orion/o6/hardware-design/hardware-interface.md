@@ -14,9 +14,21 @@ sidebar_position: 4
 
 ## 实物照片
 
-<img src="/img/o6/o6-real.webp" width="600" />
+<img src="/img/o6/o6-real.webp" alt="o6 hardware diagram" width="700" />
 
 以下是各个硬件接口的详细接口线序以及说明。
+
+| No. |         Name         | No. |          Name          | No. |         Name        | No. |     Name    |
+|:---:|:--------------------:|:---:|:----------------------:|:---:|:-------------------:|:---:|:-----------:|
+|  1  |     PCIe X16 Slot    |  9  |           DP           |  17 |    40-PIN Header    |  25 |  Debug UART |
+|  2  |       M.2 M-Key      |  10 |          HDMI          |  18 |      CIX CD8180     |  26 |     eDP     |
+|  3  |       M.2 E-Key      |  11 |         USB3.2         |  19 |    RAM LPDDR5(X)    |  27 | RTC Battery |
+|  4  |      Speaker L/R     |  12 |         USB2.0         |  20 | ATX Power Interface |  28 | MIPI Camera |
+|  5  | Power LED + User LED |  13 | Full-functioned Type-C |  21 |        F_USB        |     |             |
+|  6  |     Reset Button     |  14 |      Power Button      |  22 |       F_AUDIO       |     |             |
+|  7  |  Headphone with MIC  |  15 |       FAN Header       |  23 |     Touch Panel     |     |             |
+|  8  |         5GbE         |  16 |    SPI Flash Socket    |  24 |       F_PANEL       |     |             |
+
 
 ## 供电电源
 
@@ -29,11 +41,11 @@ ATX 电源提供的电压是 12V。
 
 ### Type-C 口
 
-Orion O6 有两个 Type-C 口，都是全功能 Type-C 口。支持通过该口为板子供电，也支持通过该口对外提供电。
-选择的 Type-C 电源可以是：
-- 支持输出 20V 的 Type-C DC 65W 适配器
-- 支持 PD 20V 的 Type-C 65W 适配器
-- 支持输出 20V Type-C 65W 适配器
+Orion O6 有两个 Type-C 口，都是全功能 Type-C 口。支持通过该口为板子供电；支持通过该口对外提供电；也支持 Type-C 显示。
+
+Type-C 作为供电口时，使用的适配器，需要支持 PD 协议，功率至少 65W，输出电压 20V。
+
+Type-C 口对外供电的电压是 5V。
 
 ## 网络
 
