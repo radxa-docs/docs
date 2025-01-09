@@ -22,6 +22,10 @@ import Images from "./\_image.mdx"
 
 ### V1.2
 
+&emsp;&emsp; [ROCK 5T V1.2 SCH](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_schematic_v1.2_20250109.pdf)
+
+&emsp;&emsp; [ROCK 5T V1.2 SMD](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_components_placement_map_v1.2_20250109.pdf)
+
 ## 质量认证
 
 ### CE EMC
