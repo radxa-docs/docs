@@ -28,9 +28,18 @@ Debian：
 
 [Debian12 Desktop](https://dl.radxa.com)
 
+| 用户名 | 密码 |
+|:---:|:---:|
+| cix | cix |
+
 Fedora：
 
 [Fedora Gnome](https://openkoji.iscas.ac.cn/pub/dist-repos/dl/Radxa/Orion-O6/images/fedora-disk-gnome-workstation_radxa_orion-o6_202501041239.raw.gz)
+
+| 用户名 | 密码 |
+|:---:|:---:|
+| root | aarch64 |
+
 
 ## 质量认证
 
