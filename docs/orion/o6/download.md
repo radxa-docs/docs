@@ -20,11 +20,11 @@ Orion O6 V1.1 版本
 
 ## BIOS & 操作系统镜像
 
-BIOS：
+### BIOS
 
-[BIOS](https://dl.radxa.com)
+[O6 BIOS](https://dl.radxa.com)
 
-Debian：
+### Debian
 
 [Debian12 Desktop](https://dl.radxa.com)
 
@@ -32,9 +32,9 @@ Debian：
 |:---:|:---:|
 | cix | cix |
 
-Fedora：
+### Fedora
 
-[Fedora Gnome](https://openkoji.iscas.ac.cn/pub/dist-repos/dl/Radxa/Orion-O6/images/fedora-disk-gnome-workstation_radxa_orion-o6_202501041239.raw.gz)
+[Fedora 41 Gnome](https://openkoji.iscas.ac.cn/pub/dist-repos/dl/Radxa/Orion-O6/images/fedora-disk-gnome-workstation_radxa_orion-o6_202501041239.raw.gz)
 
 | 用户名 | 密码 |
 |:---:|:---:|
