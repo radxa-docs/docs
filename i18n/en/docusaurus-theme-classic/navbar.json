@@ -75,6 +75,14 @@
     "message": "SiRider Series",
     "description": "Navbar item with label SiRider 系列"
   },
+  "item.label.CUBIE A5": {
+    "message": "CUBIE A5",
+    "description": "Navbar item with label CUBIE A5"
+  },
+  "item.label.CUBIE 系列": {
+    "message": "CUBIE Series",
+    "description": "Navbar item with label CUBIE A5"
+  },
   "item.label.X 系列": {
     "message": "X Series",
     "description": "Navbar item with label X 系列"

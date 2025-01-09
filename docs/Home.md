@@ -663,6 +663,31 @@ sidebar_custom_props:
               },
             ],
         },
+        {
+          series_en: "CUBIE Family",
+          series_zh: "CUBIE 系列",
+          series_introduction_en: "CUBIE is a single board computer series jointly launched by Radxa based on sunxi cpu.",
+          series_introduction_zh: "CUBIE 是 Radxa 基于全志SOC 推出的通用单板计算机系列",
+          products:
+            [
+              {
+                products_name: "CUBIE A5E",
+                products_photo_url: "/home/product-pictures/cubiea5e.webp",
+                products_link: "/cubie/a5e",
+                docs:
+                  [
+                    {
+                      docs_link: "/cubie/a5e",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "CUBIE A5E 概览",
+                      docs_info_en: "Overview of the CUBIE A5E",
+                      docs_info_zh: "Radxa CUBIE A5E 概览",
+                    },
+                  ],
+              },
+            ],
+        },
       ],
   }
 ---
