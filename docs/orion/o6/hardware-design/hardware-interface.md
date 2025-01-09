@@ -51,3 +51,27 @@ Type-C 口对外供电的电压是 5V。
 
 Orion O6 搭载了2个 5G 以太网口。使用的 Phy 是 Realtek RTL8126。
 
+## 40-PIN GPIO Header
+
+| 第三功能 |    第二功能    | 第一功能 | 引脚序号 |   | 引脚序号 | 第一功能 |     第二功能     | 第三功能 |
+|:--------:|:--------------:|:--------:|:--------:|---|:--------:|:--------:|:----------------:|:--------:|
+|          |                |   3.3V   |     1    |   |     2    |    5V    |                  |          |
+|          |                | I2C4_SDA |     3    |   |     4    |    5V    |                  |          |
+|          |                | I2C4_CLK |     5    |   |     6    |    GND   |                  |          |
+|          |                |  GPIO071 |     7    |   |     8    |  GPIO105 |     UART3_TXD    |          |
+|          |                |    GND   |     9    |   |    10    |  GPIO106 |     UART3_RXD    |          |
+|   PWM0   |    UART0_TXD   |  GPIO095 |    11    |   |    12    |  GPIO091 |    I2S4_SCK_LB   |          |
+|   PWM1   |    UART0_RXD   |  GPIO096 |    13    |   |    14    |    GND   |                  |          |
+|          |    UART1_TXD   |  GPIO099 |    15    |   |    16    |  GPIO100 |     UART1_RXD    |          |
+|          |                |   3.3V   |    17    |   |    18    |  GPIO044 |                  |          |
+|          |    SPI2_MOSI   |  GPIO141 |    19    |   |    20    |    GND   |                  |          |
+|          |    SPI2_MISO   |  GPIO138 |    21    |   |    22    |  GPIO045 |                  |          |
+|          |    SPI2_CLK    |  GPIO142 |    23    |   |    24    |  GPIO139 |     SPI2_CS0     |          |
+|          |                |    GND   |    25    |   |    26    |  GPIO140 |     SPI2_CS1     |          |
+| I3C0_SDA |    I2C2_SDA    |  GPIO056 |    27    |   |    28    |  GPIO055 |     I2C2_CLK     | I3C0_SCL |
+|          |  I2S2_DATA_IN1 |  GPIO076 |    29    |   |    30    |    GND   |                  |          |
+|          | I2S2_DATA_OUT1 |  GPIO078 |    31    |   |    32    |  GPIO046 |                  |          |
+|          | I2S2_DATA_OUT2 |  GPIO079 |    33    |   |    34    |    GND   |                  |          |
+|          |   I2S4_WS_LB   |  GPIO092 |    35    |   |    36    |  GPIO090 |   I2S4_MCLK_LB   |          |
+|          | I2S2_DATA_OUT3 |  GPIO080 |    37    |   |    38    |  GPIO093 |  I2S4_DATA_IN_LB |          |
+|          |                |    GND   |    39    |   |    40    |  GPIO094 | I2S4_DATA_OUT_LB |          |
