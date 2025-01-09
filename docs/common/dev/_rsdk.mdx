@@ -1,0 +1,113 @@
+## 使用 `rsdk`
+
+[`rsdk`](https://github.com/RadxaOS-SDK/rsdk) 是目前 RadxaOS 的生成环境，其有以下几个特点：
+
+1. 生成环境容器化，无需额外配置生成依赖
+2. 模块化的生成代码，修改方便
+3. 支持 x86、ARM64 平台上运行
+
+### 这里简单介绍如何安装并使用 `rsdk`
+
+1. 首先，请安装所需的依赖项：
+
+```
+sudo apt-get update
+sudo apt-get install git qemu-user-static binfmt-support
+sudo apt-get install npm docker.io
+sudo usermod -a -G docker $USER
+```
+
+2. 使用以下命令克隆项目git并安装devcontainer
+
+```
+git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
+cd rsdk
+npm install @devcontainers/cli
+export PATH="$PWD/src/bin:$PWD/node_modules/.bin:$PATH"
+rsdk devcon up
+rsdk devcon
+```
+
+当终端出现以下所示，表明现在处于 rsdk 的 dev 容器 shell 中
+
+```
+██████╗ ███████╗██████╗ ██╗  ██╗
+██╔══██╗██╔════╝██╔══██╗██║ ██╔╝
+██████╔╝███████╗██║  ██║█████╔╝
+██╔══██╗╚════██║██║  ██║██╔═██╗
+██║  ██║███████║██████╔╝██║  ██╗
+╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝  ╚═╝
+RadxaOS Software Development Kit
+
+Please run `rsdk shell` to enter the full development shell.
+
+direnv: export +AR +AS +CC +CONFIG_SHELL +CXX +DETERMINISTIC_BUILD +DEVENV_DOTFILE +DEVENV_PROFILE +DEVENV_ROOT +DEVENV_RUNTIME
++DEVENV_STATE +DEVENV_TASKS +HOST_PATH +IN_NIX_SHELL +LD +LOCALE_ARCHIVE +NIX_BINTOOLS +NIX_BINTOOLS_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu
++NIX_BUILD_CORES +NIX_CC +NIX_CC_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu +NIX_CFLAGS_COMPILE +NIX_ENFORCE_NO_NATIVE +NIX_HARDENING_ENABLE +NIX_LDFLAGS
++NIX_PKG_CONFIG_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu +NIX_STORE +NM +NODE_PATH +OBJCOPY +OBJDUMP +PKG_CONFIG +PKG_CONFIG_PATH +PYTHONHASHSEED +PYTHONNOUSERSITE
++PYTHONPATH +RANLIB +READELF +SIZE +SOURCE_DATE_EPOCH +STARSHIP_SESSION_KEY +STRINGS +STRIP +_PYTHON_HOST_PLATFORM +_PYTHON_SYSCONFIGDATA_NAME +__structuredAttrs +buildInputs
++buildPhase +builder +cmakeFlags +configureFlags +depsBuildBuild +depsBuildBuildPropagated +depsBuildTarget +depsBuildTargetPropagated +depsHostHost +depsHostHostPropagated
++depsTargetTarget +depsTargetTargetPropagated +doCheck +doInstallCheck +dontAddDisableDepTrack +hardeningDisable +mesonFlags +name +nativeBuildInputs +out +outputs +patches
++phases +preferLocalBuild +propagatedBuildInputs +propagatedNativeBuildInputs +shell +shellHook +stdenv +strictDeps +system ~PATH ~XDG_DATA_DIRS
+
+vscode ➜ /workspaces/rsdk (main) $
+```
+
+3.在终端中运行 rsdk 来启动 TUI 向导。
+
+```
+┌─────────────────┤ RSDK ├──────────────────┐
+│ Please select a task:                     │
+│                                           │
+│            Build system image             │
+│            =========                      │
+│            About                          │
+│                                           │
+│         <Ok>             <Cancel>         │
+│                                           │
+└───────────────────────────────────────────┘
+```
+
+选择要构建的产品
+
+```
+┌─────────────────┤ RSDK ├──────────────────┐
+│ Please select a product:                  │
+│                                           │
+│  ( ) rock-5a                          ▒   │
+│  (*) rock-5b                          ▒   │
+│  ( ) rock-5c                          ▒   │
+│                                           │
+│         <Ok>             <Cancel>         │
+│                                           │
+└───────────────────────────────────────────┘
+```
+
+选择`yes`开始构建, rsdk-tui 将运行相关的 CLI 命令来完成镜像编译
+
+```
+┌─────────────────┤ RSDK ├──────────────────┐
+│                                           │
+│ Are you sure to build for 'rock-5b'?      │
+│                                           │
+│                                           │
+│          <Yes>             <No>           │
+│                                           │
+└───────────────────────────────────────────┘
+```
+
+编译结束之后会生成一个 `out`目录, output.img 即最终生成的镜像
+
+```
+vscode ➜ /workspaces/rsdk (main) $ ls out/rock-5b_bookworm_kde/
+build-image  config.yaml  debs  manifest  output.img  rootfs.tar  seed.tar.xz
+```
+
+仓库详细使用，请参考 [rsdk](https://radxaos-sdk.github.io/rsdk/) 页面。
+
+如需要在 `rsdk` 基础上进行二次开发，则请继续阅读文档 [Build customization](https://radxaos-sdk.github.io/rsdk/tutorials/customize.html)。
+
+### 常见问题
+
+1. 开发容器设置暂停并提示：You might be rate limited by GitHub。您可能受到GitHub的速率限制。请按照输出中列出的说明进行操作。
+2. 启动开发容器失败。请编辑 .devcontainer/devcontainer.json，并调整runArgs属性。

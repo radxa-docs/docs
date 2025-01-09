@@ -1,12 +1,12 @@
 # How to power the board via GPIO
 
-Most radxa sbc's can be powered from the GPIO connector on the 40 PIN, except for a few that have a startup voltage of more than 5V. The 5B/5B+ can be powered up with 5V, so we will use the 5B+ as an example.
+Most radxa sbc's can be powered from the GPIO connector on the 40 PIN, except for a few that have a startup voltage of more than 5V. So we will use the 5B+ as an example.
 
 ## Preparation
 
 - 5V power supply
 - Dupont cable 4 pcs
-- ROCK 5B+ 1 piece
+- ROCK 5B+
 
 ## Steps
 
@@ -23,8 +23,8 @@ The power supply must be a stable 5V output, if the power supply fluctuates more
   />
 
 - Use DuPont cables to connect the positive and negative terminals of the power supply, 2 to the positive terminal and 2 to the negative terminal.
+- The positive electrode of the power supply is connected to the 5V input PIN of 40 PIN, and the negative electrode is connected to the GND of 40 PIN. Be careful not to connect it upside down, otherwise the short circuit will burn out the board.
 - Adjust the power supply voltage to 5V, then power on the board.
-- Connect the positive end of the DuPont cable to the 5V input PIN of the 40 PIN, and the negative end of the DuPont cable to the GND of the 40 PIN.
 
   <img
     src="/img//rock5b/rock5bp_40pin_power_1.webp"
