@@ -49,6 +49,12 @@ sidebar_position: 2
 | -------------------------------- | --------------- |
 | [SiRider S1](/sirider/s1) (2024) | Siengine SE1000 |
 
+### 
+
+| Model                            | Description     |
+| -------------------------------- | --------------- |
+| [CUBIE A5E](/cubie/a5e) (2025) | Allwinner A527 |
+
 ## Radxa Computer on Module Family
 
 | Model                                      | Description                      |
