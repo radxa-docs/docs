@@ -78,7 +78,7 @@ ROCK 5T provides complete hardware design schematics and software source code, a
     </tr>
     <tr>
         <td align="center">Storage</td>
-        <td colspan="2" align="center">Onboard eMMC module: 32/64/128/256 GB<br/>microSD memory card</td>
+        <td colspan="2" align="center">Onboard eMMC module: 0/32/64/128/256 GB<br/>microSD memory card</td>
     </tr>
     <tr>
         <td align="center">Display</td>

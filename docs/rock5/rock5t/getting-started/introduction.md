@@ -78,7 +78,7 @@ ROCK 5T 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">存储</td>
-        <td colspan="2" align="center">板载 eMMC 模块：32/64/128/256 GB<br/>microSD 存储卡</td>
+        <td colspan="2" align="center">板载 eMMC 模块：0/32/64/128/256 GB<br/>microSD 存储卡</td>
     </tr>
     <tr>
         <td align="center">显示</td>
