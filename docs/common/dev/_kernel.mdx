@@ -4,12 +4,12 @@ import { PreView } from "@site/src/utils/docs";
 
 bsp 是 Radxa 提供的一套快速构建 U-Boot Kernel 的工具，使用 bsp 非常方便就能构建出自己的 U-Boot 和 Kernel.
 
-下面将为您展示，以 {props.model} 为例如何使用 bsp 构建内核。
+下面将为您展示，以 Radxa ROCK 5B 为例如何使用 bsp 构建内核。
 
 ### bsp 环境配置
 
 以下为 `bsp` 推荐使用环境:  
-硬件：推荐使用x86_64 PC  
+硬件：推荐使用 x86_64 PC  
 系统：Ubuntu 或者 Debian
 
 #### 安装依赖
@@ -47,53 +47,60 @@ cd bsp
 
 ### 构建内核
 
-**完成 bsp 环境配置后，需要先编译一次内核才会从仓库拉取内核代码。**  
-直接运行 `./bsp` 会显示所有参数及其解释，根据提示可知命令 `bsp [options] <linux|u-boot> <profile> [product]`。  
-以 {props.model} 为例，linux profile 为 "**{props.soc}**"，以下是其他产品的 profile：
+直接运行 `./bsp` 会显示所有参数及其解释，根据提示可知命令： `bsp [options] <linux|u-boot> <profile> [product]`。  
+以 Radxa ROCK 5B 为例，linux profile 为 `rk2410`，以下是其他产品的 profile：
 
-|       Model       | profile  |
-| :---------------: | :------: |
-|   Radxa ROCK 5A   | rockchip |
-|   Radxa ROCK 5B   | rockchip |
-|   Radxa ROCK 5C   | rockchip |
-| Radxa ROCK 5 ITX  | rockchip |
-|   Radxa ROCK 3A   |  rk356x  |
-|   Radxa ROCK 3B   |  rk356x  |
-|   Radxa ROCK 3C   |  rk356x  |
-| Radxa CM3 Series  |  rk356x  |
-| Radxa CM3I Series |  rk356x  |
-|  Radxa ROCK PI S  |  stable  |
+|     product     | profile  |        product        | profile |     product     | profile |       product        | profile |
+| :-------------: | :------: | :-------------------: | :-----: | :-------------: | :-----: | :------------------: | :-----: |
+|    rock-4se     | rockchip |     radxa-cm3-io      | rk356x  |   radxa-zero    | stable  |       rock-5a        | rk2410  |
+| rock-pi-4a-plus | rockchip | radxa-cm3-rpi-cm4-io  | rk356x  | radxa-zero-2pro | stable  |       rock-5b        | rk2410  |
+| rock-pi-4b-plus | rockchip |  radxa-cm3-sodimm-io  | rk356x  |     rock-s0     | stable  |     rock-5b-plus     | rk2410  |
+|  rock-4c-plus   | rockchip |     radxa-cm3i-io     | rk356x  |    rock-pi-s    | stable  |       rock-5c        | rk2410  |
+|   rock-pi-4a    | rockchip | radxa-cm3j-rpi-cm4-io | rk356x  |   rock-pi-n10   | stable  |       rock-5d        | rk2410  |
+|   rock-pi-4b    | rockchip |       radxa-e23       | rk356x  |    rock-pi-e    | stable  |       rock-5t        | rk2410  |
+|   rock-pi-4c    | rockchip |       radxa-e25       | rk356x  |                 |         |      rock-5-itx      | rk2410  |
+| rock-4-core-io  | rockchip |      radxa-zero3      | rk356x  |                 |         |      radxa-e52c      | rk2410  |
+|                 |          |        rock-3a        | rk356x  |                 |         |      radxa-e54c      | rk2410  |
+|                 |          |        rock-3b        | rk356x  |                 |         |     radxa-nx5-io     | rk2410  |
+|                 |          |        rock-3c        | rk356x  |                 |         | radxa-cm4-rpi-cm4-io | rk2410  |
+|                 |          |        rock-2         | rk356x  |                 |         |     radxa-cm5-io     | rk2410  |
+|                 |          |                       |         |                 |         | radxa-cm5-rpi-cm4-io | rk2410  |
 
-然后将产品对应 profile **{props.soc}** 填入 bsp 命令的 `profile` 参数即可构建内核，例如：
+然后将产品对应 `profile`: `rk2410` 填入 `bsp` 命令的 `profile` 参数即可拉取与配置代码，例如：
 
-<PreView params={{ model: props.model, soc: props.soc }}>
-  {`./bsp linux #soc#`}
-</PreView>
+```bash
+./bsp linux rk2410 --no-build
+# `--no-build` 仅配置代码不编译
+```
 
 内核源码的路径位于 bsp 目录下的 `.src/linux`，在修改内核源码后，可再次构建内核：
 
-<PreView params={{ soc: props.soc }}>
-  {`cd bsp
-./bsp --no-prepare-source linux #soc# -r 999
-参数说明：
---no-prepare-source   # 首次编译不需要加该参数，加该参数是为了使用本地修改进行编译，如果不加这个参数将会从 Radxa kernel 仓库同步最新代码并覆盖本地修改
--r 999                 # 指定内核的版本号为 999，以优先使用`}
-</PreView>
+```bash
+cd bsp
+./bsp --no-prepare-source linux rk2410 -r 999
+# 参数说明：
+# --no-prepare-source   # 首次编译不需要加该参数，加该参数是为了使用本地修改进行编译，如果不加这个参数将会从 Radxa kernel 仓库同步最新代码并覆盖本地修改
+# -r 999                # 指定内核的版本号为 999，以优先使用
+```
 
 编译完成后会在当前目录生成许多 `deb` 包， 只需要安装下面两个 `deb` 即可
 
-<PreView params={{ soc: props.soc }}>
-  {`linux-headers-5.10.160-999-#soc#_5.10.160-20_arm64.deb
-linux-image-5.10.160-999-#soc#_5.10.160-20_arm64.deb`}
-</PreView>
+:::info
+软件包文件名会根据 `profile` 和 `-r` 参数变化
+:::
+
+```bash
+linux-headers-6.1.84-999-rk2410_6.1.84-999_arm64.deb
+linux-image-6.1.84-999-rk2410_6.1.84-999_arm64.deb
+```
 
 将上面两个 `deb` 包复制到板子上使用 `dpkg` 指令安装即可完成内核安装
 
-<PreView params={{ soc: props.soc }}>
-  {`sudo dpkg -i linux-image-5.10.160-999-#soc#_5.10.160-20_arm64.deb
-sudo dpkg -i linux-headers-5.10.160-999-#soc#_5.10.160-20_arm64.deb
-sudo reboot`}
-</PreView>
+```bash
+sudo dpkg -i linux-headers-6.1.84-999-rk2410_6.1.84-999_arm64.deb
+sudo dpkg -i linux-image-6.1.84-999-rk2410_6.1.84-999_arm64.deb
+sudo reboot
+```
 
 重启完成后，可以通过 `uname -a` 查看当前启动的内核版本号，来查看是否安装成功
 

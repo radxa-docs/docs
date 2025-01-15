@@ -4,11 +4,7 @@ import { PreView } from "@site/src/utils/docs";
 
 bsp is a set of tools provided by Radxa to quickly build U-Boot Kernels. It is very easy to build your own U-Boot and Kernel with bsp.
 
-<PreView params={{ model: props.model }}>
-  {`
-The following shows you how to build a kernel with bsp using #model# as an example.
-`}
-</PreView>
+The following shows you how to build a kernel with bsp using Radxa ROCK 5B as an example.
 
 ### bsp environment configuration
 
@@ -51,56 +47,60 @@ cd bsp
 
 ### Build the kernel
 
-<PreView params={{ model: props.model, soc: props.soc }}>
-  {`
-Once you've finished configuring your bsp environment, you need to compile the kernel once before pulling the kernel code from the repository.  
-Running . /bsp will show you all the arguments and their explanations, and the command "bsp [options] <linux|u-boot> <profile> [product]" will be available at the prompt.  
-Taking #model# as an example, the linux profile is "#soc#". The following are profiles for other products:
-|       Model      | Profile  |
-| :--------------: | :------: |
-|  Radxa ROCK 5A   | rockchip |
-|  Radxa ROCK 5B   | rockchip |
-|  Radxa ROCK 5C   | rockchip |
-| Radxa ROCK 5 ITX | rockchip |
-|  Radxa ROCK 3A   |  rk356x  |
-|  Radxa ROCK 3B   |  rk356x  |
-|  Radxa ROCK 3C   |  rk356x  |
-|  Radxa CM3 Series|  rk356x  |
-| Radxa CM3I Series|  rk356x  |
-| Radxa ROCK PI S  |  stable  |
-Then fill in the **profile** parameter of the bsp command with the product profile **#soc#** e.g.: **. /bsp linux #soc#** to build the kernel.  
-The kernel source code is located in **.src/linux** in the bsp directory, and you can build the kernel again after modifying the kernel source code:
-`}
-</PreView>
+Running `./bsp` will show you all the arguments and their explanations, and the command `bsp [options] <linux|u-boot> <profile> [product]` will be available at the prompt.  
+Taking Radxa ROCK 5B as an example, the linux profile is "rk2410". The following are profiles for other products:
 
-<PreView params={{ soc: props.soc }}>
-  {`
-    cd bsp
-    . /bsp --no-prepare-source linux #soc# -r 999
-    Parameter description:
-    --no-prepare-source # This parameter is not needed for the first build, it is added to compile with local changes, if not it will synchronize the latest code from the Radxa kernel repository and overwrite the local changes.
-    -r 999 # Specify the kernel version number as 999 for priority use.
-`}
-</PreView>
+|     product     | profile  |        product        | profile |     product     | profile |       product        | profile |
+| :-------------: | :------: | :-------------------: | :-----: | :-------------: | :-----: | :------------------: | :-----: |
+|    rock-4se     | rockchip |     radxa-cm3-io      | rk356x  |   radxa-zero    | stable  |       rock-5a        | rk2410  |
+| rock-pi-4a-plus | rockchip | radxa-cm3-rpi-cm4-io  | rk356x  | radxa-zero-2pro | stable  |       rock-5b        | rk2410  |
+| rock-pi-4b-plus | rockchip |  radxa-cm3-sodimm-io  | rk356x  |     rock-s0     | stable  |     rock-5b-plus     | rk2410  |
+|  rock-4c-plus   | rockchip |     radxa-cm3i-io     | rk356x  |    rock-pi-s    | stable  |       rock-5c        | rk2410  |
+|   rock-pi-4a    | rockchip | radxa-cm3j-rpi-cm4-io | rk356x  |   rock-pi-n10   | stable  |       rock-5d        | rk2410  |
+|   rock-pi-4b    | rockchip |       radxa-e23       | rk356x  |    rock-pi-e    | stable  |       rock-5t        | rk2410  |
+|   rock-pi-4c    | rockchip |       radxa-e25       | rk356x  |                 |         |      rock-5-itx      | rk2410  |
+| rock-4-core-io  | rockchip |      radxa-zero3      | rk356x  |                 |         |      radxa-e52c      | rk2410  |
+|                 |          |        rock-3a        | rk356x  |                 |         |      radxa-e54c      | rk2410  |
+|                 |          |        rock-3b        | rk356x  |                 |         |     radxa-nx5-io     | rk2410  |
+|                 |          |        rock-3c        | rk356x  |                 |         | radxa-cm4-rpi-cm4-io | rk2410  |
+|                 |          |        rock-2         | rk356x  |                 |         |     radxa-cm5-io     | rk2410  |
+|                 |          |                       |         |                 |         | radxa-cm5-rpi-cm4-io | rk2410  |
+
+Then fill in the `profile` parameter of the `bsp` command with the product's corresponding `profile`: `rk2410` to pull and configure the code, for example:
+
+```bash
+./bsp linux rk2410 --no-build
+# `--no-build` only configure the code without compile
+```
+
+The path to the kernel source code is located in `.src/linux` in the bsp directory, and the kernel can be built again after modifying the kernel source code:
+
+```bash
+cd bsp
+./bsp --no-prepare-source linux rk2410 -r 999
+# Parameter description:
+# `--no-prepare-source` # This parameter is not needed for first time compilation, it is added to compile with local modifications, if this parameter is not added, the latest code will be synchronized from the Radxa kernel repository and overwrite the local modifications.
+# `-r 999` # Specify the kernel version as 999 for priority use.
+```
 
 After compilation, a number of `deb` packages will be generated in the current directory, you only need to install the following two `deb` packages
 
-<PreView params={{ soc: props.soc }}>
-  {`
-    linux-headers-5.10.160-999-#soc#_5.10.160-20_arm64.deb
-    linux-image-5.10.160-999-#soc#_5.10.160-20_arm64.deb
-`}
-</PreView>
+:::info
+The software package file name will change according to the parameters of `propile` and` -r`
+:::
+
+```bash
+linux-headers-6.1.84-999-rk2410_6.1.84-999_arm64.deb
+linux-image-6.1.84-999-rk2410_6.1.84-999_arm64.deb
+```
 
 Copy the above two `deb` packages to the board and install them with the `dpkg` command to complete the kernel installation
 
-<PreView params={{ soc: props.soc }}>
-  {`
-    sudo dpkg -i linux-image-5.10.160-999-#soc#_5.10.160-20_arm64.deb
-    sudo dpkg -i linux-headers-5.10.160-999-#soc#_5.10.160-20_arm64.deb
-    sudo reboot
-`}
-</PreView>
+```bash
+sudo dpkg -i linux-headers-6.1.84-999-rk2410_6.1.84-999_arm64.deb
+sudo dpkg -i linux-image-6.1.84-999-rk2410_6.1.84-999_arm64.deb
+sudo reboot
+```
 
 After the reboot is complete, you can check if the installation was successful by checking the version number of the currently booted kernel with `uname -a`.
 
