@@ -353,3 +353,14 @@ docs/common/dev/_moonlight.mdx @CodeChenL
 docs/rock5/rock5c/app-development/moonlight.md @CodeChenL
 i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5b/app-development/moonlight.md @CodeChenL
 docs/rock5/rock5itx/app-development/moonlight.md @CodeChenL
+static/img/rock3/3b/rock3b-interfaces.webp @peterwang2050
+static/img/rock5itx/rock5itx-sata_1.webp @nascs
+docs/compute-module/cm5/radxa-os/app-dev/ros2_humble.md @nascs
+i18n/en/docusaurus-plugin-content-docs/current/compute-module/cm3i/low-level-dev/maskrom/README.md @nascs
+static/home/product-pictures/rockpis.webp @xzuoqi
+docs/rock3/rock3b/low-level-dev/kernel.md @nascs
+i18n/en/docusaurus-plugin-content-docs/current/common/accessories/_radxa-25w-poe.mdx @nascs
+i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5itx/app-development/README.md @nascs
+docs/compute-module/cm3/low-level-dev/u-boot.md @nascs
+static/img/general-tutorial/tpu_ai/llama3_web_demo.webp @vamrs-feng
+docs/rock3/rock3b/_image.mdx @nascs
