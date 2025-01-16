@@ -8,13 +8,15 @@ import Images from "./\_image.mdx"
 
 ## 硬件设计
 
-Orion O6 V1.1 版本
+Orion O6 V1.2 版本
 
-[V1.1 2D dxf](https://dl.radxa.com)
+[V1.2 2D dxf](https://dl.radxa.com)
 
-[V1.1 原理图 pdf](https://dl.radxa.com)
+[V1.2 原理图 pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_schematic.pdf)
 
-[V1.1 位号图 pdf](https://dl.radxa.com)
+[V1.2 位号图 BOT pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_bot.pdf)
+
+[V1.2 位号图 TOP pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_top.pdf)
 
 ## 刷机工具
 
@@ -26,11 +28,11 @@ Orion O6 V1.1 版本
 
 ### Debian
 
-[Debian12 Desktop](https://dl.radxa.com)
+[Debian12 Desktop B1](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b1.img.gz)
 
 | 用户名 | 密码 |
 |:---:|:---:|
-| cix | cix |
+| radxa | radxa |
 
 ### Fedora
 
