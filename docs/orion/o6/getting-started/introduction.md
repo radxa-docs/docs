@@ -140,17 +140,20 @@ sidebar_position: 1
 
 ## 接口说明
 
-<img src="/img/o6/rs600_layout.webp" alt="o6 hardware diagram" width="700" />
+# 主板布局
 
-以下是各个硬件接口的详细接口线序以及说明。
+详细的 O6 <span id="o6-layout">主板布局</span>，带有编号标签如下：
 
-| No. |         Name         | No. |          Name          | No. |        Name         | No. |    Name     |
-| :-: | :------------------: | :-: | :--------------------: | :-: | :-----------------: | :-: | :---------: |
-|  1  |    PCIe X16 Slot     |  9  |           DP           | 17  |    40-PIN Header    | 25  | Debug UART  |
-|  2  |      M.2 M-Key       | 10  |          HDMI          | 18  |     CIX CD8180      | 26  |     eDP     |
-|  3  |      M.2 E-Key       | 11  |         USB3.2         | 19  |    RAM LPDDR5(X)    | 27  | RTC Battery |
-|  4  |     Speaker L/R      | 12  |         USB2.0         | 20  | ATX Power Interface | 28  | MIPI Camera |
-|  5  | Power LED + User LED | 13  | Full-functioned Type-C | 21  |        F_USB        |     |             |
-|  6  |     Reset Button     | 14  |      Power Button      | 22  |       F_AUDIO       |     |             |
-|  7  |  Headphone with MIC  | 15  |       FAN Header       | 23  |     Touch Panel     |     |             |
-|  8  |         5GbE         | 16  |    SPI Flash Socket    | 24  |       F_PANEL       |     |             |
+![Orion O6 主板布局及组件标签](/img/o6/rs600_layout.webp)
+
+| 编号 | 描述                                                               | 编号 | 描述                                                                    | 编号 | 描述                                                                       |
+| ---- | ------------------------------------------------------------------ | ---- | ----------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------- |
+| ①    | [PCIe X16 插槽](../hardware-design/hardware-interface.md#circle-1) | ⑩    | [双 USB 3.2](../hardware-design/hardware-interface.md#circle-10)        | ⑲    | [ATX 电源连接器](../hardware-design/hardware-interface.md#circle-19)       |
+| ②    | [M.2 M 键](../hardware-design/hardware-interface.md#circle-2)      | ⑪    | [双 USB 2.0](../hardware-design/hardware-interface.md#circle-11)        | ⑳    | [F_USB 连接器](../hardware-design/hardware-interface.md#circle-20)         |
+| ③    | [M.2 E 键](../hardware-design/hardware-interface.md#circle-3)      | ⑫    | [USB-C 端口](../hardware-design/hardware-interface.md#circle-12)        | ㉑   | [F_Audio 连接器](../hardware-design/hardware-interface.md#circle-21)       |
+| ④    | [板载状态 LED](../hardware-design/hardware-interface.md#circle-4)  | ⑬    | [电源按钮](../hardware-design/hardware-interface.md#circle-13)          | ㉒   | [TP 连接器](../hardware-design/hardware-interface.md#circle-22)            |
+| ⑤    | [复位按钮](../hardware-design/hardware-interface.md#circle-5)      | ⑭    | [风扇连接器](../hardware-design/hardware-interface.md#circle-14)        | ㉓   | [F_Panel 前面板连接器](../hardware-design/hardware-interface.md#circle-23) |
+| ⑥    | [耳机插孔](../hardware-design/hardware-interface.md#circle-6)      | ⑮    | [BIOS 闪存座](../hardware-design/hardware-interface.md#circle-15)       | ㉔   | [调试连接器](../hardware-design/hardware-interface.md#circle-24)           |
+| ⑦    | [RJ45 以太网](../hardware-design/hardware-interface.md#circle-7)   | ⑯    | [40 针 GPIO 连接器](../hardware-design/hardware-interface.md#circle-16) | ㉕   | [eDP 连接器](../hardware-design/hardware-interface.md#circle-25)           |
+| ⑧    | [DP 端口](../hardware-design/hardware-interface.md#circle-8)       | ⑰    | [CPU Cix CD8180](../hardware-design/hardware-interface.md#circle-17)    | ㉖   | [RTC 电池座](../hardware-design/hardware-interface.md#circle-26)           |
+| ⑨    | [HDMI 端口](../hardware-design/hardware-interface.md#circle-9)     | ⑱    | [LPDDR5 内存](../hardware-design/hardware-interface.md#circle-18)       |      |                                                                            |
