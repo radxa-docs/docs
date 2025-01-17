@@ -400,6 +400,22 @@ sidebar_custom_props:
                   ],
               },
               {
+                products_name: "Radxa CM3J",
+                products_photo_url: "/home/product-pictures/cm3j.webp",
+                products_link: "/compute-module/cm3j",
+                docs:
+                  [
+                    {
+                      docs_link: "/compute-module/cm3j",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa CM3J 概览",
+                      docs_info_en: "Overview of the Radxa CM3J",
+                      docs_info_zh: "Radxa CM3J 概览",
+                    },
+                  ],
+              },
+              {
                 products_name: "Radxa CM3S",
                 products_photo_url: "/home/product-pictures/cm3s.webp",
                 products_link: "",
