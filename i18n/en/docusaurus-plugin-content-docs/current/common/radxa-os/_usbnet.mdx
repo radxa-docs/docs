@@ -1,52 +1,26 @@
-Most of radxa products have reserved a USB port as an OTG port, it also a adb debug port when runuing Android. You can consult the port definitions of the corresponding [products](https://radxa.com/products).
-You can set up a shared network between two products by connecting their OTG ports. Now officially supported for latest linux and android images.
+Most Radxa products reserve a USB port as an OTG port, and also as an ADB debug port when running Android.
+You can check the port definition of the corresponding [product](https://radxa.com/products) here.
+You can create a shared network by connecting two products via the OTG port.
+This document only applies to the latest officially released Radxa OS and Android images.
 
 ## Preparations
 
-**Cable**: Before you start, you will need one USB-A to USB-A cable to connect two SBCs.
-
-**Software**: If your SBC has not the latest software, connect you SBC to internet and type the following command:
-
-```bash
-sudo apt update && sudo apt full-upgrade
-```
-
-**Service**: After updating software, you need to start the `radxa-usbnet` service:
-
-```bash
-sudo systemctl enable --now radxa-usbnet
-```
-
-**Status**: Typing the command to confirm if the service is running:
-
-```bash
-sudo systemctl status radxa-usbnet.service
-```
-
-The service active status is usually `active(exited)` when running.
+**Cable**: First of all, you will need a cable to connect to the OTG port of your SBC, please refer to the hardware information page of the corresponding product for the specific port used.  
+**Software**: If your SBC does not have the latest software, please connect your SBC to the Internet and use [`rsetup` to update the system](rsetup#system-update):
 
 ## OTG Settings
 
-At first, connect the two SBC OTG ports by USB-A to USB-A cable.
-Device identity of this shared network depends on what [overlay](../os-config/rsetup#overlay) you enable,the host machine shares the network to device mahine.
-The host machine enable this overlay:
+First, connect the OTG port of the SBC using the data cable.
+Enable `Set OTG port to Peripheral mode` overlay using [`rsetup`](rsetup#overlays) and reboot.
 
-```bash
-[*] Set OTG port to Host mode
-```
+### Enable `NCM` services
 
-The device machine enable this overlay:
-
-```bash
-[*] Set OTG port to Peripheral mode
-```
-
-Reboot after enable options.
+Use [`rsetup`](rsetup#usb-otg-services) to enable the `radxa-ncm@*.*` Service.
 
 ### To the Host machine
 
-For sharing the network to device machine, host machine need to connect to the external network, both wired and wireless networks are available.
-Next, we need to set up a shared adapter for the device machine connection, which can be set on the KDE Desktop and Terminal.
+For sharing the network to device machine, host machine need to connect to the external network, both wired and wireless networks are available.  
+Next, we need to set up a shared adapter for the device machine connection, which can be set on the KDE Desktop and Terminal.  
 This guide you set it on terminal:
 
 **Set shared adapter:**
@@ -66,7 +40,7 @@ The name of it may be different:
        valid_lft forever preferred_lft forever
 ```
 
-If there is not a new network card, you may need to set overlay once again.
+If there is no new NIC, check the previous steps: open [Overlay](#otg-settings), reboot, and [start NCM service](#enable-ncm-services).
 
 Network Manager Tool is the recommended tool to manage the network, typing the command to open the interface:
 
@@ -91,7 +65,9 @@ After identification, the setting interface appears:
 ```
 
 Select `Edit a connection -- <Add>` to add a `Ethernet` adapter:
+
 ![add adapter](/img/configuration/add_adapter.webp)
+
 Of the many options, we only need to fill in two of them:
 
 ```bash
@@ -108,6 +84,7 @@ It would be following if you apply it right:
 ```
 
 **Confirm adapter setting:**
+
 After you settings, check if there is a IP address of third network card:
 
 ```bash
@@ -131,8 +108,7 @@ If it's similar with your result, time to set up device machine.
 ### To Device machine
 
 **Enable usb network connection:**
-Relative to Host machine, it woulb be easy for device machine settings.
-At first, enable the `Set OTG port to Peripheral mode` overlay and start the `radxa-usbnet` service, reboot.
+Relative to Host machine, it woulb be easy for device machine settings.  
 Typing `ip a` to confirm if a new device named `usb0` like the following added:
 
 ```bash
@@ -140,10 +116,9 @@ Typing `ip a` to confirm if a new device named `usb0` like the following added:
     link/ether 76:c7:9d:9e:d5:da brd ff:ff:ff:ff:ff:ff
 ```
 
-If not, check previous steps: reopen the overlay (Don't forget to reboot.) and restart the usbnet service.
+If there is no new NIC, check the previous steps: open [Overlay](#otg-settings), reboot, and [start NCM service](#enable-ncm-services).
 
-**Set up usbnet adapter:**
-Next, set up the adapter as set up the Host device:
+**Setup NCM adapter:**
 Open the Network Manager Tool:
 
 ```bash

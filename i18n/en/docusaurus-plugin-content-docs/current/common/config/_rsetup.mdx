@@ -104,7 +104,7 @@ Some peripherals can be modified on this menu, the following is the introduction
 │                      GPIO LEDs                                               │
 │                      Thermal governor                                        │
 │                      Configure DSI display mirroring                         │
-│                                                                              │
+│                      USB OTG services                                        │
 │                                                                              │
 │                     <Ok>                         <Cancel>                    │
 │                                                                              │
@@ -133,6 +133,18 @@ Generally, we select `power_allocator` when using DC fan or fanless, select `ste
 ### Configure DSI display mirroring
 
 If DSI display has some problems when using HDMI display and DSI display at the same time, enable this option will helpful.
+
+### USB OTG services
+
+Enabling Device function configuration for the OTG port:
+
+```
+# `*.*` is the corresponding USB controller
+
+radxa-adbd@*.*  # Configured as an ADB device
+radxa-ecm@*.*   # Configured as an ECM device (not recommended)
+radxa-ncm@*.*   # Configured as an NCM device (recommended)
+```
 
 ## Overlays
 
