@@ -27,7 +27,6 @@ $ ping ip-of-device
 $ ssh radxa@ip-of-device
 ```
 
-
 ## 显示
 
 Orion O6 有5个显示接口，分别是
@@ -44,6 +43,6 @@ Orion O6 有5个显示接口，分别是
 |----------------------------|----------|
 | /sys/class/drm/card0-DP-1  | USBC 0   |
 | /sys/class/drm/card1-DP-2  | HDMI     |
-| /sys/class/drm/card4-DP-3  | USBC 1   |
-| /sys/class/drm/card4-DP-4  | DP       |
 | /sys/class/drm/card2-eDP-1 | eDP      |
+| /sys/class/drm/card3-DP-3  | USBC 1   |
+| /sys/class/drm/card4-DP-4  | DP       |
