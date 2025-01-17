@@ -140,7 +140,7 @@ sidebar_position: 1
 
 ## 接口说明
 
-<img src="/img/o6/o6-real.webp" alt="o6 hardware diagram" width="700" />
+<img src="/img/o6/rs600_layout.webp" alt="o6 hardware diagram" width="700" />
 
 以下是各个硬件接口的详细接口线序以及说明。
 
