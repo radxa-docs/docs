@@ -24,7 +24,7 @@ Orion O6 V1.2 版本
 
 ### BIOS
 
-[O6 BIOS](https://dl.radxa.com)
+[O6 BIOS](https://github.com/radxa-pkg/edk2-cix/releases)
 
 ### Debian
 
