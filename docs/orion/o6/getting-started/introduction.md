@@ -108,8 +108,8 @@ sidebar_position: 1
       <td><strong>电源输入</strong></td>
       <td>
         • ATX 24P 电源接口 <br />
-        • USB-C PD 电源输入（20V/2A 或更高）<br />
-        • Dummy USB-C 电源输入（20V）
+        • USB-C PD 电源输入（20V/3.25A 或更高）<br />
+        • 20V USB-C 适配器直出
       </td>
     </tr>
     <tr>
