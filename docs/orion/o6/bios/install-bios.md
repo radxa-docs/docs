@@ -5,44 +5,19 @@ description: ""
 
 # 安装 BIOS
 
-## 获取 BIOS 发布包
+## 下载 BIOS 发布包
 
-[O6 BIOS](https://github.com/radxa-pkg/edk2-cix/releases/latest)
+[O6 BIOS](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.2.2-1.zip)
 
-## 制作 U盘刷 BIOS 环境
-
-### 选项一：在 Windows PC 上操作
+## 制作刷 BIOS U盘
 
 1，将 U盘格式化出一个分区，格式为 FAT32。
 
-2，用 7z 工具，把发布包 edk2-cix 包解压得到 data.tar；再用 7z 工具解压 data.tar。
-在 `data/usr/share/edk2/radxa/orion-o6/` 目录下有 BIOS 文件和工具。
+2，将 BIOS 压缩包解压开，把如下文件并放到 U盘中 FAT32 分区的顶层目录中。
 
 ```
 BuildOptions  BurnImage.efi  cix_flash_all.bin  cix_flash_ota.bin  FlashUpdate.efi  setup.nsh  Shell.efi  VariableInfo.efi
 ```
-
-3，将 BIOS 文件和工具拷贝到 U盘的顶层目录中。
-
-### 选项二：在 Linux PC 上操作
-
-1，将 U盘格式化出一个分区，格式为 FAT32。
-
-2，用 ar 先解压，得到 data.tar.xz。
-
-```
-ar vx edk2-cix_0.2.1-1_all.deb
-```
-
-3，用 tar 解压，得到文件和工具
-
-```
-$ tar xvf data.tar.xz
-$ ls usr/share/edk2/radxa/orion-o6/
-BuildOptions  BurnImage.efi  cix_flash_all.bin  cix_flash_ota.bin  FlashUpdate.efi  setup.nsh  Shell.efi  VariableInfo.efi
-```
-
-4，将 BIOS 文件和工具拷贝到 U盘的顶层目录中。
 
 ## 更新 BIOS
 
