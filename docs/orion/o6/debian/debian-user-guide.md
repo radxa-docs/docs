@@ -4,6 +4,8 @@ sidebar_position: 5
 
 # Debian 用户指南
 
+这篇指南主要是介绍 Radxa 构建的 Debian12 Desktop 系统。
+
 ## 默认用户名和密码
 
 ```
