@@ -13,7 +13,7 @@ description: ""
 
 1，将 U盘格式化出一个分区，格式为 FAT32。
 
-2，将 BIOS 压缩包解压开，把如下文件并放到 U盘中 FAT32 分区的顶层目录中。
+2，将 BIOS 压缩包解压开，把如下文件放到 U盘的 FAT32 分区的顶层目录中。
 
 ```
 BuildOptions  BurnImage.efi  cix_flash_all.bin  cix_flash_ota.bin  FlashUpdate.efi  setup.nsh  Shell.efi  VariableInfo.efi
