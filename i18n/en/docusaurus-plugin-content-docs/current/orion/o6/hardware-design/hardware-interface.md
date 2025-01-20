@@ -72,64 +72,92 @@ The DisplayPort (DP) on the O6 supports a maximum resolution of **4K@120Hz** and
 
 The dual Ethernet ports provide a wired connection with speeds up to **5Gbps**. The LED indicators for these ports are described below:
 
-<img src="/img/o6/rj45_led.webp" alt="RJ45 LED" width="700" />
-
-| LED    | State    | Meaning                                               |
-| ------ | -------- | ----------------------------------------------------- |
-| Orange | Solid    | Link established (device is connected to the network) |
-| Green  | Blinking | Data transmission occurring (network activity)        |
-| Off    | -        | No link detected (cable unplugged or network issue)   |
+<table>
+  <tr>
+    <td>
+      <img src="/img/o6/rj45_led.webp" width="100%" height="auto" />
+    </td>
+    <td>
+      <table>
+        <thead>
+          <tr>
+            <th>LED</th>
+            <th>State</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Orange</td>
+            <td>Solid</td>
+            <td>Link established (device is connected to the network)</td>
+          </tr>
+          <tr>
+            <td>Green</td>
+            <td>Blinking</td>
+            <td>Data transmission occurring (network activity)</td>
+          </tr>
+          <tr>
+            <td>Off</td>
+            <td>-</td>
+            <td>No link detected (cable unplugged or network issue)</td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+</table>
 
 ### <span id="circle-6">Headphone Jack</span> [⑥](#o6-layout)
 
-O6 上的 **3.5mm 耳机插孔** 支持音频输入和输出。它可以驱动标准耳机，并兼容常用的环型配置。
+The **3.5mm headphone jack** on the O6 supports both audio input and output. It can drive standard headphones and is compatible with commonly used ring configurations.
 
 ### <span id="circle-5">Reset Button</span> [⑤](#o6-layout)
 
-O6 配备了一个复位按钮用于系统复位。短按将重新启动系统。
+The O6 is equipped with a reset button for system resets. A short press will reboot the system.
 
-## 内部组件
+## Internal Components
 
 ### <span id="circle-17">CPU - Cix CD8180</span> [⑰](#o6-layout)
 
-O6 主板上的 CPU（Cix CD8180）直接焊接在主板上，不可更换。
+The CPU on the O6 board, the Cix CD8180, is soldered directly onto the board and is non‑replaceable.
 
 ### <span id="circle-18">DRAM</span> [⑱](#o6-layout)
 
-O6 上的 DRAM 直接焊接在主板上，不可更换。它由四个 32 位 LPDDR5 芯片组合成一个 128 位内存总线，速度高达 **5500 MT/s**，总带宽为 **80 GB/s**。
+The DRAM on the O6 is soldered onto the board and is non‑replaceable. It consists of four 32‑bit LPDDR5 chips combined into a 128‑bit memory bus, achieving speeds of up to **5500 MT/s**, with a total bandwidth of **0 GB/s**.
 
 ### <span id="circle-1">PCIe X16 Slot</span> [①](#o6-layout)
 
-O6 具有一个全尺寸 PCIe X16 插槽，支持 **PCIe Gen4 x8** 信号。此端口不支持 PCIe 分叉。
+The O6 features a **full‑size PCIe X16 slot**, supporting **PCIe Gen4 x8** signals. PCIe bifurcation is not supported for this port.
 
-- 电源供应：
-  - 使用 ATX 电源时：PCIe 插槽的最大功率为 **60W**。
-  - 使用 USB-C PD 电源时：PCIe 插槽的最大功率为 **15W**。
+- Power supply:
+  - **With ATX power**: Maximum power from the PCIe slot is **60W**.
+  - **With USB－C PD power**: Maximum power from the PCIe slot is **15W**.
 
 ### <span id="circle-2">M.2 M Key</span> [②](#o6-layout)
 
-O6 上提供了一个 M.2 M 键连接器，支持 **2230**、**2242**、**2260** 和 **2280** 类型的 SSD。该连接器提供 **PCIe Gen4 x4** 信号。
+An M.2 M Key connector is provided on the O6, supporting **2230**, **2242**, **2260**, and **2280** SSD types. The connector offers **PCIe Gen4 x4 signals**.
 
-- 电源供应：
-  - **恒定功率**：**15W**
-  - **峰值功率**：**28W**
+- Power supply:
+  - **Constant power**: **15W**
+  - **Peak power**: **28W**
 
 ### <span id="circle-3">M.2 E Key</span> [③](#o6-layout)
 
-O6 上提供了一个 M.2 E 键连接器，支持 2230 WiFi/BT 卡。该连接器可提供 PCIe Gen4 x2 和 USB 2.0 信号。该连接器提供恒定 15W、峰值 28W 的功率。
+A M.2 E Key connector is provided on O6, with 2230 WiFi / BT card support. PCIe Gen4 x2 and USB 2.0 signal is available from the connector. Constant 15W peak 28W powed is supplied from this connector.
 
 ### <span id="circle-4">on board LED</span> [④](#o6-layout)
 
-O6 主板上包含两个 LED：
+Two LEDs are included on the O6 board:
 
-- **绿色 LED**：指示电源状态。
-- **蓝色 LED**：指示系统状态。
-  - 当 BIOS 运行时，蓝色 LED 保持亮起。
-  - 当操作系统运行时，蓝色 LED 闪烁以表示系统心跳。
+- **Green LED**：Indicates power status.
+- **Blue LED**：Indicates system status.
+  - When the BIOS is running, the Blue LED remains on.
+  - When the OS is running, the Blue LED blinks to represent the system heartbeat.
 
 ### <span id="circle-14">Fan Connector</span> [⑭](#o6-layout)
 
-O6 具有一个标准的 ATX 风扇连接器。引脚定义如下：
+The O6 features a standard ATX fan connector. The pinout is defined as follows:
 
 <table>
   <tr>
@@ -140,31 +168,31 @@ O6 具有一个标准的 ATX 风扇连接器。引脚定义如下：
       <table>
         <thead>
           <tr>
-            <th>引脚</th>
-            <th>名称</th>
-            <th>描述</th>
+            <th>Pin.</th>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>2</td>
             <td>VCC12V</td>
-            <td>电源（12V）</td>
+            <td>Power supply (12V)</td>
           </tr>
           <tr>
             <td>3</td>
             <td>TACH</td>
-            <td>转速计信号（风扇速度反馈）</td>
+            <td>Tachometer signal (fan speed feedback)</td>
           </tr>
           <tr>
             <td>4</td>
             <td>PWM</td>
-            <td>脉冲宽度调制控制信号（3.3V）</td>
+            <td>Pulse Width Modulation control signal (3.3V)</td>
           </tr>
         </tbody>
       </table>
@@ -172,21 +200,21 @@ O6 具有一个标准的 ATX 风扇连接器。引脚定义如下：
   </tr>
 </table>
 
-**F\_面板连接器引脚图**
+**F_Panel Connector Pinout**
 
-### <span id="circle-15">BIOS 闪存芯片座</span> [⑮](#o6-layout)
+### <span id="circle-15">BIOS Flash chip Holder</span> [⑮](#o6-layout)
 
-O6 主板包括一个 BIOS 闪存芯片座，供开发人员轻松拆卸或更换 BIOS 芯片。
+The O6 board includes a BIOS flash chip holder designed for developers to easily remove or replace the BIOS chip.
 
-- **芯片兼容性**：支持 SOP8 封装的闪存芯片。
-- **芯片容量**：8MB（64Mbit）。
-- **电压等级**：1.8V。
+- **Chip compatibility**:Supports SOP8 footprint flash chips.
+- **Chip capacity**:8MB（64Mbit）。
+- **Voltage level**:1.8V。
 
-此功能通过允许方便地更换 BIOS 芯片，方便了固件开发和调试。
+This feature facilitates firmware development and debugging by allowing convenient BIOS chip replacement.
 
-### <span id="circle-16">40 针 GPIO 连接器</span> [⑯](#o6-layout)
+### <span id="circle-16">40Pin GPIO Connector</span> [⑯](#o6-layout)
 
-O6 主板上包含一个 40 针 GPIO 连接器，用于低速总线连接和通用输入/输出 (GPIO) 功能。
+A 40‑pin GPIO connector is included on the O6 board, designed for low‑speed bus connections and general‑purpose input/output (GPIO) functionality.
 
 <table>
   <tr>
@@ -197,211 +225,211 @@ O6 主板上包含一个 40 针 GPIO 连接器，用于低速总线连接和通�
       <table>
         <thead>
           <tr>
-            <th>引脚</th>
-            <th>名称</th>
-            <th>描述</th>
+            <th>Pin.</th>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
             <td>3.3 V</td>
-            <td>电源（3.3V）</td>
+            <td>Power supply(3.3V)</td>
           </tr>
           <tr>
             <td>2</td>
             <td>5V</td>
-            <td>电源（5V）</td>
+            <td>Power supply(5V)</td>
           </tr>
           <tr>
             <td>3</td>
             <td>SDA</td>
-            <td>I2C 数据线（3.3V）</td>
+            <td>I2C data line (3.3V)</td>
           </tr>
           <tr>
             <td>4</td>
             <td>5V</td>
-            <td>电源（5V）</td>
+            <td>Power supply(5V)</td>
           </tr>
           <tr>
             <td>5</td>
             <td>SCL</td>
-            <td>I2C 时钟线（3.3V）</td>
+            <td>I2C clock line (3.3V)</td>
           </tr>
           <tr>
             <td>6</td>
             <td>UART3_TXD</td>
-            <td>UART3 发送信号（3.3V）</td>
+            <td>UART3 transmit signal (3.3V)</td>
           </tr>
           <tr>
             <td>7</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>8</td>
             <td>UART3_RXD</td>
-            <td>UART3 接收信号（3.3V）</td>
+            <td>UART3 receive signal(3.3V)</td>
           </tr>
           <tr>
             <td>9</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground</td>
           </tr>
           <tr>
             <td>10</td>
             <td>I2S4_SCK</td>
-            <td>I2S4 串行时钟（3.3V）</td>
+            <td>I2S4 serial clock (3.3V)</td>
           </tr>
           <tr>
             <td>11</td>
             <td>GPIO_PWM</td>
-            <td>具有 PWM 功能的 GPIO（3.3V）</td>
+            <td>GPIO with PWM capability (3.3V)</td>
           </tr>
           <tr>
             <td>12</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>13</td>
             <td>GPIO_PWM</td>
-            <td>具有 PWM 功能的 GPIO（3.3V）</td>
+            <td>GPIO with PWM capability (3.3V)</td>
           </tr>
           <tr>
             <td>14</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground</td>
           </tr>
           <tr>
             <td>15</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>16</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>17</td>
             <td>3.3 V</td>
-            <td>电源（3.3V）</td>
+            <td>Power supply (3.3V)</td>
           </tr>
           <tr>
             <td>18</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>19</td>
             <td>SPI2_MOSI</td>
-            <td>SPI2 主出从入信号（3.3V）</td>
+            <td>SPI2 master‑out/slave‑in signal (3.3V)</td>
           </tr>
           <tr>
             <td>20</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground</td>
           </tr>
           <tr>
             <td>21</td>
             <td>SPI2_MISO</td>
-            <td>SPI2 主入从出信号（3.3V）</td>
+            <td>SPI2 master-in/slave-out signal (3.3V)</td>
           </tr>
           <tr>
             <td>22</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>23</td>
             <td>SPI2_CLK</td>
-            <td>SPI2 时钟信号（3.3V）</td>
+            <td>SPI2 clock signal (3.3V)</td>
           </tr>
           <tr>
             <td>24</td>
             <td>SPI2_CS0</td>
-            <td>SPI2 芯片选择 0（3.3V）</td>
+            <td>SPI2 chip select 0 (3.3V)</td>
           </tr>
           <tr>
             <td>25</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>26</td>
             <td>SPI2_CS1</td>
-            <td>SPI2 芯片选择 1（3.3V）</td>
+            <td>SPI2 chip select 1 (3.3V)</td>
           </tr>
           <tr>
             <td>27</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>28</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>29</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>30</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground</td>
           </tr>
           <tr>
             <td>31</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>32</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>33</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>34</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground</td>
           </tr>
           <tr>
             <td>35</td>
             <td>I2S4_TWS</td>
-            <td>I2S4 字选（3.3V）</td>
+            <td>I2S4 word select (3.3V)</td>
           </tr>
           <tr>
             <td>36</td>
             <td>I2S4_MCLK</td>
-            <td>I2S4 主时钟（3.3V）</td>
+            <td>I2S4 master clock (3.3V)</td>
           </tr>
           <tr>
             <td>37</td>
             <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>General-purpose I/O (3.3V)</td>
           </tr>
           <tr>
             <td>38</td>
             <td>I2S4_DATA_IN</td>
-            <td>I2S4 数据输入（3.3V）</td>
+            <td>I2S4 data input (3.3V)</td>
           </tr>
           <tr>
             <td>39</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground</td>
           </tr>
           <tr>
             <td>40</td>
             <td>I2S4_DATA_OUT</td>
-            <td>I2S4 数据输出（3.3V）</td>
+            <td>I2S4 data output (3.3V)</td>
           </tr>
         </tbody>
       </table>
@@ -409,11 +437,11 @@ O6 主板上包含一个 40 针 GPIO 连接器，用于低速总线连接和通�
   </tr>
 </table>
 
-**40 针 GPIO 引脚图**
+**40Pin GPIO Pinout**
 
-### <span id="circle-19">ATX 电源连接器</span> [⑲](#o6-layout)
+### <span id="circle-19">ATX Power Connector</span> [⑲](#o6-layout)
 
-O6 主板上包含一个与 ATX 兼容的 24 针电源连接器，以实现标准的 ATX 电源兼容性。
+An ATX‑compatible 24‑pin power connector is included on the O6 board for standard ATX power supply compatibility.
 
 <table>
   <tr>
@@ -424,106 +452,106 @@ O6 主板上包含一个与 ATX 兼容的 24 针电源连接器，以实现标�
       <table>
         <thead>
           <tr>
-            <th>引脚</th>
-            <th>名称</th>
-            <th>描述</th>
+            <th>Pin.</th>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>3</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>5</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>7</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>8</td>
             <td>PWR_OK</td>
-            <td>电源正常信号（逻辑高电平：3.3V 或 5V）</td>
+            <td>Power good signal (logic high: 3.3V or 5V)</td>
           </tr>
           <tr>
             <td>9</td>
             <td>5VSB</td>
-            <td>备用电源（+5V，始终开启）</td>
+            <td>Standby power supply (+5V, always on)</td>
           </tr>
           <tr>
             <td>10</td>
             <td>12V</td>
-            <td>电源（+12V）</td>
+            <td>Power supply (+12V)</td>
           </tr>
           <tr>
             <td>11</td>
             <td>12V</td>
-            <td>电源（+12V）</td>
+            <td>Power supply (+12V)</td>
           </tr>
           <tr>
             <td>13</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not connected</td>
           </tr>
           <tr>
             <td>14</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not connected</td>
           </tr>
           <tr>
             <td>15</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>16</td>
             <td>PS_ON</td>
-            <td>电源开启（低电平有效信号）</td>
+            <td>Power supply on (active low signal)</td>
           </tr>
           <tr>
             <td>17</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>18</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>19</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>20</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not connected</td>
           </tr>
           <tr>
             <td>21</td>
             <td>NC</td>
-          <td>未连接</td>
+          <td>Not connected</td>
         </tr>
         <tr>
           <td>22</td>
           <td>NC</td>
-          <td>未连接</td>
+          <td>Not connected</td>
         </tr>
         <tr>
           <td>23</td>
           <td>NC</td>
-          <td>未连接</td>
+          <td>Not connected</td>
         </tr>
         <tr>
           <td>24</td>
           <td>GND</td>
-          <td>接地连接</td>
+          <td>Ground connection</td>
         </tr>
       </tbody>
     </table>
@@ -531,11 +559,11 @@ O6 主板上包含一个与 ATX 兼容的 24 针电源连接器，以实现标�
 </tr>
 </table>
 
-**ATX 电源连接器引脚图**
+**ATX Power Connector Pinout**
 
-### <span id="circle-20">F_USB 连接器</span> [⑳](#o6-layout)
+### <span id="circle-20">F_USB Connector</span> [⑳](#o6-layout)
 
-O6 主板上的 F_USB 连接器旨在支持机箱的前面板 USB 功能。引脚配置如下：
+The F_USB connector is designed to support the front panel USB functionality of a PC enclosure. The pinout configuration is as follows:
 
 <table>
   <tr>
@@ -546,61 +574,61 @@ O6 主板上的 F_USB 连接器旨在支持机箱的前面板 USB 功能。引�
       <table>
         <thead>
           <tr>
-            <th>引脚</th>
-            <th>名称</th>
-            <th>描述</th>
+            <th>Pin.</th>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
             <td>5V_1</td>
-            <td>电源（+5V）</td>
+            <td>Power supply (+5V)</td>
           </tr>
           <tr>
             <td>2</td>
             <td>5V_2</td>
-            <td>电源（+5V）</td>
+            <td>Power supply (+5V)</td>
           </tr>
           <tr>
             <td>3</td>
             <td>USB_DM_1</td>
-            <td>USB 数据负信号</td>
+            <td>USB data negative signal</td>
           </tr>
           <tr>
             <td>4</td>
             <td>USB_DM_2</td>
-            <td>USB 数据负信号</td>
+            <td>USB data negative signal</td>
           </tr>
           <tr>
             <td>5</td>
             <td>USB_DP_1</td>
-            <td>USB 数据正信号</td>
+            <td>USB data positive signal</td>
           </tr>
           <tr>
             <td>6</td>
             <td>USB_DP_2</td>
-            <td>USB 数据正信号</td>
+            <td>USB data positive signal</td>
           </tr>
           <tr>
             <td>7</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>8</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>9</td>
             <td>/</td>
-            <td>保留或未连接</td>
+            <td>Reserved or not connected</td>
           </tr>
           <tr>
             <td>10</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
         </tbody>
       </table>
@@ -608,11 +636,11 @@ O6 主板上的 F_USB 连接器旨在支持机箱的前面板 USB 功能。引�
   </tr>
 </table>
 
-**F_USB 连接器引脚图**
+**F_USB Connector Pinout**
 
-### <span id="circle-21">F\_音频连接器</span> [㉑](#o6-layout)
+### <span id="circle-21">F_Audio Connector</span> [㉑](#o6-layout)
 
-O6 主板上的 F_Audio 音频连接器旨在支持机箱的前面板音频功能。引脚配置如下：
+The F_Audio connector is designed to support the front panel audio functionality of a PC enclosure. The pinout configuration is as follows:
 
 <table>
   <tr>
@@ -623,61 +651,61 @@ O6 主板上的 F_Audio 音频连接器旨在支持机箱的前面板音频功�
       <table>
         <thead>
           <tr>
-            <th>引脚</th>
-            <th>名称</th>
-            <th>描述</th>
+            <th>Pin.</th>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
             <td>MIC_INL</td>
-            <td>麦克风输入（左）</td>
+            <td>Microphone input (Left)</td>
           </tr>
           <tr>
             <td>2</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>3</td>
             <td>MIC_INR</td>
-            <td>麦克风输入（右）</td>
+            <td>Microphone input (Right)</td>
           </tr>
           <tr>
             <td>4</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>5</td>
             <td>HP_OUT_R</td>
-            <td>耳机输出（右）</td>
+            <td>Headphone output (Right)</td>
           </tr>
           <tr>
             <td>6</td>
             <td>FRONT_MIC_JD</td>
-            <td>前面板麦克风插孔检测</td>
+            <td>Front microphone jack detection</td>
           </tr>
           <tr>
             <td>7</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>8</td>
             <td>/</td>
-            <td>保留或未连接</td>
+            <td>Reserved or not connected</td>
           </tr>
           <tr>
             <td>9</td>
             <td>HP_OUT_L</td>
-            <td>耳机输出（左）</td>
+            <td>Headphone output (Left)</td>
           </tr>
           <tr>
             <td>10</td>
             <td>FRONT_HP_JD</td>
-            <td>前面板耳机插孔检测</td>
+            <td>Front headphone jack detection</td>
           </tr>
         </tbody>
       </table>
@@ -685,11 +713,11 @@ O6 主板上的 F_Audio 音频连接器旨在支持机箱的前面板音频功�
   </tr>
 </table>
 
-**F\_音频连接器引脚图**
+**F_Audio Connector Pinout**
 
 ### <span id="circle-22">TP 连接器</span> [㉒](#o6-layout)
 
-O6 主板上的 TP 连接器用于实现触摸面板集成。与 eDP 连接器结合使用，可为连接触摸屏提供直接接口。
+A touch panel connector is included on the O6 board to enable touch panel integration. Combined with the eDP connector, it provides a direct interface for connecting a touchscreen.
 
 <table>
   <tr>
@@ -700,51 +728,51 @@ O6 主板上的 TP 连接器用于实现触摸面板集成。与 eDP 连接器�
       <table>
         <thead>
           <tr>
-            <th>引脚</th>
-            <th>名称</th>
-            <th>描述</th>
+            <th>Pin.</th>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
             <td>Reset</td>
-            <td>触摸控制器的复位信号（3.3V）</td>
+            <td>Reset signal for touch controller (3.3V)</td>
           </tr>
           <tr>
             <td>2</td>
             <td>VCC</td>
-            <td>触摸面板电源（3.3V）</td>
+            <td>Power supply for touch panel (3.3V)</td>
           </tr>
           <tr>
             <td>3</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>4</td>
             <td>EINT</td>
-            <td>外部中断信号（3.3V）</td>
+            <td>External interrupt signal (3.3V)</td>
           </tr>
           <tr>
             <td>5</td>
             <td>SDA</td>
-            <td>用于触摸通信的 I2C 数据线（3.3V）</td>
+            <td>I2C data line for touch communication (3.3V)</td>
           </tr>
           <tr>
             <td>6</td>
             <td>SCL</td>
-            <td>用于触摸通信的 I2C 时钟线（3.3V）</td>
+            <td>I2C clock line for touch communication (3.3V)</td>
           </tr>
           <tr>
             <td>7</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>8</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
         </tbody>
       </table>
@@ -752,11 +780,11 @@ O6 主板上的 TP 连接器用于实现触摸面板集成。与 eDP 连接器�
   </tr>
 </table>
 
-**触摸面板连接器引脚图**
+**Touch Panel Connector Pinout**
 
-### <span id="circle-23">F_Panel 前面板连接器</span> [㉓](#o6-layout)
+### <span id="circle-23">F_Panel Connector</span> [㉓](#o6-layout)
 
-O6 主板上的 F_Panel 前面板连接器用于支持机箱的前面板电源按钮、复位按钮和 LED 功能。引脚配置如下：
+The F_Panel connector is designed to support the front panel power button, reset button, and LED functionality of a PC enclosure. The pinout configuration is as follows:
 
 <table>
   <tr>
@@ -767,61 +795,61 @@ O6 主板上的 F_Panel 前面板连接器用于支持机箱的前面板电源�
       <table>
         <thead>
           <tr>
-            <th>引脚</th>
-            <th>名称</th>
-            <th>描述</th>
+            <th>Pin.</th>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
             <td>SSD_LED+</td>
-            <td>固态硬盘 (SSD) 活动 LED（+）</td>
+            <td>Solid State Drive (SSD) activity LED (+)</td>
           </tr>
           <tr>
             <td>2</td>
             <td>PWR_LED+</td>
-            <td>电源 LED（+）</td>
+            <td>Power LED (+)</td>
           </tr>
           <tr>
             <td>3</td>
             <td>SSD_LED-</td>
-            <td>SSD 活动 LED（-）</td>
+            <td>SSD activity LED (‑)</td>
           </tr>
           <tr>
             <td>4</td>
             <td>PWR_LED-</td>
-            <td>电源 LED（-）</td>
+            <td>Power LED (‑)</td>
           </tr>
           <tr>
             <td>5</td>
             <td>RESET-</td>
-            <td>复位开关（-）</td>
+            <td>Reset switch (‑)</td>
           </tr>
           <tr>
             <td>6</td>
             <td>PWR_ON</td>
-            <td>电源开启信号</td>
+            <td>Power switch ON signal</td>
           </tr>
           <tr>
             <td>7</td>
             <td>RESET+</td>
-            <td>复位开关（+）</td>
+            <td>Reset switch (+)</td>
           </tr>
           <tr>
             <td>8</td>
             <td>PWR_GND</td>
-            <td>电源接地</td>
+            <td>Power ground</td>
           </tr>
           <tr>
             <td>9</td>
             <td>RSV(5V)</td>
-            <td>保留引脚（5V 电源）</td>
+            <td>Reserved pin (5V power supply)</td>
           </tr>
           <tr>
             <td>10</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not connected</td>
           </tr>
         </tbody>
       </table>
@@ -829,18 +857,18 @@ O6 主板上的 F_Panel 前面板连接器用于支持机箱的前面板电源�
   </tr>
 </table>
 
-**F_Panel 前面板连接器引脚图**
+**F_Panel Connector Pinout**
 
-### <span id="circle-24">调试连接器</span> [㉔](#o6-layout)
+### <span id="circle-24">Debug Connectors</span> [㉔](#o6-layout)
 
-O6 主板上包含四个专用的 UART 接口，用于各种调试目的。此外，还提供了一个 EC UART 用于 EC 串行控制台。
+Four dedicated UART interfaces are included on the O6 board for various debugging purposes. Additionally, an EC UART is provided for the EC serial console.
 
-- **UART2**：BIOS 和操作系统调试日志
-- **UART4**：电源管理、电压和频率监控
-- **UART5**：安全 BootROM 调试日志
-- **EC UART**：板载嵌入式控制器调试日志
+- **UART2**：BIOS and OS debug logs
+- **UART4**：Power management, voltage, and frequency monitoring
+- **UART5**：Secure BootROM debug logs
+- **EC UART**：On board Embedded Controller debug logs
 
-UART 引脚配置如下：
+The UART pinout configuration is as follows:
 
 <table>
   <tr>
@@ -851,29 +879,29 @@ UART 引脚配置如下：
       <table>
         <thead>
           <tr>
-            <th colspan="3">UART_x 引脚图</th>
+            <th colspan="3">UART_x Pinout</th>
           </tr>
           <tr>
-            <th>引脚</th>
-            <th>名称</th>
-            <th>描述</th>
+            <th>Pin.</th>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>2</td>
             <td>UART_TX</td>
-            <td>UART 发送信号（3.3V）</td>
+            <td>UART transmit signal(3.3V)</td>
           </tr>
           <tr>
             <td>3</td>
             <td>UART_RX</td>
-            <td>UART 接收信号（3.3V）</td>
+            <td>UART receive signal(3.3V)</td>
           </tr>
         </tbody>
       </table>
@@ -882,24 +910,24 @@ UART 引脚配置如下：
       <table>
         <thead>
           <tr>
-            <th colspan="3">BOOT 引脚图</th>
+            <th colspan="3">BOOT Pinout</th>
           </tr>
           <tr>
-            <th>引脚</th>
-            <th>名称</th>
-            <th>描述</th>
+            <th>Pin.</th>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
             <td>BOOT_STRAP</td>
-            <td>引导引脚</td>
+            <td>Boot Strap Pin</td>
           </tr>
           <tr>
             <td>2</td>
             <td>GND</td>
-            <td>接地连接</td>
+            <td>Ground connection</td>
           </tr>
         </tbody>
       </table>
@@ -907,11 +935,11 @@ UART 引脚配置如下：
   </tr>
 </table>
 
-**调试连接器引脚图**
+**Debug Connector Pinout**
 
-### <span id="circle-25">eDP 连接器</span> [㉕](#o6-layout)
+### <span id="circle-25">eDP Connector</span> [㉕](#o6-layout)
 
-O6 主板上包含一个 40 针 eDP 连接器，用于直接连接 eDP 面板，支持高达 **4K@60Hz** 的分辨率。该连接器采用 **IPEX 40 针，0.5mm 间距** 设计。eDP 连接器提供的最大输出功率为 **12V / 2A**。
+A 40‑pin eDP connector is included on the O6 board to enable direct connection to eDP panels, supporting resolutions up to **4K@60Hz**. The connector uses an **IPEX 40‑pin, 0.5mm pitch** design. The eDP connector provides a maximum power output of **12V / 2A**.
 
 <table>
   <tr>
@@ -922,226 +950,226 @@ O6 主板上包含一个 40 针 eDP 连接器，用于直接连接 eDP 面板，
       <table>
         <thead>
           <tr>
-            <th>引脚</th>
-            <th>名称</th>
-            <th>描述</th>
+            <th>Pin.</th>
+            <th>Name</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not Connected</td>
           </tr>
           <tr>
             <td>2</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>3</td>
             <td>3N</td>
-            <td>eDP 通道 3 负信号</td>
+            <td>eDP Lane 3 Negative Signal</td>
           </tr>
           <tr>
             <td>4</td>
             <td>3P</td>
-            <td>eDP 通道 3 正信号</td>
+            <td>eDP Lane 3 Positive Signal</td>
           </tr>
           <tr>
             <td>5</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>6</td>
             <td>2N</td>
-            <td>eDP 通道 2 负信号</td>
+            <td>eDP Lane 2 Negative Signal</td>
           </tr>
           <tr>
             <td>7</td>
             <td>2P</td>
-            <td>eDP 通道 2 正信号</td>
+            <td>eDP Lane 2 Positive Signal</td>
           </tr>
           <tr>
             <td>8</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>9</td>
             <td>1N</td>
-            <td>eDP 通道 1 负信号</td>
+            <td>eDP Lane 1 Negative Signal</td>
           </tr>
           <tr>
             <td>10</td>
             <td>1P</td>
-            <td>eDP 通道 1 正信号</td>
+            <td>eDP Lane 1 Positive Signal</td>
           </tr>
           <tr>
             <td>11</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>12</td>
             <td>0N</td>
-            <td>eDP 通道 0 负信号</td>
+            <td>eDP Lane 0 Negative Signal</td>
           </tr>
           <tr>
             <td>13</td>
             <td>0P</td>
-            <td>eDP 通道 0 正信号</td>
+            <td>eDP Lane 0 Positive Signal</td>
           </tr>
           <tr>
             <td>14</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>15</td>
             <td>AUXP</td>
-            <td>eDP 辅助通道正</td>
+            <td>eDP Auxiliary Channel Positive</td>
           </tr>
           <tr>
             <td>16</td>
             <td>AUXN</td>
-            <td>eDP 辅助通道负</td>
+            <td>eDP Auxiliary Channel Negative</td>
           </tr>
           <tr>
             <td>17</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>18</td>
             <td>VDD1</td>
-            <td>电源（+3.3V）</td>
+            <td>Power Supply (+3.3V)</td>
           </tr>
           <tr>
             <td>19</td>
             <td>VDD2</td>
-            <td>电源（+3.3V）</td>
+            <td>Power Supply (+3.3V)</td>
           </tr>
           <tr>
             <td>20</td>
             <td>VDD3</td>
-            <td>电源（+3.3V）</td>
+            <td>Power Supply (+3.3V)</td>
           </tr>
           <tr>
             <td>21</td>
             <td>VDD4</td>
-            <td>电源（+3.3V）</td>
+            <td>Power Supply (+3.3V)</td>
           </tr>
           <tr>
             <td>22</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not Connected</td>
           </tr>
           <tr>
             <td>23</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>24</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>25</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>26</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>27</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not Connected</td>
           </tr>
           <tr>
             <td>28</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>29</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>30</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>31</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground connection</td>
           </tr>
           <tr>
             <td>32</td>
             <td>BL_EN</td>
-            <td>背光使能信号</td>
+            <td>Backlight Enable Signal</td>
           </tr>
           <tr>
             <td>33</td>
             <td>PWM</td>
-            <td>用于背光控制的 PWM 信号</td>
+            <td>PWM Signal for Backlight Control</td>
           </tr>
           <tr>
             <td>34</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not Connected</td>
           </tr>
           <tr>
             <td>35</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not Connected</td>
           </tr>
           <tr>
             <td>36</td>
             <td>VBL1</td>
-            <td>背光电源</td>
+            <td>Backlight Power Supply</td>
           </tr>
           <tr>
             <td>37</td>
             <td>VBL2</td>
-            <td>背光电源</td>
+            <td>Backlight Power Supply</td>
           </tr>
           <tr>
             <td>38</td>
             <td>VBL3</td>
-            <td>背光电源</td>
+            <td>Backlight Power Supply</td>
           </tr>
           <tr>
             <td>39</td>
             <td>VBL4</td>
-            <td>背光电源</td>
+            <td>Backlight Power Supply</td>
           </tr>
           <tr>
             <td>40</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not Connected</td>
           </tr>
           <tr>
             <td>41</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not Connected</td>
           </tr>
           <tr>
             <td>42</td>
             <td>NC</td>
-            <td>未连接</td>
+            <td>Not Connected</td>
           </tr>
           <tr>
             <td>43</td>
             <td>GND</td>
-            <td>接地</td>
+            <td>Ground Connection</td>
           </tr>
         </tbody>
       </table>
@@ -1149,8 +1177,8 @@ O6 主板上包含一个 40 针 eDP 连接器，用于直接连接 eDP 面板，
   </tr>
 </table>
 
-**eDP 连接器引脚图**
+**eDP Connector Pinout**
 
-### <span id="circle-26">RTC 电池座</span> [㉖](#o6-layout)
+### <span id="circle-26">RTC Battery Holder</span> [㉖](#o6-layout)
 
-O6 主板上的 RTC 电池座用于安装 **CR1220 电池**，提供计时功能。请注意，取下 RTC 电池不会清除 BIOS 设置。
+The RTC battery holder on the O6 is designed for a **CR1220 battery**, which provides timekeeping functionality. Note that removing the RTC battery will not clear the BIOS settings.

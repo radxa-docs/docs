@@ -70,6 +70,42 @@ O6 上的显示端口 (DP) 支持的最大分辨率为 **4K@120Hz**，并提供 
 
 双以太网端口提供高达 **5Gbps** 的有线连接。这些端口的 LED 指示灯描述如下：
 
+<table>
+  <tr>
+    <td>
+      <img src="/img/o6/rj45_led.webp" width="100%" height="auto" />
+    </td>
+    <td>
+      <table>
+        <thead>
+          <tr>
+            <th>LED</th>
+            <th>状态</th>
+            <th>描述</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>橙色</td>
+            <td>常亮</td>
+            <td>链路已建立（设备已连接到网络）</td>
+          </tr>
+          <tr>
+            <td>绿色</td>
+            <td>闪烁</td>
+            <td>正在进行数据传输（网络活动中）</td>
+          </tr>
+          <tr>
+            <td>关闭</td>
+            <td>-</td>
+            <td>未检测到链路（网线未插或存在网络问题）</td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+</table>
+
 ### <span id="circle-6">耳机插孔</span> [⑥](#o6-layout)
 
 O6 上的 **3.5mm 耳机插孔** 支持音频输入和输出。它可以驱动标准耳机，并兼容常用的环型配置。
