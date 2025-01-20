@@ -10,7 +10,7 @@ sidebar_position: 2
 
 - 1x O6 主板
 - 1x I/O 挡板
-- 1x 散热器 (型号 8420B，预装）
+- 1x 散热器 （型号 8420B，预装）
 - 1x 亚克力外壳（预装）
 - 2x M.2 固定螺丝（预装）
 - 1x 贴纸
@@ -114,6 +114,8 @@ sidebar_position: 2
 2. 将 USB 键盘和鼠标连接到 **USB 2.0 端口** ⑫。
 
 3. 通过 **HDMI** ⑩ 或 **DP** ⑨ 连接显示器或电视。
+
+![连接外设](/img/o6/connecting_peripherals_01.webp)
 
 # 开机并安装操作系统至 NVMe SSD
 
