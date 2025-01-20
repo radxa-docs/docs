@@ -105,6 +105,13 @@ sidebar_position: 1
       </td>
     </tr>
     <tr>
+      <td><strong>音频</strong></td>
+      <td>
+        • 1 个带麦克风输入功能的耳机插孔（背板处） <br />
+        • 1 个前置面板音频连接器，用于连接前置面板的 3.5 毫米音频插孔
+      </td>
+    </tr>
+    <tr>
       <td><strong>电源输入</strong></td>
       <td>
         • ATX 24P 电源接口 <br />

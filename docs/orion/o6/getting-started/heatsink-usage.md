@@ -2,7 +2,7 @@
 sidebar_position: 11
 ---
 
-# 散热器拆装
+# 散热器 8420B 拆装
 
 ## 瑞莎散热器 8420B 拆解
 
@@ -30,4 +30,4 @@ sidebar_position: 11
 
 4. 确保风扇接口连接稳固。
 
-![散热器 8420B 安装步骤 02](/img/o6/fan_interface_01.webp)
+![散热器 8420B 安装步骤 03](/img/o6/fan_interface_01.webp)
