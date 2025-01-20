@@ -57,7 +57,7 @@ To create a bootable USB drive, you will need another computer (Host Computer) r
 
 ### 1. **Download the image**:
 
-- Visit the [Radxa Orion O6 website](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b1.img.gz) and download the Debian 12 pre‑installed image.
+- Visit the [Download Page](../download.md#bios--os-images) and download the Debian 12 pre‑installed image.
 
 ### 2. **Download the imaging tool**:
 
