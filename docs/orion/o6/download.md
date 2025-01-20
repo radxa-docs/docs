@@ -2,8 +2,6 @@
 sidebar_position: 2
 ---
 
-import Images from "./\_image.mdx"
-
 # 资源下载汇总
 
 ## 硬件设计
@@ -26,7 +24,7 @@ Orion O6 V1.2 版本
 
 [O6 BIOS](https://github.com/radxa-pkg/edk2-cix/releases)
 
-### Debian
+### Debian 12 预装版系统镜像
 
 [Debian12 Desktop B1](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b1.img.gz)
 

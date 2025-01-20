@@ -57,7 +57,7 @@ sidebar_position: 2
 
 ### 1. **下载系统镜像**：
 
-- 访问 [瑞莎星睿 O6 官网](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b1.img.gz)，下载 **Debian 12 预装版系统镜像**。
+- 访问 [下载页面](../download.md#debian-12-预装版系统镜像)，下载 **Debian 12 预装版系统镜像**。
 
 ### 2. **下载烧录工具**：
 
