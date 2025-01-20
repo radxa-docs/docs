@@ -679,6 +679,31 @@ sidebar_custom_props:
               },
             ],
         },
+        {
+          series_en: "Orion Family",
+          series_zh: "Orion 系列",
+          series_introduction_en: "Orion is a high-performance single board computer series jointly launched by Radxa and Cix.",
+          series_introduction_zh: "Orion 是 Radxa 和 Cix 联合推出的高性能单板计算机系列。",
+          products:
+            [
+              {
+                products_name: "Orion O6",
+                products_photo_url: "/home/product-pictures/o6.webp",
+                products_link: "/orion/o6",
+                docs:
+                  [
+                    {
+                      docs_link: "/orion/o6",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Orion O6 概览",
+                      docs_info_en: "Overview of the orion O6",
+                      docs_info_zh: "Radxa Orion O6 概览",
+                    },
+                  ],
+              },
+            ],
+        },
       ],
   }
 ---

@@ -75,6 +75,14 @@
     "message": "SiRider Series",
     "description": "Navbar item with label SiRider 系列"
   },
+  "item.label.Orion O6": {
+    "message": "Orion O6",
+    "description": "Navbar item with label Orion O6"
+  },
+  "item.label.Orion 系列": {
+    "message": "Orion Series",
+    "description": "Navbar item with label Orion 系列"
+  },
   "item.label.X 系列": {
     "message": "X Series",
     "description": "Navbar item with label X 系列"
