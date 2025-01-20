@@ -2,36 +2,39 @@
 sidebar_position: 5
 ---
 
-# Debian 用户指南
+# Debian User Guide
 
-这篇指南主要是介绍 Radxa 构建的 Debian12 Desktop 系统。
+This guide focuses on the Debian12 Desktop system built by Radxa.
 
-## 默认用户名和密码
+## Default username and password
 
-```
+``
 username : radxa
 password : radxa
-```
-
-## 访问设备
-
-### 选项一：使用 HDMI 显示器，USB 键盘和鼠标
-
-可以在 HDMI 显示器看到桌面系统。
-
-### 选项二：SSH
-
-SSH 服务默认是使能的。
-可以在路由器管理界面查看设备的 IP；或者是通过电脑主机的 [angryip](https://angryip.org/) 来找到设备的 IP。
 
 ```
+
+## Accessing Devices
+
+### Option 1: Use HDMI monitor, USB keyboard and mouse
+
+The desktop system can be seen on the HDMI monitor.
+
+### Option two: SSH
+
+SSH service is enabled by default.
+You can view the IP of the device in the router management interface; or you can find the IP of the device by [angryip](https://angryip.org/) of the computer host.
+
+```
+
 $ ping ip-of-device
 $ ssh radxa@ip-of-device
+
 ```
 
-## 显示
+## Displays
 
-Orion O6 有5个显示接口，分别是
+The Orion O6 has five display ports, namely
 
 - HDMI
 - DP
@@ -39,12 +42,13 @@ Orion O6 有5个显示接口，分别是
 - USBC 1
 - eDP
 
-物理接口与系统 DRM Card 的对应关系如下：
+The physical interfaces correspond to the system DRM Card as follows:
 
-| 系统 DRM Card              | 物理接口 |
+| System DRM Card              | physical interface |
 | -------------------------- | -------- |
 | /sys/class/drm/card0-DP-1  | USBC 0   |
 | /sys/class/drm/card1-DP-2  | HDMI     |
 | /sys/class/drm/card2-eDP-1 | eDP      |
 | /sys/class/drm/card3-DP-3  | USBC 1   |
 | /sys/class/drm/card4-DP-4  | DP       |
+```

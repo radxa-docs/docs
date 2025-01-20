@@ -3,40 +3,40 @@ sidebar_position: 4
 description: ""
 ---
 
-# 安装 BIOS
+## Installing BIOS
 
-## 下载 BIOS 发布包
+## Download BIOS distribution package
 
 [O6 BIOS](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.2.2-1.zip)
 
-## 制作刷 BIOS U盘
+## Make a BIOS flash drive
 
-1，将 U盘格式化出一个分区，格式为 FAT32。
+1, Format a partition on the USB flash drive in FAT32 format.
 
-2，将 BIOS 压缩包解压开，把如下文件放到 U盘的 FAT32 分区的顶层目录中。
+2, Extract the BIOS zip file and put the following files into the top directory of the FAT32 partition on the USB flash drive.
 
 ```
-BuildOptions  BurnImage.efi  cix_flash_all.bin  cix_flash_ota.bin  FlashUpdate.efi  setup.nsh  Shell.efi  VariableInfo.efi
+BuildOptions BurnImage.efi cix_flash_all.bin cix_flash_ota.bin FlashUpdate.efi setup.nsh Shell.efi VariableInfo.efi
 ```
 
-## 更新 BIOS
+## Updating BIOS
 
-### 方法一：在线更新 BIOS 之有屏模式
+### Method 1: Online BIOS update with screen mode
 
-#### 步骤一：硬件准备
+#### Step 1: Hardware Preparation
 
-- Orion O6 和 PD 65W 适配器
-- HDMI 线和显示器
-- USB 键盘与鼠标
+- Orion O6 and PD 65W adapter
+- HDMI cable and monitor
+- USB keyboard and mouse
 
-#### 步骤二：进入 BIOS 界面
+#### Step 2: Enter the BIOS interface
 
-- 把 HDMI 显示器和键盘接到 O6 上。
-- 接通 O6 电源，观察显示器。出现 Radxa Logo 和进度条时，短按键盘的 “Esc” 按键，在 HDMI 显示器将会出现 BIOS 菜单。
+- Connect the HDMI monitor and keyboard to the O6.
+- Power on the O6 and observe the monitor. When the Radxa logo and progress bar appear, press the keyboard's “Esc” button briefly and the BIOS menu will appear on the HDMI monitor.
 
-#### 步骤三：进入 UEFI Shell 界面
+#### Step 3: Enter UEFI Shell Interface
 
-键盘选择 `Boot Manager --> UEFI Shell`
+Keyboard select `Boot Manager --> UEFI Shell`.
 
 ```
 UEFI Interactive Shell v2.2
@@ -68,9 +68,9 @@ Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
 Shell>
 ```
 
-#### 步骤四：进入放置有 BIOS 文件和工具的 U盘文件夹
+#### Step 4: Go to the folder where the BIOS files and tools are located on the USB flash drive.
 
-这里选择的是 `FS1:`。在 Shell 下，输入 `FS1:` 后按下回车键。然后用 `ls` 查看文件。
+The folder selected here is `FS1:`. Under Shell, type `FS1:` and press Enter. Then use `ls` to view the files.
 
 ```
 Shell> FS1:
@@ -89,9 +89,9 @@ Directory of: FS1:\
 FS1:\>
 ```
 
-#### 步骤五：烧录 BIOS
+#### Step 5: Burn BIOS
 
-在 Shell 下，输出命令 `setup.nsh` ，并按下回车执行。
+Under Shell, output the command `setup.nsh` and press Enter to execute it.
 
 ```
 FS1:\> setup.nsh
@@ -131,25 +131,25 @@ Reset with BIOS Update (24 bytes)
 
 ```
 
-烧录完成后，拔掉 O6 的电源，然后重新上电。
+After the burning is completed, unplug the power of the O6 and then power it on again.
 
-### 方法二：在线更新 BIOS 之无屏模式
+### Method 2: Online BIOS Update in Screenless Mode
 
-#### 步骤一：硬件准备
+#### Step 1: Hardware Preparation
 
-- Orion O6 和 PD 65W 适配器
-- x86 Windows/Linux/Mac 宿主机（有键盘和鼠标，串口工具）
-- 调试串口线
+- Orion O6 and PD 65W adapter
+- x86 Windows/Linux/Mac host machine (with keyboard and mouse, serial port tool)
+- Debug serial cable
 
-#### 步骤二：搭建宿主机的调试串口环境
+#### Step 2: Setting Up the Debug Serial Port Environment on the Host Machine
 
-- 把调试串口线接到 O6 上的 3-pin UART2 插针上
-- 使用串口工具，设置波特率为 115200。
+- Connect the debug serial cable to the 3-pin UART2 pin on the O6.
+- Use the serial port tool and set the baud rate to 115200.
 
-#### 步骤三：引导 O6 进入 BIOS 界面
+#### Step 3: Booting the O6 into the BIOS Interface
 
-- O6 插上电源开机，观察调试串口工具界面的启动日志
-- 在启动过程中，会看到有提示我们进入 BIOS 界面。这时，短按宿主机的键盘的 “Esc” 按键
+- Power on the O6 and observe the startup log on the debug serial port tool interface.
+- During the startup process, you will see a prompt to enter the BIOS interface. At this time, briefly press the "Esc" key on the keyboard of the host machine.
 
 ```
 Tianocore/EDK2 firmware version 0.2.2-1
@@ -157,7 +157,7 @@ Press ESCAPE for boot options
 .....
 ```
 
-- 在调试串口工具界面，将会出现 BIOS 菜单
+- In the Debug Serial Port Tool interface, the BIOS menu will appear.
 
 ```
 
@@ -186,11 +186,11 @@ Press ESCAPE for boot options
 
 ```
 
-##### 步骤四：进入 UEFI Shell 界面
+##### Step 4: Enter the UEFI Shell Interface
 
-键盘选择 `“Boot Manager --> UEFI Shell`
+Select `Boot Manager --> UEFI Shell` from the keyboard.
 
-`Boot Manager` 界面如下：
+The `Boot Manager` screen is shown below:
 
 ```
 /------------------------------------------------------------------------------\
@@ -220,7 +220,7 @@ Press ESCAPE for boot options
 
 ```
 
-选择 `UEFI Shell`，进入 shell 环境。
+Select `UEFI Shell` to enter the shell environment.
 
 ```
 UEFI Interactive Shell v2.2
@@ -252,9 +252,9 @@ Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
 Shell>
 ```
 
-##### 步骤五：烧录 BIOS
+##### Step 5: Burn BIOS
 
-在 Shell 下，输出命令 `setup.nsh` ，并按下回车执行。
+Under Shell, output the command `setup.nsh` and press Enter to execute it.
 
 ```
 FS1:\> setup.nsh
@@ -294,10 +294,10 @@ Reset with BIOS Update (24 bytes)
 
 ```
 
-烧录完成后，拔掉 O6 的电源，然后重新上电。
+Once the burn is complete, unplug the O6 and power it back up.
 
-可参照演示：https://radxa-pkg.github.io/edk2-cix/install.html
+You can refer to the demo: https://radxa-pkg.github.io/edk2-cix/install.html
 
-### 方法三：离线更新 BIOS
+### Method 3: Offline BIOS update
 
-可使用 Serial Flash 编程器将 BIOS 固件（cix_flash_all.bin），刷到 SPI Nor Flash 中。
+You can use a Serial Flash programmer to flash the BIOS firmware (cix_flash_all.bin) to the SPI Nor Flash.

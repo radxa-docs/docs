@@ -42,7 +42,7 @@ Orion O6 有5个显示接口，分别是
 物理接口与系统 DRM Card 的对应关系如下：
 
 | 系统 DRM Card              | 物理接口 |
-|----------------------------|----------|
+| -------------------------- | -------- |
 | /sys/class/drm/card0-DP-1  | USBC 0   |
 | /sys/class/drm/card1-DP-2  | HDMI     |
 | /sys/class/drm/card2-eDP-1 | eDP      |

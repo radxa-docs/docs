@@ -65,7 +65,7 @@ Mapping table
           VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
 ,0x0)/HD(1,GPT,EE706585-639D-48CE-B236-4C372373E325,0x800,0x8000)
 Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
-Shell> 
+Shell>
 ```
 
 #### 步骤四：进入放置有 BIOS 文件和工具的 U盘文件夹
@@ -86,7 +86,7 @@ Directory of: FS1:\
 01/01/1980  08:00              16,384  VariableInfo.efi
           8 File(s)   9,870,479 bytes
           0 Dir(s)
-FS1:\> 
+FS1:\>
 ```
 
 #### 步骤五：烧录 BIOS
@@ -98,33 +98,33 @@ FS1:\> setup.nsh
 ************************************************************************
                        Radxa BIOS Update Utility
 ************************************************************************
- 
+
 You are about to update the BIOS.
 Please make sure the power stays on during the operation.
- 
+
 Enter 'q' to quit, any other key to continue:
 
 ************************************************************************
                             Updating BIOS...
 ************************************************************************
- 
+
 ========================================================================
  Copyright 2024 Cix Technology Group Co., Ltd. All Rights Reserved.
                    FlashUpdate Utility v1.04.
                    Build Date:Jan 16 2025
 ========================================================================
-Old Verison:0.2.2-1
-New Verison:0.2.2-1
+Old Version:0.2.2-1
+New Version:0.2.2-1
 [00.15] Processing...
 Flash update success.
- 
+
 ************************************************************************
                          BIOS Update completed!
 ************************************************************************
 System will now power off.
 You MUST fully remove all connected power source before connecting them.
 Failure to do so may prevent some components to use the updated code.
- 
+
 Enter 'q' to quit, any other key to continue:
 
 Reset with BIOS Update (24 bytes)
@@ -160,29 +160,29 @@ Press ESCAPE for boot options
 - 在调试串口工具界面，将会出现 BIOS 菜单
 
 ```
-                                                                                
- Radxa Orion O6                                                                 
- CIX P1 CD8180                                       1.80 GHz                   
- 0.2.2-1                                             65536 MB RAM               
-                                                                                
-                                                                                
-                                                                                
-   Select Language            <English>                  This is the option     
-                                                         one adjusts to change  
- > Device Manager                                        the language for the   
- > Boot Manager                                          current system         
- > Boot Maintenance Manager                                                     
-                                                                                
-   Continue                                                                     
-   Reset                                                                        
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-  ^v=Move Highlight       <Enter>=Select Entry                                  
+
+ Radxa Orion O6
+ CIX P1 CD8180                                       1.80 GHz
+ 0.2.2-1                                             65536 MB RAM
+
+
+
+   Select Language            <English>                  This is the option
+                                                         one adjusts to change
+ > Device Manager                                        the language for the
+ > Boot Manager                                          current system
+ > Boot Maintenance Manager
+
+   Continue
+   Reset
+
+
+
+
+
+
+
+  ^v=Move Highlight       <Enter>=Select Entry
 
 ```
 
@@ -196,23 +196,23 @@ Press ESCAPE for boot options
 /------------------------------------------------------------------------------\
 |                                Boot Manager                                  |
 \------------------------------------------------------------------------------/
-                                                                                
-                                                         Device Path :          
-   Boot Manager Menu                                     Fv(9A15AA37-D555-4A4E- 
-                                                         B541-86391FF68164)/FvF 
-   debian                                                ile(7C04A583-9E3E-4F1C 
-   UEFI aigo U330 90003C33924E4D12                       -AD65-E05268D0B4D1)    
-   UEFI KINGBANK KP230 K19010J001612                                            
-   UEFI Shell                                                                   
-                                                                                
-   Use the <^> and <v> keys to choose a boot option,                            
-   the <Enter> key to select a boot option, and the                             
-   <Esc> key to exit the Boot Manager Menu.                                     
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-                                                                                
+
+                                                         Device Path :
+   Boot Manager Menu                                     Fv(9A15AA37-D555-4A4E-
+                                                         B541-86391FF68164)/FvF
+   debian                                                ile(7C04A583-9E3E-4F1C
+   UEFI aigo U330 90003C33924E4D12                       -AD65-E05268D0B4D1)
+   UEFI KINGBANK KP230 K19010J001612
+   UEFI Shell
+
+   Use the <^> and <v> keys to choose a boot option,
+   the <Enter> key to select a boot option, and the
+   <Esc> key to exit the Boot Manager Menu.
+
+
+
+
+
 /------------------------------------------------------------------------------\
 |                                                                              |
 | ^v=Move Highlight       <Enter>=Select Entry      Esc=Exit                   |
@@ -249,7 +249,7 @@ Mapping table
           VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
 ,0x0)/HD(1,GPT,EE706585-639D-48CE-B236-4C372373E325,0x800,0x8000)
 Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
-Shell> 
+Shell>
 ```
 
 ##### 步骤五：烧录 BIOS
@@ -261,33 +261,33 @@ FS1:\> setup.nsh
 ************************************************************************
                        Radxa BIOS Update Utility
 ************************************************************************
- 
+
 You are about to update the BIOS.
 Please make sure the power stays on during the operation.
- 
+
 Enter 'q' to quit, any other key to continue:
 
 ************************************************************************
                             Updating BIOS...
 ************************************************************************
- 
+
 ========================================================================
  Copyright 2024 Cix Technology Group Co., Ltd. All Rights Reserved.
                    FlashUpdate Utility v1.04.
                    Build Date:Jan 16 2025
 ========================================================================
-Old Verison:0.2.2-1
-New Verison:0.2.2-1
+Old Version:0.2.2-1
+New Version:0.2.2-1
 [00.15] Processing...
 Flash update success.
- 
+
 ************************************************************************
                          BIOS Update completed!
 ************************************************************************
 System will now power off.
 You MUST fully remove all connected power source before connecting them.
 Failure to do so may prevent some components to use the updated code.
- 
+
 Enter 'q' to quit, any other key to continue:
 
 Reset with BIOS Update (24 bytes)

@@ -3,34 +3,34 @@ sidebar_position: 6
 description: ""
 ---
 
-# 启动 Debian 官方 ISO
+# Boot Debian Official ISO
 
-O6 BIOS 支持启动 Debian 官方 ARM64 ISO。下面说明如何在 O6 上启动 Debian 官方 ISO 镜像。
+The O6 BIOS supports booting the official Debian ARM64 ISO, here are the instructions on how to boot the official Debian ISO image on the O6.
 
-## 获取 Debian 官方 ARM64 ISO
+## Getting the official Debian ARM64 ISO
 
-参考 Debian 官方文档：[Debian ARM64 ISO](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/)
+Refer to the official Debian documentation: [Debian ARM64 ISO](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/)
 
-## 制作 U盘启动盘
+## Make a USB boot disk
 
-使用 [balenaEtcher](https://etcher.balena.io/)，将下载好的 ISO 文件，如 debian-12.9.0-arm64-netinst.iso，写入到 U盘中。
-这样就把 U盘启动盘做好了。
+Use [balenaEtcher](https://etcher.balena.io/) to write the downloaded ISO file, e.g. debian-12.9.0-arm64-netinst.iso, to a USB flash drive.
+This will make the USB boot disk ready.
 
-## 硬件连接
+## Hardware Connection
 
-按照如下说明，做好硬件连接。
+Follow the instructions below to make the hardware connections.
 
-- 把 PCIe NVME SSD 装配到 O6 M.2 M-Key
-- 把 U盘启动盘插到 O6 Type-A 3.2 口
-- O6 接好 USB 键盘和鼠标，和 HDMI 显示器
-- 将 O6 Type-A 口接 Type-A USB 转以太网适配器（安装 ISO 过程需要有网络）
-- O6 上电，在启动过程中，看到 Radxa Logo 和进度条时，短按下键盘 “Esc” 键进入 BIOS 界面
+- Assemble the PCIe NVME SSD to the O6 M.2 M-Key.
+- Insert the USB flash drive into the O6 Type-A 3.2 port.
+- Connect the O6 to a USB keyboard and mouse, and a HDMI monitor.
+- Connect the O6 Type-A port to a Type-A USB to Ethernet adapter (Internet access is required for ISO installation).
+- Power up the O6, and during the boot process, when you see the Radxa logo and the progress bar, briefly press the “Esc” key on the keyboard to enter the BIOS interface.
 
-## 配置 O6 BIOS 为 ACPI 启动
+## Configure the O6 BIOS for ACPI booting
 
-O6 BIOS 默认为 Device Tree 启动方式。需要切换为 ACPI 启动。
+O6 BIOS defaults to Device Tree boot mode. You need to switch to ACPI boot.
 
-在 BIOS 界面，通过键盘选择：
+In the BIOS interface, select it via keyboard:
 
 ```
 Device Manager
@@ -38,7 +38,7 @@ Device Manager
         --> O/S Hardware Description   <ACPI>
 ```
 
-进入 BIOS 界面
+Enter BIOS interface
 
 ```
 
@@ -68,7 +68,7 @@ Device Manager
 
 ```
 
-进入 `Device Manager`
+Enter `Device Manager`
 
 ```
 /------------------------------------------------------------------------------\
@@ -98,7 +98,7 @@ Device Manager
 
 ```
 
-进入 `O/S Hardware Description Selection`
+Enter `O/S Hardware Description Selection`
 
 ```
 /------------------------------------------------------------------------------\
@@ -129,7 +129,7 @@ Device Manager
 
 ```
 
-修改为 `ACPI`，并保存。
+Change to `ACPI` and save.
 
 ```
 /------------------------------------------------------------------------------\
@@ -159,13 +159,13 @@ Device Manager
 
 ```
 
-改动后，需要重启 O6。可通过短按复位按键。
+The O6 needs to be rebooted after the changes are made. which can be done by pressing the reset button briefly.
 
-## 安装 ISO 镜像
+## Install ISO image
 
-O6 重启后，引导 O6 进入 BIOS 界面，然后选择设备 U盘启动。
+After rebooting the O6, boot the O6 into the BIOS interface and then select the device to boot from the USB disk.
 
-键盘选择进入 `Boot Manager` 后，选择 U盘，`UEFI aigo U330 EABF80131F85D705`
+After entering the `Boot Manager` by keyboard selection, select the USB flash drive, `UEFI aigo U330 EABF80131F85D705`.
 
 ```
 /------------------------------------------------------------------------------\
@@ -194,7 +194,7 @@ O6 重启后，引导 O6 进入 BIOS 界面，然后选择设备 U盘启动。
 \------------------------------------------------------------------------------/
 ```
 
-选择 `Graphical install`，然后按照提示安装系统。
+Select `Graphical install` and follow the prompts to install the system.
 
 ```
 

@@ -2,8 +2,8 @@
 sidebar_position: 9
 ---
 
-# Debian 系统
+# Debian System
 
-介绍 Debian 系统使用等。
+This section describes how to use the Debian system.
 
 <DocCardList />

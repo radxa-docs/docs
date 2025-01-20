@@ -28,18 +28,17 @@ Orion O6 V1.2 版本
 
 [Debian12 Desktop B1](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b1.img.gz)
 
-| 用户名 | 密码 |
-|:---:|:---:|
-| radxa | radxa |
+| 用户名 | 密码  |
+| :----: | :---: |
+| radxa  | radxa |
 
 ### Fedora
 
 [Fedora 41 Gnome](https://openkoji.iscas.ac.cn/pub/dist-repos/dl/Radxa/Orion-O6/images/fedora-disk-gnome-workstation_radxa_orion-o6_202501041239.raw.gz)
 
-| 用户名 | 密码 |
-|:---:|:---:|
-| root | aarch64 |
-
+| 用户名 |  密码   |
+| :----: | :-----: |
+|  root  | aarch64 |
 
 ## 质量认证
 

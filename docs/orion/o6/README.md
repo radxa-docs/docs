@@ -25,5 +25,3 @@ sidebar_position: 5
 ### [Debian](/orion/o6/debian)
 
 介绍 Debian 系统使用等。
-
-
