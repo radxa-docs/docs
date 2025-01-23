@@ -26,7 +26,11 @@ Orion O6 V1.2 版本
 
 ### Debian 12 预装版系统镜像
 
-[Debian12 Desktop B1](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b1.img.gz)
+Radxa DL 链接：[Debian12 Desktop B1](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b1.img.gz)
+
+百度网盘链接：[Debian12 Desktop B1](https://pan.baidu.com/s/1vUQOqCUKBPwJvlPEhubeXw?pwd=5nac)
+
+Mega 链接：[Debian12 Desktop B1](https://mega.nz/file/lzwmkJAI#LTs9ywuJP4wTq1Dnwgmy34CCPn8LWFhv7stuwvl5ZQA)
 
 | 用户名 | 密码  |
 | :----: | :---: |

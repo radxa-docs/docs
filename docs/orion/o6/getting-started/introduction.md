@@ -153,8 +153,8 @@ sidebar_position: 1
 
 ![Orion O6 主板布局及组件标签](/img/o6/rs600_layout.webp)
 
-| 编号 | 描述                                                               | 编号 | 描述                                                                    | 编号 | 描述                                                                       |
-| ---- | ------------------------------------------------------------------ | ---- | ----------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------- |
+| 编号 | 描述                                                            | 编号 | 描述                                                                 | 编号 | 描述                                                                    |
+| ---- | --------------------------------------------------------------- | ---- | -------------------------------------------------------------------- | ---- | ----------------------------------------------------------------------- |
 | ①    | [PCIe X16 插槽](../hardware-design/hardware-interface#circle-1) | ⑩    | [双 USB 3.2](../hardware-design/hardware-interface#circle-10)        | ⑲    | [ATX 电源连接器](../hardware-design/hardware-interface#circle-19)       |
 | ②    | [M.2 M 键](../hardware-design/hardware-interface#circle-2)      | ⑪    | [双 USB 2.0](../hardware-design/hardware-interface#circle-11)        | ⑳    | [F_USB 连接器](../hardware-design/hardware-interface#circle-20)         |
 | ③    | [M.2 E 键](../hardware-design/hardware-interface#circle-3)      | ⑫    | [USB-C 端口](../hardware-design/hardware-interface#circle-12)        | ㉑   | [F_Audio 连接器](../hardware-design/hardware-interface#circle-21)       |
@@ -163,4 +163,4 @@ sidebar_position: 1
 | ⑥    | [耳机插孔](../hardware-design/hardware-interface#circle-6)      | ⑮    | [BIOS 闪存座](../hardware-design/hardware-interface#circle-15)       | ㉔   | [调试连接器](../hardware-design/hardware-interface#circle-24)           |
 | ⑦    | [RJ45 以太网](../hardware-design/hardware-interface#circle-7)   | ⑯    | [40 针 GPIO 连接器](../hardware-design/hardware-interface#circle-16) | ㉕   | [eDP 连接器](../hardware-design/hardware-interface#circle-25)           |
 | ⑧    | [DP 端口](../hardware-design/hardware-interface#circle-8)       | ⑰    | [CPU Cix CD8180](../hardware-design/hardware-interface#circle-17)    | ㉖   | [RTC 电池座](../hardware-design/hardware-interface#circle-26)           |
-| ⑨    | [HDMI 端口](../hardware-design/hardware-interface#circle-9)     | ⑱    | [LPDDR5 内存](../hardware-design/hardware-interface#circle-18)       |      |                                                                            |
+| ⑨    | [HDMI 端口](../hardware-design/hardware-interface#circle-9)     | ⑱    | [LPDDR5 内存](../hardware-design/hardware-interface#circle-18)       |      |                                                                         |
