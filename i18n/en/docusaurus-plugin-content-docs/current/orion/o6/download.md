@@ -26,7 +26,11 @@ Orion O6 V1.2 Version
 
 ### Debian 12 pre‑installed image
 
-[Debian12 Desktop B1](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b1.img.gz)
+Radxa DL Link: [Debian12 Desktop B1](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b1.img.gz)
+
+BaiduPan Link: [Debian12 Desktop B1](https://pan.baidu.com/s/1vUQOqCUKBPwJvlPEhubeXw?pwd=5nac)
+
+Mega Link: [Debian12 Desktop B1](https://mega.nz/file/lzwmkJAI#LTs9ywuJP4wTq1Dnwgmy34CCPn8LWFhv7stuwvl5ZQA)
 
 | Username | Password |
 | :------: | :------: |
