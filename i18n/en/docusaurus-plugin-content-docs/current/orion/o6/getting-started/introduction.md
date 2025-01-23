@@ -154,8 +154,8 @@ The detailed <span id="o6-layout">layout of the O6 motherboard</span>, with numb
 
 ![Orion O6 Motherboard layout and component labels](/img/o6/rs600_layout.webp)
 
-| No. | Description                                                              | No. | Description                                                                | No. | Description                                                               |
-| --- | ------------------------------------------------------------------------ | --- | -------------------------------------------------------------------------- | --- | ------------------------------------------------------------------------- |
+| No. | Description                                                           | No. | Description                                                             | No. | Description                                                            |
+| --- | --------------------------------------------------------------------- | --- | ----------------------------------------------------------------------- | --- | ---------------------------------------------------------------------- |
 | ①   | [PCIe X16 slot](../hardware-design/hardware-interface#circle-1)       | ⑩   | [Double USB 3.2](../hardware-design/hardware-interface#circle-10)       | ⑲   | [ATX Power Connector](../hardware-design/hardware-interface#circle-19) |
 | ②   | [M.2 M Key](../hardware-design/hardware-interface#circle-2)           | ⑪   | [Double USB 2.0](../hardware-design/hardware-interface#circle-11)       | ⑳   | [F_USB Connector](../hardware-design/hardware-interface#circle-20)     |
 | ③   | [M.2 E Key](../hardware-design/hardware-interface#circle-3)           | ⑫   | [USB-C Ports](../hardware-design/hardware-interface#circle-12)          | ㉑  | [F_Audio Connector](../hardware-design/hardware-interface#circle-21)   |
@@ -164,4 +164,4 @@ The detailed <span id="o6-layout">layout of the O6 motherboard</span>, with numb
 | ⑥   | [Headphone Jack](../hardware-design/hardware-interface#circle-6)      | ⑮   | [BIOS Flash Holder](../hardware-design/hardware-interface#circle-15)    | ㉔  | [Debug Connector](../hardware-design/hardware-interface#circle-24)     |
 | ⑦   | [RJ45 Ethernets](../hardware-design/hardware-interface#circle-7)      | ⑯   | [40Pin GPIO Connector](../hardware-design/hardware-interface#circle-16) | ㉕  | [eDP Connector](../hardware-design/hardware-interface#circle-25)       |
 | ⑧   | [DP Port](../hardware-design/hardware-interface#circle-8)             | ⑰   | [CPU Cix CD8180](../hardware-design/hardware-interface#circle-17)       | ㉖  | [RTC Battery Holder](../hardware-design/hardware-interface#circle-26)  |
-| ⑨   | [HDMI Port](../hardware-design/hardware-interface#circle-9)           | ⑱   | [LPDDR5 RAM](../hardware-design/hardware-interface#circle-18)           |     |                                                                           |
+| ⑨   | [HDMI Port](../hardware-design/hardware-interface#circle-9)           | ⑱   | [LPDDR5 RAM](../hardware-design/hardware-interface#circle-18)           |     |                                                                        |
