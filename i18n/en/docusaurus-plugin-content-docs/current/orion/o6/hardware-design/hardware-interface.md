@@ -715,7 +715,7 @@ The F_Audio connector is designed to support the front panel audio functionality
 
 **F_Audio Connector Pinout**
 
-### <span id="circle-22">TP 连接器</span> [㉒](#o6-layout)
+### <span id="circle-22">TP Connector</span> [㉒](#o6-layout)
 
 A touch panel connector is included on the O6 board to enable touch panel integration. Combined with the eDP connector, it provides a direct interface for connecting a touchscreen.
 
