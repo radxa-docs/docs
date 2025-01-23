@@ -1,0 +1,99 @@
+:::tip
+本文档旨在演示如何在 rk3588/356X 上推理 YOLOv11 目标检测模型，所需环境配置请参考[ RKNN 安装](./rknn_install)
+:::
+
+目前 [Ultralytics](https://docs.ultralytics.com/integrations/rockchip-rknn/) 官方已经支持 rknn 平台，RK3588/356X 产品用户可以直接使用 `ultralytics` 库进行 yolov11 的模型转换和模型部署。
+
+## PC 端模型转换
+
+**Radxa 已提供预转换好的 `yolov11n.rknn` 模型，用户可直接参考[板端推理 YOLOv11 ](#板端推理-yolov11)跳过 PC 端模型转换章节**
+
+- 安装最新版本的 ultralytics
+  ```bash
+  pip3 install -U ultralytics
+  ```
+- 使用 ultralytics 导出 yolov11 rknn 格式模型,
+
+    <Tabs>
+
+        <TabItem value="CLI">
+
+        ```bash
+        # 'name' can be one of rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118
+        yolo export model=yolo11n.pt format=rknn name=rk3588
+        ```
+
+        </TabItem>
+
+        <TabItem value="Python">
+
+        ```python
+        from ultralytics import YOLO
+
+        # Load the YOLOv11 model
+        model = YOLO("yolo11n.pt")
+
+        # Export the model to RKNN format
+        # 'name' can be one of rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118
+        model.export(format="rknn", name="rk3588")  # creates '/yolo11n_rknn_model'
+        ```
+
+        </TabItem>
+
+    </Tabs>
+
+  结果保存在 ./yolo11n_rknn_model
+
+- 将 **yolo11n_rknn_model** 目录拷贝到板端
+
+## 板端推理 YOLOv11
+
+:::tip
+RK356X 芯片用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: sudo rsetup -> overlays -> Enable NPU，最后重启系统。
+
+如 overlays 选项中无 `Enable NPU` 选项，请通过: sudo rsetup -> system -> System Update 升级系统, 重启后执行上述步骤开启 NPU。
+:::
+
+- （可选）下载 radxa 准备的 yolov11n rknn 模型
+  | 平台 | 下载链接 |
+  | -------- | ------------------------------------------------------------ |
+  | rk3566 | [yolo11n_3566_rknn_model](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov11/yolo11n_3566_rknn_model.zip) |
+  | rk3568 | [yolo11n_3568_rknn_model](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov11/yolo11n_3568_rknn_model.zip) |
+  | rk3588 | [yolo11n_3588_rknn_model](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov11/yolo11n_3588_rknn_model.zip) |
+
+- 在虚拟环境下安装最新版本的 ultralytics
+
+  虚拟环境安装请参考 [Python 虚拟环境使用](venv_usage)
+
+  ```bash
+  pip3 install -U ultralytics
+  ```
+
+- 板端推理
+
+      <Tabs>
+          <TabItem value="CLI">
+          ```bash
+          yolo predict model='./yolo11n_rknn_model' source='https://ultralytics.com/images/bus.jpg'
+          ```
+          </TabItem>
+          <TabItem value="Python">
+          ```python
+          from ultralytics import YOLO
+
+          # Load the exported RKNN model
+          rknn_model = YOLO("./yolo11n_rknn_model")
+
+          # Run inference
+          results = rknn_model("https://ultralytics.com/images/bus.jpg")
+          ```
+          </TabItem>
+      </Tabs>
+
+      结果保存在 runs/detect/predict 中
+
+<img width="400" src="/img/general-tutorial/rknn/yolov11.webp" />
+
+## 更多使用细节
+
+更多 Ultralytics 使用细节请参考 [Ultralytics](https://docs.ultralytics.com/) 官方文档
