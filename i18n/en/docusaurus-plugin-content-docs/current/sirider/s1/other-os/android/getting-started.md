@@ -13,7 +13,7 @@ Please refer to [Product Description](../../getting-started/introduction)
 
 Please refer to [Getting Started](../../getting-started/quick-start)
 
-***Note: For the system installation section, refer to [here](./install-os)***
+**_Note: For the system installation section, refer to [here](./install-os)_**
 
 ## Power Selection
 

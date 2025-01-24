@@ -20,7 +20,7 @@ sidebar_position: 2
 
 Debian OS:
 
-- Radxa CM3J + Rpi CM4 IO Board 系统镜像： [Radxa CM3J With Raspberry CM4 IO Board Debian b1](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b1/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b1.output.img.xz)
+- 系统镜像： [Debian b1](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b1/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b1.output.img.xz)
 
 ## 硬件设计
 

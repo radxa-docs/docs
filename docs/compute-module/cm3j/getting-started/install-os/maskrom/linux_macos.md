@@ -9,7 +9,7 @@ import Maskrom from "./\_maskrom.mdx"
 
 ## 文件下载
 
-请到 [资源下载页面汇总](../../../download.md) 下载对应的 Loader 和 镜像文件
+请到 [资源下载汇总](../../../download.md) 下载对应的 Loader 和 镜像文件
 
 ## 安装 rkdeveloptool
 
