@@ -1,0 +1,120 @@
+<details>
+  <summary>What is Maskrom mode</summary>
+
+Maskrom mode, also known as Loader mode, is a special boot mode generally used to restore or repair malfunctioning devices. This mode enables users to interact directly with the device's hardware without going through the operating system. In Maskrom mode, users can communicate with the device via a computer or other devices and execute a series of commands to resolve the device's issues.
+
+    # MacOS:
+
+    The results after executing "lsusb"
+    Output:Bus 000 Device 004: ID 2207:350b Fuzhou Rockchip Electronics Co., Ltd. Composite Device
+
+    # Linux:
+
+    The results after executing "lsusb"
+    Output:Bus 001 Device 030: ID 2207:350b Fuzhou Rockchip Electronics Company
+
+    # Windows:
+
+    Open the RKDevTool, and you will see that the device is in the "Found One MASKROM Device" state.
+
+</details>
+
+### How to enter Maskrom mode
+
+![MaskRom](/img/cm3j/radxa-cm3j-hardware-overview.webp)
+
+<Tabs queryString="mode">
+
+<TabItem value="rpi cm4 io board" label="Raspberry Pi CM4 IO Board" default>
+
+1. Prepare a USB-A to MicroUSB cable
+
+2. Insert the USB-A to MicroUSB cable into the OTG port (Micro USB port) of the Raspberry Pi Compute Module 4 IO Board, and plug the other end into the computer.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-rpi-cm4-io-maskrom-1.webp)
+
+3. Then press and hold the eMMC Button (if this is the first time flashing, the button does not need to be pressed).
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-rpi-cm4-io-maskrom-2.webp)
+
+4. Power on.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-rpi-cm4-io-maskrom-3.webp)
+
+5. At this point, under normal circumstances, it will enter Maskrom mode, and the RKdevTool will detect a Maskrom device.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-maskrom.webp)
+
+</TabItem>
+
+<TabItem value="cm4 poe ups base" label="WaveShare CM4-POE-UPS-BASE" default>
+
+1. Prepare a USB-A to USB-C cable.
+
+2. Insert the USB-A to USB-C cable into the USB Type-C port of the WaveShare CM4-POE-UPS-BASE board, and plug the other end into the computer.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-cm4-poe-ups-base-maskrom-1.webp)
+
+3. Set the BOOT DIP switch on the board to the ON position.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-cm4-poe-ups-base-maskrom-2.webp)
+
+4. Then press and hold the **eMMC Button** (if this is the first time flashing, the button does not need to be pressed).
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-cm4-poe-ups-base-maskrom-3.webp)
+
+5. Power on, then switch the switch at the position shown in the image to the ON position.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-cm4-poe-ups-base-maskrom-4.webp)
+
+6. At this point, under normal circumstances, it will enter Maskrom mode, and the RKdevTool will detect a Maskrom device.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-maskrom.webp)
+
+</TabItem>
+
+<TabItem value="cm4 io base b" label="WaveShare CM4-IO-BASE-B" default>
+
+1. Prepare a USB-A to USB-C cable.
+
+2. First, set the BOOT DIP switch on the board to the ON position.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-cm4-io-base-b-maskrom-1.webp)
+
+3. Then press and hold the **eMMC Button** (if this is the first time flashing, the button does not need to be pressed).
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-cm4-io-base-b-maskrom-2.webp)
+
+4. Insert the USB-A to USB-C cable into the USB Type-C port of the WaveShare CM4-IO-BASE-B board, and plug the other end into the computer.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-cm4-io-base-b-maskrom-3.webp)
+
+5. At this point, under normal circumstances, it will enter Maskrom mode, and the RKdevTool will detect a Maskrom device.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-maskrom.webp)
+
+</TabItem>
+
+<TabItem value="cm4 nano b" label="WaveShare CM4-NANO-B" default>
+
+1. Prepare a USB-A to USB-C cable.
+
+2. First, set the BOOT DIP switch on the board to the ON position.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-cm4-nano-b-maskrom-1.webp)
+
+3. Then press and hold the **eMMC Button** (if this is the first time flashing, the button does not need to be pressed).
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-cm4-nano-b-maskrom-2.webp)
+
+4. Insert the USB-A to USB-C cable into the USB Type-C port of the WaveShare CM4-IO-BASE-B board, and plug the other end into the computer.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-cm4-nano-b-maskrom-3.webp)
+
+5. At this point, under normal circumstances, it will enter Maskrom mode, and the RKdevTool will detect a Maskrom device.
+
+![MaskRom Key](/img/cm3j/radxa-cm3j-maskrom.webp)
+
+</TabItem>
+
+</Tabs>
