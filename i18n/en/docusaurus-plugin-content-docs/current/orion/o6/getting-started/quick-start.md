@@ -38,7 +38,7 @@ To use the Orion O6, the following items are required:
 - **M.2 NVMe SSD**：
 
   - Supported types: **2230**、**2242**、**2260**、**2280**
-  - Supported interfaces: **PCIe Gen3** 或 **Gen4**(SATA M.2 SSDs are not supported).
+  - Supported interfaces: **PCIe Gen3** or **Gen4**(SATA M.2 SSDs are not supported).
 
 - **USB Keyboard and Mouse**：Required for operation.
 - **USB Drive**: For OS installation.
