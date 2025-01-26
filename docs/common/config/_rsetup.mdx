@@ -104,7 +104,7 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 │                      GPIO LEDs                                               │
 │                      Thermal governor                                        │
 │                      Configure DSI display mirroring                         │
-│                                                                              │
+│                      USB OTG services                                        │
 │                                                                              │
 │                     <Ok>                         <Cancel>                    │
 │                                                                              │
@@ -134,6 +134,18 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 ### Configure DSI display mirroring
 
 在同时使用 HDMI 显示器和 DSI 显示器时，如果 DSI 显示器有一些问题，启用这个选项会有所帮助。
+
+### USB OTG services
+
+用于开启 OTG 端口的设备功能配置：
+
+```
+# `*.*` 为对应的 USB 控制器
+
+radxa-adbd@*.*  # 配置为 ADB 设备
+radxa-ecm@*.*   # 配置为 ECM 设备（不推荐）
+radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
+```
 
 ## Overlays
 

@@ -1,52 +1,24 @@
-大多数radxa产品都预留了一个USB端口作为OTG端口，在运行Android时也作为adb调试端口。你可以在此查阅相应[产品](https://radxa.com/products)的端口定义。
-你可以通过OTG端口连接两个产品来建立一个共享网络。现在官方支持最新的linux和android图像。
+大多数 Radxa 产品都预留了一个 USB 端口作为 OTG 端口，在运行 Android 时也作为 ADB 调试端口。你可以在此查阅相应[产品](https://radxa.com/products)的端口定义。
+你可以通过 OTG 端口连接两个产品来建立一个共享网络。此文档仅适用于官方发布的最新的 Radxa OS 和 Android 镜像。
 
 ### 准备工作
 
-**线缆**： 首先，你将需要一条USB-A转USB-A的线来连接两个SBC。
-
-**软件**： 如果你的SBC没有最新的软件，请将你的SBC连接到互联网，并输入以下命令以更新到最新：
-
-```bash
-sudo apt update && sudo apt full-upgrade
-```
-
-**服务**： 更新软件后，你需要启动`radxa-usbnet`服务：
-
-```bash
-sudo systemctl enable --now radxa-usbnet
-```
-
-**状态**: 输入以下命令来确认服务是否正常运行：
-
-```bash
-sudo systemctl status radxa-usbnet.service
-```
-
-服务运行时的活动状态信息为 `active(exited)`。
+**线缆**： 首先，你将需要一条数据线来连接 SBC 的 OTG 端口，具体使用的端口请参考对应产品的硬件信息页面。  
+**软件**： 如果你的 SBC 没有最新的软件，请将你的 SBC 连接到互联网，并使用 [`rsetup` 更新系统](rsetup#system-update)：
 
 ### OTG设置
 
-首先，用USB-A转USB-A数据线连接两个SBC的OTG端口。
-共享网络里的设备性质由你所启用的[overlay](../os-config/rsetup#overlay)决定，主机的设备名称为host。
-主机启用此项overlay：
+首先，使用数据线连接 SBC 的 OTG 端口。  
+使用 [`rsetup`](rsetup#overlays) 启用 `Set OTG port to Peripheral mode` overlay 并重启。
 
-```bash
-		[*] Set OTG port to Host mode
-```
+### 开启 `NCM` 服务
 
-从机启用此项overlay：
+使用 [`rsetup`](rsetup#usb-otg-services) 启用 `radxa-ncm@*.*` 服务。
 
-```bash
-		[*] Set OTG port to Peripheral mode
-```
+### 主机网络设置
 
-启用设置后需要重启。
-
-#### 主机设置
-
-为了给设备机共享网络，主机需要连接到外部网络，有线和无线网络都可以。
-接下来，我们需要给设备机的连接设置一个共享适配器，在KDE桌面和终端上都可以设置。
+为了给设备机共享网络，主机需要连接到外部网络，有线和无线网络都可以。  
+接下来，我们需要给设备机的连接设置一个共享适配器，在KDE桌面和终端上都可以设置。  
 此处以在终端设置为例：
 
 **设置共享适配器：**
@@ -66,9 +38,9 @@ ip a
        valid_lft forever preferred_lft forever
 ```
 
-如果没有新的网卡，你可能需要再次设置overlay或重启。
+如果没有新的网卡，请检查前面的步骤：打开 [Overlay](#otg设置)，重启，并[启动 NCM 服务](#开启-ncm-服务)。
 
-网络管理器工具(/radxa-os/config/network)是推荐的管网络理工具，输入命令即可打开界面：
+`NetworkManager` 是推荐的网络管理工具，输入命令即可打开界面：
 
 ```bash
 sudo nmtui
@@ -91,7 +63,9 @@ sudo nmtui
 ```
 
 选择 `Edit a connection -- <Add>` 里的 `Ethernet` 项来设置一个适配器：
+
 ![add adapter](/img/configuration/add_adapter.webp)
+
 在众多选项中，只需要填写其中的以下两项：
 
 ```bash
@@ -100,6 +74,7 @@ sudo nmtui
 ```
 
 保存配置并返回到设置界面 `Activate a connection`，选择你刚刚添加的选项。
+
 配置好后，则设置会更新为与以下相同：
 
 ```bash
@@ -108,6 +83,7 @@ sudo nmtui
 ```
 
 **确认适配器设置：**
+
 设置之后，检查是否出现第三张网卡的信息：
 
 ```bash
@@ -128,11 +104,12 @@ ip a
 
 如果它与你的结果相似，接下来就可以设置从设备了。
 
-#### 从设备设置
+### 从设备设置
 
 **启用usb网络连接：**
+
 相对于主机来说，从设备较容易设置。
-首先， 启用 `Set OTG port to Peripheral mode` overlay并且开启 `radxa-usbnet` 服务， 之后重启。
+
 输入 `ip a` 以确认名为 `usb0` 的设备是否被添加到网卡列表:
 
 ```bash
@@ -140,10 +117,10 @@ ip a
     link/ether 76:c7:9d:9e:d5:da brd ff:ff:ff:ff:ff:ff
 ```
 
-如果没有，请检查前面的步骤：重新打开Overlay（别忘了重启），并重新启动usbnet服务。
+如果没有，请检查前面的步骤：打开 [Overlay](#otg设置)，重启，并[启动 NCM 服务](#开启-ncm-服务)。
 
-**设置usbnet适配器：**
-接下来，像设置主设备一样设置适配器：
+**设置 NCM 适配器：**
+
 打开网络管理器工具：
 
 ```bash
@@ -173,7 +150,7 @@ Device usb0
 
 **检查连接情况：**
 
-检查usb0是否被分配了IP地址，如下所示：
+检查 `usb0` 是否被分配了IP地址，如下所示：
 
 ```bash
 $ ip a
