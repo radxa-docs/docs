@@ -186,3 +186,13 @@ aplay -Dhw:0,4 playback-songs.wav
 Supported list
 
 - Radxa Wireless Module A8
+
+## Ethernet
+
+When using iperf3 to test throughput, please first use the following instructions to modify the interrupt allocation.
+
+```
+echo 40 > /proc/irq/$(cat /proc/interrupts | grep eth0-0 | cut -d ":" -f 1)/smp_affinity
+
+echo 40 > /proc/irq/$(cat /proc/interrupts | grep eth1-0 | cut -d ":" -f 1)/smp_affinity
+```

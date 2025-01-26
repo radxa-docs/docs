@@ -182,3 +182,13 @@ aplay -Dhw:0,4 playback-songs.wav
 支持列表
 
 - Radxa Wireless Module A8
+
+## 以太网
+
+当使用 iperf3 测试吞吐量时，先使用如下指令，修改中断分配
+
+```
+echo 40 > /proc/irq/$(cat /proc/interrupts | grep eth0-0 | cut -d ":" -f 1)/smp_affinity
+
+echo 40 > /proc/irq/$(cat /proc/interrupts | grep eth1-0 | cut -d ":" -f 1)/smp_affinity
+```
