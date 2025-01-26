@@ -37,6 +37,12 @@ python test.py
 
 <TabItem value="board" label="板子端 RKNN Toolkit">
 
+:::tip
+RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `sudo rsetup -> Overlays -> Manage overlays -> Enable NPU`，最后重启系统。
+
+如 overlays 选项中无 `Enable NPU` 选项，请通过: `sudo rsetup -> System -> System Update` 升级系统, 重启后执行上述步骤开启 NPU。
+:::
+
 ## 安装 RKNN Toolkit Lite2 及依赖
 
 :::info
