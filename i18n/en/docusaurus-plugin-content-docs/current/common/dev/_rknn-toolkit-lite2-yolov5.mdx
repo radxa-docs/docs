@@ -57,8 +57,9 @@ Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model. Users can directly s
 ### On-Device YOLOv5 Inference
 
 :::tip
-For RK356X chips, enable the NPU before use: run `sudo rsetup -> overlays -> Enable NPU` and reboot the system.  
-If the `Enable NPU` option is missing, update the system via `sudo rsetup -> system -> System Update` and repeat the steps.
+For users of RK356X products, you need to enable the NPU in the terminal using **rsetup** before using the NPU: `sudo rsetup -> Overlays -> Manage overlays -> Enable NPU`, then restart the system.
+
+If there is no `Enable NPU` option in the overlays options, please update the system via: `sudo rsetup -> system -> System Update`, restart, and execute the above steps to enable the NPU.
 :::
 
 - (Optional) Download pre-converted YOLOv5s RKNN models provided by Radxa:
