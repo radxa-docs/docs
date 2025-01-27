@@ -12,6 +12,11 @@ import { Section, Image } from "@site/src/utils/docs";
 
 :::tip
 
+<Section compatible="cix" platform={props.platform}>
+基于 CIX 芯片的瑞莎产品，UART 默认配置为 115200n8，无流量控制。
+
+</Section>
+
 <Section compatible="aml" platform={props.platform}>
 基于 Amlogic 芯片的瑞莎产品，UART 默认配置为 115200n8，无流量控制。
 
@@ -39,7 +44,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 如下所示连接 USB 转 TTL 串口线：
 
-<Section compatible="^rock5itx" model={props.model}>
+<Section compatible="^rock5itx,^o6" model={props.model}>
 
 | Radxa SBC       | 连接        | 串口线 |
 | --------------- | ----------- | ------ |
@@ -56,6 +61,16 @@ import { Section, Image } from "@site/src/utils/docs";
 | **GND** (pin 1) | &lt;---&gt; | 黑色线 |
 | **TX** (pin 2)  | &lt;---&gt; | 白色线 |
 | **RX** (pin 3)  | &lt;---&gt; | 绿色线 |
+
+</Section>
+
+<Section compatible="o6" model={props.model}>
+
+| Orion O6 | 连接        | 串口线 |
+| -------- | ----------- | ------ |
+| **GND**  | &lt;---&gt; | 黑色线 |
+| **TX**   | &lt;---&gt; | 白色线 |
+| **RX**   | &lt;---&gt; | 绿色线 |
 
 </Section>
 

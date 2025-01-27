@@ -12,6 +12,11 @@ Most of radxa's products define pins 8 (TX) and 10 (RX) on the GPIO pins as UART
 
 :::tip
 
+<Section compatible="cix" platform={props.platform}>
+For Radxa products based on CIX chips, the default UART configuration is 115200n8 without flow control.
+
+</Section>
+
 <Section compatible="aml" platform={props.platform}>
 For Radxa products based on Amlogic chips, the default UART configuration is 115200n8 without flow control.
 
@@ -39,7 +44,7 @@ The Flowing text uses a serial cable based on [CH340](http://wch-ic.com/products
 
 As shown below, connect the USB to TTL serial cable:
 
-<Section compatible="^rock5itx" model={props.model}>
+<Section compatible="^rock5itx,^o6" model={props.model}>
 
 | Radxa SBC       | Connection  | Serial Cable |
 | --------------- | ----------- | ------------ |
@@ -56,6 +61,16 @@ As shown below, connect the USB to TTL serial cable:
 | **GND** (pin 1) | &lt;---&gt; | Black line   |
 | **TX** (pin 2)  | &lt;---&gt; | White line   |
 | **RX** (pin 3)  | &lt;---&gt; | Green line   |
+
+</Section>
+
+<Section compatible="o6" model={props.model}>
+
+| Orion O6 | Connection  | Serial Cable |
+| -------- | ----------- | ------------ |
+| **GND**  | &lt;---&gt; | Black line   |
+| **TX**   | &lt;---&gt; | White line   |
+| **RX**   | &lt;---&gt; | Green line   |
 
 </Section>
 
