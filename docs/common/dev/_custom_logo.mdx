@@ -1,128 +1,61 @@
-### 确认 U-boot 是否是 rknext
+### 确认 U-boot 是否是 rk2410
 
-由于目前我们只在 rknext 中集成了该功能， 所以需要确认手中板子的 U-boot 是否是 2024 年 10 月份之后的版本，
+由于目前我们只在 rk2410 中集成了该功能， 所以需要确认手中板子的 U-boot 是否是 2024 年 10 月份之后的版本，
 
 可在开机日志中查看 U-Boot 版本
 
 如：
 
 ```bash
-U-Boot SPL latest-2023.07.02-6-4257d241-g4257d241 (Oct 12 2023 - 07:58:46 +0000)
+U-Boot rk2410-2017.09-1-g1a7692f4-dirty #runner (Jan 26 2025 - 10:37:18 +0000)
 ```
 
 <Tabs queryString="version">
-<TabItem value="U-boot 是 2024 年 10 月份之前的">
+
+<TabItem value="U-boot 是 rk2410 的">
+
+可直接替换 logo 图片
+
 </TabItem>
-<TabItem value="U-boot 是 2024 年 10 月份之后的">
-- 参考 <a href={props.uboot_develop}> U-boot 开发</a>， 编译 rknext 的 U-boot
+
+<TabItem value="U-boot 不是 rk2410 的">
+
+- 参考 <a href={props.uboot_develop}> U-boot 开发</a>， 编译 rk2410 的 U-boot
 
 ```
-./bsp u-boot rknext -r 99
+./bsp u-boot rk2410 -r 99
 ```
 
 - 将 {props.product} 的 U-boot 拷贝到板子上
 
 <pre style={{ margin: 0 }}>
-  scp -r .root/.root/usr/lib/u-boot/{props.product_dir}/ radxa@192.168.xx.xx:~/
+  scp -r u-boot-rk2410_2017.09-1_arm64.deb radxa@192.168.xx.xx:~/
 </pre>
 
-- 在 {props.product} 上执行以下命令以替换最新的 U-boot
+- 在 {props.product} 上使用 <a href={props.rsetup_path} alt="update u-boot by rsetup" > rsetup</a> 更新 U-boot
 
-<pre style={{ margin: 0 }}>
-  cd {props.product_dir}
-  sudo bash setup.sh update_bootloader /dev/mmcblk0
-</pre>
-
-:::tip
-
-/dev/mmcblk0 这里是 eMMC, 如果系统安装在 SD 卡上， 那就是 /dev/mmcblk1
-如果系统安装在 nvme 等设备上，那就需要更新 SPI Flash 上的 U-boot
-
-:::
-
-- 重启系统，确认 U-boot 更新到了最新的 rknext
+- 重启系统，确认 U-boot 更新到了最新的 rk2410
 
 </TabItem>
 </Tabs>
 
-### 准备一张或者两张图片
+### 准备 Logo 图片
 
-:::warn
+- 将 logo 图片转换为 bmp 格式
+
+  - 启动 logo 分为两个阶段，第一阶段是 U-boot 阶段，第二阶段是 kernel 阶段。两个阶段的 logo 图片分别为 logo.bmp 和 logo_kernel.bmp。
+
+  - 若只有一张图片，则 logo 显示时间会比较短。
+
+  - 两张图片可以是同一张，也可以是不同的。
+
+:::warning
 
 图片总像素数不能超过 200000。
 
 :::
 
-### 将图片转为 .bmp 格式
-
-1. 安装所需要的库
-
-```bash
-pip install Pillow
-```
-
-2. 新建一个 convert.py 的文件， 将以下内容保存到 convert.py 中
-
-<details>
-
-    <summary>convert.py</summary>
-
-```py
-
-from PIL import Image
-import os
-import sys
-
-class ImageConverter:
-    def __init__(self, input_path, output_path):
-        self.input_path = input_path
-        self.output_path = output_path
-        self.target_size = 0.5 * 1024 * 1024  # 0.5 MB in bytes (512 KB)
-
-    def convert_to_bmp(self):
-        with Image.open(self.input_path) as img:
-            # Convert to RGB since BMP doesn't support transparency
-            img = img.convert("RGB")
-
-            # Resize the image if the file size exceeds 0.5 MB
-            img = self.resize_to_fit(img)
-
-            # Save as BMP
-            img.save(self.output_path, format='BMP')
-
-    def resize_to_fit(self, img):
-        # Gradually reduce the size of the image until it fits within the target size
-        while True:
-            img.save(self.output_path, format='BMP')
-            if os.path.getsize(self.output_path) <= self.target_size:
-                break
-            # Reduce the size by 10%
-            width, height = img.size
-            img = img.resize((int(width * 0.9), int(height * 0.9)), Image.ANTIALIAS)
-        return img
-
-def main(input_file, output_file):
-    converter = ImageConverter(input_file, output_file)
-    converter.convert_to_bmp()
-
-if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python3 convert_logo.py <input.jpg> <output.bmp>")
-    else:
-        main(sys.argv[1], sys.argv[2])
-
-```
-
-</details>
-
-3. 将图片转为 .bmp 格式
-
-```bash
-python3 convert.py pic1.jpg logo.bmp
-python3 convert.py pic1.jpg logo_kernel.bmp
-```
-
-### 将以上两张 bmp 图片保存到 config 分区
+- 将以上两张 bmp 图片保存到 config 分区
 
 ```bash
 sudo mount /dev/mmcblk0p1 /mnt/
