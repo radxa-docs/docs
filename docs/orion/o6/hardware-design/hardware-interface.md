@@ -256,8 +256,8 @@ O6 主板上包含一个 40 针 GPIO 连接器，用于低速总线连接和通�
           </tr>
           <tr>
             <td>6</td>
-            <td>UART3_TXD</td>
-            <td>UART3 发送信号（3.3V）</td>
+            <td>GND</td>
+            <td>接地</td>
           </tr>
           <tr>
             <td>7</td>
@@ -266,8 +266,8 @@ O6 主板上包含一个 40 针 GPIO 连接器，用于低速总线连接和通�
           </tr>
           <tr>
             <td>8</td>
-            <td>UART3_RXD</td>
-            <td>UART3 接收信号（3.3V）</td>
+            <td>UART3_TXD</td>
+            <td>UART3 发送信号（3.3V）</td>
           </tr>
           <tr>
             <td>9</td>
@@ -276,8 +276,8 @@ O6 主板上包含一个 40 针 GPIO 连接器，用于低速总线连接和通�
           </tr>
           <tr>
             <td>10</td>
-            <td>I2S4_SCK</td>
-            <td>I2S4 串行时钟（3.3V）</td>
+            <td>UART3_RXD</td>
+            <td>UART3 接收信号（3.3V）</td>
           </tr>
           <tr>
             <td>11</td>
@@ -286,8 +286,8 @@ O6 主板上包含一个 40 针 GPIO 连接器，用于低速总线连接和通�
           </tr>
           <tr>
             <td>12</td>
-            <td>GPIO</td>
-            <td>通用 I/O（3.3V）</td>
+            <td>I2S4_SCK</td>
+            <td>I2S4 串行时钟（3.3V）</td>
           </tr>
           <tr>
             <td>13</td>
