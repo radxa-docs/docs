@@ -4,4 +4,5 @@ extend-ignore-identifiers-re = [
     "DuPont",
     "g3caf61a44c2",
     "des3_ede",
+    "hda",
 ]

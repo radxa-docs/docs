@@ -258,8 +258,8 @@ A 40‑pin GPIO connector is included on the O6 board, designed for low‑speed 
           </tr>
           <tr>
             <td>6</td>
-            <td>UART3_TXD</td>
-            <td>UART3 transmit signal (3.3V)</td>
+            <td>GND</td>
+            <td>Ground</td>
           </tr>
           <tr>
             <td>7</td>
@@ -268,8 +268,8 @@ A 40‑pin GPIO connector is included on the O6 board, designed for low‑speed 
           </tr>
           <tr>
             <td>8</td>
-            <td>UART3_RXD</td>
-            <td>UART3 receive signal(3.3V)</td>
+            <td>UART3_TXD</td>
+            <td>UART3 transmit signal (3.3V)</td>
           </tr>
           <tr>
             <td>9</td>
@@ -278,8 +278,8 @@ A 40‑pin GPIO connector is included on the O6 board, designed for low‑speed 
           </tr>
           <tr>
             <td>10</td>
-            <td>I2S4_SCK</td>
-            <td>I2S4 serial clock (3.3V)</td>
+            <td>UART3_RXD</td>
+            <td>UART3 receive signal(3.3V)</td>
           </tr>
           <tr>
             <td>11</td>
@@ -288,8 +288,8 @@ A 40‑pin GPIO connector is included on the O6 board, designed for low‑speed 
           </tr>
           <tr>
             <td>12</td>
-            <td>GPIO</td>
-            <td>General-purpose I/O (3.3V)</td>
+            <td>I2S4_SCK</td>
+            <td>I2S4 serial clock (3.3V)</td>
           </tr>
           <tr>
             <td>13</td>
