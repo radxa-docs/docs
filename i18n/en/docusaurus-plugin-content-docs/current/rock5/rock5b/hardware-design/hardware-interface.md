@@ -250,34 +250,262 @@ description: "Detailed hardware information for ROCK 5B/5B+"
 
 ### PCIe
 
+- PCIe B Key
+
+<Tabs queryString="versions">
+
+    <TabItem value="ROCK 5B">
+
+        ROCK 5B has no PCIe B Key
+
+    </TabItem>
+
+    <TabItem value="ROCK 5B+">
+
+    | Pin# | Name                    | Pin# | Name                      |
+    | :--: | :---------------------- | :--: | :------------------------ |
+    |  1   | NC                      |  2   | 3V3_4G                    |
+    |  3   | GND                     |  4   | 3V3_4G                    |
+    |  5   | GND                     |  6   | 4G_PWREN                  |
+    |  7   | USB4_DP                 |  8   | 4G_DISABLE                |
+    |  9   | USB4_DM                 |  10  | NC                        |
+    |  11  | GND                     |      |                           |
+    |      |                         |      |                           |
+    |      |                         |      |                           |
+    |      |                         |      |                           |
+    |      |                         |  20  | I2S2_LRCK_M0_BT           |
+    |  21  | GND                     |  22  | I2S2_SDI_M0_BT            |
+    |  23  | 4G_WAKE_ON_HOST         |  24  | I2S2_SDO_M0_BT            |
+    |  25  | NC                      |  26  | W_DISABLE2                |
+    |  27  | GND                     |  28  | NC                        |
+    |  29  | NC                      |  30  | SIM1_RESET                |
+    |  31  | NC                      |  32  | SIM1_CLK                  |
+    |  33  | GND                     |  34  | SIM1_DATA                 |
+    |  35  | NC                      |  36  | SIM1_PWR                  |
+    |  37  | NC                      |  38  | DEVSLP                    |
+    |  39  | GND                     |  40  | NC                        |
+    |  41  | NC                      |  42  | NC                        |
+    |  43  | NC                      |  44  | NC                        |
+    |  45  | GND                     |  46  | NC                        |
+    |  47  | NC                      |  48  | NC                        |
+    |  49  | NC                      |  50  | NC                        |
+    |  51  | GND                     |  52  | NC                        |
+    |  53  | NC                      |  54  | NC                        |
+    |  55  | NC                      |  56  | NC                        |
+    |  57  | GND                     |  58  | NC                        |
+    |  59  | NC                      |  60  | I2S2_SCLK_M0_BT           |
+    |  61  | NC                      |  62  | NC                        |
+    |  63  | NC                      |  64  | NC                        |
+    |  65  | NC                      |  66  | SIM1_DET                  |
+    |  67  | 4G_RESET                |  68  | NC                        |
+    |  69  | GND                     |  70  | 3V3_4G                    |
+    |  71  | GND                     |  72  | 3V3_4G                    |
+    |  73  | GND                     |  74  | 3V3_4G                    |
+    |  75  | GND                     |  76  | GND                       |
+    |  77  | GND                     |  78  | GND                       |
+    |  79  | NC                      |  80  | NC                        |
+
+    </TabItem>
+
+</Tabs>
+
 - PCIe E Key
 
-<div className='gpio_style'>
+<Tabs queryString="versions">
 
-| Pin# | Name                    | Pin# | Name                      | Pin# | Name              | Pin# | Name      |
-| :--: | :---------------------- | :--: | :------------------------ | :--: | :---------------- | :--: | :-------- |
-|  1   | GND                     |  21  | WIFI_WAKE_HOST_H_GPIO3_D5 |  49  | PCIE20_REFCLKN    |  69  | GND       |
-|  2   | VCC3V3_WF               |  22  | UART1_RX_M0               |  50  | WIFIBT_32KIN_1T1R |  70  | BT_WAKE   |
-|  3   | USB2_M2_DP              |  23  | WIFI_REG_ON               |  51  | GND               |  71  | NC        |
-|  4   | VCC3V3_WF               |  32  | UART1_TX_M0               |  52  | PCIE_PERSTN       |  72  | VCC3V3_WF |
-|  5   | USB2_M2_DM              |  33  | GND                       |  53  | PCIE_CLKREQN      |  73  | NC        |
-|  6   | WIFI_LED                |  34  | UART1_CTS_M               |  54  | HOST_WAKE_BT_H    |  74  | VCC3V3_WF |
-|  7   | GND                     |  35  | PCIE_TXP                  |  55  | PCIE_WAKEN        |  75  | GND       |
-|  8   | PCM_CLK/I2S_SCK         |  36  | UART1_RTS_M               |  56  | BT_REG_ON_H       |  76  | GND       |
-|  9   | SDIO_CLK                |  37  | PCIE_TXN                  |  57  | GND               |  77  | GND       |
-|  10  | PCM_SYNC/I2S_WS         |  38  | NC                        |  58  | I2C4_SDA_M1       |  78  | NC        |
-|  11  | SDMMC2_CMD_M0           |  39  | GND                       |  59  | NC                |  79  | NC        |
-|  12  | PCM_OUT/I2S SD_OUT      |  40  | NC                        |  60  | I2C4_SCL_M1       |
-|  13  | SDMMC2_D0_M0            |  41  | PCIE20_RXP                |  61  | NC                |
-|  14  | PCM_IN/I2S SD_IN        |  42  | BT_REG_NO                 |  62  | NC                |
-|  15  | SDMMC2_D1_M0            |  43  | PCIE20_RXN                |  63  | GND               |
-|  16  | NC                      |  44  | NC                        |  64  | NC                |
-|  17  | SDMMC2_D2_M0            |  45  | GND                       |  65  | NC                |
-|  18  | GND                     |  46  | NC                        |  66  | NC                |
-|  19  | SDMMC2_D3_M0            |  47  | PCIE20_REFC               |  67  | NC                |
-|  20  | BT_WAKE_HOST_H_GPIO4_B4 |  48  | NC                        |  68  | NC                |
+    <TabItem value="ROCK 5B">
 
-</div>
+        <div className='gpio_style'>
+
+        | Pin# | Name                    | Pin# | Name                      | Pin# | Name              | Pin# | Name      |
+        | :--: | :---------------------- | :--: | :------------------------ | :--: | :---------------- | :--: | :-------- |
+        |  1   | GND                     |  21  | WIFI_WAKE_HOST_H_GPIO3_D5 |  49  | PCIE20_REFCLKN    |  69  | GND       |
+        |  2   | VCC3V3_WF               |  22  | UART1_RX_M0               |  50  | WIFIBT_32KIN_1T1R |  70  | BT_WAKE   |
+        |  3   | USB2_M2_DP              |  23  | WIFI_REG_ON               |  51  | GND               |  71  | NC        |
+        |  4   | VCC3V3_WF               |  32  | UART1_TX_M0               |  52  | PCIE_PERSTN       |  72  | VCC3V3_WF |
+        |  5   | USB2_M2_DM              |  33  | GND                       |  53  | PCIE_CLKREQN      |  73  | NC        |
+        |  6   | WIFI_LED                |  34  | UART1_CTS_M               |  54  | HOST_WAKE_BT_H    |  74  | VCC3V3_WF |
+        |  7   | GND                     |  35  | PCIE_TXP                  |  55  | PCIE_WAKEN        |  75  | GND       |
+        |  8   | PCM_CLK/I2S_SCK         |  36  | UART1_RTS_M               |  56  | BT_REG_ON_H       |  76  | GND       |
+        |  9   | SDIO_CLK                |  37  | PCIE_TXN                  |  57  | GND               |  77  | GND       |
+        |  10  | PCM_SYNC/I2S_WS         |  38  | NC                        |  58  | I2C4_SDA_M1       |  78  | NC        |
+        |  11  | SDMMC2_CMD_M0           |  39  | GND                       |  59  | NC                |  79  | NC        |
+        |  12  | PCM_OUT/I2S SD_OUT      |  40  | NC                        |  60  | I2C4_SCL_M1       |
+        |  13  | SDMMC2_D0_M0            |  41  | PCIE20_RXP                |  61  | NC                |
+        |  14  | PCM_IN/I2S SD_IN        |  42  | BT_REG_NO                 |  62  | NC                |
+        |  15  | SDMMC2_D1_M0            |  43  | PCIE20_RXN                |  63  | GND               |
+        |  16  | NC                      |  44  | NC                        |  64  | NC                |
+        |  17  | SDMMC2_D2_M0            |  45  | GND                       |  65  | NC                |
+        |  18  | GND                     |  46  | NC                        |  66  | NC                |
+        |  19  | SDMMC2_D3_M0            |  47  | PCIE20_REFC               |  67  | NC                |
+        |  20  | BT_WAKE_HOST_H_GPIO4_B4 |  48  | NC                        |  68  | NC                |
+
+        </div>
+
+    </TabItem>
+
+    <TabItem value="ROCK 5B+">
+
+        ROCK 5B+ has no PCIe E Key
+
+    </TabItem>
+
+</Tabs>
+
+- PCIe M Key
+
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5B">
+
+    <div className='gpio_style'>
+
+    | Pin# | Name                    | Pin# | Name                      |
+    | :--: | :---------------------- | :--: | :------------------------ |
+    |  1   | GND                     |  2   | VCC3V3_PCIE30             |
+    |  3   | GND                     |  4   | VCC3V3_PCIE30             |
+    |  5   | PCIE30_PORT1_RX3N       |  6   | NC                        |
+    |  7   | PCIE30_PORT1_RX3P       |  8   | NC                        |
+    |  9   | GND                     |  10  | NC                        |
+    |  11  | PCIE30_PORT1_TX3N       |  12  | VCC3V3_PCIE30             |
+    |  13  | PCIE30_PORT1_TX3P       |  14  | VCC3V3_PCIE30             |
+    |  15  | GND                     |  16  | VCC3V3_PCIE30             |
+    |  17  | PCIE30_PORT1_RX2N       |  18  | VCC3V3_PCIE30             |
+    |  19  | PCIE30_PORT1_RX2P       |  20  | NC                        |
+    |  21  | GND                     |  22  | NC                        |
+    |  23  | PCIE30_PORT1_TX2N       |  24  | NC                        |
+    |  25  | PCIE30_PORT1_TX2P       |  26  | NC                        |
+    |  27  | GND                     |  28  | NC                        |
+    |  29  | PCIE30_PORT0_RX1N       |  30  | NC                        |
+    |  31  | PCIE30_PORT0_RX1P       |  32  | NC                        |
+    |  33  | GND                     |  34  | NC                        |
+    |  35  | PCIE30_PORT0_TX1N       |  36  | NC                        |
+    |  37  | PCIE30_PORT0_TX1P       |  38  | NC                        |
+    |  39  | GND                     |  40  | NC                        |
+    |  41  | PCIE30_PORT0_RX0N       |  42  | NC                        |
+    |  43  | PCIE30_PORT0_RX0P       |  44  | CLK_3P                    |
+    |  45  | GND                     |  46  | CLK_3N                    |
+    |  47  | PCIE30_PORT0_TX0N       |  48  | NC                        |
+    |  49  | PCIE30_PORT0_TX0P       |  50  | PCIE30X4_PERSTn_M1_L      |
+    |  51  | GND                     |  52  | PCIE30X4_CLKREQn_M1_L     |
+    |  53  | PCIE30_REFCLKN_SLOT     |  54  | PCIE30X4_WAKEn_M1_L       |
+    |  55  | PCIE30_REFCLKP_SLOT     |  56  | NC                        |
+    |  57  | GND                     |  58  | NC                        |
+    |                                                                   |
+    |                                                                   |
+    |                                                                   |
+    |                                                                   |
+    |  67  | NC                      |  68  | NC                        |
+    |  69  | NC                      |  70  | VCC3V3_PCIE30             |
+    |  71  | GND                     |  72  | VCC3V3_PCIE30             |
+    |  73  | GND                     |  74  | VCC3V3_PCIE30             |
+    |  75  | GND                     |  76  | GND                       |
+    |  77  | GND                     |      |                           |
+
+    </div>
+
+    </TabItem>
+
+    <TabItem value="ROCK 5B+">
+
+    - PCIe M Key: PCIe3.0 x 2 Lane_1
+
+    <div className='gpio_style'>
+
+    | Pin# | Name                    | Pin# | Name                      |
+    | :--: | :---------------------- | :--: | :------------------------ |
+    |  1   | GND                     |  2   | VCC3V3_PCIE30             |
+    |  3   | GND                     |  4   | VCC3V3_PCIE30             |
+    |  5   | NC                      |  6   | NC                        |
+    |  7   | NC                      |  8   | NC                        |
+    |  9   | GND                     |  10  | NC                        |
+    |  11  | NC                      |  12  | VCC3V3_PCIE30             |
+    |  13  | NC                      |  14  | VCC3V3_PCIE30             |
+    |  15  | GND                     |  16  | VCC3V3_PCIE30             |
+    |  17  | NC                      |  18  | VCC3V3_PCIE30             |
+    |  19  | NC                      |  20  | NC                        |
+    |  21  | GND                     |  22  | NC                        |
+    |  23  | NC                      |  24  | NC                        |
+    |  25  | NC                      |  26  | NC                        |
+    |  27  | GND                     |  28  | NC                        |
+    |  29  | PCIE30_PORT0_RX1N       |  30  | NC                        |
+    |  31  | PCIE30_PORT0_RX1P       |  32  | NC                        |
+    |  33  | GND                     |  34  | NC                        |
+    |  35  | PCIE30_PORT0_TX1N       |  36  | NC                        |
+    |  37  | PCIE30_PORT0_TX1P       |  38  | NC                        |
+    |  39  | GND                     |  40  | NC                        |
+    |  41  | PCIE30_PORT0_RX0N       |  42  | NC                        |
+    |  43  | PCIE30_PORT0_RX0P       |  44  | NC                        |
+    |  45  | GND                     |  46  | NC                        |
+    |  47  | PCIE30_PORT0_TX0N       |  48  | NC                        |
+    |  49  | PCIE30_PORT0_TX0P       |  50  | PCIE30X4_PERSTn_M1_L      |
+    |  51  | GND                     |  52  | PCIE30X4_CLKREQn_M1_L     |
+    |  53  | PCIE30_REFCLKN_SLOT     |  54  | PCIE30X4_WAKEn_M1_L       |
+    |  55  | PCIE30_REFCLKP_SLOT     |  56  | NC                        |
+    |  57  | GND                     |  58  | NC                        |
+    |                                                                   |
+    |                                                                   |
+    |                                                                   |
+    |                                                                   |
+    |  67  | NC                      |  68  | NC                        |
+    |  69  | NC                      |  70  | VCC3V3_PCIE30             |
+    |  71  | GND                     |  72  | VCC3V3_PCIE30             |
+    |  73  | GND                     |  74  | VCC3V3_PCIE30             |
+    |  75  | GND                     |  76  | GND                       |
+    |  77  | GND                     |      |                           |
+
+    </div>
+
+    - PCIe M Key: PCIe3.0 x 2 Lane_2
+
+    <div className='gpio_style'>
+
+    | Pin# | Name                    | Pin# | Name                      |
+    | :--: | :---------------------- | :--: | :------------------------ |
+    |  1   | GND                     |  2   | 3V3_PCIE30_1              |
+    |  3   | GND                     |  4   | 3V3_PCIE30_1              |
+    |  5   | NC                      |  6   | NC                        |
+    |  7   | NC                      |  8   | NC                        |
+    |  9   | GND                     |  10  | NC                        |
+    |  11  | NC                      |  12  | 3V3_PCIE30_1              |
+    |  13  | NC                      |  14  | 3V3_PCIE30_1              |
+    |  15  | GND                     |  16  | 3V3_PCIE30_1              |
+    |  17  | NC                      |  18  | 3V3_PCIE30_1              |
+    |  19  | NC                      |  20  | NC                        |
+    |  21  | GND                     |  22  | NC                        |
+    |  23  | NC                      |  24  | NC                        |
+    |  25  | NC                      |  26  | NC                        |
+    |  27  | GND                     |  28  | NC                        |
+    |  29  | PCIE30_PORT1_RX3N       |  30  | NC                        |
+    |  31  | PCIE30_PORT1_RX3P       |  32  | NC                        |
+    |  33  | GND                     |  34  | NC                        |
+    |  35  | PCIE30_PORT1_TX3N       |  36  | NC                        |
+    |  37  | PCIE30_PORT1_TX3P       |  38  | NC                        |
+    |  39  | GND                     |  40  | NC                        |
+    |  41  | PCIE30_PORT1_RX2N       |  42  | NC                        |
+    |  43  | PCIE30_PORT1_RX2P       |  44  | NC                        |
+    |  45  | GND                     |  46  | NC                        |
+    |  47  | PCIE30_PORT1_TX2N       |  48  | NC                        |
+    |  49  | PCIE30_PORT1_TX2P       |  50  | PCIE30x2_PERSTn_M1        |
+    |  51  | GND                     |  52  | PCIE30x2_CLKREQn_M1       |
+    |  53  | PCIE30_REFCLKN_SLOT1    |  54  | PCIE30x2_WAKEn_M1         |
+    |  55  | PCIE30_REFCLKP_SLOT1    |  56  | NC                        |
+    |  57  | GND                     |  58  | NC                        |
+    |                                                                   |
+    |                                                                   |
+    |                                                                   |
+    |                                                                   |
+    |  67  | NC                      |  68  | NC                        |
+    |  69  | NC                      |  70  | 3V3_PCIE30_1              |
+    |  71  | GND                     |  72  | 3V3_PCIE30_1              |
+    |  73  | GND                     |  74  | 3V3_PCIE30_1              |
+    |  75  | GND                     |  76  | GND                       |
+    |  77  | GND                     |      |                           |
+
+    </div>
+
+    </TabItem>
+
+</Tabs>
 
 ### POE
 
