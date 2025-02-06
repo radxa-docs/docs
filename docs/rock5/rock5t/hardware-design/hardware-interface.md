@@ -61,6 +61,23 @@ description: "详细介绍 ROCK 5T 硬件信息"
 
 ### Gigabit Ethernet
 
+<div className='gpio_style' style={{ overflow :"auto"}} >
+
+| Pin# | Name  | Pin# | Name  |
+| :--: | :---- | :--: | :---- |
+|  1   | MDI0+ |  2   | MDI0- |
+|  3   | MDI1+ |  4   | GND   |
+|  5   | GND   |  6   | MDI1- |
+|  7   | MDI2+ |  8   | MDI2- |
+|  9   | MDI3+ |  10  | MDI3- |
+|  11  | GND   |  12  | GND   |
+|  13  | GND   |  14  | GND   |
+|  15  | LED0  |  16  | LED1  |
+|  17  | V3P3A |  18  | LED2  |
+|  19  | GND   |  20  | GND   |
+
+</div>
+
 ### MIPI CSI
 
 #### CAM0
