@@ -187,6 +187,149 @@ LCD 座子采用的是 FH35C-39S-0.3SHW（50），间距 0.3 mm。
 
 ### PCIe
 
+- PCIe B Key
+
+<div className='gpio_style' style={{ overflow :"auto"}} >
+
+| Pin# | Name     | Pin# | Name       |
+| :--: | :------- | :--: | :--------- |
+|  1   | NC       |  2   | 3V3_4G     |
+|  3   | GND      |  4   | 3V3_4G     |
+|  5   | GND      |  6   | 4G_PWREN   |
+|  7   | USB4_DP  |  8   | 4G_DISABLE |
+|  9   | USB4_DM  |  10  | NC         |
+|  11  | GND      |  XX  |            |
+|  XX  |          |  XX  |            |
+|  XX  |          |  XX  |            |
+|  XX  |          |  XX  |            |
+|  XX  |          |  20  | NC         |
+|  21  | GND      |  22  | NC         |
+|  23  | NC       |  24  | NC         |
+|  25  | NC       |  26  | W_DISABLE2 |
+|  27  | GND      |  28  | NC         |
+|  29  | NC       |  30  | SIM1_RESET |
+|  31  | NC       |  32  | SIM1_CLK   |
+|  33  | GND      |  34  | SIM1_DATA  |
+|  35  | NC       |  36  | SIM1_PWR   |
+|  37  | NC       |  38  | NC         |
+|  39  | GND      |  40  | NC         |
+|  41  | NC       |  42  | NC         |
+|  43  | NC       |  44  | NC         |
+|  45  | GND      |  46  | NC         |
+|  47  | NC       |  48  | NC         |
+|  49  | NC       |  50  | NC         |
+|  51  | GND      |  52  | NC         |
+|  53  | NC       |  54  | NC         |
+|  55  | NC       |  56  | NC         |
+|  57  | GND      |  58  | NC         |
+|  59  | NC       |  60  | NC         |
+|  61  | NC       |  62  | NC         |
+|  63  | NC       |  64  | NC         |
+|  65  | NC       |  66  | SIM1_DET   |
+|  67  | 4G_RESET |  68  | NC         |
+|  69  | GND      |  70  | 3V3_4G     |
+|  71  | GND      |  72  | 3V3_4G     |
+|  73  | GND      |  74  | 3V3_4G     |
+|  75  | GND      |  XX  |            |
+
+</div>
+
+- PCIe M Key
+
+  - U19
+
+      <div className='gpio_style' style={{ overflow :"auto"}} >
+
+          | Pin# | Name                    | Pin# | Name                      |
+          | :--: | :---------------------- | :--: | :------------------------ |
+          |  1   | GND                     |  2   | VCC3V3_PCIE30             |
+          |  3   | GND                     |  4   | VCC3V3_PCIE30             |
+          |  5   | NC                      |  6   | NC                        |
+          |  7   | NC                      |  8   | NC                        |
+          |  9   | GND                     |  10  | NC                        |
+          |  11  | NC                      |  12  | VCC3V3_PCIE30             |
+          |  13  | NC                      |  14  | VCC3V3_PCIE30             |
+          |  15  | GND                     |  16  | VCC3V3_PCIE30             |
+          |  17  | NC                      |  18  | VCC3V3_PCIE30             |
+          |  19  | NC                      |  20  | NC                        |
+          |  21  | GND                     |  22  | NC                        |
+          |  23  | NC                      |  24  | NC                        |
+          |  25  | NC                      |  26  | NC                        |
+          |  27  | GND                     |  28  | NC                        |
+          |  29  | PCIE30_PORT0_RX1N       |  30  | NC                        |
+          |  31  | PCIE30_PORT0_RX1P       |  32  | NC                        |
+          |  33  | GND                     |  34  | NC                        |
+          |  35  | PCIE30_PORT0_TX1N       |  36  | NC                        |
+          |  37  | PCIE30_PORT0_TX1P       |  38  | NC                        |
+          |  39  | GND                     |  40  | NC                        |
+          |  41  | PCIE30_PORT0_RX0N       |  42  | NC                        |
+          |  43  | PCIE30_PORT0_RX0P       |  44  | NC                        |
+          |  45  | GND                     |  46  | NC                        |
+          |  47  | PCIE30_PORT0_TX0N       |  48  | NC                        |
+          |  49  | PCIE30_PORT0_TX0P       |  50  | PCIE30X4_PERSTn_M1_L      |
+          |  51  | GND                     |  52  | PCIE30X4_CLKREQn_M1_L     |
+          |  53  | PCIE30_REFCLKN_SLOT     |  54  | PCIE30X4_WAKEn_M1_L       |
+          |  55  | PCIE30_REFCLKP_SLOT     |  56  | NC                        |
+          |  57  | GND                     |  58  | NC                        |
+          |  XX  |                         |  XX  |                           |
+          |  XX  |                         |  XX  |                           |
+          |  XX  |                         |  XX  |                           |
+          |  XX  |                         |  XX  |                           |
+          |  67  | NC                      |  68  | NC                        |
+          |  69  | NC                      |  70  | VCC3V3_PCIE30             |
+          |  71  | GND                     |  72  | VCC3V3_PCIE30             |
+          |  73  | GND                     |  74  | VCC3V3_PCIE30             |
+          |  75  |                         |  XX  |                           |
+
+      </div >
+
+  - U24
+
+      <div className='gpio_style' style={{ overflow :"auto"}} >
+
+          | Pin# | Name                    | Pin# | Name                      |
+          | :--: | :---------------------- | :--: | :------------------------ |
+          |  1   | GND                     |  2   | 3V3_PCIE30_1              |
+          |  3   | GND                     |  4   | 3V3_PCIE30_1              |
+          |  5   | NC                      |  6   | NC                        |
+          |  7   | NC                      |  8   | NC                        |
+          |  9   | GND                     |  10  | NC                        |
+          |  11  | NC                      |  12  | 3V3_PCIE30_1              |
+          |  13  | NC                      |  14  | 3V3_PCIE30_1              |
+          |  15  | GND                     |  16  | 3V3_PCIE30_1              |
+          |  17  | NC                      |  18  | 3V3_PCIE30_1              |
+          |  19  | NC                      |  20  | NC                        |
+          |  21  | GND                     |  22  | NC                        |
+          |  23  | NC                      |  24  | NC                        |
+          |  25  | NC                      |  26  | NC                        |
+          |  27  | GND                     |  28  | NC                        |
+          |  29  | PCIE30_PORT1_RX3N       |  30  | NC                        |
+          |  31  | PCIE30_PORT1_RX3P       |  32  | NC                        |
+          |  33  | GND                     |  34  | NC                        |
+          |  35  | PCIE30_PORT1_TX3N       |  36  | NC                        |
+          |  37  | PCIE30_PORT1_TX3P       |  38  | NC                        |
+          |  39  | GND                     |  40  | NC                        |
+          |  41  | PCIE30_PORT1_RX2N       |  42  | NC                        |
+          |  43  | PCIE30_PORT1_RX2P       |  44  | NC                        |
+          |  45  | GND                     |  46  | NC                        |
+          |  47  | PCIE30_PORT1_TX2N       |  48  | NC                        |
+          |  49  | PCIE30_PORT1_TX2P       |  50  | PCIE30x2_PERSTn_M1        |
+          |  51  | GND                     |  52  | PCIE30x2_CLKREQn_M1       |
+          |  53  | PCIE30_REFCLKN_SLOT1    |  54  | PCIE30x2_WAKEn_M1         |
+          |  55  | PCIE30_REFCLKP_SLOT1    |  56  | NC                        |
+          |  57  | GND                     |  58  | NC                        |
+          |  XX  |                         |  XX  |                           |
+          |  XX  |                         |  XX  |                           |
+          |  XX  |                         |  XX  |                           |
+          |  XX  |                         |  XX  |                           |
+          |  67  | NC                      |  68  | NC                        |
+          |  69  | NC                      |  70  | 3V3_PCIE30_1              |
+          |  71  | GND                     |  72  | 3V3_PCIE30_1              |
+          |  73  | GND                     |  74  | 3V3_PCIE30_1              |
+          |  75  |                         |  XX  |                           |
+
+      </div >
+
 ### POE
 
 ### TF Card Slot
