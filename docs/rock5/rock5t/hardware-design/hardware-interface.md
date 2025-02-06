@@ -349,6 +349,15 @@ LCD 座子采用的是 FH35C-39S-0.3SHW（50），间距 0.3 mm。
 
 ### POE
 
+| Pin# | Name    |
+| :--: | :------ |
+|  1   | VIN+    |
+|  2   | VIN-    |
+|  3   | GND     |
+|  4   | POE_12V |
+|  5   | NC      |
+|  6   | GND     |
+
 ### TF Card Slot
 
 | Pin# | Name         |

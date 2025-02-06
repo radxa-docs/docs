@@ -351,6 +351,15 @@ The LCD seat adopts FH35C-39S-0.3SHW (50) with a spacing of 0.3 mm.
 
 ### POE
 
+| Pin# | Name    |
+| :--: | :------ |
+|  1   | VIN+    |
+|  2   | VIN-    |
+|  3   | GND     |
+|  4   | POE_12V |
+|  5   | NC      |
+|  6   | GND     |
+
 ### TF Card Slot
 
 | Pin# | Name         |
