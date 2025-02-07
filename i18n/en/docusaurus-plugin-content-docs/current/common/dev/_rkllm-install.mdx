@@ -6,15 +6,17 @@ RKLLM helps users deploy LLM models to Rockchip chips quickly. Currently, it sup
 
 ### Currently Supported Models
 
-- [TinyLLAMA 1.1B](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0/tree/fe8a4ea1ffedaf415f4da2f062534de366a451e6)
-- [Qwen 1.8B](https://huggingface.co/Qwen/Qwen-1_8B-Chat/tree/1d0f68de57b88cfde81f3c3e537f24464d889081)
-- [Qwen2 0.5B](https://huggingface.co/Qwen/Qwen1.5-0.5B/tree/8f445e3628f3500ee69f24e1303c9f10f5342a39)
-- [Phi-2 2.7B](https://hf-mirror.com/microsoft/phi-2/tree/834565c23f9b28b96ccbeabe614dd906b6db551a)
-- [Phi-3 3.8B](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/tree/291e9e30e38030c23497afa30f3af1f104837aa6)
-- [ChatGLM3 6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
-- [Gemma 2B](https://huggingface.co/google/gemma-2b-it/tree/de144fb2268dee1066f515465df532c05e699d48)
-- [InternLM2 1.8B](https://huggingface.co/internlm/internlm2-chat-1_8b/tree/ecccbb5c87079ad84e5788baa55dd6e21a9c614d)
-- [MiniCPM 2B](https://huggingface.co/openbmb/MiniCPM-2B-sft-bf16/tree/79fbb1db171e6d8bf77cdb0a94076a43003abd9e)
+- [LLAMA models](https://huggingface.co/meta-llama)
+- [TinyLLAMA models](https://huggingface.co/TinyLlama)
+- [Qwen models](https://huggingface.co/models?search=Qwen/Qwen)
+- [Phi models](https://huggingface.co/models?search=microsoft/phi)
+- [ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
+- [Gemma models](https://huggingface.co/collections/google/gemma-2-release-667d6600fd5220e7b967f315)
+- [InternLM2 models](https://huggingface.co/collections/internlm/internlm2-65b0ce04970888799707893c)
+- [MiniCPM models](https://huggingface.co/collections/openbmb/minicpm-65d48bf958302b9fd25b698f)
+- [TeleChat models](https://huggingface.co/Tele-AI)
+- [Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)
+- [MiniCPM-V](https://huggingface.co/openbmb/MiniCPM-V-2_6)
 
 ## Install RKLLM
 
@@ -40,7 +42,7 @@ To use RKNPU, users first need to run the RKLLM-Toolkit tool on an x86 workstati
   - Create a conda environment
 
     ```bash
-    conda create -n rkllm python=3.8
+    conda create -n rkllm python=3.8.2
     ```
 
   - Activate the rkllm conda environment
@@ -58,8 +60,8 @@ To use RKNPU, users first need to run the RKLLM-Toolkit tool on an x86 workstati
 - RKLLM-Toolkit is a software development package for converting and quantizing Huggingface format LLM models on a PC.
 
   ```bash
-  git clone -b release-v1.0.1 https://github.com/airockchip/rknn-llm.git
-  pip3 install ./rknn-llm/rkllm-toolkit/packages/rkllm_toolkit-1.0.1-cp38-cp38-linux_x86_64.whl
+  git clone -b release-v1.1.4 https://github.com/airockchip/rknn-llm.git
+  pip3 install ./rknn-llm/rkllm-toolkit/packages/rkllm_toolkit-1.1.4-cp38-cp38-linux_x86_64.whl
   ```
 
   If the following command runs without errors, the installation is successful:
@@ -72,10 +74,13 @@ To use RKNPU, users first need to run the RKLLM-Toolkit tool on an x86 workstati
 ### Development Board
 
 - Check if the NPU driver version is 0.9.6 or higher. If it is lower, download and flash the latest Radxa 6.1 firmware.
+  :::tip
+  The default NPU driver version of radxa 6.1 firmware is 0.9.6, please update the system to 0.9.8 driver by: `sudo rsetup -> System -> System Update`.
+  :::
 
   ```bash
   $ sudo cat /sys/kernel/debug/rknpu/version
-  RKNPU driver: v0.9.6
+  RKNPU driver: v0.9.8
   ```
 
   (Optional) Manually compile the NPU kernel
@@ -93,5 +98,5 @@ To use RKNPU, users first need to run the RKLLM-Toolkit tool on an x86 workstati
 - RKLLM Runtime provides C/C++ programming interfaces for the Rockchip NPU platform to help users deploy RKLLM models and accelerate LLM applications.
 
   ```bash
-  git clone https://github.com/airockchip/rknn-llm.git
+  git clone -b release-v1.1.4 https://github.com/airockchip/rknn-llm.git
   ```
