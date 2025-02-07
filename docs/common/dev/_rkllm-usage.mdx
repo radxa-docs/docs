@@ -14,14 +14,14 @@
 - [Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)
 - [MiniCPM-V](https://huggingface.co/openbmb/MiniCPM-V-2_6)
 
-这里以 Qwen2.5-1.5B-Instruct 为例子，完整讲述如何从 0 开始部署大语言模型到搭载 RK3588 芯片的开发版上，并使用 NPU 进行硬件加速推理
+这里以 [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) 为例子，完整讲述如何从 0 开始部署大语言模型到搭载 RK3588 芯片的开发版上，并使用 NPU 进行硬件加速推理
 :::tip
 如没安装与配置 RKLLM 环境，请参考 [RKLLM 安装](rkllm_install)
 ::::
 
 ### 模型转换
 
-这里以 Qwen2.5-1.5B-Instruct 为例子，用户也可以选择任意[目前支持模型](#目前支持模型)列表中的链接
+这里以 [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) 为例子，用户也可以选择任意[目前支持模型](#目前支持模型)列表中的链接
 
 - x86 PC 工作站中下载 [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) 权重文件, 如没安装 [git-lfs](https://git-lfs.com/)，请自行安装
   ```bash
@@ -83,14 +83,15 @@
 
 {/* ##### 服务端 */}
 
+{/* - 准备一个虚拟环境并进入，请参考[Python 虚拟环境使用](venv_usage) */}
 {/* - 安装 gradio */}
 {/* ```bash */}
 {/* pip3 install gradio */}
 {/* ``` */}
 {/* - 复制 `librkllmrt.so` 到 `rkllm_server/lib` */}
 {/* ```bash */}
-{/* cd rknn-llm/rkllm-runtime */}
-{/* cp ./runtime//Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib */}
+{/* cd rkllm-runtime/Linux/librkllm_api/aarch64 */}
+{/* cp rkllm-runtime/Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib */}
 {/* ``` */}
 {/* - 修改 gradio_server.py, 禁用 GPU 进行 prefill 加速 */}
 {/* ```python */}
