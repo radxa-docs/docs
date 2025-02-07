@@ -6,15 +6,17 @@ RKLLM 可以帮助用户快速将 LLM 模型部署到 Rockchip 芯片中，目�
 
 #### 目前支持模型
 
-- [TinyLLAMA 1.1B](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0/tree/fe8a4ea1ffedaf415f4da2f062534de366a451e6)
-- [Qwen 1.8B](https://huggingface.co/Qwen/Qwen-1_8B-Chat/tree/1d0f68de57b88cfde81f3c3e537f24464d889081)
-- [Qwen2 0.5B](https://huggingface.co/Qwen/Qwen1.5-0.5B/tree/8f445e3628f3500ee69f24e1303c9f10f5342a39)
-- [Phi-2 2.7B](https://hf-mirror.com/microsoft/phi-2/tree/834565c23f9b28b96ccbeabe614dd906b6db551a)
-- [Phi-3 3.8B](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/tree/291e9e30e38030c23497afa30f3af1f104837aa6)
-- [ChatGLM3 6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
-- [Gemma 2B](https://huggingface.co/google/gemma-2b-it/tree/de144fb2268dee1066f515465df532c05e699d48)
-- [InternLM2 1.8B](https://huggingface.co/internlm/internlm2-chat-1_8b/tree/ecccbb5c87079ad84e5788baa55dd6e21a9c614d)
-- [MiniCPM 2B](https://huggingface.co/openbmb/MiniCPM-2B-sft-bf16/tree/79fbb1db171e6d8bf77cdb0a94076a43003abd9e)
+- [LLAMA models](https://huggingface.co/meta-llama)
+- [TinyLLAMA models](https://huggingface.co/TinyLlama)
+- [Qwen models](https://huggingface.co/models?search=Qwen/Qwen)
+- [Phi models](https://huggingface.co/models?search=microsoft/phi)
+- [ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
+- [Gemma models](https://huggingface.co/collections/google/gemma-2-release-667d6600fd5220e7b967f315)
+- [InternLM2 models](https://huggingface.co/collections/internlm/internlm2-65b0ce04970888799707893c)
+- [MiniCPM models](https://huggingface.co/collections/openbmb/minicpm-65d48bf958302b9fd25b698f)
+- [TeleChat models](https://huggingface.co/Tele-AI)
+- [Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)
+- [MiniCPM-V](https://huggingface.co/openbmb/MiniCPM-V-2_6)
 
 ## RKLLM 安装
 
@@ -39,7 +41,7 @@ RKLLM 可以帮助用户快速将 LLM 模型部署到 Rockchip 芯片中，目�
 
   - 创建 conda 环境
     ```bash
-    conda create -n rkllm python=3.8
+    conda create -n rkllm python=3.8.2
     ```
   - 进入 rkllm conda 环境
 
@@ -47,15 +49,15 @@ RKLLM 可以帮助用户快速将 LLM 模型部署到 Rockchip 芯片中，目�
     conda activate rkllm
     ```
 
-  - 退出环境
+  - _如要退出环境_
     ```bash
     conda deactivate
     ```
 
 - RKLLM-Toolkit是一套软件开发包，供用户在 PC 上进行 Huggingface 格式的 LLM 模型转换和量化
   ```bash
-  git clone -b release-v1.0.1 https://github.com/airockchip/rknn-llm.git
-  pip3 install ./rknn-llm/rkllm-toolkit/packages/rkllm_toolkit-1.0.1-cp38-cp38-linux_x86_64.whl
+  git clone -b release-v1.1.4 https://github.com/airockchip/rknn-llm.git
+  pip3 install ./rknn-llm/rkllm-toolkit/packages/rkllm_toolkit-1.1.4-cp38-cp38-linux_x86_64.whl
   ```
   若执行以下命令没有报错，则安装成功
   ```bash
@@ -65,18 +67,21 @@ RKLLM 可以帮助用户快速将 LLM 模型部署到 Rockchip 芯片中，目�
 
 ### 开发板
 
-- 检查 NPU 驱动版本是否大于等于 0.9.6，如小于此版本请下载并烧录最新 radxa 6.1 固件
+- 检查 NPU 驱动版本是否大于等于 0.9.8，如小于此版本请下载并烧录最新 radxa 6.1 固件
+  :::tip
+  radxa 6.1 固件默认 NPU 驱动版本为 0.9.6，请通过: `sudo rsetup -> System -> System Update` 升级系统以更新至 0.9.8 驱动。
+  :::
 
   ```bash
   $ sudo cat /sys/kernel/debug/rknpu/version
-  RKNPU driver: v0.9.6
+  RKNPU driver: v0.9.8
   ```
 
-  （可选）手动编译 NPU 内核
+- （可选）手动编译 NPU 内核
 
   若用户所使用的为非官方固件，需要对内核进行更新；其中，RKNPU 驱动包支持两个主要内核版本：[kernel-5.10](https://github.com/radxa/kernel/tree/stable-5.10-rock5) 和 [kernel-6.1](https://github.com/radxa/kernel/tree/linux-6.1-stan-rkr1)；用户可在内核根目录下的 Makefile 中确认具体版本号。内核的具体的更新步骤如下：
 
-  1） 下载压缩包 [rknpu_driver_0.9.6_20240322.tar.bz2](https://github.com/airockchip/rknn-llm/tree/main/rknpu-driver)
+  1） 下载压缩包 [rknpu_driver_0.9.8_20241009.tar.bz2](https://github.com/airockchip/rknn-llm/tree/release-v1.1.4/rknpu-driver)
 
   2） 解压该压缩包，将其中的 rknpu 驱动代码覆盖到当前内核代码目录
 
@@ -86,5 +91,5 @@ RKLLM 可以帮助用户快速将 LLM 模型部署到 Rockchip 芯片中，目�
 
 - RKLLM Runtime 为 Rockchip NPU 平台提供 C/C++ 编程接口，帮助用户部署 RKLLM 模型，加速 LLM 应用的实现
   ```bash
-  git clone https://github.com/airockchip/rknn-llm.git
+  git clone -b release-v1.1.4 https://github.com/airockchip/rknn-llm.git
   ```

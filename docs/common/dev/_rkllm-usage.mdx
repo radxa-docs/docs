@@ -2,41 +2,44 @@
 
 #### 目前支持模型
 
-- [TinyLLAMA 1.1B](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0/tree/fe8a4ea1ffedaf415f4da2f062534de366a451e6)
-- [Qwen 1.8B](https://huggingface.co/Qwen/Qwen-1_8B-Chat/tree/1d0f68de57b88cfde81f3c3e537f24464d889081)
-- [Qwen2 0.5B](https://huggingface.co/Qwen/Qwen1.5-0.5B/tree/8f445e3628f3500ee69f24e1303c9f10f5342a39)
-- [Phi-2 2.7B](https://hf-mirror.com/microsoft/phi-2/tree/834565c23f9b28b96ccbeabe614dd906b6db551a)
-- [Phi-3 3.8B](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/tree/291e9e30e38030c23497afa30f3af1f104837aa6)
-- [ChatGLM3 6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
-- [Gemma 2B](https://huggingface.co/google/gemma-2b-it/tree/de144fb2268dee1066f515465df532c05e699d48)
-- [InternLM2 1.8B](https://huggingface.co/internlm/internlm2-chat-1_8b/tree/ecccbb5c87079ad84e5788baa55dd6e21a9c614d)
-- [MiniCPM 2B](https://huggingface.co/openbmb/MiniCPM-2B-sft-bf16/tree/79fbb1db171e6d8bf77cdb0a94076a43003abd9e)
+- [LLAMA models](https://huggingface.co/meta-llama)
+- [TinyLLAMA models](https://huggingface.co/TinyLlama)
+- [Qwen models](https://huggingface.co/models?search=Qwen/Qwen)
+- [Phi models](https://huggingface.co/models?search=microsoft/phi)
+- [ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
+- [Gemma models](https://huggingface.co/collections/google/gemma-2-release-667d6600fd5220e7b967f315)
+- [InternLM2 models](https://huggingface.co/collections/internlm/internlm2-65b0ce04970888799707893c)
+- [MiniCPM models](https://huggingface.co/collections/openbmb/minicpm-65d48bf958302b9fd25b698f)
+- [TeleChat models](https://huggingface.co/Tele-AI)
+- [Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)
+- [MiniCPM-V](https://huggingface.co/openbmb/MiniCPM-V-2_6)
 
-这里以 TinyLLAMA 1.1B 为例子，完整讲述如何从 0 开始部署大语言模型到搭载 RK3588 芯片的开发版上，并使用 NPU 进行硬件加速推理
+这里以 Qwen2.5-1.5B-Instruct 为例子，完整讲述如何从 0 开始部署大语言模型到搭载 RK3588 芯片的开发版上，并使用 NPU 进行硬件加速推理
 :::tip
 如没安装与配置 RKLLM 环境，请参考 [RKLLM 安装](rkllm_install)
 ::::
 
 ### 模型转换
 
-这里以 TinyLLAMA 1.1B 为例子，用户也可以选择任意[目前支持模型](#目前支持模型)列表中的链接
+这里以 Qwen2.5-1.5B-Instruct 为例子，用户也可以选择任意[目前支持模型](#目前支持模型)列表中的链接
 
-- x86 PC 工作站中下载 [TinyLLAMA 1.1B](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0) 所有文件, 如没安装 [git-lfs](https://git-lfs.com/)，请自行安装
+- x86 PC 工作站中下载 [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) 权重文件, 如没安装 [git-lfs](https://git-lfs.com/)，请自行安装
   ```bash
-  git clone https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0
+  git clone https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct
   ```
 - 激活 rkllm conda 环境, 可参考[RKLLM conda 安装](rkllm_install#x86-pc-工作站)
   ```bash
   conda activate rkllm
   ```
-- 更改 `rknn-llm/rkllm-toolkit/examples/huggingface/test.py` 中 modelpath 模型路径与 rkllm 导出路径
+- 更改 `rknn-llm/rkllm-toolkit/examples/test.py` 中 modelpath 模型路径, dataset路径， rkllm 导出路径
   ```python
-  modelpath = 'Your Huggingface LLM model'
-  ret = llm.export_rkllm("./Your_Huggingface_LLM_model.rkllm")
+  15 modelpath = 'Your Huggingface LLM model'
+  29 datasert = None # 默认是 "./data_quant.json"， 如无可以填写 None
+  83 ret = llm.export_rkllm("./Your_Huggingface_LLM_model.rkllm")
   ```
 - 运行模型转换脚本
   ```bash
-  cd rknn-llm/rkllm-toolkit/examples/huggingface
+  cd rknn-llm/rkllm-toolkit/examples/
   python3 test.py
   ```
   转换成功后可得到 rkllm 模型
@@ -44,19 +47,18 @@
 ### 编译可执行文件
 
 - 下载交叉编译工具链 [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11)
-- 修改主程序代码, 这里修改两个地方
+- 修改主程序 `rknn-llm/examples/rkllm_api_demo/src/llm_demo.cpp` 代码, 这里修改两个地方
   ```vim
-  74 param.num_npu_core = 3; // rk3588 num_npu_core 的取值范围 [1,3]
-  118 string text = PROMPT_TEXT_PREFIX + input_str + PROMPT_TEXT_POSTFIX;
-  119 // string text = input_str;
+  184 text = PROMPT_TEXT_PREFIX + input_str + PROMPT_TEXT_POSTFIX;
+  185 // text = input_str;
   ```
-- 修改 `rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build-linux.sh` 编译脚本中 gcc 路径
+- 修改 `rknn-llm/examples/rkllm_api_demo/build-linux.sh` 编译脚本中 GCC_COMPILER_PATH 路径
   ```bash
   GCC_COMPILER_PATH=gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
   ```
 - 运行模型转换脚本
   ```bash
-  cd rknn-llm/rkllm-runtime/examples/rkllm_api_demo
+  cd rknn-llm/examples/rkllm_api_demo/
   bash build-linux.sh
   ```
   生成的可执行文件在 `build/build_linux_aarch64_Release/llm_demo`
@@ -68,102 +70,102 @@
 - 将转换成功后的 rkllm 模型与编译后的二进制文件 llm_demo 复制到板端
 - 导入环境变量
   ```bash
-  ulimit -n 102400
-  export LD_LIBRARY_PATH=rknn-llm/rkllm-runtime/runtime/Linux/librkllm_api/aarch64:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:rknn-llm/rkllm-runtime/Linux/librkllm_api/aarch64
   ```
 - 运行 llm_demo，输入 `exit` 退出
-  `bash
-taskset f0 ./llm_demo your_rkllm_path
-`
+  ```bash
+  export RKLLM_LOG_LEVEL=1
+  ./llm_demo your_rkllm_path 10000 10000
+  ```
   ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_2.webp)
 
-#### Gradio 模式
+{/* #### Gradio 模式 */}
 
-##### 服务端
+{/* ##### 服务端 */}
 
-- 安装 gradio
-  ```bash
-  pip3 install gradio
-  ```
-- 复制 `librkllmrt.so` 到 `rkllm_server/lib`
-  ```bash
-  cd rknn-llm/rkllm-runtime
-  cp ./runtime//Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib
-  ```
-- 修改 gradio_server.py, 禁用 GPU 进行 prefill 加速
-  ```python
-  rknnllm_param.use_gpu = False
-  ```
-- 启动 gradio server
-  ```bash
-  cd examples/rkllm_server_demo/rkllm_server
-  python3 gradio_server.py --target_platform rk3588 --rkllm_model_path your_model_path
-  ```
-- 浏览器访问开发板 ip 8080 端口
-  ![rkllm_3.webp](/img/general-tutorial/rknn/rkllm_3.webp)
+{/* - 安装 gradio */}
+{/* ```bash */}
+{/* pip3 install gradio */}
+{/* ``` */}
+{/* - 复制 `librkllmrt.so` 到 `rkllm_server/lib` */}
+{/* ```bash */}
+{/* cd rknn-llm/rkllm-runtime */}
+{/* cp ./runtime//Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib */}
+{/* ``` */}
+{/* - 修改 gradio_server.py, 禁用 GPU 进行 prefill 加速 */}
+{/* ```python */}
+{/* rknnllm_param.use_gpu = False */}
+{/* ``` */}
+{/* - 启动 gradio server */}
+{/* ```bash */}
+{/* cd examples/rkllm_server_demo/rkllm_server */}
+{/* python3 gradio_server.py --target_platform rk3588 --rkllm_model_path your_model_path */}
+{/* ``` */}
+{/* - 浏览器访问开发板 ip 8080 端口 */}
+{/* ![rkllm_3.webp](/img/general-tutorial/rknn/rkllm_3.webp) */}
 
-##### 客户端
+{/* ##### 客户端 */}
 
-用户可以在开发板开启 gradio 服务端后在同网络环境其他设备上通过 Gradio API 调用 LLM gradio server
+{/* 用户可以在开发板开启 gradio 服务端后在同网络环境其他设备上通过 Gradio API 调用 LLM gradio server */}
 
-- 安装 gradio_client
-  ```bash
-  pip3 install gradio_client
-  ```
-- 修改 chat_api_gradio.py 中的 ip 地址，用户需要根据自己部署的具体网址进行修改
-  ```python
-  # 用户需要根据自己部署的具体 ip 进行修改
-  client = Client("http://192.168.2.209:8080/")
-  ```
-- 运行 chat_api_gradio.py
-  `bash
-cd rknn-llm/rkllm-runtime/examples/rkllm_server_demo
-python3 chat_api_gradio.py
-`
-  ![rkllm_4.webp](/img/general-tutorial/rknn/rkllm_4.webp)
+{/* - 安装 gradio_client */}
+{/* ```bash */}
+{/* pip3 install gradio_client */}
+{/* ``` */}
+{/* - 修改 chat_api_gradio.py 中的 ip 地址，用户需要根据自己部署的具体网址进行修改 */}
+{/* ```python */}
+{/* # 用户需要根据自己部署的具体 ip 进行修改 */}
+{/* client = Client("http://192.168.2.209:8080/") */}
+{/* ``` */}
+{/* - 运行 chat_api_gradio.py */}
+{/* `bash */}
+{/* cd rknn-llm/rkllm-runtime/examples/rkllm_server_demo */}
+{/* python3 chat_api_gradio.py */}
+{/* ` */}
+{/* ![rkllm_4.webp](/img/general-tutorial/rknn/rkllm_4.webp) */}
 
-#### Falsk 模式
+{/* #### Falsk 模式 */}
 
-##### 服务端
+{/* ##### 服务端 */}
 
-- 安装 flask
-  ```bash
-  pip3 install flask==2.2.2 Werkzeug==2.2.2
-  ```
-- 复制 `librkllmrt.so` 到 `rkllm_server/lib`
-  ```bash
-  cd rknn-llm/rkllm-runtime
-  cp ./runtime//Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib
-  ```
-- 修改 flask_server.py, 禁用 GPU 进行 prefill 加速
+{/* - 安装 flask */}
+{/* ```bash */}
+{/* pip3 install flask==2.2.2 Werkzeug==2.2.2 */}
+{/* ``` */}
+{/* - 复制 `librkllmrt.so` 到 `rkllm_server/lib` */}
+{/* ```bash */}
+{/* cd rknn-llm/rkllm-runtime */}
+{/* cp ./runtime//Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib */}
+{/* ``` */}
+{/* - 修改 flask_server.py, 禁用 GPU 进行 prefill 加速 */}
 
-  ```python
-  rknnllm_param.use_gpu = False
-  ```
+{/* ```python */}
+{/* rknnllm_param.use_gpu = False */}
+{/* ``` */}
 
-- 启动 flask server, 端口 8080
-  `bash
-cd examples/rkllm_server_demo/rkllm_server
-python3 flask_server.py --target_platform rk3588 --rkllm_model_path your_model_path
-`
-  ![rkllm_5.webp](/img/general-tutorial/rknn/rkllm_5.webp)
+{/* - 启动 flask server, 端口 8080 */}
+{/* `bash */}
+{/* cd examples/rkllm_server_demo/rkllm_server */}
+{/* python3 flask_server.py --target_platform rk3588 --rkllm_model_path your_model_path */}
+{/* ` */}
+{/* ![rkllm_5.webp](/img/general-tutorial/rknn/rkllm_5.webp) */}
 
-##### 客户端
+{/* ##### 客户端 */}
 
-用户可以在开发板开启 flask 服务端后在同网络环境其他设备上通过 flask API 调用 flask server, 户在进行自定义功能的开发的过程中，只需参考该 API 访问示例使用对应的收发结
-构体进行数据的包装、解析即可
+{/* 用户可以在开发板开启 flask 服务端后在同网络环境其他设备上通过 flask API 调用 flask server, 户在进行自定义功能的开发的过程中，只需参考该 API 访问示例使用对应的收发结 */}
+{/* 构体进行数据的包装、解析即可 */}
 
-- 修改 chat_api_flask.py 中的 ip 地址，用户需要根据自己部署的具体网址进行修改
-  ```python
-  # 用户需要根据自己部署的具体 ip 进行修改
-  server_url = 'http://192.168.2.209:8080/rkllm_chat'
-  ```
-- 运行 chat_api_flask.py
-  `bash
-cd rknn-llm/rkllm-runtime/examples/rkllm_server_demo
-python3 chat_api_flask.py
-`
-  ![rkllm_6.webp](/img/general-tutorial/rknn/rkllm_6.webp)
+{/* - 修改 chat_api_flask.py 中的 ip 地址，用户需要根据自己部署的具体网址进行修改 */}
+{/* ```python */}
+{/* # 用户需要根据自己部署的具体 ip 进行修改 */}
+{/* server_url = 'http://192.168.2.209:8080/rkllm_chat' */}
+{/* ``` */}
+{/* - 运行 chat_api_flask.py */}
+{/* `bash */}
+{/* cd rknn-llm/rkllm-runtime/examples/rkllm_server_demo */}
+{/* python3 chat_api_flask.py */}
+{/* ` */}
+{/* ![rkllm_6.webp](/img/general-tutorial/rknn/rkllm_6.webp) */}
 
 ### 部分模型性能对比
 
