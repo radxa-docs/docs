@@ -113,7 +113,7 @@ Then dd the system image into NVME on the **board**.
   On Board：
   sudo xzcat /path/to/img | dd of=/path/to/nvme bs=1M status=progress
   eg:
-  sudo xzcat /home/radxa/#model#_debian_bullseye_#desktop#_#release_num#.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
+  sudo xzcat /home/radxa/#model#_debian_bullseye_#desktop#_#release_num#.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
   `}
 </PreView>
 
