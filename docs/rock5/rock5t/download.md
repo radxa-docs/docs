@@ -26,6 +26,10 @@ import Images from "./\_image.mdx"
 
 &emsp;&emsp; [ROCK 5T V1.2 SMD](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_components_placement_map_v1.2_20250109.pdf)
 
+&emsp;&emsp; [ROCK 5T V1.2 2D dxf](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_2d_dxf_v1.2.zip)
+
+&emsp;&emsp; [ROCK 5T V1.2 3D stp](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_3d_pcba_stp_v1.2_20250207.zip)
+
 ## 质量认证
 
 ### CE EMC

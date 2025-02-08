@@ -12,7 +12,8 @@ sidebar_position: 4
 
 官方
 
-- [Radxa CM5 2D dxf](https://dl.radxa.com/cm5/v2200/radxa_cm5_v2200_2d_dxf.zip) - 下载 Radxa CM5 V2.2 2D 文件
+- [Radxa CM5 2D dxf](https://dl.radxa.com/cm5/v2200/radxa_cm5_v2200_2d_dxf.zip) - 下载 Radxa CM5 V2.21 2D 文件
+- [Radxa CM5 3D stp](https://dl.radxa.com/cm5/radxa_cm5_pcba_3d.stp.zip) - 下载 Radxa CM5 V2.21 2D 文件
 - [Radxa CM5 V2.21 原理图 pdf](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_schematic.pdf) - 下载 Radxa CM5 V2.21 的原理图
 - [Radxa CM5 V2.21 位号图 pdf](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_components_placement_map.pdf) - 下载 Radxa CM5 V2.21 的元器件位置参考表
 - [Radxa CM5 V2.21 引脚定义表](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_pinout.xlsx) - 下载 Radxa CM5 V2.21 的 连接座引脚定义表
@@ -30,6 +31,7 @@ sidebar_position: 4
 - [Radxa CM5 IO V2.2 原理图 pdf](https://dl.radxa.com/cm5/v2200/radxa_cm5_io_v2200_schematic.pdf) - 下载 Radxa CM5 V2.2 的原理图
 - [Radxa CM5 IO V2.2 位号图 pdf](https://dl.radxa.com/cm5/v2200/radxa_cm5_io_v2200_Components_Placement_map.pdf) - 下载 Radxa CM5 IO V2.2 的元器件位置参考表
 - [Radxa CM5 IO 2D dxf](https://dl.radxa.com/cm5/v2200/radxa_cm5_io_board_v2200_2d_dxf.zip) - 下载 Radxa CM5 IO V2.2 2D 文件
+- [Radxa CM5 IO 3D stp](https://dl.radxa.com/cm5/io_board_v2200/radxa_cm5_io_board_3d_pcb_v2.2_stp_20250208.zip) - 下载 Radxa CM5 IO V2.2 3D 文件
 - [Radxa CM5 IO 设计资料](https://github.com/radxa/radxa-cm-projects/tree/main/cm5/radxa-cm5-io-board) - 包含 CM5 IO OrCAD 原理图，PADs Layout 以及导出的 Altium Designer 工程文件
 
 ### 刷机工具

@@ -11,6 +11,7 @@ import Images from "./\_image.mdx"
 Radxa ROCK 5A V1.1 版本
 
 [v1.1 2D dxf](https://dl.radxa.com/rock5/5a/docs/hw/radxa_rock5a_X1.11_2D.dxf)  
+[v1.1 3D stp](https://dl.radxa.com/rock5/5a/docs/hw/rock_5a_3d_pcba.rar)  
 [v1.1 原理图 pdf](https://dl.radxa.com/rock5/5a/docs/hw/radxa_rock5a_V1.1_sch.pdf)  
 [v1.1 位号图 pdf](https://dl.radxa.com/rock5/5a/docs/hw/radxa_rock5a_V1.1_smd.pdf)
 
