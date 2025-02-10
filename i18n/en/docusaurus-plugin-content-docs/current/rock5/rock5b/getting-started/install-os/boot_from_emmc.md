@@ -5,7 +5,7 @@ sidebar_position: 2
 import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
-# Install the system on the EMMC Module
+# Install the system on the EMMC Module (Only for ROCK 5B)
 
 ## File download
 

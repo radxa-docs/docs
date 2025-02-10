@@ -4,7 +4,7 @@ sidebar_position: 2
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
-# 安装系统到 eMMC Module
+# 安装系统到 eMMC Module (仅适用于 ROCK 5B)
 
 ## 文件下载
 
