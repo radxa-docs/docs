@@ -1,0 +1,75 @@
+通过 `tpu_model` 工具，可以查看 bmodel 文件的参数信息，可以将多个网络 bmodel 分解成多个单网络的 bmodel，也可以将多个网络的 bmodel 合并成一个 bmodel。
+
+```bash
+Usage:
+  tpu_model
+    --info model_file : show brief model info
+    --print model_file : show detailed model info
+    --weight model_file : show model weight info
+    --update_weight dst_model dst_net dst_offset src_model src_net src_offset
+    --extract model_file : extract one multi-net bmodel to multi one-net bmodels
+    --combine file1 .. fileN -o new_file: combine bmodels to one bmodel by filepath
+    --combine_dir dir1 .. dirN -o new_dir: combine bmodels to one bmodel by directory path
+    --dump model_file start_offset byte_size out_file: dump binary data to file from bmodel
+    --version show tool version
+    --kernel_dump model_file -o kernel_file_name : dump kernel_module file
+    --kernel_update model_file kernel_name : add/update kernel_module file
+    --custom_ap_update model_file libcpuop_file : add/update custom libcpuop file
+```
+
+## 使用方法
+
+目前支持以下六种使用方法：
+
+### 查看 bmodel 简要信息
+
+```bash
+tpu_model --info xxx.bmodel
+```
+
+### 查看 bmodel 详细参数信息
+
+```bash
+tpu_model --print xxx.bmodel
+```
+
+### 分解 bmodel
+
+```bash
+tpu_model --extract xxx.bmodel
+```
+
+将一个包含多个网络多种 stage 的 bmodel 分解成只包含一个网络的一个 stage 的各个 bmodel，分解出来的 bmodel 按照 net 序号和 stage 序号，命名为 bm_net0_stage0.bmodel, bm_net1_stage0.bmodel 等等。
+
+### 合并 bmodel
+
+```bash
+tpu_model --combine a.bmodel b.bmodel c.bmodel -o abc.bmodel
+```
+
+将多个 bmodel 合并成一个 bmodel，-o 用于指定输出文件名，如果没有指定，则默认命名为 compilation.bmodel。
+
+多个 bmodel 合并后：
+
+- 不同 net_name 的 bmodel 合并，接口会根据 net_name 选择对应的网络进行推理
+- 相同 net_name 的 bmodel 合并，会使该 net_name 的网络可以支持多种 stage (也就是支持不同的 input shape)。接口会根据用户输入的 shape，在该网络的多个 stage 中选择。对于静态网络，它会选择 shape 完全匹配的 stage；
+  对于动态网络，它会选择最靠近的 stage。
+
+限制：同一个网络 net_name，使用 combine 时，要求都是静态编译，或者都是动态编译。暂时不支持相同 net_name 的静态编译和动态编译的 combine。
+
+### 合并文件夹
+
+```bash
+tpu_model --combine_dir a_dir b_dir c_dir -o abc_dir
+```
+
+同 combine 功能类似，不同的是，该功能除了合并 bmodel 外，还会合并用于测试的输入输出文件。它以文件夹为单位合并，文件夹中必须包含经过编译器生成
+的三个文件：input_ref_data.dat, output_ref_data.dat, compilation.bmodel。
+
+### 导出二进制数据
+
+```bash
+tpu_model --dump xxx.bmodel start_offset byte_size out_file
+```
+
+将 bmodel 中的二进制数据保存到一个文件中。通过 print 功能可以查看所有二进制数据的 [start, size]，对应此处的 start_offset 和 byte_size。
