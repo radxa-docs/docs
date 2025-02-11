@@ -1,0 +1,26 @@
+`bm-smi` 工具以命令行界面的形式实时显示 TPU 设备状态信息，如 SDK 版本，驱动版本，TPU 频率，TPU 使用率，TPU 内存占用，
+TPU 进程等信息
+
+```bash
+bm-smi: command line prompt
+usage: bm-smi [--opmode=display] [--file=/xx/yy.txt] [--lms=500] [--loop]
+opmode:
+  SOC mode just only use display.
+file:
+  the target file to save smi log, default is empty.
+lms:
+  how many ms of the sample interval, default is 500.
+loop:
+  if --loop (default): smi sample device every lms ms.
+  if --noloop: smi sample device only once.
+```
+
+## 使用方法
+
+命令行执行命令
+
+```bash
+bm-smi
+```
+
+![bm-smi.webp](/img/general-tutorial/tpu_ai/bm-smi.webp)

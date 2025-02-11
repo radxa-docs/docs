@@ -1,0 +1,85 @@
+The `bmrt_test` tool is designed to test the correctness and actual runtime performance of a `bmodel` using the `bmruntime` interface.
+
+```bash
+Usage:
+  --version          : Show version.
+  --context_dir      : The directory containing compiled context files.
+  --append_dir       : The directory of an additional compiled context.
+  --bmodel           : The path to a `bmodel`; tests the `bmodel` without comparison.
+  --bmodel_list      : File containing paths to one or more compiled contexts.
+  --devid            : The target device number.
+  --compare          : If set to 0, disables result comparison; otherwise, enables it.
+  --accuracy_f       : Floating-point comparison accuracy.
+  --accuracy_i       : Integer comparison accuracy.
+  --loopnum          : Number of times to launch the network (default: 1).
+  --calculate_times  : Number of inference loops (default: 1).
+  --thread_num       : Number of threads for network launch.
+  --prealloc         : Allocates memory before loading the `bmodel` (hex format).
+  --export_neuron    : Exports neuron memory to a file.
+  --export_output    : Exports output data to a file.
+  --profile          : Enables profiling.
+  --subnet_time      : Prints execution time for each subnet (if applicable).
+  --net_idx          : Selects the network by index.
+  --stage_idx        : Selects the stage by index.
+  --debug_output     : Dumps output and reference data for debugging.
+  --shapes           : Specifies input tensor shapes.
+  --output_shapes    : Specifies output tensor shapes.
+  --cascade_device   : Specifies devices for running a cascade model (e.g., `1,2`).
+  --core_list        : Specifies core IDs used for inference.
+                         Example:
+                         - `0,1` means using cores 0 and 1 together for a multi-core compiled `bmodel`.
+                         - `0:1` means using cores 0 and 1 to infer a single-core compiled `bmodel` in parallel.
+```
+
+### Features:
+
+1. Runs inference on a `bmodel` with random data to verify its integrity and executability.
+2. Runs inference with fixed input data and compares output against reference data for accuracy validation.
+3. Measures actual execution time of the `bmodel`.
+4. Generates performance profiling data using the `bmprofile` mechanism.
+
+---
+
+## Usage
+
+### Run a `bmodel`
+
+```bash
+bmrt_test --bmodel xxx.bmodel
+```
+
+### Run a Multi-Stage `bmodel`
+
+```bash
+bmrt_test --bmodel xxx.bmodel --stage_idx 0 --shapes "[1,3,224,224]"
+```
+
+### Run a `bmodel` from a Directory
+
+The `bmodel_dir` must contain `compilation.bmodel`.
+
+```bash
+bmrt_test --context_dir bmodel_dir --compare=0
+```
+
+### Run a `bmodel` from a Directory with Data Comparison
+
+The `bmodel_dir` must contain `compilation.bmodel`, `input_ref_data.dat`, and `output_ref_data.dat` for comparison.
+
+```bash
+bmrt_test --context_dir bmodel_dir
+```
+
+### Generate Profile Data
+
+```bash
+BMRUNTIME_ENABLE_PROFILE=1 bmrt_test --bmodel xxx.bmodel
+```
+
+### Save Inference Data
+
+Saves input and output inference data to `input_ref_data.dat.bmrt` and `output_ref_data.dat.bmrt`.
+
+```bash
+BMRT_SAVE_IO_TENSORS=1 bmrt_test --bmodel xxx.bmodel
+```

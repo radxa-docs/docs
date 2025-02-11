@@ -1,0 +1,25 @@
+The `bm-smi` tool provides a command-line interface to display real-time TPU device status, including SDK version, driver version, TPU frequency, TPU utilization, TPU memory usage, and TPU processes.
+
+```bash
+bm-smi: command line prompt
+usage: bm-smi [--opmode=display] [--file=/xx/yy.txt] [--lms=500] [--loop]
+opmode:
+  SOC mode just only use display.
+file:
+  The target file to save the smi log, default is empty.
+lms:
+  Sample interval in milliseconds, default is 500.
+loop:
+  if --loop (default): smi samples the device every lms ms.
+  if --noloop: smi samples the device only once.
+```
+
+## Usage
+
+Run the following command in the terminal:
+
+```bash
+bm-smi
+```
+
+![bm-smi.webp](/img/general-tutorial/tpu_ai/bm-smi.webp)
