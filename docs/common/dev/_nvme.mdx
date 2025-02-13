@@ -97,9 +97,9 @@ sudo apt-get full-upgrade
 >
   {`
   On Board：
-  sudo xzcat /path/to/img | dd of=/path/to/nvme bs=1M status=progress
+  sudo xzcat /path/to/img | sudo dd of=/path/to/nvme bs=1M status=progress
   例如：
-  sudo xzcat /home/radxa/#model#_xx.img.xz | dd of=/dev/nvme0n1 bs=1M status=progress
+  sudo xzcat /home/radxa/#model#_xx.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
   `}
 </PreView>
 
