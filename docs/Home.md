@@ -720,6 +720,31 @@ sidebar_custom_props:
               },
             ],
         },
+        {
+          series_en: "Cubie Series",
+          series_zh: "Cubie 系列",
+          series_introduction_en: "Radxa Cubie Series is a single board computer series based on the Allwinner SoC",
+          series_introduction_zh: "Cubie 系列是 Radxa 推出的基于 AllWinner 单板计算机系列。",
+          products:
+            [
+              {
+                products_name: "Cubie A5E",
+                products_photo_url: "/home/product-pictures/a5e.webp",
+                products_link: "/cubie/a5e",
+                docs:
+                  [
+                    {
+                      docs_link: "/cubie/a5e",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Cubie A5E 概览",
+                      docs_info_en: "Overview of the cubie a5e",
+                      docs_info_zh: "Radxa Cubie A5E 概览",
+                    },
+                  ],
+              },
+            ],
+        },
       ],
   }
 ---
