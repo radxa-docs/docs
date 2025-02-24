@@ -19,6 +19,7 @@ You'll need to operate on another Windows device.
    - [Ubuntu](https://ubuntu.com/download)
    - [Debian](https://www.debian.org/download)
    - [Fedora](https://fedoraproject.org/workstation/download)
+   - [FreeBSD](https://www.freebsd.org/where/)
 
 2. Write the image to a USB drive.
 
