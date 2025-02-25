@@ -1,7 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Cubie A5E
+# CUBIE A5E
 
-https://linux-sunxi.org/Radxa_Cubie_A5E
+<DocCardList />

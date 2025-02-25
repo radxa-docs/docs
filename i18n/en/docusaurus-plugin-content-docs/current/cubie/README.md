@@ -1,7 +1,8 @@
 ---
 sidebar_position: 1
+slug: /cubie
 ---
 
-# Cubie A5E
+# Cubie Series
 
-https://linux-sunxi.org/Radxa_Cubie_A5E
+The Cubie Series is a line of Single-Board Computers (SBCs) developed by Radxa based on AllWinner chips.
