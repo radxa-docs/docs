@@ -51,13 +51,13 @@
     "message": "ROCK 3 Series",
     "description": "Navbar item with label ROCK 3 系列"
   },
-  "item.label.ROCK 4": {
+  "item.label.ROCK 4 系列": {
     "message": "ROCK 4 Series",
-    "description": "Navbar item with label ROCK 4"
+    "description": "Navbar item with label ROCK 4 系列"
   },
-  "item.label.ROCK 5": {
+  "item.label.ROCK 5 系列": {
     "message": "ROCK 5 Series",
-    "description": "Navbar item with label ROCK 5"
+    "description": "Navbar item with label ROCK 5 系列"
   },
   "item.label.ROCK Pi": {
     "message": "ROCK Pi Series",
