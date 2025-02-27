@@ -19,6 +19,7 @@ sidebar_position: 11
    - [Ubuntu](https://ubuntu.com/download)
    - [Debian](https://www.debian.org/download)
    - [Fedora](https://fedoraproject.org/workstation/download)
+   - [FreeBSD](https://www.freebsd.org/where/)
 
 2. 将镜像写入到 U 盘。
 
