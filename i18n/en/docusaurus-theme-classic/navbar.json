@@ -171,6 +171,14 @@
     "message": "→ ROCK S0",
     "description": "Navbar item with label → ROCK S0"
   },
+  "item.label.→ Cubie A5E": {
+    "message": "→ Cubie A5E",
+    "description": "Navbar item with label → Cubie A5E"
+  },
+  "item.label.Cubie 系列": {
+    "message": "Cubie Series",
+    "description": "Navbar item with label Cubie 系列"
+  },
   "item.label.核心板": {
     "message": "System on Modules",
     "description": "Navbar item with label 核心板"

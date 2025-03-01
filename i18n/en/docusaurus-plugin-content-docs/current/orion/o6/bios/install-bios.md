@@ -2,6 +2,7 @@
 sidebar_position: 4
 description: ""
 ---
+
 # Install BIOS
 
 ## Installing BIOS
