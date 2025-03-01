@@ -13,19 +13,19 @@ description: "System,FlashTool and other Resources"
 
 ## Flashing Tools
 
-[PhoenixCard(Boot Card System Image Creator Tool)](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
+[PhoenixCard (Boot Card System Image Creator Tool)](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
 
 [PhoenixSuit(Flashing Tool Under Windows)](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip)
 
-[LiveSuit(Flashing Tool Under Linux)](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip)
+[LiveSuit (Flashing Tool Under Linux)](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip)
 
-[PhoenixSuit(Flashing Tool Under Mac)](https://dl.radxa.com/tools/mac/PhoenixSuit_MacOS_V1.0.1.zip)
+[PhoenixSuit (Flashing Tool Under Mac)](https://dl.radxa.com/tools/mac/PhoenixSuit_MacOS_V1.0.1.zip)
 
 ## Hardware Design
 
 V1.1
 
-[Schematic]](https://dl.radxa.com/cubie/a5e/docs/hw/v1.1/radxa_cubie_a5e_schematic_v1.1_20250113.pdf)
+[Schematic](https://dl.radxa.com/cubie/a5e/docs/hw/v1.1/radxa_cubie_a5e_schematic_v1.1_20250113.pdf)
 
 [Components Placement Map](https://dl.radxa.com/cubie/a5e/docs/hw/v1.1/radxa_cubie_a5e_components_placement_map_v1.1_20250113.pdf)
 

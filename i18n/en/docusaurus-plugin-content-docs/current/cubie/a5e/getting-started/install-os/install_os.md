@@ -16,7 +16,7 @@ Prepare a typec cable
 
 <img src="/img/cubie/a5e/cubie_a5e_to_fex_mode.webp" alt="cubie a5e architecture" width="700" />
 
-linux/Mac：
+linux：
 
 1. Open the LiveSuit utility, select the firmware you want to be burned, and configure it as shown in the figure.
 2. Press and hold the UBOOT button, connect the A5E to the host computer, and the board will enter FEX burn mode.
@@ -24,7 +24,7 @@ linux/Mac：
 
 <img src="/img/cubie/linux_phoenixsuit.webp" alt="cubie a5e architecture" width="500" />
 
-windows：
+windows/Mac：
 
 1. Open the PhoenixSuit utility, select the firmware to be burned, and configure it as shown in the figure.
 2. Press and hold the UBOOT button, connect the A5E to the host computer, then the board will enter the FEX burning mode, 
@@ -39,5 +39,3 @@ windows：
 3. Click burn card and wait for completion
 
    <img src="/img/cubie/phoenixcard.webp" alt="cubie a5e architecture" width="500" />
-
-<img src="/img/cubie/a5e/cubie_a5e_to_fex_mode.webp" alt="cubie a5e architecture" width="700" />

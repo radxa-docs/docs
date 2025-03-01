@@ -1,9 +1,9 @@
 ---
 sidebar_position: 2
-description: “Getting started quickly with the CUBIE A5E makes it easy to start using and exploring its features.”
+description: "Getting started quickly with the CUBIE A5E makes it easy to start using and exploring its features."
 ---
 
-## Quick start
+# Quick start
 
 ## Preparation
 
@@ -30,8 +30,9 @@ Please refer to the [Install System](./install-os/) section to install the opera
 
 ## System login
 
-``sh
+```bash
 Username: root
+
 Password: root
 ```
 
@@ -41,9 +42,9 @@ Connect the display device, the USB port to the USB HUB, and the mouse and keybo
 
 ### Serial terminal
 
-If you use serial port to login, the baud rate is ``115200`` and the wire sequence is as follows:
+If you use serial port to login, the baud rate is **115200** and the wire sequence is as follows:
 
-<img src=“/img/cubie/a5e/cubie_a5e_debug_serial.webp” alt=“cubie a5e overview” width=“500” />
+<img src="/img/cubie/a5e/cubie_a5e_debug_serial.webp" alt="cubie a5e overview" width="500" />
 
 :::tip
 Blue light blinking after system boot

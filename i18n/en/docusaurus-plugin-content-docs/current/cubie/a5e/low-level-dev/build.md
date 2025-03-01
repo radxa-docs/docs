@@ -49,37 +49,37 @@ After downloading the official standard SDK, you will need to download the Cubie
     </tr>
     <tr>
         <td>1</td>
-        <td>[allwinner-target(branch:target-a527)](https://github.com/radxa/allwinner-target/tree/target-a527)</td>
+        <td>[allwinner-target <br/>(branch:target-a527)](https://github.com/radxa/allwinner-target/tree/target-a527)</td>
         <td>target/a527	</td>
         <td>Target platform configurations and scripts</td>
     </tr>
     <tr>
         <td>2</td>
-        <td>[allwinner-device(branch:device-a527)](https://github.com/radxa/allwinner-device/tree/device-a527)</td>
+        <td>[allwinner-device <br/> (branch:device-a527)](https://github.com/radxa/allwinner-device/tree/device-a527)</td>
         <td>device/config/chips/a527</td>
         <td>Device chip configuration files</td>
     </tr>
     <tr>
         <td>3</td>
-        <td>[allwinner-bsp(branch:product-linux-t527)](https://github.com/radxa/allwinner-bsp.git)</td>
+        <td>[allwinner-bsp <br/> (branch:product-linux-t527)](https://github.com/radxa/allwinner-bsp.git)</td>
         <td>bsp</td>
         <td>Board Support Package (BSP) related code</td>
     </tr>
     <tr>
         <td>4</td>
-        <td>[linux(branch:allwinner-aiot-linux-5.15)](https://github.com/radxa/kernel/tree/allwinner-aiot-linux-5.15)</td>
+        <td>[linux<br/>(branch:allwinner-aiot-linux-5.15)](https://github.com/radxa/kernel/tree/allwinner-aiot-linux-5.15)</td>
         <td>kernel/linux-5.15</td>
         <td>Linux kernel source code <br/> patches: [Fix the boot issues caused by the mtd driver](https://mega.nz/file/Ay4wATIL#0Hf7iMAfcPA2YZQB9YlBere2LdYZZ2fSfqsolLrQ88I) </td>
     </tr>
     <tr>
         <td>5</td>
-        <td>[u-boot(branch:allwinner-aiot-v2018.07)](https://github.com/radxa/u-boot/tree/allwinner-aiot-v2018.07)</td>
+        <td>[u-boot<br/>(branch:allwinner-aiot-v2018.07)](https://github.com/radxa/u-boot/tree/allwinner-aiot-v2018.07)</td>
         <td>brandy/brandy-2.0/u-boot-2018/</td>
         <td>U-Boot source code</td>
     </tr>
 </table>
 
-## System building
+## System build
 
 Configuration
 

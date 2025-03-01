@@ -48,5 +48,5 @@ sidebar_position: 4
 </div>
 
 :::tip
-Pin27 和 Pin28 的 USB2.0 功能需要硬件选贴相应的元件
+Pin27 和 Pin28 的 USB2.0 功能需要硬件选贴相应的元器件
 :::

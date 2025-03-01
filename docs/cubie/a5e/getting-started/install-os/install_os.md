@@ -16,7 +16,7 @@ sidebar_position: 2
 
 <img src="/img/cubie/a5e/cubie_a5e_to_fex_mode.webp" alt="cubie a5e architecture" width="700" />
 
-linux/Mac 用户：
+linux 用户：
 
 1. 打开 LiveSuit 工具，选择需要烧录的固件，按如图所示配置
 2. 按住UBOOT按键之后,将A5E 连接到主机，此时板子会进入FEX烧录模式
@@ -24,7 +24,7 @@ linux/Mac 用户：
 
 <img src="/img/cubie/linux_phoenixsuit.webp" alt="cubie a5e architecture" width="500" />
 
-windows 用户：
+windows/Mac 用户：
 
 1. 打开 PhoenixSuit 工具，选择需要烧写的固件，按如图所示配置
 2. 按住UBOOT按键之后,将A5E 连接到主机，此时板子会进入FEX烧录模式，软件识别到设备插入后自动执行烧录
