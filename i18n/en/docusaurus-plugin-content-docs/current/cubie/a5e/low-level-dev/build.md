@@ -249,7 +249,7 @@ You will find the kernel image in the out/a527/cubie_a5e/debian/ directory.
     <tr>
         <td>1</td>
         <td>boot.img</td>
-        <td>Linux Kernel Image</td>
+        <td>boot img containing the kernel and device tree</td>
     </tr>
         <tr>
         <td>2</td>

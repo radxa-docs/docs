@@ -9,17 +9,19 @@ description: "System,FlashTool and other Resources"
 
 [debian11 xfce beta image](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
 
-[spinor flash image(Beta version, using for booting from NVME)](https://mega.nz/file/BiBjEbyb#6BXpTYRc9wgCdLufYkxlMVXwNxKZMHYM2yio94zwg-k)
-
 ## Flashing Tools
 
-[PhoenixCard (Boot Card System Image Creator Tool)](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
+Micro SDCard System Bootable Disk Creator:
 
-[PhoenixSuit(Flashing Tool Under Windows)](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip)
+[PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
 
-[LiveSuit (Flashing Tool Under Linux)](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip)
+System Flashing Tool:
 
-[PhoenixSuit (Flashing Tool Under Mac)](https://dl.radxa.com/tools/mac/PhoenixSuit_MacOS_V1.0.1.zip)
+[PhoenixSuit](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip) (Windows)
+
+[LiveSuit](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip) (Linux)
+
+[PhoenixSuit](https://dl.radxa.com/tools/mac/PhoenixSuit_MacOS_V1.0.1.zip) (Mac)
 
 ## Hardware Design
 
