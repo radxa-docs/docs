@@ -249,7 +249,7 @@ device/config/chips/a527/configs/cubie_a5e/debian/linux-5.15/bsp_defconfig 这�
     <tr>
         <td>1</td>
         <td>boot.img</td>
-        <td>Linux Kernel Image</td>
+        <td>boot img 包含kernel 和 device tree</td>
     </tr>
         <tr>
         <td>2</td>

@@ -9,17 +9,19 @@ description: "镜像,刷机工具等资料"
 
 [cubie a5e debian11 xfce image(beta)](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
 
-[cubie a5e spinor flash image(beta version,  用于从 nvme 启动)](https://mega.nz/file/BiBjEbyb#6BXpTYRc9wgCdLufYkxlMVXwNxKZMHYM2yio94zwg-k)
-
 ## 刷机工具
 
-[PhoenixCard 启动卡系统镜像制作工具](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
+SD卡启动盘制作工具：
 
-[PhoenixSuit Windows平台固件烧录工具](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip)
+[PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
 
-[LiveSuit Linux平台固件烧录工具](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip)
+系统烧录工具：
 
-[PhoenixSuit Mac平台固件烧录工具](https://dl.radxa.com/tools/mac/PhoenixSuit_MacOS_V1.0.1.zip)
+[PhoenixSuit](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip) (Window)
+
+[LiveSuit](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip) (Linux)
+
+[PhoenixSuit For Mac](https://dl.radxa.com/tools/mac/PhoenixSuit_MacOS_V1.0.1.zip) (Mac)
 
 ## 硬件设计
 
