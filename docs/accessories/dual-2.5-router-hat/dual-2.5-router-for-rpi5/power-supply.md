@@ -10,7 +10,7 @@ sidebar_position: 3
 - 使用 DC 12V 适配器从 Dual 2.5G Router HAT 供电
 
 :::tip
-使用 Type-C 适配器从 Raspberry Pi 5 供电搭配 Dual 2.5G Router HAT 满载使用时可能会出现供电不够导致系统无法正常启动的情况。
+使用 Type-C 适配器从 Raspberry Pi 5 供电，同时搭配 Dual 2.5G Router HAT 使用，满载时可能会出现供电不够导致系统无法正常启动的情况。
 
 建议在搭配 Raspberry Pi 5 使用时用 DC 12V 适配器从 Dual 2.5G Router HAT 供电。
 :::
