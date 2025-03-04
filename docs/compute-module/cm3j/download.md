@@ -20,7 +20,7 @@ sidebar_position: 2
 
 Debian OS:
 
-- 系统镜像： [Debian b1](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b1/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b1.output.img.xz)
+- 系统镜像： [Debian b2](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b2/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b2.output.img.xz)
 
 ## 硬件设计
 
