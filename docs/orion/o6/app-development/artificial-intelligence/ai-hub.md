@@ -8,16 +8,16 @@ CIX AI Model Hub 是针对在 CIX SOC 上部署进行了优化的最先进的机
 
 ## 克隆 CIX AI Model Hub 仓库
 
-通过 [CIX 早鸟计划](./npu-introduction#cix-早鸟计划) 申请通过后，会有邮件发送到注册邮箱，请按邮件内容获取 AI Model Hub 仓库
+通过 [CIX 早鸟计划](./npu-introduction#cix-早鸟计划) 申请后，会有邮件发送到注册邮箱，请按邮件内容获取 AI Model Hub 仓库
 
 ```bash
 git clone https://e.coding.net/g-uaqh1479/ai-model-hub/ai_model_hub.git
 ```
 
-## 配置环境
+## 配置环境 (x86 Linux 环境下)
 
 :::tip
-在 X86 工作站中请与 NOE 的环境进行隔离
+在 X86 主机上请与 NOE 的环境进行隔离
 :::
 
 ```bash
@@ -49,7 +49,7 @@ pip3 install -r requirements.txt
 
 ## 端到端例子
 
-这些应用程序经过优化，成为易于遵循的示例，而不是为了最大限度地缩短预测时间。
+这些应用程序经过优化，成为易于部署的示例，而不是为了最大限度地缩短预测时间。
 
 端到端示例：
 
@@ -57,13 +57,13 @@ pip3 install -r requirements.txt
 2. 运行模型推理
 3. 将模型输出后处理为人类可读的格式
 
-所有模型示例代码均可在 O6 上端到端运行模型：
+所有模型示例代码均可在 O6 上端到端运行：
 
 ```bash
 python3 inference_npu.py
 ```
 
-此外，还可以通过 OnnxRuntime 在 X86 工作站或 O6 上本地运行的端到端示例
+此外，还可以通过 OnnxRuntime 在 X86 主机上或 O6 上本地运行端到端示例
 
 ```bash
 python3 inference_onnx.py
@@ -71,6 +71,6 @@ python3 inference_onnx.py
 
 ## CIX AI Model Hub 预编译模型下载站
 
-CIX AI Model Hub 里面的涉及的例子，用户可以直接从 [ModelScope](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files) 上下载提供的 onnx 模型和预编译好的模型，无需从头编译。
+CIX AI Model Hub 里面的涉及的例子，用户可以直接从 [ModelScope](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files) 上下载 onnx 模型和预编译好的模型，无需从头编译。
 
 ModelScope 链接： https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files

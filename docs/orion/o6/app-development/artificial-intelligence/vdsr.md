@@ -4,19 +4,29 @@ sidebar_position: 6
 
 # VDSR 完整示例
 
-此文档使用 CIX P1 NPU SDK 将 [VDSR](https://github.com/twtygqyy/pytorch-vdsr) 移植到 CIX SOC 内部的硬件加速模块实现使用 NPU 推理神经网络模型，
-请在参考此文档前请先在 X86 工作站按照 [安装 NPU SDK](./npu-introduction#安装-npu-sdk) 安装 NOE Compiler，在 X86 工作站与 Orion O6 按照 [下载 CIX AI Model Hub](./ai-hub#下载-cix-ai-model-hub) 文档配置所需环境。
+此文档介绍如何使用 CIX P1 NPU SDK 将 [VDSR](https://github.com/twtygqyy/pytorch-vdsr) 转换为 CIX SOC NPU 上可以运行的模型。
 
-论文链接： [Accurate Image Super-Resolution Using Very Deep Convolutional Networks](https://arxiv.org/abs/1511.04587)
+整体来讲有四个步骤：
+:::tip
+步骤1~3 在 x86 主机 Linux 环境下执行
+:::
+1. 下载 NPU SDK 并安装 NOE Compiler
+2. 下载模型文件 (代码和脚本)
+3. 编译模型
+4. 部署模型到 Orion O6
 
-## VDSR 工程目录列表
+## 下载 NPU SDK 并安装 NOE Compiler
+
+请参考 [安装 NPU SDK](./npu-introduction#npu-sdk-安装) 进行 NPU SDK 和 NOE Compiler 的安装.
+
+## 下载模型文件
 
 在 CIX AI Model Hub 中包含了 VDSR 的所需文件， 请用户按照 [下载 CIX AI Model Hub](./ai-hub#下载-cix-ai-model-hub) 下载
 
 ```bash
 cd ai_model_hub/models/ComputeVision/Super_Resolution/onnx_vdsr
 ```
-
+请确认目录结构是否同下图所示。
 ```bash
 .
 ├── cfg
@@ -36,16 +46,14 @@ cd ai_model_hub/models/ComputeVision/Super_Resolution/onnx_vdsr
     └── butterfly_GT_scale_4.bmp
 ```
 
-## （可选）下载 CIX 模型
-
-用户可无需从头编译模型，radxa 提供下载预编译好的 vdsr.cix 模型方法
-
-- 下载模型
-  ```bash
-  wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/ComputeVision/Super_Resolution/onnx_vdsr/vdsr.cix
-  ```
-
 ## 编译模型
+
+:::tip
+用户可无需从头编译模型，radxa 提供预编译好的 vdsr.cix 模型（可用下面步骤下载），如果使用预编译好的模型，可以跳过“编译模型” 这一步
+```bash
+wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/ComputeVision/Super_Resolution/onnx_vdsr/vdsr.cix
+```
+:::
 
 ### 准备 onnx 模型
 
@@ -159,7 +167,7 @@ CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Com
     cixbuild ./onnx_deeplab_v3_build.cfg
     ```
 
-## 板端部署
+## 模型部署
 
 ### NPU 推理
 
@@ -194,7 +202,7 @@ sys	0m0.223s
 
 ### CPU 推理
 
-使用 CPU 对 onnx 模型进行推理验证正确性，可在 X86 工作站或 O6 上运行
+使用 CPU 对 onnx 模型进行推理验证正确性，可在 X86 主机上或 Orion O6 上运行
 
 ```bash
 python3 inference_onnx.py --images ./test_data/ --onnx_path ./deeplabv3_resnet50-sim.onnx
@@ -214,3 +222,7 @@ sys	0m0.558s
 ![vdsr_onnx.webp](/img/o6/vdsr_onnx.webp)
 
 可以看到 NPU 和 CPU 上推理的结果一致,但运行速度大幅缩短
+
+## 参考文档
+
+论文链接： [Accurate Image Super-Resolution Using Very Deep Convolutional Networks](https://arxiv.org/abs/1511.04587)
