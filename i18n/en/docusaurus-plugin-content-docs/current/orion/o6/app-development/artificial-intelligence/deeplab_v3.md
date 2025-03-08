@@ -10,6 +10,7 @@ In general, there are four steps:
 :::tip
 Steps 1 to 3 are executed in the x86 host Linux environment
 :::
+
 1. Download the NPU SDK and install the NOE Compiler
 2. Download the model files (code and scripts)
 3. Compile the model
@@ -45,11 +46,14 @@ Please confirm whether the directory structure is as shown in the figure below.
 ```
 
 ## Compile the Model
+
 :::tip
 Users do not need to compile the model from scratch. Radxa provides a precompiled deeplab_v3.cix model (which can be downloaded using the steps below). If you use the precompiled model, you can skip the "Compile the Model" step
+
 ```bash
 wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/deeplab_v3.cix
 ```
+
 :::
 
 ### Prepare the ONNX Model

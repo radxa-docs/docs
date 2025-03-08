@@ -10,6 +10,7 @@ sidebar_position: 6
 :::tip
 步骤1~3 在 x86 主机 Linux 环境下执行
 :::
+
 1. 下载 NPU SDK 并安装 NOE Compiler
 2. 下载模型文件 (代码和脚本)
 3. 编译模型
@@ -48,9 +49,11 @@ cd ai_model_hub/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3
 
 :::tip
 用户可无需从头编译模型，radxa 提供预编译好的 deeplab_v3.cix 模型（可用下面步骤下载），如果使用预编译好的模型，可以跳过“编译模型” 这一步
+
 ```bash
 wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/deeplab_v3.cix
 ```
+
 :::
 
 ### 准备 onnx 模型

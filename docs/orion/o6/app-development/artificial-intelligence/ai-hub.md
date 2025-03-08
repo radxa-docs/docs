@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # CIX AI Model HUb
 
-CIX AI Model Hub 是针对在 CIX SOC 上部署进行了优化的机器学习模型的集合。里面包含了多种领域的 AI 模型(例如计算机视觉，语音识别，生成式 AI 等多种开源模型）与针对 CIX SOC NPU 编译的配置文件。这里主要介绍 AI Model Hub 下载及运行其中的模型。 
+CIX AI Model Hub 是针对在 CIX SOC 上部署进行了优化的机器学习模型的集合。里面包含了多种领域的 AI 模型(例如计算机视觉，语音识别，生成式 AI 等多种开源模型）与针对 CIX SOC NPU 编译的配置文件。这里主要介绍 AI Model Hub 下载及运行其中的模型。
 
 ## 下载 CIX AI Model Hub 仓库
 
@@ -37,7 +37,7 @@ git clone https://e.coding.net/g-uaqh1479/ai-model-hub/ai_model_hub.git
     └── label
 ```
 
-## 模型运行 
+## 模型运行
 
 ### 配置环境 (x86 Linux 环境下)
 
