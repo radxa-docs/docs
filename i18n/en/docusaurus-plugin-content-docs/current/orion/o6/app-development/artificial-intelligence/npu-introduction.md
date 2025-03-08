@@ -14,7 +14,9 @@ This document primarily explains how to run AI models and applications with NPU 
 The NPU SDK includes the NOE Compiler and CIX AI Model Hub, and access to the SDK requires applying for the CIX Early Bird Program.
 Application link: [CIX Early Bird Program](https://support.cixtech.com/#/)
 
-## Downloading the NPU SDK
+## Install NPU SDK (x86 Linux Environment)
+
+### Downloading the NPU SDK
 
 After applying through the [CIX Early Bird Program](#cix-early-bird-program), an email will be sent to your registered mailbox. Please download the SDK according to the email instructions.
 
@@ -22,7 +24,7 @@ After applying through the [CIX Early Bird Program](#cix-early-bird-program), an
 tar -xvf nor.tag.gz
 ```
 
-## Installing the NPU SDK on an X86 Host
+### Installing the NPU SDK on an X86 Host
 
 :::tip
 The CIX P1 NPU SDK is installed on an X86 host and requires Python version 3.8.

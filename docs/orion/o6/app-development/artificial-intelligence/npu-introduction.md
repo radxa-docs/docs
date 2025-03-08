@@ -14,6 +14,8 @@ sidebar_position: 1
 NPU SDK 包含 NOE Compiler 与 CIX AI Model Hub, 要获取 SDK 需要通过申请 CIX 早鸟计划获取。
 申请链接： [CIX 早鸟计划](https://support.cixtech.com/#/)
 
+## 安装 NPU SDK (x86 Linux 环境)
+
 ### 下载 NPU SDK
 
 通过 [CIX 早鸟计划](#cix-早鸟计划) 申请后，会有邮件发送到注册邮箱，请按邮件内容下载 SDK
@@ -22,7 +24,7 @@ NPU SDK 包含 NOE Compiler 与 CIX AI Model Hub, 要获取 SDK 需要通过申�
 tar -xvf nor.tag.gz
 ```
 
-## X86 主机上安装 NPU SDK
+### 安装 NPU SDK
 
 :::tip
 CIX P1 NPU SDK 是安装在 X86 主机上，并要求 python 版本为 3.8。
@@ -40,7 +42,7 @@ pip3 install -r requirements.txt
 pip3 install ./CixBuilder-6.1.2958.1-py3-none-any.whl
 ```
 
-## 板端安装 NOE UMD
+## 安装 NOE UMD (Orion O6)
 
 :::tip
 NOE UMD 包以 deb 安装包形式发布，如使用 python api，在创建虚拟环境时请继承系统依赖： **`python3 -m venv --system-site-packages .venv`**
