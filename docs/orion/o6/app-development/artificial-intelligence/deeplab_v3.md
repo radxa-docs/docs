@@ -119,7 +119,7 @@ CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Com
 
 - 使用 NOE Compiler 量化与编译模型
 
-  - 制作量化 cfg 配置文件, 请参考以下配置
+  - 制作量化与编译 cfg 配置文件, 请参考以下配置
 
     ```bash
     [Common]
@@ -153,7 +153,7 @@ CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Com
     tiling = fps
     ```
 
-  - 量化模型
+  - 编译模型
     :::tip
     如果遇到 cixbuild 报错 `[E] Optimizing model failed! CUDA error: no kernel image is available for execution on the device ...`
     这意味着当前版本的 torch 不支持此 GPU，请完全卸载当前版本的 torch, 然后在 torch 官网下载最新版本。

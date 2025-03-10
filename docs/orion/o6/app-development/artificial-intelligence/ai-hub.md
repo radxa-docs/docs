@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # CIX AI Model HUb
 
-CIX AI Model Hub 是针对在 CIX SOC 上部署进行了优化的机器学习模型的集合。里面包含了多种领域的 AI 模型(例如计算机视觉，语音识别，生成式 AI 等多种开源模型）与针对 CIX SOC NPU 编译的配置文件。这里主要介绍 AI Model Hub 下载及运行其中的模型。
+CIX AI Model Hub 是针对在 CIX SOC 上部署进行了优化的机器学习模型的集合。里面包含了多种领域的 AI 模型例子 (例如计算机视觉，语音识别，生成式 AI 等多种开源模型）与针对 CIX SOC NPU 编译的配置文件。这里主要介绍 AI Model Hub 下载及运行其中的模型。
 
 ## 下载 CIX AI Model Hub 仓库
 
@@ -47,23 +47,19 @@ git clone https://e.coding.net/g-uaqh1479/ai-model-hub/ai_model_hub.git
 pip3 install -r requirements.txt
 ```
 
-### 端到端模型的例子
-
-这些应用程序经过优化，成为易于部署的示例，而不是为了最大限度地缩短预测时间。
-
-端到端示例：
+### 模型例子
 
 1. 将人类可读的输入预处理为模型输入
 2. 运行模型推理
 3. 将模型输出后处理为人类可读的格式
 
-所有模型示例代码均可在 O6 上端到端运行：
+所有模型示例代码均可在 O6 上使用 NPU 端到端运行：
 
 ```bash
 python3 inference_npu.py
 ```
 
-此外，还可以通过 OnnxRuntime 在 X86 主机上或 O6 上本地运行端到端示例
+此外，还可以通过 OnnxRuntime 在 X86 主机上或 O6 上使用 CPU 本地运行端到端示例
 
 ```bash
 python3 inference_onnx.py

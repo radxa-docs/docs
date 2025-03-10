@@ -16,15 +16,11 @@ NPU SDK 包含 NOE Compiler 与 CIX AI Model Hub, 要获取 SDK 需要通过申�
 
 ## 安装 NPU SDK (x86 Linux 环境)
 
-### 下载 NPU SDK
-
 通过 [CIX 早鸟计划](#cix-早鸟计划) 申请后，会有邮件发送到注册邮箱，请按邮件内容下载 SDK
 
 ```bash
 tar -xvf nor.tag.gz
 ```
-
-### 安装 NPU SDK
 
 :::tip
 CIX P1 NPU SDK 是安装在 X86 主机上，并要求 python 版本为 3.8。

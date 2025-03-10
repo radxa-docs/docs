@@ -6,9 +6,9 @@ sidebar_position: 6
 
 This document introduces how to use the CIX P1 NPU SDK to convert [DeepLabv3](https://pytorch.org/vision/main/models/generated/torchvision.models.segmentation.deeplabv3_resnet50.html) into a model that can run on the CIX SOC NPU.
 
-In general, there are four steps:
+There are four main steps:
 :::tip
-Steps 1 to 3 are executed in the x86 host Linux environment
+Steps 1-3 should be executed in an x86 Linux environment.
 :::
 
 1. Download the NPU SDK and install the NOE Compiler
@@ -16,19 +16,19 @@ Steps 1 to 3 are executed in the x86 host Linux environment
 3. Compile the model
 4. Deploy the model to Orion O6
 
-## Download the NPU SDK and Install the NOE Compiler
+## Download NPU SDK and Install NOE Compiler
 
-Please refer to [Install NPU SDK](./npu-introduction#npu-sdk-installation) for the installation of NPU SDK and NOE Compiler.
+Refer to [Install NPU SDK](./npu-introduction#install-npu-sdk-x86-linux-environment) for the installation of the NPU SDK and NOE Compiler.
 
-## Download the Model Files
+## Download Model Files
 
-The CIX AI Model Hub includes the necessary files for DeepLabv3. Please download according to [CIX AI Model Hub](./ai-hub#download-cix-ai-model-hub)
+The CIX AI Model Hub includes all necessary files for DeepLabv3. Please follow the instructions in [Download the CIX AI Model Hub Repository](./ai-hub#download-the-cix-ai-model-hub-repository) and navigate to the corresponding directory.
 
 ```bash
 cd ai_model_hub/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3
 ```
 
-Please confirm whether the directory structure is as shown in the figure below.
+Please confirm that the directory structure is as shown below:
 
 ```bash
 .
@@ -48,7 +48,7 @@ Please confirm whether the directory structure is as shown in the figure below.
 ## Compile the Model
 
 :::tip
-Users do not need to compile the model from scratch. Radxa provides a precompiled deeplab_v3.cix model (which can be downloaded using the steps below). If you use the precompiled model, you can skip the "Compile the Model" step
+Users do not need to compile the model from scratch, as Radxa provides a precompiled deeplab_v3.cix model (which can be downloaded using the steps below). If using the precompiled model, you can skip the "Compile the Model" step.
 
 ```bash
 wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/deeplab_v3.cix
@@ -56,7 +56,7 @@ wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/C
 
 :::
 
-### Prepare the ONNX Model
+### Prepare ONNX Model
 
 - Download the ONNX model
 
@@ -64,7 +64,7 @@ wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/C
 
 - Simplify the model
 
-  Here, we use onnxsim to solidify the model input and simplify the model
+  Here we use `onnxsim` for input fixing and model simplification.
 
   ```bash
   pip3 install onnxsim onnxruntime
@@ -73,20 +73,20 @@ wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/C
 
 ### Compile the Model
 
-The CIX SOC NPU supports INT8 computation. Before compiling the model, we need to use the NOE Compiler to quantize the model to INT8.
+CIX SOC NPU supports INT8 computation. Before compiling the model, we need to use the NOE Compiler for INT8 quantization.
 
-- Prepare the calibration set
+- Prepare the calibration dataset
 
-  - Use the existing calibration set in `datasets`
+  - Use the existing calibration dataset from `datasets`
 
     ```bash
     .
     └── calibration_data.npy
     ```
 
-  - Prepare your own calibration set
+  - Prepare the calibration dataset yourself
 
-    The `test_data` directory already contains multiple calibration set image files
+    The `test_data` directory already contains multiple images for the calibration dataset.
 
     ```bash
     .
@@ -94,7 +94,7 @@ The CIX SOC NPU supports INT8 computation. Before compiling the model, we need t
     └── 2.jpeg
     ```
 
-    Refer to the following script to generate the calibration file
+    Refer to the following script to generate the calibration file.
 
     ```python
     import sys
@@ -119,7 +119,7 @@ The CIX SOC NPU supports INT8 computation. Before compiling the model, we need t
 
 - Use the NOE Compiler to quantize and compile the model
 
-  - Create a quantization cfg configuration file, please refer to the following configuration
+  - Create a configuration file for quantization and compilation, refer to the following configuration:
 
     ```bash
     [Common]
@@ -153,9 +153,9 @@ The CIX SOC NPU supports INT8 computation. Before compiling the model, we need t
     tiling = fps
     ```
 
-  - Quantize the model
+  - Compile the model
     :::tip
-    If you encounter the error `[E] Optimizing model failed! CUDA error: no kernel image is available for execution on the device ...` when running cixbuild, it means that the current version of torch does not support this GPU. Please completely uninstall the current version of torch, and then download the latest version from the torch official website.
+    If you encounter a cixbuild error `[E] Optimizing model failed! CUDA error: no kernel image is available for execution on the device ...`, it means the current version of torch does not support this GPU. Please completely uninstall the current version of torch and download the latest version from the official torch website.
     :::
     ```bash
     cixbuild ./onnx_deeplab_v3_build.cfg
@@ -165,7 +165,7 @@ The CIX SOC NPU supports INT8 computation. Before compiling the model, we need t
 
 ### NPU Inference
 
-Copy the compiled .cix format model to the Orion O6 development board for model validation
+Copy the compiled .cix model file to the Orion O6 development board for model verification.
 
 ```bash
 python3 inference_npu.py --images ./test_data/ --model_path ./deeplab_v3.cix
@@ -188,13 +188,13 @@ user	0m4.314s
 sys	0m0.478s
 ```
 
-The results are saved in the `output` folder
+The results are saved in the `output` folder.
 
 ![deeplab1.webp](/img/o6/deeplab1.webp)
 
 ### CPU Inference
 
-Use the CPU to perform inference on the ONNX model to verify correctness, which can be run on the X86 host or Orion O6
+Use the CPU for inference verification of the ONNX model. This can be run on an x86 host or on Orion O6.
 
 ```bash
 python3 inference_onnx.py --images ./test_data/ --onnx_path ./deeplabv3_resnet50-sim.onnx
@@ -207,13 +207,12 @@ save output: onnx_ILSVRC2012_val_00004704.JPEG
 real	0m7.605s
 user	0m33.235s
 sys	0m0.558s
-
 ```
 
-The results are saved in the `output` folder
+The results are saved in the `output` folder.
 ![deeplab2.webp](/img/o6/deeplab2.webp)
 
-It can be seen that the inference results on NPU and CPU are consistent, but the operating speed has been significantly reduced
+It can be seen that the inference results on both NPU and CPU are consistent, but the running speed is significantly reduced.
 
 ## Reference Document
 

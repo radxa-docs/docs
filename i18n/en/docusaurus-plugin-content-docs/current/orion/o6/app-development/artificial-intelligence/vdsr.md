@@ -1,14 +1,14 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # VDSR Example
 
 This document introduces how to use the CIX P1 NPU SDK to convert [VDSR](https://github.com/twtygqyy/pytorch-vdsr) into a model that can run on the CIX SOC NPU.
 
-In general, there are four steps:
+There are four main steps:
 :::tip
-Steps 1 to 3 are executed in the x86 host Linux environment
+Steps 1-3 should be executed in an x86 Linux environment.
 :::
 
 1. Download the NPU SDK and install the NOE Compiler
@@ -18,29 +18,29 @@ Steps 1 to 3 are executed in the x86 host Linux environment
 
 ## Download the NPU SDK and Install the NOE Compiler
 
-Please refer to [Install NPU SDK](./npu-introduction#npu-sdk-installation) for the installation of NPU SDK and NOE Compiler.
+Refer to [Install NPU SDK](./npu-introduction#install-npu-sdk-x86-linux-environment) for the installation of the NPU SDK and NOE Compiler.
 
-## Download the Model Files
+## Download Model Files
 
-The CIX AI Model Hub includes the necessary files for VDSR. Please download according to [Download CIX AI Model Hub](./ai-hub#download-cix-ai-model-hub)
+The CIX AI Model Hub includes all necessary files for VDSR. Please follow the instructions in [Download the CIX AI Model Hub Repository](./ai-hub#download-the-cix-ai-model-hub-repository) and navigate to the corresponding directory.
 
 ```bash
 cd ai_model_hub/models/ComputeVision/Super_Resolution/onnx_vdsr
 ```
 
-Please confirm whether the directory structure is as shown in the figure below.
+Please confirm that the directory structure is as shown below.
 
 ```bash
 .
 ├── cfg
-│   └── onnx_vdsr_build.cfg
+│   └── onnx_vdsr_build.cfg
 ├── datasets
-│   └── calib_dataset.npy
+│   └── calib_dataset.npy
 ├── graph.json
 ├── inference_npu.py
 ├── inference_onnx.py
 ├── output
-│   └── butterfly_comparison.png
+│   └── butterfly_comparison.png
 ├── ReadMe.md
 └── test_data
     ├── butterfly_GT.bmp
@@ -52,7 +52,7 @@ Please confirm whether the directory structure is as shown in the figure below.
 ## Compile the Model
 
 :::tip
-Users do not need to compile the model from scratch. Radxa provides a precompiled vdsr.cix model (which can be downloaded using the steps below). If you use the precompiled model, you can skip the "Compile the Model" step
+Users do not need to compile the model from scratch; Radxa provides a precompiled vdsr.cix model (which can be downloaded using the steps below). If you use the precompiled model, you can skip the “Compile the Model” step.
 
 ```bash
 wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/ComputeVision/Super_Resolution/onnx_vdsr/vdsr.cix
@@ -66,9 +66,9 @@ wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/C
 
   [vdsr.onnx](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/ComputeVision/Super_Resolution/onnx_vdsr/model/vdsr.onnx)
 
-- Simplify the model
+- Simplify the Model
 
-  Here, we use onnxsim to solidify the model input and simplify the model
+  Use `onnxsim` to solidify the model inputs and simplify the model.
 
   ```bash
   pip3 install onnxsim onnxruntime
@@ -77,20 +77,20 @@ wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/C
 
 ### Compile the Model
 
-The CIX SOC NPU supports INT8 computation. Before compiling the model, we need to use the NOE Compiler to quantize the model to INT8.
+CIX SOC NPU supports INT8 computation, and before compiling the model, we need to perform INT8 quantization using the NOE Compiler.
 
-- Prepare the calibration set
+- Prepare the Calibration Set
 
-  - Use the existing calibration set in `datasets`
+  - Use the existing calibration set from `datasets`.
 
     ```bash
     .
     └── calibration_data.npy
     ```
 
-  - Prepare your own calibration set
+  - Prepare your own calibration set.
 
-    The `test_data` directory already contains multiple calibration set image files
+    The `test_data` directory already contains several images for the calibration set.
 
     ```bash
     .
@@ -98,7 +98,7 @@ The CIX SOC NPU supports INT8 computation. Before compiling the model, we need t
     └── 2.jpeg
     ```
 
-    Refer to the following script to generate the calibration file
+    Refer to the following script to generate the calibration file.
 
     ```python
     import sys
@@ -116,7 +116,7 @@ The CIX SOC NPU supports INT8 computation. Before compiling the model, we need t
     for image_path in images_list:
         image_numpy = cv2.imread(image_path)
         image_numpy = cv2.resize(image_numpy, (256, 256))
-        image_gray = cv2.cvtColor(image_numpy,cv2.COLOR_BGR2GRAY)
+        image_gray = cv2.cvtColor(image_numpy, cv2.COLOR_BGR2GRAY)
         image_ex = np.expand_dims(image_gray, 0)
         input = normalize_image(image_ex)
         data.append(input)
@@ -126,9 +126,9 @@ The CIX SOC NPU supports INT8 computation. Before compiling the model, we need t
     print("Generate calib dataset success.")
     ```
 
-- Use the NOE Compiler to quantize and compile the model
+- Quantize and Compile the Model with NOE Compiler
 
-  - Create a quantization cfg configuration file, please refer to the following configuration
+  - Create the quantization and compilation configuration file. Please refer to the following configuration.
 
     ```bash
     [Common]
@@ -163,9 +163,9 @@ The CIX SOC NPU supports INT8 computation. Before compiling the model, we need t
     tiling= fps
     ```
 
-  - Quantize the model
+  - Compile the Model
     :::tip
-    If you encounter the error `[E] Optimizing model failed! CUDA error: no kernel image is available for execution on the device ...` when running cixbuild, it means that the current version of torch does not support this GPU. Please completely uninstall the current version of torch, and then download the latest version from the torch official website.
+    If you encounter the cixbuild error `[E] Optimizing model failed! CUDA error: no kernel image is available for execution on the device ...`, it means that the current version of torch does not support this GPU. Please completely uninstall the current version of torch and download the latest version from the torch website.
     :::
     ```bash
     cixbuild ./onnx_deeplab_v3_build.cfg
@@ -175,7 +175,7 @@ The CIX SOC NPU supports INT8 computation. Before compiling the model, we need t
 
 ### NPU Inference
 
-Copy the compiled .cix format model to the Orion O6 development board for model validation
+Copy the .cix format model compiled with the NOE Compiler to the Orion O6 development board for model validation.
 
 ```bash
 python3 inference_npu.py --images ./test_data/ --model_path ./vdsr.cix
@@ -195,18 +195,18 @@ npu: noe_clean_job success
 npu: noe_unload_graph success
 npu: noe_deinit_context success
 
-real	0m2.837s
-user	0m3.270s
-sys	0m0.223s
+real    0m2.837s
+user    0m3.270s
+sys     0m0.223s
 ```
 
-The results are saved in the `output_npu` folder
+Results are saved in the `output_npu` folder.
 
 ![vdsr_npu.webp](/img/o6/vdsr_npu.webp)
 
 ### CPU Inference
 
-Use the CPU to perform inference on the ONNX model to verify correctness, which can be run on the X86 host or Orion O6
+Use the CPU to verify the correctness of the ONNX model inference, which can be run on an x86 host or on Orion O6.
 
 ```bash
 python3 inference_onnx.py --images ./test_data/ --onnx_path ./deeplabv3_resnet50-sim.onnx
@@ -216,17 +216,16 @@ python3 inference_onnx.py --images ./test_data/ --onnx_path ./deeplabv3_resnet50
 (.venv) radxa@orion-o6:~/NOE/ai_model_hub/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3$ time python3 inference_onnx.py --images ./test_data/ --onnx_path ./deeplabv3_resnet50-sim.onnx
 save output: onnx_ILSVRC2012_val_00004704.JPEG
 
-real	0m7.605s
-user	0m33.235s
-sys	0m0.558s
-
+real    0m7.605s
+user    0m33.235s
+sys     0m0.558s
 ```
 
-The results are saved in the `output_onnx` folder
+Results are saved in the `output_onnx` folder.
 ![vdsr_onnx.webp](/img/o6/vdsr_onnx.webp)
 
-It can be seen that the inference results on NPU and CPU are consistent, but the operating speed has been significantly reduced
+It can be seen that the inference results on both NPU and CPU are consistent, but the running time is significantly reduced.
 
-## Reference Document
+## References
 
 Paper link: [Accurate Image Super-Resolution Using Very Deep Convolutional Networks](https://arxiv.org/abs/1511.04587)
