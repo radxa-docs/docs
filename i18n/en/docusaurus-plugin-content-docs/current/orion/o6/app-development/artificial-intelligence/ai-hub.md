@@ -37,9 +37,13 @@ git clone https://e.coding.net/g-uaqh1479/ai-model-hub/ai_model_hub.git
     └── label
 ```
 
+## Download Precompiled Model
+
+For the examples covered in the CIX AI Model Hub, users can directly download ONNX models and precompiled models from [ModelScope](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files) without the need for manual compilation.
+
 ## Run Models
 
-### Setting Up the Environment (on x86 Linux)
+### Setting Up the Environment
 
 Install the required Python environment:
 
@@ -64,9 +68,3 @@ Additionally, OnnxRuntime can be used to run end-to-end examples locally on an x
 ```bash
 python3 inference_onnx.py
 ```
-
-## CIX AI Model Hub Precompiled Model Download Center
-
-For the examples covered in the CIX AI Model Hub, users can directly download ONNX models and precompiled models from [ModelScope](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files) without the need for manual compilation.
-
-ModelScope Link: https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files

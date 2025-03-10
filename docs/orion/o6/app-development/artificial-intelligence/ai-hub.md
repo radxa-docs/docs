@@ -37,9 +37,13 @@ git clone https://e.coding.net/g-uaqh1479/ai-model-hub/ai_model_hub.git
     └── label
 ```
 
+## 下载预编译模型
+
+CIX AI Model Hub 里面的涉及的例子，用户可以直接从 [ModelScope](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files) 上下载 onnx 模型和预编译好的模型，无需从头编译。
+
 ## 模型运行
 
-### 配置环境 (x86 Linux 环境下)
+### 配置环境
 
 安装 Python 环境
 
@@ -64,9 +68,3 @@ python3 inference_npu.py
 ```bash
 python3 inference_onnx.py
 ```
-
-## CIX AI Model Hub 预编译模型下载站
-
-CIX AI Model Hub 里面的涉及的例子，用户可以直接从 [ModelScope](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files) 上下载 onnx 模型和预编译好的模型，无需从头编译。
-
-ModelScope 链接： https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files
