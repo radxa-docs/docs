@@ -36,6 +36,15 @@ Debian OS:
 
   [Radxa CM3J V1.2 Placement Map](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_components_placement_map_v1.2_20250110.pdf)
 
+- 3D File
+
+  [radxa_cm3j_pcba_3d_v1_2_20250115](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_pcba_3d_v1_2_20250115.stp)
+
+- 2D File
+
+  [radxa_cm3j_v1.2_2d_dxf](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_v1.2_2d_dxf.zip)
+
+
 - Core Board Connector PINOUT
 
   [Radxa CM3J V1.2 PinOut](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_pinout_v1.2.xlsx)
