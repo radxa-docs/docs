@@ -1,0 +1,62 @@
+Ollama 是一个用于在本地运行和管理大语言模型（LLM）的工具。
+它可以让你在本地设备上轻松拉取、运行和管理各种 AI 模型，比如 LLaMA、Mistral、Gemma 等，无需复杂的环境配置。
+
+## Ollama 安装
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+本地构建方法请参考 [官方文档](https://github.com/ollama/ollama/blob/main/docs/development.md)
+
+## 使用方法
+
+### 拉取模型
+
+此命令会通过互联网下载模型文件
+
+```bash
+ollama pull deepseek-r1:1.5b
+```
+
+### 运行模型
+
+此命令会直接运行模型，如本地没有模型缓存会自动通过互联网下载模型文件并运行
+
+```bash
+ollama run deepseek-r1:1.5b
+```
+
+### 显示模型信息
+
+```bash
+ollama show deepseek-r1:1.5b
+```
+
+### 列出已下载的模型
+
+```bash
+ollama list
+```
+
+### 列出已加载的模型
+
+```bash
+ollama ps
+```
+
+### 停止正在运行的模型
+
+```bash
+ollama stop deepseek-r1:1.5b
+```
+
+### 删除模型
+
+```bash
+ollama rm deepseek-r1:1.5b
+```
+
+## 参考信息
+
+更多关于 Ollama 的详细资料，请参考 [官方文档](https://github.com/ollama/ollama)
