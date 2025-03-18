@@ -1,0 +1,224 @@
+import { PreView } from "@site/src/utils/docs";
+
+#### MCP2515
+
+- Prepare
+
+- One {props.product_name}
+- One MCP2515 module
+
+- Connections
+
+<table>
+    <tr>
+        <th>{props.product_name}</th>
+        <th>\<--\></th>
+        <th>MCP2515</th>
+    </tr>
+    <tr>
+        <td>{props.spi_sck}</td>
+        <th>\<--\></th>
+        <td>SPI SCK</td>
+    </tr>
+    <tr>
+        <td>{props.spi_cs}</td>
+        <th>\<--\></th>
+        <td>SPI CS</td>
+    </tr>
+    <tr>
+        <td>{props.spi_tx}</td>
+        <th>\<--\></th>
+        <td>SPI TX</td>
+    </tr>
+    <tr>
+        <td>{props.spi_rx}</td>
+        <th>\<--\></th>
+        <td>SPI RX</td>
+    </tr>
+    <tr>
+        <td>PIN_1</td>
+        <th>\<--\></th>
+        <td>VCC</td>
+    </tr>
+    <tr>
+        <td>PIN_9</td>
+        <th>\<--\></th>
+        <td>GND</td>
+    </tr>
+</table>
+
+:::tip
+
+The following program is for loopback test only, so you need to short PIN_H and PIN_L of MCP2515.
+
+:::
+
+- Download the library for MCP2515
+
+```bash
+
+cd pico-examples
+
+git clone https://github.com/adamczykpiotr/pico-mcp2515.git
+
+```
+
+- Adding pico-mcp2515 to the pico-examples compilation
+
+Edit pico-examples/CMakeLists.txt
+
+```bash
+
+... ...
+add_subdirectory(pico_w)
+add_subdirectory(pico-mcp2515)
+add_subdirectory(pio)
+... ...
+
+```
+
+- Open the serial port
+
+Edit pico-examples/pico-mcp2515/CMakeLists.txt
+
+```txt
+pico_enable_stdio_uart(pico-mcp2515 1)
+pico_enable_stdio_usb(pico-mcp2515 1)
+```
+
+- Modify the pico-mcp2515/include/mcp2515/mcp2515.h.
+
+Modify the SPI pins according to the connections we made above
+
+For example:
+
+```txt
+
+    public:
+        MCP2515(
+            spi_inst_t* CHANNEL = spi0,
+            uint8_t CS_PIN = 5,
+            uint8_t TX_PIN = 3,
+            uint8_t RX_PIN = 4,
+            uint8_t SCK_PIN = 6,
+            uint32_t _SPI_CLOCK = DEFAULT_SPI_CLOCK
+        );
+
+```
+
+- Replace pico-examples/pico-mcp2515/src/pico-mcp2515.cpp with the following code
+
+<details>
+
+<summary>pico-mcp2515.cpp</summary>
+
+```cpp
+
+#include <stdio.h>
+#include <string.h>
+#include "pico/stdlib.h"
+#include "mcp2515/mcp2515.h"
+#include "hardware/uart.h"
+
+int main() {
+    MCP2515 can0;
+    struct can_frame rx;
+    struct can_frame tx;
+
+    tx.can_id = 0x123;
+    tx.can_dlc = 8;
+    tx.data[0] = 0x11;
+    tx.data[1] = 0x22;
+    tx.data[2] = 0x33;
+    tx.data[3] = 0x44;
+    tx.data[4] = 0x55;
+    tx.data[5] = 0x66;
+    tx.data[6] = 0x77;
+    tx.data[7] = 0x88;
+
+    stdio_init_all();
+
+    //Initialize interface
+    can0.reset();
+    can0.setBitrate(CAN_1000KBPS, MCP_16MHZ);
+    can0.setLoopbackMode();
+
+    // loopback
+    while(true) {
+        MCP2515::ERROR result = can0.sendMessage(&tx);
+        if(result == MCP2515::ERROR_OK) {
+            printf("CAN TX: sent successfully ...\r\n");
+        }
+        sleep_ms(1000);
+
+        if(can0.readMessage(&rx) == MCP2515::ERROR_OK) {
+            for(int i = 0; i < 8; i++) {
+                printf("CAN RX: data[%d]: 0x%x\r\n", i, rx.data[i]);
+            }
+        }
+        sleep_ms(1000);
+    }
+
+    return 0;
+}
+
+```
+
+</details>
+
+- Compile
+
+  <div>
+    {props.platform === "Linux" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build
+          <br />
+          rm -rf *<br />
+          cmake ..
+          <br />
+          make -j$(nproc)
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+    {props.platform === "Windows" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build/
+          <br />
+          rm -rf *<br />
+          cmake -G "Ninja" ..
+          <br />
+          ninja
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+  </div>
+
+After successful compilation, a file named pico-mcp2515.uf2 will be created in the pico-examples/build/pico-mcp2515/ directory.
+
+- Flash
+
+  - <a href={props.flash_url}>Reboot RP2040</a>
+
+  - Drag the pico-mcp2515.uf2 file into the RP2040 and wait for the RP2040 to disappear
+
+- Verification
+
+Open the serial port /dev/ttyS4, we can see the following printout:
+
+```txt
+
+CAN TX: sent successfully ...
+CAB RX: data[0]: 0x11
+CAB RX: data[1]: 0x22;
+CAB RX: data[2]: 0x33;
+CAB RX: data[3]: 0x44;
+CAB RX: data[4]: 0x55;
+CAB RX: data[5]: 0x66;
+CAB RX: data[6]: 0x77;
+CAB RX: data[7]: 0x88;
+
+```
