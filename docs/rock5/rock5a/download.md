@@ -27,6 +27,18 @@ Radxa ROCK 5A V1.1 版本
 
 更多镜像请查看：[Radxa ROCK 5A Release](https://github.com/radxa-build/rock-5a/releases)
 
+### OpenWRT
+
+OpenWRT 官方支持 Radxa ROCK 5A 设备，您可以从以下链接获取相关固件和资源：
+
+[OpenWRT 技术数据页面：Radxa Rock 5A](https://openwrt.org/toh/hwdata/radxa/radxa_rock_5a)
+
+:::caution
+
+OpenWRT 不是瑞莎官方维护的系统，瑞莎不能保证完整功能，如遇到问题，请到 OpenWRT 社区寻求帮助。
+
+:::
+
 ## 质量认证
 
 ## 参考文档

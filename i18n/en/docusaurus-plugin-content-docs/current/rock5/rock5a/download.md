@@ -27,6 +27,18 @@ If you encounter any problems, please go to the corresponding community for help
 
 More System：[Radxa ROCK 5A Release](https://github.com/radxa-build/rock-5a/releases)
 
+### OpenWRT
+
+OpenWRT officially supports Radxa ROCK 5A devices. You can get related firmware and resources from the following link:
+
+[OpenWRT Technical Data Page: Radxa Rock 5A](https://openwrt.org/toh/hwdata/radxa/radxa_rock_5a)
+
+:::caution
+
+OpenWRT is not maintained by Radxa officially. Radxa cannot guarantee full functionality. If you encounter any problems, please seek help from the OpenWRT community.
+
+:::
+
 ## Quality Approvals
 
 ## Reference Documents

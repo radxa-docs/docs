@@ -96,6 +96,11 @@ Android：
         <td align="center">Just Enough Linux Operating System (JELOS) is a community Linux distribution developed for handheld gaming devices. Our goal is to develop an operating system with the features and functionality we need, and to have fun while doing it.</td>
         <td align="center"><a href="https://github.com/JustEnoughLinuxOS" >JustEnoughLinuxOS</a><br /><br /><a href="https://github.com/JustEnoughLinuxOS/distribution/releases" >JustEnoughLinuxOS Release </a><br /><br /><a href="https://github.com/JustEnoughLinuxOS/distribution/wiki/">JustEnoughLinuxOS WiKi</a><br /><br /><a href="https://discord.gg/wHCFtm2TJ8" >Discord</a></td>
     </tr>
+    <tr>
+        <td align="center"><img src="/img/rock5b/downloads/openwrt.webp" alt="OpenWRT" style={{ width: "70%" }} /></td>
+        <td align="center">OpenWRT is a Linux operating system for embedded devices. It provides a fully writable filesystem with package management, allowing you to freely choose and customize applications and features on your device.</td>
+        <td align="center"><a href="https://openwrt.org/toh/hwdata/radxa/radxa_rock_5b" >OpenWRT Technical Data Page: Radxa Rock 5B</a><br /><br /><a href="https://openwrt.org/" >OpenWRT Official Website</a><br /><br /><a href="https://forum.openwrt.org/" >OpenWRT Forum</a></td>
+    </tr>
 
 </table>
 

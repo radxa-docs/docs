@@ -96,6 +96,11 @@ Android：
         <td align="center">Just Enough Linux Operating System (JELOS) 是一个为手持游戏设备开发的社区 Linux 发行版。我们的目标是开发出一个具有我们所需的特性和功能的操作系统，并在开发过程中享受乐趣。</td>
         <td align="center"><a href="https://github.com/JustEnoughLinuxOS" >JustEnoughLinuxOS</a><br /><br /><a href="https://github.com/JustEnoughLinuxOS/distribution/releases" >JustEnoughLinuxOS Release </a><br /><br /><a href="https://github.com/JustEnoughLinuxOS/distribution/wiki/">JustEnoughLinuxOS WiKi</a><br /><br /><a href="https://discord.gg/wHCFtm2TJ8" >Discord</a></td>
     </tr>
+    <tr>
+        <td align="center"><img src="/img/rock5b/downloads/openwrt.webp" alt="OpenWRT" style={{ width: "70%" }} /></td>
+        <td align="center">OpenWRT 是一个适用于嵌入式设备的 Linux 操作系统。它提供了一个完全可写的文件系统，带有包管理功能，使您可以自由选择和定制设备上的应用程序和功能。</td>
+        <td align="center"><a href="https://openwrt.org/toh/hwdata/radxa/radxa_rock_5b" >OpenWRT 技术数据页面：Radxa Rock 5B</a><br /><br /><a href="https://openwrt.org/" >OpenWRT 官方网站</a><br /><br /><a href="https://forum.openwrt.org/" >OpenWRT 论坛</a></td>
+    </tr>
 
 </table>
 

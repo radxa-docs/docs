@@ -50,6 +50,14 @@ For more images, please refer to: [ZERO 3 Release](https://github.com/radxa-buil
 
 - [Radxa Zero 3w OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)
 
+- [OpenWRT Technical Data Page: Radxa Zero 3W](https://openwrt.org/toh/hwdata/radxa/radxa_zero_3w)
+
+- [OpenWRT Technical Data Page: Radxa Zero 3E](https://openwrt.org/toh/hwdata/radxa/radxa_zero_3e)
+
+:::caution
+These images are not maintained by Radxa officially. Radxa cannot guarantee full functionality. If you encounter any problems, please seek help from the [OpenWRT Forum](https://forum.openwrt.org/).
+:::
+
 ## Quality Certification
 
 ## Enclosures

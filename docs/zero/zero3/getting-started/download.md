@@ -48,7 +48,15 @@ Radxa ZERO 3E V1.2 量产版本
 
 - [Radxa ZERO 3 DietPi](https://dietpi.com/downloads/images/DietPi_RadxaZERO3-ARMv8-Bookworm.img.xz)
 
-- [Radxa Zero 3w OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)
+- [Radxa Zero 3W OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)
+
+- [OpenWRT 技术数据页面：Radxa Zero 3W](https://openwrt.org/toh/hwdata/radxa/radxa_zero_3w)
+
+- [OpenWRT 技术数据页面：Radxa Zero 3E](https://openwrt.org/toh/hwdata/radxa/radxa_zero_3e)
+
+:::caution
+非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到 [OpenWRT 论坛](https://forum.openwrt.org/) 寻求帮助。
+:::
 
 ## 质量认证
 
