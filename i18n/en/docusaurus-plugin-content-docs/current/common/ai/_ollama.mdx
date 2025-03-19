@@ -1,0 +1,62 @@
+Ollama is a tool for running and managing large language models (LLMs) locally.
+It allows you to easily pull, run, and manage various AI models such as LLaMA, Mistral, and Gemma on your local device without complex environment configurations.
+
+## Ollama Installation
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+For local build methods, please refer to the [official documentation](https://github.com/ollama/ollama/blob/main/docs/development.md).
+
+## Usage
+
+### Pull a Model
+
+This command downloads the model files from the internet.
+
+```bash
+ollama pull deepseek-r1:1.5b
+```
+
+### Run a Model
+
+This command runs the model directly. If the model is not cached locally, it will be downloaded automatically before running.
+
+```bash
+ollama run deepseek-r1:1.5b
+```
+
+### Show model information
+
+```bash
+ollama show deepseek-r1:1.5b
+```
+
+### List models on your computer
+
+```bash
+ollama list
+```
+
+### List which models are currently loaded
+
+```bash
+ollama ps
+```
+
+### Stop a model which is currently running
+
+```bash
+ollama stop deepseek-r1:1.5b
+```
+
+### Remove a model
+
+```bash
+ollama rm deepseek-r1:1.5b
+```
+
+## Reference Information
+
+For more detailed information about Ollama, please refer to the [official documentation](https://github.com/ollama/ollama).
