@@ -1,0 +1,28 @@
+export default function DynamicList({ items }) {
+  const fixedItems = [
+    '封口防静电袋',
+    'PP 塑料盒',
+    '牙膏盒',
+  ];
+
+const renderItems = (modelName) => (
+
+<ul>
+  <li>{modelName} 主板</li>
+  {fixedItems.map((item, index) => (
+    <li key={index}>{item}</li>
+  ))}
+</ul>
+);
+
+return (
+
+<div>
+  {items.map((modelName, index) => (
+    <div key={modelName}>
+      <h3>{modelName} 标准包装包括以下物品：</h3>
+      {renderItems(modelName)}
+    </div>
+  ))}
+</div>
+); }
