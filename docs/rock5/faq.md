@@ -6,10 +6,10 @@ sidebar_position: 99
 
 ## ROCK 5A 常见问题
 
-### ROCK 5A 出货标配是否带 SPI Flash Module？
+### ROCK 5A 出货标配是否带 SPI Flash 模块？
 
-- ROCK 5A 出售时不附带 Radxa SPI Flash 模块。
-  该模块需要单独购买, 该接口与 Radxa eMMC 模块共用。
+- ROCK 5A 出售时不附带 [Radxa SPI Flash 模块](../accessories/spi-flash-module)。  
+  该模块需要单独购买，该接口与 Radxa eMMC 模块共用。  
   当使用 eMMC 模块时，无法使用 Radxa SPI Flash 模块。
 
 ## ROCK 5B 常见问题
