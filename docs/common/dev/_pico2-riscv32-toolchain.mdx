@@ -114,11 +114,8 @@ git clone https://github.com/raspberrypi/pico-examples.git --branch master
 - 验证编译出来的程序是否为 riscv 32 的程序
 
 ```bash
-
 file blink/CMakeFiles/blink.dir/blink.c.o
 blink/CMakeFiles/blink.dir/blink.c.o: ELF 32-bit LSB relocatable, UCB RISC-V, RVC, soft-float ABI, version 1 (SYSV), with debug_info, not stripped
-
-
 ```
 
 由此，我们完成了 RP2350 pico-sdk 和 pico-examples 所需要的交叉编译工具链的安装。
