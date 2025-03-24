@@ -4,10 +4,8 @@ RP2350 具有两个基于 RISC-V 的 Hazard3 核心和两个基于 Arm 的核心
 ## 安装依赖
 
 ```bash
-
 sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev \
 gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev
-
 ```
 
 ## 编译 RISC-V 32 的工具链
@@ -15,23 +13,18 @@ gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev l
 - 克隆 RISC-V 32 工具链仓库
 
 ```bash
-
 git clone https://github.com/riscv-collab/riscv-gnu-toolchain.git
-
 ```
 
 - 创建输出目录
 
 ```bash
-
 mkdir /honme/radxa/riscv32_toolchain
-
 ```
 
 - 编译
 
 ```bash
-
 cd riscv-gnu-toolchain
 
 mkdir build
@@ -41,7 +34,6 @@ cd build
 ../configure --prefix=$RISCV --with-arch=rv32gc --with-abi=ilp32 --enable-multilib
 
 make -j$(nproc)
-
 ```
 
 ## 设置环境变量
@@ -49,9 +41,7 @@ make -j$(nproc)
 - 将以下这行添加到 /home/radxa/.bashrc 文件中
 
 ```bash
-
 echo 'export PATH=$HOME/riscv32_toolchain/bin:$PATH' >> ~/.bashrc
-
 ```
 
 ## 验证
@@ -59,7 +49,6 @@ echo 'export PATH=$HOME/riscv32_toolchain/bin:$PATH' >> ~/.bashrc
 ### 输出版本号
 
 ```bash
-
 radxa@radxa-Default-string:~$ riscv32-unknown-elf-gcc --version
 riscv32-unknown-elf-gcc (g04696df096) 14.2.0
 Copyright (C) 2024 Free Software Foundation, Inc.
@@ -71,8 +60,6 @@ riscv32-unknown-elf-g++ (g04696df096) 14.2.0
 Copyright (C) 2024 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-
 ```
 
 ### 看是否符合 pico-sdk 和 pico-examples 的需求
@@ -80,21 +67,17 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 - 克隆 pico-sdk 仓库
 
 ```bash
-
 git clone https://github.com/raspberrypi/pico-sdk.git
 
 cd pico-sdk
 
 git submodule update --init
-
 ```
 
 - 克隆 pico-examples 仓库
 
 ```bash
-
 git clone https://github.com/raspberrypi/pico-examples.git --branch master
-
 ```
 
 - 编译
