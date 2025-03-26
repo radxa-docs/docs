@@ -44,6 +44,10 @@ If you encounter any problems, please go to the corresponding community for help
 
 For more images, please check: [Radxa ROCK 5 ITX Release](https://github.com/radxa-build/rock-5-itx/releases)
 
+## Third-Party Operating Systems
+
+[Radxa ROCK 5 ITX Armbian](https://www.armbian.com/radxa-rock-5-itx/)
+
 ## Quality Certification
 
 ## Reference Documentation
