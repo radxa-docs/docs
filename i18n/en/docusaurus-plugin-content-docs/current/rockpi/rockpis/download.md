@@ -13,6 +13,8 @@ For more mirrors, please check: [Radxa ROCK PI S Release](https://github.com/rad
 
 ## Third-party operating system images
 
+- [Radxa ROCK PI S Armbian](https://www.armbian.com/rockpi-s/)
+
 - [Radxa ROCK PI S OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_s)
 
 - [Radxa ROCK PI S DietPi](https://dietpi.com/downloads/images/DietPi_ROCKPiS-ARMv8-Bookworm.img.xz)
