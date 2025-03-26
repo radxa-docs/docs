@@ -12,7 +12,7 @@ sidebar_position: 4
 
 ## 第三方操作系统镜像
 
-- [Radxa ROCK PI S Armbian](https://www.armbian.com/rockpi-s/)
+- [Radxa ROCK Pi S Armbian](https://www.armbian.com/rockpi-s/)
 
 - [Radxa ROCK PI S OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_s)
 
