@@ -26,4 +26,14 @@ title: Resource Download
 
 ## System images
 
+### Official Operating System Image
+
 ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
+
+:::caution
+Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
+:::
+
+### Third-Party Operating System images
+
+- [Radxa ROCK 3C OpenWrt](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3c)
