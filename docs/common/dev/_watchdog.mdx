@@ -1,0 +1,39 @@
+在嵌入式 Linux 系统中，看门狗（Watchdog Timer，简称 WDT）是一种用于 监控系统运行状态的硬件与软件结合的机制，主要目的是在系统出现故障(如死机、卡死或程序失控)时自动触发重启，确保系统能从异常状态中恢复。
+
+### 开启 watchdog
+
+硬件 watchdog 默认没有开启， 需要通过 <a href={props.rsetup_path} alt="rsetup path" > rsetup </a> 开启 watchdog 的 overlay,
+
+### 测试 watchdog
+
+- 输入如下命令后，系统不再喂狗， watchdog 会自动重启
+
+```bash
+
+echo B > /dev/watchdog
+
+```
+
+:::warning
+
+这里可以写入除大写 V 之外的任意字符，因为大写 V 是用来关闭 watchdog 的。
+
+:::
+
+- 关闭系统 panic 重启
+
+```bash
+
+echo 0 > /sys/module/kernel/parameters/panic
+
+```
+
+- 模拟系统卡住
+
+```bash
+
+echo c > proc/sysrq-trigger
+
+```
+
+- 等待 30 秒左右，看系统是否重启，如果系统能够重启，则表示 watchdog 正常工作
