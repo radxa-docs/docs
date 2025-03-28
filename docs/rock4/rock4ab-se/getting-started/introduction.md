@@ -142,7 +142,7 @@ ROCK 4A/4B/4A+/4B+/4SE 提供了完整的硬件设计原理图和软件源代码
 
         <tr>
             <th> USB </th>
-            <td align="center" colspan="5">USB2 主机端口 x2<br/> USB3 主机端口 x1<br/>USB3 OTG 端口 x1</td>
+            <td align="center" colspan="5">USB2 HOST 端口 x2<br/> USB3 HOST 端口 x1<br/>USB3 OTG 端口 x1</td>
         </tr>
 
         <tr>
