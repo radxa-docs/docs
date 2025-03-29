@@ -46,6 +46,8 @@ Radxa ZERO 3E V1.2 量产版本
 
 ### 第三方镜像
 
+- [Radxa ZERO 3 Armbian](https://www.armbian.com/radxa-zero-3/)
+
 - [Radxa ZERO 3 DietPi](https://dietpi.com/downloads/images/DietPi_RadxaZERO3-ARMv8-Bookworm.img.xz)
 
 - [Radxa Zero 3W OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)

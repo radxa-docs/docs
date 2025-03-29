@@ -36,6 +36,8 @@ ROCK S0 v1.2 版本
 
 ## 操作系统镜像
 
+### 官方操作系统镜像
+
 - [Loader](https://dl.radxa.com/rockpis/images/loader/rk3308_loader_ddr589MHz_uart0_m0_v2.06.136sd.bin)
 - [Radxa ROCK S0 Debian Build 6](https://github.com/radxa-build/rock-s0/releases/download/b6/rock-s0_debian_bookworm_cli_b6.img.xz)
 
@@ -44,5 +46,9 @@ ROCK S0 v1.2 版本
 :::
 
 更多镜像请查看：[Radxa ROCK S0 Release](https://github.com/radxa-build/rock-s0/releases)
+
+## 第三方操作系统镜像
+
+- [Radxa ROCK S0 Armbian](https://www.armbian.com/radxa-rock-s0/)
 
 ## 质量认证

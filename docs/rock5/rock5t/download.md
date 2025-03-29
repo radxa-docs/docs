@@ -12,6 +12,14 @@ import Images from "./\_image.mdx"
 
 <Images loader={true} rock5t_system_img_61={true}  spi_img={false} android12_update={true} android12_gpt={true}  />
 
+:::caution
+除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
+:::
+
+### 第三方操作系统镜像
+
+- [Radxa ROCK 5T Armbian](https://www.armbian.com/radxa-rock-5t/)
+
 ### 工具
 
 &emsp;&emsp; [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (烧录工具)

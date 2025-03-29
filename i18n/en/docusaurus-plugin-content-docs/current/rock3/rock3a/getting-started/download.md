@@ -25,6 +25,8 @@ title: Resource Download
 Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
 :::
 
+- [Radxa ROCK 3A Armbian](https://www.armbian.com/rock-3a/)
+
 - [Radxa ROCK 3A OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3a)
 
 - [Radxa ROCK 3A DietPi](https://dietpi.com/downloads/images/DietPi_ROCK3A-ARMv8-Bookworm.img.xz)

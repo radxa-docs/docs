@@ -44,6 +44,10 @@ Radxa ROCK 5 ITX V1.11版本
 
 更多镜像请查看：[Radxa ROCK 5 ITX Release](https://github.com/radxa-build/rock-5-itx/releases)
 
+## 第三方操作系统
+
+[Radxa ROCK 5 ITX Armbian](https://www.armbian.com/radxa-rock-5-itx/)
+
 ## 质量认证
 
 ## 参考文档

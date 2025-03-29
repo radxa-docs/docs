@@ -7,11 +7,17 @@ title: Resource Download
 
 ## OS image
 
+### Official Operating System Image
+
 - [Radxa ZERO 2 PRO Debian Build 32](https://github.com/radxa-build/radxa-zero-2pro/releases/download/b32/radxa-zero-2pro_debian_bookworm_kde_b32.img.xz)
 
 :::caution
 Except for the above images which have been fully tested officially, the other images have not been rigorously tested and may have unknown issues and are for evaluation use only.
 :::
+
+### Third-Party Operating System images
+
+- [Radxa ZERO 2 PRO Armbian](https://www.armbian.com/radxa-zero2/)
 
 ## Tools
 
