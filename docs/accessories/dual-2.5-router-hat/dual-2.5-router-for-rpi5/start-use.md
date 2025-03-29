@@ -6,7 +6,7 @@ sidebar_position: 6
 
 ## 启动系统
 
-把安装好系统的 microSD 卡插入树莓派中，并使用 12V/5A 的电源，从 Radxa Dual 2.5G Router HAT 的 DC 座子供电。让我们通过 ssh 登录到树莓派。
+把安装好系统的 microSD 卡插入树莓派中，并使用[合适的电源](./power-supply)。让我们通过 ssh 登录到树莓派。
 
 ```bash
 ssh pi@raspberrypi.local

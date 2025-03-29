@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # 如何从 SSD 启动
 
-默认情况下，Raspberry Pi设备不会从PCIE存储中启动。要从PCIE启用引导，需要在 Bootloader 配置中更改 BOOT_ORDER 。
+默认情况下，Raspberry Pi设备不会从 PCIE 存储中启动。要从 PCIE 启动，需要在 Bootloader 配置中更改 BOOT_ORDER 。
 
 1. 首先从 SD 卡启动系统
 

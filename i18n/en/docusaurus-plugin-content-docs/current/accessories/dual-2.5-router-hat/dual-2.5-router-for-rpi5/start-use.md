@@ -6,7 +6,7 @@ sidebar_position: 6
 
 ## Startup System
 
-Insert the installed system microSD card into the Raspberry Pi and use 12V/5A power supply from the Radxa Dual 2.5G Router HAT DC seat. Let's ssh into Raspberry Pi.
+Insert the installed system microSD card into the Raspberry Pi and use [required power supply](./power-supply) from the Radxa Dual 2.5G Router HAT DC seat. Let's ssh into Raspberry Pi.
 
 ```bash
 ssh pi@raspberrypi.local
