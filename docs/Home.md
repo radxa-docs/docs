@@ -167,7 +167,7 @@ sidebar_custom_props:
               {
                 products_name: "ROCK 4SE",
                 products_photo_url: "/home/product-pictures/rock4se.webp",
-                products_link: "/rock4/rock4se",
+                products_link: "/rock4/rock4ab-se",
                 docs:
                   [
                     {
