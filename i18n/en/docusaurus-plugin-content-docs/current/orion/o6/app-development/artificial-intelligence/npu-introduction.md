@@ -39,16 +39,20 @@ pip3 install -r requirements.txt
 pip3 install ./CixBuilder-6.1.2958.1-py3-none-any.whl
 ```
 
-## Install NOE UMD (Orion O6)
+## ~Install NOE UMD (Orion O6)~
 
 :::tip
-The NOE UMD package is released in the form of a Debian installation package. If using the Python API, ensure to inherit system dependencies when creating a virtual environment:
+~The NOE UMD package is released in the form of a Debian installation package. If using the Python API, ensure to inherit system dependencies when creating a virtual environment:~
 
-**`python3 -m venv --system-site-packages .venv`**
+~**`python3 -m venv --system-site-packages .venv`**~
 :::
 
-After applying through the [CIX Early Bird Program](#cix-early-bird-program), an email will be sent to the registered email address. Follow the email instructions to download the UMD (User Mode Driver) Debian package.
+~After applying through the [CIX Early Bird Program](#cix-early-bird-program), an email will be sent to the registered email address. Follow the email instructions to download the UMD (User Mode Driver) Debian package.~
 
-```bash
+~`bash
 sudo dpkg -i ./cix-noe-umd_0.01-1_arm64.deb
-```
+~`~
+
+:::tip
+NOE UMD is already pre-installed in the OS. If you use the python api, please inherit the system dependencies when creating a python virtual environment: **`python3 -m venv --system-site-packages .venv`** to ensure that the libnoe module can be loaded correctly
+:::
