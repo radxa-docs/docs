@@ -9,6 +9,9 @@ sidebar_position: 10
 **Radxa X4 BIOS**
 
 - [Radxa X4 BIOS Install](https://rock.sh/x4-bios-update)
+- [Radxa X4 BIOS V002 T](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
+- [Radxa X4 BIOS V003](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V003.zip)
+- [Radxa X4 BIOS V004](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
 
 ## Preparation for the Update
 
