@@ -8,10 +8,21 @@ sidebar_position: 10
 
 **Radxa X4 BIOS**
 
-- [Radxa X4 BIOS Install](https://rock.sh/x4-bios-update)
-- [Radxa X4 BIOS V002 T](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
-- [Radxa X4 BIOS V003](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V003.zip)
-- [Radxa X4 BIOS V004](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
+- [Radxa X4 Standard BIOS V002: adds 16GB RAM support](https://rock.sh/x4-bios-update)
+
+- [Radxa X4 custom BIOS V002 T: supports IBECC option and hidden option enablement](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
+
+- [Radxa X4 custom BIOS V003: PCIE Bifurcation ver (only 4 x1)](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V003.zip)
+
+- [Radxa X4 Standard BIOS V004: support ASM2806/1806, added secure boot option](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
+
+:::warning
+
+- Flashing a custom BIOS may void the warranty, so please proceed with caution.
+- How to use: Extract the EFI folder to a FAT32 USB disk, insert the USB disk into the X4 and boot from the USB device to flash the BIOS automatically.
+- Warning: Do not turn off the computer during the BIOS upgrade!
+
+:::
 
 ## Preparation for the Update
 

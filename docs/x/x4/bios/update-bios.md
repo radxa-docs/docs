@@ -8,10 +8,21 @@ sidebar_position: 10
 
 **Radxa X4 BIOS**
 
-- [Radxa X4 BIOS 下载](https://rock.sh/x4-bios-update)
-- [Radxa X4 BIOS V002 T](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
-- [Radxa X4 BIOS V003](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V003.zip)
-- [Radxa X4 BIOS V004](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
+- [Radxa X4 标准 BIOS V0002 新增 16GB 内存支持](https://rock.sh/x4-bios-update)
+
+- [Radxa X4 自定义 BIOS V002 T 支持启用 IBECC 选项和隐藏选项](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
+
+- [Radxa X4 自定义 BIOS V003: PCIE Bifurcation ver (only 4 x1)](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V003.zip)
+
+- [Radxa X4 标准 BIOS V004, 支持 ASM2806/1806, 添加了安全启动选项](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
+
+:::warning
+
+- 刷新自定义 BIOS 可能会导致保修失效，因此请谨慎操作。
+- 使用方法：解压缩 EFI 文件夹到 FAT32 USB 盘，将 USB 盘插入 X4 并从 USB 设备启动，自动闪存 BIOS。
+- 警告：BIOS 升级期间不要关闭计算机
+
+:::
 
 ## 更新前准备
 
