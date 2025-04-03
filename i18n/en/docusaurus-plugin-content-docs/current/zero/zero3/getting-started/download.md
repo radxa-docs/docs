@@ -46,6 +46,8 @@ For more images, please refer to: [ZERO 3 Release](https://github.com/radxa-buil
 
 ### Third-party Images
 
+- [Radxa ZERO 3 Armbian](https://www.armbian.com/radxa-zero-3/)
+
 - [Radxa ZERO 3 DietPi](https://dietpi.com/downloads/images/DietPi_RadxaZERO3-ARMv8-Bookworm.img.xz)
 
 - [Radxa Zero 3w OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)

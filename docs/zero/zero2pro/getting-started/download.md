@@ -6,11 +6,17 @@ sidebar_position: 5
 
 ## 操作系统镜像
 
+### 官方操作系统镜像
+
 - [Radxa ZERO 2 PRO Debian Build 32](https://github.com/radxa-build/radxa-zero-2pro/releases/download/b32/radxa-zero-2pro_debian_bookworm_kde_b32.img.xz)
 
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
 :::
+
+### 第三方操作系统镜像
+
+- [Radxa ZERO 2 PRO Armbian](https://www.armbian.com/radxa-zero2/)
 
 ## 刷机工具
 

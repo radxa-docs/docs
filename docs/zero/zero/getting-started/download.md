@@ -55,6 +55,10 @@ sidebar_position: 5
 
 更多镜像请查看： [第三方系统镜像](../other-os/3rd-images)
 
+### 第三方操作系统镜像
+
+- [Radxa ZERO Armbian](https://www.armbian.com/radxa-zero/)
+
 - [Radxa ZERO DietPi](https://dietpi.com/downloads/images/DietPi_RadxaZero-ARMv8-Bookworm.img.xz)
 
 ## 质量认证
