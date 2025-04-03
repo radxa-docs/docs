@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-sidebar_label: E 系列
+title: E 系列
 slug: /e
 ---
 
