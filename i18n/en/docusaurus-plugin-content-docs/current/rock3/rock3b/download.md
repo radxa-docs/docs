@@ -8,7 +8,17 @@ import Images from "./\_image.mdx"
 
 ## Operating system image
 
+### Official Operating System Image
+
 <Images loader={false} system_img={true} spi_img={false} />
+
+:::caution
+Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
+:::
+
+### Third-Party Operating System images
+
+- [Radxa ROCK 3B OpenWrt](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3b)
 
 ## Hardware Design
 
