@@ -40,10 +40,10 @@ ROCK S0 v1.2 Version
 - [Radxa ROCK S0 Debian Build 6](https://github.com/radxa-build/rock-s0/releases/download/b6/rock-s0_debian_bookworm_cli_b6.img.xz)
 
 :::caution
-Except for the above mirrors, which have been fully tested officially, the other mirrors have not been rigorously tested, may have unknown issues, and are for evaluation use only.
+Except for the above images, which have been fully tested officially, the other images have not been rigorously tested, may have unknown issues, and are for evaluation use only.
 :::
 
-For more mirrors, please check: [Radxa ROCK S0 Release](https://github.com/radxa-build/rock-s0/releases)
+For more images, please check: [Radxa ROCK S0 Release](https://github.com/radxa-build/rock-s0/releases)
 
 ### Third-Party Operating System images
 

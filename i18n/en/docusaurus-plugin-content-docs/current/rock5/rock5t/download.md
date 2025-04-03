@@ -13,7 +13,7 @@ import Images from "./\_image.mdx"
 <Images loader={true} rock5t_system_img_61={true}  spi_img={false} android12_update={true} android12_gpt={true}  />
 
 :::caution
-Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
+Except for the above images which have been fully tested officially, the other images have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
 :::
 
 ## Third-Party Operating System Images

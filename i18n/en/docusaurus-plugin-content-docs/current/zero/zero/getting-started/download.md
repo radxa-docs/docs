@@ -50,7 +50,7 @@ sidebar_position: 5
 - [Radxa ZERO Debian Build 23](https://github.com/radxa-build/radxa-zero/releases/download/b23/radxa-zero_debian_bullseye_kde_b23.img.xz)
 
 :::caution
-Except for the above image which has been fully tested by the officials, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation use only.
+Except for the above image which has been fully tested by the officials, the other images have not been rigorously tested and may have unknown issues and are for evaluation use only.
 :::
 
 For more images, check out: [third-party system images](../other-os/3rd-images)
