@@ -12,6 +12,5 @@ The Radxa SPI Flash Module is a flash module with an extremely small form factor
 
 - Description: Radxa SPI Flash module provides **16MB** capacity to enable mass storage booting.
 - Dimension: 13mm x 18mm x 1.5mm
-- Compatibility: Compatible with ROCK 5A  
-  **NOTE: Currently SPI Flash is free for purchase of ROCK 5A.**
+- Compatibility: Compatible with ROCK 5A & ROCK 5C
   ![SPI Flash Module](/img/accessories/spi-with-rock5a.webp)

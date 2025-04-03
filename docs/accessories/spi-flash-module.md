@@ -10,7 +10,7 @@ Radxa SPI Flash模块是一种闪存模块，具有可拆卸的极小外形。 �
 
 ## 特征
 
-- 描述：Radxa SPI Flash 模块提供**16MB** 容量以启用大容量存储启动。
+- 描述：Radxa SPI Flash 模块提供 **16MB** 容量以启用大容量存储启动。
 - 尺寸：13 毫米 x 18 毫米 x 1.5 毫米
-- 兼容性：兼容 ROCK 5A  
-  **注意：目前购买 ROCK 5A 可免费获得 SPI 闪存。**
+- 兼容性：兼容 ROCK 5A & ROCK 5C
+  ![SPI Flash Module](/img/accessories/spi-with-rock5a.webp)
