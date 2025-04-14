@@ -10,12 +10,15 @@ sidebar_position: 1
 
 目前支持瑞莎如下单板机：
 
+- ROCK 2A
+- ROCK 2F
 - ROCK 3A
 - ROCK 3C
 - ROCK 4A / 4B
 - ROCK 4A+ / 4B+
 - ROCK 4SE
 - ROCK 5A
+- ROCK 5C
 
 支持如下树莓派型号：
 
