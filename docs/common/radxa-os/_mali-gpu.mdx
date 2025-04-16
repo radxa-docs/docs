@@ -1,13 +1,13 @@
-搭载 RK3588（不包含 RK3582）系列 SOC 的产品在使用 Debian 12 (Bookworm) 版本系统时默认使用 Panthor GPU 驱动，您可根据需求依据下方教程操作进行 GPU 驱动切换。
+搭载 RK3588/RK356X/RK3576（不包含 RK3582）系列 SOC 的产品在使用 Debian 12 (Bookworm) 版本系统时默认使用 Panfrost/Panthor GPU 驱动，您可根据需求依据下方教程操作进行 GPU 驱动切换。
 
 :::warning
-本文档仅适用于搭载 RK3588（不包含 RK3582）系列 SOC 的产品。
+本文档仅适用于搭载 RK3588/RK356X/RK3576（不包含 RK3582）系列 SOC 的产品。
 :::
 
-| Driver  | OpenGL | OpenGL ES | OpenCL | 8K HDMI |
-| :-----: | :----: | :-------: | :----: | :-----: |
-|  Mali   |   ❌   |    ✔     |   ✔   |   ✔    |
-| Panthor |   ✔   |    ✔     |   ❌   |   ❌    |
+| Driver  | OpenGL | OpenGL ES | OpenCL | 8K HDMI | Vulkan |
+| :-----: | :----: | :-------: | :----: | :-----: | :----: |
+|  Mali   |   ❌   |    ✔     |   ✔   |   ✔    |   ✔   |
+| Panthor |   ✔   |    ✔     |   ❌   |   ❌    |   ❌   |
 
 <Tabs queryString="Driver">
 
@@ -18,6 +18,38 @@
 1. 添加 `/etc/apt/preferences.d/mali` 文件，内容为：
 
 ```bash
+Package: *xserver*
+Pin: release a=rk3566-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3566-bookworm-test
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3566t-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3566t-bookworm-test
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3568-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3568-bookworm-test
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3576-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3576-bookworm-test
+Pin-Priority: 1001
+
 Package: *xserver*
 Pin: release a=rk3588-bookworm
 Pin-Priority: 1001
@@ -44,23 +76,57 @@ Pin-Priority: 1001
 
 ```bash
 sudo apt-get update
-sudo apt-get install libmali-valhall-g610-g13p0-x11-gbm
+
+if grep -qE 'rk3588' <(rsetup get_product_ids)
+then
+    sudo apt-get install libmali-valhall-g610-g24p0-x11-wayland-gbm # RK3588
+fi
+
+if grep -qE 'rk3576|rk3568|rk3566' <(rsetup get_product_ids)
+then
+    sudo apt-get install libmali-bifrost-g52-g13p0-x11-wayland-gbm # RK356X/RK3576
+fi
 ```
 
 ## 开启 Mali GPU Overlay
 
 参考 [Overlay 开启教程](./rsetup#overlays)，开启 `Enable Arm Mali GPU driver` Overlay。
 
+## 修改模块黑名单
+
+编辑 `/etc/modprobe.d/panfrost.conf` 文件：
+
+```bash
+# settings for panfrost
+
+# Uncomment the following line and comment above lines
+# to use mali driver for GPU instead
+# You will have to install desktop from vendor repo
+blacklist       panfrost
+
+# Disable mali driver by default to prefer panfrost driver
+#blacklist   mali
+#blacklist   bifrost_kbase
+#blacklist   midgard_kbase
+```
+
+## 关闭 Zink 支持
+
+```bash
+echo "LIBGL_KOPPER_DISABLE=true" | sudo tee -a /etc/environment
+```
+
     </TabItem>
 
-    <TabItem value="Panthor">
+    <TabItem value="Panfrost/Panthor">
 
 ## 恢复使用 Debian 官方打包的主线 xorg-xserver 版本
 
-1. 删除 `/etc/apt/preferences.d/mali` 文件：
+1. 删除相关文件：
 
 ```bash
 sudo rm /etc/apt/preferences.d/mali
+sudo rm /etc/modprobe.d/panfrost.conf
 ```
 
 2. <div className="red">
@@ -72,7 +138,7 @@ sudo rm /etc/apt/preferences.d/mali
 
 ```bash
 sudo apt-get update
-sudo apt-get remove libmali-valhall-g610-g13p0-x11-gbm
+sudo apt-get remove libmali-*
 sudo apt-get install mesa-utils mesa-utils-extra libglx-mesa0 libgl1-mesa-dri
 ```
 
@@ -101,6 +167,12 @@ sudo reboot
 rock@radxa-cm5-io:~$ lsmod | grep bifrost_kbase
 bifrost_kbase        1015808  3
 
+# Panfrost
+rock@rock-3c:~$ lsmod | grep panfrost
+panfrost               61440  5
+drm_shmem_helper       20480  1 panfrost
+gpu_sched              36864  1 panfrost
+
 # Panthor
 rock@radxa-cm5-io:~$ lsmod | grep panthor
 panthor                98304  1
@@ -112,7 +184,7 @@ gpu_sched              36864  1 panthor
 
 ### 验证 xorg-xserver 版本
 
-运行以下命令，查看当前 `[installed,automatic]` 对应的 xorg-xserver 来源。使用 mali 驱动时，为 `rk3588*-bookworm`，使用 Panthor 驱动时，为 `stable`。
+运行以下命令，查看当前 `[installed,automatic]` 对应的 xorg-xserver 来源。使用 mali 驱动时，为 `rk35*-bookworm`，使用 Panfrost/Panthor 驱动时，为 `stable`。
 
 ```bash
 rock@radxa-cm5-io:~$ sudo apt list -a xserver-common xserver-xorg-core xserver-xorg-legacy
@@ -129,11 +201,10 @@ xserver-xorg-legacy/rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 arm64 [installed,au
 
 ### 验证用户层驱动
 
-运行以下命令，使用 mali 驱动则为 `[installed]` 字样，使用 Panthor 则没有 `[installed]` 字样：
+运行以下命令，使用 mali 驱动则会列出 `libmali`，使用 Panfrost/Panthor 则不会列出任何包：
 
 ```bash
-rock@radxa-cm5-io:~$ sudo apt list libmali-valhall-g610-g13p0-x11-gbm
+sudo apt list libmali-* --installed
 Listing... Done
-libmali-valhall-g610-g13p0-x11-gbm/rk3588s2-bookworm,now 1.9-1 arm64 [installed]
-rock@radxa-cm5-io:~$
+libmali-bifrost-g52-g13p0-x11-wayland-gbm/rk3566-bookworm-test,now 1.9-1 arm64 [installed]
 ```

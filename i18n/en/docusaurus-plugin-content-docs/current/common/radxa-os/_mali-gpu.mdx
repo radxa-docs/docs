@@ -1,79 +1,152 @@
-Products equipped with RK3588 (excluding RK3582) series SOCs use Panthor GPU driver by default when using Debian 12 (Bookworm) version system, you can follow the tutorial below to switch GPU driver according to your needs.
+Products equipped with RK3588/RK356X/RK3576 (excluding RK3582) series SOCs use Panfrost/Panthor GPU driver by default when using Debian 12 (Bookworm) version of the system, you can follow the tutorials below to switch the GPU driver according to your needs.
 
 :::warning
-This document applies only to products equipped with the RK3588 (excluding RK3582) series SOC.
+This document applies only to products equipped with RK3588/RK356X/RK3576 (excluding RK3582) series SOCs.
 :::
 
-| Driver  | OpenGL | OpenGL ES | OpenCL | 8K HDMI |
-| :-----: | :----: | :-------: | :----: | :-----: |
-|  Mali   |   ❌   |    ✔     |   ✔   |   ✔    |
-| Panthor |   ✔   |    ✔     |   ❌   |   ❌    |
+| Driver  | OpenGL | OpenGL ES | OpenCL | 8K HDMI | Vulkan |
+| :-----: | :----: | :-------: | :----: | :-----: | :----: |
+|  Mali   |   ❌   |    ✔     |   ✔   |   ✔    |   ✔   |
+| Panthor |   ✔   |    ✔     |   ❌   |   ❌    |   ❌   |
 
 <Tabs queryString="Driver">
 
     <TabItem value="Mali">
 
-## Use Rockchip's proprietary xorg-xserver version
+## Using Rockchip's proprietary xorg-xserver version
 
-1. Add `/etc/apt/preferences.d/mali` file with the following contents:
+1. Add the `/etc/apt/preferences.d/mali` file with the contents:
 
 ```bash
+Package: *xserver*
+Pin: release a=rk3566-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3566-bookworm-test
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3566t-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3566t-bookworm-test
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3568-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3568-bookworm-test
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3576-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3576-bookworm-test
+Pin-Priority: 1001
+
 Package: *xserver*
 Pin: release a=rk3588-bookworm
 Pin-Priority: 1001
 
 Package: *xserver*
+Pin: release a=rk3588-bookworm-test
+Pin-Priority: 1001
+
+Package: *xserver*
 Pin: release a=rk3588s2-bookworm
+Pin-Priority: 1001
+
+Package: *xserver*
+Pin: release a=rk3588s2-bookworm-test
 Pin-Priority: 1001
 ```
 
 2. <div className="red">
-     <!-- prettier-ignore -->
-     **Then refer to [System Upgrade Using `rsetup`](./rsetup#system-update) to**
-     **reinstall the Rockchip proprietary software packages (if you don't**
-     **do this step the desktop will crash or flip the colors)**
+     **Then refer to [System Upgrade with `rsetup`](./rsetup#system-update) to
+     reinstall** **Rockchip proprietary package (failure to perform this step
+     may result in desktop flashing or color flipping)**
    </div>
 
-## Installing the Mali User Level Driver
+## Installing the Mali User-Level Driver
 
 ```bash
 sudo apt-get update
-sudo apt-get install libmali-valhall-g610-g13p0-x11-gbm
+
+if grep -qE 'rk3588' <(rsetup get_product_ids)
+then
+    sudo apt-get install libmali-valhall-g610-g24p0-x11-wayland-gbm # RK3588
+fi
+
+if grep -qE 'rk3576|rk3568|rk3566' <(rsetup get_product_ids)
+then
+    sudo apt-get install libmali-bifrost-g52-g13p0-x11-wayland-gbm # RK356X/RK3576
+fi
 ```
 
 ## Enable Mali GPU Overlay
 
-Refer to [Overlay opening tutorial](./rsetup#overlays)，enable `Enable Arm Mali GPU driver` Overlay.
+Enable Arm Mali GPU driver`Overlay by referring to [Overlay Enablement Tutorial](./rsetup#overlays) to enable`Enable Arm Mali GPU driver` Overlay.
+
+## Modify Module Blacklist
+
+编辑 `/etc/modprobe.d/panfrost.conf` 文件：
+
+```bash
+# settings for panfrost
+
+# Uncomment the following line and comment above lines
+# to use mali driver for GPU instead
+# You will have to install desktop from vendor repo
+blacklist       panfrost
+
+# Disable mali driver by default to prefer panfrost driver
+#blacklist   mali
+#blacklist   bifrost_kbase
+#blacklist   midgard_kbase
+```
+
+## Turn off Zink support
+
+```bash
+echo "LIBGL_KOPPER_DISABLE=true" | sudo tee -a /etc/environment
+```
 
     </TabItem>
 
-    <TabItem value="Panthor">
+    <TabItem value="Panfrost/Panthor">
 
 ## Revert to using Debian's officially packaged version of mainline xorg-xserver
 
-1. Remove `/etc/apt/preferences.d/mali` file:
+1. Delete the relevant config files:
 
 ```bash
 sudo rm /etc/apt/preferences.d/mali
+sudo rm /etc/modprobe.d/panfrost.conf
 ```
 
 2. <div className="red">
-     **Then refer to [System Upgrade Using `rsetup`](./rsetup#system-update)
-     to** **reinstall the Debian's officially packages (if you don't do this**
-     **step the desktop will crash or flip the colors)**
+     **Then refer to [System Upgrade with `rsetup`](./rsetup#system-update) to
+     reinstall** **Rockchip proprietary package (failure to perform this step
+     may result in desktop flashing or color flipping)**
    </div>
 
 ## Uninstall the Mali user level driver and install the upstream Mesa driver
 
 ```bash
 sudo apt-get update
-sudo apt-get remove libmali-valhall-g610-g13p0-x11-gbm
+sudo apt-get remove libmali-*
 sudo apt-get install mesa-utils mesa-utils-extra libglx-mesa0 libgl1-mesa-dri
 ```
 
 ## Disable Mali GPU Overlay
 
-Refer to [Overlay opening tutorial](./rsetup#overlays)，disable `Enable Arm Mali GPU driver` Overlay.
+Refer to [Overlay Enabling Tutorial](./rsetup#overlays) to turn off `Enable Arm Mali GPU driver` Overlay.
 
     </TabItem>
 
@@ -85,16 +158,22 @@ Refer to [Overlay opening tutorial](./rsetup#overlays)，disable `Enable Arm Mal
 sudo reboot
 ```
 
-## Verify GPU drivers
+### Verify GPU driver
 
-### Verify the kernel driver
+### Verify kernel driver
 
-Check if the corresponding GPU driver is loaded:
+Check to see if the corresponding GPU driver is loaded:
 
 ```bash
 # mali
 rock@radxa-cm5-io:~$ lsmod | grep bifrost_kbase
 bifrost_kbase        1015808  3
+
+# Panfrost
+rock@rock-3c:~$ lsmod | grep panfrost
+panfrost               61440  5
+drm_shmem_helper       20480  1 panfrost
+gpu_sched              36864  1 panfrost
 
 # Panthor
 rock@radxa-cm5-io:~$ lsmod | grep panthor
@@ -105,9 +184,9 @@ drm_shmem_helper       20480  1 panthor
 gpu_sched              36864  1 panthor
 ```
 
-### Verify the xorg-xserver version
+### Verify xorg-xserver version
 
-Run the following command to see the current xorg-xserver source for `[installed,automatic]`. This is `rk3588*-bookworm` when using the mali driver, or `stable` when using the Panthor driver.
+Run the following command to see the current xorg-xserver source for the `[installed,automatic]` counterpart. This is `rk35*-bookworm` when using the mali driver, or `stable` when using the Panfrost/Panthor driver.
 
 ```bash
 rock@radxa-cm5-io:~$ sudo apt list -a xserver-common xserver-xorg-core xserver-xorg-legacy
@@ -122,13 +201,12 @@ xserver-xorg-legacy/stable-security,stable 2:21.1.7-3+deb12u7 arm64
 xserver-xorg-legacy/rk3588s2-bookworm,now 2:21.1.7-3+deb12u2 arm64 [installed,automatic]
 ```
 
-### Verify the user level driver
+### Verify the user-level driver
 
-Run the following command with the word `[installed]` for mali drivers and without the word `[installed]` for Panthor:
+Running the following command will list `libmali` if you are using the mali driver, and will not list any packages if you are using Panfrost/Panthor:
 
 ```bash
-rock@radxa-cm5-io:~$ sudo apt list libmali-valhall-g610-g13p0-x11-gbm
+sudo apt list libmali-* --installed
 Listing... Done
-libmali-valhall-g610-g13p0-x11-gbm/rk3588s2-bookworm,now 1.9-1 arm64 [installed]
-rock@radxa-cm5-io:~$
+libmali-bifrost-g52-g13p0-x11-wayland-gbm/rk3566-bookworm-test,now 1.9-1 arm64 [installed]
 ```
