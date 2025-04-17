@@ -44,7 +44,6 @@ Debian OS:
 
   [radxa_cm3j_v1.2_2d_dxf](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_v1.2_2d_dxf.zip)
 
-
 - Core Board Connector PINOUT
 
   [Radxa CM3J V1.2 PinOut](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_pinout_v1.2.xlsx)
