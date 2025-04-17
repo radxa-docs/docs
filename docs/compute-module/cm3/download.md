@@ -40,9 +40,23 @@ Android:
 
   [Radxa CM3 IO Board V1.32 Schematic](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_schematic.pdf)
 
+  [Radxa CM3 IO Board V1.33 Schematic](https://dl.radxa.com/cm3/io_board/SCH_CM3_IO_V1.33_20230223.pdf)
+
+  [Radxa CM3 IO Board V1.34 Schematic](https://dl.radxa.com/cm3/io_board/SCH_CM3_IO_V1.34_20230717.pdf)
+
+  [Radxa CM3 IO Board V1.35 Schematic](https://dl.radxa.com/cm3/io_board/SCH_CM3_IO_V1.35_20240119.pdf)
+
+  [不同版本之间的修改历史](https://dl.radxa.com/cm3/io_board/revision_history)
+
 - 位号图
 
-  [Radxa CM3 IO Board V1.32 Placement Map](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_components_placement_map.pdf)
+  [Radxa CM3 IO Board V1.32 Components Placement Map](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_components_placement_map.pdf)
+
+  [Radxa CM3 IO Board V1.33 Components Placement Map](https://dl.radxa.com/cm3/io_board/CM3_IO_V1.33_20230214_components_placement_map.pdf)
+
+  [Radxa CM3 IO Board V1.34 Components Placement Map](https://dl.radxa.com/cm3/io_board/CM3_IO_V1.34_20230718_components_placement_map.pdf)
+
+  [Radxa CM3 IO Board V1.35 Components Placement Map](https://dl.radxa.com/cm3/io_board/CM3_IO_V1.35_20231013_components_placement_map.pdf)
 
 - 2D 图
 
