@@ -79,7 +79,7 @@ Android：
     <tr>
         <td align="center"> <img src="/img/rock5b/downloads/batocera.webp" alt="batocera" style={{ width: "70%" }} /></td>
         <td align="center">想玩一款好的模拟器吗？Batocera 让你在一个系统中获得最好的模拟器。 Batocera.linux是一款开源、完全免费的复古游戏发行版，可以复制到U盘或SD卡上，目的是在游戏过程中将任何电脑/纳米电脑变成游戏机，或者永久性地变成游戏机。Batocera.linux 无需对电脑进行任何修改。</td>
-        <td align="center"><a href="https://youtu.be/OE65lPvpu0I" >batocera youtube</a><br /><br /><a href="https://mirrors.o2switch.fr/batocera/rock-5b/stable/last/batocera-rk3588-rock-5b-36-20230310.img.gz">Batocera For ROCK 5B</a><br /><br /><a href="https://batocera.org/"> Batocera Official</a><br /><br /><a href="https://wiki.batocera.org/" > Batocera WiKi</a><br /><br /><a href="https://discord.com/invite/ndyUKA5"> Discord </a></td>
+        <td align="center"><a href="https://youtu.be/OE65lPvpu0I" >batocera youtube</a><br /><br /><a href="https://mirrors.o2switch.fr/batocera/rock-5b/stable/last/batocera-rk3588-rock-5b-41-20241231.img.gz">Batocera For ROCK 5B</a><br /><br /><a href="https://batocera.org/"> Batocera Official</a><br /><br /><a href="https://wiki.batocera.org/" > Batocera WiKi</a><br /><br /><a href="https://discord.com/invite/ndyUKA5"> Discord </a></td>
     </tr>
     <tr>
         <td align="center"><img src="/img/rock5b/downloads/openhd.webp" alt="openhd" style={{ width: "70%" }} /></td>
