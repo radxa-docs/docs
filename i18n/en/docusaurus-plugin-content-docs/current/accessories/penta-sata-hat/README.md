@@ -10,12 +10,15 @@ Radxa ROCK Penta SATA HAT is an addon HAT designed for ROCK Series. It utilizes 
 
 Currently supported Radxa ROCK Series products:
 
+- ROCK 2A
+- ROCK 2F
 - ROCK 3A
 - ROCK 3C
 - ROCK 4A / 4B
 - ROCK 4A+ / 4B+
 - ROCK 4SE
 - ROCK 5A
+- ROCK 5C
 
 Currently supported Raspberry Pi models:
 
