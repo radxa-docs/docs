@@ -3,8 +3,8 @@ sidebar_position: 4
 description: "Customise your system with the rsdk tool"
 ---
 
-import RBUILD from '../../../common/dev/\_rsdk.mdx'
+import rsdk from '../../../common/dev/\_rsdk.mdx'
 
 # Build RadxaOS
 
-<RBUILD />
+<rsdk />
