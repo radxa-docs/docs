@@ -18,7 +18,7 @@ The Radxa CM5 is a System on Module (SoM) based on a the Rockchip RK3588S System
 
 | Features | Description                                                                                                                                                                   |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SoC      | Rockchip RK3588S                                                                                                                                                              |
+| SoC      | Rockchip RK3588S/RK3588S2                                                                                                                                                              |
 | CPU      | Quad Cortex®‑A76 @ 2.2~2.4GHz and a quad Cortex®‑A55 @ 1.8GHz<br/>based on Arm® DynamIQ™ configuration                                                                    |
 | GPU      | Arm Mali™ G610MP4 GPU ‑ OpenGL® ES1.1, ES2.0, and ES3.2 ‑ OpenCL®<br/>1.1, 1.2 and 2.2 ‑ Vulkan® 1.1 and 1.2 ‑ Embedded high performance 2D<br/>image acceleration module |
 | NPU      | NPU supporting INT4 / INT8 / INT16 / FP16 / BF16 and TF32 acceleration<br/>and computing power is up to 6TOPs                                                                 |
@@ -32,18 +32,18 @@ The Radxa CM5 is a System on Module (SoM) based on a the Rockchip RK3588S System
 - Radxa CM5 + CM5-IO
   ![Radxa CM5 IO](/img/cm5/cm5-io-board-overview.webp)
 
-#### Peripherals Overview
+#### Peripherals overview
 
 - 1x USB3.0 Host
 - 2x USB2.0 Host
 - 1x Type-C
 - 2x MIPI DSI
 - 2x MIPI CSI
-- 1x M.2 E Key
-- 1x TF Card Slot
+- 1x M.2 E-Key
+- 1x microSD Card Slot
 - 1x HDMI
 - 1x Gigabit Ethernet
-- 1x 40 PIN IO
+- 1x 40-PIN I/O
 - 1x Fan Header
 - 2x LED Light
 - 1x Power Input
@@ -56,26 +56,26 @@ The Radxa CM5 is a System on Module (SoM) based on a the Rockchip RK3588S System
 
 ![RK3588s block diagram](/img/cm5/rk3588s-block-diagram.webp)
 
-### System block diagram
+### System Block Diagram
 
 ![Radxa CM5 block diagram](/img/cm5/cm5-block-diagram.webp)
 
-## Documentation guidelines
+## Documentation Guidelines
 
 ### [Getting Started](/compute-module/cm5/getting-started)
 
-Introduces system installation, system login, accessory usage, etc. to let user can get started quickly.
+Introduces system installation, system login, accessory usage, etc. letting users get started quickly.
 
 ### [Radxa OS](/compute-module/cm5/radxa-os)
 
-Radxa OS is an operating system customized by Radxa based on Debian OS.
-This chapter introduces system login, network connection, etc to let user to be familiar with the system quickly.
+Radxa OS is an operating system customized by Radxa based on Debian Linux.
+This chapter introduces system login, networking, and more, helping users  familiarize themselves with the system quickly.
 
 ### [Android](/compute-module/cm5/android)
 
 Mainly introduces how to burn, use and compile the Android system.
 
-### [Hareware Info](/compute-module/cm5/hardware)
+### [Hardware Info](/compute-module/cm5/hardware)
 
 Introduces hardware information, such as hardware interfaces, supported accessories, etc.
 
