@@ -1,0 +1,110 @@
+RP2350 具有两个基于 RISC-V 的 Hazard3 核心和两个基于 Arm 的核心, 在 pico-sdk 和 pico-examples 中也增加了对 RP2350 RISC-V 核心的支持。
+在操作 RISC-V 核心并使用 pico-sdk 和 pico-examples 之前，我们需要先安装对应的 RISC-V 交叉编译工具链。本文将重点讲解如何安装满足 pico-sdk 和 pico-examples 需求的 RISC-V 交叉编译工具链。
+
+## 编译环境搭建
+
+x86 PC
+
+Ubuntu 24.04
+
+## 安装依赖
+
+```bash
+sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev \
+gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev
+```
+
+## 编译 RISC-V 32 的工具链
+
+- 克隆 RISC-V 32 工具链仓库
+
+```bash
+git clone https://github.com/riscv-collab/riscv-gnu-toolchain.git
+```
+
+- 创建输出目录
+
+```bash
+mkdir /honme/radxa/riscv32_toolchain
+```
+
+- 编译
+
+```bash
+cd riscv-gnu-toolchain
+
+mkdir build
+
+cd build
+
+../configure --prefix=/honme/radxa/riscv32_toolchain --with-arch=rv32gc --with-abi=ilp32 --enable-multilib
+
+make -j$(nproc)
+```
+
+## 设置环境变量
+
+- 将以下这行添加到 /home/radxa/.bashrc 文件中
+
+```bash
+echo 'export PATH=$HOME/riscv32_toolchain/bin:$PATH' >> ~/.bashrc
+```
+
+## 验证
+
+### 输出版本号
+
+```bash
+radxa@radxa-Default-string:~$ riscv32-unknown-elf-gcc --version
+riscv32-unknown-elf-gcc (g04696df096) 14.2.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+radxa@radxa-Default-string:~$ riscv32-unknown-elf-g++ --version
+riscv32-unknown-elf-g++ (g04696df096) 14.2.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
+### 看是否符合 pico-sdk 和 pico-examples 的需求
+
+- 克隆 pico-sdk 仓库
+
+```bash
+git clone https://github.com/raspberrypi/pico-sdk.git
+
+cd pico-sdk
+
+git submodule update --init
+```
+
+- 克隆 pico-examples 仓库
+
+```bash
+git clone https://github.com/raspberrypi/pico-examples.git --branch master
+```
+
+- 编译
+
+<pre>
+  export PICO_SDK_PATH=path/to/pico-sdk
+  <!-- prettier-ignore -->
+  cd pico-examples
+  <!-- prettier-ignore -->
+  mkdir build
+  <!-- prettier-ignore -->
+  cd build
+  <!-- prettier-ignore -->
+  cmake .. -DPICO_PLATFORM=<b>rp2350-riscv</b> && make -j4
+</pre>
+
+- 验证编译出来的程序是否为 riscv 32 的程序
+
+```bash
+file blink/CMakeFiles/blink.dir/blink.c.o
+blink/CMakeFiles/blink.dir/blink.c.o: ELF 32-bit LSB relocatable, UCB RISC-V, RVC, soft-float ABI, version 1 (SYSV), with debug_info, not stripped
+```
+
+由此，我们完成了 RP2350 pico-sdk 和 pico-examples 所需要的交叉编译工具链的安装。

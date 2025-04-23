@@ -1,0 +1,110 @@
+The RP2350 has two RISC-V based Hazard3 cores and two Arm based cores, and support for the RP2350 RISC-V cores has been added to the pico-sdk and pico-examples.
+Before working with RISC-V cores and using pico-sdk and pico-examples, we need to install the corresponding RISC-V cross-compilation toolchain. This article will focus on how to install the RISC-V cross-compilation toolchain for pico-sdk and pico-examples.
+
+## Environment setup
+
+x86 PC
+
+Ubuntu 24.04
+
+## Install dependencies
+
+```bash
+sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev \
+gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev
+```
+
+## Compile the RISC-V 32 toolchain
+
+- Clone the RISC-V 32 toolchain repository
+
+```bash
+git clone https://github.com/riscv-collab/riscv-gnu-toolchain.git
+```
+
+- Create an output directory
+
+```bash
+mkdir /honme/radxa/riscv32_toolchain
+```
+
+- Compile
+
+```bash
+cd riscv-gnu-toolchain
+
+mkdir build
+
+cd build
+
+../configure --prefix=/honme/radxa/riscv32_toolchain --with-arch=rv32gc --with-abi=ilp32 --enable-multilib
+
+make -j$(nproc)
+```
+
+## Set environment variables
+
+- Add the following line to the /home/radxa/.bashrc file
+
+```bash
+echo 'export PATH=$HOME/riscv32_toolchain/bin:$PATH' >> ~/.bashrc
+```
+
+## Verify
+
+### Output version number
+
+```bash
+radxa@radxa-Default-string:~$ riscv32-unknown-elf-gcc --version
+riscv32-unknown-elf-gcc (g04696df096) 14.2.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+radxa@radxa-Default-string:~$ riscv32-unknown-elf-g++ --version
+riscv32-unknown-elf-g++ (g04696df096) 14.2.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
+### See if it meets the requirements of pico-sdk and pico-examples
+
+- Clone the pico-sdk repository
+
+```bash
+git clone https://github.com/raspberrypi/pico-sdk.git
+
+cd pico-sdk
+
+git submodule update --init
+```
+
+- Clone pico-examples Repository
+
+```bash
+git clone https://github.com/raspberrypi/pico-examples.git --branch master
+```
+
+- Compile
+
+<pre>
+  export PICO_SDK_PATH=path/to/pico-sdk
+  <!-- prettier-ignore -->
+  cd pico-examples
+  <!-- prettier-ignore -->
+  mkdir build
+  <!-- prettier-ignore -->
+  cd build
+  <!-- prettier-ignore -->
+  cmake .. -DPICO_PLATFORM=<b>rp2350-riscv</b> && make -j4
+</pre>
+
+- Verify that the compiled program is for riscv 32
+
+```bash
+file blink/CMakeFiles/blink.dir/blink.c.o
+blink/CMakeFiles/blink.dir/blink.c.o: ELF 32-bit LSB relocatable, UCB RISC-V, RVC, soft-float ABI, version 1 (SYSV), with debug_info, not stripped
+```
+
+This completes the installation of the cross-compilation toolchain required for the RP2350 pico-sdk and pico-examples.
