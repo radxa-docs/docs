@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
 ---
 
 # 接口使用说明
@@ -52,7 +52,7 @@ sudo apt-get install iperf3
 
 - 在服务器端运行命令：
 
-<NewCodeBlock tip="E54C">
+<NewCodeBlock tip="PC">
 
 ```
 iperf -s
@@ -74,7 +74,7 @@ iperf3 -c server-ip -t 60
 
 2. 测试下载速度
 
-<NewCodeBlock tip="E54C">
+<NewCodeBlock tip="PC">
 
 ```
 iperf3 -c server-ip -t 60 -R
@@ -92,116 +92,110 @@ iperf3 -c server-ip -t 60 -R
 
 支持 adb。
 
-
 支持 usbnet。
- 
 
 支持 mass storage。
 
-- USB 2.0 Mass Storage
+##### USB 2.0 Mass Storage
 
-  按照下面命令执行:
+按照下面命令执行:
 
   <NewCodeBlock tip="E54C">
 
-  ```
-  modprobe libcomposite
-  modprobe usb_f_mass_storage
-  systemctl daemon-reload
-  umount /sys/kernel/config
-  mount -t configfs none /sys/kernel/config
-  cd /sys/kernel/config/usb_gadget
-  mkdir -p my_udisk
-  cd my_udisk
-  echo 0x1d6b > idVendor
-  echo 0x0104 > idProduct
-  echo 0x0100 > bcdDevice
-  echo 0x0200 > bcdUSB
-  mkdir -p strings/0x409
-  echo "123456789" > strings/0x409/serialnumber
-  echo "My Manufacturer" > strings/0x409/manufacturer
-  echo "My USB Disk" > strings/0x409/product
-  mkdir -p configs/c.1
-  mkdir -p configs/c.1/strings/0x409
-  echo "Mass Storage Config" > configs/c.1/strings/0x409/configuration
-  mkdir -p functions/mass_storage.usb0
-  dd if=/dev/zero of=/tmp/disk.img bs=1M count=100
-  mkfs.ext4 /tmp/disk.img
-  echo /tmp/disk.img > functions/mass_storage.usb0/lun.0/file
-  ln -s functions/mass_storage.usb0 configs/c.1
-  echo fc000000.usb > UDC
-  ```
+```
+modprobe libcomposite
+modprobe usb_f_mass_storage
+systemctl daemon-reload
+umount /sys/kernel/config
+mount -t configfs none /sys/kernel/config
+cd /sys/kernel/config/usb_gadget
+mkdir -p my_udisk
+cd my_udisk
+echo 0x1d6b > idVendor
+echo 0x0104 > idProduct
+echo 0x0100 > bcdDevice
+echo 0x0200 > bcdUSB
+mkdir -p strings/0x409
+echo "123456789" > strings/0x409/serialnumber
+echo "My Manufacturer" > strings/0x409/manufacturer
+echo "My USB Disk" > strings/0x409/product
+mkdir -p configs/c.1
+mkdir -p configs/c.1/strings/0x409
+echo "Mass Storage Config" > configs/c.1/strings/0x409/configuration
+mkdir -p functions/mass_storage.usb0
+dd if=/dev/zero of=/tmp/disk.img bs=1M count=100
+mkfs.ext4 /tmp/disk.img
+echo /tmp/disk.img > functions/mass_storage.usb0/lun.0/file
+ln -s functions/mass_storage.usb0 configs/c.1
+echo fc000000.usb > UDC
+```
 
   </NewCodeBlock>
 
-  在电脑端将出现 USB 2.0 u 盘设备，如下(Linux 电脑下查看):
+在电脑端将出现 USB 2.0 u 盘设备，如下(Linux 电脑下查看):
 
   <NewCodeBlock tip="PC">
 
-  ```
-  $ lsusb -t
-  /:  Bus 02.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/4p, 20000M/x2​
-  /:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/16p, 480M​
-    |__ Port 1: Dev 2, If 1, Class=Human Interface Device, Driver=usbhid, 1.5M​
-    |__ Port 1: Dev 2, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M​
-    |__ Port 2: Dev 3, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M​
-    |__ Port 4: Dev 5, If 0, Class=Hub, Driver=hub/4p, 480M​
-        |__ Port 1: Dev 7, If 0, Class=Mass Storage, Driver=usb-storage, 480M​
-        |__ Port 2: Dev 6, If 0, Class=Vendor Specific Class, Driver=ch341, 12M​
-    |__ Port 14: Dev 4, If 0, Class=Wireless, Driver=btusb, 12M​
-    |__ Port 14: Dev 4, If 1, Class=Wireless, Driver=btusb, 12M
-  $ lsblk
-  ...
-  sda           8:0    1   100M  0 disk /media/lsj/320c4009-2d38-412b-bdd3-2e4059203ee8
-                                      /media/devmon/sda-usb-Linux_File-Stor_
-  ...
-  ```
+```
+$ lsusb -t
+/:  Bus 02.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/4p, 20000M/x2​
+/:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/16p, 480M​
+  |__ Port 1: Dev 2, If 1, Class=Human Interface Device, Driver=usbhid, 1.5M​
+  |__ Port 1: Dev 2, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M​
+  |__ Port 2: Dev 3, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M​
+  |__ Port 4: Dev 5, If 0, Class=Hub, Driver=hub/4p, 480M​
+      |__ Port 1: Dev 7, If 0, Class=Mass Storage, Driver=usb-storage, 480M​
+      |__ Port 2: Dev 6, If 0, Class=Vendor Specific Class, Driver=ch341, 12M​
+  |__ Port 14: Dev 4, If 0, Class=Wireless, Driver=btusb, 12M​
+  |__ Port 14: Dev 4, If 1, Class=Wireless, Driver=btusb, 12M
+$ lsblk
+...
+sda           8:0    1   100M  0 disk /media/lsj/320c4009-2d38-412b-bdd3-2e4059203ee8
+                                    /media/devmon/sda-usb-Linux_File-Stor_
+...
+```
 
   </NewCodeBlock>
 
+sda 即是对应的 Mass Storage 设备。
 
-  sda 即是对应的 Mass Storage 设备。
-  
+##### USB 3.0 Mass Storage
 
-
-- USB 3.0 Mass Storage
-
-  按照下面命令执行，在电脑端将出现 USB 3.0 u 盘设备。
+按照下面命令执行，在电脑端将出现 USB 3.0 u 盘设备。
 
   <NewCodeBlock tip="E54C">
-  
-  ```
-  modprobe libcomposite
-  modprobe usb_f_mass_storage
-  systemctl daemon-reload
-  umount /sys/kernel/config
-  mount -t configfs none /sys/kernel/config
-  cd /sys/kernel/config/usb_gadget
-  mkdir -p my_udisk
-  cd my_udisk
-  echo 0x1d6b > idVendor
-  echo 0x0104 > idProduct
-  echo 0x0100 > bcdDevice
-  echo 0x0300 > bcdUSB
-  mkdir -p strings/0x409
-  echo "123456789" > strings/0x409/serialnumber
-  echo "My Manufacturer" > strings/0x409/manufacturer
-  echo "My USB Disk" > strings/0x409/product
-  mkdir -p configs/c.1
-  mkdir -p configs/c.1/strings/0x409
-  echo "Mass Storage Config" > configs/c.1/strings/0x409/configuration
-  mkdir -p functions/mass_storage.usb0
-  dd if=/dev/zero of=/tmp/disk.img bs=1M count=100
-  mkfs.ext4 /tmp/disk.img
-  echo /tmp/disk.img > functions/mass_storage.usb0/lun.0/file
-  ln -s functions/mass_storage.usb0 configs/c.1
-  echo fc000000.usb > UDC
-  ```
+
+```
+modprobe libcomposite
+modprobe usb_f_mass_storage
+systemctl daemon-reload
+umount /sys/kernel/config
+mount -t configfs none /sys/kernel/config
+cd /sys/kernel/config/usb_gadget
+mkdir -p my_udisk
+cd my_udisk
+echo 0x1d6b > idVendor
+echo 0x0104 > idProduct
+echo 0x0100 > bcdDevice
+echo 0x0300 > bcdUSB
+mkdir -p strings/0x409
+echo "123456789" > strings/0x409/serialnumber
+echo "My Manufacturer" > strings/0x409/manufacturer
+echo "My USB Disk" > strings/0x409/product
+mkdir -p configs/c.1
+mkdir -p configs/c.1/strings/0x409
+echo "Mass Storage Config" > configs/c.1/strings/0x409/configuration
+mkdir -p functions/mass_storage.usb0
+dd if=/dev/zero of=/tmp/disk.img bs=1M count=100
+mkfs.ext4 /tmp/disk.img
+echo /tmp/disk.img > functions/mass_storage.usb0/lun.0/file
+ln -s functions/mass_storage.usb0 configs/c.1
+echo fc000000.usb > UDC
+```
 
   </NewCodeBlock>
 
-  查看方法和上面的 USB 2.0 Mass Storage 相同,区别是这时候是 USB 3.0 Mass Storage 设备。
-
+查看方法和上面的 USB 2.0 Mass Storage 相同,区别是这时候是 USB 3.0 Mass Storage 设备。
 
 #### DP 显示
 
@@ -219,11 +213,11 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
 提供两个 USB 2.0 接口，用于连接外部设备，如键盘、鼠标、存储设备等。
 
-- 外设连接测试
+#### 外设连接测试
 
-  反复拔插 USB 外设，确保每次都能正常识别得到，且正常使用
+反复拔插 USB 外设，确保每次都能正常识别得到，且正常使用
 
-  识别存储设备
+识别存储设备
 
     <NewCodeBlock tip="E54C">
 
@@ -234,40 +228,40 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
     </NewCodeBlock>
 
-  如上所示，这里已经成功识别到了 Micro-SD Card Reader
+如上所示，这里已经成功识别到了 Micro-SD Card Reader
 
-- 传输速率测试
+#### 传输速率测试
 
-  1. 确定 USB 存储设备
+1. 确定 USB 存储设备
 
-  通过 lsblk 确认 USB 存储设备
+通过 lsblk 确认 USB 存储设备
 
   <NewCodeBlock tip="E54C">
- 
-  ```
-  $ lsblk
-  NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-  sda            8:0    1 29.3G  0 disk
-  ├─sda1         8:1    1  256M  0 part
-  └─sda2         8:2    1   29G  0 part
-  mmcblk0      179:0    0 14.5G  0 disk
-  ├─mmcblk0p1  179:1    0  256M  0 part /boot
-  └─mmcblk0p2  179:2    0 14.2G  0 part /
-  ```
-  
+
+```
+$ lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda            8:0    1 29.3G  0 disk
+├─sda1         8:1    1  256M  0 part
+└─sda2         8:2    1   29G  0 part
+mmcblk0      179:0    0 14.5G  0 disk
+├─mmcblk0p1  179:1    0  256M  0 part /boot
+└─mmcblk0p2  179:2    0 14.2G  0 part /
+```
+
   </NewCodeBlock>
 
-  2. 测试读写速度
+2. 测试读写速度
 
   <NewCodeBlock tip="E54C">
 
-  ```
-  # 测试写入速度
-  dd if=/dev/zero of=/mnt/usb/test.img bs=1M count=1024 oflag=direct
+```
+# 测试写入速度
+dd if=/dev/zero of=/mnt/usb/test.img bs=1M count=1024 oflag=direct
 
-  # 测试读取速度
-  dd if=/mnt/usb/test.img of=/dev/null bs=1M count=1024 iflag=direct
-  ```
+# 测试读取速度
+dd if=/mnt/usb/test.img of=/dev/null bs=1M count=1024 iflag=direct
+```
 
   </NewCodeBlock>
 
@@ -345,4 +339,5 @@ gpioset <chip> <line>=<value>
 # 读取 GPIO 输入
 gpioget <chip> <line>
 ```
+
 </NewCodeBlock>

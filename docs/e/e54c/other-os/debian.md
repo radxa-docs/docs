@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Debian
+# Radxa OS 使用
 
 ## 系统安装
 
