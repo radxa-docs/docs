@@ -28,10 +28,10 @@ USB 刷机 Loader 文件用于 USB 下载初始化，写入 SD 卡无需下载
 
 ## 硬件设计
 
-Radxa E54C V1.0 版本
+Radxa E54C V1.2 版本
 
-[V1.0 位号图 pdf](https://dl.radxa.com/e/e54c/hw/radxa_e54c_v1.0_components_placement_map.pdf)  
-[V1.0 原理图 pdf](https://dl.radxa.com/e/e54c/hw/radxa_e54c_v1.0_schematic.pdf)
+[V1.2 位号图 pdf](https://dl.radxa.com/e/e54c/hw/radxa_e54c_v1.2_components_placement_map.pdf)
+[V1.2 原理图 pdf](https://dl.radxa.com/e/e54c/hw/radxa_e54c_v1.2_schematic.pdf)
 
 ## 质量认证
 

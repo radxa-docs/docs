@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ## 系统框图
 
-<img src="/img/e/e54c/radxa-e54c-system-diagrm.webp" width="800" alt="radxa-e54c pack" />
+<img src="/img/e/e54c/e54c-system-diagram.webp" width="800" alt="radxa-e54c pack" />
 
 ## 硬件概览
 
