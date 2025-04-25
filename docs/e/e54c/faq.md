@@ -6,9 +6,9 @@ sidebar_position: 7
 
 1. iStoreOS 系统如何恢复出厂设置
 
-   在系统正常运行的时候，长按 USER 按键(用户自定义按键) 5s，系统会进行恢复出厂设置操作，然后重启。
+   在系统正常运行的时候，长按 USER 按键 5s，系统会进行恢复出厂设置操作，然后重启。
 
-  <img src="/img/e/e54c/e54c-ports.webp" width="800" alt="radxa-e54c pack" />
+  <img src="/img/e/e54c/e54c-user-key-press.webp" width="500" alt="radxa-e54c pack" />
 
 :::tip
 不要一开机就按照 USER 按键，此时系统会进入安全模式，这种模式下只能通过串口进行操作。
