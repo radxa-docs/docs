@@ -86,7 +86,7 @@ Radxa E54C 是一款基于 RK3582 SoC 的网络计算机，配备四个千兆以
     </tr>
     <tr>
         <td align="center">供电</td>
-        <td colspan="2" align="center">12V DC 接口（55x25）</td>
+        <td colspan="2" align="center">12V DC 接口（5.5x2.5mm）</td>
     </tr>
     <tr>
         <td align="center">外壳</td>

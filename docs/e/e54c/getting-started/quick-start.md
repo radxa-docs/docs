@@ -19,7 +19,7 @@ import Etcher from '../../../common/general/\_etcherV2.mdx';
 
 要启动 Radxa E54C，您需要以下设备：
 
-- 一个 12V/2A 的 DC 55x25mm 孔径的电源适配器（E54C 只支持 12V 输入）更多供电详情，请参考[电源方案](./power-supply)。
+- 一个 12V/2A 的 DC 5.5x2.5mm 孔径的电源适配器（E54C 只支持 12V 输入）更多供电详情，请参考[电源方案](./power-supply)。
 - 一根 USB TYPE-A 转 TYPE-C 数据线，用于调试和访问系统。
 - 网线（根据需要连接到四个以太网端口）
 - 一个 microSD 卡和读卡器用于安装操作系统
@@ -96,7 +96,7 @@ import Etcher from '../../../common/general/\_etcherV2.mdx';
 
 <img src="/img/e/e54c/e54c-ch340-install.webp" width="500" alt="e54c-ch340" />
 
-如果没有，请下载[CH340驱动](https://www.wch.cn/downloads/CH341SET_EXE.html)安装
+如果没有，请下载[CH340驱动](https://www.wch.cn/downloads/CH341SER_EXE.html)安装
 
 #### 使用 PuTTY 连接
 
