@@ -42,29 +42,45 @@ Radxa E54C 的 MAC 地址是唯一且固定的，在每次断电重启或者软�
 
 - 安装 iperf3 工具
 
-```bash
+<NewCodeBlock tip="E54C">
+
+```
 sudo apt-get install iperf3
 ```
 
+</NewCodeBlock>
+
 - 在服务器端运行命令：
 
-```bash
+<NewCodeBlock tip="E54C">
+
+```
 iperf -s
 ```
+
+</NewCodeBlock>
 
 - 测速
 
 1. 测试上传速度
 
-```bash
+<NewCodeBlock tip="E54C">
+
+```
 iperf3 -c server-ip -t 60
 ```
 
+</NewCodeBlock>
+
 2. 测试下载速度
 
-```bash
+<NewCodeBlock tip="E54C">
+
+```
 iperf3 -c server-ip -t 60 -R
 ```
+
+</NewCodeBlock>
 
 ### USB Type-C 口
 
@@ -84,7 +100,9 @@ iperf3 -c server-ip -t 60 -R
 
 - USB 2.0 Mass Storage
 
-  按照下面命令执行，在电脑端将出现 USB 2.0 u 盘设备。
+  按照下面命令执行:
+
+  <NewCodeBlock tip="E54C">
 
   ```
   modprobe libcomposite
@@ -114,10 +132,44 @@ iperf3 -c server-ip -t 60 -R
   echo fc000000.usb > UDC
   ```
 
+  </NewCodeBlock>
+
+  在电脑端将出现 USB 2.0 u 盘设备，如下(Linux 电脑下查看):
+
+  <NewCodeBlock tip="PC">
+
+  ```
+  $ lsusb -t
+  /:  Bus 02.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/4p, 20000M/x2​
+  /:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/16p, 480M​
+    |__ Port 1: Dev 2, If 1, Class=Human Interface Device, Driver=usbhid, 1.5M​
+    |__ Port 1: Dev 2, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M​
+    |__ Port 2: Dev 3, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M​
+    |__ Port 4: Dev 5, If 0, Class=Hub, Driver=hub/4p, 480M​
+        |__ Port 1: Dev 7, If 0, Class=Mass Storage, Driver=usb-storage, 480M​
+        |__ Port 2: Dev 6, If 0, Class=Vendor Specific Class, Driver=ch341, 12M​
+    |__ Port 14: Dev 4, If 0, Class=Wireless, Driver=btusb, 12M​
+    |__ Port 14: Dev 4, If 1, Class=Wireless, Driver=btusb, 12M
+  $ lsblk
+  ...
+  sda           8:0    1   100M  0 disk /media/lsj/320c4009-2d38-412b-bdd3-2e4059203ee8
+                                      /media/devmon/sda-usb-Linux_File-Stor_
+  ...
+  ```
+
+  </NewCodeBlock>
+
+
+  sda 即是对应的 Mass Storage 设备。
+  
+
+
 - USB 3.0 Mass Storage
 
   按照下面命令执行，在电脑端将出现 USB 3.0 u 盘设备。
 
+  <NewCodeBlock tip="E54C">
+  
   ```
   modprobe libcomposite
   modprobe usb_f_mass_storage
@@ -146,6 +198,10 @@ iperf3 -c server-ip -t 60 -R
   echo fc000000.usb > UDC
   ```
 
+  </NewCodeBlock>
+
+  查看方法和上面的 USB 2.0 Mass Storage 相同,区别是这时候是 USB 3.0 Mass Storage 设备。
+
 
 #### DP 显示
 
@@ -169,12 +225,14 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
   识别存储设备
 
-  <pre>
+    <NewCodeBlock tip="E54C">
+
+    ```
     $ lsusb
-    <strong>
       Bus 001 Device 003: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
-    </strong>
-  </pre>
+    ```
+
+    </NewCodeBlock>
 
   如上所示，这里已经成功识别到了 Micro-SD Card Reader
 
@@ -184,7 +242,9 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
   通过 lsblk 确认 USB 存储设备
 
-  ```bash
+  <NewCodeBlock tip="E54C">
+ 
+  ```
   $ lsblk
   NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
   sda            8:0    1 29.3G  0 disk
@@ -194,16 +254,22 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
   ├─mmcblk0p1  179:1    0  256M  0 part /boot
   └─mmcblk0p2  179:2    0 14.2G  0 part /
   ```
+  
+  </NewCodeBlock>
 
   2. 测试读写速度
 
-  ```bash
+  <NewCodeBlock tip="E54C">
+
+  ```
   # 测试写入速度
   dd if=/dev/zero of=/mnt/usb/test.img bs=1M count=1024 oflag=direct
 
   # 测试读取速度
   dd if=/mnt/usb/test.img of=/dev/null bs=1M count=1024 iflag=direct
   ```
+
+  </NewCodeBlock>
 
 ### HDMI 2.1 接口
 
@@ -222,7 +288,9 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
 #### 测试 NVMe SSD 性能
 
-```bash
+<NewCodeBlock tip="E54C">
+
+```
 # 安装测试工具
 sudo apt-get install hdparm
 
@@ -232,6 +300,8 @@ sudo hdparm -t /dev/nvme0n1
 # 使用 dd 测试写入性能
 sudo dd if=/dev/zero of=/mnt/nvme/test.img bs=1M count=1024 oflag=direct
 ```
+
+</NewCodeBlock>
 
 ### microSD 卡插槽
 
@@ -257,7 +327,9 @@ sudo dd if=/dev/zero of=/mnt/nvme/test.img bs=1M count=1024 oflag=direct
 
 #### GPIO 使用示例
 
-```bash
+<NewCodeBlock tip="E54C">
+
+```
 # 安装 GPIO 控制工具
 sudo apt-get install gpiod
 
@@ -273,3 +345,4 @@ gpioset <chip> <line>=<value>
 # 读取 GPIO 输入
 gpioget <chip> <line>
 ```
+</NewCodeBlock>
