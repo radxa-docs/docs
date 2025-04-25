@@ -66,9 +66,43 @@ iperf3 -c server-ip -t 60
 iperf3 -c server-ip -t 60 -R
 ```
 
-### USB Type-C OTG
+### USB Type-C 口
 
-作为调试口和数据传输接口，用以查看日志和访问设备，波特率默认1500000。
+作为调试口用以查看日志和访问设备，波特率默认1500000。
+
+作为数据传输接口，支持 USB3.0 OTG、烧录固件和 DP 显示输出。
+
+#### USB3.0 OTG
+
+支持 adb。
+
+- 开启 Overlay
+
+  1. 打开 Kconsole 终端, 运行 rsetup 命令：
+
+  <pre> $ rsetup </pre>
+
+  2. 通过 [Hardware -> USB OTG services 配置](./rsetup)。来启用 radxa-adbd。
+
+  :::tip
+
+  请启用 [] radxa-adbd 项 USB OTG services。<br/>
+  在启用成功显示 [*] radxa-adbd 后退出重启才能使配置生效。
+
+  :::
+
+  3. 在电脑端查看是否有 adb 设备
+
+
+支持 usbnet，参考 [usbnet 配置](./usbnet)
+ 
+
+支持 mass storage，参考 [usb mass storage 配置](./usb_mass_storage)
+
+
+#### DP 显示
+
+支持 4K 分辨率，显示屏需额外供电。
 
 ### Maskrom 按钮
 
