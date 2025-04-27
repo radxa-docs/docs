@@ -28,6 +28,8 @@ sidebar_position: 1
 
 以下是配置网络桥接的示例命令：
 
+<NewCodeBlock tip="root@radxa-e54c#" type="device">
+
 ```bash
 # 安装bridge-utils
 sudo apt-get install bridge-utils
@@ -42,3 +44,5 @@ sudo brctl addif br0 eth1
 # 启用网桥
 sudo ip link set dev br0 up
 ```
+
+</NewCodeBlock>

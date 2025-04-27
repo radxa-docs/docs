@@ -42,7 +42,7 @@ Radxa E54C 的 MAC 地址是唯一且固定的，在每次断电重启或者软�
 
 - 安装 iperf3 工具
 
-<NewCodeBlock tip="E54C">
+<NewCodeBlock tip="root@radxa-e54c#" type="device">
 
 ```
 sudo apt-get install iperf3
@@ -52,7 +52,7 @@ sudo apt-get install iperf3
 
 - 在服务器端运行命令：
 
-<NewCodeBlock tip="PC">
+<NewCodeBlock type="host">
 
 ```
 iperf -s
@@ -64,7 +64,7 @@ iperf -s
 
 1. 测试上传速度
 
-<NewCodeBlock tip="E54C">
+<NewCodeBlock tip="root@radxa-e54c#" type="device">
 
 ```
 iperf3 -c server-ip -t 60
@@ -74,7 +74,7 @@ iperf3 -c server-ip -t 60
 
 2. 测试下载速度
 
-<NewCodeBlock tip="PC">
+<NewCodeBlock type="host">
 
 ```
 iperf3 -c server-ip -t 60 -R
@@ -100,7 +100,7 @@ iperf3 -c server-ip -t 60 -R
 
 按照下面命令执行:
 
-  <NewCodeBlock tip="E54C">
+  <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
 ```
 modprobe libcomposite
@@ -134,7 +134,7 @@ echo fc000000.usb > UDC
 
 在电脑端将出现 USB 2.0 u 盘设备，如下(Linux 电脑下查看):
 
-  <NewCodeBlock tip="PC">
+  <NewCodeBlock type="host">
 
 ```
 $ lsusb -t
@@ -163,7 +163,7 @@ sda 即是对应的 Mass Storage 设备。
 
 按照下面命令执行，在电脑端将出现 USB 3.0 u 盘设备。
 
-  <NewCodeBlock tip="E54C">
+  <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
 ```
 modprobe libcomposite
@@ -219,7 +219,7 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
 识别存储设备
 
-    <NewCodeBlock tip="E54C">
+    <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
     ```
     $ lsusb
@@ -236,7 +236,7 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
 通过 lsblk 确认 USB 存储设备
 
-  <NewCodeBlock tip="E54C">
+  <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
 ```
 $ lsblk
@@ -253,7 +253,7 @@ mmcblk0      179:0    0 14.5G  0 disk
 
 2. 测试读写速度
 
-  <NewCodeBlock tip="E54C">
+  <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
 ```
 # 测试写入速度
@@ -282,7 +282,7 @@ dd if=/mnt/usb/test.img of=/dev/null bs=1M count=1024 iflag=direct
 
 #### 测试 NVMe SSD 性能
 
-<NewCodeBlock tip="E54C">
+<NewCodeBlock tip="root@radxa-e54c#" type="device">
 
 ```
 # 安装测试工具
@@ -321,7 +321,7 @@ sudo dd if=/dev/zero of=/mnt/nvme/test.img bs=1M count=1024 oflag=direct
 
 #### GPIO 使用示例
 
-<NewCodeBlock tip="E54C">
+<NewCodeBlock tip="root@radxa-e54c#" type="device">
 
 ```
 # 安装 GPIO 控制工具

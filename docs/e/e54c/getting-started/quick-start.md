@@ -130,16 +130,24 @@ import Etcher from '../../../common/general/\_etcherV2.mdx';
 1. 打开终端
 2. 输入以下命令查看可用的串口设备：
 
+<NewCodeBlock tip="macOS-host$" type="host">
+
 ```bash
 ls /dev/tty.*
 ```
 
+</NewCodeBlock>
+
 3. 找到类似 `/dev/tty.wchusbserial14xx0` 的设备名称
 4. 使用以下命令连接（替换设备名称）：
+
+<NewCodeBlock tip="macOS-host$" type="host">
 
 ```bash
 screen /dev/tty.wchusbserial14xx0 1500000
 ```
+
+</NewCodeBlock>
 
 5. 要退出 screen 会话，按 `Ctrl+A` 然后按 `Ctrl+\`，然后输入 `y` 确认。
 
@@ -148,6 +156,8 @@ screen /dev/tty.wchusbserial14xx0 1500000
 #### 使用 screen 命令连接
 
 1. 安装 screen（如果尚未安装）：
+
+<NewCodeBlock type="host">
 
 ```bash
 # Ubuntu/Debian
@@ -160,17 +170,27 @@ sudo dnf install screen
 sudo pacman -S screen
 ```
 
+</NewCodeBlock>
+
 2. 查找串口设备：
+
+<NewCodeBlock type="host">
 
 ```bash
 ls /dev/ttyUSB*
 ```
 
+</NewCodeBlock>
+
 3. 连接到设备（通常是 /dev/ttyUSB0）：
+
+<NewCodeBlock type="host">
 
 ```bash
 sudo screen /dev/ttyUSB0 1500000
 ```
+
+</NewCodeBlock>
 
 4. 要退出 screen 会话，按 `Ctrl+A` 然后按 `Ctrl+\`，然后输入 `y` 确认。
 
@@ -178,16 +198,24 @@ sudo screen /dev/ttyUSB0 1500000
 
 1. 安装 minicom：
 
+<NewCodeBlock type="host">
+
 ```bash
 # Ubuntu/Debian
 sudo apt-get install minicom
 ```
 
+</NewCodeBlock>
+
 2. 配置 minicom：
+
+<NewCodeBlock type="host">
 
 ```bash
 sudo minicom -s
 ```
+
+</NewCodeBlock>
 
 3. 设置 minicom：
 
@@ -213,9 +241,13 @@ sudo minicom -s
 
 4. 打开终端或命令提示符，使用 SSH 连接到 E54C：
 
+<NewCodeBlock type="host">
+
 ```bash
 ssh root@192.168.100.1
 ```
+
+</NewCodeBlock>
 
 5. 输入默认密码：password
 
