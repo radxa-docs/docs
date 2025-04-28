@@ -16,7 +16,7 @@ microSD card, capacity not less than 8GB, for system boot disk.
 
 ### microSD card reader
 
-Flush the image to the microSD card.
+Flash the image to the microSD card.
 
 ### Monitor, HDMI cable, USB-C cable
 

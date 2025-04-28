@@ -7,7 +7,7 @@ import { PreView } from "@site/src/utils/docs";
 
 - Use the system utility rsetup to flash the SPI.
 
-- Flush the system image to the NVME SSD.
+- Flash the system image to the NVME SSD.
 
 - Unplug the SD card and boot from NVME.
 
@@ -15,7 +15,7 @@ import { PreView } from "@site/src/utils/docs";
 
 Refer to the section on <a href={props.etcher_path}> making a MicroSD boot disc </a> to install the system on the SD card.
 
-Here the SD card acts as a boot disk for x86, the purpose is to get the spi.img, and flush the spi.img to the spi flash.
+Here the SD card acts as a boot disk for x86, the purpose is to get the spi.img, and flash the spi.img to the spi flash.
 
 After booting from the SD card, execute the following command to update the system.
 
@@ -24,7 +24,7 @@ sudo apt-get update
 sudo apt-get full-upgrade
 ```
 
-### Use the system utility <a href={props.rsetup_path}> rsetup </a> to flush the SPI.
+### Use the system utility <a href={props.rsetup_path}> rsetup </a> to flash the SPI.
 
 <img
   src="/img/common/nvme/system_maintenance.webp"
