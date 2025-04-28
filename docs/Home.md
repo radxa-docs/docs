@@ -668,6 +668,22 @@ sidebar_custom_props:
                     },
                   ],
               },
+              {
+                products_name: "Radxa E54C",
+                products_photo_url: "/home/product-pictures/e54c.webp",
+                products_link: "/e/e54c",
+                docs:
+                  [
+                    {
+                      docs_link: "/e/e54c",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa E54C 概览",
+                      docs_info_en: "Overview of the E54C",
+                      docs_info_zh: "Radxa E54C 概览",
+                    },
+                  ],
+              },
             ],
         },
         {
