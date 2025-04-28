@@ -151,7 +151,7 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=4096
         run: jest --maxWorkers=2
-          yarn install
+          yarn add
           yarn build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
