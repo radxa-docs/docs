@@ -22,6 +22,9 @@ git clone https://www.modelscope.cn/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM.gi
 :::tip
 请用户根据 [RKLLM安装](./rkllm_install) 完成 PC 端和开发板端 RKLLM 工作环境的准备
 :::
+:::tip
+RK358X 用户 TARGET_PLATFORM 请指定 `rk3588` 平台
+:::
 
 - x86 PC 工作站中下载 [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) 权重文件, 如没安装 [git-lfs](https://git-lfs.com/)，请自行安装
   ```bash
@@ -93,8 +96,17 @@ git clone https://www.modelscope.cn/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM.gi
 
 ### 性能分析
 
-对于数学问题： `解方程 x+y=12, 2x+4y=34, 求x,y的值`， 在 RK3588 上达 14.93 token/s
+对于数学问题： `解方程 x+y=12, 2x+4y=34, 求x,y的值`，
+
+在 RK3588 上达 14.93 token/s,
+
+| Stage    | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
+| -------- | --------------- | ------ | ------------------- | ----------------- |
+| Prefill  | 429.63          | 81     | 5.30                | 188.53            |
+| Generate | 56103.71        | 851    | 66.99               | 14.93             |
+
+在 RK3582 上达 10.61 token/s
 | Stage | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
 |----------|-----------------|--------|---------------------|-------------------|
-| Prefill | 429.63 | 81 | 5.30 | 188.53 |
-| Generate | 56103.71 | 851 | 66.99 | 14.93 |
+| Prefill | 599.71 | 81 | 7.4 | 135.07 |
+| Generate | 76866.41 | 851 | 94.25 | 10.61 |

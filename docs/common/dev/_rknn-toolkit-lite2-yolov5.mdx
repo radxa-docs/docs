@@ -52,6 +52,9 @@ Radxa 已提供预转换好的 `yolov5s_rk35XX.rknn` 模型，用户可直接参
   `<dtype>`: 指定为 `i8` 或 `fp`。`i8` 用于 int8 量化，`fp` 用于 fp16 量化。默认为 `i8`
 
   `<output_rknn_path>`: 指定 RKNN 模型的保存路径，默认保存在与 ONNX 模型相同的目录
+  :::tip
+  RK358X 用户 TARGET_PLATFORM 请指定 `rk3588` 平台
+  :::
 
 - 将 rknn 模型拷贝到板端
 
