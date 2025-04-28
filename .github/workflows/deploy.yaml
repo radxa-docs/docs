@@ -150,7 +150,7 @@ jobs:
       - name: Build
         env:
           NODE_OPTIONS: --max-old-space-size=4096
-        run: jest --maxWorkers=2
+        run:
           yarn add
           yarn build
       - name: Upload artifact
