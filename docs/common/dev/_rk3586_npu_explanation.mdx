@@ -1,0 +1,19 @@
+RK3582 NPU 支持 INT4/INT8/INT16/FP16 混合运算，算力高达 5TOPs。用户可以轻松转换基于 TensorFlow/MXNet/PyTorch/Caffe 等一系列框架的网络模型， 并可使用 RKNN，RKLLM 框架进行模型加速推理。
+
+:::tip
+为了方便用户在查阅关于 RK3582 NPU 系列文档时出现误解，这里统一 RK3582 关于**指定 NPU 平台模型**的说明
+:::
+
+目前 [RKNN 官方手册](https://github.com/airockchip/rknn-toolkit2/)中说明：
+
+支持 RK3566/RK3568， RK3588， RK3562， RV1103/RV1106 系列芯片
+
+目前 [RKLLM 官方手册](https://github.com/airockchip/rknn-llm)中说明：
+
+支持芯片：RK3588/RK3576
+
+## 说明
+
+对于 ROCK5C Lite， E54C 等搭载 RK3582 SoC 的产品，在使用 RKNN 和 RKLLM 进行模型转换或推理时，**模型的指定平台均为 `rk3588`**, 即 RK3588 的模型可在 RK3582 平台上使用。
+
+有关 RK3588 NPU 使用的文档在 RK3582 上均通用。
