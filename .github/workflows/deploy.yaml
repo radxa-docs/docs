@@ -148,7 +148,9 @@ jobs:
         with:
           path: "contents"
       - name: Build
-        run: |
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+        run:
           yarn install
           yarn build
       - name: Upload artifact
