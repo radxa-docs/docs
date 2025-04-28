@@ -26,38 +26,34 @@ Orion O6 V1.2 Version
 
 ### Debian12 Desktop b3
 
-|                                 orion-o6-debian12-preinstalled-desktop-b3.img                                 |
+|                                 orion-o6-debian12-preinstalled-desktop-b6.img                                 |
 | :-----------------------------------------------------------------------------------------------------------: |
-| [Radxa DL Link](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b3.img.gz) |
-|                   [BaiduPan Link](https://pan.baidu.com/s/1HzxxBGpHq_CBjzX5SWuzJw?pwd=j6ck)                   |
-|            [Mega Link](https://mega.nz/file/Q2oUVJSS#JBV7U-9miON4_L2Ljw8-4t5lzxJe4tC6PRAtZfIvgPo)             |
+| [Radxa DL Link](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b6.img.gz) |
+|                   [BaiduPan Link](https://pan.baidu.com/s/1BKqR3Q67c580ZgjnllL7Ow?pwd=w2ex)                   |
+|            [Mega Link](https://mega.nz/file/x34WzQQC#UOyVPHcdMMYdSdYUsYQb2K-fWE8Zsa13QbTiLVvkIJ4)             |
 
 NOTE:
 
-- It is for NVME and USB boot.
+- It is for NVME SSD and USB boot.
 - Users can write the image to a USB flash drive or NVME SSD through balenaEtcher on the host PC.
 
 | Username | Password |
 | :------: | :------: |
 |  radxa   |  radxa   |
 
-### Debian12 Desktop b3 named with 'usb-install'（For USB boot disk）
+### Debian12 Desktop ISO b6
 
-|                                orion-o6-usb-install-sdebian12-preinstalled-desktop-b3.img                                 |
-| :-----------------------------------------------------------------------------------------------------------------------: |
-| [Radxa DL Link](https://dl.radxa.com/orion/o6/images/debian/orion-o6-usb-install-debian12-preinstalled-desktop-b3.img.gz) |
-|                         [BaiduPan Link](https://pan.baidu.com/s/1usQ8CoBnPHF8sISZT0nfRA?pwd=s2tn)                         |
-|                  [Mega Link](https://mega.nz/file/1mIEBICb#d-gk8iBij8uUNv1-oQeqytxCDn7cO7mLubdmoAG6TvQ)                   |
+|                                 orion-o6-debian12-desktop-arm64-b6.iso                                 |
+| :----------------------------------------------------------------------------------------------------: |
+| [Radxa DL Link](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-desktop-arm64-b6.iso.gz) |
+|                [BaiduPan Link](https://pan.baidu.com/s/1WSrdcqFUXlkkAsvbQtVh6A?pwd=nnyi                |
+|         [Mega Link](https://mega.nz/file/kyoHkRRT#86E73AN0-bGb01mkC-U30hPBhZMabJa7Dbgcf5U2a5w)         |
 
 NOTE:
 
-- The image name contains the "usb-install" string, and the image's directory `/home/radxa` has a b3 image file. It is for USB boot disks.
-- Users can write the image to a USB flash drive through balenaEtcher on the host PC.
-- After O6 boots from the USB disk, users can write the b3 image under the directory `/home/radxa` to the NVME SSD in the O6 system. See [Quick Start](./getting-started/quick-start.md).
-
-| Username | Password |
-| :------: | :------: |
-|  radxa   |  radxa   |
+- The image is used for USB boot disk. Users can install the system to NVME SSD through this USB boot disk.
+- Users can write the image to the USB disk through balenaEtcher on the host PC.
+- Please record the passwords of the root user and ordinary user during the installation process.
 
 ## Fedora
 
