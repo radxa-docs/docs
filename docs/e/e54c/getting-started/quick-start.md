@@ -15,7 +15,7 @@ import Etcher from '../../../common/general/\_etcherV2.mdx';
 目前 E54C 有多种配置，有带外壳的，有裸板的，有带板载 EMMC 的，有不带板载 EMMC 的，请在操作前注意分辨自己的产品型号。
 :::
 
-<img src="/img/e/e54c/e54c-ports.webp" width="800" alt="radxa-e54c" />
+<img src="/img/e/e54c/e54c-ports-cn.webp" width="800" alt="radxa-e54c" />
 
 要启动 Radxa E54C，您需要以下设备：
 

@@ -15,7 +15,7 @@ import Etcher from '../../../common/general/\_etcherV2.mdx';
 E54C currently has multiple configurations: with case, board only, with onboard EMMC, without onboard EMMC. Please identify your product model before proceeding.
 :::
 
-<img src="/img/e/e54c/e54c-ports.webp" width="800" alt="radxa-e54c" />
+<img src="/img/e/e54c/e54c-ports-en.webp" width="800" alt="radxa-e54c" />
 
 To start the Radxa E54C, you will need the following equipment:
 
