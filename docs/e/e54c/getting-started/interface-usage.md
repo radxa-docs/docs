@@ -96,74 +96,9 @@ iperf3 -c server-ip -t 60 -R
 
 支持 mass storage。
 
-##### USB 2.0 Mass Storage
+下面以 USB 大容量存储示例，执行命令前通过 M-Key 插好 SSD。
 
-按照下面命令执行:
-
-  <NewCodeBlock tip="root@radxa-e54c#" type="device">
-
-```
-modprobe libcomposite
-modprobe usb_f_mass_storage
-systemctl daemon-reload
-umount /sys/kernel/config
-mount -t configfs none /sys/kernel/config
-cd /sys/kernel/config/usb_gadget
-mkdir -p my_udisk
-cd my_udisk
-echo 0x1d6b > idVendor
-echo 0x0104 > idProduct
-echo 0x0100 > bcdDevice
-echo 0x0200 > bcdUSB
-mkdir -p strings/0x409
-echo "123456789" > strings/0x409/serialnumber
-echo "My Manufacturer" > strings/0x409/manufacturer
-echo "My USB Disk" > strings/0x409/product
-mkdir -p configs/c.1
-mkdir -p configs/c.1/strings/0x409
-echo "Mass Storage Config" > configs/c.1/strings/0x409/configuration
-mkdir -p functions/mass_storage.usb0
-dd if=/dev/zero of=/tmp/disk.img bs=1M count=100
-mkfs.ext4 /tmp/disk.img
-echo /tmp/disk.img > functions/mass_storage.usb0/lun.0/file
-ln -s functions/mass_storage.usb0 configs/c.1
-echo fc000000.usb > UDC
-```
-
-  </NewCodeBlock>
-
-在电脑端将出现 USB 2.0 u 盘设备，如下(Linux 电脑下查看):
-
-  <NewCodeBlock type="host">
-
-```
-$ lsusb -t
-/:  Bus 02.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/4p, 20000M/x2​
-/:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/16p, 480M​
-  |__ Port 1: Dev 2, If 1, Class=Human Interface Device, Driver=usbhid, 1.5M​
-  |__ Port 1: Dev 2, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M​
-  |__ Port 2: Dev 3, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M​
-  |__ Port 4: Dev 5, If 0, Class=Hub, Driver=hub/4p, 480M​
-      |__ Port 1: Dev 7, If 0, Class=Mass Storage, Driver=usb-storage, 480M​
-      |__ Port 2: Dev 6, If 0, Class=Vendor Specific Class, Driver=ch341, 12M​
-  |__ Port 14: Dev 4, If 0, Class=Wireless, Driver=btusb, 12M​
-  |__ Port 14: Dev 4, If 1, Class=Wireless, Driver=btusb, 12M
-$ lsblk
-...
-sda           8:0    1   100M  0 disk /media/lsj/320c4009-2d38-412b-bdd3-2e4059203ee8
-                                    /media/devmon/sda-usb-Linux_File-Stor_
-...
-```
-
-  </NewCodeBlock>
-
-sda 即是对应的 Mass Storage 设备。
-
-##### USB 3.0 Mass Storage
-
-按照下面命令执行，在电脑端将出现 USB 3.0 u 盘设备。
-
-  <NewCodeBlock tip="root@radxa-e54c#" type="device">
+<NewCodeBlock tip="root@radxa-e54c#" type="device">
 
 ```
 modprobe libcomposite
@@ -186,16 +121,59 @@ mkdir -p configs/c.1
 mkdir -p configs/c.1/strings/0x409
 echo "Mass Storage Config" > configs/c.1/strings/0x409/configuration
 mkdir -p functions/mass_storage.usb0
-dd if=/dev/zero of=/tmp/disk.img bs=1M count=100
-mkfs.ext4 /tmp/disk.img
-echo /tmp/disk.img > functions/mass_storage.usb0/lun.0/file
+mkfs.ext4 /dev/nvme0n1p1
+echo /dev/nvme0n1p1 > functions/mass_storage.usb0/lun.0/file
 ln -s functions/mass_storage.usb0 configs/c.1
 echo fc000000.usb > UDC
 ```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-查看方法和上面的 USB 2.0 Mass Storage 相同,区别是这时候是 USB 3.0 Mass Storage 设备。
+:::tip
+上述命令是完成 USB 3.0 的 mass storage 配置，如果需要 USB 2.0 的 mass storage 配置，仅需要将 echo 0x0300 > bcdUSB 修改成 echo 0x0200 > bcdUSB。
+:::
+
+使用 USB Type-A to Type-C 线接好 PC 和 E54C，在 PC 端将出现:
+
+<NewCodeBlock type="host">
+
+```
+$ lsblk 
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+...
+sdb           8:16   1 953.9G  0 disk /media/devmon/sdb-usb-Linux_File-Stor_
+...
+```
+
+</NewCodeBlock>
+
+你可拷贝文件到这个 mass storage 设备上:
+
+<NewCodeBlock type="host">
+
+```
+$ lsblk 
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+...
+cp /home/lsj/Downloads/test.wav /media/devmon/sdb-usb-Linux_File-Stor_
+md5sum /media/devmon/sdb-usb-Linux_File-Stor_/test.wav 
+...
+```
+
+</NewCodeBlock>
+
+在 E54C 上查看:
+
+<NewCodeBlock tip="root@radxa-e54c#" type="device">
+
+```
+systemctl daemon-reload
+mount /dev/nvme0n1p1 /mnt/
+ls /mnt/
+md5sum /mnt/test.wav
+```
+
+</NewCodeBlock>
 
 #### DP 显示
 
