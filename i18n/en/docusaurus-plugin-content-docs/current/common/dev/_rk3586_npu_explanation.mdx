@@ -1,0 +1,19 @@
+The RK3582 NPU supports mixed operations of INT4/INT8/INT16/FP16 with computing power up to 5TOPs. Users can easily convert network models based on frameworks such as TensorFlow/MXNet/PyTorch/Caffe, and can use RKNN and RKLLM frameworks for accelerated model inference.
+
+:::tip
+To prevent users from misunderstanding when consulting documentation about the RK3582 NPU series, here is a unified explanation regarding **specifying NPU platform models** for RK3582
+:::
+
+Currently, the [RKNN Official Manual](https://github.com/airockchip/rknn-toolkit2/) states:
+
+Supported chips: RK3566/RK3568, RK3588, RK3562, RV1103/RV1106 series
+
+Currently, the [RKLLM Official Manual](https://github.com/airockchip/rknn-llm) states:
+
+Supported chips: RK3588/RK3576
+
+## Explanation
+
+For products equipped with the RK3582 SoC, such as ROCK5C Lite and E54C, when using RKNN and RKLLM for model conversion or inference, **the platform to specify for models is `rk3588`**, meaning that models for RK3588 can be used on the RK3582 platform.
+
+Documentation regarding RK3588 NPU usage is universally applicable to RK3582.

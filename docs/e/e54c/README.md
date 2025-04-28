@@ -35,7 +35,7 @@ Radxa E54C 是一款高性能边缘 AI 网络计算设备，专为智能路由�
 
 ## 端口布局
 
-<img src="/img/e/e54c/e54c-ports.webp" width="800" alt="Radxa E54C接口布局" />
+<img src="/img/e/e54c/e54c-ports-cn.webp" width="800" alt="Radxa E54C接口布局" />
 
 ## 谁适合使用 E54C？
 
