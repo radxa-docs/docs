@@ -138,7 +138,7 @@ echo fc000000.usb > UDC
 <NewCodeBlock type="host">
 
 ```
-$ lsblk 
+$ lsblk
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 ...
 sdb           8:16   1 953.9G  0 disk /media/devmon/sdb-usb-Linux_File-Stor_
@@ -152,11 +152,11 @@ sdb           8:16   1 953.9G  0 disk /media/devmon/sdb-usb-Linux_File-Stor_
 <NewCodeBlock type="host">
 
 ```
-$ lsblk 
+$ lsblk
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 ...
 cp /home/lsj/Downloads/test.wav /media/devmon/sdb-usb-Linux_File-Stor_
-md5sum /media/devmon/sdb-usb-Linux_File-Stor_/test.wav 
+md5sum /media/devmon/sdb-usb-Linux_File-Stor_/test.wav
 ...
 ```
 
