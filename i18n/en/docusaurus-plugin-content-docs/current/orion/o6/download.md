@@ -46,7 +46,7 @@ NOTE:
 |                                 orion-o6-debian12-desktop-arm64-b6.iso                                 |
 | :----------------------------------------------------------------------------------------------------: |
 | [Radxa DL Link](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-desktop-arm64-b6.iso.gz) |
-|                [BaiduPan Link](https://pan.baidu.com/s/1WSrdcqFUXlkkAsvbQtVh6A?pwd=nnyi                |
+|               [BaiduPan Link](https://pan.baidu.com/s/1WSrdcqFUXlkkAsvbQtVh6A?pwd=nnyi)                |
 |         [Mega Link](https://mega.nz/file/kyoHkRRT#86E73AN0-bGb01mkC-U30hPBhZMabJa7Dbgcf5U2a5w)         |
 
 NOTE:
