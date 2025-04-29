@@ -148,7 +148,7 @@ jobs:
         with:
           path: "contents"
       - name: Build
-        run:
+        run: |
           yarn install
           yarn build
       - name: Upload artifact
