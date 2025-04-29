@@ -46,7 +46,7 @@ Orion O6 V1.2 版本
 |                                 orion-o6-debian12-desktop-arm64-b6.iso                                 |
 | :----------------------------------------------------------------------------------------------------: |
 | [Radxa DL 链接](https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-desktop-arm64-b6.iso.gz) |
-|                [百度网盘链接](https://pan.baidu.com/s/1WSrdcqFUXlkkAsvbQtVh6A?pwd=nnyi                 |
+|                [百度网盘链接](https://pan.baidu.com/s/1WSrdcqFUXlkkAsvbQtVh6A?pwd=nnyi)                |
 |         [Mega 链接](https://mega.nz/file/kyoHkRRT#86E73AN0-bGb01mkC-U30hPBhZMabJa7Dbgcf5U2a5w)         |
 
 说明：
