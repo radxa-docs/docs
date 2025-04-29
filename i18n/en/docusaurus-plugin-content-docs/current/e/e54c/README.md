@@ -51,18 +51,18 @@ E54C is designed for:
 
 Radxa E54C is available in multiple configurations to meet different needs:
 
-| **Configuration**     | **Recommended Use Case**                                              |
-| --------------------- | --------------------------------------------------------------------- |
-| 2GB RAM + No eMMC     | Entry-level routing applications, basic network management            |
-| 4GB RAM + 32GB eMMC   | Home/small office router, NAS server                                  |
-| 8GB RAM + 64GB eMMC   | Edge AI computing, multi-WAN load balancing, enterprise-level routing |
-| 16GB RAM + 128GB eMMC | Video analytics, edge servers, high-performance computing             |
+| **Configuration** | **Recommended Use Case**                                              |
+| ----------------- | --------------------------------------------------------------------- |
+| 2GB RAM           | Entry-level routing applications, basic network management            |
+| 4GB RAM           | Home/small office router, NAS server                                  |
+| 8GB RAM           | Edge AI computing, multi-WAN load balancing, enterprise-level routing |
+| 16GB RAM          | Video analytics, edge servers, high-performance computing             |
 
 All models can be expanded with an M.2 NVMe SSD for storage, providing higher storage performance and reliability.
 
 ## Key Features
 
-- **Powerful Processing Performance**: Rockchip RK3582 processor, dual-core Cortex-A76 (up to 2.4GHz) and quad-core Cortex-A55 (up to 1.8GHz) 64-bit processor
+- **Powerful Processing Performance**: Rockchip RK3582 processor, dual-core Cortex-A76 (up to 2.2GHz) and quad-core Cortex-A55 (up to 1.8GHz) 64-bit processor
 - **Rich Network Connectivity**: Equipped with 4 gigabit Ethernet ports, supporting multi-WAN access, load balancing, and complex network topologies
 - **Flexible Storage Solutions**: Supports MicroSD card boot, optional onboard eMMC, and M.2 NVMe SSD high-speed storage expansion
 - **AI Acceleration Capability**: Built-in NPU with computing power up to 5TOPs@INT8, supporting mainstream AI frameworks and inference tasks
@@ -75,7 +75,7 @@ All models can be expanded with an M.2 NVMe SSD for storage, providing higher st
 
 | **Category**              | **Specifications**                                                                           |
 | ------------------------- | -------------------------------------------------------------------------------------------- |
-| **SoC**                   | Rockchip RK3582, dual-core Cortex-A76 (up to 2.4GHz) and quad-core Cortex-A55 (up to 1.8GHz) |
+| **SoC**                   | Rockchip RK3582, dual-core Cortex-A76 (up to 2.2GHz) and quad-core Cortex-A55 (up to 1.8GHz) |
 | **NPU**                   | Computing power up to 5TOPs@INT8, supporting mainstream AI inference frameworks              |
 | **Memory**                | 2GB/4GB/8GB/16GB/32GB LPDDR4                                                                 |
 | **Onboard Storage**       | Optional eMMC: 8GB/16GB/32GB/64GB/128GB                                                      |
