@@ -23,7 +23,7 @@ Follow the instructions below to make the hardware connections.
 - Assemble the PCIe NVME SSD to the O6 M.2 M-Key.
 - Insert the USB flash drive into the O6 Type-A 3.2 port.
 - Connect the O6 to a USB keyboard and mouse, and a HDMI monitor.
-- Connect the O6 Type-A port to a Type-A USB to Ethernet adapter (Internet access is required for ISO installation).
+- Connect the O6 Type-A port to a Type-A **USB to Ethernet adapter** (Internet access is required for ISO installation).
 - Power up the O6, and during the boot process, when you see the Radxa logo and the progress bar, briefly press the “Esc” key on the keyboard to enter the BIOS interface.
 
 ## Configure the O6 BIOS for ACPI booting
