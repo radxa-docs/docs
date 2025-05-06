@@ -8,11 +8,17 @@
 
 - 如使用 conda 请先激活 rknn conda 环境
 
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   conda activate rknn
   ```
 
+  </NewCodeBlock>
+
 - 下载 yolov5s-seg.onnx 模型
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov5_seg/model
@@ -20,21 +26,33 @@
   bash download_model.sh
   ```
 
+  </NewCodeBlock>
+
   :::tip
   如遇到网络问题，可访问 [此页 ](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) 下载对应的模型到对应文件夹
   :::
 
 - 修改 onnx 模型后缀为 rknn (**仅用于 PC 端结果模拟**)
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   cp yolov5s-seg.onnx yolov5s-seg.rknn
   ```
+
+  </NewCodeBlock>
+
 - （可选）使用 rknn-toolkit2 转换成 yolov5s-seg.rknn
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov5_seg/python
   python3 convert.py <onnx_model> <TARGET_PLATFORM> <dtype> <output_rknn_path>
   # python3 convert.py ../model/yolov5s-seg.onnx rk3588 i8 ../model/yolov5s-seg.rknn
   ```
+
+  </NewCodeBlock>
 
   参数解析：
 
@@ -51,9 +69,15 @@
 
 ## PC 真实推理 onnx 模型
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
 ```bash
 python3 yolov5_seg.py --model_path ../model/yolov5s-seg.onnx --img_show
 ```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Result" type="PC">
 
 ```bash
 person @ (212 242 285 510) 0.871
@@ -63,19 +87,27 @@ bus  @ (97 134 549 458) 0.799
 person @ (80 328 125 517) 0.470
 ```
 
+</NewCodeBlock>
+
 <img width="550" src="/img/general-tutorial/rknn/yolov5_seg_onnx_result.webp" />
 
 ## PC 模拟推理 rknn 模型
 
 - pip3 安装所需依赖
 
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   pip3 install torchvision==0.19.0 pycocotools
   ```
 
+  </NewCodeBlock>
+
 - 运行模拟推理程序
 
-  - 修改 rknn_model_zoo/py_utils/rknn_executor.py 为以下代码，**务必备份一份原版代码**,
+  - 修改 rknn_model_zoo/py_utils/rknn_executor.py 为以下代码，**务必备份一份原版代码**
+
+    <NewCodeBlock tip="Python Code" type="PC">
 
     ```python
     from rknn.api import RKNN
@@ -105,24 +137,34 @@ person @ (80 328 125 517) 0.470
             self.rknn = None
     ```
 
+    </NewCodeBlock>
+
   - 运行模拟推理程序
 
-  ```bash
-  python3 yolov5_seg.py --target <TARGET_PLATFORM> --model_path <RKNN_MODEL_PATH> --img_show
-  # python3 yolov5_seg.py --target rk3588 --model_path ../model/yolov5s-seg.rknn --img_show
-  ```
+      <NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  `--target`: 指定模拟 NPU 平台名称。可选 `rk3562, rk3566, rk3568, rk3576, rk3588, rk1808, rv1109, rv1126`
+    ```bash
+    python3 yolov5_seg.py --target <TARGET_PLATFORM> --model_path <RKNN_MODEL_PATH> --img_show
+    # python3 yolov5_seg.py --target rk3588 --model_path ../model/yolov5s-seg.rknn --img_show
+    ```
 
-  `--model_path`: 需要模拟的 rknn 模型路径
+      </NewCodeBlock>
 
-  ```bash
-  person @ (213 239 284 516) 0.882
-  person @ (109 240 224 535) 0.869
-  person @ (473 231 560 523) 0.845
-  bus  @ (97 136 548 459) 0.821
-  person @ (80 328 124 519) 0.499
-  ```
+    `--target`: 指定模拟 NPU 平台名称。可选 `rk3562, rk3566, rk3568, rk3576, rk3588, rk1808, rv1109, rv1126`
+
+    `--model_path`: 需要模拟的 rknn 模型路径
+
+      <NewCodeBlock tip="Results" type="PC">
+
+    ```bash
+    person @ (213 239 284 516) 0.882
+    person @ (109 240 224 535) 0.869
+    person @ (473 231 560 523) 0.845
+    bus  @ (97 136 548 459) 0.821
+    person @ (80 328 124 519) 0.499
+    ```
+
+      </NewCodeBlock>
 
   - 模拟推理结果 （模拟器仅模拟 NPU 计算结果，实际效果与精度以板端推理为准）
 

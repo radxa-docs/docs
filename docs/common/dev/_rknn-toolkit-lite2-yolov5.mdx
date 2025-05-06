@@ -17,15 +17,27 @@ Radxa 已提供预转换好的 `yolov5s_rk35XX.rknn` 模型，用户可直接参
 
 - 如使用 conda 请先激活 rknn conda 环境
 
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   conda activate rknn
   ```
 
+  </NewCodeBlock>
+
 - 克隆 rknn_model_zoo 代码仓库
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   git clone -b v2.3.0 https://github.com/airockchip/rknn_model_zoo.git
   ```
+
+  </NewCodeBlock>
+
 - 下载 yolov5s_relu.onnx 模型
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/model
@@ -33,15 +45,21 @@ Radxa 已提供预转换好的 `yolov5s_rk35XX.rknn` 模型，用户可直接参
   bash download_model.sh
   ```
 
+  </NewCodeBlock>
+
   如遇到网络问题，可访问 [此页 ](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) 下载对应的模型到对应文件夹
 
 - 使用 rknn-toolkit2 转换成 yolov5s_relu.rknn
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/python
   python3 convert.py <onnx_model> <TARGET_PLATFORM> <dtype> <output_rknn_path>
   # python3 convert.py ../model/yolov5s_relu.onnx rk3588 i8 ../model/yolov5s_relu_rk3588.rknn
   ```
+
+  </NewCodeBlock>
 
   参数解析：
 
@@ -77,6 +95,8 @@ RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `s
 
   请根据[板端安装 RKNN Model Zoo](./rknn_install#可选-板端安装-rknn-model-zoo) 配置 RKNN Model Zoo 代码仓库
 
+  <NewCodeBlock tip="Python Code" type="device">
+
   ```python
   from rknnlite.api import RKNNLite as RKNN
 
@@ -104,13 +124,20 @@ RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `s
       def release(self):
           self.rknn.release()
           self.rknn = None
-
   ```
 
+  </NewCodeBlock>
+
 - 修改 `rknn_model_zoo/examples/yolov5/python/yolov5.py` 262 行的代码, **请备份原版代码**
+
+  <NewCodeBlock tip="Python Code" type="device">
+
   ```python
   262 outputs = model.run([np.expand_dims(input_data, 0)])
   ```
+
+  </NewCodeBlock>
+
 - 进入虚拟环境
 
   虚拟环境使用请参考: [Python 虚拟环境使用](./venv_usage)
@@ -123,12 +150,18 @@ RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `s
   ```
 - 运行 yolov5 示例代码
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   cd rknn_model_zoo/examples/yolov5/python
   python3 yolov5.py --model_path <your model path> --img_save
   ```
 
+  </NewCodeBlock>
+
   如你使用的是自己转换的模型需从 PC 端拷贝到板端，并用 --model_path 参数指定模型路径
+
+  <NewCodeBlock tip="Results" type="device">
 
   ```bash
   (.venv) rock@rock-5b-plus:~/rknn_model_zoo/examples/yolov5/python$ python3 yolov5.py --model_path ./yolov5s_relu_rk3588.rknn --img_save
@@ -150,6 +183,8 @@ RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `s
   bus  @ (91 129 555 464) 0.692
   Detection result save to ./result/bus.jpg
   ```
+
+  </NewCodeBlock>
 
   参数解析：
 

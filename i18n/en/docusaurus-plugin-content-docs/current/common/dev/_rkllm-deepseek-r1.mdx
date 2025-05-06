@@ -10,9 +10,13 @@ Radxa has provided pre-compiled RKLLM models and executable files. Users can dir
 
 - Use [git LFS](https://git-lfs.com/) to download the pre-compiled RKLLM from [ModelScope](https://modelscope.cn/models/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM):
 
-```bash
-git clone https://www.modelscope.cn/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM.git
-```
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  git clone https://www.modelscope.cn/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM.git
+  ```
+
+    </NewCodeBlock>
 
 ### (Optional) Model Compilation
 
@@ -21,30 +25,56 @@ Please ensure that the RKLLM working environment is set up on both the PC and th
 :::
 
 - Download the [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) weight files on an x86 PC workstation. If [git-lfs](https://git-lfs.com/) is not installed, please install it.
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   git clone https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
   ```
+
+  </NewCodeBlock>
+
 - Activate the RKLLM conda environment. Refer to [RKLLM Installation](./rkllm_install#x86-pc-workstation) for details.
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   conda activate rkllm
   ```
+
+  </NewCodeBlock>
+
 - Modify the `modelpath`, `dataset` path, and RKLLM export path in `rknn-llm/rkllm-toolkit/examples/test.py`:
+
+  <NewCodeBlock tip="Python Code" type="PC">
+
   ```python
   15 modelpath = 'Your DeepSeek-R1-Distill-Qwen-1.5B Folder Path'
   29 dataset = None # Default is "./data_quant.json". If not available, set to None.
   83 ret = llm.export_rkllm("./DeepSeek-R1-Distill-Qwen-1.5B.rkllm")
   ```
+
+  </NewCodeBlock>
+
 - Run the model conversion script:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   cd rknn-llm/rkllm-toolkit/examples/
   python3 test.py
   ```
+
+  </NewCodeBlock>
+
   After successful conversion, the `DeepSeek-R1-Distill-Qwen-1.5B.rkllm` model will be generated.
 
 ### (Optional) Compile the Executable File
 
 - Download the cross-compilation toolchain [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11).
 - Modify the main program code in `rknn-llm/examples/rkllm_api_demo/src/llm_demo.cpp`, specifically the PROMPT format and construction:
+
+  <NewCodeBlock tip="CPP Code" type="PC">
 
   ```cpp
   24 #define PROMPT_TEXT_PREFIX "<|im_start|>system\nYou are a helpful assistant.\n<|im_end|>\n<|im_start|>user\n"
@@ -53,20 +83,34 @@ Please ensure that the RKLLM working environment is set up on both the PC and th
   185 // text = input_str;
   ```
 
+  </NewCodeBlock>
+
   :::tip
   Why modify `PROMPT_TEXT_PREFIX` and `PROMPT_TEXT_POSTFIX`? Refer to Table 1 in the [DeepSeek-R1 Paper](https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf) for the required format when querying the DeepSeek-R1 model.
   :::
   ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_ds_2.webp)
 
 - Modify the `GCC_COMPILER_PATH` in the `rknn-llm/examples/rkllm_api_demo/build-linux.sh` script:
+
+  <NewCodeBlock tip="BASH" type="PC">
+
   ```bash
   GCC_COMPILER_PATH=gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
   ```
+
+  </NewCodeBlock>
+
 - Run the model conversion script:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   cd rknn-llm/examples/rkllm_api_demo/
   bash build-linux.sh
   ```
+
+  </NewCodeBlock>
+
   The executable file will be generated at `build/build_linux_aarch64_Release/llm_demo`.
 
 ### On-Board Deployment
@@ -75,17 +119,30 @@ Please ensure that the RKLLM working environment is set up on both the PC and th
 
 - Copy the converted `DeepSeek-R1-Distill-Qwen-1.5B.rkllm` model and the compiled `llm_demo` binary to the board.
 - Set the environment variable:
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:rknn-llm/rkllm-runtime/Linux/librkllm_api/aarch64
   ```
+
+  </NewCodeBlock>
+
   :::tip
   Users who downloaded from ModelScope can directly export the `librkllmrt.so` from the downloaded repository.
   :::
+
 - Run `llm_demo`. Type `exit` to quit:
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   export RKLLM_LOG_LEVEL=1
   ./llm_demo DeepSeek-R1-Distill-Qwen-1.5B.rkllm 10000 10000
   ```
+
+  </NewCodeBlock>
+
   ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_ds_3.webp)
 
 ### Performance Analysis

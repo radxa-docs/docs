@@ -32,38 +32,68 @@ RKLLM 可以帮助用户快速将 LLM 模型部署到 Rockchip 芯片中，目�
 
     在计算机的终端窗口中执行以下命令，检查是否安装 Anaconda，若已安装则可省略此节步骤
 
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
     ```bash
     $ conda --version
     conda 23.10.0
     ```
 
+    </NewCodeBlock>
+
     如出现 conda: command not found, 则表示未安装 anaconda, 请参考 [Anaconda](https://www.anaconda.com/) 官网进行安装
 
   - 创建 conda 环境
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
     ```bash
     conda create -n rkllm python=3.8.2
     ```
+
+    </NewCodeBlock>
+
   - 进入 rkllm conda 环境
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
 
     ```bash
     conda activate rkllm
     ```
 
+    </NewCodeBlock>
+
   - _如要退出环境_
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
     ```bash
     conda deactivate
     ```
 
+    </NewCodeBlock>
+
 - RKLLM-Toolkit是一套软件开发包，供用户在 PC 上进行 Huggingface 格式的 LLM 模型转换和量化
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   git clone -b release-v1.1.4 https://github.com/airockchip/rknn-llm.git
   pip3 install ./rknn-llm/rkllm-toolkit/packages/rkllm_toolkit-1.1.4-cp38-cp38-linux_x86_64.whl
   ```
+
+  </NewCodeBlock>
+
   若执行以下命令没有报错，则安装成功
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   python3
   from rkllm.api import RKLLM
   ```
+
+  </NewCodeBlock>
 
 ### 开发板
 
@@ -73,10 +103,14 @@ RKLLM 可以帮助用户快速将 LLM 模型部署到 Rockchip 芯片中，目�
   升级后请务必执行 **`sudo apt autopurge`** 然后重启。
   :::
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   $ sudo cat /sys/kernel/debug/rknpu/version
   RKNPU driver: v0.9.8
   ```
+
+  </NewCodeBlock>
 
 - （可选）手动编译 NPU 内核
 
@@ -91,6 +125,11 @@ RKLLM 可以帮助用户快速将 LLM 模型部署到 Rockchip 芯片中，目�
   4） 将新编译的内核烧录到设备中
 
 - RKLLM Runtime 为 Rockchip NPU 平台提供 C/C++ 编程接口，帮助用户部署 RKLLM 模型，加速 LLM 应用的实现
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   git clone -b release-v1.1.4 https://github.com/airockchip/rknn-llm.git
   ```
+
+  </NewCodeBlock>

@@ -9,23 +9,35 @@ Currently, the [Ultralytics](https://docs.ultralytics.com/integrations/rockchip-
 **Radxa has provided a pre-converted `yolov11n.rknn` model. Users can skip the PC-side model conversion section and directly refer to [YOLOv11 Inference on Board](#yolov11-inference-on-board).**
 
 - Install the latest version of Ultralytics:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   pip3 install -U ultralytics
   ```
+
+  </NewCodeBlock>
+
 - Use Ultralytics to export the YOLOv11 model in RKNN format:
 
     <Tabs>
 
         <TabItem value="CLI">
 
+        <NewCodeBlock tip="X86 Linux PC" type="PC">
+
         ```bash
         # 'name' can be one of rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118
         yolo export model=yolo11n.pt format=rknn name=rk3588
         ```
 
+        </NewCodeBlock>
+
         </TabItem>
 
         <TabItem value="Python">
+
+        <NewCodeBlock tip="Python Code" type="PC">
 
         ```bash
         from ultralytics import YOLO
@@ -37,6 +49,8 @@ Currently, the [Ultralytics](https://docs.ultralytics.com/integrations/rockchip-
         # 'name' can be one of rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118
         model.export(format="rknn", name="rk3588")  # creates '/yolo11n_rknn_model'
         ```
+
+        </NewCodeBlock>
 
         </TabItem>
 
@@ -65,19 +79,32 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
 
   For instructions on virtual environments, refer to [Python Virtual Environment Usage](venv_usage).
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   pip3 install -U ultralytics
   ```
+
+  </NewCodeBlock>
 
 - Run inference on the board:
 
       <Tabs>
           <TabItem value="CLI">
+
+          <NewCodeBlock tip="Radxa OS" type="device">
+
           ```bash
           yolo predict model='./yolo11n_rknn_model' source='https://ultralytics.com/images/bus.jpg'
           ```
+
+          </NewCodeBlock>
+
           </TabItem>
           <TabItem value="Python">
+
+          <NewCodeBlock tip="Python Code" type="device">
+
           ```python
           from ultralytics import YOLO
 
@@ -87,12 +114,15 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
           # Run inference
           results = rknn_model("https://ultralytics.com/images/bus.jpg")
           ```
+
+          </NewCodeBlock>
+
           </TabItem>
       </Tabs>
 
       The results are saved in `runs/detect/predict`.
 
-  <img width="400" src="../../../img/general-tutorial/rknn/yolov11.webp" />
+  <img width="400" src="/en/img/general-tutorial/rknn/yolov11.webp" />
 
 ## Additional Usage Details
 

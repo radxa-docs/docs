@@ -32,44 +32,68 @@ To use RKNPU, users first need to run the RKLLM-Toolkit tool on an x86 workstati
 
     To check if Anaconda is installed, run the following command in the terminal. If it is installed, you can skip this step.
 
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
     ```bash
     $ conda --version
     conda 23.10.0
     ```
 
+    </NewCodeBlock>
+
     If you see `conda: command not found`, Anaconda is not installed. Please refer to the [Anaconda](https://www.anaconda.com/) website for installation instructions.
 
   - Create a conda environment
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
 
     ```bash
     conda create -n rkllm python=3.8.2
     ```
 
+    </NewCodeBlock>
+
   - Activate the rkllm conda environment
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
 
     ```bash
     conda activate rkllm
     ```
 
+    </NewCodeBlock>
+
   - Deactivate the environment
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
 
     ```bash
     conda deactivate
     ```
 
+    </NewCodeBlock>
+
 - RKLLM-Toolkit is a software development package for converting and quantizing Huggingface format LLM models on a PC.
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   git clone -b release-v1.1.4 https://github.com/airockchip/rknn-llm.git
   pip3 install ./rknn-llm/rkllm-toolkit/packages/rkllm_toolkit-1.1.4-cp38-cp38-linux_x86_64.whl
   ```
 
+  </NewCodeBlock>
+
   If the following command runs without errors, the installation is successful:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   python3
   from rkllm.api import RKLLM
   ```
+
+  </NewCodeBlock>
 
 ### Development Board
 
@@ -79,10 +103,14 @@ To use RKNPU, users first need to run the RKLLM-Toolkit tool on an x86 workstati
   Please be sure to run **`sudo apt autopurge`** after system upgrade and then reboot.
   :::
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   $ sudo cat /sys/kernel/debug/rknpu/version
   RKNPU driver: v0.9.8
   ```
+
+  </NewCodeBlock>
 
   (Optional) Manually compile the NPU kernel
 
@@ -98,6 +126,10 @@ To use RKNPU, users first need to run the RKLLM-Toolkit tool on an x86 workstati
 
 - RKLLM Runtime provides C/C++ programming interfaces for the Rockchip NPU platform to help users deploy RKLLM models and accelerate LLM applications.
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   git clone -b release-v1.1.4 https://github.com/airockchip/rknn-llm.git
   ```
+
+  </NewCodeBlock>
