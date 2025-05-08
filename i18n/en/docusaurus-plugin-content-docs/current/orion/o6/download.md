@@ -20,6 +20,10 @@ Orion O6 V1.2 Version
 
 [O6 BIOS](https://github.com/radxa-pkg/edk2-cix/releases/latest)
 
+The BIOS content is within the `edk2-cix_*_all.deb` package. This file can be opened with 7-Zip in Windows and with KDE Ark in Linux.
+
+In the BIOS package, the BIOS file is located under `data.tar.xz/usr/share/edk2/radxa/orion-o6`.
+
 ## Debian 12 pre‑installed image
 
 ### Debian12 Desktop b3

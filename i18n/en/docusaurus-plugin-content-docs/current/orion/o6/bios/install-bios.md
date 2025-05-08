@@ -9,7 +9,7 @@ description: ""
 
 ## Download BIOS distribution package
 
-[O6 BIOS](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.2.2-1.zip)
+Please refer to the relevant content on the [download page](../download#bios).
 
 ## Make a BIOS flash drive
 

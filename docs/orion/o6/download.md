@@ -20,6 +20,10 @@ Orion O6 V1.2 版本
 
 [O6 BIOS](https://github.com/radxa-pkg/edk2-cix/releases/latest)
 
+BIOS 内容处于 `edk2-cix_*_all.deb` 软件包当中。该文件在 Windows 下可使用 7-Zip 打开，Linux 下可使用 KDE Ark 打开。
+
+软件包内，BIOS 文件路径为 `data.tar.xz/usr/share/edk2/radxa/orion-o6`。
+
 ## Debian 12 预装版系统镜像
 
 ### Debian12 Desktop b6

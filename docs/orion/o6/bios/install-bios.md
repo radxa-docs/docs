@@ -7,7 +7,7 @@ description: ""
 
 ## 下载 BIOS 发布包
 
-[O6 BIOS](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.2.2-1.zip)
+请参考[下载页面](../download#bios)的相关内容。
 
 ## 制作刷 BIOS U盘
 
