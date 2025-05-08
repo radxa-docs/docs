@@ -16,11 +16,9 @@ Orion O6 V1.2 Version
 
 [V1.2 Components Placement Map Top pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_top.pdf)
 
-## Flashing Tool
-
 ## BIOS
 
-[O6 BIOS](https://dl.radxa.com/orion/o6/images/bios/)
+[O6 BIOS](https://github.com/radxa-pkg/edk2-cix/releases/latest)
 
 ## Debian 12 pre‑installed image
 
@@ -54,6 +52,22 @@ NOTE:
 - The image is used for USB boot disk. Users can install the system to NVME SSD through this USB boot disk.
 - Users can write the image to the USB disk through balenaEtcher on the host PC.
 - Please record the passwords of the root user and ordinary user during the installation process.
+
+### RadxaOS
+
+:::info
+RadxaOS is still in the testing phase. Compared with the above systems, there may be some functional deficiencies.
+
+Known issues of T1:
+
+1. Chromium cannot be started during the first boot: Debian issue [#1035061](https://bugs-devel.debian.org/cgi-bin/bugreport.cgi?bug=1035061).
+2. Currently, the NPU userspace is not pre-installed in the system, and the system is not compatible with the CIX EBP 25Q1 NPU driver package.
+3. The throughput of the 5GbE is relatively low.
+4. The suspend and wake-up functions do not work properly.
+
+:::
+
+[Download Link](https://github.com/radxa-build/orion-o6/releases/download/rsdk-t1/orion-o6_bookworm_gnome_t1.output.img.xz)
 
 ## Fedora
 
