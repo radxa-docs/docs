@@ -8,24 +8,37 @@
 
 ## 安装依赖
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
 ```bash
 sudo apt install git python-is-python3 python3-pip libxslt1-dev zlib1g-dev libglib2.0-dev libsm6 libgl1-mesa-glx libprotobuf-dev build-essential adb
 ```
 
+</NewCodeBlock>
+
 ## 拉取和安装 RKNN Toolkit2
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
 ```bash
-git clone https://github.com/rockchip-linux/rknn-toolkit2.git
-cd rknn-toolkit2/
-pip install ./packages/rknn_toolkit2-1.5.2+b642f30c-cp310-cp310-linux_x86_64.whl
+git clone -b v2.3.0 https://github.com/airockchip/rknn-toolkit2.git
+cd rknn-toolkit2/rknn-toolkit2/packages/x86_64/
+pip3 install -r requirements_cp38-2.3.0.txt
+pip3 install ./rknn_toolkit2-2.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 ```
+
+</NewCodeBlock>
 
 ## 运行 yolov5 例程
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
 ```bash
-cd examples/onnx/yolov5
-python test.py
+cd rknn-toolkit2/examples/onnx/yolov5
+python3 test.py
 ```
+
+</NewCodeBlock>
 
 :::info
 转换模型和推理脚本 test.py 运行成功后，转换后的模型默认保存路径为 examples/onnx/yolov5/yolov5s_relu.rknn，推理的图片结果保存在 examples/onnx/yolov5/result.jpg
@@ -49,18 +62,26 @@ RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `s
 Radxa 官方镜像已默认安装 RKNN Toolkit Lite2 及其所需依赖，如无法运行可尝试以下命令。
 :::
 
+<NewCodeBlock tip="Radxa OS" type="device">
+
 ```bash
 sudo apt update
 sudo apt install rknpu2-rk3588 python3-rknnlite2    # SOC 为 RK3588 系列
 sudo apt install rknpu2-rk356x python3-rknnlite2    # SOC 为 RK356X 系列
 ```
 
+</NewCodeBlock>
+
 ## 安装 RKNN Toolkit Lite2 例程
+
+<NewCodeBlock tip="Radxa OS" type="device">
 
 ```bash
 sudo apt update
 sudo apt install python3-rknnlite2-example
 ```
+
+</NewCodeBlock>
 
 ## 运行 Resnet18 示例
 
@@ -69,9 +90,18 @@ RKNN Toolkit Lite2 主要用于 RKNN 模型在 Rockchip NPU 上的部署。
 在使用 RKNN Toolkit Lite2 之前，我们需要先在 PC 端通过 RKNN Toolkit2 将各框架导出的模型转成 RKNN 模型。
 :::
 
+<NewCodeBlock tip="Radxa OS" type="device">
+
 ```bash
 cd /usr/share/python3-rknnlite2/resnet18
-python test.py
+python3 test.py
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Results" type="device">
+
+```bash
 --> Load RKNN model
 done
 --> Init runtime environment
@@ -91,6 +121,8 @@ resnet18
 
 done
 ```
+
+</NewCodeBlock>
 
 :::info
 执行该示例将加载 Resnet18 模型并进行推理，得到测试图片的 top5 分类结果。

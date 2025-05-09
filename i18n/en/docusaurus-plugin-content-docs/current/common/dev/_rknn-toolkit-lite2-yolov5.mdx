@@ -17,26 +17,40 @@ Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model. Users can directly s
 
 - Activate the `rknn` Conda environment if you are using Conda:
 
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   conda activate rknn
   ```
 
+  </NewCodeBlock>
+
 - Clone the `rknn_model_zoo` repository:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   git clone -b v2.3.0 https://github.com/airockchip/rknn_model_zoo.git
   ```
 
+  </NewCodeBlock>
+
 - Download the `yolov5s_relu.onnx` model:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/model
   bash download_model.sh
   ```
 
+  </NewCodeBlock>
+
   If network issues occur, download the model from [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) and place it in the appropriate directory.
 
 - Convert the model to RKNN format using `rknn-toolkit2`:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/python
@@ -44,6 +58,8 @@ Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model. Users can directly s
   # Example:
   python3 convert.py ../model/yolov5s_relu.onnx rk3588 i8 ../model/yolov5s_relu_rk3588.rknn
   ```
+
+  </NewCodeBlock>
 
   Parameter explanation:
 
@@ -72,6 +88,8 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
 
 - Modify `rknn_model_zoo/py_utils/rknn_executor.py` (backup the original code):
 
+  <NewCodeBlock tip="Python Code" type="device">
+
   ```python
   from rknnlite.api import RKNNLite as RKNN
 
@@ -96,11 +114,17 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
           self.rknn = None
   ```
 
+  </NewCodeBlock>
+
 - Update line 262 in `rknn_model_zoo/examples/yolov5/python/yolov5.py` (backup the original code):
+
+  <NewCodeBlock tip="Python Code" type="device">
 
   ```python
   262 outputs = model.run([np.expand_dims(input_data, 0)])
   ```
+
+  </NewCodeBlock>
 
 - Enter the virtual environment:
 
@@ -109,20 +133,30 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
 
 - Install dependencies:
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   pip3 install opencv-python-headless
   ```
 
+  </NewCodeBlock>
+
 - Run the YOLOv5 example:
+
+  <NewCodeBlock tip="Radxa OS" type="device">
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/python
   python3 yolov5.py --model_path <your model path> --img_save
   ```
 
+  </NewCodeBlock>
+
   If using a custom-converted model, copy it from the PC to the device and specify the path with `--model_path`.
 
-  ````bash
+  <NewCodeBlock tip="Results" type="device">
+
+  ```bash
   (.venv) rock@rock-5b-plus:~/rknn_model_zoo/examples/yolov5/python$ python3 yolov5.py --model_path ./yolov5s_relu_rk3588.rknn --img_save
   use anchors from '../model/anchors_yolov5.txt', which is [[[10.0, 13.0], [16.0, 30.0], [33.0, 23.0]], [[30.0, 61.0], [62.0, 45.0], [59.0, 119.0]], [[116.0, 90.0], [156.0, 198.0], [373.0, 326.0]]]
   W rknn-toolkit-lite2 version: 2.3.0
@@ -140,13 +174,10 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
   person @ (109 238 231 534) 0.840
   person @ (79 353 121 517) 0.301
   bus  @ (91 129 555 464) 0.692
-  Detection result save to ./result/bus.jpg  ```
+  Detection result save to ./result/bus.jpg
+  ```
 
-  Example Output:
-
-  ```plaintext
-  Detection result saved to ./result/bus.jpg
-  ````
+  </NewCodeBlock>
 
   Parameter explanation:
 
@@ -156,4 +187,4 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
 
 - All inference results are saved in `./result`.
 
-<img width="550" src="../../../img/general-tutorial/rknn/result.webp" />
+<img width="550" src="/en/img/general-tutorial/rknn/result.webp" />

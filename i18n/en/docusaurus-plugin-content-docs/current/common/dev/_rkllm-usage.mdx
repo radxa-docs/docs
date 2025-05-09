@@ -25,43 +25,85 @@ If the RKLLM environment is not installed and configured, please refer to [RKLLM
 Using [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) as an example, users can also choose any of the links in the [currently supported models](#currently-supported-models) list.
 
 - Download all files of [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) on an x86 PC workstation. If [git-lfs](https://git-lfs.com/) is not installed, please install it.
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   git clone https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct
   ```
+
+  </NewCodeBlock>
+
 - Activate the rkllm conda environment. Refer to [RKLLM conda Installation](rkllm_install#x86-pc-workstation) if needed.
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   conda activate rkllm
   ```
+
+  </NewCodeBlock>
+
 - Change modelpath model path, dataset path, rkllm export path in `rknn-llm/rkllm-toolkit/examples/test.py`.
+
+  <NewCodeBlock tip="Python Code" type="PC">
+
   ```python
   15 modelpath = 'Your Huggingface LLM model'
   29 datasert = None # 默认是 "./data_quant.json"， 如无可以填写 None
   83 ret = llm.export_rkllm("./Your_Huggingface_LLM_model.rkllm")
   ```
+
+  </NewCodeBlock>
+
 - Run the model conversion script.
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   cd rknn-llm/rkllm-toolkit/examples/
   python3 test.py
   ```
+
+  </NewCodeBlock>
+
   After successful conversion, you will get an rkllm model.
 
 ### Compile Executable File
 
 - Download the cross-compilation toolchain [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11).
 - Modify the main program `rknn-llm/examples/rkllm_api_demo/src/llm_demo.cpp` code, change two places here.
+
+  <NewCodeBlock tip="CPP Code" type="PC">
+
   ```vim
   184 text = PROMPT_TEXT_PREFIX + input_str + PROMPT_TEXT_POSTFIX;
   185 // text = input_str;
   ```
+
+  </NewCodeBlock>
+
 - Modify the GCC_COMPILER_PATH in the `rknn-llm/examples/rkllm_api_demo/build-linux.sh` compilation script.
+
+  <NewCodeBlock tip="BASH" type="PC">
+
   ```bash
   GCC_COMPILER_PATH=gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
   ```
+
+  </NewCodeBlock>
+
 - Run the model conversion script.
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   cd rknn-llm/examples/rkllm_api_demo/
   bash build-linux.sh
   ```
+
+  </NewCodeBlock>
+
   The generated executable file is located in `build/build_linux_aarch64_Release/llm_demo`.
 
 ### Board Deployment
@@ -70,14 +112,26 @@ Using [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)
 
 - Copy the converted rkllm model and the compiled binary file llm_demo to the board.
 - Import environment variables.
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:rknn-llm/rkllm-runtime/Linux/librkllm_api/aarch64
   ```
+
+  </NewCodeBlock>
+
 - Run llm_demo and enter `exit` to quit.
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   export RKLLM_LOG_LEVEL=1
   ./llm_demo your_rkllm_path 10000 10000
   ```
+
+  </NewCodeBlock>
+
   ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_2.webp)
 
 {/* #### Gradio Mode */}
