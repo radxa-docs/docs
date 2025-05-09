@@ -8,6 +8,8 @@
 
 ### 这里简单介绍如何安装并使用 `rsdk`
 
+<Tabs queryString="method">
+<TabItem value="devcontainers">
 1. 首先，请安装所需的依赖项：
 
 ```
@@ -17,7 +19,7 @@ sudo apt-get install npm docker.io
 sudo usermod -a -G docker $USER
 ```
 
-2. 使用以下命令克隆项目git并安装devcontainer
+2. 使用以下命令克隆项目 git 并安装  devcontainer
 
 ```
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
@@ -53,6 +55,33 @@ direnv: export +AR +AS +CC +CONFIG_SHELL +CXX +DETERMINISTIC_BUILD +DEVENV_DOTFI
 vscode ➜ /workspaces/rsdk (main) $
 ```
 
+</TabItem>
+<TabItem value="native">
+
+:::warning
+推荐优先使用开发容器进行系统镜像构建。  
+使用原生编译方法，由于构建依赖版本无法控制可能出现意料外的错误，如 `jsonnet` 不支持 `isEmpty` 方法。  
+此方法仅在 Ubuntu 24.04 系统上进行了测试。
+:::
+
+1. 首先，请安装所需的依赖项：
+
+```
+sudo apt-get update
+sudo apt-get install bdebstrap binfmt-support dosfstools gdisk git jsonnet jq libguestfs-tools qemu-user-static
+```
+
+2. 使用以下命令克隆项目 git
+
+```
+git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
+cd rsdk
+export PATH="$PWD/src/bin:$PWD/node_modules/.bin:$PATH"
+```
+
+</TabItem>
+</Tabs>
+
 3.在终端中运行 rsdk 来启动 TUI 向导。
 
 ```
@@ -83,7 +112,7 @@ vscode ➜ /workspaces/rsdk (main) $
 └───────────────────────────────────────────┘
 ```
 
-选择`yes`开始构建, rsdk-tui 将运行相关的 CLI 命令来完成镜像编译
+选择 `yes` 开始构建, rsdk-tui 将运行相关的 CLI 命令来完成镜像编译
 
 ```
 ┌─────────────────┤ RSDK ├──────────────────┐
@@ -109,5 +138,5 @@ build-image  config.yaml  debs  manifest  output.img  rootfs.tar  seed.tar.xz
 
 ### 常见问题
 
-1. 开发容器设置暂停并提示：You might be rate limited by GitHub。您可能受到GitHub的速率限制。请按照输出中列出的说明进行操作。
-2. 启动开发容器失败。请编辑 .devcontainer/devcontainer.json，并调整runArgs属性。
+1. 开发容器设置暂停并提示：You might be rate limited by GitHub。您可能受到 GitHub 的速率限制。请按照输出中列出的说明进行操作。
+2. 启动开发容器失败。请编辑 .devcontainer/devcontainer.json，并调整 runArgs 属性，或者尝试使用 [native 方法构建](rsdk?method=native)。
