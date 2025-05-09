@@ -26,7 +26,7 @@ In the BIOS package, the BIOS file is located under `data.tar.xz/usr/share/edk2/
 
 ## Debian 12 pre‑installed image
 
-### Debian12 Desktop b3
+### Debian12 Desktop b6
 
 |                                 orion-o6-debian12-preinstalled-desktop-b6.img                                 |
 | :-----------------------------------------------------------------------------------------------------------: |
