@@ -16,11 +16,13 @@ Orion O6 V1.2 版本
 
 [V1.2 位号图 TOP pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_top.pdf)
 
-## 刷机工具
-
 ## BIOS
 
-[O6 BIOS](https://dl.radxa.com/orion/o6/images/bios/)
+[O6 BIOS](https://github.com/radxa-pkg/edk2-cix/releases/latest)
+
+BIOS 内容处于 `edk2-cix_*_all.deb` 软件包当中。该文件在 Windows 下可使用 7-Zip 打开，Linux 下可使用 KDE Ark 打开。
+
+软件包内，BIOS 文件路径为 `data.tar.xz/usr/share/edk2/radxa/orion-o6`。
 
 ## Debian 12 预装版系统镜像
 
@@ -54,6 +56,22 @@ Orion O6 V1.2 版本
 - 该镜像用于 USB 启动盘。用户通过该 USB 启动盘安装系统到 NVME SSD。
 - 用户可通过主机上的 balenaEtcher 将该镜像烧写到 U盘中。
 - 请记录安装过程中设置的 root 用户和普通用户的密码。
+
+### RadxaOS
+
+:::info
+RadxaOS 目前仍处于测试阶段。相比于上面的系统可能在部分功能上有所缺失。
+
+T1 已知问题：
+
+1. Chromium 首次开机无法启动：Debian 问题 [#1035061](https://bugs-devel.debian.org/cgi-bin/bugreport.cgi?bug=1035061)
+2. 系统目前未预装 NPU 用户层软件，且不兼容 CIX EBP 25Q1 NPU 驱动包。
+3. 5GbE 吞吐量较低。
+4. 休眠唤醒工作不正常。
+
+:::
+
+[下载链接](https://github.com/radxa-build/orion-o6/releases/download/rsdk-t1/orion-o6_bookworm_gnome_t1.output.img.xz)
 
 ## Fedora
 

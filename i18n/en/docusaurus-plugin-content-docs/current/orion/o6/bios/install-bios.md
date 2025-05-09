@@ -5,11 +5,20 @@ description: ""
 
 # Install BIOS
 
+:::info
+If you are using RadxaOS, the system provides functions related to BIOS updates, and there is no need to refer to the following content for manual updates.
+You just need to select the `Install EDK2` boot option when booting up, and confirm the operation according to the instructions.
+
+You can also install RadxaOS into a USB storage device, and use it as a BIOS update media to update multiple devices.
+
+For details, please refer to the [relevant documentation](https://radxa-pkg.github.io/edk2-cix/update.html) of `edk2-cix`.
+:::
+
 ## Installing BIOS
 
 ## Download BIOS distribution package
 
-[O6 BIOS](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.2.2-1.zip)
+Please refer to the relevant content on the [download page](../download#bios).
 
 ## Make a BIOS flash drive
 
