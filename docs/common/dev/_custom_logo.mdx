@@ -1,0 +1,70 @@
+### 确认 U-boot 是否是 rk2410
+
+由于目前我们只在 rk2410 中集成了该功能， 所以需要确认手中板子的 U-boot 是否是 2024 年 10 月份之后的版本，
+
+可在开机日志中查看 U-Boot 版本
+
+如：
+
+```bash
+U-Boot rk2410-2017.09-1-g1a7692f4-dirty #runner (Jan 26 2025 - 10:37:18 +0000)
+```
+
+<Tabs queryString="version">
+
+<TabItem value="U-boot 是 rk2410 的">
+
+可直接替换 logo 图片
+
+</TabItem>
+
+<TabItem value="U-boot 不是 rk2410 的">
+
+- 参考 <a href={props.uboot_develop}> U-boot 开发</a>， 编译 rk2410 的 U-boot
+
+```
+./bsp u-boot rk2410 -r 99
+```
+
+- 将 {props.product} 的 U-boot 拷贝到板子上
+
+<pre style={{ margin: 0 }}>
+  scp -r u-boot-rk2410_2017.09-1_arm64.deb radxa@192.168.xx.xx:~/
+</pre>
+
+- 在 {props.product} 上使用 <a href={props.rsetup_path} alt="update u-boot by rsetup" > rsetup</a> 更新 U-boot
+
+- 重启系统，确认 U-boot 更新到了最新的 rk2410
+
+</TabItem>
+</Tabs>
+
+### 准备 Logo 图片
+
+- 将 logo 图片转换为 bmp 格式
+
+  - 启动 logo 分为两个阶段，第一阶段是 U-boot 阶段，第二阶段是 kernel 阶段。两个阶段的 logo 图片分别为 logo.bmp 和 logo_kernel.bmp。
+
+  - 若只有一张图片，则 logo 显示时间会比较短。
+
+  - 两张图片可以是同一张，也可以是不同的。
+
+:::warning
+
+图片总像素数不能超过 200000。
+
+:::
+
+- 将以上两张 bmp 图片保存到 config 分区
+
+```bash
+sudo mount /dev/mmcblk0p1 /mnt/
+sudo cp logo.bmp /mnt/
+sudo cp logo_kernel.bmp /mnt/
+sudo sync /mnt
+sudo umount /mnt
+```
+
+### 重启系统
+
+连接 HDMI 后，系统重新启动，HDMI 将显示刚设定的 logo，直至桌面出现。
