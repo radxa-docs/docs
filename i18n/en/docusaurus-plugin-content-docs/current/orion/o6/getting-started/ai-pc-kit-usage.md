@@ -1,6 +1,8 @@
 # AI PC Developer Kit User Guide
 
-Note: Before assembling the AI PC Developer Kit, users need to remove the acrylic top/bottom covers and the heatsink (8420B)!
+:::tip
+Before assembling the AI ​​PC developer kit, users need to remove the heatsink (8420B) on the Orion 6 motherboard!
+:::
 
 ## 1.AI PC Developer Kit Components
 
@@ -33,6 +35,10 @@ Note: Before assembling the AI PC Developer Kit, users need to remove the acryli
 
 ## 2.Removing the Acrylic Enclosure
 
+:::tip
+Suitable for users who have purchased acrylic shells, if you don’t have purchased acrylic shells, you can skip this step!
+:::
+
 Use a screwdriver to unscrew the screws that secure the upper and lower acrylic covers, and remove the copper columns and acrylic plates that secure the acrylic plates.
 
 <div style={{textAlign: 'center'}}>
@@ -41,7 +47,7 @@ Use a screwdriver to unscrew the screws that secure the upper and lower acrylic 
 
 ## 3. Removing the Heatsink (8420B)
 
-Before using the AI PC Developer Kit, the radxa heatsink (8420B) must be removed to proceed with the assembly.
+Before assembling the AI ​​PC Developer Kit, you need to disassemble the radxa heatsink (8420B) to complete the assembly of the AI ​​PC Developer Kit.
 
 ### Step 1: Disconnect the Heatsink Cable
 
@@ -88,6 +94,10 @@ Insert the button into the designated power button slot on the enclosure.
 
 ### Step 4: Install the LED Panel
 
+:::danger
+Confirm the installation direction of the LED panel according to the position of the panel LED on the LED panel
+:::
+
 Mount the LED panel onto the corresponding interface on the motherboard assembly.
 
 <div style={{textAlign: 'center'}}>
@@ -105,7 +115,8 @@ Insert the motherboard into the enclosure at an angle, ensuring the motherboard�
 ### Step 6 (optional): PCIe to OCuLink adapter board
 
 Primarily used for connecting an external GPU. Users can install it as needed.
-Installation Guide: Align the adapter board’s external interface side with the enclosure’s port hole, then align the adapter board’s slot. Press down firmly until properly seated, then flip the latch upward.
+
+**Installation Guide**: Align the adapter board’s external interface side with the enclosure’s port hole, then align the adapter board’s slot. Press down firmly until properly seated, then flip the latch upward.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/o6/ai-pc-11.webp)
@@ -114,7 +125,8 @@ Installation Guide: Align the adapter board’s external interface side with the
 ### Step 6 (Optional): PCIe to M.2 Adapter Board
 
 Primarily used for expanding M.2 SSD storage. Users can install it as needed.
-Installation Guide: Align the adapter board’s slot, press down firmly until properly seated, then flip the latch upward (Note: The SSD in the diagram needs to be purchased by yourself and fixed with CM2\*4mm screws).
+
+**Installation Guide**: Align the adapter board’s slot, press down firmly until properly seated, then flip the latch upward (Note: The SSD in the diagram needs to be purchased by yourself and fixed with CM2\*4mm screws).
 
 <div style={{textAlign: 'center'}}>
   ![](/img/o6/ai-pc-12.webp)
