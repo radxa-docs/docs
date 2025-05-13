@@ -309,4 +309,4 @@ Reset with BIOS Update (24 bytes)
 
 ### 方法三：离线更新 BIOS
 
-可使用 Serial Flash 编程器将 BIOS 固件（cix_flash_all.bin），刷到 SPI Nor Flash 中。
+对于需要从损坏的BIOS中恢复或偏好直接硬件访问的高级用户，可以使用 Serial Flash 编程器（如CH341A）将BIOS固件（cix_flash_all.bin）直接刷写到SPI NOR Flash芯片中。此方法完全绕过操作系统，即使在设备无法启动的情况下也能工作。有关详细的步骤说明和硬件要求，请参阅社区成员Meco提供的全面[论坛指南](https://forum.radxa.com/t/guide-flash-bios-with-ch341a-macos-linux/26742)，其中涵盖了在macOS和Linux平台上的操作过程。

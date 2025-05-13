@@ -311,4 +311,4 @@ You can refer to the demo: https://radxa-pkg.github.io/edk2-cix/install.html
 
 ### Method 3: Offline BIOS update
 
-You can use a Serial Flash programmer to flash the BIOS firmware (cix_flash_all.bin) to the SPI Nor Flash.
+For advanced users who need to recover from a corrupted BIOS or prefer direct hardware access, a Serial Flash programmer (such as CH341A) can be used to flash the BIOS firmware (cix_flash_all.bin) directly to the SPI NOR Flash chip. This method bypasses the operating system entirely and works even when the device cannot boot. For detailed step-by-step instructions and hardware requirements, please refer to the comprehensive [Forum Guide](https://forum.radxa.com/t/guide-flash-bios-with-ch341a-macos-linux/26742) contributed by community member Meco, which covers the process on macOS and Linux platforms.
