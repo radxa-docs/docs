@@ -8,6 +8,10 @@ sidebar_position: 2
 
 ### Official Image
 
+SPL Loader:
+
+[RK3588_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rk3588_spl_loader_v1.15.113.bin)
+
 SPI Image:
 
 [spi_image.img](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gd1cf491-20240523.img)
@@ -15,8 +19,6 @@ SPI Image:
 Linux：
 
 <pre>
-    Loader： [RK3588_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rk3588_spl_loader_v1.15.113.bin)
-
     ROCK 5B Debian (kernel 5.10): [rock-5b_debian_bullseye_kde_b39](https://github.com/radxa-build/rock-5b/releases/download/b39/rock-5b_debian_bullseye_kde_b39.img.xz)
 
     ROCK 5B Debian (kernel 6.1): [rock-5b_bookworm_kde_b5](https://github.com/radxa-build/rock-5b/releases/download/rsdk-b5/rock-5b_bookworm_kde_b5.output.img.xz)
