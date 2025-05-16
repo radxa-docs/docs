@@ -1,4 +1,4 @@
-This document explains how to deploy large language models in Huggingface format to the RK3588 with NPU for hardware-accelerated inference using RKLLM.
+This document describes how to deploy Huggingface-format large language models onto RK3588 using RKLLM for hardware-accelerated inference on the NPU.
 
 #### Currently Supported Models
 
@@ -7,34 +7,44 @@ This document explains how to deploy large language models in Huggingface format
 - [Qwen models](https://huggingface.co/models?search=Qwen/Qwen)
 - [Phi models](https://huggingface.co/models?search=microsoft/phi)
 - [ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
-- [Gemma models](https://huggingface.co/collections/google/gemma-2-release-667d6600fd5220e7b967f315)
+- [Gemma2](https://huggingface.co/collections/google/gemma-2-release-667d6600fd5220e7b967f315)
+- [Gemma3](https://huggingface.co/collections/google/gemma-3-release-67c6c6f89c4f76621268bb6d)
 - [InternLM2 models](https://huggingface.co/collections/internlm/internlm2-65b0ce04970888799707893c)
 - [MiniCPM models](https://huggingface.co/collections/openbmb/minicpm-65d48bf958302b9fd25b698f)
 - [TeleChat models](https://huggingface.co/Tele-AI)
-- [Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)
-- [MiniCPM-V](https://huggingface.co/openbmb/MiniCPM-V-2_6)
+- [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)
+- [MiniCPM-V-2_6](https://huggingface.co/openbmb/MiniCPM-V-2_6)
+- [DeepSeek-R1-Distill](https://huggingface.co/collections/deepseek-ai/deepseek-r1-678e1e131c0169c0bc89728d)
+- [Janus-Pro-1B](https://huggingface.co/deepseek-ai/Janus-Pro-1B)
+- [InternVL2-1B](https://huggingface.co/OpenGVLab/InternVL2-1B)
+- [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct)
+- [Qwen3](https://huggingface.co/collections/Qwen/qwen3-67dd247413f0e2e4f653967f)
 
-This guide uses [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) as an example to show how to deploy a large language model from scratch on a development board equipped with the RK3588 chip and use the NPU for hardware-accelerated inference.
-
+We will use [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) as an example and follow the sample scripts provided in the [RKLLM](./rkllm_install#rkllm-installation) repository to fully demonstrate how to deploy a large language model from scratch onto a development board equipped with the RK3588 chip, utilizing the NPU for hardware-accelerated inference.
 :::tip
-If the RKLLM environment is not installed and configured, please refer to [RKLLM Installation](rkllm_install).
+If you have not installed or configured the RKLLM environment yet, please refer to [RKLLM Installation](rkllm_install).
 :::
 
 ### Model Conversion
 
-Using [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) as an example, users can also choose any of the links in the [currently supported models](#currently-supported-models) list.
+:::tip
+For RK358X users, please specify `rk3588` as the TARGET_PLATFORM.
+:::
 
-- Download all files of [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) on an x86 PC workstation. If [git-lfs](https://git-lfs.com/) is not installed, please install it.
+We will use [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) as an example, but you may choose any model from the list of [currently supported models](#currently-supported-models).
+
+- Download the weights of [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) on your x86 PC workstation. If you haven't installed [git-lfs](https://git-lfs.com/), please install it first.
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
+  git lfs install
   git clone https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct
   ```
 
   </NewCodeBlock>
 
-- Activate the rkllm conda environment. Refer to [RKLLM conda Installation](rkllm_install#x86-pc-workstation) if needed.
+- Activate the rkllm conda environment. You can refer to [RKLLM Conda Installation](rkllm_install#x86-pc-workstation).
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -44,51 +54,75 @@ Using [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)
 
   </NewCodeBlock>
 
-- Change modelpath model path, dataset path, rkllm export path in `rknn-llm/rkllm-toolkit/examples/test.py`.
+- Generate the LLM model quantization calibration file.
+  :::tip
+  For LLM models, we use the conversion script provided in `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export`.
+
+  For VLM models, use the conversion script in `rknn-llm/examples/Qwen2-VL_Demo/export`. For multimodal VLM models, please refer to [RKLLM Qwen2-VL](./rkllm_qwen2_vl).
+  :::
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  cd examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export
+  python3 generate_data_quant.py -m /path/to/Qwen2.5-1.5B-Instruct
+  ```
+
+  </NewCodeBlock>
+
+  | Parameter | Required | Description                           | Options |
+  | --------- | -------- | ------------------------------------- | ------- |
+  | `path`    | Required | Path to the Huggingface model folder. | N       |
+
+  The `generate_data_quant.py` script generates the quantization file `data_quant.json` used during model quantization.
+
+- Update the `modelpath` variable in `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export/export_rkllm.py` to point to your model path.
 
   <NewCodeBlock tip="Python Code" type="PC">
 
   ```python
-  15 modelpath = 'Your Huggingface LLM model'
-  29 datasert = None # 默认是 "./data_quant.json"， 如无可以填写 None
-  83 ret = llm.export_rkllm("./Your_Huggingface_LLM_model.rkllm")
+  11 modelpath = '/path/to/Qwen2.5-1.5B-Instruct'
   ```
 
   </NewCodeBlock>
+
+- Adjust the maximum context length `max_context`
+
+  If you need a specific `max_context` length, modify the value of the `max_context` parameter in the `llm.build` function within `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export/export_rkllm.py`. The default is 4096; larger values consume more memory. It must not exceed 16,384 and must be a multiple of 32 (e.g., 32, 64, 96, ..., 16,384).
 
 - Run the model conversion script.
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
-  cd rknn-llm/rkllm-toolkit/examples/
-  python3 test.py
+  python3 export_rkllm.py
   ```
 
   </NewCodeBlock>
 
-  After successful conversion, you will get an rkllm model.
+  After successful conversion, you will get an `.rkllm` model file — in this case, `Qwen2.5-1.5B-Instruct_W8A8_RK3588.rkllm`. From the filename, you can see that this model has been quantized using W8A8 and is compatible with the RK3588 platform.
 
-### Compile Executable File
+### Compiling the Executable
 
-- Download the cross-compilation toolchain [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11).
-- Modify the main program `rknn-llm/examples/rkllm_api_demo/src/llm_demo.cpp` code, change two places here.
+- Download the cross-compilation toolchain [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11)
+- Modify the main program code in `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/src/llm_demo.cpp`
+
+  You need to comment out line 165, since RKLLM automatically parses the `chat_template` field from the tokenizer_config.json file when converting the model, so there's no need to manually set it.
 
   <NewCodeBlock tip="CPP Code" type="PC">
 
   ```vim
-  184 text = PROMPT_TEXT_PREFIX + input_str + PROMPT_TEXT_POSTFIX;
-  185 // text = input_str;
+  165 // rkllm_set_chat_template(llmHandle, "", "<｜User｜>", "<｜Assistant｜>");
   ```
 
   </NewCodeBlock>
 
-- Modify the GCC_COMPILER_PATH in the `rknn-llm/examples/rkllm_api_demo/build-linux.sh` compilation script.
+- Update the `GCC_COMPILER_PATH` in the build script `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/build-linux.sh`
 
   <NewCodeBlock tip="BASH" type="PC">
 
-  ```bash
-  GCC_COMPILER_PATH=gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
+  ```vim
+  8 GCC_COMPILER_PATH=/path/to/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
   ```
 
   </NewCodeBlock>
@@ -98,39 +132,46 @@ Using [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
-  cd rknn-llm/examples/rkllm_api_demo/
+  cd rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/
   bash build-linux.sh
   ```
 
   </NewCodeBlock>
 
-  The generated executable file is located in `build/build_linux_aarch64_Release/llm_demo`.
+  The compiled executable will be located in `install/demo_Linux_aarch64`.
 
-### Board Deployment
+### Deployment on Device
 
-#### Terminal Mode
+#### Local Terminal Mode
 
-- Copy the converted rkllm model and the compiled binary file llm_demo to the board.
-- Import environment variables.
+- Copy the converted `.rkllm` model and the compiled `demo_Linux_aarch64` folder to the device.
+- Set up environment variables
 
   <NewCodeBlock tip="Radxa OS" type="device">
 
   ```bash
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:rknn-llm/rkllm-runtime/Linux/librkllm_api/aarch64
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/demo_Linux_aarch64/lib
   ```
 
   </NewCodeBlock>
 
-- Run llm_demo and enter `exit` to quit.
+- Run `llm_demo`, type `exit` to quit
 
   <NewCodeBlock tip="Radxa OS" type="device">
 
   ```bash
   export RKLLM_LOG_LEVEL=1
-  ./llm_demo your_rkllm_path 10000 10000
+  ## Usage: ./llm_demo model_path max_new_tokens max_context_len
+  ./llm_demo /path/to/Qwen2.5-1.5B-Instruct_W8A8_RK3588.rkllm 2048 4096
   ```
 
   </NewCodeBlock>
+
+  | Parameter         | Required | Description                                     | Options                                                                      |
+  | ----------------- | -------- | ----------------------------------------------- | ---------------------------------------------------------------------------- |
+  | `path`            | Required | Path to the RKLLM model folder.                 | N                                                                            |
+  | `max_new_tokens`  | Required | Maximum number of tokens to generate per round. | Must be less than or equal to `max_context_len`                              |
+  | `max_context_len` | Required | Maximum context size for the model.             | Must be less than or equal to the `max_context` used during model conversion |
 
   ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_2.webp)
 
@@ -138,41 +179,42 @@ Using [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)
 
 {/* ##### Server Side */}
 
-{/* - Install gradio. */}
+{/* - Prepare and enter a virtual environment. Please refer to [Using Python Virtual Environments](venv_usage). */}
+{/* - Install gradio */}
 {/* ```bash */}
 {/* pip3 install gradio */}
 {/* ``` */}
-{/* - Copy `librkllmrt.so` to `rkllm_server/lib`. */}
+{/* - Copy `librkllmrt.so` into `rkllm_server/lib` */}
 {/* ```bash */}
-{/* cd rknn-llm/rkllm-runtime */}
-{/* cp ./runtime//Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib */}
+{/* cd rkllm-runtime/Linux/librkllm_api/aarch64 */}
+{/* cp rkllm-runtime/Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib */}
 {/* ``` */}
-{/* - Modify gradio_server.py to disable GPU for prefill acceleration. */}
+{/* - Modify gradio_server.py to disable GPU acceleration for prefill */}
 {/* ```python */}
 {/* rknnllm_param.use_gpu = False */}
 {/* ``` */}
-{/* - Start the gradio server. */}
+{/* - Start the gradio server */}
 {/* ```bash */}
 {/* cd examples/rkllm_server_demo/rkllm_server */}
 {/* python3 gradio_server.py --target_platform rk3588 --rkllm_model_path your_model_path */}
 {/* ``` */}
-{/* - Access the development board's IP port 8080 in your browser. */}
+{/* - Access the device IP on port 8080 via browser */}
 {/* ![rkllm_3.webp](/img/general-tutorial/rknn/rkllm_3.webp) */}
 
 {/* ##### Client Side */}
 
-{/* After starting the gradio server on the development board, users can call the LLM gradio server through the Gradio API on other devices in the same network environment. */}
+{/* After enabling the Gradio server on the device, clients on the same network can call the LLM Gradio server using the Gradio API. */}
 
-{/* - Install gradio_client. */}
+{/* - Install gradio_client */}
 {/* ```bash */}
 {/* pip3 install gradio_client */}
 {/* ``` */}
-{/* - Modify the IP address in chat_api_gradio.py. Users need to adjust this according to their deployment's specific address. */}
+{/* - Update the IP address in chat_api_gradio.py based on your deployment */}
 {/* ```python */}
-{/* # Users need to modify according to their deployment's specific IP */}
+{/* # Please update the IP according to your deployment */}
 {/* client = Client("http://192.168.2.209:8080/") */}
 {/* ``` */}
-{/* - Run chat_api_gradio.py. */}
+{/* - Run chat_api_gradio.py */}
 {/* ```bash */}
 {/* cd rknn-llm/rkllm-runtime/examples/rkllm_server_demo */}
 {/* python3 chat_api_gradio.py */}
@@ -183,20 +225,22 @@ Using [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)
 
 {/* ##### Server Side */}
 
-{/* - Install flask. */}
+{/* - Install flask */}
 {/* ```bash */}
 {/* pip3 install flask==2.2.2 Werkzeug==2.2.2 */}
 {/* ``` */}
-{/* - Copy `librkllmrt.so` to `rkllm_server/lib`. */}
+{/* - Copy `librkllmrt.so` to `rkllm_server/lib` */}
 {/* ```bash */}
 {/* cd rknn-llm/rkllm-runtime */}
 {/* cp ./runtime//Linux/librkllm_api/aarch64/librkllmrt.so  ./examples/rkllm_server_demo/rkllm_server/lib */}
 {/* ``` */}
-{/* - Modify flask_server.py to disable GPU for prefill acceleration. */}
+{/* - Modify flask_server.py to disable GPU acceleration for prefill */}
+
 {/* ```python */}
 {/* rknnllm_param.use_gpu = False */}
 {/* ``` */}
-{/* - Start the flask server on port 8080. */}
+
+{/* - Start the flask server on port 8080 */}
 {/* ```bash */}
 {/* cd examples/rkllm_server_demo/rkllm_server */}
 {/* python3 flask_server.py --target_platform rk3588 --rkllm_model_path your_model_path */}
@@ -205,21 +249,21 @@ Using [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)
 
 {/* ##### Client Side */}
 
-{/* After starting the flask server on the development board, users can call the flask server through the flask API on other devices in the same network environment. Users can refer to this API access example to develop custom functions, using the corresponding send/receive structures for data packaging and parsing. */}
+{/* After enabling the Flask server on the device, clients on the same network can call the server via Flask APIs. When developing custom features, simply follow the structure of this API example to wrap and parse data accordingly. */}
 
-{/* - Modify the IP address in chat_api_flask.py. Users need to adjust this according to their deployment's specific address. */}
+{/* - Update the IP address in chat_api_flask.py based on your deployment */}
 {/* ```python */}
-{/* # Users need to modify according to their deployment's specific IP */}
+{/* # Please update the IP according to your deployment */}
 {/* server_url = 'http://192.168.2.209:8080/rkllm_chat' */}
 {/* ``` */}
-{/* - Run chat_api_flask.py. */}
+{/* - Run chat_api_flask.py */}
 {/* ```bash */}
 {/* cd rknn-llm/rkllm-runtime/examples/rkllm_server_demo */}
 {/* python3 chat_api_flask.py */}
 {/* ``` */}
 {/* ![rkllm_6.webp](/img/general-tutorial/rknn/rkllm_6.webp) */}
 
-### Performance Comparison of Models
+### Performance Comparison for Selected Models
 
 | Model     | Parameter Size | Chip   | Chip Count | Inference Speed |
 | --------- | -------------- | ------ | ---------- | --------------- |
@@ -227,3 +271,4 @@ Using [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)
 | Qwen      | 1.8B           | RK3588 | 1          | 14.18 token/s   |
 | Phi3      | 3.8B           | RK3588 | 1          | 6.46 token/s    |
 | ChatGLM3  | 6B             | RK3588 | 1          | 3.67 token/s    |
+| Qwen2.5   | 1.5B           | RK3588 | 1          | 15.44 token/s   |
