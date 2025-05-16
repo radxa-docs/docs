@@ -1,0 +1,243 @@
+[Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) is a multi-modal VLM model developed by Alibaba.
+Qwen2-VL can understand images of various resolutions and aspect ratios, comprehend videos longer than 20 minutes, function as an agent for operating mobile devices and robots, and supports multiple languages.  
+This document will explain how to deploy the [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) visual multi-modal model on RK3588 using NPU for hardware-accelerated inference.
+
+![rkllm_qwen2_vl_1.webp](/img/general-tutorial/rknn/rkllm_qwen2_vl_1.webp)
+
+### Model File Download
+
+:::tip
+Radxa has provided precompiled rkllm models and executables, which users can download and use directly. If you want to refer to the compilation process, please continue with the optional section.
+:::
+
+- Use [git LFS](https://git-lfs.com/) to download the precompiled rkllm from [ModelScope](https://modelscope.cn/models/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM):
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  git lfs install
+  git clone https://www.modelscope.cn/radxa/Qwen2-VL-2B-RKLLM.git
+  ```
+
+    </NewCodeBlock>
+
+### (Optional) Model Compilation
+
+:::tip
+Please prepare the RKLLM working environment on both your PC and development board according to [RKLLM Installation](./rkllm_install).
+:::
+:::tip
+For RK358X users, please specify the `rk3588` platform for TARGET_PLATFORM.
+:::
+
+- On x86 PC workstation, download the [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) weight files. If you haven't installed [git-lfs](https://git-lfs.com/), please install it first:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  git lfs install
+  git clone https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct
+  ```
+
+  </NewCodeBlock>
+
+- Activate the rkllm conda environment. You can refer to [RKLLM conda installation](rkllm_install#x86-pc-workstation) for details:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  conda activate rkllm
+  ```
+
+  </NewCodeBlock>
+
+#### Compile Image Decoding Model
+
+- Install rknn-toolkit2:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  pip3 install rknn-toolkit2 -i https://mirrors.aliyun.com/pypi/simple
+  ```
+
+  </NewCodeBlock>
+
+- Convert to ONNX
+
+  - Generate cu_seqlens and rotary_pos_emb
+
+      <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+    ```bash
+    python3 export/export_vision.py --step 1 --path /path/to/Qwen2-VL-2B-Instruct/ --batch 1 --height 392 --width 392
+    ```
+
+      </NewCodeBlock>
+
+  - Export as ONNX
+
+      <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+    ```bash
+    python3 export/export_vision.py --step 2 --path /path/to/Qwen2-VL-2B-Instruct/ --batch 1 --height 392 --width 392
+    ```
+
+      </NewCodeBlock>
+
+  | Parameter Name | Required | Description                       | Options                                                                                                                                   |
+  | -------------- | -------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+  | `step`         | Required | Export step.                      | 1/2, When `step==1`, only generates cu_seqlens and rotary_pos_emb; when `step==2`, exports ONNX. Must run `step == 1` before `step == 2`. |
+  | `path`         | Optional | Path to Huggingface model folder. | Default: `Qwen/Qwen2-VL-2B-Instruct`                                                                                                      |
+  | `batch`        | Optional | Batch size                        | Default: 1                                                                                                                                |
+  | `height`       | Optional | Image height                      | Default: 392                                                                                                                              |
+  | `width`        | Optional | Image width                       | Default: 392                                                                                                                              |
+  | `savepath`     | Optional | Save path for RKNN model          | Default: `qwen2-vl-2b/qwen2_vl_2b_vision.onnx`                                                                                            |
+
+#### Compile RKLLM Model
+
+- Generate VLM model quantization calibration file:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  cd rknn-llm/examples/Qwen2-VL_Demo
+  python3 data/make_input_embeds_for_quantize.py --path /path/to/Qwen2-VL-2B-Instruct
+  ```
+
+  </NewCodeBlock>
+
+  | Parameter | Required | Description                       | Options |
+  | --------- | -------- | --------------------------------- | ------- |
+  | `path`    | Required | Path to Huggingface model folder. | N       |
+
+  The generated calibration file is saved in `data/input.json`.
+
+- Modify the maximum context value `max_context`
+
+  If you need to adjust the `max_context` length, modify the `max_context` parameter in the `llm.build` function interface in `rknn-llm/examples/Qwen2-VL_Demo/export/export_rkllm.py`. Larger values consume more memory. It must not exceed 16,384 and must be a multiple of 32 (e.g., 32, 64, 96, ..., 16,384).
+
+- Run the model conversion script:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  python3 export_rkllm.py --path /path/to/Qwen2-VL-2B-Instruct/  --target-platform rk3588 --num_npu_core 3 --quantized_dtype w8a8 --device cuda --savepath ./qwen2-vl-llm_rk3588.rkllm
+  ```
+
+  </NewCodeBlock>
+
+  | Parameter         | Required | Description                         | Options                                                                                                                                                                                                           |
+  | ----------------- | -------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `path`            | Optional | Path to Huggingface model folder.   | Default: `Qwen/Qwen2-VL-2B-Instruct`                                                                                                                                                                              |
+  | `target-platform` | Optional | Target running platform             | `rk3588`/`rk3576`/`rk3562`, default: `rk3588`                                                                                                                                                                     |
+  | `num_npu_core`    | Optional | Number of NPU cores                 | For `rk3588`: [1,2,3]; `rk3576`: [1,2]; `rk3562`: [1]. Default: `3`                                                                                                                                               |
+  | `quantized_dtype` | Optional | RKLLM quantization type             | `rk3588`: “w8a8”, “w8a8_g128”, “w8a8_g256”, “w8a8_g512”; `rk3576`: “w4a16”, “w4a16_g32”, “w4a16_g64”, “w4a16_g128”, “w8a8”; `rk3562`: “w8a8”, “w4a16_g32”, “w4a16_g64”, “w4a16_g128”, “w4a8_g32”. Default: `w8a8` |
+  | `device`          | Optional | Device used during model conversion | `cpu` or `cuda`. Default: `cpu`                                                                                                                                                                                   |
+  | `savepath`        | Optional | Save path for RKLLM model           | Default: `qwen2_vl_2b_instruct.rkllm`                                                                                                                                                                             |
+
+  The generated RKLLM model is named `qwen2-vl-llm_rk3588.rkllm`.
+
+### (Optional) Build Executable
+
+- Download the cross-compilation toolchain [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11)
+
+- Modify the main program `rknn-llm/examples/Qwen2-VL_Demo/deploy/src/main.cpp`
+
+  You need to comment out line 179. When converting the model, RKLLM will automatically parse the
+  `chat_template` field in the `tokenizer_config.json` file of the Hugging Face model, so there's no need to modify it.
+
+  <NewCodeBlock tip="CPP Code" type="PC">
+
+  ```vim
+  179 // rkllm_set_chat_template(llmHandle, "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n", "<|im_start|>user\n", "<|im_end|>\n<|im_start|>assistant\n");
+  ```
+
+  </NewCodeBlock>
+
+- Modify the main program `rknn-llm/examples/Qwen2-VL_Demo/deploy/src/llm.cpp`
+
+  You need to comment out line 120. When converting the model, RKLLM will automatically parse the
+  `chat_template` field in the `tokenizer_config.json` file of the Hugging Face model, so there's no need to modify it.
+
+  <NewCodeBlock tip="CPP Code" type="PC">
+
+  ```vim
+  120 // rkllm_set_chat_template(llmHandle, "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n", "<|im_start|>user\n", "<|im_end|>\n<|im_start|>assistant\n");
+  ```
+
+  </NewCodeBlock>
+
+- Modify the `GCC_COMPILER_PATH` in the compilation script `rknn-llm/examples/Qwen2-VL_Demo/deploy/build-linux.sh`
+
+  <NewCodeBlock tip="BASH" type="PC">
+
+  ```vim
+  5 GCC_COMPILER_PATH=/path/to/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
+  ```
+
+  </NewCodeBlock>
+
+- Run the model conversion script
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  cd rknn-llm/examples/Qwen2-VL_Demo/deploy
+  bash build-linux.sh
+  ```
+
+  </NewCodeBlock>
+
+  The generated executable file is located in `install/demo_Linux_aarch64`
+
+### Deploying on Device
+
+#### Terminal Mode
+
+- Copy the converted model `qwen2-vl-llm_rk3588.rkllm` and the compiled folder `demo_Linux_aarch64` to the device
+- Set environment variables
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
+  ```bash
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/demo_Linux_aarch64/lib
+  ```
+
+  </NewCodeBlock>
+
+  :::tip
+  Users who downloaded via ModelScope can directly `export` the `librkllmrt.so` from the downloaded repository.
+  :::
+
+- Run `llm_demo`, enter `exit` to quit
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
+  ```bash
+  export RKLLM_LOG_LEVEL=1
+  ## Usage: ./demo image_path encoder_model_path llm_model_path max_new_tokens max_context_len core_num
+  ./demo demo.jpg ./qwen2_vl_2b_vision_rk3588.rknn ./qwen2-vl-llm_rk3588.rkllm 128 512 3
+  ```
+
+  </NewCodeBlock>
+
+  | Parameter            | Required | Description                                | Options                                                       |
+  | -------------------- | -------- | ------------------------------------------ | ------------------------------------------------------------- |
+  | `image_path`         | Required | Path to input image                        | N/A                                                           |
+  | `encoder_model_path` | Required | Path to rknn vision encoder model          | N/A                                                           |
+  | `llm_model_path`     | Required | Path to rkllm model                        | N/A                                                           |
+  | `max_new_tokens`     | Required | Max number of tokens to generate per round | Must be ≤ max_context_len                                     |
+  | `max_context_len`    | Required | Maximum context length for the model       | Must be > text-token-num + image-token-num + max_new_tokens   |
+  | `core_num`           | Required | Number of NPU cores to use                 | For `rk3588`: [1,2,3], For `rk3576`: [1,2], For `rk3562`: [1] |
+
+  ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_qwen2_vl_2.webp)
+
+### Performance Analysis
+
+On RK3588, up to 15.39 tokens/s,
+
+| Stage    | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
+| -------- | --------------- | ------ | ------------------- | ----------------- |
+| Prefill  | 929.40          | 222    | 4.19                | 238.86            |
+| Generate | 3897.42         | 60     | 64.96               | 15.39             |

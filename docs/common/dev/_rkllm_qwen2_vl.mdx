@@ -1,0 +1,243 @@
+[Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) 是由阿里巴巴公司开发的多模态VLM 模型。
+Qwen2-VL 可对各种分辨率和比例的图像进行理解，能理解20分钟以上的视频，甚至可以作为操作手机、机器人的 agent, 并支持多种语言。
+本文档将讲述如何使用 RKLLM 将 [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) 视觉多模态模型部署到 RK3588 上利用 NPU 进行硬件加速推理。
+
+![rkllm_qwen2_vl_1.webp](/img/general-tutorial/rknn/rkllm_qwen2_vl_1.webp)
+
+### 模型文件下载
+
+:::tip
+瑞莎已经提供编译好的 rkllm 模型和执行文件，用户可直接下载使用，如要参考编译过程可继续参考可选部分
+:::
+
+- 使用 [git LFS](https://git-lfs.com/) 从 [ModelScope](https://modelscope.cn/models/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM) 下载预编译好的 rkllm
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  git lfs install
+  git clone https://www.modelscope.cn/radxa/Qwen2-VL-2B-RKLLM.git
+  ```
+
+    </NewCodeBlock>
+
+### （可选）模型编译
+
+:::tip
+请用户根据 [RKLLM安装](./rkllm_install) 完成 PC 端和开发板端 RKLLM 工作环境的准备
+:::
+:::tip
+RK358X 用户 TARGET_PLATFORM 请指定 `rk3588` 平台
+:::
+
+- x86 PC 工作站中下载 [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) 权重文件, 如没安装 [git-lfs](https://git-lfs.com/)，请自行安装
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  git lfs install
+  git clone https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct
+  ```
+
+  </NewCodeBlock>
+
+- 激活 rkllm conda 环境, 可参考[RKLLM conda 安装](rkllm_install#x86-pc-工作站)
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  conda activate rkllm
+  ```
+
+  </NewCodeBlock>
+
+#### 编译图片解码模型
+
+- 安装 rknn-toolkit2
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  pip3 install rknn-toolkit2 -i https://mirrors.aliyun.com/pypi/simple
+  ```
+
+  </NewCodeBlock>
+
+- 转换为 ONNX
+
+  - 生成 cu_seqlens 和 rotary_pos_emb
+
+      <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+    ```bash
+    python3 export/export_vision.py --step 1 --path /path/to/Qwen2-VL-2B-Instruct/ --batch 1 --height 392 --width 392
+    ```
+
+      </NewCodeBlock>
+
+  - 导出为 ONNX
+
+      <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+    ```bash
+    python3 export/export_vision.py --step 2 --path /path/to/Qwen2-VL-2B-Instruct/ --batch 1 --height 392 --width 392
+    ```
+
+      </NewCodeBlock>
+
+  | 参数名称   | 必要性 | 描述                         | 选项                                                                                                                        |
+  | ---------- | ------ | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+  | `step`     | 必要   | 导出步骤                     | 1/2，当 `step==1` 时仅生成 cu_seqlens 和 rotary_pos_emb，当 `step==2` 时导出 ONNX，需要先执行 `step == 1` 再执行 `step ==2` |
+  | `path`     | 可选   | Huggingface 模型文件夹路径。 | 默认为 `Qwen/Qwen2-VL-2B-Instruct`                                                                                          |
+  | `batch`    | 可选   | batch size                   | 默认为 1                                                                                                                    |
+  | `height`   | 可选   | 图片高度                     | 默认为 392                                                                                                                  |
+  | `width`    | 可选   | 图片宽度                     | 默认为 392                                                                                                                  |
+  | `savepath` | 可选   | RKNN 模型保存路径            | 默认为 `qwen2-vl-2b/qwen2_vl_2b_vision.onnx`                                                                                |
+
+#### 编译 RKLLM 模型
+
+- 生成 VLM 模型量化校准文件
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  cd rknn-llm/examples/Qwen2-VL_Demo
+  python3 data/make_input_embeds_for_quantize.py --path /path/to/Qwen2-VL-2B-Instruct
+  ```
+
+  </NewCodeBlock>
+
+  | 参数   | 必要性 | 描述                         | 选项 |
+  | ------ | ------ | ---------------------------- | ---- |
+  | `path` | 必要   | Huggingface 模型文件夹路径。 | N    |
+
+  生成校准文件保存在 `data/input.json`
+
+- 更改模型上下文最大值 max_context
+
+  如对 max_context 长度有需求，可在 `rknn-llm/examples/Qwen2-VL_Demo/export/export_rkllm.py` 中的 llm.build 函数接口中修改 `max_context` 参数的值, 值越大，占用内存越多。不得超过 16,384，且必须是 32 的倍数（例如，32、64、96、...、16,384）
+
+- 运行模型转换脚本
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ````bash
+  python3 export_rkllm.py --path /path/to/Qwen2-VL-2B-Instruct/  --target-platform rk3588 --num_npu_core 3 --quantized_dtype w8a8 --device cuda --savepath ./qwen2-vl-llm_rk3588.rkllm  ```
+  ````
+
+  </NewCodeBlock>
+
+  | 参数              | 必要性 | 描述                       | 选项                                                                                                                                                                                                                                                                   |
+  | ----------------- | ------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `path`            | 可选   | Huggingface 模型文件夹路径 | 默认为 `Qwen/Qwen2-VL-2B-Instruct`                                                                                                                                                                                                                                     |
+  | `target-platform` | 可选   | 目标运行平台               | 可选 rk3588/rk3576/rk3562， 默认为 `rk3588`                                                                                                                                                                                                                            |
+  | `num_npu_core`    | 可选   | 使用 NPU 核心个数          | `rk3588` 可选项为[1,2,3]，`rk3576` 可选项为[1,2]，`rk3562` 可选项为[1]。默认为 `3`                                                                                                                                                                                     |
+  | `quantized_dtype` | 可选   | RKLLM 量化类型             | `rk3588` 支持 “w8a8”, “w8a8_g128”, “w8a8_g256”, “w8a8_g512” 四种量化类型。`rk3576` 支持 “w4a16”, “w4a16_g32”, “w4a16_g64”, “w4a16_g128” 和 “w8a8” 五种量化类型。`rk3562` 支持 “w8a8”，“w4a16_g32”, “w4a16_g64”，“w4a16_g128” 和 “w4a8_g32” 五种量化类型。默认为 `w8a8` |
+  | `device`          | 可选   | 模型转换时使用的设备       | 可选 cpu/cuda， 默认为 `cpu`                                                                                                                                                                                                                                           |
+  | `savepath`        | 可选   | RKLLM 模型保存路径         | 默认为 `qwen2_vl_2b_instruct.rkllm`                                                                                                                                                                                                                                    |
+
+  生成 RKLLM 模型为 `qwen2-vl-llm_rk3588.rkllm`
+
+### （可选）编译可执行文件
+
+- 下载交叉编译工具链 [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11)
+
+- 修改主程序 `rknn-llm/examples/Qwen2-VL_Demo/deploy/src/main.cpp` 代码
+
+  这里需要注释掉 179 行的代码，RKLLM 在转换模型时，会自动解析 Hugging Face 模型 tokenizer_config.json 文件中的
+  chat_template 字段，故无需修改 chat_template。
+
+  <NewCodeBlock tip="CPP Code" type="PC">
+
+  ```vim
+  179 // rkllm_set_chat_template(llmHandle, "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n", "<|im_start|>user\n", "<|im_end|>\n<|im_start|>assistant\n");
+  ```
+
+  </NewCodeBlock>
+
+- 修改主程序 `rknn-llm/examples/Qwen2-VL_Demo/deploy/src/llm.cpp` 代码
+
+  这里需要注释掉 120 行的代码，RKLLM 在转换模型时，会自动解析 Hugging Face 模型 tokenizer_config.json 文件中的
+  chat_template 字段，故无需修改 chat_template。
+
+  <NewCodeBlock tip="CPP Code" type="PC">
+
+  ```vim
+  120 // rkllm_set_chat_template(llmHandle, "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n", "<|im_start|>user\n", "<|im_end|>\n<|im_start|>assistant\n");
+  ```
+
+  </NewCodeBlock>
+
+- 修改 `rknn-llm/examples/Qwen2-VL_Demo/deploy/build-linux.sh` 编译脚本中 GCC_COMPILER_PATH 路径
+
+  <NewCodeBlock tip="BASH" type="PC">
+
+  ```vim
+  5 GCC_COMPILER_PATH=/path/to/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
+  ```
+
+  </NewCodeBlock>
+
+- 运行模型转换脚本
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  cd rknn-llm/examples/Qwen2-VL_Demo/deploy
+  bash build-linux.sh
+  ```
+
+  </NewCodeBlock>
+
+  生成的可执行文件在 `install/demo_Linux_aarch64`
+
+### 板端部署
+
+#### 终端模式
+
+- 将转换成功后的 `qwen2-vl-llm_rk3588.rkllm` 模型与编译后生成的 `demo_Linux_aarch64` 文件夹拷贝到板端
+- 导入环境变量
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
+  ```bash
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/demo_Linux_aarch64/lib
+  ```
+
+  </NewCodeBlock>
+
+  :::tip
+  使用 ModelScope 下载的用户可直接 export 下载仓库里的 librkllmrt.so
+  :::
+
+- 运行 llm_demo，输入 `exit` 退出
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
+  ```bash
+  export RKLLM_LOG_LEVEL=1
+  ## Usage: ./demo image_path encoder_model_path llm_model_path max_new_tokens max_context_len core_num
+  ./demo demo.jpg ./qwen2_vl_2b_vision_rk3588.rknn ./qwen2-vl-llm_rk3588.rkllm 128 512 3
+  ```
+
+  </NewCodeBlock>
+
+  | 参数                 | 必要性 | 描述                  | 选项                                                                   |
+  | -------------------- | ------ | --------------------- | ---------------------------------------------------------------------- |
+  | `image_path`         | 必要   | 图片路径              | N                                                                      |
+  | `encoder_model_path` | 必要   | rknn 解码模型路径     | N                                                                      |
+  | `llm_model_path`     | 必要   | rkllm 模型路径        | N                                                                      |
+  | `max_new_tokens`     | 必要   | 每轮最大生成 token 数 | 小于等于 max_context_len                                               |
+  | `max_context_len`    | 必要   | 模型最大上下文范围    | max_context_len 必须大于 text-token-num+image-token-num+max_new_tokens |
+  | `core_num`           | 必要   | 使用 NPU 核心个数     | `rk3588` 可选项为[1,2,3]，`rk3576` 可选项为[1,2]，`rk3562` 可选项为[1] |
+
+  ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_qwen2_vl_2.webp)
+
+### 性能分析
+
+在 RK3588 上达 15.39 token/s,
+
+| Stage    | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
+| -------- | --------------- | ------ | ------------------- | ----------------- |
+| Prefill  | 929.40          | 222    | 4.19                | 238.86            |
+| Generate | 3897.42         | 60     | 64.96               | 15.39             |
