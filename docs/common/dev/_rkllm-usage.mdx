@@ -1,4 +1,4 @@
-本文档将讲述如何使用 RKLLM 将 Huggingface 格式的大语言模型部署到 RK3588 上利用 NPU 进行硬件加速推理
+本文档将讲述如何使用 RKLLM 将 Huggingface 格式的大语言模型部署到 RK3588 上利用 NPU 进行硬件加速推理。
 
 #### 目前支持模型
 
@@ -7,14 +7,20 @@
 - [Qwen models](https://huggingface.co/models?search=Qwen/Qwen)
 - [Phi models](https://huggingface.co/models?search=microsoft/phi)
 - [ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b/tree/103caa40027ebfd8450289ca2f278eac4ff26405)
-- [Gemma models](https://huggingface.co/collections/google/gemma-2-release-667d6600fd5220e7b967f315)
+- [Gemma2](https://huggingface.co/collections/google/gemma-2-release-667d6600fd5220e7b967f315)
+- [Gemma3](https://huggingface.co/collections/google/gemma-3-release-67c6c6f89c4f76621268bb6d)
 - [InternLM2 models](https://huggingface.co/collections/internlm/internlm2-65b0ce04970888799707893c)
 - [MiniCPM models](https://huggingface.co/collections/openbmb/minicpm-65d48bf958302b9fd25b698f)
 - [TeleChat models](https://huggingface.co/Tele-AI)
-- [Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)
-- [MiniCPM-V](https://huggingface.co/openbmb/MiniCPM-V-2_6)
+- [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct)
+- [MiniCPM-V-2_6](https://huggingface.co/openbmb/MiniCPM-V-2_6)
+- [DeepSeek-R1-Distill](https://huggingface.co/collections/deepseek-ai/deepseek-r1-678e1e131c0169c0bc89728d)
+- [Janus-Pro-1B](https://huggingface.co/deepseek-ai/Janus-Pro-1B)
+- [InternVL2-1B](https://huggingface.co/OpenGVLab/InternVL2-1B)
+- [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct)
+- [Qwen3](https://huggingface.co/collections/Qwen/qwen3-67dd247413f0e2e4f653967f)
 
-这里以 [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) 为例子，完整讲述如何从 0 开始部署大语言模型到搭载 RK3588 芯片的开发版上，并使用 NPU 进行硬件加速推理
+这里以 [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) 为例子，使用 [RKLLM](./rkllm_install#rkllm-安装) 仓库中的示例脚本， 完整讲述如何从 0 开始部署大语言模型到搭载 RK3588 芯片的开发版上，并使用 NPU 进行硬件加速推理。
 :::tip
 如没安装与配置 RKLLM 环境，请参考 [RKLLM 安装](rkllm_install)
 ::::
@@ -25,62 +31,149 @@
 RK358X 用户 TARGET_PLATFORM 请指定 `rk3588` 平台
 :::
 
-这里以 [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) 为例子，用户也可以选择任意[目前支持模型](#目前支持模型)列表中的链接
+这里以 [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) 为例子，用户也可以选择任意[目前支持模型](#目前支持模型)列表中的链接。
 
 - x86 PC 工作站中下载 [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) 权重文件, 如没安装 [git-lfs](https://git-lfs.com/)，请自行安装
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
+  git lfs install
   git clone https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct
   ```
+
+  </NewCodeBlock>
+
 - 激活 rkllm conda 环境, 可参考[RKLLM conda 安装](rkllm_install#x86-pc-工作站)
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   conda activate rkllm
   ```
-- 更改 `rknn-llm/rkllm-toolkit/examples/test.py` 中 modelpath 模型路径, dataset路径， rkllm 导出路径
-  ```python
-  15 modelpath = 'Your Huggingface LLM model'
-  29 datasert = None # 默认是 "./data_quant.json"， 如无可以填写 None
-  83 ret = llm.export_rkllm("./Your_Huggingface_LLM_model.rkllm")
-  ```
-- 运行模型转换脚本
+
+  </NewCodeBlock>
+
+- 生成 LLM 模型量化校准文件
+  :::tip
+  对于 LLM 模型这里使用 `rknn-llm/xamples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export` 提供的转换脚本。
+
+  对于 VLM 模型可使用 `rknn-llm/examples/Qwen2-VL_Demo/export` 提供的转换脚本。对于多模态 VLM 模型请参考 [RKLLM Qwen2-VL](./rkllm_qwen2_vl)。
+  :::
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
-  cd rknn-llm/rkllm-toolkit/examples/
-  python3 test.py
+  cd examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export
+  python3 generate_data_quant.py -m /path/to/Qwen2.5-1.5B-Instruct
   ```
-  转换成功后可得到 rkllm 模型
+
+  </NewCodeBlock>
+
+  | 参数   | 必要性 | 描述                         | 选项 |
+  | ------ | ------ | ---------------------------- | ---- |
+  | `path` | 必要   | Huggingface 模型文件夹路径。 | N    |
+
+  generate_data_quant.py 会生成模型量化时使用到的量化文件 `data_quant.json`。
+
+- 更改 `rknn-llm/xamples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export/export_rkllm.py` 中 modelpath 模型路径
+
+  <NewCodeBlock tip="Python Code" type="PC">
+
+  ```python
+  11 modelpath = '/path/to/Qwen2.5-1.5B-Instruct'
+  ```
+
+  </NewCodeBlock>
+
+- 更改模型上下文最大值 max_context
+
+  如对 max_context 长度有需求，可在 `rknn-llm/xamples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export/export_rkllm.py` 中的 llm.build 函数接口中修改 `max_context` 参数的值，默认是 4096, 值越大，占用内存越多。不得超过 16,384，且必须是 32 的倍数（例如，32、64、96、...、16,384）。
+
+- 运行模型转换脚本
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  python3 export_rkllm.py
+  ```
+
+  </NewCodeBlock>
+
+  转换成功后可得到 rkllm 模型, 此处应得到 `Qwen2.5-1.5B-Instruct_W8A8_RK3588.rkllm`，从模型命名中可以看出此模型是经过 W8A8 量化的适用于 RK3588 平台的 Qwen2.5-1.5B-Instruct RKLLM 模型。
 
 ### 编译可执行文件
 
 - 下载交叉编译工具链 [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11)
-- 修改主程序 `rknn-llm/examples/rkllm_api_demo/src/llm_demo.cpp` 代码, 这里修改两个地方
+- 修改主程序 `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/src/llm_demo.cpp` 代码
+
+  这里需要注释掉 165 行的代码，RKLLM 在转换模型时，会自动解析 Hugging Face 模型 tokenizer_config.json 文件中的
+  chat_template 字段，故无需修改 chat_template。
+
+  <NewCodeBlock tip="CPP Code" type="PC">
+
   ```vim
-  184 text = PROMPT_TEXT_PREFIX + input_str + PROMPT_TEXT_POSTFIX;
-  185 // text = input_str;
+  165 // rkllm_set_chat_template(llmHandle, "", "<｜User｜>", "<｜Assistant｜>");
   ```
-- 修改 `rknn-llm/examples/rkllm_api_demo/build-linux.sh` 编译脚本中 GCC_COMPILER_PATH 路径
-  ```bash
-  GCC_COMPILER_PATH=gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
+
+  </NewCodeBlock>
+
+- 修改 `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/build-linux.sh` 编译脚本中 GCC_COMPILER_PATH 路径
+
+  <NewCodeBlock tip="BASH" type="PC">
+
+  ```vim
+  8 GCC_COMPILER_PATH=/path/to/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
   ```
+
+  </NewCodeBlock>
+
 - 运行模型转换脚本
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
-  cd rknn-llm/examples/rkllm_api_demo/
+  cd rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/
   bash build-linux.sh
   ```
-  生成的可执行文件在 `build/build_linux_aarch64_Release/llm_demo`
+
+  </NewCodeBlock>
+
+  生成的可执行文件在 `install/demo_Linux_aarch64`。
 
 ### 板端部署
 
 #### 本地终端模式
 
-- 将转换成功后的 rkllm 模型与编译后的二进制文件 llm_demo 复制到板端
+- 将转换成功后的 `rkllm 模型` 与编译后生成的 `demo_Linux_aarch64` 文件夹拷贝到板端
 - 导入环境变量
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:rknn-llm/rkllm-runtime/Linux/librkllm_api/aarch64
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/demo_Linux_aarch64/lib
   ```
+
+  </NewCodeBlock>
+
 - 运行 llm_demo，输入 `exit` 退出
+
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   export RKLLM_LOG_LEVEL=1
-  ./llm_demo your_rkllm_path 10000 10000
+  ## Usage: ./llm_demo model_path max_new_tokens max_context_len
+  ./llm_demo /path/to/Qwen2.5-1.5B-Instruct_W8A8_RK3588.rkllm 2048 4096
   ```
+
+  </NewCodeBlock>
+
+  | 参数              | 必要性 | 描述                   | 选项                             |
+  | ----------------- | ------ | ---------------------- | -------------------------------- |
+  | `path`            | 必要   | RKLLM 模型文件夹路径。 | N                                |
+  | `max_new_tokens`  | 必要   | 每轮最大生成 token 数  | 小于等于 max_context_len         |
+  | `max_context_len` | 必要   | 模型最大上下文范围     | 小于等于模型转换时的 max_context |
+
   ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_2.webp)
 
 {/* #### Gradio 模式 */}
@@ -180,3 +273,4 @@ RK358X 用户 TARGET_PLATFORM 请指定 `rk3588` 平台
 | Qwen      | 1.8B           | RK3588 | 1          | 14.18 token/s   |
 | Phi3      | 3.8B           | RK3588 | 1          | 6.46 token/s    |
 | ChatGLM3  | 6B             | RK3588 | 1          | 3.67 token/s    |
+| Qwen2.5   | 1.5B           | RK3588 | 1          | 15.44 token/s   |

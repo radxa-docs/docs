@@ -9,9 +9,15 @@
 **Radxa 已提供预转换好的 `yolov11n.rknn` 模型，用户可直接参考[板端推理 YOLOv11 ](#板端推理-yolov11)跳过 PC 端模型转换章节**
 
 - 安装最新版本的 ultralytics
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   pip3 install -U ultralytics
   ```
+
+  </NewCodeBlock>
+
 - 使用 ultralytics 导出 yolov11 rknn 格式模型
   :::tip
   RK358X 用户 TARGET_PLATFORM 请指定 `rk3588` 平台
@@ -21,14 +27,20 @@
 
         <TabItem value="CLI">
 
+        <NewCodeBlock tip="X86 Linux PC" type="PC">
+
         ```bash
         # 'name' can be one of rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118
         yolo export model=yolo11n.pt format=rknn name=rk3588
         ```
 
+        </NewCodeBlock>
+
         </TabItem>
 
         <TabItem value="Python">
+
+        <NewCodeBlock tip="Python Code" type="PC">
 
         ```python
         from ultralytics import YOLO
@@ -40,6 +52,8 @@
         # 'name' can be one of rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118
         model.export(format="rknn", name="rk3588")  # creates '/yolo11n_rknn_model'
         ```
+
+        </NewCodeBlock>
 
         </TabItem>
 
@@ -68,19 +82,33 @@ RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `s
 
   虚拟环境安装请参考 [Python 虚拟环境使用](venv_usage)
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   pip3 install -U ultralytics
   ```
+
+  </NewCodeBlock>
 
 - 板端推理
 
       <Tabs>
           <TabItem value="CLI">
+
+          <NewCodeBlock tip="Radxa OS" type="device">
+
           ```bash
           yolo predict model='./yolo11n_rknn_model' source='https://ultralytics.com/images/bus.jpg'
           ```
+
+          </NewCodeBlock>
+
           </TabItem>
+
           <TabItem value="Python">
+
+          <NewCodeBlock tip="Python Code" type="device">
+
           ```python
           from ultralytics import YOLO
 
@@ -90,6 +118,9 @@ RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `s
           # Run inference
           results = rknn_model("https://ultralytics.com/images/bus.jpg")
           ```
+
+          </NewCodeBlock>
+
           </TabItem>
       </Tabs>
 
