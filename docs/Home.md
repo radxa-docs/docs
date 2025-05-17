@@ -119,11 +119,11 @@ sidebar_custom_props:
               {
                 products_name: "ROCK 4A",
                 products_photo_url: "/home/product-pictures/rock4a.webp",
-                products_link: "/rock4/rock4ab",
+                products_link: "/rock4/rock4ab-se",
                 docs:
                   [
                     {
-                      docs_link: "/rock4/rock4ab",
+                      docs_link: "/rock4/rock4ab-se",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
                       docs_name_zh: "ROCK 4A 概览",
@@ -135,11 +135,11 @@ sidebar_custom_props:
               {
                 products_name: "ROCK 4B",
                 products_photo_url: "/home/product-pictures/rock4b.webp",
-                products_link: "/rock4/rock4ab",
+                products_link: "/rock4/rock4ab-se",
                 docs:
                   [
                     {
-                      docs_link: "/rock4/rock4ab",
+                      docs_link: "/rock4/rock4ab-se",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
                       docs_name_zh: "ROCK 4B 概览",
@@ -167,7 +167,7 @@ sidebar_custom_props:
               {
                 products_name: "ROCK 4SE",
                 products_photo_url: "/home/product-pictures/rock4se.webp",
-                products_link: "/rock4/rock4se",
+                products_link: "/rock4/rock4ab-se",
                 docs:
                   [
                     {
