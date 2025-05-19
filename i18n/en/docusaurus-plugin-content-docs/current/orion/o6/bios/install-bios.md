@@ -26,9 +26,20 @@ Please refer to the relevant content on the [download page](../download#bios).
 
 2, Extract the BIOS zip file and put the following files into the top directory of the FAT32 partition on the USB flash drive.
 
+<NewCodeBlock tip="Host-Computer" type="host">
+
 ```
-BuildOptions BurnImage.efi cix_flash_all.bin cix_flash_ota.bin FlashUpdate.efi setup.nsh Shell.efi VariableInfo.efi
+BuildOptions  
+BurnImage.efi  
+cix_flash_all.bin  
+cix_flash_ota.bin  
+FlashUpdate.efi  
+setup.nsh  
+Shell.efi  
+VariableInfo.efi
 ```
+
+</NewCodeBlock>
 
 ## Updating BIOS
 
@@ -49,6 +60,7 @@ BuildOptions BurnImage.efi cix_flash_all.bin cix_flash_ota.bin FlashUpdate.efi s
 
 Keyboard select `Boot Manager --> UEFI Shell`.
 
+<NewCodeBlock tip="O6-UEFI-Shell>" type="device">
 ```
 UEFI Interactive Shell v2.2
 EDK II
@@ -78,10 +90,13 @@ Mapping table
 Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
 Shell>
 ```
+</NewCodeBlock>
 
 #### Step 4: Go to the folder where the BIOS files and tools are located on the USB flash drive.
 
 The folder selected here is `FS1:`. Under Shell, type `FS1:` and press Enter. Then use `ls` to view the files.
+
+<NewCodeBlock tip="O6-UEFI-Shell>" type="device">
 
 ```
 Shell> FS1:
@@ -100,10 +115,13 @@ Directory of: FS1:\
 FS1:\>
 ```
 
+</NewCodeBlock>
+
 #### Step 5: Burn BIOS
 
 Under Shell, output the command `setup.nsh` and press Enter to execute it.
 
+<NewCodeBlock tip="O6-UEFI-Shell>" type="device">
 ```
 FS1:\> setup.nsh
 ************************************************************************
@@ -141,6 +159,7 @@ Enter 'q' to quit, any other key to continue:
 Reset with BIOS Update (24 bytes)
 
 ```
+</NewCodeBlock>
 
 After the burning is completed, unplug the power of the O6 and then power it on again.
 
@@ -154,7 +173,7 @@ After the burning is completed, unplug the power of the O6 and then power it on 
 
 #### Step 2: Setting Up the Debug Serial Port Environment on the Host Machine
 
-- Connect the debug serial cable to the 3-pin UART2 pin on the O6.
+- Connect the debug serial cable to the 3-pin UART2 pin on the O6. Refer: [Debug Connector ㉔](../hardware-design/hardware-interface#circle-24)
 - Use the serial port tool and set the baud rate to 115200.
 
 #### Step 3: Booting the O6 into the BIOS Interface
@@ -162,14 +181,17 @@ After the burning is completed, unplug the power of the O6 and then power it on 
 - Power on the O6 and observe the startup log on the debug serial port tool interface.
 - During the startup process, you will see a prompt to enter the BIOS interface. At this time, briefly press the "Esc" key on the keyboard of the host machine.
 
+<NewCodeBlock tip="O6-Serial-Console" type="host">
 ```
 Tianocore/EDK2 firmware version 0.2.2-1
 Press ESCAPE for boot options
 .....
 ```
+</NewCodeBlock>
 
 - In the Debug Serial Port Tool interface, the BIOS menu will appear.
 
+<NewCodeBlock tip="O6-Serial-Console" type="host">
 ```
 
  Radxa Orion O6
@@ -197,11 +219,15 @@ Press ESCAPE for boot options
 
 ```
 
+</NewCodeBlock>
+
 ##### Step 4: Enter the UEFI Shell Interface
 
 Select `Boot Manager --> UEFI Shell` from the keyboard.
 
 The `Boot Manager` screen is shown below:
+
+<NewCodeBlock tip="O6-Serial-Console" type="host">
 
 ```
 /------------------------------------------------------------------------------\
@@ -231,7 +257,11 @@ The `Boot Manager` screen is shown below:
 
 ```
 
+</NewCodeBlock>
+
 Select `UEFI Shell` to enter the shell environment.
+
+<NewCodeBlock tip="O6-Serial-Console" type="host">
 
 ```
 UEFI Interactive Shell v2.2
@@ -262,10 +292,13 @@ Mapping table
 Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
 Shell>
 ```
+</NewCodeBlock>
 
 ##### Step 5: Burn BIOS
 
 Under Shell, output the command `setup.nsh` and press Enter to execute it.
+
+<NewCodeBlock tip="O6-Serial-Console" type="host">
 
 ```
 FS1:\> setup.nsh
@@ -304,6 +337,7 @@ Enter 'q' to quit, any other key to continue:
 Reset with BIOS Update (24 bytes)
 
 ```
+</NewCodeBlock>
 
 Once the burn is complete, unplug the O6 and power it back up.
 

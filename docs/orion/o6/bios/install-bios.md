@@ -24,9 +24,20 @@ description: ""
 
 2，将 BIOS 压缩包解压开，把如下文件放到 U盘的 FAT32 分区的顶层目录中。
 
+<NewCodeBlock tip="Host-Computer" type="host">
+
 ```
-BuildOptions  BurnImage.efi  cix_flash_all.bin  cix_flash_ota.bin  FlashUpdate.efi  setup.nsh  Shell.efi  VariableInfo.efi
+BuildOptions  
+BurnImage.efi  
+cix_flash_all.bin  
+cix_flash_ota.bin  
+FlashUpdate.efi  
+setup.nsh  
+Shell.efi  
+VariableInfo.efi
 ```
+
+</NewCodeBlock>
 
 ## 更新 BIOS
 
@@ -46,6 +57,8 @@ BuildOptions  BurnImage.efi  cix_flash_all.bin  cix_flash_ota.bin  FlashUpdate.e
 #### 步骤三：进入 UEFI Shell 界面
 
 键盘选择 `Boot Manager --> UEFI Shell`
+
+<NewCodeBlock tip="O6-UEFI-Shell>" type="device">
 
 ```
 UEFI Interactive Shell v2.2
@@ -77,9 +90,13 @@ Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
 Shell>
 ```
 
+</NewCodeBlock>
+
 #### 步骤四：进入放置有 BIOS 文件和工具的 U盘文件夹
 
 这里选择的是 `FS1:`。在 Shell 下，输入 `FS1:` 后按下回车键。然后用 `ls` 查看文件。
+
+<NewCodeBlock tip="O6-UEFI-Shell>" type="device">
 
 ```
 Shell> FS1:
@@ -98,10 +115,13 @@ Directory of: FS1:\
 FS1:\>
 ```
 
+</NewCodeBlock>
+
 #### 步骤五：烧录 BIOS
 
 在 Shell 下，输出命令 `setup.nsh` ，并按下回车执行。
 
+<NewCodeBlock tip="O6-UEFI-Shell>" type="device">
 ```
 FS1:\> setup.nsh
 ************************************************************************
@@ -139,6 +159,7 @@ Enter 'q' to quit, any other key to continue:
 Reset with BIOS Update (24 bytes)
 
 ```
+</NewCodeBlock>
 
 烧录完成后，拔掉 O6 的电源，然后重新上电。
 
@@ -152,7 +173,7 @@ Reset with BIOS Update (24 bytes)
 
 #### 步骤二：搭建宿主机的调试串口环境
 
-- 把调试串口线接到 O6 上的 3-pin UART2 插针上
+- 把调试串口线接到 O6 上的 3-pin UART2 插针上，参考：[调试连接器㉔](../hardware-design/hardware-interface#circle-24)
 - 使用串口工具，设置波特率为 115200。
 
 #### 步骤三：引导 O6 进入 BIOS 界面
@@ -160,14 +181,17 @@ Reset with BIOS Update (24 bytes)
 - O6 插上电源开机，观察调试串口工具界面的启动日志
 - 在启动过程中，会看到有提示我们进入 BIOS 界面。这时，短按宿主机的键盘的 “Esc” 按键
 
+<NewCodeBlock tip="O6-Serial-Console" type="host">
 ```
 Tianocore/EDK2 firmware version 0.2.2-1
 Press ESCAPE for boot options
 .....
 ```
+</NewCodeBlock>
 
 - 在调试串口工具界面，将会出现 BIOS 菜单
 
+<NewCodeBlock tip="O6-Serial-Console" type="host">
 ```
 
  Radxa Orion O6
@@ -194,6 +218,7 @@ Press ESCAPE for boot options
   ^v=Move Highlight       <Enter>=Select Entry
 
 ```
+</NewCodeBlock>
 
 ##### 步骤四：进入 UEFI Shell 界面
 
@@ -201,6 +226,7 @@ Press ESCAPE for boot options
 
 `Boot Manager` 界面如下：
 
+<NewCodeBlock tip="O6-Serial-Console" type="host">
 ```
 /------------------------------------------------------------------------------\
 |                                Boot Manager                                  |
@@ -228,9 +254,11 @@ Press ESCAPE for boot options
 \------------------------------------------------------------------------------/
 
 ```
+</NewCodeBlock>
 
 选择 `UEFI Shell`，进入 shell 环境。
 
+<NewCodeBlock tip="O6-Serial-Console" type="host">
 ```
 UEFI Interactive Shell v2.2
 EDK II
@@ -260,11 +288,13 @@ Mapping table
 Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
 Shell>
 ```
+</NewCodeBlock>
 
 ##### 步骤五：烧录 BIOS
 
 在 Shell 下，输出命令 `setup.nsh` ，并按下回车执行。
 
+<NewCodeBlock tip="O6-Serial-Console" type="host">
 ```
 FS1:\> setup.nsh
 ************************************************************************
@@ -302,6 +332,7 @@ Enter 'q' to quit, any other key to continue:
 Reset with BIOS Update (24 bytes)
 
 ```
+</NewCodeBlock>
 
 烧录完成后，拔掉 O6 的电源，然后重新上电。
 
