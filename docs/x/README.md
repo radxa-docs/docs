@@ -3,6 +3,7 @@ label: "X 系列"
 description: "X Series"
 sidebar_position: 1
 slug: /x
+sidebar_class_name: hidden
 ---
 
 # X 系列
