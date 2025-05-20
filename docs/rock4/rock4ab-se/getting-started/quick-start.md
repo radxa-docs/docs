@@ -59,7 +59,7 @@ import Package from "./\_package.mdx"
 
 非必需但可增强 ROCK 4A/4B/4A+/4B+/4SE 基本功能的外设：
 
-- 散热器，参考[散热器选型](./interface-usage/fan)来安装散热器
+- 散热片
 
 - M.2 NVMe SSD。推荐在 M.2 NVMe SSD 上安装操作系统。
 
