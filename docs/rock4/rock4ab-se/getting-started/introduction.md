@@ -6,29 +6,7 @@ sidebar_position: 1
 
 ## 主要特性
 
-<Tabs queryString="model">
-
-    <TabItem value="ROCK 4A">
-        Radxa ROCK 4 Model A (ROCK 4A) 是一款超小型单板计算机 (SBC)，具有领先的性能和出色的机械兼容性。Radxa ROCK 4A 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者及其他人士提供了一个可靠且功能强大的平台，让他们可以构建和修补自己的想法，并将其变为现实。
-    </TabItem>
-
-    <TabItem value="ROCK 4B">
-        Radxa ROCK 4 Model B（ROCK 4B）是一款超小型单板计算机（SBC），具有领先的性能和出色的机械兼容性。Radxa ROCK 4B 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者和其他人士提供了一个可靠且功能强大的平台，让他们可以构建和修补自己的想法，并将其变为现实。
-    </TabItem>
-
-    <TabItem value="ROCK 4A+">
-        Radxa ROCK 4A+ 是一款信用卡大小的单板计算机 (SBC)，具有多种领先的功能、特性和扩展选项。Radxa ROCK 4A+ 是业余爱好者和专业人士的理想之选，因为他们需要的是可靠性极高的高规格平台。
-    </TabItem>
-
-    <TabItem value="ROCK 4B+">
-        Radxa ROCK 4B+ 是一款信用卡大小的单板计算机 (SBC)，具有多种领先的功能、特性和扩展选项。Radxa ROCK 4B+ 是业余爱好者和专业人士的理想之选，因为他们需要的是可靠性极高的高规格平台。
-    </TabItem>
-
-    <TabItem value="ROCK 4SE">
-        ROCK 4SE 是一款超小型单板计算机 (SBC)，具有一流的性能和广泛的扩展端口。ROCK 4SE 为专业人士、工业 OEM、物联网发烧友、业余爱好者、PC DIY 发烧友和制造商提供了一个可靠且功能强大的平台，用于构建和修补他们的想法并将其变为现实。
-    </TabItem>
-
-</Tabs>
+ROCK 4A/ROCK 4A+/ROCK 4B/ROCK 4B+/ROCK 4SE 是一款超小型单板计算机 (SBC)，具有领先的性能和出色的机械兼容性。Radxa ROCK 4A 为创客、物联网爱好者、业余爱好者、PC DIY 爱好者及其他人士提供了一个可靠且功能强大的平台，让他们可以构建和修补自己的想法，并将其变为现实。
 
 ### 接口丰富
 
