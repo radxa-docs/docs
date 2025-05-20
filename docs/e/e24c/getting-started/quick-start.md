@@ -188,10 +188,36 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
 
 <TabItem value="有板载 eMMC 系统">
 
-使用网线连接 Radxa E24C 的以太网 LAN 端口，然后使用 12V DC 电源适配器启动系统：以太网端口对应的 LED 指示灯闪烁，表示网络连接正常。
+- 硬件连接
+
+使用网线连接 Radxa E24C 的以太网 LAN 端口另一端连接 PC 的以太网网口，然后使用 12V DC 电源适配器启动系统：以太网端口对应的 LED 指示灯闪烁，表示网络连接正常。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-rj45-cable.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+
+- 登录 Luci 界面
+
+打开 PC 的浏览器，输入 `http://192.168.1.1` 地址，按回车键访问系统的 Luci 的 web 配置界面，然后输入用户名和密码进行登陆。
+
+:::tip
+OpenWrt系统
+
+用户账号：root
+
+用户密码：password
+:::
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e24c/e24c-open-login.webp" style={{width: '100%', maxWidth: '1000px'}} />
+</div>
+
+- 系统管理界面
+
+Luci 界面提供了丰富的系统管理功能，包括系统状态、网络设置、软件管理、硬件管理等。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e24c/e24c-open-control.webp" style={{width: '100%', maxWidth: '1000px'}} />
 </div>
 
 </TabItem>
