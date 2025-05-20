@@ -11,12 +11,12 @@ sidebar_position: 1
 :::
 
 <div style={{textAlign: 'center'}}>
-  <div style={{textAlign: 'center', marginTop: '0px', marginBottom: '0px', fontSize: '18px', color: '#00ff00'}}>E24C 俯视图</div>
+  <div style={{textAlign: 'center', marginTop: '0px', marginBottom: '0px', fontSize: '18px', color: '#000000'}}>E24C 俯视图</div>
   <img src="/img/e/e24c/e24c-01-shell.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 <div style={{textAlign: 'center'}}>
-  <div style={{textAlign: 'center', marginTop: '0px', marginBottom: '10px', fontSize: '18px', color: '#00ff00'}}>E24C 侧视图</div>
+  <div style={{textAlign: 'center', marginTop: '0px', marginBottom: '10px', fontSize: '18px', color: '#000000'}}>E24C 侧视图</div>
   <img src="/img/e/e24c/e24c-02-shell.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
@@ -78,7 +78,7 @@ Radxa E24C 上有一个 USB Type‑C 型接口，主要用于调试和访问系�
 
 进入[资源下载汇总](../download)页面下载对应的操作系统镜像压缩包，下载完成后解压系统镜像压缩包，得到的 `*.img` 后缀文件就是后面安装系统镜像需要的文件。
 
-:::note
+:::tip
 下载的系统镜像是一个压缩文件，需要解压后才能通过镜像烧录软件写入到SD卡
 :::
 
@@ -97,12 +97,13 @@ Radxa E24C 上有一个 USB Type‑C 型接口，主要用于调试和访问系�
 进入官网下载系统对应平台的软件：[balenaEtcher](https://etcher.balena.io)
 
 <div style={{textAlign: 'center'}}>
-
-下载界面：选择系统对应的平台下载！
-
 <img src="/img/e/e24c/e24c-down-etcher-01.webp" style={{width: '100%', maxWidth: '600px'}} />
-<img src="/img/e/e24c/e24c-down-etcher-02.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
 
+进入下载页面后，选择对应的系统平台进行 Etcher 软件下载。
+
+<div style={{textAlign: 'center'}}>
+<img src="/img/e/e24c/e24c-down-etcher-02.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 :::tip
@@ -115,13 +116,13 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
 
 - 安装系统镜像
 
-  1.选择主板对应的系统镜像：点击 `Flash from file` 选项，选择自己提前下载并解压好的系统镜像文件。
+1. 选择主板对应的系统镜像：点击 `Flash from file` 选项，选择自己提前下载并解压好的系统镜像文件。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-01.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-2.选择 MicroSD 卡对应的磁盘：点击 `Select target` 选项，选择自己接入PC的读卡器对应磁盘设备。
+2. 选择 MicroSD 卡对应的磁盘：点击 `Select target` 选项，选择自己接入 PC 的读卡器对应磁盘设备。
 
 :::danger
 请勿选错磁盘，否则 Etcher 将格式化被选中的磁盘，造成重要数据丢失！
@@ -129,6 +130,13 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-02.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+
+① ： 选择需要安装系统镜像的磁盘设备
+
+② ： 点击 `Select 1` 选项确认设备选择
+
+<div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-03.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
@@ -136,7 +144,15 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-04.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+
+<div style={{textAlign: 'center'}}>
+等待系统写入完成
   <img src="/img/e/e24c/etcher-05.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+
+<div style={{textAlign: 'center'}}>
+等待系统校验完成
   <img src="/img/e/e24c/etcher-07.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
@@ -246,11 +262,13 @@ Radxa E24C 和 PC 通过 USB Type-A 转 Type-C 数据线连接后，可以进入
 
 - 串口登陆选项
 
-Connection type：选择 `Serial`
+① --> Connection type：选择 `Serial`
 
-Serial line：填写 `COM4` (根据设备管理器显示的串口号信息)
+② --> Serial line：填写 `COM4` (根据设备管理器显示的串口号信息)
 
-Speed：填写 `1500000`
+③ --> Speed：填写 `1500000`
+
+④ --> Open：串口连接 Radxa E24C 系统
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/serial-02.webp" style={{width: '80%', maxWidth: '600px'}} />
