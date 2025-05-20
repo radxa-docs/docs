@@ -3,6 +3,7 @@ label: "X Family"
 description: "X Family"
 sidebar_position: 1
 slug: /x
+sidebar_class_name: hidden
 ---
 
 # X Family
