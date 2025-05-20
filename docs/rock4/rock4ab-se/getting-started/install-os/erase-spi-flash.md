@@ -4,6 +4,10 @@ sidebar_position: 4
 
 # 手动清空 SPI Flash
 
+::tip
+本教程使用与内核 >= 5.10 的系统
+:::
+
 ## 能启动 Linux
 
 - 打开终端，执行 rsetup
