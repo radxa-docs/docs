@@ -8,7 +8,19 @@ sidebar_position: 2
 
 ### 官方操作系统
 
+#### Linux
+
+- (Radxa ROCK 4A Debian 11 Desktop Linux 5.10)[https://github.com/radxa-build/rock-pi-4a/releases/download/test-build-1/rock-pi-4a_debian_bullseye-test_kde_t1.img.xz]
+
+- (Radxa ROCK 4A+ Debian 11 Desktop Linux 5.10)[https://github.com/radxa-build/rock-pi-4a-plus/releases/download/20230601-0150/rock-pi-4a-plus_debian_bullseye_kde_b14.img.xz]
+
+- [Radxa ROCK 4B Debian 11 Desktop Linux 5.10](https://github.com/radxa-build/rock-pi-4b/releases/download/20230601-0206/rock-pi-4b_debian_bullseye_kde_b32.img.xz)
+
+- (Radxa ROCK 4B+ Debian 11 Desktop Linux 5.10)[https://github.com/radxa-build/rock-pi-4b-plus/releases/download/rsdk-t2/rock-pi-4b-plus_bullseye_kde_t2.output.img.xz]
+
 - [Radxa ROCK 4SE Debian 11 Desktop Linux 5.10](https://github.com/radxa-build/rock-4se/releases/download/b38/rock-4se_debian_bullseye_kde_b38.img.xz)
+
+#### Android
 
 - [Radxa ROCK 4SE Android 11](https://github.com/radxa/manifests/releases/download/RockPi-android11-20220819_1707/rock4b-se-android11-20220819-1907-gpt.zip)
 
