@@ -4,6 +4,10 @@ sidebar_position: 3
 
 # 安装系统到 NVME
 
+:::tip
+本教程仅使用与内核 >= 5.10 的系统
+:::
+
 import NVME from '../../../../common/dev/\_nvme.mdx';
 
 <NVME rsetup_path="../../radxa-os/rsetup" etcher_path="./boot-from-sd-card" download_path="../../download" pwr="12V/1.5A" />
