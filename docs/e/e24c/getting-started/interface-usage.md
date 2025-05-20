@@ -91,6 +91,37 @@ sidebar_position: 2
 
 支持 adb 、usbnet 、mass storage。
 
+以 USB 大容量存储示例，执行命令前通过 M-Key 插好 SSD。
+
+<NewCodeBlock tip="radxa@radxa-e24c$" type="host">
+```
+modprobe libcomposite
+modprobe usb_f_mass_storage
+systemctl daemon-reload
+umount /sys/kernel/config
+mount -t configfs none /sys/kernel/config
+cd /sys/kernel/config/usb_gadget
+mkdir -p my_udisk
+cd my_udisk
+echo 0x1d6b > idVendor
+echo 0x0104 > idProduct
+echo 0x0100 > bcdDevice
+echo 0x0300 > bcdUSB
+mkdir -p strings/0x409
+echo "123456789" > strings/0x409/serialnumber
+echo "My Manufacturer" > strings/0x409/manufacturer
+echo "My USB Disk" > strings/0x409/product
+mkdir -p configs/c.1
+mkdir -p configs/c.1/strings/0x409
+echo "Mass Storage Config" > configs/c.1/strings/0x409/configuration
+mkdir -p functions/mass_storage.usb0
+mkfs.ext4 /dev/nvme0n1p1
+echo /dev/nvme0n1p1 > functions/mass_storage.usb0/lun.0/file
+ln -s functions/mass_storage.usb0 configs/c.1
+echo fc000000.usb > UDC
+```
+</NewCodeBlock>
+
 ### 2.4 用户按键
 
 用户可编程按键，可通过软件自定义功能。
@@ -119,6 +150,7 @@ sidebar_position: 2
 
 - 使用示例
 
+<NewCodeBlock tip="radxa@radxa-e24c$" type="host">
 ```
 # 安装 GPIO 控制工具
 sudo apt-get install gpiod
@@ -135,6 +167,7 @@ gpioset <chip> <line>=<value>
 # 读取 GPIO 输入
 gpioget <chip> <line>
 ```
+</NewCodeBlock>
 
 ### 2.9 LED状态指示灯
 
@@ -167,6 +200,7 @@ Radxa E24C 的 MAC 地址是唯一且固定的，在每次断电重启或者软�
 
 - 网口测速
 
+<NewCodeBlock tip="radxa@radxa-e24c$" type="host">
 ```
 # 安装 iperf3 工具
 sudo apt install iperf3
@@ -180,6 +214,7 @@ iperf3 -c server-ip -t 60
 # 测试下载速度
 iperf3 -c server-ip -t 60 -R
 ```
+</NewCodeBlock>
 
 ### 2.14 HDMI2.1 输出接口
 

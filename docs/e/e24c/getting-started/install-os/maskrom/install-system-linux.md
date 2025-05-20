@@ -65,15 +65,20 @@ Radxa E24C 有一个专用的 Maskrom 按键，在系统启动过程中检测到
 
 打开系统终端或命令行，运行下面命令检查是否识别到 Maskrom 设备。
 
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 sudo rkdeveloptool ld
 ```
+</NewCodeBlock>
+
 
 正常输出内容：识别到一个设备
 
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 ```
+</NewCodeBlock>
 
 ### 3.2 安装系统
 
@@ -83,23 +88,29 @@ DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 
 将下面的`xxx.bin`文件名称修改成实际下载的 Loader 文件名称。
 
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 sudo rkdeveloptool db xxx.bin
 ```
+</NewCodeBlock>
 
 - 烧录系统镜像
 
 将下面的`xxx.img`文件名称修改成实际下载的 Loader 文件名称。
 
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 sudo rkdeveloptool wl 0 xxx.img
 ```
+</NewCodeBlock>
 
 - 重启设备
 
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 sudo rkdeveloptool rd
 ```
+</NewCodeBlock>
 
 ### 3.3 使用系统
 

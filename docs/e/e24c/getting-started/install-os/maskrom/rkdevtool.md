@@ -42,6 +42,7 @@ RKDevTool 是 Rockchip 为 Windows/Linux/macOS 平台下进行 USB 烧录所开�
 
 打开系统终端或命令行，运行以下命令进行安装。
 
+<NewCodeBlock tip="Linux-host$" type="host">
 ```
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
@@ -52,14 +53,17 @@ autoreconf -i
 make -j $(nproc)
 sudo cp rkdeveloptool /usr/local/sbin/
 ```
+</NewCodeBlock>
 
 - 验证版本号
 
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
+<NewCodeBlock tip="Linux-host$" type="host">
 ```
 rkdeveloptool -V
 ```
+</NewCodeBlock>
 
 </TabItem>
 
@@ -71,14 +75,17 @@ rkdeveloptool -V
 
 若没有安装 HomeBrew，可以按照教程进行安装。
 
+<NewCodeBlock tip="macOS-host$" type="host">
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+</NewCodeBlock>
 
 - 安装 rkdeveloptool
 
 打开系统终端或命令行，运行以下命令进行安装。
 
+<NewCodeBlock tip="macOS-host$" type="host">
 ```
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -88,14 +95,17 @@ autoreconf -i
 make -j $(nproc)
 cp rkdeveloptool /opt/homebrew/bin/
 ```
+</NewCodeBlock>
 
 - 验证版本号
 
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
+<NewCodeBlock tip="macOS-host$" type="host">
 ```
 rkdeveloptool -V
 ```
+</NewCodeBlock>
 
 </TabItem>
 
@@ -203,45 +213,61 @@ Radxa E24C 有一个专用的 Maskrom 按键，在系统启动过程中检测到
 
 在当前目录生成内容全为0的64MB文件。
 
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 dd if=/dev/zero of=./zero.img bs=1M count=64
 ```
+</NewCodeBlock>
 
 2. 检查设备
 
 检查设备是否可以识别 Maskrom。
 
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 sudo rkdeveloptool ld
 ```
+</NewCodeBlock>
 
 正常输出内容：识别到一个设备
 
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 ```
+</NewCodeBlock>
 
 3. 写入 Loader
 
 进入[资源下载汇总](../../../download)页面下载对应的 Loader 文件，将下面的`xxx.bin`文件名称修改成实际下载的文件名称。
 
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 sudo rkdeveloptool db xxx.bin
 ```
+</NewCodeBlock>
+
 
 4. 清空 eMMC
 
 使用 RKDevTool 工具将 zero.img 写入设备的起始扇区，用于擦除或初始化 Rockchip 设备的 eMMC。
 
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 sudo rkdeveloptool wl 0 zero.img
 ```
+</NewCodeBlock>
+
 
 5. 重启设备
 
+使用 RKDevTool 工具重启设备。
+
+<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 sudo rkdeveloptool rd
 ```
+</NewCodeBlock>
 
 </TabItem>
 

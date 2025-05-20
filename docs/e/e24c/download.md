@@ -12,7 +12,7 @@ sidebar_position: 3
 
 ### OpenWrt
 
-[OpenWrt](https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-t2/radxa-rk3528_bookworm_cli_t2.output.img.x) 镜像系统文件 : 解压后可直接写入SD卡/eMMC/SSD
+[OpenWrt](https://dl.radxa.com/e/e24c/images/openwrt_rk3528_e24c_R25.05.07_k6.1.115-rk35xx-flippy-2505a.7z) 镜像系统文件 : 解压后可直接写入SD卡/eMMC/SSD
 
 ## Loader文件
 
