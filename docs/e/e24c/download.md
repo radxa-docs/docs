@@ -22,13 +22,9 @@ sidebar_position: 3
 
 Radxa E24C V1.2 版本
 
-- V1.2 位号图 pdf
-- V1.2 原理图 pdf
-
-## 质量认证
+- [V1.2 位号图 pdf](https://dl.radxa.com/e/e24c/docs/radxa_e24c_v1200_components_placement.pdf)
+- [V1.2 原理图 pdf](https://dl.radxa.com/e/e24c/docs/radxa_e24c_v1200_schematic.pdf)
 
 ## 参考文档
 
-- E24C 特性图
-- E24C 规格书
-- E24C 说明书
+- [E24C 规格书](https://dl.radxa.com/e/e24c/docs/rad-doc-0116_radxa_e24c_product_brief__revision_1.1_gc0fb69b.pdf)
