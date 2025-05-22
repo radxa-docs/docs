@@ -174,19 +174,99 @@ sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 
 </NewCodeBlock>
 
 - xzcat : 解压 xz 格式的系统镜像文件
-- dd : 复制并写入到 NVME 设备
+- dd : 复制并写入到 NVME 设备（⚠️注意：使用dd命令时请确认设备名称，错误的设备名可能导致数据丢失）
 - of=/dev/nvme0n1 : 指定写入的设备为 nvme0n1
-- bs=1M : 指定写入的块大小为 1M
-- status=progress : 显示写入进度
+- bs=1M : 指定写入的块大小为 1M，提高写入速度
+- status=progress : 显示写入进度，让您了解写入状态
 
-## 4. 重启系统
+### 3.4 验证写入结果
+
+写入完成后，您可以验证NVMe中的分区表是否正确创建：
+
+<NewCodeBlock tip="radxa@radxa-e54c$" type="host">
+```
+
+sudo fdisk -l /dev/nvme0n1
+
+```
+</NewCodeBlock>
+
+正确写入后，应该会看到类似以下的分区信息：
+
+<NewCodeBlock tip="输出示例" type="host">
+```
+
+Disk /dev/nvme0n1: 119.2 GiB, 128035676160 bytes, 250069680 sectors
+Disk model: YOUR-SSD-MODEL
+Units: sectors of 1 \* 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x00000000
+
+Device Boot Start End Sectors Size Id Type
+/dev/nvme0n1p1 8192 40959 32768 16M c W95 FAT32 (LBA)
+/dev/nvme0n1p2 40960 655359 614400 300M ef EFI (FAT-12/16/32)
+/dev/nvme0n1p3 655360 250069646 249414287 118.9G 83 Linux
+
+```
+</NewCodeBlock>
+
+## 4. 从NVMe启动系统
+
+### 4.1 重启准备
+
+完成以上操作后，请按以下步骤操作：
+
+1. 关闭系统：`sudo shutdown -h now`
+2. 断开 Radxa E54C 与电源
+3. 移除 MicroSD 卡
+4. 重新连接电源
+5. 等待系统从NVMe启动
+
+### 4.2 验证NVMe启动
+
+系统启动后，可通过以下方式验证系统是否成功从NVMe启动：
+
+<NewCodeBlock tip="radxa@radxa-e54c$" type="host">
+```
+
+lsblk
+df -h
+
+```
+</NewCodeBlock>
+
+如果您看到 `/dev/nvme0n1p3` 被挂载为根目录 `/`，则表示系统已成功从NVMe启动。
+
+### 4.3 常见问题及解决方案
+
 :::tip
-你若遇到以下情况，可以尝试以下办法解决：
+如果在启动过程中遇到问题，请尝试以下解决方案：
 
-- 系统无法启动：可以更换刷入 SPI Flash 的 Bootloader 文件选项
+- **系统无法启动**：
+  - 重新插入MicroSD卡，启动系统
+  - 尝试更换刷入 SPI Flash 的 Bootloader 文件选项（优先选择最新版本）
+  - 检查 M.2 接口是否连接良好，可尝试重新插拔NVMe
 
-- 系统无法登录或者密码错误：可以尝试重新下载系统镜像和写入系统镜像文件
+- **系统可以启动但无法登录**：
+  - 默认用户名：`radxa`，密码：`radxa`
+  - 如密码错误，可重新使用MicroSD卡启动，然后重新下载并写入系统镜像
+
+- **系统性能不佳**：
+  - 检查NVMe温度：`sudo nvme smart-log /dev/nvme0n1 | grep "temperature"`
+  - 温度过高可能导致性能降级，考虑添加散热片
+  - 可通过`sudo nvme list`查看NVMe设备的详细信息和健康状态
 :::
 
-完成以上操作后，关机并断开 Radxa E54C 与电源，然后将 MicroSD 卡拔出，接上 Radxa E54C 与电源，等待系统启动。
+## 5. 后续步骤
+
+成功从NVMe启动系统后，您可以进行以下操作：
+
+- **系统更新**：`sudo apt update && sudo apt upgrade`
+- **扩展分区**：如需使用NVMe的全部空间，可使用`rsetup`中的`Resize Filesystem`选项
+- **备份系统**：定期备份重要数据，可使用`dd`或`rsync`命令
+- **性能测试**：使用`hdparm -Tt /dev/nvme0n1`测试NVMe读取速度
+
+
 ```
