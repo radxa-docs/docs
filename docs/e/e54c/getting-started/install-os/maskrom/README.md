@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# 安装系统到EMMC
+# 安装系统到 EMMC
 
 <DocCardList />
