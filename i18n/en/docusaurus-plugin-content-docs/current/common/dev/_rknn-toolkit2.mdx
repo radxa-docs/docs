@@ -8,24 +8,37 @@ This document is intended to demonstrate how to run the official example, for mo
 
 ## Install dependencies
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
 ```bash
 sudo apt install git python-is-python3 python3-pip libxslt1-dev zlib1g-dev libglib2.0-dev libsm6 libgl1-mesa-glx libprotobuf-dev build-essential adb
 ```
 
+</NewCodeBlock>
+
 ## Download and installing RKNN Toolkit2
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
 ```bash
-git clone https://github.com/rockchip-linux/rknn-toolkit2.git
-cd rknn-toolkit2/
-pip install ./packages/rknn_toolkit2-1.5.2+b642f30c-cp310-cp310-linux_x86_64.whl
+git clone -b v2.3.0 https://github.com/airockchip/rknn-toolkit2.git
+cd rknn-toolkit2/rknn-toolkit2/packages/x86_64/
+pip3 install -r requirements_cp38-2.3.0.txt
+pip3 install ./rknn_toolkit2-2.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 ```
 
+</NewCodeBlock>
+
 ## Run the yolov5 example
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
 cd examples/onnx/yolov5
 python test.py
 ```
+
+</NewCodeBlock>
 
 :::info
 After the conversion model and inference script test.py is run successfully, the converted model is saved in examples/onnx/yolov5/yolov5s_relu.rknn by default, and the result of the inference image is saved in examples/onnx/yolov5/result.jpg
@@ -49,18 +62,26 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
 RKNN Toolkit Lite2 and its dependencies are installed by default in the official Radxa system image, if it does not work, try the following commands.
 :::
 
+<NewCodeBlock tip="Radxa OS" type="device">
+
 ```bash
 sudo apt update
 sudo apt install rknpu2-rk3588 python3-rknnlite2    #SOC is RK3588 series
 sudo apt install rknpu2-rk356x python3-rknnlite2    #SOC is RK356X series
 ```
 
+</NewCodeBlock>
+
 ## Install RKNN Toolkit Lite2 example
+
+<NewCodeBlock tip="Radxa OS" type="device">
 
 ```bash
 sudo apt update
 sudo apt install python3-rknnlite2-example
 ```
+
+</NewCodeBlock>
 
 ## Running the Resnet18 example
 
@@ -69,9 +90,18 @@ RKNN Toolkit Lite2 is mainly used for deploying RKNN models on Rockchip NPU.
 Before using the RKNN Toolkit Lite2, we need to convert the exported models of each framework into RKNN models through RKNN Toolkit2 on PC.
 :::
 
+<NewCodeBlock tip="Radxa OS" type="device">
+
 ```bash
 cd /usr/share/python3-rknnlite2/resnet18
-python test.py
+python3 test.py
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Results" type="device">
+
+```bash
 --> Load RKNN model
 done
 --> Init runtime environment
@@ -91,6 +121,8 @@ resnet18
 
 done
 ```
+
+</NewCodeBlock>
 
 :::info
 Executing this example will load the Resnet18 model and perform inference to get the top5 classification results for the test image.

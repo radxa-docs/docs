@@ -15,11 +15,17 @@
 
 - 如使用 conda 请先激活 rknn conda 环境
 
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   conda activate rknn
   ```
 
+  </NewCodeBlock>
+
 - 下载 yolov8.onnx 模型
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov8/model
@@ -27,14 +33,20 @@
   bash download_model.sh
   ```
 
+  </NewCodeBlock>
+
   如遇到网络问题，可访问 [此页 ](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) 下载对应的模型到对应文件夹
 
 - 使用 rknn-toolkit2 转换成 yolov8n.rknn
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov8/python
   python3 convert.py ../model/yolov8n.onnx rk3588
   ```
+
+  </NewCodeBlock>
 
   参数解析：
 
@@ -56,9 +68,13 @@
 
 - 下载 rknn-model-zoo-rk3588 获取 yolov8 demo（内含预转换 yolov8.rknn 模型）
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
    sudo apt install rknn-model-zoo-rk3588
   ```
+
+  </NewCodeBlock>
 
   如您使用的是 CLI 版本可访问 rknn-model-zoo-rk3588 [deb 包下载地址](https://github.com/radxa-pkg/rknn_model_zoo/releases/tag/1.6.0-1)
 
@@ -66,10 +82,16 @@
 
   如你使用的是自己转换的模型需从 PC 端拷贝到板端，并用 --model_path 参数指定模型路径
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   cd /usr/share/rknn_model_zoo/examples/yolov8/python
   sudo python3 yolov8.py --model_path ../model/yolov8.rknn --img_save
   ```
+
+  </NewCodeBlock>
+
+  <NewCodeBlock tip="Results" type="device">
 
   ```bash
   $ sudo python3 yolov8.py --model_path ../model/yolov8.rknn --img_save
@@ -93,6 +115,8 @@
   bus  @ (95 136 549 449) 0.860
   Detection result save to ./result/bus.jpg
   ```
+
+  </NewCodeBlock>
 
   参数解析：
 
