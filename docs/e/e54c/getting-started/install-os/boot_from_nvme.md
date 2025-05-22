@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 安装系统到 NVMe
+# 安装系统到 NVME
 
 ## 概览
 
@@ -46,20 +46,17 @@ rsetup
 
 <div style={{textAlign: 'center'}}>
   rsetup 首页界面
-  <img src="/img/e/e54c/rsetup-01.webp" style={{width: '100%', maxWidth: '600px'}} />
+  <img src="/img/e/e54c/rsetup-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 1. 更新系统
 依次选择 `System` → `System Update` ：
 <div style={{textAlign: 'center'}}>
-  <img src="/img/e/e54c/rsetup-02.webp" style={{width: '100%', maxWidth: '600px'}} />
+  <img src="/img/e/e54c/rsetup-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 选择 `yes` 继续操作，然后按照系统提示完成剩下操作：
 <div style={{textAlign: 'center'}}>
-  <img src="/img/e/e54c/rsetup-03.webp" style={{width: '100%', maxWidth: '600px'}} />
-</div>
-<div style={{textAlign: 'center'}}>
-  <img src="/img/e/e54c/rsetup-04.webp" style={{width: '100%', maxWidth: '600px'}} />
+  <img src="/img/e/e54c/rsetup-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 完成所有操作后重启系统。
 
@@ -68,39 +65,51 @@ rsetup
 为防止 SPI Flash 中存放的 bootloader 在平时使用被误写入，默认 SPI Flash 设备是关闭的。通过以下方式使能 SPI Flash 设备。
 
 选择 `Overlays` → `Manage Overlays` ：
-
 <div style={{textAlign: 'center'}}>
-  <img src="/img/e/e54c/rsetup-05.webp" style={{width: '100%', maxWidth: '600px'}} />
-  <img src="/img/e/e54c/rsetup-06.webp" style={{width: '100%', maxWidth: '600px'}} />
+  <img src="/img/e/e54c/rsetup-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e54c/rsetup-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/img/e/e54c/rsetup-06.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 选择 `Enable SPI Flash` 选项，按空格出现 `*` 符号说明勾选使能 SPI Flash ，然后按 `Enter` 确认操作:
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/e/e54c/rsetup-07.webp" style={{width: '100%', maxWidth: '600px'}} />
+  <img src="/img/e/e54c/rsetup-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+按照系统提示完成剩下操作:
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e54c/rsetup-08.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 <div style={{textAlign: 'center'}}>
-  <img src="/img/e/e54c/rsetup-08.webp" style={{width: '100%', maxWidth: '600px'}} />
+  <img src="/img/e/e54c/rsetup-09.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-按照系统提示完成剩下操作，完成所有操作后重启系统。
+完成所有操作后重启系统。
 
 ### 2.3 刷入 SPI Flash
 
 重启系统后，再次打开系统配置工具 `rsetup`。
 
 选择 `System` → `Bootloader Management` → `Update SPI Bootloader` :
-
 <div style={{textAlign: 'center'}}>
-  <img src="/img/e/e54c/rsetup-09.webp" style={{width: '100%', maxWidth: '600px'}} />
+  <img src="/img/e/e54c/rsetup-10.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e54c/rsetup-11.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e54c/rsetup-12.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 选择安装的Bootloader文件，若选择的Bootloader有多个选项，优先选择带有spi后缀的选项:
 <div style={{textAlign: 'center'}}>
-  <img src="/img/e/e54c/rsetup-10.webp" style={{width: '100%', maxWidth: '600px'}} />
+  <img src="/img/e/e54c/rsetup-13.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+按照系统提示完成剩下操作:
 <div style={{textAlign: 'center'}}>
-  <img src="/img/e/e54c/rsetup-11.webp" style={{width: '100%', maxWidth: '600px'}} />
+  <img src="/img/e/e54c/rsetup-14.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-按照系统提示完成剩下操作，完成所有操作后重启系统。
+完成所有操作后重启系统。
 
 ## 3. 写入系统镜像到 NVME
 
@@ -185,32 +194,14 @@ sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo fdisk -l /dev/nvme0n1
-
 ```
 </NewCodeBlock>
 
 正确写入后，应该会看到类似以下的分区信息：
-
-<NewCodeBlock tip="输出示例" type="host">
-```
-
-Disk /dev/nvme0n1: 119.2 GiB, 128035676160 bytes, 250069680 sectors
-Disk model: YOUR-SSD-MODEL
-Units: sectors of 1 \* 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: dos
-Disk identifier: 0x00000000
-
-Device Boot Start End Sectors Size Id Type
-/dev/nvme0n1p1 8192 40959 32768 16M c W95 FAT32 (LBA)
-/dev/nvme0n1p2 40960 655359 614400 300M ef EFI (FAT-12/16/32)
-/dev/nvme0n1p3 655360 250069646 249414287 118.9G 83 Linux
-
-```
-</NewCodeBlock>
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e54c/rsetup-16.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ## 4. 从NVMe启动系统
 
@@ -230,14 +221,16 @@ Device Boot Start End Sectors Size Id Type
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 lsblk
 df -h
-
 ```
 </NewCodeBlock>
 
 如果您看到 `/dev/nvme0n1p3` 被挂载为根目录 `/`，则表示系统已成功从NVMe启动。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e54c/rsetup-15.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ### 4.3 常见问题及解决方案
 
@@ -252,21 +245,58 @@ df -h
 - **系统可以启动但无法登录**：
   - 默认用户名：`radxa`，密码：`radxa`
   - 如密码错误，可重新使用MicroSD卡启动，然后重新下载并写入系统镜像
-
-- **系统性能不佳**：
-  - 检查NVMe温度：`sudo nvme smart-log /dev/nvme0n1 | grep "temperature"`
-  - 温度过高可能导致性能降级，考虑添加散热片
-  - 可通过`sudo nvme list`查看NVMe设备的详细信息和健康状态
 :::
 
 ## 5. 后续步骤
 
 成功从NVMe启动系统后，您可以进行以下操作：
 
-- **系统更新**：`sudo apt update && sudo apt upgrade`
-- **扩展分区**：如需使用NVMe的全部空间，可使用`rsetup`中的`Resize Filesystem`选项
-- **备份系统**：定期备份重要数据，可使用`dd`或`rsync`命令
-- **性能测试**：使用`hdparm -Tt /dev/nvme0n1`测试NVMe读取速度
+### 5.1 系统更新
 
-
+<NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+sudo apt update && sudo apt upgrade
+```
+</NewCodeBlock>
+
+
+### 5.2 备份系统
+
+定期备份重要数据，可使用`dd`或`rsync`命令
+
+
+### 5.4 性能测试
+
+- 测试读取速度
+
+测试读取速度（1GB 数据）。
+
+<NewCodeBlock tip="radxa@radxa-e54c$" type="host">
+```
+sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
+```
+</NewCodeBlock>
+
+- 检查NVMe温度
+
+<NewCodeBlock tip="radxa@radxa-e54c$" type="host">
+```
+# 安装 nvme-cli
+sudo apt install nvme-cli
+
+# 检查温度
+sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
+```
+</NewCodeBlock>
+
+- 查看NVMe设备的详细信息和健康状态
+
+<NewCodeBlock tip="radxa@radxa-e54c$" type="host">
+```
+sudo nvme list
+```
+</NewCodeBlock>
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e54c/rsetup-17.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
