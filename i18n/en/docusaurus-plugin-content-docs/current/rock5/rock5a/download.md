@@ -17,7 +17,13 @@ Radxa ROCK 5A Version V1.1
 
 ## System Image
 
-<Images loader={false} system_img={true} spi_img={false} miniloader={true} dietpi={true} />
+### Loader/SPI Image
+
+<Images loader={true} system_img={false} android_img={false} spi_img={true} miniloader={true} dietpi={false} />
+
+### Linux/Android System Image
+
+<Images loader={false} system_img={true} android_img={true} spi_img={false} miniloader={false} dietpi={true} />
 
 :::caution
 
