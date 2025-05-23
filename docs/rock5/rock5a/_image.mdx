@@ -29,15 +29,6 @@ import React, { Fragment } from "react";
       ROCK 5A Android12 : Radxa ROCK 5A Android{" "}
     </a>
   </li>
-  <li style={{ display: `${props.spi_img ? "block" : "none"}` }}>
-    {" "}
-    <a
-      href="https://dl.radxa.com/rock5/5a/images/rock-5a-spi-image-20230412.img"
-      alt="spi image"
-    >
-      SPI Image: spi_image.img{" "}
-    </a>
-  </li>
   <li style={{ display: `${props.miniloader ? "block" : "none"}` }}>
     {" "}
     <a
@@ -56,6 +47,15 @@ import React, { Fragment } from "react";
     >
       {" "}
       ROCK 5A DietPi：MiniLoader.bin{" "}
+    </a>
+  </li>
+  <li style={{ display: `${props.spi_img ? "block" : "none"}` }}>
+    {" "}
+    <a
+      href="https://dl.radxa.com/rock5/5a/images/rock-5a-spi-image-20230412.img"
+      alt="spi image"
+    >
+      SPI Image: spi_image.img{" "}
     </a>
   </li>
 </ul>
