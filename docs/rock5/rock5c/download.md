@@ -10,7 +10,7 @@ import Images from "./\_image.mdx"
 
 ### 官方操作系统镜像
 
-<Images loader={false} system_img={true} lite_system_img={true} spi_img={false} android12_update={true} android12_gpt={true}  />
+<Images loader={true} system_img={true} lite_system_img={true} spi_img={false} android12_update={true} android12_gpt={true}  />
 
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。

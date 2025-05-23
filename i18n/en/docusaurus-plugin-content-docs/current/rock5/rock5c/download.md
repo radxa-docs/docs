@@ -11,7 +11,7 @@ import Images from "./\_image.mdx"
 
 ### Official Operating System Image
 
-<Images loader={false} system_img={true} lite_system_img={true} spi_img={false} android12_update={true} android12_gpt={true}  />
+<Images loader={true} system_img={true} lite_system_img={true} spi_img={false} android12_update={true} android12_gpt={true}  />
 
 :::caution
 Except for the above images which have been fully tested officially, the other images have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
