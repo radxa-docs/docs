@@ -8,8 +8,6 @@ sidebar_position: 2
 
 Orion O6 V1.2 版本
 
-[V1.2 2D dxf](https://dl.radxa.com)
-
 [V1.2 原理图 pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_schematic.pdf)
 
 [V1.2 位号图 BOT pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_bot.pdf)
@@ -80,7 +78,3 @@ T1 已知问题：
 | 用户名 |  密码   |
 | :----: | :-----: |
 |  root  | aarch64 |
-
-## 质量认证
-
-## 参考文档

@@ -8,8 +8,6 @@ sidebar_position: 2
 
 Orion O6 V1.2 Version
 
-[V1.2 2D dxf](https://dl.radxa.com)
-
 [V1.2 Schematic pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_schematic.pdf)
 
 [V1.2 Components Placement Map Bottom pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_bot.pdf)
@@ -80,7 +78,3 @@ Known issues of T1:
 | Username | Password |
 | :------: | :------: |
 |   root   | aarch64  |
-
-## Compliance Certificate
-
-## Reference Documentation
