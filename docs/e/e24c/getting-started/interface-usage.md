@@ -140,32 +140,85 @@ echo fc000000.usb > UDC
 
 ### 2.8 GPIO：14Pin 拓展排针
 
-14-Pin 0.1" (2.54mm) 接口，支持多种接口功能：
+14-Pin 0.1" (2.54mm) 接口，支持多种接口功能，包括 SPI、UART、I2C 和电源输出。
 
-- 1x SPI
-- 1x UART
-- 1x I2C
-- 2x 5V 电源输出
-- 1x 3.3V 电源输出
+<div style={{textAlign: 'center'}}>
+  <div style={{textAlign: 'center', marginTop: '0px', marginBottom: '0px', fontSize: '18px', color: '#000000'}}>E24C GPIO 引脚定义图</div>
+  <img src="/img/e/e24c/e24c-gpio-pinout.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
 
-- 使用示例
+#### 2.8.1 GPIO 引脚定义表
 
-<NewCodeBlock tip="radxa@radxa-e24c$" type="host">
+| 引脚编号 | 引脚名称 | 功能描述      | 电平类型 | 默认功能     |
+| :------: | :------- | :------------ | :------: | :----------- |
+|    1     | 5V       | 5V 电源输出   |   电源   | 电源输出     |
+|    2     | GND      | 接地          |   接地   | 接地         |
+|    3     | UART_TX  | 串口发送引脚  |   3.3V   | UART2_TX     |
+|    4     | UART_RX  | 串口接收引脚  |   3.3V   | UART2_RX     |
+|    5     | I2C_SCL  | I2C 时钟引脚  |   3.3V   | I2C2_SCL     |
+|    6     | I2C_SDA  | I2C 数据引脚  |   3.3V   | I2C2_SDA     |
+|    7     | SPI_CLK  | SPI 时钟引脚  |   3.3V   | SPI2_CLK     |
+|    8     | SPI_TX   | SPI 发送引脚  |   3.3V   | SPI2_TX/MOSI |
+|    9     | SPI_RX   | SPI 接收引脚  |   3.3V   | SPI2_RX/MISO |
+|    10    | SPI_CS   | SPI 片选引脚  |   3.3V   | SPI2_CS      |
+|    11    | GPIO0    | 可编程 GPIO   |   3.3V   | GPIO0_A2     |
+|    12    | GPIO1    | 可编程 GPIO   |   3.3V   | GPIO0_A3     |
+|    13    | 3.3V     | 3.3V 电源输出 |   电源   | 电源输出     |
+|    14    | 5V       | 5V 电源输出   |   电源   | 电源输出     |
+
+:::warning
+请注意，所有信号引脚都是 3.3V 电平，请勿连接 5V 信号，否则可能损坏单板计算机。
+:::
+
+#### 2.8.2 GPIO 使用示例
+
+<NewCodeBlock tip="radxa@radxa-e24c$" type="device">
 ```
 # 安装 GPIO 控制工具
 sudo apt-get install gpiod
 
 # 列出可用的 GPIO 芯片
+
 gpiodetect
 
 # 查看 GPIO 状态
+
 gpioinfo
 
 # 控制 GPIO 输出
+
 gpioset <chip> <line>=<value>
 
 # 读取 GPIO 输入
+
 gpioget <chip> <line>
+
+```
+</NewCodeBlock>
+
+#### 2.8.3 常见外设连接示例
+
+##### I2C 传感器连接
+
+<NewCodeBlock tip="radxa@radxa-e24c$" type="device">
+```
+
+# 安装 I2C 工具
+
+sudo apt-get install i2c-tools
+
+# 扫描 I2C 总线上的设备
+
+sudo i2cdetect -y 2 # 假设使用 I2C2
+
+# 读取 I2C 设备寄存器
+
+sudo i2cget -y 2 0x48 0x00 # 从地址 0x48 的设备读取寄存器 0x00
+
+# 写入 I2C 设备寄存器
+
+sudo i2cset -y 2 0x48 0x01 0x55 # 向地址 0x48 的设备的寄存器 0x01 写入值 0x55
+
 ```
 </NewCodeBlock>
 
@@ -202,17 +255,23 @@ Radxa E24C 的 MAC 地址是唯一且固定的，在每次断电重启或者软�
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="host">
 ```
+
 # 安装 iperf3 工具
+
 sudo apt install iperf3
 
 # 在服务器端运行命令
+
 iperf -s
 
 # 测试上传速度
+
 iperf3 -c server-ip -t 60
 
 # 测试下载速度
+
 iperf3 -c server-ip -t 60 -R
+
 ```
 </NewCodeBlock>
 
@@ -224,3 +283,4 @@ iperf3 -c server-ip -t 60 -R
 
 提供 PCIe 2.1 1-lane 接口，用于连接 M.2 NVMe SSD。
 支持标准 M.2 2280 规格的 NVMe SSD，注意不支持 M.2 SATA SSD。
+```
