@@ -101,7 +101,7 @@ cd rkdeveloptool
 autoreconf -i
 ./configure
 make -j $(nproc)
-cp rkdeveloptool /opt/homebrew/bin/
+cp rkdeveloptool /opt/local/sbin/
 ```
 </NewCodeBlock>
 
