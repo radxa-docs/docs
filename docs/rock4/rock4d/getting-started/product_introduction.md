@@ -23,22 +23,20 @@ ROCK 4D 共有两个版本：基于 RK3576 的商业级版本和基于 RK3576J �
 
 ## 3. 产品规格
 
-| 类别 | 规格 |
-| --- | --- |
-| 处理器 | 系统级芯片 (SoC)： 瑞芯微 RK3576 / RK3576J <br/> 中央处理器 (CPU)： 4 核 Cortex-A72 + 4 核 Cortex-A53 <br/> 图形处理器 (GPU)： Arm Mali-G52 MC3 <br/> 神经网络加速器 (NPU)： 6 TOPS（支持 INT4 / INT8 / INT16 / FP16 / BF16 / TF32） |
-| 内存 (RAM) | LPDDR5，可选：2GB / 4GB / 8GB / 16GB |
-| 存储 | 启动存储： 16MB SPI NOR Flash <br/> 拓展存储： eMMC 5.1 / UFS 2.0 模块接口，MicroSD 卡槽 |
-| 网络 | 有线连接： 1 个千兆以太网口（支持 PoE，需外接 HAT） <br/> 无线连接： Wi-Fi 6、蓝牙 5.4，外接天线接口 |
-| 视频输出 | HDMI 接口： 1× HDMI 2.1，最高支持 4K@120fps <br/> MIPI DSI 接口： 1× 4-lane MIPI DSI |
-| 摄像头接口 | MIPI CSI 接口 : 1 路 4-lane（可分为 2 路 2-lane）+ 1 路 2-lane CSI
-| 音频 | 音频接口 ： 3.5mm 四段耳机插孔，支持麦克风输入 <br/> 音频输出 ： 支持立体声输出，可直接驱动 32Ω 耳机 |
-| USB 接口 | USB 3.0 ： 1× Type-A HOST，1× Type-A OTG/HOST <br/> USB 2.0 ： 2× Type-A HOST |
-| 拓展接口 | GPIO 引脚排针 ： 支持 UART、SPI、I2C、I2S、PWM、CAN、ADC 等 <br/> PCIE 插槽 ： 通过 FPC 接口提供 PCIe 2.1 x1 通道 <br/> 风扇接口 ： 1× 2-pin 1.25mm PWM 控制风扇接口 |
-| 电源接口 | 电源接口 ： 支持 USB Type-C 接口和 GPIO 引脚供电 |
-| 操作系统 | 操作系统 ： 支持 Debian Linux、Android 14、Yocto、Buildroot |
-| 工作温度 | 工作温度（商业级）： 0°C ~ 60°C（RK3576） <br/> 工作温度（工业级）： -40°C ~ 85°C（RK3576J） |
-
-
+| 类别       | 规格                                                                                                                                                                                                                                 |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 处理器     | 系统级芯片 (SoC)： 瑞芯微 RK3576 / RK3576J <br/> 中央处理器 (CPU)： 4 核 Cortex-A72 + 4 核 Cortex-A53 <br/> 图形处理器 (GPU)： Arm Mali-G52 MC3 <br/> 神经网络加速器 (NPU)： 6 TOPS（支持 INT4 / INT8 / INT16 / FP16 / BF16 / TF32） |
+| 内存 (RAM) | LPDDR5，可选：2GB / 4GB / 8GB / 16GB                                                                                                                                                                                                 |
+| 存储       | 启动存储： 16MB SPI NOR Flash <br/> 拓展存储： eMMC / UFS 模块接口，MicroSD 卡槽                                                                                                                                                     |
+| 网络       | 有线连接： 1 个千兆以太网口（支持 PoE，需外接 HAT） <br/> 无线连接： Wi-Fi 6、蓝牙 5.4，外接天线接口                                                                                                                                 |
+| 视频输出   | HDMI 接口： 1× HDMI 2.1，最高支持 4K@120fps <br/> MIPI DSI 接口： 1× 4-lane MIPI DSI                                                                                                                                                 |
+| 摄像头接口 | MIPI CSI 接口 : 1 路 4-lane（可分为 2 路 2-lane）+ 1 路 2-lane CSI                                                                                                                                                                   |
+| 音频       | 音频接口 ： 3.5mm 四段耳机插孔，支持麦克风输入 <br/> 音频输出 ： 支持立体声输出，可直接驱动 32Ω 耳机                                                                                                                                 |
+| USB 接口   | USB 3.0 ： 1× Type-A HOST，1× Type-A OTG/HOST <br/> USB 2.0 ： 2× Type-A HOST                                                                                                                                                        |
+| 拓展接口   | GPIO 引脚排针 ： 支持 UART、SPI、I2C、I2S、PWM、CAN、ADC 等 <br/> PCIE 插槽 ： 通过 FPC 接口提供 PCIe 2.1 x1 通道 <br/> 风扇接口 ： 1× 2-pin 1.25mm PWM 控制风扇接口                                                                 |
+| 电源接口   | 电源接口 ： 支持 USB Type-C 接口和 GPIO 引脚供电                                                                                                                                                                                     |
+| 操作系统   | 操作系统 ： 支持 Debian Linux、Android 14、Yocto、Buildroot                                                                                                                                                                          |
+| 工作温度   | 工作温度（商业级）： 0°C ~ 60°C（RK3576） <br/> 工作温度（工业级）： -40°C ~ 85°C（RK3576J）                                                                                                                                         |
 
 ## 4. 接口说明
 
@@ -46,34 +44,35 @@ ROCK 4D 共有两个版本：基于 RK3576 的商业级版本和基于 RK3576J �
     <img src="/img/rock4/4d/rock4d-interface.webp" style={{width: '100%', maxWidth: '800px'}} />
 </div>
 
-| 序号 | 说明                                         | 数量 |
-| :--: | :------------------------------------------- | :--: |
-|  ①   |  USB Type-C 供电接口                             |  1   |
-|  ②   |  用户指示灯   |  1  |
-|  ③   |  电源指示灯   |  1  |
-|  ④   |  电源按键   |  1  |
-|  ⑤   |  FPC 接口  |  1  |
-|  ⑥   |  WiFi6 和 蓝牙 5.4   |  1  |
-|  ⑦   |  外接天线接口  |  1  |
-|  ⑧   |  40 Pin GPIO   |  1  |
-|  ⑨   |  LPDDR5 内存   |  1  |
-|  ⑩   |  PoE 接口  |  1  |
-|  ⑪   |  Maskrom 按键   |  1  |
-|  ⑫   |  USB 2.0 Type-A   |  2  |
-|  ⑬   |  Rockchip RK3576（J）   |  1  |
-|  ⑭   |  USB 3.0 Type-A   |  2  |
-|  ⑮   |  SPI NOR Flash   |  1  |
-|  ⑯   |  千兆以太网口（支持PoE）   |  1  |
-|  ⑰   |  风扇接口   |  1  |
-|  ⑱   |  耳机插孔   |  1  |
-|  ⑲   |  MIPI CSI 接口   |  1  |
-|  ⑳   |  HDMI 2.1 接口   |  1  |
-|  ㉑   |  UFS 2.0 模块接口   |  1  |
-|  ㉒   |  RTC 接口   |  1  |
-|  ㉓   |  eMMC 5.1 模块接口   |  1  |
-|  ㉔   |  MIPI CSI 接口   |  1  |
-|  ㉕   |  MicroSD 卡槽   |  1  |
-|  ㉖   |  MIPI DSI 接口   |  1  |
+| 序号 | 说明                    | 数量 |
+| :--: | :---------------------- | :--: |
+|  ①   | USB Type-C 供电接口     |  1   |
+|  ②   | 用户指示灯              |  1   |
+|  ③   | 电源指示灯              |  1   |
+|  ④   | 电源按键                |  1   |
+|  ⑤   | FPC 接口                |  1   |
+|  ⑥   | WiFi6 和 蓝牙 5.4       |  1   |
+|  ⑦   | 外接天线接口            |  1   |
+|  ⑧   | 40 Pin GPIO             |  1   |
+|  ⑨   | LPDDR5 内存             |  1   |
+|  ⑩   | PoE 接口                |  1   |
+|  ⑪   | Maskrom 按键            |  1   |
+|  ⑫   | USB 2.0 Type-A          |  2   |
+|  ⑬   | Rockchip RK3576（J）    |  1   |
+|  ⑭   | USB 3.0 Type-A          |  2   |
+|  ⑮   | SPI NOR Flash           |  1   |
+|  ⑯   | 千兆以太网口（支持PoE） |  1   |
+|  ⑰   | 风扇接口                |  1   |
+|  ⑱   | 耳机插孔                |  1   |
+|  ⑲   | MIPI CSI 接口           |  1   |
+|  ⑳   | HDMI 2.1 接口           |  1   |
+|  ㉑  | Recovery 接口           |  1   |
+|  ㉒  | UFS 模块接口            |  1   |
+|  ㉓  | RTC 接口                |  1   |
+|  ㉔  | eMMC 模块接口           |  1   |
+|  ㉕  | MIPI CSI 接口           |  1   |
+|  ㉖  | MicroSD 卡槽            |  1   |
+|  ㉗  | MIPI DSI 接口           |  1   |
 
 ## 5. 应用场景
 
