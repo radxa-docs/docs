@@ -97,6 +97,8 @@ Radxa Rock 4D 支持 MicroSD 卡、 NVME、 UFS 启动系统。
   <img src="/img/rock4/4d/boot-sd.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
+我们将 MicroSD 卡安装到 Radxa ROCK 4D 的主板上，然后使用 5V Type-C 电源适配器启动系统。
+
 </TabItem>
 
 <TabItem value="UFS">
@@ -106,6 +108,8 @@ Radxa Rock 4D 支持 MicroSD 卡、 NVME、 UFS 启动系统。
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/boot-ufs.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+
+我们将 UFS 模块安装到 Radxa ROCK 4D 的主板上，然后使用 5V Type-C 电源适配器启动系统。
 
 </TabItem>
 
@@ -117,11 +121,25 @@ Radxa Rock 4D 支持 MicroSD 卡、 NVME、 UFS 启动系统。
   <img src="/img/rock4/4d/boot-nvme.webp" style={{width: '60%', maxWidth: '1200px'}} />
 </div>
 
+**注意： 相比于 Micro SD 卡和 UFS 模块启动系统，NVME 启动系统需要通过 Radxa 双 2.5G 拓展板上的 DC5525 的 12V 供电接口进行供电。**
+
+我们完成 NVME 和 Radxa 双 2.5G 拓展板安装后，使用 12V DC5525 电源适配器启动系统。
+
+:::tip
+
+Radxa 双 2.5G 拓展板仅支持 12V 电源输入，建议电流 2A 及以上，以确保所有外设稳定运行。
+
+参考电源：
+
+- [瑞莎 DC12 36W电源适配器](https://radxa.com/products/accessories/power-dc12-36w)(推荐使用)
+- [瑞莎 DC12 60W电源适配器](https://radxa.com/products/accessories/power-dc12-60w)
+- 标准12V/2A DC电源适配器(DC5525接口)
+
+:::
+
 </TabItem>
 
 </Tabs>
-
-我们将对应的系统启动介质连接到 Radxa ROCK 4D 的主板上，然后使用 5V Type-C 电源适配器启动系统。
 
 ## 6. 使用系统
 
