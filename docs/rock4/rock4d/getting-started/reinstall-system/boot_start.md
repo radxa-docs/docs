@@ -1,20 +1,22 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
 
-# 使用工具：RKDevTool
+# 下载 Loader 文件
+
+SPL 在 BootROM（一级引导）之后运行，负责初始化 DDR内存、时钟、存储控制器（如Micro SD卡 / UFS模块 / M.2 NVMe SSD等）、GPIO 等关键硬件，为后续加载 U-Boot 或内核提供基础环境。
+
+## 1. 使用说明
+
+若你并没有执行过擦除 SPI Nor Flash 操作，你大概率是不用按照这个教程操作的。
+
+当然，你若想要探索新的知识，你也可以按照这个教程操作，该教程只不过相比于正常重装系统多一步写入 Loader 文件的操作。
+
+## 2. 使用 RKDevTool
 
 RKDevTool 是瑞芯微（Rockchip）平台为 Windows/Linux/macOS 平台下进行 USB 烧录所开发的软件，旨在简化和加速对 Rockchip 系列芯片的开发、调试过程。
 
-:::tip
-该教程主要介绍 Balena Etcher 软件的使用方法，完整的重装系统的步骤可以看以下教程：
-
-- [使用平台：Windows](./platform_windows)
-- [使用平台：Linux](./platform_linux)
-- [使用平台：MacOS](./platform_macos)
-  :::
-
-## 1. RKDevTool 安装
+### 2.1 RKDevTool 安装
 
 <Tabs queryString="erase">
 
@@ -119,7 +121,7 @@ rkdeveloptool -V
 
 </Tabs>
 
-## 2. RKDevTool使用
+### 2.2 RKDevTool使用
 
 在瑞芯微（Rockchip）平台的开发中，RKDevTool 是常用的烧录工具，而 Maskrom 模式和 Loader 模式是两种关键的设备启动模式。
 
@@ -131,7 +133,7 @@ MaskROM 模式不需要存储介质中存在有效的引导程序。
 
 :::
 
-### 2.1 Maskrom/Loader 模式
+#### 2.2.1 Maskrom/Loader 模式
 
 我们主要推荐用户在 Maskrom 模式使用 RKDevTool 工具，因为 Maskrom 模式可以直接通过 USB 连接进行烧录，而 Loader 模式需要存储介质中存在有效的引导程序。
 
@@ -139,7 +141,7 @@ MaskROM 模式不需要存储介质中存在有效的引导程序。
 以下操作以 Radxa ROCK 4D 作为演示主板，部分产品可能没有专门引出进入 Loader 模式的 Recovery 接口， 只引出 Maskrom 模式的按键
 :::
 
-#### 2.1.1 所需硬件
+#### 2.2.2 所需硬件
 
 - Radxa ROCK 4D
 - 双头 USB Type-A 数据线
@@ -147,7 +149,7 @@ MaskROM 模式不需要存储介质中存在有效的引导程序。
 - 电源适配器（5V Type-C 接口）
 - 跳线帽或者杜邦线（可选）：短接 Recover 接口，进入 Loader 模式
 
-#### 2.1.2 进入模式
+#### 2.2.3 进入模式
 
 <Tabs queryString="mode">
 
@@ -175,7 +177,8 @@ MaskROM 模式不需要存储介质中存在有效的引导程序。
 <div style={{textAlign: 'center'}}>
 <img src="/img/rock4/4d/maskrom.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-#### 2.1.3 验证设备模式
+
+#### 2.2.4 验证设备模式
 
 正常情况下，RKDevTool 软件会自动识别到 Radxa ROCK 4D 主板当前所处模式； 若未识别到设备，可以重新按照以上步骤操作一遍。
 
@@ -297,9 +300,9 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Loader
 
 </Tabs>
 
-### 2.2 写入 Loader 文件
+## 3. 写入 Loader 文件
 
-主板需要进入 Maskrom 模式才可以写入 Loader 文件，您可以按照进入[Maskrom/Loader 模式](#21-maskromloader-模式)步骤操作。
+主板需要进入 Maskrom 模式才可以写入 Loader 文件，您可以按照进入[Maskrom/Loader 模式](#221-maskromloader-模式)步骤操作。
 
 可以进入[资源下载汇总](../../download)页面下载对应的 Loader 文件。
 
@@ -344,3 +347,13 @@ Downloading bootloader succeeded.
 </TabItem>
 
 </Tabs>
+
+## 4. 安装系统
+
+完成 Loader 文件的烧录后，可以断开 Radxa ROCK 4D 主板与 PC 连接和主板电源。
+
+然后根据自己系统启动的方式选择对应的教程进行系统安装：
+
+- [安装系统到 MicroSD 卡](./boot_sd)
+- [安装系统到 UFS 模块](./boot_ufs)
+- [安装系统到 M.2 NVMe SSD](./boot_nvme)

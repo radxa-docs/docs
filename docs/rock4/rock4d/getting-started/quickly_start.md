@@ -358,13 +358,13 @@ screen /dev/tty.wchusbserial14xx0 1500000
 
 1. 配置网络
 
-您可以直接给 Radxa ROCK 4D 插入网线，确保系统能够连接网络并且设置静态 IP 地址，以便您可以远程管理系统。
+您可以直接给 Radxa ROCK 4D 插入网线，确保系统能够连接网络。
 
-2. 配置 SSH 远程
+1. 配置 SSH 远程
 
-配置 SSH 远程登录可以去掉 USB 转 TTL 模块，直接使用 SSH 远程登录系统。
+配置 [SSH 远程](../system-config/ssh-remote) 登录可以去掉 USB 转 TTL 模块，直接使用 SSH 远程登录系统。
 
 3. 配置 VNC 远程
 
-配置 VNC 远程登录可以让您直接看到系统画面，无需使用显示器。
+若系统本身带有图形化界面，配置 [VNC 远程](../system-config/vnc-remote) 登录可以让您直接看到系统画面，无需使用显示器。
 :::
