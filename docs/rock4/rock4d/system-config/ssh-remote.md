@@ -19,7 +19,7 @@ sidebar_position: 4
 
 SSH 远程控制需要安装 OpenSSH 服务器, 在 Radxa ROCK 4D 的终端命令行运行以下命令安装：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo apt update
 sudo apt install openssh-server -y
@@ -30,7 +30,7 @@ sudo apt install openssh-server -y
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令启动 SSH 服务：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo systemctl start ssh
 ```
@@ -40,7 +40,7 @@ sudo systemctl start ssh
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令设置 SSH 服务自启动：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo systemctl enable ssh
 ```
@@ -50,7 +50,7 @@ sudo systemctl enable ssh
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令查看 SSH 服务状态：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo systemctl status ssh
 ```
@@ -58,7 +58,7 @@ sudo systemctl status ssh
 
 终端会输出类似信息: 提示您 SSH 服务是否自启动和当前运行状态。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 ● ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)
@@ -77,7 +77,7 @@ sudo systemctl status ssh
 
 在另一台设备上打开终端，输入以下命令进行远程登录：可以使用 `ip a` 命令查看 Radxa ROCK 4D 的 IP 地址。
 
-<NewCodeBlock tip="Linux-host$" type="host">
+<NewCodeBlock tip="Host-PC$" type="host">
 ```
 ssh <user-name>@<ip-address>
 ```

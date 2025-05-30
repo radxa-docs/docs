@@ -122,7 +122,7 @@ VNC Viewer 界面
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令安装 VNC 服务器：
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 sudo apt update
 sudo apt install tigervnc-standalone-server tigervnc-common -y
@@ -132,7 +132,7 @@ sudo apt install tigervnc-standalone-server tigervnc-common -y
 ### 设置 VNC 远程密码
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令设置 VNC 远程密码：
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 
 ```
 vncpasswd
@@ -146,7 +146,7 @@ vncpasswd
 
 完成密码设置后，系统会提示类似信息：
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 Password:
 Verify:
@@ -159,7 +159,7 @@ A view-only password is not used
 
 在 Radxa ROCK 4D 编辑 `~/.vnc/xstartup` 文件：
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 sudo vi ~/.vnc/xstartup
 ```
@@ -167,7 +167,7 @@ sudo vi ~/.vnc/xstartup
 
 修改 `~/.vnc/xstartup` 文件内容为：
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 #!/bin/sh
 unset SESSION_MANAGER
@@ -180,7 +180,7 @@ exec startplasma-x11
 
 编辑 `~/.vnc/xstartup` 文件后，需要赋予该文件可执行权限：
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 sudo chmod +x ~/.vnc/xstartup
 ```
@@ -190,7 +190,7 @@ sudo chmod +x ~/.vnc/xstartup
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令启动 VNC 服务器：使用 `-localhost no` 参数可以允许远程访问。
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 vncserver -localhost no
 ```
@@ -198,7 +198,7 @@ vncserver -localhost no
 
 启动成功后，会提示 VNC 服务器的端口号，例如：
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 New Xtigervnc server 'rock-4d-spi:1 (radxa)' on port 5901 for display :1.
 Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :1 to connect to the VNC server.
@@ -209,14 +209,14 @@ Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令查看 VNC 服务器状态：
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 vncserver -list
 ```
 </NewCodeBlock>
 
 终端会输出类似信息：
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 
 ```
 TigerVNC server sessions:
@@ -231,7 +231,7 @@ X DISPLAY #	RFB PORT #	RFB UNIX PATH	PROCESS ID #	SERVER
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令可以关闭 VNC 服务器：其中命令中的 `:1` 代表 VNC 服务器的显示编号。
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 vncserver -kill :1
 ```

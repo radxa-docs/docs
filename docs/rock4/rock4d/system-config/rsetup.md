@@ -21,7 +21,7 @@ rsetup 工具使用指南：
 
 :::
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo rsetup
 ```
