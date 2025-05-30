@@ -6,9 +6,11 @@ sidebar_position: 2
 
 无屏模式是指 Radxa ROCK 4D 不接显示屏，通过串口/ SSH / VNC 控制开发板，适合有一定开发经验的用户使用。
 
+具体控制思路 : 通过串口调试的方法获取 Radxa ROCK 4D 的 IP 地址，然后配置好对应的 SSH 和 VNC 环境，进一步通过 SSH 或 VNC 远程登录 Radxa ROCK 4D 进行控制。
+
 :::tip
 
-- 串口控制 : 详细步骤参考 [串口调试](./uart_debug) 教程
+- 串口调试 : 详细步骤参考 [串口调试](./uart_debug) 教程
 - SSH 远程登录 : 详细步骤参考 [远程登录](./ssh-remote) 教程
 - VNC 远程登录 : 详细步骤参考 [VNC远程登录](./vnc-remote) 教程
   :::

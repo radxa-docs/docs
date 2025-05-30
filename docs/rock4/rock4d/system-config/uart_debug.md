@@ -9,33 +9,33 @@ sidebar_position: 3
 ## 1. 硬件准备
 
 - 开发板： Radxa ROCK 4D
-- USB 转 TTL 模块： 将开发板的 UART0 接口连接到 PC 机的 USB 端口
+- USB 串口数据线： 将开发板的 UART0 接口连接到 PC 机的 USB 端口
 - 电源适配器： 给开发板供电（支持 PD 协议，5V 电源输入）
 
 ## 2. 硬件连接
 
-您需要将 USB 转 TTL 模块连接到 Radxa ROCK 4D 的 UART0_TX、UART0_RX 和 GND 引脚。
+您需要将 USB 串口数据线连接到 Radxa ROCK 4D 的 UART0_TX、UART0_RX 和 GND 引脚。
 
 :::danger
-使用 USB 转 TTL 模块和 Radxa ROCK 4D 进行串口调试时，请确保引脚连接正确，否则会导致主板硬件损坏。
+使用 USB 串口数据线和 Radxa ROCK 4D 进行串口调试时，请确保引脚连接正确，否则会导致主板硬件损坏。
 :::
 
-使用 USB 转 TTL 模块的 USB 接口连接 PC ，另一端连接 Radxa ROCK 4D 的 GPIO 串口引脚。
+使用 USB 串口数据线的 USB 接口连接 PC ，另一端连接 Radxa ROCK 4D 的 GPIO 串口引脚。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/serial-connect.webp" style={{width: '80%', maxWidth: '1200px'}} />
   引脚说明和连接示意图
 </div>
 
-| 序号 | 引脚功能                        | 连接方式                            |
-| ---- | ------------------------------- | ----------------------------------- |
-| ①    | Radxa ROCK 4D : GND             | 连接 USB 转 TTL 模块的 GND 引脚     |
-| ②    | Radxa ROCK 4D : UART0_TX        | 连接 USB 转 TTL 模块的 RX 引脚      |
-| ③    | Radxa ROCK 4D : UART0_RX        | 连接 USB 转 TTL 模块的 TX 引脚      |
-| ④    | USB 转 TTL 模块 : GND（黑色线） | 连接 Radxa ROCK 4D 的 GND 引脚      |
-| ⑤    | USB 转 TTL 模块 : RX（白色线）  | 连接 Radxa ROCK 4D 的 UART0_TX 引脚 |
-| ⑥    | USB 转 TTL 模块 : TX（绿色线）  | 连接 Radxa ROCK 4D 的 UART0_RX 引脚 |
-| ⑦    | USB 转 TTL 模块 : VCC（红色线） | 不连接                              |
+| 序号 | 引脚功能                          | 连接方式                            |
+| ---- | --------------------------------- | ----------------------------------- |
+| ①    | Radxa ROCK 4D : GND（Pin6）       | 连接 USB 串口数据线的 GND 引脚      |
+| ②    | Radxa ROCK 4D : UART0_TX（Pin8）  | 连接 USB 串口数据线的 RX 引脚       |
+| ③    | Radxa ROCK 4D : UART0_RX（Pin10） | 连接 USB 串口数据线的 TX 引脚       |
+| ④    | USB 串口数据线 : GND（黑色线）    | 连接 Radxa ROCK 4D 的 GND 引脚      |
+| ⑤    | USB 串口数据线 : RX（白色线）     | 连接 Radxa ROCK 4D 的 UART0_TX 引脚 |
+| ⑥    | USB 串口数据线 : TX（绿色线）     | 连接 Radxa ROCK 4D 的 UART0_RX 引脚 |
+| ⑦    | USB 串口数据线 : VCC（红色线）    | 不连接                              |
 
 ## 3. 串口登录
 
@@ -60,7 +60,7 @@ Windows 平台推荐使用 PuTTY 软件串口登陆 Radxa ROCK 4D 系统。
 
 - PuTTY使用
 
-Radxa ROCK 4D 和 PC 通过 USB 转 TTL 模块连接后，可以进入系统的设备管理器查看 Radxa ROCK 4D 对应的串口号(示意图中 COM4 就是当前系统中对应的 Radxa ROCK 4D 设备)。
+Radxa ROCK 4D 和 PC 通过 USB 串口数据线连接后，可以进入系统的设备管理器查看 Radxa ROCK 4D 对应的串口号(示意图中 COM4 就是当前系统中对应的 Radxa ROCK 4D 设备)。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/serial-01.webp" style={{width: '80%', maxWidth: '1200px'}} />

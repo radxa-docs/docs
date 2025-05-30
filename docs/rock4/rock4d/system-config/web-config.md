@@ -8,7 +8,7 @@ sidebar_position: 3
 
 <Tabs queryString="web-mode">
 
-<TabItem value="有屏模式">
+<TabItem value="图形界面">
 
 使用网线连接 Radxa ROCK 4D 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 Radxa ROCK 4D。
 
@@ -24,7 +24,7 @@ sidebar_position: 3
 
 </TabItem>
 
-<TabItem value="无屏模式">
+<TabItem value="命令行模式">
 
 使用网线连接 Radxa ROCK 4D 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 Radxa ROCK 4D。
 
@@ -77,7 +77,7 @@ Radxa ROCK 4D 预留两个板载天线接口，您需要将天线安装到接口
 
 <Tabs queryString="web-mode">
 
-<TabItem value="有屏模式">
+<TabItem value="图形界面">
 
 ① ： 点击网络图标
 
@@ -97,7 +97,7 @@ Radxa ROCK 4D 预留两个板载天线接口，您需要将天线安装到接口
 
 </TabItem>
 
-<TabItem value="无屏模式">
+<TabItem value="命令行模式">
 
 1. 开启 WiFi 功能
 

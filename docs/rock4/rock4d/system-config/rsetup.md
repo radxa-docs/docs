@@ -10,45 +10,6 @@ Rsetup 是一个适用于 Radxa OS 的系统配置工具，它可以帮助用户
 
 在终端命令行运行 `rsetup` 命令启动 Rsetup 工具。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
-```
-sudo rsetup
-```
-</NewCodeBlock>
-
-## 2. Rsetup 选项
-
-启动 Rsetup 后，会出现类似下面的选项列表：可能会因为版本界面有微小差异，请以实际情况为准。
-
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
-```
-┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
-│ Please select an option below:                                               │
-│                                                                              │
-│                                System                                        │
-│                                Hardware                                      │
-│                                Overlays                                      │
-│                                Connectivity                                  │
-│                                User Settings                                 │
-│                                Localization                                  │
-│                                Common Tasks                                  │
-│                                About                                         │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                     <Ok>                         <Cancel>                    │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
-</NewCodeBlock>
-
 :::tip
 rsetup 工具使用指南：
 
@@ -60,38 +21,27 @@ rsetup 工具使用指南：
 
 :::
 
+<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+```
+sudo rsetup
+```
+</NewCodeBlock>
+
+## 2. Rsetup 选项
+
+启动 Rsetup 后，会出现类似下面的选项列表：可能会因为版本界面有微小差异，请以实际情况为准!
+
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock4/4d/rsetup-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ### 2.1 System
 
 System 选项用于系统升级、修改启动方式和配置 Bootloader 等。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
-```
-┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
-│ System                                                                       │
-│                                                                              │
-│                         System Update                                        │
-│                         Change default boot target                           │
-│                         =========                                            │
-│                         Bootloader Management                                │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                     <Ok>                         <Cancel>                    │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
-</NewCodeBlock>
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock4/4d/rsetup-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 :::tip
 我们推荐使用 `System Update` 选项来升级系统，确保您的系统是最新版本。
@@ -103,229 +53,54 @@ System 选项用于系统升级、修改启动方式和配置 Bootloader 等。
 
 Hardware 选项用于管理板载硬件，包括视频捕获设备、LED 控制、GPIO 控制等。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
-```
-┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
-│ Manage on-board hardware                                                     │
-│                                                                              │
-│                       Video capture devices                                  │
-│                       GPIO LEDs                                              │
-│                       RGB LEDs                                               │
-│                       Thermal governor                                       │
-│                       Configure DSI display mirroring                        │
-│                       40-pin GPIO                                            │
-│                       USB OTG services                                       │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                     <Ok>                         <Cancel>                    │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
-</NewCodeBlock>
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock4/4d/rsetup-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ### 2.3 Overlays
 
 Overlays 选项用于管理设备树覆盖（Device Tree Overlays），可以启用或禁用特定的硬件功能。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
-```
-┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
-│ Configure Device Tree Overlay                                                │
-│                                                                              │
-│                          Manage overlays                                     │
-│                          View overlay info                                   │
-│                          Install 3rd party overlay                           │
-│                          Rebuild overlays                                    │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                                                                              │
-│                     <Ok>                         <Cancel>                    │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
-</NewCodeBlock>
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock4/4d/rsetup-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ### 2.4 Connectivity
 
 Connectivity 选项用于管理网络连接，包括有线网络和无线网络的设置。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
-```
-
-                           ┌─┤ NetworkManager TUI ├──┐
-                           │                         │
-                           │ Please select an option │
-                           │                         │
-                           │ Edit a connection       │
-                           │ Activate a connection   │
-                           │ Set system hostname     │
-                           │                         │
-                           │ Quit                    │
-                           │                         │
-                           │                    <OK> │
-                           │                         │
-                           └─────────────────────────┘
-
-```
-</NewCodeBlock>
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock4/4d/rsetup-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ### 2.5 User Settings
 
 User Settings 选项用于管理系统当前用户名、密码以及设置自动登录。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
-```
-
-┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
-│ User Settings │
-│ │
-│ Change Password │
-│ Change Hostname │
-│ Configure auto login │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ <Ok> <Cancel> │
-│ │
-└──────────────────────────────────────────────────────────────────────────────┘
-
-```
-</NewCodeBlock>
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock4/4d/rsetup-06.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ### 2.6 Localization
 
 Localization 选项用于设置系统时区、区域以及 WiFi 国家。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
-```
-
-┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
-│ Please select an option below: │
-│ │
-│ Change Timezone │
-│ Change Locale │
-│ Change Wi-Fi Country │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ <Ok> <Cancel> │
-│ │
-└──────────────────────────────────────────────────────────────────────────────┘
-
-```
-</NewCodeBlock>
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock4/4d/rsetup-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ### 2.7 Common Tasks
 
 Common Tasks 选项用于执行一些常见的系统任务。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
-```
-
-┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
-│ Please select all tasks you want to perform: │
-│ │
-│ [ ] Install Baota │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ <Ok> <Cancel> │
-│ │
-└──────────────────────────────────────────────────────────────────────────────┘
-
-```
-</NewCodeBlock>
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock4/4d/rsetup-08.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ### 2.8 About
 
 About 选项用于查看 Rsetup 工具的信息。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
-```
-
-┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
-│ │
-│ rsetup - Radxa system setup utility │
-│ │
-│ Copyright 2022-2025 Radxa Computer Co., Ltd │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ │
-│ <Ok> │
-│ │
-└──────────────────────────────────────────────────────────────────────────────┘
-
-```
-</NewCodeBlock>
-```
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock4/4d/rsetup-09.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>

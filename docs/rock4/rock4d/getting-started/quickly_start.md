@@ -23,11 +23,11 @@ sidebar_position: 2
 
 - 开发板： Radxa ROCK 4D
 - 系统启动介质：MicroSD 卡
-- USB 转 TTL模块（可选）：用于串口调试和登录
+- USB串口数据线（可选）：用于串口调试和登录
 - 显示器（可选）：HDMI 显示器和 HDMI 数据线
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 2A 以上)
 
-**说明**：用户需要在 USB 转 TTL模块和显示器二选一，我们优先推荐使用显示器搭配Rock 4D进行使用和开发。
+**说明**：用户需要在 USB串口数据线和显示器二选一，我们优先推荐使用显示器搭配Rock 4D进行使用和开发。
 
 :::tip
 对于不同开发能力的用户，我们建议额外增加以下配件使用 Radxa ROCK 4D，这样会缩短熟悉产品和开发的时间。
@@ -38,7 +38,7 @@ sidebar_position: 2
 
 - **开发者**
 
-准备配件：电源适配器、系统启动介质、调试数据线( USB 转 TTL模块)
+准备配件：电源适配器、系统启动介质、调试数据线( USB串口数据线)
 
 **说明**：其中显示器可以显示系统界面和进行图形化操作！
 :::
@@ -63,7 +63,7 @@ Radxa ROCK 4D 支持 MicroSD 卡、NVME、UFS启动，但是快速上手教程�
 
 ### 2.4 串口调试
 
-Radxa ROCK 4D 主板支持通过 USB 转 TTL 模块进行串口调试，您需要将 USB 转 TTL 模块连接到 Radxa ROCK 4D 的 UART0_TX、UART0_RX 和 GND 引脚。
+Radxa ROCK 4D 主板支持通过 USB 串口数据线进行串口调试，您需要将 USB 串口数据线连接到 Radxa ROCK 4D 的 UART0_TX、UART0_RX 和 GND 引脚。
 
 ## 3. 写入系统镜像
 
@@ -167,6 +167,10 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
 
 在 MicroSD 卡上完成系统镜像的写入后，我们可以将读卡器上的 MicroSD 卡装入 Radxa ROCK 4D 的 MicroSD 卡槽中，然后使用 5V Type-C 电源适配器启动系统。
 
+启动系统后，蓝色和绿色 LED 灯会同时亮起，大概过几秒左右，绿灯常亮、蓝色指示灯会闪烁，一般表示系统启动成功。
+
+使用系统建议：
+
 1. 若您有显示器，启动 Radxa ROCK 4D 后可以使用 HDMI 数据线连接显示器和主板，直接通过显示器查看系统界面。
 
 2. 若您没有显示器，可以使用串口调试工具查看系统输出信息，确认系统是否启动成功以及登录系统使用 Radxa ROCK 4D。
@@ -190,20 +194,20 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
 - 硬件连接
 
 :::danger
-使用 USB 转 TTL 模块和 Radxa ROCK 4D 进行串口调试时，请确保引脚连接正确，否则会导致主板硬件损坏。
+使用 USB 串口数据线和 Radxa ROCK 4D 进行串口调试时，请确保引脚连接正确，否则会导致主板硬件损坏。
 :::
 
-使用 USB 转 TTL 模块的 USB 接口连接 PC ，另一端连接 Radxa ROCK 4D 的 GPIO串口 引脚。
+使用 USB 串口数据线的 USB 接口连接 PC ，另一端连接 Radxa ROCK 4D 的 GPIO串口 引脚。
 
-| 序号 | 引脚功能                        | 连接方式                            |
-| ---- | ------------------------------- | ----------------------------------- |
-| ①    | Radxa ROCK 4D : GND             | 连接 USB 转 TTL 模块的 GND 引脚     |
-| ②    | Radxa ROCK 4D : UART0_TX        | 连接 USB 转 TTL 模块的 RX 引脚      |
-| ③    | Radxa ROCK 4D : UART0_RX        | 连接 USB 转 TTL 模块的 TX 引脚      |
-| ④    | USB 转 TTL 模块 : GND（黑色线） | 连接 Radxa ROCK 4D 的 GND 引脚      |
-| ⑤    | USB 转 TTL 模块 : RX（白色线）  | 连接 Radxa ROCK 4D 的 UART0_TX 引脚 |
-| ⑥    | USB 转 TTL 模块 : TX（绿色线）  | 连接 Radxa ROCK 4D 的 UART0_RX 引脚 |
-| ⑦    | USB 转 TTL 模块 : VCC（红色线） | 不连接                              |
+| 序号 | 引脚功能                          | 连接方式                            |
+| ---- | --------------------------------- | ----------------------------------- |
+| ①    | Radxa ROCK 4D : GND（Pin6）       | 连接 USB 串口数据线的 GND 引脚      |
+| ②    | Radxa ROCK 4D : UART0_TX（Pin8）  | 连接 USB 串口数据线的 RX 引脚       |
+| ③    | Radxa ROCK 4D : UART0_RX（Pin10） | 连接 USB 串口数据线的 TX 引脚       |
+| ④    | USB 串口数据线 : GND（黑色线）    | 连接 Radxa ROCK 4D 的 GND 引脚      |
+| ⑤    | USB 串口数据线 : RX（白色线）     | 连接 Radxa ROCK 4D 的 UART0_TX 引脚 |
+| ⑥    | USB 串口数据线 : TX（绿色线）     | 连接 Radxa ROCK 4D 的 UART0_RX 引脚 |
+| ⑦    | USB 串口数据线 : VCC（红色线）    | 不连接                              |
 
 <div style={{textAlign: 'center'}}>
   引脚说明和连接示意图
@@ -218,7 +222,7 @@ Windows 平台推荐使用 PuTTY 软件串口登陆 Radxa ROCK 4D 系统。
 
 - PuTTY使用
 
-Radxa ROCK 4D 和 PC 通过 USB 转 TTL 模块连接后，可以进入系统的设备管理器查看 Radxa ROCK 4D 对应的串口号(示意图中 COM4 就是当前系统中对应的 Radxa ROCK 4D 设备)。
+Radxa ROCK 4D 和 PC 通过 USB 串口数据线连接后，可以进入系统的设备管理器查看 Radxa ROCK 4D 对应的串口号(示意图中 COM4 就是当前系统中对应的 Radxa ROCK 4D 设备)。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/serial-01.webp" style={{width: '80%', maxWidth: '1200px'}} />
@@ -351,7 +355,7 @@ screen /dev/tty.wchusbserial14xx0 1500000
 
 ### 7.2 无屏模式
 
-若您是 Radxa ROCK 4D 搭配 USB 转 TTL 模块使用，您可以通过串口调试工具进行系统操作。
+若您是 Radxa ROCK 4D 搭配 USB 串口数据线使用，您可以通过串口调试工具进行系统操作。
 
 :::tip
 对于无屏模式的用户，我们提供以下建议助力您快速熟悉系统使用。
@@ -360,11 +364,15 @@ screen /dev/tty.wchusbserial14xx0 1500000
 
 您可以直接给 Radxa ROCK 4D 插入网线，确保系统能够连接网络。
 
-1. 配置 SSH 远程
+2. 串口调试
 
-配置 [SSH 远程](../system-config/ssh-remote) 登录可以去掉 USB 转 TTL 模块，直接使用 SSH 远程登录系统。
+您可以通过串口查看系统的输出信息，比如 IP 地址、系统启动信息等。
 
-3. 配置 VNC 远程
+3. 配置 SSH 远程
+
+配置 [SSH 远程](../system-config/ssh-remote) 登录可以去掉 USB 串口数据线，直接使用 SSH 远程登录系统。
+
+4. 配置 VNC 远程
 
 若系统本身带有图形化界面，配置 [VNC 远程](../system-config/vnc-remote) 登录可以让您直接看到系统画面，无需使用显示器。
 :::

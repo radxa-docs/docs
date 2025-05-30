@@ -3,15 +3,17 @@ sidebar_position: 11
 sidebar_label: ROCK 4D
 ---
 
-# ROCK 4D - 紧凑型单板计算机
+# ROCK 4D - 工业级 AI 单板计算机
 
 ## 1. 产品概述
 
-Radxa ROCK 4D 是一款紧凑型单板计算机（SBC），集成了广泛领先的功能、特性和扩展选项。
+Radxa ROCK 4D 是一款紧凑型单板计算机 (SBC)，拥有众多一流功能、特性和扩展选项。
 
-ROCK 4D 配备了 Rockchip RK3576 或 RK3576J 芯片组，搭载八核 CPU（4 核 Cortex-A72 + 4核 Cortex-A53）、Mali-G52 GPU 和高达 6 TOPS 的神经网络加速器，非常适合用于 AI 和多媒体任务。
+ROCK 4D 搭载 Rockchip RK3576 或 RK3576J SoC，配备八核 CPU（4 个 Cortex-A72 + 4 个 Cortex-A53）、Mali-G52 GPU 和强大的 6 TOPS NPU，非常适合 AI 和多媒体任务。
 
-ROCK 4D 共有两个版本：基于 RK3576 的商业级版本和基于 RK3576J 的工业级版本。
+对于创客、物联网爱好者、业余爱好者、游戏玩家、PC 用户、OEM 厂商、工业应用以及所有需要高性能和高可靠性的高性能平台的用户而言，ROCK 4D 都是理想之选。
+
+Radxa ROCK 4D 提供两个版本：基于 RK3576 的商业级 ROCK 4D 和 基于 RK3576J 的工业级 ROCK 4D。
 
 ## 2. 产品外观
 
