@@ -180,7 +180,7 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
 
 系统启动后，您可以使用 `lsblk` 命令查看系统分区信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo lsblk
 ```
@@ -188,7 +188,7 @@ sudo lsblk
 
 如果您看到 `/dev/nvme0n1p3` 被挂载为根目录 `/`，则表示系统已成功从 M.2 NVMe SSD 启动。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 mtdblock0    31:0    0    16M  0 disk
 zram0       253:0    0   1.9G  0 disk [SWAP]

@@ -37,13 +37,13 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
 
 ### 下载系统镜像
 
-下载 Radxa ROCK 4D 的系统镜像文件到 Radxa ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../download) 复制。
+下载 Radxa ROCK 4D 的系统镜像文件到 Radxa ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../../download) 复制。
 
 :::tip
 您也可以通过其他方式将系统镜像文件复制到 Radxa ROCK 4D 上，比如通过 FTP、SCP 等方式
 :::
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 # 安装 wget
 sudo apt-get install wget
@@ -76,7 +76,7 @@ UFS 模块安装步骤：
 
 使用命令将压缩的系统镜像解压并直接写入到 UFS 模块，请根据实际下载的系统镜像文件名进行修改。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 
 sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/sda bs=1M status=progress
@@ -94,7 +94,7 @@ sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/s
 
 写入完成后，您可以验证 UFS 模块中的分区表是否正确创建：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 
 sudo fdisk -l /dev/sda
@@ -103,7 +103,7 @@ sudo fdisk -l /dev/sda
 </NewCodeBlock>
 
 正确写入后，应该会看到类似以下的分区信息：
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 
 Disk /dev/sda: 119.15 GiB, 127934660608 bytes, 31234048 sectors
@@ -157,11 +157,11 @@ UFS 模块安装步骤：
 
 启动系统后，蓝色和绿色 LED 灯会同时亮起，大概过几秒左右，绿灯常亮、蓝色指示灯会闪烁，一般表示系统启动成功。
 
-## 5. 验证系统
+## 验证系统
 
 系统启动后，您可以使用 `lsblk` 命令查看系统分区信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 
 sudo lsblk
@@ -171,7 +171,7 @@ sudo lsblk
 
 如果您看到 `/dev/sda3` 被挂载为根目录 `/`，则表示系统已成功从 UFS 模块启动。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 
 NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS

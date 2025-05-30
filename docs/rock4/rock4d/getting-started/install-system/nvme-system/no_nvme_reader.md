@@ -50,7 +50,7 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
 你也可以通过其他方式将系统镜像文件复制到 Radxa ROCK 4D 上，比如通过 FTP、SCP 等方式
 :::
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 # 安装 wget
 sudo apt-get install wget
@@ -76,7 +76,7 @@ wget [URL]
 
 使用命令将压缩的系统镜像解压并直接写入到 M.2 NVMe SSD，请根据实际下载的系统镜像文件名进行修改。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo xzcat ~/radxa-rk3576_bookworm_kde_t2.output_512.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
 ```
@@ -92,14 +92,14 @@ sudo xzcat ~/radxa-rk3576_bookworm_kde_t2.output_512.img.xz | sudo dd of=/dev/nv
 
 写入完成后，您可以验证 M.2 NVMe SSD 中的分区表是否正确创建：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo fdisk -l /dev/nvme0n1
 ```
 </NewCodeBlock>
 
 正确写入后，应该会看到类似以下的分区信息：
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 
 ```
 Disk /dev/nvme0n1: 465.76 GiB, 500107862016 bytes, 976773168 sectors
@@ -148,7 +148,7 @@ Device Start End Sectors Size Type
 
 系统启动后，您可以使用 `lsblk` 命令查看系统分区信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo lsblk
 ```
@@ -156,7 +156,7 @@ sudo lsblk
 
 如果您看到 `/dev/nvme0n1p3` 被挂载为根目录 `/`，则表示系统已成功从 M.2 NVMe SSD 启动。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 mtdblock0    31:0    0    16M  0 disk
 zram0       253:0    0   1.9G  0 disk [SWAP]

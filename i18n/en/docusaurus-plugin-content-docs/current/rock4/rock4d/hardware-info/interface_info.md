@@ -2,63 +2,63 @@
 sidebar_position: 3
 ---
 
-# 接口信息
+# Interface Information
 
-## 芯片框图
+## Chip Block Diagram
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/hardware-rk3576.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## 系统框图
+## System Block Diagram
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/hardware-rk3576-1.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## 接口说明
+## Interface Specifications
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/rock4d-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-| 序号 | 说明                    | 数量 |
-| :--: | :---------------------- | :--: |
-|  ①   | USB Type-C 供电接口     |  1   |
-|  ②   | 用户指示灯              |  1   |
-|  ③   | 电源指示灯              |  1   |
-|  ④   | 电源按键                |  1   |
-|  ⑤   | FPC 接口                |  1   |
-|  ⑥   | WiFi6 和 蓝牙 5.4       |  1   |
-|  ⑦   | 外接天线接口            |  1   |
-|  ⑧   | 40 Pin GPIO             |  1   |
-|  ⑨   | LPDDR5 内存             |  1   |
-|  ⑩   | PoE 接口                |  1   |
-|  ⑪   | Maskrom 按键            |  1   |
-|  ⑫   | USB 2.0 Type-A          |  2   |
-|  ⑬   | Rockchip RK3576（J）    |  1   |
-|  ⑭   | USB 3.0 Type-A          |  2   |
-|  ⑮   | SPI NOR Flash           |  1   |
-|  ⑯   | 千兆以太网口（支持PoE） |  1   |
-|  ⑰   | 风扇接口                |  1   |
-|  ⑱   | 耳机插孔                |  1   |
-|  ⑲   | MIPI CSI 接口           |  1   |
-|  ⑳   | HDMI 2.1 接口           |  1   |
-|  ㉑  | Recovery 接口           |  1   |
-|  ㉒  | UFS 模块接口            |  1   |
-|  ㉓  | RTC 接口                |  1   |
-|  ㉔  | eMMC 模块接口           |  1   |
-|  ㉕  | MIPI CSI 接口           |  1   |
-|  ㉖  | MicroSD 卡槽            |  1   |
-|  ㉗  | MIPI DSI 接口           |  1   |
+| No. | Description                    | Qty |
+| :-: | :----------------------------- | :-: |
+|  ①  | USB Type-C Power Port          |  1  |
+|  ②  | User LED                       |  1  |
+|  ③  | Power LED                      |  1  |
+|  ④  | Power Button                   |  1  |
+|  ⑤  | FPC Connector                  |  1  |
+|  ⑥  | WiFi6 and Bluetooth 5.4        |  1  |
+|  ⑦  | External Antenna Connector     |  1  |
+|  ⑧  | 40 Pin GPIO                    |  1  |
+|  ⑨  | LPDDR5 Memory                  |  1  |
+|  ⑩  | PoE Port                       |  1  |
+|  ⑪  | Maskrom Button                 |  1  |
+|  ⑫  | USB 2.0 Type-A                 |  2  |
+|  ⑬  | Rockchip RK3576 (J)            |  1  |
+|  ⑭  | USB 3.0 Type-A                 |  2  |
+|  ⑮  | SPI NOR Flash                  |  1  |
+|  ⑯  | Gigabit Ethernet (PoE Support) |  1  |
+|  ⑰  | Fan Connector                  |  1  |
+|  ⑱  | Headphone Jack                 |  1  |
+|  ⑲  | MIPI CSI Connector             |  1  |
+|  ⑳  | HDMI 2.1 Port                  |  1  |
+| ㉑  | Recovery Port                  |  1  |
+| ㉒  | UFS Module Connector           |  1  |
+| ㉓  | RTC Connector                  |  1  |
+| ㉔  | eMMC Module Connector          |  1  |
+| ㉕  | MIPI CSI Connector             |  1  |
+| ㉖  | MicroSD Card Slot              |  1  |
+| ㉗  | MIPI DSI Connector             |  1  |
 
-## 接口使用
+## Interface Usage
 
-主要对 Radxa ROCK 4D 可以外拓的接口进行使用说明介绍。
+Mainly introduce the interfaces that can be expanded on Radxa ROCK 4D.
 
 ### 40 Pin GPIO
 
-支持给板载的 GPIO 引脚外接外部设备，支持 UART、SPI、I2C、I2S、PWM、CAN、ADC 等。
+Support external expansion of the GPIO pins on the board, supporting UART, SPI, I2C, I2S, PWM, CAN, ADC, etc.
 
 | Function7     | Function6    | Function5   | Function4    | Function3   | Function2     | Function1  | Pin | Pin | Function1  | Function2         | Function3      | Function4    | Function5   | Function6    | Function7     |
 | ------------- | ------------ | ----------- | ------------ | ----------- | ------------- | ---------- | --- | --- | ---------- | ----------------- | -------------- | ------------ | ----------- | ------------ | ------------- |
@@ -83,98 +83,98 @@ sidebar_position: 3
 | CAN1_RX_M3    |              |             |              |             |               | GPIO3_A3_d | 37  | 38  | GPIO1_D3_d |                   | I3C0_SDA_M1    |              | PWM1_CH4_M1 | SAI2_SDI_M0  |               |
 |               |              |             |              |             |               | GND        | 39  | 40  | GPIO1_D0_d | UART10_TX_M1      |                |              |             | SAI2_SDO_M0  |               |
 
-### USB Type-C 供电接口
+### USB Type-C Power Port
 
-Radxa ROCK 4D 主板支持 Type-C 和 GPIO 供电，我们推荐使用 Type-C 电源适配器供电，请确保电源适配器能够提供 5V 电源输入，并且能够兼容 PD 协议。
+Radxa ROCK 4D supports Type-C and GPIO power supply. We recommend using a Type-C power adapter to power it. Please ensure that the power adapter can provide 5V power input and be compatible with PD protocol.
 
 :::tip
-Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保所有外设稳定运行。
+Radxa ROCK 4D only supports 5V power input, it is recommended to use a current of 2A or more to ensure stable operation of all peripherals.
 
-参考电源：
+Reference power:
 
-- [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
+- [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
 
-- 标准 Type-C 电源适配器( 5V 电源输入，支持 PD 协议，建议电流 2A 以上)
+- Standard Type-C power adapter (5V power input, PD protocol supported, recommended current 2A or more)
   :::
 
-### 电源按键
+### Power Button
 
-短按触发开机或者电源菜单选项，长按关机。
+Short press to trigger power-on or power menu, long press to power off.
 
-### FPC 接口
+### FPC Connector
 
-支持 FPC PCIe 拓展接口，可用于连接扩展配件。
+Support FPC PCIe expansion interface, can be used to connect expansion accessories.
 
-### 外接天线接口
+### External Antenna Connector
 
-支持给板载的 WiFi6 和 蓝牙 5.4 芯片外接天线。
+Support external antenna connection for the board's WiFi6 and Bluetooth 5.4 chips.
 
-### PoE 接口
+### PoE Port
 
-支持给板载的 PoE 接口外接 PoE 电源。
+Support external PoE power connection for the board's PoE interface.
 
-### Maskrom 按键
+### Maskrom Button
 
-上电前按下 Maskrom 按键，上电后松开，进入 Maskrom 模式。
+Press the Maskrom button before power-on, and release it after power-on to enter Maskrom mode.
 
 ### USB 2.0 Type-A
 
-提供两个 USB 2.0 接口，用于连接外部设备，如键盘、鼠标、存储设备等。
+Support two USB 2.0 interfaces, used to connect external devices such as keyboards, mice, storage devices, etc.
 
 ### USB 3.0 Type-A
 
-提供高速 USB 3.0 接口，用于连接外部设备，如存储设备、网络适配器等。
+Support high-speed USB 3.0 interface, used to connect external devices such as storage devices, network adapters, etc.
 
 :::tip
 
-1. 可以通过反复插拔 USB 设备，在系统命令行输入 `lsusb` 命令查看设备是否被识别
-2. USB 3.0 的上层 Type-A 接口支持 OTG 功能
+1. You can check if the USB device is recognized by repeatedly plugging and unplugging the USB device, and then inputting the `lsusb` command in the system command line.
+2. The upper layer Type-A interface of USB 3.0 supports OTG function.
    :::
 
-### 千兆网口接口
+### Gigabit Ethernet Port
 
-千兆以太网口（支持 PoE，需外接 HAT）。
+Support 1Gbps Ethernet port (support PoE, need to connect HAT).
 
-### 风扇接口
+### Fan Connector
 
-1× 2-pin 1.25mm PWM 控制风扇接口。
+Support 1× 2-pin 1.25mm PWM control fan interface.
 
-### 耳机插孔
+### Headphone Jack
 
-3.5mm 四段耳机插孔，支持麦克风输入。
+Support 3.5mm four-segment headphone jack, supporting microphone input.
 
-### MIPI CSI 接口
+### MIPI CSI Connector
 
-支持 MIPI CSI 接口，可用于连接高清摄像头。
+Support MIPI CSI interface, used to connect high-definition cameras.
 
-### HDMI 2.1 接口
+### HDMI 2.1 Port
 
-HDMI 2.1 接口支持高清视频输出，最高支持 4K@120fps。
+Support HDMI 2.1 interface, supports high-definition video output, up to 4K@120fps.
 
-### Recovery 接口
+### Recovery Connector
 
-短接 Recovery 接口，进入 Recovery 模式。
+Short-circuit the Recovery connector to enter Recovery mode.
 
-### UFS 模块接口
+### UFS Module Connector
 
-支持 UFS 2.0 接口，可用于连接扩展存储设备和启动系统。
+Support UFS 2.0 interface, used to connect expansion storage devices and boot systems.
 
-### RTC 接口
+### RTC Connector
 
-支持 RTC 实时时钟模块接口，可以连接 RTC 模块以保持系统时间。
+Support RTC real-time clock module interface, can connect RTC module to maintain system time.
 
-### eMMC 5.1 模块接口
+### eMMC 5.1 Connector
 
-支持 eMMC 5.1 接口，可用于连接扩展存储设备和启动系统。
+Support eMMC 5.1 interface, used to connect expansion storage devices and boot systems.
 
-### MIPI CSI 接口
+### MIPI CSI Connector
 
-支持 MIPI CSI 接口，可用于连接高清摄像头。
+Support MIPI CSI interface, used to connect high-definition cameras.
 
-### MicroSD 卡槽
+### MicroSD Card Slot
 
-支持 MicroSD 卡槽，可用于连接扩展存储设备和启动系统。
+Support MicroSD card slot, used to connect expansion storage devices and boot systems.
 
-### MIPI DSI 接口
+### MIPI DSI Connector
 
-支持 MIPI DSI 接口，可用于连接高清显示屏。
+Support MIPI DSI interface, used to connect high-definition displays.

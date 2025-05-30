@@ -34,7 +34,7 @@ ROCK 4D 出厂时已预装适配的 SPI 启动固件。**如果您的设备工�
 
 成功启动系统并且确保系统连接网络正常，我们可以打开 Radxa ROCK 4D 终端命令行，使用 Rsetup 工具来更新系统。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo rsetup
 ```
@@ -69,7 +69,7 @@ rsetup 工具使用指南：详细使用教程参考 [Rsetup 工具](../../syste
 
 完成后所有操作后，使用命令重启系统。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo reboot
 ```
@@ -105,7 +105,7 @@ sudo reboot
 
 完成后所有操作后，使用命令重启系统。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="host">
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 sudo reboot
 ```

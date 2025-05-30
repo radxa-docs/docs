@@ -87,7 +87,7 @@ Radxa ROCK 4D 主板支持通过 USB 串口数据线进行串口调试，您需�
 
 - **镜像烧录软件：Balena Etcher**
 
-我们推荐使用瑞莎合作伙伴 Balena 开发的开源镜像烧录工具 Etcher，该软件使用简单，功能强大，支持 Windows/Linux/macOS 系统使用。
+我们推荐使用瑞莎合作伙伴 Balena 开发的开源镜像烧录工具 Etcher，该软件使用简单，功能强大，支持 Windows/Linux/MacOS 系统使用。
 
 进入官网下载系统对应平台的软件：[balenaEtcher](https://etcher.balena.io)
 
@@ -305,9 +305,9 @@ sudo screen /dev/ttyUSB0 1500000
 
 </TabItem>
 
-<TabItem value="macOS">
+<TabItem value="MacOS">
 
-macOS 平台推荐使用 Screen 软件串口登陆 Radxa ROCK 4D 系统。
+MacOS 平台推荐使用 Screen 软件串口登陆 Radxa ROCK 4D 系统。
 
 :::tip
 
@@ -321,7 +321,7 @@ macOS 平台推荐使用 Screen 软件串口登陆 Radxa ROCK 4D 系统。
 
 找到类似 /dev/tty.wchusbserial14xx0 的设备名称，若 PC 有多个串口设备，可以插拔 USB 设备，使用下面命令观察变化的设备号。
 
-<NewCodeBlock tip="macOS-host$" type="host">
+<NewCodeBlock tip="MacOS-host$" type="host">
 ```
 ls /dev/tty.*
 ```
@@ -331,7 +331,7 @@ ls /dev/tty.*
 
 使用 Screen 连接串口，只需要设置串口号和波特率。
 
-<NewCodeBlock tip="macOS-host$" type="host">
+<NewCodeBlock tip="MacOS-host$" type="host">
 ```
 screen /dev/tty.wchusbserial14xx0 1500000
 ```
