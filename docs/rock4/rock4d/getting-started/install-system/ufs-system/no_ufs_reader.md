@@ -2,13 +2,13 @@
 sidebar_position: 2
 ---
 
-# 无 eMMC / UFS 模块读卡器
+# 不使用瑞莎 eMMC / UFS 二合一模块读卡器
 
-本节教程适用于无 eMMC / UFS 模块读卡器的用户，主要介绍如何在 MicroSD 卡启动系统的基础上将系统安装到 UFS 模块中。
+本节教程适用于没有瑞莎 eMMC / UFS 二合一模块读卡器的用户，主要介绍如何在 MicroSD 卡启动系统的基础上将系统安装到 UFS 模块中。
 
 ## 硬件准备
 
-无 eMMC / UFS 模块读卡器安装系统，需要 Radxa ROCK 4D 通过 MicroSD 卡启动系统正常。
+在没有瑞莎 eMMC / UFS 二合一模块读卡器的情况下安装系统到 UFS 模块，需要 Radxa ROCK 4D 通过 MicroSD 卡能正常启动系统。
 
 我们会在 MicroSD 卡上的系统进行操作，使用 `dd` 命令将系统安装到 UFS 模块中。
 
@@ -18,6 +18,7 @@ sidebar_position: 2
 
 - 开发板： Radxa ROCK 4D
 - [UFS 模块](https://radxa.com/products/accessories/ufs-module)
+- 正常启动系统的 MicroSD 卡
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 2A 以上)
 
 :::tip

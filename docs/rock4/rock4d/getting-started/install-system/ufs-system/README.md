@@ -8,14 +8,16 @@ UFS 模块相比于 MicroSD 卡读写速度快，对于想提高系统读写和�
 
 我们介绍两种方式安装系统到 UFS 模块：
 
-- 对于有 eMMC / UFS 模块读卡器的用户，安装系统步骤和 MicroSD 卡安装系统的步骤类似，比较简单。
+- 对于有瑞莎 eMMC / UFS 二合一模块读卡器的用户，直接在 PC 上通过瑞莎 eMMC / UFS 二合一模块读卡器写入系统镜像。
 
-- 对于没有 eMMC / UFS 模块读卡器的用户，需要额外购买读卡器，使用 `dd` 命令将系统镜像安装到 UFS 模块。
+- 对于没有瑞莎 eMMC / UFS 二合一模块读卡器的用户，需要额外使用 MicroSD 卡启动系统，使用 `dd` 命令将系统镜像安装到 UFS 模块。
 
-### [有 eMMC / UFS 模块读卡器](/rock4/rock4d/getting-started/install-system/ufs-system/ufs_reader)
+更多关于瑞莎 eMMC / UFS 二合一模块读卡器的信息可以参考[瑞莎 eMMC/UFS 二合一模块读卡器页面](https://radxa.com/products/accessories/ufs-module-reader)。
 
-主要介绍用户在有 eMMC / UFS 模块读卡器的情况下，如何安装系统和启动系统。
+### [瑞莎 eMMC/UFS 二合一模块读卡器](/rock4/rock4d/getting-started/install-system/ufs-system/ufs_reader)
 
-### [无 eMMC / UFS 模块读卡器](/rock4/rock4d/getting-started/install-system/ufs-system/no_ufs_reader)
+主要介绍用户在有瑞莎 eMMC / UFS 二合一模块读卡器的情况下，如何安装系统和启动系统。
 
-主要介绍用户在无 eMMC / UFS 模块读卡器的情况下，如何安装系统和启动系统。
+### [瑞莎 eMMC/UFS 二合一模块读卡器](/rock4/rock4d/getting-started/install-system/ufs-system/no_ufs_reader)
+
+主要介绍用户在不使用瑞莎 eMMC / UFS 二合一模块读卡器的情况下，如何安装系统和启动系统。

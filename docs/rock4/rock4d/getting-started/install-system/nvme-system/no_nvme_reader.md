@@ -2,9 +2,9 @@
 sidebar_position: 2
 ---
 
-# 无 M.2 NVMe 固态硬盘盒
+# 不使用 M.2 NVMe 固态硬盘盒
 
-本节教程适用于无 M.2 NVMe 固态硬盘盒的用户，主要介绍如何在 MicroSD 卡启动系统的基础上将系统安装到 M.2 NVMe SSD 中。
+本节教程适用于没有 M.2 NVMe 固态硬盘盒的用户，主要介绍如何在 MicroSD 卡启动系统的基础上将系统安装到 M.2 NVMe SSD 中。
 
 :::tip
 M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
@@ -12,7 +12,7 @@ M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
 
 ## 硬件准备
 
-无 M.2 NVMe 固态硬盘盒安装系统，需要 Radxa ROCK 4D 通过 MicroSD 卡启动系统正常。
+在没有 M.2 NVMe 固态硬盘盒的情况下安装系统，需要 Radxa ROCK 4D 通过 MicroSD 卡能正常启动系统。
 
 **注意： 若 MicroSD 卡启动异常，可以参考 [安装系统到 MicroSD 卡](../boot_sd)教程，先安装系统到 MicroSD 卡上。**
 
@@ -23,6 +23,7 @@ M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
 您需要准备以下硬件：
 
 - 开发板：Radxa ROCK 4D
+- 正常启动系统的 MicroSD 卡
 - M.2 NVMe SSD: 自行购买
 - PCIe 转 M.2 M Key HAT : 自行购买
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 2A 以上)

@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# 有 M.2 NVMe 固态硬盘盒
+# 使用 M.2 NVMe 固态硬盘盒
 
-本节教程适用于有 M.2 固态硬盘盒的用户，主要介绍如何通过 M.2 NVMe 固态硬盘盒给 M.2 NVMe SSD 安装系统。
+本节教程适用于有 M.2 NVMe 固态硬盘盒的用户，主要介绍如何通过 M.2 NVMe 固态硬盘盒给 M.2 NVMe SSD 安装系统。
 
 :::tip
 M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
