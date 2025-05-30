@@ -15,15 +15,15 @@ sidebar_position: 2
 - VNC 远程登录 : 详细步骤参考 [VNC远程登录](./vnc-remote) 教程
   :::
 
-## 1. 准备工作
+## 准备工作
 
 可以按照 [串口调试](./uart_debug) 和 [远程登录](./remote-login) 教程连接Radxa ROCK 4D。
 
-## 2. 控制界面
+## 控制界面
 
 无屏模式下的串口/ SSH控制是命令行模式，VNC控制是图形界面模式。
 
-### 2.1 命令行模式
+### 命令行模式
 
 串口控制需要依赖数据线，而 SSH 控制不需要依赖数据线，只需要保证设备在同一局域网下。
 
@@ -35,7 +35,7 @@ sidebar_position: 2
     <img src="/img/rock4/4d/nodiplay-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### 2.2 图形界面模式
+### 图形界面模式
 
 VNC 控制需要保证控制和被控设备都处于同一局域网下。
 

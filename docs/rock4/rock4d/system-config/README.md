@@ -4,6 +4,8 @@ sidebar_position: 12
 
 # 系统使用
 
+对系统使用过程中常用的功能进行介绍。
+
 ### [有屏模式](/rock4/rock4d/system-config/display-mode)
 
 主要介绍 Radxa Rock 4D 如何连接显示屏和在有屏模式下的使用和开发。

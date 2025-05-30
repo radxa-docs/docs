@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 网络配置
 
-## 1. 有线网络
+## 有线网络
 
 <Tabs queryString="web-mode">
 
@@ -67,7 +67,7 @@ ip a
 
 </Tabs>
 
-## 2. 无线网络
+## 无线网络
 
 通过 Radxa ROCK 4D 的板载 WiFi 连接无线路由器，连接成功后，路由器会自动分配 IP 地址给 Radxa ROCK 4D。
 

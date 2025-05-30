@@ -6,7 +6,7 @@ sidebar_position: 2
 
 本节教程适用于无 eMMC / UFS 模块读卡器的用户，主要介绍如何在 MicroSD 卡启动系统的基础上将系统安装到 UFS 模块中。
 
-## 1. 硬件准备
+## 硬件准备
 
 无 eMMC / UFS 模块读卡器安装系统，需要 Radxa ROCK 4D 通过 MicroSD 卡启动系统正常。
 
@@ -30,11 +30,11 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
 - 标准 Type-C 电源适配器( 5V 电源输入，支持 PD 协议，建议电流 2A 以上)
   :::
 
-## 2. 安装系统
+## 安装系统
 
 安装系统会格式化 UFS 模块，如果有重要数据请提前备份。
 
-### 2.1 下载系统镜像
+### 下载系统镜像
 
 下载 Radxa ROCK 4D 的系统镜像文件到 Radxa ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../download) 复制。
 
@@ -52,7 +52,7 @@ wget [URL]
 </NewCodeBlock>
 - wget : 下载文件，将 [URL] 替换成实际下载链接。
 
-### 2.2 硬件连接
+### 硬件连接
 
 将 UFS 模块安装到主板的 eMMC/UFS 模块接口中，然后使用 5V Type-C 电源适配器启动系统。
 
@@ -60,9 +60,18 @@ wget [URL]
   <img src="/img/rock4/4d/boot-ufs-sd.webp" style={{width: '60%', maxWidth: '1200px'}} />
 </div>
 
-### 2.3 安装系统镜像
+:::caution
 
-#### 2.3.1 写入系统镜像到 UFS 模块
+UFS 模块安装步骤：
+
+1. 确保 UFS 模块的缺角和 Radxa ROCK 4D 的 eMMC / UFS 模块接口方向一致
+2. 确保 UFS 模块底部卡槽接口和 Radxa ROCK 4D 的 eMMC / UFS 模块接口对齐
+3. 轻微用力按压 UFS 模块一端的接口，听到滴的声音说明安装成功，同样的方法按压另一端的接口，确保 UFS 模块安装成功。
+   :::
+
+### 安装系统镜像
+
+#### 写入系统镜像到 UFS 模块
 
 使用命令将压缩的系统镜像解压并直接写入到 UFS 模块，请根据实际下载的系统镜像文件名进行修改。
 
@@ -80,7 +89,7 @@ sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/s
 - bs=1M : 指定写入的块大小为 1M，提高写入速度
 - status=progress : 显示写入进度，让您了解写入状态
 
-#### 2.3.2 验证写入结果
+#### 验证写入结果
 
 写入完成后，您可以验证 UFS 模块中的分区表是否正确创建：
 
@@ -112,7 +121,7 @@ Device Start End Sectors Size Type
 ```
 </NewCodeBlock>
 
-## 3. 系统信息
+## 系统信息
 
 您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
 
@@ -122,7 +131,7 @@ Device Start End Sectors Size Type
 
 用户密码：radxa
 
-## 4. 启动系统
+## 启动系统
 
 完成系统镜像的安装后：
 
@@ -132,11 +141,20 @@ Device Start End Sectors Size Type
 4. 重新连接电源
 5. 等待系统从 UFS 模块启动
 
-启动系统后，蓝色和绿色 LED 灯会同时亮起，大概过几秒左右，绿灯常亮、蓝色指示灯会闪烁，一般表示系统启动成功。
-
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/boot-ufs.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+
+:::caution
+
+UFS 模块安装步骤：
+
+1. 确保 UFS 模块的缺角和 Radxa ROCK 4D 的 eMMC / UFS 模块接口方向一致
+2. 确保 UFS 模块底部卡槽接口和 Radxa ROCK 4D 的 eMMC / UFS 模块接口对齐
+3. 轻微用力按压 UFS 模块一端的接口，听到滴的声音说明安装成功，同样的方法按压另一端的接口，确保 UFS 模块安装成功。
+:::
+
+启动系统后，蓝色和绿色 LED 灯会同时亮起，大概过几秒左右，绿灯常亮、蓝色指示灯会闪烁，一般表示系统启动成功。
 
 ## 5. 验证系统
 

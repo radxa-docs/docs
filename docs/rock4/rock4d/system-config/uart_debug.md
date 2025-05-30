@@ -6,13 +6,13 @@ sidebar_position: 3
 
 串口调试是嵌入式开发中通过串行通信接口 (UART) 与开发板交互的核心手段，通过串口工具可以查看系统输出的信息和进行调试。
 
-## 1. 硬件准备
+## 硬件准备
 
 - 开发板： Radxa ROCK 4D
 - USB 串口数据线： 将开发板的 UART0 接口连接到 PC 机的 USB 端口
 - 电源适配器： 给开发板供电（支持 PD 协议，5V 电源输入）
 
-## 2. 硬件连接
+## 硬件连接
 
 您需要将 USB 串口数据线连接到 Radxa ROCK 4D 的 UART0_TX、UART0_RX 和 GND 引脚。
 
@@ -37,7 +37,7 @@ sidebar_position: 3
 | ⑥    | USB 串口数据线 : TX（绿色线）     | 连接 Radxa ROCK 4D 的 UART0_RX 引脚 |
 | ⑦    | USB 串口数据线 : VCC（红色线）    | 不连接                              |
 
-## 3. 串口登录
+## 串口登录
 
 :::tip
 

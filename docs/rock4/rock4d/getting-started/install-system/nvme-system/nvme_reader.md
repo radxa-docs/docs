@@ -10,40 +10,35 @@ sidebar_position: 1
 M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
 :::
 
-## 1. 硬件准备
+## 硬件准备
 
 使用固态硬盘盒 给 M.2 NVMe SSD 安装系统，不需要依赖 MicroSD 卡，直接将 M.2 NVMe SSD 插入固态硬盘盒中，使用 Etcher 软件安装系统到 M.2 NVMe SSD 中。
 
-**注意：使用 M.2 NVMe SSD 启动系统都需要搭配 PCIe 转 M.2 M Key 转接板，然后使用 Radxa ROCK 4D 的 FPC 接口转 PCIe 连接转接板。**
-
-我们的教程使用 [Radxa 双 2.5G 拓展板](https://radxa.com/products/accessories/dual-2-5g-router-hat) 作为演示。
-
-使用 Radxa 双 2.5G 拓展板就不需要使用 Radxa ROCK 4D 自带的电源适配器, 直接通过 Radxa 双 2.5G 拓展板的电源接口给开发板供电即可。
-
-:::tip
-参考电源：
-
-Radxa 双 2.5G 拓展板仅支持 12V 电源输入，建议电流 2A 及以上，以确保所有外设稳定运行。
-
-- [瑞莎 DC12 36W电源适配器](https://radxa.com/products/accessories/power-dc12-36w)(推荐使用)
-- [瑞莎 DC12 60W电源适配器](https://radxa.com/products/accessories/power-dc12-60w)
-- 标准12V/2A DC电源适配器(DC5525接口)
-  :::
+**注意：使用 M.2 NVMe SSD 启动系统都需要搭配 PCIe 转 M.2 M Key HAT 使用。**
 
 您需要准备以下硬件：
 
 - 开发板：Radxa ROCK 4D
 - M.2 NVMe SSD: 自行购买
-- M.2 NVMe 固态硬盘盒:自行购买
-- FPC 接口转 PCIe 连接线: 自行购买
-- PCIe 转 M.2 M Key 转接板: 自行购买
-- 电源适配器：12V/2A DC电源适配器(DC5525接口)
+- M.2 NVMe 固态硬盘盒: 自行购买
+- PCIe 转 M.2 M Key HAT : 自行购买
+- 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 2A 以上)
 
-## 2. 重装系统
+:::tip
+Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保所有外设稳定运行。
+
+参考电源：
+
+- [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
+
+- 标准 Type-C 电源适配器( 5V 电源输入，支持 PD 协议，建议电流 2A 以上)
+  :::
+
+## 重装系统
 
 重装系统会格式化 M.2 NVMe 固态硬盘，如果有重要数据请提前备份。
 
-### 2.1 下载系统镜像
+### 下载系统镜像
 
 在 PC 上访问 [资源下载汇总](../../../download) 页面，在下载页面找到 M.2 NVMe SSD 对应的系统镜像文件，下载并解压。
 
@@ -53,7 +48,7 @@ Radxa 双 2.5G 拓展板仅支持 12V 电源输入，建议电流 2A 及以上�
 下载的系统镜像是一个压缩文件，需要解压后才能通过镜像烧录软件安装到 M.2 NVMe SSD , 未解压就直接烧录到 M.2 NVMe SSD ，可能出现安装系统失败或者启动系统失败的情况。
 :::
 
-### 2.2 硬件连接
+### 硬件连接
 
 将 M.2 NVMe 固态硬盘插入固态硬盘盒中，然后将固态硬盘盒插入 PC 的 USB 端口上。
 
@@ -61,11 +56,11 @@ Radxa 双 2.5G 拓展板仅支持 12V 电源输入，建议电流 2A 及以上�
   <img src="/img/rock4/4d/write-nvme.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### 2.3 安装系统镜像
+### 安装系统镜像
 
 使用开源镜像烧录工具 Etcher 烧写系统镜像文件到 M.2 NVMe 固态硬盘中。
 
-#### 2.3.1 下载 Etcher
+#### 下载 Etcher
 
 进入 Balena Etcher 官网下载系统对应平台的软件：balenaEtcher。
 
@@ -79,7 +74,7 @@ Radxa 双 2.5G 拓展板仅支持 12V 电源输入，建议电流 2A 及以上�
 <img src="/img/rock4/4d/down-etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-#### 2.3.2 使用 Etcher
+#### 使用 Etcher
 
 下载完成后，双击打开 Etcher 应用。
 
@@ -103,7 +98,7 @@ Radxa 双 2.5G 拓展板仅支持 12V 电源输入，建议电流 2A 及以上�
   <img src="/img/rock4/4d/down-etcher-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-#### 2.3.3 安装系统镜像
+#### 安装系统镜像
 
 1. 选择镜像文件
 
@@ -154,7 +149,7 @@ Radxa 双 2.5G 拓展板仅支持 12V 电源输入，建议电流 2A 及以上�
   成功安装系统镜像后，关闭 Etcher 软件！
 </div>
 
-## 3. 系统信息
+## 系统信息
 
 您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
 
@@ -164,21 +159,24 @@ Radxa 双 2.5G 拓展板仅支持 12V 电源输入，建议电流 2A 及以上�
 
 用户密码：radxa
 
-## 4. 启动系统
+## 启动系统
 
 完成系统镜像的安装后：
 
-1. 将 M.2 NVMe SSD 安装到 Radxa 双 2.5G 拓展板上，然后拓展板通过 FPC接口 连接到Radxa ROCK 4D。
-2. 连接DC 12V 电源
-3. 等待系统从 M.2 NVMe SSD 启动
+1. 将 M.2 NVMe SSD 从 M.2 固态硬盘盒中取出
+2. 取下 Radxa ROCK 4D 上的 MicroSD 卡
+3. 将 M.2 NVMe SSD 安装到 PCIe 转 M.2 M Key HAT
+4. 将 PCIe 转 M.2 M Key HAT 安装到 Radxa ROCK 4D 上
+5. 连接 Radxa ROCK 4D 的电源
+6. 等待系统从 M.2 NVMe SSD 启动
 
 启动系统后，蓝色和绿色 LED 灯会同时亮起，大概过几秒左右，绿灯常亮、蓝色指示灯会闪烁，一般表示系统启动成功。
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/boot-nvme.webp" style={{width: '60%', maxWidth: '1200px'}} />
+  <img src="/img/rock4/4d/boot-nvme-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## 5. 验证系统
+## 验证系统
 
 系统启动后，您可以使用 `lsblk` 命令查看系统分区信息：
 

@@ -12,9 +12,9 @@ sidebar_position: 5
 VNC 远程控制适合带有图形界面的系统，若系统没有图形化桌面，推荐使用 SSH 远程控制。
 :::
 
-## 1. 使用 VNC（Windows / Linux）
+## 使用 VNC（Windows / Linux）
 
-### 1.1 下载 VNC Viewer
+### 下载 VNC Viewer
 
 我们需要在远程设备，也就是 PC 上安装 VNC Viewer 软件控制主板。
 
@@ -24,7 +24,7 @@ VNC 远程控制适合带有图形界面的系统，若系统没有图形化桌�
     <img src="/img/rock4/4d/vnc-download.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### 1.2 安装 VNC Viewer
+### 安装 VNC Viewer
 
 <Tabs queryString="install-vnc">
 
@@ -103,7 +103,7 @@ sudo dpkg -i VNC-Viewer-xxx.deb
 
 </Tabs>
 
-### 1.3 运行 VNC Viewer
+### 运行 VNC Viewer
 
 安装完成后，打开 VNC Viewer 软件: 用户可以选择不登录账号使用 VNC Viewer 软件。
 
@@ -116,9 +116,9 @@ VNC Viewer 界面
     <img src="/img/rock4/4d/vnc-windows-use-02.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 2. 使用 VNC（Radxa ROCK 4D）
+## 使用 VNC（Radxa ROCK 4D）
 
-### 2.1 安装 VNC 服务器
+### 安装 VNC 服务器
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令安装 VNC 服务器：
 
@@ -129,7 +129,7 @@ sudo apt install tigervnc-standalone-server tigervnc-common -y
 ```
 </NewCodeBlock>
 
-### 2.2 设置 VNC 远程密码
+### 设置 VNC 远程密码
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令设置 VNC 远程密码：
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="host">
@@ -155,7 +155,7 @@ A view-only password is not used
 ```
 </NewCodeBlock>
 
-### 2.3 配置 VNC 启动文件
+### 配置 VNC 启动文件
 
 在 Radxa ROCK 4D 编辑 `~/.vnc/xstartup` 文件：
 
@@ -186,7 +186,7 @@ sudo chmod +x ~/.vnc/xstartup
 ```
 </NewCodeBlock>
 
-### 2.4 启动 VNC 服务器
+### 启动 VNC 服务器
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令启动 VNC 服务器：使用 `-localhost no` 参数可以允许远程访问。
 
@@ -205,7 +205,7 @@ Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :
 ```
 </NewCodeBlock>
 
-### 2.5 查看 VNC 服务器状态
+### 查看 VNC 服务器状态
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令查看 VNC 服务器状态：
 
@@ -227,7 +227,7 @@ X DISPLAY #	RFB PORT #	RFB UNIX PATH	PROCESS ID #	SERVER
 
 </NewCodeBlock>
 
-### 2.6. 关闭 VNC 服务器
+### 关闭 VNC 服务器
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令可以关闭 VNC 服务器：其中命令中的 `:1` 代表 VNC 服务器的显示编号。
 
@@ -239,7 +239,7 @@ vncserver -kill :1
 
 关闭 VNC 服务器后，VNC Viewer 软件会自动断开连接。
 
-## 3. VNC 远程登录
+## VNC 远程登录
 
 在另一台设备上打开 VNC Viewer 软件，根据 Radxa ROCK 4D 的 IP 地址和端口号进行 VNC 连接。
 

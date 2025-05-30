@@ -6,7 +6,7 @@ sidebar_position: 1
 
 本节教程适用于有 eMMC / UFS 模块读卡器的用户，主要介绍如何通过 eMMC / UFS 模块读卡器给 UFS 模块安装系统。
 
-## 1. 硬件准备
+## 硬件准备
 
 使用 eMMC / UFS 模块读卡器安装系统，不需要依赖MicroSD 卡，直接将 UFS 模块插入 eMMC / UFS 模块读卡器中，使用 Etcher 软件安装系统到 UFS 模块中。
 
@@ -27,11 +27,11 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
 - 标准 Type-C 电源适配器( 5V 电源输入，支持 PD 协议，建议电流 2A 以上)
   :::
 
-## 2. 安装系统
+## 安装系统
 
 安装系统会格式化 UFS 模块，如果有重要数据请提前备份。
 
-### 2.1 下载系统镜像
+### 下载系统镜像
 
 在 PC 上访问 [资源下载汇总](../../../download) 页面，在下载页面找到 UFS 模块对应的系统镜像。
 
@@ -41,7 +41,7 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
 下载的系统镜像是一个压缩文件，需要解压后才能通过镜像烧录软件安装到 UFS 模块, 未解压就直接烧录到 UFS 模块，可能会出现安装系统失败或者启动系统失败的情况。
 :::
 
-### 2.2 硬件连接
+### 硬件连接
 
 将 UFS 模块插入 eMMC / UFS 模块读卡器中，然后将读卡器插入 PC 的 USB 端口上。
 
@@ -49,11 +49,20 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
   <img src="/img/rock4/4d/write-ufs.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### 2.3 安装系统镜像
+:::caution
+
+UFS 模块安装步骤：
+
+1. 确保 UFS 模块的缺角和读卡器的接口方向一致
+2. 确保 UFS 模块底部卡槽接口和 eMMC / UFS 模块读卡器的接口对齐
+3. 轻微用力按压 UFS 模块一端的接口，听到滴的声音说明安装成功，同样的方法按压另一端的接口，确保 UFS 模块安装成功。
+   :::
+
+### 安装系统镜像
 
 使用开源镜像烧录工具 Etcher 烧写系统镜像文件到 UFS 模块。
 
-#### 2.3.1 下载 Etcher
+#### 下载 Etcher
 
 进入 Balena Etcher 官网下载系统对应平台的软件：[balenaEtcher](https://etcher.balena.io)
 
@@ -67,7 +76,7 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
 <img src="/img/rock4/4d/down-etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-#### 2.3.2 使用 Etcher
+#### 使用 Etcher
 
 下载完成后，双击打开 Etcher 应用。
 
@@ -91,7 +100,7 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
   <img src="/img/rock4/4d/down-etcher-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-#### 2.3.3 安装系统镜像
+#### 安装系统镜像
 
 1. 选择镜像文件
 
@@ -142,7 +151,7 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
   成功安装系统镜像后，关闭 Etcher 软件！
 </div>
 
-## 3. 系统信息
+## 系统信息
 
 您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
 
@@ -152,7 +161,7 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
 
 用户密码：radxa
 
-## 4. 启动系统
+## 启动系统
 
 完成系统镜像的安装后：
 
@@ -162,9 +171,22 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保�
 4. 连接 Radxa ROCK 4D 的电源
 5. 等待系统从 UFS 模块启动
 
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/boot-ufs.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+:::caution
+
+UFS 模块安装步骤：
+
+1. 确保 UFS 模块的缺角和 Radxa ROCK 4D 的 eMMC / UFS 模块接口方向一致
+2. 确保 UFS 模块底部卡槽接口和 Radxa ROCK 4D 的 eMMC / UFS 模块接口对齐
+3. 轻微用力按压 UFS 模块一端的接口，听到滴的声音说明安装成功，同样的方法按压另一端的接口，确保 UFS 模块安装成功。
+   :::
+
 启动系统后，蓝色和绿色 LED 灯会同时亮起，大概过几秒左右，绿灯常亮、蓝色指示灯会闪烁，一般表示系统启动成功。
 
-## 5. 验证系统
+## 验证系统
 
 系统启动后，您可以使用 `lsblk` 命令查看系统分区信息：
 

@@ -15,7 +15,7 @@ sidebar_position: 4
 2. 两台设备相互 `ping` 彼此 IP 地址是否正常。
    :::
 
-## 1 安装 OpenSSH
+## 安装 OpenSSH
 
 SSH 远程控制需要安装 OpenSSH 服务器, 在 Radxa ROCK 4D 的终端命令行运行以下命令安装：
 
@@ -26,7 +26,7 @@ sudo apt install openssh-server -y
 ```
 </NewCodeBlock>
 
-## 2. 启动 SSH 服务
+## 启动 SSH 服务
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令启动 SSH 服务：
 
@@ -36,7 +36,7 @@ sudo systemctl start ssh
 ```
 </NewCodeBlock>
 
-## 3. 设置 SSH 服务自启动
+## 设置 SSH 服务自启动
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令设置 SSH 服务自启动：
 
@@ -46,7 +46,7 @@ sudo systemctl enable ssh
 ```
 </NewCodeBlock>
 
-## 4. 查看 SSH 服务状态
+## 查看 SSH 服务状态
 
 在 Radxa ROCK 4D 的终端命令行运行以下命令查看 SSH 服务状态：
 
@@ -73,7 +73,7 @@ sudo systemctl status ssh
 ```
 </NewCodeBlock>
 
-## 5. 远程登录
+## 远程登录
 
 在另一台设备上打开终端，输入以下命令进行远程登录：可以使用 `ip a` 命令查看 Radxa ROCK 4D 的 IP 地址。
 
