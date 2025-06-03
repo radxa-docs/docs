@@ -4,7 +4,7 @@ Radxa ROCK 4D 支持 MicroSD 卡、UFS 模块和 M.2 NVMe SSD 三种方式安装
 
 - 使用 MicroSD 卡安装系统 - 操作简单，只需要读卡器就可以完成系统安装；但是读写速度相比于 UFS 模块和 M.2 NVMe SSD 卡较慢。
 
-- 使用 UFS 模块安装系统 - 相比于 MicroSD 卡读写速度更快，Radxa ROCK 4D 支持可插拔 UFS 模块，关于 UFS 模块信息可以参考[瑞莎 UFS 模块页面](https://radxa.com/products/accessories/emmc-ufs-module-reader)
+- 使用 UFS 模块安装系统 - 相比于 MicroSD 卡读写速度更快，Radxa ROCK 4D 支持可插拔 UFS 模块，关于 UFS 模块信息可以参考[瑞莎 UFS 模块页面](https://radxa.com/products/accessories/ufs-module)
 
 - 使用 M.2 NVMe SSD 安装系统 - 相比于 UFS 模块读写速度更快，但是需要搭配专门的转接板使用。
 
