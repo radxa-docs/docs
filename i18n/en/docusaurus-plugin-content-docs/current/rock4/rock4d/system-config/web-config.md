@@ -81,15 +81,17 @@ Radxa ROCK 4D has two onboard antenna interfaces, you need to install the antenn
 
 ① : Click the network icon
 
-② : Click the `Connect` button next to the WiFi name you want to connect to, then enter the WiFi password and follow the subsequent prompts to connect.
+② : Click the `Connect` button next to the WiFi name you want to connect to
 
-`192.168.31.53` is the IP address assigned by the router.
+③ : Enter the WiFi password and follow the subsequent prompts to connect
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/wifi-connect-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 After connecting successfully, click `Details` to view the network connection details, such as IP address, subnet mask, gateway address, etc.
+
+`192.168.31.53` is the IP address assigned by the router.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/wifi-connect-02.webp" style={{width: '100%', maxWidth: '1200px'}} />

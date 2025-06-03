@@ -81,15 +81,17 @@ Radxa ROCK 4D 预留两个板载天线接口，您需要将天线安装到接口
 
 ① ： 点击网络图标
 
-② ： 点击需要连接的 WiFi 名称后面的 `Connect` 按钮，然后输入 WiFi 密码并根据后续的提示进行连接。
+② ： 点击需要连接的 WiFi 名称后面的 `Connect` 按钮
 
-其中 `192.168.31.53` 就是路由器分配的 IP 地址。
+③ ： 输入 WiFi 密码并根据后续的提示进行连接
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/wifi-connect-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 连接成功后，选择 `Details` 选项可以看到网络连接的详细信息，如 IP 地址、子网掩码、网关地址等。
+
+其中 `192.168.31.53` 就是路由器分配的 IP 地址。
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/wifi-connect-02.webp" style={{width: '100%', maxWidth: '1200px'}} />

@@ -63,7 +63,7 @@ Windows platform is recommended to use PuTTY software to log in to the Radxa ROC
 Radxa ROCK 4D and PC are connected through a USB serial data cable, and you can check the corresponding COM port in the Device Manager (in the example, COM4 is the port assigned to the Radxa ROCK 4D).
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/serial-01.webp" style={{width: '80%', maxWidth: '1200px'}} />
+  <img src="/img/rock4/4d/serial-port-en.webp" style={{width: '80%', maxWidth: '1200px'}} />
 </div>
 
 :::tip
@@ -72,15 +72,15 @@ If the system cannot correctly identify the device or the device has an exclamat
 
 :::
 
-- Serial Login Options
+- Serial Port Login Options
 
-1 --> Connection type：Select `Serial`
+① --> Connection type: Select `Serial`
 
-2 --> Serial line：Fill in `COM4` (Based on the serial port number information displayed in the device manager)
+② --> Serial line: Enter `COM4` (or your specific COM port number as shown in Device Manager)
 
-3 --> Speed：Fill in `1500000`
+③ --> Speed: Enter `1500000`
 
-④ --> Open：Connect to the Radxa ROCK 4D system via serial port
+④ --> Click Open to connect to the Radxa ROCK 4D system via serial
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/serial-02.webp" style={{width: '80%', maxWidth: '1200px'}} />

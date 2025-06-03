@@ -52,7 +52,7 @@ Radxa ROCK 4D mainboard only supports 5V power input, it is recommended to use a
 
 Reference power:
 
-- [RS-30W PD Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
+- [Radxa 30W PD Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
 
 - Standard Type-C Power Adapter (5V power input, PD protocol supported, recommended current 2A above)
   :::
@@ -225,7 +225,7 @@ For Windows, we recommend using PuTTY for serial console login to the Radxa ROCK
 After connecting the Radxa ROCK 4D to your PC via USB-to-UART cable, you can check the corresponding COM port in the Device Manager (in the example, COM4 is the port assigned to the Radxa ROCK 4D).
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/serial-01.webp" style={{width: '80%', maxWidth: '1200px'}} />
+  <img src="/img/rock4/4d/serial-port-en.webp" style={{width: '80%', maxWidth: '1200px'}} />
 </div>
 
 :::tip

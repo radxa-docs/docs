@@ -4,7 +4,7 @@ Radxa ROCK 4D supports three ways to install the system: MicroSD card, UFS modul
 
 - Use MicroSD card to install the system - Simple operation, just need a card reader to complete the system installation; but the read and write speed is slower than UFS module and M.2 NVMe SSD card.
 
-- Use UFS module to install the system - Compared with MicroSD card, the read and write speed is faster, and Radxa ROCK 4D supports pluggable UFS modules, and you can refer to the [RS UFS Module](https://radxa.com/products/accessories/ufs-module) for more information.
+- Use UFS module to install the system - Compared with MicroSD card, the read and write speed is faster, and Radxa ROCK 4D supports pluggable UFS modules, and you can refer to the [Radxa UFS Module](https://radxa.com/products/accessories/ufs-module) for more information.
 
 - Use M.2 NVMe SSD to install the system - Compared with UFS module, the read and write speed is faster, but it needs to be used with a special adapter.
 

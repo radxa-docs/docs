@@ -4,7 +4,7 @@ sidebar_position: 11
 
 # 上手指南
 
-上手指南可以让用户快速了解和使用Radxa ROCK 4D 开发板。
+上手指南可以让用户快速了解和使用 Radxa ROCK 4D 开发板。
 
 ### [快速上手](/rock4/rock4d/getting-started/quickly_start)
 
