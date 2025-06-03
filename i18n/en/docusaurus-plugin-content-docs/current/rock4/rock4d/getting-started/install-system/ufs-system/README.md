@@ -12,7 +12,7 @@ We provide two methods to install the system on a UFS module:
 
 - For users without a Radxa eMMC/UFS combo module reader: Boot the system from a MicroSD card and use the `dd` command to install the system image to the UFS module.
 
-For more information about the Radxa eMMC/UFS combo module reader, please refer to the [Radxa eMMC/UFS Combo Module Reader page](https://radxa.com/products/accessories/ufs-module-reader).
+For more information about the Radxa eMMC/UFS combo module reader, please refer to the [Radxa eMMC/UFS Combo Module Reader page](https://radxa.com/products/accessories/emmc-ufs-module-reader).
 
 ### [Using Radxa eMMC/UFS Combo Module Reader](/rock4/rock4d/getting-started/install-system/ufs-system/ufs_reader)
 
