@@ -29,13 +29,13 @@ Please refer to the relevant content on the [download page](../download#bios).
 <NewCodeBlock tip="Host-Computer" type="host">
 
 ```
-BuildOptions  
-BurnImage.efi  
-cix_flash_all.bin  
-cix_flash_ota.bin  
-FlashUpdate.efi  
-setup.nsh  
-Shell.efi  
+BuildOptions
+BurnImage.efi
+cix_flash_all.bin
+cix_flash_ota.bin
+FlashUpdate.efi
+setup.nsh
+Shell.efi
 VariableInfo.efi
 ```
 
@@ -133,23 +133,28 @@ Please make sure the power stays on during the operation.
 
 Enter 'q' to quit, any other key to continue:
 
-************************************************************************
+---
+
                             Updating BIOS...
-************************************************************************
+
+---
 
 ========================================================================
- Copyright 2024 Cix Technology Group Co., Ltd. All Rights Reserved.
-                   FlashUpdate Utility v1.04.
-                   Build Date:Jan 16 2025
+Copyright 2024 Cix Technology Group Co., Ltd. All Rights Reserved.
+FlashUpdate Utility v1.04.
+Build Date:Jan 16 2025
 ========================================================================
 Old Version:0.2.2-1
 New Version:0.2.2-1
 [00.15] Processing...
 Flash update success.
 
-************************************************************************
+---
+
                          BIOS Update completed!
-************************************************************************
+
+---
+
 System will now power off.
 You MUST fully remove all connected power source before connecting them.
 Failure to do so may prevent some components to use the updated code.
@@ -183,9 +188,11 @@ After the burning is completed, unplug the power of the O6 and then power it on 
 
 <NewCodeBlock tip="O6-Serial-Console" type="host">
 ```
+
 Tianocore/EDK2 firmware version 0.2.2-1
 Press ESCAPE for boot options
 .....
+
 ```
 </NewCodeBlock>
 
@@ -194,28 +201,21 @@ Press ESCAPE for boot options
 <NewCodeBlock tip="O6-Serial-Console" type="host">
 ```
 
- Radxa Orion O6
- CIX P1 CD8180                                       1.80 GHz
- 0.2.2-1                                             65536 MB RAM
+Radxa Orion O6
+CIX P1 CD8180 1.80 GHz
+0.2.2-1 65536 MB RAM
 
+Select Language <English> This is the option
+one adjusts to change
 
+> Device Manager the language for the
+> Boot Manager current system
+> Boot Maintenance Manager
 
-   Select Language            <English>                  This is the option
-                                                         one adjusts to change
- > Device Manager                                        the language for the
- > Boot Manager                                          current system
- > Boot Maintenance Manager
+Continue
+Reset
 
-   Continue
-   Reset
-
-
-
-
-
-
-
-  ^v=Move Highlight       <Enter>=Select Entry
+^v=Move Highlight <Enter>=Select Entry
 
 ```
 
@@ -230,29 +230,27 @@ The `Boot Manager` screen is shown below:
 <NewCodeBlock tip="O6-Serial-Console" type="host">
 
 ```
+
 /------------------------------------------------------------------------------\
-|                                Boot Manager                                  |
+| Boot Manager |
 \------------------------------------------------------------------------------/
 
                                                          Device Path :
-   Boot Manager Menu                                     Fv(9A15AA37-D555-4A4E-
-                                                         B541-86391FF68164)/FvF
-   debian                                                ile(7C04A583-9E3E-4F1C
-   UEFI aigo U330 90003C33924E4D12                       -AD65-E05268D0B4D1)
-   UEFI KINGBANK KP230 K19010J001612
-   UEFI Shell
 
-   Use the <^> and <v> keys to choose a boot option,
-   the <Enter> key to select a boot option, and the
-   <Esc> key to exit the Boot Manager Menu.
+Boot Manager Menu Fv(9A15AA37-D555-4A4E-
+B541-86391FF68164)/FvF
+debian ile(7C04A583-9E3E-4F1C
+UEFI aigo U330 90003C33924E4D12 -AD65-E05268D0B4D1)
+UEFI KINGBANK KP230 K19010J001612
+UEFI Shell
 
-
-
-
+Use the <^> and <v> keys to choose a boot option,
+the <Enter> key to select a boot option, and the
+<Esc> key to exit the Boot Manager Menu.
 
 /------------------------------------------------------------------------------\
-|                                                                              |
-| ^v=Move Highlight       <Enter>=Select Entry      Esc=Exit                   |
+| |
+| ^v=Move Highlight <Enter>=Select Entry Esc=Exit |
 \------------------------------------------------------------------------------/
 
 ```
@@ -264,33 +262,35 @@ Select `UEFI Shell` to enter the shell environment.
 <NewCodeBlock tip="O6-Serial-Console" type="host">
 
 ```
+
 UEFI Interactive Shell v2.2
 EDK II
 UEFI v2.70 (EDK II, 0x00010000)
 Mapping table
-      FS0: Alias(s):HD0b:;BLK1:
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
+FS0: Alias(s):HD0b:;BLK1:
+PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
 1)/HD(1,GPT,80810833-48A5-4976-A296-0209E1012834,0x800,0x100000)
-      FS1: Alias(s):HD1b0c:;BLK6:
-          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
+FS1: Alias(s):HD1b0c:;BLK6:
+VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
 ,0x0)/HD(2,GPT,3A7E1703-AD97-4EE2-A0E0-BDC978C453D0,0x8800,0x3A8F000)
-     BLK0: Alias(s):
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)
-     BLK2: Alias(s):
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)/HD(2,GPT,02EC7511-B73F-4F06-ABBF-ACEF796021D2,0x100800,0xEB93000)
-     BLK3: Alias(s):
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)/HD(3,GPT,19A46BB8-BDB9-4A8B-A2A8-03CE65C39A29,0xEC93800,0x1E8800)
-     BLK4: Alias(s):
-          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
-,0x0)
-     BLK5: Alias(s):
-          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
-,0x0)/HD(1,GPT,EE706585-639D-48CE-B236-4C372373E325,0x800,0x8000)
-Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
-Shell>
+BLK0: Alias(s):
+PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
+
+1.                                BLK2: Alias(s):
+              PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
+    1)/HD(2,GPT,02EC7511-B73F-4F06-ABBF-ACEF796021D2,0x100800,0xEB93000)
+    BLK3: Alias(s):
+    PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
+    1)/HD(3,GPT,19A46BB8-BDB9-4A8B-A2A8-03CE65C39A29,0xEC93800,0x1E8800)
+    BLK4: Alias(s):
+    VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
+    ,0x0)
+    BLK5: Alias(s):
+    VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
+    ,0x0)/HD(1,GPT,EE706585-639D-48CE-B236-4C372373E325,0x800,0x8000)
+    Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
+    Shell>
+
 ```
 </NewCodeBlock>
 
@@ -301,33 +301,42 @@ Under Shell, output the command `setup.nsh` and press Enter to execute it.
 <NewCodeBlock tip="O6-Serial-Console" type="host">
 
 ```
+
 FS1:\> setup.nsh
-************************************************************************
+
+---
+
                        Radxa BIOS Update Utility
-************************************************************************
+
+---
 
 You are about to update the BIOS.
 Please make sure the power stays on during the operation.
 
 Enter 'q' to quit, any other key to continue:
 
-************************************************************************
+---
+
                             Updating BIOS...
-************************************************************************
+
+---
 
 ========================================================================
- Copyright 2024 Cix Technology Group Co., Ltd. All Rights Reserved.
-                   FlashUpdate Utility v1.04.
-                   Build Date:Jan 16 2025
+Copyright 2024 Cix Technology Group Co., Ltd. All Rights Reserved.
+FlashUpdate Utility v1.04.
+Build Date:Jan 16 2025
 ========================================================================
 Old Version:0.2.2-1
 New Version:0.2.2-1
 [00.15] Processing...
 Flash update success.
 
-************************************************************************
+---
+
                          BIOS Update completed!
-************************************************************************
+
+---
+
 System will now power off.
 You MUST fully remove all connected power source before connecting them.
 Failure to do so may prevent some components to use the updated code.
@@ -346,3 +355,4 @@ You can refer to the demo: https://radxa-pkg.github.io/edk2-cix/install.html
 ### Method 3: Offline BIOS update
 
 For advanced users who need to recover from a corrupted BIOS or prefer direct hardware access, a Serial Flash programmer (such as CH341A) can be used to flash the BIOS firmware (cix_flash_all.bin) directly to the SPI NOR Flash chip. This method bypasses the operating system entirely and works even when the device cannot boot. For detailed step-by-step instructions and hardware requirements, please refer to the comprehensive [Forum Guide](https://forum.radxa.com/t/guide-flash-bios-with-ch341a-macos-linux/26742) contributed by community member Meco, which covers the process on macOS and Linux platforms.
+```
