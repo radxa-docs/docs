@@ -276,7 +276,7 @@ VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
 BLK0: Alias(s):
 PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
 
-1.                                BLK2: Alias(s):
+1.                                                     BLK2: Alias(s):
               PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
     1)/HD(2,GPT,02EC7511-B73F-4F06-ABBF-ACEF796021D2,0x100800,0xEB93000)
     BLK3: Alias(s):
