@@ -11,13 +11,6 @@ Official ROCK 4 OS images can also be downloaded from:
 ## Official Images
 
 <Tabs queryString="model">
-
-<TabItem value="ROCK 4D" label="ROCK 4D">
-![Debian](/img/Debian-logo.webp) 
-[Debian 12 Desktop(for MicroSD card / NVME SSD / USB drive)](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b1/radxa-rk3576_bookworm_kde_b1.output_512.img.xz)<br/>[Debian 12 Desktop(for UFS module)](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b1/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz) 
-
-  </TabItem>
-
   <TabItem value="ROCK 4SE" label="ROCK 4SE" default>
 
 | ![Debian](/img/Debian-logo.webp)                                                  | ![Android](/img/Android-Logo.webp)                                                                                                                    |

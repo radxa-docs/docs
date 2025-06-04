@@ -24,7 +24,7 @@ displayed_sidebar: home
 | ROCK 4A+ / 4B+ (2021)                  | 基于 OP1 支持 4K HDMI 标准接口和板载 eMMC               |
 | [ROCK 4SE](/rock4/rock4se/) (2022)     | 基于 RK3399-T 支持 4K HDMI 标准接口                     |
 | [ROCK 4C+](/rock4/rock4c+/) (2022)     | 基于 RK3399-T 支持 4K + 2K micro HDMI 接口              |
-| [ROCK 4D](/rock4/rock4d/) (2025)     | 基于 RK3576 支持 4K HDMI 标准接口                |
+| [ROCK 4D](/rock4/rock4d/) (2025)       | 基于 RK3576 支持 4K HDMI 标准接口                       |
 
 ### ROCK 5 系列
 
