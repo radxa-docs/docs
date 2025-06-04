@@ -23,6 +23,7 @@ sidebar_position: 2
 | ROCK 4A+ / 4B+ (2021)                  | OP1 with 4K HDMI and Onboard eMMC |
 | [ROCK 4SE](/rock4/rock4se/) (2022)     | RK3399-T with 4K HDMI             |
 | [ROCK 4C+](/rock4/rock4c+/) (2022)     | RK3399-T with 4K + 2K HDMI        |
+| [ROCK 4D](/rock4/rock4d/) (2025)     | RK3576 with 4K HDMI                |
 
 ### ROCK 5 Series
 

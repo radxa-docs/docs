@@ -88,13 +88,13 @@ Support external expansion of the GPIO pins on the board, supporting UART, SPI, 
 Radxa ROCK 4D supports Type-C and GPIO power supply. We recommend using a Type-C power adapter to power it. Please ensure that the power adapter can provide 5V power input and be compatible with PD protocol.
 
 :::tip
-Radxa ROCK 4D only supports 5V power input, it is recommended to use a current of 2A or more to ensure stable operation of all peripherals.
+Radxa ROCK 4D only supports 5V power input, it is recommended to use a current of 3A or more to ensure stable operation of all peripherals.
 
 Reference power:
 
 - [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
 
-- Standard Type-C power adapter (5V power input, PD protocol supported, recommended current 2A or more)
+- Standard Type-C power adapter (5V power input, PD protocol supported, recommended current 3A or more)
   :::
 
 ### Power Button

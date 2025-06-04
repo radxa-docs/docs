@@ -16,6 +16,10 @@ jack with mic, USB Port, GbE LAN, 40-pin color expansion header, RTC.
 ROCK 4 series is first introduced in 2018 with ROCK 4 Model A and Model
 B, more models are added during the time:
 
+| ROCK 4D - 2025                 | Description                                                                                                                                                                                                             | Particulars                              |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| ![ROCK 4D](/img/rock4/4d.webp) | ROCK 4D features a quad-core 1.5GHz Cortex-A72 + quad-core 1GHz Cortex-A53 processor, 64bit LPDDR4, up to 4K@120 HDMI, MIPI DSI, MIPI CSI, 3.5mm jack with mic, USB port, GbE LAN, 40 pin GPIO expansion header, RTC. | [particulars link](/rock4/rock4d) |
+
 | ROCK 4 SE - 2022                 | Description                                                                                                                                                                                                                                      | Particulars      |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
 | ![ROCK 4SE](/img/rock4/4se.webp) | ROCK 4 SE is powered by the RK3399-T with 1.5GHz dual-core Cortex-A72 + 1Ghz quad core Cortex-A53 ARM processor, 64bit LPDDR4, up to 4K@60 HDMI, MIPI DSI, MIPI CSI, 3.5mm jack with mic, USB Port, GbE LAN, 40-pin color expansion header, RTC. | particulars link |

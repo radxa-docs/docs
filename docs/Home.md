@@ -180,6 +180,22 @@ sidebar_custom_props:
                     },
                   ],
               },
+              {
+                products_name: "ROCK 4D",
+                products_photo_url: "/home/product-pictures/rock4d.webp",
+                products_link: "/rock4/rock4d",
+                docs:
+                  [
+                    {
+                      docs_link: "/rock4/rock4d",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "ROCK 4D 概览",
+                      docs_info_en: "Overview of the ROCK 4D",
+                      docs_info_zh: "ROCK 4D 概览",
+                    },
+                  ],
+              },
             ],
         },
         {

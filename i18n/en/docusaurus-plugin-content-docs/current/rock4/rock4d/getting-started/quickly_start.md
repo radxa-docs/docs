@@ -4,15 +4,15 @@ sidebar_position: 2
 
 # Quickly Start
 
-The goal of quickly starting is to let users quickly use our products. Users can follow this tutorial to complete all operations.
+The purpose of this chapter is to help you quickly use Radxa ROCK 4D. You can follow this tutorial.
 
 ## Product
 
 <div style={{textAlign: 'center'}}>
    Radxa ROCK 4D front
-   <img src="/img/rock4/4d/rock4d-top.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/rock4/4d/rock4d-top.webp" style={{width: '100%', maxWidth: '1200px'}} />
    Radxa ROCK 4D back
-    <img src="/img/rock4/4d/rock4d-bottom.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/rock4/4d/rock4d-bottom.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## Prerequisites
@@ -25,7 +25,7 @@ You need to prepare the following hardware devices in advance to complete all op
 - System startup medium: MicroSD card
 - USB serial data line (optional): used for serial debugging and login
 - Display (optional): HDMI display and HDMI data line
-- Power adapter: Type-C power adapter (support PD protocol, 5V power input, recommended current 2A above)
+- Power adapter: Type-C power adapter (support PD protocol, 5V power input, recommended current 3A above)
 
 **Note**: Users need to choose between USB serial data line and display, we recommend using display to use and develop Rock 4D.
 
@@ -48,13 +48,13 @@ Prepare accessories: power adapter, system startup medium, debugging data line (
 Radxa ROCK 4D mainboard supports Type-C and GPIO power supply, we recommend using Type-C power adapter power supply, please ensure that the power adapter can provide 5V power input and be compatible with PD protocol.
 
 :::tip
-Radxa ROCK 4D mainboard only supports 5V power input, it is recommended to use a current of 2A above to ensure stable operation of all peripherals.
+Radxa ROCK 4D mainboard only supports 5V power input, it is recommended to use a current of 3A above to ensure stable operation of all peripherals.
 
 Reference power:
 
 - [Radxa 30W PD Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
 
-- Standard Type-C Power Adapter (5V power input, PD protocol supported, recommended current 2A above)
+- Standard Type-C Power Adapter (5V power input, PD protocol supported, recommended current 3A above)
   :::
 
 ### System Startup Medium

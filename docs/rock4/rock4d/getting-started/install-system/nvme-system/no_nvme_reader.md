@@ -26,16 +26,16 @@ M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
 - 正常启动系统的 MicroSD 卡
 - M.2 NVMe SSD: 自行购买
 - PCIe 转 M.2 M Key HAT : 自行购买
-- 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 2A 以上)
+- 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)
 
 :::tip
-Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保所有外设稳定运行。
+Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
 
 参考电源：
 
 - [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
 
-- 标准 Type-C 电源适配器( 5V 电源输入，支持 PD 协议，建议电流 2A 以上)
+- 标准 Type-C 电源适配器( 5V 电源输入，支持 PD 协议，建议电流 3A 以上)
   :::
 
 ## 重装系统

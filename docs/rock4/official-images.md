@@ -11,6 +11,13 @@ ROCK 4 官方操作系统镜像可从以下方式下载：
 ## 官方镜像下载链接
 
 <Tabs queryString="model">
+
+<TabItem value="ROCK 4D" label="ROCK 4D">
+![Debian](/img/Debian-logo.webp) 
+[Debian 12 Desktop(适用于 MicroSD 卡 / NVME SSD / U 盘)](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b1/radxa-rk3576_bookworm_kde_b1.output_512.img.xz)<br/>[Debian 12 Desktop(适用于 UFS 模块)](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b1/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz) 
+
+  </TabItem>
+
   <TabItem value="ROCK 4SE" label="ROCK 4SE" default>
 
 | ![Debian](/img/Debian-logo.webp)                                                  | ![Android](/img/Android-Logo.webp)                                                                                                                    |

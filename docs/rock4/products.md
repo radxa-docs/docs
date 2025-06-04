@@ -11,8 +11,10 @@ ROCK 4 是瑞莎基于 Rockchip RK3399/RK3399-T/OP1 开发的一系列 SBC（单
 ROCK 4 系列采用双核 Cortex-A72 + 四核 Cortex-A55 ARM 处理器、64 位 LPDDR4、最高支持 4K@60 HDMI、MIPI DSI、MIPI CSI、3.5mm 带麦克风的 3.5mm 插孔、USB 端口、GbE LAN、40 pin GPIO 扩展、RTC。
 ROCK 4 系列于 2018 年首次推出 ROCK 4A 和 ROCK 4B，后续还增加了更多型号：
 
-| ROCK 4 SE - 2022                 | 简介                                                                                                                                                                                                             | 详情                              |
+| ROCK 4D - 2025                 | 简介                                                                                                                                                                                                             | 详情                              |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| ![ROCK 4D](/img/rock4/4d.webp) | ROCK 4D 采用配备四核 1.5GHz Cortex-A72 + 四核 1Ghz Cortex-A53 的 RK3576 或 RK3576J 处理器、64 位 LPDDR4、最高支持 4K@120 HDMI、MIPI DSI、MIPI CSI、带麦克风的 3.5mm 插孔、USB 端口、GbE LAN、40 pin GPIO 扩展和 RTC。 | [ROCK 4D 详情。](/rock4/rock4d) |
+| ROCK 4 SE - 2022                 | 简介                                                                                                                                                                                                             | 详情                              |
 | ![ROCK 4SE](/img/rock4/4se.webp) | ROCK 4SE 采用配备双核 1.5GHz Cortex-A72 + 四核 1Ghz Cortex-A53 的 RK3399-T ARM 处理器、64 位 LPDDR4、最高支持 4K@60 HDMI、MIPI DSI、MIPI CSI、带麦克风的 3.5mm 插孔、USB 端口、GbE LAN、40 pin GPIO 扩展和 RTC。 | [ROCK 4SE 详情。](/rock4/rock4se) |
 
 | ROCK 4C+ - 2022                      | 简介                                                                                                                                                                                               | 详情                              |
