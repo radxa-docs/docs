@@ -33,7 +33,7 @@ rsetup Tool Guide: Interface may vary slightly between versions. Please refer to
 - Cancel selection: Press `ESC`
 - Toggle options: Use arrow keys
 - Multi-selection interface: Press `Space` to select, then `Enter` to confirm
-:::
+  :::
 
 Open the system command line and run the `rsetup` tool to update.
 
@@ -64,6 +64,7 @@ Restart the system after completing all operations.
 To prevent accidental writes to the bootloader stored in the SPI Flash during normal use, the SPI Flash device is disabled by default. Enable it as follows:
 
 Select `Overlays` → `Manage Overlays`:
+
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e54c/rsetup-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
@@ -91,6 +92,7 @@ Restart the system after completing all operations.
 After rebooting, open the `rsetup` configuration tool again.
 
 Select `System` → `Bootloader Management` → `Update SPI Bootloader`:
+
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e54c/rsetup-10.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
@@ -160,6 +162,7 @@ You can also transfer the system image file to the Radxa E54C using other method
 sudo apt-get install wget
 
 # Download the system image file
+
 wget https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e54c_bookworm_cli_b2.output.img.xz
 
 ```
@@ -173,7 +176,9 @@ Use the following command to extract and write the compressed system image direc
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
+
 ```
 </NewCodeBlock>
 
@@ -189,7 +194,9 @@ After writing is complete, verify that the partition table in the NVMe was creat
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 sudo fdisk -l /dev/nvme0n1
+
 ```
 </NewCodeBlock>
 
@@ -216,8 +223,10 @@ After the system boots, verify that it successfully booted from NVMe using the f
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 lsblk
 df -h
+
 ```
 </NewCodeBlock>
 
@@ -250,7 +259,9 @@ After successfully booting from NVMe, you can perform the following actions:
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 sudo apt update && sudo apt upgrade
+
 ```
 </NewCodeBlock>
 
@@ -266,7 +277,9 @@ Test read speed (1GB of data):
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
+
 ```
 </NewCodeBlock>
 
@@ -274,11 +287,15 @@ sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 # Install nvme-cli
+
 sudo apt install nvme-cli
 
 # Check temperature
+
 sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
+
 ```
 </NewCodeBlock>
 
@@ -286,10 +303,13 @@ sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 sudo nvme list
+
 ```
 </NewCodeBlock>
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e54c/rsetup-17.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+```

@@ -65,6 +65,7 @@ rsetup
 为防止 SPI Flash 中存放的 bootloader 在平时使用被误写入，默认 SPI Flash 设备是关闭的。通过以下方式使能 SPI Flash 设备。
 
 选择 `Overlays` → `Manage Overlays` ：
+
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e54c/rsetup-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
@@ -92,6 +93,7 @@ rsetup
 重启系统后，再次打开系统配置工具 `rsetup`。
 
 选择 `System` → `Bootloader Management` → `Update SPI Bootloader` :
+
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e54c/rsetup-10.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
@@ -194,7 +196,9 @@ sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 sudo fdisk -l /dev/nvme0n1
+
 ```
 </NewCodeBlock>
 
@@ -221,8 +225,10 @@ sudo fdisk -l /dev/nvme0n1
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 lsblk
 df -h
+
 ```
 </NewCodeBlock>
 
@@ -255,7 +261,9 @@ df -h
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 sudo apt update && sudo apt upgrade
+
 ```
 </NewCodeBlock>
 
@@ -273,7 +281,9 @@ sudo apt update && sudo apt upgrade
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
+
 ```
 </NewCodeBlock>
 
@@ -281,11 +291,15 @@ sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 # 安装 nvme-cli
+
 sudo apt install nvme-cli
 
 # 检查温度
+
 sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
+
 ```
 </NewCodeBlock>
 
@@ -293,10 +307,13 @@ sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
+
 sudo nvme list
+
 ```
 </NewCodeBlock>
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e54c/rsetup-17.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+```
