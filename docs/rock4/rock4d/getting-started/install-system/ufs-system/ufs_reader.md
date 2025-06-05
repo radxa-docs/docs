@@ -15,16 +15,16 @@ sidebar_position: 1
 - 开发板： Radxa ROCK 4D
 - [UFS 模块](https://radxa.com/products/accessories/ufs-module)
 - [瑞莎 eMMC / UFS 二合一模块读卡器](https://radxa.com/products/accessories/emmc-ufs-module-reader)
-- 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 2A 以上)
+- 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)
 
 :::tip
-Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 2A 以上，确保所有外设稳定运行。
+Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
 
 参考电源：
 
 - [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
 
-- 标准 Type-C 电源适配器( 5V 电源输入，支持 PD 协议，建议电流 2A 以上)
+- 标准 Type-C 电源适配器( 5V 电源输入，支持 PD 协议，建议电流 3A 以上)
   :::
 
 ## 安装系统

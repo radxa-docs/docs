@@ -18,15 +18,15 @@ You'll need to prepare the following hardware devices to complete the system ins
 #### For System Booting
 
 - Development board: Radxa ROCK 4D
-- Power adapter: Type-C power adapter (PD protocol supported, 5V input, 2A or higher current recommended)
+- Power adapter: Type-C power adapter (PD protocol supported, 5V input, 3A or higher current recommended)
 
 :::tip
-The Radxa ROCK 4D motherboard only supports 5V power input. A current of 2A or higher is recommended to ensure stable operation of all peripherals.
+The Radxa ROCK 4D motherboard only supports 5V power input. A current of 3A or higher is recommended to ensure stable operation of all peripherals.
 
 Recommended power supplies:
 
 - [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
-- Standard Type-C power adapter (5V input, PD protocol supported, 2A or higher current recommended)
+- Standard Type-C power adapter (5V input, PD protocol supported, 3A or higher current recommended)
   :::
 
 ## System Installation

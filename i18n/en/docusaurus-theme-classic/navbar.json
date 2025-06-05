@@ -159,6 +159,10 @@
     "message": "→ ROCK 4SE",
     "description": "Navbar item with label → ROCK 4SE"
   },
+  "item.label.→ ROCK 4D": {
+    "message": "→ ROCK 4D",
+    "description": "Navbar item with label → ROCK 4D"
+  },
   "item.label.→ ROCK Pi E": {
     "message": "→ ROCK Pi E",
     "description": "Navbar item with label → ROCK Pi E"
