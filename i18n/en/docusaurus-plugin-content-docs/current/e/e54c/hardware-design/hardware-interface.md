@@ -419,22 +419,22 @@ E54C's M.2 slot supports M.2 2280 NVMe SSDs via PCIe 2.1 interface (1 lane, x1),
 
 The 14-pin GPIO header provides access to various low-level interfaces:
 
-| PIN | Function | Description                       |
-| --- | -------- | --------------------------------- |
-| 1   | 3.3V     | 3.3V power output (max 500mA)     |
-| 2   | 5V       | 5V power output (shared with USB) |
-| 3   | SPI-CLK  | SPI Clock                         |
-| 4   | GND      | Ground                            |
-| 5   | SPI-MISO | SPI Master In, Slave Out          |
-| 6   | UART-TX  | UART Transmit                     |
-| 7   | SPI-MOSI | SPI Master Out, Slave In          |
-| 8   | UART-RX  | UART Receive                      |
-| 9   | SPI-CS   | SPI Chip Select                   |
-| 10  | I2C-SCL  | I2C Clock                         |
-| 11  | GPIO     | General Purpose I/O               |
-| 12  | I2C-SDA  | I2C Data                          |
-| 13  | GPIO     | General Purpose I/O               |
-| 14  | GND      | Ground                            |
+| PIN | Name         |
+| --- | ------------ |
+| 1   | VCC_3V3_S0   |
+| 2   | VCC5V0       |
+| 3   | I2C7_SDA_M3  |
+| 4   | VCC5V0       |
+| 5   | I2C7_SCL_M3  |
+| 6   | GND          |
+| 7   | UART8_TX_M0  |
+| 8   | SPI0_MOSI_M2 |
+| 9   | UART8_RX_M0  |
+| 10  | SPI0_MISO_M2 |
+| 11  | I2C6_SCL_M0  |
+| 12  | SPI0_SCK_M2  |
+| 13  | I2C6_SDA_M0  |
+| 14  | SPI0_CS0_M2  |
 
 #### Additional Interfaces
 
