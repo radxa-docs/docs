@@ -416,19 +416,19 @@ E54C 的千兆网络接口由瑞芯微 RK3582 SoC 集成的网络控制器驱动
 
 ### 14-Pin GPIO 接口 (0.1"/2.54mm)
 
-| PIN | Name   | 功能          |
-| --- | ------ | ------------- |
-| 1   | VCC5V0 | 5V 电源输出   |
-| 2   | VCC5V0 | 5V 电源输出   |
-| 3   | VCC3V3 | 3.3V 电源输出 |
-| 4   | GND    | 接地          |
-| 5   | GPIO0  | SPI_CLK       |
-| 6   | GPIO1  | SPI_MOSI      |
-| 7   | GPIO2  | SPI_MISO      |
-| 8   | GPIO3  | SPI_CS        |
-| 9   | GPIO4  | UART_TX       |
-| 10  | GPIO5  | UART_RX       |
-| 11  | GPIO6  | I2C_SCL       |
-| 12  | GPIO7  | I2C_SDA       |
-| 13  | GPIO8  | 通用 GPIO     |
-| 14  | GND    | 接地          |
+| PIN | Name         |
+| --- | ------------ |
+| 1   | VCC_3V3_S0   |
+| 2   | VCC5V0       |
+| 3   | I2C7_SDA_M3  |
+| 4   | VCC5V0       |
+| 5   | I2C7_SCL_M3  |
+| 6   | GND          |
+| 7   | UART8_TX_M0  |
+| 8   | SPI0_MOSI_M2 |
+| 9   | UART8_RX_M0  |
+| 10  | SPI0_MISO_M2 |
+| 11  | I2C6_SCL_M0  |
+| 12  | SPI0_SCK_M2  |
+| 13  | I2C6_SDA_M0  |
+| 14  | SPI0_CS0_M2  |
