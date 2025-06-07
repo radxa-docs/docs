@@ -4,29 +4,21 @@ sidebar_position: 2
 
 import Images from "./\_image.mdx"
 
-# Summary of resource downloads
+# Resource Download
 
 ## Hardware Design
-
-Radxa ROCK 5 ITX Version X1.1
-
-[x1.1 2D dxf](https://dl.radxa.com/rock5/5itx/radxa_rock_5itx_x1100_dxf.zip)
-
-[x1.1 Schematic pdf](https://dl.radxa.com/rock5/5itx/radxa_rock_5_itx_X1100_schematic.pdf)
-
-[x1.1 components placement map pdf](https://dl.radxa.com/rock5/5itx/radxa_rock_5_itx_X1100_components_placement_map.pdf)
 
 Radxa ROCK 5 ITX Version V1.11
 
 [V1.11 2D dxf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_2d_dxf.zip)
 
-[V1.11 3D dxf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_3d_v1110.zip)
+[V1.12 3D stp](https://dl.radxa.com/rock5/5itx/radxa_rock_5_itx_pcba_v1_12.stp.zip)
+
+[IO Shield 3D stp](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_io_shield_3d_v1110.zip)
 
 [V1.11 Schematic pdf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_schematic.pdf)
 
 [V1.11 components placement map pdf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_components_placement_map.pdf)
-
-## Tools
 
 ## Linux Loader & System image
 
