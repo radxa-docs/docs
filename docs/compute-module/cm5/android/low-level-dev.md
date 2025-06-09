@@ -90,7 +90,7 @@ $ sudo chmod +x /usr/local/bin/repo
 #### 代码下载
 
 ```bash
-$ repo init -u https://github.com/radxa/manifests.git -b Android12_Radxa_rk14 -m rockchip-r-release.xml
+$ repo init -u https://github.com/radxa/manifests.git -b Android12_Radxa_rk14 -m rockchip-s-release.xml
 $ repo sync -d --no-tags -j4
 ```
 
