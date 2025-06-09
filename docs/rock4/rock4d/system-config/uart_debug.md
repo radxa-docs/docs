@@ -39,6 +39,8 @@ sidebar_position: 3
 
 ## 串口登录
 
+我们推荐使用 Tabby 软件进行串口登录和调试，支持 Windows、Linux、MacOS 等多个平台。
+
 :::tip
 
 - Radxa ROCK 4D 串口通讯参数
@@ -52,139 +54,106 @@ sidebar_position: 3
 无校验位
 :::
 
-<Tabs queryString="e24c-system-login">
+### Tabby 使用
 
-<TabItem value="Windows">
+Tabby 是一款功能强大的跨平台串口调试工具，支持串口、SSH 等多种协议。
 
-Windows 平台推荐使用 PuTTY 软件串口登陆 Radxa ROCK 4D 系统。
+#### Tabby 安装
 
-- PuTTY使用
+通过 [Tabby 官网](https://tabby.sh/) 下载并安装 Tabby 软件。
 
-Radxa ROCK 4D 和 PC 通过 USB 串口数据线连接后，可以进入系统的设备管理器查看 Radxa ROCK 4D 对应的串口号(示意图中 COM4 就是当前系统中对应的 Radxa ROCK 4D 设备)。
+:::tip
+
+- Windows
+
+根据自己的系统架构选择 `.exe` 文件进行安装。
+
+- Linux
+
+根据自己的系统架构选择 `.deb` 文件进行安装。
+
+- MacOS
+
+根据自己的系统架构选择 `.dmg` 文件进行安装。
+
+:::
+
+#### Tabby 使用（串口）
+
+双击 Tabby 软件图标打开 Tabby 软件。
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/serial-01.webp" style={{width: '80%', maxWidth: '1200px'}} />
+Tabby 软件主界面
+  <img src="/img/rock4/4d/tabby-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+设置串口连接：
+
+① --> `Settings` : 点击设置选项
+
+② --> `Profiles & connections` : 点击配置连接选项
+
+③ --> `New profile` : 点击添加新的配置选项
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/tabby-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+选择一个基础配置作为模板 :
+
+选择任意 `Serial` 模板，我们可以在后续配置界面修改设备名称、串口设备号、波特率等参数。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/tabby-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+选择 `Serial` 模板后，修改以下参数:
+
+`Name` : 设置连接名称,建议填写产品名称
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/tabby-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+① --> `Device` : 设置串口设备号，若只连接一个串口设备，一般为 `/dev/ttyUSB0`
+
+② --> `Baud rate` : 设置波特率,填写 `1500000`
+
+③ --> `Save` : 保存配置
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/tabby-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+点击运行按钮连接串口设备:
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/tabby-06.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+连接成功后，按回车会出现登陆信息，然后使用对应系统的用户账号和密码进行登陆（终端输入密码不会显示出来，输入完密码按回车登陆）。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/tabby-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 :::tip
 
-若系统无法正确识别设备或者设备前面带有感叹号，需要自行安装[CH340驱动](https://www.wch.cn/downloads/CH341SER_EXE.html)，完成安装后重启系统。
+若打开串口出现 `Error: Permission denied, cannot open /dev/ttyUSB0` 错误提示！
 
-:::
+您需要按照以下步骤排查问题：
 
-- 串口登陆选项
+1. 检查串口设备是否正确连接
 
-① --> Connection type：选择 `Serial`
+2. 检查串口设备权限
 
-② --> Serial line：填写 `COM4` (根据设备管理器显示的串口号信息)
+以 Linux 系统为例，若串口设备权限不足，您需要在终端命令行运行以下命令，让所有用户都有权限访问串口设备。
 
-③ --> Speed：填写 `1500000`
-
-④ --> Open：串口连接 Radxa ROCK 4D 系统
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/serial-02.webp" style={{width: '80%', maxWidth: '1200px'}} />
-</div>
-
-- 登陆系统
-
-终端内按回车会出现登陆信息，然后使用对应系统的用户账号和密码进行登陆。
-
-终端输入密码不会显示出来，输入完密码按回车登陆。
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/serial-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-</TabItem>
-
-<TabItem value="Linux">
-
-Linux 推荐使用 Screen 软件串口登陆 Radxa ROCK 4D 系统。
-
-- 安装Screen
-
-<NewCodeBlock tip="Linux-host$" type="host">
+<NewCodeBlock tip="Host-Linux$" type="host">
 ```
-sudo apt update
-sudo apt install screen
+sudo chmod 777 /dev/ttyUSB0
 ```
 </NewCodeBlock>
 
-- 查找串口设备
-
-打开终端使用 ls 命令查看串口设备:
-
-若 PC 只有一个串口设备，系统默认是 ttyUSB0；
-
-若 PC 有多个串口设备，可以插拔 USB 设备，使用下面命令观察变化的设备号。
-
-<NewCodeBlock tip="Linux-host$" type="host">
-```
-ls /dev/ttyUSB*
-```
-</NewCodeBlock>
-
-- 串口登陆选项
-
-使用 Screen 连接串口，只需要设置串口号和波特率。
-
-<NewCodeBlock tip="Linux-host$" type="host">
-```
-sudo screen /dev/ttyUSB0 1500000
-```
-</NewCodeBlock>
-
-- 登陆系统
-
-终端内按回车会出现登陆信息，然后使用对应系统的用户账号和密码进行登陆。
-
-终端输入密码不会显示出来，输入完密码按回车登陆。
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/uart-debug-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-</TabItem>
-
-<TabItem value="MacOS">
-
-MacOS 平台推荐使用 Screen 软件串口登陆 Radxa ROCK 4D 系统。
-
-:::tip
-
-若系统无法正确识别设备，需要自行安装[CH340驱动](https://www.wch.cn/downloads/CH341SER_MAC_ZIP.html)，完成安装后重启系统。
-
-:::
-
-- 查找串口设备
-
-打开终端使用 ls 命令查看串口设备:
-
-找到类似 /dev/tty.wchusbserial14xx0 的设备名称，若 PC 有多个串口设备，可以插拔 USB 设备，使用下面命令观察变化的设备号。
-
-<NewCodeBlock tip="MacOS-host$" type="host">
-```
-ls /dev/tty.*
-```
-</NewCodeBlock>
-
-- 串口登陆选项
-
-使用 Screen 连接串口，只需要设置串口号和波特率。
-
-<NewCodeBlock tip="MacOS-host$" type="host">
-```
-screen /dev/tty.wchusbserial14xx0 1500000
-```
-</NewCodeBlock>
-
-- 登陆系统
-
-终端内按回车会出现登陆信息，然后使用对应系统的用户账号和密码进行登陆。
-
-终端输入密码不会显示出来，输入完密码按回车登陆。
-
-</TabItem>
-
-</Tabs>
+3. 检查串口设备是否被其他程序占用
+   :::

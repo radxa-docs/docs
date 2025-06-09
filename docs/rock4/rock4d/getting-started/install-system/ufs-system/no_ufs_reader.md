@@ -37,7 +37,7 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保�
 
 ### 下载系统镜像
 
-下载 Radxa ROCK 4D 的系统镜像文件到 Radxa ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源下载汇总](../../../download) 复制。
+下载 Radxa ROCK 4D 的系统镜像文件到 Radxa ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../../download) 复制。
 
 :::tip
 您也可以通过其他方式将系统镜像文件复制到 Radxa ROCK 4D 上，比如通过 FTP、SCP 等方式

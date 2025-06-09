@@ -2,7 +2,7 @@
 sidebar_position: 15
 ---
 
-# 资源下载汇总
+# 资源汇总下载
 
 ## Loader文件下载
 
