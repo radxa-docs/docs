@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# HDMI
+# HDMI 2.1
 
 瑞莎 ROCK 4D 可以使用 HDMI 接口进行视频输出，支持最高 4Kp120 输出。
 
