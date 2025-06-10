@@ -17,10 +17,10 @@ sidebar_position: 3
 理论上最大传输速率为 480Mbps，接口内部颜色通常为黑色。
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rock4d-typea.webp" style={{width: '80%', maxWidth: '1200px'}} />
+  <img src="/img/rock4/4d/rock4d-typea.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## USB Type-A 使用
+## 使用指南
 
 分别测试 USB 3.0/2.0 Type-A HOST 模式和 OTG 模式。
 
@@ -157,3 +157,27 @@ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 104857600 bytes (105 MB, 100 MiB) copied, 4.0582 s, 25.8 MB/s
 ```
 </NewCodeBlock>
+
+## 接口规格
+
+### USB 2.0 Type-A
+
+| Pin# | Name        | Pin# | Name        | Pin# | Name |
+| :--: | :---------- | :--: | :---------- | :--: | :--- |
+|  1   | 5V_USB_HOST |  5   | 5V_USB_HOST |  9   | GND  |
+|  2   | USB20_2DM   |  6   | USB20_3DM   |  10  | GND  |
+|  3   | USB20_2DP   |  7   | USB20_3DP   |  11  | GND  |
+|  4   | GND         |  8   | GND         |  12  | GND  |
+
+### USB 3.0 Type-A
+
+| Pin# | Name           | Pin# | Name           | Pin# | Name          |
+| :--: | :------------- | :--: | :------------- | :--: | :------------ |
+|  1   | 5V_USB_OTG0    |  9   | USB3_OTGOSSTXP |  17  | USB3_OTG1_TXN |
+|  2   | USB3_OTG0DM    |  10  | 5V_USB_HOST    |  18  | USB3_OTG1_TXP |
+|  3   | USB3_OTG0DP    |  11  | USB3_HOST1DM   |  19  | GND           |
+|  4   | GND            |  12  | USB3_HOST1DP   |  20  | GND           |
+|  5   | USB3_OTG0SSRXN |  13  | GND            |  21  | GND           |
+|  6   | USB3_OTG0SSRXP |  14  | USB3_OTG1_RXN  |  22  | GND           |
+|  7   | GND            |  15  | USB3_OTG1_RXP  |      |               |
+|  8   | USB3_OTGOSSTXN |  16  | GND            |      |               |

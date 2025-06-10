@@ -4,11 +4,11 @@ sidebar_position: 3
 
 # HDMI 2.1
 
-瑞莎 ROCK 4D 可以使用 HDMI 接口进行视频输出，支持最高 4Kp120 输出。
+Radxa ROCK 4D 板载 1 个 HDMI 2.1 接口，可以使用 HDMI 2.1 接口进行视频输出，支持最高 4Kp120 输出。
 
-## HDMI 使用
+## 使用指南
 
-使用显示器连接瑞莎 ROCK 4D 的 HDMI 接口，可以测试视频输出是否正常。
+使用显示器连接 Radxa ROCK 4D 的 HDMI 接口，可以测试视频输出是否正常。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rock4d-hdmi.webp" style={{width: '80%', maxWidth: '1200px'}} />
@@ -18,7 +18,7 @@ sidebar_position: 3
 部分显示器可能存在不兼容情况，可以尝试更换其他显示器测试
 :::
 
-## HDMI 配置
+## 配置显示器
 
 主要从图形界面和命令行模式介绍如何修改显示器分辨率。
 
@@ -101,3 +101,16 @@ xrandr --output HDMI-1 --mode 1920x1080 --rate 60
 </TabItem>
 
 </Tabs>
+
+## 接口规格
+
+| Pin# | Name      | Pin# | Name             | Pin# | Name                      |
+| :--: | :-------- | :--: | :--------------- | :--: | :------------------------ |
+|  1   | HDMI_TX2P |  9   | HDMI_TX0N        |  17  | GND                       |
+|  2   | GND       |  10  | HDMI_TX3P        |  18  | VCC5V_HDMI_TX             |
+|  3   | HDMI_TX2N |  11  | GND              |  19  | HDMI_TX_HPDIN/HDMITX_SBDN |
+|  4   | HDMI_TX1P |  12  | HDMI_TX3N        |  20  | GND                       |
+|  5   | GND       |  13  | HDMI_TX_CEC_PORT |  21  | GND                       |
+|  6   | HDMI_TX1N |  14  | HDMITX_SBDP      |  22  | GND                       |
+|  7   | HDMI_TX0P |  15  | HDMI_TX_SCL_PORT |  23  | GND                       |
+|  8   | GND       |  16  | HDMI_TX_SDA_PORT |      |                           |
