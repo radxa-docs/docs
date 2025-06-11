@@ -10,7 +10,7 @@ To boot the Radxa E54C system from NVMe, you first need to boot the system using
 
 This tutorial demonstrates booting the system from a MicroSD card. The installation process is the same for eMMC systems.
 
-## 1. Booting the System
+## Booting the System
 
 Refer to the [Quick Start](../quick-start) guide to boot the system from a MicroSD card.
 
@@ -20,11 +20,11 @@ After confirming that the Radxa E54C system has successfully booted, shut it dow
 The MicroSD card serves as a boot disk similar to an x86 system. Its purpose is to provide a Linux environment for system installation, obtain the SPI Flash image file (`spi.img`), and then flash `spi.img` to the SPI Flash using the `rsetup` tool.
 :::
 
-## 2. Flashing the SPI Flash
+## Flashing the SPI Flash
 
 Use the system configuration tool `rsetup` to flash `spi.img` to the SPI Flash.
 
-### 2.1 Updating rsetup
+### Updating rsetup
 
 :::tip
 rsetup Tool Guide: Interface may vary slightly between versions. Please refer to the actual interface.
@@ -59,7 +59,7 @@ Select `yes` to continue, then follow the on-screen instructions to complete the
 </div>
 Restart the system after completing all operations.
 
-### 2.2 Enabling the SPI Flash Device
+### Enabling the SPI Flash Device
 
 To prevent accidental writes to the bootloader stored in the SPI Flash during normal use, the SPI Flash device is disabled by default. Enable it as follows:
 
@@ -87,7 +87,7 @@ Follow the on-screen instructions to complete the remaining steps:
 </div>
 Restart the system after completing all operations.
 
-### 2.3 Flashing the SPI Flash
+### Flashing the SPI Flash
 
 After rebooting, open the `rsetup` configuration tool again.
 
@@ -112,11 +112,11 @@ Follow the on-screen instructions to complete the remaining steps:
 </div>
 Restart the system after completing all operations.
 
-## 3. Writing the System Image to NVMe
+## Writing the System Image to NVMe
 
 After successfully flashing the SPI Flash, verify that the system recognizes both the SPI Flash and NVMe devices.
 
-### 3.1 Checking Devices
+### Checking Devices
 
 Open the system command line and use the `lsblk` command to check if the NVMe device is recognized.
 
@@ -148,12 +148,12 @@ nvme0n1     259:0    0 119.2G  0 disk
 
 </NewCodeBlock>
 
-### 3.2 Downloading the System Image
+### Downloading the System Image
 
 Download the Radxa E54C system image file locally using the `wget` command. You can copy the download link from the [Downloads](../../download) page.
 
 :::tip
-You can also transfer the system image file to the Radxa E54C using other methods such as FTP or SCP.
+You can also download the system image from the [Resource Summary Download](../../download) page, and then copy the system image file to the Radxa E54C via a USB flash drive or online transfer (such as FTP, SCP, etc.)
 :::
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
@@ -170,7 +170,7 @@ wget https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e
 
 - wget: Downloads files. Add the download link after the command.
 
-### 3.3 Writing the System Image to NVMe
+### Writing the System Image to NVMe
 
 Use the following command to extract and write the compressed system image directly to the NVMe device.
 
@@ -188,7 +188,7 @@ sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 
 - bs=1M: Sets the block size to 1M for faster writing
 - status=progress: Displays the write progress
 
-### 3.4 Verifying the Write Operation
+### Verifying the Write Operation
 
 After writing is complete, verify that the partition table in the NVMe was created correctly:
 
@@ -205,9 +205,9 @@ If successful, you should see partition information similar to the following:
   <img src="/img/e/e54c/rsetup-16.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## 4. Booting from NVMe
+## Booting from NVMe
 
-### 4.1 Preparing to Reboot
+### Preparing to Reboot
 
 After completing the above steps, follow these instructions:
 
@@ -217,7 +217,7 @@ After completing the above steps, follow these instructions:
 4. Reconnect the power
 5. Wait for the system to boot from NVMe
 
-### 4.2 Verifying NVMe Boot
+### Verifying NVMe Boot
 
 After the system boots, verify that it successfully booted from NVMe using the following commands:
 
@@ -236,7 +236,7 @@ If you see `/dev/nvme0n1p3` mounted as the root directory `/`, the system has su
   <img src="/img/e/e54c/rsetup-15.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### 4.3 Common Issues and Solutions
+### Common Issues and Solutions
 
 :::tip
 If you encounter issues during boot, try the following solutions:
@@ -251,11 +251,11 @@ If you encounter issues during boot, try the following solutions:
   - If the password is incorrect, boot using the MicroSD card again and re-download/write the system image
 :::
 
-## 5. Next Steps
+## Next Steps
 
 After successfully booting from NVMe, you can perform the following actions:
 
-### 5.1 System Update
+### System Update
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
@@ -265,11 +265,11 @@ sudo apt update && sudo apt upgrade
 ```
 </NewCodeBlock>
 
-### 5.2 System Backup
+### System Backup
 
 Regularly back up important data using `dd` or `rsync` commands.
 
-### 5.3 Performance Testing
+### Performance Testing
 
 - Test read speed
 

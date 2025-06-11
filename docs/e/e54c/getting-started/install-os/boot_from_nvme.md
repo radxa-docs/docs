@@ -10,7 +10,7 @@ Radxa E54C 通过 NVME 启动系统需要先通过MicroSD 卡或 eMMC 启动系�
 
 教程以 MicroSD 卡启动系统作为演示。eMMC 系统安装方式没有区别。
 
-## 1. 启动系统
+## 启动系统
 
 可以参考[快速上手](../quick-start)教程，使系统通过 MicroSD 卡启动。
 
@@ -20,11 +20,11 @@ Radxa E54C 通过 NVME 启动系统需要先通过MicroSD 卡或 eMMC 启动系�
 MicroSD 卡的作用是相当于 x86 系统的启动盘，目的是进入一个可以安装系统的 Linux 环境，并拿到 SPI Flash 的 Image 文件 - `spi.img`，然后将 `spi.img` 通过 `rsetup` 工具刷到 SPI Flash 中
 :::
 
-## 2. 刷入 SPI Flash
+## 刷入 SPI Flash
 
 使用系统配置工具 `rsetup` 将 `spi.img` 刷入 SPI Flash 中。
 
-### 2.1 更新 rsetup
+### 更新 rsetup
 
 :::tip
 rsetup 工具使用指南：可能会因为版本界面有微小差异，请以实际情况为准
@@ -60,7 +60,7 @@ rsetup
 </div>
 完成所有操作后重启系统。
 
-### 2.2 使能 SPI Flash 设备
+### 使能 SPI Flash 设备
 
 为防止 SPI Flash 中存放的 bootloader 在平时使用被误写入，默认 SPI Flash 设备是关闭的。通过以下方式使能 SPI Flash 设备。
 
@@ -88,7 +88,7 @@ rsetup
 </div>
 完成所有操作后重启系统。
 
-### 2.3 刷入 SPI Flash
+### 刷入 SPI Flash
 
 重启系统后，再次打开系统配置工具 `rsetup`。
 
@@ -113,11 +113,11 @@ rsetup
 </div>
 完成所有操作后重启系统。
 
-## 3. 写入系统镜像到 NVME
+## 写入系统镜像到 NVME
 
 完成刷入 SPI Flash 的操作后，我们可以查看系统是否识别 SPI Flash 和 NVME 设备。
 
-### 3.1 检查设备
+### 检查设备
 
 打开系统命令行, 使用 `lsblk` 命令检查系统是否识别到 NVME 设备。
 
@@ -150,12 +150,12 @@ nvme0n1     259:0    0 119.2G  0 disk
 
 </NewCodeBlock>
 
-### 3.2 下载系统镜像
+### 下载系统镜像
 
-下载 Radxa E54C 的系统镜像文件到本地：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入[资源汇总下载](../../download)复制。
+下载 Radxa E54C 的系统镜像文件到本地：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../download) 复制。
 
 :::tip
-你也可以通过其他方式将系统镜像文件复制到 Radxa E54C 上，比如通过 FTP、SCP 等方式
+您也可以进入 [资源汇总下载](../../download) 页面下载系统镜像，然后通过 U 盘或者在线传输（如 FTP、SCP 等）的方式将系统镜像文件复制到 Radxa E54C 上
 :::
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
@@ -172,7 +172,7 @@ wget https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e
 
 - wget : 下载文件，后面添加下载链接
 
-### 3.3 写入系统镜像到 NVME
+### 写入系统镜像到 NVME
 
 使用命令将压缩的系统镜像解压并直接写入到 NVME 设备。
 
@@ -190,7 +190,7 @@ sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 
 - bs=1M : 指定写入的块大小为 1M，提高写入速度
 - status=progress : 显示写入进度，让您了解写入状态
 
-### 3.4 验证写入结果
+### 验证写入结果
 
 写入完成后，您可以验证NVMe中的分区表是否正确创建：
 
@@ -207,9 +207,9 @@ sudo fdisk -l /dev/nvme0n1
   <img src="/img/e/e54c/rsetup-16.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## 4. 从NVMe启动系统
+## 从NVMe启动系统
 
-### 4.1 重启准备
+### 重启准备
 
 完成以上操作后，请按以下步骤操作：
 
@@ -219,7 +219,7 @@ sudo fdisk -l /dev/nvme0n1
 4. 重新连接电源
 5. 等待系统从NVMe启动
 
-### 4.2 验证NVMe启动
+### 验证NVMe启动
 
 系统启动后，可通过以下方式验证系统是否成功从NVMe启动：
 
@@ -238,7 +238,7 @@ df -h
   <img src="/img/e/e54c/rsetup-15.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### 4.3 常见问题及解决方案
+### 常见问题及解决方案
 
 :::tip
 如果在启动过程中遇到问题，请尝试以下解决方案：
@@ -253,11 +253,11 @@ df -h
   - 如密码错误，可重新使用MicroSD卡启动，然后重新下载并写入系统镜像
 :::
 
-## 5. 后续步骤
+## 后续步骤
 
 成功从NVMe启动系统后，您可以进行以下操作：
 
-### 5.1 系统更新
+### 系统更新
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
@@ -268,12 +268,12 @@ sudo apt update && sudo apt upgrade
 </NewCodeBlock>
 
 
-### 5.2 备份系统
+### 备份系统
 
 定期备份重要数据，可使用`dd`或`rsync`命令
 
 
-### 5.4 性能测试
+### 性能测试
 
 - 测试读取速度
 
