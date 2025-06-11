@@ -4,6 +4,8 @@ sidebar_position: 3
 
 # 网络配置
 
+通过图形界面和命令行两种方式来配置有线 / 无线网络。
+
 ## 有线网络
 
 <Tabs queryString="web-mode">
