@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 40-Pin GPIO
+# 40 Pin GPIO 接口
 
 Radxa ROCK 4D 板载 40-Pin GPIO（通用输入输出）接口，为硬件扩展提供了高度灵活的接口支持。
 

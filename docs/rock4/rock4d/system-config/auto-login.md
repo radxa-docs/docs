@@ -34,10 +34,10 @@ rsetup
   <img src="/img/rock4/4d/rsetup-auto-login-2.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-3. 通过方向键选择 `Enable auto login` 选项，然后按空格勾选 `gdm.service`，最后按回车确认选择。
+3. 通过方向键选择 `Enable auto login` 选项，然后按空格键勾选 `gdm.service`，最后按回车确认选择。
 
 :::tip
-选项框中出现 `*` 表示该选项已启用。
+选项框中出现 `*` 表示该选项已启用
 :::
 
 <div style={{textAlign: 'center'}}>

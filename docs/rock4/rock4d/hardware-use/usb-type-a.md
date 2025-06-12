@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# USB Type-A
+# USB Type-A 接口
 
 瑞莎 ROCK 4D 板载 4 个 USB Type-A 接口，其中 2 个 USB 3.0 接口，2 个 USB 2.0 接口。
 
