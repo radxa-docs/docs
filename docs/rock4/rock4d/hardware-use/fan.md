@@ -127,7 +127,8 @@ ls -l /sys/class/hwmon/hwmon*/device
 使用 `echo` 命令设置风扇转速：PWM 控制范围一般为 0~255（0=停转，255=全速）。
 
 - 风扇全速
-  <NewCodeBlock tip="radxa@radxa-4d$" type="device">
+
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 
 ```
 echo 255 | sudo tee /sys/class/hwmon/hwmon7/pwm1
@@ -136,7 +137,8 @@ echo 255 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 </NewCodeBlock>
 
 - 风扇半速
-  <NewCodeBlock tip="radxa@radxa-4d$" type="device">
+
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 
 ```
 echo 128 | sudo tee /sys/class/hwmon/hwmon7/pwm1
@@ -145,12 +147,11 @@ echo 128 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 </NewCodeBlock>
 
 - 关闭风扇
-  <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 echo 0 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 ```
-
 </NewCodeBlock>
 
 ## 接口规格
