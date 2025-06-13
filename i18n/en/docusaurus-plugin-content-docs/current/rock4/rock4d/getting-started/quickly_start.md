@@ -10,9 +10,9 @@ The purpose of this chapter is to help you quickly use Radxa ROCK 4D. You can fo
 
 <div style={{textAlign: 'center'}}>
    Radxa ROCK 4D front
-   <img src="/img/rock4/4d/rock4d-top.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/rock4/4d/rock4d-top.webp" style={{width: '100%', maxWidth: '1200px'}} />
    Radxa ROCK 4D back
-    <img src="/img/rock4/4d/rock4d-bottom.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/rock4/4d/rock4d-bottom.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## Prerequisites
