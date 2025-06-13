@@ -34,3 +34,23 @@ sidebar_position: 0
 |  ⑦   | [天线接口](./ante)          |  1   |  ⑯  | [千兆以太网口（支持PoE）](./gigabit-ethernet) |  1   |  ㉕  | [MIPI CSI 接口](./mipi-csi) |  1   |
 |  ⑧   | [40 Pin GPIO 接口](./pin-gpio)|  1   |  ⑰  | [风扇接口](./fan)            |  1   |  ㉖  | [MicroSD 卡槽](./microsd)   |  1   |
 |  ⑨   | LPDDR5 内存                |  1   |  ⑱  | [耳机插孔](./headphone)      |  1   |  ㉗  | [MIPI DSI 接口](./mipi-dsi) |  1   |
+
+- 用户指示灯
+
+系统正常启动时，用户指示灯会闪烁。
+
+- 电源指示灯
+
+系统正常启动时，电源指示灯会亮起。
+
+- 电源按键
+
+短按触发开机或者电源菜单选项，长按关机。
+
+- LPDDR5 内存
+
+LPDDR5 内存可选 2GB / 4GB / 8GB / 16GB 容量。
+
+- Rockchip RK3576（J）
+
+瑞莎 ROCK 4D 提供两个 SoC 版本：基于 RK3576 的商业级 ROCK 4D 和 基于 RK3576J 的工业级 ROCK 4D。

@@ -4,7 +4,7 @@ sidebar_position: 8
 
 # 音频管理
 
-主要介绍如何在 Radxa ROCK 4D 上使用音频设备。
+主要介绍如何在 瑞莎 ROCK 4D 上使用音频设备。
 
 ## 音频设备
 

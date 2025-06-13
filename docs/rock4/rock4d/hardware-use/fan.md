@@ -4,7 +4,7 @@ sidebar_position: 11
 
 # 风扇接口
 
-Radxa ROCK 4D 板载风扇接口，我们可以通过 2-Pin 1.25mm 排线连接风扇 (风扇工作电压为 5V)，实现风扇给主板散热。
+瑞莎 ROCK 4D 板载风扇接口，我们可以通过 2-Pin 1.25mm 排线连接风扇 (风扇工作电压为 5V)，实现风扇给主板散热。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rock4d-fan.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -31,19 +31,19 @@ rsetup
 ```
 </NewCodeBlock>
 
-1. 通过方向键选择 `Hardware` 选项，然后回车确认选择。
+1. 通过方向键选择 `Hardware` 选项，然后回车键确认选择。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rsetup-fan-1.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-2. 通过方向键选择 `Thermal governor` 选项，然后回车确认选择。
+2. 通过方向键选择 `Thermal governor` 选项，然后回车键确认选择。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rsetup-fan-2.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-3. 通过方向键选择 `step_wise` 选项，然后按空格键勾选 `step_wise` 选项，最后按回车确认选择。
+3. 通过方向键选择 `step_wise` 选项，然后按空格键勾选 `step_wise` 选项，最后按回车键确认选择。
 
 :::tip
 选项框中出现 `*` 表示该选项已启用

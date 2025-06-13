@@ -4,7 +4,7 @@ sidebar_position: 9
 
 # FPC 接口
 
-Radxa ROCK 4D 板载 FPC 接口，支持PCIe 2.1标准、单通道（x1）的高速数据扩展接口。
+瑞莎 ROCK 4D 板载 FPC 接口，支持PCIe 2.1标准、单通道（x1）的高速数据扩展接口。
 
 我们可以通过 FPC 接口连接 PCIe 转 M.2 M Key HAT，搭配 M.2 NVMe SSD 使用，实现 NVMe SSD 启动系统或拓展存储空间。
 

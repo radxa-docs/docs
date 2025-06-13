@@ -8,34 +8,34 @@ sidebar_position: 3
 
 ## 硬件准备
 
-- 开发板： Radxa ROCK 4D
+- 开发板： 瑞莎 ROCK 4D
 - USB 串口数据线： 将开发板的 UART0 接口连接到 PC 机的 USB 端口
 - 电源适配器： 给开发板供电（支持 PD 协议，5V 电源输入）
 
 ## 硬件连接
 
-您需要将 USB 串口数据线连接到 Radxa ROCK 4D 的 UART0_TX、UART0_RX 和 GND 引脚。
+您需要将 USB 串口数据线连接到 ROCK 4D 的 UART0_TX、UART0_RX 和 GND 引脚。
 
 :::danger
-使用 USB 串口数据线和 Radxa ROCK 4D 进行串口调试时，请确保引脚连接正确，否则会导致主板硬件损坏。
+使用 USB 串口数据线和 ROCK 4D 进行串口调试时，请确保引脚连接正确，否则会导致主板硬件损坏。
 :::
 
-使用 USB 串口数据线的 USB 接口连接 PC ，另一端连接 Radxa ROCK 4D 的 GPIO 串口引脚。
+使用 USB 串口数据线的 USB 接口连接 PC ，另一端连接 ROCK 4D 的 GPIO 串口引脚。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/serial-connect.webp" style={{width: '80%', maxWidth: '1200px'}} />
   引脚说明和连接示意图
 </div>
 
-| 序号 | 引脚功能                          | 连接方式                            |
-| ---- | --------------------------------- | ----------------------------------- |
-| ①    | Radxa ROCK 4D : GND（Pin6）       | 连接 USB 串口数据线的 GND 引脚      |
-| ②    | Radxa ROCK 4D : UART0_TX（Pin8）  | 连接 USB 串口数据线的 RX 引脚       |
-| ③    | Radxa ROCK 4D : UART0_RX（Pin10） | 连接 USB 串口数据线的 TX 引脚       |
-| ④    | USB 串口数据线 : GND（黑色线）    | 连接 Radxa ROCK 4D 的 GND 引脚      |
-| ⑤    | USB 串口数据线 : RX（白色线）     | 连接 Radxa ROCK 4D 的 UART0_TX 引脚 |
-| ⑥    | USB 串口数据线 : TX（绿色线）     | 连接 Radxa ROCK 4D 的 UART0_RX 引脚 |
-| ⑦    | USB 串口数据线 : VCC（红色线）    | 不连接                              |
+| 序号 | 引脚功能                       | 连接方式                       |
+| ---- | ------------------------------ | ------------------------------ |
+| ①    | ROCK 4D : GND（Pin6）          | 连接 USB 串口数据线的 GND 引脚 |
+| ②    | ROCK 4D : UART0_TX（Pin8）     | 连接 USB 串口数据线的 RX 引脚  |
+| ③    | ROCK 4D : UART0_RX（Pin10）    | 连接 USB 串口数据线的 TX 引脚  |
+| ④    | USB 串口数据线 : GND（黑色线） | 连接 ROCK 4D 的 GND 引脚       |
+| ⑤    | USB 串口数据线 : RX（白色线）  | 连接 ROCK 4D 的 UART0_TX 引脚  |
+| ⑥    | USB 串口数据线 : TX（绿色线）  | 连接 ROCK 4D 的 UART0_RX 引脚  |
+| ⑦    | USB 串口数据线 : VCC（红色线） | 不连接                         |
 
 ## 串口登录
 
@@ -43,7 +43,7 @@ sidebar_position: 3
 
 :::tip
 
-- Radxa ROCK 4D 串口通讯参数
+- ROCK 4D 串口通讯参数
 
 波特率：1500000
 

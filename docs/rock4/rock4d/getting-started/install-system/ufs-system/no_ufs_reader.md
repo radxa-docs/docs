@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## 硬件准备
 
-在没有瑞莎 eMMC / UFS 二合一模块读卡器的情况下安装系统到 UFS 模块，需要 Radxa ROCK 4D 通过 MicroSD 卡能正常启动系统。
+在没有瑞莎 eMMC / UFS 二合一模块读卡器的情况下安装系统到 UFS 模块，需要瑞莎 ROCK 4D 通过 MicroSD 卡能正常启动系统。
 
 我们会在 MicroSD 卡上的系统进行操作，使用 `dd` 命令将系统安装到 UFS 模块中。
 
@@ -16,13 +16,13 @@ sidebar_position: 2
 
 **您需要准备以下硬件：**
 
-- 开发板： Radxa ROCK 4D
+- 开发板： 瑞莎 ROCK 4D
 - [UFS 模块](https://radxa.com/products/accessories/ufs-module)
 - 正常启动系统的 MicroSD 卡
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)
 
 :::tip
-Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
+ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
 
 参考电源：
 
@@ -37,10 +37,10 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保�
 
 ### 下载系统镜像
 
-下载 Radxa ROCK 4D 的系统镜像文件到 Radxa ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../../download) 复制。
+下载 ROCK 4D 的系统镜像文件到 ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../../download) 复制。
 
 :::tip
-您也可以通过其他方式将系统镜像文件复制到 Radxa ROCK 4D 上，比如通过 FTP、SCP 等方式
+您也可以通过其他方式将系统镜像文件复制到 ROCK 4D 上，比如通过 FTP、SCP 等方式
 :::
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
@@ -65,8 +65,8 @@ wget [URL]
 
 UFS 模块安装步骤：
 
-1. 确保 UFS 模块的缺角和 Radxa ROCK 4D 的 eMMC / UFS 模块接口方向一致
-2. 确保 UFS 模块底部卡槽接口和 Radxa ROCK 4D 的 eMMC / UFS 模块接口对齐
+1. 确保 UFS 模块的缺角和 ROCK 4D 的 eMMC / UFS 模块接口方向一致
+2. 确保 UFS 模块底部卡槽接口和 ROCK 4D 的 eMMC / UFS 模块接口对齐
 3. 轻微用力按压 UFS 模块一端的接口，听到滴的声音说明安装成功，同样的方法按压另一端的接口，确保 UFS 模块安装成功。
    :::
 
@@ -137,7 +137,7 @@ Device Start End Sectors Size Type
 完成系统镜像的安装后：
 
 1. 关闭系统：`sudo shutdown -h now`
-2. 断开 Radxa ROCK 4D 的电源
+2. 断开 ROCK 4D 的电源
 3. 移除 MicroSD 卡
 4. 重新连接电源
 5. 等待系统从 UFS 模块启动
@@ -150,8 +150,8 @@ Device Start End Sectors Size Type
 
 UFS 模块安装步骤：
 
-1. 确保 UFS 模块的缺角和 Radxa ROCK 4D 的 eMMC / UFS 模块接口方向一致
-2. 确保 UFS 模块底部卡槽接口和 Radxa ROCK 4D 的 eMMC / UFS 模块接口对齐
+1. 确保 UFS 模块的缺角和 ROCK 4D 的 eMMC / UFS 模块接口方向一致
+2. 确保 UFS 模块底部卡槽接口和 ROCK 4D 的 eMMC / UFS 模块接口对齐
 3. 轻微用力按压 UFS 模块一端的接口，听到滴的声音说明安装成功，同样的方法按压另一端的接口，确保 UFS 模块安装成功。
 :::
 

@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Recovery 引脚
 
-Radxa ROCK 4D 引出 Recovery 引脚，用于进入 Loader 模式。
+瑞莎 ROCK 4D 引出 Recovery 引脚，用于进入 Loader 模式。
 
 ## 使用指南
 
@@ -16,7 +16,7 @@ Radxa ROCK 4D 引出 Recovery 引脚，用于进入 Loader 模式。
 
 使用 RKDevTool 工具可以验证设备是否进入 Loader 模式。
 
-正常情况下，RKDevTool 软件会自动识别到 Radxa ROCK 4D 主板当前所处模式； 若未识别到设备，可以重新按照以上步骤操作一遍。
+正常情况下，RKDevTool 软件会自动识别到 ROCK 4D 主板当前所处模式； 若未识别到设备，可以重新按照以上步骤操作一遍。
 
 <Tabs queryString="maskrom-display">
 

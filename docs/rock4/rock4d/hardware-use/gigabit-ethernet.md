@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# 以太网（PoE）接口
+# 千兆以太网（支持PoE）接口
 
-Radxa ROCK 4D 板载 1 个千兆以太网口，并且支持PoE功能，但要真正使用 PoE 供电，需要额外购买并安装 PoE HAT 扩展板。
+瑞莎 ROCK 4D 板载 1 个千兆以太网口，并且支持PoE功能，但要真正使用 PoE 供电，需要额外购买并安装 PoE HAT 扩展板。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rock4d-ethernet.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -14,7 +14,7 @@ Radxa ROCK 4D 板载 1 个千兆以太网口，并且支持PoE功能，但要真
 
 ### 以太网（Ethernet）
 
-使用网线连接 Radxa ROCK 4D 的千兆以太网口和路由器，正常情况下，网口的指示灯会闪烁，表示网络连接正常。
+使用网线连接 ROCK 4D 的千兆以太网口和路由器，正常情况下，网口的指示灯会闪烁，表示网络连接正常。
 
 #### 查看网络接口状态
 
@@ -55,9 +55,9 @@ ip a
 
 ### PoE（Power over Ethernet）
 
-Radxa ROCK 4D 需要搭配 PoE HAT 和使用以太网 PoE 交换机才能使用 PoE 功能。
+ROCK 4D 需要搭配 PoE HAT 和使用以太网 PoE 交换机才能使用 PoE 功能。
 
-满足以上条件后，可以使用网线连接 Radxa ROCK 4D 的千兆以太网口和以太网 PoE 交换机。
+满足以上条件后，可以使用网线连接 ROCK 4D 的千兆以太网口和以太网 PoE 交换机。
 
 正常情况下，主板指示灯会亮起，说明供电正常；网口的指示灯会闪烁，表示网络连接正常。
 

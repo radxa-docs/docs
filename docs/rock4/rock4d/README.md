@@ -7,20 +7,20 @@ sidebar_label: ROCK 4D
 
 ## 产品概述
 
-Radxa ROCK 4D 是一款紧凑型单板计算机 (SBC)，拥有众多一流功能、特性和扩展选项。
+瑞莎 ROCK 4D 是一款紧凑型单板计算机 (SBC)，拥有众多一流功能、特性和扩展选项。
 
 ROCK 4D 搭载 Rockchip RK3576 或 RK3576J SoC，配备八核 CPU（4 个 Cortex-A72 + 4 个 Cortex-A53）、Mali-G52 GPU 和强大的 6 TOPS NPU，非常适合 AI 和多媒体任务。
 
 对于创客、物联网爱好者、业余爱好者、游戏玩家、PC 用户、OEM 厂商、工业应用以及所有需要高性能和高可靠性的高性能平台的用户而言，ROCK 4D 都是理想之选。
 
-Radxa ROCK 4D 提供两个版本：基于 RK3576 的商业级 ROCK 4D 和 基于 RK3576J 的工业级 ROCK 4D。
+ROCK 4D 提供两个版本：基于 RK3576 的商业级 ROCK 4D 和 基于 RK3576J 的工业级 ROCK 4D。
 
 ## 产品外观
 
 <div style={{textAlign: 'center'}}>
-   Radxa ROCK 4D 正面
+   ROCK 4D 正面
    <img src="/img/rock4/4d/rock4d-top.webp" style={{width: '100%', maxWidth: '800px'}} />
-   Radxa ROCK 4D 背面
+   ROCK 4D 背面
     <img src="/img/rock4/4d/rock4d-bottom.webp" style={{width: '100%', maxWidth: '800px'}} />
 </div>
 
@@ -43,39 +43,42 @@ Radxa ROCK 4D 提供两个版本：基于 RK3576 的商业级 ROCK 4D 和 基于
 
 ## 接口说明
 
-<div style={{textAlign: 'center'}}>
-    <img src="/img/rock4/4d/rock4d-interface.webp" style={{width: '100%', maxWidth: '800px'}} />
-</div>
+对于可以外接设备的接口，点击接口说明可以参考使用教程。
 
-| 序号 | 说明                    | 数量 |
-| :--: | :---------------------- | :--: |
-|  ①   | USB Type-C 供电接口     |  1   |
-|  ②   | 用户指示灯              |  1   |
-|  ③   | 电源指示灯              |  1   |
-|  ④   | 电源按键                |  1   |
-|  ⑤   | FPC 接口                |  1   |
-|  ⑥   | WiFi6 和 蓝牙 5.4       |  1   |
-|  ⑦   | 外接天线接口            |  1   |
-|  ⑧   | 40 Pin GPIO             |  1   |
-|  ⑨   | LPDDR5 内存             |  1   |
-|  ⑩   | PoE 接口                |  1   |
-|  ⑪   | Maskrom 按键            |  1   |
-|  ⑫   | USB 2.0 Type-A          |  2   |
-|  ⑬   | Rockchip RK3576（J）    |  1   |
-|  ⑭   | USB 3.0 Type-A          |  2   |
-|  ⑮   | SPI NOR Flash           |  1   |
-|  ⑯   | 千兆以太网口（支持PoE） |  1   |
-|  ⑰   | 风扇接口                |  1   |
-|  ⑱   | 耳机插孔                |  1   |
-|  ⑲   | MIPI CSI 接口           |  1   |
-|  ⑳   | HDMI 2.1 接口           |  1   |
-|  ㉑  | Recovery 接口           |  1   |
-|  ㉒  | UFS 模块接口            |  1   |
-|  ㉓  | RTC 接口                |  1   |
-|  ㉔  | eMMC 模块接口           |  1   |
-|  ㉕  | MIPI CSI 接口           |  1   |
-|  ㉖  | MicroSD 卡槽            |  1   |
-|  ㉗  | MIPI DSI 接口           |  1   |
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock4/4d/rock4d-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+| 序号 | 说明                       | 数量 | 序号 | 说明                         | 数量 | 序号 | 说明                         | 数量 |
+|:----:|:---------------------------|:----:|:----:|:----------------------------|:----:|:----:|:----------------------------|:----:|
+|  ①   | [USB Type-C 接口](./usb-type-c) |  1   |  ⑩  | [PoE 接口](./gigabit-ethernet) |  1   |  ⑲  | [MIPI CSI 接口](./mipi-csi) |  1   |
+|  ②   | 用户指示灯                 |  1   |  ⑪  | [Maskrom 按键](./maskrom)                |  1   |  ⑳  | [HDMI 2.1 接口](./hdmi)     |  1   |
+|  ③   | 电源指示灯                 |  1   |  ⑫  | [USB 2.0 Type-A 接口](./usb-type-a) |  2   |  ㉑  | [Recovery 引脚](./recovery)             |  1   |
+|  ④   | 电源按键                   |  1   |  ⑬  | Rockchip RK3576（J）        |  1   |  ㉒  | [UFS 模块接口](./emmc-ufs-connector) |  1   |
+|  ⑤   | [FPC 接口](./fpc-connector)|  1   |  ⑭  | [USB 3.0 Type-A 接口](./usb-type-a) |  2   |  ㉓  | [RTC 接口](./rtc)           |  1   |
+|  ⑥   | [WiFi6 和 蓝牙 5.4](./ante.md) |  1   |  ⑮  | SPI NOR Flash               |  1   |  ㉔  | [eMMC 模块接口](./emmc-ufs-connector) |  1   |
+|  ⑦   | [天线接口](./ante)          |  1   |  ⑯  | [千兆以太网口（支持PoE）](./gigabit-ethernet) |  1   |  ㉕  | [MIPI CSI 接口](./mipi-csi) |  1   |
+|  ⑧   | [40 Pin GPIO 接口](./pin-gpio)|  1   |  ⑰  | [风扇接口](./fan)            |  1   |  ㉖  | [MicroSD 卡槽](./microsd)   |  1   |
+|  ⑨   | LPDDR5 内存                |  1   |  ⑱  | [耳机插孔](./headphone)      |  1   |  ㉗  | [MIPI DSI 接口](./mipi-dsi) |  1   |
+
+- 用户指示灯
+
+系统正常启动时，用户指示灯会闪烁。
+
+- 电源指示灯
+
+系统正常启动时，电源指示灯会亮起。
+
+- 电源按键
+
+短按触发开机或者电源菜单选项，长按关机。
+
+- LPDDR5 内存
+
+LPDDR5 内存可选 2GB / 4GB / 8GB / 16GB 容量。
+
+- Rockchip RK3576（J）
+
+ROCK 4D 提供两个 SoC 版本：基于 RK3576 的商业级 ROCK 4D 和 基于 RK3576J 的工业级 ROCK 4D。
 
 ## 应用场景
 

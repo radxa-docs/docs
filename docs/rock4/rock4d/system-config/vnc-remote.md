@@ -116,11 +116,11 @@ VNC Viewer 界面
     <img src="/img/rock4/4d/vnc-windows-use-02.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 使用 VNC（Radxa ROCK 4D）
+## 使用 VNC（瑞莎 ROCK 4D）
 
 ### 安装 VNC 服务器
 
-在 Radxa ROCK 4D 的终端命令行运行以下命令安装 VNC 服务器：
+在 瑞莎 ROCK 4D 的终端命令行运行以下命令安装 VNC 服务器：
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -131,7 +131,7 @@ sudo apt install tigervnc-standalone-server tigervnc-common -y
 
 ### 设置 VNC 远程密码
 
-在 Radxa ROCK 4D 的终端命令行运行以下命令设置 VNC 远程密码：
+在 ROCK 4D 的终端命令行运行以下命令设置 VNC 远程密码：
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 
 ```
@@ -157,7 +157,7 @@ A view-only password is not used
 
 ### 配置 VNC 启动文件
 
-在 Radxa ROCK 4D 编辑 `~/.vnc/xstartup` 文件：
+在 ROCK 4D 编辑 `~/.vnc/xstartup` 文件：
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -188,7 +188,7 @@ sudo chmod +x ~/.vnc/xstartup
 
 ### 启动 VNC 服务器
 
-在 Radxa ROCK 4D 的终端命令行运行以下命令启动 VNC 服务器：使用 `-localhost no` 参数可以允许远程访问。
+在 ROCK 4D 的终端命令行运行以下命令启动 VNC 服务器：使用 `-localhost no` 参数可以允许远程访问。
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -207,7 +207,7 @@ Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :
 
 ### 查看 VNC 服务器状态
 
-在 Radxa ROCK 4D 的终端命令行运行以下命令查看 VNC 服务器状态：
+在 ROCK 4D 的终端命令行运行以下命令查看 VNC 服务器状态：
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -229,7 +229,7 @@ X DISPLAY #	RFB PORT #	RFB UNIX PATH	PROCESS ID #	SERVER
 
 ### 关闭 VNC 服务器
 
-在 Radxa ROCK 4D 的终端命令行运行以下命令可以关闭 VNC 服务器：其中命令中的 `:1` 代表 VNC 服务器的显示编号。
+在 ROCK 4D 的终端命令行运行以下命令可以关闭 VNC 服务器：其中命令中的 `:1` 代表 VNC 服务器的显示编号。
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -241,11 +241,11 @@ vncserver -kill :1
 
 ## VNC 远程登录
 
-在另一台设备上打开 VNC Viewer 软件，根据 Radxa ROCK 4D 的 IP 地址和端口号进行 VNC 连接。
+在另一台设备上打开 VNC Viewer 软件，根据 ROCK 4D 的 IP 地址和端口号进行 VNC 连接。
 
-① ： 填写 Radxa ROCK 4D 的 IP 地址和端口号
+① ： 填写 ROCK 4D 的 IP 地址和端口号
 
-② ： 点击 `Connect to address ···` 连接 Radxa ROCK 4D
+② ： 点击 `Connect to address ···` 连接 ROCK 4D
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-connect-01.webp" style={{width: '100%', maxWidth: '1200px'}} />

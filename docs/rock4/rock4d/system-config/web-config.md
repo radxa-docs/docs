@@ -12,7 +12,7 @@ sidebar_position: 3
 
 <TabItem value="图形界面">
 
-使用网线连接 Radxa ROCK 4D 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 Radxa ROCK 4D。
+使用网线连接瑞莎 ROCK 4D 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 ROCK 4D。
 
 ① ： 点击网络图标
 
@@ -28,7 +28,7 @@ sidebar_position: 3
 
 <TabItem value="命令行模式">
 
-使用网线连接 Radxa ROCK 4D 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 Radxa ROCK 4D。
+使用网线连接瑞莎 ROCK 4D 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 ROCK 4D。
 
 终端命令行输入以下命令可以查看网络连接的详细信息：
 
@@ -71,10 +71,10 @@ ip a
 
 ## 无线网络
 
-通过 Radxa ROCK 4D 的板载 WiFi 连接无线路由器，连接成功后，路由器会自动分配 IP 地址给 Radxa ROCK 4D。
+通过 ROCK 4D 的板载 WiFi 连接无线路由器，连接成功后，路由器会自动分配 IP 地址给 ROCK 4D。
 
 :::tip
-Radxa ROCK 4D 预留两个板载天线接口，您需要将天线安装到接口位置，不然WiFi信号会很差
+ROCK 4D 预留两个板载天线接口，您需要将天线安装到接口位置，不然WiFi信号会很差
 :::
 
 <Tabs queryString="web-mode">

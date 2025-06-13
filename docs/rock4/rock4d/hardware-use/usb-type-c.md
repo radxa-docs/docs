@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # USB Type-C 接口
 
-Radxa ROCK 4D 支持 USB Type-C 和 GPIO 供电，我们推荐使用 USB Type-C 接口进行供电，仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
+瑞莎 ROCK 4D 支持 USB Type-C 和 GPIO 供电，我们推荐使用 USB Type-C 接口进行供电，仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
 
 我们推荐使用支持 PD 协议的标准 5V Type-C 电源适配器进行供电。
 

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # MicroSD 卡槽
 
-Radxa ROCK 4D 板载标准的 MicroSD 卡槽，兼容 MicroSD / MicroSDHC / MicroSDXC 卡，主要用作系统启动盘或扩展存储空间。
+瑞莎 ROCK 4D 板载标准的 MicroSD 卡槽，兼容 MicroSD / MicroSDHC / MicroSDXC 卡，主要用作系统启动盘或扩展存储空间。
 
 推荐使用容量 32GB 及以上的 MicroSD 卡，以获得更好的存储空间。
 

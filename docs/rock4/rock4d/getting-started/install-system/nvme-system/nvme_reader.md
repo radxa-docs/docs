@@ -18,14 +18,14 @@ M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
 
 您需要准备以下硬件：
 
-- 开发板：Radxa ROCK 4D
+- 开发板：瑞莎 ROCK 4D
 - M.2 NVMe SSD: 自行购买
 - M.2 NVMe 固态硬盘盒: 自行购买
 - PCIe 转 M.2 M Key HAT : 自行购买
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)
 
 :::tip
-Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
+ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
 
 参考电源：
 
@@ -164,10 +164,10 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保�
 完成系统镜像的安装后：
 
 1. 将 M.2 NVMe SSD 从 M.2 固态硬盘盒中取出
-2. 取下 Radxa ROCK 4D 上的 MicroSD 卡
+2. 取下 ROCK 4D 上的 MicroSD 卡
 3. 将 M.2 NVMe SSD 安装到 PCIe 转 M.2 M Key HAT
-4. 将 PCIe 转 M.2 M Key HAT 安装到 Radxa ROCK 4D 上
-5. 连接 Radxa ROCK 4D 的电源
+4. 将 PCIe 转 M.2 M Key HAT 安装到 ROCK 4D 上
+5. 连接 ROCK 4D 的电源
 6. 等待系统从 M.2 NVMe SSD 启动
 
 启动系统后，蓝色和绿色 LED 灯会同时亮起，大概过几秒左右，绿灯常亮、蓝色指示灯会闪烁，一般表示系统启动成功。

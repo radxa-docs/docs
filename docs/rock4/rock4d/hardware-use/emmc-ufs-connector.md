@@ -4,10 +4,10 @@ sidebar_position: 2
 
 # eMMC / UFS 模块接口
 
-Radxa ROCK 4D 板载 eMMC / UFS 二合一模块接口，支持安装 eMMC / UFS 模块，可以用于系统启动盘或扩展存储空间。
+瑞莎 ROCK 4D 板载 eMMC / UFS 二合一模块接口，支持安装 eMMC / UFS 模块，可以用于系统启动盘或扩展存储空间。
 
 :::tip
-由于 Radxa ROCK 4D 出厂默认贴 SPI Nor Flash，所以无法使用 eMMC 模块，教程只介绍使用 UFS 模块
+由于 ROCK 4D 出厂默认贴 SPI Nor Flash，所以无法使用 eMMC 模块，教程只介绍使用 UFS 模块
 :::
 
 <div style={{textAlign: 'center'}}>
@@ -26,13 +26,13 @@ eMMC 模块适用于小容量存储（8-128GB）, UFS 模块适用于大容量�
 
 您可以参考 [安装系统到 UFS 模块](../getting-started/install-system/ufs-system) 教程，将系统镜像安装到 UFS 模块中，然后将 UFS 模块插入 eMMC / UFS 模块接口上，测试启动系统是否正常。
 
-Radxa ROCK 4D 推荐搭配我们的 [瑞莎 UFS 模块](https://radxa.com/products/accessories/ufs-module) 使用。
+ROCK 4D 推荐搭配我们的 [瑞莎 UFS 模块](https://radxa.com/products/accessories/ufs-module) 使用。
 
 :::caution
 UFS 模块安装步骤：
 
-1. 确保 UFS 模块的缺角和 Radxa ROCK 4D 的 eMMC / UFS 模块接口方向一致
-2. 确保 UFS 模块底部卡槽接口和 Radxa ROCK 4D 的 eMMC / UFS 模块接口对齐
+1. 确保 UFS 模块的缺角和 ROCK 4D 的 eMMC / UFS 模块接口方向一致
+2. 确保 UFS 模块底部卡槽接口和 ROCK 4D 的 eMMC / UFS 模块接口对齐
 3. 轻微用力按压 UFS 模块一端的接口，听到滴的声音说明安装成功，同样的方法按压另一端的接口，确保 UFS 模块安装成功。
 
 :::

@@ -4,7 +4,7 @@ sidebar_position: 11
 
 # 耳机插孔
 
-Radxa ROCK 4D 板载 3.5mm 四段耳机插孔，支持音频的输入和输出。
+瑞莎 ROCK 4D 板载 3.5mm 四段式耳机插孔，支持音频的输入和输出。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rock4d-headphone.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -12,7 +12,7 @@ Radxa ROCK 4D 板载 3.5mm 四段耳机插孔，支持音频的输入和输出�
 
 ## 使用指南
 
-使用 3.5 mm 耳机线连接 Radxa ROCK 4D 的耳机插孔和耳机,然后在 Radxa ROCK 4D 上播放音频测试是否有声音。
+使用 3.5 mm 耳机线连接 ROCK 4D 的耳机插孔和耳机,然后在 ROCK 4D 上播放音频测试是否有声音。
 
 如果无法播放音频，可以尝试插拔耳机线或者检查音频输出设备是否设置正确。
 

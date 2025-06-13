@@ -12,7 +12,7 @@ M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
 
 ## 硬件准备
 
-在没有 M.2 NVMe 固态硬盘盒的情况下安装系统，需要 Radxa ROCK 4D 通过 MicroSD 卡能正常启动系统。
+在没有 M.2 NVMe 固态硬盘盒的情况下安装系统，需要瑞莎 ROCK 4D 通过 MicroSD 卡能正常启动系统。
 
 **注意： 若 MicroSD 卡启动异常，可以参考 [安装系统到 MicroSD 卡](../boot_sd)教程，先安装系统到 MicroSD 卡上。**
 
@@ -22,14 +22,14 @@ M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
 
 您需要准备以下硬件：
 
-- 开发板：Radxa ROCK 4D
+- 开发板：瑞莎 ROCK 4D
 - 正常启动系统的 MicroSD 卡
 - M.2 NVMe SSD: 自行购买
 - PCIe 转 M.2 M Key HAT : 自行购买
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)
 
 :::tip
-Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
+ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
 
 参考电源：
 
@@ -44,10 +44,10 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保�
 
 ### 下载系统镜像
 
-下载 Radxa ROCK 4D 的系统镜像文件到 Radxa ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../../download) 复制。
+下载 ROCK 4D 的系统镜像文件到 ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../../download) 复制。
 
 :::tip
-你也可以通过其他方式将系统镜像文件复制到 Radxa ROCK 4D 上，比如通过 FTP、SCP 等方式
+你也可以通过其他方式将系统镜像文件复制到 ROCK 4D 上，比如通过 FTP、SCP 等方式
 :::
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
@@ -63,8 +63,8 @@ wget [URL]
 ### 硬件连接
 
 1. 将 M.2 NVMe 固态硬盘安装到 PCIe 转 M.2 M Key HAT 上
-2. 将 PCIe 转 M.2 M Key HAT 安装到 Radxa ROCK 4D 上
-3. 连接 Radxa ROCK 4D 的电源
+2. 将 PCIe 转 M.2 M Key HAT 安装到 ROCK 4D 上
+3. 连接 ROCK 4D 的电源
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/boot-nvme-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -133,9 +133,9 @@ Device Start End Sectors Size Type
 完成系统镜像的安装后：
 
 1. 关闭系统：`sudo shutdown -h now`
-2. 断开 Radxa ROCK 4D 的电源
+2. 断开 ROCK 4D 的电源
 3. 移除 MicroSD 卡
-4. 重新连接 Radxa ROCK 4D 的电源
+4. 重新连接 ROCK 4D 的电源
 5. 等待系统从 M.2 NVMe SSD 启动
 
 <div style={{textAlign: 'center'}}>

@@ -4,7 +4,7 @@ sidebar_position: 10
 
 # RTC 接口
 
-Radxa ROCK 4D 板载 RTC 电池接口，可以通过该接口连接 RTC 电池，为主板上的实时时钟（RTC）芯片在断电时持续供电，从而实现系统时钟的持续计时，保障系统时间在断电情况下也能保持准确。
+瑞莎 ROCK 4D 板载 RTC 电池接口，可以通过该接口连接 RTC 电池，为主板上的实时时钟（RTC）芯片在断电时持续供电，从而实现系统时钟的持续计时，保障系统时间在断电情况下也能保持准确。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rock4d-rtc.webp" style={{width: '100%', maxWidth: '1200px'}} />

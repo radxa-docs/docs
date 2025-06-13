@@ -4,11 +4,11 @@ sidebar_position: 3
 
 # HDMI 2.1 接口
 
-Radxa ROCK 4D 板载 1 个 HDMI 2.1 接口，可以使用 HDMI 2.1 接口进行视频输出，支持最高 4Kp120 输出。
+瑞莎 ROCK 4D 板载 1 个 HDMI 2.1 接口，可以使用 HDMI 2.1 接口进行视频输出，支持最高 4Kp120 输出。
 
 ## 使用指南
 
-使用显示器连接 Radxa ROCK 4D 的 HDMI 接口，可以测试视频输出是否正常。
+使用显示器连接 ROCK 4D 的 HDMI 接口，可以测试视频输出是否正常。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rock4d-hdmi.webp" style={{width: '80%', maxWidth: '1200px'}} />

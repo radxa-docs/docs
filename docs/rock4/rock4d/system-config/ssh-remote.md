@@ -17,7 +17,7 @@ sidebar_position: 4
 
 ## 安装 OpenSSH
 
-SSH 远程控制需要安装 OpenSSH 服务器, 在 Radxa ROCK 4D 的终端命令行运行以下命令安装：
+SSH 远程控制需要安装 OpenSSH 服务器, 在瑞莎 ROCK 4D 的终端命令行运行以下命令安装：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
@@ -28,7 +28,7 @@ sudo apt install openssh-server -y
 
 ## 启动 SSH 服务
 
-在 Radxa ROCK 4D 的终端命令行运行以下命令启动 SSH 服务：
+在 ROCK 4D 的终端命令行运行以下命令启动 SSH 服务：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
@@ -38,7 +38,7 @@ sudo systemctl start ssh
 
 ## 设置 SSH 服务自启动
 
-在 Radxa ROCK 4D 的终端命令行运行以下命令设置 SSH 服务自启动：
+在 ROCK 4D 的终端命令行运行以下命令设置 SSH 服务自启动：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
@@ -48,7 +48,7 @@ sudo systemctl enable ssh
 
 ## 查看 SSH 服务状态
 
-在 Radxa ROCK 4D 的终端命令行运行以下命令查看 SSH 服务状态：
+在 ROCK 4D 的终端命令行运行以下命令查看 SSH 服务状态：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
@@ -79,7 +79,7 @@ sudo systemctl status ssh
 
 <TabItem value="命令行模式">
 
-在另一台设备上打开终端，输入以下命令进行远程登录：可以使用 `ip a` 命令查看 Radxa ROCK 4D 的 IP 地址。
+在另一台设备上打开终端，输入以下命令进行远程登录：可以使用 `ip a` 命令查看 ROCK 4D 的 IP 地址。
 
 <NewCodeBlock tip="Host-PC$" type="host">
 ```
@@ -87,13 +87,13 @@ ssh <user-name>@<ip-address>
 ```
 </NewCodeBlock>
 
-其中，`<user-name>` 和 `<ip-address>` 分别是 Radxa ROCK 4D 的用户名和 IP 地址。
+其中，`<user-name>` 和 `<ip-address>` 分别是 ROCK 4D 的用户名和 IP 地址。
 
-① ： 查询 Radxa ROCK 4D 的 IP 地址（此时我是通过串口连接到 Radxa ROCK 4D 查询的 IP 地址）。
+① ： 查询 ROCK 4D 的 IP 地址（此时我是通过串口连接到 ROCK 4D 查询的 IP 地址）。
 
-② ： Radxa ROCK 4D 的实际 IP 地址。
+② ： ROCK 4D 的实际 IP 地址。
 
-③ ： 通过 SSH 远程登录 Radxa ROCK 4D。
+③ ： 通过 SSH 远程登录 ROCK 4D。
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/ssh-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -161,7 +161,7 @@ Tabby 软件主界面
   <img src="/img/rock4/4d/tabby-09.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① --> `Host` : 设置 IP 地址，根据 Radxa ROCK 4D 的 实际 IP 地址填写
+① --> `Host` : 设置 IP 地址，根据 ROCK 4D 的 实际 IP 地址填写
 
 ② --> `User` : 设置用户名，默认出厂用户名为 `radxa`
 
@@ -181,7 +181,7 @@ Tabby 软件主界面
 
 连接后，Tabby 软件会弹出输入密码的界面：
 
-① --> password : 输入 Radxa ROCK 4D 的密码,默认出厂密码为 `radxa`
+① --> password : 输入 ROCK 4D 的密码,默认出厂密码为 `radxa`
 
 ② --> OK : 确认连接
 

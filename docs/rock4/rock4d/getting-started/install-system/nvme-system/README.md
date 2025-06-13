@@ -14,7 +14,7 @@ M.2 NVMe SSD 是一种高速、高容量、低成本的存储设备，其读写�
 
 :::tip
 
-Radxa ROCK 4D 上预留一个 FPC 接口，提供了 PCIe Gen2 ×1 通道的扩展能力。
+瑞莎 ROCK 4D 上预留一个 FPC 接口，提供了 PCIe Gen2 ×1 通道的扩展能力。
 
 使用 FPC 接口需要提前购买 PCIe 转 M.2 M Key HAT ，并按照配件说明正确安装。
 

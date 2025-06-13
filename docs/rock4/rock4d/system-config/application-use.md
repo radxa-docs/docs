@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # 应用使用
 
-介绍如何在 Radxa ROCK 4D 上使用 dpkg 和 apt 命令安装和使用应用。
+介绍如何在 瑞莎 ROCK 4D 上使用 dpkg 和 apt 命令安装和使用应用。
 
 - dpkg 命令
 
@@ -30,7 +30,7 @@ QQ 是一款由腾讯开发的即时通讯软件，支持文字、图片、语�
 
 您可以通过 `uname -a` 命令查看当前系统的架构。
 
-Radxa ROCK 4D 的架构是 aarch64（arm64）。
+ROCK 4D 的架构是 aarch64（arm64）。
 
 :::
 
