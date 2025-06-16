@@ -34,11 +34,12 @@ sidebar_position: 0
 
 - 开发板： 瑞莎 ROCK Pi S
 - 系统启动介质： MicroSD 卡
-- MicroSD 卡读卡器：用于读写 MicroSD 卡 
+- MicroSD 卡读卡器：用于读写 MicroSD 卡
 - USB 串口数据线：用于串口调试和登录
 - 供电方式: 5V Type-C 电源适配器或使用 Type-C 转 Type-A 数据线连接 PC 供电
 
 :::tip
+
 - USB 串口数据线
 
 您可以通过串口获取系统输出信息，确认系统是否启动成功以及登录系统使用ROCK Pi S。
@@ -110,11 +111,11 @@ ROCK Pi S V1.5 支持 MicroSD 卡和板载 eMMC 安装和启动系统，你可�
 
 使用 USB 串口数据线的 USB 接口连接 PC ，另一端连接 ROCK Pi S 的 GPIO串口 引脚。
 
-| 引脚功能                       | 连接方式                       |
-| ------------------------------ | ------------------------------ |
-| ROCK Pi S : GND（Pin6）          | 连接 USB 串口数据线的 GND 引脚（黑色线） |
-| ROCK Pi S : UART0_TX（Pin8）     | 连接 USB 串口数据线的 RX 引脚（白色线） |
-| ROCK Pi S : UART0_RX（Pin10）    | 连接 USB 串口数据线的 TX 引脚（绿色线） |
+| 引脚功能                      | 连接方式                                 |
+| ----------------------------- | ---------------------------------------- |
+| ROCK Pi S : GND（Pin6）       | 连接 USB 串口数据线的 GND 引脚（黑色线） |
+| ROCK Pi S : UART0_TX（Pin8）  | 连接 USB 串口数据线的 RX 引脚（白色线）  |
+| ROCK Pi S : UART0_RX（Pin10） | 连接 USB 串口数据线的 TX 引脚（绿色线）  |
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rockpi/pis/rock-pi-s-serial.webp" style={{width: '80%', maxWidth: '1200px'}} />
@@ -215,4 +216,4 @@ sudo chmod 777 /dev/ttyUSB0
 </NewCodeBlock>
 
 3. 检查串口设备是否被其他程序占用
-:::
+   :::

@@ -39,6 +39,7 @@ To complete all the steps in this quick start guide, you'll need to prepare the 
 - Power Supply: 5V Type-C power adapter or Type-C to Type-A cable connected to a PC
 
 :::tip
+
 - USB to UART Serial Cable
 
 You can use this to access system output, verify successful boot, and log into the ROCK Pi S system.
@@ -110,11 +111,11 @@ It is not recommended to connect the VCC pin (red wire) of the USB-to-serial ada
 
 Connect the USB end of the USB-to-serial adapter to your PC, and the other end to the GPIO pins of the ROCK Pi S.
 
-| Pin Function                  | Connection Method                     |
-| ----------------------------- | ------------------------------------- |
-| ROCK Pi S: GND (Pin 6)        | Connect to GND (black wire)           |
-| ROCK Pi S: UART0_TX (Pin 8)   | Connect to RX (white wire)            |
-| ROCK Pi S: UART0_RX (Pin 10)  | Connect to TX (green wire)            |
+| Pin Function                 | Connection Method           |
+| ---------------------------- | --------------------------- |
+| ROCK Pi S: GND (Pin 6)       | Connect to GND (black wire) |
+| ROCK Pi S: UART0_TX (Pin 8)  | Connect to RX (white wire)  |
+| ROCK Pi S: UART0_RX (Pin 10) | Connect to TX (green wire)  |
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rockpi/pis/rock-pi-s-serial.webp" style={{width: '80%', maxWidth: '1200px'}} />
@@ -213,4 +214,4 @@ sudo chmod 777 /dev/ttyUSB0
 </NewCodeBlock>
 
 3. Check if the serial port device is being used by another program
-:::
+   :::

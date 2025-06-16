@@ -152,6 +152,7 @@ Password: radxa
 ## Booting the System
 
 After completing the system image installation:
+
 1. Remove the MicroSD card from the card reader
 2. Insert the card into the MicroSD card slot on the mainboard
 3. Power on the system using either:
