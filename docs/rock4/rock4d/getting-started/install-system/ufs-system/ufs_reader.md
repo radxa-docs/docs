@@ -198,7 +198,6 @@ sudo lsblk
 
 如果您看到 `/dev/sda3` 被挂载为根目录 `/`，则表示系统已成功从 UFS 模块启动。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 NAME      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda         8:0    0 119.1G  0 disk
@@ -208,7 +207,6 @@ sda         8:0    0 119.1G  0 disk
 mtdblock0  31:0    0    16M  0 disk
 zram0     253:0    0   1.9G  0 disk [SWAP]
 ```
-</NewCodeBlock>
 
 :::tip
 

@@ -99,7 +99,6 @@ sudo fdisk -l /dev/nvme0n1
 </NewCodeBlock>
 
 正确写入后，应该会看到类似以下的分区信息：
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 
 ```
 Disk /dev/nvme0n1: 465.76 GiB, 500107862016 bytes, 976773168 sectors
@@ -115,8 +114,6 @@ Device Start End Sectors Size Type
 /dev/nvme0n1p2 65536 679935 614400 300M EFI System
 /dev/nvme0n1p3 679936 15620800 14940865 7.1G EFI System
 ```
-
-</NewCodeBlock>
 
 ## 系统信息
 
@@ -156,7 +153,6 @@ sudo lsblk
 
 如果您看到 `/dev/nvme0n1p3` 被挂载为根目录 `/`，则表示系统已成功从 M.2 NVMe SSD 启动。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 mtdblock0    31:0    0    16M  0 disk
 zram0       253:0    0   1.9G  0 disk [SWAP]
@@ -165,7 +161,6 @@ nvme0n1     259:0    0 465.8G  0 disk
 ├─nvme0n1p2 259:2    0   300M  0 part /boot/efi
 └─nvme0n1p3 259:3    0 465.4G  0 part /
 ```
-</NewCodeBlock>
 
 :::tip
 

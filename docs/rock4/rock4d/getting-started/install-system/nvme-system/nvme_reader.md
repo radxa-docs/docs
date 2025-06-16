@@ -188,7 +188,6 @@ sudo lsblk
 
 如果您看到 `/dev/nvme0n1p3` 被挂载为根目录 `/`，则表示系统已成功从 M.2 NVMe SSD 启动。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 mtdblock0    31:0    0    16M  0 disk
 zram0       253:0    0   1.9G  0 disk [SWAP]
@@ -197,7 +196,6 @@ nvme0n1     259:0    0 465.8G  0 disk
 ├─nvme0n1p2 259:2    0   300M  0 part /boot/efi
 └─nvme0n1p3 259:3    0 465.4G  0 part /
 ```
-</NewCodeBlock>
 
 :::tip
 
