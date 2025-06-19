@@ -44,13 +44,11 @@ sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
 
-输出类似内容：识别到一个 Maskrom 设备
+输出类似内容：说明识别到一个 Maskrom 设备
 
-<NewCodeBlock tip="Linux/MacOS-Host$" type="host">
 ```
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
-</NewCodeBlock>
 
 </TabItem>
 

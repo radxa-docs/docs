@@ -9,3 +9,7 @@ sidebar_position: 5
 #### [RKDevTool 使用](/rock4/rock4d/low-level-dev/tool_rkdevtool)
 
 主要介绍 RKDevTool 软件的安装和使用。
+
+#### [擦除/烧录 SPI 启动固件](/rock4/rock4d/low-level-dev/spi_flash)
+
+介绍如何使用 Rsetup 工具擦除 SPI Flash，使用 RKDevTool 工具擦除和烧录 SPI 启动固件。
