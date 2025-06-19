@@ -166,7 +166,6 @@ Name: rock-4d-spi
 ID: NOPY:K5AM:5IDH:CS7I:VUGO:2U4I:YCZZ:MHNC:SV3D:4GEE:X55W:YQZU
 Docker Root Dir: /var/lib/docker
 Debug Mode: false
-Registry: https://index.docker.io/v1/
 Labels:
 Experimental: false
 Insecure Registries:
