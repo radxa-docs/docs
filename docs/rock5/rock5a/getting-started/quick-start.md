@@ -14,13 +14,13 @@ ROCK 5A 标准包装包括以下物品：
 
 要启动 ROCK 5A，您还需要一下设备：
 
-- 一个 12V/2A 或更高功率的 DC 适配器，插头规格为 5.5x2.5mm，内为正极，外为地线。ROCK 5A 还支持 PoE 供电。更过供电详情，请参考[电源方案](./power-supply)。
+- 一个 Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)。ROCK 5A 还支持 PoE 供电。更过供电详情，请参考[电源方案](./power-supply)。
 - 一个 Micro-HDMI 线和一个支持 HDMI 的显示器，推荐分辨率为 1080P 或更高，4K / 8K 显示器将提供最佳体验。
 - 一套 USB 鼠标和键盘，常见的 USB 输入设备均支持即插即用。
 - 一根网线，更新系统时需要联网。
 
 :::tip
-电源适配器推荐使用官方的 [瑞莎 PD30W 适配器](../accessories-guides/pd30w)。
+电源适配器推荐使用官方的 [瑞莎 PD30W 适配器](https://radxa.com/products/accessories/power-pd-30w/)。
 :::
 
 非必需但可增强 ROCK 5A 基本功能的外设：
