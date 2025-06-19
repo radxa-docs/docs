@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## 概览
 
-Radxa E54C 通过 NVME 启动系统需要先通过MicroSD 卡或 eMMC 启动系统，然后通过 `rsetup` 工具刷入 SPI Flash，最后通过 `dd` 命令写入系统镜像到 NVME 设备
+Radxa E54C 通过 NVME 启动系统需要先通过MicroSD 卡或 eMMC 启动系统，然后通过 `rsetup` 工具或 `RKDevTool` 工具刷入 SPI Flash，最后通过 `dd` 命令写入系统镜像到 NVME 设备
 
 教程以 MicroSD 卡启动系统作为演示。eMMC 系统安装方式没有区别。
 
@@ -22,9 +22,11 @@ MicroSD 卡的作用是相当于 x86 系统的启动盘，目的是进入一个�
 
 ## 刷入 SPI Flash
 
+### 使用 rsetup 刷入 SPI Flash
+
 使用系统配置工具 `rsetup` 将 `spi.img` 刷入 SPI Flash 中。
 
-### 更新 rsetup
+#### 更新 rsetup
 
 :::tip
 rsetup 工具使用指南：可能会因为版本界面有微小差异，请以实际情况为准
@@ -60,7 +62,7 @@ rsetup
 </div>
 完成所有操作后重启系统。
 
-### 使能 SPI Flash 设备
+#### 使能 SPI Flash 设备
 
 为防止 SPI Flash 中存放的 bootloader 在平时使用被误写入，默认 SPI Flash 设备是关闭的。通过以下方式使能 SPI Flash 设备。
 
@@ -88,7 +90,7 @@ rsetup
 </div>
 完成所有操作后重启系统。
 
-### 刷入 SPI Flash
+#### 刷入 SPI Flash
 
 重启系统后，再次打开系统配置工具 `rsetup`。
 
@@ -112,6 +114,8 @@ rsetup
   <img src="/img/e/e54c/rsetup-14.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 完成所有操作后重启系统。
+
+### 使用 RKDevTool 刷入 SPI Flash
 
 ## 写入系统镜像到 NVME
 
