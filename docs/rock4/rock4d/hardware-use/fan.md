@@ -107,7 +107,6 @@ ls -l /sys/class/hwmon/hwmon*/device
 
 终端输出类似结果：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 /sys/class/hwmon/hwmon0/device -> ../../thermal_zone0
 /sys/class/hwmon/hwmon1/device -> ../../thermal_zone1
@@ -118,7 +117,6 @@ ls -l /sys/class/hwmon/hwmon*/device
 /sys/class/hwmon/hwmon6/device -> ../../../radxa-poe-fan
 /sys/class/hwmon/hwmon7/device -> ../../../pwm-fan
 ```
-</NewCodeBlock>
 
 根据终端输出结果，我们可以通过 `hwmon7` 控制 `pwm-fan`。
 
@@ -155,6 +153,10 @@ echo 0 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 </NewCodeBlock>
 
 ## 接口规格
+
+:::tip
+详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::
 
 | Pin# | Name          |
 | :--: | :------------ |

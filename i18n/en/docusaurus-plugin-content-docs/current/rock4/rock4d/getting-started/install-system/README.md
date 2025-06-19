@@ -1,27 +1,31 @@
-# Install System
+---
+sidebar_position: 2
+---
 
-Radxa ROCK 4D supports three ways to install the system: MicroSD card, UFS module, and M.2 NVMe SSD. Users can choose the corresponding system startup medium based on their needs.
+# Installing the System
 
-- Use MicroSD card to install the system - Simple operation, just need a card reader to complete the system installation; but the read and write speed is slower than UFS module and M.2 NVMe SSD card.
+Radxa ROCK 4D supports three methods for system installation: MicroSD card, UFS module, and M.2 NVMe SSD. Users can choose the appropriate boot medium based on their needs.
 
-- Use UFS module to install the system - Compared with MicroSD card, the read and write speed is faster, and Radxa ROCK 4D supports pluggable UFS modules, and you can refer to the [Radxa UFS Module](https://radxa.com/products/accessories/ufs-module) for more information.
+- **Install using MicroSD card** - Simple operation, only requires a card reader to complete the system installation; however, read/write speeds are slower compared to UFS module and M.2 NVMe SSD.
 
-- Use M.2 NVMe SSD to install the system - Compared with UFS module, the read and write speed is faster, but it needs to be used with a special adapter.
+- **Install using UFS module** - Faster read/write speeds compared to MicroSD cards. The ROCK 4D supports hot-swappable UFS modules. For more information about UFS modules, please refer to the [Radxa UFS Module Page](https://radxa.com/products/accessories/ufs-module).
 
-Overall, if there is no high requirement for read and write performance, you can use MicroSD card as the system startup medium; if there is a requirement for read and write speed and does not need to connect Radxa ROCK 4D with an additional adapter, you can use UFS module to install the system; if there is a higher requirement for read and write speed, you can use M.2 NVMe SSD to install the system.
+- **Install using M.2 NVMe SSD** - Even faster read/write speeds than UFS modules, but requires a dedicated adapter board for use.
 
-### [Install System to MicroSD Card](/rock4/rock4d/getting-started/install-system/boot_sd)
+In summary, if you don't have high requirements for read/write performance, you can use a MicroSD card as the boot medium. If you need faster read/write speeds and don't want to use an additional adapter board with your ROCK 4D, you can install the system using a UFS module. For even higher performance requirements, you can install the system using an M.2 NVMe SSD.
 
-Mainly introduce Radxa ROCK 4D using MicroSD card to install the system and start the system.
+#### [Install System to MicroSD Card](/rock4/rock4d/getting-started/install-system/boot_sd)
 
-### [Install System to UFS Module](/rock4/rock4d/getting-started/install-system/ufs-system)
+This section explains how to install and boot the system on ROCK 4D using a MicroSD card.
 
-Mainly introduce Radxa ROCK 4D using UFS module to install the system and start the system.
+#### [Install System to UFS Module](/rock4/rock4d/getting-started/install-system/ufs-system)
 
-### [Install System to M.2 NVMe SSD](/rock4/rock4d/getting-started/install-system/nvme-system)
+This section explains how to install and boot the system on ROCK 4D using a UFS module.
 
-Mainly introduce Radxa ROCK 4D using M.2 NVMe SSD to install the system and start the system.
+#### [Install System to NVMe SSD](/rock4/rock4d/getting-started/install-system/nvme-system)
 
-### [Download and Flash SPI Boot Firmware](/rock4/rock4d/getting-started/install-system/boot_start)
+This section explains how to install and boot the system on ROCK 4D using an M.2 NVMe SSD.
 
-Mainly introduce how to download and flash SPI boot firmware to Radxa ROCK 4D.
+#### [Download and Flash SPI Boot Firmware](/rock4/rock4d/getting-started/install-system/boot_start)
+
+This section explains how to download and flash the SPI boot firmware to ROCK 4D.

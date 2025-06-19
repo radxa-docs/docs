@@ -28,9 +28,8 @@ aplay -l
 ```
 </NewCodeBlock>
 
-输出类似如下信息：其中 `card 1: rockchipes8388` 板载的 ES8388 音频编解码器，通常用于 3.5mm 耳机接口的输入（麦克风）和输出（音频播放）。
+终端输出类似信息：其中 `card 1: rockchipes8388` 板载的 ES8388 音频编解码器，通常用于 3.5mm 耳机接口的输入（麦克风）和输出（音频播放）。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 card 0: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
   Subdevices: 1/1
@@ -39,7 +38,6 @@ card 1: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 H
   Subdevices: 1/1
   Subdevice #0: subdevice #0
 ```
-</NewCodeBlock>
 
 - 查看音频录制设备
 
@@ -94,6 +92,10 @@ sudo aplay -Dhw:1,0 /tmp/tmp.wav
 - /tmp/tmp.wav: 表示输入文件路径
 
 ## 接口规格
+
+:::tip
+详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::
 
 | 左声道 Pin# | 左声道 Name   | 右声道 Pin# | 右声道 Name   |
 | :---------: | :------------ | :---------: | :------------ |

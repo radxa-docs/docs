@@ -42,11 +42,9 @@ docker --version
 
 终端输出类似如下的信息表示安装成功：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 Docker version 20.10.24+dfsg1, build 297e128
 ```
-</NewCodeBlock>
 
 ## 添加访问权限
 

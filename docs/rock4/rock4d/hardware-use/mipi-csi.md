@@ -19,6 +19,10 @@ sidebar_position: 7
 
 ## 接口规格
 
+:::tip
+详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::
+
 <Tabs queryString="camera-mode">
 
 <TabItem value="4-lane MIPI CSI">

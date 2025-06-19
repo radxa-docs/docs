@@ -76,14 +76,11 @@ gpioget $(gpiofind PIN_3)
 
 我们可以将 PIN3 引出的杜邦线连接到 GND 或者 3.3 V，然后读取引脚状态。
 
-终端输出示例：我将引脚连接到 GND 输出的结果（终端输出 0 表示引脚为低电平，输出 1 表示引脚为高电平）。
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
+终端输出类似信息：我将引脚连接到 GND 输出的结果（终端输出 0 表示引脚为低电平，输出 1 表示引脚为高电平）。
 
 ```
 0
 ```
-
-</NewCodeBlock>
 
 ### GPIO Output
 
@@ -102,7 +99,6 @@ gpioget $(gpiofind PIN_3)
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-#
 # 输出高电平
 gpioset -m signal $(gpiofind PIN_3)=1
 # 输出低电平
@@ -114,7 +110,7 @@ gpioset -m signal $(gpiofind PIN_3)=0
 - `$(gpiofind PIN_3)`：找到 GPIO 引脚对应的设备节点
 - `=1`：设置引脚状态为高电平
 
-你可以通过万用表测量引脚电压判断引脚状态，或者将引脚连接到其他可控制引脚，来读取引脚状态。
+您可以通过万用表测量引脚电压判断引脚状态，或者将引脚连接到其他可控制引脚，来读取引脚状态。
 
 ### UART 使用
 
@@ -249,9 +245,8 @@ sudo i2cdetect -l
 ```
 </NewCodeBlock>
 
-终端输出示例：
+终端输出类似信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 i2c-1   i2c             rk3x-i2c                                I2C adapter
 i2c-2   i2c             rk3x-i2c                                I2C adapter
@@ -260,7 +255,6 @@ i2c-6   i2c             rk3x-i2c                                I2C adapter
 i2c-8   i2c             rk3x-i2c                                I2C adapter
 i2c-10  i2c             ddc                                     I2C adapter
 ```
-</NewCodeBlock>
 
 - 查看 I2C 总线设备
 
@@ -430,15 +424,13 @@ ls /dev/spidev\*
 ```
 </NewCodeBlock>
 
-终端输出示例：
+终端输出类似信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 
 /dev/spidev1.0
 
 ```
-</NewCodeBlock>
 
 3. SPI 通讯测试
 
@@ -901,7 +893,6 @@ sudo ./spidev_test
 
 若回环测试正常，我们可以在终端看到输出以下信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 
 spi mode: 0x0
@@ -910,5 +901,5 @@ max speed: 500000 Hz (500 KHz)
 RX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D | ......@....�..................�.
 
 ```
-</NewCodeBlock>
+
 ```

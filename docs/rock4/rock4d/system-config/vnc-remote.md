@@ -146,14 +146,12 @@ vncpasswd
 
 完成密码设置后，系统会提示类似信息：
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
 A view-only password is not used
 ```
-</NewCodeBlock>
 
 ### 配置 VNC 启动文件
 
@@ -196,14 +194,12 @@ vncserver -localhost no
 ```
 </NewCodeBlock>
 
-启动成功后，会提示 VNC 服务器的端口号，例如：
+启动成功后，终端会输出类似信息，提示 VNC 服务器的端口号。
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 New Xtigervnc server 'rock-4d-spi:1 (radxa)' on port 5901 for display :1.
 Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :1 to connect to the VNC server.
 ```
-</NewCodeBlock>
 
 ### 查看 VNC 服务器状态
 
@@ -216,7 +212,6 @@ vncserver -list
 </NewCodeBlock>
 
 终端会输出类似信息：
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 
 ```
 TigerVNC server sessions:
@@ -224,8 +219,6 @@ TigerVNC server sessions:
 X DISPLAY #	RFB PORT #	RFB UNIX PATH	PROCESS ID #	SERVER
 1         	5901      	             	3283        	Xtigervnc
 ```
-
-</NewCodeBlock>
 
 ### 关闭 VNC 服务器
 

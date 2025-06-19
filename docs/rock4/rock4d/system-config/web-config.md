@@ -40,7 +40,6 @@ ip a
 
 终端会输出类似如下信息：其中 `192.168.2.106` 就是路由器分配的 IP 地址。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -63,7 +62,6 @@ ip a
     inet6 fe80::379f:ead8:706f:5d6/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
-</NewCodeBlock>
 
 </TabItem>
 
@@ -139,7 +137,6 @@ ip a
 
 终端会输出类似如下信息：其中 `192.168.31.53` 就是路由器分配的 IP 地址。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -176,7 +173,6 @@ ip a
     inet6 fe80::ff38:edfe:b892:b694/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
-</NewCodeBlock>
 
 :::tip
 Nmcli 是 Network Manager Command Line Interface 的简称，是 Linux 下管理网络的命令行工具。

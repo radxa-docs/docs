@@ -24,7 +24,6 @@ docker --help
 
 终端会输出类似如下信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 Usage:  docker [OPTIONS] COMMAND
 
@@ -108,9 +107,7 @@ wait Block until one or more containers stop, then print their exit codes
 Run 'docker COMMAND --help' for more information on a command.
 
 To get more help with docker, check out our guides at https://docs.docker.com/go/guides/
-
 ```
-</NewCodeBlock>
 
 ## 查看 Docker 系统信息
 
@@ -118,17 +115,13 @@ To get more help with docker, check out our guides at https://docs.docker.com/go
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker info
-
 ```
 </NewCodeBlock>
 
 终端会输出类似如下的信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 Client:
 Context: default
 Debug Mode: false
@@ -179,9 +172,7 @@ Experimental: false
 Insecure Registries:
 127.0.0.0/8
 Live Restore Enabled: false
-
 ```
-</NewCodeBlock>
 
 ## 查看版本信息
 
@@ -189,21 +180,15 @@ Live Restore Enabled: false
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker --version
-
 ```
 </NewCodeBlock>
 
 终端会输出类似如下的信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 Docker version 20.10.24+dfsg1, build 297e128
-
 ```
-</NewCodeBlock>
 
 ## 拉取镜像
 
@@ -211,30 +196,21 @@ Docker version 20.10.24+dfsg1, build 297e128
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker pull <image_name>
-
 # 示例：拉取 hello-world 最新镜像
-
 docker pull hello-world
-
 ```
 </NewCodeBlock>
-
 拉取镜像成功后，终端会输出类似如下的信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 Using default tag: latest
 latest: Pulling from library/hello-world
 c9c5fd25a1bd: Pull complete
 Digest: sha256:0b6a027b5cf322f09f6706c754e086a232ec1ddba835c8a15c6cb74ef0d43c29
 Status: Downloaded newer image for hello-world:latest
 docker.io/library/hello-world:latest
-
 ```
-</NewCodeBlock>
 
 ## 运行容器
 
@@ -242,21 +218,15 @@ docker.io/library/hello-world:latest
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker run <image_name>
-
 # 示例：运行 hello-world 最新镜像
-
 docker run hello-world
-
 ```
 </NewCodeBlock>
 
 运行容器成功后，终端会输出类似如下的信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 
@@ -278,9 +248,7 @@ https://hub.docker.com/
 
 For more examples and ideas, visit:
 https://docs.docker.com/get-started/
-
 ```
-</NewCodeBlock>
 
 ### 以交互模式运行容器
 
@@ -288,25 +256,17 @@ https://docs.docker.com/get-started/
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker run -it <image_name> /bin/bash
-
 # 示例：以交互模式运行 ubuntu:24.04 镜像
-
 docker run -it ubuntu:24.04 /bin/bash
-
 ```
 </NewCodeBlock>
 
 运行容器成功后，终端会输出类似如下的信息：其中 `8a18a7ee0838` 为容器 ID。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 root@8a18a7ee0838:/#
-
 ```
-</NewCodeBlock>
 
 容器内输入 `exit` 可以退出容器。
 
@@ -314,13 +274,9 @@ root@8a18a7ee0838:/#
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker exec -it <container_id> /bin/bash
-
 # 示例：根据正在运行的容器 ID 进入容器
-
 docker exec -it 8a18a7ee0838 /bin/bash
-
 ```
 </NewCodeBlock>
 
@@ -328,44 +284,33 @@ docker exec -it 8a18a7ee0838 /bin/bash
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker images
-
 ```
 </NewCodeBlock>
 
 终端会输出类似如下的信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 REPOSITORY TAG IMAGE ID CREATED SIZE
 ubuntu 24.04 9d45648b4030 11 days ago 101MB
 hello-world latest f1f77a0f96b7 4 months ago 5.2kB
-
 ```
-</NewCodeBlock>
 
 ## 查看容器
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker ps -a
-
 ```
 </NewCodeBlock>
 
 终端会输出类似如下的信息：我们可以通过 `status` 来判断容器是否正在运行。
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
 
+```
 CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
 8a18a7ee0838 ubuntu:24.04 "/bin/bash" 2 minutes ago Up About a minute frosty_beaver
 d1799e93de85 hello-world "/hello" 2 minutes ago Exited (0) 2 minutes ago epic_gagarin
-
 ```
-</NewCodeBlock>
 
 ## 保存容器
 
@@ -373,25 +318,17 @@ d1799e93de85 hello-world "/hello" 2 minutes ago Exited (0) 2 minutes ago epic_ga
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker commit <container_id> <new_image_name>
-
 # 示例：将 id 为 8a18a7ee0838 的容器保存为 ubuntu_24_v1 镜像
-
 docker commit 8a18a7ee0838 ubuntu_24_v1
-
 ```
 </NewCodeBlock>
 
 保存成功后，终端会输出类似如下的信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 sha256:be234207cfb6841bbef6bb4639ac2cc035a4bbebdcf5e74a08a8db327a57d569
-
 ```
-</NewCodeBlock>
 
 ## 停止容器
 
@@ -401,25 +338,17 @@ sha256:be234207cfb6841bbef6bb4639ac2cc035a4bbebdcf5e74a08a8db327a57d569
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker stop <container_id>
-
 # 示例：停止 id 为 8a18a7ee0838 的容器
-
 docker stop 8a18a7ee0838
-
 ```
 </NewCodeBlock>
 
 停止容器成功后，终端会输出类似如下的信息:
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 8a18a7ee0838
-
 ```
-</NewCodeBlock>
 
 ## 清理容器
 
@@ -427,26 +356,20 @@ docker stop 8a18a7ee0838
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker container prune
-
 ```
 </NewCodeBlock>
 
 终端会输出类似如下的信息：输入命令后需要输入 `y` 确认执行。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 WARNING! This will remove all stopped containers.
 Are you sure you want to continue? [y/N] y
 Deleted Containers:yun3
 cbb96ce305f30647e03012f979ca604ec31b93f4b1cead64b48d2db85d139171
 
 Total reclaimed space: 5B
-
 ```
-</NewCodeBlock>
 
 ## 删除镜像
 
@@ -454,26 +377,17 @@ Total reclaimed space: 5B
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 docker rmi <image_name>
-
 # 示例：删除 ubuntu:24.04 镜像
-
 docker rmi ubuntu:24.04
-
 ```
 </NewCodeBlock>
 
 删除镜像成功后，终端会输出类似如下的信息:
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 Untagged: ubuntu:24.04
 Untagged: ubuntu@sha256:b59d21599a2b151e23eea5f6602f4af4d7d31c4e236d22bf0b62b86d2e386b8f
 Deleted: sha256:9d45648b40307b523984e200d90f737b39a705c335fbf484113d4ad0660d97a6
 Deleted: sha256:c2f2f00da4ebbfa69fd966cc712f4d400283f6ade9fcd8ebb4801dfae55f86f1
-
-```
-</NewCodeBlock>
 ```

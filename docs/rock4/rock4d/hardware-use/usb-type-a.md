@@ -40,7 +40,6 @@ lsusb
 
 终端输出示例：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 003: ID a69c:8d80 aicsemi AIC Wlan
@@ -49,7 +48,6 @@ Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
-</NewCodeBlock>
 
 #### 已接 USB 外设
 
@@ -63,17 +61,15 @@ lsusb
 
 终端输出示例：我在 USB 接口连接了一个读卡器
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 003: ID a69c:8d80 aicsemi AIC Wlan
 Bus 003 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
 Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-Bus 002 Device 003: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader  
+Bus 002 Device 003: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
-</NewCodeBlock>
 
 两者对比，可以观察到连接了 USB 外设后，`Bus 002 Device 003` 的 ID 发生了变化，说明 USB 外设被正确识别。
 
@@ -93,7 +89,6 @@ lsblk
 
 终端输出示例：其中 `sda` 为 我当前 U 盘设备名称，请根据实际情况替换。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1   58G  0 disk
@@ -104,7 +99,6 @@ mmcblk1     179:0    0   58G  0 disk
 └─mmcblk1p3 179:3    0 57.6G  0 part /
 zram0       253:0    0  1.9G  0 disk [SWAP]
 ```
-</NewCodeBlock>
 
 #### 测试写入性能
 
@@ -124,13 +118,11 @@ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 
 终端输出示例：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 3.40424 s, 30.8 MB/s
 ```
-</NewCodeBlock>
 
 #### 测试读取性能
 
@@ -150,15 +142,17 @@ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 
 终端输出示例：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 4.0582 s, 25.8 MB/s
 ```
-</NewCodeBlock>
 
 ## 接口规格
+
+:::tip
+详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::
 
 ### USB 2.0 Type-A
 

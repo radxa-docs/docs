@@ -30,11 +30,15 @@ M.2 NVMe SSD 需要通过 PCIe 转 M.2 M Key HAT 连接 ROCK 4D 的 FPC 接口�
 
 ## 接口规格
 
+:::tip
+详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::
+
 | Pin# | Name              | Pin# | Name          | Pin# | Name             |
 | :--: | :---------------- | :--: | :------------ | :--: | :--------------- |
 |  1   | VCC5V0_SYS_S5     |  7   | PCIE0_SOC_RXP |  13  | PCIE0_PWREN_H    |
 |  2   | VCC5V0_SYS_S5     |  8   | PCIE0_SOC_RXN |  14  | PCIE0_WAKEN_M0   |
 |  3   | GND               |  9   | GND           |  15  | PCIE0_CLKREQn_M0 |
 |  4   | PCIE0_SOC_REFCLKP |  10  | PCIE0_SOC_TXP |  16  | PCIE0_PERSTn     |
-|  5   | PCIE0_SOC_REFCLKN |  11  | PCIE0_SOC_TXN |  17  | GND              |
-|  6   | GND               |  12  | GND           |  18  | HND              |
+|  5   | PCIE0_SOC_REFCLKN |  11  | PCIE0_SOC_TXN |      |                  |
+|  6   | GND               |  12  | GND           |      |                  |

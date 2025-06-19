@@ -6,67 +6,68 @@ sidebar_position: 1
 
 This tutorial explains how to install the system on a MicroSD card.
 
-## Hardware Requirements
+## Hardware Preparation
 
-You'll need to prepare the following hardware devices to complete the system installation and boot process.
+You will need the following hardware to complete the system installation and boot process.
 
 #### For System Installation
 
 - Card reader: MicroSD card reader
-- Boot media: MicroSD card (32GB or larger recommended)
+- Boot medium: MicroSD card (32GB or larger recommended)
 
-#### For System Booting
+#### For System Boot
 
 - Development board: Radxa ROCK 4D
-- Power adapter: Type-C power adapter (PD protocol supported, 5V input, 3A or higher current recommended)
+- Power adapter: Type-C power adapter (with PD protocol support, 5V input, 3A or higher recommended)
 
 :::tip
-The Radxa ROCK 4D motherboard only supports 5V power input. A current of 3A or higher is recommended to ensure stable operation of all peripherals.
+The ROCK 4D mainboard only supports 5V power input. A minimum of 3A is recommended to ensure stable operation of all peripherals.
 
 Recommended power supplies:
 
 - [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
-- Standard Type-C power adapter (5V input, PD protocol supported, 3A or higher current recommended)
+
+- Standard Type-C power adapter (5V input, with PD protocol support, 3A or higher recommended)
   :::
 
-## System Installation
+## Installing the System
 
-Installing the system will format the MicroSD card. Please back up any important data in advance.
+Installing the system will format the MicroSD card. Please back up any important data before proceeding.
 
 ### Download System Image
 
-Visit the [Resource Downloads](../../download) page on your PC and locate the system image for the MicroSD card.
+On your PC, visit the [Downloads Summary](../../download) page and locate the system image for MicroSD card.
 
 After downloading, extract the system image file. The resulting `*.img` file is the system image that will be written to the MicroSD card.
 
 :::tip
-The downloaded system image is a compressed file that must be extracted before it can be written to the SD card using the image writing software. Writing the compressed file directly to the SD card may result in installation failure or boot issues.
+The downloaded system image is a compressed file that must be extracted before it can be written to the SD card using the image flashing software. If you try to flash the compressed file directly to the SD card without extracting it first, the system installation or boot process may fail.
 :::
 
 ### Hardware Connection
 
-Insert the MicroSD card into the card reader, then connect the card reader to a USB port on your PC.
+Insert the MicroSD card into the card reader, then connect the card reader to your PC's USB port.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Installing the System Image
 
-Use the open-source image writing tool Etcher to write the system image to the MicroSD card.
+Use the open-source image flashing tool Etcher to write the system image to the MicroSD card.
 
 #### Downloading Etcher
 
-Go to the official Balena Etcher website and download the software for your platform: balenaEtcher.
+Visit the official Balena Etcher website to download the software for your platform: [balenaEtcher](https://www.balena.io/etcher/).
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/down-etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/down-etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 Download the appropriate software package for your system platform and architecture.
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/down-etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/down-etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 #### Using Etcher
@@ -75,90 +76,95 @@ After downloading, double-click to open the Etcher application.
 
 :::tip
 
-- Windows
+- **Windows**
 
-The downloaded file is an `*.exe` installer. Double-click to run the program.
+  The downloaded file is an `*.exe` installer. Double-click to run the program.
 
-- Linux
+- **Linux**
 
-It's recommended to download the `*.zip` archive. After extraction, double-click to run the program.
+  It's recommended to download the `*.zip` archive. After extraction, double-click the program to run it.
 
-- macOS
+- **macOS**
 
-Download the appropriate `*.dmg` file for your system architecture. After opening, drag the application to the Applications folder to install. Then double-click the application icon to run it.
+  Download the `*.dmg` file that matches your system architecture. After opening, drag the application to your Applications folder to install. Then double-click the application icon to run it.
 
 :::
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/down-etcher-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/down-etcher-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-#### Installing the System Image
+#### Flashing the System Image
 
-1. Select Image File
+1. **Select the Image File**
 
-Click the `Flash from file` option and select the system image file you downloaded and extracted earlier.
+   Click the `Flash from file` button and select the system image file you downloaded and extracted earlier.
+
+   <div style={{textAlign: 'center'}}>
+     <img src="/en/img/rock4/4d/etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   </div>
+
+2. **Select the Target Device**
+
+   Click the `Select target` button and choose the storage device where you want to install the system image.
+
+   :::danger
+   Be very careful to select the correct storage device! Etcher will format the selected device, which could result in data loss!
+
+   You can unplug and replug your storage device to see which device appears/disappears from the list to help identify the correct one.
+   :::
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-2. Select Target Device
+① : Select the storage device where you want to install the system image
 
-Click the `Select target` option and choose the storage device where you want to install the system image.
-
-:::danger
-Be careful not to select the wrong storage device, as Etcher will format the selected device, potentially causing data loss!
-
-You can unplug and replug your storage device to observe changes in the available devices and help identify the correct one.
-:::
+② : Click `Select 1` to confirm your device selection
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/etcher-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① : Select the storage device for the system image
+3. **Flash the System Image**
 
-② : Click `Select 1` to confirm device selection
+   Click the `Flash!` button and wait for the software to automatically write and verify the system image.
 
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
+   <div style={{textAlign: 'center'}}>
+     <img src="/en/img/rock4/4d/etcher-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   </div>
 
-3. Flash the System Image
+   <div style={{textAlign: 'center'}}>
+     Waiting for system image to be written...
+     <img src="/en/img/rock4/4d/etcher-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   </div>
 
-Click the `Flash` option and wait for the software to automatically install and verify the system image.
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-<div style={{textAlign: 'center'}}>
-Waiting for system installation to complete
-  <img src="/img/rock4/4d/etcher-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-<div style={{textAlign: 'center'}}>
-Waiting for system verification to complete
-  <img src="/img/rock4/4d/etcher-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
-  After successfully installing the system image, close the Etcher software!
-</div>
+   <div style={{textAlign: 'center'}}>
+     Verifying the system image...
+     <img src="/en/img/rock4/4d/etcher-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
+     After successfully writing the system image, close the Etcher software!
+   </div>
 
 ## System Information
 
-When using our provided system image, you'll need to log in with the following default credentials on first boot:
+When using our provided system image for the first time, you'll need to log in with the default username and password we've set up.
 
-Debian Linux
-Username: radxa
+- Debian Linux
 
-Password: radxa
+Username: `radxa`
+
+Password: `radxa`
 
 ## Booting the System
 
-After completing the system image installation, remove the MicroSD card from the card reader, insert it into the MicroSD card slot on the motherboard, and power on the system using a 5V Type-C power adapter.
+After completing the system image installation:
 
-When the system boots, both the blue and green LEDs will light up simultaneously. After a few seconds, the green LED will stay lit while the blue LED will blink, indicating that the system has successfully booted.
+1. Remove the MicroSD card from the card reader
+2. Insert the card into the MicroSD card slot on the ROCK 4D motherboard
+3. Power on the system using a 5V Type-C power adapter
+
+When the system boots, both the blue and green LED indicators will light up. After a few seconds, the green LED will stay solid and the blue LED will blink, indicating that the system has successfully booted.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/boot-sd.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/boot-sd.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>

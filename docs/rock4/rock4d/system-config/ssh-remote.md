@@ -58,7 +58,6 @@ sudo systemctl status ssh
 
 终端会输出类似信息: 提示您 SSH 服务是否自启动和当前运行状态。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 ● ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)
@@ -71,7 +70,6 @@ sudo systemctl status ssh
         CPU: 608ms
      CGroup: /system.slice/ssh.service
 ```
-</NewCodeBlock>
 
 ## SSH 远程登录
 
@@ -84,6 +82,11 @@ sudo systemctl status ssh
 <NewCodeBlock tip="Host-PC$" type="host">
 ```
 ssh <user-name>@<ip-address>
+
+# 示例
+
+ssh radxa@192.168.2.106
+
 ```
 </NewCodeBlock>
 
@@ -199,3 +202,4 @@ Tabby 软件主界面
 
 </TabItem>
 </Tabs>
+```

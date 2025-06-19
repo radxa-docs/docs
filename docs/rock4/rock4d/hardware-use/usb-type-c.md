@@ -28,6 +28,10 @@ sidebar_position: 3
 
 ## 接口规格
 
+:::tip
+详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::
+
 | Pin# | Name | Pin#  | Name    | Pin# | Name | Pin# | Name |
 | :--: | :--- | :---: | :------ | :--: | :--- | :--: | :--- |
 |  1   | GND  |   7   | NC      |  A5  | GND  |  A7  | NC   |

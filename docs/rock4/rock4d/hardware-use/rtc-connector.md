@@ -32,20 +32,18 @@ sudo dmesg | grep rtc
 ```
 </NewCodeBlock>
 
-终端输出示例：`rtc information is valid`，说明 RTC 电池被正确识别。
+终端输出类似信息：`rtc information is valid`，说明 RTC 电池被正确识别。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-[    8.145303] [drm] Esmart1-win0(possible_vp_mask = 0x00000006) has no possible crtcs  
-[    8.145370] [drm] Esmart3-win0(possible_vp_mask = 0x00000006) has no possible crtcs  
-[    8.153133] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes  
-[    8.154487] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes  
-[    8.700833] rtc-hym8563 2-0051: hym8563_init_device: error read i2c data -6  
-[    8.716545] rtc-hym8563 2-0051: rtc information is valid  
-[    8.724597] rtc-hym8563 2-0051: registered as rtc0  
-[    8.725670] rtc-hym8563 2-0051: setting system clock to 2000-01-01T00:00:23 UTC (946684823)  
+[    8.145303] [drm] Esmart1-win0(possible_vp_mask = 0x00000006) has no possible crtcs
+[    8.145370] [drm] Esmart3-win0(possible_vp_mask = 0x00000006) has no possible crtcs
+[    8.153133] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
+[    8.154487] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
+[    8.700833] rtc-hym8563 2-0051: hym8563_init_device: error read i2c data -6
+[    8.716545] rtc-hym8563 2-0051: rtc information is valid
+[    8.724597] rtc-hym8563 2-0051: registered as rtc0
+[    8.725670] rtc-hym8563 2-0051: setting system clock to 2000-01-01T00:00:23 UTC (946684823)
 ```
-</NewCodeBlock>
 
 ### 读取 RTC 时间
 
@@ -82,6 +80,10 @@ sudo hwclock -w -f /dev/rtc0
 记录当前系统时间，然后断开瑞莎 ROCK 4D 的电源和网络，等待 10 分钟左右，然后重新连接电源，观察系统时间是否正常计时。
 
 ## 接口规格
+
+:::tip
+详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::
 
 | Pin# | Name      | Pin# | Name               |
 | :--: | :-------- | :--: | :----------------- |

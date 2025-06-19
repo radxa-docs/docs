@@ -28,7 +28,6 @@ ip a
 
 终端会输出类似如下信息：其中 192.168.2.106 就是路由器分配的 IP 地址。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -51,7 +50,6 @@ ip a
     inet6 fe80::379f:ead8:706f:5d6/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
-</NewCodeBlock>
 
 ### PoE（Power over Ethernet）
 
@@ -66,6 +64,10 @@ ROCK 4D 需要搭配 PoE HAT 和使用以太网 PoE 交换机才能使用 PoE �
 :::
 
 ## 接口规格
+
+:::tip
+详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::
 
 | Pin# | Name       | Pin# | Name        |
 | :--: | :--------- | :--: | :---------- |

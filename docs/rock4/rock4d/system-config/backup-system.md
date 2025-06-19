@@ -51,7 +51,6 @@ sudo ./rockpi-backup.sh -h
 
 终端输出示例：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 Usage:
   sudo ./rockpi-backup.sh [-o path|-e pattern|-u|-m path]
@@ -60,7 +59,6 @@ Usage:
     -u Unattended, no need to confirm in the backup process.
     -m Back up the root mount point, and support backups from other disks as well.
 ```
-</NewCodeBlock>
 
 ### 备份系统
 
@@ -91,13 +89,11 @@ sudo ./rockpi-backup.sh
 
 备份完成后，脚本会提示备份文件的路径！
 
-终端输出示例：
+终端输出类似信息：
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-Backup done, the file is /home/radxa/rock-4d-spi-backup-250612-0930.img
+Backup done, the file is /home/radxa/rock-4d-s16-backup-250612-0930.img
 ```
-</NewCodeBlock>
 
 ## 离线系统备份
 
@@ -140,9 +136,8 @@ lsblk
 ```
 </NewCodeBlock>
 
-终端输出示例：其中 `sda` 为演示的开发板系统盘，您可以通过安全插拔可移动介质来判断对应设备信息。
+终端输出类似信息：其中 `sda` 为演示的开发板系统盘，您可以通过安全插拔可移动介质来判断对应设备信息。
 
-<NewCodeBlock tip="PC-Host$" type="host">
 ```
 sda           8:0    1    58G  0 disk
 ├─sda1        8:1    1    16M  0 part /media/wml/config
@@ -153,7 +148,6 @@ nvme0n1     259:0    0 953.9G  0 disk
 │                                     /
 └─nvme0n1p2 259:2    0     1G  0 part /boot/efi
 ```
-</NewCodeBlock>
 
 ### 备份系统
 
@@ -172,16 +166,14 @@ sudo dd if=/dev/sda of=rock-4d-spi-backup.img bs=4M status=progress
 
 整个备份过程会提示备份进度和速度，备份完成后，会提示备份文件的路径。
 
-终端输出示例：
+终端输出类似信息：
 
-<NewCodeBlock tip="PC-Host$" type="host">
 ```
 62205722624 bytes (62 GB, 58 GiB) copied, 1609 s, 38.7 MB/s
 14839+0 records in
 14839+0 records out
 62239277056 bytes (62 GB, 58 GiB) copied, 1609.85 s, 38.7 MB/s
 ```
-</NewCodeBlock>
 
 ## 恢复系统
 
