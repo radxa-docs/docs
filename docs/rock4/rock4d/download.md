@@ -30,7 +30,7 @@ Android 系统镜像：
 
 瑞莎 ROCK 4D 出厂默认下载 Linux 系统对应的 `spi.img` 文件到 SPI Flash。
 
-- spi.img
+- [spi.img](https://dl.radxa.com/rock4/4d/images/rock-4d-spi-flash-image.img)
 
 #### Android 系统镜像
 

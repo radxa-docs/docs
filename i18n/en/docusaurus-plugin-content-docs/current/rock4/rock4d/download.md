@@ -30,7 +30,7 @@ Android System Image:
 
 Radxa ROCK 4D comes with the Linux system's `spi.img` file pre-flashed to SPI Flash by default.
 
-- spi.img
+- [spi.img](https://dl.radxa.com/rock4/4d/images/rock-4d-spi-flash-image.img)
 
 #### Android System Image
 
