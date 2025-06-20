@@ -22,14 +22,16 @@ MicroSD 卡的作用是相当于 x86 系统的启动盘，目的是进入一个�
 
 ## 刷入 SPI Flash
 
-### 使用 rsetup 刷入 SPI Flash
+提供两种方式刷入 SPI Flash，分别是使用 `rsetup` 工具和 `RKDevTool` 工具，你可以根据自己的需求选择使用。
+
+### 使用 Rsetup
 
 使用系统配置工具 `rsetup` 将 `spi.img` 刷入 SPI Flash 中。
 
-#### 更新 rsetup
+#### 更新 Rsetup
 
 :::tip
-rsetup 工具使用指南：可能会因为版本界面有微小差异，请以实际情况为准
+Rsetup 工具使用指南：可能会因为版本界面有微小差异，请以实际情况为准
 
 - 确认选择 ： 按 `Enter`
 - 取消选择 ： 按 `ESC`
@@ -115,7 +117,190 @@ rsetup
 </div>
 完成所有操作后重启系统。
 
-### 使用 RKDevTool 刷入 SPI Flash
+### 使用 RKDevTool
+
+RKDevTool 是瑞芯微（Rockchip）平台为 Windows/Linux/MacOS 平台下进行 USB 烧录所开发的软件，旨在简化和加速对 Rockchip 系列芯片的开发、调试过程。
+
+#### RKDevTool 安装
+
+<Tabs queryString="rkdevtool">
+
+<TabItem value="Windows">
+
+- 安装驱动
+
+下载并解压 [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) 文件。
+
+找到 ` DriverInstall.exe` 文件并以管理员身份运行：
+
+安装驱动： 点击 `Install Driver` 选项
+
+卸载驱动： 点击 `Uninstall Driver` 选项
+
+:::tip
+若之前安装过其他版本驱动，请先卸载再安装驱动
+:::
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/rkddevtool.webp" style={{width: '50%', maxWidth: '700'}} />
+</div>
+
+- 下载 RKDevTool 工具
+
+下载 [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar) 工具，然后解压下载的文件，其中 `RKDevTool.exe` 就是可执行程序，直接双击可以打开使用软件。
+
+</TabItem>
+
+<TabItem value="Linux">
+
+- 安装 rkdeveloptool
+
+打开系统终端或命令行，运行以下命令进行安装。
+
+<NewCodeBlock tip="Linux-host$" type="host">
+```
+sudo apt-get update
+sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
+git clone https://github.com/rockchip-linux/rkdeveloptool
+cd rkdeveloptool
+autoreconf -i
+./configure
+make -j $(nproc)
+sudo cp rkdeveloptool /usr/local/sbin/
+```
+</NewCodeBlock>
+
+- 验证版本号
+
+完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
+
+<NewCodeBlock tip="PC - Host$" type="host">
+```
+rkdeveloptool -V
+```
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="MacOS">
+
+- 安装 HomeBrew
+
+[HomeBrew](https://brew.sh/) 是一个免费且开源的包管理器，它简化了 MacOS 用户安装软件的过程。
+
+若没有安装 HomeBrew，可以按照教程进行安装。
+
+<NewCodeBlock tip="MacOS-host$" type="host">
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+</NewCodeBlock>
+
+- 安装 rkdeveloptool
+
+打开系统终端或命令行，运行以下命令进行安装。
+
+<NewCodeBlock tip="MacOS-host$" type="host">
+```
+brew install automake autoconf libusb pkg-config git wget
+git clone https://github.com/rockchip-linux/rkdeveloptool
+cd rkdeveloptool
+autoreconf -i
+./configure
+make -j $(nproc)
+cp rkdeveloptool /opt/local/sbin/
+```
+</NewCodeBlock>
+
+- 验证版本号
+
+完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
+
+<NewCodeBlock tip="MacOS-host$" type="host">
+```
+rkdeveloptool -V
+```
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+使用 RKDevTool 工具烧录 SPI Flash。
+
+<Tabs queryString="platform">
+
+<TabItem value="Windows">
+
+① 确认 E54C 处于 Maskrom 模式
+
+② 选择 E54C 对应的 Loader 文件，可以去 [资源汇总下载](../../download) 下载 Loader 文件。
+
+③ 选择对应存储设备，我们这里选择 `SPINOR` 选项。
+
+④ 选择你需要烧录进去 SPI Flash 的 `spi.img` 文件。
+
+⑤ 勾选 `Write by Address` 选项。
+
+⑥ 点击 `RUN` 选项执行所有操作。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e54c/rk-down-spi-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+</TabItem>
+
+<TabItem value="Linux / MacOS">
+
+1. 确保 E54C 处于 Maskrom 模式。
+
+2. 验证 Maskrom 模式
+
+使用 rkdeveloptool ld 命令查看识别到的设备信息：
+
+<NewCodeBlock tip="Linux/MacOS-Host$" type="host">
+```
+rkdeveloptool ld
+```
+</NewCodeBlock>
+
+输出类似内容：说明识别到一个 Maskrom 设备
+
+```
+DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
+```
+
+3. 运行 Loader 文件
+
+你需要将 `demo.bin` 换成 E54C 对应的 Loader 文件，可以去 [资源汇总下载](../../download) 下载 Loader 文件。
+
+<NewCodeBlock tip="Linux/MacOS-Host$" type="host">
+```
+sudo rkdeveloptool db  demo.bin
+```
+</NewCodeBlock>
+
+4. 烧录 SPI 启动固件
+
+你需要将 `spi.img` 换成 E54C 对应的 SPI 启动固件，可以去 [资源汇总下载](../../download) 下载 SPI 启动固件。
+
+<NewCodeBlock tip="Linux/MacOS-Host$" type="host">
+```
+sudo rkdeveloptool wl 0 spi.img
+```
+</NewCodeBlock>
+
+5. 重启系统，烧录 SPI Flash 的操作生效
+
+<NewCodeBlock tip="Linux/MacOS-Host$" type="host">
+```
+sudo rkdeveloptool rd
+```
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 ## 写入系统镜像到 NVME
 
