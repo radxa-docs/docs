@@ -4,6 +4,10 @@ sidebar_position: 4
 
 # 资源下载汇总
 
+## Loader 文件
+
+- [RK3308 Loader](https://dl.radxa.com/rockpis/images/loader/rk3308_loader_uart0_m0_emmc_port_support_sd_20190717.bin)
+
 ## 官方操作系统镜像
 
 - [Radxa ROCK PI S Debian Build 40](https://github.com/radxa-build/rock-pi-s/releases/download/b40/rock-pi-s_debian_bookworm_cli_b40.img.xz)
