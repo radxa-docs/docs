@@ -18,7 +18,7 @@ The Radxa CM5 is a System on Module (SoM) based on a the Rockchip RK3588S System
 
 | Features | Description                                                                                                                                                                   |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SoC      | Rockchip RK3588S/RK3588S2                                                                                                                                                              |
+| SoC      | Rockchip RK3588S/RK3588S2                                                                                                                                                     |
 | CPU      | Quad Cortex®‑A76 @ 2.2~2.4GHz and a quad Cortex®‑A55 @ 1.8GHz<br/>based on Arm® DynamIQ™ configuration                                                                    |
 | GPU      | Arm Mali™ G610MP4 GPU ‑ OpenGL® ES1.1, ES2.0, and ES3.2 ‑ OpenCL®<br/>1.1, 1.2 and 2.2 ‑ Vulkan® 1.1 and 1.2 ‑ Embedded high performance 2D<br/>image acceleration module |
 | NPU      | NPU supporting INT4 / INT8 / INT16 / FP16 / BF16 and TF32 acceleration<br/>and computing power is up to 6TOPs                                                                 |
@@ -69,7 +69,7 @@ Introduces system installation, system login, accessory usage, etc. letting user
 ### [Radxa OS](/compute-module/cm5/radxa-os)
 
 Radxa OS is an operating system customized by Radxa based on Debian Linux.
-This chapter introduces system login, networking, and more, helping users  familiarize themselves with the system quickly.
+This chapter introduces system login, networking, and more, helping users familiarize themselves with the system quickly.
 
 ### [Android](/compute-module/cm5/android)
 
