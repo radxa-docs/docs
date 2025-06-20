@@ -1,0 +1,36 @@
+本篇文章主要介绍如何编译构建 Armbian 系统
+
+- 环境准备
+
+  - x86_64 / aarch64 / riscv64 机器
+  - 至少 4GB 内存和 ~50GB 磁盘空间，用于虚拟机、容器或裸机安装
+  - Armbian / Ubuntu Jammy 22.04.x 用于本地构建，或任何支持 Docker 的 Linux 用于容器化
+  - 运行 Armbian / Ubuntu Jammy 22.04.x 的 Windows 10/11，带 WSL2 子系统
+  - 超级用户权限（已配置 sudo 或 root 访问权限）。
+  - 确保您的系统是最新的！例如，过时的 Docker 二进制文件会造成问题
+
+- 下载源码
+
+```bash
+
+git clone --depth=1 --branch=main https://github.com/armbian/build
+
+cd build
+
+```
+
+- 进入图形界面配置
+
+<img
+  src={props.build_product}
+  alt="Build Armbian for Radxa Product"
+  style={{ width: "80%" }}
+/>
+
+配置好之后会开始编译，编译生成的产物在 output 目录下，其中最终生成的镜像在 output/images/ 目录下
+
+- 参考文档
+
+  - [Github](https://github.com/armbian/build)
+
+  - [Armbian Document](https://docs.armbian.com/Developer-Guide_Build-Preparation/)
