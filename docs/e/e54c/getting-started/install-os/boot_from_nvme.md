@@ -321,7 +321,6 @@ lsblk
 - 若 Linux 系统识别出 NVME 设备, 通常会被识别成 `nvme*n*`
 
 使用 `lsblk` 输出的示例信息：
-<NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 
 ```
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
@@ -337,8 +336,6 @@ nvme0n1     259:0    0 119.2G  0 disk
 └─nvme0n1p3 259:3    0 118.9G  0 part
 ```
 
-</NewCodeBlock>
-
 ### 下载系统镜像
 
 下载 Radxa E54C 的系统镜像文件到本地：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../download) 复制。
@@ -351,11 +348,8 @@ nvme0n1     259:0    0 119.2G  0 disk
 ```
 # 安装 wget
 sudo apt-get install wget
-
 # 下载系统镜像文件
-
 wget https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e54c_bookworm_cli_b2.output.img.xz
-
 ```
 </NewCodeBlock>
 
@@ -367,9 +361,7 @@ wget https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
-
 ```
 </NewCodeBlock>
 
@@ -385,13 +377,12 @@ sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo fdisk -l /dev/nvme0n1
-
 ```
 </NewCodeBlock>
 
 正确写入后，应该会看到类似以下的分区信息：
+
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e54c/rsetup-16.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
@@ -414,10 +405,8 @@ sudo fdisk -l /dev/nvme0n1
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 lsblk
 df -h
-
 ```
 </NewCodeBlock>
 
@@ -433,6 +422,7 @@ df -h
 如果在启动过程中遇到问题，请尝试以下解决方案：
 
 - **系统无法启动**：
+
   - 重新插入MicroSD卡，启动系统
   - 尝试更换刷入 SPI Flash 的 Bootloader 文件选项（优先选择最新版本）
   - 检查 M.2 接口是否连接良好，可尝试重新插拔NVMe
@@ -440,7 +430,7 @@ df -h
 - **系统可以启动但无法登录**：
   - 默认用户名：`radxa`，密码：`radxa`
   - 如密码错误，可重新使用MicroSD卡启动，然后重新下载并写入系统镜像
-:::
+    :::
 
 ## 后续步骤
 
@@ -450,17 +440,13 @@ df -h
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo apt update && sudo apt upgrade
-
 ```
 </NewCodeBlock>
-
 
 ### 备份系统
 
 定期备份重要数据，可使用`dd`或`rsync`命令
-
 
 ### 性能测试
 
@@ -470,9 +456,7 @@ sudo apt update && sudo apt upgrade
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
-
 ```
 </NewCodeBlock>
 
@@ -480,15 +464,10 @@ sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 # 安装 nvme-cli
-
 sudo apt install nvme-cli
-
 # 检查温度
-
 sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
-
 ```
 </NewCodeBlock>
 
@@ -496,13 +475,10 @@ sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo nvme list
-
 ```
 </NewCodeBlock>
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e54c/rsetup-17.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-```
