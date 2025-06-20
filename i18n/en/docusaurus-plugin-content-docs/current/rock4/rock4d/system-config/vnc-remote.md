@@ -4,21 +4,21 @@ sidebar_position: 5
 
 # VNC Remote
 
-Remote login refers to remote control of the board through the network, and this tutorial only introduces the method of remote control using VNC in a local area network (LAN).
+Remote login refers to remotely controlling the motherboard through the network. This tutorial only covers VNC remote control methods within a local network.
 
-Users without a display can configure VNC remote login by following the [Serial Debugging](./uart_debug) method to run the commands below.
+Users without a display can use the [Serial Port Debugging](./uart_debug) method to run the following commands to configure VNC remote login.
 
 :::tip
-VNC remote control is suitable for systems with a graphical interface. If the system does not have a graphical desktop, it is recommended to use SSH remote control.
+VNC remote control is suitable for systems with a graphical interface. If the system does not have a graphical desktop, we recommend using SSH remote control.
 :::
 
 ## Using VNC (Windows / Linux)
 
 ### Download VNC Viewer
 
-We need to install VNC Viewer software on the remote device, which is the PC, to control the board.
+We need to install VNC Viewer software on the remote device (PC) to control the motherboard.
 
-Enter the [RealVNC](https://www.realvnc.com/en/connect/download/viewer) official website to download the VNC Viewer installation package corresponding to the system platform.
+Go to the [RealVNC](https://www.realvnc.com/en/connect/download/viewer) website to download the VNC Viewer installation package for your system platform.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-download.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -30,35 +30,34 @@ Enter the [RealVNC](https://www.realvnc.com/en/connect/download/viewer) official
 
 <TabItem value="Windows">
 
-Download the `*.exe` installation package after downloading the Windows version.
+After downloading the Windows version of the `*.exe` installation package:
 
-- Run the installation package
+- Run the installer
 
-Run `VNC-Viewer-xxx.exe` installation program as administrator.
+Run the `VNC-Viewer-xxx.exe` installer as administrator.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-windows-install-01.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
-
 - Software language
 
-Select `English` language, click `OK` to enter the next step.
+Select `English` language and click `OK` to proceed.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-windows-install-02.webp" style={{width: '100%', maxWidth: '300px'}} />
 </div>
 
-- Enter the installation page
+- Start installation
 
-Click `Next` to enter the security agreement page.
+Click `Next` to start the installation program.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-windows-install-03.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-- Agree to the agreement
+- Accept license
 
-Select `I accept the terms in the License Agreement` option, click `Next` to enter the next step.
+Check the `I accept the terms in the License Agreement` option and click `Next` to proceed.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-windows-install-04.webp" style={{width: '100%', maxWidth: '600px'}} />
@@ -66,15 +65,15 @@ Select `I accept the terms in the License Agreement` option, click `Next` to ent
 
 - Installation path
 
-Select the default installation path of the software, click `Next` to enter the next step.
+It's recommended to use the default installation path. Click `Next` to proceed.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-windows-install-05.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-- Formal installation
+- Start installation
 
-Click `Install` to start the formal installation.
+Click `Install` to begin the installation.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-windows-install-06.webp" style={{width: '100%', maxWidth: '600px'}} />
@@ -92,7 +91,7 @@ Click `Finish` to complete the installation.
 
 <TabItem value="Linux">
 
-Download the Linux version of the `*.deb` installation package and run the following command in the terminal to install VNC Viewer:
+After downloading the Linux version of the `*.deb` package, run the following command in the terminal to install VNC Viewer:
 
 <NewCodeBlock tip="Linux-host$" type="host">
 ```
@@ -106,22 +105,22 @@ sudo dpkg -i VNC-Viewer-xxx.deb
 
 ### Run VNC Viewer
 
-After installation, open the VNC Viewer software: users can choose to use VNC Viewer software without logging in to an account.
+After installation, open the VNC Viewer software. Users can choose to use VNC Viewer without logging in.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-windows-use-01.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 <div style={{textAlign: 'center'}}>
-VNC Viewer interface
+VNC Viewer Interface
     <img src="/img/rock4/4d/vnc-windows-use-02.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## Install VNC Server (Radxa ROCK 4D)
+## Using VNC (Radxa ROCK 4D)
 
 ### Install VNC Server
 
-Run the following command in the terminal of Radxa ROCK 4D to install VNC Server:
+Run the following commands in the Radxa ROCK 4D terminal to install the VNC server:
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -132,7 +131,7 @@ sudo apt install tigervnc-standalone-server tigervnc-common -y
 
 ### Set VNC Remote Password
 
-Run the following command in the terminal of Radxa ROCK 4D to set the VNC remote password:
+Run the following command in the ROCK 4D terminal to set the VNC remote password:
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 
 ```
@@ -142,23 +141,21 @@ vncpasswd
 </NewCodeBlock>
 
 :::tip
-Input password and confirm password will not be displayed on the screen, the system will prompt whether to create a read-only password, select `n` (no).
+The password and confirmation will not be displayed on the screen. When prompted to create a view-only password, choose `n` (no).
 :::
 
-After setting the password, the system will prompt similar information:
+After setting the password, the system will display similar information:
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
 A view-only password is not used
 ```
-</NewCodeBlock>
 
-### Configure VNC startup file
+### Configure VNC Startup File
 
-Edit the `~/.vnc/xstartup` file on Radxa ROCK 4D:
+Edit the `~/.vnc/xstartup` file on ROCK 4D:
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -166,7 +163,7 @@ sudo vi ~/.vnc/xstartup
 ```
 </NewCodeBlock>
 
-Modify the `~/.vnc/xstartup` file content as follows:
+Modify the contents of the `~/.vnc/xstartup` file to:
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -179,7 +176,7 @@ exec startplasma-x11
 ```
 </NewCodeBlock>
 
-After editing the `~/.vnc/xstartup` file, you need to grant the file executable permissions:
+After editing the `~/.vnc/xstartup` file, make it executable:
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -189,7 +186,7 @@ sudo chmod +x ~/.vnc/xstartup
 
 ### Start VNC Server
 
-Run the following command in the terminal of Radxa ROCK 4D to start the VNC server: use the `-localhost no` parameter to allow remote access.
+Run the following command in the ROCK 4D terminal to start the VNC server. Use the `-localhost no` parameter to allow remote access.
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -197,18 +194,16 @@ vncserver -localhost no
 ```
 </NewCodeBlock>
 
-After starting successfully, it will prompt similar information to show the VNC server port number, for example:
+After successful startup, the terminal will display information similar to this, indicating the VNC server's port number:
 
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
 New Xtigervnc server 'rock-4d-spi:1 (radxa)' on port 5901 for display :1.
 Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :1 to connect to the VNC server.
 ```
-</NewCodeBlock>
 
-### View VNC Server Status
+### Check VNC Server Status
 
-Run the following command in the terminal of Radxa ROCK 4D to view the VNC server status:
+To check the status of the VNC server, run the following command in the ROCK 4D terminal:
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -216,21 +211,18 @@ vncserver -list
 ```
 </NewCodeBlock>
 
-The terminal will output similar information:
-<NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
+The terminal will display output similar to:
 
 ```
 TigerVNC server sessions:
 
 X DISPLAY #	RFB PORT #	RFB UNIX PATH	PROCESS ID #	SERVER
-1         	5901      	             	3283        	Xtigervnc
+1         	5901      	          	3283        	Xtigervnc
 ```
 
-</NewCodeBlock>
+### Stop VNC Server
 
-### Close VNC Server
-
-Run the following command in the terminal of Radxa ROCK 4D to close the VNC server. The `:1` in the command represents the display number of the VNC server.
+To stop the VNC server, run the following command in the ROCK 4D terminal. The `:1` in the command represents the VNC server's display number.
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 ```
@@ -238,31 +230,31 @@ vncserver -kill :1
 ```
 </NewCodeBlock>
 
-After closing the VNC server, the VNC Viewer software will automatically disconnect.
+After stopping the VNC server, the VNC Viewer software will automatically disconnect.
 
 ## VNC Remote Login
 
-Open the VNC Viewer software on another device and connect to Radxa ROCK 4D using its IP address and port number.
+Open the VNC Viewer software on another device and connect to the ROCK 4D using its IP address and port number.
 
-① : Fill in the IP address and port number of Radxa ROCK 4D
+① Enter the ROCK 4D's IP address and port number
 
-② : Click `Connect to address ···` to connect to Radxa ROCK 4D
+② Click `Connect to address ···` to connect to ROCK 4D
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-connect-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① : Enter the VNC remote password set on Radxa ROCK 4D
+① Enter the VNC remote password
 
-② : Check the `Remember password` option to save the password for easy login next time
+② Check the `Remember password` option to save the password for future logins
 
-③ : Click `OK` to connect
+③ Click `OK` to connect
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-connect-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 <div style={{textAlign: 'center'}}>
-VNC remote login successful
+Successful VNC Remote Login
     <img src="/img/rock4/4d/vnc-connect-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>

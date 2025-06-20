@@ -1,161 +1,161 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Quickly Start
+# Quick Start
 
-The purpose of this chapter is to help you quickly use Radxa ROCK 4D. You can follow this tutorial.
+This chapter is designed to help you quickly get started with the Radxa ROCK 4D. Follow this guide to begin using your device.
 
-## Product
+## Product Overview
 
 <div style={{textAlign: 'center'}}>
-   Radxa ROCK 4D front
-   <img src="/img/rock4/4d/rock4d-top.webp" style={{width: '100%', maxWidth: '1200px'}} />
-   Radxa ROCK 4D back
-    <img src="/img/rock4/4d/rock4d-bottom.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   ROCK 4D Front View
+   <img src="/en/img/rock4/4d/rock4d-top.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   ROCK 4D Rear View
+    <img src="/en/img/rock4/4d/rock4d-bottom.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## Prerequisites
 
-### Hardware Devices
+### Hardware Requirements
 
-You need to prepare the following hardware devices in advance to complete all operations in the quickly starting tutorial.
+To complete all the steps in this quick start guide, you'll need to prepare the following hardware in advance:
 
 - Development board: Radxa ROCK 4D
-- System startup medium: MicroSD card
-- USB serial data line (optional): used for serial debugging and login
-- Display (optional): HDMI display and HDMI data line
-- Power adapter: Type-C power adapter (support PD protocol, 5V power input, recommended current 3A above)
+- Boot media: MicroSD card
+- USB-to-TTL serial cable (optional): For serial debugging and login
+- Display (optional): HDMI monitor and HDMI cable
+- Power adapter: Type-C power adapter (supports PD protocol, 5V input, recommended current ≥3A)
 
-**Note**: Users need to choose between USB serial data line and display, we recommend using display to use and develop Rock 4D.
+**Note**: You'll need either a USB-to-TTL serial cable or a display. We recommend using a display with the ROCK 4D for both usage and development.
 
 :::tip
-For users with different development capabilities, we suggest adding the following accessories to use Radxa ROCK 4D, which will shorten the time to become familiar with the product and development.
+For users with different development needs, we recommend the following additional accessories to speed up your familiarization and development process:
 
-- **Beginner**
+- **Beginners**
 
-Prepare accessories: power adapter, system startup medium, display, HDMI data line
+Required accessories: Power adapter, boot media, display, HDMI cable
 
-- **Developer**
+- **Developers**
 
-Prepare accessories: power adapter, system startup medium, debugging data line (USB serial data line)
+Required accessories: Power adapter, boot media, debug cable (USB-to-TTL serial cable)
 
-**Note**: The display can display the system interface and perform graphic operations!
+**Note**: The display allows you to view the system interface and perform graphical operations!
 :::
 
-### Mainboard Power Supply
+### Board Power Supply
 
-Radxa ROCK 4D mainboard supports Type-C and GPIO power supply, we recommend using Type-C power adapter power supply, please ensure that the power adapter can provide 5V power input and be compatible with PD protocol.
+The ROCK 4D supports both Type-C and GPIO power input. We recommend using a Type-C power adapter. Ensure your power adapter provides 5V power input and is compatible with the PD protocol.
 
 :::tip
-Radxa ROCK 4D mainboard only supports 5V power input, it is recommended to use a current of 3A above to ensure stable operation of all peripherals.
+The ROCK 4D only supports 5V power input, with a recommended current of 3A or higher to ensure stable operation of all peripherals.
 
-Reference power:
+Recommended power adapters:
 
-- [Radxa 30W PD Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
+- [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
 
-- Standard Type-C Power Adapter (5V power input, PD protocol supported, recommended current 3A above)
+- Standard Type-C power adapter (5V input, supports PD protocol, recommended current ≥3A)
   :::
 
-### System Startup Medium
+### Boot Media
 
-Radxa ROCK 4D supports MicroSD card, NVME, UFS startup, but the quick start tutorial only introduces MicroSD card startup.
+While the ROCK 4D supports booting from MicroSD cards, NVMe, and UFS, this quick start guide will focus on booting from a MicroSD card.
 
-### Serial Debug
+### Serial Debugging
 
-Radxa ROCK 4D mainboard supports serial debugging through USB serial data line, you need to connect the USB serial data line to the Radxa ROCK 4D's UART0_TX, UART0_RX and GND pins.
+The ROCK 4D supports serial debugging via a USB-to-TTL serial cable. You'll need to connect the cable to the UART0_TX, UART0_RX, and GND pins on the ROCK 4D.
 
-## Write System Image
+## Writing the System Image
 
-You need to download the system image file to be written on the PC and burn it to the MicroSD card.
+You'll need to download the system image file to your PC and then write it to a MicroSD card.
 
-### Download System Image
+### Downloading the System Image
 
-Access the [Resource Download Summary](../download) page on the PC, download the system image compression package corresponding to Radxa ROCK 4D, decompress the system image compression package after downloading, and the `*.img` file obtained is the system image file to be written to the MicroSD card.
+Visit the [Downloads](../download) page on your PC to download the system image package for the ROCK 4D. After downloading, extract the package to get the `*.img` file, which is the system image to be written to your MicroSD card.
 
 :::tip
-The downloaded system image is a compressed file that needs to be extracted before being written to the SD card using the image burning software. Writing the compressed file directly to the SD card may result in write failure or boot failure.
+The downloaded system image is a compressed file that must be extracted before writing to the SD card. Writing the compressed file directly to the SD card may result in system write or boot failures.
 :::
 
 ### Writing the System Image
 
-Insert the MicroSD card into a card reader, then connect the card reader to a USB port on your PC.
+Insert the MicroSD card into a card reader, then connect the card reader to your PC's USB port.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-- **Image Burning Software: Balena Etcher**
+- **Image Flashing Software: Balena Etcher**
 
-We recommend using Balena Etcher, an open-source image burning tool developed by Radxa's partner Balena. This software is user-friendly, powerful, and supports Windows, Linux, and macOS.
+We recommend using Balena Etcher, an open-source image flashing tool developed by Radxa's partner Balena. This software is user-friendly, powerful, and supports Windows, Linux, and macOS.
 
-Download the software from the official website: [balenaEtcher](https://etcher.balena.io)
+Download the software for your system from the official website: [balenaEtcher](https://etcher.balena.io)
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/down-etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+<img src="/en/img/rock4/4d/down-etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-On the download page, select the appropriate platform to download the Etcher software.
+On the download page, select the appropriate version for your operating system.
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/down-etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+<img src="/en/img/rock4/4d/down-etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 :::tip
-For Windows and Linux, you can run the program directly without installation!
+For Windows and Linux, simply run the downloaded file - no installation is required!
 :::
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/down-etcher-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/down-etcher-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-- Installing the System Image
+- Flashing the System Image
 
-1. Select the system image for your board: Click the `Flash from file` option and choose the system image file you downloaded and extracted earlier.
+1. Select the system image: Click `Flash from file` and choose the extracted system image file you downloaded earlier.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-2. Select the disk corresponding to your MicroSD card: Click the `Select target` option and choose the disk device that corresponds to your card reader connected to the PC.
+2. Select the target device: Click `Select target` and choose the disk device corresponding to your card reader.
 
 :::danger
-Be careful not to select the wrong disk, as Etcher will format the selected disk, potentially causing data loss!
+Be extremely careful to select the correct disk! Selecting the wrong disk will result in data loss as Etcher will format the selected disk.
 :::
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ① : Select the disk device where you want to install the system image
 
-② : Click the `Select 1` option to confirm device selection
+② : Click `Select 1` to confirm your device selection
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/etcher-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-3. Start writing the system image: Click the `Flash` option and wait for the software to automatically write and verify the system image.
+3. Start writing the system image: Click the `Flash!` button and wait for the software to write and verify the system image automatically.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-<div style={{textAlign: 'center'}}>
-Waiting for system write to complete
-  <img src="/img/rock4/4d/etcher-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/etcher-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 <div style={{textAlign: 'center'}}>
-Waiting for system verification to complete
-  <img src="/img/rock4/4d/etcher-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
+Waiting for the system image to finish writing
+  <img src="/en/img/rock4/4d/etcher-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+<div style={{textAlign: 'center'}}>
+Waiting for verification to complete
+  <img src="/en/img/rock4/4d/etcher-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 4. After successfully writing the system image, close the Etcher software!
 
 ## System Information
 
-When using our provided system image for the first time, you will need to log in with the following default credentials:
+When using our provided system image for the first time, you'll need to log in with the default username and password.
 
 - Debian Linux
 
@@ -165,214 +165,181 @@ Password: radxa
 
 ## Booting the System
 
-After writing the system image to the MicroSD card, insert the card into the Radxa ROCK 4D's MicroSD card slot, then power on the system using a 5V Type-C power adapter.
+After writing the system image to your MicroSD card, insert it into the ROCK 4D's MicroSD card slot. Then, power on the system using a 5V Type-C power adapter.
 
-After powering on, both the blue and green LED indicators will light up. After a few seconds, the green LED will stay on while the blue LED will blink, indicating that the system has booted successfully.
+When the system boots, both the blue and green LEDs will light up simultaneously. After a few seconds, the green LED will stay lit while the blue LED blinks, indicating a successful system boot.
 
 Usage recommendations:
 
-1. If you have a display, after starting the Radxa ROCK 4D, you can connect it to the display using an HDMI cable to view the system interface directly.
+1. If you have a display, connect it to the ROCK 4D using an HDMI cable after booting to view the system interface directly.
 
-2. If you don't have a display, you can use a serial debugging tool to view the system output, confirm whether the system has booted successfully, and log in to use the Radxa ROCK 4D.
+2. If you don't have a display, you can use a serial debugging tool to view system output, confirm successful boot, and log in to use the ROCK 4D.
 
 ## Serial Console Login
 
+We recommend using Tabby terminal emulator for serial console login and debugging. It supports multiple platforms including Windows, Linux, and macOS.
+
 :::tip
 
-- Radxa ROCK 4D Serial Port Parameters
+- ROCK 4D Serial Port Parameters
 
-Baud Rate: 1500000
+Baud rate: 1500000
 
-Data Bits: 8
+Data bits: 8
 
-Stop Bits: 1
+Stop bits: 1
 
-No Parity
+Parity: None
 
 :::
 
-- Hardware Connection
+### Hardware Connection
 
 :::danger
-When using a USB to UART cable for serial debugging with Radxa ROCK 4D, make sure the pins are connected correctly to avoid damaging the board.
+When using a USB-to-TTL serial cable for debugging with the ROCK 4D, ensure the pins are connected correctly to prevent hardware damage to the board.
 :::
 
-Connect the USB end of the USB to UART cable to your PC, and connect the other end to the GPIO UART pins on the Radxa ROCK 4D.
+Connect the USB end of the USB-to-TTL serial cable to your PC, and connect the other end to the ROCK 4D's GPIO UART pins.
 
-| Number | Pin Function                          | Connection Method                        |
-| ------ | ------------------------------------- | ---------------------------------------- |
-| ①      | Radxa ROCK 4D : GND（Pin6）           | Connect to GND pin of USB to UART cable  |
-| ②      | Radxa ROCK 4D : UART0_TX（Pin8）      | Connect to RX pin of USB to UART cable   |
-| ③      | Radxa ROCK 4D : UART0_RX（Pin10）     | Connect to TX pin of USB to UART cable   |
-| ④      | USB to UART cable : GND（Black wire） | Connect to GND pin of Radxa ROCK 4D      |
-| ⑤      | USB to UART cable : RX（White wire）  | Connect to UART0_TX pin of Radxa ROCK 4D |
-| ⑥      | USB to UART cable : TX（Green wire）  | Connect to UART0_RX pin of Radxa ROCK 4D |
-| ⑦      | USB to UART cable : VCC（Red wire）   | Do not connect                           |
-
-<div style={{textAlign: 'center'}}>
-  Pin Description and Connection Diagram
-  <img src="/img/rock4/4d/serial-connect.webp" style={{width: '80%', maxWidth: '1200px'}} />
-</div>
-
-<Tabs queryString="e24c-system-login">
-
-<TabItem value="Windows">
-
-For Windows, we recommend using PuTTY for serial console login to the Radxa ROCK 4D system.
-
-- Using PuTTY
-
-After connecting the Radxa ROCK 4D to your PC via USB-to-UART cable, you can check the corresponding COM port in the Device Manager (in the example, COM4 is the port assigned to the Radxa ROCK 4D).
+| No. | Pin Function                | Connection Method               |
+| --- | --------------------------- | ------------------------------- |
+| ①   | ROCK 4D: GND (Pin6)         | Connect to GND pin of USB cable |
+| ②   | ROCK 4D: UART0_TX (Pin8)    | Connect to RX pin of USB cable  |
+| ③   | ROCK 4D: UART0_RX (Pin10)   | Connect to TX pin of USB cable  |
+| ④   | USB Cable: GND (Black wire) | Connect to GND pin of ROCK 4D   |
+| ⑤   | USB Cable: RX (White wire)  | Connect to UART0_TX of ROCK 4D  |
+| ⑥   | USB Cable: TX (Green wire)  | Connect to UART0_RX of ROCK 4D  |
+| ⑦   | USB Cable: VCC (Red wire)   | Do not connect                  |
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/serial-port-en.webp" style={{width: '80%', maxWidth: '1200px'}} />
+  Pinout and Connection Diagram
+  <img src="/en/img/rock4/4d/serial-connect.webp" style={{width: '80%', maxWidth: '1200px'}} alt="Pin connection diagram" />
 </div>
+
+### Using Tabby Terminal
+
+Tabby is a powerful cross-platform terminal emulator that supports various protocols including serial and SSH.
+
+#### Installing Tabby
+
+Download and install Tabby from the [official Tabby website](https://tabby.sh/).
 
 :::tip
 
-If the system fails to recognize the device or shows an exclamation mark, you'll need to install the [CH340 driver](https://www.wch.cn/downloads/CH341SER_EXE.html) manually and restart your system after installation.
+- Windows
 
-:::
+  Select the `.exe` file that matches your system architecture.
 
-- Serial Port Login Options
+- Linux
 
-① --> Connection type: Select `Serial`
+  Select the `.deb` file that matches your system architecture.
 
-② --> Serial line: Enter `COM4` (or your specific COM port number as shown in Device Manager)
+- macOS
+  Select the `.dmg` file that matches your system architecture.
+  :::
 
-③ --> Speed: Enter `1500000`
+#### Using Tabby (Serial Connection)
 
-④ --> Click Open to connect to the Radxa ROCK 4D system via serial
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/serial-02.webp" style={{width: '80%', maxWidth: '1200px'}} />
-</div>
-
-- Logging In
-
-Press Enter in the terminal to see the login prompt, then enter the username and password for your system.
-
-Note: The password won't be displayed as you type. Press Enter after entering your password.
+Double-click the Tabby application icon to launch it.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/serial-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  Tabby Main Interface
+  <img src="/en/img/rock4/4d/tabby-01.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Tabby main interface" />
 </div>
 
-</TabItem>
+To set up a serial connection:
 
-<TabItem value="Linux">
+①. Click the `Settings` icon (gear icon)
 
-For Linux, we recommend using the Screen utility for serial console login to the Radxa ROCK 4D system.
+②. Select `Profiles & connections`
 
-- Install Screen
+③. Click `New profile`
 
-<NewCodeBlock tip="Linux-host$" type="host">
-```
-sudo apt update
-sudo apt install screen
-```
-</NewCodeBlock>
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/tabby-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
-- Find Serial Device
+Select a base configuration template:
 
-Open a terminal and use the ls command to list serial devices:
+Choose any `Serial` template. You can modify the device name, port, baud rate, and other parameters in the next screen.
 
-If your PC has only one serial device, it will typically be ttyUSB0.
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/tabby-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
-If your PC has multiple serial devices, you can plug and unplug the USB device while running the following command to identify the correct device.
+After selecting the `Serial` template, configure these parameters:
 
-<NewCodeBlock tip="Linux-host$" type="host">
-```
-ls /dev/ttyUSB*
-```
-</NewCodeBlock>
+- `Name`: Set a connection name (recommended: use your product name)
 
-- Serial Port Login Options
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/tabby-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
-To connect using Screen, you only need to specify the serial port and baud rate.
+①. `Device`: Set the serial port (typically `/dev/ttyUSB0` if only one serial device is connected)
 
-<NewCodeBlock tip="Linux-host$" type="host">
-```
-sudo screen /dev/ttyUSB0 1500000
-```
-</NewCodeBlock>
+②. `Baud rate`: Set to `1500000`
 
-- Logging In
+③. Click `Save` to save the configuration
 
-Press Enter in the terminal to see the login prompt, then enter the username and password for your system.
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/tabby-05.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Serial port configuration" />
+</div>
 
-Note: The password won't be displayed as you type. Press Enter after entering your password.
+Click the run button to connect to the serial device:
 
-</TabItem>
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/tabby-06.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Connect to serial device" />
+</div>
 
-<TabItem value="MacOS">
+After successful connection, press Enter to see the login prompt. Then log in using your system's username and password (note that the password won't be displayed as you type - just type it and press Enter).
 
-For macOS, we recommend using the Screen utility for serial console login to the Radxa ROCK 4D system.
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/tabby-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 :::tip
+If you encounter the error `Error: Permission denied, cannot open /dev/ttyUSB0` when opening the serial port, follow these troubleshooting steps:
 
-If your system fails to recognize the device, you'll need to install the [CH340 driver](https://www.wch.cn/downloads/CH341SER_MAC_ZIP.html) manually and restart your system after installation.
+1. Check if the serial device is properly connected
+2. Verify serial device permissions
 
-:::
+For Linux systems, if you encounter insufficient permissions, run the following command to grant all users access to the serial device:
 
-- Find Serial Device
-
-Open Terminal and use the ls command to list serial devices:
-
-Look for a device name similar to /dev/tty.wchusbserial14xx0. If your Mac has multiple serial devices, you can plug and unplug the USB device while running the following command to identify the correct device.
-
-<NewCodeBlock tip="MacOS-host$" type="host">
-```
-ls /dev/tty.*
+<NewCodeBlock tip="Host-Linux$" type="host">
+```bash
+sudo chmod 777 /dev/ttyUSB0
 ```
 </NewCodeBlock>
 
-- Serial Port Login Options
-
-To connect using Screen, you only need to specify the serial port and baud rate.
-
-<NewCodeBlock tip="MacOS-host$" type="host">
-```
-screen /dev/tty.wchusbserial14xx0 1500000
-```
-</NewCodeBlock>
-
-- Logging In
-
-Press Enter in the terminal to see the login prompt, then enter the username and password for your system.
-
-Note: The password won't be displayed as you type. Press Enter after entering your password.
-
-</TabItem>
-
-</Tabs>
+3. Check if the serial device is being used by another program
+   :::
 
 ## System Usage
 
 ### With Display
 
-If you're using Radxa ROCK 4D with a display, the system usage becomes straightforward as you can operate it through the graphical interface shown on the display.
+If you're using the ROCK 4D with a monitor, the system usage becomes straightforward as you can operate it through the graphical interface displayed on your screen.
 
-### Without Display
+### Headless Mode
 
-If you're using Radxa ROCK 4D with only a USB-to-UART cable, you can operate the system through serial console.
+If you're using the ROCK 4D with only a USB-to-TTL serial cable, you can operate the system through a serial terminal.
 
 :::tip
-For users operating without a display, here are some recommendations to help you get started quickly:
+For users in headless mode, here are some recommendations to help you get started quickly:
 
-1. **Network Configuration**
+1. Network Configuration
 
-   Simply connect an Ethernet cable to your Radxa ROCK 4D to ensure network connectivity.
+Simply connect an Ethernet cable to your ROCK 4D to ensure network connectivity.
 
-2. **Serial Debugging**
+2. Serial Debugging
 
-   Use [serial debugging](../system-config/uart_debug) to view system output, including IP addresses and boot messages.
+You can view system output information (such as IP address, boot messages, etc.) through [serial debugging](../system-config/uart_debug).
 
-3. **SSH Remote Access**
+3. SSH Remote Access
 
-   Configure [SSH remote access](../system-config/ssh-remote) to log in to your system without needing the USB-to-UART cable.
+Configure [SSH remote access](../system-config/ssh-remote) to log in to your system directly via SSH, eliminating the need for a serial cable.
 
-4. **VNC Remote Access**
+4. VNC Remote Access
 
-   If your system has a graphical interface, set up [VNC remote access](../system-config/vnc-remote) to view and control the desktop environment without a physical display.
-   :::
+If your system has a graphical interface, setting up [VNC remote access](../system-config/vnc-remote) allows you to view the system display without a monitor.
+:::

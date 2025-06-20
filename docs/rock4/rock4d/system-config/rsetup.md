@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 12
 ---
 
 # Rsetup 工具
@@ -17,7 +17,7 @@ rsetup 工具使用指南：
 - 确认选择 ： 按 `Enter`
 - 取消选择 ： 按 `ESC`
 - 切换选项 ： 按 `Up` 、 `Down` 、 `Left` 、 `Right` 控制
-- 多选界面 ： 按 `Space` 选择，按 `Enter` 确认选择
+- 多选界面 ： 按 `Space` 选择，按 `Enter` 确认选择；选择对应功能后，对应选项框会出现一个 `*` ,表示该选项已启用
 
 :::
 
@@ -97,7 +97,7 @@ Common Tasks 选项用于执行一些常见的系统任务。
     <img src="/img/rock4/4d/rsetup-08.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### 2.8 About
+### About
 
 About 选项用于查看 Rsetup 工具的信息。
 

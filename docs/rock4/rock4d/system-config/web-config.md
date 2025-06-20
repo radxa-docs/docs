@@ -4,13 +4,15 @@ sidebar_position: 3
 
 # 网络配置
 
+通过图形界面和命令行两种方式来配置有线 / 无线网络。
+
 ## 有线网络
 
 <Tabs queryString="web-mode">
 
 <TabItem value="图形界面">
 
-使用网线连接 Radxa ROCK 4D 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 Radxa ROCK 4D。
+使用网线连接瑞莎 ROCK 4D 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 ROCK 4D。
 
 ① ： 点击网络图标
 
@@ -26,7 +28,7 @@ sidebar_position: 3
 
 <TabItem value="命令行模式">
 
-使用网线连接 Radxa ROCK 4D 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 Radxa ROCK 4D。
+使用网线连接瑞莎 ROCK 4D 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 ROCK 4D。
 
 终端命令行输入以下命令可以查看网络连接的详细信息：
 
@@ -38,7 +40,6 @@ ip a
 
 终端会输出类似如下信息：其中 `192.168.2.106` 就是路由器分配的 IP 地址。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -61,7 +62,6 @@ ip a
     inet6 fe80::379f:ead8:706f:5d6/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
-</NewCodeBlock>
 
 </TabItem>
 
@@ -69,10 +69,10 @@ ip a
 
 ## 无线网络
 
-通过 Radxa ROCK 4D 的板载 WiFi 连接无线路由器，连接成功后，路由器会自动分配 IP 地址给 Radxa ROCK 4D。
+通过 ROCK 4D 的板载 WiFi 连接无线路由器，连接成功后，路由器会自动分配 IP 地址给 ROCK 4D。
 
 :::tip
-Radxa ROCK 4D 预留两个板载天线接口，您需要将天线安装到接口位置，不然WiFi信号会很差
+ROCK 4D 预留两个板载天线接口，您需要将天线安装到接口位置，不然WiFi信号会很差
 :::
 
 <Tabs queryString="web-mode">
@@ -137,7 +137,6 @@ ip a
 
 终端会输出类似如下信息：其中 `192.168.31.53` 就是路由器分配的 IP 地址。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -174,7 +173,6 @@ ip a
     inet6 fe80::ff38:edfe:b892:b694/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
-</NewCodeBlock>
 
 :::tip
 Nmcli 是 Network Manager Command Line Interface 的简称，是 Linux 下管理网络的命令行工具。

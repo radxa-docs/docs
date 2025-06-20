@@ -17,7 +17,7 @@ SPI 启动固件的核心任务是**初始化关键硬件**，例如：
 
 ## 何时需要烧录 SPI 启动固件？
 
-ROCK 4D 出厂时已预装适配的 SPI 启动固件。**如果您的设备工作正常，或未执行过擦除 SPI Nor Flash 的操作，通常无需进行此步骤。**
+瑞莎 ROCK 4D 出厂时已预装适配的 SPI 启动固件。**如果您的设备工作正常，或未执行过擦除 SPI Nor Flash 的操作，通常无需进行此步骤。**
 
 仅在以下情况下需要重新烧录 SPI 启动固件：
 
@@ -30,9 +30,9 @@ ROCK 4D 出厂时已预装适配的 SPI 启动固件。**如果您的设备工�
 
 ## 获取最新的 SPI 启动固件
 
-你需要让 Radxa ROCK 4D 通过 MicroSD 卡启动系统，可以参考 [快速上手](../quickly_start) 教程完成。
+你需要让 ROCK 4D 通过 MicroSD 卡启动系统，可以参考 [快速上手](../quickly_start) 教程完成。
 
-成功启动系统并且确保系统连接网络正常，我们可以打开 Radxa ROCK 4D 终端命令行，使用 Rsetup 工具来更新系统。
+成功启动系统并且确保系统连接网络正常，我们可以打开 ROCK 4D 终端命令行，使用 Rsetup 工具来更新系统。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```

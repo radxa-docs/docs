@@ -4,15 +4,15 @@ sidebar_position: 1
 
 # Display Mode
 
-Display mode refers to connecting Radxa ROCK 4D to a display screen, outputting system images through HDMI, which is suitable for beginner users.
+Display Mode refers to using the Radxa ROCK 4D with an external monitor, outputting the system display via HDMI, which is ideal for new users.
 
-## Preparation
+## Prerequisites
 
-Connect the display screen using an HDMI cable and confirm whether the display screen is showing the system image correctly.
+Connect the display using an HDMI cable and verify that the system display appears correctly on the screen.
 
 ## Control Interface
 
-Users can easily perform system settings, application management, file management, and other operations by using Radxa ROCK 4D with a display screen.
+When using the ROCK 4D with a monitor, you can easily perform various operations such as system settings, application management, and file management.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/display-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
