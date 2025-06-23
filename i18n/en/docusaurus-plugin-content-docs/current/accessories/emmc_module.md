@@ -34,7 +34,9 @@ Below is the test we did on different brand eMMC chips.
 - JEDEC Standard: v5.1
 - B2B Connector specification: GB042-34S-H10 (socket-34pin) + GB042-30S-H10 (socket-30pin)
 - Storage Options: 16G / 32G / 64G / 128G
-- Compatibility: Compatible with ROCK 3A / 3B / 3C / 4A / 4B / 4C / 4C PLUS / 4D / 4SE / 5A / 5B
+- Compatibility: Compatible with ROCK 3A / 3B / 3C / 4A / 4B / 4C / 4C PLUS / 4D\* / 4SE / 5A / 5B
 - Dimension：13mm x 18mm x 1.5mm
+
+> **Note:** Due to the pin multiplexing limitation, the ROCK 4D version with SPI Flash does not support the eMMC module.
 
 [**Buy Now**](https://radxa.com/products/accessories/emmc-module#buy)
