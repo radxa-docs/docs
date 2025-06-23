@@ -2,28 +2,28 @@
 sidebar_position: 0
 ---
 
-# Using RKDevTool
+# RKDevTool Usage
 
-RKDevTool is software developed by Rockchip for USB burning on Windows/Linux/macOS platforms.
+RKDevTool is a software developed by Rockchip for USB flashing on Windows/Linux/macOS platforms.
 
-## 1. Installing RKDevTool
+## Installing RKDevTool
 
 <Tabs queryString="e24c-erase">
 
 <TabItem value="Windows">
 
-- Install Driver
+- Install Drivers
 
 Download and extract the [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) file.
 
-Find the `DriverInstall.exe` file and run it as administrator:
+Locate the `DriverInstall.exe` file and run it as administrator:
 
-Install Driver: Click the `Install Driver` option
+To install drivers: Click the `Install Driver` option
 
-Uninstall Driver: Click the `Uninstall Driver` option
+To uninstall drivers: Click the `Uninstall Driver` option
 
 :::tip
-If you have installed other versions of the driver before, uninstall them first before installing the driver
+If you have installed other versions of the driver before, please uninstall them first before installing the new one.
 :::
 
 <div style={{textAlign: 'left'}}>
@@ -32,7 +32,7 @@ If you have installed other versions of the driver before, uninstall them first 
 
 - Download RKDevTool
 
-Download the [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar) tool, then extract the downloaded file. The `RKDevTool.exe` is the executable program, which can be opened by double-clicking to use the software.
+Download the [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar) utility, then extract the downloaded file. The `RKDevTool.exe` is the executable program - simply double-click it to launch the software.
 
 </TabItem>
 
@@ -40,7 +40,7 @@ Download the [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2
 
 - Install rkdeveloptool
 
-Open the system terminal or command line and run the following commands to install:
+Open your system terminal or command line and run the following commands to install:
 
 <NewCodeBlock tip="Linux-host$" type="host">
 ```
@@ -57,7 +57,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 
 - Verify Version
 
-After completing the RKDevTool installation, use the following command to check the RKDevTool version:
+After completing the RKDevTool installation, use the following command to check the RKDevTool version.
 
 <NewCodeBlock tip="Linux-host$" type="host">
 ```
@@ -71,9 +71,9 @@ rkdeveloptool -V
 
 - Install HomeBrew
 
-[HomeBrew](https://brew.sh/) is a free and open-source package manager that simplifies the process of installing software for macOS users.
+[HomeBrew](https://brew.sh/) is a free and open-source package manager that simplifies the software installation process for macOS users.
 
-If HomeBrew is not installed, follow the tutorial to install it.
+If you don't have HomeBrew installed, follow these instructions to install it.
 
 <NewCodeBlock tip="macOS-host$" type="host">
 ```
@@ -83,7 +83,7 @@ If HomeBrew is not installed, follow the tutorial to install it.
 
 - Install rkdeveloptool
 
-Open the system terminal or command line and run the following commands to install:
+Open your system terminal or command line and run the following commands to install:
 
 <NewCodeBlock tip="macOS-host$" type="host">
 ```
@@ -99,7 +99,7 @@ cp rkdeveloptool /opt/homebrew/bin/
 
 - Verify Version
 
-After completing the RKDevTool installation, use the following command to check the RKDevTool version:
+After completing the RKDevTool installation, use the following command to check the RKDevTool version.
 
 <NewCodeBlock tip="macOS-host$" type="host">
 ```
@@ -111,55 +111,55 @@ rkdeveloptool -V
 
 </Tabs>
 
-## 2. Using RKDevTool
+## Using RKDevTool
 
 :::tip
-MaskROM mode is the "hardware emergency box" of embedded devices, which realizes device repair by directly operating the chip's underlying interface.
+Maskrom mode is the "hardware first-aid kit" for embedded devices, enabling device recovery by directly interfacing with the chip's low-level hardware.
 
-MaskROM mode is the built-in low-level recovery mode of Rockchip chips. When the device cannot load an effective boot program from any boot medium (eMMC, SD card, etc.), it automatically enters this mode.
+Maskrom mode is a built-in low-level recovery mode in Rockchip chips, which is automatically entered when the device cannot load a valid bootloader from any boot medium (eMMC, SD card, etc.).
 
-This mode allows the device firmware to be re-burned through the RockUSB protocol.
+This mode allows rewriting the device firmware via the RockUSB protocol.
 :::
 
-### 2.1 Entering MaskROM Mode
+### Entering Maskrom Mode
 
-Radxa E24C has a dedicated MaskROM button. During the system startup process, if this button is pressed, the system will automatically enter MaskROM mode!
+Radxa E24C has a dedicated Maskrom button. If this button is detected as pressed during system startup, the system will automatically enter Maskrom mode!
 
-#### 2.1.1 Required Devices
+#### Required Equipment
 
-- A USB Type-A to USB Type-C data cable
-- A pin or a toothpick
-- A 12V/2A DC power adapter (DC5525)
+- One USB Type-A to Type-C cable
+- A pin or toothpick
+- 12V/2A DC power adapter (DC5525)
 
-#### 2.1.2 Entering Mode
+#### Entering the Mode
 
-1. Connect Radxa E24C's USB Type-C port to your computer's USB port using a USB data cable.
+1. Connect Radxa E24C to your PC using a USB Type-C to Type-A cable
 
-2. Use a pin or a toothpick to press the MaskROM button.
+2. Press and hold the Maskrom button using a pin or toothpick
 
-3. Plug in the 12V/2A DC power adapter.
+3. Connect the 12V/2A DC power adapter
 
-4. Release the MaskROM button.
+4. Release the Maskrom button
 
-Under normal circumstances, the power indicator light will be on when entering MaskROM mode. If the phenomenon does not match, you can repeat the steps to enter MaskROM mode!
+Normally, the power indicator will stay lit when in Maskrom mode. If this doesn't happen, you can repeat the steps above.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-maskrom.webp" style={{width: '100%', maxWidth: '700'}} />
 </div>
 
-### 2.2 Erasing eMMC
+### Erasing eMMC
 
 <Tabs queryString="e24c-erase">
 
 <TabItem value="Windows">
 
-Use the RKDevTool tool to erase the eMMC.
+Use the RKDevTool to erase the eMMC.
 
-Before using the tool, ensure that the PC can recognize the device that has entered MaskROM mode, then perform the following operations.
+Before using the tool, ensure your PC can detect the device in Maskrom mode, then follow these steps:
 
-1. Open RKDevTool Tool
+1. Open RKDevTool
 
-Ensure that the host can recognize MaskROM and select the Advanced option.
+Make sure the host can detect the device in Maskrom mode and select the Advanced option.
 
 <div style={{textAlign: 'left'}}>
   <img src="/img/e/e24c/emmc-rkdevtool-01.webp" style={{width: '90%', maxWidth: '700'}} />
@@ -167,11 +167,11 @@ Ensure that the host can recognize MaskROM and select the Advanced option.
 
 2. Write Loader
 
-Go to the [Resource Download Summary](../../../download) page to download the corresponding Loader file, and modify the file selected in the `Boot` option to the actual downloaded file.
+Go to the [Downloads Summary](../../../download) page to download the corresponding Loader file. Change the file selected in the `Boot` option to match the file you downloaded.
 
-- ① : Select file path
-- ② : Download Loader file
-- ③ : Operation feedback information
+- ①: Select file path
+- ②: Download Loader file
+- ③: Operation feedback information
 
 <div style={{textAlign: 'left'}}>
   <img src="/img/e/e24c/emmc-rkdevtool-02.webp" style={{width: '100%', maxWidth: '700'}} />
@@ -179,23 +179,23 @@ Go to the [Resource Download Summary](../../../download) page to download the co
 
 3. Read Storage Capacity
 
-Select the `ReadCapability` option to read the current device storage capacity.
+Select the `ReadCapability` option to read the current device's storage capacity.
 
 <div style={{textAlign: 'left'}}>
   <img src="/img/e/e24c/emmc-rkdevtool-03.webp" style={{width: '100%', maxWidth: '700'}} />
 </div>
 
-4. Clear eMMC
+4. Erase eMMC
 
-First select `EMMC`, click `Switch Storage` to switch storage, and finally click the `EraseALL` option to clear the eMMC content.
+First select `EMMC`, click `Switch Storage` to switch storage, then click the `EraseALL` option to clear the eMMC contents.
 
 <div style={{textAlign: 'left'}}>
   <img src="/img/e/e24c/emmc-rkdevtool-04.webp" style={{width: '100%', maxWidth: '700'}} />
 </div>
 
-5. Restart Device
+5. Reboot the Device
 
-Click the `ResetDevice` option to restart the device.
+Click the `ResetDevice` option to reboot the device.
 
 <div style={{textAlign: 'left'}}>
   <img src="/img/e/e24c/emmc-rkdevtool-05.webp" style={{width: '100%', maxWidth: '700'}} />
@@ -205,13 +205,13 @@ Click the `ResetDevice` option to restart the device.
 
 <TabItem value="Linux/macOS">
 
-Use the RKDevTool tool to erase the eMMC.
+Use the rkdeveloptool to erase the eMMC.
 
-Before using the tool, ensure that the PC can recognize the device that has entered MaskROM mode, then open the system terminal or command line and perform the following operations.
+Before using the tool, ensure your PC can detect the device in Maskrom mode, then open your system terminal or command line and follow these steps:
 
-1. Generate Empty Image
+1. Generate a Zero Image
 
-Create a 64MB file with all content as 0 in the current directory.
+Create a 64MB file filled with zeros in the current directory.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
@@ -219,9 +219,9 @@ dd if=/dev/zero of=./zero.img bs=1M count=64
 ```
 </NewCodeBlock>
 
-2. Check Device
+2. Check the Device
 
-Check if the device can recognize MaskROM.
+Verify if the device is detected in Maskrom mode.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
@@ -229,17 +229,15 @@ sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
 
-Normal output content: One device detected
+Expected output: One device detected
 
-<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 ```
-</NewCodeBlock>
 
 3. Write Loader
 
-Go to the [Resource Download Summary](../../../download) page to download the corresponding Loader file, and modify the `xxx.bin` file name in the following command to the actual downloaded file name.
+Go to the [Downloads Summary](../../../download) page to download the corresponding Loader file. Replace `xxx.bin` with the actual filename you downloaded.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
@@ -247,10 +245,9 @@ sudo rkdeveloptool db xxx.bin
 ```
 </NewCodeBlock>
 
+4. Erase eMMC
 
-4. Clear eMMC
-
-Use the RKDevTool tool to write zero.img to the device's starting sector to erase or initialize the Rockchip device's eMMC.
+Use the RKDevTool to write zero.img to the starting sector of the device, which is used to erase or initialize the eMMC of Rockchip devices.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
@@ -258,10 +255,9 @@ sudo rkdeveloptool wl 0 zero.img
 ```
 </NewCodeBlock>
 
+5. Reboot the Device
 
-5. Restart Device
-
-Use the RKDevTool tool to restart the device.
+Use the RKDevTool to reboot the device.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```

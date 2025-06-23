@@ -2,12 +2,12 @@
 sidebar_position: 1
 ---
 
-# Quick Start Guide
+# Quick Start
 
-## 1. Product Images
+## Product Photos
 
 :::tip
-The illustrations in this guide use the Radxa E24C Enclosure version!
+This tutorial uses the Radxa E24C enclosure version for demonstration purposes!
 :::
 
 <div style={{textAlign: 'center'}}>
@@ -20,33 +20,33 @@ The illustrations in this guide use the Radxa E24C Enclosure version!
   <img src="/img/e/e24c/e24c-02-shell.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 2. Prerequisites
+## Prerequisites
 
-To properly start and use the Radxa E24C device, you need to prepare the following accessories: power adapter, system boot medium, and debugging data cable (USB Type-A to Type-C cable).
+To properly boot and use the Radxa E24C device, you will need the following accessories: power adapter, bootable system media, and a debug cable (USB Type-A to Type-C).
 
 :::tip
-For users with different development capabilities, we recommend adding the following accessories to use Radxa E24C, which will shorten the time to familiarize with the product and development.
+For users with different development capabilities, we recommend the following additional accessories to reduce the learning curve and development time with the Radxa E24C.
 
-- Beginners
+- For Beginners:
 
-Required accessories: power adapter, system boot medium, monitor, HDMI cable
+Required accessories: Power adapter, bootable system media, monitor, HDMI cable
 
-- Developers
+- For Developers:
 
-Required accessories: power adapter, system boot medium, debugging data cable (USB Type-A to Type-C cable)
+Required accessories: Power adapter, bootable system media, debug cable (USB Type-A to Type-C)
 
-Note: The monitor can display the system interface and perform graphical operations!
+Note: A monitor can be used to display the system interface and perform graphical operations!
 :::
 
-### 2.1 Power Supply
+### Power Supply
 
-The device is powered by a 12V/2A DC5525 power adapter.
+Use a 12V/2A power adapter with a DC5525 connector to power the board.
 
 :::tip
 
-Radxa E24C only supports 12V power input. It is recommended to use a power supply with 2A or higher current to ensure stable operation of all peripherals.
+Radxa E24C only supports 12V power input, and we recommend a current of 2A or higher to ensure stable operation of all peripherals.
 
-Recommended power supplies:
+Recommended power supply:
 
 - [Radxa DC12 36W Power Adapter](https://radxa.com/products/accessories/power-dc12-36w) (Recommended)
 - [Radxa DC12 60W Power Adapter](https://radxa.com/products/accessories/power-dc12-60w)
@@ -54,105 +54,105 @@ Recommended power supplies:
 
 :::
 
-### 2.2 System Boot Medium
+### Boot Media
 
-Radxa E24C supports various configuration options, primarily focusing on whether the motherboard has onboard eMMC.
+Radxa E24C supports various configurations, with the main difference being the presence of onboard eMMC storage.
 
-**For motherboards without eMMC**: Need to prepare a MicroSD card and card reader.
+**For boards without eMMC**: You will need a MicroSD card and a card reader.
 
-**For motherboards with eMMC**: The system is pre-installed at the factory, ready to use!
+**For boards with eMMC**: The system is pre-installed at the factory and ready to use!
 
-### 2.3 Debugging Data Cable
+### Debug Cable
 
-The Radxa E24C has a USB Type-C interface, primarily used for debugging and system access.
+Radxa E24C features a USB Type-C port primarily used for debugging and system access.
 
-## 3. Installing Operating System
+## Installing the Operating System
 
 <Tabs queryString="e24c-system">
 
-<TabItem value="System without Onboard eMMC">
+<TabItem value="No eMMC System">
 
-For users without onboard eMMC, you need to use a card reader to write the system to the MicroSD card.
+For systems without onboard eMMC, you'll need to write the system image to a MicroSD card using a card reader.
 
 - System Download
 
-Go to the [Resource Download](../download) page to download the corresponding operating system image package. After downloading, extract the system image package. The `*.img` file is the image file needed for system installation.
+Go to the [Download Resources](../download) page to download the appropriate operating system image package. After downloading, extract the compressed file to get the `*.img` file needed for system installation.
 
 :::tip
-The downloaded system image is a compressed file that needs to be extracted before it can be written to the SD card using the image burning software.
+The downloaded system image is a compressed file that needs to be extracted before it can be written to the SD card using imaging software.
 :::
 
 - Hardware Connection
 
-Insert the MicroSD card into the card reader, then plug the card reader into the PC's USB port.
+Insert the MicroSD card into the card reader, then connect the card reader to your PC's USB port.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-sd-insert.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-- Image Burning Tool
+- Imaging Tool
 
-We recommend using the open-source Etcher image burning tool developed by Radxa's partner Balena. This software is simple to use, powerful, and supports Windows/Linux/macOS systems.
+We recommend using balenaEtcher, an open-source imaging tool developed by Radxa's partner Balena. It's user-friendly, powerful, and supports Windows, Linux, and macOS.
 
-Go to the official website to download the software for your system: [balenaEtcher](https://etcher.balena.io)
+Download the software for your platform from the official website: [balenaEtcher](https://etcher.balena.io)
 
 <div style={{textAlign: 'center'}}>
 <img src="/img/e/e24c/e24c-down-etcher-01.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-After entering the download page, select the corresponding system platform to download the Etcher software.
+On the download page, select the appropriate system platform to download the Etcher software.
 
 <div style={{textAlign: 'center'}}>
 <img src="/img/e/e24c/e24c-down-etcher-02.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 :::tip
-Windows and Linux users can just open the corresponding program to use it, no installation required!
+For Windows and Linux, simply run the program directly - no installation required!
 :::
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-down-etcher-00.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-- Installing System Image
+- Installing the System Image
 
-1. Select the system image for your motherboard: Click the `Flash from file` option and select the system image file you downloaded and extracted.
+1. Select the system image: Click `Flash from file` and choose the system image file you downloaded and extracted earlier.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-01.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-2. Select the MicroSD card's disk: Click the `Select target` option and select the disk device corresponding to the card reader connected to your PC.
+2. Select the target disk: Click `Select target` and choose the disk device corresponding to your card reader.
 
 :::danger
-Do not select the wrong disk, otherwise Etcher will format the selected disk, causing important data loss!
+Be very careful to select the correct disk, as Etcher will format the selected disk, potentially causing data loss!
 :::
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-02.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-①: Select the disk device for installing the system image
+① : Select the disk device where you want to install the system image
 
-②: Click the `Select 1` option to confirm the device selection
+② : Click `Select 1` to confirm your device selection
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-03.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-3. Start writing the system image: Click the `Flash` option and wait for the software to automatically write and verify the system image.
+3. Start writing the system image: Click the `Flash` button and wait for the software to complete writing and verifying the system image.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-04.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 <div style={{textAlign: 'center'}}>
-Waiting for system write to complete
+Waiting for system image to finish writing
   <img src="/img/e/e24c/etcher-05.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 <div style={{textAlign: 'center'}}>
-Waiting for system verification to complete
+Waiting for verification to complete
   <img src="/img/e/e24c/etcher-07.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
@@ -164,21 +164,21 @@ Waiting for system verification to complete
 
 </TabItem>
 
-<TabItem value="System with Onboard eMMC">
+<TabItem value="With Onboard eMMC System">
 
-For users with onboard eMMC, the system comes pre-installed with OpenWrt, no need to burn the system image.
+For users with onboard eMMC, the system comes pre-installed with OpenWrt - no need to flash a system image.
 
 </TabItem>
 
 </Tabs>
 
-## 4. Starting the System
+## Booting the System
 
 <Tabs queryString="e24c-system">
 
-<TabItem value="System without Onboard eMMC">
+<TabItem value="No eMMC System">
 
-After writing the system image to the MicroSD card, we can insert the MicroSD card from the card reader into the Radxa E24C's MicroSD card slot, then use the 12V DC power adapter to start the system.
+After writing the system image to the MicroSD card, insert it into the Radxa E24C's MicroSD card slot, then power on the device using the 12V DC power adapter.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-insert-sd.webp" style={{width: '100%', maxWidth: '600px'}} />
@@ -186,19 +186,19 @@ After writing the system image to the MicroSD card, we can insert the MicroSD ca
 
 </TabItem>
 
-<TabItem value="System with Onboard eMMC">
+<TabItem value="With Onboard eMMC System">
 
 - Hardware Connection
 
-Connect the Radxa E24C's Ethernet LAN port to the PC's Ethernet port using an Ethernet cable, then use the 12V DC power adapter to start the system: The LED indicator light corresponding to the Ethernet port will flash, indicating normal network connection.
+Connect one end of an Ethernet cable to the Radxa E24C's LAN port and the other end to your PC's Ethernet port. Then power on the device using the 12V DC power adapter. The Ethernet port's LED will blink, indicating a normal network connection.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-rj45-cable.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-- Login to Luci Interface
+- Accessing the Luci Interface
 
-Open the PC's browser, enter the address `http://192.168.1.1`, press Enter to access the system's Luci web configuration interface, then enter the username and password to log in.
+Open a web browser on your PC, enter `http://192.168.1.1` in the address bar, and press Enter to access the system's Luci web configuration interface. Then log in with your username and password.
 
 :::tip
 OpenWrt System
@@ -214,7 +214,7 @@ Password: password
 
 - System Management Interface
 
-The Luci interface provides rich system management functions, including system status, network settings, software management, hardware management, etc.
+The Luci interface provides comprehensive system management features, including system status, network settings, software management, and hardware management.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-open-control.webp" style={{width: '100%', maxWidth: '1000px'}} />
@@ -224,9 +224,9 @@ The Luci interface provides rich system management functions, including system s
 
 </Tabs>
 
-## 5. System Information
+## System Information
 
-We provide two major operating systems: Debian Linux and OpenWrt. Users should use the corresponding username and password based on their system.
+We provide two major operating systems: Debian Linux and OpenWrt. Please use the corresponding username and password to log in based on your system.
 
 - Debian Linux
 
@@ -240,15 +240,15 @@ Username: root
 
 Password: password
 
-## 6. Login to System (Serial Port)
+## System Login (Serial Port)
 
 :::tip
-If you have a monitor and HDMI cable, you can directly use the monitor to view the system interface and perform operations!
+If you have a monitor and HDMI cable, you can directly use the display to view and operate the system interface!
 :::
 
-### 6.1 Hardware Connection
+### Hardware Connection
 
-When Radxa E24C is powered, connect the USB Type-A to Type-C cable's Type-A end to the computer and the Type-C end to Radxa E24C's debug port.
+With the Radxa E24C powered on, connect the Type-A end of a USB Type-A to Type-C cable to your computer, and the Type-C end to the Radxa E24C debug port.
 
 :::note
 
@@ -264,17 +264,17 @@ No Parity
 
 :::
 
-### 6.2 Serial Port Login
+### Serial Port Login
 
 <Tabs queryString="e24c-system-login">
 
 <TabItem value="Windows">
 
-Windows platform recommends using PuTTY software for serial port login to the Radxa E24C system.
+Windows users are recommended to use PuTTY for serial port login to the Radxa E24C system.
 
-- PuTTY Usage
+- Using PuTTY
 
-After connecting Radxa E24C and PC with USB Type-A to Type-C data cable, you can check the serial port number of Radxa E24C in the system's Device Manager (in the diagram, COM4 is the current system's Radxa E24C device).
+After connecting the Radxa E24C to your PC with a USB Type-A to Type-C cable, you can check the corresponding COM port in the Device Manager (in the example, COM4 corresponds to the Radxa E24C device in the current system).
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/serial-01.webp" style={{width: '80%', maxWidth: '600px'}} />
@@ -282,7 +282,7 @@ After connecting Radxa E24C and PC with USB Type-A to Type-C data cable, you can
 
 :::tip
 
-If the system cannot correctly identify the device or if there is an exclamation mark before the device, you need to install the [CH340 driver](https://www.wch.cn/downloads/CH341SER_EXE.html) yourself, then restart the system after installation.
+If the system fails to recognize the device or shows an exclamation mark, you need to install the [CH340 driver](https://www.wch.cn/downloads/CH341SER_EXE.html) manually and restart your system after installation.
 
 :::
 
@@ -290,11 +290,11 @@ If the system cannot correctly identify the device or if there is an exclamation
 
 ① --> Connection type: Select `Serial`
 
-② --> Serial line: Enter `COM4` (based on the serial port number shown in Device Manager)
+② --> Serial line: Enter `COM4` (based on the COM port shown in Device Manager)
 
 ③ --> Speed: Enter `1500000`
 
-④ --> Open: Serial port connection to Radxa E24C system
+④ --> Open: Connect to Radxa E24C system via serial port
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/serial-02.webp" style={{width: '80%', maxWidth: '600px'}} />
@@ -302,9 +302,9 @@ If the system cannot correctly identify the device or if there is an exclamation
 
 - Login to System
 
-Press Enter in the terminal to see login information, then use the corresponding system's username and password to log in.
+Press Enter in the terminal to see the login prompt, then log in using the appropriate username and password for your system.
 
-Note: Password input in the terminal will not be displayed. After entering the password, press Enter to log in.
+Note that password input will not be displayed. Press Enter after entering your password.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/serial-03.webp" style={{width: '100%', maxWidth: '600px'}} />
@@ -314,23 +314,24 @@ Note: Password input in the terminal will not be displayed. After entering the p
 
 <TabItem value="Linux">
 
-Linux recommends using Screen software for serial port login to the Radxa E24C system.
+Linux users are recommended to use the Screen utility for serial port login to the Radxa E24C system.
 
 - Install Screen
 
 <NewCodeBlock tip="Linux-host$" type="host">
 ```
+sudo apt update
 sudo apt install screen
 ```
 </NewCodeBlock>
 
 - Find Serial Port Device
 
-Open the terminal and use the ls command to view the serial port device:
+Open a terminal and use the ls command to check the serial port devices:
 
-If your PC has only one serial port device, the system defaults to ttyUSB0;
+If there's only one serial device, it will typically be ttyUSB0.
 
-If your PC has multiple serial port devices, you can plug and unplug USB devices to observe the changing device numbers using the following command:
+If there are multiple serial devices, you can plug/unplug the USB device and observe which device number changes using the command below.
 
 <NewCodeBlock tip="Linux-host$" type="host">
 ```
@@ -340,7 +341,7 @@ ls /dev/ttyUSB*
 
 - Serial Port Login Options
 
-Use Screen to connect to the serial port, just need to set the serial port number and baud rate.
+To connect via Screen, you only need to specify the serial port and baud rate.
 
 <NewCodeBlock tip="Linux-host$" type="host">
 ```
@@ -350,27 +351,27 @@ sudo screen /dev/ttyUSB0 1500000
 
 - Login to System
 
-Press Enter in the terminal to see login information, then use the corresponding system's username and password to log in.
+Press Enter in the terminal to see the login prompt, then log in using the appropriate username and password for your system.
 
-Note: Password input in the terminal will not be displayed. After entering the password, press Enter to log in.
+Note that password input will not be displayed. Press Enter after entering your password.
 
 </TabItem>
 
 <TabItem value="macOS">
 
-macOS platform recommends using Screen software for serial port login to the Radxa E24C system.
+macOS users are recommended to use the Screen utility for serial port login to the Radxa E24C system.
 
 :::tip
 
-If the system cannot correctly identify the device, you need to install the [CH340 driver](https://www.wch.cn/downloads/CH341SER_MAC_ZIP.html) yourself, then restart the system after installation.
+If the system fails to recognize the device, you need to install the [CH340 driver](https://www.wch.cn/downloads/CH341SER_MAC_ZIP.html) manually and restart your system after installation.
 
 :::
 
 - Find Serial Port Device
 
-Open the terminal and use the ls command to view the serial port device:
+Open a terminal and use the ls command to check the serial port devices.
 
-Find a device name similar to /dev/tty.wchusbserial14xx0. If your PC has multiple serial port devices, you can plug and unplug USB devices to observe the changing device numbers using the following command:
+Look for a device name similar to /dev/tty.wchusbserial14xx0. If there are multiple serial devices, you can plug/unplug the USB device and observe which device appears/disappears using the command below.
 
 <NewCodeBlock tip="macOS-host$" type="host">
 ```
@@ -380,7 +381,7 @@ ls /dev/tty.*
 
 - Serial Port Login Options
 
-Use Screen to connect to the serial port, just need to set the serial port number and baud rate.
+To connect via Screen, you only need to specify the serial port and baud rate.
 
 <NewCodeBlock tip="macOS-host$" type="host">
 ```
@@ -390,9 +391,9 @@ screen /dev/tty.wchusbserial14xx0 1500000
 
 - Login to System
 
-Press Enter in the terminal to see login information, then use the corresponding system's username and password to log in.
+Press Enter in the terminal to see the login prompt, then log in using the appropriate username and password for your system.
 
-Note: Password input in the terminal will not be displayed. After entering the password, press Enter to log in.
+Note that password input will not be displayed. Press Enter after entering your password.
 
 </TabItem>
 

@@ -2,13 +2,13 @@
 sidebar_position: 3
 ---
 
-# Power Supply
+# Power Supply Selection
 
-The device is powered by a 12V/2A DC5525 power adapter.
+Use a 12V/2A power adapter with a DC5525 connector to power the device.
 
 :::tip
 
-Radxa E24C only supports 12V power input. It is recommended to use a power supply with 2A or higher current to ensure stable operation of all peripherals.
+Radxa E24C only supports 12V power input, and we recommend a current of 2A or higher to ensure stable operation of all peripherals.
 
 Recommended power supplies:
 

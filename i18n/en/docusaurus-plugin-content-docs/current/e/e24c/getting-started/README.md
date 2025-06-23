@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# Getting Started Guide
+# Getting Started
 
 <DocCardList />

@@ -2,81 +2,81 @@
 sidebar_position: 1
 ---
 
-# Installing System to MicroSD Card
+# Installing the Operating System to a MicroSD Card
 
-## 1. System Download
+## Download the System Image
 
-Go to the [Resource Download Summary](../../download) page to download the corresponding operating system image package. After downloading, extract the system image package. The `*.img` file is the image file needed for system installation.
+Go to the [Downloads Summary](../../download) page to download the corresponding operating system image archive. After downloading, extract the archive to get the `*.img` file needed for system installation.
 
 :::tip
-The downloaded system image is a compressed file that needs to be extracted before it can be written to the SD card using the image burning software.
+The downloaded system image is a compressed file that needs to be extracted before it can be written to the SD card using imaging software.
 :::
 
-## 2. Hardware Connection
+## Hardware Connection
 
-Insert the MicroSD card into the card reader, then plug the card reader into the PC's USB port.
+Insert the MicroSD card into a card reader, then connect the card reader to your PC's USB port.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-sd-insert.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 3. Image Burning Tool
+## Image Flashing Tool
 
-We recommend using the open-source Etcher image burning tool developed by Radxa's partner Balena. This software is simple to use, powerful, and supports Windows/Linux/macOS systems.
+We recommend using Etcher, an open-source image flashing tool developed by Balena, Radxa's partner. This software is user-friendly, powerful, and supports Windows, Linux, and macOS.
 
-### 3.1 Using Etcher
+### Using Etcher
 
-Go to the official website to download the software for your system: [balenaEtcher](https://etcher.balena.io)
+Download the software for your operating system from the official website: [balenaEtcher](https://etcher.balena.io)
 
 <div style={{textAlign: 'center'}}>
 <img src="/img/e/e24c/e24c-down-etcher-01.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-After entering the download page, select the corresponding system platform to download the Etcher software.
+On the download page, select the appropriate platform to download the Etcher software.
 
 <div style={{textAlign: 'center'}}>
 <img src="/img/e/e24c/e24c-down-etcher-02.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 :::tip
-Windows and Linux users can just open the corresponding program to use it, no installation required!
+For Windows and Linux, simply run the downloaded executable—no installation required!
 :::
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-down-etcher-00.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-### 3.2 Installing System Image
+### Installing the System Image
 
-- Select System Image for Motherboard
+- Select the system image corresponding to your board
 
-Click the `Flash from file` option and select the system image file you downloaded and extracted earlier.
+Click on the `Flash from file` option and select the system image file you downloaded and extracted earlier.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-01.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-- Select MicroSD Card Disk
+- Select the target MicroSD card
 
-Click the `Select target` option and select the disk device corresponding to the card reader connected to your PC.
+Click on the `Select target` option and choose the disk device corresponding to your card reader connected to the PC.
 
 :::danger
-Do not select the wrong disk, otherwise Etcher will format the selected disk, causing important data loss!
+Be careful not to select the wrong disk, as Etcher will format the selected disk, potentially causing data loss!
 :::
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-02.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-①: Select the disk device for installing the system image
+①: Select the disk device where you want to install the system image
 
-②: Click the `Select 1` option to confirm the device selection
+②: Click the `Select 1` option to confirm your device selection
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-03.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-- Start Writing System Image
+- Start writing the system image
 
 Click the `Flash` option and wait for the software to automatically write and verify the system image.
 
@@ -85,12 +85,12 @@ Click the `Flash` option and wait for the software to automatically write and ve
 </div>
 
 <div style={{textAlign: 'center'}}>
-Waiting for system write to complete
+Waiting for system image to finish writing
   <img src="/img/e/e24c/etcher-05.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 <div style={{textAlign: 'center'}}>
-Waiting for system verification to complete
+Waiting for verification to complete
   <img src="/img/e/e24c/etcher-07.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
@@ -100,17 +100,17 @@ After successfully writing the system image, close the Etcher software!
   <img src="/img/e/e24c/etcher-06.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 4. Starting the System
+## Booting the System
 
-After completing the system image write to the MicroSD card, insert the MicroSD card from the card reader into the MicroSD card slot of Radxa E24C, then start the system using the 12V DC power adapter.
+After completing the system image writing to the MicroSD card, you can insert the MicroSD card from the card reader into the Radxa E24C's MicroSD card slot, then power on the system using a 12V DC power adapter.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-insert-sd.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 5. System Information
+## System Information
 
-We provide two major operating systems: Debian Linux and OpenWrt. Users should use the corresponding username and password for their chosen system.
+We provide two major operating systems: Debian Linux and OpenWrt. Users should use the corresponding username and password to log in based on their system.
 
 - Debian Linux
 

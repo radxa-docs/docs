@@ -2,40 +2,40 @@
 sidebar_position: 1
 ---
 
-# Hardware Interface and Design
+# Hardware Interfaces and Design
 
+## Hardware Overview
 
-## 1. Hardware Overview
-
-The Radxa E24C is a compact, high-performance network computer powered by the Rockchip RK3528A processor, designed for routing, edge networking, and industrial applications, achieving an optimal balance between performance, connectivity, and reliability.
+The Radxa E24C is a compact, high-performance network computer powered by the Rockchip RK3528A processor, designed for routing, edge networking, and industrial applications. It achieves an optimal balance between performance, connectivity, and reliability.
 
 This document details the hardware interfaces, connection methods, and application recommendations for the E24C to help you maximize the device's performance.
-## 2. Chip Architecture
+
+## Chip Architecture
 
 The RK3528A is a high-performance processor from Rockchip, featuring high performance, low power consumption, and cost-effectiveness.
 
-- **Powerful Processing**: Quad-core ARM Cortex-A53
-- **Networking Capabilities**: Supports multiple Gigabit Ethernet interfaces, optimized for networking applications
-- **Diverse Interfaces**: Supports various high-speed interfaces including PCIe, USB 3.0, and HDMI 2.1
+- Powerful Processing: Quad-core ARM Cortex-A53
+- Networking Capabilities: Supports multiple Gigabit network interfaces, optimized for networking applications
+- Diverse Interfaces: Supports various high-speed interfaces including PCIe, USB 3.0, and HDMI 2.1
 
-<div style={{textAlign: 'center', marginTop: '0px', marginBottom: '0px', fontSize: '12px', color: '#000000'}}>E24C Chip Internal Architecture Diagram</div>
+<div style={{textAlign: 'center', marginTop: '0px', marginBottom: '0px', fontSize: '12px', color: '#000000'}}>E24C Internal Chip Architecture Diagram</div>
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/radxa-e24c-chip-diagram.webp" style={{width: '100%', maxWidth: '800px'}} />
 </div>
 
-## 3. System Architecture
+## System Architecture
 
-The E24C features a compact and efficient hardware design that integrates multiple interfaces and functions on a single board.
+The E24C adopts a compact and efficient hardware design, integrating multiple interfaces and functions on a single board.
 
 <div style={{textAlign: 'center', marginTop: '0px', marginBottom: '0px', fontSize: '12px', color: '#000000'}}>E24C System Internal Architecture and Component Connection Diagram</div>
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-rk3528.webp" style={{width: '100%', maxWidth: '800px'}} />
 </div>
 
-## 4. Hardware Interfaces
+## Hardware Interfaces
 
 :::tip
-For detailed hardware interface pinouts of the Radxa E24C, refer to the [Hardware Schematics](../download)
+For detailed hardware interface pinouts of Radxa E24C, refer to the [Hardware Schematic](../download)
 :::
 
 <div style={{textAlign: 'center'}}>
@@ -43,151 +43,151 @@ For detailed hardware interface pinouts of the Radxa E24C, refer to the [Hardwar
   <img src="/img/e/e24c/e24c-interface.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-| No. | Description                                          | Qty |
-| :-: | :--------------------------------------------------- | :-: |
-|  ①  | Power Interface: DC5525                              |  1  |
-|  ②  | Onboard eMMC                                        |  1  |
-|  ③  | USB 2.0 Type-C Interface: Device + Debug Combo Port |  1  |
-|  ④  | User Button                                         |  1  |
-|  ⑤  | USB 2.0 Type-A Ports                                |  3  |
-|  ⑥  | RTC Battery Connector                               |  1  |
-|  ⑦  | MicroSD Card Slot                                   |  1  |
-|  ⑧  | GPIO: 14-pin Expansion Header                       |  1  |
-|  ⑨  | LED Status Indicators (1 Power, 4 Ethernet)         |  5  |
-|  ⑩  | Power Button                                        |  1  |
-|  ⑪  | Fan Connector                                       |  1  |
-|  ⑫  | Maskrom Button                                     |  1  |
-|  ⑬  | Gigabit Ethernet Ports (Configurable as WAN/LAN)   |  4  |
-|  ⑭  | HDMI 2.1 Output                                     |  1  |
-|  ⑮  | M.2 NVMe SSD Slot                                   |  1  |
+| No. | Description                            | Qty |
+| :-: | :------------------------------------- | :-: |
+|  ①  | Power Input: DC5525                    |  1  |
+|  ②  | Onboard eMMC                           |  1  |
+|  ③  | USB 2.0 Type-C Port (OTG + UART Debug) |  1  |
+|  ④  | User Button                            |  1  |
+|  ⑤  | USB 2.0 Type-A Ports                   |  3  |
+|  ⑥  | RTC Battery Connector                  |  1  |
+|  ⑦  | MicroSD Card Slot                      |  1  |
+|  ⑧  | GPIO: 14-pin Expansion Header          |  1  |
+|  ⑨  | LED Indicators (1x Power, 4x Ethernet) |  5  |
+|  ⑩  | Power Button                           |  1  |
+|  ⑪  | Fan Header                             |  1  |
+|  ⑫  | Maskrom Button                         |  1  |
+|  ⑬  | Gigabit Ethernet Ports                 |  4  |
+|  ⑭  | HDMI 2.1 Output                        |  1  |
+|  ⑮  | M.2 NVMe SSD Slot                      |  1  |
 
-### 4.1 MicroSD Card Slot
+### MicroSD Card Slot
 
-The E24C features an onboard MicroSD card slot that can be used for system data, OS images, and system configuration storage.
+The E24C features a MicroSD card slot, which can be used for storing system data, system images, and system configurations.
 
-| PIN | Name       | Description           |
-| --- | ---------- | --------------------- |
-| 1   | SDMMC_D2   | SD Card Data Line 2   |
-| 2   | SDMMC_D3   | SD Card Data Line 3   |
-| 3   | SDMMC_CMD  | SD Card Command Line  |
-| 4   | VCC_3V3    | 3.3V Power            |
-| 5   | SDMMC_CLK  | SD Card Clock Signal  |
-| 6   | GND        | Ground                |
-| 7   | SDMMC_D0   | SD Card Data Line 0   |
-| 8   | SDMMC_D1   | SD Card Data Line 1   |
-| 9   | SDMMC_DETN | SD Card Detect        |
-| 10  | GND        | Ground                |
-| 11  | GND        | Ground                |
-| 12  | GND        | Ground                |
-| 13  | GND        | Ground                |
+| PIN | Name       | Function Description        |
+| --- | ---------- | --------------------------- |
+| 1   | SDMMC_D2   | SD card data line 2         |
+| 2   | SDMMC_D3   | SD card data line 3         |
+| 3   | SDMMC_CMD  | SD card command line        |
+| 4   | VCC_3V3    | 3.3V power supply           |
+| 5   | SDMMC_CLK  | SD card clock signal        |
+| 6   | GND        | Ground                      |
+| 7   | SDMMC_D0   | SD card data line 0         |
+| 8   | SDMMC_D1   | SD card data line 1         |
+| 9   | SDMMC_DETN | SD card insertion detection |
+| 10  | GND        | Ground                      |
+| 11  | GND        | Ground                      |
+| 12  | GND        | Ground                      |
+| 13  | GND        | Ground                      |
 
-#### Usage Guidelines
+#### Usage Guide
 
 - **Supported Card Types**: Compatible with MicroSD/MicroSDHC/MicroSDXC memory cards
 - **Recommended Specifications**: Class 10/UHS-I or higher recommended for better performance
-- **Maximum Capacity**: Theoretically supports up to 2TB MicroSDXC cards, tested with 512GB
+- **Maximum Capacity**: Theoretically supports up to 2TB MicroSDXC cards, tested with 512GB cards
 
-#### Main Applications
+#### Main Application Scenarios
 
-- **System Boot**: E24C can boot operating systems from the MicroSD card, which is the most common usage
-- **Data Storage**: Can be used to expand storage when the system is already running (e.g., when booted from eMMC)
-- **System Backup**: Useful for backing up the current system and data
+- **System Boot**: E24C can boot the operating system from a MicroSD card, which is the most common usage
+- **Data Storage**: Can be used to expand storage space when the system is already running (e.g., when booted from eMMC)
+- **System Backup**: Can be used to back up the current system and data
 
 :::tip
-For production environments or systems requiring 24/7 operation, it's recommended to use eMMC or M.2 SSD as the primary storage and boot device, as they offer better stability and read/write endurance. MicroSD cards are suitable for temporary storage and development/testing scenarios.
+For production environments or systems requiring 24/7 operation, it is recommended to use eMMC or M.2 SSD as the primary storage and boot device, as they provide better stability and read/write endurance. MicroSD cards are suitable for temporary storage and development/testing scenarios.
 :::
 
-### 4.2 USB Interfaces
+### USB Interfaces
 
-The E24C provides two different types of USB interfaces: USB 2.0 Type-C and USB 2.0 Type-A.
+E24C provides two different types of USB interfaces: USB 2.0 Type-C and USB 2.0 Type-A.
 
 #### USB 2.0 Type-C
 
-Functions as a data transfer interface, supporting USB 2.0 OTG data transfer and serial debugging, with a maximum data transfer rate of 480Mbps.
+Serves as a data transfer interface, supporting USB 2.0 OTG data transfer and serial debugging, with data transfer rates up to 480Mbps.
 
 #### USB 2.0 Type-A
 
-Three USB 2.0 Type-A ports, each supporting up to 480Mbps data transfer rate.
+Three USB 2.0 Type-A interfaces, supporting data transfer rates up to 480Mbps.
 
-| PIN | Name         | Description                     |
-| --- | ------------ | ------------------------------- |
-| 1   | VCC5V0_USB   | 5V Power Output, max 500mA     |
-| 2   | USB2_HOST_DM | USB 2.0 Data Negative (D-)     |
-| 3   | USB2_HOST_DP | USB 2.0 Data Positive (D+)     |
-| 4   | GND          | Ground                         |
+| PIN | Name         | Description                |
+| --- | ------------ | -------------------------- |
+| 1   | VCC5V0_USB   | 5V Power Output, max 500mA |
+| 2   | USB2_HOST_DM | USB 2.0 Data-              |
+| 3   | USB2_HOST_DP | USB 2.0 Data+              |
+| 4   | GND          | Ground                     |
 
-**Application Suggestions**:
+**Usage Recommendations**:
 
 - Input devices like mice and keyboards
 - Low-bandwidth peripherals (printers, scanners, etc.)
 - External devices supporting USB 2.0
 
-### 4.3 HDMI Interface
+### HDMI Interface
 
-The E24C features a standard HDMI 2.1 interface supporting up to 4K video output, suitable for connecting to external displays, TVs, and other devices.
+E24C features a standard HDMI 2.1 interface supporting up to 4K video output, suitable for connecting to external displays, TVs, and other devices.
 
-| PIN | Name        | Description                                 |
-| --- | ----------- | ------------------------------------------- |
-| 1   | HDMI_TX2+   | HDMI High-Speed Data Lane 2+ (Positive)     |
-| 2   | GND         | Ground                                      |
-| 3   | HDMI_TX2-   | HDMI High-Speed Data Lane 2- (Negative)     |
-| 4   | HDMI_TX1+   | HDMI High-Speed Data Lane 1+ (Positive)     |
-| 5   | GND         | Ground                                      |
-| 6   | HDMI_TX1-   | HDMI High-Speed Data Lane 1- (Negative)     |
-| 7   | HDMI_TX0+   | HDMI High-Speed Data Lane 0+ (Positive)     |
-| 8   | GND         | Ground                                      |
-| 9   | HDMI_TX0-   | HDMI High-Speed Data Lane 0- (Negative)     |
-| 10  | HDMI_TXC+   | HDMI Clock+ (Positive)                      |
-| 11  | GND         | Ground                                      |
-| 12  | HDMI_TXC-   | HDMI Clock- (Negative)                      |
-| 13  | HDMI_CEC    | Consumer Electronics Control (CEC) Signal   |
-| 14  | NC          | Not Connected                               |
-| 15  | HDMI_SCL    | DDC Clock for EDID Information              |
-| 16  | HDMI_SDA    | DDC Data for EDID Information               |
-| 17  | GND         | Ground                                      |
-| 18  | VCC5V0_HDMI | 5V Power Output                             |
-| 19  | HDMI_HPD    | Hot Plug Detect Signal                      |
+| PIN | Name        | Description                                     |
+| --- | ----------- | ----------------------------------------------- |
+| 1   | HDMI_TX2+   | HDMI High-Speed Data Lane 2+                    |
+| 2   | GND         | Ground                                          |
+| 3   | HDMI_TX2-   | HDMI High-Speed Data Lane 2-                    |
+| 4   | HDMI_TX1+   | HDMI High-Speed Data Lane 1+                    |
+| 5   | GND         | Ground                                          |
+| 6   | HDMI_TX1-   | HDMI High-Speed Data Lane 1-                    |
+| 7   | HDMI_TX0+   | HDMI High-Speed Data Lane 0+                    |
+| 8   | GND         | Ground                                          |
+| 9   | HDMI_TX0-   | HDMI High-Speed Data Lane 0-                    |
+| 10  | HDMI_TXC+   | HDMI Clock+                                     |
+| 11  | GND         | Ground                                          |
+| 12  | HDMI_TXC-   | HDMI Clock-                                     |
+| 13  | HDMI_CEC    | Consumer Electronics Control for device control |
+| 14  | NC          | No Connection                                   |
+| 15  | HDMI_SCL    | DDC Clock for EDID information                  |
+| 16  | HDMI_SDA    | DDC Data for EDID information                   |
+| 17  | GND         | Ground                                          |
+| 18  | VCC5V0_HDMI | 5V Power Output                                 |
+| 19  | HDMI_HPD    | Hot Plug Detect Signal                          |
 
-### 4.4 Gigabit Ethernet Interfaces
+### Gigabit Ethernet Interface
 
-The E24C is equipped with 4 Gigabit Ethernet ports, which are core functional components supporting various networking application scenarios.
+The E24C is equipped with 4 Gigabit Ethernet ports, which are the core functional components of the product, supporting various network application scenarios.
 
-| PIN | Name    | Description                         |
-| --- | ------- | ----------------------------------- |
-| 1   | ETH_TXP | Gigabit Ethernet Transmit Data+     |
-| 2   | ETH_TXN | Gigabit Ethernet Transmit Data-     |
-| 3   | ETH_RXP | Gigabit Ethernet Receive Data+      |
-| 4   | NC      | Not Connected                       |
-| 5   | NC      | Not Connected                       |
-| 6   | ETH_RXN | Gigabit Ethernet Receive Data-      |
-| 7   | NC      | Not Connected                       |
-| 8   | NC      | Not Connected                       |
+| PIN | Name    | Description                |
+| --- | ------- | -------------------------- |
+| 1   | ETH_TXP | Gigabit Ethernet Transmit+ |
+| 2   | ETH_TXN | Gigabit Ethernet Transmit- |
+| 3   | ETH_RXP | Gigabit Ethernet Receive+  |
+| 4   | NC      | Not Connected              |
+| 5   | NC      | Not Connected              |
+| 6   | ETH_RXN | Gigabit Ethernet Receive-  |
+| 7   | NC      | Not Connected              |
+| 8   | NC      | Not Connected              |
 
 #### Gigabit Network Controller
 
-The Gigabit network interfaces on the E24C are driven by the integrated network controller in the Rockchip RK3528A processor's SoC, with key features including:
+The Gigabit network interface of E24C is driven by the network controller integrated in the Rockchip RK3528A SoC, with main features including:
 
 - **Full-Duplex Gigabit Ethernet**: Each port supports 10/100/1000 Mbps speeds
-- **MDI/MDIX Auto-Detection**: Automatically detects straight-through and crossover cables
+- **MDI/MDIX Auto-Detection**: Automatically identifies straight-through and crossover cables
 - **IEEE 802.3 Compliance**: Supports standard Ethernet protocols
-- **Hardware Flow Control**: Implements IEEE 802.3x flow control
-- **Internal MAC Addresses**: Each port is assigned a unique MAC address
+- **Hardware Flow Control**: Supports IEEE 802.3x flow control
+- **Internal MAC Addresses**: Each port is assigned an independent MAC address
 
 #### Network Configuration Scenarios
 
-The four Gigabit Ethernet ports allow for flexible configuration of various network topologies:
+The four Gigabit Ethernet ports allow flexible configuration of various network topologies:
 
 **1. Multi-WAN Router Configuration**
 
-Multiple ports can be configured as WAN interfaces to implement:
+Multiple ports can be configured as WAN interfaces to achieve:
 
 - Multi-line load balancing
 - Link aggregation
-- Multi-ISP failover connections
+- Multi-ISP backup connections
 
-**2. Network Hub Configuration**
+**2. Network Switch Configuration**
 
-All ports can be configured in switch mode for:
+Configure all ports in switch mode for:
 
 - Network segmentation (VLAN)
 - QoS priority control
@@ -202,19 +202,15 @@ The most common configuration: 1 WAN + 3 LAN ports:
 
 #### Usage Recommendations
 
-- Use CAT 5e or higher specification Ethernet cables to achieve full Gigabit performance
-- Multi-WAN configurations require specialized routing software support, such as iStoreOS or OpenWrt
-- When running high-traffic network applications, pay attention to heat dissipation issues
+- Use CAT 5e or higher specification network cables for full Gigabit performance
+- Multi-WAN configuration requires specialized routing software support, such as iStoreOS or OpenWrt
+- Pay attention to heat dissipation when running high-traffic network applications
 
 :::tip
-For applications requiring high bandwidth and low latency (such as video conferencing, online gaming, etc.), it's recommended to use Link Aggregation to combine multiple WAN connections for higher bandwidth and reliability.
-
-For applications requiring high availability (such as enterprise applications, critical business systems, etc.), it's recommended to use multi-ISP backup connections to ensure network reliability.
-
-For applications requiring network isolation (such as production and testing environment isolation), it's recommended to use VLAN configuration to isolate different types of traffic in separate networks.
+For applications requiring powerful network performance (such as enterprise routing, gateways, etc.), you can configure Port Bonding to increase bandwidth and reliability. These advanced features can be easily configured in iStoreOS or OpenWrt.
 :::
 
-### 4.5 M.2 M Key Interface
+### M.2 M Key Interface
 
 | PIN | Name          |
 | --- | ------------- |
@@ -294,35 +290,35 @@ For applications requiring network isolation (such as production and testing env
 | 74  | NC            |
 | 75  | GND           |
 
-### 4.6 Fan Interface (2-Pin 1.25mm)
+### Fan Interface (2-Pin 1.25mm)
 
 | PIN | Name |
 | --- | ---- |
 | 1   | PWM  |
 | 2   | GND  |
 
-### 4.7 RTC Battery Interface (2-Pin 1.25mm)
+### RTC Battery Interface (2-Pin 1.25mm)
 
 | PIN | Name       |
 | --- | ---------- |
 | 1   | VCC3V0_RTC |
 | 2   | GND        |
 
-### 4.8 14-Pin GPIO Interface (0.1"/2.54mm)
+### 14-Pin GPIO Interface (0.1"/2.54mm)
 
-| PIN | Name   | Function              |
-| --- | ------ | -------------------- |
-| 1   | VCC5V0 | 5V Power Output     |
-| 2   | VCC5V0 | 5V Power Output     |
-| 3   | VCC3V3 | 3.3V Power Output   |
-| 4   | GND    | Ground              |
-| 5   | GPIO0  | SPI_Clock           |
-| 6   | GPIO1  | SPI_MOSI            |
-| 7   | GPIO2  | SPI_MISO            |
-| 8   | GPIO3  | SPI Chip Select     |
-| 9   | GPIO4  | UART_TX             |
-| 10  | GPIO5  | UART_RX             |
-| 11  | GPIO6  | I2C_Clock           |
-| 12  | GPIO7  | I2C_Data            |
-| 13  | GPIO8  | General Purpose GPIO|
-| 14  | GND    | Ground              |
+| PIN | Name   | Function          |
+| --- | ------ | ----------------- |
+| 1   | VCC5V0 | 5V Power Output   |
+| 2   | VCC5V0 | 5V Power Output   |
+| 3   | VCC3V3 | 3.3V Power Output |
+| 4   | GND    | Ground            |
+| 5   | GPIO0  | SPI_CLK           |
+| 6   | GPIO1  | SPI_MOSI          |
+| 7   | GPIO2  | SPI_MISO          |
+| 8   | GPIO3  | SPI_CS            |
+| 9   | GPIO4  | UART_TX           |
+| 10  | GPIO5  | UART_RX           |
+| 11  | GPIO6  | I2C_SCL           |
+| 12  | GPIO7  | I2C_SDA           |
+| 13  | GPIO8  | General Purpose   |
+| 14  | GND    | Ground            |
