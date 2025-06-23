@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## 概览
 
-Radxa E54C 通过 NVME 启动系统需要先通过MicroSD 卡或 eMMC 启动系统，然后通过 `rsetup` 工具刷入 SPI Flash，最后通过 `dd` 命令写入系统镜像到 NVME 设备
+Radxa E54C 通过 NVME 启动系统需要先通过MicroSD 卡或 eMMC 启动系统，然后通过 `rsetup` 工具或 `RKDevTool` 工具刷入 SPI Flash，最后通过 `dd` 命令写入系统镜像到 NVME 设备
 
 教程以 MicroSD 卡启动系统作为演示。eMMC 系统安装方式没有区别。
 
@@ -22,12 +22,16 @@ MicroSD 卡的作用是相当于 x86 系统的启动盘，目的是进入一个�
 
 ## 刷入 SPI Flash
 
+提供两种方式刷入 SPI Flash，分别是使用 `rsetup` 工具和 `RKDevTool` 工具，你可以根据自己的需求选择使用。
+
+### 使用 Rsetup
+
 使用系统配置工具 `rsetup` 将 `spi.img` 刷入 SPI Flash 中。
 
-### 更新 rsetup
+#### 更新 Rsetup
 
 :::tip
-rsetup 工具使用指南：可能会因为版本界面有微小差异，请以实际情况为准
+Rsetup 工具使用指南：可能会因为版本界面有微小差异，请以实际情况为准
 
 - 确认选择 ： 按 `Enter`
 - 取消选择 ： 按 `ESC`
@@ -60,7 +64,7 @@ rsetup
 </div>
 完成所有操作后重启系统。
 
-### 使能 SPI Flash 设备
+#### 使能 SPI Flash 设备
 
 为防止 SPI Flash 中存放的 bootloader 在平时使用被误写入，默认 SPI Flash 设备是关闭的。通过以下方式使能 SPI Flash 设备。
 
@@ -88,7 +92,7 @@ rsetup
 </div>
 完成所有操作后重启系统。
 
-### 刷入 SPI Flash
+#### 刷入 SPI Flash
 
 重启系统后，再次打开系统配置工具 `rsetup`。
 
@@ -113,6 +117,191 @@ rsetup
 </div>
 完成所有操作后重启系统。
 
+### 使用 RKDevTool
+
+RKDevTool 是瑞芯微（Rockchip）平台为 Windows/Linux/MacOS 平台下进行 USB 烧录所开发的软件，旨在简化和加速对 Rockchip 系列芯片的开发、调试过程。
+
+#### RKDevTool 安装
+
+<Tabs queryString="rkdevtool">
+
+<TabItem value="Windows">
+
+- 安装驱动
+
+下载并解压 [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) 文件。
+
+找到 ` DriverInstall.exe` 文件并以管理员身份运行：
+
+安装驱动： 点击 `Install Driver` 选项
+
+卸载驱动： 点击 `Uninstall Driver` 选项
+
+:::tip
+若之前安装过其他版本驱动，请先卸载再安装驱动
+:::
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/rkddevtool.webp" style={{width: '50%', maxWidth: '700'}} />
+</div>
+
+- 下载 RKDevTool 工具
+
+下载 [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar) 工具，然后解压下载的文件，其中 `RKDevTool.exe` 就是可执行程序，直接双击可以打开使用软件。
+
+</TabItem>
+
+<TabItem value="Linux">
+
+- 安装 rkdeveloptool
+
+打开系统终端或命令行，运行以下命令进行安装。
+
+<NewCodeBlock tip="Linux-host$" type="host">
+```
+sudo apt-get update
+sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
+git clone https://github.com/rockchip-linux/rkdeveloptool
+cd rkdeveloptool
+autoreconf -i
+./configure
+make -j $(nproc)
+sudo cp rkdeveloptool /usr/local/sbin/
+```
+</NewCodeBlock>
+
+- 验证版本号
+
+完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
+
+<NewCodeBlock tip="PC - Host$" type="host">
+```
+rkdeveloptool -V
+```
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="MacOS">
+
+- 安装 HomeBrew
+
+[HomeBrew](https://brew.sh/) 是一个免费且开源的包管理器，它简化了 MacOS 用户安装软件的过程。
+
+若没有安装 HomeBrew，可以按照教程进行安装。
+
+<NewCodeBlock tip="MacOS-host$" type="host">
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+</NewCodeBlock>
+
+- 安装 rkdeveloptool
+
+打开系统终端或命令行，运行以下命令进行安装。
+
+<NewCodeBlock tip="MacOS-host$" type="host">
+```
+brew install automake autoconf libusb pkg-config git wget
+git clone https://github.com/rockchip-linux/rkdeveloptool
+cd rkdeveloptool
+autoreconf -i
+./configure
+make -j $(nproc)
+cp rkdeveloptool /opt/local/sbin/
+```
+</NewCodeBlock>
+
+- 验证版本号
+
+完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
+
+<NewCodeBlock tip="MacOS-host$" type="host">
+```
+rkdeveloptool -V
+```
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+使用 RKDevTool 工具烧录 SPI Flash。
+
+<Tabs queryString="platform">
+
+<TabItem value="Windows">
+
+① 确认 E54C 处于 Maskrom 模式
+
+② 选择 E54C 对应的 Loader 文件，可以去 [资源汇总下载](../../download) 下载 Loader 文件。
+
+③ 选择对应存储设备，我们这里选择 `SPINOR` 选项。
+
+④ 选择你需要烧录进去 SPI Flash 的 `spi.img` 文件。
+
+⑤ 勾选 `Write by Address` 选项。
+
+⑥ 点击 `RUN` 选项执行所有操作。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/e/e54c/rk-down-spi-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+</TabItem>
+
+<TabItem value="Linux / MacOS">
+
+1. 确保 E54C 处于 Maskrom 模式。
+
+2. 验证 Maskrom 模式
+
+使用 rkdeveloptool ld 命令查看识别到的设备信息：
+
+<NewCodeBlock tip="Linux/MacOS-Host$" type="host">
+```
+rkdeveloptool ld
+```
+</NewCodeBlock>
+
+输出类似内容：说明识别到一个 Maskrom 设备
+
+```
+DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
+```
+
+3. 运行 Loader 文件
+
+你需要将 `demo.bin` 换成 E54C 对应的 Loader 文件，可以去 [资源汇总下载](../../download) 下载 Loader 文件。
+
+<NewCodeBlock tip="Linux/MacOS-Host$" type="host">
+```
+sudo rkdeveloptool db  demo.bin
+```
+</NewCodeBlock>
+
+4. 烧录 SPI 启动固件
+
+你需要将 `spi.img` 换成 E54C 对应的 SPI 启动固件，可以去 [资源汇总下载](../../download) 下载 SPI 启动固件。
+
+<NewCodeBlock tip="Linux/MacOS-Host$" type="host">
+```
+sudo rkdeveloptool wl 0 spi.img
+```
+</NewCodeBlock>
+
+5. 重启系统，烧录 SPI Flash 的操作生效
+
+<NewCodeBlock tip="Linux/MacOS-Host$" type="host">
+```
+sudo rkdeveloptool rd
+```
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
 ## 写入系统镜像到 NVME
 
 完成刷入 SPI Flash 的操作后，我们可以查看系统是否识别 SPI Flash 和 NVME 设备。
@@ -132,7 +321,6 @@ lsblk
 - 若 Linux 系统识别出 NVME 设备, 通常会被识别成 `nvme*n*`
 
 使用 `lsblk` 输出的示例信息：
-<NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 
 ```
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
@@ -148,8 +336,6 @@ nvme0n1     259:0    0 119.2G  0 disk
 └─nvme0n1p3 259:3    0 118.9G  0 part
 ```
 
-</NewCodeBlock>
-
 ### 下载系统镜像
 
 下载 Radxa E54C 的系统镜像文件到本地：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../download) 复制。
@@ -162,11 +348,8 @@ nvme0n1     259:0    0 119.2G  0 disk
 ```
 # 安装 wget
 sudo apt-get install wget
-
 # 下载系统镜像文件
-
 wget https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e54c_bookworm_cli_b2.output.img.xz
-
 ```
 </NewCodeBlock>
 
@@ -178,9 +361,7 @@ wget https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
-
 ```
 </NewCodeBlock>
 
@@ -196,13 +377,12 @@ sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo fdisk -l /dev/nvme0n1
-
 ```
 </NewCodeBlock>
 
 正确写入后，应该会看到类似以下的分区信息：
+
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e54c/rsetup-16.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
@@ -225,10 +405,8 @@ sudo fdisk -l /dev/nvme0n1
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 lsblk
 df -h
-
 ```
 </NewCodeBlock>
 
@@ -244,6 +422,7 @@ df -h
 如果在启动过程中遇到问题，请尝试以下解决方案：
 
 - **系统无法启动**：
+
   - 重新插入MicroSD卡，启动系统
   - 尝试更换刷入 SPI Flash 的 Bootloader 文件选项（优先选择最新版本）
   - 检查 M.2 接口是否连接良好，可尝试重新插拔NVMe
@@ -251,7 +430,7 @@ df -h
 - **系统可以启动但无法登录**：
   - 默认用户名：`radxa`，密码：`radxa`
   - 如密码错误，可重新使用MicroSD卡启动，然后重新下载并写入系统镜像
-:::
+    :::
 
 ## 后续步骤
 
@@ -261,17 +440,13 @@ df -h
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo apt update && sudo apt upgrade
-
 ```
 </NewCodeBlock>
-
 
 ### 备份系统
 
 定期备份重要数据，可使用`dd`或`rsync`命令
-
 
 ### 性能测试
 
@@ -281,9 +456,7 @@ sudo apt update && sudo apt upgrade
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
-
 ```
 </NewCodeBlock>
 
@@ -291,15 +464,10 @@ sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 # 安装 nvme-cli
-
 sudo apt install nvme-cli
-
 # 检查温度
-
 sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
-
 ```
 </NewCodeBlock>
 
@@ -307,13 +475,10 @@ sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
 ```
-
 sudo nvme list
-
 ```
 </NewCodeBlock>
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e54c/rsetup-17.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-```
