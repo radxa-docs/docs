@@ -1,0 +1,29 @@
+Wayland 是 X11 窗口系统协议和架构的替代品，往往有着更良好的图形性能表现。但是由于 Rockchip Debian SDK 并没有提供相应的支持，因此 Radxa OS 默认也关闭了 GDM 的 Wayland 模式。如果您想使用 Wayland 运行图形软件/桌面，可以按照以下步骤进行操作：
+
+:::warning
+某些 Rockchip 提供的视频/图形软件栈未对 Wayland 进行适配，开启 Wayland 后可能会出现性能下降/图形错乱等意料之外的现象。
+:::
+
+1. 编辑 `/etc/gdm3/daemon.conf`，并将 `WaylandEnable` 取消注释后设置为 `true`：
+
+```bash
+sudo nano /etc/gdm3/daemon.conf
+```
+
+`/etc/gdm3/daemon.conf` 修改后应包含以下内容：
+
+```
+[daemon]
+# Uncomment the line below to force the login screen to use Xorg
+WaylandEnable=true
+```
+
+2. 重启系统以应用新配置：
+
+```bash
+sudo reboot
+```
+
+3. 重启后，即可在登陆时的右下角选择 Wayland 会话：
+
+![wayland_gdm.webp](/img/common/wayland/wayland_gdm.webp)

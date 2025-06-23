@@ -1,39 +1,55 @@
 ---
-sidebar_position: 12
+sidebar_position: 2
 ---
 
 # System Usage
 
-This article mainly introduces the common functions used in the system usage process.
+This section provides a brief overview of common features when using the Radxa ROCK 4D system.
 
-### [Display Mode](/rock4/rock4d/system-config/display-mode)
+#### [Auto Login](/rock4/rock4d/system-config/auto-login)
 
-This article mainly introduces how to connect the display and use and develop in the display mode of Radxa Rock 4D.
+Describes how to configure auto login for ROCK 4D in display mode.
 
-### [No Display Mode](/rock4/rock4d/system-config/no-display-mode)
+#### [Display Mode](/rock4/rock4d/system-config/display-mode)
 
-This article mainly introduces how to use and develop in the no display mode of Radxa Rock 4D.
+Explains how to connect a display and use/develop with ROCK 4D in display mode.
 
-### [Serial Debug](/rock4/rock4d/system-config/uart_debug)
+#### [Headless Mode](/rock4/rock4d/system-config/no-display-mode)
 
-This article mainly introduces the hardware connection and usage method of Radxa Rock 4D serial debugging.
+Covers usage and development with ROCK 4D in headless mode.
 
-### [USB Connection](/rock4/rock4d/system-config/usb_connection)
+#### [Serial Debugging](/rock4/rock4d/system-config/uart_debug)
 
-This article mainly introduces the USB connection method of Radxa Rock 4D.
+Details the hardware connections and usage of serial debugging on ROCK 4D.
 
-### [Network Configuration](/rock4/rock4d/system-config/web-config)
+#### [Network Configuration](/rock4/rock4d/system-config/web-config)
 
-This article mainly introduces the configuration method of Radxa Rock 4D in the display mode and no display mode.
+Explains how to configure wired and WiFi networks on ROCK 4D in both display and headless modes.
 
-### [SSH Remote](/rock4/rock4d/system-config/ssh-remote)
+#### [SSH Remote](/rock4/rock4d/system-config/ssh-remote)
 
-This article mainly introduces the method of opening and using SSH remote connection of Radxa Rock 4D.
+Guides you through enabling and using SSH remote connections on ROCK 4D.
 
-### [VNC Remote](/rock4/rock4d/system-config/vnc-remote)
+#### [VNC Remote](/rock4/rock4d/system-config/vnc-remote)
 
-This article mainly introduces the method of opening VNC and using VNC Viewer for remote connection of Radxa Rock 4D.
+Explains how to enable VNC and connect remotely using VNC Viewer on ROCK 4D.
 
-### [Rsetup Tool](/rock4/rock4d/system-config/rsetup)
+#### [Application Usage](/rock4/rock4d/system-config/application-use)
 
-This article mainly introduces the usage method of Radxa Rock 4D Rsetup tool.
+Describes how to install applications on ROCK 4D using dpkg and apt commands.
+
+#### [Chinese Environment](/rock4/rock4d/system-config/chinese-env)
+
+Explains how to configure the Chinese language environment on ROCK 4D.
+
+#### [Audio Management](/rock4/rock4d/system-config/audio-use)
+
+Details the configuration of audio output devices on ROCK 4D.
+
+#### [System Backup](/rock4/rock4d/system-config/backup-system)
+
+Covers both online and offline system backup methods for ROCK 4D.
+
+#### [Rsetup Tool](/rock4/rock4d/system-config/rsetup)
+
+Explains how to use the Rsetup tool on ROCK 4D.

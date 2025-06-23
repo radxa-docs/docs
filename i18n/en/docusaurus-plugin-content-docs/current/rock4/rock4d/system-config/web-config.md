@@ -4,19 +4,21 @@ sidebar_position: 3
 
 # Network Configuration
 
+Configure wired and wireless networks through both graphical interface and command line.
+
 ## Wired Network
 
 <Tabs queryString="web-mode">
 
-<TabItem value="Graphical interface">
+<TabItem value="Graphical Interface">
 
-Connect Radxa ROCK 4D to the router using a network cable, and the router will automatically assign an IP address to Radxa ROCK 4D.
+Connect the Radxa ROCK 4D's Gigabit Ethernet port to your router using an Ethernet cable. After a successful connection, the router will automatically assign an IP address to the ROCK 4D.
 
-① : Click the network icon
+① Click on the network icon
 
-② : Select the `Details` option to view the network connection details, such as IP address, subnet mask, gateway address, etc.
+② Select the `Details` option to view detailed network connection information, such as IP address, subnet mask, gateway address, etc.
 
-`192.168.2.106` is the IP address assigned by the router.
+The IP address `192.168.2.106` is assigned by the router.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/web-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -24,11 +26,11 @@ Connect Radxa ROCK 4D to the router using a network cable, and the router will a
 
 </TabItem>
 
-<TabItem value="Command-line mode">
+<TabItem value="Command Line">
 
-Connect Radxa ROCK 4D to the router using a network cable, and the router will automatically assign an IP address to Radxa ROCK 4D.
+Connect the Radxa ROCK 4D's Gigabit Ethernet port to your router using an Ethernet cable. After a successful connection, the router will automatically assign an IP address to the ROCK 4D.
 
-Terminal command line input the following command to view network connection details:
+Enter the following command in the terminal to view detailed network connection information:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
@@ -36,9 +38,8 @@ ip a
 ```
 </NewCodeBlock>
 
-The terminal will output similar information: `192.168.2.106` is the IP address assigned by the router.
+The terminal will output information similar to the following. The IP address `192.168.2.106` is assigned by the router.
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -61,7 +62,6 @@ The terminal will output similar information: `192.168.2.106` is the IP address 
     inet6 fe80::379f:ead8:706f:5d6/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
-</NewCodeBlock>
 
 </TabItem>
 
@@ -69,29 +69,29 @@ The terminal will output similar information: `192.168.2.106` is the IP address 
 
 ## Wireless Network
 
-Connect Radxa ROCK 4D to the router using a network cable, and the router will automatically assign an IP address to Radxa ROCK 4D.
+Connect to a wireless router using the ROCK 4D's onboard WiFi. After a successful connection, the router will automatically assign an IP address to the ROCK 4D.
 
 :::tip
-Radxa ROCK 4D has two onboard antenna interfaces, you need to install the antenna to the interface position, otherwise the WiFi signal will be very weak
+The ROCK 4D has two onboard antenna connectors. You need to install the antennas in these positions; otherwise, the WiFi signal will be very poor.
 :::
 
 <Tabs queryString="web-mode">
 
-<TabItem value="Graphical interface">
+<TabItem value="Graphical Interface">
 
-① : Click the network icon
+① Click on the network icon
 
-② : Click the `Connect` button next to the WiFi name you want to connect to
+② Click the `Connect` button next to the WiFi network name you want to connect to
 
-③ : Enter the WiFi password and follow the subsequent prompts to connect
+③ Enter the WiFi password and follow the prompts to complete the connection
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/wifi-connect-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-After connecting successfully, click `Details` to view the network connection details, such as IP address, subnet mask, gateway address, etc.
+After a successful connection, select the `Details` option to view detailed network connection information, such as IP address, subnet mask, gateway address, etc.
 
-`192.168.31.53` is the IP address assigned by the router.
+The IP address `192.168.31.53` is assigned by the router.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/wifi-connect-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -99,9 +99,9 @@ After connecting successfully, click `Details` to view the network connection de
 
 </TabItem>
 
-<TabItem value="Command-line mode">
+<TabItem value="Command Line">
 
-1. Enable WiFi function
+1. Enable WiFi
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
@@ -117,7 +117,7 @@ sudo nmcli device wifi list
 ```
 </NewCodeBlock>
 
-3. Connect to WiFi network
+3. Connect to a WiFi network
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
@@ -135,9 +135,8 @@ ip a
 ```
 </NewCodeBlock>
 
-The terminal will output similar information: `192.168.31.53` is the IP address assigned by the router.
+The terminal will output information similar to the following. The IP address `192.168.31.53` is assigned by the router.
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -174,15 +173,14 @@ The terminal will output similar information: `192.168.31.53` is the IP address 
     inet6 fe80::ff38:edfe:b892:b694/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
-</NewCodeBlock>
 
 :::tip
-Nmcli is the Network Manager Command Line Interface, which is a command-line tool for managing networks in Linux.
+Nmcli is the abbreviation for Network Manager Command Line Interface, a command-line tool for managing networks in Linux.
 
 Additional commands:
 
-- `nmcli radio wifi off`：Turn off WiFi function.
-- `nmcli connection delete <SSID>` : Delete the specified WiFi network.
+- `nmcli radio wifi off`: Disable WiFi
+- `nmcli connection delete <SSID>`: Delete a specified WiFi network
   :::
 
 </TabItem>

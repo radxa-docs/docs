@@ -5,6 +5,10 @@ title: Resource Download
 
 # Resource Download
 
+## Loader file
+
+- [RK3308 Loader](https://dl.radxa.com/rockpis/images/loader/rk3308_loader_uart0_m0_emmc_port_support_sd_20190717.bin)
+
 ## Official operating system images
 
 - [Radxa ROCK PI S Debian Build 40](https://github.com/radxa-build/rock-pi-s/releases/download/b40/rock-pi-s_debian_bookworm_cli_b40.img.xz)

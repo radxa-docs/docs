@@ -4,7 +4,7 @@
 Before assembling the AI PC Developer Kit, users need to remove the heatsink (8420B) from the Orion 6 motherboard!
 :::
 
-## 1. AI PC Developer Kit Components
+## AI PC Developer Kit Components
 
 Unscrew the four CM3\*8mm screws on the bottom cover of the AI PC Developer Kit to reveal the following components.
 
@@ -36,7 +36,7 @@ Unscrew the four CM3\*8mm screws on the bottom cover of the AI PC Developer Kit 
 | 16  | CM3\*8mm Screws               |  4  |
 | 17  | CM2\*4mm Screws               |  1  |
 
-## 2. Removing the Acrylic Enclosure
+## Removing the Acrylic Enclosure
 
 :::tip
 This step applies only to users who purchased the acrylic enclosure. If not purchased, skip this step!
@@ -48,7 +48,7 @@ Use a screwdriver to remove the screws securing the acrylic panels, then remove 
   ![](/img/o6/ai-pc-03.webp)
 </div>
 
-## 3. Removing the Heatsink (8420B)
+## Removing the Heatsink (8420B)
 
 Before assembling the AI PC Developer Kit, the Radxa 8420B heatsink must be removed
 
@@ -68,7 +68,7 @@ Loosen the four heatsink screws in a cross pattern using a screwdriver to ensure
   ![](/img/o6/ai-pc-05.webp)
 </div>
 
-## 4. Assembling the AI PC Developer Kit
+## Assembling the AI PC Developer Kit
 
 ### Step 1: Apply Thermal Paste
 
@@ -130,7 +130,7 @@ Installation Instructions:
   ![](/img/o6/ai-pc-11.webp)
 </div>
 
-### Step 6 (Optional): Install PCIe to M.2 Adapter Board
+### Step 7 (Optional): Install PCIe to M.2 Adapter Board
 
 Primarily used for expanding M.2 SSD storage. Install as needed.
 
@@ -148,7 +148,7 @@ Installation Instructions:
   ![](/img/o6/ai-pc-12.webp)
 </div>
 
-### Step 7: Install the Enclosure Bracket
+### Step 8: Install the Enclosure Bracket
 
 Orient the bracket with its notch facing the enclosure's ports. Align the bracket's screw holes with the enclosure's mounting points, then secure with seven KM2\*6mm screws.
 
@@ -156,7 +156,7 @@ Orient the bracket with its notch facing the enclosure's ports. Align the bracke
   ![](/img/o6/ai-pc-13.webp)
 </div>
 
-### Step 8: Install the Silicone Plug
+### Step 9: Install the Silicone Plug
 
 For users not installing PCIe adapters or only installing the PCIe to M.2 adapter, use the silicone plug to cover unused ports and prevent dust ingress.
 
@@ -164,7 +164,7 @@ For users not installing PCIe adapters or only installing the PCIe to M.2 adapte
   ![](/img/o6/ai-pc-14.webp)
 </div>
 
-### Step 9: Install Ventilation Baffles
+### Step 10: Install Ventilation Baffles
 
 :::tip
 Early adopters will receive two ventilation baffles (one spare). Later versions will come with pre-installed baffles, making this step unnecessary
@@ -176,7 +176,7 @@ Attach the ventilation baffle to the base's exhaust vents to direct all airflow 
   ![](/img/o6/ai-pc-14-1.webp)
 </div>
 
-### Step 10: Install the Bottom Cover
+### Step 11: Install the Bottom Cover
 
 Align the bottom cover's ventilation holes with the enclosure's ports, then secure with CM3\*8mm screws.
 
@@ -184,7 +184,7 @@ Align the bottom cover's ventilation holes with the enclosure's ports, then secu
   ![](/img/o6/ai-pc-15.webp)
 </div>
 
-### Step 11: Install the Rubber Feet
+### Step 12: Install the Rubber Feet
 
 Attach the four rubber feet to the designated positions on the bottom cover.
 
