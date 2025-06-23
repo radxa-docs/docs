@@ -95,7 +95,7 @@ sudo rkdeveloptool db xxx.bin
 
 - 烧录系统镜像
 
-将下面的`xxx.img`文件名称修改成实际下载的 Loader 文件名称。
+将下面的`xxx.img`文件名称修改成实际下载的系统镜像文件名称。
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
