@@ -49,7 +49,7 @@ Radxa E24C has a dedicated Maskrom button. If this button is detected as pressed
 Normally, the power indicator will stay lit when in Maskrom mode. If this doesn't happen, you can repeat the steps above.
 
 <div style={{textAlign: 'left'}}>
-  <img src="/img/e/e24c/e24c-maskrom.webp" style={{width: '80%', maxWidth: '700'}} />
+  <img src="/img/e/e24c/e24c-maskrom.webp" style={{width: '80%', maxWidth: '700px'}} />
 </div>
 
 ## Installing the System to eMMC
