@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 安装系统到 MicroSD 卡
 
-## 1. 系统下载
+## 系统下载
 
 进入[资源下载汇总](../../download)页面下载对应的操作系统镜像压缩包,下载完成后解压系统镜像压缩包，得到的 `*.img` 后缀文件就是后面安装系统镜像需要的文件。
 
@@ -12,7 +12,7 @@ sidebar_position: 1
 下载的系统镜像是一个压缩文件，需要解压后才能通过镜像烧录软件写入到 SD 卡
 :::
 
-## 2. 硬件连接
+## 硬件连接
 
 将 MicroSD 卡插入读卡器中，然后将读卡器插入 PC 的 USB 端口上。
 
@@ -20,11 +20,11 @@ sidebar_position: 1
   <img src="/img/e/e24c/e24c-sd-insert.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 3. 镜像烧录工具
+## 镜像烧录工具
 
 我们推荐使用瑞莎合作伙伴 Balena 开发的开源镜像烧录工具 Etcher，该软件使用简单，功能强大，支持 Windows/Linux/macOS 系统使用。
 
-### 3.1 使用Etcher
+### 使用Etcher
 
 进入官网下载系统对应平台的软件：[balenaEtcher](https://etcher.balena.io)
 
@@ -46,7 +46,7 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
   <img src="/img/e/e24c/e24c-down-etcher-00.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-### 3.2 安装系统镜像
+### 安装系统镜像
 
 - 选择主板对应的系统镜像
 
@@ -100,7 +100,7 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
   <img src="/img/e/e24c/etcher-06.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 4. 启动系统
+## 启动系统
 
 在 MicroSD 卡上完成系统镜像的写入后，我们可以将读卡器上的 MicroSD 卡装入 Radxa E24C 的 MicroSD 卡槽中，然后使用 12V DC 电源适配器启动系统。
 
@@ -108,7 +108,7 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
   <img src="/img/e/e24c/e24c-insert-sd.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 5. 系统信息
+## 系统信息
 
 我们提供 Debian Linux 和 OpenWrt 两大操作系统，用户根据自己的系统使用对应的用户名和密码进行系统登陆。
 

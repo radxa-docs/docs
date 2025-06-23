@@ -6,7 +6,7 @@ sidebar_position: 0
 
 RKDevTool 是 Rockchip 为 Windows/Linux/macOS 平台下进行 USB 烧录所开发的软件。
 
-## 1. RKDevTool安装
+## RKDevTool安装
 
 <Tabs queryString="e24c-erase">
 
@@ -111,7 +111,7 @@ rkdeveloptool -V
 
 </Tabs>
 
-## 2. RKDevTool使用
+## RKDevTool使用
 
 :::tip
 Maskrom 模式是嵌入式设备的“硬件急救箱”，通过直接操作芯片底层接口实现设备修复。
@@ -121,17 +121,17 @@ Maskrom 模式是 Rockchip 芯片内置的底层恢复模式，当设备无法�
 此模式允许通过 RockUSB 协议重新烧写设备固件。
 :::
 
-### 2.1 进入Maskrom模式
+### 进入Maskrom模式
 
 Radxa E24C 有一个专用的 Maskrom 按键，在系统启动过程中检测到该键被按下，系统会自动进入 Maskrom 模式！
 
-#### 2.1.1 所需设备
+#### 所需设备
 
 - 一根 USB Type-A 转 USB Type-C 数据线
 - 一个插针或者一根牙签
 - 12V/2A DC电源适配器（ DC5525 ）
 
-#### 2.1.2 进入模式
+#### 进入模式
 
 1. 使用 USB Type-C 接口连接 Radxa E24C，USB Type-A 连接 PC
 
@@ -147,7 +147,7 @@ Radxa E24C 有一个专用的 Maskrom 按键，在系统启动过程中检测到
   <img src="/img/e/e24c/e24c-maskrom.webp" style={{width: '100%', maxWidth: '700'}} />
 </div>
 
-### 2.2 擦除eMMC
+### 擦除eMMC
 
 <Tabs queryString="e24c-erase">
 
@@ -231,13 +231,11 @@ sudo rkdeveloptool ld
 
 正常输出内容：识别到一个设备
 
-<NewCodeBlock tip="Linux/macOS-host$" type="host">
 ```
 DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 ```
-</NewCodeBlock>
 
-3. 写入 Loader
+1. 写入 Loader
 
 进入[资源下载汇总](../../../download)页面下载对应的 Loader 文件，将下面的`xxx.bin`文件名称修改成实际下载的文件名称。
 
@@ -246,7 +244,6 @@ DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 sudo rkdeveloptool db xxx.bin
 ```
 </NewCodeBlock>
-
 
 4. 清空 eMMC
 
@@ -257,7 +254,6 @@ sudo rkdeveloptool db xxx.bin
 sudo rkdeveloptool wl 0 zero.img
 ```
 </NewCodeBlock>
-
 
 5. 重启设备
 

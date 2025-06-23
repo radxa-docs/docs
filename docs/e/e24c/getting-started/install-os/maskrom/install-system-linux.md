@@ -4,13 +4,13 @@ sidebar_position: 2
 
 # Linux/macOS 主机
 
-## 1. 文件下载
+## 文件下载
 
-### 1.1 Loader 下载
+### Loader 下载
 
 进入[资源下载汇总](../../../download)页面下载对应的 Loader 文件。
 
-### 1.2 系统镜像下载
+### 系统镜像下载
 
 进入[资源下载汇总](../../../download)页面下载对应的操作系统镜像压缩包,下载完成后解压系统镜像压缩包，得到的 `*.img` 后缀文件就是后面安装系统镜像需要的文件。
 
@@ -18,15 +18,15 @@ sidebar_position: 2
 下载的系统镜像是一个压缩文件，需要解压后才能通过镜像烧录软件写入到 eMMC
 :::
 
-## 2. 硬件连接
+## 硬件连接
 
-### 2.1 所需设备
+### 所需设备
 
 - 一根 USB Type-A 转 USB Type-C 数据线
 - 一个插针或者一根牙签
 - 12V/2A DC电源适配器（ DC5525 ）
 
-### 2.2 进入 Maskrom 模式
+### 进入 Maskrom 模式
 
 :::tip
 Maskrom 模式是嵌入式设备的“硬件急救箱”，通过直接操作芯片底层接口实现设备修复。
@@ -52,9 +52,9 @@ Radxa E24C 有一个专用的 Maskrom 按键，在系统启动过程中检测到
   <img src="/img/e/e24c/e24c-maskrom.webp" style={{width: '80%', maxWidth: '700'}} />
 </div>
 
-## 3. 安装系统到 eMMC
+## 安装系统到 eMMC
 
-### 3.1 Maskrom 设备识别
+### Maskrom 设备识别
 
 :::tip
 有关 RKDevTool 工具的使用，可以参考[RKDevTool使用](./rkdevtool)
@@ -71,7 +71,6 @@ sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
 
-
 正常输出内容：识别到一个设备
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
@@ -80,7 +79,7 @@ DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 ```
 </NewCodeBlock>
 
-### 3.2 安装系统
+### 安装系统
 
 打开系统终端或命令行，执行以下操作。
 
@@ -112,6 +111,6 @@ sudo rkdeveloptool rd
 ```
 </NewCodeBlock>
 
-### 3.3 使用系统
+### 使用系统
 
 参考[快速上手](../../introduction)教程的登陆系统操作！

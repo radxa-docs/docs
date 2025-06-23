@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 接口使用
 
-## 1. 接口预览
+## 接口预览
 
 <Tabs queryString="e24cmode2">
 
@@ -59,11 +59,11 @@ sidebar_position: 2
 
 </Tabs>
 
-## 2. 接口说明
+## 接口说明
 
 以 Radxa E24C 裸板作为示例进行接口说明。
 
-### 2.1 电源接口
+### 电源接口
 
 使用 DC5525 接口的 12V/2A 电源适配器进行供电。
 
@@ -77,11 +77,11 @@ sidebar_position: 2
 
 :::
 
-### 2.2 板载 eMMC
+### 板载 eMMC
 
 可选板载 eMMC 存储配置。
 
-### 2.3 USB 2.0 Type‑C 型接口
+### USB 2.0 Type‑C 型接口
 
 作为调试口用以查看日志和访问设备，波特率默认1500000。
 
@@ -122,23 +122,23 @@ echo fc000000.usb > UDC
 ```
 </NewCodeBlock>
 
-### 2.4 用户按键
+### 用户按键
 
 用户可编程按键，可通过软件自定义功能。
 
-### 2.5 USB 2.0 Type‑A型接口
+### USB 2.0 Type‑A型接口
 
 提供3个 USB 2.0 接口，用于连接外部设备，如键盘、鼠标、存储设备等。
 
-### 2.6 RTC 电池接口
+### RTC 电池接口
 
 2-Pin 1.25mm RTC 电池接口，用于连接实时时钟电池，保持系统时间在断电后仍然准确。
 
-### 2.7 MicroSD 卡槽
+### MicroSD 卡槽
 
 用于插入 MicroSD 卡，可作为系统启动盘或拓展存储空间。
 
-### 2.8 GPIO：14Pin 拓展排针
+### GPIO：14Pin 拓展排针
 
 14-Pin 0.1" (2.54mm) 接口，支持多种接口功能，包括 SPI、UART、I2C 和电源输出。
 
@@ -147,7 +147,7 @@ echo fc000000.usb > UDC
   <img src="/img/e/e24c/e24c-gpio-pinout.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-#### 2.8.1 GPIO 引脚定义表
+#### GPIO 引脚定义表
 
 | 引脚编号 | 引脚名称 | 功能描述      | 电平类型 | 默认功能     |
 | :------: | :------- | :------------ | :------: | :----------- |
@@ -170,78 +170,60 @@ echo fc000000.usb > UDC
 请注意，所有信号引脚都是 3.3V 电平，请勿连接 5V 信号，否则可能损坏单板计算机。
 :::
 
-#### 2.8.2 GPIO 使用示例
+#### GPIO 使用示例
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="device">
 ```
 # 安装 GPIO 控制工具
 sudo apt-get install gpiod
-
 # 列出可用的 GPIO 芯片
-
 gpiodetect
-
 # 查看 GPIO 状态
-
 gpioinfo
-
 # 控制 GPIO 输出
-
 gpioset <chip> <line>=<value>
-
 # 读取 GPIO 输入
-
 gpioget <chip> <line>
-
 ```
 </NewCodeBlock>
 
-#### 2.8.3 常见外设连接示例
+#### 常见外设连接示例
 
 ##### I2C 传感器连接
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="device">
 ```
-
 # 安装 I2C 工具
-
 sudo apt-get install i2c-tools
-
 # 扫描 I2C 总线上的设备
-
 sudo i2cdetect -y 2 # 假设使用 I2C2
-
 # 读取 I2C 设备寄存器
-
 sudo i2cget -y 2 0x48 0x00 # 从地址 0x48 的设备读取寄存器 0x00
-
 # 写入 I2C 设备寄存器
-
 sudo i2cset -y 2 0x48 0x01 0x55 # 向地址 0x48 的设备的寄存器 0x01 写入值 0x55
-
 ```
 </NewCodeBlock>
 
-### 2.9 LED状态指示灯
+### LED状态指示灯
 
 5个状态指示灯，显示电源和网络状态：可根据 Radxa E24C 裸板上的丝印辨识对应指示灯。
 
 - 电源指示灯：设备接通电源亮绿灯
 - 网络状态指示灯：LED 亮灭跟随对应网口信号变化
 
-### 2.10 电源按键
+### 电源按键
 
 用于开启和关闭设备电源。
 
-### 2.11 风扇接口
+### 风扇接口
 
 2-Pin 1.25mm 风扇接口，用于连接散热风扇。
 
-### 2.12 Maskrom按键
+### Maskrom按键
 
 Maskrom 按键，用于进入 Maskrom 模式完成刷机。
 
-### 2.13 千兆以太网接口
+### 千兆以太网接口
 
 提供四个千兆以太网端口。
 
@@ -255,32 +237,22 @@ Radxa E24C 的 MAC 地址是唯一且固定的，在每次断电重启或者软�
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="host">
 ```
-
 # 安装 iperf3 工具
-
 sudo apt install iperf3
-
 # 在服务器端运行命令
-
 iperf -s
-
 # 测试上传速度
-
 iperf3 -c server-ip -t 60
-
 # 测试下载速度
-
 iperf3 -c server-ip -t 60 -R
-
 ```
 </NewCodeBlock>
 
-### 2.14 HDMI2.1 输出接口
+### HDMI2.1 输出接口
 
 支持高达 4K 分辨率的视频输出，可连接显示器或电视。
 
-### 2.15 M.2 NVME SSD 接口
+### M.2 NVME SSD 接口
 
 提供 PCIe 2.1 1-lane 接口，用于连接 M.2 NVMe SSD。
 支持标准 M.2 2280 规格的 NVMe SSD，注意不支持 M.2 SATA SSD。
-```
