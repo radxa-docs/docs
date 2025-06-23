@@ -124,7 +124,8 @@ cd rkdeveloptool
 autoreconf -i
 ./configure
 make -j $(nproc)
-cp rkdeveloptool /opt/local/sbin/
+make -j $(nproc)
+sudo cp rkdeveloptool /opt/local/sbin/
 ```
 </NewCodeBlock>
 
