@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## 硬件准备
 
-在没有瑞莎 eMMC / UFS 二合一模块读卡器的情况下安装系统到 UFS 模块，需要 Radxa ROCK 4D 通过 MicroSD 卡能正常启动系统。
+在没有瑞莎 eMMC / UFS 二合一模块读卡器的情况下安装系统到 UFS 模块，需要瑞莎 ROCK 4D 通过 MicroSD 卡能正常启动系统。
 
 我们会在 MicroSD 卡上的系统进行操作，使用 `dd` 命令将系统安装到 UFS 模块中。
 
@@ -16,13 +16,13 @@ sidebar_position: 2
 
 **您需要准备以下硬件：**
 
-- 开发板： Radxa ROCK 4D
+- 开发板： 瑞莎 ROCK 4D
 - [UFS 模块](https://radxa.com/products/accessories/ufs-module)
 - 正常启动系统的 MicroSD 卡
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)
 
 :::tip
-Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
+ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
 
 参考电源：
 
@@ -37,10 +37,10 @@ Radxa ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保�
 
 ### 下载系统镜像
 
-下载 Radxa ROCK 4D 的系统镜像文件到 Radxa ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源下载汇总](../../../download) 复制。
+下载 ROCK 4D 的系统镜像文件到 ROCK 4D 上：可以直接使用 `wget` 命令下载文件到当前目录，其中网址链接可以进入 [资源汇总下载](../../../download) 复制。
 
 :::tip
-您也可以通过其他方式将系统镜像文件复制到 Radxa ROCK 4D 上，比如通过 FTP、SCP 等方式
+您也可以通过其他方式将系统镜像文件复制到 ROCK 4D 上，比如通过 FTP、SCP 等方式
 :::
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
@@ -65,8 +65,8 @@ wget [URL]
 
 UFS 模块安装步骤：
 
-1. 确保 UFS 模块的缺角和 Radxa ROCK 4D 的 eMMC / UFS 模块接口方向一致
-2. 确保 UFS 模块底部卡槽接口和 Radxa ROCK 4D 的 eMMC / UFS 模块接口对齐
+1. 确保 UFS 模块的缺角和 ROCK 4D 的 eMMC / UFS 模块接口方向一致
+2. 确保 UFS 模块底部卡槽接口和 ROCK 4D 的 eMMC / UFS 模块接口对齐
 3. 轻微用力按压 UFS 模块一端的接口，听到滴的声音说明安装成功，同样的方法按压另一端的接口，确保 UFS 模块安装成功。
    :::
 
@@ -78,9 +78,7 @@ UFS 模块安装步骤：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/sda bs=1M status=progress
-
 ```
 </NewCodeBlock>
 
@@ -96,16 +94,13 @@ sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/s
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 sudo fdisk -l /dev/sda
-
 ```
 </NewCodeBlock>
 
 正确写入后，应该会看到类似以下的分区信息：
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
 
+```
 Disk /dev/sda: 119.15 GiB, 127934660608 bytes, 31234048 sectors
 Disk model: KLUDG4UHDC-B0E1
 Units: sectors of 1 \* 4096 = 4096 bytes
@@ -118,9 +113,7 @@ Device Start End Sectors Size Type
 /dev/sda1 32768 65535 32768 128M Linux filesystem
 /dev/sda2 65536 679935 614400 2.3G EFI System
 /dev/sda3 679936 31234014 30554079 116.6G EFI System
-
 ```
-</NewCodeBlock>
 
 ## 系统信息
 
@@ -137,7 +130,7 @@ Device Start End Sectors Size Type
 完成系统镜像的安装后：
 
 1. 关闭系统：`sudo shutdown -h now`
-2. 断开 Radxa ROCK 4D 的电源
+2. 断开 ROCK 4D 的电源
 3. 移除 MicroSD 卡
 4. 重新连接电源
 5. 等待系统从 UFS 模块启动
@@ -150,10 +143,10 @@ Device Start End Sectors Size Type
 
 UFS 模块安装步骤：
 
-1. 确保 UFS 模块的缺角和 Radxa ROCK 4D 的 eMMC / UFS 模块接口方向一致
-2. 确保 UFS 模块底部卡槽接口和 Radxa ROCK 4D 的 eMMC / UFS 模块接口对齐
+1. 确保 UFS 模块的缺角和 ROCK 4D 的 eMMC / UFS 模块接口方向一致
+2. 确保 UFS 模块底部卡槽接口和 ROCK 4D 的 eMMC / UFS 模块接口对齐
 3. 轻微用力按压 UFS 模块一端的接口，听到滴的声音说明安装成功，同样的方法按压另一端的接口，确保 UFS 模块安装成功。
-:::
+   :::
 
 启动系统后，蓝色和绿色 LED 灯会同时亮起，大概过几秒左右，绿灯常亮、蓝色指示灯会闪烁，一般表示系统启动成功。
 
@@ -163,17 +156,13 @@ UFS 模块安装步骤：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 sudo lsblk
-
 ```
 </NewCodeBlock>
 
 如果您看到 `/dev/sda3` 被挂载为根目录 `/`，则表示系统已成功从 UFS 模块启动。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```
-
 NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
 sda 8:0 0 119.1G 0 disk
 ├─sda1 8:1 0 128M 0 part /config
@@ -181,15 +170,14 @@ sda 8:0 0 119.1G 0 disk
 └─sda3 8:3 0 116.6G 0 part /
 mtdblock0 31:0 0 16M 0 disk
 zram0 253:0 0 1.9G 0 disk [SWAP]
-
 ```
-</NewCodeBlock>
 
 :::tip
 
 如果在启动过程中遇到问题，请尝试以下解决方案：
 
 - 系统无法启动：
+
   - 尝试重新安装 UFS 模块，启动系统
   - 尝试 [下载并烧录最新 SPI 启动固件](../boot_start)
   - 尝试重新安装系统到 UFS 模块
@@ -197,5 +185,4 @@ zram0 253:0 0 1.9G 0 disk [SWAP]
 - 系统可以启动但无法登录：
   - 默认用户名：radxa，密码：radxa
   - 如密码错误，重新下载系统镜像和安装系统到 UFS 模块
-:::
-```
+    :::

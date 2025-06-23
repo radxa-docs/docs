@@ -14,16 +14,16 @@ M.2 NVMe SSD 是一种高速、高容量、低成本的存储设备，其读写�
 
 :::tip
 
-Radxa ROCK 4D 上预留一个 FPC 接口，提供了 PCIe Gen2 ×1 通道的扩展能力。
+瑞莎 ROCK 4D 上预留一个 FPC 接口，提供了 PCIe Gen2 ×1 通道的扩展能力。
 
 使用 FPC 接口需要提前购买 PCIe 转 M.2 M Key HAT ，并按照配件说明正确安装。
 
 :::
 
-### [使用 M.2 NVMe 固态硬盘盒](/rock4/rock4d/getting-started/install-system/nvme-system/nvme_reader)
+#### [使用 M.2 NVMe 固态硬盘盒](/rock4/rock4d/getting-started/install-system/nvme-system/nvme_reader)
 
 主要介绍用户在有 M.2 NVMe 固态硬盘盒的情况下，如何安装系统和启动系统。
 
-### [不使用 M.2 NVMe 固态硬盘盒](/rock4/rock4d/getting-started/install-system/nvme-system/no_nvme_reader)
+#### [不使用 M.2 NVMe 固态硬盘盒](/rock4/rock4d/getting-started/install-system/nvme-system/no_nvme_reader)
 
 主要介绍用户在没有 M.2 NVMe 固态硬盘盒的情况下，如何安装系统和启动系统。
