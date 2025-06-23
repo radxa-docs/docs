@@ -66,3 +66,6 @@ sidebar_position: 2
 | Model                         | Description                                |
 | ----------------------------- | ------------------------------------------ |
 | [Radxa E20C](/e/e20c/) (2024) | Dual GbE Network Computer based on RK3528A |
+| [Radxa E24C](/e/e24c/) (2025) | Quad GbE Network Computer based on RK3528A |
+| [Radxa E52C](/e/e52c/) (2024) | Dual GbE Network Computer based on RK3582  |
+| [Radxa E54C](/e/e54c/) (2024) | Quad GbE Network Computer based on RK3582  |

@@ -669,6 +669,22 @@ sidebar_custom_props:
                   ],
               },
               {
+                products_name: "Radxa E24C",
+                products_photo_url: "/home/product-pictures/e54c.webp",
+                products_link: "/e/e24c",
+                docs:
+                  [
+                    {
+                      docs_link: "/e/e24c",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa E24C 概览",
+                      docs_info_en: "Overview of the E24C",
+                      docs_info_zh: "Radxa E24C 概览",
+                    },
+                  ],
+              },
+              {
                 products_name: "Radxa E52C",
                 products_photo_url: "/home/product-pictures/e52c.webp",
                 products_link: "/e/e52c",
