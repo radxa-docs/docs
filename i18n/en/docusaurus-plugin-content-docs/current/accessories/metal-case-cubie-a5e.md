@@ -14,7 +14,7 @@ Empower your Cubie A5E to achieve great things in small spaces!
 
 - **Custom-fit for CUBIE A5E** - Precise cutouts and structural design ensure perfect compatibility with all interfaces and expansion capabilities.
 
-- **Extremely Compact Design** - Case dimensions approximately 73 mm _ 64 mm _ 30mm, lightweight and portable, about the size of a palm, perfect for deployment in tight spaces.
+- **Extremely Compact Design** - Case dimensions approximately 73 mm \* 64 mm \* 30mm, lightweight and portable, about the size of a palm, perfect for deployment in tight spaces.
 
 - **Industrial-grade Thermal Solution** - All-metal body with 3D cooling fins, operates with zero fan noise.
 

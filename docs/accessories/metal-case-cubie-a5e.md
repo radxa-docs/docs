@@ -54,7 +54,7 @@ sidebar_position: 30
 
 ### 不搭配 PoE HAT 使用
 
-#### Step 1： 安装导热硅胶
+#### Step 1: 安装导热硅胶
 
 - 将导热硅胶粘贴到主板背面的 SoC 位置
 <div style={{textAlign: 'center'}}>
