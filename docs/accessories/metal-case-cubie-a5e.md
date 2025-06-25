@@ -160,7 +160,7 @@ PoE HAT 需要自行购买！
 #### Step 6 : 安装 PoE HAT
 
 - 将 PoE HAT 对准 40 Pin 引脚和 PoE Header 引脚安装
-- 使用十字螺丝刀按对角顺序逐步拧紧4颗 KM2\*8 mm的铜柱固定 PoE HAT
+- 使用十字螺丝刀按对角顺序逐步拧紧4颗 M2*8 mm 的铜柱固定 PoE HAT
 <div style={{textAlign: 'center'}}>
     <img src="/img/accessories/metal-case-cubie-a5e/ae031-13.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
