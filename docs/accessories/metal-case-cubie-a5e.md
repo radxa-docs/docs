@@ -28,29 +28,22 @@ sidebar_position: 30
 
 ### 配件清单
 
-- 散热器 x 1
-- 右侧盖 x 1
-- 左侧盖 x 1
-- 下盖 x 1
-- 导热硅胶 x 1
-- 天线孔胶塞 x 3
-- KM2\*4\*3.5 mm 螺丝 x 4
+- ① : 1x 散热器
+- ② : 1x 右侧盖
+- ③ : 1x 左侧盖
+- ④ : 1x 下盖
+- ⑤ : 1x 导热硅胶
+- ⑥ : 1x 棒子天线组
+- ⑦ : 3x 天线孔胶塞
+- ⑧ : 4x KM2\*4\*3.5 mm 螺丝
 - 固定铜柱
-  - M2\*7 mm 铜柱 x 4（搭配 PoE HAT 使用：固定主板）
-  - M2\*8 mm 铜柱 x 4（搭配 PoE HAT 使用：固定 PoE HAT）
-  - M2\*16.6 mm 铜柱 x4（不搭配 PoE HAT 使用：固定主板）
+  - ⑨ : 4x M2\*7 mm 铜柱 （搭配 PoE HAT使用：固定主板）
+  - ⑩ : 4x M2\*8 mm 铜柱 （搭配 PoE HAT使用：固定 PoE HAT）
+  - ⑪ : 4x M2\*16.6 mm 铜柱 （不搭配 PoE HAT使用：固定主板）
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/accessories/metal-case-cubie-a5e/ae031-0.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-
-| 序号 | 配件名称   | 数量 | 序号 | 配件名称            | 数量 |
-| ---- | ---------- | ---- | ---- | ------------------- | ---- |
-| ①    | 散热器     | 1    | ⑥    | KM2\*4\*3.5 mm 螺丝 | 4    |
-| ②    | 下盖       | 1    | ⑦    | 左侧盖              | 1    |
-| ③    | 右侧盖     | 1    | ⑧    | M2\*16.6 mm 铜柱    | 4    |
-| ④    | 导热硅胶   | 1    | ⑨    | M2\*7 mm 铜柱       | 4    |
-| ⑤    | 天线孔胶塞 | 3    | ⑩    | M2\*8 mm 铜柱       | 4    |
 
 ### 不搭配 PoE HAT 使用
 
@@ -160,7 +153,7 @@ PoE HAT 需要自行购买！
 #### Step 6 : 安装 PoE HAT
 
 - 将 PoE HAT 对准 40 Pin 引脚和 PoE Header 引脚安装
-- 使用十字螺丝刀按对角顺序逐步拧紧4颗 M2*8 mm 的铜柱固定 PoE HAT
+- 使用十字螺丝刀按对角顺序逐步拧紧4颗 M2\*8 mm 的铜柱固定 PoE HAT
 <div style={{textAlign: 'center'}}>
     <img src="/img/accessories/metal-case-cubie-a5e/ae031-13.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
