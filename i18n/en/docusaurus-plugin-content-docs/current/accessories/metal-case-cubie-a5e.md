@@ -10,7 +10,7 @@ While ensuring durability and efficient heat dissipation, it also features an ex
 
 Empower your Cubie A5E to achieve great things in small spaces!
 
-# Key Features
+## Key Features
 
 - **Custom-fit for CUBIE A5E** - Precise cutouts and structural design ensure perfect compatibility with all interfaces and expansion capabilities.
 
@@ -26,29 +26,22 @@ Empower your Cubie A5E to achieve great things in small spaces!
 
 ### Package Contents
 
-- Heatsink × 1
-- Right side cover × 1
-- Left side cover × 1
-- Bottom cover × 1
-- Thermal pad × 1
-- Antenna port plugs × 3
-- KM2\*4\*3.5 mm screws × 4
-- Mounting standoffs
-  - M2\*7 mm standoffs × 4 (for securing mainboard when using PoE HAT)
-  - M2\*8 mm standoffs × 4 (for securing PoE HAT)
-  - M2\*16.6 mm standoffs × 4 (for securing mainboard without PoE HAT)
+- ① : 1x Heatsink
+- ② : 1x Right Side Cover
+- ③ : 1x Left Side Cover
+- ④ : 1x Bottom Cover
+- ⑤ : 1x Thermal Pad
+- ⑥ : 1x Rod Antenna Set
+- ⑦ : 3x Antenna Hole Rubber Plugs
+- ⑧ : 4x KM2\*4\*3.5 mm Screws
+- Standoffs:
+  - ⑨ : 4x M2\*7 mm Standoffs (for use with PoE HAT: fixing the mainboard)
+  - ⑩ : 4x M2\*8 mm Standoffs (for use with PoE HAT: fixing the PoE HAT)
+  - ⑪ : 4x M2\*16.6 mm Standoffs (for use without PoE HAT: fixing the mainboard)
 
 <div style={{textAlign: 'center'}}>
     <img src="/en/img/accessories/metal-case-cubie-a5e/ae031-0.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-
-| No. | Item               | Qty | No. | Item                  | Qty |
-| --- | ------------------ | --- | --- | --------------------- | --- |
-| ①   | Heatsink           | 1   | ⑥   | KM2\*4\*3.5 mm screws | 4   |
-| ②   | Bottom cover       | 1   | ⑦   | Left side cover       | 1   |
-| ③   | Right side cover   | 1   | ⑧   | M2\*16.6 mm standoffs | 4   |
-| ④   | Thermal pad        | 1   | ⑨   | M2\*7 mm standoffs    | 4   |
-| ⑤   | Antenna port plugs | 3   | ⑩   | M2\*8 mm standoffs    | 4   |
 
 ### Without PoE HAT
 
