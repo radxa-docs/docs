@@ -16,11 +16,11 @@ Orion O6 V1.2 Version
 
 ## BIOS
 
-[O6 BIOS](https://github.com/radxa-pkg/edk2-cix/releases/latest)
-
-The BIOS content is within the `edk2-cix_*_all.deb` package. This file can be opened with 7-Zip in Windows and with KDE Ark in Linux.
-
-In the BIOS package, the BIOS file is located under `data.tar.xz/usr/share/edk2/radxa/orion-o6`.
+| Download Link                                                                             | Format | Description                                                                                                                                                                                                                            |
+| ----------------------------------------------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.3.0-1.zip)           | zip    | Version 0.3.0                                                                                                                                                                                                                          |
+| [Github Release](https://github.com/radxa-pkg/edk2-cix/releases/latest)                   | deb    | The BIOS content is within the `edk2-cix_*_all.deb` package. This file can be opened with 7-Zip in Windows and with KDE Ark in Linux. In the BIOS package, the BIOS file is located under `data.tar.xz/usr/share/edk2/radxa/orion-o6`. |
+| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/SystemReady/latest/orion-o6-bios.7z) | 7z     | Version 9.0.0, Arm SystemReady Certification BIOS                                                                                                                                                                                      |
 
 ## Debian 12 pre‑installed image
 
