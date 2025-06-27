@@ -6,6 +6,10 @@ sidebar_position: 5
 
 ## 系统镜像
 
+MicroSD卡使用的系统镜像：
+
+eMMC 和 UFS 模块使用的系统镜像：
+
 ## 刷机工具
 
 SD卡启动盘制作工具：
@@ -17,3 +21,5 @@ SD卡启动盘制作工具：
 [PhoenixSuit](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip) (Window)
 
 [LiveSuit](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip) (Linux)
+
+## 硬件设计

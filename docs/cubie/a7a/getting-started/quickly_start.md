@@ -28,6 +28,14 @@ sidebar_position: 1
 - USB 串口数据线（可选）：用于串口调试和登录系统
 - HDMI 数据线和显示器（可选）：用于显示系统界面和图形化界面操作
 
+:::tip
+推荐配件：
+
+- [瑞莎 UFS 模块](https://radxa.com/products/accessories/ufs-module)
+- [瑞莎 eMMC 模块](https://radxa.com/products/accessories/emmc-module)
+- [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
+  :::
+
 ### 硬件说明
 
 Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
@@ -47,14 +55,6 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 - HDMI 数据线和显示器
 
 主要作用是用于显示系统界面和图形化界面操作，适合初学者使用系统。
-
-:::tip
-推荐配件：
-
-- [瑞莎 UFS 模块](https://radxa.com/products/accessories/ufs-module)
-- [瑞莎 eMMC 模块](https://radxa.com/products/accessories/emmc-module)
-- [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
-  :::
 
 ## 安装系统
 
@@ -109,6 +109,56 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 
 - Debian Linux
 
+出厂系统默认存在两个用户账号，分别是 `root` 和 `radxa`。
+
+- root
+
+用户账号：root
+
+用户密码：radxa
+
+- radxa
+
 用户账号：radxa
 
 用户密码：radxa
+
+## 登录系统
+
+主要介绍 Cubie A7A 搭配 USB 串口数据线登录系统，串口登录系统可以参考 [串口调试](../system-config/uart_debug) 教程。
+
+:::tip
+Cubie A7A 搭配显示器使用，整体操作比较直观和简单，这里便不再介绍！
+:::
+
+## 使用系统
+
+### 有屏模式
+
+有屏模式是指 Cubie A7A 搭配显示器使用，整体操作比较直观和简单！
+
+### 无屏模式
+
+无屏模式是指 Cubie A7A 不搭配显示器使用，通过串口或者 SSH 登录系统进行操作！
+
+:::tip
+**对于无屏模式的用户，我们提供以下建议助力您快速熟悉系统!**
+
+1. 配置网络
+
+您可以直接给 Cubie A7A 连接网线，让系统处于有网状态。
+
+2. 串口登录
+
+你可以根据 [串口调试](../system-config/uart_debug) 教程进行串口登录系统，获取路由器给 Cubie A7A 分配的 IP 地址，然后通过 SSH 远程登录系统。
+
+注意：若您可以直接登录路由器后台查看 Cubie A7A 的 IP 地址，您可以跳过串口登录的步骤，直接根据分配的 IP 地址，进行 SSH 远程登录系统。
+
+3. SSH 远程
+
+您可以根据 [SSH 远程](../system-config/ssh_remote) 教程完成 SSH 远程登录 Cubie A7A 的命令行界面。
+
+4. VNC 远程
+
+您可以根据 [VNC 远程](../system-config/vnc_remote) 教程完成 VNC 远程登录 Cubie A7A 的图形化界面。
+:::

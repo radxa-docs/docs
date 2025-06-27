@@ -19,6 +19,13 @@ sidebar_position: 3
 - 供电/数据线：USB Type A to Type C 数据线
 - 电源适配器：5V Type-C 电源适配器
 
+:::tip
+推荐配件：
+
+- [瑞莎 UFS 模块](https://radxa.com/products/accessories/ufs-module)
+- [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
+  :::
+
 ## 硬件说明
 
 Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
@@ -30,13 +37,6 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 - 电源适配器
 
 当系统镜像烧录到 UFS 模块后，可以使用 Type-C 电源适配器给 Cubie A7A 供电，避免后期开发功率不足的问题。
-
-:::tip
-推荐配件：
-
-- [瑞莎 UFS 模块](https://radxa.com/products/accessories/ufs-module)
-- [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
-  :::
 
 ## 硬件连接
 
@@ -245,6 +245,16 @@ Linux 平台打开 LiveSuit 工具进行系统镜像的烧录。
 您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
 
 - Debian Linux
+
+出厂系统默认存在两个用户账号，分别是 `root` 和 `radxa`。
+
+- root
+
+用户账号：root
+
+用户密码：radxa
+
+- radxa
 
 用户账号：radxa
 
