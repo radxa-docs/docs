@@ -25,7 +25,7 @@ The following parts are needed for installing Cubie A5E with PoE+ HAT:
 - ⑤ : 1x Thermal pad
 - ⑥ : 1x Set of rod antennas
 - ⑦ : 3x Antenna hole plugs
-- ⑧ : 4x KM2*4*3.5 mm screws
+- ⑧ : 4x KM2\*4\*3.5 mm screws
 - ⑨ : 4x M2\*7 mm standoffs (for securing the mainboard with PoE HAT)
 - ⑩ : 4x M2\*8 mm standoffs (for securing the PoE HAT)
 
