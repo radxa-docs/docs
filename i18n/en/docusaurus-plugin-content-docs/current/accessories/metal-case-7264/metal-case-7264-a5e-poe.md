@@ -84,7 +84,7 @@ The following parts are needed for installing Cubie A5E with PoE+ HAT:
 ### Step 7: Install the Bottom Cover
 
 - Align the holes on the bottom cover with the standoffs
-- Use a cross-head screwdriver to tighten the 4x KM2*4*3.5 mm screws in a diagonal sequence to secure the bottom cover
+- Use a cross-head screwdriver to tighten the 4x KM2\*4\*3.5 mm screws in a diagonal sequence to secure the bottom cover
 <div style={{textAlign: 'center'}}>
     <img src="/en/img/accessories/metal-case-7264/metal-case-7264-14.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
