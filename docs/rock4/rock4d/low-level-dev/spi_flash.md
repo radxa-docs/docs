@@ -14,59 +14,11 @@ sidebar_position: 2
 
 SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化硬件（CPU → 内存 → 存储），最终通过存储设备加载操作系统内核。
 
-## 擦除 SPI Flash
+## 擦除 SPI 启动固件
 
-擦除 SPI Flash 操作会擦除 SPI Flash 中的 SPI 启动固件，擦除后 SPI Flash 中的数据将被清空，系统将无法启动。
-
-擦除 SPI Flash 可以通过 Rsetup 工具或者 RKRKDevTool 工具进行操作。
-
-### 使用 Rsetup 工具
-
-终端命令行输入 `rsetup` 命令，进入 Rsetup 工具界面。
-
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
-rsetup
-```
-</NewCodeBlock>
-
-1. 通过方向键选择 `System` 选项，然后按回车键确认选择。
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rsetup-earse-spi-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-2. 通过方向键选择 `Bootloader Management` 选项，然后按回车键确认选择。
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rsetup-earse-spi-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-3. 通过方向键选择 `Erase SPI Bootloader` 选项，然后按回车键确认选择。
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rsetup-earse-spi-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-4. 弹出的说明窗口选择 `YES` ，按回车键确认选择。
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rsetup-earse-spi-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-5. 按空格键勾选对应的文件名称，然后按回车键确认擦除；若有多个选项，你可以依次对每个选项都进行一遍擦除操作。
-
-:::tip
-选项框中出现 `*` 表示该选项已启用，未出现 `*` 表示该选项未启用。
+:::danger
+擦除 SPI 启动固件操作会擦除 SPI Flash 中的 SPI 启动固件，擦除后 SPI Flash 中的数据将被清空，系统将无法启动。
 :::
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rsetup-earse-spi-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-6. 重启系统，擦除 SPI Flash 的操作生效。
-
-### 使用 RKDevTool 工具
 
 我们需要让 ROCK 4D 处于 Maskrom 模式，然后使用 RKDevTool 工具进行 SPI Flash 擦除操作，用户可以先参考 [RKDevTool 使用](./tool_rkdevtool) 教程进行 RKDevTool 工具的安装和使用。
 
@@ -146,9 +98,9 @@ sudo rkdeveloptool rd
 
 </Tabs>
 
-## 烧录 SPI Flash
+## 烧录 SPI 启动固件
 
-介绍如何使用 RKDevTool 工具烧录 SPI Flash。
+使用 RKDevTool 工具烧录 SPI 启动固件。
 
 <Tabs queryString="platform">
 
