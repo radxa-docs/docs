@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Erase/Flash SPI Boot Firmware
 
-This guide explains how to use the RKRKDevTool to erase and flash SPI boot firmware.
+This guide explains how to use the RKDevTool to erase and flash SPI boot firmware.
 
 :::tip
 The Radxa ROCK 4D comes pre-loaded with SPI boot firmware for Linux systems. If you don't plan to use Android, you can skip the SPI Flash erase and flash operations.
@@ -14,61 +14,13 @@ The Radxa ROCK 4D comes pre-loaded with SPI boot firmware for Linux systems. If 
 
 SPI boot firmware (BootROM + bootloader) is responsible for initializing hardware in stages (CPU → Memory → Storage) and ultimately loading the operating system kernel from the storage device.
 
-## Erasing SPI Flash
+## Erasing SPI Boot Firmware
 
-Erasing the SPI Flash will remove the SPI boot firmware. After erasure, all data in the SPI Flash will be cleared, and the system will not be able to boot.
-
-You can use either the Rsetup tool or the RKRKDevTool to erase the SPI Flash.
-
-### Using Rsetup Tool
-
-1. Enter the Rsetup tool interface by typing `rsetup` in the terminal command line.
-
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
-rsetup
-```
-</NewCodeBlock>
-
-2. Use the arrow keys to select the `System` option, then press Enter to confirm.
-
-<div style={{textAlign: 'center'}}>
-  <img src="/en/img/rock4/4d/rsetup-earse-spi-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-3. Use the arrow keys to select the `Bootloader Management` option, then press Enter to confirm.
-
-<div style={{textAlign: 'center'}}>
-  <img src="/en/img/rock4/4d/rsetup-earse-spi-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-4. Use the arrow keys to select the `Erase SPI Bootloader` option, then press Enter to confirm.
-
-<div style={{textAlign: 'center'}}>
-  <img src="/en/img/rock4/4d/rsetup-earse-spi-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-5. In the pop-up confirmation window, select `YES` and press Enter to confirm.
-
-<div style={{textAlign: 'center'}}>
-  <img src="/en/img/rock4/4d/rsetup-earse-spi-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-6. Press the spacebar to select the corresponding file name, then press Enter to confirm the erase operation. If there are multiple options, you can perform the erase operation on each one sequentially.
-
-:::tip
-An asterisk `*` in the option box indicates that the option is enabled. If there is no `*`, the option is disabled.
+:::danger
+Erasing the SPI boot firmware will clear all data in the SPI Flash, and the system will not be able to boot.
 :::
 
-<div style={{textAlign: 'center'}}>
-  <img src="/en/img/rock4/4d/rsetup-earse-spi-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-7. Reboot the system for the SPI Flash erase operation to take effect.
-
-### Using RKDevTool
-
-To erase SPI Flash using RKDevTool, you need to put the ROCK 4D into Maskrom mode. Please refer to the [RKDevTool Usage](./tool_rkdevtool) guide for installation and usage instructions.
+You need to put the ROCK 4D into Maskrom mode first, then use the RKDevTool to erase the SPI Flash. Please refer to the [RKDevTool Usage](./tool_rkdevtool) guide for installation and usage instructions.
 
 <Tabs queryString="platform">
 
@@ -86,7 +38,7 @@ To erase SPI Flash using RKDevTool, you need to put the ROCK 4D into Maskrom mod
 
 ⑥. Select the `Erase ALL` option to erase the SPI Flash.
 
-⑦. Monitor the operation progress in the interface.
+⑦. You can monitor the operation progress in this interface.
 
 Reboot the system for the SPI Flash erase operation to take effect.
 
@@ -146,9 +98,9 @@ sudo rkdeveloptool rd
 
 </Tabs>
 
-## Flashing SPI Flash
+## Flashing SPI Boot Firmware
 
-This section explains how to flash SPI Flash using RKDevTool.
+Using RKDevTool to flash SPI boot firmware.
 
 <Tabs queryString="platform">
 
@@ -208,7 +160,7 @@ Replace `spi.img` with the SPI boot firmware for ROCK 4D. You can download the S
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
 ```
-sudo rkdeveloptool wl 0 spi.img
+sudo rkdeveloptool wl 0x0 spi.img
 ```
 </NewCodeBlock>
 

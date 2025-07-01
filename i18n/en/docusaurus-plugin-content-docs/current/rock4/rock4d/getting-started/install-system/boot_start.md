@@ -42,7 +42,7 @@ sudo rsetup
 
 <div style={{textAlign: 'center'}}>
 Rsetup Home Interface
-<img src="/img/rock4/4d/rsetup-spi-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+<img src="/en/img/rock4/4d/rsetup-spi-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 :::tip
@@ -58,13 +58,13 @@ Rsetup Tool Guide: For detailed usage instructions, refer to [Rsetup Tool](../..
 In the Rsetup tool, select `System` → `System Update`:
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/rsetup-spi-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+<img src="/en/img/rock4/4d/rsetup-spi-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 Select 'yes' to continue, then follow the on-screen prompts to complete the remaining operations:
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/rsetup-spi-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+<img src="/en/img/rock4/4d/rsetup-spi-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 After completing all operations, use the following command to reboot the system.
@@ -82,25 +82,25 @@ After the system reboots, open the Rsetup tool again.
 Select `System` → `Bootloader Management` → `Update SPI Bootloader`:
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/rsetup-spi-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+<img src="/en/img/rock4/4d/rsetup-spi-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 Select 'yes' to continue, then follow the on-screen prompts to complete the remaining operations.
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/rsetup-spi-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+<img src="/en/img/rock4/4d/rsetup-spi-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 Select the Bootloader file to install: If there are multiple Bootloader options, prioritize the one with the 'spi' suffix.
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/rsetup-spi-06.webp" style={{width: '100%', maxWidth: '1200px'}} />
+<img src="/en/img/rock4/4d/rsetup-spi-06.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 The system will automatically download the latest `spi.img` and flash it to the SPI Nor Flash.
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/rsetup-spi-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
+<img src="/en/img/rock4/4d/rsetup-spi-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 After completing all operations, use the following command to reboot the system.
@@ -110,3 +110,53 @@ After completing all operations, use the following command to reboot the system.
 sudo reboot
 ```
 </NewCodeBlock>
+
+## Erasing SPI Boot Firmware
+
+:::danger
+Erasing the SPI Flash will remove the SPI boot firmware stored in it. After erasure, all data in the SPI Flash will be cleared, and the system will be unable to boot.
+:::
+
+Enter the `rsetup` command in the terminal to launch the Rsetup tool interface.
+
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
+```
+rsetup
+```
+</NewCodeBlock>
+
+1. Use the arrow keys to select the `System` option, then press Enter to confirm.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/rsetup-earse-spi-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+2. Use the arrow keys to select the `Bootloader Management` option, then press Enter to confirm.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/rsetup-earse-spi-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+3. Use the arrow keys to select the `Erase SPI Bootloader` option, then press Enter to confirm.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/rsetup-earse-spi-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+4. In the pop-up confirmation window, select `YES` and press Enter to confirm.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/rsetup-earse-spi-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+5. Press the spacebar to check the corresponding file name, then press Enter to confirm the erase operation. If there are multiple options, you can perform the erase operation on each one sequentially.
+
+:::tip
+A `*` appearing in the checkbox indicates that the option is enabled, while no `*` means the option is disabled.
+:::
+
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/rsetup-earse-spi-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+6. Reboot the system for the SPI Flash erase operation to take effect.
