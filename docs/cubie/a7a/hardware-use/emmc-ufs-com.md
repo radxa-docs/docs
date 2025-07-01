@@ -16,9 +16,9 @@ eMMC 模块适用于小容量存储（8-128GB）, UFS 模块适用于大容量�
 
 - 作为系统启动盘
 
-eMMC 模块作为系统启动盘使用：可以参考 [安装系统到 eMMC 模块](../getting-started/install-system/emmc_system) 教程。
+eMMC 模块作为系统启动盘使用：可以参考 [安装系统到 eMMC 模块](../getting-started/install-system/emmc-system/) 教程。
 
-UFS 模块作为系统启动盘使用：可以参考 [安装系统到 UFS 模块](../getting-started/install-system/ufs_system) 教程。
+UFS 模块作为系统启动盘使用：可以参考 [安装系统到 UFS 模块](../getting-started/install-system/ufs-system/) 教程。
 
 <Tabs queryString="boot_system">
 

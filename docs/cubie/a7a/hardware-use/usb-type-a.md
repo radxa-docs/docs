@@ -6,6 +6,10 @@ sidebar_position: 3
 
 瑞莎 Cubie A7A 板载 4 个 USB Type-A 接口，其中 1 个 USB 3.0 接口，3 个 USB 2.0 接口。
 
+:::tip
+USB Type-A 接口具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
+:::
+
 - USB 3.0 Type-A
 
 理论上最大传输速率为 5Gbps，接口内部颜色通常为蓝色。

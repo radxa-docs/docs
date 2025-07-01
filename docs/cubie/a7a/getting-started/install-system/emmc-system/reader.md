@@ -1,13 +1,13 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# 安装系统到 MicroSD 卡
+# 使用瑞莎 eMMC/UFS 二合一模块读卡器
 
-主要介绍如何将系统安装到 MicroSD 卡中。
+主要介绍 eMMC 模块搭配瑞莎 eMMC/UFS 二合一模块读卡器使用并安装系统到 eMMC 模块中。
 
 :::warning
-安装系统会格式化 MicroSD 卡，如果有重要数据请提前备份！
+安装系统会格式化 eMMC 模块，如果有重要数据请提前备份！
 :::
 
 ## 硬件准备
@@ -15,13 +15,15 @@ sidebar_position: 1
 您需要提前准备以下硬件：
 
 - 开发板：瑞莎 Cubie A7A
-- 系统启动介质：MicroSD 卡
-- 读卡器：MicroSD 卡读卡器
+- 系统启动介质：eMMC 模块
+- 读卡器：eMMC/UFS 二合一模块读卡器
 - 电源适配器：5V Type-C 电源适配器
 
 :::tip
 推荐配件：
 
+- [瑞莎 eMMC 模块](https://radxa.com/products/accessories/emmc-module)
+- [瑞莎 eMMC/UFS 二合一模块读卡器](https://radxa.com/products/accessories/emmc-ufs-module-reader)
 - [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
   :::
 
@@ -31,23 +33,32 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 
 - 电源适配器
 
-当系统镜像烧录到 MicroSD 卡后，可以使用 Type-C 电源适配器给 Cubie A7A 供电，避免后期开发功率不足的问题。
+当系统镜像烧录到 eMMC 模块后，可以使用 Type-C 电源适配器给 Cubie A7A 供电，避免后期开发功率不足的问题。
 
 ## 硬件连接
 
-将 MicroSD 卡插入读卡器中，然后将读卡器插入 PC 的 USB 端口上。
+将 eMMC 模块安装到读卡器中，然后将读卡器插入 PC 的 USB 端口上。
+
+:::caution
+
+eMMC 模块安装步骤：
+
+1. 确保 eMMC 模块的缺角和读卡器的接口方向一致
+2. 确保 eMMC 模块底部卡槽接口和瑞莎 eMMC / UFS 二合一模块读卡器的接口对齐
+3. 轻微用力按压 eMMC 模块一端的接口，听到"滴"的声音说明安装成功，同样的方法按压另一端的接口，确保 eMMC 模块安装成功。
+   :::
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/img/cubie/a7a/a7a-emmc-reader.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## 软件准备
 
-使用开源镜像烧录工具 Etcher 烧写系统镜像文件到 MicroSD 卡。
+使用开源镜像烧录工具 Etcher 烧写系统镜像文件到 eMMC 模块。
 
 ### 下载系统镜像
 
-进入 [资源汇总下载](../../download) 页面下载并解压系统镜像文件到 PC 上。
+进入 [资源汇总下载](../../../download) 页面下载并解压系统镜像文件到 PC 上。
 
 ### 下载 Etcher
 
@@ -95,7 +106,7 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
   <img src="/img/rock4/4d/etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-2. 选择 MicroSD 卡对应的磁盘：点击 `Select target` 选项，选择自己接入 PC 的读卡器对应磁盘设备。
+2. 选择 eMMC 模块对应的磁盘：点击 `Select target` 选项，选择自己接入 PC 的读卡器对应磁盘设备。
 
 :::danger
 请勿选错磁盘，否则 Etcher 将格式化被选中的磁盘，造成重要数据丢失！

@@ -24,10 +24,10 @@ MicroSD 卡、UFS 模块和 eMMC 模块特性：
 
 主要介绍 Cubie A7A 使用 MicroSD 卡安装系统的方法。
 
-#### [安装系统到 eMMC 模块](/cubie/a7a/getting-started/install-system/emmc_system)
-
-主要介绍 Cubie A7A 使用 eMMC 模块安装系统的方法。
-
-#### [安装系统到 UFS 模块](/cubie/a7a/getting-started/install-system/ufs_system)
+#### [安装系统到 UFS 模块](/cubie/a7a/getting-started/install-system/ufs-system)
 
 主要介绍 Cubie A7A 使用 UFS 模块安装系统的方法。
+
+#### [安装系统到 eMMC 模块](/cubie/a7a/getting-started/install-system/emmc-system)
+
+主要介绍 Cubie A7A 使用 eMMC 模块安装系统的方法。

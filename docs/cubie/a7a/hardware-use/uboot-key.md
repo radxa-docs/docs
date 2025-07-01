@@ -6,7 +6,13 @@ sidebar_position: 4
 
 瑞莎 Cubie A7A 板载 UBOOT 按键，用于进入 FEL 模式。
 
+:::tip
+UBOOT 按键具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
+:::
+
 ## 使用指南
+
+全志芯片的 FEL 模式是一种底层烧录和调试模式，主要用于芯片的固件烧录、系统修复或开发调试。
 
 ### 进入 FEL 模式
 

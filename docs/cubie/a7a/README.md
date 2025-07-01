@@ -32,7 +32,7 @@ Cubie A7A 搭载全志 A733 SoC，采用混合八核高性能 CPU（双核 Arm C
 | 摄像头   | 1 个 4 通道 MIPI CSI 或 2 个 2 通道 MIPI CSI                                                                                                                                                                                          |
 | 音频     | 音频接口： 3.5mm 四段耳机插孔，支持麦克风输入 <br/> 音频输出： 支持立体声输出，可直接驱动 32Ω 耳机                                                                                                                                    |
 | USB      | USB 3.0： 1× Type-A HOST <br/> USB 2.0： 3× Type-A HOST, 1× Type-C OTG / Power                                                                                                                                                        |
-| 拓展     | 40 Pin GPIO 排针： 支持 UART、SPI、I2C 等 <br/> PCIE 插槽： 通过 FPC 接口提供 1 个单通道 PCIe 3.0 <br/> 风扇接口： 1× 2-pin 1.25mm <br/> RTC 接口： 1× 2-pin 1.25mm                                                                   |
+| 拓展     | 40 Pin GPIO 排针： 支持 UART、SPI、I2C 等 <br/> PCIe 插槽： 通过 PCIe 3.0 FPC 接口提供 1 个单通道 PCIe 3.0 <br/> 风扇接口： 1× 2-pin 1.25mm <br/> RTC 接口： 1× 2-pin 1.25mm                                                          |
 | 供电方式 | 支持 USB Type-C 5V 供电 <br/> 支持 PoE 供电(需外接 PoE HAT) <br/> 支持 GPIO 引脚5V 供电（引脚 2 与 4）                                                                                                                                |
 | 操作系统 | 支持 Debian Linux、Android 13 系统                                                                                                                                                                                                    |
 
@@ -42,15 +42,15 @@ Cubie A7A 搭载全志 A733 SoC，采用混合八核高性能 CPU（双核 Arm C
    <img src="/img/cubie/a7a/a7a-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-| 序号 | 说明                | 序号 | 说明                       | 序号 | 说明                      |
-| ---- | ------------------- | ---- | -------------------------- | ---- | ------------------------- |
-| ①    | USB Type-C 接口     | ⑧    | USB Type-A 接口            | ⑮    | 天线接口                  |
-| ②    | HDMI 接口           | ⑨    | LPDDR5 内存                | ⑯    | FPC 接口                  |
-| ③    | 风扇接口            | ⑩    | 千兆以太网接口（支持 PoE） | ⑰    | Allwinner A733            |
-| ④    | 耳机插孔            | ⑪    | PoE 接口                   | ⑱    | 电源按键                  |
-| ⑤    | UBOOT 按键          | ⑫    | WiFi6 和 蓝牙5.4           | ⑲    | eMMC / UFS 模块二合一接口 |
-| ⑥    | USB 2.0 Type-A 接口 | ⑬    | 40 Pin GPIO 排针           | ⑳    | MIPI CSI 接口             |
-| ⑦    | RTC 接口            | ⑭    | MIPI DSI 接口              | ㉑   | MicroSD 卡槽              |
+| 序号 | 说明                                                      | 序号 | 说明                                                           | 序号 | 说明                                                              |
+| ---- | --------------------------------------------------------- | ---- | -------------------------------------------------------------- | ---- | ----------------------------------------------------------------- |
+| ①    | [USB Type-C 接口](/cubie/a7a/hardware-use/usb-type-c)     | ⑧    | [USB Type-A 接口](/cubie/a7a/hardware-use/usb-type-a)          | ⑮    | [天线接口](/cubie/a7a/hardware-use/ante)                          |
+| ②    | [HDMI 接口](/cubie/a7a/hardware-use/hdmi)                 | ⑨    | LPDDR5 内存                                                    | ⑯    | [PCIe 3.0 FPC 接口](/cubie/a7a/hardware-use/fpc)                  |
+| ③    | [风扇接口](/cubie/a7a/hardware-use/fan)                   | ⑩    | [千兆以太网接口（支持 PoE）](/cubie/a7a/hardware-use/ethernet) | ⑰    | Allwinner A733                                                    |
+| ④    | [耳机插孔](/cubie/a7a/hardware-use/headphone)             | ⑪    | [PoE 接口](/cubie/a7a/hardware-use/ethernet)                   | ⑱    | [电源按键](/cubie/a7a/hardware-use/power-key)                     |
+| ⑤    | [UBOOT 按键](/cubie/a7a/hardware-use/uboot-key)           | ⑫    | WiFi6 和 蓝牙5.4                                               | ⑲    | [eMMC / UFS 模块二合一接口](/cubie/a7a/hardware-use/emmc-ufs-com) |
+| ⑥    | [USB 2.0 Type-A 接口](/cubie/a7a/hardware-use/usb-type-a) | ⑬    | [40 Pin GPIO 排针](/cubie/a7a/hardware-use/pin-gpio)           | ⑳    | [MIPI CSI 接口](/cubie/a7a/hardware-use/mipi-csi)                 |
+| ⑦    | [RTC 接口](/cubie/a7a/hardware-use/rtc)                   | ⑭    | [MIPI DSI 接口](/cubie/a7a/hardware-use/mipi-dsi)              | ㉑   | [MicroSD 卡槽](/cubie/a7a/hardware-use/microsd)                   |
 
 - 电源指示灯
 

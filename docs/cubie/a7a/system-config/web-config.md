@@ -133,6 +133,6 @@ Nmcli 是 Network Manager Command Line Interface 的简称，是 Linux 下管理
 
 拓展命令：
 
-- `nmcli radio wifi off`：关闭 WiFi 功能。
-- `nmcli connection delete <SSID>` ：删除指定的 WiFi 网络。
+- `sudo nmcli radio wifi off`：关闭 WiFi 功能。
+- `sudo nmcli connection delete <SSID>` ：删除指定的 WiFi 网络。
   :::

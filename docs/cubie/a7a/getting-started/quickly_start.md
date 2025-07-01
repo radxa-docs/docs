@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 快速上手
 
-本节教程目的是为了让大家快速上手使用 Cubie A7A 开发板。
+本节教程目的是为了让大家快速上手使用 Cubie A7A 产品。
 
 ## 产品实物
 
@@ -19,7 +19,7 @@ sidebar_position: 1
 
 ### 硬件准备
 
-您需要提前准备以下硬件设备：
+您需要提前准备以下硬件设备：**可选的硬件设备可以不准备！**
 
 - 开发板：瑞莎 Cubie A7A
 - 系统启动介质：支持 MicroSD 卡、eMMC 模块、UFS 模块启动系统（选中其中一种系统启动介质即可）
@@ -33,6 +33,7 @@ sidebar_position: 1
 
 - [瑞莎 UFS 模块](https://radxa.com/products/accessories/ufs-module)
 - [瑞莎 eMMC 模块](https://radxa.com/products/accessories/emmc-module)
+- [瑞莎 eMMC/UFS 二合一模块读卡器](https://radxa.com/products/accessories/emmc-ufs-module-reader)
 - [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
   :::
 
@@ -40,9 +41,13 @@ sidebar_position: 1
 
 Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
 
+- 系统启动介质
+
+主要作用是用于启动 Cubie A7A 系统，支持 MicroSD 卡、eMMC 模块、UFS 模块启动系统（选中其中一种系统启动介质即可）。
+
 - 供电/数据线
 
-主要作用是用来给 Cubie A7A 供电和传输数据的，通过 USB Type A to Type C 数据线可以将系统镜像烧录到 eMMC / UFS 模块中。
+主要作用是给 Cubie A7A 供电和传输数据的，通过 USB Type A to Type C 数据线可以将系统镜像烧录到 eMMC / UFS 模块中。
 
 - 电源适配器
 
@@ -58,13 +63,18 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 
 ## 安装系统
 
-你可以根据自己的系统启动介质，参考下面教程进行系统安装：
+您可以根据自己的系统启动介质和拥有的硬件设备，参考下面教程进行系统安装：
 
 - [安装系统到 MicroSD 卡](./install-system/sd_system)
-- [安装系统到 eMMC 模块](./install-system/emmc_system)
-- [安装系统到 UFS 模块](./install-system/ufs_system)
+- [安装系统到 eMMC 模块](./install-system/emmc-system)
+- [安装系统到 UFS 模块](./install-system/ufs-system)
+- [安装系统到 NVMe SSD 模块](./install-system/nvme-system)
 
 ## 启动系统
+
+:::tip
+若 Cubie A7A 安装了多个系统启动介质，Cubie A7A 的系统启动优先级为：MicroSD 卡 > eMMC 或 UFS 模块。
+:::
 
 完成系统的安装后，将对应系统启动介质（如 MicroSD 卡、eMMC 模块、UFS 模块）安装到 Cubie A7A 的对应接口。
 
@@ -105,11 +115,9 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 
 ## 系统信息
 
-您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
+您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统；
 
-- Debian Linux
-
-出厂系统默认存在两个用户账号，分别是 `root` 和 `radxa`。
+出厂系统镜像默认存在两个用户账号，分别是 `root` 和 `radxa`。
 
 - root
 
@@ -150,7 +158,7 @@ Cubie A7A 搭配显示器使用，整体操作比较直观和简单，这里便�
 
 2. 串口登录
 
-你可以根据 [串口调试](../system-config/uart_debug) 教程进行串口登录系统，获取路由器给 Cubie A7A 分配的 IP 地址，然后通过 SSH 远程登录系统。
+您可以根据 [串口调试](../system-config/uart_debug) 教程进行串口登录系统，获取路由器给 Cubie A7A 分配的 IP 地址，然后通过 SSH 远程登录系统。
 
 注意：若您可以直接登录路由器后台查看 Cubie A7A 的 IP 地址，您可以跳过串口登录的步骤，直接根据分配的 IP 地址，进行 SSH 远程登录系统。
 

@@ -6,6 +6,10 @@ sidebar_position: 3
 
 瑞莎 Cubie A7A 板载 1 个 HDMI 接口，可以使用 HDMI 接口进行视频输出，支持最高 4K@60fps 输出。
 
+:::tip
+HDMI 接口具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
+:::
+
 ## 使用指南
 
 使用显示器连接 Cubie A7A 的 HDMI 接口，可以测试视频输出是否正常。

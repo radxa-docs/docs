@@ -1,13 +1,15 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# 安装系统到 MicroSD 卡
+# 使用 M.2 NVMe 固态硬盘盒
 
-主要介绍如何将系统安装到 MicroSD 卡中。
+主要介绍 M.2 NVMe SSD 搭配 M.2 NVMe 固态硬盘盒使用并安装系统到 M.2 NVMe SSD 中。
 
 :::warning
-安装系统会格式化 MicroSD 卡，如果有重要数据请提前备份！
+安装系统会格式化 M.2 NVMe SSD，如果有重要数据请提前备份！
+
+M.2 NVMe SSD 启动系统需要搭配 PCIe 转 M.2 M Key HAT 扩展板使用。
 :::
 
 ## 硬件准备
@@ -15,8 +17,9 @@ sidebar_position: 1
 您需要提前准备以下硬件：
 
 - 开发板：瑞莎 Cubie A7A
-- 系统启动介质：MicroSD 卡
-- 读卡器：MicroSD 卡读卡器
+- 系统启动介质：M.2 NVMe SSD
+- 固态硬盘盒：M.2 NVMe 固态硬盘盒
+- 拓展板：PCIe 转 M.2 M Key HAT 扩展板
 - 电源适配器：5V Type-C 电源适配器
 
 :::tip
@@ -31,23 +34,23 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 
 - 电源适配器
 
-当系统镜像烧录到 MicroSD 卡后，可以使用 Type-C 电源适配器给 Cubie A7A 供电，避免后期开发功率不足的问题。
+当系统镜像烧录到 M.2 NVMe SSD 后，可以使用 Type-C 电源适配器给 Cubie A7A 供电，避免后期开发功率不足的问题。
 
 ## 硬件连接
 
-将 MicroSD 卡插入读卡器中，然后将读卡器插入 PC 的 USB 端口上。
+将 M.2 NVMe SSD 安装到固态硬盘盒中，然后将固态硬盘盒插入 PC 的 USB 端口上。
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/img/rock4/4d/write-nvme.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## 软件准备
 
-使用开源镜像烧录工具 Etcher 烧写系统镜像文件到 MicroSD 卡。
+使用开源镜像烧录工具 Etcher 烧写系统镜像文件到 eMMC 模块。
 
 ### 下载系统镜像
 
-进入 [资源汇总下载](../../download) 页面下载并解压系统镜像文件到 PC 上。
+进入 [资源汇总下载](../../../download) 页面下载并解压系统镜像文件到 PC 上。
 
 ### 下载 Etcher
 
@@ -95,7 +98,7 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
   <img src="/img/rock4/4d/etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-2. 选择 MicroSD 卡对应的磁盘：点击 `Select target` 选项，选择自己接入 PC 的读卡器对应磁盘设备。
+2. 选择 eMMC 模块对应的磁盘：点击 `Select target` 选项，选择自己接入 PC 的读卡器对应磁盘设备。
 
 :::danger
 请勿选错磁盘，否则 Etcher 将格式化被选中的磁盘，造成重要数据丢失！
