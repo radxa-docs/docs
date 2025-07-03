@@ -1,0 +1,184 @@
+---
+sidebar_position: 4
+---
+
+# Conda 安装
+
+Conda 是一个开源的包管理和环境管理系统，主要用于数据科学、科学计算和机器学习领域。
+
+:::tip
+Conda 有 Anaconda 和 Miniconda 两个版本：教程主要介绍 Anaconda 的安装和使用。
+
+- Anaconda 是一个完整的发行版，内置丰富的环境包
+- Miniconda 是一个精简的发行版，只包含 Conda 本身，需要手动安装其它环境包
+  :::
+
+## Conda 特点
+
+- 易管理
+
+完全隔离的Python环境，使用 `conda` 命令管理环境，自动解决依赖关系。
+
+- 跨平台
+
+支持 Windows、macOS 和 Linux 系统。
+
+- 可移植性
+
+支持导出环境配置，便于在其他机器上复制相同的开发环境。
+
+- 多语言支持
+
+支持多语言环境，不仅限于 Python。
+
+## Conda 安装
+
+### 下载安装脚本
+
+进入 [Anaconda 官网](https://www.anaconda.com/) 下载 Cubie A7A 的对应版本的 Anaconda 安装脚本（Cubie A7A 选择 Linux ARM64 的安装脚本）。
+
+### 运行安装脚本
+
+下载完成后，进入下载目录，打开终端运行安装脚本：请将脚本换成实际下载的文件名。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+bash Anaconda3-xxx-Linux-aarch64.sh
+```
+</NewCodeBlock>
+
+安装过程中，需要手动按 `Enter` 进入安装步骤。然后输入 `yes` 接受许可协议。
+
+终端会输出类似如下的信息：
+
+```
+Welcome to Anaconda3 xxx
+
+In order to continue the installation process, please review the license
+agreement.
+Please, press ENTER to continue
+>>>
+By continuing installation, you hereby consent to the Anaconda Terms of Service available at https://anaconda.com/legal.
+
+
+Do you accept the license terms? [yes|no]
+>>> yes
+```
+
+最后会让您确认打开终端是否自动初始化 Conda，输入 `yes` 即可。
+
+## 验证安装
+
+重新打开终端，终端的用户名信息前面会显示 `(base)`，表示 Conda 已经成功安装和初始化。
+
+:::tip
+base 环境是 Conda 的默认环境，该环境包括一些常用的数据科学和机器学习工具。
+:::
+
+### 查看 Conda 版本
+
+打开终端，使用 `conda --version` 命令查看 Conda 版本：
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+conda --version
+```
+</NewCodeBlock>
+
+终端输出类似如下的信息表示安装成功：
+
+```
+conda 24.9.2
+```
+
+### 退出 Conda 环境
+
+在 Conda 环境下，使用 `conda deactivate` 命令退出 Conda 环境。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+conda deactivate
+```
+</NewCodeBlock>
+
+退出 Conda 环境后，终端的用户名信息前面的 `(base)` 会消失。
+
+## 配置 Conda（可选）
+
+修改 Conda 的配置，设置添加清华大学的镜像源，加快中国国内的下载速度（可选）。
+
+### 生成配置文件
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+conda config --set show_channel_urls yes
+```
+</NewCodeBlock>
+
+### 修改配置文件
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+vi ~/.condarc
+```
+</NewCodeBlock>
+
+配置文件中添加以下内容：
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+```
+</NewCodeBlock>
+
+### 清理缓存
+
+使用 `conda clean` 命令清理缓存和临时文件。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+conda clean -i
+```
+</NewCodeBlock>
+
+### 验证配置
+
+打开终端，使用 `conda config --show-sources` 命令查看所有加载的配置文件内容及其优先级顺序。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+conda config --show-sources
+```
+</NewCodeBlock>
+
+配置成功后，终端会输出类似如下的信息：
+
+```
+==> /home/radxa/anaconda3/.condarc <==
+channels:
+  - defaults
+
+==> /home/radxa/.condarc <==
+channels:
+  - defaults
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+show_channel_urls: True
+
+==> envvars <==
+allow_softlinks: False
+```

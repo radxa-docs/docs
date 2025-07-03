@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 千兆以太网（支持 PoE）
+# 千兆以太网（支持 PoE）接口
 
 瑞莎 Cubie A7A 板载千兆以太网接口，支持 PoE 功能。
 

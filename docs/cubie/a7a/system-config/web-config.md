@@ -81,6 +81,12 @@ sudo nmcli device wifi connect wifi_demo password 12345678
 ```
 </NewCodeBlock>
 
+连接成功后，终端会输出类似如下信息：
+
+```
+Device 'wlan0' successfully activated with 'xxxx'.
+```
+
 4. 查看网络连接的详细信息
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
