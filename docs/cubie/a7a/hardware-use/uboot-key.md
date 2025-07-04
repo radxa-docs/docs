@@ -12,7 +12,7 @@ UBOOT 按键具体位置可以查看 [硬件接口](./hardware-info) 教程的�
 
 ## 使用指南
 
-全志芯片的 FEL 模式是一种底层烧录和调试模式，主要用于芯片的固件烧录、系统修复或开发调试。
+FEL 是 Allwinner（全志）芯片中的一种低级启动和刷机模式，主要用于设备无法从常规存储介质启动时的系统恢复或调试。
 
 ### 进入 FEL 模式
 
@@ -34,5 +34,5 @@ Cubie A7A 进入 FEL 模式后，您可以在该模式下给 eMMC / UFS 模块�
 
 安装系统镜像可以参考：
 
-- [安装系统到 eMMC 模块](../getting-started/install-system/emmc_system)
-- [安装系统到 UFS 模块](../getting-started/install-system/ufs_system)
+- [安装系统到 eMMC 模块](../low-level-dev/fel-install-system/emmc_system)
+- [安装系统到 UFS 模块](../low-level-dev/fel-install-system/ufs_system)
