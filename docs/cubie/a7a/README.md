@@ -20,6 +20,13 @@ Cubie A7A 搭载全志 A733 SoC，采用混合八核高性能 CPU（双核 Arm C
     <img src="/img/cubie/a7a/a7a-top.webp" style={{width: '50%', maxWidth: '1200px'}} />
 </div>
 
+## 包装清单
+
+| 数量 | 部件            |
+| ---- | --------------- |
+| 1    | Cubie A7A 主板  |
+| 1    | Wi-Fi/蓝牙 天线 |
+
 ## 产品规格
 
 | 类别     | 规格                                                                                                                                                                                                                                  |
@@ -60,15 +67,15 @@ Cubie A7A 正常供电，电源指示灯绿色亮起；断电或关机时，电�
 
 系统正常启动时，状态指示灯蓝色闪烁；系统异常时，状态指示灯熄灭。
 
-- LDDR5 内存
+- LPDDR5 内存
 
-LDRR5 内存可选：2GB / 4GB / 8GB / 16GB。
+LPDDR5 内存可选：2GB / 4GB / 8GB / 16GB。
 
 ## 应用场景
 
 ### Linux 初学者
 
-作为一款基于 Linux 的单板计算机，ROCK 4D 可以用于 Linux 入门学习、进阶底层和应用层开发。
+作为一款基于 Linux 的单板计算机，Cubie A7A 可以用于 Linux 入门学习、进阶底层和应用层开发。
 
 ### 机器人开发
 
