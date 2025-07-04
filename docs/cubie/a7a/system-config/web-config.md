@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
-# 网络配置
+# 有线网络
 
 通过命令行方式来配置有线 / 无线网络。
 

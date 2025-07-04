@@ -22,7 +22,7 @@ M.2 NVMe SSD 需要通过 PCIe 转 M.2 M Key HAT 连接 Cubie A7A 的 FPC 接口
 
 - 作为系统启动盘
 
-M.2 NVMe SSD 模块作为系统启动盘使用：可以参考 [安装系统到 M.2 NVMe SSD](../getting-started/install-system/ufs-system/) 教程。
+M.2 NVMe SSD 模块作为系统启动盘使用：可以参考 [安装系统到 M.2 NVMe SSD](../getting-started/install-system/nvme-system/) 教程。
 
 ## 接口规格
 

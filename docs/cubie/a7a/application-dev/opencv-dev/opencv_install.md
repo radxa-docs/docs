@@ -1,0 +1,154 @@
+---
+sidebar_position: 2
+---
+
+# OpenCV 安装
+
+OpenCV（Open Source Computer Vision Library）是一个开源的计算机视觉和机器学习软件库。
+
+## OpenCV 特点
+
+- 高性能
+
+底层采用 C++ 优化，提供 Python、Java 等接口，兼顾速度和易用性，支持 GPU 加速（CUDA、OpenCL）。
+
+- 跨平台
+
+支持 Windows、Linux、macOS、Android 和 iOS，可在 x86、ARM 等多种硬件架构上运行。
+
+- 多语言
+
+提供 C++、Python、Java 等接口，适合不同开发需求，并兼容 TensorFlow、PyTorch 等深度学习框架。
+
+- 丰富的功能
+
+OpenCV 提供了丰富的计算机视觉算法，包括图像处理、特征检测、目标检测、机器学习等。
+
+## 安装 OpenCV
+
+主要介绍二进制和源码两种不同方式安装 OpenCV，您可以根据自己的需求选择其中一种方式安装即可。
+
+| 安装方式   | 优点                                                                        | 缺点                                               | 适合人群                        |
+| ---------- | --------------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------- |
+| 二进制安装 | - 安装简单快捷<br/> - 不需要编译源码<br/> - 易于维护和升级                  | - 功能可能不全<br/> - 定制性较差                   | 初学者、日常开发、Python用户    |
+| 源码安装   | - 可自定义编译参数、功能模块<br/> - 可以获得最新/指定版本<br/> - 支持多语言 | - 步骤复杂<br/> - 需要编译环境<br/> - 编译耗时较长 | 有特殊需求、C++开发者、高级用户 |
+
+### 二进制安装
+
+#### 安装 OpenCV
+
+我们可以使用 `pip` 命令来安装 Python 版本的 OpenCV，使用 `apt` 命令来安装 C++ 版本的 OpenCV。
+
+<Tabs queryString="install-mode">
+
+<TabItem value="Python">
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+pip3 install opencv-python
+```
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="C++">
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+sudo apt update
+sudo apt install libopencv-dev
+```
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+#### 验证 OpenCV
+
+打开终端，在命令行输入 `python3` 进入 Python 交互模式。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+python3
+```
+</NewCodeBlock>
+
+进入 Python 交互模式后，分别输入下面命令来验证 OpenCV 是否安装成功。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+import cv2
+print(cv2.__version__)
+```
+</NewCodeBlock>
+
+如果成功输出 OpenCV 的版本号，说明 OpenCV 安装成功。
+
+### 源码安装
+
+我们通过编译 OpenCV 源码来安装 OpenCV。
+
+#### 安装编译依赖
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+sudo apt update
+sudo apt install cmake gcc g++ python3-dev python3-numpy libavcodec-dev libavformat-dev libswscale-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libgtk-3-dev -y
+```
+</NewCodeBlock>
+
+#### 安装可选依赖
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+sudo apt install libpng-dev libjpeg-dev libopenexr-dev libtiff-dev libwebp-dev -y
+```
+</NewCodeBlock>
+
+#### 下载 OpenCV 源码
+
+使用 `git` 下载 OpenCV 源码。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+sudo apt install git -y
+git clone https://github.com/opencv/opencv.git
+```
+</NewCodeBlock>
+
+#### 编译 OpenCV
+
+进入 OpenCV 源码目录，然后输入以下命令来编译 OpenCV。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+cd opencv
+mkdir build
+cd build
+cmake ../
+make
+sudo make install
+```
+</NewCodeBlock>
+
+#### 验证 OpenCV
+
+打开终端，在命令行输入 `python3` 进入 Python 交互模式。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+python3
+```
+</NewCodeBlock>
+
+进入 Python 交互模式后，分别输入下面命令来验证 OpenCV 是否安装成功。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+import cv2
+print(cv2.__version__)
+```
+</NewCodeBlock>
+
+如果成功输出 OpenCV 的版本号，说明 OpenCV 安装成功。
