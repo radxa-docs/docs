@@ -10,6 +10,6 @@ sidebar_position: 1
 
 主要介绍 ROS1 的环境搭建。
 
-#### [ROS1 快速了解](/cubie/a7a/application-dev/ros-dev/ros1-dev/turtlesim)
+#### [ROS1 快速体验](/cubie/a7a/application-dev/ros-dev/ros1-dev/turtlesim)
 
-主要通过 turtlesim 案例初步了解 ROS1。
+主要通过 turtlesim 案例快速体验 ROS1。

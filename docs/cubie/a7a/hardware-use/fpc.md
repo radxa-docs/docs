@@ -18,7 +18,9 @@ M.2 NVMe SSD 需要通过 PCIe 转 M.2 M Key HAT 连接 Cubie A7A 的 FPC 接口
 
 - 拓展存储空间
 
-您可以直接将 M.2 NVMe SSD 插入 PCIe 转 M.2 M Key HAT，然后将 HAT 连接 Cubie A7A 的 FPC 接口，使用 `lsblk` 命令查看 NVMe SSD 是否被识别。
+将 PCIe 转 M.2 M Key HAT 扩展板安装到 Cubie A7A 上，然后将 NVMe SSD 安装到 PCIe 转 M.2 M Key HAT 扩展板的 M.2 M Key 接口中。
+
+完成安装后，使用 `lsblk` 命令查看 NVMe SSD 是否被识别。
 
 - 作为系统启动盘
 

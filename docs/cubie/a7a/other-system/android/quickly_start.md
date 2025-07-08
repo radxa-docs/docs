@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# 快速上手
+# 快速上手（修改部分）
 
-本节教程目的是为了让大家快速上手使用 Cubie A7A 产品。
+本节教程目的是为了让大家快速上手使用 Cubie A7A 的 Android 系统。
 
 ## 产品实物
 
@@ -22,7 +22,7 @@ sidebar_position: 1
 您需要提前准备以下硬件设备：**可选的硬件设备可以不准备！**
 
 - 开发板：瑞莎 Cubie A7A
-- 系统启动介质：支持 MicroSD 卡、eMMC / UFS 模块、NVMe SSD 启动系统（选中其中一种系统启动介质即可，其中 NVMe SSD 启动系统需要搭配 PCIe 转 M.2 M Key HAT 扩展板使用）
+- 系统启动介质：支持 MicroSD 卡、eMMC / UFS 模块、NVMe SSD 启动系统（选中其中一种系统启动介质即可,其中 NVMe SSD 启动系统需要搭配 PCIe 转 M.2 M Key HAT 扩展板使用）
 - 供电/数据线：USB Type A to Type C 数据线
 - 电源适配器：5V Type-C 电源适配器
 - USB 串口数据线（可选）：用于串口调试和登录系统
@@ -65,10 +65,7 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 
 您可以根据自己的系统启动介质和拥有的硬件设备，参考下面教程进行系统安装：
 
-- [安装系统到 MicroSD 卡](./install-system/sd_system)
-- [安装系统到 eMMC 模块](./install-system/emmc-system)
-- [安装系统到 UFS 模块](./install-system/ufs-system)
-- [安装系统到 NVMe SSD 模块](./install-system/nvme-system)
+- [安装系统](./install_system)
 
 ## 启动系统
 
@@ -107,38 +104,11 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 </div>
 </TabItem>
 
-<TabItem value="NVMe SSD">
-
-将 PCIe 转 M.2 M Key HAT 扩展板安装到 Cubie A7A 上，然后将 NVMe SSD 安装到 PCIe 转 M.2 M Key HAT 扩展板的 M.2 M Key 接口中。
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/cubie/a7a/a7a-nvme.webp" style={{width: '50%', maxWidth: '1200px'}} />
-</div>
-</TabItem>
-
 </Tabs>
 
 安装好系统启动介质后，使用 5V Type-C 电源适配器给 Cubie A7A 供电，即可启动系统。
 
 系统正常启动，电源指示灯绿色亮起，状态指示灯蓝色闪烁。
-
-## 系统信息
-
-您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统；
-
-出厂系统镜像默认存在两个用户账号，分别是 `root` 和 `radxa`。
-
-- root
-
-用户账号：root
-
-用户密码：radxa
-
-- radxa
-
-用户账号：radxa
-
-用户密码：radxa
 
 ## 登录系统
 
@@ -156,26 +126,4 @@ Cubie A7A 搭配显示器使用，整体操作比较直观和简单，这里便�
 
 ### 无屏模式
 
-无屏模式是指 Cubie A7A 不搭配显示器使用，通过串口或者 SSH 登录系统进行操作！
-
-:::tip
-**对于无屏模式的用户，我们提供以下建议助力您快速熟悉系统!**
-
-1. 配置网络
-
-您可以直接给 Cubie A7A 连接网线，让系统处于有网状态。
-
-2. 串口登录
-
-您可以根据 [串口调试](../system-config/uart_debug) 教程进行串口登录系统，获取路由器给 Cubie A7A 分配的 IP 地址，然后通过 SSH 远程登录系统。
-
-注意：若您可以直接登录路由器后台查看 Cubie A7A 的 IP 地址，您可以跳过串口登录的步骤，直接根据分配的 IP 地址，进行 SSH 远程登录系统。
-
-3. SSH 远程
-
-您可以根据 [SSH 远程](../system-config/ssh_remote) 教程完成 SSH 远程登录 Cubie A7A 的命令行界面。
-
-4. VNC 远程
-
-您可以根据 [VNC 远程](../system-config/vnc_remote) 教程完成 VNC 远程登录 Cubie A7A 的图形化界面。
-:::
+无屏模式是指 Cubie A7A 不搭配显示器使用，通过串口调试或者 ADB 调试登录系统进行操作！

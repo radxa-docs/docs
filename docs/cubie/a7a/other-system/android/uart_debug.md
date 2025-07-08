@@ -1,6 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
+
+# 串口调试
 
 # 串口调试
 

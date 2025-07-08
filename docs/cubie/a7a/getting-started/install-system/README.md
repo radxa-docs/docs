@@ -31,3 +31,7 @@ MicroSD 卡、UFS 模块和 eMMC 模块特性：
 #### [安装系统到 eMMC 模块](/cubie/a7a/getting-started/install-system/emmc-system)
 
 主要介绍 Cubie A7A 使用 eMMC 模块安装系统的方法。
+
+#### [安装系统到 NVMe SSD 模块](/cubie/a7a/getting-started/install-system/nvme-system)
+
+主要介绍 Cubie A7A 使用 NVMe SSD 模块安装系统的方法。
