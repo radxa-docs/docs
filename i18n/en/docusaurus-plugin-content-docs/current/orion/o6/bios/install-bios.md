@@ -34,7 +34,7 @@ BurnImage.efi
 cix_flash_all.bin  
 cix_flash_ota.bin  
 FlashUpdate.efi  
-setup.nsh  
+startup.nsh
 Shell.efi  
 VariableInfo.efi
 ```
@@ -107,7 +107,7 @@ Directory of: FS1:\
 01/01/1980  08:00           6,288,062  cix_flash_all.bin
 01/01/1980  08:00           2,101,982  cix_flash_ota.bin
 01/01/1980  08:00             434,176  FlashUpdate.efi
-01/01/1980  08:00               1,160  setup.nsh
+01/01/1980  08:00               1,160  startup.nsh
 01/01/1980  08:00             970,752  Shell.efi
 01/01/1980  08:00              16,384  VariableInfo.efi
           8 File(s)   9,870,479 bytes
@@ -119,11 +119,15 @@ FS1:\>
 
 #### Step 5: Burn BIOS
 
-Under Shell, output the command `setup.nsh` and press Enter to execute it.
+Under Shell, input the command `startup.nsh` and press Enter to execute it.
+
+:::info
+When using versions before 0.3.0-1, please use `setup.nsh` instead.
+:::
 
 <NewCodeBlock tip="O6-UEFI-Shell>" type="device">
 ```
-FS1:\> setup.nsh
+FS1:\> startup.nsh
 ************************************************************************
                        Radxa BIOS Update Utility
 ************************************************************************
@@ -296,12 +300,16 @@ Shell>
 
 ##### Step 5: Burn BIOS
 
-Under Shell, output the command `setup.nsh` and press Enter to execute it.
+Under Shell, input the command `startup.nsh` and press Enter to execute it.
+
+:::info
+When using versions before 0.3.0-1, please use `setup.nsh` instead.
+:::
 
 <NewCodeBlock tip="O6-Serial-Console" type="host">
 
 ```
-FS1:\> setup.nsh
+FS1:\> startup.nsh
 ************************************************************************
                        Radxa BIOS Update Utility
 ************************************************************************
