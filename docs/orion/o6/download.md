@@ -18,9 +18,33 @@ Orion O6 V1.2 版本
 
 | 下载链接                                                                                  | 格式 | 说明                                                                                                                                                                                      |
 | ----------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.3.0-1.zip)           | zip  | Version 0.3.0                                                                                                                                                                             |
+| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.3.0-1.zip)           | zip  | Version 0.3.0-1                                                                                                                                                                           |
 | [Github Release](https://github.com/radxa-pkg/edk2-cix/releases/latest)                   | deb  | BIOS 内容处于 `edk2-cix_*_all.deb` 软件包当中。该文件在 Windows 下可使用 7-Zip 打开，Linux 下可使用 KDE Ark 打开。软件包内，BIOS 文件路径为 `data.tar.xz/usr/share/edk2/radxa/orion-o6`。 |
 | [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/SystemReady/latest/orion-o6-bios.7z) | 7z   | Version 9.0.0, Arm SystemReady Certification BIOS                                                                                                                                         |
+
+### BIOS 兼容性说明
+
+不同版本的 BIOS 包含有不同的内存初始化代码。如果在新版本硬件上安装老版本 BIOS，则可能会有无法启动的问题。
+
+O6 出厂时已预装和其硬件版本兼容的 BIOS，我们不建议降级到比预装 BIOS 更老的版本。
+
+下表 Memory Chip Raw Value 一值请参考 BIOS 设置内 `Device Manager - System Information - Memory Chip` 对应数值。
+
+| Memory Chip Raw Value | 描述            | 支持版本                                                                                                  |
+| --------------------- | --------------- | --------------------------------------------------------------------------------------------------------- |
+| 0                     | 4 GiB           | 任意                                                                                                      |
+| 2                     | 2 GiB           | 0.2.0-1及以上                                                                                             |
+| 5                     | 3 GiB           | 任意                                                                                                      |
+| 7                     | 6 GiB           | 预留配置                                                                                                  |
+| 8                     | 8 GiB           | 任意                                                                                                      |
+| 9                     | 12 GiB          | 预留配置                                                                                                  |
+| 10                    | 16 GiB (Hynix)  | 任意                                                                                                      |
+| 11                    | 8 GiB           | 0.2.0-1及以上                                                                                             |
+| 12                    | 16 GiB (Rayson) | [0.3.1-1](https://github.com/radxa-pkg/edk2-cix/releases/download/0.3.1-1/edk2-cix_0.3.1-1_all.deb)及以上 |
+
+:::info
+SystemReady BIOS当前内存兼容性等效0.2.0-1。
+:::
 
 ## Debian 12 预装版系统镜像
 

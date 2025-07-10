@@ -32,7 +32,7 @@ BurnImage.efi
 cix_flash_all.bin  
 cix_flash_ota.bin  
 FlashUpdate.efi  
-setup.nsh  
+startup.nsh
 Shell.efi  
 VariableInfo.efi
 ```
@@ -107,7 +107,7 @@ Directory of: FS1:\
 01/01/1980  08:00           6,288,062  cix_flash_all.bin
 01/01/1980  08:00           2,101,982  cix_flash_ota.bin
 01/01/1980  08:00             434,176  FlashUpdate.efi
-01/01/1980  08:00               1,160  setup.nsh
+01/01/1980  08:00               1,160  startup.nsh
 01/01/1980  08:00             970,752  Shell.efi
 01/01/1980  08:00              16,384  VariableInfo.efi
           8 File(s)   9,870,479 bytes
@@ -119,11 +119,15 @@ FS1:\>
 
 #### 步骤五：烧录 BIOS
 
-在 Shell 下，输出命令 `setup.nsh` ，并按下回车执行。
+在 Shell 下，输入命令 `startup.nsh` ，并按下回车执行。
+
+:::info
+使用 0.3.0-1 以前的版本时，此文件名为`setup.nsh`。
+:::
 
 <NewCodeBlock tip="O6-UEFI-Shell>" type="device">
 ```
-FS1:\> setup.nsh
+FS1:\> startup.nsh
 ************************************************************************
                        Radxa BIOS Update Utility
 ************************************************************************
@@ -292,11 +296,15 @@ Shell>
 
 ##### 步骤五：烧录 BIOS
 
-在 Shell 下，输出命令 `setup.nsh` ，并按下回车执行。
+在 Shell 下，输入命令 `startup.nsh` ，并按下回车执行。
+
+:::info
+使用 0.3.0-1 以前的版本时，此文件名为`setup.nsh`。
+:::
 
 <NewCodeBlock tip="O6-Serial-Console" type="host">
 ```
-FS1:\> setup.nsh
+FS1:\> startup.nsh
 ************************************************************************
                        Radxa BIOS Update Utility
 ************************************************************************

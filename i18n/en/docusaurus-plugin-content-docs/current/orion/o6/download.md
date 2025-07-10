@@ -18,9 +18,33 @@ Orion O6 V1.2 Version
 
 | Download Link                                                                             | Format | Description                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.3.0-1.zip)           | zip    | Version 0.3.0                                                                                                                                                                                                                          |
+| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.3.0-1.zip)           | zip    | Version 0.3.0-1                                                                                                                                                                                                                        |
 | [Github Release](https://github.com/radxa-pkg/edk2-cix/releases/latest)                   | deb    | The BIOS content is within the `edk2-cix_*_all.deb` package. This file can be opened with 7-Zip in Windows and with KDE Ark in Linux. In the BIOS package, the BIOS file is located under `data.tar.xz/usr/share/edk2/radxa/orion-o6`. |
 | [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/SystemReady/latest/orion-o6-bios.7z) | 7z     | Version 9.0.0, Arm SystemReady Certification BIOS                                                                                                                                                                                      |
+
+### BIOS Compatibility Instructions
+
+Different versions of BIOS contain different memory initialization codes. If an older version of BIOS is installed on newer version hardware, the system may fail to start.
+
+O6 comes pre-installed with a BIOS that is compatible with its hardware. We do not recommend downgrading to a version older than the pre-installed BIOS.
+
+For the value of "Memory Chip Raw Value" in the following table, please refer to the corresponding value in `Device Manager - System Information - Memory Chip` within the BIOS settings.
+
+| Memory Chip Raw Value | Description     | Supported Versions                                                                                            |
+| --------------------- | --------------- | ------------------------------------------------------------------------------------------------------------- |
+| 0                     | 4 GiB           | Any                                                                                                           |
+| 2                     | 2 GiB           | 0.2.0-1 and above                                                                                             |
+| 5                     | 3 GiB           | Any                                                                                                           |
+| 7                     | 6 GiB           | Reserved configuration                                                                                        |
+| 8                     | 8 GiB           | Any                                                                                                           |
+| 9                     | 12 GiB          | Reserved configuration                                                                                        |
+| 10                    | 16 GiB (Hynix)  | Any                                                                                                           |
+| 11                    | 8 GiB           | 0.2.0-1 and above                                                                                             |
+| 12                    | 16 GiB (Rayson) | [0.3.1-1](https://github.com/radxa-pkg/edk2-cix/releases/download/0.3.1-1/edk2-cix_0.3.1-1_all.deb) and above |
+
+:::info
+The current memory compatibility of SystemReady BIOS is equivalent to 0.2.0-1.
+:::
 
 ## Debian 12 pre‑installed image
 
