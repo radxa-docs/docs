@@ -14,10 +14,4 @@ sidebar_position: 12
 
 将天线连接到对应的天线接口，天线接口规格 1 代 IPEX。
 
-成功启动系统后，可以使用以下命令查看 WiFi 信号强度：
-
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
-sudo nmcli device wifi list
-```
-</NewCodeBlock>
+完成天线的安装后，可以按照 [无线网络](../system-config/wifi_usage) 配置无线网络、查看无线网络信号和测试网络带宽性能。

@@ -17,3 +17,7 @@ sidebar_position: 4
 #### [OpenCV 开发](/cubie/a7a/application-dev/opencv-dev)
 
 介绍如何在 Cubie A7A 上安装、使用 OpenCV 库以及演示经典案例。
+
+#### [MediaPipe 开发](/cubie/a7a/application-dev/mediapipe-dev)
+
+介绍如何在 Cubie A7A 上安装、使用 MediaPipe 库以及演示经典案例。

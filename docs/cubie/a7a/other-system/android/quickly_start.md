@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 快速上手（修改部分）
+# 快速上手
 
 本节教程目的是为了让大家快速上手使用 Cubie A7A 的 Android 系统。
 
@@ -22,7 +22,7 @@ sidebar_position: 1
 您需要提前准备以下硬件设备：**可选的硬件设备可以不准备！**
 
 - 开发板：瑞莎 Cubie A7A
-- 系统启动介质：支持 MicroSD 卡、eMMC / UFS 模块、NVMe SSD 启动系统（选中其中一种系统启动介质即可,其中 NVMe SSD 启动系统需要搭配 PCIe 转 M.2 M Key HAT 扩展板使用）
+- 系统启动介质：支持 MicroSD 卡、eMMC / UFS 模块（选中其中一种系统启动介质即可）
 - 供电/数据线：USB Type A to Type C 数据线
 - 电源适配器：5V Type-C 电源适配器
 - USB 串口数据线（可选）：用于串口调试和登录系统
@@ -43,7 +43,7 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 
 - 系统启动介质
 
-主要作用是用于启动 Cubie A7A 系统，支持 MicroSD 卡、eMMC / UFS 模块、NVMe SSD 启动系统（选中其中一种系统启动介质即可,其中 NVMe SSD 启动系统需要搭配 PCIe 转 M.2 M Key HAT 扩展板使用）。
+主要作用是用于启动 Cubie A7A 系统，支持 MicroSD 卡、eMMC / UFS 模块（选中其中一种系统启动介质即可）。
 
 - 供电/数据线
 
@@ -112,7 +112,7 @@ Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以�
 
 ## 登录系统
 
-主要介绍 Cubie A7A 搭配 USB 串口数据线登录系统，串口登录系统可以参考 [串口调试](../system-config/uart_debug) 教程。
+主要介绍 Cubie A7A 搭配 USB 串口数据线登录系统，串口登录系统可以参考 [串口调试](./uart_debug) 教程。
 
 :::tip
 Cubie A7A 搭配显示器使用，整体操作比较直观和简单，这里便不再介绍！

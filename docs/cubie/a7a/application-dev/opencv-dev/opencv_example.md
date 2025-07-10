@@ -8,35 +8,65 @@ sidebar_position: 3
 
 ## 图像预览
 
+演示如何读取图片和摄像头画面并显示。
+
 ### 图片预览
 
-读取本地图片并显示：您需要新建 `preview_image.py` 文件，将 `preview_image.py` 的代码复制到 Cubie A7A 上运行。
+读取图片并显示出来。
+
+运行案例步骤：
+
+1. 新建 `preview_image.py` 文件
+2. 将代码复制到 `preview_image.py` 文件
+3. 使用 `python3 preview_image.py` 运行案例
+4. 鼠标点击预览窗口，按 `q` 键终止程序
 
 <details>
 <summary>preview_image.py</summary>
 ```
 #!/usr/bin/env python3
-# -*- encoding: utf-8 -*-
+# -_- encoding: utf-8 -_-
 
 import cv2
 
 # Read the image
 
-image = cv2.imread('your_image.jpg') # Replace with your image path
+image_path = './radxa_logo.png' # Replace with your image path
+image = cv2.imread(image_path)
 
 # Check if the image is loaded successfully
 
 if image is None:
 print("Failed to load image. Please check the file path.")
 else: # Display the image in a window
-cv2.imshow('Preview', image) # Wait for the user to press any key
-cv2.waitKey(0) # Close the window
+while True:
+cv2.imshow('Preview', image) # Wait for 'q' key to quit
+if cv2.waitKey(1) & 0xFF == ord('q'):
+break
 cv2.destroyAllWindows()
 
 ```
 </details>
+
+预览效果：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7a/opencv_preview_image.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ### 实时预览
-读取摄像头画面并显示：您需要新建 `preview_camera.py` 文件，将 `preview_camera.py` 的代码复制到 Cubie A7A 上运行。
+
+读取摄像头画面并显示。
+
+运行案例步骤：
+1. 新建 `preview_camera.py` 文件
+2. 将代码复制到 `preview_camera.py` 文件
+3. 使用 `python3 preview_camera.py` 运行案例
+4. 鼠标点击预览窗口，按 `q` 键终止程序
+
+:::tip
+其中代码中的 `cv2.VideoCapture(0)` 表示打开 `/dev/video0` 摄像头，若你有多个摄像头或者摄像头设备文件不为 `/dev/video0`，请根据实际情况修改代码。
+:::
 
 <details>
 <summary>preview_camera.py</summary>
@@ -63,7 +93,7 @@ ret, frame = video_capture.read()
     # Display the frame in a window
     cv2.imshow('Preview', frame)
 
-    # Wait for the user to press 'q' to quit
+    # Wait for 'q' key to quit
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
@@ -75,11 +105,25 @@ cv2.destroyAllWindows()
 ```
 </details>
 
+预览效果：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7a/opencv_preview_camera.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ## Harris 角点检测
 
 Harris 角点检测（Harris Corner Detection）是一种经典的图像特征点检测算法，用于检测图像中的角点。
 
 ### 图片识别
+
+读取图片并进行 Harris 角点检测。
+
+运行案例步骤：
+1. 新建 `harris_image.py` 文件
+2. 将代码复制到 `harris_image.py` 文件
+3. 使用 `python3 harris_image.py` 运行案例
+4. 鼠标点击预览窗口，按 `q` 键终止程序
 
 <details>
 <summary>harris_image.py</summary>
@@ -92,28 +136,66 @@ Harris 角点检测（Harris Corner Detection）是一种经典的图像特征�
 import cv2
 import numpy as np
 
-# Read image
+# Harris corner detection parameters
 
-img = cv2.imread('./pic1.png')
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+block_size = 2
+ksize = 3
+k = 0.04
+threshold = 0.01
 
-# Harris corner detection
+# Read the image
 
+image_path = './radxa_logo.png' # Replace with your image path
+image = cv2.imread(image_path)
+
+# Check if the image is loaded successfully
+
+if image is None:
+print("Failed to load image. Please check the file path.")
+else: # Convert to grayscale
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 gray = np.float32(gray)
-dst = cv2.cornerHarris(gray, 2, 3, 0.08)
-dst = cv2.dilate(dst, None)
-img[dst > 0.01 * dst.max()] = [0, 0, 255]
 
-# Display image
+    # Apply Harris corner detection
+    dst = cv2.cornerHarris(gray, block_size, ksize, k)
 
-cv2.imshow('Harris Corner Detection', img)
-cv2.waitKey(0)
+    # Dilate corner points for better visualization
+    dst = cv2.dilate(dst, None)
+
+    # Mark corners in red
+    image[dst > threshold * dst.max()] = [0, 0, 255]
+
+    # Display the result
+    while True:
+        cv2.imshow('Harris Corners', image)
+        # Wait for 'q' key to quit
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
 cv2.destroyAllWindows()
 
 ```
 </details>
 
+预览效果：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7a/opencv_harris_image.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ### 实时检测
+
+读取摄像头画面并进行 Harris 角点检测。
+
+运行案例步骤：
+1. 新建 `harris_camera.py` 文件
+2. 将代码复制到 `harris_camera.py` 文件
+3. 使用 `python3 harris_camera.py` 运行案例
+4. 鼠标点击预览窗口，按 `q` 键终止程序
+
+:::tip
+其中代码中的 `cv2.VideoCapture(0)` 表示打开 `/dev/video0` 摄像头，若你有多个摄像头或者摄像头设备文件不为 `/dev/video0`，请根据实际情况修改代码。
+:::
 
 <details>
 <summary>harris_camera.py</summary>
@@ -126,82 +208,155 @@ cv2.destroyAllWindows()
 import cv2
 import numpy as np
 
-# Open the camera
+# Harris corner detection parameters
 
-video_capture = cv2.VideoCapture(0)
+block_size = 2
+ksize = 3
+k = 0.04
+threshold = 0.01
 
-while True: # Read a frame from the camera
-ret, frame = video_capture.read()
+# Initialize the camera
 
-    # Check if the frame is read successfully
+cap = cv2.VideoCapture(0)
+
+# Check if the camera is opened successfully
+
+if not cap.isOpened():
+print("Error: Could not open camera.")
+exit()
+
+while True: # Capture frame-by-frame
+ret, frame = cap.read()
+
+    # If frame is read correctly, ret is True
     if not ret:
-        print("Failed to read frame. Please check the camera connection.")
+        print("Error: Failed to capture frame.")
         break
 
-    # Convert to greyscale
+    # Create a copy of the frame for processing
+    display_frame = frame.copy()
+
+    # Convert to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray = np.float32(gray)
 
-    # Using Harris corner detection
+    # Apply Harris corner detection
+    dst = cv2.cornerHarris(gray, block_size, ksize, k)
 
-dst = cv2.cornerHarris(gray, 2, 3, 0.08)
-dst = cv2.dilate(dst, None)
-frame[dst > 0.01 * dst.max()] = [0, 0, 255]
+    # Dilate corner points for better visualization
+    dst = cv2.dilate(dst, None)
 
-# Display image
+    # Mark corners in red
+    display_frame[dst > threshold * dst.max()] = [0, 0, 255]
 
-cv2.imshow('Harris Corner Detection', frame)
-cv2.waitKey(1)
+    # Display the resulting frame
+    cv2.imshow('Harris Corners - Camera', display_frame)
 
-# Release the camera and close the window
+    # Press 'q' to exit
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
-video_capture.release()
+# When everything done, release the capture and close windows
+
+cap.release()
 cv2.destroyAllWindows()
 
 ```
 </details>
+
+预览效果：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7a/opencv_harris_camera.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ## Shi-Tomasi 角点检测
 
 Shi-Tomasi 角点检测（Shi-Tomasi Corner Detection）是 Harris 角点检测的改进算法，用于检测图像中的角点。
 
 ### 图片识别
+
+读取图片并进行 Shi-Tomasi 角点检测。
+
+运行案例步骤：
+1. 新建 `shi_tomasi_image.py` 文件
+2. 将代码复制到 `shi_tomasi_image.py` 文件
+3. 使用 `python3 shi_tomasi_image.py` 运行案例
+4. 鼠标点击预览窗口，按 `q` 键终止程序
+
 <details>
 <summary>shi_tomasi_image.py</summary>
 ```
 
+#!/usr/bin/env python3
+
+# -_- encoding: utf-8 -_-
+
 import cv2
 import numpy as np
 
+# Shi-Tomasi corner detection parameters
+
+max_corners = 100
+quality_level = 0.01
+min_distance = 10
+
 # Read the image
 
-img = cv2.imread('./pic1.png')
+image_path = './radxa_logo.png' # Replace with your image path
+image = cv2.imread(image_path)
 
-# Convert to greyscale
+# Check if the image is loaded successfully
 
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+if image is None:
+print("Failed to load image. Please check the file path.")
+else: # Create a copy of the image for display
+display_image = image.copy()
 
-# Using Shi-Tomasi corner detection
+    # Convert to grayscale
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-corners = cv2.goodFeaturesToTrack(gray, maxCorners=100, qualityLevel=0.01, minDistance=10, blockSize=3)
+    # Detect corners using Shi-Tomasi
+    corners = cv2.goodFeaturesToTrack(gray, max_corners, quality_level, min_distance)
 
-# If a corner point is detected, it is converted to integer format and plotted
+    # Draw circles around detected corners
+    if corners is not None:
+        corners = np.int0(corners)
+        for corner in corners:
+            x, y = corner.ravel()
+            cv2.circle(display_image, (x, y), 5, (0, 255, 0), -1)  # Green circles
 
-if corners is not None:
-corners = np.int0(corners)
-for corner in corners:
-x, y = corner.ravel()
-cv2.circle(img, (x, y), 3, 255, -1)
+    # Display the result
+    while True:
+        cv2.imshow('Shi-Tomasi Corners', display_image)
+        # Wait for 'q' key to quit
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
 
-# Display image
-
-cv2.imshow('Shi-Tomasi Corner Detection', img)
-cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 ```
 </details>
 
+预览效果：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7a/opencv_shi_tomasi_image.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ### 实时检测
+
+读取摄像头画面并进行 Shi-Tomasi 角点检测。
+
+运行案例步骤：
+1. 新建 `shi_tomasi_camera.py` 文件
+2. 将代码复制到 `shi_tomasi_camera.py` 文件
+3. 使用 `python3 shi_tomasi_camera.py` 运行案例
+4. 鼠标点击预览窗口，按 `q` 键终止程序
+
+:::tip
+其中代码中的 `cv2.VideoCapture(0)` 表示打开 `/dev/video0` 摄像头，若你有多个摄像头或者摄像头设备文件不为 `/dev/video0`，请根据实际情况修改代码。
+:::
 
 <details>
 <summary>shi_tomasi_camera.py</summary>
@@ -214,84 +369,148 @@ cv2.destroyAllWindows()
 import cv2
 import numpy as np
 
-# Open the camera
+# Shi-Tomasi corner detection parameters
 
-video_capture = cv2.VideoCapture(0)
+max_corners = 100
+quality_level = 0.01
+min_distance = 10
 
-while True: # Read a frame from the camera
-ret, frame = video_capture.read()
+# Initialize the camera
 
-    # Check if the frame is read successfully
+cap = cv2.VideoCapture(0)
+
+# Check if the camera is opened successfully
+
+if not cap.isOpened():
+print("Error: Could not open camera.")
+exit()
+
+while True: # Capture frame-by-frame
+ret, frame = cap.read()
+
+    # If frame is read correctly, ret is True
     if not ret:
-        print("Failed to read frame. Please check the camera connection.")
+        print("Error: Failed to capture frame.")
         break
 
-    # Convert to greyscale
+    # Create a copy of the frame for display
+    display_frame = frame.copy()
+
+    # Convert to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    # Using Shi-Tomasi corner detection
+    # Detect corners using Shi-Tomasi
+    corners = cv2.goodFeaturesToTrack(gray, max_corners, quality_level, min_distance)
 
-corners = cv2.goodFeaturesToTrack(gray, maxCorners=100, qualityLevel=0.01, minDistance=10, blockSize=3)
+    # Draw circles around detected corners
+    if corners is not None:
+        corners = np.int0(corners)
+        for corner in corners:
+            x, y = corner.ravel()
+            cv2.circle(display_frame, (x, y), 5, (0, 255, 0), -1)  # Green circles
 
-# If a corner point is detected, it is converted to integer format and plotted
+    # Display the resulting frame
+    cv2.imshow('Shi-Tomasi Corners - Camera', display_frame)
 
-if corners is not None:
-corners = np.int0(corners)
-for corner in corners:
-x, y = corner.ravel()
-cv2.circle(frame, (x, y), 3, 255, -1)
+    # Press 'q' to exit
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
-# Display image
+# When everything done, release the capture and close windows
 
-cv2.imshow('Shi-Tomasi Corner Detection', frame)
-cv2.waitKey(1)
-
-# Release the camera and close the window
-
-video_capture.release()
+cap.release()
 cv2.destroyAllWindows()
 
 ```
 </details>
 
+预览效果：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7a/opencv_shi_tomasi_camera.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ## ORB 特征检测
 
+ORB（Oriented FAST and Rotated BRIEF）是一种高效的特征检测与描述算法，结合了 FAST 关键点检测器 和 BRIEF 描述符，并进行了改进以提升性能，尤其在计算效率和旋转不变性方面表现突出。
+
 ### 图片识别
+
+读取图片并进行 ORB 特征检测。
+
+运行案例步骤：
+1. 新建 `orb_image.py` 文件
+2. 将代码复制到 `orb_image.py` 文件
+3. 使用 `python3 orb_image.py` 运行案例
+4. 鼠标点击预览窗口，按 `q` 键终止程序
 
 <details>
 <summary>orb_image.py</summary>
 ```
+
+#!/usr/bin/env python3
+
+# -_- encoding: utf-8 -_-
 
 import cv2
 import numpy as np
 
 # Read the image
 
-img = cv2.imread('pic1.png')
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+image_path = './radxa_logo.png' # Replace with your image path
+image = cv2.imread(image_path)
 
-# Create ORB objects
+# Check if the image is loaded successfully
 
-orb = cv2.ORB_create()
+if image is None:
+print("Failed to load image. Please check the file path.")
+else: # Create a copy of the image for display
+display_image = image.copy()
 
-# Detect keypoints and compute descriptors
+    # Convert to grayscale
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-kp, des = orb.detectAndCompute(gray, None)
+    # Initialize ORB detector
+    orb = cv2.ORB_create(nfeatures=500)
 
-# Mapping key points
+    # Detect keypoints and compute descriptors
+    keypoints, descriptors = orb.detectAndCompute(gray, None)
 
-img = cv2.drawKeypoints(gray, kp, img, color=(0,255,0), flags=0)
+    # Draw keypoints on the image
+    display_image = cv2.drawKeypoints(image, keypoints, None, color=(0, 255, 0),
+                                    flags=cv2.DRAW_MATCHES_FLAGS_DEFAULT)
 
-# Display image
+    # Display the result
+    while True:
+        cv2.imshow('ORB Features', display_image)
+        # Wait for 'q' key to quit
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
 
-cv2.imshow('ORB', img)
-cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 ```
 </details>
 
+预览效果：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7a/opencv_orb_image.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ### 实时检测
+
+读取摄像头画面并进行 ORB 特征检测。
+
+运行案例步骤：
+1. 新建 `orb_camera.py` 文件
+2. 将代码复制到 `orb_camera.py` 文件
+3. 使用 `python3 orb_camera.py` 运行案例
+4. 鼠标点击预览窗口，按 `q` 键终止程序
+
+:::tip
+其中代码中的 `cv2.VideoCapture(0)` 表示打开 `/dev/video0` 摄像头，若你有多个摄像头或者摄像头设备文件不为 `/dev/video0`，请根据实际情况修改代码。
+:::
 
 <details>
 <summary>orb_camera.py</summary>
@@ -304,86 +523,157 @@ cv2.destroyAllWindows()
 import cv2
 import numpy as np
 
-# Open the camera
+# Initialize ORB detector
 
-video_capture = cv2.VideoCapture(0)
+orb = cv2.ORB_create(nfeatures=500)
 
-while True: # Read a frame from the camera
-ret, frame = video_capture.read()
+# Initialize the camera
 
-    # Check if the frame is read successfully
+cap = cv2.VideoCapture(0)
+
+# Check if the camera is opened successfully
+
+if not cap.isOpened():
+print("Error: Could not open camera.")
+exit()
+
+while True: # Capture frame-by-frame
+ret, frame = cap.read()
+
+    # If frame is read correctly, ret is True
     if not ret:
-        print("Failed to read frame. Please check the camera connection.")
+        print("Error: Failed to capture frame.")
         break
 
-    # Convert to greyscale
+    # Convert to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    # Create ORB objects
-    orb = cv2.ORB_create()
-
     # Detect keypoints and compute descriptors
-    kp, des = orb.detectAndCompute(gray, None)
+    keypoints, descriptors = orb.detectAndCompute(gray, None)
 
-    # Mapping key points
-    frame = cv2.drawKeypoints(gray, kp, frame, color=(0,255,0), flags=0)
+    # Draw keypoints on the frame
+    display_frame = cv2.drawKeypoints(frame, keypoints, None,
+                                    color=(0, 255, 0),
+                                    flags=cv2.DRAW_MATCHES_FLAGS_DEFAULT)
 
-    # Display image
-    cv2.imshow('ORB', frame)
-    cv2.waitKey(1)
+    # Display the number of keypoints
+    cv2.putText(display_frame, f'Keypoints: {len(keypoints)}', (10, 30),
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-# Release the camera and close the window
+    # Display the resulting frame
+    cv2.imshow('ORB Features - Camera', display_frame)
 
-video_capture.release()
+    # Press 'q' to exit
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# When everything done, release the capture and close windows
+
+cap.release()
 cv2.destroyAllWindows()
 
 ```
 </details>
 
+预览效果：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7a/opencv_orb_camera.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ## 人脸识别
 
+基于 Haar Cascade 分类器实现的人脸检测功能，其核心原理是通过机器学习训练的级联分类器在图像中快速定位人脸区域。
+
 ### 图片识别
+
+读取图片并进行人脸识别。
+
+运行案例步骤：
+1. 新建 `face_recognition_image.py` 文件
+2. 将代码复制到 `face_recognition_image.py` 文件
+3. 使用 `python3 face_recognition_image.py` 运行案例
+4. 鼠标点击预览窗口，按 `q` 键终止程序
 
 <details>
 <summary>face_recognition_image.py</summary>
 ```
 
-import cv2
+#!/usr/bin/env python3
 
-# Load pre-trained Haar feature classifier for face detection
+# -_- encoding: utf-8 -_-
+
+import cv2
+import os
+
+# Load the pre-trained Haar Cascade classifier for face detection
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-# Read the image of the face to be detected
+# Read the image
 
-image_path = 'face-synthesis-online01.png'
+image_path = 'people.png' # Replace with your image path
 image = cv2.imread(image_path)
 
-# Convert to greyscale
+# Check if the image is loaded successfully
+
+if image is None:
+print(f"Error: Could not read image at {image_path}")
+exit()
+
+# Convert to grayscale (face detection works on grayscale images)
 
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-# Detect faces in images using cascade classifiers
+# Detect faces in the image
 
-faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+faces = face_cascade.detectMultiScale(
+gray,
+scaleFactor=1.1, # Scale factor for image pyramid
+minNeighbors=5, # How many neighbors each candidate rectangle should have
+minSize=(30, 30) # Minimum possible object size
+)
 
-# Draw a rectangle around each detected face
+# Draw rectangles around the faces
 
 for (x, y, w, h) in faces:
-cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
+cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
-# Display image
+# Display the number of faces detected
 
-cv2.imshow('Face Detection', image)
+print(f"Number of faces detected: {len(faces)}")
+
+# Display the result
 
 while True:
-if cv2.waitKey(100)==27:
+cv2.imshow('Face Detection', image) # Wait for 'q' key to quit
+if cv2.waitKey(1) & 0xFF == ord('q'):
+break
+
 cv2.destroyAllWindows()
 
 ```
 </details>
 
+预览效果：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7a/opencv_face_recognition_image.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ### 实时检测
+
+读取摄像头画面并进行人脸识别。
+
+运行案例步骤：
+1. 新建 `face_recognition_camera.py` 文件
+2. 将代码复制到 `face_recognition_camera.py` 文件
+3. 使用 `python3 face_recognition_camera.py` 运行案例
+4. 鼠标点击预览窗口，按 `q` 键终止程序
+
+:::tip
+其中代码中的 `cv2.VideoCapture(0)` 表示打开 `/dev/video0` 摄像头，若你有多个摄像头或者摄像头设备文件不为 `/dev/video0`，请根据实际情况修改代码。
+:::
 
 <details>
 <summary>face_recognition_camera.py</summary>
@@ -395,42 +685,65 @@ cv2.destroyAllWindows()
 
 import cv2
 
-# Load pre-trained Haar feature classifier for face detection
+# Load the pre-trained Haar Cascade classifier for face detection
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-# Open the camera
+# Initialize the camera
 
-video_capture = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 
-while True: # Read a frame from the camera
-ret, frame = video_capture.read()
+# Check if the camera is opened successfully
 
-    # Check if the frame is read successfully
+if not cap.isOpened():
+print("Error: Could not open camera.")
+exit()
+
+while True: # Capture frame-by-frame
+ret, frame = cap.read()
+
+    # If frame is read correctly, ret is True
     if not ret:
-        print("Failed to read frame. Please check the camera connection.")
+        print("Error: Failed to capture frame.")
         break
 
-    # Convert to greyscale
+    # Convert to grayscale (face detection works on grayscale images)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    # Detect faces in images using cascade classifiers
-    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    # Detect faces in the frame
+    faces = face_cascade.detectMultiScale(
+        gray,
+        scaleFactor=1.1,  # Scale factor for image pyramid
+        minNeighbors=5,   # How many neighbors each candidate rectangle should have
+        minSize=(30, 30)  # Minimum possible object size
+    )
 
-    # Draw a rectangle around each detected face
+    # Draw rectangles around the faces
     for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
-    # Display image
-    cv2.imshow('Face Detection', frame)
-    cv2.waitKey(1)
+    # Display the number of faces detected
+    cv2.putText(frame, f'Faces: {len(faces)}', (10, 30),
+               cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-# Release the camera and close the window
+    # Display the resulting frame
+    cv2.imshow('Face Detection - Camera', frame)
 
-video_capture.release()
+    # Press 'q' to exit
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# When everything done, release the capture and close windows
+
+cap.release()
 cv2.destroyAllWindows()
 
 ```
 </details>
 
+预览效果：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7a/opencv_face_recognition_camera.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 ```

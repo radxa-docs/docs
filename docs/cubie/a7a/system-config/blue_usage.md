@@ -49,7 +49,8 @@ Cuibe A7A 板载蓝牙 5.4 模块，通过蓝牙连接和配对蓝牙设备使�
 通过命令行来管理蓝牙设备。
 
 - 启动蓝牙服务
-  <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
 
 ```
 sudo systemctl start bluetooth
@@ -58,7 +59,8 @@ sudo systemctl start bluetooth
 </NewCodeBlock>
 
 - 设置开机自启
-  <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
 
 ```
 sudo systemctl enable bluetooth
@@ -67,7 +69,8 @@ sudo systemctl enable bluetooth
 </NewCodeBlock>
 
 - 检查服务状态
-  <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
 
 ```
 systemctl status bluetooth
@@ -156,7 +159,8 @@ pair EC:30:B3:40:0A:20
 </NewCodeBlock>
 
 - 信任设备
-  <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
 
 ```
 trust <device_address>
@@ -196,7 +200,8 @@ disconnect EC:30:B3:40:0A:20
 </NewCodeBlock>
 
 - 取消配对
-  <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
 
 ```
 remove <device_address>
@@ -208,7 +213,8 @@ remove EC:30:B3:40:0A:20
 </NewCodeBlock>
 
 - 关闭蓝牙适配器
-  <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
 
 ```
 power off

@@ -35,8 +35,6 @@ OpenCV 提供了丰富的计算机视觉算法，包括图像处理、特征检�
 
 ### 二进制安装
 
-#### 安装 OpenCV
-
 我们可以使用 `pip` 命令来安装 Python 版本的 OpenCV，使用 `apt` 命令来安装 C++ 版本的 OpenCV。
 
 <Tabs queryString="install-mode">
@@ -45,26 +43,11 @@ OpenCV 提供了丰富的计算机视觉算法，包括图像处理、特征检�
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
 ```
-pip3 install opencv-python
+pip3 install opencv-python opencv-contrib-python
 ```
 </NewCodeBlock>
 
-</TabItem>
-
-<TabItem value="C++">
-
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
-sudo apt update
-sudo apt install libopencv-dev
-```
-</NewCodeBlock>
-
-</TabItem>
-
-</Tabs>
-
-#### 验证 OpenCV
+- 验证 OpenCV
 
 打开终端，在命令行输入 `python3` 进入 Python 交互模式。
 
@@ -84,6 +67,33 @@ print(cv2.__version__)
 </NewCodeBlock>
 
 如果成功输出 OpenCV 的版本号，说明 OpenCV 安装成功。
+
+</TabItem>
+
+<TabItem value="C++">
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+sudo apt update
+sudo apt install libopencv-dev
+```
+</NewCodeBlock>
+
+- 验证 OpenCV
+
+打开终端，在终端输入 `pkg-config --modversion opencv4` 来验证 OpenCV 是否安装成功。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+```
+pkg-config --modversion opencv4
+```
+</NewCodeBlock>
+
+如果成功输出 OpenCV 的版本号，说明 OpenCV 安装成功。
+
+</TabItem>
+
+</Tabs>
 
 ### 源码安装
 
@@ -127,7 +137,7 @@ cd opencv
 mkdir build
 cd build
 cmake ../
-make
+make -j4
 sudo make install
 ```
 </NewCodeBlock>
