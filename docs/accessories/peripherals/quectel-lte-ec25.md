@@ -34,6 +34,7 @@ lsusb | grep -i Quectel
 </NewCodeBlock>
 
 若连接正常，终端会输出类似信息：
+
 ```
 Bus 002 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
@@ -47,6 +48,7 @@ ls /dev/cdc-wdm*
 </NewCodeBlock>
 
 若识别正常，终端会输出类似信息：
+
 ```
 /dev/cdc-wdm0
 ```
@@ -82,6 +84,7 @@ sudo nmcli connection add type gsm ifname cdc-wdm0
 </NewCodeBlock>
 
 若创建成功，终端会输出类似信息：
+
 ```
 Connection 'gsm-cdc-wdm0' (e26d1d79-ba6b-44f3-9135-1ef7a80d982a) successfully added.
 ```
@@ -110,6 +113,7 @@ nmcli> set gsm.apn ctlte
 nmcli> save
 Connection 'gsm-cdc-wdm0' (e26d1d79-ba6b-44f3-9135-1ef7a80d982a) successfully updated.
 nmcli> quit
+
 ```
 </NewCodeBlock>
 
@@ -119,36 +123,41 @@ nmcli> quit
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
 ```
+
 ip a
+
 ```
 </NewCodeBlock>
 
 若连接成功，查询 IP 会输出类似信息：
 ```
+
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host noprefixroute
-       valid_lft forever preferred_lft forever
+link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+inet 127.0.0.1/8 scope host lo
+valid_lft forever preferred_lft forever
+inet6 ::1/128 scope host noprefixroute
+valid_lft forever preferred_lft forever
 2: enP4p65s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
-    link/ether 92:f3:c7:c0:ad:c9 brd ff:ff:ff:ff:ff:ff permaddr 02:2b:ab:02:ab:a8
+link/ether 92:f3:c7:c0:ad:c9 brd ff:ff:ff:ff:ff:ff permaddr 02:2b:ab:02:ab:a8
 3: wlP2p33s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
-    link/ether 20:0b:74:70:fc:62 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.31.215/24 brd 192.168.31.255 scope global dynamic noprefixroute wlP2p33s0
-       valid_lft 3529sec preferred_lft 3529sec
-    inet6 fe80::2d68:bb6a:934b:a41b/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
+link/ether 20:0b:74:70:fc:62 brd ff:ff:ff:ff:ff:ff
+inet 192.168.31.215/24 brd 192.168.31.255 scope global dynamic noprefixroute wlP2p33s0
+valid_lft 3529sec preferred_lft 3529sec
+inet6 fe80::2d68:bb6a:934b:a41b/64 scope link noprefixroute
+valid_lft forever preferred_lft forever
 7: wwan0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
-    link/none
-    inet 10.10.239.91/29 brd 10.10.239.95 scope global noprefixroute wwan0
-       valid_lft forever preferred_lft forever
+link/none
+inet 10.10.239.91/29 brd 10.10.239.95 scope global noprefixroute wwan0
+valid_lft forever preferred_lft forever
+
 ```
 
 使用 `ping` 命令指定 `wwan` 接口检查网络是否正常：
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
 ```
+
 sudo ping baidu.com -I wwan0 -c 5
 PING baidu.com (39.156.66.10) from 10.10.239.91 wwan0: 56(84) bytes of data.
 64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=1 ttl=48 time=172 ms
@@ -160,6 +169,7 @@ PING baidu.com (39.156.66.10) from 10.10.239.91 wwan0: 56(84) bytes of data.
 --- baidu.com ping statistics ---
 5 packets transmitted, 5 received, 0% packet loss, time 4004ms
 rtt min/avg/max/mdev = 61.224/93.320/172.271/40.800 ms
+
 ```
 </NewCodeBlock>
 
@@ -171,13 +181,19 @@ rtt min/avg/max/mdev = 61.224/93.320/172.271/40.800 ms
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
 ```
+
 sudo lsmod | grep qmi_wwan
+
 ```
 </NewCodeBlock>
 
 终端输出类似信息表示驱动已加载：
 ```
-qmi_wwan               36864  0
-cdc_wdm                28672  2 qmi_wwan
-usbnet                 36864  1 qmi_wwan
+
+qmi_wwan 36864 0
+cdc_wdm 28672 2 qmi_wwan
+usbnet 36864 1 qmi_wwan
+
+```
+
 ```
