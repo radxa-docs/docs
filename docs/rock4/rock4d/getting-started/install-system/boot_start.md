@@ -110,3 +110,53 @@ sudo reboot
 sudo reboot
 ```
 </NewCodeBlock>
+
+## 擦除 SPI 启动固件
+
+:::danger
+擦除 SPI Flash 操作会擦除 SPI Flash 中的 SPI 启动固件，擦除后 SPI Flash 中的数据将被清空，系统将无法启动。
+:::
+
+终端命令行输入 `rsetup` 命令，进入 Rsetup 工具界面。
+
+<NewCodeBlock tip="radxa@radxa-4d$" type="device">
+```
+rsetup
+```
+</NewCodeBlock>
+
+1. 通过方向键选择 `System` 选项，然后按回车键确认选择。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/rsetup-earse-spi-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+2. 通过方向键选择 `Bootloader Management` 选项，然后按回车键确认选择。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/rsetup-earse-spi-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+3. 通过方向键选择 `Erase SPI Bootloader` 选项，然后按回车键确认选择。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/rsetup-earse-spi-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+4. 弹出的说明窗口选择 `YES` ，按回车键确认选择。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/rsetup-earse-spi-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+5. 按空格键勾选对应的文件名称，然后按回车键确认擦除；若有多个选项，你可以依次对每个选项都进行一遍擦除操作。
+
+:::tip
+选项框中出现 `*` 表示该选项已启用，未出现 `*` 表示该选项未启用。
+:::
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/rsetup-earse-spi-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+6. 重启系统，擦除 SPI Flash 的操作生效。

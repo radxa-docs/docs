@@ -9,13 +9,19 @@ description: "镜像,刷机工具等资料"
 
 [cubie a5e debian11 xfce image(beta)](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
 
+[cubie_a5e_bullseye_xfce_beta_v1.rawdisk.img](https://github.com/cubie-image/sun55iw3p1/releases/download/beta_v1/cubie_a5e_bullseye_xfce_beta_v1.rawdisk.img.gz)
+
 ## 刷机工具
 
 SD卡启动盘制作工具：
 
+[PhoenixCard_v4.3.2_20250331](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.2_20250331_1604_Release.zip)
+
 [PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
 
 系统烧录工具：
+
+[Phoenixconsole](https://dl.radxa.com/tools/linux/phoenixconsole-3.0.9_amd64.deb)
 
 [PhoenixSuit](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip) (Window)
 

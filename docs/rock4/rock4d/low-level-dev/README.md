@@ -12,4 +12,4 @@ sidebar_position: 5
 
 #### [擦除/烧录 SPI 启动固件](/rock4/rock4d/low-level-dev/spi_flash)
 
-介绍如何使用 Rsetup 工具擦除 SPI Flash，使用 RKDevTool 工具擦除和烧录 SPI 启动固件。
+介绍如何使用 RKDevTool 工具擦除和烧录 SPI 启动固件。
