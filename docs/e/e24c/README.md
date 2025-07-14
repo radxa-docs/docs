@@ -58,7 +58,7 @@ Radxa E24C 裸板相比铝合金外壳版本可以使用更多外设接口；但
 | CPU                | 四核 ARM Cortex‑A53，频率最高 2.0GHz                         |
 | GPU                | ARM Mali-450 GPU，支持 OpenGL® ES1.1, ES2.0，OpenVG® 1.1   |
 | **内存与存储**     |                                                              |
-| 内存(可选)         | 2GB/4GB/8GB LPDDR4，频率 2133MHz                             |
+| 内存(可选)         | 1GB/2GB/4GB，LPDDR4                                          |
 | 板载eMMC存储(可选) | 8GB/16GB/32GB，eMMC 5.1标准                                  |
 | 拓展存储           | MicroSD存储卡槽（支持UHS-I）                                 |
 | 高速存储           | M.2 PCIe 2.1 NVMe SSD接口（支持2280规格）                    |
