@@ -12,7 +12,7 @@ sidebar_position: 1
 ## CIX 早鸟计划
 
 NPU SDK 包含 NOE Compiler 与 CIX AI Model Hub, 要获取 SDK 需要通过申请 CIX 早鸟计划获取。
-申请链接： [CIX 早鸟计划](https://support.cixtech.com/#/)
+申请链接： [CIX 早鸟计划](https://earlybird.cixtech.com/#/)
 
 ## 安装 NPU SDK (x86 Linux 环境)
 
