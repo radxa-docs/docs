@@ -19,26 +19,33 @@ sidebar_position: 16
 
 ## 产品外观
 
-<!-- <div style={{textAlign: 'center'}}>
+<div style={{textAlign: 'center'}}>
    AICore AX-M1 模块正面
-   <img src="/img/aicore-ax-m1/ax-m1-top.webp" style={{width: '60%', maxWidth: '800px'}} />
+   <img src="/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
    AICore AX-M1 模块背面
-    <img src="/img/aicore-ax-m1/ax-m1-bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
-</div> -->
-
+    <img src="/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px', transform: 'rotate(180deg)'}} />
+</div>
 
 ## 产品规格
 
-| 类型         | AI 算力模组                        |
-| :----------- | :--------------------------------- |
-| CPU          | 8 核心 Cortex-A55@1.5GHz            |
-| NPU          | 24.0 TOPS@INT8                     |
-| VPU          | 支持 H.264/H.265                    |
-| 编解码       | 最大支持 8K@30fps                  |
-| 主机硬件适配 | 支持 Intel、AMD、Rockchip 等平台    |
-| 主机系统适配 | 支持 Ubuntu、Debian 等主流 Linux 发行版 |
-| 外形规格     | M.2 M key                          |
-| 外形尺寸     | 22 × 80 mm                         |
+| 类别             | 规格                                                       |
+| ---------------- | ---------------------------------------------------------- |
+| 中央处理器 (CPU) | Octa-core Cortex-A55@1.5GHz                                |
+| 内存 (RAM)       | 8GB LPDDR4x                                                |
+| NPU (算力)       | 24TOPS@INT8; <br />支持矩阵运算单元 MAU 和智能视觉引擎 IVE |
+| VPU (视频处理)   | 支持 H.264、H.265 编解码                                   |
+| 硬件适配         | 支持 Intel、AMD、Rockchip 等主流 Host 平台                 |
+| 系统适配         | 支持 Ubuntu、Debian、CentOS 等主流 Linux 发行版            |
+| 外形规格         | M.2 M Key 2280                                             |
+| 外形尺寸         | 22mm x 80mm                                                |
+| 工作电压         | 3.3V                                                       |
+| 系统功耗         | < 8W                                                       |
 
 ## 应用场景
 
+- 智能摄像
+- 自动驾驶
+- 消费电子
+- 安防监控
+- 边缘计算
+- 智慧出行
