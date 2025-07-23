@@ -1,76 +1,94 @@
 import { Image } from "@site/src/utils/docs";
 import { PreView } from "@site/src/utils/docs";
 
-### Overall steps:
+## Overall Steps
 
-- Prepare an SD card or eMMC Module as a boot disk.
+- Prepare a MicroSD card as a boot disk
 
-- Use the system utility rsetup to flash the SPI.
+- Use the system tool rsetup to flash SPI
 
-- Flash the system image to the NVME SSD.
+- Flash the system image to the NVMe SSD
 
-- Unplug the SD card and boot from NVME.
+- Remove the MicroSD card and boot from NVMe
 
-### Prepare an SD card or eMMC Module as a boot disk.
+## Booting the System Normally
 
-Refer to the section on <a href={props.etcher_path}> making a MicroSD boot disc </a> to install the system on the SD card.
+Refer to the <a href={props.etcher_path}>Create MicroSD Boot Disk</a> section to install the system on a MicroSD card.
 
-Here the SD card acts as a boot disk for x86, the purpose is to get the spi.img, and flash the spi.img to the spi flash.
+The MicroSD card here serves a similar purpose to a boot disk in x86 systems, which is to obtain spi.img and flash it to the SPI flash.
 
-After booting from the SD card, execute the following command to update the system.
+After booting from the MicroSD card, run the following commands to update the system:
 
 ```
 sudo apt-get update
 sudo apt-get full-upgrade
 ```
 
-### Use the system utility <a href={props.rsetup_path}> rsetup </a> to flash the SPI.
+## Using System Tool <a href={props.rsetup_path}>rsetup</a> to Flash SPI
+
+Select the `System Maintenance` option:
 
 <img
-  src="/img/common/nvme/system_maintenance.webp"
+  src="/en/img/common/nvme/system_maintenance.webp"
   width="700"
   height="500"
   alt="system maintenance"
 />
 
+Select the `Update SPI Bootloader` option:
+
 <img
-  src="/img/common/nvme/update_spi_bootloader.webp"
+  src="/en/img/common/nvme/update_spi_bootloader.webp"
   width="700"
   alt="update spi bootloader"
 />
 
+Select the bootloader option from the menu, then follow the prompts to update the SPI Flash:
+
 <Image
-  src="/img/common/nvme/rsetup-select-bootloader-#model#.webp"
+  src="/en/img/common/nvme/rsetup-select-bootloader-#model#.webp"
   model={props.model}
   fallback={props.model}
   width="700"
 />
 
-<img src="/img/common/nvme/writing_mtd.webp" width="700" alt="writing to mtd" />
+Wait for the update to complete.
 
-<img src="/img/common/nvme/success.webp" width="700" alt="success" />
+<img
+  src="/en/img/common/nvme/writing_mtd.webp"
+  width="700"
+  alt="writing to mtd"
+/>
 
-### Flashing the system image to the NVME SSD
+<img src="/en/img/common/nvme/success.webp" width="700" alt="success" />
 
-Insert the NVME SSD into the board and verify that the NVME is recognized by the system,
+## Flashing the System Image to NVMe SSD
+
+Insert the NVMe SSD into the board and verify that the system recognizes it,
 
 <PreView params={{ model: props.model }}>
   {`
   radxa@#model#:~$ lsblk
-  NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-  mmcblk0 179:0 0 14.5G 0 disk
-  ├─mmcblk0p1 179:1 0 16M 0 part /config
-  └─mmcblk0p2 179:2 0 14.4G 0 part /config
-  mmcblk0boot0 179:32 0 4M 1 disk
-  mmcblk0boot1 179:64 0 4M 1 disk
-  zram0 254:0 0 3.8G 0 disk [SWAP]
-  nvme0n1 259:0 0 238.5G 0 disk
+  NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+  mmcblk0      179:0    0  14.5G  0 disk
+  ├─mmcblk0p1  179:1    0    16M  0 part /config
+  └─mmcblk0p2  179:2    0  14.4G  0 part /
+  mmcblk0boot0 179:32   0     4M  1 disk
+  mmcblk0boot1 179:64   0     4M  1 disk
+  zram0        254:0    0   3.8G  0 disk [SWAP]
+  nvme0n1      259:0    0 238.5G  0 disk
   `}
 </PreView>
 
-As shown above the system already recognizes the NVME SSD as nvme0n1 (in Linux NVMe devices are usually recognized as nvmeXnY)
+As shown above, the system has recognized the NVMe SSD as nvme0n1 (in Linux, NVMe devices are typically recognized as nvmeXnY)
 
-Download the following system image to your PC,
+Download the system image to the board from the <a href={props.download_path}>Resource Download</a>. Here we'll demonstrate using the `wget` command to download the system image on the board. You can copy the URL from the <a href={props.download_path}>Resource Download</a> page.
+
+:::tip Alternative Methods to Download System Image
+
+1. Access the <a href={props.download_path}>Resource Download</a> directly on the board and download the system image through the browser.
+2. Download the system image on your PC, then transfer it to the board using a USB drive or online transfer (such as FTP, SCP, etc.).
+   :::
 
 <PreView
   params={{
@@ -80,11 +98,16 @@ Download the following system image to your PC,
   }}
 >
   {`
-https://github.com/radxa-build/#model#/releases/download/#release_num#/#model#_debian_bullseye_#desktop#_#release_num#.img.xz
-`}
+# Install wget
+sudo apt-get install wget
+# Download system image
+wget [URL]
+  `}
 </PreView>
 
-Copy the system image to the current system,
+- wget : Download files, replace [URL] with the actual download link.
+
+Then use the `dd` command on the **board** to write the system image to the NVMe SSD.
 
 <PreView
   params={{
@@ -94,29 +117,18 @@ Copy the system image to the current system,
   }}
 >
   {`
-  PC Host: scp  /path/to/img radxa@boardIP:/home/radxa/
-  eg:
-  scp ~/Download/#model#_debian_bullseye_#desktop#_#release_num#.img.xz radxa@192.168.2.66:/home/radxa/
+  sudo xzcat /path/to/img | sudo dd of=/path/to/nvme bs=1M status=progress
+  Example:
+  sudo xzcat /home/radxa/#model#_xx.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
   `}
 </PreView>
 
-Then dd the system image into NVME on the **board**.
+- xzcat : Decompress the xz-format system image file
+- dd : Copy and write to the NVMe SSD device (⚠️Warning: Verify the device name when using the `dd` command, as incorrect device names may cause data loss)
+- of=/dev/nvme0n1 : Specify the target device as nvme0n1 (can be modified according to actual situation)
+- bs=1M : Set the block size to 1M to improve write speed
+- status=progress : Show write progress to monitor the status
 
-<PreView
-  params={{
-    model: props.model,
-    release_num: props.release_num,
-    desktop: props.desktop,
-  }}
->
-  {`
-  On Board：
-  sudo xzcat /path/to/img | dd of=/path/to/nvme bs=1M status=progress
-  eg:
-  sudo xzcat /home/radxa/#model#_debian_bullseye_#desktop#_#release_num#.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
-  `}
-</PreView>
+## Remove SD Card and Boot from NVMe
 
-### Unplug the SD card and boot from NVME
-
-After removing the SD card, power up the system using the {props.pwr} power adapter, then the system starts booting from NVME and HDMI displays the desktop.
+After removing the SD card, power on the device using the {props.pwr} power adapter. The system will then boot from the NVMe drive, and the desktop will be displayed via HDMI.
