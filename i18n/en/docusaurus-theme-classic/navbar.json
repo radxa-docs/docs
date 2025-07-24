@@ -191,6 +191,10 @@
     "message": "Gen AI",
     "description": "Navbar item with label 生成式 AI"
   },
+  "item.label.智核系列": {
+    "message": "AICore Series",
+    "description": "Navbar item with label 智核系列"
+  },
   "item.label.网络计算": {
     "message": "Network Computing",
     "description": "Navbar item with label 网络计算"
