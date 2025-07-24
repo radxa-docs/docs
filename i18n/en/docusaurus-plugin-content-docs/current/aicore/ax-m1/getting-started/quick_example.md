@@ -2,17 +2,17 @@
 sidebar_position: 4
 ---
 
-# 快速验证
+# Quick Validation
 
-当用户根据 [环境安装](./env_install) 安装完 AXCL 驱动后，用户可以使用根据此文档使用瑞莎智核 AX-M1 快速进行模型推理和 Benchmark。
+After users install the AXCL driver according to [Environment Installation](./env_install), users can use this document to quickly validate the model inference and benchmark of the Radxa AICore AX-M1.
 
 :::tip
-`axcl-smi` 工具详细使用，请参考 [**AXCL-SMI 工具使用**](./axcl-smi)
+`axcl-smi` tool usage details, please refer to [**AXCL-SMI Tool Usage**](./axcl-smi)
 :::
 
-## 推理测试
+## Inference Test
 
-这里简单的使用瑞莎智核 AX-M1 进行 YOLOv8 推理验证，详细代码请参考 [ax_yolov8_steps.cc](https://github.com/AXERA-TECH/axcl-samples/blob/main/examples/axcl/ax_yolov8_steps.cc)。
+Here, we simply use the Radxa AICore AX-M1 to validate the YOLOv8 inference, and the detailed code can be referenced to [ax_yolov8_steps.cc](https://github.com/AXERA-TECH/axcl-samples/blob/main/examples/axcl/ax_yolov8_steps.cc)。
 
 <NewCodeBlock tip="Host" type="Device">
 
@@ -80,13 +80,13 @@ detection num: 7
 ```
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/aicore-ax-m1/yolov8_out.webp"/>
+   <img src="/en/img/aicore-ax-m1/yolov8_out.webp"/>
    yolov8 demo output
 </div>
 
-## 模型 Benchmark
+## Model Benchmark
 
-`axcl_run_model` 工具可以直接推理任何编译好的 axmodel, 使用方法请参考以下说明。
+`axcl_run_model` tool can directly infer any compiled axmodel, please refer to the following instructions for usage.
 
 <NewCodeBlock tip="Host" type="Device">
 
@@ -119,9 +119,9 @@ options:
   -?, --help             print this message
 ```
 
-### 下载预编译模型
+### Download Precompiled Model
 
-以测试一个模型的运行速度为例，在 [AXERA Huggingface](https://huggingface.co/AXERA-TECH) 上下载预编译好的 yolov8 axmodel 模型。
+As an example, download the pre-compiled yolov8 axmodel model from [AXERA Huggingface](https://huggingface.co/AXERA-TECH).
 
 <NewCodeBlock tip="Host" type="Device">
 
@@ -131,9 +131,9 @@ wget https://huggingface.co/AXERA-TECH/YOLOv8/resolve/main/ax650/yolov8s.axmodel
 
 </NewCodeBlock>
 
-### 对模型进行 Benchmark
+### Model Benchmark
 
-使用 `axcl_run_model` 工具对指定模型进行指定数量的循环推理，即可得出模型的推理时间。
+Use `axcl_run_model` tool to run the specified model for a specified number of inference loops to get the inference time of the model.
 
 <NewCodeBlock tip="Host" type="Device">
 
