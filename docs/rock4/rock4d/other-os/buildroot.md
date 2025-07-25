@@ -27,7 +27,6 @@ sudo ln -s /bin/python2 /bin/python
 
 ## 获取 Rockchip 原始 SDK
 
-- Mega
 - [百度网盘](https://pan.baidu.com/s/1G8xA7AsLqQMqrsurMKBGyA?pwd=u7ac)
 
 ## 解压 SDK

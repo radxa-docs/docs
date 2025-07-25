@@ -27,7 +27,6 @@ sudo ln -s /bin/python2 /bin/python
 
 ## Download Rockchip Original SDK
 
-- Mega
 - [Baidu Netdisk](https://pan.baidu.com/s/1G8xA7AsLqQMqrsurMKBGyA?pwd=u7ac)
 
 ## Extract the SDK
