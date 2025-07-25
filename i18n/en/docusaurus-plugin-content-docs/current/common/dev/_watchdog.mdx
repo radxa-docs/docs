@@ -1,0 +1,39 @@
+In embedded Linux systems, a Watchdog Timer (WDT) is a hardware and software mechanism used to monitor the system's operational state. Its main purpose is to automatically trigger a reboot when the system encounters failures (such as a crash, freeze, or program hang), ensuring the system recovers from abnormal states.
+
+### Enablethe Watchdog
+
+The hardware watchdog is disabled by default. It needs to be enabled using the <a href={props.rsetup_path} alt="rsetup path" > rsetup </a> to activate the watchdog overlay.
+
+### Testing the Watchdog
+
+- Run the following command to stop feeding the watchdog. The watchdog will automatically reboot the system:
+
+```bash
+
+echo B > /dev/watchdog
+
+```
+
+:::warning
+
+You can write any character except for uppercase V, as uppercase V is used to disable the watchdog.
+
+:::
+
+- Disable system panic reboot:
+
+```bash
+
+echo 0 > /sys/module/kernel/parameters/panic
+
+```
+
+- Simulate a system freeze:
+
+```bash
+
+echo c > proc/sysrq-trigger
+
+```
+
+- Wait for approximately 30 seconds to see if the system reboots. If the system successfully reboots, it indicates that the watchdog is functioning correctly.
