@@ -58,7 +58,7 @@ The bare board version of the Radxa E24C offers more peripheral interfaces compa
 | CPU                     | Quad-core ARM Cortex‑A53, up to 2.0GHz                                       |
 | GPU                     | ARM Mali-450 GPU, supports OpenGL® ES1.1, ES2.0, OpenVG® 1.1               |
 | **Memory & Storage**    |                                                                              |
-| Memory (Optional)       | 2GB/4GB/8GB LPDDR4, 2133MHz                                                  |
+| Memory (Optional)       | 1GB/2GB/4GB, LPDDR4                                                          |
 | Onboard eMMC (Optional) | 8GB/16GB/32GB, eMMC 5.1 standard                                             |
 | Expandable Storage      | MicroSD card slot (supports UHS-I)                                           |
 | High-speed Storage      | M.2 PCIe 2.1 NVMe SSD interface (supports 2280 form factor)                  |
