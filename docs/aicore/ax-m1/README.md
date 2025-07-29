@@ -33,7 +33,7 @@ sidebar_position: 1
    瑞莎智核 AX-M1 模块正面
    <img src="/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
    瑞莎智核 AX-M1 模块背面
-    <img src="/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px', transform: 'rotate(180deg)'}} />
+    <img src="/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
 </div>
 
 ## 产品规格
