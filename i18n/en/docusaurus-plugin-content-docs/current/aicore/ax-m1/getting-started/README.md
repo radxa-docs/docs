@@ -12,7 +12,7 @@ This document introduces how to use the Radxa AICore AX-M1 module on the ROCK 5B
    Radxa AICore AX-M1 module front
    <img src="/en/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
    Radxa AICore AX-M1 module back
-    <img src="/en/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px', transform: 'rotate(180deg)'}} />
+    <img src="/en/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
 </div>
 
 ## Prerequisites

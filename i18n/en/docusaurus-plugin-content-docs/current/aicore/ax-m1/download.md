@@ -6,7 +6,7 @@ sidebar_position: 15
 
 ## AXCL Driver Package
 
-- [AXCL Driver Package](https://dl.radxa.com/aicore/ax_m1/axcl_host_aarch64_V3.0.2_20250326020141_NO4723.deb)
+- ARM64（AArch64）：[AXCL Driver Package](https://dl.radxa.com/aicore/ax_m1/axcl_host_aarch64_V3.0.2_20250326020141_NO4723.deb)
 
 ## Reference Documentation
 

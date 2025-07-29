@@ -6,7 +6,7 @@ sidebar_position: 15
 
 ## AXCL 驱动包
 
-- [AXCL 驱动包](https://dl.radxa.com/aicore/ax_m1/axcl_host_aarch64_V3.0.2_20250326020141_NO4723.deb)
+- ARM64（AArch64）：[AXCL 驱动包](https://dl.radxa.com/aicore/ax_m1/axcl_host_aarch64_V3.0.2_20250326020141_NO4723.deb)
 
 ## 参考文档
 

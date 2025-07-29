@@ -7,9 +7,15 @@ description: "镜像,刷机工具等资料"
 
 ## 操作系统镜像
 
+- Linux 系统镜像
+
 [cubie a5e debian11 xfce image(beta)](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
 
 [cubie_a5e_bullseye_xfce_beta_v1.rawdisk.img](https://github.com/cubie-image/sun55iw3p1/releases/download/beta_v1/cubie_a5e_bullseye_xfce_beta_v1.rawdisk.img.gz)
+
+- Android 系统镜像
+
+[cubie a5e android13 image](https://mega.nz/file/NjxmXBbT#EaY4bTCNCKTWp8e9r9q2da9EijEovJdlJx_7_xXP-akk)
 
 ## 刷机工具
 
