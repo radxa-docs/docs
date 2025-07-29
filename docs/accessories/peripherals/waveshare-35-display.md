@@ -23,13 +23,13 @@ sidebar_position: 10
 
 ## 配置显示
 
-- 备份 /etc/X11/xorg.conf.d/20-modesetting.conf
+- 备份 `/usr/share/X11/xorg.conf.d/20-modesetting.conf`
 
 ```
-sudo cp /etc/X11/xorg.conf.d/20-modesetting.conf /etc/X11/xorg.conf.d/20-modesetting.conf.bak
+sudo mv /usr/share/X11/xorg.conf.d/20-modesetting.conf /usr/share/X11/xorg.conf.d/20-modesetting.conf.bak
 ```
 
-- 清除原有内容，并添加以下内容
+- 在 `/etc/X11/xorg.conf.d` 下添加一个配置文件 `20-modesetting.conf`，内容如下：
 
 ```
 Section "Device"
