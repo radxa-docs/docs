@@ -11,4 +11,4 @@ Pulsar2 Toolchain can help developers convert mainstream AI frameworks (PyTorch,
    Pulsar2 overview
 </div>
 
-For Pulsar2 installation and usage documentation, please refer to [Pulsar2 online documentation](https://pulsar2-docs.readthedocs.io/zh-cn/latest/)
+For Pulsar2 installation and usage documentation, please refer to [Pulsar2 online documentation](https://pulsar2-docs.readthedocs.io/en/latest/)
