@@ -1,0 +1,61 @@
+## 材料清单
+
+- 如图
+
+<div>
+    {props.poe_type === "Radxa 23W PoE HAT" ? (
+        <div>
+            <img src="/img/accessories/poe-hat/25w-poe-pkg.webp" alt="Radxa 23W PoE HAT" style={{ width: "80%" }} />
+        </div>
+    ) : null}
+
+    {props.poe_type === "Radxa 25W PoE HAT" ? (
+        <div>
+            <img src="/img/accessories/poe-hat/accessories/poe-hat/23w-poe.webp" alt="Radxa 23W PoE HAT" style={{ width: "80%" }} />
+        </div>
+    ) : null}
+
+</div>
+
+## 安装流程
+
+<div>
+    {props.poe_type === "Radxa 23W PoE HAT" ? (
+        <div>
+            请参考 <a href="/accessories/radxa-23w-poe" alt="" > 瑞莎 23W 供电模块 </a>
+        </div>
+    ) : null}
+
+    {props.poe_type === "Radxa 25W PoE HAT" ? (
+        <div>
+            请参考 <a href="/accessories/radxa-25w-poe" alt="" > 瑞莎 25W 供电模块 </a>
+        </div>
+    ) : null}
+
+</div>
+
+## 风扇调速
+
+### 启用 PoE Overlay
+
+如需要启用温控风扇以及温度传感器，则需要开启对应 Overlay。
+
+请参照[设备树配置](../../radxa-os/rsetup#overlays)，启用名为 "Enable Radxa {props.pwr_rate}W PoE HAT "的 Overlay。
+
+<pre style={{ whiteSpace: "nowrap" }}>
+  [*] Enable Radxa {props.pwr_rate}W PoE HAT
+</pre>
+
+最后，重启设备以加载 Overlay。
+
+:::info
+如果您无法在 `rsetup` 中找到对应的 Overlay，请参考 [System Update Guide](../../radxa-os/rsetup#system-update) 首先进行系统更新，然后再执行以上操作。
+:::
+
+### 检查温度传感器读数
+
+执行以下命令后，第二行输出`t=XXYYY`即为当前温度（XX.YYY摄氏度）：
+
+```bash
+cat /sys/bus/w1/devices/28-*/w1_slave
+```
