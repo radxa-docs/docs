@@ -36,7 +36,9 @@ Radxa ZERO 3E V1.2 量产版本
 
 ### 官方镜像
 
-- [Radxa ZERO 3 Debian Build 6](https://github.com/radxa-build/radxa-zero3/releases/download/b6/radxa-zero3_debian_bullseye_xfce_b6.img.xz)
+- 6.1 内核: [radxa-zero3_bookworm_kde_b1](https://github.com/radxa-build/radxa-zero3/releases/download/rsdk-b1/radxa-zero3_bookworm_kde_b1.output_512.img.xz)
+
+- 5.10 内核: [radxa-zero3_debian_bullseye_xfce_b6](https://github.com/radxa-build/radxa-zero3/releases/download/b6/radxa-zero3_debian_bullseye_xfce_b6.img.xz)
 
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。

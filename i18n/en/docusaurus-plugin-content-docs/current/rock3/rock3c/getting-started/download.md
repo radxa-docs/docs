@@ -28,7 +28,11 @@ title: Resource Download
 
 ### Official Operating System Image
 
-ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
+ROCK 3C:
+
+- 6.1 Kernel: [rock-3c_bookworm_kde_b1](https://github.com/radxa-build/rock-3c/releases/download/rsdk-b1/rock-3c_bookworm_kde_b1.output_512.img.xz)
+
+- 5.10 Kernel: [rock-3c_debian_bullseye_xfce_b43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
 
 :::caution
 Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.

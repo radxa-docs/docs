@@ -36,7 +36,9 @@ ZERO 3E V1.2 Production Version
 
 ### Official Image
 
-- [Radxa ZERO 3 Debian Build 6](https://github.com/radxa-build/radxa-zero3/releases/download/b6/radxa-zero3_debian_bullseye_xfce_b6.img.xz)
+- 6.1 Kernel: [radxa-zero3_bookworm_kde_b1](https://github.com/radxa-build/radxa-zero3/releases/download/rsdk-b1/radxa-zero3_bookworm_kde_b1.output_512.img.xz)
+
+- 5.10 Kernel: [radxa-zero3_debian_bullseye_xfce_b6](https://github.com/radxa-build/radxa-zero3/releases/download/b6/radxa-zero3_debian_bullseye_xfce_b6.img.xz)
 
 :::caution
 In addition to the above image has been officially fully tested, other images have not been rigorously tested, there may be unknown problems, only for evaluation use.
