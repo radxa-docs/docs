@@ -4,10 +4,10 @@ sidebar_position: 3
 
 # Install the system to eMMC
 
-If your Radxa ROCK 5T has an onboard eMMC, you can use the `dd` command to write the system image to the eMMC while booting from a MicroSD card.
+If your Radxa ROCK 5T has onboard eMMC, you can use the `dd` command to write the system image to eMMC while booting from a MicroSD card.
 
 :::tip Important Notes
-Installing the system will format the eMMC module. Please back up any important data in advance!
+Installing the system will format the eMMC. Please back up any important data in advance!
 
 If your system cannot currently boot from a MicroSD card, you can refer to the [Install OS to MicroSD Card](./boot_from_sd_card.md) tutorial.
 :::
@@ -20,7 +20,7 @@ You will need the following hardware:
 - Boot medium: MicroSD card
 - Power adapter: Standard DC 12V/2A power adapter (DC-5525 interface)
 
-We will boot the system from the MicroSD card, download the system image file after entering the system, and then use the `dd` command to write the system image to the eMMC module.
+We will boot the system from the MicroSD card, download the system image file after entering the system, and then use the `dd` command to write the system image to eMMC.
 
 :::tip Recommended Accessories
 Radxa ROCK 5T only supports 12V power input, and a current of 2A or higher is recommended to ensure stable operation of all peripherals.
@@ -41,13 +41,14 @@ We provide the following methods to download the system image file to your board
 
 You can copy the system image file link from the [Resource Download Center](../../download) page and use the `wget` command on your board to download it.
 
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo apt install wget
 wget [url]
 # Example
 wget https://github.com/radxa-build/rock-5t/releases/download/rsdk-b2/rock-5t_bookworm_kde_b2.output.img.xz
 ```
-
+</NewCodeBlock>
 Parameter explanation: Replace `[url]` with the actual system image download link.
 
 - PC Download
@@ -58,7 +59,7 @@ You can download the system image file from the [Resource Download Center](../..
 
 ## Install System
 
-Use the `dd` command to install the system image to the eMMC module.
+Use the `dd` command to install the system image to eMMC.
 
 :::tip Note
 The downloaded system image file is compressed and needs to be extracted before use.
@@ -80,7 +81,7 @@ Parameter explanation: Replace `[image_path]` with the actual path to the system
 
 ### Write System Image
 
-Use the `dd` command to write the extracted system image to the eMMC module.
+Use the `dd` command to write the extracted system image to eMMC.
 
 :::danger
 When using the `dd` command, make sure to select the correct device file to avoid formatting the wrong device and causing data loss!
@@ -89,13 +90,15 @@ When using the `dd` command, make sure to select the correct device file to avoi
 <NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo dd if=[image_path] of=/dev/mmcblk0 bs=4M status=progress
+# Example
+sudo dd if=~/rock-5t_bookworm_kde_b2.output.img of=/dev/mmcblk0 bs=4M status=progress
 ```
 </NewCodeBlock>
 Parameter explanation:
-- `if`: Specify the input file. Replace `[image_path]` with the path to the extracted system image file
-- `of`: Specify the output device. Replace `/dev/mmcblk0` with the device file corresponding to your eMMC module (please modify according to your actual device)
-- `bs`: Block size, recommended 4M
-- `status=progress`: Show write progress
+- `if`: Specify the input file. Replace `[image_path]` with the path to the extracted system image file.
+- `of`: Specify the output device. Replace `/dev/mmcblk0` with the device file corresponding to your eMMC (please modify according to your actual device).
+- `bs`: Block size, recommended 4M.
+- `status=progress`: Show write progress.
 
 ### Verify System Image
 
@@ -126,7 +129,7 @@ Device Start End Sectors Size Type
 
 ## Boot the System
 
-After completing the system installation, power off the board, remove the MicroSD card, and then reconnect the power adapter. The system will automatically boot from the eMMC module.
+After completing the system installation, power off the board, remove the MicroSD card, and then reconnect the power adapter. The system will automatically boot from eMMC.
 
 ## System Information
 
