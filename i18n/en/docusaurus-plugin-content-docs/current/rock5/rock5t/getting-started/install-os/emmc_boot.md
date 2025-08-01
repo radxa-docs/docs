@@ -23,7 +23,7 @@ You will need the following hardware:
 We need to boot the board system from a MicroSD card, download the system image file after entering the board system, and then use the `dd` command to write the system image to the eMMC module.
 
 :::tip Recommended Accessories
-Radxa CM4 only supports 12V power input. A current of 2A or higher is recommended to ensure stable operation of all peripherals.
+Radxa ROCK 5T only supports 12V power input. A current of 2A or higher is recommended to ensure stable operation of all peripherals.
 
 - [Radxa DC12 36W Power Adapter](https://radxa.com/products/accessories/power-dc12-36w) (Recommended)
 - [Radxa DC12 60W Power Adapter](https://radxa.com/products/accessories/power-dc12-60w)
@@ -90,9 +90,7 @@ sudo fdisk -l /dev/mmcblk1
 ```
 </NewCodeBlock>
 
-If the system is successfully written, the terminal will output information similar to the following:
-
-After successful writing, the terminal will output partition information similar to the following:
+If the system is successfully written, the terminal will output partition information similar to the following:
 
 ```
 Disk /dev/mmcblk1: 119.15 GiB, 127934660608 bytes, 31234048 sectors

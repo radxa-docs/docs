@@ -23,7 +23,7 @@ sidebar_position: 3
 我们需要基于 MicroSD 卡启动主板系统，进入主板系统后下载系统镜像文件，然后使用 `dd` 命令将系统镜像写入 eMMC 模块。
 
 :::tip 推荐配件
-瑞莎 CM4 仅支持 12V 电源输入，建议电流 2A 及以上，以确保所有外设稳定运行。
+瑞莎 ROCK 5T 仅支持 12V 电源输入，建议电流 2A 及以上，以确保所有外设稳定运行。
 
 - [瑞莎 DC12 36W电源适配器](https://radxa.com/products/accessories/power-dc12-36w)(推荐使用)
 - [瑞莎 DC12 60W电源适配器](https://radxa.com/products/accessories/power-dc12-60w)
@@ -91,9 +91,7 @@ sudo fdisk -l /dev/mmcblk1
 ```
 </NewCodeBlock>
 
-若系统成功写入，终端会输出类似以下信息：
-
-写入成功后，终端会输出类似以下的分区信息：
+若系统成功写入，终端会输出类似以下的分区信息：
 
 ```
 Disk /dev/mmcblk1: 119.15 GiB, 127934660608 bytes, 31234048 sectors
