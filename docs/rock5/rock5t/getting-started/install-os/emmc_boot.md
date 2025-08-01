@@ -2,9 +2,9 @@
 sidebar_position: 3
 ---
 
-# 安装系统到 eMMC 模块
+# 安装系统到 eMMC
 
-若您的瑞莎 ROCK 5T 板载 eMMC 模块，您可以在 MicroSD 卡启动主板的情况下，使用 `dd` 命令将系统镜像写入 eMMC 模块。
+若您的瑞莎 ROCK 5T 板载 eMMC，您可以在 MicroSD 卡启动主板的情况下，使用 `dd` 命令将系统镜像写入 eMMC。
 
 :::tip 注意事项
 安装系统会格式化 eMMC 模块，如果有重要数据请提前备份！
@@ -44,6 +44,8 @@ sidebar_position: 3
 ```
 sudo apt install wget
 wget [url]
+# 示例
+wget https://github.com/radxa-build/rock-5t/releases/download/rsdk-b2/rock-5t_bookworm_kde_b2.output.img.xz
 ```
 
 参数解释：其中 `[url]` 需要替换成实际的系统镜像文件下载链接。
@@ -61,6 +63,20 @@ wget [url]
 :::tip 说明
 下载的系统镜像文件是压缩包，需要解压后才能使用。
 :::
+
+### 解压系统镜像
+
+使用 `unxz` 命令解压系统镜像文件。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+```
+sudo apt install xz-utils
+unxz [image_path]
+# 示例
+unxz ~/rock-5t_bookworm_kde_b2.output.img.xz
+```
+</NewCodeBlock>
+参数解释：其中 `[image_path]` 需要替换成实际的系统镜像文件路径。
 
 ### 写入系统镜像
 
