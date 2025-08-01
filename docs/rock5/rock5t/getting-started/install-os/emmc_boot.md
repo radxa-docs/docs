@@ -72,12 +72,12 @@ wget [url]
 
 <NewCodeBlock tip="radxa@device$" type="device">
 ```
-sudo dd if=[image_path] of=/dev/mmcblk1 bs=4M status=progress
+sudo dd if=[image_path] of=/dev/mmcblk0 bs=4M status=progress
 ```
 </NewCodeBlock>
 参数说明：
 - `if`：指定写入文件，将 `[image_path]` 替换为解压后的系统镜像文件路径
-- `of`：指定写入设备，将 `/dev/mmcblk1` 替换为 eMMC 模块对应的设备文件(请根据实际设备修改)
+- `of`：指定写入设备，将 `/dev/mmcblk0` 替换为 eMMC 模块对应的设备文件(请根据实际设备修改)
 - `bs`：块大小，建议 4M
 - `status=progress`：显示写入状态
 
@@ -87,14 +87,14 @@ sudo dd if=[image_path] of=/dev/mmcblk1 bs=4M status=progress
 
 <NewCodeBlock tip="radxa@device$" type="device">
 ```
-sudo fdisk -l /dev/mmcblk1
+sudo fdisk -l /dev/mmcblk0
 ```
 </NewCodeBlock>
 
 若系统成功写入，终端会输出类似以下的分区信息：
 
 ```
-Disk /dev/mmcblk1: 119.15 GiB, 127934660608 bytes, 31234048 sectors
+Disk /dev/mmcblk0: 119.15 GiB, 127934660608 bytes, 31234048 sectors
 Disk model: KLUDG4UHDC-B0E1
 Units: sectors of 1 \* 4096 = 4096 bytes
 Sector size (logical/physical): 4096 bytes / 4096 bytes
@@ -103,9 +103,9 @@ Disklabel type: gpt
 Disk identifier: 33349998-C3CC-40F0-B818-DDDD8383A64D
 
 Device Start End Sectors Size Type
-/dev/mmcblk1p1 32768 65535 32768 128M Linux filesystem
-/dev/mmcblk1p2 65536 679935 614400 2.3G EFI System
-/dev/mmcblk1p3 679936 31234014 30554079 116.6G EFI System
+/dev/mmcblk0p1 32768 65535 32768 128M Linux filesystem
+/dev/mmcblk0p2 65536 679935 614400 2.3G EFI System
+/dev/mmcblk0p3 679936 31234014 30554079 116.6G EFI System
 ```
 
 ## 启动系统

@@ -71,12 +71,12 @@ When using the `dd` command, make sure to select the correct device file, otherw
 
 <NewCodeBlock tip="radxa@device$" type="device">
 ```
-sudo dd if=[image_path] of=/dev/mmcblk1 bs=4M status=progress
+sudo dd if=[image_path] of=/dev/mmcblk0 bs=4M status=progress
 ```
 </NewCodeBlock>
 Parameter explanation:
 - `if`: Specify the input file, replace `[image_path]` with the path to the extracted system image file
-- `of`: Specify the output device, replace `/dev/mmcblk1` with the device file corresponding to the eMMC module (please modify according to the actual device)
+- `of`: Specify the output device, replace `/dev/mmcblk0` with the device file corresponding to the eMMC module (please modify according to the actual device)
 - `bs`: Block size, recommended 4M
 - `status=progress`: Show write progress
 
@@ -86,14 +86,14 @@ After writing the system image, you can use the `fdisk` command to view the part
 
 <NewCodeBlock tip="radxa@device$" type="device">
 ```
-sudo fdisk -l /dev/mmcblk1
+sudo fdisk -l /dev/mmcblk0
 ```
 </NewCodeBlock>
 
 If the system is successfully written, the terminal will output partition information similar to the following:
 
 ```
-Disk /dev/mmcblk1: 119.15 GiB, 127934660608 bytes, 31234048 sectors
+Disk /dev/mmcblk0: 119.15 GiB, 127934660608 bytes, 31234048 sectors
 Disk model: KLUDG4UHDC-B0E1
 Units: sectors of 1 \* 4096 = 4096 bytes
 Sector size (logical/physical): 4096 bytes / 4096 bytes
@@ -102,9 +102,9 @@ Disklabel type: gpt
 Disk identifier: 33349998-C3CC-40F0-B818-DDDD8383A64D
 
 Device Start End Sectors Size Type
-/dev/mmcblk1p1 32768 65535 32768 128M Linux filesystem
-/dev/mmcblk1p2 65536 679935 614400 2.3G EFI System
-/dev/mmcblk1p3 679936 31234014 30554079 116.6G EFI System
+/dev/mmcblk0p1 32768 65535 32768 128M Linux filesystem
+/dev/mmcblk0p2 65536 679935 614400 2.3G EFI System
+/dev/mmcblk0p3 679936 31234014 30554079 116.6G EFI System
 ```
 
 ## Boot System
