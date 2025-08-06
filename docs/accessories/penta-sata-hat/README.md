@@ -84,6 +84,16 @@ sidebar_position: 1
 |               |          | 37   | 38   |          |             |
 |               | GND      | 39   | 40   |          |             |
 
+## 2x5 针 Pinout
+
+| Pin | Signal   | Pin | Signal     |
+| --- | -------- | --- | ---------- |
+| 1   | I2C_SDA  | 2   | VCC3V3_SYS |
+| 3   | I2C_SCL  | 4   | VCC5V0_SYS |
+| 5   | GPIO4_D2 | 6   | GPIO4_C2   |
+| 7   | GND      | 8   | PWM_33     |
+| 9   | GND      | 10  | NC         |
+
 ## 使用指南
 
 <DocCardList />
