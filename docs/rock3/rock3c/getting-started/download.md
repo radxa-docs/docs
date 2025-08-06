@@ -27,7 +27,11 @@ sidebar_position: 20
 
 ### 官方操作系统镜像
 
-ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
+ROCK 3C:
+
+- 6.1 内核: [rock-3c_bookworm_kde_b1](https://github.com/radxa-build/rock-3c/releases/download/rsdk-b1/rock-3c_bookworm_kde_b1.output_512.img.xz)
+
+- 5.10 内核: [rock-3c_debian_bullseye_xfce_b43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
 
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
