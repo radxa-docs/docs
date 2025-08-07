@@ -12,6 +12,7 @@ sidebar_position: 5
 Radxa ZERO 3W V1.11 量产版本
 
 - [v1.11 2D dxf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_2d_dxf.zip)
+- [v1.11 3D stp](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_3d_stp.zip)
 - [v1.11 原理图 pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1110_schematic.pdf)
 - [v1.11 位号图 pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1110_smb.zip)
 - [产品简介 pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_product_brief_Revision_1.6.pdf)
@@ -23,6 +24,7 @@ Radxa ZERO 3W V1.11 量产版本
 Radxa ZERO 3E V1.2 量产版本
 
 - [v1.2 2D dxf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_v1200_2d.zip)
+- [v1.2 3D stp](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_3d_stp.zip)
 - [v1.2 原理图 pdf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_v1200_schematic.pdf)
 - [v1.2 位号图 pdf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_v1200_components_placement_map.zip)
 - [产品简介 pdf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_product_brief_rev1.2.pdf)
