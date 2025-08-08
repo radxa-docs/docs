@@ -23,13 +23,13 @@ Connect the screen with the development board as follows:
 
 ## Config the display
 
-- backup /etc/X11/xorg.conf.d/20-modesetting.conf
+- backup /usr/share/X11/xorg.conf.d/20-modesetting.conf
 
 ```
-sudo cp /etc/X11/xorg.conf.d/20-modesetting.conf /etc/X11/xorg.conf.d/20-modesetting.conf.bak
+sudo cp /usr/share/X11/xorg.conf.d/20-modesetting.conf /usr/share/X11/xorg.conf.d/20-modesetting.conf.bak
 ```
 
-- Clear the original content and add the following
+- Add a configuration file `20-modesetting.conf` under `/etc/X11/xorg.conf.d` with the following contents:
 
 ```
 Section "Device"
