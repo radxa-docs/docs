@@ -30,6 +30,11 @@ sidebar_position: 5
 
 ## 硬件设计
 
+- [Radxa ZERO 2 Pro Schematic V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_pro_v1.2_schematic.pdf)
+- [Radxa ZERO 2 Pro SMD V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_pro_v1.2_components_placement_map.pdf)
+- [Radxa ZERO 2 Pro 2D Drawings V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_pro_v1.2_2d_dxf.zip)
+- [Radxa ZERO 2 Pro PCBA 3D V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_v1_2_pcba_3d.zip)
+
 <!-- ## 质量认证
 
 - [CE RED - EU](https://dl.radxa.com/zero/docs/compliance/radxa_zero_ce_red_report.zip)
