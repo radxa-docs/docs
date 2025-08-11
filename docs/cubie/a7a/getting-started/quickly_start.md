@@ -21,7 +21,7 @@ sidebar_position: 1
 
 您需要提前准备以下硬件设备：**可选的硬件设备可以不准备！**
 
-- 开发板：瑞莎 Cubie A7A
+- 主板：瑞莎 Cubie A7A
 - 系统启动介质：支持 MicroSD 卡、eMMC / UFS 模块、NVMe SSD 启动系统（选中其中一种系统启动介质即可，其中 NVMe SSD 启动系统需要搭配 PCIe 转 M.2 M Key HAT 扩展板使用）
 - 供电/数据线：USB Type A to Type C 数据线
 - 电源适配器：5V Type-C 电源适配器

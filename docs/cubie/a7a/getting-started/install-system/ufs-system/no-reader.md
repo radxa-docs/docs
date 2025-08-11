@@ -16,7 +16,7 @@ sidebar_position: 3
 
 您需要提前准备以下硬件：
 
-- 开发板：瑞莎 Cubie A7A
+- 主板：瑞莎 Cubie A7A
 - 系统启动介质：MicroSD 卡
 - 系统安装介质：UFS 模块
 - 电源适配器：5V Type-C 电源适配器

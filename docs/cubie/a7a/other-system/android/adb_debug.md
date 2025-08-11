@@ -16,10 +16,10 @@ Android SDK Platform-Tools 包含 ADB（Android Debug Bridge）、Fastboot 等�
 
 ## 硬件准备
 
-- 开发板：瑞莎 Cubie A7A
+- 主板：瑞莎 Cubie A7A
 - 系统启动介质：支持 MicroSD 卡、eMMC 模块、UFS 模块启动系统（选中其中一种系统启动介质即可）
 - 电源适配器：5V Type-C 电源适配器
-- Type-C 数据线：用于连接开发板和电脑
+- Type-C 数据线：用于连接主板和电脑
 
 您需要确认 Cubie A7A 的安卓系统已经成功启动，否则无法进行后面的 ADB 调试。
 

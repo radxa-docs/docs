@@ -14,7 +14,7 @@ sidebar_position: 2
 
 您需要提前准备以下硬件：
 
-- 开发板：瑞莎 Cubie A7A
+- 主板：瑞莎 Cubie A7A
 - 系统启动介质：UFS 模块
 - 读卡器：eMMC/UFS 二合一模块读卡器
 - 电源适配器：5V Type-C 电源适配器

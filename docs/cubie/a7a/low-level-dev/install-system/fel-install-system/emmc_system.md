@@ -14,7 +14,7 @@ sidebar_position: 3
 
 您需要提前准备以下硬件：
 
-- 开发板：瑞莎 Cubie A7A
+- 主板：瑞莎 Cubie A7A
 - 系统启动介质：[eMMC 模块](https://radxa.com/products/accessories/emmc-module)
 - 供电/数据线：USB Type A to Type C 数据线
 - 电源适配器：5V Type-C 电源适配器

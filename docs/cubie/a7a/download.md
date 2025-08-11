@@ -6,7 +6,7 @@ sidebar_position: 8
 
 ## 系统镜像
 
-MicroSD卡使用的系统镜像：
+MicroSD 卡使用的系统镜像：
 
 eMMC 和 UFS 模块使用的系统镜像：
 

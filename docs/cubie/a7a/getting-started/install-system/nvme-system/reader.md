@@ -16,7 +16,7 @@ M.2 NVMe SSD 启动系统需要搭配 PCIe 转 M.2 M Key HAT 扩展板使用。
 
 您需要提前准备以下硬件：
 
-- 开发板：瑞莎 Cubie A7A
+- 主板：瑞莎 Cubie A7A
 - 系统启动介质：M.2 NVMe SSD
 - 固态硬盘盒：M.2 NVMe 固态硬盘盒
 - 拓展板：PCIe 转 M.2 M Key HAT 扩展板
