@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ### Debian
 
-[Debian](https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-t2/radxa-rk3528_bookworm_cli_t2.output.img.xz) System Image: Can be directly written to SD card/eMMC/SSD after extraction
+[Debian](https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-t2/radxa-rk3528_bookworm_kde_t2.output.img.xz) System Image: Can be directly written to SD card/eMMC/SSD after extraction
 
 ### OpenWrt
 
