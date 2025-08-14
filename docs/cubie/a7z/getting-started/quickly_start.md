@@ -10,9 +10,9 @@ sidebar_position: 1
 
 <div style={{textAlign: 'center'}}>
    Cubie A7Z 正面
-   <!-- <img src="/img/cubie/a7a/a7a-bottom.webp" style={{width: '50%', maxWidth: '1200px'}} /> -->
+   <img src="/img/cubie/a7z/a7z-bottom.webp" style={{width: '100%', maxWidth: '1200px'}} />
    Cubie A7Z 背面
-    <!-- <img src="/img/cubie/a7a/a7a-top.webp" style={{width: '50%', maxWidth: '1200px'}} /> -->
+   <img src="/img/cubie/a7z/a7z-top.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## 使用前提
