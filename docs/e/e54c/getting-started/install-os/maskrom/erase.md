@@ -175,12 +175,12 @@ Radxa E54C 有一个专用的 Maskrom 按键，在系统启动过程中检测到
   <img src="/img/e/e24c/emmc-rkdevtool-01.webp" style={{width: '90%', maxWidth: '700'}} />
 </div>
 
-2. 写入 Loader
+2. 运行 Loader 文件
 
 进入[资源下载汇总](../../../download)页面下载对应的 Loader 文件，将 `Boot` 选项选择的文件修改成实际下载的文件。
 
 - ① : 选择文件路径
-- ② : 下载 Loader文件
+- ② : 运行 Loader文件
 - ③ : 操作反馈的信息
 
 <div style={{textAlign: 'left'}}>
@@ -245,7 +245,7 @@ sudo rkdeveloptool ld
 DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 ```
 
-1. 写入 Loader
+3. 运行 Loader 文件
 
 进入[资源下载汇总](../../../download)页面下载对应的 Loader 文件，将下面的`xxx.bin`文件名称修改成实际下载的文件名称。
 

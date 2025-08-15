@@ -32,7 +32,7 @@ RKDevTool is a software developed by Rockchip for USB flashing on Windows/Linux/
 
 - Install Drivers
 
-Download and extract the [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssistant_v5.0.zip) file.
+Download and extract the [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) file.
 
 Locate the `DriverInstall.exe` file and run it as administrator:
 
