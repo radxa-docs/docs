@@ -8,14 +8,16 @@ sidebar_position: 2
 
 ## 有线网络
 
-使用网线连接瑞莎 Cubie A7A 千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给 Cubie A7A。
+使用网线连接主板的千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给主板。
 
 终端命令行输入以下命令可以查看网络连接的详细信息：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 ip a
 ```
+
 </NewCodeBlock>
 
 终端会输出类似如下信息：其中 `192.168.2.186` 就是路由器分配的 IP 地址。
@@ -43,7 +45,7 @@ ip a
        valid_lft 219073sec preferred_lft 132673sec
     inet6 fe80::f69d:bf6f:3d68:cef1/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
-4: wlx2cc682858dfe: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+4: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
     link/ether 76:13:0d:bc:43:06 brd ff:ff:ff:ff:ff:ff permaddr 2c:c6:82:85:8d:fe
 ```
 
@@ -69,7 +71,7 @@ ip a
 
 服务端和客户端都需要安装 `iperf`。
 
-<NewCodeBlock tip="radxa@cubie-a7a && Host-Linux$" type="device">
+<NewCodeBlock tip="radxa@device & Linux@host$" type="device">
 ```
 sudo apt update
 sudo apt install iperf
@@ -82,7 +84,7 @@ sudo apt install iperf
 
 打开命令行终端，输入以下命令启动服务端：
 
-<NewCodeBlock tip="Host-Linux" type="device">
+<NewCodeBlock tip="Linux@host$" type="device">
 ```
 iperf -s
 ```
@@ -96,35 +98,13 @@ Server listening on 5201 (test #1)
 -----------------------------------------------------------
 ```
 
-:::tip
-若系统提示 `iperf3: error - unable to start listener for connections: Address already in use`，说明 iperf3 进程占用了 5201 端口。
-
-解决办法：
-
-1. 查看 iperf3 的进程
-
-<NewCodeBlock tip="Host-Linux$" type="device">
-```
-ps -ef | grep iperf3
-```
-</NewCodeBlock>
-
-2. 终止 iperf3 进程：将 `<PID>` 替换为 iperf3 进程的 PID。
-
-<NewCodeBlock tip="Host-Linux$" type="device">
-```
-sudo kill <PID>
-```
-</NewCodeBlock>
-:::
-
-#### 客户端（Cubie A7A）
+#### 客户端（主板）
 
 1. 上传测试
 
 打开命令行终端，输入以下命令测试客户端上传网络带宽：将 `<server_ip>` 替换为实际的服务端 IP 地址（可以通过 `ip a` 命令查看）。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 iperf -c <server_ip> -t <time>
 # 示例
@@ -141,7 +121,7 @@ iperf -c 192.168.2.104 -t 60
 
 打开命令行终端，输入以下命令测试客户端下载网络带宽：将 `<server_ip>` 替换为实际的服务端 IP 地址（可以通过 `ip a` 命令查看）。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 iperf -c <server_ip> -t <time> -R
 # 示例

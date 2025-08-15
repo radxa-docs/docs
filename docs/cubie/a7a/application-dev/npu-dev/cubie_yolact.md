@@ -1,8 +1,8 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 ---
 
-# YOLACT
+# 物体分割模型：YOLACT
 
 import CUIBEYOLACT from '../../../../common/ai/\_cubie_yolact.mdx';
 

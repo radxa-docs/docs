@@ -6,7 +6,7 @@ sidebar_position: 3
 
 远程登录是指通过网络远程控制主板，教程只介绍局域网下进行 SSH 的远程控制的方法。
 
-SSH 远程登录需要用到 IP 地址，无显示器的用户可以通过 [串口调试](./uart_debug) 输入 `ip a` 命令查询 Cubie A7A 的 IP 地址，或者登录路由器后台查看 Cubie A7A 的 IP 地址。
+SSH 远程登录需要用到 IP 地址，无显示器的用户可以通过 [串口调试](./uart_debug) 输入 `ip a` 命令查询主板的 IP 地址，或者登录路由器后台查看主板的 IP 地址。
 
 :::tip
 进行 SSH 远程登录前，请确保远程双方设备处于同一局域网：
@@ -21,43 +21,51 @@ SSH 远程登录需要用到 IP 地址，无显示器的用户可以通过 [串�
 出厂系统镜像默认配置 SSH 服务，如果未安装，可以按照教程操作！
 :::
 
-SSH 远程控制需要安装 OpenSSH 服务器, 在 Cubie A7A 的终端命令行运行以下命令安装：
+SSH 远程控制需要安装 OpenSSH 服务器, 在主板的终端命令行运行以下命令安装：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 sudo apt update
 sudo apt install openssh-server -y
 ```
+
 </NewCodeBlock>
 
 ## 启动 SSH 服务
 
-在 Cubie A7A 的终端命令行运行以下命令启动 SSH 服务：
+在主板的终端命令行运行以下命令启动 SSH 服务：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 sudo systemctl start ssh
 ```
+
 </NewCodeBlock>
 
 ## 设置 SSH 服务自启动
 
-在 Cubie A7A 的终端命令行运行以下命令设置 SSH 服务自启动：
+在主板的终端命令行运行以下命令设置 SSH 服务自启动：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 sudo systemctl enable ssh
 ```
+
 </NewCodeBlock>
 
 ## 查看 SSH 服务状态
 
-在 Cubie A7A 的终端命令行运行以下命令查看 SSH 服务状态：
+在主板的终端命令行运行以下命令查看 SSH 服务状态：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 sudo systemctl status ssh
 ```
+
 </NewCodeBlock>
 
 终端会输出类似信息: 提示您 SSH 服务是否自启动和当前运行状态。
@@ -82,15 +90,17 @@ sudo systemctl status ssh
 
 在另一台设备上打开终端，输入以下命令进行远程登录：
 
-<NewCodeBlock tip="Host-PC$" type="host">
+<NewCodeBlock tip="PC$" type="host">
+
 ```
 ssh <user-name>@<ip-address>
 # 示例
 ssh radxa@192.168.2.186
 ```
+
 </NewCodeBlock>
 
-其中，`<user-name>` 和 `<ip-address>` 分别是 Cubie A7A 的用户名和 IP 地址。
+其中，`<user-name>` 和 `<ip-address>` 分别是主板的用户名和 IP 地址。
 
 连接过程中需要你输入 `yes` 确认连接。
 

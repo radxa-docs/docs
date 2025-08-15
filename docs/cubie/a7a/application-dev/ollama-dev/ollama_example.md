@@ -178,6 +178,7 @@ print(response.message.content)
 其中 Python 代码中的 `model` 参数需要确保本地已经拉取了对应的模型。
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
 ```
 
 from ollama import chat
@@ -192,5 +193,6 @@ for chunk in stream:
 print(chunk['message']['content'], end='', flush=True)
 
 ```
+
 </NewCodeBlock>
 ```

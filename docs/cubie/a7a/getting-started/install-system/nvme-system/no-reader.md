@@ -24,29 +24,7 @@ M.2 NVMe SSD 启动系统需要搭配 PCIe 转 M.2 M Key HAT 扩展板使用。
 - 拓展板：PCIe 转 M.2 M Key HAT 扩展板
 - 电源适配器：5V Type-C 电源适配器
 
-:::tip
-推荐配件：
-
-- [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
-  :::
-
-## 硬件说明
-
-Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
-
-- 电源适配器
-
-当系统镜像烧录到 M.2 NVMe SSD 后，可以使用 Type-C 电源适配器给 Cubie A7A 供电，避免后期开发功率不足的问题。
-
-- 系统启动介质
-
-需要基于 MicroSD 卡启动 Cubie A7A 的情况下，进行 M.2 NVMe SSD 的系统安装。
-
-若你未完成 MicroSD 卡启动系统，可以看 [快速上手](../../quickly_start) 教程，根据快速上手教程完成 MicroSD 卡启动系统。
-
-- 系统安装介质
-
-系统安装介质是指要被安装系统的 M.2 NVMe SSD。
+Cubie A7A 主板兼容标准 PD 协议的 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
 
 ## 硬件连接
 
@@ -134,15 +112,7 @@ Device Start End Sectors Size Type
 
 ## 系统信息
 
-您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统；
-
-出厂系统镜像默认存在两个用户账号，分别是 `root` 和 `radxa`。
-
-- root
-
-用户账号：root
-
-用户密码：radxa
+您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
 
 - radxa
 

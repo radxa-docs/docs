@@ -93,10 +93,12 @@ VNC 远程控制适合带有图形界面的系统，若系统没有图形化桌�
 
 下载 Linux 版本的 `*.deb` 安装包后，在终端命令行运行以下命令安装 VNC Viewer：
 
-<NewCodeBlock tip="Linux-host$" type="host">
+<NewCodeBlock tip="Linux@host$" type="host">
+
 ```
 sudo dpkg -i VNC-Viewer-xxx.deb
 ```
+
 </NewCodeBlock>
 
 </TabItem>
@@ -116,23 +118,25 @@ VNC Viewer 界面
     <img src="/img/rock4/4d/vnc-windows-use-02.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 使用 VNC（Cubie A7A）
+## 使用 VNC（主板）
 
 ### 安装 VNC 服务器
 
-在 Cubie A7A 的终端命令行运行以下命令安装 VNC 服务器：
+在主板的终端命令行运行以下命令安装 VNC 服务器：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 sudo apt update
 sudo apt install tigervnc-standalone-server tigervnc-common tigervnc-tools -y
 ```
+
 </NewCodeBlock>
 
 ### 设置 VNC 远程密码
 
-在 Cubie A7A 的终端命令行运行以下命令设置 VNC 远程密码：
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+在主板的终端命令行运行以下命令设置 VNC 远程密码：
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 vncpasswd
@@ -155,9 +159,9 @@ A view-only password is not used
 
 ### 配置 VNC 启动文件
 
-在 Cubie A7A 编辑 `~/.vnc/xstartup` 文件：
+在主板的终端命令行编辑 `~/.vnc/xstartup` 文件：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo vi ~/.vnc/xstartup
 ```
@@ -165,30 +169,35 @@ sudo vi ~/.vnc/xstartup
 
 修改 `~/.vnc/xstartup` 文件内容为：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
 export XDG_SESSION_TYPE=x11
-export DESKTOP_SESSION=xfce
-exec startxfce4
+export DESKTOP_SESSION=plasma
+export XDG_CURRENT_DESKTOP=KDE
+exec startplasma-x11
 ```
+
 </NewCodeBlock>
 
 编辑 `~/.vnc/xstartup` 文件后，需要赋予该文件可执行权限：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 sudo chmod +x ~/.vnc/xstartup
 ```
+
 </NewCodeBlock>
 
 ### 启动 VNC 服务器
 
 在 Cubie A7A 的终端命令行运行以下命令启动 VNC 服务器：使用 `-localhost no` 参数可以允许远程访问。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 vncserver -localhost no
 ```
@@ -203,9 +212,9 @@ Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :
 
 ### 查看 VNC 服务器状态
 
-在 Cubie A7A 的终端命令行运行以下命令查看 VNC 服务器状态：
+在主板的终端命令行运行以下命令查看 VNC 服务器状态：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 vncserver -list
 ```
@@ -222,9 +231,9 @@ X DISPLAY #	RFB PORT #	RFB UNIX PATH	PROCESS ID #	SERVER
 
 ### 关闭 VNC 服务器
 
-在 Cubie A7A 的终端命令行运行以下命令可以关闭 VNC 服务器：其中命令中的 `:1` 代表 VNC 服务器的显示编号。
+在主板的终端命令行运行以下命令可以关闭 VNC 服务器：其中命令中的 `:1` 代表 VNC 服务器的显示编号。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 vncserver -kill :1
 ```
@@ -234,11 +243,11 @@ vncserver -kill :1
 
 ## VNC 远程登录
 
-在另一台设备上打开 VNC Viewer 软件，根据 Cubie A7A 的 IP 地址和端口号进行 VNC 连接。
+在另一台设备上打开 VNC Viewer 软件，根据主板的 IP 地址和端口号进行 VNC 连接。
 
-① ： 填写 Cubie A7A 的 IP 地址和端口号
+① ： 填写主板的 IP 地址和端口号
 
-② ： 点击 `Connect to address ···` 连接 Cubie A7A
+② ： 点击 `Connect to address ···` 连接主板
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-connect-01.webp" style={{width: '100%', maxWidth: '1200px'}} />

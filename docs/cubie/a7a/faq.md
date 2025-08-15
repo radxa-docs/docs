@@ -42,3 +42,51 @@ VNC 远程需要您手动配置 VNC 服务器；若按照教程操作，每次�
 2. 确保 SSH 远程一切正常。
 3. 检查是否启动 VNC 服务器：使用 `vncserver -list` 命令查看 VNC 服务器是否启动。
 4. 使用 `ip:5901` 进行 VNC 远程，其中 `ip` 是 Cubie A7A 的 IP 地址。
+
+## 串口问题
+
+### 打开串口失败
+
+若打开串口出现 `Error: Permission denied, cannot open /dev/ttyUSB0` 错误提示！
+
+您需要按照以下步骤排查问题：
+
+1. 检查串口设备是否正确连接
+
+2. 检查串口设备权限
+
+以 Linux 系统为例，若串口设备权限不足，您需要在终端命令行运行以下命令，让所有用户都有权限访问串口设备。
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+sudo chmod 777 /dev/ttyUSB0
+```
+
+</NewCodeBlock>
+
+3. 检查串口设备是否被其他程序占用
+
+## 网络带宽测试
+
+### 端口占用
+
+若系统提示 `iperf3: error - unable to start listener for connections: Address already in use`，说明 iperf3 进程占用了 5201 端口。
+
+解决办法：
+
+1. 查看 iperf3 的进程
+
+<NewCodeBlock tip="Linux@host$" type="device">
+```
+ps -ef | grep iperf3
+```
+</NewCodeBlock>
+
+2. 终止 iperf3 进程：将 `<PID>` 替换为 iperf3 进程的 PID。
+
+<NewCodeBlock tip="Linux@host$" type="device">
+```
+sudo kill <PID>
+```
+</NewCodeBlock>

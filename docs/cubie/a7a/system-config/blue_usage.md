@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # 蓝牙使用
 
-Cuibe A7A 板载蓝牙 5.4 模块，通过蓝牙连接和配对蓝牙设备使用。
+主要介绍如何进行蓝牙的连接、配对和使用。
 
 <Tabs queryString="interface-mode">
 <TabItem value="图形界面">
@@ -12,9 +12,11 @@ Cuibe A7A 板载蓝牙 5.4 模块，通过蓝牙连接和配对蓝牙设备使�
 
 - 开启蓝牙功能
 
-① ： 点击桌面右上角的蓝牙图标
+① ： 点击 `System Settings` 图标
 
-② ： 点击 `Enable Bluetooth` 选项使能蓝牙功能
+② ： 点击 `Bluetooth` 选项
+
+③ ： 点击 `Enable` 选项开启蓝牙功能
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/cubie/a7a/a7a-blue-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -22,27 +24,32 @@ Cuibe A7A 板载蓝牙 5.4 模块，通过蓝牙连接和配对蓝牙设备使�
 
 - 连接蓝牙设备
 
-① : 点击 `Search` 选项扫描周围的蓝牙设备
+① : 点击 `Add ...` 选项会自动扫描周围的蓝牙设备
 
-② : 鼠标右击你需要连接的蓝牙设备
+② : 在周围的蓝牙设备列表中找到你需要连接的蓝牙设备
 
-③ ： 选择 `Connect` 选项连接蓝牙设备
-
-:::tip
-连接蓝牙设备的工程中，需要进行蓝牙设备的配对，按照系统提示完成操作。
-:::
+③ : 点击 `Next` 选项连接蓝牙设备
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/cubie/a7a/a7a-blue-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-- 连接成功
+- 配对蓝牙设备
 
-蓝牙设备连接成功后，桌面的蓝牙图标会显示为绿色。
+连接蓝牙设备的过程中，需要进行蓝牙设备的配对，按照系统提示完成配对操作。
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/cubie/a7a/a7a-blue-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+
+- 连接成功
+
+蓝牙设备连接成功后，系统会出现提示信息。
+
+<div style={{textAlign: 'center'}}>
+    <img src="/img/cubie/a7a/a7a-blue-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 </TabItem>
 
 <TabItem value="命令行模式">
@@ -50,7 +57,7 @@ Cuibe A7A 板载蓝牙 5.4 模块，通过蓝牙连接和配对蓝牙设备使�
 
 - 启动蓝牙服务
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 sudo systemctl start bluetooth
@@ -60,7 +67,7 @@ sudo systemctl start bluetooth
 
 - 设置开机自启
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 sudo systemctl enable bluetooth
@@ -70,10 +77,10 @@ sudo systemctl enable bluetooth
 
 - 检查服务状态
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
-systemctl status bluetooth
+sudo systemctl status bluetooth
 ```
 
 </NewCodeBlock>
@@ -88,7 +95,7 @@ systemctl status bluetooth
 退出 `bluetoothctl` 命令行界面，输入 `exit`。
 :::
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 bluetoothctl
 ```
@@ -97,7 +104,7 @@ bluetoothctl
 - 打开蓝牙适配器
 
 在 `bluetoothctl` 交互命令行界面输入 `power on` 打开蓝牙。
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 power on
@@ -108,7 +115,7 @@ power on
 - 启用代理
 
 在 `bluetoothctl` 交互命令行界面输入 `agent on` 启用代理。
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 agent on
@@ -119,7 +126,7 @@ agent on
 - 扫描蓝牙设备
 
 在 `bluetoothctl` 交互命令行界面输入 `scan on` 扫描蓝牙设备。
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 scan on
@@ -136,7 +143,7 @@ scan on
 - 停止扫描
 
 如果不停止扫描，`bluetoothctl` 交互命令行界面会一直处于扫描状态，建议自动扫描几次后停止扫描，然后查找自己需要连接的蓝牙设备物理地址。
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 scan off
@@ -147,7 +154,7 @@ scan off
 - 配对设备
 
 在 `bluetoothctl` 交互命令行界面输入 `pair <device_address>` 配对蓝牙设备：配对过程需要自己手动确认，根据蓝牙设备的提示进行操作。
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 pair <device_address>
@@ -160,7 +167,7 @@ pair EC:30:B3:40:0A:20
 
 - 信任设备
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 trust <device_address>
@@ -174,7 +181,7 @@ trust EC:30:B3:40:0A:20
 - 连接设备
 
 在 `bluetoothctl` 交互命令行界面输入 `connect <device_address>` 连接蓝牙设备。
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 connect <device_address>
@@ -188,7 +195,7 @@ connect EC:30:B3:40:0A:20
 - 断开设备
 
 在 `bluetoothctl` 交互命令行界面输入 `disconnect <device_address>` 断开蓝牙设备。
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 disconnect <device_address>
@@ -201,7 +208,7 @@ disconnect EC:30:B3:40:0A:20
 
 - 取消配对
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 remove <device_address>
@@ -214,7 +221,7 @@ remove EC:30:B3:40:0A:20
 
 - 关闭蓝牙适配器
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 power off

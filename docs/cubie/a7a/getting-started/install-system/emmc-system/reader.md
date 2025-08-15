@@ -14,26 +14,14 @@ sidebar_position: 2
 
 您需要提前准备以下硬件：
 
-- 主板：瑞莎 Cubie A7A
 - 系统启动介质：eMMC 模块
 - 读卡器：eMMC/UFS 二合一模块读卡器
-- 电源适配器：5V Type-C 电源适配器
 
-:::tip
-推荐配件：
+:::tip 推荐配件
 
 - [瑞莎 eMMC 模块](https://radxa.com/products/accessories/emmc-module)
 - [瑞莎 eMMC/UFS 二合一模块读卡器](https://radxa.com/products/accessories/emmc-ufs-module-reader)
-- [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
   :::
-
-## 硬件说明
-
-Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
-
-- 电源适配器
-
-当系统镜像烧录到 eMMC 模块后，可以使用 Type-C 电源适配器给 Cubie A7A 供电，避免后期开发功率不足的问题。
 
 ## 硬件连接
 
@@ -144,15 +132,7 @@ eMMC 模块安装步骤：
 
 ## 系统信息
 
-您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统；
-
-出厂系统镜像默认存在两个用户账号，分别是 `root` 和 `radxa`。
-
-- root
-
-用户账号：root
-
-用户密码：radxa
+您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
 
 - radxa
 

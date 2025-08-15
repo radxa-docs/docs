@@ -1,9 +1,11 @@
 ---
-sidebar_position: 6
+sidebar_position: 2
 ---
 
 # NPU 开发
 
-主要介绍使用全志 NPU 进行人工智能硬件加速的应用开发
+主要介绍全志 NPU 的 AI 加速和应用开发。
 
-<DocCardList />
+#### [Vivante NPU SDK 开发指南](/cubie/a7a/application-dev/npu-dev/cubie_acuity_sdk)
+
+主要介绍

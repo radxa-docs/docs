@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # 应用使用
 
-介绍如何在瑞莎 Cubie A7A 上使用 dpkg 和 apt 命令安装和使用应用。
+介绍如何在瑞莎主板上使用 dpkg 和 apt 命令安装和使用应用。
 
 - dpkg 命令
 
@@ -36,7 +36,7 @@ Cubie A7A 的架构是 aarch64（arm64）。
 
 将实际下载的 deb 包名称替换到命令中。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo dpkg -i QQ_xxx_arm64.deb
 ```
@@ -46,7 +46,7 @@ sudo dpkg -i QQ_xxx_arm64.deb
 
 双击 QQ 图标或者终端命令行运行下面命令启动。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 qq
 ```
@@ -68,10 +68,10 @@ LibreOffice 是一款由文档基金会（The Document Foundation）开发的免
 
 通过 apt 安装 LibreOffice。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo apt update
-sudo apt install libreoffice
+sudo apt install libreoffice -y
 ```
 </NewCodeBlock>
 

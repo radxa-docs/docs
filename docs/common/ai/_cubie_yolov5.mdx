@@ -4,7 +4,7 @@
 
 此示例用 [ultralytics/yolov5](https://github.com/ultralytics/yolov5/releases/tag/v6.0) 中预训练好的 ONNX 格式模型为例子通过模型转换到板端推理做完整示例。
 
-Radxa A5E/A7A 部署 YOLOv5 需要两个步骤
+主板部署 YOLOv5 需要两个步骤
 
 - PC 端利用 [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) 将不同框架下的模型转换成 NBG 格式模型
 - 板端利用 awnn API 板端推理模型
@@ -26,7 +26,7 @@ Radxa 已提供预转换好的 `yolov5.nb` 模型，用户可直接参考 [**板
 :::
 
 :::tip
-yolov5 示例所使用的文件已经包含在 ai-sdk 示例仓库 `models/yolov5s-sim` 中，可参考 [**下载示例仓库**](#下载示例仓库) 下载
+yolov5 示例所使用的文件已经包含在[ai-sdk 示例仓库](https://github.com/ZIFENG278/ai-sdk.git)的 `models/yolov5s-sim` 中
 :::
 
 - 进入 ACUITY Toolkit Docker 容器

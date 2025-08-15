@@ -4,15 +4,15 @@ sidebar_position: 2
 
 # 无线网络
 
-Cuibe A7A 板载 WiFi6 模块，通过 WiFi 可以连接网络和设置 WiFi 热点。
+主要介绍如何连接 WiFi 网络或设置 WiFi 热点。
 
 - **连接 WiFi 网络**
 
-Cubie A7A 连接到 WiFi 网络后，通常会通过路由器的 DHCP 服务自动获得 IP 地址。
+主板连接到 WiFi 网络后，通常会通过路由器的 DHCP 服务自动获得 IP 地址。
 
 - **设置 WiFi 热点**
 
-当 Cubie A7A 设置为 WiFi 热点（AP 模式）时，系统一般会自动启动 DHCP 服务，为连接的设备分配 IP 地址。如需定制网络参数，可根据需要手动配置 DHCP 服务。
+当主板设置为 WiFi 热点（AP 模式）时，系统一般会自动启动 DHCP 服务，为连接的设备分配 IP 地址。如需定制网络参数，可根据需要手动配置 DHCP 服务。
 
 ## 连接 WiFi 网络
 
@@ -24,7 +24,7 @@ nmcli（NetworkManager Command Line Interface）是 NetworkManager 的命令行�
 
 ### 开启 WiFi 功能
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo nmcli radio wifi on
 ```
@@ -34,7 +34,7 @@ sudo nmcli radio wifi on
 
 若开启 WiFi 功能并没有搜索到 WiFi 网络，可以尝试重启系统。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo nmcli device wifi list
 ```
@@ -42,7 +42,7 @@ sudo nmcli device wifi list
 
 ### 连接 WiFi 网络
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
 # 示例
@@ -53,12 +53,12 @@ sudo nmcli device wifi connect wifi-demo password 12345678
 连接成功后，终端会输出类似如下信息：
 
 ```
-Device 'wlx2cc682858dfe' successfully activated with 'xxxxxx'.
+Device 'wlan0' successfully activated with 'xxxxxx'.
 ```
 
 ### 查看网络连接的详细信息
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 ip a
 ```
@@ -89,9 +89,9 @@ ip a
        valid_lft 201116sec preferred_lft 114716sec
     inet6 fe80::f69d:bf6f:3d68:cef1/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
-4: wlx2cc682858dfe: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
     link/ether 2c:c6:82:85:8d:fe brd ff:ff:ff:ff:ff:ff
-    inet 192.168.31.104/24 brd 192.168.31.255 scope global dynamic noprefixroute wlx2cc682858dfe
+    inet 192.168.31.104/24 brd 192.168.31.255 scope global dynamic noprefixroute wlan0
        valid_lft 1978sec preferred_lft 1978sec
     inet6 240e:3b7:3246:1e2::b09/128 scope global dynamic noprefixroute
        valid_lft 1978sec preferred_lft 1978sec
@@ -120,13 +120,13 @@ ip a
 
 使用 `ip a` 命令查看无线网卡设备名称。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 ip a
 ```
 </NewCodeBlock>
 
-终端会输出类似如下信息：其中 `wlx2cc682858dfe` 就是无线网卡设备名称。
+终端会输出类似如下信息：其中 `wlan0` 就是无线网卡设备名称。
 
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -151,9 +151,9 @@ ip a
        valid_lft 201116sec preferred_lft 114716sec
     inet6 fe80::f69d:bf6f:3d68:cef1/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
-4: wlx2cc682858dfe: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
     link/ether 2c:c6:82:85:8d:fe brd ff:ff:ff:ff:ff:ff
-    inet 192.168.31.104/24 brd 192.168.31.255 scope global dynamic noprefixroute wlx2cc682858dfe
+    inet 192.168.31.104/24 brd 192.168.31.255 scope global dynamic noprefixroute wlan0
        valid_lft 1978sec preferred_lft 1978sec
     inet6 240e:3b7:3246:1e2::b09/128 scope global dynamic noprefixroute
        valid_lft 1978sec preferred_lft 1978sec
@@ -169,15 +169,15 @@ ip a
 
 ### 设置 WiFi 热点
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo nmcli device wifi hotspot ifname <ifname> con-name <name> ssid <SSID> password <password>
 # 示例
-sudo nmcli device wifi hotspot ifname wlx2cc682858dfe con-name My-Hotspot ssid My-Hotspot password 12345678
+sudo nmcli device wifi hotspot ifname wlan0 con-name My-Hotspot ssid My-Hotspot password 12345678
 ```
 </NewCodeBlock>
 
-参数说明：用名为 wlx2cc682858dfe 的无线网卡创建一个名为 My-Hotspot、密码为 12345678 的WiFi热点，并将该连接保存为 My-Hotspot，方便后续管理。
+参数说明：用名为 wlan0 的无线网卡创建一个名为 My-Hotspot、密码为 12345678 的WiFi热点，并将该连接保存为 My-Hotspot，方便后续管理。
 
 - `ifname`：指定用于创建热点的无线网卡接口名，可以使用 `ip a` 命令查看无线网卡接口名。
 - `con-name`：指定热点连接名称，后续可以通过这个名字管理（开启、关闭、删除该热点）。
@@ -187,13 +187,13 @@ sudo nmcli device wifi hotspot ifname wlx2cc682858dfe con-name My-Hotspot ssid M
 设置成功后，终端会输出类似如下信息：
 
 ```
-Device 'wlx2cc682858dfe' successfully activated with 'xxxxxx'.
+Device 'wlan0' successfully activated with 'xxxxxx'.
 Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 ```
 
 ### 关闭 WiFi 热点
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo nmcli connection down My-Hotspot
 ```
@@ -201,7 +201,7 @@ sudo nmcli connection down My-Hotspot
 
 ### 开启 WiFi 热点
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo nmcli connection up My-Hotspot
 ```
@@ -209,7 +209,7 @@ sudo nmcli connection up My-Hotspot
 
 ### 删除 WiFi 热点
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo nmcli connection delete My-Hotspot
 ```
@@ -237,7 +237,7 @@ sudo nmcli connection delete My-Hotspot
 
 服务端和客户端都需要安装 `iperf`。
 
-<NewCodeBlock tip="radxa@cubie-a7a && Host-Linux$" type="device">
+<NewCodeBlock tip="radxa@device & Linux@host$" type="device">
 ```
 sudo apt update
 sudo apt install iperf
@@ -250,7 +250,7 @@ sudo apt install iperf
 
 打开命令行终端，输入以下命令启动服务端：
 
-<NewCodeBlock tip="Host-Linux" type="device">
+<NewCodeBlock tip="Linux@host$" type="device">
 ```
 iperf -s
 ```
@@ -264,35 +264,13 @@ Server listening on 5201 (test #1)
 -----------------------------------------------------------
 ```
 
-:::tip
-若系统提示 `iperf3: error - unable to start listener for connections: Address already in use`，说明 iperf3 进程占用了 5201 端口。
-
-解决办法：
-
-1. 查看 iperf3 的进程
-
-<NewCodeBlock tip="Host-Linux$" type="device">
-```
-ps -ef | grep iperf3
-```
-</NewCodeBlock>
-
-2. 终止 iperf3 进程：将 `<PID>` 替换为 iperf3 进程的 PID。
-
-<NewCodeBlock tip="Host-Linux$" type="device">
-```
-sudo kill <PID>
-```
-</NewCodeBlock>
-:::
-
-#### 客户端（Cubie A7A）
+#### 客户端（主板）
 
 1. 上传测试
 
 打开命令行终端，输入以下命令测试客户端上传网络带宽：将 `<server_ip>` 替换为实际的服务端 IP 地址（可以通过 `ip a` 命令查看）。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 iperf -c <server_ip> -t <time>
 # 示例
@@ -309,7 +287,7 @@ iperf -c 192.168.2.186 -t 60
 
 打开命令行终端，输入以下命令测试客户端下载网络带宽：将 `<server_ip>` 替换为实际的服务端 IP 地址（可以通过 `ip a` 命令查看）。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 iperf -c <server_ip> -t <time> -R
 # 示例

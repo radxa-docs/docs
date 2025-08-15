@@ -18,33 +18,16 @@ sidebar_position: 3
 
 - 主板：瑞莎 Cubie A7A
 - 系统启动介质：MicroSD 卡
-- 系统安装介质：UFS 模块
+- 系统待安装介质：UFS 模块
 - 电源适配器：5V Type-C 电源适配器
 
-:::tip
-推荐配件：
+Cubie A7A 主板兼容 PD 协议的 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
+
+:::tip 推荐配件
 
 - [瑞莎 UFS 模块](https://radxa.com/products/accessories/ufs-module)
 - [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
   :::
-
-## 硬件说明
-
-Cubie A7A 主板支持标准 PD 协议的 5V 电源输入，建议电流 3A 以上，确保所有外设稳定运行。
-
-- 电源适配器
-
-当系统镜像烧录到 eMMC 模块后，可以使用 Type-C 电源适配器给 Cubie A7A 供电，避免后期开发功率不足的问题。
-
-- 系统启动介质
-
-需要基于 MicroSD 卡启动 Cubie A7A 的情况下，进行 UFS 模块的系统安装。
-
-若你未完成 MicroSD 卡启动系统，可以看 [快速上手](../../quickly_start) 教程，根据快速上手教程完成 MicroSD 卡启动系统。
-
-- 系统安装介质
-
-系统安装介质是指要被安装系统的 UFS 模块。
 
 ## 硬件连接
 
@@ -71,7 +54,7 @@ UFS 模块安装步骤：
 
 进入 [资源汇总下载](../../../download) 页面下载并解压系统镜像文件到 Cubie A7A 上。
 
-:::tip
+:::info 下载方式
 推荐以下几种方式下载系统镜像文件到 Cubie A7A 上：
 
 - 浏览器下载
@@ -83,10 +66,12 @@ UFS 模块安装步骤：
 复制 [资源汇总下载](../../../download) 页面的系统镜像文件下载地址，然后在 Cubie A7A 上使用 `wget` 命令下载系统镜像文件。
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
 ```
 sudo apt install wget
 wget [url]
 ```
+
 </NewCodeBlock>
 其中 `[url]` 需要替换成实际下载的网址。
 
@@ -145,15 +130,7 @@ Device Start End Sectors Size Type
 
 ## 系统信息
 
-您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统；
-
-出厂系统镜像默认存在两个用户账号，分别是 `root` 和 `radxa`。
-
-- root
-
-用户账号：root
-
-用户密码：radxa
+您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
 
 - radxa
 
