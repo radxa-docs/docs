@@ -20,7 +20,7 @@ The purpose of this tutorial is to help you quickly get started with the Dragon 
 You need to prepare the following hardware devices in advance:
 
 - Motherboard: Radxa Dragon Q6A
-- System boot medium: MicroSD card
+- System boot media: MicroSD card
 - Power adapter: 12V Type-C power adapter (compatible with PD protocol)
 - USB serial data cable (optional): For serial debugging and system login
 - HDMI cable and monitor (optional): For displaying the system interface and graphical user interface operations
@@ -28,12 +28,12 @@ You need to prepare the following hardware devices in advance:
 :::tip Recommended accessories
 
 - [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
-- Standard 12V Type-C power adapter, recommended current 2A
+- Standard 12V Type-C power adapter, recommended current 2A or above
   :::
 
 ## Install the System
 
-You can refer to the following tutorials to install the system based on your system boot medium and hardware devices:
+You can refer to the following tutorials to install the system based on your system boot media and hardware devices:
 
 - [Install the System to a MicroSD Card](./install-system/sd_system)
 - [Install the System to a USB Flash Drive](./install-system/udisk_system)

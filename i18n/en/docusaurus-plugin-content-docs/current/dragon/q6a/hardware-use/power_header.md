@@ -25,7 +25,7 @@ Use a standard 12V USB Type-C power adapter (compatible with PD protocol) to con
 :::tip Recommended accessories
 
 - [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
-- Standard 12V Type-C power adapter, current 2A or above recommended
+- Standard 12V Type-C power adapter, recommended current 2A or above
   :::
 
 ### Powered by a 12V external power supply input interface

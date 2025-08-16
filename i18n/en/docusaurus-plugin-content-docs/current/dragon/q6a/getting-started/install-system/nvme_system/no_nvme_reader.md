@@ -24,7 +24,7 @@ Note: We need to boot the motherboard normally using the MicroSD card, then use 
 :::tip Recommended accessories
 
 - [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
-- Standard 12V Type-C power adapter, current 2A or above recommended
+- Standard 12V Type-C power adapter, recommended current 2A or above
   :::
 
 ## Hardware Connection
