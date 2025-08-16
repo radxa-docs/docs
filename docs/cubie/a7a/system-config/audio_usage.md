@@ -24,7 +24,9 @@ sidebar_position: 7
 
 ① : 点击音频图标
 
-② : 滑动音频设备的音量条来调整音量
+② : 选择音频输出设备
+
+③ : 滑动音频设备的音量条来调整音量
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/cubie/a7a/a7a-audio-01.webp" style={{width: '100%', maxWidth: '1200px'}} />

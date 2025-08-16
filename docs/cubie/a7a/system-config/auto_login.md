@@ -4,68 +4,50 @@ sidebar_position: 8
 
 # 自动登录
 
-我们需要修改显示管理器的配置文件，以实现桌面自动登录。
+我们使用 `Rsetup` 工具来设置桌面自动登录。
 
 :::tip
 设置桌面自动登录可以避免每次启动系统都需要输入用户名和密码。
+
+对于 `Rsetup` 工具的使用，可以参考：
+
+- [Rsetup 工具](./rsetup)
 :::
 
-## 确认显示管理器
+## Rsetup 工具
 
-打开终端，运行以下命令可以确认当前系统使用的显示管理器。
+打开终端，输入 `sudo rsetup` 命令打开 `Rsetup` 工具：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
+
 ```
-cat /etc/X11/default-display-manager
+sudo rsetup
 ```
+
 </NewCodeBlock>
 
-终端会输出显示管理器的路径：
+<div style={{textAlign: 'center'}}>
+    <img src="/img/cubie/a7a/rsetup-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
-```
-/usr/sbin/lightdm
-```
+## 设置自动登录
 
-表示当前系统使用的是 LightDM 显示管理器。
+进入 `Rsetup` 工具后，选择 `User Settings` -> `Configure auto login`选项，使能 `sddm.service`，然后按照 `Rsetup` 工具提示完成剩下操作。
 
-## 修改显示管理器配置
+- User Settings
 
-打开 LightDM 配置文件，修改自动登录配置。
+<div style={{textAlign: 'center'}}>
+    <img src="/img/cubie/a7a/rsetup-usersettings.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
-sudo vi /etc/lightdm/lightdm.conf
-```
-</NewCodeBlock>
+- Configure auto login
 
-将以下内容取消注释并修改为当前用户名：
+<div style={{textAlign: 'center'}}>
+    <img src="/img/cubie/a7a/rsetup-auto-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
-autologin-user=radxa
-autologin-user-timeout=0
-```
-</NewCodeBlock>
+- SDDM
 
-保存文件并退出编辑器。
-
-## 重启显示管理器
-
-使用以下命令重启显示管理器。
-
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
-sudo systemctl restart lightdm
-```
-</NewCodeBlock>
-或者直接使用命令重启系统观察自动登录效果。
-
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
-sudo reboot
-```
-</NewCodeBlock>
-
-## 验证效果
-
-重启系统后，观察是否自动进入桌面环境，无需手动输入用户名和密码。
+<div style={{textAlign: 'center'}}>
+    <img src="/img/cubie/a7a/rsetup-auto-login-sddm.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
