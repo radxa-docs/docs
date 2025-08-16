@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Modifying the system boot disk boot options
+#  Modify boot settings for the system disk
 
 The Dragon Q6A supports modifying the system boot disk to MicroSD cards, USB flash drives, NVMe SSDs, and other devices.
 
