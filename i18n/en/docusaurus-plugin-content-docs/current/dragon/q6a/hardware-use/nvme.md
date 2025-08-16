@@ -16,9 +16,9 @@ Refer to the [Hardware Information](./hardware_info) tutorial to locate the corr
 
 ## Usage Guide
 
-The M.2 M Key 2230 SSD can be used as a system boot medium or as expanded storage space.
+The M.2 M Key 2230 SSD can be used as a system boot media or as expanded storage space.
 
-### System Boot Medium
+### System Boot Media
 
 When the M.2 M Key 2230 SSD contains a normally functioning system and there are no boot media with higher boot priority than the M.2 M Key 2230 SSD, the Radxa Dragon Q6A will default to booting the system from the M.2 M Key 2230 SSD.
 

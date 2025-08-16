@@ -7,7 +7,7 @@ sidebar_position: 1
 This section mainly introduces how to install the system to a MicroSD card.
 
 :::warning
-The installation system will format the MicroSD card. Please back up any important data in advance!
+The system installation will format the MicroSD card. Please back up any important data in advance!
 :::
 
 ## Prerequisites
@@ -15,7 +15,7 @@ The installation system will format the MicroSD card. Please back up any importa
 You need to prepare the following hardware devices in advance:
 
 - MicroSD card reader
-- System boot medium: MicroSD card
+- System boot media: MicroSD card
 
 ## Download the system image
 

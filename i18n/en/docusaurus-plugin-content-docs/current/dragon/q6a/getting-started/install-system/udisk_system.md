@@ -7,7 +7,7 @@ sidebar_position: 2
 This section mainly introduces how to install the system to a USB flash drive.
 
 :::warning
-The installation system will format the USB flash drive. Please back up any important data in advance!
+The system installation will format the USB flash drive. Please back up any important data in advance!
 :::
 
 ## Prerequisites

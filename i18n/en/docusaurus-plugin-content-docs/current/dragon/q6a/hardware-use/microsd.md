@@ -16,15 +16,15 @@ Refer to the [Hardware Information](./hardware_info) tutorial to locate the corr
 
 ## Usage Guide
 
-The MicroSD card can be used as a system boot medium or as extended storage space.
+The MicroSD card can be used as a system boot media or as extended storage space.
 
-### System Boot Medium
+### System Boot Media
 
 When a MicroSD card contains a normally functioning system, the Radxa Dragon Q6A will default to booting the system from the MicroSD card.
 
 ### Expanded Storage Space
 
-If the MicroSD card does not contain a system or the system is booted from another boot medium, the MicroSD card will function as expanded storage space.
+If the MicroSD card does not contain a system or the system is booted from another boot media, the MicroSD card will function as expanded storage space.
 
 ## Interface Pin Definitions
 
