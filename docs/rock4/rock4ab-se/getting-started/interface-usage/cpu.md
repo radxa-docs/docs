@@ -13,7 +13,7 @@ sidebar_position: 1
     </TabItem>
 
     <TabItem value="ROCK 4A+/4B+">
-        Rockchip OP1 SoC， 有 6 个 CPU 内核 <br/> 两个大核  Cortex A72， 频率 2.0 GHz， 最高可达 2.4 GHz <br/> 四 Cortex A53, 频率 1.6GHz
+        Rockchip OP1 SoC，有 6 个 CPU 内核 <br/> 两个  Cortex A72 核心，频率 2.0 GHz，最高可达 2.4 GHz <br/> 四个 Cortex A53 核心，频率 1.6GHz
     </TabItem>
 
     <TabItem value="ROCK 4SE">
