@@ -25,7 +25,7 @@ sidebar_position: 11
 
 1. 使用 `ls` 命令查看系统中已注册的风扇设备。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 ls /sys/devices/platform/ | grep fan
 ```
@@ -33,7 +33,7 @@ ls /sys/devices/platform/ | grep fan
 
 终端输出类似结果：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 pwm-fan
 ```
@@ -47,7 +47,7 @@ pwm-fan
 
 使用 `ls` 命令查看 `pwm-fan` 设备的 PWM 控制文件。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 ls /sys/class/hwmon/
 ```
@@ -55,7 +55,7 @@ ls /sys/class/hwmon/
 
 终端会输出类似结果：
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 hwmon0
 ```
@@ -65,7 +65,7 @@ hwmon0
 
 使用 `ls` 命令查看 `hwmon` 目录下 `pwm-fan` 设备的 PWM 控制文件。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 ls -l /sys/class/hwmon/hwmon*/device
 ```
@@ -85,7 +85,7 @@ ls -l /sys/class/hwmon/hwmon*/device
 
 - 风扇全速
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 echo 255 | sudo tee /sys/class/hwmon/hwmon0/pwm1
@@ -95,7 +95,7 @@ echo 255 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 
 - 风扇半速
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 
 ```
 echo 128 | sudo tee /sys/class/hwmon/hwmon0/pwm1
@@ -105,7 +105,7 @@ echo 128 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 
 - 关闭风扇
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 echo 0 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 ```
@@ -113,11 +113,6 @@ echo 0 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 
 ## 接口规格
 
-:::tip
-详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::info 技术参考
+完整的技术规格和引脚定义可参考下载专区的 [硬件设计：原理图](../download) 文档
 :::
-
-| Pin# | Name          |
-| :--: | :------------ |
-|  1   | FAN-PWM       |
-|  2   | VCC5V0_SYS_S5 |

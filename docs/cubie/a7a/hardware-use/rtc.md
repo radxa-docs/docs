@@ -22,30 +22,31 @@ RTC 接口具体位置可以查看 [硬件接口](./hardware-info) 教程的接�
 
 终端输入命令查看系统是否正确识别 RTC 电池。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo dmesg | grep rtc
 ```
 </NewCodeBlock>
 
-终端输出类似信息：`rtc information is valid`，说明 RTC 电池被正确识别。
+终端输出类似信息：`registered as rtc0`，说明 RTC 电池被正确识别。
 
 ```
-[    8.145303] [drm] Esmart1-win0(possible_vp_mask = 0x00000006) has no possible crtcs
-[    8.145370] [drm] Esmart3-win0(possible_vp_mask = 0x00000006) has no possible crtcs
-[    8.153133] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
-[    8.154487] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
-[    8.700833] rtc-hym8563 2-0051: hym8563_init_device: error read i2c data -6
-[    8.716545] rtc-hym8563 2-0051: rtc information is valid
-[    8.724597] rtc-hym8563 2-0051: registered as rtc0
-[    8.725670] rtc-hym8563 2-0051: setting system clock to 2000-01-01T00:00:23 UTC (946684823)
+[    0.033261] sunxi:ccu-ng:[INFO]: sunxi rtc-ccu version: 0.5.5
+[    0.044358] sunxi:ccu-ng:[INFO]: rtc_ccu: sunxi ccu init OK
+[    0.161008] axp8191-rtcldo: supplied by regulator-dummy
+[    0.803919] [drm] sunxi_de_bind crtc init for de 0 ok
+[    0.803946] [drm] sunxi_de_bind crtc init for de 1 ok
+[    3.318121] rtc-hym8563 14-0051: no valid clock/calendar values available
+[    3.318383] rtc-hym8563 14-0051: registered as rtc0
+[    3.318674] rtc-hym8563 14-0051: no valid clock/calendar values available
+[    3.318679] rtc-hym8563 14-0051: hctosys: unable to read the hardware clock
 ```
 
 ### 读取 RTC 时间
 
 终端使用 `hwclock` 命令读取 RTC 芯片（/dev/rtc0）的当前时间。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo hwclock -r -f /dev/rtc0
 ```
@@ -55,7 +56,7 @@ sudo hwclock -r -f /dev/rtc0
 
 使用 `date` 命令显示系统当前时间。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 date
 ```
@@ -65,7 +66,7 @@ date
 
 若 RTC 时间和系统时间不一致，可以使用 `hwclock` 命令将系统当前时间写入 RTC。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo hwclock -w -f /dev/rtc0
 ```
@@ -77,13 +78,6 @@ sudo hwclock -w -f /dev/rtc0
 
 ## 接口规格
 
-:::tip
-详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::info 技术参考
+完整的技术规格和引脚定义可参考下载专区的 [硬件设计：原理图](../download) 文档
 :::
-
-| Pin# | Name      | Pin# | Name       |
-| :--: | :-------- | :--: | :--------- |
-|  1   | OSCI      |  5   | S_TWI1_SDA |
-|  2   | OSCO      |  6   | S_TWI1_SCK |
-|  3   | RTC_INT_L |  7   | ALDO1      |
-|  4   | GND       |  8   | VCC_RTC    |

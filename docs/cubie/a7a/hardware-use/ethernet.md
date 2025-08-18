@@ -20,7 +20,7 @@ PoE 功能需要搭配 PoE HAT 和以太网 PoE 交换机，实现单线供电�
 
 终端输入 `ip a` 命令可以查看网络接口状态和 IP 地址等信息。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 ip a
 ```
@@ -59,25 +59,13 @@ Cubie A7A 需要搭配 PoE HAT 和使用以太网 PoE 交换机才能使用 PoE 
 
 正常情况下，主板指示灯会亮起，说明供电正常；网口的指示灯会闪烁，表示网络连接正常。
 
-:::tip
-以太网 PoE 交换机可以进行以太网数据交换和给支持 PoE 的设备供电。
-:::
+:::tip 推荐 PoE HAT
+
+- [25W PoE+ HAT](https://radxa.com/products/accessories/25w-poe-plus-hat)
+  :::
 
 ## 接口规格
 
-:::tip
-详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::info 技术参考
+完整的技术规格和引脚定义可参考下载专区的 [硬件设计：原理图](../download) 文档
 :::
-
-| Pin# | Name       | Pin# | Name        |
-| :--: | :--------- | :--: | :---------- |
-|  1   | PHY1_MDI0+ |  11  | TR0         |
-|  2   | PHY1_MDI0- |  12  | TR1         |
-|  3   | PHY1_MDI1+ |  13  | TR2         |
-|  4   | GND        |  14  | TR3         |
-|  5   | GND        |  15  | PHY0_G_LED+ |
-|  6   | PHY1_MDI1- |  16  | PHY0_G_LED- |
-|  7   | PHY1_MDI2+ |  17  | PHY0_Y_LED+ |
-|  8   | PHY1_MDI2- |  18  | PHY0_Y_LED- |
-|  9   | PHY1_MDI3+ |  19  | GND         |
-|  10  | PHY1_MDI3- |  20  | GND         |

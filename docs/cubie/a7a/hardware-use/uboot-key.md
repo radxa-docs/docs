@@ -32,7 +32,8 @@ FEL 是 Allwinner（全志）芯片中的一种低级启动和刷机模式，主
 
 Cubie A7A 进入 FEL 模式后，您可以在该模式下给 eMMC / UFS 模块安装系统镜像。
 
-安装系统镜像可以参考：
+## 接口规格
 
-- [安装系统到 eMMC 模块](../low-level-dev/fel-install-system/emmc_system)
-- [安装系统到 UFS 模块](../low-level-dev/fel-install-system/ufs_system)
+:::info 技术参考
+完整的技术规格和引脚定义可参考下载专区的 [硬件设计：原理图](../download) 文档
+:::

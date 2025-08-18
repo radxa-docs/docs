@@ -14,6 +14,10 @@ PCIe 3.0 FPC 接口具体位置可以查看 [硬件接口](./hardware-info) 教�
 
 ## 使用指南
 
+:::danger 注意
+目前 NVMe SSD 只可以作为拓展存储空间使用，正在适配中！
+:::
+
 M.2 NVMe SSD 需要通过 PCIe 转 M.2 M Key HAT 连接 Cubie A7A 的 FPC 接口才可以使用。
 
 - 拓展存储空间
@@ -28,15 +32,6 @@ M.2 NVMe SSD 模块作为系统启动盘使用：可以参考 [安装系统到 M
 
 ## 接口规格
 
-:::tip
-详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::info 技术参考
+完整的技术规格和引脚定义可参考下载专区的 [硬件设计：原理图](../download) 文档
 :::
-
-| Pin# | Name       | Pin# | Name       | Pin# | Name             |
-| :--: | :--------- | :--: | :--------- | :--: | :--------------- |
-|  1   | VCC5V0_SYS |  7   | PCIE1-RX0P |  13  | PCIE_PWR_EN      |
-|  2   | VCC5V0_SYS |  8   | PCIE1-RX0N |  14  | PCIE-WAKEn_3V3   |
-|  3   | GND        |  9   | GND        |  15  | PCIE-CLKREQn_3V3 |
-|  4   | PCIE1-CLKP |  10  | PCIE1-TX0P |  16  | PCIE-PERSTn_3V3  |
-|  5   | PCIE1-CLKN |  11  | PCIE1-TX0N |      |                  |
-|  6   | GND        |  12  | GND        |      |                  |

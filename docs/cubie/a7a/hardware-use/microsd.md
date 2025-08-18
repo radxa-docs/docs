@@ -31,15 +31,6 @@ MicroSD 卡槽具体位置可以查看 [硬件接口](./hardware-info) 教程的
 
 ## 接口规格
 
-:::tip
-详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::info 技术参考
+完整的技术规格和引脚定义可参考下载专区的 [硬件设计：原理图](../download) 文档
 :::
-
-| Pin# | Name       | Pin# | Name     | Pin# | Name |
-| :--: | :--------- | :--: | :------- | :--: | :--- |
-|  1   | SDC0_D2    |  7   | SDC0_D0  |  13  | GND  |
-|  2   | SDC0_D3    |  8   | SDC0_D1  |  14  | GND  |
-|  3   | SDC0_CMD   |  9   | SDC0_DET |  15  | GND  |
-|  4   | VCC_3V3_S3 |  10  | GND      |  16  | GND  |
-|  5   | SDC0_CLK   |  11  | GND      |  17  | GND  |
-|  6   | GND        |  12  | GND      |  18  | GND  |

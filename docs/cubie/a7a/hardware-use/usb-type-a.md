@@ -30,7 +30,7 @@ USB Type-A 接口具体位置可以查看 [硬件接口](./hardware-info) 教程
 
 使用 `lsusb` 命令查看 USB 设备列表。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 lsusb
 ```
@@ -51,7 +51,7 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
 使用 `lsusb` 命令查看 USB 设备列表，观察是否识别到连接的 USB 外设。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 lsusb
 ```
@@ -79,7 +79,7 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
 使用 `lsblk` 命令确认 U 盘的设备名称。
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 lsblk
 ```
@@ -100,7 +100,7 @@ zram0       253:0    0  1.9G  0 disk [SWAP]
 
 #### 测试写入性能
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 ```
@@ -124,7 +124,7 @@ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 
 #### 测试读取性能
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 ```
@@ -148,15 +148,6 @@ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 
 ## 接口规格
 
-:::tip
-详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::info 技术参考
+完整的技术规格和引脚定义可参考下载专区的 [硬件设计：原理图](../download) 文档
 :::
-
-### USB 2.0 Type-A
-
-| Pin# | Name     | Pin# | Name     | Pin# | Name |
-| :--: | :------- | :--: | :------- | :--: | :--- |
-|  1   | VCC_5V   |  5   | VCC_5V   |  9   | GND  |
-|  2   | USB2_2DM |  6   | USB2_3DM |  10  | GND  |
-|  3   | USB2_2DP |  7   | USB2_3DP |  11  | GND  |
-|  4   | GND      |  8   | GND      |  12  | GND  |

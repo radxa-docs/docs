@@ -58,7 +58,7 @@ xrandr 是 Linux 系统中用于配置显示器的命令行工具，主要用于
 
 直接运行 xrandr（不带参数）会列出所有连接的显示设备（如 HDMI-1, DP-1 等）及其支持的分辨率和刷新率。
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 xrandr
 ```
@@ -66,7 +66,7 @@ xrandr
 
 终端输出示例：查看当前显示器配置
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 Screen 0: minimum 320 x 200, current 3840 x 2160, maximum 16384 x 16384
 HDMI-1 connected primary 3840x2160+0+0 (normal left inverted right x axis y axis) 597mm x 336mm
@@ -94,7 +94,7 @@ HDMI-1 connected primary 3840x2160+0+0 (normal left inverted right x axis y axis
 
 设置 HDMI-1 分辨率为 1920x1080，刷新率为 60Hz:
 
-<NewCodeBlock tip="radxa@radxa-4d$" type="device">
+<NewCodeBlock tip="radxa@device$" type="device">
 ```
 xrandr --output HDMI-1 --mode 1920x1080 --rate 60
 ```
@@ -106,16 +106,6 @@ xrandr --output HDMI-1 --mode 1920x1080 --rate 60
 
 ## 接口规格
 
-:::tip
-详细接口规格参考下载专区的 [硬件设计 : 原理图](../download)
+:::info 技术参考
+完整的技术规格和引脚定义可参考下载专区的 [硬件设计：原理图](../download) 文档
 :::
-
-| Pin# | Name      | Pin# | Name        | Pin# | Name          |
-| :--: | :-------- | :--: | :---------- | :--: | :------------ |
-|  1   | HDMI_TX2P |  8   | GND         |  14  | NC            |
-|  2   | GND       |  9   | HDMI_TX0N   |  15  | HDMI_TX_SCL   |
-|  3   | HDMI_TX2N |  10  | HDMI_CLKP   |  16  | HDMI_TX_SDA   |
-|  4   | HDMI_TX1P |  11  | GND         |  17  | GND           |
-|  5   | GND       |  12  | HDMI_CLKN   |  18  | VCC5V_HDMI_TX |
-|  6   | HDMI_TX1N |  13  | HDMI_TX_CEC |  19  | HDMI_TX_HPD   |
-|  7   | HDMI_TX0P |      |             |      |               |
