@@ -2,52 +2,8 @@
 sidebar_position: 8
 ---
 
+import AUTO_LOGIN from '../../../common/radxa-os/system-config/\_auto_login.mdx';
+
 # 自动登录
 
-我们使用 `Rsetup` 工具来设置桌面自动登录。
-
-:::tip
-设置桌面自动登录可以避免每次启动系统都需要输入用户名和密码。
-
-对于 `Rsetup` 工具的使用，可以参考：
-
-- [Rsetup 工具](./rsetup)
-:::
-
-## Rsetup 工具
-
-打开终端，输入 `sudo rsetup` 命令打开 `Rsetup` 工具：
-
-<NewCodeBlock tip="radxa@device$" type="device">
-
-```
-sudo rsetup
-```
-
-</NewCodeBlock>
-
-<div style={{textAlign: 'center'}}>
-    <img src="/img/cubie/a7a/rsetup-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-## 设置自动登录
-
-进入 `Rsetup` 工具后，选择 `User Settings` -> `Configure auto login`选项，使能 `sddm.service`，然后按照 `Rsetup` 工具提示完成剩下操作。
-
-- User Settings
-
-<div style={{textAlign: 'center'}}>
-    <img src="/img/cubie/a7a/rsetup-usersettings.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-- Configure auto login
-
-<div style={{textAlign: 'center'}}>
-    <img src="/img/cubie/a7a/rsetup-auto-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-- SDDM
-
-<div style={{textAlign: 'center'}}>
-    <img src="/img/cubie/a7a/rsetup-auto-login-sddm.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
+<AUTO_LOGIN debian_version="debian11" />

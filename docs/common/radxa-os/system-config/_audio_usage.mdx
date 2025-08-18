@@ -1,0 +1,55 @@
+import { Image } from "@site/src/utils/docs";
+
+主要介绍如何在瑞莎主板上使用音频设备。
+
+## 音频设备
+
+系统默认声音输出优先级为：蓝牙音频 > 耳机 > HDMI 音频。
+
+手动选择音频输出设备后，则该音频设备为最高优先级。
+
+## 音频设置
+
+通过图形界面和命令行两种方式来对音频设备进行设置。
+
+<Tabs queryString="interface-mode">
+
+<TabItem value="图形界面">
+
+点击桌面右下角的音频图标，选择需要的音频输出设备，滑动音频设备的音量条来调整音量。
+
+① : 点击音频图标
+
+② : 选择音频输出设备
+
+③ : 滑动音频设备的音量条来调整音量
+
+<Image
+  src="/img/common/radxa-os/system-config/audio-#debian_version#-01.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+</TabItem>
+
+<TabItem value="命令行模式">
+
+通过 `alsamixer` 命令行工具来设置音频设备,终端输入下面命令即可打开 `alsamixer` UI 界面。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+  ``` alsamixer ```
+</NewCodeBlock>
+
+通过方向键 `up` 和 `down` 来调整音量。
+
+<Image
+  src="/img/common/radxa-os/system-config/audio-#debian_version#-02.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+</TabItem>
+
+</Tabs>
