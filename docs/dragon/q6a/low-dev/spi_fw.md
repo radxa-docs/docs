@@ -10,11 +10,11 @@ sidebar_position: 6
 SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化硬件（CPU → 内存 → 存储），最终通过存储设备加载操作系统内核。
 :::
 
-当设备无法正常启动时，我们可以让设备进入 [QDL 模式](./qdl_mode)，然后通过 EDL 工具烧录 SPI 启动固件。
+当设备无法正常启动时，我们可以让设备进入 [EDL 模式](./edl_mode)，然后通过 EDL 工具烧录 SPI 启动固件。
 
 进入 [资源汇总下载](../../download) 页面，下载 `edl-ng` 压缩包并解压，然后根据自己的系统平台选择对应的版本进行 SPI 固件的下载。
 
-<Tabs queryString = "qdlplatform">
+<Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
 
     ## 安装 edl-ng
@@ -51,7 +51,7 @@ SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化�
 
     ## 烧录 Firmware
 
-    - [进入 QDL mode](qdl_mode)
+    - [进入 EDL mode](EDL_mode)
 
     - 打开**powershell**
 

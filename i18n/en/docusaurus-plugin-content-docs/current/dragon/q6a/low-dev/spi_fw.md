@@ -10,11 +10,11 @@ The Dragon Q6A comes with SPI boot firmware pre-installed. Under normal circumst
 The primary function of the SPI boot firmware (BootROM + bootloader) is to initialize hardware in stages (CPU → memory → storage) and ultimately load the operating system kernel from the storage device.
 :: :
 
-When the device cannot boot normally, you can enter [QDL mode](./qdl_mode) and then use the EDL tool to flash the SPI boot firmware.
+When the device cannot boot normally, you can enter [EDL mode](./edl_mode) and then use the EDL tool to flash the SPI boot firmware.
 
 Go to the [Resource Download](../../download) page, download the `edl-ng` compressed package and unzip it, then select the corresponding version based on your system platform to download the SPI firmware.
 
-<Tabs queryString = "qdlplatform">
+<Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
 
     ## Install edl-ng
@@ -51,7 +51,7 @@ Go to the [Resource Download](../../download) page, download the `edl-ng` compre
 
     ## Firmware burning
 
-    - [Enter QDL mode](qdl_mode)
+    - [Enter EDL mode](edl_mode)
 
     - Open**powershell**
 

@@ -2,13 +2,13 @@
 sidebar_position: 1
 ---
 
-# 进入 QDL 模式
+# 进入 EDL 模式
 
-高通 QDL（Qualcomm Download Mode）模式是高通处理器设备中的一种紧急下载模式，主要用于紧急修复、刷写固件或解锁设备。
+高通 EDL（Qualcomm Download Mode）模式是高通处理器设备中的一种紧急下载模式，主要用于紧急修复、刷写固件或解锁设备。
 
-## 进入 QDL 模式
+## 进入 EDL 模式
 
-主板上电前，按住 EDL 按键；主板上电后，松开 EDL 按键，进入 QDL 模式。
+主板上电前，按住 EDL 按键；主板上电后，松开 EDL 按键，进入 EDL 模式。
 
 具体操作步骤：
 
@@ -20,9 +20,9 @@ sidebar_position: 1
 
 ④ ： 使用双头 USB Type-A 数据线连接 Dragon Q6A 的 USB 3.1 Type-A 接口和电脑的 USB Type-A 接口
 
-## 验证 QDL 模式
+## 验证 EDL 模式
 
-<Tabs queryString = "qdlplatform">
+<Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
     - 下载 EDL 工具
 
@@ -50,7 +50,7 @@ sidebar_position: 1
 
   </TabItem>
   <TabItem value="Linux" label="Linux">
-  在 Linux 系统中，可以使用 `lsusb` 命令查看设备是否进入 QDL 模式。
+  在 Linux 系统中，可以使用 `lsusb` 命令查看设备是否进入 EDL 模式。
 
   <NewCodeBlock tip="Linux$" type="host">
 
@@ -60,10 +60,10 @@ lsusb
 
   </NewCodeBlock>
 
-设备进入 QDL 模式后，会显示类似下面的信息：
+设备进入 EDL 模式后，会显示类似下面的信息：
 
 ```
-Bus 001 Device 008: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+Bus 001 Device 008: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (EDL mode)
 ```
 
   </TabItem>
