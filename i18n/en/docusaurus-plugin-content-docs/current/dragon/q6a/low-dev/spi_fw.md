@@ -67,27 +67,11 @@ Go to the [Resource Download](../../download) page, download the `edl-ng` compre
 
     ```bash
 
-    edl-ng.exe rawprogram .\rawprogram0.xml -l .\prog_firehose_ddr.elf --memory=spinor write-part XBL_CONFIG xbl_config.elf
+    edl-ng.exe rawprogram .\rawprogram0.xml -l .\prog_firehose_ddr.elf --memory=spinor
 
     ```
 
     </NewCodeBlock>
-
-    <img src="/img/dragon/q6a/spi_by_win_10.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - Erase using the following command
-
-    <NewCodeBlock tip="Windows$" type="host">
-
-    ```bash
-
-    edl-ng.exe -l .\prog_firehose_ddr.elf --memory=spinor erase-part xbl
-
-    ```
-
-    </NewCodeBlock>
-
-    <img src="/img/dragon/q6a/spi_by_win_11.webp" style={{width: '80%', maxWidth: '1200px'}} />
 
     ## FAQ
 
@@ -148,46 +132,14 @@ edl-ng --version
 
 If the terminal prints the version information, it means that the `edl-ng` tool has successfully set the soft link.
 
-- Erase SPI boot firmware
+- Burn SPI boot firmware
 
 Go to the [Resource Summary Download](../../download) page, download the `spi firmware` file, then unzip it into the directory where the `prog_firehose_ddr.elf` file is located and open the terminal. Use the `edl-ng` command to erase the SPI boot firmware.
 
 <NewCodeBlock tip="Linux$" type="host">
 
 ```
-sudo edl-ng --memory spinor erase-part xbl  -l prog_firehose_ddr.elf
-```
-
-</NewCodeBlock>
-
-After successful erasure, the terminal will output information similar to the following:
-
-```
-11:55:49.251 [INFO]  Found device using LibUsbDotNet on Linux / MacOS.
-11:55:49.253 [INFO]  Kernel driver is active on interface 0, attempting manual detach...
-11:55:49.253 [INFO]  Manual detach successful.
-11:55:49.253 [INFO]  Detected device mode: Sahara
-11:55:49.253 [INFO]  Device is in Sahara mode. Uploading loader...
-11:55:49.254 [INFO]  Serial Number: ACAB22CD
-11:55:49.254 [INFO]  Product ID: 408 (QCS_KODIAK)
-11:55:49.355 [INFO]  Uploading loader: ~/prog_firehose_ddr.elf
-11:55:49.556 [INFO]  Loader uploaded and started successfully via Sahara.
-11:55:50.056 [INFO]  Found device using LibUsbDotNet on Linux / MacOS.
-11:55:51.122 [INFO]  Sending Firehose configure command...
-11:55:51.140 [INFO]  Firehose configured for Memory: SPINOR, MaxPayload: 1048576
-
-11:55:51.288 [INFO]  Found partition 'xbl' on LUN 0 with sector size 4096.
-11:55:51.288 [INFO]  Attempting to erase partition 'xbl' (LUN 0, LBA 52, 256 sectors)...
-11:55:58.699 [INFO]  Successfully erased partition 'xbl' in 7.41s.
-
-```
-
-- Burn SPI boot firmware
-
-<NewCodeBlock tip="Linux$" type="host">
-
-```
-sudo edl-ng rawprogram rawprogram0.xml --loader=prog_firehose_ddr.elf --memory=spinor write-part XBL_CONFIG xbl_config.elf
+sudo edl-ng rawprogram rawprogram0.xml --loader=prog_firehose_ddr.elf --memory=spinor
 ```
 
 </NewCodeBlock>

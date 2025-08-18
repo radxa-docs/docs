@@ -67,27 +67,11 @@ SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化�
 
     ```bash
 
-    edl-ng.exe rawprogram .\rawprogram0.xml -l .\prog_firehose_ddr.elf --memory=spinor write-part XBL_CONFIG xbl_config.elf
+    edl-ng.exe rawprogram .\rawprogram0.xml -l .\prog_firehose_ddr.elf --memory=spinor
 
     ```
 
     </NewCodeBlock>
-
-    <img src="/img/dragon/q6a/spi_by_win_10.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - 使用以下命令擦除
-
-    <NewCodeBlock tip="Windows$" type="host">
-
-    ```bash
-
-    edl-ng.exe -l .\prog_firehose_ddr.elf --memory=spinor erase-part xbl
-
-    ```
-
-    </NewCodeBlock>
-
-    <img src="/img/dragon/q6a/spi_by_win_11.webp" style={{width: '80%', maxWidth: '1200px'}} />
 
     ## FAQ
 
@@ -148,46 +132,14 @@ edl-ng --version
 
 终端若是打印出版本信息，说明 `edl-ng` 工具设置软链接成功。
 
-- 擦除 SPI 启动固件
+- 烧录 SPI 启动固件
 
 进入 [资源汇总下载](../../download) 页面，下载 `spi firmware` 文件,然后解压进入到 `prog_firehose_ddr.elf` 文件所在目录并打开终端，使用 `edl-ng` 命令擦除 SPI 启动固件。
 
 <NewCodeBlock tip="Linux$" type="host">
 
 ```
-sudo edl-ng --memory spinor erase-part xbl  -l prog_firehose_ddr.elf
-```
-
-</NewCodeBlock>
-
-擦除成功后，终端会输出类似下面的信息：
-
-```
-11:55:49.251 [INFO]  Found device using LibUsbDotNet on Linux / MacOS.
-11:55:49.253 [INFO]  Kernel driver is active on interface 0, attempting manual detach...
-11:55:49.253 [INFO]  Manual detach successful.
-11:55:49.253 [INFO]  Detected device mode: Sahara
-11:55:49.253 [INFO]  Device is in Sahara mode. Uploading loader...
-11:55:49.254 [INFO]  Serial Number: ACAB22CD
-11:55:49.254 [INFO]  Product ID: 408 (QCS_KODIAK)
-11:55:49.355 [INFO]  Uploading loader: ~/prog_firehose_ddr.elf
-11:55:49.556 [INFO]  Loader uploaded and started successfully via Sahara.
-11:55:50.056 [INFO]  Found device using LibUsbDotNet on Linux / MacOS.
-11:55:51.122 [INFO]  Sending Firehose configure command...
-11:55:51.140 [INFO]  Firehose configured for Memory: SPINOR, MaxPayload: 1048576
-
-11:55:51.288 [INFO]  Found partition 'xbl' on LUN 0 with sector size 4096.
-11:55:51.288 [INFO]  Attempting to erase partition 'xbl' (LUN 0, LBA 52, 256 sectors)...
-11:55:58.699 [INFO]  Successfully erased partition 'xbl' in 7.41s.
-
-```
-
-- 烧录 SPI 启动固件
-
-<NewCodeBlock tip="Linux$" type="host">
-
-```
-sudo edl-ng rawprogram rawprogram0.xml --loader=prog_firehose_ddr.elf --memory=spinor write-part XBL_CONFIG xbl_config.elf
+sudo edl-ng rawprogram rawprogram0.xml --loader=prog_firehose_ddr.elf --memory=spinor
 ```
 
 </NewCodeBlock>
