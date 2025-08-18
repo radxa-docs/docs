@@ -18,8 +18,6 @@ For detailed steps on flashing the SPI boot firmware, please refer to the [Flash
 
   - [EDL-NG](https://dl.radxa.com/q6a/images/edl-ng-dist.zip)
 
-  - [SPI Flash Tool](https://dl.radxa.com/q6a/images/spinor_flash_tool.zip)
-
 - [SPI Boot Firmware](https://dl.radxa.com/q6a/images/flat_build_250801.zip)
 
 ## Hardware Design
