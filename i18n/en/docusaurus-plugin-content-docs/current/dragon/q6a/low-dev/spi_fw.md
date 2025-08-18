@@ -17,49 +17,9 @@ Go to the [Resource Download](../../download) page, download the `edl-ng` compre
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
 
-    ## Install edl-ng
-
-    - Confirm the current location of edl-ng.
-
-    <img src="/img/dragon/q6a/spi_by_win_1.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    For example, the current location is **C:\Users\radxa\Desktop\edl-ng\windows-x64**
-
-    -
-
-    <img src="/img/dragon/q6a/spi_by_win_2.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - Open **This PC** and select **Properties**.
-
-    <img src="/img/dragon/q6a/spi_by_win_3.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - Click **Environment Variables**.
-
-    <img src="/img/dragon/q6a/spi_by_win_4.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - Double-click **Path** in **System Variables**.
-
-    <img src="/img/dragon/q6a/spi_by_win_5.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - Create a new environment variable named edl-ng Location
-
-    <img src="/img/dragon/q6a/spi_by_win_6.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - Open **powershell**, run it as an administrator, enter “edl-ng.exe --version”, and see if the version number is displayed successfully.
-
-    <img src="/img/dragon/q6a/spi_by_win_7.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
     ## Firmware burning
 
     - [Enter EDL mode](edl_mode)
-
-    - Open**powershell**
-
-    <img src="/img/dragon/q6a/spi_by_win_8.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - Go to the location of the firmware.
-
-    <img src="/img/dragon/q6a/spi_by_win_9.webp" style={{width: '80%', maxWidth: '1200px'}} />
 
     - Enter the following command to burn
 
@@ -67,7 +27,7 @@ Go to the [Resource Download](../../download) page, download the `edl-ng` compre
 
     ```bash
 
-    edl-ng.exe rawprogram .\rawprogram0.xml -l .\prog_firehose_ddr.elf --memory=spinor
+    .\edl-ng.exe --memory=spinor --loader C:\path\to\prog_firehose_ddr.elf rawprogram C:\path\to\rawprogram0.xml C:\path\to\patch0.xml
 
     ```
 
@@ -139,7 +99,7 @@ Go to the [Resource Summary Download](../../download) page, download the `spi fi
 <NewCodeBlock tip="Linux$" type="host">
 
 ```
-sudo edl-ng rawprogram rawprogram0.xml --loader=prog_firehose_ddr.elf --memory=spinor
+sudo edl-ng --memory=spinor rawprogram rawprogram0.xml patch0.xml --loader=prog_firehose_ddr.elf
 ```
 
 </NewCodeBlock>

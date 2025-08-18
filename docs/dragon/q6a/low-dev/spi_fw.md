@@ -17,49 +17,9 @@ SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化�
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
 
-    ## 安装 edl-ng
-
-    - 确认当前 edl-ng 的位置
-
-    <img src="/img/dragon/q6a/spi_by_win_1.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    如，当前位置为 **C:\Users\radxa\Desktop\edl-ng\windows-x64**
-
-    - 打开 **此电脑**，选择**属性**
-
-    <img src="/img/dragon/q6a/spi_by_win_2.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - 点击**高级系统设置**
-
-    <img src="/img/dragon/q6a/spi_by_win_3.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - 点击**环境变量**
-
-    <img src="/img/dragon/q6a/spi_by_win_4.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - 在**系统变量**中双击**Path**
-
-    <img src="/img/dragon/q6a/spi_by_win_5.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - 新建一个环境变量，变量名为 edl-ng 所在位置
-
-    <img src="/img/dragon/q6a/spi_by_win_6.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - 打开 **powershell**, 以管理员身份运行，输入 "edl-ng.exe --version", 看是否成功输出版本号
-
-    <img src="/img/dragon/q6a/spi_by_win_7.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
     ## 烧录 Firmware
 
-    - [进入 EDL mode](EDL_mode)
-
-    - 打开**powershell**
-
-    <img src="/img/dragon/q6a/spi_by_win_8.webp" style={{width: '80%', maxWidth: '1200px'}} />
-
-    - 进入固件所在位置
-
-    <img src="/img/dragon/q6a/spi_by_win_9.webp" style={{width: '80%', maxWidth: '1200px'}} />
+    - [进入 EDL mode](edl_mode)
 
     - 输入以下命令进行烧录
 
@@ -67,7 +27,7 @@ SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化�
 
     ```bash
 
-    edl-ng.exe rawprogram .\rawprogram0.xml -l .\prog_firehose_ddr.elf --memory=spinor
+    .\edl-ng.exe --memory=spinor --loader C:\path\to\prog_firehose_ddr.elf rawprogram C:\path\to\rawprogram0.xml C:\path\to\patch0.xml
 
     ```
 
@@ -139,7 +99,7 @@ edl-ng --version
 <NewCodeBlock tip="Linux$" type="host">
 
 ```
-sudo edl-ng rawprogram rawprogram0.xml --loader=prog_firehose_ddr.elf --memory=spinor
+sudo edl-ng rawprogram rawprogram0.xml patch0.xml --loader=prog_firehose_ddr.elf --memory=spinor
 ```
 
 </NewCodeBlock>
