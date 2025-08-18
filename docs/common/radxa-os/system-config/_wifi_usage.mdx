@@ -19,7 +19,11 @@ nmcli（NetworkManager Command Line Interface）是 NetworkManager 的命令行�
 ### 开启 WiFi 功能
 
 <NewCodeBlock tip="radxa@device$" type="device">
-  ``` sudo nmcli radio wifi on ```
+
+```
+sudo nmcli radio wifi on
+```
+
 </NewCodeBlock>
 
 ### 搜索 WiFi 网络
@@ -27,17 +31,23 @@ nmcli（NetworkManager Command Line Interface）是 NetworkManager 的命令行�
 若开启 WiFi 功能并没有搜索到 WiFi 网络，可以尝试重启系统。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-  ``` sudo nmcli device wifi list ```
+
+```
+sudo nmcli device wifi list
+```
+
 </NewCodeBlock>
 
 ### 连接 WiFi 网络
 
 <NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
 # 示例
 sudo nmcli device wifi connect wifi-demo password 12345678
 ```
+
 </NewCodeBlock>
 
 连接成功后，终端会输出类似如下信息：
@@ -49,7 +59,11 @@ Device 'wlan0' successfully activated with 'xxxxxx'.
 ### 查看网络连接的详细信息
 
 <NewCodeBlock tip="radxa@device$" type="device">
-  ``` ip a ```
+
+```
+ip a
+```
+
 </NewCodeBlock>
 
 终端会输出类似如下信息：其中 `192.168.31.53` 就是路由器分配的 IP 地址。
@@ -109,7 +123,11 @@ Device 'wlan0' successfully activated with 'xxxxxx'.
 使用 `ip a` 命令查看无线网卡设备名称。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-  ``` ip a ```
+
+```
+ip a
+```
+
 </NewCodeBlock>
 
 终端会输出类似如下信息：其中 `wlan0` 就是无线网卡设备名称。
@@ -180,19 +198,31 @@ Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 ### 关闭 WiFi 热点
 
 <NewCodeBlock tip="radxa@device$" type="device">
-  ``` sudo nmcli connection down My-Hotspot ```
+
+```
+sudo nmcli connection down My-Hotspot
+```
+
 </NewCodeBlock>
 
 ### 开启 WiFi 热点
 
 <NewCodeBlock tip="radxa@device$" type="device">
-  ``` sudo nmcli connection up My-Hotspot ```
+
+```
+sudo nmcli connection up My-Hotspot
+```
+
 </NewCodeBlock>
 
 ### 删除 WiFi 热点
 
 <NewCodeBlock tip="radxa@device$" type="device">
-  ``` sudo nmcli connection delete My-Hotspot ```
+
+```
+sudo nmcli connection delete My-Hotspot
+```
+
 </NewCodeBlock>
 
 ## 测试网络带宽性能
@@ -218,7 +248,11 @@ Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 服务端和客户端都需要安装 `iperf`。
 
 <NewCodeBlock tip="radxa@device & Linux@host$" type="device">
-  ``` sudo apt update sudo apt install iperf ```
+
+```
+sudo apt update sudo apt install iperf
+```
+
 </NewCodeBlock>
 
 ### 测试步骤
@@ -228,7 +262,11 @@ Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 打开命令行终端，输入以下命令启动服务端：
 
 <NewCodeBlock tip="Linux@host$" type="device">
-  ``` iperf -s ```
+
+```
+iperf -s
+```
+
 </NewCodeBlock>
 
 成功启动后，终端会输出类似如下信息：
@@ -246,11 +284,13 @@ Server listening on 5201 (test #1)
 打开命令行终端，输入以下命令测试客户端上传网络带宽：将 `<server_ip>` 替换为实际的服务端 IP 地址（可以通过 `ip a` 命令查看）。
 
 <NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 iperf -c <server_ip> -t <time>
 # 示例
 iperf -c 192.168.2.186 -t 60
 ```
+
 </NewCodeBlock>
 
 参数说明：
@@ -263,11 +303,13 @@ iperf -c 192.168.2.186 -t 60
 打开命令行终端，输入以下命令测试客户端下载网络带宽：将 `<server_ip>` 替换为实际的服务端 IP 地址（可以通过 `ip a` 命令查看）。
 
 <NewCodeBlock tip="radxa@device$" type="device">
+
 ```
 iperf -c <server_ip> -t <time> -R
 # 示例
 iperf -c 192.168.2.186 -t 60 -R
 ```
+
 </NewCodeBlock>
 
 参数说明：
