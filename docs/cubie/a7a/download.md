@@ -17,12 +17,9 @@ sidebar_position: 8
 
 - 原始系统镜像
 
-  - [MicroSD 卡使用](wwww.radxa.com)
-  - [eMMC / UFS 模块使用](wwww.radxa.com)
+目前仅支持 MicroSD 卡/ eMMC 模块启动系统，UFS 模块和 NVMe SSD 目前正在适配中！
 
-- Phoenix 系统镜像
-  - [MicroSD 卡使用](wwww.radxa.com)
-  - [eMMC / UFS 模块使用](wwww.radxa.com)
+- [Radxa Cubie A7A Debian 11](radxa-cubie-a7z_bullseye_kde_t5.output_512.img.xz)
 
 ### Android
 
