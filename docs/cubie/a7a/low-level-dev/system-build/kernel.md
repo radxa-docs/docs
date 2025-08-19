@@ -37,3 +37,21 @@ git clone --recurse-submodules https://github.com/radxa-pkg/linux-a733.git
 1. 打开 VS Code
 2. 安装 Dev Containers 拓展
 3. 打开 Kernel 源码目录，点击左侧活动栏中的 Dev Containers 图标，在弹出的菜单中选择 `Reopen in Container`，即可打开开发环境。
+
+:::tip
+首次启动开发环境时，Dev Containers 会自动下载并安装依赖，需要耐心等待一段时间。
+:::
+
+## 编译 Kernel
+
+启动开发环境后，进入 Kernel 源码目录，使用 `make deb` 命令编译 Kernel。
+
+<NewCodeBlock tip="PC@host$" type="host">
+
+```
+make deb
+```
+
+</NewCodeBlock>
+
+编译成功后，终端会输出生成文件的路径。

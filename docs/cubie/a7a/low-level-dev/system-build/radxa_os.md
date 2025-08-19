@@ -4,65 +4,93 @@ sidebar_position: 3
 
 # 编译 Radxa OS
 
-教程主要介绍如何编译 Radxa OS，，目前 Radxa OS 使用 `rsdk` 作为生成环境，使用 `rsdk` 可以非常方便的编译 Radxa OS。
+教程主要介绍如何编译 Radxa OS，使用我们提供的 RadxaOS SDK（rsdk）源码搭配 Dev Containers 可以非常方便的编译 Radxa OS。
 
-- 生成环境容器化，无需额外配置生成依赖
-- 模块化的生成代码，修改方便
-- 支持 x86、ARM64 平台上运行
+## 使用前提
 
-## 开发环境
+- 适用平台：Windows / Linux / macOS
+- 硬件环境：仅支持 x86_64 架构的 PC
+- 软件环境：[VS Code](https://code.visualstudio.com/Download) + [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-### 安装依赖
+我们需要在自己的 PC 上安装 VS Code 和 Docker Desktop，然后使用 Docker Desktop 来运行编译环境。
 
-<NewCodeBlock tip="PC@host$" type="host">
+:::tip 参考资料
 
-```
-sudo apt-get update
-sudo apt-get install git qemu-user-static binfmt-support
-sudo apt-get install npm docker.io
-sudo usermod -a -G docker $USER
-```
+- [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers)
+- [Dev Containers Tutorial](https://code.visualstudio.com/docs/devcontainers/tutorial)
+  :::
 
-</NewCodeBlock>
+## 下载 RadxaOS SDK（rsdk）源码
 
-### 使用 rsdk
-
-使用命令拉取 RadxaOS SDK（rsdk）开发环境并启动 Dev Container。
+打开终端，使用 `git clone` 命令下载 RadxaOS SDK（rsdk）源码。
 
 <NewCodeBlock tip="PC@host$" type="host">
 
 ```
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
-cd rsdk
-npm install @devcontainers/cli
-export PATH="$PWD/src/bin:$PWD/node_modules/.bin:$PATH"
-rsdk devcon up
-rsdk devcon
 ```
 
 </NewCodeBlock>
 
-当终端出现类似以下信息时，说明开发环境已经成功启动：
+## 启动开发环境
+
+1. 打开 VS Code
+2. 安装 Dev Containers 拓展
+3. 打开 RadxaOS SDK（rsdk）源码目录，点击左侧活动栏中的 Dev Containers 图标，在弹出的菜单中选择 `Reopen in Container`，即可打开开发环境。
+
+:::tip
+首次启动开发环境时，Dev Containers 会自动下载并安装依赖，需要耐心等待一段时间。
+:::
+
+## 编译 Radxa OS
+
+启动开发环境后，进入 RadxaOS SDK（rsdk）源码目录，使用 `rsdk` 命令运行 TUI 界面。
+
+<NewCodeBlock tip="PC@host$" type="host">
 
 ```
-██████╗ ███████╗██████╗ ██╗  ██╗
-██╔══██╗██╔════╝██╔══██╗██║ ██╔╝
-██████╔╝███████╗██║  ██║█████╔╝
-██╔══██╗╚════██║██║  ██║██╔═██╗
-██║  ██║███████║██████╔╝██║  ██╗
-╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝  ╚═╝
-RadxaOS Software Development Kit
-
-Please run `rsdk shell` to enter the full development shell.
-
-direnv: export +AR +AS +CC +CONFIG_SHELL +CXX +DETERMINISTIC_BUILD +DEVENV_DOTFILE +DEVENV_PROFILE +DEVENV_ROOT +DEVENV_RUNTIME
-+DEVENV_STATE +DEVENV_TASKS +HOST_PATH +IN_NIX_SHELL +LD +LOCALE_ARCHIVE +NIX_BINTOOLS +NIX_BINTOOLS_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu
-+NIX_BUILD_CORES +NIX_CC +NIX_CC_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu +NIX_CFLAGS_COMPILE +NIX_ENFORCE_NO_NATIVE +NIX_HARDENING_ENABLE +NIX_LDFLAGS
-+NIX_PKG_CONFIG_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu +NIX_STORE +NM +NODE_PATH +OBJCOPY +OBJDUMP +PKG_CONFIG +PKG_CONFIG_PATH +PYTHONHASHSEED +PYTHONNOUSERSITE
-+PYTHONPATH +RANLIB +READELF +SIZE +SOURCE_DATE_EPOCH +STARSHIP_SESSION_KEY +STRINGS +STRIP +_PYTHON_HOST_PLATFORM +_PYTHON_SYSCONFIGDATA_NAME +__structuredAttrs +buildInputs
-+buildPhase +builder +cmakeFlags +configureFlags +depsBuildBuild +depsBuildBuildPropagated +depsBuildTarget +depsBuildTargetPropagated +depsHostHost +depsHostHostPropagated
-+depsTargetTarget +depsTargetTargetPropagated +doCheck +doInstallCheck +dontAddDisableDepTrack +hardeningDisable +mesonFlags +name +nativeBuildInputs +out +outputs +patches
-+phases +preferLocalBuild +propagatedBuildInputs +propagatedNativeBuildInputs +shell +shellHook +stdenv +strictDeps +system ~PATH ~XDG_DATA_DIRS
-
-vscode ➜ /workspaces/rsdk (main) $
+rsdk
 ```
+
+</NewCodeBlock>
+
+```
+┌─────────────────┤ RSDK ├──────────────────┐
+│ Please select a task:                     │
+│                                           │
+│            Build system image             │
+│            =========                      │
+│            About                          │
+│                                           │
+│         <Ok>             <Cancel>         │
+│                                           │
+└───────────────────────────────────────────┘
+```
+
+选择 `Build system image` 选项，可以进一步选择需要构建的主板型号。
+
+```
+┌─────────────────┤ RSDK ├──────────────────┐
+│ Please select a product:                  │
+│                                           │
+│  (*) radxa-cubie-a7a                      │
+│                                           │
+│         <Ok>             <Cancel>         │
+│                                           │
+└───────────────────────────────────────────┘
+```
+
+选择 `yes` 后开始构建 Radxa OS，rsdk 会自动完成镜像编译。
+
+```
+┌─────────────────┤ RSDK ├───────────────────────┐
+│                                                │
+│ Are you sure to build for 'radxa-cubie-a7a'?   │
+│                                                │
+│                                                │
+│          <Yes>             <No>                │
+│                                                │
+└────────────────────────────────────────────────┘
+```
+
+编译完成后，会在 `out` 目录下生成文件名称为 `output.img` 的 Radxa OS 镜像。

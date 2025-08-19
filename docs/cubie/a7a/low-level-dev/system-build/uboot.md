@@ -44,7 +44,7 @@ git clone --recurse-submodules https://github.com/radxa-pkg/u-boot-aw2501.git
 
 ## 编译 U-Boot
 
-启动开发环境后，进入 U-Boot 源码目录，使用 `make` 命令编译 U-Boot。
+启动开发环境后，进入 U-Boot 源码目录，使用 `make deb` 命令编译 U-Boot。
 
 <NewCodeBlock tip="PC@host$" type="host">
 
@@ -54,4 +54,4 @@ make deb
 
 </NewCodeBlock>
 
-编译成功后，
+编译成功后，终端会输出生成文件的路径。
