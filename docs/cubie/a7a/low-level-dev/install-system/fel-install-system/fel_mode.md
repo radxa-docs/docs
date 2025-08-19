@@ -15,7 +15,7 @@ FEL 是 Allwinner（全志）芯片中的一种低级启动和刷机模式，主
 主板上电前，按住 Cubie A7A 的 UBOOT 按键，主板上电后，松开 UBOOT 按键就可以进入 FEL 模式。
 
 :::tip
-UBOOT 按键具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
+UBOOT 按键具体位置可以查看 [硬件接口](../../../download) 教程的接口说明部分！
 :::
 
 ① : 按住 Cubie A7A 的 UBOOT 按键

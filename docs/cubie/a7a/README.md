@@ -94,4 +94,6 @@ LPDDR5 内存可选：2GB / 4GB / 8GB / 16GB。
 Cubie A7A 基于全志 A733 SoC，支持多种操作系统：
 
 - Debian Linux
+- Buildroot
+- Tina Linux
 - Android 13

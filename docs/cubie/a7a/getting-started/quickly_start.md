@@ -45,7 +45,11 @@ Cubie A7A 主板兼容 PD 协议的 5V 电源输入，建议电流 3A 以上，�
 - [安装系统到 MicroSD 卡](./install-system/sd_system)
 
 :::tip 安装系统到其它启动介质
-若你有 eMMC 模块、UFS 模块或 NVMe SSD，你可以按照下面方式安装系统:
+目前支持 MicroSD 卡、eMMC 模块启动系统。
+
+UFS 模块：目前无法正常识别，正在适配中。
+
+NVMe SSD：目前正常识别，可作为拓展存储空间，无法作为启动介质。
 
 - [安装系统到 eMMC 模块](./install-system/emmc-system)
 - [安装系统到 UFS 模块](./install-system/ufs-system)

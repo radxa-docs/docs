@@ -44,9 +44,11 @@ Cubie A7A 的 Type-C 接口支持供电和 OTG 功能，我们可以使用 Type-
 使用 `./adb version` 命令查看 ADB 工具的版本信息。
 
 <NewCodeBlock tip="Host-PC$" type="device">
+
 ```
 ./adb version
 ```
+
 </NewCodeBlock>
 
 运行成功会显示 ADB 工具的版本信息，类似以下信息：
@@ -91,9 +93,11 @@ Cubie A7A 的 Android 系统默认开启 USB 调试功能，Android 11 版本以
 使用 `./adb devices` 命令查看设备列表。
 
 <NewCodeBlock tip="Host-PC$" type="device">
+
 ```
 ./adb devices
 ```
+
 </NewCodeBlock>
 
 运行成功会显示设备列表，类似以下信息：
@@ -111,9 +115,11 @@ List of devices attached
 在 `platform-tools` 文件夹目录下，使用 `./adb shell` 命令进入 Android 设备的终端 Shell。
 
 <NewCodeBlock tip="Host-PC$" type="device">
+
 ```
 ./adb shell
 ```
+
 </NewCodeBlock>
 
 连接成功后会显示 Android 设备的终端 Shell，类似以下信息：
@@ -128,6 +134,7 @@ radxa-a7a:/ $
 在 `platform-tools` 文件夹目录下，使用 `./adb connect <device_ip>` 命令连接 Android 设备。
 
 <NewCodeBlock tip="Host-PC$" type="device">
+
 ```
 ./adb connect <device_ip:port>
 
@@ -136,35 +143,30 @@ radxa-a7a:/ $
 ./adb connect 192.168.31.201:43167
 
 ```
+
 </NewCodeBlock>
 
 连接成功后会显示类似以下信息：
 
 ```
-
 already connected to 192.168.31.201:43167
-
 ```
 
 连接成功后，使用 `./adb shell` 命令进入 Android 设备的终端 Shell。
 
 <NewCodeBlock tip="Host-PC$" type="device">
-```
 
+```
 ./adb shell
-
 ```
+
 </NewCodeBlock>
 
 进入成功后会显示 Android 设备的终端 Shell，类似以下信息：
 
 ```
-
 radxa-a7a:/ $
-
 ```
 
 </TabItem>
-
 </Tabs>
-```
