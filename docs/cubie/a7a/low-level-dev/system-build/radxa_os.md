@@ -10,9 +10,9 @@ sidebar_position: 3
 
 - 适用平台：Windows / Linux / macOS
 - 硬件环境：仅支持 x86_64 架构的 PC
-- 软件环境：[VS Code](https://code.visualstudio.com/Download) + [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- 软件环境：[VS Code](https://code.visualstudio.com/Download) + [Docker](https://www.docker.com/get-started/)
 
-我们需要在自己的 PC 上安装 VS Code 和 Docker Desktop，然后使用 Docker Desktop 来运行编译环境。
+我们需要在自己的 PC 上安装 VS Code 和 Docker，然后使用 Docker 来运行编译环境。
 
 :::tip 参考资料
 
@@ -32,15 +32,39 @@ git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 
 </NewCodeBlock>
 
-## 启动开发环境
+## 开发环境
 
-1. 打开 VS Code
-2. 安装 Dev Containers 拓展
-3. 打开 RadxaOS SDK（rsdk）源码目录，点击左侧活动栏中的 Dev Containers 图标，在弹出的菜单中选择 `Reopen in Container`，即可打开开发环境。
+### 安装拓展插件
+
+我们需要在 VS Code 中安装 Dev Containers 拓展。
+
+① ：点击 `Extensions` 选项
+
+② ：搜索 `Dev Containers`
+
+③ ：选择 Dev Containers 拓展
+
+④ ：点击 `Install` 选项安装 Dev Containers 拓展
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/cubie/a7a/vscode-dev-container.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+### 启动开发环境
+
+打开 RadxaOS SDK（rsdk）源码目录：一般 `Dev Container` 拓展会自动识别文件夹下的配置文件，会提示你是否重新打开容器开发环境。
 
 :::tip
 首次启动开发环境时，Dev Containers 会自动下载并安装依赖，需要耐心等待一段时间。
 :::
+
+①：点击左下角的 `Remote` 选项
+
+②：选择 `Reopen in Container` 选项
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/cubie/a7a/vscode-dev-container-reopen.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ## 编译 Radxa OS
 
@@ -93,4 +117,4 @@ rsdk
 └────────────────────────────────────────────────┘
 ```
 
-编译完成后，会在 `out` 目录下生成文件名称为 `output.img` 的 Radxa OS 镜像。
+编译完成后，会在 `out` 目录下生成主板型号与系统版本对应的文件夹，该文件夹下会生成名称为 `output.img` 的 Radxa OS 镜像。
