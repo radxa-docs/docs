@@ -1,15 +1,15 @@
-主要介绍搭建 ROS2 Humble 版本的环境。
+This document provides a guide for setting up the ROS2 Humble environment.
 
 :::tip
 
-- 建议以下操作基于 VNC 远程桌面或者连接显示器进行操作。
-- ROS2 环境是搭建在 Docker 容器中的，建议先安装和学习 Docker 的使用。
-- Ubuntu 是 ROS2 官方首选和主要支持的发行版，我们会基于 Docker 的 Ubuntu 镜像来搭建 ROS2 环境。
+- It is recommended to perform the following operations using VNC remote desktop or a connected display.
+- The ROS2 environment is set up in a Docker container. It is recommended to install and learn how to use Docker first.
+- Ubuntu is the officially preferred and primarily supported distribution for ROS2. We will set up the ROS2 environment using a Docker Ubuntu image.
   :::
 
-## 拉取 Docker 镜像
+## Pull Docker Image
 
-使用 `docker pull` 命令拉取 Ubuntu22.04 的 Docker 镜像。
+Use the `docker pull` command to download the Ubuntu 22.04 Docker image.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
@@ -19,11 +19,11 @@ docker pull ubuntu:22.04
 
 </NewCodeBlock>
 
-## 编写 Docker 脚本
+## Create Docker Script
 
-使用脚本启动 Ubuntu22.04 的 Docker 容器。
+Start an Ubuntu 22.04 Docker container using a script.
 
-您需要编写一个启动脚本 `ros_humble.sh`:
+You need to create a startup script named `ros_humble.sh`:
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
@@ -33,7 +33,7 @@ vi ros_humble.sh
 
 </NewCodeBlock>
 
-添加以下内容到脚本内：
+Add the following content to the script:
 
 ```
 #!/bin/bash
@@ -47,20 +47,20 @@ docker run -it \
 ubuntu:22.04 /bin/bash
 ```
 
-参数说明：
+Parameter explanation:
 
-- `xhost +`: 允许 Docker 容器访问 X11 服务器
-- `-it`: 以交互模式运行容器
-- `--net=host`: 使用主机的网络栈
-- `--env="DISPLAY"`: 设置环境变量，用于显示 X11 图形界面
-- `--env="QT_X11_NO_MITSHM=1"`: 设置环境变量，用于 Qt 应用程序的显示
-- `-v /tmp/.X11-unix:/tmp/.X11-unix`: 挂载 X11 Unix 域套接字，用于显示 X11 图形界面
-- `ubuntu:22.04`: 使用 Ubuntu 22.04 镜像
-- `/bin/bash`: 在容器内启动 Bash shell
+- `xhost +`: Allows Docker container to access the X11 server
+- `-it`: Run the container in interactive mode
+- `--net=host`: Use the host's network stack
+- `--env="DISPLAY"`: Set environment variable for X11 graphical interface display
+- `--env="QT_X11_NO_MITSHM=1"`: Set environment variable for Qt application display
+- `-v /tmp/.X11-unix:/tmp/.X11-unix`: Mount X11 Unix domain socket for X11 graphical interface display
+- `ubuntu:22.04`: Use Ubuntu 22.04 image
+- `/bin/bash`: Start Bash shell inside the container
 
-## 启动 Docker 容器
+## Start Docker Container
 
-使用 `bash` 命令启动脚本。
+Use the `bash` command to run the script.
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -70,11 +70,11 @@ bash ros_humble.sh
 
 </NewCodeBlock>
 
-## 安装 Humble
+## Install Humble
 
-### 编码环境检查
+### Check Encoding Environment
 
-确保安装 Humble 的环境支持 UTF-8 编码。
+Ensure the environment for installing Humble supports UTF-8 encoding.
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -84,7 +84,7 @@ locale
 
 </NewCodeBlock>
 
-若系统编码格式是 UTF-8，你可以在终端看到类似以下信息输出：
+If the system encoding format is UTF-8, you should see output similar to the following in the terminal:
 
 ```
 LANG=en_US.UTF-8
@@ -104,7 +104,7 @@ LC_IDENTIFICATION="en_US.UTF-8"
 LC_ALL=
 ```
 
-若终端输出的信息不是 UTF-8 编码，你可以在终端输入以下命令来安装和修改编码环境：
+If the terminal output is not UTF-8 encoding, you can install and modify the encoding environment by running the following commands in the terminal:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -117,9 +117,9 @@ source ~/.bashrc
 
 </NewCodeBlock>
 
-### 设置软件源和密钥
+### Set up Software Sources and Keys
 
-确保系统处于最新的环境，然后启用Ubuntu Universe存储库和添加 ROS2 密钥。
+Ensure your system is up to date, then enable the Ubuntu Universe repository and add the ROS2 key.
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -132,8 +132,8 @@ curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr
 
 </NewCodeBlock>
 
-若出现错误提示：`curl: (7) Failed to connect to raw.githubusercontent.com port 443 after 43 ms: Connection refused`
-解决办法：访问 `https://www.ipaddress.com/搜索raw.githubusercontent.com` 域名，并将搜索得到的IP地址填写进/etc/hosts文件。
+If you encounter the error: `curl: (7) Failed to connect to raw.githubusercontent.com port 443 after 43 ms: Connection refused`
+Solution: Visit `https://www.ipaddress.com/` and search for `raw.githubusercontent.com`, then add the IP address to your /etc/hosts file.
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -142,13 +142,13 @@ vi /etc/hosts
 ```
 
 </NewCodeBlock>
-添加以下内容：
+Add the following line:
 
 ```
 185.199.110.133 raw.githubusercontent.com
 ```
 
-然后重新运行添加 ROS2 密钥的命令。
+Then run the ROS2 key addition command again:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -158,7 +158,7 @@ curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr
 
 </NewCodeBlock>
 
-将存储库添加到源列表中：
+Add the repository to your sources list:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -168,9 +168,9 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 
 </NewCodeBlock>
 
-### 安装 Humble
+### Install Humble
 
-使用以下命令安装 Humble 完整桌面版。
+Use the following command to install the full desktop version of Humble:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -181,9 +181,9 @@ apt install ros-humble-desktop-full -y
 
 </NewCodeBlock>
 
-### 安装 ROS2 开发工具
+### Install ROS2 Development Tools
 
-使用以下命令安装 ROS2 开发工具。
+Use the following command to install ROS2 development tools:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -193,9 +193,9 @@ apt install ros-dev-tools -y
 
 </NewCodeBlock>
 
-## 设置环境变量
+## Set Environment Variables
 
-使用以下命令设置环境变量：
+Set up the environment variables with the following commands:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -206,15 +206,15 @@ source ~/.bashrc
 
 </NewCodeBlock>
 
-## 保存 Docker 镜像
+## Save Docker Image
 
-目前我们的修改都是基于 Ubuntu22.04 的 Docker 容器，我们需要把这个修改的容器保存为镜像，以便下次直接使用。
+Currently, our modifications are based on the Ubuntu22.04 Docker container. We need to save this modified container as an image for future use.
 
-注意:若没有保存为镜像，下次启动容器时需要重新安装 ROS2 环境。
+Note: If you don't save it as an image, you'll need to reinstall the ROS environment the next time you start a container.
 
-### 查看正在运行的容器
+### View Running Containers
 
-在 Cubie A7A 的另一个没有进入 Docker 容器的终端输入以下命令查看正在运行的容器。
+In a new terminal on Cubie A7A (not inside the Docker container), run the following command to view running containers:
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
@@ -224,12 +224,12 @@ docker ps
 
 </NewCodeBlock>
 
-### 提交容器为镜像
+### Commit Container as Image
 
-在 Cubie A7A 的另一个没有进入 Docker 容器的终端输入以下命令提交容器为镜像。
+In a new terminal on Cubie A7A (not inside the Docker container), run the following command to commit the container as a new image.
 
 :::tip
-需要根据 `docker ps` 命令输出的容器 ID进行命令的修改。
+You'll need to modify the command based on the container ID from the `docker ps` output.
 :::
 
 <NewCodeBlock tip="radxa@device$" type="device">
@@ -237,22 +237,22 @@ docker ps
 ```
 docker commit [CONTAINER ID] [NEW NAME]
 
-# 示例
+# Example
 
 docker commit 937a98f8ad9e ros_humble:1.0
 ```
 
 </NewCodeBlock>
 
-等待提交完成，完成后会输出类似以下信息输出：
+After the commit is complete, it will output similar information:
 
 ```
 sha256:32288d439ffab73505d0754d4c43d8aad83210441b41553118e81ff6ab2887af
 ```
 
-### 修改启动脚本
+### Modify Start Script
 
-将启动脚本 `ros_humble.sh` 内的启动镜像修改为刚才保存的镜像名称：
+Modify the `ros_humble.sh` script to use the saved image name:
 
 <NewCodeBlock tip="ros_humble.sh" type="device">
 

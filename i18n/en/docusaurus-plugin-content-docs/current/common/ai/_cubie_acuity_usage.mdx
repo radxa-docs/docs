@@ -1,43 +1,43 @@
-这里将以 Keras 格式的 MobileNetV2 目标识别模型为例子，将使用 Acuity Toolkit 对模型进行解析，量化和编译，并生成项目代码，并使用 Vivante IDE 进行模拟仿真，最后在 VIP9000 系列 NPU 上进行推理。
+This example uses a MobileNetV2 target recognition model in Keras format, and uses Acuity Toolkit to parse, quantize, and compile the model, generating project code, and using Vivante IDE for simulation, finally inferring on the VIP9000 series NPU.
 
-## NPU 版本对照表
+## NPU Version Table
 
-| 产品      | 算力   | 平台 | NPU 版本 | NPU 软件版本 |
-| --------- | ------ | ---- | -------- | ------------ |
-| Radxa A5E | 2 Tops | T527 | v2       | v1.13        |
-| Radxa A7A | 3 Tops | A733 | v3       | v2.0         |
+| Product   | NPU    | SoC  | NPU Version | NPU Software Version |
+| --------- | ------ | ---- | ----------- | -------------------- |
+| Radxa A5E | 2 Tops | T527 | v2          | v1.13                |
+| Radxa A7A | 3 Tops | A733 | v3          | v2.0                 |
 
-{/* ## 配置环境变量 */}
-{/* - 初始化 ACUITY pegasus.py 脚本 */}
+{/* ## Configure environment variables */}
+{/* - Initialize ACUITY pegasus.py script */}
 {/* ```bash */}
 {/* python3 ~/work/Acuity/toolkit/bin/pegasus.py completion */}
 {/* source ~/work/Acuity/toolkit/bin/pegasus_completion */}
 {/* ``` */}
-{/* - 配置 pegasus 工具脚本环境变量 */}
+{/* - Configure pegasus tool script environment variables */}
 {/* ```bash */}
 {/* export PATH=$PATH:~/work/Acuity/acuity_examples/scripts */}
 {/* ``` */}
 
-{/* - 配置 ACUITY_PATH 变量 */}
+{/* - Configure ACUITY_PATH variable */}
 {/* ```bash */}
 {/* export ACUITY_PATH=~/work/Acuity/toolkit/bin */}
 {/* ``` */}
 
-{/* - 配置 SOC_BOARD 变量 */}
+{/* - Configure SOC_BOARD variable */}
 {/* ```bash */}
 {/* export SOC_BOARD="1619b" */}
 {/* ``` */}
 
-{/* - 配置 Vivante IDE 命令行工具路径变量 */}
+{/* - Configure Vivante IDE command line tool path variable */}
 {/* ```bash */}
 {/* export IDE=~/VeriSilicon/VivanteIDE5.10.0/cmdtools */}
 {/* ``` */}
 
-## 下载例子仓库
+## Download example repository
 
-在 [ACUITY Docker 容器](./cubie_acuity_env#创建-docker-容器) 中下载示例仓库
+In [ACUITY Docker container](./cubie_acuity_env#创建-docker-容器) download example repository
 
-下载仓库
+Download repository
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -47,7 +47,7 @@ git clone https://github.com/ZIFENG278/ai-sdk.git
 
 </NewCodeBlock>
 
-配置模型编译脚本
+Configure model compilation script
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -60,12 +60,12 @@ cp ../scripts/* .
 </NewCodeBlock>
 
 :::tip
-指定 NPU_VERSION， A733 指定 `v3`, T527 指定 `v1.13`。 信息对照请参考 [NPU 版本对照表](#npu-版本对照表)
+Specify NPU_VERSION, A733 specify `v3`, T527 specify `v1.13`. For NPU version selection, please refer to [NPU version comparison table](#npu-version-comparison-table)
 :::
 
-## 模型解析
+## Model parsing
 
-在 Docker 中进入示例仓库中的 ai-sdk/models/MobileNetV2_Imagenet 模型例子目录。
+Enter the MobileNetV2_Imagenet model example directory in the Docker container of the example repository.
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -75,13 +75,13 @@ cd ai-sdk/models/MobileNetV2_Imagenet
 
 </NewCodeBlock>
 
-此目录中包含以下文件，其中：
+This directory contains the following files:
 
-- MobilNetV2_Imagenet.h5 为原模型文件（必要）。
-- channel_mean_value.txt 为模型输入的 mean 和 scale 值的文件。
-- dataset.txt 为模型量化的校准文件集文件。
-- space_shuttle_224x224.jpg 为测试输入图片和教准集中包含的校准图片 。
-- input_outputs.txt 包含模型输入输出节点文件。(如果有必要需设置输出节点，避免量化失败)
+- MobilNetV2_Imagenet.h5 original model file (required).
+- channel_mean_value.txt model input mean and scale value file.
+- dataset.txt model quantization calibration dataset file.
+- space_shuttle_224x224.jpg test input image and calibration image in calibration dataset.
+- input_outputs.txt model input output node file.
 
 ```bash
 .
@@ -94,14 +94,14 @@ cd ai-sdk/models/MobileNetV2_Imagenet
 0 directories, 5 files
 ```
 
-### 导入模型
+### Import Model
 
-`pegasus_import.sh` 模型导入脚本，可以将多种不同的 AI 框架模型进行模型结构和权重解析, 并输出模型解析后的文件:
+`pegasus_import.sh` model import script, can parse the model structure and weights of various AI frameworks, and output the parsed model files:
 
-- 模型架构会保存在 MODEL_DIR.json
-- 模型权重会保存在 MODEL_DIR.data
-- 自动生成模型输入文件模板 MODEL_DIR_inputmeta.yml
-- 自动生成模型后处理文件模板 MODEL_DIR_postprocess_file.yml
+- Model architecture will be saved in MODEL_DIR.json
+- Model weights will be saved in MODEL_DIR.data
+- Automatically generate model input file template MODEL_DIR_inputmeta.yml
+- Automatically generate model postprocessing file template MODEL_DIR_postprocess_file.yml
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -112,14 +112,14 @@ cd ai-sdk/models/MobileNetV2_Imagenet
 
 </NewCodeBlock>
 
-参数：
+Parameters:
 
-- MODEL_DIR 包含源模型文件的文件夹
+- MODEL_DIR directory containing source model files
 
-### 手动修改模型输入文件
+### Manually Modify Model Input File
 
-这里需要按照模型输入预处理的 mean, scale 对 `MobileNetV2_Imagenet_inputmeta.yml` 中的 mean 和 scale 进行手动设置。
-这里以 MobileNetV2_ImageNet 为例子，因为 MobileNet 的输出为 (1,224,224,3) RGB 三通道，根据模型预处理公式:
+Here, we need to manually set the mean and scale in `MobileNetV2_Imagenet_inputmeta.yml` based on the model input preprocessing mean and scale.
+Here, we use MobileNetV2_ImageNet as an example, because MobileNetV2 outputs (1,224,224,3) RGB three channels, according to the model preprocessing formula:
 
 ```bash
 x1 = (x - mean) / std
@@ -127,8 +127,8 @@ x1 = (x - mean) * scale
 scale = 1 / std
 ```
 
-因为训练数据集为 ImageNet， 这里 ImageNet 训练集的归一化 mean 为 [0.485, 0.456, 0.406]，std 为 [0.229, 0.224, 0.225],
-这里需要进行进行反归一化计算。归一化数据参考 [pytorch 文档](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.mobilenet_v2.html)
+Because the training dataset is ImageNet, here the ImageNet training set's normalized mean is [0.485, 0.456, 0.406], std is [0.229, 0.224, 0.225],
+here needs to perform reverse normalization calculation. Normalization data reference [pytorch documentation](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.mobilenet_v2.html)
 
 ```bash
 # mean
@@ -144,7 +144,7 @@ scale = 1 / std
 1 / (0.225 * 255) = 0.01743
 ```
 
-这里按照计算得出 mean 和 scale 修改 `MobileNetV2_Imagenet_inputmeta.yml` 中 mean 和 scale 的数值：
+Here, we manually set the mean and scale in `MobileNetV2_Imagenet_inputmeta.yml` based on the calculated mean and scale:
 
 ```vim
 mean:
@@ -157,14 +157,14 @@ scale:
 - 0.01743
 ```
 
-## 量化模型
+## Quantize Model
 
-模型在进行转换之前，可以对模型进行不同类型的量化，ACUITY 支持 uint8 / int16 / bf16 / pcq (int8 per-channel quantized)多种量化方式，
-如使用 float 表示不进行量化。
+Before conversion, models can be quantized in different types, ACUITY supports uint8 / int16 / bf16 / pcq (int8 per-channel quantized) multiple quantization types,
+if using float, it means no quantization.
 
-使用 `pegasus_quantize.sh` 脚本可对模型进行指定类型的量化。
+Use `pegasus_quantize.sh` script to quantize the model to the specified type.
 :::tip
-如果源模型本身已经是量化模型，这里无需进行量化，否则会报错。
+If the source model is already a quantized model, no quantization is needed here, otherwise it will report an error.
 :::
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
@@ -176,7 +176,7 @@ pegasus_quantize.sh MobileNetV2_Imagenet int16 10
 
 </NewCodeBlock>
 
-量化会生成对应量化方式的量化文件 MODEL_DIR_QUANTIZED.quantize
+Quantization will generate the quantized file MODEL_DIR_QUANTIZED.quantize corresponding to the quantization method.
 
 | QUANTIZED | TYPE  | QUANTIZER                   |
 | --------- | ----- | --------------------------- |
@@ -185,33 +185,33 @@ pegasus_quantize.sh MobileNetV2_Imagenet int16 10
 | pcq       | int8  | perchannel_symmetric_affine |
 | bf16      | bf16  | qbfloat16                   |
 
-{/* ### 进行 pcq int8 量化 */}
+{/* ### Perform pcq int8 quantization */}
 {/* ```bash */}
 {/* # pegasus_quantize.sh MODEL_DIR QUANTIZED ITERATION */}
 {/* pegasus_quantize.sh MobileNetV2_Imagenet pcq 10 */}
 {/* ``` */}
 
-{/* ### 进行 int16 量化 */}
+{/* ### Perform int16 quantization */}
 {/* ```bash */}
 {/* # pegasus_quantize.sh MODEL_DIR QUANTIZED ITERATION */}
 {/* pegasus_quantize.sh MobileNetV2_Imagenet int16 10 */}
 {/* ``` */}
 
-{/* ### 进行 bf16 量化 */}
+{/* ### Perform bf16 quantization */}
 {/* ```bash */}
 {/* # pegasus_quantize.sh MODEL_DIR QUANTIZED ITERATION */}
 {/* pegasus_quantize.sh MobileNetV2_Imagenet bf16 10 */}
 {/* ``` */}
 
-## 推理量化模型
+## Inference quantized model
 
-模型经过量化后，性能会有不同程度的提升，但是精度会稍微降低，经过量化的模型可以通过 `pegasus_inference.sh` 进行推理，验证量化后模型精度是否满足。
-测试推理的输入为 dataset.txt 里的第一张图片。
+After quantization, the performance will be improved to different degrees, but the precision will be slightly reduced. The quantized model can be inferred through `pegasus_inference.sh` to verify whether the quantized model meets the precision requirements.
+Test inference input is the first picture in dataset.txt.
 ![space_shuttle](/img/e/e54c/rs400_npu_3.webp)
 
-### 推理 float 类型模型
+### Inference float model
 
-推理未量化的 float 模型，得到结果作为量化模型结果的参考
+Infer the unquantized float model to get the result as the reference for the quantized model.
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -222,7 +222,7 @@ pegasus_inference.sh MobileNetV2_Imagenet/ float
 
 </NewCodeBlock>
 
-推理结果输出为
+Inference result output is
 
 ```bash
 I 07:01:06 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
@@ -233,13 +233,13 @@ I 07:01:06 864: 6.59249781165272e-05
 I 07:01:06 536: 2.808812860166654e-05
 ```
 
-这里输出的 top5 置信度最高为 812, 对应 label 为 `space shuttle`， 这与实际的输入图片类型吻合, 这表明模型输入预处理的 mean 和 scale 设置正确。
+The top5 confidence is 812, corresponding to the label `space shuttle`, which matches the actual input image type, indicating that the model input preprocessing mean and scale are set correctly.
 
-推理的 tensor 同时保存在 MODEL_DIR/inf/MODEL_DIR_QUANTIZED 文件夹中
+The tensor of inference is saved in the MODEL_DIR/inf/MODEL_DIR_QUANTIZED folder at the same time.
 
-- iter_0_input_1_158_out0_1_224_224_3.qnt.tensor 为原图片的 tensor
-- iter_0_input_1_158_out0_1_224_224_3.tensor 为经过预处理后的模型输入 tensor
-- iter_0_attach_Logits_Softmax_out0_0_out0_1_1000.tensor 为模型的输出 tensor
+- iter_0_input_1_158_out0_1_224_224_3.qnt.tensor is the original image tensor
+- iter_0_input_1_158_out0_1_224_224_3.tensor is the model input tensor after preprocessing
+- iter_0_attach_Logits_Softmax_out0_0_out0_1_1000.tensor is the model output tensor
 
 ```bash
 .
@@ -250,7 +250,7 @@ I 07:01:06 536: 2.808812860166654e-05
 0 directories, 3 files
 ```
 
-### 推理 uint8 量化模型
+### Inference uint8 quantized model
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -261,7 +261,7 @@ pegasus_inference.sh MobileNetV2_Imagenet/ uint8
 
 </NewCodeBlock>
 
-推理结果输出为
+Inference result output is
 
 ```bash
 I 07:02:20 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
@@ -273,11 +273,10 @@ I 07:02:20 466: 0.005068646278232336
 ```
 
 :::warning
-这里输出的 top5 置信度最高为 904, 这里需要注意的是 904 对应 label 是 `wig` 这与输入的图片结果并不一致，
-并且与 float 类型的推理结果不一致，这意味着 uint8 量化后出现精度损失，此时可应用更高精度的量化模型，比如 **pcq** 或 **int16** 。 对于提高模型精度的方法请参考 [**混合量化**](cubie_quant_acc_improve#混合量化)
+The top5 confidence is 904, this needs to be noted that 904 corresponds to the label `wig`, which does not match the actual input image type, and does not match the inference result of the float type, which means that the uint8 quantization has caused precision loss. At this time, higher precision quantization models can be applied, such as **pcq** or **int16**. For methods to improve model precision, please refer to [**Hybrid Quantization**](cubie_quant_acc_improve#hybrid-quantization)
 :::
 
-### 推理 pcq 量化模型
+### Inference pcq quantized model
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -288,7 +287,7 @@ pegasus_inference.sh MobileNetV2_Imagenet/ pcq
 
 </NewCodeBlock>
 
-推理结果输出为
+The inference result output is
 
 ```bash
 I 03:36:41 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
@@ -299,9 +298,9 @@ I 03:36:41 833: 9.26952125155367e-05
 I 03:36:41 576: 6.784773722756654e-05
 ```
 
-这里输出的 top5 置信度最高为 812, 对应 label 为 `space shuttle`， 这与实际的输入图片类型吻合，且与 float 类型推理结果一致，这表明在 pcq 量化时精度正确。
+The top5 confidence is 812, corresponding to the label `space shuttle`, which matches the actual input image type, and matches the inference result of the float type, indicating that the pcq quantization precision is correct.
 
-### 推理 int16 量化模型
+### Inference int16 quantized model
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -312,7 +311,7 @@ pegasus_inference.sh MobileNetV2_Imagenet/ int16
 
 </NewCodeBlock>
 
-推理结果输出为
+The inference result output is
 
 ```bash
 I 06:54:23 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
@@ -323,13 +322,13 @@ I 06:54:23 864: 6.788487371522933e-05
 I 06:54:23 536: 3.0241633794503286e-05
 ```
 
-这里输出的 top5 置信度最高为 812, 对应 label 为 `space shuttle`， 这与实际的输入图片类型吻合，且与 float 类型推理结果一致，这表明在 int16 量化时精度正确。
+The top5 confidence is 812, corresponding to the label `space shuttle`, which matches the actual input image type, and matches the inference result of the float type, indicating that the int16 quantization precision is correct.
 
-## 模型编译并导出
+## Model compilation and export
 
-`pegasus_export_ovx.sh` 可以导出 NPU 推理所需的模型文件和项目代码,
+`pegasus_export_ovx.sh` can export the model files and project code required for NPU inference.
 
-这里以 INT16 量化模型为例子
+Here we take the INT16 quantized model as an example
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -340,10 +339,10 @@ pegasus_export_ovx.sh MobileNetV2_Imagenet int16
 
 </NewCodeBlock>
 
-生成 OpenVX 项目和 NBG 项目路径：
+Generated OpenVX project and NBG project paths:
 
-- MODEL_DIR/wksp/MODEL_DIR_QUANTIZED ： 跨平台的 OpenVX 项目，需要硬件即时编译 (JIT) 进行模型初始化。
-- MODEL_DIR/wksp/MODEL_DIR_QUANTIZED_nbg_unify： NBG 格式，预编译机器码格式，低开销，初始化速度快。
+- MODEL_DIR/wksp/MODEL_DIR_QUANTIZED : Cross-platform OpenVX project, requires hardware just-in-time (JIT) compilation for model initialization.
+- MODEL_DIR/wksp/MODEL_DIR_QUANTIZED_nbg_unify: NBG format, pre-compiled machine code format, low overhead, fast initialization.
 
 ```bash
 (.venv) root@focal-v4l2:~/work/Acuity/acuity_examples/models/MobileNetV2_Imagenet/wksp$ ls
@@ -351,14 +350,14 @@ MobileNetV2_Imagenet_int16  MobileNetV2_Imagenet_int16_nbg_unify
 ```
 
 :::tip
-在 NBG 项目中可得到 `network_binary.nb` 模型文件。编译后的模型可复制到板端使用 vpm_run 或者 awnn API 进行板端推理
+In the NBG project, you can get the `network_binary.nb` model file. The compiled model can be copied to the board for inference using vpm_run or awnn API.
 :::
 
-## 使用 Vivante IDE 模拟运行推理
+## Use Vivante IDE to simulate running inference
 
-使用 Vivante IDE 可以在 X86 PC 上的 ACUITY Docker 中对生成的目标模型和 OpenVX 项目进行验证。
+Use Vivante IDE to verify the generated target model and OpenVX project on X86 PC in ACUITY Docker.
 
-### 导入 Vivante IDE 所需环境变量
+### Import Vivante IDE required environment variables
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -371,9 +370,9 @@ unset VSI_USE_IMAGE_PROCESS
 
 </NewCodeBlock>
 
-### 模拟运行跨平台 OpenVX 项目
+### Simulate running cross-platform OpenVX project
 
-#### 编译可执行文件
+#### Compile executable file
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -384,9 +383,9 @@ make -f makefile.linux
 
 </NewCodeBlock>
 
-生成的目标文件为 MODEL_DIR_QUANTIZED 的二进制可执行文件。
+The generated target file is the binary executable file of MODEL_DIR_QUANTIZED.
 
-#### 运行可执行文件
+#### Run executable file
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -397,7 +396,7 @@ make -f makefile.linux
 
 </NewCodeBlock>
 
-运行结果:
+The inference result output is:
 
 ```bash
 Create Neural Network: 11ms or 11426us
@@ -416,13 +415,13 @@ Average 229309.53ms or 229309536.00us
   0: 0.000000
 ```
 
-### 模拟运行 NBG 项目
+### Simulate running NBG project
 
 :::tip
-使用 Vivante IDE 运行 NBG 项目耗时会增大
+Using Vivante IDE to run NBG projects will increase the time.
 :::
 
-#### 编译可执行文件
+#### Compile executable file
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -433,9 +432,9 @@ make -f makefile.linux
 
 </NewCodeBlock>
 
-生成的目标文件为 MODEL_DIR_QUANTIZED 的二进制可执行文件。
+The generated target file is the binary executable file of MODEL_DIR_QUANTIZED.
 
-#### 运行可执行文件
+#### Run executable file
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -446,7 +445,7 @@ make -f makefile.linux
 
 </NewCodeBlock>
 
-运行结果:
+The inference result output is:
 
 ```bash
 Create Neural Network: 4ms or 4368us
@@ -465,10 +464,10 @@ Average 229388.52ms or 229388512.00us
   0: 0.000000
 ```
 
-{/* ## 板端使用 NPU 推理模型 */}
-{/* 经过模拟推理确认 OpenVX 项目或 NBG 项目可用后，可以使用交叉编译将目标项目编译成在板端执行的可执行文件。 */}
+{/* ## Using the NPU inference model on the board */}
+{/* After verifying the availability of the OpenVX or NBG project through simulated inference, you can use cross-compilation to compile the target project into an executable file for execution on the board. */}
 
-{/* ### 导入交叉编译所需环境变量 */}
+{/* ### Importing environment variables required for cross-compilation */}
 {/* ```bash */}
 {/* unset USE_IDE_LIB */}
 {/* unset VIVANTE_SDK_DIR */}
@@ -476,42 +475,42 @@ Average 229388.52ms or 229388512.00us
 {/* export AQROOT=~/work/library/acuity-root-dir */}
 {/* ``` */}
 
-{/* ### 编译项目 */}
-{/* #### 编译跨平台 OpenVX 项目 */}
+{/* ### Compile the project */}
+{/* #### Compile the cross-platform OpenVX project */}
 {/* ```bash */}
 {/* cd MobileNetV2_Imagenet/wksp/MobileNetV2_Imagenet_int16 */}
 {/* make -f makefile.linux */}
 {/* ``` */}
-{/* 生成目标文件夹 `bin_r`, 将所生成的 `bin_r` 文件夹拷贝到板端, 将 MobileNetV2_Imagenet_int16.export.data 和测试图片拷贝到板端。 */}
+{/* Generate the target folder `bin_r`, copy the generated `bin_r` folder to the board, and copy the MobileNetV2_Imagenet_int16.export.data and test images to the board. */}
 
-{/* #### 编译 NBG 项目 */}
+{/* #### Compile the NBG project */}
 {/* ```bash */}
 {/* cd MobileNetV2_Imagenet/wksp/MobileNetV2_Imagenet_int16_nbg_unify */}
 {/* make -f makefile.linux */}
 {/* ``` */}
-{/* 生成目标文件夹 `bin_r`, 将所生成的 `bin_r` 文件夹拷贝到板端, 将 network_binary.nb NBG 模型和测试图片拷贝到板端。 */}
+{/* Generate the target folder `bin_r`, copy the generated `bin_r` folder to the board, and copy the network_binary.nb NBG model and test images to the board. */}
 
-## 板端 NPU 推理
+## Board-side NPU inference
 
-板端 使用 NPU 推理 NBG 格式模型，可使用 `vpm_run` 工具进行推理测试，
+Board-side inference of NBG format models can be performed using the `vpm_run` tool for inference testing.
 
-`vpm_run` 安装与使用请参考 [**vpm_run 模型测试工具**](cubie_vpm_run)
+`vpm_run` installation and usage please refer to [**vpm_run model testing tool**](cubie_vpm_run)
 
-{/* ### 板端执行 */}
+{/* ### Board-side execution */}
 
-{/* #### 拷贝 ACUITY 动态库 */}
-{/* 将以下 ACUITY ARM64 动态库文件夹路径拷贝到板端 */}
+{/* #### Copy ACUITY dynamic library */}
+{/* Copy the following ACUITY ARM64 dynamic library folder path to the board */}
 {/* ```bash */}
 {/* library/acuity-root-dir/lib/arm64/1619b */}
 {/* ``` */}
 
-{/* #### 导入动态库路径变量 */}
-{/* 请注意修改 `ACUITY_LIB_PATH` 值为拷贝过来的 `1619b` 路径 */}
+{/* #### Import dynamic library path variable */}
+{/* Please modify `ACUITY_LIB_PATH` value to the copied `1619b` path */}
 {/* ```bash */}
 {/* export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ACUITY_LIB_PATH */}
 {/* ``` */}
 
-{/* #### 运行跨平台 OpenVX 项目 */}
+{/* #### Run cross-platform OpenVX project */}
 {/* ```bash */}
 {/* root@Stark:/home/nas/MobileNetV2/openvx_bin_r# ./mobilenetv2imagenetint16 ./MobileNetV2_Imagenet_int16.export.data ../space_shuttle_224x224.jpg */}
 {/* Create Neural Network: 112ms or 112315us */}
@@ -529,7 +528,7 @@ Average 229388.52ms or 229388512.00us
 {/* 864: 0.000089 */}
 {/* 0: 0.000000 */}
 {/* ``` */}
-{/* #### 运行 NBG 项目 */}
+{/* #### Run NBG project */}
 {/* ```bash */}
 {/* root@Stark:/home/nas/MobileNetV2/NBG_bin_r# ./mobilenetv2imagenetint16 ./network_binary.nb ../space_shuttle_224x224.jpg */}
 {/* Create Neural Network: 19ms or 19022us */}

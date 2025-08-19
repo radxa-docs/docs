@@ -1,14 +1,14 @@
-使用小海龟 (Turtlesim) 案例快速体验 ROS2 常见基础概念和功能。
+Quickly experience the common basic concepts and functionalities of ROS2 using the Turtlesim example.
 
 :::tip
-该教程基于 ROS2 Humble 的 Docker 镜像操作，但不局限于 Docker 环境，任何 ROS2 环境都可以操作。
+This tutorial is based on the ROS2 Humble Docker image but is not limited to the Docker environment. It can be performed in any ROS2 environment.
 
-若您是基于 Docker 环境操作，建议您先学习 Docker 的使用。
+If you are using a Docker environment, it is recommended to first learn how to use Docker.
 :::
 
-## 启动 Docker 脚本
+## Start the Docker Script
 
-使用以下命令启动 Docker 脚本：`ros_humble.sh` 是在 ROS2 环境搭建中创建的脚本。
+Use the following command to start the Docker script: `ros_humble.sh` is a script created during the ROS2 environment setup.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
@@ -18,18 +18,18 @@ bash ros_humble.sh
 
 </NewCodeBlock>
 
-建议使用多个终端进入同一个 Docker 容器中，方便后续操作。
+It is recommended to use multiple terminals to access the same Docker container for easier subsequent operations.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-01.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-01.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-## 启动 Turtlesim
+## Start Turtlesim
 
-使用以下命令启动 Turtlesim：
+Use the following command to start Turtlesim:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -41,16 +41,16 @@ ros2 run turtlesim turtlesim_node
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-02.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-02.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-该命令会创建 `/turtlesim` 节点和显示一个包含小海龟的窗口。
+This command will create the `/turtlesim` node and display a window containing a turtle.
 
-## 控制 Turtlesim
+## Control Turtlesim
 
-使用以下命令控制小海龟移动：
+Use the following command to control the turtle's movement:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -60,41 +60,41 @@ ros2 run turtlesim turtle_teleop_key
 
 </NewCodeBlock>
 
-该命令会创建 `/teleop_turtle` 节点。
+This command will create the `/teleop_turtle` node.
 
 :::tip
-鼠标点击并停留在这个键盘控制的终端窗口，我们可以通过键盘上的方向键控制小海龟移动。
+Click and focus on the terminal window running this command. You can control the turtle's movement using the arrow keys on your keyboard.
 :::
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-03.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-03.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-## ROS2 基础概念
+## ROS2 Basic Concepts
 
-通过 Turtlesim 案例，我们可以进一步了解和使用 ROS2 的基础概念和命令。
+Through the Turtlesim example, you can further understand and use the basic concepts and commands of ROS2.
 
 :::tip
-关闭正在运行的 ROS2 命令，可以使用 `Ctrl + C` 组合键。
+To stop a running ROS2 command, use the `Ctrl + C` keyboard shortcut.
 :::
 
-### ROS2 节点
+### ROS2 Nodes
 
-节点是 ROS2 中的基本通信单元，通过发布者（Publisher）和订阅者（Subscriber）与其他节点交互。
+Nodes are the basic communication units in ROS2. They interact with other nodes through publishers and subscribers.
 
 :::tip
-**关键组成**：
+**Key Components**:
 
-- **发布者**：向话题（Topic）发布消息的接口
-- **订阅者**：从话题接收消息的接口
+- **Publisher**: Interface for publishing messages to a topic.
+- **Subscriber**: Interface for receiving messages from a topic.
   :::
 
-#### 查看节点
+#### View Nodes
 
-使用 `ros2 node list` 命令查看节点：目前只运行启动 Turtlesim 的命令。
+Use the `ros2 node list` command to view nodes. Currently, only the command to start Turtlesim is running.
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -106,25 +106,25 @@ ros2 node list
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-04.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-04.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-### ROS2 话题
+### ROS2 Topics
 
-话题是 ROS2 中的发布/订阅通信机制，实现节点间的异步数据传输。
+Topics are the publish/subscribe communication mechanism in ROS2, enabling asynchronous data transfer between nodes.
 
 :::tip
-**通信角色**：
+**Communication Roles**:
 
-- **发布者**：将消息发送到指定话题
-- **订阅者**：订阅话题并接收消息
+- **Publisher**: Sends messages to a specific topic.
+- **Subscriber**: Subscribes to a topic to receive messages.
   :::
 
-#### 查看话题
+#### View Topics
 
-使用 `ros2 topic list` 命令查看话题：
+Use the `ros2 topic list` command to view topics:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -136,31 +136,31 @@ ros2 topic list
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-05.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-05.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-#### 发布话题
+#### Publish a Topic
 
-使用 `ros2 topic pub` 命令发布速度控制消息，让小乌龟移动：
+Use the `ros2 topic pub` command to publish a velocity control message to move the turtle:
 
 ```
 ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}"
 ```
 
-该命令会让小海龟以线速度 0.5 和角速度 0.5 移动。
+This command will move the turtle at a linear velocity of 0.5 and an angular velocity of 0.5.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-06.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-06.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-#### 订阅话题
+#### Subscribe to a Topic
 
-使用 `ros2 topic echo` 命令订阅话题，查看话题消息：
+Use the `ros2 topic echo` command to subscribe to a topic and view its messages:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -169,29 +169,30 @@ ros2 topic echo /turtle1/pose --once
 ```
 
 </NewCodeBlock>
-该命令会在终端打印一次小海龟位置，去掉 `--once` 会一直打印小海龟位置。
+
+This command will print the turtle's position once in the terminal. Remove `--once` to continuously print the turtle's position.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-07.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-07.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-### ROS2 服务
+### ROS2 Services
 
-服务是 ROS2 中的请求/响应通信机制，用于节点间的同步调用（如远程函数）。
+Services are the request/response communication mechanism in ROS2, used for synchronous calls between nodes (e.g., remote function calls).
 
 :::tip
-**交互流程**：
+**Interaction Flow**:
 
-- **客户端**：发送请求（Request）
-- **服务端**：处理请求并返回响应（Response）
+- **Client**: Sends a request.
+- **Server**: Processes the request and returns a response.
   :::
 
-#### 查看服务
+#### View Services
 
-使用 `ros2 service list` 命令查看服务：
+Use the `ros2 service list` command to view services:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -203,14 +204,14 @@ ros2 service list
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-08.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-08.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-#### 调用服务
+#### Call a Service
 
-使用 `ros2 service call` 命令调用服务，让小乌龟清屏：
+Use the `ros2 service call` command to call a service and clear the screen:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -220,30 +221,30 @@ ros2 service call /clear std_srvs/srv/Empty
 
 </NewCodeBlock>
 
-该命令会清除Turtlesim窗口中的背景。
+This command will clear the background in the Turtlesim window.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-09.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-09.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-### ROS2 动作
+### ROS2 Actions
 
-动作是 ROS2 中处理长时间任务的通信机制（如导航、机械臂控制），支持实时反馈。
+Actions are the communication mechanism in ROS2 for handling long-running tasks (e.g., navigation, robotic arm control), supporting real-time feedback.
 
 :::tip
-**三阶段交互**：
+**Three-Phase Interaction**:
 
-- **目标**（Goal）：客户端发起任务请求
-- **反馈**（Feedback）：服务端持续推送进度
-- **结果**（Result）：任务完成后返回最终结果
+- **Goal**: The client initiates a task request.
+- **Feedback**: The server continuously pushes progress updates.
+- **Result**: The server returns the final result upon task completion.
   :::
 
-#### 查看动作
+#### View Actions
 
-使用 `ros2 action list` 命令查看动作：
+Use the `ros2 action list` command to view actions:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -255,14 +256,14 @@ ros2 action list
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-10.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-10.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-#### 发布动作
+#### Send an Action
 
-使用 `ros2 action send_goal` 命令发布动作，让小乌龟移动到指定位置：
+Use the `ros2 action send_goal` command to send an action and rotate the turtle to a specified angle:
 
 <NewCodeBlock tip="radxa@docker$" type="device">
 
@@ -272,11 +273,11 @@ ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "
 
 </NewCodeBlock>
 
-该命令会让小海龟旋转 1.57 弧度（约 90 度）。
+This command will rotate the turtle by 1.57 radians (approximately 90 degrees).
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/application-dev/ros2-turtlesim-11.webp"
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-11.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>

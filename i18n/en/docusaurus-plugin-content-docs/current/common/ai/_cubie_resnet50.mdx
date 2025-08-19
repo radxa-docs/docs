@@ -1,15 +1,15 @@
 :::tip
-本文档旨在演示如何在 Allwinner T527/A733 系列芯片上运行板端推理 ResNet50 物体分类模型。
+This document demonstrates how to run the ResNet50 object classification model on Allwinner T527/A733 series chips.
 :::
 
-此示例用 [resnet50-v2-7.onnx](https://github.com/onnx/models/blob/main/validated/vision/classification/resnet/model/resnet50-v2-7.onnx) 中预训练好的 ONNX 格式模型为例子通过模型转换到板端推理做完整示例。
+This example uses the pre-trained ONNX format model from [resnet50-v2-7.onnx](https://github.com/onnx/models/blob/main/validated/vision/classification/resnet/model/resnet50-v2-7.onnx) as an example to demonstrate the complete process of converting the model for inference on the board.
 
-主板部署 ResNet50 需要两个步骤
+The deployment of ResNet50 on the board requires two steps
 
-- PC 端利用 [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) 将不同框架下的模型转换成 NBG 格式模型
-- 板端利用 awnn API 板端推理模型
+- On the PC, use the [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) to convert models from different frameworks into NBG format.
+- On the board, use the awnn API to infer the model.
 
-## 下载 ai-sdk 示例仓库
+## Download ai-sdk Example Repository
 
 <NewCodeBlock tip="X86 PC / Device" type="PC">
 
@@ -19,17 +19,17 @@ git clone https://github.com/ZIFENG278/ai-sdk.git
 
 </NewCodeBlock>
 
-## PC 端模型转换
+## PC Model Conversion
 
 :::tip
-Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**板端推理 ResNet50** ](#板端推理-resnet50) 跳过 PC 端模型转换章节
+Radxa provides a pre-converted `resnet50.nb` model. Users can directly refer to [**Board-side inference ResNet50** ](#board-side-inference-resnet50) and skip the PC model conversion section.
 :::
 
-- 进入 ACUITY Toolkit Docker 容器
+- Enter the ACUITY Toolkit Docker container
 
-  ACUTIY Toolkit Docker 环境准备请参考 [ACUITY Toolkit 环境配置](./cubie_acuity_env)
+  ACUTIY Toolkit Docker environment preparation please refer to [ACUITY Toolkit environment configuration](./cubie_acuity_env)
 
-  配置环境变量
+  Configure environment variables
 
       <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -40,12 +40,12 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
 
       </NewCodeBlock>
 
-  A733 选择 `v3`, T527 选择 `v2`
+  A733 select `v3`, T527 select `v2`
   :::tip
-  NPU 版本选择请参考 [NPU 版本对照表](./cubie_acuity_usage#npu-版本对照表)
+  NPU version selection please refer to [NPU version comparison table](./cubie_acuity_usage#npu-version-comparison-table)
   :::
 
-- 下载 resnet50 onnx 模型
+- Download resnet50 onnx model
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -56,9 +56,9 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
 
   </NewCodeBlock>
 
-- 固定输入
+- Fixed input
 
-  使用 NPU 推理仅接受固定输入尺寸，这里使用 onnxsim 进行输入固定
+  Use NPU inference only accepts fixed input size, here use onnxsim to fix input size
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -69,9 +69,9 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
 
   </NewCodeBlock>
 
-- 制作量化校准集合
+- Make quantization calibration set
 
-  使用适量图片做量化校准集合，量化图片以图片路经形式保存在 `dataset.txt`
+  Use an appropriate amount of images as a quantitative calibration set, and save the quantized images in the form of image paths in `dataset.txt`
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -87,9 +87,9 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
 
   ![space_shuttle](/img/e/e54c/rs400_npu_3.webp)
 
-- 制作模型输入输出文件
+- Make model input output file
 
-  可使用 [netron](https://netron.app/) 确认 onnx 模型输入输出的名字
+  You can use [netron](https://netron.app/) to confirm the input and output names of the onnx model
 
    <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -106,11 +106,11 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
   {" "}
 
   <div style={{ textAlign: "center" }}>
-    <img src="/img/cubie/a7a/resnet50_input.webp" />
+    <img src="/en/img/cubie/a7a/resnet50_input.webp" />
     resnet50 in/output name
   </div>
 
-- 目录包含文件
+- Directory contains files
 
   ```bash
   .
@@ -121,13 +121,13 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
   `-- space_shuttle_224x224.jpg
   ```
 
-- 解析模型
+- Parse model
 
   :::tip
-  pegasus 脚本在 ai-sdk/scripts 中，可复制到 models 目录中
+  pegasus script is in ai-sdk/scripts, you can copy it to models directory
   :::
 
-  使用 `pegasus_import.sh` 将模型解析为 IR 中见表达式，会得到 `resnet50-sim.json` 包含模型结构 和 `resnet50-sim.data` 包含模型权重
+  Use `pegasus_import.sh` to parse the model into an intermediate representation (IR). This generates `resnet50-sim.json` (model structure) and `resnet50-sim.data` (model weights).
 
    <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -137,10 +137,10 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
 
    </NewCodeBlock>
 
-- 修改 resnet50-sim_inputmeta.yml 文件
+- Modify resnet50-sim_inputmeta.yml file
 
-  因为训练数据集为 ImageNet， 这里 ImageNet 训练集的归一化 mean 为 [0.485, 0.456, 0.406]，std 为 [0.229, 0.224, 0.225],
-  这里需要进行进行反归一化计算。归一化数据参考 [pytorch 文档](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.mobilenet_v2.html)
+  Because the training dataset is ImageNet, here the ImageNet training set's normalized mean is [0.485, 0.456, 0.406], std is [0.229, 0.224, 0.225],
+  here needs to perform reverse normalization calculation. Normalization data reference [pytorch documentation](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.mobilenet_v2.html)
 
   ```bash
   # mean
@@ -156,7 +156,7 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
   1 / (0.225 * 255) = 0.01743
   ```
 
-  这里按照计算得出 mean 和 scale 修改 `resnet50-sim_inputmeta.yml` 中 mean 和 scale 的数值：
+  Here, based on the calculated mean and scale, modify the mean and scale values in `resnet50-sim_inputmeta.yml`:
 
   ```vim
   mean:
@@ -223,9 +223,9 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
         redirect_to_output: false
   ```
 
-- 量化模型
+- Quantize model
 
-  使用 `pegasus_quantize.sh` 将模型量化成 uint8 类型
+  Use `pegasus_quantize.sh` to quantize the model into uint8 type
 
    <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -235,9 +235,9 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
 
    </NewCodeBlock>
 
-- 编译模型
+- Compile model
 
-  使用 `./pegasus_export_ovx.sh` 将模型量编译为 NBG 模型格式
+  Use `./pegasus_export_ovx.sh` to compile the model into NBG model format
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -247,11 +247,11 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
 
   </NewCodeBlock>
 
-  NBG 模型保存在 `resnet50-sim/wksp/resnet50-sim_uint8_nbg_unify/network_binary.nb`
+  NBG model saved in `resnet50-sim/wksp/resnet50-sim_uint8_nbg_unify/network_binary.nb`
 
-## 板端推理 ResNet50
+## Board-side inference ResNet50
 
-进入 resnet50 示例代码文件目录路经
+Enter the resnet50 example code file directory path
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -261,7 +261,7 @@ cd ai-sdk/examples/resnet50
 
 </NewCodeBlock>
 
-### 编译示例
+### Compile example
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -272,15 +272,15 @@ make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
 
 </NewCodeBlock>
 
-参数解析：
+Parameter parsing:
 
-`AI_SDK_PLATFORM`: 指定 SoC，可选 **`a733`**, **`t527`**
+`AI_SDK_PLATFORM`: Specify SoC, optional **`a733`**, **`t527`**
 
-`INSTALL_PREFIX`: 指定安装路经
+`INSTALL_PREFIX`: Specify installation path
 
-### 运行示例
+### Run example
 
-导入环境变量
+Import environment variables
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -291,10 +291,10 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch
 </NewCodeBlock>
 
 :::tip
-指定 NPU_SW_VERSION， A733 选择 `v2.0`, T527 选择 `v1.13`, NPU 信息对照请参考 [NPU 版本对照表](./cubie_acuity_usage#npu-版本对照表)
+Specify NPU_SW_VERSION, A733 select `v2.0`, T527 select `v1.13`, NPU version对照请参考 [NPU 版本对照表](./cubie_acuity_usage#npu-版本对照表)
 :::
 
-进入示例安装目录
+Enter the example installation directory
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -307,11 +307,11 @@ cd INSTALL_PREFIX/etc/npu/resnet50
 </NewCodeBlock>
 
 :::tip
-示例会自动安装 radxa 提供的 resnet50.nb 模型，这里可手动指定用户转换的 NBG 模型路经。
+The example will automatically install the radxa provided resnet50.nb model, here you can manually specify the NBG model path converted by the user.
 :::
 
 <div style={{ textAlign: "center" }}>
-  <img src="/img/cubie/a7a/dog.webp" />
+  <img src="/en/img/cubie/a7a/dog.webp" />
   resnet50 demo input image
 </div>
 
