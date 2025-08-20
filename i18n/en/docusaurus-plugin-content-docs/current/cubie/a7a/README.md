@@ -38,7 +38,7 @@ Powered by the Allwinner A733 SoC, the Cubie A7A features a hybrid octa-core hig
 | Video Out  | HDMI: 1× HDMI port, up to 4K@60fps <br/> MIPI DSI: 1× 4-lane MIPI DSI                                                                                                                     |
 | Camera     | 1× 4-lane MIPI CSI or 2× 2-lane MIPI CSI                                                                                                                                                  |
 | Audio      | Audio Interface: 3.5mm 4-pole headphone jack with microphone input <br/> Audio Output: Supports stereo output, can directly drive 32Ω headphones                                          |
-| USB        | USB 3.1: 1× Type-A OTG <br/> USB 2.0: 3× Type-A HOST, 1× Type-C OTG/Power                                                                                                                 |
+| USB        | USB 3.1: 1× Type-A HOST <br/> USB 2.0: 3× Type-A HOST, 1× Type-C OTG/Power                                                                                                                |
 | Expansion  | 40-pin GPIO header: Supports UART, SPI, I2C, etc. <br/> PCIe slot: 1× single-lane PCIe 3.0 via FPC interface <br/> Fan header: 1× 2-pin 1.25mm <br/> RTC header: 1× 2-pin 1.25mm          |
 | Power      | USB Type-C 5V power supply <br/> PoE power supply (requires external PoE HAT) <br/> 5V power supply via GPIO pins (pins 2 & 4)                                                            |
 | OS Support | Debian Linux, Android 13                                                                                                                                                                  |
