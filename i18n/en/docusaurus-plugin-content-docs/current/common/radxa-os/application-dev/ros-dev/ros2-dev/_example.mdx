@@ -1,0 +1,283 @@
+Quickly experience the common basic concepts and functionalities of ROS2 using the Turtlesim example.
+
+:::tip
+This tutorial is based on the ROS2 Humble Docker image but is not limited to the Docker environment. It can be performed in any ROS2 environment.
+
+If you are using a Docker environment, it is recommended to first learn how to use Docker.
+:::
+
+## Start the Docker Script
+
+Use the following command to start the Docker script: `ros_humble.sh` is a script created during the ROS2 environment setup.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+bash ros_humble.sh
+```
+
+</NewCodeBlock>
+
+It is recommended to use multiple terminals to access the same Docker container for easier subsequent operations.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-01.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Start Turtlesim
+
+Use the following command to start Turtlesim:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+ros2 run turtlesim turtlesim_node
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-02.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+This command will create the `/turtlesim` node and display a window containing a turtle.
+
+## Control Turtlesim
+
+Use the following command to control the turtle's movement:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+ros2 run turtlesim turtle_teleop_key
+```
+
+</NewCodeBlock>
+
+This command will create the `/teleop_turtle` node.
+
+:::tip
+Click and focus on the terminal window running this command. You can control the turtle's movement using the arrow keys on your keyboard.
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-03.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## ROS2 Basic Concepts
+
+Through the Turtlesim example, you can further understand and use the basic concepts and commands of ROS2.
+
+:::tip
+To stop a running ROS2 command, use the `Ctrl + C` keyboard shortcut.
+:::
+
+### ROS2 Nodes
+
+Nodes are the basic communication units in ROS2. They interact with other nodes through publishers and subscribers.
+
+:::tip
+**Key Components**:
+
+- **Publisher**: Interface for publishing messages to a topic.
+- **Subscriber**: Interface for receiving messages from a topic.
+  :::
+
+#### View Nodes
+
+Use the `ros2 node list` command to view nodes. Currently, only the command to start Turtlesim is running.
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+ros2 node list
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-04.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### ROS2 Topics
+
+Topics are the publish/subscribe communication mechanism in ROS2, enabling asynchronous data transfer between nodes.
+
+:::tip
+**Communication Roles**:
+
+- **Publisher**: Sends messages to a specific topic.
+- **Subscriber**: Subscribes to a topic to receive messages.
+  :::
+
+#### View Topics
+
+Use the `ros2 topic list` command to view topics:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+ros2 topic list
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-05.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Publish a Topic
+
+Use the `ros2 topic pub` command to publish a velocity control message to move the turtle:
+
+```
+ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}"
+```
+
+This command will move the turtle at a linear velocity of 0.5 and an angular velocity of 0.5.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-06.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Subscribe to a Topic
+
+Use the `ros2 topic echo` command to subscribe to a topic and view its messages:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+ros2 topic echo /turtle1/pose --once
+```
+
+</NewCodeBlock>
+
+This command will print the turtle's position once in the terminal. Remove `--once` to continuously print the turtle's position.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-07.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### ROS2 Services
+
+Services are the request/response communication mechanism in ROS2, used for synchronous calls between nodes (e.g., remote function calls).
+
+:::tip
+**Interaction Flow**:
+
+- **Client**: Sends a request.
+- **Server**: Processes the request and returns a response.
+  :::
+
+#### View Services
+
+Use the `ros2 service list` command to view services:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+ros2 service list
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-08.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Call a Service
+
+Use the `ros2 service call` command to call a service and clear the screen:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+ros2 service call /clear std_srvs/srv/Empty
+```
+
+</NewCodeBlock>
+
+This command will clear the background in the Turtlesim window.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-09.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### ROS2 Actions
+
+Actions are the communication mechanism in ROS2 for handling long-running tasks (e.g., navigation, robotic arm control), supporting real-time feedback.
+
+:::tip
+**Three-Phase Interaction**:
+
+- **Goal**: The client initiates a task request.
+- **Feedback**: The server continuously pushes progress updates.
+- **Result**: The server returns the final result upon task completion.
+  :::
+
+#### View Actions
+
+Use the `ros2 action list` command to view actions:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+ros2 action list
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-10.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Send an Action
+
+Use the `ros2 action send_goal` command to send an action and rotate the turtle to a specified angle:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
+```
+
+</NewCodeBlock>
+
+This command will rotate the turtle by 1.57 radians (approximately 90 degrees).
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros2-turtlesim-11.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
