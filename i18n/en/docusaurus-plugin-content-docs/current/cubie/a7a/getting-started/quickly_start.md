@@ -59,7 +59,7 @@ NVMe SSD: Currently recognized and can be used as expanded storage, but cannot b
 ## Booting the System
 
 :::tip
-If multiple boot media are installed in Cubie A7A, the system boot priority is: MicroSD card > eMMC / UFS module > NVMe SSD.
+If multiple boot media are installed in Cubie A7A, the system boot priority is: MicroSD Card > NVMe SSD > UFS Module > eMMC Module
 :::
 
 After completing the system installation, install the corresponding boot media (such as MicroSD card / eMMC module / UFS module / NVMe SSD) to the corresponding interface of Cubie A7A.

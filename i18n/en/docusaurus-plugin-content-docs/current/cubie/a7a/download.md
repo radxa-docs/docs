@@ -15,7 +15,7 @@ Please select the appropriate system image for your system boot medium:
 
 ### Debian Linux
 
-- Raw System Image
+#### Raw System Image
 
 Currently, only MicroSD cards and eMMC modules are supported for system boot. UFS modules and NVMe SSDs are under development!
 
@@ -24,6 +24,8 @@ Currently, only MicroSD cards and eMMC modules are supported for system boot. UF
 ### Android
 
 Suitable for MicroSD cards, eMMC modules, UFS modules, and NVMe SSDs.
+
+#### Phoenix System Image
 
 - [Radxa Cubie A7A Android 13](https://github.com/radxa/manifests/releases/download/a733-radxa_a7a-v1.0/a733_android13_radxa_a7a_20250814_uart0.zip)
 

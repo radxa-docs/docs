@@ -43,7 +43,7 @@ Insert the MicroSD card into the card reader, then plug the card reader into the
 
 ## Software Preparation
 
-To write the system image to the MicroSD card, you need to use the tool provided by Allwinner. You can download the software from the [Resources Download](../../download) page.
+To write the Phoenix system image to the MicroSD card, you need to use the tool provided by Allwinner. You can download the software from the [Resources Download](../../download) page.
 
 **PhoenixCard**: A Windows-based tool that can be used to create a bootable MicroSD card.
 

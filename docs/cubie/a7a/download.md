@@ -15,7 +15,7 @@ sidebar_position: 8
 
 ### Debian Linux
 
-- 原始系统镜像
+#### 原始系统镜像
 
 目前仅支持 MicroSD 卡/ eMMC 模块启动系统，UFS 模块和 NVMe SSD 目前正在适配中！
 
@@ -24,6 +24,8 @@ sidebar_position: 8
 ### Android
 
 适用于 MicroSD 卡/ eMMC 模块 / UFS 模块 / NVMe 固态硬盘。
+
+#### Phoenix 系统镜像
 
 - [Radxa Cubie A7A Android 13](https://github.com/radxa/manifests/releases/download/a733-radxa_a7a-v1.0/a733_android13_radxa_a7a_20250814_uart0.zip)
 

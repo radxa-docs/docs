@@ -59,7 +59,7 @@ NVMe SSD：目前正常识别，可作为拓展存储空间，无法作为启动
 ## 启动系统
 
 :::tip
-若 Cubie A7A 安装了多个系统启动介质，Cubie A7A 的系统启动优先级为：MicroSD 卡 > eMMC / UFS 模块 > NVMe SSD。
+若 Cubie A7A 安装了多个系统启动介质，Cubie A7A 的系统启动优先级为：MicroSD 卡 > NVMe SSD > UFS 模块 > eMMC 模块。
 :::
 
 完成系统的安装后，将对应系统启动介质（如 MicroSD 卡 / eMMC 模块 / UFS 模块 / NVMe SSD）安装到 Cubie A7A 的对应接口。

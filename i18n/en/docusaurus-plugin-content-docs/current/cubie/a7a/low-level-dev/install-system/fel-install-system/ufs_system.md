@@ -54,7 +54,7 @@ Install the UFS module into the Cubie A7A's eMMC and UFS combo interface.
 
 ## Software Preparation
 
-To flash the system image to the UFS module, you need to use the tool provided by Allwinner. You can download the software from the [Resources Download](../../../download) page.
+To flash the Phoenix system image to the UFS module, you need to use the tool provided by Allwinner. You can download the software from the [Resources Download](../../../download) page.
 
 **PhoenixSuit**: A Windows-based tool that can be used to flash the system image to the UFS module.
 

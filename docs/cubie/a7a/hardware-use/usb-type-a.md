@@ -10,7 +10,7 @@ sidebar_position: 3
 USB Type-A 接口具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
 :::
 
-- USB 3.0 Type-A
+- USB 3.1 Type-A
 
 理论上最大传输速率为 5Gbps，接口内部颜色通常为蓝色。
 
@@ -20,7 +20,7 @@ USB Type-A 接口具体位置可以查看 [硬件接口](./hardware-info) 教程
 
 ## 使用指南
 
-测试 USB 3.0/2.0 Type-A HOST 模式。
+测试 USB 3.1/2.0 Type-A HOST 模式。
 
 可以给每个 USB Type-A 接口连接鼠标、键盘等 USB 设备，反复插拔测试，判断 Cubie A7A 是否正常识别和工作。
 
