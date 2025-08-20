@@ -1,0 +1,173 @@
+`nbinfo` is a command-line tool for analyzing NBG model files on the PC, running on the X86 Linux platform.
+
+The analysis provided by `nbinfo` for NBG models includes:
+
+1. Model input/output information, including tensor shapes, quantization parameters, memory details, etc.
+2. Runtime memory analysis, including total memory size, system memory size, feature map size statistics, etc.
+3. Layer statistics, including total layer count, operator types for each layer, quantization information for each layer, etc.
+
+## Download NBinfo
+
+<NewCodeBlock tip="X86 PC" type="PC">
+
+```bash
+wget https://github.com/ZIFENG278/ai-sdk/raw/refs/heads/main/tools/nbinfo
+```
+
+</NewCodeBlock>
+
+## Usage of NBinfo
+
+```bash
+Usage: nbinfo <options> <nbfilepath>
+
+Options:
+-a                                      print [a]ll info
+-b                                      print [b]rief summary
+-n                                      print [n]bg header
+-l                                      print [l]ayers
+-o                                      print [o]perations
+-in                                     print [in]put
+-out                                    print [out]put
+-m                                      print [m]emory
+-m -d                                   print [m]emory, shows detail memory profile
+-m -f                                   print [m]emory, for creating network from flash project
+-h                                      [h]elp
+```
+
+| Option  | Description                                                              |
+| ------- | ------------------------------------------------------------------------ |
+| `-a`    | Print **all** information                                                |
+| `-b`    | Print **brief** summary                                                  |
+| `-n`    | Print **nbg header**                                                     |
+| `-l`    | Print **layer** information                                              |
+| `-o`    | Print **operation** information                                          |
+| `-in`   | Print **input** information                                              |
+| `-out`  | Print **output** information                                             |
+| `-m`    | Print **memory** information                                             |
+| `-m -d` | Print **memory** information with detailed memory profile                |
+| `-m -f` | Print **memory** information for **creating network from flash project** |
+| `-h`    | Display **help** information                                             |
+
+## Examples of Using NBinfo
+
+### View Brief Model Information
+
+<NewCodeBlock tip="X86 PC" type="PC">
+
+```bash
+nbinfo -b network_binary.nb
+```
+
+</NewCodeBlock>
+
+```bash
+********************************************************************************
+Overall Info
+********************************************************************************
+Network Name:                                             yolov5s-sim_uint8_NCHW
+Version:                                                                 0x20000
+Target:                                                               0x1000003b
+Core Count:                                                                    1
+AXI SRAM Size:                                                                 0
+VIP SRAM Size:                                                           0x80000
+Memory Pool Size (bytes):                                                3892224
+Memory Pool Alignment:                                                        64
+Layer Count:                                                                  78
+Operation Count:                                                            1101
+Input Count:                                                                   1
+Output Count                                                                   3
+CheckSum Value:                                                       0xd902cff2
+********************************************************************************
+```
+
+### View Model Input Information
+
+<NewCodeBlock tip="X86 PC" type="PC">
+
+```bash
+nbinfo -in network_binary.nb
+```
+
+</NewCodeBlock>
+
+```bash
+********************************************************************************
+Input Table
+********************************************************************************
+Input 0
+Dim Count:                                                                     4
+Size of Dim[0]:                                                              640
+Size of Dim[1]:                                                              640
+Size of Dim[2]:                                                                3
+Size of Dim[3]:                                                                1
+Data Format:                                             VIP_BUFFER_FORMAT_UINT8
+Data Type:                                                VIP_BUFFER_TYPE_TENSOR
+Quantization Format:                                VIP_BUFFER_QUANTIZE_TF_ASYMM
+TF Scale:                                                               0.003922
+TF Zeropoint:                                                                  0
+Memory Size (bytes):                                                     1228800
+input name:                                                      input/output[0]
+********************************************************************************
+```
+
+### View Model Output Information
+
+<NewCodeBlock tip="X86 PC" type="PC">
+
+```bash
+nbinfo -out network_binary.nb
+```
+
+</NewCodeBlock>
+
+```bash
+********************************************************************************
+Output Table
+********************************************************************************
+Output 0
+Dim Count:                                                                     5
+Size of Dim[0]:                                                               85
+Size of Dim[1]:                                                               80
+Size of Dim[2]:                                                               80
+Size of Dim[3]:                                                                3
+Size of Dim[4]:                                                                1
+Data Format:                                             VIP_BUFFER_FORMAT_UINT8
+Data Type:                                                VIP_BUFFER_TYPE_TENSOR
+Quantization Format:                                VIP_BUFFER_QUANTIZE_TF_ASYMM
+TF Scale:                                                               0.085919
+TF Zeropoint:                                                                211
+Memory Size (bytes):                                                     1632000
+output name:                                                         uid_5_out_0
+********************************************************************************
+Output 1
+Dim Count:                                                                     5
+Size of Dim[0]:                                                               85
+Size of Dim[1]:                                                               40
+Size of Dim[2]:                                                               40
+Size of Dim[3]:                                                                3
+Size of Dim[4]:                                                                1
+Data Format:                                             VIP_BUFFER_FORMAT_UINT8
+Data Type:                                                VIP_BUFFER_TYPE_TENSOR
+Quantization Format:                                VIP_BUFFER_QUANTIZE_TF_ASYMM
+TF Scale:                                                               0.071616
+TF Zeropoint:                                                                204
+Memory Size (bytes):                                                      408000
+output name:                                                         uid_4_out_0
+********************************************************************************
+Output 2
+Dim Count:                                                                     5
+Size of Dim[0]:                                                               85
+Size of Dim[1]:                                                               20
+Size of Dim[2]:                                                               20
+Size of Dim[3]:                                                                3
+Size of Dim[4]:                                                                1
+Data Format:                                             VIP_BUFFER_FORMAT_UINT8
+Data Type:                                                VIP_BUFFER_TYPE_TENSOR
+Quantization Format:                                VIP_BUFFER_QUANTIZE_TF_ASYMM
+TF Scale:                                                               0.072006
+TF Zeropoint:                                                                196
+Memory Size (bytes):                                                      102016
+output name:                                                         uid_3_out_0
+********************************************************************************
+```

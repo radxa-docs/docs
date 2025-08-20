@@ -25,13 +25,13 @@ Exit and reboot after enabling the successful display of [*] {props.overlays_tit
 
 - Configuration Display
 
-- Backup /etc/X11/xorg.conf.d/20-modesetting.conf
+- Backup /usr/share/X11/xorg.conf.d/20-modesetting.conf
 
 ```
-sudo cp /etc/X11/xorg.conf.d/20-modesetting.conf /etc/X11/xorg.conf.d/20-modesetting.conf.bak
+sudo cp /usr/share/X11/xorg.conf.d/20-modesetting.conf /usr/share/X11/xorg.conf.d/20-modesetting.conf.bak
 ```
 
-- Clear the existing content and add the following
+- Add a configuration file `20-modesetting.conf` under `/etc/X11/xorg.conf.d` with the following contents:
 
 <pre>
   Section "Device" &nbsp;&nbsp;&nbsp;&nbsp;Identifier "Rockchip Graphics"

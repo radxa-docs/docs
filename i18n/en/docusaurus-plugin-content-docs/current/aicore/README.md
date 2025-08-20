@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 
-# Radxa AICore Series
+# AICore Series
 
 The Radxa AICore Series is a high-performance, high-computing-power, and cost-effective AI acceleration module launched by Radxa.
 

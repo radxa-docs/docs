@@ -791,6 +791,47 @@ sidebar_custom_props:
                     },
                   ],
               },
+              {
+                products_name: "Cubie A7A",
+                products_photo_url: "/home/product-pictures/a7a.webp",
+                products_link: "/cubie/a7a",
+                docs:
+                  [
+                    {
+                      docs_link: "/cubie/a7a",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Cubie A7A 概览",
+                      docs_info_en: "Overview of the cubie a7a",
+                      docs_info_zh: "Radxa Cubie A7A 概览",
+                    },
+                  ],
+              },
+            ],
+        },
+        {
+          series_en: "Dragon Family",
+          series_zh: "Dragon 系列",
+          series_introduction_en: "Radxa Dragon Series is a single board computer series based on the Qualcomm SoC",
+          series_introduction_zh: "Dragon 系列是 Radxa 推出的基于 Qualcomm 单板计算机系列。",
+          products:
+            [
+              {
+                products_name: "Dragon Q6A",
+                products_photo_url: "/home/product-pictures/dragon_q6a.webp",
+                products_link: "/dragon/q6a",
+                docs:
+                  [
+                    {
+                      docs_link: "/dragon/q6a",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Dragon Q6A 概览",
+                      docs_info_en: "Overview of the dragon q6a",
+                      docs_info_zh: "Radxa Dragon Q6A 概览",
+                    },
+                  ],
+              },
             ],
         },
       ],

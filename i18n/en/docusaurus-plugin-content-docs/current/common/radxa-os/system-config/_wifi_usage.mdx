@@ -1,0 +1,320 @@
+This guide explains how to connect to a WiFi network, set up a WiFi hotspot, and test network bandwidth.
+
+- **Connecting to a WiFi Network**
+
+When the board connects to a WiFi network, it typically obtains an IP address automatically through the router's DHCP service.
+
+- **Setting Up a WiFi Hotspot**
+
+When the board is set up as a WiFi hotspot (AP mode), the system usually starts a DHCP service automatically to assign IP addresses to connected devices. If you need to customize network parameters, you can manually configure the DHCP service as needed.
+
+## Connecting to a WiFi Network
+
+We'll use the `nmcli` command-line tool to connect to a WiFi network.
+
+:::tip
+nmcli (NetworkManager Command Line Interface) is a command-line tool for NetworkManager, used to configure and manage network connections on Linux systems.
+:::
+
+### Enabling WiFi
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo nmcli radio wifi on
+```
+
+</NewCodeBlock>
+
+### Scanning for WiFi Networks
+
+If WiFi is enabled but no networks are found, you may need to restart the system.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo nmcli device wifi list
+```
+
+</NewCodeBlock>
+
+### Connecting to a WiFi Network
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo nmcli device wifi connect <SSID> password <PASSWORD>
+# Example
+sudo nmcli device wifi connect wifi-demo password 12345678
+```
+
+</NewCodeBlock>
+
+Upon successful connection, the terminal will display output similar to:
+
+```
+Device 'wlan0' successfully activated with 'xxxxxx'.
+```
+
+### Viewing Network Connection Details
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+ip a
+```
+
+</NewCodeBlock>
+
+The terminal will display output similar to the following, where `192.168.31.53` is the IP address assigned by the router:
+
+```
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+3: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:e8:ec:f4:6f:8b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.2.186/24 brd 192.168.2.255 scope global dynamic noprefixroute eth0
+       valid_lft 3432sec preferred_lft 3432sec
+    inet6 240e:3b7:3246:1e0::b09/128 scope global dynamic noprefixroute
+       valid_lft 3383sec preferred_lft 3383sec
+    inet6 fdaa::b09/128 scope global dynamic noprefixroute
+       valid_lft 3383sec preferred_lft 3383sec
+    inet6 fdaa::7ebe:84a2:306f:4271/64 scope global noprefixroute
+       valid_lft forever preferred_lft forever
+    inet6 240e:3b7:3246:1e0:e07d:77fb:4aa5:ace/64 scope global dynamic noprefixroute
+       valid_lft 201116sec preferred_lft 114716sec
+    inet6 fe80::f69d:bf6f:3d68:cef1/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 2c:c6:82:85:8d:fe brd ff:ff:ff:ff:ff:ff
+    inet 192.168.31.104/24 brd 192.168.31.255 scope global dynamic noprefixroute wlan0
+       valid_lft 1978sec preferred_lft 1978sec
+    inet6 240e:3b7:3246:1e2::b09/128 scope global dynamic noprefixroute
+       valid_lft 1978sec preferred_lft 1978sec
+    inet6 fdaa:0:0:30::b09/128 scope global dynamic noprefixroute
+       valid_lft 1978sec preferred_lft 1978sec
+    inet6 fdaa::30:ca7:7952:73cf:aa06/64 scope global noprefixroute
+       valid_lft forever preferred_lft forever
+    inet6 240e:3b7:3246:1e2:7498:9c5:1d2a:f90e/64 scope global dynamic noprefixroute
+       valid_lft 201117sec preferred_lft 114717sec
+    inet6 fe80::3dfc:b4f1:ffe4:6c50/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+
+:::tip
+Additional Commands:
+
+- `sudo nmcli radio wifi off`: Disable WiFi
+- `sudo nmcli connection delete <SSID>`: Remove a specific WiFi network
+  :::
+
+## Setting Up a WiFi Hotspot
+
+We'll use the `nmcli` command-line tool to set up a WiFi hotspot.
+
+### Checking WiFi Adapter
+
+Use the `ip a` command to check the wireless network interface name.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+ip a
+```
+
+</NewCodeBlock>
+
+The terminal will display output similar to the following, where `wlan0` is the wireless network interface name:
+
+```
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+3: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:e8:ec:f4:6f:8b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.2.186/24 brd 192.168.2.255 scope global dynamic noprefixroute eth0
+       valid_lft 3432sec preferred_lft 3432sec
+    inet6 240e:3b7:3246:1e0::b09/128 scope global dynamic noprefixroute
+       valid_lft 3383sec preferred_lft 3383sec
+    inet6 fdaa::b09/128 scope global dynamic noprefixroute
+       valid_lft 3383sec preferred_lft 3383sec
+    inet6 fdaa::7ebe:84a2:306f:4271/64 scope global noprefixroute
+       valid_lft forever preferred_lft forever
+    inet6 240e:3b7:3246:1e0:e07d:77fb:4aa5:ace/64 scope global dynamic noprefixroute
+       valid_lft 201116sec preferred_lft 114716sec
+    inet6 fe80::f69d:bf6f:3d68:cef1/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 2c:c6:82:85:8d:fe brd ff:ff:ff:ff:ff:ff
+    inet 192.168.31.104/24 brd 192.168.31.255 scope global dynamic noprefixroute wlan0
+       valid_lft 1978sec preferred_lft 1978sec
+    inet6 240e:3b7:3246:1e2::b09/128 scope global dynamic noprefixroute
+       valid_lft 1978sec preferred_lft 1978sec
+    inet6 fdaa:0:0:30::b09/128 scope global dynamic noprefixroute
+       valid_lft 1978sec preferred_lft 1978sec
+    inet6 fdaa::30:ca7:7952:73cf:aa06/64 scope global noprefixroute
+       valid_lft forever preferred_lft forever
+    inet6 240e:3b7:3246:1e2:7498:9c5:1d2a:f90e/64 scope global dynamic noprefixroute
+       valid_lft 201117sec preferred_lft 114717sec
+    inet6 fe80::3dfc:b4f1:ffe4:6c50/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+
+### Configuring a WiFi Hotspot
+
+<NewCodeBlock tip="radxa@device$" type="device">
+```
+sudo nmcli device wifi hotspot ifname <ifname> con-name <name> ssid <SSID> password <password>
+# Example
+sudo nmcli device wifi hotspot ifname wlan0 con-name My-Hotspot ssid My-Hotspot password 12345678
+```
+</NewCodeBlock>
+
+This command creates a WiFi hotspot named "My-Hotspot" with password "12345678" using the wireless interface wlan0. The connection is saved as "My-Hotspot" for future management.
+
+Parameters:
+
+- `ifname`: Specifies the wireless interface for the hotspot (use `ip a` to find the interface name)
+- `con-name`: Specifies the connection name for managing the hotspot (start, stop, delete)
+- `ssid`: The name of the hotspot (visible to other devices)
+- `password`: The password for the hotspot
+
+After successful setup, the terminal will display output similar to:
+
+```
+Device 'wlan0' successfully activated with 'xxxxxx'.
+Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
+```
+
+### Disabling the WiFi Hotspot
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo nmcli connection down My-Hotspot
+```
+
+</NewCodeBlock>
+
+### Enabling the WiFi Hotspot
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo nmcli connection up My-Hotspot
+```
+
+</NewCodeBlock>
+
+### Removing the WiFi Hotspot
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo nmcli connection delete My-Hotspot
+```
+
+</NewCodeBlock>
+
+## Testing Network Bandwidth Performance
+
+Use the `iperf` tool to test network bandwidth (throughput) performance. It's recommended to run multiple tests and calculate the average for accurate results.
+
+### Prerequisites
+
+- **Hardware Requirements**
+
+You will need two devices:
+
+- **Server**: A PC or server device
+- **Client**: The device to be tested (e.g., Cubie A7A)
+
+- **Network Requirements**
+  - Both server and client must be on the same local network
+  - They should be able to ping each other
+
+### Installing iperf
+
+Install `iperf` on both the server and client devices.
+
+<NewCodeBlock tip="radxa@device & Linux@host$" type="device">
+
+```
+sudo apt update sudo apt install iperf
+```
+
+</NewCodeBlock>
+
+### Testing Procedure
+
+#### Server (PC)
+
+Open a terminal on the server device and start the iperf server with the following command:
+
+<NewCodeBlock tip="Linux@host$" type="device">
+
+```
+iperf -s
+```
+
+</NewCodeBlock>
+
+After successful startup, the terminal will display output similar to:
+
+```
+-----------------------------------------------------------
+Server listening on 5201 (test #1)
+-----------------------------------------------------------
+```
+
+#### Client (Board)
+
+1. Upload Test
+
+Open a terminal on the client device and enter the following command to test the upload bandwidth. Replace `<server_ip>` with the actual server IP address (you can find this using the `ip a` command on the server).
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+iperf -c <server_ip> -t <time>
+# 示例
+iperf -c 192.168.2.186 -t 60
+```
+
+</NewCodeBlock>
+
+Parameters:
+
+- `<server_ip>`: The IP address of the server
+- `<time>`: Test duration in seconds
+
+2. Download Test
+
+Open a terminal on the client device and enter the following command to test the download bandwidth. Replace `<server_ip>` with the actual server IP address (you can find this using the `ip a` command on the server).
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+iperf -c <server_ip> -t <time> -R
+# 示例
+iperf -c 192.168.2.186 -t 60 -R
+```
+
+</NewCodeBlock>
+
+Parameters:
+
+- `<server_ip>`: The IP address of the server
+- `<time>`: Test duration in seconds
+- `-R`: Reverse test (client receives, server sends)

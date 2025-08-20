@@ -1,0 +1,106 @@
+The ACUITY Toolkit is an end-to-end integrated offline development tool for model conversion, model quantization, and model compilation. ACUITY supports model conversion for various AI frameworks and can directly generate code for model execution.
+
+![SDK](/img/e/e54c/rs400_npu_2.webp)
+
+The ACUITY Toolkit is installed as a Docker image. Before installing ACUITY, users need to install Docker on an x86 PC.
+
+## Install Docker
+
+Install Docker on your x86 PC according to your platform. For more details, refer to the [Docker documentation](https://docs.docker.com/engine/install/).
+
+Here, we use Ubuntu as an example to install Docker.
+
+### Uninstall Old Versions of Docker
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+
+</NewCodeBlock>
+
+### Configure Docker APT Repository
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+</NewCodeBlock>
+
+### Install Docker
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+</NewCodeBlock>
+
+## Install ACUITY
+
+### Download ACUITY Package
+
+Download the ACUITY Docker package from the [Allwinner Netdisk](https://netstorage.allwinnertech.com:5001/sharing/Mh23BhPHq) and extract it.
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+unzip docker_images_v2.0.x.zip
+```
+
+</NewCodeBlock>
+
+### Load Docker Image
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd docker_images_v2.0.x
+unzip ubuntu-npu_v2.0.10.tar.zip
+sudo docker load -i ubuntu-npu_v2.0.10.tar
+```
+
+</NewCodeBlock>
+
+Once the Docker image is loaded, you can see it in `docker images` with the name `ubuntu‑npu:v2.0.10`.
+
+### Create Docker Container
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+mkdir docker_data && cd docker_data
+sudo docker run ‑‑ipc=host ‑itd ‑v ${PWD}:/workspace ‑‑name allwinner_v2.0.10 ubuntu‑npu:v2.0.10 /bin/bash
+```
+
+</NewCodeBlock>
+
+Once the Docker container is created, you can see it in `docker ps -a` with the name `allwinner_v2.0.10`.
+
+### Access Docker Container
+
+Use `docker ps -a` to find the container ID of `allwinner_v2.0.10`.
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+sudo docker exec ‑it <container_id> /bin/bash
+```
+
+</NewCodeBlock>

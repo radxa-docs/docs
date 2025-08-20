@@ -83,6 +83,10 @@
     "message": "Orion Series",
     "description": "Navbar item with label Orion 系列"
   },
+  "item.label.Dragon 系列": {
+    "message": "Dragon Series",
+    "description": "Navbar item with label Dragon 系列"
+  },
   "item.label.X 系列": {
     "message": "X Series",
     "description": "Navbar item with label X 系列"
