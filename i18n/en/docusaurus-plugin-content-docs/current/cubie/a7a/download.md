@@ -10,12 +10,12 @@ sidebar_position: 8
 Please select the appropriate system image for your system boot medium:
 
 - Phoenix system images require entering FEL mode and using the Phoenix tool to write the system image.
-- Raw system images can be written using the Balena Etcher tool or the `dd` command.
+- Generic system images can be written using the Balena Etcher tool or the `dd` command.
   :::
 
 ### Debian Linux
 
-#### Raw System Image
+#### Generic System Image
 
 Currently, only MicroSD cards and eMMC modules are supported for system boot. UFS modules and NVMe SSDs are under development!
 

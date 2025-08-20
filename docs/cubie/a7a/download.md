@@ -10,12 +10,12 @@ sidebar_position: 8
 请根据自己的系统启动介质选择对应的系统镜像下载
 
 - Phoenix 系统镜像需要进入 FEL 模式和使用 Phoenix 工具写入系统镜像
-- 原始系统镜像可以通过 Balena Etcher 工具或者 `dd` 命令写入系统镜像
+- 通用系统镜像可以通过 Balena Etcher 工具或者 `dd` 命令写入系统镜像
   :::
 
 ### Debian Linux
 
-#### 原始系统镜像
+#### 通用系统镜像
 
 目前仅支持 MicroSD 卡/ eMMC 模块启动系统，UFS 模块和 NVMe SSD 目前正在适配中！
 
