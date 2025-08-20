@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 
-# 瑞莎智核系列
+# 智核系列
 
 瑞莎智核(AICore)系列是瑞莎推出的高性能、高算力和高性价比的 AI 加速模组。
 
