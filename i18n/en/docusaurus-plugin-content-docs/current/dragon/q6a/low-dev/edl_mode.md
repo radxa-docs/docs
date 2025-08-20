@@ -2,13 +2,13 @@
 sidebar_position: 1
 ---
 
-# Entering QDL Mode
+# Entering EDL Mode
 
-Qualcomm Download Mode (QDL) is an emergency download mode for Qualcomm processor devices, primarily used for emergency repairs, firmware flashing, or device unlocking.
+Qualcomm Download Mode (EDL) is an emergency download mode for Qualcomm processor devices, primarily used for emergency repairs, firmware flashing, or device unlocking.
 
-## Entering QDL Mode
+## Entering EDL Mode
 
-Before powering on the motherboard, hold down the EDL button; after powering on the motherboard, release the EDL button to enter QDL mode.
+Before powering on the motherboard, hold down the EDL button; after powering on the motherboard, release the EDL button to enter EDL mode.
 
 Specific steps:
 
@@ -20,9 +20,9 @@ Specific steps:
 
 ④: Use a dual-headed USB Type-A data cable to connect the Dragon Q6A's USB 3.1 Type-A port to the computer's USB Type-A port
 
-## Verify QDL Mode
+## Verify EDL Mode
 
-<Tabs queryString = "qdlplatform">
+<Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
     - Download the EDL tool
 
@@ -50,7 +50,7 @@ Specific steps:
 
   </TabItem>
   <TabItem value="Linux" label="Linux">
-  In Linux systems, you can use the `lsusb` command to check whether the device has entered QDL mode.
+  In Linux systems, you can use the `lsusb` command to check whether the device has entered EDL mode.
 
   <NewCodeBlock tip="Linux$" type="host">
 
@@ -60,10 +60,10 @@ lsusb
 
   </NewCodeBlock>
 
-After the device enters QDL mode, it will display information similar to the following:
+After the device enters EDL mode, it will display information similar to the following:
 
 ```
-Bus 001 Device 008: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+Bus 001 Device 008: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (EDL mode)
 ```
 
   </TabItem>

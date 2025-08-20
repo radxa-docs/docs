@@ -33,7 +33,7 @@ Dragon Q6A 搭载高通 QCS6490 SoC，采用 “1+3+4” 三丛集设计（1× K
 | USB      | USB 3.1：1× Type-A HOST / OTG<br/> USB 2.0：3× Type-A HOST                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | 拓展     | 40 Pin GPIO 排针：支持 UART、SPI、I2C 等<br/> 风扇接口：1× 2-pin 1.25mm <br/> 按键：Power 按键、EDL 按键                                                                                                                                                                                                                                                                                                                                                                             |
 | 供电方式 | 支持 USB Type-C 12V 供电 <br/> 支持外部 12V 引脚供电 <br/> 支持 PoE 供电（需外接 PoE HAT）                                                                                                                                                                                                                                                                                                                                                                                           |
-| 支持系统 | Ubuntu Linux <br/> Qualcomm Linux（基于 Yocto 开发） <br/> Android™ 13 系统                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 支持系统 | Ubuntu Linux <br/> Qualcomm Linux（基于 Yocto 开发） <br/> Android 15 (CS) 或 Android 16 (ES) 系统                                                                                                                                                                                                                                                                                                                                                                                   |
 
 ## 接口说明
 
@@ -76,4 +76,4 @@ Dragon Q6A 搭载高通 QCS6490 SoC，采用 “1+3+4” 三丛集设计（1× K
 
 - Ubuntu Linux
 - Qualcomm Linux（基于 Yocto 开发）
-- Android 13
+- Android 15 (CS) 或 Android 16 (ES) 系统
