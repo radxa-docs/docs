@@ -791,6 +791,22 @@ sidebar_custom_props:
                     },
                   ],
               },
+              {
+                products_name: "Cubie A7A",
+                products_photo_url: "/home/product-pictures/a7a.webp",
+                products_link: "/cubie/a7a",
+                docs:
+                  [
+                    {
+                      docs_link: "/cubie/a7a",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Cubie A7A 概览",
+                      docs_info_en: "Overview of the cubie a7a",
+                      docs_info_zh: "Radxa Cubie A7A 概览",
+                    },
+                  ],
+              },
             ],
         },
       ],
