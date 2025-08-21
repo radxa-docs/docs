@@ -16,10 +16,12 @@ sidebar_position: 10
 
 - [Radxa X4 Standard BIOS V004: support ASM2806/1806, added secure boot option](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
 
+- [Radxa X4 Standard BIOS V007: improve eMMC boot stability](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V007.zip)
+
 :::warning
 
 - Flashing a custom BIOS may void the warranty, so please proceed with caution.
-- How to use: Extract the EFI folder to a FAT32 USB disk, insert the USB disk into the X4 and boot from the USB device to flash the BIOS automatically.
+- Usage: Extract the downloaded BIOS compressed file to a FAT32-formatted USB flash drive, ensuring that the root directory of the USB flash drive contains an EFI folder. Insert the USB flash drive into the X4 and select to boot from the USB device. The system will automatically refresh the BIOS.
 - Warning: Do not turn off the computer during the BIOS upgrade!
 
 :::
