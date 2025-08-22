@@ -6,7 +6,7 @@ sidebar_position: 6
 
 瑞莎 Cubie A7Z 板载 1 个 4 通道 MIPI CSI 或 2 个 2 通道 MIPI CSI，我们可以通过 MIPI CSI 接口连接摄像头。
 
-:::tip
+:::info 接口位置
 MIPI CSI 接口具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
 :::
 

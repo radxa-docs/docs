@@ -1,0 +1,57 @@
+import { Image } from "@site/src/utils/docs";
+
+## 使用前提
+
+我们需要提前将 Visual Studio Code 和 Docker 环境搭建好，然后使用 Dev Container 来运行 Kernel 的编译环境。
+
+:::info 参考教程
+
+可以按照下方教程完成 Kernel 开发的环境搭建。
+
+- [环境搭建](./install-env)
+  :::
+
+## 下载 Kernel 源码
+
+使用 `git clone` 命令克隆 Kernel 源码。
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+git clone --recurse-submodules <git_repo_url>
+```
+
+</NewCodeBlock>
+
+其中 `<git_repo_url>` 需要替换成：{props.git_url}
+
+## 启动开发环境
+
+使用 Visual Studio Code 打开 Kernel 源码目录：一般 `Dev Container` 拓展会自动识别文件夹下的配置文件，会提示你是否重新打开容器开发环境。
+
+:::tip
+首次启动开发环境时，Dev Containers 会自动下载并安装依赖，需要耐心等待一段时间。
+:::
+
+①：点击左下角的 `Remote` 选项
+
+②：选择 `Reopen in Container` 选项
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/low-level-dev/vscode-dev-container-reopen.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 编译 Kernel
+
+启动开发环境后，使用 `make deb` 命令编译 Kernel。
+
+<NewCodeBlock tip="PC@host$" type="host">
+
+```
+make deb
+```
+
+</NewCodeBlock>

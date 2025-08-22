@@ -6,7 +6,7 @@ sidebar_position: 8
 
 瑞莎 Cubie A7Z 板载 UBOOT 按键，用于进入 FEL 模式。
 
-:::tip
+:::info 接口位置
 UBOOT 按键具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
 :::
 

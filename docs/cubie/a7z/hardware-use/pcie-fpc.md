@@ -8,7 +8,7 @@ sidebar_position: 7
 
 我们可以通过 PCIe 3.0 FPC 接口连接 PCIe 转 M.2 M Key HAT，搭配 M.2 NVMe SSD 使用，实现 NVMe SSD 拓展存储空间。
 
-:::tip
+:::info 接口位置
 PCIe 3.0 FPC 接口具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
 :::
 
