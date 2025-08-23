@@ -4,19 +4,21 @@ sidebar_position: 8
 
 # MIPI DSI Interface
 
-Radxa Cubie A7A features one onboard 4-lane MIPI DSI interface, which can be used to connect displays via the MIPI DSI interface.
+The Radxa Cubie A7A features a 4-lane MIPI DSI interface, which can be used to connect displays.
 
 :::tip
-For the exact location of the MIPI DSI interface, please refer to the interface description section in the [Hardware Interfaces](./hardware-info) guide!
+For the exact location of the MIPI DSI interface, please refer to the interface description section in the [Hardware Interface](./hardware-info) tutorial!
 :::
 
-## Supported List
+## Supported Models
 
-- [Display 8 HD](https://radxa.com/products/accessories/display-8hd)
-- [Display 10 FHD](https://radxa.com/products/accessories/display-10fhd)
+| Recommended Model                                                      | Size    | Resolution  | User Guide                            |
+| ---------------------------------------------------------------------- | ------- | ----------- | ------------------------------------- |
+| [Display 8 HD](https://radxa.com/products/accessories/display-8hd)     | 8-inch  | 800 x 1280  | [User Guide](/accessories/lcd-8-hd)   |
+| [Display 10 FHD](https://radxa.com/products/accessories/display-10fhd) | 10-inch | 1200 x 1920 | [User Guide](/accessories/lcd-10-fhd) |
 
-## Port Specifications
+## Interface Specifications
 
 :::info Technical Reference
-For complete technical specifications and pin definitions, please refer to the [Hardware Design: Schematic](../download) document in the download section.
+For complete technical specifications and pin definitions, please refer to the [Hardware Design: Schematics](../download) document in the download section.
 :::
