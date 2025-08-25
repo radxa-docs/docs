@@ -1,0 +1,41 @@
+我们使用 `Rsetup` 工具来更新系统。
+
+:::tip
+使用 `Rsetup` 工具可以更加安全地更新系统。
+
+使用 `sudo apt update && sudo apt upgrade` 命令来升级系统可能会导致更新不完全或者系统异常。
+
+对于 `Rsetup` 工具的使用，可以参考：
+
+- [Rsetup 工具](./rsetup)
+  :::
+
+## Rsetup 工具
+
+打开终端，输入 `sudo rsetup` 命令打开 `Rsetup` 工具：
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 更新系统
+
+进入 `Rsetup` 工具后，选择 `System` -> `System Update`选项，然后根据 `Rsetup` 工具提示完成系统更新。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system-update.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

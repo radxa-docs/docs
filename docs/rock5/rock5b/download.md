@@ -8,6 +8,10 @@ sidebar_position: 2
 
 ### 官方镜像及Loader
 
+SPL Loader:
+
+[RK3588_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rk3588_spl_loader_v1.15.113.bin)
+
 SPI Image:
 
 [spi_image.img](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gd1cf491-20240523.img)
@@ -15,8 +19,6 @@ SPI Image:
 Linux：
 
 <pre>
-    Loader： [RK3588_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rk3588_spl_loader_v1.15.113.bin)
-
     ROCK 5B 系统镜像 (5.10 内核): [rock-5b_debian_bullseye_kde_b39](https://github.com/radxa-build/rock-5b/releases/download/b39/rock-5b_debian_bullseye_kde_b39.img.xz)
 
     ROCK 5B 系统镜像 (6.1 内核): [rock-5b_bookworm_kde_b5](https://github.com/radxa-build/rock-5b/releases/download/rsdk-b5/rock-5b_bookworm_kde_b5.output.img.xz)
@@ -79,7 +81,7 @@ Android：
     <tr>
         <td align="center"> <img src="/img/rock5b/downloads/batocera.webp" alt="batocera" style={{ width: "70%" }} /></td>
         <td align="center">想玩一款好的模拟器吗？Batocera 让你在一个系统中获得最好的模拟器。 Batocera.linux是一款开源、完全免费的复古游戏发行版，可以复制到U盘或SD卡上，目的是在游戏过程中将任何电脑/纳米电脑变成游戏机，或者永久性地变成游戏机。Batocera.linux 无需对电脑进行任何修改。</td>
-        <td align="center"><a href="https://youtu.be/OE65lPvpu0I" >batocera youtube</a><br /><br /><a href="https://mirrors.o2switch.fr/batocera/rock-5b/stable/last/batocera-rk3588-rock-5b-36-20230310.img.gz">Batocera For ROCK 5B</a><br /><br /><a href="https://batocera.org/"> Batocera Official</a><br /><br /><a href="https://wiki.batocera.org/" > Batocera WiKi</a><br /><br /><a href="https://discord.com/invite/ndyUKA5"> Discord </a></td>
+        <td align="center"><a href="https://youtu.be/OE65lPvpu0I" >batocera youtube</a><br /><br /><a href="https://mirrors.o2switch.fr/batocera/rock-5b/stable/last/batocera-rk3588-rock-5b-41-20241231.img.gz">Batocera For ROCK 5B</a><br /><br /><a href="https://batocera.org/"> Batocera Official</a><br /><br /><a href="https://wiki.batocera.org/" > Batocera WiKi</a><br /><br /><a href="https://discord.com/invite/ndyUKA5"> Discord </a></td>
     </tr>
     <tr>
         <td align="center"><img src="/img/rock5b/downloads/openhd.webp" alt="openhd" style={{ width: "70%" }} /></td>
@@ -95,6 +97,11 @@ Android：
         <td align="center"><img src="/img/rock5b/downloads/Jelos.webp" /></td>
         <td align="center">Just Enough Linux Operating System (JELOS) 是一个为手持游戏设备开发的社区 Linux 发行版。我们的目标是开发出一个具有我们所需的特性和功能的操作系统，并在开发过程中享受乐趣。</td>
         <td align="center"><a href="https://github.com/JustEnoughLinuxOS" >JustEnoughLinuxOS</a><br /><br /><a href="https://github.com/JustEnoughLinuxOS/distribution/releases" >JustEnoughLinuxOS Release </a><br /><br /><a href="https://github.com/JustEnoughLinuxOS/distribution/wiki/">JustEnoughLinuxOS WiKi</a><br /><br /><a href="https://discord.gg/wHCFtm2TJ8" >Discord</a></td>
+    </tr>
+    <tr>
+        <td align="center"><img src="/img/rock5b/downloads/openwrt.webp" alt="OpenWRT" style={{ width: "70%" }} /></td>
+        <td align="center">OpenWRT 是一个适用于嵌入式设备的 Linux 操作系统。它提供了一个完全可写的文件系统，带有包管理功能，使您可以自由选择和定制设备上的应用程序和功能。</td>
+        <td align="center"><a href="https://openwrt.org/toh/hwdata/radxa/radxa_rock_5b" >OpenWRT 技术数据页面：Radxa Rock 5B</a><br /><br /><a href="https://openwrt.org/" >OpenWRT 官方网站</a><br /><br /><a href="https://forum.openwrt.org/" >OpenWRT 论坛</a></td>
     </tr>
 
 </table>
@@ -195,7 +202,7 @@ L2203 L2205 L2300 L2301 L2303 改成 3225 封装的 RHP322512T-R24M
 - [v1.2 原理图 pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_schematic.pdf)
 - [v1.2 位号图 pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_components_placement_map.pdf)
 - [v1.2 2D DXF](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v12_2d.zip)
-- [v1.2 3D STP](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_3d_stp.zip)
+- [v1.2 3D STP](https://dl.radxa.com/rock5/5b+/docs/hw/rock5bp_pcba_3d_V1_2_20250314.stp)
 
 </TabItem>
 </Tabs>

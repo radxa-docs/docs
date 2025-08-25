@@ -10,6 +10,7 @@ import PoE from "../../../common/dev/\_pico-poe-fan.mdx";
 import FAN from "../../../common/dev/\_pico-fan.mdx";
 import RELATION from "./\_relation.mdx"
 import UART from "../../../common/dev/\_pico-uart.mdx";
+import MCP2515 from "../../../common/dev/\_pico-mcp2515.mdx";
 
 # 在 Windows 下控制 RP2040
 
@@ -33,6 +34,9 @@ import UART from "../../../common/dev/\_pico-uart.mdx";
     </TabItem>
     <TabItem value="I2C">
         <I2C flash_url="./flash" product_name="Radxa X4"  scl_pin="PIN_5" sda_pin="PIN_3" platform="Windows" />
+    </TabItem>
+    <TabItem value="MCP2515">
+        <MCP2515 flash_url="./flash" product_name="Radxa X4"  spi_sck="PIN_13" spi_rx="PIN_7" spi_tx="PIN_15" spi_cs="PIN_11" platform="Linux" />
     </TabItem>
      <TabItem value="PWM">
        <PWM flash_url="./flash" product_name="Radxa X4" led_pin="PIN_5" platform="Windows" />

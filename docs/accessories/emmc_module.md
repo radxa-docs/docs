@@ -34,7 +34,9 @@ Radxa eMMC 模块采用eMMC 5.1规范，提供四种容量选择： 16g / 32g / 
 - JEDEC 标准: v5.1
 - B2B连接器规格： GB042-34S-H10（插座-34针）+ GB042-30S-H10（插座-30针）
 - 存储选项：16G / 32G / 64G / 128G
-- 兼容性: 兼容 ROCK 3A / 3B / 3C / 4A / 4B / 4C / 4C PLUS / 4SE / 5A / 5B
+- 兼容性: 兼容 ROCK 3A / 3B / 3C / 4A / 4B / 4C / 4C PLUS / 4D\* / 4SE / 5A / 5B
 - 尺寸：13mm x 18mm x 1.5mm
+
+> 注意：因为引脚复用关系，ROCK 4D 带 SPI Flash 的 版本不支持 eMMC 模块。
 
 [**购买链接**](https://radxa.com/products/accessories/emmc-module#buy)

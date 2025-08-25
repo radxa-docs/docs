@@ -6,11 +6,17 @@ sidebar_position: 5
 
 ## 操作系统镜像
 
+### 官方操作系统镜像
+
 - [Radxa ZERO 2 PRO Debian Build 32](https://github.com/radxa-build/radxa-zero-2pro/releases/download/b32/radxa-zero-2pro_debian_bookworm_kde_b32.img.xz)
 
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
 :::
+
+### 第三方操作系统镜像
+
+- [Radxa ZERO 2 PRO Armbian](https://www.armbian.com/radxa-zero2/)
 
 ## 刷机工具
 
@@ -23,6 +29,11 @@ sidebar_position: 5
 - [u-boot.bin.sd.bin](https://dl.radxa.com/zero2pro/images/loader/u-boot.bin.sd.bin)：用于 eMMC/microSD 启动的主线 U-Boot 引导加载程序。
 
 ## 硬件设计
+
+- [Radxa ZERO 2 Pro Schematic V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_pro_v1.2_schematic.pdf)
+- [Radxa ZERO 2 Pro SMD V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_pro_v1.2_components_placement_map.pdf)
+- [Radxa ZERO 2 Pro 2D Drawings V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_pro_v1.2_2d_dxf.zip)
+- [Radxa ZERO 2 Pro PCBA 3D V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_v1_2_pcba_3d.zip)
 
 <!-- ## 质量认证
 

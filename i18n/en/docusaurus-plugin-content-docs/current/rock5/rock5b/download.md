@@ -8,6 +8,10 @@ sidebar_position: 2
 
 ### Official Image
 
+SPL Loader:
+
+[RK3588_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rk3588_spl_loader_v1.15.113.bin)
+
 SPI Image:
 
 [spi_image.img](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gd1cf491-20240523.img)
@@ -15,8 +19,6 @@ SPI Image:
 Linux：
 
 <pre>
-    Loader： [RK3588_SPL_Loader_v1.15.113.bin](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rk3588_spl_loader_v1.15.113.bin)
-
     ROCK 5B Debian (kernel 5.10): [rock-5b_debian_bullseye_kde_b39](https://github.com/radxa-build/rock-5b/releases/download/b39/rock-5b_debian_bullseye_kde_b39.img.xz)
 
     ROCK 5B Debian (kernel 6.1): [rock-5b_bookworm_kde_b5](https://github.com/radxa-build/rock-5b/releases/download/rsdk-b5/rock-5b_bookworm_kde_b5.output.img.xz)
@@ -79,7 +81,7 @@ Android：
     <tr>
         <td align="center"> <img src="/img/rock5b/downloads/batocera.webp" alt="batocera" style={{ width: "70%" }} /></td>
         <td align="center">Want to play a good emulator?Batocera gives you the best emulator in one system. Batocera.linux is an open source, completely free retro gaming distribution that can be copied to a USB flash drive or SD card, with the aim of turning any computer/nanocomputer into a gaming machine during gameplay, or permanently.Batocera.linux does not require any modifications to the computer.</td>
-        <td align="center"><a href="https://youtu.be/OE65lPvpu0I" >batocera youtube</a><br /><br /><a href="https://mirrors.o2switch.fr/batocera/rock-5b/stable/last/batocera-rk3588-rock-5b-36-20230310.img.gz">Batocera For ROCK 5B</a><br /><br /><a href="https://batocera.org/"> Batocera Official</a><br /><br /><a href="https://wiki.batocera.org/" > Batocera WiKi</a><br /><br /><a href="https://discord.com/invite/ndyUKA5"> Discord </a></td>
+        <td align="center"><a href="https://youtu.be/OE65lPvpu0I" >batocera youtube</a><br /><br /><a href="https://mirrors.o2switch.fr/batocera/rock-5b/stable/last/batocera-rk3588-rock-5b-41-20241231.img.gz">Batocera For ROCK 5B</a><br /><br /><a href="https://batocera.org/"> Batocera Official</a><br /><br /><a href="https://wiki.batocera.org/" > Batocera WiKi</a><br /><br /><a href="https://discord.com/invite/ndyUKA5"> Discord </a></td>
     </tr>
     <tr>
         <td align="center"><img src="/img/rock5b/downloads/openhd.webp" alt="openhd" style={{ width: "70%" }} /></td>
@@ -95,6 +97,11 @@ Android：
         <td align="center"><img src="/img/rock5b/downloads/Jelos.webp" /></td>
         <td align="center">Just Enough Linux Operating System (JELOS) is a community Linux distribution developed for handheld gaming devices. Our goal is to develop an operating system with the features and functionality we need, and to have fun while doing it.</td>
         <td align="center"><a href="https://github.com/JustEnoughLinuxOS" >JustEnoughLinuxOS</a><br /><br /><a href="https://github.com/JustEnoughLinuxOS/distribution/releases" >JustEnoughLinuxOS Release </a><br /><br /><a href="https://github.com/JustEnoughLinuxOS/distribution/wiki/">JustEnoughLinuxOS WiKi</a><br /><br /><a href="https://discord.gg/wHCFtm2TJ8" >Discord</a></td>
+    </tr>
+    <tr>
+        <td align="center"><img src="/img/rock5b/downloads/openwrt.webp" alt="OpenWRT" style={{ width: "70%" }} /></td>
+        <td align="center">OpenWRT is a Linux operating system for embedded devices. It provides a fully writable filesystem with package management, allowing you to freely choose and customize applications and features on your device.</td>
+        <td align="center"><a href="https://openwrt.org/toh/hwdata/radxa/radxa_rock_5b" >OpenWRT Technical Data Page: Radxa Rock 5B</a><br /><br /><a href="https://openwrt.org/" >OpenWRT Official Website</a><br /><br /><a href="https://forum.openwrt.org/" >OpenWRT Forum</a></td>
     </tr>
 
 </table>
@@ -194,7 +201,7 @@ Pins 1-31 widened to 0.3mm, two locator pins widened to 0.7mm
 - [v1.2 Schematic pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_schematic.pdf)
 - [v1.2 Components Placement Map pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_components_placement_map.pdf)
 - [v1.2 2D DXF](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v12_2d.zip)
-- [v1.2 3D STP](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_3d_stp.zip)
+- [v1.2 3D STP](https://dl.radxa.com/rock5/5b+/docs/hw/rock5bp_pcba_3d_V1_2_20250314.stp)
 
 </TabItem>
 </Tabs>

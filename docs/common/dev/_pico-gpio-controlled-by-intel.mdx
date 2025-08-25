@@ -84,6 +84,7 @@ import { PreView } from "@site/src/utils/docs";
                 uint8_t ch = uart_getc(UART_ID);
                 uart_puts(UART_ID, "Received data!\\r\\n");
                 uart_putc(UART_ID, ch);
+                gpio_put(BLINK_PIN, 1);
             } else {
                 gpio_put(BLINK_PIN, 0);
                 uart_puts(UART_ID, "Uart is not readable!\\r\\n");

@@ -1,0 +1,148 @@
+使用 ACUITY 进行量化时，模型精度会略微损失，如果遇到精度损失过大且不满足当前项目需求时，可以使用 **Kullback-Laiber Divergence (KLD) 量化** 或者进行 **混合量化**
+
+如果模型精度不满足，可先使用 KLD 量化算法量化模型，再检查精度是否满足，如精度仍然不满足，再对模型进行混合量化。
+
+## 使用 KLD 量化
+
+要使用 KLD 量化，可在 `pegasus_quantized.sh` 中添加以下选项
+
+```bash
+cmd="$PEGASUS quantize \
+    --model         ${NAME}.json \
+    --model-data    ${NAME}.data \
+    --iterations    ${Q_ITER} \
+    --device        CPU \
+    --with-input-meta ${NAME}_inputmeta.yml \
+    --rebuild  \
+    --model-quantize  ${NAME}_${POSTFIX}.quantize \
+    --quantizer ${QUANTIZER} \
+    --qtype  ${QUANTIZED}  \
+#################################
+    --algorithm kl_divergence \
+    --batch-size 100 \
+    --divergence-first-quantize-bits 12
+    --MLE"
+#################################
+```
+
+`--algorithm kl_divergence` 设置 KLD 量化
+
+`--divergence-first-quantize-bits` 设置 2^12 KLD 直方图箱
+
+`--batch-size` 设置模型量化输入数量
+
+（可选）`--MLE` 如果使用 KLD 量化精度仍然不符合，可以使用 MLE 选项获得更高精度，但会增加量化耗时
+
+## 混合量化
+
+混合量化目的是将指定模型中的特定层使用精度较高的数据类型，其他层使用精度较低的数据类型，以保证最终结果的精度。
+如果一个量化后的模型精度无法满足需求，并且无法通过协同量化（Co-quantization）进行提升，例如 [Kullback-Laiber Divergence 量化](#使用-kld-量化)，那么可以采用混合量化来避免精度损失。
+
+### 混合量化例子
+
+这里以上一章节的 [MobileNetV2_ImaegNet](./cubie_acuity_usage#量化模型) 的 uint8 为例子，此模型直接使用 ACUITY 进行 uint8 量化后精度损失，推理得到的结果与浮点模型存在明显精度损失。
+
+MobileNetV2_ImageNet 在经过 uint8 直接量化后与浮点模型的结果对比
+
+- float 模型推理结果
+  ```bash
+  I 07:01:06 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
+  I 07:01:06 812: 0.9990391731262207
+  I 07:01:06 814: 0.0001562383840791881
+  I 07:01:06 627: 8.89502334757708e-05
+  I 07:01:06 864: 6.59249781165272e-05
+  I 07:01:06 536: 2.808812860166654e-05
+  ```
+- uint8 模型推理结果
+  ```bash
+  I 07:02:20 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
+  I 07:02:20 904: 0.8729746341705322
+  I 07:02:20 530: 0.012925799004733562
+  I 07:02:20 905: 0.01022859662771225
+  I 07:02:20 468: 0.006405209191143513
+  I 07:02:20 466: 0.005068646278232336
+  ```
+
+### 进行混合量化
+
+#### 统计需要混合量化的层
+
+在量化脚本 `pegasus_quantized.sh` 中添加 `--compute-entropy` 参数
+
+```bash
+cmd="$PEGASUS quantize \
+    --model         ${NAME}.json \
+    --model-data    ${NAME}.data \
+    --iterations    ${Q_ITER} \
+    --device        CPU \
+    --with-input-meta ${NAME}_inputmeta.yml \
+    --rebuild  \
+    --model-quantize  ${NAME}_${POSTFIX}.quantize \
+    --quantizer ${QUANTIZER} \
+    --qtype  ${QUANTIZED}  \
+#################################
+    --compute-entropy"
+#################################
+```
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+# pegasus_quantize.sh MODEL_DIR QUANTIZED ITERATION
+pegasus_quantize.sh MobileNetV2_Imagenet uint8 10
+```
+
+</NewCodeBlock>
+
+执行量化脚本 `pegasus_quantize.sh` 后会生成 `MODEL_DIR_QUANTIZE.quantize` 和 `entropy.txt`
+
+- MODEL_DIR_QUANTIZE.quantize 文件包含量化模型的数据, 其中 customized_quantize_layers 里的层为自动统计出需要使用混合量化的层
+- entropy.txt 记录每一层在此次量化中的熵值。 熵值越高，量化精度越低。范围为 [0, 1]。
+
+用户可以参考 `entropy.txt` 的值对 MODEL_DIR_QUANTIZE.quantize 中的 customized_quantize_layers 里的层适当进行增删修改。
+
+#### 执行混合量化命令
+
+:::tip
+量化命令在执行 pegasus_quantized.sh 时会在顶部打印量化命令, 将 `--rebuild` 替换为 `--hybrid` 即可
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python3 ~/acuity-toolkit-whl-6.30.22/bin/pegasus.py quantize --model MobileNetV2_Imagenet.json --model-data MobileNetV2_Imagenet.data --iterations 1 --device CPU --with-input-meta MobileNetV2_Imagenet_inputmeta.yml --hybrid --model-quantize MobileNetV2_Imagenet_uint8.quantize --quantizer asymmetric_affine --qtype uint8 --compute-entropy
+```
+
+</NewCodeBlock>
+
+命令执行完后会更新 ACUITY 模型权重 `.data` 文件，和生成新的 ACUITY 模型结构 `quantize.json` 文件。
+
+### 混合量化结果
+
+执行完混合量化后，使用 pegasus_inference.sh 进行 uint8 混合量化模型的推理
+
+因为混合量化后模型结构发生改变, 请先修改 `pegasus_inference.sh` 中 `--model` 参数为新的 ACUITY 模型结构 `quantize.json` 文件
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+# pegasus_inference.sh MODEL_DIR QUANTIZED ITERATION
+pegasus_inference.sh MobileNetV2_Imagenet/ uint8
+```
+
+</NewCodeBlock>
+
+推理输出结果为
+
+```bash
+I 04:00:10 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
+I 04:00:10 812: 0.9987972974777222
+I 04:00:10 404: 0.0001131662429543212
+I 04:00:10 814: 6.176823808345944e-05
+I 04:00:10 627: 4.6059416490606964e-05
+I 04:00:10 833: 4.153002373641357e-05
+```
+
+此时经过混合量化后的模型，在推理完成后打印的 Top5 结果中，812 置信度最高且置信度达 0.998，这与浮点模型的结果一致，证明混合量化后的 uint8 模型已成功减少模型精度损失。
+
+接下来可以继续 NPU 的部署工作进行 [模型编译并导出](./cubie_acuity_usage#模型编译并导出), **因为混合量化后模型结构发生改变，在进行模型转换时请使用混合量化生成的 ACUITY 模型结构 `quantize.json` 文件名作为 `--model` 参数**。

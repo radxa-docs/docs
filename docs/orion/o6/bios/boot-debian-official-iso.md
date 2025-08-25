@@ -23,7 +23,7 @@ O6 BIOS 支持启动 Debian 官方 ARM64 ISO。下面说明如何在 O6 上启�
 - 把 PCIe NVME SSD 装配到 O6 M.2 M-Key
 - 把 U盘启动盘插到 O6 Type-A 3.2 口
 - O6 接好 USB 键盘和鼠标，和 HDMI 显示器
-- 将 O6 Type-A 口接 Type-A USB 转以太网适配器（安装 ISO 过程需要有网络）
+- 将 O6 Type-A 口接 Type-A **USB 转以太网适配器**（安装 ISO 过程需要有网络）
 - O6 上电，在启动过程中，看到 Radxa Logo 和进度条时，短按下键盘 “Esc” 键进入 BIOS 界面
 
 ## 配置 O6 BIOS 为 ACPI 启动

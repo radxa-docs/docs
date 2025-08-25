@@ -1,0 +1,199 @@
+# Conda Installation
+
+Conda is an open-source package and environment management system, primarily used in data science, scientific computing, and machine learning fields.
+
+:::tip
+Conda has two versions: Anaconda and Miniconda. This tutorial mainly introduces the installation and usage of Anaconda.
+
+- Anaconda: A complete distribution with a rich set of pre-installed packages.
+- Miniconda: A lightweight distribution that only includes Conda itself, requiring manual installation of additional packages.
+  :::
+
+## Features of Conda
+
+- **Easy Management**
+
+Fully isolated Python environments managed with the `conda` command, automatically resolving dependencies.
+
+- **Cross-Platform**
+
+Supports Windows, macOS, and Linux systems.
+
+- **Portability**
+
+Supports exporting environment configurations, making it easy to replicate the same development environment on other machines.
+
+- **Multi-Language Support**
+
+Supports multiple programming languages, not limited to Python.
+
+## Conda Installation
+
+### Download Installation Script
+
+Visit the [Anaconda Official Website](https://www.anaconda.com/) to download the installation script for Linux ARM64.
+
+### Run Installation Script
+
+After downloading, navigate to the download directory, open a terminal, and run the installation script. Replace the script name with the actual downloaded file name.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+bash Anaconda3-xxx-Linux-aarch64.sh
+```
+
+</NewCodeBlock>
+
+During installation, press `Enter` to proceed through the steps. Then type `yes` to accept the license agreement.
+
+The terminal will display information similar to the following:
+
+```
+Welcome to Anaconda3 xxx
+
+In order to continue the installation process, please review the license
+agreement.
+Please, press ENTER to continue
+
+> > > By continuing installation, you hereby consent to the Anaconda Terms of Service available at https://anaconda.com/legal.
+
+Do you accept the license terms? [yes|no]
+
+> > > yes
+```
+
+Finally, you will be asked whether to initialize Conda automatically in the terminal. Type `yes` to confirm.
+
+## Verify Installation
+
+Reopen the terminal. If `(base)` appears before the username in the terminal prompt, it indicates that Conda has been successfully installed and initialized.
+
+:::tip
+The `base` environment is Conda's default environment, which includes some commonly used tools for data science and machine learning.
+:::
+
+### Check Conda Version
+
+Open the terminal and use the `conda --version` command to check the Conda version:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda --version
+```
+
+</NewCodeBlock>
+
+If the terminal outputs information similar to the following, the installation was successful:
+
+```
+conda 24.9.2
+```
+
+### Exit Conda Environment
+
+To exit the Conda environment, use the `conda deactivate` command.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda deactivate
+```
+
+</NewCodeBlock>
+
+After exiting the Conda environment, the `(base)` prefix will disappear from the terminal prompt.
+
+## Configure Conda (Optional)
+
+Modify Conda's configuration to add Tsinghua University's mirror source for faster downloads in China (optional).
+
+### Generate Configuration File
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda config --set show_channel_urls yes
+```
+
+</NewCodeBlock>
+
+### Edit Configuration File
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+vi ~/.condarc
+```
+
+</NewCodeBlock>
+
+Add the following content to the configuration file:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+channels:
+
+- defaults
+  show_channel_urls: true
+  default_channels:
+- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+  custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+```
+
+</NewCodeBlock>
+
+### Clear Cache
+
+Use the `conda clean` command to clear the cache and temporary files.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda clean -i
+```
+
+</NewCodeBlock>
+
+### Verify Configuration
+
+Open the terminal and use the `conda config --show-sources` command to view all loaded configuration files and their priority order.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda config --show-sources
+```
+
+</NewCodeBlock>
+
+If the configuration is successful, the terminal will display information similar to the following:
+
+```
+==> /home/radxa/anaconda3/.condarc <==
+channels:
+
+- defaults
+
+==> /home/radxa/.condarc <==
+channels:
+
+- defaults
+  custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  default_channels:
+- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+  show_channel_urls: True
+
+==> envvars <==
+allow_softlinks: False
+```

@@ -2,169 +2,145 @@
 sidebar_position: 4
 description: ""
 ---
+
 # Install BIOS
 
-## Installing BIOS
+:::info
+If you are using RadxaOS, the system provides built-in functionality for updating the BIOS, so you don't need to follow the manual update instructions below.
+Simply select the `Install EDK2` boot option during startup and follow the on-screen instructions to confirm the operation.
 
-## Download BIOS distribution package
+You can also install RadxaOS on a USB storage device and use it as a BIOS update medium for multiple devices.
 
-[O6 BIOS](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.2.2-1.zip)
+For more details, please refer to the `edk2-cix` [documentation](https://radxa-pkg.github.io/edk2-cix/update.html).
+:::
 
-## Make a BIOS flash drive
+## Hardware Requirements
 
-1, Format a partition on the USB flash drive in FAT32 format.
+- Motherboard: Radxa Orion O6
+- Power Adapter: 20V Type-C Power Adapter
+- For Creating BIOS USB Drive: USB flash drive
+- Input Device: USB Keyboard
+- USB-to-Serial Cable (Optional): For serial debugging and system login
+- HDMI Cable and Monitor (Optional): For displaying the system interface and graphical operations
 
-2, Extract the BIOS zip file and put the following files into the top directory of the FAT32 partition on the USB flash drive.
+:::tip
+Recommended Accessories:
 
-```
-BuildOptions BurnImage.efi cix_flash_all.bin cix_flash_ota.bin FlashUpdate.efi setup.nsh Shell.efi VariableInfo.efi
-```
+- [Radxa PD 65W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-65w)
+  :::
 
-## Updating BIOS
+## Hardware Specifications
 
-### Method 1: Online BIOS update with screen mode
+The Orion O6 motherboard supports standard PD protocol with 20V power input. A current of 3A or higher is recommended to ensure stable operation of all peripherals.
 
-#### Step 1: Hardware Preparation
+- USB Flash Drive
 
-- Orion O6 and PD 65W adapter
-- HDMI cable and monitor
-- USB keyboard and mouse
+Used to create a BIOS USB drive. There are no strict capacity requirements, as the extracted BIOS package is approximately 10MB in size.
 
-#### Step 2: Enter the BIOS interface
+- USB-to-Serial Cable
 
-- Connect the HDMI monitor and keyboard to the O6.
-- Power on the O6 and observe the monitor. When the Radxa logo and progress bar appear, press the keyboard's “Esc” button briefly and the BIOS menu will appear on the HDMI monitor.
+Used to connect the Orion O6 to a PC when updating the BIOS in command-line mode.
 
-#### Step 3: Enter UEFI Shell Interface
+- HDMI Cable and Monitor
 
-Keyboard select `Boot Manager --> UEFI Shell`.
+Used to connect the Orion O6 to a monitor when updating the BIOS in display mode.
 
-```
-UEFI Interactive Shell v2.2
-EDK II
-UEFI v2.70 (EDK II, 0x00010000)
-Mapping table
-      FS0: Alias(s):HD0b:;BLK1:
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)/HD(1,GPT,80810833-48A5-4976-A296-0209E1012834,0x800,0x100000)
-      FS1: Alias(s):HD1b0c:;BLK6:
-          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
-,0x0)/HD(2,GPT,3A7E1703-AD97-4EE2-A0E0-BDC978C453D0,0x8800,0x3A8F000)
-     BLK0: Alias(s):
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)
-     BLK2: Alias(s):
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)/HD(2,GPT,02EC7511-B73F-4F06-ABBF-ACEF796021D2,0x100800,0xEB93000)
-     BLK3: Alias(s):
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)/HD(3,GPT,19A46BB8-BDB9-4A8B-A2A8-03CE65C39A29,0xEC93800,0x1E8800)
-     BLK4: Alias(s):
-          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
-,0x0)
-     BLK5: Alias(s):
-          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
-,0x0)/HD(1,GPT,EE706585-639D-48CE-B236-4C372373E325,0x800,0x8000)
-Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
-Shell>
-```
+## Creating a BIOS USB Drive
 
-#### Step 4: Go to the folder where the BIOS files and tools are located on the USB flash drive.
+### Download the BIOS Package
 
-The folder selected here is `FS1:`. Under Shell, type `FS1:` and press Enter. Then use `ls` to view the files.
+Go to the [Download Page](../download#bios) to download the files needed to create a BIOS USB drive and extract them.
+
+The extracted files should include:
 
 ```
-Shell> FS1:
-FS1:\> ls
-Directory of: FS1:\
-01/01/1980  08:00                 619  BuildOptions
-01/01/1980  08:00              57,344  BurnImage.efi
-01/01/1980  08:00           6,288,062  cix_flash_all.bin
-01/01/1980  08:00           2,101,982  cix_flash_ota.bin
-01/01/1980  08:00             434,176  FlashUpdate.efi
-01/01/1980  08:00               1,160  setup.nsh
-01/01/1980  08:00             970,752  Shell.efi
-01/01/1980  08:00              16,384  VariableInfo.efi
-          8 File(s)   9,870,479 bytes
-          0 Dir(s)
-FS1:\>
+BuildOptions
+BurnImage.efi
+cix_flash_all.bin
+cix_flash_ota.bin
+FlashUpdate.efi
+startup.nsh
+Shell.efi
+VariableInfo.efi
 ```
 
-#### Step 5: Burn BIOS
+### Create the BIOS USB Drive
 
-Under Shell, output the command `setup.nsh` and press Enter to execute it.
+1. Format your USB drive with a single FAT32 partition.
+
+2. Copy all the extracted BIOS files to the root directory of the FAT32 partition on your USB drive.
+
+This completes the creation of the BIOS USB drive.
+
+## Updating the BIOS
+
+This section describes how to update the BIOS using either the display mode or serial port mode.
+
+### Hardware Connections
+
+<Tabs queryString="bios-update">
+<TabItem value="Display Mode">
+
+1. Connect a USB keyboard to the Orion O6
+2. Connect a monitor to the Orion O6 using an HDMI cable
+3. Connect the Orion O6 to a 20V Type-C power adapter
+
+</TabItem>
+<TabItem value="Serial Mode">
+1. Connect the Orion O6's 3-pin UART2 header to your PC's USB port using a USB-to-serial cable
+2. Connect a USB keyboard to the Orion O6
+3. Connect the Orion O6 to a 20V Type-C power adapter
+
+:::info Serial Communication Parameters
+Baud Rate: 115200  
+Data Bits: 8  
+Stop Bits: 1  
+Parity: None  
+Flow Control: None  
+You can use any serial terminal application of your choice. We recommend using [Tabby](https://tabby.app/).
+:::
+
+- Serial Connection Diagram
+
+<div style={{textAlign: 'center'}}>
+    <img src="/en/img/o6/o6_debug.webp" style={{width: '50%', maxWidth: '1200px'}} />
+</div>
+
+| Orion O6 Pin Function | Connection                                         |
+| --------------------- | -------------------------------------------------- |
+| Orion O6 : GND        | GND pin of USB-to-serial cable (black jumper wire) |
+| Orion O6 : UART2_TXD  | RXD pin of USB-to-serial cable (white jumper wire) |
+| Orion O6 : UART2_RXD  | TXD pin of USB-to-serial cable (green jumper wire) |
+
+</TabItem>
+</Tabs>
+
+### Entering BIOS
+
+<Tabs queryString="bios-update">
+<TabItem value="Display Mode">
+
+After powering on, when you see the Radxa logo and progress bar on the monitor, briefly press the "Esc" key to bring up the BIOS menu.
+
+</TabItem>
+<TabItem value="Serial Mode">
+
+After powering on, if you see `Press ESCAPE for boot options` in the serial output, press the `ESC` key to enter the BIOS menu.
 
 ```
-FS1:\> setup.nsh
-************************************************************************
-                       Radxa BIOS Update Utility
-************************************************************************
-
-You are about to update the BIOS.
-Please make sure the power stays on during the operation.
-
-Enter 'q' to quit, any other key to continue:
-
-************************************************************************
-                            Updating BIOS...
-************************************************************************
-
-========================================================================
- Copyright 2024 Cix Technology Group Co., Ltd. All Rights Reserved.
-                   FlashUpdate Utility v1.04.
-                   Build Date:Jan 16 2025
-========================================================================
-Old Version:0.2.2-1
-New Version:0.2.2-1
-[00.15] Processing...
-Flash update success.
-
-************************************************************************
-                         BIOS Update completed!
-************************************************************************
-System will now power off.
-You MUST fully remove all connected power source before connecting them.
-Failure to do so may prevent some components to use the updated code.
-
-Enter 'q' to quit, any other key to continue:
-
-Reset with BIOS Update (24 bytes)
-
-```
-
-After the burning is completed, unplug the power of the O6 and then power it on again.
-
-### Method 2: Online BIOS Update in Screenless Mode
-
-#### Step 1: Hardware Preparation
-
-- Orion O6 and PD 65W adapter
-- x86 Windows/Linux/Mac host machine (with keyboard and mouse, serial port tool)
-- Debug serial cable
-
-#### Step 2: Setting Up the Debug Serial Port Environment on the Host Machine
-
-- Connect the debug serial cable to the 3-pin UART2 pin on the O6.
-- Use the serial port tool and set the baud rate to 115200.
-
-#### Step 3: Booting the O6 into the BIOS Interface
-
-- Power on the O6 and observe the startup log on the debug serial port tool interface.
-- During the startup process, you will see a prompt to enter the BIOS interface. At this time, briefly press the "Esc" key on the keyboard of the host machine.
-
-```
-Tianocore/EDK2 firmware version 0.2.2-1
+Tianocore/EDK2 firmware version 0.3.0-1
 Press ESCAPE for boot options
-.....
 ```
 
-- In the Debug Serial Port Tool interface, the BIOS menu will appear.
+</TabItem>
+</Tabs>
+
+- BIOS Interface
 
 ```
-
  Radxa Orion O6
- CIX P1 CD8180                                       1.80 GHz
- 0.2.2-1                                             65536 MB RAM
+ CIX P1 CD8180                                       1.50 GHz
+ 0.3.0-1                                             8192 MB RAM
 
 
 
@@ -178,93 +154,98 @@ Press ESCAPE for boot options
    Reset
 
 
-
-
-
-
-
   ^v=Move Highlight       <Enter>=Select Entry
 
 ```
 
-##### Step 4: Enter the UEFI Shell Interface
+### Updating the BIOS
 
-Select `Boot Manager --> UEFI Shell` from the keyboard.
+In the BIOS interface, select `Boot Manager --> UEFI Shell` to enter the UEFI Shell interface.
 
-The `Boot Manager` screen is shown below:
-
-```
-/------------------------------------------------------------------------------\
-|                                Boot Manager                                  |
-\------------------------------------------------------------------------------/
-
-                                                         Device Path :
-   Boot Manager Menu                                     Fv(9A15AA37-D555-4A4E-
-                                                         B541-86391FF68164)/FvF
-   debian                                                ile(7C04A583-9E3E-4F1C
-   UEFI aigo U330 90003C33924E4D12                       -AD65-E05268D0B4D1)
-   UEFI KINGBANK KP230 K19010J001612
-   UEFI Shell
-
-   Use the <^> and <v> keys to choose a boot option,
-   the <Enter> key to select a boot option, and the
-   <Esc> key to exit the Boot Manager Menu.
-
-
-
-
-
-/------------------------------------------------------------------------------\
-|                                                                              |
-| ^v=Move Highlight       <Enter>=Select Entry      Esc=Exit                   |
-\------------------------------------------------------------------------------/
-
-```
-
-Select `UEFI Shell` to enter the shell environment.
+You can press `q` to cancel the automatic BIOS update and exit the tool. To update the BIOS, you'll need to access the specified disk and run the `startup.nsh` script file.
 
 ```
 UEFI Interactive Shell v2.2
 EDK II
 UEFI v2.70 (EDK II, 0x00010000)
 Mapping table
-      FS0: Alias(s):HD0b:;BLK1:
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)/HD(1,GPT,80810833-48A5-4976-A296-0209E1012834,0x800,0x100000)
-      FS1: Alias(s):HD1b0c:;BLK6:
-          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
-,0x0)/HD(2,GPT,3A7E1703-AD97-4EE2-A0E0-BDC978C453D0,0x8800,0x3A8F000)
+      FS0: Alias(s):HD0b0b:;BLK1:
+          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801E090000000000)/USB(0x1
+,0x0)/HD(1,GPT,40EC1CE6-AF3E-4B61-9E8F-29906C777ACE,0x12000,0x73DB800)
      BLK0: Alias(s):
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)
-     BLK2: Alias(s):
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)/HD(2,GPT,02EC7511-B73F-4F06-ABBF-ACEF796021D2,0x100800,0xEB93000)
-     BLK3: Alias(s):
-          PciRoot(0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-0
-1)/HD(3,GPT,19A46BB8-BDB9-4A8B-A2A8-03CE65C39A29,0xEC93800,0x1E8800)
-     BLK4: Alias(s):
-          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
+          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801E090000000000)/USB(0x1
 ,0x0)
-     BLK5: Alias(s):
-          VenHw(0D51905B-B77E-452A-A2C0-ECA0CC8D514A,00801D090000000000)/USB(0x1
-,0x0)/HD(1,GPT,EE706585-639D-48CE-B236-4C372373E325,0x800,0x8000)
 Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
-Shell>
-```
-
-##### Step 5: Burn BIOS
-
-Under Shell, output the command `setup.nsh` and press Enter to execute it.
-
-```
-FS1:\> setup.nsh
 ************************************************************************
                        Radxa BIOS Update Utility
 ************************************************************************
 
 You are about to update the BIOS.
 Please make sure the power stays on during the operation.
+
+If you decide to cancel BIOS update, you can run following commands:
+    reset     to reboot the system
+    reset -s  to shutdown the system
+
+Enter 'q' to quit, any other key to continue:
+q
+```
+
+- Accessing the BIOS Directory
+
+In the Shell, type `FS0:` and press Enter to access the BIOS USB drive. Then use the `ls` command to verify that the files are in the directory.
+
+:::tip
+You can identify your BIOS USB drive information from the `Mapping table` above. In our case, the device is identified as `FS0`.
+:::
+
+<NewCodeBlock tip="O6-UEFI-Shell>" type="device">
+```
+Shell> FS0:
+FS0:\> ls
+Directory of: FS0:\
+04/28/2025  03:28                 649  BuildOptions
+04/28/2025  03:28              57,344  BurnImage.efi
+04/28/2025  03:28           6,288,062  cix_flash_all.bin
+04/28/2025  03:28           2,101,982  cix_flash_ota.bin
+04/28/2025  03:28             434,176  FlashUpdate.efi
+04/28/2025  03:28             970,752  Shell.efi
+04/28/2025  03:28               1,354  startup.nsh
+04/28/2025  03:28              16,384  VariableInfo.efi
+          8 File(s)   9,870,703 bytes
+          0 Dir(s)
+```
+</NewCodeBlock>
+
+- Updating the BIOS
+
+In the Shell, type `startup.nsh` and press Enter to update the BIOS.
+
+:::tip
+If the downloaded BIOS package is from a version earlier than 0.3.0-1, the file will be named `setup.nsh`.
+:::
+
+<NewCodeBlock tip="O6-UEFI-Shell>" type="device">
+```
+FS0:\> startup.nsh
+```
+</NewCodeBlock>
+
+After running `startup.nsh`, follow the on-screen prompts to complete the remaining BIOS update process.
+
+If the update is successful, the system will display the following information:
+
+```
+************************************************************************
+                       Radxa BIOS Update Utility
+************************************************************************
+
+You are about to update the BIOS.
+Please make sure the power stays on during the operation.
+
+If you decide to cancel BIOS update, you can run following commands:
+    reset     to reboot the system
+    reset -s  to shutdown the system
 
 Enter 'q' to quit, any other key to continue:
 
@@ -275,11 +256,11 @@ Enter 'q' to quit, any other key to continue:
 ========================================================================
  Copyright 2024 Cix Technology Group Co., Ltd. All Rights Reserved.
                    FlashUpdate Utility v1.04.
-                   Build Date:Jan 16 2025
+                   Build Date:Mar 24 2025
 ========================================================================
-Old Version:0.2.2-1
-New Version:0.2.2-1
-[00.15] Processing...
+Old Version:0.3.0-1
+New Version:0.3.0-1
+[00.17] Processing...
 Flash update success.
 
 ************************************************************************
@@ -292,13 +273,50 @@ Failure to do so may prevent some components to use the updated code.
 Enter 'q' to quit, any other key to continue:
 
 Reset with BIOS Update (24 bytes)
-
 ```
 
-Once the burn is complete, unplug the O6 and power it back up.
+## Updating BIOS Firmware Using a Programmer
 
-You can refer to the demo: https://radxa-pkg.github.io/edk2-cix/install.html
+For advanced users who need to recover from a corrupted BIOS or prefer direct hardware access, you can use a Serial Flash programmer (such as CH341A) to directly flash the BIOS firmware (cix_flash_all.bin) to the SPI NOR Flash chip. This method completely bypasses the operating system and works even when the device cannot boot.
 
-### Method 3: Offline BIOS update
+### Removing the SPI Flash Chip
 
-You can use a Serial Flash programmer to flash the BIOS firmware (cix_flash_all.bin) to the SPI Nor Flash.
+Steps to remove the SPI Flash chip:
+
+① Locate the SPI Flash chip on the motherboard
+
+② Open the right latch cover of the SPI Flash
+
+③ Open the left latch cover of the SPI Flash
+
+After completing the above steps, use tweezers to carefully remove the SPI Flash chip from the motherboard.
+
+<div style={{textAlign: 'center'}}>
+    <img src="/en/img/o6/o6_spi_uninstall.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+### Flashing the BIOS Firmware
+
+For detailed instructions and hardware requirements, please refer to the comprehensive [forum guide](https://forum.radxa.com/t/guide-flash-bios-with-ch341a-macos-linux/26742) provided by community member Meco.
+
+The `cix_flash_all.bin` file required for the forum guide is included in the downloaded BIOS package.
+
+### Installing the SPI Flash Chip
+
+① Install the SPI Flash chip onto the motherboard
+
+② Reattach the left latch cover of the SPI Flash
+
+③ Reattach the right latch cover of the SPI Flash
+
+:::tip Pay attention to chip orientation and position during installation
+
+- The circle on the chip indicates pin 1, which is marked with a small red circle in the image.
+- The SPI Flash socket has a triangular arrow that corresponds to pin 1 of the SPI Flash.
+
+You can use these two methods to confirm the correct orientation and position of the SPI Flash.
+:::
+
+<div style={{textAlign: 'center'}}>
+    <img src="/en/img/o6/o6_spi_install.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>

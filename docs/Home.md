@@ -180,6 +180,22 @@ sidebar_custom_props:
                     },
                   ],
               },
+              {
+                products_name: "ROCK 4D",
+                products_photo_url: "/home/product-pictures/rock4d.webp",
+                products_link: "/rock4/rock4d",
+                docs:
+                  [
+                    {
+                      docs_link: "/rock4/rock4d",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "ROCK 4D 概览",
+                      docs_info_en: "Overview of the ROCK 4D",
+                      docs_info_zh: "ROCK 4D 概览",
+                    },
+                  ],
+              },
             ],
         },
         {
@@ -653,6 +669,22 @@ sidebar_custom_props:
                   ],
               },
               {
+                products_name: "Radxa E24C",
+                products_photo_url: "/home/product-pictures/e54c.webp",
+                products_link: "/e/e24c",
+                docs:
+                  [
+                    {
+                      docs_link: "/e/e24c",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa E24C 概览",
+                      docs_info_en: "Overview of the E24C",
+                      docs_info_zh: "Radxa E24C 概览",
+                    },
+                  ],
+              },
+              {
                 products_name: "Radxa E52C",
                 products_photo_url: "/home/product-pictures/e52c.webp",
                 products_link: "/e/e52c",
@@ -665,6 +697,22 @@ sidebar_custom_props:
                       docs_name_zh: "Radxa E52C 概览",
                       docs_info_en: "Overview of the E52C",
                       docs_info_zh: "Radxa E52C 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "Radxa E54C",
+                products_photo_url: "/home/product-pictures/e54c.webp",
+                products_link: "/e/e54c",
+                docs:
+                  [
+                    {
+                      docs_link: "/e/e54c",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa E54C 概览",
+                      docs_info_en: "Overview of the E54C",
+                      docs_info_zh: "Radxa E54C 概览",
                     },
                   ],
               },
@@ -715,6 +763,72 @@ sidebar_custom_props:
                       docs_name_zh: "Orion O6 概览",
                       docs_info_en: "Overview of the orion O6",
                       docs_info_zh: "Radxa Orion O6 概览",
+                    },
+                  ],
+              },
+            ],
+        },
+        {
+          series_en: "Cubie Family",
+          series_zh: "Cubie 系列",
+          series_introduction_en: "Radxa Cubie Series is a single board computer series based on the Allwinner SoC",
+          series_introduction_zh: "Cubie 系列是 Radxa 推出的基于 AllWinner 单板计算机系列。",
+          products:
+            [
+              {
+                products_name: "Cubie A5E",
+                products_photo_url: "/home/product-pictures/a5e.webp",
+                products_link: "/cubie/a5e",
+                docs:
+                  [
+                    {
+                      docs_link: "/cubie/a5e",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Cubie A5E 概览",
+                      docs_info_en: "Overview of the cubie a5e",
+                      docs_info_zh: "Radxa Cubie A5E 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "Cubie A7A",
+                products_photo_url: "/home/product-pictures/a7a.webp",
+                products_link: "/cubie/a7a",
+                docs:
+                  [
+                    {
+                      docs_link: "/cubie/a7a",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Cubie A7A 概览",
+                      docs_info_en: "Overview of the cubie a7a",
+                      docs_info_zh: "Radxa Cubie A7A 概览",
+                    },
+                  ],
+              },
+            ],
+        },
+        {
+          series_en: "Dragon Family",
+          series_zh: "Dragon 系列",
+          series_introduction_en: "Radxa Dragon Series is a single board computer series based on the Qualcomm SoC",
+          series_introduction_zh: "Dragon 系列是 Radxa 推出的基于 Qualcomm 单板计算机系列。",
+          products:
+            [
+              {
+                products_name: "Dragon Q6A",
+                products_photo_url: "/home/product-pictures/dragon_q6a.webp",
+                products_link: "/dragon/q6a",
+                docs:
+                  [
+                    {
+                      docs_link: "/dragon/q6a",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Dragon Q6A 概览",
+                      docs_info_en: "Overview of the dragon q6a",
+                      docs_info_zh: "Radxa Dragon Q6A 概览",
                     },
                   ],
               },

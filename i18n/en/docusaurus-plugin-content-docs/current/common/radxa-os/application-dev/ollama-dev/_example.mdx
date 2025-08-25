@@ -1,0 +1,193 @@
+This document introduces two ways to interact with Ollama: CLI (Command Line Interface) and Python API.
+
+:::tip
+References:
+
+- [Ollama Official Website](https://ollama.com/)
+- [Ollama GitHub](https://github.com/ollama/ollama)
+  :::
+
+## Ollama Commands
+
+Ollama provides a rich set of command-line tools that make it easy to pull, run, delete, and manage models.
+
+You can use the `ollama -h` command to view the help information for Ollama.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+ollama -h
+```
+
+</NewCodeBlock>
+
+The output will be as follows:
+
+```
+Large language model runner
+
+Usage:
+ollama [flags]
+ollama [command]
+
+Available Commands:
+serve Start ollama
+create Create a model from a Modelfile
+show Show information for a model
+run Run a model
+stop Stop a running model
+pull Pull a model from a registry
+push Push a model to a registry
+list List models
+ps List running models
+cp Copy a model
+rm Remove a model
+help Help about any command
+
+Flags:
+-h, --help help for ollama
+-v, --version Show version information
+
+Use "ollama [command] --help" for more information about a command.
+```
+
+## CLI Usage
+
+CLI stands for Command-Line Interface, which refers to interacting with a program by entering commands in a terminal or command line.
+
+### Pulling a Model
+
+:::note
+
+The parameters of Ollama models are related to the device's memory. We need to choose the appropriate model parameters based on the device's memory capacity.
+
+According to Ollama's official documentation: `You should have at least 8 GB of RAM available to run the 7B models, 16 GB to run the 13B models, and 32 GB to run the 33B models.` This helps us estimate the appropriate model parameters for our device.
+
+For users with limited device memory, we can choose models with smaller parameters, such as `deepseek-r1:1.5b`.
+:::
+
+Use the `ollama pull` command to download a model. You can find more models and their corresponding commands in the [Ollama Library](https://ollama.com/library).
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+ollama pull deepseek-r1:1.5b
+```
+
+</NewCodeBlock>
+
+The download progress will be displayed in the terminal. Once completed, you'll see output similar to the following:
+
+```
+pulling manifest
+pulling aabd4debf0c8: 100% ▕███████████████████████████████████████████████████▏ 1.1 GB
+pulling c5ad996bda6e: 100% ▕███████████████████████████████████████████████████▏ 556 B
+pulling 6e4c38e1172f: 100% ▕███████████████████████████████████████████████████▏ 1.1 KB
+pulling f4d24e9138dd: 100% ▕███████████████████████████████████████████████████▏ 148 B
+pulling a85fe2a2e58e: 100% ▕███████████████████████████████████████████████████▏ 487 B
+verifying sha256 digest
+writing manifest
+success
+```
+
+### Running a Model
+
+Use the `ollama run` command to run a model. If the model isn't available locally, Ollama will automatically download it from the remote repository.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+ollama run deepseek-r1:1.5b
+```
+
+</NewCodeBlock>
+
+After successful execution, an interactive interface will appear in the terminal.
+
+You can directly ask questions like `Please introduce yourself`, and the model will respond.
+
+```
+> > > Please introduce yourself
+> > > Hello! I'm DeepSeek-R1, an artificial intelligence assistant created by DeepSeek. I'm at your service and
+> > > would be delighted to assist you with any inquiries or tasks you may have.
+
+> > > Send a message (/? for help)
+```
+
+:::tip
+Type `/bye` or press `Ctrl + D` to exit the interactive mode.
+:::
+
+## Python Usage
+
+Ollama provides an easy-to-use Python library for convenient model operations like pulling, running, and deleting models.
+
+:::tip
+Using the Ollama Python library requires Python 3.8 or higher.
+
+We recommend installing and using the ollama Python library in a Conda environment.
+:::
+
+You can install the Ollama Python library using the `pip` command.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+pip3 install ollama
+```
+
+</NewCodeBlock>
+
+### Standard Response
+
+Standard responses are synchronous, where the model returns a complete response all at once.
+
+You can use Jupyter Lab cells to run the Python code or copy the code directly into a Python file.
+
+Make sure the `model` parameter in the Python code matches a model that has been pulled locally.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+from ollama import chat
+from ollama import ChatResponse
+
+response: ChatResponse = chat(model='deepseek-r1:1.5b', messages=[
+{
+'role': 'user',
+'content': 'Please introduce yourself',
+},
+])
+print(response['message']['content'])
+
+# or access fields directly from the response object
+
+print(response.message.content)
+```
+
+</NewCodeBlock>
+
+### Streaming Response
+
+Streaming responses are asynchronous, where the model returns a stream of responses (output is generated and displayed progressively).
+
+You can use Jupyter Lab cells to run the Python code or copy the code directly into a Python file.
+
+Make sure the `model` parameter in the Python code matches a model that has been pulled locally.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+from ollama import chat
+
+stream = chat(
+    model='deepseek-r1:1.5b',
+    messages=[{'role': 'user', 'content': 'Please introduce yourself'}],
+    stream=True,
+)
+
+for chunk in stream:
+    print(chunk['message']['content'], end='', flush=True)
+```
+
+</NewCodeBlock>

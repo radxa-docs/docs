@@ -1,0 +1,251 @@
+import { Image } from "@site/src/utils/docs";
+
+主要介绍如何在瑞莎主板上使用蓝牙进行设备的连接、配对和使用。
+
+<Tabs queryString="interface-mode">
+<TabItem value="图形界面">
+通过系统自带的蓝牙管理工具来管理蓝牙设备。
+
+- 开启蓝牙功能
+
+① ： 点击 `System Settings` 图标
+
+② ： 点击 `Bluetooth` 选项
+
+③ ： 点击 `Enable` 选项开启蓝牙功能
+
+<Image
+  src="/img/common/radxa-os/system-config/blue-#debian_version#-01.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+- 连接蓝牙设备
+
+① : 点击 `Add ...` 选项会自动扫描周围的蓝牙设备
+
+② : 在周围的蓝牙设备列表中找到你需要连接的蓝牙设备
+
+③ : 点击 `Next` 选项连接蓝牙设备
+
+<Image
+  src="/img/common/radxa-os/system-config/blue-#debian_version#-02.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+- 配对蓝牙设备
+
+连接蓝牙设备的过程中，需要进行蓝牙设备的配对，按照系统提示完成配对操作。
+
+<Image
+  src="/img/common/radxa-os/system-config/blue-#debian_version#-03.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+- 连接成功
+
+蓝牙设备连接成功后，系统会出现提示信息。
+
+<Image
+  src="/img/common/radxa-os/system-config/blue-#debian_version#-04.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+</TabItem>
+
+<TabItem value="命令行模式">
+通过命令行来管理蓝牙设备。
+
+- 启动蓝牙服务
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo systemctl start bluetooth
+```
+
+</NewCodeBlock>
+
+- 设置开机自启
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo systemctl enable bluetooth
+```
+
+</NewCodeBlock>
+
+- 检查服务状态
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo systemctl status bluetooth
+```
+
+</NewCodeBlock>
+
+- 连接和配对蓝牙设备
+
+使用 `bluetoothctl` 命令行工具来管理蓝牙设备。
+
+:::tip
+终端输入 `bluetoothctl` 会进入交互式命令行界面。
+
+退出 `bluetoothctl` 命令行界面，输入 `exit`。
+:::
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+bluetoothctl
+```
+
+</NewCodeBlock>
+
+- 打开蓝牙适配器
+
+在 `bluetoothctl` 交互命令行界面输入 `power on` 打开蓝牙。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+power on
+```
+
+</NewCodeBlock>
+
+- 启用代理
+
+在 `bluetoothctl` 交互命令行界面输入 `agent on` 启用代理。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+agent on
+```
+
+</NewCodeBlock>
+
+- 扫描蓝牙设备
+
+在 `bluetoothctl` 交互命令行界面输入 `scan on` 扫描蓝牙设备。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+scan on
+```
+
+</NewCodeBlock>
+
+扫描到的蓝牙设备会在终端出现蓝牙设备的物理地址和名称，类似输出以下信息：其中 `EC:30:B3:40:0A:20` 为蓝牙设备的物理地址，`Redmi K50 Ultra` 为蓝牙设备的名称。
+
+```
+[NEW] Device EC:30:B3:40:0A:20 Redmi K50 Ultra
+```
+
+- 停止扫描
+
+如果不停止扫描，`bluetoothctl` 交互命令行界面会一直处于扫描状态，建议自动扫描几次后停止扫描，然后查找自己需要连接的蓝牙设备物理地址。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+scan off
+```
+
+</NewCodeBlock>
+
+- 配对设备
+
+在 `bluetoothctl` 交互命令行界面输入 `pair <device_address>` 配对蓝牙设备：配对过程需要自己手动确认，根据蓝牙设备的提示进行操作。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+pair <device_address>
+
+# 示例
+pair EC:30:B3:40:0A:20
+```
+
+</NewCodeBlock>
+
+- 信任设备
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+trust <device_address>
+
+# 示例
+trust EC:30:B3:40:0A:20
+```
+
+</NewCodeBlock>
+
+- 连接设备
+
+在 `bluetoothctl` 交互命令行界面输入 `connect <device_address>` 连接蓝牙设备。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+connect <device_address>
+
+# 示例
+connect EC:30:B3:40:0A:20
+```
+
+</NewCodeBlock>
+
+- 断开设备
+
+在 `bluetoothctl` 交互命令行界面输入 `disconnect <device_address>` 断开蓝牙设备。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+disconnect <device_address>
+
+# 示例
+disconnect EC:30:B3:40:0A:20
+```
+
+</NewCodeBlock>
+
+- 取消配对
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+remove <device_address>
+
+# 示例
+remove EC:30:B3:40:0A:20
+```
+
+</NewCodeBlock>
+
+- 关闭蓝牙适配器
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+power off
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>

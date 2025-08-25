@@ -1,0 +1,73 @@
+Ollama is a powerful local large language model (LLM) framework that enables users to efficiently run various open-source large language models on their own computers.
+
+## Ollama Features
+
+- **Cross-Platform Support**
+
+  Supports macOS, Linux, and Windows operating systems, meeting the needs of different user groups.
+
+- **User-Friendly**
+
+  Provides a clean command-line interface that makes downloading, running, and managing large language models extremely convenient.
+
+- **Extensive Model Support**
+
+  Supports running various open-source large language models, including popular ones like DeepSeek, Qwen, and LLama.
+
+- **Local Execution**
+
+  All models run locally, ensuring data privacy and security without relying on cloud services.
+
+- **High Performance**
+
+  Optimized for local environments, making full use of hardware resources to provide a smooth interactive experience.
+
+- **Developer-Friendly**
+
+  Offers API interfaces, making it easy for developers to integrate models into their own applications.
+
+## Installing Ollama
+
+You can install Ollama using the official Linux installation script.
+
+Open a terminal and run the following command to download and execute the installation script:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+</NewCodeBlock>
+
+The terminal will display the installation progress and information. Upon successful installation, you'll see output similar to the following:
+
+```
+> > > Installing ollama to /usr/local
+> > > Downloading Linux arm64 bundle
+> > > ######################################################################## 100.0%
+> > > Creating ollama user...
+> > > Adding ollama user to render group...
+> > > Adding ollama user to video group...
+> > > Adding current user to ollama group...
+> > > Creating ollama systemd service...
+> > > Enabling and starting ollama service...
+> > > Created symlink /etc/systemd/system/default.target.wants/ollama.service → /etc/systemd/system/ollama.service.
+> > > The Ollama API is now available at 127.0.0.1:11434.
+> > > Install complete. Run "ollama" from the command line.
+> > > WARNING: No NVIDIA/AMD GPU detected. Ollama will run in CPU-only mode.
+```
+
+## Verifying Ollama Installation
+
+You can check the Ollama version information using the `ollama -v` command.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+ollama -v
+```
+
+</NewCodeBlock>
+
+If the Ollama version number is displayed successfully, the installation was successful.

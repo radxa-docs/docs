@@ -2,204 +2,198 @@
 sidebar_position: 10
 ---
 
-# QUECTEL LTE EC25
+# Quectel LTE EC25
 
-The following uses ROCK 4B+ as an example to describe how to configure the remote LTE EC25-AU module.
+This guide uses the ROCK 5B+ as an example to demonstrate how to configure the Quectel LTE EC25-AU module.
 
-## Install related software
+:::tip
+Only M.2 B Key interface is supported; M.2 M Key interface is not supported.
+:::
 
-Run the following command on the terminal to install the dial-up Internet access software:
+## Install Required Software
 
-```bash
-sudo apt update
-sudo apt install ppp picocom
+Execute the following commands in the terminal to install the necessary dial-up networking software:
+
+<NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
 ```
+sudo apt update
+sudo apt install libqmi-utils modemmanager
+```
+</NewCodeBlock>
 
-## Link peripheral
+## Connect Peripherals
 
-First, connect ROCK 4B+ via USB and move LTE EC25-AU away.
+First, install the Quectel LTE EC25-AU module into the M.2 B Key slot on the ROCK 5B+, then insert the SIM card into the SIM card slot of the ROCK 5B+.
 
-You can check if the device is connected by the following command:
+You can check if the device is properly connected with the following command:
 
-```bash
-rock@rock-pi-4b-plus:~$ lsusb | grep -i Quectel
+<NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
+```
+lsusb | grep -i Quectel
+```
+</NewCodeBlock>
+
+If connected properly, the terminal will display output similar to:
+
+```
 Bus 002 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
 
-The modem usually communicates with the host computer through a serial port. Check whether the system correctly enumerates the corresponding serial port devices:
+Check if the system has correctly enumerated the corresponding cdc-wdm device:
 
-```bash
-rock@rock-pi-4b-plus:~$ ls /dev/ttyUSB*
-/dev/ttyUSB0  /dev/ttyUSB1  /dev/ttyUSB2  /dev/ttyUSB3
+<NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
+```
+ls /dev/cdc-wdm*
+```
+</NewCodeBlock>
+
+If recognized correctly, the terminal will display output similar to:
+
+```
+/dev/cdc-wdm0
 ```
 
-## Test the modem with the `at` command
+Check the data port format:
 
-First, open the serial port using `picocom` :
+<NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
+```
+sudo qmicli -d /dev/cdc-wdm0 -e
+```
+</NewCodeBlock>
 
-```bash
-sudo picocom -b 115200 /dev/ttyUSB3
+It should be configured as `raw-ip`. If not, use the command `sudo qmicli -d /dev/cdc-wdm0 -E raw-ip` to set it, then reboot the board.
+
+Check the data network interface:
+
+<NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
+```
+sudo qmicli -d /dev/cdc-wdm0 -w
+```
+</NewCodeBlock>
+
+It should be configured as `wwan0`. If not, use the command `sudo qmicli -d /dev/cdc-wdm0 -w wwan0` to set it, then reboot the board.
+
+## Create Network Interface Configuration
+
+First, use `nmcli` to create the interface configuration:
+
+<NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
+```
+sudo nmcli connection add type gsm ifname cdc-wdm0
+```
+</NewCodeBlock>
+
+If successful, the terminal will display output similar to:
+
+```
+Connection 'gsm-cdc-wdm0' (e26d1d79-ba6b-44f3-9135-1ef7a80d982a) successfully added.
 ```
 
-After the program starts, you can enter the following `at` command to check the status of the modem:
+Edit the interface configuration according to your carrier's requirements (optional):
 
-```bash
-  at+cpin?
-  +CPIN: READY
+:::info
+This step is optional. If the connection is not working properly, you can edit carrier-related configurations such as APN, username, and password following the example below.
+Type `print` to display all configuration information.
+:::
 
-  OK  #Check whether the SIM card is in place
+<NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
+```
+sudo nmcli connection edit gsm-cdc-wdm0
 
-  at+csq
-  +CSQ: 14,99
+===| nmcli interactive connection editor |===
 
-  OK  #Detection signal. 99 means no signal
+Editing existing 'gsm' connection: 'gsm-cdc-wdm0'
 
-  at+cops?
-  +COPS: 1,0,"CHN-UNICOM",7
+Type 'help' or '?' for available commands.
+Type 'print' to show all the connection properties.
+Type 'describe [<setting>.<prop>]' for detailed property description.
 
-  OK  #View Carrier
+You may edit the following settings: connection, gsm, serial, ppp, match, ipv4, ipv6, hostname, tc, proxy
+nmcli> set gsm.apn ctlte
+nmcli> save
+Connection 'gsm-cdc-wdm0' (e26d1d79-ba6b-44f3-9135-1ef7a80d982a) successfully updated.
+nmcli> quit
 
-  at+creg?
-  +CREG: 0,1
+```
+</NewCodeBlock>
 
-  OK  #Get the registration status of the phone (0,1: indicates normal registration)
+## Check Network
 
-  at+qeng="servingcell"
-  +QENG: "servingcell","NOCONN","LTE","FDD",460,01,19A358C,366,100,1,5,5,774E,-108,-5,-83,9,13
+Check if the wwan interface has been assigned an IP address. If not, use the command `sudo nmcli connection up gsm-cdc-wdm0` to reconnect:
 
-  OK  #Signal strength and quality of the currently connected service cell
+<NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
 ```
 
-If the modems return to normal, you can use the `Ctrl+A Ctrl+X` key combination to exit `picocom` .
+ip a
 
-## Dial-up Internet via `ppp`
+```
+</NewCodeBlock>
 
-In the terminal, execute the following command to add the `ppp` dial-up configuration script.
-
-You move your mouse over the top right corner of the code box, use the copy button to copy the full text, and then paste the command into the terminal.
-
-```bash
-cat << EOF
-# The password is hidden during connection debugging
-hide-password
-
-# The phone does not require authentication
-noauth
-
-# Used for call control scripts
-connect '/usr/sbin/chat -s -v -f /etc/ppp/peers/rasppp-chat-connect'
-
-# Disconnect script
-disconnect '/usr/sbin/chat -s -v -f /etc/ppp/peers/rasppp-chat-disconnect'
-
-# Debugging information
-debug
-
-# 4G module
-/dev/ttyUSB3
-
-# Serial baud rate
-115200
-
-# Use the default route
-defaultroute
-
-# The default IP address is not used
-noipdefault
-
-# PPP compression is not used
-novj
-novjccomp
-noccp
-ipcp-accept-local
-ipcp-accept-remote
-local
-
-# It is best to lock the serial bus, create a lock file, and other programs will be able to learn that the appropriate serial port has been used once they discover the existence of this file.
-lock
-dump
-
-nodetach
-
-# Username password (The configuration varies with carriers)
-user ctnet@mycdma.cn
-password vnet.mobi
-
-# Hardware control flow
-crtscts
-remotename 3gppp
-ipparam 3gppp
-
-# Use the DNS negotiated on the server side to set the usepeerdns parameter
-usepeerdns
-EOF | sudo tee /etc/ppp/peers/rasppp
-
-cat << EOF
-TIMEOUT 15
-ABORT   "BUSY"
-ABORT   "ERROR"
-ABORT   "NO ANSWER"
-ABORT   "NO CARRTER"
-ABORT   "NO DIALTONE"
-
-""AT
-OK \rATZ
-
-OK \rAT+CGDCONT=1,"IP",""
-
-OK-AT-OK ATDT#777
-CONNECT \d\c
-EOF | sudo tee /etc/ppp/peers/rasppp-chat-connect
-
-cat << EOF
-ABORT "ERROR"
-ABORT "NO DIALTONE"
-SAY "\NSending break to the modem\n"
-
-""\k"
-
-""+++ATH"
-SAY "\nGood bye !\n"
-EOF | sudo tee /etc/ppp/peers/rasppp-chat-disconnect
+If connected successfully, the IP query will display output similar to:
 ```
 
-You can now try dialing using `ppp` :
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+inet 127.0.0.1/8 scope host lo
+valid_lft forever preferred_lft forever
+inet6 ::1/128 scope host noprefixroute
+valid_lft forever preferred_lft forever
+2: enP4p65s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+link/ether 92:f3:c7:c0:ad:c9 brd ff:ff:ff:ff:ff:ff permaddr 02:2b:ab:02:ab:a8
+3: wlP2p33s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+link/ether 20:0b:74:70:fc:62 brd ff:ff:ff:ff:ff:ff
+inet 192.168.31.215/24 brd 192.168.31.255 scope global dynamic noprefixroute wlP2p33s0
+valid_lft 3529sec preferred_lft 3529sec
+inet6 fe80::2d68:bb6a:934b:a41b/64 scope link noprefixroute
+valid_lft forever preferred_lft forever
+7: wwan0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
+link/none
+inet 10.10.239.91/29 brd 10.10.239.95 scope global noprefixroute wwan0
+valid_lft forever preferred_lft forever
 
-```bash
-sudo pppd call rasppp &    #Background dialing
 ```
 
-- The complete dial-up process is shown as follows:
+Use the `ping` command with the `wwan` interface to check if the network is working properly:
 
-![pppd process one](/img/4G-module/pppd_process1.webp)
-![pppd process two](/img/4G-module/pppd_process2.webp)
-
-From the output of the program we can get the following information:
-
-1. local IP address: `10.224.236.90`
-2. primary DNS server: `120.80.80.80`
-3. secondary DNS servers: `221.5.88.88`
-
-We can now configure the network based on the above information:
-
-```bash
-sudo ip route add default via 10.224.236.90 # configure the gateway
-echo "nameserver 120.80.80.80" | sudo tee -a /etc/resolv.conf # configure primary DNS
-echo "nameserver 221.5.88.88" | sudo tee -a /etc/resolv.conf # Configure secondary DNS
+<NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
 ```
 
-You can now use the `ping` command to check if you are connected to the Internet:
+sudo ping baidu.com -I wwan0 -c 5
+PING baidu.com (39.156.66.10) from 10.10.239.91 wwan0: 56(84) bytes of data.
+64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=1 ttl=48 time=172 ms
+64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=2 ttl=48 time=63.7 ms
+64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=3 ttl=48 time=61.2 ms
+64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=4 ttl=48 time=88.9 ms
+64 bytes from 39.156.66.10 (39.156.66.10): icmp_seq=5 ttl=48 time=80.5 ms
 
-![ping](/img/4G-module/ping-success.webp)
+--- baidu.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4004ms
+rtt min/avg/max/mdev = 61.224/93.320/172.271/40.800 ms
 
-## Common issues
+```
+</NewCodeBlock>
 
-1. USB serial port devices are not listed on my system.
+## Troubleshooting
 
-Please check whether the corresponding driver is included in the system you are currently running. You can check by executing the following command:
+1. My system doesn't list the cdc-wdm serial device.
 
-```bash
-rock@rock-pi-4b-plus:~$ lsmod | grep usb
-usb_wwan               20480  1 option
-usbserial              36864  2 usb_wwan,option
+Please check if the corresponding driver is included in your current system. You can check by executing the following command:
+
+<NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
+```
+
+sudo lsmod | grep qmi_wwan
+
+```
+</NewCodeBlock>
+
+If the driver is loaded, the terminal will display output similar to:
+```
+
+qmi_wwan 36864 0
+cdc_wdm 28672 2 qmi_wwan
+usbnet 36864 1 qmi_wwan
+
+```
+
 ```

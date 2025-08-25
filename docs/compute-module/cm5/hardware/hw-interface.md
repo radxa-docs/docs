@@ -90,11 +90,11 @@ Radxa CM5 IO 提供了一个40pin针脚的GPIO座子，兼容于市面上大部�
 |             |              |             |              |             |    +3.3V    | <div className='yellow'>1</div>  |  <div className='red'>2</div>   |   +5.0V   |                                           |              |              |             |             |
 | 123         |              |  PWM10_M2   |              | I2C7_SDA_M2 |  GPIO3_D3   |  <div className='green'>3</div>  |  <div className='red'>4</div>   |   +5.0V   |                                           |              |              |             |             |
 | 122         |              |             |              | I2C7_SCL_M2 |  GPIO3_D2   |  <div className='green'>5</div>  | <div className='black'>6</div>  |    GND    |                                           |              |              |             |             |
-| 135         | I2S1_SDI2_M0 |             | SPI2_CS0_M1  | I2C5_SDA_M2 |  GPIO4_A7   |  <div className='green'>7</div>  | <div className='green'>8</div>  | GPIO0_B5  | <div className='orange'>UART2_TX_M0</div> |              |              |             | 13          |
+| 135         | I2S1_SDI2_M0 |             |              | I2C5_SDA_M2 |  GPIO4_A7   |  <div className='green'>7</div>  | <div className='green'>8</div>  | GPIO0_B5  | <div className='orange'>UART2_TX_M0</div> |              |              |             | 13          |
 |             |              |             |              |             |     GND     |  <div className='black'>9</div>  | <div className='green'>10</div> | GPIO0_B6  | <div className='orange'>UART2_RX_M0</div> |              |              |             | 14          |
-| 134         | I2S1_SDI1_M0 | UART3_RX_M2 | SPI2_CLK_M1  | I2C5_SCL_M2 |  GPIO4_A6   | <div className='green'>11</div>  | <div className='green'>12</div> | GPIO0_C2  |                                           |              |              |             | 18          |
-| 133         | I2S1_SDI0_M0 | UART3_TX_M2 | SPI2_MOSI_M1 | I2C3_SDA_M2 |  GPIO4_A5   | <div className='green'>13</div>  | <div className='black'>14</div> |    GND    |                                           |              |              |             |             |
-| 132         |              |             | SPI2_MISO_M1 | I2C3_SCL_M2 |  GPIO4_A4   | <div className='green'>15</div>  | <div className='green'>16</div> | GPIO1_C4  |                                           | SPI4_CS1_M0  |              | PWM11_IR_M2 | 52          |
+| 134         | I2S1_SDI1_M0 | UART3_RX_M2 |              | I2C5_SCL_M2 |  GPIO4_A6   | <div className='green'>11</div>  | <div className='green'>12</div> | GPIO0_C2  |                                           |              |              |             | 18          |
+| 133         | I2S1_SDI0_M0 | UART3_TX_M2 |              | I2C3_SDA_M2 |  GPIO4_A5   | <div className='green'>13</div>  | <div className='black'>14</div> |    GND    |                                           |              |              |             |             |
+| 132         |              |             |              | I2C3_SCL_M2 |  GPIO4_A4   | <div className='green'>15</div>  | <div className='green'>16</div> | GPIO1_C4  |                                           | SPI4_CS1_M0  |              | PWM11_IR_M2 | 52          |
 |             |              |             |              |             |    +3.3V    | <div className='yellow'>17</div> | <div className='green'>18</div> | GPIO1_D5  |                                           | SPI1_CS1_M2  |              |             | 61          |
 | 129         | I2S1_SCLK_M0 |             | SPI0_MOSI_M1 |             |  GPIO4_A1   | <div className='green'>19</div>  | <div className='black'>20</div> |    GND    |                                           |              |              |             |             |
 | 128         | I2S1_MCLK_M0 |             | SPI0_MISO_M1 |             |  GPIO4_A0   | <div className='green'>21</div>  | <div className='green'>22</div> | GPIO1_B1  |                                           |              |              |             | 41          |
@@ -114,7 +114,7 @@ Radxa CM5 IO 提供了一个40pin针脚的GPIO座子，兼容于市面上大部�
 
 - 标有橙色的引脚用于 debug console。
 - PWM: x7, PWM6 / PWM7 / PWM10 / PWM11 / PWM13 / PWM14 / PWM15
-- SPI: x2, SPI0 / SPI2
+- SPI: x1, SPI0
 - I2C: x5, I2C3 / I2C5 / I2C6 / I2C7 / I2C8
 - UART: x2, UART2 / UART3
 - ADC: x1, SARADC_VIN4

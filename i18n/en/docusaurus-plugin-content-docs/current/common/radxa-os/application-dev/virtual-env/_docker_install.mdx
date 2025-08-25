@@ -1,0 +1,81 @@
+# Docker Installation
+
+The Radxa Debian system has Docker-related configurations enabled in the kernel. You only need to install the Docker application to start using it.
+
+:::tip
+Currently, users in China cannot access Docker Hub directly. You need to configure a Docker mirror source or use a proxy for access.
+:::
+
+## Features of Docker
+
+- **Easy Management**
+
+Lightweight containerization technology. Use Docker commands to manage containers and images, isolate dependencies, and simplify deployment processes.
+
+- **Cross-Platform**
+
+Supports Windows, macOS, and Linux systems, allowing containers to run and deploy on various platforms.
+
+- **Portability**
+
+Ensures consistent environments through Dockerfiles and images, making it easy to migrate and deploy quickly on different machines or cloud platforms.
+
+- **Efficient Resource Utilization**
+
+Based on containerization technology, Docker shares the host kernel, resulting in low resource usage and fast startup speeds, making it ideal for microservices architectures.
+
+## Install Docker
+
+Enter the following commands in the terminal to install Docker:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update
+sudo apt install docker.io
+```
+
+</NewCodeBlock>
+
+## Configure iptables
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+```
+
+</NewCodeBlock>
+
+Restart the system for the Docker configuration to take effect.
+
+## Verify Installation
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+docker --version
+```
+
+</NewCodeBlock>
+
+If the terminal outputs information similar to the following, the installation was successful:
+
+```
+Docker version 20.10.24+dfsg1, build 297e128
+```
+
+## Add Access Permissions
+
+Enter the following command in the terminal to grant the current system user access to the Docker daemon. This allows you to use Docker commands without needing `sudo`.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo usermod -aG docker $USER
+```
+
+</NewCodeBlock>
+
+Restart the system for the Docker configuration to take effect.

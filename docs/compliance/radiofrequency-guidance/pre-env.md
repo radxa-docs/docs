@@ -6,27 +6,58 @@ sidebar_position: 13
 
 进行 CE / FCC 认证的时候，会要求设备的无线信号工作在指定频率。本教程会指引你如何进行 Wi-Fi / 蓝牙相关的定频设置。
 
-## 安装配置工具
+## 安装工具与环境配置
 
-请在待验证设备上执行以下命令：
+请根据具体模块，在待验证设备上搭建环境：
+<Tabs groupId="module" queryString>
+<TabItem value="ap6256" label="AP6XXX 系列" default>
 
 ```bash
-# 禁用默认 brcmfmac 驱动程序
+## 禁用默认 brcmfmac 驱动程序
 echo "blacklist brcmfmac" >> /etc/modprobe.d/blacklist.conf
-# 下载 wl 工具
+
 sudo wget -O /usr/local/sbin/wl https://dl.radxa.com/fix_freq_docs/wl
 sudo chmod +x /usr/local/sbin/wl
-# 安装 armel 依赖
+## 安装 armel 依赖
 sudo dpkg --add-architecture armel
 sudo apt update
 sudo apt install libc6:armel
+```
 
-# 以下工具用于rtl8723ds 模块
-sudo wget -O /usr/local/sbin/rtwpriv https://dl.radxa.com/fix_freq_docs/rtwpriv
-sudo wget -O /usr/local/sbin/rtlbtmp https://dl.radxa.com/fix_freq_docs/rtlbtmp
+</TabItem>
+<TabItem value="rtl" label="RTLXXXX 系列" default>
+
+```bash
+# 安装工具
+sudo wget -O /usr/local/sbin/rtwpriv https://dl.radxa.com/fix_freq_docs/rtl8852be/rtwpriv
+sudo wget -O /usr/local/sbin/rtlbtmp https://dl.radxa.com/fix_freq_docs/rtl8852be/rtlbtmp
 sudo chmod +x /usr/local/sbin/rtwpriv
 sudo chmod +x /usr/local/sbin/rtlbtmp
+
+# rtl8852be 定频需要使用 vendor 驱动，如果使用 radxa 官方镜像
+# 推荐使用 Debian11 bullseye 版本，可直接切换 vendor 驱动，如下
+
+## 需要禁用 upstream 驱动
+echo "blacklist rtw_8852be" >> /etc/modprobe.d/dkms.conf
+sudo apt update -y && sudo apt install -y 8852be-dkms
+sudo reboot
+
+## 如何区别使用的是 upstream 还是 vendor 的驱动
+lsmod | grep 8852     # 以下情况是 vendor 驱动
+  8852be               4063232  0
+
+lsmod | grep 8852     # 以下情况是 upstream 驱动
+  rtw_8852be             16384  0
+  rtw_8852b             356352  1 rtw_8852be
+  rtw89pci               49152  1 rtw_8852be
+  rtw89core             421888  2 rtw89pci,rtw_8852b
+
+
 ```
+
+</TabItem>
+
+</Tabs>
 
 ## 替换专用固件
 
@@ -86,11 +117,43 @@ sudo systemctl stop rtl8723ds-btfw-load.service
 
 </TabItem>
 
+<TabItem value="rtl8852be" label="RTL8852BE">
+
+```bash
+sudo wget -O /lib/firmware/mp_rtl8852b_config   https://dl.radxa.com/fix_freq_docs/rtl8852be/mp_rtl8852b_config
+sudo wget -O /lib/firmware/mp_rtl8852b_fw       https://dl.radxa.com/fix_freq_docs/rtl8852be/mp_rtl8852b_fw
+
+sudo reboot
+```
+
+```
+# wifi 定频验证，返回值为 ok 即可
+sudo su
+rtwpriv wlan0 mp_start
+rtwpriv wlan0 1 0 a 11M 1 2000
+rtwpriv wlan0 mp_txpower dbm=19
+rtwpriv wlan0 stop
+
+# bt 验证, 返回Success 即可
+ip link set wlan0 up
+rtwpriv wlan0 mp_start
+rtwpriv wlan0 mp_btc_path bt
+rtwpriv wlan0 mp_ant_tx a
+
+rtlbtmp
+:::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::: Bluetooth MP Test Tool Starting 2024.05.9 ::::::::
+> enable usb:/dev/rtk_btusb
+
+```
+
+</TabItem>
+
 </Tabs>
 
 ## 继续完成测试
 
-请参考以下文档进行测试：
+AP6XXX 请参考以下文档进行测试：
 
 [Wi-Fi RF Test Commands for Linux-v05.pdf](https://dl.radxa.com/fix_freq_docs/Wi-Fi+RF+Test+Commands+for+Linux_BCM4339-v05.pdf)
 
@@ -101,6 +164,10 @@ RTL8723DS 请参考以下文档进行测试
 [Realtek_linuxFixed Frequency Instruction Guide.pdf](https://dl.radxa.com/fix_freq_docs/Realtek_linuxFixed-Frequency-Instruction-Guide.pdf)
 
 [MP tool user guide for linux20181108.pdf](https://dl.radxa.com/fix_freq_docs/MP-tool-user-guide-for-linux20181108.pdf)
+
+RTL8852BE 请参考以下文档进行测试
+
+[AW_XB547NF_RTL8852BE_Linux_RF_Test_Commands_User_Guide.pdf](https://dl.radxa.com/fix_freq_docs/AW_XB547NF_Linux_RF_Test_Commands_User_Guide_v02_20230315.pdf)
 
 ## 注意事项
 

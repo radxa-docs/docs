@@ -1,0 +1,249 @@
+Experience the basic concepts and functionalities of ROS1 quickly using the Turtlesim example.
+
+:::tip
+This tutorial is based on the ROS1 Noetic Docker image but is not limited to the Docker environment. It can be performed in any ROS1 environment.
+
+If you are using a Docker environment, it is recommended to first learn how to use Docker.
+:::
+
+## Start the Docker Script
+
+Use the following command to start the Docker script: `ros_noetic.sh` is a script created during the ROS1 environment setup.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+bash ros_noetic.sh
+```
+
+</NewCodeBlock>
+
+It is recommended to use multiple terminals to access the same Docker container for easier subsequent operations.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros1-turtlesim-01.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Start the Master Node
+
+ROS1 requires starting the Master node before launching the Turtlesim node.
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+```
+roscore
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros1-turtlesim-02.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Start Turtlesim
+
+Use the following command to start Turtlesim:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+rosrun turtlesim turtlesim_node
+```
+
+</NewCodeBlock>
+
+This command will create the `/turtlesim` node and display a window containing a turtle.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros1-turtlesim-03.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Control Turtlesim
+
+Use the following command to control the turtle's movement:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+rosrun turtlesim turtle_teleop_key
+```
+
+</NewCodeBlock>
+
+This command will create the `/teleop_turtle` node.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros1-turtlesim-04.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+:::tip
+Click and focus on the terminal window running this command. You can control the turtle's movement using the arrow keys on your keyboard.
+:::
+
+## ROS1 Basic Concepts
+
+Through the Turtlesim example, you can further understand and use the basic concepts and commands of ROS1.
+
+:::tip
+To stop a running ROS1 command, use the `Ctrl + C` keyboard shortcut.
+:::
+
+### ROS1 Nodes
+
+Nodes are the basic communication units in ROS1. They interact with other nodes through publishers and subscribers.
+
+:::tip
+**Key Components**:
+
+- **Publisher**: Interface for publishing messages to a topic.
+- **Subscriber**: Interface for receiving messages from a topic.
+  :::
+
+#### View Nodes
+
+Use the `rosnode list` command to view nodes. Currently, only the command to start Turtlesim is running.
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```bash
+rosnode list
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros1-turtlesim-05.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### ROS1 Topics
+
+Topics are the publish/subscribe communication mechanism in ROS1, enabling asynchronous data transfer between nodes.
+
+:::tip
+**Communication Roles**:
+
+- **Publisher**: Sends messages to a specific topic.
+- **Subscriber**: Subscribes to a topic to receive messages.
+  :::
+
+#### View Topics
+
+Use the `rostopic list` command to view topics:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+rostopic list
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros1-turtlesim-06.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Publish a Topic
+
+Use the `rostopic pub` command to publish a velocity control message to move the turtle:
+
+```
+rostopic pub -r 10 /turtle1/cmd_vel geometry_msgs/Twist "{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}"
+```
+
+This command will move the turtle at a linear velocity of 0.5 and an angular velocity of 0.5 at a frequency of 10 Hz.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros1-turtlesim-07.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Subscribe to a Topic
+
+Use the `rostopic echo` command to subscribe to a topic and view its messages:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+rostopic echo -n 1 /turtle1/pose
+```
+
+</NewCodeBlock>
+
+This command will print the turtle's position once in the terminal.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros1-turtlesim-08.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### ROS1 Services
+
+Services are the request/response communication mechanism in ROS1, used for synchronous calls between nodes (e.g., remote function calls).
+
+:::tip
+**Interaction Flow**:
+
+- **Client**: Sends a request.
+- **Server**: Processes the request and returns a response.
+  :::
+
+#### View Services
+
+Use the `rosservice list` command to view services:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+rosservice list
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros1-turtlesim-09.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Call a Service
+
+Use the `rosservice call` command to call a service and clear the screen:
+
+<NewCodeBlock tip="radxa@docker$" type="device">
+
+```
+rosservice call /clear
+```
+
+</NewCodeBlock>
+
+This command will clear the background in the Turtlesim window.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/ros1-turtlesim-10.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

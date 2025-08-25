@@ -20,7 +20,7 @@ sidebar_position: 2
 
 Debian OS:
 
-- System Image： [Debian b1](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b1/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b1.output.img.xz)
+- System Image： [Debian b2](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b2/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b2.output.img.xz)
 
 ## Hardware Design
 
@@ -35,6 +35,14 @@ Debian OS:
 - Bit Map
 
   [Radxa CM3J V1.2 Placement Map](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_components_placement_map_v1.2_20250110.pdf)
+
+- 3D File
+
+  [radxa_cm3j_pcba_3d_v1_2_20250115](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_pcba_3d_v1_2_20250115.stp)
+
+- 2D File
+
+  [radxa_cm3j_v1.2_2d_dxf](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_v1.2_2d_dxf.zip)
 
 - Core Board Connector PINOUT
 

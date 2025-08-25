@@ -1,0 +1,381 @@
+# Common Conda Commands
+
+This section introduces some commonly used Conda commands.
+
+## View Help
+
+Open the terminal and use the `conda --help` command to view the usage of all Conda commands.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda --help
+```
+
+</NewCodeBlock>
+
+The terminal will output information similar to the following:
+
+```
+usage: conda [-h] [-v] [--no-plugins] [-V] COMMAND ...
+
+conda is a tool for managing and deploying applications, environments and packages.
+
+options:
+-h, --help Show this help message and exit.
+-v, --verbose Can be used multiple times. Once for detailed output, twice for INFO logging, thrice for DEBUG logging, four times for TRACE
+logging.
+--no-plugins Disable all plugins that are not built into conda.
+-V, --version Show the conda version number and exit.
+
+commands:
+The following built-in and plugins subcommands are available.
+
+COMMAND
+activate Activate a conda environment.
+build Build conda packages from a conda recipe.
+clean Remove unused packages and caches.
+commands List all available conda subcommands (including those from plugins). Generally only used by tab-completion.
+compare Compare packages between conda environments.
+config Modify configuration values in .condarc.
+content-trust Signing and verification tools for Conda
+convert Convert pure Python packages to other platforms (a.k.a., subdirs).
+create Create a new conda environment from a list of specified packages.
+deactivate Deactivate the current active conda environment.
+debug Debug the build or test phases of conda recipes.
+develop Install a Python package in 'development mode'. Similar to `pip install --editable`.
+doctor Display a health report for your environment.
+env Create and manage conda environments.
+export Export a given environment
+index Update package index metadata files.
+info Display information about current conda install.
+init Initialize conda for shell interaction.
+inspect Tools for inspecting conda packages.
+install Install a list of packages into a specified conda environment.
+list List installed packages in a conda environment.
+metapackage Specialty tool for generating conda metapackage.
+notices Retrieve latest channel notifications.
+pack See `conda pack --help`.
+package Create low-level conda packages. (EXPERIMENTAL)
+remove (uninstall) Remove a list of packages from a specified conda environment.
+rename Rename an existing environment.
+render Expand a conda recipe into a platform-specific recipe.
+repo See `conda repo --help`.
+repoquery Advanced search for repodata.
+run Run an executable in a conda environment.
+search Search for packages and display associated information using the MatchSpec format.
+server See `conda server --help`.
+skeleton Generate boilerplate conda recipes.
+token See `conda token --help`.
+tos A subcommand for viewing, accepting, rejecting, and otherwise interacting with a channel's Terms of Service (ToS). This plugin
+periodically checks for updated Terms of Service for the active/selected channels. Channels with a Terms of Service will need to
+be accepted or rejected prior to use. Conda will only allow package installation from channels without a Terms of Service or with
+an accepted Terms of Service. Attempting to use a channel with a rejected Terms of Service will result in an error.
+update (upgrade) Update conda packages to the latest compatible version.
+```
+
+## View Version Information
+
+Open the terminal and use the `conda --version` command to check the Conda version.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda --version
+```
+
+</NewCodeBlock>
+
+The terminal will output information similar to the following:
+
+```
+conda 24.9.2
+```
+
+## View Current Environment
+
+Open the terminal and use the `conda info` command to view the current environment information.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda info
+```
+
+</NewCodeBlock>
+
+The terminal will output information similar to the following:
+
+```
+     active environment : base
+    active env location : /home/radxa/anaconda3
+            shell level : 1
+       user config file : /home/radxa/.condarc
+
+populated config files : /home/radxa/anaconda3/.condarc
+/home/radxa/.condarc
+conda version : 25.5.1
+conda-build version : 25.5.0
+python version : 3.13.5.final.0
+solver : libmamba (default)
+virtual packages : **archspec=1=aarch64
+**conda=25.5.1=0
+**glibc=2.36=0
+**linux=5.15.147=0
+\_\_unix=0=0
+base environment : /home/radxa/anaconda3 (writable)
+conda av data dir : /home/radxa/anaconda3/etc/conda
+conda av metadata url : None
+channel URLs : https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-aarch64
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/noarch
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/linux-aarch64
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/noarch
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2/linux-aarch64
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2/noarch
+package cache : /home/radxa/anaconda3/pkgs
+/home/radxa/.conda/pkgs
+envs directories : /home/radxa/anaconda3/envs
+/home/radxa/.conda/envs
+platform : linux-aarch64
+user-agent : conda/25.5.1 requests/2.32.3 CPython/3.13.5 Linux/5.15.147 debian/11.11 glibc/2.36 solver/libmamba conda-libmamba-solver/25.4.0 libmambapy/2.0.5 aau/0.7.1 c/. s/. e/.
+UID:GID : 1001:1001
+netrc file : None
+offline mode : False
+```
+
+## View All Environments
+
+Open the terminal and use the `conda env list` command to view all environments.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda env list
+```
+
+</NewCodeBlock>
+
+The terminal will output information similar to the following, indicating that only the base environment exists:
+
+```
+# conda environments:
+
+#
+
+base * /home/radxa/anaconda3
+```
+
+## Create Environment
+
+### Create a New Environment
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda create --name <env_name>
+
+# Example: Create an environment named my_env
+
+conda create --name my_env
+```
+
+</NewCodeBlock>
+
+Create the environment, the terminal will output information similar to the following, asking for confirmation to proceed.
+
+```
+Channels:
+
+- defaults
+  Platform: linux-aarch64
+  Collecting package metadata (repodata.json): done
+  Solving environment: done
+
+## Package Plan
+
+environment location: /home/radxa/anaconda3/envs/my_env
+
+Proceed ([y]/n)? y
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+
+#
+
+# To activate this environment, use
+
+#
+
+# $ conda activate my_env
+
+#
+
+# To deactivate an active environment, use
+
+#
+
+# $ conda deactivate
+```
+
+### Create an Environment with a Specific Python Version
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda create --name <env_name> python=<python_version>
+
+# Example: Create a Python 3.9 environment named my_env_py39
+
+conda create --name my_env_py39 python=3.9
+```
+
+</NewCodeBlock>
+
+Create the environment, the terminal will output information similar to the following, asking for confirmation to proceed.
+
+```
+Channels:
+
+- defaults
+  Platform: linux-aarch64
+  Collecting package metadata (repodata.json): done
+  Solving environment: done
+
+## Package Plan
+
+environment location: /home/radxa/anaconda3/envs/my_env_py39
+
+added / updated specs: - python=3.9
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _libgcc_mutex-0.1          |             main           2 KB  defaults
+    _openmp_mutex-5.1          |           51_gnu         1.4 MB  defaults
+    bzip2-1.0.8                |       h998d150_6         210 KB  defaults
+    ca-certificates-2025.2.25  |       hd43f75c_0         129 KB  defaults
+    expat-2.7.1                |       h419075a_0         161 KB  defaults
+    libffi-3.4.4               |       h419075a_1         140 KB  defaults
+    libgcc-ng-11.2.0           |       h1234567_1         1.3 MB  defaults
+    libgomp-11.2.0             |       h1234567_1         466 KB  defaults
+    libstdcxx-ng-11.2.0        |       h1234567_1         779 KB  defaults
+    libxcb-1.17.0              |       hf66535e_0         433 KB  defaults
+    ncurses-6.4                |       h419075a_0         1.1 MB  defaults
+    openssl-3.0.16             |       h998d150_0         5.2 MB  defaults
+    pip-25.1                   |     pyhc872135_2         1.3 MB  defaults
+    pthread-stubs-0.3          |       hfd63f10_1           7 KB  defaults
+    python-3.9.23              |       h89e7a61_0        24.2 MB  defaults
+    readline-8.2               |       h998d150_0         381 KB  defaults
+    setuptools-78.1.1          |   py39hd43f75c_0         1.6 MB  defaults
+    sqlite-3.45.3              |       h998d150_0         1.5 MB  defaults
+    tk-8.6.14                  |       hb5ae6a8_1         3.5 MB  defaults
+    tzdata-2025b               |       h04d1e81_0         116 KB  defaults
+    wheel-0.45.1               |   py39hd43f75c_0         114 KB  defaults
+    xorg-libx11-1.8.12         |       hf66535e_1         928 KB  defaults
+    xorg-libxau-1.0.12         |       hf66535e_0          14 KB  defaults
+    xorg-libxdmcp-1.1.5        |       hf66535e_0          19 KB  defaults
+    xorg-xorgproto-2024.1      |       h998d150_1         582 KB  defaults
+    xz-5.6.4                   |       h998d150_1         573 KB  defaults
+    zlib-1.2.13                |       h998d150_1         113 KB  defaults
+    ------------------------------------------------------------
+                                           Total:        47.1 MB
+
+The following NEW packages will be INSTALLED:
+
+\_libgcc_mutex anaconda/pkgs/main/linux-aarch64::\_libgcc_mutex-0.1-main
+\_openmp_mutex anaconda/pkgs/main/linux-aarch64::\_openmp_mutex-5.1-51_gnu
+bzip2 anaconda/pkgs/main/linux-aarch64::bzip2-1.0.8-h998d150_6
+ca-certificates anaconda/pkgs/main/linux-aarch64::ca-certificates-2025.2.25-hd43f75c_0
+expat anaconda/pkgs/main/linux-aarch64::expat-2.7.1-h419075a_0
+libgcc-ng anaconda/pkgs/main/linux-aarch64::libgcc-ng-11.2.0-h1234567_1
+libgomp anaconda/pkgs/main/linux-aarch64::libgomp-11.2.0-h1234567_1
+libstdcxx-ng anaconda/pkgs/main/linux-aarch64::libstdcxx-ng-11.2.0-h1234567_1
+libxcb anaconda/pkgs/main/linux-aarch64::libxcb-1.17.0-hf66535e_0
+ncurses anaconda/pkgs/main/linux-aarch64::ncurses-6.4-h419075a_0
+openssl anaconda/pkgs/main/linux-aarch64::openssl-3.0.16-h998d150_0
+pip anaconda/pkgs/main/noarch::pip-25.1-pyhc872135_2
+pthread-stubs anaconda/pkgs/main/linux-aarch64::pthread-stubs-0.3-hfd63f10_1
+python anaconda/pkgs/main/linux-aarch64::python-3.9.23-h89e7a61_0
+readline anaconda/pkgs/main/linux-aarch64::readline-8.2-h998d150_0
+setuptools anaconda/pkgs/main/linux-aarch64::setuptools-78.1.1-py39hd43f75c_0
+sqlite anaconda/pkgs/main/linux-aarch64::sqlite-3.45.3-h998d150_0
+tk anaconda/pkgs/main/linux-aarch64::tk-8.6.14-hb5ae6a8_1
+tzdata anaconda/pkgs/main/noarch::tzdata-2025b-h04d1e81_0
+wheel anaconda/pkgs/main/linux-aarch64::wheel-0.45.1-py39hd43f75c_0
+xorg-libx11 anaconda/pkgs/main/linux-aarch64::xorg-libx11-1.8.12-hf66535e_1
+xorg-libxau anaconda/pkgs/main/linux-aarch64::xorg-libxau-1.0.12-hf66535e_0
+xorg-libxdmcp anaconda/pkgs/main/linux-aarch64::xorg-libxdmcp-1.1.5-hf66535e_0
+xorg-xorgproto anaconda/pkgs/main/linux-aarch64::xorg-xorgproto-2024.1-h998d150_1
+xz anaconda/pkgs/main/linux-aarch64::xz-5.6.4-h998d150_1
+zlib anaconda/pkgs/main/linux-aarch64::zlib-1.2.13-h998d150_1
+
+Proceed ([y]/n)? y
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+
+#
+
+# To activate this environment, use
+
+#
+
+# $ conda activate my_env_py39
+
+#
+
+# To deactivate an active environment, use
+
+#
+
+# $ conda deactivate
+```
+
+## Activate Environment
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda activate <env_name>
+
+# Example: Activate the my_env_py39 environment
+
+conda activate my_env_py39
+```
+
+</NewCodeBlock>
+
+After activating the environment, the terminal prompt will change to indicate the current conda environment.
+
+## Deactivate Environment
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda deactivate
+```
+
+</NewCodeBlock>
+
+## Delete Environment
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+conda remove --name <env_name> --all
+
+# Example: Delete the my_env_py39 environment
+
+conda remove --name my_env_py39 --all
+```
+
+</NewCodeBlock>
+
+After deleting the environment, the terminal will output information similar to the following, asking for confirmation to proceed with the deletion.

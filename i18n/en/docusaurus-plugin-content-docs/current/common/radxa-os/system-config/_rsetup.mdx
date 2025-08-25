@@ -1,0 +1,392 @@
+Rsetup is a system configuration tool for Radxa OS that helps users easily configure various system settings, including system preferences, hardware settings, software settings, network configuration, user management, language settings, and more.
+
+## About Rsetup
+
+To start the Rsetup tool, run the `rsetup` command in the terminal.
+
+:::tip User Guide
+
+- Select an option: The corresponding option will be highlighted
+- Confirm selection: Press `Enter`
+- Cancel selection: Press `ESC`
+- Navigate between options: Use `Up`, `Down`, `Left`, `Right` arrow keys
+- Multiple selection interface: Press `Space` to select, `Enter` to confirm; A `*` will appear next to the selected option to indicate it's enabled
+  :::
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+## Rsetup Interface
+
+After launching the Rsetup tool, you'll see a list of available options. Note that the interface and available options may vary depending on your version.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Rsetup Options
+
+### System
+
+The System option is primarily used for system updates, default boot targets, bootloader management, and more.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### System Update
+
+The `System Update` option is used to update the system, which is safer than using the `apt update && apt upgrade` command.
+
+Note: Using `apt update && apt upgrade` directly may result in incomplete updates or system instability.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-update.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change default Boot target
+
+The `Change default Boot target` option allows you to modify the boot method, choosing between graphical or command-line interface.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-default-boot.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Bootloader Management
+
+The `Bootloader Management` option is used to manage the bootloader, including updating and erasing the bootloader.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-boot-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Hardware
+
+The Hardware option is primarily used to manage onboard hardware, including video capture devices, LED control, GPIO control, and more.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-hardware.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Video capture devices
+
+The `Video capture devices` option is used to manage video capture devices and test if cameras are functioning properly.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-hardware-video.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### GPIO LEDs
+
+The `GPIO LEDs` option is used to manage the triggering methods of onboard LEDs, allowing you to modify the blinking patterns of indicator lights.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-hardware-gpio-led.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### RGB LEDs
+
+The `RGB LEDs` option is used to manage the triggering methods of onboard RGB LEDs, allowing you to modify both the colors and blinking patterns of the indicator lights.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-hardware-rgb-led.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Thermal governor
+
+The `Thermal governor` option is used to manage the cooling strategy for external heat sinks, such as controlling the speed of external cooling fans connected to the fan interface.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-hardware-thermal.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Configure DSI display mirroring
+
+The `Configure DSI display mirroring` option is used to set up DSI display mirroring, allowing you to modify the display mirroring mode.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-hardware-dsi.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 40-pin GPIO
+
+The `40-pin GPIO` option is used to manage the status of the 40-pin GPIO, allowing you to modify or read the high/low level states of the GPIO pins.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-hardware-gpio.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### USB OTG services
+
+The `USB OTG services` option is used to manage USB On-The-Go services, allowing you to modify the configuration of OTG services.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-hardware-otg.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Overlays
+
+The Overlays option is primarily used to manage Device Tree Overlays.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-overlays.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Manage overlays
+
+The `Manage overlays` option allows you to enable or disable specific hardware features.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-overlays-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### View overlays info
+
+The `View overlays info` option allows you to view detailed information about Device Tree Overlays.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-overlays-info.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Install 3rd party overlays
+
+The `Install 3rd party overlays` option allows you to install third-party Device Tree Overlays.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-overlays-3rd.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Rebuild overlays
+
+The `Rebuild overlays` option allows you to rebuild Device Tree Overlays.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-overlays-rebuild.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Connectivity
+
+The Connectivity option is primarily used to manage network connections, including both wired and wireless network settings.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-connectivity.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Edit a connection
+
+The `Edit a connection` option allows you to modify network connection configurations.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-connectivity-edit-connection.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Activate a connection
+
+The `Activate a connection` option allows you to activate a network connection.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-connectivity-activate-connection.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Set system hostname
+
+The `Set system hostname` option allows you to change the system's hostname.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-connectivity-system-hostname.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### User Settings
+
+The User Settings option is used to manage the current username, password, and configure automatic login settings.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-user.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change Password
+
+The `Change Password` option allows you to modify the password for the current user.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-user-password.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change Hostname
+
+The `Change Hostname` option allows you to modify the system's hostname.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-user-hostname.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Configure auto login
+
+The `Configure auto login` option allows you to set up automatic login for the system.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-user-autologin.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Localization
+
+The Localization option is primarily used to configure the system's region and language settings.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-localization.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change Timezone
+
+The `Change Timezone` option allows you to modify the system's timezone settings.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-localization-timezone.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change Locale
+
+The `Change Locale` option allows you to modify the system's regional settings.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-localization-locale.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change Wi-Fi Country
+
+The `Change Wi-Fi Country` option allows you to modify the WiFi country code for regulatory compliance.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-localization-wifi.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Common Tasks
+
+The Common Tasks option is used to perform common system tasks, such as installing the Baota panel and other utilities.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-common.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-common-task.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### About
+
+The About option displays information about the Rsetup tool and its version.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-about.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-about-info.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

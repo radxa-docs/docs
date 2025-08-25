@@ -1,0 +1,193 @@
+主要介绍 CLI（命令行）和 Python API 两种方式调用 Ollama。
+
+:::tip
+参考资料：
+
+- [Ollama 官方网站](https://ollama.com/)
+- [Ollama GitHub](https://github.com/ollama/ollama)
+  :::
+
+## Ollama 命令
+
+Ollama 提供了丰富的命令行工具，可以方便的进行模型的拉取、运行、删除等操作。
+
+我们可以使用 `ollama -h` 命令来查看 Ollama 的帮助信息。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+ollama -h
+```
+
+</NewCodeBlock>
+
+输出信息如下：
+
+```
+Large language model runner
+
+Usage:
+ollama [flags]
+ollama [command]
+
+Available Commands:
+serve Start ollama
+create Create a model from a Modelfile
+show Show information for a model
+run Run a model
+stop Stop a running model
+pull Pull a model from a registry
+push Push a model to a registry
+list List models
+ps List running models
+cp Copy a model
+rm Remove a model
+help Help about any command
+
+Flags:
+-h, --help help for ollama
+-v, --version Show version information
+
+Use "ollama [command] --help" for more information about a command.
+```
+
+## CLI 使用
+
+CLI 是 Command-Line Interface（命令行界面） 的缩写，指的是通过终端或命令行输入命令来与程序交互的方式。
+
+### 拉取模型
+
+:::note
+
+Ollama 模型的参数和设备的内存有关，我们拉取模型的参数需要根据设备的内存大小来选择。
+
+根据 Ollama 的官方文档提示 `You should have at least 8 GB of RAM available to run the 7B models, 16 GB to run the 13B models, and 32 GB to run the 33B models.`，我们可以预估自己设备应该选择对应的模型参数。
+
+对于设备内存不大的用户，我们可以选择模型参数较小的模型，例如 `deepseek-r1:1.5b`。
+:::
+
+使用 `ollama pull` 命令来拉取模型：更多模型可以访问 [Ollama Library](https://ollama.com/library) 获取对应命令。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+ollama pull deepseek-r1:1.5b
+```
+
+</NewCodeBlock>
+
+整个拉取过程会在终端显示进度，拉取完成后，终端会输出类似下面信息：
+
+```
+pulling manifest
+pulling aabd4debf0c8: 100% ▕███████████████████████████████████████████████████▏ 1.1 GB
+pulling c5ad996bda6e: 100% ▕███████████████████████████████████████████████████▏ 556 B
+pulling 6e4c38e1172f: 100% ▕███████████████████████████████████████████████████▏ 1.1 KB
+pulling f4d24e9138dd: 100% ▕███████████████████████████████████████████████████▏ 148 B
+pulling a85fe2a2e58e: 100% ▕███████████████████████████████████████████████████▏ 487 B
+verifying sha256 digest
+writing manifest
+success
+```
+
+### 运行模型
+
+使用 `ollama run` 命令来运行模型，若本地没有该模型，Ollama 会自动从远程仓库拉取模型。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+ollama run deepseek-r1:1.5b
+```
+
+</NewCodeBlock>
+
+成功运行后，终端会出现一个交互模式的界面。
+
+我们可以直接提问 `Please introduce yourself`，模型会自动回复。
+
+```
+> > > Please introduce yourself
+> > > Hello! I'm DeepSeek-R1, an artificial intelligence assistant created by DeepSeek. I'm at your service and
+> > > would be delighted to assist you with any inquiries or tasks you may have.
+
+> > > Send a message (/? for help)
+```
+
+:::tip
+输入 `/bye` 或者 `Ctrl + D` 可以退出交互模式。
+:::
+
+## Python 使用
+
+Ollama 提供简单易用的 Python 库，可以方便的进行模型的拉取、运行、删除等操作。
+
+:::tip
+使用 Ollama Python 库需要 Python 3.8 及以上版本。
+
+我们推荐在 Conda 环境下安装和使用 ollama Python 库。
+:::
+
+我们可以使用 `pip` 命令来安装 Ollama Python 库。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+pip3 install ollama
+```
+
+</NewCodeBlock>
+
+### 普通响应
+
+普通响应是同步的，模型会返回一个完整的响应(一次性输出回复)。
+
+您可以使用 Jupyter Lab 的单元块来运行 Python 代码或者直接复制 Python 代码到 Python 文件中运行。
+
+其中 Python 代码中的 `model` 参数需要确保本地已经拉取了对应的模型。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+from ollama import chat
+from ollama import ChatResponse
+
+response: ChatResponse = chat(model='deepseek-r1:1.5b', messages=[
+{
+'role': 'user',
+'content': 'Please introduce yourself',
+},
+])
+print(response['message']['content'])
+
+# or access fields directly from the response object
+
+print(response.message.content)
+```
+
+</NewCodeBlock>
+
+### 流式响应
+
+流式响应是异步的，模型会返回一个流式的响应(边生成边输出回复)。
+
+您可以使用 Jupyter Lab 的单元块来运行 Python 代码或者直接复制 Python 代码到 Python 文件中运行。
+
+其中 Python 代码中的 `model` 参数需要确保本地已经拉取了对应的模型。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+from ollama import chat
+
+stream = chat(
+    model='deepseek-r1:1.5b',
+    messages=[{'role': 'user', 'content': 'Please introduce yourself'}],
+    stream=True,
+)
+
+for chunk in stream:
+    print(chunk['message']['content'], end='', flush=True)
+```
+
+</NewCodeBlock>

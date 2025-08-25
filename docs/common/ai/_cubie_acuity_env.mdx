@@ -1,0 +1,105 @@
+ACUITY Toolkit 是一个端到端的模型转换，模型量化，模型编译的集成离线开发工具，ACUITY 支持多种 AI 框架的模型转换，并能直接生成模型运行的代码。
+![SDK](/img/e/e54c/rs400_npu_2.webp)
+
+ACUITY Toolkit 以 Docker Image 的形式安装，在安装 ACUITY 前请用户在 X86 PC 上自行安装 Docker。
+
+## 安装 Docker
+
+请根据不同平台在用户 X86 PC 上安装 Docker, 更多 Docker 安装请参考 [dockerdocs](https://docs.docker.com/engine/install/)
+
+这里以 Ubuntu 为例子安装 Docker。
+
+### 卸载旧版本 Docker
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+
+</NewCodeBlock>
+
+### 配置 docker apt 仓库
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+</NewCodeBlock>
+
+### 安装 docker
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+</NewCodeBlock>
+
+## 安装 ACUITY
+
+### 获取 ACUITY 下载包
+
+在 [全志网盘](https://netstorage.allwinnertech.com:5001/sharing/Mh23BhPHq) 下载 ACUITY docker 压缩包并解压
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+unzip docker_images_v2.0.x.zip
+```
+
+</NewCodeBlock>
+
+### 载入镜像
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd docker_images_v2.0.x
+unzip ubuntu-npu_v2.0.10.tar.zip
+sudo docker load -i ubuntu-npu_v2.0.10.tar
+```
+
+</NewCodeBlock>
+
+当 docker 镜像载入完成后可以在 `docker images` 中看到此镜像， 名字为 `ubuntu‑npu:v2.0.10`
+
+### 创建 docker 容器
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+mkdir docker_data && cd docker_data
+sudo docker run ‑‑ipc=host ‑itd ‑v ${PWD}:/workspace ‑‑name allwinner_v2.0.10 ubuntu‑npu:v2.0.10 /bin/bash
+```
+
+</NewCodeBlock>
+
+当 docker 容器创建完成后可以在 `docker ps -a` 中看到此容器， 名字为 `allwinner_v2.0.10`
+
+### 进入 docker 容器
+
+请使用 `docker ps -a` 查看 `allwinner_v2.0.1` 容器 ID
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+sudo docker exec ‑it 容器ID /bin/bash
+```
+
+</NewCodeBlock>

@@ -1,0 +1,224 @@
+import { PreView } from "@site/src/utils/docs";
+
+#### MCP2515
+
+- 准备
+
+- 一块 {props.product_name}
+- 一个 MCP2515 模块
+
+- 连接
+
+<table>
+    <tr>
+        <th>{props.product_name}</th>
+        <th>\<--\></th>
+        <th>MCP2515</th>
+    </tr>
+    <tr>
+        <td>{props.spi_sck}</td>
+        <th>\<--\></th>
+        <td>SPI SCK</td>
+    </tr>
+    <tr>
+        <td>{props.spi_cs}</td>
+        <th>\<--\></th>
+        <td>SPI CS</td>
+    </tr>
+    <tr>
+        <td>{props.spi_tx}</td>
+        <th>\<--\></th>
+        <td>SPI TX</td>
+    </tr>
+    <tr>
+        <td>{props.spi_rx}</td>
+        <th>\<--\></th>
+        <td>SPI RX</td>
+    </tr>
+    <tr>
+        <td>PIN_1</td>
+        <th>\<--\></th>
+        <td>VCC</td>
+    </tr>
+    <tr>
+        <td>PIN_9</td>
+        <th>\<--\></th>
+        <td>GND</td>
+    </tr>
+</table>
+
+:::tip
+
+以下程序仅用于回环测试，所以需要短接 MCP2515 的 PIN_H 和 PIN_L
+
+:::
+
+- 下载 MCP2515 的库
+
+```bash
+
+cd pico-examples
+
+git clone https://github.com/adamczykpiotr/pico-mcp2515.git
+
+```
+
+- 将 pico-mcp2515 添加到 pico-examples 的编译
+
+编辑 pico-examples/CMakeLists.txt
+
+```bash
+
+... ...
+add_subdirectory(pico_w)
+add_subdirectory(pico-mcp2515)
+add_subdirectory(pio)
+... ...
+
+```
+
+- 打开串口
+
+编辑 pico-examples/pico-mcp2515/CMakeLists.txt
+
+```txt
+pico_enable_stdio_uart(pico-mcp2515 1)
+pico_enable_stdio_usb(pico-mcp2515 1)
+```
+
+- 修改 pico-mcp2515/include/mcp2515/mcp2515.h
+
+根据我们上面的连接修改 SPI 的引脚
+
+比如：
+
+```txt
+
+    public:
+        MCP2515(
+            spi_inst_t* CHANNEL = spi0,
+            uint8_t CS_PIN = 5,
+            uint8_t TX_PIN = 3,
+            uint8_t RX_PIN = 4,
+            uint8_t SCK_PIN = 6,
+            uint32_t _SPI_CLOCK = DEFAULT_SPI_CLOCK
+        );
+
+```
+
+- 将以下代码替换 pico-examples/pico-mcp2515/src/pico-mcp2515.cpp
+
+<details>
+
+<summary>pico-mcp2515.cpp</summary>
+
+```cpp
+
+#include <stdio.h>
+#include <string.h>
+#include "pico/stdlib.h"
+#include "mcp2515/mcp2515.h"
+#include "hardware/uart.h"
+
+int main() {
+    MCP2515 can0;
+    struct can_frame rx;
+    struct can_frame tx;
+
+    tx.can_id = 0x123;
+    tx.can_dlc = 8;
+    tx.data[0] = 0x11;
+    tx.data[1] = 0x22;
+    tx.data[2] = 0x33;
+    tx.data[3] = 0x44;
+    tx.data[4] = 0x55;
+    tx.data[5] = 0x66;
+    tx.data[6] = 0x77;
+    tx.data[7] = 0x88;
+
+    stdio_init_all();
+
+    //Initialize interface
+    can0.reset();
+    can0.setBitrate(CAN_1000KBPS, MCP_16MHZ);
+    can0.setLoopbackMode();
+
+    // loopback
+    while(true) {
+        MCP2515::ERROR result = can0.sendMessage(&tx);
+        if(result == MCP2515::ERROR_OK) {
+            printf("CAN TX: sent successfully ...\r\n");
+        }
+        sleep_ms(1000);
+
+        if(can0.readMessage(&rx) == MCP2515::ERROR_OK) {
+            for(int i = 0; i < 8; i++) {
+                printf("CAN RX: data[%d]: 0x%x\r\n", i, rx.data[i]);
+            }
+        }
+        sleep_ms(1000);
+    }
+
+    return 0;
+}
+
+```
+
+</details>
+
+- 编译
+
+  <div>
+    {props.platform === "Linux" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build
+          <br />
+          rm -rf *<br />
+          cmake ..
+          <br />
+          make -j$(nproc)
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+    {props.platform === "Windows" ? (
+      <div>
+        <PreView>
+          cd pico-examples/build/
+          <br />
+          rm -rf *<br />
+          cmake -G "Ninja" ..
+          <br />
+          ninja
+          <br />
+        </PreView>{" "}
+      </div>
+    ) : null}
+  </div>
+
+编译成功后， 在 pico-examples/build/pico-mcp2515/ 目录下会产生一个名为 pico-mcp2515.uf2 的文件
+
+- 烧录
+
+  - <a href={props.flash_url}>重启 RP2040</a>
+
+  - 将 pico-mcp2515.uf2 文件拖入到 RP2040 中，待 RP2040 消失
+
+- 验证
+
+打开串口 /dev/ttyS4, 我们能看到如下打印：
+
+```txt
+
+CAN TX: sent successfully ...
+CAB RX: data[0]: 0x11
+CAB RX: data[1]: 0x22;
+CAB RX: data[2]: 0x33;
+CAB RX: data[3]: 0x44;
+CAB RX: data[4]: 0x55;
+CAB RX: data[5]: 0x66;
+CAB RX: data[6]: 0x77;
+CAB RX: data[7]: 0x88;
+
+```

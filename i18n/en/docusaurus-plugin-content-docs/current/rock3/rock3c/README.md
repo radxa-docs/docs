@@ -40,7 +40,7 @@ ROCK 3C is an SBC developed based on RK3566 SoC. Equipped with a quad-core Corte
     </tr>
     <tr>
         <td align="center">CPU</td>
-        <td colspan="2" align="center">Quad-core Cortex-A55, up to 1。6GHz</td>
+        <td colspan="2" align="center">Quad-core Cortex-A55, up to 1.6GHz</td>
     </tr>
     <tr>
         <td align="center">GPU</td>

@@ -15,11 +15,17 @@ Using RKNN to deploy YOLOv8 involves two steps:
 
 - If using Conda, activate the RKNN environment first:
 
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
   ```bash
   conda activate rknn
   ```
 
+  </NewCodeBlock>
+
 - Download the YOLOv8 ONNX model:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov8/model
@@ -27,14 +33,20 @@ Using RKNN to deploy YOLOv8 involves two steps:
   bash download_model.sh
   ```
 
+  </NewCodeBlock>
+
   If you encounter network issues, you can download the corresponding model manually from [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) and place it in the appropriate folder.
 
 - Convert the ONNX model to the RKNN format using **rknn-toolkit2**:
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov8/python
   python3 convert.py ../model/yolov8n.onnx rk3588
   ```
+
+  </NewCodeBlock>
 
   **Parameter Explanation**:
 
@@ -49,9 +61,13 @@ Using RKNN to deploy YOLOv8 involves two steps:
 
 - Download the `rknn-model-zoo-rk3588` package to obtain the YOLOv8 demo (includes the pre-converted `yolov8.rknn` model):
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   sudo apt install rknn-model-zoo-rk3588
   ```
+
+  </NewCodeBlock>
 
   If using a CLI version, you can download the package manually from the [deb package download page](https://github.com/radxa-pkg/rknn_model_zoo/releases/tag/1.6.0-1).
 
@@ -59,12 +75,18 @@ Using RKNN to deploy YOLOv8 involves two steps:
 
   If using a model converted on the PC, copy it to the board and specify the model path using the `--model_path` parameter:
 
+  <NewCodeBlock tip="Radxa OS" type="device">
+
   ```bash
   cd /usr/share/rknn_model_zoo/examples/yolov8/python
   sudo python3 yolov8.py --model_path ../model/yolov8.rknn --img_save
   ```
 
+  </NewCodeBlock>
+
   Example output:
+
+  <NewCodeBlock tip="Results" type="device">
 
   ```bash
   $ sudo python3 yolov8.py --model_path ../model/yolov8.rknn --img_save
@@ -88,6 +110,8 @@ Using RKNN to deploy YOLOv8 involves two steps:
   Detection result saved to ./result/bus.jpg
   ```
 
+  </NewCodeBlock>
+
   **Parameter Explanation**:
 
   - `--model_path`: Specifies the RKNN model path.
@@ -96,4 +120,4 @@ Using RKNN to deploy YOLOv8 involves two steps:
 
 - All inference results are saved in the `./result` folder.
 
-<img width="550" src="../../../img/general-tutorial/rknn/result.webp" />
+<img width="550" src="/en/img/general-tutorial/rknn/result.webp" />

@@ -7,11 +7,17 @@ title: Resource Download
 
 ## OS image
 
+### Official Operating System Image
+
 - [Radxa ZERO 2 PRO Debian Build 32](https://github.com/radxa-build/radxa-zero-2pro/releases/download/b32/radxa-zero-2pro_debian_bookworm_kde_b32.img.xz)
 
 :::caution
 Except for the above images which have been fully tested officially, the other images have not been rigorously tested and may have unknown issues and are for evaluation use only.
 :::
+
+### Third-Party Operating System images
+
+- [Radxa ZERO 2 PRO Armbian](https://www.armbian.com/radxa-zero2/)
 
 ## Tools
 
@@ -24,3 +30,8 @@ Except for the above images which have been fully tested officially, the other i
 - [u-boot.bin.sd.bin](https://dl.radxa.com/zero2pro/images/loader/u-boot.bin.sd.bin)：Mainline U-Boot bootloader for eMMC/microSD booting.
 
 ## Hardware Design
+
+- [Radxa ZERO 2 Pro Schematic V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_pro_v1.2_schematic.pdf)
+- [Radxa ZERO 2 Pro SMD V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_pro_v1.2_components_placement_map.pdf)
+- [Radxa ZERO 2 Pro 2D Drawings V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_pro_v1.2_2d_dxf.zip)
+- [Radxa ZERO 2 Pro PCBA 3D V1.2](https://dl.radxa.com/zero2pro/docs/hw/v1.2/radxa_zero_2_v1_2_pcba_3d.zip)
