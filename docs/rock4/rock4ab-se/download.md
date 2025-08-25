@@ -10,49 +10,33 @@ sidebar_position: 2
 
 #### Linux
 
-- (Radxa ROCK 4A Debian 11 Desktop Linux 5.10)[https://github.com/radxa-build/rock-pi-4a/releases/download/test-build-1/rock-pi-4a_debian_bullseye-test_kde_t1.img.xz]
+- [Radxa ROCK 4A Debian 11 Desktop Linux 5.10](https://github.com/radxa-build/rock-pi-4a/releases/download/test-build-1/rock-pi-4a_debian_bullseye-test_kde_t1.img.xz)
 
-- (Radxa ROCK 4A+ Debian 11 Desktop Linux 5.10)[https://github.com/radxa-build/rock-pi-4a-plus/releases/download/20230601-0150/rock-pi-4a-plus_debian_bullseye_kde_b14.img.xz]
+- [Radxa ROCK 4A+ Debian 11 Desktop Linux 5.10](https://github.com/radxa-build/rock-pi-4a-plus/releases/download/20230601-0150/rock-pi-4a-plus_debian_bullseye_kde_b14.img.xz)
 
 - [Radxa ROCK 4B Debian 11 Desktop Linux 5.10](https://github.com/radxa-build/rock-pi-4b/releases/download/20230601-0206/rock-pi-4b_debian_bullseye_kde_b32.img.xz)
 
-- (Radxa ROCK 4B+ Debian 11 Desktop Linux 5.10)[https://github.com/radxa-build/rock-pi-4b-plus/releases/download/rsdk-t2/rock-pi-4b-plus_bullseye_kde_t2.output.img.xz]
+- [Radxa ROCK 4B+ Debian 11 Desktop Linux 5.10](https://github.com/radxa-build/rock-pi-4b-plus/releases/download/rsdk-t2/rock-pi-4b-plus_bullseye_kde_t2.output.img.xz)
 
 - [Radxa ROCK 4SE Debian 11 Desktop Linux 5.10](https://github.com/radxa-build/rock-4se/releases/download/b38/rock-4se_debian_bullseye_kde_b38.img.xz)
 
 #### Android
 
-- [Radxa ROCK 4SE Android 11](https://github.com/radxa/manifests/releases/download/RockPi-android11-20220819_1707/rock4b-se-android11-20220819-1907-gpt.zip)
+ROCK 4A/4A+/4B/4B+:
 
-- [Radxa ROCK 4B/4SE Android 11 (HDMI 4K)](https://github.com/radxa/manifests/releases/download/RockPi-android11-20220819_1707/rock4b-se-android11-20220819-1907-gpt.zip)
+- [Android 7 (DSI 480P)](https://rock.sh/rockpi-android7-dsi-download)
+- [Android 7 (HDMI 4K)](https://rock.sh/rockpi-android7-download)
+- [Android 7 TV(废弃) GPT](https://rock.sh/rockpi-android7-tv-download)
+- [Android 9 (HDMI 4K)](https://rock.sh/rockpi-android9-gpt-download)
+- [Android 9 TV GPT](https://rock.sh/rockpi-android9-tv-gpt-download)
+- [Android 10 (HDMI 4K)](https://rock.sh/rockpi4b-android10-gpt-download)
+- [Android 11 (HDMI 4K) GPT](https://github.com/radxa/manifests/releases/download/RockPi-android11-20220819_1707/rock4b-se-android11-20220819-1907-gpt.zip)
+- [Android 11 Update (HDMI 4K)](https://github.com/radxa/manifests/releases/download/Rock-android11-20211115_1851/rockpi-4ab-android11-20211115_1851-update.zip)
 
-- [Radxa ROCK 4B Android 7 (DSI 480P)](https://rock.sh/rockpi-android7-dsi-download)
+ROCK 4SE:
 
-- [Radxa ROCK 4B Android 7 (HDMI 4K)](https://rock.sh/rockpi-android7-download)
-
-- [Radxa ROCK 4B Android 9 (HDMI 4K)](https://rock.sh/rockpi-android9-gpt-download)
-
-- [Radxa ROCK 4B Android 10 (HDMI 4K)](https://rock.sh/rockpi4b-android10-gpt-download)
-
-- [Radxa ROCK 4B Android 11 (HDMI 4K)](https://github.com/radxa/manifests/releases/tag/Rock-android11-20211115_1851)
-
-- [Radxa ROCK 4B Android 7 TV(Deprecated)](https://rock.sh/rockpi-android7-tv-download)
-
-- [Radxa ROCK 4B Android 9 TV](https://rock.sh/rockpi-android9-tv-gpt-download)
-
-### 第三方操作系统
-
-- [Radxa ROCK Pi 4A OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_4)
-
-- [Radxa ROCK 4A/4B/4C/4A+/4B+ DietPi](https://dietpi.com/downloads/images/DietPi_ROCKPi4-ARMv8-Bookworm.img.xz)
-
-- [Radxa ROCK 4SE DietPi](https://dietpi.com/downloads/images/DietPi_ROCK4SE-ARMv8-Bookworm.img.xz)
-
-:::caution
-
-官方镜像经过官方充分测试外，第三方镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
-
-:::
+- [Android 11 (HDMI 4K) GPT](https://github.com/radxa/manifests/releases/download/Android11_Radxa_rk11_20230526/Rock4SE_Android11_rkr11_20230526_gpt.zip)
+- [Android 11 (HDMI 4K) Update](https://github.com/radxa/manifests/releases/download/RockPi-android11-20220819_1707/rock4b-se-android11-20220819-1907-update.zip)
 
 ## Datasheet
 
