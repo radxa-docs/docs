@@ -17,7 +17,7 @@ sidebar_position: 8
 
 #### 通用系统镜像
 
-目前仅支持 MicroSD 卡启动系统，UFS 模块目前正在适配中！
+适用于 MicroSD 卡和板载 UFS。
 
 - [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b1/radxa-cubie-a7z_bullseye_kde_b1.output_512.img.xz)
 

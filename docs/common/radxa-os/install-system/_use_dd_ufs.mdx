@@ -23,7 +23,7 @@
 :::
 
 <Tabs queryString="system boot">
-<TabItem value="UFS 模块">
+<TabItem value="UFS 模块" default={props.tag === "ufs_module"} attributes={{className: props.tag === "ufs_board" && "tab_none"}} >
 
 UFS 模块安装步骤：
 
@@ -40,11 +40,11 @@ UFS 模块安装步骤：
 
 </TabItem>
 
-<TabItem value="板载 UFS">
+<TabItem value="板载 UFS" default={props.tag === "ufs_board"} attributes={{className: props.tag === "ufs_module" && "tab_none"}} >
 
 若你的主板是含有板载 UFS 的版本，无需安装。
 
-</TabItem>
+</TabItem>  
 </Tabs>
 
 ## 安装系统
