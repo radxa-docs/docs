@@ -22,7 +22,7 @@ Motherboards with onboard UFS typically don't have a UFS module interface and do
 :::
 
 <Tabs queryString="system boot">
-<TabItem value="UFS Module">
+<TabItem value="UFS Module" default={props.tag === "ufs_module"} attributes={{className: props.tag === "ufs_board" && "tab_none"}}>
 
 UFS Module Installation Steps:
 
@@ -39,7 +39,7 @@ UFS Module Installation Steps:
 
 </TabItem>
 
-<TabItem value="Onboard UFS">
+<TabItem value="Onboard UFS" default={props.tag === "ufs_board"} attributes={{className: props.tag === "ufs_module" && "tab_none"}}>
 
 If your motherboard has onboard UFS, no installation is required.
 
