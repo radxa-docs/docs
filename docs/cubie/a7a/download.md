@@ -23,7 +23,7 @@ sidebar_position: 8
 
 ### Android
 
-适用于 MicroSD 卡/ eMMC 模块 / UFS 模块 / NVMe 固态硬盘。
+适用于 MicroSD 卡/ eMMC 模块 / UFS 模块。
 
 #### Phoenix 系统镜像
 

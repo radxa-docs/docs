@@ -23,7 +23,7 @@ Currently, only MicroSD cards and eMMC modules are supported for system boot. UF
 
 ### Android
 
-Suitable for MicroSD cards, eMMC modules, UFS modules, and NVMe SSDs.
+Suitable for MicroSD cards, eMMC modules and UFS modules.
 
 #### Phoenix System Image
 
