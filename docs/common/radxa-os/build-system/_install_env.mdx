@@ -1,0 +1,184 @@
+主要介绍 U-Boot、Kernel、RadxaOS 开发的环境搭建。
+
+## 使用前提
+
+- 硬件准备：x86_64 架构的 PC
+- 软件准备
+  - Visual Studio Code + Dev Container 拓展插件
+  - Docker
+- 系统平台：Ubuntu（推荐）
+
+## 环境搭建
+
+我们需要在 PC 上安装 Visual Studio Code、Dev Container 拓展插件和 Docker，方便快速构建 U-Boot、Kernel、RadxaOS 的编译和开发环境。
+
+### Docker
+
+可以根据自己使用需求选择 Docker 引擎或 Docker 桌面版本进行安装。
+
+- Docker 引擎（Docker Engine）: 核心后台服务，无图形界面，主要通过命令行操作。
+
+- Docker 桌面版本（Docker Desktop）: 桌面应用程序，包含 Docker 引擎并提供了图形化管理界面，易于使用。
+
+:::info 官方参考
+
+- [Docker 官网](https://www.docker.com/)
+- [Docker 教程](https://docs.docker.com/get-started/)
+  :::
+
+<Tabs queryString="docker-version">
+<TabItem value="Docker 引擎">
+
+介绍 Linux 平台下安装 Docker 引擎的步骤。
+
+#### 下载官方脚本
+
+使用 `curl` 命令下载 Docker 官方安装脚本。
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+sudo apt update
+sudo apt install curl -y
+sudo curl -fsSL https://get.docker.com -o get-docker.sh
+```
+
+</NewCodeBlock>
+
+#### 安装 Docker 引擎
+
+使用 `sudo` 命令以 root 权限运行安装脚本。
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+sudo sh get-docker.sh
+```
+
+</NewCodeBlock>
+
+#### 验证安装
+
+使用 `docker --version` 命令验证 Docker 引擎是否安装成功。
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+docker --version
+```
+
+</NewCodeBlock>
+
+若终端输出 Docker 对应的版本信息，说明 Docker 安装成功！
+
+#### 添加用户到 Docker 组
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+sudo usermod -aG docker $USER
+```
+
+</NewCodeBlock>
+
+重启系统后，Docker 配置生效。
+
+</TabItem>
+<TabItem value="Docker 桌面版">
+
+介绍 Linux 平台下安装 Docker 桌面版的步骤。
+
+#### 下载 Docker 桌面版
+
+访问 [Docker 桌面版下载页面](https://www.docker.com/products/docker-desktop) 下载 Docker 桌面版。
+
+#### 安装 Docker 桌面版
+
+终端进入 Docker 桌面版安装包所在的目录，运行以下命令安装 Docker 桌面版。
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+sudo apt-get install ./docker-desktop-amd64.deb
+```
+
+</NewCodeBlock>
+
+#### 验证安装
+
+使用 `docker --version` 命令验证 Docker 桌面版是否安装成功。
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+docker --version
+```
+
+</NewCodeBlock>
+
+若终端输出 Docker 对应的版本信息，说明 Docker 安装成功！
+
+#### 添加用户到 Docker 组
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+sudo usermod -aG docker $USER
+```
+
+</NewCodeBlock>
+
+重启系统后，Docker 配置生效。
+
+</TabItem>
+</Tabs>
+
+### Visual Studio Code
+
+:::info 官方参考
+
+- [Visual Studio Code 官网](https://code.visualstudio.com/)
+- [Visual Studio Code 教程](https://code.visualstudio.com/docs)
+  :::
+
+#### 下载 Visual Studio Code
+
+访问 [Visual Studio Code 下载页面](https://code.visualstudio.com/Download) ，根据自己系统选择对应的 Visual Studio Code 安装包：Ubuntu 选择 `deb` 格式的安装包。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/low-level-dev/vscode-down.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 安装 Visual Studio Code
+
+终端进入 Visual Studio Code 安装包所在的目录，运行以下命令安装 Visual Studio Code。
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+sudo apt-get install ./code_xxx_amd64.deb
+```
+
+</NewCodeBlock>
+
+#### 使用 Visual Studio Code
+
+打开 Visual Studio Code 安装 Dev Container 拓展插件。
+
+① ：点击 `Extensions` 选项
+
+② ：搜索 `Dev Containers`
+
+③ ：选择 Dev Containers 拓展
+
+④ ：点击 `Install` 选项安装 Dev Containers 拓展
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/low-level-dev/vscode-dev-container.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

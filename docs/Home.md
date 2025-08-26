@@ -793,7 +793,7 @@ sidebar_custom_props:
               },
               {
                 products_name: "Cubie A7A",
-                products_photo_url: "/home/product-pictures/a7a.webp",
+                products_photo_url: "/en/home/product-pictures/a7a.webp",
                 products_link: "/cubie/a7a",
                 docs:
                   [
@@ -804,6 +804,22 @@ sidebar_custom_props:
                       docs_name_zh: "Cubie A7A 概览",
                       docs_info_en: "Overview of the cubie a7a",
                       docs_info_zh: "Radxa Cubie A7A 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "Cubie A7Z",
+                products_photo_url: "/en/home/product-pictures/a7z.webp",
+                products_link: "/cubie/a7z",
+                docs:
+                  [
+                    {
+                      docs_link: "/cubie/a7z",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Cubie A7Z 概览",
+                      docs_info_en: "Overview of the cubie a7z",
+                      docs_info_zh: "Radxa Cubie A7Z 概览",
                     },
                   ],
               },

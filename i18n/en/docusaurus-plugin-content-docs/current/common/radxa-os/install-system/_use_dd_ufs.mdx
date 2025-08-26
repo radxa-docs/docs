@@ -1,0 +1,134 @@
+This guide explains how to use the `dd` command to install the system to UFS storage.
+
+:::warning
+Installing the system will format the UFS module or onboard UFS. Please back up any important data in advance!
+:::
+
+## Prerequisites
+
+To use the `dd` command to install the system to UFS, you need to meet the following conditions:
+
+- The system can boot normally from another storage device (recommended: boot from MicroSD card)
+- The UFS module is installed on the motherboard or the motherboard has onboard UFS
+
+## Hardware Connection
+
+Follow the instructions based on your motherboard configuration.
+
+:::tip
+This tutorial applies to multiple motherboard models. Choose the appropriate steps for hardware connection based on your motherboard configuration.
+
+Motherboards with onboard UFS typically don't have a UFS module interface and don't require installation.
+:::
+
+<Tabs queryString="system boot">
+<TabItem value="UFS Module">
+
+UFS Module Installation Steps:
+
+1. Observe the notch direction on the UFS module and the notch marking on the motherboard's UFS module interface to determine the correct installation orientation.
+2. Place the UFS module above the motherboard's UFS module interface, ensuring the module's interface is roughly aligned with the motherboard's interface.
+3. Gently press down on one end of the UFS module until you hear a "click" sound, then repeat the process for the other end to ensure the UFS module is properly installed.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/ufs-moudle-board.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="Onboard UFS">
+
+If your motherboard has onboard UFS, no installation is required.
+
+</TabItem>
+</Tabs>
+
+## Installing the System
+
+### Download System Image
+
+Access the resource summary download page to download the system image file to your local storage.
+
+:::tip Image Note
+The downloaded system image is a compressed file that needs to be extracted before use!
+:::
+
+#### Recommended Download Methods
+
+- Direct Download
+
+Access the resource summary download page directly from the board and download the system image file to local storage.
+
+- Download using wget
+
+Use the `wget` command to download the system image file to local storage.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update &&
+sudo apt install wget -y
+wget <url>
+```
+
+</NewCodeBlock>
+
+Replace `<url>` with the actual download link of the system image file, which can be copied from the resource summary download page.
+
+- PC Download
+
+Access the resource summary download page from a PC, download the system image file, then transfer it to the board using a USB drive, FTP, SCP, or other methods.
+
+#### Extract System Image
+
+Our system images are typically in `*.img.xz` format and need to be extracted before use.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update
+sudo apt install xz-utils -y
+unxz <image_path>
+```
+
+</NewCodeBlock>
+
+Replace `<image_path>` with the actual path to your system image file.
+
+### Install System Image
+
+Use the `dd` command to install the system image to UFS.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo dd if=<image_path> of=<device_target> bs=4M status=progress
+```
+
+</NewCodeBlock>
+
+Parameter Explanation:
+
+- `<image_path>`: Path to the system image file (replace with actual path).
+- `<device_target>`: Device path of the UFS module (replace with actual UFS module device path).
+- `bs=4M`: Block size for writing.
+- `status=progress`: Show write progress.
+
+:::tip Determining Device Path
+
+You can use the `lsblk` command to view device paths and identify the correct one based on disk capacity.
+
+Note: If disk capacities are similar, you can safely power off the board, remove and reinsert the UFS module, then observe which device path appears/disappears to identify the correct path.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+:::
