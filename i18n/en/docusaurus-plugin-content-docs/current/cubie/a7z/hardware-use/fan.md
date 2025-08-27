@@ -4,7 +4,7 @@ sidebar_position: 9
 
 # Fan Interface
 
-The Radxa Cubie A7Z features an onboard fan interface. You can connect a fan using a 2-Pin 1.25mm cable (fan operating voltage: 5V) to provide cooling for the motherboard.
+The Radxa Cubie A7Z features an onboard fan interface. You can connect a fan using a 3-Pin 0.8mm cable (fan operating voltage: 5V) to provide cooling for the motherboard.
 
 :::info Interface Location
 For the specific location of the fan interface, please refer to the interface description section in the [Hardware Interface](./hardware-info) tutorial!
@@ -14,7 +14,10 @@ For the specific location of the fan interface, please refer to the interface de
 
 Connect a fan to the fan interface with the following specifications:
 
-- Interface Type: 2-Pin 1.25mm
+- Interface Type: 3-Pin Female Header
+- Pin Spacing: 0.8mm
+- Arrangement: Single-row 3-pin
+- Installation Method: SMD, 180° SMD mounting
 - Operating Voltage: 5V
 
 :::tip
