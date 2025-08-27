@@ -7,16 +7,16 @@ sidebar_position: 4
 The Radxa ROCK 4D features an onboard Maskrom button for entering Maskrom mode.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rock4d-maskrom.webp" style={{width: '100%', maxWidth: '1200px'}} alt="ROCK 4D Maskrom Button Location" />
+  <img src="/en/img/rock4/4d/rock4d-maskrom.webp" style={{width: '100%', maxWidth: '1200px'}} alt="ROCK 4D Maskrom Button Location" />
 </div>
 
 ## User Guide
 
 ### Entering Maskrom Mode
 
-1. Press and hold the Maskrom button
-2. Power on the board while holding the button
-3. Release the button after power is applied
+1. Before powering on the motherboard, press and hold the Maskrom button. You can release the button after power is on.
+
+2. Use a USB cable to connect the motherboard's USB 3.0 Type-A OTG port to your computer's port.
 
 ### Verifying Device Mode
 
@@ -33,7 +33,7 @@ Normally, the RKDevTool software will automatically detect the ROCK 4D board's c
 <TabItem value="Windows">
 Open the RKDevTool software to view the detected device information:
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/maskrom-mode.webp" style={{width: '100%', maxWidth: '1200px'}} alt="RKDevTool Detecting Maskrom Mode" />
+<img src="/en/img/rock4/4d/maskrom-mode.webp" style={{width: '100%', maxWidth: '1200px'}} alt="RKDevTool Detecting Maskrom Mode" />
 </div>
 
 </TabItem>
