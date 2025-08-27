@@ -14,7 +14,9 @@ sidebar_position: 4
 
 ### 进入 Maskrom 模式
 
-主板上电前，按住 Maskrom 按键，上电后可以松开按键。
+① : 主板上电前，按住 Maskrom 按键，上电后可以松开按键
+
+② : 使用数据线连接主板的 USB 3.0 Type-A OTG 端口和电脑的端口
 
 ### 验证设备模式
 
