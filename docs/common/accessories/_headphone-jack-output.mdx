@@ -1,0 +1,42 @@
+本篇文章介绍如何使用开发板的耳机接口
+
+## 测试音频播放
+
+- 硬件连接
+
+<img
+  src={props.headphoneJack_img}
+  alt="headphone jack"
+  style={{ width: "80%" }}
+/>
+
+- 下载音频文件
+
+下载 wav 格式的音频文件，并将其重命名为 test.wav
+
+- 查看可用的音频设备
+
+```bash
+
+$ aplay -l
+
+**** List of PLAYBACK Hardware Devices ****
+card 0: rockchipes8316 [rockchip-es8316], device 0: dailink-multicodecs es8316.1-0011-0 [dailink-multicodecs es8316.1-0011-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+
+```
+
+- 播放音频文件
+
+```bash
+
+$ aplay -D hw:0,0 test.wav
+Playing WAVE 'test.wav' : Signed 16 bit Little Endian, Rate 44100 Hz, Stereo
+
+```
+
+这里的 hw:0,0 表示使用 card 0 的 device 0, 执行该命令后能从耳机插孔听到声音，说明耳机插孔正常工作

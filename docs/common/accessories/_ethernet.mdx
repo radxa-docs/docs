@@ -1,0 +1,72 @@
+{props.product} 有 {props.eth_num} 个以太网口， 下面我们来简单测试一下 {props.product} 的以太网接口
+
+- 硬件连接
+
+<img
+  src={props.eth_connect_img}
+  alt="ethernet connection"
+  style={{ width: "80%" }}
+/>
+
+- 检查连接状态
+
+系统启动后，打开终端， 运行以下命令检查以太网是否正常连接，若连接正常，则 {props.product} 会自动获取到 ip 地址
+
+```bash
+
+ip a
+
+```
+
+<img src={props.ip_show_img} alt="ip show" style={{ width: "80%" }} />
+
+如图所示，以太网自动获取到了 ip 地址， 说明以太网连接正常。
+
+- 测试连通性
+
+```bash
+
+ping -c 4 google.com
+
+```
+
+如果有响应，说明连接正常。
+
+如果无响应，请检查网络配置。
+
+- 测试速度
+
+  - 主机端和 {props.product} 上，需要先安装 iperf3
+
+  ```bash
+
+  sudo apt-get install iperf3
+
+  ```
+
+  - 主机端作 server
+
+  ```bash
+
+  iperf3 -s
+  -----------------------------------------------------------
+  Server listening on 5201 (test #1)
+  -----------------------------------------------------------
+
+  ```
+
+  - 测试上传速度
+
+  ```bash
+
+  iperf3 -c 192.168.xx.xx # server_ip
+
+  ```
+
+  - 测试下载速度
+
+  ```bash
+
+  iperf3 -c -R 192.168.xx.xx # server_ip
+
+  ```
