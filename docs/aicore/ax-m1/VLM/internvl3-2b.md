@@ -29,7 +29,7 @@ cd InternVL3-2B
 <NewCodeBlock tip="Host" type="Device">
 
 ```bash
-pip3 install transformers==4.53.3 jinja==3.1.6
+pip3 install transformers==4.53.3 jinja2==3.1.6
 ```
 
 </NewCodeBlock>
