@@ -15,7 +15,7 @@ UART debugging is a core method in embedded development for interacting with the
 ② : Connect the motherboard's Debug port to your computer's USB port using a USB Type-C cable
 
 <div style={{textAlign: 'center'}}>
-  <img src="/en/img/e/e24c/uart-debug.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/e/e20c/uart-debug.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 :::tip Maskrom Mode

@@ -15,7 +15,7 @@ import UART_DEBUG from '../../../common/radxa-os/system-config/\_uart_debug.mdx'
 ② : 使用 USB Type-C 数据线连接主板的 Debug 端口和电脑的 USB 端口
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/e/e24c/uart-debug.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/img/e/e20c/uart-debug.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 :::tip Maskrom 模式

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 import UART_DEBUG from '../../../common/radxa-os/system-config/\_uart_debug.mdx';
