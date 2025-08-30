@@ -2,11 +2,11 @@
 sidebar_position: 1
 ---
 
-# Product Introduction
+# Introduction
 
 ## Key Features
 
-ROCK 4A/4A+/4B/4B+/4SE is an ultra-compact single-board computer (SBC) with leading performance and excellent mechanical compatibility. Radxa ROCK 4A provides makers, IoT enthusiasts, hobbyists, PC DIY enthusiasts, and others with a reliable and powerful platform to build and refine their ideas, turning them into reality.
+ROCK 4A/4A+/4B/4B+/4SE is an ultra-compact single-board computer (SBC) with leading performance and excellent mechanical compatibility. provides makers, IoT enthusiasts, hobbyists, PC DIY enthusiasts, and others with a reliable and powerful platform to build and refine their ideas, turning them into reality.
 
 ### Rich Interface Options
 
