@@ -1,0 +1,103 @@
+import { PreView } from "@site/src/utils/docs";
+
+This article introduces how to compile the Android system, including compilation and packaging of U-Boot, kernel, and AOSP.
+
+## Environment Setup
+
+### System Requirements
+
+```bash
+
+apt-get update -y && apt-get install -y openjdk-8-jdk python git-core gnupg flex bison gperf build-essential \
+zip curl liblz4-tool zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \
+lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \
+libgl1-mesa-dev libxml2-utils xsltproc unzip mtools u-boot-tools \
+htop iotop sysstat iftop pigz bc device-tree-compiler lunzip \
+dosfstools vim-common parted udev libssl-dev python3 python-pip lzop swig
+
+```
+
+### Downloading Repo
+
+Repo is a tool used in Android development for managing multiple Git repositories. It's a Python script that helps developers with version control and management of multiple Git repositories. You can download Repo using the following commands:
+
+```bash
+
+wget https://storage.googleapis.com/git-repo-downloads/repo -P ~/bin/
+or
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+
+```
+
+## Downloading Source Code
+
+<PreView
+  params={{
+    manifest_branch: props.manifest_branch,
+    manifest_name: props.manifest_name,
+  }}
+>
+  {`
+  $ repo init -u https://github.com/radxa/manifests.git -b #manifest_branch# -m #manifest_name#
+  $ repo sync -d --no-tags -j4
+  `}
+</PreView>
+
+## Building the Image
+
+There are two methods to build the image:
+
+### Method 1 (**Recommended**)
+
+Using the SDK build script for compilation:
+
+<PreView params={{ build_variant: props.build_variant }}>
+  {`
+  $ source build/envsetup.sh
+  $ lunch #build_variant#
+  $ ./build.sh -UACKu
+  `}
+</PreView>
+
+After the compilation is complete, you can find the image in the IMAGE directory.
+
+### Method 2
+
+You can follow these steps to build the image:
+
+- Set up the build environment
+
+<PreView params={{ build_variant: props.build_variant }}>
+  {`
+  $ source build/envsetup.sh
+  $ lunch #build_variant#
+  `}
+</PreView>
+
+- Compile U-Boot
+
+```bash
+$ ./build.sh -U
+```
+
+- Compile the kernel
+
+```bash
+$ ./build.sh -CK
+```
+
+- Compile AOSP
+
+```bash
+$ ./build.sh -A
+```
+
+- Generate Images
+
+```bash
+$ ./build.sh -u
+```
+
+## Common Issues
+
+- For Android 11, it's recommended to compile in an Ubuntu 16.04 environment as other Ubuntu versions may cause compilation errors.

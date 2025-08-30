@@ -1,0 +1,72 @@
+- GPIO Voltage
+
+RK3399 and OP1 have three IO voltage levels: 1.8V/3.0V/3.3V. The following are the default voltages:
+
+| GPIO       | Voltage Level | Tolerance |
+| ---------- | ------------- | --------- |
+| GPIO3_C0   | 3.3V          | 3.465V    |
+| ADC_IN0    | 1.8V          | 1.98V     |
+| Other GPIO | 3.0V          | 3.14V     |
+
+- GPIO Interface
+
+The ROCK 4 series features a 40-pin expansion header with color-coded pins, compatible with most sensor applications on the market.
+
+The following pinout applies to all products in the ROCK 4 series.
+
+<div className='gpio_style'>
+
+:::caution
+Not all hardware functions can be enabled simultaneously. At any given time, a pin can only be assigned one hardware function.
+:::
+
+| GPIO number | Function2 |               Function1                |   GPIO   |               Pin#               |              Pin#               |   GPIO   |                Function1                | Function2  | GPIO number |
+| :---------: | :-------: | :------------------------------------: | :------: | :------------------------------: | :-----------------------------: | :------: | :-------------------------------------: | :--------: | :---------: |
+|             |           |                 +3.3V                  |          | <div className='yellow'>1</div>  |  <div className='red'>2</div>   |          |                  +5.0V                  |            |             |
+|     71      |           |                I2C7_SDA                | GPIO2_A7 |  <div className='green'>3</div>  |  <div className='red'>4</div>   |          |                  +5.0V                  |            |             |
+|     72      |           |                I2C7_SCL                | GPIO2_B0 |  <div className='green'>5</div>  | <div className='black'>6</div>  |          |                   GND                   |            |             |
+|     75      |           |                SPI2_CLK                | GPIO2_B3 |  <div className='green'>7</div>  | <div className='green'>8</div>  | GPIO4_C4 | <div className='orange'>UART2_TXD</div> |            |     148     |
+|             |           |                  GND                   |          |  <div className='black'>9</div>  | <div className='green'>10</div> | GPIO4_C3 | <div className='orange'>UART2_RXD</div> |            |     147     |
+|     146     |           |                  PWM0                  | GPIO4_C2 | <div className='green'>11</div>  | <div className='green'>12</div> | GPIO4_A3 |                I2S1_SCLK                |            |     131     |
+|     150     |           |                  PWM1                  | GPIO4_C6 | <div className='green'>13</div>  | <div className='black'>14</div> |          |                   GND                   |            |             |
+|     149     |           |                SPDIF_TX                | GPIO4_C5 | <div className='green'>15</div>  | <div className='green'>16</div> | GPIO4_D2 |                                         |            |     154     |
+|             |           |                 +3.3V                  |          | <div className='yellow'>17</div> | <div className='green'>18</div> | GPIO4_D4 |                                         |            |     156     |
+|     40      | UART4_TXD | <div className='orange'>SPI1_TXD</div> | GPIO1_B0 | <div className='green'>19</div>  | <div className='black'>20</div> |          |                   GND                   |            |             |
+|     39      | UART4_RXD | <div className='orange'>SPI1_RXD</div> | GPIO1_A7 | <div className='green'>21</div>  | <div className='green'>22</div> | GPIO4_D5 |                                         |            |     157     |
+|     41      |           | <div className='orange'>SPI1_CLK</div> | GPIO1_B1 | <div className='green'>23</div>  | <div className='green'>24</div> | GPIO1_B2 | <div className='orange'>SPI1_CSn</div>  |            |     42      |
+|             |           |                  GND                   |          | <div className='black'>25</div>  | <div className='green'>26</div> |          |                 ADC_IN0                 |            |             |
+|     64      |           |                I2C2_SDA                | GPIO2_A0 |  <div className='blue'>27</div>  | <div className='blue'>28</div>  | GPIO2_A1 |                I2C2_CLK                 |            |     65      |
+|     74      | I2C6_SCL  |                SPI2_TXD                | GPIO2_B2 | <div className='green'>29</div>  | <div className='black'>30</div> |          |                   GND                   |            |             |
+|     73      | I2C6_SDA  |                SPI2_RXD                | GPIO2_B1 | <div className='green'>31</div>  | <div className='green'>32</div> | GPIO3_C0 |                SPDIF_TX                 | UART3_CTSn |     112     |
+|     76      |           |                SPI2_CSn                | GPIO2_B4 | <div className='green'>33</div>  | <div className='black'>34</div> |          |                   GND                   |            |             |
+|     133     |           |              I2S1_LRCK_TX              | GPIO4_A5 | <div className='green'>35</div>  | <div className='green'>36</div> | GPIO4_A4 |              I2S1_LRCK_RX               |            |     132     |
+|     158     |           |                                        | GPIO4_D6 | <div className='green'>37</div>  | <div className='green'>38</div> | GPIO4_A6 |                I2S1_SDI                 |            |     134     |
+|             |           |                  GND                   |          | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO4_A7 |                I2S1_SDO                 |            |     135     |
+
+</div>
+
+- Notes about the 40-pin header
+
+  - Functions marked in orange are the default functions for those pins.
+
+  - All pins, except for power pins, are directly connected to the SoC.
+
+  - Pins 3, 5, 27, 28, 29, and 31 are each connected to the 3.0V power supply through a 4.7K pull-up resistor.
+
+  - Pin 7 is directly connected to the MIPI CSI pins on the board.
+
+  - SPI
+
+    - Pins 19, 21, 23, and 24 are also connected to the SPI flash memory pins on the board. If SPI flash memory is soldered on the ROCK 4 series board, the SPI function will not be available on the GPIO header.
+
+  - UART
+
+    - UART2 is enabled by default as the U-boot and Linux serial console. It can be used by selecting Rockpi4/dev/serial-console. To disable the serial console on UART2, select Rockpi4/hardware/devtree_overlays.
+
+    - UART2 and UART4 support multiple baud rates, including but not limited to: 115200bps, 500000bps, 1500000bps, etc.
+
+    - On some boards with onboard SPI flash memory soldered, the UART4 pins are used for SPI functionality.
+
+  - For I2C-2 and I2C-7
+
+    - We have tested using an I2C EEPROM device. You need to open the I2C device file first, then perform read or write operations.

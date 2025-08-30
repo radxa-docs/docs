@@ -1,0 +1,28 @@
+export default function DynamicList({ items }) {
+  const fixedItems = [
+    'Anti-static bag',
+    'PP plastic case',
+    'Toothpaste box',
+  ];
+
+const renderItems = (modelName) => (
+
+<ul>
+  <li>{modelName} mainboard</li>
+  {fixedItems.map((item, index) => (
+    <li key={index}>{item}</li>
+  ))}
+</ul>
+);
+
+return (
+
+<div>
+  {items.map((modelName, index) => (
+    <div key={modelName}>
+      <h3>Standard package for {modelName} includes the following items:</h3>
+      {renderItems(modelName)}
+    </div>
+  ))}
+</div>
+); }

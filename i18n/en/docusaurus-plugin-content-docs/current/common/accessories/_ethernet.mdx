@@ -1,0 +1,93 @@
+The {props.product} has {props.eth_num} Ethernet ports. Below we will conduct a simple test of the {props.product}'s Ethernet interface.
+
+- Hardware Connection
+
+<img
+  src={props.eth_connect_img}
+  alt="ethernet connection"
+  style={{ width: "80%" }}
+/>
+
+- Check Connection Status
+
+After the system boots up, open the terminal and run the following command to check if the Ethernet connection is working properly. If connected correctly, the {props.product} will automatically obtain an IP address.
+
+```bash
+ip a
+```
+
+<img src={props.ip_show_img} alt="ip show" style={{ width: "80%" }} />
+
+As shown in the image, the Ethernet has automatically obtained an IP address, indicating that the Ethernet connection is working properly.
+
+- Test Connectivity
+
+```bash
+ping -c 4 google.com
+```
+
+If you get a response, the connection is working properly.
+
+If there's no response, please check your network configuration.
+
+- Test Speed
+
+  - First, install iperf3 on both your host machine and the {props.product}
+
+  ```bash
+
+  sudo apt-get install iperf3
+
+  ```
+
+  - On the host machine, run as server:
+
+  ```bash
+  iperf3 -s
+  -----------------------------------------------------------
+  Server listening on 5201 (test #1)
+  -----------------------------------------------------------
+  ```
+
+  - On the {props.product}, run as client to test upload speed:
+
+  ```bash
+  iperf3 -c <server-ip> -t 20 -i 1 -w 2M
+  ```
+
+  - Test results:
+
+  ```bash
+  [ ID] Interval           Transfer     Bandwidth       Retr
+  [  4]   0.00-20.00  sec  2.67 GBytes  1.15 Gbits/sec  198             sender
+  [  4]   0.00-20.00  sec  2.67 GBytes  1.15 Gbits/sec                  receiver
+  ```
+
+  - Parameter explanation:
+
+  | Parameter | Description                                  |
+  | :-------- | :------------------------------------------- |
+  | -c        | Client mode, followed by server IP           |
+  | -t        | Test duration in seconds                     |
+  | -i        | Output interval in seconds                   |
+  | -w        | Window size                                  |
+  | -P        | Number of parallel threads                   |
+  | -R        | Reverse test (server sends, client receives) |
+  | -d        | Bidirectional test                           |
+  | -u        | Use UDP protocol                             |
+  | -b        | Target bandwidth                             |
+  | -p        | Server port                                  |
+  | -V        | Show version information                     |
+  | -h        | Show help information                        |
+
+  - For more parameter details:
+
+  ```bash
+  iperf3 -h
+  ```
+
+  - To test download speed, run the following command on the {props.product}:
+
+  ```bash
+  iperf3 -c <server-ip> -R -t 20 -i 1 -w 2M
+  ```
