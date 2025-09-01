@@ -2,9 +2,9 @@
 sidebar_position: 6
 ---
 
-# 以太网接口(支持 POE)
+# 以太网接口(支持 PoE)
 
-瑞莎 Dragon Q6A 板载的千兆以太网接口，支持 POE 功能，PoE 功能需要搭配 PoE HAT 使用。
+瑞莎 Dragon Q6A 板载的千兆以太网接口，支持 PoE 功能，PoE 功能需要搭配 PoE HAT 使用。
 
 ## 硬件连接
 

@@ -2,9 +2,9 @@
 sidebar_position: 6
 ---
 
-# Ethernet Interface (Supports POE)
+# Ethernet Interface (Supports PoE)
 
-The Dragon Q6A's onboard gigabit Ethernet interface supports POE functionality, which requires the use of a POE HAT.
+The Dragon Q6A's onboard gigabit Ethernet interface supports PoE functionality, which requires the use of a PoE HAT.
 
 ## Hardware Connection
 
