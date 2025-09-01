@@ -1,0 +1,164 @@
+以下是如何在主机 PC 上构建 {props.product} 镜像的说明
+
+## 安装 git
+
+```bash
+sudo apt-get update
+sudo apt-get install git
+```
+
+## 获取源码
+
+```bash
+git clone -b master https://github.com/radxa/rockchip-bsp.git
+cd rockchip-bsp
+git submodule init
+git submodule update
+```
+
+更新子模块之后，您将获得
+
+```bash
+build  kernel  README.md  rkbin  rootfs  u-boot
+```
+
+- build: 构建 u-boot、内核和 rootfs 的一些脚本文件和配置文件。
+
+- kernel: 内核源代码，当前版本为 4.4
+
+- rkbin: 预编译的 Rockchip 二进制文件，包括第一阶段加载器和 ATF（Arm Trustzone 固件）。
+
+- rootfs: 启动基于 Debian 的 rootfs，支持架构 armhf 和 arm64，支持 Debian Jessie、Stretch 和 Buster。
+
+- u-boot: u-boot 作为第二阶段引导加载程序
+
+## 更新源代码
+
+rockchip-bsp 将会持续更新，因此您可以在构建系统镜像之前更新源代码
+
+```bash
+cd rockchip-bsp
+git checkout master
+git fetch origin
+git rebase origin/master
+git submodule update
+```
+
+## 安装 Linaro 工具链
+
+```bash
+wget https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/aarch64-linux-gnu/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
+sudo tar xvf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz  -C /usr/local/
+export CROSS_COMPILE=/usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+export PATH=/usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin:$PATH
+```
+
+检查 Linaro 工具链是否为默认选择：
+
+```bash
+which aarch64-linux-gnu-gcc
+/usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc
+```
+
+## 安装其他构建工具
+
+```bash
+sudo apt-get install gcc-aarch64-linux-gnu device-tree-compiler libncurses5 libncurses5-dev build-essential libssl-dev mtools
+sudo apt-get install bc python dosfstools
+```
+
+如果出现无法安装的情况，您可以尝试以下方法
+
+```bash
+sudo apt-get install aptitude
+sudo aptitude install bc python dosfstools
+```
+
+## 构建 u-boot
+
+<code>./build/mk-uboot.sh {props.u - boot_param} #For ROCK Pi 4 Mode B</code>
+
+生成的镜像将被复制到 out/u-boot 文件夹
+
+```bash
+ls out/u-boot/
+idbloader.img  rk3399_loader_v1.12.112.bin  trust.img  uboot.img
+```
+
+## 构建内核
+
+使用默认的 rockchip_linux_defconfig 构建内核
+
+<code>./build/mk-kernel.sh {[props.kernel_param]} #For ROCK Pi 4 Mode B</code>
+
+## 修改内核配置 (可选)
+
+如果您想更改默认内核配置
+
+<code>
+  cd kernel export ARCH=arm64 export CROSS_COMPILE=aarch64-linux-gnu- make
+  rockchip_linux_defconfig make menuconfig make savedefconfig cp defconfig
+  arch/arm64/configs/rockchip_linux_defconfig cd .. ./build/mk-kernel.sh{" "}
+  {[props.kernel_param]} #For ROCK Pi 4 Mode B
+</code>
+
+您将获得内核镜像和 dtb 文件
+
+<code>ls out/kernel/ Image {props.kernel_param}.dtb</code>
+
+## 制作 rootfs 镜像
+
+查看 rootfs 源代码。仓库地址为 https://github.com/radxa/rk-rootfs-build.git，分支为 debian。
+
+构建 32 位 rootfs：
+
+```bash
+export ARCH=armhf
+```
+
+构建 64 位 rootfs：
+
+```bash
+export ARCH=arm64
+```
+
+- 使用 Ubuntu-build-service 从 Linaro 构建基础 Debian 系统。
+
+```bash
+cd rootfs
+sudo apt-get install binfmt-support qemu-user-static cpio gdisk
+sudo dpkg -i ubuntu-build-service/packages/*        # ignore the broken dependencies, we will fix it next step
+sudo apt-get install -f
+RELEASE=buster TARGET=desktop ARCH=arm64 ./mk-base-debian.sh
+```
+
+这将引导 Debian Buster 镜像，您将获得一个名为 linaro-buster-alip-xxxx.tar.gz 的 rootfs 压缩包。
+
+- 构建 rk-debian 根文件系统
+
+```bash
+RELEASE=buster ARCH=arm64 ./mk-rootfs.sh
+```
+
+- 创建 ext4 镜像（linaro-rootfs.img）：
+
+```bash
+./mk-image.sh
+```
+
+- 将所有内容合并成一个镜像
+
+<code>
+  build/mk-image.sh -c rk3399 -b {props.kernel_param} -t system -r
+  rootfs/linaro-rootfs.img
+</code>
+
+将 u-boot、内核和 rootfs 合并成一个镜像并生成 GPT 分区表。输出结果为
+
+```bash
+out/system.img
+```
+
+### 烧录镜像
+
+请参考 [安装系统](props.install-os_path) 部分安装系统， 系统镜像为上面的 out/system.img。
