@@ -35,8 +35,38 @@ Below is the test we did on different brand eMMC chips.
 - B2B Connector specification: GB042-34S-H10 (socket-34pin) + GB042-30S-H10 (socket-30pin)
 - Storage Options: 16G / 32G / 64G / 128G
 - Compatibility: Compatible with ROCK 3A / 3B / 3C / 4A / 4B / 4C / 4C PLUS / 4D\* / 4SE / 5A / 5B
-- Dimension：13mm x 18mm x 1.5mm
+- Dimension: 13mm x 18mm x 1.5mm
 
 > **Note:** Due to the pin multiplexing limitation, the ROCK 4D version with SPI Flash does not support the eMMC module.
 
 [**Buy Now**](https://radxa.com/products/accessories/emmc-module#buy)
+
+## Pinout
+
+### GB042-34S-H10 (Socket - 34 pin)
+
+Primarily used for signal transmission.
+
+| Signal      | Pin | Pin | Signal   |
+| ----------- | --- | --- | -------- |
+| GND         | 1   | 18  | GND      |
+| EMMC D5     | 2   | 19  | GND      |
+| GND         | 3   | 20  | VCC 1V8  |
+| EMMC D4     | 4   | 21  | VCC 1V8  |
+| GND         | 5   | 22  | VCC 3V3  |
+| EMMC D0     | 6   | 23  | VCC 3V3  |
+| GND         | 7   | 24  | GND      |
+| EMMC CLK    | 8   | 25  | EMMC CMD |
+| GND         | 9   | 26  | GND      |
+| EMMC D3     | 10  | 27  | EMMC D2  |
+| GND         | 11  | 28  | GND      |
+| VCC 1V8     | 12  | 29  | EMMC D1  |
+| GND         | 13  | 30  | GND      |
+| GND         | 14  | 31  | EMMC D7  |
+| EMMC STROBE | 15  | 32  | GND      |
+| GND         | 16  | 33  | EMMC D6  |
+| GND         | 17  | 34  | GND      |
+
+### GB042-30S-H10 (Socket - 30 pin)
+
+Primarily used for mechanical fixation and support.
