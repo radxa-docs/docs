@@ -12,7 +12,7 @@ The primary function of the SPI boot firmware (BootROM + bootloader) is to initi
 
 When the device cannot boot normally, you can enter [EDL mode](./edl_mode) and then use the EDL tool to flash the SPI boot firmware.
 
-Go to the [Resource Download](../../download) page, download the `edl-ng` compressed package and unzip it, then select the corresponding version based on your system platform to download the SPI firmware.
+Go to the [Resource Download](../download) page, download the `edl-ng` compressed package and unzip it, then select the corresponding version based on your system platform to download the SPI firmware.
 
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
