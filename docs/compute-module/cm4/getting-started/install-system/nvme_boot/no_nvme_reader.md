@@ -6,4 +6,4 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # 不使用 M.2 M Key NVMe 固态硬盘盒
 
-<InstallSystem tag="m2_2230" />
+<InstallSystem tag="m2_2280" />
