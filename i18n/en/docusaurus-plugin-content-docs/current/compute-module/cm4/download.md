@@ -16,7 +16,7 @@ For USB flashing, the Loader file is used for USB download initialization.
 
 Compatible with MicroSD cards, onboard eMMC, and NVMe SSD for system boot.
 
-[Radxa Debian Linux](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz)
+[Radxa Debian Linux Debian12 KDE](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz)
 
 :::caution
 

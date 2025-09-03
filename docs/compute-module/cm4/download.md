@@ -16,7 +16,7 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 适用于 MicroSD 卡、板载 eMMC、NVMe SSD 启动系统。
 
-[Radxa Debian Linux](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz)
+[Radxa Debian12 Linux Debian KDE](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz)
 
 :::caution
 
