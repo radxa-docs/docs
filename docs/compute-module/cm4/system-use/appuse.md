@@ -1,0 +1,9 @@
+---
+sidebar_position: 7
+---
+
+import AppUse from '../../../common/radxa-os/system-config-debian12/\_appuse.mdx';
+
+# 应用使用
+
+<AppUse />
