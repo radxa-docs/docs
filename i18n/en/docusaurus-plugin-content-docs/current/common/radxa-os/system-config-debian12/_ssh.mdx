@@ -1,0 +1,233 @@
+## Prerequisites
+
+For SSH remote access, both devices must be on the same local network, and the target device must have the SSH service enabled.
+
+:::tip
+Our provided system image has SSH service enabled by default. If SSH is not installed or enabled, you can follow this tutorial to set it up!
+:::
+
+## Install OpenSSH
+
+SSH remote control requires OpenSSH. Run the following command in the terminal of the mainboard to install it:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update && sudo apt install openssh-server -y
+```
+
+</NewCodeBlock>
+
+### Start SSH Service
+
+Run the following command in the terminal of the mainboard to start the SSH service:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo systemctl start ssh
+```
+
+</NewCodeBlock>
+
+### Enable SSH Service on Boot
+
+Run the following command in the terminal of the mainboard to enable SSH service on boot:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo systemctl enable ssh
+```
+
+</NewCodeBlock>
+
+### Check SSH Service Status
+
+Run the following command in the terminal of the mainboard to check the SSH service status:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo systemctl status ssh
+```
+
+</NewCodeBlock>
+
+The terminal will display information similar to the following, indicating whether the SSH service is enabled on boot and its current status.
+
+```
+● ssh.service - OpenBSD Secure Shell server
+Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+Active: active (running) since Sat 2000-01-01 00:14:50 UTC; 25 years 5 months ago
+Docs: man:sshd(8)
+man:sshd_config(5)
+Main PID: 518 (sshd)
+CPU: 284ms
+CGroup: /system.slice/ssh.service
+└─518 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+```
+
+## SSH Remote Control
+
+You can use either the terminal command line or Tabby software for SSH remote login.
+
+<Tabs queryString="ssh-mode">
+
+<TabItem value="Terminal Command Line">
+
+Open a terminal on another device and enter the following command to log in remotely:
+
+<NewCodeBlock tip="PC$" type="host">
+
+```
+ssh <user-name>@<ip-address>
+
+# Example
+
+ssh radxa@192.168.2.186
+```
+
+</NewCodeBlock>
+
+Where `<user-name>` and `<ip-address>` are the actual username and IP address of the target device.
+
+You will be prompted to confirm the connection by typing `yes`.
+
+<div style={{textAlign: 'center'}}>
+    <img src="/en/img/common/tools/radxa-os/ssh-login.webp" alt="SSH Login Prompt" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+</TabItem>
+
+<TabItem value="Using Tabby Software">
+
+Tabby is a powerful cross-platform serial debugging tool that supports various protocols including serial and SSH. We recommend using Tabby for SSH remote login.
+
+#### Download Tabby
+
+Visit the [Tabby official website](https://tabby.sh/) to download and install the Tabby software.
+
+#### Install Tabby
+
+- Windows
+
+Select the appropriate `.exe` file for your system architecture.
+
+- Linux
+
+Choose the `.deb` file that matches your system architecture.
+
+- MacOS
+
+Download the `.dmg` file for your system architecture.
+
+#### Using Tabby
+
+Double-click the Tabby icon to launch the application.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-welcome.webp"
+    alt="Tabby Welcome Screen"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### SSH Configuration
+
+① → `Settings`: Click the settings option
+
+② → `Profiles & connections`: Click to configure connection options
+
+③ → `New profile`: Click to add a new configuration
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-profile.webp"
+    alt="Tabby Profile Configuration"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Select SSH Template
+
+Choose a base configuration as a template: Select the `SSH connection` template. You can modify parameters such as device name, IP address, and port in the subsequent configuration interface.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-template.webp"
+    alt="Tabby Template Selection"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+After selecting the `SSH connection` template, modify the following parameters:
+
+① → `Name`: Set the connection name
+
+② → `Host`: Enter the IP address of the target device
+
+③ → `User`: Set the username (default is `radxa` for factory settings)
+
+④ → `Save`: Save the configuration
+
+The default port is `22` and typically doesn't need to be changed.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-ssh-parameter.webp"
+    alt="SSH Connection Parameters"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Run SSH Connection
+
+Click the run button to establish the SSH connection.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-ssh-connect.webp"
+    alt="SSH Connection Button"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+After clicking the run button, Tabby will display a key verification and password input interface.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-ssh-verify.webp"
+    alt="SSH Key Verification"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+① → password: Enter the password for the target device
+
+② → OK: Confirm the connection
+
+It's recommended to check the `Remember` option so you won't need to enter the password again for future connections.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-ssh-password.webp"
+    alt="SSH Password Input"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+After a successful connection, the remote terminal interface will appear.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-ssh-success.webp"
+    alt="SSH Connection Successful"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+</Tabs>
+
+Once you've successfully logged in via SSH, you can run commands to control the system through the SSH session.

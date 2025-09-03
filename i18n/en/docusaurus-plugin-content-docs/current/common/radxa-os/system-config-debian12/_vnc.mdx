@@ -1,0 +1,325 @@
+## Prerequisites
+
+For VNC remote access, both devices must be on the same local network, and the target device must have the VNC service enabled.
+
+:::tip Usage Instructions
+VNC remote control is suitable for systems with a graphical interface. If the system doesn't have a graphical desktop, it's recommended to use SSH for remote control instead.
+:::
+
+## Using VNC (Remote Device)
+
+### Download VNC Viewer
+
+You need to install VNC Viewer software on your remote device to control the mainboard.
+
+Visit the [RealVNC](https://www.realvnc.com/en/connect/download/viewer) official website to download the VNC Viewer installation package.
+
+① : Select the operating system platform of your remote device
+
+② : Download the VNC Viewer installation package
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-download.webp"
+    alt="VNC Viewer Download Page"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Install VNC Viewer
+
+<Tabs queryString="install-vnc">
+
+<TabItem value="Windows">
+
+After downloading the Windows version `*.exe` installation package:
+
+- Run the Installer
+
+Run the `VNC-Viewer-xxx.exe` installer as administrator.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-windows-install-01.webp"
+    alt="VNC Viewer Windows Installer - Run as Administrator"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+- Select Language
+
+Choose `English` language and click `OK` to proceed.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-windows-install-02.webp"
+    alt="VNC Viewer Language Selection"
+    style={{ width: "100%", maxWidth: "300px" }}
+  />
+</div>
+
+- Begin Installation
+
+Click `Next` to start the installation wizard.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-windows-install-03.webp"
+    alt="VNC Viewer Installation Welcome Screen"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+- Accept License Agreement
+
+Check the `I accept the terms in the License Agreement` option and click `Next` to continue.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-windows-install-04.webp"
+    alt="VNC Viewer License Agreement"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+- Installation Location
+
+It's recommended to use the default installation path. Click `Next` to continue.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-windows-install-05.webp"
+    alt="VNC Viewer Installation Location"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+- Start Installation
+
+Click `Install` to begin the installation process.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-windows-install-06.webp"
+    alt="VNC Viewer Ready to Install"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+- Complete Installation
+
+Click `Finish` to complete the installation.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-windows-install-07.webp"
+    alt="VNC Viewer Installation Complete"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="Linux">
+
+After downloading the Linux version `*.deb` installation package, run the following command in the terminal to install VNC Viewer:
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+sudo dpkg -i VNC-Viewer-xxx.deb
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+### Running VNC Viewer
+
+After installation, open the VNC Viewer software. You can choose to use VNC Viewer without signing in to an account.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-windows-use-01.webp"
+    alt="VNC Viewer Login Screen"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  VNC Viewer Interface
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-windows-use-02.webp"
+    alt="VNC Viewer Main Interface"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+## Using VNC (Mainboard)
+
+### Install VNC Server
+
+Run the following commands in the terminal of the mainboard to install the VNC server:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update
+sudo apt install tigervnc-standalone-server tigervnc-common -y
+```
+
+</NewCodeBlock>
+
+### Set VNC Remote Password
+
+Run the following command in the terminal of the mainboard to set the VNC remote password:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+vncpasswd
+```
+
+</NewCodeBlock>
+
+:::tip
+When entering the password and verification, the characters won't be displayed on the screen. When prompted whether to create a view-only password, select `n` (no).
+:::
+
+After completing the password setup, you'll see output similar to:
+
+```
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+A view-only password is not used
+```
+
+### Configure VNC Startup File
+
+Edit the `~/.vnc/xstartup` file on the mainboard:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo vi ~/.vnc/xstartup
+```
+
+</NewCodeBlock>
+
+Modify the content of `~/.vnc/xstartup` to:
+
+```
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+export XDG_SESSION_TYPE=x11
+export DESKTOP_SESSION=plasma
+exec startplasma-x11
+```
+
+After editing the `~/.vnc/xstartup` file, you need to make it executable:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo chmod +x ~/.vnc/xstartup
+```
+
+</NewCodeBlock>
+
+### Start VNC Server
+
+Run the following command in the terminal of the mainboard to start the VNC server. Use the `-localhost no` parameter to allow remote access:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+vncserver -localhost no
+```
+
+</NewCodeBlock>
+
+After successful startup, the terminal will display information similar to the following, indicating the VNC server's port number:
+
+```
+New Xtigervnc server ***:1 (radxa)' on port 5901 for display :1.
+Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :1 to connect to the VNC server.
+```
+
+### Check VNC Server Status
+
+To check the status of the VNC server, run the following command in the terminal of the mainboard:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+vncserver -list
+```
+
+</NewCodeBlock>
+
+The terminal will display output similar to:
+
+```
+TigerVNC server sessions:
+
+X DISPLAY # RFB PORT # RFB UNIX PATH PROCESS ID # SERVER
+1 5901 3283 Xtigervnc
+```
+
+### Stop VNC Server
+
+To stop the VNC server, run the following command in the terminal of the mainboard. The `:1` in the command represents the display number of the VNC server:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+vncserver -kill :1
+```
+
+</NewCodeBlock>
+
+After stopping the VNC server, the VNC Viewer software will automatically disconnect.
+
+## VNC Remote Login
+
+On another device, open the VNC Viewer software and connect to the mainboard using its IP address and port number.
+
+① : Enter the mainboard's IP address and port number
+
+② : Click `Connect to address ···` to connect to the mainboard
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-connect-01.webp"
+    alt="VNC Connection Setup"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+① : Enter the VNC remote access password
+
+② : Check the `Remember password` option to save the password for future logins
+
+③ : Click `OK` to connect
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-connect-02.webp"
+    alt="VNC Authentication"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/vnc-connect-03.webp"
+    alt="VNC Connection Successful"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+:::tip VNC Black Screen
+If you encounter a black screen when connecting via VNC, check if the system's auto-login option is enabled. If it is, you'll need to disable the auto-login option.
+:::

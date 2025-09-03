@@ -1,0 +1,118 @@
+RKDevTool is a software developed by Rockchip for USB flashing on Windows/Linux/MacOS platforms, designed to simplify and accelerate the development and debugging process for Rockchip series chips.
+
+<Tabs queryString="rkdevtool">
+
+<TabItem value="Windows">
+
+- Install Drivers
+
+Download and extract the [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) file.
+
+Locate the `DriverInstall.exe` file and run it as administrator:
+
+To install drivers: Click the `Install Driver` option
+
+To uninstall drivers: Click the `Uninstall Driver` option
+
+:::tip
+If you have previously installed other versions of the driver, please uninstall them before installing the new one.
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/rkdevtool/rkdevtool-driver.webp"
+    style={{ width: "75%", maxWidth: "700" }}
+    alt="RKDevTool Driver Installation"
+  />
+</div>
+
+- Download RKDevTool
+
+Download the [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar) utility, then extract the downloaded file. The `RKDevTool.exe` is the executable program - simply double-click to launch the software.
+
+</TabItem>
+
+<TabItem value="Linux">
+
+- Install rkdeveloptool
+
+Open your system terminal or command line and run the following commands to install:
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+sudo apt-get update
+sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
+git clone https://github.com/rockchip-linux/rkdeveloptool
+cd rkdeveloptool
+autoreconf -i
+./configure
+make -j $(nproc)
+sudo cp rkdeveloptool /usr/local/sbin/
+```
+
+</NewCodeBlock>
+
+- Verify Installation
+
+After installing RKDevTool, you can check the version number using the following command:
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+rkdeveloptool -V
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="MacOS">
+
+- Install HomeBrew
+
+[HomeBrew](https://brew.sh/) is a free and open-source package manager that simplifies the process of installing software for MacOS users.
+
+If you don't have HomeBrew installed, you can install it using the following command:
+
+<NewCodeBlock tip="MacOS$" type="host">
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+</NewCodeBlock>
+
+- Install rkdeveloptool
+
+Open your system terminal or command line and run the following commands to install:
+
+<NewCodeBlock tip="MacOS$" type="host">
+
+```
+brew install automake autoconf libusb pkg-config git wget
+git clone https://github.com/rockchip-linux/rkdeveloptool
+cd rkdeveloptool
+autoreconf -i
+./configure
+make -j $(nproc)
+cp rkdeveloptool /opt/homebrew/bin/
+```
+
+</NewCodeBlock>
+
+- Verify Installation
+
+After installing RKDevTool, you can check the version number using the following command:
+
+<NewCodeBlock tip="MacOS$" type="host">
+
+```
+rkdeveloptool -V
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>

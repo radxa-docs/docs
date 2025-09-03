@@ -1,0 +1,141 @@
+This guide explains how to use the `dd` command to install the system onto an NVMe SSD.
+
+:::warning
+Installing the system will format the NVMe SSD. Please back up any important data in advance!
+:::
+
+## Prerequisites
+
+To use the `dd` command to install the system onto an NVMe SSD, you need to meet the following conditions:
+
+- The system can boot normally from another storage device (recommended: boot from a MicroSD card)
+- NVMe SSD is properly installed on the motherboard
+
+## Hardware Connection
+
+You can proceed based on your motherboard configuration.
+
+:::tip
+This tutorial is applicable to multiple motherboards. Choose the appropriate steps for hardware connection based on your motherboard configuration.
+
+There are two scenarios for installing an NVMe SSD on the motherboard:
+
+- Motherboard has an M.2 M Key interface: You can directly install the NVMe SSD
+- Motherboard doesn't have an M.2 M Key interface but has a PCIe FPC interface: You can install the NVMe SSD using a PCIe to M.2 M Key HAT module
+  :::
+
+<Tabs queryString="system boot">
+  <TabItem value="M.2 2280 Interface" default={props.tag === "m2_2280"} attributes={{ className: props.tag !== "m2_2280" ? "tab_none" : "" }}>
+    Install NVMe SSD through M.2 M Key 2280 interface.
+    <div style={{ textAlign: "center" }}>
+      <img
+        src="/en/img/common/radxa-os/install-system/nvme-m2-2280.webp"
+        style={{ width: "100%", maxWidth: "1200px" }}
+      />
+    </div>
+  </TabItem>
+<TabItem
+  value="M.2 2230 Interface"
+  default={props.tag === "m2_2230"}
+  attributes={{ className: props.tag !== "m2_2230" ? "tab_none" : "" }}
+>
+  Install NVMe SSD through M.2 M Key 2230 interface.
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/en/img/common/radxa-os/install-system/nvme-m2-2230.webp"
+      style={{ width: "100%", maxWidth: "1200px" }}
+    />
+  </div>
+</TabItem>
+
+  <TabItem value="PCIe FPC Interface" default={props.tag === "pcie_fpc"} attributes={{className: props.tag !== "pcie_fpc" ? "tab_none" : ""}}>
+    Install NVMe SSD through PCIe FPC interface with M.2 M Key HAT.
+  </TabItem>
+</Tabs>
+
+## System Installation
+
+### Download System Image
+
+Access the resource summary download page from the motherboard and download the system image file locally.
+
+:::tip Image Note
+The downloaded system image is a compressed file and needs to be extracted before use!
+:::
+
+#### Recommended Download Methods
+
+- Direct Download
+
+Access the resource summary download page directly from the motherboard and download the system image file locally.
+
+- Download using wget command
+
+Download the system image file locally using the `wget` command from the motherboard.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update &&
+sudo apt install wget -y
+wget <url>
+```
+
+</NewCodeBlock>
+
+Where `<url>` is the download link of the system image file. You can replace it by copying the download link from the resource summary download page.
+
+- Download from PC
+
+Access the resource summary download page from a PC, download the system image file, and then transfer it to the motherboard using a USB drive, FTP, SCP, etc.
+
+#### Extract System Image
+
+Our system images are typically in `*.img.xz` format and need to be extracted before use.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update
+sudo apt install xz-utils -y
+unxz <image_path>
+```
+
+</NewCodeBlock>
+
+Where `<image_path>` is the path to the system image file. Replace it with the actual path to your system image file.
+
+### Install System Image
+
+Use the `dd` command to install the system image onto the NVMe SSD.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo dd if=<image_path> of=<device_target> bs=4M status=progress
+```
+
+</NewCodeBlock>
+
+Parameter Description:
+
+- `<image_path>`: Path to the system image file. Replace with the actual path to your system image file.
+- `<device_target>`: Device path of the NVMe SSD. Replace with the actual device path of your NVMe SSD.
+- `bs=4M`: Block size for writing.
+- `status=progress`: Show progress during writing.
+
+:::tip Determining Device Path
+
+You can use the `lsblk` command to view device paths and identify the correct one based on disk capacity.
+
+Note: If disk capacities are similar, you can safely power off the motherboard, remove and reinsert the NVMe SSD, and observe which device path appears and disappears to determine the correct one.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+:::

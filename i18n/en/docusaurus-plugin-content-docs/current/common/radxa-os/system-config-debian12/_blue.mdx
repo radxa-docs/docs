@@ -1,0 +1,249 @@
+This guide explains how to pair and connect Bluetooth devices.
+
+<Tabs queryString="web-mode">
+
+<TabItem value="Graphical Interface">
+
+Pair and connect Bluetooth devices using the graphical interface.
+
+1. Enable Bluetooth
+
+① : Click the Bluetooth icon
+
+② : Click `Enable Bluetooth` to turn on Bluetooth
+
+③ : Click the `+` symbol to add a Bluetooth device
+
+④ : Select the Bluetooth device you want to connect
+
+⑤ : Click `Next` to continue
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/blue-01.webp"
+    alt="Bluetooth settings interface"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. Pair Bluetooth Device
+
+Select the `Matches` option to pair with a Bluetooth device. The device will connect automatically after successful pairing.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/blue-02.webp"
+    alt="Bluetooth pairing interface"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. View Connected Devices
+
+Click the Bluetooth icon to view connected Bluetooth devices.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/blue-03.webp"
+    alt="Connected Bluetooth devices"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="Command Line">
+
+Pair and connect Bluetooth devices using command line tools.
+
+1. Start Bluetooth Service
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo systemctl start bluetooth
+```
+
+</NewCodeBlock>
+
+2. Enable Bluetooth on Boot
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo systemctl enable bluetooth
+```
+
+</NewCodeBlock>
+
+3. Check Bluetooth Status
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo systemctl status bluetooth
+```
+
+</NewCodeBlock>
+
+4. Pair and Connect Bluetooth Device
+
+Use the `bluetoothctl` command-line tool to manage Bluetooth devices.
+
+:::tip
+Enter `bluetoothctl` in the terminal to enter the interactive command-line interface.
+
+To exit the `bluetoothctl` interface, type `exit`.
+:::
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+bluetoothctl
+```
+
+</NewCodeBlock>
+
+- Power On Bluetooth Adapter
+
+In the `bluetoothctl` interface, type `power on` to enable Bluetooth.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+power on
+```
+
+</NewCodeBlock>
+
+- Enable Agent
+
+In the `bluetoothctl` interface, type `agent on` to enable the agent.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+agent on
+```
+
+</NewCodeBlock>
+
+- Scan for Devices
+
+In the `bluetoothctl` interface, type `scan on` to search for nearby Bluetooth devices.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+scan on
+```
+
+</NewCodeBlock>
+
+Discovered devices will appear in the terminal with their MAC address and name. For example, `EC:30:B3:40:0A:20` is the device's MAC address, and `Redmi K50 Ultra` is the device name.
+
+```
+[NEW] Device EC:30:B3:40:0A:20 Redmi K50 Ultra
+```
+
+- Stop Scanning
+
+If not stopped, `bluetoothctl` will continue scanning. It's recommended to scan for a short time, then stop scanning to find your device's MAC address.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+scan off
+```
+
+</NewCodeBlock>
+
+- Pair with Device
+
+In the `bluetoothctl` interface, type `pair <device_address>` to pair with a device. Follow any on-screen prompts on both devices to complete pairing.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+pair <device_address>
+
+# Example
+
+pair EC:30:B3:40:0A:20
+```
+
+</NewCodeBlock>
+
+- Trust Device
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+trust <device_address>
+
+# Example
+
+trust EC:30:B3:40:0A:20
+```
+
+</NewCodeBlock>
+
+- Connect to Device
+
+In the `bluetoothctl` interface, type `connect <device_address>` to connect to a paired device.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+connect <device_address>
+
+# Example
+
+connect EC:30:B3:40:0A:20
+```
+
+</NewCodeBlock>
+
+- Disconnect Device
+
+In the `bluetoothctl` interface, type `disconnect <device_address>` to disconnect from a Bluetooth device.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+disconnect <device_address>
+
+# Example
+
+disconnect EC:30:B3:40:0A:20
+```
+
+</NewCodeBlock>
+
+- Unpair Device
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+remove <device_address>
+
+# Example
+
+remove EC:30:B3:40:0A:20
+```
+
+</NewCodeBlock>
+
+- Power Off Bluetooth Adapter
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+power off
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>

@@ -1,0 +1,55 @@
+Enabling auto-login allows you to access your desktop directly without entering a password each time you start the system.
+
+:::tip VNC Black Screen
+After enabling auto-login, you might experience a black screen when using VNC remote control. It is recommended to enable auto-login only for users with direct display connections.
+
+If you need to use VNC remote control, you should disable the auto-login feature.
+:::
+
+## Enable Auto-Login
+
+Enter the `rsetup` command in the terminal to use the Rsetup tool for enabling auto-login:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+rsetup
+```
+
+</NewCodeBlock>
+
+1. Use the arrow keys to select the `User Settings` option, then press Enter to confirm.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/rsetup-auto-login-1.webp"
+    alt="Rsetup User Settings menu"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. Use the arrow keys to select the `Configure auto login` option, then press Enter to confirm.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/rsetup-auto-login-2.webp"
+    alt="Configure auto login option"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. Use the arrow keys to select the `Enable auto login` option, press Space to check the `gdm.service` box, then press Enter to confirm.
+
+:::tip
+A `*` in the checkbox indicates that the option is enabled.
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/rsetup-auto-login-3.webp"
+    alt="Enable auto login configuration"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+4. Reboot the system for the auto-login configuration to take effect.

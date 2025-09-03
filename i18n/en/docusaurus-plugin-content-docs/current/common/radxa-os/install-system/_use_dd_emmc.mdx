@@ -1,0 +1,135 @@
+This guide explains how to install the system to eMMC using the `dd` command.
+
+:::warning
+Installing the system will format the eMMC module. Please back up any important data in advance!
+:::
+
+## Prerequisites
+
+To use the `dd` command to install the system to eMMC, you need to meet the following conditions:
+
+- The system can boot normally from another storage device (recommended: use a MicroSD card to boot the system)
+- The eMMC module is installed on the motherboard or the motherboard has onboard eMMC
+
+## Hardware Connection
+
+You can proceed according to your motherboard configuration.
+
+:::tip
+This tutorial is applicable to multiple motherboards. Choose the corresponding steps for hardware connection based on your motherboard configuration.
+
+For motherboards with onboard eMMC, there is no eMMC module interface, so no installation is required.
+:::
+
+<Tabs queryString="system boot">
+<TabItem value="eMMC Module" default={props.tag === "emmc_module"} attributes={{className: props.tag === "emmc_board" && "tab_none"}} >
+
+eMMC Module Installation Steps:
+
+1. Observe the notch direction on the eMMC module and the notch marking on the motherboard's eMMC module interface to determine the correct installation orientation.
+2. Place the eMMC module above the motherboard's eMMC module interface, ensuring the eMMC module interface is properly aligned with the motherboard's eMMC module interface.
+3. Gently press one end of the eMMC module until you hear a "click" sound, then press the other end in the same way to ensure the eMMC module is properly installed.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/emmc-moudle-board.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+    alt="eMMC Module Installation"
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="Onboard eMMC" default={props.tag === "emmc_board"} attributes={{className: props.tag === "emmc_module" && "tab_none"}} >
+
+If your motherboard has onboard eMMC, no installation is required.
+
+</TabItem>  
+</Tabs>
+
+## System Installation
+
+### Download System Image
+
+Access the resource summary download page to download the system image file to your local device.
+
+:::tip Image Note
+The downloaded system image is a compressed file and needs to be extracted before use!
+:::
+
+#### Recommended Download Methods
+
+- Direct Download
+
+Access the resource summary download page directly from your device to download the system image file.
+
+- Download using wget
+
+Download the system image file to your device using the `wget` command.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update &&
+sudo apt install wget -y
+wget <url>
+```
+
+</NewCodeBlock>
+
+Where `<url>` is the download address of the system image file. You can replace it with the download address from the resource summary page.
+
+- PC Download
+
+Access the resource summary download page from a PC, download the system image file, and then transfer it to the device using a USB drive, FTP, SCP, or other methods.
+
+#### Extract System Image
+
+Our system images are generally in `*.img.xz` format and need to be extracted before use.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update
+sudo apt install xz-utils -y
+unxz <image_path>
+```
+
+</NewCodeBlock>
+
+Where `<image_path>` is the path to the system image file, which should be replaced with the actual system image file path.
+
+### Install System Image
+
+Use the `dd` command to install the system image to eMMC.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo dd if=<image_path> of=<device_target> bs=4M status=progress
+```
+
+</NewCodeBlock>
+
+Parameter Description:
+
+- `<image_path>`: The path to the system image file, which should be replaced with the actual path.
+- `<device_target>`: The device path of the eMMC module, which should be replaced with the actual eMMC module device path.
+- `bs=4M`: Block size for writing.
+- `status=progress`: Show writing progress.
+
+:::tip Determining Device Path
+
+You can use the `lsblk` command to view device paths and determine the correct path based on disk capacity.
+
+Note: If disk capacities are similar, you can safely remove the eMMC module (with the device powered off) and observe which device path appears and disappears to identify the correct path.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+:::

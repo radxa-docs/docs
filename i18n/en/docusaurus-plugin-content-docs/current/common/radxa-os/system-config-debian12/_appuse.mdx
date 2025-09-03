@@ -1,0 +1,89 @@
+This guide explains how to install and use applications on your device using the dpkg and apt commands.
+
+- dpkg command
+
+Primarily used for installing local .deb packages.
+
+- apt command
+
+Mainly used for installing packages from software repositories.
+
+## Social Applications
+
+### QQ
+
+#### About QQ
+
+QQ is an instant messaging application developed by Tencent, supporting various communication methods including text, images, voice, and video.
+
+#### Installing QQ
+
+Download the ARM64 .deb package from the [Tencent QQ Official Website](https://im.qq.com/linuxqq/index.shtml), then install it using dpkg.
+
+:::caution
+
+You can check your system's architecture using the `uname -a` command.
+
+:::
+
+Replace the package name in the command with the actual downloaded .deb file.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo dpkg -i QQ_xxx_arm64.deb
+```
+
+</NewCodeBlock>
+
+#### Using QQ
+
+Double-click the QQ icon or run the following command in the terminal to launch.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+qq
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/qq.webp"
+    alt="QQ application interface"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Office Applications
+
+### LibreOffice
+
+#### About LibreOffice
+
+LibreOffice is a free and open-source cross-platform office suite developed by The Document Foundation. It supports various office needs including word processing, spreadsheets, presentations, vector graphics, database management, and formula editing. It is compatible with Microsoft Office formats.
+
+#### Installing LibreOffice
+
+Install LibreOffice using apt.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update && sudo apt install libreoffice -y
+```
+
+</NewCodeBlock>
+
+#### Using LibreOffice
+
+Type `LibreOffice` in the application search bar, then select the corresponding application to launch.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/libreoffice.webp"
+    alt="LibreOffice application interface"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

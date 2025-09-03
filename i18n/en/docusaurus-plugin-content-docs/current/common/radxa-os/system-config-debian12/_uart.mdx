@@ -1,0 +1,109 @@
+import { Image } from "@site/src/utils/docs";
+
+### Using Tabby
+
+We recommend using Tabby software for serial port login. Tabby is a powerful and user-friendly serial debugging tool that supports various protocols including serial and SSH. It is compatible with major operating systems such as Windows, macOS, and Linux.
+
+#### Download Tabby
+
+Visit the [Tabby official website](https://tabby.sh/) to download and install the Tabby software.
+
+#### Install Tabby
+
+- Windows
+
+Select the appropriate `.exe` file for your system architecture.
+
+- Linux
+
+Choose the `.deb` file that matches your system architecture.
+
+- MacOS
+
+Download the `.dmg` file for your system architecture.
+
+#### Using Tabby
+
+Double-click the Tabby icon to launch the application.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-welcome.webp"
+    alt="Tabby Welcome Screen"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Serial Port Configuration
+
+① → `Settings`: Click the settings option
+
+② → `Profiles & connections`: Click to configure connection options
+
+③ → `New profile`: Click to add a new configuration
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-profile.webp"
+    alt="Tabby Profile Configuration"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Select Serial Port Template
+
+Choose a base configuration as a template: Select any `Serial` template. You can modify parameters such as device name, serial port device number, and baud rate in the subsequent configuration interface.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-template.webp"
+    alt="Tabby Template Selection"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Modify Serial Port Parameters
+
+After selecting the `Serial` template, modify the following parameters:
+
+① → `Name`: Set the connection name (recommended to use the product name)
+
+② → `Device`: Set the serial port device number (typically `/dev/ttyUSB0` if only one serial device is connected)
+
+③ → `Baud rate`: Set the baud rate to {props.baud}
+
+④ → `Save`: Save the configuration
+
+<Image
+  src="/en/img/common/tools/radxa-os/tabby-baud-#baud#.webp"
+  baud={props.baud}
+  fallback={props.baud}
+  width="1200"
+  alt="Tabby Baud Rate Configuration"
+/>
+
+### Login to Serial Port
+
+Click the run button to connect to the serial port device.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/tabby-connect.webp"
+    alt="Tabby Connect Button"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+After a successful connection, press Enter to see the login prompt. Then use the system's username and password to log in (the password won't be displayed as you type; press Enter after entering it).
+
+<Image
+  src="/en/img/common/tools/radxa-os/tabby-login-#baud#.webp"
+  baud={props.baud}
+  fallback={props.baud}
+  width="1200"
+  alt="Tabby Login Screen"
+/>
+
+## Serial Port Debugging
+
+Once you've successfully logged in via the serial port, you can view system logs and run commands to test system functionality through the serial console.

@@ -53,6 +53,7 @@ displayed_sidebar: home
 | [Radxa CM3](/compute-module/cm3/) (2022)   | 基于 RK3566 的计算模块，采用 B2B 接口     |
 | [Radxa CM3I](/compute-module/cm3i/) (2023) | 基于 RK3568(J) 的计算模块，采用 B2B 接口  |
 | [Radxa CM3J](/compute-module/cm3j/) (2024) | 基于 RK3568J 的计算模块，采用 B2B 接口    |
+| [Radxa CM4](/compute-module/cm4/) (2025)   | 基于 RK3576(J) 的计算模块，采用 B2B 接口  |
 | [Radxa CM5](/compute-module/cm5/) (2023)   | 基于 RK3588S 的计算模块，采用 B2B 接口    |
 | [Radxa NX5](/compute-module/nx5/) (2023)   | 基于 RK3588S 的计算模块，采用 SODIMM 接口 |
 
