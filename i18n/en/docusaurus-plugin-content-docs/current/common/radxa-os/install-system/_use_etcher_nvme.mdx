@@ -1,0 +1,107 @@
+This guide explains how to install the system onto an NVMe SSD using an M.2 NVMe SSD enclosure.
+
+:::warning
+Installing the system will format the NVMe SSD. Please back up any important data in advance!
+:::
+
+## Prerequisites
+
+### Hardware Requirements
+
+You will need the following hardware devices:
+
+- M.2 NVMe SSD enclosure
+- Bootable storage medium: M.2 NVMe SSD
+
+### Hardware Connection
+
+Install the M.2 NVMe SSD into the M.2 NVMe SSD enclosure, then connect the enclosure to your computer.
+
+## System Installation
+
+### Download System Image
+
+Use a PC to access the [Resource Downloads](../../../download) page and download the system image file locally.
+
+:::tip Image Note
+The downloaded system image is a compressed file and needs to be extracted before use!
+:::
+
+### Install System Image
+
+You can use Balena Etcher software to install the system image onto the M.2 NVMe SSD.
+
+:::tip Balena Etcher
+For Balena Etcher installation and usage instructions, please refer to the [Etcher Guide](/common/radxa-os/install-system/balena-etcher) tutorial.
+:::
+
+#### Select System Image
+
+Click the `Flash from file` option and select the system image file you have downloaded and extracted.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-image.webp"
+    alt="Selecting system image in Etcher"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Select Storage Device
+
+Click the `Select target` option and choose your M.2 NVMe SSD device.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-sd-01.webp"
+    alt="Selecting target device in Etcher - Step 1"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-sd-02.webp"
+    alt="Selecting target device in Etcher - Step 2"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Start Flashing
+
+Click the `Flash!` option to begin writing the system image to the M.2 NVMe SSD.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-flash.webp"
+    alt="Starting the flashing process in Etcher"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  Wait for the system installation to complete
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-flashing.webp"
+    alt="Etcher flashing progress"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  Wait for the system verification to complete
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-valid.webp"
+    alt="Etcher validation in progress"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  After successfully installing the system image, close the Etcher software!
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-completed.webp"
+    alt="Etcher flash completed successfully"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

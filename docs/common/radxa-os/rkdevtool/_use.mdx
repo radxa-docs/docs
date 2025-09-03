@@ -1,0 +1,117 @@
+RKDevTool 是瑞芯微（Rockchip）平台为 Windows/Linux/MacOS 平台下进行 USB 烧录所开发的软件，旨在简化和加速对 Rockchip 系列芯片的开发、调试过程。
+
+<Tabs queryString="rkdevtool">
+
+<TabItem value="Windows">
+
+- 安装驱动
+
+下载并解压 [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) 文件。
+
+找到 ` DriverInstall.exe` 文件并以管理员身份运行：
+
+安装驱动： 点击 `Install Driver` 选项
+
+卸载驱动： 点击 `Uninstall Driver` 选项
+
+:::tip
+若之前安装过其他版本驱动，请先卸载再安装驱动
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/tools/rkdevtool/rkdevtool-driver.webp"
+    style={{ width: "75%", maxWidth: "700" }}
+  />
+</div>
+
+- 下载 RKDevTool 工具
+
+下载 [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar) 工具，然后解压下载的文件，其中 `RKDevTool.exe` 就是可执行程序，直接双击可以打开使用软件。
+
+</TabItem>
+
+<TabItem value="Linux">
+
+- 安装 rkdeveloptool
+
+打开系统终端或命令行，运行以下命令进行安装。
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+sudo apt-get update
+sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
+git clone https://github.com/rockchip-linux/rkdeveloptool
+cd rkdeveloptool
+autoreconf -i
+./configure
+make -j $(nproc)
+sudo cp rkdeveloptool /usr/local/sbin/
+```
+
+</NewCodeBlock>
+
+- 验证版本号
+
+完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+rkdeveloptool -V
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="MacOS">
+
+- 安装 HomeBrew
+
+[HomeBrew](https://brew.sh/) 是一个免费且开源的包管理器，它简化了 MacOS 用户安装软件的过程。
+
+若没有安装 HomeBrew，可以按照教程进行安装。
+
+<NewCodeBlock tip="MacOS$" type="host">
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+</NewCodeBlock>
+
+- 安装 rkdeveloptool
+
+打开系统终端或命令行，运行以下命令进行安装。
+
+<NewCodeBlock tip="MacOS$" type="host">
+
+```
+brew install automake autoconf libusb pkg-config git wget
+git clone https://github.com/rockchip-linux/rkdeveloptool
+cd rkdeveloptool
+autoreconf -i
+./configure
+make -j $(nproc)
+cp rkdeveloptool /opt/homebrew/bin/
+```
+
+</NewCodeBlock>
+
+- 验证版本号
+
+完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
+
+<NewCodeBlock tip="MacOS$" type="host">
+
+```
+rkdeveloptool -V
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>

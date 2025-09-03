@@ -368,6 +368,22 @@ sidebar_custom_props:
           products:
             [
               {
+                products_name: "Radxa CM4",
+                products_photo_url: "/home/product-pictures/cm4.webp",
+                products_link: "/compute-module/cm4",
+                docs:
+                  [
+                    {
+                      docs_link: "/compute-module/cm4",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa CM4 概览",
+                      docs_info_en: "Overview of the Radxa CM4",
+                      docs_info_zh: "Radxa CM4 概览",
+                    },
+                  ],
+              },
+              {
                 products_name: "Radxa CM5",
                 products_photo_url: "/home/product-pictures/cm5.webp",
                 products_link: "/compute-module/cm5",

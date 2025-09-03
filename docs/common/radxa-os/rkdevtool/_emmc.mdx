@@ -1,0 +1,74 @@
+主要介绍如何使用 RKDevTool 工具将系统镜像烧录到 eMMC 模块上。
+
+说明：需要确保主板已经进入 Maskrom 模式且被系统正常识别
+
+<Tabs queryString="platform">
+
+<TabItem value="Windows">
+在 Windows 平台，我们可以打开 RKDevTool 工具，然后按照以下步骤安装系统到 eMMC 模块上。
+
+① : 选择主板对应的 Loader 文件
+
+② : 选择主板对应的系统镜像
+
+③ : 选择 `eMMC` 选项作为系统存储介质
+
+④ : 勾选 `Write by Address` 选项
+
+⑤ : 点击 `RUN` 选项执行所有操作
+
+⑥ : 可以通过该界面观察操作进度
+
+<div style={{ textAlign: "left" }}>
+  <img
+    src="/img/common/tools/rkdevtool/rk-emmc.webp"
+    style={{ width: "100%", maxWidth: "700" }}
+  />
+</div>
+
+断开主板与 PC 的连接，然后重新插拔电源，系统会自动从 eMMC 模块中启动。
+
+</TabItem>
+
+<TabItem value="Linux / MacOS">
+在 Linux / MacOS 平台，我们可以终端命令行，然后按照以下步骤安装系统到 eMMC 模块上。
+
+1. 运行 Loader 文件
+
+将下面命令中的 `demo.bin` 替换为主板对应的 Loader 文件。
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool db demo.bin
+```
+
+</NewCodeBlock>
+
+2. 安装系统镜像
+
+将下面命令中的 `demo.img` 替换为主板对应的系统镜像。
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool wl 0 demo.img
+```
+
+</NewCodeBlock>
+
+3. 重启系统
+
+断开主板与 PC 的连接，然后重新插拔电源，系统会自动从 eMMC 模块中启动。
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool rd
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>

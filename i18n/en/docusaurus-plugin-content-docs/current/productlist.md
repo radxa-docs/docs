@@ -58,6 +58,7 @@ sidebar_position: 2
 | [Radxa CM3](/compute-module/cm3/) (2022)   | RK3566 with a B2B Interface      |
 | [Radxa CM3I](/compute-module/cm3i/) (2023) | RK3568(J) with a B2B Interface   |
 | [Radxa CM3J](/compute-module/cm3j/) (2024) | RK3568J with a B2B Interface     |
+| [Radxa CM4](/compute-module/cm4/) (2025)   | RK3576(J) with a B2B Interface   |
 | [Radxa CM5](/compute-module/cm5/)          | RK3588S with a B2B Interface     |
 | [Radxa NX5](/compute-module/nx5/) (2023)   | RK3588S with an SODIMM Interface |
 

@@ -1,0 +1,86 @@
+This guide explains how to set up the Chinese language environment on your device.
+
+:::tip Note on Chinese Language Support
+Full Chinese language support is not available throughout the entire system. Some system options and UI elements may still appear in English.
+:::
+
+## Configure Chinese Language
+
+To set up a Chinese language environment, you first need to change the system language to Chinese.
+
+① : Click on `System Settings`
+
+② : Click on `Regional Settings`
+
+③ : Change the language
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/chinese-env-01.webp"
+    alt="System Settings - Regional Settings"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+Set the `Language` to `Simplified Chinese`:
+
+① : Change language
+
+② : Select Simplified Chinese
+
+③ : Apply the language changes
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/chinese-env-02.webp"
+    alt="Language Selection - Simplified Chinese"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+After changing the language, you'll need to restart the system for the changes to take effect. Before doing so, let's also set the time to Beijing Time.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/chinese-env-03.webp"
+    alt="Language Change Confirmation"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Configure Time Zone
+
+Change the system time to Beijing Time (UTC+8).
+
+① : Select `Date & Time` in `Regional Settings`
+
+② : Choose `Time Zone` option
+
+③ : Select `Asia/Shanghai` as the time zone
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/radxa-os/chinese-env-04.webp"
+    alt="Time Zone Selection"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+After configuring the Chinese language and time zone, restart your system by entering the following command in the terminal:
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo reboot
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  Screenshot after successful configuration
+  <img
+    src="/en/img/common/tools/radxa-os/chinese-env-05.webp"
+    alt="System Displaying Chinese Interface"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

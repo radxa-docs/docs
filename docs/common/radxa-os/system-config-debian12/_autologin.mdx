@@ -1,0 +1,52 @@
+设置系统自动登录可以避免每次进入系统桌面需要输入密码，直接免密码进入系统桌面。
+
+:::tip VNC 黑屏
+设置系统自动登录后，VNC 远程控制系统可能会出现黑屏现象，建议使用显示器的用户启用系统自动登录功能。
+
+若需要使用 VNC 远程控制系统，可以禁用系统自动登录功能。
+:::
+
+## 启用自动登录
+
+在终端命令行输入 `rsetup` 命令，使用 Rsetup 工具启用自动登录功能：
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+rsetup
+```
+
+</NewCodeBlock>
+
+1. 通过方向键选择 `User Settings` 选项，然后回车确认选择。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/tools/radxa-os/rsetup-auto-login-1.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. 通过方向键选择 `Configure auto login` 选项，然后回车确认选择。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/tools/radxa-os/rsetup-auto-login-2.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. 通过方向键选择 `Enable auto login` 选项，然后按空格键勾选 `gdm.service`，最后按回车确认选择。
+
+:::tip
+选项框中出现 `*` 表示该选项已启用
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/tools/radxa-os/rsetup-auto-login-3.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+4. 重启系统，系统自动登录配置生效。

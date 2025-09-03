@@ -1,0 +1,147 @@
+主要介绍如何使用 `dd` 命令将系统安装到 NVMe SSD 中。
+
+:::warning
+安装系统会格式化 NVMe SSD，如果有重要数据请提前备份！
+:::
+
+## 使用前提
+
+您需要满足以下条件才可以使用 `dd` 命令将系统安装到 NVMe SSD 中：
+
+- 系统可以通过其他存储设备正常启动系统：推荐使用 MicroSD 卡启动系统
+
+- NVMe 安装到主板上
+
+## 硬件连接
+
+您可以根据自己的主板配置进行操作。
+
+:::tip
+教程适用于多款主板，你需要根据自己的主板配置选择对应的步骤进行硬件连接。
+
+主板安装 NVMe SSD 可分为两种情况：
+
+- 主板有 M.2 M Key 接口：可直接安装 NVMe SSD
+
+- 主板无 M.2 M Key 接口且配备 PCIe FPC 接口：可通过 PCIe 转 M.2 M Key HAT 模块安装 NVMe SSD
+  :::
+
+<Tabs queryString="system boot">
+  <TabItem value="M.2 M 2280 接口" default={props.tag === "m2_2280"} attributes={{ className: props.tag !== "m2_2280" ? "tab_none" : "" }}>
+    通过 M.2 M Key 2280 接口安装 NVMe SSD。
+    <div style={{ textAlign: "center" }}>
+      <img
+        src="/img/common/radxa-os/install-system/nvme-m2-2280.webp"
+        style={{ width: "100%", maxWidth: "1200px" }}
+      />
+    </div>
+  </TabItem>
+
+<TabItem
+  value="M.2 M 2230 接口"
+  default={props.tag === "m2_2230"}
+  attributes={{ className: props.tag !== "m2_2230" ? "tab_none" : "" }}
+>
+  通过 M.2 M Key 2230 接口安装 NVMe SSD。
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/common/radxa-os/install-system/nvme-m2-2230.webp"
+      style={{ width: "100%", maxWidth: "1200px" }}
+    />
+  </div>
+</TabItem>
+
+  <TabItem value="PCIe FPC 接口" default={props.tag === "pcie_fpc"} attributes={{className: props.tag !== "pcie_fpc" ? "tab_none" : ""}}>
+    通过 PCIe FPC 接口搭配 M.2 M Key HAT 可以安装 NVMe SSD。
+  </TabItem>
+</Tabs>
+
+## 安装系统
+
+### 下载系统镜像
+
+主板需要访问资源汇总下载页面，直接下载系统镜像文件到本地上。
+
+:::tip 镜像说明
+下载的系统镜像是压缩文件，需要解压后才能使用！
+:::
+
+#### 推荐下载方式
+
+- 直接下载
+
+主板直接访问资源汇总下载页面，下载系统镜像文件到本地上。
+
+- wget 命令下载
+
+主板通过 `wget` 命令下载系统镜像文件到本地上。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update &&
+sudo apt install wget -y
+wget <url>
+```
+
+</NewCodeBlock>
+
+其中 `<url>` 为系统镜像文件的下载地址，可以复制资源汇总下载页面中的下载地址进行替换。
+
+- PC 端下载
+
+PC 端访问资源汇总下载页面，直接下载系统镜像文件后，通过 U 盘、FTP、SCP等方式将系统镜像文件传输到主板上。
+
+#### 解压系统镜像
+
+我们的系统镜像一般为 `*.img.xz` 格式，需要解压后才能使用。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo apt update
+sudo apt install xz-utils -y
+unxz <image_path>
+```
+
+</NewCodeBlock>
+
+其中 `<image_path>` 为系统镜像文件的路径，需要替换成实际的系统镜像文件路径。
+
+### 安装系统镜像
+
+使用 `dd` 命令将系统镜像安装到 NVMe SSD 中。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo dd if=<image_path> of=<device_target> bs=4M status=progress
+```
+
+</NewCodeBlock>
+
+参数说明：
+
+- `<image_path>`：系统镜像文件的路径，需要替换成实际的系统镜像文件路径。
+
+- `<device_target>`：NVMe SSD 的设备路径，需要替换成实际的 NVMe SSD 的设备路径。
+
+- `bs=4M`：写入块大小。
+
+- `status=progress`：显示写入进度。
+
+:::tip 确定设备路径
+
+可以使用 `lsblk` 命令查看设备路径，根据磁盘的容量来确定设备路径。
+
+说明：若是磁盘容量接近一致，可以安全插拔（主板关机插拔 NVMe SSD）来观察出现和消失的设备路径，从而确定设备路径。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+:::
