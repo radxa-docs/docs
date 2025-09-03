@@ -4,6 +4,6 @@ import Rkdeveloptool from "../../../common/dev/\_rkdeveloptool.mdx";
 
 RKDevelopTool GUI
 
-如果你想使用这个工具的 GUI 版本，可以访问此项目：
+If you want to use the GUI version of this tool, you can visit this project:
 
 [RKDevelopTool-GUI](https://github.com/gahingwoo/RKDevelopTool-GUI)
