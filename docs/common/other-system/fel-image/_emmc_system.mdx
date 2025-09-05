@@ -1,0 +1,44 @@
+主要介绍如何将 fel 系统镜像安装到板载 eMMC 或 eMMC 模块中。
+
+:::warning
+安装系统会格式化 eMMC，如果有重要数据请提前备份！
+:::
+
+## 使用前提
+
+### 硬件连接
+
+<Tabs queryString="system boot">
+<TabItem value="eMMC 模块" default={props.tag === "emmc_module"} attributes={{className: props.tag === "emmc_board" && "tab_none"}} >
+
+eMMC 模块安装步骤：
+
+1. 观察 eMMC 模块上的缺角方向和主板上的 eMMC 模块接口的缺角丝印，以确定正确的安装方向。
+2. 将 eMMC 模块放置到主板 eMMC 模块接口上方，确保 eMMC 模块接口与主板的 eMMC 模块接口基本对齐。
+3. 稍用力按压 eMMC 模块的一端，听到“咔哒”声表示安装成功，再以同样方式按压另一端，确保 eMMC 模块安装成功。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/emmc-moudle-board.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="板载 eMMC" default={props.tag === "emmc_board"} attributes={{className: props.tag === "emmc_module" && "tab_none"}} >
+
+若你的主板是含有板载 eMMC 的版本，无需安装。
+
+</TabItem>  
+</Tabs>
+
+### 软件准备
+
+给 eMMC 安装系统需要使用全志平台提供的工具：
+
+PhoenixSuit：适用于 Windows 平台。
+
+LiveSuit：适用于 Linux 平台。
+
+ 
