@@ -1,0 +1,164 @@
+QAIRT (Qualcomm® AI Runtime) SDK 是一个集成了 Qualcomm® AI 软件产品的软件包，
+包括 Qualcomm® AI Engine Direct、Qualcomm® Neural Processing SDK 和 Qualcomm® Genie。
+QAIRT 为开发者提供了在 Qualcomm® 硬件加速器上移植和部署 AI 模型所需的所有工具，以及在 CPU、GPU 和 NPU 上运行模型的 runtime。
+目前 QAIRT SDK 支持对 Pytorch, Tensorflow, TFLite, ONNX 框架模型进行模型移植。
+
+支持推理硬件加速器 IP: `CPU`、`GPU`、`NPU`。
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/qairt_arch.webp" style={{ width: "65%" }} />
+  QAIRT SDK 架构
+</div>
+
+**QAIRT SDK 系统要求**
+
+- 64 位 x86 处理器
+- Ubuntu 22.04
+- Python 3.10
+
+## 下载 QAIRT SDK 压缩包
+
+- 请在 [Qualcomm® Software Center](https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.37.1.250807/v2.37.1.250807.zip) 下载 `v2.37.1.250807` QAIRT SDK
+
+- 解压 QAIRT SDK
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  unzip v2.37.1.250807.zip
+  cd qairt/2.37.1.250807
+  ```
+
+    </NewCodeBlock>
+
+## 配置 QAIRT 环境
+
+### 创建 python 环境
+
+运行 QAIRT 需要 python3.10 环境，用户可以使用 [Anaconda](https://www.anaconda.com/download/success) 创建
+
+:::tip
+
+- anaconda 安装请参考：[**Conda 安装**](../virtual-env/conda_install)
+
+- conda python 环境创建请参考：[**创建指定 Python 版本的环境**](../virtual-env/conda_use#创建指定-python-版本的环境)
+  :::
+
+安装 Anaconda 后使用终端创建 python3.10 环境并启用
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+conda create -n qairt python=3.10
+conda activate qairt
+```
+
+</NewCodeBlock>
+
+### 配置 QAIRT 环境变量
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+source bin/envsetup.sh
+```
+
+</NewCodeBlock>
+
+### 检查依赖
+
+- 检查库依赖
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  sudo ${QAIRT_SDK_ROOT}/bin/check-linux-dependency.sh
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  Checking for libncurses5
+  Checking for libgl1
+  Checking for libgtk-3-dev
+  Checking for libasound2-dev
+  Checking for libnss3
+  Checking for git
+  Checking for nodejs
+  Checking for npm
+  Checking for libgbm-dev
+  Checking for desktop-file-utils
+  Checking for python3-dev
+  Checking for python3-pip
+  Checking for python3-setuptools
+  Checking for clang
+  Checking for libc++-dev
+  Checking for libc++abi-dev
+  Checking for flatbuffers-compiler
+  Checking for libflatbuffers-dev
+  Checking for rename
+  =============================================================
+  All Dependency Packages Found
+  Done!!
+  ```
+
+- 检查工具链依赖
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  ${QAIRT_SDK_ROOT}/bin/envcheck -c
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  Checking Clang Environment
+  --------------------------------------------------------------
+  [INFO] Found clang++ at /usr/bin/clang++
+  --------------------------------------------------------------
+  ```
+
+- 安装 python 库依赖
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  python3 "${QAIRT_SDK_ROOT}/bin/check-python-dependency"
+  ```
+
+    </NewCodeBlock>
+
+### 安装 AI 框架
+
+根据业务模型格式选择需要安装的模型框架库，无需全部安装。
+
+| package name   | version |
+| -------------- | ------- |
+| tensorflow     | 2.10.1  |
+| tflite         | 2.3.0   |
+| torch          | 1.13.1  |
+| onnx           | 1.16.1  |
+| onnxruntime    | 1.17.1  |
+| onnxsimplifier | 0.4.36  |
+
+## SDK 完整文档
+
+QAIRT SDK 集成了 Qualcomm® AI Engine Direct (QNN)、Qualcomm® Neural Processing SDK (SNPE) 和 Qualcomm® Genie (Genie)
+他们的详细文档具体位置如下：
+
+**本地文档**
+
+- `qairt/2.37.1.250807/docs/QNN`
+
+- `qairt/2.37.1.250807/docs/SNPE`
+
+- `qairt/2.37.1.250807/docs/Genie`
+
+**在线文档**
+
+- [**QNN**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-50/introduction.html)
+
+- [**SNPE**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-2/overview.html)
+
+- [**Genie**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)

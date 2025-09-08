@@ -1,0 +1,72 @@
+本文档提供一个开箱即用的 resnet50 目标识别模型推理示例，
+此示例是在瑞莎 Dragon Ubuntu 系统下使用 Qualcomm® Hexagon™ Processor (NPU) 进行硬件加速推理。
+
+## 下载示例
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash pip3 install modelscope modelscope download --model
+radxa/resnet50_qairt --local ./resnet50_qairt
+```
+
+</NewCodeBlock>
+
+## 运行示例
+
+请根据 SoC 平台选择对应文件夹
+
+<Tabs>
+    <TabItem value="QCS6490">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    cd resnet50_qairt/6490
+    ./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_6490.bin --input_list ./test_list.txt --output_dir output_bin
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+{/* <TabItem value="QCS9075"> */}
+
+{/* <NewCodeBlock tip="Device" type="device"> */}
+{/* ```bash */}
+{/* cd resnet50_qairt/9075 */}
+{/* ./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_9075.bin --input_list ./test_list.txt --output_dir output_bin */}
+{/* ``` */}
+{/* </NewCodeBlock> */}
+
+{/* </TabItem> */}
+
+</Tabs>
+
+{/* ## TODO */}
+
+## 验证示例
+
+可以使用 python 脚本进行结果验证
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd scripts
+python3 show_resnet50_classifications.py --input_list ../model/test_list.txt -o ../model/output_bin/ --labels_file ../data/imagenet_classes.txt
+```
+
+</NewCodeBlock>
+
+```bash
+$ python3 show_resnet50_classifications.py --input_list ../model/test_list.txt -o ../model/output_bin/ --labels_file ../data/imagenet_classes.txt
+Classification results
+../data/test/crop/ILSVRC2012_val_00003441.raw 21.740574 402 acoustic guitar
+../data/test/crop/ILSVRC2012_val_00008465.raw 23.423716 927 trifle
+../data/test/crop/ILSVRC2012_val_00010218.raw 12.623559 281 tabby
+../data/test/crop/ILSVRC2012_val_00044076.raw 18.093769 376 proboscis monkey
+```
+
+通过结果打印与测试图片类容对比，可以确认 resnet50 模型移植到 Qualcomm® NPU 上输出的结果正确。
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/qairt_resnet50.webp" style={{ width: "60%" }} />
+  resnet50 input images
+</div>
