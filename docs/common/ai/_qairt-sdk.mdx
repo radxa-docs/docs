@@ -1,0 +1,100 @@
+瑞莎 Dragon 系列产品 SoC 搭载 Qualcomm® Hexagon™ Processor (NPU) 是专门用来做 AI 推理的硬件加速器。
+要使用 NPU 进行模型推理需要使用 QAIRT (Qualcomm® AI Runtime) SDK 对预训练好的模型进行模型移植。
+Qualcomm® 为 NPU 开发者提供一系列 SDK 方便用户可以对自己的 AI 模型进行 NPU 移植工作。
+
+- 模型量化库：[AIMET](#aimet)
+
+- 模型移植 SDK： [QAIRT](#qairt)
+
+- 模型应用库：[QAI-APP-BUILDER](#qai-appbuilder)
+
+## Qualcomm® NPU 软件栈
+
+### QAIRT
+
+QAIRT (Qualcomm® AI Runtime) SDK 是一个集成了 Qualcomm® AI 软件产品的软件包，
+包括 Qualcomm® AI Engine Direct、Qualcomm® Neural Processing SDK 和 Qualcomm® Genie。
+QAIRT 为开发者提供了在 Qualcomm® 硬件加速器上移植和部署 AI 模型所需的所有工具，以及在 CPU、GPU 和 NPU 上运行模型的 runtime。
+
+#### 支持推理后端
+
+- CPU
+
+- GPU
+
+- NPU
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/qairt_arch.webp" style={{ width: "65%" }} />
+  QAIRT SDK 架构
+</div>
+
+#### QAIRT 模型格式
+
+QAIRT 基于不同的系统与不同的推理后端，有以下 3 种模型文件格式
+
+| 格式               | 后端            | 跨系统 | 跨芯片 |
+| ------------------ | --------------- | ------ | ------ |
+| Library            | CPU / GPU / NPU | No     | Yes    |
+| DLC                | CPU / GPU / NPU | Yes    | Yes    |
+| **Context Binary** | **NPU**         | Yes    | No     |
+
+:::tip
+文档仅讲述基于 NPU 进行模型移植与部署，只讲述内存与性能最优的 **Context-Binary** 格式模型的转换与推理方法，
+有关其他格式模型的转换与不同后端的推理方法，请参考 [**QAIRT SDK 文档**](qairt-install#sdk-完整文档)
+:::
+
+#### SoC 架构对照表
+
+| SoC     | dsp_arch | soc_id |
+| ------- | -------- | ------ |
+| QCS6490 | v68      | 35     |
+
+{/* | QCS9075 | v73      | 77     | */}
+
+{/* ## TODO */}
+
+#### 使用文档
+
+- [**QAIRT SDK 安装**](./qairt-install)
+
+- [**QAIRT SDK 使用示例**](./qairt-usage)
+
+- [**NPU 快速验证**](./quick-example)
+
+- [**QAIRT 完整文档**](./qairt-install#sdk-完整文档)
+
+### AIMET
+
+[**AIMET**](https://github.com/quic/aimet)（AI Model Efficiency Toolkit）是一款面向深度学习模型（如 PyTorch 和 ONNX）的量化工具。AIMET 通过降低模型计算负载和内存占用，提升深度学习模型的运行性能。
+借助 AIMET，开发者可以快速迭代，找到最佳量化配置，以在精度和延迟之间达到最优平衡。开发者可以将 AIMET 导出的量化模型使用 [QAIRT](./qairt-usage) 编译并部署在 Qualcomm NPU 上，或直接使用 ONNX-Runtime 运行。
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/aimet_overview.webp" style={{ width: "100%" }} />
+  AIMET OVERVIEW
+</div>
+
+#### 使用文档
+
+- [**AIMET 量化工具**](./aimet)
+
+- [**AIMET 完整文档**](https://quic.github.io/aimet-pages/releases/latest/index.html#)
+
+- [**AIMET 仓库**](https://github.com/quic/aimet)
+
+### QAI-APPBUILDER
+
+[**Quick AI Application Builder**](https://github.com/quic/ai-engine-direct-helper) (QAI AppBuilder) 可帮助开发者轻松使用基于 [Qualcomm® AI Runtime SDK ](qairt-sdk#qairt)
+在搭载 Qualcomm® Hexagon™ Processor (NPU) 的 Qualcomm® SoC 平台上部署 AI 模型和设计 AI 应用。
+它将模型部署 API 封装成一组简化的接口，用于将模型加载到 NPU 并执行推理。QAI AppBuilder 大大降低了开发者部署模型的复杂性并且提供多个 demo 让开发者参考设计自己的 AI 应用。
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/qai_app_builder_1.webp" style={{ width: "65%" }} />
+  QAI-APPBUILDER 架构
+</div>
+
+#### 使用文档
+
+- [**QAI AppBuilder**](./qai-appbuilder)
+
+- [**QAI AppBuilder 仓库**](https://github.com/quic/ai-engine-direct-helper)

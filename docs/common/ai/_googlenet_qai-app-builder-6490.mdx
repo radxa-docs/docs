@@ -1,0 +1,71 @@
+此文档讲述如何使用 QAI AppBuilder python 库在瑞莎 Dragon Q6A 上运行 [GoogLeNet](https://aihub.qualcomm.com/models/googlenet?domain=Computer+Vision&useCase=Image+Classification&chipsets=qualcomm-qcs6490-proxy)
+目标识别模型。
+
+## 安装 QAI AppBuilder
+
+:::tip
+请根据 [**QAI AppBuilder 安装方法**](qai-appbuilder)
+:::
+
+## 运行示例
+
+### 安装依赖
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install requests tqdm qai-hub py3_wget opencv-python torch
+```
+
+</NewCodeBlock>
+
+### 运行脚本
+
+- 进入示例目录
+
+   <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd ai-engine-direct-helper/samples/linux/python
+  ```
+
+    </NewCodeBlock>
+
+- 准备输入图片，这里以以下图片为输入示例
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
+    input image
+  </div>
+
+- 执行推理
+
+    <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+   python3 googlenet/googlenet.py --image googlenet/input.jpg
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  (.venv) ubuntu@ubuntu:~/git_clone/ai-engine-direct-helper/samples/linux/python$ python3 googlenet/googlenet.py --image googlenet/input.jpg
+  Current file directory: /home/ubuntu/git_clone/ai-engine-direct-helper/samples/linux/python/googlenet
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+
+  Top 5 predictions for image:
+
+  goldfish 0.7454143167
+  rock beauty 0.1190399304
+  clownfish 0.0221503042
+  tench 0.0095548332
+  pufferfish 0.0088517098
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+  314.2ms [WARNING] Time: model_destroy googlenet 15.64
+  ```
+
+  打印结果可以看到 `goldfish` 置信度最高，这与输入图片内容吻合。
