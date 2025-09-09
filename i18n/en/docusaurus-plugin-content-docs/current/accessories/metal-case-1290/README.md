@@ -28,6 +28,10 @@ Perfectly compatible with Radxa's original 6240B heatsink, leveraging the offici
 
 Features 5 SMA interface ports, supporting WiFi, Bluetooth, and cellular module expansion (antennas sold separately), flexibly meeting diverse communication needs.
 
+- **PoE-ready (module not included)**
+
+Supports 802.3af/at standards, providing both power and network connectivity through a single cable.
+
 - **Flexible Installation, Easy Deployment**
 
 Comes with a standard wall-mount bracket for easy installation on workbenches, cabinets, or vertical surfaces, adapting to various application scenarios.
