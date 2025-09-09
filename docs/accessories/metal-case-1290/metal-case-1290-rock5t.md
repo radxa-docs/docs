@@ -26,7 +26,7 @@ sidebar_position: 2
 
 ⑧ : 2x 导热硅胶片
 
-⑨ : 1x 硅胶脚垫
+⑨ : 1x 硅胶脚垫（内含 4 个单独脚垫）
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/accessories/metal-case-1290/metal-case-1290-00.webp" style={{width: '100%', maxWidth: '1200px'}} />

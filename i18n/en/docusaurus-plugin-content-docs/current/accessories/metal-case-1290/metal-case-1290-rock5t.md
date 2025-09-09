@@ -26,7 +26,7 @@ This guide provides installation instructions for the ROCK 5T with the Radxa Met
 
 ⑧ : 2x Thermal Pads
 
-⑨ : 1x Silicone Feet
+⑨ : 1x Silicone Feet (contains 4 individual feet)
 
 <div style={{textAlign: 'center'}}>
     <img src="/en/img/accessories/metal-case-1290/metal-case-1290-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
