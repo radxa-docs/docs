@@ -17,7 +17,7 @@ Please select the appropriate system image for your system boot medium:
 
 #### Generic System Image
 
-Currently, only MicroSD cards and eMMC modules are supported for system boot. UFS modules and NVMe SSDs are under development!
+Currently, only MicroSD cards, eMMC modules and UFS modules are supported for system boot. NVMe SSDs are under development!
 
 - [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-b1/radxa-cubie-a7a_bullseye_kde_b1.output_512.img.xz)
 
