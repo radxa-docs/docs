@@ -8,9 +8,9 @@ sidebar_position: 1
 
 ## 产品实物
 
-| 序号 | 视图 | 序号 | 视图 | 序号 | 视图 |
-| :--: | :--: | :--: | :--: | :--: | :--: |
-| ①    | Cubie A5E 正视图 | ②    | Cubie A5E 背视图 | ③    | Cubie A5E 侧视图 |
+| 序号 |       视图       | 序号 |       视图       | 序号 |       视图       |
+| :--: | :--------------: | :--: | :--------------: | :--: | :--------------: |
+|  ①   | Cubie A5E 正视图 |  ②   | Cubie A5E 背视图 |  ③   | Cubie A5E 侧视图 |
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/cubie/a5e/cubie_a5e_view.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -20,8 +20,8 @@ sidebar_position: 1
 
 您可以根据自己的系统启动介质和拥有的硬件设备，参考下面教程进行系统安装：
 
-- [安装系统到 MicroSD 卡](./install-system/sd_system)（新用户推荐）
-- [安装系统到板载 eMMC](./install-system/emmc-system)
+- [安装系统到 MicroSD 卡](./install-system/microsd)（新用户推荐）
+- [安装系统到板载 eMMC](./install-system/emmc)
 
 ## 启动系统
 
@@ -57,8 +57,8 @@ Cubie A5E 搭配显示器使用，整体操作比较直观和简单，这里便�
 
 ### 有屏模式
 
-有屏模式是指 Cubie A7A 搭配显示器使用，整体操作比较直观和简单！
+有屏模式是指 Cubie A5E 搭配显示器使用，整体操作比较直观和简单！
 
 ### 无屏模式
 
-无屏模式是指 Cubie A7A 不搭配显示器使用，通过串口调试或者 ADB 调试登录系统进行操作！
+无屏模式是指 Cubie A5E 不搭配显示器使用，通过串口调试或者 ADB 调试登录系统进行操作！

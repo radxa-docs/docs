@@ -1,3 +1,5 @@
+import { Image } from "@site/src/utils/docs";
+
 ADB（Android Debug Bridge，安卓调试桥）是 Android 官方提供的一种命令行工具，用于调试和管理 Android 设备。
 
 我们教程使用 Android SDK Platform-Tools 进行 ADB 调试。
@@ -13,6 +15,13 @@ Android SDK Platform-Tools 包含 ADB（Android Debug Bridge）、Fastboot 等�
 ① : 需要确认主板的 Android 系统已经成功启动，否则无法进行后面的 ADB 调试。
 
 ② : 使用数据线连接主板的 OTG 口和电脑
+
+<Image
+  src="/img/common/other-system/android/#sbc_model#-adb-debug.webp"
+  baud={props.sbc_model}
+  fallback={props.sbc_model}
+  width="1200"
+/>
 
 ## 下载 SDK Platform-Tools
 
@@ -30,7 +39,7 @@ Android SDK Platform-Tools 包含 ADB（Android Debug Bridge）、Fastboot 等�
 
 使用 `./adb version` 命令查看 ADB 工具的版本信息。
 
-<NewCodeBlock tip="Host-PC$" type="device">
+<NewCodeBlock tip="PC-Host$" type="host">
 
 ```
 ./adb version
@@ -48,30 +57,30 @@ Version 36.0.0-13206524
 ### 开启调试功能
 
 :::tip
-Cubie A7A 的 Android 系统默认开启 USB 调试功能，Android 11 版本以后支持无线 ADB 调试。
+Android 系统默认开启 USB 调试功能，Android 11 版本以后支持无线 ADB 调试。
 
-**有线连接**：您需要在 Cubie A7A 的 Android 系统中开启 USB 调试功能。
+**有线连接**：您需要在主板 Android 系统中开启 USB 调试功能。
 
-**无线连接**：您需要在 Cubie A7A 的 Android 系统中开启无线调试功能。
+**无线连接**：您需要在主板 Android 系统中开启无线调试功能。
 :::
 
 #### 有线连接
 
-使用 Type-C 数据线连接 Cubie A7A 和电脑，通过这根 Type-C 数据线进行供电和有线调试。
+使用数据线连接主板和电脑，通过数据线进行供电和有线调试。
 
 #### 无线连接
 
-使用 Type-C 电源适配器连接 Cubie A7A，Cubie A7A 的 WiFi 和电脑需要连接同一个网络，确保处于同一局域网。
+使用电源适配器连接主板，主板的 WiFi 和电脑需要连接同一个网络，确保处于同一局域网。
 
 #### 开启调试功能
 
-我们需要让 Cubie A7A 进入开发者模式，在该模式下检查 USB 和无线调试功能是否开启。
+我们需要让主板的 Android 系统进入开发者模式，在该模式下检查 USB 和无线调试功能是否开启。
 
 开启 USB 和无线调试功能步骤：
 
-1. 进入 Cubie A7A 的 Android 系统的 `Settings` → `About tablet` 界面。
+1. 进入主板的 Android 系统的 `Settings` → `About tablet` 界面。
 2. 点击 `Build number` 七次，进入开发者模式。
-3. 进入 Cubie A7A 的 Android 系统的 `Settings` → `System` → `Developer options` 界面。
+3. 进入主板的 Android 系统的 `Settings` → `System` → `Developer options` 界面。
 4. 勾选 `USB debugging` 和 `Wireless debugging` 功能。
 5. 点击 `Wireless debugging` 选项可以看到 `IP address & Port`，无线调试需要使用到 IP 地址和端口信息。
 
@@ -79,7 +88,7 @@ Cubie A7A 的 Android 系统默认开启 USB 调试功能，Android 11 版本以
 
 使用 `./adb devices` 命令查看设备列表。
 
-<NewCodeBlock tip="Host-PC$" type="device">
+<NewCodeBlock tip="PC-Host$" type="host">
 
 ```
 ./adb devices
@@ -101,7 +110,7 @@ List of devices attached
 
 在 `platform-tools` 文件夹目录下，使用 `./adb shell` 命令进入 Android 设备的终端 Shell。
 
-<NewCodeBlock tip="Host-PC$" type="device">
+<NewCodeBlock tip="PC-Host$" type="host">
 
 ```
 ./adb shell
@@ -112,7 +121,7 @@ List of devices attached
 连接成功后会显示 Android 设备的终端 Shell，类似以下信息：
 
 ```
-radxa-a7a:/ $
+radxa-<sbc_model>:/ $
 ```
 
 </TabItem>
@@ -120,7 +129,7 @@ radxa-a7a:/ $
 
 在 `platform-tools` 文件夹目录下，使用 `./adb connect <device_ip>` 命令连接 Android 设备。
 
-<NewCodeBlock tip="Host-PC$" type="device">
+<NewCodeBlock tip="PC-Host$" type="host">
 
 ```
 ./adb connect <device_ip:port>
@@ -128,7 +137,6 @@ radxa-a7a:/ $
 # 示例
 
 ./adb connect 192.168.31.201:43167
-
 ```
 
 </NewCodeBlock>
@@ -141,7 +149,7 @@ already connected to 192.168.31.201:43167
 
 连接成功后，使用 `./adb shell` 命令进入 Android 设备的终端 Shell。
 
-<NewCodeBlock tip="Host-PC$" type="device">
+<NewCodeBlock tip="PC-Host$" type="host">
 
 ```
 ./adb shell
@@ -152,7 +160,7 @@ already connected to 192.168.31.201:43167
 进入成功后会显示 Android 设备的终端 Shell，类似以下信息：
 
 ```
-radxa-a7a:/ $
+radxa-<sbc_model>:/ $
 ```
 
 </TabItem>

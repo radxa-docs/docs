@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 快速上手
 
-本节教程目的是为了让大家快速上手使用 Cubie A5E 产品。
+本节教程目的是为了让大家快速上手使用 Cubie A5E 的 Tina 系统。
 
 ## 产品实物
 
@@ -39,9 +39,15 @@ Cubie A5E 主板兼容 PD 协议的 5V 电源输入，建议电流 3A 以上，�
 
 您可以根据自己的系统启动介质和拥有的硬件设备，参考下面教程进行系统安装：
 
-- [安装系统到 MicroSD 卡](./install-system/sd_system)（新用户推荐）
-- [安装系统到板载 eMMC](./install-system/emmc-system)
-- [安装系统到 NVMe SSD](./install-system/nvme-system)
+- GPT 系统镜像
+
+  - [安装系统到 MicroSD 卡](../../getting-started/install-system/microsd-system.md)（新用户推荐）
+  - [安装系统到板载 eMMC](../../getting-started/install-system/emmc-system.md)
+  - [安装系统到 NVMe SSD](../../getting-started/install-system/nvme-system)
+
+- FEL 系统镜像
+  - [安装系统到 MicroSD 卡](../android/install-system/microsd.md)（新用户推荐）
+  - [安装系统到板载 eMMC](../android/install-system/emmc.md)
 
 ## 启动系统
 
@@ -67,7 +73,7 @@ Cubie A5E 主板兼容 PD 协议的 5V 电源输入，建议电流 3A 以上，�
 
 ## 登录系统
 
-主要介绍 Cubie A5E 搭配 USB 串口数据线登录系统，串口登录系统可以参考 [串口调试](../system-config/uart_debug) 教程。
+主要介绍 Cubie A5E 搭配 USB 串口数据线登录系统，串口登录系统可以参考 [串口调试](../../system-config/uart_debug) 教程。
 
 :::tip
 Cubie A5E 搭配显示器使用，整体操作比较直观和简单，这里便不再介绍！
@@ -91,14 +97,14 @@ Cubie A5E 搭配显示器使用，整体操作比较直观和简单，这里便�
 
 > **串口登录**
 
-您可以根据 [串口调试](../system-config/uart_debug) 教程进行串口登录系统，获取路由器给 Cubie A5E 分配的 IP 地址，然后通过 SSH 远程登录系统。
+您可以根据 [串口调试](../../system-config/uart_debug) 教程进行串口登录系统，获取路由器给 Cubie A5E 分配的 IP 地址，然后通过 SSH 远程登录系统。
 
-注意：若您可以直接登录路由器后台查看 Cubie A7A 的 IP 地址，您可以跳过串口登录的步骤，直接根据分配的 IP 地址，进行 SSH 远程登录系统。
+注意：若您可以直接登录路由器后台查看 Cubie A5E 的 IP 地址，您可以跳过串口登录的步骤，直接根据分配的 IP 地址，进行 SSH 远程登录系统。
 
 > **SSH 远程**
 
-您可以根据 [SSH 远程](../system-config/ssh_remote) 教程完成 SSH 远程登录 Cubie A7A 的命令行界面。
+您可以根据 [SSH 远程](../../system-config/ssh_remote) 教程完成 SSH 远程登录 Cubie A5E 的命令行界面。
 
 > **VNC 远程**
 
-您可以根据 [VNC 远程](../system-config/vnc_remote) 教程完成 VNC 远程登录 Cubie A7A 的图形化界面。
+您可以根据 [VNC 远程](../../system-config/vnc_remote) 教程完成 VNC 远程登录 Cubie A5E 的图形化界面。
