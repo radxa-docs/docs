@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 构建系统
 
-构建系统我们需要依次完成源码下载、源码合并以及镜像编译。
+构建系统我们需要依次完成源码下载、源码合并、环境搭建以及镜像编译。
 
 - 源码下载
 
@@ -13,6 +13,10 @@ sidebar_position: 2
 - 源码合并
 
 我们需要将瑞莎 Cubie A5E 相关的源码合并到 Allwinner 官方原始 SDK 源码中。
+
+- 环境搭建
+
+我们需要搭建 SDK 编译所需的环境。
 
 - 镜像编译
 
@@ -26,7 +30,9 @@ sidebar_position: 2
 
 - [Tina5.0_AIOT](https://gitlab.com/tina5.0_aiot)
 
-#### 下载源码
+#### 下载官方 SDK 源码
+
+提供 MEGA 和百度网盘两种下载方式：
 
 - [MEGA 下载](https://mega.nz/file/kFtD0BYY#zm3FXLiLK9SfOFss3BGY1Kx714BFBqyyPeYeE5FvOw0)
 
@@ -34,7 +40,7 @@ sidebar_position: 2
 
 #### 同步本地仓库状态
 
-使用 `repo sync -l` 命令同步本地仓库状态：
+进入 Allwinner 官方原始 SDK 源码根目录，然后使用 `repo sync -l` 命令同步本地仓库状态：
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
@@ -144,6 +150,25 @@ git checkout -b target-a527-v1.4.6 radxa/target-a527-v1.4.6
 
 您可以按照以上步骤依次完成其它源码的合并。
 
+## 环境搭建
+
+### 硬件要求
+
+64 位系统，硬盘容量建议大于 128GB。
+
+### 软件要求
+
+Ubuntu 20.04 / 22.04 / 24.04 系统
+
+#### 安装依赖包
+
+<NewCodeBlock tip="Linux-Host$" type="host">
+```
+sudo apt update
+sudo apt install build-essential subversion git-core libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc libxml-parser-perl mercurial bzr ecj cvs unzip lib32z1 lib32z1-dev lib32stdc++6 libstdc++6 lib32ncurses-dev lib32z1 ncurses-term bison libexpat-dev cpio busybox -y
+```
+</NewCodeBlock>
+
 ## 镜像编译
 
 进入 Allwinner 官方原始 SDK 源码目录，然后初始化编译环境和启动配置界面。
@@ -156,6 +181,61 @@ source build/envsetup.sh
 ```
 </NewCodeBlock>
 
+初始化成功后，终端会输出类似如下信息：
+
+```
+NOTE: The SDK(/home/milir/download/tina_sdk) was successfully loaded
+load yocto... ok
+load buildroot,dragonboard,bsp...ok
+Invoke . build/quick.sh from your shell to add the following functions to your environment:
+    croot / cl                     - Changes directory to the top of the tree
+    cbrandy                        - Changes directory to the brandy
+    cspl / cboot0                  - Changes directory to the spl
+    csbi[10|14] / copensbi[10|14]  - Changes directory to the opensbi
+    cu / cuboot / cboot            - Changes directory to the uboot
+    cubsp / cubootbsp / cbootbsp   - Changes directory to the uboot-bsp
+    carisc                         - Changes directory to the arisc
+    ck / ckernel                   - Changes directory to the kernel
+    cbsp                           - Changes directory to the bsp
+    cbsptest                       - Changes directory to the bsptest
+    cdts                           - Changes directory to the kernel's dts
+    cchip / cchips                 - Changes directory to the chip
+    cbin                           - Changes directory to the chip's bin
+    cboard / cconfigs / cbd        - Changes directory to the board
+    crootfs                        - Changes directory to the rootfs
+    cdsp                           - Changes directory to the dsp
+    crtos                          - Changes directory to the rtos
+    crtoshal / crtos-hal           - Changes directory to the rtos-hal
+    cbuild                         - Changes directory to the build
+    cbr                            - Changes directory to the buildroot
+    copenssl                       - Changes directory to the product's openssl-1.0.0
+    cout                           - Changes directory to the product's output
+    ckout / ckernelout             - Changes directory to the kernel output
+Usage: build.sh [args]
+    build.sh                       - default build all
+    build.sh bootloader            - only build bootloader
+    build.sh kernel                - only build kernel
+    build.sh buildroot_rootfs      - only build buildroot
+    build.sh uboot_menuconfig       - edit uboot menuconfig
+    build.sh uboot_saveconfig       - save uboot menuconfig
+    build.sh menuconfig            - edit kernel menuconfig
+    build.sh saveconfig            - save kernel menuconfig
+    build.sh recovery_menuconfig   - edit recovery menuconfig
+    build.sh recovery_saveconfig   - save recovery menuconfig
+    build.sh buildroot_menuconfig  - edit buildroot menuconfig
+    build.sh buildroot_saveconfig  - save buildroot menuconfig
+    build.sh clean                 - clean all
+    build.sh distclean             - distclean all
+    build.sh pack                  - pack firmware
+    build.sh pack_debug            - pack firmware with debug info output to card0
+    build.sh pack_secure           - pack firmware with secureboot
+Usage: pack [args]
+    pack                           - pack firmware
+    pack -d                        - pack firmware with debug info output to card0
+    pack -s                        - pack firmware with secureboot
+    pack -sd                       - pack firmware with secureboot and debug info output to card0
+```
+
 ### 启动配置界面
 
 <NewCodeBlock tip="Linux-Host$" type="host">
@@ -164,10 +244,11 @@ source build/envsetup.sh
 ```
 </NewCodeBlock>
 
-- 配置示例
+运行命令后，依次选择系统类型 —> Linux 发行版 —> 内核版本 —> SoC 型号 —> 主板类型 —> Flash 类型 —> rootfs 文件。
+
+配置成功后，终端会输出类似如下信息：你可以参考以下信息进行配置
 
 ```
-Debian xfce image example:
 ========ACTION List: mk_config ;========
 options :
 All available platform:
@@ -179,6 +260,7 @@ All available linux_dev:
    1. dragonboard
    2. buildroot
    3. debian
+   4. yocto
 Choice [debian]: 3
 All available kern_name:
    0. linux-5.10
@@ -187,7 +269,9 @@ Choice [linux-5.15]: 1
 All available ic:
    0. a523
    1. a527
-   2. t527
+   2. a733
+   3. t527
+   4. t736
 Choice [a527]: 1
 All available board:
    0. cubie_a5e
@@ -204,8 +288,32 @@ All available rootfs files:
    1. linaro-bullseye-lite-arm64.tar.gz
    2. linaro-bullseye-lxde-arm64.tar.gz
    3. linaro-bullseye-xfce-arm64.tar.gz
+   4. linaro-bullseye-xfce-ros2-humble-arm64.tar.gz
 Choice [linaro-bullseye-xfce-arm64.tar.gz]: 3
 Setup BSP files
+INFO: Prepare toolchain ...
+INFO: kernel defconfig: generate /home/milir/download/tina_sdk/out/a527/kernel/build/.config by /home/milir/download/tina_sdk/device/config/chips/a527/configs/cubie_a5e/debian/linux-5.15/bsp_defconfig
+INFO: Prepare toolchain ...
+make: Entering directory '/home/milir/download/tina_sdk/kernel/linux-5.15'
+make[1]: Entering directory '/home/milir/download/tina_sdk/out/a527/kernel/build'
+  GEN     Makefile
+  LEX     scripts/kconfig/lexer.lex.c
+  YACC    scripts/kconfig/parser.tab.[ch]
+  HOSTCC  scripts/kconfig/lexer.lex.o
+  HOSTCC  scripts/kconfig/menu.o
+  HOSTCC  scripts/kconfig/parser.tab.o
+  HOSTCC  scripts/kconfig/preprocess.o
+  HOSTCC  scripts/kconfig/symbol.o
+  HOSTCC  scripts/kconfig/util.o
+  HOSTLD  scripts/kconfig/conf
+*** Default configuration is based on '../../../../../device/config/chips/a527/configs/cubie_a5e/debian/linux-5.15/bsp_defconfig'
+#
+# configuration written to .config
+#
+make[1]: Leaving directory '/home/milir/download/tina_sdk/out/a527/kernel/build'
+make: Leaving directory '/home/milir/download/tina_sdk/kernel/linux-5.15'
+INFO: clean buildserver
+INFO: prepare_buildserver
 ```
 
 :::tip 常见问题
@@ -234,15 +342,87 @@ sudo ln -s /usr/bin/python3 /usr/bin/python
 ```
 </NewCodeBlock>
 
+编译完成后，终端会输出类似如下信息：
+
+```
+Use init ramdisk file: '/home/milir/download/tina_sdk/kernel/linux-5.15/bsp/ramfs/ramfs_aarch64.cpio.gz'.
+15983 blocks
+30954 blocks
+bootimg_build
+Copy boot.img to output directory ...
+
+sun55iw3p1 compile all(Kernel+modules+boot.img) successful
+
+
+INFO: build dts ...
+INFO: Prepare toolchain ...
+Setup BSP files
+'/home/milir/download/tina_sdk/out/a527/kernel/staging/sunxi.dtb' -> '/home/milir/download/tina_sdk/out/a527/cubie_a5e/debian/sunxi.dtb'
+INFO: build rootfs ...
+INFO: Prepare toolchain ...
+INFO: Build debian rootfs ...
+./mk-image.sh cover
+INFO: Build rootfs ...
+INFO: 1. using exist rootfs: /home/milir/download/tina_sdk/out/a527/cubie_a5e/debian/rootfs_def
+INFO: 2. Copy the ko and others that system need...
+install deb from packages/arm64
+using /home/milir/download/tina_sdk/target/a527/debian/package.config
+pkg_list:
+libcedarc=libcedarc-dev_1.0.0_arm64.deb
+xserver=xserver-xorg-mesa-g57_1.21.1-2_arm64.deb
+INFO: install package:/home/milir/download/tina_sdk/debian/packages/arm64/libcedarc/libcedarc-dev_1.0.0_arm64.deb
+INFO: install package:/home/milir/download/tina_sdk/debian/packages/arm64/xserver/xserver-xorg-mesa-g57_1.21.1-2_arm64.deb
+start copy wifi-firmware
+wifi_firmware_list:
+PACKAGE_AIC8800_SDIO_FIRMWARE
+Copy wifi-firmware: PACKAGE_AIC8800_SDIO_FIRMWARE
+cp -rf /home/milir/download/tina_sdk/debian/overlay-firmware/etc /home/milir/download/tina_sdk/out/a527/cubie_a5e/debian/rootfs_def
+cp -rf /home/milir/download/tina_sdk/debian/overlay-firmware/usr /home/milir/download/tina_sdk/out/a527/cubie_a5e/debian/rootfs_def
+Copy /home/milir/download/tina_sdk/debian/overlay ...
+Copy /home/milir/download/tina_sdk/debian/overlay-debug ...
+INFO: start copy firmware to /home/milir/download/tina_sdk/out/a527/cubie_a5e/debian/rootfs_def/lib/firmware
+INFO: copy firmware to /home/milir/download/tina_sdk/out/a527/cubie_a5e/debian/rootfs_def/lib/firmware ok ...
+INFO: 3. Prepare the rootfs img...
+PARTITION_FEX:/home/milir/download/tina_sdk/device/config/chips/a527/configs/cubie_a5e/debian/sys_partition.fex
+Creating filesystem with parameters:
+    Size: 7802716160
+    Block size: 4096
+    Blocks per group: 32768
+    Inodes per group: 8080
+    Inode size: 256
+    Journal blocks: 29765
+    Label:
+    Blocks: 1904960
+    Block groups: 59
+    Reserved block group size: 471
+Created filesystem with 68709/476720 inodes and 747165/1904960 blocks
+INFO: ===== Build the rootfs finish =====
+INFO: img path: /home/milir/download/tina_sdk/out/a527/cubie_a5e/debian/rootfs.ext4
+INFO: ----------------------------------------
+INFO: build OK.
+INFO: ----------------------------------------
+```
+
 ### 镜像打包
 
 <NewCodeBlock tip="Linux-Host$" type="host">
+
 ```
 ./build.sh pack
 ```
+
 </NewCodeBlock>
 
-生成的系统镜像会存放在 Allwinner 官方原始 SDK 源码目录的 `out` 文件夹中。
+镜像打包完成后，终端会输出类似如下信息：生成的系统镜像会存放在 Allwinner 官方原始 SDK 源码目录的 `out` 文件夹中。
+
+```
+Dragon execute image.cfg SUCCESS !
+----------image is at----------
+
+3.0G    /home/milir/download/tina_sdk/out/a527_linux_cubie_a5e_uart0.img
+
+pack finish
+```
 
 ### U-Boot 编译
 
@@ -268,7 +448,17 @@ cd brandy/brandy-2.0/
 
 :::
 
-编译 U-Boot 会生成 u-boot、boot0、fes1 以及 sboot 文件，其中生成的文件位置会通过终端日志输出。
+编译完成后，终端会输出类似如下信息：编译 U-Boot 会生成 u-boot、boot0、fes1 以及 sboot 文件，其中生成的文件位置会通过终端日志输出。
+
+```
+========ACTION List: build_bootloader ;========
+options :
+find: '/home/milir/download/tina_sdk/brandy/brandy-2.0/spl': No such file or directory
+find: '/home/milir/download/tina_sdk/brandy/brandy-2.0/u-boot-bsp': No such file or directory
+find: '/home/milir/download/tina_sdk/brandy/brandy-2.0/u-boot-efex': No such file or directory
+INFO: build_bootloader: brandy_path=/home/milir/download/tina_sdk/brandy/brandy-2.0
+INFO: skip build brandy.
+```
 
 | 文件类型 | 说明                                                                                                                                                             |
 | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -295,7 +485,23 @@ cd brandy/brandy-2.0/
 
 :::
 
-编译 Kernel 会生成内核镜像文件，其中生成的文件位于 `out/a527/cubie_a5e/debian/` 目录下。
+编译完成后，终端会输出类似如下信息：编译 Kernel 会生成内核镜像文件，其中生成的文件位于 `out/a527/cubie_a5e/debian/` 目录下。
+
+```
+Use init ramdisk file: '/home/milir/download/tina_sdk/kernel/linux-5.15/bsp/ramfs/ramfs_aarch64.cpio.gz'.
+15983 blocks
+30954 blocks
+bootimg_build
+Copy boot.img to output directory ...
+
+sun55iw3p1 compile all(Kernel+modules+boot.img) successful
+
+
+INFO: build dts ...
+INFO: Prepare toolchain ...
+Setup BSP files
+'/home/milir/download/tina_sdk/out/a527/kernel/staging/sunxi.dtb' -> '/home/milir/download/tina_sdk/out/a527/cubie_a5e/debian/sunxi.dtb'
+```
 
 | 文件类型  | 说明                                     |
 | :-------: | :--------------------------------------- |

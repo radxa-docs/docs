@@ -19,7 +19,7 @@ sidebar_position: 8
 
 #### GPT 系统镜像
 
-- [Radxa OS : Cubie A5E Bullseye KDE Debian 11](https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-t6/radxa-cubie-a5e_bullseye_kde_t6.output_512.img.xz)
+- [Radxa OS : Cubie A5E Bullseye KDE Debian 11](https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-b1/radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz)
 - [Tina OS : Cubie A5E Bullseye XFCE Debian 11](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
 
 #### FEL 系统镜像

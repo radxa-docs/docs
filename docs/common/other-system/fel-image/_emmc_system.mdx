@@ -178,11 +178,20 @@ sudo ./LiveSuit
 若运行程序提示有关找不到 `libpng12.so.0` 的错误，可以运行以下命令解决。
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-  ``` mkdir libpng cd libpng/ wget
-  https://ppa.launchpadcontent.net/linuxuprising/libpng12/ubuntu/pool/main/libp/libpng/libpng_1.2.54.orig.tar.xz
-  tar -xvf libpng_1.2.54.orig.tar.xz cd libpng-1.2.54 ./configure make sudo make
-  install sudo ln -s /usr/local/lib/libpng12.so.0.54.0 /usr/lib/libpng12.so sudo
-  ln -s /usr/local/lib/libpng12.so.0.54.0 /usr/lib/libpng12.so.0 ```
+
+```
+mkdir libpng
+cd libpng/
+wget https://ppa.launchpadcontent.net/linuxuprising/libpng12/ubuntu/pool/main/libp/libpng/libpng_1.2.54.orig.tar.xz
+tar -xvf libpng_1.2.54.orig.tar.xz
+cd libpng-1.2.54
+./configure
+make
+sudo make install
+sudo ln -s /usr/local/lib/libpng12.so.0.54.0 /usr/lib/libpng12.so
+sudo ln -s /usr/local/lib/libpng12.so.0.54.0 /usr/lib/libpng12.so.0
+```
+
 </NewCodeBlock>
 :::
 
