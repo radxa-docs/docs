@@ -19,7 +19,7 @@ sidebar_position: 8
 
 目前仅支持 MicroSD 卡/ eMMC 模块启动系统，UFS 模块和 NVMe SSD 目前正在适配中！
 
-- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-t5/radxa-cubie-a7a_bullseye_kde_t5.output_512.img.xz)
+- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-b1/radxa-cubie-a7a_bullseye_kde_b1.output_512.img.xz)
 
 ### Android
 
