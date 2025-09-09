@@ -45,9 +45,7 @@ You can install the system by following the tutorials below, based on your boot 
 - [Install System to MicroSD Card](./install-system/sd_system)
 
 :::tip Installing System to Other Boot Media
-Currently supports booting from MicroSD card and eMMC module.
-
-UFS Module: Currently not properly recognized, adaptation in progress.
+Currently supports booting from MicroSD card, eMMC module and UFS module.
 
 NVMe SSD: Currently recognized and can be used as expanded storage, but cannot be used as boot media.
 
