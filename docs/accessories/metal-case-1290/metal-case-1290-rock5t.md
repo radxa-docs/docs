@@ -42,7 +42,7 @@ sidebar_position: 2
 
 ### Step 2: 安装主板定位柱
 
-使用 4 颗 CM2.5 _ 6 mm 铜柱及 4 颗 CM2.5 _ 4 mm 螺丝，固定下盖主板的定位柱。
+使用 4 颗 CM2.5 \* 6 mm 铜柱及 4 颗 CM2.5 \* 4 mm 螺丝，固定下盖主板的定位柱。
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/accessories/metal-case-1290/metal-case-1290-02.webp" style={{width: '100%', maxWidth: '1200px'}} />

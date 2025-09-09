@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 瑞莎金属外壳 1290
 
-# 产品简介
+## 产品简介
 
 **瑞莎金属外壳 1290** 是一款专为瑞莎 T 版型单板计算机（如 ROCK 5T 等 SBC）设计的高强度铝合金外壳，兼顾性能与保护的理想选择。
 
@@ -14,7 +14,7 @@ sidebar_position: 1
     <img src="/img/accessories/metal-case-1290/metal-case-1290.webp" style={{width: '60%', maxWidth: '1200px'}} />
 </div>
 
-# 主要特性
+## 主要特性
 
 - **精准定制，全面兼容**
 
