@@ -9,16 +9,16 @@ Installing the system will format the UFS module or onboard UFS. Please back up 
 To use the `dd` command to install the system to UFS, you need to meet the following conditions:
 
 - The system can boot normally from another storage device (recommended: boot from MicroSD card)
-- The UFS module is installed on the motherboard or the motherboard has onboard UFS
+- The UFS module is installed on the board or the board has onboard UFS
 
 ## Hardware Connection
 
-Follow the instructions based on your motherboard configuration.
+Follow the instructions based on your board configuration.
 
 :::tip
-This tutorial applies to multiple motherboard models. Choose the appropriate steps for hardware connection based on your motherboard configuration.
+This tutorial applies to multiple board models. Choose the appropriate steps for hardware connection based on your board configuration.
 
-Motherboards with onboard UFS typically don't have a UFS module interface and don't require installation.
+boards with onboard UFS typically don't have a UFS module interface and don't require installation.
 :::
 
 <Tabs queryString="system boot">
@@ -26,8 +26,8 @@ Motherboards with onboard UFS typically don't have a UFS module interface and do
 
 UFS Module Installation Steps:
 
-1. Observe the notch direction on the UFS module and the notch marking on the motherboard's UFS module interface to determine the correct installation orientation.
-2. Place the UFS module above the motherboard's UFS module interface, ensuring the module's interface is roughly aligned with the motherboard's interface.
+1. Observe the notch direction on the UFS module and the notch marking on the board's UFS module interface to determine the correct installation orientation.
+2. Place the UFS module above the board's UFS module interface, ensuring the module's interface is roughly aligned with the board's interface.
 3. Gently press down on one end of the UFS module until you hear a "click" sound, then repeat the process for the other end to ensure the UFS module is properly installed.
 
 <div style={{ textAlign: "center" }}>
@@ -41,7 +41,7 @@ UFS Module Installation Steps:
 
 <TabItem value="Onboard UFS" default={props.tag === "ufs_board"} attributes={{className: props.tag === "ufs_module" && "tab_none"}}>
 
-If your motherboard has onboard UFS, no installation is required.
+If your board has onboard UFS, no installation is required.
 
 </TabItem>
 </Tabs>

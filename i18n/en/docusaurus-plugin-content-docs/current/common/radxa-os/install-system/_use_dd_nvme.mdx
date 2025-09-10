@@ -9,19 +9,19 @@ Installing the system will format the NVMe SSD. Please back up any important dat
 To use the `dd` command to install the system onto an NVMe SSD, you need to meet the following conditions:
 
 - The system can boot normally from another storage device (recommended: boot from a MicroSD card)
-- NVMe SSD is properly installed on the motherboard
+- NVMe SSD is properly installed on the board
 
 ## Hardware Connection
 
-You can proceed based on your motherboard configuration.
+You can proceed based on your board configuration.
 
 :::tip
-This tutorial is applicable to multiple motherboards. Choose the appropriate steps for hardware connection based on your motherboard configuration.
+This tutorial is applicable to multiple boards. Choose the appropriate steps for hardware connection based on your board configuration.
 
-There are two scenarios for installing an NVMe SSD on the motherboard:
+There are two scenarios for installing an NVMe SSD on the board:
 
-- Motherboard has an M.2 M Key interface: You can directly install the NVMe SSD
-- Motherboard doesn't have an M.2 M Key interface but has a PCIe FPC interface: You can install the NVMe SSD using a PCIe to M.2 M Key HAT module
+- board has an M.2 M Key interface: You can directly install the NVMe SSD
+- board doesn't have an M.2 M Key interface but has a PCIe FPC interface: You can install the NVMe SSD using a PCIe to M.2 M Key HAT module
   :::
 
 <Tabs queryString="system boot">
@@ -57,7 +57,7 @@ There are two scenarios for installing an NVMe SSD on the motherboard:
 
 ### Download System Image
 
-Access the resource summary download page from the motherboard and download the system image file locally.
+Access the resource summary download page from the board and download the system image file locally.
 
 :::tip Image Note
 The downloaded system image is a compressed file and needs to be extracted before use!
@@ -67,11 +67,11 @@ The downloaded system image is a compressed file and needs to be extracted befor
 
 - Direct Download
 
-Access the resource summary download page directly from the motherboard and download the system image file locally.
+Access the resource summary download page directly from the board and download the system image file locally.
 
 - Download using wget command
 
-Download the system image file locally using the `wget` command from the motherboard.
+Download the system image file locally using the `wget` command from the board.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
@@ -87,7 +87,7 @@ Where `<url>` is the download link of the system image file. You can replace it 
 
 - Download from PC
 
-Access the resource summary download page from a PC, download the system image file, and then transfer it to the motherboard using a USB drive, FTP, SCP, etc.
+Access the resource summary download page from a PC, download the system image file, and then transfer it to the board using a USB drive, FTP, SCP, etc.
 
 #### Extract System Image
 
@@ -128,7 +128,7 @@ Parameter Description:
 
 You can use the `lsblk` command to view device paths and identify the correct one based on disk capacity.
 
-Note: If disk capacities are similar, you can safely power off the motherboard, remove and reinsert the NVMe SSD, and observe which device path appears and disappears to determine the correct one.
+Note: If disk capacities are similar, you can safely power off the board, remove and reinsert the NVMe SSD, and observe which device path appears and disappears to determine the correct one.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
