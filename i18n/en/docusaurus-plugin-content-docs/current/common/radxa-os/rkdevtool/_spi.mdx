@@ -6,7 +6,7 @@ For users who cannot normally start the system, you can try erasing and download
 
 The core function of SPI boot firmware (BootROM + bootloader) is to initialize hardware in stages (CPU → Memory → Storage) and ultimately load the operating system kernel from the storage device.
 
-**Note: Ensure the motherboard is in Maskrom mode before downloading or erasing SPI boot firmware.**
+**Note: Ensure the board is in Maskrom mode before downloading or erasing SPI boot firmware.**
 
 ## Erasing SPI Flash
 
@@ -18,9 +18,9 @@ Erasing the SPI Flash will remove the SPI boot firmware, and the system will not
 
 <TabItem value="Windows">
 
-① : Ensure the motherboard is in Maskrom mode
+① : Ensure the board is in Maskrom mode
 
-② : Select the corresponding Loader file for your motherboard
+② : Select the corresponding Loader file for your board
 
 ③ : Click the `Download` option to run the Loader file
 
@@ -45,7 +45,7 @@ Restart the system for the SPI Flash erase operation to take effect.
 
 <TabItem value="Linux / MacOS">
 
-1. Ensure the motherboard is in Maskrom mode
+1. Ensure the board is in Maskrom mode
 
 2. Verify Maskrom mode
 
@@ -63,7 +63,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 
 3. Run the Loader file
 
-Replace `demo.bin` with the Loader file corresponding to your motherboard:
+Replace `demo.bin` with the Loader file corresponding to your board:
 
 ```
 sudo rkdeveloptool db demo.bin
@@ -93,9 +93,9 @@ Use RKDevTool to download SPI boot firmware.
 
 <TabItem value="Windows">
 
-① : Confirm the motherboard is in Maskrom mode
+① : Confirm the board is in Maskrom mode
 
-② : Select the corresponding Loader file for your motherboard
+② : Select the corresponding Loader file for your board
 
 ③ : Choose the storage device - select the `SPINOR` option
 
@@ -120,7 +120,7 @@ Restart the system for the downloaded SPI boot firmware to take effect.
 
 <TabItem value="Linux / MacOS">
 
-1. Ensure the motherboard is in Maskrom mode
+1. Ensure the board is in Maskrom mode
 
 2. Verify Maskrom mode
 
@@ -138,7 +138,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 
 3. Run the Loader file
 
-Replace `demo.bin` with the Loader file corresponding to your motherboard:
+Replace `demo.bin` with the Loader file corresponding to your board:
 
 <NewCodeBlock tip="Linux / MacOS$" type="host">
 
