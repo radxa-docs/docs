@@ -37,8 +37,7 @@ Tip: Actual compatibility is subject to actual usage.
 
 <Tabs queryString="revision">
 <TabItem value="v1_3" label="v1.3+">
-
-<div className='gpio_style'>
+   <div className='gpio_style' style={{ overflow :"auto"}}  >
 
 | GPIO number |  Function4  |  Function3   |  Function2  |  Function1  |               Pin#               |              Pin#               | Function1 |                 Function2                 |  Function3  |  Function4  | GPIO number |
 | ----------- | :---------: | :----------: | :---------: | :---------: | :------------------------------: | :-----------------------------: | :-------: | :---------------------------------------: | :---------: | :---------: | ----------- |
@@ -63,7 +62,7 @@ Tip: Actual compatibility is subject to actual usage.
 |             |             |              |             | SARADC_VIN5 | <div className='green'>37</div>  | <div className='green'>38</div> | GPIO3_A6  |                                           |             |             | 102         |
 |             |             |              |             |     GND     | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO3_A5  |                                           |             |             | 101         |
 
-</div>
+  </div>
 
 ### More details about 40-pin Header In V1.3+
 
@@ -81,8 +80,7 @@ Tip: Actual compatibility is subject to actual usage.
 
 </TabItem>
 <TabItem value="v1_2" label="v1.2">
-
-<div className='gpio_style'>
+   <div className='gpio_style' style={{ overflow :"auto"}}  >
 
 | GPIO number |  Function4  |  Function3   |  Function2  |  Function1  |               Pin#               |              Pin#               | Function1 |                 Function2                 |  Function3  |  Function4  | GPIO number |
 | ----------- | :---------: | :----------: | :---------: | :---------: | :------------------------------: | :-----------------------------: | :-------: | :---------------------------------------: | :---------: | :---------: | ----------- |
@@ -107,7 +105,7 @@ Tip: Actual compatibility is subject to actual usage.
 |             |             |              |             | SARADC_VIN5 | <div className='green'>37</div>  | <div className='green'>38</div> | GPIO3_A6  |                                           |             |             | 102         |
 |             |             |              |             |     GND     | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO3_A5  |                                           |             |             | 101         |
 
-</div>
+  </div>
 
 ### More details about 40-pin Header In V1.2
 

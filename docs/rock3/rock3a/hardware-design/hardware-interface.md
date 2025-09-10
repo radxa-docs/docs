@@ -37,8 +37,7 @@ ROCK 3A 提供一个 40 pin GPIO 扩展座，兼容市场上大多数传感器�
 
 <Tabs queryString="revision">
 <TabItem value="v1_3" label="v1.3+">
-
-<div className='gpio_style'>
+   <div className='gpio_style' style={{ overflow :"auto"}}  >
 
 | GPIO number |  Function4  |  Function3   |  Function2  |  Function1  |               Pin#               |              Pin#               | Function1 |                 Function2                 |  Function3  |  Function4  | GPIO number |
 | ----------- | :---------: | :----------: | :---------: | :---------: | :------------------------------: | :-----------------------------: | :-------: | :---------------------------------------: | :---------: | :---------: | ----------- |
@@ -82,7 +81,7 @@ ROCK 3A 提供一个 40 pin GPIO 扩展座，兼容市场上大多数传感器�
 </TabItem>
 <TabItem value="v1_2" label="v1.2">
 
-<div className='gpio_style'>
+   <div className='gpio_style' style={{ overflow :"auto"}}  >
 
 | GPIO number |  Function4  |  Function3   |  Function2  | Function1 |               Pin#               |              Pin#               | Function1 |                 Function2                 |  Function3  |  Function4  | GPIO number |
 | ----------- | :---------: | :----------: | :---------: | :-------: | :------------------------------: | :-----------------------------: | :-------: | :---------------------------------------: | :---------: | :---------: | ----------- |
