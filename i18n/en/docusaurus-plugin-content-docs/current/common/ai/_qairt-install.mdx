@@ -1,0 +1,165 @@
+QAIRT (Qualcomm® AI Runtime) SDK is a software package that integrates Qualcomm® AI software products,
+including Qualcomm® AI Engine Direct, Qualcomm® Neural Processing SDK, and Qualcomm® Genie.
+QAIRT provides developers with all the necessary tools for porting and deploying AI models on Qualcomm® hardware accelerators,
+as well as the runtime for running models on CPU, GPU, and NPU.
+Currently, QAIRT SDK supports model porting for Pytorch, Tensorflow, TFLite, and ONNX frameworks.
+
+Supported inference hardware accelerator IPs: `CPU`, `GPU`, `NPU`.
+
+<div style={{ textAlign: "center" }}>
+  <img src="/en/img/dragon/q6a/qairt_arch.webp" style={{ width: "65%" }} />
+  QAIRT SDK Architecture
+</div>
+
+**QAIRT SDK System Requirements**
+
+- 64-bit x86 processor
+- Ubuntu 22.04
+- Python 3.10
+
+## Download QAIRT SDK Package
+
+- Download the `v2.37.1.250807` QAIRT SDK from [Qualcomm® Software Center](https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.37.1.250807/v2.37.1.250807.zip)
+
+- Extract the QAIRT SDK
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  unzip v2.37.1.250807.zip
+  cd qairt/2.37.1.250807
+  ```
+
+    </NewCodeBlock>
+
+## Configure QAIRT Environment
+
+### Create Python Environment
+
+QAIRT requires a Python 3.10 environment, which can be created using [Anaconda](https://www.anaconda.com/download/success)
+
+:::tip
+
+- For Anaconda installation, refer to: [**Conda Installation**](../virtual-env/conda_install)
+
+- For creating a conda Python environment, refer to: [**Create Environment with Specific Python Version**](../virtual-env/conda_use#create-environment-with-specific-python-version)
+  :::
+
+After installing Anaconda, create and activate a Python 3.10 environment using the terminal
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+conda create -n qairt python=3.10
+conda activate qairt
+```
+
+</NewCodeBlock>
+
+### Configure QAIRT Environment Variables
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+source bin/envsetup.sh
+```
+
+</NewCodeBlock>
+
+### Check Dependencies
+
+- Check library dependencies
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  sudo ${QAIRT_SDK_ROOT}/bin/check-linux-dependency.sh
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  Checking for libncurses5
+  Checking for libgl1
+  Checking for libgtk-3-dev
+  Checking for libasound2-dev
+  Checking for libnss3
+  Checking for git
+  Checking for nodejs
+  Checking for npm
+  Checking for libgbm-dev
+  Checking for desktop-file-utils
+  Checking for python3-dev
+  Checking for python3-pip
+  Checking for python3-setuptools
+  Checking for clang
+  Checking for libc++-dev
+  Checking for libc++abi-dev
+  Checking for flatbuffers-compiler
+  Checking for libflatbuffers-dev
+  Checking for rename
+  =============================================================
+  All Dependency Packages Found
+  Done!!
+  ```
+
+- Check toolchain dependencies
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  ${QAIRT_SDK_ROOT}/bin/envcheck -c
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  Checking Clang Environment
+  --------------------------------------------------------------
+  [INFO] Found clang++ at /usr/bin/clang++
+  --------------------------------------------------------------
+  ```
+
+- Install Python library dependencies
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  python3 "${QAIRT_SDK_ROOT}/bin/check-python-dependency"
+  ```
+
+    </NewCodeBlock>
+
+### Install AI Frameworks
+
+Select the model framework libraries to install based on your model format. Installation of all frameworks is not required.
+
+| package name   | version |
+| -------------- | ------- |
+| tensorflow     | 2.10.1  |
+| tflite         | 2.3.0   |
+| torch          | 1.13.1  |
+| onnx           | 1.16.1  |
+| onnxruntime    | 1.17.1  |
+| onnxsimplifier | 0.4.36  |
+
+## Complete SDK Documentation
+
+QAIRT SDK integrates Qualcomm® AI Engine Direct (QNN), Qualcomm® Neural Processing SDK (SNPE), and Qualcomm® Genie (Genie).
+Their detailed documentation is located at:
+
+**Local Documentation**
+
+- `qairt/2.37.1.250807/docs/QNN`
+
+- `qairt/2.37.1.250807/docs/SNPE`
+
+- `qairt/2.37.1.250807/docs/Genie`
+
+**Online Documentation**
+
+- [**QNN**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-50/introduction.html)
+
+- [**SNPE**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-2/overview.html)
+
+- [**Genie**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)

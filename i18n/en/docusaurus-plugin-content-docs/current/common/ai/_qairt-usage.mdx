@@ -1,0 +1,413 @@
+QAIRT provides developers with all the necessary tools for porting and deploying AI models on Qualcomm® hardware accelerators.
+This document details the process of porting a [ResNet50](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.resnet50.html) object detection model using QAIRT,
+using NPU inference on a board running Ubuntu as an example, to fully explain the method of porting models to NPU hardware using the QAIRT SDK.
+
+## Model Porting Workflow
+
+<div style={{ textAlign: "center" }}>
+  <img src="/en/img/dragon/q6a/qairt_workflow.webp" style={{ width: "65%" }} />
+  QAIRT Workflow
+</div>
+
+## NPU Model Porting Steps
+
+To port models from mainstream AI frameworks (PyTorch, TensorFlow, TFLite, ONNX) to Qualcomm NPU for hardware-accelerated inference, the model needs to be converted to the
+Qualcomm NPU-specific `Context-Binary` format. The following steps are required to convert to the Context-Binary format:
+
+1. Prepare a pre-trained floating-point model
+2. Use [AIMET](https://github.com/quic/aimet) for efficient model optimization and quantization of the pre-trained model (optional)
+3. Convert the model to floating-point DLC format using QAIRT tools
+4. Quantize the floating-point DLC model using QAIRT tools
+5. Convert the DLC model to Context-Binary format using QAIRT tools
+6. Perform NPU inference on the Context-Binary model using QAIRT tools
+
+## Model Conversion Example
+
+### Set Up QAIRT Development Environment
+
+:::tip
+
+- Please refer to [**QAIRT SDK Installation**](./qairt-install) to set up the QAIRT working environment
+  :::
+
+### Prepare Pre-trained Model
+
+Clone the ResNet50 example repository in the QAIRT SDK:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd qairt/2.37.1.250807/examples/Models/
+git clone https://github.com/ZIFENG278/resnet50_qairt_example.git && cd resnet50_qairt_example
+```
+
+</NewCodeBlock>
+
+Using PyTorch [ResNet50](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.resnet50.html) as an example,
+export an ONNX model with input shape (batch_size, 3, 224, 224). Use the following script to export the model:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python3 export_onnx.py
+```
+
+</NewCodeBlock>
+
+The exported ONNX model is saved as `resnet50.onnx`
+
+### Quantize Model with AIMET (Optional)
+
+[AIMET](https://github.com/quic/aimet) is an independent open-source model quantization library not included in the QAIRT SDK. Before porting the model,
+it is recommended to use AIMET for model optimization and quantization of the pre-trained model, which maximizes inference performance while maintaining the model's original accuracy.
+
+:::tip
+Using AIMET for quantization does not conflict with QAIRT's quantization. AIMET provides advanced quantization, while QAIRT's quantization is standard linear quantization.
+
+- For AIMET installation, refer to [**AIMET Quantization Tool**](aimet)
+- For AIMET usage, refer to [**AIMET Usage Examples**](aimet#aimet-usage-examples)
+  :::
+
+### DLC Model Conversion
+
+Use the `qairt-converter` in the QAIRT SDK to convert models from ONNX/TensorFlow/TFLite/PyTorch frameworks and [AIMET](aimet) output files to DLC (Deep Learning Container) model files.
+`qairt-converter` automatically detects the model framework based on the file extension.
+
+:::tip
+The following sections are divided into porting steps for models optimized and quantized with AIMET and original ONNX model files. Please note the distinction.
+:::
+
+<Tabs>
+    <TabItem value="AIMET">
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+    ```bash
+    qairt-converter --input_network ./aimet_quant/resnet50.onnx --quantization_overrides ./aimet_quant/resnet50.encodings --output_path resnet50.dlc -d 'input' 1,3,224,224
+    ```
+
+    </NewCodeBlock>
+
+    `qairt-converter` will generate a quantized DLC model file saved as `resnet50_aimet.dlc`
+
+    </TabItem>
+    <TabItem value="Pretrained ONNX">
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+    ```bash
+    qairt-converter --input_network ./resnet50.onnx -d 'input' 1,3,224,224
+    ```
+
+    </NewCodeBlock>
+
+    `qairt-converter` will generate a floating-point DLC model file saved as `resnet50.dlc`
+
+    </TabItem>
+
+</Tabs>
+
+:::tip
+This DLC file can be used for CPU/GPU inference using the Qualcomm® Neural Processing SDK API. For details, please refer to [SNPE Documentation](qairt-install#sdk-documentation-location)
+:::
+
+:::tip
+For more information on using `qairt-converter`, please refer to [**qairt-converter**](qairt-tools#qairt-converter)
+:::
+
+### Quantize DLC Model
+
+:::tip
+DLC models obtained from AIMET models via `qairt-converter` are already quantized. You can skip this quantization step when using AIMET models.
+:::
+
+NPU only supports quantized models. Before converting to the `Context-Binary` format, floating-point DLC models need to be quantized.
+QAIRT provides a quantization tool `qairt-quantizer` that can quantize DLC models to INT8/INT16 types using quantization algorithms.
+
+#### Prepare Calibration Dataset
+
+The `create_resnet50_raws.py` script in the `scripts` directory can generate raw format files for ResNet50 model input to be used as quantization input.
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd scripts
+python3 create_resnet50_raws.py --dest ../data/calibration/crop --img_folder ../data/calibration/ --size 224
+```
+
+</NewCodeBlock>
+
+#### Prepare Calibration File List
+
+The `create_file_list.py` script in the `scripts` directory can generate a file list for model quantization calibration.
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd scripts
+python3 create_file_list.py --input_dir ../data/calibration/crop/ --output_filename ../model/calib_list.txt -e *.raw
+```
+
+</NewCodeBlock>
+
+The generated `calib_list.txt` contains the absolute paths to the calibration raw files.
+
+#### Perform DLC Model Quantization
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd model
+qairt-quantizer --input_dlc ./resnet50.dlc --input_list ./calib_list.txt --output_dlc resnet50_quantized.dlc
+```
+
+</NewCodeBlock>
+
+The target quantized model is saved as `resnet50_quantized.dlc`
+
+:::tip
+For more information on using `qairt-quantizer`, please refer to [**qairt-quantizer**](qairt-tools#qairt-quantizer)
+:::
+
+### Generate Context-Binary Model
+
+Before using the quantized DLC model for NPU inference, the DLC model needs to be converted to the Context-Binary format. The purpose of this conversion is to prepare the instructions for running the DLC model graph on the target hardware in advance on the host,
+which enables inference on the NPU, reducing the model's initialization time and memory consumption on the board.
+
+Use the `qnn-context-binary-generator` in the QAIRT SDK to convert the quantized DLC format model to the Context-Binary format.
+
+#### Create Model Conversion Config Files
+
+Since hardware-specific optimization is performed on the x86 host, two config files need to be created:
+
+**SoC Architecture Reference Table**
+
+| SoC     | dsp_arch | soc_id |
+| ------- | -------- | ------ |
+| QCS6490 | v68      | 35     |
+
+{/* | QCS9075 | v73      | 77     | */}
+
+- config_backend.json
+
+  Select the appropriate dsp_arch and soc_id based on the SoC NPU architecture. Here we use QCS6490 SoC as an example.
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  vim config_backend.json
+  ```
+
+  </NewCodeBlock>
+
+  ```vim
+  {
+      "graphs": [
+          {
+              "graph_names": [
+                  "resnet50"
+              ],
+              "vtcm_mb": 0
+          }
+      ],
+      "devices": [
+          {
+              "dsp_arch": "v68",
+              "soc_id": 35
+          }
+      ]
+  }
+  ```
+
+  Here, 4 parameters are specified:
+
+  `graph_names`: List of model graph names, which should match the name of the unquantized DLC model file (without extension)
+
+  `vtcm_mb`: Specific memory option. To use the maximum VTCM available on the device, set this value to 0
+
+  `dsp_arch`: NPU architecture
+
+  `soc_id`: ID of the SoC
+
+- config_file.json
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  vim config_file.json
+  ```
+
+    </NewCodeBlock>
+
+  ```vim
+  {
+      "backend_extensions": {
+          "shared_library_path": "libQnnHtpNetRunExtensions.so",
+          "config_file_path": "config_backend.json"
+      }
+  }
+  ```
+
+:::tip
+About more information on constructing the backend_extensions json file, please refer to [**qnn-htp-backend-extensions**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-50/htp_backend.html#qnn-htp-backend-extensions)
+:::
+
+#### Generate Context-Binary
+
+<Tabs>
+    <TabItem value="AIMET">
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+    ```bash
+    qnn-context-binary-generator --model libQnnModelDlc.so --backend libQnnHtp.so --dlc_path resnet50.dlc --output_dir output --binary_file resnet50_quantized --config_file config_file.json
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+    <TabItem value="Pretrained ONNX">
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+    ```bash
+    qnn-context-binary-generator --model libQnnModelDlc.so --backend libQnnHtp.so --dlc_path resnet50_quantized.dlc --output_dir output --binary_file resnet50_quantized --config_file config_file.json
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+The generated Context-Binary is saved as `output/resnet50_quantized.bin`
+
+:::tip
+For more information on using `qnn-context-binary-generator`, please refer to [**qnn-context-binary-generator**](qairt-tools#qnn-context-binary-generator)
+:::
+
+## Model Inference
+
+Using QAIRT SDK's `qnn-net-run` tool, you can perform model inference on the board using the NPU. This tool can be used as a model inference testing tool.
+
+### Clone Example Repository on Board
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ~/
+git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
+```
+
+</NewCodeBlock>
+
+### Copy Required Files to Board
+
+- Copy the Context-Binary model to the board
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  scp resnet50_quantized.bin ubuntu@<ip address>:/home/ubuntu/resnet50_qairt_example/model
+  ```
+
+    </NewCodeBlock>
+
+- Copy the qnn-net-run executable file to the board
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  cd qairt/2.37.1.250807/bin/aarch64-ubuntu-gcc9.4
+  scp qnn-net-run ubuntu@<ip address>:/home/ubuntu/resnet50_qairt_example/model
+  ```
+
+    </NewCodeBlock>
+
+- Copy the required dynamic libraries for qnn-net-run to the board
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  cd qairt/2.37.1.250807/lib/aarch64-ubuntu-gcc9.4
+  scp libQnnHtp* ubuntu@<ip address>:/home/ubuntu/resnet50_qairt_example/model
+  ```
+
+    </NewCodeBlock>
+
+- Copy the NPU architecture-specific dynamic library files to the board
+
+  Please select the corresponding hexagon folder based on the SoC NPU architecture. Here, we use QCS6490 as an example.
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  cd qairt/2.37.1.250807/lib/hexagon-v68/unsigned
+  scp ./*  ubuntu@192.168.2.118:/home/ubuntu/resnet50_qairt_example/model
+  ```
+
+    </NewCodeBlock>
+
+### Run Inference on Board
+
+#### qnn-net-run Inference
+
+- Prepare Test Input Data
+
+  The Context-Binary model requires raw data as input. First, prepare the test raw data and the input data list.
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd scripts
+  python3 create_resnet50_raws.py --dest ../data/test/crop --img_folder ../data/test/ --size 224
+  python3 create_file_list.py --input_dir ../data/test/crop/ --output_filename ../model/test_list.txt -e *.raw -r
+  ```
+
+  </NewCodeBlock>
+
+- Execute Model Inference
+
+    <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd model
+  ./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_quantized.bin --input_list ./test_list.txt --output_dir output_bin
+  ```
+
+    </NewCodeBlock>
+
+  Results are saved in `output_bin`
+
+  :::tip
+  For more information on using `qnn-net-run`, please refer to [**qnn-net-run**](qairt-tools#qnn-net-run)
+  :::
+
+#### Result Verification
+
+You can use a Python script to verify the results:
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd scripts
+python3 show_resnet50_classifications.py --input_list ../model/test_list.txt -o ../model/output_bin/ --labels_file ../data/imagenet_classes.txt
+```
+
+</NewCodeBlock>
+
+```bash
+$ python3 show_resnet50_classifications.py --input_list ../model/test_list.txt -o ../model/output_bin/ --labels_file ../data/imagenet_classes.txt
+Classification results
+../data/test/crop/ILSVRC2012_val_00003441.raw 21.740574 402 acoustic guitar
+../data/test/crop/ILSVRC2012_val_00008465.raw 23.423716 927 trifle
+../data/test/crop/ILSVRC2012_val_00010218.raw 12.623559 281 tabby
+../data/test/crop/ILSVRC2012_val_00044076.raw 18.093769 376 proboscis monkey
+```
+
+By comparing the printed results with the test image content, we can confirm that the ResNet50 model has been successfully ported to the Qualcomm® NPU with correct output.
+
+<div style={{ textAlign: "center" }}>
+  <img src="/en/img/dragon/q6a/qairt_resnet50.webp" style={{ width: "60%" }} />
+  ResNet50 Input Images
+</div>
