@@ -4,24 +4,54 @@ sidebar_position: 7
 
 # Frequently Asked Questions (FAQ)
 
-## Failed to Open the Serial Port Device
+## Failed to Open Serial Port Device
 
-If you encounter the error message `Error: Permission denied, cannot open /dev/ttyUSB0` when trying to open the serial port!
+If you encounter the error `Error: Permission denied, cannot open /dev/ttyUSB0` when trying to open the serial port!
 
-You can follow these steps to troubleshoot the issue:
+You can troubleshoot the issue by following these steps:
 
-1.  Check if the serial port device is properly connected to the PC.
+1. Check if the serial device is properly connected to the PC
 
-2.  Check the permissions of the serial port device.
+2. Check serial device permissions
 
-    Taking a Linux system as an example, if the serial port device has insufficient permissions, you need to run the following command in the terminal to grant all users permission to access the serial port device.
+For Linux systems, if the serial device has insufficient permissions, you need to run the following commands in the terminal to grant the current user access to the device.
+
+- View serial device information
+
+Using `/dev/ttyUSB0` as an example:
 
 <NewCodeBlock tip="Linux$" type="host">
 
 ```
-sudo chmod 777 /dev/ttyUSB0
+ls -l /dev/ttyUSB0
 ```
 
 </NewCodeBlock>
 
-3. Check if the serial port device is being used by another program.
+If the device exists on the system, you will see output similar to:
+
+```
+crw-rw---- 1 root dialout 188, 0 Sep 10 21:24 /dev/ttyUSB0
+```
+
+- Add current user to the `dialout` group
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+sudo usermod -a -G dialout $USER
+```
+
+</NewCodeBlock>
+
+- Log in again
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+newgrp dialout
+```
+
+</NewCodeBlock>
+
+3. Check if the serial device is being used by another program
