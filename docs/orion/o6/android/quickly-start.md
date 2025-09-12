@@ -9,11 +9,13 @@ sidebar_position: 1
 ## 使用前提
 
 - 主板：瑞莎 Orion O6
-- 制作 BIOS 盘：U 盘
+- U 盘：用于更新 BIOS
 - 系统启动盘：NVMe SSD
 - 数据线：USB Type-C 数据线
+- 显示器：用于显示 BIOS 设置界面
 - 电源适配器：USB-C 20V 电源适配器（兼容 PD 协议）
-- 可选设备（需要选择其中一种）：USB 串口数据线或显示器
+- PC 主机: Windows / Linux / MacOS, 安装 fastboot 工具
+- 可选设备：串口数据线
 
 说明：其中可选设备用于刷 BIOS，刷 BIOS 可以通过串口或者显示器操作。
 
@@ -52,13 +54,12 @@ sudo apt install android-tools-adb android-tools-fastboot
 
 ### 硬件连接
 
-1. 使用 USB Type-C 数据线连接主板的 USB Type-C 接口(靠近 USB Type-A 接口的 USB Type-C 接口)和 PC
-
-2. 使用 USB 串口数据线连接主板的 UART2 引脚或主板接显示器：目的是进入 BIOS 设置界面
-
-3. 将制作好的 BIOS U 盘安装到主板上
-
-4. 使用 USB-C 电源适配器给主板供电（靠近电源按键的 USB Type-C 接口）
+1. 使用 USB Type-C 数据线连接主板的 USB Type-C 接口(靠近 USB Type-A 接口的 USB Type-C 接口)到 PC
+2. 把 SSD 装在主板上
+3. 主板连接 HDMI 或者 DP 显示器
+4. (可选)使用 USB 串口数据线连接主板的 UART2，进入 BIOS 文本界面
+5. 将制作好的 BIOS U 盘安装到主板上
+6. 使用 USB-C 电源适配器给主板供电（靠近电源按键的 USB Type-C 接口）
 
 ### 进入 BIOS
 
@@ -129,4 +130,4 @@ Press ESCAPE for boot options
 
 </NewCodeBlock>
 
-执行完脚本后，系统会自动启动到 Android 系统界面。
+执行完脚本后，Android 镜像已经刷入到 SSD，系统会自动启动到 Android 系统界面。
