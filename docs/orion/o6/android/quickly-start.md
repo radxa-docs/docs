@@ -61,21 +61,22 @@ Orion O6 主板配备两个 USB Type-C 接口：
 - **电源接口**：靠近电源按键，用于连接电源适配器。
   :::
 
-① 将 NVMe SSD 安装到主板上。
+- ① 将 NVMe SSD 安装到主板上。
 
-② 将制作好的 BIOS U 盘插入主板的 USB-A 接口。
+- ② 将制作好的 BIOS U 盘插入主板的 USB-A 接口。
 
-③ 使用 USB Type-C 数据线将主板的 **数据接口** 连接到 PC。
+- ③ 使用 USB Type-C 数据线将主板的 **数据接口** 连接到 PC。
 
-④ (可选) 如需通过串口查看日志，请连接串口调试线至主板的 UART2 接口。
+- ④ (可选) 如需通过串口查看日志，请连接串口调试线至主板的 UART2 接口。
 
-⑤ 连接显示器到主板的 HDMI 或 DP 接口。
+- ⑤ 连接显示器到主板的 HDMI 或 DP 接口。
 
-⑥ 使用 USB-C 电源适配器为主板的 **电源接口** 供电。
+- ⑥ 使用 USB-C 电源适配器为主板的 **电源接口** 供电。
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/o6/android/android-install-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+
 
 ### 操作步骤
 

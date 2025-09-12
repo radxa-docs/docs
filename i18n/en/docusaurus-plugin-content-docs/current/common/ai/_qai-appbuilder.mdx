@@ -1,0 +1,114 @@
+[**Quick AI Application Builder**](https://github.com/quic/ai-engine-direct-helper) (QAI AppBuilder) helps developers easily deploy AI models and design AI applications on Qualcomm® SoC platforms with Qualcomm® Hexagon™ Processor (NPU) using the [Qualcomm® AI Runtime SDK](qairt-sdk#qairt).
+
+It encapsulates model deployment APIs into a set of simplified interfaces for loading models onto the NPU and performing inference. QAI AppBuilder significantly reduces the complexity of model deployment for developers and provides multiple demos as references for designing custom AI applications.
+
+Supports Python API / C++ API
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/dragon/q6a/qai_app_builder_1.webp"
+    style={{ width: "65%" }}
+  />
+  QAI-APPBUILDER Architecture
+</div>
+
+## Installation Method
+
+### Clone the Repository
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+git clone https://github.com/quic/ai-engine-direct-helper.git --recursive
+```
+
+</NewCodeBlock>
+
+### Download QAIRT SDK
+
+:::tip
+Please download and extract the QAIRT SDK according to the [**Download QAIRT SDK Package**](./qairt-install#download-qairt-sdk-package) instructions
+:::
+
+#### Configure QAIRT Environment Variables
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qairt/2.37.1.250807
+source bin/envsetup.sh
+export ADSP_LIBRARY_PATH=$QNN_SDK_ROOT/lib/hexagon-v68/unsigned
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-ubuntu-gcc9.4:$QNN_SDK_ROOT/lib/aarch64-oe-linux-gcc11.2
+```
+
+</NewCodeBlock>
+
+### Build qai_appbuilder
+
+#### Create Virtual Environment
+
+:::tip
+Create a virtual environment for Python library installation to maintain environment isolation
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt install python3-venv
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+#### Build qai_appbuilder Wheel
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install setuptools
+python3 setup.py bdist_wheel
+```
+
+</NewCodeBlock>
+
+After successful compilation, a `qai_appbuilder-2.34.0-cp312-cp312-linux_aarch64.whl` file will be generated in the `dist` directory.
+
+### Install qai_appbuilder
+
+#### Install qai_appbuilder Wheel
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd dist
+pip3 install ./qai_appbuilder-2.34.0-cp312-cp312-linux_aarch64.whl
+```
+
+</NewCodeBlock>
+
+## Application Examples
+
+<Tabs>
+    <TabItem value="QCS6490">
+
+    - [**Inception v3**](inception_v3)
+
+    - [**GoogLeNet**](googlenet)
+
+    - [**Real ESRGAN**](real_esrgan_x4plus)
+
+    </TabItem>
+
+{/* <TabItem value="QCS9075"> */}
+
+{/* <NewCodeBlock tip="Device" type="device"> */}
+{/* ```bash */}
+{/* cd resnet50_qairt/9075 */}
+{/* ./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_9075.bin --input_list ./test_list.txt --output_dir output_bin */}
+{/* ``` */}
+{/* </NewCodeBlock> */}
+
+{/* </TabItem> */}
+
+</Tabs>

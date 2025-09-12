@@ -9,7 +9,7 @@ The script backup has only been tested on official Radxa systems and does not su
 
 ## Online System Backup
 
-Online system backup refers to backing up the currently running system directly on the motherboard.
+Online system backup refers to backing up the currently running system directly on the board.
 
 :::tip
 The script backup only supports Linux systems and is the recommended method for backing up Debian and Ubuntu systems.
@@ -136,7 +136,7 @@ lsblk
 
 </NewCodeBlock>
 
-Example terminal output (where `sda` is the system disk of the motherboard in this example). You can identify the correct device by safely removing and reconnecting the removable medium.
+Example terminal output (where `sda` is the system disk of the board in this example). You can identify the correct device by safely removing and reconnecting the removable medium.
 
 ```
 sda 8:0 1 58G 0 disk
@@ -161,7 +161,7 @@ sudo dd if=/dev/sda of=system-backup.img bs=4M status=progress
 
 </NewCodeBlock>
 
-- `/dev/sda`: The disk corresponding to the motherboard
+- `/dev/sda`: The disk corresponding to the board
 - `system-backup.img`: Specifies the output filename
 - `bs=4M`: Block size
 - `status=progress`: Shows backup progress and speed

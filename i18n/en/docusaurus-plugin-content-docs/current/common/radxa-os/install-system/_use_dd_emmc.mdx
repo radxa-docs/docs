@@ -9,16 +9,16 @@ Installing the system will format the eMMC module. Please back up any important 
 To use the `dd` command to install the system to eMMC, you need to meet the following conditions:
 
 - The system can boot normally from another storage device (recommended: use a MicroSD card to boot the system)
-- The eMMC module is installed on the motherboard or the motherboard has onboard eMMC
+- The eMMC module is installed on the board or the board has onboard eMMC
 
 ## Hardware Connection
 
-You can proceed according to your motherboard configuration.
+You can proceed according to your board configuration.
 
 :::tip
-This tutorial is applicable to multiple motherboards. Choose the corresponding steps for hardware connection based on your motherboard configuration.
+This tutorial is applicable to multiple boards. Choose the corresponding steps for hardware connection based on your board configuration.
 
-For motherboards with onboard eMMC, there is no eMMC module interface, so no installation is required.
+For boards with onboard eMMC, there is no eMMC module interface, so no installation is required.
 :::
 
 <Tabs queryString="system boot">
@@ -26,8 +26,8 @@ For motherboards with onboard eMMC, there is no eMMC module interface, so no ins
 
 eMMC Module Installation Steps:
 
-1. Observe the notch direction on the eMMC module and the notch marking on the motherboard's eMMC module interface to determine the correct installation orientation.
-2. Place the eMMC module above the motherboard's eMMC module interface, ensuring the eMMC module interface is properly aligned with the motherboard's eMMC module interface.
+1. Observe the notch direction on the eMMC module and the notch marking on the board's eMMC module interface to determine the correct installation orientation.
+2. Place the eMMC module above the board's eMMC module interface, ensuring the eMMC module interface is properly aligned with the board's eMMC module interface.
 3. Gently press one end of the eMMC module until you hear a "click" sound, then press the other end in the same way to ensure the eMMC module is properly installed.
 
 <div style={{ textAlign: "center" }}>
@@ -42,7 +42,7 @@ eMMC Module Installation Steps:
 
 <TabItem value="Onboard eMMC" default={props.tag === "emmc_board"} attributes={{className: props.tag === "emmc_module" && "tab_none"}} >
 
-If your motherboard has onboard eMMC, no installation is required.
+If your board has onboard eMMC, no installation is required.
 
 </TabItem>  
 </Tabs>

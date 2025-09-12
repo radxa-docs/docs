@@ -1,15 +1,15 @@
 This guide explains how to use the RKDevTool to flash a system image to an eMMC module.
 
-Note: Ensure the motherboard is in Maskrom mode and properly recognized by the system.
+Note: Ensure the board is in Maskrom mode and properly recognized by the system.
 
 <Tabs queryString="platform">
 
 <TabItem value="Windows">
 On Windows, open the RKDevTool and follow these steps to install the system to the eMMC module.
 
-① : Select the corresponding Loader file for your motherboard
+① : Select the corresponding Loader file for your board
 
-② : Select the corresponding system image for your motherboard
+② : Select the corresponding system image for your board
 
 ③ : Choose the `eMMC` option as the system storage medium
 
@@ -26,7 +26,7 @@ On Windows, open the RKDevTool and follow these steps to install the system to t
   />
 </div>
 
-Disconnect the motherboard from the PC, then power cycle the device. The system will automatically boot from the eMMC module.
+Disconnect the board from the PC, then power cycle the device. The system will automatically boot from the eMMC module.
 
 </TabItem>
 
@@ -35,7 +35,7 @@ On Linux/MacOS, use the terminal command line to install the system to the eMMC 
 
 1. Run the Loader file
 
-Replace `demo.bin` with the Loader file corresponding to your motherboard.
+Replace `demo.bin` with the Loader file corresponding to your board.
 
 <NewCodeBlock tip="Linux / MacOS$" type="host">
 
@@ -47,7 +47,7 @@ sudo rkdeveloptool db demo.bin
 
 2. Install the system image
 
-Replace `demo.img` with the system image corresponding to your motherboard.
+Replace `demo.img` with the system image corresponding to your board.
 
 <NewCodeBlock tip="Linux / MacOS$" type="host">
 
@@ -59,7 +59,7 @@ sudo rkdeveloptool wl 0 demo.img
 
 3. Reboot the system
 
-Disconnect the motherboard from the PC, then power cycle the device. The system will automatically boot from the eMMC module.
+Disconnect the board from the PC, then power cycle the device. The system will automatically boot from the eMMC module.
 
 <NewCodeBlock tip="Linux / MacOS$" type="host">
 

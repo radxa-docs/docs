@@ -1,0 +1,106 @@
+import { Image } from "@site/src/utils/docs";
+
+## About Maskrom Mode
+
+In Rockchip platform development, RKDevTool is a commonly used flashing tool. We can enter Maskrom mode on the board and then use RKDevTool to flash the firmware.
+
+:::tip
+Maskrom mode is like a "hardware first-aid kit" for embedded devices, enabling device recovery by directly accessing the chip's underlying interfaces.
+
+Maskrom mode is a built-in low-level recovery mode in Rockchip chips. When the device cannot load a valid bootloader from any boot medium (eMMC, SD card, etc.), we can use this mode to rewrite the device firmware through the RockUSB protocol.
+:::
+
+## Entering Maskrom Mode
+
+Our board has a dedicated Maskrom button. To enter Maskrom mode, press and hold the Maskrom button before powering on the board. The system will detect the button press and automatically enter Maskrom mode.
+
+<Tabs queryString="product">
+<TabItem value="ROCK 5B+">
+
+Detailed steps:
+
+① : Press and hold the Maskrom button
+
+② : Power on the board using the power adapter
+
+③ : Release the Maskrom button
+
+④ : Connect the board's OTG port to your computer's USB port using a data cable
+
+<Image
+  src="/en/img/common/tools/rkdevtool/maskrom-#model1#.webp"
+  model={props.model1}
+  fallback={props.model1}
+  width="1200"
+/>
+
+</TabItem>
+
+<TabItem value="ROCK 5B">
+
+Detailed steps:
+
+① : Press and hold the Maskrom button
+
+② : Connect the board's OTG/power supply interface to your computer's USB port using a data cable
+
+③ : Release the Maskrom button
+
+<Image
+  src="/en/img/common/tools/rkdevtool/maskrom-#model2#.webp"
+  model={props.model2}
+  fallback={props.model2}
+  width="1200"
+/>
+
+</TabItem>
+</Tabs>
+
+After the board enters Maskrom mode, you can verify this using the RKDevTool.
+
+## Verifying Maskrom Mode
+
+<Tabs queryString="rkdevtool">
+
+<TabItem value="Windows">
+
+On Windows, open the RKDevTool application. The software will automatically detect if the board has entered Maskrom mode.
+
+If the board is in Maskrom mode, the bottom left corner of the software will display `Found One MASKROM Device`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/tools/rkdevtool/maskrom-mode.webp"
+    style={{ width: "100%", maxWidth: "700" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="Linux / MacOS">
+
+On Linux/MacOS, you can verify if the board has entered Maskrom mode using the RKDevTool.
+
+Use the `rkdeveloptool ld` command to check the Maskrom mode status.
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool ld
+```
+
+</NewCodeBlock>
+
+If the system terminal displays output similar to the following, it means the board has successfully entered Maskrom mode.
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
