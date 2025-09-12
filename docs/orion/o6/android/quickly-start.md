@@ -25,19 +25,21 @@ sidebar_position: 1
 
 :::
 
-## 刷安卓 BIOS
+## 刷写安卓 BIOS
 
-### 软件环境
+在开始之前，请确保您已完成所有准备工作。
+
+### 准备工作
+
+#### 1. 安装必要工具
 
 我们需要在主机上安装 adb 和 fastboot 工具。
 
 :::tip 系统环境
-
-推荐使用 Ubuntu 系统进行系统安装
-
+推荐使用 Ubuntu 系统进行系统安装。
 :::
 
-<NewCodeBlock tip="Ubuntu$" type="device">
+<NewCodeBlock tip="Ubuntu-PC$" type="device">
 
 ```
 sudo apt update
@@ -46,83 +48,88 @@ sudo apt install android-tools-adb android-tools-fastboot
 
 </NewCodeBlock>
 
-## 刷入安卓 BIOS
+#### 2. 制作 BIOS U 盘
 
-### 制作 BIOS 盘
-
-使用 PC 访问 [资源汇总下载](../download.md) 下载页面，下载安卓的 BIOS 文件到 U 盘根目录。
+访问 [资源汇总下载](../download.md) 页面，下载最新的安卓 BIOS 文件，并将其解压到 U 盘的根目录。
 
 ### 硬件连接
 
-1. 使用 USB Type-C 数据线连接主板的 USB Type-C 接口(靠近 USB Type-A 接口的 USB Type-C 接口)到 PC
-2. 把 SSD 装在主板上
-3. 主板连接 HDMI 或者 DP 显示器
-4. (可选)使用 USB 串口数据线连接主板的 UART2，进入 BIOS 文本界面
-5. 将制作好的 BIOS U 盘安装到主板上
-6. 使用 USB-C 电源适配器给主板供电（靠近电源按键的 USB Type-C 接口）
+:::tip 接口说明
+Orion O6 主板配备两个 USB Type-C 接口：
 
-### 进入 BIOS
+- **数据接口**：靠近 USB-A 接口，用于连接 PC 进行数据传输。
+- **电源接口**：靠近电源按键，用于连接电源适配器。
+  :::
 
-#### 显示器
+1. 将 NVMe SSD 安装到主板上。
+2. 将制作好的 BIOS U 盘插入主板的 USB-A 接口。
+3. 使用 USB Type-C 数据线将主板的 **数据接口** 连接到 PC。
+4. (可选) 如需通过串口查看日志，请连接串口调试线至主板的 UART2 接口。
+5. 连接显示器到主板的 HDMI 或 DP 接口。
+6. 使用 USB-C 电源适配器为主板的 **电源接口** 供电。
 
-若你是使用显示器，可以在系统启动并出现 Radxa logo 和进度条时，短按键盘的 “Esc” 按键，主板将会进入 BIOS 界面。
+### 操作步骤
+
+#### 1. 进入 BIOS 设置界面
+
+主板通电后，当看到 Radxa Logo 或串口输出 `Press ESCAPE for boot options` 时，立即短按键盘上的 `Esc` 键，即可进入 BIOS 设置界面。
+
+- **通过显示器**
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/o6/android/burn-bios-go.webp" style={{width: '50%', maxWidth: '1200px'}} />
 </div>
 
-#### 串口
-
-若你是使用 USB 串口数据线，可以在串口输出 `Press ESCAPE for boot options` 时，短按键盘的 “Esc” 按键，主板将会进入 BIOS 界面。
+- **通过串口**
 
 ```
 Tianocore/EDK2 firmware version 0.3.0-1
 Press ESCAPE for boot options
 ```
 
-### 刷入 BIOS
+#### 2. 运行 BIOS 刷写脚本
 
-#### BIOS 界面
-
-进入 BIOS 界面选择 `Boot Manager` 选项
+进入 BIOS 后，选择 `Boot Manager` -> `EFI Shell`。系统将自动检测并运行 U 盘中的 `startup.nsh` 脚本来完成 BIOS 刷写。
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/o6/android/burn-bios-manager.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-#### 进入 EFI
-
-选择并进入 `Boot Manager` 选项后，选择 `EFI Shell` 选项
+_进入 Boot Manager_
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/o6/android/burn-bios-efi.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-#### 刷入 BIOS
-
-选择并进入 `EFI Shell` 选项后，主板会自动找到 BIOS U 盘里面的 `startup.nsh` 文件并运行。
+_选择 EFI Shell_
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/o6/android/burn-bios-sh.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-### Fastboot 模式
+_自动运行刷写脚本_
 
-自动刷入 BIOS 后，主板会自动进入 Fastboot 模式。
+#### 3. 确认进入 Fastboot 模式
+
+BIOS 刷写完成后，主板会自动重启并进入 Fastboot 模式。
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/o6/android/burn-bios-fastboot.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-## 下载系统镜像
+## 安装 Android 系统
 
-使用 PC 访问 [资源汇总下载](../download.md) 下载页面，下载 Android 系统镜像到本地并解压。
+BIOS 刷写完成后，主板已进入 Fastboot 模式，接下来我们可以开始安装 Android 系统。
 
-## 刷入系统镜像
+### 1. 下载并解压系统镜像
 
-打开终端并进入 Android 系统镜像目录，运行 `android_flush_images.sh` 脚本，脚本会自动刷入 Android 系统镜像。
+访问 [资源汇总下载](../download.md) 页面，下载最新的 Android 系统镜像，并将其解压到您的 PC 本地。
 
-<NewCodeBlock tip="Ubuntu$" type="device">
+### 2. 刷入系统镜像
+
+在 PC 上打开终端，进入解压后的 Android 系统镜像目录，然后运行 `android_flush_images.sh` 脚本。
+
+<NewCodeBlock tip="Ubuntu-PC$" type="device">
 
 ```
 ./android_flush_images.sh
@@ -130,4 +137,4 @@ Press ESCAPE for boot options
 
 </NewCodeBlock>
 
-执行完脚本后，Android 镜像已经刷入到 SSD，系统会自动启动到 Android 系统界面。
+脚本将自动完成系统刷写。刷写成功后，主板会自动重启并进入 Android 系统。
