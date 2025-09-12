@@ -102,3 +102,9 @@ T1 已知问题：
 | 用户名 |  密码   |
 | :----: | :-----: |
 |  root  | aarch64 |
+
+## Android
+
+[Android 系统镜像](https://github.com/radxa/cix-android-manifests/releases/download/radxa-o6-android14-rc2-20250912/Radxa_Orion_O6_Android14_RC2_20250903_images.zip)
+
+[BIOS 文件](https://github.com/radxa/cix-android-manifests/releases/download/radxa-o6-android14-rc2-20250912/orion-o6-bios-android-0.0.1.zip)
