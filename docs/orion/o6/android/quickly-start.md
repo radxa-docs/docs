@@ -50,7 +50,7 @@ sudo apt install android-tools-adb android-tools-fastboot
 
 #### 2. 制作 BIOS U 盘
 
-访问 [资源汇总下载](../download.md) 页面，下载最新的安卓 BIOS 文件，并将其解压到 U 盘的根目录。
+访问 [资源汇总下载](../download.md#android) 页面，下载最新的安卓 BIOS 文件，并将其解压到 U 盘的根目录。
 
 ### 硬件连接
 
@@ -61,12 +61,21 @@ Orion O6 主板配备两个 USB Type-C 接口：
 - **电源接口**：靠近电源按键，用于连接电源适配器。
   :::
 
-1. 将 NVMe SSD 安装到主板上。
-2. 将制作好的 BIOS U 盘插入主板的 USB-A 接口。
-3. 使用 USB Type-C 数据线将主板的 **数据接口** 连接到 PC。
-4. (可选) 如需通过串口查看日志，请连接串口调试线至主板的 UART2 接口。
-5. 连接显示器到主板的 HDMI 或 DP 接口。
-6. 使用 USB-C 电源适配器为主板的 **电源接口** 供电。
+① 将 NVMe SSD 安装到主板上。
+
+② 将制作好的 BIOS U 盘插入主板的 USB-A 接口。
+
+③ 使用 USB Type-C 数据线将主板的 **数据接口** 连接到 PC。
+
+④ (可选) 如需通过串口查看日志，请连接串口调试线至主板的 UART2 接口。
+
+⑤ 连接显示器到主板的 HDMI 或 DP 接口。
+
+⑥ 使用 USB-C 电源适配器为主板的 **电源接口** 供电。
+
+<div style={{textAlign: 'center'}}>
+    <img src="/img/o6/android/android-install-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ### 操作步骤
 
@@ -123,7 +132,7 @@ BIOS 刷写完成后，主板已进入 Fastboot 模式，接下来我们可以�
 
 ### 1. 下载并解压系统镜像
 
-访问 [资源汇总下载](../download.md) 页面，下载最新的 Android 系统镜像，并将其解压到您的 PC 本地。
+访问 [资源汇总下载](../download.md#android) 页面，下载最新的 Android 系统镜像，并将其解压到您的 PC 本地。
 
 ### 2. 刷入系统镜像
 
