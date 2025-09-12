@@ -61,17 +61,17 @@ The Orion O6 mainboard has two USB Type-C ports:
 - **Power Port**: Near the power button, used for connecting the power adapter.
   :::
 
-① Install the NVMe SSD onto the mainboard.
+- ① Install the NVMe SSD onto the mainboard.
 
-② Insert the prepared BIOS USB drive into the mainboard's USB-A port.
+- ② Insert the prepared BIOS USB drive into the mainboard's USB-A port.
 
-③ Connect the mainboard's **data port** to your PC using a USB Type-C cable.
+- ③ Connect the mainboard's **data port** to your PC using a USB Type-C cable.
 
-④ (Optional) If you need to view logs through the serial console, connect a serial debug cable to the mainboard's UART2 interface.
+- ④ (Optional) If you need to view logs through the serial console, connect a serial debug cable to the mainboard's UART2 interface.
 
-⑤ Connect a display to the mainboard's HDMI or DP port.
+- ⑤ Connect a display to the mainboard's HDMI or DP port.
 
-⑥ Power the mainboard by connecting a USB-C power adapter to the **power port**.
+- ⑥ Power the mainboard by connecting a USB-C power adapter to the **power port**.
 
 <div style={{textAlign: 'center'}}>
     <img src="/en/img/o6/android/android-install-system.webp" style={{width: '50%', maxWidth: '1200px'}} />
