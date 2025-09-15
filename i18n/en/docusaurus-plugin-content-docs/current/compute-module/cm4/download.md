@@ -47,3 +47,7 @@ Compatible with MicroSD cards, onboard eMMC, and NVMe SSD for system boot.
 - [Balena Etcher](https://etcher.balena.io/)
 - [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
 - [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar)
+
+## Community Resources
+
+- [Radxa CM4 KiCAD library](https://github.com/swdee/radxa-cm4-kicad) contributed by community user [@3djelly](https://forum.radxa.com/u/3djelly)

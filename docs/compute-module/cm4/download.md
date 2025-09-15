@@ -50,3 +50,7 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 - [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
 
 - [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar)
+
+## 社区资源
+
+- [Radxa CM4 KiCAD 库文件](https://github.com/swdee/radxa-cm4-kicad) 由社区用户 [@3djelly](https://forum.radxa.com/u/3djelly) 贡献
