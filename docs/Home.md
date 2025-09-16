@@ -628,22 +628,6 @@ sidebar_custom_props:
           products:
             [
               {
-                products_name: "AICore SG2300X",
-                products_photo_url: "/home/product-pictures/sg2300x.webp",
-                products_link: "/sophon/aicore-sg2300x",
-                docs:
-                  [
-                    {
-                      docs_link: "/sophon/aicore-sg2300x",
-                      docs_photo_type: "Overview",
-                      docs_name_en: "Overview",
-                      docs_name_zh: "Radxa AICore SG2300X 概览",
-                      docs_info_en: "Overview of the Radxa AICore SG2300X",
-                      docs_info_zh: "Radxa AICore SG2300X 概览",
-                    },
-                  ],
-              },
-              {
                 products_name: "Fogwise® AirBox",
                 products_photo_url: "/home/product-pictures/airbox.webp",
                 products_link: "/sophon/airbox",
@@ -861,6 +845,63 @@ sidebar_custom_props:
                       docs_name_zh: "Dragon Q6A 概览",
                       docs_info_en: "Overview of the dragon q6a",
                       docs_info_zh: "Radxa Dragon Q6A 概览",
+                    },
+                  ],
+              },
+            ],
+        },
+        {
+          series_en: "AICore Family",
+          series_zh: "AICore 系列",
+          series_introduction_en: "Radxa AICore Series is a cost-effective, high-performance AI acceleration module",
+          series_introduction_zh: "AICore 系列是 Radxa 推出高性能、高算力和高性价比的 AI 加速模组系列",
+          products:
+            [
+              {
+                products_name: "AX-M1",
+                products_photo_url: "/en/home/product-pictures/ax-m1.webp",
+                products_link: "/aicore/ax-m1",
+                docs:
+                  [
+                    {
+                      docs_link: "/aicore/ax-m1",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "AICore AX-M1 概览",
+                      docs_info_en: "Overview of the ax-m1",
+                      docs_info_zh: "AICore AX-M1 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "DX-M1",
+                products_photo_url: "/en/home/product-pictures/dx-m1.webp",
+                products_link: "/aicore/dx-m1",
+                docs:
+                  [
+                    {
+                      docs_link: "/aicore/dx-m1",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "AICore DX-M1 概览",
+                      docs_info_en: "Overview of the dx-m1",
+                      docs_info_zh: "AICore DX-M1 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "SG2300X",
+                products_photo_url: "/en/home/product-pictures/sg2300x.webp",
+                products_link: "/aicore/sg2300x",
+                docs:
+                  [
+                    {
+                      docs_link: "/aicore/sg2300x",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "AICore SG2300X 概览",
+                      docs_info_en: "Overview of the sg2300x",
+                      docs_info_zh: "AICore SG2300X 概览",
                     },
                   ],
               },
