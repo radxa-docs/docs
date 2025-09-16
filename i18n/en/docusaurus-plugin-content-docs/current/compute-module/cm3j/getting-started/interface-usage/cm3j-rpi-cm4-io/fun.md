@@ -31,7 +31,7 @@ As shown in the figure, connect the fan to the Raspberry Pi Compute Module 4 IO 
 - Enter to Thermal governor
 
   <img
-  src="/img/common/rsetup/rsetup-thermal-governor.webp"
+  src="/en/img/common/radxa-os/system-config/rsetup-hardware-thermal.webp"
   alt="rsetup hardware"
   style={{ width: "60%" }}
   />
@@ -39,7 +39,7 @@ As shown in the figure, connect the fan to the Raspberry Pi Compute Module 4 IO 
 - The default governor should be power_allocator.
 
   <img
-  src="/img/common/rsetup/rsetup-select-thermal-governor.webp"
+  src="/en/img/common/radxa-os/system-config/rsetup-select-thermal-governor.webp"
   alt="rsetup hardware"
   style={{ width: "60%" }}
   />
