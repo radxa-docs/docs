@@ -49,11 +49,17 @@ Cubie A5E 主板兼容 PD 协议的 5V 电源输入，建议电流 3A 以上，�
 若 Cubie A5E 安装了多个系统启动介质，Cubie A5E 的系统启动优先级为：MicroSD 卡 > NVMe SSD > 板载 eMMC
 :::
 
-① : 将对应系统启动介质安装到 Cubie A5E 的对应接口
+① : 将对应系统启动介质安装到主板的对应接口：将 MicroSD 卡插入 MicroSD 卡槽
 
-② : 使用 5V Type-C 电源适配器给 Cubie A5E 供电
+② : 使用 HDMI 数据线连接显示器和主板
+
+③ : 使用 5V Type-C 电源适配器给主板供电
 
 若主板供电正常，主板电源指示灯绿色亮起；若系统启动正常，状态指示灯蓝色闪烁。
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a5e/a5e-quickly-start.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ## 系统信息
 
@@ -79,26 +85,10 @@ Cubie A5E 搭配显示器使用，整体操作比较直观和简单，这里便�
 
 有屏模式是指 Cubie A5E 搭配显示器使用，整体操作比较直观和简单！
 
+可以参考 [有屏模式](./screen-mode) 教程进行操作。
+
 ### 无屏模式
 
 无屏模式是指 Cubie A5E 不搭配显示器使用，通过串口或者 SSH 登录系统进行操作！
 
-**对于无屏模式的用户，我们提供以下建议助力您快速熟悉系统!**
-
-> **配置网络**
-
-您可以直接给 Cubie A5E 连接网线，让系统处于有网状态。
-
-> **串口登录**
-
-您可以根据 [串口调试](../system-config/uart_debug) 教程进行串口登录系统，获取路由器给 Cubie A5E 分配的 IP 地址，然后通过 SSH 远程登录系统。
-
-注意：若您可以直接登录路由器后台查看 Cubie A7A 的 IP 地址，您可以跳过串口登录的步骤，直接根据分配的 IP 地址，进行 SSH 远程登录系统。
-
-> **SSH 远程**
-
-您可以根据 [SSH 远程](../system-config/ssh_remote) 教程完成 SSH 远程登录 Cubie A7A 的命令行界面。
-
-> **VNC 远程**
-
-您可以根据 [VNC 远程](../system-config/vnc_remote) 教程完成 VNC 远程登录 Cubie A7A 的图形化界面。
+可以参考 [无屏模式](./headless-mode) 教程进行操作。
