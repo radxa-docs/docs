@@ -7,7 +7,7 @@ sidebar_position: 1
 ## System Block Diagram
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/q6a_block_diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/dragon/q6a/q6a_block_diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## Interface Description
