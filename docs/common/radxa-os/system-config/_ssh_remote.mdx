@@ -10,7 +10,7 @@ SSH 远程需要双方设备处于同一局域网下，且目标设备需要开�
 
 SSH 远程控制需要安装 OpenSSH, 在主板的终端运行以下命令安装：
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo apt update && sudo apt install openssh-server -y
@@ -22,7 +22,7 @@ sudo apt update && sudo apt install openssh-server -y
 
 在主板的终端运行以下命令启动 SSH 服务：
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl start ssh
@@ -34,7 +34,7 @@ sudo systemctl start ssh
 
 在主板的终端运行以下命令设置 SSH 服务开机自启：
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl enable ssh
@@ -46,7 +46,7 @@ sudo systemctl enable ssh
 
 在主板的终端运行以下命令检查 SSH 服务状态：
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl status ssh

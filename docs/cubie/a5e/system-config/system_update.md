@@ -6,4 +6,4 @@ import SYSTEM_UPDATE from '../../../common/radxa-os/system-config/\_system_updat
 
 # 系统更新
 
-<SYSTEM_UPDATE />
+<SYSTEM_UPDATE board="cubie-a5e" />

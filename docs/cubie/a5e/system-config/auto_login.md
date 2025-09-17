@@ -6,4 +6,4 @@ import AUTO_LOGIN from '../../../common/radxa-os/system-config/\_auto_login.mdx'
 
 # 自动登录
 
-<AUTO_LOGIN debian_version="debian11" />
+<AUTO_LOGIN debian_version="debian11" board="cubie-a5e" />

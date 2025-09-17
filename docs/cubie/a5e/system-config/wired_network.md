@@ -6,4 +6,4 @@ import WiredNetwork from '../../../common/radxa-os/system-config/\_wired_network
 
 # 有线网络
 
-<WiredNetwork />
+<WiredNetwork board="cubie-a5e" debian_version="debian11" />

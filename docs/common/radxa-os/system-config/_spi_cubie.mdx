@@ -1,0 +1,149 @@
+import { Image } from "@site/src/utils/docs";
+
+使用系统配置工具 `Rsetup` 烧录或擦除 SPI 启动固件。
+
+:::tip SPI 启动固件
+SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化硬件（CPU → 内存 → 存储），最终通过存储设备加载操作系统内核。
+
+通过 NVMe SSD 启动系统，需要烧录 SPI 启动固件才可以正常启动系统。
+:::
+
+## 前提条件
+
+确保主板可以正常通过 MicroSD 卡启动系统和联网正常，以下操作需要进入主板系统进行操作。
+
+## 更新系统
+
+使用 `Rsetup` 工具更新系统获取最新的 SPI 启动固件。
+
+:::tip Rsetup 使用指南
+
+- 选中选项 ： 对应选项会高亮显示
+- 确认选择 ： 按 `Enter`
+- 取消选择 ： 按 `ESC`
+- 切换选项 ： 按 `Up` 、 `Down` 、 `Left` 、 `Right` 控制
+- 多选界面 ： 按 `Space` 选择，按 `Enter` 确认选择；选择对应功能后，对应选项框会出现一个 `*` ,表示该选项已启用
+  :::
+
+1. 打开终端，输入 `sudo rsetup` 命令打开 `Rsetup` 工具
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. 进入 `System` -> `System Update` 选项，然后根据 `Rsetup` 工具提示完成系统更新。
+
+:::tip 系统更新
+
+`System Update` 选项用于更新系统，相比于 `apt update && apt upgrade` 命令来更新系统更加安全。
+
+说明：`apt update && apt upgrade` 命令来更新系统可能会导致更新不完全或者系统异常。
+
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system-update.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. 更新完成后，重启系统。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo reboot
+```
+
+</NewCodeBlock>
+
+## 烧录 SPI 启动固件
+
+使用 `Rsetup` 工具更新 SPI 启动固件，会自动烧录最新 SPI 启动固件。
+
+1. 进入 `System` -> `Bootloader Management` 选项
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system-boot-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. 进入 `Update SPI Bootloader` 选项
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system-boot-manage-update-spi.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. 选择主板对应的 SPI 启动固件选项后，按 `Enter` 确认选择。
+
+然后根据 `Rsetup` 工具提示完成 SPI 启动固件更新。
+
+<Image
+  src="/img/common/radxa-os/system-config/rsetup-system-boot-manage-update-spi-#board#.webp"
+  board={props.board}
+  fallback={props.board}
+  width="1200"
+/>
+
+4. 更新完成后，重启系统。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo reboot
+```
+
+</NewCodeBlock>
+
+## 擦除 SPI 启动固件
+
+:::danger 擦除 SPI 启动固件
+擦除 SPI Bootloader 操作后，需要依赖 SPI 启动固件启动的启动介质将无法启动系统（示例：部分主板可能无法通过 NVMe SSD 启动系统）。
+:::
+
+使用 `Rsetup` 工具擦除 SPI 启动固件。
+
+1. 进入 `System` -> `Bootloader Management` 选项
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system-boot-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. 选择 `Erase SPI Bootloader` 选项后，按 `Enter` 确认选择。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system-boot-manage-erase-spi.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. 擦除完成后，重启系统。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo reboot
+```
+
+</NewCodeBlock>

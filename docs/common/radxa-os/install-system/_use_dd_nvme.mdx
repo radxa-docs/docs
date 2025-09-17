@@ -60,48 +60,39 @@
 
 ### 下载系统镜像
 
-主板需要访问资源汇总下载页面，直接下载系统镜像文件到本地上。
+主板需要访问[资源汇总下载](../../../download)页面，直接下载系统镜像文件到本地上。
 
 :::tip 镜像说明
 下载的系统镜像是压缩文件，需要解压后才能使用！
 :::
 
-#### 推荐下载方式
+您可以使用 `wget` 命令下载系统镜像文件到主板上。
 
-- 直接下载
-
-主板直接访问资源汇总下载页面，下载系统镜像文件到本地上。
-
-- wget 命令下载
-
-主板通过 `wget` 命令下载系统镜像文件到本地上。
-
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
-sudo apt update &&
+sudo apt update
 sudo apt install wget -y
 wget <url>
+# 示例
+wget https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-b1/radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz
 ```
 
 </NewCodeBlock>
 
-其中 `<url>` 为系统镜像文件的下载地址，可以复制资源汇总下载页面中的下载地址进行替换。
-
-- PC 端下载
-
-PC 端访问资源汇总下载页面，直接下载系统镜像文件后，通过 U 盘、FTP、SCP等方式将系统镜像文件传输到主板上。
+其中 `<url>` 为系统镜像文件的下载地址，可以复制[资源汇总下载](../../../download)页面中的镜像下载地址进行替换。
 
 #### 解压系统镜像
 
 我们的系统镜像一般为 `*.img.xz` 格式，需要解压后才能使用。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
-sudo apt update
 sudo apt install xz-utils -y
 unxz <image_path>
+# 示例
+unxz radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz
 ```
 
 </NewCodeBlock>
@@ -110,12 +101,15 @@ unxz <image_path>
 
 ### 安装系统镜像
 
-使用 `dd` 命令将系统镜像安装到 NVMe SSD 中。
+使用 `dd` 命令将系统镜像安装到 eMMC 中。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo dd if=<image_path> of=<device_target> bs=4M status=progress
+
+# 示例
+sudo dd if=radxa-cubie-a5e_bullseye_kde_b1.output_512.img of=/dev/nvme0n1 bs=4M status=progress
 ```
 
 </NewCodeBlock>
@@ -124,7 +118,7 @@ sudo dd if=<image_path> of=<device_target> bs=4M status=progress
 
 - `<image_path>`：系统镜像文件的路径，需要替换成实际的系统镜像文件路径。
 
-- `<device_target>`：NVMe SSD 的设备路径，需要替换成实际的 NVMe SSD 的设备路径。
+- `<device_target>`：NVMe SSD 模块的设备路径，需要替换成实际的 NVMe SSD 模块的设备路径。
 
 - `bs=4M`：写入块大小。
 
@@ -134,9 +128,9 @@ sudo dd if=<image_path> of=<device_target> bs=4M status=progress
 
 可以使用 `lsblk` 命令查看设备路径，根据磁盘的容量来确定设备路径。
 
-说明：若是磁盘容量接近一致，可以安全插拔（主板关机插拔 NVMe SSD）来观察出现和消失的设备路径，从而确定设备路径。
+说明：若是磁盘容量接近一致，可以安全插拔（适用于 NVMe SSD）来观察出现和消失的设备路径，从而确定设备路径。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 lsblk
@@ -144,4 +138,8 @@ lsblk
 
 </NewCodeBlock>
 
+:::
+
+:::note 启动系统说明
+主板通过 NVMe SSD 启动系统还需要烧录 SPI 启动固件才可以正常启动
 :::

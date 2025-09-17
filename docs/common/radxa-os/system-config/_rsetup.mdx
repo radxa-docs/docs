@@ -13,7 +13,7 @@ Rsetup 是一个适用于 Radxa OS 的系统配置工具，它可以帮助用户
 - 多选界面 ： 按 `Space` 选择，按 `Enter` 确认选择；选择对应功能后，对应选项框会出现一个 `*` ,表示该选项已启用
   :::
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo rsetup
