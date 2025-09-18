@@ -175,50 +175,15 @@ lsblk
 终端输出示例:
 
 ```
-NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 mtdblock0    31:0    0    16M  0 disk
 mmcblk0     179:0    0    58G  0 disk
 ├─mmcblk0p1 179:1    0    16M  0 part /config
 ├─mmcblk0p2 179:2    0   300M  0 part /boot/efi
 └─mmcblk0p3 179:3    0  57.6G  0 part /
 zram0       254:0    0 982.6M  0 disk [SWAP]
-nvme0n1     259:0    0 119.2G  0 disk
-├─nvme0n1p1 259:1    0    16M  0 part /config
-├─nvme0n1p2 259:2    0   300M  0 part /boot/efi
-└─nvme0n1p3 259:3    0 118.9G  0 part
+nvme0n1     259:0    0 238.5G  0 disk
+├─nvme0n1p1 259:1    0    16M  0 part
+├─nvme0n1p2 259:2    0   300M  0 part
+└─nvme0n1p3 259:3    0 238.2G  0 part
 ```
-
-## 系统信息
-
-您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
-
-- radxa
-
-用户账号：radxa
-
-用户密码：radxa
-
-## 启动系统
-
-完成系统的安装后，将主板关机，断开主板电源，按照以下操作完成系统启动：
-
-① : 将 MicroSD 卡从主板上取下
-
-② : 将 NVMe SSD 安装到主板上
-
-③ : 使用 HDMI 数据线连接显示器和主板
-
-④ : 使用 USB-A 接口连接鼠标或键盘：若有 USB-A 拓展坞，可以通过拓展坞连接鼠标和键盘
-
-⑤ : 使用 5V Type-C 电源适配器给主板供电
-
-若主板供电正常，主板电源指示灯绿色亮起；若系统启动正常，状态指示灯蓝色闪烁。
-
-成功启动系统后，显示器会显示系统桌面，你可以根据系统信息登录并使用系统。
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/img/common/radxa-os/system-config/vnc-debian11-succ.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
