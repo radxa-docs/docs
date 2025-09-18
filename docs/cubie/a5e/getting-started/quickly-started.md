@@ -173,6 +173,10 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 成功启动系统后，您就可以在 Cubie A5E 上正式使用瑞莎系统，对于瑞莎系统的简单使用，可参考 [系统使用](../system-config) 教程。
 
 :::tip 其它启动系统方式
-对于想通过其它方式启动系统，如 eMMC 和 NVMe SSD 启动系统，可以参考下面教程完成对应系统启动介质安装系统：
+对于想通过其它方式启动系统的用户（如 eMMC 和 NVMe SSD 启动系统），可以参考下面教程完成对应系统启动介质安装系统：
 
-- :::
+- [安装系统到 eMMC](./install-system/emmc-system.md)
+
+- [安装系统到 NVMe SSD](./install-system/nvme-system)
+
+:::

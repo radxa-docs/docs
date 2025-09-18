@@ -39,3 +39,7 @@ import BalenaEtcherUse from '../../../../common/radxa-os/install-system/\_use_et
 <div style={{textAlign: 'center'}}>
    <img src="/img/common/radxa-os/system-config/vnc-debian11-succ.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+
+## 使用系统
+
+成功启动系统后，您就可以在 Cubie A5E 上正式使用瑞莎系统，对于瑞莎系统的简单使用，可参考 [系统使用](../../system-config) 教程。
