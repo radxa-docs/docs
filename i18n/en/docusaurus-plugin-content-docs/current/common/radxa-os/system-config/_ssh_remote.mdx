@@ -1,16 +1,16 @@
 ## Prerequisites
 
-For SSH remote access, both devices must be on the same local network, and the target device must have the SSH service enabled.
+For SSH login, both devices must be on the same local network, and the target device must have the SSH service enabled.
 
 :::tip
-Our system image has SSH service enabled by default. If SSH is not installed or enabled, you can follow this tutorial to set it up!
+Our system images have SSH service enabled by default. If SSH is not installed or enabled, you can follow this tutorial to set it up!
 :::
 
 ## Install OpenSSH
 
-SSH remote control requires OpenSSH. Run the following command on the device's terminal to install it:
+SSH remote control requires OpenSSH to be installed. Run the following command in the board's terminal to install it:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo apt update && sudo apt install openssh-server -y
@@ -20,9 +20,9 @@ sudo apt update && sudo apt install openssh-server -y
 
 ### Start SSH Service
 
-Run the following command on the device's terminal to start the SSH service:
+Run the following command in the board's terminal to start the SSH service:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl start ssh
@@ -30,11 +30,11 @@ sudo systemctl start ssh
 
 </NewCodeBlock>
 
-### Enable SSH Service to Start on Boot
+### Enable SSH Service on Boot
 
-Run the following command on the device's terminal to enable SSH service to start automatically on boot:
+Run the following command in the board's terminal to enable SSH service on boot:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl enable ssh
@@ -44,9 +44,9 @@ sudo systemctl enable ssh
 
 ### Check SSH Service Status
 
-Run the following command on the device's terminal to check the SSH service status:
+Run the following command in the board's terminal to check the SSH service status:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl status ssh
@@ -54,7 +54,7 @@ sudo systemctl status ssh
 
 </NewCodeBlock>
 
-The terminal will display information indicating whether the SSH service is enabled to start on boot and its current running status.
+The terminal will display information indicating whether the SSH service is enabled on boot and its current status.
 
 ```
 ● ssh.service - OpenBSD Secure Shell server
@@ -70,13 +70,13 @@ CGroup: /system.slice/ssh.service
 
 ## SSH Remote Control
 
-You can perform SSH remote login either through the terminal command line or by using the Tabby software.
+You can use either the terminal command line or the Tabby software for SSH remote login.
 
 <Tabs queryString="ssh-mode">
 
 <TabItem value="Terminal Command Line">
 
-On another device, open a terminal and enter the following command to log in remotely:
+Open a terminal on another device and enter the following command to log in remotely:
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -91,7 +91,7 @@ ssh radxa@192.168.2.186
 
 Where `<user-name>` and `<ip-address>` are the actual username and IP address of the target device, respectively.
 
-During the connection process, you'll need to enter `yes` to confirm the connection.
+You'll need to confirm the connection by typing `yes` during the connection process.
 
 <div style={{textAlign: 'center'}}>
     <img src="/en/img/common/radxa-os/system-config/ssh-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -100,7 +100,7 @@ During the connection process, you'll need to enter `yes` to confirm the connect
 
 <TabItem value="Using Tabby Software">
 
-Tabby is a powerful cross-platform serial debugging tool that supports various protocols including serial and SSH. We recommend using Tabby software for SSH remote login.
+Tabby is a powerful cross-platform serial debugging tool that supports multiple protocols including serial port and SSH. We recommend using Tabby for SSH remote login.
 
 #### Download Tabby
 
@@ -108,21 +108,11 @@ Visit the [Tabby official website](https://tabby.sh/) to download and install th
 
 #### Install Tabby
 
-- Windows
-
-Choose the `.exe` file that matches your system architecture for installation.
-
-- Linux
-
-Select the `.deb` file that matches your system architecture for installation.
-
-- macOS
-
-Choose the `.dmg` file that matches your system architecture for installation.
+Select the appropriate installation package for your operating system and hardware architecture (Windows: xxx.exe, Linux: xxx.deb, macOS: xxx.dmg) to install the Tabby software.
 
 #### Using Tabby
 
-Double-click the Tabby application icon to launch the software.
+Double-click the Tabby icon to launch the application.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -133,11 +123,11 @@ Double-click the Tabby application icon to launch the software.
 
 #### SSH Configuration
 
-① --> `Settings` : Click the settings option
+① --> `Settings`: Click to open settings
 
-② --> `Profiles & connections` : Click to configure connection options
+② --> `Profiles & connections`: Click to configure connection options
 
-③ --> `New profile` : Click to add a new configuration
+③ --> `New profile`: Click to add a new configuration
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -159,15 +149,15 @@ Choose a base configuration as a template: Select the `SSH connection` template.
 
 After selecting the `SSH connection` template, modify the following parameters:
 
-① --> `Name` : Set the connection name
+① --> `Name`: Set the connection name
 
-② --> `Host` : Enter the IP address of the target device
+② --> `Host`: Enter the IP address of the target device
 
-③ --> `User` : Set the username (default is `radxa` for factory settings)
+③ --> `User`: Set the username (default is `radxa`)
 
-④ --> `Save` : Save the configuration
+④ --> `Save`: Save the configuration
 
-The default port number is `22`, which typically doesn't need to be changed.
+The default port is `22`, which doesn't need to be changed.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -178,7 +168,7 @@ The default port number is `22`, which typically doesn't need to be changed.
 
 #### Run SSH Connection
 
-Click the run button to establish a remote SSH connection to the device.
+Click the run button to connect to the SSH device remotely.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -196,11 +186,11 @@ After clicking the run button, Tabby will display a key verification and passwor
   />
 </div>
 
-① --> password : Enter the password for the target device
+① --> password: Enter the password for the target device
 
-② --> OK : Confirm the connection
+② --> OK: Confirm the connection
 
-It's recommended to check the `Remember` option so you won't need to enter the password on subsequent connections.
+It's recommended to check the `Remember` option so you won't need to enter the password again for future connections.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -221,4 +211,4 @@ After a successful connection, the remote interface will appear.
 </TabItem>
 </Tabs>
 
-After successfully logging in via SSH, you can run commands to control the system through the SSH session.
+After successfully logging in via SSH, you can run commands to control the system through the SSH connection.

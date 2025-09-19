@@ -3,16 +3,16 @@ import { Image } from "@site/src/utils/docs";
 This guide explains how to connect, pair, and use Bluetooth devices on Radxa boards.
 
 <Tabs queryString="interface-mode">
-<TabItem value="GUI">
-Manage Bluetooth devices using the built-in Bluetooth management tool.
+<TabItem value="Graphical Interface">
+Manage Bluetooth devices using the system's built-in Bluetooth management tool.
 
 - Enable Bluetooth
 
-① : Click the `System Settings` icon
+①: Click the `System Settings` icon
 
-② : Select the `Bluetooth` option
+②: Click the `Bluetooth` option
 
-③ : Click `Enable` to turn on Bluetooth
+③: Click the `Enable` option to turn on Bluetooth
 
 <Image
   src="/en/img/common/radxa-os/system-config/blue-#debian_version#-01.webp"
@@ -21,13 +21,13 @@ Manage Bluetooth devices using the built-in Bluetooth management tool.
   width="1200"
 />
 
-- Connect Bluetooth Device
+- Connect to a Bluetooth Device
 
-① : Click `Add ...` to automatically scan for nearby Bluetooth devices
+①: Click the `Add ...` option to automatically scan for nearby Bluetooth devices
 
-② : Find the Bluetooth device you want to connect to in the list of available devices
+②: Find the Bluetooth device you want to connect to in the list of nearby devices
 
-③ : Click `Next` to connect to the selected Bluetooth device
+③: Click the `Next` option to connect to the Bluetooth device
 
 <Image
   src="/en/img/common/radxa-os/system-config/blue-#debian_version#-02.webp"
@@ -38,7 +38,7 @@ Manage Bluetooth devices using the built-in Bluetooth management tool.
 
 - Pair Bluetooth Device
 
-During the connection process, you'll need to pair your Bluetooth device. Follow the on-screen instructions to complete the pairing.
+During the Bluetooth device connection process, you need to pair the devices. Follow the on-screen prompts to complete the pairing operation.
 
 <Image
   src="/en/img/common/radxa-os/system-config/blue-#debian_version#-03.webp"
@@ -49,7 +49,7 @@ During the connection process, you'll need to pair your Bluetooth device. Follow
 
 - Connection Successful
 
-After successfully connecting the Bluetooth device, the system will display a confirmation message.
+After successfully connecting to the Bluetooth device, the system will display a confirmation message.
 
 <Image
   src="/en/img/common/radxa-os/system-config/blue-#debian_version#-04.webp"
@@ -61,11 +61,11 @@ After successfully connecting the Bluetooth device, the system will display a co
 </TabItem>
 
 <TabItem value="Command Line">
-Manage Bluetooth devices using the command line interface.
+Manage Bluetooth devices using the command line.
 
 - Start Bluetooth Service
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl start bluetooth
@@ -73,9 +73,9 @@ sudo systemctl start bluetooth
 
 </NewCodeBlock>
 
-- Enable Auto-start on Boot
+- Enable on Boot
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl enable bluetooth
@@ -85,7 +85,7 @@ sudo systemctl enable bluetooth
 
 - Check Service Status
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl status bluetooth
@@ -98,12 +98,12 @@ sudo systemctl status bluetooth
 Use the `bluetoothctl` command-line tool to manage Bluetooth devices.
 
 :::tip
-Enter `bluetoothctl` in the terminal to access the interactive command-line interface.
+Enter `bluetoothctl` in the terminal to enter the interactive command-line interface.
 
-To exit the `bluetoothctl` interface, type `exit`.
+To exit the `bluetoothctl` command-line interface, type `exit`.
 :::
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 bluetoothctl
@@ -111,11 +111,11 @@ bluetoothctl
 
 </NewCodeBlock>
 
-- Enable Bluetooth Adapter
+- Turn on Bluetooth Adapter
 
-In the `bluetoothctl` interface, type `power on` to turn on Bluetooth.
+In the `bluetoothctl` interactive command-line interface, enter `power on` to turn on Bluetooth.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 power on
@@ -125,9 +125,9 @@ power on
 
 - Enable Agent
 
-In the `bluetoothctl` interface, type `agent on` to enable the agent.
+In the `bluetoothctl` interactive command-line interface, enter `agent on` to enable the agent.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 agent on
@@ -137,9 +137,9 @@ agent on
 
 - Scan for Bluetooth Devices
 
-In the `bluetoothctl` interface, type `scan on` to start scanning for Bluetooth devices.
+In the `bluetoothctl` interactive command-line interface, enter `scan on` to scan for Bluetooth devices.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 scan on
@@ -147,7 +147,7 @@ scan on
 
 </NewCodeBlock>
 
-Discovered Bluetooth devices will appear in the terminal with their MAC addresses and names. For example, in the output below, `EC:30:B3:40:0A:20` is the device's MAC address and `Redmi K50 Ultra` is the device name.
+Scanned Bluetooth devices will appear in the terminal with their physical address and name, similar to the following output: where `EC:30:B3:40:0A:20` is the device's physical address, and `Redmi K50 Ultra` is the device's name.
 
 ```
 [NEW] Device EC:30:B3:40:0A:20 Redmi K50 Ultra
@@ -155,9 +155,9 @@ Discovered Bluetooth devices will appear in the terminal with their MAC addresse
 
 - Stop Scanning
 
-If not stopped, `bluetoothctl` will continue scanning indefinitely. It's recommended to scan for a short time, then stop and look for your device's MAC address.
+If you don't stop scanning, the `bluetoothctl` interface will remain in scanning mode. It's recommended to scan a few times, then stop scanning and find the physical address of the Bluetooth device you want to connect to.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 scan off
@@ -165,11 +165,11 @@ scan off
 
 </NewCodeBlock>
 
-- Pair with a Device
+- Pair Device
 
-In the `bluetoothctl` interface, type `pair <device_address>` to pair with a Bluetooth device. You may need to confirm the pairing on the device itself.
+In the `bluetoothctl` interactive command-line interface, enter `pair <device_address>` to pair with a Bluetooth device. The pairing process requires manual confirmation; follow the prompts on your Bluetooth device.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 pair <device_address>
@@ -180,9 +180,9 @@ pair EC:30:B3:40:0A:20
 
 </NewCodeBlock>
 
-- Trust a Device
+- Trust Device
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 trust <device_address>
@@ -193,11 +193,11 @@ trust EC:30:B3:40:0A:20
 
 </NewCodeBlock>
 
-- Connect to a Device
+- Connect to Device
 
-In the `bluetoothctl` interface, type `connect <device_address>` to connect to a Bluetooth device.
+In the `bluetoothctl` interactive command-line interface, enter `connect <device_address>` to connect to the Bluetooth device.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 connect <device_address>
@@ -208,11 +208,11 @@ connect EC:30:B3:40:0A:20
 
 </NewCodeBlock>
 
-- Disconnect a Device
+- Disconnect Device
 
-In the `bluetoothctl` interface, type `disconnect <device_address>` to disconnect from a Bluetooth device.
+In the `bluetoothctl` interactive command-line interface, enter `disconnect <device_address>` to disconnect from the Bluetooth device.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 disconnect <device_address>
@@ -223,9 +223,9 @@ disconnect EC:30:B3:40:0A:20
 
 </NewCodeBlock>
 
-- Unpair a Device
+- Unpair Device
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 remove <device_address>
@@ -236,9 +236,9 @@ remove EC:30:B3:40:0A:20
 
 </NewCodeBlock>
 
-- Disable Bluetooth Adapter
+- Turn off Bluetooth Adapter
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 power off

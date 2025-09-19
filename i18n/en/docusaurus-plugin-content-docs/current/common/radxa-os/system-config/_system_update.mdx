@@ -3,18 +3,18 @@ We use the `Rsetup` tool to update the system.
 :::tip
 Using the `Rsetup` tool provides a safer way to update your system.
 
-Using the `sudo apt update && sudo apt upgrade` command to upgrade the system may result in incomplete updates or system instability.
+Using the `sudo apt update && sudo apt upgrade` command to upgrade the system may result in incomplete updates or system abnormalities.
 
-For more information about using the `Rsetup` tool, refer to:
+For more information on using the `Rsetup` tool, please refer to:
 
 - [Rsetup Tool](./rsetup)
   :::
 
 ## Rsetup Tool
 
-Open a terminal and enter the following command to launch the `Rsetup` tool:
+Open the terminal and enter the `sudo rsetup` command to launch the `Rsetup` tool:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo rsetup
@@ -29,9 +29,9 @@ sudo rsetup
   />
 </div>
 
-## Updating the System
+## System Update
 
-After launching the `Rsetup` tool, navigate to `System` -> `System Update` and follow the on-screen prompts to complete the system update process.
+After entering the `Rsetup` tool, select `System` -> `System Update` option, then follow the `Rsetup` tool prompts to complete the system update.
 
 <div style={{ textAlign: "center" }}>
   <img

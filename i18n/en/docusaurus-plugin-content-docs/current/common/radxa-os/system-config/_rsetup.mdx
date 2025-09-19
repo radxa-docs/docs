@@ -1,19 +1,19 @@
-Rsetup is a system configuration tool for Radxa OS that helps users easily configure various system settings, including system preferences, hardware settings, software settings, network configuration, user management, language settings, and more.
+Rsetup is a system configuration tool for Radxa OS that helps users easily configure their system, including system settings, hardware settings, software settings, network settings, user settings, language settings, and more.
 
 ## About Rsetup
 
-To start the Rsetup tool, run the `rsetup` command in the terminal.
+Run the `rsetup` command in the terminal to start the Rsetup tool.
 
 :::tip User Guide
 
-- Select an option: The corresponding option will be highlighted
+- Select option: The corresponding option will be highlighted
 - Confirm selection: Press `Enter`
 - Cancel selection: Press `ESC`
-- Navigate between options: Use `Up`, `Down`, `Left`, `Right` arrow keys
-- Multiple selection interface: Press `Space` to select, `Enter` to confirm; A `*` will appear next to the selected option to indicate it's enabled
+- Navigate options: Use `Up`, `Down`, `Left`, `Right` arrow keys
+- Multiple selection interface: Press `Space` to select, `Enter` to confirm; a `*` will appear next to selected options to indicate they are enabled
   :::
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo rsetup
@@ -23,7 +23,7 @@ sudo rsetup
 
 ## Rsetup Interface
 
-After launching the Rsetup tool, you'll see a list of available options. Note that the interface and available options may vary depending on your version.
+After starting the Rsetup tool, you'll see a list of options. Note that the interface/options may vary depending on the version. Please refer to your actual system for the most accurate information.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -36,7 +36,7 @@ After launching the Rsetup tool, you'll see a list of available options. Note th
 
 ### System
 
-The System option is primarily used for system updates, default boot targets, bootloader management, and more.
+The System option is mainly used for system updates, default boot target configuration, bootloader management, and more.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -47,9 +47,9 @@ The System option is primarily used for system updates, default boot targets, bo
 
 #### System Update
 
-The `System Update` option is used to update the system, which is safer than using the `apt update && apt upgrade` command.
+The `System Update` option is used to update the system. It's safer than using the `apt update && apt upgrade` command.
 
-Note: Using `apt update && apt upgrade` directly may result in incomplete updates or system instability.
+Note: Using `apt update && apt upgrade` directly might lead to incomplete updates or system issues.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -60,7 +60,7 @@ Note: Using `apt update && apt upgrade` directly may result in incomplete update
 
 #### Change default Boot target
 
-The `Change default Boot target` option allows you to modify the boot method, choosing between graphical or command-line interface.
+The `Change default Boot target` option is used to modify the boot method, allowing you to choose between graphical or command-line interface.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -82,7 +82,7 @@ The `Bootloader Management` option is used to manage the bootloader, including u
 
 ### Hardware
 
-The Hardware option is primarily used to manage onboard hardware, including video capture devices, LED control, GPIO control, and more.
+The Hardware option is primarily used for managing onboard hardware, including video capture devices, LED controls, GPIO controls, and more.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -104,18 +104,18 @@ The `Video capture devices` option is used to manage video capture devices and t
 
 #### GPIO LEDs
 
-The `GPIO LEDs` option is used to manage the triggering methods of onboard LEDs, allowing you to modify the blinking patterns of indicator lights.
+The `GPIO LEDs` option is used to manage the triggering methods of onboard LEDs, allowing you to modify the indicator light blinking patterns.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/en/img/common/radxa-os/system-config/rsetup-hardware-gpio-led.webp"
+    src="/en/img/common/rsetup/rsetup-hardware-gpio-led.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
 #### RGB LEDs
 
-The `RGB LEDs` option is used to manage the triggering methods of onboard RGB LEDs, allowing you to modify both the colors and blinking patterns of the indicator lights.
+The `RGB LEDs` option is used to manage the triggering methods of onboard RGB LEDs, allowing you to modify the indicator light colors and blinking patterns.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -148,7 +148,7 @@ The `Configure DSI display mirroring` option is used to set up DSI display mirro
 
 #### 40-pin GPIO
 
-The `40-pin GPIO` option is used to manage the status of the 40-pin GPIO, allowing you to modify or read the high/low level states of the GPIO pins.
+The `40-pin GPIO` option is used to manage the status of the 40-pin GPIO, allowing you to modify/read the high/low states of the GPIO pins.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -159,7 +159,7 @@ The `40-pin GPIO` option is used to manage the status of the 40-pin GPIO, allowi
 
 #### USB OTG services
 
-The `USB OTG services` option is used to manage USB On-The-Go services, allowing you to modify the configuration of OTG services.
+The `USB OTG services` option is used to manage USB OTG services, allowing you to modify the OTG service configuration.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -170,7 +170,7 @@ The `USB OTG services` option is used to manage USB On-The-Go services, allowing
 
 ### Overlays
 
-The Overlays option is primarily used to manage Device Tree Overlays.
+The Overlays option is primarily used for managing Device Tree Overlays.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -214,7 +214,7 @@ The `Install 3rd party overlays` option allows you to install third-party Device
 
 #### Rebuild overlays
 
-The `Rebuild overlays` option allows you to rebuild Device Tree Overlays.
+The `Rebuild overlays` option allows you to rebuild the Device Tree Overlays.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -225,7 +225,7 @@ The `Rebuild overlays` option allows you to rebuild Device Tree Overlays.
 
 ### Connectivity
 
-The Connectivity option is primarily used to manage network connections, including both wired and wireless network settings.
+The Connectivity option is primarily used for managing network connections, including both wired and wireless network settings.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -258,7 +258,7 @@ The `Activate a connection` option allows you to activate a network connection.
 
 #### Set system hostname
 
-The `Set system hostname` option allows you to change the system's hostname.
+The `Set system hostname` option allows you to configure the system's hostname.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -269,7 +269,7 @@ The `Set system hostname` option allows you to change the system's hostname.
 
 ### User Settings
 
-The User Settings option is used to manage the current username, password, and configure automatic login settings.
+The User Settings option is used to manage the current username, password, and configure auto-login settings.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -280,7 +280,7 @@ The User Settings option is used to manage the current username, password, and c
 
 #### Change Password
 
-The `Change Password` option allows you to modify the password for the current user.
+The `Change Password` option is used to modify the current user's password.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -291,7 +291,7 @@ The `Change Password` option allows you to modify the password for the current u
 
 #### Change Hostname
 
-The `Change Hostname` option allows you to modify the system's hostname.
+The `Change Hostname` option is used to modify the system's hostname.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -302,7 +302,7 @@ The `Change Hostname` option allows you to modify the system's hostname.
 
 #### Configure auto login
 
-The `Configure auto login` option allows you to set up automatic login for the system.
+The `Configure auto login` option is used to set up automatic login.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -313,7 +313,7 @@ The `Configure auto login` option allows you to set up automatic login for the s
 
 ### Localization
 
-The Localization option is primarily used to configure the system's region and language settings.
+The Localization option is used to configure the system's timezone, locale, and WiFi country settings.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -324,7 +324,7 @@ The Localization option is primarily used to configure the system's region and l
 
 #### Change Timezone
 
-The `Change Timezone` option allows you to modify the system's timezone settings.
+The `Change Timezone` option is used to modify the system's timezone.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -335,7 +335,7 @@ The `Change Timezone` option allows you to modify the system's timezone settings
 
 #### Change Locale
 
-The `Change Locale` option allows you to modify the system's regional settings.
+The `Change Locale` option is used to modify the system's locale settings.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -346,7 +346,7 @@ The `Change Locale` option allows you to modify the system's regional settings.
 
 #### Change Wi-Fi Country
 
-The `Change Wi-Fi Country` option allows you to modify the WiFi country code for regulatory compliance.
+The `Change Wi-Fi Country` option is used to set the WiFi country code for the system.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -357,7 +357,7 @@ The `Change Wi-Fi Country` option allows you to modify the WiFi country code for
 
 ### Common Tasks
 
-The Common Tasks option is used to perform common system tasks, such as installing the Baota panel and other utilities.
+The Common Tasks option is used to perform various common tasks, such as installing the Baota panel and other utilities.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -375,7 +375,7 @@ The Common Tasks option is used to perform common system tasks, such as installi
 
 ### About
 
-The About option displays information about the Rsetup tool and its version.
+The About option displays information about the Rsetup tool.
 
 <div style={{ textAlign: "center" }}>
   <img

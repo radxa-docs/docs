@@ -1,20 +1,20 @@
 import { Image } from "@site/src/utils/docs";
 
-This document explains how to set up automatic desktop login using the `Rsetup` tool on Radxa boards.
+This guide explains how to use the `Rsetup` tool on Radxa boards to configure automatic desktop login.
 
 :::tip
-Enabling automatic desktop login allows the system to log in automatically without requiring a username and password on each boot.
+Enabling automatic desktop login allows you to skip entering your username and password every time you start the system.
 
-For more information about the `Rsetup` tool, please refer to:
+For more information about using the `Rsetup` tool, refer to:
 
 - [Rsetup Tool](./rsetup)
   :::
 
 ## Rsetup Tool
 
-Open a terminal and enter the `sudo rsetup` command to launch the `Rsetup` tool:
+Open a terminal and enter the following command to launch the `Rsetup` tool:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo rsetup
@@ -29,9 +29,9 @@ sudo rsetup
   />
 </div>
 
-## Configure Auto Login
+## Configure Automatic Login
 
-After launching the `Rsetup` tool, navigate to `User Settings` -> `Configure auto login`, enable `sddm.service`, and follow the on-screen instructions to complete the setup.
+In the `Rsetup` tool, navigate to `User Settings` -> `Configure auto login`, enable `sddm.service`, and follow the on-screen instructions to complete the setup.
 
 - User Settings
 

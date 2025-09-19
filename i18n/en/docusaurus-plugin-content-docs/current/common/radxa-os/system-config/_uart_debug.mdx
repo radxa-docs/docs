@@ -2,7 +2,7 @@ import { Image } from "@site/src/utils/docs";
 
 ### Using Tabby
 
-We recommend using the Tabby software for serial port login. Tabby is a powerful and user-friendly serial debugging tool that supports various protocols including serial and SSH, and is compatible with major operating systems such as Windows, macOS, and Linux.
+We recommend using Tabby for serial port login. Tabby is a powerful and user-friendly serial debugging tool that supports multiple protocols including serial port and SSH, and is compatible with mainstream operating systems such as Windows, macOS, and Linux.
 
 #### Download Tabby
 
@@ -10,21 +10,11 @@ Visit the [Tabby official website](https://tabby.sh/) to download and install th
 
 #### Install Tabby
 
-- Windows
-
-Select the `.exe` file that matches your system architecture for installation.
-
-- Linux
-
-Select the `.deb` file that matches your system architecture for installation.
-
-- macOS
-
-Select the `.dmg` file that matches your system architecture for installation.
+Select the appropriate installation package for your operating system and hardware architecture (Windows: xxx.exe, Linux: xxx.deb, macOS: xxx.dmg) to install the Tabby software.
 
 #### Using Tabby
 
-Double-click the Tabby application icon to launch the software.
+After installation, double-click the Tabby icon to launch the application.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -50,7 +40,7 @@ Double-click the Tabby application icon to launch the software.
 
 #### Select Serial Port Template
 
-Choose a base configuration as a template: Select any `Serial` template. You can modify parameters such as device name, serial port number, and baud rate in the subsequent configuration interface.
+Choose a base configuration as a template: Select any `Serial` template. You can modify parameters such as device name, serial port device number, and baud rate in the subsequent configuration interface.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -72,7 +62,7 @@ After selecting the `Serial` template, modify the following parameters:
 ④ --> `Save` : Save the configuration
 
 :::tip Serial Port Device Number
-For different platforms or when multiple serial devices are connected, you can safely plug and unplug the USB-to-serial cable connected to the board and observe the changes in device numbers to identify the correct device.
+For different platforms or when multiple serial devices are connected, you can safely unplug the USB serial cable connected to the board and observe the device number changes to identify the correct device.
 :::
 
 <Image
@@ -82,9 +72,9 @@ For different platforms or when multiple serial devices are connected, you can s
   width="1200"
 />
 
-### Logging in via Serial Port
+### Login via Serial Port
 
-Click the run button to connect to the serial port device.
+Click the run button to log in to the serial port device.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -93,7 +83,7 @@ Click the run button to connect to the serial port device.
   />
 </div>
 
-After a successful connection, press Enter to see the login prompt, then enter the username and password for the system (the password won't be displayed as you type; press Enter after entering the password to log in).
+After a successful connection, press Enter to display the login prompt. Then use the corresponding system username and password to log in (the password will not be displayed as you type; press Enter after entering the password).
 
 <Image
   src="/en/img/common/radxa-os/system-config/tabby-login-#baud#.webp"
@@ -102,6 +92,6 @@ After a successful connection, press Enter to see the login prompt, then enter t
   width="1200"
 />
 
-## Serial Port Debugging
+## Using the Serial Port
 
-After successfully logging in via the serial port, you can view system logs and run commands to test system functionality through the serial console.
+After successfully logging in to the system via the serial port, you can view system logs and run commands to test system functionality.

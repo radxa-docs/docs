@@ -1,12 +1,37 @@
+import { Image } from "@site/src/utils/docs";
+
 This guide explains how to connect to a wired network and test network bandwidth.
 
 ## Wired Network
 
-Connect the board's Gigabit Ethernet port to your router using an Ethernet cable. Once connected, the router will automatically assign an IP address to the board.
+Connect the board's Gigabit Ethernet port to a router using an Ethernet cable. Once connected, the router will automatically assign an IP address to the board.
 
-To view detailed network connection information, enter the following command in the terminal:
+<Tabs queryString="web-mode">
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<TabItem value="Graphical Interface">
+
+Connect the board's Ethernet port to a router using an Ethernet cable. Once connected, the router will automatically assign an IP address to the ROCK 4D.
+
+1. Click the network icon
+
+2. Select the `Details` option to view network connection details such as IP address, subnet mask, gateway address, etc.
+
+For example, `192.168.4.129` is the IP address assigned by the router.
+
+<Image
+  src="/en/img/common/radxa-os/system-config/network-wired-#debian_version#-detail.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+</TabItem>
+
+<TabItem value="Command Line">
+
+Enter the following command in the terminal to view detailed network connection information:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ip a
@@ -14,7 +39,7 @@ ip a
 
 </NewCodeBlock>
 
-The terminal will display output similar to the following. The IP address assigned by the router (e.g., `192.168.2.186`) will be shown in the output:
+The terminal will display output similar to the following, where `192.168.2.186` is the IP address assigned by the router.
 
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -43,26 +68,31 @@ The terminal will display output similar to the following. The IP address assign
     link/ether 76:13:0d:bc:43:06 brd ff:ff:ff:ff:ff:ff permaddr 2c:c6:82:85:8d:fe
 ```
 
+</TabItem>
+
+</Tabs>
+
 ## Testing Network Bandwidth Performance
 
-Use the `iperf` tool to test network bandwidth (throughput) performance. It's recommended to run multiple tests and calculate the average for accurate results.
+Use the `iperf` tool to test network bandwidth (throughput) performance. It is recommended to run multiple tests and take the average.
 
 ### Prerequisites
 
-- **Hardware Requirements**
+- Hardware Requirements
 
-You will need two devices:
+You will need two devices: one to act as the server and the other as the client.
 
-- **Server**: A PC or server device
-- **Client**: The device to be tested (e.g., Cubie A7A)
+Server: Can be a PC, server, or similar device.
 
-- **Network Requirements**
-  - Both server and client must be on the same local network
-  - They should be able to ping each other
+Client: The device to be tested, such as a Cubie A7A.
+
+- Same Local Network
+
+The server and client must be on the same local network and able to ping each other.
 
 ### Installing iperf
 
-Install `iperf` on both the server and client devices.
+Both the server and client need to have `iperf` installed.
 
 <NewCodeBlock tip="radxa@device & Linux@host$" type="device">
 
@@ -73,13 +103,13 @@ sudo apt install iperf
 
 </NewCodeBlock>
 
-### Testing Procedure
+### Testing Steps
 
 #### Server (PC)
 
-Open a terminal on the server device and start the iperf server with the following command:
+Open a terminal and enter the following command to start the server:
 
-<NewCodeBlock tip="Linux@host$" type="device">
+<NewCodeBlock tip="Linux@host$" type="host">
 
 ```
 iperf -s
@@ -87,7 +117,7 @@ iperf -s
 
 </NewCodeBlock>
 
-After successful startup, the terminal will display output similar to:
+After successful startup, the terminal will display output similar to the following:
 
 ```
 -----------------------------------------------------------
@@ -99,9 +129,9 @@ Server listening on 5201 (test #1)
 
 1. Upload Test
 
-Open a terminal on the client device and enter the following command to test the upload bandwidth. Replace `<server_ip>` with the actual server IP address (you can find this using the `ip a` command on the server).
+Open a terminal and enter the following command to test the client's upload bandwidth. Replace `<server_ip>` with the actual server IP address (you can check it using the `ip a` command).
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 iperf -c <server_ip> -t <time>
@@ -111,16 +141,16 @@ iperf -c 192.168.2.104 -t 60
 
 </NewCodeBlock>
 
-Parameters:
+Parameter explanation:
 
-- `<server_ip>`: The IP address of the server
-- `<time>`: Test duration in seconds
+- `<server_ip>`: Server IP address.
+- `<time>`: Test duration in seconds.
 
 2. Download Test
 
-Open a terminal on the client device and enter the following command to test the download bandwidth. Replace `<server_ip>` with the actual server IP address (you can find this using the `ip a` command on the server).
+Open a terminal and enter the following command to test the client's download bandwidth. Replace `<server_ip>` with the actual server IP address (you can check it using the `ip a` command).
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 iperf -c <server_ip> -t <time> -R
@@ -130,8 +160,8 @@ iperf -c 192.168.2.104 -t 60 -R
 
 </NewCodeBlock>
 
-Parameters:
+Parameter explanation:
 
-- `<server_ip>`: The IP address of the server
-- `<time>`: Test duration in seconds
-- `-R`: Reverse test (client receives, server sends)
+- `<server_ip>`: Server IP address.
+- `<time>`: Test duration in seconds.
+- `-R`: Reverse test, where the client acts as the server and the server acts as the client.

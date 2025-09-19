@@ -1,12 +1,14 @@
 import { Image } from "@site/src/utils/docs";
 
-This guide explains how to install and use applications on Radxa boards using dpkg and apt commands.
+This guide explains how to install and use applications on Radxa boards using the dpkg and apt commands.
 
-- **dpkg command**
-  Primarily used for installing local .deb packages.
+- dpkg command
 
-- **apt command**
-  Mainly used for installing packages from software repositories.
+Primarily used for installing local .deb packages.
+
+- apt command
+
+Mainly used for installing software packages from repositories.
 
 ## Social Applications
 
@@ -24,9 +26,9 @@ Download the arm64 architecture .deb package from the [Tencent QQ official websi
 You can check your system's architecture using the `uname -a` command.
 :::
 
-Replace the actual downloaded .deb package name in the command.
+Replace the actual downloaded .deb package name in the command below:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo dpkg -i QQ_xxx_arm64.deb
@@ -36,9 +38,9 @@ sudo dpkg -i QQ_xxx_arm64.deb
 
 #### Using QQ
 
-Double-click the QQ icon or run the following command in the terminal to launch QQ.
+Double-click the QQ icon or run the following command in the terminal to start QQ:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 qq
@@ -48,7 +50,6 @@ qq
 
 <Image
   src="/en/img/common/radxa-os/system-config/qq-#debian_version#.webp"
-  alt="QQ interface on Radxa OS"
   debian_version={props.debian_version}
   fallback={props.debian_version}
   width="1200"
@@ -60,13 +61,13 @@ qq
 
 #### About LibreOffice
 
-LibreOffice is a free, open-source, cross-platform office suite developed by The Document Foundation. It supports various office needs including word processing, spreadsheets, presentations, vector graphics, database management, and formula editing. It's compatible with Microsoft Office formats.
+LibreOffice is a free, open-source, cross-platform office suite developed by The Document Foundation. It supports various office needs including word processing, spreadsheets, presentations, vector graphics, database management, and formula editing. It is compatible with Microsoft Office formats.
 
 #### Installing LibreOffice
 
-Install LibreOffice using apt.
+Install LibreOffice using apt:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo apt update
@@ -77,11 +78,10 @@ sudo apt install libreoffice -y
 
 #### Using LibreOffice
 
-Type `LibreOffice` in the application search bar, then select the corresponding application to launch.
+Type `LibreOffice` in the application search bar, then select the corresponding application to launch it.
 
 <Image
   src="/en/img/common/radxa-os/system-config/libreoffice-#debian_version#.webp"
-  alt="LibreOffice interface on Radxa OS"
   debian_version={props.debian_version}
   fallback={props.debian_version}
   width="1200"

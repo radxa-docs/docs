@@ -1,0 +1,151 @@
+import { Image } from "@site/src/utils/docs";
+
+:::note Note
+This tutorial is only applicable to Radxa OS
+:::
+
+Use the system configuration tool `Rsetup` to flash or erase the SPI boot firmware.
+
+:::tip SPI Boot Firmware
+The core task of the SPI boot firmware (BootROM + Bootloader) is to initialize hardware in stages (CPU → Memory → Storage) and ultimately load the operating system kernel through the storage device.
+
+To boot the system from an NVMe SSD, you need to flash the SPI boot firmware for normal system startup.
+:::
+
+## Prerequisites
+
+Ensure that the board can boot normally from a MicroSD card and has a working network connection. The following operations require accessing the board's system.
+
+## Update System
+
+Use the `Rsetup` tool to update the system and obtain the latest SPI boot firmware.
+
+:::tip Rsetup Usage Guide
+
+- Select option: The corresponding option will be highlighted
+- Confirm selection: Press `Enter`
+- Cancel selection: Press `ESC`
+- Navigate options: Use `Up`, `Down`, `Left`, `Right` arrow keys
+- Multi-selection interface: Press `Space` to select, then `Enter` to confirm; a `*` will appear next to the selected option
+  :::
+
+1. Open the terminal and enter the command `sudo rsetup` to launch the `Rsetup` tool
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. Navigate to `System` -> `System Update` and press `Enter` to confirm, then follow the `Rsetup` tool prompts to complete the system update.
+
+:::tip System Update
+
+The `System Update` option is used to update the system and is safer than using the `apt update && apt upgrade` commands.
+
+Note: Using `apt update && apt upgrade` to update the system may result in incomplete updates or system abnormalities.
+
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-update.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. After the update is complete, reboot the system.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo reboot
+```
+
+</NewCodeBlock>
+
+## Flash SPI Boot Firmware
+
+Use the `Rsetup` tool to update the SPI boot firmware, which will automatically flash the latest SPI boot firmware.
+
+1. Navigate to `System` -> `Bootloader Management` and press `Enter` to confirm.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-boot-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. Select `Update SPI Bootloader` and press `Enter` to confirm.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-boot-manage-update-spi.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. Use the spacebar to select the SPI boot firmware option corresponding to your board (a `*` indicates the option is selected), then press `Enter` to confirm. Follow the `Rsetup` tool prompts to complete the SPI boot firmware update.
+
+<Image
+  src="/en/img/common/radxa-os/system-config/rsetup-system-boot-manage-update-spi-#board#.webp"
+  board={props.board}
+  fallback={props.board}
+  width="1200"
+/>
+
+4. After the update is complete, reboot the system.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo reboot
+```
+
+</NewCodeBlock>
+
+## Erase SPI Boot Firmware (Optional)
+
+:::danger Erasing SPI Boot Firmware
+After erasing the SPI Bootloader, boot media that relies on the SPI boot firmware will not be able to boot the system (for example: some boards may not be able to boot from NVMe SSD).
+:::
+
+Use the `Rsetup` tool to erase the SPI boot firmware.
+
+1. Navigate to `System` -> `Bootloader Management`
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-boot-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. Select `Erase SPI Bootloader` and press `Enter` to confirm.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-boot-manage-erase-spi.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. After the erase is complete, reboot the system.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo reboot
+```
+
+</NewCodeBlock>

@@ -1,0 +1,62 @@
+This guide explains how to install the FEL system image to a MicroSD card.
+
+:::warning
+Installing the system will format the MicroSD card. Please back up any important data in advance!
+:::
+
+## Prerequisites
+
+### Hardware Preparation
+
+You will need the following hardware devices prepared in advance:
+
+- MicroSD card
+- MicroSD card reader
+
+### Hardware Connection
+
+Insert the MicroSD card into the MicroSD card reader, then connect the reader to your computer.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/sd-reader.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Software Preparation
+
+To flash the FEL system image to the MicroSD card, you will need the PhoenixCard tool provided by the Allwinner platform.
+
+**PhoenixCard**: A Windows-based tool that can be used to create a bootable MicroSD card.
+
+## Download System Image
+
+Download and extract the system image file to your Windows computer.
+
+:::tip Image Note
+The downloaded system image is a compressed file that needs to be extracted before use!
+:::
+
+## Install System
+
+1. Extract the downloaded PhoenixCard zip package
+2. Navigate to the PhoenixCard directory
+3. Run the `PhoenixCard.exe` program as administrator
+
+①: Select the `Image` option and locate the corresponding system image file (select the actual extracted system file)
+
+②: Choose the `Start up` option to indicate the card type as a bootable card
+
+③: Check the disk option corresponding to your MicroSD card
+
+④: Click the `Burn` button to start creating the bootable card
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/other-system/fel-image/phoenixcard-windows.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+Wait for the software to complete the burning process. Once finished, you can close the PhoenixCard tool.

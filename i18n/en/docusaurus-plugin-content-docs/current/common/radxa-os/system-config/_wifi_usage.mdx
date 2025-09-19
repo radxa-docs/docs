@@ -1,3 +1,5 @@
+import { Image } from "@site/src/utils/docs";
+
 This guide explains how to connect to a WiFi network, set up a WiFi hotspot, and test network bandwidth.
 
 - **Connecting to a WiFi Network**
@@ -6,19 +8,51 @@ When the board connects to a WiFi network, it typically obtains an IP address au
 
 - **Setting Up a WiFi Hotspot**
 
-When the board is set up as a WiFi hotspot (AP mode), the system usually starts a DHCP service automatically to assign IP addresses to connected devices. If you need to customize network parameters, you can manually configure the DHCP service as needed.
+When the board is set up as a WiFi hotspot (AP mode), the system usually starts the DHCP service automatically to assign IP addresses to connected devices. If you need to customize network parameters, you can configure the DHCP service manually as needed.
 
 ## Connecting to a WiFi Network
 
-We'll use the `nmcli` command-line tool to connect to a WiFi network.
+<Tabs queryString="web-mode">
+
+<TabItem value="Graphical Interface">
+
+1. Click the network icon
+
+2. Click the `Connect` button next to the WiFi network name you want to connect to
+
+3. Enter the WiFi password and follow the prompts to complete the connection
+
+<Image
+  src="/en/img/common/radxa-os/system-config/network-wifi-#debian_version#-connect.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+After a successful connection, select the `Details` option to view detailed network connection information, such as IP address, subnet mask, gateway address, etc.
+
+For example, `192.168.31.62` is the IP address assigned by the router.
+
+<Image
+  src="/en/img/common/radxa-os/system-config/network-wifi-#debian_version#-detail.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+</TabItem>
+
+<TabItem value="Command Line Mode">
+
+We will use the `nmcli` command-line tool to connect to a WiFi network.
 
 :::tip
-nmcli (NetworkManager Command Line Interface) is a command-line tool for NetworkManager, used to configure and manage network connections on Linux systems.
+nmcli (NetworkManager Command Line Interface) is the command-line management tool for NetworkManager, used to configure and manage network connections on Linux systems.
 :::
 
-### Enabling WiFi
+#### Enable WiFi
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli radio wifi on
@@ -26,11 +60,11 @@ sudo nmcli radio wifi on
 
 </NewCodeBlock>
 
-### Scanning for WiFi Networks
+#### Scan for WiFi Networks
 
-If WiFi is enabled but no networks are found, you may need to restart the system.
+If WiFi is enabled but no networks are found, you can try restarting the system.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli device wifi list
@@ -38,9 +72,9 @@ sudo nmcli device wifi list
 
 </NewCodeBlock>
 
-### Connecting to a WiFi Network
+#### Connect to a WiFi Network
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
@@ -50,15 +84,15 @@ sudo nmcli device wifi connect wifi-demo password 12345678
 
 </NewCodeBlock>
 
-Upon successful connection, the terminal will display output similar to:
+After a successful connection, the terminal will display output similar to the following:
 
 ```
 Device 'wlan0' successfully activated with 'xxxxxx'.
 ```
 
-### Viewing Network Connection Details
+#### View Detailed Network Connection Information
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ip a
@@ -66,7 +100,7 @@ ip a
 
 </NewCodeBlock>
 
-The terminal will display output similar to the following, where `192.168.31.53` is the IP address assigned by the router:
+The terminal will display output similar to the following. For example, `192.168.31.104` is the IP address assigned by the router.
 
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -110,19 +144,23 @@ The terminal will display output similar to the following, where `192.168.31.53`
 :::tip
 Additional Commands:
 
-- `sudo nmcli radio wifi off`: Disable WiFi
-- `sudo nmcli connection delete <SSID>`: Remove a specific WiFi network
+- `sudo nmcli radio wifi off`: Turn off WiFi.
+- `sudo nmcli connection delete <SSID>`: Delete the specified WiFi network.
   :::
+
+</TabItem>
+
+</Tabs>
 
 ## Setting Up a WiFi Hotspot
 
-We'll use the `nmcli` command-line tool to set up a WiFi hotspot.
+We will use the `nmcli` command-line tool to set up a WiFi hotspot.
 
-### Checking WiFi Adapter
+### Checking WiFi Network Interface
 
 Use the `ip a` command to check the wireless network interface name.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ip a
@@ -130,7 +168,7 @@ ip a
 
 </NewCodeBlock>
 
-The terminal will display output similar to the following, where `wlan0` is the wireless network interface name:
+The terminal will display output similar to the following, where `wlan0` is the wireless network interface name.
 
 ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -171,9 +209,11 @@ The terminal will display output similar to the following, where `wlan0` is the 
        valid_lft forever preferred_lft forever
 ```
 
-### Configuring a WiFi Hotspot
+## Configuring a WiFi Hotspot
 
-<NewCodeBlock tip="radxa@device$" type="device">
+Open the system terminal and enter the following command to set up a WiFi hotspot:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 ```
 sudo nmcli device wifi hotspot ifname <ifname> con-name <name> ssid <SSID> password <password>
 # Example
@@ -181,25 +221,23 @@ sudo nmcli device wifi hotspot ifname wlan0 con-name My-Hotspot ssid My-Hotspot 
 ```
 </NewCodeBlock>
 
-This command creates a WiFi hotspot named "My-Hotspot" with password "12345678" using the wireless interface wlan0. The connection is saved as "My-Hotspot" for future management.
+Parameter explanation: This creates a WiFi hotspot named My-Hotspot with password 12345678 using the wireless network interface wlan0, and saves the connection as My-Hotspot for future management.
 
-Parameters:
+- `ifname`: Specifies the wireless network interface name for creating the hotspot. Use the `ip a` command to check the wireless interface name.
+- `con-name`: Specifies the connection name for the hotspot, which can be used to manage (start, stop, delete) the hotspot later.
+- `ssid`: Specifies the hotspot name, which is the wireless network name visible to other devices.
+- `password`: Specifies the password for the hotspot.
 
-- `ifname`: Specifies the wireless interface for the hotspot (use `ip a` to find the interface name)
-- `con-name`: Specifies the connection name for managing the hotspot (start, stop, delete)
-- `ssid`: The name of the hotspot (visible to other devices)
-- `password`: The password for the hotspot
-
-After successful setup, the terminal will display output similar to:
+After successful setup, the terminal will display output similar to the following:
 
 ```
 Device 'wlan0' successfully activated with 'xxxxxx'.
 Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 ```
 
-### Disabling the WiFi Hotspot
+### Turning Off the WiFi Hotspot
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli connection down My-Hotspot
@@ -207,9 +245,9 @@ sudo nmcli connection down My-Hotspot
 
 </NewCodeBlock>
 
-### Enabling the WiFi Hotspot
+### Turning On the WiFi Hotspot
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli connection up My-Hotspot
@@ -217,9 +255,9 @@ sudo nmcli connection up My-Hotspot
 
 </NewCodeBlock>
 
-### Removing the WiFi Hotspot
+### Deleting a WiFi Hotspot
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli connection delete My-Hotspot
@@ -229,40 +267,42 @@ sudo nmcli connection delete My-Hotspot
 
 ## Testing Network Bandwidth Performance
 
-Use the `iperf` tool to test network bandwidth (throughput) performance. It's recommended to run multiple tests and calculate the average for accurate results.
+Use the `iperf` tool to test network bandwidth (throughput) performance. It is recommended to run multiple tests and take the average.
 
 ### Prerequisites
 
-- **Hardware Requirements**
+- Hardware Requirements
 
-You will need two devices:
+You will need two devices: one to act as the server and the other as the client.
 
-- **Server**: A PC or server device
-- **Client**: The device to be tested (e.g., Cubie A7A)
+Server: Can be a PC, server, or similar device.
 
-- **Network Requirements**
-  - Both server and client must be on the same local network
-  - They should be able to ping each other
+Client: The device to be tested, such as a Cubie A7A.
+
+- Same Local Network
+
+The server and client must be on the same local network and able to ping each other.
 
 ### Installing iperf
 
-Install `iperf` on both the server and client devices.
+Both the server and client need to have `iperf` installed.
 
 <NewCodeBlock tip="radxa@device & Linux@host$" type="device">
 
 ```
-sudo apt update sudo apt install iperf
+sudo apt update
+sudo apt install iperf
 ```
 
 </NewCodeBlock>
 
-### Testing Procedure
+### Testing Steps
 
 #### Server (PC)
 
-Open a terminal on the server device and start the iperf server with the following command:
+Open a terminal and enter the following command to start the server:
 
-<NewCodeBlock tip="Linux@host$" type="device">
+<NewCodeBlock tip="Linux@host$" type="host">
 
 ```
 iperf -s
@@ -270,7 +310,7 @@ iperf -s
 
 </NewCodeBlock>
 
-After successful startup, the terminal will display output similar to:
+After successful startup, the terminal will display output similar to the following:
 
 ```
 -----------------------------------------------------------
@@ -282,39 +322,39 @@ Server listening on 5201 (test #1)
 
 1. Upload Test
 
-Open a terminal on the client device and enter the following command to test the upload bandwidth. Replace `<server_ip>` with the actual server IP address (you can find this using the `ip a` command on the server).
+Open a terminal and enter the following command to test the client's upload bandwidth. Replace `<server_ip>` with the actual server IP address (you can check it using the `ip a` command).
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 iperf -c <server_ip> -t <time>
-# 示例
+# Example
 iperf -c 192.168.2.186 -t 60
 ```
 
 </NewCodeBlock>
 
-Parameters:
+Parameter explanation:
 
-- `<server_ip>`: The IP address of the server
-- `<time>`: Test duration in seconds
+- `<server_ip>`: Server IP address.
+- `<time>`: Test duration in seconds.
 
 2. Download Test
 
-Open a terminal on the client device and enter the following command to test the download bandwidth. Replace `<server_ip>` with the actual server IP address (you can find this using the `ip a` command on the server).
+Open a terminal and enter the following command to test the client's download bandwidth. Replace `<server_ip>` with the actual server IP address (you can check it using the `ip a` command).
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 iperf -c <server_ip> -t <time> -R
-# 示例
+# Example
 iperf -c 192.168.2.186 -t 60 -R
 ```
 
 </NewCodeBlock>
 
-Parameters:
+Parameter explanation:
 
-- `<server_ip>`: The IP address of the server
-- `<time>`: Test duration in seconds
-- `-R`: Reverse test (client receives, server sends)
+- `<server_ip>`: Server IP address.
+- `<time>`: Test duration in seconds.
+- `-R`: Reverse test, where the client acts as the server and the server acts as the client.
