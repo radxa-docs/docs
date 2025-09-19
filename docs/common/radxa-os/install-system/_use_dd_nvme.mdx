@@ -1,3 +1,5 @@
+import { Image } from "@site/src/utils/docs";
+
 主要介绍如何使用 `dd` 命令将系统安装到 NVMe SSD 中。
 
 :::warning
@@ -43,12 +45,12 @@
   attributes={{ className: props.tag !== "m2_2230" ? "tab_none" : "" }}
 >
   通过 M.2 M Key 2230 接口安装 NVMe SSD。
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/common/radxa-os/install-system/nvme-m2-2230.webp"
-      style={{ width: "100%", maxWidth: "1200px" }}
-    />
-  </div>
+  <Image
+    src="/img/common/radxa-os/install-system/radxa-#board#-nvme-ssd.webp"
+    board={props.board}
+    fallback={props.board}
+    width="300"
+  />
 </TabItem>
 
   <TabItem value="PCIe FPC 接口" default={props.tag === "pcie_fpc"} attributes={{className: props.tag !== "pcie_fpc" ? "tab_none" : ""}}>
