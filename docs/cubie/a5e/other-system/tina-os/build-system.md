@@ -169,6 +169,27 @@ sudo apt install build-essential subversion git-core libncurses5-dev zlib1g-dev 
 ```
 </NewCodeBlock>
 
+## 修改脚本
+
+编译前，我们需要在 Allwinner 官方原始 SDK 源码目录的 `build/pack` 中添加补丁，用来支持 extlinux 启动。
+
+```
+--- a/pack
++++ b/pack
+@@ -235,6 +235,9 @@ ${LICHEE_CHIP_CONFIG_DIR}/configs/${PACK_BOARD}/wavefile/*:${LICHEE_PACK_OUT_DIR
+ ${LICHEE_CHIP_CONFIG_DIR}/configs/${PACK_BOARD}/${PACK_TYPE}/*.bmp:${LICHEE_PACK_OUT_DIR}/boot-resource/
+ ${LICHEE_CHIP_CONFIG_DIR}/boot-resource/boot-resource/bat/bempty.bmp:${LICHEE_PACK_OUT_DIR}/bempty.bmp
+ ${LICHEE_CHIP_CONFIG_DIR}/boot-resource/boot-resource/bat/battery_charge.bmp:${LICHEE_PACK_OUT_DIR}/battery_charge.bmp
++${LICHEE_CHIP_CONFIG_DIR}/boot-resource/extlinux:${LICHEE_PACK_OUT_DIR}/boot-resource/
++${LICHEE_PLAT_OUT}/sunxi.dtb:${LICHEE_PACK_OUT_DIR}/boot-resource/extlinux/
++${LICHEE_PLAT_OUT}/bImage:${LICHEE_PACK_OUT_DIR}/boot-resource/extlinux/Image
+ )
+```
+
+:::tip 添加补丁说明
+你可以在文档内搜索代码块前面不含 `+` 的代码行，找到需要添加代码的位置后，将补丁内容添加到代码块中。
+:::
+
 ## 镜像编译
 
 进入 Allwinner 官方原始 SDK 源码目录，然后初始化编译环境和启动配置界面。

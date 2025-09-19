@@ -23,4 +23,4 @@ NVMe SSD 是一种高速、高容量、低成本的存储设备，可用于存�
 你可以根据自己的硬件设备选择不同的安装方式：
 
 - [使用硬盘盒安装系统](./install-system/reader.md)：需要使用到 NVMe 固态硬盘盒，操作相对简单！
-- [使用 dd 命令安装系统](./install-system/no-reader.md)：需要基于 MicroSD 卡正常启动系统，然后使用 `dd` 命令将系统安装到 NVMe SSD 上。
+- [从 SD 卡安装系统到 NVMe](./install-system/no-reader.md)：需要基于 MicroSD 卡正常启动系统，然后使用 `dd` 命令将系统安装到 NVMe SSD 上。

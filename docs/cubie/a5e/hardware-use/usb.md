@@ -14,6 +14,12 @@ sidebar_position: 4
   - 数据传输：支持 OTG 模式和 FEL 模式刷机
   - 供电：支持 5V 供电
 
+:::tip USB 3.0 Type-A 接口
+由于 USB3.0 Type-A 接口和 PCIe 接口存在复用引脚，默认是关闭 USB 3.0 功能，使用 USB 2.0 功能。
+
+开启 USB3.0 Type-A 接口需要进入 `rsetup` 设置界面，在 `Overlays` -> `Manage overlays`选项中启用 `Enable USB 3.0 and disable PCIe` 选项才可以开启 USB3.0 接口。
+:::
+
 ## 使用指南
 
 :::tip 接口位置
