@@ -8,6 +8,8 @@ Qualcomm® 为 NPU 开发者提供一系列 SDK 方便用户可以对自己的 A
 
 - 模型应用库：[QAI-APP-BUILDER](#qai-appbuilder)
 
+- 线上模型转换库：[QAI-HUB](#qai-hub)
+
 ## Qualcomm® NPU 软件栈
 
 ### QAIRT
@@ -98,3 +100,23 @@ QAIRT 基于不同的系统与不同的推理后端，有以下 3 种模型文�
 - [**QAI AppBuilder**](./qai-appbuilder)
 
 - [**QAI AppBuilder 仓库**](https://github.com/quic/ai-engine-direct-helper)
+
+### QAI-Hub
+
+[**Qualcomm® AI Hub**](https://aihub.qualcomm.com/) （QAI-Hub）是一站式模型转换云平台，QAI-Hub 平台提供在线模型编译，模型量化，模型性能分析，模型推理与模型下载服务。
+Qualcomm® AI Hub 自动处理从于预训练模型到设备运行时的模型转换，系统会自动在云端配置设备，以便在设备上进行性能分析和推理。
+其中 [**Qualcomm® AI Hub Models**](https://github.com/quic/ai-hub-models)（QAI-Hub-Models）
+基于 [QAI-Hub](https://app.aihub.qualcomm.com/docs/index.html) 提供的云服务，支持以命令行方式将[模型列表](qai-hub-models#模型列表)中的模型在云设备上进行在线**量化、编译、推理、分析和下载**。
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/qai-hub.webp" style={{ width: "100%" }} />
+  QAI-Hub WORKFLOW
+</div>
+
+#### 使用文档
+
+- [**Qualcomm® AI Hub**](https://app.aihub.qualcomm.com/docs/index.html)
+
+- [**Qualcomm® AI Hub Models 使用**](qai-hub-models)
+
+- [**Qualcomm® AI Hub Models 仓库**](https://github.com/quic/ai-hub-models)

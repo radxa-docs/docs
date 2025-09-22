@@ -162,3 +162,19 @@ QAIRT SDK 集成了 Qualcomm® AI Engine Direct (QNN)、Qualcomm® Neural Proces
 - [**SNPE**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-2/overview.html)
 
 - [**Genie**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)
+
+## ARM64 Docker 镜像
+
+radxa 提供 docker 镜像方便用户在板端使用 QAIRT SDK，也可以参照本文档内容自行安装
+
+- 安装 Docker
+
+  :::tip
+  请参考 [**Docker 使用**](../virtual-env/docker_use) 安装 Docker
+  :::
+
+- 拉取 docker 镜像
+
+  ```bash
+  sudo docker run --privileged -it -v /dev:/dev -v $(pwd):/workspace --name qairt-sdk radxazifeng278/qairt-npu:v1.0 /bin/bash
+  ```
