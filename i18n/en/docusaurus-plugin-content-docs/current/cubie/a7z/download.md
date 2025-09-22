@@ -17,13 +17,13 @@ Please select the appropriate system image based on your boot media:
 
 #### Generic System Image
 
-Applicable to MicroSD cards and onboard UFS.
+Applicable to MicroSD card and onboard UFS.
 
 - [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b1/radxa-cubie-a7z_bullseye_kde_b1.output_512.img.xz)
 
 ### Android
 
-Suitable for MicroSD card and UFS modules.
+Applicable to MicroSD card and onboard UFS.
 
 #### Phoenix System Image
 
