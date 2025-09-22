@@ -18,6 +18,12 @@ Compatible with MicroSD cards, onboard eMMC, and NVMe SSD for system boot.
 
 [Radxa Debian Linux Debian12 KDE](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz)
 
+- Android
+
+[Radxa CM4 Android 14 MicroSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa-cm4-android14-rkr6-sd_emmc-20250903-gpt.zip)：Suitable for booting from MicroSD card or onboard eMMC.
+
+[Radxa CM4 Android 14 UFS Module System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa_cm4_android14_rkr6_ufs_20250829-update.zip)：Suitable for booting from UFS module.
+
 :::caution
 
 1. Please download the correct system image file according to your boot medium. Using the wrong image may prevent the system from booting.
