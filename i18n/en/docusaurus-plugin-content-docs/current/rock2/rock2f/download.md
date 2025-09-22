@@ -10,7 +10,7 @@ sidebar_position: 2
 
 ## System Image
 
-- Debian Linux
+- Radxa OS
 
 [https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
 
@@ -24,10 +24,10 @@ This image is fully compatible with E20C, ROCK 2A, and ROCK 2F devices, all inco
 
 - Android
 
-[Radxa ROCK 2F Android 13 MicroSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_gpt.zip)：Suitable for booting from MicroSD card or onboard eMMC.
+[Radxa ROCK 2F Android 13 MicroSD and eMMC Image](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_gpt.zip)：Suitable for booting from MicroSD card or onboard eMMC.
 
 :::tip
-ROCK 2A and ROCK 2F use the same Android system image.
+ROCK 2A and ROCK 2F use the same Android image.
 :::
 
 ## Hardware

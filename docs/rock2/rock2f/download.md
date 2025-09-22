@@ -10,7 +10,7 @@ sidebar_position: 2
 
 ## 操作系统镜像
 
-- Debian Linux
+- Radxa OS
 
 [rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
 
@@ -24,7 +24,7 @@ sidebar_position: 2
 
 - Android
 
-[Radxa ROCK 2F Android 13 MicroSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_gpt.zip)：适用于 MicroSD 卡、板载 eMMC 启动系统。
+[Radxa ROCK 2F Android 13 MicroSD and eMMC Image](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_gpt.zip)：适用于 MicroSD 卡、板载 eMMC 启动系统。
 
 :::tip
 ROCK 2A 和 ROCK 2F 使用同一个安卓系统镜像。
