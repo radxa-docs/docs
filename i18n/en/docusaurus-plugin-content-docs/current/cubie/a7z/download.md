@@ -23,7 +23,11 @@ Applicable to MicroSD cards and onboard UFS.
 
 ### Android
 
-Android system image is not yet available.
+Suitable for MicroSD card and UFS modules.
+
+#### Phoenix System Image
+
+- [Radxa Cubie A7Z Android 13](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250917/a733_android13_radxa_a7z_20250917_uart0.zip)
 
 ## Flashing Tools
 
