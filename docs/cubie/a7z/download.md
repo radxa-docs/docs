@@ -23,7 +23,11 @@ sidebar_position: 8
 
 ### Android
 
-暂未提供 Android 系统镜像。
+适用于 MicroSD 卡 / UFS 模块。
+
+#### Phoenix 系统镜像
+
+- [Radxa Cubie A7Z Android 13](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250917/a733_android13_radxa_a7z_20250917_uart0.zip)
 
 ## 刷机工具
 
