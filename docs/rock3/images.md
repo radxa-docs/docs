@@ -89,6 +89,8 @@ ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43
 
 - [Rock3C-Android11_r12-20240806-gpt.img](https://github.com/radxa/manifests/releases/download/android11-radxa-20240806/Rock3C-Android11_r12-20240806-gpt.zip)(用于使用读卡器向 EMMC 和 SD 卡中刷入系统)
 
+- [Rock3C-Android14-20250718-HDMI-gpt.img](https://github.com/radxa/manifests/releases/download/Android14-rkr6-ROCK3c/ROCK3C-Android14-20250718-HDMI-gpt.zip)(用于使用读卡器向 EMMC 和 SD 卡中刷入系统)
+
 :::tip
 Rock 3C 的 Android11 镜像使用方法与 Rock 3A 相同，可以参照使用
 :::
