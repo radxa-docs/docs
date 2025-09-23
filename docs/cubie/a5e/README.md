@@ -8,7 +8,7 @@ sidebar_position: 1
 
 瑞莎 Cubie A5E 是一款设计精巧、结构紧凑的单板计算机（SBC），可选配全志 A527 SoC 或工业级 T527 SoC，在提供出色性能的同时也具备高度的应用灵活性。
 
-该主板搭载 8 核 Arm® Cortex®-A55 CPU（A527 SoC 最高频率 2.0 GHz，T527 SoC 最高频率 1.8 GHz），其中 T527 SoC 配备了 3TPOS@INT8 NPU，能够高效执行机器学习推理任务，适用于边缘计算及AI应用场景。
+该主板搭载 8 核 Arm® Cortex®-A55 CPU（A527 SoC 最高频率 2.0 GHz，T527 SoC 最高频率 1.8 GHz），其中 T527 SoC 配备了 2 TOPS@INT8 NPU，能够高效执行机器学习推理任务，适用于边缘计算及AI应用场景。
 
 Cubie A5E 在紧凑形态中实现了性能与能效的平衡，适合嵌入式系统、智能物联网设备及轻量级工业应用，为用户提供了兼顾算力与功耗的优质选择。
 
@@ -39,7 +39,7 @@ Cubie A5E 在紧凑形态中实现了性能与能效的平衡，适合嵌入式�
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 处理器   | 系统级芯片 (SoC)： 全志 A527 <br/> 中央处理器 (CPU)： 8 核 Cortex-A55 <br/> 图形处理器 (GPU)： Arm Mali-G57; 支持 OpenGL® ES 1.1 / 2.0 / 3.1 / 3.2、Vulkan® 1.1、OpenCL™ 1.1 / 1.2 / 2.0 <br/> 神经网络加速器 (NPU)： 无 |
 | 内存     | LPDDR4 / LPDDR4x，可选：1GB / 2GB / 4GB                                                                                                                                                                                     |
-| 存储     | 启动存储： 板载 SPI Flash <br/> 系统存储： 支持 MicroSD 卡 / 板载 eMMC（可选 0GB / 8GB / 16GB / 32GB） / 支持 M.2 M Key NVMe SSD                                                                                            |
+| 存储     | 启动存储： 板载 SPI Flash <br/> 系统存储： 支持 MicroSD 卡 / 板载 eMMC（可选 0GB / 8GB / 16GB / 32GB） / 支持 M.2 M Key NVMe SSD <br/> **启动优先级**：MicroSD 卡 > NVMe SSD > 板载 eMMC                                    |
 | 网络     | 有线连接： 2 个千兆以太网口（支持 PoE，需外接 PoE HAT） <br/> 无线连接： Wi-Fi 6、蓝牙 5.4，预留天线座                                                                                                                      |
 | 视频输出 | HDMI： 1 个 HDMI 接口，最高支持 4K@60fps <br/> MIPI DSI： 1 个 4 通道 MIPI DSI                                                                                                                                              |
 | 摄像头   | 1 个 4 通道 MIPI CSI 或 2 个 2 通道 MIPI CSI                                                                                                                                                                                |
@@ -56,7 +56,7 @@ Cubie A5E 在紧凑形态中实现了性能与能效的平衡，适合嵌入式�
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 处理器   | 系统级芯片 (SoC)： 全志 T527 <br/> 中央处理器 (CPU)： 8 核 Cortex-A55 <br/> 图形处理器 (GPU)： Arm Mali-G57; 支持 OpenGL® ES 1.1 / 2.0 / 3.1 / 3.2、Vulkan® 1.1、OpenCL™ 1.1 / 1.2 / 2.0 <br/> 神经网络加速器 (NPU)： 2TOPS@INT8 |
 | 内存     | LPDDR4 / LPDDR4x，可选：1GB / 2GB / 4GB                                                                                                                                                                                             |
-| 存储     | 启动存储： 板载 SPI Flash <br/> 系统存储： 支持 MicroSD 卡 / 板载 eMMC（可选 0GB / 8GB / 16GB / 32GB） / 支持 M.2 M Key NVMe SSD                                                                                                    |
+| 存储     | 启动存储： 板载 SPI Flash <br/> 系统存储： 支持 MicroSD 卡 / 板载 eMMC（可选 0GB / 8GB / 16GB / 32GB） / 支持 M.2 M Key NVMe SSD <br/> **启动优先级**：MicroSD 卡 > NVMe SSD > 板载 eMMC                                            |
 | 网络     | 有线连接： 2 个千兆以太网口（支持 PoE，需外接 PoE HAT） <br/> 无线连接： Wi-Fi 6、蓝牙 5.4，预留天线座                                                                                                                              |
 | 视频输出 | HDMI： 1 个 HDMI 接口，最高支持 4K@60fps <br/> MIPI DSI： 1 个 4 通道 MIPI DSI                                                                                                                                                      |
 | 摄像头   | 1 个 4 通道 MIPI CSI 或 2 个 2 通道 MIPI CSI                                                                                                                                                                                        |
@@ -111,7 +111,7 @@ Cubie A5E 在紧凑形态中实现了性能与能效的平衡，适合嵌入式�
 
 Cubie A5E 基于全志 A527 / T527 SoC，支持多种操作系统：
 
-- Debian Linux
-- Buildroot
-- Tina Linux
-- Android 13
+- **Debian Linux** - 完整的桌面环境，适合日常使用和开发
+- **Android 13** - 移动应用生态，支持触屏操作
+- **Tina Linux** - 全志官方嵌入式系统，基于 OpenWrt，高效稳定
+- **Buildroot** - 轻量级嵌入式 Linux，可定制性强
