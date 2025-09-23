@@ -1,10 +1,10 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Quick Start
 
-This tutorial is designed to help you quickly get started with the Tina system on the Cubie A5E.
+This tutorial is designed to help you quickly get started with the Tina Linux system on the Cubie A5E.
 
 ## Product Overview
 
@@ -37,19 +37,27 @@ The Cubie A5E board is compatible with PD protocol 5V Type-C power input. A powe
 - [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
   :::
 
-## System Installation
+## Get System Image
 
-You can install the system by following the tutorials below, depending on your system boot media and available hardware:
+Please visit the [Resource Downloads](../../download#tina-linux) page to get the Tina Linux system image.
 
-- GPT System Image
+**Image Type Selection**
 
-  - [Install System to MicroSD Card](../../getting-started/install-system/microsd-system.md) (Recommended for new users)
-  - [Install System to Onboard eMMC](../../getting-started/install-system/emmc-system.md)
-  - [Install System to NVMe SSD](../../getting-started/install-system/nvme-system)
+- **GPT Image (Recommended for beginners)**: Suitable for MicroSD cards and NVMe SSDs, installed using Balena Etcher tool
+- **FEL Image (Advanced)**: Suitable for eMMC installation, flashed using Phoenix tools
 
-- FEL System Image
-  - [Install System to MicroSD Card](../android/install-system/microsd.md) (Recommended for new users)
-  - [Install System to Onboard eMMC](../android/install-system/emmc.md)
+## Install System
+
+You can refer to the following general installation tutorials:
+
+**GPT Image Installation**
+
+- [Install System to MicroSD Card](../../getting-started/quickly-started#install-system) (Recommended for new users)
+- [Install System to NVMe SSD](../../getting-started/install-system/nvme-system)
+
+**FEL Image Installation**
+
+- [Install System to eMMC](../../getting-started/install-system/emmc-system)
 
 ## Booting the System
 
@@ -65,12 +73,11 @@ If the board is powered on correctly, the power indicator will light up green; i
 
 Once the system has successfully booted, the system desktop will be displayed on the monitor.
 
-## System Information
+## First Login
 
-When using our provided system image for the first time, you will need to log in with the following default credentials:
+When using the official Tina Linux system image, please use the default login credentials:
 
-- radxa
-
-Username: radxa
-
-Password: radxa
+| Item     | Content                         |
+| :------- | :------------------------------ |
+| Username | `root`                          |
+| Password | `No password (press Enter key)` |

@@ -1,30 +1,19 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # 构建系统
 
 构建系统我们需要依次完成源码下载、源码合并、环境搭建以及镜像编译。
 
-- 源码下载
-
-我们需要下载 Allwinner 官方原始 SDK 源码和瑞莎 Cubie A5E 相关的源码。
-
-- 源码合并
-
-我们需要将瑞莎 Cubie A5E 相关的源码合并到 Allwinner 官方原始 SDK 源码中。
-
-- 环境搭建
-
-我们需要搭建 SDK 编译所需的环境。
-
-- 镜像编译
-
-我们需要将合并后的源码编译成镜像。
+- 源码下载 - 我们需要下载 Allwinner 官方原始 SDK 源码和瑞莎维护的 Cubie A5E 相关的源码。
+- 切换分支 - 我们需要将部分仓库切换到瑞莎维护的对 Cubie A5E 支持的对应版本。
+- 环境搭建 - 我们需要搭建 SDK 编译所需的环境。
+- 镜像编译 - 我们需要将合并后的源码编译成镜像。
 
 ## 源码下载
 
-下载 Allwinner 官方原始 SDK 源码和瑞莎 Cubie A5E 相关的源码。
+下载 Allwinner 官方原始 SDK 源码和瑞莎维护的 Cubie A5E 相关的源码。
 
 ### Allwinner 官方 SDK
 
@@ -121,9 +110,9 @@ sudo apt install repo
 
 说明：目标文件夹是指瑞莎 Cubie A5E 源码需要存放到 Allwinner 官方原始 SDK 源码的对应位置。
 
-## 合并源码
+## 切换分支
 
-将瑞莎 Cubie A5E 源码合并到 Allwinner 官方原始 SDK 源码中。
+将部分仓库切换到瑞莎维护对 Cubie A5E 支持的对应版本。
 
 建议直接进入 Allwinner 官方原始 SDK 源码目录，然后依次执行添加远程仓库地址、更新远程仓库、切换分支命令。
 

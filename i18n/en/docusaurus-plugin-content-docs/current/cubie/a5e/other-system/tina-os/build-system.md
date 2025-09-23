@@ -1,30 +1,19 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Build System
 
-To set up the build system, we need to complete the following steps in order: source code download, source code merging, environment setup, and image compilation.
+To set up the build system, we need to complete the following steps in order: source code download, branch switching, environment setup, and image compilation.
 
-- Source Code Download
-
-We need to download the official Allwinner SDK source code and the Radxa Cubie A5E related source code.
-
-- Source Code Merging
-
-We need to merge the Radxa Cubie A5E related source code into the official Allwinner SDK source code.
-
-- Environment Setup
-
-We need to set up the required environment for SDK compilation.
-
-- Image Compilation
-
-We need to compile the merged source code into a system image.
+- Source Code Download - We need to download the official Allwinner SDK source code and Radxa-maintained Cubie A5E related source code.
+- Branch Switching - We need to switch some repositories to Radxa-maintained versions that support Cubie A5E.
+- Environment Setup - We need to set up the required environment for SDK compilation.
+- Image Compilation - We need to compile the merged source code into images.
 
 ## Source Code Download
 
-Download the official Allwinner SDK source code and Radxa Cubie A5E related source code.
+Download the official Allwinner SDK source code and Radxa-maintained Cubie A5E related source code.
 
 ### Official Allwinner SDK
 
@@ -121,9 +110,9 @@ sudo apt install repo
 
 Note: The target directory refers to the corresponding location in the official Allwinner SDK source code where the Radxa Cubie A5E source code needs to be placed.
 
-## Source Code Merging
+## Branch Switching
 
-Merge the Radxa Cubie A5E source code into the official Allwinner SDK source code.
+Switch some repositories to Radxa-maintained versions that support Cubie A5E.
 
 It is recommended to navigate to the official Allwinner SDK source code directory and execute the following commands in sequence: add remote repository, update remote repository, and switch branches.
 
@@ -148,18 +137,17 @@ git checkout -b target-a527-v1.4.6 radxa/target-a527-v1.4.6
 ```
 </NewCodeBlock>
 
-You can follow the above steps to complete the merging of other source code repositories.
+You can follow the above steps to complete the merging of other source code.
 
 ## Environment Setup
 
 ### Hardware Requirements
 
-- 64-bit system
-- Recommended disk capacity greater than 128GB
+64-bit system with recommended disk capacity greater than 128GB.
 
 ### Software Requirements
 
-- Ubuntu 20.04 / 22.04 / 24.04 system
+Ubuntu 20.04 / 22.04 / 24.04 system
 
 #### Install Dependencies
 
@@ -174,7 +162,7 @@ sudo apt install build-essential subversion git-core libncurses5-dev zlib1g-dev 
 
 Before compiling, we need to add a patch in the `build/pack` directory of the official Allwinner SDK source code to support extlinux boot.
 
-```diff
+```
 --- a/pack
 +++ b/pack
 @@ -235,6 +235,9 @@ ${LICHEE_CHIP_CONFIG_DIR}/configs/${PACK_BOARD}/wavefile/*:${LICHEE_PACK_OUT_DIR}
@@ -188,7 +176,7 @@ Before compiling, we need to add a patch in the `build/pack` directory of the of
 ```
 
 :::tip Patch Instructions
-You can search for the code block in the document that doesn't start with `+`, find the location where the code needs to be added, and then add the patch content to the code block.
+You can search for the code lines in the document that don't have `+` prefix, find the location where the code needs to be added, and then add the patch content to the code block.
 :::
 
 ## Image Compilation

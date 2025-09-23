@@ -1,10 +1,10 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # 快速上手
 
-本节教程目的是为了让大家快速上手使用 Cubie A5E 的 Tina 系统。
+本节教程目的是为了让大家快速上手使用 Cubie A5E 的 Tina Linux 系统。
 
 ## 产品实物
 
@@ -37,19 +37,27 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 - [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
   :::
 
+## 获取系统镜像
+
+请访问 [资源汇总下载](../../download#tina-linux) 页面获取 Tina Linux 系统镜像。
+
+**镜像类型选择**
+
+- **GPT 镜像（推荐新手）**：适用于 MicroSD 卡和 NVMe SSD，使用 Balena Etcher 工具安装
+- **FEL 镜像（高级）**：适用于 eMMC 安装，使用 Phoenix 工具烧录
+
 ## 安装系统
 
-您可以根据自己的系统启动介质和拥有的硬件设备，参考下面教程进行系统安装：
+可以参考以下通用安装教程：
 
-- GPT 系统镜像
+**GPT 镜像安装**
 
-  - [安装系统到 MicroSD 卡](../../getting-started/install-system/microsd-system.md)（新用户推荐）
-  - [安装系统到板载 eMMC](../../getting-started/install-system/emmc-system.md)
-  - [安装系统到 NVMe SSD](../../getting-started/install-system/nvme-system)
+- [安装系统到 MicroSD 卡](../../getting-started/quickly-started#安装系统)（新用户推荐）
+- [安装系统到 NVMe SSD](../../getting-started/install-system/nvme-system)
 
-- FEL 系统镜像
-  - [安装系统到 MicroSD 卡](../android/install-system/microsd.md)（新用户推荐）
-  - [安装系统到板载 eMMC](../android/install-system/emmc.md)
+**FEL 镜像安装**
+
+- [安装系统到 eMMC](../../getting-started/install-system/emmc-system)
 
 ## 启动系统
 
@@ -65,12 +73,11 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 成功启动系统后，显示器会显示系统桌面。
 
-## 系统信息
+## 首次登录
 
-您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
+使用官方 Tina Linux 系统镜像时，请使用默认登录凭据：
 
-- radxa
-
-用户账号：radxa
-
-用户密码：radxa
+| 项目   | 内容                     |
+| :----- | :----------------------- |
+| 用户名 | `root`                   |
+| 密码   | `无密码（直接按 Enter）` |
