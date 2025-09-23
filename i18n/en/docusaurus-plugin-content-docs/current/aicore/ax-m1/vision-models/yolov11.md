@@ -29,14 +29,14 @@ cd YOLO11
 <NewCodeBlock tip="Host" type="Device">
 
 ```bash
-chmod +x axcl_yolo11
-./axcl_yolo11 -m ax650/yolo11s.axmodel -i football.jpg
+chmod +x axcl_aarch64/axcl_yolo11
+./axcl_aarch64/axcl_yolo11 -m ax650/yolo11s.axmodel -i football.jpg
 ```
 
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/axera/YOLO11$ ./axcl_yolo11 -m ax650/yolo11s.axmodel -i football.jpg
+(.venv) rock@rock-5b-plus:~/ssd/axera/YOLO11$ ./axcl_aarch64/axcl_yolo11 -m ax650/yolo11s.axmodel -i football.jpg
 --------------------------------------
 model file : ax650/yolo11s.axmodel
 image file : football.jpg
