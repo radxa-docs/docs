@@ -37,13 +37,12 @@ After successfully booting the system, the system desktop will be displayed on t
 
 ## System Information
 
-When using our provided system image for the first time, you need to log in with the username and password we have set.
+When using the official system image, please use the following default login credentials:
 
-- radxa
-
-Username: radxa
-
-Password: radxa
+| Item     | Content |
+| :------- | :------ |
+| Username | `radxa` |
+| Password | `radxa` |
 
 ## Login to the System
 

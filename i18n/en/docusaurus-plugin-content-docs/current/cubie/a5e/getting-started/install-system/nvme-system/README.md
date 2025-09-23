@@ -4,23 +4,17 @@ sidebar_position: 3
 
 # Install System to NVMe SSD
 
-NVMe SSDs are high-speed, high-capacity, and low-cost storage devices that can be used as either storage devices or boot drives.
-
-## Storage Device
-
-To use an NVMe SSD as a storage device, simply connect and install the NVMe SSD to the M.2 M Key 2230 slot on the Cubie A5E.
-
-## Boot Drive
+NVMe SSDs are high-speed, high-capacity, and low-cost storage devices that can be used as either storage devices or boot drives. Cubie A5E supports 2230 M.2 NVMe SSDs, which can be used as storage devices or boot drives. If used as a storage device, you need to boot from an SD card or eMMC and simply insert the SSD into the M.2 interface. If used as a boot drive, you need to first flash the SPI boot firmware, then install the system image to the NVMe SSD, so you can boot the system on the NVMe SSD without an SD card or eMMC.
 
 To use an NVMe SSD as a boot drive, you need to follow these steps and tutorials:
 
-1. Burn SPI Boot Firmware
+## Flash SPI Boot Firmware
 
-After [burning the SPI boot firmware](./burn-spi.md), the Cubie A5E will support booting the system from an NVMe SSD.
+- [Flash SPI Boot Firmware](./burn-spi.md)
 
-2. Install System to NVMe SSD
+## Write System Image to NVMe SSD
 
-You can choose different installation methods based on your hardware:
+You can choose different writing methods based on your hardware:
 
-- [Install System Using an External Enclosure](./install-system/reader.md): Requires an NVMe SSD enclosure, relatively simple to operate!
-- [Install System from SD Card to NVMe](./install-system/no-reader.md): Requires booting the system normally from a MicroSD card first, then using the `dd` command to install the system to the NVMe SSD.
+- [Write System Image Using an External SSD Reader](./install-system/reader.md): Requires an NVMe SSD enclosure, relatively simple to operate!
+- [Write System Image from SD Card to NVMe](./install-system/no-reader.md): Requires booting Cubie A5E system normally from a MicroSD card first, then using the `dd` command to install the system to the NVMe SSD.

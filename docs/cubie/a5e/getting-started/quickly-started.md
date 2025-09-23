@@ -41,9 +41,14 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 主要介绍安装系统到 MicroSD 卡。
 
-:::warning
-安装系统会格式化 MicroSD 卡，如果有重要数据请提前备份！
-:::
+:::warning 重要提醒
+**安装系统会完全格式化 MicroSD 卡，所有数据将被永久删除！**
+
+请在操作前确认：
+
+- MicroSD 卡中没有重要数据，或已完成备份
+- 选择了正确的存储设备（避免误格式化其他磁盘）
+  :::
 
 ### 硬件连接
 
@@ -58,7 +63,7 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 ### 下载系统镜像
 
-使用 PC 访问 [资源汇总下载](../download) 页面，直接下载系统镜像文件到本地上。
+请访问 [资源汇总下载](../download) 页面，根据推荐下载 **GPT 格式的 Radxa OS 官方系统镜像**。该镜像文件为 `.img.xz` 格式的压缩包，下载后需要先解压，得到 `.img` 格式的镜像文件才能使用。
 
 :::tip 镜像说明
 下载的系统镜像是压缩文件，需要解压后才能使用！
@@ -158,19 +163,14 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
    <img src="/img/common/radxa-os/system-config/vnc-debian11-succ.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## 系统信息
+## 首次登录系统
 
-您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
+当您首次启动系统后，需要使用默认的用户名和密码登录。Radxa OS 的默认凭据如下：
 
-- radxa
-
-用户账号：radxa
-
-用户密码：radxa
-
-## 登录系统
-
-根据系统信息登录并使用系统。
+| 项目   | 内容    |
+| :----- | :------ |
+| 用户名 | `radxa` |
+| 密码   | `radxa` |
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -186,8 +186,7 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 :::tip 其它启动系统方式
 对于想通过其它方式启动系统的用户（如 eMMC 和 NVMe SSD 启动系统），可以参考下面教程完成对应系统启动介质安装系统：
 
-- [安装系统到 eMMC](./install-system/emmc-system.md)
-
+- [安装系统到 eMMC](./install-system/emmc-system)
 - [安装系统到 NVMe SSD](./install-system/nvme-system)
 
 :::

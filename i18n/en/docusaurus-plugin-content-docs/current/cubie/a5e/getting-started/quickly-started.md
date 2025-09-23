@@ -41,9 +41,14 @@ The Cubie A5E board is compatible with PD protocol 5V Type-C power input. A curr
 
 This section mainly introduces how to install the system to a MicroSD card.
 
-:::warning
-Installing the system will format the MicroSD card. Please back up any important data in advance!
-:::
+:::warning Important Reminder
+**Installing the system will completely format the MicroSD card, and all data will be permanently deleted!**
+
+Please confirm before proceeding:
+
+- There is no important data on the MicroSD card, or backups have been completed
+- You have selected the correct storage device (to avoid accidentally formatting other drives)
+  :::
 
 ### Hardware Connection
 
@@ -58,7 +63,7 @@ Insert the MicroSD card into a MicroSD card reader, then connect the card reader
 
 ### Download System Image
 
-Use a PC to visit the [Resource Download](../download) page and download the system image file to your local storage.
+Please visit the [Resource Downloads](../download) page and download the **GPT format Radxa OS official system image** as recommended. This image file is a compressed package in `.img.xz` format. After downloading, it needs to be extracted first to get the `.img` format image file for use.
 
 :::tip Image Note
 The downloaded system image is a compressed file and needs to be extracted before use!
@@ -158,19 +163,14 @@ After successfully booting the system, the monitor will display the system deskt
    <img src="/en/img/common/radxa-os/system-config/vnc-debian11-succ.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## System Information
+## First Login to System
 
-When using our provided system image for the first time, you will need to log in with the following default credentials:
+When you first start the system, you need to log in with the default username and password. The default credentials for Radxa OS are as follows:
 
-- radxa
-
-Username: radxa
-
-Password: radxa
-
-## Log in to the System
-
-Log in and use the system according to the system information.
+| Item     | Content |
+| :------- | :------ |
+| Username | `radxa` |
+| Password | `radxa` |
 
 <div style={{ textAlign: "center" }}>
   <img

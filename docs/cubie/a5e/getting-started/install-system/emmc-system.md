@@ -37,13 +37,12 @@ import DDUse from '../../../../common/radxa-os/install-system/\_use_dd_emmc.mdx'
 
 ## 系统信息
 
-您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
+使用官方系统镜像时，请使用以下默认登录凭据：
 
-- radxa
-
-用户账号：radxa
-
-用户密码：radxa
+| 项目   | 内容    |
+| :----- | :------ |
+| 用户名 | `radxa` |
+| 密码   | `radxa` |
 
 ## 登录系统
 
