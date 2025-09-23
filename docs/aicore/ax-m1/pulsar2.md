@@ -11,4 +11,5 @@ Pulsar2 工具链可以帮助开发者将主流的人工智能框架（PyTorch, 
    Pulsar2 overview
 </div>
 
-关于 Pulsar2 的安装和使用文档，请参考 [Pulsar2 在线文档](https://pulsar2-docs.readthedocs.io/zh-cn/latest/)
+- 关于 Pulsar2 的安装和使用文档，请参考 [Pulsar2 在线文档](https://pulsar2-docs.readthedocs.io/zh-cn/latest/)
+- 关于 Pulsar2 的最新版本，请获取 [Huggingface Pulsar2](https://huggingface.co/AXERA-TECH/Pulsar2)
