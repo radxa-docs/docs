@@ -46,7 +46,7 @@ python3 main.py --input test_256.jpeg  --output test_256_20e.jpeg --model ax650/
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/axera/Real-ESRGAN$ python3 main.py --input test_256.jpeg  --output test_256_20e.jpeg --model ax650/realesrgan-x4-256.axmodel
+(.venv) rock@rock-5b-plus:~/ssd/axera/Real-ESRGAN$ python3 main.py --input test_256.jpeg  --output test_256_x4.jpeg --model ax650/realesrgan-x4-256.axmodel
 [INFO] Available providers:  ['AXCLRTExecutionProvider']
 [INFO] Using provider: AXCLRTExecutionProvider
 [INFO] SOC Name: AX650N
