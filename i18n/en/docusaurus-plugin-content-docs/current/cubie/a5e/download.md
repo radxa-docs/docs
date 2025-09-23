@@ -6,46 +6,62 @@ sidebar_position: 8
 
 ## System Images
 
-:::tip System Image Notes
-Please select the appropriate system image based on your boot media:
+:::tip Beginner's Recommendation
+We strongly recommend that beginners download GPT format Radxa OS official images and use the [Balena Etcher](./getting-started/quickly-started#install-system-image) tool to install them to MicroSD cards. This is the simplest and fastest way to get started.
 
-- FEL system images require entering FEL mode and using Phoenix tools to write the image
-- GPT system images can be written using Balena Etcher or the `dd` command
-  :::
+**Image Type Description**
+
+- GPT System Images (Recommended for beginners):
+
+  - Suitable for MicroSD cards or NVMe SSDs
+  - Use Balena Etcher graphical tool, simple operation
+  - Support `dd` command line flashing
+  - Radxa recommended image type, best compatibility
+
+- FEL System Images:
+  - Flash via FEL mode and Phoenix tools
+  - Mainly used for onboard eMMC storage installation
+  - Suitable for device repair and mass production
+  - Requires some technical knowledge
+
+:::
 
 ### Debian Linux
 
-Our board usage guide primarily focuses on Radxa OS GPT system images.
+#### GPT System Images (Recommended)
 
-#### GPT System Images
-
-- [Radxa OS: Cubie A5E Bullseye KDE Debian 11](https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-b1/radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz)
-- [Tina OS: Cubie A5E Bullseye XFCE Debian 11](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
+- [Radxa OS - Debian 11 Bullseye KDE](https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-b1/radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz)
+- [Tina Linux - Debian 11 Bullseye XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
 
 #### FEL System Images
 
-- [Cubie A5E Debian 11 XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
+- [Tina Linux - Debian 11 XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
 
 ### Android
 
-For MicroSD card/eMMC modules.
+#### FEL System Images
 
-#### Phoenix System Images
-
-- FEL System Image
-  - [Tina OS: Cubie A5E Android 13 Image](https://mega.nz/file/NjxmXBbT#EaY4bTCNCKTWp8e9r9q2da9EijEovJdlJx_7_xXP-akk)
+- [Android 13](https://mega.nz/file/NjxmXBbT#EaY4bTCNCKTWp8e9r9q2da9EijEovJdlJx_7_xXP-akk)
 
 ## Flashing Tools
 
-SD Card Boot Disk Creation Tool:
+- **[Balena Etcher](https://etcher.balena.io/)** (Windows / Linux / macOS)
 
-[PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
+  - Suitable for GPT system images
+  - User-friendly interface, simple operation
+  - Automatic image integrity verification
+  - Best for installing systems to MicroSD cards or NVMe SSDs
 
-System Flashing Tools:
+- **[PhoenixSuit (Windows)](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip)** / **[LiveSuit (Linux)](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip)**
 
-[PhoenixSuit](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip) (Windows)
+  - Suitable for FEL system images
+  - Connect via USB-C data cable
+  - Can flash directly to eMMC storage
+  - Requires some technical knowledge
 
-[LiveSuit](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip) (Linux)
+- **[PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)** (Windows)
+  - Supports creating bootable MicroSD cards with FEL firmware
+  - Can be used for mass production scenarios
 
 ## Hardware Design
 

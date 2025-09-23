@@ -6,46 +6,62 @@ sidebar_position: 8
 
 ## 系统镜像
 
-:::tip 系统镜像说明
-请根据自己的系统启动介质选择对应的系统镜像下载
+:::tip 新手入门推荐
+我们强烈建议新手用户下载 GPT 格式的 Radxa OS 官方切换分支，并使用 [Balena Etcher](./getting-started/quickly-started#安装系统镜像) 工具将其安装到 MicroSD 卡中。这是最简单、最快捷的上手方式。
 
-- FEL 系统镜像需要进入 FEL 模式和使用 Phoenix 工具写入系统镜像
-- GPT 系统镜像可以通过 Balena Etcher 工具或者 `dd` 命令写入系统镜像
-  :::
+**镜像类型说明**
+
+- GPT 系统镜像（推荐新手）：
+
+  - 适用于 MicroSD 卡或 NVMe SSD
+  - 使用 Balena Etcher 图形化工具，操作简单
+  - 支持 `dd` 命令行烧录
+  - 瑞莎推荐的镜像类型，兼容性最佳
+
+- FEL 系统镜像：
+  - 通过 FEL 模式和 Phoenix 工具进行烧录
+  - 主要用于板载 eMMC 存储安装
+  - 适用于设备修复和批量生产
+  - 需要一定技术基础
+
+:::
 
 ### Debian Linux
 
-我们的中主板使用教程主要针对 Radxa OS 的 GPT 系统镜像。
+#### GPT 系统镜像 (推荐)
 
-#### GPT 系统镜像
-
-- [Radxa OS : Cubie A5E Bullseye KDE Debian 11](https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-b1/radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz)
-- [Tina OS : Cubie A5E Bullseye XFCE Debian 11](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
+- [Radxa OS - Debian 11 Bullseye KDE](https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-b1/radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz)
+- [Tina Linux - Debian 11 Bullseye XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
 
 #### FEL 系统镜像
 
-- [Cubie A5E Debian 11 XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
+- [Tina Linux - Debian 11 XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
 
 ### Android
 
-适用于 MicroSD 卡/ eMMC 模块。
+#### FEL 系统镜像
 
-#### Phoenix 系统镜像
-
-- FEL 系统镜像
-  - [Tina OS : Cubie A5E Android 13 Image](https://mega.nz/file/NjxmXBbT#EaY4bTCNCKTWp8e9r9q2da9EijEovJdlJx_7_xXP-akk)
+- [Android 13](https://mega.nz/file/NjxmXBbT#EaY4bTCNCKTWp8e9r9q2da9EijEovJdlJx_7_xXP-akk)
 
 ## 刷机工具
 
-SD卡启动盘制作工具：
+- **[Balena Etcher](https://etcher.balena.io/)** (Windows / Linux / macOS)
 
-[PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
+  - 适用于 GPT 系统镜像
+  - 界面友好，操作简单
+  - 自动校验镜像完整性
+  - 最适合将系统安装到 MicroSD 卡或 NVMe SSD
 
-系统烧录工具：
+- **[PhoenixSuit (Windows)](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip)** / **[LiveSuit (Linux)](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip)**
 
-[PhoenixSuit](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip) (Window)
+  - 适用于 FEL 系统镜像
+  - 通过 USB-C 数据线连接主板
+  - 可直接烧录到 eMMC 存储
+  - 需要一定技术基础
 
-[LiveSuit](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip) (Linux)
+- **[PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)** (Windows)
+  - 支持 FEL 固件制作可启动 MicroSD 卡
+  - 可用于批量生产场景
 
 ## 硬件设计
 
