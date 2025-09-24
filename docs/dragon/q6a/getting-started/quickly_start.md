@@ -63,7 +63,7 @@ sidebar_position: 2
 
 用户账号：ubuntu
 
-用户密码：radxa
+用户密码：ubuntu
 
 ## 登录系统
 
