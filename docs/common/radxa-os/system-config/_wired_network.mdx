@@ -1,12 +1,37 @@
+import { Image } from "@site/src/utils/docs";
+
 主要介绍如何连接有线网络和测试网络带宽。
 
 ## 有线网络
 
 使用网线连接主板的千兆网口和路由器，连接成功后；路由器会自动分配 IP 地址给主板。
 
+<Tabs queryString="web-mode">
+
+<TabItem value="图形界面">
+
+使用网线连接主板网口和路由器，连接成功后；路由器会自动分配 IP 地址给 ROCK 4D。
+
+① ： 点击网络图标
+
+② ： 选择 `Details` 选项可以看到网络连接的详细信息，如 IP 地址、子网掩码、网关地址等。
+
+其中 `192.168.4.129` 就是路由器分配的 IP 地址。
+
+<Image
+  src="/img/common/radxa-os/system-config/network-wired-#debian_version#-detail.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+</TabItem>
+
+<TabItem value="命令行">
+
 终端命令行输入以下命令可以查看网络连接的详细信息：
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ip a
@@ -42,6 +67,10 @@ ip a
 4: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
     link/ether 76:13:0d:bc:43:06 brd ff:ff:ff:ff:ff:ff permaddr 2c:c6:82:85:8d:fe
 ```
+
+</TabItem>
+
+</Tabs>
 
 ## 测试网络带宽性能
 
@@ -80,7 +109,7 @@ sudo apt install iperf
 
 打开命令行终端，输入以下命令启动服务端：
 
-<NewCodeBlock tip="Linux@host$" type="device">
+<NewCodeBlock tip="Linux@host$" type="host">
 
 ```
 iperf -s
@@ -102,7 +131,7 @@ Server listening on 5201 (test #1)
 
 打开命令行终端，输入以下命令测试客户端上传网络带宽：将 `<server_ip>` 替换为实际的服务端 IP 地址（可以通过 `ip a` 命令查看）。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 iperf -c <server_ip> -t <time>
@@ -121,7 +150,7 @@ iperf -c 192.168.2.104 -t 60
 
 打开命令行终端，输入以下命令测试客户端下载网络带宽：将 `<server_ip>` 替换为实际的服务端 IP 地址（可以通过 `ip a` 命令查看）。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 iperf -c <server_ip> -t <time> -R

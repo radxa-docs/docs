@@ -1,6 +1,6 @@
 # Using Etcher
 
-Balena Etcher is an open-source image flashing tool that is simple to use, powerful, and supports Windows, Mac, and Linux systems.
+Balena Etcher is an open-source image flashing tool that is simple to use and powerful. It supports Windows, Mac, and Linux operating systems.
 
 ## Downloading Etcher
 
@@ -13,10 +13,10 @@ Visit the [Balena Etcher official website](https://www.balena.io/etcher/) to dow
   />
 </div>
 
-Download the appropriate software installation package for your system platform and architecture.
+Download the appropriate software package for your system platform and architecture.
 
 :::tip Download Notes
-If you are unable to download from the official website or the download fails, you can download it from [Balena Etcher GitHub](https://github.com/balena-io/etcher/releases).
+If you cannot download from the official website or if the download fails, you can visit [Balena Etcher GitHub](https://github.com/balena-io/etcher/releases) to download it.
 :::
 
 <div style={{ textAlign: "center" }}>
@@ -32,19 +32,19 @@ If you are unable to download from the official website or the download fails, y
 
 <TabItem value="Windows">
 
-The downloaded `balenaEtcher` installation package is an `*.exe` file. Simply double-click to run it.
+The downloaded `balenaEtcher` installer is an `*.exe` file. Simply double-click to run it.
 
 </TabItem>
 
 <TabItem value="Linux">
 
-The downloaded `balenaEtcher` installation package is a `*.zip` file. After extraction, locate the `balenaEtcher` file and double-click to run it.
+The downloaded `balenaEtcher` package is a `*.zip` file. After extraction, locate the `balenaEtcher` file and double-click to run it.
 
 </TabItem>
 
 <TabItem value="MacOS">
 
-The downloaded `balenaEtcher` installation package is a `*.dmg` file. Double-clicking it will open the installation interface.
+The downloaded `balenaEtcher` package is a `*.dmg` file. Double-clicking it will open the installation interface.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -53,7 +53,7 @@ The downloaded `balenaEtcher` installation package is a `*.dmg` file. Double-cli
   />
 </div>
 
-Drag balenaEtcher to the `Applications` folder to install it.
+Drag the balenaEtcher application to your `Applications` folder to install it.
 
 </TabItem>
 
@@ -61,16 +61,16 @@ Drag balenaEtcher to the `Applications` folder to install it.
 
 ### Using Etcher
 
-When you open the Etcher software, you'll see the following interface. The numbers correspond to the software's option functions:
+When you open the Etcher software, you will see the following interface. The numbers correspond to the software's functional options:
 
-① : Select the image file to flash
+①. Select the image file to flash
 
-② : Select the target removable storage device
+②. Choose the target removable storage device
 
-③ : Start the flashing process
+③. Start the flashing process
 
 :::danger Important Notice
-Be careful not to select the wrong removable storage device for flashing, as this will result in data loss!
+Be extremely careful to select the correct removable storage device for flashing. Selecting the wrong device may result in data loss!
 :::
 
 <div style={{ textAlign: "center" }}>

@@ -11,7 +11,14 @@
 您需要提前准备以下硬件设备：
 
 - M.2 NVMe 固态硬盘盒
-- 系统启动介质：M.2 NVMe SSD
+- 系统启动介质：M.2 M Key 2230 NVMe SSD
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/nvme-box.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
 
 ### 硬件连接
 
@@ -21,7 +28,7 @@
 
 ### 下载系统镜像
 
-使用 PC 访问 [资源汇总下载](../../../download) 页面，直接下载系统镜像文件到本地上。
+使用 PC 访问 [资源汇总下载](../../../../download) 页面，直接下载系统镜像文件到本地上。
 
 :::tip 镜像说明
 下载的系统镜像是压缩文件，需要解压后才能使用！
@@ -95,6 +102,41 @@
   成功安装系统镜像后，关闭 Etcher 软件！
   <img
     src="/img/common/radxa-os/install-system/etcher-completed.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 系统信息
+
+您使用我们提供的系统镜像，首次需要使用我们设置的用户名和密码登录系统。
+
+- radxa
+
+用户账号：radxa
+
+用户密码：radxa
+
+## 启动系统
+
+完成系统的安装后，将主板关机，断开主板电源，按照以下操作完成系统启动：
+
+① : 将 MicroSD 卡从主板上取下
+
+② : 将 NVMe SSD 安装到主板上
+
+③ : 使用 HDMI 数据线连接显示器和主板
+
+④ : 使用 USB-A 接口连接鼠标或键盘：若有 USB-A 拓展坞，可以通过拓展坞连接鼠标和键盘
+
+⑤ : 使用 5V Type-C 电源适配器给主板供电
+
+若主板供电正常，主板电源指示灯绿色亮起；若系统启动正常，状态指示灯蓝色闪烁。
+
+成功启动系统后，显示器会显示系统桌面，你可以根据系统信息登录并使用系统。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/vnc-debian11-succ.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>

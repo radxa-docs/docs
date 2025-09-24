@@ -1,9 +1,9 @@
 ---
-sidebar_position: 7
+sidebar_position: 5
 ---
 
 # 底层开发
 
-主要介绍 uboot, kernel, debian os 编译打包等内容
+对瑞莎 Cubie A7Z 进行底层开发做简单的介绍。
 
 <DocCardList />

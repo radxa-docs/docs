@@ -65,7 +65,7 @@ import { Image } from "@site/src/utils/docs";
 
 - 启动蓝牙服务
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl start bluetooth
@@ -75,7 +75,7 @@ sudo systemctl start bluetooth
 
 - 设置开机自启
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl enable bluetooth
@@ -85,7 +85,7 @@ sudo systemctl enable bluetooth
 
 - 检查服务状态
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl status bluetooth
@@ -103,7 +103,7 @@ sudo systemctl status bluetooth
 退出 `bluetoothctl` 命令行界面，输入 `exit`。
 :::
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 bluetoothctl
@@ -115,7 +115,7 @@ bluetoothctl
 
 在 `bluetoothctl` 交互命令行界面输入 `power on` 打开蓝牙。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 power on
@@ -127,7 +127,7 @@ power on
 
 在 `bluetoothctl` 交互命令行界面输入 `agent on` 启用代理。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 agent on
@@ -139,7 +139,7 @@ agent on
 
 在 `bluetoothctl` 交互命令行界面输入 `scan on` 扫描蓝牙设备。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 scan on
@@ -157,7 +157,7 @@ scan on
 
 如果不停止扫描，`bluetoothctl` 交互命令行界面会一直处于扫描状态，建议自动扫描几次后停止扫描，然后查找自己需要连接的蓝牙设备物理地址。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 scan off
@@ -169,7 +169,7 @@ scan off
 
 在 `bluetoothctl` 交互命令行界面输入 `pair <device_address>` 配对蓝牙设备：配对过程需要自己手动确认，根据蓝牙设备的提示进行操作。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 pair <device_address>
@@ -182,7 +182,7 @@ pair EC:30:B3:40:0A:20
 
 - 信任设备
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 trust <device_address>
@@ -197,7 +197,7 @@ trust EC:30:B3:40:0A:20
 
 在 `bluetoothctl` 交互命令行界面输入 `connect <device_address>` 连接蓝牙设备。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 connect <device_address>
@@ -212,7 +212,7 @@ connect EC:30:B3:40:0A:20
 
 在 `bluetoothctl` 交互命令行界面输入 `disconnect <device_address>` 断开蓝牙设备。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 disconnect <device_address>
@@ -225,7 +225,7 @@ disconnect EC:30:B3:40:0A:20
 
 - 取消配对
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 remove <device_address>
@@ -238,7 +238,7 @@ remove EC:30:B3:40:0A:20
 
 - 关闭蓝牙适配器
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 power off

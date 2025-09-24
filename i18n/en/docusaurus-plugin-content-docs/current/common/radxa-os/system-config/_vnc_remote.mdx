@@ -4,19 +4,19 @@ import { Image } from "@site/src/utils/docs";
 
 For VNC remote access, both devices must be on the same local network, and the target device must have the VNC service enabled.
 
-:::tip Usage Notes
-VNC remote control is suitable for systems with a graphical interface. If your system doesn't have a graphical desktop, we recommend using SSH for remote control instead.
+:::tip Instructions
+VNC remote control is suitable for systems with a graphical interface. If the system does not have a graphical desktop, SSH remote control is recommended.
 :::
 
 ## Using VNC (Remote Device)
 
 ### Download VNC Viewer
 
-You need to install VNC Viewer software on the remote device to control the board.
+We need to install VNC Viewer software on the remote device to control the board.
 
 Visit the [RealVNC](https://www.realvnc.com/en/connect/download/viewer) official website to download the VNC Viewer installer.
 
-① : Select your remote device's operating system platform
+① : Select the operating system of the remote device
 
 ② : Download the VNC Viewer installer
 
@@ -47,7 +47,7 @@ Run the `VNC-Viewer-xxx.exe` installer as administrator.
 </div>
 - Software language
 
-Select `English` language and click `OK` to continue.
+Select `English` language, then click `OK` to proceed.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -56,9 +56,9 @@ Select `English` language and click `OK` to continue.
   />
 </div>
 
-- Enter installation
+- Begin installation
 
-Click `Next` to enter the installation program.
+Click `Next` to start the installation wizard.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -67,9 +67,9 @@ Click `Next` to enter the installation program.
   />
 </div>
 
-- Accept agreement
+- Accept license agreement
 
-Check the License agreement and click `Next` to continue.
+Check the `I accept the terms in the License Agreement` option, then click `Next` to continue.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -80,7 +80,7 @@ Check the License agreement and click `Next` to continue.
 
 - Installation path
 
-It's recommended to use the default installation path. Click `Next` to continue.
+It is recommended to use the default installation path. Click `Next` to continue.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -91,7 +91,7 @@ It's recommended to use the default installation path. Click `Next` to continue.
 
 - Start installation
 
-Click `Install` to start the installation.
+Click `Install` to begin the installation.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -134,7 +134,6 @@ sudo dpkg -i VNC-Viewer-xxx.deb
 After installation, open the VNC Viewer software. You can choose to use VNC Viewer without logging into an account.
 
 <div style={{ textAlign: "center" }}>
-  VNC Viewer Interface
   <img
     src="/en/img/common/radxa-os/system-config/vnc-windows-use-01.webp"
     style={{ width: "100%", maxWidth: "600px" }}
@@ -149,13 +148,13 @@ After installation, open the VNC Viewer software. You can choose to use VNC View
   />
 </div>
 
-## Using VNC (On the Board)
+## Using VNC (Board)
 
 ### Install VNC Server
 
-Run the following commands in the board's terminal to install the VNC server:
+Run the following command on the board's terminal to install the VNC server:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo apt update
@@ -166,9 +165,9 @@ sudo apt install tigervnc-standalone-server tigervnc-common -y
 
 ### Set VNC Remote Password
 
-Run the following command in the board's terminal to set the VNC remote password:
+Run the following command on the board's terminal to set the VNC remote password:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 vncpasswd
@@ -177,10 +176,10 @@ vncpasswd
 </NewCodeBlock>
 
 :::tip
-The password and confirmation won't be displayed on screen. When prompted to create a view-only password, select `n` (no).
+The password and confirmation will not be displayed on the screen. When prompted to create a view-only password, select `n` (no).
 :::
 
-After completing the password setup, you'll see output similar to:
+After setting the password, the system will display a message similar to:
 
 ```
 Password:
@@ -193,7 +192,7 @@ A view-only password is not used
 
 Edit the `~/.vnc/xstartup` file on the board:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo vi ~/.vnc/xstartup
@@ -212,9 +211,9 @@ export DESKTOP_SESSION=plasma
 exec startplasma-x11
 ```
 
-After editing the `~/.vnc/xstartup` file, make it executable with the following command:
+After editing the `~/.vnc/xstartup` file, you need to make it executable:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo chmod +x ~/.vnc/xstartup
@@ -224,9 +223,9 @@ sudo chmod +x ~/.vnc/xstartup
 
 ### Start VNC Server
 
-Run the following command in the board's terminal to start the VNC server. The `-localhost no` parameter allows remote access.
+Run the following command on the board's terminal to start the VNC server. Use the `-localhost no` parameter to allow remote access.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 vncserver -localhost no
@@ -234,18 +233,18 @@ vncserver -localhost no
 
 </NewCodeBlock>
 
-After successful startup, the terminal will display information including the VNC server's port number.
+After successful startup, the terminal will display a message similar to the following, indicating the VNC server's port number:
 
 ```
-New Xtigervnc server \*\*\*:1 (radxa)' on port 5901 for display :1.
+New Xtigervnc server ***:1 (radxa)' on port 5901 for display :1.
 Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :1 to connect to the VNC server.
 ```
 
 ### Check VNC Server Status
 
-Run the following command in the board's terminal to check the VNC server status:
+Run the following command on the board's terminal to check the VNC server status:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 vncserver -list
@@ -264,9 +263,9 @@ X DISPLAY # RFB PORT # RFB UNIX PATH PROCESS ID # SERVER
 
 ### Stop VNC Server
 
-To stop the VNC server, run the following command in the board's terminal. The `:1` in the command represents the VNC server's display number.
+Run the following command on the board's terminal to stop the VNC server. The `:1` in the command represents the VNC server's display number.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 vncserver -kill :1
@@ -274,7 +273,7 @@ vncserver -kill :1
 
 </NewCodeBlock>
 
-After stopping the VNC server, the VNC Viewer will automatically disconnect.
+After stopping the VNC server, the VNC Viewer software will automatically disconnect.
 
 ## VNC Remote Login
 
@@ -291,7 +290,7 @@ On another device, open the VNC Viewer software and connect to the board using i
   />
 </div>
 
-① : Enter the VNC remote password you set earlier
+① : Enter the VNC remote password you set
 
 ② : Check the `Remember password` option to save the password for future logins
 
@@ -311,5 +310,5 @@ On another device, open the VNC Viewer software and connect to the board using i
 />
 
 :::tip VNC Black Screen
-If you encounter a black screen when connecting via VNC, check if the system's auto-login feature is enabled. If it is, try disabling the auto-login option.
+If you encounter a black screen when logging in via VNC, check if the system's auto-login option is enabled. If it is, you need to disable the auto-login option.
 :::

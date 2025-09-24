@@ -15,7 +15,7 @@ import { Image } from "@site/src/utils/docs";
 
 使用 `git clone` 命令克隆 RadxaOS SDK（rsdk）源码。
 
-<NewCodeBlock tip="Linux@host$" type="host">
+<NewCodeBlock tip="Linux-Host$" type="host">
 
 ```
 git clone --recurse-submodules <git_repo_url>
@@ -48,7 +48,7 @@ git clone --recurse-submodules <git_repo_url>
 
 启动开发环境后，使用 `rsdk` 命令运行 TUI 界面。
 
-<NewCodeBlock tip="PC@host$" type="host">
+<NewCodeBlock tip="Linux-Host$" type="host">
 
 ```
 rsdk
@@ -69,25 +69,25 @@ rsdk
 └───────────────────────────────────────────┘
 ```
 
-选择 `Build system image` 选项，可以进一步选择需要构建的主板型号。
+选择 `Build system image` 选项，可以进一步选择需要构建的主板型号：`<sbc_model>` 是你需要构建的主板型号。
 
 ```
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a product:                  │
 │                                           │
-│  (*) radxa-cubie-a7z                      │
+│  (*) radxa-<sbc_model>                    │
 │                                           │
 │         <Ok>             <Cancel>         │
 │                                           │
 └───────────────────────────────────────────┘
 ```
 
-选择 `yes` 后开始构建 Radxa OS，rsdk 会自动完成镜像编译。
+选择 `yes` 后开始构建 Radxa OS，rsdk 会自动完成镜像编译：`<sbc_model>` 是你需要构建的主板型号。
 
 ```
 ┌─────────────────┤ RSDK ├───────────────────────┐
 │                                                │
-│ Are you sure to build for 'radxa-cubie-a7z'?   │
+│ Are you sure to build for 'radxa-<sbc_model>'? │
 │                                                │
 │                                                │
 │          <Yes>             <No>                │

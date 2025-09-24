@@ -1,6 +1,6 @@
 ## 使用前提
 
-SSH 远程需要双方设备处于同一局域网下，且目标设备需要开启 SSH 服务。
+SSH 登录需要双方设备处于同一局域网下，且目标设备需要开启 SSH 服务。
 
 :::tip
 我们提供的系统镜像默认开启 SSH 服务，如果未安装或者开启 SSH 服务，你可以按照教程进行操作！
@@ -10,7 +10,7 @@ SSH 远程需要双方设备处于同一局域网下，且目标设备需要开�
 
 SSH 远程控制需要安装 OpenSSH, 在主板的终端运行以下命令安装：
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo apt update && sudo apt install openssh-server -y
@@ -22,7 +22,7 @@ sudo apt update && sudo apt install openssh-server -y
 
 在主板的终端运行以下命令启动 SSH 服务：
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl start ssh
@@ -34,7 +34,7 @@ sudo systemctl start ssh
 
 在主板的终端运行以下命令设置 SSH 服务开机自启：
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl enable ssh
@@ -46,7 +46,7 @@ sudo systemctl enable ssh
 
 在主板的终端运行以下命令检查 SSH 服务状态：
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo systemctl status ssh
@@ -108,17 +108,7 @@ Tabby 是一款功能强大的跨平台串口调试工具，支持串口、SSH �
 
 #### Tabby 安装
 
-- Windows
-
-根据自己的系统架构选择 `.exe` 文件进行安装。
-
-- Linux
-
-根据自己的系统架构选择 `.deb` 文件进行安装。
-
-- MacOS
-
-根据自己的系统架构选择 `.dmg` 文件进行安装。
+根据操作系统和硬件架构，选择对应的安装包（Windows: xxx.exe, Linux: xxx.deb, macOS: xxx.dmg）进行 Tabby 软件安装。
 
 #### Tabby 使用
 
@@ -221,4 +211,4 @@ Tabby 是一款功能强大的跨平台串口调试工具，支持串口、SSH �
 </TabItem>
 </Tabs>
 
-SSH 远程登录成功后，你就可以通过 SSH 运行命令控制系统。
+SSH 登录成功后，你就可以通过 SSH 运行命令控制系统。

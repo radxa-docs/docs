@@ -1,3 +1,5 @@
+import { Image } from "@site/src/utils/docs";
+
 主要介绍如何连接 WiFi 网络、设置 WiFi 热点以及测试网络带宽。
 
 - **连接 WiFi 网络**
@@ -10,15 +12,47 @@
 
 ## 连接 WiFi 网络
 
+<Tabs queryString="web-mode">
+
+<TabItem value="图形界面">
+
+① ： 点击网络图标
+
+② ： 点击需要连接的 WiFi 名称后面的 `Connect` 按钮
+
+③ ： 输入 WiFi 密码并根据后续的提示进行连接
+
+<Image
+  src="/img/common/radxa-os/system-config/network-wifi-#debian_version#-connect.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+连接成功后，选择 `Details` 选项可以看到网络连接的详细信息，如 IP 地址、子网掩码、网关地址等。
+
+其中 `192.168.31.62` 就是路由器分配的 IP 地址。
+
+<Image
+  src="/img/common/radxa-os/system-config/network-wifi-#debian_version#-detail.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+</TabItem>
+
+<TabItem value="命令行模式">
+
 我们会使用 `nmcli` 命令行工具来连接 WiFi 网络。
 
 :::tip
 nmcli（NetworkManager Command Line Interface）是 NetworkManager 的命令行管理工具，用于在 Linux 系统下配置和管理网络连接。
 :::
 
-### 开启 WiFi 功能
+#### 开启 WiFi 功能
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli radio wifi on
@@ -26,11 +60,11 @@ sudo nmcli radio wifi on
 
 </NewCodeBlock>
 
-### 搜索 WiFi 网络
+#### 搜索 WiFi 网络
 
 若开启 WiFi 功能并没有搜索到 WiFi 网络，可以尝试重启系统。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli device wifi list
@@ -38,9 +72,9 @@ sudo nmcli device wifi list
 
 </NewCodeBlock>
 
-### 连接 WiFi 网络
+#### 连接 WiFi 网络
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
@@ -56,9 +90,9 @@ sudo nmcli device wifi connect wifi-demo password 12345678
 Device 'wlan0' successfully activated with 'xxxxxx'.
 ```
 
-### 查看网络连接的详细信息
+#### 查看网络连接的详细信息
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ip a
@@ -114,6 +148,10 @@ ip a
 - `sudo nmcli connection delete <SSID>` ：删除指定的 WiFi 网络。
   :::
 
+</TabItem>
+
+</Tabs>
+
 ## 设置 WiFi 热点
 
 我们会使用 `nmcli` 命令行工具来设置 WiFi 热点。
@@ -122,7 +160,7 @@ ip a
 
 使用 `ip a` 命令查看无线网卡设备名称。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ip a
@@ -171,9 +209,11 @@ ip a
        valid_lft forever preferred_lft forever
 ```
 
-### 设置 WiFi 热点
+## 设置 WiFi 热点
 
-<NewCodeBlock tip="radxa@device$" type="device">
+打开系统终端命令行，输入以下命令设置 WiFi 热点：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 ```
 sudo nmcli device wifi hotspot ifname <ifname> con-name <name> ssid <SSID> password <password>
 # 示例
@@ -197,7 +237,7 @@ Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 
 ### 关闭 WiFi 热点
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli connection down My-Hotspot
@@ -207,7 +247,7 @@ sudo nmcli connection down My-Hotspot
 
 ### 开启 WiFi 热点
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli connection up My-Hotspot
@@ -217,7 +257,7 @@ sudo nmcli connection up My-Hotspot
 
 ### 删除 WiFi 热点
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo nmcli connection delete My-Hotspot
@@ -250,7 +290,8 @@ sudo nmcli connection delete My-Hotspot
 <NewCodeBlock tip="radxa@device & Linux@host$" type="device">
 
 ```
-sudo apt update sudo apt install iperf
+sudo apt update
+sudo apt install iperf
 ```
 
 </NewCodeBlock>
@@ -261,7 +302,7 @@ sudo apt update sudo apt install iperf
 
 打开命令行终端，输入以下命令启动服务端：
 
-<NewCodeBlock tip="Linux@host$" type="device">
+<NewCodeBlock tip="Linux@host$" type="host">
 
 ```
 iperf -s
@@ -283,7 +324,7 @@ Server listening on 5201 (test #1)
 
 打开命令行终端，输入以下命令测试客户端上传网络带宽：将 `<server_ip>` 替换为实际的服务端 IP 地址（可以通过 `ip a` 命令查看）。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 iperf -c <server_ip> -t <time>
@@ -302,7 +343,7 @@ iperf -c 192.168.2.186 -t 60
 
 打开命令行终端，输入以下命令测试客户端下载网络带宽：将 `<server_ip>` 替换为实际的服务端 IP 地址（可以通过 `ip a` 命令查看）。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 iperf -c <server_ip> -t <time> -R
