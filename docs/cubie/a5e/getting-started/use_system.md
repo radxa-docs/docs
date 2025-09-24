@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-import UseSystem from '../../../common/radxa-os/install-system/_use_system.mdx';
+import UseSystem from '../../../common/radxa-os/install-system/\_use_system.mdx';
 
 # 使用系统
 

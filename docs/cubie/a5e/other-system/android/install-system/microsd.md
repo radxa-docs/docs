@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-import MicroSD from '../../../../../common/other-system/fel-image/_microsd_system.mdx';
+import MicroSD from '../../../../../common/other-system/fel-image/\_microsd_system.mdx';
 
 # 安装系统到 MicroSD 卡
 
