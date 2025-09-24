@@ -63,7 +63,7 @@ After the system starts up normally, the power indicator light turns green and t
 
 User Account: ubuntu
 
-User Password: radxa
+User Password: ubuntu
 
 ## Logging into the System
 
