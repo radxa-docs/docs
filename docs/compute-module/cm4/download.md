@@ -24,6 +24,12 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 2. 下载的系统镜像是经过压缩的，请务必解压后再写入到系统启动介质。
    :::
 
+- Android
+
+[Radxa CM4 Android 14 MicroSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa-cm4-android14-rkr6-sd_emmc-20250903-gpt.zip)：适用于 MicroSD 卡、板载 eMMC 启动系统。
+
+[Radxa CM4 Android 14 UFS Module System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa_cm4_android14_rkr6_ufs_20250829-update.zip)：适用于 UFS 模块启动系统。
+
 ## 硬件设计
 
 ### 瑞莎 CM4
@@ -50,3 +56,7 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 - [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
 
 - [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar)
+
+## 社区资源
+
+- [Radxa CM4 KiCAD 库文件](https://github.com/swdee/radxa-cm4-kicad) 由社区用户 [@3djelly](https://forum.radxa.com/u/3djelly) 贡献

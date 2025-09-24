@@ -10,7 +10,7 @@ sidebar_position: 2
 
 ## System Image
 
-debian xfce:
+- Radxa OS
 
 [https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
 
@@ -21,6 +21,14 @@ This image is fully compatible with E20C, ROCK 2A, and ROCK 2F devices, all inco
 - Each device comes with a predefined ADC range value.
 - During the u-boot initialization phase, the appropriate device tree is dynamically selected based on the read ADC value, thereby achieving seamless compatibility across these platforms.
   :::
+
+- Android
+
+[Radxa ROCK 2F Android 13 MicroSD and eMMC Image](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_gpt.zip)：Suitable for booting from MicroSD card or onboard eMMC.
+
+:::tip
+ROCK 2A and ROCK 2F use the same Android image.
+:::
 
 ## Hardware
 

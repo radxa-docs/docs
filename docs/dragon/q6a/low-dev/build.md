@@ -29,7 +29,7 @@ mkdir -p radxa_dragon_q6a_ubuntu/build
 
 cd radxa_dragon_q6a_ubuntu
 
-git clone https://github.com/nascs/q6a_build.git  build -b Radxa_Dragon_Q6A
+git clone https://github.com/nascs/image_build.git  build -b Radxa_Dragon_Q6A
 
 git clone https://github.com/nascs/kernel.git -b work-6.15.y
 

@@ -102,3 +102,9 @@ Known issues of T1:
 | Username | Password |
 | :------: | :------: |
 |   root   | aarch64  |
+
+## Android
+
+[Android 14 RC2 20250903 system image](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/Radxa_Orion_O6_Android14_RC2_20250903_images.zip)
+
+[Android BIOS 0.0.1 version image](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/orion-o6-bios-android-0.0.1.zip)

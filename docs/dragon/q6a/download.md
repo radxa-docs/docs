@@ -22,6 +22,12 @@ Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
 
 ## 硬件设计
 
-- [V 1.20 位号图](https://dl.radxa.com/q6a/hw/RADXA%20Dragon%20Q6A%20V1.20%20%e4%bd%8d%e5%8f%b7%e5%9b%be%2020250621.pdf)
+- [位号图 V1.21](https://dl.radxa.com/dragon/q6a/hw/radxa_dragon_q6a_components_placement_map_v1.21.pdf)
 
-- [V 1.20 原理图](https://dl.radxa.com/q6a/hw/RADXA%20Dragon%20Q6A%20V1.20%20Schematic%2020250621.pdf)
+- [原理图 V1.21](https://dl.radxa.com/dragon/q6a/hw/radxa_dragon_q6a_schematic_v1.21.pdf)
+
+- [尺寸标注图 V1.21](https://dl.radxa.com/dragon/q6a/hw/radxa_dragon_q6a_2d_dimensions_v1.21.pdf)
+
+- [2D DXF 文件 V1.21](https://dl.radxa.com/dragon/q6a/hw/radxa_dragon_q6a_2d_dxf_v1.21.zip)
+
+- [3D STEP 文件 V1.21](https://dl.radxa.com/dragon/q6a/hw/radxa_dragon_q6a_3d_stp_v1.21.zip)

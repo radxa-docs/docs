@@ -1,0 +1,106 @@
+import { Image } from "@site/src/utils/docs";
+
+## Maskrom 模式说明
+
+在瑞芯微（Rockchip）平台的开发中，RKDevTool 是常用的烧录工具，我们可以让主板进入 Maskrom 模式后使用 RKDevTool 进行固件的烧录。
+
+:::tip
+Maskrom 模式是嵌入式设备的“硬件急救箱”，通过直接操作芯片底层接口实现设备修复。
+
+Maskrom 模式是 Rockchip 芯片内置的底层恢复模式，当设备无法从任何启动介质( eMMC、 SD 卡等)加载有效引导程序时自动进入系统时，我们可以通过通过 RockUSB 协议重新烧写设备固件。
+:::
+
+## 进入 Maskrom 模式
+
+我们的主板上有一个专用的 Maskrom 按键，在给主板上电前按住 Maskrom 按键，通电后系统检测到 Maskrom 按键被按下，主板就会自动进入 Maskrom 模式。
+
+<Tabs queryString="product">
+<TabItem value="ROCK 5B+">
+
+详细步骤：
+
+① : 按住 Maskrom 按键
+
+② : 使用电源适配器给主板上电
+
+③ : 松开 Maskrom 按键
+
+④ : 使用数据线连接主板的 OTG 端口和电脑的 USB 端口
+
+<Image
+  src="/img/common/tools/rkdevtool/maskrom-#model1#.webp"
+  model={props.model1}
+  fallback={props.model1}
+  width="1200"
+/>
+
+</TabItem>
+
+<TabItem value="ROCK 5B">
+
+详细步骤：
+
+① : 按住 Maskrom 按键
+
+② : 使用数据线连接主板的 OTG / 供电接口和电脑的 USB 端口
+
+③ : 松开 Maskrom 按键
+
+<Image
+  src="/img/common/tools/rkdevtool/maskrom-#model2#.webp"
+  model={props.model2}
+  fallback={props.model2}
+  width="1200"
+/>
+
+</TabItem>
+</Tabs>
+
+主板进入 Maskrom 模式后，我们可以使用 RKDevTool 工具验证主板是否进入 Maskrom 模式。
+
+## 验证 Maskrom 模式
+
+<Tabs queryString="rkdevtool">
+
+<TabItem value="Windows">
+
+在 Windows 平台，我们可以打开 RKDevTool 工具，软件会自动识别主板是否进入 Maskrom 模式。
+
+若主板进入 Maskrom 模式，软件左下角会显示 `Found One MASKROM Device`。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/tools/rkdevtool/maskrom-mode.webp"
+    style={{ width: "100%", maxWidth: "700" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="Linux / MacOS">
+
+在 Linux / MacOS 平台，我们可以使用 RKDevTool 工具验证主板是否进入 Maskrom 模式。
+
+使用 `rkdeveloptool ld` 命令可以查看主板是否进入 Maskrom 模式。
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool ld
+```
+
+</NewCodeBlock>
+
+若系统终端输出类似以下信息，说明主板已经进入 Maskrom 模式。
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>

@@ -1,0 +1,207 @@
+[AIMET](https://github.com/quic/aimet)（AI Model Efficiency Toolkit）是一款面向深度学习模型（如 PyTorch 和 ONNX）的量化工具。AIMET 通过降低模型计算负载和内存占用，提升深度学习模型的运行性能。
+借助 AIMET，开发者可以快速迭代，找到最佳量化配置，以在精度和延迟之间达到最优平衡。开发者可以将 AIMET 导出的量化模型使用 [QAIRT](./qairt-usage) 编译并部署在 Qualcomm NPU 上，或直接使用 ONNX-Runtime 运行。
+
+AIMET 可以帮助开发者：
+
+- **模拟量化**
+- **使用后训练量化（PTQ）技术对模型进行量化**
+- **在 PyTorch 模型上使用 AIMET-Torch 进行量化感知训练（QAT）**
+- **可视化并实验不同精度下激活值和权重对模型精度的影响**
+- **创建混合精度模型**
+- **导出量化后的模型为可部署的 ONNX 格式**
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/aimet_overview.webp" style={{ width: "100%" }} />
+  aimet overview
+</div>
+
+**AIMET 系统要求**
+
+- 64 位 x86 处理器
+- Ubuntu 22.04
+- Python 3.10
+- Nvidia GPU
+- Nvidia 驱动版本 455 或更高
+
+## AIMET 安装
+
+### 创建 python 环境
+
+运行 AIMET 需要 python3.10 环境，用户可以使用 [Anaconda](https://www.anaconda.com/download/success) 创建
+
+:::tip
+
+- anaconda 安装请参考：[**Conda 安装**](../virtual-env/conda_install)
+
+- conda python 环境创建请参考：[**创建指定 Python 版本的环境**](../virtual-env/conda_use#创建指定-python-版本的环境)
+  :::
+
+安装 Anaconda 后使用终端创建 python3.10 环境并启用
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+conda create -n aimet python=3.10
+conda activate aimet
+```
+
+</NewCodeBlock>
+
+### 安装 AIMET
+
+AIMET 提供两个 Python 包：
+
+- **AIMET-ONNX**：使用 PTQ 技术对 ONNX 模型进行量化
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  pip3 install aimet-onnx
+  ```
+
+    </NewCodeBlock>
+
+- **AIMET-Torch**：在 PyTorch 模型上进行 QAT
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  pip3 install aimet-torch
+  ```
+
+    </NewCodeBlock>
+
+- 安装 jupyter-notebook
+
+  AIMET 示例以 **jupyter-notebook** 的形式作为参考，这里需要给 aimet python 环境安装 jupyter kernel
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  pip3 install jupyter ipykernel
+  python3 -m ipykernel install --user --name=aimet
+  ```
+
+    </NewCodeBlock>
+
+## AIMET 使用例子
+
+这里以 pytorch 的 [resnet50](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.resnet50.html) 目标识别模型为例子，通过转换为 onnx 模型后使用 AIMET-ONNX 进行 PTQ 量化。
+实现细节请仔细阅读 resnet50 示例 [**notebook**](https://github.com/ZIFENG278/resnet50_qairt_example/blob/main/notebook/quantsim-resnet50.ipynb)
+
+:::tip
+此示例导出的模型可用于 [**QAIRT SDK 使用示例**](./qairt-usage#使用-aimet-对模型进行量化) 中对 AIMET 量化模型进行 NPU 移植。
+:::
+
+### 准备示例 notebook
+
+#### 克隆 AIMET 仓库
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+git clone https://github.com/quic/aimet.git && cd aimet
+```
+
+</NewCodeBlock>
+
+#### 配置 PYTHONPATH
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+export PYTHONPATH=$PYTHONPATH:$(pwd)
+```
+
+</NewCodeBlock>
+
+#### 下载示例 notebook
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd Examples/onnx/quantization
+wget https://github.com/ZIFENG278/resnet50_qairt_example/raw/refs/heads/main/notebook/quantsim-resnet50.ipynb
+```
+
+</NewCodeBlock>
+
+#### 下载数据集
+
+这里需要准备校准集合，为了减少下载时间这里用 [ImageNet-Mini](https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000) 替代 [ImageNet](https://image-net.org/download.php)
+
+- 请通过 [Kaggle](https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000) 下载 ImageNet-Mini 数据集
+
+### 执行示例 notebook
+
+#### 启动 jupyter-notebook
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd aimet
+jupyter-notebook
+```
+
+</NewCodeBlock>
+
+:::tip
+jupyter-notebook 启动后会自动使用默认浏览器打开，若没有自动打开，可点击启动后打印的 URL
+:::
+
+#### 更改 kernel
+
+在 jupyter-notebook 主页上选择 `/Examples/onnx/quantization/quantsim-resnet50.ipynb`
+
+在 notebook 左上角 菜单栏选择 `Kernel -> Change Kernel -> Select Kernel` 选择 在 [安装 AIMET](#安装-aimet) 时创建的 `aimet` kernel
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/notebook_kernel.webp" style={{ width: "100%" }} />
+  change notebook kernel
+</div>
+
+#### 更改数据集路经
+
+请更改 Dataset 中 `DATASET_DIR` 路经为下载的 [ImageNet-Mini](https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000) 数据集文件夹路经
+
+```vim
+DATASET_DIR = '<ImageNet-Mini Path>'  # Please replace this with a real directory
+```
+
+#### 运行整个 notebook
+
+在 notebook 左上角 菜单栏选择 `Run -> Run All Cells` 来运行整个 notebook
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/run_notebook.webp" style={{ width: "100%" }} />
+  Run All Cells
+</div>
+
+最后导出的 `resnet50` 模型文件保存在 `aimet_quant` 文件夹中，输出分别为 `resnet50.onnx` 与 `resnet50.encodings`
+
+## 部署 AIMET 模型
+
+AIMET 会将不同框架的模型格式输出为指定文件格式，参考以下表格
+
+| Framework  | Format     |
+| ---------- | ---------- |
+| Pytorch    | .onnx      |
+| ONNX       | .onnx      |
+| TensorFlow | .h5 or .pb |
+
+使用 AIMET 量化后的输出文件，可以使用 QAIRT 进行板端部署，部署过程请参考
+
+- [**QAIRT 模型转换示例**](qairt-usage#模型转换示例)
+
+## 完整文档
+
+关于 AIMET 更多详细文档请参考
+
+- [**AIMET DOCS**](https://quic.github.io/aimet-pages/releases/latest/index.html#)
+- [**AIMET 仓库**](https://github.com/quic/aimet)
+
+## 更多示例
+
+更多关于 AIMET 示例请参考
+
+- [**Example Notebooks**](https://quic.github.io/aimet-pages/releases/latest/tutorials/notebooks.html#)

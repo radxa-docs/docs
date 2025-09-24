@@ -12,17 +12,17 @@ Maskrom mode is a built-in low-level recovery mode in Rockchip chips. When the d
 
 ## Entering Maskrom Mode
 
-Our motherboard features a dedicated Maskrom button. To enter Maskrom mode, press and hold the Maskrom button before powering on the board. The system will detect the button press and automatically enter Maskrom mode.
+Our board features a dedicated Maskrom button. To enter Maskrom mode, press and hold the Maskrom button before powering on the board. The system will detect the button press and automatically enter Maskrom mode.
 
 Detailed steps:
 
 ① : Press and hold the Maskrom button
 
-② : Power on the motherboard using the power adapter
+② : Power on the board using the power adapter
 
 ③ : Release the Maskrom button
 
-④ : Connect the motherboard's OTG port to your computer's USB port using a data cable
+④ : Connect the board's OTG port to your computer's USB port using a data cable
 
 <Image
   src="/en/img/common/tools/rkdevtool/maskrom-#model#.webp"
@@ -31,7 +31,7 @@ Detailed steps:
   width="1200"
 />
 
-After the motherboard enters Maskrom mode, you can use the RKDevTool to verify the mode.
+After the board enters Maskrom mode, you can use the RKDevTool to verify the mode.
 
 ## Verifying Maskrom Mode
 
@@ -39,9 +39,9 @@ After the motherboard enters Maskrom mode, you can use the RKDevTool to verify t
 
 <TabItem value="Windows">
 
-On Windows, open the RKDevTool. The software will automatically detect if the motherboard is in Maskrom mode.
+On Windows, open the RKDevTool. The software will automatically detect if the board is in Maskrom mode.
 
-If the motherboard is in Maskrom mode, the bottom left corner of the software will display `Found One MASKROM Device`.
+If the board is in Maskrom mode, the bottom left corner of the software will display `Found One MASKROM Device`.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -54,7 +54,7 @@ If the motherboard is in Maskrom mode, the bottom left corner of the software wi
 
 <TabItem value="Linux / MacOS">
 
-On Linux/MacOS, you can use the RKDevTool to verify if the motherboard is in Maskrom mode.
+On Linux/MacOS, you can use the RKDevTool to verify if the board is in Maskrom mode.
 
 Use the `rkdeveloptool ld` command to check the Maskrom mode status.
 
@@ -66,7 +66,7 @@ sudo rkdeveloptool ld
 
 </NewCodeBlock>
 
-If the terminal outputs a message similar to the following, the motherboard is in Maskrom mode:
+If the terminal outputs a message similar to the following, the board is in Maskrom mode:
 
 <NewCodeBlock tip="Linux / MacOS$" type="host">
 

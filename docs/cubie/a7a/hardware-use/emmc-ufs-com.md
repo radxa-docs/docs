@@ -6,10 +6,6 @@ sidebar_position: 2
 
 瑞莎 Cubie A7A 板载 eMMC / UFS 二合一模块接口，支持安装 eMMC 或 UFS 模块，可以用于系统启动盘或扩展存储空间。
 
-:::danger 注意
-目前 UFS 模块无法识别，正在适配中！
-:::
-
 ## 使用指南
 
 eMMC 模块适用于小容量存储（8-128GB）, UFS 模块适用于大容量存储（64GB-1TB）。

@@ -17,9 +17,9 @@ Please select the appropriate system image for your system boot medium:
 
 #### Generic System Image
 
-Currently, only MicroSD cards and eMMC modules are supported for system boot. UFS modules and NVMe SSDs are under development!
+Currently, only MicroSD cards, eMMC modules and UFS modules are supported for system boot. NVMe SSDs are under development!
 
-- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-t5/radxa-cubie-a7a_bullseye_kde_t5.output_512.img.xz)
+- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-b1/radxa-cubie-a7a_bullseye_kde_b1.output_512.img.xz)
 
 ### Android
 
@@ -27,7 +27,7 @@ Suitable for MicroSD cards, eMMC modules and UFS modules.
 
 #### Phoenix System Image
 
-- [Radxa Cubie A7A Android 13](https://github.com/radxa/manifests/releases/download/a733-radxa_a7a-v1.0/a733_android13_radxa_a7a_20250814_uart0.zip)
+- [Radxa Cubie A7A Android 13](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip)
 
 ## Flashing Tools
 

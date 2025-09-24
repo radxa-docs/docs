@@ -17,9 +17,9 @@ sidebar_position: 8
 
 #### 通用系统镜像
 
-目前仅支持 MicroSD 卡/ eMMC 模块启动系统，UFS 模块和 NVMe SSD 目前正在适配中！
+目前仅支持 MicroSD 卡/ eMMC 模块 / UFS 模块启动系统，NVMe SSD 目前正在适配中！
 
-- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-t5/radxa-cubie-a7a_bullseye_kde_t5.output_512.img.xz)
+- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-b1/radxa-cubie-a7a_bullseye_kde_b1.output_512.img.xz)
 
 ### Android
 
@@ -27,7 +27,7 @@ sidebar_position: 8
 
 #### Phoenix 系统镜像
 
-- [Radxa Cubie A7A Android 13](https://github.com/radxa/manifests/releases/download/a733-radxa_a7a-v1.0/a733_android13_radxa_a7a_20250814_uart0.zip)
+- [Radxa Cubie A7A Android 13](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip)
 
 ## 刷机工具
 

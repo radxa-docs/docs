@@ -17,13 +17,17 @@ Please select the appropriate system image based on your boot media:
 
 #### Generic System Image
 
-Applicable to MicroSD cards and onboard UFS.
+Applicable to MicroSD card and onboard UFS.
 
 - [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b1/radxa-cubie-a7z_bullseye_kde_b1.output_512.img.xz)
 
 ### Android
 
-Android system image is not yet available.
+Applicable to MicroSD card and onboard UFS.
+
+#### Phoenix System Image
+
+- [Radxa Cubie A7Z Android 13](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250917/a733_android13_radxa_a7z_20250917_uart0.zip)
 
 ## Flashing Tools
 

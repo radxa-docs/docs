@@ -33,3 +33,7 @@ After confirming that the Radxa AICore AX-M1 module is pre-installed, press the 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-ax-m1/aicore_ax_m1_install.webp" style={{width: '75%', maxWidth: '800px'}} />
 </div>
+
+:::tip Heat Dissipation Notice
+The Radxa AX-M1 generates heat during operation. To ensure proper heat dissipation, we recommend using a metal enclosure.
+:::
