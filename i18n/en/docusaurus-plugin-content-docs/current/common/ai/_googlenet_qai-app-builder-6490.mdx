@@ -1,12 +1,12 @@
-This document explains how to use the QAI AppBuilder Python library to run the [GoogLeNet](https://aihub.qualcomm.com/models/googlenet?domain=Computer+Vision&useCase=Image+Classification&chipsets=qualcomm-qcs6490-proxy) object detection model on the Radxa Dragon Q6A.
+This document explains how to use the QAI AppBuilder Python library to run the [GoogLeNet](https://aihub.qualcomm.com/models/googlenet?domain=Computer+Vision&useCase=Image+Classification&chipsets=qualcomm-qcs6490-proxy) object recognition model on the Radxa Dragon Q6A.
 
 ## Install QAI AppBuilder
 
 :::tip
-Please follow the [**QAI AppBuilder Installation Guide**](qai-appbuilder)
+Please follow the [**QAI AppBuilder Installation Guide**](qai-appbuilder) to install QAI AppBuilder.
 :::
 
-## Run the Example
+## Running the Example
 
 ### Install Dependencies
 
@@ -32,11 +32,9 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch
 
 - Prepare the input image. The following image is used as an example:
 
-  {" "}
-
   <div style={{ textAlign: "center" }}>
     <img src="/en/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
-    Input Image
+    input image
   </div>
 
 - Execute the inference

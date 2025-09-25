@@ -1,6 +1,5 @@
-[**Quick AI Application Builder**](https://github.com/quic/ai-engine-direct-helper) (QAI AppBuilder) helps developers easily deploy AI models and design AI applications on Qualcomm® SoC platforms with Qualcomm® Hexagon™ Processor (NPU) using the [Qualcomm® AI Runtime SDK](qairt-sdk#qairt).
-
-It encapsulates model deployment APIs into a set of simplified interfaces for loading models onto the NPU and performing inference. QAI AppBuilder significantly reduces the complexity of model deployment for developers and provides multiple demos as references for designing custom AI applications.
+[**Quick AI Application Builder**](https://github.com/quic/ai-engine-direct-helper) (QAI AppBuilder) helps developers easily deploy AI models and design AI applications on Qualcomm® SoC platforms with Qualcomm® Hexagon™ Processor (NPU) using [Qualcomm® AI Runtime SDK](qairt-sdk#qairt).
+It encapsulates model deployment APIs into a set of simplified interfaces for loading models onto the NPU and performing inference. QAI AppBuilder significantly reduces the complexity of model deployment for developers and provides multiple demos as references for designing their own AI applications.
 
 Supports Python API / C++ API
 
@@ -12,7 +11,7 @@ Supports Python API / C++ API
   QAI-APPBUILDER Architecture
 </div>
 
-## Installation Method
+## Installation
 
 ### Clone the Repository
 
@@ -27,7 +26,7 @@ git clone https://github.com/quic/ai-engine-direct-helper.git --recursive
 ### Download QAIRT SDK
 
 :::tip
-Please download and extract the QAIRT SDK according to the [**Download QAIRT SDK Package**](./qairt-install#download-qairt-sdk-package) instructions
+Please refer to [**Download QAIRT SDK Package**](./qairt-install#download-qairt-sdk-package) to download and extract the QAIRT SDK.
 :::
 
 #### Configure QAIRT Environment Variables
@@ -48,7 +47,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-ubuntu-gcc9.4:
 #### Create Virtual Environment
 
 :::tip
-Create a virtual environment for Python library installation to maintain environment isolation
+Create a virtual environment for Python library installation to isolate the environment.
 :::
 
 <NewCodeBlock tip="Device" type="device">
@@ -92,11 +91,55 @@ pip3 install ./qai_appbuilder-2.34.0-cp312-cp312-linux_aarch64.whl
 <Tabs>
     <TabItem value="QCS6490">
 
-    - [**Inception v3**](inception_v3)
+    <NewCodeBlock tip="Device" type="device">
 
-    - [**GoogLeNet**](googlenet)
+    ```bash
+    cd ai-engine-direct-helper/samples/linux/python
+    ```
+    </NewCodeBlock>
 
-    - [**Real ESRGAN**](real_esrgan_x4plus)
+    - Object Recognition
+
+        | 模型                  | 运行方法                                            |
+        | ------------------- | ----------------------------------------------- |
+        | convnext_base      | `python3 convnext_base/convnext_base.py`         |
+        | convnext_tiny      | `python3 convnext_tiny/convnext_tiny.py`         |
+        | efficientnet_b0    | `python3 efficientnet_b0/efficientnet_b0.py`     |
+        | efficientnet_b4    | `python3 efficientnet_b4/efficientnet_b4.py`     |
+        | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
+        | [**googlenet**](googlenet)           | `python3 googlenet/googlenet.py`                 |
+        | [**inception_v3**](inception_v3)       | `python3 inception_v3/inception_v3.py`           |
+        | levit               | `python3 levit/levit.py`                         |
+        | regnet              | `python3 regnet/regnet.py`                       |
+        | shufflenet_v2      | `python3 shufflenet_v2/shufflenet_v2.py`         |
+        | squeezenet1_1      | `python3 squeezenet1_1/squeezenet1_1.py`         |
+        | vit                 | `python3 vit/vit.py`                             |
+        | wideresnet50        | `python3 wideresnet50/wideresnet50.py`           |
+
+
+    - Image Segmentation
+
+        | Model             | Run Command                               |
+        | ----------------- | ----------------------------------------- |
+        | [**fcn_resnet50**](fcn_resnet50) | `python3 fcn_resnet50/fcn_resnet50.py`    |
+
+
+    - Object Detection
+
+        | 模型          | 运行方法                              |
+        | ----------- | --------------------------------- |
+        | [**yolov8_det**](yolov8-det) | `python3 yolov8_det/yolov8_det.py` |
+
+
+    - Image Super-Resolution
+
+        | 模型                          | 运行方法                                                          |
+        | --------------------------- | ------------------------------------------------------------- |
+        | quicksrnetmedium            | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
+        | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
+        | [**real_esrgan_x4plus**](real_esrgan_x4plus)        | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
+        | sesr_m5                    | `python3 sesr_m5/sesr_m5.py`                                   |
+        | xlsr | `python3 xlsr/xlsr.py` |
 
     </TabItem>
 

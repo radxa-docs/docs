@@ -1,4 +1,4 @@
-The Dragon series products from Renesas feature SoCs equipped with Qualcomm® Hexagon™ Processor (NPU), which is specifically designed as a hardware accelerator for AI inference.
+The Radxa Dragon series products feature SoCs equipped with Qualcomm® Hexagon™ Processor (NPU), which is a dedicated hardware accelerator for AI inference.
 To perform model inference using the NPU, the QAIRT (Qualcomm® AI Runtime) SDK is required for model porting of pre-trained models.
 Qualcomm® provides a series of SDKs for NPU developers to facilitate the porting of their AI models to the NPU.
 
@@ -8,14 +8,15 @@ Qualcomm® provides a series of SDKs for NPU developers to facilitate the portin
 
 - Model Application Library: [QAI-APP-BUILDER](#qai-appbuilder)
 
+- Online Model Conversion Library: [QAI-HUB](#qai-hub)
+
 ## Qualcomm® NPU Software Stack
 
 ### QAIRT
 
 QAIRT (Qualcomm® AI Runtime) SDK is a software package that integrates Qualcomm® AI software products,
 including Qualcomm® AI Engine Direct, Qualcomm® Neural Processing SDK, and Qualcomm® Genie.
-QAIRT provides developers with all the necessary tools for porting and deploying AI models on Qualcomm® hardware accelerators,
-as well as the runtime for running models on CPU, GPU, and NPU.
+QAIRT provides developers with all the necessary tools for porting and deploying AI models on Qualcomm® hardware accelerators, as well as the runtime for running models on CPU, GPU, and NPU.
 
 #### Supported Inference Backends
 
@@ -32,7 +33,7 @@ as well as the runtime for running models on CPU, GPU, and NPU.
 
 #### QAIRT Model Formats
 
-QAIRT supports the following 3 model file formats based on different systems and inference backends:
+QAIRT supports the following 3 model file formats based on different systems and inference backends
 
 | Format             | Backend         | Cross-OS | Cross-Chip |
 | ------------------ | --------------- | -------- | ---------- |
@@ -41,8 +42,8 @@ QAIRT supports the following 3 model file formats based on different systems and
 | **Context Binary** | **NPU**         | Yes      | No         |
 
 :::tip
-This documentation focuses on model porting and deployment using the NPU, specifically covering the conversion and inference methods for the **Context-Binary** format, which offers optimal memory usage and performance.
-For information on converting other model formats and inference methods for different backends, please refer to the [**QAIRT SDK Documentation**](qairt-install#complete-sdk-documentation)
+This document only covers model porting and deployment based on NPU, focusing on the conversion and inference methods of the **Context-Binary** format model which offers optimal memory and performance.
+For conversion of other model formats and inference methods with different backends, please refer to the [**QAIRT SDK Documentation**](qairt-install#sdk-完整文档)
 :::
 
 #### SoC Architecture Reference Table
@@ -53,6 +54,8 @@ For information on converting other model formats and inference methods for diff
 
 {/* | QCS9075 | v73      | 77     | */}
 
+{/* ## TODO */}
+
 #### Documentation
 
 - [**QAIRT SDK Installation**](./qairt-install)
@@ -61,12 +64,12 @@ For information on converting other model formats and inference methods for diff
 
 - [**NPU Quick Verification**](./quick-example)
 
-- [**Complete QAIRT Documentation**](./qairt-install#complete-sdk-documentation)
+- [**QAIRT Full Documentation**](./qairt-install#sdk-完整文档)
 
 ### AIMET
 
-[**AIMET**](https://github.com/quic/aimet) (AI Model Efficiency Toolkit) is a quantization tool for deep learning models (such as PyTorch and ONNX). AIMET improves the runtime performance of deep learning models by reducing computational load and memory usage.
-With AIMET, developers can quickly iterate to find the optimal quantization configuration that balances accuracy and latency. The quantized models exported from AIMET can be compiled and deployed on Qualcomm NPU using [QAIRT](./qairt-usage), or run directly with ONNX-Runtime.
+[**AIMET**](https://github.com/quic/aimet) (AI Model Efficiency Toolkit) is a quantization tool for deep learning models (such as PyTorch and ONNX). AIMET improves the performance of deep learning models by reducing computational load and memory usage.
+With AIMET, developers can quickly iterate to find the optimal quantization configuration that balances accuracy and latency. Developers can compile and deploy quantized models exported by AIMET on Qualcomm NPU using [QAIRT](./qairt-usage), or run them directly with ONNX-Runtime.
 
 <div style={{ textAlign: "center" }}>
   <img src="/en/img/dragon/q6a/aimet_overview.webp" style={{ width: "100%" }} />
@@ -77,14 +80,14 @@ With AIMET, developers can quickly iterate to find the optimal quantization conf
 
 - [**AIMET Quantization Tool**](./aimet)
 
-- [**Complete AIMET Documentation**](https://quic.github.io/aimet-pages/releases/latest/index.html#)
+- [**AIMET Full Documentation**](https://quic.github.io/aimet-pages/releases/latest/index.html#)
 
 - [**AIMET Repository**](https://github.com/quic/aimet)
 
 ### QAI-APPBUILDER
 
 [**Quick AI Application Builder**](https://github.com/quic/ai-engine-direct-helper) (QAI AppBuilder) helps developers easily deploy AI models and design AI applications on Qualcomm® SoC platforms equipped with Qualcomm® Hexagon™ Processor (NPU) using the [Qualcomm® AI Runtime SDK](qairt-sdk#qairt).
-It encapsulates the model deployment APIs into a set of simplified interfaces for loading models onto the NPU and performing inference. QAI AppBuilder significantly reduces the complexity of model deployment for developers and provides multiple demos as references for designing custom AI applications.
+It encapsulates the model deployment APIs into a set of simplified interfaces for loading models onto the NPU and performing inference. QAI AppBuilder significantly reduces the complexity of model deployment for developers and provides multiple demos as references for designing their own AI applications.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -99,3 +102,23 @@ It encapsulates the model deployment APIs into a set of simplified interfaces fo
 - [**QAI AppBuilder**](./qai-appbuilder)
 
 - [**QAI AppBuilder Repository**](https://github.com/quic/ai-engine-direct-helper)
+
+### QAI-Hub
+
+[**Qualcomm® AI Hub**](https://aihub.qualcomm.com/) (QAI-Hub) is a one-stop model conversion cloud platform that provides online model compilation, model quantization, model performance analysis, model inference, and model download services.
+Qualcomm® AI Hub automatically handles model conversion from pre-trained models to device runtime, and the system automatically configures devices in the cloud for performance analysis and inference on the devices.
+[**Qualcomm® AI Hub Models**](https://github.com/quic/ai-hub-models) (QAI-Hub-Models)
+leverages the cloud services provided by [QAI-Hub](https://app.aihub.qualcomm.com/docs/index.html) to support online **quantization, compilation, inference, analysis, and download** of models from the [model list](qai-hub-models#模型列表) on cloud devices through command line.
+
+<div style={{ textAlign: "center" }}>
+  <img src="/en/img/dragon/q6a/qai-hub.webp" style={{ width: "100%" }} />
+  QAI-Hub WORKFLOW
+</div>
+
+#### Documentation
+
+- [**Qualcomm® AI Hub**](https://app.aihub.qualcomm.com/docs/index.html)
+
+- [**Qualcomm® AI Hub Models Usage**](qai-hub-models)
+
+- [**Qualcomm® AI Hub Models Repository**](https://github.com/quic/ai-hub-models)

@@ -1,8 +1,8 @@
-QAIRT (Qualcomm® AI Runtime) SDK is a software package that integrates Qualcomm® AI software products,
+The QAIRT (Qualcomm® AI Runtime) SDK is a software package that integrates Qualcomm® AI software products,
 including Qualcomm® AI Engine Direct, Qualcomm® Neural Processing SDK, and Qualcomm® Genie.
 QAIRT provides developers with all the necessary tools for porting and deploying AI models on Qualcomm® hardware accelerators,
 as well as the runtime for running models on CPU, GPU, and NPU.
-Currently, QAIRT SDK supports model porting for Pytorch, Tensorflow, TFLite, and ONNX frameworks.
+Currently, QAIRT SDK supports model porting for frameworks including Pytorch, Tensorflow, TFLite, and ONNX.
 
 Supported inference hardware accelerator IPs: `CPU`, `GPU`, `NPU`.
 
@@ -36,16 +36,16 @@ Supported inference hardware accelerator IPs: `CPU`, `GPU`, `NPU`.
 
 ### Create Python Environment
 
-QAIRT requires a Python 3.10 environment, which can be created using [Anaconda](https://www.anaconda.com/download/success)
+Running QAIRT requires a Python 3.10 environment, which can be created using [Anaconda](https://www.anaconda.com/download/success)
 
 :::tip
 
 - For Anaconda installation, refer to: [**Conda Installation**](../virtual-env/conda_install)
 
-- For creating a conda Python environment, refer to: [**Create Environment with Specific Python Version**](../virtual-env/conda_use#create-environment-with-specific-python-version)
+- For creating a conda Python environment, refer to: [**Creating a Specific Python Version Environment**](../virtual-env/conda_use#creating-a-specific-python-version-environment)
   :::
 
-After installing Anaconda, create and activate a Python 3.10 environment using the terminal
+After installing Anaconda, use the terminal to create and activate a Python 3.10 environment
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -132,7 +132,7 @@ source bin/envsetup.sh
 
 ### Install AI Frameworks
 
-Select the model framework libraries to install based on your model format. Installation of all frameworks is not required.
+Select the model framework libraries to install based on your business model format. It's not necessary to install all of them.
 
 | package name   | version |
 | -------------- | ------- |
@@ -146,7 +146,7 @@ Select the model framework libraries to install based on your model format. Inst
 ## Complete SDK Documentation
 
 QAIRT SDK integrates Qualcomm® AI Engine Direct (QNN), Qualcomm® Neural Processing SDK (SNPE), and Qualcomm® Genie (Genie).
-Their detailed documentation is located at:
+Their detailed documentation can be found at the following locations:
 
 **Local Documentation**
 
@@ -163,3 +163,19 @@ Their detailed documentation is located at:
 - [**SNPE**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-2/overview.html)
 
 - [**Genie**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)
+
+## ARM64 Docker Image
+
+Radxa provides a Docker image to facilitate the use of QAIRT SDK on the board. You can also install it manually by following the instructions in this document.
+
+- Install Docker
+
+  :::tip
+  Please refer to [**Docker Usage**](../virtual-env/docker_use) for Docker installation
+  :::
+
+- Pull the Docker image
+
+  ```bash
+  sudo docker run --privileged -it -v /dev:/dev -v $(pwd):/workspace --name qairt-sdk radxazifeng278/qairt-npu:v1.0 /bin/bash
+  ```
