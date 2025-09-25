@@ -31,3 +31,9 @@ After confirming that the AICore DX-M1 is properly pre-installed, press down on 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-dx-m1/dx_m1_install.webp" style={{width: '75%', maxWidth: '800px'}} />
 </div>
+
+:::tip Heat Dissipation Notice
+
+The Radxa DX-M1 generates heat during operation. To ensure proper heat dissipation, we recommend using a metal case.
+
+:::
