@@ -25,7 +25,7 @@ sidebar_position: 1
 
 - **OS Support** - Compatible with various operating systems including Ubuntu, Debian, and CentOS.
 
-- **Standard Interface** - Adopts standard M.2 M Key 2280 form factor, compatible with mainstream industrial and embedded motherboards.
+- **Standard Interface** - Adopts standard M.2 M Key 2280 form factor, compatible with mainstream industrial and embedded boards.
 
 ## Product Appearance
 
