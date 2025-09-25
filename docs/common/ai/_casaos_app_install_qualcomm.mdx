@@ -1,0 +1,95 @@
+## 安装 radxa 一键启动 Apps
+
+这里将介绍如何在 CasaOS 上安装 radxa AI 应用, CasaOS 中的第三方 App 以 docker image 的形式进行安装，
+上传到 CasaOS App store [可参考这里](https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main)，
+radxa 目前已将 `Real-ESRGAN 图像修复` App 上传至 [docker hub](https://hub.docker.com/u/radxazifeng278)，
+
+| App                     | Docker 镜像                                                                                                                | 容器端口 | 支持 SoC | 用途     |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- |
+| Real-ESRGAN AI 图像修复 | [radxazifeng278/qairt-imagerepair:v1.0](https://hub.docker.com/repository/docker/radxazifeng278/qairt-imagerepair/general) | 8977     | QCS6490  | 图像修复 |
+
+- 点击 CasaOS App 栏的 "+" 标志，选择 Install a customized app
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/general-tutorial/tpu_ai/casaos_2.webp"
+      style={{ width: "80%" }}
+    />
+    CasaOS APP 安装设置图
+  </div>
+
+### 安装 Real-ESRGAN 图像修复 App
+
+:::info
+Real-ESRGAN AI 图像修复 APP， 可最高将图像超分辨率到 2048x2048，并修复图像细节。
+:::
+
+- 填入 radxa Real-ESRGAN 容器安装所需信息
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/dragon/q6a/casaos-qairt_1.webp" style={{ width: "60%" }} />
+    CasaOS APP 安装设置图
+  </div>
+
+- 信息详解
+
+  **Docker Image** 镜像名字，填入会自动在docker hub中拉取镜像
+
+  ```bash
+  radxazifeng278/qairt-imagerepair:v1.0
+  ```
+
+  **Title** App 名字，用户自定义
+
+  Icon URL App 图标（可选）
+
+  **Web UI 端口** 指定访问 App 时的默认访问端口, 建议用户可以在 7000-10000 中选取，不可与其他 CasaOS 的 APP 端口冲突
+
+  **Port** docker 容器端口映射，Host 端口为 Web UI 指定的端口， **容器端口为 8977**
+
+  ```bash
+  8977
+  ```
+
+  **Devices** 设备挂载，将 NPU 挂载进 Docker 容器中，建议全部挂载
+
+  - Host:
+    ```bash
+    /dev
+    ```
+  - Container:
+    ```bash
+    /dev
+    ```
+
+  **Privileges** 开启取得最高权限
+
+  **Memory limit** 容器内存限制，建议拉满，否则可能无法启动服务
+
+  **CPU Shares** CPU 能力，建议 Medium
+
+  |                       | radxa Real-ESRGAN                     |
+  | --------------------- | ------------------------------------- |
+  | **Docker Image**      | radxazifeng278/qairt-imagerepair:v1.0 |
+  | **Title**             | Image Repair                          |
+  | **Web UI port**       | 9001                                  |
+  | **Host Port**         | 9001                                  |
+  | **Container Port**    | 8977                                  |
+  | **Host Devices**      | /dev                                  |
+  | **Container Devices** | /dev                                  |
+  | **CPU Shares**        | Medium                                |
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/dragon/q6a/casaos-qairt_2.webp" style={{ width: "100%" }} />
+    Real-ESRGAN AI 图像修复 APP 界面
+  </div>
+
+### App 启动与卸载
+
+CasaOS 中 App 开启状态为 App 图标颜色高亮，关闭状态为 App 图标灰色状态
+
+启动 App 单击图标即可，也可以在选中 App 右上角图标更多功能选项中启动
+
+卸载 App 单击 Uninstall 即可
+
+![casaos_3.webp](/img/general-tutorial/tpu_ai/casaos_3.webp)
