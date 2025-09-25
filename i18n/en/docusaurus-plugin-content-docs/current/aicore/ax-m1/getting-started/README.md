@@ -20,9 +20,9 @@ This document introduces how to use the Radxa AICore AX-M1 module on the ROCK 5B
 You need to prepare the following hardware devices to use the Radxa AICore AX-M1 module:
 
 - **AI Acceleration Module**: Radxa AICore AX-M1
-- **Motherboard Kit**: Compatible motherboard + power adapter + boot media (e.g., Micro SD card)
+- **board Kit**: Compatible board + power adapter + boot media (e.g., Micro SD card)
 
-> **Compatible Motherboard (Tested)**
+> **Compatible board (Tested)**
 
 ```
 - ROCK 5A
@@ -32,7 +32,7 @@ You need to prepare the following hardware devices to use the Radxa AICore AX-M1
 ```
 
 :::tip Usage Conditions
-The motherboard needs to meet the following requirements:
+The board needs to meet the following requirements:
 
 - Can normally boot the system
 - Provide an unused **M.2 M Key interface** for installing the Radxa AICore AX-M1
@@ -43,7 +43,7 @@ The motherboard needs to meet the following requirements:
 For ROCK 5B+, you can refer to the [Hardware Installation](/aicore/ax-m1/getting-started/hardware_install) tutorial to install the Radxa AICore AX-M1.
 
 :::tip Note
-For motherboards installing M.2 M Key interfaces, the installation steps and methods are basically the same, and you can refer to the [Hardware Installation](/aicore/ax-m1/getting-started/hardware_install) tutorial to install the Radxa AICore AX-M1.
+For boards installing M.2 M Key interfaces, the installation steps and methods are basically the same, and you can refer to the [Hardware Installation](/aicore/ax-m1/getting-started/hardware_install) tutorial to install the Radxa AICore AX-M1.
 :::
 
 ## Environment Installation
