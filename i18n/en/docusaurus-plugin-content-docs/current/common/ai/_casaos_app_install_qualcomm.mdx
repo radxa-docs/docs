@@ -1,0 +1,103 @@
+## Installing Radxa One-Click Apps
+
+This section explains how to install Radxa AI applications on CasaOS. Third-party apps in CasaOS are installed as Docker images.
+To upload to the CasaOS App Store, [refer here](https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main).
+Radxa has already uploaded the `Real-ESRGAN Image Restoration` app to [Docker Hub](https://hub.docker.com/u/radxazifeng278).
+
+| App                              | Docker Image                                                                                                               | Container Port | Supported SoC | Purpose           |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ----------------- |
+| Real-ESRGAN AI Image Restoration | [radxazifeng278/qairt-imagerepair:v1.0](https://hub.docker.com/repository/docker/radxazifeng278/qairt-imagerepair/general) | 8977           | QCS6490       | Image Restoration |
+
+- Click the "+" icon in the CasaOS App bar and select "Install a customized app"
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/general-tutorial/tpu_ai/casaos_2.webp"
+      style={{ width: "80%" }}
+    />
+    CasaOS App Installation Settings
+  </div>
+
+### Installing Real-ESRGAN Image Restoration App
+
+:::info
+The Real-ESRGAN AI Image Restoration app can upscale images to a maximum resolution of 2048x2048 while enhancing image details.
+:::
+
+- Fill in the required information for installing the Radxa Real-ESRGAN container
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/dragon/q6a/casaos-qairt_1.webp" style={{ width: "60%" }} />
+    CasaOS App Installation Settings
+  </div>
+
+- Configuration Details
+
+  **Docker Image** The image name that will be automatically pulled from Docker Hub
+
+  ```bash
+  radxazifeng278/qairt-imagerepair:v1.0
+  ```
+
+  **Title** Custom name for your app
+
+  **Icon URL** App icon (optional)
+
+  **Web UI Port** The default access port for the app. Recommended to choose between 7000-10000. Must not conflict with ports used by other CasaOS apps.
+
+  **Port** Docker container port mapping. The host port is specified in the Web UI field, **container port should be 8977**
+
+  ```bash
+  8977
+  ```
+
+  **Devices** Mount devices. Mount the NPU into the Docker container. It's recommended to mount all available devices.
+
+  - Host:
+    ```bash
+    /dev
+    ```
+  - Container:
+    ```bash
+    /dev
+    ```
+
+  **Privileges** Enable to gain root privileges
+
+  **Memory limit** Container memory limit. It's recommended to set to maximum, otherwise the service might fail to start.
+
+  **CPU Shares** CPU allocation. Medium is recommended.
+
+  |                       | Radxa Real-ESRGAN                     |
+  | --------------------- | ------------------------------------- |
+  | **Docker Image**      | radxazifeng278/qairt-imagerepair:v1.0 |
+  | **Title**             | Image Repair                          |
+  | **Web UI port**       | 9001                                  |
+  | **Host Port**         | 9001                                  |
+  | **Container Port**    | 8977                                  |
+  | **Host Devices**      | /dev                                  |
+  | **Container Devices** | /dev                                  |
+  | **CPU Shares**        | Medium                                |
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/dragon/q6a/casaos-qairt_2.webp" style={{ width: "100%" }} />
+    Real-ESRGAN AI Image Restoration App Interface
+  </div>
+
+### Starting and Uninstalling Apps
+
+In CasaOS, an app's status is indicated by its icon:
+
+- Active apps have a highlighted/colored icon
+- Inactive apps have a grayed-out icon
+
+To start an app:
+
+- Simply click on the app icon, or
+- Click the menu icon (⋮) in the top-right corner of the selected app and choose "Start"
+
+To uninstall an app:
+
+- Click the "Uninstall" button
+
+![casaos_3.webp](/img/general-tutorial/tpu_ai/casaos_3.webp)
