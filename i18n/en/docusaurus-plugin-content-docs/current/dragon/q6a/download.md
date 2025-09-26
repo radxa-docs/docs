@@ -14,6 +14,10 @@ The Dragon Q6A comes with the SPI boot firmware pre-flashed by default. Under no
 
 For detailed steps on flashing the SPI boot firmware, please refer to the [Flashing SPI Boot Firmware](../q6a/low-dev/spi_fw/) tutorial.
 
+- EDL Driver
+
+  - [EDL Driver](https://dl.radxa.com/dragon/q6a/images/QUD_CustomInst_1.00.91.7.zip)
+
 - EDL Tools
 
   - [EDL-NG](https://dl.radxa.com/q6a/images/edl-ng-dist.zip)

@@ -24,20 +24,16 @@ Specific steps:
 
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
-    - Download the EDL tool
+    - Download EDL Driver
 
-    On the Windows platform, you need to go to the [Resource Summary Download](../download) page to download the EDL tool (the EDL tool includes EDL software and EDL drivers).
+    On Windows, you need to go to the [Resource Summary Download](../download) page to download the EDL driver package.
 
-    - Install the EDL driver
+    - Install EDL Driver
 
-    Double-click the `qcom_winusb_drv_inst.exe` driver installation package and follow the steps below to complete the driver installation.
-
-    ① : Click the `Install Certificate` option to install the certificate
-
-    ② : Click the `Install Driver` option to install the driver
+    Extract the downloaded driver package, then run the `Install.bat` file as administrator to install the driver.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/q6a_edl_driver.webp" style={{width: '50%', maxWidth: '1200px'}} />
+   <img src="/img/dragon/q6a/q6a_driver_install.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
     - Device recognition

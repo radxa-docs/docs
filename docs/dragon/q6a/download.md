@@ -14,6 +14,10 @@ Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
 
 烧录 SPI 启动固件的详细步骤参考 [烧录 SPI 启动固件](../q6a/low-dev/spi_fw/) 教程。
 
+- EDL 驱动
+
+  - [EDL 驱动](https://dl.radxa.com/dragon/q6a/images/QUD_CustomInst_1.00.91.7.zip)
+
 - EDL 工具
 
   - [EDL-NG](https://dl.radxa.com/q6a/images/edl-ng-dist.zip)
