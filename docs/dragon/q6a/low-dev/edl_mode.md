@@ -24,20 +24,16 @@ sidebar_position: 1
 
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
-    - 下载 EDL 工具
+    - 下载 EDL 驱动
 
-    在 Windows 平台，您需要去 [资源汇总下载](../download) 页面下载 EDL 工具（EDL 工具包括 EDL 软件和 EDL 驱动）。
+    在 Windows 平台，您需要去 [资源汇总下载](../download) 页面下载 EDL 驱动文件。
 
     - 安装 EDL 驱动
 
-    双击 `qcom_winusb_drv_inst.exe` 驱动安装包，按照以下步骤完成驱动安装。
-
-    ① : 点击 `Install Certificate` 选项安装证书
-
-    ② : 点击 `Install Driver` 选项安装驱动
+    解压下载好的驱动文件，然后以管理员身份运行 `Install.bat` 文件安装驱动。
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/q6a_edl_driver.webp" style={{width: '50%', maxWidth: '1200px'}} />
+   <img src="/img/dragon/q6a/q6a_driver_install.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
     - 设备识别
