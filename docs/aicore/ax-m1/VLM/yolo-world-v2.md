@@ -45,7 +45,7 @@ python gradio_example.py --yoloworld ../models/yolo_u16_ax650.axmodel --tenc ../
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/axera/YOLO-World-V2/pyyoloworld$ python gradio_example.py --yoloworld ../models/yolo_u16_ax650.axmodel --tenc ../models/clip_b1_u16_ax6/vocab.txt
+(.venv) rock@rock-5b-plus:~/ssd/axera/YOLO-World-V2/pyyoloworld$ python gradio_example.py --yoloworld ../models/yolo_u16_ax650.axmodel --tenc ../models/clip_b1_u16_ax650.axmodel --vocab ../vocab.txt
 Trying to load: /home/radxa/AXERA-TECH/YOLO-World-V2/pyyoloworld/aarch64/libyoloworld.so
 
 ❌ Failed to load: /home/radxa/AXERA-TECH/YOLO-World-V2/pyyoloworld/aarch64/libyoloworld.so
