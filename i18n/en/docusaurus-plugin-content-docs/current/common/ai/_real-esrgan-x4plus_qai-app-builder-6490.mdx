@@ -1,15 +1,15 @@
-This document explains how to run [Real-ESRGAN-x4plus](https://aihub.qualcomm.com/models/real_esrgan_x4plus?domain=Computer+Vision&useCase=Super+Resolution&chipsets=qualcomm-qcs6490-proxy) on Radxa Dragon Q6A using the QAI AppBuilder Python library.
-Image Super-Resolution Model.
+This document explains how to use the QAI AppBuilder Python library to run the [Real-ESRGAN-x4plus](https://aihub.qualcomm.com/models/real_esrgan_x4plus?domain=Computer+Vision&useCase=Super+Resolution&chipsets=qualcomm-qcs6490-proxy)
+image super-resolution model on the Radxa Dragon Q6A.
 
-## Install QAI AppBuilder
+## Installing QAI AppBuilder
 
 :::tip
-Please refer to [**QAI AppBuilder Installation Guide**](qai-appbuilder)
+Please install QAI AppBuilder according to the [**QAI AppBuilder Installation Guide**](qai-appbuilder).
 :::
 
-## Run the Example
+## Running the Example
 
-### Install Dependencies
+### Installing Dependencies
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -19,7 +19,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch
 
 </NewCodeBlock>
 
-### Run the Script
+### Running the Script
 
 - Navigate to the example directory
 
@@ -31,16 +31,16 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch
 
     </NewCodeBlock>
 
-- Prepare the input image. The following image is used as an example:
+- Prepare the input image. The following image is used as an example input
 
   {" "}
 
   <div style={{ textAlign: "center" }}>
     <img src="/en/img/dragon/q6a/re_input.webp" style={{ width: "50%" }} />
-    Input Image
+    Input image
   </div>
 
-- Execute the inference
+- Run the inference
 
     <NewCodeBlock tip="Device" type="device">
 
@@ -60,11 +60,11 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch
     1123.1ms [WARNING] Time: model_destroy realesrgan 9.12
   ```
 
-- Output Results
+- Output result
 
   {" "}
 
   <div style={{ textAlign: "center" }}>
     <img src="/en/img/dragon/q6a/re_output.webp" style={{ width: "50%" }} />
-    Output Image
+    Output image
   </div>
