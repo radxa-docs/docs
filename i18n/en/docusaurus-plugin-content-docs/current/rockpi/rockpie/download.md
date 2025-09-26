@@ -5,7 +5,12 @@ title: Resource Download
 
 # Resource Download
 
-## Operating system images
+## Official Operating System
+
+- Radxa OS
+  - [Radxa ROCK Pi E Debian Buster Server](https://github.com/radxa/rock-pi-images-released/releases/download/v20210824/rockpie_debian_buster_server_arm64_20210824_0255-gpt.img.gz)
+
+## Third-party OS Images
 
 - [Radxa ROCK Pi E Armbian](https://www.armbian.com/rockpie/)
 
