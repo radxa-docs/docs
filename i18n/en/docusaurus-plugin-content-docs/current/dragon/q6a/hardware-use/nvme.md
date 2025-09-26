@@ -6,6 +6,17 @@ sidebar_position: 4
 
 The Radxa Dragon Q6A features an onboard M.2 M Key 2230 slot, ideal for users requiring high read/write speeds and large storage capacity. It can be used as a system boot drive or to expand storage space.
 
+## Interface Parameters
+
+| Parameter         | Description                             |
+| ----------------- | --------------------------------------- |
+| Interface Type    | M.2 M Key 2230 Slot                     |
+| Protocol/Channels | PCIe Gen3 x2 (2 lanes)                  |
+| Read Speed        | 1649 MB/s (Theoretical up to 2000 MB/s) |
+| Write Speed       | 1467 MB/s (Theoretical up to 2000 MB/s) |
+
+> Note: Actual read/write speeds may vary depending on the NVMe SSD brand and usage environment. The above speeds are test data for reference only.
+
 ## Hardware Connection
 
 Install the M.2 M Key 2230 SSD into the M.2 M Key 2230 slot on the Radxa Dragon Q6A.
