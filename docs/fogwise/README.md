@@ -1,9 +1,9 @@
 ---
-sidebar_position: 30
-sidebar_class_name: hidden
-slug: /sophon
+sidebar_position: 1
+title: Fogwise® 边缘计算
+slug: /fogwise
 ---
 
-# SG 系列
+# Fogwise® 边缘计算
 
-SG 系列是瑞莎基于 SOPHGO SG2300X 研发的一系列计算模块和边缘智算盒子。它有高达32TOPS@INT8的算力， 具备强大完备的深度学习工具链、最高达32路视频处理能力。用途广泛，可靠性高。
+瑞莎 FogWise® 边缘计算系列以开放生态和工业级设计为底座，提供从设备端推理到云边协同的一体化能力；产品覆盖边缘智算盒、工业网关、边缘服务器，助力企业在多场景快速落地稳定、可规模化的边缘智能。

@@ -1,0 +1,33 @@
+---
+sidebar_position: 4
+---
+
+# 硬件接口说明
+
+<!-- 以下接口如果没有就删除，如果有的接口没有列出来，就加上去 -->
+
+## 接口总览
+
+<img src="/img/airbox/radxa_fogwise_airbox.webp" alt="radxa-aicore-sg2300x interfaces" />
+
+## 电源接口
+
+**支持 20V / 65W / 3.25A 的电源输入。**
+
+## 调试串口
+
+使用 USB Type-A 转 Type-C 数据线连接整机 Debug 口和 PC 端，波特率 115200。
+
+## MicroSD
+
+支持热插拔。目前推荐三星和闪迪的SD卡。
+
+## 有线网口
+
+一个是WAN口，一个是LAN口。
+
+## 底盖内视
+
+<img src="/img/airbox/mark_fogwise_airbox_02.webp" alt="radxa-aicore-sg2300x interfaces" />
+
+如上图，M.2 M-KEY 可接 2230 NVME SSD，如 PM991 NVME SSD。M.2 E-KEY 可接 Wi-Fi/BT 模块，如 Intel 7265NGW 和 Radxa Wireless A8。
