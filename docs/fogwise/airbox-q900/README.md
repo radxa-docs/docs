@@ -28,18 +28,9 @@ Fogwise® AIRbox Q900 是一款嵌入式人工智能微型服务器，算力高�
 |    外壳    | 散热铝合金外壳，内置 PWM 调速风扇                                                                                                                                                                                                                             |
 |            |                                                                                                                                                                                                                                                               |
 
-## 实物照片
+## 接口概览
 
 ![Fogwise® AIRbox Q900 Overview](/img/fogwise/airbox-q900/airbox-q900-ports.webp)
-
-| 编号 | 接口                   | 编号 | 接口                   | 编号 | 接口           |
-| ---- | ---------------------- | ---- | ---------------------- | ---- | -------------- |
-| 1    | 12V 电源输入           | 7    | HDMI 2.0               | 13   | M.2 M Key 2230 |
-| 2    | USB 3.2 OTG Type-A 口  | 8    | Nano SIM 卡槽          | 14   | 关机键         |
-| 3    | USB 3.2 HOST Type-A 口 | 9    | 3x 外置天线            | 15   | EDL 按键       |
-| 4    | 2.5GbE RJ45 LAN        | 10   | RTC 电池座             | 16   | 风扇接口       |
-| 5    | 2.5GbE RJ45 WAN        | 11   | Mini PCIe 插槽         |      |                |
-| 6    | Type-C 串口控制台      | 12   | eMMC & UFS 连接器 (NC) |      |                |
 
 ## 芯片框图
 
