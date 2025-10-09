@@ -18,10 +18,10 @@ The Radxa Cubie A7A features a PCIe 3.0 FPC interface that supports PCIe Gen3.0 
 To use the PCIe 3.0 FPC interface, you'll need to purchase a PCIe to M.2 M Key HAT and install it according to the accessory instructions.
 :::
 
-#### [Using an M.2 NVMe SSD Enclosure](/cubie/a7a/getting-started/install-system/nvme-system/nvme_reader)
+#### [Using an M.2 NVMe SSD Enclosure](./reader.md)
 
 This guide explains how to install and boot the system when you have an M.2 NVMe SSD enclosure.
 
-#### [Without an M.2 NVMe SSD Enclosure](/cubie/a7a/getting-started/install-system/nvme-system/no_nvme_reader)
+#### [Without an M.2 NVMe SSD Enclosure](./no-reader.md)
 
 This guide explains how to install and boot the system without using an M.2 NVMe SSD enclosure.
