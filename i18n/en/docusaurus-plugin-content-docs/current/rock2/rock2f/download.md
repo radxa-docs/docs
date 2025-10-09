@@ -36,6 +36,7 @@ Radxa ROCK 2F V1.0
 
 [Schematic v1.0 pdf](https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_schematic.pdf)  
 [Components Placement Map v1.0 pdf](https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_components_placement_map.pdf)
+[PCBA 3D v1.0 stp](https://dl.radxa.com/rock2/2f/2F_pcba_20240401.zip)
 
 ## Quality Certification
 
