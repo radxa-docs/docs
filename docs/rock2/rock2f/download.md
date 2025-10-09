@@ -34,8 +34,10 @@ ROCK 2A 和 ROCK 2F 使用同一个安卓系统镜像。
 
 Radxa ROCK 2F V1.0 版本
 
-[v1.0 原理图 pdf](https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_schematic.pdf)  
+[v1.0 原理图 pdf](https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_schematic.pdf)
+
 [v1.0 位号图 pdf](https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_components_placement_map.pdf)
+
 [v1.0 PCBA 3D 模型文件](https://dl.radxa.com/rock2/2f/2F_pcba_20240401.zip)
 
 ## 质量认证
