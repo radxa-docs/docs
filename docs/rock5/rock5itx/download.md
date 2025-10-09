@@ -8,7 +8,7 @@ import Images from "./\_image.mdx"
 
 ## 硬件设计
 
-Radxa ROCK 5 ITX V1.11版本
+Radxa ROCK 5 ITX
 
 [V1.11 2D dxf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_2d_dxf.zip)
 
