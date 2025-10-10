@@ -96,4 +96,4 @@ Please follow the [Fan usage tutorial](./getting-started/interface-usage/fan).
 
 ## Q11: ROCK 5B, can I use M.2 WIFI to nvme adapter board to connect a 2230 SSD as system disk?
 
-No, it can be used as a system disk, but it can be used as a storage disk.
+No, it cannot be used as a system disk, but it can be used as a storage disk.
