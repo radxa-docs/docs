@@ -45,3 +45,9 @@ System Flashing Tools:
 
 - [Schematic V1.10](https://dl.radxa.com/cubie/a7a/docs/hw/radxa_cubie_a7a_v1.10_schematic.pdf)
 - [Component Placement Map V1.10](https://dl.radxa.com/cubie/a7a/docs/hw/radxa_cubie_a7a_v1.10_Components_Placement_map.pdf)
+
+## Reference Documentation
+
+- [Tina5.0 AIoT Documentation](https://gitlab.com/tina5.0_aiot/product/docs/)
+
+This document primarily introduces the hardware, software, tools, and mass production documentation for Tina5.0 AIoT based on Linux systems, serving as an important reference for development and mass production.

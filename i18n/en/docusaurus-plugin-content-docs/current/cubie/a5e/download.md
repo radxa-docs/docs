@@ -68,3 +68,9 @@ We strongly recommend that beginners download GPT format Radxa OS official image
 - [Schematic V1.20](https://dl.radxa.com/cubie/a5e/docs/hw/v1.2/radxa_cubie_a5e_schematic_v1.2_20250113.pdf)
 - [Component Placement Map V1.20](https://dl.radxa.com/cubie/a5e/docs/hw/v1.2/radxa_cubie_a5e_components_placement_map_v1.2_20250113.pdf)
 - [3D Files V1.20](https://dl.radxa.com/cubie/a5e/docs/hw/v1.2/radxa_cubie_a5e_pcba_3d_v1.2_stp_20250224.zip)
+
+## Reference Documentation
+
+- [Tina5.0 AIoT Documentation](https://gitlab.com/tina5.0_aiot/product/docs/)
+
+This document primarily introduces the hardware, software, tools, and mass production documentation for Tina5.0 AIoT based on Linux systems, serving as an important reference for development and mass production.

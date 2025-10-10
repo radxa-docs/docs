@@ -45,3 +45,9 @@ SD卡启动盘制作工具：
 
 - [原理图 V1.10](https://dl.radxa.com/cubie/a7a/docs/hw/radxa_cubie_a7a_v1.10_schematic.pdf)
 - [位号图 V1.10](https://dl.radxa.com/cubie/a7a/docs/hw/radxa_cubie_a7a_v1.10_Components_Placement_map.pdf)
+
+## 参考资料
+
+- [Tina5.0 AIoT 文档](https://gitlab.com/tina5.0_aiot/product/docs/)
+
+该文档主要介绍 Tina5.0 AIoT 领域基于 Linux 系统的相关硬件、软件、工具以及量产文档，是开发和量产的重要参考。

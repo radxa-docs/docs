@@ -68,3 +68,9 @@ sidebar_position: 8
 - [原理图 V1.20](https://dl.radxa.com/cubie/a5e/docs/hw/v1.2/radxa_cubie_a5e_schematic_v1.2_20250113.pdf)
 - [位号图 V1.20](https://dl.radxa.com/cubie/a5e/docs/hw/v1.2/radxa_cubie_a5e_components_placement_map_v1.2_20250113.pdf)
 - [3D 文件 V1.20](https://dl.radxa.com/cubie/a5e/docs/hw/v1.2/radxa_cubie_a5e_pcba_3d_v1.2_stp_20250224.zip)
+
+## 参考资料
+
+- [Tina5.0 AIoT 文档](https://gitlab.com/tina5.0_aiot/product/docs/)
+
+该文档主要介绍 Tina5.0 AIoT 领域基于 Linux 系统的相关硬件、软件、工具以及量产文档，是开发和量产的重要参考。
