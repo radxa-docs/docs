@@ -36,7 +36,7 @@ After confirming that the Radxa AICore AX-M1 module is pre-installed, press the 
 
 ## Heat Dissipation
 
-The Radxa AICore AX-M1 generates significant heat during operation. To ensure effective heat dissipation, we recommend using a metal case.
+The Radxa AICore AX-M1 generates significant heat during operation. To ensure effective heat dissipation, we recommend using active cooling or passive cooling with a metal case (refer to section 3.1).
 
 ### Installation Example
 
