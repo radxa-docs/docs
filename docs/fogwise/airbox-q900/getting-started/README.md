@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# 快速上手
+# 上手指南
 
 <DocCardList />

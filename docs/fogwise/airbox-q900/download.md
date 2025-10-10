@@ -16,6 +16,12 @@ sidebar_position: 15
 
 Qualcomm Device Loader (QDL) 是 Qualcomm 提供的用于刷写 Qualcomm 芯片的工具。
 
+:::tip 下载说明
+
+根据自己的系统平台下载对应版本的 QDL 工具。
+
+:::
+
 - [启动固件](https://radxa.com/products/fogwise/airbox-q900)
 
 暂未更新下载链接
