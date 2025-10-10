@@ -8,7 +8,7 @@ import Images from "./\_image.mdx"
 
 ## Hardware Design
 
-Radxa ROCK 5 ITX Version V1.11
+Radxa ROCK 5 ITX
 
 [V1.11 2D dxf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_2d_dxf.zip)
 
@@ -19,6 +19,10 @@ Radxa ROCK 5 ITX Version V1.11
 [V1.11 Schematic pdf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_schematic.pdf)
 
 [V1.11 components placement map pdf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_components_placement_map.pdf)
+
+Radxa ROCK 5 ITX+
+
+[V1.12 3D stp](https://dl.radxa.com/rock5/5itx-plus/5ITX_+_pcba_v1_12.zip)
 
 ## Linux Loader & System image
 
