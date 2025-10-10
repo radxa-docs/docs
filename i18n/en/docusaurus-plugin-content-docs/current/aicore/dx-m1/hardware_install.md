@@ -32,8 +32,14 @@ After confirming that the AICore DX-M1 is properly pre-installed, press down on 
    <img src="/en/img/aicore-dx-m1/dx_m1_install.webp" style={{width: '75%', maxWidth: '800px'}} />
 </div>
 
-:::tip Heat Dissipation Notice
+## Heat Dissipation
 
-The Radxa AICore DX-M1 generates significant heat during operation. To ensure effective heat dissipation, we recommend using a metal case for cooling.
+The Radxa AICore DX-M1 generates significant heat during operation. To ensure effective heat dissipation, we recommend using active cooling or passive cooling with a metal case (refer to section 3.1).
 
-:::
+### Installation Example
+
+When installing the Radxa AICore DX-M1 with a metal case: Ensure the thermal pads on both sides are symmetrically positioned to prevent uneven force distribution that could cause module deformation.
+
+<div style={{textAlign: 'center'}}>
+   <img src="/en/img/aicore-dx-m1/aicore_dx_m1_heat.webp" style={{width: '100%', maxWidth: '800px'}} />
+</div>
