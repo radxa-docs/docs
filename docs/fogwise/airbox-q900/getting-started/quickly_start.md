@@ -40,6 +40,10 @@ AIRbox Q900 兼容 PD 协议的 12V DC 电源输入，建议电流 5A 以上，�
 
 将显示器、键盘、鼠标、以太网数据线等外设连接到 Fogwise® AIRbox Q900 上，最后使用 12V DC 电源适配器给 Fogwise® AIRbox Q900 供电。
 
+<div style={{textAlign: 'center'}}>
+   <img src="/img/fogwise/airbox-q900/airbox-q900-hardware-connect.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ① : 使用 HDMI 数据线连接显示器和主板
 
 ② : 使用以太网数据线连接路由器和主板
@@ -47,10 +51,6 @@ AIRbox Q900 兼容 PD 协议的 12V DC 电源输入，建议电流 5A 以上，�
 ③ : 使用 USB Type-A 接口连接鼠标或键盘，若有 USB 扩展坞，可以通过扩展坞连接鼠标和键盘
 
 ④ : 使用 12V DC 电源适配器给主板供电
-
-<div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-hardware-connect.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
 
 :::tip USB 扩展坞
 

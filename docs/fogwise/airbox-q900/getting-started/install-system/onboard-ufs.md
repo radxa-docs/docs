@@ -22,6 +22,10 @@ Fogwise® AIRbox Q900 板载 128GB UFS。
 
 主板上电前，按住 EDL 按键；主板上电后，松开 EDL 按键，主板会自动进入 EDL 模式。
 
+<div style={{textAlign: 'center'}}>
+   <img src="/img/fogwise/airbox-q900/airbox-q900-enter-edl-mode.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ① : 使用插针或牙签按住 EDL 按键
 
 ② : 使用 12V DC 电源适配器给主板供电
@@ -29,10 +33,6 @@ Fogwise® AIRbox Q900 板载 128GB UFS。
 ③ : 松开 EDL 按键
 
 ④ : 使用双头 USB Type-A 数据线连接主板的 USB 3.1 OTG Type-A 接口和电脑的 USB Type-A 接口
-
-<div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-enter-edl-mode.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
 
 ### 验证 EDL 模式
 
