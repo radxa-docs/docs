@@ -75,9 +75,7 @@ lsusb
 若主板进入 QDL 模式，终端会输出类似以下结果：
 
 ```
-
 Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
-
 ```
 
 </TabItem>
@@ -92,66 +90,280 @@ Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
 进入 [资源汇总下载](../../download.md) 页面下载启动固件和系统镜像文件。
 
-使用说明：
+### 设置环境变量
 
-1. 将 QDL 工具和启动固件、系统镜像文件放在同一目录下并解压
+设置环境变量，可以简化后续的烧录操作，简化命令。
 
-2. 进入文件所在位置，打开终端烧录命令，其中调用 QDL 工具采用相对路径运行
+<Tabs queryString="Platform">
+
+<TabItem value="Windows">
+
+1. 使用 `Win + R` 打开运行对话框，输入 `sysdm.cpl`，点击 `确定`。
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/fogwise/airbox-q900/airbox-q900-set-env-variable-01.webp" style={{width: '50%', maxWidth: '1200px'}} />
+</div>
+
+2. 在 `System Properties` 选项窗口中，点击 `Advanced` 选项卡，点击 `Environment Variable ...` 按钮。
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/fogwise/airbox-q900/airbox-q900-set-env-variable-02.webp" style={{width: '50%', maxWidth: '1200px'}} />
+</div>
+
+3. 在 `Environment Variables` 选项窗口中，双击 `System variables` 下的 Path 变量。
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/fogwise/airbox-q900/airbox-q900-set-env-variable-03.webp" style={{width: '50%', maxWidth: '1200px'}} />
+</div>
+
+4. 在 `Edit Environment Variable` 选项窗口中，点击 `New` 按钮，输入 QDL 工具的路径，点击 `OK` 按钮。
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/fogwise/airbox-q900/airbox-q900-set-env-variable-04.webp" style={{width: '50%', maxWidth: '1200px'}} />
+</div>
+
+5. 完成以上操作，重新打开终端，如果输入 `qdl` 命令可以查看到版本信息，说明设置成功。
+
+<NewCodeBlock tip="Windows$" type="host">
+
+```
+qdl
+```
+
+</NewCodeBlock>
+
+终端输出示例：
+
+```
+Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
+ -d, --debug                    Print detailed debug info
+ -v, --version                  Print the current version and exit
+ -n, --dry-run                  Dry run execution, no device reading or flashing
+ -f, --allow-missing            Allow skipping of missing files during flashing
+ -s, --storage=T                Set target storage type T: <emmc|nand|ufs>
+ -l, --finalize-provisioning    Provision the target storage
+ -i, --include=T                Set an optional folder T to search for files
+ -S, --serial=T                 Select target by serial number T (e.g. <0AA94EFD>)
+ -u, --out-chunk-size=T         Override chunk size for transaction with T
+ -t, --create-digests=T         Generate table of digests in the T folder
+ -D, --vip-table-path=T         Use digest tables in the T folder for VIP
+ -h, --help                     Print this usage info
+
+Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+```
+
+</TabItem>
+
+<TabItem value="Ubuntu">
+
+1. 查看路径
+
+进入 QDL 工具的目录，使用 `realpath` 命令查看 QDL 工具的路径。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+realpath qdl
+```
+
+</NewCodeBlock>
+
+终端输出示例：
+
+```
+/home/milir/download/QDL_2.3.9.2_Linux_x64/qdl
+```
+
+2. 可执行权限
+
+使用 `chmod` 命令为 QDL 工具添加可执行权限。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo chmod 777 qdl
+```
+
+</NewCodeBlock>
+
+3. 创建软链接
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo ln -s /home/milir/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
+```
+
+</NewCodeBlock>
+
+4. 验证
+
+在任意位置打开终端，如果可以使用 `qdl` 命令查看到版本信息，说明设置成功。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+qdl
+```
+
+</NewCodeBlock>
+
+终端输出示例：
+
+```
+Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
+ -d, --debug                    Print detailed debug info
+ -v, --version                  Print the current version and exit
+ -n, --dry-run                  Dry run execution, no device reading or flashing
+ -f, --allow-missing            Allow skipping of missing files during flashing
+ -s, --storage=T                Set target storage type T: <emmc|nand|ufs>
+ -l, --finalize-provisioning    Provision the target storage
+ -i, --include=T                Set an optional folder T to search for files
+ -S, --serial=T                 Select target by serial number T (e.g. <0AA94EFD>)
+ -u, --out-chunk-size=T         Override chunk size for transaction with T
+ -t, --create-digests=T         Generate table of digests in the T folder
+ -D, --vip-table-path=T         Use digest tables in the T folder for VIP
+ -h, --help                     Print this usage info
+
+Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+```
+
+</TabItem>
+
+</Tabs>
 
 ### 配置 UFS
 
-<Tabs queryString="Platform">
+进入 `provision` 文件夹下，打开终端，使用以下命令配置 UFS。
 
-<TabItem value="Windows">
+<NewCodeBlock tip="PC$" type="host">
 
-</TabItem>
+```
+qdl --storage ufs prog_firehose_ddr.elf provision_1_2.xml
+```
 
-<TabItem value="Ubuntu">
+</NewCodeBlock>
 
-</TabItem>
+终端输出示例：
 
-</Tabs>
+```
+Waiting for EDL device
+waiting for programmer...
+UFS provisioning succeeded
+```
 
 ### 烧录 SAIL
 
-<Tabs queryString="Platform">
+进入 `fw702-ubuntu-noble-gnome-20250930\sail_no` 文件夹下，打开终端，使用以下命令烧录 SAIL。
 
-<TabItem value="Windows">
+<NewCodeBlock tip="PC$" type="host">
 
-</TabItem>
+```
+qdl --storage spinor prog_firehose_ddr.elf rawprogram0.xml patch0.xml
+```
 
-<TabItem value="Ubuntu">
+</NewCodeBlock>
 
-</TabItem>
-
-</Tabs>
+```
+Waiting for EDL device
+waiting for programmer...
+flashed "SAIL_HYP" successfully
+flashed "SAIL_HYP_BKUP" successfully
+flashed "PrimaryGPT" successfully
+flashed "BackupGPT" successfully
+11 patches applied
+```
 
 ### 烧录 CDT
 
-<Tabs queryString="Platform">
+进入 `fw702-ubuntu-noble-gnome-20250930` 文件夹下，打开终端，使用以下命令烧录 CDT。
 
-<TabItem value="Windows">
+<NewCodeBlock tip="PC$" type="host">
 
-</TabItem>
+```
+qdl prog_firehose_ddr.elf rawprogram3.xml patch3.xml
+```
 
-<TabItem value="Ubuntu">
+</NewCodeBlock>
 
-</TabItem>
+终端输出示例：
 
-</Tabs>
+```
+Waiting for EDL device
+waiting for programmer...
+flashed "PrimaryGPT" successfully
+flashed "BackupGPT" successfully
+13 patches applied
+```
 
 ### 烧录系统镜像
 
-<Tabs queryString="Platform">
+进入 `fw702-ubuntu-noble-gnome-20250930` 文件夹下，打开终端，使用以下命令烧录系统镜像。
 
-<TabItem value="Windows">
+<NewCodeBlock tip="PC$" type="host">
 
-</TabItem>
+```
+qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+```
 
-<TabItem value="Ubuntu">
+</NewCodeBlock>
 
-</TabItem>
+终端输出示例：
 
-</Tabs>
+```
+Waiting for EDL device
+waiting for programmer...
+flashed "efi" successfully at 40329kB/s
+flashed "system" successfully at 3630kB/s
+flashed "PrimaryGPT" successfully
+flashed "BackupGPT" successfully
+flashed "xbl_a" successfully
+flashed "xbl_b" successfully
+flashed "xbl_config_a" successfully
+flashed "xbl_config_b" successfully
+flashed "PrimaryGPT" successfully
+flashed "BackupGPT" successfully
+flashed "xbl_a" successfully
+flashed "xbl_b" successfully
+flashed "xbl_config_a" successfully
+flashed "xbl_config_b" successfully
+flashed "PrimaryGPT" successfully
+flashed "BackupGPT" successfully
+flashed "PrimaryGPT" successfully
+flashed "BackupGPT" successfully
+flashed "aop_a" successfully
+flashed "shrm_a" successfully
+flashed "uefi_a" successfully
+flashed "uefisecapp_a" successfully
+flashed "xbl_ramdump_a" successfully
+flashed "dtb_a" successfully at 32768kB/s
+flashed "tz_a" successfully
+flashed "hyp_a" successfully
+flashed "devcfg_a" successfully
+flashed "cpucp_a" successfully
+flashed "multiimgoem_a" successfully
+flashed "multiimgqti_a" successfully
+flashed "imagefv_a" successfully
+flashed "aop_b" successfully
+flashed "dtb_b" successfully at 65536kB/s
+flashed "imagefv_b" successfully
+flashed "shrm_b" successfully
+flashed "uefi_b" successfully at 3912kB/s
+flashed "uefisecapp_b" successfully
+flashed "xbl_ramdump_b" successfully
+flashed "tz_b" successfully
+flashed "hyp_b" successfully
+flashed "devcfg_b" successfully
+flashed "cpucp_b" successfully
+flashed "multiimgoem_b" successfully
+flashed "multiimgqti_b" successfully
+flashed "toolsfv" successfully
+flashed "PrimaryGPT" successfully
+flashed "BackupGPT" successfully
+65 patches applied
+partition 1 is now bootable
+```
+
+## 使用系统
 
 完成以上操作，可以按照 [快速上手](../quickly_start.md) 教程使用 Fogwise® AIRbox Q900。
