@@ -32,8 +32,14 @@ ROCK 5B+ 板载两个 M.2 M Key 接口，您需要使用其中一个 M.2 M Key �
    <img src="/img/aicore-dx-m1/dx_m1_install.webp" style={{width: '75%', maxWidth: '800px'}} />
 </div>
 
-:::tip 散热说明
+## 散热说明
 
 瑞莎智核 DX-M1 在工作中发热较大，为确保散热效果，我们推荐使用金属外壳散热。
 
-:::
+### 安装示例
+
+瑞莎智核 DX-M1 搭配金属外壳：请确保两侧散热硅胶安装位置对称，避免模块受力不均导致变形。
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/aicore-dx-m1/aicore_dx_m1_heat.webp" style={{width: '100%', maxWidth: '800px'}} />
+</div>
