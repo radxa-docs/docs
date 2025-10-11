@@ -1,12 +1,12 @@
-# AI PC Developer Kit User Guide
+# AI PC Case Kit User Guide
 
 :::tip
-Before assembling the AI PC Developer Kit, users need to remove the heatsink (8420B) from the Orion 6 motherboard!
+Before assembling the AI PC Case Kit, users need to remove the heatsink (8420B) from the Orion 6 motherboard!
 :::
 
-## AI PC Developer Kit Components
+## AI PC Case Kit Components
 
-Unscrew the four CM3\*8mm screws on the bottom cover of the AI PC Developer Kit to reveal the following components.
+Unscrew the four CM3\*8mm screws on the bottom cover of the AI PC Case Kit to reveal the following components.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/o6/ai-pc-01.webp)
@@ -50,7 +50,7 @@ Use a screwdriver to remove the screws securing the acrylic panels, then remove 
 
 ## Removing the Heatsink (8420B)
 
-Before assembling the AI PC Developer Kit, the Radxa 8420B heatsink must be removed
+Before assembling the AI PC Case Kit, the Radxa 8420B heatsink must be removed
 
 ### Step 1: Disconnect the Heatsink Cable
 
@@ -68,7 +68,7 @@ Loosen the four heatsink screws in a cross pattern using a screwdriver to ensure
   ![](/img/o6/ai-pc-05.webp)
 </div>
 
-## Assembling the AI PC Developer Kit
+## Assembling the AI PC Case Kit
 
 ### Step 1: Apply Thermal Paste
 
