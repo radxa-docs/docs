@@ -32,6 +32,6 @@ sidebar_position: 3
 
 ### 无屏模式
 
-无屏模式是指不连接显示器，通过串口登录系统或者 SSH 登录系统。
+无屏模式是指不连接显示器，通过 [串口登录](../system-use/uart-login.md) 系统或者 [SSH 登录](../system-use/ssh-login.md) 系统。
 
 该方式使用命令行进行交互，更多依赖命令行进行系统的操作。
