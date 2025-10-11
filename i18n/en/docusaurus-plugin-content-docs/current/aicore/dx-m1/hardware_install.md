@@ -34,7 +34,7 @@ After confirming that the AICore DX-M1 is properly pre-installed, press down on 
 
 ## Heat Dissipation
 
-The Radxa AICore DX-M1 generates significant heat during operation. To ensure effective heat dissipation, we recommend using active cooling or passive cooling with a metal case (refer to section 3.1).
+The Radxa AICore DX-M1 generates significant heat during operation. To ensure effective heat dissipation, we recommend using active cooling or passive cooling with a metal case (refer to section 2.1).
 
 ### Installation Example
 
