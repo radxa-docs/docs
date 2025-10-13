@@ -22,10 +22,10 @@ cmake --build build --config Release
 ```
 
 :::tip
-If you are using the [Radxa Orion O6](/orion/o6) with an ARM-v9 CPU, you can add the `armv9-a` compile option for hardware-level optimization:
+If you are using the [Radxa Orion O6](/orion/o6) with an ARM-v9 CPU, you can add the `armv9-a` and `KleidiAI` compile option for hardware-level optimization:
 
 ```bash
-cmake -B build -DCMAKE_CXX_FLAGS="-march=armv9-a" -DCMAKE_C_FLAGS="-march=armv9-a"
+cmake -B build -DGGML_NATIVE=OFF -DGGML_CPU_ARM_ARCH=armv9-a+i8mm+dotprod -DGGML_CPU_KLEIDIAI=ON
 cmake --build build --config Release
 ```
 
