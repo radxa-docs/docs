@@ -47,3 +47,518 @@ Cubie A7A supports connecting external devices to the onboard GPIO pins, support
 
    </div>
 </TabItem>
+
+### GPIO Pin Numbering
+
+To control a specific pin, you need to calculate the pin number using the following formula:
+
+| GPIO Chip | Pin Range | Calculation Formula |
+| :-------: | :-------: | :-----------------: |
+| GPIOCHIP0 |   A ~ K   | NUM + 32 \* (A ~ K) |
+| GPIOCHIP1 |    L ~    | NUM + 32 \* (L ~ )  |
+
+Calculation Example:
+
+- PB10
+
+GPIOCHIP0 -> 10 + 32 _ (A ~ K) -> 10 + 32 _ 1 -> 42
+
+- PK4
+
+GPIOCHIP1 -> 4 + 32 _ (A ~ K) -> 4 + 32 _ 10 -> 324
+
+## GPIO Usage
+
+Through the 40-Pin GPIO interface, demonstrate common GPIO usage.
+
+## Install python-periphery
+
+Use the `python-periphery` library to control GPIO pins.
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
+```
+sudo pip3 install python-periphery
+```
+
+</NewCodeBlock>
+
+## GPIO Input
+
+### Hardware Preparation
+
+- Board
+- Dupont wire
+
+### Software Preparation
+
+The following code is used to read the high and low level of the PK4 pin using the python-periphery library.
+
+<details>
+<summary>gpio_input.py</summary>
+
+```
+from periphery import GPIO
+import time
+
+def read_gpio_input():
+    # Configure GPIO input (modify pin number according to actual hardware)
+    # Using pin 324 of /dev/gpiochip0 here (corresponds to PK4)
+    try:
+        # Initialize GPIO in input mode
+        gpio_in = GPIO("/dev/gpiochip0", 324, "in")
+
+        print("Starting GPIO input reading (press Ctrl+C to exit)")
+        while True:
+            # Read pin value
+            value = gpio_in.read()
+            print(f"GPIO input value: {value} (True=High, False=Low)")
+            time.sleep(1)  # Read once per second
+
+    except KeyboardInterrupt:
+        print("\nProgram exited")
+    except Exception as e:
+        print(f"Error occurred: {e}")
+    finally:
+        # Ensure resources are released
+        try:
+            gpio_in.close()
+        except:
+            pass
+
+if __name__ == "__main__":
+    read_gpio_input()
+```
+
+</details>
+
+#### Test Steps
+
+1. Connect the PK4 pin to the GND or 3.3V pin
+
+2. Save the code as `gpio_input.py`
+
+3. Run the test code using `python3 gpio_input.py`
+
+### Experimental Phenomenon
+
+The terminal will output False or True information.
+
+False represents a low level, True represents a high level.
+
+## GPIO Output
+
+### Hardware Preparation
+
+- Board
+- Dupont wire
+
+### Software Preparation
+
+#### Test Code
+
+The following code is used to control the PK3 pin to output high and low levels, and then read the high and low levels of the PK3 pin through the PK4 pin.
+
+<details>
+<summary>gpio_output.py</summary>
+
+```
+from periphery import GPIO
+import time
+
+def gpio_output_with_feedback():
+    # GPIO Configuration (modify pin numbers based on your hardware)
+    # PK3 (output) → maps to pin 323 of /dev/gpiochip0
+    # PK4 (input)  → maps to pin 324 of /dev/gpiochip0
+    OUTPUT_PIN_CHIP = "/dev/gpiochip0"
+    OUTPUT_PIN_NUMBER = 323  # PK3 (output pin, controlled by the script)
+    INPUT_PIN_NUMBER = 324   # PK4 (input pin, reads PK3's output state)
+
+    # Initialize GPIO objects as None first (for safe release later)
+    gpio_out = None
+    gpio_in = None
+
+    try:
+        # Initialize PK3 as OUTPUT mode
+        gpio_out = GPIO(OUTPUT_PIN_CHIP, OUTPUT_PIN_NUMBER, "out")
+        # Initialize PK4 as INPUT mode
+        gpio_in = GPIO(OUTPUT_PIN_CHIP, INPUT_PIN_NUMBER, "in")
+
+        # Print test initialization info
+        print("=== GPIO Output-Input Feedback Test Started ===")
+        print(f"Controlled Pin (PK3): {OUTPUT_PIN_CHIP} - Pin {OUTPUT_PIN_NUMBER} (OUTPUT)")
+        print(f"Monitoring Pin (PK4): {OUTPUT_PIN_CHIP} - Pin {INPUT_PIN_NUMBER} (INPUT)")
+        print("Test Behavior: PK3 toggles HIGH/LOW every 1s; PK4 verifies PK3's state")
+        print("Press Ctrl+C to stop the test\n")
+
+        # Main loop: Toggle PK3 and read PK4 feedback
+        while True:
+            # 1. Set PK3 to HIGH level
+            gpio_out.write(True)
+            time.sleep(0.1)  # Short delay for signal stabilization (avoid read lag)
+            pk4_reading = gpio_in.read()
+            print(f"PK3 Output: HIGH (True) | PK4 Reading: {pk4_reading}")
+
+            # Keep PK3 HIGH for 1 second
+            time.sleep(1)
+
+            # 2. Set PK3 to LOW level
+            gpio_out.write(False)
+            time.sleep(0.1)  # Short delay for signal stabilization
+            pk4_reading = gpio_in.read()
+            print(f"PK3 Output: LOW (False) | PK4 Reading: {pk4_reading}")
+
+            # Keep PK3 LOW for 1 second
+            time.sleep(1)
+
+    # Handle user-initiated exit (Ctrl+C)
+    except KeyboardInterrupt:
+        print("\n\nTest stopped by user (Ctrl+C)")
+    # Handle other unexpected errors (e.g., GPIO access failure)
+    except Exception as e:
+        print(f"\nError during test: {str(e)}")
+    # Ensure GPIO resources are released even if an error occurs
+    finally:
+        print("\nReleasing GPIO resources...")
+        # Safely close PK3 (set to LOW first to avoid residual high level)
+        if gpio_out:
+            try:
+                gpio_out.write(False)
+                gpio_out.close()
+                print(f"Successfully closed PK3 (Pin {OUTPUT_PIN_NUMBER})")
+            except Exception as close_err:
+                print(f"Failed to close PK3 (Pin {OUTPUT_PIN_NUMBER}): {str(close_err)}")
+        # Safely close PK4
+        if gpio_in:
+            try:
+                gpio_in.close()
+                print(f"Successfully closed PK4 (Pin {INPUT_PIN_NUMBER})")
+            except Exception as close_err:
+                print(f"Failed to close PK4 (Pin {INPUT_PIN_NUMBER}): {str(close_err)}")
+        print("Resource release complete.")
+
+# Run the test when the script is executed directly
+if __name__ == "__main__":
+    gpio_output_with_feedback()
+```
+
+</details>
+
+#### Test Steps
+
+1. Short the PK3 pin and PK4 pin
+
+2. Save the code as `gpio_output.py`
+
+3. Run the test code using `sudo python3 gpio_output.py`
+
+### Experimental Phenomenon
+
+The terminal will output False or True information.
+
+False represents a low level, True represents a high level.
+
+## PWM Output
+
+### Hardware Preparation
+
+- Board
+- LED
+- Dupont wire
+
+### Software Preparation
+
+#### Test Code
+
+The following code is used to test PWM output using the python-periphery library.
+
+<details>
+<summary>pwm_output.py</summary>
+
+```
+from periphery import PWM
+import time
+
+def pwm_test():
+    try:
+        # Configure PWM parameters - modify according to your hardware
+        # Common PWM paths: /sys/class/pwm/pwmchip0/pwm0, etc.
+        PWM_CHIP = 10       # PWM chip number
+        PWM_CHANNEL = 2     # PWM channel number
+
+        # Initialize PWM
+        pwm = PWM(PWM_CHIP, PWM_CHANNEL)
+
+        print(f"PWM Test: Using PWM{PWM_CHIP}.{PWM_CHANNEL} (Pin: PD12)")
+
+        # Set PWM frequency to 1kHz
+        frequency = 1000  # 1000 Hz
+        pwm.frequency = frequency
+        print(f"  Set frequency: {frequency} Hz")
+
+        # Enable PWM output
+        pwm.enable()
+        print("  PWM enabled")
+
+        # Test different duty cycles (0% to 100%)
+        duty_cycles = [0.0, 0.25, 0.5, 0.75, 1.0]
+
+        for duty in duty_cycles:
+            pwm.duty_cycle = duty
+            print(f"  Set duty cycle: {duty*100:.1f}%")
+            time.sleep(1)  # Maintain current duty cycle for 1 second
+
+        # Cleanup
+        pwm.disable()
+        pwm.close()
+        print("  PWM disabled and closed")
+        print("PWM Test completed successfully")
+
+    except Exception as e:
+        print(f"PWM Test failed: {e}")
+
+if __name__ == "__main__":
+    print("Starting PWM Signal Test...\n")
+    pwm_test()
+```
+
+</details>
+
+#### Test Steps
+
+1. Enter `rsetup` -> `Overlay` -> `Manage overlays` and check the `Enable PWM1-2` option, then restart the system
+
+2. Connect the positive terminal of the LED to the PD12 pin
+
+3. Connect the negative terminal of the LED to the GND pin
+
+4. Save the code as `pwm_output.py`
+
+5. Run the test code using `sudo python3 pwm_output.py`
+
+### Experimental Phenomenon
+
+The connected LED will flash with different brightness, from bright to dark.
+
+## UART Usage
+
+UART（Universal Asynchronous Receiver/Transmitter） is a widely used serial communication protocol, used for asynchronous serial data transmission between embedded systems, computers, and peripherals.
+
+### Hardware Preparation
+
+- Board
+- Dupont wire
+
+### Software Preparation
+
+#### Test Code
+
+The following code is used to test UART4 loopback communication using the python-periphery library.
+
+<details>
+<summary>uart_example.py</summary>
+
+```
+from periphery import Serial
+import time
+
+def uart_test():
+    try:
+        # Modify the serial device path according to your hardware, common paths include /dev/ttyS0, /dev/ttyS1, /dev/ttyUSB0, etc.
+        # PJ24(TX)  PJ25(RX)
+        UART_DEVICE = "/dev/ttyAS4"
+        BAUDRATE = 115200
+
+        # Initialize serial port
+        serial = Serial(UART_DEVICE, BAUDRATE)
+
+        print(f"UART Test: Opening serial port {UART_DEVICE}, baud rate {BAUDRATE}")
+
+        # Send test data
+        test_message = "Hello, UART Test!\n"
+        serial.write(test_message.encode())
+        print(f"  Sent data: {test_message.strip()}")
+
+        # Wait for data transmission
+        time.sleep(0.1)
+
+        # Try to read data (if loopback or other device responds)
+        if serial.input_waiting() > 0:
+            received_data = serial.read(serial.input_waiting())
+            print(f"  Received data: {received_data.decode().strip()}")
+        else:
+            print("  No data received (normal unless loopback is connected)")
+
+        serial.close()
+        print("UART test completed")
+
+    except Exception as e:
+        print(f"UART test failed: {e}")
+
+if __name__ == "__main__":
+    uart_test()
+```
+
+</details>
+
+#### Test Steps
+
+1. Enter `rsetup` -> `Overlay` -> `Manage overlays` and check the `Enable UART4` option, then restart the system
+
+2. Short the PJ24 pin and PJ25 pin
+
+3. Save the code as `uart_example.py`
+
+4. Run the test code using `sudo python3 uart_example.py`
+
+### Experimental Phenomenon
+
+The terminal will output the sent and received information, and you can judge whether the UART loopback test is successful based on the terminal output information.
+
+## I2C Usage
+
+I2C is a widely used synchronous serial communication protocol developed by Philips (now NXP), mainly used for short-distance chip-to-chip communication.
+
+### Hardware Preparation
+
+- Board
+- I2C device (e.g., OLED display, its corresponding I2C address is 0x3C)
+- Dupont wire
+
+### Software Preparation
+
+#### Test Code
+
+The following code is used to test I2C communication using the python-periphery library.
+
+<details>
+<summary>i2c_example.py</summary>
+
+```
+from periphery import I2C
+
+def i2c_device_detection():
+    """I2C Test - Check if device exists
+    Pin reference: PJ23 (SDA), PJ22 (SCL)
+    """
+    # Modify according to your hardware connection
+    # Common I2C bus devices: /dev/i2c-0, etc.
+    I2C_BUS = "/dev/i2c-7"
+    TARGET_ADDR = 0x3C  # Target address to check
+
+    i2c = None  # Initialize I2C object reference
+    try:
+        # Initialize I2C object
+        i2c = I2C(I2C_BUS)
+
+        # Attempt a simple read/write operation to detect device
+        # Sending a single 0x00 byte as test communication
+        msgs = [I2C.Message([0x00])]
+        i2c.transfer(TARGET_ADDR, msgs)
+
+        print(f"I2C Test: Device found at address 0x{TARGET_ADDR:02X}")
+        return True
+
+    except Exception as e:
+        # Exception (e.g., IOError) usually indicates no device or no response
+        print(f"I2C Test: No device or no response at address 0x{TARGET_ADDR:02X}: {e}")
+        return False
+    finally:
+        # Ensure I2C resources are released
+        if i2c is not None:
+            try:
+                i2c.close()
+            except:
+                pass
+
+if __name__ == "__main__":
+    print("Starting I2C Device Detection...")
+    i2c_device_detection()
+    print("I2C Test completed")
+```
+
+</details>
+
+#### Test Steps
+
+1. Enter `rsetup` -> `Overlay` -> `Manage overlays` and check the `Enable TWI7` option, then restart the system
+
+2. Connect the SCL pin of the OLED display to the PJ22 pin, connect the SDA pin of the OLED display to the PJ23 pin, connect the VCC to 5V, and connect the GND to GND
+
+3. Save the code as `i2c_example.py`
+
+4. Run the test code using `sudo python3 i2c_example.py`
+
+### Experimental Phenomenon
+
+The script function is to check if a specific I2C device exists on the specified I2C bus, and can determine if the I2C device is working normally.
+
+## SPI Usage
+
+SPI (Serial Peripheral Interface) is a high-speed, full-duplex, synchronous serial communication protocol developed by Motorola (now NXP), mainly used for short-distance chip-to-chip communication, commonly used in data transmission between sensors, storage devices (such as Flash), and displays.
+
+### Hardware Preparation
+
+- Board
+- Dupont wire
+
+### Software Preparation
+
+#### Test Code
+
+The following code is used to test SPI loopback communication using the python-periphery library.
+
+<details>
+<summary>spi_example.py</summary>
+
+```
+from periphery import SPI
+
+def spi_communication_test():
+    # Data to be transmitted (4 bytes)
+    transmit_data = [0xAA, 0xBB, 0xCC, 0xDD]
+
+    try:
+        # Initialize SPI resource
+        # Parameters: SPI device path, mode 0, 1MHz clock frequency
+        spi = SPI("/dev/spidev3.0", 0, 1000000)
+
+        # Transmit data and receive response simultaneously
+        # SPI is full-duplex, so data is sent and received at the same time
+        received_data = spi.transfer(transmit_data)
+
+        # Print test results
+        print("SPI Test:")
+        print("  Transmitted data: [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*transmit_data))
+        print("  Received data:    [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*received_data))
+
+    except Exception as e:
+        print(f"SPI Test failed: {e}")
+    finally:
+        # Ensure SPI resource is released
+        try:
+            spi.close()
+        except:
+            pass
+
+if __name__ == "__main__":
+    print("Starting SPI Communication Test...\n")
+    spi_communication_test()
+    print("\nSPI Test completed")
+```
+
+</details>
+
+#### Test Steps
+
+1. Enter `rsetup` -> `Overlay` -> `Manage overlays` and check the `Enable spidev on SPI3` option, then restart the system
+
+2. Connect the PK6 pin and PK7 pin
+
+3. Save the code as `spi_example.py`
+
+4. Run the test code using `sudo python3 spi_example.py`
+
+### Experimental Phenomenon
+
+The terminal will output the sent and received information, and you can judge whether the SPI loopback test is successful based on the terminal output information.
