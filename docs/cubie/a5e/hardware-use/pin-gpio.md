@@ -156,7 +156,7 @@ False 代表低电平，True 代表高电平。
 
 #### 测试代码
 
-以下代码是使用 python-periphery 库来控制 PK3 引脚输出高低电平，然后通过 PK4 引脚读取 PK3 引脚的高低电平。
+以下代码是使用 python-periphery 库来控制 PI4 引脚输出高低电平，然后通过 PI5 引脚读取 PI4 引脚的高低电平。
 
 <details>
 <summary>gpio_output.py</summary>
