@@ -8,15 +8,20 @@ sidebar_position: 10
 
 **Radxa X4 BIOS**
 
-- [Radxa X4 Standard BIOS V002: adds 16GB RAM support](https://rock.sh/x4-bios-update)
+- X4 With Onboard eMMC:[Radxa X4 Standard BIOS V007: improve eMMC boot stability](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V007.zip)
 
-- [Radxa X4 custom BIOS V002 T: supports IBECC option and hidden option enablement](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
+- X4 Without Onboard eMMC:[Radxa X4 Standard BIOS V004: support ASM2806/1806, added secure boot option](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
+
+<details>
+<summary>Old version BIOS</summary>
 
 - [Radxa X4 custom BIOS V003: PCIE Bifurcation ver (only 4 x1)](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V003.zip)
 
-- [Radxa X4 Standard BIOS V004: support ASM2806/1806, added secure boot option](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
+- [Radxa X4 custom BIOS V002 T: supports IBECC option and hidden option enablement](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
 
-- [Radxa X4 Standard BIOS V007: improve eMMC boot stability](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V007.zip)
+- [Radxa X4 Standard BIOS V002: adds 16GB RAM support](https://rock.sh/x4-bios-update)
+
+</details>
 
 :::warning
 

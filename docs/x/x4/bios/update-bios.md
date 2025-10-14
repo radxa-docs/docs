@@ -8,15 +8,20 @@ sidebar_position: 10
 
 **Radxa X4 BIOS**
 
-- [Radxa X4 标准 BIOS V0002 新增 16GB 内存支持](https://rock.sh/x4-bios-update)
+- X4 板载 eMMC 版本：[Radxa X4 标准 BIOS V007: 提升 eMMC 启动稳定性](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V007.zip)
 
-- [Radxa X4 自定义 BIOS V002 T 支持启用 IBECC 选项和隐藏选项](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
+- X4 无 eMMC 版本：[Radxa X4 标准 BIOS V004, 支持 ASM2806/1806, 添加了安全启动选项](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
+
+<details>
+<summary>旧版本 BIOS</summary>
 
 - [Radxa X4 自定义 BIOS V003: PCIE Bifurcation ver (only 4 x1)](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V003.zip)
 
-- [Radxa X4 标准 BIOS V004, 支持 ASM2806/1806, 添加了安全启动选项](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
+- [Radxa X4 自定义 BIOS V002 T 支持启用 IBECC 选项和隐藏选项](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
 
-- [Radxa X4 标准 BIOS V007: 提升 eMMC 启动稳定性](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V007.zip)
+- [Radxa X4 标准 BIOS V0002 新增 16GB 内存支持](https://rock.sh/x4-bios-update)
+
+</details>
 
 :::warning
 
