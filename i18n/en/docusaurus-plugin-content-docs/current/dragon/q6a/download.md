@@ -22,7 +22,11 @@ For detailed steps on flashing the SPI boot firmware, please refer to the [Flash
 
   - [EDL-NG](https://dl.radxa.com/q6a/images/edl-ng-dist.zip)
 
-- [SPI Boot Firmware](https://dl.radxa.com/q6a/images/flat_build_250801.zip)
+- SPI Boot Firmware
+
+  - [flat_build_250801](https://dl.radxa.com/q6a/images/flat_build_250801.zip)
+  - [flat_build_250929](https://node0.momosan.cc/mirror/share/dragon-q6a/dragon-q6a_flat_build_250929.zip)
+  - [flat_build_251013](https://node0.momosan.cc/mirror/share/dragon-q6a/dragon-q6a_flat_build_251013.zip)
 
 ## Hardware Design
 
