@@ -24,7 +24,7 @@ Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
 
 - SPI 启动固件
 
-  - [flat_build_250801](https://dl.radxa.com/q6a/images/flat_build_250801.zip)
+  - [flat_build_250801](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_251013.zip)
 
 :::tip 最新固件说明
 

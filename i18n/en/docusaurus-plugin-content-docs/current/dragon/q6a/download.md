@@ -24,7 +24,7 @@ For detailed steps on flashing the SPI boot firmware, please refer to the [Flash
 
 - SPI Boot Firmware
 
-  - [flat_build_250801](https://dl.radxa.com/q6a/images/flat_build_250801.zip)
+  - [flat_build_251013](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_251013.zip)
 
 :::tip Firmware update description
 
