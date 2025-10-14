@@ -72,7 +72,7 @@ Through the 40-Pin GPIO interface, demonstrate common GPIO usage.
 
 Use the `python-periphery` library to control GPIO pins.
 
-<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+<NewCodeBlock tip="radxa@cubie-a7z$" type="device">
 
 ```
 sudo pip3 install python-periphery
