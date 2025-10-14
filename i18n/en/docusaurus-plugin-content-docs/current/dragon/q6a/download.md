@@ -25,8 +25,15 @@ For detailed steps on flashing the SPI boot firmware, please refer to the [Flash
 - SPI Boot Firmware
 
   - [flat_build_250801](https://dl.radxa.com/q6a/images/flat_build_250801.zip)
-  - [flat_build_250929](https://node0.momosan.cc/mirror/share/dragon-q6a/dragon-q6a_flat_build_250929.zip)
-  - [flat_build_251013](https://node0.momosan.cc/mirror/share/dragon-q6a/dragon-q6a_flat_build_251013.zip)
+
+:::tip Firmware update description
+
+1. Support eMMC boot
+2. Add default boot device order: USB > SD > NVMe > eMMC > UFS > USB
+3. Add boot device selection
+4. Accelerate boot speed
+
+:::
 
 ## Hardware Design
 

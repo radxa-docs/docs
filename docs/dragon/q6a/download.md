@@ -25,8 +25,15 @@ Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
 - SPI 启动固件
 
   - [flat_build_250801](https://dl.radxa.com/q6a/images/flat_build_250801.zip)
-  - [flat_build_250929](https://node0.momosan.cc/mirror/share/dragon-q6a/dragon-q6a_flat_build_250929.zip)
-  - [flat_build_251013](https://node0.momosan.cc/mirror/share/dragon-q6a/dragon-q6a_flat_build_251013.zip)
+
+:::tip 最新固件说明
+
+1. 支持 eMMC 启动
+2. 增加默认启动设备顺序：USB > SD > NVMe > eMMC > UFS > USB
+3. 增加启动设备选择
+4. 加快启动速度
+
+:::
 
 ## 硬件设计
 
