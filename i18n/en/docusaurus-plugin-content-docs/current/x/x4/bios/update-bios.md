@@ -8,7 +8,7 @@ sidebar_position: 10
 
 **Radxa X4 BIOS**
 
-- X4 With Onboard eMMC:[Radxa X4 Standard BIOS V007: improve eMMC boot stability](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V007.zip)
+- X4 With Onboard eMMC: [Radxa X4 Standard BIOS V007: improve eMMC boot stability](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V007.zip)
 
 - X4 Without Onboard eMMC:[Radxa X4 Standard BIOS V004: support ASM2806/1806, added secure boot option](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
 
