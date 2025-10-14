@@ -288,7 +288,7 @@ def pwm_test():
         # Initialize PWM
         pwm = PWM(PWM_CHIP, PWM_CHANNEL)
 
-        print(f"PWM Test: Using PWM{PWM_CHIP}.{PWM_CHANNEL} (Pin: PD12)")
+        print(f"PWM Test: Using PWM{PWM_CHIP}.{PWM_CHANNEL} (Pin: PI6)")
 
         # Set PWM frequency to 1kHz
         frequency = 1000  # 1000 Hz
