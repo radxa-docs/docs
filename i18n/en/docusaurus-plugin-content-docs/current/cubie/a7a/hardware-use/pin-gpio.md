@@ -61,11 +61,11 @@ Calculation Example:
 
 - PB10
 
-GPIOCHIP0 -> 10 + 32 _ (A ~ K) -> 10 + 32 _ 1 -> 42
+GPIOCHIP0 -> 10 + 32 \* (A ~ K) -> 10 + 32 \* 1 -> 42
 
 - PK4
 
-GPIOCHIP1 -> 4 + 32 _ (A ~ K) -> 4 + 32 _ 10 -> 324
+GPIOCHIP1 -> 4 + 32 \* (A ~ K) -> 4 + 32 \* 10 -> 324
 
 ## GPIO Usage
 
