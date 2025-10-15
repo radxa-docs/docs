@@ -83,8 +83,50 @@ ROCK 5C 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 
 <TabItem value="windows" label="Windows">
 
+<Tabs queryString="system image">
+
+<TabItem value="使用 gpt.img">
+
 <Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="false" emmc={false} pcie={false} sata={false} >
 </Rkdevtool>
+
+</TabItem>
+
+<TabItem value="使用 update.img">
+
+### 安装 RKDevTool
+
+RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件。如果您的 Windows 主机上没有安装 RKDevTool， 请按照以下步骤进行安装。
+
+请下载并解压以下文件以安装 RKDevTool：
+
+- [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (含中文使用文档)
+- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+
+### 安装驱动
+
+下载并解压 DriverAssistant，然后执行 DriverInstall.exe 并点击 `Install Driver` 按钮来安装驱动。
+如果你之前已经安装过其他版本的驱动，请先点击 `Uninstall Driver` 卸载驱动，然后再重新安装。
+
+![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
+
+### 安装 RKDevTool
+
+解压 RKDevTool_Release_v2.96_zh.zip 后，点击 RKDevTool.exe 即可使用。
+
+### 进入 Maskrom 模式
+
+如果操作正常, RKDevTool 将会提示 `发现一个 MASKROM 设备`.
+
+<img src="/img/rkdevtool/rkdevtool_maskrom.webp" alt="rkdevtool maskrom" />
+
+### 按照以下操作烧入镜像
+
+![RK Android update](/img/rock5itx/rock5itx_android_update_zh.webp)
+
+</TabItem>
+
+</Tabs>
 
 </TabItem>
 
