@@ -116,6 +116,10 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 
 ### 进入 Maskrom 模式
 
+如果操作正常, RKDevTool 将会提示 `发现一个 MASKROM 设备`.
+
+<img src="/img/rkdevtool/rkdevtool_maskrom.webp" alt="rkdevtool maskrom" />
+
 ### 按照以下操作烧入镜像
 
 ![RK Android update](/img/rock5itx/rock5itx_android_update_zh.webp)
