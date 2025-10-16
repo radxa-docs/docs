@@ -108,3 +108,9 @@ T1 已知问题：
 [Android 14 RC2 20250903 系统镜像](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/Radxa_Orion_O6_Android14_RC2_20250903_images.zip)
 
 [Android BIOS 0.0.1 版本镜像](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/orion-o6-bios-android-0.0.1.zip)
+
+## Openharmony
+
+[Openharmony 20251016 系统镜像](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_images.zip)
+
+[Openharmony BIOS v1.0 版本镜像](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_bios.zip)
