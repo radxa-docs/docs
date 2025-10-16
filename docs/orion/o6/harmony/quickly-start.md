@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ## 使用前提
 
-- 主板：瑞莎 Orion O6
+- 主板：瑞莎星睿 O6
 - U 盘：用于更新 BIOS
 - 系统启动盘：NVMe SSD
 - 数据线：USB Type-C 数据线
@@ -55,7 +55,7 @@ sudo apt install android-tools-fastboot
 ### 硬件连接
 
 :::tip 接口说明
-Orion O6 主板配备两个 USB Type-C 接口：
+星睿 O6 主板配备两个 USB Type-C 接口：
 
 - **数据接口**：靠近 USB-A 接口，用于连接 PC 进行数据传输。
 - **电源接口**：靠近电源按键，用于连接电源适配器。
@@ -76,7 +76,6 @@ Orion O6 主板配备两个 USB Type-C 接口：
 <div style={{textAlign: 'center'}}>
     <img src="/img/o6/android/android-install-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-
 
 ### 操作步骤
 
