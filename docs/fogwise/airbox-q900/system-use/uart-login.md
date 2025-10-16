@@ -16,7 +16,7 @@ import UART_DEBUG from '../../../common/radxa-os/system-config/\_uart_debug.mdx'
    <img src="/img/fogwise/airbox-q900/airbox-q900-uart-connect.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① : 使用 USB Type-C 数据线连接主板的 USB Type-C 接口和电脑的 USB 接口
+① : 使用 USB Type-C 数据线连接主板的 USB Type-C 接口和 PC 的 USB 接口
 
 ② : 使用 12V DC 电源适配器给主板供电
 

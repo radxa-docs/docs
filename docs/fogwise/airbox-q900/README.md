@@ -43,7 +43,7 @@ Fogwise® AIRbox Q900 是一款嵌入式人工智能微型服务器，支持高�
 ## 接口概览
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-ports.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/img/fogwise/airbox-q900/airbox-q900-ports.webp" style={{width: '75%', maxWidth: '1200px'}} />
 </div>
 
 | 序号 | 说明                                                               | 序号 | 说明              | 序号 | 说明              |
