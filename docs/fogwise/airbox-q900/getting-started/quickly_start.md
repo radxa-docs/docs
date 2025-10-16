@@ -14,6 +14,14 @@ sidebar_position: 1
 
 ## 产品实物
 
+|       产品实物        | 序号 |  视图  | 序号 |   视图   | 序号 |   视图   |
+| :-------------------: | :--: | :----: | :--: | :------: | :--: | :------: |
+| Fogwise® AIRbox Q900 |  ①   | 俯视图 |  ②   | 侧视图 1 |  ③   | 侧视图 2 |
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/fogwise/airbox-q900/airbox-q900-product.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ## 使用前提
 
 ### 硬件准备

@@ -8,6 +8,16 @@ sidebar_position: 10
 
 Fogwise® AIRbox Q900 是一款嵌入式人工智能微型服务器，支持高达 200TOPS@INT8 稀疏算力，支持多种精度（INT8、FP16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备散热铝合金外壳，可在恶劣环境中部署。
 
+## 产品实物
+
+|       产品实物        | 序号 |  视图  | 序号 |   视图   | 序号 |   视图   |
+| :-------------------: | :--: | :----: | :--: | :------: | :--: | :------: |
+| Fogwise® AIRbox Q900 |  ①   | 俯视图 |  ②   | 侧视图 1 |  ③   | 侧视图 2 |
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/fogwise/airbox-q900/airbox-q900-product.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ## 产品规格
 
 | 产品型号   | Fogwise® AIRbox Q900                                                                                                                                                                                                                                                                                                                |
