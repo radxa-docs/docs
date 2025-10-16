@@ -74,7 +74,7 @@ sudo apt install android-tools-fastboot
 - ⑥ 使用 USB-C 电源适配器为主板的 **电源接口** 供电。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/o6/android/android-install-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/o6/android/android-install-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### 操作步骤
@@ -86,7 +86,7 @@ sudo apt install android-tools-fastboot
 - **通过显示器**
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/o6/android/burn-bios-go.webp" style={{width: '50%', maxWidth: '1200px'}} />
+    <img src="/en/img/o6/android/burn-bios-go.webp" style={{width: '50%', maxWidth: '1200px'}} />
 </div>
 
 - **通过串口**
@@ -101,7 +101,7 @@ Press ESCAPE for boot options
 进入 BIOS 后，选择 `Boot Manager` -> `EFI Shell`。系统将自动检测并运行 U 盘中的 `startup.nsh` 脚本来完成 BIOS 刷写。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/o6/android/burn-bios-manager.webp" style={{width: '100%', maxWidth: '600px'}} />
+    <img src="/en/img/o6/android/burn-bios-manager.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 _进入 Boot Manager_

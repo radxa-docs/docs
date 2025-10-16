@@ -50,7 +50,7 @@ sudo apt install android-tools-fastboot
 
 #### 2. Prepare BIOS USB Drive
 
-Visit the [Resource Download](../download.md#Openharmony) page, download the latest HarmonyOS BIOS file, and extract it to the root directory of your USB drive.
+Visit the [Resource Download](../download.md#openharmony) page, download the latest HarmonyOS BIOS file, and extract it to the root directory of your USB drive.
 
 ### Hardware Connections
 
@@ -107,13 +107,13 @@ In the BIOS interface, navigate to `Boot Manager` -> `EFI Shell`. The system wil
 _Entering Boot Manager_
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/o6/android/burn-bios-efi.webp" style={{width: '100%', maxWidth: '600px'}} />
+    <img src="/en/img/o6/android/burn-bios-efi.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 _Selecting EFI Shell_
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/o6/android/burn-bios-sh.webp" style={{width: '100%', maxWidth: '600px'}} />
+    <img src="/en/img/o6/android/burn-bios-sh.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 _Automatic Script Execution_
