@@ -95,7 +95,7 @@ Go to the [Resource Download](../../download) page, download the `spi firmware` 
 <NewCodeBlock tip="Linux$" type="host">
 
 ```
-sudo edl-ng rawprogram rawprogram0.xml patch0.xml --loader=prog_firehose_ddr.elf --memory=spinor
+sudo edl-ng --memory=spinor rawprogram rawprogram0.xml patch0.xml --loader=prog_firehose_ddr.elf
 ```
 
 </NewCodeBlock>
