@@ -32,14 +32,32 @@ cd ai-sdk/examples/vpm_run
 
 ### 编译示例
 
-<NewCodeBlock tip="Device" type="device">
+<Tabs>
+    <TabItem value="A733">
 
-```bash
-make AI_SDK_PLATFORM=a733
-make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
-```
+    <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+    ```bash
+    make AI_SDK_PLATFORM=a733
+    make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    make AI_SDK_PLATFORM=t527
+    make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
 
 参数解析：
 
@@ -72,17 +90,34 @@ example: ./vpm_run -s sample.txt -l 10 -d 1 specify the NBG runs 10 times on dev
 
 - 导入环境变量
 
+<Tabs>
+    <TabItem value="A733">
+
     <NewCodeBlock tip="Device" type="device">
 
-  ```bash
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/NPU_VERSION # NPU_SW_VERSION
-  ```
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
 
     </NewCodeBlock>
 
-  :::tip
-  指定 NPU_SW_VERSION， A733 选择 `v2.0`, T527 选择 `v1.13`, NPU 信息对照请参考 [NPU 版本对照表](./cubie_acuity_usage#npu-版本对照表)
-  :::
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+:::tip
+指定 NPU_SW_VERSION， A733 选择 `v2.0`, T527 选择 `v1.13`, NPU 信息对照请参考 [NPU 版本对照表](./cubie_acuity_usage#npu-版本对照表)
+:::
 
 - 制作配置文件
 
@@ -120,7 +155,7 @@ example: ./vpm_run -s sample.txt -l 10 -d 1 specify the NBG runs 10 times on dev
     <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  cd INSTALL_PREFIX/etc/npu/vpm_ru
+  cd $INSTALL_PREFIX/etc/npu/vpm_run
   ./vpm_run -s sample.txt -l 1
   ```
 
