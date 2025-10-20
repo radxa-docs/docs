@@ -6,6 +6,7 @@
 | --------- | ------ | ---- | -------- | ------------ |
 | Radxa A5E | 2 Tops | T527 | v2       | v1.13        |
 | Radxa A7A | 3 Tops | A733 | v3       | v2.0         |
+| Radxa A7Z | 3 Tops | A733 | v3       | v2.0         |
 
 {/* ## 配置环境变量 */}
 {/* - 初始化 ACUITY pegasus.py 脚本 */}
@@ -49,18 +50,35 @@ git clone https://github.com/ZIFENG278/ai-sdk.git
 
 配置模型编译脚本
 
-<NewCodeBlock tip="X86 Linux PC" type="PC">
+<Tabs>
+    <TabItem value="A733">
 
-```bash
-cd ai-sdk/models
-source env.sh v3 # NPU_VERSION
-cp ../scripts/* .
-```
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+    ```bash
+    cd ai-sdk/models
+    source env.sh v3 # NPU_VERSION
+    cp ../scripts/* .
+    ```
+    </NewCodeBlock>
 
-</NewCodeBlock>
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+    ```bash
+    cd ai-sdk/models
+    source env.sh v2 # NPU_VERSION
+    cp ../scripts/* .
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
 
 :::tip
-指定 NPU_VERSION， A733 指定 `v3`, T527 指定 `v1.13`。 信息对照请参考 [NPU 版本对照表](#npu-版本对照表)
+指定 NPU_VERSION， A733 指定 `v3`, T527 指定 `v2`。 信息对照请参考 [NPU 版本对照表](#npu-版本对照表)
 :::
 
 ## 模型解析

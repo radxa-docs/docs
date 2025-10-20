@@ -31,18 +31,36 @@ Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**�
 
   配置环境变量
 
-      <NewCodeBlock tip="X86 Linux PC" type="PC">
+      <Tabs>
 
-  ```bash
-  cd ai-sdk/models
-  source env.sh v3 #NPU_VERSION
-  ```
+  <TabItem value="A733">
 
-      </NewCodeBlock>
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+          ```bash
+          cd ai-sdk/models
+          source env.sh v3 # NPU_VERSION
+          cp ../scripts/* .
+          ```
+          </NewCodeBlock>
 
-  A733 选择 `v3`, T527 选择 `v2`
+          </TabItem>
+
+          <TabItem value="T527">
+
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+          ```bash
+          cd ai-sdk/models
+          source env.sh v2 # NPU_VERSION
+          cp ../scripts/* .
+          ```
+          </NewCodeBlock>
+
+          </TabItem>
+
+      </Tabs>
+
   :::tip
-  NPU 版本选择请参考 [NPU 版本对照表](./cubie_acuity_usage#npu-版本对照表)
+  指定 NPU_VERSION， A733 指定 `v3`, T527 指定 `v2`。 信息对照请参考 [**NPU 版本对照表**](cubie_acuity_usage#npu-版本对照表)
   :::
 
 - 下载 resnet50 onnx 模型
@@ -263,14 +281,32 @@ cd ai-sdk/examples/resnet50
 
 ### 编译示例
 
-<NewCodeBlock tip="Device" type="device">
+    <Tabs>
+        <TabItem value="A733">
 
-```bash
-make AI_SDK_PLATFORM=a733
-make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
-```
+        <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+        ```bash
+        make AI_SDK_PLATFORM=a733
+        make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+        ```
+
+        </NewCodeBlock>
+
+        </TabItem>
+
+        <TabItem value="T527">
+
+        <NewCodeBlock tip="Device" type="device">
+        ```bash
+        make AI_SDK_PLATFORM=t527
+        make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+        ```
+        </NewCodeBlock>
+
+        </TabItem>
+
+    </Tabs>
 
 参数解析：
 
@@ -282,13 +318,30 @@ make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
 
 导入环境变量
 
-<NewCodeBlock tip="Device" type="device">
+<Tabs>
+    <TabItem value="A733">
 
-```bash
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/NPU_VERSION # NPU_SW_VERSION
-```
+    <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
 
 :::tip
 指定 NPU_SW_VERSION， A733 选择 `v2.0`, T527 选择 `v1.13`, NPU 信息对照请参考 [NPU 版本对照表](./cubie_acuity_usage#npu-版本对照表)
@@ -299,7 +352,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd INSTALL_PREFIX/etc/npu/resnet50
+cd $INSTALL_PREFIX/etc/npu/resnet50
 # ./resnet50 nbg_model input_picture
 ./resnet50 model/resnet50.nb ./input_data/dog_224_224.jpg
 ```
