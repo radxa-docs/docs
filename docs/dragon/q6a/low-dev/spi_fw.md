@@ -86,6 +86,8 @@ edl-ng --version
 
 终端若是打印出版本信息，说明 `edl-ng` 工具设置软链接成功。
 
+- [进入 EDL mode](edl_mode)
+
 - 烧录 SPI 启动固件
 
 进入 [资源汇总下载](../../download) 页面，下载 `spi firmware` 文件,然后解压进入到 `prog_firehose_ddr.elf` 文件所在目录并打开终端，使用 `edl-ng` 命令烧录 SPI 启动固件。
