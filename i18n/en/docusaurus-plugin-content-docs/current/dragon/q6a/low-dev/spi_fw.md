@@ -202,6 +202,6 @@ Erasing the SPI boot firmware will prevent the device from booting. You will nee
 
 ## FAQ
 
-- If it prompts "Unable to loda DLL 'libusb-1.0'"
+- If it prompts "Unable to load DLL 'libusb-1.0'"
 
 Install [vc_redist](https://aka.ms/vs/17/release/vc_redist.x64.exe)

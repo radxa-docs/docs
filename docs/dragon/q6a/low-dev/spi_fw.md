@@ -202,6 +202,6 @@ sudo edl-ng --memory=spinor rawprogram rawprogram0.xml patch0.xml --loader=prog_
 
 ## FAQ
 
-- 若提示 Unable to loda DLL 'libusb-1.0'
+- 若提示 Unable to load DLL 'libusb-1.0'
 
 安装 [vc_redist](https://aka.ms/vs/17/release/vc_redist.x64.exe)
