@@ -2,13 +2,13 @@
 This document demonstrates how to use the model testing tool `vpm_run` on Allwinner T527/A733 series chips.
 :::
 
-`vpm_run` is an edge-side program based on the VIPLite driver, primarily used for quickly validating and testing model files.
+vpm_run is an edge-side program based on the VIPLite driver, primarily used for quick validation and testing of model files.
 
-- `vpm_run` can serve as a general-purpose model runtime environment capable of running any correctly deployed NBG model file.
-- `vpm_run` is based on the VIPLite network layer API.
-- `vpm_run` includes a default post-processing program for TOP5 results.
+- vpm_run serves as a universal model runtime environment that can run any properly deployed NBG model file.
+- vpm_run is built on the VIPLite network layer API.
+- vpm_run includes a default TOP5 post-processing program.
 
-## Download the ai-sdk Example Repository
+## Download ai-sdk Example Repository
 
 <NewCodeBlock tip="X86 PC / Device" type="PC">
 
@@ -20,7 +20,7 @@ git clone https://github.com/ZIFENG278/ai-sdk.git
 
 ## Using vpm_run on the Board
 
-Navigate to the directory containing the `vpm_run` example code.
+Navigate to the vpm_run example code file directory path
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -32,20 +32,38 @@ cd ai-sdk/examples/vpm_run
 
 ### Compile the Example
 
-<NewCodeBlock tip="Device" type="device">
+<Tabs>
+    <TabItem value="A733">
 
-```bash
-make AI_SDK_PLATFORM=a733
-make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
-```
+    <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+    ```bash
+    make AI_SDK_PLATFORM=a733
+    make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+    ```
 
-Parameter explanation:
+    </NewCodeBlock>
 
-`AI_SDK_PLATFORM`: Specify the SoC, options are **`a733`**, **`t527`**.
+    </TabItem>
 
-`INSTALL_PREFIX`: Specify the installation path.
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    make AI_SDK_PLATFORM=t527
+    make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+Parameter description:
+
+`AI_SDK_PLATFORM`: Specify SoC, optional **`a733`**, **`t527`**
+
+`INSTALL_PREFIX`: Specify installation path
 
 Usage
 
@@ -72,34 +90,51 @@ example: ./vpm_run -s sample.txt -l 10 -d 1 specify the NBG runs 10 times on dev
 
 - Import environment variables
 
-<NewCodeBlock tip="Device" type="device">
+<Tabs>
+    <TabItem value="A733">
 
-```bash
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/NPU_VERSION # NPU_SW_VERSION
-```
+    <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
 
 :::tip
-Specify NPU_SW_VERSION, A733 select `v2.0`, T527 select `v1.13`, NPU information对照请参考 [NPU 版本对照表](./cubie_acuity_usage#npu-版本对照表)
+Specify NPU_SW_VERSION: use `v2.0` for A733 and `v1.13` for T527. Please refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison-table) for NPU information.
 :::
 
-- Make configuration file
+- Create Configuration File
 
-  This example configuration file runs two NBG models, the first is a multi-input model, saving output files, and comparing with golden, the second is a single-input model, not saving output files.
+  This example configuration file executes two NGB models. The first one is a multi-input model that saves output files and compares them with golden data, while the second one is a single-input model that does not save output files.
 
   ```vim
   [network]
   ./network_binary.nb
   [input]
-  #Multi-input model, configure multiple input files; single-input model, configure 1 input file.
+  # For multi-input models, configure multiple input files; for single-input models, configure one input file.
   ./input_0.dat
   ./input_1.dat
   [golden]
-  #Optional
+  # Optional
   ./int8_output_003.dat
   [output]
-  #Optional
+  # Optional
   ./output_0.dat
 
   [network]
@@ -108,59 +143,54 @@ Specify NPU_SW_VERSION, A733 select `v2.0`, T527 select `v1.13`, NPU information
   ./input1.tensor
   ```
 
-  sample.txt file example as above, main label introduction as follows:
+  The sample.txt file is shown above, with the main tags described as follows:
 
-  - **[network]**：NBG file path.
-  - **[input]**：Input data path. Input data format supports two types: Acuity Toolkits tool inference stage generated input.tensor file; IDE tool simulation stage generated input.dat file.
-  - **[golden]**：Optional golden data path. If the golden tag exists, it will be used as golden data and vpm_run run output tensor for binary comparison. If the comparison is consistent, it will print pass, and if the comparison is inconsistent, vpm_run will exit.
-  - **[output]**：Optional. Output data save path.
+  - **[network]**: Path to the NBG file.
+  - **[input]**: Path to the input data. Two formats are supported: input.tensor files generated during the Acuity Toolkits inference phase, or input.dat files generated during IDE tool simulation.
+  - **[golden]**: Optional path to golden data. If the golden tag exists, it will be used for binary comparison with the tensor output from vpm_run. If they match, it will print 'pass'; if not, vpm_run will exit.
+  - **[output]**: Optional. Path to save the output data.
 
-- Enter the example installation directory
+- Navigate to the example installation directory
 
-<NewCodeBlock tip="Device" type="device">
+    <NewCodeBlock tip="Device" type="device">
 
-```bash
-cd INSTALL_PREFIX/etc/npu/vpm_run
-# ./vpm_run nbg_model input_picture
-./vpm_run ./model/network_binary.nb ./input_data/input_image.jpg
-```
+  ```bash
+  cd $INSTALL_PREFIX/etc/npu/vpm_run
+  ./vpm_run -s sample.txt -l 1
+  ```
 
-</NewCodeBlock>
+    </NewCodeBlock>
 
-:::tip
-The example automatically installs a sample NBG model provided by Radxa. You can manually specify the path to your own NBG model.
-:::
+  ```bash
+  (.venv) rock@radxa-cubie-a7a:~/ai-sdk/examples/vpm_run/etc/npu/vpm_run$ ./vpm_run -s sample.txt -l 1
+  loop_count=1, device_index=0, core_index=-1, file_name=sample.txt, time_out=0x0, bypass=1
+  enable_npd=0, preload=0
+  show_top50, save_txt=0
+  init vip lite, driver version=0x00020003...
+  VIPLite driver software version 2.0.3.2-AW-2024-08-30
+  vip lite init OK.
 
-```bash
-(.venv) rock@radxa-cubie-a7a:~/ai-sdk/examples/vpm_run/etc/npu/vpm_run$ ./vpm_run -s sample.txt -l 1
-loop_count=1, device_index=0, core_index=-1, file_name=sample.txt, time_out=0x0, bypass=1
-enable_npd=0, preload=0
-show_top50, save_txt=0
-init vip lite, driver version=0x00020003...
-VIPLite driver software version 2.0.3.2-AW-2024-08-30
-vip lite init OK.
-
-cid=0x1000003b, device_count=1
-  device[0] core_count=1
-config file read network count=1
-init test resources, task_count: 1 ...
-create/prepare networks ...
-task i=0, binary name: ./network_binary.nb
-nbg name=./network_binary.nb
-create network 0: 12354 us.
-input 0 dim 3 224 224 1, data_format=5, quant_format=1, name=input/output[0], dfp=13
-output 0 dim 1000 1 0 0, data_format=1, name=uid_2_sub_uid_1_out_0, none-quant
-memory pool size=1073536byte
-network core count=1
-prepare network 0: 1409 us.
-golden file count=0
-input 0 name: ./input_0.dat
-read input and golden 0: 541 us.
-task: 0, loop count: 1
-start to run network=./network_binary.nb
-run time for this network 0: 3160 us.
-run network done...
-profile inference time=2945us, cycle=2916338
-destroy test resource task_count=1
-vpm run ret=0
-```
+  cid=0x1000003b, device_count=1
+    device[0] core_count=1
+  config file read network count=1
+  init test resources, task_count: 1 ...
+  create/prepare networks ...
+  task i=0, binary name: ./network_binary.nb
+  nbg name=./network_binary.nb
+  create network 0: 12354 us.
+  input 0 dim 3 224 224 1, data_format=5, quant_format=1, name=input/output[0], dfp=13
+  output 0 dim 1000 1 0 0, data_format=1, name=uid_2_sub_uid_1_out_0, none-quant
+  memory pool size=1073536byte
+  network core count=1
+  prepare network 0: 1409 us.
+  golden file count=0
+  input 0 name: ./input_0.dat
+  read input and golden 0: 541 us.
+  task: 0, loop count: 1
+  start to run network=./network_binary.nb
+  run time for this network 0: 3160 us.
+  run network done...
+  profile inference time=2945us, cycle=2916338
+  destroy test resource task_count=1
+  vpm run ret=0
+  ```
