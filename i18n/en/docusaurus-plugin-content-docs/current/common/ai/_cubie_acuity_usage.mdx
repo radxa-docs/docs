@@ -1,13 +1,14 @@
-This example uses a MobileNetV2 target recognition model in Keras format, and uses Acuity Toolkit to parse, quantize, and compile the model, generating project code, and using Vivante IDE for simulation, finally inferring on the VIP9000 series NPU.
+This guide uses a MobileNetV2 object detection model in Keras format as an example. We will use the Acuity Toolkit to parse, quantize, and compile the model, generate project code, perform simulation with Vivante IDE, and finally run inference on the VIP9000 series NPU.
 
-## NPU Version Table
+## NPU Version Comparison Table
 
-| Product   | NPU    | SoC  | NPU Version | NPU Software Version |
-| --------- | ------ | ---- | ----------- | -------------------- |
-| Radxa A5E | 2 Tops | T527 | v2          | v1.13                |
-| Radxa A7A | 3 Tops | A733 | v3          | v2.0                 |
+| Product   | TOPS   | Platform | NPU Version | NPU Software Version |
+| --------- | ------ | -------- | ----------- | -------------------- |
+| Radxa A5E | 2 Tops | T527     | v2          | v1.13                |
+| Radxa A7A | 3 Tops | A733     | v3          | v2.0                 |
+| Radxa A7Z | 3 Tops | A733     | v3          | v2.0                 |
 
-{/* ## Configure environment variables */}
+{/* ## Configure Environment Variables */}
 {/* - Initialize ACUITY pegasus.py script */}
 {/* ```bash */}
 {/* python3 ~/work/Acuity/toolkit/bin/pegasus.py completion */}
@@ -33,11 +34,11 @@ This example uses a MobileNetV2 target recognition model in Keras format, and us
 {/* export IDE=~/VeriSilicon/VivanteIDE5.10.0/cmdtools */}
 {/* ``` */}
 
-## Download example repository
+## Download Example Repository
 
-In [ACUITY Docker container](./cubie_acuity_env#创建-docker-容器) download example repository
+In the [ACUITY Docker container](./cubie_acuity_env#create-docker-container), download the example repository.
 
-Download repository
+Download the repository:
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -47,25 +48,42 @@ git clone https://github.com/ZIFENG278/ai-sdk.git
 
 </NewCodeBlock>
 
-Configure model compilation script
+Configure the model compilation script:
 
-<NewCodeBlock tip="X86 Linux PC" type="PC">
+<Tabs>
+    <TabItem value="A733">
 
-```bash
-cd ai-sdk/models
-source env.sh v3 # NPU_VERSION
-cp ../scripts/* .
-```
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+    ```bash
+    cd ai-sdk/models
+    source env.sh v3 # NPU_VERSION
+    cp ../scripts/* .
+    ```
+    </NewCodeBlock>
 
-</NewCodeBlock>
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+    ```bash
+    cd ai-sdk/models
+    source env.sh v2 # NPU_VERSION
+    cp ../scripts/* .
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
 
 :::tip
-Specify NPU_VERSION, A733 specify `v3`, T527 specify `v1.13`. For NPU version selection, please refer to [NPU version comparison table](#npu-version-comparison-table)
+Specify NPU_VERSION: Use `v3` for A733 and `v2` for T527. Refer to the [NPU Version Comparison Table](#npu-version-comparison-table) for details.
 :::
 
-## Model parsing
+## Model Parsing
 
-Enter the MobileNetV2_Imagenet model example directory in the Docker container of the example repository.
+Navigate to the ai-sdk/models/MobileNetV2_Imagenet example directory in the Docker container.
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -77,11 +95,11 @@ cd ai-sdk/models/MobileNetV2_Imagenet
 
 This directory contains the following files:
 
-- MobilNetV2_Imagenet.h5 original model file (required).
-- channel_mean_value.txt model input mean and scale value file.
-- dataset.txt model quantization calibration dataset file.
-- space_shuttle_224x224.jpg test input image and calibration image in calibration dataset.
-- input_outputs.txt model input output node file.
+- `MobilNetV2_Imagenet.h5`: The original model file (required).
+- `channel_mean_value.txt`: File containing mean and scale values for model input.
+- `dataset.txt`: Calibration dataset file for model quantization.
+- `space_shuttle_224x224.jpg`: Test input image and calibration image included in the dataset.
+- `inputs_outputs.txt`: File containing model input and output nodes (set output nodes if necessary to avoid quantization failure).
 
 ```bash
 .
@@ -94,14 +112,14 @@ This directory contains the following files:
 0 directories, 5 files
 ```
 
-### Import Model
+### Importing the Model
 
-`pegasus_import.sh` model import script, can parse the model structure and weights of various AI frameworks, and output the parsed model files:
+The `pegasus_import.sh` script can parse model structures and weights from various AI frameworks and output the parsed files:
 
 - Model architecture will be saved in MODEL_DIR.json
 - Model weights will be saved in MODEL_DIR.data
-- Automatically generate model input file template MODEL_DIR_inputmeta.yml
-- Automatically generate model postprocessing file template MODEL_DIR_postprocess_file.yml
+- Automatically generates model input file template MODEL_DIR_inputmeta.yml
+- Automatically generates model post-processing file template MODEL_DIR_postprocess_file.yml
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -114,12 +132,12 @@ This directory contains the following files:
 
 Parameters:
 
-- MODEL_DIR directory containing source model files
+- MODEL_DIR: Folder containing the source model files
 
 ### Manually Modify Model Input File
 
-Here, we need to manually set the mean and scale in `MobileNetV2_Imagenet_inputmeta.yml` based on the model input preprocessing mean and scale.
-Here, we use MobileNetV2_ImageNet as an example, because MobileNetV2 outputs (1,224,224,3) RGB three channels, according to the model preprocessing formula:
+You need to manually set the mean and scale values in `MobileNetV2_Imagenet_inputmeta.yml` according to the model's input preprocessing requirements.
+Using MobileNetV2_ImageNet as an example, since the MobileNet output is (1,224,224,3) RGB three-channel, the model preprocessing formula is:
 
 ```bash
 x1 = (x - mean) / std
@@ -127,8 +145,8 @@ x1 = (x - mean) * scale
 scale = 1 / std
 ```
 
-Because the training dataset is ImageNet, here the ImageNet training set's normalized mean is [0.485, 0.456, 0.406], std is [0.229, 0.224, 0.225],
-here needs to perform reverse normalization calculation. Normalization data reference [pytorch documentation](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.mobilenet_v2.html)
+Since the training dataset is ImageNet, the normalization mean for the ImageNet training set is [0.485, 0.456, 0.406] and std is [0.229, 0.224, 0.225].
+We need to perform denormalization calculations. Normalization data reference: [PyTorch Documentation](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.mobilenet_v2.html)
 
 ```bash
 # mean
@@ -144,7 +162,7 @@ here needs to perform reverse normalization calculation. Normalization data refe
 1 / (0.225 * 255) = 0.01743
 ```
 
-Here, we manually set the mean and scale in `MobileNetV2_Imagenet_inputmeta.yml` based on the calculated mean and scale:
+Based on the calculations above, modify the mean and scale values in `MobileNetV2_Imagenet_inputmeta.yml` as follows:
 
 ```vim
 mean:
@@ -157,14 +175,14 @@ scale:
 - 0.01743
 ```
 
-## Quantize Model
+## Model Quantization
 
-Before conversion, models can be quantized in different types, ACUITY supports uint8 / int16 / bf16 / pcq (int8 per-channel quantized) multiple quantization types,
-if using float, it means no quantization.
+Before model conversion, different types of quantization can be applied to the model. ACUITY supports various quantization methods including uint8/int16/bf16/pcq (int8 per-channel quantized).
+Using float means no quantization will be applied.
 
-Use `pegasus_quantize.sh` script to quantize the model to the specified type.
+The `pegasus_quantize.sh` script can be used to quantize the model with specified type.
 :::tip
-If the source model is already a quantized model, no quantization is needed here, otherwise it will report an error.
+If the source model is already quantized, no additional quantization is needed here, otherwise it will cause an error.
 :::
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
@@ -176,7 +194,7 @@ pegasus_quantize.sh MobileNetV2_Imagenet int16 10
 
 </NewCodeBlock>
 
-Quantization will generate the quantized file MODEL_DIR_QUANTIZED.quantize corresponding to the quantization method.
+The quantization process will generate a quantized file MODEL_DIR_QUANTIZED.quantize corresponding to the quantization method used.
 
 | QUANTIZED | TYPE  | QUANTIZER                   |
 | --------- | ----- | --------------------------- |
@@ -185,33 +203,33 @@ Quantization will generate the quantized file MODEL_DIR_QUANTIZED.quantize corre
 | pcq       | int8  | perchannel_symmetric_affine |
 | bf16      | bf16  | qbfloat16                   |
 
-{/* ### Perform pcq int8 quantization */}
+{/* ### Perform pcq int8 Quantization */}
 {/* ```bash */}
 {/* # pegasus_quantize.sh MODEL_DIR QUANTIZED ITERATION */}
 {/* pegasus_quantize.sh MobileNetV2_Imagenet pcq 10 */}
 {/* ``` */}
 
-{/* ### Perform int16 quantization */}
+{/* ### Perform int16 Quantization */}
 {/* ```bash */}
 {/* # pegasus_quantize.sh MODEL_DIR QUANTIZED ITERATION */}
 {/* pegasus_quantize.sh MobileNetV2_Imagenet int16 10 */}
 {/* ``` */}
 
-{/* ### Perform bf16 quantization */}
+{/* ### Perform bf16 Quantization */}
 {/* ```bash */}
 {/* # pegasus_quantize.sh MODEL_DIR QUANTIZED ITERATION */}
 {/* pegasus_quantize.sh MobileNetV2_Imagenet bf16 10 */}
 {/* ``` */}
 
-## Inference quantized model
+## Inference on Quantized Models
 
-After quantization, the performance will be improved to different degrees, but the precision will be slightly reduced. The quantized model can be inferred through `pegasus_inference.sh` to verify whether the quantized model meets the precision requirements.
-Test inference input is the first picture in dataset.txt.
+After quantization, the model's performance will improve to varying degrees, but the accuracy may slightly decrease. The quantized model can be inferred using `pegasus_inference.sh` to verify if the accuracy meets requirements after quantization.
+The input for test inference is the first image in dataset.txt.
 ![space_shuttle](/img/e/e54c/rs400_npu_3.webp)
 
-### Inference float model
+### Inference on Float Model
 
-Infer the unquantized float model to get the result as the reference for the quantized model.
+Inference on the non-quantized float model to get reference results for comparison with quantized models
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -222,7 +240,7 @@ pegasus_inference.sh MobileNetV2_Imagenet/ float
 
 </NewCodeBlock>
 
-Inference result output is
+The inference output is:
 
 ```bash
 I 07:01:06 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
@@ -233,13 +251,13 @@ I 07:01:06 864: 6.59249781165272e-05
 I 07:01:06 536: 2.808812860166654e-05
 ```
 
-The top5 confidence is 812, corresponding to the label `space shuttle`, which matches the actual input image type, indicating that the model input preprocessing mean and scale are set correctly.
+The top5 confidence score is highest for class 812, which corresponds to the label `space shuttle`. This matches the actual input image type, indicating that the mean and scale settings for the model input preprocessing are correct.
 
-The tensor of inference is saved in the MODEL_DIR/inf/MODEL_DIR_QUANTIZED folder at the same time.
+The inference tensors are saved in the MODEL_DIR/inf/MODEL_DIR_QUANTIZED directory:
 
-- iter_0_input_1_158_out0_1_224_224_3.qnt.tensor is the original image tensor
-- iter_0_input_1_158_out0_1_224_224_3.tensor is the model input tensor after preprocessing
-- iter_0_attach_Logits_Softmax_out0_0_out0_1_1000.tensor is the model output tensor
+- iter_0_input_1_158_out0_1_224_224_3.qnt.tensor: The original image tensor
+- iter_0_input_1_158_out0_1_224_224_3.tensor: The preprocessed model input tensor
+- iter_0_attach_Logits_Softmax_out0_0_out0_1_1000.tensor: The model's output tensor
 
 ```bash
 .
@@ -250,7 +268,7 @@ The tensor of inference is saved in the MODEL_DIR/inf/MODEL_DIR_QUANTIZED folder
 0 directories, 3 files
 ```
 
-### Inference uint8 quantized model
+### Inference on uint8 Quantized Model
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -261,7 +279,7 @@ pegasus_inference.sh MobileNetV2_Imagenet/ uint8
 
 </NewCodeBlock>
 
-Inference result output is
+The inference output is:
 
 ```bash
 I 07:02:20 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
@@ -273,10 +291,10 @@ I 07:02:20 466: 0.005068646278232336
 ```
 
 :::warning
-The top5 confidence is 904, this needs to be noted that 904 corresponds to the label `wig`, which does not match the actual input image type, and does not match the inference result of the float type, which means that the uint8 quantization has caused precision loss. At this time, higher precision quantization models can be applied, such as **pcq** or **int16**. For methods to improve model precision, please refer to [**Hybrid Quantization**](cubie_quant_acc_improve#hybrid-quantization)
+The top5 confidence score is highest for class 904, which corresponds to the label `wig`. This does not match the input image result and is inconsistent with the float model's inference result. This indicates precision loss after uint8 quantization. In this case, you can apply higher precision quantization models such as **pcq** or **int16**. For methods to improve model accuracy, please refer to [**Mixed Quantization**](cubie_quant_acc_improve#mixed-quantization).
 :::
 
-### Inference pcq quantized model
+### Inference on PCQ Quantized Model
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -287,7 +305,7 @@ pegasus_inference.sh MobileNetV2_Imagenet/ pcq
 
 </NewCodeBlock>
 
-The inference result output is
+The inference results are:
 
 ```bash
 I 03:36:41 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
@@ -298,9 +316,9 @@ I 03:36:41 833: 9.26952125155367e-05
 I 03:36:41 576: 6.784773722756654e-05
 ```
 
-The top5 confidence is 812, corresponding to the label `space shuttle`, which matches the actual input image type, and matches the inference result of the float type, indicating that the pcq quantization precision is correct.
+The highest confidence score in the top5 results is 812, corresponding to the label `space shuttle`, which matches the actual input image type and is consistent with the float type inference results. This indicates that the accuracy is correct with pcq quantization.
 
-### Inference int16 quantized model
+### Inference on int16 Quantized Model
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -311,7 +329,7 @@ pegasus_inference.sh MobileNetV2_Imagenet/ int16
 
 </NewCodeBlock>
 
-The inference result output is
+The inference results are:
 
 ```bash
 I 06:54:23 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
@@ -322,13 +340,13 @@ I 06:54:23 864: 6.788487371522933e-05
 I 06:54:23 536: 3.0241633794503286e-05
 ```
 
-The top5 confidence is 812, corresponding to the label `space shuttle`, which matches the actual input image type, and matches the inference result of the float type, indicating that the int16 quantization precision is correct.
+The highest confidence score in the top5 results is 812, corresponding to the label `space shuttle`, which matches the actual input image type and is consistent with the float type inference results. This indicates that the accuracy is correct with int16 quantization.
 
-## Model compilation and export
+## Model Compilation and Export
 
 `pegasus_export_ovx.sh` can export the model files and project code required for NPU inference.
 
-Here we take the INT16 quantized model as an example
+Here we use the INT16 quantized model as an example:
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -339,10 +357,10 @@ pegasus_export_ovx.sh MobileNetV2_Imagenet int16
 
 </NewCodeBlock>
 
-Generated OpenVX project and NBG project paths:
+Generates OpenVX and NBG project paths:
 
-- MODEL_DIR/wksp/MODEL_DIR_QUANTIZED : Cross-platform OpenVX project, requires hardware just-in-time (JIT) compilation for model initialization.
-- MODEL_DIR/wksp/MODEL_DIR_QUANTIZED_nbg_unify: NBG format, pre-compiled machine code format, low overhead, fast initialization.
+- `MODEL_DIR/wksp/MODEL_DIR_QUANTIZED`: Cross-platform OpenVX project, requires hardware just-in-time (JIT) compilation for model initialization.
+- `MODEL_DIR/wksp/MODEL_DIR_QUANTIZED_nbg_unify`: NBG format, pre-compiled machine code format, low overhead, fast initialization.
 
 ```bash
 (.venv) root@focal-v4l2:~/work/Acuity/acuity_examples/models/MobileNetV2_Imagenet/wksp$ ls
@@ -350,14 +368,14 @@ MobileNetV2_Imagenet_int16  MobileNetV2_Imagenet_int16_nbg_unify
 ```
 
 :::tip
-In the NBG project, you can get the `network_binary.nb` model file. The compiled model can be copied to the board for inference using vpm_run or awnn API.
+In the NBG project, you can obtain the `network_binary.nb` model file. The compiled model can be copied to the board for on-device inference using vpm_run or awnn API.
 :::
 
-## Use Vivante IDE to simulate running inference
+## Simulating Inference with Vivante IDE
 
-Use Vivante IDE to verify the generated target model and OpenVX project on X86 PC in ACUITY Docker.
+Vivante IDE can be used to verify the generated target model and OpenVX project in the ACUITY Docker on an X86 PC.
 
-### Import Vivante IDE required environment variables
+### Import Required Environment Variables for Vivante IDE
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -370,9 +388,9 @@ unset VSI_USE_IMAGE_PROCESS
 
 </NewCodeBlock>
 
-### Simulate running cross-platform OpenVX project
+### Simulating Cross-platform OpenVX Project
 
-#### Compile executable file
+#### Compile the Executable
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -383,9 +401,9 @@ make -f makefile.linux
 
 </NewCodeBlock>
 
-The generated target file is the binary executable file of MODEL_DIR_QUANTIZED.
+The generated target file is a binary executable of MODEL_DIR_QUANTIZED.
 
-#### Run executable file
+#### Run the Executable
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -396,7 +414,7 @@ The generated target file is the binary executable file of MODEL_DIR_QUANTIZED.
 
 </NewCodeBlock>
 
-The inference result output is:
+Execution Result:
 
 ```bash
 Create Neural Network: 11ms or 11426us
@@ -415,13 +433,13 @@ Average 229309.53ms or 229309536.00us
   0: 0.000000
 ```
 
-### Simulate running NBG project
+### Simulate Running NBG Project
 
 :::tip
-Using Vivante IDE to run NBG projects will increase the time.
+Running NBG projects in Vivante IDE will increase the execution time.
 :::
 
-#### Compile executable file
+#### Compile the Executable
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -432,9 +450,9 @@ make -f makefile.linux
 
 </NewCodeBlock>
 
-The generated target file is the binary executable file of MODEL_DIR_QUANTIZED.
+The generated target file is a binary executable of MODEL_DIR_QUANTIZED.
 
-#### Run executable file
+#### Run the Executable
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -445,7 +463,7 @@ The generated target file is the binary executable file of MODEL_DIR_QUANTIZED.
 
 </NewCodeBlock>
 
-The inference result output is:
+Execution Result:
 
 ```bash
 Create Neural Network: 4ms or 4368us
@@ -464,10 +482,10 @@ Average 229388.52ms or 229388512.00us
   0: 0.000000
 ```
 
-{/* ## Using the NPU inference model on the board */}
-{/* After verifying the availability of the OpenVX or NBG project through simulated inference, you can use cross-compilation to compile the target project into an executable file for execution on the board. */}
+{/* ## On-board NPU Inference Model */}
+{/* After confirming the OpenVX project or NBG project is available through simulation inference, you can use cross-compilation to compile the target project into an executable file for on-board execution. */}
 
-{/* ### Importing environment variables required for cross-compilation */}
+{/* ### Import Environment Variables for Cross-Compilation */}
 {/* ```bash */}
 {/* unset USE_IDE_LIB */}
 {/* unset VIVANTE_SDK_DIR */}
@@ -475,42 +493,42 @@ Average 229388.52ms or 229388512.00us
 {/* export AQROOT=~/work/library/acuity-root-dir */}
 {/* ``` */}
 
-{/* ### Compile the project */}
-{/* #### Compile the cross-platform OpenVX project */}
+{/* ### Compile the Project */}
+{/* #### Compile Cross-Platform OpenVX Project */}
 {/* ```bash */}
 {/* cd MobileNetV2_Imagenet/wksp/MobileNetV2_Imagenet_int16 */}
 {/* make -f makefile.linux */}
 {/* ``` */}
-{/* Generate the target folder `bin_r`, copy the generated `bin_r` folder to the board, and copy the MobileNetV2_Imagenet_int16.export.data and test images to the board. */}
+{/* The target folder `bin_r` will be generated. Copy the generated `bin_r` folder to the target board, and also copy MobileNetV2_Imagenet_int16.export.data and test images to the board. */}
 
-{/* #### Compile the NBG project */}
+{/* #### Compile NBG Project */}
 {/* ```bash */}
 {/* cd MobileNetV2_Imagenet/wksp/MobileNetV2_Imagenet_int16_nbg_unify */}
 {/* make -f makefile.linux */}
 {/* ``` */}
-{/* Generate the target folder `bin_r`, copy the generated `bin_r` folder to the board, and copy the network_binary.nb NBG model and test images to the board. */}
+{/* The target folder `bin_r` will be generated. Copy the generated `bin_r` folder to the target board, and also copy the network_binary.nb NBG model and test images to the board. */}
 
-## Board-side NPU inference
+## On-board NPU Inference
 
-Board-side inference of NBG format models can be performed using the `vpm_run` tool for inference testing.
+For on-board NPU inference of NBG format models, you can use the `vpm_run` tool for inference testing.
 
-`vpm_run` installation and usage please refer to [**vpm_run model testing tool**](cubie_vpm_run)
+For `vpm_run` installation and usage, please refer to [**vpm_run Model Testing Tool**](cubie_vpm_run)
 
-{/* ### Board-side execution */}
+{/* ### On-board Execution */}
 
-{/* #### Copy ACUITY dynamic library */}
-{/* Copy the following ACUITY ARM64 dynamic library folder path to the board */}
+{/* #### Copy ACUITY Dynamic Libraries */}
+{/* Copy the following ACUITY ARM64 dynamic library folder to the target board */}
 {/* ```bash */}
 {/* library/acuity-root-dir/lib/arm64/1619b */}
 {/* ``` */}
 
-{/* #### Import dynamic library path variable */}
-{/* Please modify `ACUITY_LIB_PATH` value to the copied `1619b` path */}
+{/* #### Import Dynamic Library Path Variable */}
+{/* Please modify the `ACUITY_LIB_PATH` to the copied `1619b` path */}
 {/* ```bash */}
 {/* export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ACUITY_LIB_PATH */}
 {/* ``` */}
 
-{/* #### Run cross-platform OpenVX project */}
+{/* #### Run Cross-platform OpenVX Project */}
 {/* ```bash */}
 {/* root@Stark:/home/nas/MobileNetV2/openvx_bin_r# ./mobilenetv2imagenetint16 ./MobileNetV2_Imagenet_int16.export.data ../space_shuttle_224x224.jpg */}
 {/* Create Neural Network: 112ms or 112315us */}
@@ -528,7 +546,7 @@ Board-side inference of NBG format models can be performed using the `vpm_run` t
 {/* 864: 0.000089 */}
 {/* 0: 0.000000 */}
 {/* ``` */}
-{/* #### Run NBG project */}
+{/* #### Run NBG Project */}
 {/* ```bash */}
 {/* root@Stark:/home/nas/MobileNetV2/NBG_bin_r# ./mobilenetv2imagenetint16 ./network_binary.nb ../space_shuttle_224x224.jpg */}
 {/* Create Neural Network: 19ms or 19022us */}

@@ -1,13 +1,13 @@
 :::tip
-This document demonstrates how to run the LeNet handwritten digit classification model on Allwinner T527/A733 series chips.
+This document demonstrates how to run on-board inference of the LeNet handwritten digit classification model on Allwinner T527/A733 series chips.
 :::
 
 Deploying LeNet on the board requires two steps:
 
-- Use the [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) on the PC to convert models from different frameworks into NBG format.
-- Use the awnn API on the board to perform inference with the model.
+- On the PC side, use [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) to convert models from different frameworks to NBG format
+- On the board side, use the awnn API for model inference
 
-## Download the ai-sdk Example Repository
+## Download ai-sdk Example Repository
 
 <NewCodeBlock tip="X86 PC / Device" type="PC">
 
@@ -17,50 +17,67 @@ git clone https://github.com/ZIFENG278/ai-sdk.git
 
 </NewCodeBlock>
 
-## Model Conversion on PC
+## PC-Side Model Conversion
 
 :::tip
-Radxa provides a pre-converted `lenet.nb` model. Users can directly refer to [**LeNet Inference on the Board**](#lenet-inference-on-the-board) and skip the PC model conversion section.
+Radxa provides a pre-converted `lenet.nb` model. Users can directly refer to [**On-board LeNet Inference** ](#on-board-lenet-inference) to skip the PC-side model conversion chapter.
 :::
 
 :::tip
-The files used in the LeNet example are already included in the [ai-sdk example repository](https://github.com/ZIFENG278/ai-sdk.git) under `models/lenet`.
+The files used in the LeNet example are already included in the `models/lenet` directory of the [ai-sdk example repository](https://github.com/ZIFENG278/ai-sdk.git)
 :::
 
-- Enter the ACUITY Toolkit Docker container.
+- Enter the ACUITY Toolkit Docker Container
 
-  For ACUITY Toolkit Docker environment setup, refer to [ACUITY Toolkit Environment Setup](./cubie_acuity_env).
+  For ACUITY Toolkit Docker environment setup, please refer to [ACUITY Toolkit Environment Configuration](./cubie_acuity_env)
 
-  Configure environment variables:
+  Configure Environment Variables
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+      <Tabs>
 
-  ```bash
-  cd ai-sdk/models
-  source env.sh v3 # NPU_VERSION
-  ```
+  <TabItem value="A733">
 
-  </NewCodeBlock>
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+          ```bash
+          cd ai-sdk/models
+          source env.sh v3 # NPU_VERSION
+          cp ../scripts/* .
+          ```
+          </NewCodeBlock>
 
-  For A733, choose `v3`; for T527, choose `v2`.
+          </TabItem>
+
+          <TabItem value="T527">
+
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+          ```bash
+          cd ai-sdk/models
+          source env.sh v2 # NPU_VERSION
+          cp ../scripts/* .
+          ```
+          </NewCodeBlock>
+
+          </TabItem>
+
+      </Tabs>
 
   :::tip
-  Refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison-table) for NPU version selection.
+  Specify NPU_VERSION: use `v3` for A733 and `v2` for T527. For reference, see [**NPU Version Comparison Table**](cubie_acuity_usage#npu-version-comparison)
   :::
 
-- Navigate to the LeNet model directory:
+- Enter the LeNet Model Directory
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd ai-sdk/models/lenet
   ```
 
-  </NewCodeBlock>
+    </NewCodeBlock>
 
-- Create a quantization calibration dataset.
+- Create Quantization Calibration Dataset
 
-  Use a set of images for quantization calibration. Save the image paths in `dataset.txt`.
+  Use an appropriate number of images to create a quantization calibration dataset, with image paths saved in `dataset.txt`
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -83,7 +100,7 @@ The files used in the LeNet example are already included in the [ai-sdk example 
   ./input_image/9.jpg 9
   ```
 
-- Directory structure:
+- Directory contains files
 
   ```bash
   .
@@ -104,25 +121,25 @@ The files used in the LeNet example are already included in the [ai-sdk example 
   `-- lenet.prototxt
   ```
 
-- Parse the model.
+- Parse the Model
 
   :::tip
-  The `pegasus` script is located in `ai-sdk/scripts` and can be copied to the `models` directory.
+  pegasus script is in ai-sdk/scripts, copy it to models directory
   :::
 
-  Use `pegasus_import.sh` to parse the model into an intermediate representation (IR). This generates `lenet.json` (model structure) and `lenet.data` (model weights).
+  Use `pegasus_import.sh` to parse the model into IR expression, will get `lenet.json` containing model structure and `lenet.data` containing model weights
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   ./pegasus_import.sh lenet/
   ```
 
-  </NewCodeBlock>
+   </NewCodeBlock>
 
-- Modify the `lenet_inputmeta.yml` file.
+- Modify lenet_inputmeta.yml file
 
-  Update the `scale` value based on the formula `scale = 1 / std`.
+  Here modify scale value, according to the formula scale = 1 / std
 
   ```bash
   scale = 1 / 255
@@ -179,21 +196,21 @@ The files used in the LeNet example are already included in the [ai-sdk example 
         redirect_to_output: false
   ```
 
-- Quantize the model.
+- Quantize the Model
 
-  Use `pegasus_quantize.sh` to quantize the model into `uint8` format.
+  Use `pegasus_quantize.sh` to quantize the model to uint8 type
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   ./pegasus_quantize.sh lenet/ uint8 10
   ```
 
-  </NewCodeBlock>
+   </NewCodeBlock>
 
-- Compile the model.
+- Compile the Model
 
-  Use `pegasus_export_ovx.sh` to compile the model into NBG format.
+  Use `./pegasus_export_ovx.sh` to compile the model into NBG model format
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -203,11 +220,11 @@ The files used in the LeNet example are already included in the [ai-sdk example 
 
   </NewCodeBlock>
 
-  The NBG model is saved in `lenet/wksp/lenet_uint8_nbg_unify/network_binary.nb`.
+  NBG model is saved in `lenet/wksp/lenet_uint8_nbg_unify/network_binary.nb`
 
-## LeNet Inference on the Board
+## On-board LeNet Inference
 
-Navigate to the LeNet example code directory.
+Enter the LeNet example code file directory path
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -217,44 +234,80 @@ cd ai-sdk/examples/lenet
 
 </NewCodeBlock>
 
-### Compile the Example
+### Compile Example
 
-<NewCodeBlock tip="Device" type="device">
+<Tabs>
+    <TabItem value="A733">
 
-```bash
-make AI_SDK_PLATFORM=a733
-make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
-```
+    <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+    ```bash
+    make AI_SDK_PLATFORM=a733
+    make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+    ```
 
-Parameter explanation:
+    </NewCodeBlock>
 
-- `AI_SDK_PLATFORM`: Specify the SoC, options are **`a733`** or **`t527`**.
-- `INSTALL_PREFIX`: Specify the installation path.
+    </TabItem>
 
-### Run the Example
+    <TabItem value="T527">
 
-Set environment variables.
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    make AI_SDK_PLATFORM=t527
+    make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+    ```
+    </NewCodeBlock>
 
-<NewCodeBlock tip="Device" type="device">
+    </TabItem>
 
-```bash
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/NPU_VERSION # NPU_SW_VERSION
-```
+</Tabs>
 
-</NewCodeBlock>
+Parameter Analysis:
+
+`AI_SDK_PLATFORM`: Specify SoC, optional values: **`a733`**, **`t527`**
+
+`INSTALL_PREFIX`: Specify installation path
+
+### Run Example
+
+Import environment variables
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
 
 :::tip
-Specify `NPU_SW_VERSION`. For A733, choose `v2.0`; for T527, choose `v1.13`. Refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison-table) for details.
+Specify NPU_SW_VERSION: Select v2.0 for A733, select v1.13 for T527. For NPU information, please refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison)
 :::
 
-Navigate to the example installation directory.
+Enter the example installation directory
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd INSTALL_PREFIX/etc/npu/lenet
+cd $INSTALL_PREFIX/etc/npu/lenet
 # ./lenet nbg_model input_picture
 ./lenet ./model/lenet.nb ./input_data/lenet.dat
 ```
@@ -262,11 +315,11 @@ cd INSTALL_PREFIX/etc/npu/lenet
 </NewCodeBlock>
 
 :::tip
-The example automatically installs the `lenet.nb` model provided by Radxa. You can manually specify the path to your converted NBG model.
+The example will automatically install the lenet.nb model provided by Radxa. Here you can manually specify the path to the user-converted NBG model.
 :::
 
 <div style={{ textAlign: "center" }}>
-  <img src="/en/img/cubie/a7a/lenet_0.webp" />
+  <img src="/img/cubie/a7a/lenet_0.webp" />
   lenet input image
 </div>
 

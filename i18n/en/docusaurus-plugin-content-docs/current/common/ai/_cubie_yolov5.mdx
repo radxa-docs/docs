@@ -1,15 +1,15 @@
 :::tip
-This document demonstrates how to run the YOLOv5 object detection model on Allwinner T527/A733 series chips.
+This document demonstrates how to run YOLOv5 object detection model inference on Allwinner T527/A733 series chips.
 :::
 
-This example uses the pre-trained ONNX format model from [ultralytics/yolov5](https://github.com/ultralytics/yolov5/releases/tag/v6.0) as an example to demonstrate the complete process of converting the model for inference on the board.
+This example uses a pre-trained ONNX format model from [ultralytics/yolov5](https://github.com/ultralytics/yolov5/releases/tag/v6.0) to demonstrate the complete process from model conversion to on-device inference.
 
-Deploying YOLOv5 on the board requires two steps:
+Deploying YOLOv5 on the development board involves two main steps
 
-- Use the [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) on the PC to convert models from different frameworks into NBG format.
-- Use the awnn API on the board to perform inference with the model.
+- On the PC side, use [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) to convert models from different frameworks to NBG format
+- On the device side, use awnn API for model inference
 
-## Download the ai-sdk Example Repository
+## Download ai-sdk Example Repository
 
 <NewCodeBlock tip="X86 PC / Device" type="PC">
 
@@ -19,38 +19,55 @@ git clone https://github.com/ZIFENG278/ai-sdk.git
 
 </NewCodeBlock>
 
-## Model Conversion on PC
+## PC-side Model Conversion
 
 :::tip
-Radxa provides a pre-converted `yolov5.nb` model. Users can directly refer to [**YOLOv5 Inference on the Board**](#yolov5-inference-on-the-board) and skip the PC model conversion section.
+Radxa provides a pre-converted `yolov5.nb` model. Users can directly refer to [**On-device YOLOv5 Inference**](#board-side-yolov5-inference) to skip the PC-side model conversion section.
 :::
 
 :::tip
-The files used in the YOLOv5 example are already included in the [ai-sdk example repository](https://github.com/ZIFENG278/ai-sdk.git) under `models/yolov5s-sim`.
+The files used in the YOLOv5 example are already included in the `models/yolov5s-sim` directory of the [ai-sdk example repository](https://github.com/ZIFENG278/ai-sdk.git)
 :::
 
-- Enter the ACUITY Toolkit Docker container.
+- Enter the ACUITY Toolkit Docker container
 
-  For ACUTIY Toolkit Docker environment preparation, please refer to [ACUITY Toolkit Environment Configuration](./cubie_acuity_env)
+  For ACUITY Toolkit Docker environment setup, please refer to [ACUITY Toolkit Environment Configuration](./cubie_acuity_env)
 
-  Configure environment variables:
+  Configure environment variables
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+      <Tabs>
 
-  ```bash
-  cd ai-sdk/models
-  source env.sh v3 # NPU_VERSION
-  ```
+  <TabItem value="A733">
 
-  </NewCodeBlock>
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+          ```bash
+          cd ai-sdk/models
+          source env.sh v3 # NPU_VERSION
+          cp ../scripts/* .
+          ```
+          </NewCodeBlock>
 
-  For A733, choose `v3`; for T527, choose `v2`.
+          </TabItem>
+
+          <TabItem value="T527">
+
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+          ```bash
+          cd ai-sdk/models
+          source env.sh v2 # NPU_VERSION
+          cp ../scripts/* .
+          ```
+          </NewCodeBlock>
+
+          </TabItem>
+
+      </Tabs>
 
   :::tip
-  Refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison-table) for NPU version selection.
+  Specify NPU_VERSION: use `v3` for A733 and `v2` for T527. Please refer to the [**NPU Version Comparison Table**](cubie_acuity_usage#npu-version-comparison-table) for reference.
   :::
 
-- Download the YOLOv5s ONNX model.
+- Download yolov5s ONNX model
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -61,9 +78,9 @@ The files used in the YOLOv5 example are already included in the [ai-sdk example
 
   </NewCodeBlock>
 
-- Fix the input size.
+- Fix input dimensions
 
-  NPU inference only accepts fixed input sizes. Use `onnxsim` to fix the input size.
+  NPU inference only accepts fixed input dimensions. Here we use onnxsim to fix the input dimensions
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -74,9 +91,9 @@ The files used in the YOLOv5 example are already included in the [ai-sdk example
 
   </NewCodeBlock>
 
-- Create a quantization calibration dataset.
+- Create quantization calibration dataset
 
-  Use a set of images for quantization calibration. Save the image paths in `dataset.txt`.
+  Use an appropriate number of images to create a quantization calibration dataset. The image paths should be saved in `dataset.txt`
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -95,17 +112,17 @@ The files used in the YOLOv5 example are already included in the [ai-sdk example
   images/dog.jpg
   ```
 
-- Create model input/output files.
+- Create model input/output files
 
-  Use [Netron](https://netron.app/) to confirm the input/output names of the ONNX model.
+  You can use [netron](https://netron.app/) to confirm the input/output names of the ONNX model
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   vim inputs_outputs.txt
   ```
 
-  </NewCodeBlock>
+   </NewCodeBlock>
 
   ```vim
   --inputs images --input-size-list '3,640,640' --outputs '350 498 646'
@@ -114,11 +131,11 @@ The files used in the YOLOv5 example are already included in the [ai-sdk example
   {" "}
 
   <div style={{ textAlign: "center" }}>
-    <img src="/en/img/cubie/a7a/yolov5_input.webp" />
+    <img src="/img/cubie/a7a/yolov5_input.webp" />
     yolov5s in/output name
   </div>
 
-- Directory structure:
+- Directory contains files
 
   ```bash
   .
@@ -134,25 +151,25 @@ The files used in the YOLOv5 example are already included in the [ai-sdk example
   |-- yolov5s-sim.onnx
   ```
 
-- Parse the model.
+- Parse the model
 
   :::tip
-  The `pegasus` script is located in `ai-sdk/scripts` and can be copied to the `models` directory.
+  The pegasus script is located in ai-sdk/scripts and can be copied to the models directory
   :::
 
-  Use `pegasus_import.sh` to parse the model into an intermediate representation (IR). This generates `yolov5s-sim.json` (model structure) and `yolov5s-sim.data` (model weights).
+  Use `pegasus_import.sh` to parse the model into IR expressions, which will generate `yolov5s-sim.json` containing the model structure and `yolov5s-sim.data` containing the model weights
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   ./pegasus_import.sh yolov5s-sim/
   ```
 
-  </NewCodeBlock>
+   </NewCodeBlock>
 
-- Modify the `yolov5s-sim_inputmeta.yml` file.
+- Modify yolov5s-sim_inputmeta.yml file
 
-  Update the `scale` value based on the formula `scale = 1 / std`.
+  Here we modify the scale value according to the formula: scale = 1 / std
 
   ```bash
   scale = 1 / 255
@@ -213,21 +230,21 @@ The files used in the YOLOv5 example are already included in the [ai-sdk example
         redirect_to_output: false
   ```
 
-- Quantize the model.
+- Quantize the model
 
-  Use `pegasus_quantize.sh` to quantize the model into uint8 format.
+  Use `pegasus_quantize.sh` to quantize the model into uint8 type
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   ./pegasus_quantize.sh yolov5s-sim/ uint8 10
   ```
 
-  </NewCodeBlock>
+   </NewCodeBlock>
 
-- Compile the model.
+- Compile the model
 
-  Use `pegasus_export_ovx.sh` to compile the model into NBG format.
+  Use `./pegasus_export_ovx.sh` to compile the model into NBG model format
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -237,11 +254,11 @@ The files used in the YOLOv5 example are already included in the [ai-sdk example
 
   </NewCodeBlock>
 
-  The NBG model is saved in `yolov5s-sim/wksp/yolov5s-sim_uint8_nbg_unify/network_binary.nb`.
+  The NBG model is saved in `yolov5s-sim/wksp/yolov5s-sim_uint8_nbg_unify/network_binary.nb`
 
-## YOLOv5 Inference on the Board
+## Board-side YOLOv5 Inference
 
-Navigate to the YOLOv5 example code directory.
+Navigate to the yolov5 example code file directory path
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -253,43 +270,78 @@ cd ai-sdk/examples/yolov5
 
 ### Compile the Example
 
-<NewCodeBlock tip="Device" type="device">
+<Tabs>
+    <TabItem value="A733">
 
-```bash
-make AI_SDK_PLATFORM=a733
-make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
-```
+    <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+    ```bash
+    make AI_SDK_PLATFORM=a733
+    make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+    ```
 
-Parameter explanation:
+    </NewCodeBlock>
 
-- `AI_SDK_PLATFORM`: Specify the SoC, options are **`a733`**, **`t527`**.
-- `INSTALL_PREFIX`: Specify the installation path.
+    </TabItem>
 
-### Run the Example
+    <TabItem value="T527">
 
-Set environment variables.
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    make AI_SDK_PLATFORM=t527
+    make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+    ```
+    </NewCodeBlock>
 
-<NewCodeBlock tip="Device" type="device">
+    </TabItem>
 
-```bash
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/NPU_VERSION # NPU_SW_VERSION
-```
+</Tabs>
 
-</NewCodeBlock>
+Parameter description:
+
+`AI_SDK_PLATFORM`: Specify SoC, optional **`a733`**, **`t527`**
+
+`INSTALL_PREFIX`: Specify installation path
+
+### Run Example
+
+Import environment variables
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
 
 :::tip
-Specify `NPU_SW_VERSION`. For A733, choose `v2.0`; for T527, choose `v1.13`. Refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison-table) for details.
+Specify NPU_SW_VERSION: use `v2.0` for A733 and `v1.13` for T527. Please refer to the [**NPU Version Comparison Table**](./cubie_acuity_usage#npu-version-comparison-table) for NPU information.
 :::
 
-Navigate to the example installation directory.
+Navigate to the example installation directory
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/NPU_VERSION # NPU_SW_VERSION
-cd INSTALL_PREFIX/etc/npu/yolov5
+cd $INSTALL_PREFIX/etc/npu/yolov5
 # ./yolov5 nbg_model input_picture
 ./yolov5 ./model/yolov5.nb ./input_data/dog.jpg
 ```
@@ -297,7 +349,7 @@ cd INSTALL_PREFIX/etc/npu/yolov5
 </NewCodeBlock>
 
 :::tip
-The example automatically installs the `yolov5.nb` model provided by Radxa. You can manually specify the path to your converted NBG model.
+The example will automatically install the yolov5.nb model provided by Radxa. You can manually specify the path to your own converted NBG model here.
 :::
 
 ```bash
@@ -343,9 +395,9 @@ awnn_destroy total: 1.95 ms.
 awnn_uninit total: 0.66 ms.
 ```
 
-The inference result is saved in `result.png`.
+The inference results are saved in result.png
 
 <div style={{ textAlign: "center" }}>
-  <img src="/en/img/cubie/a7a/yolov5_result.webp" />
-  YOLOv5s demo output
+  <img src="/img/cubie/a7a/yolov5_result.webp" />
+  yolov5s demo output
 </div>

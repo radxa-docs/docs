@@ -1,13 +1,13 @@
 :::tip
-This document demonstrates how to run the YOLACT object segmentation model on Allwinner T527/A733 series chips.
+This document demonstrates how to run YOLACT instance segmentation model inference on Allwinner T527/A733 series chips.
 :::
 
-Deploying YOLACT on the board requires two steps:
+Deploying YOLACT on the development board involves two main steps:
 
-- Use the [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) on the PC to convert models from different frameworks into NBG format.
-- Use the awnn API on the board to perform inference with the model.
+- On the PC side, use [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) to convert models from different frameworks to NBG format
+- On the device side, use awnn API for model inference
 
-## Download the ai-sdk Example Repository
+## Download ai-sdk Example Repository
 
 <NewCodeBlock tip="X86 PC / Device" type="PC">
 
@@ -17,9 +17,9 @@ git clone https://github.com/ZIFENG278/ai-sdk.git
 
 </NewCodeBlock>
 
-## YOLACT Inference on the Board
+## Board-side YOLACT Inference
 
-Navigate to the YOLACT example code directory.
+Navigate to the YOLACT example code file directory path
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -31,42 +31,78 @@ cd ai-sdk/examples/yolact
 
 ### Compile the Example
 
-<NewCodeBlock tip="Device" type="device">
+    <Tabs>
+        <TabItem value="A733">
 
-```bash
-make AI_SDK_PLATFORM=a733
-make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
-```
+        <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+        ```bash
+        make AI_SDK_PLATFORM=a733
+        make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+        ```
 
-Parameter explanation:
+        </NewCodeBlock>
 
-- `AI_SDK_PLATFORM`: Specify the SoC, options are **`a733`**, **`t527`**.
-- `INSTALL_PREFIX`: Specify the installation path.
+        </TabItem>
 
-### Run the Example
+        <TabItem value="T527">
 
-- Set environment variables.
+        <NewCodeBlock tip="Device" type="device">
+        ```bash
+        make AI_SDK_PLATFORM=t527
+        make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+        ```
+        </NewCodeBlock>
 
-<NewCodeBlock tip="Device" type="device">
+        </TabItem>
 
-```bash
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/NPU_VERSION # NPU_SW_VERSION
-```
+    </Tabs>
 
-</NewCodeBlock>
+Parameter description:
+
+`AI_SDK_PLATFORM`: Specify SoC, optional **`a733`**, **`t527`**
+
+`INSTALL_PREFIX`: Specify installation path
+
+### Run Example
+
+Import environment variables
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
 
 :::tip
-Specify `NPU_SW_VERSION`. For A733, choose `v2.0`; for T527, choose `v1.13`. Refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison-table) for details.
+Specify NPU_SW_VERSION: use `v2.0` for A733 and `v1.13` for T527. Please refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison-table) for NPU information.
 :::
 
-Navigate to the example installation directory.
+Navigate to the example installation directory
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd INSTALL_PREFIX/etc/npu/yolact
+cd $INSTALL_PREFIX/etc/npu/yolact
 # ./yolact nbg_model input_picture
 ./yolact ./model/yolact.nb ./input_data/dog_550_550.jpg
 ```
@@ -74,7 +110,7 @@ cd INSTALL_PREFIX/etc/npu/yolact
 </NewCodeBlock>
 
 :::tip
-The example automatically installs the `yolact.nb` model provided by Radxa. You can manually specify the path to your converted NBG model.
+The example will automatically install the yolact.nb model provided by Radxa. You can manually specify the path to your own converted NBG model here.
 :::
 
 ```bash
@@ -124,6 +160,6 @@ awnn_uninit total: 0.71 ms.
 ```
 
 <div style={{ textAlign: "center" }}>
-  <img src="/en/img/cubie/a7a/yolact_result.webp" />
+  <img src="/img/cubie/a7a/yolact_result.webp" />
   yolact demo result
 </div>
