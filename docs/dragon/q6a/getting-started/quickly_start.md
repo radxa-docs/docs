@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # 快速上手
@@ -9,76 +9,185 @@ sidebar_position: 2
 ## 产品实物
 
 <div style={{textAlign: 'center'}}>
-   Dragon Q6A 正面
-   <img src="/img/dragon/q6a/q6a_top.webp" style={{width: '75%', maxWidth: '1200px'}} />
-   Dragon Q6A 背面
-    <img src="/img/dragon/q6a/q6a_bottom.webp" style={{width: '75%', maxWidth: '1200px'}} />
+   <img src="/img/dragon/q6a/dragon-q6a-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+
+| 序号 |       视图        | 序号 |       视图        | 序号 |       视图        |
+| :--: | :---------------: | :--: | :---------------: | :--: | :---------------: |
+|  ①   | Dragon Q6A 正视图 |  ②   | Dragon Q6A 侧视图 |  ③   | Dragon Q6A 背视图 |
 
 ## 使用前提
 
 您需要提前准备以下硬件设备：
 
 - 主板：瑞莎 Dragon Q6A
-- 系统启动介质：MicroSD 卡
-- 电源适配器：12V Type-C 电源适配器（兼容 PD 协议）
-- USB 串口数据线（可选）：用于串口调试和登录系统
-- HDMI 数据线和显示器（可选）：用于显示系统界面和图形化界面操作
+- 供电：12V Type-C 电源适配器（兼容 PD 协议）
+- 系统启动介质：MicroSD 卡（用于安装系统与启动）
+- 显示设备：HDMI 数据线和显示器
+- 输入设备：键盘和鼠标（用于图形界面操作）
+- 调试工具（可选）：USB 串口数据线（用于串口登录）
 
 :::tip 推荐配件
 
 - [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
-- 标准 12V Type-C 电源适配器，建议电流 2A
-  :::
+- 标准 12V Type-C 电源适配器，建议电流 2A 及以上
+
+:::
 
 ## 安装系统
 
-您可以根据自己的系统启动介质和拥有的硬件设备，参考下面教程进行系统安装：
+主要介绍安装系统到 MicroSD 卡。
 
-- [安装系统到 MicroSD 卡](./install-system/sd_system)
-- [安装系统到 U 盘](./install-system/udisk_system)
-- [安装系统到 NVMe SSD](./install-system/nvme_system)
+:::warning 重要提醒
 
-:::tip 系统启动说明
-默认情况下，系统启动盘为 MicroSD 卡，无需其他操作可以直接启动 MicroSD 卡系统，但是无法直接启动 U 盘或者 NVMe SSD 内的系统。
+**安装系统会完全格式化 MicroSD 卡，所有数据将被永久删除！**
 
-若您是将系统安装到 U 盘或者 NVMe SSD 上，需要参考 [修改系统启动盘引导选项](./install-system/boot_option) 教程修改系统启动盘引导选项。
+请在操作前确认：
+
+- MicroSD 卡中无重要数据或已完成资料备份
+- 选择正确的存储设备，避免格式化其他磁盘
+
 :::
+
+## 硬件连接
+
+将 MicroSD 卡插入 MicroSD 卡读卡器，再将 MicroSD 卡读卡器插入电脑。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/sd-reader.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### 下载系统镜像
+
+请访问 [资源汇总下载](../download) 页面，下载 **系统镜像**。
+
+:::tip 软件使用
+
+该镜像文件为 `.img.xz` 格式的压缩包，下载后需要先解压，得到 `.img` 格式的镜像文件才能使用。
+
+:::
+
+### 安装系统镜像
+
+使用 Balena Etcher 软件可以将系统镜像安装到 MicroSD 卡中。
+
+:::tip Balena Etcher
+
+对于 Balena Etcher 的安装和使用，可以参考 [Etcher 使用](/common/radxa-os/install-system/balena-etcher) 教程。
+
+:::
+
+#### 选择系统镜像
+
+点击 `Flash from file` 选项，选择自己提前下载并解压好的系统镜像文件。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/etcher-select-image.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 选择存储设备
+
+点击 `Select target` 选项，选择 MicroSD 卡设备。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/etcher-select-sd-01.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/etcher-select-sd-02.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 开始烧录
+
+点击 `Flash!` 选项，开始烧录系统镜像到 MicroSD 卡中。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/etcher-flash.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  等待系统安装完成
+  <img
+    src="/img/common/radxa-os/install-system/etcher-flashing.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  等待系统校验完成
+  <img
+    src="/img/common/radxa-os/install-system/etcher-valid.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  成功安装系统镜像后，关闭 Etcher 软件！
+  <img
+    src="/img/common/radxa-os/install-system/etcher-completed.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
 
 ## 启动系统
 
 完成系统的安装后，将 MicroSD 卡安装到 Dragon Q6A 的 MicroSD 卡槽中，然后使用 12V Type-C 电源适配器给 Dragon Q6A 供电，即可启动系统。
 
-① : 安装 MicroSD 卡
-
-② : 使用 12V Type-C 电源适配器给 Dragon Q6A 供电
-
 <div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/q6a_boot_system.webp" style={{width: '75%', maxWidth: '1200px'}} />
+   <img src="/img/dragon/q6a/dragon-q6a-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+
+① ：安装 MicroSD 卡
+
+② ：使用 HDMI 数据线连接显示器和主板
+
+③ ：使用 12V Type-C 电源适配器给 Dragon Q6A 供电
 
 系统启动正常后，电源指示灯绿色亮起，状态指示灯蓝色闪烁。
 
-## 系统信息
-
-用户账号：ubuntu
-
-用户密码：ubuntu
-
 ## 登录系统
 
-主要介绍 Dragon Q6A 搭配 USB 串口数据线登录系统，串口登录系统可以参考 [串口调试](../system-config/uart_debug) 教程。
+当您首次启动系统后，需要使用默认的用户名和密码登录。
 
-:::tip
-Dragon Q6A 搭配显示器使用，整体操作比较直观和简单，这里便不再介绍！
-:::
+Radxa OS 的默认凭据如下：
+
+| 项目   | 内容    |
+| :----- | :------ |
+| 用户名 | `radxa` |
+| 密码   | `radxa` |
 
 ## 使用系统
 
-### 有屏模式
+成功启动系统后，您就可以在 Dragon Q6A 上正式使用瑞莎系统，对于瑞莎系统的简单使用，可参考 [使用系统](./use_system.md) 教程。
 
-有屏模式是指 Dragon Q6A 搭配显示器使用，整体操作比较直观和简单！
+<div style={{textAlign: 'center'}}>
+   <img src="/img/dragon/q6a/dragon-q6a-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
-### 无屏模式
+:::tip 其它启动系统方式
+对于想通过其它方式启动系统的用户（如 eMMC、UFS、以及 NVMe SSD 启动系统），可以参考下面教程完成对应系统启动介质安装系统：
 
-无屏模式是指 Dragon Q6A 不搭配显示器使用，通过串口或者 SSH 登录系统进行操作！
+- [安装系统到 MicroSD 卡](./install-system/sd_system.md)
+- [安装系统到 U 盘](./install-system/udisk_system.md)
+- [安装系统到 UFS](./install-system/ufs_system/)
+- [安装系统到 eMMC](./install-system/emmc_system/)
+- [安装系统到 NVMe 固态硬盘](./install-system/nvme_system/)
+
+系统启动优先级：USB > MicroSD > NVMe 固态硬盘 > eMMC 模块 > UFS 模块
+
+:::

@@ -12,11 +12,12 @@ Dragon Q6A 搭载高通 QCS6490 SoC，采用 “1+3+4” 三丛集设计（1× K
 
 ## 产品外观
 
+| 序号 |       视图        | 序号 |       视图        | 序号 |       视图        |
+| :--: | :---------------: | :--: | :---------------: | :--: | :---------------: |
+|  ①   | Dragon Q6A 正视图 |  ②   | Dragon Q6A 侧视图 |  ③   | Dragon Q6A 背视图 |
+
 <div style={{textAlign: 'center'}}>
-   Dragon Q6A 正面
-   <img src="/img/dragon/q6a/q6a_top.webp" style={{width: '80%', maxWidth: '1200px'}} />
-   Dragon Q6A 背面
-    <img src="/img/dragon/q6a/q6a_bottom.webp" style={{width: '80%', maxWidth: '1200px'}} />
+   <img src="/img/dragon/q6a/dragon-q6a-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## 产品规格
@@ -38,8 +39,19 @@ Dragon Q6A 搭载高通 QCS6490 SoC，采用 “1+3+4” 三丛集设计（1× K
 ## 接口说明
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/q6a_interface.webp" style={{width: '80%', maxWidth: '1200px'}} />
+   <img src="/img/dragon/q6a/q6a_interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+
+| 序号 | 说明             | 序号 | 说明                                                         | 序号 | 说明                      |
+| :--: | :--------------- | :--: | :----------------------------------------------------------- | :--: | :------------------------ |
+|  ①   | USB Type-C 接口  |  ⑨   | PoE 接口                                                     |  ⑰   | 12 V 电源输入接口         |
+|  ②   | LPDDR5 内存      |  ⑩   | 千兆以太网接口（支持 PoE）                                   |  ⑱   | 麦克风输入接口            |
+|  ③   | Power 按键       |  ⑪   | QSPI Nor Flash                                               |  ⑲   | eMMC / UFS 模块二合一接口 |
+|  ④   | 天线接口         |  ⑫   | 2x USB 2.0 Type-A 接口                                       |  ⑳   | RTC 接口                  |
+|  ⑤   | WiFi 6 / BT 5.4  |  ⑬   | USB 2.0 Type-A 接口（上层）<br/> USB 3.1 Type-A 接口（下层） |  ㉑  | 2x MIPI CSI 2-Lane 接口   |
+|  ⑥   | M.2 M Key 接口   |  ⑭   | EDL 按键                                                     |  ㉒  | MIPI DSI 4-Lane 接口      |
+|  ⑦   | 40 Pin GPIO 排针 |  ⑮   | 耳机插孔                                                     |  ㉓  | MicroSD 卡槽              |
+|  ⑧   | Qualcomm QCS6490 |  ⑯   | HDMI 接口                                                    |  ㉔  | MIPI CSI 4-Lane 接口      |
 
 | 序号 | 说明             | 序号 | 说明                                                         | 序号 | 说明                      |
 | :--: | :--------------- | :--: | :----------------------------------------------------------- | :--: | :------------------------ |

@@ -1,22 +1,22 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 ---
 
-import BalenaEtcherUse from '../../../../common/radxa-os/install-system/\_use_etcher_udisk.mdx';
+import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use_etcher_emmc.mdx';
 
-# 安装系统到 U 盘
+# 使用读卡器安装系统
 
 <BalenaEtcherUse />
 
 ## 启动系统
 
-完成系统的安装后，将 U 盘插到到 Dragon Q6A 的 USB 接口，然后使用 12V Type-C 电源适配器给 Dragon Q6A 供电，即可启动系统。
+完成系统的安装后，将 eMMC 模块安装到 Dragon Q6A 的 eMMC 模块接口中，然后使用 12V Type-C 电源适配器给 Dragon Q6A 供电，即可启动系统。
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/dragon-q6a-boot-system-udisk.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/img/dragon/q6a/dragon-q6a-boot-system-emmc.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① ：连接 U 盘
+① ：安装 eMMC 模块
 
 ② ：使用 HDMI 数据线连接显示器和主板
 
@@ -37,7 +37,7 @@ Radxa OS 的默认凭据如下：
 
 ## 使用系统
 
-成功启动系统后，您就可以在 Dragon Q6A 上正式使用瑞莎系统，对于瑞莎系统的简单使用，可参考 [使用系统](./use_system.md) 教程。
+成功启动系统后，您就可以在 Dragon Q6A 上正式使用瑞莎系统，对于瑞莎系统的简单使用，可参考 [使用系统](../../use_system.md) 教程。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/dragon/q6a/dragon-q6a-login.webp" style={{width: '100%', maxWidth: '1200px'}} />

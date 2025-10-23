@@ -1,4 +1,4 @@
-主要介绍如何使用 `dd` 命令将系统安装到 UFS 中。
+主要介绍在 MicroSD 卡启动系统正常的情况下，使用 `dd` 命令将系统安装到 UFS 中。
 
 :::warning
 安装系统会格式化 UFS 模块或板载 UFS，如果有重要数据请提前备份！
@@ -8,19 +8,11 @@
 
 您需要满足以下条件才可以使用 `dd` 命令将系统安装到 UFS 中：
 
-- 系统可以通过其他存储设备正常启动系统：推荐使用 MicroSD 卡启动系统
+- 系统可以通过 MicroSD 卡正常启动系统
 
-- UFS 模块安装到主板上或主板本身板载 UFS
+- UFS 安装到主板上或主板板载 UFS
 
 ## 硬件连接
-
-您可以根据自己的主板配置进行操作。
-
-:::tip
-教程适用于多款主板，你需要根据自己的主板配置选择对应的步骤进行硬件连接。
-
-一般板载 UFS 的主板，无 UFS 模块接口，无需安装。
-:::
 
 <Tabs queryString="system boot">
 <TabItem value="UFS 模块" default={props.tag === "ufs_module"} attributes={{className: props.tag === "ufs_board" && "tab_none"}} >
@@ -42,7 +34,7 @@ UFS 模块安装步骤：
 
 <TabItem value="板载 UFS" default={props.tag === "ufs_board"} attributes={{className: props.tag === "ufs_module" && "tab_none"}} >
 
-若你的主板是含有板载 UFS 的版本，无需安装。
+若你的主板是板载 UFS 的版本，无需安装。
 
 </TabItem>  
 </Tabs>
@@ -51,83 +43,54 @@ UFS 模块安装步骤：
 
 ### 下载系统镜像
 
-主板需要访问资源汇总下载页面，直接下载系统镜像文件到本地上。
+主板需要访问 <a href={props?.download_page ?? '../../../../download'}>资源汇总下载</a> 页面，下载 **最新系统镜像** 到主板上。
 
 :::tip 镜像说明
 下载的系统镜像是压缩文件，需要解压后才能使用！
 :::
 
-#### 推荐下载方式
+您可以使用 `wget` 命令下载系统镜像文件到主板上。
 
-- 直接下载
-
-主板直接访问资源汇总下载页面，下载系统镜像文件到本地上。
-
-- wget 命令下载
-
-主板通过 `wget` 命令下载系统镜像文件到本地上。
-
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
-sudo apt update &&
+sudo apt update
 sudo apt install wget -y
-wget <url>
+wget <download_url>
 ```
 
 </NewCodeBlock>
 
-其中 `<url>` 为系统镜像文件的下载地址，可以复制资源汇总下载页面中的下载地址进行替换。
+其中 `<download_url>` 为系统镜像文件的下载地址，可以复制 <a href={props?.download_page ?? '../../../../download'}>资源汇总下载</a> 页面中的镜像下载地址进行替换。
 
-- PC 端下载
-
-PC 端访问资源汇总下载页面，直接下载系统镜像文件后，通过 U 盘、FTP、SCP等方式将系统镜像文件传输到主板上。
+下载示例：<code>{`wget ${props?.download_url ?? '<download_url>'}`}</code>
 
 #### 解压系统镜像
 
 我们的系统镜像一般为 `*.img.xz` 格式，需要解压后才能使用。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
-sudo apt update
 sudo apt install xz-utils -y
-unxz <image_path>
+unxz <path_to_image_unxz>
 ```
 
 </NewCodeBlock>
 
-其中 `<image_path>` 为系统镜像文件的路径，需要替换成实际的系统镜像文件路径。
+其中 `<path_to_image_unxz>` 为系统镜像文件的路径，需要替换成实际的系统镜像文件路径。
 
-### 安装系统镜像
+解压示例：
 
-使用 `dd` 命令将系统镜像安装到 UFS 中。
+<code>{`unxz ${props?.path_to_image_unxz ?? "<path_to_image_unxz>"}`}</code>
 
-<NewCodeBlock tip="radxa@device$" type="device">
-
-```
-sudo dd if=<image_path> of=<device_target> bs=4M status=progress
-```
-
-</NewCodeBlock>
-
-参数说明：
-
-- `<image_path>`：系统镜像文件的路径，需要替换成实际的系统镜像文件路径。
-
-- `<device_target>`：UFS 模块的设备路径，需要替换成实际的 UFS 模块的设备路径。
-
-- `bs=4M`：写入块大小。
-
-- `status=progress`：显示写入进度。
-
-:::tip 确定设备路径
+### 确定设备路径
 
 可以使用 `lsblk` 命令查看设备路径，根据磁盘的容量来确定设备路径。
 
-说明：若是磁盘容量接近一致，可以安全插拔（主板关机插拔 UFS 模块）来观察出现和消失的设备路径，从而确定设备路径。
+说明：若是磁盘容量接近一致，可以安全插拔（适用于 UFS 模块）来观察出现和消失的设备路径，从而确定设备路径。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 lsblk
@@ -135,4 +98,66 @@ lsblk
 
 </NewCodeBlock>
 
-:::
+系统若识别出 UFS 设备，通常会识别成 `/dev/sd*` 设备。
+
+终端输出示例:
+
+```
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+···
+sda           8:0    0 119.2G  0 disk
+└─sda1        8:1    0 119.2G  0 part
+···
+```
+
+### 安装系统镜像
+
+使用 `dd` 命令将系统镜像安装到 UFS 中。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo dd if=<path_to_image> of=<device_target> bs=4M status=progress
+```
+
+</NewCodeBlock>
+
+写入示例：
+
+<code>{`sudo dd if=${
+  props?.path_to_image ?? "<path_to_image>"
+} of=/dev/sda bs=4M status=progress`}</code>
+
+参数说明：
+
+- `<path_to_image>`：系统镜像文件的路径，需要替换成实际的系统镜像文件路径。
+
+- `<device_target>`：UFS 模块的设备路径，需要替换成实际的 UFS 模块的设备路径。
+
+- `bs=4M`：写入块大小。
+
+- `status=progress`：显示写入进度。
+
+### 验证写入结果
+
+安装系统完成后，可以通过 `lsblk` 命令查看 UFS 的分区表是否正常创建。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+终端输出示例:
+
+```
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+···
+sda           8:0    0 119.2G  0 disk
+├─sda1        8:1    0   128M  0 part
+├─sda2        8:2    0   2.3G  0 part
+└─sda3        8:3    0   6.4G  0 part
+···
+```
