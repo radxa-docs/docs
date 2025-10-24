@@ -2,131 +2,43 @@
 sidebar_position: 1
 ---
 
-# Installing the system to a MicroSD card
+import BalenaEtcherUse from '../../../../common/radxa-os/install-system/\_use_etcher_sd.mdx';
 
-This section mainly introduces how to install the system to a MicroSD card.
+# Install System to MicroSD Card
 
-:::warning
-The system installation will format the MicroSD card. Please back up any important data in advance!
-:::
+<BalenaEtcherUse />
 
-## Prerequisites
+## Booting the System
 
-You need to prepare the following hardware devices in advance:
-
-- MicroSD card reader
-- System boot media: MicroSD card
-
-## Download the system image
-
-You can visit the [Resource Download](../../download) page on your PC to download the system image file.
-
-## Unzip the System Image
-
-The downloaded system image file is a compressed archive and must be unzipped before use.
-
-## Install the System Image
-
-Balena Etcher is an open-source image burning tool that is easy to use and powerful, supporting Windows, Mac, and Linux systems.
-
-### Download Balena Etcher
-
-Visit the [Balena Etcher official website](https://www.balena.io/etcher/) to download Balena Etcher.
+After completing the system installation, insert the MicroSD card into the MicroSD card slot of the Dragon Q6A, then power on the Dragon Q6A using the 12V Type-C power adapter to boot the system.
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/down-etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/dragon/q6a/dragon-q6a-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-Please download the appropriate software installation package based on your system platform and architecture.
+① : Insert the MicroSD card
+
+② : Connect the monitor to the board using an HDMI cable
+
+③ : Power on the Dragon Q6A using the 12V Type-C power adapter
+
+When the system boots normally, the power indicator will light up green and the status LED will blink blue.
+
+## System Login
+
+When you first start the system, you'll need to log in using the default username and password.
+
+The default credentials for Radxa OS are as follows:
+
+| Item     | Value   |
+| :------- | :------ |
+| Username | `radxa` |
+| Password | `radxa` |
+
+## Using the System
+
+After successfully booting the system, you can start using the Radxa system on your Dragon Q6A. For basic usage instructions, please refer to the [Using the System](./use_system.md) guide.
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/down-etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/dragon/q6a/dragon-q6a-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-
-### Installing Balena Etcher
-
-Once the download is complete, you can install it according to your system platform and architecture.
-
-:::tip
-
-- Windows
-
-The downloaded file is an installation package in `*.exe` format. Double-click the program to run it.
-
-- Linux
-
-We recommend downloading the compressed package in `*.zip` format. After extracting it, double-click the program to run it.
-
-- MacOS
-
-Download the corresponding `*.dmg` file based on your system architecture. After double-clicking to open it, drag the software to the Applications folder to install it. After installation is complete, double-click the application icon to run it.
-
-:::
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/down-etcher-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-### Using Balena Etcher
-
-Use Balena Etcher to install the system image file onto a MicroSD card.
-
-#### Hardware Connection
-
-Insert the MicroSD card into the card reader, then connect the card reader to your PC.
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-#### Selecting a system image
-
-Click the “Flash from file” option and select the system image file that you downloaded and unzipped in advance.
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-#### Selecting storage devices
-
-Click the `Select target` option and select the storage device corresponding to the system image you want to install.
-
-:::danger
-Please do not select the wrong storage device, otherwise Etcher will format the selected storage device, resulting in the loss of important data!
-
-You can plug and unplug storage devices to observe changes in the available storage devices, thereby further determining the storage device to be installed.
-:::
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-① : Select the storage device on which you want to install the system image.
-
-② : Click the `Select 1` option to confirm your device selection.
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-#### Install system image
-
-Click the `Flash` option and wait for the software to automatically install and verify the system image.
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-<div style={{textAlign: 'center'}}>
-Wait for the system to finish writing.
-  <img src="/img/rock4/4d/etcher-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-<div style={{textAlign: 'center'}}>
-Waiting for system verification to complete
-  <img src="/img/rock4/4d/etcher-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-After successfully writing the system image, close the Etcher software!
-
-## Power on and start up

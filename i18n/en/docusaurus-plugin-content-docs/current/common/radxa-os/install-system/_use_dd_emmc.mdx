@@ -1,26 +1,26 @@
-This document explains how to install the system to eMMC using the `dd` command.
+This guide explains how to install the system to eMMC using the `dd` command when the system can boot normally from a MicroSD card.
 
 :::warning
-Installing the system will format the eMMC module. Please back up important data in advance!
+Installing the system will format the eMMC. Please back up any important data in advance!
 :::
 
 ## Prerequisites
 
-You need to meet the following conditions to install the system to eMMC using the `dd` command:
+To use the `dd` command to install the system to eMMC, you need to meet the following conditions:
 
-- The system can boot normally via another boot medium. It is recommended to boot the system from a MicroSD card.
-- The eMMC module is installed on the board, or the board itself has onboard eMMC.
+- The system can boot normally from a MicroSD card
+- eMMC is installed on the board or the board has built-in eMMC
 
 ## Hardware Connection
 
 <Tabs queryString="system boot">
 <TabItem value="eMMC Module" default={props.tag === "emmc_module"} attributes={{className: props.tag === "emmc_board" && "tab_none"}} >
 
-### Steps to install the eMMC module:
+eMMC Module Installation Steps:
 
-1. Check the notch orientation on the eMMC module and the notch marking on the eMMC connector on the board to determine the correct installation direction.
-2. Place the eMMC module above the board's eMMC connector, ensuring the connectors are roughly aligned.
-3. Press down on one end of the eMMC module with slight force. A "click" sound indicates a successful insertion. Then press the other end in the same way to ensure the eMMC module is fully seated.
+1. Observe the notch direction on the eMMC module and the notch marking on the board's eMMC module interface to determine the correct installation orientation.
+2. Place the eMMC module above the board's eMMC module interface, ensuring the eMMC module interface is properly aligned with the board's eMMC module interface.
+3. Gently press one end of the eMMC module until you hear a "click" sound, indicating successful installation. Then press the other end in the same way to ensure the eMMC module is properly installed.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -33,22 +33,22 @@ You need to meet the following conditions to install the system to eMMC using th
 
 <TabItem value="Onboard eMMC" default={props.tag === "emmc_board"} attributes={{className: props.tag === "emmc_module" && "tab_none"}} >
 
-If your board is the version with onboard eMMC, no installation is required.
+If your board has onboard eMMC, no installation is required.
 
 </TabItem>  
 </Tabs>
 
-## Install the System
+## System Installation
 
-### Download the System Image
+### Download System Image
 
-On the board, visit the [Resources Download](../../download) page and download the system image file locally.
+Access the <a href={props?.download_page ?? '../../../../download'}>Resource Download</a> page from your device and download the **latest system image** to the device.
 
 :::tip Image Note
-The downloaded system image is a compressed file. You need to extract it before use!
+The downloaded system image is a compressed file and needs to be extracted before use!
 :::
 
-You can use the `wget` command to download the system image file to the board.
+You can use the `wget` command to download the system image file to your device.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -60,13 +60,13 @@ wget <download_url>
 
 </NewCodeBlock>
 
-Here, `<download_url>` is the download address of the system image file. You can copy the image download link from the [Resources Download](../../download) page and replace it.
+Where `<download_url>` is the download URL of the system image file. You can copy the image download URL from the <a href={props?.download_page ?? '../../../../download'}>Resource Download</a> page to replace it.
 
 Download example: <code>{`wget ${props?.download_url ?? '<download_url>'}`}</code>
 
-#### Extract the System Image
+#### Extract System Image
 
-Our system images are usually in the `*.img.xz` format and must be extracted before use.
+Our system images are generally in `*.img.xz` format and need to be extracted before use.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -77,17 +77,17 @@ unxz <path_to_image_unxz>
 
 </NewCodeBlock>
 
-Here, `<path_to_image_unxz>` is the path to the system image file. Replace it with the actual path.
+Where `<path_to_image_unxz>` is the path to the system image file, which needs to be replaced with the actual system image file path.
 
 Extraction example:
 
 <code>{`unxz ${props?.path_to_image_unxz ?? "<path_to_image_unxz>"}`}</code>
 
-### Identify the Device Path
+### Determine Device Path
 
-You can use the `lsblk` command to view device paths and determine the correct one based on disk capacity.
+You can use the `lsblk` command to check the device path and determine it based on the disk capacity.
 
-Note: If the disk capacities are very similar, you can safely hot-plug (applies to an eMMC module) to observe which device path appears and disappears to determine the correct device.
+Note: If the disk capacities are similar, you can safely remove and reinsert the eMMC module (for eMMC modules) to observe which device path appears and disappears, thus determining the correct device path.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -97,23 +97,21 @@ lsblk
 
 </NewCodeBlock>
 
-If the eMMC device is recognized, it is usually shown as a `/dev/mmcblk*` device.
+If the system recognizes the eMMC device, it will typically be identified as a `/dev/mmcblk*` device.
 
-Example terminal output:
+Terminal output example:
 
 ```
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-mmcblk0     179:0    0    58G  0 disk
-├─mmcblk0p1 179:1    0    16M  0 part /config
-├─mmcblk0p2 179:2    0   300M  0 part /boot/efi
-└─mmcblk0p3 179:3    0  57.6G  0 part /
-zram0       254:0    0 982.6M  0 disk [SWAP]
-mmcblk1     179:0    0    58G  0 disk
+···
+mmcblk1      179:0    0 29.1G  0 disk
+└─mmcblk1p1  179:1    0 29.1G  0 part
+···
 ```
 
-### Install the System Image
+### Install System Image
 
-Use the `dd` command to write the system image to the eMMC.
+Use the `dd` command to install the system image to the eMMC.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -131,14 +129,17 @@ Write example:
 
 Parameter description:
 
-- `<path_to_image>`: The path to the system image file. Replace it with the actual path.
-- `<device_target>`: The device path of the eMMC module. Replace it with the actual eMMC device path.
+- `<path_to_image>`: The path to the system image file, which needs to be replaced with the actual system image file path.
+
+- `<device_target>`: The device path of the eMMC module, which needs to be replaced with the actual eMMC module's device path.
+
 - `bs=4M`: Block size for writing.
-- `status=progress`: Show write progress.
 
-### Verify the Write Result
+- `status=progress`: Display write progress.
 
-After installation, use the `lsblk` command to check whether the partition table on the eMMC has been created correctly.
+### Verify Write Result
+
+After the system installation is complete, you can use the `lsblk` command to check if the eMMC partition table has been created correctly.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -148,17 +149,14 @@ lsblk
 
 </NewCodeBlock>
 
-Example terminal output:
+Terminal output example:
 
 ```
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-mmcblk0     179:0    0    58G  0 disk
-├─mmcblk0p1 179:1    0    16M  0 part /config
-├─mmcblk0p2 179:2    0   300M  0 part /boot/efi
-└─mmcblk0p3 179:3    0  57.6G  0 part /
-zram0       254:0    0 982.6M  0 disk [SWAP]
-mmcblk1     179:0    0    58G  0 disk
-├─mmcblk1p1 179:1    0    16M  0 part
-├─mmcblk1p2 179:2    0   300M  0 part
-└─mmcblk1p3 179:3    0  57.6G  0 part
+···
+mmcblk0      179:0    0 29.1G  0 disk
+├─mmcblk0p1  179:1    0   16M  0 part
+├─mmcblk0p2  179:2    0  300M  0 part
+└─mmcblk0p3  179:3    0 28.8G  0 part
+···
 ```

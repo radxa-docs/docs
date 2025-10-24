@@ -1,0 +1,123 @@
+This guide explains how to use the Radxa eMMC/UFS module reader with a UFS module to install the system onto the UFS module.
+
+:::warning
+Installing the system will format the UFS module. Please back up any important data in advance!
+:::
+
+## Prerequisites
+
+### Hardware Requirements
+
+You need to prepare the following hardware devices in advance:
+
+- UFS module
+- Radxa eMMC/UFS module reader
+
+:::tip Recommended Accessories
+
+- [Radxa UFS Module](https://radxa.com/products/accessories/ufs-module)
+- [Radxa eMMC/UFS module reader](https://radxa.com/products/accessories/emmc-ufs-module-reader)
+
+:::
+
+### Hardware Connection
+
+Insert the UFS module into the Radxa eMMC/UFS module reader, then connect the module reader to your computer.
+
+:::caution
+
+UFS Module Installation Steps:
+
+1. Ensure the notch on the UFS module aligns with the connector on the module reader
+2. Make sure the slot interface at the bottom of the UFS module aligns with the connector on the module reader
+3. Gently press down on one end of the UFS module until you hear a "click" sound, then repeat for the other end to ensure the UFS module is properly installed.
+   :::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/ufs-reader.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## System Installation
+
+### Download System Image
+
+Use a PC to access the <a href={props?.download_page ?? '../../../download'}>Downloads</a> page and download the system image file to your local machine.
+
+:::tip Image Note
+The downloaded system image is a compressed file that needs to be extracted before use!
+:::
+
+### Install System Image
+
+Use Balena Etcher software to install the system image to the UFS module.
+
+:::tip Balena Etcher
+For installation and usage of Balena Etcher, please refer to the [Etcher Guide](/common/radxa-os/install-system/balena-etcher) tutorial.
+:::
+
+#### Select System Image
+
+Click the `Flash from file` option and select the system image file you downloaded and extracted earlier.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-image-ufs.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Select Storage Device
+
+Click the `Select target` option and choose the UFS module device.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-ufs-01.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-ufs-02.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Start Flashing
+
+Click the `Flash!` option to start flashing the system image to the UFS module.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-flash-ufs.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  Waiting for system installation to complete
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-flashing-ufs.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  Waiting for system verification to complete
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-valid-ufs.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  After successfully installing the system image, close the Etcher software!
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-completed-ufs.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

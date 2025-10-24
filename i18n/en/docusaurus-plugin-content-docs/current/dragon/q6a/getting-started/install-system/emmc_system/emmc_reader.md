@@ -1,22 +1,22 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 ---
 
-import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use_etcher_nvme.mdx';
+import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use_etcher_emmc.mdx';
 
-# Installing System Using NVMe SSD Enclosure
+# Installing System Using Card Reader
 
-<BalenaEtcherUse download_page={"../../../download"}/>
+<BalenaEtcherUse />
 
 ## Booting the System
 
-After completing the system installation, install the NVMe SSD into the NVMe SSD slot of the Dragon Q6A, then power on the Dragon Q6A using a 12V Type-C power adapter to boot the system.
+After completing the system installation, install the eMMC module into the eMMC module interface of the Dragon Q6A, then power on the Dragon Q6A using a 12V Type-C power adapter to boot the system.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/dragon/q6a/dragon-q6a-boot-system-nvme.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/dragon/q6a/dragon-q6a-boot-system-emmc.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① : Install the NVMe SSD
+① : Install the eMMC module
 
 ② : Connect the monitor to the motherboard using an HDMI cable
 

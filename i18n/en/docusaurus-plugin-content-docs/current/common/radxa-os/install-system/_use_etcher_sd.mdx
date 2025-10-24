@@ -1,4 +1,4 @@
-This guide explains how to install the system onto a MicroSD card.
+This guide explains how to install the system to a MicroSD card.
 
 :::warning
 Installing the system will format the MicroSD card. Please back up any important data in advance!
@@ -8,7 +8,7 @@ Installing the system will format the MicroSD card. Please back up any important
 
 ### Hardware Requirements
 
-You will need the following hardware devices:
+You need to prepare the following hardware devices in advance:
 
 - MicroSD card
 - MicroSD card reader
@@ -28,7 +28,7 @@ Insert the MicroSD card into the MicroSD card reader, then connect the card read
 
 ### Download System Image
 
-Use a PC to visit the [Downloads](../../download) page and download the system image file to your local storage.
+Use a PC to access the <a href={props?.download_page ?? '../../download'}>Downloads</a> page and download the system image file to your local machine.
 
 :::tip Image Note
 The downloaded system image is a compressed file that needs to be extracted before use!
@@ -36,15 +36,15 @@ The downloaded system image is a compressed file that needs to be extracted befo
 
 ### Install System Image
 
-You can use Balena Etcher software to install the system image to the MicroSD card.
+Use Balena Etcher software to install the system image to the MicroSD card.
 
 :::tip Balena Etcher
-For installation and usage instructions of Balena Etcher, please refer to the [Etcher Usage](/en/common/radxa-os/install-system/balena-etcher) tutorial.
+For installation and usage of Balena Etcher, please refer to the [Etcher Guide](/common/radxa-os/install-system/balena-etcher) tutorial.
 :::
 
 #### Select System Image
 
-Click the `Flash from file` option and select the system image file you have downloaded and extracted.
+Click the `Flash from file` option and select the system image file you downloaded and extracted earlier.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -55,7 +55,7 @@ Click the `Flash from file` option and select the system image file you have dow
 
 #### Select Storage Device
 
-Click the `Select target` option and choose your MicroSD card device.
+Click the `Select target` option and choose the MicroSD card device.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -73,7 +73,7 @@ Click the `Select target` option and choose your MicroSD card device.
 
 #### Start Flashing
 
-Click the `Flash!` option to begin flashing the system image to the MicroSD card.
+Click the `Flash!` option to start flashing the system image to the MicroSD card.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -83,7 +83,7 @@ Click the `Flash!` option to begin flashing the system image to the MicroSD card
 </div>
 
 <div style={{ textAlign: "center" }}>
-  Wait for the system installation to complete
+  Waiting for system installation to complete
   <img
     src="/en/img/common/radxa-os/install-system/etcher-flashing.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
@@ -91,7 +91,7 @@ Click the `Flash!` option to begin flashing the system image to the MicroSD card
 </div>
 
 <div style={{ textAlign: "center" }}>
-  Wait for the system verification to complete
+  Waiting for system verification to complete
   <img
     src="/en/img/common/radxa-os/install-system/etcher-valid.webp"
     style={{ width: "100%", maxWidth: "1200px" }}

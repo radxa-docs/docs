@@ -6,7 +6,17 @@ sidebar_position: 8
 
 ## 系统镜像
 
-- [Ubuntu 系统镜像](https://dl.radxa.com/q6a/images/ubuntu-preinstalled-desktop-arm64-250731.img.zip)
+- Ubuntu 系统镜像
+  - [radxa-dragon-q6a_noble_kde_t2.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t2/radxa-dragon-q6a_noble_kde_t2.output_512.img.xz)：适用于 MicroSD 卡 / U 盘 / eMMC / NVMe 启动系统
+  - [radxa-dragon-q6a_noble_kde_t2.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t2/radxa-dragon-q6a_noble_kde_t2.output_4096.img.xz)：适用于 UFS 启动系统
+
+:::tip 最新系统镜像发布页面
+
+- [Dragon Q6A](https://github.com/radxa-build/radxa-dragon-q6a/releases)
+
+该页面会发布最新的正式版本和测试版本的系统镜像，测试版本以 `t` 开头，正式版本以 `b` 开头。
+
+:::
 
 ## 启动固件
 
@@ -29,7 +39,7 @@ Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
 :::tip 最新固件说明
 
 1. 支持 eMMC 启动
-2. 增加默认启动设备顺序：USB > SD > NVMe > eMMC > UFS > USB
+2. 增加默认启动设备顺序：USB > SD > NVMe > eMMC > UFS
 3. 增加启动设备选择
 4. 加快启动速度
 
