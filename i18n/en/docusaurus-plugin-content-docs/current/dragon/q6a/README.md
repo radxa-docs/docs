@@ -13,11 +13,12 @@ The Dragon Q6A is equipped with the Qualcomm QCS6490 SoC, featuring a “1+3+4�
 ## Product Appearance
 
 <div style={{textAlign: 'center'}}>
-   Dragon Q6A front side
-   <img src="/img/dragon/q6a/q6a_top.webp" style={{width: '80%', maxWidth: '1200px'}} />
-   Dragon Q6A reverse side
-    <img src="/img/dragon/q6a/q6a_bottom.webp" style={{width: '80%', maxWidth: '1200px'}} />
+   <img src="/en/img/dragon/q6a/dragon-q6a-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+
+| No. |       View       | No. |    Side View    | No. |    Back View    |
+| :-: | :--------------: | :-: | :-------------: | :-: | :-------------: |
+|  ①  | Dragon Q6A Front |  ②  | Dragon Q6A Side |  ③  | Dragon Q6A Back |
 
 ## Product Specifications
 
@@ -38,19 +39,19 @@ The Dragon Q6A is equipped with the Qualcomm QCS6490 SoC, featuring a “1+3+4�
 ## Interface Description
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/q6a_interface.webp" style={{width: '80%', maxWidth: '1200px'}} />
+   <img src="/en/img/dragon/q6a/q6a_interface.webp" style={{width: '80%', maxWidth: '1200px'}} />
 </div>
 
-| No. | Description        | No. | Description                                                 | No. | Description                   |
-| :-: | :----------------- | :-: | :---------------------------------------------------------- | :-: | :---------------------------- |
-|  ①  | USB Type-C Port    |  ⑨  | PoE Port                                                    |  ⑰  | 12 V Power Input Port         |
-|  ②  | LPDDR5 Memory      |  ⑩  | Gigabit Ethernet Port (PoE support)                         |  ⑱  | Microphone Input Jack         |
-|  ③  | Power Button       |  ⑪  | QSPI Nor Flash                                              |  ⑲  | eMMC / UFS Combo Connector    |
-|  ④  | Antenna Connector  |  ⑫  | 2x USB 2.0 Type-A Ports                                     |  ⑳  | RTC Connector                 |
-|  ⑤  | WiFi 6 / BT 5.4    |  ⑬  | USB 2.0 Type-A Port (Upper)<br/>USB 3.1 Type-A Port (Lower) | ㉑  | 2x MIPI CSI 2-Lane Connectors |
-|  ⑥  | M.2 M Key Slot     |  ⑭  | EDL Button                                                  | ㉒  | MIPI DSI 4-Lane Connector     |
-|  ⑦  | 40-Pin GPIO Header |  ⑮  | Headphone Jack                                              | ㉓  | MicroSD Card Slot             |
-|  ⑧  | Qualcomm QCS6490   |  ⑯  | HDMI Port                                                   | ㉔  | MIPI CSI 4-Lane Connector     |
+| No. | Description        | No. | Description                                                     | No. | Description             |
+| :-: | :----------------- | :-: | :-------------------------------------------------------------- | :-: | :---------------------- |
+|  1  | Qualcomm QCS6490   |  9  | Power input Header                                              | 17  | 2x USB 2.0 Type-A ports |
+|  2  | 40 Pin GPIO Header | 10  | MIPI CSI (4 Lane)                                               | 18  | EDL button              |
+|  3  | M.2 M Key slot     | 11  | MicroSD card slot                                               | 19  | Headphone jack          |
+|  4  | WiFi 6 / BT 5.4    | 12  | MIPI DSI (4 Lane)                                               | 20  | Standard HDMI           |
+|  5  | Antenna connector  | 13  | PoE Header                                                      | 21  | eMMC & UFS module       |
+|  6  | Power button       | 14  | Gigabit Ethernet                                                | 22  | RTC battery connector   |
+|  7  | LPDDR5 memory      | 15  | QSPI Nor Flash                                                  | 23  | 2x MIPI CSI (2 Lane)    |
+|  8  | USB 2.0 Type-C     | 16  | USB 2.0 Type-A port (upper)<br/>USB 3.1 OTG Type-A port (lower) |     |                         |
 
 ## Application Scenarios
 

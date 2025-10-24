@@ -1,7 +1,7 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-# Install the system
+# Install System
 
 <DocCardList />

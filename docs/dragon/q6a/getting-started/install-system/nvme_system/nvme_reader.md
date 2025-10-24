@@ -2,135 +2,43 @@
 sidebar_position: 1
 ---
 
-# 使用 M.2 M Key NVMe 固态硬盘盒
+import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use_etcher_nvme.mdx';
 
-主要介绍如何使用 M.2 M Key NVMe 固态硬盘盒将系统镜像烧录到 M.2 M Key 2230 NVMe SSD 上。
+# 使用固态硬盘盒安装系统
 
-:::warning
-安装系统会格式化 M.2 M Key 2230 NVMe SSD，如果有重要数据请提前备份！
-:::
+<BalenaEtcherUse download_page={"../../../download"}/>
 
-## 使用前提
+## 启动系统
 
-您需要提前准备以下硬件设备：
-
-- M.2 M Key NVMe 固态硬盘盒
-- 系统启动介质：M.2 M Key 2230 NVMe SSD
-
-## 下载系统镜像
-
-您可以在 PC 上访问 [资源汇总下载](../../../download) 页面下载系统镜像文件。
-
-## 解压系统镜像
-
-下载的系统镜像文件是压缩包，需要解压后才能使用。
-
-## 安装系统镜像
-
-Balena Etcher 是一款开源镜像烧录工具，使用简单，功能强大，支持 Windows、Mac、Linux 系统使用。
-
-### 下载 Balena Etcher
-
-访问 [Balena Etcher 官网](https://www.balena.io/etcher/) 下载 Balena Etcher。
+完成系统的安装后，将 NVMe SSD 安装到 Dragon Q6A 的 NVMe SSD 插槽中，然后使用 12V Type-C 电源适配器给 Dragon Q6A 供电，即可启动系统。
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/down-etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/img/dragon/q6a/dragon-q6a-boot-system-nvme.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-请根据自己的系统平台和架构下载对应的软件安装包。
+① ：安装 NVMe SSD
+
+② ：使用 HDMI 数据线连接显示器和主板
+
+③ ：使用 12V Type-C 电源适配器给 Dragon Q6A 供电
+
+系统启动正常后，电源指示灯绿色亮起，状态指示灯蓝色闪烁。
+
+## 登录系统
+
+当您首次启动系统后，需要使用默认的用户名和密码登录。
+
+Radxa OS 的默认凭据如下：
+
+| 项目   | 内容    |
+| :----- | :------ |
+| 用户名 | `radxa` |
+| 密码   | `radxa` |
+
+## 使用系统
+
+成功启动系统后，您就可以在 Dragon Q6A 上正式使用瑞莎系统，对于瑞莎系统的简单使用，可参考 [使用系统](../../use_system.md) 教程。
 
 <div style={{textAlign: 'center'}}>
-<img src="/img/rock4/4d/down-etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/img/dragon/q6a/dragon-q6a-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-
-### 安装 Balena Etcher
-
-下载完成后，可以根据自己的系统平台和架构进行安装。
-
-:::tip
-
-- Windows
-
-下载的文件是 `*.exe` 格式的安装包，双击程序就可以运行。
-
-- Linux
-
-推荐下载 `*.zip` 格式的压缩包，解压后双击程序就可以运行。
-
-- MacOS
-
-根据自己的系统架构下载对应的 `*.dmg` 文件,双击打开后，将软件拖拽到 Applications 文件夹进行安装，安装完成后双击应用图标运行。
-
-:::
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/down-etcher-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-### 使用 Balena Etcher
-
-使用 Balena Etcher 安装系统镜像文件到 MicroSD 卡上。
-
-#### 硬件连接
-
-将 M.2 M Key NVMe SSD 安装到 M.2 M Key NVMe 固态硬盘盒中，然后将 M.2 M Key NVMe 固态硬盘盒连接到 PC 上。
-
-#### 选择系统镜像
-
-点击 `Flash from file` 选项，选择自己提前下载并解压好的系统镜像文件。
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-#### 选择存储设备
-
-点击 `Select target` 选项，选择自己待安装系统镜像对应存储设备。
-
-:::danger
-请勿选错存储设备，否则 Etcher 将格式化被选中的存储设备，造成重要数据丢失！
-
-您可以插拔存储设备，观察可选存储设备的变化，从而进一步判断待安装的存储设备。
-:::
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-① ： 选择需要安装系统镜像的存储设备
-
-② ： 点击 `Select 1` 选项确认设备选择
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-#### 安装系统镜像
-
-点击 `Flash` 选项，等待软件自动进行系统镜像的安装和校验。
-
-<div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/etcher-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-<div style={{textAlign: 'center'}}>
-等待系统写入完成
-  <img src="/img/rock4/4d/etcher-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-<div style={{textAlign: 'center'}}>
-等待系统校验完成
-  <img src="/img/rock4/4d/etcher-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-成功写入系统镜像后，关闭 Etcher 软件！
-
-## 修改 grub 设置
-
-:::tip
-
-参考 [修改系统启动盘引导选项](../boot_option) 中 NVMe 启动部分
-
-:::
-
-## 上电开机

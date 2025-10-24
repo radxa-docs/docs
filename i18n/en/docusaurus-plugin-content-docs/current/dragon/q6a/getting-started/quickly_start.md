@@ -1,84 +1,193 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Quick Start
 
-The purpose of this tutorial is to help you quickly get started with the Dragon Q6A product.
+This guide will help you get started with the Radxa Dragon Q6A board.
 
-## Product Details
+## Product Overview
 
 <div style={{textAlign: 'center'}}>
-   Dragon Q6A Front Side
-   <img src="/img/dragon/q6a/q6a_top.webp" style={{width: '75%', maxWidth: '1200px'}} />
-   Dragon Q6A Reverse Side
-    <img src="/img/dragon/q6a/q6a_bottom.webp" style={{width: '75%', maxWidth: '1200px'}} />
+   <img src="/en/img/dragon/q6a/dragon-q6a-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
+
+| No. |       View       | No. |    Side View    | No. |    Back View    |
+| :-: | :--------------: | :-: | :-------------: | :-: | :-------------: |
+|  ①  | Dragon Q6A Front |  ②  | Dragon Q6A Side |  ③  | Dragon Q6A Back |
 
 ## Prerequisites
 
-You need to prepare the following hardware devices in advance:
+Before you begin, please prepare the following hardware:
 
-- Motherboard: Radxa Dragon Q6A
-- System boot media: MicroSD card
-- Power adapter: 12V Type-C power adapter (compatible with PD protocol)
-- USB serial data cable (optional): For serial debugging and system login
-- HDMI cable and monitor (optional): For displaying the system interface and graphical user interface operations
+- Board: Radxa Dragon Q6A
+- Power Supply: 12V Type-C Power Adapter (PD compatible)
+- Boot Media: MicroSD Card (for system installation and booting)
+- Display: HDMI cable and monitor
+- Input Devices: Keyboard and mouse (for GUI operation)
+- Debug Tool (Optional): USB to UART cable (for serial console access)
 
-:::tip Recommended accessories
+:::tip Recommended Accessories
 
 - [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
-- Standard 12V Type-C power adapter, recommended current 2A or above
-  :::
+- Standard 12V Type-C power adapter, 2A or higher recommended
 
-## Install the System
-
-You can refer to the following tutorials to install the system based on your system boot media and hardware devices:
-
-- [Install the System to a MicroSD Card](./install-system/sd_system)
-- [Install the System to a USB Flash Drive](./install-system/udisk_system)
-- [Install the System to an NVMe SSD](./install-system/nvme_system)
-
-:::tip System Startup Instructions
-By default, the system startup disk is a MicroSD card, which can be booted directly without any additional operations. However, you cannot directly boot the system from a USB flash drive or NVMe SSD.
-
-If you have installed the system on a USB flash drive or NVMe SSD, you need to refer to the [Modify System Startup Disk Boot Options](./install-system/boot_option) tutorial to modify the system startup disk boot options.
 :::
 
-## Starting the System
+## System Installation
 
-After completing the system installation, insert the MicroSD card into the MicroSD card slot of the Dragon Q6A, then power the Dragon Q6A using a 12V Type-C power adapter to start the system.
+This section explains how to install the system on a MicroSD card.
+
+:::warning Important Notice
+
+**Installing the system will completely format your MicroSD card, and all data will be permanently deleted!**
+
+Before proceeding, please confirm:
+
+- There is no important data on the MicroSD card, or you have backed up all important data
+- You have selected the correct storage device to avoid formatting other disks
+
+:::
+
+## Hardware Connection
+
+Insert the MicroSD card into a card reader, then connect the card reader to your computer.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/sd-reader.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Download System Image
+
+Visit the [Resource Downloads](../download) page to download the **system image**.
+
+:::tip Software Usage
+
+The downloaded file is in `.img.xz` compressed format. You need to extract it to get the `.img` file before use.
+
+:::
+
+### Install System Image
+
+Use Balena Etcher software to write the system image to the MicroSD card.
+
+:::tip Balena Etcher
+
+For Balena Etcher installation and usage instructions, please refer to the [Etcher Guide](/common/radxa-os/install-system/balena-etcher).
+
+:::
+
+#### Select System Image
+
+Click the `Flash from file` button and select the extracted system image file.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-image.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Select Storage Device
+
+Click the `Select target` button and choose your MicroSD card device.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-sd-01.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-sd-02.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Start Flashing
+
+Click the `Flash!` button to begin writing the system image to the MicroSD card.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-flash.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  Waiting for system installation to complete
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-flashing.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  Waiting for system verification
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-valid.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  After successfully installing the system image, close the Etcher software!
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-completed.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Booting the System
+
+After completing the system installation, insert the MicroSD card into the Dragon Q6A's MicroSD card slot, then power on the Dragon Q6A using the 12V Type-C power adapter to boot the system.
+
+<div style={{textAlign: 'center'}}>
+   <img src="/en/img/dragon/q6a/dragon-q6a-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ① : Insert the MicroSD card
 
-② : Power the Dragon Q6A using a 12V Type-C power adapter
+② : Connect the monitor to the board using an HDMI cable
 
-<div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/q6a_boot_system.webp" style={{width: '75%', maxWidth: '1200px'}} />
-</div>
+③ : Power on the Dragon Q6A using the 12V Type-C power adapter
 
-After the system starts up normally, the power indicator light turns green and the status indicator light flashes blue.
+When the system boots normally, the power indicator will light up green and the status LED will blink blue.
 
-## System Information
+## System Login
 
-User Account: ubuntu
+When you first start the system, you'll need to log in using the default credentials.
 
-User Password: ubuntu
+The default credentials for Radxa OS are as follows:
 
-## Logging into the System
-
-This section primarily introduces how to log in to the system using the Dragon Q6A with a USB serial port data cable. For instructions on logging in to the system via the serial port, please refer to the [Serial Port Debugging](../system-config/uart_debug) tutorial.
-
-:::tip
-The Dragon Q6A is used in conjunction with a display, and its overall operation is relatively intuitive and simple, so we will not go into further detail here!
-:::
+| Item     | Value   |
+| :------- | :------ |
+| Username | `radxa` |
+| Password | `radxa` |
 
 ## Using the System
 
-### Screen Mode
+After successfully booting the system, you can start using the Radxa system on your Dragon Q6A. For basic usage instructions, please refer to the [Using the System](./use_system.md) guide.
 
-Screen mode refers to using the Dragon Q6A with a display, which makes overall operation more intuitive and simple!
+<div style={{textAlign: 'center'}}>
+   <img src="/en/img/dragon/q6a/dragon-q6a-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
-### Screenless Mode
+:::tip Alternative Boot Methods
+For users who want to boot the system using other methods (such as eMMC, UFS, or NVMe SSD), please refer to the following guides for installing the system on different boot media:
 
-Screenless mode refers to using the Dragon Q6A without a display, logging into the system via serial port or SSH for operation!
+- [Install System to MicroSD Card](./install-system/sd_system.md)
+- [Install System to USB Drive](./install-system/udisk_system.md)
+- [Install System to UFS](./install-system/ufs_system/)
+- [Install System to eMMC](./install-system/emmc_system/)
+- [Install System to NVMe SSD](./install-system/nvme_system/)
+
+Boot priority: USB > MicroSD > NVMe SSD > eMMC Module > UFS Module
+
+:::

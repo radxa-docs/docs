@@ -1,7 +1,7 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 ---
 
-# Install the system to NVMe SSD
+# Install System to NVMe SSD
 
 <DocCardList />

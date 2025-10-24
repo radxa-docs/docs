@@ -6,7 +6,17 @@ sidebar_position: 8
 
 ## System Image
 
-- [Ubuntu System Image](https://dl.radxa.com/q6a/images/ubuntu-preinstalled-desktop-arm64-250731.img.zip)
+- Ubuntu System Images
+  - [radxa-dragon-q6a_noble_kde_t2.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t2/radxa-dragon-q6a_noble_kde_t2.output_512.img.xz): For booting from MicroSD card / USB drive / eMMC / NVMe
+  - [radxa-dragon-q6a_noble_kde_t2.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t2/radxa-dragon-q6a_noble_kde_t2.output_4096.img.xz): For booting from UFS
+
+:::tip Latest System Image Releases
+
+- [Dragon Q6A](https://github.com/radxa-build/radxa-dragon-q6a/releases)
+
+This page publishes the latest stable and beta system images. Beta versions start with `t`, and stable versions start with `b`.
+
+:::
 
 ## Boot Firmware
 
@@ -29,7 +39,7 @@ For detailed steps on flashing the SPI boot firmware, please refer to the [Flash
 :::tip Firmware update description
 
 1. Support eMMC boot
-2. Add default boot device order: USB > SD > NVMe > eMMC > UFS > USB
+2. Add default boot device order: USB > SD > NVMe > eMMC > UFS
 3. Add boot device selection
 4. Accelerate boot speed
 
