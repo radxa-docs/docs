@@ -16,11 +16,11 @@ Orion O6 V1.2 版本
 
 ## BIOS
 
-| 下载链接                                                                                  | 格式 | 说明                                                                                                                                                                                      |
-| ----------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.3.0-1.zip)           | zip  | Version 0.3.0-1                                                                                                                                                                           |
-| [Github Release](https://github.com/radxa-pkg/edk2-cix/releases/latest)                   | deb  | BIOS 内容处于 `edk2-cix_*_all.deb` 软件包当中。该文件在 Windows 下可使用 7-Zip 打开，Linux 下可使用 KDE Ark 打开。软件包内，BIOS 文件路径为 `data.tar.xz/usr/share/edk2/radxa/orion-o6`。 |
-| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/SystemReady/latest/orion-o6-bios.7z) | 7z   | Version 9.0.0, Arm SystemReady Certification BIOS                                                                                                                                         |
+| 下载链接                                                                                  | 格式 | 说明                                                                                                                                                                                                                     |
+| ----------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.3.0-1.zip)           | zip  | Version 0.3.0-1                                                                                                                                                                                                          |
+| [Github Release](https://github.com/radxa-pkg/edk2-cix/releases/latest)                   | deb  | BIOS 内容处于 `edk2-cix_*_all.deb` 软件包当中。该文件在 Windows 下可使用 7-Zip 打开，Linux 下可使用 KDE Ark 打开，macOS 下可使用 `ar -x` 命令解压。软件包内，BIOS 文件路径为 `data.tar.xz/usr/share/edk2/radxa/orion-o6` |
+| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/SystemReady/latest/orion-o6-bios.7z) | 7z   | Version 9.0.0, Arm SystemReady Certification BIOS                                                                                                                                                                        |
 
 ### BIOS 兼容性说明
 
