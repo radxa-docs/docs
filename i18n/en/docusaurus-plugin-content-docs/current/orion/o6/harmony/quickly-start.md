@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Quick Start
 
-This guide explains how to flash the OpenHarmony BIOS and install the OpenHarmony operating system.
+This guide covers downloading the OpenHarmony SDK, flashing the BIOS, and installing the OpenHarmony operating system.
 
 ## Prerequisites
 
