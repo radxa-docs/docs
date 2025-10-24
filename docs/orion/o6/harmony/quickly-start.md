@@ -25,20 +25,18 @@ sidebar_position: 1
 
 :::
 
-## 鸿蒙sdk下载
+## 鸿蒙 SDK 下载
 
-- [SDK github链接](https://github.com/radxa/cix-openharmony-manifests)
+- [SDK GitHub](https://github.com/radxa/cix-openharmony-manifests)
 
-github链接中存在readme.md 文件，readme.md文件中有环境配置和编译说明，如下:
+可参考 SDK GitHub 仓库中的 README.md 文件，README.md 文件中有环境配置和编译说明，如下:
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/o6/harmony/readme-harmony-0.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
-
 <div style={{textAlign: 'center'}}>
     <img src="/img/o6/harmony/readme-harmony-1.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
-
 
 ## 刷写鸿蒙 BIOS
 
