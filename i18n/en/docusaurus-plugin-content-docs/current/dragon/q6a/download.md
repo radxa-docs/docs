@@ -39,7 +39,7 @@ For detailed steps on flashing the SPI boot firmware, please refer to the [Flash
 :::tip Firmware update description
 
 1. Support eMMC boot
-2. Add default boot device order: USB > SD > NVMe > eMMC > UFS > USB
+2. Add default boot device order: USB > SD > NVMe > eMMC > UFS
 3. Add boot device selection
 4. Accelerate boot speed
 
