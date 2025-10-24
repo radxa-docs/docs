@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 快速上手
 
-主要介绍如何刷 Openharmony BIOS 和安装 Openharmony 系统。
+主要介绍Openharmony sdk下载、刷写 BIOS 和安装 Openharmony 系统。
 
 ## 使用前提
 
@@ -24,6 +24,21 @@ sidebar_position: 1
 - [瑞莎 PD 65W 电源适配器](https://radxa.com/products/accessories/power-pd-65w)
 
 :::
+
+## 鸿蒙sdk下载
+
+- [SDK github链接](https://github.com/radxa/cix-openharmony-manifests)
+
+github链接中存在readme.md 文件，readme.md文件中有环境配置和编译说明，如下:
+
+<div style={{textAlign: 'center'}}>
+    <img src="/img/o6/harmony/readme-harmony-0.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+
+<div style={{textAlign: 'center'}}>
+    <img src="/img/o6/harmony/readme-harmony-1.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+
 
 ## 刷写鸿蒙 BIOS
 

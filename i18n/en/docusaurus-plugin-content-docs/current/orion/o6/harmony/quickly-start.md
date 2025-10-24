@@ -25,6 +25,20 @@ Note: The optional serial console cable is used for flashing BIOS. You can perfo
 
 :::
 
+## HarmonyOS SDK Download
+
+- [SDK GitHub Link](https://github.com/radxa/cix-openharmony-manifests)
+
+The GitHub repository contains a `readme.md` file with environment setup and compilation instructions, as shown below:
+
+<div style={{textAlign: 'center'}}>
+    <img src="/en/img/o6/harmony/readme-harmony-0.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+
+<div style={{textAlign: 'center'}}>
+    <img src="/en/img/o6/harmony/readme-harmony-1.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+
 ## Flashing HarmonyOS BIOS
 
 Before starting, please ensure you have completed all preparations.
