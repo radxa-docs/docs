@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Quick Start
 
-This guide explains how to flash the OpenHarmony BIOS and install the OpenHarmony operating system.
+This guide covers downloading the OpenHarmony SDK, flashing the BIOS, and installing the OpenHarmony operating system.
 
 ## Prerequisites
 
@@ -24,6 +24,20 @@ Note: The optional serial console cable is used for flashing BIOS. You can perfo
 - [Radxa PD 65W Power Adapter](https://radxa.com/products/accessories/power-pd-65w)
 
 :::
+
+## HarmonyOS SDK Download
+
+- [SDK GitHub Link](https://github.com/radxa/cix-openharmony-manifests)
+
+The GitHub repository contains a `README.md` file with environment setup and compilation instructions, as shown below:
+
+<div style={{textAlign: 'center'}}>
+    <img src="/en/img/o6/harmony/readme-harmony-0.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+
+<div style={{textAlign: 'center'}}>
+    <img src="/en/img/o6/harmony/readme-harmony-1.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
 
 ## Flashing HarmonyOS BIOS
 
