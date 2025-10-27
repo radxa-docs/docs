@@ -33,7 +33,7 @@ This section provides usage recommendations, particularly for users without a di
 
 ### With a Display
 
-Connect the board to a display using an HDMI cable. If the system boots up normally, the display will show the system interface. You can then operate the Ubuntu system using the display, keyboard, and mouse. The process is straightforward.
+Connect the board to a display using an HDMI cable. If the system boots up normally, the display will show the system interface. You can then operate the Radxa OS using the display, keyboard, and mouse. The process is straightforward.
 
 ### Without a Display
 

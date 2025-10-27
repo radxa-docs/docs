@@ -25,7 +25,7 @@ sudo apt install -y task-qualcomm embloader sdboot-is-embloader
 
 :::
 
-:::tip 最新系统镜像发布页面
+:::info 最新系统镜像发布页面
 
 - [Dragon Q6A](https://github.com/radxa-build/radxa-dragon-q6a/releases)
 

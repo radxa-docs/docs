@@ -6,7 +6,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # Boot from MicroSD Card and Install System to UFS
 
-<InstallSystem tag="ufs_module" board="dragon-q6a" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t2/radxa-dragon-q6a_noble_kde_t2.output_4096.img.xz" path_to_image_unxz="radxa-dragon-q6a_noble_kde_t2.output_4096.img.xz" path_to_image="radxa-dragon-q6a_noble_kde_t2.output_4096.img" />
+<InstallSystem tag="ufs_module" board="dragon-q6a" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz" path_to_image_unxz="radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz" path_to_image="radxa-dragon-q6a_noble_kde_t4.output_4096.img" />
 
 ## Booting the System
 
