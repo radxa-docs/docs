@@ -44,6 +44,16 @@ Except for the above images which have been fully tested officially, the other i
 
 &emsp;&emsp; [ROCK 5T V1.2 3D stp](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_3d_pcba_stp_v1.2_20250207.zip)
 
+### V2.01
+
+&emsp;&emsp; [ROCK 5T Industrial V2.01 SCH](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_Industrial_schematic_v2.01.pdf)
+
+&emsp;&emsp; [ROCK 5T Industrial V2.01 SMD](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_industral_components_placement_map_v2.01.pdf)
+
+&emsp;&emsp; [ROCK 5T Industrial V2.01 2D dxf](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_industrial_2d_dxf_v2.01.zip)
+
+&emsp;&emsp; [ROCK 5T Industrial V2.01 3D stp](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock-5t-industrial_3d_pcba_stp_v2.01_20251027.stp.zip)
+
 ## Quality certification
 
 ### CE EMC

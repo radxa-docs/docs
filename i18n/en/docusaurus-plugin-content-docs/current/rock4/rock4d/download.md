@@ -48,9 +48,9 @@ For erasing and flashing SPI boot firmware, please refer to the [Erase/Flash SPI
 
 If you haven't cleared the SPI Flash, you can directly write the system image to a MicroSD card / UFS module / NVMe drive to boot the system.
 
-- System image for MicroSD card / NVMe SSD / USB drive boot: [Linux-SD-NVME-UDisk.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b1/radxa-rk3576_bookworm_kde_b1.output_512.img.xz)
+- System image for MicroSD card / NVMe SSD / USB drive boot: [Linux-SD-NVME-UDisk.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz)
 
-- System image for UFS boot: [Linux-UFS.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b1/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz)
+- System image for UFS boot: [Linux-UFS.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_4096.img.xz)
 
 :::caution
 

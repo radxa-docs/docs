@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-description: "简单介绍 ROCK 5T"
+description: "简单介绍 ROCK 5T/5T-Industrial"
 ---
 
 # 产品介绍
@@ -9,23 +9,27 @@ description: "简单介绍 ROCK 5T"
 
 ROCK 5T 是一款基于 RK3588 芯片组的优雅单板计算机 (SBC)。其 110 x 82 mm 的尺寸几乎涵盖了 RK3588 的所有功能，提供卓越的灵活性和可扩展性。ROCK 5T为极客、单板机爱好者、物联网爱好者和高校师生等用户提供了将想法变为现实的坚实基础。它在边缘计算、人工智能、云计算、智能监控和其他领域有着广泛的应用。
 
-ROCK 5T 可作为：
+ROCK 5T Industrial 是一款基于 RK3588J 芯片组的优雅单板计算机 (SBC)。Radxa ROCK 5T Industrial 是 Radxa ROCK 5T 的工业级版本。针对工业场景核心需求进行可靠性强化、接口扩展与环境适应性升级，是一款聚焦 “工业级稳定性 + 多场景兼容性” 的紧凑型单板计算机（SBC）。
+
+ROCK 5T/5T-Industrial 可作为：
 
 - 个人桌面计算机
 - 个人私有服务器
 - 安卓影音播放器
 - 机器人控制器
 - 区块链节点
+- 工业安防
+- 环境监控终端
 
 其他更多使用场景，等你来发掘！
 
 ### 接口丰富
 
-ROCK 5T 提供了丰富的接口，包括多个 USB、以太网、HDMI 接口，便于连接外部设备和扩展功能。详见[参数配置](#参数配置)。
+ROCK 5T/5T-Industrial 提供了丰富的接口，包括多个 USB、以太网、HDMI 接口，便于连接外部设备和扩展功能。详见[参数配置](#参数配置)。
 
 ### 配件生态丰富
 
-ROCK 5T 支持多款摄像头和显示屏。
+ROCK 5T/5T-Industrial 支持多款摄像头和显示屏。
 
 ### 强大的多媒体处理能力
 
@@ -37,32 +41,39 @@ ROCK 5T 支持多款摄像头和显示屏。
 
 ### 潜在的开发潜力
 
-作为一款强大的开发平台 ROCK 5T 对于人工智能、边缘计算、嵌入式系统等领域具有较大的潜力。
+作为一款强大的开发平台 ROCK 5T/5T-Industrial 对于人工智能、边缘计算、工业控制、嵌入式系统等领域具有较大的潜力。
 
 ### 开源支持
 
-ROCK 5T 提供了完整的硬件设计原理图和软件源代码，这一特性使得大多 DIY 设计爱好者和开发者进行个性化修改和功能拓展，吸引了一众开源爱好者活跃在社区，有利于促进知识共享和技术创新。
+ROCK 5T/5T-Industrial 提供了完整的硬件设计原理图和软件源代码，这一特性使得大多 DIY 设计爱好者和开发者进行个性化修改和功能拓展，吸引了一众开源爱好者活跃在社区，有利于促进知识共享和技术创新。
 
 ## 主板预览
 
-<TabItem value="ROCK 5T V1.2">
-<img src="/img/rock5t/rock-5t-overview-v12.webp" width="800" alt="rock 5t v1.2" />
-</TabItem>
-
-## 参数配置
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5T V1.2">
+    <img src="/img/rock5t/rock-5t-overview-v12.webp" width="800" alt="rock 5t v1.2" />
+    </TabItem>
+    <TabItem value="ROCK 5T Industrial V2.01">
+    <img src="/img/rock5t/rock-5t-industrial-overview-v201.webp" width="800" alt="rock 5t industrial v2.01" />
+    </TabItem>
+</Tabs>
+## 参数配置与差异
 
 <table>
    <tr>
-    <th>型号</th>
-    <td colspan="2"  align="center">ROCK 5T</td>
-  </tr>
+        <td align="center">型号</td>
+        <td align="center">ROCK 5T</td>
+        <td align="center">ROCK 5T Industrial</td>
+    </tr>
     <tr>
         <td align="center">SoC</td>
-        <td colspan="2"  align="center">Rockchip RK3588</td>
+        <td align="center">Rockchip RK3588</td>
+        <td align="center">Rockchip RK3588J</td>
     </tr>
     <tr>
         <td align="center">CPU</td>
-        <td colspan="2" align="center">四大核 Cortex‑A76 频率最高达 2.4GHz<br/>四小核 Cortex‑A55 主频最大为 1.8GHz</td>
+        <td align="center">四大核 Cortex‑A76 频率最高达 2.4GHz<br/>四小核 Cortex‑A55 主频最大为 1.8GHz</td>
+        <td align="center">四大核 Cortex‑A76 频率最高达 1.6GHz<br/>四小核 Cortex‑A55 主频最大为 1.29GHz</td>
     </tr>
     <tr>
         <td align="center">GPU</td>
@@ -94,7 +105,8 @@ ROCK 5T 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">板载 WIFI</td>
-        <td colspan="2" align="center">配备板载 WiFi Realtek 8852BE</td>
+        <td align="center">配备板载 WiFi Realtek 8852BE</td>
+        <td align="center">配备板载 WiFi Quectel FCE863R</td>
     </tr>
     <tr>
         <td align="center">M.2</td>
@@ -102,7 +114,7 @@ ROCK 5T 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">USB</td>
-        <td  align="center">2x USB 2 端口<br/>2x USB 3 HOST 端口<br/>1x USB-C 端口</td>
+        <td colspan="2" align="center">2x USB 2 端口<br/>2x USB 3 HOST/OTG 端口</td>
     </tr>
     <tr>
         <td align="center">摄像头</td>
@@ -110,7 +122,8 @@ ROCK 5T 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">PDM</td>
-        <td colspan="2" align="center">1 个PDM接口，支持双通道阵列麦克风</td>
+        <td align="center">1 个PDM接口，支持双通道阵列麦克风</td>
+        <td align="center"></td>
     </tr>
     <tr>
         <td align="center">其他</td>

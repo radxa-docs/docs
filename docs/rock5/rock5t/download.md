@@ -10,7 +10,7 @@ import Images from "./\_image.mdx"
 
 ### 官方镜像
 
-- Debian Linux
+- Debian Linux (Debian OS 可同时兼容 ROCK 5T/5T-Industrial)
 
 <Images loader={true} rock5t_system_img_61={true}  spi_img={false} android12_update={true} android12_gpt={true}  />
 
@@ -43,6 +43,16 @@ import Images from "./\_image.mdx"
 &emsp;&emsp; [ROCK 5T V1.2 2D dxf](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_2d_dxf_v1.2.zip)
 
 &emsp;&emsp; [ROCK 5T V1.2 3D stp](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_3d_pcba_stp_v1.2_20250207.zip)
+
+### V2.01
+
+&emsp;&emsp; [ROCK 5T Industrial V2.01 SCH](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_Industrial_schematic_v2.01.pdf)
+
+&emsp;&emsp; [ROCK 5T Industrial V2.01 SMD](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_industral_components_placement_map_v2.01.pdf)
+
+&emsp;&emsp; [ROCK 5T Industrial V2.01 2D dxf](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_industrial_2d_dxf_v2.01.zip)
+
+&emsp;&emsp; [ROCK 5T Industrial V2.01 3D stp](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock-5t-industrial_3d_pcba_stp_v2.01_20251027.stp.zip)
 
 ## 质量认证
 
