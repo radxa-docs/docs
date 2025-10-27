@@ -6,11 +6,35 @@ sidebar_position: 8
 
 ## 系统镜像
 
-- Ubuntu 系统镜像
+- Radxa OS
   - [radxa-dragon-q6a_noble_kde_t4.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_512.img.xz)：适用于 MicroSD 卡 / U 盘 / eMMC / NVMe 启动系统
   - [radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz)：适用于 UFS 启动系统
 
-:::tip T4 镜像说明
+:::tip T4 镜像和 SPI 启动固件说明
+
+- **SPI 启动固件**
+
+T4 及最新系统镜像需要使用最新的 SPI 启动固件.
+
+1. 若是 2025 年 10 月份前购买的，需要烧录最新 [SPI 启动固件](../q6a/low-dev/spi_fw.md)。
+
+2. 使用命令查看系统 BIOS 版本信息
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```
+dmidecode -s bios-version
+```
+
+</NewCodeBlock>
+
+终端会输出类似信息：其中 `251013` 表示 SPI 启动固件的版本日期。
+
+```
+6.0.251013.BOOT.MXF.1.0.c1-00364-KODIAKLA-1
+```
+
+- **T4 镜像说明**
 
 用户按照快速上手的教程成功启动系统后，请使用以下命令更新软件包：安装高通平台必要的工具链和启动配置组件
 
@@ -29,7 +53,7 @@ sudo apt install -y task-qualcomm embloader sdboot-is-embloader
 
 - [Dragon Q6A](https://github.com/radxa-build/radxa-dragon-q6a/releases)
 
-该页面会发布最新的正式版本和测试版本的系统镜像，测试版本以 `t` 开头，正式版本以 `b` 开头。
+该页面会发布最新的正式版本和测试版本的系统镜像，测试版本以 `t` 开头，正式版本以 `r` 开头。
 
 :::
 
