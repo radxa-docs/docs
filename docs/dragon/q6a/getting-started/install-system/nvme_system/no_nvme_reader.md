@@ -6,7 +6,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # 从 MicroSD 卡启动并将系统安装到 NVMe SSD
 
-<InstallSystem tag="m2_2230" board="dragon-q6a" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t2/radxa-dragon-q6a_noble_kde_t2.output_512.img.xz" path_to_image_unxz="radxa-dragon-q6a_noble_kde_t2.output_512.img.xz" path_to_image="radxa-dragon-q6a_noble_kde_t2.output_512.img" />
+<InstallSystem tag="m2_2230" board="dragon-q6a" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_512.img.xz" path_to_image_unxz="radxa-dragon-q6a_noble_kde_t4.output_512.img.xz" path_to_image="radxa-dragon-q6a_noble_kde_t4.output_512.img.xz" />
 
 ## 启动系统
 
