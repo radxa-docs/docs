@@ -7,10 +7,25 @@ sidebar_position: 8
 ## System Image
 
 - Ubuntu System Images
-  - [radxa-dragon-q6a_noble_kde_t2.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t2/radxa-dragon-q6a_noble_kde_t2.output_512.img.xz): For booting from MicroSD card / USB drive / eMMC / NVMe
-  - [radxa-dragon-q6a_noble_kde_t2.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t2/radxa-dragon-q6a_noble_kde_t2.output_4096.img.xz): For booting from UFS
+  - [radxa-dragon-q6a_noble_kde_t4.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_512.img.xz): For booting from MicroSD card / USB drive / eMMC / NVMe
+  - [radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz): For booting from UFS
 
-:::tip Latest System Image Releases
+:::tip T4 Image Instructions
+
+After successfully booting the system, please use the following command to update the software package: install the necessary Qualcomm platform toolchain and boot configuration components
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```
+sudo apt update
+sudo apt install -y task-qualcomm embloader sdboot-is-embloader
+```
+
+</NewCodeBlock>
+
+:::
+
+:::info Latest System Image Releases
 
 - [Dragon Q6A](https://github.com/radxa-build/radxa-dragon-q6a/releases)
 

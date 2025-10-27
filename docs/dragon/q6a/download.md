@@ -7,10 +7,25 @@ sidebar_position: 8
 ## 系统镜像
 
 - Ubuntu 系统镜像
-  - [radxa-dragon-q6a_noble_kde_t2.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t2/radxa-dragon-q6a_noble_kde_t2.output_512.img.xz)：适用于 MicroSD 卡 / U 盘 / eMMC / NVMe 启动系统
-  - [radxa-dragon-q6a_noble_kde_t2.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t2/radxa-dragon-q6a_noble_kde_t2.output_4096.img.xz)：适用于 UFS 启动系统
+  - [radxa-dragon-q6a_noble_kde_t4.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_512.img.xz)：适用于 MicroSD 卡 / U 盘 / eMMC / NVMe 启动系统
+  - [radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz)：适用于 UFS 启动系统
 
-:::tip 最新系统镜像发布页面
+:::tip T4 镜像说明
+
+用户按照快速上手的教程成功启动系统后，请使用以下命令更新软件包：安装高通平台必要的工具链和启动配置组件
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```
+sudo apt update
+sudo apt install -y task-qualcomm embloader sdboot-is-embloader
+```
+
+</NewCodeBlock>
+
+:::
+
+:::info 最新系统镜像发布页面
 
 - [Dragon Q6A](https://github.com/radxa-build/radxa-dragon-q6a/releases)
 
