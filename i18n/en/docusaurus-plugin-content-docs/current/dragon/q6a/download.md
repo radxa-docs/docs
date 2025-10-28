@@ -6,13 +6,37 @@ sidebar_position: 8
 
 ## System Image
 
-- Ubuntu System Images
+- Radxa OS
   - [radxa-dragon-q6a_noble_kde_t4.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_512.img.xz): For booting from MicroSD card / USB drive / eMMC / NVMe
   - [radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz): For booting from UFS
 
-:::tip T4 Image Instructions
+:::tip T4 Image and SPI Boot Firmware Notes
 
-After successfully booting the system, please use the following command to update the software package: install the necessary Qualcomm platform toolchain and boot configuration components
+- **SPI Boot Firmware**
+
+T4 and the latest system images require the latest SPI boot firmware.
+
+1. If purchased before October 2025, you need to flash the latest [SPI boot firmware](../q6a/low-dev/spi_fw.md).
+
+2. Use the command below to check the system BIOS version:
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```
+dmidecode -s bios-version
+```
+
+</NewCodeBlock>
+
+The terminal will output something like the following. The `251013` portion indicates the SPI boot firmware date/version.
+
+```
+6.0.251013.BOOT.MXF.1.0.c1-00364-KODIAKLA-1
+```
+
+- **T4 Image Notes**
+
+After successfully booting the system following the Quick Start guide, run the commands below to update packages and install the required Qualcomm platform toolchain and boot configuration components:
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
@@ -25,11 +49,11 @@ sudo apt install -y task-qualcomm embloader sdboot-is-embloader
 
 :::
 
-:::info Latest System Image Releases
+:::info Latest system image releases
 
 - [Dragon Q6A](https://github.com/radxa-build/radxa-dragon-q6a/releases)
 
-This page publishes the latest stable and beta system images. Beta versions start with `t`, and stable versions start with `b`.
+This page hosts the latest official and test system images. Test releases begin with `t`, and official releases begin with `r`.
 
 :::
 
