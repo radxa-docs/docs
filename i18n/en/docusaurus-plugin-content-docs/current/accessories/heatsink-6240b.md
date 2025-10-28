@@ -12,7 +12,7 @@ The Radxa Heatsink 6240B is specifically designed for the Radxa ROCK 5B / 5B+ / 
 
 **Material**: Aluminum
 
-**Dimensions**: 62 mm _ 40 mm _ 9 mm
+**Dimensions**: 62 mm \* 40 mm \* 9 mm
 
 **Speed**: 7000 RPM ± 10%
 
@@ -32,13 +32,13 @@ The Radxa Heatsink 6240B is specifically designed for the Radxa ROCK 5B / 5B+ / 
 
 ① : Heatsink
 
-② : 2x Thermal pad (22 mm _ 22 mm _ 0.8 mm)
+② : 2x Thermal pad (22 mm \* 22 mm \* 0.8 mm)
 
-③ : 1x Thermal pad (40 mm _ 40 mm _ 1.0 mm)
+③ : 1x Thermal pad (40 mm \* 40 mm \* 1.0 mm)
 
 ### Installing Thermal Pads
 
-Apply the 22 mm _ 22 mm _ 0.8 mm and 40 mm _ 40 mm _ 1.0 mm thermal pads onto the board's SoC and surrounding areas.
+Apply the 22 mm \* 22 mm \* 0.8 mm and 40 mm \* 40 mm \* 1.0 mm thermal pads onto the board's SoC and surrounding areas.
 
 :::tip Installation Tip
 
