@@ -87,6 +87,8 @@ ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43
 
 - [Rock3C-Android11_r12-20240806-gpt.img](https://github.com/radxa/manifests/releases/download/android11-radxa-20240806/Rock3C-Android11_r12-20240806-gpt.zip)(Used to flash the system into EMMC and SD card using a card reader)
 
+- [Rock3C-Android14-20250718-HDMI-gpt.img](https://github.com/radxa/manifests/releases/download/Android14-rkr6-ROCK3c/ROCK3C-Android14-20250718-HDMI-gpt.zip)(Used to flash the system into EMMC and SD card using a card reader)
+
 :::tip
 The usage method of Rock 3C's Android 11 image is the same as Rock 3A, and can be referred to for use
 :::

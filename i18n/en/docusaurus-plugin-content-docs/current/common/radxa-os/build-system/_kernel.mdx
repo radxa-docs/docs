@@ -1,0 +1,56 @@
+import { Image } from "@site/src/utils/docs";
+
+## Prerequisites
+
+You need to have Visual Studio Code and Docker environment set up in advance, then use Dev Container to run the Kernel compilation environment.
+
+:::info Reference Tutorial
+
+You can follow the tutorial below to complete the environment setup for Kernel development.
+
+- [Environment Setup](./install-env)
+  :::
+
+## Download Kernel Source Code
+
+Use the `git clone` command to clone the Kernel source code.
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```
+git clone --recurse-submodules <git_repo_url>
+```
+
+</NewCodeBlock>
+
+Replace `<git_repo_url>` with: {props.git_url}
+
+## Start Development Environment
+
+Open the Kernel source code directory with Visual Studio Code: The `Dev Container` extension will usually automatically detect the configuration file in the folder and prompt you to reopen in the container development environment.
+
+:::tip
+When starting the development environment for the first time, Dev Containers will automatically download and install dependencies. Please be patient as this may take some time.
+:::
+
+1. Click the `Remote` option in the bottom-left corner
+2. Select the `Reopen in Container` option
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/low-level-dev/vscode-dev-container-reopen.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Compile Kernel
+
+After starting the development environment, use the `make deb` command to compile the Kernel.
+
+<NewCodeBlock tip="PC@host$" type="host">
+
+```
+make deb
+```
+
+</NewCodeBlock>

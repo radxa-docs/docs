@@ -23,6 +23,7 @@ sidebar_position: 2
 | ROCK 4A+ / 4B+ (2021)                  | OP1 with 4K HDMI and Onboard eMMC |
 | [ROCK 4SE](/rock4/rock4se/) (2022)     | RK3399-T with 4K HDMI             |
 | [ROCK 4C+](/rock4/rock4c+/) (2022)     | RK3399-T with 4K + 2K HDMI        |
+| [ROCK 4D](/rock4/rock4d/) (2025)       | RK3576 with 4K HDMI               |
 
 ### ROCK 5 Series
 
@@ -57,6 +58,7 @@ sidebar_position: 2
 | [Radxa CM3](/compute-module/cm3/) (2022)   | RK3566 with a B2B Interface      |
 | [Radxa CM3I](/compute-module/cm3i/) (2023) | RK3568(J) with a B2B Interface   |
 | [Radxa CM3J](/compute-module/cm3j/) (2024) | RK3568J with a B2B Interface     |
+| [Radxa CM4](/compute-module/cm4/) (2025)   | RK3576(J) with a B2B Interface   |
 | [Radxa CM5](/compute-module/cm5/)          | RK3588S with a B2B Interface     |
 | [Radxa NX5](/compute-module/nx5/) (2023)   | RK3588S with an SODIMM Interface |
 
@@ -65,3 +67,6 @@ sidebar_position: 2
 | Model                         | Description                                |
 | ----------------------------- | ------------------------------------------ |
 | [Radxa E20C](/e/e20c/) (2024) | Dual GbE Network Computer based on RK3528A |
+| [Radxa E24C](/e/e24c/) (2025) | Quad GbE Network Computer based on RK3528A |
+| [Radxa E52C](/e/e52c/) (2024) | Dual GbE Network Computer based on RK3582  |
+| [Radxa E54C](/e/e54c/) (2024) | Quad GbE Network Computer based on RK3582  |

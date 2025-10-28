@@ -1,0 +1,113 @@
+:::tip 适配主板
+
+- 瑞莎 Cubie A5E
+- 瑞莎 Cubie A7A
+- 瑞莎 Cubie A7Z
+
+全志科技 T527 / A733 SoC 搭载的是 Vivante VIP9000 系列 NPU。
+
+:::
+
+Vivante Machine Learning SDK 是一个强大的工具套件，可帮助开发者在支持的主板上部署和加速 AI 推理任务。通过 VIP9000 系列 NPU 的硬件加速，能够显著提升 AI 模型的推理性能。
+
+Vivante Machine Learning SDK 支持多种模型框架，如 TensorFlow, TensorFlow Lite, PyTorch, Caffe, DarkNet, ONNX, Keras 等框架模型的转换，可将多种 AI 模型编译成可以在 Vivante VIP9000 系列 NPU 推理的模型格式。
+
+要使用 NPU 对不同框架的 AI 模型进行部署和推理前，需要进行以下两步：
+
+- 解析模型结构，将模型算子转换为中间表示 IR（Intermediate Representation）。
+- 将中间表示 IR 编译为机器特定的指令。
+
+以上两个步骤均可以使用 **在线模式（online)** 和 **离线模式 (offline)** 进行实现, 为了方便理解, 在线模式称为 **Runtime Inferencing**, 离线模式称为 **Offline Compilation**。
+
+![SDK](/img/e/e54c/rs400_npu_1.webp)
+
+## Runtime Inferencing
+
+使用 Runtime Inferencing 模式用户仅需关注原模型框架而无需关注目标部署平台，转换中间表示 IR 和模型编译的步骤可以运行在任何平台上，用户无需维护，让目标平台驱动自动处理底层加速,
+适合跨平台的软件使用。
+
+:::info
+有关所有 Runtime Inferencing 的详细使用方法，请参考 [Vivante TIM-VX - Tensor Interface Module](https://github.com/VeriSilicon/TIM-VX) 开源仓库。
+本文档不针对 Runtime Inferencing 提供详细使用方法。
+:::
+
+## Offline Compilation
+
+使用 ACUITY Toolkit 可以将原模型在部署前先编译成 NPU 可运行的格式，
+且支持 UINT8， PCQ(INT8), INT16, BF16 量化和混合量化，并在模型编译时自动进行算子融合优化模型结构，可以打大大降低模型初始化速度和资源开销，适合紧凑的嵌入式设备使用。
+ACUITY Toolkit 可自动生成基于 OpenVX 驱动的跨平台模型部署代码和预编译 NBG 模型部署代码。
+
+- Machine Code Generator - Network Binary Graph (NBG)
+
+  NBG（Network Binary Graph) 可直接部署在 Vivante NPU 上。由于 NBG 本身就是机器代码形式，因此无需进一步编译, 直接发送指令到硬件即可完成模型初始化， 可以使用 OpenVX 驱动和 VIPLite 驱动运行。
+
+- Source Code Generator - OpenVX Code
+
+  OpenVX 代码生成器会生成一个 OpenVX 源代码（C 语言）项目，该项目可以部署在 Vivante NPU 上，使用 OpenVX 进行驱动。由于生成的 OpenVX 应用是图级的中间表示（IR），因此在部署到硬件设备时，OpenVX 运行时驱动仍需执行即时（JIT）编译。这种格式的优势在于，它能够利用离线工具所进行模型优化，并保持应用的跨平台特性。
+
+|                    | NBG 项目 | OpenVX 项目 |
+| ------------------ | -------- | ----------- |
+| 跨平台应用支持     | 否       | 是          |
+| 即时（JIT）编译    | 否       | 是          |
+| 即时模型初始化时间 | 是       | 否          |
+| 支持 OpenVX 驱动   | 是       | 是          |
+| 支持 VIPLite 驱动  | 是       | 否          |
+
+## 模式对比
+
+|                    | Runtime Inferencing | Offline Compilation |
+| ------------------ | ------------------- | ------------------- |
+| 跨平台应用支持     | Yes                 | No                  |
+| 易维护             | Yes                 | No                  |
+| 模型算子融合       | No                  | Yes                 |
+| 即时模型初始化时间 | No                  | Yes                 |
+| 模型量化           | No                  | Yes                 |
+
+## Vivante ML 软件栈
+
+### ACUITY Toolkit
+
+ACUITY Toolkit 是一个端到端的模型转换，模型量化，模型编译的集成离线开发工具，ACUITY 支持多种 AI 框架的模型转换，并能直接生成模型运行的代码。
+
+![SDK](/img/e/e54c/rs400_npu_2.webp)
+
+:::tip 安装与使用文档
+
+- [ACUITY 环境配置](./cubie_acuity_env)
+
+- [ACUITY Toolkit 使用方法](./cubie_acuity_usage)
+
+- [ACUITY 量化精度优化](./cubie_quant_acc_improve)
+
+:::
+
+### TIM-VX - Tensor Interface Module
+
+TIM-VX 是由 VeriSilicon 提供的一款软件集成模块，旨在简化神经网络在其 ML 加速器上的部署。它作为运行时框架（如 Android NN、TensorFlow Lite、MLIR、TVM 等）的后端绑定接口，提供了高效的推理支持。是 Runtime Inferencing 主要的在线开发模块。
+:::info
+有关所有 Runtime Inferencing 的详细使用方法，请参考 [Vivante TIM-VX - Tensor Interface Module](https://github.com/VeriSilicon/TIM-VX) 开源仓库。
+本文档不针对 Runtime Inferencing 提供详细使用方法。
+:::
+
+### Vivante Unified Driver
+
+Vivante Unified Driver 为 NPU（神经网络处理单元）提供了标准化的编程接口。该驱动栈支持 OpenVX 和 OpenCL 等业界标准 API，并兼容 Linux 与 Android 操作系统。
+
+### Vivante VIPLite Driver
+
+VIPLite Driver 是一款为嵌入式系统（如 Linux 或 RTOS）设计的轻量级驱动。它能够以极低的开销加载并运行 ACUITY 预编译的神经网络模型。
+{/* :::tip */}
+{/* RTD1619B 系统并未移殖 VIPLite Driver */}
+{/* ::: */}
+
+### Unified 和 VIPLite 驱动对比
+
+| 项目                     | Unified Driver  | VIPLite Driver                            |
+| ------------------------ | --------------- | ----------------------------------------- |
+| 工作环境                 | Android / Linux | Android / Linux / RTOS / Bare Metal / DSP |
+| 离线编译（NBG）          | 支持            | 支持                                      |
+| 运行时即时编译（JIT）    | 支持            | 不支持                                    |
+| 多 VIP 支持              | 支持            | 支持                                      |
+| 内存占用                 | 数十 MB         | 数十 KB                                   |
+| 支持 MMU（内存管理单元） | 支持            | 支持                                      |
+| 多图支持（Multi-Graph）  | 支持            | 支持                                      |

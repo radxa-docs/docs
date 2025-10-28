@@ -119,11 +119,11 @@ sidebar_custom_props:
               {
                 products_name: "ROCK 4A",
                 products_photo_url: "/home/product-pictures/rock4a.webp",
-                products_link: "/rock4/rock4ab",
+                products_link: "/rock4/rock4ab-se",
                 docs:
                   [
                     {
-                      docs_link: "/rock4/rock4ab",
+                      docs_link: "/rock4/rock4ab-se",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
                       docs_name_zh: "ROCK 4A 概览",
@@ -135,11 +135,11 @@ sidebar_custom_props:
               {
                 products_name: "ROCK 4B",
                 products_photo_url: "/home/product-pictures/rock4b.webp",
-                products_link: "/rock4/rock4ab",
+                products_link: "/rock4/rock4ab-se",
                 docs:
                   [
                     {
-                      docs_link: "/rock4/rock4ab",
+                      docs_link: "/rock4/rock4ab-se",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
                       docs_name_zh: "ROCK 4B 概览",
@@ -167,7 +167,7 @@ sidebar_custom_props:
               {
                 products_name: "ROCK 4SE",
                 products_photo_url: "/home/product-pictures/rock4se.webp",
-                products_link: "/rock4/rock4se",
+                products_link: "/rock4/rock4ab-se",
                 docs:
                   [
                     {
@@ -177,6 +177,22 @@ sidebar_custom_props:
                       docs_name_zh: "ROCK 4SE 概览",
                       docs_info_en: "Overview of the ROCK 4SE",
                       docs_info_zh: "ROCK 4SE 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "ROCK 4D",
+                products_photo_url: "/home/product-pictures/rock4d.webp",
+                products_link: "/rock4/rock4d",
+                docs:
+                  [
+                    {
+                      docs_link: "/rock4/rock4d",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "ROCK 4D 概览",
+                      docs_info_en: "Overview of the ROCK 4D",
+                      docs_info_zh: "ROCK 4D 概览",
                     },
                   ],
               },
@@ -351,6 +367,22 @@ sidebar_custom_props:
           series_introduction_zh: "Compute Module 是由 Rockchip SoC 所实现的，具有小尺寸和紧凑布局的计算模块系列。",
           products:
             [
+              {
+                products_name: "Radxa CM4",
+                products_photo_url: "/home/product-pictures/cm4.webp",
+                products_link: "/compute-module/cm4",
+                docs:
+                  [
+                    {
+                      docs_link: "/compute-module/cm4",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa CM4 概览",
+                      docs_info_en: "Overview of the Radxa CM4",
+                      docs_info_zh: "Radxa CM4 概览",
+                    },
+                  ],
+              },
               {
                 products_name: "Radxa CM5",
                 products_photo_url: "/home/product-pictures/cm5.webp",
@@ -596,22 +628,6 @@ sidebar_custom_props:
           products:
             [
               {
-                products_name: "AICore SG2300X",
-                products_photo_url: "/home/product-pictures/sg2300x.webp",
-                products_link: "/sophon/aicore-sg2300x",
-                docs:
-                  [
-                    {
-                      docs_link: "/sophon/aicore-sg2300x",
-                      docs_photo_type: "Overview",
-                      docs_name_en: "Overview",
-                      docs_name_zh: "Radxa AICore SG2300X 概览",
-                      docs_info_en: "Overview of the Radxa AICore SG2300X",
-                      docs_info_zh: "Radxa AICore SG2300X 概览",
-                    },
-                  ],
-              },
-              {
                 products_name: "Fogwise® AirBox",
                 products_photo_url: "/home/product-pictures/airbox.webp",
                 products_link: "/sophon/airbox",
@@ -649,6 +665,22 @@ sidebar_custom_props:
                       docs_name_zh: "Radxa E20C 概览",
                       docs_info_en: "Overview of the E20C",
                       docs_info_zh: "Radxa E20C 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "Radxa E24C",
+                products_photo_url: "/home/product-pictures/e54c.webp",
+                products_link: "/e/e24c",
+                docs:
+                  [
+                    {
+                      docs_link: "/e/e24c",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa E24C 概览",
+                      docs_info_en: "Overview of the E24C",
+                      docs_info_zh: "Radxa E24C 概览",
                     },
                   ],
               },
@@ -756,6 +788,120 @@ sidebar_custom_props:
                       docs_name_zh: "Cubie A5E 概览",
                       docs_info_en: "Overview of the cubie a5e",
                       docs_info_zh: "Radxa Cubie A5E 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "Cubie A7A",
+                products_photo_url: "/en/home/product-pictures/a7a.webp",
+                products_link: "/cubie/a7a",
+                docs:
+                  [
+                    {
+                      docs_link: "/cubie/a7a",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Cubie A7A 概览",
+                      docs_info_en: "Overview of the cubie a7a",
+                      docs_info_zh: "Radxa Cubie A7A 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "Cubie A7Z",
+                products_photo_url: "/en/home/product-pictures/a7z.webp",
+                products_link: "/cubie/a7z",
+                docs:
+                  [
+                    {
+                      docs_link: "/cubie/a7z",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Cubie A7Z 概览",
+                      docs_info_en: "Overview of the cubie a7z",
+                      docs_info_zh: "Radxa Cubie A7Z 概览",
+                    },
+                  ],
+              },
+            ],
+        },
+        {
+          series_en: "Dragon Family",
+          series_zh: "Dragon 系列",
+          series_introduction_en: "Radxa Dragon Series is a single board computer series based on the Qualcomm SoC",
+          series_introduction_zh: "Dragon 系列是 Radxa 推出的基于 Qualcomm 单板计算机系列。",
+          products:
+            [
+              {
+                products_name: "Dragon Q6A",
+                products_photo_url: "/home/product-pictures/dragon_q6a.webp",
+                products_link: "/dragon/q6a",
+                docs:
+                  [
+                    {
+                      docs_link: "/dragon/q6a",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Dragon Q6A 概览",
+                      docs_info_en: "Overview of the dragon q6a",
+                      docs_info_zh: "Radxa Dragon Q6A 概览",
+                    },
+                  ],
+              },
+            ],
+        },
+        {
+          series_en: "AICore Family",
+          series_zh: "AICore 系列",
+          series_introduction_en: "Radxa AICore Series is a cost-effective, high-performance AI acceleration module",
+          series_introduction_zh: "AICore 系列是 Radxa 推出高性能、高算力和高性价比的 AI 加速模组系列",
+          products:
+            [
+              {
+                products_name: "AX-M1",
+                products_photo_url: "/en/home/product-pictures/ax-m1.webp",
+                products_link: "/aicore/ax-m1",
+                docs:
+                  [
+                    {
+                      docs_link: "/aicore/ax-m1",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "AICore AX-M1 概览",
+                      docs_info_en: "Overview of the ax-m1",
+                      docs_info_zh: "AICore AX-M1 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "DX-M1",
+                products_photo_url: "/en/home/product-pictures/dx-m1.webp",
+                products_link: "/aicore/dx-m1",
+                docs:
+                  [
+                    {
+                      docs_link: "/aicore/dx-m1",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "AICore DX-M1 概览",
+                      docs_info_en: "Overview of the dx-m1",
+                      docs_info_zh: "AICore DX-M1 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "SG2300X",
+                products_photo_url: "/en/home/product-pictures/sg2300x.webp",
+                products_link: "/aicore/sg2300x",
+                docs:
+                  [
+                    {
+                      docs_link: "/aicore/sg2300x",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "AICore SG2300X 概览",
+                      docs_info_en: "Overview of the sg2300x",
+                      docs_info_zh: "AICore SG2300X 概览",
                     },
                   ],
               },

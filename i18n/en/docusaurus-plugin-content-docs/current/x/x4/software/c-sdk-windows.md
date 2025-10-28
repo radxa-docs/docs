@@ -18,6 +18,10 @@ import MCP2515 from "../../../common/dev/\_pico-mcp2515.mdx";
 
 <RELATION />
 
+### Cross compilation toolchain
+
+- [arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi.zip](https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi.zip)
+
 <PICO_SDK_WINDOWS />
 
 ## Flash

@@ -1,0 +1,163 @@
+介绍如何在 MicroSD 卡启动系统正常的情况下，使用 `dd` 命令将系统安装到 eMMC 中。
+
+:::warning
+安装系统会格式化 eMMC，如果有重要数据请提前备份！
+:::
+
+## 使用前提
+
+您需要满足以下条件才可以使用 `dd` 命令将系统安装到 eMMC 中：
+
+- 系统可以通过 MicroSD 卡正常启动系统
+
+- eMMC 安装到主板上或主板板载 eMMC
+
+## 硬件连接
+
+<Tabs queryString="system boot">
+<TabItem value="eMMC 模块" default={props.tag === "emmc_module"} attributes={{className: props.tag === "emmc_board" && "tab_none"}} >
+
+eMMC 模块安装步骤：
+
+1. 观察 eMMC 模块上的缺角方向和主板上的 eMMC 模块接口的缺角丝印，以确定正确的安装方向。
+2. 将 eMMC 模块放置到主板 eMMC 模块接口上方，确保 eMMC 模块接口与主板的 eMMC 模块接口基本对齐。
+3. 稍用力按压 eMMC 模块的一端，听到“咔哒”声表示安装成功，再以同样方式按压另一端，确保 eMMC 模块安装成功。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/emmc-moudle-board.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="板载 eMMC" default={props.tag === "emmc_board"} attributes={{className: props.tag === "emmc_module" && "tab_none"}} >
+
+若你的主板是板载 eMMC 的版本，无需安装。
+
+</TabItem>  
+</Tabs>
+
+## 安装系统
+
+### 下载系统镜像
+
+主板需要访问 <a href={props?.download_page ?? '../../../../download'}>资源汇总下载</a> 页面，下载 **最新系统镜像** 到主板上。
+
+:::tip 镜像说明
+下载的系统镜像是压缩文件，需要解压后才能使用！
+:::
+
+您可以使用 `wget` 命令下载系统镜像文件到主板上。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install wget -y
+wget <download_url>
+```
+
+</NewCodeBlock>
+
+其中 `<download_url>` 为系统镜像文件的下载地址，可以复制 <a href={props?.download_page ?? '../../../../download'}>资源汇总下载</a> 页面中的镜像下载地址进行替换。
+
+下载示例：<code>{`wget ${props?.download_url ?? '<download_url>'}`}</code>
+
+#### 解压系统镜像
+
+我们的系统镜像一般为 `*.img.xz` 格式，需要解压后才能使用。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt install xz-utils -y
+unxz <path_to_image_unxz>
+```
+
+</NewCodeBlock>
+
+其中 `<path_to_image_unxz>` 为系统镜像文件的路径，需要替换成实际的系统镜像文件路径。
+
+解压示例：
+
+<code>{`unxz ${props?.path_to_image_unxz ?? "<path_to_image_unxz>"}`}</code>
+
+### 确定设备路径
+
+可以使用 `lsblk` 命令查看设备路径，根据磁盘的容量来确定设备路径。
+
+说明：若是磁盘容量接近一致，可以安全插拔（适用于 eMMC 模块）来观察出现和消失的设备路径，从而确定设备路径。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+系统若识别出 eMMC 设备，通常会识别成 `/dev/mmcblk*` 设备。
+
+终端输出示例:
+
+```
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+···
+mmcblk1      179:0    0 29.1G  0 disk
+└─mmcblk1p1  179:1    0 29.1G  0 part
+···
+```
+
+### 安装系统镜像
+
+使用 `dd` 命令将系统镜像安装到 eMMC 中。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo dd if=<path_to_image> of=<device_target> bs=4M status=progress
+```
+
+</NewCodeBlock>
+
+写入示例：
+
+<code>{`sudo dd if=${
+  props?.path_to_image ?? "<path_to_image>"
+} of=/dev/mmcblk1 bs=4M status=progress`}</code>
+
+参数说明：
+
+- `<path_to_image>`：系统镜像文件的路径，需要替换成实际的系统镜像文件路径。
+
+- `<device_target>`：eMMC 模块的设备路径，需要替换成实际的 eMMC 模块的设备路径。
+
+- `bs=4M`：写入块大小。
+
+- `status=progress`：显示写入进度。
+
+### 验证写入结果
+
+安装系统完成后，可以通过 `lsblk` 命令查看 eMMC 的分区表是否正常创建。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+终端输出示例:
+
+```
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+···
+mmcblk0      179:0    0 29.1G  0 disk
+├─mmcblk0p1  179:1    0   16M  0 part
+├─mmcblk0p2  179:2    0  300M  0 part
+└─mmcblk0p3  179:3    0 28.8G  0 part
+···
+```

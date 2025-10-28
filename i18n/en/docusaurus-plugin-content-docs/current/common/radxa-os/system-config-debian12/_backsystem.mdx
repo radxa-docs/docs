@@ -1,0 +1,178 @@
+This guide introduces two methods for system backup: online script backup and offline backup (using the `dd` command), allowing users to choose the backup method that suits their needs.
+
+The final backup file will be in `img` format.
+
+:::caution
+Before proceeding, ensure you have backed up all important data.
+The script backup has only been tested on official Radxa systems and does not support Android.
+:::
+
+## Online System Backup
+
+Online system backup refers to backing up the currently running system directly on the board.
+
+:::tip
+The script backup only supports Linux systems and is the recommended method for backing up Debian and Ubuntu systems.
+:::
+
+### Download the Script
+
+Use the `curl` command to download the script on your device.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+curl -sL https://rock.sh/rockpi-backup -o rockpi-backup.sh
+```
+
+</NewCodeBlock>
+
+### Make the Script Executable
+
+Add execute permissions to the script.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+chmod +x rockpi-backup.sh
+```
+
+</NewCodeBlock>
+
+You can view the script's help information using the `-h` parameter.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo ./rockpi-backup.sh -h
+```
+
+</NewCodeBlock>
+
+Example terminal output:
+
+```
+Usage:
+sudo ./rockpi-backup.sh [-o path|-e pattern|-u|-m path]
+-o Specify output position, default is $PWD.
+-e Exclude files matching pattern for rsync.
+-u Unattended, no need to confirm in the backup process.
+-m Back up the root mount point, and support backups from other disks as well.
+```
+
+### Backup the System
+
+Run the script with root privileges. You'll need to manually confirm dependency installation and proceed with the backup.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+sudo ./rockpi-backup.sh
+```
+
+</NewCodeBlock>
+
+:::tip
+The script will perform the following operations:
+
+1. Check for root privileges
+2. Check and install dependencies
+3. Read the running system kernel name and set the filename accordingly
+4. Check partition details
+5. Set the root mount point to /
+6. Find other partitions on the same disk as the root path
+7. Install the auto-resize script to the root partition
+8. Create a disk image file based on the filename
+9. Clone non-root partitions
+10. Use rsync to synchronize root partition contents, excluding specified files
+11. Clean up and complete
+
+:::
+
+After the backup is complete, the script will display the path to the backup file!
+
+Example terminal output:
+
+```
+Backup done, the file is /home/radxa/**_-backup-_**.img
+```
+
+## Offline System Backup
+
+Offline system backup involves connecting the system boot media as a removable device to a Linux system for backup.
+
+:::tip
+For offline backup, you need to convert the system boot drive to a removable medium and connect it to a Linux system for backup.
+
+Converting different boot media to removable media:
+
+- MicroSD Card
+  Use a card reader to convert the MicroSD card to a removable medium.
+
+- Non-onboard eMMC Module
+  Use an eMMC reader to convert the eMMC module to a removable medium.
+
+- Non-onboard UFS Module
+  Use a UFS reader to convert the UFS module to a removable medium.
+
+- M.2 NVMe SSD
+  Use an M.2 SSD enclosure to convert the M.2 NVMe SSD to a removable medium.
+
+:::
+
+### Connect to PC
+
+After converting the system boot drive to a removable medium, connect it to a Linux PC for backup.
+
+### Identify the Disk
+
+Use the `lsblk` command to identify the removable disk information.
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+Example terminal output (where `sda` is the system disk of the board in this example). You can identify the correct device by safely removing and reconnecting the removable medium.
+
+```
+sda 8:0 1 58G 0 disk
+├─sda1 8:1 1 16M 0 part /media/wml/config
+├─sda2 8:2 1 300M 0 part
+└─sda3 8:3 1 57.6G 0 part
+nvme0n1 259:0 0 953.9G 0 disk
+├─nvme0n1p1 259:1 0 952.8G 0 part /var/snap/firefox/common/host-hunspell
+│ /
+└─nvme0n1p2 259:2 0 1G 0 part /boot/efi
+```
+
+### Backup the System
+
+Open a terminal on your Linux system and use the `dd` command to back up the system. Modify the parameters as needed.
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+sudo dd if=/dev/sda of=system-backup.img bs=4M status=progress
+```
+
+</NewCodeBlock>
+
+- `/dev/sda`: The disk corresponding to the board
+- `system-backup.img`: Specifies the output filename
+- `bs=4M`: Block size
+- `status=progress`: Shows backup progress and speed
+
+The backup process will display progress and speed. Upon completion, it will show the path to the backup file.
+
+Example terminal output:
+
+```
+62205722624 bytes (62 GB, 58 GiB) copied, 1609 s, 38.7 MB/s
+14839+0 records in
+14839+0 records out
+62239277056 bytes (62 GB, 58 GiB) copied, 1609.85 s, 38.7 MB/s
+```

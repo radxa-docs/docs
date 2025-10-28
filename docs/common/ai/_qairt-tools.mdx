@@ -1,0 +1,845 @@
+此文档介绍 QAIRT SDK 在做模型移植和部署时主要使用的 CLI 工具的使用方法
+
+## CLI 工具表格
+
+| CLI 名称                                                      | CLI 用途                       |
+| ------------------------------------------------------------- | ------------------------------ |
+| [qairt-converter](#qairt-converter)                           | 转换 DLC 模型                  |
+| [qairt-quantizer](#qairt-quantizer)                           | 量化 DLC 模型                  |
+| [qnn-context-binary-generator](#qnn-context-binary-generator) | 转换 Context Binary 模型       |
+| [qnn-net-run](#qnn-net-run)                                   | 推理 DLC / Context Binary 模型 |
+| [qnn-context-binary-utility](#qnn-context-binary-utility)     | 检查 Context Binary 模型       |
+
+## CLI Tools
+
+### qairt-converter
+
+`qairt-converter` 工具可将 Onnx/TensorFlow/TFLite/PyTorch 框架中的模型转换为 QNN 图形格式的 DLC 文件，
+`qairt-converter` 会根据源模型扩展自动检测框架。当前的 ONNX 转换最高支持 ONNX Opset 21。
+
+```vim
+usage: qairt-converter [--source_model_input_shape INPUT_NAME INPUT_DIM]
+                       [--out_tensor_node OUT_NAMES]
+                       [--source_model_input_datatype INPUT_NAME INPUT_DTYPE]
+                       [--source_model_input_layout INPUT_NAME INPUT_LAYOUT]
+                       [--desired_input_layout INPUT_NAME DESIRED_INPUT_LAYOUT]
+                       [--source_model_output_layout OUTPUT_NAME OUTPUT_LAYOUT]
+                       [--desired_output_layout OUTPUT_NAME DESIRED_OUTPUT_LAYOUT]
+                       [--desired_input_color_encoding  ...]]
+                       [--preserve_io_datatype [PRESERVE_IO_DATATYPE ...]]
+                       [--dump_config_template DUMP_IO_CONFIG_TEMPLATE] [--config IO_CONFIG]
+                       [--dry_run [DRY_RUN]] [--enable_framework_trace] [--gguf_config GGUF_CONFIG]
+                       [--quantization_overrides QUANTIZATION_OVERRIDES]
+                       [--lora_weight_list LORA_WEIGHT_LIST]
+                       [--quant_updatable_mode {none,adapter_only,all}] [--onnx_skip_simplification]
+                       [--onnx_override_batch BATCH] [--onnx_define_symbol SYMBOL_NAME VALUE]
+                       [--onnx_validate_models] [--onnx_summary]
+                       [--onnx_perform_sequence_construct_optimizer] [--tf_summary]
+                       [--tf_override_batch BATCH] [--tf_disable_optimization]
+                       [--tf_show_unconsumed_nodes] [--tf_saved_model_tag SAVED_MODEL_TAG]
+                       [--tf_saved_model_signature_key SAVED_MODEL_SIGNATURE_KEY]
+                       [--tf_validate_models] [--tflite_signature_name SIGNATURE_NAME]
+                       [--dump_exported_onnx] --input_network INPUT_NETWORK [--debug [DEBUG]]
+                       [--output_path OUTPUT_PATH] [--copyright_file COPYRIGHT_FILE]
+                       [--float_bitwidth FLOAT_BITWIDTH] [--float_bias_bitwidth FLOAT_BIAS_BITWIDTH]
+                       [--set_model_version MODEL_VERSION] [--export_format EXPORT_FORMAT]
+                       [--converter_op_package_lib CONVERTER_OP_PACKAGE_LIB]
+                       [--package_name PACKAGE_NAME | --op_package_config CUSTOM_OP_CONFIG_PATHS [CUSTOM_OP_CONFIG_PATHS ...]]
+                       [-h] [--target_backend BACKEND] [--target_soc_model SOC_MODEL]
+
+required arguments:
+  --input_network INPUT_NETWORK, -i INPUT_NETWORK
+                        Path to the source framework model.
+
+optional arguments:
+  --source_model_input_shape INPUT_NAME INPUT_DIM, -s INPUT_NAME INPUT_DIM
+                        The name and dimension of all the input buffers to the network specified in
+                        the format [input_name comma-separated-dimensions],
+                        for example: --source_model_input_shape 'data' 1,224,224,3.
+                        Note that the quotes should always be included in order to handle special
+                        characters, spaces, etc.
+                        NOTE: Required for TensorFlow and PyTorch. Optional for Onnx and Tflite
+                        In case of Onnx, this feature works only with Onnx 1.6.0 and above
+  --out_tensor_node OUT_NAMES, --out_tensor_name OUT_NAMES
+                        Name of the graph's output Tensor Names. Multiple output names should be
+                        provided separately like:
+                            --out_tensor_name out_1 --out_tensor_name out_2
+                        NOTE: Required for TensorFlow. Optional for Onnx, Tflite and PyTorch
+  --source_model_input_datatype INPUT_NAME INPUT_DTYPE
+                        The names and datatype of the network input layers specified in the format
+                        [input_name datatype], for example:
+                            'data' 'float32'
+                        Default is float32 if not specified
+                        Note that the quotes should always be included in order to handlespecial
+                        characters, spaces, etc.
+                        For multiple inputs specify multiple --source_model_input_datatype on the
+                        command line like:
+                            --source_model_input_datatype 'data1' 'float32'
+                        --source_model_input_datatype 'data2' 'float32'
+  --source_model_input_layout INPUT_NAME INPUT_LAYOUT
+                        Layout of each input tensor. If not specified, it will use the default based
+                        on the Source Framework, shape of input and input encoding.
+                        Accepted values are-
+                            NCDHW, NDHWC, NCHW, NHWC, HWIO, OIHW, NFC, NCF, NTF, TNF, NF, NC, F
+                        N = Batch, C = Channels, D = Depth, H = Height, W = Width, F = Feature,
+                        T = Time, I = Input, O = Output
+                        NDHWC/NCDHW used for 5d inputs
+                        NHWC/NCHW used for 4d image-like inputs
+                        HWIO/IOHW used for Weights of Conv Ops
+                        NFC/NCF used for inputs to Conv1D or other 1D ops
+                        NTF/TNF used for inputs with time steps like the ones used for LSTM op
+                        NF used for 2D inputs, like the inputs to Dense/FullyConnected layers
+                        NC used for 2D inputs with 1 for batch and other for Channels (rarely used)
+                        F used for 1D inputs, e.g. Bias tensor
+                        For multiple inputs specify multiple --source_model_input_layout on the
+                        command line.
+                        Eg:
+                            --source_model_input_layout "data1" NCHW --source_model_input_layout
+                        "data2" NCHW
+  --desired_input_layout INPUT_NAME DESIRED_INPUT_LAYOUT
+                        Desired Layout of each input tensor. If not specified, it will use the
+                        default based on the Source Framework, shape of input and input encoding.
+                        Accepted values are-
+                            NCDHW, NDHWC, NCHW, NHWC, HWIO, OIHW, NFC, NCF, NTF, TNF, NF, NC, F
+                        N = Batch, C = Channels, D = Depth, H = Height, W = Width, F = Feature,
+                        T = Time, I = Input, O = Output
+                        NDHWC/NCDHW used for 5d inputs
+                        NHWC/NCHW used for 4d image-like inputs
+                        HWIO/IOHW used for Weights of Conv Ops
+                        NFC/NCF used for inputs to Conv1D or other 1D ops
+                        NTF/TNF used for inputs with time steps like the ones used for LSTM op
+                        NF used for 2D inputs, like the inputs to Dense/FullyConnected layers
+                        NC used for 2D inputs with 1 for batch and other for Channels (rarely used)
+                        F used for 1D inputs, e.g. Bias tensor
+                        For multiple inputs specify multiple --desired_input_layout on the command
+                        line.
+                        Eg:
+                            --desired_input_layout "data1" NCHW --desired_input_layout "data2" NCHW
+  --source_model_output_layout OUTPUT_NAME OUTPUT_LAYOUT
+                        Layout of each output tensor. If not specified, it will use the default
+                        based on the Source Framework, shape of input and input encoding.
+                        Accepted values are-
+                            NCDHW, NDHWC, NCHW, NHWC, HWIO, OIHW, NFC, NCF, NTF, TNF, NF, NC, F
+                        N = Batch, C = Channels, D = Depth, H = Height, W = Width, F = Feature, T =
+                        Time
+                        NDHWC/NCDHW used for 5d inputs
+                        NHWC/NCHW used for 4d image-like inputs
+                        NFC/NCF used for inputs to Conv1D or other 1D ops
+                        NTF/TNF used for inputs with time steps like the ones used for LSTM op
+                        NF used for 2D inputs, like the inputs to Dense/FullyConnected layers
+                        NC used for 2D inputs with 1 for batch and other for Channels (rarely used)
+                        F used for 1D inputs, e.g. Bias tensor
+                        For multiple inputs specify multiple --source_model_output_layout on the
+                        command line.
+                        Eg:
+                            --source_model_output_layout "data1" NCHW --source_model_output_layout
+                        "data2" NCHW
+  --desired_output_layout OUTPUT_NAME DESIRED_OUTPUT_LAYOUT
+                        Desired Layout of each output tensor. If not specified, it will use the
+                        default based on the Source Framework.
+                        Accepted values are-
+                            NCDHW, NDHWC, NCHW, NHWC, HWIO, OIHW, NFC, NCF, NTF, TNF, NF, NC, F
+                        N = Batch, C = Channels, D = Depth, H = Height, W = Width, F = Feature, T =
+                        Time
+                        NDHWC/NCDHW used for 5d outputs
+                        NHWC/NCHW used for 4d image-like outputs
+                        NFC/NCF used for outputs to Conv1D or other 1D ops
+                        NTF/TNF used for outputs with time steps like the ones used for LSTM op
+                        NF used for 2D outputs, like the outputs to Dense/FullyConnected layers
+                        NC used for 2D outputs with 1 for batch and other for Channels (rarely used)
+                        F used for 1D outputs, e.g. Bias tensor
+                        For multiple outputs specify multiple --desired_output_layout on the command
+                        line.
+                        Eg:
+                            --desired_output_layout "data1" NCHW --desired_output_layout "data2"
+                        NCHW
+  --desired_input_color_encoding  ...], -e  ...]
+                        Usage:     --input_color_encoding "INPUT_NAME" INPUT_ENCODING_IN
+                        [INPUT_ENCODING_OUT]
+                        Input encoding of the network inputs. Default is bgr.
+                        e.g.
+                           --input_color_encoding "data" rgba
+                        Quotes must wrap the input node name to handle special characters,
+                        spaces, etc. To specify encodings for multiple inputs, invoke
+                        --input_color_encoding for each one.
+                        e.g.
+                            --input_color_encoding "data1" rgba --input_color_encoding "data2" other
+                        Optionally, an output encoding may be specified for an input node by
+                        providing a second encoding. The default output encoding is bgr.
+                        e.g.
+                            --input_color_encoding "data3" rgba rgb
+                        Input encoding types:
+                             image color encodings: bgr,rgb, nv21, nv12, ...
+                            time_series: for inputs of rnn models;
+                            other: not available above or is unknown.
+                        Supported encodings:
+                           bgr
+                           rgb
+                           rgba
+                           argb32
+                           nv21
+                           nv12
+  --preserve_io_datatype [PRESERVE_IO_DATATYPE ...]
+                        Use this option to preserve IO datatype. The different ways of using this
+                        option are as follows:
+                            --preserve_io_datatype <space separated list of names of inputs and
+                        outputs of the graph>
+                        e.g.
+                            --preserve_io_datatype input1 input2 output1
+                        The user may choose to preserve the datatype for all the inputs and outputs
+                        of the graph.
+                            --preserve_io_datatype
+                        Note: --config gets higher precedence than --preserve_io_datatype.
+  --dump_config_template DUMP_IO_CONFIG_TEMPLATE
+                        Dumps the yaml template for I/O configuration. This file can be edited as
+                        per the custom requirements and passed using the option --configUse this
+                        option to specify a yaml file to which the IO config template is dumped.
+  --config IO_CONFIG    Use this option to specify a yaml file for input and output options.
+  --dry_run [DRY_RUN]   Evaluates the model without actually converting any ops, and returns
+                        unsupported ops/attributes as well as unused inputs and/or outputs if any.
+  --enable_framework_trace
+                        Use this option to enable converter to trace the op/tensor change
+                        information.
+                        Currently framework op trace is supported only for ONNX converter.
+  --gguf_config GGUF_CONFIG
+                        This is an optional argument that can be used when input network is a GGUF
+                        File.It specifies the path to the config file for building GenAI model.(the
+                        config.json file generated when saving the huggingface model)
+  --debug [DEBUG]       Run the converter in debug mode.
+  --output_path OUTPUT_PATH, -o OUTPUT_PATH
+                        Path where the converted Output model should be saved.If not specified, the
+                        converter model will be written to a file with same name as the input model
+  --copyright_file COPYRIGHT_FILE
+                        Path to copyright file. If provided, the content of the file will be added
+                        to the output model.
+  --float_bitwidth FLOAT_BITWIDTH
+                        Use the --float_bitwidth option to convert the graph to the specified float
+                        bitwidth, either 32 (default) or 16.
+  --float_bias_bitwidth FLOAT_BIAS_BITWIDTH
+                        Use the --float_bias_bitwidth option to select the bitwidth to use for float
+                        bias tensor, either 32 or 16 (default '0' if not provided).
+  --set_model_version MODEL_VERSION
+                        User-defined ASCII string to identify the model, only first 64 bytes will be
+                        stored
+  --export_format EXPORT_FORMAT
+                        DLC_DEFAULT (default)
+                        - Produce a Float graph given a Float Source graph
+                        - Produce a Quant graph given a Source graph with provided Encodings
+                        DLC_STRIP_QUANT
+                        - Produce a Float Graph with discarding Quant data
+  -h, --help            show this help message and exit
+
+Custom Op Package Options:
+  --converter_op_package_lib CONVERTER_OP_PACKAGE_LIB, -cpl CONVERTER_OP_PACKAGE_LIB
+                        Absolute path to converter op package library compiled by the OpPackage
+                        generator. Must be separated by a comma for multiple package libraries.
+                        Note: Order of converter op package libraries must follow the order of xmls.
+                        Ex1: --converter_op_package_lib absolute_path_to/libExample.so
+                        Ex2: -cpl absolute_path_to/libExample1.so,absolute_path_to/libExample2.so
+  --package_name PACKAGE_NAME, -p PACKAGE_NAME
+                        A global package name to be used for each node in the Model.cpp file.
+                        Defaults to Qnn header defined package name
+  --op_package_config CUSTOM_OP_CONFIG_PATHS [CUSTOM_OP_CONFIG_PATHS ...], -opc CUSTOM_OP_CONFIG_PATHS [CUSTOM_OP_CONFIG_PATHS ...]
+                        Path to a Qnn Op Package XML configuration file that contains user defined
+                        custom operations.
+
+Quantizer Options:
+  --quantization_overrides QUANTIZATION_OVERRIDES, -q QUANTIZATION_OVERRIDES
+                        Use this option to specify a json file with parameters to use for
+                        quantization. These will override any quantization data carried from
+                        conversion (eg TF fake quantization) or calculated during the normal
+                        quantization process. Format defined as per AIMET specification.
+
+LoRA Converter Options:
+  --lora_weight_list LORA_WEIGHT_LIST
+                        Path to a file specifying a list of tensor names that should be updateable.
+  --quant_updatable_mode {none,adapter_only,all}
+                        Specify whether/for which tensors the quantization encodings change across
+                        use-cases. In none mode, no quantization encodings are updatable. In
+                        adapter_only mode quantization encodings for only lora/adapter branch
+                        (Conv->Mul->Conv) change across use-case, the base branch quantization
+                        encodings remain the same. In all mode, all quantization encodings are
+                        updatable.
+
+Onnx Converter Options:
+  --onnx_skip_simplification, -oss
+                        Do not attempt to simplify the model automatically. This may prevent some
+                        models from
+                        properly converting  when sequences of unsupported static operations are
+                        present.
+  --onnx_override_batch BATCH
+                        The batch dimension override. This will take the first dimension of all
+                        inputs and treat it as a batch dim, overriding it with the value provided
+                        here. For example:
+                        --onnx_override_batch 6
+                        will result in a shape change from [1,3,224,224] to [6,3,224,224].
+                        If there are inputs without batch dim this should not be used and each input
+                        should be overridden independently using -d option for input dimension
+                        overrides.
+  --onnx_define_symbol SYMBOL_NAME VALUE
+                        This option allows overriding specific input dimension symbols. For instance
+                        you might see input shapes specified with variables such as :
+                        data: [1,3,height,width]
+                        To override these simply pass the option as:
+                        --onnx_define_symbol height 224 --onnx_define_symbol width 448
+                        which results in dimensions that look like:
+                        data: [1,3,224,448]
+  --onnx_validate_models
+                        Validate the original ONNX model against optimized ONNX model.
+                        Constant inputs with all value 1s will be generated and will be used
+                        by both models and their outputs are checked against each other.
+                        The % average error and 90th percentile of output differences will be
+                        calculated for this.
+                        Note: Usage of this flag will incur extra time due to inference of the
+                        models.
+  --onnx_summary        Summarize the original onnx model and optimized onnx model.
+                        Summary will print the model information such as number of parameters,
+                        number of operators and their count, input-output tensor name, shape and
+                        dtypes.
+  --onnx_perform_sequence_construct_optimizer
+                        This option allows optimization on SequenceConstruct Op.
+                        When SequenceConstruct op is one of the outputs of the graph, it removes
+                        SequenceConstruct op and makes its inputs as graph outputs to replace the
+                        original output of SequenceConstruct.
+  --tf_summary          Summarize the original TF model and optimized TF model.
+                        Summary will print the model information such as number of parameters,
+                        number of operators and their count, input-output tensor name, shape and
+                        dtypes.
+
+TensorFlow Converter Options:
+  --tf_override_batch BATCH
+                        The batch dimension override. This will take the first dimension of all
+                        inputs and treat it as a batch dim, overriding it with the value provided
+                        here. For example:
+                        --tf_override_batch 6
+                        will result in a shape change from [1,224,224,3] to [6,224,224,3].
+                        If there are inputs without batch dim this should not be used and each input
+                        should be overridden independently using -s option for input dimension
+                        overrides.
+  --tf_disable_optimization
+                        Do not attempt to optimize the model automatically.
+  --tf_show_unconsumed_nodes
+                        Displays a list of unconsumed nodes, if there any are found. Nodeswhich are
+                        unconsumed do not violate the structural fidelity of thegenerated graph.
+  --tf_saved_model_tag SAVED_MODEL_TAG
+                        Specify the tag to seletet a MetaGraph from savedmodel. ex:
+                        --saved_model_tag serve. Default value will be 'serve' when it is not
+                        assigned.
+  --tf_saved_model_signature_key SAVED_MODEL_SIGNATURE_KEY
+                        Specify signature key to select input and output of the model. ex:
+                        --tf_saved_model_signature_key serving_default. Default value will be
+                        'serving_default' when it is not assigned
+  --tf_validate_models  Validate the original TF model against optimized TF model.
+                        Constant inputs with all value 1s will be generated and will be used
+                        by both models and their outputs are checked against each other.
+                        The % average error and 90th percentile of output differences will be
+                        calculated for this.
+                        Note: Usage of this flag will incur extra time due to inference of the
+                        models.
+
+Tflite Converter Options:
+  --tflite_signature_name SIGNATURE_NAME
+                        Use this option to specify a specific Subgraph signature to convert
+
+PyTorch Converter Options:
+  --dump_exported_onnx  Dump the exported Onnx model from input Torchscript model
+
+Backend Options:
+  --target_backend BACKEND
+                        Use this option to specify the backend on which the model needs to run.
+                        Providing this option will generate a graph optimized for the given backend
+                        and this graph may not run on other backends. The default backend is HTP.
+                        Supported backends are CPU,GPU,DSP,HTP,HTA,LPAI.
+  --target_soc_model SOC_MODEL
+                        Use this option to specify the SOC on which the model needs to run.
+                        This can be found from SOC info of the device and it starts with strings
+                        such as SDM, SM, QCS, IPQ, SA, QC, SC, SXR, SSG, STP, QRB, or AIC.
+                        NOTE: --target_backend option must be provided to use --target_soc_model
+                        option.
+
+Note: Only one of: {'package_name', 'op_package_config'} can be specified Note: Only one of:
+{'package_name', 'op_package_config'} can be specified
+```
+
+### qairt-quantizer
+
+`qairt-quantizer` 工具可将非量化 DLC 模型转换为量化 DLC 模型。
+
+```vim
+usage: qairt-quantizer --input_dlc INPUT_DLC [--output_dlc OUTPUT_DLC] [--input_list INPUT_LIST]
+                       [--enable_float_fallback] [--apply_algorithms ALGORITHMS [ALGORITHMS ...]]
+                       [--bias_bitwidth BIAS_BITWIDTH] [--act_bitwidth ACT_BITWIDTH]
+                       [--weights_bitwidth WEIGHTS_BITWIDTH] [--float_bitwidth FLOAT_BITWIDTH]
+                       [--float_bias_bitwidth FLOAT_BIAS_BITWIDTH] [--ignore_quantization_overrides]
+                       [--use_per_channel_quantization] [--use_per_row_quantization]
+                       [--enable_per_row_quantized_bias]
+                       [--preserve_io_datatype [PRESERVE_IO_DATATYPE ...]]
+                       [--use_native_input_files] [--use_native_output_files]
+                       [--restrict_quantization_steps ENCODING_MIN, ENCODING_MAX]
+                       [--keep_weights_quantized] [--adjust_bias_encoding]
+                       [--act_quantizer_calibration ACT_QUANTIZER_CALIBRATION]
+                       [--param_quantizer_calibration PARAM_QUANTIZER_CALIBRATION]
+                       [--act_quantizer_schema ACT_QUANTIZER_SCHEMA]
+                       [--param_quantizer_schema PARAM_QUANTIZER_SCHEMA]
+                       [--percentile_calibration_value PERCENTILE_CALIBRATION_VALUE]
+                       [--use_aimet_quantizer] [--op_package_lib OP_PACKAGE_LIB]
+                       [--dump_encoding_json] [--config CONFIG_FILE] [--export_stripped_dlc] [-h]
+                       [--target_backend BACKEND] [--target_soc_model SOC_MODEL] [--debug [DEBUG]]
+
+required arguments:
+  --input_dlc INPUT_DLC, -i INPUT_DLC
+                        Path to the dlc container containing the model for which fixed-point
+                        encoding metadata should be generated. This argument is required
+
+optional arguments:
+  --output_dlc OUTPUT_DLC, -o OUTPUT_DLC
+                        Path at which the metadata-included quantized model container should be
+                        written.If this argument is omitted, the quantized model will be written at
+                        <unquantized_model_name>_quantized.dlc
+  --input_list INPUT_LIST, -l INPUT_LIST
+                        Path to a file specifying the input data. This file should be a plain text
+                        file, containing one or more absolute file paths per line. Each path is
+                        expected to point to a binary file containing one input in the "raw" format,
+                        ready to be consumed by the quantizer without any further preprocessing.
+                        Multiple files per line separated by spaces indicate multiple inputs to the
+                        network. See documentation for more details. Must be specified for
+                        quantization. All subsequent quantization options are ignored when this is
+                        not provided.
+  --enable_float_fallback, -f
+                        Use this option to enable fallback to floating point (FP) instead of fixed
+                        point.
+                        This option can be paired with --float_bitwidth to indicate the bitwidth for
+                        FP (by default 32).
+                        If this option is enabled, then input list must not be provided and
+                        --ignore_quantization_overrides must not be provided.
+                        The external quantization encodings (encoding file/FakeQuant encodings)
+                        might be missing quantization parameters for some interim tensors.
+                        First it will try to fill the gaps by propagating across math-invariant
+                        functions. If the quantization params are still missing,
+                        then it will apply fallback to nodes to floating point.
+  --apply_algorithms ALGORITHMS [ALGORITHMS ...]
+                        Use this option to enable new optimization algorithms. Usage is:
+                        --apply_algorithms <algo_name1> ... The available optimization algorithms
+                        are: "cle" - Cross layer equalization includes a number of methods for
+                        equalizing weights and biases across layers in order to rectify imbalances
+                        that cause quantization errors.
+  --bias_bitwidth BIAS_BITWIDTH
+                        Use the --bias_bitwidth option to select the bitwidth to use when quantizing
+                        the biases, either 8 (default) or 32.
+  --act_bitwidth ACT_BITWIDTH
+                        Use the --act_bitwidth option to select the bitwidth to use when quantizing
+                        the activations, either 8 (default) or 16.
+  --weights_bitwidth WEIGHTS_BITWIDTH
+                        Use the --weights_bitwidth option to select the bitwidth to use when
+                        quantizing the weights, either 2, 4, 8 (default) or 16.
+  --float_bitwidth FLOAT_BITWIDTH
+                        Use the --float_bitwidth option to select the bitwidth to use for float
+                        tensors,either 32 (default) or 16.
+  --float_bias_bitwidth FLOAT_BIAS_BITWIDTH
+                        Use the --float_bias_bitwidth option to select the bitwidth to use when
+                        biases are in float, either 32 or 16 (default '0' if not provided).
+  --ignore_quantization_overrides
+                        Use only quantizer generated encodings, ignoring any user or model provided
+                        encodings.
+                        Note: Cannot use --ignore_quantization_overrides with
+                        --quantization_overrides (argument of Qairt Converter)
+  --use_per_channel_quantization
+                        Use this option to enable per-channel quantization for convolution-based op
+                        weights.
+                        Note: This will only be used if built-in model Quantization-Aware Trained
+                        (QAT) encodings are not present for a given weight.
+  --use_per_row_quantization
+                        Use this option to enable rowwise quantization of Matmul and FullyConnected
+                        ops.
+  --enable_per_row_quantized_bias
+                        Use this option to enable rowwise quantization of bias for FullyConnected
+                        ops, when weights are per-row quantized.
+  --preserve_io_datatype [PRESERVE_IO_DATATYPE ...]
+                        Use this option to preserve IO datatype. The different ways of using this
+                        option are as follows:
+                            --preserve_io_datatype <space separated list of names of inputs and
+                        outputs of the graph>
+                        e.g.
+                           --preserve_io_datatype input1 input2 output1
+                        The user may choose to preserve the datatype for all the inputs and outputs
+                        of the graph.
+                            --preserve_io_datatype
+  --use_native_input_files
+                        Boolean flag to indicate how to read input files.
+                        If not provided, reads inputs as floats and quantizes if necessary based on
+                        quantization parameters in the model. (default)
+                        If provided, reads inputs assuming the data type to be native to the model.
+                        For ex., uint8_t.
+  --use_native_output_files
+                        Boolean flag to indicate the data type of the output files
+                        If not provided, outputs the file as floats. (default)
+                        If provided, outputs the file that is native to the model. For ex., uint8_t.
+  --restrict_quantization_steps ENCODING_MIN, ENCODING_MAX
+                        Specifies the number of steps to use for computing quantization encodings
+                        such that scale = (max - min) / number of quantization steps.
+                        The option should be passed as a space separated pair of hexadecimal string
+                        minimum and maximum valuesi.e. --restrict_quantization_steps "MIN MAX".
+                         Please note that this is a hexadecimal string literal and not a signed
+                        integer, to supply a negative value an explicit minus sign is required.
+                        E.g.--restrict_quantization_steps "-0x80 0x7F" indicates an example 8 bit
+                        range,
+                            --restrict_quantization_steps "-0x8000 0x7F7F" indicates an example 16
+                        bit range.
+                        This argument is required for 16-bit Matmul operations.
+  --keep_weights_quantized
+                        Use this option to keep the weights quantized even when the output of the op
+                        is in floating point. Bias will be converted to floating point as per the
+                        output of the op. Required to enable wFxp_actFP configurations according to
+                        the provided bitwidth for weights and activations
+                        Note: These modes are not supported by all runtimes. Please check
+                        corresponding Backend OpDef supplement if these are supported
+  --adjust_bias_encoding
+                        Use --adjust_bias_encoding option to modify bias encoding and weight
+                        encoding to ensure that the bias value is in the range of the bias encoding.
+                        This option is only applicable for per-channel quantized weights.
+                         NOTE: This may result in clipping of the weight values
+  --act_quantizer_calibration ACT_QUANTIZER_CALIBRATION
+                        Specify which quantization calibration method to use for activations
+                        supported values: min-max (default), sqnr, entropy, mse, percentile
+                        This option can be paired with --act_quantizer_schema to override the
+                        quantization
+                        schema to use for activations otherwise default schema(asymmetric) will be
+                        used
+  --param_quantizer_calibration PARAM_QUANTIZER_CALIBRATION
+                        Specify which quantization calibration method to use for parameters
+                        supported values: min-max (default), sqnr, entropy, mse, percentile
+                        This option can be paired with --param_quantizer_schema to override the
+                        quantization
+                        schema to use for parameters otherwise default schema(asymmetric) will be
+                        used
+  --act_quantizer_schema ACT_QUANTIZER_SCHEMA
+                        Specify which quantization schema to use for activations
+                        supported values: asymmetric (default), symmetric, unsignedsymmetric
+  --param_quantizer_schema PARAM_QUANTIZER_SCHEMA
+                        Specify which quantization schema to use for parameters
+                        supported values: asymmetric (default), symmetric, unsignedsymmetric
+  --percentile_calibration_value PERCENTILE_CALIBRATION_VALUE
+                        Specify the percentile value to be used with Percentile calibration method
+                        The specified float value must lie within 90 and 100, default: 99.99
+  --use_aimet_quantizer
+                        Use AIMET for Quantization instead of QNN IR quantizer
+  --op_package_lib OP_PACKAGE_LIB, -opl OP_PACKAGE_LIB
+                        Use this argument to pass an op package library for quantization. Must be in
+                        the form <op_package_lib_path:interfaceProviderName> and be separated by a
+                        comma for multiple package libs
+  --dump_encoding_json  Use this argument to dump encoding of all the tensors in a json file
+  --config CONFIG_FILE, -c CONFIG_FILE
+                        Use this argument to pass the path of the config YAML file with quantizer
+                        options
+  --export_stripped_dlc
+                        Use this argument to export a DLC which strips out data not needed for graph
+                        composition
+  -h, --help            show this help message and exit
+  --debug [DEBUG]       Run the quantizer in debug mode.
+
+Backend Options:
+  --target_backend BACKEND
+                        Use this option to specify the backend on which the model needs to run.
+                        Providing this option will generate a graph optimized for the given backend
+                        and this graph may not run on other backends. The default backend is HTP.
+                        Supported backends are CPU,GPU,DSP,HTP,HTA,LPAI.
+  --target_soc_model SOC_MODEL
+                        Use this option to specify the SOC on which the model needs to run.
+                        This can be found from SOC info of the device and it starts with strings
+                        such as SDM, SM, QCS, IPQ, SA, QC, SC, SXR, SSG, STP, QRB, or AIC.
+                        NOTE: --target_backend option must be provided to use --target_soc_model
+                        option.
+```
+
+### qnn-context-binary-generator
+
+`qnn-context-binary-generator` 工具用于生成使用特定后端推理的 Context-Binary 格式模型文件
+
+```vim
+usage: qnn-context-binary-generator --model QNN_MODEL.so --backend QNN_BACKEND.so
+                                    --binary_file BINARY_FILE_NAME
+                                    [--model_prefix MODEL_PREFIX]
+                                    [--output_dir OUTPUT_DIRECTORY]
+                                    [--op_packages ONE_OR_MORE_OP_PACKAGES]
+                                    [--config_file CONFIG_FILE.json]
+                                    [--profiling_level PROFILING_LEVEL]
+                                    [--verbose] [--version] [--help]
+
+REQUIRED ARGUMENTS:
+-------------------
+  --model                         <FILE>      Path to the <qnn_model_name.so> file containing a QNN network.
+                                              To create a context binary with multiple graphs, use
+                                              comma-separated list of model.so files. The syntax is
+                                              <qnn_model_name_1.so>,<qnn_model_name_2.so>.
+
+  --backend                       <FILE>      Path to a QNN backend .so library to create the context binary.
+
+  --binary_file                   <VAL>       Name of the binary file to save the context binary to with
+                                              .bin file extension. If not provided, no backend binary is created.
+                                              If absolute path is provided, binary is saved in this path.
+                                              Else binary is saved in the same path as --output_dir option.
+
+
+OPTIONAL ARGUMENTS:
+-------------------
+  --model_prefix                              Function prefix to use when loading <qnn_model_name.so> file
+                                              containing a QNN network. Default: QnnModel.
+
+  --output_dir                    <DIR>       The directory to save output to. Defaults to ./output.
+
+  --op_packages                   <VAL>       Provide a comma separated list of op packages
+                                              and interface providers to register. The syntax is:
+                                              op_package_path:interface_provider[,op_package_path:interface_provider...]
+
+  --profiling_level               <VAL>       Enable profiling. Valid Values:
+                                              1. basic:    captures execution and init time.
+                                              2. detailed: in addition to basic, captures per Op timing
+                                                  for execution.
+                                              3. backend:  backend-specific profiling level specified
+                                                  in the backend extension related JSON config file.
+
+  --profiling_option              <VAL>       Set profiling options:
+                                              1. optrace:    Generates an optrace of the run.
+
+  --config_file                   <FILE>      Path to a JSON config file. The config file currently
+                                              supports options related to backend extensions and
+                                              context priority. Please refer to SDK documentation
+                                              for more details.
+
+  --enable_intermediate_outputs               Enable all intermediate nodes to be output along with
+                                              default outputs in the saved context.
+                                              Note that options --enable_intermediate_outputs and --set_output_tensors
+                                              are mutually exclusive. Only one of the options can be specified at a time.
+
+  --set_output_tensors            <VAL>       Provide a comma-separated list of intermediate output tensor names, for which the outputs
+                                              will be written in addition to final graph output tensors.
+                                              Note that options --enable_intermediate_outputs and --set_output_tensors
+                                              are mutually exclusive. Only one of the options can be specified at a time.
+                                              The syntax is: graphName0:tensorName0,tensorName1;graphName1:tensorName0,tensorName1.
+                                              In case of a single graph, its name is not necessary and a list of comma separated tensor
+                                              names can be provided, e.g.: tensorName0,tensorName1.
+                                              The same format can be provided in a .txt file.
+
+  --backend_binary                <VAL>       Name of the binary file to save a backend-specific context binary to with
+                                              .bin file extension. If not provided, no backend binary is created.
+                                              If absolute path is provided, binary is saved in this path.
+                                              Else binary is saved in the same path as --output_dir option.
+
+  --log_level                                 Specifies max logging level to be set. Valid settings:
+                                              "error", "warn", "info" and "verbose"
+
+  --dlc_path                     <VAL>        Paths to a comma separated list of Deep Learning Containers (DLC) from which to load the models.
+                                              Necessitates libQnnModelDlc.so as the --model argument.
+                                              To compose multiple graphs in the context, use comma-separated list of DLC files.
+                                              The syntax is <qnn_model_name_1.dlc>,<qnn_model_name_2.dlc>
+                                              Default: None
+
+  --input_output_tensor_mem_type  <VAL>       Specifies mem type to be used for input and output tensors during graph creation.
+                                              Valid settings:"raw" and "memhandle"
+
+  --platform_options              <VAL>       Specifies values to pass as platform options. Multiple platform options can be provided
+                                              using the syntax: key0:value0;key1:value1;key2:value2
+
+  --version                                   Print the QNN SDK version.
+
+  --help                                      Show this help message.
+
+```
+
+### qnn-net-run
+
+`qnn-net-run` 工具用于使用特定后端推理经过 QAIRT 转换的格式模型
+
+```vim
+Command Line Options:
+  [ --help ]            Displays this help message.
+  [ --version ]         Displays version information.
+  [ --model=<val> ]     Path to the model containing a QNN network.
+                        --retrieve_context and --model are mutually exclusive.
+                        Only one of the options can be specified at a time.
+                        To compose multiple graphs, use comma-separated list of model.so files.
+                        The syntax is <qnn_model_name_1.so>,<qnn_model_name_2.so>
+  --backend=<val>       Path to a QNN backend to execute the model.
+  [ --dlc_path=<val> ]  Paths to a comma separated list of Deep Learning Containers (DLC) from which to load the models. Neccesitates QnnModelDlc.so
+                        To compose multiple graphs, use comma-separated list of DLC files.
+                        The syntax is <qnn_model_name_1.dlc>,<qnn_model_name_2.dlc>
+                        Default: None
+  [ --input_list=<val> ]
+                        Path to a file listing the inputs for the network.
+                        If there are multiple graphs in model.so, this has
+                        to be comma-separated list of input list files.
+                        When multiple graphs are present, to skip execution of a graph use
+                        "__"(double underscore without quotes) as the file name in the
+                        comma-separated list of input list files.
+  [ --output_dir=<val> ]
+                        The directory to save output to. Defaults to ./output.
+  [ --op_packages=<val> ]
+                        Provide a comma-separated list of op packages,
+                        interface providers, and, optionally, targets to
+                        register. Valid values for target are CPU and HTP.
+                        The syntax is:
+                        op_package_path:interface_provider:target[,op_package_path:interface_provider:target...]
+  [ --output_data_type=<val> ]
+                        Please refer to flag --use_native_output_files as this option is deprecated
+  [ --input_data_type=<val> ]
+                        Please refer to flag --use_native_input_files as this option is deprecated
+  [ --native_input_tensor_names=<val> ]
+                        Provide a comma-separated list of input tensor names,
+                        for which the input files would be read/parsed in native format
+                        Note that options --use_native_input_files and --native_input_tensor_names
+                        are mutually exclusive. Only one of the options can be specified at a time.
+                        The syntax is: graphName0:tensorName0,tensorName1;graphName1:tensorName0,tensorName1
+  [ --profiling_level=<val> ]
+                        Enable profiling. Valid Values:
+                          1. basic:    captures execution and init time.
+                          2. detailed: in addition to basic, captures
+                                       per Op timing for execution.
+                          3. client  : captures only the performance metrics
+                                       measured by qnn-net-run
+                          4. backend:  backend-specific profiling level
+                                       specified in the backend extension
+                                       related JSON config file.
+  [ --profiling_option=<val> ]
+                        Set profiling options:
+                          1. optrace:    Generates an optrace of the run.
+  [ --model_prefix=<val> ]
+                        Function prefix to use when loading <qnn_model_name.so>.
+                        Default: QnnModel
+  [ --retrieve_context=<val> ]
+                        Path to cached binary from which to load a saved
+                        context from and execute graphs. --retrieve_context and
+                        --model are mutually exclusive. Only one of the options
+                        can be specified at a time.
+  [ --binary_updates=<val> ]
+                        Path to yaml that contains paths to binary updates.
+                        Updates are applied after initial graph execution on
+                        a per graph basis.
+  [ --perf_profile=<val> ]
+                        Specifies perf profile to set. Valid settings are
+                        "low_balanced", "balanced", "default","high_performance",
+                        "sustained_high_performance", "burst","low_power_saver",
+                        "power_saver", "high_power_saver", "custom(for internal use only)",
+                        "extreme_power_saver" and "system_settings".
+  [ --config_file=<val> ]
+                        Path to a JSON config file. The config file currently
+                        supports options related to backend extensions and
+                        context priority. Please refer to SDK documentation
+                        for more details.
+  [ --log_level=<val> ]
+                        Specifies max logging level to be set. Valid settings:
+                        "error", "warn", "info" and "verbose".
+  [ --duration=<val> ]  Specifies the duration of the graph execution in seconds.
+                        Loops over the input_list until this amount of time has transpired.
+  [ --num_inferences=<val> ]
+                        Specifies the number of inferences.
+                        Loops over the input_list until the number of inferences has transpired.
+  [ --fps=<val> ]       Specifies the frames per seconds for execution
+  [ --keep_num_outputs=<val> ]
+                        Specifies the number of outputs to be saved.
+                        Once the number of outputs saved reaches the limit, subsequent outputs are discarded
+  [ --batch_multiplier=<val> ]
+                        Specifies the value with which the batch value in input and output tensors dimensions will be multiplied.
+                        The modified input and output tensors will be used only during the execute graphs.
+                        Composed graphs will still use the tensor dimensions from model.
+  [ --timeout=<val> ]   Specifies the value of the timeout for execution of graph in micro seconds.
+                        Please note using this option with a backend that does not support timeout signals results in an error
+  [ --retrieve_context_timeout=<val> ]
+                        Specifies the value of the timeout for initialization of graph in micro seconds.
+                        Please note using this option with a backend that does not support timeout signals results in an error.
+                        Also note that this option can only be used when loading a saved context through--retrieve_context option.
+  [ --set_output_tensors=<val> ]
+                        Provide a comma-separated list of intermediate output tensor names, for which the outputs
+                        will be written in addition to final graph output tensors.
+                        Note that options --debug and --set_output_tensors
+                        are mutually exclusive. Only one of the options can be specified at a time.
+                        Also note that this option can not be used when graph is retrieved from context binary,
+                        since the graph is already finalized when retrieved from context binary.
+                        The syntax is: graphName0:tensorName0,tensorName1;graphName1:tensorName0,tensorName1In case of a single graph, its name is not necessary and a list of comma separated tensor
+                        names can be provided, e.g.: tensorName0,tensorName1.
+                        The same format can be provided in a .txt file.
+  [ --retrieve_context_list=<val> ]
+                        Provide the path to yaml file which contains info regarding multiple contexts
+  [ --debug ]           Specifies that output from all layers of the network will be saved
+                        Note that options --debug and --set_output_tensors are mutually exclusive.
+                        Only one of the options can be specified at a time.
+                        This option can not be used when loading saved context through --retrieve_context option.
+  [ --shared_buffer ]   Specifies creation of shared buffers for graph I/O between the application
+                        and the device/coprocessor associated with a backend directly.
+  [ --synchronous ]     Specifies that graphs should be executed synchronously rather than asynchronously.
+                        If a backend does not support asynchronous execution, this flag is unnecessary.
+  [ --use_native_input_files ]
+                        Specifies that the input files will be parsed in the data
+                        type native to the graph. If not specified, input files will
+                        be parsed in floating point.
+                        Note that options --use_native_input_files and --native_input_tensor_names
+                        are mutually exclusive. Only one of the options can be specified at a time.
+  [ --use_native_output_files ]
+                        Specifies that the output files will be generated in the data
+                        type native to the graph. If not specified, output files will
+                        be generated in floating point.
+  [ --use_mmap ]        Specifies that the context binary that is being read should be loaded
+                        using the Memory-mapped (MMAP) file I/O. Please note some platforms
+                        may not support this due to OS limitations in which case an error
+                        is thrown when this option is used. This option is currently not supported
+                        for DLC offline prepare use case.
+  [ --validate_binary ]
+                        Specifies that the context binary will be validated before creating a context.
+                        This option can only be used with backends that support binary validation.
+  [ --max_input_cache_tensor_sets=<val> ]
+                        Specifies the maximum number of input tensor sets that can be cached.
+                        Use value "-1" to cache all the input tensors created.
+                        Note that options --max_input_cache_tensor_sets and --max_input_cache_size_mb are mutually exclusive.
+                        Only one of the options can be specified at a time.
+  [ --max_input_cache_size_mb=<val> ]
+                        Specifies the maximum cache size in mega bytes(MB).
+                        Note that options --max_input_cache_tensor_sets and --max_input_cache_size_mb are mutually exclusive.
+                        Only one of the options can be specified at a time.
+  [ --platform_options=<val> ]
+                        Specifies values to pass as platform options. Multiple platform options can be provided using the syntax: key0:value0;key1:value1;key2:value2
+  [ --graph_profiling_start_delay=<val> ]
+                        Specifies graph profiling start delay in seconds. Please Note thatthis option can only be used
+                        in conjunction with graph-level profiling handles.
+  [ --graph_profiling_num_executions=<val> ]
+                        Specifies the maximum number of QnnGraph_execute/QnnGraph_executeAsynccalls to be profiled.
+                        Please Note that this option can only beused in conjunction with graph-level profiling handles.
+  [ --io_tensor_mem_handle_type=<val> ]
+                        Specifies mem handle type to be used for Input and output tensors during graph execution.
+                        Valid settings:"ion" and "dma_buf".
+  [ --device_options=<val> ]
+                        Specifies values to pass as device options. Multiple device options can be provided using the syntax: key0:value0;key1:value1;key2:value2.
+                        Currently supported options:
+                        device_id:<n> - selects a particular hardware device by ID to execute on. This ID will be used during QnnDevice creation. A default device will be chosen by the backend if an ID is not provided. This value will override a device ID selected in a backend config file.
+                        core_id:<n> - selects a particular core by ID to execute on the selected device. This ID will be used during QnnDevice creation. A default core will be chosen by the backend if an ID is not provided. This value will override a core ID selected in a backend config file.
+```
+
+### qnn-context-binary-utility
+
+`qnn-context-binary-utility` 工具会验证 Context-Binary 模型文件的元数据并将其序列化为 JSON 文件。此 JSON 文件可用于检查 Context-Binary 模型，从而辅助调试。
+
+```vim
+Command Line Options:
+  [ --help ]            Displays this help message.
+  [ --version ]         Displays version information.
+  --context_binary=<val>
+                        Path to cached context binary from which the binary info
+                        will be extracted and written to json.
+  [ --json_file=<val> ]
+                        Provide path along with the file name <DIR>/<FILE_NAME> to serialize
+                        context binary info into json.
+                        The directory path must exist. File with the FILE_NAME will be created at DIR.
+  [ --unified_qairt_format ]
+                        Specifies the format of the output JSON file to be in the SNPE, QNN
+                        unified cache info format.
+```
+
+## 完整参考文档
+
+关于详细和完整的 QAIRT Tools 的文档请参考
+
+**本地文档**
+
+- [**QAIRT SDK 本地文档**](qairt-install#sdk-完整文档) 下的 `docs/QNN/general/tools.html`
+
+**在线文档**
+
+- [**Tools**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-50/tools.html)

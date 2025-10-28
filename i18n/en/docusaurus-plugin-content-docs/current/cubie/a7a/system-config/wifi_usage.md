@@ -1,0 +1,9 @@
+---
+sidebar_position: 2
+---
+
+import WIFI_USAGE from '../../../common/radxa-os/system-config/\_wifi_usage.mdx';
+
+# WiFi Usage
+
+<WIFI_USAGE board="cubie-a7a" debian_version="debian11" />

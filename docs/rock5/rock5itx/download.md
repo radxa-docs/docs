@@ -8,25 +8,21 @@ import Images from "./\_image.mdx"
 
 ## 硬件设计
 
-Radxa ROCK 5 ITX X1.1版本
-
-[x1.1 2D dxf](https://dl.radxa.com/rock5/5itx/radxa_rock_5itx_x1100_dxf.zip)
-
-[x1.1 原理图 pdf](https://dl.radxa.com/rock5/5itx/radxa_rock_5_itx_X1100_schematic.pdf)
-
-[x1.1 位号图 pdf](https://dl.radxa.com/rock5/5itx/radxa_rock_5_itx_X1100_components_placement_map.pdf)
-
-Radxa ROCK 5 ITX V1.11版本
+Radxa ROCK 5 ITX
 
 [V1.11 2D dxf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_2d_dxf.zip)
 
-[V1.11 3D dxf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_3d_v1110.zip)
+[V1.12 3D stp](https://dl.radxa.com/rock5/5itx/radxa_rock_5_itx_pcba_v1_12.stp.zip)
+
+[IO Shield 3D stp](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_io_shield_3d_v1110.zip)
 
 [V1.11 原理图 pdf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_schematic.pdf)
 
 [V1.11 位号图 pdf](https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_components_placement_map.pdf)
 
-## 刷机工具
+Radxa ROCK 5 ITX+
+
+[V1.12 3D stp](https://dl.radxa.com/rock5/5itx-plus/5ITX_+_pcba_v1_12.zip)
 
 ## Linux Loader & 操作系统镜像
 

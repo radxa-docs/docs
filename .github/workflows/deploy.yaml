@@ -17,7 +17,7 @@ jobs:
         stage: ["commit", "push"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: pre-commit checks
@@ -80,7 +80,7 @@ jobs:
         stage: ["manual"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: pre-commit check-external-links
@@ -139,12 +139,12 @@ jobs:
     if: github.event_name != 'pull_request'
     steps:
       - name: Checkout template
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: "${{ secrets.PRIVATE_REPO_TOKEN }}"
           repository: "radxa-docs/docs-template"
       - name: Checkout contents
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: "contents"
       - name: Build
@@ -153,7 +153,7 @@ jobs:
           yarn install
           yarn build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           # Upload entire repository
           path: "./build"

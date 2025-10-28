@@ -229,7 +229,7 @@ This procedure requires soldering skills, and it is recommended that it be perfo
 | 29  |     VCC_3V3_S0     | 30  |      VCC_5V0       |
 | 31  |      VCC_5V0       |     |                    |
 
-### MIPI CSI
+### MIPI DSI
 
 | Pin |        Name        | Pin |        Name        |
 | :-: | :----------------: | :-: | :----------------: |

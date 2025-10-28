@@ -20,11 +20,23 @@ Debian image file, can be directly written to SD card / eMMC / SSD after extract
 
 [radxa-e54c_bookworm_cli_b2.output.img.xz](https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e54c_bookworm_cli_b2.output.img.xz)
 
+### Flippy OpenWrt:
+
+Flippy OpenWrt image file, can be directly written to SD card / eMMC / SSD after extraction
+
+[openwrt_e54c_flippy.7z](https://dl.radxa.com/e/e54c/images/openwrt_rk3588s_e54c_R25.05.07_k6.12.27-flippy-93+.7z)
+
 ### Loader Files
 
 Used for USB flashing, Loader file is used for USB download initialization, no need to download when writing to SD card
 
 [rk3588_spl_loader_v1.15.113.bin](https://dl.radxa.com/e/e52c/images/rk3588_spl_loader_v1.15.113.bin)
+
+## SPI Flash Image File
+
+SPI Flash image file, used for flashing SPI Flash
+
+[spi.img](https://dl.radxa.com/e/e54c/images/radxa-e54c-spi-flash-image.img)
 
 ## Hardware Design
 

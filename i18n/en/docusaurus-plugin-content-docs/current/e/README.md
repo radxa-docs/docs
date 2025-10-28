@@ -15,6 +15,8 @@ The E Family is a series of high-performance network computing products launched
 | Model                 | Processor | Network Interfaces    | Main Features                                               | Suitable Scenarios                                 |
 | --------------------- | --------- | --------------------- | ----------------------------------------------------------- | -------------------------------------------------- |
 | [E20C](../en/e/e20c/) | RK3528A   | Dual Gigabit Ethernet | Entry-level network device with high cost-performance ratio | Home gateway, small office network                 |
+
+| [E24C](../e/e24c/) | RK3528A | Quad Gigabit Ethernet | High-performance compact network device | Multi-WAN load balancing, network security device |
 | [E52C](../en/e/e52c/) | RK3582    | Dual 2.5G Ethernet    | High-performance compact network powerhouse                 | Enterprise gateway, edge server                    |
 | [E54C](../en/e/e54c/) | RK3582    | Quad Gigabit Ethernet | Multi-port network device with AI acceleration support      | Multi-WAN load balancing, network security devices |
 

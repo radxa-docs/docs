@@ -10,7 +10,13 @@ import Images from "./\_image.mdx"
 
 ### Official Image
 
+- Debian Linux
+
 <Images loader={true} rock5t_system_img_61={true}  spi_img={false} android12_update={true} android12_gpt={true}  />
+
+- Android
+
+[Radxa ROCK 5T Android 12 MicroSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-rock5t-20250226/Rock5T-Android12-rk14-20250226-gpt.zip)：Suitable for booting from MicroSD card or onboard eMMC.
 
 :::caution
 Except for the above images which have been fully tested officially, the other images have not been rigorously tested and may have unknown issues and are for evaluation purposes only.

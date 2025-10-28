@@ -1,0 +1,63 @@
+[CasaOS](https://casaos.io/) 是一款专为家庭用户设计的轻量级云操作系统，它以简单、安全和可靠为核心特点，为用户提供一站式的家庭云存储解决方案。相比于传统的家庭 NAS（网络附属存储）方案，CasaOS 更加易于使用和管理，同时也具备更加优秀的扩展性和可玩性。
+在特色功能方面，CasaOS 拥有以下几大亮点：
+
+- 简单易用：CasaOS 采用了直观的用户界面设计，使得家庭用户可以轻松上手。通过简单的拖拽操作，即可实现文件和照片的上传、下载以及备份。同时，CasaOS 还支持多设备同步，让家庭成员之间可以轻松共享文件和照片。
+
+- 安全可靠：CasaOS 在数据传输和存储方面采用了多种加密和保护措施，确保用户数据的安全。同时，它还支持快照功能，可以在出现意外情况时迅速恢复到之前的状态。
+
+- 强大的扩展性：CasaOS 支持各种常见的存储设备和服务，如 USB 闪存盘、SD 卡、硬盘等，同时也支持各种云存储服务。这意味着用户可以根据自己的需求灵活扩展存储空间。
+
+- 可玩性高：CasaOS 不仅是一个家庭云存储解决方案，更是一个开放的操作系统。它支持各种插件和第三方应用，使得用户可以自定义和扩展其功能。
+
+## CasaOS 安装方法
+
+### 安装 Docker
+
+:::tip
+请参考 [**Docker 安装**](../virtual-env/docker_install) 教程安装 Docker
+:::
+
+### CasaOS 安装
+
+- 安装 CasaOS
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  curl -fsSL https://get.casaos.io | sudo bash
+  ```
+
+  </NewCodeBlock>
+
+- 跟随安装引导安装
+
+  ![casaos_install.webp](/img/general-tutorial/tpu_ai/casaos_install.webp)
+
+  如果根目录空间低于 5GB， 仍然能通过输入 1 进行强制安装
+
+### CasaOS 卸载
+
+如需卸载 CasaOS, 可以参考此命令卸载。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+casaos-uninstall
+```
+
+</NewCodeBlock>
+
+## 首次访问
+
+- 通过 81 端口访问 CasaOS, 首次访问需要创建账户
+
+  ![casaos_1.webp](/img/general-tutorial/tpu_ai/casaos_1.webp)
+
+- CasaOS 系统界面
+
+  ![casaos_4.webp](/img/general-tutorial/tpu_ai/casaos_4.webp)
+
+- 修改 CasaOS 用户名与密码
+
+  点击左上角用户图标，然后点击编辑图标即可更改用户名， 同理修改密码
+  ![casaos_5.webp](/img/general-tutorial/tpu_ai/casaos_5.webp)

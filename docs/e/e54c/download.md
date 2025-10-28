@@ -20,11 +20,23 @@ Debian 镜像文件，解压后可直接写入 SD 卡 / eMMC / SSD
 
 [radxa-e54c_bookworm_cli_b2.output.img.xz](https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e54c_bookworm_cli_b2.output.img.xz)
 
+### Flippy OpenWrt:
+
+Flippy OpenWrt 镜像文件，解压后可直接写入 SD 卡 / eMMC / SSD
+
+[openwrt_e54c_flippy.7z](https://dl.radxa.com/e/e54c/images/openwrt_rk3588s_e54c_R25.05.07_k6.12.27-flippy-93+.7z)
+
 ### Loader 文件
 
 USB 刷机使用，Loader 文件用于 USB 下载初始化，写入 SD 卡无需下载
 
 [rk3588_spl_loader_v1.15.113.bin](https://dl.radxa.com/e/e52c/images/rk3588_spl_loader_v1.15.113.bin)
+
+## SPI 启动固件文件
+
+SPI 启动固件文件，用于刷入 SPI Flash
+
+[spi.img](https://dl.radxa.com/e/e54c/images/radxa-e54c-spi-flash-image.img)
 
 ## 硬件设计
 

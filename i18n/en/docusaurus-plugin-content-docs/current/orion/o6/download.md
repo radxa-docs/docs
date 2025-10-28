@@ -8,8 +8,6 @@ sidebar_position: 2
 
 Orion O6 V1.2 Version
 
-[V1.2 2D dxf](https://dl.radxa.com)
-
 [V1.2 Schematic pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_schematic.pdf)
 
 [V1.2 Components Placement Map Bottom pdf](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_bot.pdf)
@@ -18,11 +16,35 @@ Orion O6 V1.2 Version
 
 ## BIOS
 
-[O6 BIOS](https://github.com/radxa-pkg/edk2-cix/releases/latest)
+| Download Link                                                                             | Format | Description                                                                                                                                                                                                                                                                          |
+| ----------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-0.3.0-1.zip)           | zip    | Version 0.3.0-1                                                                                                                                                                                                                                                                      |
+| [Github Release](https://github.com/radxa-pkg/edk2-cix/releases/latest)                   | deb    | The BIOS content is located within the `edk2-cix_*_all.deb` package. This file can be opened with 7-Zip on Windows, KDE Ark on Linux, and extracted using the `ar -x` command on macOS. Inside the package, the path to the BIOS file is `data.tar.xz/usr/share/edk2/radxa/orion-o6` |
+| [Radxa DL](https://dl.radxa.com/orion/o6/images/bios/SystemReady/latest/orion-o6-bios.7z) | 7z     | Version 9.0.0, Arm SystemReady Certification BIOS                                                                                                                                                                                                                                    |
 
-The BIOS content is within the `edk2-cix_*_all.deb` package. This file can be opened with 7-Zip in Windows and with KDE Ark in Linux.
+### BIOS Compatibility Instructions
 
-In the BIOS package, the BIOS file is located under `data.tar.xz/usr/share/edk2/radxa/orion-o6`.
+Different versions of BIOS contain different memory initialization codes. If an older version of BIOS is installed on newer version hardware, the system may fail to start.
+
+O6 comes pre-installed with a BIOS that is compatible with its hardware. We do not recommend downgrading to a version older than the pre-installed BIOS.
+
+For the value of "Memory Chip Raw Value" in the following table, please refer to the corresponding value in `Device Manager - System Information - Memory Chip` within the BIOS settings.
+
+| Memory Chip Raw Value | Description     | Supported Versions                                                                                            |
+| --------------------- | --------------- | ------------------------------------------------------------------------------------------------------------- |
+| 0                     | 4 GiB           | Any                                                                                                           |
+| 2                     | 2 GiB           | 0.2.0-1 and above                                                                                             |
+| 5                     | 3 GiB           | Any                                                                                                           |
+| 7                     | 6 GiB           | Reserved configuration                                                                                        |
+| 8                     | 8 GiB           | Any                                                                                                           |
+| 9                     | 12 GiB          | Reserved configuration                                                                                        |
+| 10                    | 16 GiB (Hynix)  | Any                                                                                                           |
+| 11                    | 8 GiB           | 0.2.0-1 and above                                                                                             |
+| 12                    | 16 GiB (Rayson) | [0.3.1-1](https://github.com/radxa-pkg/edk2-cix/releases/download/0.3.1-1/edk2-cix_0.3.1-1_all.deb) and above |
+
+:::info
+The current memory compatibility of SystemReady BIOS is equivalent to 0.2.0-1.
+:::
 
 ## Debian 12 pre‑installed image
 
@@ -81,6 +103,14 @@ Known issues of T1:
 | :------: | :------: |
 |   root   | aarch64  |
 
-## Compliance Certificate
+## Android
 
-## Reference Documentation
+[Android 14 RC2 20250903 system image](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/Radxa_Orion_O6_Android14_RC2_20250903_images.zip)
+
+[Android BIOS 0.0.1 version image](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/orion-o6-bios-android-0.0.1.zip)
+
+## Openharmony
+
+[Openharmony 20251016 image](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_images.zip)
+
+[Openharmony BIOS v1.0 image](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_bios.zip)

@@ -1,0 +1,356 @@
+:::tip
+This document demonstrates how to run on-board inference of the LeNet handwritten digit classification model on Allwinner T527/A733 series chips.
+:::
+
+Deploying LeNet on the board requires two steps:
+
+- On the PC side, use [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) to convert models from different frameworks to NBG format
+- On the board side, use the awnn API for model inference
+
+## Download ai-sdk Example Repository
+
+<NewCodeBlock tip="X86 PC / Device" type="PC">
+
+```bash
+git clone https://github.com/ZIFENG278/ai-sdk.git
+```
+
+</NewCodeBlock>
+
+## PC-Side Model Conversion
+
+:::tip
+Radxa provides a pre-converted `lenet.nb` model. Users can directly refer to [**On-board LeNet Inference** ](#on-board-lenet-inference) to skip the PC-side model conversion chapter.
+:::
+
+:::tip
+The files used in the LeNet example are already included in the `models/lenet` directory of the [ai-sdk example repository](https://github.com/ZIFENG278/ai-sdk.git)
+:::
+
+- Enter the ACUITY Toolkit Docker Container
+
+  For ACUITY Toolkit Docker environment setup, please refer to [ACUITY Toolkit Environment Configuration](./cubie_acuity_env)
+
+  Configure Environment Variables
+
+      <Tabs>
+
+  <TabItem value="A733">
+
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+          ```bash
+          cd ai-sdk/models
+          source env.sh v3 # NPU_VERSION
+          cp ../scripts/* .
+          ```
+          </NewCodeBlock>
+
+          </TabItem>
+
+          <TabItem value="T527">
+
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+          ```bash
+          cd ai-sdk/models
+          source env.sh v2 # NPU_VERSION
+          cp ../scripts/* .
+          ```
+          </NewCodeBlock>
+
+          </TabItem>
+
+      </Tabs>
+
+  :::tip
+  Specify NPU_VERSION: use `v3` for A733 and `v2` for T527. For reference, see [**NPU Version Comparison Table**](cubie_acuity_usage#npu-version-comparison)
+  :::
+
+- Enter the LeNet Model Directory
+
+    <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  cd ai-sdk/models/lenet
+  ```
+
+    </NewCodeBlock>
+
+- Create Quantization Calibration Dataset
+
+  Use an appropriate number of images to create a quantization calibration dataset, with image paths saved in `dataset.txt`
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  vim dataset.txt
+  ```
+
+  </NewCodeBlock>
+
+  ```vim
+  ./input_image/6.jpg 6
+  ./input_image/1.jpg 1
+  ./input_image/2.jpg 2
+  ./input_image/5.jpg 5
+  ./input_image/3.jpg 3
+  ./input_image/4.jpg 4
+  ./input_image/8.jpg 8
+  ./input_image/7.jpg 7
+  ./input_image/0.jpg 0
+  ./input_image/9.jpg 9
+  ```
+
+- Directory contains files
+
+  ```bash
+  .
+  |-- channel_mean_value.txt
+  |-- dataset.txt
+  |-- input_image
+  |   |-- 0.jpg
+  |   |-- 1.jpg
+  |   |-- 2.jpg
+  |   |-- 3.jpg
+  |   |-- 4.jpg
+  |   |-- 5.jpg
+  |   |-- 6.jpg
+  |   |-- 7.jpg
+  |   |-- 8.jpg
+  |   `-- 9.jpg
+  |-- lenet.caffemodel
+  `-- lenet.prototxt
+  ```
+
+- Parse the Model
+
+  :::tip
+  pegasus script is in ai-sdk/scripts, copy it to models directory
+  :::
+
+  Use `pegasus_import.sh` to parse the model into IR expression, will get `lenet.json` containing model structure and `lenet.data` containing model weights
+
+   <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  ./pegasus_import.sh lenet/
+  ```
+
+   </NewCodeBlock>
+
+- Modify lenet_inputmeta.yml file
+
+  Here modify scale value, according to the formula scale = 1 / std
+
+  ```bash
+  scale = 1 / 255
+  scale = 0.00392157
+  ```
+
+  ```bash
+  input_meta:
+    databases:
+    - path: dataset.txt
+      type: TEXT
+      ports:
+      - lid: input_0
+        category: image
+        dtype: float32
+        sparse: false
+        tensor_name:
+        layout: nchw
+        shape:
+        - 1
+        - 1
+        - 28
+        - 28
+        fitting: scale
+        preprocess:
+          reverse_channel: true
+          mean:
+          - 0
+          scale:
+          - 0.00392157
+          preproc_node_params:
+            add_preproc_node: false
+            preproc_type: IMAGE_GRAY
+            # preproc_dtype_converter:
+              # quantizer: asymmetric_affine
+              # qtype: uint8
+              # scale: 1.0
+              # zero_point: 0
+            preproc_image_size:
+            - 28
+            - 28
+            preproc_crop:
+              enable_preproc_crop: false
+              crop_rect:
+              - 0
+              - 0
+              - 28
+              - 28
+            preproc_perm:
+            - 0
+            - 1
+            - 2
+            - 3
+        redirect_to_output: false
+  ```
+
+- Quantize the Model
+
+  Use `pegasus_quantize.sh` to quantize the model to uint8 type
+
+   <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  ./pegasus_quantize.sh lenet/ uint8 10
+  ```
+
+   </NewCodeBlock>
+
+- Compile the Model
+
+  Use `./pegasus_export_ovx.sh` to compile the model into NBG model format
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  ./pegasus_export_ovx.sh lenet/ uint8
+  ```
+
+  </NewCodeBlock>
+
+  NBG model is saved in `lenet/wksp/lenet_uint8_nbg_unify/network_binary.nb`
+
+## On-board LeNet Inference
+
+Enter the LeNet example code file directory path
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ai-sdk/examples/lenet
+```
+
+</NewCodeBlock>
+
+### Compile Example
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    make AI_SDK_PLATFORM=a733
+    make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    make AI_SDK_PLATFORM=t527
+    make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+Parameter Analysis:
+
+`AI_SDK_PLATFORM`: Specify SoC, optional values: **`a733`**, **`t527`**
+
+`INSTALL_PREFIX`: Specify installation path
+
+### Run Example
+
+Import environment variables
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+:::tip
+Specify NPU_SW_VERSION: Select v2.0 for A733, select v1.13 for T527. For NPU information, please refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison)
+:::
+
+Enter the example installation directory
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd $INSTALL_PREFIX/etc/npu/lenet
+# ./lenet nbg_model input_picture
+./lenet ./model/lenet.nb ./input_data/lenet.dat
+```
+
+</NewCodeBlock>
+
+:::tip
+The example will automatically install the lenet.nb model provided by Radxa. Here you can manually specify the path to the user-converted NBG model.
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/cubie/a7a/lenet_0.webp" />
+  lenet input image
+</div>
+
+```bash
+(.venv) rock@radxa-cubie-a7a:~/ai-sdk/examples/lenet/etc/npu/lenet$ ./lenet ./model/network_binary.nb ./input_data/lenet.dat
+./lenet nbg input
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+viplite init OK.
+VIPLite driver version=0x00020003...
+VIP cid=0x1000003b, device_count=1
+* device[0] core_count=1
+awnn_init total: 4.07 ms.
+  vip_create_network ./model/network_binary.nb: 1.10 ms.
+input 0 dim 28 28 1 1, data_format=2, name=input/output[0], elements=134284329, scale=0.003922, zero_point=0
+create input buffer 0: 784
+output 0 dim 10 1, data_format=1, name=uid_8_sub_uid_1_out_0, elements=10, none-quant
+create output buffer 0: 20
+memory pool size=0 bytes
+  load_param ./model/network_binary.nb: 0.24 ms.
+  prepare network ./model/network_binary.nb: 0.13 ms.
+  set network io ./model/network_binary.nb: 0.01 ms.
+awnn_create total: 1.54 ms.
+memcpy(0xffffacd12000, 0xaaaada2fed20, 784)  load_input_data: 0.01 ms.
+  vip_flush_buffer input: 0.01 ms.
+awnn_set_input_buffers total: 0.04 ms.
+  vip_run_network: 0.22 ms.
+  vip_flush_buffer output: 0.00 ms.
+    fp16 memcpy: 0.00 ms.
+  tensor to fp: 0.01 ms.
+awnn_run total: 0.27 ms.
+0.999512 0.000000 0.000120 0.000000 0.000000 0.000163 0.000152 0.000000 0.000000 0.000082
+awnn_destroy total: 0.47 ms.
+awnn_uninit total: 0.67 ms.
+```

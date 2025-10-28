@@ -1,0 +1,112 @@
+此文档讲述如何使用 QAI AppBuilder python 库在瑞莎 Dragon Q6A 上运行 [FCN-ResNet50](https://aihub.qualcomm.com/compute/models/fcn_resnet50)
+图像分割模型。
+
+## 安装 QAI AppBuilder
+
+:::tip
+请根据 [**QAI AppBuilder 安装方法**](qai-appbuilder) 安装 QAI AppBuilder。
+:::
+
+## 运行示例
+
+### 安装依赖
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install requests tqdm qai-hub py3_wget opencv-python torch
+```
+
+</NewCodeBlock>
+
+### 运行脚本
+
+- 进入示例目录
+
+   <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd ai-engine-direct-helper/samples/linux/python
+  ```
+
+    </NewCodeBlock>
+
+- 准备输入图片，这里以以下图片为输入示例
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/dragon/q6a/fcn_resnet50_input.webp"
+      style={{ width: "50%" }}
+    />
+    input image
+  </div>
+
+- 执行推理
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  python3 fcn_resnet50/fcn_resnet50.py --image ./input.jpg
+  ```
+
+  </NewCodeBlock>
+
+  ```bash
+  (.venv) ubuntu@ubuntu:~/git_clone/ai-engine-direct-helper/samples/linux/python$ python3 fcn_resnet50/fcn_resnet50.py --image ./input.jpg
+  Current file directory: /home/ubuntu/git_clone/ai-engine-direct-helper/samples/linux/python/fcn_resnet50
+       0.0ms [WARNING]  <W> Initializing HtpProvider
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     127.2ms [WARNING] Time: Read model file to memory. 12.72
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     185.9ms [WARNING] Time: contextCreateFromBinary. 58.58
+
+     186.0ms [WARNING] Time: UnmapViewOfFile. 0.00
+
+     187.1ms [WARNING] Time: model_initialize fcn_resnet50 187.09
+
+     385.4ms [WARNING] Time: model_inference fcn_resnet50 112.79
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+     463.2ms [WARNING] Time: model_destroy fcn_resnet50 10.20
+  ```
+
+- 输出结果
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/dragon/q6a/fcn_resnet50_output.webp"
+      style={{ width: "50%" }}
+    />
+    output image
+  </div>

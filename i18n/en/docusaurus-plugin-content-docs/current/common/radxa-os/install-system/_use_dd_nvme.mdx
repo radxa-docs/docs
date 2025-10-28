@@ -1,0 +1,173 @@
+import { Image } from "@site/src/utils/docs";
+
+This guide explains how to install the system to an NVMe SSD using the `dd` command when the system can boot normally from a MicroSD card.
+
+:::warning
+Installing the system will format the NVMe SSD. Please back up any important data in advance!
+:::
+
+## Prerequisites
+
+To use the `dd` command to install the system to an NVMe SSD, you need to meet the following conditions:
+
+- The system can boot normally from a MicroSD card
+- NVMe SSD is installed on the board
+
+## Hardware Connection
+
+Install the NVMe SSD on the board, connect a display, and power the board using a power adapter.
+
+<Tabs queryString="system boot">
+  <TabItem value="M.2 M 2280 Slot" default={props.tag === "m2_2280"} attributes={{ className: props.tag !== "m2_2280" ? "tab_none" : "" }}>
+    Install NVMe SSD via M.2 M Key 2280 interface.
+    <div style={{ textAlign: "center" }}>
+      <img
+        src="/en/img/common/radxa-os/install-system/nvme-m2-2280.webp"
+        style={{ width: "100%", maxWidth: "1200px" }}
+      />
+    </div>
+  </TabItem>
+
+<TabItem
+  value="M.2 M 2230 Slot"
+  default={props.tag === "m2_2230"}
+  attributes={{ className: props.tag !== "m2_2230" ? "tab_none" : "" }}
+>
+  Install NVMe SSD via M.2 M Key 2230 Slot.
+  <Image
+    src="/en/img/common/radxa-os/install-system/radxa-#board#-nvme-ssd.webp"
+    board={props.board}
+    fallback={props.board}
+    width="1200"
+  />
+</TabItem>
+
+  <TabItem value="PCIe FPC Interface" default={props.tag === "pcie_fpc"} attributes={{className: props.tag !== "pcie_fpc" ? "tab_none" : ""}}>
+    NVMe SSD can be installed using PCIe FPC interface with M.2 M Key HAT.
+  </TabItem>
+</Tabs>
+
+## System Installation
+
+### Download System Image
+
+Access the <a href={props?.download_page ?? '../../../../download'}>Resource Download</a> page from your device and download the **latest system image** to the device.
+
+:::tip Image Note
+The downloaded system image is a compressed file and needs to be extracted before use!
+:::
+
+You can use the `wget` command to download the system image file to your device.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install wget -y
+wget <download_url>
+```
+
+</NewCodeBlock>
+
+Where `<download_url>` is the download URL of the system image file. You can copy the **latest image** download URL from the <a href={props?.download_page ?? '../../../../download'}>Resource Download</a> page to replace it.
+
+Download example:
+
+<code>{`wget ${props?.download_url ?? "<download_url>"}`}</code>
+
+#### Extract System Image
+
+Our system images are generally in `*.img.xz` format and need to be extracted before use.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt install xz-utils -y
+unxz <path_to_image_unxz>
+```
+
+</NewCodeBlock>
+
+Where `<path_to_image_unxz>` is the path to the system image file, which needs to be replaced with the actual system image file path.
+
+Extraction example:
+
+<code>{`unxz ${props?.path_to_image_unxz ?? "<path_to_image_unxz>"}`}</code>
+
+### Determine Device Path
+
+You can use the `lsblk` command to check the device path and determine it based on the disk capacity.
+
+Note: If the disk capacities are similar, you can safely remove and reinsert the NVMe SSD to observe which device path appears and disappears, thus determining the correct device path.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+If the system recognizes the NVMe device, it will typically be identified as a `/dev/nvme*n*` device. If there are multiple storage devices, you can determine the corresponding device path by safely removing and reinserting the device.
+
+Terminal output example:
+
+```
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+···
+nvme0n1     259:0    0 119.2G  0 disk
+└─nvme0n1p1 259:1    0 119.2G  0 part
+···
+```
+
+### Install System Image
+
+Use the `dd` command to install the system image to the NVMe SSD.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo dd if=<path_to_image> of=<device_target> bs=4M status=progress
+```
+
+</NewCodeBlock>
+
+Write example:
+
+<code>{`sudo dd if=${
+  props?.path_to_image ?? "<path_to_image>"
+} of=/dev/nvme0n1 bs=4M status=progress`}</code>
+
+Parameter description:
+
+- `<path_to_image>`: The path to the system image file, which needs to be replaced with the actual system image file path.
+
+- `<device_target>`: The device path of the NVMe SSD module, which needs to be replaced with the actual NVMe SSD module's device path.
+
+- `bs=4M`: Block size for writing.
+
+- `status=progress`: Display write progress.
+
+### Verify Write Result
+
+After the system installation is complete, you can use the `lsblk` command to check if the NVMe SSD partition table has been created correctly.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+Terminal output example:
+
+```
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+···
+nvme0n1     259:0    0 119.2G  0 disk
+├─nvme0n1p1 259:3    0    16M  0 part
+├─nvme0n1p2 259:4    0   300M  0 part
+└─nvme0n1p3 259:5    0   6.3G  0 part
+···
+```

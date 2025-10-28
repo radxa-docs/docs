@@ -1,0 +1,36 @@
+This article mainly introduces how to compile and build the Armbian system.
+
+- Prerequisites
+
+  - x86_64 / aarch64 / riscv64 machine
+  - At least 4GB RAM and ~50GB disk space for VM, container, or bare-metal installation
+  - Armbian / Ubuntu Jammy 22.04.x for native builds, or any Docker-capable Linux for containerized builds
+  - Windows 10/11 with WSL2 subsystem running Armbian / Ubuntu Jammy 22.04.x
+  - Superuser privileges (configured sudo or root access)
+  - Ensure your system is up to date! Outdated Docker binaries can cause issues
+
+- Download Source Code
+
+```bash
+
+git clone --depth=1 --branch=main https://github.com/armbian/build
+
+cd build
+
+```
+
+- Enter the graphical configuration interface
+
+<img
+  src={props.build_product}
+  alt="Build Armbian for Radxa Product"
+  style={{ width: "80%" }}
+/>
+
+After configuration, the build process will start. The build outputs will be in the `output` directory, with the final generated image located in the `output/images/` directory.
+
+- Reference Documentation
+
+  - [Github](https://github.com/armbian/build)
+
+  - [Armbian Document](https://docs.armbian.com/Developer-Guide_Build-Preparation/)

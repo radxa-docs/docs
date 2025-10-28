@@ -1,0 +1,148 @@
+When using ACUITY to quantize, the model precision will slightly decrease. If the precision loss is too large and does not meet the current project requirements, you can use **Kullback-Laiber Divergence (KLD) quantization** or **hybrid quantization**.
+
+If the model precision does not meet the requirements, you can first use the KLD quantization algorithm to quantize the model, and then check if the precision meets the requirements. If the precision is still not met, you can then hybrid quantize the model.
+
+## Use KLD quantization
+
+To use KLD quantization, add the following options to `pegasus_quantized.sh`
+
+```bash
+cmd="$PEGASUS quantize \
+    --model         ${NAME}.json \
+    --model-data    ${NAME}.data \
+    --iterations    ${Q_ITER} \
+    --device        CPU \
+    --with-input-meta ${NAME}_inputmeta.yml \
+    --rebuild  \
+    --model-quantize  ${NAME}_${POSTFIX}.quantize \
+    --quantizer ${QUANTIZER} \
+    --qtype  ${QUANTIZED}  \
+#################################
+    --algorithm kl_divergence \
+    --batch-size 100 \
+    --divergence-first-quantize-bits 12
+    --MLE"
+#################################
+```
+
+`--algorithm kl_divergence` sets KLD quantization
+
+`--divergence-first-quantize-bits` sets 2^12 KLD histogram boxes
+
+`--batch-size` sets the number of model quantization inputs
+
+`--MLE` (optional) If the precision of the quantized model is still not met, you can use the MLE option to obtain higher precision, but it will increase the quantization time.
+
+## Hybrid quantization
+
+Hybrid quantization is the purpose of using higher precision data types for specific layers in the specified model, and using lower precision data types for other layers to ensure the final result precision.
+If a quantized model's precision cannot meet the requirements, and cannot be improved through co-quantization (Co-quantization), for example, [Kullback-Laiber Divergence quantization](#use-kld-quantization), you can use hybrid quantization to avoid precision loss.
+
+### Hybrid quantization example
+
+Here, we use the uint8 of [MobileNetV2_ImaegNet](./cubie_acuity_usage#quantize-model) from the previous chapter as an example. This model directly uses ACUITY to quantize uint8, and the precision loss is obvious after inference, and the inference result is obviously different from the floating-point model.
+
+MobileNetV2_ImageNet in the uint8 direct quantization result contrast with floating-point model
+
+- float model inference result
+  ```bash
+  I 07:01:06 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
+  I 07:01:06 812: 0.9990391731262207
+  I 07:01:06 814: 0.0001562383840791881
+  I 07:01:06 627: 8.89502334757708e-05
+  I 07:01:06 864: 6.59249781165272e-05
+  I 07:01:06 536: 2.808812860166654e-05
+  ```
+- uint8 model inference result
+  ```bash
+  I 07:02:20 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
+  I 07:02:20 904: 0.8729746341705322
+  I 07:02:20 530: 0.012925799004733562
+  I 07:02:20 905: 0.01022859662771225
+  I 07:02:20 468: 0.006405209191143513
+  I 07:02:20 466: 0.005068646278232336
+  ```
+
+### Hybrid quantization
+
+#### Statistics on the layer to be hybrid quantized
+
+Add the `--compute-entropy` parameter to the quantization script `pegasus_quantized.sh`
+
+```bash
+cmd="$PEGASUS quantize \
+    --model         ${NAME}.json \
+    --model-data    ${NAME}.data \
+    --iterations    ${Q_ITER} \
+    --device        CPU \
+    --with-input-meta ${NAME}_inputmeta.yml \
+    --rebuild  \
+    --model-quantize  ${NAME}_${POSTFIX}.quantize \
+    --quantizer ${QUANTIZER} \
+    --qtype  ${QUANTIZED}  \
+#################################
+    --compute-entropy"
+#################################
+```
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+# pegasus_quantize.sh MODEL_DIR QUANTIZED ITERATION
+pegasus_quantize.sh MobileNetV2_Imagenet uint8 10
+```
+
+</NewCodeBlock>
+
+Execution of the quantization script `pegasus_quantize.sh` will generate `MODEL_DIR_QUANTIZE.quantize` and `entropy.txt`
+
+- MODEL_DIR_QUANTIZE.quantize file contains quantized model data, where customized_quantize_layers in the file are automatically statistics out the layer that needs to be hybrid quantized
+- entropy.txt records the entropy value of each layer in this quantization. The higher the entropy value, the lower the quantization precision. The range is [0, 1].
+
+Users can refer to the value of `entropy.txt` to appropriately add or delete the layer in `MODEL_DIR_QUANTIZE.quantize` customized_quantize_layers.
+
+#### Execute hybrid quantization command
+
+:::tip
+The quantization command will print the quantization command at the top when executing pegasus_quantized.sh, replace `--rebuild` with `--hybrid`
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python3 ~/acuity-toolkit-whl-6.30.22/bin/pegasus.py quantize --model MobileNetV2_Imagenet.json --model-data MobileNetV2_Imagenet.data --iterations 1 --device CPU --with-input-meta MobileNetV2_Imagenet_inputmeta.yml --hybrid --model-quantize MobileNetV2_Imagenet_uint8.quantize --quantizer asymmetric_affine --qtype uint8 --compute-entropy
+```
+
+</NewCodeBlock>
+
+After the command is executed, the ACUITY model weight `.data` file will be updated, and a new ACUITY model structure `quantize.json` file will be generated.
+
+### Hybrid quantization result
+
+After hybrid quantization, use pegasus_inference.sh to perform inference on the uint8 hybrid quantized model
+
+Because the model structure has changed after hybrid quantization, please first modify the `pegasus_inference.sh` `--model` parameter to the new ACUITY model structure `quantize.json` file
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+# pegasus_inference.sh MODEL_DIR QUANTIZED ITERATION
+pegasus_inference.sh MobileNetV2_Imagenet/ uint8
+```
+
+</NewCodeBlock>
+
+Inference output result is
+
+```bash
+I 04:00:10 Iter(0), top(5), tensor(@attach_Logits/Softmax/out0_0:out0) :
+I 04:00:10 812: 0.9987972974777222
+I 04:00:10 404: 0.0001131662429543212
+I 04:00:10 814: 6.176823808345944e-05
+I 04:00:10 627: 4.6059416490606964e-05
+I 04:00:10 833: 4.153002373641357e-05
+```
+
+After hybrid quantization, the model in the inference result after inference is the same as the floating-point model, proving that the hybrid quantized uint8 model has successfully reduced the model precision loss.
+
+Next, you can continue the NPU deployment work to [model compilation and export](./cubie_acuity_usage#model-compilation-and-export), **because the model structure has changed after hybrid quantization, please use the hybrid quantized ACUITY model structure `quantize.json` file name as the `--model` parameter when converting the model**.

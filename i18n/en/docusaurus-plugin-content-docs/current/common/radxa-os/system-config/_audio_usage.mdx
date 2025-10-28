@@ -1,0 +1,59 @@
+import { Image } from "@site/src/utils/docs";
+
+This guide explains how to use audio devices on Radxa boards.
+
+## Audio Devices
+
+The default audio output priority is: Bluetooth Audio > Headphones > HDMI Audio.
+
+After manually selecting an audio output device, that device will have the highest priority.
+
+## Audio Configuration
+
+You can configure audio devices through either the graphical interface or the command line.
+
+<Tabs queryString="interface-mode">
+
+<TabItem value="graphical-interface">
+
+Click the audio icon in the bottom-right corner of the desktop, select your desired audio output device, and adjust the volume by dragging the volume slider.
+
+①. Click the audio icon
+
+②. Select the audio output device
+
+③. Adjust the volume by dragging the slider
+
+<Image
+  src="/en/img/common/radxa-os/system-config/audio-#debian_version#-01.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+</TabItem>
+
+<TabItem value="command-line">
+
+Use the `alsamixer` command-line tool to configure audio devices. Enter the following command in the terminal to open the `alsamixer` UI interface:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+alsamixer
+```
+
+</NewCodeBlock>
+
+Use the `up` and `down` arrow keys to adjust the volume.
+
+<Image
+  src="/en/img/common/radxa-os/system-config/audio-#debian_version#-02.webp"
+  debian_version={props.debian_version}
+  fallback={props.debian_version}
+  width="1200"
+/>
+
+</TabItem>
+
+</Tabs>

@@ -1,0 +1,412 @@
+:::tip
+本文档旨在演示如何在 Allwinner T527/A733 系列芯片上运行板端推理 ResNet50 物体分类模型。
+:::
+
+此示例用 [resnet50-v2-7.onnx](https://github.com/onnx/models/blob/main/validated/vision/classification/resnet/model/resnet50-v2-7.onnx) 中预训练好的 ONNX 格式模型为例子通过模型转换到板端推理做完整示例。
+
+主板部署 ResNet50 需要两个步骤
+
+- PC 端利用 [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) 将不同框架下的模型转换成 NBG 格式模型
+- 板端利用 awnn API 板端推理模型
+
+## 下载 ai-sdk 示例仓库
+
+<NewCodeBlock tip="X86 PC / Device" type="PC">
+
+```bash
+git clone https://github.com/ZIFENG278/ai-sdk.git
+```
+
+</NewCodeBlock>
+
+## PC 端模型转换
+
+:::tip
+Radxa 已提供预转换好的 `resnet50.nb` 模型，用户可直接参考 [**板端推理 ResNet50** ](#板端推理-resnet50) 跳过 PC 端模型转换章节
+:::
+
+- 进入 ACUITY Toolkit Docker 容器
+
+  ACUTIY Toolkit Docker 环境准备请参考 [ACUITY Toolkit 环境配置](./cubie_acuity_env)
+
+  配置环境变量
+
+      <Tabs>
+
+  <TabItem value="A733">
+
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+          ```bash
+          cd ai-sdk/models
+          source env.sh v3 # NPU_VERSION
+          cp ../scripts/* .
+          ```
+          </NewCodeBlock>
+
+          </TabItem>
+
+          <TabItem value="T527">
+
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+          ```bash
+          cd ai-sdk/models
+          source env.sh v2 # NPU_VERSION
+          cp ../scripts/* .
+          ```
+          </NewCodeBlock>
+
+          </TabItem>
+
+      </Tabs>
+
+  :::tip
+  指定 NPU_VERSION， A733 指定 `v3`, T527 指定 `v2`。 信息对照请参考 [**NPU 版本对照表**](cubie_acuity_usage#npu-版本对照表)
+  :::
+
+- 下载 resnet50 onnx 模型
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  mkdir resnet50-sim && cd resnet50-sim
+  wget https://github.com/onnx/models/raw/refs/heads/main/validated/vision/classification/resnet/model/resnet50-v2-7.onnx -O resnet50.onnx
+  ```
+
+  </NewCodeBlock>
+
+- 固定输入
+
+  使用 NPU 推理仅接受固定输入尺寸，这里使用 onnxsim 进行输入固定
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  pip3 install onnxsim onnxruntime
+  onnxsim resnet50.onnx resnet50-sim.onnx --overwrite-input-shape 1,3,224,224
+  ```
+
+  </NewCodeBlock>
+
+- 制作量化校准集合
+
+  使用适量图片做量化校准集合，量化图片以图片路经形式保存在 `dataset.txt`
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  vim dataset.txt
+  ```
+
+  </NewCodeBlock>
+
+  ```vim
+  ./space_shuttle_224x224.jpg
+  ```
+
+  ![space_shuttle](/img/e/e54c/rs400_npu_3.webp)
+
+- 制作模型输入输出文件
+
+  可使用 [netron](https://netron.app/) 确认 onnx 模型输入输出的名字
+
+   <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  vim inputs_outputs.txt
+  ```
+
+   </NewCodeBlock>
+
+  ```vim
+  --inputs data --input-size-list '3,224,224' --outputs 'resnetv24_dense0_fwd'
+  ```
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/cubie/a7a/resnet50_input.webp" />
+    resnet50 in/output name
+  </div>
+
+- 目录包含文件
+
+  ```bash
+  .
+  |-- dataset.txt
+  |-- inputs_outputs.txt
+  |-- resnet50-sim.onnx
+  |-- resnet50.onnx
+  `-- space_shuttle_224x224.jpg
+  ```
+
+- 解析模型
+
+  :::tip
+  pegasus 脚本在 ai-sdk/scripts 中，可复制到 models 目录中
+  :::
+
+  使用 `pegasus_import.sh` 将模型解析为 IR 中见表达式，会得到 `resnet50-sim.json` 包含模型结构 和 `resnet50-sim.data` 包含模型权重
+
+   <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  ./pegasus_import.sh resnet50-sim/
+  ```
+
+   </NewCodeBlock>
+
+- 修改 resnet50-sim_inputmeta.yml 文件
+
+  因为训练数据集为 ImageNet， 这里 ImageNet 训练集的归一化 mean 为 [0.485, 0.456, 0.406]，std 为 [0.229, 0.224, 0.225],
+  这里需要进行进行反归一化计算。归一化数据参考 [pytorch 文档](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.mobilenet_v2.html)
+
+  ```bash
+  # mean
+  0.485 * 255 = 123.675
+  0.456 * 255 = 116.28
+  0.406 * 255 = 103.53
+  ```
+
+  ```bash
+  # scale
+  1 / (0.229 * 255) = 0.01712
+  1 / (0.224 * 255) = 0.01751
+  1 / (0.225 * 255) = 0.01743
+  ```
+
+  这里按照计算得出 mean 和 scale 修改 `resnet50-sim_inputmeta.yml` 中 mean 和 scale 的数值：
+
+  ```vim
+  mean:
+  - 123.675
+  - 116.28
+  - 103.53
+  scale:
+  - 0.01712
+  - 0.01751
+  - 0.01743
+  ```
+
+  ```bash
+  input_meta:
+    databases:
+    - path: dataset.txt
+      type: TEXT
+      ports:
+      - lid: data_142
+        category: image
+        dtype: float32
+        sparse: false
+        tensor_name:
+        layout: nchw
+        shape:
+        - 1
+        - 3
+        - 224
+        - 224
+        fitting: scale
+        preprocess:
+          reverse_channel: true
+          mean:
+          - 123.675
+          - 116.28
+          - 103.53
+          scale:
+          - 0.01712
+          - 0.01751
+          - 0.01743
+          preproc_node_params:
+            add_preproc_node: false
+            preproc_type: IMAGE_RGB
+            # preproc_dtype_converter:
+              # quantizer: asymmetric_affine
+              # qtype: uint8
+              # scale: 1.0
+              # zero_point: 0
+            preproc_image_size:
+            - 224
+            - 224
+            preproc_crop:
+              enable_preproc_crop: false
+              crop_rect:
+              - 0
+              - 0
+              - 224
+              - 224
+            preproc_perm:
+            - 0
+            - 1
+            - 2
+            - 3
+        redirect_to_output: false
+  ```
+
+- 量化模型
+
+  使用 `pegasus_quantize.sh` 将模型量化成 uint8 类型
+
+   <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  ./pegasus_quantize.sh resnet50-sim/ uint8 10
+  ```
+
+   </NewCodeBlock>
+
+- 编译模型
+
+  使用 `./pegasus_export_ovx.sh` 将模型量编译为 NBG 模型格式
+
+  <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+  ```bash
+  ./pegasus_export_ovx.sh resnet50-sim/ uint8
+  ```
+
+  </NewCodeBlock>
+
+  NBG 模型保存在 `resnet50-sim/wksp/resnet50-sim_uint8_nbg_unify/network_binary.nb`
+
+## 板端推理 ResNet50
+
+进入 resnet50 示例代码文件目录路经
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ai-sdk/examples/resnet50
+```
+
+</NewCodeBlock>
+
+### 编译示例
+
+    <Tabs>
+        <TabItem value="A733">
+
+        <NewCodeBlock tip="Device" type="device">
+
+        ```bash
+        make AI_SDK_PLATFORM=a733
+        make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+        ```
+
+        </NewCodeBlock>
+
+        </TabItem>
+
+        <TabItem value="T527">
+
+        <NewCodeBlock tip="Device" type="device">
+        ```bash
+        make AI_SDK_PLATFORM=t527
+        make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+        ```
+        </NewCodeBlock>
+
+        </TabItem>
+
+    </Tabs>
+
+参数解析：
+
+`AI_SDK_PLATFORM`: 指定 SoC，可选 **`a733`**, **`t527`**
+
+`INSTALL_PREFIX`: 指定安装路经
+
+### 运行示例
+
+导入环境变量
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+:::tip
+指定 NPU_SW_VERSION， A733 选择 `v2.0`, T527 选择 `v1.13`, NPU 信息对照请参考 [NPU 版本对照表](./cubie_acuity_usage#npu-版本对照表)
+:::
+
+进入示例安装目录
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd $INSTALL_PREFIX/etc/npu/resnet50
+# ./resnet50 nbg_model input_picture
+./resnet50 model/resnet50.nb ./input_data/dog_224_224.jpg
+```
+
+</NewCodeBlock>
+
+:::tip
+示例会自动安装 radxa 提供的 resnet50.nb 模型，这里可手动指定用户转换的 NBG 模型路经。
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/cubie/a7a/dog.webp" />
+  resnet50 demo input image
+</div>
+
+```bash
+(.venv) rock@radxa-cubie-a7a:~/ai-sdk/examples/resnet50/etc/npu/resnet50$ ./resnet50 ./model/network_binary.nb ./input_data/dog_224_224.jpg
+./resnet50 nbg input
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+viplite init OK.
+VIPLite driver version=0x00020003...
+VIP cid=0x1000003b, device_count=1
+* device[0] core_count=1
+awnn_init total: 4.47 ms.
+  vip_create_network ./model/network_binary.nb: 13.10 ms.
+input 0 dim 224 224 3 1, data_format=2, name=input/output[0], elements=1833508979, scale=0.018657, zero_point=113
+create input buffer 0: 150528
+output 0 dim 1000 1, data_format=2, name=uid_1_out_0, elements=1000, scale=0.131327, zero_point=44
+create output buffer 0: 1000
+memory pool size=1606656 bytes
+  load_param ./model/network_binary.nb: 0.19 ms.
+  prepare network ./model/network_binary.nb: 2.58 ms.
+  set network io ./model/network_binary.nb: 0.01 ms.
+awnn_create total: 15.93 ms.
+get jpeg success.
+trans data success.
+memcpy(0xffff96348000, 0xffff96162010, 150528)  load_input_data: 0.04 ms.
+  vip_flush_buffer input: 0.01 ms.
+awnn_set_input_buffers total: 0.06 ms.
+awnn_set_input_buffers success.
+  vip_run_network: 8.30 ms.
+  vip_flush_buffer output: 0.01 ms.
+    int8/uint8 1000 memcpy: 0.00 ms.
+  tensor to fp: 0.02 ms.
+awnn_run total: 8.35 ms.
+awnn_run success.
+class_postprocess.cpp run.
+========== top5 ==========
+class id: 231, prob: 13.395374, label: collie
+class id: 230, prob: 12.082102, label: Shetland sheepdog, Shetland sheep dog, Shetland
+class id: 169, prob: 10.900157, label: borzoi, Russian wolfhound
+class id: 160, prob: 8.930249, label: Afghan hound, Afghan
+class id: 224, prob: 7.222996, label: groenendael
+class_postprocess success.
+awnn_destroy total: 1.47 ms.
+awnn_uninit total: 0.70 ms.
+```

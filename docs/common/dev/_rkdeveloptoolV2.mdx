@@ -132,9 +132,9 @@ rkdeveloptool 不支持选择 Maskrom 设备，也无法选择待写入的存储
 >
   {`
 
-1. 解压镜像文件（镜像文件详见上文 "文件下载" 部分， 此处 以 #model#_debian_bullseye-test_#desktop#_#release_num#.img.xz 为例）
+1. 解压镜像文件（镜像文件请到  "文件下载" 部分下载， 此处 以 #model#_debian_bullseye-test_#desktop#_#release_num#.img.xz 为例）
    xz -d #model#\_debian_bullseye-test_#desktop#\_#release_num#.img.xz
-2. 烧录 Loader
+2. 烧录 Loader (Loader文件请到本文 "文件下载" 部分下载)
    sudo rkdeveloptool db #loader#
 3. 烧录镜像
    sudo rkdeveloptool wl 0 #model#_debian_bullseye-test_#desktop#\_#release_num#.img

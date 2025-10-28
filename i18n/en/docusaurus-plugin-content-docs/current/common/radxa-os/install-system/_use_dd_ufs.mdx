@@ -1,0 +1,162 @@
+This guide explains how to install the system to UFS using the `dd` command when the system can boot normally from a MicroSD card.
+
+:::warning
+Installing the system will format the UFS module or onboard UFS. Please back up any important data in advance!
+:::
+
+## Prerequisites
+
+To use the `dd` command to install the system to UFS, you need to meet the following conditions:
+
+- The system can boot normally from a MicroSD card
+- UFS is installed on the board or the board has onboard UFS
+
+## Hardware Connection
+
+<Tabs queryString="system boot">
+<TabItem value="UFS Module" default={props.tag === "ufs_module"} attributes={{className: props.tag === "ufs_board" && "tab_none"}} >
+
+UFS Module Installation Steps:
+
+1. Observe the notch direction on the UFS module and the notch marking on the board's UFS module interface to determine the correct installation orientation.
+2. Place the UFS module above the board's UFS module interface, ensuring the UFS module interface is properly aligned with the board's UFS module interface.
+3. Gently press one end of the UFS module until you hear a "click" sound, indicating successful installation. Then press the other end in the same way to ensure the UFS module is properly installed.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/ufs-moudle-board.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="Onboard UFS" default={props.tag === "ufs_board"} attributes={{className: props.tag === "ufs_module" && "tab_none"}} >
+
+If your board has onboard UFS, no installation is required.
+
+</TabItem>  
+</Tabs>
+
+## System Installation
+
+### Download System Image
+
+Access the <a href={props?.download_page ?? '../../../../download'}>Resource Download</a> page from your device and download the **latest system image** to the device.
+
+:::tip Image Note
+The downloaded system image is a compressed file and needs to be extracted before use!
+:::
+
+You can use the `wget` command to download the system image file to your device.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install wget -y
+wget <download_url>
+```
+
+</NewCodeBlock>
+
+Where `<download_url>` is the download URL of the system image file. You can copy the image download URL from the <a href={props?.download_page ?? '../../../../download'}>Resource Download</a> page to replace it.
+
+Download example: <code>{`wget ${props?.download_url ?? '<download_url>'}`}</code>
+
+#### Extract System Image
+
+Our system images are generally in `*.img.xz` format and need to be extracted before use.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt install xz-utils -y
+unxz <path_to_image_unxz>
+```
+
+</NewCodeBlock>
+
+Where `<path_to_image_unxz>` is the path to the system image file, which needs to be replaced with the actual system image file path.
+
+Extraction example:
+
+<code>{`unxz ${props?.path_to_image_unxz ?? "<path_to_image_unxz>"}`}</code>
+
+### Determine Device Path
+
+You can use the `lsblk` command to check the device path and determine it based on the disk capacity.
+
+Note: If the disk capacities are similar, you can safely remove and reinsert the UFS module to observe which device path appears and disappears, thus determining the correct device path.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+If the system recognizes the UFS device, it will typically be identified as a `/dev/sd*` device.
+
+Terminal output example:
+
+```
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+···
+sda           8:0    0 119.2G  0 disk
+└─sda1        8:1    0 119.2G  0 part
+···
+```
+
+### Install System Image
+
+Use the `dd` command to install the system image to the UFS.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo dd if=<path_to_image> of=<device_target> bs=4M status=progress
+```
+
+</NewCodeBlock>
+
+Write example:
+
+<code>{`sudo dd if=${
+  props?.path_to_image ?? "<path_to_image>"
+} of=/dev/sda bs=4M status=progress`}</code>
+
+Parameter description:
+
+- `<path_to_image>`: The path to the system image file, which needs to be replaced with the actual system image file path.
+
+- `<device_target>`: The device path of the UFS module, which needs to be replaced with the actual UFS module's device path.
+
+- `bs=4M`: Block size for writing.
+
+- `status=progress`: Display write progress.
+
+### Verify Write Result
+
+After the system installation is complete, you can use the `lsblk` command to check if the UFS partition table has been created correctly.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+lsblk
+```
+
+</NewCodeBlock>
+
+Terminal output example:
+
+```
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+···
+sda           8:0    0 119.2G  0 disk
+├─sda1        8:1    0   128M  0 part
+├─sda2        8:2    0   2.3G  0 part
+└─sda3        8:3    0   6.4G  0 part
+···
+```

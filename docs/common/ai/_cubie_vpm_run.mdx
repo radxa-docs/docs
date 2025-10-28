@@ -1,0 +1,196 @@
+:::tip
+本文档旨在演示如何在 Allwinner T527/A733 系列芯片上运行模型测试工具 `vpm_run`。
+:::
+
+vpm_run 是一个基于 VIPLite 驱动的端侧程序，主要用于快速验证模型文件和测试。
+
+- vpm_run 可作为一个通用的模型运行环境，可运行任何部署正确的 NBG 模型文件。
+- vpm_run 基于 VIPLite 网络层 API。
+- vpm_run 具备默认的后处理程序 TOP5。
+
+## 下载 ai-sdk 示例仓库
+
+<NewCodeBlock tip="X86 PC / Device" type="PC">
+
+```bash
+git clone https://github.com/ZIFENG278/ai-sdk.git
+```
+
+</NewCodeBlock>
+
+## 板端使用 vpm_run
+
+进入 vpm_run 示例代码文件目录路经
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ai-sdk/examples/vpm_run
+```
+
+</NewCodeBlock>
+
+### 编译示例
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    make AI_SDK_PLATFORM=a733
+    make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    make AI_SDK_PLATFORM=t527
+    make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+参数解析：
+
+`AI_SDK_PLATFORM`: 指定 SoC，可选 **`a733`**, **`t527`**
+
+`INSTALL_PREFIX`: 指定安装路经
+
+使用方法
+
+```bash
+vpm_run -s sample.txt -l loop_run_count -d device_index
+-s sample.txt:     to include one ore more network binary graph (NBG) data file resource.
+                   See sample.txt for details.
+-l loop_run_count: the number of loop run network.
+-d device_index:   specify this NBG runs device.
+-t time_out:       specify milliseconds time out of network.
+-b bypass_level:   set value 1 to bypass saving output txt/binary file and showing top5.
+--show_top5 level: set value 1 to show top5 when bypass_level is 0.
+--save_txt level:  set value 1 to save txt output when bypass_level is 0.
+-c core_index:     specify this start core index of device.
+--layer_profile_dump:      set value 1 to enable NPD function.
+--preload:         set value 1 to enable preload coeff into vipsram.
+--op_segment:      set which operations will be run. example: --op_segment 10,20 means run 10 ~ 20
+--layer_dump:  layer dump. eg: --layer_dump -1 dump all layer, --layer_dump 19, --layer_dump 18,20
+-h : help
+example: ./vpm_run -s sample.txt -l 10 -d 1 specify the NBG runs 10 times on device 1.
+```
+
+### 运行示例
+
+- 导入环境变量
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+:::tip
+指定 NPU_SW_VERSION， A733 选择 `v2.0`, T527 选择 `v1.13`, NPU 信息对照请参考 [NPU 版本对照表](./cubie_acuity_usage#npu-版本对照表)
+:::
+
+- 制作配置文件
+
+  此示例配置文件执行两个 NGB 模型，第一个是多输入模型，保存输出文件，且与 golden 进行对比，第二个是单输入模型， 不保存输出文件。
+
+  ```vim
+  [network]
+  ./network_binary.nb
+  [input]
+  #多输入模型，则配置多个输入文件；单输入模型，则配置1个输入文件。
+  ./input_0.dat
+  ./input_1.dat
+  [golden]
+  #可选
+  ./int8_output_003.dat
+  [output]
+  #可选
+  ./output_0.dat
+
+  [network]
+  ./network_binary_single.nb
+  [input]
+  ./input1.tensor
+  ```
+
+  sample.txt 文件的示例如上所示，主要标签介绍如下：
+
+  - **[network]**：NBG 文件的路径。
+  - **[input]**：输入数据的路径。输入数据的格式支持两种：Acuity Toolkits 工具 inference 阶段生成的 input.tensor 文件；IDE 工具仿真阶段生成的 input.dat 文件。
+  - **[golden]**：可选的 golden 数据的路径。如果存在 golden 标签，将其作为 golden 数据和 vpm_run 运行输出的 tensor 做 binary 比对，比对一致打印 pass，比对不一致将退出 vpm_run。
+  - **[output]**：可选的。输出数据的保存路径。
+
+- 进入示例安装目录
+
+    <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd $INSTALL_PREFIX/etc/npu/vpm_run
+  ./vpm_run -s sample.txt -l 1
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  (.venv) rock@radxa-cubie-a7a:~/ai-sdk/examples/vpm_run/etc/npu/vpm_run$ ./vpm_run -s sample.txt -l 1
+  loop_count=1, device_index=0, core_index=-1, file_name=sample.txt, time_out=0x0, bypass=1
+  enable_npd=0, preload=0
+  show_top50, save_txt=0
+  init vip lite, driver version=0x00020003...
+  VIPLite driver software version 2.0.3.2-AW-2024-08-30
+  vip lite init OK.
+
+  cid=0x1000003b, device_count=1
+    device[0] core_count=1
+  config file read network count=1
+  init test resources, task_count: 1 ...
+  create/prepare networks ...
+  task i=0, binary name: ./network_binary.nb
+  nbg name=./network_binary.nb
+  create network 0: 12354 us.
+  input 0 dim 3 224 224 1, data_format=5, quant_format=1, name=input/output[0], dfp=13
+  output 0 dim 1000 1 0 0, data_format=1, name=uid_2_sub_uid_1_out_0, none-quant
+  memory pool size=1073536byte
+  network core count=1
+  prepare network 0: 1409 us.
+  golden file count=0
+  input 0 name: ./input_0.dat
+  read input and golden 0: 541 us.
+  task: 0, loop count: 1
+  start to run network=./network_binary.nb
+  run time for this network 0: 3160 us.
+  run network done...
+  profile inference time=2945us, cycle=2916338
+  destroy test resource task_count=1
+  vpm run ret=0
+  ```

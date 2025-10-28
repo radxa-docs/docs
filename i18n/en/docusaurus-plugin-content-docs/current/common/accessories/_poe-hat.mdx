@@ -1,0 +1,61 @@
+## Bill of Materials
+
+- As shown below
+
+<div>
+    {props.poe_type === "Radxa 23W PoE HAT" ? (
+        <div>
+            <img src="/img/accessories/poe-hat/25w-poe-pkg.webp" alt="Radxa 23W PoE HAT" style={{ width: "80%" }} />
+        </div>
+    ) : null}
+
+    {props.poe_type === "Radxa 25W PoE HAT" ? (
+        <div>
+            <img src="/img/accessories/poe-hat/accessories/poe-hat/23w-poe.webp" alt="Radxa 23W PoE HAT" style={{ width: "80%" }} />
+        </div>
+    ) : null}
+
+</div>
+
+## Installation Process
+
+<div>
+    {props.poe_type === "Radxa 23W PoE HAT" ? (
+        <div>
+            Please refer to <a href="/accessories/radxa-23w-poe">Radxa 23W Power Module</a>
+        </div>
+    ) : null}
+
+    {props.poe_type === "Radxa 25W PoE HAT" ? (
+        <div>
+            Please refer to <a href="/accessories/radxa-25w-poe">Radxa 25W Power Module</a>
+        </div>
+    ) : null}
+
+</div>
+
+## Fan Speed Control
+
+### Enable PoE Overlay
+
+To enable the temperature-controlled fan and temperature sensor, you need to enable the corresponding overlay.
+
+Please refer to the [Device Tree Configuration](../../radxa-os/rsetup#overlays) and enable the overlay named "Enable Radxa {props.pwr_rate}W PoE HAT".
+
+<pre style={{ whiteSpace: "nowrap" }}>
+  [*] Enable Radxa {props.pwr_rate}W PoE HAT
+</pre>
+
+Finally, reboot the device to load the overlay.
+
+:::info
+If you cannot find the corresponding overlay in `rsetup`, please refer to the [System Update Guide](../../radxa-os/rsetup#system-update) to update your system first, and then perform the above operations.
+:::
+
+### Check Temperature Sensor Reading
+
+After executing the following command, the second line output `t=XXYYY` shows the current temperature (XX.YYY°C):
+
+```bash
+cat /sys/bus/w1/devices/28-*/w1_slave
+```

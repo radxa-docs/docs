@@ -8,18 +8,25 @@ sidebar_position: 10
 
 **Radxa X4 BIOS**
 
-- [Radxa X4 标准 BIOS V0002 新增 16GB 内存支持](https://rock.sh/x4-bios-update)
+- X4 板载 eMMC 版本：[Radxa X4 标准 BIOS V007: 提升 eMMC 启动稳定性](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V007.zip)
 
-- [Radxa X4 自定义 BIOS V002 T 支持启用 IBECC 选项和隐藏选项](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
+- X4 无 eMMC 版本：[Radxa X4 标准 BIOS V004, 支持 ASM2806/1806, 添加了安全启动选项](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
+
+<details>
+<summary>旧版本 BIOS</summary>
 
 - [Radxa X4 自定义 BIOS V003: PCIE Bifurcation ver (only 4 x1)](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V003.zip)
 
-- [Radxa X4 标准 BIOS V004, 支持 ASM2806/1806, 添加了安全启动选项](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V004.zip)
+- [Radxa X4 自定义 BIOS V002 T 支持启用 IBECC 选项和隐藏选项](https://dl.radxa.com/x/x4/Radxa_X4_BIOS_V002_t.zip)
+
+- [Radxa X4 标准 BIOS V0002 新增 16GB 内存支持](https://rock.sh/x4-bios-update)
+
+</details>
 
 :::warning
 
 - 刷新自定义 BIOS 可能会导致保修失效，因此请谨慎操作。
-- 使用方法：解压缩 EFI 文件夹到 FAT32 USB 盘，将 USB 盘插入 X4 并从 USB 设备启动，自动闪存 BIOS。
+- 使用方法：将下载的bios压缩文件解压到 FAT32格式的 U盘，确保U盘根目录有EFI文件夹，将 U 盘插入 X4 并选择从 USB 设备启动，系统会自动刷新 BIOS。
 - 警告：BIOS 升级期间不要关闭计算机
 
 :::

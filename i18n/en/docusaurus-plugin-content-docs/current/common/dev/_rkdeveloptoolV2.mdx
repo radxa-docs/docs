@@ -134,9 +134,9 @@ If you need to write to multiple devices at the same time, use upgrade_tool.
 >
   {`
 
-1. Extract the image file (see **File Download** above for details of the image file, here #model#_debian_bullseye-test_#desktop#_#release_num#.img.xz is used as an example)
+1. Extract the image file (Download the image file from "File Download" part above, here #model#_debian_bullseye-test_#desktop#_#release_num#.img.xz is used as an example)
    xz -d #model#\_debian_bullseye-test_#desktop#\_#release_num#.img.xz
-2. Flash Loader
+2. Flash Loader （Download the loader file from "File Download" part above )
    sudo rkdeveloptool db #loader#
 3. Flash System Image
    sudo rkdeveloptool wl 0 #model#_debian_bullseye-test_#desktop#\_#release_num#.img

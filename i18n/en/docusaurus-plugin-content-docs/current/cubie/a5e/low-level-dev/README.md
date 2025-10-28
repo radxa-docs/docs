@@ -1,9 +1,9 @@
 ---
-sidebar_position: 7
+sidebar_position: 5
 ---
 
-# Low Level Development
+# Low-level Development
 
-Introduces how to build uboot, kernel, debian os.
+This section provides an overview of the low-level development process for the Radxa Cubie A5E.
 
 <DocCardList />

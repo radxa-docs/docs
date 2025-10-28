@@ -1,29 +1,29 @@
-# FAQ
+import { Details } from "@site/src/utils/docs";
 
-### The same system can start on old hardware but runs abnormally on new hardware.
+# Frequently Asked Questions
 
-Since the new hardware version may do some material updates (such as material replacement due to material shortages or production shutdowns), the old system may not be compatible with the new hardware version, causing the system to run abnormally.
+## The same system can boot on old hardware but runs abnormally on new hardware.
 
-We recommend that you reconfigure your system based on our latest release when changing hardware versions to ensure optimal software compatibility.
+New hardware versions may undergo component updates (such as component replacements due to shortages or discontinuations), which may cause the old system to be incompatible with the new hardware version, leading to abnormal system operation.
 
-If you don't reconfigure your system, you can perform a [system update](os-config/rsetup#system-update) and a [bootloader update](os-config/rsetup#update-bootloader).
-This also ensures that your system contains the latest hardware support.Please note that you'b better perform a full backup of your system (e.g., generating a disk image)
-before system migration.
+We recommend that when changing hardware versions, you reconfigure based on our latest released system to ensure optimal software compatibility.
+
+If you choose not to reconfigure your system with our latest image, you can also perform an online update on the old hardware version using [System Update](os-config/rsetup#system-update) and [Bootloader Update](os-config/rsetup#update-bootloader).
+This will also ensure your system includes the latest hardware support. Please note that before upgrading the system, you should fully back up your system (e.g., create a disk image).
 
 :::tip
-If old systems do not have `rsetup` pre-installed, the system will not be able to be updated online. We _strongly recommend_ that you migrate to the latest RadxaOS to obtain complete product support.
+Older systems do not have `rsetup` pre-installed, in which case the system will not be able to update online. We _strongly recommend_ that you migrate to the latest RadxaOS to receive full product support.
 
-For old systems, if you do not migrate to the latest system, we will provide some bypass methods.
+For older systems, if you choose not to migrate to the latest system, we provide some workarounds.
 
-However, if your system has been pre-installed with `rsetup`, please use the online update method through rsetup mentioned above to upgrade the system. Using a bypass method may cause exceptions during the subsequent online upgrade process!
+However, if your system already has `rsetup` pre-installed, please use the online update method via rsetup as mentioned above for system upgrades. Using workarounds may cause issues during subsequent online updates.
 :::
 
-<details>
-<summary>The ROCK 4SE old system cannot boot normally on the new hardware version V1.53, and the final output of the serial port is "ERR"</summary>
+### Symptoms
 
-### Phenomenon
+Older ROCK 4SE systems run normally on old hardware versions but fail to boot on new hardware version V1.53, with the serial port output ending with "ERR".
 
-- The serial console's final output is similar to the following:
+- The final serial port output looks similar to:
 
 ```
 channel 0 training pass!
@@ -39,7 +39,7 @@ read addr 0x1000000 = 0x20000000
 ERR
 ```
 
-- Your system indicates it is using `U-Boot 2017.09` on the serial console during a successful boot:
+- When your system boots normally, the serial output will show it's using `U-Boot 2017.09`:
 
 ```
 U-Boot 2017.09-2700-g70b4cfe057 (Jun 05 2021 - 07:28:02 +0000), Build: jenkins-linux-build-release-604
@@ -53,9 +53,9 @@ DRAM:  3.9 GiB
 
 ### Cause
 
-Older versions of `U-Boot` do not support Micron memory and cannot initialize the hardware.
+The older version of `U-Boot` does not support Micron memory and cannot complete hardware initialization.
 
-### Affected versions
+### Affected Versions
 
 The following `U-Boot` versions have been tested by Radxa and confirmed to be incompatible with Micron memory:
 
@@ -63,28 +63,25 @@ The following `U-Boot` versions have been tested by Radxa and confirmed to be in
 - `2017.09-2700-g70b4cfe057 (Jun 05 2021 - 07:28:02 +0000)`
 
 ::::caution
-This is a non-exhaustive list. If you find another affected version or memory model, please send it to us via the `Edit this page` at the bottom.
+This is not a complete list. If you find other affected versions or memory models, please provide feedback via the `Edit this page` link at the bottom.
 ::::
 
 ### Workaround
 
-You can update the `U-Boot` memory initialization code within your existing system image or system installation device with the following command. This command can also be executed within ROCK 4SE after it is booted normally.
+You can use the following command to update the `U-Boot` memory initialization code in your existing system image or system installation device. This command can also be executed on a normally booted ROCK 4SE.
 
-Replace the parameter used by the last command to the storage target you want to update.
+Please replace the parameter in the last command with the target you want to update.
 
 ```bash
 curl https://dl.radxa.com/rockpi4/troubleshooting/rock-4ab-uboot-2017-idbloader.tar.gz | tar xzv
 sudo ./setup.sh update_idbloader ___/dev/sdX_or_/dev/mmcblkX_or_system.img___
 ```
 
-</details>
+## ROCK 4B Memory Size Changes After Reboot When Using Manjaro-ARM-minimal-rockpi4b-22.06.img.xz
 
-<details>
-<summary>ROCK 4B when using Manjaro-ARM-minimal-rockpi4b-22.06.img.xz may show different total memory available after reboot</summary>
+### Symptoms
 
-### Phenomenon
-
-- Taking the 4GB variant as an example, the serial port boot output looks similar to the following when normal:
+- Taking the 4GB version as an example, the normal serial boot output looks like:
 
 ```
 U-Boot TPL 2022.04-1 (Apr 21 2022 - 18:07:16)
@@ -99,7 +96,7 @@ Trying to boot from BOOTROM
 Returning to boot ROM...
 ```
 
-- When memory size is abnormal, the memory size detected in the serial port boot output does not match the actual value of the hardware:
+- When abnormal, the detected memory size in the serial boot output does not match the actual value:
 
 ```
 U-Boot TPL 2022.04-1 (Apr 21 2022 - 18:07:16)
@@ -115,49 +112,47 @@ Returning to boot ROM...
 ```
 
 - Your affected product uses Micron memory.
-- The Manjaro image you are using is: [`Manjaro-ARM-minimal-rockpi4b-22.06.img.xz`](https://github.com/manjaro-arm/rockpi4b-images/releases/download/22.06/Manjaro-ARM-minimal-rockpi4b-22.06.img.xz)
+- You are using Manjaro image: [`Manjaro-ARM-minimal-rockpi4b-22.06.img.xz`](https://github.com/manjaro-arm/rockpi4b-images/releases/download/22.06/Manjaro-ARM-minimal-rockpi4b-22.06.img.xz)
 
 ### Cause
 
-Older versions of `U-Boot` do not support Micron memory and do not initialize the hardware correctly.
+The older version of `U-Boot` does not support Micron memory and cannot complete hardware initialization correctly.
 
-### Affected versions
+### Affected Versions
 
-The following `U-Boot` versions have been tested by Radxa and confirmed to be incompatible with Micron memory:
+The following `U-Boot` version has been tested by Radxa and confirmed to be incompatible with Micron memory:
 
 - `U-Boot 2022.04-1 (Apr 21 2022 - 18:07:16 +0000) Manjaro Linux ARM`
 
-Affected Micron memory has the following silkscreen printed on it:
+Affected Micron memory has the following markings:
 
 - IPF47 D9XRR
 
-The following Micron memories have not been found to be affected by this issue at this time:
+The following Micron memory has not been found to be affected by this issue:
 
 - ISE77 D9WGB
 
 ::::caution
-This is a non-exhaustive list. If you find another affected version or memory model, please send it to us via the `Edit this page` at the bottom.
+This is not a complete list. If you find other affected versions or memory models, please provide feedback via the `Edit this page` link at the bottom.
 ::::
 
 ### Solution
 
-Manjaro is not an officially supported operating system by Radxa. Please contact Manjaro for help updating the bootloader.
+Manjaro is not an officially supported operating system by Radxa. Please contact Manjaro for assistance with updating the bootloader.
 
-When using the official RadxaOS release [`rock-4se_debian_bullseye_kde_b38.img.xz`](https://github.com/radxa-build/rock-4se/releases/download/b38/rock-4se_debian_bullseye_kde_b38.img.xz), the affected memory is recognized and works normally.
+When using the officially released Radxa image [`rock-4se_debian_bullseye_kde_b38.img.xz`](https://github.com/radxa-build/rock-4se/releases/download/b38/rock-4se_debian_bullseye_kde_b38.img.xz), the affected memory can be properly recognized and work normally.
 
 ### Workaround
 
 ::::caution
-Manjaro is not an officially supported operating system by Radxa. The following workaround is only intended to verify that the problem experienced by the user is not a hardware quality issue, and Radxa is not responsible for any problems that may result from using this workaround in other scenarios.
+Manjaro is not an officially supported operating system by Radxa. The following workaround is provided only to verify that the issue you are experiencing is not related to hardware quality. Radxa is not responsible for any issues that may arise from using this workaround in other scenarios.
 ::::
 
-You can update the `U-Boot` memory initialization code within your existing system image or system installation device with the following command. This command can also be executed within ROCK 4B after it is booted normally.
+You can use the following command to update the `U-Boot` memory initialization code in your existing system image or system installation device. This command can also be executed on a normally booted ROCK 4B.
 
-Replace the parameter used by the last command to the storage target you want to update.
+Please replace the parameter in the last command with the target you want to update.
 
 ```bash
 curl https://dl.radxa.com/rockpi4/troubleshooting/rock-4ab-uboot-2022-manjaro-idbloader.tar.gz | tar xzv
 sudo ./setup.sh update_idbloader ___/dev/sdX_or_/dev/mmcblkX_or_system.img___
 ```
-
-</details>

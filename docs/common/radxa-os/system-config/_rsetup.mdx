@@ -1,0 +1,392 @@
+Rsetup 是一个适用于 Radxa OS 的系统配置工具，它可以帮助用户轻松地进行系统配置，包括系统设置、硬件设置、软件设置、网络设置、用户设置、语言设置等。
+
+## Rsetup 说明
+
+在终端命令行运行 `rsetup` 命令启动 Rsetup 工具。
+
+:::tip 使用指南
+
+- 选中选项 ： 对应选项会高亮显示
+- 确认选择 ： 按 `Enter`
+- 取消选择 ： 按 `ESC`
+- 切换选项 ： 按 `Up` 、 `Down` 、 `Left` 、 `Right` 控制
+- 多选界面 ： 按 `Space` 选择，按 `Enter` 确认选择；选择对应功能后，对应选项框会出现一个 `*` ,表示该选项已启用
+  :::
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+## Rsetup 界面
+
+启动 Rsetup 工具后，会出现对应的选项列表：可能会因为版本差异，界面 / 选项可能会有所不同，请以实际情况为准!
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Rsetup 选项
+
+### System
+
+System 选项主要用于系统更新、默认启动目标、引导加载程序管理等。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### System Update
+
+`System Update` 选项用于更新系统，相比于 `apt update && apt upgrade` 命令来更新系统更加安全。
+
+说明：`apt update && apt upgrade` 命令来更新系统可能会导致更新不完全或者系统异常。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system-update.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change default Boot target
+
+`Change default Boot target` 选项用于修改启动方式，可选图形化或命令行。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system-default-boot.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Bootloader Management
+
+`Bootloader Management` 选项用于管理引导加载程序，可以用于更新和擦除 Bootloader。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system-boot-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Hardware
+
+Hardware 选项主要用于管理板载硬件，包括视频捕获设备、LED 控制、GPIO 控制等。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-hardware.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Video capture devices
+
+`Video capture devices` 选项用于管理视频捕获设备,可以测试摄像头是否正常工作。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-hardware-video.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### GPIO LEDs
+
+`GPIO LEDs` 选项用于管理板载 LED 的触发方式，可以修改指示灯闪烁模式。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/rsetup/rsetup-hardware-gpio-led.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### RGB LEDs
+
+`RGB LEDs` 选项用于管理板载 RGB LED 的触发方式，可以修改指示灯颜色和闪烁模式。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-hardware-rgb-led.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Thermal governor
+
+`Thermal governor` 选项用于管理外接散热器的散热策略，如控制风扇接口的外接散热风扇的转速。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-hardware-thermal.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Configure DSI display mirroring
+
+`Configure DSI display mirroring` 选项用于配置 DSI 显示镜像，可以修改显示镜像模式。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-hardware-dsi.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 40-pin GPIO
+
+`40-pin GPIO` 选项用于管理 40-pin GPIO 的状态，可以修改 / 读取 GPIO 的引脚高低电平状态。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-hardware-gpio.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### USB OTG services
+
+`USB OTG services` 选项用于管理 USB OTG 服务，可以修改 OTG 服务的配置。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-hardware-otg.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Overlays
+
+Overlays 选项主要用于管理设备树覆盖（Device Tree Overlays）。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-overlays.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Manage overlays
+
+`Manage overlays` 选项可以启用或禁用特定的硬件功能。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-overlays-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### View overlays info
+
+`View overlays info` 选项可以查看设备树覆盖（Device Tree Overlays）的详细信息。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-overlays-info.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Install 3rd party overlays
+
+`Install 3rd party overlays` 选项可以安装第三方设备树覆盖（Device Tree Overlays）。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-overlays-3rd.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Rebuild overlays
+
+`Rebuild overlays` 选项可以重新构建设备树覆盖（Device Tree Overlays）。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-overlays-rebuild.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Connectivity
+
+Connectivity 选项主要用于管理网络连接，包括有线网络和无线网络的设置。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-connectivity.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Edit a connection
+
+`Edit a connection` 选项可以编辑网络连接的配置。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-connectivity-edit-connection.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Activate a connection
+
+`Activate a connection` 选项可以激活网络连接。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-connectivity-activate-connection.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Set system hostname
+
+`Set system hostname` 选项可以设置系统的主机名。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-connectivity-system-hostname.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### User Settings
+
+User Settings 选项用于管理系统当前用户名、密码以及设置自动登录。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-user.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change Password
+
+`Change Password` 选项用于修改当前用户的密码。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-user-password.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change Hostname
+
+`Change Hostname` 选项用于修改当前系统的主机名。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-user-hostname.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Configure auto login
+
+`Configure auto login` 选项用于设置自动登录。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-user-autologin.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Localization
+
+Localization 选项用于设置系统时区、区域以及 WiFi 国家。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-localization.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change Timezone
+
+`Change Timezone` 选项用于修改当前系统的时区。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-localization-timezone.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change Locale
+
+`Change Locale` 选项用于修改当前系统的区域。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-localization-locale.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Change Wi-Fi Country
+
+`Change Wi-Fi Country` 选项用于修改当前系统的 WiFi 国家。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-localization-wifi.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Common Tasks
+
+Common Tasks 选项用于执行一些常见的任务，如安装宝塔面板等。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-common.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-common-task.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### About
+
+About 选项用于查看 Rsetup 工具的信息。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-about.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-about-info.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

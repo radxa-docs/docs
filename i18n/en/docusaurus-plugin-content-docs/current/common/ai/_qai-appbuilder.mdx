@@ -1,0 +1,157 @@
+[**Quick AI Application Builder**](https://github.com/quic/ai-engine-direct-helper) (QAI AppBuilder) helps developers easily deploy AI models and design AI applications on Qualcomm® SoC platforms with Qualcomm® Hexagon™ Processor (NPU) using [Qualcomm® AI Runtime SDK](qairt-sdk#qairt).
+It encapsulates model deployment APIs into a set of simplified interfaces for loading models onto the NPU and performing inference. QAI AppBuilder significantly reduces the complexity of model deployment for developers and provides multiple demos as references for designing their own AI applications.
+
+Supports Python API / C++ API
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/dragon/q6a/qai_app_builder_1.webp"
+    style={{ width: "65%" }}
+  />
+  QAI-APPBUILDER Architecture
+</div>
+
+## Installation
+
+### Clone the Repository
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+git clone https://github.com/quic/ai-engine-direct-helper.git --recursive
+```
+
+</NewCodeBlock>
+
+### Download QAIRT SDK
+
+:::tip
+Please refer to [**Download QAIRT SDK Package**](./qairt-install#download-qairt-sdk-package) to download and extract the QAIRT SDK.
+:::
+
+#### Configure QAIRT Environment Variables
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qairt/2.37.1.250807
+source bin/envsetup.sh
+export ADSP_LIBRARY_PATH=$QNN_SDK_ROOT/lib/hexagon-v68/unsigned
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-ubuntu-gcc9.4:$QNN_SDK_ROOT/lib/aarch64-oe-linux-gcc11.2
+```
+
+</NewCodeBlock>
+
+### Build qai_appbuilder
+
+#### Create Virtual Environment
+
+:::tip
+Create a virtual environment for Python library installation to isolate the environment.
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt install python3-venv
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+#### Build qai_appbuilder Wheel
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install setuptools
+python3 setup.py bdist_wheel
+```
+
+</NewCodeBlock>
+
+After successful compilation, a `qai_appbuilder-2.34.0-cp312-cp312-linux_aarch64.whl` file will be generated in the `dist` directory.
+
+### Install qai_appbuilder
+
+#### Install qai_appbuilder Wheel
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd dist
+pip3 install ./qai_appbuilder-2.34.0-cp312-cp312-linux_aarch64.whl
+```
+
+</NewCodeBlock>
+
+## Application Examples
+
+<Tabs>
+    <TabItem value="QCS6490">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    cd ai-engine-direct-helper/samples/linux/python
+    ```
+    </NewCodeBlock>
+
+    - Object Recognition
+
+        | 模型                  | 运行方法                                            |
+        | ------------------- | ----------------------------------------------- |
+        | convnext_base      | `python3 convnext_base/convnext_base.py`         |
+        | convnext_tiny      | `python3 convnext_tiny/convnext_tiny.py`         |
+        | efficientnet_b0    | `python3 efficientnet_b0/efficientnet_b0.py`     |
+        | efficientnet_b4    | `python3 efficientnet_b4/efficientnet_b4.py`     |
+        | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
+        | [**googlenet**](googlenet)           | `python3 googlenet/googlenet.py`                 |
+        | [**inception_v3**](inception_v3)       | `python3 inception_v3/inception_v3.py`           |
+        | levit               | `python3 levit/levit.py`                         |
+        | regnet              | `python3 regnet/regnet.py`                       |
+        | shufflenet_v2      | `python3 shufflenet_v2/shufflenet_v2.py`         |
+        | squeezenet1_1      | `python3 squeezenet1_1/squeezenet1_1.py`         |
+        | vit                 | `python3 vit/vit.py`                             |
+        | wideresnet50        | `python3 wideresnet50/wideresnet50.py`           |
+
+
+    - Image Segmentation
+
+        | Model             | Run Command                               |
+        | ----------------- | ----------------------------------------- |
+        | [**fcn_resnet50**](fcn_resnet50) | `python3 fcn_resnet50/fcn_resnet50.py`    |
+
+
+    - Object Detection
+
+        | Model          | Run Command                              |
+        | ----------- | --------------------------------- |
+        | [**yolov8_det**](yolov8-det) | `python3 yolov8_det/yolov8_det.py` |
+
+
+    - Image Super-Resolution
+
+        | Model                          | Run Command                                                          |
+        | --------------------------- | ------------------------------------------------------------- |
+        | quicksrnetmedium            | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
+        | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
+        | [**real_esrgan_x4plus**](real_esrgan_x4plus)        | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
+        | sesr_m5                    | `python3 sesr_m5/sesr_m5.py`                                   |
+        | xlsr | `python3 xlsr/xlsr.py` |
+
+    </TabItem>
+
+{/* <TabItem value="QCS9075"> */}
+
+{/* <NewCodeBlock tip="Device" type="device"> */}
+{/* ```bash */}
+{/* cd resnet50_qairt/9075 */}
+{/* ./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_9075.bin --input_list ./test_list.txt --output_dir output_bin */}
+{/* ``` */}
+{/* </NewCodeBlock> */}
+
+{/* </TabItem> */}
+
+</Tabs>

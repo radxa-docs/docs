@@ -1,0 +1,165 @@
+:::tip
+This document demonstrates how to run YOLACT instance segmentation model inference on Allwinner T527/A733 series chips.
+:::
+
+Deploying YOLACT on the development board involves two main steps:
+
+- On the PC side, use [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) to convert models from different frameworks to NBG format
+- On the device side, use awnn API for model inference
+
+## Download ai-sdk Example Repository
+
+<NewCodeBlock tip="X86 PC / Device" type="PC">
+
+```bash
+git clone https://github.com/ZIFENG278/ai-sdk.git
+```
+
+</NewCodeBlock>
+
+## Board-side YOLACT Inference
+
+Navigate to the YOLACT example code file directory path
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ai-sdk/examples/yolact
+```
+
+</NewCodeBlock>
+
+### Compile the Example
+
+    <Tabs>
+        <TabItem value="A733">
+
+        <NewCodeBlock tip="Device" type="device">
+
+        ```bash
+        make AI_SDK_PLATFORM=a733
+        make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+        ```
+
+        </NewCodeBlock>
+
+        </TabItem>
+
+        <TabItem value="T527">
+
+        <NewCodeBlock tip="Device" type="device">
+        ```bash
+        make AI_SDK_PLATFORM=t527
+        make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+        ```
+        </NewCodeBlock>
+
+        </TabItem>
+
+    </Tabs>
+
+Parameter description:
+
+`AI_SDK_PLATFORM`: Specify SoC, optional **`a733`**, **`t527`**
+
+`INSTALL_PREFIX`: Specify installation path
+
+### Run Example
+
+Import environment variables
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+:::tip
+Specify NPU_SW_VERSION: use `v2.0` for A733 and `v1.13` for T527. Please refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison-table) for NPU information.
+:::
+
+Navigate to the example installation directory
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd $INSTALL_PREFIX/etc/npu/yolact
+# ./yolact nbg_model input_picture
+./yolact ./model/yolact.nb ./input_data/dog_550_550.jpg
+```
+
+</NewCodeBlock>
+
+:::tip
+The example will automatically install the yolact.nb model provided by Radxa. You can manually specify the path to your own converted NBG model here.
+:::
+
+```bash
+(.venv) rock@radxa-cubie-a7a:~/ai-sdk/examples/yolact/etc/npu/yolact$ ./yolact ./model/yolact.nb ./input_data/dog_550_550.jpg
+./yolact nbg input
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+viplite init OK.
+VIPLite driver version=0x00020003...
+VIP cid=0x1000003b, device_count=1
+* device[0] core_count=1
+awnn_init total: 3.75 ms.
+  vip_create_network ./model/yolact.nb: 17.04 ms.
+input 0 dim 550 550 3 1, data_format=2, name=input/output[0], elements=1833508979, scale=0.018629, zero_point=114
+create input buffer 0: 907500
+output 0 dim 4 19248 1, data_format=2, name=uid_9_out_0, elements=76992, scale=0.057314, zero_point=142
+create output buffer 0: 76992
+output 1 dim 81 19248 1, data_format=1, name=uid_8_sub_uid_1_out_0, elements=1559088, none-quant
+create output buffer 1: 3118176
+output 2 dim 32 19248 1, data_format=1, name=uid_7_out_0, elements=615936, none-quant
+create output buffer 2: 1231872
+output 3 dim 4 19248, data_format=1, name=uid_6_sub_uid_1_out_0, elements=76992, none-quant
+create output buffer 3: 153984
+output 4 dim 32 138 138 1, data_format=2, name=uid_239_out_0, elements=609408, scale=0.065950, zero_point=0
+create output buffer 4: 609408
+memory pool size=15062336 bytes
+  load_param ./model/yolact.nb: 3.10 ms.
+  prepare network ./model/yolact.nb: 12.38 ms.
+  set network io ./model/yolact.nb: 0.01 ms.
+awnn_create total: 32.61 ms.
+memcpy(0xffff78e62000, 0xffff76df8010, 907500)  load_input_data: 0.25 ms.
+  vip_flush_buffer input: 0.01 ms.
+awnn_set_input_buffers total: 0.29 ms.
+  vip_run_network: 97.06 ms.
+  vip_flush_buffer output: 0.02 ms.
+    int8/uint8 76992 memcpy: 0.18 ms.
+    fp16 memcpy: 7.48 ms.
+    fp16 memcpy: 1.77 ms.
+    fp16 memcpy: 0.17 ms.
+    int8/uint8 609408 memcpy: 0.66 ms.
+  tensor to fp: 52.01 ms.
+awnn_run total: 149.16 ms.
+2 = 0.99268 at 88.14 115.14 327.19 x 302.04
+8 = 0.87305 at 339.16 71.52 158.58 x 87.82
+17 = 0.75830 at 89.21 215.20 132.53 x 301.23
+awnn_destroy total: 3.74 ms.
+awnn_uninit total: 0.71 ms.
+```
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/cubie/a7a/yolact_result.webp" />
+  yolact demo result
+</div>

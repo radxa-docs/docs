@@ -29,12 +29,44 @@ Radxa eMMC 模块采用eMMC 5.1规范，提供四种容量选择： 16g / 32g / 
 | 64G      | **Foresee** | 194MB/s | 148MB/s  |
 | 128G     | Toshiba     | 217MB/s | 143MB/s  |
 
-## 规格
+## 接口规格
 
 - JEDEC 标准: v5.1
 - B2B连接器规格： GB042-34S-H10（插座-34针）+ GB042-30S-H10（插座-30针）
 - 存储选项：16G / 32G / 64G / 128G
-- 兼容性: 兼容 ROCK 3A / 3B / 3C / 4A / 4B / 4C / 4C PLUS / 4SE / 5A / 5B
+- 兼容性: 兼容 ROCK 3A / 3B / 3C / 4A / 4B / 4C / 4C PLUS / 4D\* / 4SE / 5A / 5B
 - 尺寸：13mm x 18mm x 1.5mm
 
+> 注意：因为引脚复用关系，ROCK 4D 带 SPI Flash 的 版本不支持 eMMC 模块。
+
 [**购买链接**](https://radxa.com/products/accessories/emmc-module#buy)
+
+## 引脚说明
+
+### GB042-34S-H10（插座-34针）
+
+主要用于信号传输。
+
+| Signal      | Pin | Pin | Signal   |
+| ----------- | --- | --- | -------- |
+| GND         | 1   | 18  | GND      |
+| EMMC D5     | 2   | 19  | GND      |
+| GND         | 3   | 20  | VCC 1V8  |
+| EMMC D4     | 4   | 21  | VCC 1V8  |
+| GND         | 5   | 22  | VCC 3V3  |
+| EMMC D0     | 6   | 23  | VCC 3V3  |
+| GND         | 7   | 24  | GND      |
+| EMMC CLK    | 8   | 25  | EMMC CMD |
+| GND         | 9   | 26  | GND      |
+| EMMC D3     | 10  | 27  | EMMC D2  |
+| GND         | 11  | 28  | GND      |
+| VCC 1V8     | 12  | 29  | EMMC D1  |
+| GND         | 13  | 30  | GND      |
+| GND         | 14  | 31  | EMMC D7  |
+| EMMC STROBE | 15  | 32  | GND      |
+| GND         | 16  | 33  | EMMC D6  |
+| GND         | 17  | 34  | GND      |
+
+### GB042-30S-H10（插座-30针）
+
+主要用于机械固定和支撑。

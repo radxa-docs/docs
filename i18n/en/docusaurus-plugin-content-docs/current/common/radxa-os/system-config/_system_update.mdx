@@ -1,0 +1,41 @@
+We use the `Rsetup` tool to update the system.
+
+:::tip
+Using the `Rsetup` tool provides a safer way to update your system.
+
+Using the `sudo apt update && sudo apt upgrade` command to upgrade the system may result in incomplete updates or system abnormalities.
+
+For more information on using the `Rsetup` tool, please refer to:
+
+- [Rsetup Tool](./rsetup)
+  :::
+
+## Rsetup Tool
+
+Open the terminal and enter the `sudo rsetup` command to launch the `Rsetup` tool:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## System Update
+
+After entering the `Rsetup` tool, select `System` -> `System Update` option, then follow the `Rsetup` tool prompts to complete the system update.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-update.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

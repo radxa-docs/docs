@@ -28,7 +28,17 @@ title: Resource Download
 
 ### Official Operating System Image
 
-ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
+- Radxa OS
+
+  6.1 Kernel: [rock-3c_bookworm_kde_b1](https://github.com/radxa-build/rock-3c/releases/download/rsdk-b1/rock-3c_bookworm_kde_b1.output_512.img.xz)
+
+  5.10 Kernel: [rock-3c_debian_bullseye_xfce_b43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
+
+- Android
+
+[Radxa ROCK 3C Android 11 MicroSD and eMMC Image](https://github.com/radxa/manifests/releases/download/android11-radxa-20240806/Rock3C-Android11_r12-20240806-gpt.zip)：Suitable for booting from MicroSD card or eMMC module.
+
+[Radxa ROCK 3C Android 14 MicroSD and eMMC Image](https://github.com/radxa/manifests/releases/download/Android14-rkr6-ROCK3c/ROCK3C-Android14-20250718-HDMI-gpt.zip)：Suitable for booting from MicroSD card or eMMC module.
 
 :::caution
 Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.

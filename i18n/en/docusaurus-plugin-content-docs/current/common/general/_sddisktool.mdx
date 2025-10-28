@@ -21,7 +21,7 @@
   - Select the SD card to flash from the removable disk devices, choose **SD Boot** as the function mode, ensure that the firmware upgrade is a complete image in RK format, and finally click **Create** to flash the image.
 
     <img
-      src="/img/common/sddisktool-en.webp"
+      src="/en/img/common/sddisktool-en.webp"
       alt="ssdisk tool"
       style={{ width: "80" }}
     />
@@ -40,37 +40,37 @@
 
   - Enter the following command and press Enter:
 
-    ```
-    diskpart
-    ```
+    <NewCodeBlock tip="Host-Windows$" type="host">
+      ``` diskpart ```
+    </NewCodeBlock>
 
   - Then, enter the following command to list all disks:
 
-    ```
-    list disk
-    ```
+    <NewCodeBlock tip="Host-Windows$" type="host">
+      ``` list disk ```
+    </NewCodeBlock>
 
   - Locate your SD card (assuming it is disk 3) and enter:
 
-    ```
-    select disk 1
-    ```
+    <NewCodeBlock tip="Host-Windows$" type="host">
+      ``` select disk 3 ```
+    </NewCodeBlock>
 
     - (If your SD card has a different disk number, change 3 to the correct number accordingly.)
 
   - Clear all partitions on the disk:
 
-    ```
-    clean
-    ```
+    <NewCodeBlock tip="Host-Windows$" type="host">
+      ``` clean ```
+    </NewCodeBlock>
 
     - (This deletes all partitions and data on the SD card.)
 
   - Converts a disk to GPT format:
 
-    ```
-    convert gpt
-    ```
+    <NewCodeBlock tip="Host-Windows$" type="host">
+      ``` convert gpt ```
+    </NewCodeBlock>
 
   - Type `exit` to exit the diskpart utility.
 
@@ -82,9 +82,9 @@
 
   - Find your SD card (assuming it's /dev/sdb) and enter:
 
-    ```
-    sudo fdisk /dev/sdb
-    ```
+    <NewCodeBlock tip="Host-Linux$" type="host">
+      ``` sudo fdisk /dev/sdb ```
+    </NewCodeBlock>
 
   - Type `p` and the label format and partition of the current disk will be displayed.
 

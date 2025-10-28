@@ -4,7 +4,12 @@ sidebar_position: 5
 
 # 资源下载汇总
 
-## 操作系统镜像
+## 官方操作系统
+
+- Radxa OS
+  - [Radxa ROCK Pi E Debian Buster Server](https://github.com/radxa/rock-pi-images-released/releases/download/v20210824/rockpie_debian_buster_server_arm64_20210824_0255-gpt.img.gz)
+
+## 第三方操作系统镜像
 
 - [Radxa ROCK Pi E Armbian](https://www.armbian.com/rockpie/)
 

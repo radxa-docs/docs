@@ -1,0 +1,115 @@
+This document explains how to use the QAI AppBuilder Python library to run the [YOLOv8-det](https://aihub.qualcomm.com/models/yolov8_det?domain=Computer+Vision&useCase=Object+Detection)
+object detection model on the Radxa Dragon Q6A.
+
+## Installing QAI AppBuilder
+
+:::tip
+Please install QAI AppBuilder according to the [**QAI AppBuilder Installation Guide**](qai-appbuilder).
+:::
+
+## Running the Example
+
+### Installing Dependencies
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install requests tqdm qai-hub py3_wget opencv-python torch
+```
+
+</NewCodeBlock>
+
+### Running the Script
+
+- Navigate to the example directory
+
+   <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd ai-engine-direct-helper/samples/linux/python
+  ```
+
+    </NewCodeBlock>
+
+- Prepare the input image. The following image is used as an example input
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/en/img/dragon/q6a/yolov8-det_input.webp"
+      style={{ width: "50%" }}
+    />
+    Input image
+  </div>
+
+- Run the inference
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  python3 yolov8_det/yolov8_det.py --input_image_path ./bus.jpg
+  ```
+
+  </NewCodeBlock>
+
+  ```bash
+  (.venv) ubuntu@ubuntu:~/git_clone/ai-engine-direct-helper/samples/linux/python$ python3 yolov8_det/yolov8_det.py --input_image_path ./bus.jpg
+  Current file directory: /home/ubuntu/git_clone/ai-engine-direct-helper/samples/linux/python/yolov8_det
+  Downloading yolov8_det model...
+  yolov8_det.bin: 100%|██████████████████████████████████████████████████████████████████████████████████| 3.54M/3.54M [00:00<00:00, 4.70MB/s]
+  Downloaded model to /home/ubuntu/git_clone/ai-engine-direct-helper/samples/linux/python/yolov8_det/models/yolov8_det.bin
+       0.0ms [WARNING]  <W> Initializing HtpProvider
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     123.7ms [WARNING] Time: Read model file to memory. 5.45
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     148.1ms [WARNING] Time: contextCreateFromBinary. 24.10
+
+     148.2ms [WARNING] Time: UnmapViewOfFile. 0.00
+
+     149.0ms [WARNING] Time: model_initialize yolov8 148.94
+
+     307.5ms [WARNING] Time: model_inference yolov8 33.34
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+     539.1ms [WARNING] Time: model_destroy yolov8 8.26
+  ```
+
+- Output result
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/en/img/dragon/q6a/yolov8-det_output.webp"
+      style={{ width: "50%" }}
+    />
+    Output image
+  </div>

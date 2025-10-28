@@ -1,0 +1,61 @@
+import { Image } from "@site/src/utils/docs";
+
+This guide explains how to use the `Rsetup` tool on Radxa boards to configure automatic desktop login.
+
+:::tip
+Enabling automatic desktop login allows you to skip entering your username and password every time you start the system.
+
+For more information about using the `Rsetup` tool, refer to:
+
+- [Rsetup Tool](./rsetup)
+  :::
+
+## Rsetup Tool
+
+Open a terminal and enter the following command to launch the `Rsetup` tool:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Configure Automatic Login
+
+In the `Rsetup` tool, navigate to `User Settings` -> `Configure auto login`, enable `sddm.service`, and follow the on-screen instructions to complete the setup.
+
+- User Settings
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-user.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+- Configure auto login
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-user-autologin.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+- SDDM
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-user-autologin-sddm.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

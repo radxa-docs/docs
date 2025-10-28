@@ -31,7 +31,7 @@ sidebar_position: 8
 - 进入 Thermal governor
 
   <img
-  src="/img/common/rsetup/rsetup-thermal-governor.webp"
+  src="/img/common/radxa-os/system-config/rsetup-hardware-thermal.webp"
   alt="rsetup hardware"
   style={{ width: "60%" }}
   />
@@ -39,7 +39,7 @@ sidebar_position: 8
 - 默认的 governor 应该是 power_allocator
 
   <img
-  src="/img/common/rsetup/rsetup-select-thermal-governor.webp"
+  src="/img/common/radxa-os/system-config/rsetup-select-thermal-governor.webp"
   alt="rsetup hardware"
   style={{ width: "60%" }}
   />

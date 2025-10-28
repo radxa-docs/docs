@@ -1,0 +1,74 @@
+This guide explains how to use the RKDevTool to flash a system image to an eMMC.
+
+Note: Ensure the board is in Maskrom mode and properly recognized by the system.
+
+<Tabs queryString="platform">
+
+<TabItem value="Windows">
+On Windows, open the RKDevTool and follow these steps to install the system to the eMMC.
+
+① : Select the corresponding Loader file for your board
+
+② : Select the corresponding system image for your board
+
+③ : Choose the `eMMC` option as the system storage medium
+
+④ : Check the `Write by Address` option
+
+⑤ : Click the `RUN` button to execute all operations
+
+⑥ : Monitor the operation progress through this interface
+
+<div style={{ textAlign: "left" }}>
+  <img
+    src="/en/img/common/tools/rkdevtool/rk-emmc.webp"
+    style={{ width: "100%", maxWidth: "700" }}
+  />
+</div>
+
+Disconnect the board from the PC, then power cycle the device. The system will automatically boot from the eMMC.
+
+</TabItem>
+
+<TabItem value="Linux / MacOS">
+On Linux/MacOS, use the terminal command line to install the system to the eMMC.
+
+1. Run the Loader file
+
+Replace `demo.bin` with the Loader file corresponding to your board.
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool db demo.bin
+```
+
+</NewCodeBlock>
+
+2. Install the system image
+
+Replace `demo.img` with the system image corresponding to your board.
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool wl 0 demo.img
+```
+
+</NewCodeBlock>
+
+3. Reboot the system
+
+Disconnect the board from the PC, then power cycle the device. The system will automatically boot from the eMMC.
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool rd
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>

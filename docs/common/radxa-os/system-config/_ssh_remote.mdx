@@ -1,0 +1,214 @@
+## 使用前提
+
+SSH 登录需要双方设备处于同一局域网下，且目标设备需要开启 SSH 服务。
+
+:::tip
+我们提供的系统镜像默认开启 SSH 服务，如果未安装或者开启 SSH 服务，你可以按照教程进行操作！
+:::
+
+## 安装 OpenSSH
+
+SSH 远程控制需要安装 OpenSSH, 在主板的终端运行以下命令安装：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update && sudo apt install openssh-server -y
+```
+
+</NewCodeBlock>
+
+### 启动 SSH 服务
+
+在主板的终端运行以下命令启动 SSH 服务：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo systemctl start ssh
+```
+
+</NewCodeBlock>
+
+### 设置 SSH 服务开机自启
+
+在主板的终端运行以下命令设置 SSH 服务开机自启：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo systemctl enable ssh
+```
+
+</NewCodeBlock>
+
+### 检查 SSH 服务状态
+
+在主板的终端运行以下命令检查 SSH 服务状态：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo systemctl status ssh
+```
+
+</NewCodeBlock>
+
+终端会输出类似信息: 提示您 SSH 服务是否自启动和当前运行状态。
+
+```
+● ssh.service - OpenBSD Secure Shell server
+Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+Active: active (running) since Sat 2000-01-01 00:14:50 UTC; 25 years 5 months ago
+Docs: man:sshd(8)
+man:sshd_config(5)
+Main PID: 518 (sshd)
+CPU: 284ms
+CGroup: /system.slice/ssh.service
+└─518 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+```
+
+## SSH 远程控制
+
+您可以通过终端命令行或者使用 Tabby 软件进行 SSH 远程登录。
+
+<Tabs queryString="ssh-mode">
+
+<TabItem value="终端命令行">
+
+在另一台设备上打开终端，输入以下命令进行远程登录：
+
+<NewCodeBlock tip="PC$" type="host">
+
+```
+ssh <user-name>@<ip-address>
+# 示例
+
+ssh radxa@192.168.2.186
+```
+
+</NewCodeBlock>
+
+其中，`<user-name>` 和 `<ip-address>` 分别是目标设备的实际用户名和 IP 地址。
+
+连接过程中需要你输入 `yes` 确认连接。
+
+<div style={{textAlign: 'center'}}>
+    <img src="/img/common/radxa-os/system-config/ssh-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+</TabItem>
+
+<TabItem value="使用 Tabby 软件">
+
+Tabby 是一款功能强大的跨平台串口调试工具，支持串口、SSH 等多种协议; 我们推荐使用 Tabby 软件进行 SSH 远程登录。
+
+#### Tabby 下载
+
+访问 [Tabby 官网](https://tabby.sh/) 下载并安装 Tabby 软件。
+
+#### Tabby 安装
+
+根据操作系统和硬件架构，选择对应的安装包（Windows: xxx.exe, Linux: xxx.deb, macOS: xxx.dmg）进行 Tabby 软件安装。
+
+#### Tabby 使用
+
+双击 Tabby 软件图标打开 Tabby 软件。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/tabby-welcome.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### SSH 配置
+
+① --> `Settings` : 点击设置选项
+
+② --> `Profiles & connections` : 点击配置连接选项
+
+③ --> `New profile` : 点击添加新的配置选项
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/tabby-profile.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 选择 SSH 模板
+
+选择一个基础配置作为模板：选择 `SSH connection` 模板，我们可以在后续配置界面修改设备名称、IP 地址、端口等参数。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/tabby-template.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+选择 `SSH connection` 模板后，修改以下参数:
+
+① --> `Name` : 设置连接名称
+
+② --> `Host` : 设置 IP 地址，根据目标设备的实际 IP 地址填写
+
+③ --> `User` : 设置用户名，默认出厂用户名为 `radxa`
+
+④ --> `Save` : 保存配置
+
+端口号默认为 `22`，不用修改。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/tabby-ssh-parameter.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 运行 SSH 连接
+
+点击运行按钮远程连接 SSH 设备。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/tabby-ssh-connect.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+点击运行按钮后，Tabby 软件会弹出密钥验证和输入密码的界面。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/tabby-ssh-verify.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+① --> password : 输入目标设备的密码
+
+② --> OK : 确认连接
+
+推荐勾选 `Remember` 选项，这样下次连接时就不需要输入密码了。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/tabby-ssh-password.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+连接成功后，会出现远程的界面。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/tabby-ssh-success.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+</Tabs>
+
+SSH 登录成功后，你就可以通过 SSH 运行命令控制系统。

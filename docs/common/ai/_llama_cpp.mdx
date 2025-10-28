@@ -22,10 +22,10 @@ cmake --build build --config Release
 ```
 
 :::tip
-如果您使用的是 [瑞莎星睿 O6](/orion/o6) 搭载 ARM-v9 CPU，可添加 `armv9-a` 编译选项进行硬件级优化
+如果您使用的是 [瑞莎星睿 O6](/orion/o6) 搭载 ARM-v9 CPU，可添加 `armv9-a` 与 `KleidiAI` 编译选项进行硬件级优化
 
 ```bash
-cmake -B build -DCMAKE_CXX_FLAGS="-march=armv9-a" -DCMAKE_C_FLAGS="-march=armv9-a"
+cmake -B build -DGGML_NATIVE=OFF -DGGML_CPU_ARM_ARCH=armv9-a+i8mm+dotprod -DGGML_CPU_KLEIDIAI=ON
 cmake --build build --config Release
 ```
 

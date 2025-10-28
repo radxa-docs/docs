@@ -1,0 +1,68 @@
+MediaPipe is an open-source, cross-platform machine learning framework developed by Google Research, focusing on real-time multimedia processing.
+
+## MediaPipe Features
+
+- **Cross-Platform Support**
+
+  Supports Android, iOS, Linux, macOS, Windows, and other platforms with a unified API, reducing the workload for platform adaptation.
+
+- **Efficient Real-Time Processing**
+
+  Optimized for low latency, suitable for real-time applications, and utilizes hardware acceleration (such as GPU, DSP) to enhance performance.
+
+- **Pre-built Solutions**
+
+  Offers various out-of-the-box machine learning models and processing pipelines, including face detection, hand tracking, pose estimation, 3D object detection, and more.
+
+- **Modularity and Extensibility**
+
+  Users can customize processing pipelines by combining different calculators and data flow graphs.
+
+  Supports integration with custom TensorFlow, TFLite models, or other ML models.
+
+- **Lightweight**
+
+  Models are optimized for mobile devices, balancing accuracy and computational resource consumption.
+
+## Installing MediaPipe
+
+You can install MediaPipe using the `pip` command.
+
+:::tip
+Before installing MediaPipe, it's recommended to have Python 3 (preferably Python 3.9+) and OpenCV installed. For OpenCV installation, refer to [OpenCV Installation](../opencv-dev/opencv_install).
+
+Currently, MediaPipe only supports Python 3.9 to Python 3.12.
+:::
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+pip3 install mediapipe
+```
+
+</NewCodeBlock>
+
+## Verifying MediaPipe
+
+Open a terminal and enter the Python interactive mode by typing `python3`.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+python3
+```
+
+</NewCodeBlock>
+
+After entering the Python interactive mode, enter the following commands to verify that MediaPipe is installed correctly.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+import mediapipe
+print(mediapipe.__version__)
+```
+
+</NewCodeBlock>
+
+If the MediaPipe version number is successfully displayed, the installation was successful.

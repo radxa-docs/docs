@@ -1,0 +1,196 @@
+:::tip
+This document demonstrates how to use the model testing tool `vpm_run` on Allwinner T527/A733 series chips.
+:::
+
+vpm_run is an edge-side program based on the VIPLite driver, primarily used for quick validation and testing of model files.
+
+- vpm_run serves as a universal model runtime environment that can run any properly deployed NBG model file.
+- vpm_run is built on the VIPLite network layer API.
+- vpm_run includes a default TOP5 post-processing program.
+
+## Download ai-sdk Example Repository
+
+<NewCodeBlock tip="X86 PC / Device" type="PC">
+
+```bash
+git clone https://github.com/ZIFENG278/ai-sdk.git
+```
+
+</NewCodeBlock>
+
+## Using vpm_run on the Board
+
+Navigate to the vpm_run example code file directory path
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ai-sdk/examples/vpm_run
+```
+
+</NewCodeBlock>
+
+### Compile the Example
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    make AI_SDK_PLATFORM=a733
+    make install AI_SDK_PLATFORM=a733 INSTALL_PREFIX=./
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    make AI_SDK_PLATFORM=t527
+    make install AI_SDK_PLATFORM=t527 INSTALL_PREFIX=./
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+Parameter description:
+
+`AI_SDK_PLATFORM`: Specify SoC, optional **`a733`**, **`t527`**
+
+`INSTALL_PREFIX`: Specify installation path
+
+Usage
+
+```bash
+vpm_run -s sample.txt -l loop_run_count -d device_index
+-s sample.txt:     to include one ore more network binary graph (NBG) data file resource.
+                   See sample.txt for details.
+-l loop_run_count: the number of loop run network.
+-d device_index:   specify this NBG runs device.
+-t time_out:       specify milliseconds time out of network.
+-b bypass_level:   set value 1 to bypass saving output txt/binary file and showing top5.
+--show_top5 level: set value 1 to show top5 when bypass_level is 0.
+--save_txt level:  set value 1 to save txt output when bypass_level is 0.
+-c core_index:     specify this start core index of device.
+--layer_profile_dump:      set value 1 to enable NPD function.
+--preload:         set value 1 to enable preload coeff into vipsram.
+--op_segment:      set which operations will be run. example: --op_segment 10,20 means run 10 ~ 20
+--layer_dump:  layer dump. eg: --layer_dump -1 dump all layer, --layer_dump 19, --layer_dump 18,20
+-h : help
+example: ./vpm_run -s sample.txt -l 10 -d 1 specify the NBG runs 10 times on device 1.
+```
+
+### Run Example
+
+- Import environment variables
+
+<Tabs>
+    <TabItem value="A733">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v2.0 # NPU_SW_VERSION
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="T527">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/rock/ai-sdk/viplite-tina/lib/aarch64-none-linux-gnu/v1.13 # NPU_SW_VERSION
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+:::tip
+Specify NPU_SW_VERSION: use `v2.0` for A733 and `v1.13` for T527. Please refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison-table) for NPU information.
+:::
+
+- Create Configuration File
+
+  This example configuration file executes two NGB models. The first one is a multi-input model that saves output files and compares them with golden data, while the second one is a single-input model that does not save output files.
+
+  ```vim
+  [network]
+  ./network_binary.nb
+  [input]
+  # For multi-input models, configure multiple input files; for single-input models, configure one input file.
+  ./input_0.dat
+  ./input_1.dat
+  [golden]
+  # Optional
+  ./int8_output_003.dat
+  [output]
+  # Optional
+  ./output_0.dat
+
+  [network]
+  ./network_binary_single.nb
+  [input]
+  ./input1.tensor
+  ```
+
+  The sample.txt file is shown above, with the main tags described as follows:
+
+  - **[network]**: Path to the NBG file.
+  - **[input]**: Path to the input data. Two formats are supported: input.tensor files generated during the Acuity Toolkits inference phase, or input.dat files generated during IDE tool simulation.
+  - **[golden]**: Optional path to golden data. If the golden tag exists, it will be used for binary comparison with the tensor output from vpm_run. If they match, it will print 'pass'; if not, vpm_run will exit.
+  - **[output]**: Optional. Path to save the output data.
+
+- Navigate to the example installation directory
+
+    <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd $INSTALL_PREFIX/etc/npu/vpm_run
+  ./vpm_run -s sample.txt -l 1
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  (.venv) rock@radxa-cubie-a7a:~/ai-sdk/examples/vpm_run/etc/npu/vpm_run$ ./vpm_run -s sample.txt -l 1
+  loop_count=1, device_index=0, core_index=-1, file_name=sample.txt, time_out=0x0, bypass=1
+  enable_npd=0, preload=0
+  show_top50, save_txt=0
+  init vip lite, driver version=0x00020003...
+  VIPLite driver software version 2.0.3.2-AW-2024-08-30
+  vip lite init OK.
+
+  cid=0x1000003b, device_count=1
+    device[0] core_count=1
+  config file read network count=1
+  init test resources, task_count: 1 ...
+  create/prepare networks ...
+  task i=0, binary name: ./network_binary.nb
+  nbg name=./network_binary.nb
+  create network 0: 12354 us.
+  input 0 dim 3 224 224 1, data_format=5, quant_format=1, name=input/output[0], dfp=13
+  output 0 dim 1000 1 0 0, data_format=1, name=uid_2_sub_uid_1_out_0, none-quant
+  memory pool size=1073536byte
+  network core count=1
+  prepare network 0: 1409 us.
+  golden file count=0
+  input 0 name: ./input_0.dat
+  read input and golden 0: 541 us.
+  task: 0, loop count: 1
+  start to run network=./network_binary.nb
+  run time for this network 0: 3160 us.
+  run network done...
+  profile inference time=2945us, cycle=2916338
+  destroy test resource task_count=1
+  vpm run ret=0
+  ```
