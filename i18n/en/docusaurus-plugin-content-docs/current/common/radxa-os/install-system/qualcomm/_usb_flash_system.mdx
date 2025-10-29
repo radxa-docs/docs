@@ -1,0 +1,37 @@
+## Download System Image
+
+You need to visit the <a href={props?.download_page ?? '../../../download'}>Downloads</a> page to download the **latest system image**.
+
+:::tip Image Note
+The downloaded system image is a compressed file and needs to be extracted before use!
+:::
+
+## Flash System via USB
+
+You need to copy the extracted system image file to the SPI boot firmware's {props.spi_path} directory, then open a terminal in that folder and run the following command to flash the system image:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+edl-ng --loader <path-to-loader> --memory <storage-type> write-sector <start-sector> <path-to-image-file>
+```
+
+</NewCodeBlock>
+
+Parameter Description:
+
+- `<path-to-loader>`: Path to the bootloader, replace with the actual bootloader path.
+
+- `<storage-type>`: Storage type, replace with the actual storage type.
+
+- `<start-sector>`: Starting sector, replace with the actual starting sector.
+
+- `<path-to-image-file>`: Path to the system image file, replace with the actual system image file path.
+
+Example:
+
+<code>{`edl-ng --loader ${props?.loader ?? "<path-to-loader>"} --memory ${
+  props?.storage_type ?? "<storage-type>"
+} write-sector ${props?.start_sector ?? "<start-sector>"} ${
+  props?.image_file ?? "<path-to-image-file>"
+}`}</code>
