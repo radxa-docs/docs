@@ -11,7 +11,14 @@ description: "详细介绍 ROCK 5T 硬件信息"
 
 ## 实物照片
 
-<img src="/img/rock5t/rock-5t-overview-v12.webp" alt="rock 5t overview" width="700" />
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5T V1.2">
+    <img src="/img/rock5t/rock-5t-overview-v12.webp" width="800" alt="rock 5t v1.2" />
+    </TabItem>
+    <TabItem value="ROCK 5T Industrial V2.01">
+    <img src="/img/rock5t/rock-5t-industrial-overview-v201.webp" width="800" alt="rock 5t industrial v2.01" />
+    </TabItem>
+</Tabs>
 
 ## 接口详情
 
@@ -30,8 +37,9 @@ description: "详细介绍 ROCK 5T 硬件信息"
 
 - GPIO Pinout
 
-<TabItem value="ROCK 5T">
-        <div className='gpio_style' style={{ overflow :"auto"}} >
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5T V1.2">
+     <div className='gpio_style' style={{ overflow :"auto"}} >
 
         | GPIO number |  Function8  |  Function7   |  Function6   |  Function5  |   Function4   |  Function3  | Function2  | Function1 |               Pin#               |              Pin#               | Function1  | Function2  | Function3  |                 Function4                 |  Function5  |  Function6   |  Function7   | Function8 | GPIO number |
         | :---------: | :---------: | :----------: | :----------: | :---------: | :-----------: | :---------: | :--------: | :-------: | :------------------------------: | :-----------------------------: | :--------: | :--------: | :--------: | :---------------------------------------: | :---------: | :----------: | :----------: | :-------: | :---------: |
@@ -56,8 +64,37 @@ description: "详细介绍 ROCK 5T 硬件信息"
         |     39      |             |              |              |             |               |             |            | GPIO1_A7  | <div className='green'>37</div>  | <div className='green'>38</div> |  GPIO3_B2  |            | PWM3_IR_M1 |                UART2_RX_M2                |             | I2S2_SDI_M1  |              |           |     106     |
         |             |             |              |              |             |               |             |            |    GND    | <div className='black'>39</div>  | <div className='green'>40</div> |  GPIO3_B3  |            |            |                UART2_RTSN                 |             | I2S2_SDO_M1  |              |           |     107     |
 
-   </div>
-</TabItem>
+        </div>
+    </TabItem>
+    <TabItem value="ROCK 5T Industrial V2.01">
+        <div className='gpio_style' style={{ overflow :"auto"}} >
+
+        | GPIO number |  Function8  |  Function7   |  Function6   |  Function5  |   Function4   |  Function3  | Function2  | Function1 |               Pin#               |              Pin#               | Function1  | Function2  | Function3  |                 Function4                 |  Function5  |  Function6   |  Function7   | Function8 | GPIO number |
+        | :---------: | :---------: | :----------: | :----------: | :---------: | :-----------: | :---------: | :--------: | :-------: | :------------------------------: | :-----------------------------: | :--------: | :--------: | :--------: | :---------------------------------------: | :---------: | :----------: | :----------: | :-------: | :---------: |
+        |             |             |              |              |             |               |             |            |   +3.3V   | <div className='yellow'>1</div>  |  <div className='red'>2</div>   |   +5.0V    |            |            |                                           |             |              |              |           |             |
+        |     139     |             |              | I2S1_SDO2_M0 |             | UART8_CTSN_M0 | PWM15_IR_M1 | CAN1_TX_M1 | GPIO4_B3  |  <div className='green'>3</div>  |  <div className='red'>4</div>   |   +5.0V    |            |            |                                           |             |              |              |           |             |
+        |     138     |             |              | I2S1_SDO1_M0 |             | UART8_RTSN_M0 |  PWM14_M1   | CAN1_RX_M1 | GPIO4_B2  |  <div className='green'>5</div>  | <div className='black'>6</div>  |    GND     |            |            |                                           |             |              |              |           |             |
+        |     115     |             | SPI1_CS1_M1  |              | I2C8_SDA_M4 |               | PWM15_IR_M0 |            | GPIO3_C3  |  <div className='green'>7</div>  | <div className='green'>8</div>  |  GPIO0_B5  |            |            | <div className='orange'>UART2_TX_M0</div> | I2C1_SCL_M0 | I2S1_MCLK_M1 |              |           |     13      |
+        |             |             |              |              |             |               |             |            |    GND    |  <div className='black'>9</div>  | <div className='green'>10</div> |  GPIO0_B6  |            |            | <div className='orange'>UART2_RX_M0</div> | I2C1_SDA_M0 | I2S1_SCLK_M1 |              |           |     14      |
+        |     113     |             | SPI1_CLK_M1  |              |             |               |             |            | GPIO3_C1  | <div className='green'>11</div>  | <div className='green'>12</div> |  GPIO3_B5  | CAN1_RX_M0 |  PWM12_M0  |                UART3_TX_M1                |             | I2S2_SCLK_M1 |              |           |     109     |
+        |     111     |             | SPI1_MOSI_M1 |              | I2C3_SCL_M1 |               |             |            | GPIO3_B7  | <div className='green'>13</div>  | <div className='black'>14</div> |    GND     |            |            |                                           |             |              |              |           |             |
+        |     112     |             | SPI1_MISO_M1 |              | I2C3_SDA_M1 |               |             |            | GPIO3_C0  | <div className='green'>15</div>  | <div className='green'>16</div> |  GPIO3_A4  |            |            |                                           |             |              |              |           |     100     |
+        |             |             |              |              |             |               |             |            |   +3.3V   | <div className='yellow'>17</div> | <div className='green'>18</div> |  GPIO4_C4  |            |  PWM5_M2   |                                           |             |              |              |           |     148     |
+        |     42      |             | SPI0_MOSI_M2 |              |             |  UART4_RX_M2  |             |            | GPIO1_B2  | <div className='green'>19</div>  | <div className='black'>20</div> |    GND     |            |            |                                           |             |              |              |           |             |
+        |     41      |             | SPI0_MISO_M2 |              |             |               |             |            | GPIO1_B1  | <div className='green'>21</div>  | <div className='green'>22</div> | SARADC_IN4 |            |            |                                           |             |              |              |           |             |
+        |     43      |             | SPI0_CLK_M2  |              |             |  UART4_TX_M2  |             |            | GPIO1_B3  | <div className='green'>23</div>  | <div className='green'>24</div> |  GPIO1_B4  |            |            |                                           |             |              | SPI0_CS0_M2  |           |     44      |
+        |             |             |              |              |             |               |             |            |    GND    | <div className='black'>25</div>  | <div className='green'>26</div> |  GPIO1_B5  |            |            |                                           |             |              | SPI0_CS1_M2  |           |     45      |
+        |     75      |             |              |              | I2C3_SDA_M3 |               |             |            | GPIO2_B3  |  <div className='blue'>27</div>  | <div className='blue'>28</div>  |  GPIO2_B2  |            |            |                                           | I2C3_SCL_M3 |              |            |           |     74      |
+        |     35      |             |              |              | I2C4_SCL_M3 |               |  PWM1_M2    |            | GPIO1_A3  | <div className='green'>29</div>  | <div className='black'>30</div> |    GND     |            |            |                                           |             |              |              |           |             |
+        |     34      |             |              |              | I2C4_SDA_M3 |               |  PWM0_M2    |            | GPIO1_A2  | <div className='green'>31</div>  | <div className='green'>32</div> |  GPIO3_C2  |            |  PWM14_M0  |                                           | I2C8_SCL_M4 |              | SPI1_CS0_M1  |           |     114     |
+        |     103     |             |              |              |             |               |   PWM8_M0   |            | GPIO3_A7  | <div className='green'>33</div>  | <div className='black'>34</div> |    GND     |            |            |                                           |             |              |              |           |             |
+        |     110     |             |              | I2S2_LRCK_M1 |             |  UART3_RX_M1  |  PWM13_M0   | CAN1_TX_M0 | GPIO3_B6  | <div className='green'>35</div>  | <div className='green'>36</div> |  GPIO3_B1  |            |  PWM2_M1   |                UART2_TX_M2                |             |              |              |           |     105     |
+        |     39      |             |              |              |             |               |             |            | GPIO1_A7  | <div className='green'>37</div>  | <div className='green'>38</div> |  GPIO3_B2  |            | PWM3_IR_M1 |                UART2_RX_M2                |             | I2S2_SDI_M1  |              |           |     106     |
+        |             |             |              |              |             |               |             |            |    GND    | <div className='black'>39</div>  | <div className='green'>40</div> |  GPIO3_B3  |            |            |                UART2_RTSN                 |             | I2S2_SDO_M1  |              |           |     107     |
+        </div>
+    </TabItem>
+
+</Tabs>
 
 ### Gigabit Ethernet
 
@@ -113,10 +150,14 @@ description: "详细介绍 ROCK 5T 硬件信息"
 | 27  |     CAM1_RST_L     |               Camera module reset, active low                |
 | 28  |     VCC_3V3_S3     |                3.3V power supply for Camera 1                |
 | 29  |     VCC_3V3_S3     |                3.3V power supply for Camera 1                |
-| 30  |       VCC_5V       |                3.3V power supply for Camera 1                |
-| 31  |       VCC_5V       |                3.3V power supply for Camera 1                |
+| 30  |       VCC_5V       |                 5V power supply for Camera 1                 |
+| 31  |       VCC_5V       |                 5V power supply for Camera 1                 |
 
 #### CAM1
+
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5T V1.2">
+        <div className='gpio_style' style={{ overflow :"auto"}} >
 
 | Pin |        Name        |                         Description                          |
 | :-: | :----------------: | :----------------------------------------------------------: |
@@ -143,14 +184,57 @@ description: "详细介绍 ROCK 5T 硬件信息"
 | 21  |        GND         |                            Ground                            |
 | 22  |  MIPI_CAM2_CLKOUT  |        General Purpose Input/Output pin, bank 1 bit 6        |
 | 23  |  MIPI_CAM2_PDN_L   |        Power down signal for MIPI CSI-1, active high         |
-| 24  |    I2C7_SCL_M0     |      I2C bus 3 clock line, master 0 for MIPI interface       |
-| 25  |    I2C7_SDA_M0     |       I2C bus 3 data line, master 0 for MIPI interface       |
+| 24  |    I2C4_SCL_M1     |      I2C bus 3 clock line, master 0 for MIPI interface       |
+| 25  |    I2C4_SDA_M1     |       I2C bus 3 data line, master 0 for MIPI interface       |
 | 26  |  MIPI_CAM2_PDN2_L  | Power down signal for second port of MIPI CSI-1, active high |
 | 27  |     CAM2_RST_L     |               Camera module reset, active low                |
 | 28  |     VCC_3V3_S3     |                3.3V power supply for Camera 1                |
 | 29  |     VCC_3V3_S3     |                3.3V power supply for Camera 1                |
-| 30  |       VCC_5V       |                3.3V power supply for Camera 1                |
-| 31  |       VCC_5V       |                3.3V power supply for Camera 1                |
+| 30  |       VCC_5V       |                 5V power supply for Camera 1                 |
+| 31  |       VCC_5V       |                 5V power supply for Camera 1                 |
+
+        </div>
+    </TabItem>
+    <TabItem value="ROCK 5T Industrial V2.01">
+        <div className='gpio_style' style={{ overflow :"auto"}} >
+        | Pin |        Name        |                         Description                          |
+
+| :-: | :----------------: | :----------------------------------------------------------: |
+| 1 | GND | Ground, common reference for electrical circuits |
+| 2 | MIPI_CSI1_RX_D3N | MIPI CSI-1 receive data lane 3 negative |
+| 3 | MIPI_CSI1_RX_D3P | MIPI CSI-1 receive data lane 3 positive |
+| 4 | GND | Ground |
+| 5 | MIPI_CSI1_RX_D2N | MIPI CSI-1 receive data lane 2 negative |
+| 6 | MIPI_CSI1_RX_D2P | MIPI CSI-1 receive data lane 2 positive |
+| 7 | GND | Ground |
+| 8 | MIPI_CSI1_RX_CLK1N | MIPI CSI-1 receive clock lane 1 negative |
+| 9 | MIPI_CSI1_RX_CLK1P | MIPI CSI-1 receive clock lane 1 positive |
+| 10 | GND | Ground |
+| 11 | MIPI_CSI1_RX_D1N | MIPI CSI-1 receive data lane 1 negative |
+| 12 | MIPI_CSI1_RX_D1P | MIPI CSI-1 receive data lane 1 positive |
+| 13 | GND | Ground |
+| 14 | MIPI_CSI1_RX_D0N | MIPI CSI-1 receive data lane 0 negative |
+| 15 | MIPI_CSI1_RX_D0P | MIPI CSI-1 receive data lane 0 positive |
+| 16 | GND | Ground |
+| 17 | MIPI_CSI1_RX_CLK0N | MIPI CSI-1 receive clock lane 0 negative |
+| 18 | MIPI_CSI1_RX_CLK0P | MIPI CSI-1 receive clock lane 0 positive |
+| 19 | GND | Ground |
+| 20 | MIPI_CAM4_CLKOUT | Clock output for MIPI Camera 4 |
+| 21 | GND | Ground |
+| 22 | MIPI_CAM2_CLKOUT | General Purpose Input/Output pin, bank 1 bit 6 |
+| 23 | MIPI_CAM2_PDN_L | Power down signal for MIPI CSI-1, active high |
+| 24 | I2C6_SCL_M0 | I2C bus 3 clock line, master 0 for MIPI interface |
+| 25 | I2C6_SDA_M0 | I2C bus 3 data line, master 0 for MIPI interface |
+| 26 | MIPI_CAM2_PDN2_L | Power down signal for second port of MIPI CSI-1, active high |
+| 27 | CAM2_RST_L | Camera module reset, active low |
+| 28 | VCC_3V3_S3 | 3.3V power supply for Camera 1 |
+| 29 | VCC_3V3_S3 | 3.3V power supply for Camera 1 |
+| 30 | VCC_5V | 3.3V power supply for Camera 1 |
+| 31 | VCC_5V | 3.3V power supply for Camera 1 |
+
+</div>
+</TabItem>
+</Tabs>
 
 摄像头座子采用的是 FH35C-31S-0.3SHW（50），间距 0.3 mm。
 

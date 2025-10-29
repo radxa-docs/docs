@@ -9,23 +9,27 @@ description: "A brief introduction to the ROCK 5T"
 
 ROCK 5T is an elegant single-board computer (SBC) based on the RK3588 chipset. Its 110 x 82 mm size encompasses almost all features of the RK3588, offering exceptional flexibility and scalability. ROCK 5T provides a solid foundation for geeks, SBC enthusiasts, IoT hobbyists, and students and teachers in academia to bring their ideas to life. It has broad applications in edge computing, artificial intelligence, cloud computing, smart surveillance, and other fields.
 
-ROCK 5T can be used as:
+ROCK 5T Industrial is an elegant Single Board Computer (SBC) based on the RK3588J chipset. The Radxa ROCK 5T Industrial is the industrial-grade version of the Radxa ROCK 5T. It features enhanced reliability, expanded interfaces, and upgraded environmental adaptability tailored to the core needs of industrial scenarios. It is a compact Single Board Computer (SBC) focusing on "industrial-grade stability + multi-scenario compatibility".
+
+ROCK 5T/5T-Industrial can be used as:
 
 - Personal desktop computer
 - Personal private server
 - Android video and audio player
 - Robot controller
 - Blockchain node
+- Industrial security
+- Environmental monitoring terminal
 
 More other usage scenarios are waiting for you to discover!
 
 ### Rich Interface
 
-ROCK 5T provides rich interfaces, including multiple USB and HDMI ports, which are convenient for connecting external devices and expanding functions. For details, please refer to [Parameter Configuration](#parameter-configuration).
+ROCK 5T/5T-Industrial provides rich interfaces, including multiple USB and HDMI ports, which are convenient for connecting external devices and expanding functions. For details, please refer to [Parameter Configuration](#parameter-configuration).
 
 ### Accessory Eco-Rich
 
-ROCK 5T supports a variety of cameras and displays.
+ROCK 5T/5T-Industrial supports a variety of cameras and displays.
 
 ### Powerful multimedia processing capability
 
@@ -37,32 +41,40 @@ ROCK 5T supports a variety of operating systems, including Debian and Android, a
 
 ### Potential for development
 
-As a powerful development platform, ROCK 5T has great potential for artificial intelligence, edge computing, embedded systems and other fields.
+As a powerful development platform, ROCK 5T/5T-Industrial has great potential for artificial intelligence, edge computing, embedded systems and other fields.
 
 ### Open source support
 
-ROCK 5T provides complete hardware design schematics and software source code, a feature that allows most DIY design enthusiasts and developers to make personalized modifications and functionality expansion, and attracts a large number of open source enthusiasts to be active in the community, which is conducive to the promotion of knowledge-sharing and technological innovation.
+ROCK 5T/5T-Industrial provides complete hardware design schematics and software source code, a feature that allows most DIY design enthusiasts and developers to make personalized modifications and functionality expansion, and attracts a large number of open source enthusiasts to be active in the community, which is conducive to the promotion of knowledge-sharing and technological innovation.
 
 ## Motherboard Preview
 
-<TabItem value="ROCK 5T V1.2">
-<img src="/img/rock5t/rock-5t-overview-v12.webp" width="800" alt="rock 5t v1.2" />
-</TabItem>
+<Tabs queryString="versions">
+    <TabItem value="ROCK 5T V1.2">
+    <img src="/img/rock5t/rock-5t-overview-v12.webp" width="800" alt="rock 5t v1.2" />
+    </TabItem>
+    <TabItem value="ROCK 5T Industrial V2.01">
+    <img src="/img/rock5t/rock-5t-industrial-overview-v201.webp" width="800" alt="rock 5t industrial v2.01" />
+    </TabItem>
+</Tabs>
 
 ## Parameter Configuration
 
 <table>
    <tr>
-    <th>Model</th>
-    <td colspan="2"  align="center">ROCK 5T</td>
-  </tr>
+        <td align="center">Model</td>
+        <td align="center">ROCK 5T</td>
+        <td align="center">ROCK 5T Industrial</td>
+    </tr>
     <tr>
         <td align="center">SoC</td>
-        <td colspan="2"  align="center">Rockchip RK3588</td>
+        <td align="center">Rockchip RK3588</td>
+        <td align="center">Rockchip RK3588J</td>
     </tr>
     <tr>
         <td align="center">CPU</td>
-        <td colspan="2" align="center">Quad-core Cortex-A76 up to 2.4GHz<br/>Quad-small-core Cortex-A55 up to 1.8GHz</td>
+        <td align="center">Quad-core Cortex-A76 up to 2.4GHz<br/>Quad-small-core Cortex-A55 up to 1.8GHz</td>
+        <td align="center">Quad-core Cortex-A76 up to 1.6GHz<br/>Quad-small-core Cortex-A55 up to 1.29GHz</td>
     </tr>
     <tr>
         <td align="center">GPU</td>
@@ -82,7 +94,7 @@ ROCK 5T provides complete hardware design schematics and software source code, a
     </tr>
     <tr>
         <td align="center">Display</td>
-         <td align="center">Provides 4 display outputs via two HDMI, one DP (C-Type) and one MIPI DSI<br/>Resolution up to 3x 4K@60FPS + 1x 1080P@60FPS or 1x 8K@60FPS + 1x 4K@60FPS + 1x 1080P@60FPS<br/>1x standard HDMI input port, supports up to 4Kp60 display inputs</td>
+         <td colspan="2" align="center">Provides 4 display outputs via two HDMI, one DP (C-Type) and one MIPI DSI<br/>Resolution up to 3x 4K@60FPS + 1x 1080P@60FPS or 1x 8K@60FPS + 1x 4K@60FPS + 1x 1080P@60FPS<br/>1x standard HDMI input port, supports up to 4Kp60 display inputs</td>
     </tr>
     <tr>
         <td align="center">Hardware Codecs</td>
@@ -95,10 +107,11 @@ ROCK 5T provides complete hardware design schematics and software source code, a
     <tr>
         <td align="center">On-board WIFI</td>
         <td align="center">Equipped with on-board WiFi Realtek 8852BE</td>
+        <td align="center">Equipped with on-board WiFi Quectel FCE863R</td>
     </tr>
     <tr>
         <td align="center">M.2</td>
-          <td align="center">M.2 B Key connector that provides USB signaling and supports 4G modules. Easy connection to mobile networks through the use of a SIM card.<br/>The M.2 M Key connector provides a total of two dual-channel PCIe 3.0 ports and standard M.2 2280 mounting holes for M.2 2280 NVMe SSDs. It is worth noting that M.2 SATA SSDs are not supported.</td>
+          <td colspan="2" align="center">M.2 B Key connector that provides USB signaling and supports 4G modules. Easy connection to mobile networks through the use of a SIM card.<br/>The M.2 M Key connector provides a total of two dual-channel PCIe 3.0 ports and standard M.2 2280 mounting holes for M.2 2280 NVMe SSDs. It is worth noting that M.2 SATA SSDs are not supported.</td>
     </tr>
     <tr>
         <td align="center">USB</td>
@@ -110,7 +123,8 @@ ROCK 5T provides complete hardware design schematics and software source code, a
     </tr>
     <tr>
         <td align="center">PDM</td>
-        <td colspan="2" align="center">1 PDM interface, supports dual-channel array microphones</td>
+        <td align="center">1 PDM interface, supports dual-channel array microphones</td>
+        <td align="center"></td>
     </tr>
     <tr>
         <td align="center">Others</td>
