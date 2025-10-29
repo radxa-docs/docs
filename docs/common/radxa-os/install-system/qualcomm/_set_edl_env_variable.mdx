@@ -1,0 +1,250 @@
+介绍 Windows 和 Ubuntu 系统下安装高通设备驱动、设置 EDL 工具环境变量和使用 EDL 工具的方法。
+
+## 安装驱动
+
+<Tabs queryString = "EDLplatform">
+  <TabItem value="Windows" label="Windows" default>
+    - 下载驱动
+
+    在 Windows 平台，您需要访问 <a href={props?.download_page ?? '../../../download'}>资源汇总下载</a> 页面下载驱动文件。
+
+    - 安装驱动
+
+    解压下载好的驱动文件，以管理员身份运行 `Install.bat` 文件安装驱动。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/edl-driver-install.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+    - 设备识别
+
+    在 Windows 系统中，可以进入系统的 `设备管理器` 查看设备是否被正常识别。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/device-manager.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+  </TabItem>
+  <TabItem value="Linux" label="Linux">
+  在 Linux 系统中，不需要安装额外的驱动，可以使用 `lsusb` 命令查看设备是否进入 EDL 模式。
+
+  <NewCodeBlock tip="Linux$" type="host">
+
+```
+lsusb
+```
+
+  </NewCodeBlock>
+
+设备进入 EDL 模式后，会显示类似下面的信息：
+
+```
+Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+```
+
+  </TabItem>
+</Tabs>
+
+## 使用 EDL 工具
+
+### 下载 EDL 工具
+
+您需要访问 <a href={props?.download_page ?? '../../../download'}>资源汇总下载</a> 页面下载 EDL 工具。
+
+### 设置环境变量
+
+设置环境变量，可以简化后续的烧录操作，简化命令。
+
+<Tabs queryString="EDLplatform">
+
+<TabItem value="Windows">
+
+1. 使用 `Win + R` 打开运行对话框，输入 `sysdm.cpl`，点击 `确定`。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/cmd-sysdm-cpl.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. 在 `System Properties` 选项窗口中，点击 `Advanced` 选项卡，点击 `Environment Variable ...` 按钮。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/system-prop.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. 在 `Environment Variables` 选项窗口中，双击 `System variables` 下的 `Path` 变量。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/env-variable-path.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+4. 在 `Edit Environment Variable` 选项窗口中，点击 `New` 按钮，然后输入自己平台的 EDL 工具路径，点击 `OK` 按钮。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/edit-env-variable-edl-ng.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+5. 完成以上操作，重新打开终端，如果输入 `edl-ng` 命令可以查看到版本信息，说明设置成功。
+
+<NewCodeBlock tip="Windows$" type="host">
+
+```
+edl-ng
+```
+
+</NewCodeBlock>
+
+终端输出示例：
+
+```
+Description:
+  edl-ng - Qualcomm Emergency Download CLI
+
+Usage:
+  edl-ng [command] [options]
+
+Options:
+  -l, --loader <loader>                        Path to the Firehose programmer (e.g., prog_firehose_*.elf).
+  --vid <vid>                                  Specify USB Vendor ID (hex).
+  --pid <pid>                                  Specify USB Product ID (hex).
+  --memory <NAND|NVME|SDCC|SPINOR|UFS>         Set memory type for Firehose operations (e.g., SDCC, SPINOR, UFS, NAND, NVME). Defaults typically to UFS.
+  --loglevel <Debug|Error|Info|Trace|Warning>  Set the logging level. [default: Info]
+  --maxpayload <maxpayload>                    Set max payload size in bytes for Firehose configure command.
+  -s, --slot <slot>                            Specify the slot for operations (0 or 1). Defaults to 0.
+                                               This is useful when memory is sdcc. Slot 0 is typically eMMC, and slot 1 is typically sdcard. [default: 0]
+  --version                                    Show version information
+  -?, -h, --help                               Show help and usage information
+
+Commands:
+  upload-loader                                    Connects in Sahara mode and uploads the specified Firehose loader (--loader). Does not proceed to Firehose
+                                                   operations.
+  reset                                            Resets or powers off the device using Firehose.
+  printgpt                                         Reads and prints the GPT (GUID Partition Table) from the device.
+  read-part <partition_name> <filename>            Reads a partition by name from the device, saving to a file.
+  read-sector <start_sector> <sectors> <filename>  Reads a specified number of sectors from a given LUN and start LBA, saving to a file.
+  write-part <partition_name> <filename>           Writes data from a file to a partition by name.
+  write-sector <start_sector> <filename>           Writes data from a file to a specified number of sectors from a given LUN and start LBA.
+  erase-part <partition_name>                      Erases a partition by name from the device.
+  erase-sector <start_sector> <sectors>            Erases a specified number of sectors from a given LUN and start LBA.
+  provision <xmlfile>                              Performs UFS provisioning using an XML file.
+  rawprogram <xmlfile_patterns>                    Processes rawprogramN.xml and patchN.xml files for flashing.
+```
+
+</TabItem>
+
+<TabItem value="Ubuntu">
+
+1. 查看路径
+
+根据自己使用的系统平台，进入 EDL 工具的目录，使用 `realpath` 命令查看 EDL 工具的路径。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+realpath edl-ng
+```
+
+</NewCodeBlock>
+
+终端输出示例：
+
+```
+/home/milir/download/edl-ng-dist/linux-x64/edl-ng
+```
+
+2. 可执行权限
+
+使用 `chmod` 命令为 EDL 工具添加可执行权限。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo chmod 777 edl-ng
+```
+
+</NewCodeBlock>
+
+3. 创建软链接
+
+你需要将 `/home/milir/download/edl-ng-dist/linux-x64/edl-ng` 替换成实际的 EDL 工具路径。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo ln -s /home/milir/download/edl-ng-dist/linux-x64/edl-ng /usr/local/bin/edl-ng
+```
+
+</NewCodeBlock>
+
+4. 验证
+
+在任意位置打开终端，如果可以使用 `edl-ng` 命令查看到版本信息，说明设置成功。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+edl-ng
+```
+
+</NewCodeBlock>
+
+终端输出示例：
+
+```
+Description:
+  edl-ng - Qualcomm Emergency Download CLI
+
+Usage:
+  edl-ng [command] [options]
+
+Options:
+  -l, --loader <loader>                        Path to the Firehose programmer (e.g., prog_firehose_*.elf).
+  --vid <vid>                                  Specify USB Vendor ID (hex).
+  --pid <pid>                                  Specify USB Product ID (hex).
+  --memory <NAND|NVME|SDCC|SPINOR|UFS>         Set memory type for Firehose operations (e.g., SDCC, SPINOR, UFS, NAND,
+                                               NVME). Defaults typically to UFS.
+  --loglevel <Debug|Error|Info|Trace|Warning>  Set the logging level. [default: Info]
+  --maxpayload <maxpayload>                    Set max payload size in bytes for Firehose configure command.
+  -s, --slot <slot>                            Specify the slot for operations (0 or 1). Defaults to 0.
+                                               This is useful when memory is sdcc. Slot 0 is typically eMMC, and slot 1
+                                               is typically sdcard. [default: 0]
+  --version                                    Show version information
+  -?, -h, --help                               Show help and usage information
+
+Commands:
+  upload-loader                                    Connects in Sahara mode and uploads the specified Firehose loader
+                                                   (--loader). Does not proceed to Firehose operations.
+  reset                                            Resets or powers off the device using Firehose.
+  printgpt                                         Reads and prints the GPT (GUID Partition Table) from the device.
+  read-part <partition_name> <filename>            Reads a partition by name from the device, saving to a file.
+  read-sector <start_sector> <sectors> <filename>  Reads a specified number of sectors from a given LUN and start LBA,
+                                                   saving to a file.
+  write-part <partition_name> <filename>           Writes data from a file to a partition by name.
+  write-sector <start_sector> <filename>           Writes data from a file to a specified number of sectors from a
+                                                   given LUN and start LBA.
+  erase-part <partition_name>                      Erases a partition by name from the device.
+  erase-sector <start_sector> <sectors>            Erases a specified number of sectors from a given LUN and start LBA.
+  provision <xmlfile>                              Performs UFS provisioning using an XML file.
+  rawprogram <xmlfile_patterns>                    Processes rawprogramN.xml and patchN.xml files for flashing.
+```
+
+</TabItem>
+
+</Tabs>

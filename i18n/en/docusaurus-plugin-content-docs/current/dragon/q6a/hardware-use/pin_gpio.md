@@ -46,3 +46,135 @@ Dragon Q6A supports connecting external devices to the onboard GPIO pins, includ
 |            |            |            |               | GND        | <div className='black'>39</div> | <div className='green'>40</div>| GPIO_99     | MI2S0_DATA1 |            |             |            |
    </div>
 </TabItem>
+
+## GPIO Usage
+
+This section demonstrates common GPIO usage through the onboard 40-pin GPIO interface.
+
+### Install Python Library
+
+Use the `python-periphery` library to control GPIO pins.
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```
+sudo apt update
+sudo apt install -y python3-periphery -y
+```
+
+</NewCodeBlock>
+
+### GPIO Output/Input
+
+#### Hardware Requirements
+
+- Board
+- Dupont wire
+
+#### Software Requirements
+
+- python-periphery library
+
+#### Test Code
+
+The following code uses the python-periphery library to control the GPIO_25 pin for outputting high/low levels and reads the GPIO_25 pin's state through the GPIO_96 pin.
+
+<details>
+<summary>gpio_output_input.py</summary>
+
+```
+from periphery import GPIO
+import time
+
+def gpio_output_with_feedback():
+    # GPIO Configuration (modify pin numbers based on your hardware)
+    # GPIO_25 (output) → maps to pin 25 of /dev/gpiochip4
+    # GPIO_96 (input)  → maps to pin 96 of /dev/gpiochip4
+    OUTPUT_PIN_CHIP = "/dev/gpiochip4"
+    OUTPUT_PIN_NUMBER = 25  # GPIO_25 (output pin, controlled by the script)
+    INPUT_PIN_NUMBER = 96   # GPIO_96 (input pin, reads GPIO_25's output state)
+
+    # Initialize GPIO objects as None first (for safe release later)
+    gpio_out = None
+    gpio_in = None
+
+    try:
+        # Initialize GPIO_25 as OUTPUT mode
+        gpio_out = GPIO(OUTPUT_PIN_CHIP, OUTPUT_PIN_NUMBER, "out")
+        # Initialize GPIO_96 as INPUT mode
+        gpio_in = GPIO(OUTPUT_PIN_CHIP, INPUT_PIN_NUMBER, "in")
+
+        # Print test initialization info
+        print("=== GPIO Output-Input Feedback Test Started ===")
+        print(f"Controlled Pin (GPIO_25): {OUTPUT_PIN_CHIP} - Pin {OUTPUT_PIN_NUMBER} (OUTPUT)")
+        print(f"Monitoring Pin (GPIO_96): {OUTPUT_PIN_CHIP} - Pin {INPUT_PIN_NUMBER} (INPUT)")
+        print("Test Behavior: GPIO_25 toggles HIGH/LOW every 1s; GPIO_96 verifies GPIO_25's state")
+        print("Press Ctrl+C to stop the test\n")
+
+        # Main loop: Toggle GPIO_25 and read GPIO_96 feedback
+        while True:
+            # 1. Set GPIO_25 to HIGH level
+            gpio_out.write(True)
+            time.sleep(0.1)  # Short delay for signal stabilization (avoid read lag)
+            gpio96_reading = gpio_in.read()
+            print(f"GPIO_25 Output: HIGH (True) | GPIO_96 Reading: {gpio96_reading}")
+
+            # Keep GPIO_25 HIGH for 1 second
+            time.sleep(1)
+
+            # 2. Set GPIO_25 to LOW level
+            gpio_out.write(False)
+            time.sleep(0.1)  # Short delay for signal stabilization
+            gpio96_reading = gpio_in.read()
+            print(f"GPIO_25 Output: LOW (False) | GPIO_96 Reading: {gpio96_reading}")
+
+            # Keep GPIO_25 LOW for 1 second
+            time.sleep(1)
+
+    # Handle user-initiated exit (Ctrl+C)
+    except KeyboardInterrupt:
+        print("\n\nTest stopped by user (Ctrl+C)")
+    # Handle other unexpected errors (e.g., GPIO access failure)
+    except Exception as e:
+        print(f"\nError during test: {str(e)}")
+    # Ensure GPIO resources are released even if an error occurs
+    finally:
+        print("\nReleasing GPIO resources...")
+        # Safely close GPIO_25 (set to LOW first to avoid residual high level)
+        if gpio_out:
+            try:
+                gpio_out.write(False)
+                gpio_out.close()
+                print(f"Successfully closed GPIO_25 (Pin {OUTPUT_PIN_NUMBER})")
+            except Exception as close_err:
+                print(f"Failed to close GPIO_25 (Pin {OUTPUT_PIN_NUMBER}): {str(close_err)}")
+        # Safely close GPIO_96
+        if gpio_in:
+            try:
+                gpio_in.close()
+                print(f"Successfully closed GPIO_96 (Pin {INPUT_PIN_NUMBER})")
+            except Exception as close_err:
+                print(f"Failed to close GPIO_96 (Pin {INPUT_PIN_NUMBER}): {str(close_err)}")
+        print("Resource release complete.")
+
+# Run the test when the script is executed directly
+if __name__ == "__main__":
+    gpio_output_with_feedback()
+```
+
+</details>
+
+#### Test Steps
+
+1. Short-circuit the GPIO_25 and GPIO_96 pins using a jumper wire
+
+2. Save the code as `gpio_output_input.py`
+
+3. Run the test code using the command: `sudo python3 gpio_output_input.py`
+
+### Expected Results
+
+The terminal will display the output level of GPIO_25 and the level read by GPIO_96.
+
+- False represents a LOW level
+- True represents a HIGH level

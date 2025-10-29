@@ -1,0 +1,243 @@
+This document explains how to install Qualcomm device drivers, set up EDL tool environment variables, and use EDL tools on Windows and Ubuntu systems.
+
+## Install Drivers
+
+<Tabs queryString="EDLplatform">
+  <TabItem value="Windows" label="Windows" default>
+    - Download Drivers
+
+    On Windows, you need to visit the <a href={props?.download_page ?? '../../../download'}>Downloads</a> page to download the driver files.
+
+    - Install Drivers
+
+    Extract the downloaded driver files and run the `Install.bat` file as administrator to install the drivers.
+
+    - Device Recognition
+
+    In Windows, you can check if the device is properly recognized by opening the `Device Manager`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/qualcomm/device-manager.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+  </TabItem>
+  <TabItem value="Linux" label="Linux">
+  On Linux systems, no additional drivers are needed. You can use the `lsusb` command to check if the device is in EDL mode.
+
+  <NewCodeBlock tip="Linux$" type="host">
+
+```
+lsusb
+```
+
+  </NewCodeBlock>
+
+When the device enters EDL mode, you will see output similar to the following:
+
+```
+Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+```
+
+  </TabItem>
+</Tabs>
+
+## Using EDL Tools
+
+### Download EDL Tools
+
+You need to visit the <a href={props?.download_page ?? '../../../download'}>Downloads</a> page to download the EDL tools.
+
+### Set Up Environment Variables
+
+Setting up environment variables can simplify subsequent flashing operations and commands.
+
+<Tabs queryString="EDLplatform">
+
+<TabItem value="Windows">
+
+1. Press `Win + R` to open the Run dialog, type `sysdm.cpl`, and click `OK`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/qualcomm/cmd-sysdm-cpl.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. In the `System Properties` window, click the `Advanced` tab, then click the `Environment Variables...` button.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/qualcomm/system-prop.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. In the `Environment Variables` window, double-click the `Path` variable under `System variables`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/qualcomm/env-variable-path.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+4. In the `Edit Environment Variable` window, click the `New` button, then enter the path to your platform's EDL tools, and click `OK`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/qualcomm/edit-env-variable-edl-ng.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+5. After completing the above steps, reopen the terminal. If you can see the version information by running the `edl-ng` command, the setup is successful.
+
+<NewCodeBlock tip="Windows$" type="host">
+
+```
+edl-ng
+```
+
+</NewCodeBlock>
+
+Terminal output example:
+
+```
+Description:
+  edl-ng - Qualcomm Emergency Download CLI
+
+Usage:
+  edl-ng [command] [options]
+
+Options:
+  -l, --loader <loader>                        Path to the Firehose programmer (e.g., prog_firehose_*.elf).
+  --vid <vid>                                  Specify USB Vendor ID (hex).
+  --pid <pid>                                  Specify USB Product ID (hex).
+  --memory <NAND|NVME|SDCC|SPINOR|UFS>         Set memory type for Firehose operations (e.g., SDCC, SPINOR, UFS, NAND, NVME). Defaults typically to UFS.
+  --loglevel <Debug|Error|Info|Trace|Warning>  Set the logging level. [default: Info]
+  --maxpayload <maxpayload>                    Set max payload size in bytes for Firehose configure command.
+  -s, --slot <slot>                            Specify the slot for operations (0 or 1). Defaults to 0.
+                                               This is useful when memory is sdcc. Slot 0 is typically eMMC, and slot 1 is typically sdcard. [default: 0]
+  --version                                    Show version information
+  -?, -h, --help                               Show help and usage information
+
+Commands:
+  upload-loader                                    Connects in Sahara mode and uploads the specified Firehose loader (--loader). Does not proceed to Firehose
+                                                   operations.
+  reset                                            Resets or powers off the device using Firehose.
+  printgpt                                         Reads and prints the GPT (GUID Partition Table) from the device.
+  read-part <partition_name> <filename>            Reads a partition by name from the device, saving to a file.
+  read-sector <start_sector> <sectors> <filename>  Reads a specified number of sectors from a given LUN and start LBA, saving to a file.
+  write-part <partition_name> <filename>           Writes data from a file to a partition by name.
+  write-sector <start_sector> <filename>           Writes data from a file to a specified number of sectors from a given LUN and start LBA.
+  erase-part <partition_name>                      Erases a partition by name from the device.
+  erase-sector <start_sector> <sectors>            Erases a specified number of sectors from a given LUN and start LBA.
+  provision <xmlfile>                              Performs UFS provisioning using an XML file.
+  rawprogram <xmlfile_patterns>                    Processes rawprogramN.xml and patchN.xml files for flashing.
+```
+
+</TabItem>
+
+<TabItem value="Ubuntu">
+
+1. Check the Path
+
+Navigate to the EDL tool's directory based on your system platform and use the `realpath` command to view the EDL tool's path.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+realpath edl-ng
+```
+
+</NewCodeBlock>
+
+Terminal output example:
+
+```
+/home/milir/download/edl-ng-dist/linux-x64/edl-ng
+```
+
+2. Make Executable
+
+Use the `chmod` command to add execute permissions to the EDL tool.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo chmod 777 edl-ng
+```
+
+</NewCodeBlock>
+
+3. Create a Symbolic Link
+
+You need to replace `/home/milir/download/edl-ng-dist/linux-x64/edl-ng` with the actual EDL tool path.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo ln -s /home/milir/download/edl-ng-dist/linux-x64/edl-ng /usr/local/bin/edl-ng
+```
+
+</NewCodeBlock>
+
+4. Verify
+
+Open a terminal in any location and verify that you can use the `edl-ng` command to see the version information. If you can, the setup is successful.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+edl-ng
+```
+
+</NewCodeBlock>
+
+Terminal output example:
+
+```
+Description:
+  edl-ng - Qualcomm Emergency Download CLI
+
+Usage:
+  edl-ng [command] [options]
+
+Options:
+  -l, --loader <loader>                        Path to the Firehose programmer (e.g., prog_firehose_*.elf).
+  --vid <vid>                                  Specify USB Vendor ID (hex).
+  --pid <pid>                                  Specify USB Product ID (hex).
+  --memory <NAND|NVME|SDCC|SPINOR|UFS>         Set memory type for Firehose operations (e.g., SDCC, SPINOR, UFS, NAND,
+                                               NVME). Defaults typically to UFS.
+  --loglevel <Debug|Error|Info|Trace|Warning>  Set the logging level. [default: Info]
+  --maxpayload <maxpayload>                    Set max payload size in bytes for Firehose configure command.
+  -s, --slot <slot>                            Specify the slot for operations (0 or 1). Defaults to 0.
+                                               This is useful when memory is sdcc. Slot 0 is typically eMMC, and slot 1
+                                               is typically sdcard. [default: 0]
+  --version                                    Show version information
+  -?, -h, --help                               Show help and usage information
+
+Commands:
+  upload-loader                                    Connects in Sahara mode and uploads the specified Firehose loader
+                                                   (--loader). Does not proceed to Firehose operations.
+  reset                                            Resets or powers off the device using Firehose.
+  printgpt                                         Reads and prints the GPT (GUID Partition Table) from the device.
+  read-part <partition_name> <filename>            Reads a partition by name from the device, saving to a file.
+  read-sector <start_sector> <sectors> <filename>  Reads a specified number of sectors from a given LUN and start LBA,
+                                                   saving to a file.
+  write-part <partition_name> <filename>           Writes data from a file to a partition by name.
+  write-sector <start_sector> <filename>           Writes data from a file to a specified number of sectors from a
+                                                   given LUN and start LBA.
+  erase-part <partition_name>                      Erases a partition by name from the device.
+  erase-sector <start_sector> <sectors>            Erases a specified number of sectors from a given LUN and start LBA.
+  provision <xmlfile>                              Performs UFS provisioning using an XML file.
+  rawprogram <xmlfile_patterns>                    Processes rawprogramN.xml and patchN.xml files for flashing.
+```
+
+</TabItem>
+
+</Tabs>

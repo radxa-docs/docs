@@ -1,0 +1,207 @@
+This document explains how to install Qualcomm device drivers, set up QDL tool environment variables, and use QDL tools on Windows and Ubuntu systems.
+
+## Install Drivers
+
+<Tabs queryString="QDLplatform">
+  <TabItem value="Windows" label="Windows" default>
+    - Download Drivers
+
+    On Windows, you need to visit the <a href={props?.download_page ?? '../../../download'}>Downloads</a> page to download the driver files.
+
+    - Install Drivers
+
+    Extract the downloaded driver files, locate the `qcserlib.inf` file, right-click on it, and select the `Install` option.
+
+    - Device Recognition
+
+    In Windows, you can check if the device is properly recognized by opening the `Device Manager`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/qualcomm/device-manager.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+  </TabItem>
+  <TabItem value="Linux" label="Linux">
+  On Linux systems, no additional drivers are needed. You can use the `lsusb` command to check if the device is in QDL mode.
+
+  <NewCodeBlock tip="Linux$" type="host">
+
+```
+lsusb
+```
+
+  </NewCodeBlock>
+
+When the device enters QDL mode, you will see output similar to the following:
+
+```
+Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+```
+
+  </TabItem>
+</Tabs>
+
+## Using QDL Tools
+
+### Download QDL Tools
+
+You need to visit the <a href={props?.download_page ?? '../../../download'}>Downloads</a> page to download the QDL tools.
+
+### Set Up Environment Variables
+
+Setting up environment variables can simplify subsequent flashing operations and commands.
+
+<Tabs queryString="QDLplatform">
+
+<TabItem value="Windows">
+
+1. Press `Win + R` to open the Run dialog, type `sysdm.cpl`, and click `OK`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/qualcomm/cmd-sysdm-cpl.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. In the `System Properties` window, click the `Advanced` tab, then click the `Environment Variables...` button.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/qualcomm/system-prop.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. In the `Environment Variables` window, double-click the `Path` variable under `System variables`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/qualcomm/env-variable-path.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+4. In the `Edit Environment Variable` window, click the `New` button, enter the path to your QDL tools, and click `OK`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/qualcomm/edit-env-variable-qdl-ng.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+5. After completing the above steps, reopen the terminal. If you can see the version information by running the `qdl-ng` command, the setup is successful.
+
+<NewCodeBlock tip="Windows$" type="host">
+
+```
+qdl
+```
+
+</NewCodeBlock>
+
+Terminal output example:
+
+```
+Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
+ -d, --debug                    Print detailed debug info
+ -v, --version                  Print the current version and exit
+ -n, --dry-run                  Dry run execution, no device reading or flashing
+ -f, --allow-missing            Allow skipping of missing files during flashing
+ -s, --storage=T                Set target storage type T: <emmc|nand|ufs>
+ -l, --finalize-provisioning    Provision the target storage
+ -i, --include=T                Set an optional folder T to search for files
+ -S, --serial=T                 Select target by serial number T (e.g. <0AA94EFD>)
+ -u, --out-chunk-size=T         Override chunk size for transaction with T
+ -t, --create-digests=T         Generate table of digests in the T folder
+ -D, --vip-table-path=T         Use digest tables in the T folder for VIP
+ -h, --help                     Print this usage info
+
+Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+```
+
+</TabItem>
+
+<TabItem value="Ubuntu">
+
+1. Check the Path
+
+Navigate to the QDL tool's directory based on your system platform and use the `realpath` command to view the QDL tool's path.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+realpath qdl
+```
+
+</NewCodeBlock>
+
+Terminal output example:
+
+```
+/home/milir/download/QDL_2.3.9.2_Linux_x64/qdl
+```
+
+2. Make Executable
+
+Use the `chmod` command to add execute permissions to the QDL tool.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo chmod 777 qdl
+```
+
+</NewCodeBlock>
+
+3. Create a Symbolic Link
+
+You need to replace `/home/milir/download/QDL_2.3.9.2_Linux_x64/qdl` with the actual QDL tool path.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo ln -s /home/milir/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
+```
+
+</NewCodeBlock>
+
+4. Verify
+
+Open a terminal at any location and run the `qdl` command to check if the version information is displayed. If it is, the setup is successful.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+qdl
+```
+
+</NewCodeBlock>
+
+Terminal output example:
+
+```
+Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
+ -d, --debug                    Print detailed debug info
+ -v, --version                  Print the current version and exit
+ -n, --dry-run                  Dry run execution, no device reading or flashing
+ -f, --allow-missing            Allow skipping of missing files during flashing
+ -s, --storage=T                Set target storage type T: <emmc|nand|ufs>
+ -l, --finalize-provisioning    Provision the target storage
+ -i, --include=T                Set an optional folder T to search for files
+ -S, --serial=T                 Select target by serial number T (e.g. <0AA94EFD>)
+ -u, --out-chunk-size=T         Override chunk size for transaction with T
+ -t, --create-digests=T         Generate table of digests in the T folder
+ -D, --vip-table-path=T         Use digest tables in the T folder for VIP
+ -h, --help                     Print this usage info
+
+Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+```
+
+</TabItem>
+
+</Tabs>

@@ -1,0 +1,207 @@
+介绍 Windows 和 Ubuntu 系统下安装高通设备驱动、设置 QDL 工具环境变量和使用 QDL 工具的方法。
+
+## 安装驱动
+
+<Tabs queryString = "QDLplatform">
+  <TabItem value="Windows" label="Windows" default>
+    - 下载驱动
+
+    在 Windows 平台，您需要访问 <a href={props?.download_page ?? '../../../download'}>资源汇总下载</a> 页面下载驱动文件。
+
+    - 安装驱动
+
+    解压下载好的驱动文件，找到 `qcserlib.inf` 文件，鼠标右击，选择 `安装` 选项。
+
+    - 设备识别
+
+    在 Windows 系统中，可以进入系统的 `设备管理器` 查看设备是否被正常识别。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/device-manager.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+  </TabItem>
+  <TabItem value="Linux" label="Linux">
+  在 Linux 系统中，不需要安装额外的驱动，可以使用 `lsusb` 命令查看设备是否进入 QDL 模式。
+
+  <NewCodeBlock tip="Linux$" type="host">
+
+```
+lsusb
+```
+
+  </NewCodeBlock>
+
+设备进入 QDL 模式后，会显示类似下面的信息：
+
+```
+Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+```
+
+  </TabItem>
+</Tabs>
+
+## 使用 QDL 工具
+
+### 下载 QDL 工具
+
+您需要访问 <a href={props?.download_page ?? '../../../download'}>资源汇总下载</a> 页面下载 QDL 工具。
+
+### 设置环境变量
+
+设置环境变量，可以简化后续的烧录操作，简化命令。
+
+<Tabs queryString="QDLplatform">
+
+<TabItem value="Windows">
+
+1. 使用 `Win + R` 打开运行对话框，输入 `sysdm.cpl`，点击 `确定`。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/cmd-sysdm-cpl.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. 在 `System Properties` 选项窗口中，点击 `Advanced` 选项卡，点击 `Environment Variable ...` 按钮。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/system-prop.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. 在 `Environment Variables` 选项窗口中，双击 `System variables` 下的 `Path` 变量。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/env-variable-path.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+4. 在 `Edit Environment Variable` 选项窗口中，点击 `New` 按钮，然后输入自己平台的 QDL 工具路径，点击 `OK` 按钮。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/qualcomm/edit-env-variable-qdl.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+5. 完成以上操作，重新打开终端，如果输入 `qdl` 命令可以查看到版本信息，说明设置成功。
+
+<NewCodeBlock tip="Windows$" type="host">
+
+```
+qdl
+```
+
+</NewCodeBlock>
+
+终端输出示例：
+
+```
+Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
+ -d, --debug                    Print detailed debug info
+ -v, --version                  Print the current version and exit
+ -n, --dry-run                  Dry run execution, no device reading or flashing
+ -f, --allow-missing            Allow skipping of missing files during flashing
+ -s, --storage=T                Set target storage type T: <emmc|nand|ufs>
+ -l, --finalize-provisioning    Provision the target storage
+ -i, --include=T                Set an optional folder T to search for files
+ -S, --serial=T                 Select target by serial number T (e.g. <0AA94EFD>)
+ -u, --out-chunk-size=T         Override chunk size for transaction with T
+ -t, --create-digests=T         Generate table of digests in the T folder
+ -D, --vip-table-path=T         Use digest tables in the T folder for VIP
+ -h, --help                     Print this usage info
+
+Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+```
+
+</TabItem>
+
+<TabItem value="Ubuntu">
+
+1. 查看路径
+
+根据自己使用的系统平台，进入 QDL 工具的目录，使用 `realpath` 命令查看 QDL 工具的路径。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+realpath qdl
+```
+
+</NewCodeBlock>
+
+终端输出示例：
+
+```
+/home/milir/download/QDL_2.3.9.2_Linux_x64/qdl
+```
+
+2. 可执行权限
+
+使用 `chmod` 命令为 QDL 工具添加可执行权限。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo chmod 777 qdl
+```
+
+</NewCodeBlock>
+
+3. 创建软链接
+
+你需要将 `/home/milir/download/QDL_2.3.9.2_Linux_x64/qdl` 替换成实际的 QDL 工具路径。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo ln -s /home/milir/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
+```
+
+</NewCodeBlock>
+
+4. 验证
+
+在任意位置打开终端，如果可以使用 `qdl` 命令查看到版本信息，说明设置成功。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+qdl
+```
+
+</NewCodeBlock>
+
+终端输出示例：
+
+```
+Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
+ -d, --debug                    Print detailed debug info
+ -v, --version                  Print the current version and exit
+ -n, --dry-run                  Dry run execution, no device reading or flashing
+ -f, --allow-missing            Allow skipping of missing files during flashing
+ -s, --storage=T                Set target storage type T: <emmc|nand|ufs>
+ -l, --finalize-provisioning    Provision the target storage
+ -i, --include=T                Set an optional folder T to search for files
+ -S, --serial=T                 Select target by serial number T (e.g. <0AA94EFD>)
+ -u, --out-chunk-size=T         Override chunk size for transaction with T
+ -t, --create-digests=T         Generate table of digests in the T folder
+ -D, --vip-table-path=T         Use digest tables in the T folder for VIP
+ -h, --help                     Print this usage info
+
+Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+```
+
+</TabItem>
+
+</Tabs>

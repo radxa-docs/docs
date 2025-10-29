@@ -1,0 +1,37 @@
+## 下载系统镜像
+
+你需要访问 <a href={props?.download_page ?? '../../../download'}>资源汇总下载</a> 页面下载**最新系统镜像**。
+
+:::tip 镜像说明
+下载的系统镜像是压缩文件，需要解压后才能使用！
+:::
+
+## 线刷系统镜像
+
+你需要将解压后的系统镜像文件复制到 SPI 启动固件的 {props.spi_path} 路径下，然后在该文件夹下打开终端运行下面命令刷入系统镜像：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+edl-ng --loader <path-to-loader> --memory <storage-type> write-sector <start-sector> <path-to-image-file>
+```
+
+</NewCodeBlock>
+
+参数说明：
+
+- `<path-to-loader>`：启动加载器的路径，需要替换成实际的启动加载器路径。
+
+- `<storage-type>`：存储类型，需要替换成实际的存储类型。
+
+- `<start-sector>`：起始扇区，需要替换成实际的起始扇区。
+
+- `<path-to-image-file>`：系统镜像文件的路径，需要替换成实际的系统镜像文件路径。
+
+示例：
+
+<code>{`edl-ng --loader ${props?.loader ?? "<path-to-loader>"} --memory ${
+  props?.storage_type ?? "<storage-type>"
+} write-sector ${props?.start_sector ?? "<start-sector>"} ${
+  props?.image_file ?? "<path-to-image-file>"
+}`}</code>
