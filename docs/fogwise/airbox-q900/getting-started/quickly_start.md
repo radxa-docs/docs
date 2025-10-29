@@ -8,7 +8,7 @@ sidebar_position: 1
 
 :::tip 使用说明
 
-由于 AIRbox Q900 出厂内置系统，我们可以直接通电使用该产品，无需进行系统安装，整个快速上手教程比较轻松和简单！
+由于 AIRbox Q900 出厂内置系统，我们可以直接通电使用该产品，无需进行系统安装，整个过程轻松简单！
 
 :::
 
@@ -29,7 +29,7 @@ sidebar_position: 1
 您需要提前准备以下硬件设备：
 
 - 主板：Fogwise® AIRbox Q900
-- 供电：12V / 5.4A DC (5.5 x 2.5 mm) 电源适配器
+- 供电：12V DC 电源适配器
 - 输入设备：键盘和鼠标
 - 显示设备：显示器和 HDMI 数据线，用于显示系统界面
 - 数据线：
@@ -38,7 +38,7 @@ sidebar_position: 1
 
 :::tip 推荐配件
 
-AIRbox Q900 兼容 PD 协议的 12V DC 电源输入，建议电流 5A 以上，确保所有外设稳定运行。
+AIRbox Q900 通过 12V DC 电源供电，建议电流 5A 以上，确保所有外设稳定运行。
 
 - [瑞莎 DC 60W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-60w)
 
