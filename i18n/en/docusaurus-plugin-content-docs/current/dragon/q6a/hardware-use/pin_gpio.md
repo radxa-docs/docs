@@ -80,7 +80,7 @@ sudo apt install -y python3-periphery -y
 The following code uses the python-periphery library to control the GPIO_25 pin for outputting high/low levels and reads the GPIO_25 pin's state through the GPIO_96 pin.
 
 <details>
-<summary>gpio_output_read.py</summary>
+<summary>gpio_output_input.py</summary>
 
 ```
 from periphery import GPIO

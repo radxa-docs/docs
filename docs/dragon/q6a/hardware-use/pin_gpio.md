@@ -80,7 +80,7 @@ sudo apt install -y python3-periphery -y
 以下代码是使用 python-periphery 库来控制 GPIO_25 引脚输出高低电平，然后通过 GPIO_96 引脚读取 GPIO_25 引脚的高低电平。
 
 <details>
-<summary>gpio_output_read.py</summary>
+<summary>gpio_output_input.py</summary>
 
 ```
 from periphery import GPIO
