@@ -2,45 +2,45 @@
 sidebar_position: 9
 ---
 
-# Mini PCIe 插槽
+# Mini PCIe Slot
 
-瑞莎 Fogwise® AIRbox Q900 板载 1 个 Mini PCIe 插槽，支持安装无线网卡和 4G/5G 模块。
+The Radxa Fogwise® AIRbox Q900 features one onboard Mini PCIe slot that supports wireless network cards and 4G/5G modules.
 
-## 硬件连接
+## Hardware Connection
 
-主板关机后，将 Mini PCIe 接口的无线网卡或 4G/5G 模块插入 Mini PCIe 插槽，然后使用 M.2 螺丝固定即可使用。
+After powering off the motherboard, insert the Mini PCIe wireless network card or 4G/5G module into the Mini PCIe slot, then secure it with an M.2 screw.
 
 <Tabs queryString="Module">
 
-<TabItem value="无线网卡">
+<TabItem value="Wireless Network Card">
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-wifi.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-wifi.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 </TabItem>
 
-<TabItem value="4G/5G 模块">
+<TabItem value="4G/5G Module">
 
-实现移动网络需要安装 4G/5G 模块和 Nano SIM 卡。
+To enable mobile network, you need to install a 4G/5G module and a Nano SIM card.
 
-说明：教程以移远 LTE EC20 为例。
+Note: This tutorial uses the Quectel LTE EC20 as an example.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-5g.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-5g.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 </TabItem>
 
 </Tabs>
 
-## 使用指南
+## User Guide
 
 <Tabs queryString="Module">
 
-<TabItem value="无线网卡">
+<TabItem value="Wireless Network Card">
 
-可以使用 `lspci` 命令查看无线网卡是否正常识别。
+You can use the `lspci` command to check if the wireless network card is properly recognized.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -50,19 +50,19 @@ lspci | grep -i net
 
 </NewCodeBlock>
 
-若系统识别正常，终端会输出类似信息：
+If the system recognizes it correctly, the terminal will display output similar to:
 
 ```
 0000:01:00.0 Network controller: Realtek Semiconductor Co., Ltd. RTL8852BE PCIe 802.11ax Wireless Network Controller
 ```
 
-使用 `nmcli` 命令行工具来连接 WiFi 网络。
+Use the `nmcli` command-line tool to connect to a WiFi network.
 
 :::tip
-nmcli（NetworkManager Command Line Interface）是 NetworkManager 的命令行管理工具，用于在 Linux 系统下配置和管理网络连接。
+nmcli (NetworkManager Command Line Interface) is a command-line management tool for NetworkManager, used to configure and manage network connections on Linux systems.
 :::
 
-- 开启 WiFi 功能
+- Enable WiFi
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -72,9 +72,9 @@ sudo nmcli radio wifi on
 
 </NewCodeBlock>
 
-- 搜索 WiFi 网络
+- Scan for WiFi Networks
 
-若开启 WiFi 功能并没有搜索到 WiFi 网络，可以尝试重启系统。
+If no WiFi networks are found after enabling WiFi, try restarting the system.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -84,25 +84,25 @@ sudo nmcli device wifi list
 
 </NewCodeBlock>
 
-- 连接 WiFi 网络
+- Connect to a WiFi Network
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
 ```
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
-# 示例
+# Example
 sudo nmcli device wifi connect wifi-demo password 12345678
 ```
 
 </NewCodeBlock>
 
-连接成功后，终端会输出类似如下信息：
+After a successful connection, the terminal will display output similar to:
 
 ```
 Device 'wlp1s0' successfully activated with 'fb6ae336-87b2-4d36-af8b-ae9ac6b335d4'.
 ```
 
-- 查看网络连接的详细信息
+- View Network Connection Details
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -112,10 +112,10 @@ ip a
 
 </NewCodeBlock>
 
-终端会输出类似如下信息：其中 `192.168.31.231` 就是路由器分配的 IP 地址。
+The terminal will display output similar to the following, where `192.168.31.231` is the IP address assigned by the router:
 
 ```
-···
+...
 4: wlp1s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
     link/ether fc:23:cd:90:8e:04 brd ff:ff:ff:ff:ff:ff
     inet 192.168.31.231/24 brd 192.168.31.255 scope global dynamic noprefixroute wlp1s0
@@ -136,23 +136,23 @@ ip a
        valid_lft 292sec preferred_lft 0sec
     inet6 fe80::cca9:da77:4d73:58bb/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
-···
+...
 ```
 
 :::tip
-拓展命令：
+Additional Commands:
 
-- `sudo nmcli radio wifi off`：关闭 WiFi 功能。
-- `sudo nmcli connection delete <SSID>` ：删除指定的 WiFi 网络。
+- `sudo nmcli radio wifi off`: Disable WiFi
+- `sudo nmcli connection delete <SSID>`: Delete a specific WiFi network
   :::
 
-- 设置 WiFi 热点
+- Set Up WiFi Hotspot
 
-我们会使用 `nmcli` 命令行工具来设置 WiFi 热点。
+We'll use the `nmcli` command-line tool to set up a WiFi hotspot.
 
-- 查看 WiFi 网卡
+- Check WiFi Network Interface
 
-使用 `ip a` 命令查看无线网卡设备名称。
+Use the `ip a` command to find the wireless network interface name.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -162,10 +162,10 @@ ip a
 
 </NewCodeBlock>
 
-终端会输出类似如下信息：其中 `wlp1s0` 就是无线网卡设备名称。
+The terminal will display output similar to the following, where `wlp1s0` is the wireless network interface name:
 
 ```
-···
+...
 4: wlp1s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
     link/ether fc:23:cd:90:8e:04 brd ff:ff:ff:ff:ff:ff
     inet 192.168.31.231/24 brd 192.168.31.255 scope global dynamic noprefixroute wlp1s0
@@ -186,38 +186,38 @@ ip a
        valid_lft 292sec preferred_lft 0sec
     inet6 fe80::cca9:da77:4d73:58bb/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
-···
+...
 ```
 
-- 设置 WiFi 热点
+- Set Up WiFi Hotspot
 
-打开系统终端命令行，输入以下命令设置 WiFi 热点：
+Open the system terminal and enter the following command to set up a WiFi hotspot:
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
 ```
 sudo nmcli device wifi hotspot ifname <ifname> con-name <name> ssid <SSID> password <password>
-# 示例
+# Example
 sudo nmcli device wifi hotspot ifname wlp1s0 con-name My-Hotspot ssid My-Hotspot password 12345678
 ```
 
 </NewCodeBlock>
 
-参数说明：用名为 `wlp1s0` 的无线网卡创建一个名为 `My-Hotspot`、密码为 `12345678` 的 WiFi 热点，并将该连接保存为 `My-Hotspot`，方便后续管理。
+Parameter description: This creates a WiFi hotspot named `My-Hotspot` with password `12345678` using the wireless network interface named `wlp1s0`, and saves the connection as `My-Hotspot` for future management.
 
-- `ifname`：指定用于创建热点的无线网卡接口名，可以使用 `ip a` 命令查看无线网卡接口名。
-- `con-name`：指定热点连接名称，后续可以通过这个名字管理（开启、关闭、删除该热点）。
-- `ssid`：指定热点的名称，也就是其他设备搜索到的无线网络名称。
-- `password`：指定热点的密码。
+- `ifname`: Specifies the wireless network interface name for creating the hotspot. Use `ip a` to find the interface name.
+- `con-name`: Specifies the connection name for managing (starting, stopping, deleting) the hotspot.
+- `ssid`: Specifies the hotspot name (SSID) that other devices will see.
+- `password`: Specifies the hotspot password.
 
-设置成功后，终端会输出类似如下信息：
+After successful setup, the terminal will display output similar to:
 
 ```
 Device 'wlp1s0' successfully activated with 'f680a445-8f38-44a0-9f50-cb1a8daafb30'.
 Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 ```
 
-- 关闭 WiFi 热点
+- Disable WiFi Hotspot
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -227,7 +227,7 @@ sudo nmcli connection down My-Hotspot
 
 </NewCodeBlock>
 
-- 开启 WiFi 热点
+- Enable WiFi Hotspot
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -237,7 +237,7 @@ sudo nmcli connection up My-Hotspot
 
 </NewCodeBlock>
 
-- 删除 WiFi 热点
+- Delete WiFi Hotspot
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -249,11 +249,11 @@ sudo nmcli connection delete My-Hotspot
 
 </TabItem>
 
-<TabItem value="4G/5G 模块">
+<TabItem value="4G/5G Module">
 
-- 验证 4G/5G 模块
+- Verify 4G/5G Module
 
-可以使用 `lsusb` 命令查看 4G/5G 模块是否正常识别。
+You can use the `lsusb` command to check if the 4G/5G module is properly recognized.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -263,15 +263,15 @@ lsusb | grep -i Quectel
 
 </NewCodeBlock>
 
-若系统识别正常，终端会输出类似信息：
+If the system recognizes it correctly, the terminal will display output similar to:
 
 ```
 Bus 005 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
 
-- 检查 cdc-wdm 设备
+- Check cdc-wdm Device
 
-使用 `ls` 命令检查系统是否正常枚举出 `cdc-wdm` 设备。
+Use the `ls` command to check if the system has properly enumerated the `cdc-wdm` device.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -281,15 +281,15 @@ ls /dev/cdc-wdm*
 
 </NewCodeBlock>
 
-若识别正常，终端会输出类似信息：
+If recognized correctly, the terminal will display output similar to:
 
 ```
 /dev/cdc-wdm0
 ```
 
-- 安装软件
+- Install Required Software
 
-安装拨号上网相关软件包。
+Install the necessary packages for dial-up networking.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -299,7 +299,7 @@ sudo apt install libqmi-utils modemmanager -y
 
 </NewCodeBlock>
 
-- 检查数据端口格式
+- Check Data Port Mode
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -309,9 +309,9 @@ sudo qmicli -d /dev/cdc-wdm0 -e
 
 </NewCodeBlock>
 
-正常应该配置为 `raw-ip`，否则需要使用 `sudo qmicli -d /dev/cdc-wdm0 -E raw-ip` 命令设置，并重启板子。
+This should be set to `raw-ip`. If not, use `sudo qmicli -d /dev/cdc-wdm0 -E raw-ip` and reboot the board.
 
-- 检查数据网络接口
+- Check Data Network Interface
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -321,11 +321,11 @@ sudo qmicli -d /dev/cdc-wdm0 -w
 
 </NewCodeBlock>
 
-正常应该配置为 `wwan0`，否则需要使用 `sudo qmicli -d /dev/cdc-wdm0 -w wwan0` 命令设置，并重启板子。
+This should be set to `wwan0`. If not, use `sudo qmicli -d /dev/cdc-wdm0 -w wwan0` and reboot the board.
 
-- 创建网络接口配置
+- Create Network Interface Configuration
 
-使用 `nmcli` 命令创建网络接口配置。
+Use the `nmcli` command to create a network interface configuration.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -335,15 +335,15 @@ sudo nmcli connection add type gsm ifname cdc-wdm0
 
 </NewCodeBlock>
 
-若创建成功，终端会输出类似信息：
+If successful, the terminal will display output similar to:
 
 ```
 Connection 'gsm-cdc-wdm0' (6a044568-6947-436e-9b46-51a1f2a9b65d) successfully added.
 ```
 
-:::tip 根据运营商要求编辑网络接口配置（可选）
+:::tip Edit Network Interface Configuration (Optional)
 
-此操作为可选项，如果网络连接异常，可以参考以下操作编辑 apn、username、password 等运营商相关配置。
+This step is optional. If you experience network connection issues, you may need to edit the APN, username, password, or other carrier-specific settings.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -353,7 +353,7 @@ sudo nmcli connection edit gsm-cdc-wdm0
 
 </NewCodeBlock>
 
-终端会自动进入交互式界面，可以输入 `help` 或 `?` 查看帮助信息。
+The terminal will enter an interactive interface. Type `help` or `?` to see available commands.
 
 ```
 ===| nmcli interactive connection editor |===
@@ -373,9 +373,9 @@ nmcli> quit
 
 :::
 
-- 验证网络
+- Verify Network Connection
 
-使用 `ip a` 命令查看 `wwan0` 接口是否正常配置 IP。
+Use the `ip a` command to check if the `wwan0` interface has been assigned an IP address.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -385,20 +385,20 @@ ip a
 
 </NewCodeBlock>
 
-若连接成功，终端会输出类似信息：
+If connected successfully, the terminal will display output similar to:
 
 ```
-···
+...
 4: wwan0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
     link/none
     inet 10.10.24.33/30 brd 10.10.24.35 scope global noprefixroute wwan0
        valid_lft forever preferred_lft forever
-···
+...
 ```
 
-若接口无 IP 信息，可以使用 `sudo nmcli connection up gsm-cdc-wdm0` 命令重启网络接口。
+If the interface doesn't have an IP address, you can restart the network interface using `sudo nmcli connection up gsm-cdc-wdm0`.
 
-使用 `ping` 命令测试网络连接。
+Test the network connection using the `ping` command.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -408,7 +408,7 @@ sudo ping baidu.com -I wwan0 -c 5
 
 </NewCodeBlock>
 
-若网络正常，终端会输出类似信息：
+If the network is functioning properly, the terminal will display output similar to:
 
 ```
 PING baidu.com (220.181.7.203) from 10.10.24.33 wwan0: 56(84) bytes of data.

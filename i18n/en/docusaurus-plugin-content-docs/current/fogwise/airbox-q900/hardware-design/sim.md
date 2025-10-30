@@ -2,25 +2,25 @@
 sidebar_position: 7
 ---
 
-# Nano SIM 卡槽
+# Nano SIM Card Slot
 
-瑞莎 Fogwise® AIRbox Q900 板载 1 个 Nano SIM 卡槽，支持安装 Nano SIM 卡。
+The Radxa Fogwise® AIRbox Q900 features 1 onboard Nano SIM card slot that supports Nano SIM card installation.
 
-## 硬件连接
+## Hardware Connection
 
-实现移动网络需要安装 Nano SIM 卡和 4G/5G 模块。
+To enable mobile network connectivity, you need to install both a Nano SIM card and a 4G/5G module.
 
-说明：教程以移远 LTE EC20 为例。
+Note: This tutorial uses the Quectel LTE EC20 as an example.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-5g.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-5g.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Fogwise® AIRbox Q900 5G Module Installation" />
 </div>
 
-## 使用指南
+## Usage Guide
 
-### 验证 4G/5G 模块
+### Verify 4G/5G Module
 
-可以使用 `lsusb` 命令查看 4G/5G 模块是否正常识别。
+Use the `lsusb` command to check if the 4G/5G module is properly recognized.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -30,15 +30,15 @@ lsusb | grep -i Quectel
 
 </NewCodeBlock>
 
-若系统识别正常，终端会输出类似信息：
+If the system recognizes the module correctly, the terminal will display output similar to:
 
 ```
 Bus 005 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
 
-### 检查 cdc-wdm 设备
+### Check cdc-wdm Device
 
-使用 `ls` 命令检查系统是否正常枚举出 `cdc-wdm` 设备。
+Use the `ls` command to verify if the system has successfully enumerated the `cdc-wdm` device.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -48,15 +48,15 @@ ls /dev/cdc-wdm*
 
 </NewCodeBlock>
 
-若识别正常，终端会输出类似信息：
+If recognized correctly, the terminal will display output similar to:
 
 ```
 /dev/cdc-wdm0
 ```
 
-### 安装软件
+### Install Required Software
 
-安装拨号上网相关软件包。
+Install the necessary dial-up networking packages.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -66,7 +66,7 @@ sudo apt install libqmi-utils modemmanager -y
 
 </NewCodeBlock>
 
-### 检查数据端口格式
+### Check Data Port Format
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -76,9 +76,9 @@ sudo qmicli -d /dev/cdc-wdm0 -e
 
 </NewCodeBlock>
 
-正常应该配置为 `raw-ip`，否则需要使用 `sudo qmicli -d /dev/cdc-wdm0 -E raw-ip` 命令设置，并重启板子。
+This should be set to `raw-ip`. If not, use `sudo qmicli -d /dev/cdc-wdm0 -E raw-ip` and reboot the board.
 
-- 检查数据网络接口
+- Check Data Network Interface
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -88,11 +88,11 @@ sudo qmicli -d /dev/cdc-wdm0 -w
 
 </NewCodeBlock>
 
-正常应该配置为 `wwan0`，否则需要使用 `sudo qmicli -d /dev/cdc-wdm0 -w wwan0` 命令设置，并重启板子。
+This should be set to `wwan0`. If not, use `sudo qmicli -d /dev/cdc-wdm0 -w wwan0` and reboot the board.
 
-### 创建网络接口配置
+### Create Network Interface Configuration
 
-使用 `nmcli` 命令创建网络接口配置。
+Use the `nmcli` command to create a network interface configuration.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -102,15 +102,15 @@ sudo nmcli connection add type gsm ifname cdc-wdm0
 
 </NewCodeBlock>
 
-若创建成功，终端会输出类似信息：
+If successful, the terminal will display output similar to:
 
 ```
 Connection 'gsm-cdc-wdm0' (6a044568-6947-436e-9b46-51a1f2a9b65d) successfully added.
 ```
 
-:::tip 根据运营商要求编辑网络接口配置（可选）
+:::tip Edit Network Interface Configuration (Optional)
 
-此操作为可选项，如果网络连接异常，可以参考以下操作编辑 apn、username、password 等运营商相关配置。
+This step is optional. If you experience network connection issues, you may need to edit carrier-specific settings such as APN, username, and password.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -120,7 +120,7 @@ sudo nmcli connection edit gsm-cdc-wdm0
 
 </NewCodeBlock>
 
-终端会自动进入交互式界面，可以输入 `help` 或 `?` 查看帮助信息。
+The terminal will enter an interactive interface. Type `help` or `?` to view available commands.
 
 ```
 ===| nmcli interactive connection editor |===
@@ -140,9 +140,9 @@ nmcli> quit
 
 :::
 
-### 验证网络
+### Verify Network
 
-使用 `ip a` 命令查看 `wwan0` 接口是否正常配置 IP。
+Use the `ip a` command to check if the `wwan0` interface has been assigned an IP address.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -152,7 +152,7 @@ ip a
 
 </NewCodeBlock>
 
-若连接成功，终端会输出类似信息：
+If connected successfully, the terminal will display output similar to:
 
 ```
 ···
@@ -163,9 +163,9 @@ ip a
 ···
 ```
 
-若接口无 IP 信息，可以使用 `sudo nmcli connection up gsm-cdc-wdm0` 命令重启网络接口。
+If the interface doesn't have an IP address, you can restart the network interface with `sudo nmcli connection up gsm-cdc-wdm0`.
 
-使用 `ping` 命令测试网络连接。
+Test the network connection using the `ping` command.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -175,7 +175,7 @@ sudo ping baidu.com -I wwan0 -c 5
 
 </NewCodeBlock>
 
-若网络正常，终端会输出类似信息：
+If the network is functioning properly, the terminal will display output similar to:
 
 ```
 PING baidu.com (220.181.7.203) from 10.10.24.33 wwan0: 56(84) bytes of data.

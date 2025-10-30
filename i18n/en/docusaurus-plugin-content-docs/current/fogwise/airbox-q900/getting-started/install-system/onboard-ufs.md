@@ -2,67 +2,68 @@
 sidebar_position: 1
 ---
 
-# 安装系统到板载 UFS
+# Install System to Onboard UFS
 
-主要介绍如何将系统安装到 Fogwise® AIRbox Q900 的板载 UFS 上。
+This guide explains how to install the system onto the onboard UFS of the Fogwise® AIRbox Q900.
 
-:::info 配置说明
-Fogwise® AIRbox Q900 板载 128GB UFS。
+:::info Configuration Note
+Fogwise® AIRbox Q900 comes with 128GB onboard UFS.
 :::
 
-## 使用前提
+## Prerequisites
 
-### 进入 EDL 模式
+### Entering EDL Mode
 
-:::tip EDL 模式
+:::tip EDL Mode
 
-高通的 **EDL 模式（Emergency Download Mode，紧急下载模式）** 是一种专为高通芯片设备设计的底层救援机制，用于在设备因系统崩溃、刷机失败或硬件故障导致无法正常启动时，通过 USB 接口强制刷写固件或修复关键数据。
+**EDL Mode (Emergency Download Mode)** is a low-level recovery mechanism designed by Qualcomm for devices with Qualcomm chipsets. It is used to forcibly flash firmware or repair critical data through the USB interface when the device cannot boot normally due to system crashes, failed firmware updates, or hardware failures.
 
 :::
 
-主板上电前，按住 EDL 按键；主板上电后，松开 EDL 按键，主板会自动进入 EDL 模式。
+1. Press and hold the EDL button before powering on the board.
+2. Release the EDL button after the board is powered on, and it will automatically enter EDL mode.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-enter-edl-mode.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-enter-edl-mode.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Entering EDL Mode" />
 </div>
 
-① : 使用插针或牙签按住 EDL 按键
+① : Press and hold the EDL button using a pin or toothpick
 
-② : 使用 12V DC 电源适配器给主板供电
+② : Power the board using a 12V DC power adapter
 
-③ : 松开 EDL 按键
+③ : Release the EDL button
 
-④ : 使用双头 USB Type-A 数据线连接主板的 USB 3.1 OTG Type-A 接口和电脑的 USB Type-A 接口
+④ : Connect the board's USB 3.1 OTG Type-A port to your computer's USB Type-A port using a dual-ended USB Type-A cable
 
-### 验证 EDL 模式
+### Verifying EDL Mode
 
-主要介绍 Windows 和 Ubuntu 系统下验证 EDL 模式的方法。
+This section describes how to verify EDL mode on both Windows and Ubuntu systems.
 
 <Tabs queryString="Platform">
 
 <TabItem value="Windows">
 
-- 下载 QDL 工具
+- Download the QDL tool
 
-进入 [资源汇总下载](../../download.md) 页面下载 QDL 工具并解压（QDL 工具包括 QDL 软件和 QDL 驱动）。
+Go to the [Resource Downloads](../../download.md) page to download and extract the QDL tool (the QDL tool includes QDL software and QDL drivers).
 
-- 安装 QDL 驱动
+- Install QDL Driver
 
-打开解压后的 QDL 工具文件夹，找到 `qcserlib.inf` 文件，鼠标右击，选择 `安装` 选项。
+Open the extracted QDL tool folder, locate the `qcserlib.inf` file, right-click on it, and select the `Install` option.
 
-- 验证 EDL 模式
+- Verify EDL Mode
 
-安装驱动成功后，可以尝试插拔 USB Type-A 数据线，观察系统的设备管理器界面是否刷新以及出现 `Qualcomm HS-USB QDLoader 9008` 设备。
+After successfully installing the driver, try unplugging and replugging the USB Type-A cable, then observe if the system's Device Manager interface refreshes and shows the `Qualcomm HS-USB QDLoader 9008` device.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-edl-mode-windows.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-edl-mode-windows.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Windows Device Manager showing Qualcomm HS-USB QDLoader 9008" />
 </div>
 
 </TabItem>
 
 <TabItem value="Ubuntu">
 
-使用 `lsusb` 命令查看设备是否进入 QDL 模式。
+Use the `lsusb` command to check if the device has entered QDL mode.
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
@@ -72,7 +73,7 @@ lsusb
 
 </NewCodeBlock>
 
-若主板进入 QDL 模式，终端会输出类似以下结果：
+If the board has successfully entered QDL mode, the terminal will output something similar to:
 
 ```
 Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
@@ -82,47 +83,47 @@ Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
 </Tabs>
 
-## 安装系统
+## Installing the System
 
-主要介绍 Windows 和 Ubuntu 系统下安装系统到 Fogwise® AIRbox Q900 的板载 UFS 上的方法。
+This section describes how to install the system onto the onboard UFS of the Fogwise® AIRbox Q900 on both Windows and Ubuntu systems.
 
-### 下载文件
+### Download Files
 
-进入 [资源汇总下载](../../download.md) 页面下载启动固件和系统镜像文件。
+Go to the [Resource Downloads](../../download.md) page to download the boot firmware and system image files.
 
-### 设置环境变量
+### Set Environment Variables
 
-设置环境变量，可以简化后续的烧录操作，简化命令。
+Setting environment variables can simplify subsequent flashing operations and commands.
 
 <Tabs queryString="Platform">
 
 <TabItem value="Windows">
 
-1. 使用 `Win + R` 打开运行对话框，输入 `sysdm.cpl`，点击 `确定`。
+1. Press `Win + R` to open the Run dialog, type `sysdm.cpl`, and click `OK`.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-set-env-variable-01.webp" style={{width: '50%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-set-env-variable-01.webp" style={{width: '50%', maxWidth: '1200px'}} alt="Windows Run Dialog" />
 </div>
 
-2. 在 `System Properties` 选项窗口中，点击 `Advanced` 选项卡，点击 `Environment Variable ...` 按钮。
+2. In the `System Properties` window, click on the `Advanced` tab, then click the `Environment Variables...` button.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-set-env-variable-02.webp" style={{width: '50%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-set-env-variable-02.webp" style={{width: '50%', maxWidth: '1200px'}} alt="System Properties Window" />
 </div>
 
-3. 在 `Environment Variables` 选项窗口中，双击 `System variables` 下的 Path 变量。
+3. In the `Environment Variables` window, double-click on the `Path` variable under `System variables`.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-set-env-variable-03.webp" style={{width: '50%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-set-env-variable-03.webp" style={{width: '50%', maxWidth: '1200px'}} alt="Environment Variables Window" />
 </div>
 
-4. 在 `Edit Environment Variable` 选项窗口中，点击 `New` 按钮，输入 QDL 工具的路径，点击 `OK` 按钮。
+4. In the `Edit Environment Variable` window, click the `New` button, enter the path to the QDL tool, and click `OK`.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-set-env-variable-04.webp" style={{width: '50%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-set-env-variable-04.webp" style={{width: '50%', maxWidth: '1200px'}} alt="Edit Environment Variable Window" />
 </div>
 
-5. 完成以上操作，重新打开终端，如果输入 `qdl` 命令可以查看到版本信息，说明设置成功。
+5. After completing the above steps, reopen the terminal. If you can view the version information using the `qdl` command, the setup was successful.
 
 <NewCodeBlock tip="Windows$" type="host">
 
@@ -132,7 +133,7 @@ qdl
 
 </NewCodeBlock>
 
-终端输出示例：
+Terminal output example:
 
 ```
 Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
@@ -156,9 +157,9 @@ Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 <TabItem value="Ubuntu">
 
-1. 查看路径
+1. Check Path
 
-进入 QDL 工具的目录，使用 `realpath` 命令查看 QDL 工具的路径。
+Navigate to the QDL tool directory and use the `realpath` command to view the QDL tool's path.
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
@@ -168,15 +169,15 @@ realpath qdl
 
 </NewCodeBlock>
 
-终端输出示例：
+Terminal output example:
 
 ```
 /home/user_name/download/QDL_2.3.9.2_Linux_x64/qdl
 ```
 
-2. 可执行权限
+2. Executable Permissions
 
-使用 `chmod` 命令为 QDL 工具添加可执行权限。
+Use the `chmod` command to add execute permissions to the QDL tool.
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
@@ -186,7 +187,7 @@ sudo chmod 777 qdl
 
 </NewCodeBlock>
 
-3. 创建软链接
+3. Create Symbolic Link
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
@@ -196,9 +197,9 @@ sudo ln -s /home/user_name/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
 
 </NewCodeBlock>
 
-4. 验证
+4. Verification
 
-在任意位置打开终端，如果可以使用 `qdl` 命令查看到版本信息，说明设置成功。
+Open a terminal in any location, and if you can view the version information using the `qdl` command, it means the setup was successful.
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
@@ -208,7 +209,7 @@ qdl
 
 </NewCodeBlock>
 
-终端输出示例：
+Terminal output example:
 
 ```
 Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
@@ -232,9 +233,9 @@ Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 </Tabs>
 
-### 配置 UFS
+### Configure UFS
 
-进入 `provision` 文件夹下，打开终端，使用以下命令配置 UFS。
+Navigate to the `provision` folder, open a terminal, and use the following command to configure UFS.
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -244,7 +245,7 @@ qdl --storage ufs prog_firehose_ddr.elf provision_1_2.xml
 
 </NewCodeBlock>
 
-终端输出示例：
+Terminal output example:
 
 ```
 Waiting for EDL device
@@ -252,9 +253,9 @@ waiting for programmer...
 UFS provisioning succeeded
 ```
 
-### 烧录 SAIL
+### Flash SAIL
 
-进入 `fw702-ubuntu-noble-gnome-xxx\sail_no` 文件夹下，打开终端，使用以下命令烧录 SAIL。
+Navigate to the `fw702-ubuntu-noble-gnome-xxx\sail_no` folder, open a terminal, and use the following command to flash SAIL.
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -274,9 +275,9 @@ flashed "BackupGPT" successfully
 11 patches applied
 ```
 
-### 烧录 CDT
+### Flash CDT
 
-进入 `fw702-ubuntu-noble-gnome-xxx` 文件夹下，打开终端，使用以下命令烧录 CDT。
+Navigate to the `fw702-ubuntu-noble-gnome-xxx` folder, open a terminal, and use the following command to flash CDT.
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -286,7 +287,7 @@ qdl prog_firehose_ddr.elf rawprogram3.xml patch3.xml
 
 </NewCodeBlock>
 
-终端输出示例：
+Terminal output example:
 
 ```
 Waiting for EDL device
@@ -296,9 +297,9 @@ flashed "BackupGPT" successfully
 13 patches applied
 ```
 
-### 烧录系统镜像
+### Flash System Image
 
-进入 `fw702-ubuntu-noble-gnome-xxx` 文件夹下，打开终端，使用以下命令烧录系统镜像。
+Navigate to the `fw702-ubuntu-noble-gnome-xxx` folder, open a terminal, and use the following command to flash the system image.
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -308,7 +309,7 @@ qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 </NewCodeBlock>
 
-终端输出示例：
+Terminal output example:
 
 ```
 Waiting for EDL device
@@ -364,6 +365,6 @@ flashed "BackupGPT" successfully
 partition 1 is now bootable
 ```
 
-## 使用系统
+## Using the System
 
-完成以上操作，可以按照 [快速上手](../quickly-start.md) 教程使用 Fogwise® AIRbox Q900。
+After completing the above operations, you can use the Fogwise® AIRbox Q900 by following the [Quick Start](../quickly-start.md) guide.

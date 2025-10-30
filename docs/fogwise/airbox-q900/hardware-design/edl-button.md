@@ -73,11 +73,3 @@ Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 </TabItem>
 
 </Tabs>
-
-## 接口规格
-
-:::note 技术参考
-
-完整的技术规格和引脚定义可参考 [下载专区](../download.md#硬件设计) 的硬件设计文档!
-
-:::
