@@ -2,11 +2,15 @@
 
 这里将介绍如何在 CasaOS 上安装 radxa AI 应用, CasaOS 中的第三方 App 以 docker image 的形式进行安装，
 上传到 CasaOS App store [可参考这里](https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main)，
-radxa 目前已将 `Real-ESRGAN 图像修复` App 上传至 [docker hub](https://hub.docker.com/u/radxazifeng278)，
+radxa 目前已将 `Real-ESRGAN 图像修复`、`StableDiffusion`、 `Genie` App 上传至 [docker hub](https://hub.docker.com/u/radxazifeng278)，并支持二次开发。
 
-| App                     | Docker 镜像                                                                                                                | 容器端口 | 支持 SoC | 用途     |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- |
-| Real-ESRGAN AI 图像修复 | [radxazifeng278/qairt-imagerepair:v1.0](https://hub.docker.com/repository/docker/radxazifeng278/qairt-imagerepair/general) | 8977     | QCS6490  | 图像修复 |
+| App                     | Docker 镜像                                                                                                                          | 容器端口 | 支持 SoC | 用途     |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- | -------- |
+| Real-ESRGAN AI 图像修复 | [radxazifeng278/qairt-imagerepair:v1.0](https://hub.docker.com/repository/docker/radxazifeng278/qairt-imagerepair/general)           | 8977     | QCS6490  | 图像修复 |
+| Real-ESRGAN AI 图像修复 | [radxazifeng278/qairt-imagerepair-9075:v1.1](https://hub.docker.com/repository/docker/radxazifeng278/qairt-imagerepair-9075/general) | 8977     | QCS9075  | 图像修复 |
+| StableDiffusion v1.5    | [radxazifeng278/sd1.5-9075:v1.1](https://hub.docker.com/repository/docker/radxazifeng278/sd1.5-9075/general)                         | 8978     | QCS9075  | 文生图   |
+| StableDiffusion v2.1    | [radxazifeng278/sd2.1-9075:v1.1](https://hub.docker.com/repository/docker/radxazifeng278/sd2.1-9075/general)                         | 8979     | QCS9075  | 文生图   |
+| Genie APP               | [radxazifeng278/genie-app-9075:v1.1](https://hub.docker.com/repository/docker/radxazifeng278/genie-app-9075/general)                 | 8976     | QCS9075  | LLM Chat |
 
 - 点击 CasaOS App 栏的 "+" 标志，选择 Install a customized app
 
@@ -18,13 +22,13 @@ radxa 目前已将 `Real-ESRGAN 图像修复` App 上传至 [docker hub](https:/
     CasaOS APP 安装设置图
   </div>
 
-### 安装 Real-ESRGAN 图像修复 App
+### 安装 Real-ESRGAN 图像修复 App （QCS6490）
 
 :::info
 Real-ESRGAN AI 图像修复 APP， 可最高将图像超分辨率到 2048x2048，并修复图像细节。
 :::
 
-- 填入 radxa Real-ESRGAN 容器安装所需信息
+- 填入 radxa Real-ESRGAN(QCS6490) 容器安装所需信息
 
   <div style={{ textAlign: "center" }}>
     <img src="/img/dragon/q6a/casaos-qairt_1.webp" style={{ width: "60%" }} />
@@ -77,11 +81,115 @@ Real-ESRGAN AI 图像修复 APP， 可最高将图像超分辨率到 2048x2048�
   | **Container Port**    | 8977                                  |
   | **Host Devices**      | /dev                                  |
   | **Container Devices** | /dev                                  |
+  | **Privileges**        | On                                    |
+  | **Memory Limit**      | Max                                   |
   | **CPU Shares**        | Medium                                |
 
   <div style={{ textAlign: "center" }}>
     <img src="/img/dragon/q6a/casaos-qairt_2.webp" style={{ width: "100%" }} />
     Real-ESRGAN AI 图像修复 APP 界面
+  </div>
+
+### 安装 Real-ESRGAN 图像修复 App (QCS9075)
+
+- 填入 radxa Real-ESRGAN (QCS9075) 容器安装所需信息
+
+  |                       | radxa Chatdoc                              |
+  | --------------------- | ------------------------------------------ |
+  | **Docker Image**      | radxazifeng278/qairt-imagerepair-9075:v1.1 |
+  | **Title**             | Image Repair                               |
+  | **Web UI port**       | 9001                                       |
+  | **Host Port**         | 9001                                       |
+  | **Container Port**    | 8977                                       |
+  | **Host Devices**      | /dev                                       |
+  | **Container Devices** | /dev                                       |
+  | **Privileges**        | On                                         |
+  | **Memory Limit**      | Max                                        |
+  | **CPU Shares**        | Medium                                     |
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/fogwise/airbox-q900/casaos-re-9075.webp"
+      style={{ width: "100%" }}
+    />
+    Real-ESRGAN AI 图像修复 APP 界面
+  </div>
+
+### 安装 StableDiffusion v1.5 文生图 App (QCS9075)
+
+- 填入 radxa StableDiffusion v1.5 (QCS9075) 容器安装所需信息
+
+  |                       | radxa StableDiffusion v1.5     |
+  | --------------------- | ------------------------------ |
+  | **Docker Image**      | radxazifeng278/sd1.5-9075:v1.1 |
+  | **Title**             | StableDiffusion v1.5           |
+  | **Web UI port**       | 9002                           |
+  | **Host Port**         | 9002                           |
+  | **Container Port**    | 8978                           |
+  | **Host Devices**      | /dev                           |
+  | **Container Devices** | /dev                           |
+  | **Privileges**        | On                             |
+  | **Memory Limit**      | Max                            |
+  | **CPU Shares**        | Medium                         |
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/fogwise/airbox-q900/casaos-sd1_5.webp"
+      style={{ width: "100%" }}
+    />
+    StableDiffusion v1.5 文生图 APP 界面
+  </div>
+
+### 安装 StableDiffusion v2.1 文生图 App (QCS9075)
+
+- 填入 radxa StableDiffusion v2.1 (QCS9075) 容器安装所需信息
+
+  |                       | radxa StableDiffusion v2.1     |
+  | --------------------- | ------------------------------ |
+  | **Docker Image**      | radxazifeng278/sd2.1-9075:v1.1 |
+  | **Title**             | StableDiffusion v2.1           |
+  | **Web UI port**       | 9003                           |
+  | **Host Port**         | 9003                           |
+  | **Container Port**    | 8979                           |
+  | **Host Devices**      | /dev                           |
+  | **Container Devices** | /dev                           |
+  | **Privileges**        | On                             |
+  | **Memory Limit**      | Max                            |
+  | **CPU Shares**        | Medium                         |
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/fogwise/airbox-q900/casaos-sd2_1.webp"
+      style={{ width: "100%" }}
+    />
+    StableDiffusion v2.1 文生图 APP 界面
+  </div>
+
+### 安装 Genie App (QCS9075)
+
+Genie APP 是集合 IBM Granite v3.1 8B 与 StableDiffusion v2.1 的多功能 LLM chat 软件，可用于 LLM 问答，AI 翻译，AI 文档总结，文生图等功能
+
+- 填入 radxa StableDiffusion v2.1 (QCS9075) 容器安装所需信息
+
+  |                       | radxa genie-app                    |
+  | --------------------- | ---------------------------------- |
+  | **Docker Image**      | radxazifeng278/genie-app-9075:v1.1 |
+  | **Title**             | Genie-APP                          |
+  | **Web UI port**       | 9004                               |
+  | **Host Port**         | 9004                               |
+  | **Container Port**    | 8976                               |
+  | **Host Devices**      | /dev                               |
+  | **Container Devices** | /dev                               |
+  | **Privileges**        | On                                 |
+  | **Memory Limit**      | Max                                |
+  | **CPU Shares**        | Medium                             |
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/fogwise/airbox-q900/casaos-genie.webp"
+      style={{ width: "100%" }}
+    />
+    Genie APP 界面
   </div>
 
 ### App 启动与卸载

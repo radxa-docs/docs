@@ -185,41 +185,80 @@ qairt-quantizer --input_dlc ./resnet50.dlc --input_list ./calib_list.txt  --outp
 | SoC     | dsp_arch | soc_id |
 | ------- | -------- | ------ |
 | QCS6490 | v68      | 35     |
-
-{/* | QCS9075 | v73      | 77     | */}
-
-{/* ## TODO */}
+| QCS9075 | v73      | 77     |
 
 - config_backend.json
 
-  请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 QCS6490 SoC 为例子
+      <Tabs>
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+  <TabItem value="QCS6490">
 
-  ```bash
-  vim config_backend.json
-  ```
+          请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 QCS6490 SoC 为例子
 
-  </NewCodeBlock>
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  ```vim
-  {
-      "graphs": [
+          ```bash
+          vim config_backend.json
+          ```
+
+          </NewCodeBlock>
+
+          ```vim
           {
-              "graph_names": [
-                  "resnet50"
+              "graphs": [
+                  {
+                      "graph_names": [
+                          "resnet50"
+                      ],
+                      "vtcm_mb": 0
+                  }
               ],
-              "vtcm_mb": 0
+              "devices": [
+                  {
+                      "dsp_arch": "v68",
+                      "soc_id": 35
+                  }
+              ]
           }
-      ],
-      "devices": [
+          ```
+
+
+          </TabItem>
+
+          <TabItem value="QCS9075">
+
+          请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 QCS9075 SoC 为例子
+
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+          ```bash
+          vim config_backend.json
+          ```
+
+          </NewCodeBlock>
+
+          ```vim
           {
-              "dsp_arch": "v68",
-              "soc_id": 35
+              "graphs": [
+                  {
+                      "graph_names": [
+                          "resnet50"
+                      ],
+                      "vtcm_mb": 0
+                  }
+              ],
+              "devices": [
+                  {
+                      "dsp_arch": "v73",
+                      "soc_id": 77
+                  }
+              ]
           }
-      ]
-  }
-  ```
+          ```
+
+      </TabItem>
+
+      </Tabs>
 
   这里指定 4 个参数
 
@@ -305,12 +344,36 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 
 ### 拷贝所需文件到板端
 
+    <Tabs>
+        <TabItem value="QCS6490">
+
+        <NewCodeBlock tip="X86 Linux PC" type="PC">
+        ```bash
+        export PRODUCT_SOC=6490 DSP_ARCH=68
+        ```
+        </NewCodeBlock>
+
+
+        </TabItem>
+
+        <TabItem value="QCS9075">
+
+        <NewCodeBlock tip="X86 Linux PC" type="PC">
+        ```bash
+        export PRODUCT_SOC=9075 DSP_ARCH=73
+        ```
+        </NewCodeBlock>
+
+    </TabItem>
+
+    </Tabs>
+
 - 拷贝 Context-Binary 模型到板端
 
     <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
-  scp resnet50_quantized.bin ubuntu@<ip address>:/home/ubuntu/resnet50_qairt_example/model
+  scp resnet50_quantized.bin <user>@<ip address>:/home/<user>/resnet50_qairt_example/model
   ```
 
     </NewCodeBlock>
@@ -320,8 +383,8 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
     <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
-  cd qairt/2.37.1.250807/bin/aarch64-ubuntu-gcc9.4
-  scp qnn-net-run ubuntu@<ip address>:/home/ubuntu/resnet50_qairt_example/model
+  cd qairt/2.37.1.250807/bin/aarch64-oe-linux-gcc11.2
+  scp qnn-net-run <user>@<ip address>:/home/<user>/resnet50_qairt_example/model
   ```
 
     </NewCodeBlock>
@@ -331,8 +394,8 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
     <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
-  cd qairt/2.37.1.250807/lib/aarch64-ubuntu-gcc9.4
-  scp libQnnHtp* ubuntu@<ip address>:/home/ubuntu/resnet50_qairt_example/model
+  cd qairt/2.37.1.250807/lib/aarch64-oe-linux-gcc11.2
+  scp libQnnHtp.so libQnnHtpV${DSP_ARCH}Stub.so <user>@<ip address>:/home/<user>/resnet50_qairt_example/model
   ```
 
     </NewCodeBlock>
@@ -344,8 +407,8 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
     <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
-  cd qairt/2.37.1.250807/lib/hexagon-v68/unsigned
-  scp ./*  ubuntu@192.168.2.118:/home/ubuntu/resnet50_qairt_example/model
+  cd qairt/2.37.1.250807/lib/hexagon-v${DSP_ARCH}/unsigned
+  scp ./libQnnHtpV${DSP_ARCH}Skel.so  <user>@<ip address>:/home/<user>/resnet50_qairt_example/model
   ```
 
     </NewCodeBlock>

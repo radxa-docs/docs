@@ -31,13 +31,37 @@ qai-hub configure --api_token API_TOKEN
 
 ### QAI HUB MODELS 模型编译示例
 
-这里以编译 [RealESRGAN_x4plus](https://github.com/xinntao/Real-ESRGAN) 为可以在 QCS6490 SoC 上使用 NPU 进行推理的输入大小为 128x128 w8a8 量化 的 Context-Binary 模型格式为例子,
+这里以编译 [RealESRGAN_x4plus](https://github.com/xinntao/Real-ESRGAN) 为可以使用 NPU 进行推理的输入大小为 128x128 w8a8 量化 的 Context-Binary 模型格式为例子,
 简单介绍使用 Qualcomm® AI Hub Models 进行模型编译的使用方法。
+
+<Tabs>
+    <TabItem value="QCS6490">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_CHIP=qualcomm-qcs6490-proxy
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_CHIP=qualcomm-qcs9075-proxy
+    ```
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-python3 -m qai_hub_models.models.real_esrgan_x4plus.export --chipset "qualcomm-qcs6490-proxy" --target-runtime qnn_context_binary  --height 128 --width 128 --quantize w8a8 --num-calibration-samples 10
+python3 -m qai_hub_models.models.real_esrgan_x4plus.export --chipset ${PRODUCT_CHIP} --target-runtime qnn_context_binary  --height 128 --width 128 --quantize w8a8 --num-calibration-samples 10
 ```
 
 </NewCodeBlock>
@@ -144,7 +168,7 @@ python /mnt/sda1/qualcomm/qai-hub/.venv/lib/python3.10/site-packages/qai_hub_mod
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-python3 -m qai_hub_models.models.real_esrgan_x4plus.demo --eval-mode on-device --hub-model-id mm63gld2m --chipset qualcomm-qcs6490-proxy
+python3 -m qai_hub_models.models.real_esrgan_x4plus.demo --eval-mode on-device --hub-model-id mm63gld2m --chipset ${PRODUCT_CHIP}
 ```
 
 </NewCodeBlock>

@@ -14,34 +14,39 @@ modelscope download --model radxa/resnet50_qairt --local ./resnet50_qairt
 
 ## 运行示例
 
-请根据 SoC 平台选择对应文件夹
+请根据 SoC 导入环境变量
 
 <Tabs>
     <TabItem value="QCS6490">
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
-    cd resnet50_qairt/6490
-    ./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_6490.bin --input_list ./test_list.txt --output_dir output_bin
+    export PRODUCT_SOC=6490
     ```
     </NewCodeBlock>
 
     </TabItem>
 
-{/* <TabItem value="QCS9075"> */}
+    <TabItem value="QCS9075">
 
-{/* <NewCodeBlock tip="Device" type="device"> */}
-{/* ```bash */}
-{/* cd resnet50_qairt/9075 */}
-{/* ./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_9075.bin --input_list ./test_list.txt --output_dir output_bin */}
-{/* ``` */}
-{/* </NewCodeBlock> */}
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=9075
+    ```
+    </NewCodeBlock>
 
-{/* </TabItem> */}
+</TabItem>
 
 </Tabs>
 
-{/* ## TODO */}
+执行模型推理
+
+<NewCodeBlock tip="Device" type="device">
+  ```bash cd resnet50_qairt/$PRODUCT_SOC chmod +x qnn-net-run ./qnn-net-run
+  --backend ./libQnnHtp.so --retrieve_context
+  ./resnet50_aimet_quantized_$PRODUCT_SOC.bin --input_list ./test_list.txt
+  --output_dir output_bin ```
+</NewCodeBlock>
 
 ## 验证示例
 
@@ -50,19 +55,19 @@ modelscope download --model radxa/resnet50_qairt --local ./resnet50_qairt
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd scripts
-python3 show_resnet50_classifications.py --input_list ../model/test_list.txt -o ../model/output_bin/ --labels_file ../data/imagenet_classes.txt
+cd ../scripts
+python3 show_resnet50_classifications.py --input_list ../$PRODUCT_SOC/test_list.txt -o ../$PRODUCT_SOC/output_bin/ --labels_file ../data/imagenet_classes.txt
 ```
 
 </NewCodeBlock>
 
 ```bash
-$ python3 show_resnet50_classifications.py --input_list ../model/test_list.txt -o ../model/output_bin/ --labels_file ../data/imagenet_classes.txt
+$ python3 show_resnet50_classifications.py --input_list ../$PRODUCT_SOC/test_list.txt -o ../$PRODUCT_SOC/output_bin/ --labels_file ../data/imagenet_classes.txt
 Classification results
-../data/test/crop/ILSVRC2012_val_00003441.raw 21.740574 402 acoustic guitar
-../data/test/crop/ILSVRC2012_val_00008465.raw 23.423716 927 trifle
-../data/test/crop/ILSVRC2012_val_00010218.raw 12.623559 281 tabby
-../data/test/crop/ILSVRC2012_val_00044076.raw 18.093769 376 proboscis monkey
+../data/test/crop/ILSVRC2012_val_00003441.raw 21.476509 402 acoustic guitar
+../data/test/crop/ILSVRC2012_val_00008465.raw 22.651005 927 trifle
+../data/test/crop/ILSVRC2012_val_00010218.raw 12.248322 281 tabby
+../data/test/crop/ILSVRC2012_val_00044076.raw 18.456375 376 proboscis monkey
 ```
 
 通过结果打印与测试图片类容对比，可以确认 resnet50 模型移植到 Qualcomm® NPU 上输出的结果正确。
