@@ -171,7 +171,7 @@ realpath qdl
 终端输出示例：
 
 ```
-/home/milir/download/QDL_2.3.9.2_Linux_x64/qdl
+/home/user_name/download/QDL_2.3.9.2_Linux_x64/qdl
 ```
 
 2. 可执行权限
@@ -191,7 +191,7 @@ sudo chmod 777 qdl
 <NewCodeBlock tip="Ubuntu$" type="host">
 
 ```
-sudo ln -s /home/milir/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
+sudo ln -s /home/user_name/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
 ```
 
 </NewCodeBlock>
@@ -254,7 +254,7 @@ UFS provisioning succeeded
 
 ### 烧录 SAIL
 
-进入 `fw702-ubuntu-noble-gnome-20250930\sail_no` 文件夹下，打开终端，使用以下命令烧录 SAIL。
+进入 `fw702-ubuntu-noble-gnome-xxx\sail_no` 文件夹下，打开终端，使用以下命令烧录 SAIL。
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -276,7 +276,7 @@ flashed "BackupGPT" successfully
 
 ### 烧录 CDT
 
-进入 `fw702-ubuntu-noble-gnome-20250930` 文件夹下，打开终端，使用以下命令烧录 CDT。
+进入 `fw702-ubuntu-noble-gnome-xxx` 文件夹下，打开终端，使用以下命令烧录 CDT。
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -298,7 +298,7 @@ flashed "BackupGPT" successfully
 
 ### 烧录系统镜像
 
-进入 `fw702-ubuntu-noble-gnome-20250930` 文件夹下，打开终端，使用以下命令烧录系统镜像。
+进入 `fw702-ubuntu-noble-gnome-xxx` 文件夹下，打开终端，使用以下命令烧录系统镜像。
 
 <NewCodeBlock tip="PC$" type="host">
 

@@ -1,0 +1,130 @@
+:::tip
+安装 CasaOS 需要提前安装好 Docker。
+:::
+
+## CasaOS 特点
+
+CasaOS 是一款专为家庭用户设计的轻量级云操作系统，具有简单易用、安全可靠、扩展性强等特点。
+
+- 简单易用
+
+CasaOS 采用直观的 Web 界面设计，通过简单的拖拽操作，即可实现文件和照片的上传、下载以及备份，无需复杂配置，即使是非技术用户也能轻松上手。
+
+- 安全可靠
+
+在数据传输和存储方面采用了多种加密和保护措施，确保用户数据的安全。同时，它还支持快照功能，可在出现意外情况时迅速恢复到之前的状态，自主掌握数据，避免数据泄露风险。
+
+- 扩展性强
+
+支持各种常见的存储设备和服务，如 USB 闪存盘、SD 卡、硬盘等，同时也支持各种云存储服务，用户可以根据自己的需求灵活扩展存储空间。
+
+- 应用生态丰富
+
+内置应用商店，提供 Nextcloud、HomeAssistant、AdGuard 等精选应用，支持一键安装 Docker 容器应用，可轻松安装和管理应用，覆盖媒体管理、智能家居、网络优化等场景，满足用户多样化的需求。
+
+- 高度自定义
+
+用户可以根据自己的喜好定制桌面主题，甚至可以通过 API 接口开发个性化插件，打造符合自己需求的智能家居管理系统。
+
+## 安装 CasaOS
+
+终端输入以下命令安装 CasaOS：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+curl -fsSL https://get.casaos.io | sudo bash
+```
+
+</NewCodeBlock>
+
+```
+   _____                 ____   _____
+  / ____|               / __ \ / ____|
+ | |     __ _ ___  __ _| |  | | (___
+ | |    / _` / __|/ _` | |  | |\___ \
+ | |___| (_| \__ \ (_| | |__| |____) |
+  \_____\__,_|___/\__,_|\____/|_____/
+
+   --- Made by IceWhale with YOU ---
+
+[  OK  ] Your hardware architecture is : aarch64
+[  OK  ] Your System is : Linux
+[  OK  ] Your Linux Distribution is : ubuntu
+[  OK  ] Memory capacity check passed.
+[  OK  ] Disk capacity check passed.
+[ INFO ] Updating package manager...
+[  OK  ] Update package manager complete.
+[ INFO ] Install the necessary dependencies: smartmontools
+···
+[  OK  ] rclone.service is running.
+[ INFO ] Checking casaos.service...
+[  OK  ] casaos.service is running.
+ ─────────────────────────────────────────────────────
+ CasaOS v0.4.15 is running at:
+ ─────────────────────────────────────────────────────
+ - http://192.168.xx.xx
+ Open your browser and visit the above address.
+ ─────────────────────────────────────────────────────
+
+ CasaOS Project  : https://github.com/IceWhaleTech/CasaOS
+ CasaOS Team     : https://github.com/IceWhaleTech/CasaOS#maintainers
+ CasaOS Discord  : https://discord.gg/knqAbbBbeX
+ Website         : https://www.casaos.io
+ Online Demo     : http://demo.casaos.io
+
+ Uninstall       : casaos-uninstall
+```
+
+## 访问 CasaOS
+
+打开浏览器，访问主板系统的 IP 地址，即可访问 CasaOS。
+
+首次使用需要注册账号，注册成功后才可进入 CasaOS 界面。
+
+- 欢迎界面
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/application-dev/casaos-welcome.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+- 创建账号
+
+填写用户名和密码，然后点击 `创建` 选项。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/application-dev/casaos-create.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/application-dev/casaos-create-success.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+- CasaOS 界面
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/application-dev/casaos-home.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 卸载 CasaOS
+
+终端输入以下命令卸载 CasaOS：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+casaos-uninstall
+```
+
+</NewCodeBlock>
