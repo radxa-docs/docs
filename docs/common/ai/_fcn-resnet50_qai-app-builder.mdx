@@ -1,11 +1,11 @@
-此文档讲述使用 [QAI AppBuilder](../qai-appbuilder) Python API 利用 Qualcomm® Hexagon™ Processor (NPU) 推理 [Beit](https://aihub.qualcomm.com/models/beit)
-目标识别模型。
+此文档讲述使用 [QAI AppBuilder](../qai-appbuilder) Python API 利用 Qualcomm® Hexagon™ Processor (NPU) 推理 [FCN-ResNet50](https://aihub.qualcomm.com/compute/models/fcn_resnet50)
+图像分割模型。
 
 **示例支持设备**
 
-| 设备                  | SoC     |
-| --------------------- | ------- |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| 设备       | SoC     |
+| ---------- | ------- |
+| Dragon Q6A | QCS6490 |
 
 ## 安装 QAI AppBuilder
 
@@ -34,13 +34,13 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
     <Tabs>
 
-        <TabItem value="QCS9075">
+        <TabItem value="QCS6490">
 
        <NewCodeBlock tip="Device" type="device">
 
-        ```bash
-        cd ai-engine-direct-helper/samples/python
-        ```
+         ```bash
+         cd ai-engine-direct-helper/samples/linux/python
+         ```
 
         </NewCodeBlock>
 
@@ -50,28 +50,30 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
 - 准备输入图片，这里以以下图片为输入示例
 
-  {" "}
-
   <div style={{ textAlign: "center" }}>
-    <img src="/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
+    <img
+      src="/img/dragon/q6a/fcn_resnet50_input.webp"
+      style={{ width: "50%" }}
+    />
     input image
   </div>
 
 - 执行推理
 
-    <NewCodeBlock tip="Device" type="device">
+  <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 beit/beit.py
+  python3 fcn_resnet50/fcn_resnet50.py --image ./input.jpg
   ```
 
-    </NewCodeBlock>
+  </NewCodeBlock>
 
   ```bash
-  $ python3 beit/beit.py
+  $ python3 fcn_resnet50/fcn_resnet50.py --image ./input.jpg
+  Current file directory: /mnt/ssd/git_clone/ai-engine-direct-helper/samples/linux/python/fcn_resnet50
        0.0ms [WARNING]  <W> Initializing HtpProvider
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
@@ -80,7 +82,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-     179.0ms [WARNING] Time: Read model file to memory. 60.05
+     127.2ms [WARNING] Time: Read model file to memory. 12.72
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
@@ -96,21 +98,14 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-     284.7ms [WARNING] Time: contextCreateFromBinary. 105.62
+     185.9ms [WARNING] Time: contextCreateFromBinary. 58.58
 
-     284.8ms [WARNING] Time: UnmapViewOfFile. 0.00
+     186.0ms [WARNING] Time: UnmapViewOfFile. 0.00
 
-     288.1ms [WARNING] Time: model_initialize beit 288.01
+     187.1ms [WARNING] Time: model_initialize fcn_resnet50 187.09
 
-     365.3ms [WARNING] Time: model_inference beit 17.72
+     385.4ms [WARNING] Time: model_inference fcn_resnet50 112.79
 
-  Top 5 predictions for image:
-
-  "Samoyed", 0.6322221756
-  "Pomeranian", 0.1098636836
-  "Keeshond", 0.0410530604
-  "Japanese Chin", 0.0093044275
-  "Chow Chow", 0.0058453484
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
@@ -119,8 +114,16 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     483.8ms [WARNING] Time: model_destroy beit 113.14
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+     463.2ms [WARNING] Time: model_destroy fcn_resnet50 10.20
   ```
 
-  打印结果可以看到 `Samoyed` 置信度最高，这与输入图片内容吻合。
+- 输出结果
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/dragon/q6a/fcn_resnet50_output.webp"
+      style={{ width: "50%" }}
+    />
+    output image
+  </div>
