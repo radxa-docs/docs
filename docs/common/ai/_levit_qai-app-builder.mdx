@@ -1,11 +1,11 @@
-此文档讲述使用 [QAI AppBuilder](../qai-appbuilder) Python API 利用 Qualcomm® Hexagon™ Processor (NPU) 推理 [Beit](https://aihub.qualcomm.com/models/beit)
+此文档讲述使用 [QAI AppBuilder](../qai-appbuilder) Python API 利用 Qualcomm® Hexagon™ Processor (NPU) 推理 [EfficientNet-V2-s](https://aihub.qualcomm.com/models/efficientnet_v2_s)
 目标识别模型。
 
 **示例支持设备**
 
-| 设备                  | SoC     |
-| --------------------- | ------- |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| 设备       | SoC     |
+| ---------- | ------- |
+| Dragon Q6A | QCS6490 |
 
 ## 安装 QAI AppBuilder
 
@@ -34,13 +34,13 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
     <Tabs>
 
-        <TabItem value="QCS9075">
+        <TabItem value="QCS6490">
 
        <NewCodeBlock tip="Device" type="device">
 
-        ```bash
-        cd ai-engine-direct-helper/samples/python
-        ```
+         ```bash
+         cd ai-engine-direct-helper/samples/linux/python
+         ```
 
         </NewCodeBlock>
 
@@ -62,16 +62,17 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
     <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 beit/beit.py
+  python3 levit/levit.py
   ```
 
     </NewCodeBlock>
 
   ```bash
-  $ python3 beit/beit.py
+  $ python3 levit/levit.py
+  Current file directory: /mnt/ssd/qualcomm/701/zzf_fork/ai-engine-direct-helper/samples/linux/python/levit
        0.0ms [WARNING]  <W> Initializing HtpProvider
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
@@ -80,7 +81,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-     179.0ms [WARNING] Time: Read model file to memory. 60.05
+     120.8ms [WARNING] Time: Read model file to memory. 4.10
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
@@ -96,21 +97,21 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-     284.7ms [WARNING] Time: contextCreateFromBinary. 105.62
+     147.6ms [WARNING] Time: contextCreateFromBinary. 26.69
 
-     284.8ms [WARNING] Time: UnmapViewOfFile. 0.00
+     147.6ms [WARNING] Time: UnmapViewOfFile. 0.00
 
-     288.1ms [WARNING] Time: model_initialize beit 288.01
+     148.5ms [WARNING] Time: model_initialize levit 148.48
 
-     365.3ms [WARNING] Time: model_inference beit 17.72
+     226.3ms [WARNING] Time: model_inference levit 5.23
 
   Top 5 predictions for image:
 
-  "Samoyed", 0.6322221756
-  "Pomeranian", 0.1098636836
-  "Keeshond", 0.0410530604
-  "Japanese Chin", 0.0093044275
-  "Chow Chow", 0.0058453484
+  Samoyed 0.6532489061
+  Pomeranian 0.0412057079
+  acorn 0.013004588
+  wallaby 0.007310994
+  keeshond 0.0034880731
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
@@ -119,8 +120,8 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     483.8ms [WARNING] Time: model_destroy beit 113.14
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+     239.0ms [WARNING] Time: model_destroy levit 10.01
   ```
 
   打印结果可以看到 `Samoyed` 置信度最高，这与输入图片内容吻合。

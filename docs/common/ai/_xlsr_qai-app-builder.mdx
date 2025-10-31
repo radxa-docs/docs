@@ -1,12 +1,11 @@
-此文档讲述使用 [QAI AppBuilder](../qai-appbuilder) Python API 利用 Qualcomm® Hexagon™ Processor (NPU) 推理 [QuickSRNetMedium](https://aihub.qualcomm.com/models/quicksrnetmedium)
+此文档讲述使用 [QAI AppBuilder](../qai-appbuilder) Python API 利用 Qualcomm® Hexagon™ Processor (NPU) 推理 [XLSR](https://aihub.qualcomm.com/models/xlsr)
 图像超分模型。
 
 **示例支持设备**
 
-| 设备                  | SoC     |
-| --------------------- | ------- |
-| Dragon Q6A            | QCS6490 |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| 设备       | SoC     |
+| ---------- | ------- |
+| Dragon Q6A | QCS6490 |
 
 ## 安装 QAI AppBuilder
 
@@ -33,34 +32,21 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matp
 
 - 进入示例目录
 
-      <Tabs>
+    <Tabs>
 
-  <TabItem value="QCS6490">
+        <TabItem value="QCS6490">
 
-         <NewCodeBlock tip="Device" type="device">
+       <NewCodeBlock tip="Device" type="device">
 
          ```bash
          cd ai-engine-direct-helper/samples/linux/python
          ```
 
-          </NewCodeBlock>
+        </NewCodeBlock>
 
+    </TabItem>
 
-          </TabItem>
-
-          <TabItem value="QCS9075">
-
-         <NewCodeBlock tip="Device" type="device">
-
-          ```bash
-          cd ai-engine-direct-helper/samples/python
-          ```
-
-          </NewCodeBlock>
-
-      </TabItem>
-
-      </Tabs>
+    </Tabs>
 
 - 准备输入图片，这里以以下图片为输入示例
 
@@ -79,15 +65,14 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matp
     <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 quicksrnetmedium/quicksrnetmedium.py
+  python3 xlsr/xlsr.py
   ```
 
     </NewCodeBlock>
 
   ```bash
-    $ python3 quicksrnetmedium/quicksrnetmedium.py
-    Current file directory: /mnt/ssd/qualcomm/701/zzf_fork/ai-engine-direct-helper/samples/linux/python/quicksrnetmedium
-    Init
+    $ python3 xlsr/xlsr.py
+    Current file directory: /mnt/ssd/qualcomm/701/zzf_fork/ai-engine-direct-helper/samples/linux/python/xlsr
          0.0ms [WARNING]  <W> Initializing HtpProvider
 
     /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
@@ -99,7 +84,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matp
 
          0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-       112.4ms [WARNING] Time: Read model file to memory. 0.12
+       113.4ms [WARNING] Time: Read model file to memory. 0.41
 
          0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
@@ -115,13 +100,13 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matp
 
          0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-       118.0ms [WARNING] Time: contextCreateFromBinary. 5.51
+       121.2ms [WARNING] Time: contextCreateFromBinary. 7.83
 
-       118.0ms [WARNING] Time: UnmapViewOfFile. 0.00
+       121.3ms [WARNING] Time: UnmapViewOfFile. 0.00
 
-       118.3ms [WARNING] Time: model_initialize quicksrnetmedium 118.21
+       121.5ms [WARNING] Time: model_initialize xlsr 121.46
 
-       174.0ms [WARNING] Time: model_inference quicksrnetmedium 25.10
+       164.3ms [WARNING] Time: model_inference xlsr 7.48
 
          0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
@@ -132,7 +117,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matp
          0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
     /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-       353.0ms [WARNING] Time: model_destroy quicksrnetmedium 18.10
+       300.2ms [WARNING] Time: model_destroy xlsr 6.65
 
     /usr/bin/xdg-open: 882: www-browser: not found
     /usr/bin/xdg-open: 882: links2: not found
@@ -140,14 +125,14 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matp
     /usr/bin/xdg-open: 882: links: not found
     /usr/bin/xdg-open: 882: lynx: not found
     /usr/bin/xdg-open: 882: w3m: not found
-    xdg-open: no method available for opening '/tmp/tmp751e_f48.PNG'
+    xdg-open: no method available for opening '/tmp/tmp5i2_qhdq.PNG'
   ```
 
   {" "}
 
   <div style={{ textAlign: "center" }}>
     <img
-      src="/img/fogwise/airbox-q900/qairt_quicksrnetmedium_output.webp"
+      src="/img/dragon/q6a/qairt_xlsr_output.webp"
       style={{ width: "65%" }}
     />
     output image
