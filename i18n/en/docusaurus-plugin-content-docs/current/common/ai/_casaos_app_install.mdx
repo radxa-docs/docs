@@ -1,53 +1,57 @@
-### Install radxa One-Click Start Large Model Apps
+### Installing Radxa One-Click AI Model Apps
 
-Here, we'll explain how to install radxa large model Apps on CasaOS. Third-party Apps in CasaOS are installed in the form of Docker images, uploaded to the CasaOS App store [refer here](https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main). Currently, radxa has uploaded four large model Apps (`Stable Diffusion`, `whisper`, `chatglm2 chatdoc`, `imagesearch`, `llama3 chatbot`) to [docker hub](https://hub.docker.com/u/radxazifeng278). For more detailed information, please refer to [App construction methods](casaos_app_build).
+This guide explains how to install Radxa's large AI model Apps on CasaOS. Third-party Apps in CasaOS are installed as Docker images.
+For uploading to the CasaOS App Store, [refer here](https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main).
+Radxa has currently uploaded five major AI model Apps to [Docker Hub](https://hub.docker.com/u/radxazifeng278): `Stable Diffusion`, `Whisper`, `ChatGLM2 ChatDoc`, `ImageSearch`, and `Llama3 Chatbot`.
+For more details, please refer to [App Building Methods](casaos_app_build).
 
-| App                                                                    | Docker Image                             | Container port |
-| ---------------------------------------------------------------------- | ---------------------------------------- | -------------- |
-| [Radxa Stable Diffusion](#install-radxa-stable-diffusion-app)          | radxazifeng278/radxa_sd_app:0.3.0        | 8999           |
-| [Radxa whisper](#install-radxa-whisper-speech-recognition-summary-app) | radxazifeng278/radxa_whisper_app:0.1.0   | 7860           |
-| [Radxa ImageSearch](#install-radxa-imagesearch-image-search-app)       | radxazifeng278/radxa_imgsearch_app:0.1.0 | 8501           |
-| [Radxa chatdoc](#install-radxa-chatglm2-chatdoc-document-chat-app)     | radxazifeng278/radxa_chatdoc_app:0.1.0   | 8501           |
-| [Radxa Llama3 chatbot](#install-radxa-llama3-chatbot-gpt-app)          | radxazifeng278/radxa_llama3_app:0.1.0    | 8003           |
+| App                                                                            | Docker Image                             | Container port |
+| ------------------------------------------------------------------------------ | ---------------------------------------- | -------------- |
+| [Radxa Stable Diffusion](#installing-radxa-stable-diffusion-text-to-image-app) | radxazifeng278/radxa_sd_app:0.3.0        | 8999           |
+| [Radxa Whisper](#installing-radxa-whisper-speech-recognition-app)              | radxazifeng278/radxa_whisper_app:0.1.0   | 7860           |
+| [Radxa ImageSearch](#installing-radxa-imagesearch-image-search-app)            | radxazifeng278/radxa_imgsearch_app:0.1.0 | 8501           |
+| [Radxa ChatGLM2 ChatDoc](#installing-radxa-chatglm2-chatdoc-app)               | radxazifeng278/radxa_chatdoc_app:0.1.0   | 8501           |
+| [Radxa Llama3 Chatbot](#installing-radxa-llama3-chatbot-app)                   | radxazifeng278/radxa_llama3_app:0.1.0    | 8003           |
 
-- Click the "+" icon in the CasaOS App column and select "Install a customized app"
+- Click the "+" icon in the CasaOS App bar and select "Install a customized app"
 
 ![casaos_2.webp](/img/general-tutorial/tpu_ai/casaos_2.webp)
 
-### Install radxa Stable Diffusion App
+### Installing Radxa Stable Diffusion Text-to-Image App
 
 :::tip
-Stable Diffusion Factory Pre-Installed
+Stable Diffusion comes pre-installed by default.
 :::
 
-- Fill in the required information for installing radxa stable diffusion container
+- Fill in the required information to install the Radxa Stable Diffusion container
 
 <img
   width="500"
-  src="../../../img/general-tutorial/tpu_ai/casaos_sd_0.1.0.webp"
+  src="/en/img/general-tutorial/tpu_ai/casaos_sd_0.1.0.webp"
+  alt="Stable Diffusion Installation"
 />
 
-- Information Details
+- Configuration Details
 
-  **Docker Image:** Name of the image, fill in to automatically pull the image from docker hub
+  **Docker Image**: The name of the image. Entering this will automatically pull the image from Docker Hub.
 
   ```bash
   radxazifeng278/radxa_sd_app:0.3.0
   ```
 
-  **Title:** App name, user-defined
+  **Title**: App name (user-defined)
 
-  Icon URL: App icon (optional)
+  **Icon URL**: App icon (optional)
 
-  **Web UI port:** Specify the default access port when accessing the App, users can choose from 7000-10000, ensuring it does not conflict with other CasaOS APP ports
+  **Web UI Port**: The default access port for the app. Recommended to choose between 7000-10000, ensuring it doesn't conflict with other CasaOS apps.
 
-  **Port:** Docker container port mapping, Host port is the port specified in Web UI, **container port is 8999**
+  **Port**: Docker container port mapping. The host port should match the Web UI port. **Container port is 8999**
 
   ```bash
   8999
   ```
 
-  **Devices:** Device mounting, mount TPU into the Docker container, all mounts are recommended
+  **Devices**: Device mounting. Mount the TPU into the Docker container. It's recommended to mount all devices.
 
   - Host:
     ```bash
@@ -58,11 +62,11 @@ Stable Diffusion Factory Pre-Installed
     /dev
     ```
 
-  **Privileges:** Enable to obtain maximum permissions
+  **Privileges**: Enable to get the highest permissions
 
-  **Memory limit:** Container memory limit, recommended to fill, otherwise the service may fail to start
+  **Memory limit**: Container memory limit. It's recommended to allocate the maximum, otherwise the service might not start.
 
-  **CPU Shares:** CPU capability, Medium recommended
+  **CPU Shares**: CPU allocation. Recommended: Medium
 
   |                       | radxa Stable Diffusion            |
   | --------------------- | --------------------------------- |
@@ -75,9 +79,9 @@ Stable Diffusion Factory Pre-Installed
   | **Container Devices** | /dev                              |
   | **CPU Shares**        | Medium                            |
 
-### Install radxa Whisper Speech Recognition Summary App
+### Installing Radxa Whisper Speech Recognition App
 
-- Fill in the required information for installing radxa whisper container
+- Fill in the required information to install the Radxa Whisper container
 
   |                       | radxa Whisper                          |
   | --------------------- | -------------------------------------- |
@@ -90,9 +94,9 @@ Stable Diffusion Factory Pre-Installed
   | **Container Devices** | /dev                                   |
   | **CPU Shares**        | Medium                                 |
 
-### Install radxa ImageSearch App
+### Installing Radxa ImageSearch App
 
-- Fill in the required information for installing radxa ImageSearch container
+- Fill in the required information to install the Radxa ImageSearch container
 
   |                       | radxa ImageSearch                        |
   | --------------------- | ---------------------------------------- |
@@ -105,20 +109,20 @@ Stable Diffusion Factory Pre-Installed
   | **Container Devices** | /dev                                     |
   | **CPU Shares**        | Medium                                   |
 
-### Install radxa ChatGLM2 Chatdoc Document Chat App
+### Installing Radxa ChatGLM2 ChatDoc App
 
 :::tip
-Before installing chatdoc, it is necessary to refer to [Memory Allocation Modification Tool](../local-ai-deploy/ai-tools/memory_allocate) to modify the memory allocation of SG2300X
+Before installing ChatDoc, you must modify the SG2300X memory allocation using the [Memory Allocation Tool](../local-ai-deploy/ai-tools/memory_allocate).
 
-Recommended allocation -NPU 7168, -VPU 2048, -VPP 3072
+Recommended allocation: -NPU 7168, -VPU 2048, -VPP 3072
 :::
 
-- Fill in the required information for installing radxa chatdoc container
+- Fill in the required information to install the Radxa ChatGLM2 ChatDoc container
 
   |                       | radxa Chatdoc                          |
   | --------------------- | -------------------------------------- |
   | **Docker Image**      | radxazifeng278/radxa_chatdoc_app:0.1.0 |
-  | **Title**             | chatdoc                                |
+  | **Title**             | chatglm2 chatdoc                       |
   | **Web UI port**       | 8009                                   |
   | **Host Port**         | 8009                                   |
   | **Container Port**    | 8501                                   |
@@ -126,17 +130,17 @@ Recommended allocation -NPU 7168, -VPU 2048, -VPP 3072
   | **Container Devices** | /dev                                   |
   | **CPU Shares**        | Medium                                 |
 
-### Install radxa Llama3 Chatbot GPT App
+### Installing Radxa Llama3 Chatbot App
 
 :::tip
-Llama3 Factory Pre-Installed
+Llama3 comes pre-installed by default.
 
-When starting the Llama3 Chatbot, please close other TPU-related apps to avoid underlying incompatibility issues.
+Please close other TPU-related Apps before starting Llama3 Chatbot to avoid underlying compatibility issues.
 :::
 
-- Fill in the required information for installing the radxa Llama3 Chatbot container
+- Fill in the required information to install the Radxa Llama3 Chatbot container
 
-  |                       | Radxa Llama3 Chatbot                  |
+  |                       | radxa Chatdoc                         |
   | --------------------- | ------------------------------------- |
   | **Docker Image**      | radxazifeng278/radxa_llama3_app:0.1.0 |
   | **Title**             | llama3 chatbot                        |
@@ -147,12 +151,12 @@ When starting the Llama3 Chatbot, please close other TPU-related apps to avoid u
   | **Container Devices** | /dev                                  |
   | **CPU Shares**        | Medium                                |
 
-### App Startup and Uninstallation
+### App Launch and Uninstallation
 
-In CasaOS, the App is highlighted when it is open, and it appears gray when it is closed.
+In CasaOS, an active App is indicated by a highlighted icon, while an inactive App shows a grayed-out icon.
 
-To start the App, simply click on the icon, or you can start it by selecting the icon in the upper right corner of the selected App.
+To launch an App, simply click on its icon. You can also start it from the more options menu (three dots) in the top-right corner of the selected App.
 
-To uninstall the App, simply click Uninstall.
+To uninstall an App, click the 'Uninstall' button.
 
 ![casaos_3.webp](/img/general-tutorial/tpu_ai/casaos_3.webp)

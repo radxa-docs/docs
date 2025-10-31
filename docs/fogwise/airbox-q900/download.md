@@ -6,7 +6,9 @@ sidebar_position: 70
 
 ## 系统镜像
 
-- [Ubuntu 24.04](https://radxa.com/products/fogwise/airbox-q900)
+- [radxa-airbox-q900-ubuntu-noble-gnome-t4](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900-ubuntu-noble-gnome-t4.tar.gz)
+
+- [qcs9075-provision](https://dl.radxa.com/fogwise/airbox-q900/images/qcs9075-provision.tar.gz)
 
 ## 软件工具
 
@@ -19,7 +21,3 @@ Qualcomm Device Loader (QDL) 是 Qualcomm 提供的用于刷写 Qualcomm 芯片�
 根据自己的系统平台下载对应版本的 QDL 工具。
 
 :::
-
-- [启动固件](https://radxa.com/products/fogwise/airbox-q900)
-
-AIRbox Q900 出厂默认烧录启动固件，默认情况下无需自己烧录启动固件；若启动系统异常，可以尝试重新烧录 SPI 启动固件。

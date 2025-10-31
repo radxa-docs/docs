@@ -234,7 +234,7 @@ Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 ### 配置 UFS
 
-进入 `provision` 文件夹下，打开终端，使用以下命令配置 UFS。
+进入 `qcs9075-provision` 文件夹下，打开终端，使用以下命令配置 UFS。
 
 <NewCodeBlock tip="PC$" type="host">
 

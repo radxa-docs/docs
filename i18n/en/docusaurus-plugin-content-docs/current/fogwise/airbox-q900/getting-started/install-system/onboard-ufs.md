@@ -235,7 +235,7 @@ Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 ### Configure UFS
 
-Navigate to the `provision` folder, open a terminal, and use the following command to configure UFS.
+Navigate to the `qcs9075-provision` folder, open a terminal, and use the following command to configure UFS.
 
 <NewCodeBlock tip="PC$" type="host">
 
