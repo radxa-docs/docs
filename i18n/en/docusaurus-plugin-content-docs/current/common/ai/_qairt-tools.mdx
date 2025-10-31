@@ -2,20 +2,20 @@ This document describes the usage of the main CLI tools used in QAIRT SDK for mo
 
 ## CLI Tools Table
 
-| CLI Name                                                      | CLI Purpose                         |
-| ------------------------------------------------------------- | ----------------------------------- |
-| [qairt-converter](#qairt-converter)                           | Convert DLC Models                  |
-| [qairt-quantizer](#qairt-quantizer)                           | Quantize DLC Models                 |
-| [qnn-context-binary-generator](#qnn-context-binary-generator) | Convert Context Binary Models       |
-| [qnn-net-run](#qnn-net-run)                                   | Inference DLC/Context Binary Models |
-| [qnn-context-binary-utility](#qnn-context-binary-utility)     | Inspect Context Binary Models       |
+| CLI Tool Name                                                 | Purpose                                 |
+| ------------------------------------------------------------- | --------------------------------------- |
+| [qairt-converter](#qairt-converter)                           | Convert DLC models                      |
+| [qairt-quantizer](#qairt-quantizer)                           | Quantize DLC models                     |
+| [qnn-context-binary-generator](#qnn-context-binary-generator) | Convert Context Binary models           |
+| [qnn-net-run](#qnn-net-run)                                   | Inference for DLC/Context Binary models |
+| [qnn-context-binary-utility](#qnn-context-binary-utility)     | Inspect Context Binary models           |
 
 ## CLI Tools
 
 ### qairt-converter
 
-The `qairt-converter` tool converts models from Onnx/TensorFlow/TFLite/PyTorch frameworks to DLC files in QNN graph format.
-`qairt-converter` automatically detects the framework based on the source model extension. The current ONNX conversion supports up to ONNX Opset 21.
+The `qairt-converter` tool converts models from Onnx, TensorFlow, TFLite, and PyTorch frameworks into DLC files in QNN graph format.
+The `qairt-converter` automatically detects the framework based on the source model's file extension. The current ONNX conversion supports up to ONNX Opset 21.
 
 ```vim
 usage: qairt-converter [--source_model_input_shape INPUT_NAME INPUT_DIM]
@@ -363,7 +363,7 @@ Note: Only one of: {'package_name', 'op_package_config'} can be specified Note: 
 
 ### qairt-quantizer
 
-The `qairt-quantizer` tool converts non-quantized DLC models to quantized DLC models.
+`qairt-quantizer` tool converts non-quantized DLC models to quantized DLC models.
 
 ```vim
 usage: qairt-quantizer --input_dlc INPUT_DLC [--output_dlc OUTPUT_DLC] [--input_list INPUT_LIST]
@@ -553,7 +553,7 @@ Backend Options:
 
 ### qnn-context-binary-generator
 
-`qnn-context-binary-generator` 工具用于生成使用特定后端推理的 Context-Binary 格式模型文件
+`qnn-context-binary-generator` tool is used to generate Context-Binary format model files for inference with specific backends
 
 ```vim
 usage: qnn-context-binary-generator --model QNN_MODEL.so --backend QNN_BACKEND.so
@@ -648,7 +648,7 @@ OPTIONAL ARGUMENTS:
 
 ### qnn-net-run
 
-The `qnn-net-run` tool is used to perform inference on models converted by QAIRT using a specific backend.
+`qnn-net-run` tool is used to perform inference on models converted to QAIRT format using specific backends
 
 ```vim
 Command Line Options:
@@ -814,7 +814,7 @@ Command Line Options:
 
 ### qnn-context-binary-utility
 
-The `qnn-context-binary-utility` tool validates the metadata of Context-Binary model files and serializes them into JSON files. These JSON files can be used to inspect Context-Binary models, aiding in debugging.
+`qnn-context-binary-utility` tool validates the metadata of Context-Binary model files and serializes them into JSON files. These JSON files can be used to inspect Context-Binary models, which aids in debugging.
 
 ```vim
 Command Line Options:
@@ -838,7 +838,7 @@ For detailed and complete documentation of QAIRT Tools, please refer to:
 
 **Local Documentation**
 
-- [**QAIRT SDK Local Documentation**](qairt-install#complete-sdk-documentation) under `docs/QNN/general/tools.html`
+- [**QAIRT SDK Local Documentation**](qairt-install#sdk-complete-documentation) under `docs/QNN/general/tools.html`
 
 **Online Documentation**
 

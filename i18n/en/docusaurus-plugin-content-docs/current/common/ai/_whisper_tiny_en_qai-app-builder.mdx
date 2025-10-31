@@ -1,0 +1,220 @@
+This document explains how to use the [QAI AppBuilder](../qai-appbuilder) Python API to perform inference with the [Whisper-Tiny](https://aihub.qualcomm.com/models/whisper_tiny) speech recognition model using the Qualcomm® Hexagon™ Processor (NPU).
+
+**Supported Devices**
+
+| Device                | SoC     |
+| --------------------- | ------- |
+| Fogwise® AIRbox Q900 | QCS9075 |
+
+## Install QAI AppBuilder
+
+:::tip
+
+1. Please install QAI AppBuilder according to the [**QAI AppBuilder Installation Guide**](../qai-appbuilder).
+
+2. Please configure the QAIRT environment variables according to [**Configuring QAIRT Environment Variables**](../qai-appbuilder#configuring-qairt-environment-variables).
+   :::
+
+## Run Example
+
+### Install Dependencies
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matplotlib openai-whisper audio2numpy samplerate transformers qai_hub_models==0.30.2
+```
+
+</NewCodeBlock>
+
+### Run the Script
+
+- Navigate to the example directory
+
+    <Tabs>
+
+        <TabItem value="QCS9075">
+
+       <NewCodeBlock tip="Device" type="device">
+
+        ```bash
+        cd ai-engine-direct-helper/samples/python
+        ```
+
+        </NewCodeBlock>
+
+    </TabItem>
+
+    </Tabs>
+
+- Prepare the input audio. The following audio is used as an example:
+
+  {" "}
+
+          <div style={{ textAlign: "center" }}>
+
+      <audio
+
+  src="https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-models/models/whisper_asr_shared/v1/audio/jfk.wav"
+  controls
+
+  >
+
+              </audio>
+              <p><em>input audio</em></p>
+
+          </div>
+
+- Execute inference
+
+    <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  python3 whisper_tiny_en/whisper_tiny_en.py
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  $ python3 whisper_tiny_en/whisper_tiny_en.py
+       0.0ms [WARNING]  <W> Initializing HtpProvider
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     175.0ms [WARNING] Time: Read model file to memory. 51.68
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     224.3ms [WARNING] Time: contextCreateFromBinary. 49.16
+
+     224.3ms [WARNING] Time: UnmapViewOfFile. 0.00
+
+     226.7ms [WARNING] Time: model_initialize whisper_decoder 226.65
+
+     245.7ms [WARNING] Time: Read model file to memory. 18.37
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     311.9ms [WARNING] Time: contextCreateFromBinary. 66.16
+
+     312.0ms [WARNING] Time: UnmapViewOfFile. 0.00
+
+     313.2ms [WARNING] Time: model_initialize whisper_encoder 86.17
+
+     567.2ms [WARNING] Time: model_inference whisper_encoder 199.78
+
+  Decoder Inference k_cache_cross type <class 'numpy.ndarray'> shape  (4, 6, 64, 1500) type  float32
+  Decoder Inference v_cache_cross type <class 'numpy.ndarray'> shape  (4, 6, 1500, 64) type  float32
+  start decode sample_len  224
+     728.7ms [WARNING] Time: model_inference whisper_decoder 159.73
+
+     887.8ms [WARNING] Time: model_inference whisper_decoder 157.66
+
+    1046.9ms [WARNING] Time: model_inference whisper_decoder 157.76
+
+    1205.3ms [WARNING] Time: model_inference whisper_decoder 157.02
+
+    1365.0ms [WARNING] Time: model_inference whisper_decoder 158.39
+
+    1523.8ms [WARNING] Time: model_inference whisper_decoder 157.56
+
+    1682.7ms [WARNING] Time: model_inference whisper_decoder 157.58
+
+    1841.0ms [WARNING] Time: model_inference whisper_decoder 157.04
+
+    2000.0ms [WARNING] Time: model_inference whisper_decoder 157.82
+
+    2158.6ms [WARNING] Time: model_inference whisper_decoder 157.36
+
+    2317.7ms [WARNING] Time: model_inference whisper_decoder 157.76
+
+    2476.8ms [WARNING] Time: model_inference whisper_decoder 157.78
+
+    2635.7ms [WARNING] Time: model_inference whisper_decoder 157.58
+
+    2794.4ms [WARNING] Time: model_inference whisper_decoder 157.39
+
+    2953.2ms [WARNING] Time: model_inference whisper_decoder 157.47
+
+    3111.9ms [WARNING] Time: model_inference whisper_decoder 157.46
+
+    3270.2ms [WARNING] Time: model_inference whisper_decoder 157.10
+
+    3429.0ms [WARNING] Time: model_inference whisper_decoder 157.66
+
+    3588.0ms [WARNING] Time: model_inference whisper_decoder 157.72
+
+    3747.3ms [WARNING] Time: model_inference whisper_decoder 157.92
+
+    3906.3ms [WARNING] Time: model_inference whisper_decoder 157.68
+
+    4065.3ms [WARNING] Time: model_inference whisper_decoder 157.71
+
+    4224.5ms [WARNING] Time: model_inference whisper_decoder 157.89
+
+    4383.8ms [WARNING] Time: model_inference whisper_decoder 158.02
+
+    4542.9ms [WARNING] Time: model_inference whisper_decoder 157.74
+
+    4702.4ms [WARNING] Time: model_inference whisper_decoder 158.21
+
+    4861.6ms [WARNING] Time: model_inference whisper_decoder 157.92
+
+    5021.1ms [WARNING] Time: model_inference whisper_decoder 158.13
+
+  Transcription: And so my fellow Americans ask not what your country can do for you ask what you can do for your country.
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+    5134.7ms [WARNING] Time: model_destroy whisper_decoder 14.94
+
+   <W> Logs will be sent to the system's default channel
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+    5208.4ms [WARNING] Time: model_destroy whisper_encoder 73.58
+  ```
+
+  Recognition Results
+
+  ```bash
+  Transcription: And so my fellow Americans ask not what your country can do for you ask what you can do for your country.
+  ```

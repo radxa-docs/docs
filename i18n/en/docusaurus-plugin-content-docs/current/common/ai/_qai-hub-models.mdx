@@ -1,7 +1,7 @@
 [**Qualcomm® AI Hub Models**](https://github.com/quic/ai-hub-models) (QAI-Hub-Models)
-Leveraging the cloud services provided by [QAI-Hub](https://app.aihub.qualcomm.com/docs/index.html), it supports online **quantization, compilation, inference, analysis, and downloading** of models from the [Model List](#model-list) on cloud devices through command-line interface.
+Leveraging the cloud services provided by [QAI-Hub](https://app.aihub.qualcomm.com/docs/index.html), it supports **quantization, compilation, inference, analysis, and downloading** of models from the [model list](#model-list) on cloud devices via command line.
 
-## Usage
+## Usage Guide
 
 ### Install qai_hub_models
 
@@ -16,7 +16,7 @@ pip3 install qai_hub_models
 ### Configure API Token
 
 :::tip
-First, register an account and log in to [Qualcomm® AI Hub](https://aihub.qualcomm.com/) to obtain your **`API Token`**
+First, register and log in to [Qualcomm® AI Hub](https://aihub.qualcomm.com/) to obtain your **`API Token`**
 :::
 
 <NewCodeBlock tip="Device" type="device">
@@ -27,40 +27,65 @@ qai-hub configure --api_token API_TOKEN
 
 </NewCodeBlock>
 
-## Examples
+## Usage Examples
 
 ### QAI HUB MODELS Model Compilation Example
 
-This example demonstrates how to compile the [RealESRGAN_x4plus](https://github.com/xinntao/Real-ESRGAN) model into a Context-Binary format with 128x128 input size and w8a8 quantization for NPU inference on QCS6490 SoC, providing a simple introduction to using Qualcomm® AI Hub Models for model compilation.
+This example demonstrates compiling [RealESRGAN_x4plus](https://github.com/xinntao/Real-ESRGAN) into a Context-Binary model format with 128x128 input size and w8a8 quantization for NPU inference,
+providing a simple introduction to using Qualcomm® AI Hub Models for model compilation.
+
+<Tabs>
+    <TabItem value="QCS6490">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_CHIP=qualcomm-qcs6490-proxy
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_CHIP=qualcomm-qcs9075-proxy
+    ```
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-python3 -m qai_hub_models.models.real_esrgan_x4plus.export --chipset "qualcomm-qcs6490-proxy" --target-runtime qnn_context_binary --height 128 --width 128 --quantize w8a8 --num-calibration-samples 10
+python3 -m qai_hub_models.models.real_esrgan_x4plus.export --chipset ${PRODUCT_CHIP} --target-runtime qnn_context_binary  --height 128 --width 128 --quantize w8a8 --num-calibration-samples 10
 ```
 
 </NewCodeBlock>
 
-`--chipset` specifies the target chipset
+`--chipset` Specifies the target chipset
 
-`--target-runtime` specifies the target runtime
+`--target-runtime` Specifies the target runtime
 
-`--height` target model input height
+`--height` Input height for the target model
 
-`--width` target model input width
+`--width` Input width for the target model
 
-`--quantize` specifies the quantization method
+`--quantize` Specifies the quantization method
 
-`--num-calibration-samples` specifies the number of calibration images for quantization
+`--num-calibration-samples` Specifies the number of calibration images for quantization
 
 :::tip
-For detailed usage of qai_hub_models.models.real_esrgan_x4plus.export, use **`--help`**
+For detailed usage of qai_hub_models.models.real_esrgan_x4plus.export, use the **`--help`** flag
 
 All model compilation information and logs can be viewed in the `JOBS` section of Qualcomm® AI Hub
 :::
 
 ```bash
-(.venv) (base) radxa@vms-max:/mnt/sda1/qualcomm/qai-hub/ai_hub_model$ python3 -m qai_hub_models.models.real_esrgan_x4plus.export --chipset "qualcomm-qcs6490-proxy" --target-runtime qnn_context_binary --height 128 --width 128 --quantize w8a8 --num-calibration-samples 10
+(.venv) (base) radxa@vms-max:/mnt/sda1/qualcomm/qai-hub/ai_hub_model$ python3 -m qai_hub_models.models.real_esrgan_x4plus.export --chipset "qualcomm-qcs6490-proxy" --target-runtime qnn_context_binary  --height 128 --width 128 --quantize w8a8 --num-calibration-samples 10
 Quantizing model real_esrgan_x4plus.
 Uploading tmplaenxfnu.pt
 100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 64.8M/64.8M [00:06<00:00, 11.1MB/s]
@@ -128,22 +153,22 @@ Run compiled model on a hosted device on sample data using:
 python /mnt/sda1/qualcomm/qai-hub/.venv/lib/python3.10/site-packages/qai_hub_models/models/real_esrgan_x4plus/demo.py --eval-mode on-device --hub-model-id mm63gld2m --chipset qualcomm-qcs6490-proxy
 ```
 
-### QAI HUB MODELS Model Inference Demo
+### QAI HUB MODELS Inference Demo
 
-Based on the final prompt in the [Model Compilation Example](#qai-hub-models-model-compilation-example), you can perform inference on the compiled model on cloud devices and view the inference results.
+Based on the instructions at the end of the [model compilation example](#qai-hub-models-model-compilation-example), you can run inference on the compiled model on cloud devices and view the results
 
 :::tip
-Modify the `hub-model-id` parameter to match the `hub-model-id` printed at the end of the model compilation results.
+Modify the `hub-model-id` parameter to match the `hub-model-id` printed at the end of the model compilation results
 :::
 
 <div style={{ textAlign: "center" }}>
   <img src="/en/img/dragon/q6a/ai-hub-model-example_2.webp" style={{ width: "100%" }} />
-  Specific parameter location for hub-model-id
+  Location of the hub-model-id parameter
 </div>
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-python3 -m qai_hub_models.models.real_esrgan_x4plus.demo --eval-mode on-device --hub-model-id mm63gld2m --chipset qualcomm-qcs6490-proxy
+python3 -m qai_hub_models.models.real_esrgan_x4plus.demo --eval-mode on-device --hub-model-id mm63gld2m --chipset ${PRODUCT_CHIP}
 ```
 
 </NewCodeBlock>
@@ -169,7 +194,7 @@ Displaying upscaled image
     src="/en/img/dragon/q6a/ai-hub-model-example.webp"
     style={{ width: "90%" }}
   />
-  Left: Result image, Right: Input image
+  The left side shows the result image, and the right side shows the input image
 </div>
 
 ## Model List
