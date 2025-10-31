@@ -1,0 +1,135 @@
+This document explains how to use the [QAI AppBuilder](../qai-appbuilder) Python API to perform inference with the [YamNet](https://aihub.qualcomm.com/compute/models/yamnet) audio classification model using the Qualcomm® Hexagon™ Processor (NPU).
+
+**Supported Devices**
+
+| Device                | SoC     |
+| --------------------- | ------- |
+| Fogwise® AIRbox Q900 | QCS9075 |
+
+## Install QAI AppBuilder
+
+:::tip
+
+1. Please install QAI AppBuilder according to the [**QAI AppBuilder Installation Guide**](../qai-appbuilder).
+
+2. Please configure the QAIRT environment variables according to [**Configuring QAIRT Environment Variables**](../qai-appbuilder#configuring-qairt-environment-variables).
+   :::
+
+## Run Example
+
+### Install Dependencies
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision resampy soundfile
+```
+
+</NewCodeBlock>
+
+### Run the Script
+
+- Navigate to the example directory
+
+    <Tabs>
+
+        <TabItem value="QCS9075">
+
+       <NewCodeBlock tip="Device" type="device">
+
+        ```bash
+        cd ai-engine-direct-helper/samples/python
+        ```
+
+        </NewCodeBlock>
+
+    </TabItem>
+
+    </Tabs>
+
+- Prepare the input audio. The following audio is used as an example:
+
+  {" "}
+
+          <div style={{ textAlign: "center" }}>
+
+      <audio
+
+  src="https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-models/models/yamnet/v1/speech_whistling2.wav"
+  controls
+
+  >
+
+              </audio>
+              <p><em>input audio</em></p>
+
+          </div>
+
+- Execute inference
+
+    <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  python3 yamnet/yamnet.py
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  $ python3 yamnet/yamnet.py
+       0.0ms [WARNING]  <W> Initializing HtpProvider
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     113.7ms [WARNING] Time: Read model file to memory. 4.55
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     127.6ms [WARNING] Time: contextCreateFromBinary. 13.42
+
+     128.0ms [WARNING] Time: UnmapViewOfFile. 0.00
+
+     129.0ms [WARNING] Time: model_initialize yamnet 128.97
+
+     145.8ms [WARNING] Time: model_inference yamnet 0.80
+
+  Top 5 predictions:
+  Whistling | Alarm | Whistle | Field recording | Rattle (instrument)
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+     229.1ms [WARNING] Time: model_destroy yamnet 79.87
+  ```
+
+  Recognition Results
+
+  ```bash
+  Top 5 predictions:
+  Whistling | Alarm | Whistle | Field recording | Rattle (instrument)
+  ```

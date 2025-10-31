@@ -1,13 +1,13 @@
 [AIMET](https://github.com/quic/aimet) (AI Model Efficiency Toolkit) is a quantization tool for deep learning models such as PyTorch and ONNX. AIMET enhances the performance of deep learning models by reducing computational load and memory usage.
 
-With AIMET, developers can quickly iterate to find the optimal quantization configuration, achieving the best balance between accuracy and latency. Developers can compile and deploy quantized models exported from AIMET on Qualcomm NPUs using [QAIRT](./qairt-usage), or run them directly with ONNX-Runtime.
+With AIMET, developers can quickly iterate to find the optimal quantization configuration that balances accuracy and latency. The quantized models exported by AIMET can be compiled and deployed on Qualcomm NPUs using [QAIRT](./qairt-usage), or run directly with ONNX-Runtime.
 
 AIMET helps developers with:
 
 - **Quantization simulation**
 - **Model quantization using Post-Training Quantization (PTQ) techniques**
 - **Quantization-Aware Training (QAT) on PyTorch models using AIMET-Torch**
-- **Visualizing and experimenting with the impact of activation values and weights on model accuracy at different precisions**
+- **Visualizing and experimenting with the impact of different precision settings on activation values and weights**
 - **Creating mixed-precision models**
 - **Exporting quantized models to deployable ONNX format**
 
@@ -32,12 +32,12 @@ AIMET requires a Python 3.10 environment, which can be created using [Anaconda](
 
 :::tip
 
-- For Anaconda installation, refer to: [**Conda Install**](../virtual-env/conda_install)
+- For Anaconda installation, refer to: [**Conda Installation**](../virtual-env/conda_install)
 
-- For creating a conda Python environment, refer to: [**Create Environment with Specific Python Version**](../virtual-env/conda_use#create-environment-with-specific-python-version)
+- For creating a conda Python environment, refer to: [**Creating a Specific Python Version Environment**](../virtual-env/conda_use#creating-a-specific-python-version-environment)
   :::
 
-After installing Anaconda, create and activate a Python 3.10 environment using the terminal:
+After installing Anaconda, use the terminal to create and activate a Python 3.10 environment
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -62,7 +62,7 @@ AIMET provides two Python packages:
 
     </NewCodeBlock>
 
-- **AIMET-Torch**: Perform QAT on PyTorch models
+- **AIMET-Torch**: Performs QAT on PyTorch models
 
     <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -74,7 +74,7 @@ AIMET provides two Python packages:
 
 - Install jupyter-notebook
 
-  AIMET examples are provided as **jupyter-notebook** references. You need to install the jupyter kernel for the aimet Python environment.
+  AIMET examples are provided as **jupyter-notebooks**, so we need to install jupyter kernel for the aimet Python environment
 
     <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -87,11 +87,11 @@ AIMET provides two Python packages:
 
 ## AIMET Usage Example
 
-This example demonstrates PTQ (Post-Training Quantization) using the PyTorch [ResNet50](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.resnet50.html) object detection model, which is first converted to ONNX format and then quantized using AIMET-ONNX.
-For implementation details, please refer to the ResNet50 example [**notebook**](https://github.com/ZIFENG278/resnet50_qairt_example/blob/main/notebook/quantsim-resnet50.ipynb).
+This example uses PyTorch's [resnet50](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.resnet50.html) object detection model, converting it to ONNX format and then performing PTQ quantization using AIMET-ONNX.
+For implementation details, please refer to the resnet50 example [**notebook**](https://github.com/ZIFENG278/resnet50_qairt_example/blob/main/notebook/quantsim-resnet50.ipynb)
 
 :::tip
-The model exported in this example can be used for NPU porting of AIMET quantized models in the [**QAIRT SDK Usage Example**](./qairt-usage#quantizing-models-with-aimet).
+The model exported in this example can be used in the [**QAIRT SDK Example**](./qairt-usage#using-aimet-for-model-quantization) for NPU porting of the AIMET quantized model.
 :::
 
 ### Prepare the Example Notebook
@@ -129,11 +129,11 @@ wget https://github.com/ZIFENG278/resnet50_qairt_example/raw/refs/heads/main/not
 
 #### Download the Dataset
 
-Prepare a calibration dataset. To reduce download time, we'll use [ImageNet-Mini](https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000) as a substitute for the full [ImageNet](https://image-net.org/download.php) dataset.
+Prepare a calibration dataset. To reduce download time, we'll use [ImageNet-Mini](https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000) as a substitute for [ImageNet](https://image-net.org/download.php).
 
 - Download the ImageNet-Mini dataset from [Kaggle](https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000)
 
-### Run the Example Notebook
+### Execute the Example Notebook
 
 #### Start jupyter-notebook
 
@@ -147,14 +147,14 @@ jupyter-notebook
 </NewCodeBlock>
 
 :::tip
-After starting jupyter-notebook, it will automatically open in your default browser. If it doesn't open automatically, click on the URL printed in the terminal.
+After starting jupyter-notebook, it will automatically open in your default browser. If it doesn't open automatically, you can click on the URL printed after startup.
 :::
 
-#### Change the Kernel
+#### Change Kernel
 
 On the jupyter-notebook homepage, select `/Examples/onnx/quantization/quantsim-resnet50.ipynb`
 
-In the notebook's menu bar at the top left, select `Kernel -> Change Kernel -> Select Kernel` and choose the `aimet` kernel created during the [AIMET installation](#aimet-installation).
+In the notebook's top-left menu bar, select `Kernel -> Change Kernel -> Select Kernel` and choose the `aimet` kernel created during [AIMET installation](#install-aimet).
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -174,7 +174,7 @@ DATASET_DIR = '<ImageNet-Mini Path>'  # Please replace this with a real director
 
 #### Run the Entire Notebook
 
-In the notebook's menu bar at the top left, select `Run -> Run All Cells` to execute the entire notebook.
+In the notebook's top-left menu bar, select `Run -> Run All Cells` to execute the entire notebook.
 
 <div style={{ textAlign: "center" }}>
   <img src="/en/img/dragon/q6a/run_notebook.webp" style={{ width: "100%" }} />
@@ -185,7 +185,7 @@ The exported `resnet50` model files will be saved in the `aimet_quant` folder, w
 
 ## Deploying AIMET Models
 
-AIMET exports models from different frameworks into the specified file formats as shown in the table below:
+AIMET exports models from different frameworks into specific file formats as shown in the table below:
 
 | Framework  | Format     |
 | ---------- | ---------- |
@@ -193,13 +193,13 @@ AIMET exports models from different frameworks into the specified file formats a
 | ONNX       | .onnx      |
 | TensorFlow | .h5 or .pb |
 
-You can use the QAIRT tool to deploy the quantized output files from AIMET to edge devices. For the deployment process, please refer to:
+The quantized output files from AIMET can be deployed on target devices using QAIRT. For the deployment process, please refer to:
 
 - [**QAIRT Model Conversion Example**](qairt-usage#model-conversion-example)
 
 ## Complete Documentation
 
-For more detailed documentation about AIMET, please refer to
+For more detailed documentation about AIMET, please refer to:
 
 - [**AIMET DOCS**](https://quic.github.io/aimet-pages/releases/latest/index.html#)
 - [**AIMET Repository**](https://github.com/quic/aimet)

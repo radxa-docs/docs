@@ -1,0 +1,111 @@
+This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [EasyOCR](https://aihub.qualcomm.com/models/easyocr) text recognition model on Qualcomm® Hexagon™ Processor (NPU).
+
+**Supported Devices**
+
+| Device                | SoC     |
+| --------------------- | ------- |
+| Fogwise® AIRbox Q900 | QCS9075 |
+
+## Install QAI AppBuilder
+
+:::tip
+
+1. Please install QAI AppBuilder according to the [**QAI AppBuilder Installation Guide**](../qai-appbuilder).
+
+2. Configure QAIRT environment variables as described in [**Configure QAIRT Environment Variables**](../qai-appbuilder#configure-qairt-environment-variables).
+   :::
+
+## Run the Example
+
+### Install Dependencies
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matplotlib easyocr qai_hub_models
+```
+
+</NewCodeBlock>
+
+### Run the Script
+
+- Navigate to the example directory
+
+    <Tabs>
+
+        <TabItem value="QCS9075">
+
+       <NewCodeBlock tip="Device" type="device">
+
+        ```bash
+        cd ai-engine-direct-helper/samples/python
+        ```
+
+        </NewCodeBlock>
+
+    </TabItem>
+
+    </Tabs>
+
+- Prepare input image. The following image is used as an example:
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/en/img/fogwise/airbox-q900/qairt_easy_ocr_input.webp"
+      style={{ width: "65%" }}
+    />
+    input image
+  </div>
+
+- Run inference
+
+    <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  python3 easy_ocr/easy_ocr.py
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  $ python3 easy_ocr/easy_ocr.py
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+  Calling EasyOCR_Detector::Inference on NPU
+  Calling EasyOCR_Recognizer::Inference on NPU
+  Calling EasyOCR_Recognizer::Inference on NPU
+  Calling EasyOCR_Recognizer::Inference on NPU
+  Calling EasyOCR_Recognizer::Inference on NPU
+  Calling EasyOCR_Recognizer::Inference on NPU
+  Calling EasyOCR_Recognizer::Inference on NPU
+  Calling EasyOCR_Recognizer::Inference on NPU
+  Calling EasyOCR_Recognizer::Inference on NPU
+  白日依山尽
+  黄河入海流
+  欲穷千里目
+  更上一层楼
+  The sun beyond the mountain glows,
+  The Yellow River seawards flows_
+  You can enjoy a grander sight,
+  By climbing to a greater height。
+
+  Demo image display is disabled by default for remote servers. To override, set `QAIHM_ALWAYS_DISPLAY_OUTPUT=1` in your environment.
+
+  Saving image to /mnt/ssd/qualcomm/702/zzf_fork/test/ai-engine-direct-helper/samples/python/build/image.png
+   <W> Logs will be sent to the system's default channel
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+  ```
+
+  Recognition results
+
+  ```bash
+  白日依山尽
+  黄河入海流
+  欲穷千里目
+  更上一层楼
+  The sun beyond the mountain glows,
+  The Yellow River seawards flows_
+  You can enjoy a grander sight,
+  By climbing to a greater height。
+  ```

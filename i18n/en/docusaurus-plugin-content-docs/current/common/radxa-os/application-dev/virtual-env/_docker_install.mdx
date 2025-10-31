@@ -28,7 +28,7 @@ Based on containerization technology, Docker shares the host kernel, resulting i
 
 Enter the following commands in the terminal to install Docker:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo apt update
@@ -39,7 +39,7 @@ sudo apt install docker.io
 
 ## Configure iptables
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
@@ -52,7 +52,7 @@ Restart the system for the Docker configuration to take effect.
 
 ## Verify Installation
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 docker --version
@@ -70,7 +70,7 @@ Docker version 20.10.24+dfsg1, build 297e128
 
 Enter the following command in the terminal to grant the current system user access to the Docker daemon. This allows you to use Docker commands without needing `sudo`.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 sudo usermod -aG docker $USER

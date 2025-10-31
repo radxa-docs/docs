@@ -1,0 +1,9 @@
+---
+sidebar_position: 0
+---
+
+# Nomic-Embed-Text Example
+
+import NOMICEMBEDTEXTQAIAPPBUILDER from '../../../../common/ai/\_nomic_embed_text_qai-app-builder.mdx';
+
+<NOMICEMBEDTEXTQAIAPPBUILDER />

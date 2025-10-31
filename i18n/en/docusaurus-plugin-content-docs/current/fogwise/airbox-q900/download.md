@@ -1,0 +1,23 @@
+---
+sidebar_position: 70
+---
+
+# Resource Downloads
+
+## System Images
+
+- [radxa-airbox-q900-ubuntu-noble-gnome-t4](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900-ubuntu-noble-gnome-t4.tar.gz)
+
+- [qcs9075-provision](https://dl.radxa.com/fogwise/airbox-q900/images/qcs9075-provision.tar.gz)
+
+## Software Tools
+
+- [QDL Tool](https://softwarecenter.qualcomm.com/catalog/item/Qualcomm_Device_Loader)
+
+Qualcomm Device Loader (QDL) is a tool provided by Qualcomm for flashing Qualcomm chips.
+
+:::tip Download Instructions
+
+Download the appropriate version of the QDL tool for your system platform.
+
+:::

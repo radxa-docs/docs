@@ -191,9 +191,9 @@
     "message": "System on Modules",
     "description": "Navbar item with label 核心板"
   },
-  "item.label.生成式 AI": {
-    "message": "Gen AI",
-    "description": "Navbar item with label 生成式 AI"
+  "item.label.边缘计算": {
+    "message": "Edge Computing",
+    "description": "Navbar item with label 边缘计算"
   },
   "item.label.智核系列": {
     "message": "AICore Series",

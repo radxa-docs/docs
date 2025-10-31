@@ -621,25 +621,41 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "SG Family",
-          series_zh: "SG 系列",
-          series_introduction_en: "SG series is a series of computing modules and edge computing boxes developed by Radxa based on SOPHGO SG2300X. It has up to 32TOPS@INT8 computing power, powerful and complete deep learning toolchain, and up to 32-channel video processing capability. It is widely used and highly reliable.",
-          series_introduction_zh: "SG 系列是瑞莎基于 SOPHGO SG2300X 研发的一系列计算模块和边缘智算盒子。它有高达32TOPS@INT8的算力， 具备强大完备的深度学习工具链、最高达32路视频处理能力。用途广泛，可靠性高。",
+          series_en: "Fogwise® Family",
+          series_zh: "Fogwise® 系列",
+          series_introduction_en: "The FogWise® Edge Computing Series by Radxa is built on an open ecosystem and industrial-grade design, delivering integrated capabilities from device-side inference to cloud-edge collaboration. The product lineup includes edge AI computing boxes, industrial gateways, and edge servers, empowering enterprises to rapidly deploy stable and scalable edge intelligence across diverse scenarios.",
+          series_introduction_zh: "瑞莎 FogWise® 边缘计算系列以开放生态和工业级设计为底座，提供从设备端推理到云边协同的一体化能力；产品覆盖边缘智算盒、工业网关、边缘服务器，助力企业在多场景快速落地稳定、可规模化的边缘智能。",
           products:
             [
               {
                 products_name: "Fogwise® AirBox",
-                products_photo_url: "/home/product-pictures/airbox.webp",
-                products_link: "/sophon/airbox",
+                products_photo_url: "/en/home/product-pictures/airbox.webp",
+                products_link: "/fogwise/airbox",
                 docs:
                   [
                     {
-                      docs_link: "/sophon/airbox",
+                      docs_link: "/fogwise/airbox",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
                       docs_name_zh: "Radxa Fogwise® AirBox 概览",
                       docs_info_en: "Overview of the Radxa Fogwise® AirBox",
                       docs_info_zh: "Radxa Fogwise® AirBox 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "Fogwise® AIRbox Q900",
+                products_photo_url: "/en/home/product-pictures/airbox-q900.webp",
+                products_link: "/fogwise/airbox-q900",
+                docs:
+                  [
+                    {
+                      docs_link: "/fogwise/airbox-q900",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa Fogwise® AIRbox Q900 概览",
+                      docs_info_en: "Overview of the Radxa Fogwise® AIRbox Q900",
+                      docs_info_zh: "Radxa Fogwise® AIRbox Q900 概览",
                     },
                   ],
               },

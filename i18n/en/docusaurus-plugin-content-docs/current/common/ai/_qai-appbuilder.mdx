@@ -1,5 +1,6 @@
-[**Quick AI Application Builder**](https://github.com/quic/ai-engine-direct-helper) (QAI AppBuilder) helps developers easily deploy AI models and design AI applications on Qualcomm® SoC platforms with Qualcomm® Hexagon™ Processor (NPU) using [Qualcomm® AI Runtime SDK](qairt-sdk#qairt).
-It encapsulates model deployment APIs into a set of simplified interfaces for loading models onto the NPU and performing inference. QAI AppBuilder significantly reduces the complexity of model deployment for developers and provides multiple demos as references for designing their own AI applications.
+[**Quick AI Application Builder**](https://github.com/quic/ai-engine-direct-helper) (QAI AppBuilder) helps developers easily use the [Qualcomm® AI Runtime SDK](qairt-sdk#qairt)
+to deploy AI models and design AI applications on Qualcomm® SoC platforms equipped with Qualcomm® Hexagon™ Processor (NPU).
+It encapsulates model deployment APIs into a set of simplified interfaces for loading models to the NPU and performing inference. QAI AppBuilder significantly reduces the complexity of model deployment for developers and provides multiple demos as references for designing their own AI applications.
 
 Supports Python API / C++ API
 
@@ -11,14 +12,21 @@ Supports Python API / C++ API
   QAI-APPBUILDER Architecture
 </div>
 
-## Installation
+**Supported Devices**
+
+| Device                | SoC     |
+| --------------------- | ------- |
+| Dragon Q6A            | QCS6490 |
+| Fogwise® AIRbox Q900 | QCS9075 |
+
+## Installation Methods
 
 ### Clone the Repository
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-git clone https://github.com/quic/ai-engine-direct-helper.git --recursive
+git clone -b radxa-dev https://github.com/ZIFENG278/ai-engine-direct-helper.git --recursive
 ```
 
 </NewCodeBlock>
@@ -26,54 +34,79 @@ git clone https://github.com/quic/ai-engine-direct-helper.git --recursive
 ### Download QAIRT SDK
 
 :::tip
-Please refer to [**Download QAIRT SDK Package**](./qairt-install#download-qairt-sdk-package) to download and extract the QAIRT SDK.
+Please download and extract the QAIRT SDK according to [**Download QAIRT SDK Package**](./qairt-install#download-qairt-sdk-package)
 :::
 
 #### Configure QAIRT Environment Variables
+
+<Tabs>
+    <TabItem value="QCS6490">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=6490 DSP_ARCH=68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=9075 DSP_ARCH=73
+    ```
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
 cd qairt/2.37.1.250807
 source bin/envsetup.sh
-export ADSP_LIBRARY_PATH=$QNN_SDK_ROOT/lib/hexagon-v68/unsigned
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-ubuntu-gcc9.4:$QNN_SDK_ROOT/lib/aarch64-oe-linux-gcc11.2
+export ADSP_LIBRARY_PATH=$QNN_SDK_ROOT/lib/hexagon-v${DSP_ARCH}/unsigned
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-oe-linux-gcc11.2
 ```
 
 </NewCodeBlock>
 
-### Build qai_appbuilder
+### 编译 qai_appbuilder
 
-#### Create Virtual Environment
+#### Create a Virtual Environment
 
 :::tip
-Create a virtual environment for Python library installation to isolate the environment.
+Create a virtual environment to isolate the Python libraries
 :::
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-sudo apt install python3-venv
+sudo apt install python3-venv python3-dev
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
 </NewCodeBlock>
 
-#### Build qai_appbuilder Wheel
+#### Compile qai_appbuilder Wheel
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
 pip3 install setuptools
+cd ai-engine-direct-helper
 python3 setup.py bdist_wheel
 ```
 
 </NewCodeBlock>
 
-After successful compilation, a `qai_appbuilder-2.34.0-cp312-cp312-linux_aarch64.whl` file will be generated in the `dist` directory.
+After compilation, a `qai_appbuilder-2.34.0-cp312-cp312-linux_aarch64.whl` file will be generated in the `dist` directory
 
-### Install qai_appbuilder
+### 安装 qai_appbuilder
 
 #### Install qai_appbuilder Wheel
 
@@ -86,72 +119,170 @@ pip3 install ./qai_appbuilder-2.34.0-cp312-cp312-linux_aarch64.whl
 
 </NewCodeBlock>
 
+### Create QAIRT SDK LIB Symlink
+
+Create a `qai_libs` symlink in `ai-engine-direct-helper/samples/python` to link to the `lib/aarch64-oe-linux-gcc11.2` directory in the QAIRT SDK
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+ln -s qairt/2.37.1.250807/lib/aarch64-oe-linux-gcc11.2/ ai-engine-direct-helper/samples/python/qai_libs
+```
+
+</NewCodeBlock>
+
 ## Application Examples
 
 <Tabs>
-    <TabItem value="QCS6490">
+<TabItem value="QCS6490">
 
-    <NewCodeBlock tip="Device" type="device">
+:::tip
+For QCS6490 Demos, please refer to [**Demo Examples**](./qai-appbuilder-demo)
+:::
 
-    ```bash
-    cd ai-engine-direct-helper/samples/linux/python
-    ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Device" type="device">
 
-    - Object Recognition
+```bash
+cd ai-engine-direct-helper/samples/linux/python
+```
 
-        | 模型                  | 运行方法                                            |
-        | ------------------- | ----------------------------------------------- |
-        | convnext_base      | `python3 convnext_base/convnext_base.py`         |
-        | convnext_tiny      | `python3 convnext_tiny/convnext_tiny.py`         |
-        | efficientnet_b0    | `python3 efficientnet_b0/efficientnet_b0.py`     |
-        | efficientnet_b4    | `python3 efficientnet_b4/efficientnet_b4.py`     |
-        | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
-        | [**googlenet**](googlenet)           | `python3 googlenet/googlenet.py`                 |
-        | [**inception_v3**](inception_v3)       | `python3 inception_v3/inception_v3.py`           |
-        | levit               | `python3 levit/levit.py`                         |
-        | regnet              | `python3 regnet/regnet.py`                       |
-        | shufflenet_v2      | `python3 shufflenet_v2/shufflenet_v2.py`         |
-        | squeezenet1_1      | `python3 squeezenet1_1/squeezenet1_1.py`         |
-        | vit                 | `python3 vit/vit.py`                             |
-        | wideresnet50        | `python3 wideresnet50/wideresnet50.py`           |
+</NewCodeBlock>
 
+- Object Recognition
 
-    - Image Segmentation
+  | Model             | Run Command                                      |
+  | ----------------- | ------------------------------------------------ |
+  | convnext_base     | `python3 convnext_base/convnext_base.py`         |
+  | convnext_tiny     | `python3 convnext_tiny/convnext_tiny.py`         |
+  | efficientnet_b0   | `python3 efficientnet_b0/efficientnet_b0.py`     |
+  | efficientnet_b4   | `python3 efficientnet_b4/efficientnet_b4.py`     |
+  | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
+  | googlenet         | `python3 googlenet/googlenet.py`                 |
+  | inception_v3      | `python3 inception_v3/inception_v3.py`           |
+  | levit             | `python3 levit/levit.py`                         |
+  | regnet            | `python3 regnet/regnet.py`                       |
+  | shufflenet_v2     | `python3 shufflenet_v2/shufflenet_v2.py`         |
+  | squeezenet1_1     | `python3 squeezenet1_1/squeezenet1_1.py`         |
+  | vit               | `python3 vit/vit.py`                             |
+  | wideresnet50      | `python3 wideresnet50/wideresnet50.py`           |
 
-        | Model             | Run Command                               |
-        | ----------------- | ----------------------------------------- |
-        | [**fcn_resnet50**](fcn_resnet50) | `python3 fcn_resnet50/fcn_resnet50.py`    |
+- Image Segmentation
 
+  | Model        | Run Command                            |
+  | ------------ | -------------------------------------- |
+  | fcn_resnet50 | `python3 fcn_resnet50/fcn_resnet50.py` |
 
-    - Object Detection
+- Object Detection
 
-        | Model          | Run Command                              |
-        | ----------- | --------------------------------- |
-        | [**yolov8_det**](yolov8-det) | `python3 yolov8_det/yolov8_det.py` |
+  | Model      | Run Command                        |
+  | ---------- | ---------------------------------- |
+  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
 
+- Image Super-Resolution
 
-    - Image Super-Resolution
+  | Model                    | Run Command                                                    |
+  | ------------------------ | -------------------------------------------------------------- |
+  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
+  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
+  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
+  | sesr_m5                  | `python3 sesr_m5/sesr_m5.py`                                   |
+  | xlsr                     | `python3 xlsr/xlsr.py`                                         |
 
-        | Model                          | Run Command                                                          |
-        | --------------------------- | ------------------------------------------------------------- |
-        | quicksrnetmedium            | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
-        | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
-        | [**real_esrgan_x4plus**](real_esrgan_x4plus)        | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
-        | sesr_m5                    | `python3 sesr_m5/sesr_m5.py`                                   |
-        | xlsr | `python3 xlsr/xlsr.py` |
+</TabItem>
 
-    </TabItem>
+<TabItem value="QCS9075">
 
-{/* <TabItem value="QCS9075"> */}
+:::tip
+For QCS9075 Demos, please refer to [**Demo Examples**](./qai-appbuilder-demo)
+:::
 
-{/* <NewCodeBlock tip="Device" type="device"> */}
-{/* ```bash */}
-{/* cd resnet50_qairt/9075 */}
-{/* ./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_9075.bin --input_list ./test_list.txt --output_dir output_bin */}
-{/* ``` */}
-{/* </NewCodeBlock> */}
+<NewCodeBlock tip="Device" type="device">
 
-{/* </TabItem> */}
+```bash
+cd ai-engine-direct-helper/samples/python
+```
+
+</NewCodeBlock>
+
+- Image Generation / Inpainting
+
+  | Model                 | Run Command                                                                               |
+  | --------------------- | ----------------------------------------------------------------------------------------- |
+  | stable_diffusion_v2_1 | `python3 stable_diffusion_v2_1/stable_diffusion_v2_1.py --prompt "the prompt string ..."` |
+  | stable_diffusion_v1_5 | `python3 stable_diffusion_v1_5/stable_diffusion_v1_5.py --prompt "the prompt string ..."` |
+  | lama_dilated          | `python3 lama_dilated/lama_dilated.py`                                                    |
+  | aotgan                | `python3 aotgan/aotgan.py`                                                                |
+
+- Image Super-Resolution
+
+  | Model                    | Run Command                                                    |
+  | ------------------------ | -------------------------------------------------------------- |
+  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
+  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
+  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
+
+- Image Recognition
+
+  | Model        | Run Command                            |
+  | ------------ | -------------------------------------- |
+  | inception_v3 | `python3 inception_v3/inception_v3.py` |
+  | beit         | `python3 beit/beit.py`                 |
+  | googlenet    | `python3 googlenet/googlenet.py`       |
+
+- Pose Estimation
+
+  | Model          | Run Command                                |
+  | -------------- | ------------------------------------------ |
+  | openpose       | `python3 openpose/openpose.py`             |
+  | mediapipe_hand | `python3 mediapipe_hand/mediapipe_hand.py` |
+
+- Image Segmentation / Depth Estimation
+
+  | Model             | Run Command                                      |
+  | ----------------- | ------------------------------------------------ |
+  | unet_segmentation | `python3 unet_segmentation/unet_segmentation.py` |
+  | depth_anything    | `python3 depth_anything/depth_anything.py`       |
+
+- Object Detection
+
+  | Model      | Run Command                        |
+  | ---------- | ---------------------------------- |
+  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
+
+- 3D Modeling
+
+  | Model           | Run Command                                  |
+  | --------------- | -------------------------------------------- |
+  | facemap_3dmm    | `python3 facemap_3dmm/facemap_3dmm.py`       |
+  | face_attrib_net | `python3 face_attrib_net/face_attrib_net.py` |
+
+- Audio Models
+
+  | Model           | Run Command                                  |
+  | --------------- | -------------------------------------------- |
+  | yamnet          | `python3 yamnet/yamnet.py`                   |
+  | whisper_base_en | `python3 whisper_base_en/whisper_base_en.py` |
+  | whisper_tiny_en | `python3 whisper_tiny_en/whisper_tiny_en.py` |
+
+- Text / Multimodal Embeddings
+
+  | Model            | Run Command                                            |
+  | ---------------- | ------------------------------------------------------ |
+  | nomic_embed_text | `python3 nomic_embed_text/nomic_embed_text.py`         |
+  | openai_clip      | `python3 openai_clip/openai_clip.py --text "mountain"` |
+
+- 3D Action Recognition
+
+  | Model     | Run Command                      |
+  | --------- | -------------------------------- |
+  | resnet_3d | `python3 resnet_3d/resnet_3d.py` |
+
+- OCR (Text Recognition)
+
+  | Model    | Run Command                    |
+  | -------- | ------------------------------ |
+  | easy_ocr | `python3 easy_ocr/easy_ocr.py` |
+
+</TabItem>
 
 </Tabs>

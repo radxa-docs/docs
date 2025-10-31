@@ -37,7 +37,7 @@ lspci
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-tar -xvf dx_rt_npu_linux_driver_v1.3.1.tar.gz && cd dx_rt_npu_linux_driver
+tar -xvf dx_rt_npu_linux_driver_v1.3.1.tar.gz && cd dx_rt_npu_linux_driver/modules
 ```
 
 </NewCodeBlock>

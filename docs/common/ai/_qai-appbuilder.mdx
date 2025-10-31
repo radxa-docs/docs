@@ -9,6 +9,13 @@
   QAI-APPBUILDER 架构
 </div>
 
+**支持设备**
+
+| 设备                  | SoC     |
+| --------------------- | ------- |
+| Dragon Q6A            | QCS6490 |
+| Fogwise® AIRbox Q900 | QCS9075 |
+
 ## 安装方法
 
 ### 克隆仓库
@@ -16,7 +23,7 @@
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-git clone https://github.com/quic/ai-engine-direct-helper.git --recursive
+git clone -b radxa-dev https://github.com/ZIFENG278/ai-engine-direct-helper.git --recursive
 ```
 
 </NewCodeBlock>
@@ -29,13 +36,37 @@ git clone https://github.com/quic/ai-engine-direct-helper.git --recursive
 
 #### 配置 QAIRT 环境变量
 
+<Tabs>
+    <TabItem value="QCS6490">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=6490 DSP_ARCH=68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075">
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=9075 DSP_ARCH=73
+    ```
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
 cd qairt/2.37.1.250807
 source bin/envsetup.sh
-export ADSP_LIBRARY_PATH=$QNN_SDK_ROOT/lib/hexagon-v68/unsigned
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-ubuntu-gcc9.4:$QNN_SDK_ROOT/lib/aarch64-oe-linux-gcc11.2
+export ADSP_LIBRARY_PATH=$QNN_SDK_ROOT/lib/hexagon-v${DSP_ARCH}/unsigned
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-oe-linux-gcc11.2
 ```
 
 </NewCodeBlock>
@@ -51,7 +82,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-ubuntu-gcc9.4:
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-sudo apt install python3-venv
+sudo apt install python3-venv python3-dev
 python3 -m venv .venv
 source .venv/bin/activate
 ```
@@ -64,6 +95,7 @@ source .venv/bin/activate
 
 ```bash
 pip3 install setuptools
+cd ai-engine-direct-helper
 python3 setup.py bdist_wheel
 ```
 
@@ -84,72 +116,170 @@ pip3 install ./qai_appbuilder-2.34.0-cp312-cp312-linux_aarch64.whl
 
 </NewCodeBlock>
 
+### 创建 QAIRT SDK LIB 软链接
+
+请在 `ai-engine-direct-helper/samples/python` 下创建 `qai_libs` 软链接，用于链接 QAIRT SDK 里的 `lib/aarch64-oe-linux-gcc11.2` 目录
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+ln -s qairt/2.37.1.250807/lib/aarch64-oe-linux-gcc11.2/ ai-engine-direct-helper/samples/python/qai_libs
+```
+
+</NewCodeBlock>
+
 ## 应用例子
 
 <Tabs>
-    <TabItem value="QCS6490">
+<TabItem value="QCS6490">
 
-    <NewCodeBlock tip="Device" type="device">
+:::tip
+QCS6490 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
+:::
 
-    ```bash
-    cd ai-engine-direct-helper/samples/linux/python
-    ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Device" type="device">
 
-    - 目标识别
+```bash
+cd ai-engine-direct-helper/samples/linux/python
+```
 
-        | 模型                  | 运行方法                                            |
-        | ------------------- | ----------------------------------------------- |
-        | convnext_base      | `python3 convnext_base/convnext_base.py`         |
-        | convnext_tiny      | `python3 convnext_tiny/convnext_tiny.py`         |
-        | efficientnet_b0    | `python3 efficientnet_b0/efficientnet_b0.py`     |
-        | efficientnet_b4    | `python3 efficientnet_b4/efficientnet_b4.py`     |
-        | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
-        | [**googlenet**](googlenet)           | `python3 googlenet/googlenet.py`                 |
-        | [**inception_v3**](inception_v3)       | `python3 inception_v3/inception_v3.py`           |
-        | levit               | `python3 levit/levit.py`                         |
-        | regnet              | `python3 regnet/regnet.py`                       |
-        | shufflenet_v2      | `python3 shufflenet_v2/shufflenet_v2.py`         |
-        | squeezenet1_1      | `python3 squeezenet1_1/squeezenet1_1.py`         |
-        | vit                 | `python3 vit/vit.py`                             |
-        | wideresnet50        | `python3 wideresnet50/wideresnet50.py`           |
+</NewCodeBlock>
 
+- 目标识别
 
-    - 图像分割
+  | 模型              | 运行方法                                         |
+  | ----------------- | ------------------------------------------------ |
+  | convnext_base     | `python3 convnext_base/convnext_base.py`         |
+  | convnext_tiny     | `python3 convnext_tiny/convnext_tiny.py`         |
+  | efficientnet_b0   | `python3 efficientnet_b0/efficientnet_b0.py`     |
+  | efficientnet_b4   | `python3 efficientnet_b4/efficientnet_b4.py`     |
+  | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
+  | googlenet         | `python3 googlenet/googlenet.py`                 |
+  | inception_v3      | `python3 inception_v3/inception_v3.py`           |
+  | levit             | `python3 levit/levit.py`                         |
+  | regnet            | `python3 regnet/regnet.py`                       |
+  | shufflenet_v2     | `python3 shufflenet_v2/shufflenet_v2.py`         |
+  | squeezenet1_1     | `python3 squeezenet1_1/squeezenet1_1.py`         |
+  | vit               | `python3 vit/vit.py`                             |
+  | wideresnet50      | `python3 wideresnet50/wideresnet50.py`           |
 
-        | 模型            | 运行方法                                  |
-        | ------------- | ------------------------------------- |
-        | [**fcn_resnet50**](fcn_resnet50) | `python3 fcn_resnet50/fcn_resnet50.py` |
+- 图像分割
 
+  | 模型         | 运行方法                               |
+  | ------------ | -------------------------------------- |
+  | fcn_resnet50 | `python3 fcn_resnet50/fcn_resnet50.py` |
 
-    - 目标检测
+- 目标检测
 
-        | 模型          | 运行方法                              |
-        | ----------- | --------------------------------- |
-        | [**yolov8_det**](yolov8-det) | `python3 yolov8_det/yolov8_det.py` |
+  | 模型       | 运行方法                           |
+  | ---------- | ---------------------------------- |
+  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
 
+- 图像超分辨率
 
-    - 图像超分辨率
+  | 模型                     | 运行方法                                                       |
+  | ------------------------ | -------------------------------------------------------------- |
+  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
+  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
+  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
+  | sesr_m5                  | `python3 sesr_m5/sesr_m5.py`                                   |
+  | xlsr                     | `python3 xlsr/xlsr.py`                                         |
 
-        | 模型                          | 运行方法                                                          |
-        | --------------------------- | ------------------------------------------------------------- |
-        | quicksrnetmedium            | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
-        | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
-        | [**real_esrgan_x4plus**](real_esrgan_x4plus)        | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
-        | sesr_m5                    | `python3 sesr_m5/sesr_m5.py`                                   |
-        | xlsr | `python3 xlsr/xlsr.py` |
+</TabItem>
 
-    </TabItem>
+<TabItem value="QCS9075">
 
-{/* <TabItem value="QCS9075"> */}
+:::tip
+QCS9075 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
+:::
 
-{/* <NewCodeBlock tip="Device" type="device"> */}
-{/* ```bash */}
-{/* cd resnet50_qairt/9075 */}
-{/* ./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_9075.bin --input_list ./test_list.txt --output_dir output_bin */}
-{/* ``` */}
-{/* </NewCodeBlock> */}
+<NewCodeBlock tip="Device" type="device">
 
-{/* </TabItem> */}
+```bash
+cd ai-engine-direct-helper/samples/python
+```
+
+</NewCodeBlock>
+
+- 图像生成 / 图像修复
+
+  | 模型                  | 运行方法                                                                                  |
+  | --------------------- | ----------------------------------------------------------------------------------------- |
+  | stable_diffusion_v2_1 | `python3 stable_diffusion_v2_1/stable_diffusion_v2_1.py --prompt "the prompt string ..."` |
+  | stable_diffusion_v1_5 | `python3 stable_diffusion_v1_5/stable_diffusion_v1_5.py --prompt "the prompt string ..."` |
+  | lama_dilated          | `python3 lama_dilated/lama_dilated.py`                                                    |
+  | aotgan                | `python3 aotgan/aotgan.py`                                                                |
+
+- 图像超分辨率
+
+  | 模型                     | 运行方法                                                       |
+  | ------------------------ | -------------------------------------------------------------- |
+  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
+  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
+  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
+
+- 图像识别
+
+  | 模型         | 运行方法                               |
+  | ------------ | -------------------------------------- |
+  | inception_v3 | `python3 inception_v3/inception_v3.py` |
+  | beit         | `python3 beit/beit.py`                 |
+  | googlenet    | `python3 googlenet/googlenet.py`       |
+
+- 姿态识别
+
+  | 模型           | 运行方法                                   |
+  | -------------- | ------------------------------------------ |
+  | openpose       | `python3 openpose/openpose.py`             |
+  | mediapipe_hand | `python3 mediapipe_hand/mediapipe_hand.py` |
+
+- 图像分割 / 深度估计
+
+  | 模型              | 运行方法                                         |
+  | ----------------- | ------------------------------------------------ |
+  | unet_segmentation | `python3 unet_segmentation/unet_segmentation.py` |
+  | depth_anything    | `python3 depth_anything/depth_anything.py`       |
+
+- 目标检测
+
+  | 模型       | 运行方法                           |
+  | ---------- | ---------------------------------- |
+  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
+
+- 三维建模
+
+  | 模型            | 运行方法                                     |
+  | --------------- | -------------------------------------------- |
+  | facemap_3dmm    | `python3 facemap_3dmm/facemap_3dmm.py`       |
+  | face_attrib_net | `python3 face_attrib_net/face_attrib_net.py` |
+
+- 音频模型
+
+  | 模型            | 运行方法                                     |
+  | --------------- | -------------------------------------------- |
+  | yamnet          | `python3 yamnet/yamnet.py`                   |
+  | whisper_base_en | `python3 whisper_base_en/whisper_base_en.py` |
+  | whisper_tiny_en | `python3 whisper_tiny_en/whisper_tiny_en.py` |
+
+- 文本 / 多模态嵌入
+
+  | 模型             | 运行方法                                               |
+  | ---------------- | ------------------------------------------------------ |
+  | nomic_embed_text | `python3 nomic_embed_text/nomic_embed_text.py`         |
+  | openai_clip      | `python3 openai_clip/openai_clip.py --text "mountain"` |
+
+- 三维动作识别
+
+  | 模型      | 运行方法                         |
+  | --------- | -------------------------------- |
+  | resnet_3d | `python3 resnet_3d/resnet_3d.py` |
+
+- OCR（文字识别）
+
+  | 模型     | 运行方法                       |
+  | -------- | ------------------------------ |
+  | easy_ocr | `python3 easy_ocr/easy_ocr.py` |
+
+</TabItem>
 
 </Tabs>
