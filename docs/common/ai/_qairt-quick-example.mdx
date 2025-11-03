@@ -42,10 +42,13 @@ modelscope download --model radxa/resnet50_qairt --local ./resnet50_qairt
 执行模型推理
 
 <NewCodeBlock tip="Device" type="device">
-  ```bash cd resnet50_qairt/$PRODUCT_SOC chmod +x qnn-net-run ./qnn-net-run
-  --backend ./libQnnHtp.so --retrieve_context
-  ./resnet50_aimet_quantized_$PRODUCT_SOC.bin --input_list ./test_list.txt
-  --output_dir output_bin ```
+
+```bash
+cd resnet50_qairt/$PRODUCT_SOC
+chmod +x qnn-net-run
+./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_$PRODUCT_SOC.bin --input_list ./test_list.txt --output_dir output_bin
+```
+
 </NewCodeBlock>
 
 ## 验证示例
