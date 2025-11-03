@@ -1,10 +1,11 @@
-This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [Depth-Anything](https://aihub.qualcomm.com/models/depth_anything) depth estimation model on Qualcomm® Hexagon™ Processor (NPU).
+This document describes using the [QAI AppBuilder](../qai-appbuilder) Python API to perform inference with the [SESR-M5](https://aihub.qualcomm.com/models/sesr_m5)
+image super-resolution model using Qualcomm® Hexagon™ Processor (NPU).
 
 **Supported Devices**
 
-| Device                | SoC     |
-| --------------------- | ------- |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Device     | SoC     |
+| ---------- | ------- |
+| Dragon Q6A | QCS6490 |
 
 ## Install QAI AppBuilder
 
@@ -15,31 +16,31 @@ This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Pytho
 2. Please configure QAIRT environment variables according to [**Configure QAIRT Environment Variables**](../qai-appbuilder#configure-qairt-environment-variables).
    :::
 
-## Run the Example
+## Run Example
 
 ### Install Dependencies
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matplotlib
+pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 ```
 
 </NewCodeBlock>
 
-### Run the Script
+### Run Script
 
 - Navigate to the example directory
 
     <Tabs>
 
-        <TabItem value="QCS9075">
+        <TabItem value="QCS6490">
 
        <NewCodeBlock tip="Device" type="device">
 
-        ```bash
-        cd ai-engine-direct-helper/samples/python
-        ```
+         ```bash
+         cd ai-engine-direct-helper/samples/linux/python
+         ```
 
         </NewCodeBlock>
 
@@ -47,30 +48,34 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matp
 
     </Tabs>
 
-- Prepare input image. The following image is used as an example:
+- Prepare input image, using the following image as input example
 
   {" "}
 
   <div style={{ textAlign: "center" }}>
-    <img src="/en/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
+    <img
+      src="/en/img/dragon/q6a/qairt_sesr_input.webp"
+      style={{ width: "65%" }}
+    />
     input image
   </div>
 
-- Run inference
+- Execute inference
 
     <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 depth_anything/depth_anything.py
+  python3 sesr_m5/sesr_m5.py
   ```
 
     </NewCodeBlock>
 
   ```bash
-  $ python3 depth_anything/depth_anything.py
+  $ python3 sesr_m5/sesr_m5.py
+  Current file directory: /mnt/ssd/qualcomm/701/zzf_fork/ai-engine-direct-helper/samples/linux/python/sesr_m5
        0.0ms [WARNING]  <W> Initializing HtpProvider
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
@@ -79,7 +84,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matp
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-     167.0ms [WARNING] Time: Read model file to memory. 37.39
+     113.8ms [WARNING] Time: Read model file to memory. 0.39
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
@@ -95,37 +100,37 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matp
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-     329.2ms [WARNING] Time: contextCreateFromBinary. 162.14
+     119.7ms [WARNING] Time: contextCreateFromBinary. 5.87
 
-     329.3ms [WARNING] Time: UnmapViewOfFile. 0.00
+     119.8ms [WARNING] Time: UnmapViewOfFile. 0.00
 
-     332.1ms [WARNING] Time: model_initialize depth_anything 332.05
+     119.9ms [WARNING] Time: model_initialize sesr_m5 119.89
 
-     576.7ms [WARNING] Time: model_inference depth_anything 145.90
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+     152.4ms [WARNING] Time: model_inference sesr_m5 11.00
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+     330.6ms [WARNING] Time: model_destroy sesr_m5 18.65
 
   /usr/bin/xdg-open: 882: www-browser: not found
   /usr/bin/xdg-open: 882: links2: not found
   /usr/bin/xdg-open: 882: elinks: not found
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     877.6ms [WARNING] Time: model_destroy depth_anything 85.31
-
   /usr/bin/xdg-open: 882: links: not found
   /usr/bin/xdg-open: 882: lynx: not found
   /usr/bin/xdg-open: 882: w3m: not found
-  xdg-open: no method available for opening '/tmp/tmp_3i4qa54.PNG'
+  xdg-open: no method available for opening '/tmp/tmpxodzub9w.PNG'
   ```
 
   <div style={{ textAlign: "center" }}>
     <img
-      src="/en/img/fogwise/airbox-q900/qairt_depth_anything_output.webp"
+      src="/en/img/dragon/q6a/qairt_sesr_output.webp"
       style={{ width: "65%" }}
     />
     output image

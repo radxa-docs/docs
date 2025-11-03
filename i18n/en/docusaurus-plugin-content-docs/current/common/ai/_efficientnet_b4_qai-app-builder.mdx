@@ -1,10 +1,11 @@
-This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [Beit](https://aihub.qualcomm.com/models/beit) object recognition model on Qualcomm® Hexagon™ Processor (NPU).
+This document describes using the [QAI AppBuilder](../qai-appbuilder) Python API to perform inference with the [EfficientNet-B4](https://aihub.qualcomm.com/models/efficientnet_b4)
+target recognition model using Qualcomm® Hexagon™ Processor (NPU).
 
 **Supported Devices**
 
-| Device                | SoC     |
-| --------------------- | ------- |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Device     | SoC     |
+| ---------- | ------- |
+| Dragon Q6A | QCS6490 |
 
 ## Install QAI AppBuilder
 
@@ -15,7 +16,7 @@ This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Pytho
 2. Please configure QAIRT environment variables according to [**Configure QAIRT Environment Variables**](../qai-appbuilder#configure-qairt-environment-variables).
    :::
 
-## Run the Example
+## Run Example
 
 ### Install Dependencies
 
@@ -27,19 +28,19 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
 </NewCodeBlock>
 
-### Run the Script
+### Run Script
 
 - Navigate to the example directory
 
     <Tabs>
 
-        <TabItem value="QCS9075">
+        <TabItem value="QCS6490">
 
        <NewCodeBlock tip="Device" type="device">
 
-        ```bash
-        cd ai-engine-direct-helper/samples/python
-        ```
+         ```bash
+         cd ai-engine-direct-helper/samples/linux/python
+         ```
 
         </NewCodeBlock>
 
@@ -47,30 +48,31 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
     </Tabs>
 
-- Prepare input image. The following image is used as an example:
+- Prepare input image, using the following image as input example
 
   {" "}
 
   <div style={{ textAlign: "center" }}>
-    <img src="/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
+    <img src="/en/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
     input image
   </div>
 
-- Run inference
+- Execute inference
 
     <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 beit/beit.py
+  python3 efficientnet_b4/efficientnet_b4.py
   ```
 
     </NewCodeBlock>
 
   ```bash
-  $ python3 beit/beit.py
+  $ python3 efficientnet_b4/efficientnet_b4.py
+  Current file directory: /mnt/ssd/qualcomm/701/zzf_fork/ai-engine-direct-helper/samples/linux/python/efficientnet_b4
        0.0ms [WARNING]  <W> Initializing HtpProvider
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
@@ -79,7 +81,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-     179.0ms [WARNING] Time: Read model file to memory. 60.05
+     134.2ms [WARNING] Time: Read model file to memory. 15.52
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
@@ -95,21 +97,21 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-     284.7ms [WARNING] Time: contextCreateFromBinary. 105.62
+     197.4ms [WARNING] Time: contextCreateFromBinary. 63.07
 
-     284.8ms [WARNING] Time: UnmapViewOfFile. 0.00
+     197.4ms [WARNING] Time: UnmapViewOfFile. 0.00
 
-     288.1ms [WARNING] Time: model_initialize beit 288.01
+     197.8ms [WARNING] Time: model_initialize efficientnet_b4 197.73
 
-     365.3ms [WARNING] Time: model_inference beit 17.72
+     271.4ms [WARNING] Time: model_inference efficientnet_b4 12.60
 
   Top 5 predictions for image:
 
-  "Samoyed", 0.6322221756
-  "Pomeranian", 0.1098636836
-  "Keeshond", 0.0410530604
-  "Japanese Chin", 0.0093044275
-  "Chow Chow", 0.0058453484
+  Samoyed 0.9568610787
+  Pomeranian 0.0066686491
+  keeshond 0.0054634647
+  chow 0.0010403089
+  Eskimo dog 0.0007608762
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
@@ -118,8 +120,9 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
        0.0ms [WARNING]  <W> This META does not have Alloc2 Support
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     483.8ms [WARNING] Time: model_destroy beit 113.14
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+     287.8ms [WARNING] Time: model_destroy efficientnet_b4 13.65
+
   ```
 
-  The output shows that `Samoyed` has the highest confidence score, which matches the content of the input image.
+  The printed results show that `Samoyed` has the highest confidence, which matches the input image content.

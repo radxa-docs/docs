@@ -55,3 +55,29 @@ newgrp dialout
 </NewCodeBlock>
 
 3. Check if the serial device is being used by another program
+
+## Why does Radxa OS use GDM by default instead of SDDM?
+
+Radxa OS uses GDM (GNOME Display Manager) instead of SDDM (Simple Desktop Display Manager) by default for the following reasons:
+
+**SDDM Limitations:**
+
+- SDDM cannot properly start the graphical interface in headless mode when HDMI is not connected
+- This prevents users from logging in through remote desktop or VNC
+
+**GDM Advantages:**
+
+- Runs stably in various connection states (including headless mode)
+- Provides better compatibility and reliability
+
+If you want to switch back to SDDM, follow these steps:
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```bash
+sudo dpkg-reconfigure sddm
+```
+
+</NewCodeBlock>
+
+In the configuration interface that appears, select `sddm` as the default display manager, then restart the system for the changes to take effect.

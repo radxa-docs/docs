@@ -1,36 +1,54 @@
-This document explains how to use the QAI AppBuilder Python library to run the [FCN-ResNet50](https://aihub.qualcomm.com/compute/models/fcn_resnet50) image segmentation model on the Radxa Dragon Q6A.
+This document describes using the [QAI AppBuilder](../qai-appbuilder) Python API to perform inference with the [FCN-ResNet50](https://aihub.qualcomm.com/compute/models/fcn_resnet50)
+image segmentation model using Qualcomm® Hexagon™ Processor (NPU).
+
+**Supported Devices**
+
+| Device     | SoC     |
+| ---------- | ------- |
+| Dragon Q6A | QCS6490 |
 
 ## Install QAI AppBuilder
 
 :::tip
-Please follow the [**QAI AppBuilder Installation Guide**](qai-appbuilder#installation-methods) to install QAI AppBuilder.
-:::
 
-## Running the Example
+1. Please install QAI AppBuilder according to [**QAI AppBuilder Installation Guide**](../qai-appbuilder#installation-methods).
+
+2. Please configure QAIRT environment variables according to [**Configure QAIRT Environment Variables**](../qai-appbuilder#configure-qairt-environment-variables).
+   :::
+
+## Run Example
 
 ### Install Dependencies
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch
+pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 ```
 
 </NewCodeBlock>
 
-### Run the Script
+### Run Script
 
 - Navigate to the example directory
 
-   <NewCodeBlock tip="Device" type="device">
+    <Tabs>
 
-  ```bash
-  cd ai-engine-direct-helper/samples/linux/python
-  ```
+        <TabItem value="QCS6490">
 
-    </NewCodeBlock>
+       <NewCodeBlock tip="Device" type="device">
 
-- Prepare the input image. The following image is used as an example:
+         ```bash
+         cd ai-engine-direct-helper/samples/linux/python
+         ```
+
+        </NewCodeBlock>
+
+    </TabItem>
+
+    </Tabs>
+
+- Prepare input image, using the following image as input example
 
   <div style={{ textAlign: "center" }}>
     <img
@@ -40,7 +58,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch
     input image
   </div>
 
-- Execute the inference
+- Execute inference
 
   <NewCodeBlock tip="Device" type="device">
 
@@ -51,8 +69,8 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch
   </NewCodeBlock>
 
   ```bash
-  (.venv) ubuntu@ubuntu:~/git_clone/ai-engine-direct-helper/samples/linux/python$ python3 fcn_resnet50/fcn_resnet50.py --image ./input.jpg
-  Current file directory: /home/ubuntu/git_clone/ai-engine-direct-helper/samples/linux/python/fcn_resnet50
+  $ python3 fcn_resnet50/fcn_resnet50.py --image ./input.jpg
+  Current file directory: /mnt/ssd/git_clone/ai-engine-direct-helper/samples/linux/python/fcn_resnet50
        0.0ms [WARNING]  <W> Initializing HtpProvider
 
   /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
@@ -100,7 +118,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch
      463.2ms [WARNING] Time: model_destroy fcn_resnet50 10.20
   ```
 
-- Output Result
+- Output results
 
   <div style={{ textAlign: "center" }}>
     <img
