@@ -41,10 +41,13 @@ Please import environment variables according to your SoC:
 Execute model inference:
 
 <NewCodeBlock tip="Device" type="device">
-  ```bash cd resnet50_qairt/$PRODUCT_SOC chmod +x qnn-net-run ./qnn-net-run
-  --backend ./libQnnHtp.so --retrieve_context
-  ./resnet50_aimet_quantized_$PRODUCT_SOC.bin --input_list ./test_list.txt
-  --output_dir output_bin ```
+
+```bash
+cd resnet50_qairt/$PRODUCT_SOC
+chmod +x qnn-net-run
+./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_$PRODUCT_SOC.bin --input_list ./test_list.txt --output_dir output_bin
+```
+
 </NewCodeBlock>
 
 ## Verify Example
