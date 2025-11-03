@@ -6,4 +6,4 @@ import InstallEnv from '../../../../common/radxa-os/build-system/\_install_env.m
 
 # 环境搭建
 
-<InstallEnv />
+<InstallEnv items="Kernel and Radxa OS" />
