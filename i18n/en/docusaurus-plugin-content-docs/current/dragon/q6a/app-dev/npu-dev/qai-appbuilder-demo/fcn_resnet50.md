@@ -4,6 +4,6 @@ sidebar_position: 0
 
 # FCN-ResNet50 Example
 
-import FCNRESNRT50QAIAPPBUILDER from '../../../../../common/ai/\_fcn-resnet50_qai-app-builder.mdx';
+import FCNRESNET50QAIAPPBUILDER from '../../../../../common/ai/\_fcn-resnet50_qai-app-builder.mdx';
 
-<FCNRESNRT50QAIAPPBUILDER />
+<FCNRESNET50QAIAPPBUILDER />
