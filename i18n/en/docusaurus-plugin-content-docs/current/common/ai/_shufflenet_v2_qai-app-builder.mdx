@@ -1,0 +1,127 @@
+This document describes using the [QAI AppBuilder](../qai-appbuilder) Python API to perform inference with the [ShuffleNet-v2](https://aihub.qualcomm.com/models/shufflenet_v2)
+target recognition model using Qualcomm® Hexagon™ Processor (NPU).
+
+**Supported Devices**
+
+| Device     | SoC     |
+| ---------- | ------- |
+| Dragon Q6A | QCS6490 |
+
+## Install QAI AppBuilder
+
+:::tip
+
+1. Please install QAI AppBuilder according to [**QAI AppBuilder Installation Guide**](../qai-appbuilder#installation-methods).
+
+2. Please configure QAIRT environment variables according to [**Configure QAIRT Environment Variables**](../qai-appbuilder#configure-qairt-environment-variables).
+   :::
+
+## Run Example
+
+### Install Dependencies
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
+```
+
+</NewCodeBlock>
+
+### Run Script
+
+- Navigate to the example directory
+
+    <Tabs>
+
+        <TabItem value="QCS6490">
+
+       <NewCodeBlock tip="Device" type="device">
+
+         ```bash
+         cd ai-engine-direct-helper/samples/linux/python
+         ```
+
+        </NewCodeBlock>
+
+    </TabItem>
+
+    </Tabs>
+
+- Prepare input image, using the following image as input example
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/en/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
+    input image
+  </div>
+
+- Execute inference
+
+    <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  python3 shufflenet_v2/shufflenet_v2.py
+  ```
+
+    </NewCodeBlock>
+
+  ```bash
+  $ python3 shufflenet_v2/shufflenet_v2.py
+  Current file directory: /mnt/ssd/qualcomm/701/zzf_fork/ai-engine-direct-helper/samples/linux/python/shufflenet_v2
+       0.0ms [WARNING]  <W> Initializing HtpProvider
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     115.6ms [WARNING] Time: Read model file to memory. 0.91
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+     125.6ms [WARNING] Time: contextCreateFromBinary. 10.02
+
+     125.7ms [WARNING] Time: UnmapViewOfFile. 0.00
+
+     125.9ms [WARNING] Time: model_initialize shufflenet_v2 125.87
+
+     199.9ms [WARNING] Time: model_inference shufflenet_v2 2.19
+
+  Top 5 predictions for image:
+
+  Samoyed 0.8289067745
+  wallaby 0.0915796161
+  Pomeranian 0.0265247617
+  Great Pyrenees 0.0101179369
+  hare 0.0050830133
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+
+  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+     219.4ms [WARNING] Time: model_destroy shufflenet_v2 17.56
+  ```
+
+  The printed results show that `Samoyed` has the highest confidence, which matches the input image content.
