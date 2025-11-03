@@ -55,3 +55,29 @@ newgrp dialout
 </NewCodeBlock>
 
 3. 检查串口设备是否被其他程序占用
+
+## 为什么 Radxa OS 默认使用 GDM 而不是 SDDM？
+
+Radxa OS 默认使用 GDM（GNOME Display Manager）替代 SDDM（Simple Desktop Display Manager），主要原因如下：
+
+**SDDM 的局限性：**
+
+- 在 HDMI 未连接的 headless 模式下，SDDM 无法正常启动图形界面
+- 这会导致用户无法通过远程桌面或 VNC 等方式登录系统
+
+**GDM 的优势：**
+
+- 在各种连接状态下（包括 headless 模式）都能稳定运行
+- 提供更好的兼容性和可靠性
+
+如果您希望切换回 SDDM，请按以下步骤操作：
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```bash
+sudo dpkg-reconfigure sddm
+```
+
+</NewCodeBlock>
+
+在弹出的配置界面中，选择 `sddm` 作为默认显示管理器，然后重启系统即可使更改生效。
