@@ -47,7 +47,7 @@ ROCK 5A provides complete hardware design schematics and software source code, a
   </tr>
   <tr>
     <th>CPU</th>
-    <th>Quad Cortex®-A76 @ 2.2/2.4GHz and Quad Cortex®-A55 @ 1.8GHz based on Arm® DynamIQ™ configuration</th>
+    <th>Quad-core Cortex®-A76 up to 2.4GHz<br/>Quad-core Cortex®-A55 up to 1.8GHz</th>
   </tr>
   <tr>
     <th>GPU</th>
