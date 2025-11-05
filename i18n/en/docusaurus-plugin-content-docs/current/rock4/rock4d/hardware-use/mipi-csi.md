@@ -27,6 +27,11 @@ For detailed interface specifications, please refer to the [Hardware Design: Sch
 
 <TabItem value="4-lane MIPI CSI">
 
+- 4-lane MIPI CSI Interface Specifications
+  - Model: FH35C-31S-0.3SHW (50)
+  - Pin Pitch: 0.3mm
+  - Pin Count: 31 Pin
+
 | Pin# | Name                   | Pin# | Name                      | Pin# | Name                  |
 | :--: | :--------------------- | :--: | :------------------------ | :--: | :-------------------- |
 |  1   | GND                    |  12  | MIPI_DPHY_CSI1_RX_D1P     |  23  | MIPI_CSI0_PDN1_H      |

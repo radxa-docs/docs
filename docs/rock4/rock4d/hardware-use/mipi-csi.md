@@ -27,6 +27,11 @@ sidebar_position: 7
 
 <TabItem value="4-lane MIPI CSI">
 
+- 4-lane MIPI CSI 接口规格
+  - 型号：FH35C-31S-0.3SHW（50）
+  - 引脚间距：0.3mm
+  - 引脚数：31 Pin
+
 | Pin# | Name                   | Pin# | Name                      | Pin# | Name                  |
 | :--: | :--------------------- | :--: | :------------------------ | :--: | :-------------------- |
 |  1   | GND                    |  12  | MIPI_DPHY_CSI1_RX_D1P     |  23  | MIPI_CSI0_PDN1_H      |
