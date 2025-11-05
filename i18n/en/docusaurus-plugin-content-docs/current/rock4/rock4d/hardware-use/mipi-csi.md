@@ -15,7 +15,57 @@ The two MIPI CSI interfaces include a 4-lane (4-channel) MIPI CSI and a 2-lane (
 
 ## Supported Cameras
 
-Camera module compatibility is currently being tested. A list of supported camera modules will be updated in the future.
+| Board   | CSI Camera                                                              | Notes                          |
+| ------- | ----------------------------------------------------------------------- | ------------------------------ |
+| ROCK 4D | [Camera 4K](https://radxa.com/products/accessories/camera4k)            |                                |
+| ROCK 4D | [Camera 13M 214](https://radxa.com/products/accessories/camera-13m-214) | Color preview is being adapted |
+| ROCK 4D | [Camera 8M 219](https://radxa.com/products/accessories/camera-8m-219)   | Color preview is being adapted |
+
+## Hardware Connection
+
+Use the board's MIPI CSI interface to connect the camera. The connection method is as follows: taking the 4-lane MIPI CSI interface connecting Camera 4K as an example
+
+①: Connect to the board's MIPI CSI interface, with the gold fingers (metal contacts) facing towards the board
+
+②: Connect to the camera's interface, with the gold fingers (metal contacts) facing towards the camera
+
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/rock4/4d/rock4d-mipi-csi.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Camera 4K MIPI CSI Interface" />
+</div>
+
+## Software Enable
+
+Enter `rsetup` command in the terminal command line, and use the Rsetup tool to configure camera options.
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+rsetup
+```
+
+</NewCodeBlock>
+
+1. Use the arrow keys to select the Overlays option, then press Enter to confirm the selection.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-overlays.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. Use the arrow keys to select the Manage overlays option, then press Enter to confirm the selection.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-overlays-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. Use the arrow keys to select the corresponding Camera option, press the space key to enable the function (indicated by `*`), then press Enter to confirm the selection.
+
+4. Restart the system for the configuration to take effect.
 
 ## Interface Specifications
 
@@ -49,6 +99,11 @@ For detailed interface specifications, please refer to the [Hardware Design: Sch
 </TabItem>
 
 <TabItem value="2-lane MIPI CSI">
+
+- 2-lane MIPI CSI Interface Specifications
+  - Model: FPC1030-15S-TAG
+  - Pin Pitch: 1 mm
+  - Pin Count: 15 Pin
 
 | Pin# | Name                      | Pin# | Name                    | Pin# | Name                  |
 | :--: | :------------------------ | :--: | :---------------------- | :--: | :-------------------- |
