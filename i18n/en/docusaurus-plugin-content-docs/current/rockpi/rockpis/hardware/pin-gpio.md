@@ -47,8 +47,8 @@ Users can connect various sensors, actuators, communication modules, displays, a
 |           |             |                  | MICBIAS1    | <div className='green'>33</div> | <div className='green'>34</div> | GPIO2_C0  | I2S0_8CH_SDI3    | PDM_SDI3_M2  |           |
 |           |             |                  | MICN8       | <div className='green'>35</div> | <div className='green'>36</div> | MCIP8     |                  |              |           |
 |           |             |                  | MICN7       | <div className='green'>37</div> | <div className='green'>38</div> | MCIP7     |                  |              |           |
-| UART3_TX  | I2C3_SCL_M1 | SPI1_CSN0        | GPOI3_B5    | <div className='green'>39</div> | <div className='green'>40</div> | GPOI3_B4  | SPI1_MOSI        | I2C3_SDA_M1  | UART3_RX  |
-|           |             | SPI1_CLK         | GPOI3_B3    | <div className='green'>41</div> | <div className='green'>42</div> | GPOI3_B2  | SPI1_MISO        |              |           |
+| UART3_TX  | I2C3_SCL_M1 | SPI1_CSN0        | GPIO3_B5    | <div className='green'>39</div> | <div className='green'>40</div> | GPIO3_B4  | SPI1_MOSI        | I2C3_SDA_M1  | UART3_RX  |
+|           |             | SPI1_CLK         | GPIO3_B3    | <div className='green'>41</div> | <div className='green'>42</div> | GPIO3_B2  | SPI1_MISO        |              |           |
 |           |             | I2S0_8CH_SDO3    | GPIO2_B4    | <div className='green'>43</div> | <div className='green'>44</div> | GPIO2_B3  | I2S0_8CH_SDO2    |              |           |
 |           |             | I2S0_8CH_LRCK_RX | GPIO2_B0    | <div className='green'>45</div> | <div className='green'>46</div> | GPIO2_A6  | I2S0_8CH_SCLK_RX | PDM_CLK_S_M2 |           |
 |           |             |                  | MICN2       | <div className='green'>47</div> | <div className='green'>48</div> | MCIP2     |                  |              |           |
