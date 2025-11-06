@@ -47,7 +47,7 @@ ROCK 5A 提供了完整的硬件设计原理图和软件源代码，这一特性
   </tr>
   <tr>
     <th>CPU</th>
-    <th>基于 Arm® DynamIQ™ 配置的四路 Cortex®-A76 @ 2.2/2.4GHz 和四路 Cortex®-A55 @ 1.8GHz</th>
+    <th>四大核 Cortex®-A76 频率高达 2.4GHz <br/>四小核 Cortex®-A55 频率高达 1.8GHz</th>
   </tr>
   <tr>
     <th>GPU</th>
