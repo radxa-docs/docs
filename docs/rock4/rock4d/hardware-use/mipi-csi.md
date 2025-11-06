@@ -15,7 +15,57 @@ sidebar_position: 7
 
 ## 支持列表
 
-目前正在适配摄像头模块，后续会更新支持的摄像头模块列表。
+| 主板    | CSI 摄像头                                                              | 说明             |
+| ------- | ----------------------------------------------------------------------- | ---------------- |
+| ROCK 4D | [Camera 4K](https://radxa.com/products/accessories/camera4k)            |                  |
+| ROCK 4D | [Camera 13M 214](https://radxa.com/products/accessories/camera-13m-214) | 彩色预览效果较差 |
+| ROCK 4D | [Camera 8M 219](https://radxa.com/products/accessories/camera-8m-219)   | 彩色预览效果较差 |
+
+## 硬件连接
+
+使用主板的 MIPI CSI 接口连接摄像头，连接方式如下：以 4-lane MIPI CSI 接口连接 Camera 4K 为例
+
+①： 连接主板的 MIPI CSI 接口，金手指（金属接触点）朝向主板方向
+
+②： 连接摄像头的接口，金手指（金属接触点）朝向摄像头方向
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/rock4/4d/rock4d-mipi-csi.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Camera 4K MIPI CSI Interface" />
+</div>
+
+## 软件使能
+
+在终端命令行输入 `rsetup` 命令，使用 Rsetup 工具设置摄像头选项。
+
+<NewCodeBlock tip="radxa@device$" type="device">
+
+```
+rsetup
+```
+
+</NewCodeBlock>
+
+1. 通过方向键选择 Overlays 选项，然后按回车键确认选择。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-overlays.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. 通过方向键选择 Manage overlays 选项，然后按回车键确认选择。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-overlays-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. 通过方向键选择对应的 Camera 选项，按空格键并出现 `*` 代表启用该功能，然后回车键确认选择。
+
+4. 重启系统，配置生效。
 
 ## 接口规格
 
@@ -26,6 +76,11 @@ sidebar_position: 7
 <Tabs queryString="camera-mode">
 
 <TabItem value="4-lane MIPI CSI">
+
+- 4-lane MIPI CSI 接口规格
+  - 型号：FH35C-31S-0.3SHW（50）
+  - 引脚间距：0.3mm
+  - 引脚数：31 Pin
 
 | Pin# | Name                   | Pin# | Name                      | Pin# | Name                  |
 | :--: | :--------------------- | :--: | :------------------------ | :--: | :-------------------- |
@@ -44,6 +99,11 @@ sidebar_position: 7
 </TabItem>
 
 <TabItem value="2-lane MIPI CSI">
+
+- 2-lane MIPI CSI 接口规格
+  - 型号：FPC1030-15S-TAG
+  - 引脚间距：1 mm
+  - 引脚数：15 Pin
 
 | Pin# | Name                      | Pin# | Name                    | Pin# | Name                  |
 | :--: | :------------------------ | :--: | :---------------------- | :--: | :-------------------- |
