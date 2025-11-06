@@ -17,7 +17,7 @@ import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 
 <Tabs queryString="model">
 
-    <TabItem value="板载 eMMC 的">
+    <TabItem value="板载 eMMC">
 
 断开主板电源，取下 MicroSD 卡。
 
@@ -37,7 +37,7 @@ import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 
     </TabItem>
 
-    <TabItem value="无板载 eMMC 的">
+    <TabItem value="无板载 eMMC">
 
 断开主板电源，移除可启动系统介质（如 MicroSD 卡和 eMMC 模块等）。
 

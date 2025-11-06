@@ -47,6 +47,8 @@ Detailed steps:
 
 ③ Power the board using the power adapter
 
+④ Install the eMMC module
+
 <img src="/en/img/rock4/rock4-maskrom-no-board-emmc.webp" alt="rock 4 with no button maskrom wire" style={{ width: "80%" }} />
 
     </TabItem>

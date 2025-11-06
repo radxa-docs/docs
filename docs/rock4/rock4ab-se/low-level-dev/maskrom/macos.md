@@ -15,7 +15,7 @@ import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
 
 <Tabs queryString="model">
 
-    <TabItem value="板载 eMMC 的">
+    <TabItem value="板载 eMMC">
 
 断开主板电源，取下 MicroSD 卡。
 
@@ -35,7 +35,7 @@ import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
 
     </TabItem>
 
-    <TabItem value="无板载 eMMC 的">
+    <TabItem value="无板载 eMMC">
 
 断开主板电源，移除可启动系统介质（如 MicroSD 卡和 eMMC 模块等）。
 
@@ -46,6 +46,8 @@ import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";
 ② 使用 USB Type-A 转 USB Type-A 数据线连接主板和电脑
 
 ③ 使用电源适配器给主板供电
+
+④ 安装 eMMC 模块
 
 <img src="/img/rock4/rock4-maskrom-no-board-emmc.webp" alt="rock 4 with no button maskrom wire" style={{ width: "80%" }} />
 
