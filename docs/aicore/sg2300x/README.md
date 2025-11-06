@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 瑞莎智核 SG2300X 核心板
+# 瑞莎智核 SG2300X
 
 <Tabs queryString="target">
   <TabItem value="瑞莎智核 SG2300X 核心板" label="瑞莎智核 SG2300X 核心板">
