@@ -13,32 +13,43 @@ import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
 
     <TabItem value="With onboard eMMC">
 
-        <ol>
-            <li>Remove the MicroSD card and disconnect the power</li>
-            <li>If there is an SPI Nor Flash on the board, short the SPI Nor Flash pins</li>
-            <li>Connect to the PC host using a USB-A to USB-A cable from the OTG port</li>
-            <li>Press and hold the Maskrom button</li>
-            <li>Connect the power cable while holding the button, then release the Maskrom button. If the power LED stays solid green, you've successfully entered Maskrom mode</li>
-        </ol>
+Disconnect the board power and remove the MicroSD card.
 
-        <img src="/img/rock4/rock4p-maskrom_button.webp" alt="rock 4 maskrom button" style={{ width: "80%" }} />
+Detailed steps:
+
+① If the board has SPI Flash, connect the corresponding SPI Flash pins to GND
+
+② Use a USB Type-A to USB Type-A cable to connect the board and computer
+
+③ Press and hold the Maskrom button before powering the board
+
+④ Power the board using the power adapter
+
+⑤ Release the Maskrom button after the board is powered
+
+<img src="/en/img/rock4/rock4-maskrom-onboard-emmc.webp" alt="rock 4 maskrom button" style={{ width: "80%" }} />
 
     </TabItem>
 
     <TabItem value="Without onboard eMMC">
 
-        <ol>
-            <li>Remove the MicroSD card and disconnect the power</li>
-            <li>If there is an SPI Nor Flash on the board, short the SPI Nor Flash pins</li>
-            <li>Connect to the PC host using a USB-A to USB-A cable from the OTG port</li>
-            <li>Connect the power cable. If the power LED stays solid green, you've successfully entered Maskrom mode</li>
-            <li>Insert the eMMC module</li>
-        </ol>
+Disconnect the board power and remove bootable media (such as MicroSD card and eMMC module, etc.).
+
+Detailed steps:
+
+① If the board has SPI Flash, connect the corresponding SPI Flash pins to GND
+
+② Use a USB Type-A to USB Type-A cable to connect the board and computer
+
+③ Power the board using the power adapter
+
+④ Install the eMMC module
+
+<img src="/en/img/rock4/rock4-maskrom-no-board-emmc.webp" alt="rock 4 with no button maskrom wire" style={{ width: "80%" }} />
 
     </TabItem>
 
 </Tabs>
 
-<img src="/img/rock4/rock4-maskrom.webp" alt="rock 4 with no button maskrom wire" style={{ width: "80%" }} />
-
+If the board power LED stays solid green, it indicates successful entry into Maskrom mode.
 </ERASE>

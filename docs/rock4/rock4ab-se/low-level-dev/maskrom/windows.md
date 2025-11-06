@@ -19,32 +19,43 @@ import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 
     <TabItem value="板载 eMMC 的">
 
-        <ol>
-            <li> 移除 MicroSD 卡， 断开电源 </li>
-            <li> 如果板上有一个 SPI Nor Flash，则将 SPI Nor Flash 短路 </li>
-            <li>使用 USB-A 转 USB-A 线从 OTG 端口连接 PC 主机</li>
-            <li>按住 Maskrom 按键 </li>
-            <li>插入电源线上电并释放 Maskrom 按键，如果电源绿灯常亮则成功进入 Maskrom 模式</li>
-        </ol>
+断开主板电源，取下 MicroSD 卡。
 
-        <img src="/img/rock4/rock4p-maskrom_button.webp" alt="rock 4 maskrom button" style={{ width: "80%" }} />
+详细步骤：
+
+① 若主板有 SPI Flash，需将 SPI Flash 对应引脚接 GND
+
+② 使用 USB Type-A 转 USB Type-A 数据线连接主板和电脑
+
+③ 主板未供电前按住 Maskrom 按键
+
+④ 使用电源适配器给主板供电
+
+⑤ 主板供电后松开 Maskrom 按键
+
+<img src="/img/rock4/rock4-maskrom-onboard-emmc.webp" alt="rock 4 maskrom button" style={{ width: "80%" }} />
 
     </TabItem>
 
-    <TabItem value="不板载 eMMC 的">
+    <TabItem value="无板载 eMMC 的">
 
-        <ol>
-            <li> 移除 MicroSD 卡， 断开电源 </li>
-            <li> 如果板上有一个 SPI Nor Flash，则将 SPI Nor Flash 短路 </li>
-            <li>使用 USB-A 转 USB-A 线从 OTG 端口连接 PC 主机</li>
-            <li>插入电源线上电，如果电源绿灯常亮则成功进入 Maskrom 模式</li>
-            <li>插入 eMMC module </li>
-        </ol>
+断开主板电源，移除可启动系统介质（如 MicroSD 卡和 eMMC 模块等）。
+
+详细步骤：
+
+① 若主板有 SPI Flash，需将 SPI Flash 对应引脚接 GND
+
+② 使用 USB Type-A 转 USB Type-A 数据线连接主板和电脑
+
+③ 使用电源适配器给主板供电
+
+④ 安装 eMMC 模块
+
+<img src="/img/rock4/rock4-maskrom-no-board-emmc.webp" alt="rock 4 with no button maskrom wire" style={{ width: "80%" }} />
 
     </TabItem>
 
 </Tabs>
 
-<img src="/img/rock4/rock4-maskrom.webp" alt="rock 4 with no button maskrom wire" style={{ width: "80%" }} />
-
+若主板电源绿灯常亮，说明成功进入 Maskrom 模式。
 </Rkdevtool>
