@@ -12,7 +12,7 @@ import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";
     <th>Resolution</th>
   </tr>
   <tr>
-    <td>Radxa Display 8 HD</td>
+    <td>Radxa Display 8HD</td>
     <td>1280x800 pixels</td>
   </tr>
   <tr>
@@ -28,6 +28,17 @@ import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";
 ## Accessory Usage
 
 ### Radxa 8-inch HD Display
+
+- DuPont Wire Connection
+
+| Board 40 Pin GPIO | Radxa Display 8HD  |
+| ----------------- | ------------------ |
+| Pin 1             | LCD-RST (optional) |
+| Pin 2             | VCC                |
+| Pin 6             | GND                |
+| Pin 13            | PWM                |
+| Pin 16            | TP INT             |
+| Pin 18            | TP RST             |
 
 <DISPLAY product="ROCK 4A/4A+/4B/4B+/4SE" display_connection_img="/img/rock4/rock4-8inch-display.webp" model="rock-4se" rsetup_path="../../radxa-os/rsetup#overlays" display_name="Radxa 8-inch HD Display" overlays_title="Enable Radxa Display 8HD" />
 
