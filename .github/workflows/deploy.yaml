@@ -166,6 +166,12 @@ jobs:
           BAIDU_TONGJI_CLIENT_ID: ${{ secrets.BAIDU_TONGJI_CLIENT_ID }}
           BAIDU_TONGJI_CLIENT_SECRET: ${{ secrets.BAIDU_TONGJI_CLIENT_SECRET }}
         continue-on-error: true
+      - name: Generate latest updates JSON
+        run: node ./contents/.github/scripts/latest-updates.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        continue-on-error: true
       - name: Build
         run: |
           export NODE_OPTIONS="--max-old-space-size=8192"

@@ -1,0 +1,838 @@
+{
+  "generated_at": "2025-11-07T09:42:17.997Z",
+  "count": 104,
+  "items": [
+    {
+      "author": "Wu MinLong",
+      "title": "fix: optimize rock4 series enter maskrom mode step",
+      "url": "",
+      "message": "fix: optimize rock4 series enter maskrom mode step",
+      "committed_at": "2025-11-06 15:50:47 +0800",
+      "sha": "5e1f7fae98a6b84cc46af73f7bc79260f1200f65"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: rock4 series enter maskrom mode step",
+      "url": "",
+      "message": "fix: rock4 series enter maskrom mode step",
+      "committed_at": "2025-11-06 15:32:56 +0800",
+      "sha": "d3b1bb5e6b38b341363b1bc624eb3790b11f5c76"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: rock 4d emmc support in download",
+      "url": "",
+      "message": "feat: rock 4d emmc support in download",
+      "committed_at": "2025-11-06 11:39:56 +0800",
+      "sha": "c3e82287540e3a4b6bd59af71f14ea3a9544a2c6"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: rock 4d install system to emmc",
+      "url": "",
+      "message": "feat: rock 4d install system to emmc",
+      "committed_at": "2025-11-06 11:25:29 +0800",
+      "sha": "e8d5ec362566172d71241a0ffc86504fac15e7c7"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: rock pi s gpio name",
+      "url": "",
+      "message": "feat: rock pi s gpio name",
+      "committed_at": "2025-11-06 10:39:53 +0800",
+      "sha": "665a70922dc2f38f0373393043e30ceec6491733"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: rock pi s pinout",
+      "url": "",
+      "message": "feat: rock pi s pinout",
+      "committed_at": "2025-11-06 10:33:21 +0800",
+      "sha": "6394fde8e0b7dfaf47d7d5ac3abf672f2405d142"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: unify cpu parameter format",
+      "url": "",
+      "message": "fix: unify cpu parameter format",
+      "committed_at": "2025-11-05 19:06:22 +0800",
+      "sha": "a8860d86f2ebc8d1bab9ae82f5dbb180360f24f4"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: rock5a broken link",
+      "url": "",
+      "message": "fix: rock5a broken link",
+      "committed_at": "2025-11-05 18:49:45 +0800",
+      "sha": "65201beee80f1ca88c6cf8cd933792ff687bfcdb"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: rock 4d mipi csi use tutorial",
+      "url": "",
+      "message": "feat: rock 4d mipi csi use tutorial",
+      "committed_at": "2025-11-05 18:26:42 +0800",
+      "sha": "41ff808c1d0fcc660ed419485bf7e8caa7398a28"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: rock 4d 4-lane mipi csi interface specification",
+      "url": "",
+      "message": "feat: rock 4d 4-lane mipi csi interface specification",
+      "committed_at": "2025-11-05 17:34:16 +0800",
+      "sha": "d75ec15a544ef5b7b29c0ab89968d723fd932bfa"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: aicore dx-m1 and sg2300x to aicore series readme",
+      "url": "",
+      "message": "feat: aicore dx-m1 and sg2300x to aicore series readme",
+      "committed_at": "2025-11-04 10:37:07 +0800",
+      "sha": "6f21cf7078376d4164a878c6f8bb2b147fa1cf29"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: dragon q6a low level dev",
+      "url": "",
+      "message": "fix: dragon q6a low level dev",
+      "committed_at": "2025-11-03 17:23:36 +0800",
+      "sha": "3259306de1a6bd10cd6357ecc0c4da27ebf1beff"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: dragon q6a faq",
+      "url": "",
+      "message": "feat: dragon q6a faq",
+      "committed_at": "2025-11-03 15:31:56 +0800",
+      "sha": "ce16489a1896ea0645da7ca50d54760c65855eb6"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: translate error and import name error",
+      "url": "",
+      "message": "fix: translate error and import name error",
+      "committed_at": "2025-11-03 14:06:55 +0800",
+      "sha": "4eedb02acf218cd308393379a249fbc233b63fad"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: dragon q6a npu dev demos",
+      "url": "",
+      "message": "feat: dragon q6a npu dev demos",
+      "committed_at": "2025-11-03 12:02:20 +0800",
+      "sha": "acb4856fc94b0896cfaba782cc4de41d6a09e9a1"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: airbox q900 ai dev en docs",
+      "url": "",
+      "message": "feat: airbox q900 ai dev en docs",
+      "committed_at": "2025-10-31 20:22:47 +0800",
+      "sha": "6930c3c1f0e9f66996104b356ea02296b0b1652b"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: download link and casaos app install",
+      "url": "",
+      "message": "feat: download link and casaos app install",
+      "committed_at": "2025-10-31 16:57:20 +0800",
+      "sha": "99aaef80c5ff56c2c1a08900de09d5599f784632"
+    },
+    {
+      "author": "ZIFENG278",
+      "title": "docs: add casaos ai app in fogwise airbox q900",
+      "url": "",
+      "message": "docs: add casaos ai app in fogwise airbox q900",
+      "committed_at": "2025-10-31 14:44:26 +0800",
+      "sha": "e27dc46c126fd228b0948aa2d443ef0f374f229d"
+    },
+    {
+      "author": "ZIFENG278",
+      "title": "fix: sync branch",
+      "url": "",
+      "message": "fix: sync branch",
+      "committed_at": "2025-10-31 14:18:25 +0800",
+      "sha": "01f0b471daa5f1cae5297cd91e20d6ced5c6ceb9"
+    },
+    {
+      "author": "ZIFENG278",
+      "title": "docs: add Q6A AI Demos docs",
+      "url": "",
+      "message": "docs: add Q6A AI Demos docs",
+      "committed_at": "2025-10-31 11:02:51 +0800",
+      "sha": "f6d026c851120bb59123340b40a43feea995f26a"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: airbox q900 en docs and product index",
+      "url": "",
+      "message": "feat: airbox q900 en docs and product index",
+      "committed_at": "2025-10-30 18:45:36 +0800",
+      "sha": "67a52aa13a6f6e6e60a93ced6d0341b4b1aa1064"
+    },
+    {
+      "author": "ZIFENG278",
+      "title": "docs: add Fogwise Airbox Q900 AI zh docs",
+      "url": "",
+      "message": "docs: add Fogwise Airbox Q900 AI zh docs",
+      "committed_at": "2025-10-30 17:08:47 +0800",
+      "sha": "0ea9117594af30e284047b5c6c5598d22d4d2184"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: adjust airbox q900 tutorial",
+      "url": "",
+      "message": "feat: adjust airbox q900 tutorial",
+      "committed_at": "2025-10-30 14:41:21 +0800",
+      "sha": "a97c3fbb1e57e88fc7deec76d111d79ba4f355d6"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: rock 4d android en docs",
+      "url": "",
+      "message": "feat: rock 4d android en docs",
+      "committed_at": "2025-10-29 17:45:32 +0800",
+      "sha": "bbaaf7846acad8d391b2c993ea43e4ad48ba1345"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: rock 4d android system low level dev",
+      "url": "",
+      "message": "feat: rock 4d android system low level dev",
+      "committed_at": "2025-10-29 17:08:50 +0800",
+      "sha": "2d86fdf84369d8b0c94fcbda1ddf7d98bfc134ec"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: fw702 quickly start",
+      "url": "",
+      "message": "fix: fw702 quickly start",
+      "committed_at": "2025-10-29 16:21:20 +0800",
+      "sha": "854e1014e95a74251644aa9d208abe9fa9e68086"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: rock 4d android system",
+      "url": "",
+      "message": "feat: rock 4d android system",
+      "committed_at": "2025-10-29 15:59:50 +0800",
+      "sha": "7e33a45bab519a4898476be4e8b045ca1ec7b478"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: windsurf bot tip",
+      "url": "",
+      "message": "fix: windsurf bot tip",
+      "committed_at": "2025-10-29 11:37:44 +0800",
+      "sha": "1bacff0d469909dccb945853349358847e3ea7d1"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: usb flash image and gpio use docs",
+      "url": "",
+      "message": "feat: usb flash image and gpio use docs",
+      "committed_at": "2025-10-29 11:05:48 +0800",
+      "sha": "bcf0d670e576289e2a229a9fa05b61e103bdf0d9"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: gpio use tutorial and usb burn image tutorial",
+      "url": "",
+      "message": "feat: gpio use tutorial and usb burn image tutorial",
+      "committed_at": "2025-10-29 10:10:20 +0800",
+      "sha": "6184fa96c973ff3ef8ccc5b0e96fb2c8c87dd18f"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: dragon q6a usb data burn system",
+      "url": "",
+      "message": "feat: dragon q6a usb data burn system",
+      "committed_at": "2025-10-28 21:16:55 +0800",
+      "sha": "e8c88118046978a54d8f73b3fbfb32cfb3ee654b"
+    },
+    {
+      "author": "Ken",
+      "title": "feat: add rock 5t industrial information",
+      "url": "",
+      "message": "feat: add rock 5t industrial information",
+      "committed_at": "2025-10-27 19:47:22 +0800",
+      "sha": "d1dd5887c61613d45100f399aa0b4bc04e7d1722"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: heatsink 6240b format",
+      "url": "",
+      "message": "feat: heatsink 6240b format",
+      "committed_at": "2025-10-28 15:43:30 +0800",
+      "sha": "c8d78a36d5c7b99ef58cb62b39e47894c517d642"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: heatsink 6240b use docs",
+      "url": "",
+      "message": "feat: heatsink 6240b use docs",
+      "committed_at": "2025-10-28 15:35:22 +0800",
+      "sha": "42031abdbe36e9a6e94d45c30b89283620ca4828"
+    },
+    {
+      "author": "Wu Minlong",
+      "title": "fix: dragon q6a download page tip",
+      "url": "",
+      "message": "fix: dragon q6a download page tip",
+      "committed_at": "2025-10-27 22:13:04 +0800",
+      "sha": "9f40400cabfe0b252bddc27370ac1ee810c913f0"
+    },
+    {
+      "author": "W_ML",
+      "title": "fix: path to image name",
+      "url": "",
+      "message": "fix: path to image name",
+      "committed_at": "2025-10-27 17:02:39 +0800",
+      "sha": "deb80ee18bd507863d6fdfe31f29181993f178da"
+    },
+    {
+      "author": "W_ML",
+      "title": "fix: path to image name",
+      "url": "",
+      "message": "fix: path to image name",
+      "committed_at": "2025-10-27 17:02:04 +0800",
+      "sha": "2305f9e199d57649c8e29299e8df8055c7cf0400"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: dragon q6a t4 image download link and radxa os interface for en",
+      "url": "",
+      "message": "fix: dragon q6a t4 image download link and radxa os interface for en",
+      "committed_at": "2025-10-27 16:55:36 +0800",
+      "sha": "03bab5162ed6efba763715a4f0c17fa1cf2da724"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: dragon q6a t4 image download link and radxa os interface",
+      "url": "",
+      "message": "fix: dragon q6a t4 image download link and radxa os interface",
+      "committed_at": "2025-10-27 16:38:32 +0800",
+      "sha": "86edca8cc722c706e8408ad0417a817c69659caf"
+    },
+    {
+      "author": "Stephen Chen",
+      "title": "fix: q6a: fix 40-pin gpio table",
+      "url": "",
+      "message": "fix: q6a: fix 40-pin gpio table",
+      "committed_at": "2025-10-25 21:25:31 +0800",
+      "sha": "d39730fcebf58af28dd8c44ef35ba0b202cd825e"
+    },
+    {
+      "author": "Stephen Chen",
+      "title": "feat: q6a: add radxa os and kernel build guide",
+      "url": "",
+      "message": "feat: q6a: add radxa os and kernel build guide",
+      "committed_at": "2025-10-25 16:29:00 +0800",
+      "sha": "ade43006ce85d5f8d8facb5e6996e2b6b48f2533"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: optimize expression and pre-commit error",
+      "url": "",
+      "message": "fix: optimize expression and pre-commit error",
+      "committed_at": "2025-10-24 13:59:39 +0800",
+      "sha": "55c34e0c49451a40f833e3967a0ce565ca16421c"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: openharmony sdk download instructions",
+      "url": "",
+      "message": "fix: openharmony sdk download instructions",
+      "committed_at": "2025-10-24 13:51:28 +0800",
+      "sha": "4662ccd3fd2ef479f3ff9db1b3f4f0c11e253fbf"
+    },
+    {
+      "author": "Xinming Chen",
+      "title": "feat: add Openharmony sdk download instructions",
+      "url": "",
+      "message": "feat: add Openharmony sdk download instructions",
+      "committed_at": "2025-10-24 11:45:45 +0800",
+      "sha": "658241b639be4fb5ca2475d2be7b48edbd2cdd32"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: dragon q6a boot order",
+      "url": "",
+      "message": "feat: dragon q6a boot order",
+      "committed_at": "2025-10-24 12:04:07 +0800",
+      "sha": "769bca7e1e411354467ca1ed51651a395fb9c54e"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: dragon q6a en docs",
+      "url": "",
+      "message": "feat: dragon q6a en docs",
+      "committed_at": "2025-10-24 11:55:11 +0800",
+      "sha": "e4ea6ae23c5e338ca333e4cef2f3fcd79971a1e1"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: dragon q6a interface description",
+      "url": "",
+      "message": "fix: dragon q6a interface description",
+      "committed_at": "2025-10-24 10:01:45 +0800",
+      "sha": "21932ff157a1af4dc299d864bc539917b4718ec3"
+    },
+    {
+      "author": "Wu Minlong",
+      "title": "fix: run pre-commit",
+      "url": "",
+      "message": "fix: run pre-commit",
+      "committed_at": "2025-10-23 22:47:50 +0800",
+      "sha": "f5c3490de4eb1725fdc061195dc4ce81e8a3759e"
+    },
+    {
+      "author": "Wu Minlong",
+      "title": "fix: open *.deb package tip in macOS platform",
+      "url": "",
+      "message": "fix: open *.deb package tip in macOS platform",
+      "committed_at": "2025-10-23 22:18:25 +0800",
+      "sha": "7bcd859d509c070f26e57dbb54d44ddc2996cb3e"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: dragon q6a getting start zh docs",
+      "url": "",
+      "message": "feat: dragon q6a getting start zh docs",
+      "committed_at": "2025-10-23 20:31:58 +0800",
+      "sha": "858a1ef537fedb78e9309041d0c207d0b331fcc0"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: express error",
+      "url": "",
+      "message": "fix: express error",
+      "committed_at": "2025-10-20 13:35:53 +0800",
+      "sha": "3eaecde249c679244edc5db6bff54c79c1b8cf08"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: dragon q6a burn spi fw docs",
+      "url": "",
+      "message": "fix: dragon q6a burn spi fw docs",
+      "committed_at": "2025-10-20 12:00:48 +0800",
+      "sha": "2d022772c858bd34b288e848a57fdfc39c4b5f96"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: dragon q6a burn spi fw docs",
+      "url": "",
+      "message": "fix: dragon q6a burn spi fw docs",
+      "committed_at": "2025-10-20 11:53:48 +0800",
+      "sha": "56101d7337e100966d2528171f56b2f4cba0b4ec"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: dragon q6a burn spi fw docs",
+      "url": "",
+      "message": "fix: dragon q6a burn spi fw docs",
+      "committed_at": "2025-10-20 11:36:31 +0800",
+      "sha": "7d8074a82db3681ab2a77a09094c87ab09781de9"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: airbox q900 vnc login docs",
+      "url": "",
+      "message": "feat: airbox q900 vnc login docs",
+      "committed_at": "2025-10-17 18:50:53 +0800",
+      "sha": "b5241093adbfd5b79ea14f498a7cc20e6c42a7d4"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: hardware-design docs",
+      "url": "",
+      "message": "feat: hardware-design docs",
+      "committed_at": "2025-10-17 18:10:05 +0800",
+      "sha": "07f5581f142916f93e25f44dc77e068fbc029427"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: airbox 900 hardware designed docs",
+      "url": "",
+      "message": "feat: airbox 900 hardware designed docs",
+      "committed_at": "2025-10-16 20:22:49 +0800",
+      "sha": "fdc2978ccc003dc7ad51a1d7cf04c91b25966415"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: orion o6 harmony docs translate error and picture path",
+      "url": "",
+      "message": "fix: orion o6 harmony docs translate error and picture path",
+      "committed_at": "2025-10-16 17:12:03 +0800",
+      "sha": "5c3e7f6a2f10849fe828ea6691042f5d6e314a05"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: orion o6 harmony docs",
+      "url": "",
+      "message": "feat: orion o6 harmony docs",
+      "committed_at": "2025-10-16 16:59:45 +0800",
+      "sha": "720c3f2bd707a44e60275caa637400a98874398e"
+    },
+    {
+      "author": "Xinming Chen",
+      "title": "add a new chapter of cix HarmonyOS",
+      "url": "",
+      "message": "add a new chapter of cix HarmonyOS",
+      "committed_at": "2025-10-16 16:09:26 +0800",
+      "sha": "1d0d8109de491ca1e41929a2789908a219deba11"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: airbox q900 docs",
+      "url": "",
+      "message": "feat: airbox q900 docs",
+      "committed_at": "2025-10-16 16:24:32 +0800",
+      "sha": "45d33c1a6f863a5f22bd6fdbe8e03e88b73cbf1a"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: rock 5c install android system express error",
+      "url": "",
+      "message": "fix: rock 5c install android system express error",
+      "committed_at": "2025-10-15 13:41:07 +0800",
+      "sha": "b58864343bc649a91c10f8324003b715e8df394a"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: rock 5c install android system",
+      "url": "",
+      "message": "fix: rock 5c install android system",
+      "committed_at": "2025-10-15 11:55:32 +0800",
+      "sha": "ae2dff551423c23ddf8baa6c246e87fe48f75a6a"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: cubie a5e pwm output error",
+      "url": "",
+      "message": "fix: cubie a5e pwm output error",
+      "committed_at": "2025-10-14 20:53:06 +0800",
+      "sha": "90a5b913f0d5f545b47b40df96511323b1000940"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: cubie a5e gpio output express error",
+      "url": "",
+      "message": "fix: cubie a5e gpio output express error",
+      "committed_at": "2025-10-14 20:50:21 +0800",
+      "sha": "46deb73a70d8f31e9e413bc12777f9cc3b1329ef"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: cubie a7z gpio use tutorial and correct pin function table",
+      "url": "",
+      "message": "feat: cubie a7z gpio use tutorial and correct pin function table",
+      "committed_at": "2025-10-14 20:42:26 +0800",
+      "sha": "1836eb56f6659377e1617fbe27f20fe927d9af77"
+    },
+    {
+      "author": "W_ML",
+      "title": "fix: x4 download link format",
+      "url": "",
+      "message": "fix: x4 download link format",
+      "committed_at": "2025-10-14 19:46:44 +0800",
+      "sha": "a96ad6d419728f86729328cb97bc43942d9d4664"
+    },
+    {
+      "author": "W_ML",
+      "title": "fix: x4 download link format",
+      "url": "",
+      "message": "fix: x4 download link format",
+      "committed_at": "2025-10-14 19:46:33 +0800",
+      "sha": "9664024e074bcaea235c04f5d6456a57439e427d"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: adjust x4 bios file package",
+      "url": "",
+      "message": "fix: adjust x4 bios file package",
+      "committed_at": "2025-10-14 19:40:15 +0800",
+      "sha": "1b6aef16ee5c9816918c22a9fa626bef89a08ca6"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: aicore ax-m1 x86 axcl driver package",
+      "url": "",
+      "message": "feat: aicore ax-m1 x86 axcl driver package",
+      "committed_at": "2025-10-14 16:58:21 +0800",
+      "sha": "16bf0f4d73bd5f320cf6d0ba33ef53c6f8eedc6a"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: dragon q6a spi boot firmware name",
+      "url": "",
+      "message": "fix: dragon q6a spi boot firmware name",
+      "committed_at": "2025-10-14 16:41:03 +0800",
+      "sha": "560b1b2f19dadff6800f68a2272ad465fa942d1e"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: dragon q6a spi boot firmware and description",
+      "url": "",
+      "message": "fix: dragon q6a spi boot firmware and description",
+      "committed_at": "2025-10-14 16:37:26 +0800",
+      "sha": "c0fe8b3bd996de3e46baac4bf74f9653b8edc385"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: dragon q6a spi boot firmware and description",
+      "url": "",
+      "message": "fix: dragon q6a spi boot firmware and description",
+      "committed_at": "2025-10-14 16:27:48 +0800",
+      "sha": "0f8cce2e235c9c031a652e900f5749d22f6d11d3"
+    },
+    {
+      "author": "Zhaoming Luo",
+      "title": "Fix the inconsistency of configuring waveshare 3.5inch display",
+      "url": "",
+      "message": "Fix the inconsistency of configuring waveshare 3.5inch display",
+      "committed_at": "2025-10-14 14:46:39 +0800",
+      "sha": "3d646ebe9d62437e24317593a9efb24e9617323f"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: spi boot firmware download link",
+      "url": "",
+      "message": "fix: spi boot firmware download link",
+      "committed_at": "2025-10-14 11:18:51 +0800",
+      "sha": "e8f3f085b8161bbd4d2da40f4459c6ffff856611"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: cubie a7z gpio use newcodeblock",
+      "url": "",
+      "message": "fix: cubie a7z gpio use newcodeblock",
+      "committed_at": "2025-10-14 10:41:11 +0800",
+      "sha": "2ed9459979e064edf28dc85ed7d6de4d878bbe34"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: cubie a7a gpio calculation example",
+      "url": "",
+      "message": "fix: cubie a7a gpio calculation example",
+      "committed_at": "2025-10-14 10:15:45 +0800",
+      "sha": "8e3e2a867b40149be530751737b3afd226979992"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: cubie a7z gpio use tutorial",
+      "url": "",
+      "message": "feat: cubie a7z gpio use tutorial",
+      "committed_at": "2025-10-14 10:12:57 +0800",
+      "sha": "8b16f9a8f5bfeb8a9c9cf70701451899f53384ce"
+    },
+    {
+      "author": "y0w0",
+      "title": "Update download.md",
+      "url": "",
+      "message": "Update download.md",
+      "committed_at": "2025-10-13 20:05:35 +0800",
+      "sha": "e25dbe7694d5f1059094532f633c7a9d75d6b5fa"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: corrected the pin description of rock 5a mipi dsi interface",
+      "url": "",
+      "message": "fix: corrected the pin description of rock 5a mipi dsi interface",
+      "committed_at": "2025-10-13 17:36:19 +0800",
+      "sha": "3c33dad16fe99c03fbce25f8e460fbc1ba1e7f22"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: add cubie a7a gpio use tutorial",
+      "url": "",
+      "message": "feat: add cubie a7a gpio use tutorial",
+      "committed_at": "2025-10-13 16:44:09 +0800",
+      "sha": "462b4575f93da5289c517f57c7759619c94ed6cd"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: a7a picture display",
+      "url": "",
+      "message": "fix: a7a picture display",
+      "committed_at": "2025-10-13 10:00:56 +0800",
+      "sha": "ba8074ee19a1cae233e82d3526614de6837621ab"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: delete a7z wired network tutorial and picture display",
+      "url": "",
+      "message": "fix: delete a7z wired network tutorial and picture display",
+      "committed_at": "2025-10-13 09:35:11 +0800",
+      "sha": "28a82ae446547230a7b06696251cc6a753339588"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: ai pc development kit to ai pc case kit",
+      "url": "",
+      "message": "fix: ai pc development kit to ai pc case kit",
+      "committed_at": "2025-10-11 17:40:35 +0800",
+      "sha": "8b67ef25ee06568cd68c6ce9c7c02b10f58911bf"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: airbox q900 hardware design doc",
+      "url": "",
+      "message": "feat: airbox q900 hardware design doc",
+      "committed_at": "2025-10-11 16:51:17 +0800",
+      "sha": "3b4b7e0d733355de0caa25c08e99b5150bca8553"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: modify fw702 index",
+      "url": "",
+      "message": "fix: modify fw702 index",
+      "committed_at": "2025-10-11 14:14:19 +0800",
+      "sha": "8f447b23a3d15ff20ad873c81daf0c69da4ab0d3"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: optimize cubie series tina5.0 AIoT documentation link",
+      "url": "",
+      "message": "fix: optimize cubie series tina5.0 AIoT documentation link",
+      "committed_at": "2025-10-11 11:21:27 +0800",
+      "sha": "b160a6c2aeb677d908a35a27f4e5fdcd422cbabc"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: aicore dx-m1 refer index",
+      "url": "",
+      "message": "fix: aicore dx-m1 refer index",
+      "committed_at": "2025-10-11 09:36:41 +0800",
+      "sha": "8114c49e5daa812949a7167be580515b1add9fde"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: optimization airbox q900 tutorial",
+      "url": "",
+      "message": "fix: optimization airbox q900 tutorial",
+      "committed_at": "2025-10-10 19:28:45 +0800",
+      "sha": "aaa49565711fce0b88bfea446e760da7f0b02cf3"
+    },
+    {
+      "author": "Jack Ma",
+      "title": "docs: q900: add hardware interface description",
+      "url": "",
+      "message": "docs: q900: add hardware interface description",
+      "committed_at": "2025-10-10 19:12:40 +0800",
+      "sha": "d83c0ad22c5f0a1234ab092a2ed1314a672a46c9"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: install system to onboard ufs",
+      "url": "",
+      "message": "feat: install system to onboard ufs",
+      "committed_at": "2025-10-10 19:06:36 +0800",
+      "sha": "ec272f81ffc2f962cc494150248f85ee399eabe8"
+    },
+    {
+      "author": "Igor",
+      "title": "Typo",
+      "url": "",
+      "message": "Typo",
+      "committed_at": "2025-10-10 10:25:39 +0000",
+      "sha": "84651946fd59e49b042b4a9b7b9311e104a65ea0"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: optimize heat dissipation expression",
+      "url": "",
+      "message": "fix: optimize heat dissipation expression",
+      "committed_at": "2025-10-10 17:49:41 +0800",
+      "sha": "5d1a429ca35bc4dddbdb3dd6223c2b48ab353290"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: add cubie series tina5.0 AIoT documentation link",
+      "url": "",
+      "message": "feat: add cubie series tina5.0 AIoT documentation link",
+      "committed_at": "2025-10-10 17:29:14 +0800",
+      "sha": "0a2140edd07034b097a182e2503d818ca2c14a55"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: add aicoer ax-m1 and dx-m1 heat dissipation installation picture",
+      "url": "",
+      "message": "fix: add aicoer ax-m1 and dx-m1 heat dissipation installation picture",
+      "committed_at": "2025-10-10 17:08:05 +0800",
+      "sha": "5771e40761ca2a5872b90b930993e311a1000310"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: airbox q900 getting started tutorial",
+      "url": "",
+      "message": "fix: airbox q900 getting started tutorial",
+      "committed_at": "2025-10-10 16:41:43 +0800",
+      "sha": "abe6971960c887669e6da68b58e74fd84c1552fb"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: add rock5 itx download link for pcba 3d file",
+      "url": "",
+      "message": "feat: add rock5 itx download link for pcba 3d file",
+      "committed_at": "2025-10-09 17:44:06 +0800",
+      "sha": "4ef6f5122a6b91a17eef6316f504ceda79e5a266"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: add rock5 itx download link for pcba 3d file",
+      "url": "",
+      "message": "feat: add rock5 itx download link for pcba 3d file",
+      "committed_at": "2025-10-09 17:41:10 +0800",
+      "sha": "2312226560c364bb4e084e109bc839b1aae6ca43"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: modify rock2 2f dowmload page format",
+      "url": "",
+      "message": "fix: modify rock2 2f dowmload page format",
+      "committed_at": "2025-10-09 16:24:46 +0800",
+      "sha": "fff6c8af1f23acbc362a2d1b81062784d3f9c944"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "feat: rock 2f pcba stp file",
+      "url": "",
+      "message": "feat: rock 2f pcba stp file",
+      "committed_at": "2025-10-09 16:16:19 +0800",
+      "sha": "af0839458553e747725852facb7bcec0c7fe4967"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: cubie a7a install nvme system index",
+      "url": "",
+      "message": "fix: cubie a7a install nvme system index",
+      "committed_at": "2025-10-09 15:59:01 +0800",
+      "sha": "0a637b699ec70ec41681988023a5b51ce0a21b82"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: pre-commit check",
+      "url": "",
+      "message": "fix: pre-commit check",
+      "committed_at": "2025-10-09 15:48:12 +0800",
+      "sha": "219493b10fe1eb6675f00fbf188360c2608eb033"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: add emmc reader limitation",
+      "url": "",
+      "message": "fix: add emmc reader limitation",
+      "committed_at": "2025-10-09 15:34:40 +0800",
+      "sha": "7bde9dc395e7e5f9de88e86ffea8b9d292672e63"
+    },
+    {
+      "author": "Wu MinLong",
+      "title": "fix: modify airbox q900 tutorial",
+      "url": "",
+      "message": "fix: modify airbox q900 tutorial",
+      "committed_at": "2025-10-09 13:35:42 +0800",
+      "sha": "52769c2e43bc7c61daa9be363d6aeefc0f38414c"
+    }
+  ]
+}
