@@ -8,11 +8,19 @@ The Dragon Q6A has an onboard RTC interface for installing a coin cell battery.
 
 ## Hardware Connection
 
-Install the CR2032 button battery into the RTC interface of the Radxa Dragon Q6A. When installing, please pay attention to the positive and negative terminals of the battery. The positive and negative terminals are marked on the silk screen of the Radxa Dragon Q6A.
+Install the CR2032 button battery into the RTC interface of the Radxa Dragon Q6A. When installing, please pay attention to the positive and negative terminals of the battery.
 
-:::tip interface location
-You can refer to the [Hardware Information](./hardware_info) tutorial to find the corresponding hardware interface location.
-:::
+Interface parameters:
+
+- Interface type: 2-Pin 1.25mm
+
+- Battery type: CR2032
+
+- Working voltage: 3.3V
+
+<div style={{textAlign: 'center'}}>
+   <img src="/en/img/dragon/q6a/dragon-q6a-rtc.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ## Configuring the RTC
 
