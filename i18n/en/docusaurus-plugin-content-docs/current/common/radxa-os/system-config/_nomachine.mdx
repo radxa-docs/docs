@@ -1,0 +1,249 @@
+import { Image } from "@site/src/utils/docs";
+
+You can install NoMachine on your PC and then remotely connect to the Radxa board using NoMachine.
+
+## Install NoMachine on PC
+
+Visit the [NoMachine official website](https://www.nomachine.com/) to download the installation package for your operating system.
+
+<Tabs queryString="System-Platform">
+
+<TabItem value="windows" label="Windows">
+
+### Installation Steps
+
+**1. Run the Installer**
+
+Run the `nomachine_xxx.exe` installation package as administrator.
+
+**2. Welcome Screen**
+
+Click `Next` to proceed to the next step.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/nomachine-welcome.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+**3. Language and License Agreement**
+
+Select your preferred language and accept the license agreement, then click `Next` to proceed.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/nomachine-license.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+**4. Choose Installation Location**
+
+It is recommended to select the default installation location, then click `Next` to start the installation.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/nomachine-location.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+**5. Installation Process**
+
+Wait for the installation to complete.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/nomachine-installing.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+**6. Complete Installation**
+
+Click `Finish` to complete the installation.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/nomachine-finish.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="linux" label="Linux">
+
+### Installation Steps
+
+1. Open the terminal and navigate to the directory containing the NoMachine installation package
+2. Run the following command to install NoMachine:
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+sudo dpkg -i nomachine_xxx.deb
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+After installation is complete, you need to restart the system.
+
+## Install NoMachine on Radxa Board
+
+Install and configure NoMachine on {props.board}.
+
+### Download NoMachine
+
+Visit the [NoMachine official website](https://www.nomachine.com/) to download the Linux version for ARM architecture.
+
+### Install NoMachine
+
+1. Open the terminal and navigate to the directory containing the NoMachine installation package
+2. Run the following command to install NoMachine:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo dpkg -i nomachine_xxx.deb
+```
+
+</NewCodeBlock>
+
+:::tip Download Tip
+
+If you are logged into the board system via serial port or SSH, you can use the `wget` command to download the NoMachine installation package: Replace `<download_url>` with the download URL for the corresponding version from the NoMachine official website.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+wget <download_url>
+```
+
+</NewCodeBlock>
+
+:::
+
+### Add Software Repository
+
+To install the virtual display driver, you need to add Ubuntu's universe software repository:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo nano /etc/apt/sources.list
+```
+
+</NewCodeBlock>
+
+Add the following `universe` repository to the end of the file and save:
+
+```
+deb http://ports.ubuntu.com/ubuntu-ports/ jammy main restricted universe multiverse
+```
+
+### Install Dependencies
+
+Install the virtual display driver, which is required for NoMachine remote desktop to work properly:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install xserver-xorg-video-dummy -y
+```
+
+</NewCodeBlock>
+
+### Configure Virtual Display
+
+Create a virtual display configuration file to allow NoMachine to work properly without a physical display:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo nano /usr/share/X11/xorg.conf.d/10-dummy.conf
+```
+
+</NewCodeBlock>
+
+Copy the following configuration content to the file and save:
+
+```
+Section "Device"
+    Identifier "DummyDevice"
+    Driver "dummy"
+    VideoRam 256000
+EndSection
+
+Section "Monitor"
+    Identifier "DummyMonitor"
+    HorizSync 28.0-80.0
+    VertRefresh 48.0-75.0
+    Option "DPMS" "false"
+EndSection
+
+Section "Screen"
+    Identifier "DummyScreen"
+    Device "DummyDevice"
+    Monitor "DummyMonitor"
+    SubSection "Display"
+        Depth 24
+        Modes "1920x1080"
+    EndSubSection
+EndSection
+```
+
+### Restart System
+
+Restart the system to apply all configurations:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo reboot
+```
+
+</NewCodeBlock>
+
+## Using NoMachine Remote Connection
+
+### Connect to Radxa Board
+
+1. Open the NoMachine software on your PC
+2. The software will automatically scan for NoMachine devices on the same local network
+3. Find the corresponding Radxa board device and click `Connect` to establish the connection
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/nomachine-connect.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Login to System
+
+Enter the username and password of the board, then click `OK` to login.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/nomachine-login.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Remote Desktop Connection Successful
+
+After successful login, a NoMachine window will pop up on your PC, displaying the desktop environment of the Radxa board. You can now remotely control the board.
+
+<Image
+  src="/en/img/common/radxa-os/system-config/nomachine-success-#board#.webp"
+  board={props.board}
+  fallback={props.board}
+  width="1200"
+/>
