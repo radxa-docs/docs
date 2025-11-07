@@ -3,6 +3,42 @@ const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
 
+function getAccessToken() {
+  return process.env.BAIDU_TONGJI_ACCESS_TOKEN || '';
+}
+
+async function refreshAccessTokenIfPossible() {
+  const refreshToken = process.env.BAIDU_TONGJI_REFRESH_TOKEN || '';
+  const clientId = process.env.BAIDU_TONGJI_CLIENT_ID || '';
+  const clientSecret = process.env.BAIDU_TONGJI_CLIENT_SECRET || '';
+
+  if (!refreshToken || !clientId || !clientSecret) {
+    console.warn('缺少刷新令牌或客户端凭据，无法刷新 access_token');
+    return '';
+  }
+
+  const url = 'https://openapi.baidu.com/oauth/2.0/token';
+  const params = {
+    grant_type: 'refresh_token',
+    refresh_token: refreshToken,
+    client_id: clientId,
+    client_secret: clientSecret,
+  };
+
+  try {
+    const { data } = await axios.get(url, { params, timeout: 15000 });
+    if (data && data.access_token) {
+      console.log('已通过 refresh_token 获取新的 access_token');
+      return data.access_token;
+    }
+    console.warn('刷新 access_token 失败：响应无 access_token 字段');
+    return '';
+  } catch (e) {
+    console.warn('刷新 access_token 异常：', e.message);
+    return '';
+  }
+}
+
 // 获取上一周的日期范围（格式：yyyyMMdd）
 function getLastWeekDateRange() {
   const today = new Date();
@@ -31,8 +67,16 @@ async function getTopPages() {
   try {
     const dateRange = getLastWeekDateRange();
     const url = 'https://openapi.baidu.com/rest/2.0/tongji/report/getData';
-    const params = {
-      access_token: "121.0de79205cebfc1087c04b9309f13df5e.YliUhiLKMuX4ozAF5MsTuUDUrf-B-M2AIc_hmfO.IYtKZA",
+    let accessToken = getAccessToken();
+    if (!accessToken) {
+      accessToken = await refreshAccessTokenIfPossible();
+      if (!accessToken) {
+        throw new Error('无法获得可用的 access_token');
+      }
+    }
+
+    let params = {
+      access_token: accessToken,
       site_id: 22607172,
       method: "visit/toppage/a",
       // start_date: dateRange.startDate,
@@ -43,11 +87,20 @@ async function getTopPages() {
       metrics: "pv_count",
     };
 
-    const response = await axios.get(url, { params });
+    let response = await axios.get(url, { params });
 
     if (response.data.error_code) {
-      console.log("失败", response.data);
-      return false
+      if (response.data.error_code === 110 || response.data.error_code === 111) {
+        const refreshed = await refreshAccessTokenIfPossible();
+        if (refreshed) {
+          params.access_token = refreshed;
+          response = await axios.get(url, { params });
+        }
+      }
+      if (response.data.error_code) {
+        console.log("失败", response.data);
+        return false
+      }
     }
     console.log('访问数据获取成功');
     return response.data;

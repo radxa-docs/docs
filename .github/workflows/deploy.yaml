@@ -7,6 +7,8 @@ on:
     paths-ignore:
       - 'static/json/baidu_tongji_data.json'
       - 'contents/static/json/baidu_tongji_data.json'
+      - 'static/json/commit_update_data.json'
+      - 'contents/static/json/commit_update_data.json'
   pull_request:
   merge_group:
 
@@ -142,6 +144,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' && github.actor != 'github-actions[bot]'
+    permissions:
+      contents: read
     steps:
       - name: Checkout template
         uses: actions/checkout@v5
@@ -156,6 +160,11 @@ jobs:
         run: yarn install
       - name: Fetch Baidu Tongji data
         run: node ./contents/.github/scripts/baidu-tongji.js
+        env:
+          BAIDU_TONGJI_ACCESS_TOKEN: ${{ secrets.BAIDU_TONGJI_ACCESS_TOKEN }}
+          BAIDU_TONGJI_REFRESH_TOKEN: ${{ secrets.BAIDU_TONGJI_REFRESH_TOKEN }}
+          BAIDU_TONGJI_CLIENT_ID: ${{ secrets.BAIDU_TONGJI_CLIENT_ID }}
+          BAIDU_TONGJI_CLIENT_SECRET: ${{ secrets.BAIDU_TONGJI_CLIENT_SECRET }}
         continue-on-error: true
       - name: Build
         run: |
