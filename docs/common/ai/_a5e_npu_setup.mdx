@@ -1,0 +1,30 @@
+:::tip
+系统默认不安装 NPU 设备环境，若有 NPU 使用需求，请参考此文档进行 NPU 设备环境安装
+:::
+
+NPU 环境配置清单
+
+- /dev/vipcore
+
+下载 deb 包并进行安装
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/cubie-image/sun55iw3p1/releases/download/linux_deb/linux-image-5.15.147-500-aw2501_5.15.147-500_arm64.deb
+wget https://github.com/cubie-image/sun55iw3p1/releases/download/linux_deb/linux-headers-5.15.147-500-aw2501_5.15.147-500_arm64.deb
+sudo dpkg -i ./*.deb
+sudo reboot
+```
+
+</NewCodeBlock>
+
+对用户增加 /dev/vipcore 设备权限
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
