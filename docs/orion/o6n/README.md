@@ -18,6 +18,14 @@ sidebar_position: 10
 
 ## 包装清单
 
+- 瑞莎星睿 O6N 主板
+- 瑞莎 8418B 主动散热器
+- 瑞莎 DC12 60W 电源适配器
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/orion/o6n/orion-o6n-package-list.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 ## 产品规格
 
 | 类别                  | 规格描述                                                                                                                                                                                              |
@@ -35,5 +43,15 @@ sidebar_position: 10
 | 网络                  | 2x 2.5G 以太网<br/>1x M.2 E Key 2230，用于支持 Wi-Fi 和蓝牙<br/>1x M.2 B Key 3042，用于支持移动网络（4G）<br/>1x Nano SIM 卡槽，用于支持移动网络（4G）                                                |
 | 供电方式              | 12V DC 供电或 12V 引脚电源输入                                                                                                                                                                        |
 | 散热方式              | 4-Pin 风扇接口，支持 PWM 动态调速与测速<br/>4x 散热器安装<br/>- 固定孔位：M3.5<br/>- 尺寸：75mm x 75mm                                                                                                |
-| 其他接口              | 1x 40 Pin GPIO 排针                                                                                                                                                                                   |
+| 其他接口              | 1x 电源按键<br/>1x 40 Pin GPIO 排针<br/>1x 2-Pin 1.25mm RTC 电池接口<br/>1x 4-Pin 电源接口：<br/>- 12V 支持输入/输出 <br/>- 5V 仅支持输出                                                             |
 | 推荐电源              | ≥ 65W                                                                                                                                                                                                 |
+
+## 接口说明
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/orion/o6n/orion-o6n-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+## 应用场景
+
+## 软件支持
