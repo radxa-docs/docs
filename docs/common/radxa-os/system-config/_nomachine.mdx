@@ -102,6 +102,33 @@ sudo dpkg -i nomachine_xxx.deb
 
 访问 [NoMachine 官网](https://www.nomachine.com/) 下载适用于 ARM 架构的 Linux 版本。
 
+### 安装 NoMachine
+
+1. 打开终端并进入 NoMachine 安装包所在目录
+2. 运行以下命令安装 NoMachine：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo dpkg -i nomachine_xxx.deb
+```
+
+</NewCodeBlock>
+
+:::tip 下载提示
+
+若您是通过串口或者 SSH 登录的主板系统，可以使用 `wget` 命令下载 NoMachine 安装包：其中 `<download_url>` 需替换成 NoMachine 官网对应版本的下载地址。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+wget <download_url>
+```
+
+</NewCodeBlock>
+
+:::
+
 ### 添加软件源
 
 为了安装虚拟显示器驱动，需要添加 Ubuntu 的 universe 软件源：
