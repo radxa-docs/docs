@@ -1,0 +1,33 @@
+:::tip
+系统默认不安装 NPU 设备环境，若有 NPU 使用需求，请参考此文档进行 NPU 设备环境安装
+:::
+
+NPU 环境配置清单
+
+- [fastrpc](https://github.com/qualcomm/fastrpc)
+- /dev/fastrpc-adsp
+- /dev/fastrpc-cdsp
+- /dev/fastrpc-cdsp-secure
+- /usr/lib/dsp libraries
+
+使用 radxa apt 源进行安装
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt update
+sudo apt install fastrpc fastrpc-dev libcdsprpc1 radxa-firmware-qcs6490
+sudo reboot
+```
+
+</NewCodeBlock>
+
+对用户增加 fastrpc 设备权限
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo chmod 666 /dev/fastrpc-*
+```
+
+</NewCodeBlock>

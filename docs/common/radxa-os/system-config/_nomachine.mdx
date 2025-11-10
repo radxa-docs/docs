@@ -1,0 +1,248 @@
+import { Image } from "@site/src/utils/docs";
+
+我们可以在 PC 上安装 NoMachine，然后通过 NoMachine 远程连接到 Radxa 主板。
+
+## 在 PC 上安装 NoMachine
+
+访问 [NoMachine 官网](https://www.nomachine.com/) 下载对应您操作系统的安装包。
+
+<Tabs queryString="System-Platform">
+
+<TabItem value="windows" label="Windows">
+
+### 安装步骤
+
+**1. 运行安装程序**
+
+以管理员身份运行 `nomachine_xxx.exe` 安装包。
+
+**2. 欢迎界面**
+
+点击 `Next` 进入下一步。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/nomachine-welcome.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+**3. 语言和许可协议**
+
+选择您偏好的语言并同意许可协议，点击 `Next` 进入下一步。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/nomachine-license.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+**4. 选择安装位置**
+
+建议选择默认安装位置，点击 `Next` 开始安装。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/nomachine-location.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+**5. 安装过程**
+
+等待安装完成。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/nomachine-installing.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+**6. 完成安装**
+
+点击 `Finish` 完成安装。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/nomachine-finish.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="linux" label="Linux">
+
+### 安装步骤
+
+1. 打开终端并进入 NoMachine 安装包所在目录
+2. 运行以下命令安装 NoMachine：
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+sudo dpkg -i nomachine_xxx.deb
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+完成安装后，需要重启系统。
+
+## 在 Radxa 主板上安装 NoMachine
+
+在 {props.board} 上安装和配置 NoMachine。
+
+### 下载 NoMachine
+
+访问 [NoMachine 官网](https://www.nomachine.com/) 下载适用于 ARM 架构的 Linux 版本。
+
+### 安装 NoMachine
+
+1. 打开终端并进入 NoMachine 安装包所在目录
+2. 运行以下命令安装 NoMachine：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo dpkg -i nomachine_xxx.deb
+```
+
+</NewCodeBlock>
+
+:::tip 下载提示
+
+若您是通过串口或者 SSH 登录的主板系统，可以使用 `wget` 命令下载 NoMachine 安装包：其中 `<download_url>` 需替换成 NoMachine 官网对应版本的下载地址。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+wget <download_url>
+```
+
+</NewCodeBlock>
+
+:::
+
+### 添加软件源
+
+为了安装虚拟显示器驱动，需要添加 Ubuntu 的 universe 软件源：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo nano /etc/apt/sources.list
+```
+
+</NewCodeBlock>
+
+将以下 `universe` 源添加到文件末尾并保存：
+
+```
+deb http://ports.ubuntu.com/ubuntu-ports/ jammy main restricted universe multiverse
+```
+
+### 安装依赖包
+
+安装虚拟显示器驱动，这是 NoMachine 远程桌面正常工作所必需的：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install xserver-xorg-video-dummy -y
+```
+
+</NewCodeBlock>
+
+### 配置虚拟显示器
+
+创建虚拟显示器配置文件，使 NoMachine 能够在没有物理显示器的情况下正常工作：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo nano /usr/share/X11/xorg.conf.d/10-dummy.conf
+```
+
+</NewCodeBlock>
+
+将以下配置内容复制到文件中并保存：
+
+```
+Section "Device"
+    Identifier "DummyDevice"
+    Driver "dummy"
+    VideoRam 256000
+EndSection
+
+Section "Monitor"
+    Identifier "DummyMonitor"
+    HorizSync 28.0-80.0
+    VertRefresh 48.0-75.0
+    Option "DPMS" "false"
+EndSection
+
+Section "Screen"
+    Identifier "DummyScreen"
+    Device "DummyDevice"
+    Monitor "DummyMonitor"
+    SubSection "Display"
+        Depth 24
+        Modes "1920x1080"
+    EndSubSection
+EndSection
+```
+
+### 重启系统
+
+重启系统使所有配置生效：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo reboot
+```
+
+</NewCodeBlock>
+
+## 使用 NoMachine 远程连接
+
+### 连接到 Radxa 主板
+
+1. 在 PC 上打开 NoMachine 软件
+2. 软件会自动扫描同一局域网下的 NoMachine 设备
+3. 找到对应的 Radxa 主板设备，点击 `Connect` 进行连接
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/nomachine-connect.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### 登录系统
+
+输入主板的用户名和密码，点击 `OK` 进行登录。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/nomachine-login.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### 远程桌面连接成功
+
+成功登录后，PC 上会弹出 NoMachine 窗口，显示 Radxa 主板的桌面环境。您现在可以远程控制主板了。
+
+<Image
+  src="/img/common/radxa-os/system-config/nomachine-success-#board#.webp"
+  board={props.board}
+  width="1200"
+/>

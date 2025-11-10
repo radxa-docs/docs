@@ -81,3 +81,17 @@ sudo dpkg-reconfigure sddm
 </NewCodeBlock>
 
 In the configuration interface that appears, select `sddm` as the default display manager, then restart the system for the changes to take effect.
+
+## Network Connection Automatically Disconnects
+
+You can modify the parameters in the `/usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.xml` file to disable sleep timeout.
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+vim /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.xml
+```
+
+</NewCodeBlock>
+
+Modify the `sleep-inactive-ac-timeout` and `sleep-inactive-battery-timeout` parameters in the file to have a default value of `0`, then restart the system for the changes to take effect.

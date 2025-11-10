@@ -29,6 +29,17 @@ import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";
 
 ### 瑞莎 8 寸 HD 高清显示屏
 
+- 杜邦线连接
+
+| 主板 40 Pin GPIO | 瑞莎 8 寸 HD 高清显示屏 |
+| ---------------- | ----------------------- |
+| Pin 1            | LCD-RST（可不接）       |
+| Pin 2            | VCC                     |
+| Pin 6            | GND                     |
+| Pin 13           | PWM                     |
+| Pin 16           | TP INT                  |
+| Pin 18           | TP RST                  |
+
 <DISPLAY product="ROCK 4A/4A+/4B/4B+/4SE" display_connection_img="/img/rock4/rock4-8inch-display.webp" model="rock-4se" rsetup_path="../../radxa-os/rsetup#overlays" display_name="瑞莎 8 寸 HD 高清显示屏" overlays_title="Enable Radxa Display 8HD" />
 
 ### 树莓派 7 寸触控显示屏
