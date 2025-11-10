@@ -1,0 +1,33 @@
+:::tip
+The system does not install NPU device environment by default. If you have NPU usage requirements, please refer to this document to install the NPU device environment.
+:::
+
+NPU Environment Configuration Checklist
+
+- [fastrpc](https://github.com/qualcomm/fastrpc)
+- /dev/fastrpc-adsp
+- /dev/fastrpc-cdsp
+- /dev/fastrpc-cdsp-secure
+- /usr/lib/dsp libraries
+
+Install using radxa apt source
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt update
+sudo apt install fastrpc fastrpc-dev libcdsprpc1 radxa-firmware-qcs6490
+sudo reboot
+```
+
+</NewCodeBlock>
+
+Add fastrpc device permissions for user
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo chmod 666 /dev/fastrpc-*
+```
+
+</NewCodeBlock>

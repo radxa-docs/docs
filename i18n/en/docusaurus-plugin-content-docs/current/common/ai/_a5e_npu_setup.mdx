@@ -1,0 +1,30 @@
+:::tip
+The system does not install NPU device environment by default. If you have NPU usage requirements, please refer to this document to install the NPU device environment.
+:::
+
+NPU Environment Configuration Checklist
+
+- /dev/vipcore
+
+Download deb package and install
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/cubie-image/sun55iw3p1/releases/download/linux_deb/linux-image-5.15.147-500-aw2501_5.15.147-500_arm64.deb
+wget https://github.com/cubie-image/sun55iw3p1/releases/download/linux_deb/linux-headers-5.15.147-500-aw2501_5.15.147-500_arm64.deb
+sudo dpkg -i ./*.deb
+sudo reboot
+```
+
+</NewCodeBlock>
+
+Add /dev/vipcore device permissions for user
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
