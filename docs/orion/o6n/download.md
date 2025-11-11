@@ -6,10 +6,10 @@ sidebar_position: 150
 
 ## BIOS 固件
 
-| 下载平台           | 文件格式 | 获取方式                                                                                                                                                                    |
-| :----------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Radxa DL**       | `.zip`   | [瑞莎文档下载](https://dl.radxa.com/orion/o6n/) - 固件位于压缩包内                                                                                                          |
-| **GitHub Release** | `.deb`   | [GitHub 发布页面](https://github.com/radxa-pkg/edk2-cix/releases) - 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_1.0.0-2_all\data.tar\data\usr\share\edk2\radxa` 目录下 |
+| 下载平台                                                             | 文件格式 | 获取方式                                                                                                |
+| :------------------------------------------------------------------- | :------- | :------------------------------------------------------------------------------------------------------ |
+| [**Radxa DL**](https://dl.radxa.com/orion/o6n/)                      | `.zip`   | 固件位于压缩包内                                                                                        |
+| [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_1.0.0-2_all\data.tar\data\usr\share\edk2\radxa` 目录下 |
 
 :::tip \*.deb 文件解压说明
 
@@ -26,7 +26,7 @@ sidebar_position: 150
 - **测试版本**: 以 `t` 开头（如 t1、t2）
 - **正式版本**: 以 `r` 开头（如 r1、r2）
 
-最新 Radxa OS 发布页面：[GitHub Releases](https://github.com/radxa-build/orion-o6/releases)
+最新 Radxa OS 发布页面：[**GitHub Releases**](https://github.com/radxa-build/orion-o6/releases)
 :::
 
 ### Radxa OS
