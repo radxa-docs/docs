@@ -129,24 +129,6 @@ wget <download_url>
 
 :::
 
-### Add Software Repository
-
-To install the virtual display driver, you need to add Ubuntu's universe software repository:
-
-<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-
-```
-sudo nano /etc/apt/sources.list
-```
-
-</NewCodeBlock>
-
-Add the following `universe` repository to the end of the file and save:
-
-```
-deb http://ports.ubuntu.com/ubuntu-ports/ jammy main restricted universe multiverse
-```
-
 ### Install Dependencies
 
 Install the virtual display driver, which is required for NoMachine remote desktop to work properly:
@@ -201,7 +183,7 @@ EndSection
 
 ### Restart System
 
-Restart the system to apply all configurations:
+Restart the system to apply all configurations.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
