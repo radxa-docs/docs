@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# 瑞莎星睿 O6N
+# 星睿 O6N
 
 ## 产品概述
 
