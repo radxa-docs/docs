@@ -15,7 +15,7 @@ import RKYocto from '../../../common/yocto/\_yocto-rockchip.mdx';
 
 ### 方式一 串口终端
 
-在串口中断中执行如下命令
+在串终端中执行如下命令
 
 ```
 root@rockchip-rk3588s-rock-5c:~# XDG_RUNTIME_DIR=/run/user/1000/ WAYLAND_DISPLAY=wayland-0 glmark2-es2-wayland
@@ -26,7 +26,6 @@ root@rockchip-rk3588s-rock-5c:~# XDG_RUNTIME_DIR=/run/user/1000/ WAYLAND_DISPLAY
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock5c/yocto_glmark2_001.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
-
 
 ### 方式二 桌面终端
 
