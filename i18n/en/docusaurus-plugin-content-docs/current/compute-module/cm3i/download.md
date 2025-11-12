@@ -37,6 +37,7 @@ sidebar_position: 2
     </TabItem>
     <TabItem value="CM3I IO Board">
         <ul>
+            <li><a href="https://github.com/radxa/radxa-cm-projects/tree/main/cm3i/radxa-cm3i-io-board">CM3I IO Board Design Resources</a></li>
             <li><a href="https://dl.radxa.com/cm3i/io_board/radxa_cm3i_io_board_v1300_schematic.pdf">Radxa CM3I IO Board V1.3 schematic</a></li>
             <li><a href="https://dl.radxa.com/cm3i/io_board/radxa_cm3i_io_board_v1300_components_placement_map.pdf">Radxa CM3I IO Board V1.3 compents placement map </a></li>
             <li><a href="https://dl.radxa.com/cm3i/io_board/radxa_cm3i_io_board_v1300_bottom_2d.pdf">Radxa CM3I IO Board V1.3 Bottom 2D</a></li>

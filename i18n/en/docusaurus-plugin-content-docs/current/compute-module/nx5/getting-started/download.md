@@ -21,6 +21,8 @@ NX5 & NX5 IO Board
 
 [NX5 IO V1.4 2D dxf](https://dl.radxa.com/nx5/nx5-io-board/radxa_nx5_io_board_v1400_top_2d.dxf)
 
+[NX5 IO Board Design Resources](https://github.com/radxa/radxa-cm-projects/tree/main/nx5/radxa-nx5-io-board)
+
 ## Tools
 
 1. [Etcher](https://etcher.balena.io/#download-etcher/)

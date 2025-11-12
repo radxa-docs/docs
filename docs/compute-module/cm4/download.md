@@ -46,7 +46,6 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 - [位号图 V1.10](https://dl.radxa.com/cm4/cm4-io-board/docs/hw/radxa_cm4_io_components_placement_map_v1.10.pdf)
 - [2D DXF 文件 V1.10](https://dl.radxa.com/cm4/cm4-io-board/docs/hw/radxa_cm4_io_2d_dxf_v1.10.zip)
 - [3D STP 文件 V1.10](https://dl.radxa.com/cm4/cm4-io-board/docs/hw/radxa_cm4_io_3d_stp_v1.10.zip)
-
 - [CM4 IO 板设计资料](https://github.com/radxa/radxa-cm-projects/tree/main/cm4/radxa-cm4-io-board)
 
 ## 刷机工具
