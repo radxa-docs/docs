@@ -6,4 +6,4 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_e
 
 # Using an M.2 NVMe SSD Enclosure
 
-<InstallSystem />
+<InstallSystem download_page="../../../download" />

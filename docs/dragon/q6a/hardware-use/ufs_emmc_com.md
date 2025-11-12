@@ -24,7 +24,11 @@ sidebar_position: 5
 
 eMMC 模块或 UFS 模块可以作为系统启动介质，也可以作为扩展存储空间。
 
-**目前正在适配和开发中！**
+安装系统可以参考以下教程：
+
+- [安装系统到 eMMC](../getting-started/install-system/emmc_system)
+
+- [安装系统到 UFS](../getting-started/install-system/ufs_system)
 
 ## 接口引脚定义
 

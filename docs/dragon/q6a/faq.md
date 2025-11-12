@@ -106,3 +106,17 @@ nmtui
 ```
 
 </NewCodeBlock>
+
+## 网络连接出现自动断开的现象
+
+可以修改 `/usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.xml` 文件的参数，禁用休眠时间。
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+vim /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.xml
+```
+
+</NewCodeBlock>
+
+修改文件中的 `sleep-inactive-ac-timeout` 和 `sleep-inactive-battery-timeout` 参数默认值为 `0`，然后重启系统即可使更改生效。

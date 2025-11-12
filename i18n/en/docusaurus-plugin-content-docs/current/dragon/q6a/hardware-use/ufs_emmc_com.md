@@ -22,9 +22,13 @@ You can refer to the [Hardware Information](./hardware_info) tutorial to find th
 
 ## Usage Guide
 
-The eMMC module or UFS module can be used as a system boot media or as expanded storage space.
+The eMMC module or UFS module can be used as a system boot medium or as expanded storage space.
 
-**Currently under development and adaptation!**
+For system installation, refer to the following tutorials:
+
+- [Install System to eMMC](../getting-started/install-system/emmc_system)
+
+- [Install System to UFS](../getting-started/install-system/ufs_system)
 
 ## Interface Pin Definition
 

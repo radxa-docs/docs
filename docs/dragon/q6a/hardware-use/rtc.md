@@ -8,11 +8,19 @@ sidebar_position: 15
 
 ## 硬件连接
 
-将 CR2032 型号的纽扣电池安装到瑞莎 Dragon Q6A 的 RTC 接口，安装时请注意电池正负极，瑞莎 Dragon Q6A 的丝印有标注正负极。
+将 CR2032 型号的纽扣电池安装到瑞莎 Dragon Q6A 的 RTC 接口，安装时请注意电池正负极。
 
-:::tip 接口位置
-可以参考 [硬件信息](./hardware_info) 教程找到对应硬件接口位置。
-:::
+接口参数：
+
+- 接口类型：2-Pin 1.25mm
+
+- 电池类型：CR2032
+
+- 工作电压：3.3V
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/dragon/q6a/dragon-q6a-rtc.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ## 配置 RTC
 
