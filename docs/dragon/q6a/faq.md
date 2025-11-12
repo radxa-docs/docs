@@ -82,6 +82,31 @@ sudo dpkg-reconfigure sddm
 
 在弹出的配置界面中，选择 `sddm` 作为默认显示管理器，然后重启系统即可使更改生效。
 
+## 为什么我的 SBC 只有在桌面模式下登录后才能连接 Wi-Fi？不接显示器直接通过 SSH 无法连接网络？
+
+这是因为 KDE 或 GNOME 桌面环境默认将 Wi-Fi 密码存储在用户专属的 密钥环（Keyring）中。该密钥环只有在用户图形界面登录后才会被解锁，因此系统在无人登录（如 headless 模式）时无法自动连接受保护的 Wi-Fi 网络，导致 SSH 也无法使用。
+为了解决这个问题，您可以选择以下三种方法之一：
+
+- 启用自动登录功能：
+    这样系统在启动时会自动登录到指定用户，从而解锁密钥环，允许 Wi-Fi 连接：使用 rsetup 工具启用自动登录
+- 关闭 keyring 加密：
+
+    您可以通过以下步骤关闭密钥环加密：kde 设置  -> kde wallet  -> 禁用密钥环加密
+    然后忘记 wifi 密码，重新链接 wifi 即可
+    这样密钥环将不再加密，系统可以在无人登录时访问 Wi-Fi 密码，从而实现自动连接 Wi-Fi 网络。请注意，这种方法会降低系统的安全性。
+- 使用 nmtui/nmcli 工具手动添加 Wi-Fi 密码：
+    通过命令行工具 nmtui 或 nmcli 手动配置 Wi-Fi 网络连接，并保存密码到系统范围内的配置文件中，而不是用户的密钥环中。
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```bash
+nmcli connection add type wifi con-name <connection_name> ssid <ssid> password <password>
+# or
+nmtui
+```
+
+</NewCodeBlock>
+
 ## 网络连接出现自动断开的现象
 
 可以修改 `/usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.xml` 文件的参数，禁用休眠时间。

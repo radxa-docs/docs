@@ -94,3 +94,25 @@ sudo kill <PID>
 ```
 
 </NewCodeBlock>
+
+## KDE Discover 无法使用
+
+KDE Discover 默认使用 OpenGL 渲染，而当前 GPU 驱动不支持 OpenGL 渲染，导致 KDE Discover 无法使用，解决方案：直接使用 apt 命令行工具安装软件包。
+
+<NewCodeBlock tip="Linux@host$" type="device">
+```
+sudo apt search <package_name>
+sudo apt install <package_name>
+```
+</NewCodeBlock>
+
+apt 可以模糊搜索软件包，在使用 apt install 命令时，可以使用 tab 键自动补全软件包名称。
+
+例如，安装 VLC 媒体播放器：
+
+<NewCodeBlock tip="Linux@host$" type="device">
+```
+sudo apt search vlc
+sudo apt install vlc
+```
+</NewCodeBlock>

@@ -94,3 +94,25 @@ sudo kill <PID>
 ```
 
 </NewCodeBlock>
+
+## KDE Discover cannot be used
+
+KDE Discover uses OpenGL rendering by default, which is not supported by the current GPU driver, causing KDE Discover to be unusable. The solution is to use the apt command-line tool to install packages directly.
+
+<NewCodeBlock tip="Linux@host$" type="device">
+```
+sudo apt search <package_name>
+sudo apt install <package_name>
+```
+</NewCodeBlock>
+
+apt can also perform fuzzy search for software packages. When using the apt install command, you can use the tab key to automatically complete the software package name.
+
+For example, to install VLC media player:
+
+<NewCodeBlock tip="Linux@host$" type="device">
+```
+sudo apt search vlc
+sudo apt install vlc
+```
+</NewCodeBlock>

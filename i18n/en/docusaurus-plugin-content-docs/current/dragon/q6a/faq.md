@@ -82,6 +82,30 @@ sudo dpkg-reconfigure sddm
 
 In the configuration interface that appears, select `sddm` as the default display manager, then restart the system for the changes to take effect.
 
+## why my SBC cannot connect Wi-Fi when it is only logged in to the desktop mode?
+
+Because KDE or GNOME desktop environment stores Wi-Fi passwords in the user-specific keyring by default. The keyring will only be unlocked when the user logs in to the graphical interface, which means that the system cannot automatically connect to a protected Wi-Fi network when it is not logged in (such as in headless mode), and SSH cannot be used.
+To solve this problem, you can choose one of the following three methods:
+
+- Enable automatic login:
+    This will allow the system to automatically log in to the specified user, unlocking the keyring, allowing Wi-Fi connection. Use the rsetup tool to enable automatic login.
+- Disable keyring encryption:
+    You can disable keyring encryption by following these steps: KDE Settings -> KDE Wallet -> Disable keyring encryption.
+    Then forget the Wi-Fi password and reconnect to the Wi-Fi.
+    This way, the keyring will no longer be encrypted, and the system can access the Wi-Fi password without user login, enabling automatic connection to Wi-Fi networks. Please note that this method reduces system security.
+- Use nmtui/nmcli tools to manually add Wi-Fi password:
+    Use command-line tools nmtui or nmcli to manually configure Wi-Fi network connections and save the password to system-wide configuration files instead of the user's keyring.
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```bash
+nmcli connection add type wifi con-name <connection_name> ssid <ssid> password <password>
+# or
+nmtui
+```
+
+</NewCodeBlock>
+
 ## Network Connection Automatically Disconnects
 
 You can modify the parameters in the `/usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.xml` file to disable sleep timeout.
