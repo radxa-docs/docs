@@ -9,12 +9,12 @@ import UART_DEBUG from '../../../../common/other-system/android/\_uart_debug.mdx
 Serial login is a core method for interacting with the board through serial communication interface (UART) in embedded development. Through serial tools, you can view system output logs and perform command line interactions.
 
 :::danger
-When using USB serial data cable for serial login with CM4, please ensure the pin connections are correct. Incorrect pin connections may cause hardware damage to the board.
+When using USB serial data cable for serial login with CM4 IO board, please ensure the pin connections are correct. Incorrect pin connections may cause hardware damage to the board.
 
 It is not recommended to connect the VCC interface (red wire) of the USB serial data cable to avoid damage to the board caused by incorrect connections.
 :::
 
-Connect the USB serial data cable to the UART0 interface of ROCK 4D, and connect the other end to the PC's USB port.
+Connect the USB serial data cable to the UART0 interface of CM4 IO board, and connect the other end to the PC's USB port.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/cm4/cm4_uart.webp" style={{width: '100%', maxWidth: '1200px'}} />

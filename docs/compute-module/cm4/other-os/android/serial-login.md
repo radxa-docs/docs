@@ -9,12 +9,12 @@ import UART_DEBUG from '../../../../common/other-system/android/\_uart_debug.mdx
 串口登录是嵌入式开发中通过串行通信接口 (UART) 与主板交互的核心手段，通过串口工具可以查看系统输出的日志和进行命令行交互。
 
 :::danger
-使用 USB 串口数据线和 CM4 进行串口登录时，请确保引脚连接正确，接错引脚可能会导致主板硬件损坏。
+使用 USB 串口数据线和 CM4 IO 板进行串口登录时，请确保引脚连接正确，接错引脚可能会导致主板硬件损坏。
 
 不建议连接 USB 串口数据线的 VCC 接口（红色线），避免接错导致主板损坏。
 :::
 
-将 USB 串口数据线连接到 ROCK 4D 的 UART0 接口，另一端连接到 PC 的 USB 端口。
+将 USB 串口数据线连接到 CM4 IO 板的 UART0 接口，另一端连接到 PC 的 USB 端口。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/cm4/cm4_uart.webp" style={{width: '100%', maxWidth: '1200px'}} />
