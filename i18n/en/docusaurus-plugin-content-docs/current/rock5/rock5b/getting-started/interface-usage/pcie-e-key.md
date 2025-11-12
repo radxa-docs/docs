@@ -4,7 +4,7 @@ sidebar_position: 5
 
 import WIFI_BT from "../../../../common/accessories/\_wifi-bt.mdx";
 
-# PCIe E Key
+# PCIe E Key (only for ROCK 5B)
 
 ## Supported Accessories
 
