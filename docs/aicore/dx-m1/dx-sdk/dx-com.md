@@ -8,6 +8,15 @@ sidebar_position: 2
 
 **DX-COM (模型编译器)** 可根据提供的 ONNX 模型和配置文件生成 NPU 指令集，将 ONNX 模型编译成在 NPU 上可执行的 DXNN 模型文件格式，DXNN 文件包含生成的指令集和权重信息。
 
+## 系统要求
+
+| CPU         | x86（x64）                        |
+| ----------- | --------------------------------- |
+| 内存（RAM） | ≥ 16GB                            |
+| 存储空间    | ≥ 8GB                             |
+| 操作系统    | Ubuntu 18.04、20.04、22.04（x64） |
+| LDD 版本    | ≥ 2.28                            |
+
 ## 安装方法
 
 ### 安装所需的库
@@ -32,25 +41,10 @@ sudo apt-get install -y --no-install-recommends libgl1-mesa-glx libglib2.0-0 mak
 <NewCodeBlock tip="X86 PC" type="PC">
 
 ```bash
-tar -xvf dx_com_M1A_v1.38.1.tar.gz
+tar -xvf dx_com_M1_v1.60.1.tar.gz
 ```
 
 </NewCodeBlock>
-
-```bash
-# Output Structure
-dx_com
-├── calibration_dataset
-├── dx_com
-│   ├── cv2/
-│   ├── numpy/
-│   ├── ...
-│   └── dx_com
-├── sample
-│   ├── MobilenetV1.json
-│   └── MobilenetV1.onnx
-└── Makefile
-```
 
 ## 使用方法
 
