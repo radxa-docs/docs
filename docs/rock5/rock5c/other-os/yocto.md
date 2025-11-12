@@ -41,4 +41,3 @@ glmark2-es2-wayland
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock5c/yocto_glmark2_002.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
-
