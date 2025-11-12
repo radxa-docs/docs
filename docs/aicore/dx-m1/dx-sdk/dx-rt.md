@@ -9,17 +9,53 @@ DX-RT 支持推理使用 DX-COM 编译后的 dxnn 格式模型。
 
 ## 安装方法
 
-请在 DX-M1 SDK [资源下载](../download.md)页面下载 DX-RT 安装包并解压
+### 克隆 DX-ALL-SUITE 仓库
+
+:::tip
+请按照 [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite) 克隆指定版本的 DX-ALL-SUITE 仓库
+:::
+
+### 编译 DX-RT
+
+进入 `dx-all-suite/dx-runtime/dx_rt` 目录
 
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-tar -xvf dx_rt_v2.6.3.tar.gz && cd dx_rt
+cd dx-all-suite/dx-runtime/dx_rt
 ```
 
 </NewCodeBlock>
 
-### 编译 DX-RT
+#### 创建 python 虚拟环境
+
+此虚拟环境用于安装 DXRT Python API, 用户可自行在任意目录下创建 Python 虚拟环境
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install --upgrade pip
+```
+
+</NewCodeBlock>
+
+#### 安装 onnxruntime
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+./install.sh --arch aarch64 --onnxruntime
+```
+
+</NewCodeBlock>
+
+#### 编译并安装 DX-RT
+
+:::tip
+DX-RT 安装脚本会自动安装 dx-engine Python API
+:::
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -30,6 +66,8 @@ tar -xvf dx_rt_v2.6.3.tar.gz && cd dx_rt
 </NewCodeBlock>
 
 ### 注册 dxrt-service 服务
+
+DX-RT 支持后台多线程操作，启用多线程特性需要注册 dxrt-service
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -42,6 +80,10 @@ sudo systemctl enable dxrt.service
 </NewCodeBlock>
 
 ### 安装 DX-RT Python 库
+
+:::tip
+DX-RT 安装脚本会自动安装 dx-engine Python API
+:::
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -82,23 +124,24 @@ dxrt-cli <option> <argument>
 查看瑞莎 AICore DX-M1 设备状态
 
 ```bash
-rock@rock-5b-plus:~$ dxrt-cli --status
-DXRT v2.6.3
+rock@rock-5b-plus:~$ dxrt-cli -s
+DXRT v2.9.5
 =======================================================
  * Device 0: M1, Accelator type
 ---------------------   Version   ---------------------
- * RT Driver version   : v1.3.1
- * PCIe Driver version : v1.2.0
+ * RT Driver version   : v1.5.0
+ * PCIe Driver version : v1.4.0
 -------------------------------------------------------
- * FW version          : v1.6.0
+ * FW version          : v2.1.5
 --------------------- Device Info ---------------------
- * Memory : LPDDR5 5800 MHz, 3.92GiB
- * Board  : M.2, Rev 10.0
- * PCIe   : Gen3 X2 [01:00:00]
+ * Memory : LPDDR5 5600 MHz, 3.92GiB
+ * Board  : M.2, Rev 1.5
+ * Chip Offset : 0
+ * PCIe   : Gen3 X2 [17:00:00]
 
-NPU 0: voltage 750 mV, clock 1000 MHz, temperature 35'C
-NPU 1: voltage 750 mV, clock 1000 MHz, temperature 35'C
-NPU 2: voltage 750 mV, clock 1000 MHz, temperature 35'C
+NPU 0: voltage 750 mV, clock 1000 MHz, temperature 40'C
+NPU 1: voltage 750 mV, clock 1000 MHz, temperature 40'C
+NPU 2: voltage 750 mV, clock 1000 MHz, temperature 40'C
 dvfs Disabled
 =======================================================
 ```
@@ -122,6 +165,16 @@ NPU 0: voltage 750 mV, clock 1000 MHz, temperature 35'C
 NPU 1: voltage 750 mV, clock 1000 MHz, temperature 35'C
 NPU 2: voltage 750 mV, clock 1000 MHz, temperature 35'C
 dvfs Disabled
+```
+
+更新瑞莎 AICore DX-M1 固件
+
+:::tip
+最新固件存放在 [dx-fw](https://github.com/DEEPX-AI/dx_fw/tree/ebb1e45bed2a6a7f431e6665b2b8171a96e45468) 仓库中，用户谨慎升级
+:::
+
+```bash
+dxrt-cli -u fw.bin
 ```
 
 ### parse_model
@@ -213,6 +266,22 @@ Run model target mode : Benchmark Mode
 Profiler data has been written to profiler.json
 ```
 
+### dxtop
+
+`dxtop` 是 deepx 设备状态监控工具。实时监控每个 NPU 状态，包括 NPU 设备内存使用状态，每个 NPU 核心利用率，温度，电压与频率。
+
+```bash
+[DX-TOP]  (q) Quit   (n) Next Page   (p) Prev Page   (h) Help
+Tue Nov 11 09:06:49 2025
+RT framework version : v2.9.6 | RT driver version : v1.5.0 | PCIe driver version : v1.4.0
+--------------------------------------------------------------------------------------------------------------------------------------------
+   Device #0 | M1B, ACC Type | firmware version : v2.1.5 | DRAM Usage:     0.00 MB
+     Core #0 - util:   0.0%  temp:  39 C  voltage:  750 mV  clock: 1000 MHz
+     Core #1 - util:   0.0%  temp:  39 C  voltage:  750 mV  clock: 1000 MHz
+     Core #2 - util:   0.0%  temp:  39 C  voltage:  750 mV  clock: 1000 MHz
+--------------------------------------------------------------------------------------------------------------------------------------------
+```
+
 ## API 参考手册
 
 API 参考手册使用 doxygen 进行构建
@@ -228,8 +297,12 @@ sudo apt install doxygen graphviz
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-cd docs/cpp_api
+cd dx-all-suite/dx-runtime/dx_rt/docs/cpp_api
 doxygen Doxyfile
 ```
 
 </NewCodeBlock>
+
+## DXRT 详细使用文档
+
+- [**DEEPX_DX-RT_UM_v2.9.5.pdf**](https://github.com/DEEPX-AI/dx_rt/blob/a9ca6163915676969208b478c1ddded6e852b1fe/docs/DEEPX_DX-RT_UM_v2.9.5.pdf)
