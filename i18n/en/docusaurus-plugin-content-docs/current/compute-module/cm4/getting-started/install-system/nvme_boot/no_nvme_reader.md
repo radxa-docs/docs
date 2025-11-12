@@ -6,4 +6,4 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # Without Using an M.2 NVMe SSD Enclosure
 
-<InstallSystem tag="m2_2280" />
+<InstallSystem tag="m2_2280" download_page="../../../download"/>

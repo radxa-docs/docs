@@ -6,4 +6,4 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_e
 
 # 使用 M.2 NVMe 固态硬盘盒
 
-<InstallSystem />
+<InstallSystem download_page="../../../download" />
