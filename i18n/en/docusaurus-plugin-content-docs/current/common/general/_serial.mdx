@@ -8,6 +8,12 @@ Most of radxa's products define pins 8 (TX) and 10 (RX) on the GPIO pins as UART
 - PC
 - USB to TTL Serial Cable
 
+:::tip USB to TTL Serial Cable
+
+Please connect according to the pin functions specified by the cable’s manufacturer. The diagram illustrates the pin functions of a common USB serial cable.
+
+:::
+
 ![USB to TTL](/img/accessories/600px-Usb2ttl-cable-definition.webp)
 
 :::tip
@@ -46,31 +52,31 @@ As shown below, connect the USB to TTL serial cable:
 
 <Section compatible="^rock5itx,^o6" model={props.model}>
 
-| Radxa SBC       | Connection  | Serial Cable |
-| --------------- | ----------- | ------------ |
-| **GND** (pin 6) | &lt;---&gt; | Black line   |
-| **TX** (pin 8)  | &lt;---&gt; | White line   |
-| **RX** (pin 10) | &lt;---&gt; | Green line   |
+| Radxa SBC       | Connection  | Serial Cable    |
+| --------------- | ----------- | --------------- |
+| **GND** (pin 6) | &lt;---&gt; | Black line(GND) |
+| **TX** (pin 8)  | &lt;---&gt; | White line(RXD) |
+| **RX** (pin 10) | &lt;---&gt; | Green line(TXD) |
 
 </Section>
 
 <Section compatible="rock5itx" model={props.model}>
 
-| Radxa SBC       | Connection  | Serial Cable |
-| --------------- | ----------- | ------------ |
-| **GND** (pin 1) | &lt;---&gt; | Black line   |
-| **TX** (pin 2)  | &lt;---&gt; | White line   |
-| **RX** (pin 3)  | &lt;---&gt; | Green line   |
+| Radxa SBC       | Connection  | Serial Cable    |
+| --------------- | ----------- | --------------- |
+| **GND** (pin 1) | &lt;---&gt; | Black line(GND) |
+| **TX** (pin 2)  | &lt;---&gt; | White line(RXD) |
+| **RX** (pin 3)  | &lt;---&gt; | Green line(TXD) |
 
 </Section>
 
 <Section compatible="o6" model={props.model}>
 
-| Orion O6 | Connection  | Serial Cable |
-| -------- | ----------- | ------------ |
-| **GND**  | &lt;---&gt; | Black line   |
-| **TX**   | &lt;---&gt; | White line   |
-| **RX**   | &lt;---&gt; | Green line   |
+| Orion O6 | Connection  | Serial Cable    |
+| -------- | ----------- | --------------- |
+| **GND**  | &lt;---&gt; | Black line(GND) |
+| **TX**   | &lt;---&gt; | White line(RXD) |
+| **RX**   | &lt;---&gt; | Green line(TXD) |
 
 </Section>
 

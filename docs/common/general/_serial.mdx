@@ -8,6 +8,12 @@ import { Section, Image } from "@site/src/utils/docs";
 - 个人电脑
 - USB 转 TTL 串口线
 
+:::tip USB 转 TTL 串口线
+
+请根据厂商的串口数据线的引脚功能进行接线，示意图为常见 USB 串口数据线的引脚功能。
+
+:::
+
 ![USB to TTL](/img/accessories/600px-Usb2ttl-cable-definition.webp)
 
 :::tip
@@ -46,31 +52,31 @@ import { Section, Image } from "@site/src/utils/docs";
 
 <Section compatible="^rock5itx,^o6" model={props.model}>
 
-| Radxa SBC       | 连接        | 串口线 |
-| --------------- | ----------- | ------ |
-| **GND** (pin 6) | &lt;---&gt; | 黑色线 |
-| **TX** (pin 8)  | &lt;---&gt; | 白色线 |
-| **RX** (pin 10) | &lt;---&gt; | 绿色线 |
+| Radxa SBC       | 连接        | 串口线        |
+| --------------- | ----------- | ------------- |
+| **GND** (pin 6) | &lt;---&gt; | 黑色线（GND） |
+| **TX** (pin 8)  | &lt;---&gt; | 白色线（RXD） |
+| **RX** (pin 10) | &lt;---&gt; | 绿色线（TXD） |
 
 </Section>
 
 <Section compatible="rock5itx" model={props.model}>
 
-| Radxa SBC       | 连接        | 串口线 |
-| --------------- | ----------- | ------ |
-| **GND** (pin 1) | &lt;---&gt; | 黑色线 |
-| **TX** (pin 2)  | &lt;---&gt; | 白色线 |
-| **RX** (pin 3)  | &lt;---&gt; | 绿色线 |
+| Radxa SBC       | 连接        | 串口线        |
+| --------------- | ----------- | ------------- |
+| **GND** (pin 1) | &lt;---&gt; | 黑色线（GND） |
+| **TX** (pin 2)  | &lt;---&gt; | 白色线（RXD） |
+| **RX** (pin 3)  | &lt;---&gt; | 绿色线（TXD） |
 
 </Section>
 
 <Section compatible="o6" model={props.model}>
 
-| Orion O6 | 连接        | 串口线 |
-| -------- | ----------- | ------ |
-| **GND**  | &lt;---&gt; | 黑色线 |
-| **TX**   | &lt;---&gt; | 白色线 |
-| **RX**   | &lt;---&gt; | 绿色线 |
+| Orion O6 | 连接        | 串口线        |
+| -------- | ----------- | ------------- |
+| **GND**  | &lt;---&gt; | 黑色线（GND） |
+| **TX**   | &lt;---&gt; | 白色线（RXD） |
+| **RX**   | &lt;---&gt; | 绿色线（TXD） |
 
 </Section>
 
