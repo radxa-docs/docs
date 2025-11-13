@@ -1,0 +1,66 @@
+## 系统镜像
+
+需提前准备好 Yocto 项目构建的 <code>{`core-image-minimal-rockchip-${props?.soc ?? "<soc>"}-${props?.board_name ?? "<board_name>"}.rootfs.update.img`}</code> 镜像文件。
+
+:::tip 构建系统
+
+Yocto 项目构建步骤可以参考 [构建系统](../build-system) 文档。
+
+:::
+
+## 硬件准备
+
+您需要提前准备以下硬件设备：
+
+- MicroSD 卡
+- MicroSD 卡读卡器
+
+## 安装系统
+
+我需要使用瑞芯微官方的 [SDDiskTool](https://dl.radxa.com/tools/windows/SDDiskTool_en_v1.74.zip) 工具烧录系统镜像到 MicroSD 卡。
+
+:::warning
+安装系统会格式化 MicroSD 卡，如果有重要数据请提前备份！
+:::
+
+### SDDiskTool
+
+SDDiskTool 目前仅支持 Windows 系统，请在 Windows 系统下使用。
+
+- [SDDiskTool](https://dl.radxa.com/tools/windows/SDDiskTool_en_v1.74.zip)
+
+下载 SDDiskTool 后，解压并鼠标双击打开 SDDiskTool.exe 就可以使用。
+
+### 硬件连接
+
+将 MicroSD 卡插入 MicroSD 卡读卡器，再将 MicroSD 卡读卡器插入电脑。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/install-system/sd-reader.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### 烧录系统镜像
+
+按照以下步骤使用 SDDiskTool 将系统镜像烧录到 MicroSD 卡中：
+
+① 选择 MicroSD 卡设备
+
+② 选择 `SD Boot` 选项
+
+③ 选择 Yoct 项目构建的系统镜像文件
+
+④ 点击 `create` 按钮开始烧录系统镜像
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/yocto/rockchip-sd-disk-tool.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 启动系统
+
+将 MicroSD 卡插入 {props?.board ?? "<board>"} 的 MicroSD 卡槽并连接显示器，最后使用电源适配器给主板供电。

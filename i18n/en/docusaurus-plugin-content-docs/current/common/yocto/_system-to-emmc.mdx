@@ -1,0 +1,127 @@
+## System Image
+
+You need to prepare the <code>{`core-image-minimal-rockchip-${props?.soc ?? "<soc>"}-${props?.board_name ?? "<board_name>"}.rootfs.wic`}</code> image file built by the Yocto Project in advance.
+
+:::tip Build System
+
+For Yocto Project build steps, please refer to the [Build System](../build-system) documentation.
+
+:::
+
+## Hardware Preparation
+
+You need to prepare the following hardware devices in advance:
+
+- eMMC module
+- Radxa eMMC/UFS Module Reader
+
+:::tip Recommended Accessories
+
+- [Radxa eMMC Module](https://radxa.com/products/accessories/emmc-module)
+- [Radxa eMMC/UFS Module Reader](https://radxa.com/products/accessories/emmc-ufs-module-reader)
+
+:::
+
+## Install System
+
+You can use Balena Etcher software to install the system image to the eMMC module.
+
+:::warning
+Installing the system will format the eMMC module. Please backup important data in advance!
+:::
+
+:::tip Balena Etcher
+For Balena Etcher installation and usage, please refer to the [Etcher Usage](/common/radxa-os/install-system/balena-etcher) tutorial.
+:::
+
+### Hardware Connection
+
+Insert the eMMC module into the Radxa eMMC/UFS Module Reader, then insert the Radxa eMMC/UFS Module Reader into the computer.
+
+:::caution
+
+eMMC Module Installation Steps:
+
+1. Ensure the notch on the eMMC module aligns with the interface direction of the module reader
+2. Make sure the slot interface at the bottom of the eMMC module aligns with the module reader's interface
+3. Gently press one end of the eMMC module until you hear a "click" sound, indicating successful installation. Use the same method to press the other end to ensure the eMMC module is properly installed.
+   :::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/emmc-reader.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Flash System Image
+
+Follow the steps below to flash the system image to the eMMC module.
+
+1. Select System Image
+
+Click the `Flash from file` option and select the system image file built by the Yocto Project.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-image-emmc.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. Select Storage Device
+
+Click the `Select target` option and select the eMMC module device.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-emmc-01.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-select-emmc-02.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. Start Flashing
+
+Click the `Flash!` option to start flashing the system image to the eMMC module.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-flash-emmc.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  Wait for system installation to complete
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-flashing-emmc.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  Wait for system verification to complete
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-valid-emmc.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  After successfully installing the system image, close the Etcher software!
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-completed-emmc.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Boot System
+
+Install the eMMC module to the eMMC module interface of {props?.board ?? "<board>"}, connect a display, and finally power the board using a power adapter.
