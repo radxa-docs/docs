@@ -1,0 +1,105 @@
+## Hardware Requirements
+
+- Host System
+
+Ubuntu or Windows (WSL2) is recommended.
+
+- 32GB or more RAM
+- 90GB or more available disk space
+
+:::tip Yocto Project
+
+Linux distributions supported by Yocto Project: [Reference Link](https://docs.yoctoproject.org/ref-manual/system-requirements.html#supported-linux-distributions)
+
+:::
+
+## Environment Setup
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt-get update
+sudo apt-get install \
+    build-essential chrpath cpio debianutils diffstat file gawk gcc git \
+    iputils-ping libacl1 liblz4-tool locales python3 python3-git \
+    python3-jinja2 python3-pexpect python3-pip python3-subunit socat \
+    texinfo unzip wget xz-utils zstd repo -y
+```
+
+</NewCodeBlock>
+
+## Get Source Code
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+mkdir ~/yocto-rockchip-sdk && cd ~/yocto-rockchip-sdk
+repo init -u https://github.com/radxa/yocto-manifests.git -b scarthgap
+repo sync
+```
+
+</NewCodeBlock>
+
+## Link Configuration File
+
+Link the configuration file for {props?.board ?? 'board'} to `local.conf`.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+cd ~/yocto-rockchip-sdk/build/conf
+ln -sf rockchip-<soc>-<board>.conf local.conf
+```
+
+</NewCodeBlock>
+
+{props?.board ?? 'Board'} link example:
+
+<code>{`ln -sf ${
+  props?.board_conf ?? "rockchip-<soc>-<board>.conf"
+} local.conf`}</code>
+
+## Start Build
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+cd ~/yocto-rockchip-sdk
+source ./oe-init-build-env
+bitbake core-image-minimal
+```
+
+</NewCodeBlock>
+
+After successful build, the corresponding image files for {props?.board ?? 'board'} will be generated in the `~/yocto-rockchip-sdk/build/tmp/deploy/images/` directory.
+
+{props?.board ?? 'Board'} build examples:
+
+- <code>{`core-image-minimal-rockchip-${props?.soc ?? "<soc>"}-${
+    props?.board_name ?? "<board_name>"
+  }.rootfs.update.img`}</code>
+- <code>{`core-image-minimal-rockchip-${props?.soc ?? "<soc>"}-${
+    props?.board_name ?? "<board_name>"
+  }.rootfs.wic`}</code>
+
+The `*.rootfs.update.img` file is the image file for MicroSD card boot system, and the `*.rootfs.wic` file is the image file for eMMC boot system.
+
+:::tip Common Issues
+
+- `Please make sure locale 'en_US.UTF-8' is available on your system`
+
+If `en_US.UTF-8` is not available on your system, you need to set it up according to the following steps:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+sudo echo "export LANG=en_US.UTF-8" >> ~/.bashrc
+source ~/.bashrc
+```
+
+</NewCodeBlock>
+
+:::

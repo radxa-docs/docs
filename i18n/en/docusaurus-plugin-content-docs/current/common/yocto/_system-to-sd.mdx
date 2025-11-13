@@ -1,0 +1,66 @@
+## System Image
+
+You need to prepare the <code>{`core-image-minimal-rockchip-${props?.soc ?? "<soc>"}-${props?.board_name ?? "<board_name>"}.rootfs.update.img`}</code> image file built by the Yocto Project in advance.
+
+:::tip Build System
+
+For Yocto Project build steps, please refer to the [Build System](../build-system) documentation.
+
+:::
+
+## Hardware Preparation
+
+You need to prepare the following hardware devices in advance:
+
+- MicroSD card
+- MicroSD card reader
+
+## Install System
+
+You need to use the official Rockchip [SDDiskTool](https://dl.radxa.com/tools/windows/SDDiskTool_en_v1.74.zip) to flash the system image to the MicroSD card.
+
+:::warning
+Installing the system will format the MicroSD card. Please backup important data in advance!
+:::
+
+### SDDiskTool
+
+SDDiskTool currently only supports Windows systems. Please use it on a Windows system.
+
+- [SDDiskTool](https://dl.radxa.com/tools/windows/SDDiskTool_en_v1.74.zip)
+
+After downloading SDDiskTool, unzip it and double-click SDDiskTool.exe to use it.
+
+### Hardware Connection
+
+Insert the MicroSD card into the MicroSD card reader, then insert the MicroSD card reader into the computer.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/sd-reader.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Flash System Image
+
+Follow the steps below to use SDDiskTool to flash the system image to the MicroSD card:
+
+① Select the MicroSD card device
+
+② Select the `SD Boot` option
+
+③ Select the system image file built by the Yocto Project
+
+④ Click the `create` button to start flashing the system image
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/yocto/rockchip-sd-disk-tool.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Boot System
+
+Insert the MicroSD card into the MicroSD card slot of {props?.board ?? "<board>"}, connect a display, and finally power the board using a power adapter.
