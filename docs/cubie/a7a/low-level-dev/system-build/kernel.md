@@ -79,3 +79,9 @@ make deb
 </NewCodeBlock>
 
 编译成功后，终端会输出生成文件的路径。
+
+:::tip 内核 config 文件位置
+
+- 推荐修改的内核 config 文件位置：`debian/patches/linux/0001-feat-Radxa-common-kernel-config.patch`
+
+  :::
