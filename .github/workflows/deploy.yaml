@@ -4,18 +4,12 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'static/json/baidu_tongji_data.json'
-      - 'contents/static/json/baidu_tongji_data.json'
-      - 'static/json/commit_update_data.json'
-      - 'contents/static/json/commit_update_data.json'
   pull_request:
   merge_group:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: github.actor != 'github-actions[bot]'
     strategy:
       fail-fast: false
       matrix:
@@ -79,7 +73,6 @@ jobs:
           fi
   test-optional:
     runs-on: ubuntu-latest
-    if: github.actor != 'github-actions[bot]'
     strategy:
       fail-fast: false
       matrix:
@@ -143,7 +136,7 @@ jobs:
           fi
   build:
     runs-on: ubuntu-latest
-    if: github.event_name != 'pull_request' && github.actor != 'github-actions[bot]'
+    if: github.event_name != 'pull_request'
     permissions:
       contents: read
     steps:
@@ -165,25 +158,23 @@ jobs:
           BAIDU_TONGJI_REFRESH_TOKEN: ${{ secrets.BAIDU_TONGJI_REFRESH_TOKEN }}
           BAIDU_TONGJI_CLIENT_ID: ${{ secrets.BAIDU_TONGJI_CLIENT_ID }}
           BAIDU_TONGJI_CLIENT_SECRET: ${{ secrets.BAIDU_TONGJI_CLIENT_SECRET }}
-        continue-on-error: true
       - name: Generate latest updates JSON
         run: node ./contents/.github/scripts/latest-updates.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        continue-on-error: true
       - name: Build
         run: |
           export NODE_OPTIONS="--max-old-space-size=8192"
           yarn build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           # Upload entire repository
           path: "./build"
   deploy:
     needs: build
-    if: github.event_name != 'pull_request' && github.event_name != 'merge_group' && github.ref_name == 'main' && github.actor != 'github-actions[bot]'
+    if: github.event_name != 'pull_request' && github.event_name != 'merge_group' && github.ref_name == 'main'
     runs-on: ubuntu-latest
     permissions:
       id-token: write
