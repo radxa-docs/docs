@@ -6,4 +6,4 @@ import BuildSystem from '../../../../common/yocto/\_build-system.mdx';
 
 # 构建系统
 
-<BuildSystem board="ROCK 4D" board_conf="rockchip-rk3568-rock4d.conf" soc="rk3568" board_name="rock-4d" />
+<BuildSystem board="ROCK 4D" board_conf="rockchip-rk3576-rock4d.conf" soc="rk3576" board_name="rock-4d" />
