@@ -84,11 +84,13 @@ After successful build, the corresponding image files for {props?.board ?? 'boar
 
 The `*.rootfs.update.img` file is the image file for MicroSD card boot system, and the `*.rootfs.wic` file is the image file for eMMC boot system.
 
-:::tip Common Issues
+## FAQ
+
+### Missing en_US.UTF-8 Language Environment
 
 - `Please make sure locale 'en_US.UTF-8' is available on your system`
 
-If `en_US.UTF-8` is not available on your system, you need to set it up according to the following steps:
+If the system does not have `en_US.UTF-8`, you need to set it up according to the following steps:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -102,4 +104,21 @@ source ~/.bashrc
 
 </NewCodeBlock>
 
-:::
+### System Crash During Compilation
+
+You can try to set the parallelism of the Yocto build system to prevent system crashes during compilation.
+
+Add the following configuration to <code>{`ln -sf ${
+  props?.board_conf ?? "rockchip-<soc>-<board>.conf"
+} local.conf`}</code>:
+
+Where `BB_NUMBER_THREADS` is the number of threads for parallel compilation, and `PARALLEL_MAKE` is the Make parameters for parallel compilation, which can be adjusted according to system configuration.
+
+<NewCodeBlock tip="Ubuntu" type="host">
+
+```
+BB_NUMBER_THREADS = "8"
+PARALLEL_MAKE = "-j 8"
+```
+
+</NewCodeBlock>

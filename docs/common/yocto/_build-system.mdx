@@ -84,7 +84,9 @@ bitbake core-image-minimal
 
 其中 `*.rootfs.update.img` 文件为为 MicroSD 卡启动系统的镜像文件，`*.rootfs.wic` 文件为 eMMC 启动系统的镜像文件。
 
-:::tip 常见问题
+## 常见问题
+
+### 缺少 en_US.UTF-8 语言环境
 
 - `Please make sure locale 'en_US.UTF-8' is available on your system`
 
@@ -102,4 +104,19 @@ source ~/.bashrc
 
 </NewCodeBlock>
 
-:::
+### 编译过程中系统崩溃
+
+可以尝试设置 Yocto 构建系统的并行度，防止编译过程中系统崩溃。
+
+在 <code>{`ln -sf ${
+  props?.board_conf ?? "rockchip-<soc>-<board>.conf"
+} local.conf`}</code> 中添加以下配置：其中 `BB_NUMBER_THREADS` 为并行编译的线程数，`PARALLEL_MAKE` 为并行编译的 Make 参数，可以根据系统配置进行调整。
+
+<NewCodeBlock tip="Ubuntu" type="host">
+
+```
+BB_NUMBER_THREADS = "8"
+PARALLEL_MAKE = "-j 8"
+```
+
+</NewCodeBlock>
