@@ -6,7 +6,7 @@ sidebar_position: 15
 
 ## DX-M1 SDK
 
-- [dx_com_M1_v1.60.1](https://dl.radxa.com/aicore/dx_m1/sdk/dx_com_M1_v1.60.1.tar.gz)
+- [dx_com_M1_v1.60.1](https://dl.radxa.com/aicore/dx_m1/dx_com_M1_v1.60.1.tar.gz)
 - [DX_Tron_v0.0.8](https://dl.radxa.com/aicore/dx_m1/sdk/DX_Tron_v0.0.8.zip)
 
 ## 参考文档
