@@ -6,16 +6,25 @@ sidebar_position: 2
 
 ## Introduction
 
-**DX-COM (Model Compiler)** can generate NPU instruction sets based on the provided ONNX model and configuration files, compiling the ONNX model into an executable DXNN model file format for the NPU. The DXNN file contains the generated instruction set and weight information.
+**DX-COM (Model Compiler)** can generate NPU instruction sets based on the provided ONNX model and configuration file, compiling ONNX models into DXNN model file format that can be executed on NPU. DXNN files contain the generated instruction sets and weight information.
 
-## Installation Method
+## System Requirements
+
+| CPU              | x86 (x64)                        |
+| ---------------- | -------------------------------- |
+| Memory (RAM)     | ≥ 16GB                           |
+| Storage Space    | ≥ 8GB                            |
+| Operating System | Ubuntu 18.04, 20.04, 22.04 (x64) |
+| LDD Version      | ≥ 2.28                           |
+
+## Installation
 
 ### Install Required Libraries
 
 - libgl1-mesa-glx
 - libglib2.0-0
 
-Use the following command to install the required libraries:
+Use the following command to install the required libraries.
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
@@ -27,30 +36,15 @@ sudo apt-get install -y --no-install-recommends libgl1-mesa-glx libglib2.0-0 mak
 
 ### Download DX-COM Installation Package
 
-Please download the DX-COM installation package from the DX-M1 SDK [Resource Download](../download.md) page and extract it:
+Please download the DX-COM installation package from the DX-M1 SDK [Resources Download](../download.md) page and extract it
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
 ```bash
-tar -xvf dx_com_M1A_v1.38.1.tar.gz
+tar -xvf dx_com_M1_v1.60.1.tar.gz
 ```
 
 </NewCodeBlock>
-
-```bash
-# Output Structure
-dx_com
-├── calibration_dataset
-├── dx_com
-│   ├── cv2/
-│   ├── numpy/
-│   ├── ...
-│   └── dx_com
-├── sample
-│   ├── MobilenetV1.json
-│   └── MobilenetV1.onnx
-└── Makefile
-```
 
 ## Usage
 
@@ -60,7 +54,7 @@ Parameters used for model compilation need to be configured in a JSON file.
 
 #### Model Input Configuration
 
-Set the input layer name and input shape of the ONNX model.
+Set the ONNX model input layer name and model input shape.
 
 ```vim
 inputs : ONNX input name shape info
@@ -77,7 +71,7 @@ inputs : ONNX input name shape info
       512,
       512
     ]
-  }
+}
 ```
 
 #### Model Calibration Configuration
@@ -86,14 +80,14 @@ Set parameters for the calibration method.
 
 **calibration_num**: Number of images used for calibration
 
-To minimize model accuracy loss, it's recommended to try different `calibration_num` values. You can compile the model with different settings (such as `calibration_num=1`, `5`, `10`, `100`, or `1000`), measure the accuracy under each setting, and choose the value with the highest accuracy.
+If you want to minimize model accuracy degradation, it is recommended to try different `calibration_num` values. You can compile the model with different settings (such as `calibration_num=1`, `5`, `10`, `100` or `1000`), measure the accuracy under each setting, and choose the value with the highest accuracy.
 
 **calibration_method**: Calibration method
 
-Options: `["ema", "minmax"]`
+Available options: `["ema", "minmax"]`
 
 :::tip
-In most cases, `"ema"` provides better accuracy, but in some cases, `"minmax"` works better.
+In most cases, `"ema"` provides better accuracy, but in some cases `"minmax"` works better.
 :::
 
 **Example:**
@@ -107,10 +101,12 @@ In most cases, `"ema"` provides better accuracy, but in some cases, `"minmax"` w
 
 #### Data Loading Configuration
 
-Set parameters for the calibration dataset. It is recommended to use the same batch of data used for training or inference for calibration.
+Set parameters for the calibration dataset. It is recommended to select the same batch of data used for training or inference for calibration.
 
 - dataset_path: Root directory path of the calibration dataset (files will be searched recursively).
-- file_extensions: File extensions of the target images.
+
+- file_extensions: File extensions of target images.
+
 - preprocessings: Image preprocessing methods.
 
 **Example:**
@@ -133,29 +129,29 @@ Set parameters for the calibration dataset. It is recommended to use the same ba
 ...
 ```
 
-Input Image Preprocessing Configuration
+Input image preprocessing configuration
 
-Preprocessing pipeline required before feeding images into the ONNX model. These configurations are used for preprocessing the calibration dataset during model compilation.
-Items marked with (\*) will be executed on the NPU side, thereby reducing the processing burden on the CPU. Therefore, these preprocessing operations that are offloaded to the NPU should be omitted in the runtime software. If no preprocessing is needed, this section can be skipped.
+The preprocessing pipeline required before images are input to the ONNX model. These configurations are used to preprocess the calibration dataset during model compilation.
+Items marked with (\*) will be executed on the NPU side, thereby reducing CPU processing burden. Therefore, these preprocessing operations migrated to NPU should be omitted in the runtime software. If no preprocessing is needed, this section can be skipped.
 
-| Preprocessing   | Parameters/Sub-options                        | Description                                                                                                                                                                                                                             | Example                       |
-| --------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| `convertColor`  | `RGB2BGR`, `BGR2RGB`, `BGR2GRAY`, `BGR2YCrCb` | Convert color channel order                                                                                                                                                                                                             | `"RGB2BGR"`                   |
-| `resize`        | `mode`                                        | `default` (opencv) or `torchvision`                                                                                                                                                                                                     | `"default"` / `"torchvision"` |
-|                 | `width`, `height`                             | Target image dimensions (only for `default` mode)                                                                                                                                                                                       | `width: 224`, `height: 224`   |
-|                 | `size`                                        | Target shorter side size (only for `torchvision` mode)                                                                                                                                                                                  | `size: 256`                   |
-|                 | `interpolation`                               | Interpolation method (optional)<br/>**`default`** mode options: "NEAREST", "LINEAR"(default), "AREA", "CUBIC", "LANCZOS4"<br/>**`torchviion`** mode options:<br/>"NEAREST", "LANCZOS", "BILINEAR"(default), "BICUBIC", "BOX", "HAMMING" | `LINEAR`, `BILINEAR`          |
-| `centercrop`    | `width`, `height`                             | Crop the specified size from the center of the image                                                                                                                                                                                    | `width: 224`, `height: 224`   |
-| `transpose`     | `axis`                                        | Dimension permutation order                                                                                                                                                                                                             | `[2, 0, 1]`                   |
-| `normalize (*)` | `mean`, `std`                                 | Normalization, supports single value or array                                                                                                                                                                                           | `[0.5,0.5,0.5]`               |
-| `mul (*)`       | `x`                                           | Multiply all pixels by a value                                                                                                                                                                                                          | `x: 255`                      |
-| `add (*)`       | `x`                                           | Add a value to all pixels                                                                                                                                                                                                               | `x: 0.1`                      |
-| `subtract (*)`  | `x`                                           | Subtract a value from all pixels                                                                                                                                                                                                        | `x: 0.1`                      |
-| `div (*)`       | `x`                                           | Divide all pixels by a value                                                                                                                                                                                                            | `x: 255.0`                    |
-| `expandDim`     | `axis`                                        | Add a dimension at the specified position                                                                                                                                                                                               | `axis: 0`                     |
+| Preprocessing Item | Parameters/Sub-options                        | Description                                                                                                                                                                                                                                     | Example                       |
+| ------------------ | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| `convertColor`     | `RGB2BGR`, `BGR2RGB`, `BGR2GRAY`, `BGR2YCrCb` | Convert color channel order                                                                                                                                                                                                                     | `"RGB2BGR"`                   |
+| `resize`           | `mode`                                        | `default` (opencv) or `torchvision`                                                                                                                                                                                                             | `"default"` / `"torchvision"` |
+|                    | `width`, `height`                             | Target image size (only `default` mode)                                                                                                                                                                                                         | `width: 224`, `height: 224`   |
+|                    | `size`                                        | Target short side size (only `torchvision` mode)                                                                                                                                                                                                | `size: 256`                   |
+|                    | `interpolation`                               | Interpolation method (optional)<br />**`default`** mode options: "NEAREST", "LINEAR"(default), "AREA", "CUBIC", "LANCZOS4" <br /> **`torchvision`** mode options: <br /> "NEAREST", "LANCZOS", "BILINEAR"(default), "BICUBIC", "BOX", "HAMMING" | `LINEAR`, `BILINEAR`          |
+| `centercrop`       | `width`, `height`                             | Crop specified size from image center                                                                                                                                                                                                           | `width: 224`, `height: 224`   |
+| `transpose`        | `axis`                                        | Dimension transformation order                                                                                                                                                                                                                  | `[2, 0, 1]`                   |
+| `normalize (*)`    | `mean`, `std`                                 | Normalization processing, supports single value or array                                                                                                                                                                                        | `[0.5,0.5,0.5]`               |
+| `mul (*)`          | `x`                                           | Multiply all pixels by a value                                                                                                                                                                                                                  | `x: 255`                      |
+| `add (*)`          | `x`                                           | Add a value to all pixels                                                                                                                                                                                                                       | `x: 0.1`                      |
+| `subtract (*)`     | `x`                                           | Subtract a value from all pixels                                                                                                                                                                                                                | `x: 0.1`                      |
+| `div (*)`          | `x`                                           | Divide all pixels by a value                                                                                                                                                                                                                    | `x: 255.0`                    |
+| `expandDim`        | `axis`                                        | Expand a dimension at specified position                                                                                                                                                                                                        | `axis: 0`                     |
 
 :::info
-Items marked with (\*) will be executed on the NPU side.
+Items marked with (\*) will be executed on the NPU side
 :::
 
 #### Model Configuration Example
@@ -218,26 +214,26 @@ Items marked with (\*) will be executed on the NPU side.
 
 #### Accuracy Enhancement Scheme Configuration
 
-To further improve model accuracy, you can choose to use the Enhanced Scheme, which includes **DXQ-P0 to DXQ-P5**.
+To further improve model accuracy, you can choose to use the accuracy enhancement scheme (Enhanced Scheme), with scheme names **DXQ-P0 ~ DXQ-P5**.
 
 :::tip
 
 - Each enhancement scheme is independent, meaning multiple schemes can be enabled simultaneously.
-- Using these schemes **does not always guarantee accuracy improvement**; it's recommended to evaluate the effect based on actual scenarios.
+- Using these schemes **does not always bring accuracy improvement**, it is recommended to evaluate the effect based on actual situations;
 - Enabling these schemes in **CPU-only environments will significantly increase compilation time**.
   :::
 
-| Scheme No. | Name                        | Parameter Description                                                                                                                                                                 |
-| ---------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **DXQ-P0** | Fusing Operation            | `alpha`: Fusion ratio, value range `0 < alpha < 1.0`, **recommended value: 0.5**                                                                                                      |
-| **DXQ-P1** | Find Optimal Parameters     | `true/false`, enabling will significantly increase CPU compilation time                                                                                                               |
-| **DXQ-P2** | Relax Calibration Range     | `alpha`: Minimum calibration range ratio, `0 < alpha < beta`, recommended value: **0.1**<br />`beta`: Maximum calibration range ratio, `alpha < beta < ∞`, recommended value: **1.0** |
-| **DXQ-P3** | Parameter Tuning (Method 1) | `num_samples`: Number of data samples for calibration, `0 < num_samples < ∞`, **recommended value: 1024**                                                                             |
-| **DXQ-P4** | Parameter Tuning (Method 2) | Same as DXQ-P3                                                                                                                                                                        |
-| **DXQ-P5** | Parameter Tuning (Method 3) | Same as DXQ-P3                                                                                                                                                                        |
+| Scheme ID  | Name                                               | Parameter Description                                                                                                                                                                               |
+| ---------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **DXQ-P0** | Operation Fusion (Fusing)                          | `alpha`: Fusion ratio, value range `0 < alpha < 1.0`, **recommended value: 0.5**                                                                                                                    |
+| **DXQ-P1** | Find Optimal Parameters                            | `true/false`, enabling will significantly increase CPU compilation time                                                                                                                             |
+| **DXQ-P2** | Relax Calibration Range to Find Optimal Parameters | `alpha`: Minimum value ratio of calibration range, `0 < alpha < beta`, recommended value: **0.1**, `beta`: Maximum value ratio of calibration range, `alpha < beta < ∞`, recommended value: **1.0** |
+| **DXQ-P3** | Parameter Fine-tuning (Method 1)                   | `num_samples`: Number of data samples used for calibration, `0 < num_samples < ∞`, **recommended value: 1024**                                                                                      |
+| **DXQ-P4** | Parameter Fine-tuning (Method 2)                   | Same as DXQ-P3                                                                                                                                                                                      |
+| **DXQ-P5** | Parameter Fine-tuning (Method 3)                   | Same as DXQ-P3                                                                                                                                                                                      |
 
 :::tip
-Although DXQ-P3, DXQ-P4, and DXQ-P5 share the same parameters, they use **different tuning methods**.
+Although DXQ-P3, DXQ-P4, DXQ-P5 have the same parameters, they use **different fine-tuning methods**.
 :::
 
 **Accuracy Enhancement Configuration Example**
@@ -267,7 +263,7 @@ Although DXQ-P3, DXQ-P4, and DXQ-P5 share the same parameters, they use **differ
 }
 ```
 
-**Single Scheme Control Example**
+**Accuracy Enhancement Single Scheme Control Configuration Example**
 
 ```json
   '''
@@ -282,18 +278,18 @@ Although DXQ-P3, DXQ-P4, and DXQ-P5 share the same parameters, they use **differ
  '''
 ```
 
-| Scheme | Compilation Speed | Accuracy Improvement |
-| ------ | ----------------- | -------------------- |
-| DXQ-P0 | Very Fast         | Low                  |
-| DXQ-P1 | Fast              | Low-Medium           |
-| DXQ-P2 | Slow              | Medium-High          |
-| DXQ-P3 | Very Slow         | High                 |
-| DXQ-P4 | Very Slow         | High                 |
-| DXQ-P5 | Very Slow         | High                 |
+| Name   | Compilation Speed | Accuracy Improvement Tendency |
+| ------ | ----------------- | ----------------------------- |
+| DXQ-P0 | Very Fast         | Low                           |
+| DXQ-P1 | Fast              | Low-Medium                    |
+| DXQ-P2 | Slower            | Medium-High                   |
+| DXQ-P3 | Very Slow         | High                          |
+| DXQ-P4 | Very Slow         | High                          |
+| DXQ-P5 | Very Slow         | High                          |
 
 ### Execute Model Compilation
 
-After completing the model configuration file, use the following command to compile the model:
+When the model configuration file is completed, use the following command to compile the model
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
@@ -328,7 +324,7 @@ $./dx_com/dx_com    \
 </NewCodeBlock>
 
 :::tip
-**DX-COM** only supports model inputs with batchsize=1. If your model input is in the format (**batchsize**,C,H,W) or (**batchsize**,H,W,C), please ensure the batchsize is set to 1.
+**DX-COM** only supports model input with 1 batchsize. If model input is (**batchsize**,C,H,W) or (**batchsize**,H,W,C), please ensure batchsize is 1
 :::
 
-After successful compilation, the model in dxnn format will be saved in the output/mobilenetv1 directory.
+After successful compilation, the dxnn format model is saved in the output/mobilenetv1 folder.
