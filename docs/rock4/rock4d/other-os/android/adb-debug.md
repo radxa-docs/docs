@@ -6,4 +6,4 @@ import ADB from '../../../../common/other-system/android/\_adb_debug.mdx';
 
 # ADB 调试
 
-<ADB sbc_model="rock4d" />
+<ADB sbc_model="rock4d" otg_port="说明：ROCK 4D 的 OTG 口为 USB 3.0 Type-A 的上层接口" />
