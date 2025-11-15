@@ -48,17 +48,17 @@ Click on the interface names for tutorials on connecting external devices.
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/rock4d-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-| No. | Description                       | Qty | No. | Description                         | Qty | No. | Description                         | Qty |
-|:---:|:---------------------------------|:---:|:---:|:------------------------------------|:---:|:---:|:------------------------------------|:---:|
-|  ①  | [USB Type-C Port](/rock4/rock4d/hardware-use/usb-type-c) |  1  |  ⑩ | [PoE Port](/rock4/rock4d/hardware-use/gigabit-ethernet) |  1  |  ⑲ | [MIPI CSI Port](/rock4/rock4d/hardware-use/mipi-csi) |  1  |
-|  ②  | User LED                         |  1  |  ⑪ | [Maskrom Button](/rock4/rock4d/hardware-use/maskrom) |  1  |  ⑳ | [HDMI 2.1 Port](/rock4/rock4d/hardware-use/hdmi) |  1  |
-|  ③  | Power LED                        |  1  |  ⑫ | [USB 2.0 Type-A Ports](/rock4/rock4d/hardware-use/usb-type-a) |  2  |  ㉑ | [Recovery Pins](/rock4/rock4d/hardware-use/recovery) |  1  |
-|  ④  | Power Button                     |  1  |  ⑬ | Rockchip RK3576(J)                |  1  |  ㉒ | [UFS Module Connector](/rock4/rock4d/hardware-use/emmc-ufs-connector) |  1  |
-|  ⑤  | [FPC Connector](/rock4/rock4d/hardware-use/fpc-connector)|  1  |  ⑭ | [USB 3.0 Type-A Ports](/rock4/rock4d/hardware-use/usb-type-a) |  2  |  ㉓ | [RTC Connector](/rock4/rock4d/hardware-use/rtc-connector) |  1  |
-|  ⑥  | [WiFi6 & Bluetooth 5.4](/rock4/rock4d/hardware-use/ante.md) |  1  |  ⑮ | SPI NOR Flash                      |  1  |  ㉔ | [eMMC Module Connector](/rock4/rock4d/hardware-use/emmc-ufs-connector) |  1  |
-|  ⑦  | [Antenna Connector](/rock4/rock4d/hardware-use/ante) |  1  |  ⑯ | [Gigabit Ethernet (PoE)](/rock4/rock4d/hardware-use/gigabit-ethernet) |  1  |  ㉕ | [MIPI CSI Port](/rock4/rock4d/hardware-use/mipi-csi) |  1  |
-|  ⑧  | [40-pin GPIO Header](/rock4/rock4d/hardware-use/pin-gpio)| 1  |  ⑰ | [Fan Connector](/rock4/rock4d/hardware-use/fan) |  1  |  ㉖ | [MicroSD Card Slot](/rock4/rock4d/hardware-use/microsd) |  1  |
-|  ⑨  | LPDDR5 Memory                    |  1  |  ⑱ | [Headphone Jack](/rock4/rock4d/hardware-use/headphone) |  1  |  ㉗ | [MIPI DSI Port](/rock4/rock4d/hardware-use/mipi-dsi) |  1  |
+| # | Description | Qty | # | Description | Qty | # | Description | Qty |
+|:--:|:------------|:---:|:--:|:------------|:---:|:--:|:------------|:---:|
+| ① | [USB Type-C Port](./usb-type-c) | 1 | ⑩ | [PoE Port](./gigabit-ethernet) | 1 | ⑲ | [MIPI CSI Interface](./mipi-csi) | 1 |
+| ② | User LED | 1 | ⑪ | [Maskrom Button](./maskrom) | 1 | ⑳ | [HDMI 2.1 Port](./hdmi) | 1 |
+| ③ | Power LED | 1 | ⑫ | [USB 2.0 Type-A Ports](./usb-type-a) | 2 | ㉑ | [Recovery Pins](./recovery) | 1 |
+| ④ | Power Button | 1 | ⑬ | Rockchip RK3576(J) | 1 | ㉒ | [UFS Module Interface](./emmc-ufs-connector) | 1 |
+| ⑤ | [FPC Connector](./fpc-connector) | 1 | ⑭ | [USB 3.0 Type-A Ports](./usb-type-a)<br />Up：USB 3.0 Type-A OTG<br />Down：USB 3.0 Type-A HOST | 2 | ㉓ | [RTC Interface](./rtc) | 1 |
+| ⑥ | [WiFi 6 & Bluetooth 5.4](./ante.md) | 1 | ⑮ | SPI NOR Flash | 1 | ㉔ | [eMMC Module Interface](./emmc-ufs-connector) | 1 |
+| ⑦ | [Antenna Connector](./ante) | 1 | ⑯ | [Gigabit Ethernet (PoE)](./gigabit-ethernet) | 1 | ㉕ | [MIPI CSI Interface](./mipi-csi) | 1 |
+| ⑧ | [40-Pin GPIO Header](./pin-gpio) | 1 | ⑰ | [Fan Connector](./fan) | 1 | ㉖ | [MicroSD Card Slot](./microsd) | 1 |
+| ⑨ | LPDDR5 RAM | 1 | ⑱ | [Headphone Jack](./headphone) | 1 | ㉗ | [MIPI DSI Interface](./mipi-dsi) | 1 |
 
 - User LED
 

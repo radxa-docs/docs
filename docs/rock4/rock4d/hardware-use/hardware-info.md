@@ -29,7 +29,7 @@ sidebar_position: 0
 |  ②   | 用户指示灯                 |  1   |  ⑪  | [Maskrom 按键](./maskrom)                |  1   |  ⑳  | [HDMI 2.1 接口](./hdmi)     |  1   |
 |  ③   | 电源指示灯                 |  1   |  ⑫  | [USB 2.0 Type-A 接口](./usb-type-a) |  2   |  ㉑  | [Recovery 引脚](./recovery)             |  1   |
 |  ④   | 电源按键                   |  1   |  ⑬  | Rockchip RK3576（J）        |  1   |  ㉒  | [UFS 模块接口](./emmc-ufs-connector) |  1   |
-|  ⑤   | [FPC 接口](./fpc-connector)|  1   |  ⑭  | [USB 3.0 Type-A 接口](./usb-type-a) |  2   |  ㉓  | [RTC 接口](./rtc)           |  1   |
+|  ⑤   | [FPC 接口](./fpc-connector)|  1   |  ⑭  | [USB 3.0 Type-A 接口](./usb-type-a)<br />上层：USB 3.0 Type-A OTG<br />下层：USB 3.0 Type-A HOST |  2   |  ㉓  | [RTC 接口](./rtc)           |  1   |
 |  ⑥   | [WiFi6 和 蓝牙 5.4](./ante.md) |  1   |  ⑮  | SPI NOR Flash               |  1   |  ㉔  | [eMMC 模块接口](./emmc-ufs-connector) |  1   |
 |  ⑦   | [天线接口](./ante)          |  1   |  ⑯  | [千兆以太网口（支持PoE）](./gigabit-ethernet) |  1   |  ㉕  | [MIPI CSI 接口](./mipi-csi) |  1   |
 |  ⑧   | [40 Pin GPIO 接口](./pin-gpio)|  1   |  ⑰  | [风扇接口](./fan)            |  1   |  ㉖  | [MicroSD 卡槽](./microsd)   |  1   |
