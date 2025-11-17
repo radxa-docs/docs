@@ -137,6 +137,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
     steps:
       - name: Checkout template
         uses: actions/checkout@v5
@@ -147,10 +149,23 @@ jobs:
         uses: actions/checkout@v5
         with:
           path: "contents"
+      - name: Install dependencies
+        run: yarn install
+      - name: Fetch Baidu Tongji data
+        run: node ./contents/.github/scripts/baidu-tongji.js
+        env:
+          BAIDU_TONGJI_ACCESS_TOKEN: ${{ secrets.BAIDU_TONGJI_ACCESS_TOKEN }}
+          BAIDU_TONGJI_REFRESH_TOKEN: ${{ secrets.BAIDU_TONGJI_REFRESH_TOKEN }}
+          BAIDU_TONGJI_CLIENT_ID: ${{ secrets.BAIDU_TONGJI_CLIENT_ID }}
+          BAIDU_TONGJI_CLIENT_SECRET: ${{ secrets.BAIDU_TONGJI_CLIENT_SECRET }}
+      - name: Generate latest updates JSON
+        run: node ./contents/.github/scripts/latest-updates.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
       - name: Build
         run: |
           export NODE_OPTIONS="--max-old-space-size=8192"
-          yarn install
           yarn build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
