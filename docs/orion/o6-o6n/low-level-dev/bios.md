@@ -1,0 +1,141 @@
+---
+sidebar_position: 10
+---
+
+# 更新 BIOS 固件
+
+教程介绍如何更新星睿 O6N 的 BIOS 固件，无更新 BIOS 固件的需求用户请勿操作。
+
+## 使用前提
+
+您需要提前准备以下硬件设备：
+
+- 主板：瑞莎星睿 O6N
+- 供电：12V DC 电源适配器
+- BIOS 更新介质：U 盘
+- 显示设备：HDMI / DP 数据线和显示器
+- 输入设备：键盘和鼠标（用于图形界面操作）
+- 调试工具（可选）：USB 串口数据线（用于串口登录）
+
+:::tip 推荐配件
+
+- [瑞莎 DC 36W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-36w)
+- [瑞莎 DC 60W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-60w)
+- 标准 12V DC5525 电源适配器，建议电流 3A 及以上
+
+:::
+
+## 制作 BIOS 更新盘
+
+### 格式化 U 盘
+
+将 U 盘格式化成 FAT32 格式，其它格式的 U 盘可能无法正常访问 U 盘和更新 BIOS 固件。
+
+### 制作 BIOS 更新盘
+
+访问 [资源汇总下载](../download) 页面，下载 BIOS 固件；将下载的 BIOS 固件内容复制到 U 盘的根目录下。
+
+BIOS 固件内容如下：
+
+```
+BuildOptions
+BurnImage.efi
+cix_flash_all.bin
+cix_flash_ota.bin
+EnrollFromDefaultKeysApp.efi
+FlashUpdate.efi
+Shell.efi
+startup.nsh
+VariableInfo.efi
+```
+
+## 更新 BIOS 固件
+
+建议主板连接显示器和键盘进行固件更新，串口模式可能会出现选项错位和显示异常的现象。
+
+### 硬件连接
+
+取下主板上可启动系统的介质（如 U 盘、UFS 模块、NVMe 固态硬盘），避免直接启动系统。
+
+1. 将制作好的 BIOS 更新盘插入主板的 USB 接口
+2. 使用 HDMI / DP 数据线连接显示器和主板
+3. 连接 USB 键盘到主板
+4. 使用 12V DC 电源适配器给主板供电
+
+### 进入 BIOS 界面
+
+启动主板后，显示器出现 Radxa Logo 和进度条时，短按键盘的 “Esc” 按键进入 `BIOS` 界面。
+
+:::tip BIOS 界面
+
+系统检测到没有可启动系统介质时，系统会自动进入 BIOS 界面。
+
+:::
+
+<div style={{textAlign: 'center'}}>
+Radxa Logo 界面
+   <img src="/img/orion/o6n/orion-o6n-boot-logo.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+<div style={{textAlign: 'center'}}>
+BIOS 界面
+   <img src="/img/orion/o6n/orion-o6n-bios.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+### 更新 BIOS 固件
+
+在 BIOS 界面依次选择 `Boot Manager` -> `UEFI Shell` 选项
+
+<div style={{textAlign: 'center'}}>
+Boot Manager 界面
+   <img src="/img/orion/o6n/orion-o6n-boot-manager.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+进入 UEFI Shell 界面后，按 `ESC` 键取消自动更新，手动进入指定磁盘更新 BIOS固件。
+
+<div style={{textAlign: 'center'}}>
+UEFI Shell 界面
+   <img src="/img/orion/o6n/orion-o6n-uefi-shell.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+:::danger
+
+更新 BIOS 固件，请确保整个过程保持电源的稳定，避免电源断电导致更新失败，以至于主板无法启动系统。
+
+:::
+
+1. 进入 BIOS 文件夹
+
+UEFI Shell 界面的 Mapping table 会显示系统检测到的磁盘信息，我们可以使用 `ls` 命令查看查看磁盘中的文件，从而确定 BIOS 更新盘对应的磁盘；
+
+如图所示，BIOS 启动盘对应的磁盘信息为 `FS2`，则输入 `FS2:` 进入 BIOS 更新盘。
+
+:::tip BIOS 更新盘
+
+若只接一个磁盘，BIOS 更新盘对应的磁盘信息为 `FS0`。
+
+:::
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/orion/o6n/orion-o6n-uefi-shell-disk.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+2. 更新 BIOS 固件
+
+我们可以输入 `startup.nsh` 命令并按 `Enter` 键更新 BIOS 固件。
+
+<NewCodeBlock tip="radxa@UEFI-Shell$" type="device">
+
+```
+startup.nsh
+```
+
+</NewCodeBlock>
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/orion/o6n/orion-o6n-bios-update.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+3. 重启系统
+
+更新完成后，重新插拔电源适配器启动系统！
