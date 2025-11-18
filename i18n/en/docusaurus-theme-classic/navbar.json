@@ -1,7 +1,7 @@
 {
-  "item.label.AICore SG2300x": {
-    "message": "AICore SG2300x",
-    "description": "Navbar item with label AICore SG2300x"
+  "item.label.单板计算机": {
+    "message": "Single Board Computers",
+    "description": "Navbar item with label SBC"
   },
   "item.label.Airbox": {
     "message": "Airbox",
