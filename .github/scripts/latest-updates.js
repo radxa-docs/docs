@@ -126,6 +126,25 @@ async function getMarkdownCommits(days = 30) {
         "";
       const url = detail.html_url || item.html_url || "";
 
+      let page_url = "";
+      const firstMd = files.find((f) => {
+        const n = (f.filename || "").toLowerCase();
+        return exts.some((ext) => n.endsWith(ext));
+      });
+      if (firstMd && firstMd.filename) {
+        const raw = String(firstMd.filename).replace(/\\/g, "/");
+        const mI18n = raw.match(/^i18n\/([^/]+)\/docusaurus-plugin-content-docs\/current\/(.+)\.(md|mdx)$/i);
+        if (raw.startsWith("docs/")) {
+          const docPath = raw.slice(5).replace(/\.(md|mdx)$/i, "");
+          page_url = "/" + docPath.replace(/\/index$/i, "");
+        } else if (mI18n) {
+          const locale = mI18n[1];
+          const docPath = mI18n[2];
+          page_url = `/${locale}/${docPath}`.replace(/\/index$/i, "");
+        }
+      }
+
+      console.log("最近修改的页面：", page_url);
       result.push({
         author: authorName,
         title,
@@ -133,6 +152,7 @@ async function getMarkdownCommits(days = 30) {
         message,
         committed_at: committedAt,
         sha,
+        page_url,
       });
     } catch (e) {
       // 忽略单条失败，继续

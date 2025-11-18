@@ -157,26 +157,46 @@ async function getPageTitleAndLang(url) {
     const response = await axios.get(url, {
       timeout: 10000,
       headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        'User-Agent': 'Mozilla/5.0 (compatible; Docusaurus-Doc-Crawler/1.0; +https://github.com/radxa-docs/docs)',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
       },
     });
 
     const $ = cheerio.load(response.data);
 
-    // 获取标题
-    let title = "";
-    const titleElement = $("title");
-    if (titleElement.length > 0) {
-      title = titleElement.text().trim();
-    } else {
-      const h1Element = $("h1");
-      if (h1Element.length > 0) {
-        title = h1Element.first().text().trim();
-      } else {
-        title = url.split("/").pop() || url;
-      }
+    let breadcrumbs = [];
+    const breadcrumbLinks = $(".breadcrumbs__link");
+
+    if (breadcrumbLinks.length > 0) {
+      breadcrumbLinks.each((index, element) => {
+        const $link = $(element);
+        
+        let title = "";
+        
+        const directSpan = $link.children("span").first();
+        if (directSpan.length > 0) {
+          title = directSpan.text().trim();
+        } else {
+          const nestedSpan = $link.find("span").first();
+          if (nestedSpan.length > 0) {
+            title = nestedSpan.text().trim();
+          } else {
+            title = $link.text().trim();
+          }
+        }
+        
+        let url = $link.attr("href") || "";
+        url = url.trim();
+        
+        breadcrumbs.push({
+          title: title,
+          url: url
+        });
+      });
     }
+
+    breadcrumbs = breadcrumbs.filter(item => item.title || item.url);
 
     let lang = detectLanguageFromUrl(url);
     if (!lang) {
@@ -191,7 +211,7 @@ async function getPageTitleAndLang(url) {
       }
     }
 
-    return { title, lang };
+    return { lang, breadcrumbs };
   } catch (error) {
     console.error(`获取页面标题失败 ${url}:`, error.message);
     let lang = detectLanguageFromUrl(url) || "en";
@@ -229,8 +249,8 @@ async function updateDataWithTitles(data) {
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
     console.log(`正在获取第 ${i + 1}/${urls.length} 个URL的信息: ${url}`);
-    const { title, lang } = await getPageTitleAndLang(url);
-    urlInfo[url] = { title, lang };
+    const { lang, breadcrumbs } = await getPageTitleAndLang(url);
+    urlInfo[url] = { lang, breadcrumbs };
 
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
@@ -239,7 +259,7 @@ async function updateDataWithTitles(data) {
   for (const itemGroup of items) {
     for (const item of itemGroup) {
       if (item.name && urlInfo[item.name]) {
-        item.title = urlInfo[item.name].title;
+        item.breadcrumbs = urlInfo[item.name].breadcrumbs;
         item.lang = urlInfo[item.name].lang;
       }
     }
