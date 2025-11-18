@@ -155,6 +155,7 @@ function detectLanguageFromHtml($) {
 // 获取页面标题和语言
 async function getPageTitleAndLang(url) {
   let browser;
+  let page;
 
   try {
     browser = await puppeteer.launch({
@@ -167,7 +168,7 @@ async function getPageTitleAndLang(url) {
       ],
     });
     
-    const page = await browser.newPage();
+    page = await browser.newPage();
 
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
     
@@ -247,6 +248,13 @@ async function getPageTitleAndLang(url) {
       title: url.split("/").pop() || url,
       lang,
     };
+  } finally {
+    try {
+      if (page) await page.close();
+    } catch (_) {}
+    try {
+      if (browser) await browser.close();
+    } catch (_) {}
   }
 }
 
@@ -341,6 +349,7 @@ async function main() {
 
     // 保存到 JSON（写入 contents/static/json）
     saveToJsonFile(updatedData, "static/json/baidu_tongji_data.json");
+    process.exit(0);
   } catch (error) {
     process.exit(1);
   }
