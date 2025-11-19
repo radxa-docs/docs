@@ -4,14 +4,14 @@ sidebar_position: 10
 
 # 更新 BIOS 固件
 
-教程介绍如何更新星睿 O6N 的 BIOS 固件，无更新 BIOS 固件的需求用户请勿操作。
+教程介绍如何更新星睿 O6 / O6N 的 BIOS 固件，无更新 BIOS 固件的需求用户请勿操作。
 
 ## 使用前提
 
 您需要提前准备以下硬件设备：
 
-- 主板：瑞莎星睿 O6N
-- 供电：12V DC 电源适配器
+- 主板：瑞莎星睿 O6 / O6N
+- 供电：电源适配器
 - BIOS 更新介质：U 盘
 - 显示设备：HDMI / DP 数据线和显示器
 - 输入设备：键盘和鼠标（用于图形界面操作）
@@ -19,9 +19,15 @@ sidebar_position: 10
 
 :::tip 推荐配件
 
-- [瑞莎 DC 36W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-36w)
-- [瑞莎 DC 60W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-60w)
-- 标准 12V DC5525 电源适配器，建议电流 3A 及以上
+- 瑞莎星睿 O6
+
+  - [瑞莎 PD 65W 电源适配器（推荐使用）](https://radxa.com/products/accessories/power-pd-65w)
+  - 标准 20V Type-C 电源适配器，建议电流 3A 及以上
+
+- 瑞莎星睿 O6N
+  - [瑞莎 DC 36W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-36w)
+  - [瑞莎 DC 60W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-60w)
+  - 标准 12V DC5525 电源适配器，建议电流 3A 及以上
 
 :::
 
@@ -55,12 +61,12 @@ VariableInfo.efi
 
 ### 硬件连接
 
-取下主板上可启动系统的介质（如 U 盘、UFS 模块、NVMe 固态硬盘），避免直接启动系统。
+取下主板上可启动系统的介质（如 U 盘、NVMe 固态硬盘等），避免直接启动系统。
 
 1. 将制作好的 BIOS 更新盘插入主板的 USB 接口
 2. 使用 HDMI / DP 数据线连接显示器和主板
 3. 连接 USB 键盘到主板
-4. 使用 12V DC 电源适配器给主板供电
+4. 使用电源适配器给主板供电
 
 ### 进入 BIOS 界面
 

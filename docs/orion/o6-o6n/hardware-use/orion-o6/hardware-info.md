@@ -69,7 +69,7 @@ sidebar_position: 10
 板载 2 个 USB 2.0 Type-A 端口、2 个 USB 3.2 Type-A 端口以及前置面板的 USB 2.0 接口。
 
 - USB 2.0 Type-A：最高传输速率 480Mbps，所有 USB 2.0 端口共享 1.4A 总电流
-- USB 3.2 Type-A：最高传输速率 10Gbps，每个电流限制为 1A
+- USB 3.2 Type-A：最高传输速率 10Gbps，每个端口电流限制为 1A
 - USB 2.0 接口（前置面板）
 
 <div style={{textAlign: 'center'}}>
@@ -89,7 +89,7 @@ sidebar_position: 10
 
 ### DP 接口
 
-板载 DP 接口，最高支持 4K@60Hz，提供 2x 多流传输（MST）功能。
+板载 DP 接口，最高支持 4K@120Hz，支持多流传输（MST）功能。
 
 ### eDP 接口
 
@@ -303,6 +303,10 @@ sidebar_position: 10
 | 引脚 | 名称       | 描述     | 引脚 | 名称 | 描述     | 引脚 | 名称 | 描述 |
 | ---- | ---------- | -------- | ---- | ---- | -------- | ---- | ---- | ---- |
 | 1    | BOOT_STRAP | 引导引脚 | 2    | GND  | 接地连接 |      |      |      |
+
+### MIPI CSI 接口
+
+板载 2 个 MIPI CSI 4-lane 接口，可用于连接摄像头模块。
 
 ### RTC 电池座
 

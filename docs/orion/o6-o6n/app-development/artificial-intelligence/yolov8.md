@@ -14,7 +14,7 @@ sidebar_position: 4
 1. 下载 NPU SDK 并安装 NOE Compiler
 2. 下载模型文件 (代码和脚本)
 3. 编译模型
-4. 部署模型到 Orion O6
+4. 部署模型到 Orion O6 / O6N
 
 ## 下载 NPU SDK 并安装 NOE Compiler
 
@@ -171,7 +171,7 @@ CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Com
 
 ### NPU 推理
 
-将使用 NOE Compiler 编译好的 .cix 格式的模型复制到 Orion O6 开发板上进行模型验证
+将使用 NOE Compiler 编译好的 .cix 格式的模型复制到 Orion O6 / O6N 开发板上进行模型验证
 
 ```bash
 python3 inference_npu.py --image_path ./test_data/ --model_path ./yolov8_l.cix
@@ -196,13 +196,13 @@ sys	0m0.400s
 
 结果保存在 `output_npu` 文件夹中
 
-![yolov8_npu1](/img/o6/yolov8_npu1.webp)
+![yolov8_npu1](/img/orion/o6/yolov8_npu1.webp)
 
-![yolov8_npu1](/img/o6/yolov8_npu2.webp)
+![yolov8_npu1](/img/orion/o6/yolov8_npu2.webp)
 
 ### CPU 推理
 
-使用 CPU 对 onnx 模型进行推理验证正确性，可在 X86 主机上或 Orion O6 上运行
+使用 CPU 对 onnx 模型进行推理验证正确性，可在 X86 主机上或 Orion O6 / O6N 上运行
 
 ```bash
 python3 inference_onnx.py --image_path ./test_data/ --onnx_path ./yolov8l.onnx
@@ -220,9 +220,9 @@ sys	0m0.616s
 ```
 
 结果保存在 `output_onnx` 文件夹中
-![yolov8_omnx1](/img/o6/yolov8_onnx1.webp)
+![yolov8_omnx1](/img/orion/o6/yolov8_onnx1.webp)
 
-![yolov8_onnx1](/img/o6/yolov8_onnx2.webp)
+![yolov8_onnx1](/img/orion/o6/yolov8_onnx2.webp)
 
 可以看到 NPU 和 CPU 上推理的结果一致,但运行速度大幅缩短
 

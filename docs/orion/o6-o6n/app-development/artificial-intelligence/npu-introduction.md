@@ -6,12 +6,12 @@ sidebar_position: 1
 
 ## NPU 简介
 
-瑞莎星睿 O6 (Radxa Orion O6) 拥有高达 28.8TOPs NPU (Neural Processing Unit) 算力，支持 INT4 / INT8 / INT16 / FP16 / BF16 和 TF32 类型的加速。
-此文档主要讲解用户如何使用 CIX P1 NPU SDK 运行基于 NPU 加速推理的人工智能模型和应用。包括模型编译工具，工具链和一些常见模型案例进行逐步讲解。
+瑞莎星睿 O6 / O6N 拥有高达 28.8 TOPS NPU (Neural Processing Unit) 算力，支持 INT4 / INT8 / INT16 / FP16 / BF16 和 TF32 类型的加速。
+此文档主要讲解用户如何使用 CIX P1 NPU SDK 运行基于 NPU 加速推理的人工智能模型和应用。包括模型的编译工具、工具链和一些常见模型案例的使用方法进行逐步讲解。
 
 ## CIX 早鸟计划
 
-NPU SDK 包含 NOE Compiler 与 CIX AI Model Hub, 要获取 SDK 需要通过申请 CIX 早鸟计划获取。
+NPU SDK 包含 NOE Compiler 与 CIX AI Model Hub，要获取 SDK 需要通过申请 CIX 早鸟计划来获得。
 申请链接： [CIX 早鸟计划](https://earlybird.cixtech.com/#/)
 
 ## 安装 NPU SDK (x86 Linux 环境)
@@ -38,7 +38,7 @@ pip3 install -r requirements.txt
 pip3 install ./CixBuilder-6.1.2958.1-py3-none-any.whl
 ```
 
-## ~安装 NOE UMD (Orion O6)~
+## ~安装 NOE UMD (Orion O6 / O6N)~
 
 :::tip
 ~NOE UMD 包以 deb 安装包形式发布，如使用 python api，在创建虚拟环境时请继承系统依赖： **`python3 -m venv --system-site-packages .venv`**~
