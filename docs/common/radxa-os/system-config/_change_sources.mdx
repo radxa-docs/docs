@@ -1,0 +1,107 @@
+import { Image } from "@site/src/utils/docs";
+
+主要介绍如何为 Radxa OS 系统更改国内软件源。
+
+## 第 1 步：查看系统信息
+
+首先需要确定你的 Radxa OS 是基于 Debian 还是 Ubuntu，以及具体的版本代号。使用以下命令查看：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+cat /etc/os-release
+```
+
+</NewCodeBlock>
+
+或者使用这个命令直接获取关键信息：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+grep -E "(^ID=|^VERSION_CODENAME=)" /etc/os-release
+```
+
+</NewCodeBlock>
+
+你会看到类似这样的输出：
+
+- Debian 系统：ID=debian 和 VERSION_CODENAME=bookworm（或 bullseye 等）
+- Ubuntu 系统：ID=ubuntu 和 VERSION_CODENAME=jammy（或 focal 等）
+  请记下你的系统 ID 和版本代号，后续步骤将用到。
+
+## 第 2 步：备份原有源
+
+在修改之前，务必备份原有的源文件。Radxa OS 通常有两个地方的源需要关注：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+# 备份主源列表
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+# 如果不存在 sources.list 文件，则需要备份 /etc/apt/sources.list.d/下的文件 不同版本系统可能不同
+sudo cp /etc/apt/sources.list.d/50-noble.list /etc/apt/sources.list.bak.d/50-noble.list.bak
+```
+
+</NewCodeBlock>
+注意：在 sources.list.d 下的文件不止一个，需要先确定替换目标，一般源的网址里面有 debian.org(debian); ubuntu.com(ubuntu)
+
+## 第 3 步：选择并配置合适的镜像源
+
+### MirrorZ
+
+MirrorZ 是一个致力于提供开源软件镜像的站点，旨在帮助用户更方便地获取各种开源软件
+感谢开源的力量，依托于各大高校开源社团以及 linux 用户组，MirrorZ 以及其高校镜像站提供了方便快速获取 linux 软件包和开源软件方式，后面详细换源教程由 MirrorZ 的文档站提供
+
+### 根据第一步获取的系统信息，选择对应的文档页面：
+
+debian：[https://help.mirrorz.org/debian/](https://help.mirrorz.org/debian/)
+ubuntu：[https://help.mirrorz.org/ubuntu-ports/](https://help.mirrorz.org/ubuntu-ports/)
+然后在页面上选择自己的系统版本，根据页面指引完成换源
+注意，可以在页面上选择不同的镜像站提供的服务
+
+## 第 4 步：更新软件列表
+
+完成源配置后，更新软件包列表：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+```
+
+</NewCodeBlock>
+
+如果看到从新镜像地址（如 mirrors.tuna.tsinghua.edu.cn）获取软件包列表的提示，说明换源成功。
+
+### 注意事项
+
+1. 版本匹配：确保配置中的版本代号与你的实际系统完全一致，否则可能导致软件包无法安装或系统不稳定。
+2. 第三方源：除了主源，其他第三方源（如 Docker、ROS 等）可能需要单独配置。
+3. 网络问题：如果某个镜像站访问不畅，可以尝试更换其他镜像站。
+4. 恢复备份：如果换源后出现问题，可以使用备份文件恢复：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+    sudo cp /etc/apt/sources.list.bak /etc/apt/sources.list
+    sudo apt update
+```
+
+</NewCodeBlock>
+    完成以上步骤后，你的 Radxa OS 就应该能够使用国内的镜像源进行软件更新了，这将显著提高软件下载速度。
+
+## TL;DR
+
+下面一行命令也能完成换源，但是还是建议你看看上面的方式，你能对 debian 系的软件源有更深的了解
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+# debian 系统
+sudo sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/*
+# ubuntu 系统
+sudo sed -i 's/ports.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/*
+```
+
+</NewCodeBlock>
