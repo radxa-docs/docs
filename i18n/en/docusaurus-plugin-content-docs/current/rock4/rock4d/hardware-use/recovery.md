@@ -4,6 +4,10 @@ sidebar_position: 4
 
 # Recovery Pins
 
+:::tip
+In hardware version v1.12 and later, the Recovery pins have been removed and replaced with power supply pins. To enter Loader mode, please use the `reboot loader` command after entering the system.
+:::
+
 The Radxa ROCK 4D features dedicated Recovery pins for entering Loader mode.
 
 <div style={{textAlign: 'center'}}>

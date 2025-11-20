@@ -4,6 +4,10 @@ sidebar_position: 4
 
 # Recovery 引脚
 
+:::tip
+在硬件版本 v1.12 及之后的版本中，去除了 Recovery 引脚，改为了供电引脚，如果需要进入 Loader 模式，请进入系统后使用 `reboot loader` 命令。
+:::
+
 瑞莎 ROCK 4D 引出 Recovery 引脚，用于进入 Loader 模式。
 
 <div style={{textAlign: 'center'}}>
