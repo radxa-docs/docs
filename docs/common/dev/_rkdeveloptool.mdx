@@ -111,11 +111,12 @@ sudo rkdeveloptool rd
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y python3-pyside6 nuitka git
+sudo apt-get install -y git
 git clone https://github.com/gahingwoo/RKDevelopTool-GUI.git
 cd RKDevelopTool-GUI
+pip install -r requirements.txt
 python -m build_nuitka.py
-cp rkdeveloptool-gui /opt/homebrew/bin/
+sudo cp rkdeveloptool-gui /usr/local/sbin/
 ```
 
 </TabItem>
@@ -124,9 +125,10 @@ cp rkdeveloptool-gui /opt/homebrew/bin/
 请首先安装 [Homebrew](https://brew.sh/)，然后从命令行中执行以下命令进行安装：
 
 ```bash
-brew install pyside6 nuitka git
+brew install git
 git clone https://github.com/gahingwoo/RKDevelopTool-GUI.git
 cd RKDevelopTool-GUI
+pip install -r requirements.txt
 python -m build_nuitka.py
 cp rkdeveloptool-gui /opt/homebrew/bin/
 ```
