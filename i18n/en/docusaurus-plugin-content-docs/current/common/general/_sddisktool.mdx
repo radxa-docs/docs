@@ -40,39 +40,59 @@
 
   - Enter the following command and press Enter:
 
-    <NewCodeBlock tip="Host-Windows$" type="host">
-      ``` diskpart ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Host-Windows$" type="host">
 
-  - Then, enter the following command to list all disks:
+```
+diskpart
+```
 
-    <NewCodeBlock tip="Host-Windows$" type="host">
-      ``` list disk ```
-    </NewCodeBlock>
+</NewCodeBlock>
 
-  - Locate your SD card (assuming it is disk 3) and enter:
+- Then, enter the following command to list all disks:
 
-    <NewCodeBlock tip="Host-Windows$" type="host">
-      ``` select disk 3 ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Host-Windows$" type="host">
+
+```
+list disk
+```
+
+</NewCodeBlock>
+
+- Locate your SD card (assuming it is disk 3) and enter:
+
+<NewCodeBlock tip="Host-Windows$" type="host">
+
+```
+select disk 3
+```
+
+</NewCodeBlock>
 
     - (If your SD card has a different disk number, change 3 to the correct number accordingly.)
 
-  - Clear all partitions on the disk:
+- Clear all partitions on the disk:
 
-    <NewCodeBlock tip="Host-Windows$" type="host">
-      ``` clean ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Host-Windows$" type="host">
+
+```
+clean
+```
+
+</NewCodeBlock>
 
     - (This deletes all partitions and data on the SD card.)
 
-  - Converts a disk to GPT format:
+- Converts a disk to GPT format:
 
-    <NewCodeBlock tip="Host-Windows$" type="host">
-      ``` convert gpt ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Host-Windows$" type="host">
 
-  - Type `exit` to exit the diskpart utility.
+```
+convert gpt
+```
+
+</NewCodeBlock>
+
+- Type `exit` to exit the diskpart utility.
 
 </TabItem>
 
@@ -82,15 +102,19 @@
 
   - Find your SD card (assuming it's /dev/sdb) and enter:
 
-    <NewCodeBlock tip="Host-Linux$" type="host">
-      ``` sudo fdisk /dev/sdb ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Host-Linux$" type="host">
 
-  - Type `p` and the label format and partition of the current disk will be displayed.
+```
+sudo fdisk /dev/sdb
+```
 
-  - Then type `g` to convert the disk to gpt format
+</NewCodeBlock>
 
-  - Then just type `wq` to save and exit.
+- Type `p` and the label format and partition of the current disk will be displayed.
+
+- Then type `g` to convert the disk to gpt format
+
+- Then just type `wq` to save and exit.
 
 </TabItem>
 </Tabs>
