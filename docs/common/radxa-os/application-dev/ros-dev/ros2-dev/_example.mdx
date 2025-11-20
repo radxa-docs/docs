@@ -10,7 +10,7 @@
 
 使用以下命令启动 Docker 脚本：`ros_humble.sh` 是在 ROS2 环境搭建中创建的脚本。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 bash ros_humble.sh
@@ -31,7 +31,7 @@ bash ros_humble.sh
 
 使用以下命令启动 Turtlesim：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ros2 run turtlesim turtlesim_node
@@ -52,7 +52,7 @@ ros2 run turtlesim turtlesim_node
 
 使用以下命令控制小海龟移动：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ros2 run turtlesim turtle_teleop_key
@@ -96,7 +96,7 @@ ros2 run turtlesim turtle_teleop_key
 
 使用 `ros2 node list` 命令查看节点：目前只运行启动 Turtlesim 的命令。
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ros2 node list
@@ -126,7 +126,7 @@ ros2 node list
 
 使用 `ros2 topic list` 命令查看话题：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ros2 topic list
@@ -162,7 +162,7 @@ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5, y: 0.
 
 使用 `ros2 topic echo` 命令订阅话题，查看话题消息：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ros2 topic echo /turtle1/pose --once
@@ -193,7 +193,7 @@ ros2 topic echo /turtle1/pose --once
 
 使用 `ros2 service list` 命令查看服务：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ros2 service list
@@ -212,7 +212,7 @@ ros2 service list
 
 使用 `ros2 service call` 命令调用服务，让小乌龟清屏：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ros2 service call /clear std_srvs/srv/Empty
@@ -245,7 +245,7 @@ ros2 service call /clear std_srvs/srv/Empty
 
 使用 `ros2 action list` 命令查看动作：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ros2 action list
@@ -264,7 +264,7 @@ ros2 action list
 
 使用 `ros2 action send_goal` 命令发布动作，让小乌龟移动到指定位置：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"

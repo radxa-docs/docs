@@ -10,7 +10,7 @@
 
 使用以下命令启动 Docker 脚本：`ros_noetic.sh` 是在ROS1 环境搭建中创建的脚本。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 bash ros_noetic.sh
@@ -31,7 +31,7 @@ bash ros_noetic.sh
 
 ROS1 需要先启动 Master 节点，再启动 Turtlesim 节点。
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 ```
 roscore
 ```
@@ -49,7 +49,7 @@ roscore
 
 使用以下命令启动 Turtlesim：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rosrun turtlesim turtlesim_node
@@ -70,7 +70,7 @@ rosrun turtlesim turtlesim_node
 
 使用以下命令控制小海龟移动：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rosrun turtlesim turtle_teleop_key
@@ -114,7 +114,7 @@ rosrun turtlesim turtle_teleop_key
 
 使用 `rosnode list` 命令查看节点：目前只运行启动 Turtlesim 的命令。
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rosnode list
@@ -144,7 +144,7 @@ rosnode list
 
 使用 `rostopic list` 命令查看话题：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rostopic list
@@ -180,7 +180,7 @@ rostopic pub -r 10 /turtle1/cmd_vel geometry_msgs/Twist "{linear: {x: 0.5, y: 0.
 
 使用 `rostopic echo` 命令订阅话题，查看话题消息：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rostopic echo -n 1 /turtle1/pose
@@ -211,7 +211,7 @@ rostopic echo -n 1 /turtle1/pose
 
 使用 `rosservice list` 命令查看服务：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rosservice list
@@ -230,7 +230,7 @@ rosservice list
 
 使用 `rosservice call` 命令调用服务，让小乌龟清屏：
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rosservice call /clear

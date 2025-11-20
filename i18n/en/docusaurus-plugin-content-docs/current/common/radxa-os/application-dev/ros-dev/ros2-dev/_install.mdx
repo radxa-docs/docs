@@ -1,17 +1,17 @@
-This document provides a guide for setting up the ROS2 Humble environment.
+Main introduction to setting up the ROS2 Humble version environment.
 
 :::tip
 
-- It is recommended to perform the following operations using VNC remote desktop or a connected display.
-- The ROS2 environment is set up in a Docker container. It is recommended to install and learn how to use Docker first.
-- Ubuntu is the officially preferred and primarily supported distribution for ROS2. We will set up the ROS2 environment using a Docker Ubuntu image.
+- It is recommended to perform the following operations based on VNC / NoMachine remote desktop or by connecting a display.
+- The ROS2 environment is built in a Docker container. It is recommended to install and learn how to use Docker first.
+- Ubuntu is the officially preferred and primarily supported distribution for ROS2. We will build the ROS2 environment based on Docker's Ubuntu image.
   :::
 
 ## Pull Docker Image
 
-Use the `docker pull` command to download the Ubuntu 22.04 Docker image.
+Use the `docker pull` command to pull the Ubuntu 22.04 Docker image.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 docker pull ubuntu:22.04
@@ -19,13 +19,13 @@ docker pull ubuntu:22.04
 
 </NewCodeBlock>
 
-## Create Docker Script
+## Write Docker Script
 
-Start an Ubuntu 22.04 Docker container using a script.
+Use a script to start the Ubuntu 22.04 Docker container.
 
-You need to create a startup script named `ros_humble.sh`:
+You need to write a startup script `ros_humble.sh`:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 vi ros_humble.sh
@@ -44,25 +44,27 @@ docker run -it \
 --env="DISPLAY" \
 --env="QT_X11_NO_MITSHM=1" \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
+--name ros2 \
 ubuntu:22.04 /bin/bash
 ```
 
-Parameter explanation:
+Parameter description:
 
-- `xhost +`: Allows Docker container to access the X11 server
-- `-it`: Run the container in interactive mode
-- `--net=host`: Use the host's network stack
-- `--env="DISPLAY"`: Set environment variable for X11 graphical interface display
+- `xhost +`: Allow Docker container to access X11 server
+- `-it`: Run container in interactive mode
+- `--net=host`: Use host's network stack
+- `--env="DISPLAY"`: Set environment variable for displaying X11 graphical interface
 - `--env="QT_X11_NO_MITSHM=1"`: Set environment variable for Qt application display
-- `-v /tmp/.X11-unix:/tmp/.X11-unix`: Mount X11 Unix domain socket for X11 graphical interface display
+- `-v /tmp/.X11-unix:/tmp/.X11-unix`: Mount X11 Unix domain socket for displaying X11 graphical interface
+- `--name ros2`: Specify name for the container
 - `ubuntu:22.04`: Use Ubuntu 22.04 image
 - `/bin/bash`: Start Bash shell inside the container
 
 ## Start Docker Container
 
-Use the `bash` command to run the script.
+Use the `bash` command to start the script.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 bash ros_humble.sh
@@ -74,9 +76,9 @@ bash ros_humble.sh
 
 ### Check Encoding Environment
 
-Ensure the environment for installing Humble supports UTF-8 encoding.
+Ensure that the environment for installing Humble supports UTF-8 encoding.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 locale
@@ -84,7 +86,7 @@ locale
 
 </NewCodeBlock>
 
-If the system encoding format is UTF-8, you should see output similar to the following in the terminal:
+If the system encoding format is UTF-8, you can see similar information output in the terminal:
 
 ```
 LANG=en_US.UTF-8
@@ -104,9 +106,9 @@ LC_IDENTIFICATION="en_US.UTF-8"
 LC_ALL=
 ```
 
-If the terminal output is not UTF-8 encoding, you can install and modify the encoding environment by running the following commands in the terminal:
+If the terminal output information is not UTF-8 encoded, you can enter the following commands in the terminal to install and modify the encoding environment:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 apt update && apt install locales
@@ -117,11 +119,11 @@ source ~/.bashrc
 
 </NewCodeBlock>
 
-### Set up Software Sources and Keys
+### Set Software Sources and Keys
 
-Ensure your system is up to date, then enable the Ubuntu Universe repository and add the ROS2 key.
+Ensure the system is in the latest environment, then enable the Ubuntu Universe repository and add ROS2 keys.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 apt-cache policy | grep universe
@@ -133,24 +135,24 @@ curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr
 </NewCodeBlock>
 
 If you encounter the error: `curl: (7) Failed to connect to raw.githubusercontent.com port 443 after 43 ms: Connection refused`
-Solution: Visit `https://www.ipaddress.com/` and search for `raw.githubusercontent.com`, then add the IP address to your /etc/hosts file.
+Solution: Visit `https://www.ipaddress.com/` to search for the `raw.githubusercontent.com` domain, and add the resulting IP address to the /etc/hosts file.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 vi /etc/hosts
 ```
 
 </NewCodeBlock>
-Add the following line:
+Add the following content:
 
 ```
 185.199.110.133 raw.githubusercontent.com
 ```
 
-Then run the ROS2 key addition command again:
+Then re-run the command to add ROS2 keys.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
@@ -158,9 +160,9 @@ curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr
 
 </NewCodeBlock>
 
-Add the repository to your sources list:
+Add the repository to the sources list:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
@@ -170,9 +172,9 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 
 ### Install Humble
 
-Use the following command to install the full desktop version of Humble:
+Use the following command to install Humble full desktop version.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 apt update && apt upgrade
@@ -183,9 +185,9 @@ apt install ros-humble-desktop-full -y
 
 ### Install ROS2 Development Tools
 
-Use the following command to install ROS2 development tools:
+Use the following command to install ROS2 development tools.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 apt install ros-dev-tools -y
@@ -195,9 +197,9 @@ apt install ros-dev-tools -y
 
 ## Set Environment Variables
 
-Set up the environment variables with the following commands:
+Use the following command to set environment variables:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
@@ -208,51 +210,32 @@ source ~/.bashrc
 
 ## Save Docker Image
 
-Currently, our modifications are based on the Ubuntu22.04 Docker container. We need to save this modified container as an image for future use.
+Currently, all our modifications are based on the Ubuntu 22.04 Docker container. We need to save this modified container as an image for direct use next time.
 
-Note: If you don't save it as an image, you'll need to reinstall the ROS environment the next time you start a container.
+Note: If not saved as an image, you will need to reinstall the ROS2 environment when starting the container next time.
 
-### View Running Containers
-
-In a new terminal on Cubie A7A (not inside the Docker container), run the following command to view running containers:
-
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
-docker ps
+docker commit ros2 ros_humble:1.0
 ```
 
 </NewCodeBlock>
 
-### Commit Container as Image
+Parameter description:
 
-In a new terminal on Cubie A7A (not inside the Docker container), run the following command to commit the container as a new image.
+- `ros2`: The previously specified container name
+- `ros_humble:1.0`: The name of the saved image
 
-:::tip
-You'll need to modify the command based on the container ID from the `docker ps` output.
-:::
-
-<NewCodeBlock tip="radxa@device$" type="device">
-
-```
-docker commit [CONTAINER ID] [NEW NAME]
-
-# Example
-
-docker commit 937a98f8ad9e ros_humble:1.0
-```
-
-</NewCodeBlock>
-
-After the commit is complete, it will output similar information:
+Wait for the commit to complete. After completion, you will see similar information output:
 
 ```
 sha256:32288d439ffab73505d0754d4c43d8aad83210441b41553118e81ff6ab2887af
 ```
 
-### Modify Start Script
+### Modify Startup Script
 
-Modify the `ros_humble.sh` script to use the saved image name:
+Modify the startup image in the startup script `ros_humble.sh` to the image name just saved:
 
 <NewCodeBlock tip="ros_humble.sh" type="device">
 
