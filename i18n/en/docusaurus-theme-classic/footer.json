@@ -16,11 +16,11 @@
     "description": "The label of footer link with label=Contact Radxa linking to https://radxa.com/about?#contact"
   },
   "link.item.label.Forum": {
-    "message": "Forum",
+    "message": "Support Forum",
     "description": "The label of footer link with label=Forum linking to https://forum.radxa.com/"
   },
   "link.item.label.Github": {
-    "message": "Github",
+    "message": "Open-source repository",
     "description": "The label of footer link with label=Github linking to https://github.com/radxa"
   },
   "link.item.label.Home": {
@@ -40,8 +40,8 @@
     "description": "The label of footer link with label=Services linking to https://radxa.com/services"
   },
   "link.item.label.Wiki": {
-    "message": "Wiki",
-    "description": "The label of footer link with label=Wiki linking to https://wiki.radxa.com/"
+    "message": "Help Documentation",
+    "description": "The label of footer link with label=Wiki linking to https://docs.radxa.com/"
   },
   "link.title.About": {
     "message": "About",
