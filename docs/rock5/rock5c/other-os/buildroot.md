@@ -66,6 +66,50 @@ git fetch radxa
 git checkout -b linux-6.1-stan-rkr4.1-buildroot remotes/radxa/linux-6.1-stan-rkr4.1-buildroot
 ```
 
+使用 Radxa 维护的 rkwifibt 仓库。
+
+```
+cd external/rkwifibt
+git remote add radxa https://github.com/radxa/rkwifibt.git
+git fetch radxa
+git checkout -b develop remotes/radxa/develop
+```
+
+使用 Radxa 维护的 buildroot 仓库。
+
+```
+cd buildroot
+git remote add radxa https://github.com/radxa/buildroot.git
+git fetch radxa
+git checkout -b rockchip/2024.02 remotes/radxa/rockchip/2024.02
+```
+
+## 添加wifi模组配置
+
+在构建SDK之前先将wifi相关的配置打开，步骤如下：
+
+### 启用 AIC8800D80_USB 宏
+
+在SDK的顶层目录执行 make menuconfig，搜索关键字 “aic” 找到supported modules 选项，将模块选择成 AIC8800D80 USB，如下所示
+
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock5c/rock5c_buildroot_menuconfig.webp" style={{width: '100%', maxWidth: '600px'}} />  
+</div>
+
+选择完成之后，会将wifi模组的驱动文件编译到rootfs中。
+
+### 启用 BR2_PACKAGE_RKWIFIBT_AIC8800D80_USB_FIRMWARE 宏
+
+wifi模组想要正常工作，需要加载固件。
+
+在 buildroot/configs/rockchip_rk3588_defconfig文件中 添加 BR2_PACKAGE_RKWIFIBT_AIC8800D80_USB_FIRMWARE=y，如下所示
+
+<div style={{textAlign: 'center'}}>
+    <img src="/img/rock5c/rock5c_rockchip_rk3588_defconfig.webp" style={{width: '100%', maxWidth: '600px'}} /> 
+</div>
+
+启用BR2_PACKAGE_RKWIFIBT_AIC8800D80_USB_FIRMWARE后会将wifi固件安装在系统中。
+
 ## 构建 SDK
 
 在 SDK 的顶层目录，执行命令：

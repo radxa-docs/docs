@@ -7,15 +7,15 @@ import SSDISKTOOL from "../../../common/general/\_sddisktool.mdx"
 
 # Buildroot
 
-## Preparation
+## Environment Setup
 
-We need one Ubuntu 20.04/22.04 x86_64 PC.
+Prepare an Ubuntu 20.04/22.04 x86_64 host machine.
 
-We can also use virtual machine
+A virtual machine is also acceptable:
 
-- ubuntu-22.04.5-live-server-amd64 virtual machine with hard disk available capacity not less than 120G
+- ubuntu-22.04.5-live-server-amd64 virtual machine with at least 120GB of available disk space.
 
-## Install build dependencies
+## Install Build Dependencies
 
 ```
 sudo apt update
@@ -23,23 +23,23 @@ sudo apt install python2 git rsync gcc g++ make device-tree-compiler bc flex bis
 sudo ln -s /bin/python2 /bin/python
 ```
 
-## Get rockchip original SDK
+## Get Rockchip Original SDK
 
 - Mega: https://mega.nz/file/kjZExAzL#pzw5des1W_rDzTm-P2iLAJ-n9RLYQY-gEVajpm3U_sQ
-- BaiduPan: https://pan.baidu.com/s/1bm4IXy7tJ-sBDVdMxehRAQ?pwd=1pty
+- Baidu Netdisk: https://pan.baidu.com/s/1bm4IXy7tJ-sBDVdMxehRAQ?pwd=1pty
 
-## Extract SDK
+## Extract the SDK
 
-On Ubuntu PC we use the following commands to extract the SDK.
+On the Ubuntu PC, use the following commands to extract the SDK:
 
 ```
 tar xvf rk3588_linux6.1_rkr4_sdk.repo.tar
 .repo/repo/repo sync -l
 ```
 
-## Add board ROCK 5C support
+## Add ROCK 5C Board Support
 
-Use Radxa reposiory, rockchip.
+Use Radxa's maintained rockchip repository:
 
 ```
 cd device/rockchip
@@ -48,7 +48,7 @@ git fetch radxa
 git checkout -b rk3588-linux-6.1 remotes/radxa/rk3588-linux-6.1
 ```
 
-Use Radxa repository, u-boot.
+Use Radxa's maintained u-boot repository:
 
 ```
 cd u-boot
@@ -57,7 +57,7 @@ git fetch radxa
 git checkout -b next-dev-buildroot remotes/radxa/next-dev-buildroot
 ```
 
-Use Radxa repository, kernel.
+Use Radxa's maintained kernel repository:
 
 ```
 cd kernel
@@ -66,31 +66,76 @@ git fetch radxa
 git checkout -b linux-6.1-stan-rkr4.1-buildroot remotes/radxa/linux-6.1-stan-rkr4.1-buildroot
 ```
 
-## Build SDK
+Use Radxa's maintained rkwifibt repository:
 
-Navigate to the top-level directory of the SDK, run command.
+```
+cd external/rkwifibt
+git remote add radxa https://github.com/radxa/rkwifibt.git
+git fetch radxa
+git checkout -b develop remotes/radxa/develop
+```
+
+Use Radxa's maintained buildroot repository:
+
+```
+cd buildroot
+git remote add radxa https://github.com/radxa/buildroot.git
+git fetch radxa
+git checkout -b rockchip/2024.02 remotes/radxa/rockchip/2024.02
+```
+
+## Add WiFi Module Configuration
+
+Before building the SDK, enable the WiFi-related configurations as follows:
+
+### Enable AIC8800D80_USB Macro
+
+In the SDK's top-level directory, run `make menuconfig`, search for the keyword "aic" to find the "supported modules" option, and select "AIC8800D80 USB" as shown below:
+
+<div style={{textAlign: 'center'}}>
+    <img src="/en/img/rock5c/rock5c_buildroot_menuconfig.webp" style={{width: '100%', maxWidth: '600px'}} />  
+</div>
+
+After selection, the WiFi module driver files will be compiled into the rootfs.
+
+### Enable BR2_PACKAGE_RKWIFIBT_AIC8800D80_USB_FIRMWARE Macro
+
+For the WiFi module to function properly, firmware needs to be loaded.
+
+Add `BR2_PACKAGE_RKWIFIBT_AIC8800D80_USB_FIRMWARE=y` to the `buildroot/configs/rockchip_rk3588_defconfig` file as shown below:
+
+<div style={{textAlign: 'center'}}>
+    <img src="/en/img/rock5c/rock5c_rockchip_rk3588_defconfig.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+
+Enabling `BR2_PACKAGE_RKWIFIBT_AIC8800D80_USB_FIRMWARE` will install the WiFi firmware in the system.
+
+## Build the SDK
+
+In the SDK's top-level directory, run the command:
 
 ```
 ./build.sh
 ```
 
-And select defconfig `rockchip_rk3588s_rock_5c_defconfig`.
-The target images will be stored on rockdev directory. The system image is `update.img`.
+Then select the configuration file `rockchip_rk3588s_rock_5c_defconfig`.
 
-## Write the image
+After the build is complete, the images will be generated in the `rockdev/` directory. The system image file is `update.img`.
 
-### Write the image to eMMC
+## Flash the Image
 
-On Linux/Mac OS host, use `upgrade_tool` to flash the image to eMMC via USB-A port.
+### Flash Image to eMMC
+
+On a Linux/Mac OS host, use the `upgrade_tool` utility through the Type-A port to flash the system image `update.img` to eMMC:
 
 ```
 upgrade_tool uf update.img
 ```
 
-On Windows host, use `RKDevTool` to flash the image to eMMC via USB-A port.
+On a Windows host, use the `RKDevTool` utility through the Type-A port to flash the system image `update.img` to eMMC.
 
-### Write the image to MicroSD Card
+### Flash Image to MicroSD Card
 
-Use the SDDiskTool to flash the image into the MicroSD Card.
+Use SDDiskTool to flash the generated image to a MicroSD Card.
 
 <SSDISKTOOL />

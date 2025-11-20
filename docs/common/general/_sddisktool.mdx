@@ -40,39 +40,59 @@
 
   - 输入以下命令并按回车：
 
-    <NewCodeBlock tip="Host-Windows$" type="host">
-      ``` diskpart ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Host-Windows$" type="host">
 
-  - 然后，输入以下命令来列出所有磁盘：
+```
+diskpart
+```
 
-    <NewCodeBlock tip="Host-Windows$" type="host">
-      ``` list disk ```
-    </NewCodeBlock>
+</NewCodeBlock>
 
-  - 找到你的 SD 卡（假设它是磁盘 3），输入：
+- 然后，输入以下命令来列出所有磁盘：
 
-    <NewCodeBlock tip="Host-Windows$" type="host">
-      ``` select disk 3 ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Host-Windows$" type="host">
+
+```
+list disk
+```
+
+</NewCodeBlock>
+
+- 找到你的 SD 卡（假设它是磁盘 3），输入：
+
+<NewCodeBlock tip="Host-Windows$" type="host">
+
+```
+select disk 3
+```
+
+</NewCodeBlock>
 
     - （如果你的 SD 卡是其他磁盘号，请相应修改 3 为正确的数字。）
 
-  - 清除磁盘上的所有分区：
+- 清除磁盘上的所有分区：
 
-    <NewCodeBlock tip="Host-Windows$" type="host">
-      ``` clean ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Host-Windows$" type="host">
+
+```
+clean
+```
+
+</NewCodeBlock>
 
     - （这将删除 SD 卡上的所有分区和数据。）
 
-  - 转换磁盘为 GPT 格式：
+- 转换磁盘为 GPT 格式：
 
-    <NewCodeBlock tip="Host-Windows$" type="host">
-      ``` convert gpt ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Host-Windows$" type="host">
 
-  - 输入 exit 退出 diskpart 工具。
+```
+convert gpt
+```
+
+</NewCodeBlock>
+
+- 输入 exit 退出 diskpart 工具。
 
 </TabItem>
 
@@ -82,15 +102,19 @@
 
   - 找到你的 SD 卡（假设它是 /dev/sdb ），输入：
 
-    <NewCodeBlock tip="Host-Linux$" type="host">
-      ``` sudo fdisk /dev/sdb ```
-    </NewCodeBlock>
+<NewCodeBlock tip="Host-Linux$" type="host">
 
-  - 输入 `p` ，会显示当前磁盘的标签格式及分区
+```
+sudo fdisk /dev/sdb
+```
 
-  - 接着输入 `g` 将磁盘转换为 gpt 格式
+</NewCodeBlock>
 
-  - 然后输入 `wq` 保存退出即可
+- 输入 `p` ，会显示当前磁盘的标签格式及分区
+
+- 接着输入 `g` 将磁盘转换为 gpt 格式
+
+- 然后输入 `wq` 保存退出即可
 
 </TabItem>
 </Tabs>
