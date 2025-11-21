@@ -22,6 +22,12 @@ ROCK 5T 标准包装包括以下物品：- ROCK 5T 主板 - Wi-FI 天线
 
 - 散热器，参考[散热器选型](./interface-usage/fan)来安装散热器
 
+:::tip 推荐配件
+
+- [瑞莎 DC 36W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-36w)
+
+:::
+
 ## 安装操作系统
 
 参考[安装系统](./install-os/) 部分安装操作系统。
