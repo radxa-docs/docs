@@ -1,17 +1,17 @@
-This document provides a guide for setting up the ROS1 Noetic environment.
+Main introduction to setting up the ROS1 Noetic version environment.
 
 :::tip
 
-- It is recommended to perform the following operations using VNC remote desktop or a connected display.
-- The ROS environment is set up in a Docker container. It is recommended to install and learn how to use Docker first.
-- Ubuntu is the officially preferred and primarily supported distribution for ROS. We will set up the ROS environment using a Docker Ubuntu image.
+- It is recommended to perform the following operations based on VNC / NoMachine remote desktop or by connecting a display.
+- The ROS environment is built in a Docker container. It is recommended to install and learn how to use Docker first.
+- Ubuntu is the officially preferred and primarily supported distribution for ROS. We will build the ROS environment based on Docker's Ubuntu image.
   :::
 
 ## Pull Docker Image
 
-Use the `docker pull` command to download the Ubuntu 20.04 Docker image.
+Use the `docker pull` command to pull the Ubuntu 20.04 Docker image.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 docker pull ubuntu:20.04
@@ -19,13 +19,13 @@ docker pull ubuntu:20.04
 
 </NewCodeBlock>
 
-## Create Docker Script
+## Write Docker Script
 
-Start an Ubuntu 20.04 Docker container using a script.
+Use a script to start the Ubuntu 20.04 Docker container.
 
-You need to create a startup script named `ros_noetic.sh`:
+You need to write a startup script `ros_noetic.sh`:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 vi ros_noetic.sh
@@ -44,25 +44,27 @@ docker run -it \
 --env="DISPLAY" \
 --env="QT_X11_NO_MITSHM=1" \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
+--name ros1 \
 ubuntu:20.04 /bin/bash
 ```
 
-Parameter explanation:
+Parameter description:
 
-- `xhost +`: Allows Docker container to access the X11 server
-- `-it`: Run the container in interactive mode
-- `--net=host`: Use the host's network stack
-- `--env="DISPLAY"`: Set environment variable for X11 graphical interface display
+- `xhost +`: Allow Docker container to access X11 server
+- `-it`: Run container in interactive mode
+- `--net=host`: Use host's network stack
+- `--env="DISPLAY"`: Set environment variable for displaying X11 graphical interface
 - `--env="QT_X11_NO_MITSHM=1"`: Set environment variable for Qt application display
-- `-v /tmp/.X11-unix:/tmp/.X11-unix`: Mount X11 Unix domain socket for X11 graphical interface display
+- `-v /tmp/.X11-unix:/tmp/.X11-unix`: Mount X11 Unix domain socket for displaying X11 graphical interface
+- `--name ros1`: Specify name for the container
 - `ubuntu:20.04`: Use Ubuntu 20.04 image
 - `/bin/bash`: Start Bash shell inside the container
 
 ## Start Docker Container
 
-Use the `bash` command to run the script.
+Use the `bash` command to start the script.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 bash ros_noetic.sh
@@ -74,9 +76,9 @@ bash ros_noetic.sh
 
 ### Check Encoding Environment
 
-Ensure the environment for installing Noetic supports UTF-8 encoding.
+Ensure that the environment for installing Noetic supports UTF-8 encoding.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 locale
@@ -84,7 +86,7 @@ locale
 
 </NewCodeBlock>
 
-If the system encoding format is UTF-8, you should see output similar to the following in the terminal:
+If the system encoding format is UTF-8, you can see similar information output in the terminal:
 
 ```
 LANG=en_US.UTF-8
@@ -104,9 +106,9 @@ LC_IDENTIFICATION="en_US.UTF-8"
 LC_ALL=
 ```
 
-If the terminal output does not show UTF-8 encoding, you can install and configure the encoding environment by running the following commands:
+If the terminal output information is not UTF-8 encoded, you can enter the following commands in the terminal to install and modify the encoding environment:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 apt update && apt install locales
@@ -117,11 +119,11 @@ source ~/.bashrc
 
 </NewCodeBlock>
 
-### Set Up Software Repository and Key
+### Set Software Sources and Keys
 
-Ensure your system is up to date, then add the Tsinghua ROS repository and its key.
+Ensure the system is in the latest environment, then add Tsinghua software sources and keys.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 apt update && apt upgrade
@@ -134,9 +136,9 @@ apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BAD
 
 ### Install Noetic
 
-Use the following command to install the full desktop version of Noetic.
+Use the following command to install Noetic full desktop version.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 apt update && apt upgrade
@@ -147,9 +149,9 @@ apt install ros-noetic-desktop-full -y
 
 ### Install Dependencies
 
-Use the following command to install Noetic's dependency packages.
+Use the following command to install Noetic dependency packages.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential -y
@@ -159,9 +161,9 @@ apt install python3-rosdep python3-rosinstall python3-rosinstall-generator pytho
 
 ### Initialize rosdep
 
-Use the following commands to initialize rosdep.
+Use the following command to initialize rosdep.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rosdep init
@@ -170,28 +172,28 @@ rosdep update
 
 </NewCodeBlock>
 
-If you encounter the error `ERROR: cannot download default sources list from: https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list Website may be down.` when running `rosdep init`, visit `https://www.ipaddress.com/` to search for the `raw.githubusercontent.com` domain and add the IP address to the /etc/hosts file.
+If rosdep init shows the error `ERROR: cannot download default sources list from: https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list Website may be down.`, visit `https://www.ipaddress.com/` to search for the `raw.githubusercontent.com` domain, and add the resulting IP address to the /etc/hosts file.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 vi /etc/hosts
 ```
 
 </NewCodeBlock>
-Add the following line:
+Add the following content:
 
 ```
 185.199.110.133 raw.githubusercontent.com
 ```
 
-Then run the rosdep initialization commands again.
+Then re-run the rosdep initialization command.
 
 ## Set Environment Variables
 
-Set up the environment variables with the following commands:
+Use the following command to set environment variables:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
@@ -202,9 +204,9 @@ source ~/.bashrc
 
 ## Verify ROS Environment
 
-To verify that the ROS environment is set up correctly, run the following command in the terminal:
+Enter the following command in the terminal to verify whether the ROS environment was installed successfully.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device$'}`} type="device">
 
 ```
 roscore
@@ -212,7 +214,7 @@ roscore
 
 </NewCodeBlock>
 
-If the installation was successful, you should see output similar to the following:
+If the installation is successful, you will see similar information output:
 
 ```
 ... logging to /root/.ros/log/a9473172-5731-11f0-9a87-5acb6b3cedae/roslaunch-rock-4d-spi-27211.log
@@ -241,47 +243,28 @@ process[rosout-1]: started with pid [27229]
 started core service [/rosout]
 ```
 
-Press `Ctrl + C` to stop roscore.
+You can use `Ctrl + C` to stop roscore.
 
 ## Save Docker Image
 
-Currently, all our modifications are based on the Ubuntu 20.04 Docker container. We need to save this modified container as an image for future use.
+Currently, all our modifications are based on the Ubuntu 20.04 Docker container. We need to save this modified container as an image for direct use next time.
 
-**Note:** If you don't save it as an image, you'll need to reinstall the ROS environment the next time you start a container.
+Note: If not saved as an image, you will need to reinstall the ROS environment when starting the container next time.
 
-### View Running Containers
-
-In a new terminal on Cubie A7A (not inside the Docker container), run the following command to view running containers:
-
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
-docker ps
+docker commit ros1 ros_noetic:1.0
 ```
 
 </NewCodeBlock>
 
-### Commit Container as Image
+Parameter description:
 
-In the same terminal (not inside the Docker container), run the following command to commit the container as a new image:
+- `ros1`: The previously specified container name
+- `ros_noetic:1.0`: The name of the saved image
 
-:::tip
-You'll need to modify the command based on the container ID from the `docker ps` output.
-:::
-
-<NewCodeBlock tip="radxa@device$" type="device">
-
-```
-docker commit [CONTAINER ID] [NEW NAME]
-
-# Example
-
-docker commit e5c795d8ca66 ros_noetic:1.0
-```
-
-</NewCodeBlock>
-
-Wait for the commit to complete. Upon successful completion, you'll see output similar to:
+Wait for the commit to complete. After completion, you will see similar information output:
 
 ```
 sha256:43b559a4d879c83477764730e0af90e8904e8fb8aeeeb9b653967e665bb7a7ca
@@ -289,7 +272,7 @@ sha256:43b559a4d879c83477764730e0af90e8904e8fb8aeeeb9b653967e665bb7a7ca
 
 ### Modify Startup Script
 
-Modify the startup script `ros_noetic.sh` to use the newly saved image:
+Modify the startup image in the startup script `ros_noetic.sh` to the image name just saved:
 
 ```
 #!/bin/bash

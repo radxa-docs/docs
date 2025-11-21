@@ -1,16 +1,16 @@
-Experience the basic concepts and functionalities of ROS1 quickly using the Turtlesim example.
+Use the Turtlesim example to quickly experience common basic concepts and features of ROS1.
 
 :::tip
-This tutorial is based on the ROS1 Noetic Docker image but is not limited to the Docker environment. It can be performed in any ROS1 environment.
+This tutorial is based on the ROS1 Noetic Docker image but is not limited to Docker environments - any ROS1 environment can be used.
 
-If you are using a Docker environment, it is recommended to first learn how to use Docker.
+If you are operating in a Docker environment, it is recommended to first learn how to use Docker.
 :::
 
-## Start the Docker Script
+## Start Docker Script
 
-Use the following command to start the Docker script: `ros_noetic.sh` is a script created during the ROS1 environment setup.
+Use the following command to start the Docker script: `ros_noetic.sh` is the script created in the ROS1 environment setup.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 bash ros_noetic.sh
@@ -18,7 +18,7 @@ bash ros_noetic.sh
 
 </NewCodeBlock>
 
-It is recommended to use multiple terminals to access the same Docker container for easier subsequent operations.
+It is recommended to use multiple terminals to enter the same Docker container for convenient subsequent operations.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -27,11 +27,11 @@ It is recommended to use multiple terminals to access the same Docker container 
   />
 </div>
 
-## Start the Master Node
+## Start Master Node
 
-ROS1 requires starting the Master node before launching the Turtlesim node.
+ROS1 needs to start the Master node first, then start the Turtlesim node.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 ```
 roscore
 ```
@@ -49,7 +49,7 @@ roscore
 
 Use the following command to start Turtlesim:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rosrun turtlesim turtlesim_node
@@ -57,7 +57,7 @@ rosrun turtlesim turtlesim_node
 
 </NewCodeBlock>
 
-This command will create the `/turtlesim` node and display a window containing a turtle.
+This command will create the `/turtlesim` node and display a window containing a small turtle.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -70,7 +70,7 @@ This command will create the `/turtlesim` node and display a window containing a
 
 Use the following command to control the turtle's movement:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rosrun turtlesim turtle_teleop_key
@@ -88,35 +88,35 @@ This command will create the `/teleop_turtle` node.
 </div>
 
 :::tip
-Click and focus on the terminal window running this command. You can control the turtle's movement using the arrow keys on your keyboard.
+Click and keep the mouse focus on this keyboard control terminal window, then we can control the turtle's movement using the arrow keys on the keyboard.
 :::
 
 ## ROS1 Basic Concepts
 
-Through the Turtlesim example, you can further understand and use the basic concepts and commands of ROS1.
+Through the Turtlesim example, we can further understand and use the basic concepts and commands of ROS1.
 
 :::tip
-To stop a running ROS1 command, use the `Ctrl + C` keyboard shortcut.
+To stop a running ROS1 command, use the `Ctrl + C` key combination.
 :::
 
 ### ROS1 Nodes
 
-Nodes are the basic communication units in ROS1. They interact with other nodes through publishers and subscribers.
+Nodes are the basic communication units in ROS1, interacting with other nodes through Publishers and Subscribers.
 
 :::tip
 **Key Components**:
 
-- **Publisher**: Interface for publishing messages to a topic.
-- **Subscriber**: Interface for receiving messages from a topic.
+- **Publisher**: Interface for publishing messages to topics
+- **Subscriber**: Interface for receiving messages from topics
   :::
 
 #### View Nodes
 
-Use the `rosnode list` command to view nodes. Currently, only the command to start Turtlesim is running.
+Use the `rosnode list` command to view nodes: currently only the command to start Turtlesim is running.
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```bash
+```
 rosnode list
 ```
 
@@ -136,15 +136,15 @@ Topics are the publish/subscribe communication mechanism in ROS1, enabling async
 :::tip
 **Communication Roles**:
 
-- **Publisher**: Sends messages to a specific topic.
-- **Subscriber**: Subscribes to a topic to receive messages.
+- **Publisher**: Sends messages to specified topics
+- **Subscriber**: Subscribes to topics and receives messages
   :::
 
 #### View Topics
 
 Use the `rostopic list` command to view topics:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rostopic list
@@ -159,15 +159,15 @@ rostopic list
   />
 </div>
 
-#### Publish a Topic
+#### Publish to Topics
 
-Use the `rostopic pub` command to publish a velocity control message to move the turtle:
+Use the `rostopic pub` command to publish velocity control messages to make the turtle move:
 
 ```
 rostopic pub -r 10 /turtle1/cmd_vel geometry_msgs/Twist "{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}"
 ```
 
-This command will move the turtle at a linear velocity of 0.5 and an angular velocity of 0.5 at a frequency of 10 Hz.
+This command will make the turtle move with linear velocity 0.5 and angular velocity 0.5 at a frequency of 10 Hz.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -176,18 +176,17 @@ This command will move the turtle at a linear velocity of 0.5 and an angular vel
   />
 </div>
 
-#### Subscribe to a Topic
+#### Subscribe to Topics
 
-Use the `rostopic echo` command to subscribe to a topic and view its messages:
+Use the `rostopic echo` command to subscribe to topics and view topic messages:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rostopic echo -n 1 /turtle1/pose
 ```
 
 </NewCodeBlock>
-
 This command will print the turtle's position once in the terminal.
 
 <div style={{ textAlign: "center" }}>
@@ -199,20 +198,20 @@ This command will print the turtle's position once in the terminal.
 
 ### ROS1 Services
 
-Services are the request/response communication mechanism in ROS1, used for synchronous calls between nodes (e.g., remote function calls).
+Services are the request/response communication mechanism in ROS1, used for synchronous calls between nodes (like remote function calls).
 
 :::tip
 **Interaction Flow**:
 
-- **Client**: Sends a request.
-- **Server**: Processes the request and returns a response.
+- **Client**: Sends request
+- **Server**: Processes the request and returns response
   :::
 
 #### View Services
 
 Use the `rosservice list` command to view services:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rosservice list
@@ -227,11 +226,11 @@ rosservice list
   />
 </div>
 
-#### Call a Service
+#### Call Services
 
-Use the `rosservice call` command to call a service and clear the screen:
+Use the `rosservice call` command to call services to make the turtle clear the screen:
 
-<NewCodeBlock tip="radxa@docker$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
 rosservice call /clear
