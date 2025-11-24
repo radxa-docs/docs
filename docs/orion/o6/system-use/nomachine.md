@@ -6,4 +6,4 @@ import NO_MACHINE from '../../../common/radxa-os/system-config/\_nomachine.mdx';
 
 # NoMachine 登录
 
-<NO_MACHINE board="orion-o6/o6n" />
+<NO_MACHINE board="orion-o6" />

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 10
 ---
 
 # 机箱安装指南

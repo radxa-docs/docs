@@ -4,13 +4,9 @@ sidebar_position: 1
 
 # 快速上手
 
-本节教程目的是为了让大家快速上手使用瑞莎星睿 O6 / O6N 产品。
+本节教程目的是为了让大家快速上手使用瑞莎星睿 O6 产品。
 
 ## 产品实物
-
-<Tabs queryString="board-model">
-
-<TabItem value="星睿 O6">
 
 | 序号 |        视图        | 序号 |        视图        | 序号 |        视图        |
 | :--: | :----------------: | :--: | :----------------: | :--: | :----------------: |
@@ -20,27 +16,11 @@ sidebar_position: 1
    <img src="/img/orion/o6/orion-o6-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-</TabItem>
-
-<TabItem value="星睿 O6N">
-
-| 序号 |        视图         | 序号 |        视图         | 序号 |        视图         |
-| :--: | :-----------------: | :--: | :-----------------: | :--: | :-----------------: |
-|  ①   | 瑞莎星睿 O6N 正视图 |  ②   | 瑞莎星睿 O6N 侧视图 |  ③   | 瑞莎星睿 O6N 背视图 |
-
-<div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6n/orion-o6n-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-</TabItem>
-
-</Tabs>
-
 ## 使用前提
 
 您需要提前准备以下硬件设备：
 
-- 主板：瑞莎星睿 O6 / O6N
+- 主板：瑞莎星睿 O6
 - 供电：电源适配器
 - 系统启动介质：U 盘（用于安装系统与启动）
 - 显示设备：HDMI / DP 数据线和显示器
@@ -49,17 +29,9 @@ sidebar_position: 1
 
 :::tip 推荐配件
 
-- 瑞莎星睿 O6
-
-  - [瑞莎 PD 65W 电源适配器（推荐使用）](https://radxa.com/products/accessories/power-pd-65w)
-  - 标准 20V Type-C 电源适配器，建议电流 3A 及以上
-
-- 瑞莎星睿 O6N
-  - [瑞莎 DC 36W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-36w)
-  - [瑞莎 DC 60W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-60w)
-  - 标准 12V DC5525 电源适配器，建议电流 3A 及以上
-
-:::
+- [瑞莎 PD 65W 电源适配器（推荐使用）](https://radxa.com/products/accessories/power-pd-65w)
+- 标准 20V Type-C 电源适配器，建议电流 3A 及以上
+  :::
 
 ## 安装系统
 
@@ -171,33 +143,17 @@ sidebar_position: 1
 
 ## 启动系统
 
-完成系统的安装后，将 U 盘插到到瑞莎星睿 O6N 的 USB 接口，然后使用 12V DC 电源适配器给瑞莎星睿 O6N 供电，即可启动系统。
-
-<Tabs queryString="board-model">
-
-<TabItem value="星睿 O6">
+完成系统的安装后，将 U 盘插到到瑞莎星睿 O6 的 USB 接口，然后使用电源适配器给瑞莎星睿 O6 供电，即可启动系统。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/orion/o6/orion-o6-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-</TabItem>
-
-<TabItem value="星睿 O6N">
-
-<div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6n/orion-o6n-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-</TabItem>
-
-</Tabs>
-
 ① ：安装 U 盘
 
 ② ：使用 HDMI / DP 数据线连接显示器和主板
 
-③ ：使用电源适配器给瑞莎星睿 O6 / O6N 供电
+③ ：使用电源适配器给瑞莎星睿 O6 供电
 
 系统启动正常后，电源指示灯绿色亮起，状态指示灯蓝色闪烁。
 
@@ -214,7 +170,7 @@ Radxa OS 的默认凭据如下：
 
 ## 使用系统
 
-成功登录系统后，您就可以在瑞莎星睿 O6 / O6N 上进行系统配置与开发。
+成功登录系统后，您就可以在瑞莎星睿 O6 上进行系统配置与开发。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/orion/o6n/orion-o6n-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -223,13 +179,6 @@ Radxa OS 的默认凭据如下：
 :::tip 其它启动系统方式
 对于想通过其它方式启动系统的用户（如 UFS、NVMe SSD 启动系统），可以参考下面教程完成对应系统启动介质安装系统：
 
-- 瑞莎星睿 O6
-
-  - [安装系统到 NVMe 固态硬盘](./install-system/nvme-system/)
-    说明：星睿 O6 无 UFS 模块连接座
-
-- 瑞莎星睿 O6N
-  - [安装系统到 UFS](./install-system/ufs-system/)
-  - [安装系统到 NVMe 固态硬盘](./install-system/nvme-system/)
+- [安装系统到 NVMe 固态硬盘](./install-system/nvme-system/)
 
 :::
