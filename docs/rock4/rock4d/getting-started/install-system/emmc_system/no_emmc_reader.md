@@ -6,6 +6,10 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # 从 MicroSD 卡启动并将系统安装到 eMMC
 
+:::tip eMMC 系统启动提示
+仅 ROCK 4D 无 SPI Flash 版本支持 eMMC 启动，板载 SPI Flash 的版本不支持 eMMC 启动。
+:::
+
 <InstallSystem tag="emmc_module" board="radxa-4d" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz" path_to_image_unxz="radxa-rk3576_bookworm_kde_b3.output_512.img.xz" path_to_image="radxa-rk3576_bookworm_kde_b3.output_512.img" />
 
 ## 启动系统

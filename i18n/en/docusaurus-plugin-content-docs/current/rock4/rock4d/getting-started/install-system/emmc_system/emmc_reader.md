@@ -6,6 +6,10 @@ import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use
 
 # Install System Using Card Reader
 
+:::tip eMMC System Startup Prompt
+Only the ROCK 4D without SPI Flash version supports eMMC startup, and the version with on-chip SPI Flash does not support eMMC startup.
+:::
+
 <BalenaEtcherUse />
 
 ## Boot System
