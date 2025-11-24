@@ -22,6 +22,12 @@ Peripherals that are not required but enhance the basic functionality of the ROC
 
 - Heat sink, refer to [heat sink selection](./interface-usage/fan) to install the heatsink.
 
+:::tip Recommended Accessories
+
+- [Radxa DC 36W Power Adapter](https://radxa.com/products/accessories/power-dc12-36w)
+
+:::
+
 ## Installing the operating system
 
 Refer to the [install-os](./install-os/) section to install the operating system.

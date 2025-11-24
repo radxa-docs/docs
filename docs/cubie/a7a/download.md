@@ -6,26 +6,57 @@ sidebar_position: 8
 
 ## 系统镜像
 
-:::tip 系统镜像说明
-请根据自己的系统启动介质选择对应的系统镜像下载
+:::tip 新手入门推荐
+我们强烈建议新手用户下载 GPT 格式的 Radxa OS 官方切换分支，并使用 [Balena Etcher](./getting-started/install-system/sd_system.md) 工具将其安装到 MicroSD 卡中。这是最简单、最快捷的上手方式。
 
-- Phoenix 系统镜像需要进入 FEL 模式和使用 Phoenix 工具写入系统镜像
-- 通用系统镜像可以通过 Balena Etcher 工具或者 `dd` 命令写入系统镜像
-  :::
+**镜像类型说明**
+
+- GPT 系统镜像（推荐新手）：
+
+  - 适用于 MicroSD 卡或 NVMe SSD
+  - 使用 Balena Etcher 图形化工具，操作简单
+  - 支持 `dd` 命令行烧录
+  - 瑞莎推荐的镜像类型，兼容性最佳
+
+- FEL 系统镜像：
+  - 通过 FEL 模式和 Phoenix 工具进行烧录
+  - 主要用于板载 eMMC 存储安装
+  - 适用于设备修复和批量生产
+  - 需要一定技术基础
+
+:::
 
 ### Debian Linux
 
-#### 通用系统镜像
+#### GPT 系统镜像（推荐）
 
-目前仅支持 MicroSD 卡/ eMMC 模块 / UFS 模块启动系统，NVMe SSD 目前正在适配中！
+:::info 最新系统镜像发布页面
 
-- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-b1/radxa-cubie-a7a_bullseye_kde_b1.output_512.img.xz)
+- [Radxa Cubie A7A](https://github.com/radxa-build/radxa-cubie-a7a/releases)
+
+该页面会发布最新的正式版本和测试版本的系统镜像，测试版本以 `t` 开头，正式版本以 `r` 开头（旧版本的正式版本以 `b` 开头）。
+
+:::
+
+目前支持 MicroSD 卡/ eMMC 模块 / UFS 模块启动系统，NVMe/SSD 启动需要刷写 SPI Nor Flash 固件
+
+- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-b2/radxa-cubie-a7a_bullseye_kde_b2.output_512.img.xz) （SD / eMMC）
+
+- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-b2/radxa-cubie-a7a_bullseye_kde_b2.output_4096.img.xz) （UFS）
+
+:::tip A733 统一系统镜像
+
+适合所有 A733 SoC 产品，如 Cubie A7Z、Cubie A7A 等，目前处于测试版本，建议使用上方的稳定版本。
+
+如有需要，请访问我们的[最新系统镜像发布页面](https://github.com/radxa-build/radxa-a733/releases)获取最新镜像
+
+:::
 
 ### Android
 
 适用于 MicroSD 卡/ eMMC 模块 / UFS 模块。
 
-#### Phoenix 系统镜像
+#### FEL 系统镜像
 
 - [Radxa Cubie A7A Android 13](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip)
 

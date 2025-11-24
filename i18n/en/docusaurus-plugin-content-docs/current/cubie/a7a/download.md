@@ -6,26 +6,57 @@ sidebar_position: 8
 
 ## System Images
 
-:::tip System Image Notes
-Please select the appropriate system image for your system boot medium:
+:::tip For Beginners
+We strongly recommend that new users download the official Radxa OS GPT image and use the [Balena Etcher](./getting-started/install-system/sd_system.md) tool to install it onto a MicroSD card. This is the simplest and quickest way to get started.
 
-- Phoenix system images require entering FEL mode and using the Phoenix tool to write the system image.
-- Generic system images can be written using the Balena Etcher tool or the `dd` command.
-  :::
+**Image Type Descriptions**
+
+- GPT System Image (Recommended for Beginners):
+
+  - Compatible with MicroSD cards or NVMe SSDs
+  - Uses the user-friendly Balena Etcher graphical tool
+  - Supports `dd` command line flashing
+  - Radxa's recommended image type with best compatibility
+
+- FEL System Image:
+  - For flashing via FEL mode and Phoenix tools
+  - Primarily used for onboard eMMC storage installation
+  - Suitable for device recovery and mass production
+  - Requires some technical knowledge
+
+:::
 
 ### Debian Linux
 
-#### Generic System Image
+#### GPT System Image (Recommended)
 
-Currently, only MicroSD cards, eMMC modules and UFS modules are supported for system boot. NVMe SSDs are under development!
+:::info Latest System Image Releases
 
-- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-b1/radxa-cubie-a7a_bullseye_kde_b1.output_512.img.xz)
+- [Radxa Cubie A7A](https://github.com/radxa-build/radxa-cubie-a7a/releases)
+
+This page publishes the latest official and beta system images. Beta versions start with `t`, while official releases start with `r` (older official releases start with `b`).
+
+:::
+
+Currently supports booting from MicroSD cards, eMMC modules, and UFS modules. NVMe/SSD boot requires flashing the SPI Nor Flash firmware.
+
+- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-b2/radxa-cubie-a7a_bullseye_kde_b2.output_512.img.xz) (SD / eMMC)
+
+- [Radxa Cubie A7A Debian 11](https://github.com/radxa-build/radxa-cubie-a7a/releases/download/rsdk-b2/radxa-cubie-a7a_bullseye_kde_b2.output_4096.img.xz) (UFS)
+
+:::tip A733 Unified System Image
+
+Compatible with all A733 SoC products, such as Cubie A7Z, Cubie A7A, etc. Currently in beta version, we recommend using the stable version above.
+
+If needed, please visit our [latest system image release page](https://github.com/radxa-build/radxa-a733/releases) to get the latest image.
+
+:::
 
 ### Android
 
-Suitable for MicroSD cards, eMMC modules and UFS modules.
+Compatible with MicroSD cards, eMMC modules, and UFS modules.
 
-#### Phoenix System Image
+#### FEL System Image
 
 - [Radxa Cubie A7A Android 13](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip)
 
