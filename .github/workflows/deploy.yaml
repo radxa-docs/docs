@@ -17,7 +17,7 @@ jobs:
         stage: ["commit", "push"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: pre-commit checks
@@ -80,7 +80,7 @@ jobs:
         stage: ["manual"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: pre-commit check-external-links
@@ -141,12 +141,12 @@ jobs:
       contents: read
     steps:
       - name: Checkout template
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           token: "${{ secrets.PRIVATE_REPO_TOKEN }}"
           repository: "radxa-docs/docs-template"
       - name: Checkout contents
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           path: "contents"
       - name: Install dependencies
