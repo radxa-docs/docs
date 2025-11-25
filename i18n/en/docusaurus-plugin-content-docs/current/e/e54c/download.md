@@ -36,7 +36,7 @@ Used for USB flashing, Loader file is used for USB download initialization, no n
 
 SPI Flash image file, used for flashing SPI Flash
 
-[spi.img](https://dl.radxa.com/e/e54c/images/radxa-e54c-spi-flash-imag.img)
+[spi.img](https://dl.radxa.com/e/e54c/images/radxa-e54c-spi-flash-image.img)
 
 ## Hardware Design
 

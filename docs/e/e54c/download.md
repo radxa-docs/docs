@@ -36,7 +36,7 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化，写入 SD 卡无需
 
 SPI 启动固件文件，用于刷入 SPI Flash
 
-[spi.img](https://dl.radxa.com/e/e54c/images/radxa-e54c-spi-flash-imag.img)
+[spi.img](https://dl.radxa.com/e/e54c/images/radxa-e54c-spi-flash-image.img)
 
 ## 硬件设计
 
