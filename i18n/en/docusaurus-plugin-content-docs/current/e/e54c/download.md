@@ -10,9 +10,9 @@ import Images from "./\_image.mdx"
 
 ### iStoreOS:
 
-iStoreOS image file, can be directly written to SD card / eMMC / SSD after extraction
+iStoreOS image file, can be directly written to SD card / eMMC / NVMe SSD after extraction
 
-[istoreos-22.03.7-2025040711-e54c-squashfs.img.gz](https://fw0.koolcenter.com/iStoreOS/e54c/istoreos-22.03.7-2025040711-e54c-squashfs.img.gz)
+[istoreos-24.10.4-2025112116-e54c-squashfs.img.gz](https://fw0.koolcenter.com/iStoreOS/e54c/istoreos-24.10.4-2025112116-e54c-squashfs.img.gz)
 
 ### Debian:
 
@@ -36,7 +36,7 @@ Used for USB flashing, Loader file is used for USB download initialization, no n
 
 SPI Flash image file, used for flashing SPI Flash
 
-[spi.img](https://dl.radxa.com/e/e54c/images/radxa-e54c-spi-flash-image.img)
+[spi.img](https://dl.radxa.com/e/e54c/images/radxa-e54c-spi-flash-imag.img)
 
 ## Hardware Design
 
