@@ -254,7 +254,7 @@ UFS provisioning succeeded
 
 ### 烧录 SAIL
 
-进入 `fw702-ubuntu-noble-gnome-xxx\sail_no` 文件夹下，打开终端，使用以下命令烧录 SAIL。
+进入 `fw702-ubuntu-noble-gnome-xxx\sail_nor` 文件夹下，打开终端，使用以下命令烧录 SAIL。
 
 <NewCodeBlock tip="PC$" type="host">
 

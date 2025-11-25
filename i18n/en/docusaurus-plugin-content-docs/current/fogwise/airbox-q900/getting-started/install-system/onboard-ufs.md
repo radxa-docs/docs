@@ -255,7 +255,7 @@ UFS provisioning succeeded
 
 ### Flash SAIL
 
-Navigate to the `fw702-ubuntu-noble-gnome-xxx\sail_no` folder, open a terminal, and use the following command to flash SAIL.
+Navigate to the `fw702-ubuntu-noble-gnome-xxx\sail_nor` folder, open a terminal, and use the following command to flash SAIL.
 
 <NewCodeBlock tip="PC$" type="host">
 
