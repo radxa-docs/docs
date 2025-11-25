@@ -111,6 +111,28 @@ rsetup
 
 4. 重启系统，配置生效。
 
+## 测试摄像头
+
+可以使用以下命令测试相机是否正常。
+
+- 相机预览命令
+
+```bash
+gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
+```
+
+- 拍摄照片命令
+
+```bash
+gst-launch-1.0 v4l2src device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=file.name.jpg;
+```
+
+- 拍摄视频命令
+
+```bash
+gst-launch-1.0 v4l2src num-buffers=512 device=/dev/video11 io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/radxa/file.name.mp4
+```
+
 ## 引脚定义
 
 | Pin | Signal | Pin | Signal | Pin | Signal  | Pin | Signal  |
