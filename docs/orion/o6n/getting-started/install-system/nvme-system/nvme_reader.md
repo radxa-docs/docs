@@ -6,7 +6,7 @@ import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use
 
 # 使用固态硬盘盒安装系统
 
-<BalenaEtcherUse download_page={"../../../download"}/>
+<BalenaEtcherUse download_page={"../../../../download"}/>
 
 ## 启动系统
 

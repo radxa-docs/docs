@@ -6,11 +6,11 @@ import BalenaEtcherUse from '../../../../common/radxa-os/install-system/\_use_et
 
 # 安装系统到 U 盘
 
-<BalenaEtcherUse />
+<BalenaEtcherUse download_page="../../../download"/>
 
 ## 启动系统
 
-完成系统的安装后，将 U 盘插到到瑞莎星睿 O6N 的 USB 接口，然后使用 12V DC 电源适配器给瑞莎星睿 O6N 供电，即可启动系统。
+完成系统的安装后，将 U 盘插到到瑞莎星睿 O6 的 USB 接口，然后使用 20V Type-C 电源适配器给瑞莎星睿 O6 供电，即可启动系统。
 
 详细步骤：
 
@@ -18,7 +18,7 @@ import BalenaEtcherUse from '../../../../common/radxa-os/install-system/\_use_et
 
 2. 使用 HDMI / DP 数据线连接显示器和主板
 
-3. 使用 12V DC 电源适配器给瑞莎星睿 O6N 供电
+3. 使用 20V Type-C 电源适配器给瑞莎星睿 O6 供电
 
 系统启动正常后，电源指示灯绿色亮起，状态指示灯蓝色闪烁。
 

@@ -2,26 +2,37 @@
 
 您需要提前准备以下硬件设备：
 
-- 主板：瑞莎星睿 O6 / O6N
-- 供电：电源适配器
+- 主板：{props.board}
+- 供电：{props.power}
 - BIOS 更新介质：U 盘
 - 显示设备：HDMI / DP 数据线和显示器
 - 输入设备：键盘和鼠标（用于图形界面操作）
 - 调试工具（可选）：USB 串口数据线（用于串口登录）
 
+<Tabs queryString="system boot">
+<TabItem value="星睿 O6" default={props.tag === "o6"} attributes={{className: props.tag === "o6n" && "tab_none"}} >
+
 :::tip 推荐配件
 
-- 瑞莎星睿 O6
-
-  - [瑞莎 PD 65W 电源适配器（推荐使用）](https://radxa.com/products/accessories/power-pd-65w)
-  - 标准 20V Type-C 电源适配器，建议电流 3A 及以上
-
-- 瑞莎星睿 O6N
-  - [瑞莎 DC 36W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-36w)
-  - [瑞莎 DC 60W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-60w)
-  - 标准 12V DC5525 电源适配器，建议电流 3A 及以上
+- [瑞莎 PD 65W 电源适配器（推荐使用）](https://radxa.com/products/accessories/power-pd-65w)
+- 标准 20V Type-C 电源适配器，建议电流 3A 及以上
 
 :::
+
+</TabItem>
+
+<TabItem value="星睿 O6N" default={props.tag === "o6n"} attributes={{className: props.tag === "o6" && "tab_none"}} >
+
+:::tip 推荐配件
+
+- [瑞莎 DC 36W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-36w)
+- [瑞莎 DC 60W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-dc12-60w)
+- 标准 12V DC5525 电源适配器，建议电流 3A 及以上
+
+:::
+
+</TabItem>  
+</Tabs>
 
 ## 制作 BIOS 更新盘
 
@@ -31,7 +42,7 @@
 
 ### 制作 BIOS 更新盘
 
-访问 [资源汇总下载](../download) 页面，下载 BIOS 固件；将下载的 BIOS 固件内容复制到 U 盘的根目录下。
+访问 <a href={props?.download_page ?? '../download.md#android'}>资源汇总下载</a> 页面，下载 BIOS 固件；将下载的 BIOS 固件内容复制到 U 盘的根目录下。
 
 BIOS 固件内容如下：
 

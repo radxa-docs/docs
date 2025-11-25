@@ -8,7 +8,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 教程仅适用于星睿 O6N，星睿 O6 无 UFS 模块连接座。
 
-<InstallSystem boot_device="U 盘" tag="ufs_module" board="orion-o6n" download_page="../../../download" download_url="https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_4096.img.xz" path_to_image_unxz="orion-o6_bookworm_gnome_t2.output_4096.img.xz" path_to_image="orion-o6_bookworm_gnome_t2.output_4096.img" />
+<InstallSystem boot_device="U 盘" tag="ufs_module" board="orion-o6n" download_page="../../../../download" download_url="https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_4096.img.xz" path_to_image_unxz="orion-o6_bookworm_gnome_t2.output_4096.img.xz" path_to_image="orion-o6_bookworm_gnome_t2.output_4096.img" />
 
 ## 启动系统
 

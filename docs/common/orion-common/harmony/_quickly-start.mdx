@@ -1,21 +1,15 @@
 ## 使用前提
 
-- 主板：瑞莎星睿 O6
+- 主板：{props.board}
 - U 盘：用于更新 BIOS
 - 系统启动盘：NVMe SSD
 - 数据线：USB Type-C 数据线
 - 显示器：用于显示 BIOS 设置界面
-- 电源适配器：USB-C 20V 电源适配器（兼容 PD 协议）
+- 电源适配器：{props.power}
 - PC 主机: Windows / Linux / MacOS, 安装 fastboot 工具
 - 可选设备：串口数据线
 
 说明：其中可选设备用于刷 BIOS，刷 BIOS 可以通过串口或者显示器操作。
-
-:::tip 推荐配件
-
-- [瑞莎 PD 65W 电源适配器](https://radxa.com/products/accessories/power-pd-65w)
-
-:::
 
 ## 鸿蒙 SDK 下载
 
@@ -48,7 +42,7 @@ sudo apt install android-tools-fastboot
 
 #### 2. 制作 BIOS U 盘
 
-访问 [资源汇总下载](../download.md#Openharmony) 页面，下载最新的鸿蒙 BIOS 文件，并将其解压到 U 盘的根目录。
+访问 <a href={props?.download_page ?? '../download.md#android'}>资源汇总下载</a> 页面，下载最新的鸿蒙 BIOS 文件，并将其解压到 U 盘的根目录。
 
 ### 硬件连接
 
@@ -148,7 +142,7 @@ BIOS 刷写完成后，主板已进入 Fastboot 模式，接下来我们可以�
 
 ### 1. 下载并解压系统镜像
 
-访问 [资源汇总下载](../download.md#Openharmony) 页面，下载最新的 Openharmony 系统镜像，并将其解压到您的 PC 本地。
+访问 <a href={props?.download_page ?? '../download.md#android'}>资源汇总下载</a> 页面，下载最新的 Openharmony 系统镜像，并将其解压到您的 PC 本地。
 
 ### 2. 刷入系统镜像
 

@@ -6,7 +6,7 @@ import BalenaEtcherUse from '../../../../common/radxa-os/install-system/\_use_et
 
 # 安装系统到 U 盘
 
-<BalenaEtcherUse />
+<BalenaEtcherUse download_page="../../../download"/>
 
 ## 启动系统
 

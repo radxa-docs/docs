@@ -6,7 +6,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # 从 U 盘启动并将系统安装到 NVMe SSD
 
-<InstallSystem boot_device="U 盘" board="orion-o6n" download_page="../../../download" download_url="https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_512.img.xz" path_to_image_unxz="orion-o6_bookworm_gnome_t2.output_512.img.xz" path_to_image="orion-o6_bookworm_gnome_t2.output_512.img" />
+<InstallSystem boot_device="U 盘" board="orion-o6n" download_page="../../../../download" download_url="https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_512.img.xz" path_to_image_unxz="orion-o6_bookworm_gnome_t2.output_512.img.xz" path_to_image="orion-o6_bookworm_gnome_t2.output_512.img" />
 
 ## 启动系统
 

@@ -6,11 +6,11 @@ import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use
 
 # 使用固态硬盘盒安装系统
 
-<BalenaEtcherUse download_page={"../../../download"}/>
+<BalenaEtcherUse download_page={"../../../../download"}/>
 
 ## 启动系统
 
-完成系统的安装后，将 NVMe SSD 安装到瑞莎星睿 O6N 的 NVMe SSD 插槽中，然后使用 12V DC 电源适配器给瑞莎星睿 O6N 供电，即可启动系统。
+完成系统的安装后，将 NVMe SSD 安装到瑞莎星睿 O6 的 NVMe SSD 插槽中，然后使用 20V Type-C 电源适配器给瑞莎星睿 O6 供电，即可启动系统。
 
 详细步骤：
 
@@ -18,7 +18,7 @@ import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use
 
 2. 使用 HDMI / DP 数据线连接显示器和主板
 
-3. 使用 12V DC 电源适配器给瑞莎星睿 O6N 供电
+3. 使用 20V Type-C 电源适配器给瑞莎星睿 O6 供电
 
 系统启动正常后，电源指示灯绿色亮起，状态指示灯蓝色闪烁。
 
@@ -35,7 +35,7 @@ Radxa OS 的默认凭据如下：
 
 ## 使用系统
 
-成功登录系统后，您就可以在瑞莎星睿 O6N 上进行系统配置与开发。
+成功登录系统后，您就可以在瑞莎星睿 O6 上进行系统配置与开发。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/orion/o6n/orion-o6n-login.webp" style={{width: '100%', maxWidth: '1200px'}} />

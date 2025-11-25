@@ -8,7 +8,7 @@ import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use
 
 教程仅适用于星睿 O6N，星睿 O6 无 UFS 模块连接座。
 
-<BalenaEtcherUse />
+<BalenaEtcherUse download_page="../../../../download"/>
 
 ## 启动系统
 

@@ -1,21 +1,15 @@
 ## 使用前提
 
-- 主板：瑞莎 Orion O6
+- 主板：{props.board}
 - U 盘：用于更新 BIOS
 - 系统启动盘：NVMe SSD
 - 数据线：USB Type-C 数据线
 - 显示器：用于显示 BIOS 设置界面
-- 电源适配器：USB-C 20V 电源适配器（兼容 PD 协议）
+- 电源适配器：{props.power}
 - PC 主机: Windows / Linux / MacOS, 安装 fastboot 工具
 - 可选设备：串口数据线
 
 说明：其中可选设备用于刷 BIOS，刷 BIOS 可以通过串口或者显示器操作。
-
-:::tip 推荐配件
-
-- [瑞莎 PD 65W 电源适配器](https://radxa.com/products/accessories/power-pd-65w)
-
-:::
 
 ## 刷写安卓 BIOS
 
@@ -42,12 +36,12 @@ sudo apt install android-tools-adb android-tools-fastboot
 
 #### 2. 制作 BIOS U 盘
 
-访问 [资源汇总下载](../download.md#android) 页面，下载最新的安卓 BIOS 文件，并将其解压到 U 盘的根目录。
+访问 <a href={props?.download_page ?? '../download.md#android'}>资源汇总下载</a> 页面，下载最新的安卓 BIOS 文件，并将其解压到 U 盘的根目录。
 
 ### 硬件连接
 
 :::tip 接口说明
-Orion O6 主板配备两个 USB Type-C 接口：
+{props.board} 主板配备两个 USB Type-C 接口：
 
 - **数据接口**：靠近 USB-A 接口，用于连接 PC 进行数据传输。
 - **电源接口**：靠近电源按键，用于连接电源适配器。
@@ -142,7 +136,7 @@ BIOS 刷写完成后，主板已进入 Fastboot 模式，接下来我们可以�
 
 ### 1. 下载并解压系统镜像
 
-访问 [资源汇总下载](../download.md#android) 页面，下载最新的 Android 系统镜像，并将其解压到您的 PC 本地。
+访问 <a href={props?.download_page ?? '../download.md#android'}>资源汇总下载</a> 页面，下载最新的 Android 系统镜像，并将其解压到您的 PC 本地。
 
 ### 2. 刷入系统镜像
 
