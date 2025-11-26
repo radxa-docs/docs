@@ -43,7 +43,7 @@ O6N 专为 AI 推理、图形处理、视频编解码和多屏显示等高性能
 | 图形处理器（GPU）     | Arm® Immortals™ G720 MC10<br/>- 支持硬件光线追踪<br/>- 支持 OpenGL ES 3.2<br/>- 支持 Vulkan 1.3<br/>- 支持 OpenCL 2.2<br/>- 支持 DirectX 12                                                         |
 | 神经网络处理器（NPU） | 30 TOPS 算力<br/>- 支持 INT4 / INT8 / INT16 / FP16 / BF16 / TF32 等计算精度                                                                                                                           |
 | 视频编解码            | 解码：<br/>- 支持 AV1 / H.265 / H.264 / VP9 / VP8 / H.263 / MPEG-4 / MPEG-2 格式；<br/>- 最高支持 8K@60fps 解码；<br/>编码：<br/>- 支持 H.265 / H.264 / VP9 / VP8 格式；<br/>- 最高支持 8K@30fps 编码 |
-| 内存                  | LPDDR5<br/>- 128 位数据总线宽度<br/>- 传输速度：5500 MT/S<br/>- 可选容量：8GB / 16GB / 24GB / 32GB / 48GB / 64GB                                                                                      |
+| 内存                  | LPDDR5<br/>- 128 位数据总线宽度<br/>- 传输速度：可选 5000 MT/S 或者 6000 MT/S<br/>- 可选容量：8GB / 16GB / 24GB / 32GB / 48GB / 64GB                                                                  |
 | 存储                  | 1x UFS 模块接口，可用于连接瑞莎 UFS 模块拓展存储<br/>2x M.2 M Key 2280 插槽（PCIe Gen4 x4），可用于连接 M.2 NVMe SSD 拓展存储                                                                         |
 | 视频输出              | 最高支持 3 屏同显<br/>- 1x USB Type-C 接口，支持 DP Alt 模式，最高支持 4Kp60<br/>- 1x HDMI 接口，最高支持 4Kp60<br/>- 1x DP 接口，支持多流传输功能，最高可达 4Kp120                                   |
 | 视频输入              | 2x 4 通道 MIPI CSI 接口                                                                                                                                                                               |
