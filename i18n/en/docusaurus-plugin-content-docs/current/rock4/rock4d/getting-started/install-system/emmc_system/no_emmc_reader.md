@@ -6,6 +6,10 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # Boot from MicroSD Card and Install System to eMMC
 
+:::tip eMMC System Startup Prompt
+Only the ROCK 4D without SPI Flash version supports eMMC startup, and the version with on-chip SPI Flash does not support eMMC startup.
+:::
+
 <InstallSystem tag="emmc_module" board="radxa-4d" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz" path_to_image_unxz="radxa-rk3576_bookworm_kde_b3.output_512.img.xz" path_to_image="radxa-rk3576_bookworm_kde_b3.output_512.img" />
 
 ## Boot System
