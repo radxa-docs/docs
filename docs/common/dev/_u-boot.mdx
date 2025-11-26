@@ -73,17 +73,17 @@ cd bsp
 # `--no-build` 仅配置代码不编译
 ```
 
-U-boot 源码的路径位于 bsp 目录下的 `.src/linux`，在修改内核源码后，可再次构建 U-boot：
+U-boot 源码的路径位于 bsp 目录下的 `.src/u-boot`，在修改 U-boot 源码后，可再次构建 U-boot：
 
 ```bash
 cd bsp
 ./bsp --no-prepare-source u-boot rk2410 rock-5b -r 999
 # 参数说明：
-# --no-prepare-source   # 首次编译不需要加该参数，加该参数是为了使用本地修改进行编译，如果不加这个参数将会从 Radxa kernel 仓库同步最新代码并覆盖本地修改
+# --no-prepare-source   # 首次编译不需要加该参数，加该参数是为了使用本地修改进行编译，如果不加这个参数将会从 Radxa 仓库同步最新代码并覆盖本地修改
 # -r 999                # 指定内核的版本号为 999，以优先使用
 ```
 
-编译完成后会在当前目录生成许多 `deb` 包， 只需要安装下面的 `deb` 即可
+编译完成后会在当前目录生成许多 `deb`包，只需要安装下面的 `deb` 即可
 
 ```
 u-boot-rk2410_2017.09-999_arm64.deb

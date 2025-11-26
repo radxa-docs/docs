@@ -102,8 +102,8 @@ sudo dpkg -i u-boot-rk2410_2017.09-999_arm64.deb
 After the installation is complete, you need to flash U-Boot to the boot media
 
 ```
-cd /usr/lib/u-boot/rock-5b/                     # rock-5b 为你当前使用的型号，需要根据实际使用的设备来选择
-sudo ./setup.sh update_bootloader /dev/mmcblk1  # /dev/mmcblk1 为你当前使用的启动介质，需要根据实际使用的设备来选择
+cd /usr/lib/u-boot/rock-5b/                     # rock-5b is your current model, you need to choose according to the actual model used
+sudo ./setup.sh update_bootloader /dev/mmcblk1  # /dev/mmcblk1 is your current boot media, you need to choose according to the actual device used
 sudo reboot
 ```
 
