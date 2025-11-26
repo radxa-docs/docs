@@ -10,9 +10,9 @@ import Images from "./\_image.mdx"
 
 ### iStoreOS:
 
-iStoreOS 镜像文件，解压后可直接写入 SD 卡 / eMMC / SSD
+iStoreOS 镜像文件，解压后可直接写入 SD 卡 / eMMC / NVMe SSD
 
-[istoreos-22.03.7-2025040711-e54c-squashfs.img.gz](https://fw0.koolcenter.com/iStoreOS/e54c/istoreos-22.03.7-2025040711-e54c-squashfs.img.gz)
+[istoreos-24.10.4-2025112116-e54c-squashfs.img.gz](https://fw0.koolcenter.com/iStoreOS/e54c/istoreos-24.10.4-2025112116-e54c-squashfs.img.gz)
 
 ### Debian:
 
