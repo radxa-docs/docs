@@ -25,7 +25,7 @@ You will also need the following additional equipment to get the NIO 12L up and 
 
 - USB Mouse and Keyboard
 
-- Monitor supports HDMI or USB Type-C inputs
+- Monitor supporting HDMI or USB Type-C inputs
 
 - HDMI cable or USB Type-C cable supporting video signals
 
