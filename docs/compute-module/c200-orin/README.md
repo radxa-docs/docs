@@ -1,12 +1,12 @@
 ---
-sidebar_position: 10
+sidebar_position: 20
 ---
 
-# 瑞莎 Orin C200
+# 瑞莎 C200 Orin 开发套件
 
 ## 产品介绍
 
-瑞莎 Orin C200 开发套件由 瑞莎 Orin C200 IO 板和 英伟达 Jetson Orin NX 8GB 模组组成，是一款先进的边缘 AI 和机器人开发平台，助力嵌入式边缘 AI 的未来。
+瑞莎 C200 Orin 开发套件由瑞莎 C200 IO 板和英伟达 Jetson Orin NX 8GB 模组组成，是一款先进的边缘 AI 和机器人开发平台，助力嵌入式边缘 AI 的未来。
 
 搭载 6 核 Arm® Cortex®-A78AE 处理器，主频高达 2GHz，集成 NVIDIA Ampere 架构 GPU，支持高达 117 TOPS 的 AI 算力（Super 模式），是工业自动化、机器人、智能安防等领域的理想选择。
 
@@ -14,11 +14,11 @@ sidebar_position: 10
 
 <Tabs queryString="board model">
 
-<TabItem value="瑞莎 Orin C200 开发套件">
+<TabItem value="瑞莎 C200 Orin 开发套件">
 
 |        产品实物         | 序号 |  视图  | 序号 |  视图  | 序号 |  视图  |
 | :---------------------: | :--: | :----: | :--: | :----: | :--: | :----: |
-| 瑞莎 Orin C200 开发套件 |  ①   | 俯视图 |  ②   | 侧视图 |  ③   | 背视图 |
+| 瑞莎 C200 Orin 开发套件 |  ①   | 俯视图 |  ②   | 侧视图 |  ③   | 背视图 |
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/c200/radxa-c200-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -26,11 +26,11 @@ sidebar_position: 10
 
 </TabItem>
 
-<TabItem value="瑞莎 Orin C200 IO 板">
+<TabItem value="瑞莎 C200 IO 板">
 
-|       产品实物       | 序号 |  视图  | 序号 |  视图  |
-| :------------------: | :--: | :----: | :--: | :----: |
-| 瑞莎 Orin C200 IO 板 |  ①   | 俯视图 |  ②   | 背视图 |
+|    产品实物     | 序号 |  视图  | 序号 |  视图  |
+| :-------------: | :--: | :----: | :--: | :----: |
+| 瑞莎 C200 IO 板 |  ①   | 俯视图 |  ②   | 背视图 |
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/c200/radxa-c200-io-board-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -40,9 +40,14 @@ sidebar_position: 10
 
 </Tabs>
 
+## 包装清单
+
+- 瑞莎 C200 IO 板
+- 英伟达 Jetson Orin NX 8GB 模组
+
 ## 产品规格
 
-| 产品型号   | Radxa Orin C200 开发套件                                                                                                                                                                                                                                                                             |
+| 产品型号   | Radxa C200 Orin 开发套件                                                                                                                                                                                                                                                                             |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CPU        | 6 核 Arm® Cortex®-A78AE v8.2 64-bit @ 2 GHz                                                                                                                                                                                                                                                        |
 | GPU        | Ampere GPU<br/> • 端对端无损压缩<br/> • 1024 个 NVIDIA CUDA 核心 + 32 个 Tensor 核心<br/>• 支持 OpenGL 4.6, OpenGL ES 3.2, Vulkan 1.2, and CUDA 11.4+                                                                                                                                                |
@@ -64,7 +69,7 @@ sidebar_position: 10
 
 <Tabs queryString="board model">
 
-<TabItem value="瑞莎 Orin C200 开发套件">
+<TabItem value="瑞莎 C200 Orin 开发套件">
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/c200/radxa-c200-kits.webp" style={{width: '75%', maxWidth: '1200px'}} />
@@ -81,7 +86,7 @@ sidebar_position: 10
 
 </TabItem>
 
-<TabItem value="瑞莎 Orin C200 IO 板">
+<TabItem value="瑞莎 C200 IO 板">
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/c200/radxa-c200-io-board.webp" style={{width: '75%', maxWidth: '1200px'}} />
@@ -104,7 +109,7 @@ sidebar_position: 10
 ## 系统框图
 
 <div style={{textAlign: 'center'}}>
-**瑞莎 Orin C200 开发套件系统框图**
+**瑞莎 C200 Orin 开发套件系统框图**
 </div>
 
 <div style={{textAlign: 'center'}}>
@@ -113,7 +118,7 @@ sidebar_position: 10
 
 ## 应用场景
 
-瑞莎 Orin C200 开发套件凭借其强大的 AI 算力和丰富的接口，可广泛应用于以下领域：
+瑞莎 C200 Orin 开发套件凭借其强大的 AI 算力和丰富的接口，可广泛应用于以下领域：
 
 ### 边缘 AI 和机器学习
 
