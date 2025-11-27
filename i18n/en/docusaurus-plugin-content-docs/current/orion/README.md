@@ -3,6 +3,6 @@ sidebar_position: 1
 slug: /orion
 ---
 
-# Orion Series
+# 星睿(Orion)系列
 
-Orion is a high-performance motherboard series jointly launched by Radxa and Cix.
+星睿(Orion)系列是瑞莎与此芯科技联合推出的高性能单板计算机系列。

@@ -1,5 +1,0 @@
----
-title: CIX SDK
----
-
-<DocCardList />
