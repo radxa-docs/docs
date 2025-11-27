@@ -1,0 +1,385 @@
+# 基于 Radxa 内核仓库的 ARM64 内核开发指南
+
+本文档说明如何获取 Radxa 官方 Linux 内核源码，并在 x86 主机上通过多种方式进行 ARM64 内核开发与编译。包含源码获取、开发环境搭建（4 种方案）、编译与部署等。
+
+## 获取对应设备的内核源码
+
+Radxa 为不同硬件平台维护独立的内核仓库，仓库命名格式：
+
+```bash
+https://github.com/radxa-pkg/linux-<profile>
+```
+
+根据你的设备型号选择正确的 `<profile>` 常见映射如下：
+| # | 设备型号（Product） | Profile |
+|:---:|:-------------------------------------:|:-------------:|
+| 1 | ROCK 5A / 5B / 5B\+ / 5C / 5T / 5 ITX | rk2410 |
+| 2 | ROCK 2A/ROCK 2F/ E20C/E24C | rk2312 |
+| 3 | E52C / E54C / NX5 / CM5 系列 | rk2410 |
+| 4 | ROCK 3A / 3B / 3C / ZERO 3 CM3 | rk2410\-nocsf |
+| 5 | ROCK Pi 4 / ROCK 4 系列（除 ROCK4D） | rk2501 |
+| 6 | ROCK4D | rk2410\-nocsf |
+| 7 | Dragon Q6A | qcom |
+| 8 | AIRBox Q900 | qc2509 |
+
+:::info
+必须递归克隆子模块
+
+Radxa 内核仓库依赖多个子模块（如内核源码），若未正确初始化子模块，可能导致编译失败或缺少关键文件。
+:::
+
+示例（以 ROCK 5B 为例）：
+
+```bash
+git clone --recurse-submodules https://github.com/radxa-pkg/linux-rk2410.git
+cd linux-rk2410
+```
+
+如果你已克隆但未初始化子模块，可以运行：
+
+```bash
+git submodule update --init --recursive --progress
+```
+
+:::tip
+如果在遇到网络问题，可尝试使用代理（例如 `https://gh-proxy.com/`）来加速克隆。
+如果子模块克隆失败，可以尝试编辑 `.gitmodules` 文件，将子模块的 URL 替换为代理地址。
+
+同时，我们在中国的 git 平台 gitcode 也镜像了这些仓库。地址格式为：
+
+- `https://gitcode.com/radxa-pkg/linux-<profile>`
+- `https://gitcode.com/radxa/kernel.git`
+
+可根据需要选择使用。
+:::
+
+---
+
+## 开发环境搭建（四种方案）
+
+### 方案一：使用 VS Code Dev Container（推荐，轻量便捷）
+
+1. 确保已安装：
+   - Docker（Docker Desktop 或 Docker Engine）
+   - Visual Studio Code
+   - Remote - Containers 扩展
+2. 在项目根目录打开 VS Code：
+
+   ```bash
+   code .
+   ```
+
+3. 若存在 `.devcontainer/devcontainer.json`，VS Code 会提示“Reopen in Container”。点击后即可进入预配置的 ARM64 开发环境。
+
+:::tip
+若网络链接遇到问题，建议在 `devcontainer.json` 中解除 `Uncomment below to speed up container building in China` 下方代码的注释。
+:::
+
+---
+
+### 方案二：手动运行 ARM64 Docker 容器（灵活可控）
+
+#### 步骤 1：启用多架构支持（仅需一次）
+
+在宿主机执行：
+
+```bash
+sudo apt-get install -y qemu-user-static binfmt-support
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+```
+
+#### 步骤 2：启动容器并挂载源码
+
+确保你在已完整克隆（含子模块）的目录下运行：
+
+```bash
+docker run -it --rm \
+  --platform linux/arm64 \
+  -v "$(pwd):/workspace" \
+  -w /workspace \
+  arm64v8/debian:12 \
+  bash
+```
+
+#### 步骤 3：更换为 Debian 镜像源
+
+如果你访问 debian 官方软件源速度较快，可以跳过此步骤
+
+```bash
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+cat <<EOF | sudo tee /etc/apt/sources.list
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware
+EOF
+```
+
+:::tip
+此镜像源可以替换为 debian 官方推荐的其他源：https://www.debian.org/mirror/list.en.html#complete-list。
+可以根据你所在地区选择最快的源
+:::
+
+#### 步骤 4：安装依赖
+
+```bash
+apt update && apt install -y \
+    build-essential bc kmod cpio flex bison \
+    libssl-dev libelf-dev gcc-aarch64-linux-gnu \
+    debhelper dh-make
+apt build-dep -y .
+```
+
+---
+
+### 方案三：使用 Debian 12 ARM64 官方云镜像安装虚拟机（完整系统环境）
+
+虚拟机内部同样需要克隆带子模块的源码。
+
+#### 步骤 1：安装 QEMU 和固件
+
+```bash
+sudo apt install -y qemu-system-arm qemu-efi-aarch64 qemu-utils cloud-image-utils
+```
+
+#### 步骤 2：下载 Debian 12 ARM64 qcow2 镜像
+
+```bash
+wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-arm64.qcow2
+```
+
+:::tip
+可以使用镜像站提供的镜像：
+
+```bash
+wget https://mirror.nju.edu.cn/debian-cdimage/cloud/bookworm/latest/debian-12-genericcloud-arm64.qcow2
+```
+
+:::
+
+#### 步骤 3：创建用户数据 ISO（用于自动登录和 SSH 密钥）
+
+创建 `user-data` 和 `meta-data` 文件：
+
+```bash
+# user-data
+#cloud-config
+users:
+  - name: debian
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - $(cat ~/.ssh/id_rsa.pub)  # 替换为你的公钥
+chpasswd:
+  list: |
+    debian:debian
+  expire: False
+runcmd:
+  - systemctl enable --now ssh
+touch meta-data
+```
+
+生成 ISO：
+
+```bash
+cloud-localds user-data.iso user-data meta-data
+```
+
+#### 步骤 4：启动虚拟机（桥接网络可选）
+
+```bash
+qemu-system-aarch64 \
+  -machine virt -cpu cortex-a72 -smp 4 -m 4G \
+  -bios /usr/share/qemu-efi-aarch64/QEMU_EFI.fd \
+  -drive if=virtio,file=debian-12-generic-arm64.qcow2,format=qcow2 \
+  -cdrom user-data.iso \
+  -netdev user,id=net0,hostfwd=tcp::2222-:22 \
+  -device virtio-net-device,netdev=net0 \
+  -nographic
+```
+
+首次启动可能较慢。完成后可通过 SSH 登录：
+
+```bash
+ssh -p 2222 debian@localhost
+```
+
+#### 步骤 5：在虚拟机中配置开发环境
+
+登录后执行：
+
+```bash
+sudo apt update
+sudo apt install -y git build-essential bc kmod cpio flex bison \
+    libssl-dev libelf-dev debhelper dh-make
+```
+
+```bash
+# 克隆内核源码（或通过 scp 从宿主机传入）
+git clone https://github.com/radxa-pkg/linux-rk2410.git
+cd linux-rk2410
+sudo apt build-dep -y .
+```
+
+---
+
+### 方案四：使用 systemd-nspawn 创建 ARM64 容器（无 Docker｜带 systemd）
+
+适用场景：
+
+- 主机为 Debian/Ubuntu/Fedora 等支持 systemd 的 Linux 系统；
+- 不想安装 Docker，但需要比普通 chroot 更强的隔离性；
+- 需要完整 systemd 支持（如服务管理、journal 日志等）。
+
+#### 步骤 1：启用多架构支持并安装工具
+
+```bash
+sudo dpkg --add-architecture arm64
+sudo apt update
+sudo apt install -y systemd-container qemu-user-static debootstrap debian-archive-keyring
+```
+
+#### 步骤 2：创建 Debian 12 ARM64 根文件系统
+
+```bash
+sudo mkdir -p /var/lib/machines/debian12-arm64
+sudo debootstrap \
+  --arch=arm64 \
+  --foreign \
+  bookworm \
+  /var/lib/machines/debian12-arm64 \
+  http://deb.debian.org/debian
+```
+
+:::tip
+若下载速度较慢，可将最后一行的官方源地址替换为合适的镜像源，例如：
+
+```bash
+https://mirrors.tuna.tsinghua.edu.cn/debian
+```
+
+其他可用镜像包括：
+
+- 阿里云：https://mirrors.aliyun.com/debian
+- 中科大：https://mirrors.ustc.edu.cn/debian
+- debian 镜像源列表：https://www.debian.org/mirror/list.en.html#complete-list
+
+使用镜像源可显著加速 rootfs 构建过程，且该地址会自动写入容器的 /etc/apt/sources.list。
+:::
+
+#### 步骤 3：完成第二阶段安装
+
+```bash
+sudo systemd-nspawn -D /var/lib/machines/debian12-arm64 /debootstrap/debootstrap --second-stage
+```
+
+#### 步骤 4：启动容器并初始化
+
+```bash
+sudo systemd-nspawn -D /var/lib/machines/debian12-arm64
+```
+
+在容器内设置 root 密码并安装基础工具：
+
+```bash
+passwd root                # 设置密码（如 "debian"）
+apt update
+apt install -y build-essential debhelper dh-make locales git devscripts
+dpkg-reconfigure locales   # 可选：生成 en_US.UTF-8
+exit
+```
+
+#### 步骤 5：挂载内核源码并编译
+
+退出容器后，在宿主机绑定源码目录进行编译：
+
+```bash
+# 假设当前目录为已克隆的 linux-rk2410
+sudo systemd-nspawn -D /var/lib/machines/debian12-arm64 \
+  --bind-ro=$(pwd):/workspace \
+  -u root \
+  /bin/bash -c "cd /workspace && apt build-dep -y . && make deb"
+```
+
+或交互式进入：
+
+```bash
+sudo systemd-nspawn -D /var/lib/machines/debian12-arm64 \
+  --bind-ro=$(pwd):/workspace \
+  -u root
+```
+
+在容器内执行：
+
+```bash
+cd /workspace
+make deb
+```
+
+#### 步骤 6：管理容器（可选）
+
+- 停止：`sudo machinectl stop debian12-arm64`
+- 查看状态：`sudo machinectl status debian12-arm64`
+- 删除：`sudo machinectl remove debian12-arm64`
+
+---
+
+## 编译内核
+
+无论采用哪种方案，编译流程一致：
+
+### 构建 Debian 包（推荐）
+
+```bash
+apt build-dep .
+make deb
+```
+
+此命令依赖 src/ 目录（通常作为子模块存在），若未初始化子模块将失败。
+
+### 手动编译
+
+进入 src 目录，按照标准内核编译流程操作，例如：
+
+```bash
+make menuconfig
+make -j$(nproc)
+```
+
+---
+
+## 部署与验证
+
+将生成的 .deb 文件复制到目标设备并安装：
+
+```bash
+sudo dpkg -i linux-image-*.deb linux-headers-*.deb
+sudo reboot
+```
+
+验证：
+
+```bash
+uname -r
+zcat /proc/config.gz | grep CONFIG_YOUR_FEATURE
+```
+
+---
+
+## 方案对比
+
+|  #  |         方案          | 隔离性 | 启动速度 | 是否需 Docker | systemd 支持 |          适用场景          |
+| :-: | :-------------------: | :----: | :------: | :-----------: | :----------: | :------------------------: |
+|  1  | VS Code Dev Container |   中   |   极快   |      是       |      否      |          日常开发          |
+|  2  |   ARM64 Docker 容器   |   中   |    快    |      是       |      否      |      CI/CD、脚本构建       |
+|  3  |     云镜像虚拟机      |   高   |    中    |      否       |      是      |     驱动调试、系统测试     |
+|  4  | systemd\-nspawn 容器  |  中高  |    快    |      否       |      是      | 无 Docker 环境下的完整构建 |
+
+---
+
+## 关键提醒：
+
+- 务必使用 --recurse-submodules 克隆源码，否则 make deb 可能因缺少 src/ 目录而失败；
+- 如果网络链接遇到问题，请第一时间更换 Debian 源，避免因网络问题中断编译流程。
+- 如果你使用 ARM64 主机编译，可以跳过多架构支持和 QEMU 相关步骤，直接在主机上使用 docker 或 systemd-nspawn 进行开发。
+  通过以上任一方案，你均可高效地开发、构建并部署针对 Radxa 设备的 Linux 内核。
