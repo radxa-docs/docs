@@ -27,12 +27,6 @@ Ubuntu:
 Android:
 [n12l_android11_20240912.zip](https://dl.radxa.com/nio12l/images/android/n12l_android11_20240912.zip)
 
-:::tip Armbian 官方支持镜像
-
-- [Radxa NIO 12L Armbian 页面](https://www.armbian.com/radxa-nio-12l/)
-
-:::
-
 ### 硬件资料下载
 
 V1.3
