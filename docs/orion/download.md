@@ -32,9 +32,7 @@ sidebar_position: 150
         | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
         | [**Radxa DL**](https://dl.radxa.com/orion/o6n/)                      | `.zip`   | 固件位于压缩包内                                                                                    |
         | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa` 目录下 |
-
     </TabItem>
-
 </Tabs>
 
 :::tip \*.deb 文件解压说明
@@ -78,10 +76,9 @@ Radxa OS 的默认凭据如下：
 
 ### Android
 
-瑞莎星睿 O6 和 O6N 提供不同的 Android 系统镜像，请根据主板型号选择对应的镜像文件。
+瑞莎星睿 O6 和 O6N 提供不同的 BIOS 固件和 Android 系统镜像，请根据主板型号选择对应的镜像文件。
 
 - **适用场景**：需要 Android 应用生态或影音娱乐的用户。
-- **注意**：O6N 版本正在适配中，仅 O6 可用。
 
 <Tabs queryString="versions">
     <TabItem value="星睿 O6">
@@ -95,7 +92,8 @@ Radxa OS 的默认凭据如下：
 #### 瑞莎星睿 O6N
         | 类型     | 版本 / 描述 | 下载链接 | 备注               |
         | :------- | :---------- | :------- | :----------------- |
-        | 系统镜像 | -           | -        | 目前正在适配中 |
+        | BIOS     | Android BIOS 1.0.0 版本 | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6n-android14-rc3.4-20251124/O6N-BIOS-V1.0.0.zip) | 用于 Android 系统的 BIOS 固件 |
+        | 系统镜像 | Android 14 RC3.4 20250903 系统镜像 | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6n-android14-rc3.4-20251124/Radxa_orion_o6n-Andrid14-r3.4-20251124-gpt.zip) | Android 14 RC3.4 系统镜像        |
     </TabItem>
 </Tabs>
 

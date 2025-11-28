@@ -28,10 +28,10 @@ Radxa Orion O6 and O6N use different BIOS firmware.
     </TabItem>
     <TabItem value="Orion O6N">
 #### Radxa Orion O6N
-        | Download Platform                                                      | Format | How to Access                                                                                          |
-        | :-------------------------------------------------------------------- | :----- | :---------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/)                       | `.zip` | Firmware is inside the zip file                                                                       |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)  | `.deb` | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa` directory |
+        | Download Platform                                                             | Format | How to Access                                                                                            |
+        | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/)                      | `.zip`   | Firmware is inside the zip file                                                                                    |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa` directory |
     </TabItem>
 </Tabs>
 
@@ -91,9 +91,10 @@ Radxa Orion O6 and O6N provide different Android system images. Please select th
     </TabItem>
     <TabItem value="Orion O6N">
 #### Radxa Orion O6N
-        | Type     | Version / Description | Download Link | Notes               |
-        | :------- | :------------------- | :----------- | :----------------- |
-        | Image    | -                    | -            | Currently under adaptation |
+        | Type     | Version / Description | Download | Notes               |
+        | :------- | :------------------- | :------- | :----------------- |
+        | BIOS     | Android BIOS 1.0.0 | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6n-android14-rc3.4-20251124/O6N-BIOS-V1.0.0.zip) | BIOS firmware for Android system |
+        | System Image | Android 14 RC3.4 20250903 | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6n-android14-rc3.4-20251124/Radxa_orion_o6n-Andrid14-r3.4-20251124-gpt.zip) | Android 14 RC3.4 System Image        |
     </TabItem>
 </Tabs>
 
