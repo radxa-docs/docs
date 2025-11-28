@@ -55,44 +55,40 @@ Click on the interface names for tutorials on connecting external devices.
 
 <Tabs queryString="versions">
     <TabItem value="ROCK 4D">
-        <img src="/img/rock4/4d/rock4d-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
+        <img src="/en/img/rock4/4d/rock4d-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-|  #  | Description                         | Qty |  #  | Description                                                                                     | Qty |  #  | Description                                   | Qty |
-| :-: | :---------------------------------- | :-: | :-: | :---------------------------------------------------------------------------------------------- | :-: | :-: | :-------------------------------------------- | :-: |
-|  ①  | [USB Type-C Port](./usb-type-c)     |  1  |  ⑩  | [PoE Port](./gigabit-ethernet)                                                                  |  1  |  ⑲  | [MIPI CSI Interface](./mipi-csi)              |  1  |
-|  ②  | User LED                            |  1  |  ⑪  | [Maskrom Button](./maskrom)                                                                     |  1  |  ⑳  | [HDMI 2.1 Port](./hdmi)                       |  1  |
-|  ③  | Power LED                           |  1  |  ⑫  | [USB 2.0 Type-A Ports](./usb-type-a)                                                            |  2  | ㉑  | [Recovery Pins](./recovery)                   |  1  |
-|  ④  | Power Button                        |  1  |  ⑬  | Rockchip RK3576(J)                                                                              |  1  | ㉒  | [UFS Module Interface](./emmc-ufs-connector)  |  1  |
-|  ⑤  | [FPC Connector](./fpc-connector)    |  1  |  ⑭  | [USB 3.0 Type-A Ports](./usb-type-a)<br />Up：USB 3.0 Type-A OTG<br />Down：USB 3.0 Type-A HOST |  2  | ㉓  | [RTC Interface](./rtc)                        |  1  |
-|  ⑥  | [WiFi 6 & Bluetooth 5.4](./ante.md) |  1  |  ⑮  | SPI NOR Flash                                                                                   |  1  | ㉔  | [eMMC Module Interface](./emmc-ufs-connector) |  1  |
-|  ⑦  | [Antenna Connector](./ante)         |  1  |  ⑯  | [Gigabit Ethernet (PoE)](./gigabit-ethernet)                                                    |  1  | ㉕  | [MIPI CSI Interface](./mipi-csi)              |  1  |
-|  ⑧  | [40-Pin GPIO Header](./pin-gpio)    |  1  |  ⑰  | [Fan Connector](./fan)                                                                          |  1  | ㉖  | [MicroSD Card Slot](./microsd)                |  1  |
-|  ⑨  | LPDDR5 RAM                          |  1  |  ⑱  | [Headphone Jack](./headphone)                                                                   |  1  | ㉗  | [MIPI DSI Interface](./mipi-dsi)              |  1  |
+|  #  | Description                                         | Qty |  #  | Description                                                                                                     | Qty |  #  | Description                                                   | Qty |
+| :-: | :-------------------------------------------------- | :-: | :-: | :-------------------------------------------------------------------------------------------------------------- | :-: | :-: | :------------------------------------------------------------ | :-: |
+|  ①  | [USB Type-C Port](./hardware-use/usb-type-c.md)     |  1  |  ⑩  | [PoE Port](./hardware-use/gigabit-ethernet.md)                                                                  |  1  |  ⑲  | [MIPI CSI Interface](./hardware-use/mipi-csi.md)              |  1  |
+|  ②  | User LED                                            |  1  |  ⑪  | [Maskrom Button](./hardware-use/maskrom.md)                                                                     |  1  |  ⑳  | [HDMI 2.1 Port](./hardware-use/hdmi.md)                       |  1  |
+|  ③  | Power LED                                           |  1  |  ⑫  | [USB 2.0 Type-A Ports](./hardware-use/usb-type-a.md)                                                            |  2  | ㉑  | [Recovery Pins](./hardware-use/recovery.md)                   |  1  |
+|  ④  | Power Button                                        |  1  |  ⑬  | Rockchip RK3576(J)                                                                                              |  1  | ㉒  | [UFS Module Interface](./hardware-use/emmc-ufs-connector.md)  |  1  |
+|  ⑤  | [FPC Connector](./hardware-use/fpc-connector.md)    |  1  |  ⑭  | [USB 3.0 Type-A Ports](./hardware-use/usb-type-a.md)<br />Up：USB 3.0 Type-A OTG<br />Down：USB 3.0 Type-A HOST |  2  | ㉓  | [RTC Interface](./hardware-use/rtc.md)                        |  1  |
+|  ⑥  | [WiFi 6 & Bluetooth 5.4](./hardware-use/ante.md)    |  1  |  ⑮  | SPI NOR Flash                                                                                                   |  1  | ㉔  | [eMMC Module Interface](./hardware-use/emmc-ufs-connector.md) |  1  |
+|  ⑦  | [Antenna Connector](./hardware-use/ante.md)         |  1  |  ⑯  | [Gigabit Ethernet (PoE)](./hardware-use/gigabit-ethernet.md)                                                    |  1  | ㉕  | [MIPI CSI Interface](./hardware-use/mipi-csi.md)              |  1  |
+|  ⑧  | [40-Pin GPIO Header](./hardware-use/40-pin-gpio.md) |  1  |  ⑰  | [Fan Connector](./hardware-use/fan.md)                                                                          |  1  | ㉖  | [MicroSD Card Slot](./hardware-use/microsd.md)                |  1  |
+|  ⑨  | LPDDR5 RAM                                          |  1  |  ⑱  | [Headphone Jack](./hardware-use/headphone.md)                                                                   |  1  | ㉗  | [MIPI DSI Interface](./hardware-use/mipi-dsi.md)              |  1  |
 
     </TabItem>
     <TabItem value="ROCK 4D v1.12">
-        <img src="/img/rock4/4d/rock4d-v1.12-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
+        <img src="/en/img/rock4/4d/rock4d-v1.12-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-|  #  |            Description             | Qty |  #  |                                           Description                                           | Qty |  #  |                  Description                  | Qty |
-| :-: | :--------------------------------: | :-: | :-: | :---------------------------------------------------------------------------------------------: | :-: | :-: | :-------------------------------------------: | :-: |
-|  ①  |  [USB Type-C Port ](./usb-type-c)  |  1  |  ⑪  |                                   [Maskrom Button](./maskrom)                                   |  1  | ㉑  |            [HDMI 2.1 接口](./hdmi)            |  1  |
-|  ②  |              User LED              |  1  |  ⑫  |                              [USB 2.0 Type-A Ports](./usb-type-a)                               |  2  | ㉒  |    [Power Input Interface](./power-header)    |  1  |
-|  ③  |             Power LED              |  1  |  ⑬  |                                      Rockchip RK3576（J）                                       |  1  | ㉓  |      [Maskrom Reserved Pads](./maskrom)       |  1  |
-|  ④  |            Power Button            |  1  |  ⑭  | [USB 3.0 Type-A Ports](./usb-type-a)<br />Up：USB 3.0 Type-A OTG<br />Down：USB 3.0 Type-A HOST |  2  | ㉔  | [UFS Module Interface](./emmc-ufs-connector)  |  1  |
-|  ⑤  |  [FPC Connector](./fpc-connector)  |  1  |  ⑮  |                                          SPI NOR Flash                                          |  1  | ㉕  |            [RTC Interface](./rtc)             |  1  |
-|  ⑥  | [WiFi6 & Bluetooth 5.4](./ante.md) |  1  |  ⑯  |                          [Gigabit Ethernet (PoE)](./gigabit-ethernet)                           |  1  | ㉖  | [eMMC Module Interface](./emmc-ufs-connector) |  1  |
-|  ⑦  |    [Antenna Connector](./ante)     |  1  |  ⑰  |                                     [Fan Connector](./fan)                                      |  1  | ㉗  |       [MIPI CSI Interface](./mipi-csi)        |  1  |
-|  ⑧  |  [40 Pin GPIO Header](./pin-gpio)  |  1  |  ⑱  |                                  [Headphone Jack](./headphone)                                  |  1  | ㉘  |        [MicroSD Card Slot](./microsd)         |  1  |
-|  ⑨  |             LPDDR5 RAM             |  1  |  ⑲  |                                [MIPI CSI Interface](./mipi-csi)                                 |  1  | ㉙  |       [MIPI DSI Interface](./mipi-dsi)        |  1  |
-|  ⑩  |   [PoE Port](./gigabit-ethernet)   |  1  |  ⑳  |                                      Speaker Reserved Pads                                      |  1  |     |                                               |     |
+|  #  |                     Description                     | Qty |  #  |                                                   Description                                                   | Qty |  #  |                          Description                          | Qty |
+| :-: | :-------------------------------------------------: | :-: | :-: | :-------------------------------------------------------------------------------------------------------------: | :-: | :-: | :-----------------------------------------------------------: | :-: |
+|  ①  |  [USB Type-C Port ](./hardware-use/usb-type-c.md)   |  1  |  ⑪  |                                   [Maskrom Button](./hardware-use/maskrom.md)                                   |  1  | ㉑  |              [HDMI 2.1](./hardware-use/hdmi.md)               |  1  |
+|  ②  |                      User LED                       |  1  |  ⑫  |                              [USB 2.0 Type-A Ports](./hardware-use/usb-type-a.md)                               |  2  | ㉒  |    [Power Input Interface](./hardware-use/power_header.md)    |  1  |
+|  ③  |                      Power LED                      |  1  |  ⑬  |                                              Rockchip RK3576（J）                                               |  1  | ㉓  |      [Maskrom Reserved Pads](./hardware-use/maskrom.md)       |  1  |
+|  ④  |                    Power Button                     |  1  |  ⑭  | [USB 3.0 Type-A Ports](./hardware-use/usb-type-a.md)<br />Up：USB 3.0 Type-A OTG<br />Down：USB 3.0 Type-A HOST |  2  | ㉔  | [UFS Module Interface](./hardware-use/emmc-ufs-connector.md)  |  1  |
+|  ⑤  |  [FPC Connector](./hardware-use/hfpc-connector.md)  |  1  |  ⑮  |                                                  SPI NOR Flash                                                  |  1  | ㉕  |            [RTC Interface](./hardware-use/rtc.md)             |  1  |
+|  ⑥  |   [WiFi6 & Bluetooth 5.4](./hardware-use/ante.md)   |  1  |  ⑯  |                          [Gigabit Ethernet (PoE)](./hardware-use/gigabit-ethernet.md)                           |  1  | ㉖  | [eMMC Module Interface](./hardware-use/emmc-ufs-connector.md) |  1  |
+|  ⑦  |     [Antenna Connector](./hardware-use/ante.md)     |  1  |  ⑰  |                                     [Fan Connector](./hardware-use/fan.md)                                      |  1  | ㉗  |       [MIPI CSI Interface](./hardware-use/mipi-csi.md)        |  1  |
+|  ⑧  | [40 Pin GPIO Header](./hardware-use/40-pin-gpio.md) |  1  |  ⑱  |                                  [Headphone Jack](./hardware-use/headphone.md)                                  |  1  | ㉘  |        [MicroSD Card Slot](./hardware-use/microsd.md)         |  1  |
+|  ⑨  |                     LPDDR5 RAM                      |  1  |  ⑲  |                                [MIPI CSI Interface](./hardware-use/mipi-csi.md)                                 |  1  | ㉙  |       [MIPI DSI Interface](./hardware-use/mipi-dsi.md)        |  1  |
+|  ⑩  |   [PoE Port](./hardware-use/gigabit-ethernet.md)    |  1  |  ⑳  |                                              Speaker Reserved Pads                                              |  1  |     |                                                               |     |
 
     </TabItem>
 
 </Tabs>
-
-<div style={{textAlign: 'center'}}>
-    <img src="/img/rock4/4d/rock4d-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
 
 - User LED
 
