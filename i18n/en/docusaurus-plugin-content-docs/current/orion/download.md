@@ -157,8 +157,8 @@ The following are schematics, component placement diagrams, and 3D files require
         | Resource Type     | Filename                                          | Format | Download Link                                                                                                                                                                                                 |
         | :---------------- | :------------------------------------------------ | :----- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
         | Schematic         | `radxa_orion_o6_schematic_v1.20`                 | PDF    | [Download](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_schematic.pdf)                                                                                                                              |
-        | Top Silkscreen   | `radxa_orion_o6_components_placement_map_top_v1.20` | PDF    | [Download](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_top.pdf)                                                                                                          |
-        | Bottom Silkscreen| `radxa_orion_o6_components_placement_map_bot_v1.20` | PDF    | [Download](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_bot.pdf)                                                                                                          |
+        | Components Placement Map（Top）  | `radxa_orion_o6_components_placement_map_top_v1.20` | PDF    | [Download](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_top.pdf)                                                                                                          |
+        | Components Placement Map（Bottom）| `radxa_orion_o6_components_placement_map_bot_v1.20` | PDF    | [Download](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_bot.pdf)                                                                                                          |
         | 3D Model         | `radxa_orion_o6_io_shield_3d`                    | STP    | [Download](https://dl.radxa.com/orion/o6/hw/RADXA_ROCK_Orion_O6_IO_shield_3D.zip)                                                                                                                           |
     </TabItem>
     <TabItem value="Orion O6N">
@@ -166,8 +166,7 @@ The following are schematics, component placement diagrams, and 3D files require
         | Resource Type     | Filename | Format | Download Link |
         | :---------------- | :------- | :----- | :------------ |
         | Schematic         | -        | PDF    | Coming Soon   |
-        | Top Silkscreen    | -        | PDF    | Coming Soon   |
-        | Bottom Silkscreen | -        | PDF    | Coming Soon   |
+        | Components Placement Map  | -        | PDF    | Coming Soon   |
         | 3D Model          | -        | STP    | Coming Soon   |
     </TabItem>
 </Tabs>
