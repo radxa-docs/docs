@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-## Building the Ubuntu kernel
+# Building the Ubuntu kernel
 
 ## Build Preparation
 
