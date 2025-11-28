@@ -42,7 +42,7 @@ Supports booting from MicroSD cards and onboard UFS.
 
 - [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b1/radxa-cubie-a7z_bullseye_kde_b1.output_512.img.xz) (MicroSD Card)
 
-- [Radxa Cubie A7Z Debian 12](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b2/radxa-cubie-a7z_bullseye_kde_b2.output_4096.img.xz) (UFS)
+- [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b2/radxa-cubie-a7z_bullseye_kde_b2.output_4096.img.xz) (UFS)
 
 :::tip A733 Unified System Image
 
