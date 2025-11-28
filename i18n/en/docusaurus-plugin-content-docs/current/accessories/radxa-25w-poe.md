@@ -34,6 +34,8 @@ Radxa 25W PoE HAT supports the following Radxa products:
 - Equipped with a customizable Cooling Fan delivering 1.45CFM for processor cooling
   - Size: 20 x 20 mm
   - Speed: 15000 ± 15%RPM
+- 12V DC Output
+  - 1x 2-Pin 3.5mm Plug-in PCB Terminal Block
 
 ## Mechanical Diagram
 
