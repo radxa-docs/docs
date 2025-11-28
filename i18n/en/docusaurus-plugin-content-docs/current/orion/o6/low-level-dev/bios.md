@@ -4,52 +4,52 @@ sidebar_position: 10
 
 import BIOS from '../../../common/orion-common/low-level-dev/\_bios.mdx';
 
-# 更新 BIOS 固件
+# Update BIOS Firmware
 
-<BIOS board="星睿 O6" power="20V Type-C 电源适配器" download_page="../../download#android" tag="o6" />
+<BIOS board="Radxa Orion O6" power="20V Type-C Power Adapter" download_page="../../download" tag="o6" />
 
-## 使用烧录器更新 BIOS 固件
+## Update BIOS Firmware Using a Programmer
 
-对于需要从损坏的 BIOS 中恢复或偏好直接硬件访问的高级用户，可以使用 Serial Flash 编程器（如 CH341A ）将BIOS固件（cix_flash_all.bin）直接刷写到 SPI NOR Flash 芯片中。此方法完全绕过操作系统，即使在设备无法启动的情况下也能工作。
+For advanced users who need to recover from a corrupted BIOS or prefer direct hardware access, you can use a Serial Flash programmer (such as CH341A) to flash the BIOS firmware (cix_flash_all.bin) directly to the SPI NOR Flash chip. This method completely bypasses the operating system and works even if the device cannot boot.
 
-### 拆卸 SPI Flash 芯片
+### Remove the SPI Flash Chip
 
-拆卸 SPI Flash 芯片步骤：
+Steps to remove the SPI Flash chip:
 
-① : 找到主板上 SPI Flash 芯片的安装位置
+① : Locate the SPI Flash chip on the motherboard
 
-② : 打开 SPI Flash 右边的卡扣盖子
+② : Open the right latch cover of the SPI Flash
 
-③ : 打开 SPI Flash 左边的卡扣盖子
+③ : Open the left latch cover of the SPI Flash
 
-完成以上步骤后，使用镊子将 SPI Flash 芯片从主板上取下
+After completing the above steps, use tweezers to remove the SPI Flash chip from the motherboard
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/orion/o6/o6_spi_uninstall.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/orion/o6/o6_spi_uninstall.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### 烧录 BIOS 固件
+### Flash the BIOS Firmware
 
-有关详细的步骤说明和硬件要求，请参阅社区成员 Meco 提供的全面 [论坛指南](https://forum.radxa.com/t/guide-flash-bios-with-ch341a-macos-linux/26742)。
+For detailed instructions and hardware requirements, please refer to the comprehensive [forum guide](https://forum.radxa.com/t/guide-flash-bios-with-ch341a-macos-linux/26742) provided by community member Meco.
 
-论坛指南教程所需要的 `cix_flash_all.bin` 文件位于下载 BIOS 包中。
+The `cix_flash_all.bin` file required for the forum guide is located in the downloaded BIOS package.
 
-### 安装 SPI Flash 芯片
+### Install the SPI Flash Chip
 
-① : 将 SPI Flash 芯片安装到主板上
+① : Install the SPI Flash chip onto the motherboard
 
-② : 将 SPI Flash 左边的卡扣盖子安装回去
+② : Reattach the left latch cover of the SPI Flash
 
-③ : 将 SPI Flash 右边的卡扣盖子安装回去
+③ : Reattach the right latch cover of the SPI Flash
 
-:::tip 安装时注意芯片安装的方向和位置
+:::tip Pay attention to the orientation and position of the chip during installation
 
-- 芯片的圆圈对应引脚 1 ，图中用红色小圆圈标注出来了。
-- 安装 SPI Flash 的底座有一个三角箭头，对应 SPI Flash 的引脚 1
+- The circle on the chip corresponds to pin 1, which is marked with a small red circle in the image.
+- The socket for the SPI Flash has a triangular arrow that corresponds to pin 1 of the SPI Flash
 
-你可以通过以上两种方式确认 SPI Flash 的安装方向和位置。
+You can confirm the installation orientation and position of the SPI Flash using the above two methods.
 :::
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/orion/o6/o6_spi_install.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/orion/o6/o6_spi_install.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>

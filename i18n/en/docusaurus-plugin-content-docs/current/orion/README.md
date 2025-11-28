@@ -3,6 +3,6 @@ sidebar_position: 1
 slug: /orion
 ---
 
-# 星睿(Orion)系列
+# Orion Series
 
-星睿(Orion)系列是瑞莎与此芯科技联合推出的高性能单板计算机系列。
+The Orion series is a high-performance single board computer series jointly launched by Radxa and CIX Technology.

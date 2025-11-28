@@ -1,30 +1,30 @@
-## NPU 简介
+## NPU Introduction
 
-瑞莎星睿 O6 / O6N 拥有高达 28.8 TOPS NPU (Neural Processing Unit) 算力，支持 INT4 / INT8 / INT16 / FP16 / BF16 和 TF32 类型的加速。
-此文档主要讲解用户如何使用 CIX P1 NPU SDK 运行基于 NPU 加速推理的人工智能模型和应用。包括模型的编译工具、工具链和一些常见模型案例的使用方法进行逐步讲解。
+Radxa Orion O6 / O6N features up to 28.8 TOPS NPU (Neural Processing Unit) computing power, supporting acceleration for INT4 / INT8 / INT16 / FP16 / BF16, and TF32 data types.
+This document explains how to use the CIX P1 NPU SDK to run AI models and applications with NPU-accelerated inference. It includes step-by-step guides for model compilation tools, toolchains, and example implementations of common models.
 
-## CIX 早鸟计划
+## CIX Early Bird Program
 
-NPU SDK 包含 NOE Compiler 与 CIX AI Model Hub，要获取 SDK 需要通过申请 CIX 早鸟计划来获得。
-申请链接： [CIX 早鸟计划](https://earlybird.cixtech.com/#/)
+The NPU SDK includes NOE Compiler and CIX AI Model Hub. To obtain the SDK, you need to apply for the CIX Early Bird Program.
+Application link: [CIX Early Bird Program](https://earlybird.cixtech.com/#/)
 
-## 安装 NPU SDK (x86 Linux 环境)
+## Install NPU SDK (x86 Linux Environment)
 
-通过 [CIX 早鸟计划](#cix-早鸟计划) 申请后，会有邮件发送到注册邮箱，请按邮件内容下载 SDK
+After applying through the [CIX Early Bird Program](#cix-early-bird-program), you will receive an email with download instructions for the SDK.
 
 ```bash
 tar -xvf nor.tag.gz
 ```
 
 :::tip
-CIX P1 NPU SDK 是安装在 X86 主机上，并要求 python 版本为 3.8。
+The CIX P1 NPU SDK is installed on an X86 host system and requires Python 3.8.
 
-请用户准备好 python3.8 环境，推荐使用 [anaconda](https://www.anaconda.com/download)
+Please prepare a Python 3.8 environment. We recommend using [Anaconda](https://www.anaconda.com/download).
 :::
 
-### 安装 NOE Compiler
+### Install NOE Compiler
 
-NOE Compiler 用于模型的编译，将 ONNX 模型框架的模型格式转换为可以使用 NPU 进行加速推理的模型格式
+NOE Compiler is used for model compilation, converting models from ONNX framework format to a format that can be accelerated by the NPU for inference.
 
 ```bash
 cd noe
@@ -32,17 +32,17 @@ pip3 install -r requirements.txt
 pip3 install ./CixBuilder-6.1.2958.1-py3-none-any.whl
 ```
 
-## ~安装 NOE UMD (Orion O6 / O6N)~
+## ~Install NOE UMD (Orion O6 / O6N)~
 
 :::tip
-~NOE UMD 包以 deb 安装包形式发布，如使用 python api，在创建虚拟环境时请继承系统依赖： **`python3 -m venv --system-site-packages .venv`**~
+~The NOE UMD package is released as a .deb package. If using the Python API, please inherit system dependencies when creating a virtual environment: **`python3 -m venv --system-site-packages .venv`**~
 :::
-~通过 [CIX 早鸟计划](#cix-早鸟计划) 申请后，会有邮件发送到注册邮箱，请按邮件内容下载 UMD (User Mode Driver) deb 包~
+~After applying through the [CIX Early Bird Program](#cix-early-bird-program), you will receive an email with instructions to download the UMD (User Mode Driver) .deb package~
 
 ~`bash
 sudo dpkg -i ./cix-noe-umd_0.01-1_arm64.deb
 ~`~
 
 :::tip
-NOE UMD 已经通过预装的形式安装在 OS 里， 如使用 python api，在创建 python 虚拟环境时请继承系统依赖： **`python3 -m venv --system-site-packages .venv`** 以确保 libnoe 模块可被正确加载
+NOE UMD is pre-installed in the OS. If using the Python API, please inherit system dependencies when creating a Python virtual environment: **`python3 -m venv --system-site-packages .venv`** to ensure the libnoe module is loaded correctly.
 :::

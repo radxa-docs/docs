@@ -1,30 +1,30 @@
-# DeepLabv3 完整示例
+# DeepLabv3 Complete Example
 
-此文档介绍如何使用 CIX P1 NPU SDK 将 [deeplabv3](https://pytorch.org/vision/main/models/generated/torchvision.models.segmentation.deeplabv3_resnet50.html) 转换为 CIX SOC NPU 上可以运行的模型。
+This document explains how to use the CIX P1 NPU SDK to convert [DeepLabv3](https://pytorch.org/vision/main/models/generated/torchvision.models.segmentation.deeplabv3_resnet50.html) into a model that can run on CIX SOC NPU.
 
-整体来讲有四个步骤：
+The overall process consists of four steps:
 :::tip
-步骤1~3 在 x86 主机 Linux 环境下执行
+Steps 1-3 should be executed in a Linux environment on an x86 host
 :::
 
-1. 下载 NPU SDK 并安装 NOE Compiler
-2. 下载模型文件 (代码和脚本)
-3. 编译模型
-4. 部署模型到 Orion O6 / O6N
+1. Download the NPU SDK and install NOE Compiler
+2. Download model files (code and scripts)
+3. Compile the model
+4. Deploy the model to Orion O6 / O6N
 
-## 下载 NPU SDK 并安装 NOE Compiler
+## Download NPU SDK and Install NOE Compiler
 
-请参考 [安装 NPU SDK](./npu-introduction#npu-sdk-安装) 进行 NPU SDK 和 NOE Compiler 的安装.
+Please refer to [Install NPU SDK](./npu-introduction) for NPU SDK and NOE Compiler installation.
 
-## 下载模型文件
+## Download Model Files
 
-在 CIX AI Model Hub 中包含了 DeepLabv3 的所需文件， 请用户按照 [CIX AI Model Hub](./ai-hub#下载-cix-ai-model-hub) 下载
+The CIX AI Model Hub contains all necessary files for DeepLabv3. Please download them according to the [CIX AI Model Hub](./ai-hub) instructions.
 
 ```bash
 cd ai_model_hub/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3
 ```
 
-请确认目录结构是否同下图所示。
+Please verify that the directory structure matches the following:
 
 ```bash
 .
@@ -41,10 +41,10 @@ cd ai_model_hub/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3
 └── Tutorials.ipynb
 ```
 
-## 编译模型
+## Compile the Model
 
 :::tip
-用户可无需从头编译模型，radxa 提供预编译好的 deeplab_v3.cix 模型（可用下面步骤下载），如果使用预编译好的模型，可以跳过“编译模型” 这一步
+You don't need to compile the model from scratch. Radxa provides a pre-compiled deeplab_v3.cix model (downloadable using the command below). If you use the pre-compiled model, you can skip the "Compile the Model" step.
 
 ```bash
 wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/deeplab_v3.cix
@@ -52,37 +52,37 @@ wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/C
 
 :::
 
-### 准备 onnx 模型
+### Prepare ONNX Model
 
-- 下载 onnx 模型
+- Download ONNX Model
 
   [deeplabv3_resnet50.onnx](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/model/deeplabv3_resnet50.onnx)
 
-- 简化模型
+- Simplify the Model
 
-  这里使用 onnxsim 进行模型输入固化和模型简化
+  Use onnxsim for model input shape fixing and model simplification
 
   ```bash
   pip3 install onnxsim onnxruntime
   onnxsim deeplabv3_resnet50.onnx deeplabv3_resnet50-sim.onnx --overwrite-input-shape 1,3,520,520
   ```
 
-### 编译模型
+### Compile the Model
 
-CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Compiler 对模型进行 INT8 量化
+CIX SOC NPU supports INT8 computation. Before compiling the model, we need to quantize the model to INT8 using NOE Compiler.
 
-- 准备校准集
+- Prepare Calibration Dataset
 
-  - 使用 `datasets` 现有校准集
+  - Use the existing calibration dataset in `datasets`
 
     ```bash
     .
     └── calibration_data.npy
     ```
 
-  - 自行准备校准集
+  - Or prepare your own calibration dataset
 
-    在 `test_data` 目录下已经包含多张校准集的图片文件
+    The `test_data` directory already contains multiple image files for calibration
 
     ```bash
     .
@@ -90,7 +90,7 @@ CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Com
     └── 2.jpeg
     ```
 
-    参考以下脚本生成校准文件
+    Use the following script to generate the calibration file
 
     ```python
     import sys
@@ -113,9 +113,9 @@ CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Com
     print("Generate calib dataset success.")
     ```
 
-- 使用 NOE Compiler 量化与编译模型
+- Quantize and Compile the Model with NOE Compiler
 
-  - 制作量化与编译 cfg 配置文件, 请参考以下配置
+  - Create a configuration file for quantization and compilation. Refer to the following configuration:
 
     ```bash
     [Common]
@@ -149,24 +149,26 @@ CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Com
     tiling = fps
     ```
 
-  - 编译模型
+  - Compile the Model
     :::tip
-    如果遇到 cixbuild 报错 `[E] Optimizing model failed! CUDA error: no kernel image is available for execution on the device ...`
-    这意味着当前版本的 torch 不支持此 GPU，请完全卸载当前版本的 torch, 然后在 torch 官网下载最新版本。
+    If you encounter the cixbuild error: `[E] Optimizing model failed! CUDA error: no kernel image is available for execution on the device ...`
+    This means the current version of PyTorch doesn't support your GPU. Please completely uninstall the current PyTorch version and download the latest version from the official PyTorch website.
     :::
     ```bash
     cixbuild ./onnx_deeplab_v3_build.cfg
     ```
 
-## 模型部署
+## Model Deployment
 
-### NPU 推理
+### NPU Inference
 
-将使用 NOE Compiler 编译好的 .cix 格式的模型复制到 Orion O6 / O6N 开发板上进行模型验证
+Copy the compiled .cix model file to your Orion O6 / O6N development board for model validation:
 
 ```bash
 python3 inference_npu.py --images ./test_data/ --model_path ./deeplab_v3.ci
 ```
+
+Example output:
 
 ```bash
 (.venv) radxa@orion-o6:~/NOE/ai_model_hub/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3$ time python3 inference_npu.py --images ./test_data/ --model_path ./deeplab_v3.cix
@@ -185,17 +187,19 @@ user	0m4.314s
 sys	0m0.478s
 ```
 
-结果保存在 `output` 文件夹中
+The results are saved in the `output` directory.
 
 ![deeplab1.webp](/img/orion/o6/deeplab1.webp)
 
-### CPU 推理
+### CPU Inference
 
-使用 CPU 对 onnx 模型进行推理验证正确性，可在 X86 主机上或 Orion O6 / O6N 上运行
+Run inference on the ONNX model using CPU for verification. This can be executed on either an x86 host or Orion O6 / O6N:
 
 ```bash
 python3 inference_onnx.py --images ./test_data/ --onnx_path ./deeplabv3_resnet50-sim.onnx
 ```
+
+Example output:
 
 ```bash
 (.venv) radxa@orion-o6:~/NOE/ai_model_hub/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3$ time python3 inference_onnx.py --images ./test_data/ --onnx_path ./deeplabv3_resnet50-sim.onnx
@@ -204,14 +208,13 @@ save output: onnx_ILSVRC2012_val_00004704.JPEG
 real	0m7.605s
 user	0m33.235s
 sys	0m0.558s
-
 ```
 
-结果保存在 `output` 文件夹中
+The results are saved in the `output` directory.
 ![deeplab2.webp](/img/orion/o6/deeplab2.webp)
 
-可以看到 NPU 和 CPU 上推理的结果一致,但运行速度大幅缩短
+You can see that the inference results are consistent between NPU and CPU, but the NPU provides significantly faster execution speed.
 
-## 参考文档
+## References
 
-论文链接： [Rethinking Atrous Convolution for Semantic Image Segmentation](https://arxiv.org/abs/1706.05587)
+Paper: [Rethinking Atrous Convolution for Semantic Image Segmentation](https://arxiv.org/abs/1706.05587)

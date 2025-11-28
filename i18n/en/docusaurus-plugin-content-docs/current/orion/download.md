@@ -2,173 +2,171 @@
 sidebar_position: 150
 ---
 
-# 资源汇总下载
+# Download Resources
 
-本页按照使用场景整理了瑞莎星睿 Orion O6 / O6N 的下载资源。请先根据你的用途（更新 BIOS / 安装系统 / 硬件设计）选择对应章节，再按具体型号下载文件。
+This page organizes the download resources for Radxa Orion O6 / O6N by use case. Please select the appropriate section based on your needs (update BIOS / install OS / hardware design), then download the files according to your specific model.
 
-:::info 快速导航
+:::info Quick Navigation
 
-- [BIOS 固件](#bios-固件)
-- [系统镜像（Radxa OS / Android / OpenHarmony / Fedora）](#系统镜像)
-- [硬件设计资料](#硬件设计)
+- [BIOS Firmware](#bios-firmware)
+- [System Images (Radxa OS / Android / OpenHarmony / Fedora)](#system-images)
+- [Hardware Design Resources](#hardware-design)
 
 :::
 
-## BIOS 固件
+## BIOS Firmware
 
-瑞莎星睿 O6 和 O6N 使用不同的 BIOS 固件。
+Radxa Orion O6 and O6N use different BIOS firmware.
 
 <Tabs queryString="versions">
-    <TabItem value="星睿 O6">
-#### 瑞莎星睿 O6
-        | 下载平台                                                                            | 文件格式 | 获取方式                                                                                            |
-        | :---------------------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.0.0-3.zip) | `.zip`   | 固件位于压缩包内                                                                                    |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)                | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa` 目录下 |
+    <TabItem value="Orion O6">
+#### Radxa Orion O6
+        | Download Platform                                                                     | Format | How to Access                                                                                          |
+        | :------------------------------------------------------------------------------------ | :----- | :---------------------------------------------------------------------------------------------------- |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.0.0-3.zip)    | `.zip` | Firmware is inside the zip file                                                                       |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)                   | `.deb` | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa` directory |
     </TabItem>
-    <TabItem value="星睿 O6N">
-#### 瑞莎星睿 O6N
-        | 下载平台                                                             | 文件格式 | 获取方式                                                                                            |
-        | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/)                      | `.zip`   | 固件位于压缩包内                                                                                    |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa` 目录下 |
-
+    <TabItem value="Orion O6N">
+#### Radxa Orion O6N
+        | Download Platform                                                      | Format | How to Access                                                                                          |
+        | :-------------------------------------------------------------------- | :----- | :---------------------------------------------------------------------------------------------------- |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/)                       | `.zip` | Firmware is inside the zip file                                                                       |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)  | `.deb` | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa` directory |
     </TabItem>
-
 </Tabs>
 
-:::tip \*.deb 文件解压说明
+:::tip Extracting \*.deb Files
 
-- **Windows**: 可以使用 `7-Zip` 软件解压 `.deb` 文件
-- **Linux**: 可以使用 `KDE Ark` 软件解压 `.deb` 文件
-- **macOS**: 可以使用 `ar -x` 命令解压 `.deb` 文件
+- **Windows**: Use `7-Zip` to extract `.deb` files
+- **Linux**: Use `KDE Ark` to extract `.deb` files
+- **macOS**: Use `ar -x` command to extract `.deb` files
 
 :::
 
-## 系统镜像
+## System Images
 
-:::info 版本说明
+:::info Version Information
 
-- **测试版本**: 以 `t` 开头（如 t1、t2）
-- **正式版本**: 以 `r` 开头（如 r1、r2）
+- **Test Versions**: Start with `t` (e.g., t1, t2)
+- **Release Versions**: Start with `r` (e.g., r1, r2)
 
-最新 Radxa OS 发布页面：[**GitHub Releases**](https://github.com/radxa-build/orion-o6/releases)
+Latest Radxa OS Releases: [**GitHub Releases**](https://github.com/radxa-build/orion-o6/releases)
 :::
 
 ### Radxa OS
 
-瑞莎星睿 O6 和 O6N 使用相同的系统镜像，请根据对应的系统启动介质选择合适的镜像文件。
+Radxa Orion O6 and O6N use the same system images. Please select the appropriate image file based on your boot media.
 
-- **适用型号**：瑞莎星睿 O6 / O6N
-- **推荐场景**：经过瑞莎团队充分定制和测试过的桌面系统，适合日常使用，作为默认系统。
+- **Compatible Models**: Radxa Orion O6 / O6N
+- **Recommended For**: A desktop system fully customized and tested by the Radxa team, suitable for daily use as the default system.
 
-| 镜像文件                                        | 适用介质             | 下载链接                                                                                                                | 说明                                      |
-| :---------------------------------------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------- | :---------------------------------------- |
-| `orion-o6_bookworm_gnome_t2.output_512.img.xz`  | U 盘 / NVMe 固态硬盘 | [下载](https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_512.img.xz)  | - Debian 12 Bookworm<br/>- GNOME 桌面环境 |
-| `orion-o6_bookworm_gnome_t2.output_4096.img.xz` | UFS 模块             | [下载](https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_4096.img.xz) | - Debian 12 Bookworm<br/>- GNOME 桌面环境 |
+| Image File                                      | Media Type           | Download Link                                                                                                               | Description                                          |
+| :---------------------------------------------- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------- |
+| `orion-o6_bookworm_gnome_t2.output_512.img.xz`  | USB Drive / NVMe SSD | [Download](https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_512.img.xz)  | - Debian 12 Bookworm<br/>- GNOME Desktop Environment |
+| `orion-o6_bookworm_gnome_t2.output_4096.img.xz` | UFS Module           | [Download](https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_4096.img.xz) | - Debian 12 Bookworm<br/>- GNOME Desktop Environment |
 
-当您首次启动系统后，需要使用默认的用户名和密码登录。
+After first boot, you'll need to log in with the default credentials.
 
-Radxa OS 的默认凭据如下：
+Default Radxa OS credentials:
 
-| 项目   | 内容    |
-| :----- | :------ |
-| 用户名 | `radxa` |
-| 密码   | `radxa` |
+| Item     | Value   |
+| :------- | :------ |
+| Username | `radxa` |
+| Password | `radxa` |
 
 ### Android
 
-瑞莎星睿 O6 和 O6N 提供不同的 Android 系统镜像，请根据主板型号选择对应的镜像文件。
+Radxa Orion O6 and O6N provide different Android system images. Please select the image file according to your motherboard model.
 
-- **适用场景**：需要 Android 应用生态或影音娱乐的用户。
-- **注意**：O6N 版本正在适配中，仅 O6 可用。
+- **Use Case**: For users who need Android app ecosystem or multimedia entertainment.
+- **Note**: O6N version is under adaptation, currently only O6 is available.
 
 <Tabs queryString="versions">
-    <TabItem value="星睿 O6">
-#### 瑞莎星睿 O6
-        | 类型     | 版本 / 描述                      | 下载链接                                                                                                                                                                                                                             | 备注                           |
-        | :------- | :------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- |
-        | BIOS     | Android BIOS 0.0.1 版本          | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/orion-o6-bios-android-0.0.1.zip)                                                                                       | 用于 Android 系统的 BIOS 固件 |
-        | 系统镜像 | Android 14 RC2 20250903 系统镜像 | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/Radxa_Orion_O6_Android14_RC2_20250903_images.zip)                                                                     | Android 14 RC2 系统镜像        |
+    <TabItem value="Orion O6">
+#### Radxa Orion O6
+        | Type     | Version / Description               | Download Link                                                                                                                                                                                                 | Notes                         |
+        | :------- | :---------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
+        | BIOS     | Android BIOS 0.0.1 Version         | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/orion-o6-bios-android-0.0.1.zip)                                                         | BIOS for Android system      |
+        | Image    | Android 14 RC2 20250903 System Image | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/Radxa_Orion_O6_Android14_RC2_20250903_images.zip)                                       | Android 14 RC2 System Image  |
     </TabItem>
-    <TabItem value="星睿 O6N">
-#### 瑞莎星睿 O6N
-        | 类型     | 版本 / 描述 | 下载链接 | 备注               |
-        | :------- | :---------- | :------- | :----------------- |
-        | 系统镜像 | -           | -        | 目前正在适配中 |
+    <TabItem value="Orion O6N">
+#### Radxa Orion O6N
+        | Type     | Version / Description | Download Link | Notes               |
+        | :------- | :------------------- | :----------- | :----------------- |
+        | Image    | -                    | -            | Currently under adaptation |
     </TabItem>
 </Tabs>
 
-### Openharmony
+### OpenHarmony
 
-瑞莎星睿 O6 和 O6N 提供不同的 OpenHarmony 系统镜像，请根据主板型号选择对应的镜像文件。
+Radxa Orion O6 and O6N provide different OpenHarmony system images. Please select the image file according to your motherboard model.
 
-- **适用场景**：评估或开发 OpenHarmony 相关应用。
-- **注意**：当前仅提供 O6 镜像，O6N 正在适配中。
+- **Use Case**: For evaluating or developing OpenHarmony related applications.
+- **Note**: Currently only O6 image is available, O6N is under adaptation.
 
 <Tabs queryString="versions">
-    <TabItem value="星睿 O6">
-#### 瑞莎星睿 O6
-        | 类型     | 版本 / 描述                   | 下载链接                                                                                                                                                                                                                         | 备注                         |
-        | :------- | :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
-        | BIOS     | OpenHarmony BIOS v1.0 版本    | [下载](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_bios.zip)                                                                                                  | 用于 OpenHarmony BIOS 固件 |
-        | 系统镜像 | OpenHarmony 20251016 系统镜像 | [下载](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_images.zip)                                                                                                | OpenHarmony 系统镜像         |
+    <TabItem value="Orion O6">
+#### Radxa Orion O6
+        | Type     | Version / Description             | Download Link                                                                                                                                                                           | Notes                       |
+        | :------- | :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------- |
+        | BIOS     | OpenHarmony BIOS v1.0 Version    | [Download](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_bios.zip)                                                  | BIOS for OpenHarmony       |
+        | Image    | OpenHarmony 20251016 System Image | [Download](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_images.zip)                                                | OpenHarmony System Image    |
     </TabItem>
-    <TabItem value="星睿 O6N">
-#### 瑞莎星睿 O6N
-        | 类型     | 版本 / 描述 | 下载链接 | 备注             |
-        | :------- | :---------- | :------- | :--------------- |
-        | 系统镜像 | -           | -        | 目前正在适配中 |
+    <TabItem value="Orion O6N">
+#### Radxa Orion O6N
+        | Type     | Version / Description | Download Link | Notes             |
+        | :------- | :------------------- | :----------- | :--------------- |
+        | Image    | -                    | -            | Under adaptation |
     </TabItem>
 </Tabs>
 
 ### Fedora
 
-Fedora 为社区发行版，适合熟悉 Fedora / RPM 生态的高级用户，目前仅提供瑞莎星睿 O6 镜像。
+Fedora is a community distribution suitable for advanced users familiar with Fedora/RPM ecosystem. Currently, only Radxa Orion O6 image is available.
 
 <Tabs queryString="versions">
-    <TabItem value="星睿 O6">
-#### 瑞莎星睿 O6
-        | 文件名                                                       | 下载链接                                                                                                                                                          | 说明                         |
-        | :----------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
-        | `fedora-disk-gnome-workstation_radxa_orion-o6_202501041239` | [下载](https://openkoji.iscas.ac.cn/pub/dist-repos/dl/Radxa/Orion-O6/images/fedora-disk-gnome-workstation_radxa_orion-o6_202501041239.raw.gz)                    | Fedora GNOME Workstation 镜像 |
+    <TabItem value="Orion O6">
+#### Radxa Orion O6
+        | Filename                                                   | Download Link                                                                                                                                               | Description                 |
+        | :---------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
+        | `fedora-disk-gnome-workstation_radxa_orion-o6_202501041239` | [Download](https://openkoji.iscas.ac.cn/pub/dist-repos/dl/Radxa/Orion-O6/images/fedora-disk-gnome-workstation_radxa_orion-o6_202501041239.raw.gz)         | Fedora GNOME Workstation Image |
     </TabItem>
-    <TabItem value="星睿 O6N">
-#### 瑞莎星睿 O6N
-        | 文件名 | 下载链接 | 说明                         |
-        | :----- | :------- | :--------------------------- |
-        | -      | -        | 当前暂不提供 Fedora 系统镜像 |
+    <TabItem value="Orion O6N">
+#### Radxa Orion O6N
+        | Filename | Download Link | Description                 |
+        | :------- | :----------- | :--------------------------- |
+        | -        | -            | Fedora image not yet available |
     </TabItem>
 </Tabs>
 
-Fedora 系统的默认凭据如下：
+Default Fedora credentials:
 
-| 项目   | 内容      |
-| :----- | :-------- |
-| 用户名 | `root`    |
-| 密码   | `aarch64` |
+| Item     | Value     |
+| :------- | :-------- |
+| Username | `root`    |
+| Password | `aarch64` |
 
-## 硬件设计
+## Hardware Design
 
-以下为硬件开发和二次开发所需的原理图、位号图和 3D 文件，请根据具体产品型号选择下载。
+The following are schematics, component placement diagrams, and 3D files required for hardware development and secondary development. Please select the appropriate files according to your specific product model.
 
 <Tabs queryString="versions">
-    <TabItem value="星睿 O6">
-### 瑞莎星睿 O6
-        | 资料类型       | 文件名                                          | 格式 | 下载链接                                                                                                                                                                                                                                                |
-        | :------------- | :---------------------------------------------- | :--- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-        | 原理图         | `radxa_orion_o6_schematic_v1.20`               | PDF  | [下载](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_schematic.pdf)                                                                                                                                                                             |
-        | 位号图（顶层） | `radxa_orion_o6_components_placement_map_top_v1.20` | PDF  | [下载](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_top.pdf)                                                                                                                                                          |
-        | 位号图（底层） | `radxa_orion_o6_components_placement_map_bot_v1.20` | PDF  | [下载](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_bot.pdf)                                                                                                                                                          |
-        | 3D 文件        | `radxa_orion_o6_io_shield_3d`                  | STP  | [下载](https://dl.radxa.com/orion/o6/hw/RADXA_ROCK_Orion_O6_IO_shield_3D.zip)                                                                                                                                                                           |
+    <TabItem value="Orion O6">
+### Radxa Orion O6
+        | Resource Type     | Filename                                          | Format | Download Link                                                                                                                                                                                                 |
+        | :---------------- | :------------------------------------------------ | :----- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+        | Schematic         | `radxa_orion_o6_schematic_v1.20`                 | PDF    | [Download](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_schematic.pdf)                                                                                                                              |
+        | Top Silkscreen   | `radxa_orion_o6_components_placement_map_top_v1.20` | PDF    | [Download](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_top.pdf)                                                                                                          |
+        | Bottom Silkscreen| `radxa_orion_o6_components_placement_map_bot_v1.20` | PDF    | [Download](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_bot.pdf)                                                                                                          |
+        | 3D Model         | `radxa_orion_o6_io_shield_3d`                    | STP    | [Download](https://dl.radxa.com/orion/o6/hw/RADXA_ROCK_Orion_O6_IO_shield_3D.zip)                                                                                                                           |
     </TabItem>
-    <TabItem value="星睿 O6N">
-### 瑞莎星睿 O6N
-        | 资料类型       | 文件名 | 格式 | 下载链接 |
-        | :------------- | :----- | :--- | :------ |
-        | 原理图         | -      | PDF  | 待提供 |
-        | 位号图（顶层） | -      | PDF  | 待提供 |
-        | 位号图（底层） | -      | PDF  | 待提供 |
-        | 3D 文件        | -      | STP  | 待提供 |
+    <TabItem value="Orion O6N">
+### Radxa Orion O6N
+        | Resource Type     | Filename | Format | Download Link |
+        | :---------------- | :------- | :----- | :------------ |
+        | Schematic         | -        | PDF    | Coming Soon   |
+        | Top Silkscreen    | -        | PDF    | Coming Soon   |
+        | Bottom Silkscreen | -        | PDF    | Coming Soon   |
+        | 3D Model          | -        | STP    | Coming Soon   |
     </TabItem>
 </Tabs>

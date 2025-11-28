@@ -2,8 +2,8 @@
 sidebar_position: 60
 ---
 
-# Android 系统
+# Android System
 
-主要介绍 Android 系统的使用与开发。
+Introduction to using and developing with the Radxa Orion O6 Android system.
 
 <DocCardList />

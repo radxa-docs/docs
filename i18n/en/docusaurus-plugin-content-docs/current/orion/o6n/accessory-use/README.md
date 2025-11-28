@@ -2,8 +2,8 @@
 sidebar_position: 70
 ---
 
-# 配件使用
+# Accessory Use
 
-介绍如何使用星睿 O6N 的各种配件。
+This document introduces how to use the various accessories of Orion O6N.
 
 <DocCardList />

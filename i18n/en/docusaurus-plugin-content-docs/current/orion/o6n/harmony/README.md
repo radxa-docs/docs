@@ -2,8 +2,8 @@
 sidebar_position: 60
 ---
 
-# Harmony 系统
+# HarmonyOS System
 
-主要介绍 OpenHarmony 系统的使用与开发。
+This section introduces the usage and development of the OpenHarmony system.
 
 <DocCardList />

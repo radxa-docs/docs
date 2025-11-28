@@ -2,183 +2,183 @@
 sidebar_position: 1
 ---
 
-# 快速上手
+# Quick Start
 
-本节教程目的是为了让大家快速上手使用瑞莎星睿 O6 产品。
+This tutorial is designed to help you quickly get started with the Radxa Orion O6 product.
 
-## 产品实物
+## Product Overview
 
-| 序号 |        视图        | 序号 |        视图        | 序号 |        视图        |
-| :--: | :----------------: | :--: | :----------------: | :--: | :----------------: |
-|  ①   | 瑞莎星睿 O6 正视图 |  ②   | 瑞莎星睿 O6 侧视图 |  ③   | 瑞莎星睿 O6 背视图 |
+| No. |           View            | No. |           View           | No. |           View           |
+| :-: | :-----------------------: | :-: | :----------------------: | :-: | :----------------------: |
+|  ①  | Radxa Orion O6 Front View |  ②  | Radxa Orion O6 Side View |  ③  | Radxa Orion O6 Rear View |
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/orion-o6-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/orion-o6-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## 使用前提
+## Prerequisites
 
-您需要提前准备以下硬件设备：
+You will need the following hardware devices ready in advance:
 
-- 主板：瑞莎星睿 O6
-- 供电：电源适配器
-- 系统启动介质：U 盘（用于安装系统与启动）
-- 显示设备：HDMI / DP 数据线和显示器
-- 输入设备：键盘和鼠标（用于图形界面操作）
-- 调试工具（可选）：USB 串口数据线（用于串口登录）
+- Mainboard: Radxa Orion O6
+- Power Supply: Power adapter
+- Boot Media: USB flash drive (for system installation and booting)
+- Display: HDMI/DP cable and monitor
+- Input Devices: Keyboard and mouse (for GUI operation)
+- Debugging Tool (Optional): USB-to-Serial cable (for serial login)
 
-:::tip 推荐配件
+:::tip Recommended Accessories
 
-- [瑞莎 PD 65W 电源适配器（推荐使用）](https://radxa.com/products/accessories/power-pd-65w)
-- 标准 20V Type-C 电源适配器，建议电流 3A 及以上
+- [Radxa PD 65W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-65w)
+- Standard 20V Type-C power adapter, 3A or higher current recommended
   :::
 
-## 安装系统
+## Installing the System
 
-主要介绍安装系统到 U 盘。
+This section mainly introduces how to install the system to a USB flash drive.
 
-:::warning 重要提醒
+:::warning Important Notice
 
-**安装系统会完全格式化 U 盘，所有数据将被永久删除！**
+**Installing the system will completely format the USB drive, and all data will be permanently deleted!**
 
-请在操作前确认：
+Please confirm before proceeding:
 
-- U 盘中无重要数据或已完成资料备份
-- 选择正确的存储设备，避免格式化其他磁盘
+- There is no important data on the USB drive or you have backed up all data
+- Select the correct storage device to avoid formatting other disks
 
 :::
 
-### 硬件连接
+### Hardware Connection
 
-将 U 盘插入电脑的 USB 接口。
+Insert the USB flash drive into your computer's USB port.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/install-system/u-disk.webp"
+    src="/en/img/common/radxa-os/install-system/u-disk.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-### 下载系统镜像
+### Download System Image
 
-请访问 [资源汇总下载](../../download) 页面，下载 **系统镜像**。
+Please visit the [Download Resources](../../download) page to download the **system image**.
 
-:::tip 软件使用
+:::tip Software Usage
 
-该镜像文件为 `.img.xz` 格式的压缩包，下载后需要先解压，得到 `.img` 格式的镜像文件才能使用。
+The image file is in `.img.xz` compressed format. After downloading, you need to extract it to get the `.img` format image file before use.
 
 :::
 
-### 安装系统镜像
+### Install System Image
 
-使用 Balena Etcher 软件可以将系统镜像安装到 U 盘中。
+Use Balena Etcher software to install the system image to the USB drive.
 
 :::tip Balena Etcher
-对于 Balena Etcher 的安装和使用，可以参考 [Etcher 使用](/common/radxa-os/install-system/balena-etcher) 教程。
+For installation and usage of Balena Etcher, please refer to the [Etcher Usage](/common/radxa-os/install-system/balena-etcher) tutorial.
 :::
 
-#### 选择系统镜像
+#### Select System Image
 
-点击 `Flash from file` 选项，选择自己提前下载并解压好的系统镜像文件。
+Click the `Flash from file` option and select the system image file you downloaded and extracted earlier.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/install-system/etcher-select-image-udisk.webp"
+    src="/en/img/common/radxa-os/install-system/etcher-select-image-udisk.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-#### 选择存储设备
+#### Select Storage Device
 
-点击 `Select target` 选项，选择 U 盘设备。
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/img/common/radxa-os/install-system/etcher-select-udisk-01.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
+Click the `Select target` option and choose the USB drive device.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/radxa-os/install-system/etcher-select-udisk-02.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
-
-#### 开始烧录
-
-点击 `Flash!` 选项，开始烧录系统镜像到 U 盘中。
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/img/common/radxa-os/install-system/etcher-flash-udisk.webp"
+    src="/en/img/common/radxa-os/install-system/etcher-select-udisk-01.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
 <div style={{ textAlign: "center" }}>
-  等待系统安装完成
   <img
-    src="/img/common/radxa-os/install-system/etcher-flashing-udisk.webp"
+    src="/en/img/common/radxa-os/install-system/etcher-select-udisk-02.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Start Flashing
+
+Click the `Flash!` option to start flashing the system image to the USB drive.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-flash-udisk.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
 <div style={{ textAlign: "center" }}>
-  等待系统校验完成
+  Waiting for system installation to complete
   <img
-    src="/img/common/radxa-os/install-system/etcher-valid-udisk.webp"
+    src="/en/img/common/radxa-os/install-system/etcher-flashing-udisk.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
 <div style={{ textAlign: "center" }}>
-  成功安装系统镜像后，关闭 Etcher 软件！
+  Waiting for system verification to complete
   <img
-    src="/img/common/radxa-os/install-system/etcher-completed-udisk.webp"
+    src="/en/img/common/radxa-os/install-system/etcher-valid-udisk.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-## 启动系统
+<div style={{ textAlign: "center" }}>
+  After successfully installing the system image, close the Etcher software!
+  <img
+    src="/en/img/common/radxa-os/install-system/etcher-completed-udisk.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
 
-完成系统的安装后，将 U 盘插到到瑞莎星睿 O6 的 USB 接口，然后使用电源适配器给瑞莎星睿 O6 供电，即可启动系统。
+## Booting the System
+
+After completing the system installation, insert the USB drive into the Radxa Orion O6's USB port, then power on the Radxa Orion O6 using the power adapter to boot the system.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/orion-o6-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/orion-o6-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① ：安装 U 盘
+① : Insert USB drive
 
-② ：使用 HDMI / DP 数据线连接显示器和主板
+② : Connect the monitor to the mainboard using HDMI/DP cable
 
-③ ：使用电源适配器给瑞莎星睿 O6 供电
+③ : Power on the Radxa Orion O6 with the power adapter
 
-系统启动正常后，电源指示灯绿色亮起，状态指示灯蓝色闪烁。
+When the system boots normally, the power indicator will light up green and the status indicator will flash blue.
 
-## 登录系统
+## Logging into the System
 
-当您首次启动系统后，需要使用默认的用户名和密码登录。
+When you start the system for the first time, you need to log in using the default username and password.
 
-Radxa OS 的默认凭据如下：
+The default credentials for Radxa OS are as follows:
 
-| 项目   | 内容    |
-| :----- | :------ |
-| 用户名 | `radxa` |
-| 密码   | `radxa` |
+| Item     | Content |
+| :------- | :------ |
+| Username | `radxa` |
+| Password | `radxa` |
 
-## 使用系统
+## Using the System
 
-成功登录系统后，您就可以在瑞莎星睿 O6 上进行系统配置与开发。
+After successfully logging in, you can proceed with system configuration and development on your Radxa Orion O6.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6n/orion-o6n-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6n/orion-o6n-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-:::tip 其它启动系统方式
-对于想通过其它方式启动系统的用户（如 UFS、NVMe SSD 启动系统），可以参考下面教程完成对应系统启动介质安装系统：
+:::tip Alternative Boot Methods
+For users who want to boot the system in other ways (such as UFS, NVMe SSD), please refer to the following tutorials to complete the system installation on the corresponding boot media:
 
-- [安装系统到 NVMe 固态硬盘](./install-system/nvme-system/)
+- [Install System to NVMe SSD](./install-system/nvme-system/)
 
 :::

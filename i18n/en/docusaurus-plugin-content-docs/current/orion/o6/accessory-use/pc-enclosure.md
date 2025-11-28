@@ -2,186 +2,186 @@
 sidebar_position: 10
 ---
 
-# 机箱安装指南
+# PC Enclosure Installation Guide
 
-## 机箱兼容性要求
+## Case Compatibility Requirements
 
-**瑞莎星睿 O6** 采用 **Mini-ITX** 规格（170mm × 170mm），兼容标准 **Mini-ITX** 机箱。在选择机箱时，请确保：
+The **Radxa O6** adopts the **Mini-ITX** form factor (170mm × 170mm) and is compatible with standard **Mini-ITX** chassis. When selecting a chassis, please ensure:
 
-- 主板上方至少有 **25mm** 的间隙，以容纳散热器等组件
-- 机箱具有良好的散热通风设计
-- 如使用 ATX 电源，机箱需支持标准 **ATX 电源**
-- 前面板接口需与主板兼容
-- 机箱内有足够的空间可安装 PCIe 设备（如有需求）
+- At least **25mm** of clearance above the motherboard to accommodate cooling components
+- The chassis has good thermal ventilation design
+- If using an ATX power supply, the chassis must support standard **ATX power supplies**
+- Front panel interfaces must be compatible with the motherboard
+- Sufficient space inside the chassis for PCIe device installation (if needed)
 
-## 散热安装
+## Cooling Installation
 
-**瑞莎星睿 O6** 默认预装 **散热器和风扇**。如果您想更换散热器，请参考以下说明。有关 **预装散热器的拆装指南**，请查看 [**散热器 8420B 拆装**](../heatsink-8240b)。
+The **Radxa O6** comes with a **pre-installed heatsink and fan** by default. If you wish to replace the heatsink, please refer to the following instructions. For the **disassembly guide of the pre-installed heatsink**, please check [**Heatsink 8420B Disassembly**](../heatsink-8240b).
 
-### **CPU 散热**
+### **CPU Cooling**
 
-- **安装孔距**：75mm × 75mm
-- **支持类型**：主动散热和被动散热
-- **推荐 TDP 处理能力**：30W
+- **Mounting hole spacing**: 75mm × 75mm
+- **Supported types**: Active and passive cooling
+- **Recommended TDP handling capacity**: 30W
 
-### **风扇安装**
+### **Fan Installation**
 
-- 4 针 PWM 风扇接口
-- 支持转速监测
-- 可通过 UEFI 进行风扇控制
+- 4-pin PWM fan connector
+- Supports speed monitoring
+- Fan control available through UEFI
 
-### **散热注意事项**
+### **Cooling Notes**
 
-- 若更换散热器，请涂抹适量 **导热膏**
-- 确保散热器与 SoC **良好接触**
-- 机箱内部需保持 **良好气流**，避免散热受阻
+- Apply an appropriate amount of **thermal paste** when replacing the heatsink
+- Ensure **good contact** between the heatsink and SoC
+- Maintain **good airflow** inside the chassis to prevent thermal throttling
 
-### **温度监测**
+### **Temperature Monitoring**
 
-- **工作温度范围**：0°C ~ 40°C
-- **80°C 以上可能触发降频**
-- 通过 **系统工具** 监测温度
+- **Operating temperature range**: 0°C ~ 40°C
+- **Thermal throttling may occur above 80°C**
+- Monitor temperatures using **system tools**
 
-## 主板安装
+## Motherboard Installation
 
-### **准备机箱**
+### **Preparing the Chassis**
 
-1. 取下机箱侧板及任何防护盖
-2. 在机箱中安装 **Mini-ITX** 规格的支撑螺柱
-3. 确保 **机箱与主板** 之间的正确接地
+1. Remove the side panel and any protective covers from the chassis
+2. Install **Mini-ITX** standoffs in the chassis
+3. Ensure proper grounding between the **chassis and motherboard**
 
-### **安装主板**
+### **Installing the Motherboard**
 
-1. 将主板与预装的支撑螺柱对齐
-2. 将 **I/O 挡板** 与机箱后部开口匹配
-3. 使用 **4 颗 M3 螺丝** 固定主板：
-   - 先将两颗螺丝分别拧入对角螺丝孔并稍作拧紧。
-   - 检查主板位置，如需调整，松开已拧螺丝并调整后重新拧紧。
-   - 再将另外两颗螺丝依次拧紧，确保主板牢固固定。
-4. **推荐扭矩**：0.5 Nm
+1. Align the motherboard with the pre-installed standoffs
+2. Match the **I/O shield** with the rear chassis opening
+3. Secure the motherboard using **four M3 screws**:
+   - First, partially tighten two diagonal screws.
+   - Check the motherboard position; if adjustment is needed, loosen the screws, adjust, and retighten.
+   - Then tighten the remaining two screws to ensure the motherboard is firmly secured.
+4. **Recommended torque**: 0.5 Nm
 
-![安装孔位](/img/orion/o6/mounting_holes.webp)
+![Mounting Holes](/img/orion/o6/mounting_holes.webp)
 
-## 前面板连接
+## Front Panel Connections
 
-请按照以下步骤连接机箱前面板的接口：
+Follow these steps to connect the front panel interfaces:
 
-### **1. 电源按钮 & 指示灯接口**
+### **1. Power Button & LED Headers**
 
 ```
-2-4: 电源 LED +/-
-6-8: 电源开关
-5-7: 复位按钮
-1-3: 硬盘 LED
+2-4: Power LED +/-
+6-8: Power Switch
+5-7: Reset Button
+1-3: HDD LED
 ```
 
-![前面板接口](/img/orion/o6/front_panel.webp)
+![Front Panel Headers](/img/orion/o6/front_panel.webp)
 
-### **2. USB 2.0 接口**
+### **2. USB 2.0 Headers**
 
-- 支持 **两个 USB 2.0 端口**
-- **Pin 1** 位置标有三角形
-- 连接时需注意方向
+- Supports **two USB 2.0 ports**
+- **Pin 1** is marked with a triangle
+- Pay attention to the orientation when connecting
 
-### **3. 音频接口**
+### **3. Audio Header**
 
-- **兼容 HD Audio**
-- **支持前面板 3.5mm 音频插口**
-- **Pin 1** 位置标识方向
+- **HD Audio compatible**
+- **Supports front panel 3.5mm audio jack**
+- **Pin 1** indicates the orientation
 
-![前 USB 2.0 & 音频接口](/img/orion/o6/front_usb_audio.webp)
+![Front USB 2.0 & Audio Headers](/img/orion/o6/front_usb_audio.webp)
 
-### **如何安装电源按钮、复位按钮及 LED 接口**
+### **How to Install Power Button, Reset Button, and LED Headers**
 
-- 在 **瑞莎星睿 O6** 主板上找到 **F_PANEL 接口**，该接口用于连接 **电源、复位按钮、电源状态灯和硬盘状态灯**。
+- Locate the **F_PANEL header** on the **Radxa O6** motherboard, which is used to connect the **power button, reset button, power LED, and HDD LED**.
 
-- 按照下图顺序，将各个接口正确插入，并注意 **正负极**。
+- Follow the diagrams below to correctly connect each header, paying attention to **polarity**.
 
-- **电源 LED**
+- **Power LED**
 
-  ![电源 LED](/img/orion/o6/front_panel_01.webp)
+  ![Power LED](/img/orion/o6/front_panel_01.webp)
 
-- **电源按钮**
+- **Power Button**
 
-  ![电源按钮](/img/orion/o6/front_panel_02.webp)
+  ![Power Button](/img/orion/o6/front_panel_02.webp)
 
-- **复位按钮**
+- **Reset Button**
 
-  ![复位按钮](/img/orion/o6/front_panel_03.webp)
+  ![Reset Button](/img/orion/o6/front_panel_03.webp)
 
-### **如何安装前置 USB 2.0 接口**
+### **How to Install Front USB 2.0 Header**
 
-- 在主板上找到 **F_USB 接口**，该接口用于连接 **前面板 USB 2.0 端口**。
+- Locate the **F_USB header** on the motherboard, which is used to connect the **front panel USB 2.0 ports**.
 
-- 该接口具有 **防呆设计**：实际为 **10 针插座**，但其中 **一个针脚缺失**，可避免误插。安装时，对齐 **缺失的针脚** 并插入。
+- This header features a **foolproof design**: it's actually a **10-pin socket** with **one pin missing** to prevent incorrect insertion. When installing, align the **missing pin** and insert the connector.
 
-![前置 USB 2.0](/img/orion/o6/front_usb_01.webp)
+![Front USB 2.0](/img/orion/o6/front_usb_01.webp)
 
-### **如何安装前置音频接口**
+### **How to Install Front Audio Header**
 
-- 在主板上找到 **F_AUDIO 接口**，该接口用于连接 **前面板音频端口**。
+- Locate the **F_AUDIO header** on the motherboard, which is used to connect the **front panel audio port**.
 
-- 该接口同样为 **10 针设计**，但 **实际只包含 9 针**，安装时请对齐 **缺失的针脚** 进行正确插入。
+- This header also follows a **10-pin design** but **actually only has 9 pins**. When installing, align the **missing pin** for correct insertion.
 
-![前置音频](/img/orion/o6/front_audio_01.webp)
+![Front Audio](/img/orion/o6/front_audio_01.webp)
 
-## 额外组件安装
+## Additional Component Installation
 
-### **1. 存储设备安装**
+### **1. Storage Device Installation**
 
-- **M.2 M-Key 插槽**：用于 **NVMe SSD**
-  - 支持 **PCIe Gen4 x4**
-  - 适用于 **2280 规格**
-- 使用 **固定螺丝** 进行安装
+- **M.2 M-Key Slot**: For **NVMe SSD**
+  - Supports **PCIe Gen4 x4**
+  - Compatible with **2280 form factor**
+- Use the **retention screw** for installation
 
-### **2. 无线网卡安装**
+### **2. Wireless Network Card Installation**
 
-- **M.2 E-Key 插槽**：
-  - 支持 **PCIe Gen4 x2 + USB**
-  - 兼容 **标准 WiFi/蓝牙模块**
-- 若使用 **无线网卡**，请安装 **天线**
+- **M.2 E-Key Slot**:
+  - Supports **PCIe Gen4 x2 + USB**
+  - Compatible with **standard WiFi/Bluetooth modules**
+- If using a **wireless network card**, install the **antennas**
 
-### **3. PCIe 设备安装**
+### **3. PCIe Device Installation**
 
-- **x16 插槽**（实际工作在 **x8 Gen4**）
-- **支持全长 PCIe 设备**
-- **确保机箱内有足够的安装空间**
-- **使用支架螺丝固定设备**
+- **x16 Slot** (actually operates at **x8 Gen4**)
+- **Supports full-length PCIe devices**
+- **Ensure sufficient installation space in the chassis**
+- **Secure the device with bracket screws**
 
-![NVMe SSD 与无线模块安装](/img/orion/o6/nvme_ssd_wireless_module_01.webp)
+![NVMe SSD and Wireless Module Installation](/img/orion/o6/nvme_ssd_wireless_module_01.webp)
 
-## 电源连接
+## Power Connections
 
-**瑞莎星睿 O6** 支持 **多种电源输入方式**：
+The **Radxa O6** supports **multiple power input methods**:
 
-### **1. ATX 电源（推荐用于桌面端）**
+### **1. ATX Power Supply (Recommended for Desktop Use)**
 
-- 连接 **24 针 ATX 电源接口**
-- 确保 **电源至少 65W**
-- **建议**：使用 **120W 或更高** 以获得最佳性能
+- Connect the **24-pin ATX power connector**
+- Ensure the **power supply is at least 65W**
+- **Recommendation**: Use **120W or higher** for optimal performance
 
-### **2. 电源接入顺序**
+### **2. Power Connection Sequence**
 
-1. 连接 **电源至主板**
-2. 连接 **电源至 AC 插座**
-3. 打开 **电源后再启动系统**
+1. Connect the **power supply to the motherboard**
+2. Connect the **power supply to the AC outlet**
+3. Turn on the **power supply before booting the system**
 
-### **安装 ATX 电源接口**
+### **Installing the ATX Power Connector**
 
-- 在安装前，**确保 ATX 电源断电**，以避免硬件损坏。
+- Before installation, **ensure the ATX power supply is unplugged** to prevent hardware damage.
 
-- **对齐 ATX 电源插头** 与 **主板上的 24 针 ATX 电源插座**，确保插头上的缺口对准插座的凸起，以保证正确方向。
+- **Align the ATX power connector** with the **24-pin ATX power socket** on the motherboard, ensuring the notch on the connector matches the protrusion on the socket for correct orientation.
 
-- **用双手稳固插入**，确保 **水平插入**，避免倾斜。插入时会听到 **轻微的 "咔嗒" 声**，表示已正确安装。
+- **Insert firmly with both hands**, ensuring **level insertion** without tilting. You should hear a **slight "click"** when properly installed.
 
-![ATX 电源接口](/img/orion/o6/atx_power_01.webp)
+![ATX Power Connector](/img/orion/o6/atx_power_01.webp)
 
-## 安装完成检查清单
+## Installation Completion Checklist
 
-- [ ] **所有螺丝** 是否已拧紧
-- [ ] **电源连接** 是否牢固
-- [ ] **前面板接口** 是否正确连接
-- [ ] **散热方案** 是否安装妥当
-- [ ] **存储设备** 是否已固定
-- [ ] **PCIe 设备** 是否插牢
-- [ ] **机箱内是否有松动的线材或组件**
+- [ ] **All screws** are properly tightened
+- [ ] **Power connections** are secure
+- [ ] **Front panel headers** are correctly connected
+- [ ] **Cooling solution** is properly installed
+- [ ] **Storage devices** are securely mounted
+- [ ] **PCIe devices** are firmly seated
+- [ ] **No loose cables or components** inside the chassis

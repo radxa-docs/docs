@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# 快速上手
+# Quick Start
 
-正在适配中！
+Adaptation in progress!

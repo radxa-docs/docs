@@ -4,42 +4,42 @@ sidebar_position: 1
 
 import UART from '../../../common/radxa-os/system-config/\_uart_debug.mdx';
 
-# 串口登录
+# UART Login
 
-串口登录是嵌入式开发中通过串行通信接口 (UART) 与主板交互的核心手段，通过串口工具可以查看系统输出的日志和进行命令行交互。
+UART login is a core method in embedded development for interacting with the motherboard through a serial communication interface (UART). Using a UART tool, you can view system logs and perform command-line interactions.
 
-## 硬件连接
+## Hardware Connection
 
 :::danger
-使用 USB 串口数据线和瑞莎星睿 O6 进行串口登录时，请确保引脚连接正确，接错引脚可能会导致主板硬件损坏。
+When using a USB-to-UART cable for UART login with Radxa Orion O6, ensure the pins are connected correctly. Incorrect connections may damage the motherboard hardware.
 
-不建议连接 USB 串口数据线的 VCC 接口（红色线），避免接错导致主板损坏。
+It is not recommended to connect the VCC interface (red wire) of the USB-to-UART cable to avoid potential motherboard damage from incorrect connections.
 :::
 
-将 USB 串口数据线连接到 O6 的 UART 接口，另一端连接到 PC 的 USB 端口。
+Connect the USB-to-UART cable to the UART interface of the O6 and the other end to a USB port on your PC.
 
-说明：请根据厂商的 USB 串口线引脚定义进行连接，图中示例为常见的 USB 串口线引脚定义。
+Note: Please connect according to the pin definition of your USB-to-UART cable. The image below shows a common USB-to-UART cable pin definition.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/orion/o6/orion-o6-serial.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/orion/o6/orion-o6-serial.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-| O6 引脚功能    | 连接方式                                           |
-| -------------- | -------------------------------------------------- |
-| O6 : GND       | O6 的 GND 引脚连接 USB 串口数据线的 GND 引脚       |
-| O6 : UART2_TXD | O6 的 UART2_TXD 引脚连接 USB 串口数据线的 RXD 引脚 |
-| O6 : UART2_RXD | O6 的 UART2_RXD 引脚连接 USB 串口数据线的 TXD 引脚 |
+| O6 Pin Function | Connection Method                                                  |
+| --------------- | ------------------------------------------------------------------ |
+| O6 : GND        | Connect O6's GND pin to the GND pin of the USB-to-UART cable       |
+| O6 : UART2_TXD  | Connect O6's UART2_TXD pin to the RXD pin of the USB-to-UART cable |
+| O6 : UART2_RXD  | Connect O6's UART2_RXD pin to the TXD pin of the USB-to-UART cable |
 
-## 串口登录
+## UART Login
 
 :::info
-串口通讯参数
+UART Communication Parameters
 
-- 波特率：115200
-- 数据位：8
-- 停止位：1
-- 校验位：无
-- 流控：无
+- Baud Rate: 115200
+- Data Bits: 8
+- Stop Bits: 1
+- Parity: None
+- Flow Control: None
   :::
 
 <UART baud="115200"/>

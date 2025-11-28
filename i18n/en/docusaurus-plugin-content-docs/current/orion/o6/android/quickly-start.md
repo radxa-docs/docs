@@ -4,6 +4,6 @@ sidebar_position: 1
 
 import QuicklyStart from '../../../common/orion-common/android/\_quickly-start.mdx';
 
-# 快速上手
+# Quick Start
 
-<QuicklyStart board="星睿 O6" power="USB-C 20V 电源适配器（兼容 PD 协议）" download_page="../../download#android" />
+<QuicklyStart board="Radxa Orion O6" power="USB-C 20V Power Adapter (PD Compatible)" download_page="../../download#android" />

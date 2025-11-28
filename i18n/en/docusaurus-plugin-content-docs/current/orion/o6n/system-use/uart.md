@@ -4,42 +4,42 @@ sidebar_position: 1
 
 import UART from '../../../common/radxa-os/system-config/\_uart_debug.mdx';
 
-# 串口登录
+# UART Login
 
-串口登录是嵌入式开发中通过串行通信接口 (UART) 与主板交互的核心手段，通过串口工具可以查看系统输出的日志和进行命令行交互。
+UART login is a fundamental method in embedded development for interacting with the motherboard through a UART interface. It allows you to view system logs and perform command-line interactions.
 
-## 硬件连接
+## Hardware Connection
 
 :::danger
-使用 USB 串口数据线和瑞莎星睿 O6N 进行串口登录时，请确保引脚连接正确，接错引脚可能会导致主板硬件损坏。
+When using a USB-to-TTL serial cable with the Radxa Orion O6N, ensure the pins are connected correctly. Incorrect connections may damage the motherboard hardware.
 
-不建议连接 USB 串口数据线的 VCC 接口（红色线），避免接错导致主板损坏。
+It is not recommended to connect the VCC pin (red wire) of the USB-to-TTL cable to avoid potential damage to the motherboard.
 :::
 
-将 USB 串口数据线连接到 O6N 的 UART 接口，另一端连接到 PC 的 USB 端口。
+Connect the USB-to-TTL serial cable to the UART interface of the O6N and the other end to a USB port on your PC.
 
-说明：请根据厂商的 USB 串口线引脚定义进行连接，图中示例为常见的 USB 串口线引脚定义。
+Note: Please refer to the pinout of your specific USB-to-TTL cable. The following image shows a common USB-to-TTL cable pinout.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/orion/o6n/orion-o6n-serial.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/orion/o6n/orion-o6n-serial.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-| O6N 引脚功能            | 连接方式                                           |
-| ----------------------- | -------------------------------------------------- |
-| O6N : GND（Pin6）       | O6N 的 GND 引脚连接 USB 串口数据线的 GND 引脚      |
-| O6N : UART_TXD（Pin8）  | O6N 的 UART_TXD 引脚连接 USB 串口数据线的 RXD 引脚 |
-| O6N : UART_RXD（Pin10） | O6N 的 UART_RXD 引脚连接 USB 串口数据线的 TXD 引脚 |
+| O6N Pin Function       | Connection Method                      |
+| ---------------------- | -------------------------------------- |
+| O6N: GND (Pin 6)       | Connect to GND pin of USB-to-TTL cable |
+| O6N: UART_TXD (Pin 8)  | Connect to RXD pin of USB-to-TTL cable |
+| O6N: UART_RXD (Pin 10) | Connect to TXD pin of USB-to-TTL cable |
 
-## 串口登录
+## Serial Port Login
 
 :::info
-串口通讯参数
+Serial Communication Parameters:
 
-- 波特率：115200
-- 数据位：8
-- 停止位：1
-- 校验位：无
-- 流控：无
+- Baud Rate: 115200
+- Data Bits: 8
+- Stop Bits: 1
+- Parity: None
+- Flow Control: None
   :::
 
 <UART baud="115200"/>

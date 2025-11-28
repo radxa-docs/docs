@@ -2,6 +2,6 @@
 sidebar_position: 20
 ---
 
-# 上手指南
+# Getting Started
 
 <DocCardList />

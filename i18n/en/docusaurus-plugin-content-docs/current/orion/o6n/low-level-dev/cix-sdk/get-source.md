@@ -1,5 +1,5 @@
 ---
-title: 获取源代码
+title: Source Code Acquisition
 sidebar_position: 0
 ---
 

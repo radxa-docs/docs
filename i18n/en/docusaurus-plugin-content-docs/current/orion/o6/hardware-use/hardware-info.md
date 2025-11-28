@@ -2,211 +2,211 @@
 sidebar_position: 10
 ---
 
-# 硬件信息
+# Hardware Information
 
-## 芯片框图
+## Chip Block Diagram
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6n/orion-o6n-p1-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6n/orion-o6n-p1-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## 系统框图
+## System Block Diagram
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/orion-o6-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/orion-o6-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-## 接口说明
+## Interface Description
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/orion-o6-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/orion-o6-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-| 序号 | 说明                                                      | 序号 | 说明                                                                     | 序号 | 说明                                     |
-| ---- | --------------------------------------------------------- | ---- | ------------------------------------------------------------------------ | ---- | ---------------------------------------- |
-| 1    | USB 2.0 接口（前置面板）                                  | 11   | 2x 扬声器接口                                                            | 21   | 电源按键                                 |
-| 2    | 音频接口（前置面板）                                      | 12   | 状态指示灯                                                               | 22   | 4-Pin 风扇接口<br/>- 支持 PWM 调速与测速 |
-| 3    | 触摸面板接口                                              | 13   | 复位按键                                                                 | 23   | BIOS 闪存座                              |
-| 4    | 多功能接口（前置面板）<br/>- 支持电源 / 指示灯 / 重启功能 | 14   | 3.5 mm 耳机插孔                                                          | 24   | 此芯 P1 SoC                              |
-| 5    | UART 接口                                                 | 15   | 2x 5G 以太网                                                             | 25   | 40-Pin GPIO 排针                         |
-| 6    | eDP 接口                                                  | 16   | DP 接口                                                                  | 26   | LPDDR5                                   |
-| 7    | RTC 电池座                                                | 17   | HDMI 接口                                                                | 27   | ATX 电源接口                             |
-| 8    | PCIe x16 插槽（PCIe Gen x4）                              | 18   | 2x USB 3.2 Type-A                                                        | 28   | 2x MIPI CSI 4-lane                       |
-| 9    | M.2 M Key 插槽                                            | 19   | 2x USB 2.0 Type-A                                                        | 29   | TPM (Unsoldered)                         |
-| 10   | M.2 E Key 2230 插槽                                       | 20   | 2x USB Type-C<br/>- 20V Type-C 供电，支持 PD 协议<br/>- 支持 DP 视频输出 |      |                                          |
+| No. | Description                                                  | No. | Description                                                                             | No. | Description                                                       |
+| --- | ------------------------------------------------------------ | --- | --------------------------------------------------------------------------------------- | --- | ----------------------------------------------------------------- |
+| 1   | USB 2.0 (Front Panel)                                        | 11  | 2x Speaker Interface                                                                    | 21  | Power Button                                                      |
+| 2   | Audio Interface (Front Panel)                                | 12  | Status Indicator                                                                        | 22  | 4-Pin Fan Connector<br/>- Supports PWM Speed Control & Monitoring |
+| 3   | Touch Panel Interface                                        | 13  | Reset Button                                                                            | 23  | BIOS Flash Socket                                                 |
+| 4   | Multi-function Interface (Front Panel)<br/>- Power/LED/Reset | 14  | 3.5 mm Headphone Jack                                                                   | 24  | ZX P1 SoC                                                         |
+| 5   | UART Interface                                               | 15  | 2x 5G Ethernet                                                                          | 25  | 40-Pin GPIO Header                                                |
+| 6   | eDP Interface                                                | 16  | DisplayPort                                                                             | 26  | LPDDR5                                                            |
+| 7   | RTC Battery Holder                                           | 17  | HDMI Port                                                                               | 27  | ATX Power Connector                                               |
+| 8   | PCIe x16 Slot (PCIe Gen x4)                                  | 18  | 2x USB 3.2 Type-A                                                                       | 28  | 2x MIPI CSI 4-lane                                                |
+| 9   | M.2 M Key Slot                                               | 19  | 2x USB 2.0 Type-A                                                                       | 29  | TPM (Unsoldered)                                                  |
+| 10  | M.2 E Key 2230 Slot                                          | 20  | 2x USB Type-C<br/>- 20V Type-C Power Delivery (PD) Supported<br/>- Supports DP Alt Mode |     |                                                                   |
 
-### 电源按键
+### Power Button
 
-主要用于控制主板的电源开关。
+Primarily used to control the motherboard's power switch.
 
-- 主板系统关闭时，按下电源按键可启动主板
-- 主板系统运行时，短按电源按键会触发电源事件，根据操作系统设置，操作可显示电源菜单或进入系统挂起模式。
-- 长按电源按键 4 秒会触发强制关机。
+- When the motherboard is powered off, press the power button to start the motherboard
+- When the motherboard is running, a short press triggers a power event that may display a power menu or put the system into suspend mode, depending on OS settings
+- Press and hold the power button for 4 seconds to force a shutdown
 
-### 复位按键
+### Reset Button
 
-主要控制主板系统复位，短按将重新启动系统。
+Mainly controls the motherboard's system reset. A short press will restart the system.
 
-### 状态指示灯
+### Status Indicators
 
-板载两个状态指示灯。
+Two status indicators are onboard.
 
-- 绿色指示灯：表示电源状态
-- 蓝色指示灯：表示系统状态
-  - BIOS 正常启动，蓝色指示灯常亮
-  - 操作系统正常启动，蓝色指示灯闪烁
+- Green LED: Indicates power status
+- Blue LED: Indicates system status
+  - Solid blue: BIOS has booted normally
+  - Blinking blue: Operating system has booted normally
 
-### USB Type-C 端口
+### USB Type-C Ports
 
-板载两个 USB 3.2 Type-C 端口，最高传输速度可达 10Gbps，均支持主板供电功能，其中一个 USB Type-C 端口支持 DP 备用模式。
+Two USB 3.2 Type-C ports are onboard, supporting data transfer speeds up to 10Gbps. Both support power delivery, and one supports DP Alt Mode.
 
-- 建议使用 [瑞莎 PD 65W 电源适配器](https://radxa.com/products/accessories/power-pd-65w) 给主板供电
-- 任意 USB Type-C 端口均可给主板供电，若同时连接两个电源，首个插入的 PD 电源将为主板供电
-- 每个 USB Type-C 端口可为外部设备提供高达 3A 电流
+- Recommended to use the [Radxa PD 65W Power Adapter](https://radxa.com/products/accessories/power-pd-65w) to power the motherboard
+- Either USB Type-C port can power the motherboard. If two power sources are connected simultaneously, the first PD power source connected will power the motherboard
+- Each USB Type-C port can provide up to 3A of current to external devices
 
-### USB Type-A 端口
+### USB Type-A Ports
 
-板载 2 个 USB 2.0 Type-A 端口、2 个 USB 3.2 Type-A 端口以及前置面板的 USB 2.0 接口。
+Onboard 2x USB 2.0 Type-A ports, 2x USB 3.2 Type-A ports, and a front panel USB 2.0 interface.
 
-- USB 2.0 Type-A：最高传输速率 480Mbps，所有 USB 2.0 端口共享 1.4A 总电流
-- USB 3.2 Type-A：最高传输速率 10Gbps，每个端口电流限制为 1A
-- USB 2.0 接口（前置面板）
+- USB 2.0 Type-A: Maximum transfer rate of 480Mbps, all USB 2.0 ports share a total of 1.4A current
+- USB 3.2 Type-A: Maximum transfer rate of 10Gbps, each port current limited to 1A
+- USB 2.0 Interface (Front Panel)
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/pinout_f_usb.webp" style={{width: '25%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/pinout_f_usb.webp" style={{width: '25%', maxWidth: '1200px'}} />
 </div>
 
-| 引脚 | 名称     | 描述           | 引脚 | 名称     | 描述           | 引脚 | 名称     | 描述           |
-| ---- | -------- | -------------- | ---- | -------- | -------------- | ---- | -------- | -------------- |
-| 1    | 5V_1     | 电源（+5V）    | 2    | 5V_2     | 电源（+5V）    | 3    | USB_DM_1 | USB 数据负信号 |
-| 4    | USB_DM_2 | USB 数据负信号 | 5    | USB_DP_1 | USB 数据正信号 | 6    | USB_DP_2 | USB 数据正信号 |
-| 7    | GND      | 接地连接       | 8    | GND      | 接地连接       | 9    | /        | 保留或未连接   |
-| 10   | GND      | 接地连接       |      |          |                |      |          |                |
+| Pin | Name     | Description | Pin | Name     | Description | Pin | Name     | Description |
+| --- | -------- | ----------- | --- | -------- | ----------- | --- | -------- | ----------- |
+| 1   | 5V_1     | Power (+5V) | 2   | 5V_2     | Power (+5V) | 3   | USB_DM_1 | USB Data-   |
+| 4   | USB_DM_2 | USB Data-   | 5   | USB_DP_1 | USB Data+   | 6   | USB_DP_2 | USB Data+   |
+| 7   | GND      | Ground      | 8   | GND      | Ground      | 9   | -        | Reserved/NC |
+| 10  | GND      | Ground      |     |          |             |     |          |             |
 
-### HDMI 接口
+### HDMI Port
 
-板载 HDMI A 型接口，最高支持 4K@60Hz，不支持 HDMI CEC 功能。
+Onboard HDMI Type-A port, supports up to 4K@60Hz. HDMI CEC function is not supported.
 
-### DP 接口
+### DisplayPort
 
-板载 DP 接口，最高支持 4K@120Hz，支持多流传输（MST）功能。
+Onboard DisplayPort, supports up to 4K@120Hz with Multi-Stream Transport (MST) support.
 
-### eDP 接口
+### eDP Interface
 
-板载 eDP 接口，采用 0.5 mm 间距的 40-Pin IPEX 接口，可直接连接 eDP 面板，最高支持 4K@60Hz。
+Onboard eDP interface with 0.5mm pitch 40-Pin IPEX connector, directly connects to eDP panels, supporting up to 4K@60Hz.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/pinout_eDP.webp" style={{width: '25%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/pinout_eDP.webp" style={{width: '25%', maxWidth: '1200px'}} />
 </div>
 
-| 引脚 | 名称 | 描述              | 引脚 | 名称  | 描述          | 引脚 | 名称 | 描述                    |
-| ---- | ---- | ----------------- | ---- | ----- | ------------- | ---- | ---- | ----------------------- |
-| 1    | NC   | 未连接            | 2    | GND   | 接地          | 3    | 3N   | eDP 通道 3 负信号       |
-| 4    | 3P   | eDP 通道 3 正信号 | 5    | GND   | 接地          | 6    | 2N   | eDP 通道 2 负信号       |
-| 7    | 2P   | eDP 通道 2 正信号 | 8    | GND   | 接地          | 9    | 1N   | eDP 通道 1 负信号       |
-| 10   | 1P   | eDP 通道 1 正信号 | 11   | GND   | 接地          | 12   | 0N   | eDP 通道 0 负信号       |
-| 13   | 0P   | eDP 通道 0 正信号 | 14   | GND   | 接地          | 15   | AUXP | eDP 辅助通道正          |
-| 16   | AUXN | eDP 辅助通道负    | 17   | GND   | 接地          | 18   | VDD1 | 电源（+3.3V）           |
-| 19   | VDD2 | 电源（+3.3V）     | 20   | VDD3  | 电源（+3.3V） | 21   | VDD4 | 电源（+3.3V）           |
-| 22   | NC   | 未连接            | 23   | GND   | 接地          | 24   | GND  | 接地                    |
-| 25   | GND  | 接地              | 26   | GND   | 接地          | 27   | NC   | 未连接                  |
-| 28   | GND  | 接地              | 29   | GND   | 接地          | 30   | GND  | 接地                    |
-| 31   | GND  | 接地              | 32   | BL_EN | 背光使能信号  | 33   | PWM  | 用于背光控制的 PWM 信号 |
-| 34   | NC   | 未连接            | 35   | NC    | 未连接        | 36   | VBL1 | 背光电源                |
-| 37   | VBL2 | 背光电源          | 38   | VBL3  | 背光电源      | 39   | VBL4 | 背光电源                |
-| 40   | NC   | 未连接            | 41   | NC    | 未连接        | 42   | NC   | 未连接                  |
-| 43   | GND  | 接地              |      |       |               |      |      |                         |
+| Pin | Name | Description                    | Pin | Name  | Description      | Pin | Name | Description                    |
+| --- | ---- | ------------------------------ | --- | ----- | ---------------- | --- | ---- | ------------------------------ |
+| 1   | NC   | No Connection                  | 2   | GND   | Ground           | 3   | 3N   | eDP Lane 3 Negative            |
+| 4   | 3P   | eDP Lane 3 Positive            | 5   | GND   | Ground           | 6   | 2N   | eDP Lane 2 Negative            |
+| 7   | 2P   | eDP Lane 2 Positive            | 8   | GND   | Ground           | 9   | 1N   | eDP Lane 1 Negative            |
+| 10  | 1P   | eDP Lane 1 Positive            | 11  | GND   | Ground           | 12  | 0N   | eDP Lane 0 Negative            |
+| 13  | 0P   | eDP Lane 0 Positive            | 14  | GND   | Ground           | 15  | AUXP | eDP Auxiliary Channel Positive |
+| 16  | AUXN | eDP Auxiliary Channel Negative | 17  | GND   | Ground           | 18  | VDD1 | Power (+3.3V)                  |
+| 19  | VDD2 | Power (+3.3V)                  | 20  | VDD3  | Power (+3.3V)    | 21  | VDD4 | Power (+3.3V)                  |
+| 22  | NC   | No Connection                  | 23  | GND   | Ground           | 24  | GND  | Ground                         |
+| 25  | GND  | Ground                         | 26  | GND   | Ground           | 27  | NC   | No Connection                  |
+| 28  | GND  | Ground                         | 29  | GND   | Ground           | 30  | GND  | Ground                         |
+| 31  | GND  | Ground                         | 32  | BL_EN | Backlight Enable | 33  | PWM  | Backlight PWM Control          |
+| 34  | NC   | No Connection                  | 35  | NC    | No Connection    | 36  | VBL1 | Backlight Power                |
+| 37  | VBL2 | Backlight Power                | 38  | VBL3  | Backlight Power  | 39  | VBL4 | Backlight Power                |
+| 40  | NC   | No Connection                  | 41  | NC    | No Connection    | 42  | NC   | No Connection                  |
+| 43  | GND  | Ground                         |     |       |                  |     |      |                                |
 
-### 触摸面板接口
+### Touch Panel Interface
 
-主要用于集成触摸屏，与 eDP 接口结合，为连接触摸屏提供直接接口。
+Primarily used for touchscreen integration, working with the eDP interface to provide a direct connection for touchscreens.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/pinout_tp.webp" style={{width: '25%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/pinout_tp.webp" style={{width: '25%', maxWidth: '1200px'}} />
 </div>
 
-| 引脚 | 名称  | 描述                         | 引脚 | 名称 | 描述                              | 引脚 | 名称 | 描述                              |
-| ---- | ----- | ---------------------------- | ---- | ---- | --------------------------------- | ---- | ---- | --------------------------------- |
-| 1    | Reset | 触摸控制器的复位信号（3.3V） | 2    | VCC  | 触摸面板电源（3.3V）              | 3    | GND  | 接地连接                          |
-| 4    | EINT  | 外部中断信号（3.3V）         | 5    | SDA  | 用于触摸通信的 I2C 数据线（3.3V） | 6    | SCL  | 用于触摸通信的 I2C 时钟线（3.3V） |
-| 7    | GND   | 接地连接                     | 8    | GND  | 接地连接                          |      |      |                                   |
+| Pin | Name  | Description                   | Pin | Name | Description                    | Pin | Name | Description                     |
+| --- | ----- | ----------------------------- | --- | ---- | ------------------------------ | --- | ---- | ------------------------------- |
+| 1   | Reset | Touch Controller Reset (3.3V) | 2   | VCC  | Touch Panel Power (3.3V)       | 3   | GND  | Ground Connection               |
+| 4   | EINT  | External Interrupt (3.3V)     | 5   | SDA  | I2C Data Line for Touch (3.3V) | 6   | SCL  | I2C Clock Line for Touch (3.3V) |
+| 7   | GND   | Ground Connection             | 8   | GND  | Ground Connection              |     |      |                                 |
 
-### 5G 以太网口
+### 5G Ethernet Ports
 
-板载双 5G RJ45 以太网口，支持 10/100/1000/2500/5000 Mbps 自适应速率。
+Onboard dual 5G RJ45 Ethernet ports, supporting 10/100/1000/2500/5000 Mbps auto-negotiation.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/rj45_led.webp" style={{width: '25%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/rj45_led.webp" style={{width: '25%', maxWidth: '1200px'}} />
 </div>
 
-| LED  | 状态 | 描述                                   |
-| ---- | ---- | -------------------------------------- |
-| 橙色 | 常亮 | 链路已建立（设备已连接到网络）         |
-| 绿色 | 闪烁 | 正在进行数据传输（网络活动中）         |
-| 关闭 | -    | 未检测到链路（网线未插或存在网络问题） |
+| LED    | State    | Description                                         |
+| ------ | -------- | --------------------------------------------------- |
+| Orange | Solid    | Link established (Device connected to network)      |
+| Green  | Blinking | Data transmission in progress (Network activity)    |
+| Off    | -        | No link detected (Cable unplugged or network issue) |
 
-### 音频接口
+### Audio Interface
 
-板载 1 个 3.5 mm 耳机插孔和前置面板音频接口。
+Onboard 3.5mm headphone jack and front panel audio interface.
 
-#### 耳机插孔
+#### Headphone Jack
 
-板载 1 个 3.5 mm 耳机插孔，支持音频输出和输入。
+Onboard 3.5mm headphone jack supporting both audio output and input.
 
-#### 音频接口（前置面板）
+#### Audio Interface (Front Panel)
 
-用于支持机箱的前置面板音频功能。
+Supports front panel audio functionality for PC cases.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/pinout_f_audio.webp" style={{width: '25%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/pinout_f_audio.webp" style={{width: '25%', maxWidth: '1200px'}} />
 </div>
 
-| 引脚 | 名称        | 描述               | 引脚 | 名称     | 描述           | 引脚 | 名称         | 描述                 |
-| ---- | ----------- | ------------------ | ---- | -------- | -------------- | ---- | ------------ | -------------------- |
-| 1    | MIC_INL     | 麦克风输入（左）   | 2    | GND      | 接地连接       | 3    | MIC_INR      | 麦克风输入（右）     |
-| 4    | GND         | 接地连接           | 5    | HP_OUT_R | 耳机输出（右） | 6    | FRONT_MIC_JD | 前面板麦克风插孔检测 |
-| 7    | GND         | 接地连接           | 8    | /        | 保留或未连接   | 9    | HP_OUT_L     | 耳机输出（左）       |
-| 10   | FRONT_HP_JD | 前面板耳机插孔检测 |      |          |                |      |              |                      |
+| Pin | Name        | Description                | Pin | Name     | Description           | Pin | Name         | Description                 |
+| --- | ----------- | -------------------------- | --- | -------- | --------------------- | --- | ------------ | --------------------------- |
+| 1   | MIC_INL     | Microphone Input (Left)    | 2   | GND      | Ground                | 3   | MIC_INR      | Microphone Input (Right)    |
+| 4   | GND         | Ground                     | 5   | HP_OUT_R | Headphone Out (Right) | 6   | FRONT_MIC_JD | Front Panel Mic Jack Detect |
+| 7   | GND         | Ground                     | 8   | /        | Reserved/NC           | 9   | HP_OUT_L     | Headphone Out (Left)        |
+| 10  | FRONT_HP_JD | Front Panel HP Jack Detect |     |          |                       |     |              |                             |
 
-### PCIe x16 插槽
+### PCIe x16 Slot
 
-板载全尺寸 PCIe x16 插槽，支持 PCIe Gen4 x8，可支持高性能显卡扩展。
+Onboard full-size PCIe x16 slot, supporting PCIe Gen4 x8, compatible with high-performance graphics cards.
 
-- 电源供应
-  - 使用 ATX 供电时，PCIe 插槽的最大功率为 60W。
-  - 使用 USB Type-C 供电时，PCIe 插槽的最大功率为 15W。
+- Power Supply:
+  - Maximum 60W for PCIe slot when using ATX power supply
+  - Maximum 15W for PCIe slot when using USB Type-C power supply
 
-### 风扇接口
+### Fan Connector
 
-板载标准的 ATX 4-Pin 风扇接口，支持 PWM 控制和测速。
+Onboard standard ATX 4-Pin fan connector with PWM control and tachometer support.
 
-说明：主板上有丝印标识，方便用户识别和连接。
+Note: The motherboard has silkscreen markings for easy identification and connection.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/pinout_fan.webp" style={{width: '20%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/pinout_fan.webp" style={{width: '20%', maxWidth: '1200px'}} />
 </div>
 
-| 引脚 | 名称 | 描述                         | 引脚 | 名称   | 描述        | 引脚 | 名称 | 描述                       |
-| ---- | ---- | ---------------------------- | ---- | ------ | ----------- | ---- | ---- | -------------------------- |
-| 1    | GND  | 接地连接                     | 2    | VCC12V | 电源（12V） | 3    | TACH | 转速计信号（风扇速度反馈） |
-| 4    | PWM  | 脉冲宽度调制控制信号（3.3V） |      |        |             |      |      |                            |
+| Pin | Name | Description               | Pin | Name   | Description | Pin | Name | Description                   |
+| --- | ---- | ------------------------- | --- | ------ | ----------- | --- | ---- | ----------------------------- |
+| 1   | GND  | Ground                    | 2   | VCC12V | Power (12V) | 3   | TACH | Tachometer Signal (Fan Speed) |
+| 4   | PWM  | PWM Control Signal (3.3V) |     |        |             |     |      |                               |
 
-### BIOS 闪存座
+### BIOS Flash Socket
 
-板载 1 个 BIOS 闪存芯片座，方便开发人员轻松拆卸或更换 BIOS 芯片。
+Onboard BIOS flash chip socket for easy removal or replacement of the BIOS chip.
 
-- 芯片兼容性：支持 SOP8 封装的闪存芯片
-- 芯片容量：8MB（64Mbit）
-- 电压等级：1.8V
+- Chip Compatibility: Supports SOP8 flash memory chips
+- Chip Capacity: 8MB (64Mbit)
+- Voltage Level: 1.8V
 
-### 40-Pin GPIO 排针
+### 40-Pin GPIO Header
 
-板载 40-Pin GPIO（通用输入输出）接口，为硬件扩展提供了高度灵活的接口支持。
+Onboard 40-Pin GPIO (General Purpose Input/Output) interface, providing highly flexible hardware expansion capabilities.
 
-用户可以通过 40-Pin GPIO 接口连接各类传感器、执行器、通信模块、显示屏以及其他嵌入式外设，从而快速实现物联网（IoT）、机器人控制、工业自动化等领域的原型开发与功能验证。
+Users can connect various sensors, actuators, communication modules, displays, and other embedded peripherals through the 40-Pin GPIO interface, enabling rapid prototyping and functional verification in fields such as IoT, robotics, and industrial automation.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/pinout_gpio.webp" style={{width: '15%', maxWidth: '1200px', transform: 'rotate(90deg)'}} />
+   <img src="/en/img/orion/o6/pinout_gpio.webp" style={{width: '15%', maxWidth: '1200px', transform: 'rotate(90deg)'}} />
 </div>
 
 <TabItem value="Orion O6">
@@ -238,78 +238,78 @@ sidebar_position: 10
    </div>
 </TabItem>
 
-### ATX 电源接口
+### ATX Power Connector
 
-板载 1 个与 ATX 兼容的 24 针电源接口，以实现标准的 ATX 电源兼容性，方便用户使用标准 ATX 电源进行供电。
-
-<div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/pinout_atx_power.webp" style={{width: '15%', maxWidth: '1200px', transform: 'rotate(90deg)'}} />
-</div>
-
-| 引脚 | 名称   | 描述                                   | 引脚 | 名称  | 描述                       | 引脚 | 名称 | 描述         |
-| ---- | ------ | -------------------------------------- | ---- | ----- | -------------------------- | ---- | ---- | ------------ |
-| 3    | GND    | 接地连接                               | 5    | GND   | 接地连接                   | 7    | GND  | 接地连接     |
-| 8    | PWR_OK | 电源正常信号（逻辑高电平：3.3V 或 5V） | 9    | 5VSB  | 备用电源（+5V，始终开启）  | 10   | 12V  | 电源（+12V） |
-| 11   | 12V    | 电源（+12V）                           | 13   | NC    | 未连接                     | 14   | NC   | 未连接       |
-| 15   | GND    | 接地连接                               | 16   | PS_ON | 电源开启（低电平有效信号） | 17   | GND  | 接地连接     |
-| 18   | GND    | 接地连接                               | 19   | GND   | 接地连接                   | 20   | NC   | 未连接       |
-| 21   | NC     | 未连接                                 | 22   | NC    | 未连接                     | 23   | NC   | 未连接       |
-| 24   | GND    | 接地连接                               |      |       |                            |      |      |              |
-
-### M.2 M Key 插槽
-
-板载 1 个 M.2 M Key 插槽，支持 PCIe Gen4 x4，可安装 2230/2242/2260/2280 尺寸的 M.2 NVMe 固态硬盘，方便用户扩展存储需求。
-
-### M.2 E Key 插槽
-
-板载 1 个 M.2 E Key 插槽，支持 PCIe Gen4 x2，可安装 2230 尺寸网卡，方便用户拓展 WiFi 和蓝牙功能。
-
-### 多功能接口（前置面板）
-
-板载的多功能接口用于支持机箱的前面板电源按键、复位按键以及状态指示灯功能。
+Onboard 24-pin ATX-compatible power connector for standard ATX power supply compatibility.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/pinout_f_panel.webp" style={{width: '25%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/pinout_atx_power.webp" style={{width: '15%', maxWidth: '1200px', transform: 'rotate(90deg)'}} />
 </div>
 
-| 引脚 | 名称     | 描述                         | 引脚 | 名称     | 描述          | 引脚 | 名称     | 描述                |
-| ---- | -------- | ---------------------------- | ---- | -------- | ------------- | ---- | -------- | ------------------- |
-| 1    | SSD_LED+ | 固态硬盘 (SSD) 活动 LED（+） | 2    | PWR_LED+ | 电源 LED（+） | 3    | SSD_LED- | SSD 活动 LED（-）   |
-| 4    | PWR_LED- | 电源 LED（-）                | 5    | RESET-   | 复位开关（-） | 6    | PWR_ON   | 电源开启信号        |
-| 7    | RESET+   | 复位开关（+）                | 8    | PWR_GND  | 电源接地      | 9    | RSV(5V)  | 保留引脚（5V 电源） |
-| 10   | NC       | 未连接                       |      |          |               |      |          |                     |
+| Pin | Name   | Description                         | Pin | Name  | Description                    | Pin | Name | Description   |
+| --- | ------ | ----------------------------------- | --- | ----- | ------------------------------ | --- | ---- | ------------- |
+| 3   | GND    | Ground                              | 5   | GND   | Ground                         | 7   | GND  | Ground        |
+| 8   | PWR_OK | Power Good (Logic High: 3.3V or 5V) | 9   | 5VSB  | Standby Power (+5V, Always On) | 10  | 12V  | Power (+12V)  |
+| 11  | 12V    | Power (+12V)                        | 13  | NC    | No Connection                  | 14  | NC   | No Connection |
+| 15  | GND    | Ground                              | 16  | PS_ON | Power On (Active Low)          | 17  | GND  | Ground        |
+| 18  | GND    | Ground                              | 19  | GND   | Ground                         | 20  | NC   | No Connection |
+| 21  | NC     | No Connection                       | 22  | NC    | No Connection                  | 23  | NC   | No Connection |
+| 24  | GND    | Ground                              |     |       |                                |     |      |               |
 
-### UART 接口
+### M.2 M Key Slot
 
-专门引出 4 个专用的 UART 接口，方便用户用于各种调试。
+Onboard M.2 M Key slot supporting PCIe Gen4 x4, compatible with 2230/2242/2260/2280 M.2 NVMe SSDs for storage expansion.
 
-- UART2：BIOS 和操作系统调试日志
-- UART4：电源管理、电压和频率监控
-- UART5：安全 BootROM 调试日志
-- EC UART：板载嵌入式控制器调试日志
+### M.2 E Key Slot
+
+Onboard M.2 E Key slot supporting PCIe Gen4 x2, compatible with 2230 form factor WiFi/Bluetooth modules.
+
+### Multi-function Interface (Front Panel)
+
+Onboard multi-function interface for front panel power button, reset button, and status indicators.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/pinout_uart.webp" style={{width: '25%', maxWidth: '1200px'}} />
+   <img src="/en/img/orion/o6/pinout_f_panel.webp" style={{width: '25%', maxWidth: '1200px'}} />
 </div>
 
-#### UART_x 引脚图
+| Pin | Name     | Description          | Pin | Name     | Description      | Pin | Name     | Description          |
+| --- | -------- | -------------------- | --- | -------- | ---------------- | --- | -------- | -------------------- |
+| 1   | SSD_LED+ | SSD Activity LED (+) | 2   | PWR_LED+ | Power LED (+)    | 3   | SSD_LED- | SSD Activity LED (-) |
+| 4   | PWR_LED- | Power LED (-)        | 5   | RESET-   | Reset Switch (-) | 6   | PWR_ON   | Power On Signal      |
+| 7   | RESET+   | Reset Switch (+)     | 8   | PWR_GND  | Power Ground     | 9   | RSV(5V)  | Reserved (5V Power)  |
+| 10  | NC       | No Connection        |     |          |                  |     |          |                      |
 
-| 引脚 | 名称 | 描述     | 引脚 | 名称    | 描述                  | 引脚 | 名称    | 描述                  |
-| ---- | ---- | -------- | ---- | ------- | --------------------- | ---- | ------- | --------------------- |
-| 1    | GND  | 接地连接 | 2    | UART_TX | UART 发送信号（3.3V） | 3    | UART_RX | UART 接收信号（3.3V） |
+### UART Interfaces
 
-#### BOOT 引脚图
+Four dedicated UART interfaces for various debugging purposes.
 
-| 引脚 | 名称       | 描述     | 引脚 | 名称 | 描述     | 引脚 | 名称 | 描述 |
-| ---- | ---------- | -------- | ---- | ---- | -------- | ---- | ---- | ---- |
-| 1    | BOOT_STRAP | 引导引脚 | 2    | GND  | 接地连接 |      |      |      |
+- UART2: BIOS and OS debug logs
+- UART4: Power management, voltage and frequency monitoring
+- UART5: Secure BootROM debug logs
+- EC UART: Onboard embedded controller debug logs
 
-### MIPI CSI 接口
+<div style={{textAlign: 'center'}}>
+   <img src="/en/img/orion/o6/pinout_uart.webp" style={{width: '25%', maxWidth: '1200px'}} />
+</div>
 
-板载 2 个 MIPI CSI 4-lane 接口，可用于连接摄像头模块。
+#### UART_x Pinout
 
-### RTC 电池座
+| Pin | Name | Description | Pin | Name    | Description          | Pin | Name    | Description         |
+| --- | ---- | ----------- | --- | ------- | -------------------- | --- | ------- | ------------------- |
+| 1   | GND  | Ground      | 2   | UART_TX | UART Transmit (3.3V) | 3   | UART_RX | UART Receive (3.3V) |
 
-板载的 RTC 电池座可用于安装 CR1220 纽扣电池，为系统提供持续的时钟信号和电源管理功能。
+#### BOOT Pinout
 
-说明：取下 RTC 电池不会清除 BIOS 设置
+| Pin | Name       | Description    | Pin | Name | Description | Pin | Name | Description |
+| --- | ---------- | -------------- | --- | ---- | ----------- | --- | ---- | ----------- |
+| 1   | BOOT_STRAP | Boot Strap Pin | 2   | GND  | Ground      |     |      |             |
+
+### MIPI CSI Interface
+
+Onboard dual MIPI CSI 4-lane interfaces for connecting camera modules.
+
+### RTC Battery Holder
+
+Onboard RTC battery holder for CR1220 coin cell battery, providing continuous clock signal and power management functionality.
+
+Note: Removing the RTC battery will not clear BIOS settings.

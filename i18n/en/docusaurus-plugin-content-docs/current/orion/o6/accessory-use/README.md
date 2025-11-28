@@ -2,8 +2,8 @@
 sidebar_position: 70
 ---
 
-# 配件使用
+# Accessory Usage
 
-介绍如何使用星睿 O6 的各种配件。
+Introduction to using various accessories with the Radxa Orion O6.
 
 <DocCardList />

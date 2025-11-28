@@ -1,28 +1,28 @@
-此文档介绍如何使用 CIX P1 NPU SDK 将 [ResNet50](https://github.com/onnx/models/blob/main/validated/vision/classification/resnet/model/resnet50-v1-12.onnx) 转换为 CIX SOC NPU 上可以运行的模型。
+This document explains how to use the CIX P1 NPU SDK to convert [ResNet50](https://github.com/onnx/models/blob/main/validated/vision/classification/resnet/model/resnet50-v1-12.onnx) into a model that can run on CIX SOC NPU.
 
-整体来讲有四个步骤：
+There are four main steps:
 :::tip
-步骤1~3 在 x86 主机 Linux 环境下执行
+Steps 1-3 should be executed in a Linux environment on an x86 host
 :::
 
-1. 下载 NPU SDK 并安装 NOE Compiler
-2. 下载模型文件 (代码和脚本)
-3. 编译模型
-4. 部署模型到 Orion O6 / O6N
+1. Download the NPU SDK and install NOE Compiler
+2. Download model files (code and scripts)
+3. Compile the model
+4. Deploy the model to Orion O6 / O6N
 
-## 下载 NPU SDK 并安装 NOE Compiler
+## Download NPU SDK and Install NOE Compiler
 
-请参考 [安装 NPU SDK](./npu-introduction#npu-sdk-安装) 进行 NPU SDK 和 NOE Compiler 的安装.
+Please refer to [Install NPU SDK](./npu-introduction) to install the NPU SDK and NOE Compiler.
 
-## 下载模型文件
+## Download Model Files
 
-在 CIX AI Model Hub 中包含了 ResNet50 的所需文件， 请用户按照 [下载 CIX AI Model Hub](./ai-hub#下载-cix-ai-model-hub) 下载，然后到对应的目录下查看
+The CIX AI Model Hub contains all the necessary files for ResNet50. Please download them according to [Download CIX AI Model Hub](./ai-hub), then navigate to the corresponding directory.
 
 ```bash
 cd ai_model_hub/models/ComputeVision/Image_Classification/onnx_resnet_v1_50
 ```
 
-请确认目录结构是否同下图所示。
+Please confirm that the directory structure matches the following:
 
 ```bash
 .
@@ -38,16 +38,13 @@ cd ai_model_hub/models/ComputeVision/Image_Classification/onnx_resnet_v1_50
 │   ├── ILSVRC2012_val_00002899.JPEG
 │   ├── ILSVRC2012_val_00004704.JPEG
 │   ├── ILSVRC2012_val_00021564.JPEG
-│   ├── ILSVRC2012_val_00024154.JPEG
-│   ├── ILSVRC2012_val_00037133.JPEG
-│   └── ILSVRC2012_val_00045790.JPEG
 └── Tutorials.ipynb
 ```
 
-## 编译模型
+## Compile the Model
 
 :::tip
-用户可无需从头编译模型，radxa 提供预编译好的 resnet_v1_50.cix 模型（可用下面步骤下载），如果使用预编译好的模型，可以跳过“编译模型” 这一步
+Users don't need to compile the model from scratch. Radxa provides a pre-compiled resnet_v1_50.cix model (which can be downloaded using the command below). If you use the pre-compiled model, you can skip the "Compile the Model" step.
 
 ```bash
 wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/ComputeVision/Image_Classification/onnx_resnet_v1_50/resnet_v1_50.cix
@@ -55,42 +52,32 @@ wget https://modelscope.cn/models/cix/ai_model_hub_24_Q4/resolve/master/models/C
 
 :::
 
-### 准备 onnx 模型
+### Prepare ONNX Model
 
-- 下载 onnx 模型
+- Download the ONNX model
 
   [resnet50-v1-12.onnx](https://github.com/onnx/models/blob/main/validated/vision/classification/resnet/model/resnet50-v1-12.onnx)
 
-- 简化模型
+- Simplify the model
 
-  这里使用 onnxsim 进行模型输入固化和模型简化
+  Here we use onnxsim to fix the model input shape and simplify the model
 
   ```bash
   pip3 install onnxsim onnxruntime
   onnxsim resnet50-v1-12.onnx resnet50-v1-12-sim.onnx --overwrite-input-shape 1,3,224,224
   ```
 
-### 编译模型
+### Compile the Model
 
-CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Compiler 对模型进行 INT8 量化
+CIX SOC NPU supports INT8 computation. Before compiling the model, we need to use NOE Compiler to quantize the model to INT8.
 
-- 准备校准集
+- Prepare the calibration dataset
 
-  - 自行准备校准集
+  - Prepare your own calibration dataset
 
-    在 `test_data` 目录下已经包含多张校准集的图片文件
+    The `test_data` directory already contains several image files for calibration
 
-    ```bash
-    ├── test_data
-    │   ├── ILSVRC2012_val_00002899.JPEG
-    │   ├── ILSVRC2012_val_00004704.JPEG
-    │   ├── ILSVRC2012_val_00021564.JPEG
-    │   ├── ILSVRC2012_val_00024154.JPEG
-    │   ├── ILSVRC2012_val_00037133.JPEG
-    │   └── ILSVRC2012_val_00045790.JPEG
-    ```
-
-    参考以下脚本生成校准文件
+    Refer to the following script to generate the calibration file
 
     ```python
     import sys
@@ -115,9 +102,9 @@ CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Com
     print("Generate calib dataset success.")
     ```
 
-- 使用 NOE Compiler 量化与编译模型
+  - Quantize and compile the model using NOE Compiler
 
-  - 制作量化与编译 cfg 配置文件, 请参考以下配置
+  - Create a configuration file for quantization and compilation, refer to the following configuration
 
     ```bash
     [Common]
@@ -149,20 +136,20 @@ CIX SOC NPU 支持 INT8 计算，在编译模型前，我们需要使用 NOE Com
     profile = True
     ```
 
-  - 编译模型
+  - Compile the model
     :::tip
-    如果遇到 cixbuild 报错 `[E] Optimizing model failed! CUDA error: no kernel image is available for execution on the device ...`
-    这意味着当前版本的 torch 不支持此 GPU，请完全卸载当前版本的 torch, 然后在 torch 官网下载最新版本。
+    If you encounter the cixbuild error: `[E] Optimizing model failed! CUDA error: no kernel image is available for execution on the device ...`
+    This means the current version of torch doesn't support this GPU. Please completely uninstall the current version of torch, then download the latest version from the official torch website.
     :::
     ```bash
     cixbuild ./onnx_resnet_v1_50build.cfg
     ```
 
-## 模型部署
+## Model Deployment
 
-### NPU 推理
+### NPU Inference
 
-将使用 NOE Compiler 编译好的 .cix 格式的模型复制到 Orion O6 / O6N 上进行模型验证
+Copy the compiled .cix model to Orion O6 / O6N for model validation
 
 ```bash
 python3 inference_npu.py --images test_data --model_path ./resnet_v1_50.cix
@@ -196,9 +183,9 @@ user	0m3.266s
 sys	0m0.414s
 ```
 
-### CPU 推理
+### CPU Inference
 
-使用 CPU 对 onnx 模型进行推理验证正确性，可在 X86 主机上或 Orion O6 / O6N 上运行
+Use CPU to perform inference on the ONNX model for validation. This can be run on either an x86 host or Orion O6 / O6N
 
 ```bash
 python3 inference_onnx.py --images test_data --onnx_path ./resnet50-v1-12-sim.onnx
@@ -224,8 +211,8 @@ user	0m11.789s
 sys	0m0.396s
 ```
 
-可以看到 NPU 和 CPU 上推理的结果一致,但运行速度缩短
+The inference results are consistent between NPU and CPU, but the running speed is significantly faster on NPU
 
-## 参考文档
+## Reference Documents
 
-论文链接： [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
+Paper: [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)

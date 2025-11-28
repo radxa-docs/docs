@@ -1,14 +1,14 @@
-CIX AI Model Hub 是针对在 CIX SOC 上部署进行了优化的机器学习模型的集合。里面包含了多种领域的 AI 模型例子 (例如计算机视觉，语音识别，生成式 AI 等多种开源模型）与针对 CIX SOC NPU 编译的配置文件。这里主要介绍 AI Model Hub 下载及运行其中的模型。
+The CIX AI Model Hub is a collection of machine learning models optimized for deployment on CIX SOC. It includes AI model examples across various domains (such as computer vision, speech recognition, generative AI, and other open-source models) along with configuration files compiled for the CIX SOC NPU. This document primarily introduces how to download and run models from the AI Model Hub.
 
-## 下载 CIX AI Model Hub 仓库
+## Download CIX AI Model Hub Repository
 
-通过 [CIX 早鸟计划](./npu-introduction#cix-早鸟计划) 申请后，会有邮件发送到注册邮箱，请按邮件内容获取 AI Model Hub 仓库
+After applying through the [CIX Early Access Program](./npu-introduction#cix-early-access-program), you will receive an email with instructions to access the AI Model Hub repository.
 
 ```bash
 git clone https://e.coding.net/g-uaqh1479/ai-model-hub/ai_model_hub.git
 ```
 
-模型例子目录
+Model example directory structure:
 
 ```bash
 ├── datasets
@@ -31,33 +31,33 @@ git clone https://e.coding.net/g-uaqh1479/ai-model-hub/ai_model_hub.git
     └── label
 ```
 
-## 下载预编译模型
+## Download Pre-compiled Models
 
-CIX AI Model Hub 里面的涉及的例子，用户可以直接从 [ModelScope](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files) 上下载 onnx 模型和预编译好的模型，无需从头编译。
+For the examples in the CIX AI Model Hub, users can directly download the ONNX models and pre-compiled models from [ModelScope](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files) without needing to compile from source.
 
-## 模型运行
+## Running the Models
 
-### 配置环境
+### Environment Setup
 
-安装 Python 环境
+Install the Python environment:
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-### 模型例子
+### Model Examples
 
-1. 将人类可读的输入预处理为模型输入
-2. 运行模型推理
-3. 将模型输出后处理为人类可读的格式
+1. Preprocess human-readable input into model input format
+2. Run model inference
+3. Post-process model output into human-readable format
 
-所有模型示例代码均可在 O6 上使用 NPU 端到端运行：
+All model example code can be run end-to-end on the O6 using the NPU:
 
 ```bash
 python3 inference_npu.py
 ```
 
-此外，还可以通过 OnnxRuntime 在 X86 主机上或 O6 上使用 CPU 本地运行端到端示例
+Additionally, you can run the end-to-end examples locally on an X86 host or on the O6 using CPU with OnnxRuntime:
 
 ```bash
 python3 inference_onnx.py

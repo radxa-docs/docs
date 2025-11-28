@@ -2,15 +2,15 @@
 sidebar_position: 30
 ---
 
-# AI PC 外壳套件
+# AI PC Case Kit
 
 :::tip
-进行AI PC 外壳套件组装前，用户需要将星睿 O6主板上的散热器（8420B）拆卸下来！
+Before assembling the AI PC case kit, users need to remove the heatsink (8420B) from the O6 motherboard!
 :::
 
-## AI PC 外壳套件清单
+## AI PC Case Kit package list
 
-将AI PC 外壳套件底盖的四颗CM3\*8mm螺丝拧下，依次可以看到下面配件清单。
+Unscrew the four CM3\*8mm screws on the bottom cover of the AI PC case kit to reveal the following components.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-01.webp)
@@ -20,179 +20,176 @@ sidebar_position: 30
   ![](/img/orion/o6/ai-pc-kit/ai-pc-02.webp)
 </div>
 
-| 序号 | 配件                | 数量 |
-| :--: | :------------------ | :--: |
-|  1   | 外壳                |  1   |
-|  2   | 底盖                |  1   |
-|  3   | 支架                |  1   |
-|  4   | 按键                |  1   |
-|  5   | 脚垫                |  4   |
-|  6   | 硅胶塞              |  1   |
-|  7   | 散热器组            |  1   |
-|  8   | 导热硅脂            |  1   |
-|  9   | 灯板                |  1   |
-|  10  | 出风挡片            |  2   |
-|  11  | PCIe转OCuLink转接板 |  1   |
-|  12  | PCIe转M.2转接板     |  1   |
-|  13  | M3\*8mm 弹簧螺丝    |  4   |
-|  14  | CM2.5\*5mm 螺丝     |  4   |
-|  15  | KM2\*6mm 螺丝       |  7   |
-|  16  | CM3\*8mm 螺丝       |  4   |
-|  17  | CM2\*4mm 螺丝       |  1   |
+| No. | Component               | Qty |
+| :-: | :---------------------- | :-: |
+|  1  | Case                    |  1  |
+|  2  | Bottom Cover            |  1  |
+|  3  | Bracket                 |  1  |
+|  4  | Button                  |  1  |
+|  5  | Rubber Feet             |  4  |
+|  6  | Silicone Plug           |  1  |
+|  7  | Heatsink Assembly       |  1  |
+|  8  | Thermal Paste           |  1  |
+|  9  | LED Board               |  1  |
+| 10  | Vent Covers             |  2  |
+| 11  | PCIe to OCuLink Adapter |  1  |
+| 12  | PCIe to M.2 Adapter     |  1  |
+| 13  | M3\*8mm Spring Screws   |  4  |
+| 14  | CM2.5\*5mm Screws       |  4  |
+| 15  | KM2\*6mm Screws         |  7  |
+| 16  | CM3\*8mm Screws         |  4  |
+| 17  | CM2\*4mm Screw          |  1  |
 
-## 亚克力外壳拆卸
+## Acrylic Case Disassembly
 
 :::tip
-适用于购买了亚克力外壳的用户，若没有购买亚克力外壳，可以跳过该步骤！
+This section is for users who have purchased the acrylic case. If you don't have an acrylic case, you can skip this step!
 :::
 
-用螺丝刀将固定上下亚克力盖板的螺丝拧下，取下固定亚克力板的铜柱和亚克力板。
+Use a screwdriver to remove the screws securing the top and bottom acrylic panels, then remove the brass standoffs and acrylic panels.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-03.webp)
 </div>
 
-## 散热器（8420B）拆卸
+## Heatsink (8420B) Removal
 
-进行AI PC 外壳套件组装前，需要将星睿 O6主板上的瑞莎散热器8420B拆卸下来才可以完成AI PC 外壳套件的组装。
+Before assembling the AI PC case kit, you need to remove the Radxa 8420B heatsink from the O6 motherboard.
 
-### 步骤1：拆卸散热器排线
+### Step 1: Disconnect Heatsink Cable
 
-断开散热器和星睿 O6主板的排线连接。
+Disconnect the heatsink cable from the O6 motherboard.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-04.webp)
 </div>
 
-### 步骤2：拆卸散热器
+### Step 2: Remove Heatsink
 
-使用螺丝刀以对角交替松动的方式拧开4颗散热器的固定螺丝，确保均匀受力。
+Use a screwdriver to loosen the four heatsink mounting screws in a cross pattern to ensure even pressure distribution.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-05.webp)
 </div>
 
-## AI PC 外壳套件组装
+## AI PC Case Assembly
 
-### 步骤1：涂抹导热硅脂
+### Step 1: Apply Thermal Paste
 
-挤出适量导热硅脂涂抹至主板SOC芯片上。
+Apply an appropriate amount of thermal paste onto the motherboard's SOC chip.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-06.webp)
 </div>
 
-### 步骤2：固定散热器组
+### Step 2: Install Heatsink Assembly
 
-将散热器底部的固定螺柱对准主板散热器固定孔位，使用螺丝刀以对角交替的方式拧紧4颗弹簧螺丝，避免损坏芯片。
+Align the heatsink's mounting posts with the motherboard's heatsink mounting holes. Tighten the four spring screws in a cross pattern to avoid damaging the chip.
 
-固定好散热器后将风扇排线连接到主板对应位置。
+After securing the heatsink, connect the fan cable to the corresponding port on the motherboard.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-07.webp)
 </div>
 
-### 步骤3：固定按键
+### Step 3: Install Power Button
 
-将按键装入外壳对应电源按键孔位。
+Insert the power button into the corresponding hole on the case.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-08.webp)
 </div>
 
-### 步骤4：安装灯板
+### Step 4: Install LED Board
 
 :::danger
-根据灯板上的板载LED位置确认灯板的安装方向
+Confirm the installation direction of the LED board according to the onboard LED position.
 :::
 
-将灯板安装到主板组对应接口位置。
+Install the LED board to the corresponding interface on the motherboard assembly.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-09.webp)
 </div>
 
-### 步骤5：固定主板
+### Step 5: Secure Motherboard
 
-将主板以倾斜的方式装入外壳中，确保主板接口孔位和外壳孔位对齐，最后使用4颗CM2.5\*5mm螺丝固定主板。
+Insert the motherboard into the case at an angle, ensuring the motherboard's mounting holes align with the case's mounting holes. Secure the motherboard with four CM2.5\*5mm screws.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-10.webp)
 </div>
 
-### 步骤6（可选）：安装PCIe转OCuLink转接板
+### Step 6 (Optional): Install PCIe to OCuLink Adapter
 
-主要用于拓展外置显卡，用户可以根据需求进行安装。
+This is mainly used for external GPU expansion. Install according to your needs.
 
-**安装说明**：
+**Installation Instructions**:
 
-1.撕掉转接板上金手指（转接板和卡槽金属接触区域）的胶带
-
-2.将转接板的外置接口侧对准外壳孔位（图示①）
-
-3.转接板的卡槽和主板的卡槽对齐（图示②），然后慢慢用力下压（图示③），安装到位后卡槽的卡扣会自动上拨。
+1. Remove the protective tape from the gold fingers (contact area between the adapter and slot).
+2. Align the external interface side of the adapter with the case's hole (Figure ①).
+3. Align the adapter's slot with the motherboard's slot (Figure ②), then press down firmly (Figure ③). The slot's latch will automatically engage when properly installed.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-11.webp)
 </div>
 
-### 步骤7（可选）：安装PCIe转M.2转接板
+### Step 7 (Optional): Install PCIe to M.2 Adapter
 
-主要用于拓展M.2接口的固态硬盘，用户可以根据需求进行安装。
+This is mainly used for expanding M.2 SSD storage. Install according to your needs.
 
 :::tip
-示意图中的固态硬盘需要自己购买，使用CM2\*4mm螺丝固定固态硬盘
+The SSD in the diagram needs to be purchased separately. Use CM2\*4mm screws to secure the SSD.
 :::
 
-**安装说明**：
+**Installation Instructions**:
 
-1.撕掉转接板上金手指（转接板和卡槽金属接触区域）的胶带
-
-2.将转接板的卡槽和主板的卡槽对齐，然后慢慢用力下压，安装到位后卡槽的卡扣会自动上拨(可参考安装PCIe转OCuLink转接板的示意图，安装PCIe转M.2转接板无需和外壳孔位对准)。
+1. Remove the protective tape from the gold fingers (contact area between the adapter and slot).
+2. Align the adapter's slot with the motherboard's slot, then press down firmly. The slot's latch will automatically engage when properly installed. (Refer to the PCIe to OCuLink adapter installation diagram. Note that the PCIe to M.2 adapter doesn't need to align with the case's holes.)
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-12.webp)
 </div>
 
-### 步骤8：安装外壳支架
+### Step 8: Install Case Bracket
 
-将支架缺口朝向外壳接口方向，确认支架的螺丝固定孔位和外壳固定孔位对齐后，使用7颗KM2\*6mm螺丝固定。
+Orient the bracket with the notch facing the case's interface direction. After aligning the bracket's screw holes with the case's mounting holes, secure it with seven KM2\*6mm screws.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-13.webp)
 </div>
 
-### 步骤9：安装硅胶塞
+### Step 9: Install Silicone Plug
 
-对于不装PCIe转接板或者安装PCIe转M.2转接板的用户，可以使用硅胶塞将外壳预留的接口堵住，避免进入杂物。
+For users who are not installing a PCIe adapter or are installing a PCIe to M.2 adapter, you can use the silicone plug to cover the unused interface holes to prevent dust entry.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-14.webp)
 </div>
 
-### 步骤10：安装出风挡片
+### Step 10: Install Vent Covers
 
 :::tip
-首批用户会收到两张出风档片，其中一张是备用的；后期将会提前给用户安装好出风挡片，无需进行该步骤操作！
+First-batch users will receive two vent covers, with one as a spare. In the future, vent covers will be pre-installed, making this step unnecessary!
 :::
 
-将出风挡片粘贴到底座的排风口，让散热器的风都从底盖底部流出。
+Attach the vent covers to the exhaust vents on the base to ensure proper airflow from the heatsink exits through the bottom cover.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-14-1.webp)
 </div>
 
-### 步骤11：安装底盖
+### Step 11: Install Bottom Cover
 
-将底盖散热透气孔方向对应外壳接口方向，最后使用CM3\*8mm螺丝固定。
+Align the ventilation holes on the bottom cover with the case's interface direction, then secure it with CM3\*8mm screws.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-15.webp)
 </div>
 
-### 步骤12：安装脚垫
+### Step 12: Install Rubber Feet
 
-将4个脚垫分别粘贴到底盖的对应脚垫孔位。
+Attach the four rubber feet to their corresponding positions on the bottom cover.
 
 <div style={{textAlign: 'center'}}>
   ![](/img/orion/o6/ai-pc-kit/ai-pc-16.webp)

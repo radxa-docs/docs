@@ -1,28 +1,28 @@
-## 使用前提
+## Prerequisites
 
-- 主板：{props.board}
-- U 盘：用于更新 BIOS
-- 系统启动盘：NVMe SSD
-- 数据线：USB Type-C 数据线
-- 显示器：用于显示 BIOS 设置界面
-- 电源适配器：{props.power}
-- PC 主机: Windows / Linux / MacOS, 安装 fastboot 工具
-- 可选设备：串口数据线
+- Motherboard: {props.board}
+- USB Drive: For updating BIOS
+- System Boot Drive: NVMe SSD
+- USB Type-C Cable: For data connection
+- Display: For accessing BIOS setup interface
+- Power Adapter: {props.power}
+- Host PC: Windows / Linux / MacOS with ADB and fastboot tools installed
+- Optional: Serial Debug Cable
 
-说明：其中可选设备用于刷 BIOS，刷 BIOS 可以通过串口或者显示器操作。
+Note: The optional serial debug cable is used for BIOS flashing, which can be done either via serial console or display.
 
-## 刷写安卓 BIOS
+## Flashing Android BIOS
 
-在开始之前，请确保您已完成所有准备工作。
+Before starting, please ensure all preparations are complete.
 
-### 准备工作
+### Preparation
 
-#### 1. 安装必要工具
+#### 1. Install Required Tools
 
-我们需要在主机上安装 adb 和 fastboot 工具。
+Install ADB and fastboot tools on your host PC.
 
-:::tip 系统环境
-推荐使用 Ubuntu 系统进行系统安装。
+:::tip System Environment
+Ubuntu is recommended for system installation.
 :::
 
 <NewCodeBlock tip="Ubuntu-PC$" type="device">
@@ -34,113 +34,108 @@ sudo apt install android-tools-adb android-tools-fastboot
 
 </NewCodeBlock>
 
-#### 2. 制作 BIOS U 盘
+#### 2. Create BIOS USB Drive
 
-访问 <a href={props?.download_page ?? '../download.md#android'}>资源汇总下载</a> 页面，下载最新的安卓 BIOS 文件，并将其解压到 U 盘的根目录。
+Visit the <a href={props?.download_page ?? '../download.md#android'}>Downloads</a> page, download the latest Android BIOS files, and extract them to the root directory of your USB drive.
 
-### 硬件连接
+### Hardware Connection
 
-:::tip 接口说明
-{props.board} 主板配备两个 USB Type-C 接口：
+:::tip Interface Description
+The {props.board} motherboard features two USB Type-C ports:
 
-- **数据接口**：靠近 USB-A 接口，用于连接 PC 进行数据传输。
-- **电源接口**：靠近电源按键，用于连接电源适配器。
+- **Data Port**: Near the USB-A port, used for connecting to a PC for data transfer.
+- **Power Port**: Near the power button, used for connecting the power adapter.
   :::
 
-- ① 将 NVMe SSD 安装到主板上。
-
-- ② 将制作好的 BIOS U 盘插入主板的 USB-A 接口。
-
-- ③ 使用 USB Type-C 数据线将主板的 **数据接口** 连接到 PC。
-
-- ④ (可选) 如需通过串口查看日志，请连接串口调试线至主板的 UART2 接口。
-
-- ⑤ 连接显示器到主板的 HDMI 或 DP 接口。
-
-- ⑥ 使用 USB-C 电源适配器为主板的 **电源接口** 供电。
+1. Install the NVMe SSD onto the motherboard.
+2. Insert the prepared BIOS USB drive into the motherboard's USB-A port.
+3. Connect the motherboard's **Data Port** to your PC using a USB Type-C cable.
+4. (Optional) For serial console access, connect a serial debug cable to the motherboard's UART2 interface.
+5. Connect a display to the motherboard's HDMI or DP port.
+6. Power the motherboard's **Power Port** using a USB-C power adapter.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/orion/o6/android/android-install-system.webp"
+    src="/en/img/orion/o6/android/android-install-system.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-### 操作步骤
+### Procedure
 
-#### 1. 进入 BIOS 设置界面
+#### 1. Enter BIOS Setup
 
-主板通电后，当看到 Radxa Logo 或串口输出 `Press ESCAPE for boot options` 时，立即短按键盘上的 `Esc` 键，即可进入 BIOS 设置界面。
+Power on the motherboard. When you see the Radxa logo or the message `Press ESCAPE for boot options` in the serial console, immediately press the `Esc` key to enter the BIOS setup interface.
 
-- **通过显示器**
+- **Via Display**
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/orion/o6/android/burn-bios-go.webp"
+    src="/en/img/orion/o6/android/burn-bios-go.webp"
     style={{ width: "50%", maxWidth: "1200px" }}
   />
 </div>
 
-- **通过串口**
+- **Via Serial Console**
 
 ```
 Tianocore/EDK2 firmware version 0.3.0-1
 Press ESCAPE for boot options
 ```
 
-#### 2. 运行 BIOS 刷写脚本
+#### 2. Run BIOS Flashing Script
 
-进入 BIOS 后，选择 `Boot Manager` -> `EFI Shell`。系统将自动检测并运行 U 盘中的 `startup.nsh` 脚本来完成 BIOS 刷写。
+In the BIOS interface, navigate to `Boot Manager` -> `EFI Shell`. The system will automatically detect and run the `startup.nsh` script from the USB drive to complete the BIOS flashing process.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/orion/o6/android/burn-bios-manager.webp"
+    src="/en/img/orion/o6/android/burn-bios-manager.webp"
     style={{ width: "100%", maxWidth: "600px" }}
   />
 </div>
 
-_进入 Boot Manager_
+_Entering Boot Manager_
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/orion/o6/android/burn-bios-efi.webp"
+    src="/en/img/orion/o6/android/burn-bios-efi.webp"
     style={{ width: "100%", maxWidth: "600px" }}
   />
 </div>
 
-_选择 EFI Shell_
+_Selecting EFI Shell_
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/orion/o6/android/burn-bios-sh.webp"
+    src="/en/img/orion/o6/android/burn-bios-sh.webp"
     style={{ width: "100%", maxWidth: "600px" }}
   />
 </div>
 
-_自动运行刷写脚本_
+_Automatic Script Execution_
 
-#### 3. 确认进入 Fastboot 模式
+#### 3. Confirm Fastboot Mode
 
-BIOS 刷写完成后，主板会自动重启并进入 Fastboot 模式。
+After the BIOS flashing is complete, the motherboard will automatically reboot and enter Fastboot mode.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/orion/o6/android/burn-bios-fastboot.webp"
+    src="/en/img/orion/o6/android/burn-bios-fastboot.webp"
     style={{ width: "100%", maxWidth: "600px" }}
   />
 </div>
 
-## 安装 Android 系统
+## Installing Android OS
 
-BIOS 刷写完成后，主板已进入 Fastboot 模式，接下来我们可以开始安装 Android 系统。
+With the motherboard in Fastboot mode, you can now proceed to install the Android OS.
 
-### 1. 下载并解压系统镜像
+### 1. Download and Extract System Image
 
-访问 <a href={props?.download_page ?? '../download.md#android'}>资源汇总下载</a> 页面，下载最新的 Android 系统镜像，并将其解压到您的 PC 本地。
+Visit the <a href={props?.download_page ?? '../download.md#android'}>Downloads</a> page, download the latest Android system image, and extract it to your local PC.
 
-### 2. 刷入系统镜像
+### 2. Flash the System Image
 
-在 PC 上打开终端，进入解压后的 Android 系统镜像目录，然后运行 `android_flush_images.sh` 脚本。
+Open a terminal on your PC, navigate to the extracted Android system image directory, and run the `android_flush_images.sh` script.
 
 <NewCodeBlock tip="Ubuntu-PC$" type="device">
 
@@ -150,4 +145,4 @@ BIOS 刷写完成后，主板已进入 Fastboot 模式，接下来我们可以�
 
 </NewCodeBlock>
 
-脚本将自动完成系统刷写。刷写成功后，主板会自动重启并进入 Android 系统。
+The script will automatically complete the system flashing. After successful flashing, the motherboard will automatically reboot into the Android OS.

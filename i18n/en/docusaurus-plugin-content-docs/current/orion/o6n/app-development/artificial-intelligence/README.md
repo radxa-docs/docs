@@ -2,8 +2,8 @@
 sidebar_position: 1
 ---
 
-# 人工智能
+# Artificial Intelligence
 
-主要介绍使用 NPU SDK 进行人工智能硬件加速的应用开发
+Introduction to application development using NPU SDK for AI hardware acceleration
 
 <DocCardList />
