@@ -29,6 +29,8 @@ sudo ln -s /bin/python2 /bin/python
 
 - [百度网盘](https://pan.baidu.com/s/1G8xA7AsLqQMqrsurMKBGyA?pwd=u7ac)
 
+- [MEGA](https://mega.nz/file/F2AkCIYD#RgP4haHUxcTopL3-pS7gxONcyDqW7tP3bLnw6ZkvnUg)
+
 ## 解压 SDK
 
 在 Ubuntu PC 上，使用如下命令解压 SDK。
