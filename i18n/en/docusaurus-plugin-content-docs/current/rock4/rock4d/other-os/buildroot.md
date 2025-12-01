@@ -29,6 +29,8 @@ sudo ln -s /bin/python2 /bin/python
 
 - [Baidu Netdisk](https://pan.baidu.com/s/1G8xA7AsLqQMqrsurMKBGyA?pwd=u7ac)
 
+- [MEGA](https://mega.nz/file/F2AkCIYD#RgP4haHUxcTopL3-pS7gxONcyDqW7tP3bLnw6ZkvnUg)
+
 ## Extract the SDK
 
 On your Ubuntu PC, use the following commands to extract the SDK.
