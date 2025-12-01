@@ -2,14 +2,14 @@
 sidebar_position: 2
 ---
 
-# 通过命令行安装 Super 系统
+# 通过命令行安装系统
 
-使用瑞莎 C200 Orin 开发套件的用户，需要按照该教程安装系统才可以进入 Super 模式。
+使用瑞莎 C200 Orin 开发套件的用户，如果需要进入 Super 模式，请按照该教程安装系统。
 
 :::tip 安装说明
 
 - 仅支持从 NVMe 固态硬盘启动
-- 安装将擦除 EDK2 固件和 NVMe 数据，请提前备份
+- 安装将擦除瑞莎定制 BIOS 固件和 NVMe 数据，请提前备份
 
 :::
 
@@ -44,7 +44,7 @@ sidebar_position: 2
 
 进入下载目录打开终端，将文件解压到指定目录。
 
-<NewCodeBlock tip="Radxa@c200-orin" type="device">
+<NewCodeBlock tip="Ubuntu 22.04" type="host">
 
 ```
 tar xf Jetson_Linux_R36.4.3_aarch64.tbz2
@@ -58,7 +58,7 @@ cd Linux_for_Tegra/
 
 运行 `l4t_flash_prerequisites.sh` 脚本安装 Jetson Linux 开发环境，安装所有必要的工具和依赖包。
 
-<NewCodeBlock tip="Radxa@c200-orin" type="device">
+<NewCodeBlock tip="Ubuntu 22.04" type="host">
 
 ```
 sudo ./tools/l4t_flash_prerequisites.sh
@@ -70,7 +70,7 @@ sudo ./tools/l4t_flash_prerequisites.sh
 
 运行 `apply_binaries.sh` 脚本将英伟达 Jetson 组件安装到根文件系统。
 
-<NewCodeBlock tip="Radxa@c200-orin" type="device">
+<NewCodeBlock tip="Ubuntu 22.04" type="host">
 
 ```
 sudo ./apply_binaries.sh

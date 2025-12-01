@@ -1,18 +1,18 @@
 ---
-sidebar_position: 1
+sidebar_position: 10
 ---
 
-# 编译 / 烧录 EDK2 固件
+# 编译 / 烧录瑞莎 BIOS 固件
 
-瑞莎 C200 Orin 开发套件预装 EDK2 固件，支持从 U 盘或 NVMe 固态硬盘启动系统。
+瑞莎 C200 Orin 开发套件预装瑞莎的 BIOS 固件，支持从 U 盘或 NVMe 固态硬盘启动系统。
 
-若您使用 SDK Manager 或命令行安装过系统，将会擦除瑞莎 C200 Orin 开发套件的 EDK2 固件，无法通过 U 盘启动系统，可以通过以下方式重新烧录 EDK2 固件。
+若您使用 SDK Manager 或命令行安装过系统，将会擦除瑞莎 C200 Orin 开发套件的预装 BIOS 固件，无法通过 U 盘启动系统，可以通过以下方式重新烧录瑞莎 BIOS 固件。
 
 ## 环境搭建
 
 ### 硬件配置
 
-推荐在 Ubuntu 22.04 的主机上进行系统的安装，若是使用虚拟机运行 Ubuntu 22.04，请确保烧录 EDK2 固件的过程中主板连接到虚拟机。
+推荐在 Ubuntu 22.04 的主机上进行系统的安装，若是使用虚拟机运行 Ubuntu 22.04，请确保烧录 BIOS 固件的过程中主板连接到虚拟机。
 
 - Ubuntu 22.04
 
@@ -33,7 +33,7 @@ newgrp docker
 
 完成以上操作后，重新打开新的终端，输入 `docker --version` 命令，如果显示 Docker 版本信息，说明 Docker 安装成功。
 
-## 编译 EDK2 固件
+## 编译瑞莎 BIOS 固件
 
 ### 安装依赖
 

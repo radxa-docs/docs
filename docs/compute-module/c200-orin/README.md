@@ -6,7 +6,7 @@ sidebar_position: 20
 
 ## 产品介绍
 
-瑞莎 C200 Orin 开发套件由瑞莎 C200 IO 板和英伟达 Jetson Orin NX 8GB 模组组成，是一款先进的边缘 AI 和机器人开发平台，助力嵌入式边缘 AI 的未来。
+瑞莎 C200 Orin 开发套件由瑞莎 C200 载板和英伟达 Jetson Orin NX 8GB 模组组成，是一款先进的边缘 AI 和机器人开发平台，助力嵌入式边缘 AI 的未来。
 
 搭载 6 核 Arm® Cortex®-A78AE 处理器，主频高达 2GHz，集成 NVIDIA Ampere 架构 GPU，支持高达 117 TOPS 的 AI 算力（Super 模式），是工业自动化、机器人、智能安防等领域的理想选择。
 
@@ -26,11 +26,11 @@ sidebar_position: 20
 
 </TabItem>
 
-<TabItem value="瑞莎 C200 IO 板">
+<TabItem value="瑞莎 C200 载板">
 
-|    产品实物     | 序号 |  视图  | 序号 |  视图  |
-| :-------------: | :--: | :----: | :--: | :----: |
-| 瑞莎 C200 IO 板 |  ①   | 俯视图 |  ②   | 背视图 |
+|    产品实物    | 序号 |  视图  | 序号 |  视图  |
+| :------------: | :--: | :----: | :--: | :----: |
+| 瑞莎 C200 载板 |  ①   | 俯视图 |  ②   | 背视图 |
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/c200/radxa-c200-io-board-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -42,7 +42,7 @@ sidebar_position: 20
 
 ## 包装清单
 
-- 瑞莎 C200 IO 板
+- 瑞莎 C200 载板
 - 英伟达 Jetson Orin NX 8GB 模组
 
 ## 产品规格
@@ -86,7 +86,7 @@ sidebar_position: 20
 
 </TabItem>
 
-<TabItem value="瑞莎 C200 IO 板">
+<TabItem value="瑞莎 C200 载板">
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/c200/radxa-c200-io-board.webp" style={{width: '75%', maxWidth: '1200px'}} />

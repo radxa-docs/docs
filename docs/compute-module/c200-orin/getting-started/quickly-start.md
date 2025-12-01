@@ -8,7 +8,7 @@ sidebar_position: 1
 
 :::tip 说明
 
-瑞莎 C200 Orin 开发套件预装 EDK2 固件，支持从 U 盘或 NVMe 固态硬盘启动系统。
+瑞莎 C200 Orin 开发套件预装瑞莎定制 BIOS 固件，支持从 U 盘或 NVMe 固态硬盘启动系统。
 
 快速上手教程仅介绍安装系统到 U 盘，其它系统启动介质或安装系统方式参考 [安装系统](./install-system/) 教程。
 :::
@@ -29,7 +29,7 @@ sidebar_position: 1
 
 - 瑞莎 C200 Orin 开发套件
 - 供电：电源适配器
-- 系统启动介质：U 盘（用于安装系统与启动）
+- 系统启动介质：U 盘（容量不小于 16 GB，用于安装系统与启动）
 - 显示设备：DP 数据线和显示器
 - 输入设备：键盘和鼠标（用于图形界面操作）
 
@@ -171,30 +171,3 @@ sidebar_position: 1
 ## 使用系统
 
 成功登录系统后，您就可以在瑞莎 C200 Orin 开发套件上进行系统配置与开发。
-
-:::info 安装系统说明
-
-我们提供 3 种方式给用户安装系统，以下是三种方式的优缺点：
-
-1. 使用我们提供的 EDK2 固件和英伟达官方提供的 SD 卡系统镜像
-
-参考教程 [通过 EDK2 固件启动系统](./install-system/radxa-bios-system)。
-
-- 优点：支持 U 盘和 NVMe 固态硬盘启动系统，安装系统简单
-- 缺点：无法进入 MAXN_SUPER 模式
-
-2. 通过 SDK Manager 安装系统
-
-参考教程 [通过 SDK Manager 安装系统](./install-system/sdk-manager)。
-
-- 优点：可自行部署组件环境
-- 缺点：无法进入 MAXN_SUPER 模式，只支持 NVMe 固态硬盘启动系统
-
-3. 通过命令行安装 Super 系统
-
-参考教程 [通过命令行安装 Super 系统](./install-system/super-system)。
-
-- 优点：可进入 MAXN_SUPER 模式
-- 缺点：只支持 NVMe 固态硬盘启动系统
-
-:::

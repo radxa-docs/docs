@@ -1,20 +1,26 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use_etcher_nvme.mdx';
+import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use_etcher_udisk.mdx';
 
-# 安装系统到 NVMe 固态硬盘
+# 安装系统到 U 盘
+
+:::tip 系统使用说明
+
+该方式安装的系统需要搭配瑞莎 BIOS 固件使用。
+
+:::
 
 <BalenaEtcherUse download_page={"../../../download"}/>
 
 ## 启动系统
 
-完成系统的安装后，将 NVMe 固态硬盘插到到瑞莎 C200 Orin 开发套件的 M.2 M Key 插槽，然后使用电源适配器给瑞莎 C200 Orin 开发套件供电，即可启动系统。
+完成系统的安装后，将 U 盘插到到瑞莎 C200 Orin 开发套件的 USB 接口，然后使用电源适配器给瑞莎 C200 Orin 开发套件供电，即可启动系统。
 
 详细步骤：
 
-1. 安装 NVMe SSD
+1. 安装 U 盘
 
 2. 使用 DP 数据线连接显示器和瑞莎 C200 Orin 开发套件
 

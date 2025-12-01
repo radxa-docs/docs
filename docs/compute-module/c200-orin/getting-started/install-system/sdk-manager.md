@@ -4,12 +4,12 @@ sidebar_position: 3
 
 # 通过 SDK Manager 安装系统
 
-非英伟达载板无法通过 SDK Manager 进入 Super 模式，其他功能正常使用。
+瑞莎 C200 载板无法通过 SDK Manager 进入 Super 模式，其他功能正常使用。
 
 :::tip 安装说明
 
 - 仅支持从 NVMe 固态硬盘启动
-- 安装将擦除 EDK2 固件和 NVMe 数据，请提前备份
+- 安装将擦除瑞莎预装的 BIOS 固件和 NVMe 数据，请提前备份
 
 :::
 
@@ -44,7 +44,7 @@ sidebar_position: 3
 
 进入下载目录打开终端，运行下面命令安装 SDK Manager。
 
-<NewCodeBlock tip="Radxa@c200-orin" type="device">
+<NewCodeBlock tip="Ubuntu 22.04" type="host">
 
 ```
 sudo dpkg -i sdkmanager_xxx_amd64.deb
@@ -56,7 +56,7 @@ sudo dpkg -i sdkmanager_xxx_amd64.deb
 
 若安装过程中遇到 `dpkg: error processing package sdkmanager` 的错误，运行以下命令安装：
 
-<NewCodeBlock tip="Radxa@c200-orin" type="device">
+<NewCodeBlock tip="Ubuntu 22.04" type="host">
 
 ```
 sudo apt --fix-broken install -y
