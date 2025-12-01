@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use_etcher_udisk.mdx';
+import BalenaEtcherUse from '../../../../../../../common/radxa-os/install-system/\_use_etcher_udisk.mdx';
 
 # Install System to USB Drive
 

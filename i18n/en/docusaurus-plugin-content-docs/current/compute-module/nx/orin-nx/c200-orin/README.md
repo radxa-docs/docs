@@ -2,7 +2,7 @@
 sidebar_position: 20
 ---
 
-# Radxa C200 Orin Development Kit
+# Radxa C200 Orin Dev Kit
 
 ## Product Introduction
 

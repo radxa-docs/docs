@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use_etcher_nvme.mdx';
+import BalenaEtcherUse from '../../../../../../../common/radxa-os/install-system/\_use_etcher_nvme.mdx';
 
 # Install System to NVMe SSD
 
