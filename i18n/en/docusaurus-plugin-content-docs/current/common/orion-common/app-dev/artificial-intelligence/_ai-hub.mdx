@@ -1,0 +1,64 @@
+The CIX AI Model Hub is a collection of machine learning models optimized for deployment on CIX SOC. It includes AI model examples across various domains (such as computer vision, speech recognition, generative AI, and other open-source models) along with configuration files compiled for the CIX SOC NPU. This document primarily introduces how to download and run models from the AI Model Hub.
+
+## Download CIX AI Model Hub Repository
+
+After applying through the [CIX Early Access Program](./npu-introduction#cix-early-access-program), you will receive an email with instructions to access the AI Model Hub repository.
+
+```bash
+git clone https://e.coding.net/g-uaqh1479/ai-model-hub/ai_model_hub.git
+```
+
+Model example directory structure:
+
+```bash
+├── datasets
+├── models
+│   ├── Audio
+│   │   └── Speech_Recognotion
+│   ├── ComputeVision
+│   │   ├── Face_Detection
+│   │   ├── Face_Recognition
+│   │   ├── Image_Classification
+│   │   ├── Object_Detection
+│   │   ├── Pose_Estimation
+│   │   ├── Semantic_Segmentation
+│   │   └── Super_Resolution
+│   └── Generative_AI
+│       ├── LLM
+│       └── Text_Image_Search
+└── utils
+    ├── evaluate
+    └── label
+```
+
+## Download Pre-compiled Models
+
+For the examples in the CIX AI Model Hub, users can directly download the ONNX models and pre-compiled models from [ModelScope](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files) without needing to compile from source.
+
+## Running the Models
+
+### Environment Setup
+
+Install the Python environment:
+
+```bash
+pip3 install -r requirements.txt
+```
+
+### Model Examples
+
+1. Preprocess human-readable input into model input format
+2. Run model inference
+3. Post-process model output into human-readable format
+
+All model example code can be run end-to-end on the O6 using the NPU:
+
+```bash
+python3 inference_npu.py
+```
+
+Additionally, you can run the end-to-end examples locally on an X86 host or on the O6 using CPU with OnnxRuntime:
+
+```bash
+python3 inference_onnx.py
+```

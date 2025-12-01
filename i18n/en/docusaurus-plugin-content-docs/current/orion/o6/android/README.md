@@ -1,9 +1,9 @@
 ---
-sidebar_position: 40
+sidebar_position: 60
 ---
 
 # Android System
 
-This guide introduces how to flash the Android BIOS and install the Android system.
+Introduction to using and developing with the Radxa Orion O6 Android system.
 
 <DocCardList />

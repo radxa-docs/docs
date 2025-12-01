@@ -1,9 +1,9 @@
 ---
-sidebar_position: 41
+sidebar_position: 50
 ---
 
 # Application Development
 
-Introduces the application development, such as NPU application development, etc.
+Introduction to application development for Radxa Orion O6, including NPU application development and more.
 
 <DocCardList />

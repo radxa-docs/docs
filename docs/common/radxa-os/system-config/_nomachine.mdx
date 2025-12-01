@@ -129,24 +129,6 @@ wget <download_url>
 
 :::
 
-### 添加软件源
-
-为了安装虚拟显示器驱动，需要添加 Ubuntu 的 universe 软件源：
-
-<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-
-```
-sudo nano /etc/apt/sources.list
-```
-
-</NewCodeBlock>
-
-将以下 `universe` 源添加到文件末尾并保存：
-
-```
-deb http://ports.ubuntu.com/ubuntu-ports/ jammy main restricted universe multiverse
-```
-
 ### 安装依赖包
 
 安装虚拟显示器驱动，这是 NoMachine 远程桌面正常工作所必需的：
@@ -201,7 +183,7 @@ EndSection
 
 ### 重启系统
 
-重启系统使所有配置生效：
+重启系统使所有配置生效。
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 

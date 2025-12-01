@@ -1,9 +1,9 @@
 ---
-sidebar_position: 40
+sidebar_position: 60
 ---
 
-# Openharmony 系统
+# Harmony 系统
 
-主要介绍 Openharmony 系统的使用与开发。
+主要介绍 OpenHarmony 系统的使用与开发。
 
 <DocCardList />

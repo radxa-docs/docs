@@ -1,0 +1,48 @@
+## NPU Introduction
+
+Radxa Orion O6 / O6N features up to 28.8 TOPS NPU (Neural Processing Unit) computing power, supporting acceleration for INT4 / INT8 / INT16 / FP16 / BF16, and TF32 data types.
+This document explains how to use the CIX P1 NPU SDK to run AI models and applications with NPU-accelerated inference. It includes step-by-step guides for model compilation tools, toolchains, and example implementations of common models.
+
+## CIX Early Bird Program
+
+The NPU SDK includes NOE Compiler and CIX AI Model Hub. To obtain the SDK, you need to apply for the CIX Early Bird Program.
+Application link: [CIX Early Bird Program](https://earlybird.cixtech.com/#/)
+
+## Install NPU SDK (x86 Linux Environment)
+
+After applying through the [CIX Early Bird Program](#cix-early-bird-program), you will receive an email with download instructions for the SDK.
+
+```bash
+tar -xvf nor.tag.gz
+```
+
+:::tip
+The CIX P1 NPU SDK is installed on an X86 host system and requires Python 3.8.
+
+Please prepare a Python 3.8 environment. We recommend using [Anaconda](https://www.anaconda.com/download).
+:::
+
+### Install NOE Compiler
+
+NOE Compiler is used for model compilation, converting models from ONNX framework format to a format that can be accelerated by the NPU for inference.
+
+```bash
+cd noe
+pip3 install -r requirements.txt
+pip3 install ./CixBuilder-6.1.2958.1-py3-none-any.whl
+```
+
+## ~Install NOE UMD (Orion O6 / O6N)~
+
+:::tip
+~The NOE UMD package is released as a .deb package. If using the Python API, please inherit system dependencies when creating a virtual environment: **`python3 -m venv --system-site-packages .venv`**~
+:::
+~After applying through the [CIX Early Bird Program](#cix-early-bird-program), you will receive an email with instructions to download the UMD (User Mode Driver) .deb package~
+
+~`bash
+sudo dpkg -i ./cix-noe-umd_0.01-1_arm64.deb
+~`~
+
+:::tip
+NOE UMD is pre-installed in the OS. If using the Python API, please inherit system dependencies when creating a Python virtual environment: **`python3 -m venv --system-site-packages .venv`** to ensure the libnoe module is loaded correctly.
+:::

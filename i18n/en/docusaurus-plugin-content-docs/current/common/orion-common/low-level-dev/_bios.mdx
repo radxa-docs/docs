@@ -1,0 +1,168 @@
+## Prerequisites
+
+You need to prepare the following hardware devices in advance:
+
+- Motherboard: {props.board}
+- Power Supply: {props.power}
+- BIOS Update Media: USB Flash Drive
+- Display: HDMI/DP cable and monitor
+- Input Devices: Keyboard and mouse (for GUI operation)
+- Debug Tool (Optional): USB to Serial cable (for serial console login)
+
+<Tabs queryString="system boot">
+<TabItem value="Orion O6" default={props.tag === "o6"} attributes={{className: props.tag === "o6n" && "tab_none"}} >
+
+:::tip Recommended Accessories
+
+- [Radxa PD 65W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-65w)
+- Standard 20V Type-C power adapter, 3A or higher current recommended
+
+:::
+
+</TabItem>
+
+<TabItem value="Orion O6N" default={props.tag === "o6n"} attributes={{className: props.tag === "o6" && "tab_none"}} >
+
+:::tip Recommended Accessories
+
+- [Radxa DC 36W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-dc12-36w)
+- [Radxa DC 60W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-dc12-60w)
+- Standard 12V DC5525 power adapter, 3A or higher current recommended
+
+:::
+
+</TabItem>  
+</Tabs>
+
+## Creating a BIOS Update USB Drive
+
+### Format the USB Drive
+
+Format your USB drive to FAT32 format. Other formats may not be accessible for updating the BIOS firmware.
+
+### Create BIOS Update USB Drive
+
+Visit the <a href={props?.download_page ?? '../download.md#android'}>Resources Download</a> page to download the BIOS firmware. Copy the downloaded BIOS firmware contents to the root directory of your USB drive.
+
+The BIOS firmware should contain the following files:
+
+```
+BuildOptions
+BurnImage.efi
+cix_flash_all.bin
+cix_flash_ota.bin
+EnrollFromDefaultKeysApp.efi
+FlashUpdate.efi
+Shell.efi
+startup.nsh
+VariableInfo.efi
+```
+
+## Updating the BIOS Firmware
+
+It is recommended to connect a monitor and keyboard to the Motherboard for firmware updates, as serial console mode may experience misaligned options and display abnormalities.
+
+### Hardware Connection
+
+Remove any bootable media (such as USB drives, NVMe SSDs, etc.) from the Motherboard to prevent the system from booting directly.
+
+1. Insert the prepared BIOS update USB drive into a USB port on the Motherboard
+2. Connect the monitor to the Motherboard using an HDMI/DP cable
+3. Connect a USB keyboard to the Motherboard
+4. Power on the Motherboard using the power adapter
+
+### Entering the BIOS Interface
+
+After powering on the Motherboard, when you see the Radxa logo and progress bar on the monitor, briefly press the "Esc" key to enter the `BIOS` interface.
+
+:::tip BIOS Interface
+
+If the system doesn't detect any bootable media, it will automatically enter the BIOS interface.
+
+:::
+
+<div style={{ textAlign: "center" }}>
+  Radxa Logo Screen
+  <img
+    src="/en/img/orion/o6n/orion-o6n-boot-logo.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  BIOS Interface
+  <img
+    src="/en/img/orion/o6n/orion-o6n-bios.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Updating the BIOS Firmware
+
+In the BIOS interface, navigate to and select `Boot Manager` -> `UEFI Shell`
+
+<div style={{ textAlign: "center" }}>
+  Boot Manager Interface
+  <img
+    src="/en/img/orion/o6n/orion-o6n-boot-manager.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+After entering the UEFI Shell interface, press the `ESC` key to cancel automatic updates and manually navigate to the specified disk to update the BIOS firmware.
+
+<div style={{ textAlign: "center" }}>
+  UEFI Shell Interface
+  <img
+    src="/en/img/orion/o6n/orion-o6n-uefi-shell.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+:::danger
+
+When updating the BIOS firmware, ensure the power supply remains stable throughout the entire process. A power failure during update may result in a failed update and render the motherboard unbootable.
+
+:::
+
+1. Access the BIOS Update Directory
+
+The UEFI Shell interface will display a mapping table of all detected storage devices. Use the `ls` command to view the files on each disk and identify your BIOS update USB drive.
+
+As shown in the image, if your BIOS update USB drive is mapped as `FS2`, type `FS2:` to access it.
+
+:::tip BIOS Update USB Drive
+
+If only one disk is connected, it will typically be mapped as `FS0`.
+
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/orion/o6n/orion-o6n-uefi-shell-disk.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. Update the BIOS Firmware
+
+Type `startup.nsh` and press `Enter` to begin the BIOS update process.
+
+<NewCodeBlock tip="radxa@UEFI-Shell$" type="device">
+
+```
+startup.nsh
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/orion/o6n/orion-o6n-bios-update.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. Reboot the System
+
+After the update is complete, unplug and reconnect the power adapter to restart the system!

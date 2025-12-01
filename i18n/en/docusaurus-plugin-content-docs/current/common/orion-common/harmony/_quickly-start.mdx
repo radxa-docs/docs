@@ -1,0 +1,160 @@
+## Prerequisites
+
+- Motherboard: {props.board}
+- USB Drive: For updating BIOS
+- System Boot Drive: NVMe SSD
+- USB Type-C Cable: For data connection
+- Display: For accessing BIOS setup interface
+- Power Adapter: {props.power}
+- Host PC: Windows / Linux / MacOS with fastboot tools installed
+- Optional: Serial Debug Cable
+
+Note: The optional serial debug cable is used for BIOS flashing, which can be done either via serial console or display.
+
+## Harmony SDK Download
+
+- [SDK GitHub](https://github.com/radxa/cix-openharmony-manifests)
+
+Refer to the README.md file in the SDK GitHub repository for environment setup and compilation instructions.
+
+## Flashing Harmony BIOS
+
+Before starting, please ensure all preparations are complete.
+
+### Preparation
+
+#### 1. Install Required Tools
+
+Install fastboot tools on your host PC.
+
+:::tip System Environment
+Ubuntu is recommended for system installation.
+:::
+
+<NewCodeBlock tip="Ubuntu-PC$" type="device">
+
+```
+sudo apt update
+sudo apt install android-tools-fastboot
+```
+
+</NewCodeBlock>
+
+#### 2. Create BIOS USB Drive
+
+Visit the <a href={props?.download_page ?? '../download.md#harmony'}>Downloads</a> page, download the latest Harmony BIOS files, and extract them to the root directory of your USB drive.
+
+### Hardware Connection
+
+:::tip Interface Description
+The Radxa Orion O6 motherboard features two USB Type-C ports:
+
+- **Data Port**: Near the USB-A port, used for connecting to a PC for data transfer.
+- **Power Port**: Near the power button, used for connecting the power adapter.
+  :::
+
+1. Install the NVMe SSD onto the motherboard.
+2. Insert the prepared BIOS USB drive into the motherboard's USB-A port.
+3. Connect the motherboard's **Data Port** to your PC using a USB Type-C cable.
+4. (Optional) For serial console access, connect a serial debug cable to the motherboard's UART2 interface.
+5. Connect a display to the motherboard's HDMI or DP port.
+6. Power the motherboard's **Power Port** using a USB-C power adapter.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/orion/o6/android/android-install-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Procedure
+
+#### 1. Enter BIOS Setup
+
+Power on the motherboard. When you see the Radxa logo or the message `Press ESCAPE for boot options` in the serial console, immediately press the `Esc` key to enter the BIOS setup interface.
+
+- **Via Display**
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/orion/o6/android/burn-bios-go.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+- **Via Serial Console**
+
+```
+Tianocore/EDK2 firmware version 0.3.0-1
+Press ESCAPE for boot options
+```
+
+#### 2. Run BIOS Flashing Script
+
+In the BIOS interface, navigate to `Boot Manager` -> `EFI Shell`. The system will automatically detect and run the `startup.nsh` script from the USB drive to complete the BIOS flashing process.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/orion/o6/android/burn-bios-manager.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+_Entering Boot Manager_
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/orion/o6/android/burn-bios-efi.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+_Selecting EFI Shell_
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/orion/o6/android/burn-bios-sh.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+_Automatic Script Execution_
+
+#### 3. Confirm Fastboot Mode
+
+After the BIOS flashing is complete, the motherboard will automatically enter Fastboot mode.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/orion/o6/harmony/burn-harmony-bios.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+## Installing OpenHarmony OS
+
+With the motherboard in Fastboot mode, you can now proceed to install the OpenHarmony OS.
+
+### 1. Download and Extract System Image
+
+Visit the <a href={props?.download_page ?? '../download.md#harmony'}>Downloads</a> page, download the latest OpenHarmony system image, and extract it to your local PC.
+
+### 2. Flash the System Image
+
+Open a terminal on your PC, navigate to the extracted OpenHarmony system image directory, and run the `fastboot.sh` script.
+
+<NewCodeBlock tip="Ubuntu-PC$" type="device">
+
+```
+sudo ./fastboot.sh
+```
+
+</NewCodeBlock>
+
+When the flashing is complete, you'll see the following:
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/orion/o6/harmony/burn-harmony-img.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+The script will automatically complete the system flashing. After successful flashing, power cycle the board to boot into the OpenHarmony OS.

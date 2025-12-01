@@ -1,6 +1,6 @@
 import { Image } from "@site/src/utils/docs";
 
-This guide explains how to install the system to an NVMe SSD using the `dd` command when the system can boot normally from a MicroSD card.
+This guide explains how to install the system to an NVMe SSD using the `dd` command when the system can boot normally from a {props?.boot_device ?? 'MicroSD card'}.
 
 :::warning
 Installing the system will format the NVMe SSD. Please back up any important data in advance!
@@ -10,7 +10,7 @@ Installing the system will format the NVMe SSD. Please back up any important dat
 
 To use the `dd` command to install the system to an NVMe SSD, you need to meet the following conditions:
 
-- The system can boot normally from a MicroSD card
+- The system can boot normally from a {props?.boot_device ?? 'MicroSD card'}
 - NVMe SSD is installed on the board
 
 ## Hardware Connection

@@ -5,4 +5,4 @@ slug: /orion
 
 # Orion Series
 
-Orion is a high-performance motherboard series jointly launched by Radxa and Cix.
+The Orion series is a high-performance single board computer series jointly launched by Radxa and CIX Technology.

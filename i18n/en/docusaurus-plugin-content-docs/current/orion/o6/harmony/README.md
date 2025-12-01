@@ -1,9 +1,9 @@
 ---
-sidebar_position: 40
+sidebar_position: 60
 ---
 
-# Openharmony System
+# Harmony OS
 
-This page introduces the use and development of the Openharmony system.
+Introduction to the usage and development of the OpenHarmony operating system.
 
 <DocCardList />

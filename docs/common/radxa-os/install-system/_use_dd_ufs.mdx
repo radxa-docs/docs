@@ -1,4 +1,4 @@
-主要介绍在 MicroSD 卡启动系统正常的情况下，使用 `dd` 命令将系统安装到 UFS 中。
+主要介绍在 {props?.boot_device ?? 'MicroSD 卡'} 启动系统正常的情况下，使用 `dd` 命令将系统安装到 UFS 中。
 
 :::warning
 安装系统会格式化 UFS 模块或板载 UFS，如果有重要数据请提前备份！
@@ -8,7 +8,7 @@
 
 您需要满足以下条件才可以使用 `dd` 命令将系统安装到 UFS 中：
 
-- 系统可以通过 MicroSD 卡正常启动系统
+- 系统可以通过 {props?.boot_device ?? 'MicroSD 卡'} 正常启动系统
 
 - UFS 安装到主板上或主板板载 UFS
 
