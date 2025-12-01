@@ -23,15 +23,15 @@ sidebar_position: 150
 #### 瑞莎星睿 O6
         | 下载平台                                                                            | 文件格式 | 获取方式                                                                                            |
         | :---------------------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.0.0-3.zip) | `.zip`   | 固件位于压缩包内                                                                                    |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)                | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa` 目录下 |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.0.0-3.zip) | `.zip`   | 固件位于压缩包内                                                                                                  |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)                | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` 目录下 |
     </TabItem>
     <TabItem value="星睿 O6N">
 #### 瑞莎星睿 O6N
         | 下载平台                                                             | 文件格式 | 获取方式                                                                                            |
         | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/)                      | `.zip`   | 固件位于压缩包内                                                                                    |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa` 目录下 |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.0.0-5.zip)                      | `.zip`   | 固件位于压缩包内                                                                                                  |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` 目录下 |
     </TabItem>
 </Tabs>
 
@@ -99,45 +99,24 @@ Radxa OS 的默认凭据如下：
 
 ### Openharmony
 
-瑞莎星睿 O6 和 O6N 提供不同的 OpenHarmony 系统镜像，请根据主板型号选择对应的镜像文件。
+目前仅提供瑞莎星睿 O6 镜像。
 
-- **适用场景**：评估或开发 OpenHarmony 相关应用。
-- **注意**：当前仅提供 O6 镜像，O6N 正在适配中。
-
-<Tabs queryString="versions">
-    <TabItem value="星睿 O6">
 #### 瑞莎星睿 O6
+
         | 类型     | 版本 / 描述                   | 下载链接                                                                                                                                                                                                                         | 备注                         |
         | :------- | :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
         | BIOS     | OpenHarmony BIOS v1.0 版本    | [下载](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_bios.zip)                                                                                                  | 用于 OpenHarmony BIOS 固件 |
         | 系统镜像 | OpenHarmony 20251016 系统镜像 | [下载](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_images.zip)                                                                                                | OpenHarmony 系统镜像         |
-    </TabItem>
-    <TabItem value="星睿 O6N">
-#### 瑞莎星睿 O6N
-        | 类型     | 版本 / 描述 | 下载链接 | 备注             |
-        | :------- | :---------- | :------- | :--------------- |
-        | 系统镜像 | -           | -        | 目前正在适配中 |
-    </TabItem>
-</Tabs>
 
 ### Fedora
 
 Fedora 为社区发行版，适合熟悉 Fedora / RPM 生态的高级用户，目前仅提供瑞莎星睿 O6 镜像。
 
-<Tabs queryString="versions">
-    <TabItem value="星睿 O6">
 #### 瑞莎星睿 O6
+
         | 文件名                                                       | 下载链接                                                                                                                                                          | 说明                         |
         | :----------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
         | `fedora-disk-gnome-workstation_radxa_orion-o6_202501041239` | [下载](https://openkoji.iscas.ac.cn/pub/dist-repos/dl/Radxa/Orion-O6/images/fedora-disk-gnome-workstation_radxa_orion-o6_202501041239.raw.gz)                    | Fedora GNOME Workstation 镜像 |
-    </TabItem>
-    <TabItem value="星睿 O6N">
-#### 瑞莎星睿 O6N
-        | 文件名 | 下载链接 | 说明                         |
-        | :----- | :------- | :--------------------------- |
-        | -      | -        | 当前暂不提供 Fedora 系统镜像 |
-    </TabItem>
-</Tabs>
 
 Fedora 系统的默认凭据如下：
 
@@ -164,9 +143,7 @@ Fedora 系统的默认凭据如下：
 ### 瑞莎星睿 O6N
         | 资料类型       | 文件名 | 格式 | 下载链接 |
         | :------------- | :----- | :--- | :------ |
-        | 原理图         | -      | PDF  | 待提供 |
-        | 位号图（顶层） | -      | PDF  | 待提供 |
-        | 位号图（底层） | -      | PDF  | 待提供 |
-        | 3D 文件        | -      | STP  | 待提供 |
+        | 原理图         | `radxa_orion_o6n_schematic_v1.11` | PDF  | [下载](https://dl.radxa.com/orion/o6n/docs/hw/radxa_orion_o6n_schematic_v1.11.pdf) |
+        | 位号图 | `radxa_orion_o6n_components_placement_map_v1.11` | PDF  | [下载](https://dl.radxa.com/orion/o6n/docs/hw/radxa_orion_o6n_components_placement_map_v1.11.pdf) |
     </TabItem>
 </Tabs>
