@@ -8,7 +8,7 @@ sidebar_position: 1
 
 :::tip 说明
 
-瑞莎 C200 Orin 开发套件预装瑞莎定制 BIOS 固件，支持从 U 盘或 NVMe 固态硬盘启动系统。
+瑞莎 C200 Orin 开发套件预装瑞莎 BIOS 固件，支持从 U 盘或 NVMe 固态硬盘启动系统。
 
 快速上手教程仅介绍安装系统到 U 盘，其它系统启动介质或安装系统方式参考 [安装系统](./install-system/) 教程。
 :::
