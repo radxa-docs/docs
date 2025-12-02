@@ -14,11 +14,11 @@ sidebar_position: 2
 - Radxa NX5 IO does not have onboard WiFi/BT module and requires an external module. These are the WITI/BT cards that have been supported and tested.
 - The M.2 wireless module demonstrated here is: Radxa wireless Module A8.
 
-[Radxa wireless module A8](/zh/img/accessories/a8-module-01.webp)
+[Radxa wireless module A8](/zh/img/accessories/network/a8-module-01.webp)
 
 - Installation is shown as follows:
 
-[Radxa wireless module A8](/zh/img/accessories/a8-module-02.webp)
+[Radxa wireless module A8](/zh/img/accessories/network/a8-module-02.webp)
 
 ## WIFI Usage
 

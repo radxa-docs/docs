@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 瑞莎双 2.5G 以太网扩展板
 
-![Radxa Dual 2.5G Router HAT](/img/accessories/dual-2.5-router-hat/dual-2.5-router-hat-01.webp)
+![Radxa Dual 2.5G Router HAT](/img/accessories/network/dual-2.5-router-hat/dual-2.5-router-hat-01.webp)
 
 ## 概述
 
@@ -27,12 +27,12 @@ sidebar_position: 1
 
 ## 特征
 
-- 2个 2.5G 以太网端口，用于高速网络连接
-- 1个 M.2 M Key 接口带 PCIe 3.0/2.0 1-lane，用于 NVMe SSD 存储
-- 1个 FPC 接口带 PCIe 3.0/2.0 1-lane，用于额外扩展
-- 1个 12V DC 接口，DC 规格为 5525
+- 2 个 2.5G 以太网端口，用于高速网络连接
+- 1 个 M.2 M Key 接口带 PCIe 3.0/2.0 1-lane，用于 NVMe SSD 存储
+- 1 个 FPC 接口带 PCIe 3.0/2.0 1-lane，用于额外扩展
+- 1 个 12V DC 接口，DC 规格为 5525
 
-![Radxa Dual 2.5G Router HAT](/img/accessories/dual-2.5-router-hat/dual-2.5-router-hat-02.webp)
+![Radxa Dual 2.5G Router HAT](/img/accessories/network/dual-2.5-router-hat/dual-2.5-router-hat-02.webp)
 
 ## 技术规格
 
@@ -42,7 +42,7 @@ sidebar_position: 1
 | 以太网速度   | 2 × 2.5 千兆            |
 | PCIe 接口    | PCIe 3.0/2.0 1-lane     |
 | 存储支持     | M.2 M Key 2280 NVMe SSD |
-| 电源输入     | 12V DC（5525接口）      |
+| 电源输入     | 12V DC（5525 接口）     |
 | 尺寸         | 兼容 HAT 规格           |
 
 ## 套装内容
@@ -56,7 +56,7 @@ sidebar_position: 1
 
 ## 板卡布局
 
-![Radxa Dual 2.5G Router HAT Board](/img/accessories/dual-2.5-router-hat/AC016-zh.webp)
+![Radxa Dual 2.5G Router HAT Board](/img/accessories/network/dual-2.5-router-hat/AC016-zh.webp)
 
 ## 40 针 Pinout
 

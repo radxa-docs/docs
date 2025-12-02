@@ -55,7 +55,7 @@ dtparam=pciex1
 
 3. Press `Ctrl+O` to save the file, then `Ctrl+X` to exit
 
-![Editing config.txt to enable PCIe](/img/accessories/dual-2.5-router-hat/rpi-using-1.webp)
+![Editing config.txt to enable PCIe](/img/accessories/network/dual-2.5-router-hat/rpi-using-1.webp)
 
 4. Reboot your Raspberry Pi 5:
 
@@ -77,7 +77,7 @@ sudo lspci
 
 You should see entries for the Realtek RTL8125 Ethernet controllers and any NVMe SSD if installed:
 
-![PCIe devices detected by lspci command](/img/accessories/dual-2.5-router-hat/rpi-using-2.webp)
+![PCIe devices detected by lspci command](/img/accessories/network/dual-2.5-router-hat/rpi-using-2.webp)
 
 ### Checking NVMe SSD
 
@@ -89,7 +89,7 @@ lsblk
 
 This command lists all block devices. Your NVMe SSD should appear as `nvme0n1` or similar:
 
-![NVMe SSD detected by lsblk command](/img/accessories/dual-2.5-router-hat/rpi-using-3.webp)
+![NVMe SSD detected by lsblk command](/img/accessories/network/dual-2.5-router-hat/rpi-using-3.webp)
 
 #### NVMe SSD Performance Testing
 
@@ -101,7 +101,7 @@ sudo dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=1000 status=progress oflag=dire
 
 > **Warning:** This command writes directly to the raw disk device. Make sure you're using the correct device name and that the SSD doesn't contain any important data.
 
-![NVMe SSD speed test results](/img/accessories/dual-2.5-router-hat/rpi-using-4.webp)
+![NVMe SSD speed test results](/img/accessories/network/dual-2.5-router-hat/rpi-using-4.webp)
 
 ### Optimizing PCIe Performance (Optional)
 
@@ -119,7 +119,7 @@ sudo nano /boot/firmware/config.txt
 dtparam=pciex1_gen=3
 ```
 
-![Editing config.txt to enable PCIe Gen 3](/img/accessories/dual-2.5-router-hat/rpi-using-5.webp)
+![Editing config.txt to enable PCIe Gen 3](/img/accessories/network/dual-2.5-router-hat/rpi-using-5.webp)
 
 3. Save the file and reboot:
 
@@ -136,7 +136,7 @@ sudo lspci -vvv -s 0000:03:00.0 | grep LnkSta
 
 Look for "Speed 8GT/s" which indicates PCIe Gen 3:
 
-![Verifying PCIe Gen 3 status](/img/accessories/dual-2.5-router-hat/rpi-using-6.webp)
+![Verifying PCIe Gen 3 status](/img/accessories/network/dual-2.5-router-hat/rpi-using-6.webp)
 
 5. Run the speed test again to see the improved performance:
 
@@ -144,7 +144,7 @@ Look for "Speed 8GT/s" which indicates PCIe Gen 3:
 sudo dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=1000 status=progress oflag=direct
 ```
 
-![Improved NVMe SSD speed with PCIe Gen 3](/img/accessories/dual-2.5-router-hat/rpi-using-7.webp)
+![Improved NVMe SSD speed with PCIe Gen 3](/img/accessories/network/dual-2.5-router-hat/rpi-using-7.webp)
 
 ### Checking Network Interfaces
 
@@ -156,7 +156,7 @@ ip a
 
 You should see additional network interfaces (typically `eth1` and `eth2`) besides the built-in Ethernet port:
 
-![Network interfaces detected](/img/accessories/dual-2.5-router-hat/rpi-using-8.webp)
+![Network interfaces detected](/img/accessories/network/dual-2.5-router-hat/rpi-using-8.webp)
 
 ## Network Performance Testing
 
@@ -197,7 +197,7 @@ iperf3 -c 192.168.1.100  # Replace with your server's IP address
 
 You should see results showing throughput close to 2.5 Gbps if everything is configured correctly:
 
-![Network speed test results](/img/accessories/dual-2.5-router-hat/rpi-using-9.webp)
+![Network speed test results](/img/accessories/network/dual-2.5-router-hat/rpi-using-9.webp)
 
 ## Configuring Network Interfaces
 

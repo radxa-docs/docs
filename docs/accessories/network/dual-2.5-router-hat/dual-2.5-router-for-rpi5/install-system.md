@@ -23,27 +23,27 @@ sidebar_position: 5
 
 1. 启动 Raspberry Pi Imager 应用程序
 
-   ![打开 Raspberry Pi Imager](/img/accessories/dual-2.5-router-hat/rpi-install-os-1.webp)
+   ![打开 Raspberry Pi Imager](/img/accessories/network/dual-2.5-router-hat/rpi-install-os-1.webp)
 
 2. 点击“选择设备”并从列表中选择“Raspberry Pi 5”
 
-   ![选择 Raspberry Pi 5 设备](/img/accessories/dual-2.5-router-hat/rpi-install-os-2.webp)
+   ![选择 Raspberry Pi 5 设备](/img/accessories/network/dual-2.5-router-hat/rpi-install-os-2.webp)
 
 3. 点击“选择操作系统”并从推荐选项中选择“Raspberry Pi OS (64-bit)”
 
    > **注意：**建议使用 64 位版本，以获得与 Dual 2.5G Router HAT 的最佳性能
 
-   ![选择 Raspberry Pi OS (64-bit)](/img/accessories/dual-2.5-router-hat/rpi-install-os-3.webp)
+   ![选择 Raspberry Pi OS (64-bit)](/img/accessories/network/dual-2.5-router-hat/rpi-install-os-3.webp)
 
 4. 点击“选择存储”并从列表中选择您的 microSD 卡
 
    > **警告：**请仔细选择正确的存储设备，因为所选设备上的所有数据将被擦除
 
-   ![选择存储设备](/img/accessories/dual-2.5-router-hat/rpi-install-os-4.webp)
+   ![选择存储设备](/img/accessories/network/dual-2.5-router-hat/rpi-install-os-4.webp)
 
 5. 点击齿轮图标 (⚙️) 访问高级选项
 
-   ![访问高级设置](/img/accessories/dual-2.5-router-hat/rpi-install-os-5.webp)
+   ![访问高级设置](/img/accessories/network/dual-2.5-router-hat/rpi-install-os-5.webp)
 
 6. 配置用户设置：
 
@@ -51,22 +51,22 @@ sidebar_position: 5
    - 创建用户名和密码
    - 配置您的 WiFi 网络（如需要）
 
-   ![配置用户设置](/img/accessories/dual-2.5-router-hat/rpi-install-os-6.webp)
+   ![配置用户设置](/img/accessories/network/dual-2.5-router-hat/rpi-install-os-6.webp)
 
 7. 启用 SSH 访问（强烈建议用于无头设置）：
 
    - 勾选“启用 SSH”
    - 选择“使用密码认证”
 
-   ![启用 SSH 访问](/img/accessories/dual-2.5-router-hat/rpi-install-os-7.webp)
+   ![启用 SSH 访问](/img/accessories/network/dual-2.5-router-hat/rpi-install-os-7.webp)
 
 8. 点击“保存”确认您的设置，然后点击“写入”开始安装过程
 
-   ![开始写入过程](/img/accessories/dual-2.5-router-hat/rpi-install-os-8.webp)
+   ![开始写入过程](/img/accessories/network/dual-2.5-router-hat/rpi-install-os-8.webp)
 
 9. 等待过程完成。完成后，您将看到确认消息
 
-   ![安装完成](/img/accessories/dual-2.5-router-hat/rpi-install-os-9.webp)
+   ![安装完成](/img/accessories/network/dual-2.5-router-hat/rpi-install-os-9.webp)
 
 ## 后续步骤
 

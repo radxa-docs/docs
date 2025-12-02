@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Radxa Dual 2.5G Router HAT
 
-![Radxa Dual 2.5G Router HAT](/img/accessories/dual-2.5-router-hat/dual-2.5-router-hat-01.webp)
+![Radxa Dual 2.5G Router HAT](/img/accessories/network/dual-2.5-router-hat/dual-2.5-router-hat-01.webp)
 
 ## Overview
 
@@ -32,7 +32,7 @@ The Radxa Dual 2.5G Router HAT currently supports:
 - 1x FPC Connector with PCIe 3.0/2.0 1-lane for additional expansion
 - 1x 12V DC (5525) Jack for power input
 
-![Radxa Dual 2.5G Router HAT](/img/accessories/dual-2.5-router-hat/dual-2.5-router-hat-02.webp)
+![Radxa Dual 2.5G Router HAT](/img/accessories/network/dual-2.5-router-hat/dual-2.5-router-hat-02.webp)
 
 ## Technical Specifications
 
@@ -56,7 +56,7 @@ The Radxa Dual 2.5G Router HAT currently supports:
 
 ## Board Layout
 
-![Radxa Dual 2.5G Router HAT Board](/img/accessories/dual-2.5-router-hat/AC016-en.webp)
+![Radxa Dual 2.5G Router HAT Board](/img/accessories/network/dual-2.5-router-hat/AC016-en.webp)
 
 ## 40PIN Pinout
 

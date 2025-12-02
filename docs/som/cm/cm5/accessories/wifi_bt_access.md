@@ -16,11 +16,11 @@ sidebar_position: 2
 - Radxa CM5 搭配 Radxa CM5 IO 板，没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
 - 这里演示的 M.2 无线模块是： Radxa 无线模块 A8。
 
-![Radxa 无线模块A8](/zh/img/accessories/a8-module-01.webp)
+![Radxa 无线模块A8](/zh/img/accessories/network/a8-module-01.webp)
 
 - 安装如图所示：
 
-![Radxa 无线模块A8](/zh/img/accessories/a8-module-02.webp)
+![Radxa 无线模块A8](/zh/img/accessories/network/a8-module-02.webp)
 
 ## WIFI 使用
 

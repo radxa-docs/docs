@@ -10,11 +10,11 @@ sidebar_position: 6
 
 - V1.0
 
-![Radxa Wireless Module A8 V1.0](/img/accessories/a8-module-01.webp)
+![Radxa Wireless Module A8 V1.0](/img/accessories/network/a8-module-01.webp)
 
 - V2.0
 
-![Radxa Wireless Module A8 V2.0](/img/accessories/a8-module-03.webp)
+![Radxa Wireless Module A8 V2.0](/img/accessories/network/a8-module-03.webp)
 
 ## 硬件信息
 
@@ -35,12 +35,12 @@ sidebar_position: 6
 ### 无线局域网
 
 - IEEE 802.11 a/b/g/n/ac/ax 无线局域网
-- IEEE 802.11 ac/ax 支持 2T2R，并且符合 Wave 2 技术标准，支持多用户多输入多输出( MU-MIMO )技术。
+- IEEE 802.11 ac/ax 支持 2T2R，并且符合 Wave 2 技术标准，支持多用户多输入多输出 ( MU-MIMO ) 技术。
 - IEEE 802.11 n 支持标准的 MIMO（多输入多输出），并且适用于 2.4 GHz 和 5 GHz 两个频段。
 - 使用 20MHz 带宽时最大 PHY 数据速率高达 286.8 Mbps，使用 40MHz 带宽时高达 573.5Mbps，使用 80MHz 带宽时高达 1201Mbps
 - 以 802.11n 数据速率运行时向后兼容 802.11a/b/g 设备
 - 以 802.11ax 数据速率运行时向后兼容 802.11a/n/ac 设备
-- 支持 IEEE 802.11i,包括 WPA, WPA2, WPA3 安全协议，并且还支持 WAPI 安全协议。
+- 支持 IEEE 802.11i，包括 WPA, WPA2, WPA3 安全协议，并且还支持 WAPI 安全协议。
 - 802.11g 的最大数据传输速率为 54Mbps，802.11n 的最大数据传输速率为 300Mbps，而 802.11ax 的最大数据传输速率则为 1201Mbps。
 
 ### 蓝牙
@@ -60,26 +60,26 @@ sidebar_position: 6
 
 ## 支持列表
 
-| 版本                                | V1.0 版本 | V1.0 版本 | V1.0 版本 | V2.0 版本          | V2.0 版本 | V2.0 版本 |
-| ----------------------------------- | --------- | --------- | --------- | ------------------ | --------- | --------- |
-| 系统                                | Linux     | Android   | Windows   | Linux              | Android   | Windows   |
-| Radxa X2L                           | 支持      | N/A       | 支持      | 内核大于 6.7才支持 | N/A       | 支持      |
-| Radxa ROCK 3A                       | 支持      | 支持      | N/A       | 支持               | 正在调试  | N/A       |
-| Radxa ROCK 3B                       | 支持      | 支持      | N/A       | 支持               | 正在调试  | N/A       |
-| Radxa ROCK 5A                       | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
-| Radxa ROCK 5B                       | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
-| Radxa ROCK 5 ITX                    | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
-| Radxa CM3I 搭配 Radxa CM3I IO Board | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
-| Radxa NX5 搭配 Radxa NX5 IO Board   | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
-| Radxa CM5 搭配 Radxa CM5 IO Board   | 支持      | 支持      | N/A       | 支持               | 支持      | N/A       |
+| 版本                                | V1.0 版本 | V1.0 版本 | V1.0 版本 | V2.0 版本           | V2.0 版本 | V2.0 版本 |
+| ----------------------------------- | --------- | --------- | --------- | ------------------- | --------- | --------- |
+| 系统                                | Linux     | Android   | Windows   | Linux               | Android   | Windows   |
+| Radxa X2L                           | 支持      | N/A       | 支持      | 内核大于 6.7 才支持 | N/A       | 支持      |
+| Radxa ROCK 3A                       | 支持      | 支持      | N/A       | 支持                | 正在调试  | N/A       |
+| Radxa ROCK 3B                       | 支持      | 支持      | N/A       | 支持                | 正在调试  | N/A       |
+| Radxa ROCK 5A                       | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
+| Radxa ROCK 5B                       | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
+| Radxa ROCK 5 ITX                    | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
+| Radxa CM3I 搭配 Radxa CM3I IO Board | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
+| Radxa NX5 搭配 Radxa NX5 IO Board   | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
+| Radxa CM5 搭配 Radxa CM5 IO Board   | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
 
 ### 原理框图
 
-![原理框图](/img/accessories/wireless-a8-block-diagram.webp)
+![原理框图](/img/accessories/network/wireless-a8-block-diagram.webp)
 
 ### 尺寸
 
-![2D 尺寸图](/img/accessories/radxa-wireless-module-2d.webp)
+![2D 尺寸图](/img/accessories/network/radxa-wireless-module-2d.webp)
 
 ## 使用教程
 
@@ -89,7 +89,7 @@ sidebar_position: 6
 
 以在 ROCK 5B 上官方的 Debian 系统下使用为例，安装如图所示：
 
-![Radxa Wireless Module A8](/img/accessories/a8-module-02.webp)
+![Radxa Wireless Module A8](/img/accessories/network/a8-module-02.webp)
 
 ### Wi-Fi 使用
 
