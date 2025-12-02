@@ -160,3 +160,13 @@ sidebar_position: 10
 ### MIPI CSI 接口
 
 板载 2 个 MIPI CSI 4-lane 接口，可用于连接摄像头模块。
+
+### RTC 电池接口
+
+板载 2-Pin 1.25mm RTC 接口，可连接 CR2032 型号的纽扣电池。
+
+说明：RTC 接口的箭头丝印指向负极（GND），VCC 连接 3.3V（示意图中的红线代表 VCC，黑线代表 GND）。
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/orion/o6n/orion-o6n-rtc.webp" style={{width: '50%', maxWidth: '1200px'}} />
+</div>
