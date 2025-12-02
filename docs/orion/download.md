@@ -145,5 +145,7 @@ Fedora 系统的默认凭据如下：
         | :------------- | :----- | :--- | :------ |
         | 原理图         | `radxa_orion_o6n_schematic_v1.11` | PDF  | [下载](https://dl.radxa.com/orion/o6n/docs/hw/radxa_orion_o6n_schematic_v1.11.pdf) |
         | 位号图 | `radxa_orion_o6n_components_placement_map_v1.11` | PDF  | [下载](https://dl.radxa.com/orion/o6n/docs/hw/radxa_orion_o6n_components_placement_map_v1.11.pdf) |
+        | 2D 文件 ｜ `radxa_orion_o6n_2d_dxf_v1.11` | DXF | [下载](https://dl.radxa.com/orion/o6n/docs/hw/radxa_orion_o6n_2d_dxf_v1.11.zip) |
+        | 3D 文件 ｜ `radxa_orion_o6n_3d_stp_v1.11` | STP | [下载](https://dl.radxa.com/orion/o6n/docs/hw/radxa_orion_o6n_3d_stp_v1.11.zip) |
     </TabItem>
 </Tabs>
