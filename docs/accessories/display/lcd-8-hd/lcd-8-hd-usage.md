@@ -8,14 +8,14 @@ sidebar_position: 6
 
 [Radxa Display 8 HD](lcd-8-hd-product) 显示面板现已支持以下瑞莎产品：
 
-| 适配产品  | 使用 FPC 线材种类           | 实物图                                         |
-| --------- | --------------------------- | ---------------------------------------------- |
-| 4C+/5A/5B | 39 pin 转 40 pin FPC 连接线 | ![AC012](/img/accessories/lcd-8-hd/ac013.webp) |
-| 3A/3C/4SE | 15 pin 转 40 pin FPC 连接线 | ![AC013](/img/accessories/lcd-8-hd/ac012.webp) |
+| 适配产品  | 使用 FPC 线材种类           | 实物图                                        |
+| --------- | --------------------------- | --------------------------------------------- |
+| 4C+/5A/5B | 39 pin 转 40 pin FPC 连接线 | ![AC012](/img/accessories/display/ac013.webp) |
+| 3A/3C/4SE | 15 pin 转 40 pin FPC 连接线 | ![AC013](/img/accessories/display/ac012.webp) |
 
 其中，15 pin 转 40 pin 的 FPC 排线有需要额外连接的 7 pin 排针，其定义如下：
 
-![AC012 Pin Definition](/img/accessories/lcd-8-hd/ac012-pin-definition.webp)
+![AC012 Pin Definition](/img/accessories/display/ac012-pin-definition.webp)
 
 ## 使用教程
 
@@ -45,11 +45,11 @@ sidebar_position: 6
 
 1. 将系统盘存储介质安装到 SBC 上
 
-2. 通过 FPC 线连接产品和显示面板  
-   其中，40 pin 一端接到显示面板上：向上拨起 FPC 接头黑色卡扣，将 FPC 排线插入连接器，然后按下黑色卡扣固定 FPC 排线  
-   ![Radxa Display 8 HD](/img/accessories/8hd-connect-fpc.webp)  
-   39 pin 一端接到产品 DSI 连接器上：向上拨起 FPC 接头黑色卡扣，将 FPC 排线插入连接器，然后按下黑色卡扣固定 FPC 排线  
-   ![ROCK 5A-Radxa Display 8 HD](/img/accessories/rock5a-connect-fpc.webp)
+2. 通过 FPC 线连接产品和显示面板
+   其中，40 pin 一端接到显示面板上：向上拨起 FPC 接头黑色卡扣，将 FPC 排线插入连接器，然后按下黑色卡扣固定 FPC 排线
+   ![Radxa Display 8 HD](/img/accessories/display/8hd-connect-fpc.webp)
+   39 pin 一端接到产品 DSI 连接器上：向上拨起 FPC 接头黑色卡扣，将 FPC 排线插入连接器，然后按下黑色卡扣固定 FPC 排线
+   ![ROCK 5A-Radxa Display 8 HD](/img/accessories/display/8hd-connect-fpc.webp)
 
 3. 连接显示器或 USB 串口调试，通电进入系统
 
@@ -84,15 +84,15 @@ sidebar_position: 6
 
 1. 将系统盘存储介质安装到 SBC 上
 
-2. 通过 FPC 线连接产品和显示面板  
-   其中，40 pin 端子接到显示面板上：向上拨起 FPC 接头黑色卡扣，将 FPC 排线插入连接器，然后按下黑色卡扣固定 FPC 排线  
-   ![Radxa Display 8 HD](/img/accessories/8hd-connect-fpc.webp)
+2. 通过 FPC 线连接产品和显示面板
+   其中，40 pin 端子接到显示面板上：向上拨起 FPC 接头黑色卡扣，将 FPC 排线插入连接器，然后按下黑色卡扣固定 FPC 排线
+   ![Radxa Display 8 HD](/img/accessories/display/8hd-connect-fpc.webp)
 
-15 pin 端子接到产品 DSI 连接器上：  
-Step 1：将连接器白色卡扣向上拨起  
-Step 2：排线金手指背对白色卡扣插入连接器  
-Step 3：将卡扣向下按紧，固定排线  
- ![FPC 15 Pin Connecting](/img/accessories/lcd-8-hd/fpc-15-pin-connecting.webp)
+15 pin 端子接到产品 DSI 连接器上：
+Step 1：将连接器白色卡扣向上拨起
+Step 2：排线金手指背对白色卡扣插入连接器
+Step 3：将卡扣向下按紧，固定排线
+![FPC 15 Pin Connecting](/img/accessories/display/fpc-15-pin-connecting.webp)
 
 3. 通过杜邦线连接额外接口，接法如下：
 
@@ -112,7 +112,7 @@ Step 3：将卡扣向下按紧，固定排线
 
 实物连接图参考如下：
 
-![3C FPC Connected](/img/accessories/lcd-8-hd/3c-fpc-connected.webp)
+![3C FPC Connected](/img/accessories/display/3c-fpc-connected.webp)
 
 </div>
 </TabItem>
@@ -131,7 +131,7 @@ Step 3：将卡扣向下按紧，固定排线
 
 实物连接图参考如下：
 
-![3A FPC Connected](/img/accessories/lcd-8-hd/3a-fpc-connected.webp)
+![3A FPC Connected](/img/accessories/display/3a-fpc-connected.webp)
 
 </div>
 </TabItem>
@@ -150,7 +150,7 @@ Step 3：将卡扣向下按紧，固定排线
 
 实物连接图参考如下：
 
-![4SE FPC Connected](/img/accessories/lcd-8-hd/4se-fpc-connected.webp)
+![4SE FPC Connected](/img/accessories/display/4se-fpc-connected.webp)
 
 </div>
 </TabItem>

@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Radxa Display 8 HD
 
-![Radxa Display 8 HD](/img/accessories/display-8-hd.webp)
+![Radxa Display 8 HD](/img/accessories/display/display-8-hd.webp)
 
 ## Overview
 
@@ -87,4 +87,4 @@ The Radxa Display 8 HD touch panel is powered by GT911, a new‑generation 5‑p
 
 ## Mechanical Specification
 
-![Radxa Display 8 HD](/img/accessories/rock5a-display-8hd-spec.webp)
+![Radxa Display 8 HD](/img/accessories/display/display-8-hd-spec.webp)

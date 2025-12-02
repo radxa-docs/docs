@@ -1,30 +1,30 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
-# Radxa Display 10 FHD
+# 瑞莎 10 寸全高清触摸屏
 
-![Radxa Display 10 FHD](/img/accessories/display-10-fhd.webp)
+![Radxa Display 10 FHD](/img/accessories/display/display-10-fhd.webp)
 
-## Overview
+## 概述
 
-The Radxa Display 10 FHD supports 10-point touch and has a 10.1-inch (10:16) display area with a resolution of 1200 × 1920 pixels.
+Radxa Display 10 FHD 支持 10 点触摸，并拥有 10.1 英寸（10:16）显示区域，分辨率为 1200 × 1920 像素。
 
-It has the following features:
+其特点如下：
 
-- Panel Size: 10.1 inch
-- Compliant with RoHS design standards
-- Outline Dimension: 155(H) x 246.16(V) x 5.95(D) mm
-- Display area: 135.36(H) x 216.58 (V) mm
-- Number of Pixel: 1200RGB (H) x 1920 (V) pixels
-- Pixel pitch: 0.0564 (H) x 0.1692(V)s mm
-- Pixel arrangement: RGB Vertical stripe
-- Color Filter Array: RGB vertical stripes
-- Backlight: White LED
-- Electrical Interface: MIPI
-- Built-in Gravity Sensor
+- 尺寸：10.1英寸
+- 符合 RoHS 设计标准
+- 外形尺寸：155毫米（高）x 246.16毫米（宽）x 5.95毫米（深）
+- 显示区域：135.36毫米（宽）x 216.58毫米（高）
+- 像素数量：1200（水平）x 1920（垂直）像素
+- 像素间距：0.0564毫米（水平）x 0.1692毫米（垂直）
+- 像素排列：RGB垂直条纹
+- 颜色滤光阵列：RGB垂直条纹
+- 背光：白色LED
+- 接口：MIPI
+- 内置重力感应器
 
-## Pinout
+## 信号定义
 
 | PIN | Name     | Description                                | PIN | Name     | Description                            |
 | --- | -------- | ------------------------------------------ | --- | -------- | -------------------------------------- |
@@ -51,6 +51,6 @@ It has the following features:
 
 [^1]: The 3 PIN and 5 PIN should be the same as 1.8v or 3.3v
 
-## Mechanical Specification
+## 机械规格
 
-![Radxa Display 10 FHD](/img/accessories/display_10_fhd_01.webp)
+![Radxa Display 10 FHD](/img/accessories/display/display_10_fhd_01.webp)

@@ -51,7 +51,7 @@ Radxa CM5 IO Support for Camera Functions
 
 The Radxa CM5 IO supports the MIPI DSI display function.
 :::tip
-Radxa recommends using [Radxa Display 8 HD](/accessories/lcd-8-hd) or [Radxa Display 10 FHD](../../../accessories/lcd-10-fhd).
+Radxa recommends using [Radxa Display 8 HD](/accessories/display/lcd-8-hd) or [Radxa Display 10 FHD](../../../accessories/display/lcd-10-fhd).
 :::
 
 ## MicroSD

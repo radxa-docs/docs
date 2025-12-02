@@ -33,7 +33,7 @@ The ROCK 5 ITX comes with a 4-lane DSI interface. The following is a list of cur
 
 ### Radxa 8" HD Touch Screen
 
-![Radxa Display 8 HD](/img/accessories/display-8-hd.webp)
+![Radxa Display 8 HD](/img/accessories/display/display-8-hd.webp)
 
 #### Overview
 
@@ -118,7 +118,7 @@ The GT911 supports up to 5 points of concurrent touch, tracking the exact positi
 
 #### Physical Specifications
 
-![Radxa Display 8 HD](/img/accessories/rock5a-display-8hd-spec.webp)
+![Radxa Display 8 HD](/img/accessories/display/display-8-hd-spec.webp)
 
 #### Test Methods
 
@@ -126,7 +126,7 @@ The GT911 supports up to 5 points of concurrent touch, tracking the exact positi
 
 Connect the ROCK 5 ITX via FPC cable as shown in the figure:
 
-<img src="/img/accessories/8hd-connect-fpc.webp" alt="Radxa Display 8 HD"/>
+<img src="/img/accessories/display/8hd-connect-fpc.webp" alt="Radxa Display 8 HD"/>
 
 - Enabling Overlay
 
@@ -151,7 +151,7 @@ After reboot, the Radxa 8" Full HD touchscreen is able to display the system scr
 
 ### Radxa 10" Full HD Touch Screen
 
-![Radxa Display 10 FHD](/img/accessories/display-10-fhd.webp)
+![Radxa Display 10 FHD](/img/accessories/display/display-10-fhd.webp)
 
 #### Overview
 
@@ -200,7 +200,7 @@ Its features are as follows:
 
 #### Mechanical Specifications
 
-![Radxa Display 10 FHD](/img/accessories/display_10_fhd_01.webp)
+![Radxa Display 10 FHD](/img/accessories/display/display_10_fhd_01.webp)
 
 #### Test Methods
 
