@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 通过 SDK Manager 安装系统
 
-瑞莎 C200 载板无法通过 SDK Manager 进入 Super 模式，其他功能正常使用。
+瑞莎 C200 载板无法通过 SDK Manager 进入 [MAXN_SUPER](./introduction.md) 模式，其他功能正常使用。
 
 :::tip 安装说明
 

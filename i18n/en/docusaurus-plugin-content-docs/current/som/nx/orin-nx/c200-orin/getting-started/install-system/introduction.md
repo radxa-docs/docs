@@ -12,7 +12,7 @@ We provide three methods for users to install the system. Here are the advantage
 | Using SDK Manager   | Allows custom component deployment                                                                  | Cannot enter MAXN_SUPER mode, only supports booting from NVMe SSDs |
 | Using Command Line  | Can enter MAXN_SUPER mode                                                                           | Only supports booting from NVMe SSDs                               |
 
-## About MAXN_SUPER Mode
+**About MAXN_SUPER Mode**
 
 MAXN_SUPER mode is a system operation mode introduced by NVIDIA to provide higher performance.
 

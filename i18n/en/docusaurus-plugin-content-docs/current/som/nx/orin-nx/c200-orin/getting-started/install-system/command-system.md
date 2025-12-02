@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Install System via Command Line
 
-Users of the Radxa C200 Orin Development Kit who need to enter Super Mode should follow this tutorial to install the system.
+Users of the Radxa C200 Orin Development Kit who need to enter [MAXN_SUPER mode](./introduction.md) should follow this tutorial to install the system.
 
 :::tip Installation Notes
 

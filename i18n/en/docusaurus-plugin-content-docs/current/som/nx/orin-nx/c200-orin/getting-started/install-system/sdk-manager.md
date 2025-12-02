@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Installing System via SDK Manager
 
-The Radxa C200 IO board cannot enter Super mode through SDK Manager, but other functions work normally.
+The Radxa C200 IO board cannot enter [MAXN_SUPER mode](./introduction.md) through SDK Manager, but other functions work normally.
 
 :::tip Installation Notes
 

@@ -12,7 +12,7 @@ sidebar_position: 0
 | 通过 SDK Manager 安装系统   | 可自行部署组件环境                                                      | 无法进入 MAXN_SUPER 模式，只支持 NVMe 固态硬盘启动系统 |
 | 通过命令行安装系统          | 可进入 MAXN_SUPER 模式                                                  | 只支持 NVMe 固态硬盘启动系统                           |
 
-## MAXN_SUPER 模式说明
+**MAXN_SUPER 模式说明**
 
 MAXN_SUPER 模式是英伟达推出的一种系统运行模式，用于提供更高的性能。
 

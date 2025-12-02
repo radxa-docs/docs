@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 通过命令行安装系统
 
-使用瑞莎 C200 Orin 开发套件的用户，如果需要进入 Super 模式，请按照该教程安装系统。
+使用瑞莎 C200 Orin 开发套件的用户，如果需要进入 [MAXN_SUPER](./introduction.md) 模式，请按照该教程安装系统。
 
 :::tip 安装说明
 
