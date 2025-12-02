@@ -87,6 +87,18 @@
     "message": "Dragon Series",
     "description": "Navbar item with label Dragon 系列"
   },
+  "item.label.核心模组": {
+    "message": "Computer on Modules",
+    "description": "Navbar item with label 核心模组"
+  },
+  "item.label.CM 系列": {
+    "message": "CM Series",
+    "description": "Navbar item with label CM 系列"
+  },
+  "item.label.NX 系列": {
+    "message": "NX Series",
+    "description": "Navbar item with label NX 系列"
+  },
   "item.label.X 系列": {
     "message": "X Series",
     "description": "Navbar item with label X 系列"

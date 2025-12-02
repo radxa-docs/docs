@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-slug: /compute-module
+slug: /some
 ---
 
 # 计算模块系列
