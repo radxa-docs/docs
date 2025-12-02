@@ -2,42 +2,94 @@ The CIX AI Model Hub is a collection of machine learning models optimized for de
 
 ## Download CIX AI Model Hub Repository
 
-After applying through the [CIX Early Access Program](./npu-introduction#cix-early-access-program), you will receive an email with instructions to access the AI Model Hub repository.
+The CIX AI Model Hub repository is hosted on the ModelScope community platform. Access it at [cix ai_model_hub](https://modelscope.cn/models/cix/ai_model_hub_25_Q3).
+
+You can download it using git (ensure git-lfs is installed):
 
 ```bash
-git clone https://e.coding.net/g-uaqh1479/ai-model-hub/ai_model_hub.git
+git clone https://www.modelscope.cn/cix/ai_model_hub_25_Q3.git
 ```
 
 Model example directory structure:
 
 ```bash
+.
+├── configuration.json
 ├── datasets
+│   └── ReadMe.md
+├── demos
+│   ├── ai-album-streamlit
+│   ├── ai-demo-manager
+│   ├── audio-chat-gradio
+│   ├── chatbot-gradio
+│   ├── face-recognition-gradio
+│   ├── image-multichat-gradio
+│   ├── image-multichat-streamlit
+│   ├── ort-genai-chat-gradio
+│   ├── picquery-cn-gradio
+│   ├── pp-ocrv4-gradio
+│   ├── rag-chat-gradio
+│   ├── rag-chat-streamlit
+│   ├── real-esrgan-gradio
+│   ├── ReleaseNote.md
+│   ├── sam2-demo-gradio
+│   ├── sd-demo-streamlit
+│   ├── vsr-demo-gradio
+│   ├── yolox-demo-v4l2
+│   ├── yolox-depth-gradio
+│   └── yolox-gradio
+├── EULA.md
+├── LICENSE
 ├── models
-│   ├── Audio
-│   │   └── Speech_Recognotion
-│   ├── ComputeVision
-│   │   ├── Face_Detection
-│   │   ├── Face_Recognition
-│   │   ├── Image_Classification
-│   │   ├── Object_Detection
-│   │   ├── Pose_Estimation
-│   │   ├── Semantic_Segmentation
-│   │   └── Super_Resolution
-│   └── Generative_AI
-│       ├── LLM
-│       └── Text_Image_Search
+│   ├── Audio
+│   ├── ComputeVision
+│   ├── Generative_AI
+│   └── MultiModal
+├── README.md
+├── ReleaseNote.md
+├── requirements.txt
+├── scripts
+│   ├── compute
+│   ├── llm-gen
+│   └── sanity
 └── utils
+    ├── __init__.py
+    ├── bev_postprocess.py
+    ├── draw.py
     ├── evaluate
-    └── label
+    ├── face_postprocess.py
+    ├── image_process.py
+    ├── label
+    ├── NOE_Engine.py
+    ├── object_detect_postprocess.py
+    ├── OCR_postprocess.py
+    ├── pose_postprocess.py
+    ├── segment_postprocess.py
+    ├── text_process.py
+    └── tools.py
 ```
 
-## Download Pre-compiled Models
+## Running Models
 
-For the examples in the CIX AI Model Hub, users can directly download the ONNX models and pre-compiled models from [ModelScope](https://modelscope.cn/models/cix/ai_model_hub_24_Q4/files) without needing to compile from source.
+### Configuring the Environment
 
-## Running the Models
+Navigate to the model directory:
 
-### Environment Setup
+```bash
+cd ai_model_hub_25_Q3
+```
+
+Create a Python virtual environment:
+
+```bash
+python3 -m venv venv
+```
+
+Activate the virtual environment:
+
+```bash
+source venv/bin/activate
+```
 
 Install the Python environment:
 
@@ -47,17 +99,17 @@ pip3 install -r requirements.txt
 
 ### Model Examples
 
-1. Preprocess human-readable input into model input format
-2. Run model inference
-3. Post-process model output into human-readable format
+1. Preprocess human-readable input into model input.
+2. Run model inference.
+3. Postprocess model output into a human-readable format.
 
-All model example code can be run end-to-end on the O6 using the NPU:
+All model example codes can run end-to-end on the NPU of the O6/O6N:
 
 ```bash
 python3 inference_npu.py
 ```
 
-Additionally, you can run the end-to-end examples locally on an X86 host or on the O6 using CPU with OnnxRuntime:
+Additionally, you can run the end-to-end examples locally on an X86 host or on the O6/O6N using CPU with OnnxRuntime:
 
 ```bash
 python3 inference_onnx.py
