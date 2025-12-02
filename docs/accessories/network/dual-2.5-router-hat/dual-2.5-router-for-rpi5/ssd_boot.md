@@ -69,7 +69,7 @@ sidebar_position: 7
 
    `PCIE_PROBE=1` 设置确保在启动过程中检测 PCIe 设备。
 
-   ![编辑 EEPROM 配置](/img/accessories/dual-2.5-router-hat/rpi-ssd-boot.webp)
+   ![编辑 EEPROM 配置](/img/accessories/network/dual-2.5-router-hat/rpi-ssd-boot.webp)
 
 3. 保存文件并退出编辑器（在 nano 中，按 Ctrl+O 保存，然后按 Ctrl+X 退出）
 

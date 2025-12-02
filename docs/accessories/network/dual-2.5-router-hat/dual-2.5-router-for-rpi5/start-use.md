@@ -56,7 +56,7 @@ dtparam=pciex1
 
 3. 按 `Ctrl+O` 保存文件，然后按 `Ctrl+X` 退出
 
-![编辑 config.txt 以启用 PCIe](/img/accessories/dual-2.5-router-hat/rpi-using-1.webp)
+![编辑 config.txt 以启用 PCIe](/img/accessories/network/dual-2.5-router-hat/rpi-using-1.webp)
 
 4. 重启您的树莓派 5：
 
@@ -78,7 +78,7 @@ sudo lspci
 
 您应该能看到 Realtek RTL8125 以太网控制器和已安装的 NVMe SSD（如果有）的条目：
 
-![lspci 命令检测到的 PCIe 设备](/img/accessories/dual-2.5-router-hat/rpi-using-2.webp)
+![lspci 命令检测到的 PCIe 设备](/img/accessories/network/dual-2.5-router-hat/rpi-using-2.webp)
 
 ### 检查 NVMe SSD
 
@@ -90,7 +90,7 @@ lsblk
 
 此命令列出所有块设备。您的 NVMe SSD 应该显示为 `nvme0n1` 或类似名称：
 
-![lsblk 命令检测到的 NVMe SSD](/img/accessories/dual-2.5-router-hat/rpi-using-3.webp)
+![lsblk 命令检测到的 NVMe SSD](/img/accessories/network/dual-2.5-router-hat/rpi-using-3.webp)
 
 #### NVMe SSD 性能测试
 
@@ -102,7 +102,7 @@ sudo dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=1000 status=progress oflag=dire
 
 > **警告：**此命令直接写入原始磁盘设备。请确保您使用的是正确的设备名称，并且 SSD 不包含任何重要数据。
 
-![NVMe SSD 速度测试结果](/img/accessories/dual-2.5-router-hat/rpi-using-4.webp)
+![NVMe SSD 速度测试结果](/img/accessories/network/dual-2.5-router-hat/rpi-using-4.webp)
 
 ### 优化 PCIe 性能（可选）
 
@@ -120,7 +120,7 @@ sudo nano /boot/firmware/config.txt
 dtparam=pciex1_gen=3
 ```
 
-![编辑 config.txt 以启用 PCIe Gen 3](/img/accessories/dual-2.5-router-hat/rpi-using-5.webp)
+![编辑 config.txt 以启用 PCIe Gen 3](/img/accessories/network/dual-2.5-router-hat/rpi-using-5.webp)
 
 3. 保存文件并重启：
 
@@ -137,7 +137,7 @@ sudo lspci -vvv -s 0000:03:00.0 | grep LnkSta
 
 寻找“Speed 8GT/s”，这表示 PCIe Gen 3：
 
-![验证 PCIe Gen 3 状态](/img/accessories/dual-2.5-router-hat/rpi-using-6.webp)
+![验证 PCIe Gen 3 状态](/img/accessories/network/dual-2.5-router-hat/rpi-using-6.webp)
 
 5. 再次运行速度测试，查看改进的性能：
 
@@ -145,7 +145,7 @@ sudo lspci -vvv -s 0000:03:00.0 | grep LnkSta
 sudo dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=1000 status=progress oflag=direct
 ```
 
-![使用 PCIe Gen 3 后改进的 NVMe SSD 速度](/img/accessories/dual-2.5-router-hat/rpi-using-7.webp)
+![使用 PCIe Gen 3 后改进的 NVMe SSD 速度](/img/accessories/network/dual-2.5-router-hat/rpi-using-7.webp)
 
 ### 检查网络接口
 
@@ -157,7 +157,7 @@ ip a
 
 除了内置的以太网端口外，您应该还能看到额外的网络接口（通常是 `eth1` 和 `eth2`）：
 
-![检测到的网络接口](/img/accessories/dual-2.5-router-hat/rpi-using-8.webp)
+![检测到的网络接口](/img/accessories/network/dual-2.5-router-hat/rpi-using-8.webp)
 
 ## 网络性能测试
 
@@ -198,7 +198,7 @@ iperf3 -c 192.168.1.100  # 替换为您的服务器的 IP 地址
 
 如果所有配置正确，您应该能看到接近 2.5 Gbps 的吞吐量结果：
 
-![网络速度测试结果](/img/accessories/dual-2.5-router-hat/rpi-using-9.webp)
+![网络速度测试结果](/img/accessories/network/dual-2.5-router-hat/rpi-using-9.webp)
 
 ## 配置网络接口
 

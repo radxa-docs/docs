@@ -69,7 +69,7 @@ By default, Raspberry Pi 5 devices boot from the microSD card. This guide will w
 
    The `PCIE_PROBE=1` setting ensures that PCIe devices are detected during the boot process.
 
-   ![Editing EEPROM configuration](/img/accessories/dual-2.5-router-hat/rpi-ssd-boot.webp)
+   ![Editing EEPROM configuration](/img/accessories/network/dual-2.5-router-hat/rpi-ssd-boot.webp)
 
 3. Save the file and exit the editor (in nano, press Ctrl+O to save, then Ctrl+X to exit)
 

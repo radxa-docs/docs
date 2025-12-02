@@ -19,8 +19,8 @@ Please follow the steps below carefully for proper assembly.
    - Use **M2.5×5+3 copper pillars** for the inner mounting holes
    - Use **M2.5×20 copper pillars** for the outer mounting holes
 
-![Installing copper pillars on Raspberry Pi 5 - Step 1](/img/accessories/dual-2.5-router-hat/rpi-assemble-1.webp)
-![Installing copper pillars on Raspberry Pi 5 - Step 2](/img/accessories/dual-2.5-router-hat/rpi-assemble-2.webp)
+![Installing copper pillars on Raspberry Pi 5 - Step 1](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-1.webp)
+![Installing copper pillars on Raspberry Pi 5 - Step 2](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-2.webp)
 
 ### On the Radxa Dual 2.5G Router HAT
 
@@ -29,8 +29,8 @@ Please follow the steps below carefully for proper assembly.
    - **M2×8.5 copper pillars**
    - **M2×4×5 screws**
 
-![Installing copper pillars on Router HAT - Step 1](/img/accessories/dual-2.5-router-hat/rpi-assemble-3.webp)
-![Installing copper pillars on Router HAT - Step 2](/img/accessories/dual-2.5-router-hat/rpi-assemble-4.webp)
+![Installing copper pillars on Router HAT - Step 1](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-3.webp)
+![Installing copper pillars on Router HAT - Step 2](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-4.webp)
 
 ## Installing the FPC Cable
 
@@ -40,20 +40,20 @@ Please follow the steps below carefully for proper assembly.
 
 ⚠️ **IMPORTANT: When installing the FPC adapter cable into the FPC connector on the Raspberry Pi 5, ensure that the black side of the FPC cable faces outward.**
 
-![Installing FPC cable - Step 1](/img/accessories/dual-2.5-router-hat/rpi-assemble-5.webp)
-![Installing FPC cable - Step 2](/img/accessories/dual-2.5-router-hat/rpi-assemble-6.webp)
+![Installing FPC cable - Step 1](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-5.webp)
+![Installing FPC cable - Step 2](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-6.webp)
 
 ## Connecting the HAT to Raspberry Pi 5
 
 1. Carefully align the 40-pin header on the Radxa Dual 2.5G Router HAT with the 40-pin GPIO header on the Raspberry Pi 5
 2. Gently press down to connect the two boards together
 
-![Connecting the boards together](/img/accessories/dual-2.5-router-hat/rpi-assemble-7.webp)
+![Connecting the boards together](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-7.webp)
 
 3. After connecting, secure the boards using **M2.5×4×4 screws** in the positions shown in the following images:
 
-![Securing the boards - Step 1](/img/accessories/dual-2.5-router-hat/rpi-assemble-8.webp)
-![Securing the boards - Step 2](/img/accessories/dual-2.5-router-hat/rpi-assemble-9.webp)
+![Securing the boards - Step 1](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-8.webp)
+![Securing the boards - Step 2](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-9.webp)
 
 ## Installing the Heatsink
 
@@ -61,8 +61,8 @@ Please follow the steps below carefully for proper assembly.
 2. Remove the protective film from the thermal pad on the bottom of the heatsink
 3. Carefully align and attach the heatsink to the position shown in the following images:
 
-![Heatsink installation - Step 1](/img/accessories/dual-2.5-router-hat/rpi-assemble-b.webp)
-![Heatsink installation - Step 2](/img/accessories/dual-2.5-router-hat/rpi-assemble-a.webp)
+![Heatsink installation - Step 1](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-b.webp)
+![Heatsink installation - Step 2](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-a.webp)
 
 ⚠️ **NOTE: The heatsink is essential for proper thermal management. Do not operate the HAT without the heatsink installed.**
 
@@ -72,8 +72,8 @@ Please follow the steps below carefully for proper assembly.
 2. Insert your M.2 NVMe SSD at a 30-degree angle into the slot
 3. Gently press down the SSD and secure it with **M2×4×5 screws** as shown:
 
-![SSD installation - Step 1](/img/accessories/dual-2.5-router-hat/rpi-assemble-10.webp)
-![SSD installation - Step 2](/img/accessories/dual-2.5-router-hat/rpi-assemble-11.webp)
+![SSD installation - Step 1](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-10.webp)
+![SSD installation - Step 2](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-11.webp)
 
 ⚠️ **NOTE: Ensure the SSD is compatible with the M.2 M-Key interface and is properly seated before securing with screws.**
 
@@ -87,22 +87,22 @@ The Radxa Dual 2.5G Router HAT includes an FPC interface that allows for additio
 - FPC cable
 - M.2 SSD (MINI size)
 
-![MicroSnow PCIe adapter](/img/accessories/dual-2.5-router-hat/rpi-assemble-12.webp)
+![MicroSnow PCIe adapter](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-12.webp)
 
 ### Installation Steps
 
 1. Locate the FPC interface on the Radxa Dual 2.5G Router HAT
 2. Carefully connect one end of the FPC cable to this interface as shown:
 
-![Connecting FPC to Router HAT](/img/accessories/dual-2.5-router-hat/rpi-assemble-13.webp)
+![Connecting FPC to Router HAT](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-13.webp)
 
 3. Connect the other end of the FPC cable to the MicroSnow PCIe to M.2 MINI adapter board:
 
-![Connecting FPC to adapter board](/img/accessories/dual-2.5-router-hat/rpi-assemble-14.webp)
+![Connecting FPC to adapter board](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-14.webp)
 
 4. Insert an M.2 SSD into the MicroSnow adapter board and secure it:
 
-![Installing SSD on adapter board](/img/accessories/dual-2.5-router-hat/rpi-assemble-15.webp)
+![Installing SSD on adapter board](/img/accessories/network/dual-2.5-router-hat/rpi-assemble-15.webp)
 
 ⚠️ **NOTE: The FPC interface shares PCIe lanes with the onboard M.2 slot. Performance may be affected when both are in use simultaneously.**
 
