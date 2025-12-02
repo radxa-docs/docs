@@ -21,7 +21,7 @@ This tutorial is designed to help you quickly get started with the Radxa Orion O
 You will need the following hardware devices ready in advance:
 
 - Mainboard: Radxa Orion O6
-- Power Supply: Power adapter
+- Power Supply: 20V Type-C power adapter (recommended current 3A or higher)
 - Boot Media: USB flash drive (for system installation and booting)
 - Display: HDMI/DP cable and monitor
 - Input Devices: Keyboard and mouse (for GUI operation)

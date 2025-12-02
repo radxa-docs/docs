@@ -160,3 +160,13 @@ Onboard UFS module connector for connecting UFS storage modules, which can be us
 ### MIPI CSI Interfaces
 
 Onboard 2x MIPI CSI 4-lane interfaces for connecting camera modules.
+
+### RTC Battery Interface
+
+Onboard 2-Pin 1.25mm RTC interface for connecting a CR2032 coin cell battery.
+
+Note: The silkscreen arrow on the RTC interface points to the negative pole (GND), with VCC connected to 3.3V (red wire represents VCC, black wire represents GND in the diagram).
+
+<div style={{textAlign: 'center'}}>
+   <img src="/en/img/orion/o6n/orion-o6n-rtc.webp" style={{width: '50%', maxWidth: '1200px'}} />
+</div>
