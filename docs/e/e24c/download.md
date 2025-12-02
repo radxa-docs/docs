@@ -6,6 +6,10 @@ sidebar_position: 3
 
 ## 操作系统镜像
 
+### iStoreOS
+
+[istoreos-24.10.4-2025112811-e24c-squashfs.img.gz](https://fw0.koolcenter.com/iStoreOS/e24c/istoreos-24.10.4-2025112811-e24c-squashfs.img.gz) 镜像系统文件 : 解压后可直接写入SD卡/eMMC/SSD
+
 ### Debian
 
 [Debian](https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-t2/radxa-rk3528_bookworm_kde_t2.output.img.xz) 镜像系统文件 : 解压后可直接写入SD卡/eMMC/SSD

@@ -6,6 +6,10 @@ sidebar_position: 3
 
 ## Operating System Images
 
+### iStoreOS
+
+[istoreos-24.10.4-2025112811-e24c-squashfs.img.gz](https://fw0.koolcenter.com/iStoreOS/e24c/istoreos-24.10.4-2025112811-e24c-squashfs.img.gz) System Image: Can be directly written to SD card/eMMC/SSD after extraction
+
 ### Debian
 
 [Debian](https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-t2/radxa-rk3528_bookworm_kde_t2.output.img.xz) System Image: Can be directly written to SD card/eMMC/SSD after extraction
