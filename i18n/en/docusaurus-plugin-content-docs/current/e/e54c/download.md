@@ -12,7 +12,7 @@ import Images from "./\_image.mdx"
 
 iStoreOS image file, can be directly written to SD card / eMMC / NVMe SSD after extraction
 
-[istoreos-24.10.4-2025112116-e54c-squashfs.img.gz](https://fw0.koolcenter.com/iStoreOS/e54c/istoreos-24.10.4-2025112116-e54c-squashfs.img.gz)
+[istoreos-24.10.4-2025112811-e54c-squashfs.img.gz](https://fw0.koolcenter.com/iStoreOS/e54c/istoreos-24.10.4-2025112811-e54c-squashfs.img.gz)
 
 ### Debian:
 
