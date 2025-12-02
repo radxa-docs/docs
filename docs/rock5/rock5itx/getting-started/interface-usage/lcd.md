@@ -33,7 +33,7 @@ ROCK 5 ITX 带有一个 4-lane 的 DSI 接口。以下是目前支持的屏幕�
 
 ### 瑞莎 8 寸高清触摸屏
 
-![Radxa Display 8 HD](/img/accessories/display-8-hd.webp)
+![Radxa Display 8 HD](/img/accessories/display/display-8-hd.webp)
 
 #### 概述
 
@@ -118,7 +118,7 @@ GT911 支持最多 5 点并发触控，实时追踪准确位置和运动轨迹�
 
 #### 物理规格
 
-![Radxa Display 8 HD](/img/accessories/rock5a-display-8hd-spec.webp)
+![Radxa Display 8 HD](/img/accessories/display/display-8-hd-spec.webp)
 
 #### 测试方法
 
@@ -126,7 +126,7 @@ GT911 支持最多 5 点并发触控，实时追踪准确位置和运动轨迹�
 
 通过 FPC 线接上 ROCK 5 ITX，如图所示：
 
-<img src="/img/accessories/8hd-connect-fpc.webp" alt="Radxa Display 8 HD"/>
+<img src="/img/accessories/display/8hd-connect-fpc.webp" alt="Radxa Display 8 HD"/>
 
 - 开启 Overlay
 
@@ -151,7 +151,7 @@ radxa@rock-5itx:~$ rsetup
 
 ### 瑞莎 10 寸全高清触摸屏
 
-![Radxa Display 10 FHD](/img/accessories/display-10-fhd.webp)
+![Radxa Display 10 FHD](/img/accessories/display/display-10-fhd.webp)
 
 #### 概述
 
@@ -200,7 +200,7 @@ Radxa Display 10 FHD 支持 10 点触摸，并拥有 10.1 英寸（10:16）显�
 
 #### 机械规格
 
-![Radxa Display 10 FHD](/img/accessories/display_10_fhd_01.webp)
+![Radxa Display 10 FHD](/img/accessories/display/display_10_fhd_01.webp)
 
 #### 测试方法
 

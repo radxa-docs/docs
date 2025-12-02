@@ -50,7 +50,7 @@ sidebar_position: 2
 - LCD 屏  
   ROCK 3C 支持 2-lane MIPI DSI 显示功能。
   :::tip
-  瑞莎建议使用 [Radxa Display 8 HD](/accessories/lcd-8-hd) 或 [Radxa Display 10 FHD](../../../accessories/lcd-10-fhd)。
+  瑞莎建议使用 [Radxa Display 8 HD](/accessories/display/lcd-8-hd) 或 [Radxa Display 10 FHD](../../../accessories/display/lcd-10-fhd)。
   :::
 
 - 音频线  

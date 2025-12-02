@@ -12,10 +12,10 @@ MIPI DSI 接口具体位置可以查看 [硬件接口](./hardware-info) 教程�
 
 ## 支持列表
 
-| 推荐型号                                                               | 尺寸  | 分辨率      | 使用指南                            |
-| ---------------------------------------------------------------------- | ----- | ----------- | ----------------------------------- |
-| [Display 8 HD](https://radxa.com/products/accessories/display-8hd)     | 8 寸  | 800 x 1280  | [使用指南](/accessories/lcd-8-hd)   |
-| [Display 10 FHD](https://radxa.com/products/accessories/display-10fhd) | 10 寸 | 1200 x 1920 | [使用指南](/accessories/lcd-10-fhd) |
+| 推荐型号                                                               | 尺寸  | 分辨率      | 使用指南                                    |
+| ---------------------------------------------------------------------- | ----- | ----------- | ------------------------------------------- |
+| [Display 8 HD](https://radxa.com/products/accessories/display-8hd)     | 8 寸  | 800 x 1280  | [使用指南](/accessories/display/lcd-8-hd)   |
+| [Display 10 FHD](https://radxa.com/products/accessories/display-10fhd) | 10 寸 | 1200 x 1920 | [使用指南](/accessories/display/lcd-10-fhd) |
 
 ## 接口规格
 

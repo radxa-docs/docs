@@ -12,10 +12,10 @@ For the exact location of the MIPI DSI interface, please refer to the interface 
 
 ## Supported Models
 
-| Recommended Model                                                      | Size    | Resolution  | User Guide                            |
-| ---------------------------------------------------------------------- | ------- | ----------- | ------------------------------------- |
-| [Display 8 HD](https://radxa.com/products/accessories/display-8hd)     | 8-inch  | 800 x 1280  | [User Guide](/accessories/lcd-8-hd)   |
-| [Display 10 FHD](https://radxa.com/products/accessories/display-10fhd) | 10-inch | 1200 x 1920 | [User Guide](/accessories/lcd-10-fhd) |
+| Recommended Model                                                      | Size    | Resolution  | User Guide                                    |
+| ---------------------------------------------------------------------- | ------- | ----------- | --------------------------------------------- |
+| [Display 8 HD](https://radxa.com/products/accessories/display-8hd)     | 8-inch  | 800 x 1280  | [User Guide](/accessories/display/lcd-8-hd)   |
+| [Display 10 FHD](https://radxa.com/products/accessories/display-10fhd) | 10-inch | 1200 x 1920 | [User Guide](/accessories/display/lcd-10-fhd) |
 
 ## Interface Specifications
 

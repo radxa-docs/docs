@@ -4,13 +4,13 @@ sidebar_position: 5
 
 # 瑞莎 8 寸高清触摸屏
 
-![Radxa Display 8 HD](/img/accessories/display-8-hd.webp)
+![Radxa Display 8 HD](/img/accessories/display/display-8-hd.webp)
 
 ## 概述
 
 Radxa Display 8 HD 是一款带触摸屏的彩色有源矩阵 LCD 模块，专为 Radxa 单板计算机设计。
-这款 8.0 英寸显示屏可让您创建交互式项目，例如平板电脑、工业 HMI、信息仪表板等。 Radxa Display 8 HD 具有用于电源、显示和触摸的单根电缆以及启用的软件屏幕键盘，无需连接键盘或鼠标即可为您提供完整的人机界面。
-此外，显示器上的内置传感器可用于自动纵向或横向旋转。 它具有以下特点：
+这款 8.0 英寸显示屏可让您创建交互式项目，例如平板电脑、工业 HMI、信息仪表板等。Radxa Display 8 HD 具有用于电源、显示和触摸的单根电缆以及启用的软件屏幕键盘，无需连接键盘或鼠标即可为您提供完整的人机界面。
+此外，显示器上的内置传感器可用于自动纵向或横向旋转。它具有以下特点：
 
 - 8.0 英寸液晶显示器
 - 800 x 1280、16.7M 色分辨率
@@ -91,4 +91,4 @@ GT911 支持最多 5 点并发触控，实时追踪准确位置和运动轨迹�
 
 ## 物理规格
 
-![Radxa Display 8 HD](/img/accessories/rock5a-display-8hd-spec.webp)
+![Radxa Display 8 HD](/img/accessories/display/display-8-hd-spec.webp)
