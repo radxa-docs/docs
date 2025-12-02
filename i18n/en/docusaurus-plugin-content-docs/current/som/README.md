@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-slug: /some
+slug: /som
 ---
 
 # Computer on Module Family
