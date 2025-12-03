@@ -16,7 +16,7 @@ sidebar_position: 20
 - 电源适配器：ROCK 4C+ 仅支持 5V/3A 供电
 
 :::tip
-官方推荐使用 [Radxa Power PD 30W](../../../accessories/pd_30w)。
+官方推荐使用 [Radxa Power PD 30W](../../../accessories/power/pd_30w)。
 :::
 
 - USB 鼠标键盘

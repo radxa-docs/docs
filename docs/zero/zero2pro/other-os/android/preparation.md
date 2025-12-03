@@ -11,12 +11,12 @@ sidebar_position: 1
 
 ### 电源
 
-ZERO 2 PRO 采用 Type-C 接口供电，输入电压为 5V，建议使用额定最大电流大于2A的电源适配器。  
-推荐使用官方的 [Radxa Power PD 30W](../accessories/pd-30w) 。<img src="/img/accessories/pd-30w.webp" alt="Radxa Power PD 30W" width="300" />
+ZERO 2 PRO 采用 Type-C 接口供电，输入电压为 5V，建议使用额定最大电流大于 2A 的电源适配器。  
+推荐使用官方的 [Radxa Power PD 30W](../accessories/power/pd_30w) 。<img src="/img/accessories/power/power-pd-30w.webp" alt="Radxa Power PD 30W" width="300" />
 
 ### 启动介质
 
-板载的 eMMC 或 sd卡  
+板载的 eMMC 或 sd 卡  
 如果开发板没有板载 eMMC（[eMMC 位于开发板背面](../hardware-design/hardware-interface#接口总览)）则需要准备一个至少 8GB 的 sd 卡。  
 如果需要安装带有桌面环境的镜像，请使用至少 16GB 的 sd 卡，推荐使用 32GB。
 
@@ -38,7 +38,7 @@ ZERO 2 PRO 板载一个 Wi-Fi 5 (802.11 b/g/n/ac) & BT 5.0 with BLE 无线模块
 
 ### Type-C Hub
 
-Radxa ZERO 2 PRO 有一个板载 [Type-C USB3.0 接口](../hardware-design/hardware-interface#接口总览)。这个接口支持通过 USB Type-C hub 转出 Type-A 口和有线网(如果 hub 支持)，但是不具备视频输出功能。
+Radxa ZERO 2 PRO 有一个板载 [Type-C USB3.0 接口](../hardware-design/hardware-interface#接口总览)。这个接口支持通过 USB Type-C hub 转出 Type-A 口和有线网 (如果 hub 支持)，但是不具备视频输出功能。
 
 ### USB 鼠标和键盘
 

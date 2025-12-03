@@ -12,7 +12,7 @@ sidebar_position: 1
 
 ### Power supply
 
-The ROCK 5C supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using [Radxa Power PD30W](../../accessories/pd-30w).
+The ROCK 5C supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using [Radxa Power PD30W](../../accessories/power/pd_30w).
 
 ### Storage (either one or the other)
 
@@ -36,7 +36,7 @@ The eMMC Module supports two methods: wire brushing and eMMC Reader. When using 
 
 ### Display
 
-HDMI (Up to 8K support)、MIPI ([Radxa 8HD Display](https://radxa.com/products/accessories/display-8hd)、[Radxa 10FHD Display](https://radxa.com/products/accessories/display-10fhd))
+HDMI (Up to 8K support), MIPI ([Radxa 8HD Display](https://radxa.com/products/accessories/display-8hd),[Radxa 10FHD Display](https://radxa.com/products/accessories/display-10fhd))
 
 ### Network connection
 

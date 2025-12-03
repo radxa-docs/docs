@@ -21,7 +21,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 - Power supply
 
   - The ZERO is powered by a Type-C connector with an input voltage of 5V, recommended to use a power adapter with a rated maximum current greater than 2A.
-  - The official [Radxa Power PD 30W](../accessories/pd-30w) is recommended. <img src="/img/accessories/pd-30w.webp" alt="Radxa Power PD 30W" width="300" />
+  - The official [Radxa Power PD 30W](../accessories/power/pd_30w) is recommended. <img src="/img/accessories/power/power-pd-30w.webp" alt="Radxa Power PD 30W" width="300" />
 
 - USB Keyboard and Mouse
 
@@ -50,7 +50,7 @@ Please go to [Download Summary](./download) to download the corresponding image 
 - The power supply interface of ZERO is [USB OTG](../hardware-design/hardware-interface), please use a Type-C cable to connect the power port and the adapter.
 
 :::tip
-The ZERO power supply supports 5V, recommended to use a power adapter with a rated maximum current greater than 2A. radxa recommends using the [Radxa Power PD30W](../accessories/pd-30w).
+The ZERO power supply supports 5V, recommended to use a power adapter with a rated maximum current greater than 2A. radxa recommends using the [Radxa Power PD30W](../accessories/power/pd_30w).
 :::.
 
 ## Reference Documentation

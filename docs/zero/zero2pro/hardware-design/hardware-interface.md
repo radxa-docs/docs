@@ -11,13 +11,13 @@ sidebar_position: 4
 
 ## USB OTG（电源接口）
 
-ZERO 2 PRO 采用 Type-C 接口供电，输入电压为 5V，建议使用额定最大电流大于2A的电源适配器。  
-推荐使用官方的 [Radxa Power PD 30W](../accessories/pd-30w) 。<img src="/img/accessories/pd-30w.webp" alt="Radxa Power PD 30W" width="300" />  
-此接口可用于连接键盘、鼠标、U盘等外设。
+ZERO 2 PRO 采用 Type-C 接口供电，输入电压为 5V，建议使用额定最大电流大于 2A 的电源适配器。  
+推荐使用官方的 [Radxa Power PD 30W](../accessories/power/pd_30w) 。<img src="/img/accessories/power/power-pd-30w.webp" alt="Radxa Power PD 30W" width="300" />  
+此接口可用于连接键盘、鼠标、U 盘等外设。
 
 ## TYPE-c USB3.0
 
-此接口可用于连接键盘、鼠标、U盘等外设。
+此接口可用于连接键盘、鼠标、U 盘等外设。
 
 ## 40 PIN GPIO
 
@@ -29,7 +29,7 @@ ZERO 2 PRO 采用 Type-C 接口供电，输入电压为 5V，建议使用额定�
 
 #### GPIO 接口
 
-ZERO 2 PRO 提供了一个40 pin 针脚的 GPIO 座子，与市场上大多数的 SBC 配件兼容。
+ZERO 2 PRO 提供了一个 40 pin 针脚的 GPIO 座子，与市场上大多数的 SBC 配件兼容。
 
 **提示：实际兼容情况以使用情况为准。**
 
@@ -62,7 +62,7 @@ ZERO 2 PRO 提供了一个40 pin 针脚的 GPIO 座子，与市场上大多数�
 
 ## MIPI DSI
 
-| PIN |    PIN定义    |
+| PIN |   PIN 定义    |
 | :-: | :-----------: |
 |  1  |    LCD_VCC    |
 |  2  |  VDDIO_AO18   |
@@ -106,7 +106,7 @@ ZERO 2 PRO 提供了一个40 pin 针脚的 GPIO 座子，与市场上大多数�
 
 ## MIPI CSI
 
-| PIN |    PIN定义     |
+| PIN |    PIN 定义    |
 | :-: | :------------: |
 |  1  |      GND       |
 |  2  |  MIPI_CSI_D3N  |
@@ -168,7 +168,7 @@ ZERO 2 PRO 支持 Maskrom 模式，这是 CPU 等待 USB OTG 端口命令的一�
 
 ## Fan 插座
 
-| PIN |  PIN定义  |
+| PIN | PIN 定义  |
 | :-: | :-------: |
 |  1  |    GND    |
 |  2  | GPIOAO-11 |

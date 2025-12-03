@@ -6,7 +6,7 @@ sidebar_position: 3
 
 The Radxa Power PD 30W is an adapter designed specifically for Radxa's SBC products. It can deliver up to 5A at 5V to meet the power requirements of Radxa SBCs even when multiple peripherals are connected. For SBCs that support PD/QC protocol, it can deliver a total of 30W of power at 12V/2.5A. Compatible for all Radxa SBCs.
 
-![](/img/accessories/power-pd-30w-2.webp)
+![Power PD 30W](/img/accessories/power/power-pd-30w-2.webp)
 
 # Features
 
@@ -29,4 +29,4 @@ The Radxa Power PD 30W is an adapter designed specifically for Radxa's SBC produ
 
 # Mechanical Appendix
 
-![](/img/accessories/power-pd-30w-mechanical.webp)
+![](/img/accessories/power/power-pd-30w-mechanical.webp)

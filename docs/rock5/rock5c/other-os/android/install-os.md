@@ -21,7 +21,7 @@ ROCK 5C 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 
 - 1x microSD 卡(容量 >=16GB，读写速度等级 >= class10)
 - 1x microSD 读卡器
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../accessories/pd-30w))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../accessories/power/pd_30w))
 
 ## 镜像下载
 
@@ -46,7 +46,7 @@ ROCK 5C 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 
 - USB 接口线缆(A-A)
 - 1x eMMC 模块
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../accessories/pd-30w))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../accessories/power/pd_30w))
 
 ### 镜像下载
 

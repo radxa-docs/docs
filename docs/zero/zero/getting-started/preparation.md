@@ -11,7 +11,7 @@ sidebar_position: 1
 ### 电源
 
 ZERO 采用 Type-C 接口供电，输入电压为 5V，建议使用额定最大电流大于2A的电源适配器。  
-推荐使用官方的 [Radxa Power PD 30W](../accessories/pd-30w) 。<img src="/img/accessories/pd-30w.webp" alt="Radxa Power PD 30W" width="300" />
+推荐使用官方的 [Radxa Power PD 30W](../accessories/power/pd_30w) 。<img src="/img/accessories/power/power-pd-30w.webp" alt="Radxa Power PD 30W" width="300" />
 
 ### 启动介质
 

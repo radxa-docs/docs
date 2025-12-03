@@ -9,7 +9,7 @@ sidebar_position: 1
 - Radxa ROCK 3A Motherboard
 - eMMC module
 - 1x USB cable (USB C on one end, USB A on the other)
-- 1x 5V power adapter (recommended [Radxa Power PD30W](../accessories/pd-30w))
+- 1x 5V power adapter (recommended [Radxa Power PD30W](../accessories/power/pd_30w))
 
 ## Image Download
 
@@ -42,7 +42,7 @@ Please go to [Download Summary](../getting-started/download) to download the cor
 - Power up the board and start the system with the status light blinking.
 
 :::tip
-Radxa ROCK 3A supports `5V/12V` power supply. Radxa recommends using [Radxa Power PD30W](../accessories/pd-30w).
+Radxa ROCK 3A supports `5V/12V` power supply. Radxa recommends using [Radxa Power PD30W](../accessories/power/pd_30w).
 :::
 
 ## Frequently Asked Questions

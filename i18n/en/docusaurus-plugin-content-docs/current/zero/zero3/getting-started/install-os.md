@@ -10,7 +10,7 @@ import Ether from '../../../common/general/\_etcher.mdx'
 
 - 1x microSD Card
 - 1x SD Card Reader
-- 1x 5V Power Supply (Radxa Recommended [Radxa Power PD30W](../../../accessories/pd_30w))
+- 1x 5V Power Supply (Radxa Recommended [Radxa Power PD30W](../../../accessories/power/pd_30w))
 
 ## Image download
 
@@ -27,7 +27,7 @@ Please go to [Resource Download](./download) to download the corresponding image
 - The Radxa ZERO 3 is powered by a [USB 2.0 OTG Type C port](../hardware-design/hardware-interface), using a Type C cable to connect the power port to the adapter.
 
 :::tip
-Radxa ZERO 3 only supports `5V` power supply. Radxa Recommended [Radxa Power PD30W](../accessories/pd-30w).
+Radxa ZERO 3 only supports `5V` power supply. Radxa Recommended [Radxa Power PD30W](../accessories/power/pd_30w).
 :::
 
 ## Reference

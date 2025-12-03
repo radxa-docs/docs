@@ -12,7 +12,7 @@ sidebar_position: 4
 ## USB OTG（Power Connection）
 
 The ZERO 2 PRO is powered by a Type-C connector with an input voltage of 5V, and it is recommended to use a power adapter with a rated maximum current of more than 2A.  
-The official [Radxa Power PD 30W] is recommended (... /accessories/pd-30w). <img src="/img/accessories/pd-30w.webp" alt="Radxa Power PD 30W" width="300" />  
+The official [Radxa Power PD 30W] is recommended (... /accessories/power/pd_30w). <img src="/img/accessories/power/power-pd-30w.webp" alt="Radxa Power PD 30W" width="300" />  
 This interface can be used to connect peripherals such as keyboard, mouse, and USB flash drive.
 
 ## TYPE-c USB3.0

@@ -28,7 +28,7 @@ The power supply port of NIO 12L is a Type-C DC port, which only supports 5V inp
 It is recommended to use a minimum 5V/3A power adapter. Most mobile phone chargers will suffice.
 
 :::tip
-Radxa recommends [Radxa Power PD30W](../../../accessories/pd_30w).
+Radxa recommends [Radxa Power PD30W](../../../accessories/power/pd_30w).
 :::
 
 ### Button

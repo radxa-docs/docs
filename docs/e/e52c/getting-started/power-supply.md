@@ -6,7 +6,7 @@ sidebar_position: 7
 
 Radxa E52C 支持各种电源，固定电压为 5V 输入，电流建议 2A 或者以上，我们测试过的适配器有如下型号:
 
-- [瑞莎 PD 30W 适配器](../../../accessories/pd_30w) (推荐使用)
+- [瑞莎 PD 30W 适配器](../../../accessories/power/pd_30w) (推荐使用)
 - 苹果适配器 20W
 - Anker适配器 65W
 - 小米适配器 65W

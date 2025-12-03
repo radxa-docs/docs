@@ -21,7 +21,7 @@ ROCK 5C can be booted from microSD card or EMMC, depending on the boot method, t
 
 - 1x microSD card (capacity >=16GB, speed level >= class10)
 - 1x microSD card reader
-- 5V power adapter (Recommended [Radxa Power PD30W](../../accessories/pd-30w))
+- 5V power adapter (Recommended [Radxa Power PD30W](../../accessories/power/pd_30w))
 
 ## Image Download
 
@@ -48,7 +48,7 @@ Please go to [Resource Download](../../download) to download the corresponding i
 
 - USB connector cable (A-A)
 - 1x eMMC module
-- 5V power adapter (Recommended [Radxa Power PD30W](../../accessories/pd-30w))
+- 5V power adapter (Recommended [Radxa Power PD30W](../../accessories/power/pd_30w))
 
 ### Download the image
 
@@ -116,7 +116,7 @@ If you have already installed another version of driver, please click `Uninstall
 
 ### Install RKDevTool
 
-unzip RKDevTool_Release_v2.96_zh.zip ，click RKDevTool.exe to open.
+unzip RKDevTool_Release_v2.96_zh.zip , click RKDevTool.exe to open.
 
 ## Enter Maskrom mode
 

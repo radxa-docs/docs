@@ -7,7 +7,7 @@ sidebar_position: 5
 ## 准备工作
 
 - 1x USB 线 （一端 USB C，一端 USB A）
-- 1x 5V 电源适配器，建议使用额定最大电流大于2A的电源适配器 (推荐使用 [Radxa Power PD30W](../../../accessories/pd_30w))
+- 1x 5V 电源适配器，建议使用额定最大电流大于2A的电源适配器 (推荐使用 [Radxa Power PD30W](../../../accessories/power/pd_30w))
 
 ## 镜像下载
 

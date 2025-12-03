@@ -34,7 +34,7 @@ sidebar_position: 8
 ### My new ROCK 5B won't boot/is stuck in an infinite boot loop
 
 - The ROCK 5B supports PD protocol, which allows the adapter to output higher voltages such as 9V, 12V, 15V, 20V via handshaking to meet the total system power load requirements (approx. 30W, WiFi, SSD, USB peripherals etc.). Currently PD negotiation is implemented in the kernel driver and needs to be powered on to the kernel run phase to start the negotiation, but some power adapters cannot wait for the ROCK 5B power negotiation phase and power off when it times out, resulting in a dead loop. We offer the following advice:
-  1.  We strongly recommend using the official power adapter [Radxa Power PD 30W](../accessories/pd_30w). The Radxa Power PD 30W was tested in all conditions of the ROCK 5B.
+  1.  We strongly recommend using the official power adapter [Radxa Power PD 30W](../accessories/power/pd_30w). The Radxa Power PD 30W was tested in all conditions of the ROCK 5B.
   2.  Using a higher speed SD card or eMMC module and disabling the bootloader/kernel serial console.
   3.  Using a 12V DC USB-C port power supply
   4.  To check the availability of other power supplies reported by the Radxa community please check the basic support information on the motherboard.

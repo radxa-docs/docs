@@ -54,7 +54,7 @@ To get started with ROCK 4A/4B/4A+/4B+/4SE, you will also need the following equ
 - An Ethernet cable is required for system updates.
 
 :::tip
-It is recommended to use the official [Radxa PD30W Adapter](../../../accessories/pd_30w).
+It is recommended to use the official [Radxa PD30W Adapter](../../../accessories/power/pd_30w).
 :::
 
 Optional peripherals that can enhance the basic functionality of ROCK 4A/4B/4A+/4B+/4SE:

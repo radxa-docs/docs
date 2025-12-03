@@ -11,7 +11,7 @@ sidebar_position: 1
 The RADXA NX5 IO is powered by the DC connector and supports 5V input only.
 
 :::tip
-RADXA recommends using the [Radxa Power PD30W](../accessories/pd-30w)
+RADXA recommends using the [Radxa Power PD30W](../accessories/power/pd_30w)
 :::
 
 ### Storage

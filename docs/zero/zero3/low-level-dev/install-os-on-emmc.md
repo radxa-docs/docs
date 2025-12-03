@@ -7,7 +7,7 @@ sidebar_position: 1
 ## 准备工作
 
 - 1x USB 线 （一端 USB C，一端 USB A）
-- 1x 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../accessories/pd_30w))
+- 1x 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../accessories/power/pd_30w))
 
 ## 镜像下载
 
@@ -54,7 +54,7 @@ Radxa ZERO 3 的 OTG 接口是 TYPE-C,可通过 USB-C 转 USB-A 线连接主机�
 - 使用USB线连接板子的 [USB 2.0 OTG Type C port](../hardware-design/hardware-interface) 到电源适配器上，然后系统开始启动，状态灯闪烁。
 
 :::tip
-Radxa ZERO 3 只支持 `5V` 供电。瑞莎推荐使用 [Radxa Power PD30W](../../../accessories/pd_30w)。
+Radxa ZERO 3 只支持 `5V` 供电。瑞莎推荐使用 [Radxa Power PD30W](../../../accessories/power/pd_30w)。
 :::
 
 ## 常见问题

@@ -7,7 +7,7 @@ sidebar_position: 7
 The Radxa PD 65W power adapter is specially designed for Radxa's SBC products. It can provide up to 3.25A current at 20V to meet the power requirements of the Radxa SBC when connecting multiple peripherals.
 It is compatible with Radxa ROCK 5 ITX and other Radxa SBCs.
 
-![Power PD 65W](/img/accessories/power-pd-65w.webp)
+![Power PD 65W](/img/accessories/power/power-pd-65w.webp)
 
 ## Product Specifications
 
