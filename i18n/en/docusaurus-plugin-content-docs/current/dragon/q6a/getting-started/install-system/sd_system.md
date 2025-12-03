@@ -37,7 +37,7 @@ The default credentials for Radxa OS are as follows:
 
 ## Using the System
 
-After successfully booting the system, you can start using the Radxa system on your Dragon Q6A. For basic usage instructions, please refer to the [Using the System](./use_system.md) guide.
+After successfully booting the system, you can start using the Radxa system on your Dragon Q6A. For basic usage instructions, please refer to the [Using the System](../use_system.md) guide.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/dragon/q6a/dragon-q6a-login.webp" style={{width: '100%', maxWidth: '1200px'}} />

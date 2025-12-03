@@ -7,7 +7,7 @@ sidebar_position: 8
 ## 系统镜像
 
 :::tip 新手入门推荐
-我们强烈建议新手用户下载 GPT 格式的 Radxa OS 官方切换分支，并使用 [Balena Etcher](./getting-started/install-system/sd_system.md) 工具将其安装到 MicroSD 卡中。这是最简单、最快捷的上手方式。
+我们强烈建议新手用户下载 GPT 格式的 Radxa OS 官方切换分支，并使用 [Balena Etcher](./getting-started/install-system/microsd) 工具将其安装到 MicroSD 卡中。这是最简单、最快捷的上手方式。
 
 **镜像类型说明**
 

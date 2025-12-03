@@ -38,7 +38,7 @@ This section explains how to verify EDL mode on both Windows and Ubuntu systems.
 
 - Download QDL Tool
 
-Visit the [Resource Downloads](../../download.md) page to download and extract the QDL tool (which includes both QDL software and drivers).
+Visit the [Resource Downloads](../download.md) page to download and extract the QDL tool (which includes both QDL software and drivers).
 
 - Install QDL Driver
 

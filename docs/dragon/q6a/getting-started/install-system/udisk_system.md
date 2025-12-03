@@ -37,7 +37,7 @@ Radxa OS 的默认凭据如下：
 
 ## 使用系统
 
-成功启动系统后，您就可以在 Dragon Q6A 上正式使用瑞莎系统，对于瑞莎系统的简单使用，可参考 [使用系统](./use_system.md) 教程。
+成功启动系统后，您就可以在 Dragon Q6A 上正式使用瑞莎系统，对于瑞莎系统的简单使用，可参考 [使用系统](../use_system.md) 教程。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/dragon/q6a/dragon-q6a-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
