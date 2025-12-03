@@ -13,7 +13,7 @@ sidebar_position: 6
 |      |            |
 
 :::tip 接口位置
-可以参考 [硬件信息](./hardware_info.md) 教程找到对应硬件接口位置。
+可以参考 [硬件信息](./hardware-info.md) 教程找到对应硬件接口位置。
 :::
 
 ## 硬件连接

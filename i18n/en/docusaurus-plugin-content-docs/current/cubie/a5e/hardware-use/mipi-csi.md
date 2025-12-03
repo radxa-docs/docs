@@ -13,7 +13,7 @@ The Radxa Cubie A5E features one onboard 4-lane MIPI CSI interface (which can be
 |       |            |
 
 :::tip Interface Location
-You can refer to the [Hardware Information](./hardware_info.md) tutorial to locate the corresponding hardware interface.
+You can refer to the [Hardware Information](./hardware-info.md) tutorial to locate the corresponding hardware interface.
 :::
 
 ## Hardware Connection

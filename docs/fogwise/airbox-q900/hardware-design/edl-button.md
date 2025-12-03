@@ -36,7 +36,7 @@ Fogwise® AIRbox Q900 板载 EDL 按键，主要用于进入紧急下载模式�
 
 - 下载 QDL 工具
 
-进入 [资源汇总下载](../../download.md) 页面下载 QDL 工具并解压（QDL 工具包括 QDL 软件和 QDL 驱动）。
+进入 [资源汇总下载](../download.md) 页面下载 QDL 工具并解压（QDL 工具包括 QDL 软件和 QDL 驱动）。
 
 - 安装 QDL 驱动
 
