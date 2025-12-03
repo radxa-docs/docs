@@ -1,12 +1,12 @@
 ---
-sidebar_position: 7
+sidebar_position: 4
 ---
 
 # 瑞莎 PD 65W 电源适配器
 
-瑞莎 PD 65W 电源适配器是专为 Radxa 的 SBC 产品设计的适配器。 它可以在 20V 时提供高达 3.25A 的电流，以满足 Radxa SBC 连接多个外围设备的电源要求。兼容 Radxa ROCK 5 ITX 等 Radxa SBC。
+瑞莎 PD 65W 电源适配器是专为 Radxa 的 SBC 产品设计的适配器。它可以在 20V 时提供高达 3.25A 的电流，以满足 Radxa SBC 连接多个外围设备的电源要求。兼容 Radxa ROCK 5 ITX 等 Radxa SBC。
 
-![Power PD 65W](/img/accessories/power-pd-65w.webp)
+![Power PD 65W](/img/accessories/power/power-pd-65w.webp)
 
 ## 产品规格
 

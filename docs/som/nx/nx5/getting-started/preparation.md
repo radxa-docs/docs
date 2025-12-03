@@ -11,7 +11,7 @@ sidebar_position: 1
 RADXA NX5 IO 采用 DC 接口供电，仅支持 5V 输入
 
 :::tip
-瑞莎推荐使用 [Radxa Power PD30W](../accessories/pd-30w)
+瑞莎推荐使用 [Radxa Power PD30W](../accessories/power/pd_30w)
 :::
 
 ### 存储

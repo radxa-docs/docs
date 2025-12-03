@@ -19,8 +19,8 @@ ROCK 5B 和 ROCK 5B+ 对适配器的功率要求不一样。两个 SSD 功率更
 
 ROCK 5B
 
-电源适配器推荐使用官方的 [瑞莎 PD30W 适配器](../../../accessories/pd_30w)。
+电源适配器推荐使用官方的 [瑞莎 PD30W 适配器](../../../accessories/power/pd_30w)。
 
 ROCK 5B+
 
-电源适配器推荐使用官方的 [瑞莎 PD65W 适配器](../../../accessories/pd_65w)。
+电源适配器推荐使用官方的 [瑞莎 PD65W 适配器](../../../accessories/power/pd_65w)。

@@ -20,7 +20,7 @@ Please go to [Download Summary](./download) to download the corresponding image 
 - The power supply interface of ZERO 2 PRO is [USB OTG](../hardware-design/hardware-interface), please use a Type-C cable to connect the power port and the adapter.
 
 :::tip
-The ZERO 2 PRO power supply supports 5V, recommended to use a power adapter with a rated maximum current greater than 2A. radxa recommends using the [Radxa Power PD30W](../accessories/pd-30w).
+The ZERO 2 PRO power supply supports 5V, recommended to use a power adapter with a rated maximum current greater than 2A. radxa recommends using the [Radxa Power PD30W](../accessories/power/pd_30w).
 :::.
 
 ## Login System

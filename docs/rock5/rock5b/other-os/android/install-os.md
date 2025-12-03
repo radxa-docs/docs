@@ -35,7 +35,7 @@ ROCK 5B/5B+ 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以�
 
 - 1x microSD 卡(容量 >=8GB)
 - 1x microSD 读卡器
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd_30w))
 
 #### 安装系统
 
@@ -47,7 +47,7 @@ ROCK 5B/5B+ 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以�
 - Radxa ROCK 5B/5B+ 的供电接口为 [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
 
 :::tip
-ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w)。
+ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd_30w)。
 :::
 
 #### 参考文档

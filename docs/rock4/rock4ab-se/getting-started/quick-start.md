@@ -54,7 +54,7 @@ import Package from "./\_package.mdx"
 - 一根网线，更新系统时需要联网。
 
 :::tip
-电源适配器推荐使用官方的 [瑞莎 PD30W 适配器](../../../accessories/pd_30w)。
+电源适配器推荐使用官方的 [瑞莎 PD30W 适配器](../../../accessories/power/pd_30w)。
 :::
 
 非必需但可增强 ROCK 4A/4B/4A+/4B+/4SE 基本功能的外设：

@@ -12,7 +12,7 @@ sidebar_position: 1
 
 ### 供电
 
-ROCK 2A 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w)。
+ROCK 2A 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd_30w)。
 
 ### 存储（二选一）
 

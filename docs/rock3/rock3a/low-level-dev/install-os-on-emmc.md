@@ -9,7 +9,7 @@ sidebar_position: 1
 - Radxa ROCK 3A 主板
 - eMMC module
 - 1x USB 线 （一端 USB C，一端 USB A）
-- 1x 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../accessories/pd-30w))
+- 1x 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../accessories/power/pd_30w))
 
 ## 镜像下载
 
@@ -42,7 +42,7 @@ sidebar_position: 1
 - 给开发板上电，然后系统开始启动，状态灯闪烁。
 
 :::tip
-Radxa ROCK 3A 支持 `5V/12V` 供电。瑞莎推荐使用 [Radxa Power PD30W](../accessories/pd-30w)。
+Radxa ROCK 3A 支持 `5V/12V` 供电。瑞莎推荐使用 [Radxa Power PD30W](../accessories/power/pd_30w)。
 :::
 
 ## 常见问题

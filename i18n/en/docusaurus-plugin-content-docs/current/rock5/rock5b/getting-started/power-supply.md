@@ -19,8 +19,8 @@ The ROCK 5B and ROCK 5B+ have different power adapter requirements. The two SSD 
 
 ROCK 5B
 
-Power adapter recommended: The official [Radxa PD30W adapter](../../../accessories/pd_30w).
+Power adapter recommended: The official [Radxa PD30W adapter](../../../accessories/power/pd_30w).
 
 ROCK 5B+
 
-Power adapter recommended: The official [Radxa PD65W adapter](../../../accessories/pd_65w).
+Power adapter recommended: The official [Radxa PD65W adapter](../../../accessories/power/pd_65w).

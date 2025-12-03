@@ -35,7 +35,7 @@ sidebar_position: 2
 
 1. 1x microSD 卡
 2. 1x SD 卡读卡器
-3. 1x 5V 电源适配器 （瑞莎推荐电源适配器 [Radxa Power PD30W](../../../../accessories/pd_30w)）
+3. 1x 5V 电源适配器 （瑞莎推荐电源适配器 [Radxa Power PD30W](../../../../accessories/power/pd_30w)）
 
 #### 通过 Etcher 刷入操作系统镜像到 microSD
 
@@ -68,7 +68,7 @@ sidebar_position: 2
 
 - 准备一条 USB 线 (一端USB C，一端 USB A)
   <img src="/img/common/usb-cable-usb-a-usb-c.webp" width = "400" alt="USB Cable"/>
-- 1x 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w))
+- 1x 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd_30w))
 
 #### 安装系统
 
@@ -102,7 +102,7 @@ sidebar_position: 2
 - 直接连接板子的 [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface) 到电源适配器上，然后系统开始启动，状态灯闪烁。
 
 :::tip
-Radxa ZERO 3 只支持 `5V` 供电。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/pd_30w)。
+Radxa ZERO 3 只支持 `5V` 供电。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd_30w)。
 :::
 
 ## 常见问题

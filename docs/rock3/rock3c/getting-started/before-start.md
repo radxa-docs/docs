@@ -19,7 +19,7 @@ sidebar_position: 2
 - 电源：  
   ROCK 3C 采用 Type-C 接口供电，仅支持 5V 输入。不使用固态硬盘时，建议最低使用 5V/3A 电源适配器；使用固态硬盘时，建议使用 5V/5A 电源适配器。
   :::tip
-  瑞莎推荐使用 [Radxa Power PD30W](../../../accessories/pd_30w)。
+  瑞莎推荐使用 [Radxa Power PD30W](../../../accessories/power/pd_30w)。
   :::
 
 - USB 键鼠  

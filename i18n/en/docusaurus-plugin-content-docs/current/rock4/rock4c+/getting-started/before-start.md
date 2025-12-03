@@ -18,7 +18,7 @@ The information is printed in the top side of the board. We will introduce the b
 - Power Supply: The ROCK 4C Plus supports Type-C 5V/3A power supply.
 
 :::tip
-The official recommendation is to use [Radxa Power PD30W](../../../accessories/pd_30w).
+The official recommendation is to use [Radxa Power PD30W](../../../accessories/power/pd_30w).
 :::
 
 - USB Keyboard and Mouse

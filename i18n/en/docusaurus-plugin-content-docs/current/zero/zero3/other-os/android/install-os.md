@@ -35,7 +35,7 @@ If the board doesn't come with eMMC, you can't boot from eMMC, such as Radxa ZER
 
 - 1x microSD Card（Capacity size >= 8GB）
 - 1x SD card Reader
-- 1x 5V Power Supply (Radxa Recommended [Radxa Power PD30W](../../../../accessories/pd_30w))
+- 1x 5V Power Supply (Radxa Recommended [Radxa Power PD30W](../../../../accessories/power/pd_30w))
 
 #### Install OS
 
@@ -69,7 +69,7 @@ If the board doesn't come with eMMC, you can't boot from eMMC, such as Radxa ZER
 
 - 1x USB Cable with one end USB C and one end USB A.
   <img src="/img/common/usb-cable-usb-a-usb-c.webp" width = "400" alt="USB Cable"/>
-- 1x 5V Power Supply. Radxa Recommended [Radxa Power PD30W](../../../../accessories/pd_30w).
+- 1x 5V Power Supply. Radxa Recommended [Radxa Power PD30W](../../../../accessories/power/pd_30w).
 
 #### Install OS
 
@@ -103,7 +103,7 @@ Press the [Maskrom Button](../../hardware-design/hardware-interface), and then c
 - Power the board via [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface). Then board will start up with the led blink.
 
 :::tip
-Radxa ZERO 3 only supports `5V` power supply.Radxa Recommended [Radxa Power PD30W](../../../../accessories/pd_30w).
+Radxa ZERO 3 only supports `5V` power supply.Radxa Recommended [Radxa Power PD30W](../../../../accessories/power/pd_30w).
 :::
 
 ## FAQ

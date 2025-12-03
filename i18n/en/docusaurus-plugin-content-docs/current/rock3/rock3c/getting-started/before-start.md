@@ -19,7 +19,7 @@ We will introduce the board information as much as possible.
 - Power Supply:  
   The ROCK 3 is powered by Type-C port and support 5V input only. The suggested power adapter is 5V/3A when using without SSD, 5V/5A when using with SSD.  
   :::tip
-  The official recommendation is to use [Radxa Power PD30W](../../../accessories/pd_30w).
+  The official recommendation is to use [Radxa Power PD30W](../../../accessories/power/pd_30w).
   :::
 
 - USB Keyboard and Mouse  

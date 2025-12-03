@@ -28,6 +28,6 @@ ROCK 4A/4B/4A+/4B+ supports multiple power supply methods, smart power adapters,
 
 :::tip
 
-Recommended to use the official 30W adapter [Radxa PD 30W Adapter](../../../accessories/pd_30w)
+Recommended to use the official 30W adapter [Radxa PD 30W Adapter](../../../accessories/power/pd_30w)
 
 :::

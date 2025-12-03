@@ -30,7 +30,7 @@ sidebar_position: 99
 
 - ROCK 5B 支持 PD 协议，可以通过握手使适配器输出更高的电压，如 9V、12V、15V、20V，以满足系统总电源负载要求（约 30W，WiFi、SSD、USB 外围设备等）。 目前 PD 协商是在内核驱动中实现的，需要开机到内核运行阶段才能开始协商，但是有些电源适配器等不到 ROCK 5B 的电源协商阶段，超时就断电，造成死循环。我们提供以下建议：
 
-* 强烈建议使用官方电源适配器 [Radxa Power PD 30W](../accessories/pd_30w). Radxa Power PD 30W 在 ROCK 5B 的所有条件下进行了测试。
+* 强烈建议使用官方电源适配器 [Radxa Power PD 30W](../accessories/power/pd_30w). Radxa Power PD 30W 在 ROCK 5B 的所有条件下进行了测试。
 * 使用更高速的 SD 卡或 eMMC 模块并禁用引导加载程序/内核串行控制台
 * 使用直流 12V USB-C 电源
 * 检查 Radxa 社区报告的其他电源是否可用请查看主板的基础支持信息。

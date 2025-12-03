@@ -11,7 +11,7 @@ sidebar_position: 1
 支持 PD 协议的电源适配器
 
 :::tip
-瑞莎推荐使用 [Radxa Power PD30W](../accessories/pd-30w)。
+瑞莎推荐使用 [Radxa Power PD30W](../accessories/power/pd_30w)。
 :::
 
 ### 显示器

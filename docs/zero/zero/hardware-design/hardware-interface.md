@@ -22,7 +22,7 @@ ZERO 有一个 32 bits LPDDR 4 芯片。ZERO 提供 512MB、1GB、2GB 和 4GB �
 ## USB OTG（电源接口）
 
 ZERO 采用 Type-C 接口供电，输入电压为 5V，建议使用额定最大电流大于2A的电源适配器。  
-推荐使用官方的 [Radxa Power PD 30W](../accessories/pd-30w) 。<img src="/img/accessories/pd-30w.webp" alt="Radxa Power PD 30W" width="300" />  
+推荐使用官方的 [Radxa Power PD 30W](../accessories/power/pd_30w) 。<img src="/img/accessories/power/power-pd-30w.webp" alt="Radxa Power PD 30W" width="300" />  
 此接口可用于连接键盘、鼠标、U盘等外设。
 
 ## TYPE-c USB3.0

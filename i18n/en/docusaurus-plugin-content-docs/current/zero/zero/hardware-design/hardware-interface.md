@@ -20,7 +20,7 @@ The ZERO has a 32 bits LPDDR 4 chip.The ZERO offers 512MB, 1GB, 2GB and 4GB memo
 ## USB OTG (Power Interface)
 
 The ZERO is powered by a Type-C connector with an input voltage of 5V, recommended to use a power adapter with a rated maximum current greater than 2A.  
-The official [Radxa Power PD 30W](../accessories/pd-30w) is recommended. <img src="/img/accessories/pd-30w.webp" alt="Radxa Power PD 30W" width="300" />  
+The official [Radxa Power PD 30W](../accessories/power/pd_30w) is recommended. <img src="/img/accessories/power/power-pd-30w.webp" alt="Radxa Power PD 30W" width="300" />  
 This interface can be used to connect peripherals such as keyboard, mouse, USB flash drive and so on.
 
 ## TYPE-c USB3.0
