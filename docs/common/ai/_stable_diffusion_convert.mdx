@@ -3,7 +3,6 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
 本次演示使用的 **Stable Diffusion LCM Dreamshaper V7**，是一种结合 Latent Consistency Model 加速技术的轻量化变体，能够在极低推理步数下保持高质量的图像生成效果，仅需 **1–4 步** 即可生成清晰的图像。
 本文将完整演示如何借助 RKNN 工具链，把该模型部署到 Rockchip 系列芯片的 NPU 上，并实现高效、低延迟的端侧图像生成。
 
-
 :::tip
 此文档以RK3588及Dreamshaper V7为例，
 演示如何在RK芯片NPU上部署文生图模型，
@@ -11,160 +10,172 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
 具体环境安装步骤参考[RKNN安装](./rknn_install)
 :::
 
-
 ## 模型文件下载
+
 **瑞莎提供转换好的RKNN模型以及执行文件，输出分辨率为256x256，您可直接下载使用，具体步骤如下。**
+
 - **使用modelscope下载模型文件**
 
-
-   - **创建存储模型文件的目录**
+  - **创建存储模型文件的目录**
    <NewCodeBlock tip="Linux PC" type="PC">
-   ```bash
-   mkdir sd-lcm-rknn && cd sd-lcm-rknn
-   ```
+
+  ```bash
+  mkdir sd-lcm-rknn && cd sd-lcm-rknn
+  ```
+
    </NewCodeBlock>
 
-
-   - **pip安装modelscope包**
+  - **pip安装modelscope包**
    <NewCodeBlock tip="Linux PC" type="PC">
-   ```bash
-   # 尽量使用较新的python版本避免兼容问题
-   pip3 install modelscope
-   ```
+
+  ```bash
+  # 尽量使用较新的python版本避免兼容问题
+  pip3 install modelscope
+  ```
+
    </NewCodeBlock>
 
-
-   - **克隆Stable-Diffusion-LCM_RKNN仓库**
+  - **克隆Stable-Diffusion-LCM_RKNN仓库**
    <NewCodeBlock tip="Linux PC" type="PC">
-   ```bash
-   modelscope download --model radxa/Stable-Diffusion-LCM_RKNN
-   ```
-   </NewCodeBlock>
 
+  ```bash
+  modelscope download --model radxa/Stable-Diffusion-LCM_RKNN
+  ```
+
+   </NewCodeBlock>
 
 ## （可选）模型转换
+
 **如果您希望设定想要的输出分辨率，可以考虑自行转换模型，参考步骤如下。**
+
 - **从HuggingFace下载ONNX模型并转换为RKNN模型**
 
-
-   - **创建存储模型文件的目录**
+  - **创建存储模型文件的目录**
    <NewCodeBlock tip="Linux PC" type="PC">
-   ```bash
-   mkdir sd-lcm-rknn && cd sd-lcm-rknn
-   ```
+
+  ```bash
+  mkdir sd-lcm-rknn && cd sd-lcm-rknn
+  ```
+
    </NewCodeBlock>
 
-
-   - **克隆模型仓库**
+  - **克隆模型仓库**
    <NewCodeBlock tip="Linux PC" type="PC">
-   ```bash
-   # 需要使用git lfs，如未安装请自行安装
-   git lfs install
-   git clone https://huggingface.co/thanhtantran/Stable-Diffusion-1.5-LCM-ONNX-RKNN2
-   ```
+
+  ```bash
+  # 需要使用git lfs，如未安装请自行安装
+  git lfs install
+  git clone https://huggingface.co/thanhtantran/Stable-Diffusion-1.5-LCM-ONNX-RKNN2
+  ```
+
    </NewCodeBlock>
 
-
-   - **激活虚拟环境**
+  - **激活虚拟环境**
    <NewCodeBlock tip="Linux PC" type="PC">
-   ```bash
-   conda activate your_rknn_env
-   ```
+
+  ```bash
+  conda activate your_rknn_env
+  ```
+
    </NewCodeBlock>
 
-
-   - **可先运行 *run_onnx-lcm.py* 测试模型完整性**
+  - **可先运行 _run_onnx-lcm.py_ 测试模型完整性**
    <NewCodeBlock tip="Linux PC" type="PC">
-   ```bash
-   # 使用-h参数查看参数帮助
-   python run_onnx-lcm.py -i ./model -o ./images --prompt "Majestic mountain landscape with snow-capped peaks, autumn foliage in vibrant reds and oranges, a turquoise river winding through a valley, crisp and serene atmosphere, ultra-realistic style."
-   ```
+
+  ```bash
+  # 使用-h参数查看参数帮助
+  python run_onnx-lcm.py -i ./model -o ./images --prompt "Majestic mountain landscape with snow-capped peaks, autumn foliage in vibrant reds and oranges, a turquoise river winding through a valley, crisp and serene atmosphere, ultra-realistic style."
+  ```
+
    </NewCodeBlock>
 
-
-   - **运行 *convert-onnx-to-rknn.py* 转换模型**
+  - **运行 _convert-onnx-to-rknn.py_ 转换模型**
    <NewCodeBlock tip="Linux PC" type="PC">
-   ```bash
-   # 使用-h参数查看参数帮助，将N替换为你实际需要的分辨率，转换之后模型只可输出该分辨率图像
-   python convert-onnx-to-rknn.py -i ./model -r NxN
-   ```
+
+  ```bash
+  # 使用-h参数查看参数帮助，将N替换为你实际需要的分辨率，转换之后模型只可输出该分辨率图像
+  python convert-onnx-to-rknn.py -i ./model -r NxN
+  ```
+
    </NewCodeBlock>
 
+  - **将文件整理为下面的目录结构，即可进行下一环节**
 
-   - **将文件整理为下面的目录结构，即可进行下一环节**
-   ```txt
-   ---sd-lcm-rknn
-        ---model
-            ---scheduler
-            ---scheduler_config.json
-        ---text_encoder
-            ---config.json
-            ---model.rknn
-        ---unet
-            ---config.json
-            ---model.rknn
-        ---vae_decoder
-            ---config.json
-            ---model.rknn
-        ---run_rknn-lcm.py
-   ```
-
+  ```txt
+  ---sd-lcm-rknn
+       ---model
+           ---scheduler
+           ---scheduler_config.json
+       ---text_encoder
+           ---config.json
+           ---model.rknn
+       ---unet
+           ---config.json
+           ---model.rknn
+       ---vae_decoder
+           ---config.json
+           ---model.rknn
+       ---run_rknn-lcm.py
+  ```
 
 ## 板端部署
+
 - **将转换后的RKNN模型及可执行文件拷贝到板端**
 
-
-   - **进入板端对应目录**
+  - **进入板端对应目录**
    <NewCodeBlock tip="Radxa SBC" type="device">
-   ```bash
-   cd sd-lcm-rknn
-   ```
+
+  ```bash
+  cd sd-lcm-rknn
+  ```
+
    </NewCodeBlock>
 
-
-   - **创建python虚拟环境**
+  - **创建python虚拟环境**
    <NewCodeBlock tip="Radxa SBC" type="device">
-   ```bash
-   python -m venv .venv
-   ```
+
+  ```bash
+  python -m venv .venv
+  ```
+
    </NewCodeBlock>
 
-
-   - **激活虚拟环境**
+  - **激活虚拟环境**
    <NewCodeBlock tip="Radxa SBC" type="device">
-   ```bash
-   source .venv/bin/activate
-   ```
+
+  ```bash
+  source .venv/bin/activate
+  ```
+
    </NewCodeBlock>
 
-
-   - **安装相关依赖**
+  - **安装相关依赖**
    <NewCodeBlock tip="Radxa SBC" type="device">
-   ```bash
-   pip3 install diffuser，pillow，"numpy<2.0"，torch，transformers，rknn-toolkit-lite2
-   ```
+
+  ```bash
+  pip3 install diffusers pillow "numpy<2.0" torch transformers rknn-toolkit-lite2
+  ```
+
    </NewCodeBlock>
 
-
-   - **执行脚本**
+  - **执行脚本**
    <NewCodeBlock tip="Radxa SBC" type="device">
-   ```bash
-   # 使用-h参数查看参数帮助，自行转换的模型需要替换分辨率参数
-   python ./run_rknn-lcm.py -i ./model -o ./images -s 256x256 --prompt "Majestic mountain landscape with snow-capped peaks, autumn foliage in vibrant reds and oranges, a turquoise river winding through a valley, crisp and serene atmosphere, ultra-realistic style."
-   ```
-   </NewCodeBlock>
 
+  ```bash
+  # 使用-h参数查看参数帮助，自行转换的模型需要替换分辨率参数
+  python ./run_rknn-lcm.py -i ./model -o ./images -s 256x256 --prompt "Majestic mountain landscape with snow-capped peaks, autumn foliage in vibrant reds and oranges, a turquoise river winding through a valley, crisp and serene atmosphere, ultra-realistic style."
+  ```
+
+   </NewCodeBlock>
 
 ## 模型结果及性能分析
 
-
 - **板端256像素分辨率图片**
-
 
 ![sb-lcm-mountain.webp](/img/rock5b/sb-lcm-mountain.webp)
 
-
 - **单次性能情况，仅供参考**：
+
 ```txt
 text_encoder加载时间：Took 0.7 seconds.
 unet加载时间：Took 2.8 seconds.
