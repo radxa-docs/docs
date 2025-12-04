@@ -68,32 +68,26 @@
 
 <Tabs queryString="Host">
     <TabItem value="Linux/MacOS">
-    1. Generate zero.img
-
-        ```bash
-        dd if=/dev/zero of=./zero.img bs=1M count=64
-        ```
-
-    2. Make sure the host recognises Maskrom
+    1. Make sure the host recognises Maskrom
 
         ```
         sudo rkdeveloptool ld
         DevNo=1	Vid=0x2207,Pid=0x350a,LocationID=109	Maskrom
         ```
 
-    3. Flash Loader
+    2. Flash Loader
 
     <pre>
     sudo rkdeveloptool db <a href={props.loader}> rk3588_spl_loader_v1.15.113.bin </a>
     </pre>
 
-    4. Erase SPI Flash
+    3. Erase SPI Flash
 
     ```bash
     sudo rkdeveloptool ef
     ```
 
-    5. Reboot
+    4. Reboot
 
     ```bash
     sudo rkdeveloptool rd
