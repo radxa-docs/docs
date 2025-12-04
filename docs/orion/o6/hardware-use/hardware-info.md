@@ -63,6 +63,7 @@ sidebar_position: 10
 - 建议使用 [瑞莎 PD 65W 电源适配器](https://radxa.com/products/accessories/power-pd-65w) 给主板供电
 - 任意 USB Type-C 端口均可给主板供电，若同时连接两个电源，首个插入的 PD 电源将为主板供电
 - 每个 USB Type-C 端口可为外部设备提供高达 3A 电流
+- USBC0 支持 OTG 模式，USBC1 支持 HOST 模式
 
 ### USB Type-A 端口
 

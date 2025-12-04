@@ -63,6 +63,7 @@ Two USB 3.2 Type-C ports are onboard, supporting data transfer speeds up to 10Gb
 - Recommended to use the [Radxa PD 65W Power Adapter](https://radxa.com/products/accessories/power-pd-65w) to power the motherboard
 - Either USB Type-C port can power the motherboard. If two power sources are connected simultaneously, the first PD power source connected will power the motherboard
 - Each USB Type-C port can provide up to 3A of current to external devices
+- USBC0 supports OTG mode, USBC1 supports HOST mode
 
 ### USB Type-A Ports
 
