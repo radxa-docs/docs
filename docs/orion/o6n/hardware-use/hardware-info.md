@@ -109,28 +109,28 @@ sidebar_position: 10
 <TabItem value="Orion O6">
      <div className='gpio_style' style={{ overflow :"auto"}}  >
 
-| Function2 | Function1 |               Pin#               |              Pin#               | Function1 | Function2 |
-| --------- | --------- | :------------------------------: | :-----------------------------: | --------- | --------- |
-|           | 3.3V      | <div className='yellow'>1</div>  |  <div className='red'>2</div>   | 5V        |           |
-| GPIO      | I2C4_SDA  |  <div className='green'>3</div>  |  <div className='red'>4</div>   | 5V        |           |
-| GPIO      | I2C4_SCL  |  <div className='green'>5</div>  | <div className='black'>6</div>  | GND       |           |
-| GPIO      | GPIO71    |  <div className='green'>7</div>  | <div className='green'>8</div>  | UART2_TX  | GPIO103   |
-|           | GND       |  <div className='black'>9</div>  | <div className='green'>10</div> | UART2_RX  | GPIO104   |
-| GPIO95    | PWM       | <div className='green'>11</div>  | <div className='green'>12</div> | I2S4_SCLK | GPIO91    |
-| GPIO96    | PWM       | <div className='green'>13</div>  | <div className='black'>14</div> | GND       |           |
-| GPIO105   | UART3_TXD | <div className='green'>15</div>  | <div className='green'>16</div> | UART3_RXD | GPIO106   |
-|           | 3.3V      | <div className='yellow'>17</div> | <div className='green'>18</div> |           | GPIO44    |
-| GPIO141   | SPI2_MOSI | <div className='green'>19</div>  | <div className='black'>20</div> | GND       |           |
-| GPIO138   | SPI2_MISO | <div className='green'>21</div>  | <div className='green'>22</div> |           | GPIO45    |
-| GPIO142   | SPI2_CLK  | <div className='green'>23</div>  | <div className='green'>24</div> | SPI2_CS0  | GPIO139   |
-|           | GND       | <div className='black'>25</div>  | <div className='green'>26</div> | SPI2_CS1  | GPIO140   |
-| GPIO56    | I2C2_SDA  |  <div className='blue'>27</div>  | <div className='blue'>28</div>  | I2C2_SCL  | GPIO55    |
-| GPIO76    |           | <div className='green'>29</div>  | <div className='black'>30</div> | GND       |           |
-| GPIO78    |           | <div className='green'>31</div>  | <div className='green'>32</div> |           | GPIO46    |
-| GPIO79    |           | <div className='green'>33</div>  | <div className='black'>34</div> | GND       |           |
-| GPIO92    | I2S4_TWS  | <div className='green'>35</div>  | <div className='green'>36</div> | I2S4_MCLK | GPIO090   |
-| GPIO80    |           | <div className='green'>37</div>  | <div className='green'>38</div> | I2S4_SDI  | GPIO93    |
-|           | GND       | <div className='black'>39</div>  | <div className='green'>40</div> | I2S4_SDO  | GPIO94    |
+| Function3 | Function2 | Function1 |               Pin#               |              Pin#               | Function1 |   Function2   |
+| :-------: | :-------: | :-------: | :------------------------------: | :-----------------------------: | :-------: | :-----------: |
+|           |           |   3.3V    | <div className='yellow'>1</div>  |  <div className='red'>2</div>   |    5V     |               |
+|           | I2C4_SDA  |  GPIO062  |  <div className='green'>3</div>  |  <div className='red'>4</div>   |    5V     |               |
+|           | I2C4_SCL  |  GPIO061  |  <div className='green'>5</div>  | <div className='black'>6</div>  |    GND    |               |
+|           |           |  GPIO071  |  <div className='green'>7</div>  | <div className='green'>8</div>  |  GPIO103  |   UART2_TX    |
+|           |           |    GND    |  <div className='black'>9</div>  | <div className='green'>10</div> |  GPIO104  |   UART2_RX    |
+| UART0_TXD |   PWM0    |  GPIO095  | <div className='green'>11</div>  | <div className='green'>12</div> |  GPIO091  |   I2S4_SCLK   |
+| UART0_RXD |   PWM1    |  GPIO096  | <div className='green'>13</div>  | <div className='black'>14</div> |    GND    |               |
+|           | UART3_TXD |  GPIO105  | <div className='green'>15</div>  | <div className='green'>16</div> |  GPIO106  |   UART3_RXD   |
+|           |           |   3.3V    | <div className='yellow'>17</div> | <div className='green'>18</div> |  GPIO044  |               |
+|           | SPI2_MOSI |  GPIO141  | <div className='green'>19</div>  | <div className='black'>20</div> |    GND    |               |
+|           | SPI2_MISO |  GPIO138  | <div className='green'>21</div>  | <div className='green'>22</div> |  GPIO045  |               |
+|           | SPI2_CLK  |  GPIO142  | <div className='green'>23</div>  | <div className='green'>24</div> |  GPIO139  |   SPI2_CS0    |
+|           |           |    GND    | <div className='black'>25</div>  | <div className='green'>26</div> |  GPIO140  |   SPI2_CS1    |
+|           | I2C2_SDA  |  GPIO056  |  <div className='blue'>27</div>  | <div className='blue'>28</div>  |  GPIO055  |   I2C2_SCL    |
+|           |           |  GPIO076  | <div className='green'>29</div>  | <div className='black'>30</div> |    GND    |      GND      |
+|           |           |  GPIO078  | <div className='green'>31</div>  | <div className='green'>32</div> |  GPIO046  |               |
+|           |           |  GPIO079  | <div className='green'>33</div>  | <div className='black'>34</div> |    GND    |               |
+|           | I2S4_TWS  |  GPIO092  | <div className='green'>35</div>  | <div className='green'>36</div> |  GPIO090  |   I2S4_MCLK   |
+|           |           |  GPIO080  | <div className='green'>37</div>  | <div className='green'>38</div> |  GPIO093  | I2S4_DATA_IN  |
+|           |           |    GND    | <div className='black'>39</div>  | <div className='green'>40</div> |  GPIO094  | I2S4_DATA_OUT |
 
    </div>
 </TabItem>
