@@ -1,0 +1,493 @@
+Many users can successfully run the YOLO model examples in the [RKNN Model Zoo](https://github.com/airockchip/rknn_model_zoo) repository, but they often don't know how to convert their own trained YOLO series models. The models used in [Deploying YOLOv5 Object Detection on Device](rknn_toolkit_lite2_yolov5) or the YOLO series models in [RKNN Model Zoo](https://github.com/airockchip/rknn_model_zoo) are ONNX models provided by Rockchip and pre-compiled RKNN models provided by Radxa. This document will explain how to compile your own trained YOLO models using RKNN and perform inference on the device.
+
+This document applies to the following models:
+
+- ultralytics-yolov5
+- yolov6
+- yolov7
+- ultralytics-yolov8
+- yolov10
+- YOLOX
+- ultralytics-yolo11
+- YOLO-World
+
+:::tip
+This document uses a yolo11n model trained on a custom dataset as an example, which is applied to person head detection in aerial vision. This tutorial focuses only on how to convert self-trained models, not on the accuracy of the training model itself.
+
+This model is provided by Radxa community user @[sanskarjainba-hub](https://github.com/radxa-docs/docs/issues/1081)
+
+Known conditions for this example:
+
+- Model trained on a custom dataset
+- Model architecture is yolo11n
+- Model has only one label: "PERSON"
+- Test input data is provided
+  :::
+
+## Differences Between Provided Models and Self-Trained Models
+
+First, we need to understand why users encounter errors when compiling their own trained YOLO models, why the accuracy decreases after quantization compilation, or how to handle post-processing.
+Before that, we need to know the differences between the provided model structure and the self-trained model structure. We use Netron to compare the input and output nodes of the ONNX models.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/rock5b/yolo11_rk_st.webp"
+    style={{ width: "80%" }}
+    alt="yolo11n model output structure from RKNN Model Zoo"
+  />
+  yolo11n model output structure from RKNN Model Zoo
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/rock5b/yolo11_custom_st.webp"
+    style={{ width: "80%" }}
+    alt="Self-trained yolo11n model output structure"
+  />
+  Self-trained yolo11n model output structure
+</div>
+
+As we can see from the comparison, there are differences in the model output nodes. The yolo11 model downloaded from RKNN Model Zoo has 9 output heads, while the self-trained model has only 1 output head.
+
+### Key Model Differences
+
+- Modified output structure, removed post-processing structure (post-processing results are not quantization-friendly)
+
+- The DFL (Distribution Focal Loss) structure performs poorly on NPU, so it's moved to the post-processing stage outside the model. This operation can improve inference performance in most cases.
+
+- Added a confidence sum branch to the model output to accelerate threshold filtering during post-processing.
+
+All the operations removed above need to be handled by the CPU externally. (The corresponding post-processing code can be found in RKNN_Model_Zoo)
+
+## Model Conversion
+
+There are two approaches for model conversion:
+
+- FP16 floating-point conversion/automatic mixed quantization, keeping the original project's post-processing code (simplest approach, maintains original project code, but with limited performance improvement)
+- INT8 quantization conversion, modifying the model's post-processing structure to use RKNN Model Zoo's post-processing code (best performance, INT8 quantization with optimized post-processing)
+
+### Model Preparation
+
+Prepare your own PyTorch format model. Here we use best.pt and a test image as an example.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/rock5b/frame_00304.webp"
+    style={{ width: "80%" }}
+    alt="Test image"
+  />
+  Test image
+</div>
+
+### Inference with PyTorch on CPU
+
+First, we'll use the CPU on the device to run inference with the original PyTorch model to collect inference speed and accuracy data. We'll use the `ultralytics` tool for verification (for non-ultralytics YOLO models, please verify accordingly).
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install -U ultralytics
+yolo predict model=best.pt source="../test_img/frame_00304.jpg"
+```
+
+</NewCodeBlock>
+
+```bash
+(.venv) rock@rock-5b-plus:~/ssd/rknn/rknn_model_zoo/examples/yolo11/model$ yolo predict model=best.pt source="../test_img/frame_00304.jpg"
+Ultralytics 8.3.231 🚀 Python-3.11.2 torch-2.9.1+cpu CPU (aarch64)
+YOLO11n summary (fused): 100 layers, 2,582,347 parameters, 0 gradients, 6.3 GFLOPs
+
+image 1/1 /mnt/ssd/rknn/rknn_model_zoo/examples/yolo11/model/../test_img/frame_00304.jpg: 384x640 3 PERSONs, 268.8ms
+Speed: 4.1ms preprocess, 268.8ms inference, 1.9ms postprocess per image at shape (1, 3, 384, 640)
+Results saved to /mnt/ssd/rknn/rknn_model_zoo/examples/yolo11/model/runs/detect/predict3
+💡 Learn more at https://docs.ultralytics.com/modes/predict
+```
+
+The PyTorch model inference speed is **268.8ms**
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/rock5b/frame_00304_cpu.webp"
+    style={{ width: "80%" }}
+    alt="Inference result of best.pt"
+  />
+  Inference result of best.pt
+</div>
+
+### Converting FP16 Floating-Point Model
+
+If users do not wish to modify any project code and only want to migrate model inference to NPU, they can use the full FP16 model conversion.
+
+#### Using Ultralytics for Conversion
+
+For models released by Ultralytics, you can use Ultralytics for model conversion. For detailed instructions, please refer to [RKNN Ultralytics YOLOv11](./rknn_ultralytics)
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+yolo export model=best.pt format=rknn name=rk3588
+```
+
+</NewCodeBlock>
+
+The results are saved in ./best_rknn_model
+
+#### Inference with Ultralytics
+
+Copy the successfully converted best_rknn_model directory to the device, and use the ultralytics tool to directly perform NPU inference with the floating-point model
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+yolo predict model='./best_rknn_model' source='../test_img/frame_00304.jpg'
+```
+
+</NewCodeBlock>
+
+```bash
+(.venv) rock@rock-5b-plus:~/ssd/rknn/rknn_model_zoo/examples/yolo11/model$ yolo predict model='./best_rknn_model' source='../test_img/frame_00304.jpg'
+WARNING ⚠️ Unable to automatically guess model task, assuming 'task=detect'. Explicitly define task for your model, i.e. 'task=detect', 'segment', 'classify','pose' or 'obb'.
+Ultralytics 8.3.231 🚀 Python-3.11.2 torch-2.9.1+cpu CPU (aarch64)
+Loading ./best_rknn_model for RKNN inference...
+W rknn-toolkit-lite2 version: 2.3.2
+I RKNN: [08:27:32.098] RKNN Runtime Information, librknnrt version: 2.3.2 (429f97ae6b@2025-04-09T09:09:27)
+I RKNN: [08:27:32.098] RKNN Driver Information, version: 0.9.8
+I RKNN: [08:27:32.098] RKNN Model Information, version: 6, toolkit version: 2.3.0(compiler version: 2.3.0 (c949ad889d@2024-11-07T11:39:30)), target: RKNPU v2, target platform: rk3588, framework name: ONNX, framework layout: NCHW, model inference type: static_shape
+W RKNN: [08:27:32.122] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
+W Query dynamic range failed. Ret code: RKNN_ERR_MODEL_INVALID. (If it is a static shape RKNN model, please ignore the above warning message.)
+
+image 1/1 /mnt/ssd/rknn/rknn_model_zoo/examples/yolo11/model/../test_img/frame_00304.jpg: 640x640 3 PERSONs, 64.3ms
+Speed: 6.6ms preprocess, 64.3ms inference, 2.7ms postprocess per image at shape (1, 3, 640, 640)
+Results saved to /mnt/ssd/rknn/rknn_model_zoo/examples/yolo11/model/runs/detect/predict4
+💡 Learn more at https://docs.ultralytics.com/modes/predict
+```
+
+The floating-point RKNN model inference speed is **64.3ms**
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/rock5b/frame_00304_fp_rknn.webp"
+    style={{ width: "80%" }}
+    alt="Inference result of best-rk3588-fp.rknn"
+  />
+  Inference result of best-rk3588-fp.rknn
+</div>
+
+#### Using Script Conversion
+
+For non-Ultralytics YOLO models, there is a `python/convert.py` script in the corresponding YOLO model directory under rknn_model_zoo/examples. You can use this script to directly convert an ONNX model to an FP format RKNN model.
+After exporting the PyTorch model to an ONNX model, use the convert.py script and specify the quantization type as `fp`.
+
+For details, please refer to [Deploying YOLOv5 Object Detection on Device](rknn_toolkit_lite2_yolov5#pc-model-conversion)
+
+### Converting INT8 Quantized Model
+
+Since the post-processing results of YOLO models are not quantization-friendly, and some structures do not perform well on NPU, modifying the post-processing structure of the model is necessary to quantize it to INT8 type.
+The output structure needs to be modified to use the post-processing code in RKNN_Model_Zoo.
+
+Rockchip provides repositories for modifying the structure of different versions of YOLO models, and the usage is straightforward:
+
+| Model      | Repository                                       | README                                                                     |
+| ---------- | ------------------------------------------------ | -------------------------------------------------------------------------- |
+| yolov5     | https://github.com/airockchip/yolov5             | https://github.com/airockchip/yolov5/blob/master/README_rkopt.md           |
+| yolov6     | https://github.com/airockchip/YOLOv6             | https://github.com/airockchip/YOLOv6/blob/main/deploy/RKNN/RKOPT_README.md |
+| yolov7     | https://github.com/airockchip/yolov7             | https://github.com/airockchip/yolov7/blob/main/README_rkopt.md             |
+| yolov8     | https://github.com/airockchip/ultralytics_yolov8 | https://github.com/airockchip/ultralytics_yolov8/blob/main/RKOPT_README.md |
+| yolov10    | https://github.com/airockchip/yolov10            | https://github.com/airockchip/yolov10/blob/main/RKNN_README_EN.md          |
+| YOLOX      | https://github.com/airockchip/YOLOX              | https://github.com/airockchip/YOLOX/blob/main/README_rkopt.md              |
+| yolo11     | https://github.com/airockchip/ultralytics_yolo11 | https://github.com/airockchip/ultralytics_yolo11/blob/main/RKOPT_README.md |
+| YOLO-World | https://github.com/airockchip/YOLO-World         | https://github.com/airockchip/YOLO-World/blob/master/RKNN_README_EN.md     |
+
+Continuing with the example of using a self-trained yolo11 model, we will convert the self-trained best.pt to an INT8 quantized RKNN model.
+
+#### Modifying the Model Structure
+
+Clone the corresponding model repository from the table:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+git clone https://github.com/airockchip/ultralytics_yolo11.git && cd ultralytics_yolo11
+```
+
+</NewCodeBlock>
+
+Create a virtual environment:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install ultralytics onnx
+```
+
+</NewCodeBlock>
+
+Follow the README of the corresponding model in the table to modify the model structure and export the ONNX model. Here's an example for yolo11:
+
+Modify the model path in `default.yaml`:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+vim ./ultralytics/cfg/default.yaml
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/rock5b/yolo11_yaml.webp"
+    style={{ width: "100%" }}
+    alt="Model path modification location"
+  />
+  Model path modification location
+</div>
+
+Use the script to modify the structure and export the ONNX model:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+export PYTHONPATH=./
+python3 ./ultralytics/engine/exporter.py
+```
+
+</NewCodeBlock>
+
+```bash
+(.venv) (base) zifeng@vms-max:~/Job/git_clone/rknn_yolo/ultralytics_yolo11$ python ./ultralytics/engine/exporter.py
+Ultralytics 8.3.9 🚀 Python-3.8.2 torch-2.4.1+cu121 CPU (Intel Core(TM) i9-14900KF)
+YOLO11n summary (fused): 238 layers, 2,582,347 parameters, 0 gradients, 6.3 GFLOPs
+
+PyTorch: starting from '/home/zifeng/Job/sda1/customer/sanskarjainba-hub/best.pt' with input shape (16, 3, 640, 640) BCHW and output shape(s) ((16, 64, 80, 80), (16, 1, 80, 80), (16, 1, 80, 80), (16, 64, 40, 40), (16, 1, 40, 40), (16, 1, 40, 40), (16, 64, 20, 20), (16, 1, 20, 20), (16, 1, 20, 20)) (5.2 MB)
+
+RKNN: starting export with torch 2.4.1+cu121...
+
+RKNN: feed /home/zifeng/Job/sda1/customer/sanskarjainba-hub/best.onnx to RKNN-Toolkit or RKNN-Toolkit2 to generate RKNN model.
+Refer https://github.com/airockchip/rknn_model_zoo/tree/main/examples/
+RKNN: export success ✅ 0.4s, saved as '/home/zifeng/Job/sda1/customer/sanskarjainba-hub/best.onnx' (9.9 MB)
+
+Export complete (1.5s)
+Results saved to /mnt/sda1/customer/sanskarjainba-hub
+Predict:         yolo predict task=detect model=/home/zifeng/Job/sda1/customer/sanskarjainba-hub/best.onnx imgsz=640
+Validate:        yolo val task=detect model=/home/zifeng/Job/sda1/customer/sanskarjainba-hub/best.onnx imgsz=640 data=E:\Sanskar_Jain\APC\apc_lappy\OAK\Final_dataset\data.yaml
+Visualize:       https://netron.app
+```
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/rock5b/yolo11_custom_change_st.webp"
+    style={{ width: "80%" }}
+    alt="Modified model structure"
+  />
+  Modified model structure
+</div>
+
+#### Convert to INT8 RKNN Model
+
+Use `rknn_model_zoo/examples/yolo11/python/convert.py` to perform quantization and compilation of the model:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python3 convert.py best.onnx rk3588 i8 best.rknn
+```
+
+</NewCodeBlock>
+
+```bash
+(rknn) zifeng@vms-max:~/Job/git_clone/rknn_model_zoo/examples/yolo11/python$ python3 convert.py /home/zifeng/Job/sda1/customer/sanskarjainba-hub/best.onnx rk3588 i8 /home/zifeng/Job/sda1/customer/sanskarjainba-hub/best.rknn
+I rknn-toolkit2 version: 2.3.2
+--> Config model
+done
+--> Loading model
+I Loading : 100%|█████████████████████████████████████████████| 174/174 [00:00<00:00, 114300.53it/s]
+done
+--> Building model
+I OpFusing 0: 100%|█████████████████████████████████████████████| 100/100 [00:00<00:00, 1704.81it/s]
+I OpFusing 1 : 100%|█████████████████████████████████████████████| 100/100 [00:00<00:00, 721.25it/s]
+I OpFusing 0 : 100%|█████████████████████████████████████████████| 100/100 [00:00<00:00, 379.96it/s]
+I OpFusing 1 : 100%|█████████████████████████████████████████████| 100/100 [00:00<00:00, 363.89it/s]
+I OpFusing 2 : 100%|█████████████████████████████████████████████| 100/100 [00:00<00:00, 205.95it/s]
+W build: found outlier value, this may affect quantization accuracy
+                        const name                          abs_mean    abs_std     outlier value
+                        model.0.conv.weight                 2.91        2.62        -16.472
+                        model.23.cv3.0.0.0.conv.weight      0.33        0.62        -10.566
+I GraphPreparing : 100%|███████████████████████████████████████| 220/220 [00:00<00:00, 29180.54it/s]
+I Quantizating : 100%|████████████████████████████████████████████| 220/220 [00:03<00:00, 70.28it/s]
+W build: The default input dtype of 'images' is changed from 'float32' to 'int8' in rknn model for performance!
+                       Please take care of this change when deploy rknn model with Runtime API!
+W build: The default output dtype of '462' is changed from 'float32' to 'int8' in rknn model for performance!
+                      Please take care of this change when deploy rknn model with Runtime API!
+W build: The default output dtype of 'onnx::ReduceSum_476' is changed from 'float32' to 'int8' in rknn model for performance!
+                      Please take care of this change when deploy rknn model with Runtime API!
+W build: The default output dtype of '480' is changed from 'float32' to 'int8' in rknn model for performance!
+                      Please take care of this change when deploy rknn model with Runtime API!
+W build: The default output dtype of '487' is changed from 'float32' to 'int8' in rknn model for performance!
+                      Please take care of this change when deploy rknn model with Runtime API!
+W build: The default output dtype of 'onnx::ReduceSum_501' is changed from 'float32' to 'int8' in rknn model for performance!
+                      Please take care of this change when deploy rknn model with Runtime API!
+W build: The default output dtype of '505' is changed from 'float32' to 'int8' in rknn model for performance!
+                      Please take care of this change when deploy rknn model with Runtime API!
+W build: The default output dtype of '512' is changed from 'float32' to 'int8' in rknn model for performance!
+                      Please take care of this change when deploy rknn model with Runtime API!
+W build: The default output dtype of 'onnx::ReduceSum_526' is changed from 'float32' to 'int8' in rknn model for performance!
+                      Please take care of this change when deploy rknn model with Runtime API!
+W build: The default output dtype of '530' is changed from 'float32' to 'int8' in rknn model for performance!
+                      Please take care of this change when deploy rknn model with Runtime API!
+I rknn building ...
+I rknn building done.
+done
+--> Export rknn model
+done
+```
+
+#### Modify the example code in RKNN_Model_Zoo
+
+- Modify the code in `rknn_model_zoo/py_utils/rknn_executor.py`, **please back up the original code**
+
+  Please configure the RKNN Model Zoo code repository according to [Optional: Install RKNN Model Zoo on the board](./rknn_install#Optional-Install-RKNN-Model-Zoo-on-the-board)
+
+  <NewCodeBlock tip="Python Code" type="device">
+
+  ```python
+  from rknnlite.api import RKNNLite as RKNN
+
+  class RKNN_model_container():
+      def __init__(self, model_path, target=None, device_id=None) -> None:
+          rknn = RKNN()
+          rknn.load_rknn(model_path)
+          ret = rknn.init_runtime()
+          self.rknn = rknn
+
+      def run(self, inputs):
+          if self.rknn is None:
+              print("ERROR: rknn has been released")
+              return []
+
+          if isinstance(inputs, list) or isinstance(inputs, tuple):
+              pass
+          else:
+              inputs = [inputs]
+
+          result = self.rknn.inference(inputs=inputs)
+
+          return result
+
+      def release(self):
+          self.rknn.release()
+          self.rknn = None
+  ```
+
+  </NewCodeBlock>
+
+- Modify line 262 in `rknn_model_zoo/examples/yolo11/python/yolo11.py` (**please back up the original code**)
+
+  <NewCodeBlock tip="Python Code" type="device">
+
+  ```python
+  262 outputs = model.run([np.expand_dims(input_data, 0)])
+  ```
+
+  </NewCodeBlock>
+
+- Modify `CLASSES` and `coco_id_list`
+
+  Update the `CLASSES` variable according to the categories in your trained model:
+
+  <NewCodeBlock tip="Python Code" type="device">
+
+  ```python
+  CLASSES = ["person"]
+  ```
+
+  </NewCodeBlock>
+
+#### Inference with ONNX Model
+
+Copy the modified ONNX model to the device and use the RKNN Model Zoo code for inference to verify if there are any issues with the modified model structure.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn_model_zoo/examples/yolo11/python
+python3 yolo11.py --model_path ../model/best.onnx --img_folder ../test_img/ --img_save
+```
+
+</NewCodeBlock>
+
+```bash
+(.venv) rock@rock-5b-plus:~/ssd/rknn/rknn_model_zoo/examples/yolo11/python$ python3 yolo11.py --model_path ../model/best.onnx --img_folder ../test_img/ --img_save
+2025-11-25 10:27:21.165203468 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"
+/mnt/ssd/rknn/rknn_model_zoo/py_utils/onnx_executor.py:12: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  if getattr(np, 'bool', False):
+Model-../model/best.onnx is onnx model, starting val
+WARNING: reshape inputdata-0: from (1, 3, 640, 640) to [1, 3, 640, 640]
+112.08ms
+
+IMG: frame_00304.jpg
+PERSON @ (534 389 739 548) 0.729
+PERSON @ (535 244 741 390) 0.336
+PERSON @ (205 86 350 162) 0.256
+Detection result save to ./result/frame_00304.jpg
+```
+
+The CPU inference time for the modified ONNX model is **112.08 ms**, and the results are correct.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/rock5b/yolo11_custom_onnx_result.webp"
+    style={{ width: "80%" }}
+    alt="Inference result of best.onnx"
+  />
+  Inference result of best.onnx
+</div>
+
+#### Inference with INT8 RKNN Model
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn_model_zoo/examples/yolo11/python
+python3 yolo11.py --model_path ./best.rknn --img_folder ./test_img --img_save
+```
+
+</NewCodeBlock>
+
+```bash
+(.venv) rock@rock-5b-plus:~/ssd/rknn/rknn_model_zoo/examples/yolo11/python$ python3 yolo11.py --model_path ../model/best.onnx --img_folder ../test_img/ --img_save
+2025-11-25 10:27:21.165203468 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"
+/mnt/ssd/rknn/rknn_model_zoo/py_utils/onnx_executor.py:12: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  if getattr(np, 'bool', False):
+Model-../model/best.onnx is onnx model, starting val
+WARNING: reshape inputdata-0: from (1, 3, 640, 640) to [1, 3, 640, 640]
+18.74ms
+IMG: frame_00304.jpg
+PERSON @ (206 85 349 160) 0.341
+PERSON @ (534 242 740 400) 0.327
+Detection result save to ./result/frame_00304.jpg
+```
+
+The NPU inference time for the INT8 quantized RKNN model is **18.74 ms**, and the results are consistent with the ONNX model.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/rock5b/yolo11_custom_rknn_result.webp"
+    style={{ width: "80%" }}
+    alt="Inference result of best.rknn"
+  />
+  Inference result of best.rknn
+</div>
+
+## Inference Performance Comparison
+
+| Model          | Type | Backend | Time      |
+| -------------- | ---- | ------- | --------- |
+| best.pt        | fp32 | CPU     | 268.8 ms  |
+| best.onnx      | fp32 | CPU     | 112.08 ms |
+| best_fp.rknn   | fp16 | NPU     | 64.3 ms   |
+| best_int8.rknn | INT8 | NPU     | 18.74 ms  |
+
+From the table data, we can conclude that the self-trained yolo11n model's inference performance on ROCK 5B+ improved from 268.8ms to 18.74ms after porting to NPU, achieving a 14x performance improvement while maintaining the same recognition accuracy.
