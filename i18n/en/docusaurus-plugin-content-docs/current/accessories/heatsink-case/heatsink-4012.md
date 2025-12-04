@@ -6,7 +6,7 @@ sidebar_position: 5
 
 Radxa Heatsink 4012 is a radiator for ROCK 5B / ROCK 3B with a length of 40mm, a width of 40mm and a height of 12mm.
 
-![Heatsink 4012](/img/accessories/heatsink-4012-1.webp)
+![Heatsink 4012](/img/accessories/heatsink-case/heatsink-4012-1.webp)
 
 ## Physical specifications
 
@@ -19,4 +19,4 @@ Radxa Heatsink 4012 is a radiator for ROCK 5B / ROCK 3B with a length of 40mm, a
 - Bearing: Alloy bearing
 - Voltage: 5V
 
-![Heatsink 4012](/img/accessories/heatsink-4012-2.webp)
+![Heatsink 4012](/img/accessories/heatsink-case/heatsink-4012-2.webp)

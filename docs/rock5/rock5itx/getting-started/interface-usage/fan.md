@@ -14,7 +14,7 @@ sidebar_position: 15
 
 瑞莎 8418B 散热器是一款用于 ROCK 5 ITX 的散热器。
 
-![Heatsink 8418B](/img/accessories/heatsink_8418b.webp)
+![Heatsink 8418B](/img/accessories/heatsink-case/heatsink_8418b.webp)
 
 #### 物理规格
 
@@ -29,4 +29,4 @@ sidebar_position: 15
 
 #### 配件清单
 
-![Heatsink 8418B](/img/accessories/heatsink_8418b_package.webp)
+![Heatsink 8418B](/img/accessories/heatsink-case/heatsink_8418b_package.webp)

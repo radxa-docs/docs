@@ -27,7 +27,7 @@ sidebar_position: 5
 ### 配件清单
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/heatsink-6240b/heatsink-6240b-package-list.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/heatsink-6240b/heatsink-6240b-package-list.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ① : 散热器
@@ -47,7 +47,7 @@ sidebar_position: 5
 :::
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/heatsink-6240b/heatsink-6240b-step-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/heatsink-6240b/heatsink-6240b-step-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### 安装散热器
@@ -55,13 +55,13 @@ sidebar_position: 5
 将散热器放置到主板上，确保散热器的圆头胶钉对准主板的固定孔位，轻轻按压圆头胶钉，使散热器固定在主板上。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/heatsink-6240b/heatsink-6240b-step-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/heatsink-6240b/heatsink-6240b-step-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 :::tip 兼容主板的固定孔位
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/heatsink-6240b/heatsink-6240b-step-02-tip.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/heatsink-6240b/heatsink-6240b-step-02-tip.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 | 序号 |     主板型号      |
@@ -78,5 +78,5 @@ sidebar_position: 5
 将散热器的风扇接口连接主板的风扇接口。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/heatsink-6240b/heatsink-6240b-step-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/heatsink-6240b/heatsink-6240b-step-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>

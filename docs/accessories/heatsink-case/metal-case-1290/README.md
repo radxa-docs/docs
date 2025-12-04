@@ -11,7 +11,7 @@ sidebar_position: 1
 它在满足坚固耐用、散热高效的基础上，还兼顾了极致紧凑设计、轻巧便携、满足工业级散热需求与边缘计算等紧凑场景设计。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-1290/metal-case-1290.webp" style={{width: '60%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-1290/metal-case-1290.webp" style={{width: '60%', maxWidth: '1200px'}} />
 </div>
 
 ## 主要特性

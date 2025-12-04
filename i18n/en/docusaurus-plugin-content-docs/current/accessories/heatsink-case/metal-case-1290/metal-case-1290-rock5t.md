@@ -29,7 +29,7 @@ This guide provides installation instructions for the ROCK 5T with the Radxa Met
 ⑨ : 1x Silicone Feet (contains 4 individual feet)
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/metal-case-1290/metal-case-1290-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 1: Install Thermal Pads
@@ -37,7 +37,7 @@ This guide provides installation instructions for the ROCK 5T with the Radxa Met
 If using an M.2 NVMe SSD, apply the thermal pad to the surface of the SSD to enhance heat conduction and dissipation.
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/metal-case-1290/metal-case-1290-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 2: Install Motherboard Standoffs
@@ -45,7 +45,7 @@ If using an M.2 NVMe SSD, apply the thermal pad to the surface of the SSD to enh
 Use 4 CM2.5 \* 6 mm brass standoffs and 4 CM2.5 \* 4 mm screws to secure the motherboard standoffs to the bottom cover.
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/metal-case-1290/metal-case-1290-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 3: Install the Motherboard
@@ -53,7 +53,7 @@ Use 4 CM2.5 \* 6 mm brass standoffs and 4 CM2.5 \* 4 mm screws to secure the mot
 Gently place the motherboard onto the standoffs on the bottom cover and secure it using 4 KM2.5 \* 4 mm screws.
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/metal-case-1290/metal-case-1290-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 4: Secure the Antenna Mounts
@@ -67,7 +67,7 @@ You can choose which antenna mount interfaces to use. For unused antenna interfa
 :::
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/metal-case-1290/metal-case-1290-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 5: Connect the Antennas
@@ -75,7 +75,7 @@ You can choose which antenna mount interfaces to use. For unused antenna interfa
 Align the antenna connectors vertically with the WiFi/BT module interfaces on the motherboard and press down until you hear a "click" sound, indicating they are properly connected.
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/metal-case-1290/metal-case-1290-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 6: Secure the Top Cover
@@ -83,7 +83,7 @@ Align the antenna connectors vertically with the WiFi/BT module interfaces on th
 Align the top cover with the bottom cover and secure it using 5 KM2.5 \* 4 mm screws.
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/metal-case-1290/metal-case-1290-06.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-06.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 7: Install the Rubber Antennas
@@ -91,7 +91,7 @@ Align the top cover with the bottom cover and secure it using 5 KM2.5 \* 4 mm sc
 Attach the rubber antennas to the antenna mounts.
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/metal-case-1290/metal-case-1290-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 8: Install the Rubber Feet
@@ -99,5 +99,5 @@ Attach the rubber antennas to the antenna mounts.
 Attach the 4 rubber feet to the designated positions on the bottom cover (they can be installed on the motherboard's screw holes).
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/metal-case-1290/metal-case-1290-08.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-08.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
