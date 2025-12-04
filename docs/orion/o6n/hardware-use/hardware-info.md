@@ -125,7 +125,7 @@ sidebar_position: 10
 |           | SPI2_CLK  |  GPIO142  | <div className='green'>23</div>  | <div className='green'>24</div> |  GPIO139  |   SPI2_CS0    |
 |           |           |    GND    | <div className='black'>25</div>  | <div className='green'>26</div> |  GPIO140  |   SPI2_CS1    |
 |           | I2C2_SDA  |  GPIO056  |  <div className='blue'>27</div>  | <div className='blue'>28</div>  |  GPIO055  |   I2C2_SCL    |
-|           |           |  GPIO076  | <div className='green'>29</div>  | <div className='black'>30</div> |    GND    |      GND      |
+|           |           |  GPIO076  | <div className='green'>29</div>  | <div className='black'>30</div> |    GND    |               |
 |           |           |  GPIO078  | <div className='green'>31</div>  | <div className='green'>32</div> |  GPIO046  |               |
 |           |           |  GPIO079  | <div className='green'>33</div>  | <div className='black'>34</div> |    GND    |               |
 |           | I2S4_TWS  |  GPIO092  | <div className='green'>35</div>  | <div className='green'>36</div> |  GPIO090  |   I2S4_MCLK   |
