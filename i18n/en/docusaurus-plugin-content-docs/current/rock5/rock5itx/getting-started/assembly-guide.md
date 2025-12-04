@@ -30,13 +30,13 @@ Place the RTC battery in the [Interface Description](../getting-started/introduc
 
 **Please pay attention to the fan connector, which has an anti-reverse design**.
 
-<img src="/img/accessories/heatsink_8418b_01.webp" alt="Heatsink 8418B" style={{width: "80%" }} />
+<img src="/img/accessories/heatsink-case/heatsink_8418b_01.webp" alt="Heatsink 8418B" style={{width: "80%" }} />
 
 - Next, align the fasteners precisely with the four holes on the back of the ROCK 5 ITX motherboard to ensure a flawless installation.
 
-<img src="/img/accessories/heatsink_8418b_02.webp" alt="Heatsink 8418B 2" style={{width: "80%" }} />
+<img src="/img/accessories/heatsink-case/heatsink_8418b_02.webp" alt="Heatsink 8418B 2" style={{width: "80%" }} />
 
-<img src="/img/accessories/heatsink_8418b_03.webp" alt="Heatsink 8418B 3" style={{width: "80%" }} />
+<img src="/img/accessories/heatsink-case/heatsink_8418b_03.webp" alt="Heatsink 8418B 3" style={{width: "80%" }} />
 
 - Finally, please tighten the screws **in diagonal order** to secure the heat sink, this will effectively prevent damage to the ROCK 5 ITX motherboard during the securing process.
 

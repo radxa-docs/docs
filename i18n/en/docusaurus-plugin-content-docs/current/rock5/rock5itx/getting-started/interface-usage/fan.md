@@ -14,7 +14,7 @@ sidebar_position: 15
 
 The Radxa 8418B Radiator is a radiator for the ROCK 5 ITX.
 
-![Heatsink 8418B](/img/accessories/heatsink_8418b.webp)
+![Heatsink 8418B](/img/accessories/heatsink-case/heatsink_8418b.webp)
 
 #### Physical Specifications
 
@@ -29,4 +29,4 @@ The Radxa 8418B Radiator is a radiator for the ROCK 5 ITX.
 
 #### Accessories List
 
-![Heatsink 8418B](/img/accessories/heatsink_8418b_package.webp)
+![Heatsink 8418B](/img/accessories/heatsink-case/heatsink_8418b_package.webp)

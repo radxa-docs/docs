@@ -19,19 +19,19 @@ Radxa has designed a specially customized metal enclosure for the ROCK 5 Model B
 
 - Apply thermally conductive grease to the heatsink's thermal posts and the ROCK 5B's SOC.
 
-<img src="/img/accessories/use-metal-case-1.webp" alt="use metal case 1" />
+<img src="/img/accessories/heatsink-case/use-metal-case-1.webp" alt="use metal case 1" />
 
 - Install the SOC in alignment with the thermal conductive copper post as shown in the figure.
 
-<img src="/img/accessories/use-metal-case-2.webp" alt="use metal case 2" />
+<img src="/img/accessories/heatsink-case/use-metal-case-2.webp" alt="use metal case 2" />
 
 - Note that the cylindrical modules of the plastic case on both sides are aligned with the structure of the heat sink as shown in the figure.
 
-<img src="/img/accessories/use-metal-case-3.webp" alt="use metal case 3" />
+<img src="/img/accessories/heatsink-case/use-metal-case-3.webp" alt="use metal case 3" />
 
 - Align the four struts of the base plate with the exposed copper areas of the ROCK 5B.
 
-<img src="/img/accessories/use-metal-case-4.webp" alt="use metal case 4" />
+<img src="/img/accessories/heatsink-case/use-metal-case-4.webp" alt="use metal case 4" />
 
 - Finally the bottom cover is secured with screws.
 

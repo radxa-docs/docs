@@ -27,7 +27,7 @@ The Radxa Heatsink 6240B is specifically designed for the Radxa ROCK 5B / 5B+ / 
 ### Package Contents
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/heatsink-6240b/heatsink-6240b-package-list.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/heatsink-6240b/heatsink-6240b-package-list.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ① : Heatsink
@@ -47,7 +47,7 @@ Make sure the thermal pads do not cover the mounting holes for the heatsink on t
 :::
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/heatsink-6240b/heatsink-6240b-step-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/heatsink-6240b/heatsink-6240b-step-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Installing the Heatsink
@@ -55,13 +55,13 @@ Make sure the thermal pads do not cover the mounting holes for the heatsink on t
 Place the heatsink onto the board, ensuring the round-headed pegs align with the mounting holes. Gently press down on the pegs to secure the heatsink in place.
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/heatsink-6240b/heatsink-6240b-step-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/heatsink-6240b/heatsink-6240b-step-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 :::tip Compatible with the fixed holes on the board
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/heatsink-6240b/heatsink-6240b-step-02-tip.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/heatsink-6240b/heatsink-6240b-step-02-tip.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 | Number |         Board Model          |
@@ -78,5 +78,5 @@ Place the heatsink onto the board, ensuring the round-headed pegs align with the
 Connect the heatsink's fan connector to the board's fan connector.
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/heatsink-6240b/heatsink-6240b-step-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/heatsink-6240b/heatsink-6240b-step-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>

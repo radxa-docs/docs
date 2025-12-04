@@ -29,7 +29,7 @@ sidebar_position: 2
 ⑨ : 1x 硅胶脚垫（内含 4 个单独脚垫）
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-1290/metal-case-1290-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-00.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 1: 安装导热硅胶片
@@ -37,7 +37,7 @@ sidebar_position: 2
 若使用 M.2 NVMe SSD，可将导热硅胶片贴于 M.2 NVMe SSD 表面，以增强导热与散热效果。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-1290/metal-case-1290-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 2: 安装主板定位柱
@@ -45,7 +45,7 @@ sidebar_position: 2
 使用 4 颗 CM2.5 \* 6 mm 铜柱及 4 颗 CM2.5 \* 4 mm 螺丝，固定下盖主板的定位柱。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-1290/metal-case-1290-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-02.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 3: 安装主板
@@ -53,7 +53,7 @@ sidebar_position: 2
 将主板轻置于下盖主板定位柱上，使用 4 颗 KM2.5 \* 4 mm 螺丝固定主板。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-1290/metal-case-1290-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-03.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 4: 固定天线
@@ -67,7 +67,7 @@ sidebar_position: 2
 :::
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-1290/metal-case-1290-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-04.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 5: 连接天线
@@ -75,7 +75,7 @@ sidebar_position: 2
 将天线接口垂直对准主板 WiFi / BT 模块接口按压，听到"咔嗒"声表示连接到位。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-1290/metal-case-1290-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-05.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 6: 固定上盖
@@ -83,7 +83,7 @@ sidebar_position: 2
 将上盖与下盖对齐安装，使用 5 颗 KM2.5 \* 4 mm 螺丝固定上盖。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-1290/metal-case-1290-06.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-06.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 7: 安装天线胶棒
@@ -91,7 +91,7 @@ sidebar_position: 2
 将天线胶棒安装到天线固定座上。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-1290/metal-case-1290-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-07.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Step 8: 安装脚垫
@@ -99,5 +99,5 @@ sidebar_position: 2
 将 4 个脚垫安装到下盖的脚垫孔位（可以安装在主板的螺丝孔位上）。
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-1290/metal-case-1290-08.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-1290/metal-case-1290-08.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>

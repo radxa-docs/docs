@@ -11,7 +11,7 @@ sidebar_position: 1
 Building on its robust and durable construction with efficient heat dissipation, it also features an ultra-compact design that's lightweight and portable, meeting industrial-grade thermal requirements and designed for edge computing and other space-constrained scenarios.
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/metal-case-1290/metal-case-1290.webp" style={{width: '60%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/heatsink-case/metal-case-1290/metal-case-1290.webp" style={{width: '60%', maxWidth: '1200px'}} />
 </div>
 
 ## Features

@@ -30,13 +30,13 @@ sidebar_position: 7
 
 **请注意风扇接口，有防反设计**
 
-<img src="/img/accessories/heatsink_8418b_01.webp" alt="Heatsink 8418B" style={{width: "80%" }} />
+<img src="/img/accessories/heatsink-case/heatsink_8418b_01.webp" alt="Heatsink 8418B" style={{width: "80%" }} />
 
 - 接下来，将扣具精准地对准ROCK 5 ITX主板背面的四个孔位，确保安装无误。
 
-<img src="/img/accessories/heatsink_8418b_02.webp" alt="Heatsink 8418B 2" style={{width: "80%" }} />
+<img src="/img/accessories/heatsink-case/heatsink_8418b_02.webp" alt="Heatsink 8418B 2" style={{width: "80%" }} />
 
-<img src="/img/accessories/heatsink_8418b_03.webp" alt="Heatsink 8418B 3" style={{width: "80%" }} />
+<img src="/img/accessories/heatsink-case/heatsink_8418b_03.webp" alt="Heatsink 8418B 3" style={{width: "80%" }} />
 
 - 最后，请按照**对角线的顺序拧紧螺丝**以固定散热器，这样可以有效防止在固定过程中损坏ROCK 5 ITX主板。
 

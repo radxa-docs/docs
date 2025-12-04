@@ -13,7 +13,7 @@ sidebar_position: 1
 让 Cubie A5E 在小空间实现大作为！
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/metal-case-7264/metal-case-7264-7.webp" style={{width: '80%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/heatsink-case/metal-case-7264/metal-case-7264-7.webp" style={{width: '80%', maxWidth: '1200px'}} />
 </div>
 
 # 主要特性
@@ -24,6 +24,6 @@ sidebar_position: 1
 
 - **工业级散热** - 全金属机身搭配立体鳍片，无风扇零噪音运行。
 
-- **支持内置 PoE 供电** - 支持 802.3 af / at 标准，单线解决供电+网络传输。
+- **支持内置 PoE 供电**- 支持 802.3 af / at 标准，单线解决供电 + 网络传输。。
 
-- **三路无线扩展** - 预留 3 x SMA 接口，支持 WiFi / 蓝牙 / 蜂窝网络模组模块(需要额外扩展板)扩展。
+- **三路无线扩展**- 预留 3 x SMA 接口，支持 WiFi / 蓝牙 / 蜂窝网络模组模块 (需要额外扩展板) 扩展。。

@@ -8,7 +8,7 @@ Radxa has designed a specially customized metal case for the ROCK 5 Model B sing
 
 For installation steps, please refer to [Using Metal Case for ROCK 5B](/rock5/rock5b/accessories/Metal-Case).
 
-![Radxa Metal Case for ROCK 5B](/img/accessories/metal-case-1.webp)
+![Radxa Metal Case for ROCK 5B](/img/accessories/heatsink-case/metal-case-1.webp)
 
 # Specification
 
@@ -21,8 +21,8 @@ For installation steps, please refer to [Using Metal Case for ROCK 5B](/rock5/ro
 
 # Physical picture
 
-![Radxa Metal Case for ROCK 5B](/img/accessories/metal-case-2.webp)
+![Radxa Metal Case for ROCK 5B](/img/accessories/heatsink-case/metal-case-2.webp)
 
 # Mechanical Specification
 
-![Radxa Metal Case for ROCK 5B](/img/accessories/metal-case-3.webp)
+![Radxa Metal Case for ROCK 5B](/img/accessories/heatsink-case/metal-case-3.webp)
