@@ -27,9 +27,7 @@ Execute the following commands:
 ```bash
 mkdir cix-sdk
 cd cix-sdk
-repo init https://gitlab.com/cix-linux/linux_repo/cix-manifest.git
-# Optionally, init with a specific version of manifest:
-# repo init -m release/<version>/default.xml https://gitlab.com/cix-linux/linux_repo/cix-manifest.git
+repo init https://gitlab.com/cix-linux/linux_repo/cix-manifest.git -b radxa-orion -m radxa_orion_release.xml
 repo sync
 ```
 
