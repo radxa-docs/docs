@@ -59,6 +59,13 @@ For more images, check out: [third-party system images](../other-os/3rd-images)
 
 - [Radxa ZERO Armbian](https://www.armbian.com/radxa-zero/)
 
+Default Armbian credentials:
+
+| Item     | Value  |
+| :------- | :----- |
+| Username | `root` |
+| Password | `1234` |
+
 - [Radxa ZERO DietPi](https://dietpi.com/downloads/images/DietPi_RadxaZero-ARMv8-Bookworm.img.xz)
 
 ## Quality certification

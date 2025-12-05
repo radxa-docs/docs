@@ -27,6 +27,13 @@ Except for the above images which have been fully tested officially, the other i
 
 - [Radxa ROCK 3A Armbian](https://www.armbian.com/rock-3a/)
 
+Default Armbian credentials:
+
+| Item     | Value  |
+| :------- | :----- |
+| Username | `root` |
+| Password | `1234` |
+
 - [Radxa ROCK 3A OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3a)
 
 - [Radxa ROCK 3A DietPi](https://dietpi.com/downloads/images/DietPi_ROCK3A-ARMv8-Bookworm.img.xz)

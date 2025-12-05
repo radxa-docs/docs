@@ -26,6 +26,13 @@ Except for the above images which have been fully tested officially, the other i
 
 - [Radxa ROCK 5T Armbian](https://www.armbian.com/radxa-rock-5t/)
 
+Default Armbian credentials:
+
+| Item     | Value  |
+| :------- | :----- |
+| Username | `root` |
+| Password | `1234` |
+
 ### Tool
 
 &emsp;&emsp; [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (Windows flash tool)

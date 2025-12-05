@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ROCK S0 v1.1 版本
 
-[ROCK S0 v1.1 产品简介 pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_product_brief_Revision_1.0.pdf)
+[ROCK S0 v1.1 产品规格书 pdf](https://dl.radxa.com/rockpis0/radxa_rock_pi_s0_product_brief.pdf)
 
 [ROCK S0 v1.1 原理图 pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_schematic.pdf)
 
@@ -50,5 +50,12 @@ ROCK S0 v1.2 版本
 ## 第三方操作系统镜像
 
 - [Radxa ROCK S0 Armbian](https://www.armbian.com/radxa-rock-s0/)
+
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
 
 ## 质量认证

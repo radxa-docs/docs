@@ -44,6 +44,13 @@ For more images, please check: [Radxa ROCK 5 ITX Release](https://github.com/rad
 
 [Radxa ROCK 5 ITX Armbian](https://www.armbian.com/radxa-rock-5-itx/)
 
+Default Armbian credentials:
+
+| Item     | Value  |
+| :------- | :----- |
+| Username | `root` |
+| Password | `1234` |
+
 ## Quality Certification
 
 ## Reference Documentation

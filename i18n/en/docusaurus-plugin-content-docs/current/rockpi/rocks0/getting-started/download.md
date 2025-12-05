@@ -9,7 +9,7 @@ title: Resource Download
 
 ROCK S0 v1.1 Version
 
-[ROCK S0 v1.1 product brief pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_product_brief_Revision_1.0.pdf)
+[ROCK S0 v1.1 product brief pdf](https://dl.radxa.com/rockpis0/radxa_rock_pi_s0_product_brief.pdf)
 
 [ROCK S0 v1.1 schematic pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_schematic.pdf)
 
@@ -48,5 +48,12 @@ For more images, please check: [Radxa ROCK S0 Release](https://github.com/radxa-
 ### Third-Party Operating System images
 
 - [Radxa ROCK S0 Armbian](https://www.armbian.com/radxa-rock-s0/)
+
+Default Armbian credentials:
+
+| Item     | Value  |
+| :------- | :----- |
+| Username | `root` |
+| Password | `1234` |
 
 ## Quality certification

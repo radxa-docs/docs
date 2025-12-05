@@ -26,6 +26,13 @@ import Images from "./\_image.mdx"
 
 - [Radxa ROCK 5T Armbian](https://www.armbian.com/radxa-rock-5t/)
 
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
+
 ### 工具
 
 &emsp;&emsp; [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (烧录工具)

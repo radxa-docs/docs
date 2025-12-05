@@ -26,6 +26,13 @@ sidebar_position: 5
 
 - [Radxa ROCK 3A Armbian](https://www.armbian.com/rock-3a/)
 
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
+
 - [Radxa ROCK 3A OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3a)
 
 - [Radxa ROCK 3A DietPi](https://dietpi.com/downloads/images/DietPi_ROCK3A-ARMv8-Bookworm.img.xz)

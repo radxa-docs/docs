@@ -20,6 +20,13 @@ import Images from "./\_image.mdx"
 
 - [Radxa ROCK 5C Armbian](https://www.armbian.com/radxa-rock-5c/)
 
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
+
 ## 硬件设计
 
 ### V1.1

@@ -13,6 +13,13 @@ sidebar_position: 5
 
 - [Radxa ROCK Pi E Armbian](https://www.armbian.com/rockpie/)
 
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
+
 - [Radxa ROCK Pi E OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_e)
 
 - [Radxa ROCK Pi E V3.0 OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_e-v3.0)
