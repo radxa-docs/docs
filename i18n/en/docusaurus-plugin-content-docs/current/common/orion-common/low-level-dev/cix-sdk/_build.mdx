@@ -30,15 +30,16 @@ Your system is now ready for SDK compilation.
 
 ## Common Commands and Build Targets
 
-The following commands require loading `envtoo.sh` first:
+The following commands require loading `envtool.sh` first:
 
 - `help`: Display SDK command help
-- `build radxa`: Compile all components and generate the final runnable image
+- `build all`: Compile all components and generate the final runnable image
 
 ## Build Artifacts
 
-After `build radxa` completes, you can find the following build artifacts:
+After `build all` completes, you can find the following build artifacts:
 
 - `output/cix_evb/images/linux-fs.sdcard`: System image
 - `output/cix_evb/images/cix_debian.iso`: Modified Debian installation ISO
-- `output/cix_evb/images/cix_flash_all_O6.bin`: BIOS image
+- `output/cix_evb/images/cix_flash_all_O6.bin`: Orion O6 BIOS image
+- `output/cix_evb/images/cix_flash_all_O6N.bin`: Orion O6N BIOS image

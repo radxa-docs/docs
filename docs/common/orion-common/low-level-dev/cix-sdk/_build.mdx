@@ -30,15 +30,16 @@ done
 
 ## 常见命令和编译对象
 
-以下命令需要在加载 `envtoo.sh` 后方可运行：
+以下命令需要在加载 `envtool.sh` 后方可运行：
 
 - `help`：显示 SDK 命令帮助
-- `build radxa`：编译所有组件，并最终生成可运行镜像
+- `build all`：编译所有组件，并最终生成可运行镜像
 
 ## 生成产物
 
-当`build radxa`执行完毕时，你可以找到以下的生成产物：
+当`build all`执行完毕时，你可以找到以下的生成产物：
 
 - `output/cix_evb/images/linux-fs.sdcard`：系统镜像
 - `output/cix_evb/images/cix_debian.iso`：修改后的 Debian 安装 ISO
-- `output/cix_evb/images/cix_flash_all_O6.bin`：BIOS 镜像
+- `output/cix_evb/images/cix_flash_all_O6.bin`：星睿 O6 BIOS 镜像
+- `output/cix_evb/images/cix_flash_all_O6N.bin`：星睿 O6N BIOS 镜像
