@@ -6,7 +6,7 @@ sidebar_position: 3
 
 Radxa eMMC USB3 reader is a real emmc card reader with USB3.0 performance. Based on GL3227E Chip design. The GL3227E is an USB 3.1 Gen1 eMMC controller, it provides single LUN (Logic Unit Number) which can support eMMC v5.0, 1/4/8bit data bus, High Speed SDR / High Speed DDR / HS200 / HS400 mode.
 
-![eMMC Reader](/img/accessories/emmc-reader.webp)
+![eMMC Reader](/img/accessories/storage/emmc-reader.webp)
 
 ## Features
 

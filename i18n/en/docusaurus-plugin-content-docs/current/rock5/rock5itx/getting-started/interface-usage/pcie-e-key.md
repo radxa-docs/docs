@@ -124,6 +124,6 @@ root@rock-5-itx:~# bluetoothctl
 
 ### Radxa M.2 E-Type to SATA Boards
 
-![M.2 E key to SATA Breakout Board](/img/accessories/m2e-to-sata-1.webp)
+![M.2 E key to SATA Breakout Board](/img/accessories/storage/m2e-to-sata-1.webp)
 
 - This expansion board plugs directly into the M2.E connector and then the SATA device can be connected to the expansion board.

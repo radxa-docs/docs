@@ -6,7 +6,7 @@ sidebar_position: 3
 
 The Radxa eMMC module utilizes the eMMC 5.1 specification and offers four capacity options: 16g/32g/64g/128g. Meanwhile, you can choose a model that supports industrial-grade long life. In addition, the module supports JEDEC's standard eMMC command set and is designed for high-speed read/write for faster data transfer.
 
-![eMMC Module](/img/accessories/emmc-module.webp)
+![eMMC Module](/img/accessories/storage/emmc-module.webp)
 
 ## Read/write speed test
 

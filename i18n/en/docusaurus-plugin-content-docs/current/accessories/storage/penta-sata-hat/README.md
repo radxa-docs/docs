@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Radxa ROCK Penta SATA HAT is an addon HAT designed for ROCK Series. It utilizes the high speed PCIe buses on ROCK Series and provides a complete NAS solution based on ROCK Series.
 
-![Radxa Penta SATA HAT](/img/accessories/penta-sata-hat-01.webp)
+![Radxa Penta SATA HAT](/img/accessories/storage/penta-sata-hat-01.webp)
 
 Currently supported Radxa ROCK Series products:
 
@@ -49,15 +49,15 @@ If you use large capacity 3.5-inch mechanical hard drives on the Penta SATA HAT,
 
 - **Penta SATA HAT Kit with ROCK 5A support**
 
-  ![Radxa M.2 Extension Board](/img/accessories/penta-sata-hat-02.webp)
+  ![Radxa M.2 Extension Board](/img/accessories/storage/penta-sata-hat-02.webp)
 
 - **Penta SATA HAT with ROCK 3A / 4A / 4B / 4A+ / 4B+ / 4SE support**
 
-  ![Radxa M.2 Extension Board](/img/accessories/penta-sata-hat-03.webp)
+  ![Radxa M.2 Extension Board](/img/accessories/storage/penta-sata-hat-03.webp)
 
 - **Penta SATA HAT with ROCK 3C support**
 
-  ![Radxa M.2 Extension Board](/img/accessories/penta-sata-hat-04.webp)
+  ![Radxa M.2 Extension Board](/img/accessories/storage/penta-sata-hat-04.webp)
 
 ## 40Pin Pinout
 

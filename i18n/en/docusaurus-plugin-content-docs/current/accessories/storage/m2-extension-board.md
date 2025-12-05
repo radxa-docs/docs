@@ -6,7 +6,7 @@ sidebar_position: 20
 
 Radxa M.2 Extension Boards are solutions for expanding the storage capacity of embedded systems.
 
-![Radxa M.2 Extension Board](/img/accessories/m2-extension-1.webp)
+![Radxa M.2 Extension Board](/img/accessories/storage/m2-extension-1.webp)
 
 ## Feature
 
@@ -33,12 +33,12 @@ Radxa M.2 Extension Boards are solutions for expanding the storage capacity of e
 
 Details refer to [Using M.2 E extension board on ROCK 5A](/rock5/rock5a/accessories-guides/m.2-extension-board)
 
-![Radxa M.2 Extension Board](/img/accessories/m2-extension-2.webp)
+![Radxa M.2 Extension Board](/img/accessories/storage/m2-extension-2.webp)
 
 - **M.2 Extension Board Kit with ROCK 4A / 4B / 4A+ / 4B+ / 4SE / 3A support**
 
-  ![Radxa M.2 Extension Board](/img/accessories/m2-extension-4.webp)
+  ![Radxa M.2 Extension Board](/img/accessories/storage/m2-extension-4.webp)
 
 - **M.2 Extension Board Kit with ROCK 3C support**
 
-  ![Radxa M.2 Extension Board](/img/accessories/m2-extension-3.webp)
+  ![Radxa M.2 Extension Board](/img/accessories/storage/m2-extension-3.webp)

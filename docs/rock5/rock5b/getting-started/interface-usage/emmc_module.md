@@ -6,7 +6,7 @@ sidebar_position: 3
 
 Radxa eMMC 模块采用 eMMC 5.1规范，提供四种容量选择： 16g/32g/64g/128g。同时，你可以选择支持工业级长寿命的型号。此外，该模块支持 JEDEC 的标准 eMMC 命令集，并为高速读写而设计，使数据传输更快。
 
-![eMMC Module](/img/accessories/emmc-module.webp)
+![eMMC Module](/img/accessories/storage/emmc-module.webp)
 
 ## 读/写速度测试
 
