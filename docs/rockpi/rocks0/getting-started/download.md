@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ROCK S0 v1.1 版本
 
-[ROCK S0 v1.1 产品简介 pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_product_brief_Revision_1.0.pdf)
+[ROCK S0 v1.1 产品规格书 pdf](https://dl.radxa.com/rockpis0/radxa_rock_pi_s0_product_brief.pdf)
 
 [ROCK S0 v1.1 原理图 pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_schematic.pdf)
 
