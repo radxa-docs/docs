@@ -19,6 +19,13 @@ For more images, please check: [Radxa ROCK PI S Release](https://github.com/radx
 
 - [Radxa ROCK Pi S Armbian](https://www.armbian.com/rockpi-s/)
 
+Default Armbian credentials:
+
+| Item     | Value  |
+| :------- | :----- |
+| Username | `root` |
+| Password | `1234` |
+
 - [Radxa ROCK PI S OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_s)
 
 - [Radxa ROCK PI S DietPi](https://dietpi.com/downloads/images/DietPi_ROCKPiS-ARMv8-Bookworm.img.xz)

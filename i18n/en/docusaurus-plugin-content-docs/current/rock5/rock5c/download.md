@@ -21,6 +21,13 @@ Except for the above images which have been fully tested officially, the other i
 
 - [Radxa ROCK 5C Armbian](https://www.armbian.com/radxa-rock-5c/)
 
+Default Armbian credentials:
+
+| Item     | Value  |
+| :------- | :----- |
+| Username | `root` |
+| Password | `1234` |
+
 ## Hardware Design
 
 ### V1.1

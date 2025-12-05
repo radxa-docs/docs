@@ -51,4 +51,11 @@ ROCK S0 v1.2 版本
 
 - [Radxa ROCK S0 Armbian](https://www.armbian.com/radxa-rock-s0/)
 
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
+
 ## 质量认证

@@ -18,6 +18,13 @@ sidebar_position: 4
 
 - [Radxa ROCK Pi S Armbian](https://www.armbian.com/rockpi-s/)
 
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
+
 - [Radxa ROCK PI S OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_s)
 
 - [Radxa ROCK PI S DietPi](https://dietpi.com/downloads/images/DietPi_ROCKPiS-ARMv8-Bookworm.img.xz)

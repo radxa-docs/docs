@@ -59,6 +59,13 @@ sidebar_position: 5
 
 - [Radxa ZERO Armbian](https://www.armbian.com/radxa-zero/)
 
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
+
 - [Radxa ZERO DietPi](https://dietpi.com/downloads/images/DietPi_RadxaZero-ARMv8-Bookworm.img.xz)
 
 ## 质量认证

@@ -18,6 +18,13 @@ sidebar_position: 5
 
 - [Radxa ZERO 2 PRO Armbian](https://www.armbian.com/radxa-zero2/)
 
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
+
 ## 刷机工具
 
 - [Zagdig](https://zadig.akeo.ie/)：Windows Maskrom 驱动。

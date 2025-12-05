@@ -19,6 +19,13 @@ Except for the above images which have been fully tested officially, the other i
 
 - [Radxa ZERO 2 PRO Armbian](https://www.armbian.com/radxa-zero2/)
 
+Default Armbian credentials:
+
+| Item     | Value  |
+| :------- | :----- |
+| Username | `root` |
+| Password | `1234` |
+
 ## Tools
 
 - [Zagdig](https://zadig.akeo.ie/)：Windows Maskrom Driver.

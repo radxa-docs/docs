@@ -52,6 +52,13 @@ Radxa ZERO 3E V1.2 量产版本
 
 - [Radxa ZERO 3 Armbian](https://www.armbian.com/radxa-zero-3/)
 
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
+
 - [Radxa ZERO 3 DietPi](https://dietpi.com/downloads/images/DietPi_RadxaZERO3-ARMv8-Bookworm.img.xz)
 
 - [Radxa Zero 3W OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)

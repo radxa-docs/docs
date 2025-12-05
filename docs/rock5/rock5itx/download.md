@@ -44,6 +44,13 @@ Radxa ROCK 5 ITX+
 
 [Radxa ROCK 5 ITX Armbian](https://www.armbian.com/radxa-rock-5-itx/)
 
+Armbian 的默认凭据如下：
+
+| 项目   | 内容   |
+| :----- | :----- |
+| 用户名 | `root` |
+| 密码   | `1234` |
+
 ## 质量认证
 
 ## 参考文档

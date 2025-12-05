@@ -49,4 +49,11 @@ For more images, please check: [Radxa ROCK S0 Release](https://github.com/radxa-
 
 - [Radxa ROCK S0 Armbian](https://www.armbian.com/radxa-rock-s0/)
 
+Default Armbian credentials:
+
+| Item     | Value  |
+| :------- | :----- |
+| Username | `root` |
+| Password | `1234` |
+
 ## Quality certification
