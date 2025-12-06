@@ -6,7 +6,7 @@ sidebar_position: 17
 
 ## 简介
 
-PCIe E Key 是用于连接嵌入式设备的接口，通常用于连接存储卡、WiFi模块、蓝牙模块等设备。
+PCIe E Key 是用于连接嵌入式设备的接口，通常用于连接存储卡、WiFi 模块、蓝牙模块等设备。
 
 ## 支持的配件
 
@@ -22,30 +22,30 @@ PCIe E Key 是用于连接嵌入式设备的接口，通常用于连接存储卡
 | 6   | Intel 7265NGW (PCIE+USB)                           | Intel 7265  | 2.4G&5G       | 4.2 | up:363 Mbits/sec down: 619 Mbits/sec  |                                                     |
 | 7   | Intel AX210 (PCIE+USB)                             | Intel AX210 | WiFi 6        | 5.2 | up: 859 Mbits/sec down: 813 Mbits/sec | Only WIFI is supported currently, BT is not working |
 
-- ROCK 5 ITX 没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
-- 这里演示的 M.2 无线模块是： Radxa 无线模块 A8。
+- ROCK 5 ITX 没有板载 WiFi/BT 模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
+- 这里演示的 M.2 无线模块是：Radxa 无线模块 A8。
 
 #### WIFI 的使用
 
-- 首先进入ROOT用户模式。
+- 首先进入 ROOT 用户模式。
 
 ```
 sudo su
 ```
 
-- 打开WIFI
+- 打开 WIFI
 
 ```
 nmcli r wifi on
 ```
 
-- 扫描WIFI
+- 扫描 WIFI
 
 ```
 nmcli dev wifi
 ```
 
-- 连接wifi网络
+- 连接 wifi 网络
 
 ```
 nmcli dev wifi connect "wifi_name" password "wifi_password"
@@ -66,7 +66,7 @@ blacklist btintel
 root@rock-5-itx:~# reboot
 ```
 
-- Radxa APT 包括用于Broadcom无线模块的broadcom-wifibt-firmware软件包和用于Intel无线模块的intel-wifibt-firmware软件包。需要下载相应的软件包。
+- Radxa APT 包括用于 Broadcom 无线模块的 broadcom-wifibt-firmware 软件包和用于 Intel 无线模块的 intel-wifibt-firmware 软件包。需要下载相应的软件包。
 
 ```
 root@rock-5-itx:~# apt-get update -y
@@ -126,4 +126,4 @@ root@rock-5-itx:~# bluetoothctl
 
 ![M.2 E key to SATA Breakout Board](/img/accessories/storage/m2e-to-sata-1.webp)
 
-- 该拓展版直接插在M2.E接口上，然后将SATA设备连接到扩展板上即可。
+- 该拓展版直接插在 M2.E 接口上，然后将 SATA 设备连接到扩展板上即可。

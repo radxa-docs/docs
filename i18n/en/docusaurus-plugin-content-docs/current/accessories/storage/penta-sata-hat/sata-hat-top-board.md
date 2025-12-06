@@ -16,7 +16,7 @@ The Radxa Penta SATA HAT has a 2x5 seat with the following signal:
 
 This seat can be used to link to the top plate, which has a 0.91 inch OLED display and a 4010 fan, which can display IP address and storage information, etc., and the fan is used for cooling.
 
-![SATA HAT top board](/img/accessories/penta/sata-hat-top-board.webp)
+![SATA HAT top board](/img/accessories/storage/penta/sata-hat-top-board.webp)
 
 ## Software support
 

@@ -10,35 +10,35 @@ sidebar_position: 10
 
 ![ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-05.webp)
 
-- 下图是 [RADXA Penta SATA HAT](/accessories/penta-sata-hat) 和包含的零件。
+- 下图是 [RADXA Penta SATA HAT](/accessories/storage/penta-sata-hat) 和包含的零件。
 
-![ROCK5A Install M.2 Extension Board](/img/accessories/penta-sata-hat-01.webp)
+![ROCK5A Install M.2 Extension Board](/img/accessories/storage/penta-sata-hat-01.webp)
 
-- 请先区分 IPEX 线缆的正反面。 如图所示。 **我们为 ROCK5A 提供的 IPEX 线的两端方向相同。**
+- 请先区分 IPEX 线缆的正反面。如图所示。 **我们为 ROCK5A 提供的 IPEX 线的两端方向相同。**
 
-![ROCK5A Install M.2 Extension Board](/img/accessories/m2-extension-board-04.webp)
+![ROCK5A Install M.2 Extension Board](/img/accessories/storage/m2-extension-board-04.webp)
 
 - 请注意，环扣需要卡入连接器中。
 
-![E key to M key](/img/accessories/ekey-to-mkey-01.webp)
+![E key to M key](/img/accessories/storage/ekey-to-mkey-01.webp)
 
 ## 安装教程
 
 ### 步骤
 
-1、M.2 E key to M.2 M key Board带 IPEX 电缆。 **注意这里安装的IPEX线是正面朝上的，环扣需要卡在接口上，确保固定。**
+1、M.2 E key to M.2 M key Board 带 IPEX 电缆。 **注意这里安装的 IPEX 线是正面朝上的，环扣需要卡在接口上，确保固定。**
 
-![ROCK5A Install M.2 Extension Board](/img/accessories/m2-extension-board-02.webp)
+![ROCK5A Install M.2 Extension Board](/img/accessories/storage/m2-extension-board-02.webp)
 
-2、Radxa Penta SATA HAT 主板，带 IPEX 电缆。 **注意这里安装的IPEX线是正面朝上的，环扣需要卡在接口上，确保固定。**
+2、Radxa Penta SATA HAT 主板，带 IPEX 电缆。 **注意这里安装的 IPEX 线是正面朝上的，环扣需要卡在接口上，确保固定。**
 
 ![ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-04.webp)
 
-3、请将产品附带的M2.5x18+6铜柱和M2.5x5铜柱安装在ROCK5A上，如图所示。
+3、请将产品附带的 M2.5x18+6 铜柱和 M2.5x5 铜柱安装在 ROCK5A 上，如图所示。
 
 ![ROCK5A Install M.2 Extension Board](/img/rock5a/rock5a-m2-extension-board-04.webp)
 
-4、请将 IPEX 线的一端连接到 M.2 E key to M Key board，另一端连接到 Radxa Penta SATA HAT 并将 M.2 E key to M key board 安装到 M.2 E key ROCK5A 的连接器。 如图所示。
+4、请将 IPEX 线的一端连接到 M.2 E key to M Key board，另一端连接到 Radxa Penta SATA HAT 并将 M.2 E key to M key board 安装到 M.2 E key ROCK5A 的连接器。如图所示。
 
 ![ROCK5A Install Penta SATA HAT](/img/rock5a/rock5a-penta-sata-hat-03.webp)
 
@@ -49,7 +49,7 @@ sidebar_position: 10
 
 ### 检查 Penta SATA HAT 挂载状态
 
-1、通过`lsblk`查看SATA设备是否被识别。
+1、通过`lsblk`查看 SATA 设备是否被识别。
 
 ```
 radxa@rock-5a:~$ lsblk
@@ -71,7 +71,7 @@ zram0        254:0    0   3.8G  0 disk [SWAP]
 radxa@rock-5a:~$
 ```
 
-2、当系统识别到Penta SATA HAT时，你可以查看到 SATA devices(sda/sdb/sdc/sdd)。
+2、当系统识别到 Penta SATA HAT 时，你可以查看到 SATA devices(sda/sdb/sdc/sdd)。
 
 ## 软件支持
 

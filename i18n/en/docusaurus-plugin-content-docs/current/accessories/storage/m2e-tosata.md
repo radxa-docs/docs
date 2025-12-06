@@ -8,7 +8,7 @@ The M.2 E Key to SATA Breakout Board is a solution for expanding the storage cap
 
 The M.2 E interface is commonly used for connecting storage cards, Wi-Fi modules, Bluetooth modules, etc., while the SATA interface is used for connecting hard drives, typically solid-state drives (SSDs) and mechanical hard drives. With this breakout board, users can connect SATA devices to an M.2 E interface, thereby expanding the system's storage capacity and performance.
 
-![M.2 E key to SATA Breakout Board](/img/accessories/m2e-to-sata-1.webp)
+![M.2 E key to SATA Breakout Board](/img/accessories/storage/m2e-to-sata-1.webp)
 
 This breakout board is very easy to use. Simply insert it directly into the M.2 E interface, connect the SATA device's SATA interface to the breakout board, and then connect the power to the designated 40-pin location.
 
@@ -37,10 +37,10 @@ Connect the black wire to GND, the red wire to the 5V connector, and the yellow 
 
 - Connect one end of the SATA data cable to the SATA hard drive and the other end to the M.2 E Key to SATA breakout board. Then, insert the breakout board into the M.2 E Key slot on the ROCK 5A and secure it with screws.
 
-![M.2 E key to SATA Breakout Board](/img/accessories/m2e-to-sata-4.webp)
+![M.2 E key to SATA Breakout Board](/img/accessories/storage/m2e-to-sata-4.webp)
 
-![M.2 E key to SATA Breakout Board](/img/accessories/m2e-to-sata-2.webp)
+![M.2 E key to SATA Breakout Board](/img/accessories/storage/m2e-to-sata-2.webp)
 
 - Connect the SATA power connector of the SATA power to 4-pin Dupont cable to the SATA hard drive, and connect the Dupont connectors on the other end to the corresponding 40-pin positions on the ROCK 5A.
 
-![M.2 E key to SATA Breakout Board](/img/accessories/m2e-to-sata-3.webp)
+![M.2 E key to SATA Breakout Board](/img/accessories/storage/m2e-to-sata-3.webp)
