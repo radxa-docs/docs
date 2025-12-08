@@ -65,12 +65,12 @@ Note: The actual package contents are subject to the purchase platform's specifi
 | --- | ------------------------------------------------- | --- | ------------------------- | --- | --------------------- |
 | 1   | USB Type-C Port (Supports DP Video Output)        | 9   | 12V DC Power Input (5525) | 17  | M.2 B Key 3042 Slot   |
 | 2   | 4-Pin Fan Header (PWM Speed Control & Tachometer) | 10  | Standard DP Port          | 18  | Nano SIM Card Slot    |
-| 3   | 40-Pin GPIO Header                                | 11  | Standard HDMI Port        | 19  | ZX P1 SoC             |
-| 4   | MIPI CSI Interface (4-lane)                       | 12  | 2x USB 3.0 Type-A         | 20  | UFS Module Interface  |
-| 5   | LPDDR5 Memory                                     | 13  | USB 2.0 Type-A            | 21  | RTC Battery Connector |
-| 6   | M.2 E Key 2230 Slot                               | 14  | Power Button              | 22  | 2x 2.5G Ethernet      |
-| 7   | MIPI CSI Interface (4-lane)                       | 15  | 5V / 12V Power Port       | 23  | 2x USB 2.0 Type-A     |
-| 8   | M.2 M Key 2280 Slot                               | 16  | M.2 M Key 2280 Slot       |     |                       |
+| 3   | 40-Pin GPIO Header                                | 11  | Standard HDMI Port        | 19  | CIX P1 SoC            |
+| 4   | MIPI CSI Interface (4-lane)                       | 12  | 2x USB 3.0 Type-A         | 20  | SPI Nor Flash (BIOS)  |
+| 5   | LPDDR5                                            | 13  | USB 2.0 Type-A            | 21  | UFS Module Interface  |
+| 6   | M.2 E Key 2230 Slot                               | 14  | Power Button              | 22  | RTC Battery Connector |
+| 7   | MIPI CSI Interface (4-lane)                       | 15  | 5V / 12V Power Port       | 23  | 2x 2.5G Ethernet      |
+| 8   | M.2 M Key 2280 Slot                               | 16  | M.2 M Key 2280 Slot       | 24  | 2x USB 2.0 Type-A     |
 
 ## Application Scenarios
 
