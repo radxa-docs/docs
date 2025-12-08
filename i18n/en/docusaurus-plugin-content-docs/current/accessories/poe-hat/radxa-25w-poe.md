@@ -4,7 +4,7 @@ sidebar_position: 34
 
 # Radxa 25W PoE+ HAT
 
-The Radxa 25W PoE HAT provides boot over Power over Ethernet support for compatible Radxa SBCs.
+The Radxa 25W PoE+ HAT provides boot over Power over Ethernet support for compatible Radxa SBCs.
 
 :::info
 Requires the use of a compatible Power over Ethernet device.
@@ -14,7 +14,7 @@ Requires the use of a compatible Power over Ethernet device.
 
 ## Compatibility
 
-Radxa 25W PoE HAT supports the following Radxa products:
+Radxa 25W PoE+ HAT supports the following Radxa products:
 
 - Radxa ROCK 3A
 - Radxa ROCK 3B
@@ -37,6 +37,15 @@ Radxa 25W PoE HAT supports the following Radxa products:
 - 12V DC Output
   - 1x 2-Pin 3.5mm Plug-in PCB Terminal Block
 
+## Interface
+
+- ①: 12V DC Output
+  - 1x 2-Pin 3.5mm Plug-in PCB Terminal Block
+- ②: PoE Header
+- ③: 40-Pin GPIO Header
+
+![25W PoE pinout](/img/accessories/poe-hat/marked_radxa_25w_poe_hat.webp)
+
 ## Mechanical Diagram
 
 ![25W PoE MD](/img/accessories/poe-hat/25w-poe-md.webp)
@@ -53,11 +62,11 @@ Usage steps:
 
 ![25W PoE copper pillars on-board](/img/accessories/poe-hat/copper-pillars-on-board.webp)
 
-2. Align the Radxa 25W PoE HAT with the PoE interface and the 40-Pin interface, and insert it carefully, ensuring that it passes through the four M2.5 x 9 Copper Pillars.
+2. Align the Radxa 25W PoE+ HAT with the PoE interface and the 40-Pin interface, and insert it carefully, ensuring that it passes through the four M2.5 x 9 Copper Pillars.
 
 ![25W PoE connected](/img/accessories/poe-hat/25w-poe-connected.webp)
 
-3. On top of the Radxa 25W PoE HAT, align the four M2.5 x 4 Copper Pillars with the four M2.5 x 9 Copper Pillars, then secure them by rotating them into place. The following is the Illustrated Outcome:
+3. On top of the Radxa 25W PoE+ HAT, align the four M2.5 x 4 Copper Pillars with the four M2.5 x 9 Copper Pillars, then secure them by rotating them into place. The following is the Illustrated Outcome:
 
   <Tabs queryString="model">
     <TabItem value="5a_4c+" label="ROCK 5A, ROCK 4C+">
