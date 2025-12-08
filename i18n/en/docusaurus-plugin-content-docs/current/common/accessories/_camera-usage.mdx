@@ -1,11 +1,26 @@
-- Connection
+- Hardware Connection
 
-  Connect {props.product} through the FPC cable as shown:
+Connect {props.product} using the FPC cable as shown below:
+
+1. Lift the MIPI CSI interface latches on both the board and camera module to the unlocked position.
+2. Insert one end of the FPC cable into the board's MIPI CSI interface, then press down the latch to secure it after ensuring the cable is fully seated.
+3. Insert the other end of the cable into the camera module's MIPI CSI interface, then press down the latch to secure it after ensuring full insertion.
+4. Double-check that all latches on both the board and camera ends are securely locked, and that the cable lies flat without any twists.
+
+:::tip Notes
+
+- Ensure the device is powered off before installation.
+- When connecting to the board's MIPI CSI interface, the gold fingers (metal contacts) of the cable should face the board's PCB.
+- When connecting to the camera module's MIPI CSI interface, the gold fingers should face the camera's PCB.
+- Avoid using excessive force during installation; ensure the cable is fully inserted before locking the latches to prevent damage to the cable or connectors.
+  :::
+
+  {" "}
 
   <img
     src={props.camera_connection_img}
     alt="camera connection"
-    style={{ width: "80%" }}
+    style={{ width: "100%" }}
   />
 
 - Enable Overlay

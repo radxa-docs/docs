@@ -1,12 +1,25 @@
-- 连接
+- 硬件连接
 
-  通过 FPC 线接上 {props.product} ，如图所示：
+通过 FPC 排线接上 {props.product} ，如图所示：
 
-  <img
-    src={props.camera_connection_img}
-    alt="camera connection"
-    style={{ width: "80%" }}
-  />
+1. 将主板和摄像头模组上的 MIPI CSI 接口卡扣抬起，使其处于解锁状态。
+2. 将摄像头 FPC 排线一端插入主板的 MIPI CSI 接口，确认排线完全到位后按下卡扣固定。
+3. 将排线另一端插入摄像头模组的 MIPI CSI 接口，同样确认完全插入后按下卡扣固定。
+4. 再次检查主板端与摄像头端的卡扣是否均已牢固锁定，排线是否平整、未扭曲。
+
+:::tip 注意事项
+
+- 在断电状态下进行安装操作。
+- 插入主板 MIPI CSI 接口时，排线金手指（金属接触点）需朝向主板 PCB。
+- 插入摄像头模组 MIPI CSI 接口时，排线金手指（金属接触点）需朝向摄像头 PCB。
+- 安装过程中避免用力过猛；确保排线完全插入后再锁紧卡扣，以防损坏排线或接口。
+  :::
+
+<img
+  src={props.camera_connection_img}
+  alt="camera connection"
+  style={{ width: "100%" }}
+/>
 
 - 开启 Overlay
 
