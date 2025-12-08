@@ -2,13 +2,11 @@
 sidebar_position: 33
 ---
 
-# 瑞莎 23W 供电模块
+# 瑞莎 23W PoE 扩展板
 
 ![Radxa 23W PoE HAT](/img/accessories/poe-hat/23w-poe.webp)
 
-Radxa 23W PoE HAT 是专为树莓派、Radxa ROCK 3 和 4 系列以及 Jetson Nano 设计的 HAT 配件。  
-通过 23W PoE HAT，您可以使用支持以太网供电的网络为树莓派、ROCK 3 和 4 系列或 Jetson Nano 供电；
-如要使用本产品，需要额外的 PoE 供电设备。
+Radxa 23W PoE 扩展板是一款专为树莓派、Radxa ROCK 3/4 系列和 Jetson Nano 设计的扩展板，支持通过以太网供电（PoE）技术，使用单根网线同时实现数据通信和电力传输。使用前请确保您的网络环境配备兼容的 PoE 交换机。
 
 ## 硬件介绍
 

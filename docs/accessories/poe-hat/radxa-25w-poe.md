@@ -2,9 +2,9 @@
 sidebar_position: 34
 ---
 
-# 瑞莎 25W 供电模块
+# 瑞莎 25W PoE+ 扩展板
 
-Radxa 25W PoE HAT 可以为与之兼容的 Radxa SBC 添加通过以太网供电启动的能力。
+Radxa 25W PoE+ 扩展板可为兼容的瑞莎单板计算机提供以太网供电（PoE+）功能，支持通过网线同时实现数据通信和电力传输。
 
 :::info
 需搭配使用兼容的以太网供电设备。
@@ -14,7 +14,7 @@ Radxa 25W PoE HAT 可以为与之兼容的 Radxa SBC 添加通过以太网供电
 
 ## 兼容性
 
-Radxa 25W PoE HAT 支持以下 Radxa 产品：
+Radxa 25W PoE+ 拓展板支持以下瑞莎产品：
 
 - Radxa ROCK 3A
 - Radxa ROCK 3B
@@ -36,13 +36,22 @@ Radxa 25W PoE HAT 支持以下 Radxa 产品：
 - 12V 电源输出
   - 1x 2-Pin 3.5 mm 间距可插拔接线端子
 
+## 接口说明
+
+- ① : 12V DC 输出
+  - 1x 2-Pin 3.5 mm 间距可插拔接线端子
+- ② : PoE 接口
+- ③ : 40-Pin GPIO 接口
+
+![25W PoE pinout](/img/accessories/poe-hat/marked_radxa_25w_poe_hat.webp)
+
 ## 机械尺寸图
 
 ![25W PoE MD](/img/accessories/poe-hat/25w-poe-md.webp)
 
 ## 使用方法
 
-Radxa 25W PoE 的包装清单如下：
+瑞莎 25W PoE+ 拓展板的包装清单如下：
 
 ![25W PoE pkg](/img/accessories/poe-hat/25w-poe-pkg.webp)
 
@@ -52,11 +61,11 @@ Radxa 25W PoE 的包装清单如下：
 
 ![25W PoE copper pillars on-board](/img/accessories/poe-hat/copper-pillars-on-board.webp)
 
-2. 将 Radxa 25W PoE HAT 与 PoE 接口和 40 针接口对齐，小心插入，确保穿过四个 M2.5 x 9 铜柱。
+2. 将瑞莎 25W PoE+ 拓展板与 PoE 接口和 40 针接口对齐，小心插入，确保穿过四个 M2.5 x 9 铜柱。
 
 ![25W PoE connected](/img/accessories/poe-hat/25w-poe-connected.webp)
 
-3. 在 Radxa 25W PoE HAT 的顶部，将四根 M2.5 x 4 铜柱与四根 M2.5 x 9 铜柱对齐，然后旋转固定到位。以下是图解结果：
+3. 在瑞莎 25W PoE+ 拓展板的顶部，将四根 M2.5 x 4 铜柱与四根 M2.5 x 9 铜柱对齐，然后旋转固定到位。以下是图解结果：
 
   <Tabs queryString="model">
     <TabItem value="5a_4c+" label="ROCK 5A, ROCK 4C+">
@@ -77,7 +86,7 @@ Radxa 25W PoE 的包装清单如下：
 
   </Tabs>
 
-4. 启用 25W PoE Overlay
+4. 启用瑞莎 25W PoE+ 拓展板 Overlay
 
 如需要启用温控风扇以及温度传感器，则需要开启对应 Overlay。
 

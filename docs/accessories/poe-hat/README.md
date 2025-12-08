@@ -1,6 +1,6 @@
 ---
 ---
 
-# PoE HAT
+# PoE 扩展板
 
 <DocCardList />
