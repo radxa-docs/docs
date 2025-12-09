@@ -22,6 +22,10 @@ sidebar_position: 3
 
 [Loader](https://dl.radxa.com/rock2/images/loader/rk3528_spl_loader_v1.07.104.bin) File: Used for USB flashing. The Loader file is used for USB download initialization. Not required for SD card writing.
 
+## SPI Flash Image
+
+[radxa-e24c-spi-flash-image.img](https://dl.radxa.com/e/e24c/images/radxa-e24c-spi-flash-image.img)
+
 ## Hardware Design
 
 Radxa E24C V1.2 Version
