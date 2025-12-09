@@ -13,18 +13,29 @@ The following are common additional repositories in RadxaOS:
 
 ```bash
 $ ls /etc/apt/sources.list.d/
-bookworm-backports.list bookworm-updates.list radxa.list
-bookworm-security.list radxa-amlogic.list
+bookworm-backports.list  bookworm-updates.list  radxa.list
+bookworm-security.list   radxa-amlogic.list
 ```
+
+### Confirm the System Codename
+
+Before modifying the repository configuration, confirm the system codename (VERSION_CODENAME) by running the following command:
+
+```bash
+grep VERSION_CODENAME /etc/os-release
+```
+
+Example output:
+
+```bash
+VERSION_CODENAME=bookworm
+```
+
+Choose the appropriate repository source based on the codename.
 
 ### `bookworm-*.list`
 
-These files provide some additional repositories upstream. Where `bookworm` is the operating system codename, which can be queried with the following command:
-
-```bash
-$ grep VERSION_CODENAME /etc/os-release
-VERSION_CODENAME=bookworm
-```
+These files provide some additional repositories upstream. Where `bookworm` is the operating system codename.
 
 ### `radxa.list`
 
@@ -61,7 +72,7 @@ sudo apt-get update
 ```
 
 :::note
-The Rockchip Vendor repository is only supported for Debian-based RadxaOS. packages contained in this repository will not work properly on Ubuntu.
+The Rockchip Vendor repository is only supported for Debian-based RadxaOS. Packages contained in this repository will not work properly on Ubuntu.
 
 Also, the Rockchip Vendor repository requires additional configuration to ensure that packages from this repository are prioritized for use on your system.
 
@@ -97,8 +108,7 @@ To ensure proper operation of your operating system, do not change your system's
 ## RadxaOS Testing Repository
 
 <Tabs queryString="test-repo">
-
-<TabItem value="enable" label="Enable">
+  <TabItem value="enable" label="Enable">
 
 :::warning
 The software inside the testing repository is not verified, please use it with caution.
@@ -118,9 +128,8 @@ echo "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg]" \
 sudo apt-get update
 ```
 
-</TabItem>
-
-<TabItem value="disable" label="Disable">
+  </TabItem>
+  <TabItem value="disable" label="Disable">
 
 ```bash
 VENDOR="$(tr $"\0" $"\n" < /proc/device-tree/compatible | tail -n 1 | cut -d "," -f 1)"
@@ -134,8 +143,7 @@ echo "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg]" \
 sudo apt-get update
 ```
 
-</TabItem>
-
+  </TabItem>
 </Tabs>
 
 ## China Repository Mirror
@@ -152,27 +160,57 @@ RadxaOS cannot guarantee the availability or download speed of third-party mirro
 This mirror is provided by [aghost](mailto:ggg17226@gmail.com).
 
 ```bash
-sudo sed -i "s|https://radxa-repo.github.io|https://radxa-apt.aghost.cn|g" /etc/apt/sources.list.d/radxa*.list
+sudo sed -i "s|https://radxa-repo.github.io|https://mirrors.aghost.cn/radxa-deb|g" /etc/apt/sources.list.d/radxa*.list
 sudo apt-get update
 ```
 
-</TabItem>
-  <TabItem value="chenjaly">
-
-This mirror is provided by [chenjaly](mailto:chenjiali@radxa.com).
-
-```bash
-sudo sed -i "s|https://radxa-repo.github.io|https://apt.chenjaly.cn|g" /etc/apt/sources.list.d/*radxa*.list
-sudo apt-get update
-```
-
-</TabItem>
+  </TabItem>
   <TabItem value="LZUOSS">
 
 This mirror is provided by [LZUOSS](https://mirrors.lzu.edu.cn).
 
 ```bash
-sudo sed -i "s|https://radxa-repo.github.io|https://mirrors.lzu.edu.cn/radxa-apt|g" /etc/apt/sources.list.d/*radxa*.list
+sudo sed -i "s|https://radxa-repo.github.io|https://mirrors.lzu.edu.cn/radxa-deb|g" /etc/apt/sources.list.d/*radxa*.list
+sudo apt-get update
+```
+
+  </TabItem>
+  <TabItem value="HUST">
+
+This mirror is provided by [HUST](https://mirrors.hust.edu.cn/).
+
+```bash
+sudo sed -i "s|https://radxa-repo.github.io|https://mirrors.hust.edu.cn/radxa-deb|g" /etc/apt/sources.list.d/*radxa*.list
+sudo apt-get update
+```
+
+  </TabItem>
+  <TabItem value="SDU">
+
+This mirror is provided by [SDU](https://mirrors.sdu.edu.cn/mirror).
+
+```bash
+sudo sed -i "s|https://radxa-repo.github.io|https://mirrors.sdu.edu.cn/radxa-deb|g" /etc/apt/sources.list.d/*radxa*.list
+sudo apt-get update
+```
+
+  </TabItem>
+  <TabItem value="NJU">
+
+This mirror is provided by [NJU](https://mirror.nju.edu.cn).
+
+```bash
+sudo sed -i "s|https://radxa-repo.github.io|https://mirror.nju.edu.cn/radxa-deb|g" /etc/apt/sources.list.d/*radxa*.list
+sudo apt-get update
+```
+
+  </TabItem>
+  <TabItem value="NYIST">
+
+This mirror is provided by [NYIST](https://mirror.nyist.edu.cn).
+
+```bash
+sudo sed -i "s|https://radxa-repo.github.io|https://mirror.nyist.edu.cn/radxa-deb|g" /etc/apt/sources.list.d/*radxa*.list
 sudo apt-get update
 ```
 
@@ -180,13 +218,56 @@ sudo apt-get update
   <TabItem value="default" label="Restore Defaults">
 
 ```bash
-sudo sed -e "s|https://radxa-apt.aghost.cn|https://radxa-repo.github.io|g" \
-         -e "s|http://apt.chenjaly.cn|https://radxa-repo.github.io|g" \
-         -e "s|https://apt.chenjaly.cn|https://radxa-repo.github.io|g" \
-         -e "s|https://mirrors.lzu.edu.cn/radxa-apt|https://radxa-repo.github.io|g" \
+sudo sed -e "s|https://mirrors.aghost.cn/radxa-deb|https://radxa-repo.github.io|g" \
+         -e "s|https://mirrors.lzu.edu.cn/radxa-deb|https://radxa-repo.github.io|g" \
+         -e "s|https://mirrors.hust.edu.cn/radxa-deb|https://radxa-repo.github.io|g" \
+         -e "s|https://mirrors.sdu.edu.cn/radxa-deb|https://radxa-repo.github.io|g" \
+         -e "s|https://mirror.nju.edu.cn/radxa-deb|https://radxa-repo.github.io|g" \
+         -e "s|https://mirror.nyist.edu.cn/radxa-deb|https://radxa-repo.github.io|g" \
          -i /etc/apt/sources.list.d/*radxa*.list
 sudo apt-get update
 ```
 
   </TabItem>
 </Tabs>
+
+Please run the following command to use the Debian / Ubuntu repository mirror provided by third parties:
+:::note
+RadxaOS cannot guarantee the availability or download speed of third-party mirrors.
+:::
+
+<Tabs queryString="os-mirror">
+  <TabItem value="ustc">
+This mirror is provided by the University of Science and Technology of China Open Source Software Mirror Station.
+
+```bash
+sudo sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/*
+sudo sed -i 's/deb.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/*
+sudo apt-get update
+```
+
+  </TabItem>
+  <TabItem value="tuna">
+This mirror is provided by Tsinghua University Open Source Software Mirror Station.
+
+```bash
+sudo sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list.d/*
+sudo sed -i 's/deb.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list.d/*
+sudo apt-get update
+```
+
+  </TabItem>
+  <TabItem value="default" label="Restore Defaults">
+
+```bash
+sudo sed -i 's/mirrors.ustc.edu.cn/deb.debian.org/g' /etc/apt/sources.list.d/*
+sudo sed -i 's/mirrors.ustc.edu.cn/deb.ubuntu.com/g' /etc/apt/sources.list.d/*
+sudo sed -i 's/mirrors.tuna.tsinghua.edu.cn/deb.debian.org/g' /etc/apt/sources.list.d/*
+sudo sed -i 's/mirrors.tuna.tsinghua.edu.cn/deb.ubuntu.com/g' /etc/apt/sources.list.d/*
+sudo apt-get update
+```
+
+  </TabItem>
+</Tabs>
+
+More mirrors can be found at [Debian Mirror List](https://www.debian.org/mirror/list) and [Ubuntu Mirror List](https://launchpad.net/ubuntu/+archivemirrors).
