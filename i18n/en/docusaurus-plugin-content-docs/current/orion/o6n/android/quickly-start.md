@@ -21,7 +21,6 @@ After successfully updating the BIOS firmware, follow the tutorial below to flas
 When installing the Android system to an NVMe SSD, pay attention to the following points:
 
 - The capacity of the NVMe SSD should be greater than or equal to 128GB
-- Before installing the system, the NVMe SSD should be formatted as the FAT format
 - After installing the system, the NVMe SSD should be installed in the front M.2 M Key 2280 slot of the Orion O6N, and it cannot boot the Android system on the back M.2 M Key 2280 slot
 
 :::
