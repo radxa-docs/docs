@@ -2,7 +2,9 @@
 
 ## SPI 启动固件说明
 
-对于无法正常启动系统，可以尝试擦除和下载 SPI 启动固件；对于需要 NVMe SSD 启动的用户，需要下载对应的 SPI 启动固件。
+对于无法正常启动系统，可以尝试擦除和下载 SPI 启动固件；
+
+对于需要 NVMe SSD 启动的用户，需要下载对应的 SPI 启动固件。
 
 SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化硬件（CPU → 内存 → 存储），最终通过存储设备加载操作系统内核。
 
@@ -10,9 +12,9 @@ SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化�
 
 ## 擦除 SPI Flash
 
-:::danger
-擦除 SPI Flash 操作会擦除 SPI Flash 中的 SPI 启动固件，系统将无法启动。
-:::
+擦除 SPI Flash 操作会擦除 SPI Flash 中的 SPI 启动固件，系统将无法启动，请谨慎操作。
+
+擦除 SPI Flash 所需要的 Loader 文件，可以访问 <a href={props?.download_page ?? '../../../../download'}>资源汇总下载</a> 页面下载。
 
 <Tabs queryString="platform">
 
@@ -85,9 +87,9 @@ sudo rkdeveloptool rd
 
 </Tabs>
 
-## 下载 SPI 启动固件
+## 烧录 SPI 启动固件
 
-使用 RKDevTool 工具下载 SPI 启动固件。
+使用 RKDevTool 工具烧录 SPI 启动固件，烧录 SPI 启动固件需要的 Loader 文件和 SPI 启动固件文件，可以访问 <a href={props?.download_page ?? '../../../../download'}>资源汇总下载</a> 页面下载。
 
 <Tabs queryString="platform">
 

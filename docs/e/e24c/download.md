@@ -22,6 +22,10 @@ sidebar_position: 3
 
 [Loader](https://dl.radxa.com/rock2/images/loader/rk3528_spl_loader_v1.07.104.bin) 文件 : USB 刷机使用，Loader 文件用于 USB 下载初始化，写入SD卡无需下载
 
+## SPI 启动固件
+
+[radxa-e24c-spi-flash-image.img](https://dl.radxa.com/e/e24c/images/radxa-e24c-spi-flash-image.img)
+
 ## 硬件设计
 
 Radxa E24C V1.2 版本
