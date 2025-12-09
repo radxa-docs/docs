@@ -1,6 +1,10 @@
-主要介绍如何使用 RKDevTool 工具将系统镜像烧录到 eMMC 模块上。
+使用 RKDevTool 工具将系统镜像烧录到 eMMC 上。
 
-说明：需要确保主板已经进入 Maskrom 模式且被系统正常识别
+:::tip 重要提醒
+安装系统到 eMMC 中，需要确保主板已经进入 Maskrom 模式且被系统正常识别。
+
+需要的 Loader 文件和系统镜像可以访问 <a href={props?.download_page ?? '../../../../download'}>资源汇总下载</a> 页面下载。
+:::
 
 <Tabs queryString="platform">
 
@@ -26,18 +30,18 @@
   />
 </div>
 
-断开主板与 PC 的连接，然后重新插拔电源，系统会自动从 eMMC 模块中启动。
+断开主板与 PC 的连接，然后重新插拔电源，系统会自动从 eMMC 启动。
 
 </TabItem>
 
-<TabItem value="Linux / MacOS">
-在 Linux / MacOS 平台，我们可以终端命令行，然后按照以下步骤安装系统到 eMMC 上。
+<TabItem value="Linux / macOS">
+在 Linux / macOS 平台，我们可以终端命令行，然后按照以下步骤安装系统到 eMMC 上。
 
 1. 运行 Loader 文件
 
 将下面命令中的 `demo.bin` 替换为主板对应的 Loader 文件。
 
-<NewCodeBlock tip="Linux / MacOS$" type="host">
+<NewCodeBlock tip="Linux / macOS$" type="host">
 
 ```
 sudo rkdeveloptool db demo.bin
@@ -49,7 +53,7 @@ sudo rkdeveloptool db demo.bin
 
 将下面命令中的 `demo.img` 替换为主板对应的系统镜像。
 
-<NewCodeBlock tip="Linux / MacOS$" type="host">
+<NewCodeBlock tip="Linux / macOS$" type="host">
 
 ```
 sudo rkdeveloptool wl 0 demo.img
@@ -61,7 +65,7 @@ sudo rkdeveloptool wl 0 demo.img
 
 断开主板与 PC 的连接，然后重新插拔电源，系统会自动从 eMMC 中启动。
 
-<NewCodeBlock tip="Linux / MacOS$" type="host">
+<NewCodeBlock tip="Linux / macOS$" type="host">
 
 ```
 sudo rkdeveloptool rd

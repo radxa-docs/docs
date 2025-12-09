@@ -130,7 +130,7 @@ sidebar_position: 3
 ## 系统框图
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/nx4/radxa-nx4-block-diagram.webp" style={{width: '75%', maxWidth: '1200px'}} />
+   <img src="/img/nx4/radxa-nx4-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## 应用场景

@@ -2,6 +2,10 @@
 sidebar_position: 1
 ---
 
+import UseRKDevTool from '../../../../common/radxa-os/rkdevtool/\_use.mdx';
+import EMMC from '../../../../common/radxa-os/rkdevtool/\_emmc.mdx';
+import Maskrom from '../../../../common/radxa-os/rkdevtool/\_maskrom.mdx';
+
 # 快速上手
 
 本节教程将指导您快速上手使用瑞莎 NX4，配合瑞莎 C200 NX4 载板，帮助您快速验证瑞莎 NX4 功能。
@@ -48,52 +52,47 @@ sidebar_position: 1
 - eMMC 中无重要数据或已完成资料备份
   :::
 
-### 下载系统镜像
+### 安装 RKDevTool
 
-请访问 [资源汇总下载](../download) 页面，下载**系统镜像**。
+<UseRKDevTool />
 
-:::tip 软件使用
+### 进入 Maskrom 模式
 
-该镜像文件为 `.img.xz` 格式的压缩包，下载后需要先解压，得到 `.img` 格式的镜像文件才能使用。
+<Maskrom model="nx4"/>
 
-:::
+### 安装系统到 eMMC
 
-### 硬件连接
-
-安装系统需要让主板进入 Maskrom 模式：
-
-1. 按下主板上的 Maskrom 按键
-2. 连接电源适配器
-3. 松开 Maskrom 按键
-
-<div style={{textAlign: 'center'}}>
-   <img src="/img/nx4/radxa-nx4-maskrom-mode.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-
-### 安装系统镜像
-
-#### 安装 RKDevTool 工具
+<EMMC download_page="../../download"/>
 
 ## 启动系统
 
-完成系统的安装后，将 U 盘插到到瑞莎 C200 Orin 开发套件的 USB 接口，然后使用电源适配器给瑞莎 C200 Orin 开发套件供电，即可启动系统。
+完成系统的安装后，连接 HDMI 显示器，重新插拔电源适配器，即可启动系统。
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/c200/hardware-connection-boot.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/img/nx4/radxa-nx4-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① ：安装 U 盘
+① ：使用 HDMI 数据线连接显示器和主板
 
-② ：使用 DP 数据线连接显示器和主板
+② ：使用电源适配器给瑞莎 C200 NX4 开发套件供电
 
-③ ：使用电源适配器给瑞莎 C200 Orin 开发套件供电
-
-系统启动正常后，电源指示灯绿色亮起。
+系统启动正常后，瑞莎 C200 NX4 载板上的电源指示灯绿色亮起，瑞莎 NX4 上的状态指示灯蓝色闪烁。
 
 ## 登录系统
 
-启动系统后，您需要根据系统提示完成初次系统配置。
+当您首次启动系统后，需要使用默认的用户名和密码登录。
+
+Radxa OS 的默认凭据如下：
+
+| 项目   | 内容    |
+| :----- | :------ |
+| 用户名 | `radxa` |
+| 密码   | `radxa` |
 
 ## 使用系统
 
-成功登录系统后，您就可以在瑞莎 C200 Orin 开发套件上进行系统配置与开发。
+成功登录系统后，您就可以在瑞莎 C200 NX4 开发套件上进行系统配置与开发。
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/nx4/radxa-nx4-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
