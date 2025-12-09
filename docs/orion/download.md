@@ -23,7 +23,7 @@ sidebar_position: 150
 #### 瑞莎星睿 O6
         | 下载平台                                                                            | 文件格式 | 获取方式                                                                                            |
         | :---------------------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.0.0-3.zip) | `.zip`   | 固件位于压缩包内                                                                                                  |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.0.0-5.zip) | `.zip`   | 固件位于压缩包内                                                                                                  |
         | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)                | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` 目录下 |
     </TabItem>
     <TabItem value="星睿 O6N">
