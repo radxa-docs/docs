@@ -77,6 +77,9 @@ SD卡启动盘制作工具：
 - [原理图 V1.10](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_Cubie_A7Z_v1100__schematic.pdf)
 - [位号图 V1.10](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_Cubie_A7Z_v1100_Components_Placement_map.pdf)
 
+- [原理图 V1.11](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_schematic_v1.11.pdf)
+- [位号图 V1.11](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_components_placement_map_v1.11.pdf)
+
 ## 参考资料
 
 ### [Tina5.0 AIoT 文档](https://gitlab.com/tina5.0_aiot/product/docs/)
