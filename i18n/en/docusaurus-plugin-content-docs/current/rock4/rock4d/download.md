@@ -72,7 +72,7 @@ If you haven't cleared the SPI Flash, you can directly write the system image to
 - [Schematic](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SCH_V1.11.pdf)
 - [Schematic v1.12](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SCH_V1.12.pdf)
 - [Component Placement Diagram](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SMD_V1.11.pdf)
-- [Component Placement Diagram v1.12](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SMD_V1.12.pdf)
+- [Component Placement Diagram v1.12](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SMD_v1.12.pdf)
 - [3D Model](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_3D_v1_11_20250328.stp)
 
 ## Reference Documents
