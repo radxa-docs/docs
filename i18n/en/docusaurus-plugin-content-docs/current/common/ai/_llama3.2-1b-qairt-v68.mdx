@@ -1,0 +1,109 @@
+This document describes how to use NPU to inference Llama3.2-1B large language model on Radxa Dragon Q6A
+
+## Download Example
+
+Download precompiled models using modelscope. Two context-length options are provided:
+
+- [ctx-length 1024](https://modelscope.cn/models/radxa/Llama3.2-1B-1024-qairt-v68)
+- [ctx-length 4096](https://modelscope.cn/models/radxa/Llama3.2-1B-4096-qairt-v68)
+
+<Tabs>
+    <TabItem value="1024">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export CTX_LENGTH=1024
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="4096">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export CTX_LENGTH=4096
+    ```
+
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/Llama3.2-1B-${CTX_LENGTH}-qairt-v68 --local ./Llama3.2-1B-${CTX_LENGTH}-qairt-v68
+```
+
+</NewCodeBlock>
+
+## Model Inference
+
+### Construct Prompt
+
+Llama3.2 prompt construction must follow the format below:
+
+```bash
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nPlease give a brief introduction to relativity.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n
+```
+
+### LLM Inference
+
+#### Configure Environment
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd Llama3.2-1B-${CTX_LENGTH}-qairt-v68
+export LD_LIBRARY_PATH=$(pwd)
+chmod +x genie-t2t-run
+```
+
+</NewCodeBlock>
+
+#### Execute Inference
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./genie-t2t-run -c ./htp-model-config-llama32-1b-gqa.json -p '<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nPlease give a brief introduction to relativity.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n'
+```
+
+</NewCodeBlock>
+
+```bash
+rock@radxa-dragon-q6a:~/ssd/qualcomm/701/Llama3.2-1B/to_device$ ./genie-t2t-run -c ./htp-model-config-llama32-1b-gqa.json -p '<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nPlease give a brief introduction to relativity.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n'
+Using libGenie.so version 1.13.0
+
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.40.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+[INFO]  "Using create From Binary List Async"
+[INFO]  "Allocated total size = 84058624 across 1 buffers"
+[PROMPT]: <|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nPlease give a brief introduction to relativity.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n
+
+[BEGIN]: \nRelativity is a fundamental concept in physics that describes the relationship between space and time. It was first introduced by Albert Einstein in 1905, and later developed by Albert Einstein in 1915. The theory of relativity revolutionized our understanding of the universe and had a profound impact on the development of modern physics.[END]
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.40.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+```
+
+## Performance Analysis
+
+You can enable performance analysis using the `--profile` option
+
+```bash
+./genie-t2t-run -c ./htp-model-config-llama32-1b-gqa.json -p '<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nPlease give a brief introduction to relativity.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n' --profile profile.txt
+```
+
+| Dragon Q6A             | CTX_LENGTH 1024             | CTX_LENGTH 4096             |
+| ---------------------- | --------------------------- | --------------------------- |
+| duration               | 5,290,527 us                | 7,399,282 us                |
+| num-prompt-tokens      | 33                          | 33                          |
+| prompt-processing-rate | 171.67381286621094 toks/sec | 110.03520965576172 toks/sec |
+| time-to-first-token    | 192,227 us                  | 299,934 us                  |
+| num-generated-tokens   | 62                          | 66                          |
+| token-generation-rate  | 12.16189956665039 toks/sec  | 9.297395706176758 toks/sec  |
+| token-generation-time  | 5,097,917 us                | 7,098,792 us                |
