@@ -16,6 +16,10 @@ This document describes how to install an OS image into AirBox.
 
 Please go to [Resources Download](./download) Download the corresponding image file.
 
+:::tip Image Note
+The downloaded system image is in compressed format. You must decompress it first before using Balena Etcher for image flashing.
+:::
+
 ## System Installation
 
 ### 1.Flash the image
