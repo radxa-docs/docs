@@ -11,11 +11,8 @@ title: Resource Download
 
 ## Images
 
-Radxa ZERO 3 Android image format has two types, gpt and update, you can recognize them by the name of the image file.
-It is recommended to use the gpt format.
+### Android
 
-To download Radxa ZERO 3 gpt format image, please [click here](https://github.com/radxa/manifests/releases/download/Android11_Radxa_rk12_20231109/Radxa_ZERO_3W_3E_Android11_rkr12_20231109-gpt.zip).
-
-For Radxa ZERO 3 update format, please [click here](https://github.com/radxa/manifests/releases/download/Android11_Radxa_rk12_20231109/Radxa_ZERO_3W_3E_Android11_rkr12_20231109-update.zip).
+- [Radxa Zero 3 W/E Android 11](https://github.com/radxa/manifests/releases/download/radxa-zero3-we-android11-rkr12-20240111/Radxa-Zero3WE-20231130-gpt.zip)
 
 ## Quality Certification

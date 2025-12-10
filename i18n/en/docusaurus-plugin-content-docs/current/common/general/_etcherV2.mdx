@@ -29,13 +29,19 @@ sudo dpkg -i balena-etcher_1.18.11_amd64.deb
      fallback="rock5a"
    />
 
-3. Open Etcher and click `Flash from file` to select the image to write to.
+3. Click `Flash from file` to select the image to write to.
 
-   <Image
-     src="/img/common/etcher/#model#-step2.webp"
-     model={props.model}
-     fallback="rock5a"
-   />
+:::tip Image Note
+The downloaded system image is in compressed format. You must decompress it first before using Balena Etcher for image flashing.
+:::
+
+{" "}
+
+<Image
+  src="/img/common/etcher/#model#-step2.webp"
+  model={props.model}
+  fallback="rock5a"
+/>
 
 4. Click `Select target` to select the device, please select carefully.
 

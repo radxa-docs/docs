@@ -28,6 +28,10 @@ Balena Etcher 是一个跨平台且，用户界面友好的镜像文件烧写工
 
 2. 打开 Etcher，单击 `Flash from file` 以选择需要写入的镜像。
 
+:::tip 镜像说明
+下载的系统镜像为压缩格式，使用 Balena Etcher 进行镜像烧录前，需先完成解压操作。
+:::
+
 ![](/img/common/etcher/rock5a-step2.webp)
 
 3. 点击 `Select target` 以选择设备，请注意小心选择。
