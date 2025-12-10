@@ -32,11 +32,17 @@ sudo dpkg -i balena-etcher_1.18.11_amd64.deb
 
 3. 打开 Etcher，单击 `Flash from file` 以选择需要写入的镜像。
 
-   <Image
-     src="/img/common/etcher/#model#-step2.webp"
-     model={props.model}
-     fallback="rock5a"
-   />
+:::tip 镜像说明
+下载的系统镜像为压缩格式，使用 Balena Etcher 进行镜像烧录前，需先完成解压操作。
+:::
+
+{" "}
+
+<Image
+  src="/img/common/etcher/#model#-step2.webp"
+  model={props.model}
+  fallback="rock5a"
+/>
 
 4. 点击 `Select target` 以选择设备，请注意小心选择。
 
