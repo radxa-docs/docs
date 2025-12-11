@@ -162,6 +162,7 @@ For inserting a MicroSD card, which can be used as a system boot device or for a
 |  9   |  GPIO1_C0  |  SPI1_MISO  |
 |  10  |  GPIO4_A6  | UART1_TX_M0 |
 |  11  |  GPIO1_B6  |  SPI1_CLK   |
+|  12  |  GPIO4_B4  |
 |  13  |  GPIO1_C1  |  SPI1_CSN0  |
 |  14  |  GPIO4_A7  | UART1_RX_M0 |
 
