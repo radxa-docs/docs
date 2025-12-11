@@ -6,17 +6,9 @@ sidebar_position: 10
 
 瑞莎 Dragon Q6A 板载 2 个 2-lane MIPI CSI 和 1 个 4-lane MIPI CSI 接口，用于连接 MIPI 摄像头。
 
-## 支持摄像头
+## 兼容摄像头
 
-**目前正在适配和开发中！**
-
-## 硬件连接
-
-将 MIPI 摄像头模块连接到 Dragon Q6A 的 MIPI CSI 接口。
-
-:::tip 接口位置
-可以参考 [硬件信息](./hardware_info) 教程找到对应硬件接口位置
-:::
+- [Radxa Camera 8M 219](../accessories-use/camera-8m-219.md)
 
 ## 接口引脚定义
 
