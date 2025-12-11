@@ -93,9 +93,9 @@ The Radxa team provides support for all ROCK 4 models until at least 2029.
 
         <tr>
             <th>Storage</th>
-            <td align="center" colspan="2">eMMC connector<br/>μSD card (up to 256GB)<br/>M.2 SSD (supports up to 2TB NVMe SSD)<br/>M.2 SATA SSDs not supported</td>
-            <td align="center" colspan="2">Onboard eMMC (up to 128GB option)<br/>μSD card (up to 256GB)<br/>M.2 SSD (supports up to 2TB NVMe SSD)</td>
-            <td align="center" colspan="1">eMMC connector<br/>μSD card (up to 256GB)<br/>M.2 SSD (supports up to 2TB NVMe SSD)<br/>M.2 SATA SSDs not supported</td>
+            <td align="center" colspan="2">eMMC connector<br/>micro SDcard (up to 256GB)<br/>M.2 SSD (supports up to 2TB NVMe SSD)<br/>M.2 SATA SSDs not supported</td>
+            <td align="center" colspan="2">Onboard eMMC (up to 128GB option)<br/>micro SDcard (up to 256GB)<br/>M.2 SSD (supports up to 2TB NVMe SSD)</td>
+            <td align="center" colspan="1">eMMC connector<br/>micro SDcard (up to 256GB)<br/>M.2 SSD (supports up to 2TB NVMe SSD)<br/>M.2 SATA SSDs not supported</td>
         </tr>
 
         <tr>

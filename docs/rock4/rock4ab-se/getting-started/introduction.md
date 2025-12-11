@@ -93,9 +93,9 @@ ROCK 4A/4A+/4B/4B+/4SE 提供了完整的硬件设计原理图和软件源代码
 
         <tr>
             <th> 储存 </th>
-            <td align="center" colspan="2"> eMMC 连接器 <br/>μSD card (μSD 插槽最大支持 256 GB μSD 卡)<br/>M.2 SSD (M.2 连接器支持高达 2T 的 NVMe SSD) <br/> 不支持 M.2 SATA 固态硬盘 </td>
-            <td align="center" colspan="2"> 板载 eMMC，最高可提供 128 GB 版本<br/>μSD card (μSD 插槽最大支持 256 GB μSD 卡)<br/>M.2 SSD (M.2 连接器支持高达 2T 的 NVMe SSD) </td>
-            <td align="center" colspan="1"> eMMC 连接器 <br/>μSD card (μSD 插槽最大支持 256 GB μSD 卡)<br/>M.2 SSD (M.2 连接器支持高达 2T 的 NVMe SSD) <br/> 不支持 M.2 SATA 固态硬盘  </td>
+            <td align="center" colspan="2"> eMMC 连接器 <br/>micro SDcard (micro SD插槽最大支持 256 GB micro SD卡)<br/>M.2 SSD (M.2 连接器支持高达 2T 的 NVMe SSD) <br/> 不支持 M.2 SATA 固态硬盘 </td>
+            <td align="center" colspan="2"> 板载 eMMC，最高可提供 128 GB 版本<br/>micro SDcard (micro SD插槽最大支持 256 GB micro SD卡)<br/>M.2 SSD (M.2 连接器支持高达 2T 的 NVMe SSD) </td>
+            <td align="center" colspan="1"> eMMC 连接器 <br/>micro SDcard (micro SD插槽最大支持 256 GB micro SD卡)<br/>M.2 SSD (M.2 连接器支持高达 2T 的 NVMe SSD) <br/> 不支持 M.2 SATA 固态硬盘  </td>
         </tr>
 
         <tr>
