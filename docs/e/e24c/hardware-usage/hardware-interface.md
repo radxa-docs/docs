@@ -306,19 +306,19 @@ E24C 的千兆网络接口由瑞芯微 RK3528A 处理器的 SoC 集成的网络�
 
 ### 14-Pin GPIO 接口 (0.1"/2.54mm)
 
-| PIN | Name   | 功能          |
-| --- | ------ | ------------- |
-| 1   | VCC5V0 | 5V 电源输出   |
-| 2   | VCC5V0 | 5V 电源输出   |
-| 3   | VCC3V3 | 3.3V 电源输出 |
-| 4   | GND    | 接地          |
-| 5   | GPIO0  | SPI_CLK       |
-| 6   | GPIO1  | SPI_MOSI      |
-| 7   | GPIO2  | SPI_MISO      |
-| 8   | GPIO3  | SPI_CS        |
-| 9   | GPIO4  | UART_TX       |
-| 10  | GPIO5  | UART_RX       |
-| 11  | GPIO6  | I2C_SCL       |
-| 12  | GPIO7  | I2C_SDA       |
-| 13  | GPIO8  | 通用 GPIO     |
-| 14  | GND    | 接地          |
+| Pin# | Function 1 | Function 2  |
+| :--: | :--------: | :---------: |
+|  1   |  VCC_3V3   |             |
+|  2   | VCC5V0_SYS |             |
+|  3   |  GPIO1_B3  | I2C5_SDA_M0 |
+|  4   |    GND     |             |
+|  5   |  GPIO1_B2  | I2C5_SCL_M0 |
+|  6   |  GPIO4_A4  |             |
+|  7   |  GPIO1_B7  |  SPI1_MOSI  |
+|  8   |  GPIO4_A5  |             |
+|  9   |  GPIO1_C0  |  SPI1_MISO  |
+|  10  |  GPIO4_A6  | UART1_TX_M0 |
+|  11  |  GPIO1_B6  |  SPI1_CLK   |
+|  12  |  GPIO4_B4  |
+|  13  |  GPIO1_C1  |  SPI1_CSN0  |
+|  14  |  GPIO4_A7  | UART1_RX_M0 |
