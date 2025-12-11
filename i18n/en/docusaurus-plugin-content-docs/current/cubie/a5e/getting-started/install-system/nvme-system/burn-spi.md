@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-import SPI from '../../../../../common/radxa-os/system-config/\_spi_cubie.mdx';
+import SPI from '../../../../../common/radxa-os/system-config/\_spi-flash-erase-rsetup.mdx';
 
 # Flash SPI Boot Firmware
 
