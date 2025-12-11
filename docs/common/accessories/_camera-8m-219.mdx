@@ -1,0 +1,79 @@
+import { Image } from "@site/src/utils/docs";
+
+{props.product} 的板载 MIPI CSI 接口可用于连接[瑞莎 8M 219 摄像头](https://radxa.com/products/accessories/camera-8m-219)，实现图像采集功能。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/accessories/camera-8m-219-view.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 接口规格
+
+### 摄像头接口
+
+瑞莎 8M 219 摄像头接口规格如下：
+
+- 接口类型：15-Pin 1.0 mm 间距 SMD 卧式 FPC 接口
+- 连接方式：翻盖式，下接触
+
+### 主板 MIPI CSI 接口
+
+{props.product} 的主板 MIPI CSI 接口规格如下：
+
+- 接口类型：{props.interface}
+- 连接方式：{props.connect}
+
+## 硬件连接
+
+将 FPC 排线的 15-Pin 金属接触点末端插入摄像头接口，将 FPC 排线的 {props.pins} 金属接触点末端插入主板 MIPI CSI 接口。
+
+:::tip 注意事项
+
+- 确保排线两侧边缘与插座边缘平齐，无歪斜或部分裸露的触点
+- 确认排线无折痕、无松动，且锁扣处闭合状态
+
+:::
+
+<Image
+  src="/img/common/accessories/camera-8m-219-#board#.webp"
+  board={props.board}
+  fallback={props.board}
+  width="1200"
+/>
+
+## 软件使能
+
+使用瑞莎系统自带的 Rsetup 工具使能瑞莎 8M 219 摄像头。
+
+:::tip Rsetup 使用指南
+
+- 选中选项 ： 对应选项会高亮显示
+- 确认选择 ： 按 `Enter`
+- 取消选择 ： 按 `ESC`
+- 切换选项 ： 按 `Up` 、 `Down` 、 `Left` 、 `Right` 控制
+- 多选界面 ： 按 `Space` 选择，按 `Enter` 确认选择；选择对应功能后，对应选项框会出现一个 `*` ,表示该选项已启用
+
+:::
+
+在终端命令行运行 `rsetup` 命令启动 Rsetup 工具：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+rsetup
+```
+
+</NewCodeBlock>
+
+在 Rsetup 工具中依次进入 `Overlays` -> `Manage overlays`。
+
+1. 通过方向键找到 `[ ] Enable Radxa Camera 8M 219` 选项
+2. 按空格出现 `[*] Enable Radxa Camera 8M 219` 说明已选中该功能，表示启用该功能
+3. 按 `Enter` 确认并保存设置，使能摄像头。
+4. 重启系统，使配置生效。
+
+:::tip
+若主板有多个 MIPI CSI 接口，Rsetup 可能会显示 `[ ] Enable Radxa Camera 8M 219 on CAM *` 选项，选择对应 MIPI CSI 接口的选项即可。
+:::

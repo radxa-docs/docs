@@ -6,17 +6,9 @@ sidebar_position: 10
 
 The Dragon Q6A board features 2 2-lane MIPI CSI interfaces and 1 4-lane MIPI CSI interface for connecting MIPI cameras.
 
-## Supported Cameras
+## Compatible Cameras
 
-**Currently under development and adaptation!**
-
-## Hardware Connection
-
-Connect the MIPI camera module to the Dragon Q6A's MIPI CSI interface.
-
-:::tip Interface Location
-Refer to the [Hardware Information](./hardware_info) tutorial to locate the corresponding hardware interface.
-:::
+- [Radxa Camera 8M 219](../accessories-use/camera-8m-219.md)
 
 ## Interface Pin Definition
 
