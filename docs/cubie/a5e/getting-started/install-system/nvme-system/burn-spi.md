@@ -6,4 +6,4 @@ import SPI from '../../../../../common/radxa-os/system-config/\_spi-flash-erase-
 
 # 烧录/擦除 SPI 启动固件
 
-<SPI board="cubie-a5e" />
+<SPI board="cubie-a5e" rsetup_tip="说明：瑞莎 Cubie A5E 选择 `radxa-cubie-a5e` 选项的 SPI 固件。" />
