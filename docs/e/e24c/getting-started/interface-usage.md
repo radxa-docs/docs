@@ -149,22 +149,21 @@ echo fc000000.usb > UDC
 
 #### GPIO 引脚定义表
 
-| 引脚编号 | 引脚名称 | 功能描述      | 电平类型 | 默认功能     |
-| :------: | :------- | :------------ | :------: | :----------- |
-|    1     | 5V       | 5V 电源输出   |   电源   | 电源输出     |
-|    2     | GND      | 接地          |   接地   | 接地         |
-|    3     | UART_TX  | 串口发送引脚  |   3.3V   | UART2_TX     |
-|    4     | UART_RX  | 串口接收引脚  |   3.3V   | UART2_RX     |
-|    5     | I2C_SCL  | I2C 时钟引脚  |   3.3V   | I2C2_SCL     |
-|    6     | I2C_SDA  | I2C 数据引脚  |   3.3V   | I2C2_SDA     |
-|    7     | SPI_CLK  | SPI 时钟引脚  |   3.3V   | SPI2_CLK     |
-|    8     | SPI_TX   | SPI 发送引脚  |   3.3V   | SPI2_TX/MOSI |
-|    9     | SPI_RX   | SPI 接收引脚  |   3.3V   | SPI2_RX/MISO |
-|    10    | SPI_CS   | SPI 片选引脚  |   3.3V   | SPI2_CS      |
-|    11    | GPIO0    | 可编程 GPIO   |   3.3V   | GPIO0_A2     |
-|    12    | GPIO1    | 可编程 GPIO   |   3.3V   | GPIO0_A3     |
-|    13    | 3.3V     | 3.3V 电源输出 |   电源   | 电源输出     |
-|    14    | 5V       | 5V 电源输出   |   电源   | 电源输出     |
+| Pin# | Function 1 | Function 2  |
+| :--: | :--------: | :---------: |
+|  1   |  VCC_3V3   |             |
+|  2   | VCC5V0_SYS |             |
+|  3   |  GPIO1_B3  | I2C5_SDA_M0 |
+|  4   |    GND     |             |
+|  5   |  GPIO1_B2  | I2C5_SCL_M0 |
+|  6   |  GPIO4_A4  |             |
+|  7   |  GPIO1_B7  |  SPI1_MOSI  |
+|  8   |  GPIO4_A5  |             |
+|  9   |  GPIO1_C0  |  SPI1_MISO  |
+|  10  |  GPIO4_A6  | UART1_TX_M0 |
+|  11  |  GPIO1_B6  |  SPI1_CLK   |
+|  13  |  GPIO1_C1  |  SPI1_CSN0  |
+|  14  |  GPIO4_A7  | UART1_RX_M0 |
 
 :::warning
 请注意，所有信号引脚都是 3.3V 电平，请勿连接 5V 信号，否则可能损坏单板计算机。

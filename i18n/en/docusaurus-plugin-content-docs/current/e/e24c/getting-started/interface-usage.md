@@ -149,22 +149,21 @@ For inserting a MicroSD card, which can be used as a system boot device or for a
 
 #### GPIO Pin Definition Table
 
-| Pin # | Pin Name | Description       | Level Type | Default Function |
-| :---: | :------- | :---------------- | :--------: | :--------------- |
-|   1   | 5V       | 5V Power Output   |   Power    | Power Output     |
-|   2   | GND      | Ground            |   Ground   | Ground           |
-|   3   | UART_TX  | UART Transmit     |    3.3V    | UART2_TX         |
-|   4   | UART_RX  | UART Receive      |    3.3V    | UART2_RX         |
-|   5   | I2C_SCL  | I2C Clock         |    3.3V    | I2C2_SCL         |
-|   6   | I2C_SDA  | I2C Data          |    3.3V    | I2C2_SDA         |
-|   7   | SPI_CLK  | SPI Clock         |    3.3V    | SPI2_CLK         |
-|   8   | SPI_TX   | SPI MOSI          |    3.3V    | SPI2_TX/MOSI     |
-|   9   | SPI_RX   | SPI MISO          |    3.3V    | SPI2_RX/MISO     |
-|  10   | SPI_CS   | SPI Chip Select   |    3.3V    | SPI2_CS          |
-|  11   | GPIO0    | Programmable GPIO |    3.3V    | GPIO0_A2         |
-|  12   | GPIO1    | Programmable GPIO |    3.3V    | GPIO0_A3         |
-|  13   | 3.3V     | 3.3V Power Output |   Power    | Power Output     |
-|  14   | 5V       | 5V Power Output   |   Power    | Power Output     |
+| Pin# | Function 1 | Function 2  |
+| :--: | :--------: | :---------: |
+|  1   |  VCC_3V3   |             |
+|  2   | VCC5V0_SYS |             |
+|  3   |  GPIO1_B3  | I2C5_SDA_M0 |
+|  4   |    GND     |             |
+|  5   |  GPIO1_B2  | I2C5_SCL_M0 |
+|  6   |  GPIO4_A4  |             |
+|  7   |  GPIO1_B7  |  SPI1_MOSI  |
+|  8   |  GPIO4_A5  |             |
+|  9   |  GPIO1_C0  |  SPI1_MISO  |
+|  10  |  GPIO4_A6  | UART1_TX_M0 |
+|  11  |  GPIO1_B6  |  SPI1_CLK   |
+|  13  |  GPIO1_C1  |  SPI1_CSN0  |
+|  14  |  GPIO4_A7  | UART1_RX_M0 |
 
 :::warning
 All signal pins are 3.3V level. Do not connect 5V signals as this may damage the single-board computer.
