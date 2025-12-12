@@ -80,3 +80,20 @@ repos:
         args: [--rev-range, $PRE_COMMIT_FROM_REF..$PRE_COMMIT_TO_REF]
         stages:
           - pre-push
+  - repo: local
+    hooks:
+      - id: forbid-ds-store
+        name: Forbid .DS_Store files
+        language: system
+        entry: bash
+        pass_filenames: false
+        args:
+          - -c
+          - |
+            files=$(find . -name ".DS_Store" -not -path "./.git/*")
+            if [ -n "$files" ]; then
+              echo "Error: .DS_Store files found:"
+              echo "$files"
+              echo "Please delete them and try again."
+              exit 1
+            fi
