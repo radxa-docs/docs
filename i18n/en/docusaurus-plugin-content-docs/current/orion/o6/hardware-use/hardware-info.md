@@ -200,6 +200,14 @@ Onboard BIOS flash chip socket for easy removal or replacement of the BIOS chip.
 - Chip Capacity: 8MB (64Mbit)
 - Voltage Level: 1.8V
 
+:::tip Remove / Install BIOS Chip
+
+Non-essential operation, please do not remove the BIOS chip.
+
+To remove and install the BIOS chip, users can refer to the [Updating BIOS Firmware Tutorial](../low-level-dev/bios.md#update-bios-firmware-using-a-programmer) section of the tutorial on how to use the programmer to update the BIOS firmware.
+
+:::
+
 ### 40-Pin GPIO Header
 
 Onboard 40-Pin GPIO (General Purpose Input/Output) interface, providing highly flexible hardware expansion capabilities.
