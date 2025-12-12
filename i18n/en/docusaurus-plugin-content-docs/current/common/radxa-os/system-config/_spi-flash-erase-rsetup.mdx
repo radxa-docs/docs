@@ -97,12 +97,14 @@ Use the `Rsetup` tool to update the SPI boot firmware, which will automatically 
 
 3. Use the spacebar to select the SPI boot firmware option corresponding to your board (a `*` indicates the option is selected), then press `Enter` to confirm. Follow the `Rsetup` tool prompts to complete the SPI boot firmware update.
 
-<Image
-  src="/en/img/common/radxa-os/system-config/rsetup-system-boot-manage-update-spi-#board#.webp"
-  board={props.board}
-  fallback={props.board}
-  width="1200"
-/>
+{props.rsetup_tip}
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-boot-manage-update-spi-model.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
 
 4. After the update is complete, reboot the system.
 
