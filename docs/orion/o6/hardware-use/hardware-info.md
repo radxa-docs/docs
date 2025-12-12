@@ -200,6 +200,14 @@ sidebar_position: 10
 - 芯片容量：8MB（64Mbit）
 - 电压等级：1.8V
 
+:::tip 拆卸 / 安装 BIOS 芯片
+
+非必要操作，请勿拆卸 BIOS 芯片。
+
+拆卸和安装 BIOS 芯片，用户可以参考 [更新 BIOS 固件教程](../low-level-dev/bios.md#使用烧录器更新-bios-固件) 教程的使用烧录器更新 BIOS 固件内容。
+
+:::
+
 ### 40-Pin GPIO 排针
 
 板载 40-Pin GPIO（通用输入输出）接口，为硬件扩展提供了高度灵活的接口支持。
