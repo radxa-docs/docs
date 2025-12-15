@@ -10,16 +10,7 @@ sidebar_position: 3
 
 该核心板集成了 4 核 Cortex-A72 + 4 核 Cortex-A53 CPU、ARM Mali G52 MC3 GPU 和 6 TOPS@INT8 NPU，支持主流深度学习框架。提供丰富的接口和扩展能力，适用于边缘计算、机器视觉、智能终端等应用场景。
 
-瑞莎 C200 HDMI 版本专为 Radxa NX4 打造，支持快速功能验证与原型搭建，方便用户在短时间内完成上电调试、接口评估及应用开发上手。
-
-:::tip 瑞莎 C200
-
-瑞莎 C200 目前有 HDMI 和 DP 版本：
-
-- 瑞莎 C200 DP 版本搭配 Jetson Orin NX 模组使用
-- 瑞莎 C200 HDMI 版本搭配瑞莎 NX4 使用
-
-:::
+瑞莎 NXXX4专为 Radxa NX4 打造，支持快速功能验证与原型搭建，方便用户在短时间内完成上电调试、接口评估及应用开发上手。
 
 ## 产品实物
 
@@ -37,13 +28,13 @@ sidebar_position: 3
 
 </TabItem>
 
-<TabItem value="瑞莎 C200 HDMI 版本">
+<TabItem value="瑞莎 NX4 载板">
 
-瑞莎 C200 HDMI 版本可用于快速验证瑞莎 NX4 功能，方便用户快速上手。
+瑞莎 NX4 载板可用于快速验证瑞莎 NX4 功能，方便用户快速上手。
 
-|      产品实物       | 序号 |  视图  | 序号 |  视图  |
-| :-----------------: | :--: | :----: | :--: | :----: |
-| 瑞莎 C200 HDMI 版本 |  ①   | 俯视图 |  ②   | 背视图 |
+|   产品实物    | 序号 |  视图  | 序号 |  视图  |
+| :-----------: | :--: | :----: | :--: | :----: |
+| 瑞莎 NX4 载板 |  ①   | 俯视图 |  ②   | 背视图 |
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/nx4/radxa-nx4-io-board-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -53,7 +44,7 @@ sidebar_position: 3
 
 <TabItem value="瑞莎 NX4 开发套件">
 
-由瑞莎 NX4 和瑞莎 C200 HDMI 版本组成，可用于快速验证核心板功能、评估性能并搭建原型系统，帮助用户高效完成开发与方案验证。
+由瑞莎 NX4 和瑞莎 NX4 载板组成，可用于快速验证核心板功能、评估性能并搭建原型系统，帮助用户高效完成开发与方案验证。
 
 |        产品实物        | 序号 |  视图  | 序号 |  视图  | 序号 |  视图  |
 | :--------------------: | :--: | :----: | :--: | :----: | :--: | :----: |
@@ -108,7 +99,7 @@ sidebar_position: 3
 
 </TabItem>
 
-<TabItem value="瑞莎 C200 HDMI 版本">
+<TabItem value="瑞莎 NX4 载板">
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/nx4/radxa-nx4-io-board-interface.webp" style={{width: '75%', maxWidth: '1200px'}} />
@@ -126,7 +117,7 @@ sidebar_position: 3
 
 :::note 接口说明
 
-瑞莎 NX4 搭配瑞莎 C200 HDMI 版本使用，M.2 M Key 2230 和 M.2 E Key 2230 插槽无法使用。
+瑞莎 NX4 搭配瑞莎 NX4 载板使用，M.2 M Key 2230 和 M.2 E Key 2230 插槽无法使用。
 
 预留的 M.2 M Key 2230 和 M.2 E Key 2230 插槽将在下一次硬件版本中移除。
 
