@@ -16,7 +16,7 @@ import UART from '../../../../common/radxa-os/system-config-debian12/\_uart.mdx'
 不建议连接 USB 串口数据线的 VCC 接口（红色线），避免接错导致主板损坏。
 :::
 
-将 USB 串口数据线连接到瑞莎 C200 NX4 载板的 UART 接口，另一端连接到 PC 的 USB 端口。
+将 USB 串口数据线连接到瑞莎 C200 HDMI 版本的 UART 接口，另一端连接到 PC 的 USB 端口。
 
 说明：请根据厂商的 USB 串口线引脚定义进行连接，图中示例为常见的 USB 串口线引脚定义。
 
@@ -24,11 +24,11 @@ import UART from '../../../../common/radxa-os/system-config-debian12/\_uart.mdx'
    <img src="/img/nx4/nx4-uart.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-| 瑞莎 C200 NX4 载板引脚功能              | 连接方式                                                                        |
-| --------------------------------------- | ------------------------------------------------------------------------------- |
-| 瑞莎 C200 NX4 载板 : GND（Pin6）        | 瑞莎 C200 NX4 载板的 GND 引脚连接 USB 串口数据线的 GND 引脚（黑色杜邦线）       |
-| 瑞莎 C200 NX4 载板 : UART0_TXD（Pin8）  | 瑞莎 C200 NX4 载板的 UART0_TXD 引脚连接 USB 串口数据线的 RXD 引脚（白色杜邦线） |
-| 瑞莎 C200 NX4 载板 : UART0_RXD（Pin10） | 瑞莎 C200 NX4 载板的 UART0_RXD 引脚连接 USB 串口数据线的 TXD 引脚（绿色杜邦线） |
+| 瑞莎 C200 HDMI 版本引脚功能              | 连接方式                                                                         |
+| ---------------------------------------- | -------------------------------------------------------------------------------- |
+| 瑞莎 C200 HDMI 版本 : GND（Pin6）        | 瑞莎 C200 HDMI 版本的 GND 引脚连接 USB 串口数据线的 GND 引脚（黑色杜邦线）       |
+| 瑞莎 C200 HDMI 版本 : UART0_TXD（Pin8）  | 瑞莎 C200 HDMI 版本的 UART0_TXD 引脚连接 USB 串口数据线的 RXD 引脚（白色杜邦线） |
+| 瑞莎 C200 HDMI 版本 : UART0_RXD（Pin10） | 瑞莎 C200 HDMI 版本的 UART0_RXD 引脚连接 USB 串口数据线的 TXD 引脚（绿色杜邦线） |
 
 ## 串口登录
 

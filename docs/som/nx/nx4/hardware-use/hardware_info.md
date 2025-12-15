@@ -35,7 +35,7 @@ sidebar_position: 1
 
 </TabItem>
 
-<TabItem value="瑞莎 C200 NX4 载板">
+<TabItem value="瑞莎 C200 HDMI 版本">
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/nx4/radxa-nx4-io-board-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -53,7 +53,7 @@ sidebar_position: 1
 
 :::note 接口说明
 
-瑞莎 NX4 搭配瑞莎 C200 NX4 载板使用，M.2 M Key 2230 和 M.2 E Key 2230 插槽无法使用。
+瑞莎 NX4 搭配瑞莎 C200 HDMI 版本使用，M.2 M Key 2230 和 M.2 E Key 2230 插槽无法使用。
 
 预留的 M.2 M Key 2230 和 M.2 E Key 2230 插槽将在下一次硬件版本中移除。
 
@@ -65,7 +65,7 @@ sidebar_position: 1
 
 - 电源指示灯
 
-正常状态下，瑞莎 C200 NX4 载板的电源指示灯（绿色）亮起，表示电源正常。
+正常状态下，瑞莎 C200 HDMI 版本的电源指示灯（绿色）亮起，表示电源正常。
 
 - 用户指示灯
 

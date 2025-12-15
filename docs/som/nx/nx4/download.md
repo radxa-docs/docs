@@ -4,6 +4,14 @@ sidebar_position: 150
 
 # 资源汇总下载
 
+## 刷机工具
+
+- [Balena Etcher](https://etcher.balena.io/)
+
+- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+
+- [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar)
+
 ## Loader 文件
 
 用于初始化 USB 下载。
@@ -21,3 +29,18 @@ sidebar_position: 150
 :::
 
 - [radxa-rk3576_bookworm_kde_r4.output_512.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r4/radxa-rk3576_bookworm_kde_r4.output_512.img.xz)
+
+## 硬件设计
+
+### 瑞莎 NX4
+
+- [原理图 V1.11](https://dl.radxa.com/nx/nx4/hw/radxa_nx4_schematic_v1.11.pdf)
+- [位号图 V1.11](https://dl.radxa.com/nx/nx4/hw/radxa_nx4_components_placement_map_v1.11.pdf)
+- [引脚定义表 V1.11](https://dl.radxa.com/nx/nx4/hw/radxa_nx4_pinout_v1.11.xlsx)
+- [2D TOP DXF 文件 V1.11](https://dl.radxa.com/nx/nx4/hw/radxa_nx4_2d_top_v1.11.dxf)
+- [2D BOTTOM DXF 文件 V1.11](https://dl.radxa.com/nx/nx4/hw/radxa_nx4_2d_bot_v1.11.dxf)
+- [3D STP 文件 V1.11](https://dl.radxa.com/nx/nx4/hw/radxa_nx4_3d_stp_v1.11.stp)
+
+### 瑞莎 C200
+
+- [设计参考资料](https://github.com/radxa/radxa-som-projects/tree/main/c200)
