@@ -149,3 +149,7 @@ Below are the schematics, component placement diagrams, and 3D files required fo
         | 3D File | `radxa_orion_o6n_3d_stp_v1.11` | STP | [Download](https://dl.radxa.com/orion/o6n/docs/hw/radxa_orion_o6n_3d_stp_v1.11.zip) |
     </TabItem>
 </Tabs>
+
+## Reference Manual
+
+- [CIX P1 Technical Reference Manual](https://dl.radxa.com/orion/docs/CIX-P1-TRM-V1.0-Public-Developers.tar.gz)

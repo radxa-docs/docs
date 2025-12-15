@@ -149,3 +149,7 @@ Fedora 系统的默认凭据如下：
         | 3D 文件 | `radxa_orion_o6n_3d_stp_v1.11` | STP | [下载](https://dl.radxa.com/orion/o6n/docs/hw/radxa_orion_o6n_3d_stp_v1.11.zip) |
     </TabItem>
 </Tabs>
+
+## 参考手册
+
+- [此芯 P1 技术参考手册](https://dl.radxa.com/orion/docs/CIX-P1-TRM-V1.0-Public-Developers.tar.gz)

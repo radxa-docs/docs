@@ -200,6 +200,28 @@ Onboard BIOS flash chip socket for easy removal or replacement of the BIOS chip.
 - Chip Capacity: 8MB (64Mbit)
 - Voltage Level: 1.8V
 
+Notes:
+
+- The circle corresponds to pin 1, and it is marked with a red circle on the diagram.
+- The triangle corresponds to pin 1, and it is marked with a red triangle on the diagram.
+
+| Pin | Name     | Pin | Name     | Pin | Name     | Pin | Name    |
+| --- | -------- | --- | -------- | --- | -------- | --- | ------- |
+| 1   | ROM_CS   | 2   | ROM_MISO | 3   | ROM_WP   | 4   | GND     |
+| 5   | ROM_MOSI | 6   | ROM_CLK  | 7   | ROM_HOLD | 8   | ROM_VCC |
+
+<div style={{textAlign: 'center'}}>
+   <img src="/en/img/orion/o6/orion-o6-bios-socket.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+:::tip Remove / Install BIOS Chip
+
+Non-essential operation, please do not remove the BIOS chip.
+
+To remove and install the BIOS chip, users can refer to the [Updating BIOS Firmware Tutorial](../low-level-dev/bios.md#update-bios-firmware-using-a-programmer) section of the tutorial on how to use the programmer to update the BIOS firmware.
+
+:::
+
 ### 40-Pin GPIO Header
 
 Onboard 40-Pin GPIO (General Purpose Input/Output) interface, providing highly flexible hardware expansion capabilities.
