@@ -1,0 +1,162 @@
+## Disable Graphical Desktop
+
+In server, NAS, soft router, or embedded scenarios, a graphical desktop (GUI) is usually not required. Disabling the GUI can significantly reduce resource usage, improve system stability, and remove unnecessary background services.
+
+### When This Is Recommended
+
+- Radxa SBC is used as a server, NAS, or soft router
+- You only manage the system via SSH
+- You want to reduce memory and CPU usage and speed up boot
+- You do not need local HDMI display or desktop environment
+
+### Important Notes Before You Start
+
+Before disabling the graphical desktop, **it is strongly recommended to prepare and verify serial console access first**, so that even if network or SSH fails, you can still log in through the serial port.
+
+#### Platform Limitations
+
+On the following SoC platforms:
+
+- Allwinner A733
+- CIX P1
+
+Currently, character console output via TTY / Framebuffer is not supported. After disabling the GUI:
+
+- HDMI will not show a text login prompt
+- You cannot log in or operate the system via a local display
+- The system can only be managed via SSH or serial console
+
+### Risk Warning
+
+If any of the following issues occur after disabling the GUI:
+
+- SSH service is not started or misconfigured
+- Network configuration is wrong and the board cannot obtain an IP address
+- `systemd` default target is misconfigured
+- Critical system services are accidentally disabled
+
+Then you will not get any visible output on HDMI.
+
+In these cases, a serial debug cable is **the only way to recover the system locally**.
+
+### Recommended Procedure
+
+1. Prepare and connect a USB-to-TTL serial cable (3.3 V level)
+2. Confirm:
+   - Boot logs are printed to the serial port
+   - You can log in to the system via serial console
+3. In the current network environment, confirm that SSH connection is stable and available
+4. Only then proceed to disable the GUI
+
+---
+
+## Check Current System Boot Mode
+
+Check the current default `systemd` target:
+
+```bash
+systemctl get-default
+```
+
+Common values:
+
+- `graphical.target`: graphical desktop mode (default)
+- `multi-user.target`: command-line mode
+
+## Temporarily Disable GUI (Without Changing Default)
+
+Disable GUI only for the current boot session:
+
+```bash
+sudo systemctl isolate multi-user.target
+```
+
+Notes:
+
+- The graphical desktop will exit immediately
+- After reboot, the system will still enter graphical mode
+- Suitable for testing
+- Make sure you have disabled automatic sleep / suspend before running this command
+
+## Permanently Disable GUI (Recommended)
+
+Set the default target to command-line mode:
+
+```bash
+sudo systemctl set-default multi-user.target
+```
+
+This makes the system boot directly into CLI mode every time, without starting the desktop environment.
+
+Reboot and verify:
+
+```bash
+sudo reboot
+```
+
+After boot, you should see the following behavior:
+
+- HDMI does not show desktop or text console
+- The system is running normally
+- You can log in via SSH or serial console
+
+To restore graphical boot mode:
+
+```bash
+sudo systemctl set-default graphical.target
+```
+
+## Disable Display Manager (Optional)
+
+To further reduce background services, you can disable the display manager.
+
+Common display managers include:
+
+- `lightdm`
+- `gdm3`
+- `sddm`
+
+Check the currently enabled display manager:
+
+```bash
+systemctl list-units --type=service | grep -E "lightdm|gdm|sddm"
+```
+
+Disable `gdm` as an example:
+
+```bash
+sudo systemctl disable gdm.service
+sudo systemctl stop gdm.service
+```
+
+Restore the display manager:
+
+```bash
+sudo apt reinstall gdm3
+```
+
+Other display managers can be disabled in a similar way (restore by reinstalling or using `systemctl enable` + `systemctl start`).
+
+## Uninstall Desktop Environment (Optional)
+
+If you are sure you do not need the GUI in the long term, you can uninstall desktop-related components to free up storage space.
+
+:::warning
+Note: This operation is irreversible. Only do this when you clearly understand the requirements and already have reliable SSH or serial login access.
+:::
+
+```bash
+sudo apt purge task-desktop lightdm gdm3 sddm
+sudo apt autoremove
+```
+
+## How to Restore the GUI
+
+If you **only** changed the `systemd` default target:
+
+```bash
+sudo systemctl set-default graphical.target
+sudo reboot
+```
+
+If the desktop environment has been removed, you need to reinstall the corresponding desktop packages first, and then switch back to `graphical.target`.

@@ -1,0 +1,164 @@
+## 关闭图形桌面
+
+在服务器、NAS、软路由或嵌入式应用场景中，图形桌面（GUI）通常并非必需。关闭 GUI 可以有效降低系统资源占用，提高系统稳定性，并减少不必要的后台服务进程。
+
+### 适用场景
+
+- Radxa SBC 作为服务器、NAS 或软路由使用
+- 仅通过 SSH 进行远程管理
+- 希望减少内存与 CPU 占用，加快系统启动速度
+- 不需要本地 HDMI 显示或桌面环境
+
+### 操作前重要说明
+
+在关闭图形桌面之前，**强烈建议先准备并验证串口调试方式**，确保即使网络或 SSH 出现问题，仍然可以通过串口登录系统。
+
+#### 平台限制说明
+
+在以下 SoC 平台上：
+
+- Allwinner A733
+- CIX P1
+
+当前暂不支持通过 TTY / Framebuffer 输出字符控制台。在关闭 GUI 后：
+
+- HDMI 接口将不会显示字符登录界面
+- 本地无法通过显示器进行登录或操作
+- 系统仅能通过 SSH 或串口控制台进行管理
+
+### 风险说明
+
+如果在关闭 GUI 后出现以下问题之一：
+
+- SSH 服务未启动或配置异常
+- 网络配置错误导致无法获取 IP
+- systemd 启动目标配置错误
+- 误禁用关键系统服务
+
+将无法通过 HDMI 获得任何可见输出。
+
+在上述情况下，串口调试线是**唯一可用的本地恢复手段**。
+
+### 建议的操作顺序
+
+1. 准备并连接 USB-to-TTL 串口线（3.3 V 电平）
+2. 确认：
+   - 串口可正常输出启动日志
+   - 可通过串口登录系统
+3. 在当前网络环境下，确认 SSH 连接稳定可用
+4. 再执行关闭 GUI 的相关操作
+
+---
+
+## 确认当前系统运行模式
+
+查看当前 systemd 默认启动目标：
+
+```bash
+systemctl get-default
+```
+
+常见返回值：
+
+```
+`graphical.target`：图形桌面模式（默认）
+`multi-user.target`：命令行模式
+```
+
+## 临时关闭图形桌面（不修改默认启动）
+
+仅在当前运行周期内关闭 GUI：
+
+```bash
+sudo systemctl isolate multi-user.target
+```
+
+说明：
+
+- 图形界面会立即退出
+- 系统重启后仍会进入图形模式
+- 适合用于测试
+- 请确保在执行此命令之前关闭自动睡眠 / 休眠
+
+## 永久关闭图形桌面（推荐）
+
+设置默认启动为命令行模式：
+
+```bash
+sudo systemctl set-default multi-user.target
+```
+
+该设置会使系统在每次启动后直接进入 CLI 模式，不再启动桌面环境。
+
+重启并验证：
+
+```bash
+sudo reboot
+```
+
+系统启动后表现为：
+
+- HDMI 不显示桌面或字符界面
+- 系统运行正常
+- 可通过 SSH 或串口进行登录
+
+如需恢复图形启动模式：
+
+```bash
+sudo systemctl set-default graphical.target
+```
+
+## 禁用显示管理器（可选）
+
+为进一步减少后台服务，可禁用显示管理器（Display Manager）。
+
+常见显示管理器包括：
+
+- `lightdm`
+- `gdm3`
+- `sddm`
+
+查看当前启用的显示管理器：
+
+```bash
+systemctl list-units --type=service | grep -E "lightdm|gdm|sddm"
+```
+
+以 `gdm` 为例禁用：
+
+```bash
+sudo systemctl disable gdm.service
+sudo systemctl stop gdm.service
+```
+
+恢复使用显示管理器：
+
+```bash
+sudo apt reinstall gdm3
+```
+
+其他显示管理器禁用方法同理。（通过重新安装或者 systemctl enable + start 恢复）
+
+## 卸载桌面环境（可选）
+
+如果确认长期不需要 GUI，可卸载桌面相关组件以释放存储空间。
+
+:::warning
+注意：该操作不可逆，建议仅在明确需求时执行，并确保已有可靠的 SSH 或串口登录方式。
+:::
+
+```bash
+sudo apt purge task-desktop lightdm gdm3 sddm
+sudo apt autoremove
+```
+
+## 恢复图形桌面的方法
+
+仅修改过 systemd 启动目标的情况：
+
+```bash
+sudo systemctl set-default graphical.target
+sudo reboot
+```
+
+如果桌面环境已被卸载，需要重新安装对应桌面组件后再切换到 `graphical.target`。
