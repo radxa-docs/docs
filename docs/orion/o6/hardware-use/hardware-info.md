@@ -200,6 +200,20 @@ sidebar_position: 10
 - 芯片容量：8MB（64Mbit）
 - 电压等级：1.8V
 
+引脚说明：
+
+- 芯片上的圆点为 1 脚定位标记，图中已用红色圆圈标出
+- BIOS 闪存座上的三角形为 1 脚定位标记，图中已用红色三角形标出
+
+| 引脚 | 名称     | 引脚 | 名称     | 引脚 | 名称     | 引脚 | 名称    |
+| ---- | -------- | ---- | -------- | ---- | -------- | ---- | ------- |
+| 1    | ROM_CS   | 2    | ROM_MISO | 3    | ROM_WP   | 4    | GND     |
+| 5    | ROM_MOSI | 6    | ROM_CLK  | 7    | ROM_HOLD | 8    | ROM_VCC |
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/orion/o6/orion-o6-bios-socket.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
 :::tip 拆卸 / 安装 BIOS 芯片
 
 非必要操作，请勿拆卸 BIOS 芯片。
