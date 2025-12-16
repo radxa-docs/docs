@@ -1,0 +1,99 @@
+Radxa OS 默认会启用一个大小约为 **物理内存一半** 的 swap 分区，通常已经可以覆盖大部分日常使用场景。
+
+当设备物理内存较小、偶尔会跑较大负载时，可以在此基础上**额外创建 swap 文件**，作为临时扩展和应急缓冲。
+
+下面介绍如何在 Radxa 设备上添加一个简单的 swap 文件。
+
+:::caution 注意
+swap 仅适合作为“兜底”，会降低性能并增加 eMMC/SD/SSD 的写入磨损，不建议长期依赖。
+:::
+
+## 一、什么时候需要 swap？
+
+- 内存较小，偶尔会编译大工程 / 运行占用高的程序
+- 希望在内存突然吃紧时，系统不要直接 OOM 崩溃
+
+如果你追求极致性能或担心闪存寿命，也可以选择完全不启用 swap。
+
+## 二、查看当前内存与 swap 情况
+
+```bash
+free -h
+sudo swapon --show
+```
+
+若 `swapon --show` 无输出，说明当前系统未启用 swap。
+
+## 三、创建并启用 swap 文件（以 2G 为例）
+
+```bash
+sudo fallocate -l 2G /swapfile    # 创建文件
+sudo chmod 600 /swapfile          # 只允许 root 访问
+sudo mkswap /swapfile             # 格式化为 swap
+sudo swapon /swapfile             # 立即启用
+```
+
+再次确认：
+
+```bash
+swapon --show
+free -h
+```
+
+## 四、设置开机自动启用 swap
+
+先备份 `fstab`（推荐）：
+
+```bash
+sudo cp /etc/fstab /etc/fstab.bak
+```
+
+编辑 `fstab`：
+
+```bash
+sudo vim /etc/fstab
+```
+
+在文件末尾添加一行：
+
+```bash
+/swapfile none swap sw 0 0
+```
+
+保存退出后，用下面命令测试配置是否正确：
+
+```bash
+sudo swapoff /swapfile
+sudo swapon -a
+sudo swapon --show
+```
+
+能正常看到 `/swapfile`，说明 `fstab` 配置生效且无语法错误。
+
+:::tip
+`swapon -a` 会按照 `/etc/fstab` 中的配置重新启用所有 swap 设备，是检查配置是否正确的安全方法。
+:::
+
+## 五、禁用并删除 swap 文件
+
+若后续不再需要该 swap 文件，可按以下步骤关闭并删除：
+
+1. 关闭 swap：
+
+   ```bash
+   sudo swapoff /swapfile
+   ```
+
+2. 编辑 `/etc/fstab`，删除或注释掉下面这一行：
+
+   ```bash
+   /swapfile none swap sw 0 0
+   ```
+
+3. 删除文件：
+
+   ```bash
+   sudo rm /swapfile
+   ```
+
+完成以上操作后，系统将恢复为无该 swap 文件的状态。

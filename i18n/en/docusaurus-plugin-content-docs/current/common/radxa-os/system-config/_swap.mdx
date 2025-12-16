@@ -1,0 +1,101 @@
+Radxa OS enables a swap **partition** by default, with a size of about **half of the physical memory**, which is usually enough for most daily use cases.
+
+When the device has relatively small RAM and you occasionally run heavy workloads, you can **add an extra swap file** on top of the default swap partition as a temporary extension and safety buffer.
+
+The following describes how to add a simple swap file on a Radxa device.
+
+:::caution Note
+Swap is only a **fallback** mechanism. It will slow down the system and increase write wear on eMMC/SD/SSD. Do not rely on it as a long‑term replacement for physical memory.
+:::
+
+## 1. When do you need an extra swap file?
+
+- RAM is small, and you occasionally compile large projects or run memory‑hungry programs
+- You want to reduce the chance of the system going OOM and crashing when memory usage spikes
+
+If you care about extreme performance or flash lifetime, you can also choose not to enable any additional swap.
+
+## 2. Check current memory and swap
+
+```bash
+free -h
+sudo swapon --show
+```
+
+If `swapon --show` prints nothing, it means no swap is currently enabled (or only a swap partition that is not active).
+
+## 3. Create and enable a swap file (2G example)
+
+```bash
+sudo fallocate -l 2G /swapfile    # create file
+sudo chmod 600 /swapfile          # only root can access
+sudo mkswap /swapfile             # format as swap
+sudo swapon /swapfile             # enable immediately
+```
+
+Verify:
+
+```bash
+sudo swapon --show
+free -h
+```
+
+You should see an extra swap entry, and the `Swap` line in `free -h` will increase accordingly.
+
+## 4. Enable the swap file at boot
+
+First, back up `fstab` (recommended):
+
+```bash
+sudo cp /etc/fstab /etc/fstab.bak
+```
+
+Edit `fstab`:
+
+```bash
+sudo nano /etc/fstab
+```
+
+Add the following line at the end of the file:
+
+```bash
+/swapfile none swap sw 0 0
+```
+
+Save and exit, then test whether the configuration works:
+
+```bash
+sudo swapoff /swapfile
+sudo swapon -a
+sudo swapon --show
+```
+
+If `/swapfile` appears in the output, the `fstab` configuration is valid.
+
+:::tip
+`swapon -a` re‑enables all swap devices according to `/etc/fstab`. It is a safe way to verify that your configuration is correct.
+:::
+
+## 5. Disable and remove the swap file
+
+If you no longer need the swap file, follow these steps to disable and remove it:
+
+1. Turn off swap:
+
+   ```bash
+   sudo swapoff /swapfile
+   ```
+
+2. Edit `/etc/fstab` and remove or comment out the line:
+
+   ```bash
+   /swapfile none swap sw 0 0
+   ```
+
+3. Delete the file:
+
+   ```bash
+   sudo rm /swapfile
+   ```
+
+After these steps, the system will go back to running without this swap file.
