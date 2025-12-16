@@ -1,0 +1,94 @@
+## System Image
+
+You need to prepare in advance the image file built by the Yocto project: <code>{`core-image-minimal-rockchip-${props?.soc ?? "<soc>"}-${props?.board_name ?? "<board_name>"}.rootfs.wic`}</code>.
+
+:::tip Build System
+
+For the Yocto project build steps, refer to the [Build System](../build-system) document.
+
+:::
+
+## Install System to Onboard eMMC
+
+This section describes how to use the [RKDevTool](https://dl.radxa.com/tools/windows/windows_RKDevTool_Release_v3.32.zip) tool to flash the system image to the onboard eMMC.
+
+Note: Make sure the board has entered Maskrom mode and is correctly recognized by the system.
+
+:::tip
+
+To use the RKDevTool tool, you must ensure the board is already in Maskrom mode (during power-on, if the Maskrom button is detected as pressed, the board will automatically enter Maskrom mode).
+
+On Windows, to use RKDevTool you need to download and install the [Rockchip_DriverAssistant](https://dl.radxa.com/tools/windows/Rockchip_DriverAssitant_v4.8.zip) driver.
+
+:::
+
+<Tabs queryString="platform">
+
+<TabItem value="Windows">
+On Windows, open the RKDevTool tool, then follow the steps below to install the system to eMMC.
+
+① : Select the Loader file corresponding to your board.
+
+② : Select the system image built by the Yocto project.
+
+③ : Select the `eMMC` option as the system storage media.
+
+④ : Check the `Write by Address` option.
+
+⑤ : Click the `RUN` button to perform all operations.
+
+⑥ : You can monitor the operation progress in this interface.
+
+<div style={{ textAlign: "left" }}>
+  <img
+    src="/en/img/common/tools/rkdevtool/rk-emmc.webp"
+    style={{ width: "100%", maxWidth: "700" }}
+  />
+</div>
+
+Disconnect the board from the PC, then re-plug the power. The system will automatically boot from the eMMC module.
+
+</TabItem>
+
+<TabItem value="Linux / MacOS">
+On Linux / MacOS, use the terminal and follow the steps below to install the system to eMMC.
+
+1. Run the Loader file
+
+Replace `demo.bin` in the command below with the Loader file corresponding to your board.
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool db demo.bin
+```
+
+</NewCodeBlock>
+
+2. Flash the system image
+
+Replace `demo.img` in the command below with the system image built by the Yocto project.
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool wl 0 demo.img
+```
+
+</NewCodeBlock>
+
+3. Reboot the system
+
+Disconnect the board from the PC, then re-plug the power. The system will automatically boot from the eMMC.
+
+<NewCodeBlock tip="Linux / MacOS$" type="host">
+
+```
+sudo rkdeveloptool rd
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>

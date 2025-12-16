@@ -41,6 +41,12 @@ sidebar_position: 4
 3. [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) - Windows 图形化刷机工具(内含中文使用文档)
 4. [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) - Rockchip 平台 Windows 通用驱动
 
+### Loader 文件
+
+USB 刷机使用，Loader 文件用于 USB 下载初始化。
+
+- [rk3588_spl_loader](https://dl.radxa.com/rock5/sw/images/loader/rock-5a/rk3588_spl_loader_v1.15.113.bin)
+
 ### 操作系统镜像
 
 - Radxa OS

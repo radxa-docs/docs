@@ -38,9 +38,9 @@ We have added support for some Radxa devices based on Rockchip's vendor version 
   - ROCK 5C
   - ROCK 5T
   - ROCK 5 ITX
-  - Radxa CM5 IO
-  - Radxa CM5 + RPI CM4 IO
-  - Radxa NX5 IO
+  - Radxa CM5 + Radxa CM5 IO Board
+  - Radxa CM5 + RPI CM4 IO Board
+  - Radxa NX5 + Radxa NX5 IO Board
   - Radxa E52C
   - Radxa E54C
 
