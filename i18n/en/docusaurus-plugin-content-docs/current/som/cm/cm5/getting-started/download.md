@@ -28,6 +28,12 @@ sidebar_position: 4
 3. [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip)
    [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) (related driver)
 
+### Loader File
+
+For USB flashing, the Loader file is used for USB download initialization.
+
+- [rk3588_spl_loader](https://dl.radxa.com/rock5/sw/images/loader/rock-5a/rk3588_spl_loader_v1.15.113.bin)
+
 ## Images
 
 - Radxa OS
