@@ -1,0 +1,247 @@
+## VS Code Remote SSH 开发指南
+
+本文档介绍如何使用 Visual Studio Code（VS Code）+ **Remote SSH** 在本地电脑上远程连接 Radxa SBC 进行开发。
+这种方式可以让你继续使用熟悉的本地 IDE，同时在 Radxa SBC 的真实硬件环境上进行编译、运行与调试。
+
+### 适用范围
+
+- 目标设备：Radxa SBC（运行 Radxa OS / Debian / Ubuntu 等）
+- 本地开发主机：Windows / macOS / Linux
+- 场景：需要访问真实硬件资源（GPIO、外设、网络环境等）的开发
+
+## 工作原理概述
+
+VS Code 通过 SSH 连接到 Radxa SBC，并在远端自动部署 VS Code Server：
+
+- 编辑器 UI：运行在本地电脑
+- 代码存储、编译、调试：运行在 SBC 上
+- 文件系统：直接访问 SBC 的文件系统
+
+## 准备工作
+
+### 本地环境
+
+- 已安装 [VS Code](https://code.visualstudio.com/)
+- 可以通过网络访问 Radxa SBC（同一局域网或可达 IP）
+
+### Radxa SBC 环境
+
+- 系统已正常启动并可登录
+- 网络已配置完成（能访问外网或局域网）
+- SSH 服务可用
+
+## 在 Radxa SBC 上启用 SSH
+
+### 启动 SSH 服务
+
+大多数系统使用 `ssh` 服务：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo systemctl enable --now ssh
+sudo systemctl status ssh
+```
+
+</NewCodeBlock>
+
+### 获取 SBC 的 IP 地址
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+ip a
+```
+
+</NewCodeBlock>
+
+记录 SBC 的 IP 地址，后续在 VS Code 中会用到。
+
+![获取 SBC IP 地址](/img/common/vscode-remote-ssh/get-ip-address.webp)
+
+### 串口连接建议
+
+在下列情况下，串口是必要的恢复手段：
+
+- 网络配置错误
+- SSH 无法连接
+- 防火墙配置异常
+- 部分平台当前不支持 tty 送显
+
+在排查 SSH / 网络问题时，建议优先使用串口登录 SBC。
+
+## 在本地安装 VS Code Remote SSH 扩展
+
+1. 打开 VS Code
+2. 进入 **Extensions** 视图
+3. 搜索并安装 **Remote - SSH** 扩展
+
+![VS Code 安装 Remote SSH 扩展](/img/common/vscode-remote-ssh/install-extension.webp)
+
+## 配置 SSH 连接
+
+### 方式一：在 VS Code 中添加主机（推荐）
+
+1. 按 `Ctrl + Shift + P`（macOS：`Cmd + Shift + P`）
+2. 选择 **Remote-SSH: Add New SSH Host...**
+3. 输入 SSH 命令，例如：
+
+<NewCodeBlock tip="Host$" type="host">
+
+```
+ssh radxa@<SBC_IP>
+```
+
+</NewCodeBlock>
+
+4. 选择保存到 `~/.ssh/config`
+
+### 方式二：手动编辑 SSH 配置文件
+
+编辑 `~/.ssh/config`：
+
+<NewCodeBlock tip="Host$" type="host">
+
+```
+nano ~/.ssh/config
+```
+
+</NewCodeBlock>
+
+示例配置：
+
+<NewCodeBlock tip="Host$" type="host">
+
+```
+Host radxa-sbc
+  HostName 192.168.1.88
+  User radxa
+  Port 22
+```
+
+</NewCodeBlock>
+
+![选择 SSH 主机](/img/common/vscode-remote-ssh/select-host.webp)
+
+### 配置 SSH Key 登录（推荐）
+
+1. 在本地生成 SSH Key：
+
+<NewCodeBlock tip="Host$" type="host">
+
+```
+ssh-keygen -t ed25519
+```
+
+</NewCodeBlock>
+
+2. 拷贝公钥到 SBC：
+
+<NewCodeBlock tip="Host$" type="host">
+
+```
+ssh-copy-id radxa@<SBC_IP>
+```
+
+</NewCodeBlock>
+
+3. 验证可以免密登录：
+
+<NewCodeBlock tip="Host$" type="host">
+
+```
+ssh radxa@<SBC_IP>
+```
+
+</NewCodeBlock>
+
+## 使用 VS Code 连接 Radxa SBC
+
+1. 在 VS Code 中按 `Ctrl + Shift + P`
+2. 选择 **Remote-SSH: Connect to Host...**
+3. 选择刚才配置好的主机（例如 `radxa-sbc`）
+
+首次连接时，VS Code 会自动在 SBC 上安装 VS Code Server，等待安装完成即可。
+
+![VS Code 已连接到 SBC](/img/common/vscode-remote-ssh/connected.webp)
+
+## 打开远端项目目录
+
+1. 在远程窗口中选择 **File → Open Folder...**
+2. 选择 SBC 上的项目目录，例如：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+/home/radxa/Dev/project
+```
+
+</NewCodeBlock>
+
+3. 点击确认后，VS Code 会加载该目录作为远端工作区。
+
+![打开远端目录](/img/common/vscode-remote-ssh/open-folder.webp)
+
+## 远端终端与端口转发
+
+### 远端终端
+
+在远程 VS Code 窗口中打开终端，终端已经直接连接到 SBC：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+uname -a
+```
+
+</NewCodeBlock>
+
+### 端口转发
+
+当 SBC 上运行 Web 服务或调试服务时，可以通过 VS Code 的 **Port Forwarding** 功能将端口转发到本地，方便在浏览器或调试工具中访问。
+
+![端口转发](/img/common/vscode-remote-ssh/port-forward.webp)
+
+## 常见问题排查
+
+### VS Code Server 安装失败
+
+在 SBC 上清理旧的 VS Code Server 目录后重新连接：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+rm -rf ~/.vscode-server
+```
+
+</NewCodeBlock>
+
+设置在本机下载 VS Code Server：在插件设置中
+
+搜索 `Remote.SSH: Use Local Server Download` 并设置为 `always`。
+
+### SSH 连接不稳定
+
+在本机 `~/.ssh/config` 中为对应主机添加：
+
+<NewCodeBlock tip="Host$" type="host">
+
+```
+ServerAliveInterval 30
+ServerAliveCountMax 3
+```
+
+</NewCodeBlock>
+
+这样可以在网络不稳定时减少连接被动断开的情况。
+
+### SSH 完全无法连接
+
+使用串口线连接 SBC，登录系统后检查并修复网络与 SSH 配置。
+
+## 推荐开发实践
+
+- 项目目录建议统一放在：`/home/radxa/Dev`
+- 尽量将构建目录与源码目录分离
+- 长时间运行的服务建议使用 `systemd` 管理
+- 修改网络或 SSH 相关配置前，确保串口访问已准备好，便于出现问题时快速恢复
