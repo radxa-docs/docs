@@ -152,4 +152,4 @@ Fedora 系统的默认凭据如下：
 
 ## 参考手册
 
-- [此芯 P1 技术参考手册](https://dl.radxa.com/orion/docs/CIX-P1-TRM-V1.0-Public-Developers.tar.gz)
+- 参考手册请前往此芯开发者中心注册账号后下载： [此芯开发者中心](https://developer.cixtech.com/)
