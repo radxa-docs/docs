@@ -30,18 +30,6 @@ Connect the USB-to-TTL serial cable to the UART0 interface of Cubie A7A, and con
 
 ## Serial Port Login
 
-:::info
-Serial Communication Parameters
-
-- Baud Rate: 115200
-- Data Bits: 8
-- Stop Bits: 1
-- Parity: None
-- Flow Control: None
-  :::
-
-## Serial Port Login
-
 :::tip Serial Communication Parameters
 
 Baud Rate: 115200

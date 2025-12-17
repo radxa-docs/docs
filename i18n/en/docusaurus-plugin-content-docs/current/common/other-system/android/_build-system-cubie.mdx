@@ -1,0 +1,136 @@
+This document provides a complete guide to compiling the Android system for {props.product}.
+
+## System Requirements
+
+- Memory: 32GB RAM recommended, minimum 16GB RAM
+- OS: Ubuntu 22.04 or later recommended
+
+:::tip Adding Swap Space
+
+If using 16GB RAM, you need to enable swap space before compiling the Android system.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo fallocate -l 16G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+```
+
+</NewCodeBlock>
+
+:::
+
+## Install Dependencies
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+sudo apt update -y
+sudo apt install libelf-dev libssl-dev bc flex bison dwarves repo git-lfs libncurses5 gawk lib32z1 lib32z1-dev -y
+```
+
+</NewCodeBlock>
+
+## Download Source Code
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+mkdir -p ~/android
+cd ~/android
+repo init -u https://github.com/radxa/allwinner-android-manifests -b Android13_A733_v1.0 -m aw-a733-release.xml
+repo sync
+repo forall -c 'git lfs pull'
+```
+
+</NewCodeBlock>
+
+## System Build
+
+Compile Android system from source code.
+
+### Configure Model
+
+Navigate to the downloaded source code's `longan` directory and use `./build.sh config` for model configuration.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+cd ~/android/longan
+./build.sh config
+```
+
+</NewCodeBlock>
+
+In the interactive terminal configuration, select the following options in order:
+
+1. System Platform -> Android
+2. Main Control -> {props.soc}
+3. Board Model -> {props.board}
+4. Flash -> {props.flash}
+
+### Compile Kernel
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+cd ~/android/longan
+./build.sh
+```
+
+</NewCodeBlock>
+
+After compilation is complete, the terminal will display a message similar to `sun60iw2p1 compile all(Kernel+modules+boot.img) successful`.
+
+The generated kernel files will be located in the `out` directory of the current folder.
+
+### Compile Android System
+
+#### Set Up Build Environment
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+cd ~/android
+source build/envsetup.sh
+```
+
+</NewCodeBlock>
+
+#### Select Build Model
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+lunch <board-model>
+```
+
+</NewCodeBlock>
+
+Replace `<board-model>` with {props.config}, for example: `lunch a733_radxa_a7a-userdebug`
+
+#### Compile Android System
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+make -j$(nproc)
+```
+
+</NewCodeBlock>
+
+After successful compilation, the terminal will display a message similar to `#### build completed successfully (06:06 (mm:ss)) ####`.
+
+#### Generate Flashable Image
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```
+pack
+```
+
+</NewCodeBlock>
+
+After the image packaging is complete, the terminal will output the size and file path of the generated image.

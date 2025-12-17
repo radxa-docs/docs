@@ -30,18 +30,6 @@ import UART_DEBUG from '../../../../common/radxa-os/system-config/\_uart_debug.m
 
 ## 串口登录
 
-:::info
-串口通讯参数
-
-- 波特率：115200
-- 数据位：8
-- 停止位：1
-- 校验位：无
-- 流控：无
-  :::
-
-## 串口登录
-
 :::tip 串口通讯参数
 
 波特率：115200
