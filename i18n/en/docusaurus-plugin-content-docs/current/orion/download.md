@@ -150,6 +150,6 @@ Below are the schematics, component placement diagrams, and 3D files required fo
     </TabItem>
 </Tabs>
 
-## Reference Manual
+## Reference Manuals
 
-- [CIX P1 Technical Reference Manual](https://dl.radxa.com/orion/docs/CIX-P1-TRM-V1.0-Public-Developers.tar.gz)
+- Please register an account at the CIX Developer Center to download the Technical Reference Manual: [CIX Developer Center](https://developer.cixtech.com/)
