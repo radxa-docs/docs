@@ -1,0 +1,142 @@
+import { Image } from "@site/src/utils/docs";
+
+BIOS（Basic Input/Output System）是计算机主板上的固件程序，通电后第一段运行的代码，用于唤醒硬件、完成自检，并引导操作系统启动。换言之，BIOS 是连接硬件与操作系统的“桥梁”。
+
+## BIOS 总览
+
+:::tip 操作说明
+
+- 方向键：在菜单之间移动。
+- Enter：进入或确认当前选项。
+- ESC：返回上一层或退出设置界面。
+
+掌握上述快捷键，有助于在接下来的各功能页面中快速导航。
+
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-language.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## BIOS 语言
+
+在 “Language” 页签中可以切换 BIOS 显示语言，常见语言包含中文、英文等，方便不同使用者阅读。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-language-list.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 设备管理器
+
+“Device Manager” 用于查看与配置各类硬件，例如 CPU、内存、存储、外设等，可在此启用/禁用或查看设备状态。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-device-manager.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-device-manager-list.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 启动管理器
+
+在 “Boot Manager” 中可以临时调整启动顺序，适合需要从 USB、网络或其它介质启动系统的场景。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-boot-manager.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-boot-manager-list.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 启动维护管理器
+
+该模块提供更细致的启动项管理功能，可创建、修改、删除自定义启动项，并控制驱动与控制台行为。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-boot-maintenance-manager.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-boot-maintenance-manager-list.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### 启动选项
+
+用于新增或调整指定介质（如 NVMe、U 盘、网络等）的启动项，适合多系统或临时引导需求。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-boot-maintenance-manager-boot-option.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### 驱动选项
+
+允许启用/禁用可选驱动程序，或加载外部驱动文件，以满足特定外设或高级用例。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-boot-maintenance-manager-driver-option.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### 控制台选项
+
+针对串口控制台或图形控制台输出进行配置，常用于无头设备或远程调试。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-boot-maintenance-manager-console-option.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 继续（Continue）
+
+保存当前设置并退出 BIOS，继续后续启动流程。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-continue.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## 重置（Reset）
+
+恢复默认设置或重新启动 BIOS 配置流程，适合排查异常设置导致的问题。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/bios/bios-reset.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
