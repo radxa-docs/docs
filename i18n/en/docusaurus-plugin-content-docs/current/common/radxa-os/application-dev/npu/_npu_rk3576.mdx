@@ -1,0 +1,86 @@
+Quickly run the YOLOv5 inference demo to verify the NPU and become familiar with the basic workflow.
+
+## Download the demo package
+
+Run the following command to download the RK3576 YOLOv5 demo archive.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+wget https://dl.radxa.com/rock4/4d/images/rk3576_rknn_yolov5_demo.tar.gz
+```
+
+</NewCodeBlock>
+
+> If the download is slow, download the file on a PC first and transfer it to the device via `scp`.
+
+## Extract the demo project
+
+Extract the archive to obtain the `rk3576_rknn_yolov5_demo` directory, which contains the model, test image, and executable.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+tar -xzf rk3576_rknn_yolov5_demo.tar.gz
+```
+
+</NewCodeBlock>
+
+## Run the inference demo
+
+Enter the directory and run the executable. The sample command uses `bus.jpg` as the input image.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+cd rk3576_rknn_yolov5_demo
+./rknn_yolov5_demo ./model/yolov5s_relu_rk3576.rknn ./model/bus.jpg
+```
+
+</NewCodeBlock>
+
+Command parameters:
+
+- `./rknn_yolov5_demo`: Prebuilt RKNN inference sample
+- `./model/yolov5s_relu_rk3576.rknn`: Quantized YOLOv5s model tailored for RK3576
+- `./model/bus.jpg`: Sample input image
+
+## Check the results
+
+After the inference succeeds, the terminal prints model information, parsed results, and the confidence for each detection, for example:
+
+```
+load label ./model/coco_80_labels_list.txt
+model input num: 1, output num: 3
+input tensors:
+  index=0, name=images, n_dims=4, dims=[1, 640, 640, 3], n_elems=1228800, size=1228800, fmt=NHWC, type=INT8, qnt_type=AFFINE, zp=-128, scale=0.003922
+output tensors:
+  index=0, name=output0, n_dims=4, dims=[1, 255, 80, 80], n_elems=1632000, size=1632000, fmt=NCHW, type=INT8, qnt_type=AFFINE, zp=-128, scale=0.003922
+  index=1, name=286, n_dims=4, dims=[1, 255, 40, 40], n_elems=408000, size=408000, fmt=NCHW, type=INT8, qnt_type=AFFINE, zp=-128, scale=0.003922
+  index=2, name=288, n_dims=4, dims=[1, 255, 20, 20], n_elems=102000, size=102000, fmt=NCHW, type=INT8, qnt_type=AFFINE, zp=-128, scale=0.003922
+model is NHWC input fmt
+model input height=640, width=640, channel=3
+origin size=640x640 crop size=640x640
+input image: 640 x 640, subsampling: 4:2:0, colorspace: YCbCr, orientation: 1
+scale=1.000000 dst_box=(0 0 639 639) allow_slight_change=1 _left_offset=0 _top_offset=0 padding_w=0 padding_h=0
+rga_api version 1.10.1_[0]
+rknn_run
+person @ (209 243 286 510) 0.880
+person @ (479 238 560 526) 0.871
+person @ (109 237 232 534) 0.832
+bus @ (93 129 553 464) 0.705
+person @ (79 353 122 517) 0.301
+write_image path: out.png width=640 height=640 channel=3 data=0x892c940
+```
+
+- `person @ (...) 0.880` shows the detected class, bounding box, and confidence score.
+- `write_image path: out.png` indicates that the bounding boxes were drawn and saved to `out.png`.
+
+The current directory retains the inference output `out.png`:
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/application-dev/rk3576-test-out.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
