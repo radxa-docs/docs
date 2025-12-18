@@ -160,7 +160,7 @@ Use PhoenixSuit to flash the image.
 
 - **Prepare the image**
 
-Download the firmware from the [Resources download page](../../download) and unzip it before flashing.
+Download the firmware from the [Resources download page](../../../download) and unzip it before flashing.
 
 1. Click **Browse** and select the extracted image file.
 2. Choose **Full erase upgrade**.
@@ -186,7 +186,7 @@ Use LiveSuit to flash the image.
 
 - **Prepare the image**
 
-Download and unzip the firmware from the [Resources download page](../../download).
+Download and unzip the firmware from the [Resources download page](../../../download).
 
 1. Click **Image** and select the extracted file.
 

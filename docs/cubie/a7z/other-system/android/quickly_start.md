@@ -19,7 +19,7 @@ sidebar_position: 1
 
 您需要提前准备以下硬件设备：
 
-- 主板：瑞莎 Cubie A7A
+- 主板：瑞莎 Cubie A7Z
 - 系统启动介质：MicroSD 卡
 - 读卡器：MicroSD 卡读卡器
 - 电源适配器：5V Type-C 电源适配器
