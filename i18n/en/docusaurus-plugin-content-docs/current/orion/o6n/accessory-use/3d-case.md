@@ -11,7 +11,7 @@ This page lists third-party, community-designed 3D-printed cases for the Radxa O
 ## Model 1: Screwless Snap-Fit Case
 
 - MakerWorld model page:
-  - https://makerworld.com.cn/zh/models/1861722-rui-sha-radxa-orion-o6n-3dda-yin-wai-ke-mian-luo-s
+  - https://makerworld.com/en/models/2129308
 
 Key features:
 
@@ -22,7 +22,7 @@ Key features:
 ## Model 2: Ultra-Light Minimal Protective Case
 
 - MakerWorld model page:
-  - https://makerworld.com.cn/zh/models/1865300-radxa-orion-o6nwai-ke
+  - https://makerworld.com/en/models/2129290-radxa-orion-o6nwai-ke
 
 Key features:
 
