@@ -52,7 +52,7 @@ radxa 提供预编译好的 [ERNIE-4.5-21B-A3B-PT-Q4_0.gguf](https://modelscope.
 在 X86 主机上编译 Llama.cpp
 
 :::tip
-请根据 [**Llama.cpp**](llama_cpp) 在 X86 主机上编译带 Llama.cpp
+请根据 [**Llama.cpp**](./llama_cpp) 在 X86 主机上编译带 Llama.cpp
 :::
 
 以下为编译命令
@@ -109,7 +109,7 @@ cmake --build build --config Release
 
     ```bash
     cd llama.cpp
-    python3 convert_hf_to_gguf.py ./ERNIE-4.5-21B-A3B-PT-Q4_0.gguf
+    python3 convert_hf_to_gguf.py ./ERNIE-4.5-21B-A3B-PT
     ```
 
     </NewCodeBlock>
@@ -122,7 +122,7 @@ cmake --build build --config Release
 
     ```bash
     cd llama.cpp
-    python3 convert_hf_to_gguf.py ./ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf
+    python3 convert_hf_to_gguf.py ./ERNIE-4.5-21B-A3B-Base-PT
     ```
     </NewCodeBlock>
 
@@ -156,7 +156,7 @@ cmake --build build --config Release
 
     ```bash
     cd llama.cpp
-    ./build/bin/llama-quantize ERNIE-4.5-21B-A3B-PT/ERNIE-4.5-21B-A3B-Base-PT-F16.gguf ERNIE-4.5-21B-A3B-PT/ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf Q4_0
+    ./build/bin/llama-quantize ERNIE-4.5-21B-A3B-Base-PT/ERNIE-4.5-21B-A3B-Base-PT-F16.gguf ERNIE-4.5-21B-A3B-Base-PT/ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf Q4_0
     ```
     </NewCodeBlock>
 
@@ -171,7 +171,7 @@ cmake --build build --config Release
 ### 编译 Llama.cpp
 
 :::tip
-请根据 [**Llama.cpp**](llama_cpp) 在瑞莎星睿 O6/O6N 上编译带 **KleidiAI** 特性的 Llama.cpp
+请根据 [**Llama.cpp**](./llama_cpp) 在瑞莎星睿 O6/O6N 上编译带 **KleidiAI** 特性的 Llama.cpp
 :::
 
 以下为编译命令
@@ -329,7 +329,7 @@ cmake --build build --config Release
     <NewCodeBlock tip="Device" type="device">
 
     ```bash
-    taskset -c 0,5,6,7,8,9,10,11 ./llama-bench -m ERNIE-4.5-0.3B-PT-Q4_0.gguf -p 128 -n 128 -pg 128,128 -t 8
+    taskset -c 0,5,6,7,8,9,10,11 ./llama-bench -m ERNIE-4.5-21B-A3B-PT-Q4_0.gguf -p 128 -n 128 -pg 128,128 -t 8
     ```
 
     </NewCodeBlock>
@@ -357,7 +357,7 @@ cmake --build build --config Release
     <NewCodeBlock tip="Device" type="device">
 
     ```bash
-    taskset -c 0,5,6,7,8,9,10,11 ./llama-bench -m ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf -p 128 -n 128 -pg 128,128 -t 8
+    taskset -c 0,5,6,7,8,9,10,11 ./llama-bench -m ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf -p 128 -n 128 -pg 128,128 -t 8
     ```
     </NewCodeBlock>
 
