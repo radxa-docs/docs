@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-import UART_DEBUG from '../../../common/radxa-os/system-config/\_uart_debug.mdx';
+import UART_DEBUG from '../../../../common/radxa-os/system-config/\_uart_debug.mdx';
 
 # 串口调试
 
