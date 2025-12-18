@@ -1,0 +1,86 @@
+快速运行 YOLOv5 推理 Demo，确认 NPU 可用并熟悉基础流程。
+
+## 下载测试资源
+
+执行下述命令下载 RK3576 YOLOv5 Demo 压缩包。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+wget https://dl.radxa.com/rock4/4d/images/rk3576_rknn_yolov5_demo.tar.gz
+```
+
+</NewCodeBlock>
+
+> 如果下载速度较慢，可先在 PC 上下载后通过 `scp` 传入设备。
+
+## 解压示例工程
+
+解压 Demo 包会得到 `rk3576_rknn_yolov5_demo` 目录，内含模型、测试图片以及可执行程序。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+tar -xzf rk3576_rknn_yolov5_demo.tar.gz
+```
+
+</NewCodeBlock>
+
+## 运行推理 Demo
+
+进入目录并运行可执行文件，示例命令会使用 `bus.jpg` 作为输入图片。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+cd rk3576_rknn_yolov5_demo
+./rknn_yolov5_demo ./model/yolov5s_relu_rk3576.rknn ./model/bus.jpg
+```
+
+</NewCodeBlock>
+
+命令参数说明：
+
+- `./rknn_yolov5_demo`：预编译的 RKNN 推理示例
+- `./model/yolov5s_relu_rk3576.rknn`：适配 RK3576 的量化 YOLOv5s 模型
+- `./model/bus.jpg`：演示输入图片
+
+## 查看运行结果
+
+推理成功后，终端会输出模型信息、解析结果及每个目标的置信度，例如：
+
+```
+load label ./model/coco_80_labels_list.txt
+model input num: 1, output num: 3
+input tensors:
+  index=0, name=images, n_dims=4, dims=[1, 640, 640, 3], n_elems=1228800, size=1228800, fmt=NHWC, type=INT8, qnt_type=AFFINE, zp=-128, scale=0.003922
+output tensors:
+  index=0, name=output0, n_dims=4, dims=[1, 255, 80, 80], n_elems=1632000, size=1632000, fmt=NCHW, type=INT8, qnt_type=AFFINE, zp=-128, scale=0.003922
+  index=1, name=286, n_dims=4, dims=[1, 255, 40, 40], n_elems=408000, size=408000, fmt=NCHW, type=INT8, qnt_type=AFFINE, zp=-128, scale=0.003922
+  index=2, name=288, n_dims=4, dims=[1, 255, 20, 20], n_elems=102000, size=102000, fmt=NCHW, type=INT8, qnt_type=AFFINE, zp=-128, scale=0.003922
+model is NHWC input fmt
+model input height=640, width=640, channel=3
+origin size=640x640 crop size=640x640
+input image: 640 x 640, subsampling: 4:2:0, colorspace: YCbCr, orientation: 1
+scale=1.000000 dst_box=(0 0 639 639) allow_slight_change=1 _left_offset=0 _top_offset=0 padding_w=0 padding_h=0
+rga_api version 1.10.1_[0]
+rknn_run
+person @ (209 243 286 510) 0.880
+person @ (479 238 560 526) 0.871
+person @ (109 237 232 534) 0.832
+bus @ (93 129 553 464) 0.705
+person @ (79 353 122 517) 0.301
+write_image path: out.png width=640 height=640 channel=3 data=0x892c940
+```
+
+- `person @ (...) 0.880` 表示检测类别、坐标与置信度；
+- `write_image path: out.png` 表示检测框已绘制并保存为 `out.png`。
+
+当前目录会同时保留推理结果 `out.png`：
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/application-dev/rk3576-test-out.webp"
+    style={{ width: "75%", maxWidth: "1200px" }}
+  />
+</div>
