@@ -159,7 +159,7 @@ sudo ln -s /usr/local/lib/libpng12.so.0.54.0 /usr/lib/libpng12.so.0
 
 <TabItem value="Windows">
 
-Linux 平台打开 PhoenixSuit 工具进行系统镜像的烧录。
+Windows 平台打开 PhoenixSuit 工具进行系统镜像的烧录。
 
 - 镜像烧录
 
