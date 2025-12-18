@@ -1,0 +1,381 @@
+本文档讲述如何在瑞莎星睿 O6/O6N 上使用 Llama.cpp 启用 [KleidiAI](https://www.arm.com/markets/artificial-intelligence/software/kleidi) 加速推理百度文心一言 [ERNIE-4.5-21B-A3B](https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-PT) 与 [ERNIE-4.5-21B-A3B-Base](https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-Base-PT) 模型。
+
+模型地址：
+
+- [ERNIE-4.5-21B-A3B-PT](https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-PT)
+- [ERNIE-4.5-21B-A3B-Base-PT](https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-Base-PT)
+
+## 模型下载
+
+radxa 提供预编译好的 [ERNIE-4.5-21B-A3B-PT-Q4_0.gguf](https://modelscope.cn/models/radxa/ERNIE-4.5-GGUF/file/view/master/ERNIE-4.5-21B-A3B-PT-Q4_0.gguf?status=2)
+与 [ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf](https://modelscope.cn/models/radxa/ERNIE-4.5-GGUF/file/view/master/ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf?status=2) 模型，用户可以使用 `modelscope` 进行下载
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-21B-A3B-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    pip3 install modelscope
+    modelscope download --model radxa/ERNIE-4.5-GGUF ERNIE-4.5-21B-A3B-PT-Q4_0.gguf --local_dir ./ERNIE-4.5-21B-A3B-PT-Q4_0.gguf
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-21B-A3B-Base-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    pip3 install modelscope
+    modelscope download --model radxa/ERNIE-4.5-GGUF ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf --local_dir ./ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+## 模型转换
+
+:::tip
+如用户对转换 GGUF 模型感兴趣，可以参考本节内容在 X86 主机上进行模型转换，
+
+如不想进行模型转换可以下载 radxa 提供的 GGUF 模型然后跳到 [**模型推理**](#模型推理)
+:::
+
+### 编译 Llama.cpp
+
+在 X86 主机上编译 Llama.cpp
+
+:::tip
+请根据 [**Llama.cpp**](llama_cpp) 在 X86 主机上编译带 Llama.cpp
+:::
+
+以下为编译命令
+
+<NewCodeBlock tip="X86 PC" type="PC">
+
+```bash
+sudo apt install cmake gcc g++
+git clone https://github.com/ggml-org/llama.cpp.git && cd llama.cpp
+cmake -B build
+cmake --build build --config Release
+```
+
+</NewCodeBlock>
+
+### 下载模型
+
+请使用 `modelscope` 下载源模型
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-21B-A3B-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    pip3 install modelscope
+    modelscope download --model PaddlePaddle/ERNIE-4.5-21B-A3B-PT --local_dir ./ERNIE-4.5-21B-A3B-PT
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-21B-A3B-Base-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    pip3 install modelscope
+    modelscope download --model PaddlePaddle/ERNIE-4.5-21B-A3B-Base-PT --local_dir ./ERNIE-4.5-21B-A3B-Base-PT
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+### 转换为浮点 GGUF 格式模型
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-21B-A3B-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    cd llama.cpp
+    python3 convert_hf_to_gguf.py ./ERNIE-4.5-21B-A3B-PT-Q4_0.gguf
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-21B-A3B-Base-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    cd llama.cpp
+    python3 convert_hf_to_gguf.py ./ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+执行 `convert_hf_to_gguf.py` 会在源模型目录下生成一个 F16 的浮点 GGUF 模型
+
+### 量化 GGUF 模型
+
+使用 `llama-quantize` 工具对浮点 GGUF 模型进行 Q4_0 量化
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-21B-A3B-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    cd llama.cpp
+    ./build/bin/llama-quantize ERNIE-4.5-21B-A3B-PT/ERNIE-4.5-21B-A3B-PT-F16.gguf ERNIE-4.5-21B-A3B-PT/ERNIE-4.5-21B-A3B-PT-Q4_0.gguf Q4_0
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-21B-A3B-Base-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    cd llama.cpp
+    ./build/bin/llama-quantize ERNIE-4.5-21B-A3B-PT/ERNIE-4.5-21B-A3B-Base-PT-F16.gguf ERNIE-4.5-21B-A3B-PT/ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf Q4_0
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+执行 `llama-quantize` 会在指定目录下生成一个特定量化方式的 GGUF 模型
+
+## 模型推理
+
+### 编译 Llama.cpp
+
+:::tip
+请根据 [**Llama.cpp**](llama_cpp) 在瑞莎星睿 O6/O6N 上编译带 **KleidiAI** 特性的 Llama.cpp
+:::
+
+以下为编译命令
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt install cmake gcc g++
+git clone https://github.com/ggml-org/llama.cpp.git && cd llama.cpp
+cmake -B build -DGGML_NATIVE=OFF -DGGML_CPU_ARM_ARCH=armv9-a+i8mm+dotprod -DGGML_CPU_KLEIDIAI=ON
+cmake --build build --config Release
+```
+
+</NewCodeBlock>
+
+### 推理模型
+
+这里使用 `llama-cli` 进行模型对话
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-21B-A3B-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    cd llama.cpp
+    taskset -c 0,5,6,7,8,9,10,11 ./build/bin/llama-cli -m ERNIE-4.5-21B-A3B-PT-Q4_0.gguf -c 4096 -t 8 --conversation --jinja
+    ```
+
+    </NewCodeBlock>
+
+    ```bash
+    (base) rock@orion-o6:~/baidu/llama.cpp/build/bin$ taskset -c 0,5,6,7,8,9,10,11 ./llama-cli -m ../../../gguf/ERNIE-4.5-21B-A3B-PT-Q4_0.gguf -c 4096 -t 8 --conversation --jinja
+
+    Loading model...
+
+
+    ▄▄ ▄▄
+    ██ ██
+    ██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+    ██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+    ██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                        ██    ██
+                                        ▀▀    ▀▀
+
+    build      : b7406-4aced7a63
+    model      : ERNIE-4.5-21B-A3B-PT-Q4_0.gguf
+    modalities : text
+
+    available commands:
+      /exit or Ctrl+C     stop or exit
+      /regen              regenerate the last response
+      /clear              clear the chat history
+      /read               add a text file
+
+
+    > What is relativity?
+
+     **Relativity** is a foundational theory in physics developed by Albert Einstein, primarily consisting of two parts: **special relativity** (1905) and **general relativity** (1915). It revolutionized our understanding of space, time, and gravity, challenging classical Newtonian physics.
+
+    ### **1. Special Relativity**
+    - **Key Idea**: Physics laws are the same for all non-accelerating observers, regardless of their motion.
+    - **Postulates**:
+      1. **Principle of Relativity**: Physical laws are identical in all inertial frames.
+      2. **Speed of Light**: The speed of light in a vacuum (*c* ≈ 299,792 km/s) is constant and does not depend on the motion of the光源 (source) or observer.
+    - **Consequences**:
+      - **Time Dilation**: Time slows down for objects moving at relativistic speeds (close to *c*). For example, a clock on a fast-moving train ticks slower than one on Earth.
+      - **Length Contraction**: Objects appear shorter along the direction of motion when moving at high speeds.
+      - **Mass-Energy Equivalence**: *E = mc²*—energy (*E*) and mass (*m*) are interchangeable, explaining nuclear reactions.
+      - **Relativistic Momentum**: Momentum depends on velocity, not just speed.
+
+    ### **2. General Relativity**
+    - **Key Idea**: Gravity is not a force but the curvature of spacetime caused by mass and energy.
+    - **Postulates**:
+      - **Equivalence Principle**: A local inertial frame (free-falling) is indistinguishable from one without gravity.
+      - **Spacetime Curvature**: Massive objects like planets warp spacetime, causing objects to follow curved paths (e.g., orbits).
+    - **Consequences**:
+      - **Gravitational Time Dilation**: Clocks run slower in stronger gravitational fields (e.g., near Earth’s surface vs. orbit).
+      - **Light Bending**: Light curves around massive objects due to spacetime curvature (confirmed by Eddington’s 1919 eclipse experiment).
+      - **Black Holes**: Extreme curvature traps light and matter, creating regions where nothing escapes.
+      - **Expanding Universe**: General relativity explains the universe’s expansion, leading to the Big Bang theory.
+
+    ### **Applications and Impact**
+    - **Technology**: GPS systems rely on corrections for both special relativity (time dilation) and general relativity (gravity’s effect on time).
+    - **Cosmology**: Predicts black holes, neutron stars, and the universe’s evolution.
+    - **Fundamental Physics**: Unifies with quantum mechanics in attempts to explain the universe’s origin (e.g., string theory, loop quantum gravity).
+
+    ### **Why It Matters**
+    Relativity reshaped modern physics by showing that space, time, and gravity are interconnected. It replaced Newton’s absolute space and time with a dynamic, relative framework, providing a more accurate description of the cosmos at both microscopic and cosmic scales.
+
+    In short, relativity is the science of how space, time, and energy influence each other, reshaping our understanding of reality.
+
+    [ Prompt: 18.6 t/s | Generation: 7.0 t/s ]
+    ```
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-21B-A3B-Base-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    cd llama.cpp
+    taskset -c 0,5,6,7,8,9,10,11 ./build/bin/llama-cli -m ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf -c 4096 -t 8 --conversation --jinja
+    ```
+    </NewCodeBlock>
+
+    ```bash
+    (base) rock@orion-o6:~/baidu/llama.cpp/build/bin$ taskset -c 0,5,6,7,8,9,10,11 ./llama-cli -m ../../../gguf/ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf -c 4096 -t 8 --conversation --jinja
+
+    Loading model...
+
+
+    ▄▄ ▄▄
+    ██ ██
+    ██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+    ██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+    ██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                        ██    ██
+                                        ▀▀    ▀▀
+
+    build      : b7406-4aced7a63
+    model      : ERNIE-4.5-21B-A3B-Base-PT-Q4_0.gguf
+    modalities : text
+
+    available commands:
+      /exit or Ctrl+C     stop or exit
+      /regen              regenerate the last response
+      /clear              clear the chat history
+      /read               add a text file
+
+
+    > What is relativity?
+
+    Relativity is a term used in physics to describe the theory of relativity, which was developed by Albert Einstein in the early 20th century. The theory of relativity is based on the idea that the laws of physics are the same for all observers, regardless of their relative motion. This means that the laws of physics, such as the laws of motion and the laws of gravity, apply equally to all observers, whether they are stationary or moving at a constant velocity.
+
+    The theory of relativity has two main branches: special relativity and general relativity. Special relativity deals with the behavior of objects moving at constant velocities, while general relativity deals with the behavior of objects in the presence of gravity.
+
+    The theory of relativity has had a profound impact on our understanding of the universe, including the discovery of black holes, the expansion of the universe, and the existence of gravitational waves. It has also led to the development of new technologies, such as GPS, which rely on the principles of relativity to function accurately.
+
+    [ Prompt: 18.5 t/s | Generation: 7.6 t/s ]
+    ```
+
+    </TabItem>
+
+</Tabs>
+
+## 性能分析
+
+可以使用 `llama-bench` 工具对模型进行性能分析
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-21B-A3B-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    taskset -c 0,5,6,7,8,9,10,11 ./llama-bench -m ERNIE-4.5-0.3B-PT-Q4_0.gguf -p 128 -n 128 -pg 128,128 -t 8
+    ```
+
+    </NewCodeBlock>
+
+
+    | Model   | ernie4_5-moe 21B.A3B Q4_0 |
+    | ------- | ------------------ |
+    | Size    | 11.51 GiB          |
+    | params  | 21.83 B            |
+    | backend | CPU                |
+    | threads | 8                  |
+
+    | n-prompt | n-gen | prefill t/s  | generation t/s | prefill+generation |
+    | -------- | ----- | ------------ | -------------- | ------------------ |
+    | 128      | 128   | 33.96 ± 0.35 | 9.75 ± 0.01    | 15.15 ± 0.04       |
+    | 512      | 512   | 36.30 ± 0.11 | 9.67 ± 0.02    | 14.69 ± 0.01       |
+    | 1024     | 1024  | 35.25 ± 0.04 | 9.38 ± 0.01    | 13.76 ± 0.01       |
+    | 2048     | 2048  | 33.59 ± 0.06 | 8.89 ± 0.01    | 12.28 ± 0.01             |
+    | 4096     | 4096  | 30.79 ± 0.02 | 8.15 ± 0.02    | 10.21 ± 0.02       |
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-21B-A3B-Base-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    taskset -c 0,5,6,7,8,9,10,11 ./llama-bench -m ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf -p 128 -n 128 -pg 128,128 -t 8
+    ```
+    </NewCodeBlock>
+
+    | Model   | ernie4_5-moe 21B.A3B Base Q4_0 |
+    | ------- | ------------------ |
+    | Size    | 11.51 GiB          |
+    | params  | 21.83 B            |
+    | backend | CPU                |
+    | threads | 8                  |
+
+    | n-prompt | n-gen | prefill t/s | generation t/s | prefill+generation t/s|
+    | -------- | ----- | ----------- | -------------- | ------------------ |
+    | 128      | 128   | 34.25 ± 0.21      | 9.79 ± 0.02          | 15.21 ± 0.03             |
+    | 512      | 512   | 36.31 ± 0.15      | 9.63 ± 0.01          | 14.70 ± 0.08             |
+    | 1024     | 1024  | 35.51 ± 0.08      | 9.42 ± 0.01          | 13.79 ± 0.02              |
+    | 2048     | 2048  | 33.73 ± 0.04      | 8.89 ± 0.01          | 12.29 ± 0.01              |
+    | 4096     | 4096  | 30.79 ± 0.06      | 8.13 ± 0.01          | 10.21 ± 0.00              |
+
+    </TabItem>
+
+</Tabs>

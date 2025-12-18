@@ -7,4 +7,5 @@ extend-ignore-identifiers-re = [
     "hda",
     "noe",
     "NOE",
+    "BA"
 ]
