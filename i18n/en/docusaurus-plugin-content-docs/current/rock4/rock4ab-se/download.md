@@ -10,6 +10,18 @@ sidebar_position: 2
 
 #### Linux
 
+:::tip Latest System Image Release Page
+
+- [Rock 4A](https://github.com/radxa-build/rock-pi-4a/releases)
+- [Rock 4A+](https://github.com/radxa-build/rock-pi-4a-plus/releases)
+- [Rock 4B](https://github.com/radxa-build/rock-pi-4b/releases)
+- [Rock 4B+](https://github.com/radxa-build/rock-pi-4b-plus/releases)
+- [Rock 4SE](https://github.com/radxa-build/rock-4se/releases)
+
+This page will publish the latest formal version and test version system images, test versions start with t, formal versions start with r.
+
+:::
+
 - Debian 11
 
   - [Radxa ROCK 4A Debian 11 Desktop Linux 5.10](https://github.com/radxa-build/rock-pi-4a/releases/download/test-build-1/rock-pi-4a_debian_bullseye-test_kde_t1.img.xz)
@@ -28,11 +40,11 @@ sidebar_position: 2
 
   - [Radxa ROCK 4A+ Debian 12 BOOKWORM KDE R4](https://github.com/radxa-build/rock-pi-4b-plus/releases/download/rsdk-r4/rock-pi-4b-plus_bookworm_kde_r4.output_512.img.xz)
 
-  - [Radxa ROCK 4B Debian 12 BOOKWORM KDE R3](https://github.com/radxa-build/rock-pi-4b/releases/download/rsdk-r3/rock-pi-4b_bookworm_kde_r3.output_4096.img.xz)
+  - [Radxa ROCK 4B Debian 12 BOOKWORM KDE R4](https://github.com/radxa-build/rock-pi-4b/releases/download/rsdk-r4/rock-pi-4b_bookworm_kde_r4.output_512.img.xz)
 
-  - [Radxa ROCK 4B+ Debian 12 BOOKWORM KDE R4](https://github.com/radxa-build/rock-pi-4b-plus/releases/download/rsdk-r4/rock-pi-4b-plus_bookworm_kde_r4.output_512.img.xz)
+  - [Radxa ROCK 4B+ Debian 12 BOOKWORM KDE R5](https://github.com/radxa-build/rock-pi-4b-plus/releases/download/rsdk-r5/rock-pi-4b-plus_bookworm_kde_r5.output_512.img.xz)
 
-  - [Radxa ROCK 4SE Debian 12 BOOKWORM KDE R3](https://github.com/radxa-build/rock-4se/releases/download/rsdk-r3/rock-4se_bookworm_kde_r3.output_512.img.xz)
+  - [Radxa ROCK 4SE Debian 12 BOOKWORM KDE R4](https://github.com/radxa-build/rock-4se/releases/download/rsdk-r4/rock-4se_bookworm_kde_r4.output_512.img.xz)
 
 #### Android
 
