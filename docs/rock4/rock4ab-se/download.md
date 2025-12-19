@@ -36,9 +36,9 @@ sidebar_position: 2
 
 - Debian 12
 
-  - [Radxa ROCK 4A Debian 12 BOOKWORM KDE R3](https://github.com/radxa-build/rock-pi-4b/releases/download/rsdk-r3/rock-pi-4b_bookworm_kde_r3.output_4096.img.xz)
+  - [Radxa ROCK 4A Debian 12 BOOKWORM KDE R4](https://github.com/radxa-build/rock-pi-4b/releases/download/rsdk-r4/rock-pi-4b_bookworm_kde_r4.output_512.img.xz)
 
-  - [Radxa ROCK 4A+ Debian 12 BOOKWORM KDE R4](https://github.com/radxa-build/rock-pi-4b-plus/releases/download/rsdk-r4/rock-pi-4b-plus_bookworm_kde_r4.output_512.img.xz)
+  - [Radxa ROCK 4A+ Debian 12 BOOKWORM KDE R5](https://github.com/radxa-build/rock-pi-4b-plus/releases/download/rsdk-r5/rock-pi-4b-plus_bookworm_kde_r5.output_512.img.xz)
 
   - [Radxa ROCK 4B Debian 12 BOOKWORM KDE R4](https://github.com/radxa-build/rock-pi-4b/releases/download/rsdk-r4/rock-pi-4b_bookworm_kde_r4.output_512.img.xz)
 
