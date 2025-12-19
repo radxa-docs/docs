@@ -83,7 +83,11 @@ For more images, please check: [ROCK 3B radxa-build](https://github.com/radxa-bu
 
 The following systems have been officially tested and verified by Radxa:
 
-ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
+ROCK 3C:
+
+- [Rock3C-Debian11-Bullseye-xfce-b43.img](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)(For booting from microSD card and eMMC module)
+
+- [Rock3C-Debian12-Bookworm-kde-b1.img](https://github.com/radxa-build/rock-3c/releases/download/rsdk-b1/rock-3c_bookworm_kde_b1.output_512.img.xz)(For booting from microSD card and eMMC module)
 
 - [Rock3C-Android11_r12-20240806-gpt.img](https://github.com/radxa/manifests/releases/download/android11-radxa-20240806/Rock3C-Android11_r12-20240806-gpt.zip)(Used to flash the system into EMMC and SD card using a card reader)
 
