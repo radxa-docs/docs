@@ -1,0 +1,180 @@
+# ARM64 Kernel Build Environment Setup
+
+This document describes how to set up an ARM64 build environment on an **x86 host** for building the **Radxa Linux kernel / U-Boot**.
+
+## Overview of Recommended Options
+
+Based on internal Radxa practices and community usage, we recommend the following three options:
+
+| Option                         | Highlights                    | Typical Scenarios                    |
+| ------------------------------ | ----------------------------- | ------------------------------------ |
+| VS Code Dev Container          | Easiest, no pollution to host | Daily development, patch debugging   |
+| ARM64 Docker container         | Stable, scriptable            | CI / automated builds                |
+| systemd-nspawn ARM64 container | No Docker required            | Enterprise / restricted environments |
+
+---
+
+## Option 1: VS Code Dev Container
+
+This is the **most convenient** way to prepare the environment.
+
+### Prerequisites
+
+- Docker / Docker Desktop
+- Visual Studio Code
+- VS Code extension: `Remote - Containers`
+
+### Usage
+
+Enter the kernel or U-Boot source tree directory:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```
+code .
+```
+
+</NewCodeBlock>
+
+If the directory contains `.devcontainer/devcontainer.json`, VS Code will show a prompt:
+
+```
+Reopen in Container
+```
+
+After confirming, VS Code will automatically start an ARM64 build container and attach to it.
+
+The container already includes commonly used cross compilation toolchains and build dependencies.
+
+---
+
+## Option 2: ARM64 Docker Container (CLI / CI Recommended)
+
+Suitable for command-line users or CI systems.
+
+### Install docker / podman
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```
+sudo apt install -y docker.io
+sudo systemctl start docker
+```
+
+</NewCodeBlock>
+
+### Enable Multi-Architecture Support (Once Only)
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```
+sudo apt install -y qemu-user-static binfmt-support
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+```
+
+</NewCodeBlock>
+
+### Start an ARM64 Debian Container
+
+<NewCodeBlock tip="Host" type="Host">
+
+```
+docker run -it --rm \
+  --platform linux/arm64 \
+  -v "$(pwd):/workspace" \
+  -w /workspace \
+  arm64v8/debian:12 \
+  bash
+```
+
+</NewCodeBlock>
+
+### Install Basic Build Dependencies
+
+<NewCodeBlock tip="Container" type="Container">
+
+```bash
+apt update
+apt install -y \
+  build-essential bc kmod cpio flex bison \
+  libssl-dev libelf-dev \
+  debhelper dh-make \
+  git
+```
+
+</NewCodeBlock>
+
+This container environment is suitable for:
+
+- Linux kernel builds
+- U-Boot builds
+- Building Debian kernel packages
+
+---
+
+## Option 3: systemd-nspawn ARM64 Container (No Docker)
+
+Suitable for Linux hosts where Docker cannot be used.
+
+### Install Tools
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```bash
+sudo apt install -y \
+  systemd-container \
+  qemu-user-static \
+  debootstrap \
+  debian-archive-keyring
+```
+
+</NewCodeBlock>
+
+### Create an ARM64 rootfs
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```bash
+sudo debootstrap --arch=arm64 \
+  bookworm /var/lib/machines/debian12-arm64 \
+  http://deb.debian.org/debian
+```
+
+</NewCodeBlock>
+
+:::tip
+If network access is slow, you can replace `http://deb.debian.org/debian` with a closer mirror, for example: `https://mirrors.tuna.tsinghua.edu.cn/debian/`.
+:::
+
+### Enter the Container
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```bash
+sudo systemd-nspawn -D /var/lib/machines/debian12-arm64
+```
+
+</NewCodeBlock>
+
+### Install Build Dependencies
+
+<NewCodeBlock tip="Container" type="Container">
+
+```bash
+apt update
+apt install -y \
+  build-essential bc kmod cpio flex bison \
+  libssl-dev libelf-dev \
+  debhelper dh-make \
+  git
+```
+
+</NewCodeBlock>
+
+---
+
+## Notes
+
+- If you are developing on an **ARM64 native device**, you can build directly without QEMU.
+- These environments are only for **building** images, not for flashing or boot configuration.
+- The detailed build flows for kernel and U-Boot are described in their respective documents.

@@ -1,10 +1,10 @@
 ---
 sidebar_position: 3
-description: "Easily build personalised Linux kernels and enjoy custom hardware development with the Radxa BSP tool"
+description: "Radxa kernel development guide"
 ---
 
-import KERNEL from '../../../common/dev/\_kernel.mdx'
+import KERNEL from '../../../common/dev/\_kernel-dev.mdx'
 
 # Kernel Development
 
-<KERNEL model="Radxa ROCK 5B" soc="rockchip" />
+<KERNEL />

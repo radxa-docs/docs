@@ -1,0 +1,178 @@
+本文档介绍如何在 **x86 主机** 上搭建可用于 **Radxa Linux 内核 / U-Boot** 构建的 ARM64 开发环境。
+
+## 推荐环境方案概览
+
+根据 Radxa 内部实践和社区使用情况，推荐以下三种环境方案：
+
+| 方案                      | 特点           | 适用场景           |
+| ------------------------- | -------------- | ------------------ |
+| VS Code Dev Container     | 最简单、零污染 | 日常开发、补丁调试 |
+| ARM64 Docker 容器         | 稳定、可脚本化 | CI / 自动化构建    |
+| systemd-nspawn ARM64 容器 | 无 Docker      | 企业 / 受限环境    |
+
+---
+
+## 方案一：VS Code Dev Container
+
+这是 **最方便部署环境** 的方式。
+
+### 前置条件
+
+- Docker / Docker Desktop
+- Visual Studio Code
+- VS Code 插件：`Remote - Containers`
+
+### 使用方式
+
+进入内核或 U-Boot 源码目录：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```
+code .
+```
+
+</NewCodeBlock>
+
+若目录中存在 `.devcontainer/devcontainer.json`，VS Code 会提示：
+
+```
+Reopen in Container
+```
+
+确认后，VS Code 会自动拉起 ARM64 构建容器并进入开发环境。
+
+该环境中已包含常用交叉编译工具链和构建依赖。
+
+---
+
+## 方案二：ARM64 Docker 容器（命令行 / CI 推荐）
+
+适合命令行用户或 CI 系统使用。
+
+### 安装 docker/podman
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```
+sudo apt install -y docker.io
+sudo systemctl start docker
+```
+
+</NewCodeBlock>
+
+### 启用多架构支持（仅首次）
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```
+sudo apt install -y qemu-user-static binfmt-support
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+```
+
+</NewCodeBlock>
+
+### 启动 ARM64 Debian 容器
+
+<NewCodeBlock tip="Host" type="Host">
+
+```
+docker run -it --rm \
+  --platform linux/arm64 \
+  -v "$(pwd):/workspace" \
+  -w /workspace \
+  arm64v8/debian:12 \
+  bash
+```
+
+</NewCodeBlock>
+
+### 安装基础构建依赖
+
+<NewCodeBlock tip="Container" type="Container">
+
+```bash
+apt update
+apt install -y \
+  build-essential bc kmod cpio flex bison \
+  libssl-dev libelf-dev \
+  debhelper dh-make \
+  git
+```
+
+</NewCodeBlock>
+
+该容器环境适用于：
+
+- Linux Kernel 构建
+- U-Boot 构建
+- Debian 内核包生成
+
+---
+
+## 方案三：systemd-nspawn ARM64 容器（无 Docker）
+
+适用于无法使用 Docker 的 Linux 主机环境。
+
+### 安装工具
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```bash
+sudo apt install -y \
+  systemd-container \
+  qemu-user-static \
+  debootstrap \
+  debian-archive-keyring
+```
+
+</NewCodeBlock>
+
+### 创建 ARM64 rootfs
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```bash
+sudo debootstrap --arch=arm64 \
+  bookworm /var/lib/machines/debian12-arm64 \
+  http://deb.debian.org/debian
+```
+
+</NewCodeBlock>
+
+:::tip
+若网络遇到问题，可将 `http://deb.debian.org/debian` 替换为国内镜像源，例如： `https://mirrors.tuna.tsinghua.edu.cn/debian/`
+:::
+
+### 进入容器
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
+```bash
+sudo systemd-nspawn -D /var/lib/machines/debian12-arm64
+```
+
+</NewCodeBlock>
+
+### 安装构建依赖
+
+<NewCodeBlock tip="Container" type="Container">
+
+```bash
+apt update
+apt install -y \
+  build-essential bc kmod cpio flex bison \
+  libssl-dev libelf-dev \
+  debhelper dh-make \
+  git
+```
+
+</NewCodeBlock>
+
+---
+
+## 注意事项
+
+- 若在 **ARM64 原生设备** 上开发，可直接编译，无需 QEMU
+- 构建环境仅用于 **编译**，不涉及刷机或启动配置
+- Kernel 与 U-Boot 构建流程在后续文档中分别说明

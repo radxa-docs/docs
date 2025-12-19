@@ -1,0 +1,386 @@
+# ARM64 Kernel Development Guide Based on Radxa Kernel Repository
+
+This document explains how to obtain the official Radxa Linux kernel source code and perform ARM64 kernel development and compilation on an x86 host in various ways. It includes source code acquisition, development environment setup (4 options), compilation, and deployment.
+
+## Obtaining the Kernel Source Code for Your Device
+
+Radxa maintains separate kernel repositories for different hardware platforms. The repository naming format is:
+
+```bash
+https://github.com/radxa-pkg/linux-<profile>
+```
+
+Select the correct `<profile>` based on your device model. Common mappings are as follows:
+
+|  #  |          Device Model (Product)           |    Profile    |
+| :-: | :---------------------------------------: | :-----------: |
+|  1  |   ROCK 5A / 5B / 5B\+ / 5C / 5T / 5 ITX   |    rk2410     |
+|  2  |        ROCK 2A/ROCK 2F/ E20C/E24C         |    rk2312     |
+|  3  |      E52C / E54C / NX5 / CM5 Series       |    rk2410     |
+|  4  |      ROCK 3A / 3B / 3C / ZERO 3 CM3       | rk2410\-nocsf |
+|  5  | ROCK Pi 4 / ROCK 4 Series (except ROCK4D) |    rk2501     |
+|  6  |                  ROCK4D                   | rk2410\-nocsf |
+|  7  |                Dragon Q6A                 |     qcom      |
+|  8  |                AIRBox Q900                |    qc2509     |
+
+:::info
+Submodules must be cloned recursively
+
+Radxa kernel repositories rely on multiple submodules (e.g., kernel source code). Failure to properly initialize submodules may result in compilation failures or missing critical files.
+:::
+
+Example (using ROCK 5B):
+
+```bash
+git clone --recurse-submodules https://github.com/radxa-pkg/linux-rk2410.git
+cd linux-rk2410
+```
+
+If you have already cloned but not initialized submodules, you can run:
+
+```bash
+git submodule update --init --recursive --progress
+```
+
+:::tip
+If you encounter network issues, you can try using a proxy (e.g., `https://gh-proxy.com/`) to speed up cloning. If submodule cloning fails, you can try editing the `.gitmodules` file to replace the submodule URLs with proxy addresses.
+
+Additionally, we have mirrored these repositories on the Chinese git platform gitcode. The address formats are:
+
+- `https://gitcode.com/radxa-pkg/linux-<profile>`
+- `https://gitcode.com/radxa/kernel.git`
+
+You can choose to use them as needed.
+:::
+
+---
+
+## Development Environment Setup (Four Options)
+
+### Option 1: Using VS Code Dev Container (Recommended, Lightweight and Convenient)
+
+1. Ensure the following are installed:
+   - Docker (Docker Desktop or Docker Engine)
+   - Visual Studio Code
+   - Remote - Containers extension
+2. Open VS Code in the project root directory:
+
+   ```bash
+   code .
+   ```
+
+3. If `.devcontainer/devcontainer.json` exists, VS Code will prompt "Reopen in Container." Click to enter the pre-configured ARM64 development environment.
+
+:::tip
+If you encounter network issues, it is recommended to uncomment the code under `Uncomment below to speed up container building in China` in `devcontainer.json`.
+:::
+
+---
+
+### Option 2: Manually Running ARM64 Docker Container (Flexible and Controllable)
+
+#### Step 1: Enable Multi-Architecture Support (Only Once)
+
+Run the following on the host:
+
+```bash
+sudo apt-get install -y qemu-user-static binfmt-support
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+```
+
+#### Step 2: Start the Container and Mount the Source Code
+
+Ensure you are in the directory with the fully cloned (including submodules) source code:
+
+```bash
+docker run -it --rm \
+  --platform linux/arm64 \
+  -v "$(pwd):/workspace" \
+  -w /workspace \
+  arm64v8/debian:12 \
+  bash
+```
+
+#### Step 3: Switch to Debian Mirror Sources
+
+If you have fast access to the official Debian software sources, you can skip this step.
+
+```bash
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+cat <<EOF | sudo tee /etc/apt/sources.list
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware
+EOF
+```
+
+:::tip
+This mirror source can be replaced with other Debian-recommended sources: https://www.debian.org/mirror/list.en.html#complete-list.
+You can choose the fastest source based on your location.
+:::
+
+#### Step 4: Install Dependencies
+
+```bash
+apt update && apt install -y \
+    build-essential bc kmod cpio flex bison \
+    libssl-dev libelf-dev gcc-aarch64-linux-gnu \
+    debhelper dh-make
+apt build-dep -y .
+```
+
+---
+
+### Option 3: Using Debian 12 ARM64 Official Cloud Image to Install a Virtual Machine (Complete System Environment)
+
+The kernel source code with submodules also needs to be cloned inside the virtual machine.
+
+#### Step 1: Install QEMU and Firmware
+
+```bash
+sudo apt install -y qemu-system-arm qemu-efi-aarch64 qemu-utils cloud-image-utils
+```
+
+#### Step 2: Download the Debian 12 ARM64 qcow2 Image
+
+```bash
+wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-arm64.qcow2
+```
+
+:::tip
+You can use the mirror-provided image:
+
+```bash
+wget https://mirror.nju.edu.cn/debian-cdimage/cloud/bookworm/latest/debian-12-genericcloud-arm64.qcow2
+```
+
+:::
+
+#### Step 3: Create User Data ISO (For Auto Login and SSH Key)
+
+Create `user-data` and `meta-data` files:
+
+```bash
+# user-data
+#cloud-config
+users:
+  - name: debian
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - $(cat ~/.ssh/id_rsa.pub)  # Replace with your public key
+chpasswd:
+  list: |
+    debian:debian
+  expire: False
+runcmd:
+  - systemctl enable --now ssh
+touch meta-data
+```
+
+Generate ISO:
+
+```bash
+cloud-localds user-data.iso user-data meta-data
+```
+
+#### Step 4: Start the Virtual Machine (Optional Bridged Network)
+
+```bash
+qemu-system-aarch64 \
+  -machine virt -cpu cortex-a72 -smp 4 -m 4G \
+  -bios /usr/share/qemu-efi-aarch64/QEMU_EFI.fd \
+  -drive if=virtio,file=debian-12-generic-arm64.qcow2,format=qcow2 \
+  -cdrom user-data.iso \
+  -netdev user,id=net0,hostfwd=tcp::2222-:22 \
+  -device virtio-net-device,netdev=net0 \
+  -nographic
+```
+
+The first startup may be slow. After completion, you can log in via SSH:
+
+```bash
+ssh -p 2222 debian@localhost
+```
+
+#### Step 5: Configure the Development Environment in the Virtual Machine
+
+Log in and execute:
+
+```bash
+sudo apt update
+sudo apt install -y git build-essential bc kmod cpio flex bison \
+    libssl-dev libelf-dev debhelper dh-make
+```
+
+```bash
+# Clone the kernel source code (or transfer it from the host via scp)
+git clone https://github.com/radxa-pkg/linux-rk2410.git
+cd linux-rk2410
+sudo apt build-dep -y .
+```
+
+---
+
+### Option 4: Using systemd-nspawn to Create ARM64 Container (No Docker | With systemd)
+
+Applicable Scenarios:
+
+- The host is a Linux system supporting systemd, such as Debian/Ubuntu/Fedora;
+- You do not want to install Docker but need stronger isolation than regular chroot;
+- Full systemd support is required (e.g., service management, journal logs, etc.).
+
+#### Step 1: Enable Multi-Architecture Support and Install Tools
+
+```bash
+sudo dpkg --add-architecture arm64
+sudo apt update
+sudo apt install -y systemd-container qemu-user-static debootstrap debian-archive-keyring
+```
+
+#### Step 2: Create Debian 12 ARM64 Root Filesystem
+
+```bash
+sudo mkdir -p /var/lib/machines/debian12-arm64
+sudo debootstrap \
+  --arch=arm64 \
+  --foreign \
+  bookworm \
+  /var/lib/machines/debian12-arm64 \
+  http://deb.debian.org/debian
+```
+
+:::tip
+If the download speed is slow, you can replace the official source address in the last line with a suitable mirror, such as:
+
+```bash
+https://mirrors.tuna.tsinghua.edu.cn/debian
+```
+
+Other available mirrors include:
+
+- Alibaba Cloud: https://mirrors.aliyun.com/debian
+- USTC: https://mirrors.ustc.edu.cn/debian
+- Debian Mirror List: https://www.debian.org/mirror/list.en.html#complete-list
+
+Using mirror sources can significantly speed up the rootfs construction process, and the address will be automatically written to the container's `/etc/apt/sources.list`.
+:::
+
+#### Step 3: Complete the Second-Stage Installation
+
+```bash
+sudo systemd-nspawn -D /var/lib/machines/debian12-arm64 /debootstrap/debootstrap --second-stage
+```
+
+#### Step 4: Start the Container and Initialize
+
+```bash
+sudo systemd-nspawn -D /var/lib/machines/debian12-arm64
+```
+
+Set the root password and install basic tools inside the container:
+
+```bash
+passwd root                # Set password (e.g., "debian")
+apt update
+apt install -y build-essential debhelper dh-make locales git devscripts
+dpkg-reconfigure locales   # Optional: Generate en_US.UTF-8
+exit
+```
+
+#### Step 5: Mount Kernel Source Code and Compile
+
+Exit the container, then bind the source directory on the host for compilation:
+
+```bash
+# Assume the current directory is the cloned linux-rk2410
+sudo systemd-nspawn -D /var/lib/machines/debian12-arm64 \
+  --bind-ro=$(pwd):/workspace \
+  -u root \
+  /bin/bash -c "cd /workspace && apt build-dep -y . && make deb"
+```
+
+Or enter interactively:
+
+```bash
+sudo systemd-nspawn -D /var/lib/machines/debian12-arm64 \
+  --bind-ro=$(pwd):/workspace \
+  -u root
+```
+
+Execute inside the container:
+
+```bash
+cd /workspace
+make deb
+```
+
+#### Step 6: Manage the Container (Optional)
+
+- Stop: `sudo machinectl stop debian12-arm64`
+- Check Status: `sudo machinectl status debian12-arm64`
+- Delete: `sudo machinectl remove debian12-arm64`
+
+---
+
+## Kernel Compilation
+
+Regardless of the option used, the compilation process is consistent:
+
+### Build Debian Package (Recommended)
+
+```bash
+apt build-dep .
+make deb
+```
+
+This command depends on the `src/` directory (usually exists as a submodule). Failure to initialize submodules will result in failure.
+
+### Manual Compilation
+
+Enter the `src` directory and follow the standard kernel compilation process, for example:
+
+```bash
+make menuconfig
+make -j$(nproc)
+```
+
+---
+
+## Deployment and Verification
+
+Copy the generated `.deb` files to the target device and install:
+
+```bash
+sudo dpkg -i linux-image-*.deb linux-headers-*.deb
+sudo reboot
+```
+
+Verify:
+
+```bash
+uname -r
+zcat /proc/config.gz | grep CONFIG_YOUR_FEATURE
+```
+
+---
+
+## Option Comparison
+
+|  #  |           Option            |  Isolation  | Startup Speed | Requires Docker | systemd Support |         Applicable Scenarios          |
+| :-: | :-------------------------: | :---------: | :-----------: | :-------------: | :-------------: | :-----------------------------------: |
+|  1  |    VS Code Dev Container    |   Medium    |   Very Fast   |       Yes       |       No        |           Daily Development           |
+|  2  |   ARM64 Docker Container    |   Medium    |     Fast      |       Yes       |       No        |        CI/CD, Script Building         |
+|  3  | Cloud Image Virtual Machine |    High     |    Medium     |       No        |       Yes       |   Driver Debugging, System Testing    |
+|  4  |  systemd\-nspawn Container  | Medium-High |     Fast      |       No        |       Yes       | Full Build in Non-Docker Environments |
+
+---
+
+## Key Reminders:
+
+- Always clone the source code with `--recurse-submodules`, otherwise `make deb` may fail due to the absence of the `src/` directory;
+- If you encounter network issues, switch to Debian sources immediately to avoid compilation interruptions.
+- If you are compiling on an ARM64 host, you can skip the multi-architecture support and QEMU-related steps and directly use Docker or systemd-nspawn for development.
+
+By following any of the above options, you can efficiently develop, build, and deploy Linux kernels for Radxa devices.
