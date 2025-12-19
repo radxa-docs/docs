@@ -1,0 +1,344 @@
+This document describes how to enable [KleidiAI](https://www.arm.com/markets/artificial-intelligence/software/kleidi) acceleration in Llama.cpp on the Radxa ROCK Orion O6/O6N to run Baidu ERNIE-4.5-0.3B and ERNIE-4.5-0.3B-Base models.
+
+Model links:
+
+- [ERNIE-4.5-0.3B-PT](https://huggingface.co/baidu/ERNIE-4.5-0.3B-PT)
+- [ERNIE-4.5-0.3B-Base-PT](https://huggingface.co/baidu/ERNIE-4.5-0.3B-Base-PT)
+
+## Model download
+
+Radxa provides prebuilt [ERNIE-4.5-0.3B-PT-Q4_0.gguf](https://modelscope.cn/models/radxa/ERNIE-4.5-GGUF/file/view/master/ERNIE-4.5-0.3B-PT-Q4_0.gguf?status=2) and [ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf](https://modelscope.cn/models/radxa/ERNIE-4.5-GGUF/file/view/master/ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf?status=2) models. You can download them with `modelscope`.
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-0.3B-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    pip3 install modelscope
+    modelscope download --model radxa/ERNIE-4.5-GGUF ERNIE-4.5-0.3B-PT-Q4_0.gguf --local_dir ./ERNIE-4.5-0.3B-PT-Q4_0.gguf
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-0.3B-Base-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    pip3 install modelscope
+    modelscope download --model radxa/ERNIE-4.5-GGUF ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf --local_dir ./ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+## Model conversion
+
+:::tip
+If you want to learn how to convert GGUF models, follow this section on an x86 host.
+
+If you would rather skip the conversion, download Radxa's GGUF builds and jump to [**Model inference**](#model-inference).
+:::
+
+### Build Llama.cpp
+
+Compile Llama.cpp on an x86 host.
+
+:::tip
+Refer to [**Llama.cpp**](./llama_cpp) for detailed instructions on building Llama.cpp on x86.
+:::
+
+Use the following commands:
+
+<NewCodeBlock tip="X86 PC" type="PC">
+
+```bash
+sudo apt install cmake gcc g++
+git clone https://github.com/ggml-org/llama.cpp.git && cd llama.cpp
+cmake -B build
+cmake --build build --config Release
+```
+
+</NewCodeBlock>
+
+### Download the model
+
+Use `modelscope` to download the original checkpoints.
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-0.3B-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    pip3 install modelscope
+    modelscope download --model PaddlePaddle/ERNIE-4.5-0.3B-PT --local_dir ./ERNIE-4.5-0.3B-PT
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-0.3B-Base-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    pip3 install modelscope
+    modelscope download --model PaddlePaddle/ERNIE-4.5-0.3B-Base-PT --local_dir ./ERNIE-4.5-0.3B-Base-PT
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+### Convert to floating-point GGUF models
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-0.3B-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    cd llama.cpp
+    python3 convert_hf_to_gguf.py ./ERNIE-4.5-0.3B-PT
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-0.3B-Base-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    cd llama.cpp
+    python3 convert_hf_to_gguf.py ./ERNIE-4.5-0.3B-Base-PT
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+Running `convert_hf_to_gguf.py` produces an F16 floating-point GGUF file in the source model directory.
+
+### Quantize the GGUF model
+
+Use the `llama-quantize` tool to generate a Q4_0 GGUF model.
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-0.3B-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    cd llama.cpp
+    ./build/bin/llama-quantize ERNIE-4.5-0.3B-PT/ERNIE-4.5-0.3B-PT-F16.gguf ERNIE-4.5-0.3B-PT/ERNIE-4.5-0.3B-PT-Q4_0.gguf Q4_0
+    ```
+
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-0.3B-Base-PT">
+
+    <NewCodeBlock tip="X86 PC" type="PC">
+
+    ```bash
+    cd llama.cpp
+    ./build/bin/llama-quantize ERNIE-4.5-0.3B-Base-PT/ERNIE-4.5-0.3B-Base-PT-F16.gguf ERNIE-4.5-0.3B-Base-PT/ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf Q4_0
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
+
+Running `llama-quantize` outputs a GGUF model with the selected quantization method in the specified directory.
+
+## Model inference
+
+### Build Llama.cpp
+
+:::tip
+Follow [**Llama.cpp**](./llama_cpp) to build Llama.cpp with **KleidiAI** enabled on the Radxa ROCK Orion O6/O6N.
+:::
+
+Use the following commands:
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt install cmake gcc g++
+git clone https://github.com/ggml-org/llama.cpp.git && cd llama.cpp
+cmake -B build -DGGML_NATIVE=OFF -DGGML_CPU_ARM_ARCH=armv9-a+i8mm+dotprod -DGGML_CPU_KLEIDIAI=ON
+cmake --build build --config Release
+```
+
+</NewCodeBlock>
+
+### Run inference
+
+Use `llama-cli` to start an interactive conversation.
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-0.3B-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    cd llama.cpp
+    taskset -c 0,5,6,7,8,9,10,11 ./build/bin/llama-cli -m ERNIE-4.5-0.3B-PT-Q4_0.gguf -c 4096 -t 8 --conversation --jinja
+    ```
+
+    </NewCodeBlock>
+
+    ```bash
+    (base) rock@orion-o6:~/baidu/llama.cpp/build/bin$ taskset -c 0,5,6,7,8,9,10,11 ./llama-cli -m ../../../gguf/ERNIE-4.5-0.3B-PT-Q4_0.gguf -c 4096 -t 8 --conversation --jinja
+
+    Loading model...
+
+
+    ▄▄ ▄▄
+    ██ ██
+    ██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+    ██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+    ██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                        ██    ██
+                                        ▀▀    ▀▀
+
+    build      : b7406-4aced7a63
+    model      : ERNIE-4.5-0.3B-PT-Q4_0.gguf
+    modalities : text
+
+    available commands:
+      /exit or Ctrl+C     stop or exit
+      /regen              regenerate the last response
+      /clear              clear the chat history
+      /read               add a text file
+
+
+    > What is relativity?
+
+    Relativity is a philosophical and scientific theory that describes how the laws of physics are relative to different reference frames. It's a way of thinking and studying phenomena that treats the motion of objects as a coordinate in a three-dimensional space of spacetime, and it explains how frames of reference can be relative to each other.
+
+    [ Prompt: 224.0 t/s | Generation: 45.9 t/s ]
+    ```
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-0.3B-Base-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    cd llama.cpp
+    taskset -c 0,5,6,7,8,9,10,11 ./build/bin/llama-cli -m ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf -c 4096 -t 8 --conversation --jinja
+    ```
+    </NewCodeBlock>
+
+    ```bash
+    (base) rock@orion-o6:~/baidu/llama.cpp/build/bin$ taskset -c 0,5,6,7,8,9,10,11 ./llama-cli -m ../../../gguf/ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf -c 4096 -t 8 --conversation --jinja
+
+    Loading model...
+
+
+    ▄▄ ▄▄
+    ██ ██
+    ██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+    ██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+    ██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                        ██    ██
+                                        ▀▀    ▀▀
+
+    build      : b7406-4aced7a63
+    model      : ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf
+    modalities : text
+
+    available commands:
+      /exit or Ctrl+C     stop or exit
+      /regen              regenerate the last response
+      /clear              clear the chat history
+      /read               add a text file
+
+
+    > What is relativity?
+
+    Relativity is the scientific theory that explains the laws of physics that govern the behavior of matter and energy in the universe. It is a theory that explains the nature of space and time, which has implications for our understanding of the physical world and the laws of nature. Relativity is a fundamental concept in physics that describes the relationship between the speed of light in a vacuum and the speed of light in a medium. It also explains the behavior of objects in general relativity, which deals with the force of gravity and the curvature of space and time in general.
+
+    [ Prompt: 365.2 t/s | Generation: 43.3 t/s ]
+    ```
+
+    </TabItem>
+
+</Tabs>
+
+## Performance analysis
+
+Use the `llama-bench` tool to measure performance.
+
+<Tabs>
+    <TabItem value="ERNIE-4.5-0.3B-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    taskset -c 0,5,6,7,8,9,10,11 ./llama-bench -m ERNIE-4.5-0.3B-PT-Q4_0.gguf -p 128 -n 128 -pg 128,128 -t 8
+    ```
+
+    </NewCodeBlock>
+
+
+    | Model   | ernie4_5 0.3B Q4_0 |
+    | ------- | ------------------ |
+    | Size    | 219.68 MiB         |
+    | params  | 360.75 M           |
+    | backend | CPU                |
+    | threads | 8                  |
+
+    | n-prompt | n-gen | prefill t/s | generation t/s | prefill+generation t/s|
+    | -------- | ----- | ----------- | -------------- | ------------------ |
+    | 128      | 128   | 393.12 ± 3.11      | 78.56 ± 0.89          | 130.87 ± 1.04             |
+    | 512      | 512   | 439.33 ± 7.26      | 77.05 ± 0.23          | 116.79 ± 0.43             |
+    | 1024     | 1024  | 374.82 ± 2.67      | 70.65 ± 0.22         |  90.95 ± 0.35             |
+    | 2048     | 2048  | 293.03 ± 1.38      | 58.21 ± 0.09         | 66.94 ± 0.10              |
+    | 4096     | 4096  | 206.78 ± 0.28      | 45.48 ± 0.11          | 44.76 ± 0.03              |
+
+    </TabItem>
+
+    <TabItem value="ERNIE-4.5-0.3B-Base-PT">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    taskset -c 0,5,6,7,8,9,10,11 ./llama-bench -m ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf -p 128 -n 128 -pg 128,128 -t 8
+    ```
+    </NewCodeBlock>
+
+    | Model   | ernie4_5 0.3B Base Q4_0 |
+    | ------- | ------------------ |
+    | Size    | 219.68 MiB         |
+    | params  | 360.75 M           |
+    | backend | CPU                |
+    | threads | 8                  |
+
+    | n-prompt | n-gen | prefill t/s | generation t/s | prefill+generation t/s|
+    | -------- | ----- | ----------- | -------------- | ------------------ |
+    | 128      | 128   | 405.01 ± 5.66     | 75.12 ± 0.74          | 126.65 ± 0.96             |
+    | 512      | 512   | 445.61 ± 6.44      | 73.82 ± 0.22          | 114.13 ± 0.14             |
+    | 1024     | 1024  | 384.32 ± 1.54      | 68.78 ± 0.27          | 90.95 ± 0.07              |
+    | 2048     | 2048  | 300.07 ± 1.51     | 57.33 ± 0.06         | 67.82 ± 0.08              |
+    | 4096     | 4096  | 207.03 ± 0.70     | 44.82 ± 0.13          | 44.59 ± 0.02               |
+
+    </TabItem>
+
+</Tabs>
