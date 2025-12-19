@@ -85,7 +85,11 @@ ROCK 3B：[Build 18](https://github.com/radxa-build/rock-3b/releases/download/b1
 
 以下系统已由瑞莎官方测试验证：
 
-ROCK 3C: [Build 43](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)
+ROCK 3C:
+
+- [Rock3C-Debian11-Bullseye-xfce-b43.img](https://github.com/radxa-build/rock-3c/releases/download/b43/rock-3c_debian_bullseye_xfce_b43.img.xz)(适用于 microSD 卡和 eMMC 模块启动系统)
+
+- [Rock3C-Debian12-Bookworm-kde-b1.img](https://github.com/radxa-build/rock-3c/releases/download/rsdk-b1/rock-3c_bookworm_kde_b1.output_512.img.xz)(适用于 microSD 卡和 eMMC 模块启动系统)
 
 - [Rock3C-Android11_r12-20240806-gpt.img](https://github.com/radxa/manifests/releases/download/android11-radxa-20240806/Rock3C-Android11_r12-20240806-gpt.zip)(用于使用读卡器向 EMMC 和 SD 卡中刷入系统)
 
