@@ -24,7 +24,9 @@
 
 ### 使用方式
 
-进入内核或 U-Boot 源码目录：
+请参照 [内核开发](./dev-kernel.md) 克隆所需的源码
+
+进入内核源码目录：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
 
@@ -34,7 +36,7 @@ code .
 
 </NewCodeBlock>
 
-若目录中存在 `.devcontainer/devcontainer.json`，VS Code 会提示：
+radxa 提供的内核目录中存在 `.devcontainer/devcontainer.json`，VS Code 会提示：
 
 ```
 Reopen in Container
@@ -42,7 +44,9 @@ Reopen in Container
 
 确认后，VS Code 会自动拉起 ARM64 构建容器并进入开发环境。
 
-该环境中已包含常用交叉编译工具链和构建依赖。
+如果没有提示，可以自行按`F1`或者`Ctrl+Shift+P`，输入 `DevContainers: Reopen in Container` 来启动容器。
+
+该环境中已包含常用交叉编译工具链和构建依赖，无需手动安装。
 
 ---
 
