@@ -1,6 +1,6 @@
 ---
 ---
 
-# 高清显示屏
+# Radxa Display 4 Luna
 
 <DocCardList />
