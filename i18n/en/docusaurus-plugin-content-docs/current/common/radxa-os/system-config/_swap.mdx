@@ -5,72 +5,98 @@ When the device has relatively small RAM and you occasionally run heavy workload
 The following describes how to add a simple swap file on a Radxa device.
 
 :::caution Note
-Swap is only a **fallback** mechanism. It will slow down the system and increase write wear on eMMC/SD/SSD. Do not rely on it as a long‑term replacement for physical memory.
+Swap is only a **fallback** mechanism. It will slow down the system and increase write wear on eMMC/SD/SSD. Long‑term reliance on swap is not recommended.
 :::
 
-## 1. When do you need an extra swap file?
+## 1. When do you need swap?
 
 - RAM is small, and you occasionally compile large projects or run memory‑hungry programs
 - You want to reduce the chance of the system going OOM and crashing when memory usage spikes
 
-If you care about extreme performance or flash lifetime, you can also choose not to enable any additional swap.
+If you care about extreme performance or flash lifetime, you can also choose not to enable swap at all.
 
 ## 2. Check current memory and swap
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 free -h
 sudo swapon --show
 ```
 
-If `swapon --show` prints nothing, it means no swap is currently enabled (or only a swap partition that is not active).
+</NewCodeBlock>
+
+If `swapon --show` prints nothing, it means no swap is currently enabled.
 
 ## 3. Create and enable a swap file (2G example)
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 sudo fallocate -l 2G /swapfile    # create file
 sudo chmod 600 /swapfile          # only root can access
 sudo mkswap /swapfile             # format as swap
 sudo swapon /swapfile             # enable immediately
 ```
 
+</NewCodeBlock>
+
 Verify:
 
-```bash
-sudo swapon --show
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+swapon --show
 free -h
 ```
 
-You should see an extra swap entry, and the `Swap` line in `free -h` will increase accordingly.
+</NewCodeBlock>
 
 ## 4. Enable the swap file at boot
 
 First, back up `fstab` (recommended):
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 sudo cp /etc/fstab /etc/fstab.bak
 ```
 
+</NewCodeBlock>
+
 Edit `fstab`:
 
-```bash
-sudo nano /etc/fstab
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
 ```
+sudo vim /etc/fstab
+```
+
+</NewCodeBlock>
 
 Add the following line at the end of the file:
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 /swapfile none swap sw 0 0
 ```
 
+</NewCodeBlock>
+
 Save and exit, then test whether the configuration works:
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 sudo swapoff /swapfile
 sudo swapon -a
 sudo swapon --show
 ```
 
-If `/swapfile` appears in the output, the `fstab` configuration is valid.
+</NewCodeBlock>
+
+If `/swapfile` appears in the output, the `fstab` configuration is valid and has no syntax errors.
 
 :::tip
 `swapon -a` re‑enables all swap devices according to `/etc/fstab`. It is a safe way to verify that your configuration is correct.
@@ -82,20 +108,32 @@ If you no longer need the swap file, follow these steps to disable and remove it
 
 1. Turn off swap:
 
-   ```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
    sudo swapoff /swapfile
-   ```
+```
+
+</NewCodeBlock>
 
 2. Edit `/etc/fstab` and remove or comment out the line:
 
-   ```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
    /swapfile none swap sw 0 0
-   ```
+```
+
+</NewCodeBlock>
 
 3. Delete the file:
 
-   ```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
    sudo rm /swapfile
-   ```
+```
+
+</NewCodeBlock>
 
 After these steps, the system will go back to running without this swap file.

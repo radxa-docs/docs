@@ -17,56 +17,84 @@ swap 仅适合作为“兜底”，会降低性能并增加 eMMC/SD/SSD 的写�
 
 ## 二、查看当前内存与 swap 情况
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 free -h
 sudo swapon --show
 ```
+
+</NewCodeBlock>
 
 若 `swapon --show` 无输出，说明当前系统未启用 swap。
 
 ## 三、创建并启用 swap 文件（以 2G 为例）
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 sudo fallocate -l 2G /swapfile    # 创建文件
 sudo chmod 600 /swapfile          # 只允许 root 访问
 sudo mkswap /swapfile             # 格式化为 swap
 sudo swapon /swapfile             # 立即启用
 ```
 
+</NewCodeBlock>
+
 再次确认：
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 swapon --show
 free -h
 ```
+
+</NewCodeBlock>
 
 ## 四、设置开机自动启用 swap
 
 先备份 `fstab`（推荐）：
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 sudo cp /etc/fstab /etc/fstab.bak
 ```
 
+</NewCodeBlock>
+
 编辑 `fstab`：
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 sudo vim /etc/fstab
 ```
 
+</NewCodeBlock>
+
 在文件末尾添加一行：
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 /swapfile none swap sw 0 0
 ```
 
+</NewCodeBlock>
+
 保存退出后，用下面命令测试配置是否正确：
 
-```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
 sudo swapoff /swapfile
 sudo swapon -a
 sudo swapon --show
 ```
+
+</NewCodeBlock>
 
 能正常看到 `/swapfile`，说明 `fstab` 配置生效且无语法错误。
 
@@ -80,20 +108,32 @@ sudo swapon --show
 
 1. 关闭 swap：
 
-   ```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
    sudo swapoff /swapfile
-   ```
+```
+
+</NewCodeBlock>
 
 2. 编辑 `/etc/fstab`，删除或注释掉下面这一行：
 
-   ```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
    /swapfile none swap sw 0 0
-   ```
+```
+
+</NewCodeBlock>
 
 3. 删除文件：
 
-   ```bash
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
    sudo rm /swapfile
-   ```
+```
+
+</NewCodeBlock>
 
 完成以上操作后，系统将恢复为无该 swap 文件的状态。
