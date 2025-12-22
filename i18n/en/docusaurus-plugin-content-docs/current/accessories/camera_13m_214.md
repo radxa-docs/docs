@@ -132,18 +132,18 @@ gst-launch-1.0 v4l2src num-buffers=512 device=/dev/video11 io-mode=4 ! videoconv
 
 ## Pin Definition
 
-| Pin | Signal | Pin | Signal | Pin | Signal  | Pin | Signal   |
-| --- | ------ | --- | ------ | --- | ------- | --- | -------- |
-| 1   | DGND   | 9   | NC     | 17  | MCN     | 25  | SDA      |
-| 2   | MDN3   | 10  | DGND   | 18  | MCP     | 26  | NC       |
-| 3   | MDP3   | 11  | MDN1   | 19  | DGND    | 27  | RESET    |
-| 4   | DGND   | 12  | MDP1   | 20  | MCLK    | 28  | VCC3.3V  |
-| 5   | MDN2   | 13  | DGND   | 21  | DGND    | 29  | VCC3.3V  |
-| 6   | MDP2   | 14  | MDN0   | 22  | NC      | 30  | VCC5V/NC |
-| 7   | DGND   | 15  | MDP0   | 23  | PWDN/NC | 31  | VCC5VNC  |
-| 8   | NC     | 16  | DGND   | 24  | SCL     | 32  | ~        |
+| Pin | Signal | Pin | Signal | Pin | Signal    | Pin | Signal     |
+| --- | ------ | --- | ------ | --- | --------- | --- | ---------- |
+| 1   | DGND   | 9   | NC     | 17  | MCN       | 25  | SDA        |
+| 2   | MDN3   | 10  | DGND   | 18  | MCP       | 26  | NC         |
+| 3   | MDP3   | 11  | MDN1   | 19  | DGND      | 27  | RESET      |
+| 4   | DGND   | 12  | MDP1   | 20  | MCLK      | 28  | VCC3.3V    |
+| 5   | MDN2   | 13  | DGND   | 21  | DGND      | 29  | VCC3.3V    |
+| 6   | MDP2   | 14  | MDN0   | 22  | NC        | 30  | VCC5V / NC |
+| 7   | DGND   | 15  | MDP0   | 23  | PWDN / NC | 31  | VCC5V / NC |
+| 8   | NC     | 16  | DGND   | 24  | SCL       | 32  | ~          |
 
-:::tip
+:::tip Note
 
 In the Radxa 13M 214 camera module, Pin 23 / 30 / 31 are not connected.
 
