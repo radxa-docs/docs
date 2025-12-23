@@ -4,19 +4,31 @@ sidebar_position: 0
 
 # Qwen2.5-1.5B-Instruct
 
-此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [Qwen2.5-1.5B](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GPTQ-Int8) 示例应用，关于模型转换请参考 [这里](https://huggingface.co/AXERA-TECH/Qwen2.5-1.5B-Instruct#convert-script)
+此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [**Qwen2.5-1.5B**](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GPTQ-Int8) 示例应用
+
+:::tip
+模型转换请参考 [Huggingface仓库](https://huggingface.co/AXERA-TECH/Qwen2.5-1.5B-Instruct)
+:::
 
 预编译模型量化方式：**w8a16** 和 **w4a16**
 
-## 下载示例应用仓库
+## 创建虚拟环境
 
-使用 `huggingfcae-cli` 下载示例应用仓库。
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/Qwen2.5-1.5B-Instruct --local-dir ./Qwen2.5-1.5B-Instruct
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## 下载示例应用仓库
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/Qwen2.5-1.5B-Instruct --local-dir ./Qwen2.5-1.5B-Instruct
 cd Qwen2.5-1.5B-Instruct
 ```
 
@@ -26,7 +38,7 @@ cd Qwen2.5-1.5B-Instruct
 
 ### 安装 python 依赖
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 pip3 install transformers==4.53.3 jinja2==3.1.6
@@ -36,7 +48,7 @@ pip3 install transformers==4.53.3 jinja2==3.1.6
 
 ### 启动 Tokenizer 服务
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 qwen2.5_tokenizer_uid.py --port 12345 > /dev/null 2>&1 &
@@ -44,19 +56,19 @@ python3 qwen2.5_tokenizer_uid.py --port 12345 > /dev/null 2>&1 &
 
 </NewCodeBlock>
 
+:::warning
+如需结束后台的 Tokenizer 服务，请使用 `jobs` 查看后台编号，然后使用 `kill %N` 结束后台进程，`%N` 即为对应的后台编号
+:::
+
 ```bash
 (.venv) rock@rock-5b-plus:~/ssd/axera/Qwen2.5-1.5B-Instruct$ python3 qwen2.5_tokenizer_uid.py
 None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
 Server running at http://0.0.0.0:12345
 ```
 
-:::tip
-如需结束后台的 Tokenizer 服务，请使用 `jobs` 查看后台编号，然后使用 `kill %N` 结束后台进程, 这里的 `%N` 是 `jobs` 下的后台编号
-:::
-
 ### 模型推理
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 chmod +x main_axcl_aarch64
@@ -66,7 +78,7 @@ bash run_qwen2.5_1.5b_ctx_axcl_aarch64.sh
 
 </NewCodeBlock>
 
-:::tip
+:::warning
 请检查 run_xxx.sh 运行脚本中 tokenizer_model 的端口是否与 [Tokenizer 服务端口](#启动-tokenizer-服务)一致
 :::
 

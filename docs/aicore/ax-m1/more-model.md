@@ -4,7 +4,7 @@ sidebar_position: 10
 
 # 更多模型示例
 
-更多模型可在 [AXERA HUGGINGFACE](https://huggingface.co/AXERA-TECH) 上获取
+更多模型可在 [AXERA的Huggingface页面](https://huggingface.co/AXERA-TECH) 获取
 
 [MiniCPM4](https://huggingface.co/collections/AXERA-TECH/minicpm4-6849c10a9d4a2872b68fdd4e) : MiniCPM4-0.5B
 

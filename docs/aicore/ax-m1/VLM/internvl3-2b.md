@@ -8,15 +8,23 @@ sidebar_position: 1
 
 预编译模型量化方式：**w8a16**
 
-## 下载示例应用仓库
+## 创建虚拟环境
 
-使用 `huggingfcae-cli` 下载示例应用仓库。
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/InternVL3-2B --local-dir ./InternVL3-2B
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## 下载示例应用仓库
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/InternVL3-2B --local-dir ./InternVL3-2B
 cd InternVL3-2B
 ```
 
@@ -26,7 +34,7 @@ cd InternVL3-2B
 
 ### 安装 python 依赖
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 pip3 install transformers==4.53.3 jinja2==3.1.6
@@ -36,13 +44,17 @@ pip3 install transformers==4.53.3 jinja2==3.1.6
 
 ### 启动 Tokenizer 服务
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 internvl3_tokenizer.py --port 12345 > /dev/null 2>&1 &
 ```
 
 </NewCodeBlock>
+
+:::warning
+如需结束后台的 Tokenizer 服务，请使用 `jobs` 查看后台编号，然后使用 `kill %N` 结束后台进程， `%N` 即为对应的后台编号
+:::
 
 ```bash
 (.venv) rock@rock-5b-plus:~/ssd/axera/InternVL3-2B$ python3 internvl3_tokenizer.py --port 12345
@@ -52,13 +64,9 @@ context_len is  256
 prompt is <|im_start|>system
 ```
 
-:::tip
-如需结束后台的 Tokenizer 服务，请使用 `jobs` 查看后台编号，然后使用 `kill %N` 结束后台进程, 这里的 `%N` 是 `jobs` 下的后台编号
-:::
-
 ### 模型推理
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 chmod +x main_axcl_aarch64
@@ -67,7 +75,7 @@ chmod +x main_axcl_aarch64
 
 </NewCodeBlock>
 
-:::tip
+:::warning
 请检查 run_xxx.sh 运行脚本中 --url_tokenizer_model 的端口是否与 [Tokenizer 服务端口](#启动-tokenizer-服务)一致
 :::
 

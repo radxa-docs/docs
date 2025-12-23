@@ -1,11 +1,11 @@
 Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型，它通过向潜在空间逐步添加和去除噪声，将随机噪声转化为符合文本描述的图像。
 近年来，Stable Diffusion 不断演进，在开源社区中衍生出多个优化版本，显著提升了生成质量、速度和计算效率。
-本次演示使用的 **Stable Diffusion LCM Dreamshaper V7**，是一种结合 Latent Consistency Model 加速技术的轻量化变体，能够在极低推理步数下保持高质量的图像生成效果，仅需 **1–4 步** 即可生成清晰的图像。
+本次演示使用的 **Stable Diffusion LCM Dreamshaper V7**，是一种结合 Latent Consistency Model 加速技术的轻量化变体，能够在极低推理步数下保持高质量的图像生成效果，仅需 **4 步** 即可生成清晰的图像。
 本文将完整演示如何借助 RKNN 工具链，把该模型部署到 Rockchip 系列芯片的 NPU 上，并实现高效、低延迟的端侧图像生成。
 
 :::tip
 此文档以RK3588及Dreamshaper V7为例，
-演示如何在RK芯片NPU上部署文生图模型，
+演示如何在Rockchip NPU上部署文生图模型，
 需要预先在PC端配置好RKNN相关环境，
 具体环境安装步骤参考[RKNN安装](./rknn_install)
 :::
@@ -17,7 +17,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
 - **使用modelscope下载模型文件**
 
   - **创建存储模型文件的目录**
-   <NewCodeBlock tip="Linux PC" type="PC">
+    <NewCodeBlock tip="Linux PC" type="PC">
 
   ```bash
   mkdir sd-lcm-rknn && cd sd-lcm-rknn
@@ -26,7 +26,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
    </NewCodeBlock>
 
   - **pip安装modelscope包**
-   <NewCodeBlock tip="Linux PC" type="PC">
+    <NewCodeBlock tip="Linux PC" type="PC">
 
   ```bash
   # 尽量使用较新的python版本避免兼容问题
@@ -36,7 +36,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
    </NewCodeBlock>
 
   - **克隆Stable-Diffusion-LCM_RKNN仓库**
-   <NewCodeBlock tip="Linux PC" type="PC">
+    <NewCodeBlock tip="Linux PC" type="PC">
 
   ```bash
   modelscope download --model radxa/Stable-Diffusion-LCM_RKNN
@@ -51,7 +51,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
 - **从HuggingFace下载ONNX模型并转换为RKNN模型**
 
   - **创建存储模型文件的目录**
-   <NewCodeBlock tip="Linux PC" type="PC">
+    <NewCodeBlock tip="Linux PC" type="PC">
 
   ```bash
   mkdir sd-lcm-rknn && cd sd-lcm-rknn
@@ -60,7 +60,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
    </NewCodeBlock>
 
   - **克隆模型仓库**
-   <NewCodeBlock tip="Linux PC" type="PC">
+    <NewCodeBlock tip="Linux PC" type="PC">
 
   ```bash
   # 需要使用git lfs，如未安装请自行安装
@@ -71,7 +71,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
    </NewCodeBlock>
 
   - **激活虚拟环境**
-   <NewCodeBlock tip="Linux PC" type="PC">
+    <NewCodeBlock tip="Linux PC" type="PC">
 
   ```bash
   conda activate your_rknn_env
@@ -80,7 +80,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
    </NewCodeBlock>
 
   - **可先运行 _run_onnx-lcm.py_ 测试模型完整性**
-   <NewCodeBlock tip="Linux PC" type="PC">
+    <NewCodeBlock tip="Linux PC" type="PC">
 
   ```bash
   # 使用-h参数查看参数帮助
@@ -90,7 +90,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
    </NewCodeBlock>
 
   - **运行 _convert-onnx-to-rknn.py_ 转换模型**
-   <NewCodeBlock tip="Linux PC" type="PC">
+    <NewCodeBlock tip="Linux PC" type="PC">
 
   ```bash
   # 使用-h参数查看参数帮助，将N替换为你实际需要的分辨率，转换之后模型只可输出该分辨率图像
@@ -123,7 +123,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
 - **将转换后的RKNN模型及可执行文件拷贝到板端**
 
   - **进入板端对应目录**
-   <NewCodeBlock tip="Radxa SBC" type="device">
+    <NewCodeBlock tip="Radxa SBC" type="device">
 
   ```bash
   cd sd-lcm-rknn
@@ -132,7 +132,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
    </NewCodeBlock>
 
   - **创建python虚拟环境**
-   <NewCodeBlock tip="Radxa SBC" type="device">
+    <NewCodeBlock tip="Radxa SBC" type="device">
 
   ```bash
   python -m venv .venv
@@ -141,7 +141,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
    </NewCodeBlock>
 
   - **激活虚拟环境**
-   <NewCodeBlock tip="Radxa SBC" type="device">
+    <NewCodeBlock tip="Radxa SBC" type="device">
 
   ```bash
   source .venv/bin/activate
@@ -150,7 +150,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
    </NewCodeBlock>
 
   - **安装相关依赖**
-   <NewCodeBlock tip="Radxa SBC" type="device">
+    <NewCodeBlock tip="Radxa SBC" type="device">
 
   ```bash
   pip3 install diffusers pillow "numpy<2.0" torch transformers rknn-toolkit-lite2
@@ -159,7 +159,7 @@ Stable Diffusion 是一种基于潜在扩散模型的文本到图像生成模型
    </NewCodeBlock>
 
   - **执行脚本**
-   <NewCodeBlock tip="Radxa SBC" type="device">
+    <NewCodeBlock tip="Radxa SBC" type="device">
 
   ```bash
   # 使用-h参数查看参数帮助，自行转换的模型需要替换分辨率参数

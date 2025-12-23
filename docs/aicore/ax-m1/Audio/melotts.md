@@ -4,17 +4,25 @@ sidebar_position: 0
 
 # MeloTTS
 
-此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [MeloTTS](https://github.com/myshell-ai/MeloTTS) 示例应用。
+此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [**MeloTTS**](https://github.com/myshell-ai/MeloTTS) 示例应用。
+
+## 创建虚拟环境
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
 
 ## 下载示例应用仓库
 
-使用 `huggingfcae-cli` 下载示例应用仓库。
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/MeloTTS --local-dir ./MeloTTS
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/MeloTTS --local-dir ./MeloTTS
 cd MeloTTS
 ```
 
@@ -22,9 +30,19 @@ cd MeloTTS
 
 ## 示例使用
 
+### 安装系统依赖
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+sudo apt-get install libsndfile1-dev libmecab-dev
+```
+
+</NewCodeBlock>
+
 ### 安装 python 依赖
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 cd python
@@ -34,20 +52,9 @@ pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc
 
 </NewCodeBlock>
 
-### 安装系统依赖
-
-<NewCodeBlock tip="Host" type="Device">
-
-```bash
-sudo apt-get install libsndfile1-dev libmecab-dev
-
-```
-
-</NewCodeBlock>
-
 ### 复制 nltk_data 文件
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 cp -r ../nltk_data ~/
@@ -57,7 +64,7 @@ cp -r ../nltk_data ~/
 
 ### 模型推理
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 melotts.py -s 瑞莎计算机是一家专注于开发和制造单板计算机的中国科技公司，总部位于深圳。 -e ../encoder-onnx/encoder-zh.onnx -d ../decoder-ax650/decoder-zh.axmodel

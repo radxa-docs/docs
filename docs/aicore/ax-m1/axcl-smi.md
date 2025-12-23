@@ -20,7 +20,7 @@ AXCL-SMI (System Management Interface) 工具用于设备信息收集，对设�
 
 在正确安装 AXCL 驱动包后，`axcl-smi` 即安装成功，直接执行 `axcl-smi` 显示内容如下：
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi
@@ -65,7 +65,7 @@ rock@rock-5b-plus:~$ axcl-smi
 
 `axcl-smi -h` 查询帮助信息
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi -h
@@ -113,7 +113,7 @@ Commands
 
 `axcl-smi -v` 查询AXCL-SMI工具的版本
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi -v
@@ -150,7 +150,7 @@ AXCL-SMI V3.0.2_20250326020141 BUILD: Mar 26 2025 02:27:24
 
 **示例**：查询索引号为0号的设备的媒体内存使用情况：
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi info --cmm -d 0
@@ -184,7 +184,7 @@ CMM Remain          :  7190084 kiB
 
 **示例**：查询0号设备的VDEC proc信息
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi proc --vdec -d 0
@@ -208,7 +208,7 @@ rock@rock-5b-plus:~$ axcl-smi proc --vdec -d 0
 
 **示例**：设置索引号为0号的设备CPU主频为1200MHz
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi set -f 1200000 -d 0
@@ -232,7 +232,7 @@ set cpu frequency 1200000 to device 1 succeed.
 
 **示例**：下载索引为0号的设备的全部日志，并保存到当前目录
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi log -d 0
@@ -249,7 +249,7 @@ rock@rock-5b-plus:~$ axcl-smi log -d 0
 
 `axcl-smi sh` 支持shell命令查询设备信息，通常用于查询设备侧模块的运行proc信息，**示例**：查询索引号为0号的设备CMM信息
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi sh cat /proc/ax_proc/mem_cmm_info -d 0
@@ -295,7 +295,7 @@ rock@rock-5b-plus:~$ axcl-smi sh cat /proc/ax_proc/mem_cmm_info -d 0
 
 `axcl-smi reboot` 命令首先复位指定设备，随后将自动加载固件，示例如下：
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi reboot -d 0
