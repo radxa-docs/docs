@@ -1,6 +1,6 @@
 ---
 ---
 
-# Display
+# Power Adapter
 
 <DocCardList />
