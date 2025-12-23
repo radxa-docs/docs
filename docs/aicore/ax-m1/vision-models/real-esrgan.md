@@ -4,19 +4,27 @@ sidebar_position: 2
 
 # Real-ESRGAN
 
-此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) 示例应用。
+此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [**Real-ESRGAN**](https://github.com/xinntao/Real-ESRGAN) 示例应用。
 
 预编译模型量化方式：**w8a8**
 
-## 下载示例应用仓库
+## 创建虚拟环境
 
-使用 `huggingfcae-cli` 下载示例应用仓库。
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/Real-ESRGAN --local-dir ./Real-ESRGAN
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## 下载示例应用仓库
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/Real-ESRGAN --local-dir ./Real-ESRGAN
 cd Real-ESRGAN
 ```
 
@@ -26,18 +34,18 @@ cd Real-ESRGAN
 
 ### 安装 python 依赖
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc1/axengine-0.1.3-py3-none-any.whl
 pip3 install argparse numpy opencv-python
+pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc1/axengine-0.1.3-py3-none-any.whl
 ```
 
 </NewCodeBlock>
 
 ### 模型推理
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 main.py --input test_256.jpeg  --output test_256_20e.jpeg --model ax650/realesrgan-x4-256.axmodel

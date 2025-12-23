@@ -10,7 +10,7 @@ sidebar_position: 3
 
 - 使用 `lspci` 确认是否能识别到瑞莎智核 AX-M1。
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 lspci
@@ -26,7 +26,7 @@ lspci
 
 - 安装依赖
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 sudo apt install gcc linux-headers-$(uname -r) make
@@ -36,7 +36,11 @@ sudo apt install gcc linux-headers-$(uname -r) make
 
 - 安装 AXCL 驱动
 
-<NewCodeBlock tip="Host" type="Device">
+:::tip
+驱动安装包在左侧资源汇总下载
+:::
+
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 sudo dpkg -i ./axcl_host_aarch64_V3.6.5_20250908154509_NO4973.deb
@@ -46,7 +50,7 @@ sudo dpkg -i ./axcl_host_aarch64_V3.6.5_20250908154509_NO4973.deb
 
 - 验证安装
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi
@@ -76,7 +80,7 @@ rock@rock-5b-plus:~$ axcl-smi
 
 如果要卸载 AXCL 驱动，可使用以下命令进行卸载。
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 sudo apt remove axclhost

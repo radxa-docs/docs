@@ -4,19 +4,27 @@ sidebar_position: 1
 
 # LivePortrait
 
-此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [LivePortrait](https://huggingface.co/KwaiVGI/LivePortrait) 示例应用。
+此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [**LivePortrait**](https://huggingface.co/KwaiVGI/LivePortrait) 示例应用。
 
 预编译模型量化方式：**w8a16**
 
-## 下载示例应用仓库
+## 创建虚拟环境
 
-使用 `huggingfcae-cli` 下载示例应用仓库。
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/LivePortrait --local-dir ./LivePortrait
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## 下载示例应用仓库
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/LivePortrait --local-dir ./LivePortrait
 cd LivePortrait
 ```
 
@@ -26,20 +34,19 @@ cd LivePortrait
 
 ### 安装系统依赖
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 sudo apt install ffmpeg
-
 ```
 
 </NewCodeBlock>
 ### 安装 python 依赖
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip install -r python/requirements.txt
+pip3 install -r python/requirements.txt
 pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc1/axengine-0.1.3-py3-none-any.whl
 
 ```
@@ -48,7 +55,7 @@ pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc
 
 ### 模型推理
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 ./python/infer.py --source ./assets/examples/source/s0.jpg --driving ./assets/examples/driving/d8.jpg --models ./python/axmodels/ --output-dir ./axmodel_infer

@@ -4,26 +4,36 @@ sidebar_position: 4
 
 # 快速验证
 
-当用户根据 [环境安装](./env_install) 安装完 AXCL 驱动后，用户可以使用根据此文档使用瑞莎智核 AX-M1 快速进行模型推理和 Benchmark。
+当用户根据 [**环境安装**](./env_install) 安装完 AXCL 驱动后，用户可以使用根据此文档使用瑞莎智核 AX-M1 快速进行模型推理和 Benchmark。
 
 :::tip
-`axcl-smi` 工具详细使用，请参考 [**AXCL-SMI 工具使用**](./axcl-smi)
+如果要查看详细的设备信息，可以使用`axcl-smi` 工具，使用方法参考 [**AXCL-SMI 工具使用**](../axcl-smi)。
 :::
 
-## 推理测试
+## 创建虚拟环境
 
-这里简单的使用瑞莎智核 AX-M1 进行 YOLOv8 推理验证，详细代码请参考 [ax_yolov8_steps.cc](https://github.com/AXERA-TECH/axcl-samples/blob/main/examples/axcl/ax_yolov8_steps.cc)。
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/YOLOv8 --local-dir ./YOLOv8
+python3 -m venv .venv && source .venv/bin/activate
 ```
 
 </NewCodeBlock>
 
-<NewCodeBlock tip="Host" type="Device">
+## 推理测试
+
+这里使用编译好的可执行程序快速验证环境，具体编译方法参考：[**AXCL-Samples 编译示例**](../axcl-samples.md)。
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/YOLOv8 --local-dir ./YOLOv8
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 cd YOLOv8
@@ -88,7 +98,7 @@ detection num: 7
 
 `axcl_run_model` 工具可以直接推理任何编译好的 axmodel, 使用方法请参考以下说明。
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl_run_model --help
@@ -123,7 +133,7 @@ options:
 
 以测试一个模型的运行速度为例，在 [AXERA Huggingface](https://huggingface.co/AXERA-TECH) 上下载预编译好的 yolov8 axmodel 模型。
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 wget https://huggingface.co/AXERA-TECH/YOLOv8/resolve/main/ax650/yolov8s.axmodel
@@ -135,7 +145,7 @@ wget https://huggingface.co/AXERA-TECH/YOLOv8/resolve/main/ax650/yolov8s.axmodel
 
 使用 `axcl_run_model` 工具对指定模型进行指定数量的循环推理，即可得出模型的推理时间。
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl_run_model --model yolov8s.axmodel -r 100

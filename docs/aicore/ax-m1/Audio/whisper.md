@@ -4,17 +4,25 @@ sidebar_position: 1
 
 # Whisper
 
-此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [Whisper](https://github.com/openai/whisper) 示例应用。
+此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [**Whisper**](https://github.com/openai/whisper) 示例应用。
+
+## 创建虚拟环境
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
 
 ## 下载示例应用仓库
 
-使用 `huggingfcae-cli` 下载示例应用仓库。
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/Whisper --local-dir ./Whisper
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/Whisper --local-dir ./Whisper
 cd Whisper
 ```
 
@@ -24,7 +32,7 @@ cd Whisper
 
 ### 安装 python 依赖
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 cd python
@@ -36,7 +44,7 @@ pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc
 
 ### 模型推理
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 whisper.py --wav ../demo.wav --model_type small --model_path ../models-ax650/small/ -l zh

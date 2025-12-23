@@ -4,19 +4,31 @@ sidebar_position: 3
 
 # YOLOv11
 
-此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 YOLOv11 示例应用, 代码和编译方法请参考 [ax_yolo11_steps.cc](https://github.com/AXERA-TECH/axcl-samples/blob/main/examples/axcl/ax_yolo11_steps.cc) 和 [ax-sample](https://github.com/AXERA-TECH/axcl-samples)
+此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 YOLOv11 示例应用
+
+:::tip
+可执行程序的编译方法请参考 [**AXCL-Samples 编译示例**](../axcl-samples.md)
+:::
 
 预编译模型量化方式：**w8a16**
 
-## 下载示例应用仓库
+## 创建虚拟环境
 
-使用 `huggingfcae-cli` 下载示例应用仓库。
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/YOLO11 --local-dir ./YOLO11
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## 下载示例应用仓库
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/YOLO11 --local-dir ./YOLO11
 cd YOLO11
 ```
 
@@ -26,7 +38,7 @@ cd YOLO11
 
 ### 模型推理
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 chmod +x axcl_aarch64/axcl_yolo11

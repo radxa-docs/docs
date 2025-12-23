@@ -6,15 +6,23 @@ sidebar_position: 2
 
 此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 [YOLO-World-V2](https://github.com/AILab-CVC/YOLO-World) 示例应用。
 
-## 下载示例应用仓库
+## 创建虚拟环境
 
-使用 `huggingfcae-cli` 下载示例应用仓库。
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/YOLO-World-V2 --local-dir ./YOLO-World-V2
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## 下载示例应用仓库
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/YOLO-World-V2 --local-dir ./YOLO-World-V2
 cd YOLO-World-V2
 ```
 
@@ -24,7 +32,7 @@ cd YOLO-World-V2
 
 ### 安装 python 依赖
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 pip install -r pyyoloworld/requirements.txt
@@ -34,7 +42,7 @@ pip install -r pyyoloworld/requirements.txt
 
 ### 模型推理
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 cp install/lib/axcl_aarch64/libyoloworld.so ./pyyoloworld/
@@ -105,4 +113,3 @@ output size: 1
 如果您的开发板 IP Address 是 192.168.1.100, 那么使用浏览器访问以下链接 http://192.168.1.100:7860.
 
 <img width="1871" height="980" alt="image" src="https://github.com/user-attachments/assets/a41c0f65-ba5f-4af6-9ad7-80ec5c7d14e1" />
-
