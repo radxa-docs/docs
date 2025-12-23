@@ -3,44 +3,52 @@
 Radxa Orion O6 / O6N features up to 28.8 TOPS NPU (Neural Processing Unit) computing power, supporting acceleration for INT4 / INT8 / INT16 / FP16 / BF16, and TF32 data types.
 This document explains how to use the CIX P1 NPU SDK to run AI models and applications with NPU-accelerated inference. It includes step-by-step guides for model compilation tools, toolchains, and example implementations of common models.
 
-## CIX Early Bird Program
+## CIX NPU SDK
 
-The NPU SDK includes NOE Compiler and CIX AI Model Hub. To obtain the SDK, you need to apply for the CIX Early Bird Program.
-Application link: [CIX Early Bird Program](https://earlybird.cixtech.com/#/)
+The NPU SDK includes the NOE Compiler and CIX AI Model Hub. To obtain the SDK, you need to apply for a CIX Developer Account.
+Application link: [CIX Developer Account Application](https://developer.cixtech.com/)
 
 ## Install NPU SDK (x86 Linux Environment)
 
-After applying through the [CIX Early Bird Program](#cix-early-bird-program), you will receive an email with download instructions for the SDK.
+After applying through the [CIX Developer Account Application](#cix-npu-sdk), log in to your account and download the CIX P1 NPU SDK archive `cix_noe_sdk_xx_xx_release.tar.gz`.
 
-```bash
-tar -xvf nor.tag.gz
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+
 ```
+tar -xvf cix_noe_sdk_xx_xx_release.tar.gz  # replace with the actual file name
+```
+
+</NewCodeBlock>
 
 :::tip
 The CIX P1 NPU SDK is installed on an X86 host system and requires Python 3.8.
 
-Please prepare a Python 3.8 environment. We recommend using [Anaconda](https://www.anaconda.com/download).
+Please prepare a Python 3.8 environment. We recommend using [miniforge](https://github.com/conda-forge/miniforge) or another Python virtual environment.
 :::
 
 ### Install NOE Compiler
 
-NOE Compiler is used for model compilation, converting models from ONNX framework format to a format that can be accelerated by the NPU for inference.
+NOE Compiler is used for model compilation, converting models from the ONNX framework format to a format that can be accelerated by the NPU for inference.
 
-```bash
-cd noe
-pip3 install -r requirements.txt
-pip3 install ./CixBuilder-6.1.2958.1-py3-none-any.whl
+<NewCodeBlock tip="x86 venv" type="venv">
+
 ```
+cd cix_noe_sdk_xx_xx_release/  # replace with the actual directory name
+pip3 install -r requirements.txt
+pip3 install ./CixBuilder-6.1.xxxx.x-py3-none-any.whl  # replace with the actual wheel file name
+```
+
+</NewCodeBlock>
 
 ## ~Install NOE UMD (Orion O6 / O6N)~
 
 :::tip
 ~The NOE UMD package is released as a .deb package. If using the Python API, please inherit system dependencies when creating a virtual environment: **`python3 -m venv --system-site-packages .venv`**~
 :::
-~After applying through the [CIX Early Bird Program](#cix-early-bird-program), you will receive an email with instructions to download the UMD (User Mode Driver) .deb package~
 
+The CIX P1 NPU SDK archive contains the NOE UMD packages `cix-noe-umd_xx_xx_arm64.deb` and `cix-npu-driver_x.x.x_arm64.deb`. Please copy these files to the Orion O6 / O6N device for installation.
 ~`bash
-sudo dpkg -i ./cix-noe-umd_0.01-1_arm64.deb
+sudo dpkg -i ./cix-noe-umd_x.xxx-x_arm64.deb ./cix-npu-driver_x.x.x_arm64.deb  # replace with the actual file names
 ~`~
 
 :::tip
