@@ -1,48 +1,67 @@
-## NPU Introduction
+## NPU Overview
 
-Radxa Orion O6 / O6N features up to 28.8 TOPS NPU (Neural Processing Unit) computing power, supporting acceleration for INT4 / INT8 / INT16 / FP16 / BF16, and TF32 data types.
-This document explains how to use the CIX P1 NPU SDK to run AI models and applications with NPU-accelerated inference. It includes step-by-step guides for model compilation tools, toolchains, and example implementations of common models.
+Radxa Orion O6 / O6N delivers up to 28.8 TOPS of NPU (Neural Processing Unit) performance and supports INT4 / INT8 / INT16 / FP16 / BF16, and TF32 acceleration.
 
-## CIX Early Bird Program
+This document explains how to use the CIX P1 NPU SDK to run AI models and applications that leverage NPU-accelerated inference. It covers the compilation tools, toolchains, and step-by-step guidance for common sample models.
 
-The NPU SDK includes NOE Compiler and CIX AI Model Hub. To obtain the SDK, you need to apply for the CIX Early Bird Program.
-Application link: [CIX Early Bird Program](https://earlybird.cixtech.com/#/)
+## CIX SDK
 
-## Install NPU SDK (x86 Linux Environment)
+Visit the [CIX Developer Center](https://developer.cixtech.com/) to download the latest CIX AI development toolkit (NeuralONE AI SDK).
 
-After applying through the [CIX Early Bird Program](#cix-early-bird-program), you will receive an email with download instructions for the SDK.
+The CIX P1 AI development toolkit supports heterogeneous hardware acceleration, including NPUs, enabling energy-efficient edge AI inference.
 
-```bash
-tar -xvf nor.tag.gz
-```
+:::tip CIX Developer Center
 
-:::tip
-The CIX P1 NPU SDK is installed on an X86 host system and requires Python 3.8.
+The CIX Developer Center provides software SDKs, chip manuals, development guides, and more resources.
 
-Please prepare a Python 3.8 environment. We recommend using [Anaconda](https://www.anaconda.com/download).
 :::
 
-### Install NOE Compiler
+### Download the SDK
 
-NOE Compiler is used for model compilation, converting models from ONNX framework format to a format that can be accelerated by the NPU for inference.
+Register and sign in to the [CIX Developer Center](https://developer.cixtech.com/). Inside the Software SDK section, click **Learn more** under the NeuralONE AI SDK entry to start the download automatically.
+
+### Extract the SDK
 
 ```bash
-cd noe
+tar -xvf cix_noe_sdk_xxx_release.tar.gz
+```
+
+After extraction, the folder contains the following files:
+
+- cix-noe-umd_xxx_arm64.deb
+- cix-npu-driver_xxx_arm64.deb
+- CixBuilder_xxx-cp310-none-linux_x86_64.whl
+- env_setup.sh
+- npu_sdk_last_manifest_list.xml
+- requirements.txt
+
+### Install the NPU Driver
+
+Change into the extracted folder and run the following command to install the NPU driver:
+
+```bash
+sudo dpkg -i ./cix-npu-driver_xxx_arm64.deb
+```
+
+### Install the NOE Compiler
+
+The NOE Compiler converts ONNX models into a format optimized for NPU-accelerated inference.
+
+```bash
 pip3 install -r requirements.txt
-pip3 install ./CixBuilder-6.1.2958.1-py3-none-any.whl
+pip3 install ./CixBuilder_xxx-cp310-none-linux_x86_64.whl
 ```
 
-## ~Install NOE UMD (Orion O6 / O6N)~
+### Install NOE UMD
 
-:::tip
-~The NOE UMD package is released as a .deb package. If using the Python API, please inherit system dependencies when creating a virtual environment: **`python3 -m venv --system-site-packages .venv`**~
-:::
-~After applying through the [CIX Early Bird Program](#cix-early-bird-program), you will receive an email with instructions to download the UMD (User Mode Driver) .deb package~
+```bash
+sudo dpkg -i ./cix-noe-umd_xxx_arm64.deb
+```
 
-~`bash
-sudo dpkg -i ./cix-noe-umd_0.01-1_arm64.deb
-~`~
+### Verify the Installation
 
-:::tip
-NOE UMD is pre-installed in the OS. If using the Python API, please inherit system dependencies when creating a Python virtual environment: **`python3 -m venv --system-site-packages .venv`** to ensure the libnoe module is loaded correctly.
-:::
+Use the `cixbuild` command to confirm that the NOE Compiler is installed correctly.
+
+```bash
+cixbuild -v
+```
