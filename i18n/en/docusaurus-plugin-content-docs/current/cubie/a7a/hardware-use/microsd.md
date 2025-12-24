@@ -14,7 +14,7 @@ For the exact location of the MicroSD slot, please refer to the interface descri
 
 ## Usage Guide
 
-You can refer to the [Quick Start](../getting-started/quickly_start) or [Install System to MicroSD Card](../getting-started/install-system/sd_system) guides to install the system image onto the MicroSD card. Then insert the MicroSD card into the MicroSD slot and test whether the system boots normally.
+You can refer to the [Quick Start](../getting-started/quickly-start) or [Install System to MicroSD Card](../getting-started/install-system/sd_system) tutorial to install the system image onto a MicroSD card, then insert the MicroSD card into the MicroSD card slot to test if the system boots normally.
 
 <Tabs queryString="boot_system">
 

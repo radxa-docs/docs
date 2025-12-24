@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+slug: /cubie/a5e/other-system/tina-os/quickly-start
 ---
 
 # Quick Start
@@ -52,7 +53,7 @@ You can refer to the following general installation tutorials:
 
 **GPT Image Installation**
 
-- [Install System to MicroSD Card](../../getting-started/quickly-started#install-system) (Recommended for new users)
+- [Install System to MicroSD Card](../../getting-started/quickly-start#install-system) (Recommended for new users)
 - [Install System to NVMe SSD](../../getting-started/install-system/nvme-system)
 
 **FEL Image Installation**
