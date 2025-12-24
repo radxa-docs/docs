@@ -4,45 +4,57 @@ sidebar_position: 4
 
 # DeepSeek-R1-Qwen-7B
 
-This document explains how to run the [DeepSeek-R1-Distill-Qwen-7B-GPTQ-Int4](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) example application on a host device equipped with the Radxa AICore AX-M1.
+This document explains how to run the [DeepSeek-R1-Distill-Qwen-7B-GPTQ-Int4](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) sample application on a host device equipped with the Radxa AICore AX-M1.
 
-Precompiled model quantization methods: **w4a16**
+Precompiled model quantization format: **w4a16**.
 
-## Download Example Application Repository
+## Create a virtual environment
 
-Use `huggingfcae-cli` to download the example application repository.
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/DeepSeek-R1-Distill-Qwen-7B-GPTQ-Int4 --local-dir ./DeepSeek-R1-Distill-Qwen-7B-GPTQ-Int4
-cd DeepSeek-R1-Distill-Qwen-7B
+python3 -m venv .venv && source .venv/bin/activate
 ```
 
 </NewCodeBlock>
 
-## Example Usage
+## Download the demo repository
 
-### Install Python Dependencies
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install transformers==4.53.3 jinja==3.1.6
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/DeepSeek-R1-Distill-Qwen-7B-GPTQ-Int4 --local-dir ./DeepSeek-R1-Distill-Qwen-7B-GPTQ-Int4
+cd DeepSeek-R1-Distill-Qwen-7B-GPTQ-Int4
 ```
 
 </NewCodeBlock>
 
-### Start Tokenizer Service
+## Example usage
 
-<NewCodeBlock tip="Host" type="Device">
+### Install Python dependencies
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install transformers==4.53.3 jinja2==3.1.6
+```
+
+</NewCodeBlock>
+
+### Launch the tokenizer service
+
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 deepseek-r1_tokenizer.py --port 12345 > /dev/null 2>&1 &
 ```
 
 </NewCodeBlock>
+
+:::warning
+To stop the background tokenizer service, run `jobs` to find the job ID, then use `kill %N`, where `%N` is the corresponding job number.
+:::
 
 ```bash
 (.venv) rock@rock-5b-plus:~/ssd/axera/DeepSeek-R1-Distill-Qwen-7B-GPTQ-Int4$ python3 deepseek-r1_tokenizer.py
@@ -54,13 +66,9 @@ None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be ava
 http://localhost:12345
 ```
 
-:::tip
-If you need to end the background Tokenizer service, please use `jobs` to view the background number, then use `kill %N` to end the background process, where `%N` is the background number in `jobs`.
-:::
+### Model inference
 
-### Model Inference
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 chmod +x main_axcl_aarch64
@@ -70,8 +78,8 @@ bash run_deepseek-r1_7b_gptq_int4_axcl_aarch64.sh
 
 </NewCodeBlock>
 
-:::tip
-Please check the port of the tokenizer_model in the run_xxx.sh running script is consistent with the [Tokenizer Service Port](#start-tokenizer-service).
+:::warning
+Please check the port of the tokenizer_model in the run_xxx.sh script is consistent with the [Tokenizer service port](#launch-the-tokenizer-service).
 :::
 
 ```bash
@@ -99,8 +107,8 @@ bos_id: 151646, eos_id: 151643
 Type "q" to exit, Ctrl+c to stop current running
 ```
 
-### Performance Reference
+### Performance reference
 
-| Model                                 | Quantization | Host Device | token/s |
+| Model                                 | Quantization | host device | token/s |
 | ------------------------------------- | ------------ | ----------- | ------- |
 | DeepSeek-R1-Distill-Qwen-7B-GPTQ-Int4 | w4a16        | ROCK 5B+    | 4.20    |

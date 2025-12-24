@@ -2,15 +2,15 @@
 sidebar_position: 3
 ---
 
-# Environment Installation
+# Environment setup
 
-Please follow the [Hardware Installation](./hardware_install) guide to install the Radxa AICore AX-M1 on the host device.
+Follow the [hardware installation](./hardware_install) guide to install the Radxa AICore AX-M1 on the host device.
 
-## Check Device Connection Status
+## Check the device connection
 
-- Use `lspci` to confirm if the Radxa AICore AX-M1 is recognized.
+- Use `lspci` to confirm that the Radxa AICore AX-M1 is detected.
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 lspci
@@ -22,11 +22,11 @@ lspci
 0000:01:00.0 Multimedia video controller: Axera Semiconductor Co., Ltd Device 0650 (rev 01)
 ```
 
-## Install Driver
+## Install the driver
 
-- Install Dependencies
+- Install dependencies
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 sudo apt install gcc linux-headers-$(uname -r) make
@@ -34,9 +34,13 @@ sudo apt install gcc linux-headers-$(uname -r) make
 
 </NewCodeBlock>
 
-- Install AXCL Driver
+- Install the AXCL driver
 
-<NewCodeBlock tip="Host" type="Device">
+:::tip
+Download the driver package from the resources section on the left panel.
+:::
+
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 sudo dpkg -i ./axcl_host_aarch64_V3.6.5_20250908154509_NO4973.deb
@@ -44,9 +48,9 @@ sudo dpkg -i ./axcl_host_aarch64_V3.6.5_20250908154509_NO4973.deb
 
 </NewCodeBlock>
 
-- Verify Installation
+- Verify the installation
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi
@@ -72,11 +76,11 @@ rock@rock-5b-plus:~$ axcl-smi
 |================================================================================================|
 ```
 
-## Uninstall Driver
+## Uninstall the driver
 
-If you need to uninstall the AXCL driver, you can use the following command to uninstall.
+If you need to uninstall the AXCL driver, run the following command.
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 sudo apt remove axclhost

@@ -4,39 +4,47 @@ sidebar_position: 1
 
 # Qwen3-1.7B
 
-This document explains how to run the [Qwen3-1.7B](https://huggingface.co/Qwen/Qwen3-1.7B) example application on a host device equipped with the Radxa AICore AX-M1.
+This document explains how to run the [Qwen3-1.7B](https://huggingface.co/Qwen/Qwen3-1.7B) sample application on a host device equipped with the Radxa AICore AX-M1.
 
-Precompiled model quantization methods: **w8a16**
+Precompiled model quantization format: **w8a16**.
 
-## Download Example Application Repository
+## Create a virtual environment
 
-Use `huggingfcae-cli` to download the example application repository.
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/Qwen3-1.7B --local-dir ./Qwen3-1.7B
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## Download the demo repository
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/Qwen3-1.7B --local-dir ./Qwen3-1.7B
 cd Qwen3-1.7B
 ```
 
 </NewCodeBlock>
 
-## Example Usage
+## Example usage
 
-### Install Python Dependencies
+### Install Python dependencies
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install transformers==4.53.3 jinja==3.1.6
+pip3 install transformers==4.53.3 jinja2==3.1.6
 ```
 
 </NewCodeBlock>
 
-### Start Tokenizer Service
+### Launch the tokenizer service
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 qwen3_tokenizer_uid.py --port 12345 > /dev/null 2>&1 &
@@ -44,19 +52,19 @@ python3 qwen3_tokenizer_uid.py --port 12345 > /dev/null 2>&1 &
 
 </NewCodeBlock>
 
+:::warning
+To stop the background tokenizer service, run `jobs` to find the job ID, then use `kill %N`, where `%N` is the corresponding job number.
+:::
+
 ```bash
 (.venv) rock@rock-5b-plus:~/ssd/axera/Qwen3-1.7B$ python3 qwen3_tokenizer_uid.py --port 12345
 None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
 Server running at http://0.0.0.0:12345
 ```
 
-:::tip
-If you need to end the background Tokenizer service, please use `jobs` to view the background number, then use `kill %N` to end the background process, where `%N` is the background number in `jobs`.
-:::
+### Run inference
 
-### Model Inference
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 chmod +x main_axcl_aarch64
@@ -66,8 +74,8 @@ bash run_qwen3_1.7b_int8_ctx_axcl_aarch64.sh
 
 </NewCodeBlock>
 
-:::tip
-Please check the port of the tokenizer_model in the run_xxx.sh running script is consistent with the [Tokenizer Service Port](#start-tokenizer-service).
+:::warning
+Ensure the `tokenizer_model` port configured in `run_xxx.sh` matches the port used in [Launch the tokenizer service](#launch-the-tokenizer-service).
 :::
 
 ```bash
@@ -116,8 +124,8 @@ Type "q" to exit, Ctrl+c to stop current running
 prompt >>
 ```
 
-### Performance Reference
+### Performance reference
 
-| Model      | Quantization | Host Device | token/s |
-| ---------- | ------------ | ----------- | ------- |
-| Qwen3-1.7B | w8a16        | ROCK 5B+    | 7.30    |
+| Model      | Quantization | Host device | Tokens/s |
+| ---------- | ------------ | ----------- | -------- |
+| Qwen3-1.7B | w8a16        | ROCK 5B+    | 7.30     |

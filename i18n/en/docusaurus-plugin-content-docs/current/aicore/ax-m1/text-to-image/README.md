@@ -2,8 +2,8 @@
 sidebar_position: 9
 ---
 
-# Text-to-Image
+# Text-to-image models
 
-This document explains how to run the text-to-image example application on a host device equipped with the Radxa AICore AX-M1.
+This section provides sample demo usage for text-to-image models.
 
 <DocCardList />

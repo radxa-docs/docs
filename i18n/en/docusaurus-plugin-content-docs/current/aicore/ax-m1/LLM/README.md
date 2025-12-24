@@ -2,8 +2,8 @@
 sidebar_position: 7
 ---
 
-# Large Language Models
+# Large language models
 
-This document explains how to run the large language model (LLM) example application on a host device equipped with the Radxa AICore AX-M1.
+This section provides sample demo usage for large language models (LLM).
 
 <DocCardList />

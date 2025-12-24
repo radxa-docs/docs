@@ -2,9 +2,9 @@
 sidebar_position: 10
 ---
 
-# More Model Examples
+# More model examples
 
-More models can be downloaded from [AXERA HUGGINGFACE](https://huggingface.co/AXERA-TECH)
+More models can be found on [AXERA's Huggingface page](https://huggingface.co/AXERA-TECH).
 
 [MiniCPM4](https://huggingface.co/collections/AXERA-TECH/minicpm4-6849c10a9d4a2872b68fdd4e) : MiniCPM4-0.5B
 

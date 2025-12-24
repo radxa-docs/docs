@@ -2,28 +2,38 @@
 sidebar_position: 4
 ---
 
-# Quick Validation
+# Quick validation
 
-After users install the AXCL driver according to [Environment Installation](./env_install), users can use this document to quickly validate the model inference and benchmark of the Radxa AICore AX-M1.
+After installing the AXCL driver by following [**Environment setup**](./env_install), you can use this guide to quickly run model inference and benchmarks on the Radxa AICore AX-M1.
 
 :::tip
-`axcl-smi` tool usage details, please refer to [**AXCL-SMI Tool Usage**](./axcl-smi)
+To inspect detailed device information, use the `axcl-smi` tool. Refer to [**AXCL-SMI Tool Usage**](../axcl-smi) for instructions.
 :::
 
-## Inference Test
+## Create a virtual environment
 
-Here, we simply use the Radxa AICore AX-M1 to validate the YOLOv8 inference, and the detailed code can be referenced to [ax_yolov8_steps.cc](https://github.com/AXERA-TECH/axcl-samples/blob/main/examples/axcl/ax_yolov8_steps.cc)。
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/YOLOv8 --local-dir ./YOLOv8
+python3 -m venv .venv && source .venv/bin/activate
 ```
 
 </NewCodeBlock>
 
-<NewCodeBlock tip="Host" type="Device">
+## Inference test
+
+Use the prebuilt executables below to quickly validate the environment. For build instructions, see [**AXCL-Samples build examples**](../axcl-samples.md).
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/YOLOv8 --local-dir ./YOLOv8
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 cd YOLOv8
@@ -84,11 +94,11 @@ detection num: 7
    yolov8 demo output
 </div>
 
-## Model Benchmark
+## Model benchmark
 
-`axcl_run_model` tool can directly infer any compiled axmodel, please refer to the following instructions for usage.
+The `axcl_run_model` tool can run inference directly on any compiled axmodel. See the command description below.
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl_run_model --help
@@ -119,11 +129,11 @@ options:
   -?, --help             print this message
 ```
 
-### Download Precompiled Model
+### Download a precompiled model
 
-As an example, download the pre-compiled yolov8 axmodel model from [AXERA Huggingface](https://huggingface.co/AXERA-TECH).
+For example, to test runtime performance, download the precompiled YOLOv8 axmodel from [AXERA Hugging Face](https://huggingface.co/AXERA-TECH).
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 wget https://huggingface.co/AXERA-TECH/YOLOv8/resolve/main/ax650/yolov8s.axmodel
@@ -131,11 +141,11 @@ wget https://huggingface.co/AXERA-TECH/YOLOv8/resolve/main/ax650/yolov8s.axmodel
 
 </NewCodeBlock>
 
-### Model Benchmark
+### Benchmark the model
 
-Use `axcl_run_model` tool to run the specified model for a specified number of inference loops to get the inference time of the model.
+Run the `axcl_run_model` tool with the desired repeat count to measure inference time.
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl_run_model --model yolov8s.axmodel -r 100

@@ -4,29 +4,41 @@ sidebar_position: 6
 
 # YOLOv8
 
-This document explains how to run the [YOLOv8](https://github.com/AXERA-TECH/axcl-samples) example application on a host device equipped with the Radxa AICore AX-M1.
+This document explains how to run the YOLOv8 sample application on a host device equipped with the Radxa AICore AX-M1.
 
-Precompiled model quantization methods: **w8a16**
+:::tip
+For instructions on building the executable, see [**AXCL-Samples build examples**](../axcl-samples.md).
+:::
 
-## Download Example Application Repository
+Precompiled model quantization format: **w8a16**.
 
-Use `huggingfcae-cli` to download the example application repository.
+## Create a virtual environment
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/YOLOv8 --local-dir ./YOLOv8
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## Download the demo repository
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/YOLOv8 --local-dir ./YOLOv8
 cd YOLOv8
 ```
 
 </NewCodeBlock>
 
-## Example Usage
+## Example usage
 
-### Model Inference
+### Model inference
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 chmod +x ./axcl_aarch64/axcl_yolov8
