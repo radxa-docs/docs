@@ -6,4 +6,10 @@ import SYSTEM_UPDATE from '../../../common/radxa-os/system-config/\_system_updat
 
 # System Update
 
+:::tip
+
+For boards with smaller RAM, it is recommended to configure a larger swap space before performing a system update. For details, see [Swap Partition and Swap File](./swap.md).
+
+:::
+
 <SYSTEM_UPDATE board="cubie-a5e" />
