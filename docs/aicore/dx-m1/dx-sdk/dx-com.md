@@ -41,7 +41,7 @@ sudo apt-get install -y --no-install-recommends libgl1-mesa-glx libglib2.0-0 mak
 <NewCodeBlock tip="X86 PC" type="PC">
 
 ```bash
-tar -xvf dx_com_M1_v1.60.1.tar.gz
+tar -xvf dx_com_M1_v2.1.0.tar.gz
 ```
 
 </NewCodeBlock>
@@ -287,6 +287,124 @@ DXQ-P3、DXQ-P4、DXQ-P5 虽然参数相同，但使用的是**不同的微调�
 | DXQ-P4 | 非常慢   | 高           |
 | DXQ-P5 | 非常慢   | 高           |
 
+### PPU 后处理加速
+
+PPU (Post-Processing Unit) 是为目标检测模型提供硬件加速的后处理功能。如目标模型是 YOLO 系列的模型架构，可以在模型编译配置文件中加入 PPU 配置参数。
+
+#### 支持 PPU 类型
+
+支持 PPU 的目标检测模型架构有两种
+
+- **Type 0 (Anchor-Based YOLO)**
+
+  专为使用锚框的模型而设计，例如 YOLOv3、YOLOv4、 YOLOv5 和 YOLOv7。
+
+- **Type 1 (Anchor-Free YOLO)**
+
+  专为无锚模型设计，例如 YOLOX。
+
+#### 判断可使用 PPU 的 ONNX 模型节点
+
+<Tabs queryString="backend">
+
+    <TabItem value="Type 0">
+
+
+    从模型输出反向确认，找到 `Conv` 输出形状为 [1, num_anchors*(5+num_classes), H, W] 的输出头。这些 Conv 之后通常会进行`reshape`、`permute`和其他后处理操作。
+
+    这里以 [yolo5s.onnx](https://github.com/ultralytics/yolov5/releases/download/v6.0/yolov5s.onnx) 为例子, yolov5s 的 num_anchors 为 3, num_classes 为 80, 这里要找的是 [1, 255, H, W] 特征的 Conv 节点，
+    从模型输出反向寻找，可以确定这三个 `Conv` 节点位置，分别为 `Conv_196`、 `Conv_308`、 `Conv_420`, 将这个三个 `Conv` 节点名称配置到模型编译配置文件中的 PPU 部分。
+
+    <div style={{textAlign: 'center'}}>
+       <img src="/img/aicore-dx-m1/ppu-type0.webp"/>
+       Yolov5s PPU Conv node
+    </div>
+
+    ```json
+    '''
+      "ppu": {
+        "type":0,
+        "conf_thres":0.25,
+        "activation": "Sigmoid",
+        "num_classes": 80,
+        "layer": {
+          "Conv_196": {
+            "num_anchors": 3
+          },
+          "Conv_308": {
+            "num_anchors": 3
+          },
+          "Conv_420": {
+            "num_anchors": 3
+          }
+        }
+      },
+    '''
+    ```
+
+    </TabItem>
+
+    <TabItem value="Type 1">
+
+    从模型输出反向确认，针对每个检测大小，找到三种类型的 `Conv` 节点。分别为 `bbox`, `obj_conf`, `cls_conf`
+
+    - `bbox` 输出边界框回归值的卷积层 [1,4,H,W]
+
+    - `obj_conf` 输出目标置信度分数的卷积层 [1,1,H,W]
+
+    - `cls_conf` 输出类别预测分数的卷积层 [1,80,HW]
+
+    这里以 [YOLOXS-1.onnx](https://sdk.deepx.ai/modelzoo/onnx/YOLOXS-1.onnx) 为例子,  YOLOXS 有三种 scale, 这里要找的是 `bbox`, `obj_conf`, `cls_conf` 一共九个 `Conv` 节点，
+    从模型输出反向寻找，可以确定这9个 `Conv` 节点位置，分别为以下 9 个 `Conv` 节点, 将这 9 个节点名称配置到模型编译配置文件中的 PPU 部分。
+
+    <div style={{textAlign: 'center'}}>
+       <img src="/img/aicore-dx-m1/ppu-type1.webp"/>
+       Yolov5s PPU Conv node
+    </div>
+
+    ```json
+    '''
+      "ppu": {
+        "type":1,
+        "conf_thres":0.25,
+        "num_classes": 80,
+        "layer": [
+        {
+        "bbox": "Conv_261",
+        "obj_conf": "Conv_262",
+        "cls_conf": "Conv_254"
+        },
+        {
+        "bbox": "Conv_282",
+        "obj_conf": "Conv_283",
+        "cls_conf": "Conv_275"
+        },
+        {
+        "bbox": "Conv_303",
+        "obj_conf": "Conv_304",
+        "cls_conf": "Conv_296"
+        }
+        ]
+      },
+    '''
+    ```
+
+    </TabItem>
+
+</Tabs>
+
+#### 参数说明
+
+| 参数名           | 类型   | 说明                                                                              |
+| ---------------- | ------ | --------------------------------------------------------------------------------- |
+| `type`           | int    | 模型类型标识。设置为 `1` 表示 **Anchor-Free YOLO 模型**                           |
+| `conf_thres`     | float  | 检测结果过滤的置信度阈值。<br/>**注意：该值在模型编译阶段固定，运行时不可修改。** |
+| `num_classes`    | int    | 模型支持的检测类别数量                                                            |
+| `layer`          | list   | 检测层配置列表，每个元素对应一个检测头，包含以下字段：                            |
+| `layer.bbox`     | string | 输出**边界框坐标（Bounding Box）**的层名称                                        |
+| `layer.obj_conf` | string | 输出**目标置信度（Object Confidence）**的层名称                                   |
+| `layer.cls_conf` | string | 输出**分类置信度（Class Confidence）**的层名称                                    |
+
 ### 执行模型编译
 
 当完成模型配置文件后使用以下命令进行模型编译
@@ -304,6 +422,10 @@ dx_com  -m <MODEL_PATH> -c <CONFIG_PATH> -o <OUTPUT_DIR>
 </NewCodeBlock>
 
 #### 编译例子
+
+:::tip
+dx-com 下的 `sample` 目录下有多个模型的编译配置文件例子
+:::
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
@@ -328,3 +450,50 @@ $./dx_com/dx_com    \
 :::
 
 编译成功后 dxnn 格式模型保存在 output/mobilenetv1 文件夹中。
+
+## DX-COM 文档构建
+
+:::tip
+更多关于 DX-COM 的使用方法，请构建详细文档查阅
+:::
+
+### 克隆 DX-ALL-SUITE 仓库
+
+:::tip
+请按照 [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite) 克隆指定版本的 DX-ALL-SUITE 仓库
+:::
+
+### 安装 MkDocs
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip install mkdocs mkdocs-material mkdocs-video pymdown-extensions mkdocs-with-pdf markdown-grid-tables
+```
+
+</NewCodeBlock>
+
+### 构建文档
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+cd dx-all-suite/dx-compiler
+mkdocs build
+```
+
+</NewCodeBlock>
+
+构建完成后会在当前目录下生成 `DEEPX_DX-COM_UM_v2.1.0_Nov_2025.pdf`
+
+### 启动文档服务
+
+可以使用浏览器访问网页文档
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+mkdocs serve
+```
+
+</NewCodeBlock>

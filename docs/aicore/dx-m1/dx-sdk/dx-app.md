@@ -30,31 +30,15 @@ cd dx-all-suite/dx-runtime/dx_app
 
 </NewCodeBlock>
 
-#### 安装 opencv
-
-- 使用 apt 安装 (推荐)
+#### 安装所需依赖
 
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-sudo apt install libopencv-dev
+./install.sh --all
 ```
 
 </NewCodeBlock>
-
-- 使用脚本安装 (可选)
-
-<NewCodeBlock tip="Host" type="device">
-
-```bash
-./install.sh --opencv
-```
-
-</NewCodeBlock>
-
-:::warning
-如果您使用 radxa os 6.1内核系统且使用脚本安装方法，请修改 install.sh 中 **183** 安装 opencv 建议版本为 4.7.0 (默认为 4.5.5) 否则会出现编译报错
-:::
 
 ### 编译 DX-APP
 
@@ -65,7 +49,7 @@ sudo apt install libopencv-dev
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-./build.sh --arch aarch64
+./build.sh
 ```
 
 </NewCodeBlock>
@@ -93,38 +77,27 @@ sudo apt install libopencv-dev
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app$ ./scripts/run_classifier.sh
-/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app ~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app
-[INFO] DX_APP_PATH: /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app
+rock@rock-5b-plus:/mnt/ssd/deepx/v2.1.0/dx_app$ ./scripts/run_classifier.sh
+/mnt/ssd/deepx/v2.1.0/dx_app /mnt/ssd/deepx/v2.1.0/dx_app
+[INFO] DX_APP_PATH: /mnt/ssd/deepx/v2.1.0/dx_app
 ./scripts/run_classifier.sh: line 28: [: check_valid_dir_or_symlink: unary operator expected
 [INFO] Assets not found. Downloading now via setup.sh...
-/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app
+/mnt/ssd/deepx/v2.1.0/dx_app /mnt/ssd/deepx/v2.1.0/dx_app
 [INFO] === DOCKER_VOLUME_PATH() is set ===
 [INFO] (host mode detected)
 [INFO]  MODEL_PATH: ./assets/models
-[INFO]  models directory found. (/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1)
+[INFO]  models directory found. (/mnt/ssd/deepx/workspace/res/models/models-2_1_0)
 [INFO] VIDEO_PATH: ./assets/videos
-[INFO]  Video directory found. (/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/videos/sample_videos)
+[INFO]  Video directory found. (/mnt/ssd/deepx/workspace/res/videos/sample_videos)
 [INFO] [OK] Sample models and videos setup complete
-/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app
+/mnt/ssd/deepx/v2.1.0/dx_app
 config json is valid
 config json is valid
-DXRT v2.9.5
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/EfficientNetB0_4.dxnn
-  Task[0] npu_0, NPU, NPU memory usage 21199872 bytes (input 157696 bytes, output 2 bytes)
-   inputs
-     data, UINT8, [1, 224, 704 ], 0
-   outputs
-     argmax_output, UINT16, [1 ], 0
-
-
-sh: 1: ldconfig: not found
-[sample/ILSVRC2012/0.jpeg] Top1 Result : class 831 (studio couch, day bed)
+[sample/ILSVRC2012/0.jpeg] Top1 Result : class 905 (window shade)
 [sample/ILSVRC2012/1.jpeg] Top1 Result : class 321 (admiral)
 [sample/ILSVRC2012/2.jpeg] Top1 Result : class 846 (table lamp)
 [sample/ILSVRC2012/3.jpeg] Top1 Result : class 794 (shower curtain)
-~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app
+/mnt/ssd/deepx/v2.1.0/dx_app
 ```
 
 ### Yolov5s 目标识别
@@ -132,41 +105,32 @@ sh: 1: ldconfig: not found
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
+export DXRT_DYNAMIC_CPU_THREAD=ON
 ./scripts/run_detector.sh
 ```
 
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app$ ./scripts/run_detector.sh
-/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app ~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app
-[INFO] DX_APP_PATH: /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app
+rock@rock-5b-plus:/mnt/ssd/deepx/v2.1.0/dx_app$ ./scripts/run_detector.sh
+/mnt/ssd/deepx/v2.1.0/dx_app /mnt/ssd/deepx/v2.1.0/dx_app
+[INFO] DX_APP_PATH: /mnt/ssd/deepx/v2.1.0/dx_app
 ./scripts/run_detector.sh: line 28: [: check_valid_dir_or_symlink: unary operator expected
 [INFO] Assets not found. Downloading now via setup.sh...
-/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app
+/mnt/ssd/deepx/v2.1.0/dx_app /mnt/ssd/deepx/v2.1.0/dx_app
 [INFO] === DOCKER_VOLUME_PATH() is set ===
 [INFO] (host mode detected)
 [INFO]  MODEL_PATH: ./assets/models
-[INFO]  models directory found. (/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1)
+[INFO]  models directory found. (/mnt/ssd/deepx/workspace/res/models/models-2_1_0)
 [INFO] VIDEO_PATH: ./assets/videos
-[INFO]  Video directory found. (/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/videos/sample_videos)
+[INFO]  Video directory found. (/mnt/ssd/deepx/workspace/res/videos/sample_videos)
 [INFO] [OK] Sample models and videos setup complete
-/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app
+/mnt/ssd/deepx/v2.1.0/dx_app
 config json is valid
 config json is valid
-DXRT v2.9.5
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/YOLOV5S_3.dxnn
-  Task[0] npu_0, NPU, NPU memory usage 50736064 bytes (input 786432 bytes, output 131072 bytes)
-   inputs
-     images, UINT8, [1, 512, 1536 ], 0
-   outputs
-     BBOX, BBOX, [1, unknown ], 0
-
-
 [app1] : entered post process thread function.
-[app3[] : entered post process thread function. app2] : entered post process thread function.
-
+[app2] : entered post process thread function.
+[app3] : entered post process thread function.
 [app4] : entered post process thread function.
 [result save mode] ./xxx.jpg
 Create Thread to save jpg
@@ -182,7 +146,8 @@ save file : result-app3.jpg
 save file : result-app4.jpg
 save file : result-app5.jpg
  detector application End.
-~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app
+[DXRT] CPU TASK [cpu_0] Inference Worker - Average Input Queue Load : 32.1429%  (DXRT_DYNAMIC_CPU_THREAD: ON)
+/mnt/ssd/deepx/v2.1.0/dx_app
 ```
 
 <div style={{textAlign: 'center'}}>
@@ -205,22 +170,14 @@ save file : result-app5.jpg
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app$ ./bin/classification -m assets/models/EfficientNetB0_4.dxnn -i sample/ILSVRC2012/1.jpeg
+rock@rock-5b-plus:~/ssd/deepx/v2.1.0/dx_app$ ./bin/classification -m assets/models/EfficientNetB0_4.dxnn -i sample/ILSVRC2012/1.jpeg
 modelPath: assets/models/EfficientNetB0_4.dxnn
 imgFile: sample/ILSVRC2012/1.jpeg
-loopTest: 0
-DXRT v2.9.5
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/EfficientNetB0_4.dxnn
-  Task[0] npu_0, NPU, NPU memory usage 21199872 bytes (input 157696 bytes, output 2 bytes)
-   inputs
-     data, UINT8, [1, 224, 704 ], 0
-   outputs
-     argmax_output, UINT16, [1 ], 0
-
-
-sh: 1: ldconfig: not found
+loopTest: 1
 Top1 Result : class 321
+[DXAPP] [INFO] total time : 14157 us
+[DXAPP] [INFO] per frame time : 14157 us
+[DXAPP] [INFO] fps : 71.4286
 ```
 
 ### ImageNet 目标分类
@@ -234,24 +191,6 @@ Top1 Result : class 321
 ```
 
 </NewCodeBlock>
-
-```bash
-rock@rock-5b-plus:~/ssd/deepx/dx_app$ ./bin/imagenet_classification -m example/EfficientNetB0_4/EfficientNetB0_4.dxnn -i example/imagenet_val_map.txt -p example/ILSVRC2012/
-DXNN Model Ver. : 6
-{"version": 6, "signature": "DXNN", "size": 8192, "encode_type": "utf-8", "bytes_order": "little", "hw_config": null, "data": {"merged_model": {"type": "bytes", "offset": 0, "size": 0}, "npu_models": {"npu_0": {"type": "bytes", "offset": 19751, "size": 5602912}}, "cpu_models": {"cpu_0": {"type": "bytes", "offset": 5623487, "size": 7632}}, "graph_info": {"type": "str", "offset": 5631119, "size": 1036}, "compile_config": {"type": "str", "offset": 5622663, "size": 824}, "compiled_data": {"M1A_4K": {"npu_0": {"rmap": {"type": "bytes", "offset": 5632155, "size": 360960}, "weight": {"type": "bytes", "offset": 5993115, "size": 5683904}, "rmap_info": {"type": "str", "offset": 11677019, "size": 1512}, "bitmatch": {"type": "bytes", "offset": 11678531, "size": 0}, "sim_info": {"type": "bytes", "offset": 11678531, "size": 23}}}}, "vis_npu_models": {"npu_0": {"type": "bytes", "offset": 0, "size": 19751}}, "vis_cpu_models": {}}, "cipher_manager": {"_serializer": {"use_pickle": false}, "_cipher": "DXCipherV2"}}
-DXRT v2.6.3
-argmax_output
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_app/example/EfficientNetB0_4/EfficientNetB0_4.dxnn
-  Task[0] npu_0, NPU, 8209728bytes (input 157696, output 2)
-    inputs
-      data, UINT8, [1, 224, 224, 3 ], 0
-    outputs
-      argmax_output, UINT16, [1 ], 0
-
-
-Profiler data has been written to profiler.json
-```
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/aicore-dx-m1/imagenet_result.webp"/>
@@ -271,48 +210,35 @@ Profiler data has been written to profiler.json
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app$ ./bin/yolo -m assets/models/YOLOV5S_3.dxnn -i sample/1.jpg -p 1
-modelPath: assets/models/YOLOV5S_3.dxnn
+rock@rock-5b-plus:~/ssd/deepx/v2.1.0/dx_app$ ./bin/yolo -m assets/models/YOLOV5S_3.dxnn -i sample/1.jpg -p 1
+
+modelpath: assets/models/YOLOV5S_3.dxnn
 videoFile:
-rtspPath:
 imgFile: sample/1.jpg
-binFile:
-simFile:
 cameraInput: 0
-ispInput: 0
-asyncInference: 0
-DXRT v2.9.5
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/YOLOV5S_3.dxnn
-  Task[0] npu_0, NPU, NPU memory usage 50736064 bytes (input 786432 bytes, output 131072 bytes)
-   inputs
-     images, UINT8, [1, 512, 1536 ], 0
-   outputs
-     BBOX, BBOX, [1, unknown ], 0
-
-
-YOLO created : 16128 boxes, 80 classes, 3 layers.
+rtspURL:
+cfg.numBoxes: 16128
   YoloParam:
     - conf_threshold: 0.25, score_threshold: 0.3, iou_threshold: 0.4, num_classes: 80, num_layers: 3
-    - LayerParam: [ name : , 64 x 64 x 3boxes], anchorWidth [10, 16, 33, ], anchorHeight [13, 30, 23, ], tensor index [0, ]
-    - LayerParam: [ name : , 32 x 32 x 3boxes], anchorWidth [30, 62, 59, ], anchorHeight [61, 45, 119, ], tensor index [1, ]
-    - LayerParam: [ name : , 16 x 16 x 3boxes], anchorWidth [116, 156, 373, ], anchorHeight [90, 198, 326, ], tensor index [2, ]
+    - LayerParam: [ name : 378, 64 x 64 x 3boxes], anchorWidth [10, 16, 33, ], anchorHeight [13, 30, 23, ], tensor index [0, ]
+    - LayerParam: [ name : 439, 32 x 32 x 3boxes], anchorWidth [30, 62, 59, ], anchorHeight [61, 45, 119, ], tensor index [1, ]
+    - LayerParam: [ name : 500, 16 x 16 x 3boxes], anchorWidth [116, 156, 373, ], anchorHeight [90, 198, 326, ], tensor index [2, ]
     - classes: [person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, trafficlight, firehydrant, stopsign, parkingmeter, bench, bird, cat, dog, horse, sheep, cow, elephant, bear, zebra, giraffe, backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard, sportsball, kite, baseballbat, baseballglove, skateboard, surfboard, tennisracket, bottle, wineglass, cup, fork, knife, spoon, bowl, banana, apple, sandwich, orange, broccoli, carrot, hotdog, pizza, donut, cake, chair, couch, pottedplant, bed, diningtable, toilet, tv, laptop, mouse, remote, keyboard, cellphone, microwave, oven, toaster, sink, refrigerator, book, clock, vase, scissors, teddybear, hairdrier, toothbrush, ]
-  Detected 12 boxes.
-    BBOX:person(0) 0.875763, (307.966, 139.33, 400.62, 363.818)
-    BBOX:bowl(45) 0.757843, (25.5009, 359.271, 78.9972, 393.135)
-    BBOX:bowl(45) 0.746948, (45.7862, 315.049, 107.652, 346.66)
-    BBOX:oven(69) 0.704987, (0.613022, 228.342, 154.078, 323.998)
-    BBOX:person(0) 0.634506, (0.297041, 294.957, 47.7459, 332.847)
-    BBOX:bowl(45) 0.586166, (-0.0214653, 329.143, 69.1521, 379.916)
-    BBOX:oven(69) 0.570114, (389.473, 246.375, 496.342, 358.539)
-    BBOX:bottle(39) 0.457588, (172.319, 269.279, 200.35, 322.045)
-    BBOX:pottedplant(58) 0.442146, (0.486477, 86.0419, 51.4276, 208.321)
-    BBOX:bowl(45) 0.408516, (124.304, 219.822, 145.465, 232.589)
-    BBOX:oven(69) 0.280937, (184.404, 237.089, 290.812, 398.126)
-    BBOX:spoon(44) 0.276009, (227.967, 100.182, 240.816, 148.097)
-save file : result.jpg
-/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/YOLOV5S_3.dxnn : latency 14052us, 3230us
+YOLO created : 16128 boxes, 80 classes,
+  Detected 9 boxes.
+    BBOX:person(0) 0.873049, (307.488, 138.329, 401.201, 364.832)
+    BBOX:bowl(45) 0.734457, (46.3406, 315.319, 106.942, 346.32)
+    BBOX:bowl(45) 0.716818, (25.4639, 359.278, 79.1976, 392.92)
+    BBOX:oven(69) 0.684362, (0.127205, 227.296, 154.541, 325.347)
+    BBOX:person(0) 0.617352, (-0.210583, 294.967, 48.6577, 331.301)
+    BBOX:bowl(45) 0.560206, (-0.456394, 328.875, 69.3085, 379.828)
+    BBOX:oven(69) 0.531655, (389.404, 246.171, 495.742, 358.992)
+    BBOX:bottle(39) 0.443776, (172.721, 269.242, 200.909, 322.747)
+    BBOX:pottedplant(58) 0.393512, (-0.180674, 85.4695, 51.1122, 207.897)
+Result saved to result.jpg
+[DXAPP] [INFO] total time : 151422 us
+[DXAPP] [INFO] per frame time : 151422 us
+[DXAPP] [INFO] fps : 6.62252
 ```
 
 <div style={{textAlign: 'center'}}>
@@ -327,7 +253,7 @@ save file : result.jpg
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-./bin/yolo_multi -c ./example/yolo_multi/yolo_multi_demo.json
+./bin/yolo_multi -c ./example/yolo_multi/ppu_yolo_multi_demo.json
 ```
 
 </NewCodeBlock>
@@ -337,8 +263,8 @@ save file : result.jpg
 ```json
 {
   "usage": "multi",
-  "model_path": "./assets/models/YOLOV5S_3.dxnn",
-  "model_name": "yolov5s_512",
+  "model_path": "./assets/models/YOLOV5S_PPU.dxnn",
+  "model_name": "yolov5s_512_ppu",
 
   "video_sources": [
     ["./assets/videos/dron-citry-road.mov", "offline", 60],
@@ -379,36 +305,24 @@ save file : result.jpg
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app$ ./bin/pose -m assets/models/YOLOV5Pose640_1.dxnn -i sample/7.jpg -p 0
-modelPath: assets/models/YOLOV5Pose640_1.dxnn
+rock@rock-5b-plus:~/ssd/deepx/v2.1.0/dx_app$ ./bin/pose -m assets/models/YOLOV5Pose640_1.dxnn -i sample/7.jpg -p 0
+modelpath: assets/models/YOLOV5Pose640_1.dxnn
 videoFile:
 imgFile: sample/7.jpg
-binFile:
 cameraInput: 0
-ispInput: 0
-asyncInference: 0
-DXRT v2.9.5
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/YOLOV5Pose640_1.dxnn
-  Task[0] npu_0, NPU, NPU memory usage 114738560 bytes (input 1228800 bytes, output 131072 bytes)
-   inputs
-     images, UINT8, [1, 640, 1920 ], 0
-   outputs
-     POSE, POSE, [1, unknown ], 0
-
-
-YOLO created : 25500 boxes, 1 classes, 4 layers.
+[DXAPP] [WARN] The numBoxes is not set. Please check the numBoxes.
+cfg.numBoxes: 25500
   YoloParam:
-    - conf_threshold: 0.3, score_threshold: 0.3, iou_threshold: 0.4, num_classes: 1, num_layers: 4
-    - LayerParam: [ 80 x 80 x 3boxes], anchorWidth [19, 44, 38, ], anchorHeight [27, 40, 94, ], tensor index [0, 1, ]
-    - LayerParam: [ 40 x 40 x 3boxes], anchorWidth [96, 86, 180, ], anchorHeight [68, 152, 137, ], tensor index [2, 3, ]
-    - LayerParam: [ 20 x 20 x 3boxes], anchorWidth [140, 303, 238, ], anchorHeight [301, 264, 542, ], tensor index [4, 5, ]
-    - LayerParam: [ 10 x 10 x 3boxes], anchorWidth [436, 739, 925, ], anchorHeight [615, 380, 792, ], tensor index [6, 7, ]
+    - conf_threshold: 0.3, score_threshold: 0.3, iou_threshold: 0.4, num_classes: 1, num_layers: 0
     - classes: [person, ]
+YOLO created : 25500 boxes, 1 classes,
   Detected 2 boxes.
-    BBOX:person(0) 0.913559, (54.1375, 212.814, 227.197, 449.009)
-    BBOX:person(0) 0.887131, (316.288, 231.539, 448.978, 429.411)
-save file : result.jpg
+    BBOX:person(0) 0.908174, (52.9721, 212.993, 228.171, 448.604)
+    BBOX:person(0) 0.892166, (316.646, 232.729, 448.644, 428.188)
+Result saved to result.jpg
+[DXAPP] [INFO] total time : 157653 us
+[DXAPP] [INFO] per frame time : 157653 us
+[DXAPP] [INFO] fps : 6.36943
 ```
 
 <div style={{textAlign: 'center'}}>
@@ -425,30 +339,23 @@ save file : result.jpg
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-./bin/pidnet -m assets/models/DeepLabV3PlusMobileNetV2_2.dxnn -i sample/8.jpg
+./bin/segmentation -m assets/models/DeepLabV3PlusMobileNetV2_2.dxnn -i sample/8.jpg
 ```
 
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app$ ./bin/pidnet -m assets/models/DeepLabV3PlusMobileNetV2_2.dxnn -i sample/8.jpg
-modelPath: assets/models/DeepLabV3PlusMobileNetV2_2.dxnn
+rock@rock-5b-plus:~/ssd/deepx/v2.1.0/dx_app$ ./bin/segmentation -m assets/models/DeepLabV3PlusMobileNetV2_2.dxnn -i sample/8.jpg
+modelpath: assets/models/DeepLabV3PlusMobileNetV2_2.dxnn
+parameter: 0
+imgFile: sample/8.jpg
 videoFile:
 cameraInput: 0
-asyncInference: 0
-DXRT v2.9.5
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/DeepLabV3PlusMobileNetV2_2.dxnn
-  Task[0] npu_0, NPU, NPU memory usage 393316160 bytes (input 1228800 bytes, output 52428800 bytes)
-   inputs
-     input.1, UINT8, [1, 640, 640, 3 ], 0
-   outputs
-     1063, FLOAT, [1, 640, 640, 32 ], 0
+Result saved to result.jpg
+[DXAPP] [INFO] total time : 316640 us
+[DXAPP] [INFO] per frame time : 316640 us
+[DXAPP] [INFO] fps : 3.16456
 
-
-sh: 1: ldconfig: not found
-640x640 <- 676x338
-save file : result.jpg
 ```
 
 <div style={{textAlign: 'center'}}>
@@ -461,61 +368,44 @@ save file : result.jpg
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-./bin/od_pid -m0 assets/models/YOLOV5S_3.dxnn -m1 assets/models/DeepLabV3PlusMobileNetV2_2.dxnn -i sample/8.jpg
+./bin/od_segmentation -m0 assets/models/YOLOV5S_3.dxnn -p0 1 -m1 assets/models/DeepLabV3PlusMobileNetV2_2.dxnn -i sample/8.jpg
 ```
 
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app$ ./bin/od_pid -m0 assets/models/YOLOV5S_3.dxnn -m1 assets/models/DeepLabV3PlusMobileNetV2_2.dxnn -i sample/8.jpg
+rock@rock-5b-plus:~/ssd/deepx/v2.1.0/dx_app$ ./bin/od_segmentation -m0 assets/models/YOLOV5S_3.dxnn -p0 1 -m1 assets/models/DeepLabV3PlusMobileNetV2_2.dxnn -i sample/8.jpg
 od_modelpath: assets/models/YOLOV5S_3.dxnn
 seg_modelpath: assets/models/DeepLabV3PlusMobileNetV2_2.dxnn
 imgFile: sample/8.jpg
 videoFile:
 cameraInput: 0
-DXRT v2.9.5
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/YOLOV5S_3.dxnn
-  Task[0] npu_0, NPU, NPU memory usage 50736064 bytes (input 786432 bytes, output 131072 bytes)
-   inputs
-     images, UINT8, [1, 512, 1536 ], 0
-   outputs
-     BBOX, BBOX, [1, unknown ], 0
-
-
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/DeepLabV3PlusMobileNetV2_2.dxnn
-  Task[1] npu_0, NPU, NPU memory usage 393316160 bytes (input 1228800 bytes, output 52428800 bytes)
-   inputs
-     input.1, UINT8, [1, 640, 640, 3 ], 0
-   outputs
-     1063, FLOAT, [1, 640, 640, 32 ], 0
-
-
-sh: 1: ldconfig: not found
-YOLO created : 16128 boxes, 80 classes, 3 layers.
+cfg.numBoxes: 16128
   YoloParam:
     - conf_threshold: 0.25, score_threshold: 0.3, iou_threshold: 0.4, num_classes: 80, num_layers: 3
-    - LayerParam: [ 64 x 64 x 3boxes], anchorWidth [10, 16, 33, ], anchorHeight [13, 30, 23, ], tensor index [0, ]
-    - LayerParam: [ 32 x 32 x 3boxes], anchorWidth [30, 62, 59, ], anchorHeight [61, 45, 119, ], tensor index [1, ]
-    - LayerParam: [ 16 x 16 x 3boxes], anchorWidth [116, 156, 373, ], anchorHeight [90, 198, 326, ], tensor index [2, ]
+    - LayerParam: [ name : 378, 64 x 64 x 3boxes], anchorWidth [10, 16, 33, ], anchorHeight [13, 30, 23, ], tensor index [0, ]
+    - LayerParam: [ name : 439, 32 x 32 x 3boxes], anchorWidth [30, 62, 59, ], anchorHeight [61, 45, 119, ], tensor index [1, ]
+    - LayerParam: [ name : 500, 16 x 16 x 3boxes], anchorWidth [116, 156, 373, ], anchorHeight [90, 198, 326, ], tensor index [2, ]
     - classes: [person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, trafficlight, firehydrant, stopsign, parkingmeter, bench, bird, cat, dog, horse, sheep, cow, elephant, bear, zebra, giraffe, backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard, sportsball, kite, baseballbat, baseballglove, skateboard, surfboard, tennisracket, bottle, wineglass, cup, fork, knife, spoon, bowl, banana, apple, sandwich, orange, broccoli, carrot, hotdog, pizza, donut, cake, chair, couch, pottedplant, bed, diningtable, toilet, tv, laptop, mouse, remote, keyboard, cellphone, microwave, oven, toaster, sink, refrigerator, book, clock, vase, scissors, teddybear, hairdrier, toothbrush, ]
-640x640 <- 676x338
+YOLO created : 16128 boxes, 80 classes,
   Detected 13 boxes.
-    BBOX:car(2) 0.909042, (1.04781, 227.536, 92.2432, 303.1)
-    BBOX:car(2) 0.888733, (425.907, 222.871, 512.271, 320.548)
-    BBOX:car(2) 0.871704, (86.6853, 233.949, 142.035, 281.4)
-    BBOX:car(2) 0.857452, (316.556, 228.92, 358.95, 260.397)
-    BBOX:car(2) 0.854294, (364.961, 211.574, 482.898, 294.025)
-    BBOX:car(2) 0.828323, (298.004, 231.673, 322.384, 252.117)
-    BBOX:car(2) 0.809814, (122.821, 228.76, 168.794, 268.967)
-    BBOX:car(2) 0.768341, (159.306, 230.32, 187.039, 261.545)
-    BBOX:car(2) 0.689728, (262.998, 232.582, 276.37, 243.308)
-    BBOX:car(2) 0.557953, (229.21, 232.742, 246.731, 241.766)
-    BBOX:car(2) 0.53157, (277.398, 232.602, 296.908, 241.041)
-    BBOX:car(2) 0.522827, (170.016, 214.851, 214.887, 258.137)
-    BBOX:truck(7) 0.355202, (173.136, 216.022, 215.157, 256.622)
-save file : result.jpg
+    BBOX:car(2) 0.89303, (0.480949, 227.935, 93.051, 302.253)
+    BBOX:car(2) 0.882933, (426.194, 222.593, 511.927, 321.371)
+    BBOX:car(2) 0.862958, (86.1822, 234.01, 142.1, 281.351)
+    BBOX:car(2) 0.848508, (317.336, 228.731, 358.4, 260.354)
+    BBOX:car(2) 0.84496, (366.256, 210.955, 482.539, 293.438)
+    BBOX:car(2) 0.818492, (297.631, 231.888, 322.464, 252.024)
+    BBOX:car(2) 0.777943, (122.689, 229.362, 168.695, 268.896)
+    BBOX:car(2) 0.711904, (158.728, 229.85, 187.161, 261.946)
+    BBOX:car(2) 0.666848, (262.793, 232.572, 276.692, 243.45)
+    BBOX:car(2) 0.52669, (169.424, 215.719, 215.506, 257.233)
+    BBOX:car(2) 0.514303, (277.343, 232.588, 296.351, 241.116)
+    BBOX:car(2) 0.506402, (228.703, 232.507, 246.448, 241.995)
+    BBOX:truck(7) 0.343093, (173.549, 215.718, 214.675, 256.886)
+Result saved to result.jpg
+[DXAPP] [INFO] total time : 300656 us
+[DXAPP] [INFO] per frame time : 300656 us
+[DXAPP] [INFO] fps : 3.33333
 ```
 
 <div style={{textAlign: 'center'}}>
@@ -528,6 +418,16 @@ save file : result.jpg
 :::tip
 使用 Python 进行模型推理前，请确保已经进入安装了 [**dx-engine Python 库**](dx-rt#安装-dx-rt-python-库)的虚拟环境
 :::
+
+安装 python 依赖
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip install -r ./templates/python/requirements.txt
+```
+
+</NewCodeBlock>
 
 ### ImageNet Python 示例
 
@@ -542,20 +442,10 @@ python3 ./templates/python/imageNet_example.py --config example/run_classifier/i
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app$ python3 ./templates/python/imageNet_example.py --config example/run_classifier/imagenet_example.json
-DXRT v2.9.5
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/EfficientNetB0_4.dxnn
-  Task[0] npu_0, NPU, NPU memory usage 21199872 bytes (input 157696 bytes, output 2 bytes)
-   inputs
-     data, UINT8, [1, 224, 704 ], 0
-   outputs
-     argmax_output, UINT16, [1 ], 0
-
-
+(.venv) rock@rock-5b-plus:~/ssd/deepx/v2.1.0/dx_app$ python3 ./templates/python/imageNet_example.py --config example/run_classifier/imagenet_example.json
 [DX-APP Notify] single run inference using run
 
-[sample/ILSVRC2012/0.jpeg] Top1 Result : class 831 (studio couch, day bed)
+[sample/ILSVRC2012/0.jpeg] Top1 Result : class 905 (window shade)
 [sample/ILSVRC2012/1.jpeg] Top1 Result : class 321 (admiral)
 [sample/ILSVRC2012/2.jpeg] Top1 Result : class 846 (table lamp)
 [sample/ILSVRC2012/3.jpeg] Top1 Result : class 794 (shower curtain)
@@ -574,60 +464,68 @@ python3 templates/python/yolov5s_example.py
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app$ python3 templates/python/yolov5s_example.py
-DXRT v2.9.5
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/workspace/res/models/models-1_60_1/YOLOV5S_3.dxnn
-  Task[0] npu_0, NPU, NPU memory usage 50736064 bytes (input 786432 bytes, output 131072 bytes)
-   inputs
-     images, UINT8, [1, 512, 1536 ], 0
-   outputs
-     BBOX, BBOX, [1, unknown ], 0
-
-
+(.venv) rock@rock-5b-plus:~/ssd/deepx/v2.1.0/dx_app$ python3 templates/python/yolov5s_example.py
 dxrt inference Done!
-/mnt/ssd/deepx/dx_rt_SDK_v2.9.5/dx-all-suite/dx-runtime/dx_app/templates/python/yolov5s_example.py:110: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
-  tensor[4] = score
 decoding output Done!
-[Result] Detected 7 Boxes.
-[0] conf, classID, x1, y1, x2, y2, : 0.7701, person(0), 307, 140, 400, 363
-[1] conf, classID, x1, y1, x2, y2, : 0.6203, bowl(45), 25, 359, 80, 393
-[2] conf, classID, x1, y1, x2, y2, : 0.6127, bowl(45), 46, 316, 107, 347
-[3] conf, classID, x1, y1, x2, y2, : 0.4740, oven(69), 0, 227, 154, 324
-[4] conf, classID, x1, y1, x2, y2, : 0.4365, bowl(45), 0, 329, 69, 380
-[5] conf, classID, x1, y1, x2, y2, : 0.3829, oven(69), 391, 246, 495, 358
-[6] conf, classID, x1, y1, x2, y2, : 0.3426, person(0), 0, 296, 47, 333
+[Result] Detected 11 Boxes.
+[0] conf, classID, x1, y1, x2, y2, : 0.8739, person(0), 383, 66, 501, 348
+[1] conf, classID, x1, y1, x2, y2, : 0.7595, bowl(45), 57, 288, 133, 327
+[2] conf, classID, x1, y1, x2, y2, : 0.7423, bowl(45), 31, 342, 98, 385
+[3] conf, classID, x1, y1, x2, y2, : 0.6719, oven(69), 0, 170, 191, 300
+[4] conf, classID, x1, y1, x2, y2, : 0.5923, bowl(45), 0, 303, 86, 368
+[5] conf, classID, x1, y1, x2, y2, : 0.5887, oven(69), 487, 201, 621, 342
+[6] conf, classID, x1, y1, x2, y2, : 0.5675, person(0), 0, 263, 60, 307
+[7] conf, classID, x1, y1, x2, y2, : 0.4376, potted plant(58), 0, 0, 62, 151
+[8] conf, classID, x1, y1, x2, y2, : 0.3855, bottle(39), 215, 231, 251, 297
+[9] conf, classID, x1, y1, x2, y2, : 0.3226, cup(41), 147, 268, 171, 302
+[10] conf, classID, x1, y1, x2, y2, : 0.3183, bowl(45), 155, 167, 181, 185
 save file : yolov5s_1.jpg
 dxrt inference Done!
 decoding output Done!
-[Result] Detected 6 Boxes.
-[0] conf, classID, x1, y1, x2, y2, : 0.7209, tv(62), 2, 218, 124, 296
-[1] conf, classID, x1, y1, x2, y2, : 0.6937, chair(56), 234, 259, 284, 339
-[2] conf, classID, x1, y1, x2, y2, : 0.6208, chair(56), 289, 258, 346, 336
-[3] conf, classID, x1, y1, x2, y2, : 0.4169, person(0), 337, 212, 371, 323
-[4] conf, classID, x1, y1, x2, y2, : 0.4062, tv(62), 443, 252, 512, 316
-[5] conf, classID, x1, y1, x2, y2, : 0.4052, vase(75), 439, 326, 469, 404
+[Result] Detected 9 Boxes.
+[0] conf, classID, x1, y1, x2, y2, : 0.8261, chair(56), 291, 215, 355, 318
+[1] conf, classID, x1, y1, x2, y2, : 0.7895, tv(62), 2, 164, 155, 266
+[2] conf, classID, x1, y1, x2, y2, : 0.7772, chair(56), 361, 215, 433, 311
+[3] conf, classID, x1, y1, x2, y2, : 0.6629, person(0), 422, 158, 463, 296
+[4] conf, classID, x1, y1, x2, y2, : 0.6128, vase(75), 548, 299, 586, 399
+[5] conf, classID, x1, y1, x2, y2, : 0.5882, tv(62), 553, 208, 640, 286
+[6] conf, classID, x1, y1, x2, y2, : 0.5303, person(0), 385, 171, 403, 211
+[7] conf, classID, x1, y1, x2, y2, : 0.4672, dining table(60), 470, 360, 637, 423
+[8] conf, classID, x1, y1, x2, y2, : 0.4226, refrigerator(72), 451, 168, 510, 290
 save file : yolov5s_2.jpg
 dxrt inference Done!
 decoding output Done!
-[Result] Detected 4 Boxes.
-[0] conf, classID, x1, y1, x2, y2, : 0.7521, person(0), 6, 238, 85, 398
-[1] conf, classID, x1, y1, x2, y2, : 0.7475, person(0), 113, 252, 163, 401
-[2] conf, classID, x1, y1, x2, y2, : 0.5038, person(0), 266, 315, 348, 396
-[3] conf, classID, x1, y1, x2, y2, : 0.3259, person(0), 166, 333, 213, 400
+[Result] Detected 17 Boxes.
+[0] conf, classID, x1, y1, x2, y2, : 0.8743, person(0), 18, 476, 318, 1068
+[1] conf, classID, x1, y1, x2, y2, : 0.8742, person(0), 420, 528, 615, 1080
+[2] conf, classID, x1, y1, x2, y2, : 0.7187, person(0), 993, 753, 1308, 1068
+[3] conf, classID, x1, y1, x2, y2, : 0.6268, person(0), 622, 832, 795, 1080
+[4] conf, classID, x1, y1, x2, y2, : 0.5648, person(0), 300, 870, 487, 1076
+[5] conf, classID, x1, y1, x2, y2, : 0.5136, person(0), 1785, 791, 1920, 1076
+[6] conf, classID, x1, y1, x2, y2, : 0.5084, backpack(24), 802, 881, 903, 1061
+[7] conf, classID, x1, y1, x2, y2, : 0.4755, backpack(24), 1083, 963, 1290, 1080
+[8] conf, classID, x1, y1, x2, y2, : 0.4404, person(0), 1732, 723, 1841, 982
+[9] conf, classID, x1, y1, x2, y2, : 0.4285, person(0), 1657, 630, 1725, 855
+[10] conf, classID, x1, y1, x2, y2, : 0.4195, person(0), 1597, 750, 1710, 967
+[11] conf, classID, x1, y1, x2, y2, : 0.4082, person(0), 885, 787, 1012, 1061
+[12] conf, classID, x1, y1, x2, y2, : 0.4081, person(0), 236, 693, 393, 1057
+[13] conf, classID, x1, y1, x2, y2, : 0.4052, person(0), 1466, 742, 1578, 922
+[14] conf, classID, x1, y1, x2, y2, : 0.3827, person(0), 817, 570, 903, 840
+[15] conf, classID, x1, y1, x2, y2, : 0.3682, person(0), 1338, 791, 1511, 1076
+[16] conf, classID, x1, y1, x2, y2, : 0.3127, person(0), 690, 588, 746, 765
 save file : yolov5s_3.jpg
 dxrt inference Done!
 decoding output Done!
 [Result] Detected 1 Boxes.
-[0] conf, classID, x1, y1, x2, y2, : 0.7188, dog(16), 88, 104, 455, 409
+[0] conf, classID, x1, y1, x2, y2, : 0.8201, dog(16), 187, 91, 1073, 808
 save file : yolov5s_4.jpg
 dxrt inference Done!
 decoding output Done!
 [Result] Detected 4 Boxes.
-[0] conf, classID, x1, y1, x2, y2, : 0.8054, horse(17), 3, 212, 209, 359
-[1] conf, classID, x1, y1, x2, y2, : 0.6319, cow(19), 289, 226, 395, 316
-[2] conf, classID, x1, y1, x2, y2, : 0.5420, horse(17), 0, 208, 101, 273
-[3] conf, classID, x1, y1, x2, y2, : 0.5380, horse(17), 162, 217, 283, 329
+[0] conf, classID, x1, y1, x2, y2, : 0.8946, horse(17), 1, 190, 315, 409
+[1] conf, classID, x1, y1, x2, y2, : 0.7735, cow(19), 436, 212, 597, 346
+[2] conf, classID, x1, y1, x2, y2, : 0.7386, horse(17), 0, 184, 150, 280
+[3] conf, classID, x1, y1, x2, y2, : 0.7217, horse(17), 244, 197, 428, 366
 save file : yolov5s_5.jpg
 ```
 
@@ -635,3 +533,44 @@ save file : yolov5s_5.jpg
    <img src="/img/aicore-dx-m1/yolov5s_python.webp" style={{ width: '60%' }} />
     yolov5s objection detection result
 </div>
+
+## DX-APP 文档构建
+
+:::tip
+更多关于 DX-APP 的使用方法，请构建详细文档查阅
+:::
+
+### 安装 MkDocs
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip install mkdocs mkdocs-material mkdocs-video pymdown-extensions mkdocs-with-pdf markdown-grid-tables
+```
+
+</NewCodeBlock>
+
+### 构建文档
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+cd docs
+mkdocs build
+```
+
+</NewCodeBlock>
+
+构建完成后会在当前目录下生成 `DEEPX_DX-APP_UM_v2.1.0.pdf`
+
+### 启动文档服务
+
+可以使用浏览器访问网页文档
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+mkdocs serve
+```
+
+</NewCodeBlock>

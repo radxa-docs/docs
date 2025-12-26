@@ -6,8 +6,14 @@ sidebar_position: 15
 
 ## DX-M1 SDK
 
-- [dx_com_M1_v1.60.1](https://dl.radxa.com/aicore/dx_m1/dx_com_M1_v1.60.1.tar.gz)
-- [DX_Tron_v0.0.8](https://dl.radxa.com/aicore/dx_m1/sdk/DX_Tron_v0.0.8.zip)
+**DX-COM**
+
+- [dx_com_M1_v2.1.0](https://dl.radxa.com/aicore/dx_m1/sdk/dx_com_M1_v2.1.0.tar.gz)
+
+**DX-Tron**
+
+- [**Linux:** DXTron-2.0.0.AppImage](https://dl.radxa.com/aicore/dx_m1/sdk/DXTron-2.0.0.AppImage)
+- [**Windows:** DXTron Setup 2.0.0.exe](https://dl.radxa.com/aicore/dx_m1/sdk/DXTron%20Setup%202.0.0.exe)
 
 ## 参考文档
 
