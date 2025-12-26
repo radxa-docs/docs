@@ -14,7 +14,7 @@ For the exact location of the MicroSD card slot, please refer to the interface d
 
 ## Usage Guide
 
-You can follow the [Quick Start](../getting-started/quickly-started) or [Install System to MicroSD Card](../getting-started/install-system/microsd-system) tutorials to install the system image onto a MicroSD card. After installation, insert the MicroSD card into the slot and test if the system boots up properly.
+You can follow the [Quick Start](../getting-started/quickly-start) or [Install System to MicroSD Card](../getting-started/install-system/microsd-system) tutorials to install the system image onto a MicroSD card. After installation, insert the MicroSD card into the slot and test if the system boots up properly.
 
 ## Interface Specifications
 

@@ -1,6 +1,5 @@
 ---
 sidebar_position: 3
-sidebar_label: Cubie A7Z
 ---
 
 # 瑞莎 Cubie A7Z

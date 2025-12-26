@@ -6,7 +6,7 @@ sidebar_position: 1
 
 This guide helps you quickly understand and start using the Radxa Cubie A7A board.
 
-#### [Quick Start](/cubie/a7a/getting-started/quickly_start)
+#### [Quick Start](/cubie/a7a/getting-started/quickly-start)
 
 Detailed instructions on the hardware and software preparation required for first-time use of the Cubie A7A.
 

@@ -52,7 +52,7 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 **GPT 镜像安装**
 
-- [安装系统到 MicroSD 卡](../../getting-started/quickly-started#安装系统)（新用户推荐）
+- [安装系统到 MicroSD 卡](../../getting-started/quickly-start#安装系统)（新用户推荐）
 - [安装系统到 NVMe SSD](../../getting-started/install-system/nvme-system)
 
 **FEL 镜像安装**

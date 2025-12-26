@@ -40,7 +40,7 @@ sidebar_position: 8
 
 支持 MicroSD 卡和板载 UFS 启动系统。
 
-- [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b1/radxa-cubie-a7z_bullseye_kde_b1.output_512.img.xz)（Micro SD 卡）
+- [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b1/radxa-cubie-a7z_bullseye_kde_b1.output_512.img.xz)（MicroSD 卡）
 
 - [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b2/radxa-cubie-a7z_bullseye_kde_b2.output_4096.img.xz)（UFS）
 
@@ -68,7 +68,7 @@ SD卡启动盘制作工具：
 
 系统烧录工具：
 
-[PhoenixSuit](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip) (Window)
+[PhoenixSuit](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip) (Windows)
 
 [LiveSuit](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip) (Linux)
 

@@ -7,7 +7,7 @@ sidebar_position: 8
 ## System Images
 
 :::tip Beginner's Recommendation
-We strongly recommend that beginners download GPT format Radxa OS official images and use the [Balena Etcher](./getting-started/quickly-started#install-system-image) tool to install them to MicroSD cards. This is the simplest and fastest way to get started.
+We strongly recommend that beginners download GPT format Radxa OS official images and use the [Balena Etcher](./getting-started/quickly-start#install-system-image) tool to install them to MicroSD cards. This is the simplest and fastest way to get started.
 
 **Image Type Description**
 

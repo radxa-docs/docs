@@ -1,6 +1,5 @@
 ---
 sidebar_position: 3
-sidebar_label: Cubie A7Z
 ---
 
 # Radxa Cubie A7Z
