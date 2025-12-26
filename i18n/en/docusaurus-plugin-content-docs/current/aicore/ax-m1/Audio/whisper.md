@@ -4,27 +4,35 @@ sidebar_position: 1
 
 # Whisper
 
-This document explains how to run the [Whisper](https://github.com/openai/whisper) example application on a host device equipped with the Radxa AICore AX-M1.
+This document explains how to run the [**Whisper**](https://github.com/openai/whisper) sample application on a host device equipped with the Radxa AICore AX-M1.
 
-## Download Example Application Repository
+## Create a virtual environment
 
-Use `huggingfcae-cli` to download the example application repository.
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/Whisper --local-dir ./Whisper
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## Download the demo repository
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/Whisper --local-dir ./Whisper
 cd Whisper
 ```
 
 </NewCodeBlock>
 
-## Example Usage
+## Example usage
 
-### Install Python Dependencies
+### Install Python dependencies
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 cd python
@@ -34,9 +42,9 @@ pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc
 
 </NewCodeBlock>
 
-### Model Inference
+### Run inference
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 whisper.py --wav ../demo.wav --model_type small --model_path ../models-ax650/small/ -l zh
@@ -45,7 +53,7 @@ python3 whisper.py --wav ../demo.wav --model_type small --model_path ../models-a
 </NewCodeBlock>
 
 :::tip
-Please modify the melotts.py file's 164th line of `g-{language.lower()}.bin` path
+Update the `g-{language.lower()}.bin` path in line 164 of `melotts.py` to match your environment.
 :::
 
 ```bash
@@ -54,7 +62,7 @@ Please modify the melotts.py file's 164th line of `g-{language.lower()}.bin` pat
 wav: ../demo.wav
 model_type: small
 model_path: ../models-ax650/small/
-language: en
+language: zh
 [INFO] Using provider: AXCLRTExecutionProvider
 [INFO] SOC Name: AX650N
 [INFO] VNPU type: VNPUType.DISABLED
@@ -102,5 +110,5 @@ Run decoder_loop take 308.08019638061523ms
 Iter 13 	 Token: 46514
 Run decoder_loop take 317.45195388793945ms
 Iter 14 	 Token: 50257
-Result: hello
+Result: There have even been situations where trading has almost come to a standstill
 ```

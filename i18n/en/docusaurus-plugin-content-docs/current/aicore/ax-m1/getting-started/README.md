@@ -2,27 +2,27 @@
 sidebar_position: 1
 ---
 
-# Getting Started
+# Getting started
 
-This document introduces how to use the Radxa AICore AX-M1 module on the ROCK 5B+.
+Using ROCK 5B+ as the primary example, this guide explains how to pair the Radxa AICore AX-M1 with your hardware.
 
-## Product Appearance
+## Product overview
 
 <div style={{textAlign: 'center'}}>
-   Radxa AICore AX-M1 module front
+   Radxa AICore AX-M1 (front)
    <img src="/en/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
-   Radxa AICore AX-M1 module back
+   Radxa AICore AX-M1 (back)
     <img src="/en/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
 </div>
 
-## Prerequisites
+## Requirements
 
-You need to prepare the following hardware devices to use the Radxa AICore AX-M1 module:
+Prepare the following hardware before using the Radxa AICore AX-M1:
 
-- **AI Acceleration Module**: Radxa AICore AX-M1
-- **board Kit**: Compatible board + power adapter + boot media (e.g., Micro SD card)
+- **AI compute module**: Radxa AICore AX-M1
+- **BOard kit**: compatible Board + power adapter + boot media (e.g., microSD card)
 
-> **Compatible board (Tested)**
+> **Verified Radxa-compatible boards**
 
 ```
 - ROCK 5A
@@ -31,25 +31,25 @@ You need to prepare the following hardware devices to use the Radxa AICore AX-M1
 - ROCK 5 ITX
 ```
 
-:::tip Usage Conditions
-The board needs to meet the following requirements:
+:::tip Requirements
+Your Board must meet all of the following:
 
-- Can normally boot the system
-- Provide an unused **M.2 M Key interface** for installing the Radxa AICore AX-M1
+- Boot the operating system normally
+- Provide an available **M.2 M Key slot** for installing the Radxa AICore AX-M1
   :::
 
-## Hardware Installation
+## Hardware installation
 
-For ROCK 5B+, you can refer to the [Hardware Installation](/aicore/ax-m1/getting-started/hardware_install) tutorial to install the Radxa AICore AX-M1.
+For ROCK 5B+, follow the [hardware installation](/aicore/ax-m1/getting-started/hardware_install) guide to install the Radxa AICore AX-M1.
 
-:::tip Note
-For boards installing M.2 M Key interfaces, the installation steps and methods are basically the same, and you can refer to the [Hardware Installation](/aicore/ax-m1/getting-started/hardware_install) tutorial to install the Radxa AICore AX-M1.
+:::tip Notes
+Boards that support M.2 M Key peripherals share similar installation steps. Refer to the same [hardware installation](/aicore/ax-m1/getting-started/hardware_install) guide.
 :::
 
-## Environment Installation
+## Environment setup
 
-You can refer to the [Environment Installation](/aicore/ax-m1/getting-started/env_install) tutorial to install the Radxa AICore AX-M1 environment.
+See [environment setup](/aicore/ax-m1/getting-started/env_install) to prepare the software environment for the Radxa AICore AX-M1.
 
-## Quick Validation
+## Quick validation
 
-You can refer to the [Quick Validation](/aicore/ax-m1/getting-started/quick_example) tutorial to use the Radxa AICore AX-M1 for model inference.
+Use [quick validation](/aicore/ax-m1/getting-started/quick_example) to run inference with the Radxa AICore AX-M1.

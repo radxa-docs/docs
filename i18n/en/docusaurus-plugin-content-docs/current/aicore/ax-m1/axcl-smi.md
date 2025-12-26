@@ -6,21 +6,21 @@ sidebar_position: 13
 
 ## Overview
 
-AXCL-SMI (System Management Interface) tool is used to collect device information, configure devices, etc., and supports the following device information collection:
+The AXCL-SMI (System Management Interface) tool is used for collecting device information and configuring the device. It supports collecting the following device information:
 
-- Hardware device model
-- Firmware version number
-- Driver version number
+- Hardware model
+- Firmware version
+- Driver version
 - Device utilization
 - Memory usage
-- Device chip temperature
+- Device junction temperature
 - Other information
 
 ## Usage
 
-After correctly installing the AXCL driver package, `axcl-smi` is installed successfully, and you can directly execute `axcl-smi` to display the following content:
+After installing the AXCL driver package correctly, `axcl-smi` is available. Run `axcl-smi` to display the following information:
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi
@@ -46,26 +46,26 @@ rock@rock-5b-plus:~$ axcl-smi
 |================================================================================================|
 ```
 
-**Field Description**
+**Field description**
 
-| Field            | Description                                                     | Field        | Description               |
-| ---------------- | --------------------------------------------------------------- | ------------ | ------------------------- |
-| Card             | Device index number, note that it is not the PCIe device number | Bus-Id       | Device Bus ID             |
-| Name             | Device name                                                     | CPU          | CPU average utilization   |
-| Fan              | Fan speed ratio (not supported)                                 | NPU          | NPU average utilization   |
-| Temp             | Device chip temperature                                         | Memory-Usage | System memory: used/total |
-| Firmware         | Device firmware version                                         | CMM-Usage    | Media memory: used/total  |
-| Pwr: Usage/Cap   | Power (not supported)                                           |              |                           |
-|                  |                                                                 |              |                           |
-| PID              | Main process PID                                                |              |                           |
-| Process Name     | Main process name                                               |              |                           |
-| NPU Memory Usage | Device NPU used CMM memory                                      |              |                           |
+| Field            | Description                            | Field        | Description               |
+| ---------------- | -------------------------------------- | ------------ | ------------------------- |
+| Card             | Device index (not the PCIe device no.) | Bus-Id       | Device Bus ID             |
+| Name             | Device name                            | CPU          | Average CPU usage         |
+| Fan              | Fan speed ratio (not supported)        | NPU          | Average NPU usage         |
+| Temp             | Device junction temperature            | Memory-Usage | System memory: used/total |
+| Firmware         | Device firmware version                | CMM-Usage    | Media memory: used/total  |
+| Pwr: Usage/Cap   | Power (not supported)                  |              |                           |
+|                  |                                        |              |                           |
+| PID              | Main process PID                       |              |                           |
+| Process Name     | Main process name                      |              |                           |
+| NPU Memory Usage | CMM memory used by the device NPU      |              |                           |
 
 ### Help (-h) and Version (-v)
 
-`axcl-smi -h` queries help information
+`axcl-smi -h` to view help information
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi -h
@@ -111,9 +111,9 @@ Commands
 -h, --help                              Show this help menu
 ```
 
-`axcl-smi -v` queries the version of the AXCL-SMI tool.
+`axcl-smi -v` to view the AXCL-SMI tool version
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi -v
@@ -128,29 +128,29 @@ AXCL-SMI V3.0.2_20250326020141 BUILD: Mar 26 2025 02:27:24
 
 ### Options
 
-#### Device Number (-d, --device)
+#### Device index (-d, --device)
 
 ```bash
 -d, --device                             Card index [0, connected cards number - 1]
 ```
 
-`[-d, --device]` specifies the device number index, the range is: [0, connected device number - 1], **default is 0th device**.
+`[-d, --device]` specifies the device index, range: [0, number of connected devices - 1]. The default is device 0.
 
-### Information Query (info)
+### Information query (info)
 
-`axcl-smi info` is used to display the detailed information of the device, support subcommands as follows:
+`axcl-smi info` displays detailed device information. Supported subcommands:
 
-| Subcommand | Description                                                                                                                                                                      |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| temp       | Display the temperature of the device chip, unit is Celsius x 1000.                                                                                                              |
-| mem        | Display the detailed memory usage of the device system.                                                                                                                          |
-| cmm        | Display the media memory usage of the device. If you need more detailed media memory, execute `axcl-smi sh cat /proc/ax_proc/mem_cmm_info -d xx` (xx is the PCIe device number). |
-| cpu        | Display the CPU utilization of the device.                                                                                                                                       |
-| npu        | Display the NPU utilization of the device.                                                                                                                                       |
+| Subcommand | Description                                                                                                                            |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| temp       | Show the device SoC junction temperature, unit is Celsius x1000.                                                                       |
+| mem        | Show detailed system memory usage.                                                                                                     |
+| cmm        | Show media (CMM) memory usage. For more detailed media memory, run `axcl-smi sh cat /proc/ax_proc/mem_cmm_info -d xx` (xx is PCIe id). |
+| cpu        | Show device CPU utilization.                                                                                                           |
+| npu        | Show device NPU utilization.                                                                                                           |
 
-**Example**：Query the media memory usage of device 0
+**Example**: Query media (CMM) memory usage for device index 0:
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi info --cmm -d 0
@@ -166,24 +166,25 @@ CMM Used            :    18876 KiB
 CMM Remain          :  7190084 kiB
 ```
 
-### PROC Query (proc)
+### PROC query (proc)
 
-`axcl-smi proc` is used to query the proc information of the device module, support subcommands as follows:
+`axcl-smi proc` queries proc information for device modules. Supported subcommands:
 
-| Subcommand | Description |
-| --vdec | Query VDEC module proc (`cat /proc/ax_proc/vdec`) |
-| --venc | Query VENC module proc (`cat /proc/ax_proc/venc`) |
-| --jenc | Query JENC module proc (`cat /proc/ax_proc/jenc`) |
-| --ivps | Query IVPS module proc (`cat /proc/ax_proc/ivps`) |
-| --rgn | Query RGN module proc (`cat /proc/ax_proc/rgn`) |
-| --ive | Query IVE module proc (`cat /proc/ax_proc/ive`) |
-| --pool | Query POOL module proc (`cat /proc/ax_proc/pool`) |
-| --link | Query LINK module proc (`cat /proc/ax_proc/link_table`) |
-| --cmm | Query CMM module proc (`cat /proc/ax_proc/mem_cmm_info`) |
+| Subcommand | Description                                              |
+| ---------- | -------------------------------------------------------- |
+| --vdec     | Query VDEC module proc (`cat /proc/ax_proc/vdec`)        |
+| --venc     | Query VENC module proc (`cat /proc/ax_proc/venc`)        |
+| --jenc     | Query JENC module proc (`cat /proc/ax_proc/jenc`)        |
+| --ivps     | Query IVPS module proc (`cat /proc/ax_proc/ivps`)        |
+| --rgn      | Query RGN module proc (`cat /proc/ax_proc/rgn`)          |
+| --ive      | Query IVE module proc (`cat /proc/ax_proc/ive`)          |
+| --pool     | Query POOL module proc (`cat /proc/ax_proc/pool`)        |
+| --link     | Query LINK module proc (`cat /proc/ax_proc/link_table`)  |
+| --cmm      | Query CMM module proc (`cat /proc/ax_proc/mem_cmm_info`) |
 
-**Example**：Query VDEC proc information of device 0
+**Example**: Query VDEC proc information for device 0
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi proc --vdec -d 0
@@ -197,17 +198,17 @@ rock@rock-5b-plus:~$ axcl-smi proc --vdec -d 0
 [Axera version]: ax_vdec V3.0.2_20250326020141 Mar 26 2025 02:20:01 JK
 ```
 
-### Parameter Setting (set)
+### Parameter settings (set)
 
-`axcl-smi set` is used to configure device information, support subcommands as follows:
+`axcl-smi set` configures device parameters. Supported subcommands:
 
-| Subcommand            | Description                                                                                    |
-| --------------------- | ---------------------------------------------------------------------------------------------- |
-| -f[MHz], --freq=[MHz] | Set the CPU frequency of the device, only supports 1200000, 1400000, 1700000 three frequencies |
+| Subcommand            | Description                                                  |
+| --------------------- | ------------------------------------------------------------ |
+| -f[MHz], --freq=[MHz] | Set device CPU frequency; supports 1200000, 1400000, 1700000 |
 
-**Example**：Set the CPU frequency of the device with index 0 to 1200MHz
+**Example**: Set CPU frequency of device index 0 to 1200 MHz
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi set -f 1200000 -d 0
@@ -220,18 +221,18 @@ rock@rock-5b-plus:~$ axcl-smi set -f 1200000 -d 0
 set cpu frequency 1200000 to device 1 succeed.
 ```
 
-### Download Log (log)
+### Download logs (log)
 
-`axcl-smi log` is used to download device log files to the host side, support parameters as follows:
+`axcl-smi log` downloads device logs to the host. Supported options:
 
-| Parameter                 | Description                                                                                                                                                                                                                     |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -t[mask], --type=[mask]   | Specify the log category to download. Device-side log categories are as follows: <br />-1: All logs<br />0x01: Daemon<br />0x02: Business process<br />0x10: syslog<br />0x20: kernel log<br />Recommended to download all logs |
-| -o[path], --output=[path] | Specify the log save path, supports absolute and relative paths, default is the current directory. Note that the directory must have write permissions.                                                                         |
+| Option                    | Description                                                                                                                                         |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -t[mask], --type=[mask]   | Specify which logs to download. On device: <br />-1: all logs (recommended)<br />0x01: daemon<br />0x02: worker<br />0x10: syslog<br />0x20: kernel |
+| -o[path], --output=[path] | Path to save logs; supports absolute and relative paths, default is current directory. Ensure the directory is writable.                            |
 
-**Example**：Download all logs of device 0 and save to the current directory
+**Example**: Download all logs from device index 0 and save to the current directory
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi log -d 0
@@ -244,11 +245,11 @@ rock@rock-5b-plus:~$ axcl-smi log -d 0
 [2025-07-22 07:31:59.215][1858][C][log][dump][73]: log dump finished: ./dev1_log_20250722122146.tar.gz
 ```
 
-### shell command (sh)
+### Shell command (sh)
 
-`axcl-smi sh` supports shell commands to query device information, usually used to query the running proc information of the device-side module, **example**: query the CMM information of the device with index 0
+`axcl-smi sh` supports running shell commands to query device information, typically to read device-side proc details. **Example**: query CMM info of device index 0
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi sh cat /proc/ax_proc/mem_cmm_info -d 0
@@ -292,9 +293,9 @@ rock@rock-5b-plus:~$ axcl-smi sh cat /proc/ax_proc/mem_cmm_info -d 0
 
 ### Reboot (reboot)
 
-`axcl-smi reboot` command first resets the specified device, then automatically loads the firmware, as shown below:
+The `axcl-smi reboot` command resets the specified device and then automatically loads the firmware. Example:
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 axcl-smi reboot -d 0

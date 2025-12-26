@@ -2,45 +2,45 @@
 sidebar_position: 2
 ---
 
-# Hardware Installation
+# Hardware installation
 
-This document introduces how to install the Radxa AICore AX-M1 module on the ROCK 5B+.
+Using ROCK 5B+ as the primary example, this guide shows how to install the Radxa AICore AX-M1 onto the board.
 
-## Installation Instructions
+## Prerequisites
 
-:::tip Installation Instructions
-The Radxa AICore AX-M1 module uses the M.2 M Key interface, which needs to be installed on the M.2 M Key interface of the board.
+:::tip Installation note
+The Radxa AICore AX-M1 uses an M.2 M Key connector and must be installed into an M.2 M Key slot on the Board.
 :::
 
-The ROCK 5B+ board has two M.2 M Key interfaces, and you need to use one of the M.2 M Key interfaces to install the Radxa AICore AX-M1 module.
+ROCK 5B+ provides two onboard M.2 M Key slots. Use either slot to install the Radxa AICore AX-M1.
 
-## Installation Hardware
+## Install the hardware
 
-Installing the Radxa AICore AX-M1 module requires disconnecting the power, it cannot be installed while the power is connected.
+Always power off the system before installing the Radxa AICore AX-M1. Never install the module while the board is powered.
 
-### Pre-installation of Radxa AICore AX-M1
+### Pre-install the Radxa AICore AX-M1
 
-Tilt the M.2 M Key end of the Radxa AICore AX-M1 module by about 15 degrees, align it with the M.2 M Key interface of the board, and gently insert it.
+Insert the M.2 M Key end of the Radxa AICore AX-M1 into the Board slot at a slight angle (about 15 degrees), then gently slide it in.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-ax-m1/aicore_ax_m1_preinstall.webp" style={{width: '75%', maxWidth: '800px'}} />
 </div>
 
-### Fixed Radxa AICore AX-M1
+### Secure the Radxa AICore AX-M1
 
-After confirming that the Radxa AICore AX-M1 module is pre-installed, press the other end of the Radxa AICore AX-M1 module down and fix it on the board with screws.
+Once the Radxa AICore AX-M1 is aligned in the slot, press the free end down and use a screw to secure it to the Board.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-ax-m1/aicore_ax_m1_install.webp" style={{width: '75%', maxWidth: '800px'}} />
 </div>
 
-## Heat Dissipation
+## Thermal guidance
 
-The Radxa AICore AX-M1 generates significant heat during operation. To ensure effective heat dissipation, we recommend using active cooling or passive cooling with a metal case (refer to section 3.1).
+The Radxa AICore AX-M1 can generate substantial heat under load. For reliable thermals, we recommend active cooling or a metal enclosure for passive dissipation (see section 3.1).
 
-### Installation Example
+### Installation example
 
-When installing the Radxa AICore AX-M1 with a metal case: Ensure the thermal pads on both sides are symmetrically positioned to prevent uneven force distribution that could cause module deformation.
+When pairing the Radxa AICore AX-M1 with a metal enclosure, ensure the thermal pads on both sides are aligned symmetrically. This prevents uneven mechanical stress or bending.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-ax-m1/aicore_ax_m1_heat.webp" style={{width: '100%', maxWidth: '800px'}} />

@@ -2,8 +2,8 @@
 sidebar_position: 6
 ---
 
-# Audio Model
+# Audio Models
 
-This document explains how to run the [MeloTTS](https://github.com/myshell-ai/MeloTTS) example application on a host device equipped with the Radxa AICore AX-M1.
+This section provides sample demo usage for audio models.
 
 <DocCardList />

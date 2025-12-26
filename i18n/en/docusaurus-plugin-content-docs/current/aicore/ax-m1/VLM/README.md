@@ -2,8 +2,8 @@
 sidebar_position: 8
 ---
 
-# Multi-modal Models
+# Vision-language models
 
-This document introduces the usage of the multi-modal model (VLM) example demo.
+This section provides sample demo usage for vision-language models (VLM).
 
 <DocCardList />

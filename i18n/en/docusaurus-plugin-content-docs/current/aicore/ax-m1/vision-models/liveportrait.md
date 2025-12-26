@@ -4,51 +4,58 @@ sidebar_position: 1
 
 # LivePortrait
 
-This document explains how to run the [LivePortrait](https://huggingface.co/KwaiVGI/LivePortrait) example application on a host device equipped with the Radxa AICore AX-M1.
+This document explains how to run the [**LivePortrait**](https://huggingface.co/KwaiVGI/LivePortrait) sample application on a host device equipped with the Radxa AICore AX-M1.
 
-Precompiled model quantization methods: **w8a16**
+Precompiled model quantization format: **w8a16**.
 
-## Download Example Application Repository
+## Create a virtual environment
 
-Download the example application repository using `huggingfcae-cli`.
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/LivePortrait --local-dir ./LivePortrait
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## Download the demo repository
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/LivePortrait --local-dir ./LivePortrait
 cd LivePortrait
 ```
 
 </NewCodeBlock>
 
-## Example Usage
+## Example usage
 
-### Install System Dependencies
+### Install system dependencies
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 sudo apt install ffmpeg
-
 ```
 
 </NewCodeBlock>
-### Install Python Dependencies
+### Install Python dependencies
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip install -r python/requirements.txt
+pip3 install -r python/requirements.txt
 pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc1/axengine-0.1.3-py3-none-any.whl
 
 ```
 
 </NewCodeBlock>
 
-### Model Inference
+### Model inference
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 ./python/infer.py --source ./assets/examples/source/s0.jpg --driving ./assets/examples/driving/d8.jpg --models ./python/axmodels/ --output-dir ./axmodel_infer

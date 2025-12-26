@@ -4,29 +4,37 @@ sidebar_position: 0
 
 # Depth-Anything-V2
 
-This document explains how to run the [Depth-Anything-V2](https://depth-anything-v2.github.io/) example application on a host device equipped with the Radxa AICore AX-M1.
+This document explains how to run the [**Depth-Anything-V2**](https://depth-anything-v2.github.io/) sample application on a host device equipped with the Radxa AICore AX-M1.
 
-Precompiled model quantization methods: **w8a16**
+Precompiled model quantization format: **w8a16**.
 
-## Download Example Application Repository
+## Create a virtual environment
 
-Use `huggingfcae-cli` to download the example application repository.
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/Depth-Anything-V2 --local-dir ./Depth-Anything-V2
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## Download the demo repository
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/Depth-Anything-V2 --local-dir ./Depth-Anything-V2
 cd Depth-Anything-V2
 ```
 
 </NewCodeBlock>
 
-## Example Usage
+## Example usage
 
-### Install Python Dependencies
+### Install Python dependencies
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 pip3 install argparse numpy opencv-python
@@ -36,9 +44,9 @@ pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc
 
 </NewCodeBlock>
 
-### Model Inference
+### Model inference
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 python/infer.py --model depth_anything_v2_vits_ax650.axmodel --img examples/demo01.jpg

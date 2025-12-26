@@ -4,39 +4,51 @@ sidebar_position: 0
 
 # Qwen2.5-1.5B-Instruct
 
-This document explains how to run the [Qwen2.5-1.5B](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GPTQ-Int8) example application on a host device equipped with the Radxa AICore AX-M1.
+This document explains how to run the [**Qwen2.5-1.5B**](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GPTQ-Int8) sample application on a host device equipped with the Radxa AICore AX-M1.
 
-Precompiled model quantization methods: **w8a16** and **w4a16**
+:::tip
+For model conversion, refer to the [Hugging Face repository](https://huggingface.co/AXERA-TECH/Qwen2.5-1.5B-Instruct).
+:::
 
-## Download Example Application Repository
+Precompiled model quantization formats: **w8a16** and **w4a16**.
 
-Use `huggingfcae-cli` to download the example application repository.
+## Create a virtual environment
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/Qwen2.5-1.5B-Instruct --local-dir ./Qwen2.5-1.5B-Instruct
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## Download the demo repository
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/Qwen2.5-1.5B-Instruct --local-dir ./Qwen2.5-1.5B-Instruct
 cd Qwen2.5-1.5B-Instruct
 ```
 
 </NewCodeBlock>
 
-## Example Usage
+## Example usage
 
-### Install Python Dependencies
+### Install Python dependencies
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install transformers==4.53.3 jinja==3.1.6
+pip3 install transformers==4.53.3 jinja2==3.1.6
 ```
 
 </NewCodeBlock>
 
-### Start Tokenizer Service
+### Launch the tokenizer service
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 qwen2.5_tokenizer_uid.py --port 12345 > /dev/null 2>&1 &
@@ -44,19 +56,19 @@ python3 qwen2.5_tokenizer_uid.py --port 12345 > /dev/null 2>&1 &
 
 </NewCodeBlock>
 
+:::warning
+To stop the background tokenizer service, run `jobs` to find the job ID, then use `kill %N`, where `%N` is the corresponding job number.
+:::
+
 ```bash
 (.venv) rock@rock-5b-plus:~/ssd/axera/Qwen2.5-1.5B-Instruct$ python3 qwen2.5_tokenizer_uid.py
 None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
 Server running at http://0.0.0.0:12345
 ```
 
-:::tip
-If you need to end the background Tokenizer service, please use `jobs` to view the background number, then use `kill %N` to end the background process, where `%N` is the background number in `jobs`.
-:::
+### Run inference
 
-### Model Inference
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 chmod +x main_axcl_aarch64
@@ -66,8 +78,8 @@ bash run_qwen2.5_1.5b_ctx_axcl_aarch64.sh
 
 </NewCodeBlock>
 
-:::tip
-Please check the port of the tokenizer_model in the run_xxx.sh running script is consistent with the [Tokenizer Service Port](#start-tokenizer-service).
+:::warning
+Ensure the `tokenizer_model` port configured in `run_xxx.sh` matches the port used in [Launch the tokenizer service](#launch-the-tokenizer-service).
 :::
 
 ```bash
@@ -121,12 +133,12 @@ Type "q" to exit, Ctrl+c to stop current running
 [E][                            main][ 227]: save kvcache failed
 [I][                            main][ 229]: generate kvcache to path: ./kvcache
 [I][                            main][ 236]: precompute_len: 53
-[I][                            main][ 237]: system_prompt: Your name is Allen, you are a harmless AI assistant. It is April 1st today in Shenzhen, cloudy, mild wind, temperature between 14°C and 19°C.
+[I][                            main][ 237]: system_prompt: Your name is Xiaozhi (Allen), a harmless AI assistant. Today (April 1) in Shenzhen it is cloudy on April Fools' Day, with temperatures between 14°C and 19°C and a light breeze.
 ```
 
-### Performance Reference
+### Performance reference
 
-| Model        | Quantization | Host Device | token/s |
-| ------------ | ------------ | ----------- | ------- |
-| Qwen2.5-1.5B | w8a16        | ROCK 5B+    | 8.89    |
-| Qwen2.5-1.5B | w4a16        | ROCK 5B+    | 11.27   |
+| Model        | Quantization | Host device | Tokens/s |
+| ------------ | ------------ | ----------- | -------- |
+| Qwen2.5-1.5B | w8a16        | ROCK 5B+    | 8.89     |
+| Qwen2.5-1.5B | w4a16        | ROCK 5B+    | 11.27    |

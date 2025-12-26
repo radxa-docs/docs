@@ -4,52 +4,60 @@ sidebar_position: 4
 
 # Qwen2.5-VL-3B-Instruct
 
-This document explains how to run the [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) example application on a host device equipped with the Radxa AICore AX-M1.
+This document explains how to run the [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct) sample application on a host device equipped with the Radxa AICore AX-M1.
 
-Precompiled model quantization methods: **w8a16**
+Precompiled model quantization format: **w8a16**.
 
-## Download Example Application Repository
+## Create a virtual environment
 
-Use `huggingfcae-cli` to download the example application repository.
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/Qwen2.5-VL-3B-Instruct --local-dir ./Qwen2.5-VL-3B-Instruct
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## Download the demo repository
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/Qwen2.5-VL-3B-Instruct --local-dir ./Qwen2.5-VL-3B-Instruct
 cd Qwen2.5-VL-3B-Instruct
 ```
 
 </NewCodeBlock>
 
-## Example Usage
+## Example usage
 
-### Install Python Dependencies
+### Install Python dependencies
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install transformers==4.53.3 jinja==3.1.6
+pip3 install transformers==4.53.3 jinja2==3.1.6
 ```
 
 </NewCodeBlock>
 
-### Start Tokenizer Service
+### Start the Tokenizer service
 
 <Tabs queryString groupId="source_type">
 
     <TabItem value="image">
 
-    <NewCodeBlock tip="Host" type="Device">
+    <NewCodeBlock tip="Host" type="device">
 
     ```bash
-    python3 qwen2_tokenizer_image_448.py --port 12345 > /dev/null 2>&1 &
+    python3 qwen2_tokenizer_images.py --port 12345 > /dev/null 2>&1 &
     ```
 
     </NewCodeBlock>
 
     ```bash
-    (.venv) rock@rock-5b-plus:~/ssd/axera/Qwen2.5-VL-3B-Instruct$ python3 qwen2_tokenizer_image_448.py --port 12345
+    (.venv) rock@rock-5b-plus:~/ssd/axera/Qwen2.5-VL-3B-Instruct$ python3 qwen2_tokenizer_images.py --port 12345
     None None 151645 <|im_end|>
     [151644, 8948, 198, 2610, 525, 264, 10950, 17847, 13, 151645, 198, 151644, 872, 198, 151652, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151655, 151653, 74785, 419, 2168, 13, 151645, 198, 151644, 77091, 198]
     281
@@ -61,7 +69,7 @@ pip3 install transformers==4.53.3 jinja==3.1.6
     </TabItem>
     <TabItem value="video">
 
-    <NewCodeBlock tip="Host" type="Device">
+    <NewCodeBlock tip="Host" type="device">
 
     ```bash
     python3 qwen2_tokenizer_video_308.py --port 12345 > /dev/null 2>&1 &
@@ -83,17 +91,17 @@ pip3 install transformers==4.53.3 jinja==3.1.6
 
 </Tabs>
 
-:::tip
-If you need to end the background Tokenizer service, please use `jobs` to view the background number, then use `kill %N` to end the background process, where `%N` is the background number in `jobs`.
+:::warning
+To stop the background Tokenizer service, use `jobs` to view the background job number, then use `kill %N` to terminate the background process, where `%N` is the corresponding job number.
 :::
 
-### Model Inference
+### Model inference
 
 <Tabs queryString groupId="source_type">
 
     <TabItem value="image">
 
-    <NewCodeBlock tip="Host" type="Device">
+    <NewCodeBlock tip="Host" type="device">
 
     ```bash
     chmod +x main_axcl_aarch64
@@ -143,7 +151,7 @@ If you need to end the background Tokenizer service, please use `jobs` to view t
     [W][                            Init][ 452]: load postprocess config(post_config.json) failed
     [I][                            Init][ 456]: LLM init ok
     Type "q" to exit, Ctrl+c to stop current running
-    prompt >> describe the image
+    prompt >> Describe the image
     image >> image/ssd_car.jpg
     [I][                          Encode][ 539]: image encode time : 787.804993 ms, size : 524288
     [I][                             Run][ 625]: input token num : 280, prefill_split_num : 3
@@ -151,7 +159,7 @@ If you need to end the background Tokenizer service, please use `jobs` to view t
     [I][                             Run][ 659]: input_num_token:128
     [I][                             Run][ 659]: input_num_token:24
     [I][                             Run][ 796]: ttft: 1964.38 ms
-    This image shows a busy city street. In the foreground, a woman stands on the sidewalk, wearing a black coat and smiling. She is next to a red double-decker bus, which has an advertisement on it reading "THINGS GET MORE EXITING WHEN YOU SAY ‘YES’". The bus has the license plate number "L15". A black small truck is parked next to the bus. Some shops and pedestrians can be seen in the background, and the buildings on both sides of the street are modern glass curtain buildings. The overall atmosphere is busy and vibrant.
+    This image shows a busy city street. In the foreground, a woman stands on the sidewalk wearing a black coat and smiling. Next to her is a red double-decker bus with an advertisement reading "THINGS GET MORE EXCITING WHEN YOU SAY 'YES'". The bus license plate is "L15". A black van is parked beside the bus. In the background, there are shops and pedestrians, and modern glass buildings line the street. The overall atmosphere feels busy and vibrant.
 
     [N][                             Run][ 949]: hit eos,avg 4.95 token/s
     ```
@@ -159,7 +167,7 @@ If you need to end the background Tokenizer service, please use `jobs` to view t
     </TabItem>
     <TabItem value="video">
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
     ```bash
     chmod +x main_axcl_aarch64
@@ -209,7 +217,7 @@ If you need to end the background Tokenizer service, please use `jobs` to view t
     [W][                            Init][ 452]: load postprocess config(post_config.json) failed
     [I][                            Init][ 456]: LLM init ok
     Type "q" to exit, Ctrl+c to stop current running
-    prompt >> describe the video
+    prompt >> Describe the content of this video
     image >> video
     video/frame_0000.jpg
     video/frame_0008.jpg
@@ -226,7 +234,7 @@ If you need to end the background Tokenizer service, please use `jobs` to view t
     [I][                             Run][ 659]: input_num_token:128
     [I][                             Run][ 659]: input_num_token:125
     [I][                             Run][ 796]: ttft: 2931.55 ms
-    The video shows a scene with two squirrels outdoors. The background is blurry mountains and blue sky, and there are squirrels interacting in the foreground. The squirrels have brown and gray mixed fur, and their claws are orange. The squirrels seem to be playing with each other or competing, with their claws and mouths reaching out to each other. The entire scene appears natural and lively.
+    The video shows two squirrels outdoors. The background features blurred mountains and a blue sky, while in the foreground the squirrels interact. Their fur is a mix of brown and gray with orange paws. They appear to be playing or tussling, reaching toward each other with their paws and mouths. The entire scene looks very natural and lively.
 
     [N][                             Run][ 949]: hit eos,avg 4.89 token/s
     ```
@@ -235,12 +243,12 @@ If you need to end the background Tokenizer service, please use `jobs` to view t
 
 </Tabs>
 
-:::tip
-Please check the port of the tokenizer_model in the run_xxx.sh running script is consistent with the [Tokenizer Service Port](#start-tokenizer-service).
+:::warning
+Please check whether the tokenizer_model port in the run_xxx.sh script matches the [Tokenizer service port](#start-the-tokenizer-service).
 :::
 
-### Performance Reference
+### Performance reference
 
-| Model                  | Quantization Method | Host Device | Token/s |
-| ---------------------- | ------------------- | ----------- | ------- |
-| Qwen2.5-VL-3B-Instruct | w8a16               | ROCK 5B+    | 4.95    |
+| Model                  | Quantization | host device | token/s |
+| ---------------------- | ------------ | ----------- | ------- |
+| Qwen2.5-VL-3B-Instruct | w8a16        | ROCK 5B+    | 4.95    |

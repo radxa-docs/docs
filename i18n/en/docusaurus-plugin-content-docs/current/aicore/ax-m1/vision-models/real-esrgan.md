@@ -4,40 +4,48 @@ sidebar_position: 2
 
 # Real-ESRGAN
 
-This document explains how to run the [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) example application on a host device equipped with the Radxa AICore AX-M1.
+This document explains how to run the [**Real-ESRGAN**](https://github.com/xinntao/Real-ESRGAN) sample application on a host device equipped with the Radxa AICore AX-M1.
 
-Precompiled model quantization methods: **w8a8**
+Precompiled model quantization format: **w8a8**.
 
-## Download Example Application Repository
+## Create a virtual environment
 
-Use `huggingfcae-cli` to download the example application repository.
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/Real-ESRGAN --local-dir ./Real-ESRGAN
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## Download the demo repository
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/Real-ESRGAN --local-dir ./Real-ESRGAN
 cd Real-ESRGAN
 ```
 
 </NewCodeBlock>
 
-## Example Usage
+## Example usage
 
-### Install Python Dependencies
+### Install Python dependencies
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc1/axengine-0.1.3-py3-none-any.whl
 pip3 install argparse numpy opencv-python
+pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc1/axengine-0.1.3-py3-none-any.whl
 ```
 
 </NewCodeBlock>
 
-### Model Inference
+### Model inference
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 main.py --input test_256.jpeg  --output test_256_20e.jpeg --model ax650/realesrgan-x4-256.axmodel

@@ -4,39 +4,47 @@ sidebar_position: 1
 
 # InternVL3-2B
 
-This document explains how to run the [InternVL3-2B](https://huggingface.co/OpenGVLab/InternVL3-2B) example application on a host device equipped with the Radxa AICore AX-M1.
+This document explains how to run the [InternVL3-2B](https://huggingface.co/OpenGVLab/InternVL3-2B) sample application on a host device equipped with the Radxa AICore AX-M1. For model conversion, please refer to [here](https://github.com/AXERA-TECH/InternVL3-2B.axera/tree/main/model_convert).
 
-Precompiled model quantization methods: **w8a16**
+Precompiled model quantization format: **w8a16**.
 
-## Download Example Application Repository
+## Create a virtual environment
 
-Use `huggingfcae-cli` to download the example application repository.
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install -U "huggingface_hub[cli]"
-huggingface-cli download AXERA-TECH/InternVL3-2B --local-dir ./InternVL3-2B
+python3 -m venv .venv && source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+## Download the demo repository
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip3 install -U "huggingface_hub"
+hf download AXERA-TECH/InternVL3-2B --local-dir ./InternVL3-2B
 cd InternVL3-2B
 ```
 
 </NewCodeBlock>
 
-## Example Usage
+## Example usage
 
-### Install Python Dependencies
+### Install Python dependencies
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-pip3 install transformers==4.53.3 jinja==3.1.6
+pip3 install transformers==4.53.3 jinja2==3.1.6
 ```
 
 </NewCodeBlock>
 
-### Start Tokenizer Service
+### Start the Tokenizer service
 
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 python3 internvl3_tokenizer.py --port 12345 > /dev/null 2>&1 &
@@ -44,21 +52,21 @@ python3 internvl3_tokenizer.py --port 12345 > /dev/null 2>&1 &
 
 </NewCodeBlock>
 
+:::warning
+To stop the background Tokenizer service, use `jobs` to view the background job number, then use `kill %N` to terminate the background process, where `%N` is the corresponding job number.
+:::
+
 ```bash
 (.venv) rock@rock-5b-plus:~/ssd/axera/InternVL3-2B$ python3 internvl3_tokenizer.py --port 12345
 None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
 None None 151645 <|im_end|> 151665 151667
 context_len is  256
-prompt is <|im_start|> 3system
+prompt is <|im_start|>system
 ```
 
-:::tip
-If you need to end the background Tokenizer service, please use `jobs` to view the background number, then use `kill %N` to end the background process, where `%N` is the background number in `jobs`.
-:::
+### Model inference
 
-### Model Inference
-
-<NewCodeBlock tip="Host" type="Device">
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
 chmod +x main_axcl_aarch64
@@ -67,8 +75,8 @@ chmod +x main_axcl_aarch64
 
 </NewCodeBlock>
 
-:::tip
-Please check the port of the tokenizer_model in the run_xxx.sh running script is consistent with the [Tokenizer Service Port](#start-tokenizer-service).
+:::warning
+Please check whether the `--url_tokenizer_model` port in the run_xxx.sh script matches the [Tokenizer service port](#start-the-tokenizer-service).
 :::
 
 ```bash
@@ -151,8 +159,8 @@ Type "q" to exit, Ctrl+c to stop current running
 prompt >>
 ```
 
-### Performance Reference
+### Performance reference
 
-| Model        | Quantization Method | Host Device | Token/s |
-| ------------ | ------------------- | ----------- | ------- |
-| InternVL3-2B | w8a16               | ROCK 5B+    | 8.28    |
+| Model        | Quantization | host device | token/s |
+| ------------ | ------------ | ----------- | ------- |
+| InternVL3-2B | w8a16        | ROCK 5B+    | 8.28    |
