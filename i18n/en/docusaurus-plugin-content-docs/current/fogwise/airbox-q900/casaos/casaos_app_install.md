@@ -4,6 +4,6 @@ sidebar_position: 2
 
 # Deploying AI Models on CasaOS
 
-import Casaosappinstall from '../../../common/ai/\_casaos_app_install.mdx';
+import Casaosappinstallqualcomm from '../../../common/ai/\_casaos_app_install_qualcomm.mdx';
 
-<Casaosappinstall />
+<Casaosappinstallqualcomm />
