@@ -9,15 +9,7 @@ sidebar_position: 8
 
 ## 安装方法
 
-请在 DX-M1 SDK [资源下载](../download.md)页面下载 DX-Tron 安装包并解压
-
-<NewCodeBlock tip="X86 PC" type="PC">
-
-```bash
-unzip DX_Tron_v0.0.8.zip -d DX_Tron_v0.0.8
-```
-
-</NewCodeBlock>
+请在 DX-M1 SDK [资源下载](../download.md)页面下载 DX-Tron
 
 ### Linux 安装方法
 
@@ -37,8 +29,7 @@ sudo apt install -y libfuse2 libxss1 libxtst6 libappindicator1 libgconf-2-4 libn
 <NewCodeBlock tip="X86 PC" type="PC">
 
 ```bash
-cd DX_Tron_v0.0.8/Linux/
-chmod +x DXTron-0.0.8.AppImage
+chmod +x DXTron-2.0.0.AppImage
 ```
 
 </NewCodeBlock>
@@ -48,14 +39,14 @@ chmod +x DXTron-0.0.8.AppImage
 <NewCodeBlock tip="X86 PC" type="PC">
 
 ```bash
-./DXTron-0.0.8.AppImage
+./DXTron-2.0.0.AppImage
 ```
 
 </NewCodeBlock>
 
 ### Windows 安装方法
 
-在文件夹窗口中双击 `DXTron Setup 0.0.8.exe`, 然后按着安装引导进行安装即可。
+在文件夹窗口中双击 `DXTron Setup 2.0.0.exe`, 然后按着安装引导进行安装即可。
 
 ## 使用方法
 

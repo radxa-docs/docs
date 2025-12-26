@@ -38,18 +38,20 @@ DX-M1 SDK 配置请到 [资源下载页面](../download.md) 和使用 [**DX-ALL-
 
 - [**DX-APP（演示应用）**](./dx-app) 是基于智核 DX-M1 NPU 的应用 demo 模板。
 
+- [**DX-STREAM（Gstreamer 插件）**](./dx-stream) 是一个自定义的 GStreamer 插件。用于将实时流式数据集成到基于 DEEPX NPU 的应用中。
+
 ## DX-ALL-SUITE
 
 DX-ALL-SUITE 是 DEEPX-SDK 的集成仓库，可用于方便用户安装与使用 DEEPX-SDK。
 
 :::info
-VERSION: v1.0.0
+VERSION: v2.1.0
 :::
 
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-export VERSION=v1.0.0
+export VERSION=v2.1.0
 ```
 
 </NewCodeBlock>
