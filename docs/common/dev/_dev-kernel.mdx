@@ -1,0 +1,153 @@
+本文档介绍如何使用 **Radxa 官方 Linux 内核仓库** 构建 ARM64 内核，并生成可安装的 Debian 内核包。
+
+:::tip
+请先确保已配置好开发环境，并且在容器内进行操作。具体请参考：[ARM64 内核开发环境准备](./dev-env)
+:::
+
+## 选择正确的内核仓库
+
+Radxa 为不同平台维护独立内核仓库，命名格式为：
+
+```
+https://github.com/radxa-pkg/linux-<profile>
+```
+
+#### Profile 对照表
+
+| 设备                                  | Profile      |
+| ------------------------------------- | ------------ |
+| ROCK 5A / 5B / 5B\+ / 5C / 5T / 5 ITX | rk2410       |
+| ROCK 2A/ROCK 2F/ E20C/E24C            | rk2312       |
+| E52C / E54C / NX5 / CM5               | rk2410       |
+| ROCK 3 系列 / ZERO 3 / CM3            | rk2410-nocsf |
+| ROCK Pi 4 / ROCK 4（除 4D）           | rk2501       |
+| ROCK 4D                               | rk2410-nocsf |
+| Dragon Q6A                            | qcom         |
+| AIRBox Q900                           | qc2509       |
+| Cubie A7A / A7Z                       | a733         |
+| Orion O6 / O6N                        | sky1         |
+
+---
+
+## 克隆内核源码
+
+:::tip
+请先确保已配置好开发环境，并且在容器内进行操作。
+:::
+
+克隆时必须包含子模块：
+
+<NewCodeBlock tip="Container" type="Container">
+
+```
+git clone --recurse-submodules \
+  https://github.com/radxa-pkg/linux-rk2410.git
+cd linux-rk2410
+```
+
+</NewCodeBlock>
+
+若克隆时遗漏子模块，可在仓库目录中补齐：
+
+<NewCodeBlock tip="Container" type="Container">
+
+```
+git submodule update --init --recursive
+```
+
+## </NewCodeBlock>
+
+## 构建 Debian 内核包（推荐）
+
+适用于 RadxaOS / Debian / Ubuntu 系统，推荐优先使用该方式。
+
+#### 安装构建依赖
+
+<NewCodeBlock tip="Container" type="Container">
+
+```
+sudo apt build-dep .
+```
+
+</NewCodeBlock>
+
+#### 配置内核
+
+- 如果你需求修改内核源码，可直接编辑 `src` 目录下的源码文件。
+- 如果你需求修改内核配置文件，可以修改 `/debian/patches/linux/`目录下的 patch 文件
+
+#### 构建内核包
+
+<NewCodeBlock tip="Container" type="Container">
+
+```
+make deb
+```
+
+</NewCodeBlock>
+
+生成的文件包括：
+
+- linux-image-\*.deb
+- linux-headers-\*.deb
+
+---
+
+## 手动构建（高级）
+
+适用于需要自定义内核配置或不生成 Debian 包的高级场景。
+
+<NewCodeBlock tip="Container" type="Container">
+
+```
+cd src
+make menuconfig
+make -j"$(nproc)"
+```
+
+</NewCodeBlock>
+
+---
+
+## 安装与验证
+
+### 安装内核
+
+需要退出容器环境，并将产物拷贝到 SBC 板端系统
+
+<NewCodeBlock tip="Container" type="Container">
+
+```
+exit
+```
+
+</NewCodeBlock>
+
+后面的步骤在 SBC 板端系统进行：
+
+<NewCodeBlock tip="SBC" type="device">
+
+```bash
+sudo dpkg -i linux-image-*.deb linux-headers-*.deb
+sudo reboot
+```
+
+</NewCodeBlock>
+
+### 验证
+
+<NewCodeBlock tip="SBC" type="device">
+
+```
+uname -r
+zcat /proc/config.gz | grep CONFIG_XXX
+```
+
+</NewCodeBlock>
+
+---
+
+## 注意事项
+
+- 克隆仓库时必须使用 `--recurse-submodules`，否则可能因缺失子模块导致构建失败。
+- 内核安装后是否生效，取决于启动加载器和启动配置是否正确加载了新内核。
