@@ -209,6 +209,38 @@ aplay -D jack_speaker ./sample.wav
 
 ## 摄像头
 
+### 在 CAM1 上使用 Radxa Camera 13M 214 摄像头
+
+加载 radxa-nio-12l-camera1-imx214 dtbo
+
+```
+genio-flash --load-dtbo radxa-nio-12l-camera1-imx214.dtbo
+```
+
+预览摄像头
+
+```
+declare -a video=(`v4l2-ctl --list-devices | grep mtk-v4l2-camera -A 3 | grep video | tr -d "\n"`)
+printf "Preview Node\t= ${video[0]}\nVideo Node\t= ${video[1]}\nCapture Node\t= ${video[2]}\n"
+gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,format=YUY2 ! waylandsink sync=false
+```
+
+### 在 CAM2 上使用 Radxa Camera 13M 214 摄像头
+
+加载 radxa-nio-12l-camera2-imx214 dtbo
+
+```
+genio-flash --load-dtbo radxa-nio-12l-camera2-imx214.dtbo
+```
+
+预览摄像头
+
+```
+declare -a video=(`v4l2-ctl --list-devices | grep mtk-v4l2-camera -A 3 | grep video | tr -d "\n"`)
+printf "Preview Node\t= ${video[0]}\nVideo Node\t= ${video[1]}\nCapture Node\t= ${video[2]}\n"
+gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,format=YUY2 ! waylandsink sync=false
+```
+
 ### 使用 USB 摄像头
 
 通过 `ls -l /sys/class/video4linux` 查看 v4l2 设备节点。可以看到有设备 `/dev/vidoe6`。

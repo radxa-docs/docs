@@ -210,6 +210,38 @@ aplay -D jack_speaker ./sample.wav
 
 ## Camera
 
+### Use Radxa Camera 13M 214 Camera on CAM1 connector
+
+Load radxa-nio-12l-camera1-imx214 dtbo
+
+```
+genio-flash --load-dtbo radxa-nio-12l-camera1-imx214.dtbo
+```
+
+Launch camera
+
+```
+declare -a video=(`v4l2-ctl --list-devices | grep mtk-v4l2-camera -A 3 | grep video | tr -d "\n"`)
+printf "Preview Node\t= ${video[0]}\nVideo Node\t= ${video[1]}\nCapture Node\t= ${video[2]}\n"
+gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,format=YUY2 ! waylandsink sync=false
+```
+
+### Use Radxa Camera 13M 214 Camera on CAM2 connector
+
+Load radxa-nio-12l-camera2-imx214 dtbo
+
+```
+genio-flash --load-dtbo radxa-nio-12l-camera2-imx214.dtbo
+```
+
+Launch camera
+
+```
+declare -a video=(`v4l2-ctl --list-devices | grep mtk-v4l2-camera -A 3 | grep video | tr -d "\n"`)
+printf "Preview Node\t= ${video[0]}\nVideo Node\t= ${video[1]}\nCapture Node\t= ${video[2]}\n"
+gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,format=YUY2 ! waylandsink sync=false
+```
+
 ### Use USB camear
 
 Find v4l2 device node via command `ls -l /sys/class/video4linux`. There is `/dev/video6` here.

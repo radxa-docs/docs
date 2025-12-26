@@ -19,7 +19,12 @@ Windows:
 ### Image Download
 
 Yocto:
-[genio-1200-radxa-nio-12l-ufs-kirkstone-k5.15-v23.2-b2-20240116.tar.gz](https://github.com/radxa-build/radxa-nio-12l/releases/download/20240524/genio-1200-radxa-nio-12l-ufs-kirkstone-k5.15-v23.2-b2-20240116.tar.gz)
+
+[NIO-12L-D4 genio-1200-radxa-nio-12l-d4-ufs-kirkstone-k5.15-v24.0-b3-20250109.tar.gz](https://dl.radxa.com/nio12l/images/yocto/genio-1200-radxa-nio-12l-d4-ufs-kirkstone-k5.15-v24.0-b3-20250109.tar.gz)
+
+[NIO-12L-D8 genio-1200-radxa-nio-12l-d8-ufs-kirkstone-k5.15-v24.0-b3-20250109.tar.gz](https://dl.radxa.com/nio12l/images/yocto/genio-1200-radxa-nio-12l-d8-ufs-kirkstone-k5.15-v24.0-b3-20250109.tar.gz)
+
+[NIO-12L-D16 genio-1200-radxa-nio-12l-d16-ufs-kirkstone-k5.15-v24.0-b3-20250109.tar.gz](https://dl.radxa.com/nio12l/images/yocto/genio-1200-radxa-nio-12l-d16-ufs-kirkstone-k5.15-v24.0-b3-20250109.tar.gz)
 
 Ubuntu:
 [baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b9.tar.gz](https://dl.radxa.com/nio12l/images/ubuntu/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b9.tar.gz)
