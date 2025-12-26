@@ -1,0 +1,218 @@
+主要介绍在同一局域网下通过 PC 远程控制主板。
+
+## 配置 RDP（主板）
+
+我们需要在主板上安装并使能 RDP 服务，方便在 Windows / Ubuntu / macOS 等平台远程控制主板。
+
+### 安装 RDP 服务
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install xrdp plasma-workspace xorg dbus-x11 -y
+```
+
+</NewCodeBlock>
+
+### 修改配置文件
+
+使用 vim 编辑器打开 `/etc/xrdp/startwm.sh` 文件，将文件内容替换成下面内容。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+#!/bin/sh
+# xrdp X session start script (c) 2015, 2017, 2021 mirabilos
+# published under The MirOS Licence
+
+# Rely on /etc/pam.d/xrdp-sesman using pam_env to load both
+# /etc/environment and /etc/default/locale to initialise the
+# locale and the user environment properly.
+
+if test -r /etc/profile; then
+        . /etc/profile
+fi
+
+if test -r ~/.profile; then
+        . ~/.profile
+fi
+
+exec /usr/bin/startplasma-x11
+```
+
+</NewCodeBlock>
+
+### 启动 RDP 服务
+
+设置 RDP 服务开机自启。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo systemctl enable --now xrdp
+```
+
+</NewCodeBlock>
+
+## 配置 RDP（PC）
+
+主板配置 RDP 服务后，我们可以在 Windows / Ubuntu / macOS 等平台远程控制主板。
+
+### RDP 远程登录
+
+:::tip RDP 远程登录
+
+- Windows 平台：使用 `Remote Desktop Connection` 进行远程登录。
+- Ubuntu 平台：使用 `Remmina` 进行远程登录。
+- macOS 平台：使用 `Microsoft APP` 进行远程登录。
+
+:::
+
+<Tabs queryString="Platform">
+
+<TabItem value="Windows">
+
+- 打开远程工具
+
+Windows 系统平台一般自带 `Remote Desktop Connection` 工具，在 `Windows` 搜索框中输入 `Remote Desktop Connection`。
+
+打开 `Remote Desktop Connection` 工具，输入远程主板的 IP 地址，点击 `Connect` 按钮。
+
+① -> 输入主板 IP 地址
+
+② -> 点击 `Connect` 按钮
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rdp-login-ip-windows.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+- 输入用户信息
+
+输入远程主板的系统用户名和密码，点击 `OK` 按钮。
+
+① -> 输入用户名和密码
+
+② -> 点击 `OK` 按钮
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rdp-login-user.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="Ubuntu">
+
+- 打开远程工具
+
+Ubuntu 系统平台一般自带 `Remmina` 工具，打开 `Remmina`。
+
+:::tip Remmina
+
+若是系统没有安装 `Remmina` 工具，可以使用以下命令进行安装。
+
+<NewCodeBlock tip={`Ubuntu$`} type="host">
+
+```
+sudo apt install remmina -y
+```
+
+</NewCodeBlock>
+
+:::
+
+在 `remmina` 界面选择 `RDP` 连接方式，输入远程主板的 IP 地址，然后回车进行连接。
+
+① -> 选择 `RDP` 连接方式
+
+② -> 输入主板 IP 地址
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rdp-login-ip-ubuntu.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+- 输入用户信息
+
+输入远程主板的系统用户名和密码，点击 `OK` 按钮。
+
+① -> 输入用户名和密码
+
+② -> 点击 `OK` 按钮
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rdp-login-user.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="macOS">
+
+- 安装远程工具
+
+macOS 系统平台可以在 APP Store 安装 `Microsoft APP` 应用。
+
+打开 `Microsoft APP`，选择 `Add PC` 选项，输入远程主板的 IP 地址，然后点击 `Add` 选项添加设备。
+
+① -> 选择 `Add PC` 选项
+
+② -> 输入主板 IP 地址
+
+③ -> 点击 `Add` 选项添加设备
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rdp-login-device-mac.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+添加成功后，可以在界面看到对应的设备信息。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rdp-login-device-list-mac.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+- 输入用户信息
+
+点击界面显示的设备进行连接，输入主板的系统用户名和密码进行连接。
+
+① -> 输入用户名和密码
+
+② -> 点击 `Continue` 按钮
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rdp-login-user-mac.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+</Tabs>
+
+### 远程登录成功
+
+远程登录成功后，可以看到主板的系统桌面。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rdp-login-succ.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

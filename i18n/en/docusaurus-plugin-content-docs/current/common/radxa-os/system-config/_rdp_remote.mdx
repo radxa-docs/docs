@@ -1,0 +1,218 @@
+This guide explains how to control the board remotely from a PC on the same LAN.
+
+## Configure RDP (Board)
+
+Install and enable the RDP service on the board so that Windows, Ubuntu, or macOS hosts can connect to it.
+
+### Install the RDP service
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install xrdp plasma-workspace xorg dbus-x11 -y
+```
+
+</NewCodeBlock>
+
+### Modify the configuration file
+
+Use `vim` to open `/etc/xrdp/startwm.sh`, then replace its contents with the script below.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+#!/bin/sh
+# xrdp X session start script (c) 2015, 2017, 2021 mirabilos
+# published under The MirOS Licence
+
+# Rely on /etc/pam.d/xrdp-sesman using pam_env to load both
+# /etc/environment and /etc/default/locale to initialise the
+# locale and the user environment properly.
+
+if test -r /etc/profile; then
+        . /etc/profile
+fi
+
+if test -r ~/.profile; then
+        . ~/.profile
+fi
+
+exec /usr/bin/startplasma-x11
+```
+
+</NewCodeBlock>
+
+### Enable and start the RDP service
+
+Enable the RDP service so it launches automatically on boot.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo systemctl enable --now xrdp
+```
+
+</NewCodeBlock>
+
+## Configure RDP (PC)
+
+After the board is ready, you can connect from Windows, Ubuntu, or macOS.
+
+### RDP remote login
+
+:::tip RDP login clients
+
+- Windows: use **Remote Desktop Connection**.
+- Ubuntu: use **Remmina**.
+- macOS: use the **Microsoft Remote Desktop** app.
+
+:::
+
+<Tabs queryString="Platform">
+
+<TabItem value="Windows">
+
+#### Launch the client
+
+Windows ships with **Remote Desktop Connection**. Search for “Remote Desktop Connection” from the Start menu.
+
+Open the app, enter the board’s IP address, and click **Connect**.
+
+① → Enter the board IP address
+
+② → Click **Connect**
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rdp-login-ip-windows.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Provide credentials
+
+Enter the system username and password of the board, then click **OK**.
+
+① → Enter username and password
+
+② → Click **OK**
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rdp-login-user.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="Ubuntu">
+
+#### Launch the client
+
+Ubuntu usually includes **Remmina**. Open it from the application launcher.
+
+:::tip Remmina
+
+If Remmina is missing, install it with the command below.
+
+<NewCodeBlock tip={`Ubuntu$`} type="host">
+
+```
+sudo apt install remmina -y
+```
+
+</NewCodeBlock>
+
+:::
+
+In Remmina, choose the **RDP** protocol, enter the board IP, and press Enter.
+
+① → Select the **RDP** protocol
+
+② → Enter the board IP address
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rdp-login-ip-ubuntu.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Provide credentials
+
+Enter the system username and password of the board, then click **OK**.
+
+① → Enter username and password
+
+② → Click **OK**
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rdp-login-user.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="macOS">
+
+#### Install the client
+
+Install **Microsoft Remote Desktop** from the Mac App Store.
+
+Open the app, choose **Add PC**, enter the board IP, and click **Add**.
+
+① → Choose **Add PC**
+
+② → Enter the board IP address
+
+③ → Click **Add**
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rdp-login-device-mac.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+Once added, the device appears in the list.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rdp-login-device-list-mac.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Provide credentials
+
+Select the device, then enter the board’s username and password to connect.
+
+① → Enter username and password
+
+② → Click **Continue**
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rdp-login-user-mac.webp"
+    style={{ width: "50%", maxWidth: "1200px" }}
+  />
+</div>
+
+</TabItem>
+
+</Tabs>
+
+### Successful login
+
+After the connection succeeds, the board’s desktop is displayed.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rdp-login-succ.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
