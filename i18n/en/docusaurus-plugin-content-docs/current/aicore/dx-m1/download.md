@@ -6,10 +6,16 @@ sidebar_position: 15
 
 ## DX-M1 SDK
 
-- [dx_com_M1_v1.60.1](https://dl.radxa.com/aicore/dx_m1/dx_com_M1_v1.60.1.tar.gz)
-- [DX_Tron_v0.0.8](https://dl.radxa.com/aicore/dx_m1/sdk/DX_Tron_v0.0.8.zip)
+**DX-COM**
+
+- [dx_com_M1_v2.1.0](https://dl.radxa.com/aicore/dx_m1/sdk/dx_com_M1_v2.1.0.tar.gz)
+
+**DX-Tron**
+
+- [**Linux:** DXTron-2.0.0.AppImage](https://dl.radxa.com/aicore/dx_m1/sdk/DXTron-2.0.0.AppImage)
+- [**Windows:** DXTron Setup 2.0.0.exe](https://dl.radxa.com/aicore/dx_m1/sdk/DXTron%20Setup%202.0.0.exe)
 
 ## Reference Documents
 
-- [Radxa AICore DX-M1 Product Brief (English)](https://dl.radxa.com/aicore/dx_m1/radxa_aicore_dx_m1_product_brief_en_revision_1.0.pdf)
-- [Radxa AICore DX-M1 Product Brief (Chinese)](https://dl.radxa.com/aicore/dx_m1/radxa_aicore_dx_m1_product_brief_zh_revision_1.0.pdf)
+- [Radxa AI Core DX-M1 Product Brief (English)](https://dl.radxa.com/aicore/dx_m1/radxa_aicore_dx_m1_product_brief_en_revision_1.0.pdf)
+- [Radxa AI Core DX-M1 Product Brief (Chinese)](https://dl.radxa.com/aicore/dx_m1/radxa_aicore_dx_m1_product_brief_zh_revision_1.0.pdf)

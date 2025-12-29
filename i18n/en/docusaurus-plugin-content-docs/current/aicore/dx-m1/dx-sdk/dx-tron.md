@@ -4,22 +4,13 @@ sidebar_position: 8
 
 # DX-Tron
 
-**DX-Tron (DXNN Model Viewer)** is a structure viewer for DXNN models. It is developed based on [Netron](https://github.com/lutzroeder/netron),
-supporting Windows and Linux systems on X86 platform.
+**DX-Tron (DXNN Model Viewer)** is a tool for inspecting DXNN model structures. It is developed based on [Netron](https://github.com/lutzroeder/netron) and supports Windows and Linux on x86 platforms.
 
 ## Installation
 
-Please download the DX-Tron installation package from the DX-M1 SDK [Resources Download](../download.md) page and extract it
+Download DX-Tron from the DX-M1 SDK [Downloads](../download.md) page.
 
-<NewCodeBlock tip="X86 PC" type="PC">
-
-```bash
-unzip DX_Tron_v0.0.8.zip -d DX_Tron_v0.0.8
-```
-
-</NewCodeBlock>
-
-### Linux Installation
+### Linux
 
 #### Install Dependencies
 
@@ -32,13 +23,12 @@ sudo apt install -y libfuse2 libxss1 libxtst6 libappindicator1 libgconf-2-4 libn
 
 </NewCodeBlock>
 
-#### Add Execute Permissions
+#### Add Execute Permission
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
 ```bash
-cd DX_Tron_v0.0.8/Linux/
-chmod +x DXTron-0.0.8.AppImage
+chmod +x DXTron-2.0.0.AppImage
 ```
 
 </NewCodeBlock>
@@ -48,18 +38,18 @@ chmod +x DXTron-0.0.8.AppImage
 <NewCodeBlock tip="X86 PC" type="PC">
 
 ```bash
-./DXTron-0.0.8.AppImage
+./DXTron-2.0.0.AppImage
 ```
 
 </NewCodeBlock>
 
-### Windows Installation
+### Windows
 
-In the folder window, double-click `DXTron Setup 0.0.8.exe`, then follow the installation wizard to complete the installation.
+Double-click `DXTron Setup 2.0.0.exe` in File Explorer and follow the installation wizard.
 
 ## Usage
 
-In the GUI interface, click `Open Model` to open the dxnn format model file, and you can view the dxnn model structure.
+In the GUI, click `Open Model` to open a DXNN model file and view its structure.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-dx-m1/dx-tron.webp"/>
@@ -67,7 +57,7 @@ In the GUI interface, click `Open Model` to open the dxnn format model file, and
 
 <br />
 
-In the right sidebar of the GUI interface, you can select to view the overall model graph, NPU graph, and CPU graph of the dxnn model
+In the right panel of the GUI, you can choose to view the overall model graph, the NPU graph, or the CPU graph.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-dx-m1/dx-tron-2.webp"/>
