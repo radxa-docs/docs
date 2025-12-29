@@ -6,8 +6,8 @@ sidebar_position: 1
 
 ## Overview
 
-DX-M1 SDK is a suite of SDKs for optimizing artificial intelligence models and efficiently deploying them on Radxa AICore DX-M1 accelerator cards.
-Users can use DX-M1 SDK to port mainstream AI framework models (Pytorch, Onnx, Tensorflow) to Radxa AICore DX-M1 AI accelerator cards for hardware-accelerated inference using DEEPX NPU.
+DX-M1 SDK is a software development kit for optimizing AI models and deploying them efficiently on the Radxa AI Core DX-M1 accelerator.
+With DX-M1 SDK, you can port mainstream AI framework models (PyTorch, ONNX, TensorFlow) to the Radxa AI Core DX-M1 and run hardware-accelerated inference using the DEEPX NPU.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-dx-m1/dx-m1-sdk-overview.webp"/>
@@ -16,40 +16,42 @@ Users can use DX-M1 SDK to port mainstream AI framework models (Pytorch, Onnx, T
 
 ## SDK Components
 
-DX-M1 SDK consists of two parts: model compilation part and model inference part.
+DX-M1 SDK consists of two parts: model compilation and model inference.
 
 :::tip
-For DX-M1 SDK configuration, please go to the [Resources Download page](../download.md) and use [**DX-ALL-SUITE**](#dx-all-suite) to download
+Download the DX-M1 SDK package from the [Downloads](../download.md) page and use [**DX-ALL-SUITE**](#dx-all-suite).
 :::
 
-### Model Compilation Part
+### Model Compilation
 
-- [**DX-COM (Model Compiler)**](./dx-com) compiles ONNX models into DXNN model file format executable on NPU based on ONNX model files and configuration files.
+- [**DX-COM (Model Compiler)**](./dx-com) compiles ONNX model files into DXNN models that can run on the NPU, based on a configuration file.
 
-[//]: # "- [**DX-SIM (Inference Simulator)**](./dx-sim) simulates inference of DXNN models by simulating NPU hardware functions on X86 PC."
+[//]: # "- [**DX-SIM (Inference Simulator)**](./dx-sim) Simulates NPU hardware behavior on an x86 PC to run inference on DXNN models."
 
-- [**DX-Tron (DXNN Model Viewer)**](./dx-tron) is a structure viewer for DXNN models.
+- [**DX-Tron (DXNN Model Viewer)**](./dx-tron) is a viewer for inspecting the DXNN model structure.
 
-### Model Inference Part
+### Model Inference
 
-- [**DXRT-NPU-Driver (Driver Software)**](./dx-npu-driver) is used to drive AICore DX-M1.
+- [**DXRT-NPU-Driver (Driver)**](./dx-npu-driver) is used to drive the Radxa AI Core DX-M1.
 
-- [**DX-RT (Runtime Software)**](./dx-rt) is the runtime for users to interact with AICore DX-M1 NPU hardware, implementing pre-processing and post-processing during inference, managing NPU input and output.
+- [**DX-RT (Runtime)**](./dx-rt) is the runtime that interacts with the DX-M1 NPU hardware and provides pre/post-processing during inference while managing NPU inputs and outputs.
 
-- [**DX-APP (Demo Applications)**](./dx-app) are application demo templates based on AICore DX-M1 NPU.
+- [**DX-APP (Demo Applications)**](./dx-app) is an application demo template built on the DX-M1 NPU.
+
+- [**DX-STREAM (GStreamer Plugin)**](./dx-stream) is a custom GStreamer plugin for integrating real-time streaming data into DEEPX NPU-based applications.
 
 ## DX-ALL-SUITE
 
-DX-ALL-SUITE is the integrated repository of DEEPX-SDK, which can be used to facilitate user installation and use of DEEPX-SDK.
+DX-ALL-SUITE is the integrated repository for DEEPX-SDK, making it easier to install and use the DEEPX-SDK.
 
 :::info
-VERSION: v1.0.0
+VERSION: v2.1.0
 :::
 
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-export VERSION=v1.0.0
+export VERSION=v2.1.0
 ```
 
 </NewCodeBlock>

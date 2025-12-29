@@ -4,20 +4,20 @@ sidebar_position: 5
 
 # DX-RT Runtime
 
-**DX-RT (Runtime Software)** is the runtime for users to interact with DEEPX NPU hardware, enabling pre-processing and post-processing during inference, managing NPU input and output.
-DX-RT supports inference using dxnn format models compiled by DX-COM.
+**DX-RT (runtime software)** is the runtime used to interact with DEEPX NPU hardware. It provides pre/post-processing during inference and manages NPU inputs and outputs.
+DX-RT supports running inference with DXNN models compiled by DX-COM.
 
 ## Installation
 
-### Clone DX-ALL-SUITE Repository
+### Clone the DX-ALL-SUITE Repository
 
 :::tip
-Please follow [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite) to clone the specified version of the DX-ALL-SUITE repository
+Clone the specified DX-ALL-SUITE version following [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite).
 :::
 
-### Compile DX-RT
+### Build DX-RT
 
-Navigate to the `dx-all-suite/dx-runtime/dx_rt` directory
+Enter the `dx-all-suite/dx-runtime/dx_rt` directory.
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -27,9 +27,9 @@ cd dx-all-suite/dx-runtime/dx_rt
 
 </NewCodeBlock>
 
-#### Create Python Virtual Environment
+#### Create a Python Virtual Environment
 
-This virtual environment is used to install DXRT Python API. Users can create Python virtual environment in any directory
+This virtual environment is used to install the DXRT Python API. You can create a Python virtual environment in any directory.
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -41,20 +41,45 @@ pip3 install --upgrade pip
 
 </NewCodeBlock>
 
-#### Install onnxruntime
+#### Install Required Dependencies
 
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-./install.sh --arch aarch64 --onnxruntime
+./install.sh --all
 ```
 
 </NewCodeBlock>
 
-#### Compile and Install DX-RT
+```bash
+Usage: ./install.sh [OPTIONS]
+Install necessary components and libraries for the project.
+
+System Requirements:
+  • Architecture: x86_64 or aarch64
+  • RAM: 8GB or more
+
+Options:
+  --help                       Display this help message and exit.
+  --arch <ARCH>                Specify the target CPU architecture. Valid options: [x86_64, aarch64].
+  --dep                        Install core dependencies such as cmake, gcc, ninja, etc and python3.
+  --onnxruntime                (Optional) Install the ONNX Runtime library.
+  --all                        Install all dependencies and the ONNX Runtime library.
+
+  --python_version <VERSION>   Specify the Python version to install (e.g., 3.10.4).
+                                 * Minimum supported version: .
+                                 * If not specified:
+                                     - For Ubuntu 20.04+, the OS default Python 3 will be used.
+                                     - For Ubuntu 18.04, Python  will be source-built.
+  --venv_path <PATH>          Specify the path for the virtual environment.
+                                 * If this option is omitted, no virtual environment will be created.
+  --help                      Display this help message and exit.
+```
+
+#### Build and Install DX-RT
 
 :::tip
-DX-RT installation script will automatically install dx-engine Python API
+The DX-RT installation script will automatically install the dx-engine Python API.
 :::
 
 <NewCodeBlock tip="Host" type="device">
@@ -65,9 +90,9 @@ DX-RT installation script will automatically install dx-engine Python API
 
 </NewCodeBlock>
 
-### Register dxrt-service Service
+### Register the dxrt-service
 
-DX-RT supports background multi-threaded operations. To enable multi-threading features, you need to register dxrt-service
+DX-RT supports background multi-threading. To enable this feature, you need to register `dxrt-service`.
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -79,10 +104,10 @@ sudo systemctl enable dxrt.service
 
 </NewCodeBlock>
 
-### Install DX-RT Python Library
+### Install the DX-RT Python Package
 
 :::tip
-DX-RT installation script will automatically install dx-engine Python API
+The DX-RT installation script will automatically install the dx-engine Python API.
 :::
 
 <NewCodeBlock tip="Host" type="device">
@@ -94,197 +119,425 @@ pip3 install .
 
 </NewCodeBlock>
 
+### Uninstall DX-RT
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+cd dx-all-suite/dx-runtime/dx_rt
+./build.sh --uninstall
+```
+
+</NewCodeBlock>
+
 ## Usage
 
 ### dxrt-cli
 
-`dxrt-cli` can read Radxa AICore DX-M1 device status
-Source code location: `dx_rt/cli/dxrt-cli.cpp`
+`dxrt-cli` reads the Radxa AI Core DX-M1 device status. Source: `dx_rt/cli/dxrt-cli.cpp`.
 
 ```bash
 dxrt-cli <option> <argument>
 ```
 
-| Parameter                           | Description                                                                                                                                            |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `-s`, `--status`                    | Get device status information                                                                                                                          |
-| `-i`, `--info`                      | Get detailed device information                                                                                                                        |
-| `-m`, `--monitor <seconds>`         | Monitor device status at specified intervals                                                                                                           |
-| `-r`, `--reset <parameter>`         | Reset device:<br/> `0` - Reset NPU only (default)<br/> `1` - Reset entire device                                                                       |
-| `-d`, `--device <deviceID>`         | Specify device number to execute command. If not specified, command will be sent to all devices (default: `-1`)                                        |
-| `-u`, `--fwupdate <firmware_file>`  | Update firmware using DeepX firmware file. Supports sub-options:<br/> `force` - Force update<br/> `unreset` - Do not reset device (default will reset) |
-| `-w`, `--fwupload <firmware_file>`  | Upload firmware file (supports `2and_boot` or `rtos` files)                                                                                            |
-| `-g`, `--fwversion <firmware_file>` | Read firmware version information from specified DeepX firmware file                                                                                   |
-| `-p`, `--dump <file_path>`          | Export device internal status information to specified file                                                                                            |
-| `-l`, `--fwlog <file_path>`         | Extract firmware logs and save to specified file                                                                                                       |
-| `-h`, `--help`                      | Display help information and command usage instructions                                                                                                |
+| Parameter                           | Description                                                                                                                      |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `-s`, `--status`                    | Get device status information.                                                                                                   |
+| `-i`, `--info`                      | Get detailed device information.                                                                                                 |
+| `-m`, `--monitor <seconds>`         | Monitor device status at the specified interval.                                                                                 |
+| `-r`, `--reset <option>`            | Reset device:<br/> `0` - reset NPU only (default)<br/> `1` - reset the whole device                                              |
+| `-d`, `--device <device_id>`        | Specify device ID. If omitted, the command will be sent to all devices (default: `-1`).                                          |
+| `-u`, `--fwupdate <firmware_file>`  | Update firmware using a DeepX firmware file. Options:<br/> `force` - force update<br/> `unreset` - do not reset (default resets) |
+| `-g`, `--fwversion <firmware_file>` | Read firmware version information from a specified DeepX firmware file.                                                          |
+| `-C`, `--fwconfig_json <json_file>` | Update firmware configuration from a JSON file.                                                                                  |
+| `-v`, `--version`                   | Print the minimum required versions for driver, firmware, and model compiler.                                                    |
+| `-h`, `--help`                      | Show help and usage.                                                                                                             |
 
-#### Usage Examples
+#### Examples
 
-Check Radxa AICore DX-M1 device status
+##### Check Radxa AI Core DX-M1 Device Status
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+dxrt-cli -s
+```
+
+</NewCodeBlock>
 
 ```bash
 rock@rock-5b-plus:~$ dxrt-cli -s
-DXRT v2.9.5
+DXRT v3.1.0
 =======================================================
- * Device 0: M1, Accelator type
+ * Device 0: M1, Accelerator type
 ---------------------   Version   ---------------------
- * RT Driver version   : v1.5.0
- * PCIe Driver version : v1.4.0
+ * RT Driver version   : v1.8.0
+ * PCIe Driver version : v1.6.0
 -------------------------------------------------------
- * FW version          : v2.1.5
+ * FW version          : v2.4.0
 --------------------- Device Info ---------------------
- * Memory : LPDDR5 5600 MHz, 3.92GiB
- * Board  : M.2, Rev 1.5
+ * Memory : LPDDR5 5600 Mbps, 3.92GiB
+ * Board  : M.2, Rev 1.0
  * Chip Offset : 0
  * PCIe   : Gen3 X2 [17:00:00]
 
-NPU 0: voltage 750 mV, clock 1000 MHz, temperature 40'C
-NPU 1: voltage 750 mV, clock 1000 MHz, temperature 40'C
-NPU 2: voltage 750 mV, clock 1000 MHz, temperature 40'C
-dvfs Disabled
+NPU 0: voltage 750 mV, clock 1000 MHz, temperature 41'C
+NPU 1: voltage 750 mV, clock 1000 MHz, temperature 41'C
+NPU 2: voltage 750 mV, clock 1000 MHz, temperature 41'C
 =======================================================
 ```
 
-Reset Radxa AICore DX-M1 NPU
+##### Reset Radxa AI Core DX-M1 NPU
+
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-rock@rock-5b-plus:~$ dxrt-cli --reset 0
-DXRT v2.6.3
-    Device 0 reset by option 0
-Please wait until the device reset is complete.(1 seconds remaining)
-[DXRT][Reset] Device reset is complete!
+dxrt-cli --reset
 ```
 
-Print Radxa AICore DX-M1 NPU temperature every second
+</NewCodeBlock>
+
+```bash
+rock@rock-5b-plus:~$ dxrt-cli --reset
+DXRT v3.1.0
+    Device 0 reset by option 0
+```
+
+##### Print Radxa AI Core DX-M1 NPU Temperature Every Second
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+dxrt-cli -m 1
+```
+
+</NewCodeBlock>
 
 ```bash
 rock@rock-5b-plus:~$ dxrt-cli -m 1
-DXRT v2.6.3
-NPU 0: voltage 750 mV, clock 1000 MHz, temperature 35'C
-NPU 1: voltage 750 mV, clock 1000 MHz, temperature 35'C
-NPU 2: voltage 750 mV, clock 1000 MHz, temperature 35'C
-dvfs Disabled
+DXRT v3.1.0
+====================== Device 0 =======================
+NPU 0: voltage 750 mV, clock 1000 MHz, temperature 41'C
+NPU 1: voltage 750 mV, clock 1000 MHz, temperature 40'C
+NPU 2: voltage 750 mV, clock 1000 MHz, temperature 40'C
+=======================================================
 ```
 
-Update Radxa AICore DX-M1 firmware
+##### Update Radxa AI Core DX-M1 Firmware
 
-:::tip
-Latest firmware is stored in the [dx-fw](https://github.com/DEEPX-AI/dx_fw/tree/ebb1e45bed2a6a7f431e6665b2b8171a96e45468) repository. Users should upgrade with caution
+:::info
+If the DX-M1 firmware version is lower than v2.4.0, please upgrade to v2.4.0. Use `dxrt-cli -s` to check the current firmware version.
 :::
 
+:::tip
+The latest firmware is available in the [dx-fw](https://github.com/DEEPX-AI/dx_fw/tree/v2.4.0) repository. Upgrade carefully.
+:::
+
+<NewCodeBlock tip="Host" type="device">
+
 ```bash
-dxrt-cli -u fw.bin
+cd dx-all-suite/dx-runtime/dx_fw
 ```
+
+</NewCodeBlock>
+
+Check firmware file version information.
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+dxrt-cli -g m1/latest/mdot2/fw.bin
+```
+
+</NewCodeBlock>
+
+```bash
+rock@rock-5b-plus:~/dx-all-suite/dx-runtime/dx_fw$ dxrt-cli -g m1/latest/mdot2/fw.bin
+DXRT v3.1.0
+fwFile:m1/latest/mdot2/fw.bin
+============ FW Binary Information ============
+Signature   : DEEPX GENESIS-M
+Board Type  : M.2
+DDR Type    : LPDDR5
+Firmware Ver: 2.4.0
+```
+
+Update DX-M1 firmware.
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+dxrt-cli -u m1/latest/mdot2/fw.bin
+```
+
+</NewCodeBlock>
 
 ### parse_model
 
-`parse_model` is used to parse dxnn models and print detailed model information
+`parse_model` parses a DXNN model and prints detailed model information.
 
-Source code location: `dx_rt/cli/parse_model.cpp`
+Source: `dx_rt/cli/parse_model.cpp`
 
 ```bash
 parse_model -m <dxnn_model_path>
 ```
 
-| Parameter       | Description                                             |
-| --------------- | ------------------------------------------------------- |
-| `-m`, `--model` | dxnn model path                                         |
-| `-h`, `--help`  | Display help information and command usage instructions |
+| Parameter             | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| `-m`, `--model FILE`  | DXNN model path (required)                       |
+| `-v`, `--verbose`     | Show detailed task dependencies and memory usage |
+| `-o`, `--output FILE` | Save output to a file                            |
+| `-j`, `--json`        | Save binary data (graph_info, rmap_info) as JSON |
+| `-h`, `--help`        | Show help and usage                              |
+
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-rock@rock-5b-plus:~$ parse_model -m EfficientNetB0_4.dxnn
-modelPath: EfficientNetB0_4.dxnn
-DXNN Model Ver. : 6
-{"version": 6, "signature": "DXNN", "size": 8192, "encode_type": "utf-8", "bytes_order": "little", "hw_config": null, "data": {"merged_model": {"type": "bytes", "offset": 0, "size": 0}, "npu_models": {"npu_0": {"type": "bytes", "offset": 19751, "size": 5602912}}, "cpu_models": {"cpu_0": {"type": "bytes", "offset": 5623487, "size": 7632}}, "graph_info": {"type": "str", "offset": 5631119, "size": 1036}, "compile_config": {"type": "str", "offset": 5622663, "size": 824}, "compiled_data": {"M1A_4K": {"npu_0": {"rmap": {"type": "bytes", "offset": 5632155, "size": 360960}, "weight": {"type": "bytes", "offset": 5993115, "size": 5683904}, "rmap_info": {"type": "str", "offset": 11677019, "size": 1512}, "bitmatch": {"type": "bytes", "offset": 11678531, "size": 0}, "sim_info": {"type": "bytes", "offset": 11678531, "size": 23}}}}, "vis_npu_models": {"npu_0": {"type": "bytes", "offset": 0, "size": 19751}}, "vis_cpu_models": {}}, "cipher_manager": {"_serializer": {"use_pickle": false}, "_cipher": "DXCipherV2"}}
-[  ] -> cpu_0 -> [npu_0,  ]
-  inputs
-     -> cpu_0
-      Im2col_input
-  outputs
-    cpu_0 -> npu_0
-      data
-[ cpu_0,  ] -> npu_0 -> [ ]
-  inputs
-    cpu_0 -> npu_0
-      data
-  outputs
-    npu_0 ->
-      argmax_output
-  Task[0] npu_0, NPU, 8209728 bytes (input 157696, output 2)
-    inputs
-      data, UINT8, [1, 224, 224, 3 ], 0
-    outputs
-      argmax_output, UINT16, [1 ], 0
+parse_model -m ResNet50-1.dxnn
+```
+
+</NewCodeBlock>
+
+```bash
+rock@rock-5b-plus:/mnt/ssd/deepx/v2.1.0/model_zoo_v2.1.0$ parse_model -m ResNet50-1.dxnn
+
+===================== Model Information ======================
+ Model File Path        : ResNet50-1.dxnn
+ .dxnn Format Version   : v7
+ DX-COM Version         : v2.0.0-rc-20250814
+
+ Model Input Tensors:
+  - input.1
+
+ Model Output Tensors:
+  - 495
+
+ Model Memory Usage:
+  - Total             : 34.79 MB (36,477,760 bytes)
+  - Buffers           : 10.11 MB (10,604,544 bytes)
+  - NPU Tasks Count   : 1
+  - Buffer Pool Size  : x6
+
+================== Task Graph Information ====================
+
+-------------------- Task Dependencies -----------------------
+
+  npu_0 [NPU] (model input) (model output)
+
+---------------------- Task Details --------------------------
+
+Task[0]: npu_0 [NPU] (model input) (model output)
+  +- Inputs:
+  |  +- input.1
+  +- Outputs:
+     +- 495
 ```
 
 ### run_model
 
-`run_model` is used to infer dxnn format models, measure model inference time and check model output. Can be used to benchmark dxnn models.
+`run_model` runs inference on DXNN models, measures inference time, and checks model outputs. It can be used to benchmark DXNN models.
 
-Source code location: `dx_rt/cli/run_model.cpp`
+Source: `dx_rt/cli/run_model.cpp`
 
-| Parameter       | Description                                                    |
-| --------------- | -------------------------------------------------------------- |
-| `-c` `--config` | Specify configuration file (JSON format) path.                 |
-| `-m ` `--model` | Specify model file path.                                       |
-| `-i` `--input`  | Specify input data file path.                                  |
-| `-o` `--output` | Specify output result save file path.                          |
-| `-r` `--ref`    | Specify reference output data file path for result comparison. |
-| `-l` `--loop`   | Enable loop test mode.                                         |
-| `-h` `--help`   | Display help information.                                      |
+| Parameter                 | Description                                  |
+| ------------------------- | -------------------------------------------- |
+| `-m`, `--model FILE`      | DXNN model path (required)                   |
+| `-b`, `--benchmark`       | Run benchmark                                |
+| `-s`, `--single`          | Run a single test                            |
+| `-v`, `--verbose`         | Show NPU processing time and latency         |
+| `-n`, `--npu arg`         | NPU core (default: 0)                        |
+| `-l`, `--loops arg`       | Number of inference loops (default: 30)      |
+| `-t`, `--time arg`        | Inference duration (seconds)                 |
+| `-w`, `--warmup-runs arg` | Warm-up runs (default: 0)                    |
+| `-d`, `--devices arg`     | Specify NPU device(s) (default: all)         |
+| `-f`, `--fps arg`         | Target FPS                                   |
+| `--use-ort`               | Enable ONNX Runtime to execute CPU subgraphs |
+| `-h`, `--help`            | Show help and usage                          |
+
+<NewCodeBlock tip="Host" type="device">
 
 ```bash
-run_model -m <model_dir> -i <input bin.> -o <output bin.> -r <reference output bin.> -l <number of loops>
+run_model -m ./ResNet50-1.dxnn -b -l 100 -v
 ```
 
+</NewCodeBlock>
+
 ```bash
-rock@rock-5b-plus:~$ run_model -m ./EfficientNetB0_4.dxnn -l 100
-modelFile: ./EfficientNetB0_4.dxnn
+rock@rock-5b-plus:/mnt/ssd/deepx/v2.1.0/model_zoo_v2.1.0$ run_model -m ./ResNet50-1.dxnn -b -l 100 -v
+Runtime Framework Version: v3.1.0
+Device Driver Version: v1.8.0
+PCIe Driver Version: v1.6.0
+
+--- CPU Information ---
+  Architecture:                         aarch64
+  CPU(s):                               8
+  Vendor ID:                            ARM
+  Model name:                           -
+
+--- Architecture Information ---
+  System Name: Linux
+  Node Name:   rock-5b-plus
+  Release:     6.1.84-7-rk2410
+  Version:     #7 SMP Wed Jun 18 13:39:58 UTC 2025
+  Machine:     aarch64
+
+--- Memory Information ---
+  Total Physical Memory: 7.75 GB
+  Available Physical Memory: 6.30 GB
+  Total Swap Space: 3.88 GB
+  Free Swap Space: 3.88 GB
+
+modelFile: ./ResNet50-1.dxnn
 inputFile:
 outputFile: output.bin
-benchmark: 0
+benchmark: 1
 loops: 100
-DXNN Model Ver. : 6
-{"version": 6, "signature": "DXNN", "size": 8192, "encode_type": "utf-8", "bytes_order": "little", "hw_config": null, "data": {"merged_model": {"type": "bytes", "offset": 0, "size": 0}, "npu_models": {"npu_0": {"type": "bytes", "offset": 19751, "size": 5602912}}, "cpu_models": {"cpu_0": {"type": "bytes", "offset": 5623487, "size": 7632}}, "graph_info": {"type": "str", "offset": 5631119, "size": 1036}, "compile_config": {"type": "str", "offset": 5622663, "size": 824}, "compiled_data": {"M1A_4K": {"npu_0": {"rmap": {"type": "bytes", "offset": 5632155, "size": 360960}, "weight": {"type": "bytes", "offset": 5993115, "size": 5683904}, "rmap_info": {"type": "str", "offset": 11677019, "size": 1512}, "bitmatch": {"type": "bytes", "offset": 11678531, "size": 0}, "sim_info": {"type": "bytes", "offset": 11678531, "size": 23}}}}, "vis_npu_models": {"npu_0": {"type": "bytes", "offset": 0, "size": 19751}}, "vis_cpu_models": {}}, "cipher_manager": {"_serializer": {"use_pickle": false}, "_cipher": "DXCipherV2"}}
-DXRT v2.6.3
-argmax_output
-[  ] -> npu_0 -> [ ]
- InferenceEngine /mnt/ssd/deepx/dx_app/example/EfficientNetB0_4/EfficientNetB0_4.dxnn
-  Task[0] npu_0, NPU, 8209728bytes (input 157696, output 2)
-    inputs
-      data, UINT8, [1, 224, 224, 3 ], 0
-    outputs
-      argmax_output, UINT16, [1 ], 0
-
-
+Device specification: 'all' (default)
 Run model target mode : Benchmark Mode
-===========================
-* Benchmark Result(3 Cores)
-  - FPS : 1645.738403
-===========================
-Profiler data has been written to profiler.json
+Inference by loops: count=100
+
+=== Model File: /mnt/ssd/deepx/v2.1.0/model_zoo_v2.1.0/ResNet50-1.dxnn ===
+
+Model Input Tensors:
+  - input.1
+Model Output Tensors:
+  - 495
+
+Tasks:
+  [ ] -> npu_0 -> []
+  Task[0] npu_0, NPU, NPU memory usage 36477760 bytes (input 150528 bytes, output 4000 bytes)
+  Inputs
+     -  input.1, UINT8, [1, 224, 224, 3 ]
+  Outputs
+    -  495, FLOAT, [1, 1000 ]
+
+
+=====================================================================================================================================
+* Benchmark Result (100 inputs)
+  - NPU Processing Time Average : 2.900 ms   (Actual NPU core computation time for a single request)
+  - Latency Average             : 6.415 ms   (End-to-end time per request including data transfer and overheads)
+  - FPS                         : 915.25     (Overall user-observed inference throughput (inputs/second), reflecting perceived speed)
+=====================================================================================================================================
 ```
 
 ### dxtop
 
-`dxtop` is a deepx device status monitoring tool. Real-time monitoring of each NPU status, including NPU device memory usage status, each NPU core utilization, temperature, voltage and frequency.
+`dxtop` is a device monitoring tool for DeepX devices. It monitors each NPU status in real time, including NPU memory usage, per-core utilization, temperature, voltage, and frequency.
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+dxtop
+```
+
+</NewCodeBlock>
 
 ```bash
 [DX-TOP]  (q) Quit   (n) Next Page   (p) Prev Page   (h) Help
-Tue Nov 11 09:06:49 2025
-RT framework version : v2.9.6 | RT driver version : v1.5.0 | PCIe driver version : v1.4.0
+Thu Dec 25 07:24:04 2025
+DX-RT: v3.1.0     NPU Device driver: v1.8.0     DX-TOP: v1.0.1
 --------------------------------------------------------------------------------------------------------------------------------------------
-   Device #0 | M1B, ACC Type | firmware version : v2.1.5 | DRAM Usage:     0.00 MB
-     Core #0 - util:   0.0%  temp:  39 C  voltage:  750 mV  clock: 1000 MHz
-     Core #1 - util:   0.0%  temp:  39 C  voltage:  750 mV  clock: 1000 MHz
-     Core #2 - util:   0.0%  temp:  39 C  voltage:  750 mV  clock: 1000 MHz
+  Device :0      Variant:    M1      PCIe Bus Number:  17:00:00    Firmware:  v2.4.0
+  NPU Memory:  [                    ] 3.56 KiB / 3.92 GiB (0.00%)
+    Core :0   Util:   0.0%   Temp: 41 °C   Voltage: 750 mV   Clock: 1000 MHz
+    Core :1   Util:   0.0%   Temp: 40 °C   Voltage: 750 mV   Clock: 1000 MHz
+    Core :2   Util:   0.0%   Temp: 40 °C   Voltage: 750 mV   Clock: 1000 MHz
 --------------------------------------------------------------------------------------------------------------------------------------------
 ```
 
-## API Reference Manual
+## C++/Python Example Code
 
-API reference manual is built using doxygen
+DXRT C++/Python example code can be found under `dx-all-suite/dx-runtime/dx_rt/examples` in the `cpp` or `python` directories.
+
+```bash
+.
+├── CMakeLists.txt
+├── cpp
+│   ├── check_versions
+│   │   ├── check_versions.cpp
+│   │   └── CMakeLists.txt
+│   ├── CMakeLists.txt
+│   ├── display_async_models_1
+│   │   ├── CMakeLists.txt
+│   │   └── display_async_models_1.cpp
+│   ├── display_async_models_2
+│   │   ├── CMakeLists.txt
+│   │   └── display_async_models_2.cpp
+│   ├── display_async_pipe
+│   │   ├── CMakeLists.txt
+│   │   ├── concurrent_queue.h
+│   │   ├── display_async_pipe.cpp
+│   │   └── simple_circular_buffer_pool.h
+│   ├── display_async_thread
+│   │   ├── CMakeLists.txt
+│   │   ├── concurrent_queue.h
+│   │   └── display_async_thread.cpp
+│   ├── display_async_wait
+│   │   ├── CMakeLists.txt
+│   │   ├── concurrent_queue.h
+│   │   ├── display_async_wait.cpp
+│   │   └── simple_circular_buffer_pool.h
+│   ├── include
+│   │   └── logger.h
+│   ├── multi_input_model_inference
+│   │   ├── CMakeLists.txt
+│   │   ├── multi_input_model_inference.cpp
+│   │   └── README_multi_input_model_inferenece.md
+│   ├── run_async_model
+│   │   ├── CMakeLists.txt
+│   │   └── run_async_model.cpp
+│   ├── run_async_model_bound
+│   │   ├── CMakeLists.txt
+│   │   └── run_async_model_bound.cpp
+│   ├── run_async_model_conf
+│   │   ├── CMakeLists.txt
+│   │   └── run_async_model_conf.cpp
+│   ├── run_async_model_output
+│   │   ├── CMakeLists.txt
+│   │   ├── concurrent_queue.h
+│   │   ├── run_async_model_output.cpp
+│   │   └── simple_circular_buffer_pool.h
+│   ├── run_async_model_profiler
+│   │   ├── CMakeLists.txt
+│   │   └── run_async_model_profiler.cpp
+│   ├── run_async_model_thread
+│   │   ├── CMakeLists.txt
+│   │   ├── concurrent_queue.h
+│   │   └── run_async_model_thread.cpp
+│   ├── run_async_model_wait
+│   │   ├── CMakeLists.txt
+│   │   ├── concurrent_queue.h
+│   │   └── run_async_model_wait.cpp
+│   ├── run_batch_model
+│   │   ├── CMakeLists.txt
+│   │   └── run_batch_model.cpp
+│   ├── run_sync_model
+│   │   ├── CMakeLists.txt
+│   │   └── run_sync_model.cpp
+│   ├── run_sync_model_bound
+│   │   ├── CMakeLists.txt
+│   │   └── run_sync_model_bound.cpp
+│   └── run_sync_model_output
+│       ├── CMakeLists.txt
+│       ├── run_sync_model_output.cpp
+│       └── simple_circular_buffer_pool.h
+└── python
+    ├── logger.py
+    ├── multi_input_model_inference.py
+    ├── run_async_model_callback.py
+    ├── run_async_model_conf.py
+    ├── run_async_model_profiler.py
+    ├── run_async_model.py
+    ├── run_async_model_thread.py
+    ├── run_async_model_wait.py
+    ├── run_batch_model.py
+    ├── run_sync_model_bound.py
+    └── run_sync_model.py
+```
+
+## C++ API Reference
+
+The C++ API reference can be generated using Doxygen.
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -303,6 +556,45 @@ doxygen Doxyfile
 
 </NewCodeBlock>
 
-## DXRT Detailed Usage Documentation
+The generated API docs will be saved under `./html` and `./latex`. Open `./html/index.html` in a browser to view the API docs.
 
-- [**DEEPX_DX-RT_UM_v2.9.5.pdf**](https://github.com/DEEPX-AI/dx_rt/blob/a9ca6163915676969208b478c1ddded6e852b1fe/docs/DEEPX_DX-RT_UM_v2.9.5.pdf)
+## Build DX-RT Documentation
+
+:::tip
+For more details on DX-RT usage and the DX-RT Python API, please build the full documentation and refer to it.
+:::
+
+### Install MkDocs
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+pip install mkdocs mkdocs-material mkdocs-video pymdown-extensions mkdocs-with-pdf markdown-grid-tables
+```
+
+</NewCodeBlock>
+
+### Build Documentation
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+cd docs
+mkdocs build
+```
+
+</NewCodeBlock>
+
+After the build completes, `DEEPX_DX-APP_UM_v2.1.0.pdf` will be generated in the current directory.
+
+### Start the Documentation Server
+
+You can access the documentation in a web browser.
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+mkdocs serve
+```
+
+</NewCodeBlock>
