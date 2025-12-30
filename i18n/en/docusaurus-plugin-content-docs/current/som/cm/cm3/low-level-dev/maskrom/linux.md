@@ -14,11 +14,11 @@ Please download the related System Images and Loader refer to [Summary of resour
 <Rkdeveloptool model="radxa-cm3-io" release_num="27" desktop="xfce" platform="linux" loader="rk356x_spl_loader_v1.15.113.bin">
 
 <ol>
-    <li>Install the CM3 core board onto the CM3 IO Board</li>
-    <li>Remove MicroSD Card</li>
-    <li>Press and hold the SPI Disable button</li>
-    <li>Connect the USB-A to Micro USB cable by plugging the Micro USB end into the Radxa CM3 IO OTG port (Micro USB port), and then plug the other USB-A end into your computer</li>
-    <li>Plug in the power cable to power on the board. If the power LED is steadily illuminated, that indicates the board has successfully entered Maskrom mode</li>
+    <li>Install the CM3 onto the CM3 IO board</li>
+    <li>Remove (unplug) the MicroSD card from the CM3 IO board</li>
+    <li>Before powering on, press and hold the SPI Disable button, and keep it pressed</li>
+    <li>Connect a USB-A to Micro-USB cable to the OTG port (Micro-USB port) on the CM3 IO board, and the other end to the computer</li>
+    <li>Connect the DC 12V power supply to power the CM3 IO board; if the green power LED stays on, it has successfully entered Maskrom mode (you can release the button at this point)</li>
 </ol>
 
 <img src="/img/cm3/cm3-button.webp" alt="cm3 core button" style={{ width: "40%" }} />

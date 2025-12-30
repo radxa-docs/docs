@@ -22,4 +22,4 @@ sidebar_position: 4
 
 ## 不能启动到系统
 
-[请参考通过 USB 线烧录镜像部分](/rock5/rock5b/low-level-dev/maskrom)
+[请参考通过 USB 线烧录镜像部分](../../low-level-dev/install-os/)

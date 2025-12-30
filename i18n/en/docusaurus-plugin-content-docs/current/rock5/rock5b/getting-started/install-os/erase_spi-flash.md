@@ -22,4 +22,4 @@ sidebar_position: 4
 
 ## Cannot boot into system
 
-[Please refer to the section on flashing an image using a USB cable](/rock5/rock5b/low-level-dev/maskrom)
+[Please refer to the section on flashing an image using a USB cable](../../low-level-dev/install-os/)

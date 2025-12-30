@@ -35,7 +35,7 @@ Radxa OS 的默认凭据如下：
 
 ## 使用系统
 
-成功登录系统后，您就可以在瑞莎星睿 O6N 上进行系统配置与开发。
+成功登录系统后，您就可以在瑞莎星睿 O6 上进行系统配置与开发。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/orion/o6n/orion-o6n-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
