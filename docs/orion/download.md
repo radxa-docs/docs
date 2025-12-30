@@ -50,7 +50,7 @@ sidebar_position: 150
 - **测试版本**: 以 `t` 开头（如 t1、t2）
 - **正式版本**: 以 `r` 开头（如 r1、r2）
 
-最新 Radxa OS 发布页面：[**GitHub Releases**](https://github.com/radxa-build/orion-o6/releases)
+最新 Radxa OS 发布页面：[**GitHub Releases**](https://github.com/radxa-build/radxa-orion-cix-p1/releases)
 :::
 
 ### Radxa OS

@@ -50,7 +50,7 @@ Radxa Orion O6 and O6N use different BIOS firmware.
 - **Test Versions**: Start with `t` (e.g., t1, t2)
 - **Release Versions**: Start with `r` (e.g., r1, r2)
 
-Latest Radxa OS releases: [**GitHub Releases**](https://github.com/radxa-build/orion-o6/releases)
+Latest Radxa OS releases: [**GitHub Releases**](https://github.com/radxa-build/radxa-orion-cix-p1/releases)
 :::
 
 ### Radxa OS
