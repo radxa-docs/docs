@@ -23,14 +23,14 @@ sidebar_position: 150
 #### 瑞莎星睿 O6
         | 下载平台                                                                            | 文件格式 | 获取方式                                                                                            |
         | :---------------------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.0.0-5.zip) | `.zip`   | 固件位于压缩包内                                                                                                  |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.1.0-1.zip) | `.zip`   | 固件位于压缩包内                                                                                                  |
         | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)                | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` 目录下 |
     </TabItem>
     <TabItem value="星睿 O6N">
 #### 瑞莎星睿 O6N
         | 下载平台                                                             | 文件格式 | 获取方式                                                                                            |
         | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.0.0-5.zip)                      | `.zip`   | 固件位于压缩包内                                                                                                  |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-1.zip)                      | `.zip`   | 固件位于压缩包内                                                                                                  |
         | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` 目录下 |
     </TabItem>
 </Tabs>
@@ -60,10 +60,18 @@ sidebar_position: 150
 - **适用型号**：瑞莎星睿 O6 / O6N
 - **推荐场景**：经过瑞莎团队充分定制和测试过的桌面系统，适合日常使用，作为默认系统。
 
-| 镜像文件                                        | 适用介质             | 下载链接                                                                                                                | 说明                                      |
-| :---------------------------------------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------- | :---------------------------------------- |
-| `orion-o6_bookworm_gnome_t2.output_512.img.xz`  | U 盘 / NVMe 固态硬盘 | [下载](https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_512.img.xz)  | - Debian 12 Bookworm<br/>- GNOME 桌面环境 |
-| `orion-o6_bookworm_gnome_t2.output_4096.img.xz` | UFS 模块             | [下载](https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_4096.img.xz) | - Debian 12 Bookworm<br/>- GNOME 桌面环境 |
+| 镜像文件                                                  | 适用介质             | 下载链接                                                                                                                                    | 说明                                      |
+| :-------------------------------------------------------- | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------- |
+| `radxa-orion-cix-p1_bookworm_gnome_r1.output_512.img.xz`  | U 盘 / NVMe 固态硬盘 | [下载](https://github.com/radxa-build/radxa-orion-cix-p1/releases/download/rsdk-r1/radxa-orion-cix-p1_bookworm_gnome_r1.output_512.img.xz)  | - Debian 12 Bookworm<br/>- GNOME 桌面环境 |
+| `radxa-orion-cix-p1_bookworm_gnome_r1.output_4096.img.xz` | UFS 模块             | [下载](https://github.com/radxa-build/radxa-orion-cix-p1/releases/download/rsdk-r1/radxa-orion-cix-p1_bookworm_gnome_r1.output_4096.img.xz) | - Debian 12 Bookworm<br/>- GNOME 桌面环境 |
+
+:::tip 镜像文件说明
+
+- 星睿 O6 支持 U 盘 / NVMe 固态硬盘启动。
+
+- 星睿 O6N 支持 U 盘 / NVMe 固态硬盘 / UFS 模块启动。
+
+:::
 
 当您首次启动系统后，需要使用默认的用户名和密码登录。
 

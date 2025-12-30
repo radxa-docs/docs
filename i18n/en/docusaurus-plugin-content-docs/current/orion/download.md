@@ -23,14 +23,14 @@ Radxa Orion O6 and O6N use different BIOS firmware.
 #### Radxa Orion O6
         | Download Platform                                                                     | Format | How to Access                                                                                          |
         | :------------------------------------------------------------------------------------ | :----- | :---------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.0.0-5.zip)    | `.zip` | Firmware is inside the zip file                                                                       |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.1.0-1.zip)    | `.zip` | Firmware is inside the zip file                                                                       |
         | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)                   | `.deb` | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` directory |
     </TabItem>
     <TabItem value="Orion O6N">
 #### Radxa Orion O6N
         | Download Platform                                                             | Format | How to Access                                                                                            |
         | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.0.0-5.zip)                      | `.zip`   | Firmware is inside the zip file                                                                                    |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-1.zip)                      | `.zip`   | Firmware is inside the zip file                                                                                    |
         | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` directory |
     </TabItem>
 </Tabs>
@@ -60,10 +60,18 @@ Radxa Orion O6 and O6N use the same system images. Please select the appropriate
 - **Compatible Models**: Radxa Orion O6 / O6N
 - **Recommended Use Case**: A desktop system fully customized and tested by the Radxa team, suitable for daily use as the default system.
 
-| Image File                                      | Boot Medium          | Download Link                                                                                                               | Description                              |
-| :---------------------------------------------- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
-| `orion-o6_bookworm_gnome_t2.output_512.img.xz`  | USB Drive / NVMe SSD | [Download](https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_512.img.xz)  | - Debian 12 Bookworm<br/>- GNOME Desktop |
-| `orion-o6_bookworm_gnome_t2.output_4096.img.xz` | UFS Module           | [Download](https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_4096.img.xz) | - Debian 12 Bookworm<br/>- GNOME Desktop |
+| Image File                                                | Boot Medium          | Download Link                                                                                                                                   | Description                              |
+| :-------------------------------------------------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
+| `radxa-orion-cix-p1_bookworm_gnome_r1.output_512.img.xz`  | USB Drive / NVMe SSD | [Download](https://github.com/radxa-build/radxa-orion-cix-p1/releases/download/rsdk-r1/radxa-orion-cix-p1_bookworm_gnome_r1.output_512.img.xz)  | - Debian 12 Bookworm<br/>- GNOME Desktop |
+| `radxa-orion-cix-p1_bookworm_gnome_r1.output_4096.img.xz` | UFS Module           | [Download](https://github.com/radxa-build/radxa-orion-cix-p1/releases/download/rsdk-r1/radxa-orion-cix-p1_bookworm_gnome_r1.output_4096.img.xz) | - Debian 12 Bookworm<br/>- GNOME Desktop |
+
+:::tip Image File Information
+
+- Orion O6 supports booting from USB Drive / NVMe SSD.
+
+- Orion O6N supports booting from USB Drive / NVMe SSD / UFS Module.
+
+:::
 
 When you first boot the system, you'll need to log in with the default username and password.
 
