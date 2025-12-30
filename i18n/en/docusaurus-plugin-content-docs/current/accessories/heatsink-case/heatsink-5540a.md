@@ -34,7 +34,7 @@ This section uses Radxa CM3 as an example to demonstrate how to install the 5540
 
 - 1x Heatsink
 - 1x Thermal pad
-- 4x CM2 x 4 screws
+- 4x CM2 x 4 mm screws
 
 ### Install the Antenna (Optional)
 
@@ -54,7 +54,7 @@ Place the thermal pad on the SoC of the CM3.
 
 ### Secure the Heatsink
 
-Use 4 CM2 x 4 screws to fasten the heatsink from the bottom side through the CM3 mounting holes.
+Use 4 CM2 x 4 mm screws to fasten the heatsink from the bottom side through the CM3 mounting holes.
 
 <div style={{textAlign: 'center'}}>
     <img src="/en/img/accessories/heatsink-case/heatsink-5540a/install-heatsink.webp" style={{width: '100%', maxWidth: '1200px'}} />

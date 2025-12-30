@@ -34,7 +34,7 @@ sidebar_position: 15
 
 - 1x 散热器
 - 1x 导热硅胶片
-- 4x CM2 x 4 螺丝
+- 4x CM2 x 4 mm 螺丝
 
 ### 安装天线（可选）
 
@@ -54,7 +54,7 @@ sidebar_position: 15
 
 ### 固定散热器
 
-使用 4 颗 CM2 x 4 螺丝从 CM3 的固定孔位底部固定散热器。
+使用 4 颗 CM2 x 4 mm 螺丝从 CM3 的固定孔位底部固定散热器。
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/accessories/heatsink-case/heatsink-5540a/install-heatsink.webp" style={{width: '100%', maxWidth: '1200px'}} />
