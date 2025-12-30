@@ -35,7 +35,7 @@ The default credentials for Radxa OS are as follows:
 
 ## Using the System
 
-After successfully logging in, you can proceed with system configuration and development on your Radxa Orion O6N.
+After successfully logging in, you can proceed with system configuration and development on your Radxa Orion O6.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/orion/o6n/orion-o6n-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
