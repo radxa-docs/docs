@@ -115,21 +115,22 @@ The bare board version of the Radxa E24C offers more peripheral interfaces compa
 
 | No. | Description                            | Qty |
 | :-: | :------------------------------------- | :-: |
-|  ①  | Power Input: DC5525                    |  1  |
-|  ②  | Onboard eMMC                           |  1  |
-|  ③  | USB 2.0 Type-C (OTG + UART Debug)      |  1  |
-|  ④  | User Button                            |  1  |
-|  ⑤  | USB 2.0 Type-A Ports                   |  3  |
-|  ⑥  | RTC Battery Connector                  |  1  |
-|  ⑦  | MicroSD Card Slot                      |  1  |
-|  ⑧  | GPIO: 14-pin Expansion Header          |  1  |
-|  ⑨  | LED Indicators (1x Power, 4x Ethernet) |  5  |
-|  ⑩  | Power Button                           |  1  |
-|  ⑪  | Fan Header                             |  1  |
-|  ⑫  | Maskrom Button                         |  1  |
-|  ⑬  | Gigabit Ethernet Ports                 |  4  |
-|  ⑭  | HDMI 2.1 Output                        |  1  |
-|  ⑮  | M.2 NVMe SSD Slot                      |  1  |
+|  1  | Power Input: DC5525                    |  1  |
+|  2  | Onboard eMMC                           |  1  |
+|  3  | USB 2.0 Type-C (OTG + UART Debug)      |  1  |
+|  4  | User Button                            |  1  |
+|  5  | USB 2.0 Type-A Ports                   |  3  |
+|  6  | RTC Battery Connector                  |  1  |
+|  7  | MicroSD Card Slot                      |  1  |
+|  8  | GPIO: 14-pin Expansion Header          |  1  |
+|  9  | LED Indicators (1x Power, 4x Ethernet) |  5  |
+| 10  | Power Button                           |  1  |
+| 11  | Fan Header                             |  1  |
+| 12  | Maskrom Button                         |  1  |
+| 13  | Gigabit Ethernet Ports                 |  4  |
+| 14  | HDMI 2.1 Output                        |  1  |
+| 15  | M.2 NVMe SSD Slot                      |  1  |
+| 16  | SPI Nor Flash                          |  1  |
 
 </TabItem>
 
