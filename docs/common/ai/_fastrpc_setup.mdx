@@ -12,22 +12,43 @@ NPU 环境配置清单
 
 使用 radxa apt 源进行安装
 
-<NewCodeBlock tip="Device" type="device">
+<Tabs>
+    <TabItem value="QCS6490">
 
-```bash
-sudo apt update
-sudo apt install fastrpc fastrpc-dev libcdsprpc1 radxa-firmware-qcs6490
-sudo reboot
-```
+    <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+    ```bash
+    sudo apt update
+    sudo apt install fastrpc fastrpc-dev libcdsprpc1 radxa-firmware-qcs6490
+    ```
+
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    sudo apt update
+    sudo apt install fastrpc fastrpc-dev libcdsprpc1 radxa-firmware-qcs9075
+    ```
+
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 对用户增加 fastrpc 设备权限
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-sudo chmod 666 /dev/fastrpc-*
+sudo chmod 660 /dev/fastrpc-*
+sudo chmod 660 /dev/dma_heap/system
 ```
 
 </NewCodeBlock>

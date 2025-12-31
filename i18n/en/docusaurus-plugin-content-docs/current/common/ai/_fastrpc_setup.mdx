@@ -12,22 +12,43 @@ NPU Environment Configuration Checklist
 
 Install using radxa apt source
 
-<NewCodeBlock tip="Device" type="device">
+<Tabs>
+    <TabItem value="QCS6490">
 
-```bash
-sudo apt update
-sudo apt install fastrpc fastrpc-dev libcdsprpc1 radxa-firmware-qcs6490
-sudo reboot
-```
+    <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+    ```bash
+    sudo apt update
+    sudo apt install fastrpc fastrpc-dev libcdsprpc1 radxa-firmware-qcs6490
+    ```
+
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    sudo apt update
+    sudo apt install fastrpc fastrpc-dev libcdsprpc1 radxa-firmware-qcs9075
+    ```
+
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 Add fastrpc device permissions for user
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-sudo chmod 666 /dev/fastrpc-*
+sudo chmod 660 /dev/fastrpc-*
+sudo chmod 660 /dev/dma_heap/system
 ```
 
 </NewCodeBlock>
