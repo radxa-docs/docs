@@ -1,0 +1,85 @@
+import { Image } from "@site/src/utils/docs";
+
+The onboard RTC battery connector on {props.product} provides a stable clock source, ensuring the system can keep accurate time even after power is removed.
+
+## Connector specifications
+
+- Connector type: {props.interface}
+- Battery type: {props.battery_type}
+- Battery voltage: {props.battery_voltage}
+
+## Hardware connection
+
+When connecting an RTC battery to {props.product}, pay attention to the polarity and operating voltage to avoid damaging {props.product}.
+
+<Image
+  src="/en/img/common/accessories/rtc-bat-#board#.webp"
+  board={props.board}
+  fallback={props.board}
+  width="1200"
+/>
+
+## Configure the RTC
+
+### Verify RTC hardware
+
+Use the following command to verify that the RTC hardware is working properly.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo dmesg | grep rtc
+```
+
+</NewCodeBlock>
+
+If you see output similar to `registered as rtc0`, it indicates that the RTC is detected correctly.
+
+```
+[    0.368528] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
+[    0.368720] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
+[    6.259233] rtc-ds1307 10-0068: registered as rtc0
+[    6.260658] rtc-ds1307 10-0068: setting system clock to 2025-08-06T08:39:15 UTC (1754469555)
+```
+
+### Read RTC time
+
+Use the `hwclock` command to read the current time from the RTC device (`/dev/rtc0`).
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install util-linux util-linux-extra -y
+sudo hwclock -r -f /dev/rtc0
+```
+
+</NewCodeBlock>
+
+### Show system time
+
+Use the `date` command to display the current system time.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+date
+```
+
+</NewCodeBlock>
+
+### Set RTC time
+
+If the RTC time does not match the system time, you can use `hwclock` to write the current system time to the RTC.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo hwclock -w -f /dev/rtc0
+```
+
+</NewCodeBlock>
+
+### Verify RTC functionality
+
+Record the current system time, then disconnect board power and network, wait for about 10 minutes, reconnect power, and check whether the system time continues to advance normally.
