@@ -55,8 +55,6 @@ sidebar_position: 1
 
 瑞莎 NX4 搭配瑞莎 NX4 载板使用，M.2 M Key 2230 和 M.2 E Key 2230 插槽无法使用。
 
-预留的 M.2 M Key 2230 和 M.2 E Key 2230 插槽将在下一次硬件版本中移除。
-
 :::
 
 </TabItem>

@@ -55,8 +55,6 @@ sidebar_position: 1
 
 When Radxa NX4 is used with the Radxa NX4 IO Board, the M.2 M Key 2230 and M.2 E Key 2230 slots are not available.
 
-The reserved M.2 M Key 2230 and M.2 E Key 2230 slots will be removed in the next hardware revision.
-
 :::
 
 </TabItem>
