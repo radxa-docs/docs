@@ -16,7 +16,7 @@ sidebar_position: 5
 
 ## GPIO 功能
 
-<TabItem value="C200 NX4">
+<TabItem value="Radxa NX4 开发套件">
      <div className='gpio_style' style={{ overflow :"auto"}}  >
 
 | GPIO number |  Function5  |  Function4   |  Function3  |  Function2  | Function1 | Voltage |               Pin#               |              Pin#               | Voltage | Function1 |  Function2   |  Function3  |  Function4   |  Function5  | Function6  | GPIO number |

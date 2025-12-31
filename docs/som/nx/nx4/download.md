@@ -41,6 +41,6 @@ sidebar_position: 150
 - [2D BOTTOM DXF 文件 V1.11](https://dl.radxa.com/nx/nx4/hw/radxa_nx4_2d_bot_v1.11.dxf)
 - [3D STP 文件 V1.11](https://dl.radxa.com/nx/nx4/hw/radxa_nx4_3d_stp_v1.11.stp)
 
-### 瑞莎 C200
+### 瑞莎 NX4 载板
 
-- [设计参考资料](https://github.com/radxa/radxa-som-projects/tree/main/c200)
+- [设计参考资料](https://github.com/radxa/radxa-cm-projects/tree/main/nx4/radxa-nx4-io-board)

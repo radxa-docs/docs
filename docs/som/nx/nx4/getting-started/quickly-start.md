@@ -14,9 +14,9 @@ import Maskrom from '../../../../common/radxa-os/rkdevtool/\_maskrom.mdx';
 
 瑞莎 NX4 开发套件由瑞莎 NX4 和瑞莎 NX4 载板组成，可用于快速验证核心板功能。
 
-|        产品实物        | 序号 |  视图  | 序号 |  视图  | 序号 |  视图  |
-| :--------------------: | :--: | :----: | :--: | :----: | :--: | :----: |
-| 瑞莎 C200 NX4 开发套件 |  ①   | 俯视图 |  ②   | 侧视图 |  ③   | 背视图 |
+|     产品实物      | 序号 |  视图  | 序号 |  视图  | 序号 |  视图  |
+| :---------------: | :--: | :----: | :--: | :----: | :--: | :----: |
+| 瑞莎 NX4 开发套件 |  ①   | 俯视图 |  ②   | 侧视图 |  ③   | 背视图 |
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/nx4/radxa-nx4-dev-kit-view.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -26,7 +26,7 @@ import Maskrom from '../../../../common/radxa-os/rkdevtool/\_maskrom.mdx';
 
 您需要提前准备以下硬件设备：
 
-- 瑞莎 C200 NX4 开发套件
+- 瑞莎 NX4 开发套件
 - 供电：DC 5525 电源适配器（9 - 20V）
 - 系统启动介质：板载 eMMC
 - 显示设备：HDMI 数据线和显示器
@@ -74,7 +74,7 @@ import Maskrom from '../../../../common/radxa-os/rkdevtool/\_maskrom.mdx';
 
 ① ：使用 HDMI 数据线连接显示器和主板
 
-② ：使用电源适配器给瑞莎 C200 NX4 开发套件供电
+② ：使用电源适配器给瑞莎 NX4 开发套件供电
 
 系统启动正常后，瑞莎 NX4 载板上的电源指示灯绿色亮起，瑞莎 NX4 上的状态指示灯蓝色闪烁。
 
@@ -91,7 +91,7 @@ Radxa OS 的默认凭据如下：
 
 ## 使用系统
 
-成功登录系统后，您就可以在瑞莎 C200 NX4 开发套件上进行系统配置与开发。
+成功登录系统后，您就可以在瑞莎 NX4 开发套件上进行系统配置与开发。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/nx4/radxa-nx4-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
