@@ -14,9 +14,9 @@ import Images from "./\_image.mdx"
 
 ## 操作系统镜像
 
-debian xfce:
+Radxa OS:
 
-[rock-2_bullseye_xfce_b1.output.img.xz](https://github.com/radxa-build/rock-2/releases/download/b1/rock-2_bullseye_xfce_b1.output.img.xz)
+[radxa-rk3528_bookworm_kde_r3.output_512.img.xz](https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-r3/radxa-rk3528_bookworm_kde_r3.output_512.img.xz)
 
 Android13 ：
 

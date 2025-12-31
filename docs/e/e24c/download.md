@@ -10,13 +10,13 @@ sidebar_position: 3
 
 [istoreos-24.10.4-2025112811-e24c-squashfs.img.gz](https://fw0.koolcenter.com/iStoreOS/e24c/istoreos-24.10.4-2025112811-e24c-squashfs.img.gz) 镜像系统文件 : 解压后可直接写入SD卡/eMMC/SSD
 
-### Debian
+### Radxa OS
 
-[Debian](https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-t2/radxa-rk3528_bookworm_kde_t2.output.img.xz) 镜像系统文件 : 解压后可直接写入SD卡/eMMC/SSD
+[radxa-rk3528_bookworm_kde_r3.output_512.img.xz](https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-r3/radxa-rk3528_bookworm_kde_r3.output_512.img.xz) 镜像系统文件 : 解压后可直接写入SD卡/eMMC/SSD
 
-### OpenWrt
+### Flippy OpenWrt
 
-[OpenWrt](https://dl.radxa.com/e/e24c/images/openwrt_rk3528_e24c_R25.05.07_k6.1.115-rk35xx-flippy-2505a.7z) 镜像系统文件 : 解压后可直接写入SD卡/eMMC/SSD
+[Flippy OpenWrt](https://dl.radxa.com/e/e24c/images/openwrt_rk3528_e24c_R25.05.07_k6.1.115-rk35xx-flippy-2505a.7z) 镜像系统文件 : 解压后可直接写入SD卡/eMMC/SSD
 
 ## Loader文件
 
