@@ -1,0 +1,85 @@
+import { Image } from "@site/src/utils/docs";
+
+{props.product} 的板载 RTC 电池接口用于为系统提供稳定的时钟信号，确保系统在断电后仍能保持时间。
+
+## 接口规格
+
+- 接口类型：{props.interface}
+- 电池类型：{props.battery_type}
+- 电池电压：{props.battery_voltage}
+
+## 硬件连接
+
+{props.product} 连接 RTC 电池时，请注意正负极以及工作电压，避免损坏 {props.product}。
+
+<Image
+  src="/img/common/accessories/rtc-bat-#board#.webp"
+  board={props.board}
+  fallback={props.board}
+  width="1200"
+/>
+
+## 配置 RTC
+
+### 确认 RTC 硬件
+
+使用以下命令来确认 RTC 硬件是否正常工作。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo dmesg | grep rtc
+```
+
+</NewCodeBlock>
+
+终端输出类似信息：`registered as rtc0`，说明 RTC 电池被正确识别。
+
+```
+[    0.368528] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
+[    0.368720] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
+[    6.259233] rtc-ds1307 10-0068: registered as rtc0
+[    6.260658] rtc-ds1307 10-0068: setting system clock to 2025-08-06T08:39:15 UTC (1754469555)
+```
+
+### 读取 RTC 时间
+
+终端使用 `hwclock` 命令读取 RTC 芯片（/dev/rtc0）的当前时间。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install util-linux util-linux-extra -y
+sudo hwclock -r -f /dev/rtc0
+```
+
+</NewCodeBlock>
+
+### 显示系统时间
+
+使用 `date` 命令显示系统当前时间。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+date
+```
+
+</NewCodeBlock>
+
+### 设置 RTC 时间
+
+若 RTC 时间和系统时间不一致，可以使用 `hwclock` 命令将系统当前时间写入 RTC。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo hwclock -w -f /dev/rtc0
+```
+
+</NewCodeBlock>
+
+### 验证 RTC 功能
+
+记录当前系统时间，然后断开主板电源和网络，等待 10 分钟左右，然后重新连接电源，观察系统时间是否正常计时。
