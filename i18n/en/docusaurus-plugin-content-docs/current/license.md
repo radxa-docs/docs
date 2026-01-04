@@ -72,7 +72,7 @@ Before using this documentation in commercial products or for large‑scale dist
 
 Here is an example attribution you can adapt as needed:
 
-> Parts of this work are based on “Radxa Documentation” <https://docs.radxa.com/>. The original content is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+> Parts of this work are based on “Radxa Documentation” https://docs.radxa.com/ . The original content is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
 
 If you make extensive use of this documentation in a product, book, or course, you are welcome (but not required) to add a short acknowledgment, for example:
 
