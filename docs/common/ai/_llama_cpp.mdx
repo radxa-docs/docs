@@ -1,69 +1,94 @@
-llama.cpp 的主要目标是在各种硬件上（本地和云端）以最少的设置和最优化的性能实现 LLM 推理。
+llama.cpp 的核心目标是：通过极简的配置，在从本地到云端的各类硬件上，实现极致性能的大语言模型（LLM）推理。
+
+:::note[什么是llama.cpp？]
+llama.cpp 是一个基于纯 C/C++ 实现的高性能大模型推理框架，它摒弃了繁琐的外部库依赖，支持在 CPU 和 GPU 上进行高效计算。通过其首创的 GGUF 格式与量化技术，它让原本臃肿的大模型能够在普通的个人电脑、Mac 甚至手机等消费级设备上流畅运行。
+:::
+
+本文档将指引您快速上手 llama.cpp，带您高效完成环境搭建与模型运行。
 
 ## 克隆仓库
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 git clone https://github.com/ggml-org/llama.cpp.git
 ```
 
+</NewCodeBlock>
+
 ## 编译 llama.cpp
 
 ### 安装编译工具
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 sudo apt install cmake gcc g++
 ```
 
-### 编译项目
+</NewCodeBlock>
+
+### 进行编译
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cmake -B build
-cmake --build build --config Release
+cmake --build build --config Release -j$(nproc)
 ```
 
-:::tip
-如果您使用的是 [瑞莎星睿 O6 / O6N](/orion/o6) 搭载 ARM-v9 CPU，可添加 `armv9-a` 与 `KleidiAI` 编译选项进行硬件级优化
+</NewCodeBlock>
+
+:::info[KleidiAI]
+对于采用 ARM-v9 架构的 [瑞莎星睿 O6 / O6N](/orion/o6) 设备，可以开启 armv9-a 和 KleidiAI 编译选项进行硬件级优化。
+:::
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cmake -B build -DGGML_NATIVE=OFF -DGGML_CPU_ARM_ARCH=armv9-a+i8mm+dotprod -DGGML_CPU_KLEIDIAI=ON
 cmake --build build --config Release
 ```
 
+</NewCodeBlock>
+
+:::tip[硬件优化]
+Llama.cpp 已集成 Arm KleidiAI 库，该库针对 SME、I8MM 及点积加速等硬件特性，提供了深度优化的矩阵乘法内核。您可以通过构建选项 GGML_CPU_KLEIDIAI=ON 来启用此功能。
 :::
 
-:::tip
-Llama.cpp 集成了 Arm 的 KleidiAI 库，该库提供了针对 sme、i8mm 和点积加速等硬件功能优化的矩阵乘法内核。
-可以使用构建选项 `GGML_CPU_KLEIDIAI` 启用该功能。
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cmake -B build -DGGML_CPU_KLEIDIAI=ON
 cmake --build build --config Release
 ```
 
-:::
+</NewCodeBlock>
 
-## 使用方法
-
-### GGUF 模型转换
+## 快速上手
 
 :::tip
-这里以 [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) 为例子
+推荐使用 python3.11 以上版本
 :::
 
-#### 下载 Huggingface 模型
+接下来的操作步骤中使用的示例模型为 [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) 。
 
-请使用 [git LFS](https://git-lfs.com/) 克隆仓库
+### 下载示例模型
+
+请使用 [git LFS](https://git-lfs.com/) 。
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 git lfs install
 git clone https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
 ```
 
-#### 生成 GGUF 模型
+</NewCodeBlock>
 
-:::tip
-推荐使用 python3.11 以上版本
-:::
+### 模型转换
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cd llama.cpp
@@ -71,16 +96,22 @@ pip3 install -r ./requirements.txt
 python3 convert_hf_to_gguf.py DeepSeek-R1-Distill-Qwen-1.5B/
 ```
 
-#### 量化模型
+</NewCodeBlock>
+
+### 模型量化
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cd build/bin
 ./llama-quantize DeepSeek-R1-Distill-Qwen-1.5B-F16.gguf DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf Q4_K_M
 ```
 
-量化可选类型
+</NewCodeBlock>
 
-```bash
+可选的量化选项：
+
+```txt
    2  or  Q4_0    :  4.34G, +0.4685 ppl @ Llama-3-8B
    3  or  Q4_1    :  4.78G, +0.4511 ppl @ Llama-3-8B
    8  or  Q5_0    :  5.21G, +0.1316 ppl @ Llama-3-8B
@@ -119,14 +150,20 @@ cd build/bin
           COPY    : only copy tensors, no quantizing
 ```
 
-### 运行 GGUF 模型
+### 模型验证
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cd build/bin
 ./llama-cli -m DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf
 ```
 
-```bash
+</NewCodeBlock>
+
+模型运行效果：
+
+```txt
 > hi, who are you
 <think>
 
@@ -135,13 +172,17 @@ cd build/bin
 Hi! I'm DeepSeek-R1, an artificial intelligence assistant created by DeepSeek. I'm at your service and would be delighted to assist you with any inquiries or tasks you may have.
 ```
 
-### GGUF 基准测试
+### 模型测试
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 ./llama-bench -m DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf
 ```
 
-```bash
+</NewCodeBlock>
+
+```txt
 radxa@orion-o6:~/llama.cpp/build/bin$ ./llama-bench -m ~/DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf -t 8
 | model                          |       size |     params | backend    | threads |          test |                  t/s |
 | ------------------------------ | ---------: | ---------: | ---------- | ------: | ------------: | -------------------: |

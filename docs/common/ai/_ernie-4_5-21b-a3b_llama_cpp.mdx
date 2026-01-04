@@ -1,4 +1,4 @@
-本文档讲述如何在瑞莎星睿 O6/O6N 上使用 Llama.cpp 启用 [KleidiAI](https://www.arm.com/markets/artificial-intelligence/software/kleidi) 加速推理百度文心一言 [ERNIE-4.5-21B-A3B](https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-PT) 与 [ERNIE-4.5-21B-A3B-Base](https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-Base-PT) 模型。
+本文档讲述如何在瑞莎星睿 O6 / O6N 上使用 Llama.cpp 启用 [KleidiAI](https://www.arm.com/markets/artificial-intelligence/software/kleidi) 加速推理百度文心一言 [ERNIE-4.5-21B-A3B](https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-PT) 与 [ERNIE-4.5-21B-A3B-Base](https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-Base-PT) 模型。
 
 模型地址：
 
@@ -52,7 +52,7 @@ radxa 提供预编译好的 [ERNIE-4.5-21B-A3B-PT-Q4_0.gguf](https://modelscope.
 在 X86 主机上编译 Llama.cpp
 
 :::tip
-请根据 [**Llama.cpp**](./llama_cpp) 在 X86 主机上编译带 Llama.cpp
+请根据 [**llama.cpp**](../../orion/o6/app-development/artificial-intelligence/llama_cpp.md) 在 X86 主机上编译带 Llama.cpp
 :::
 
 以下为编译命令
@@ -94,6 +94,7 @@ cmake --build build --config Release
     pip3 install modelscope
     modelscope download --model PaddlePaddle/ERNIE-4.5-21B-A3B-Base-PT --local_dir ./ERNIE-4.5-21B-A3B-Base-PT
     ```
+
     </NewCodeBlock>
 
     </TabItem>
@@ -124,6 +125,7 @@ cmake --build build --config Release
     cd llama.cpp
     python3 convert_hf_to_gguf.py ./ERNIE-4.5-21B-A3B-Base-PT
     ```
+
     </NewCodeBlock>
 
     </TabItem>
@@ -171,7 +173,7 @@ cmake --build build --config Release
 ### 编译 Llama.cpp
 
 :::tip
-请根据 [**Llama.cpp**](./llama_cpp) 在瑞莎星睿 O6/O6N 上编译带 **KleidiAI** 特性的 Llama.cpp
+请根据 [**llama.cpp**](./llama_cpp) 在瑞莎星睿 O6/O6N 上编译带 **KleidiAI** 特性的 Llama.cpp
 :::
 
 以下为编译命令

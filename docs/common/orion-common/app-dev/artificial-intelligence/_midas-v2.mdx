@@ -1,0 +1,254 @@
+**MiDaS** 是一款专注于单目深度估计（Monocular Depth Estimation）的前沿深度学习模型。它摆脱了传统算法对双目相机或红外传感器的依赖，仅凭单幅彩色图像即可推算出场景的相对深度信息，有效地将二维图像转化为具备空间层次感的深度图。
+
+- 核心特点：具备卓越的零样本（Zero-shot）泛化能力，能够从容应对从未见过的室内外复杂环境，生成的深度图具有清晰的物体轮廓与平滑的层次过渡，广泛应用于增强现实（AR）、照片背景虚化、机器人避障及 3D 场景重建。
+- 版本说明：本案例采用 MiDaS v2 版本。作为该系列的经典成熟版本，它通过在大规模混合数据集上的预训练，解决了单目深度估计中常见的场景局限性问题。在保持主流推理速度的同时，它能够提供稳定且具有高空间保真度的深度预测，是目前工业界实现低成本、高质量空间感知任务的平衡优选。
+
+:::info[板端环境配置]
+需要提前配置好板端运行环境并安装相关运行依赖。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [安装依赖-下载必要文件](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md#下载必要文件)
+  :::
+
+## 下载项目文件
+
+运行.py脚本（如download.py）
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```python
+from modelscope.hub.snapshot_download import snapshot_download
+
+# 参数配置
+model_id = 'cix/ai_model_hub_25_Q3'
+target_folder = 'models/ComputeVision/Depth_Estimation/onnx_MiDaS_v2/*'
+save_dir = './'
+
+# 执行下载
+snapshot_download(
+    model_id,
+    allow_file_pattern=target_folder,
+    local_dir=save_dir
+)
+```
+
+</NewCodeBlock>
+
+## 项目结构
+
+```txt
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── README.md
+├── test_data
+└── MiDaS_v2.cix
+```
+
+## 进行模型量化和转换
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/onnx_MiDasV2build.cfg
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件以及运行必要文件推送到板端。
+:::
+
+## 测试主机推理
+
+### 运行推理脚本
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+### 模型推理结果
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py
+initialize
+loading model...
+  processing ./test_data/1.jpg
+Inference time: 18.44 ms
+  processing ./test_data/2.jpg
+Inference time: 16.14 ms
+  processing ./test_data/3.jpg
+Inference time: 15.61 ms
+Finished
+```
+
+</NewCodeBlock>
+
+<div style={{
+  display: 'flex',
+  gap: '10px',
+  alignItems: 'stretch',
+  height: '600px'
+}}>
+
+{/* 左侧容器：放竖图 */}
+
+{" "}
+
+<div style={{ flex: 1 }}>
+  <img
+    src="/img/orion/o6/ai-models/midas-v2-host-out2.webp"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      borderRadius: "8px",
+    }}
+  />
+</div>
+
+{/* 右侧容器：放两张横图 */}
+
+{" "}
+
+<div
+  style={{
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+  <div style={{ flex: 1 }}>
+    <img
+      src="/img/orion/o6/ai-models/midas-v2-host-out1.webp"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+  </div>
+  <div style={{ flex: 1 }}>
+    <img
+      src="/img/orion/o6/ai-models/midas-v2-host-out3.webp"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+  </div>
+</div>
+
+</div>
+
+## 进行 NPU 部署
+
+### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+### 模型推理结果
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+initialize
+loading model...
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+  processing ./test_data/3.jpg
+Inference time: 4.72 ms
+  processing ./test_data/2.jpg
+Inference time: 6.10 ms
+  processing ./test_data/1.jpg
+Inference time: 6.42 ms
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+finished
+```
+
+</NewCodeBlock>
+
+<div style={{
+  display: 'flex',
+  gap: '10px',
+  alignItems: 'stretch',
+  height: '600px'
+}}>
+
+{/* 左侧容器：放竖图 */}
+
+{" "}
+
+<div style={{ flex: 1 }}>
+  <img
+    src="/img/orion/o6/ai-models/midas-v2-npu-out2.webp"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      borderRadius: "8px",
+    }}
+  />
+</div>
+
+{/* 右侧容器：放两张横图 */}
+
+{" "}
+
+<div
+  style={{
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+  <div style={{ flex: 1 }}>
+    <img
+      src="/img/orion/o6/ai-models/midas-v2-npu-out1.webp"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+  </div>
+  <div style={{ flex: 1 }}>
+    <img
+      src="/img/orion/o6/ai-models/midas-v2-npu-out3.webp"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+  </div>
+</div>
+
+</div>

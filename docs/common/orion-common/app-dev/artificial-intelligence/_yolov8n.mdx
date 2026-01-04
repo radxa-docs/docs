@@ -1,0 +1,142 @@
+**YOLOv8n** 是由 Ultralytics 推出的 YOLOv8 系列中体积最小、速度最快的轻量级视觉模型。它基于先进的深度学习架构，在极低的计算资源消耗下实现了卓越的实时检测性能，是边缘设备和移动端部署的首选方案。
+
+- 核心特点：支持高精度的实时目标检测、实例分割、图像分类以及姿态估计（关键点检测）。
+- 版本说明：本案例采用 **YOLOv8n (Nano)** 模型。作为家族中的轻量化标杆，它通过极简的参数量实现了极高的推理帧率，在保持主流检测精度的同时，极大降低了对硬件算力的需求，是兼顾实时响应与部署便捷性的最优选择。
+
+:::info[板端环境配置]
+需要提前配置好板端运行环境并安装相关运行依赖。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [安装依赖-下载必要文件](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md#下载必要文件)
+  :::
+
+## 下载项目文件
+
+运行.py脚本（如download.py）
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```python
+from modelscope.hub.snapshot_download import snapshot_download
+
+# 参数配置
+model_id = 'cix/ai_model_hub_25_Q3'
+target_folder = 'models/ComputeVision/Object_Detection/onnx_yolov8_n/*'
+save_dir = './'
+
+# 执行下载
+snapshot_download(
+    model_id,
+    allow_file_pattern=target_folder,
+    local_dir=save_dir
+)
+```
+
+</NewCodeBlock>
+
+## 项目结构
+
+```txt
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── test_data
+└── yolov8n.cix
+```
+
+## 进行模型转换
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/yolov8_nbuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件等运行必要文件推送到板端。
+:::
+
+## 测试主机推理
+
+### 运行推理脚本
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+### 主机推理结果
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 19.24it/s]
+```
+
+</NewCodeBlock>
+
+<div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
+  <img
+    src="/img/orion/o6/ai-models/yolov8n-host-out1.webp"
+    style={{ height: "300px", width: "auto" }}
+    alt="图片1"
+  />
+  <img
+    src="/img/orion/o6/ai-models/yolov8n-host-out2.webp"
+    style={{ height: "300px", width: "auto" }}
+    alt="图片2"
+  />
+</div>
+
+## 进行 NPU 部署
+
+### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+### 模型推理结果
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 18.07it/s]
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
+  <img
+    src="/img/orion/o6/ai-models/yolov8n-npu-out1.webp"
+    style={{ height: "300px", width: "auto" }}
+    alt="图片1"
+  />
+  <img
+    src="/img/orion/o6/ai-models/yolov8n-npu-out2.webp"
+    style={{ height: "300px", width: "auto" }}
+    alt="图片2"
+  />
+</div>

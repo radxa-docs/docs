@@ -1,0 +1,123 @@
+**Real-ESRGAN** 是由腾讯 ARC 实验室提出的一种旨在修复现实世界复杂退化图像的超分辨率算法。它通过改进传统生成对抗网络（GAN）的训练方式，利用二阶退化模型模拟真实图像中的模糊、噪声及压缩伪影，从而实现对低质量图像的自然重构。
+
+- 核心特点：支持极高质量的图像细节增强与伪影消除，能够显著提升低分辨率图片的清晰度并还原纹理质感，广泛应用于老照片修复、视频增强、动漫高清化以及安防影像分析等领域。
+- 版本说明：本案例采用 Real-ESRGAN_x4plus 模型。作为该家族中泛化能力最强的版本，它专门针对现实世界中的各种未知退化进行优化。在保持经典 RRDB 基础架构的同时，它通过更深层的特征提取能力，在图像清晰度与视觉真实感之间取得了卓越的平衡，是目前处理通用图像放大与修复任务的首选方案。
+
+:::info[板端环境配置]
+需要提前配置好板端运行环境并安装相关运行依赖。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [安装依赖-下载必要文件](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md#下载必要文件)
+  :::
+
+## 下载项目文件
+
+运行.py脚本（如download.py）
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```python
+from modelscope.hub.snapshot_download import snapshot_download
+
+# 参数配置
+model_id = 'cix/ai_model_hub_25_Q3'
+target_folder = 'models/ComputeVision/Super_Resolution/onnx_real_esrgan/*'
+save_dir = './'
+
+# 执行下载
+snapshot_download(
+    model_id,
+    allow_file_pattern=target_folder,
+    local_dir=save_dir
+)
+```
+
+</NewCodeBlock>
+
+## 项目结构
+
+```txt
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.pyy
+├── model
+├── pytorch2onnx_x4.py
+├── README.md
+├── real_esrgan.cix
+└── test_data
+```
+
+## 进行模型量化和转换
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/onnx_realesrganbuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件以及运行必要文件推送到板端。
+:::
+
+## 测试主机推理
+
+### 运行推理脚本
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+### 模型推理结果
+
+<div>
+
+{" "}
+
+<img src="/img/orion/o6/ai-models/real-esrgan-host-out.webp" height="300" />
+
+</div>
+
+## 进行 NPU 部署
+
+### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+### 模型运行结果
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div>
+
+{" "}
+
+<img src="/img/orion/o6/ai-models/real-esrgan-npu-out.webp" height="300" />
+
+</div>

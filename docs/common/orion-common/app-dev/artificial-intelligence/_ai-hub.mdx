@@ -1,16 +1,80 @@
-CIX AI Model Hub 是针对在 CIX SOC 上部署进行了优化的机器学习模型的集合。里面包含了多种领域的 AI 模型例子（例如计算机视觉，语音识别，生成式 AI 等多种开源模型）与针对 CIX SOC NPU 编译的配置文件。这里主要介绍 AI Model Hub 下载及运行其中的模型。
-
-## 下载 CIX AI Model Hub 仓库
-
 CIX AI Model Hub 仓库托管在魔搭社区上，访问地址 [cix ai_model_hub](https://modelscope.cn/models/cix/ai_model_hub_25_Q3)
 
-可使用 git 下载（请确保安装 git-lfs）
+:::tip[建议]
+由于仓库体积较大，建议避免全量克隆。克隆必要的运行文件后，您可以根据左侧导航栏选择感兴趣的模型，查阅其专属文档并进行针对性部署，以节省存储空间。
+:::
+
+## 下载必要文件
+
+### 环境准备
+
+确保已安装最新版本的 ModelScope SDK
+
+<NewCodeBlock tip="Linux PC" type="PC">
 
 ```bash
+pip install --upgrade modelscope
+```
+
+</NewCodeBlock>
+
+### 使用脚本下载
+
+创建一个 Python 脚本（例如 download.py），核心逻辑如下：
+
+:::info
+下载完成之后需要将文件同步到板端。
+:::
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```python
+from modelscope.hub.snapshot_download import snapshot_download
+
+# --- 参数配置 ---
+model_id = 'cix/ai_model_hub_25_Q3'
+target_folder = [
+    'utils/*',
+    'requirements.txt'
+]
+save_dir = './ai-model-hub/'
+
+# 执行下载
+snapshot_download(
+    model_id,
+    allow_file_pattern=target_folder,
+    local_dir=save_dir
+)
+```
+
+</NewCodeBlock>
+
+### 板端创建虚拟环境并安装相关依赖
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 -m venv .venv
+pip3 install -r requirements.txt
+```
+
+</NewCodeBlock>
+
+## 下载整个仓库
+
+使用 git 下载（请确保安装 git-lfs）
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+mkdir ai-model-hub && cd ai-model-hub
+git lfs install
 git clone https://www.modelscope.cn/cix/ai_model_hub_25_Q3.git
 ```
 
-模型例子目录
+</NewCodeBlock>
+
+目录如下：
 
 ```bash
 .
@@ -67,50 +131,4 @@ git clone https://www.modelscope.cn/cix/ai_model_hub_25_Q3.git
     ├── segment_postprocess.py
     ├── text_process.py
     └── tools.py
-```
-
-## 模型运行
-
-### 配置环境
-
-进入模型目录下
-
-```bash
-cd ai_model_hub_25_Q3
-```
-
-创建 Python 虚拟环境
-
-```bash
-python3 -m venv venv
-```
-
-激活虚拟环境
-
-```bash
-source venv/bin/activate
-```
-
-安装 Python 环境
-
-```bash
-pip3 install -r requirements.txt
-```
-
-### 模型例子
-
-1. 将人类可读的输入预处理为模型输入
-2. 运行模型推理
-3. 将模型输出后处理为人类可读的格式
-
-所有模型示例代码均可在 O6/O6N 上使用 NPU 端到端运行：
-
-```bash
-python3 inference_npu.py
-```
-
-此外，还可以通过 OnnxRuntime 在 X86 主机上或 O6/O6N上使用 CPU 本地运行端到端示例
-
-```bash
-python3 inference_onnx.py
 ```

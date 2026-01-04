@@ -1,0 +1,122 @@
+**MobileNet** 是由 Google 专门为移动端和嵌入式设备设计的轻量级深度神经网络系列。它通过革新卷积计算方式，大幅降低了模型的参数量与计算复杂度，使得高性能视觉算法能够在智能手机、物联网终端等算力受限的设备上实时运行。
+
+- 核心特点：支持高效的图像分类、目标检测及语义分割，通过极低的延迟实现高质量的视觉感知，是移动端深度学习应用的核心引擎。
+- 版本说明：本案例采用的是 MobileNetV2 Int8 版本。作为轻量级网络的代表，它在计算效率与识别准确率之间实现了优异平衡，非常适合移动端及边缘设备的实时视觉任务部署。
+
+:::info[板端环境配置]
+需要提前配置好板端运行环境并安装相关运行依赖。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [安装依赖-下载必要文件](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md#下载必要文件)
+  :::
+
+## 下载项目文件
+
+运行.py脚本（如download.py）
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```python
+from modelscope.hub.snapshot_download import snapshot_download
+
+# 参数配置
+model_id = 'cix/ai_model_hub_25_Q3'
+target_folder = 'models/ComputeVision/Image_Classification/onnx_mobilenet_v2_12_int8/*'
+save_dir = './'
+
+# 执行下载
+snapshot_download(
+    model_id,
+    allow_file_pattern=target_folder,
+    local_dir=save_dir
+)
+```
+
+</NewCodeBlock>
+
+## 项目结构
+
+```txt
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+└── test_data
+```
+
+## 固定模型输入形状
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 -m onnxruntime.tools.make_dynamic_shape_fixed --dim_param batch_size --dim_value 1 mobilenetv2-12-int8.onnx mobilenetv2-12-int8-fix.onnx
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件等运行必要文件推送到板端。
+:::
+
+## 测试主机推理
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py --EP CPU
+```
+
+</NewCodeBlock>
+
+## 进行 NPU 部署
+
+### 导出环境变量
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+export LD_LIBRARY_PATH=/usr/share/cix/lib/onnxruntime:$LD_LIBRARY_PATH
+export OPERATOR_PATH=/usr/share/cix/lib/onnxruntime/operator/
+```
+
+</NewCodeBlock>
+
+### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_onnx.py --EP NPU
+```
+
+</NewCodeBlock>
+
+### 模型推理结果
+
+:::warning
+这里没有正确调用npu，搁置。
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_onnx.py --EP NPU
+2025-12-29 17:42:47.642481140 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card3/device/vendor"
+/home/radxa/ronin-workspace/.venv/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py:123: UserWarning: Specified provider 'ZhouyiExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+*************** EP Error ***************
+EP Error Unknown Provider Type: ZhouyiExecutionProvider when using ['ZhouyiExecutionProvider']
+Falling back to ['CPUExecutionProvider'] and retrying.
+****************************************
+image path : ./test_data/ILSVRC2012_val_00037133.JPEG
+ice bear, polar bear, Ursus Maritimus, Thalarctos maritimus
+image path : ./test_data/ILSVRC2012_val_00021564.JPEG
+coucal
+image path : ./test_data/ILSVRC2012_val_00024154.JPEG
+Ibizan hound, Ibizan Podenco
+image path : ./test_data/ILSVRC2012_val_00002899.JPEG
+rock python, rock snake, Python sebae
+image path : ./test_data/ILSVRC2012_val_00045790.JPEG
+Yorkshire terrier
+```
+
+</NewCodeBlock>
