@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 description: "用 Radxa BSP 工具，轻松构建个性化 U-boot，开启智能硬件的创新之旅"
 ---
 
