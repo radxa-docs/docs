@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Cubie A5E
+# 瑞莎 Cubie A5E
 
 ## 产品概述
 
