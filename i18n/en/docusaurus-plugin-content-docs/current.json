@@ -620,16 +620,16 @@
     "description": "The label for category Compute Module Family in sidebar compliance"
   },
   "sidebar.compliance.category.ROCK 3 Family": {
-    "message": "ROCK 3 Family",
-    "description": "The label for category ROCK 3 Family in sidebar compliance"
+    "message": "ROCK 3 Series",
+    "description": "The label for category ROCK 3 Series in sidebar compliance"
   },
   "sidebar.compliance.category.ROCK 4 Family": {
-    "message": "ROCK 4 Family",
-    "description": "The label for category ROCK 4 Family in sidebar compliance"
+    "message": "ROCK 4 Series",
+    "description": "The label for category ROCK 4 Series in sidebar compliance"
   },
   "sidebar.compliance.category.ROCK 5 Family": {
-    "message": "ROCK 5 Family",
-    "description": "The label for category ROCK 5 Family in sidebar compliance"
+    "message": "ROCK 5 Series",
+    "description": "The label for category ROCK 5 Series in sidebar compliance"
   },
   "sidebar.compliance.category.Radiofrequency Compliance Guidance": {
     "message": "Radiofrequency Compliance Guidance",

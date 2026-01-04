@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: /rock3
 ---
 
-# ROCK 3 Family
+# ROCK 3 Series
 
 ROCK3 is a series of Rockchip RK3566/RK3568 based SBC(Single Board Computer) and Compute Module by Radxa. It can run android or some Linux distributions.
 

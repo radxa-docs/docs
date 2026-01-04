@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# Official Images for ROCK 4 Family
+# Official Images for ROCK 4 Series
 
 Official ROCK 4 OS images can also be downloaded from:
 

@@ -2,7 +2,7 @@
 sidebar_position: 50
 ---
 
-# ROCK 4 Family GPIO Definition
+# ROCK 4 Series GPIO Definition
 
 ## GPIO Voltage
 
