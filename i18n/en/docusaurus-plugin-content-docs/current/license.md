@@ -5,7 +5,7 @@ displayed_sidebar: home
 
 # Documentation License Notice (CC BY 4.0)
 
-The documentation on this site (unless otherwise noted) is written by the Radxa documentation team and community contributors, and is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+The documentation on this site (unless otherwise noted) is written by the documentation team of Radxa Computer (Shenzhen) Co.,Ltd. ("Radxa") and community contributors, and is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', margin: '8px 0 16px' }}>
 	<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">
@@ -61,6 +61,12 @@ The CC BY 4.0 license here applies to the documentation text itself. It **does n
 - **Quoted third‑party materials or linked resources**: external websites, documents, and code repositories referenced in the documentation remain under their own licenses and terms of use.
 
 Before using this documentation in commercial products or for large‑scale distribution, you should evaluate whether you need additional permissions, such as brand/trademark authorization, portrait rights, or compliance with third‑party open‑source and copyright licenses.
+
+## Trademarks and non‑endorsement
+
+"Radxa", "瑞莎", related logos, and product names are trademarks or registered trademarks of Radxa Computer (Shenzhen) Co.,Ltd. ("Radxa") in the applicable jurisdictions.
+
+Reproduction, quotation, or creation of derivative works based on this site’s documentation does not imply any endorsement, sponsorship, partnership, or other form of association by Radxa with the reuser, their products, services, or projects, unless explicitly stated in a separate written agreement or official statement issued by Radxa.
 
 ## Disclaimer
 

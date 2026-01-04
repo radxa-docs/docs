@@ -5,7 +5,7 @@ displayed_sidebar: home
 
 # 文档授权说明（CC BY 4.0）
 
-本网站文档（如无特别说明）由瑞莎 Radxa 文档团队及社区贡献者编写，并采用 [Creative Commons 署名 4.0 国际许可协议（CC BY 4.0）](https://creativecommons.org/licenses/by/4.0/) 授权。
+本网站文档（如无特别说明）由瑞莎计算机（深圳）有限公司（以下简称“瑞莎”或“Radxa”）文档团队及社区贡献者编写，并采用 [Creative Commons 署名 4.0 国际许可协议（CC BY 4.0）](https://creativecommons.org/licenses/by/4.0/) 授权。
 
 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', margin: '8px 0 16px' }}>
 	<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">
@@ -61,6 +61,12 @@ CC BY 4.0 的授权仅适用于文档本身，不自动涵盖以下内容：
 - **引用的第三方资料或链接**：文档中提到的其他网站、文档、代码仓库，仍然受到各自授权协议或使用条款约束。
 
 在将本站内容用于商用或大规模分发前，请根据具体场景自行评估是否需要额外取得品牌授权、肖像权许可或遵守第三方开源/版权协议。
+
+## 商标与不背书声明
+
+“Radxa / 瑞莎”、相关 Logo 以及产品名称为瑞莎在适用法域内的商标或注册商标。
+
+转载、引用或基于本网站文档进行创作，不代表瑞莎对转载方、引用方或其产品、服务、项目存在任何形式的背书、赞助、合作或关联关系，除非瑞莎在单独的书面协议或正式声明中明确说明。
 
 ## 免责声明
 
