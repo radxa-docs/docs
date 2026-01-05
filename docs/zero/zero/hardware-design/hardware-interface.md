@@ -43,7 +43,8 @@ ZERO 提供了一个 40 pin 针脚的 GPIO 座子，与市场上大多数的同�
 
 **提示：实际兼容情况以使用情况为准。**
 
-<div className='gpio_style'>
+<TabItem value="Zero">
+     <div className='gpio_style' style={{ overflow :"auto"}}  >
 
 :::caution
 根据硬件版本的不同，引脚 35 和 38 其中一个引脚连接到了电源 LED，而不是连接到 40 引脚针座上。如果您的设计使用了这些引脚，请在购买前确认硬件版本。  
@@ -75,7 +76,8 @@ GPIOA_14 和 GPIOA_15 连接到了上拉电阻和 USB-C 控制器，因此不能
 | 421         |               |               | UART_AO_B_RX  |  GPIOAO_9  | <div className='green'>37</div>  | <div className='green'>38</div> | GPIOAO_10  |                   PWMAO_D                   |               |               | 422         |
 |             |               |               |               |    GND     | <div className='black'>39</div>  | <div className='green'>40</div> | GPIOAO_11  |                   PWMAO_A                   |               |               | 423         |
 
-</div>
+   </div>
+</TabItem>
 
 #### GPIO 编号
 

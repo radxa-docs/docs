@@ -37,7 +37,8 @@ Radxa ZERO 3 provides a 40-pin GPIO header, which is compatible with most SBC ac
 Pin 3, Pin 5, Pin 27, and Pin 28 add extra pull-up resistors for I2C device power supply, so they work abnormally when used as GPIOs.
 :::
 
-<div className='gpio_style' style={{ overflow :"auto" }}>
+<TabItem value="Zero 3">
+     <div className='gpio_style' style={{ overflow :"auto"}}  >
 
 | GPIO number | Function5   |  Function4   |    Function3    |  Function2   | Function1 |               Pin#               |              Pin#               | Function1 |                 Function2                 | Function3 |  Function4  | Function5    | GPIO number |
 | ----------- | ----------- | :----------: | :-------------: | :----------: | :-------: | :------------------------------: | :-----------------------------: | :-------: | :---------------------------------------: | :-------: | :---------: | ------------ | ----------- |
@@ -62,7 +63,8 @@ Pin 3, Pin 5, Pin 27, and Pin 28 add extra pull-up resistors for I2C device powe
 | 36          |             |              | I2S1_SCLK_RX_M0 |              | GPIO1_A4  | <div className='green'>37</div>  | <div className='green'>38</div> | GPIO3_A6  |                                           |           |             | I2S3_SDI_M0  | 102         |
 |             |             |              |                 |              |    GND    | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO3_A5  |                                           |           |             | I2S3_SDO_M0  | 101         |
 
-</div>
+   </div>
+</TabItem>
 
 ### USB Function Configuration on 40-Pin
 

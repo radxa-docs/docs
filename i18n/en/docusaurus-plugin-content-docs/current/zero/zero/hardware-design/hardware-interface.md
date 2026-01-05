@@ -48,7 +48,8 @@ GPIOA_14 and GPIOA_15 are connected to pull-up resistors and USB-C controllers a
 Pin 22 (GPIOC_7) and pin 36 (GPIOH_8) are open-drain pins. This means that they need to be connected to GND or VCC (floating state undefined), and they need an external pull-up when used as inputs. In addition, GPIOH_8 utilizes a 5V logic level.
 :::
 
-<div className='gpio_style' style={{ overflow :"auto" }}>
+<TabItem value="Zero">
+     <div className='gpio_style' style={{ overflow :"auto"}}  >
 
 | GPIO number |   Function4   |   Function3   |   Function2   | Function1  |               Pin#               |              Pin#               | Function1  |                  Function2                  |   Function3   |   Function4   | GPIO number |
 | ----------- | :-----------: | :-----------: | :-----------: | :--------: | :------------------------------: | :-----------------------------: | :--------: | :-----------------------------------------: | :-----------: | :-----------: | ----------- |
@@ -73,7 +74,8 @@ Pin 22 (GPIOC_7) and pin 36 (GPIOH_8) are open-drain pins. This means that they 
 | 421         |               |               | UART_AO_B_RX  |  GPIOAO_9  | <div className='green'>37</div>  | <div className='green'>38</div> | GPIOAO_10  |                   PWMAO_D                   |               |               | 422         |
 |             |               |               |               |    GND     | <div className='black'>39</div>  | <div className='green'>40</div> | GPIOAO_11  |                   PWMAO_A                   |               |               | 423         |
 
-</div>
+   </div>
+</TabItem>
 
 #### GPIO numbers
 

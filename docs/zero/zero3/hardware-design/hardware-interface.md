@@ -33,7 +33,8 @@ ZERO 3W/3E 提供了一个40 pin 针脚的 GPIO 座子，与市场上大多数�
 
 **提示：实际兼容情况以使用情况为准。**
 
-<div className='gpio_style'>
+<TabItem value="Zero 3">
+     <div className='gpio_style' style={{ overflow :"auto"}}  >
 
 :::tip
 Pin 3、Pin 5、Pin 27 和 Pin 28 为 I2C 设备供电添加了额外的上拉电阻，故在作为 GPIO 使用时会工作异常。
@@ -62,7 +63,8 @@ Pin 3、Pin 5、Pin 27 和 Pin 28 为 I2C 设备供电添加了额外的上拉�
 | 36          |             |              | I2S1_SCLK_RX_M0 |              | GPIO1_A4  | <div className='green'>37</div>  | <div className='green'>38</div> | GPIO3_A6  |                                           |           |             | I2S3_SDI_M0  | 102         |
 |             |             |              |                 |              |    GND    | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO3_A5  |                                           |           |             | I2S3_SDO_M0  | 101         |
 
-</div>
+   </div>
+</TabItem>
 
 ### 40-Pin 引脚 USB 功能配置
 
