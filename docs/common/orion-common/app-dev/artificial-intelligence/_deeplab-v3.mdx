@@ -1,0 +1,150 @@
+**DeepLabV3** 是一款由 Google 提出的经典语义分割模型。它通过深入探索空洞卷积（Atrous Convolution）的应用，在不增加参数量的前提下扩大了感受野，有效解决了在深度神经网络中处理多尺度物体分割时的空间信息丢失问题。
+
+- 核心特点： 擅长捕捉图像中复杂且细致的边缘信息，具备极强的多尺度目标感知能力，能够实现像素级的精准类别划分，广泛应用于医疗影像分析、自动驾驶环境感知以及卫星图像处理。
+- 版本说明： 本案例采用 DeepLabV3 架构。作为语义分割领域的基准模型之一，它利用改进的 ASPP 模块和全局平均池化技术，显著提升了对不同尺寸物体的识别精度。它在保持特征提取深度的同时，能够通过精妙的结构设计还原物体的空间结构，是目前工业界兼顾分割效果与技术成熟度的经典平衡选择。
+
+:::info[环境配置]
+需要提前配置好相关环境。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## 快速开始
+
+### 下载模型文件
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/deeplab_v3.cix
+```
+
+</NewCodeBlock>
+
+### 模型测试
+
+:::info
+运行前激活虚拟环境！
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## 完整转换流程
+
+### 下载模型文件
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/model/deeplabv3_resnet50.onnx
+```
+
+</NewCodeBlock>
+
+### 项目结构
+
+```txt
+├── cfg
+├── datasets
+├── deeplab_v3.cix
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── test_data
+└── Tutorials.ipynb
+```
+
+### 进行模型量化和转换
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/onnx_deeplab_v3_build.cfg
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件推送到板端。
+:::
+
+### 测试主机推理
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py --image_path test_data --onnx_path model/deeplabv3_resnet50.onnx
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py --image_path test_data --onnx_path model/deeplabv3_resnet50.onnx
+save output: onnx_ILSVRC2012_val_00004704.JPEG
+```
+
+</NewCodeBlock>
+
+<div>
+
+{" "}
+
+<img src="/img/orion/o6/ai-models/deeplab1.webp" />
+
+</div>
+
+### 进行 NPU 部署
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py --image_path test_data --model_path deeplab_v3.cix
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py --image_path test_data --model_path deeplab_v3.cix
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+save output: npu_ILSVRC2012_val_00004704.JPEG
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div>
+
+{" "}
+
+<img src="/img/orion/o6/ai-models/deeplab2.webp" />
+
+</div>

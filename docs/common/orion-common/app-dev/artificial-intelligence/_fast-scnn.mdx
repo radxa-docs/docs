@@ -1,0 +1,128 @@
+**Fast-SCNN** 是一款专为高分辨率图像实时语义分割设计的轻量级卷积神经网络。它采用了创新的多分支架构，通过共享特征提取模块与轻量化的设计思路，有效解决了传统分割模型在处理大尺寸图像时计算压力过大的痛点。
+
+- 核心特点：专注于像素级的实时语义分割，能够在极低延迟下对复杂场景进行类别标注，广泛应用于自动驾驶、移动端增强现实（AR）以及机器人避障等对响应速度要求极高的领域。
+- 版本说明：本案例采用 Fast-SCNN 模型。该模型通过独特的“学习下采样”模块结合全局特征提取技术，在不牺牲核心空间细节的前提下大幅提升了推理效率。它摆脱了对高性能图形处理器的依赖，是目前在嵌入式端实现高分辨率实时图像理解的主流轻量化选择。
+
+:::info[环境配置]
+需要提前配置好相关环境。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## 快速开始
+
+### 下载模型文件
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Semantic_Segmentation/torch_fast_scnn
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Semantic_Segmentation/torch_fast_scnn/fast_scnn.cix
+```
+
+</NewCodeBlock>
+
+### 模型测试
+
+:::info
+运行前激活虚拟环境！
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## 完整转换流程
+
+### 项目结构
+
+```txt
+├── cfg
+├── datasets
+├── fast_scnn.cix
+├── inference_npu.py
+├── inference_pt.py
+├── model
+├── ReadMe.md
+└── test_data
+```
+
+### 进行模型量化和转换
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/fast_scnnbuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件推送到板端。
+:::
+
+### 测试主机推理
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_pt.py
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<div>
+
+{" "}
+
+<img src="/img/orion/o6/ai-models/fast-scnn-host-out.webp" />
+
+</div>
+
+### 进行 NPU 部署
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div>
+
+{" "}
+
+<img src="/img/orion/o6/ai-models/fast-scnn-npu-out.webp" />
+
+</div>

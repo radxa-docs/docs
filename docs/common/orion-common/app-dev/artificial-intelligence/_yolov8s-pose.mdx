@@ -1,0 +1,141 @@
+**YOLOv8-pose** 是由 Ultralytics 推出的专门用于人体姿态估计的先进深度学习模型。它继承了 YOLOv8 系列在目标检测领域的卓越架构，通过将物体检测与关键点定位集成在单阶段推理流程中，实现了对复杂人体动作的高效捕捉。
+
+- 核心特点：支持实时的人体关键点检测与姿态识别，能够精准定位人体骨架关节点，广泛应用于人体运动分析、交互式游戏、行为监控及康复指导等领域。
+- 版本说明：本案例采用 YOLOv8s-pose 模型。作为系列中的轻量化进阶版本，它在保持极高推理速度的同时，通过增加模型深度和通道数，增强了对复杂背景及肢体遮挡场景下的特征提取能力。它是目前在性能与实时性之间寻找平衡点的理想选择，尤其适用于需要兼顾检测准确率与端侧部署效率的实际应用场景。
+
+:::info[环境配置]
+需要提前配置好相关环境。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## 快速开始
+
+### 下载模型文件
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Pose_Estimation/onnx_yolov8s_pose
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Pose_Estimation/onnx_yolov8s_pose/yolov8s-pose.cix
+```
+
+</NewCodeBlock>
+
+### 模型测试
+
+:::info
+运行前激活虚拟环境！
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## 完整转换流程
+
+### 下载模型文件
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Pose_Estimation/onnx_yolov8s_pose/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Pose_Estimation/onnx_yolov8s_pose/model/yolov8s-pose.onnx
+```
+
+</NewCodeBlock>
+
+### 项目结构
+
+```txt
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── test_data
+└── yolov8s-pose.cix
+```
+
+### 进行模型量化和转换
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/yolov8s_posebuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件推送到板端。
+:::
+
+### 测试主机推理
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+
+{" "}
+
+<img src="/img/orion/o6/ai-models/yolov8s-pose-host-out1.webp" height="300" />
+<img src="/img/orion/o6/ai-models/yolov8s-pose-host-out2.webp" height="300" />
+
+</div>
+
+### 进行 NPU 部署
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+
+{" "}
+
+<img src="/img/orion/o6/ai-models/yolov8s-pose-npu-out1.webp" height="300" />
+<img src="/img/orion/o6/ai-models/yolov8s-pose-npu-out2.webp" height="300" />
+
+</div>

@@ -1,9 +1,9 @@
 ---
-sidebar_position: 8
+sidebar_position: 7
 ---
 
 import Llamacpp from '../../../../common/ai/\_llama_cpp.mdx';
 
-# Llama.cpp
+# llama.cpp
 
 <Llamacpp />
