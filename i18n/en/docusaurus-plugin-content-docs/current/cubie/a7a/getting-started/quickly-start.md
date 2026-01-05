@@ -36,7 +36,14 @@ Recommended Accessories:
 - [Radxa eMMC Module](https://radxa.com/products/accessories/emmc-module)
 - [Radxa eMMC/UFS Combo Module Reader](https://radxa.com/products/accessories/emmc-ufs-module-reader)
 - [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
+- [Radxa heatsink for Cubie A7A](https://radxa.com/products/accessories/heatsink-6540b)
   :::
+
+:::warning
+
+Because the board's passive cooling is limited, the SoC may overheat and cause system instability under prolonged or heavy workloads. We recommend installing an appropriate heatsink to improve cooling and maintain stable operation.
+
+:::
 
 ## System Installation
 
