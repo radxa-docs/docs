@@ -54,5 +54,5 @@ sudo apt install fio
 
 Please refer to the following documentation:
 
-- <a href="../install-os/nvme" alt="d" >Boot the system from the SD card and flash NVME. </a>
+- <a href="../install-system/nvme" alt="d" >Boot the system from the SD card and flash NVME. </a>
 - <a href="../../low-level-dev/maskrom/windows#pcie-m2-ssd">Flash NVME by RKDevtool</a>

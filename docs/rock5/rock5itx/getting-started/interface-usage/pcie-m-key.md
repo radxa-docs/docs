@@ -54,5 +54,5 @@ sudo apt install fio
 
 请参考以下文档：
 
-- <a href="../install-os/nvme" alt="d" >SD 卡启动系统再刷 NVME </a>
+- <a href="../install-system/nvme" alt="d" >SD 卡启动系统再刷 NVME </a>
 - <a href="../../low-level-dev/maskrom/windows#pcie-m2-ssd">RKDevtool 刷 NVME </a>

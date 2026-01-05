@@ -41,7 +41,7 @@ Peripherals that are not required but enhance the basic functionality of the ROC
 
 ## Installing the operating system
 
-Refer to the [install-os](./install-os/) section to install the operating system.
+Refer to the [install-system](./install-system/) section to install the operating system.
 
 ## Wiring and Powering Up
 

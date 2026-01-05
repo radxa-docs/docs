@@ -13,7 +13,7 @@ Please refer to https://docs.radxa.com/welcome
 Yes, the ROCK 5T can boot from a PCIe M.2 NVME solid state drive.
 ROCK 5T is equipped with a 16MB SPI Nor Flash and PCIe M.2 M-Key interface.
 The SPI Nor Flash stores the boot loader, and the NVME SSD stores the entire system image (including at least the kernel and rootfs).
-See this guide for more information on writing images. [SPI Nor Flash](./getting-started/install-os/erase_spi-flash) and [PCIe NVME SSD](./getting-started/install-os/nvme) boot.
+See this guide for more information on writing images. [SPI Nor Flash](./getting-started/install-system/erase_spi-flash) and [PCIe NVME SSD](./getting-started/install-system/nvme) boot.
 
 ## Q3： Also, are heatsinks and fans included in the price?
 

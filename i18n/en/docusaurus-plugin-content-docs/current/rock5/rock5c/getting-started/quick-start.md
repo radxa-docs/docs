@@ -37,7 +37,7 @@ Peripherals that are not required but enhance the basic functions of the ROCK 5C
 
 ## Installation of the operating system
 
-Refer to the [Install system section](./install-os/) to install the operating system.
+Refer to the [Install system section](./install-system/) to install the operating system.
 
 ## Wiring and power-up
 

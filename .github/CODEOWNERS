@@ -320,7 +320,7 @@ i18n/en/docusaurus-plugin-content-docs/current/zero/zero2pro/radxa-os/README.md 
 i18n/en/docusaurus-plugin-content-docs/current/zero/zero2pro/apps-deployment/docker.md @CodeChenL
 docs/common/accessories/_wifi-bt.mdx @nascs
 docs/rock5/rock5c/radxa-os/media.md @nascs
-docs/rock5/rock5a/getting-started/install-os/boot_from_emmc.md @peterwang2050
+docs/rock5/rock5a/getting-started/install-system/boot_from_emmc.md @peterwang2050
 static/img/roobi/select_image_cn.webp @shawnchainw
 docs/compute-module/cm3/download.md @nascs
 docs/rock5/rock5itx/getting-started/assembly-guide.md @nascs

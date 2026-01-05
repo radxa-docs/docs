@@ -17,7 +17,7 @@ As different users require different WiFi speeds, a WiFi card is not included by
 Yes, the ROCK 5B can boot from a PCIe M.2 NVME solid state drive.
 The ROCK 5B is equipped with a 16MB SPI Nor Flash and PCIe M.2 M-Key interface.
 The SPI Nor Flash stores the boot loader, and the NVME SSD stores the entire system image (including at least the kernel and rootfs).
-See this guide for more information on writing images. [SPI Nor Flash](./getting-started/install-os/erase_spi-flash) and [PCIe NVME SSD](./getting-started/install-os/nvme) boot.
+See this guide for more information on writing images. [SPI Nor Flash](./getting-started/install-system/erase_spi-flash) and [PCIe NVME SSD](./getting-started/install-system/nvme) boot.
 
 ## Q4: Also, are heatsinks and fans included in the price?
 

@@ -16,7 +16,7 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 :::tip
 
-若为板载 eMMC 请参考 [USB 刷机部分](../../low-level-dev/install-os/rkdevtool_emmc.md) 进行刷机操作。
+若为板载 eMMC 请参考 [USB 刷机部分](../../low-level-dev/install-system/rkdevtool_emmc.md) 进行刷机操作。
 
 :::
 

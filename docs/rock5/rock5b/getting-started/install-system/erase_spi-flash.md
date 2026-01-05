@@ -22,4 +22,4 @@ sidebar_position: 4
 
 ## 不能启动到系统
 
-[请参考通过 USB 线烧录镜像部分](../../low-level-dev/install-os/)
+[请参考通过 USB 线烧录镜像部分](../../low-level-dev/install-system/)
