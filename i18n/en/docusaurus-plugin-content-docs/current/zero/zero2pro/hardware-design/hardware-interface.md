@@ -33,7 +33,8 @@ The ZERO 2 PRO provides a 40 pin GPIO socket that is compatible with most SBC ac
 
 **Hint: Actual compatibility is subject to usage.**
 
-<div className='gpio_style' style={{ overflow :"auto" }}>
+<TabItem value="Zero 2 Pro">
+     <div className='gpio_style' style={{ overflow :"auto"}}  >
 
 | GPIO number | Function6 |   Function5   |   Function4   |   Function3   |   Function2   | Function1 |               Pin#               |              Pin#               | Function1  |                  Function2                  |   Function3   |   Function4   |   Function5   |   Function5   | GPIO number |
 | :---------: | :-------: | :-----------: | :-----------: | :-----------: | :-----------: | :-------: | :------------------------------: | :-----------------------------: | :--------: | :-----------------------------------------: | :-----------: | :-----------: | :-----------: | :-----------: | :---------: |
@@ -58,7 +59,8 @@ The ZERO 2 PRO provides a 40 pin GPIO socket that is compatible with most SBC ac
 |     421     |           |    MCLK_0     | TSIN_A_VALID  | UART_AO_B_RX  | IR_REMOTE_OUT | GPIOAO_9  | <div className='green'>37</div>  | <div className='green'>38</div> |  GPIOA_5   |                  PDM_DIN3                   |   TDMB_DIN2   |    TDMB_D2    |               |               |     481     |
 |             |           |               |               |               |               |    GND    | <div className='black'>39</div>  | <div className='green'>40</div> |  GPIOZ_7   |                I2C_EE_M0_SDA                |  TSIN_B_DIN1  |   TDMC_SCLK   | TDMC_SLV_SCLK |               |     434     |
 
-</div>
+   </div>
+</TabItem>
 
 ## MIPI DSI
 
