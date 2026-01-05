@@ -3,9 +3,9 @@ sidebar_position: 1
 slug: /rock2
 ---
 
-# ROCK 2 Family
+# ROCK 2 Series
 
-The ROCK 2 Family is a high-performance SBC (Single Board Computer) developed by Radxa, based on the Rockchip RK3528A. This SBC is suitable not only for the development of Internet of Things (IoT) devices but also for providing an excellent multimedia entertainment experience.
+The ROCK 2 Series is a high-performance SBC (Single Board Computer) developed by Radxa, based on the Rockchip RK3528A. This SBC is suitable not only for the development of Internet of Things (IoT) devices but also for providing an excellent multimedia entertainment experience.
 
 ## Product List
 

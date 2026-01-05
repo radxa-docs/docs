@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: /rock5
 ---
 
-# ROCK 5 Family
+# ROCK 5 Series
 
 The ROCK 5 series is Radxa's high-performance SBC for server, AI computing and IoT scenarios based on Rockchip's RK3588 and RK3588-S high-end SoC solutions.
 

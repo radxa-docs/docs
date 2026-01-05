@@ -12,7 +12,7 @@ sidebar_custom_props:
     product_docs:
       [
         {
-          series_en: "ROCK 2 Family",
+          series_en: "ROCK 2 Series",
           series_zh: "ROCK 2 系列",
           series_introduction_en: "ROCK 2 series is a high-performance SBC (Single Board Computer) based on Rockchip's RK3528A from Radxa. This SBC is not only suitable for the development of Internet of Things (IoT) devices, but also provides an excellent multimedia entertainment experience.",
           series_introduction_zh: "ROCK 2 系列是瑞莎基于 Rockchip 的 RK3528A 的高性能 SBC。这款 SBC 不仅适用于物联网(IoT)设备的开发,还能够提供出色的多媒体娱乐体验。",
@@ -53,7 +53,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "ROCK 3 Family",
+          series_en: "ROCK 3 Series",
           series_zh: "ROCK 3 系列",
           series_introduction_en: "ROCK 3 is a series of Rockchip RK3566/RK3568 based SBC(Single Board Computer) by Radxa. It can run android or some Linux distributions.",
           series_introduction_zh: "ROCK 3 是 Radxa 推出的一系列基于 Rockchip RK3566/RK3568 的 SBC（单板计算机）。它可以运行安卓或某些 Linux 发行版。",
@@ -110,7 +110,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "ROCK 4 Family",
+          series_en: "ROCK 4 Series",
           series_zh: "ROCK 4 系列",
           series_introduction_en: "ROCK 4 is a series of Rockchip RK3399/RK3399-T/OP1 based SBC(Single Board Computer) in a small form factor by Radxa. It can run android or some Linux distributions as well as BSD distributions.",
           series_introduction_zh: "ROCK 4 是瑞莎基于 Rockchip RK3399/RK3399-T/OP1 开发的一系列 SBC（单板计算机)。 他们可以用来运行 Android 或一些 Linux 发行版以及 BSD 发行版。",
@@ -199,7 +199,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "ROCK 5 Family",
+          series_en: "ROCK 5 Series",
           series_zh: "ROCK 5 系列",
           series_introduction_en: "The ROCK 5 series is Radxa's high-performance SBC for server, AI computing and IoT scenarios based on Rockchip's RK3588 and RK3588-S high-end SoC solutions.",
           series_introduction_zh: "ROCK 5 系列是瑞莎基于 Rockchip 的 RK3588 及 RK3588-S 高端 SoC 解决方案开发的可用于服务器、AI 计算及物联网等场景的高性能 SBC。",
@@ -304,7 +304,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "ROCK Pi Family",
+          series_en: "ROCK Pi Series",
           series_zh: "ROCK Pi 系列",
           series_introduction_en: "ROCK Pi series is Radxa's SBC series based on RK3308 and RK3328.",
           series_introduction_zh: "ROCK Pi 系列是 Radxa 基于 RK3308 和 RK3328 研发的 SBC 系列。",
@@ -482,7 +482,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "ZERO Family",
+          series_en: "ZERO Series",
           series_zh: "ZERO 系列",
           series_introduction_en: "The ZERO series is a series of general-purpose SBCs designed for size optimization.",
           series_introduction_zh: "ZERO 系列是针对尺寸优化的通用SBC。",
@@ -555,7 +555,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "NIO Family",
+          series_en: "NIO Series",
           series_zh: "NIO 系列",
           series_introduction_en: "NIO is Radxa's New Launched SBC series",
           series_introduction_zh: "瑞莎 NIO 系列代表了物联网领域的一次创新飞跃，这些单板计算机基于联发科的 Genio 物联网系统平台打造，专为满足不同级别的物联网应用需求而设计。NIO 系列集低功耗、高性能、丰富的多媒体功能和独立AI处理器于一体，为用户提供多样化选择，以适应不同的应用场景。",
@@ -580,7 +580,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "X Family",
+          series_en: "X Series",
           series_zh: "X 系列",
           series_introduction_en: "Radxa proudly announced the launch of its latest innovative product, the X series, a single board computer (SBC) series based on the X86 platform. These revolutionary devices are not only based on the powerful X86 architecture, but also fully support UEFI BIOS, making them perfectly compatible with all standard X86 operating systems. Whether it's Windows 10, Windows 11, Ubuntu, or OpenWrt X86, the X series can easily handle it.",
           series_introduction_zh: "Radxa 自豪地宣布推出其最新的创新产品—— X 系列，这是一个基于 X86 平台的单板计算机 (SBC) 系列。这些革命性的设备不仅基于强大的 X86 架构，而且完全支持 UEFI BIOS，使其与所有标准的 X86 操作系统完美兼容。不论是 Windows 10、Windows 11、Ubuntu 还是 OpenWrt X86，X 系列都能轻松驾驭。",
@@ -662,7 +662,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "E Family",
+          series_en: "E Series",
           series_zh: "E 系列",
           series_introduction_en: "E is a series of network computing products from Radxa. It can run Debian, OpenWrt and other systems.",
           series_introduction_zh: "E 是 Radxa 推出的网络计算产品系列。它可以运行 Debian,OpenWrt等系统",
@@ -735,7 +735,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "SiRider Family",
+          series_en: "SiRider Series",
           series_zh: "SiRider 系列",
           series_introduction_en: "SiRider is a high-performance single board computer series jointly launched by Radxa and Siengine.",
           series_introduction_zh: "SiRider 是 Radxa 和 Siengine 联合推出的高性能单板计算机系列",
@@ -760,7 +760,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "Orion Family",
+          series_en: "Orion Series",
           series_zh: "Orion 系列",
           series_introduction_en: "Orion is a high-performance single board computer series jointly launched by Radxa and Cix.",
           series_introduction_zh: "Orion 是 Radxa 和 Cix 联合推出的高性能单板计算机系列。",
@@ -785,7 +785,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "Cubie Family",
+          series_en: "Cubie Series",
           series_zh: "Cubie 系列",
           series_introduction_en: "Radxa Cubie Series is a single board computer series based on the Allwinner SoC",
           series_introduction_zh: "Cubie 系列是 Radxa 推出的基于 AllWinner 单板计算机系列。",
@@ -842,7 +842,7 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "Dragon Family",
+          series_en: "Dragon Series",
           series_zh: "Dragon 系列",
           series_introduction_en: "Radxa Dragon Series is a single board computer series based on the Qualcomm SoC",
           series_introduction_zh: "Dragon 系列是 Radxa 推出的基于 Qualcomm 单板计算机系列。",

@@ -1,14 +1,14 @@
 ---
-label: "X Family"
-description: "X Family"
+label: "X Series"
+description: "X Series"
 sidebar_position: 1
 slug: /x
 sidebar_class_name: hidden
 ---
 
-# X Family
+# X Series
 
-## Radxa X Family: Redefine the Experience of SBC
+## Radxa X Series: Redefine the Experience of SBC
 
 Radxa proudly announced the launch of its latest innovative product, the X series, a single board computer (SBC) series based on the X86 platform. These revolutionary devices are not only based on the powerful X86 architecture, but also fully support UEFI BIOS, making them perfectly compatible with all standard X86 operating systems. Whether it's Windows 10, Windows 11, Ubuntu, or OpenWrt X86, the X series can easily handle it.
 

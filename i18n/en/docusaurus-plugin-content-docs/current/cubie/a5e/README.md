@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Cubie A5E
+# Radxa Cubie A5E
 
 ## Product Overview
 

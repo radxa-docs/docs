@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# ROCK 5 Family FAQ
+# ROCK 5 Series FAQ
 
 ## ROCK 5A FAQ
 

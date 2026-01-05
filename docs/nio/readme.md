@@ -1,6 +1,6 @@
 ---
 label: "瑞莎 NIO 系列"
-description: "Radxa NIO Family"
+description: "Radxa NIO Series"
 sidebar_position: 1
 slug: /nio
 ---
