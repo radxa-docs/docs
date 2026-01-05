@@ -26,7 +26,14 @@ You will need to prepare the following hardware:
 :::tip Recommended Accessories
 
 - [Radxa PD 30W Power Adapter (Recommended)](https://radxa.com/products/accessories/power-pd-30w)
+- [Radxa heatsink for Cubie A7Z](https://radxa.com/products/accessories/heatsink-6530b)
   :::
+
+:::warning
+
+Because the board's passive cooling is limited, the SoC may overheat and cause system instability under prolonged or heavy workloads. We recommend installing an appropriate heatsink to improve cooling and maintain stable operation.
+
+:::
 
 ## Installing the System
 

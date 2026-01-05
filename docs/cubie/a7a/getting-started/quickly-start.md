@@ -35,8 +35,16 @@ Cubie A7A 主板兼容 PD 协议的 5V 电源输入，建议电流 3A 以上，�
 - [瑞莎 UFS 模块](https://radxa.com/products/accessories/ufs-module)
 - [瑞莎 eMMC 模块](https://radxa.com/products/accessories/emmc-module)
 - [瑞莎 eMMC/UFS 二合一模块读卡器](https://radxa.com/products/accessories/emmc-ufs-module-reader)
-- [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
+- [瑞莎 PD 30W 电源适配器 (推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
+- [瑞莎散热片适配 Cubie A7A](https://radxa.com/products/accessories/heatsink-6540b)
+
   :::
+
+:::warning
+
+由于主板散热能力有限，长时间或高负载运行时 SoC 可能过热降频并导致系统不稳定。建议安装合适的散热片以提高散热、保障稳定运行。
+
+:::
 
 ## 安装系统
 
@@ -134,7 +142,7 @@ Cubie A7A 搭配显示器使用，整体操作比较直观和简单，这里便�
 
 无屏模式是指 Cubie A7A 不搭配显示器使用，通过串口或者 SSH 登录系统进行操作！
 
-**对于无屏模式的用户，我们提供以下建议助力您快速熟悉系统!**
+**对于无屏模式的用户，我们提供以下建议助力您快速熟悉系统！**
 
 > **配置网络**
 

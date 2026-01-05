@@ -26,7 +26,14 @@ sidebar_position: 1
 :::tip 推荐配件
 
 - [瑞莎 PD 30W电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-30w)
+- [瑞莎散热片适配 Cubie A7Z](https://radxa.com/products/accessories/heatsink-6530b)
   :::
+
+:::warning
+
+由于主板散热能力有限，长时间或高负载运行时 SoC 可能过热降频并导致系统不稳定。建议安装合适的散热片以提高散热、保障稳定运行。
+
+:::
 
 ## 安装系统
 
