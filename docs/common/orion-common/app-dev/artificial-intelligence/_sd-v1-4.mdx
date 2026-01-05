@@ -1,0 +1,250 @@
+**Stable Diffusion** 是一款基于潜空间扩散机制的文本生成图像模型。它通过将图像压缩至低维的隐向量空间进行去噪训练，彻底改变了生成式 AI 对计算资源的高度依赖，使得在消费级显卡上生成高质量、高艺术性的图像成为可能。
+
+- 核心特点：支持强大的文本生成图像（Text-to-Image）、图像理解与重绘（Image-to-Image）以及局部绘制（Inpainting）功能，能够根据自然语言描述生成极具视觉冲击力的艺术作品。
+- 版本说明：本案例采用 Stable Diffusion v1.4 模型。作为该系列的首个工业级主流版本，它基于数亿张图像对进行了深度预训练，具备极强的审美表达能力与指令遵循能力。该模型在生成效果与显存占用之间取得了极佳的平衡，是目前生成式 AI 领域生态最丰富、插件兼容性最广的经典模型。
+
+:::info[环境配置]
+需要提前配置好相关环境。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## 快速开始
+
+### 下载模型文件
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/decoder.cix
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/default_seed.npy
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/encoder.cix
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/uncondition.npy
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/unet.cix
+```
+
+</NewCodeBlock>
+
+### 模型测试
+
+:::info
+运行前激活虚拟环境！
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## 完整转换流程
+
+### 下载模型文件
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/decoder
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/decoder/decoder.onnx
+cd ../encoder
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/encoder/encoder.onnx
+cd ../unet
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/unet/unet.onnx
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/unet/weights.pb
+```
+
+</NewCodeBlock>
+
+### 项目结构
+
+```txt
+├── cfg
+├── datasets
+├── decoder.cix
+├── default_seed.npy
+├── encoder.cix
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── tokenizer
+├── uncondition.npy
+└── unet.cix
+```
+
+### 进行模型量化和转换
+
+#### 转换文本编码器
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ../..
+cixbuild cfg/encoder/encoderbuild.cfg
+```
+
+</NewCodeBlock>
+
+#### 转换 U-Net 网络
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/unet/unetbuild.cfg
+```
+
+</NewCodeBlock>
+
+#### 转换 VAE 解码器
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/decoder/decoderbuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件推送到板端。
+:::
+
+### 测试主机推理
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py
+please input prompt text: majestic crystal mountains under aurora borealis, fantasy landscape, trending on artstation
+using unified predictor-corrector with order 1 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+do not run corrector at the last step
+using unified predictor-corrector with order 1 (solver type: B(h))
+Decoder:
+SD time : 56.92895817756653
+```
+
+</NewCodeBlock>
+
+#### 生成图片
+
+<div>
+
+    <img src="/img/orion/o6/ai-models/sd-host.webp" height="300" />
+
+</div>
+
+### 进行 NPU 部署
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### 模型运行结果
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+please input prompt text: a single wilting rose on a marble table, cinematic lighting, moody atmosphere
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 3.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 1 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+do not run corrector at the last step
+using unified predictor-corrector with order 1 (solver type: B(h))
+Decoder:
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+SD time : 20.26415753364563
+```
+
+</NewCodeBlock>
+
+#### 生成图片
+
+<div>
+
+    <img src="/img/orion/o6/ai-models/sd-npu.webp" height="300" />
+
+</div>

@@ -1,0 +1,277 @@
+**PP-OCR** 是由百度研发的开源通用 OCR 模型系列。它采用了一套完整的端到端视觉识别链路，涵盖了文字检测、方向分类和文字识别三大核心模块，旨在为开发者提供在各种复杂环境下都能稳定运行的文本提取能力。
+
+- 核心特点：支持多语种的高精度文字提取与识别，具备极强的背景噪声抑制能力和对倾斜、模糊文字的鲁棒性，广泛应用于文档数字化、工业质检、车牌识别及自动驾驶场景。
+- 版本说明：本案例采用 PP-OCRv4 模型。作为该系列的最新进阶版本，它通过引入更加轻量且强大的检测架构与识别蒸馏技术，在不增加额外计算开销的前提下，显著提升了对于小文字和生僻字的识别准确度。它是目前工业界在处理移动端实时文本分析任务时，兼顾高精度与极致推理速度的轻量化最优选择。
+
+:::info[环境配置]
+需要提前配置好相关环境。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## 快速开始
+
+### 下载模型文件
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/OCR/onnx_PP_OCRv4
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/cls.cix
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/PP-OCRv4_det.cix
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/rec.cix
+```
+
+</NewCodeBlock>
+
+### 模型测试
+
+:::info
+运行前激活虚拟环境！
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## 完整转换流程
+
+### 下载模型文件
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/OCR/onnx_PP_OCRv4/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/model/cls.onnx
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/model/PP-OCRv4_det.onnx
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/model/rec.onnx
+```
+
+</NewCodeBlock>
+
+### 项目结构
+
+```txt
+├── cfg
+├── cls.cix
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ppocr_keys_v1.txt
+├── pp_ocr.py
+├── PP-OCRv4_det.cix
+├── ReadMe.md
+├── rec.cix
+├── simfang.ttf
+└── test_data
+```
+
+### 进行模型量化和转换
+
+#### 转换 Detection 检测模块
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/detbuild.cfg
+```
+
+</NewCodeBlock>
+
+#### 转换 Classification 分类模块
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/clsbuild.cfg
+```
+
+</NewCodeBlock>
+
+#### 转换 Recognition 识别模块
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/recbuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件推送到板端。
+:::
+
+### 测试主机推理
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py
+[[[36.0, 409.0], [486.0, 386.0], [489.0, 434.0], [38.0, 457.0]], ('上海斯格威铂尔大酒店', 0.9942322969436646)]
+[[[183.0, 453.0], [401.0, 444.0], [403.0, 485.0], [185.0, 494.0]], ('打浦路15号', 0.9480939507484436)]
+[[[14.0, 501.0], [519.0, 483.0], [521.0, 537.0], [15.0, 555.0]], ('绿洲仕格维花园公寓', 0.9961597919464111)]
+[[[73.0, 550.0], [451.0, 539.0], [452.0, 576.0], [74.0, 587.0]], ('打浦路2529 35号→', 0.9754183292388916)]
+[[[292.0, 295.0], [335.0, 294.0], [350.0, 852.0], [307.0, 853.0]], ('土地整治与土壤修复研究中心', 0.9570525288581848)]
+[[[343.0, 298.0], [380.0, 297.0], [389.0, 665.0], [352.0, 666.0]], ('华南农业大学-东图', 0.9861757755279541)]
+[[[34.0, 79.0], [440.0, 82.0], [439.0, 174.0], [33.0, 171.0]], ('纯臻营养护发素', 0.9949513673782349)]
+[[[31.0, 183.0], [253.0, 183.0], [253.0, 243.0], [31.0, 243.0]], ('产品信息/参数', 0.9937998652458191)]
+[[[39.0, 258.0], [469.0, 258.0], [469.0, 309.0], [39.0, 309.0]], ('（45元／每公斤，100公斤起订', 0.9810954928398132)]
+[[[35.0, 325.0], [410.0, 327.0], [409.0, 382.0], [34.0, 380.0]], ('每瓶22元，1000瓶起订）', 0.999457061290741)]
+[[[34.0, 406.0], [435.0, 406.0], [435.0, 454.0], [34.0, 454.0]], ('【品牌】：代加工方式/OEMODM', 0.9994476437568665)]
+[[[32.0, 477.0], [341.0, 474.0], [341.0, 526.0], [32.0, 528.0]], ('【品名】：纯臻营养护发素', 0.9984829425811768)]
+[[[32.0, 549.0], [353.0, 549.0], [353.0, 600.0], [32.0, 600.0]], ('【产品编号】：YM-X-3011', 0.9997670650482178)]
+[[[30.0, 621.0], [263.0, 617.0], [264.0, 668.0], [31.0, 672.0]], ('【净含量】：220ml', 0.9565265774726868)]
+[[[33.0, 692.0], [365.0, 695.0], [364.0, 743.0], [33.0, 740.0]], ('【适用人群】：适合所有肤质', 0.9993946552276611)]
+[[[32.0, 763.0], [499.0, 766.0], [498.0, 816.0], [32.0, 813.0]], ('【主要成分】：鲸蜡硬脂醇、燕麦β-葡聚', 0.9533663392066956)]
+[[[38.0, 840.0], [407.0, 840.0], [407.0, 884.0], [38.0, 884.0]], ('糖、椰油酰胺丙基甜菜碱、泛醒', 0.9451590776443481)]
+[[[525.0, 842.0], [690.0, 842.0], [690.0, 898.0], [525.0, 898.0]], ('（成品包材）', 0.9980840682983398)]
+[[[34.0, 910.0], [522.0, 910.0], [522.0, 957.0], [34.0, 957.0]], ('【主要功能】：可紧致头发磷层，从而达到', 0.9985333681106567)]
+[[[39.0, 983.0], [536.0, 983.0], [536.0, 1027.0], [39.0, 1027.0]], ('即时持久改善头发光泽的效果，给干燥的头', 0.9993751645088196)]
+[[[32.0, 1051.0], [201.0, 1048.0], [202.0, 1104.0], [33.0, 1107.0]], ('发足够的滋养', 0.9753393530845642)]
+```
+
+</NewCodeBlock>
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "2px",
+    minHeight: "250px",
+    border: "1px solid #ccc",
+  }}
+>
+  <img
+    src="/img/orion/o6/ai-models/pp-ocr-v4-host-out1.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+  <img
+    src="/img/orion/o6/ai-models/pp-ocr-v4-host-out2.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+  <img
+    src="/img/orion/o6/ai-models/pp-ocr-v4-host-out3.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+</div>
+
+### 进行 NPU 部署
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### 模型运行结果
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+[[[36.0, 409.0], [486.0, 386.0], [489.0, 434.0], [38.0, 457.0]], ('上海斯格威铂尔大酒店', 0.9929969906806946)]
+[[[141.0, 456.0], [403.0, 444.0], [404.0, 483.0], [143.0, 495.0]], ('←打浦路15号', 0.862202525138855)]
+[[[17.0, 505.0], [519.0, 484.0], [521.0, 535.0], [19.0, 555.0]], ('绿洲仕格维花园公寓', 0.9960622787475586)]
+[[[67.0, 550.0], [418.0, 539.0], [420.0, 578.0], [68.0, 590.0]], ('打浦路25 29 35号', 0.9729113578796387)]
+[[[34.0, 78.0], [442.0, 80.0], [441.0, 174.0], [33.0, 171.0]], ('纯臻营养护发素', 0.9860424399375916)]
+[[[30.0, 181.0], [255.0, 181.0], [255.0, 244.0], [30.0, 244.0]], ('产品信息/参数', 0.949313759803772)]
+[[[39.0, 258.0], [478.0, 258.0], [478.0, 309.0], [39.0, 309.0]], ('（45元／每公斤、100公斤起订）', 0.9828777313232422)]
+[[[36.0, 321.0], [411.0, 325.0], [411.0, 384.0], [35.0, 380.0]], ('每瓶22元、1000瓶起订）', 0.9913207292556763)]
+[[[37.0, 406.0], [432.0, 406.0], [432.0, 450.0], [37.0, 450.0]], ('【品牌】：代加工方式/OEM ODM', 0.9849441051483154)]
+[[[31.0, 475.0], [342.0, 472.0], [342.0, 527.0], [31.0, 530.0]], ('【品名】：纯臻营养护发素', 0.9962107539176941)]
+[[[593.0, 539.0], [623.0, 539.0], [623.0, 700.0], [593.0, 700.0]], ('ODM OEM', 0.9357462525367737)]
+[[[31.0, 549.0], [353.0, 546.0], [353.0, 599.0], [31.0, 601.0]], ('【产品编号】：YM-X-3011', 0.9970366358757019)]
+[[[29.0, 620.0], [264.0, 617.0], [264.0, 668.0], [30.0, 671.0]], ('【净含量】：220ml', 0.9971547722816467)]
+[[[33.0, 691.0], [367.0, 694.0], [367.0, 742.0], [33.0, 739.0]], ('【适用人君】：适合所有肤质', 0.9611490964889526)]
+[[[33.0, 764.0], [497.0, 767.0], [497.0, 813.0], [33.0, 811.0]], ('【主要成分】：鲸蜡硬脂醇、燕麦-葡聚', 0.9434943795204163)]
+[[[37.0, 839.0], [409.0, 839.0], [409.0, 886.0], [37.0, 886.0]], ('糖、椰油酰胺丙基甜菜碱、泛醒', 0.9171066880226135)]
+[[[526.0, 843.0], [689.0, 843.0], [689.0, 896.0], [526.0, 896.0]], ('（成品色材）', 0.8261211514472961)]
+[[[33.0, 908.0], [522.0, 910.0], [522.0, 957.0], [33.0, 955.0]], ('【主要功能】：可紧致头发磷层，从而达到', 0.9950319528579712)]
+[[[39.0, 983.0], [536.0, 983.0], [536.0, 1027.0], [39.0, 1027.0]], ('即时持久改善头发光泽的效果，给干燥的头', 0.9946616291999817)]
+[[[34.0, 1051.0], [201.0, 1051.0], [201.0, 1103.0], [34.0, 1103.0]], ('发定够的滋养', 0.9353836178779602)]
+[[[292.0, 297.0], [335.0, 295.0], [350.0, 850.0], [307.0, 851.0]], ('土地整治与土壤修复研究中心', 0.976573646068573)]
+[[[344.0, 299.0], [381.0, 298.0], [387.0, 662.0], [351.0, 663.0]], ('华南农业大学-东图', 0.9912211298942566)]
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "2px",
+    minHeight: "250px",
+    border: "1px solid #ccc",
+  }}
+>
+  <img
+    src="/img/orion/o6/ai-models/pp-ocr-v4-npu-out1.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+  <img
+    src="/img/orion/o6/ai-models/pp-ocr-v4-npu-out2.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+  <img
+    src="/img/orion/o6/ai-models/pp-ocr-v4-npu-out3.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+</div>

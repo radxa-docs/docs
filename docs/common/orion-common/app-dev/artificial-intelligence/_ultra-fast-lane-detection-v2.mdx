@@ -1,0 +1,143 @@
+**Ultra Fast Lane Detection (UFLD)** 是一类专注于车道线检测的极速深度学习算法。它改变了传统的像素级分割思路，通过创新的基于行选择（Row-based Selection）的分类机制，将检测任务转化为简单的分类问题，极大地提升了模型的运行速度。
+
+- 核心特点：专注于道路场景下的实时车道线检测，能够快速准确地勾勒出车道边界，为自动驾驶系统的车道保持（LKA）和车道偏离预警（LDW）提供核心视觉支持。
+- 版本说明：本案例采用 Ultra Fast Lane Detection V2 (UFLDv2) 模型。作为该系列的进阶版本，它引入了混合锚点机制，不仅增强了对曲线及复杂遮挡场景的检测鲁棒性，还保持了该系列一贯的极速推理优势。它在保证低延迟的同时进一步提升了空间结构的捕捉能力，是目前车载嵌入式端实现高效实时车道感知的主流平衡选择。
+
+:::info[环境配置]
+需要提前配置好相关环境。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## 快速开始
+
+### 下载模型文件
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Lane_Detection/onnx_Ultra_Fast_Lane_Detection_v2
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Lane_Detection/onnx_Ultra_Fast_Lane_Detection_v2/Ultra_Fast_Lane_Detection_v2.cix
+```
+
+</NewCodeBlock>
+
+### 模型测试
+
+:::info
+运行前激活虚拟环境！
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## 完整转换流程
+
+### 下载模型文件
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Lane_Detection/onnx_Ultra_Fast_Lane_Detection_v2/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Lane_Detection/onnx_Ultra_Fast_Lane_Detection_v2/model/Ultra_Fast_Lane_Detection_v2.onnx
+```
+
+</NewCodeBlock>
+
+### 项目结构
+
+```txt
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── test_data
+└── Ultra_Fast_Lane_Detection_v2.cix
+```
+
+### 进行模型量化和转换
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/Ultra-Fast-Lane-Detection_v2build.cfg
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件推送到板端。
+:::
+
+### 测试主机推理
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<div>
+
+{" "}
+
+<img src="/img/orion/o6/ai-models/UFLD-host-out1.webp" height="300" />
+<img src="/img/orion/o6/ai-models/UFLD-host-out2.webp" height="300" />
+<img src="/img/orion/o6/ai-models/UFLD-host-out3.webp" height="300" />
+
+</div>
+
+### 进行 NPU 部署
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 4.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div>
+
+{" "}
+
+<img src="/img/orion/o6/ai-models/UFLD-npu-out1.webp" height="300" />
+<img src="/img/orion/o6/ai-models/UFLD-npu-out2.webp" height="300" />
+<img src="/img/orion/o6/ai-models/UFLD-npu-out3.webp" height="300" />
+
+</div>
