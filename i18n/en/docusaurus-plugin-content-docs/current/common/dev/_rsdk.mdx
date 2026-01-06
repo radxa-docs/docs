@@ -1,15 +1,18 @@
-## Using `rsdk`
+## Installing `rsdk`
 
-[`rsdk`](https://github.com/RadxaOS-SDK/rsdk) is the build environment for RadxaOS, which has the following features:
+[`rsdk`](https://github.com/RadxaOS-SDK/rsdk) is the current build environment for RadxaOS, which has the following features:
 
-1. Containerized build environment. No need to manage the build dependencies.
-2. Modularized build scripts that is easy to modify.
+1. Containerized build environment, no need to configure build dependencies additionally.
+2. Modularized build scripts that are easy to modify.
 3. Support for x86 and ARM64 platforms.
 
-### Here is a brief introduction to how to install and use it `rsdk`
+### Here is a brief introduction to how to install `rsdk`
+
+#### Method 1: Install via DevContainer (recommended for development environment)
 
 1. First, please install the required dependencies:
 
+<NewCodeBlock tip="x86 Linux PC" type="PC">
 ```
 sudo apt-get update
 sudo apt-get install git qemu-user-static binfmt-support
@@ -17,8 +20,11 @@ sudo apt-get install npm docker.io
 sudo usermod -a -G docker $USER
 ```
 
-2. Then clone the project with git and install devcontainer:
+</NewCodeBlock>
 
+2. Use the following commands to clone the project and install DevContainer:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
 ```
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 cd rsdk
@@ -28,8 +34,11 @@ rsdk devcon up
 rsdk devcon
 ```
 
-When the end point appears as follows, you are now inside the rsdk's devcontainer shell.
+</NewCodeBlock>
 
+When the terminal appears as follows, you are now inside the rsdk's dev container shell.
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
 ```
 ██████╗ ███████╗██████╗ ██╗  ██╗
 ██╔══██╗██╔════╝██╔══██╗██║ ██╔╝
@@ -45,75 +54,258 @@ direnv: export +AR +AS +CC +CONFIG_SHELL +CXX +DETERMINISTIC_BUILD +DEVENV_DOTFI
 +DEVENV_STATE +DEVENV_TASKS +HOST_PATH +IN_NIX_SHELL +LD +LOCALE_ARCHIVE +NIX_BINTOOLS +NIX_BINTOOLS_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu
 +NIX_BUILD_CORES +NIX_CC +NIX_CC_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu +NIX_CFLAGS_COMPILE +NIX_ENFORCE_NO_NATIVE +NIX_HARDENING_ENABLE +NIX_LDFLAGS
 +NIX_PKG_CONFIG_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu +NIX_STORE +NM +NODE_PATH +OBJCOPY +OBJDUMP +PKG_CONFIG +PKG_CONFIG_PATH +PYTHONHASHSEED +PYTHONNOUSERSITE
-+PYTHONPATH +RANLIB +READELF +SIZE +SOURCE_DATE_EPOCH +STARSHIP_SESSION_KEY +STRINGS +STRIP +_PYTHON_HOST_PLATFORM +_PYTHON_SYSCONFIGDATA_NAME +__structuredAttrs +buildInputs
++PYTHONPATH +RANLIB +READELF +SIZE +SOURCE_DATE_EPOCH +STARSHIP_SESSION_KEY +STRINGS +STRIP +\_PYTHON_HOST_PLATFORM +\_PYTHON_SYSCONFIGDATA_NAME +\_\_structuredAttrs +buildInputs
 +buildPhase +builder +cmakeFlags +configureFlags +depsBuildBuild +depsBuildBuildPropagated +depsBuildTarget +depsBuildTargetPropagated +depsHostHost +depsHostHostPropagated
 +depsTargetTarget +depsTargetTargetPropagated +doCheck +doInstallCheck +dontAddDisableDepTrack +hardeningDisable +mesonFlags +name +nativeBuildInputs +out +outputs +patches
 +phases +preferLocalBuild +propagatedBuildInputs +propagatedNativeBuildInputs +shell +shellHook +stdenv +strictDeps +system ~PATH ~XDG_DATA_DIRS
 
 vscode ➜ /workspaces/rsdk (main) $
-```
-
-3.Start TUI Wizard by running rsdk in the terminal.
 
 ```
+
+</NewCodeBlock>
+
+For detailed usage of the repository, please refer to the [rsdk](https://radxaos-sdk.github.io/rsdk/) page.
+
+If you need to conduct secondary development based on `rsdk`, please continue reading the documentation [Build customization](https://radxaos-sdk.github.io/rsdk/tutorials/customize.html).
+
+#### Method 2: Build rsdk deb package from source (recommended for Debian 12)
+
+For Debian 12 systems, you can build the rsdk deb package from source without using DevContainer. After building and installing, you can use the `rsdk` command locally.
+
+1. Clone the source repository:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
+cd rsdk
+
+```
+
+</NewCodeBlock>
+
+If your system is not based on RadxaOS (or has not configured Radxa software sources), please first add the Radxa signature keyring and add the software source to meet build dependencies:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+# Install signature keyring
+
+keyring="$(mktemp)"
+version="$(curl -L https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/VERSION)"
+curl -L --output "$keyring" "https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_${version}\_all.deb"
+sudo dpkg -i "$keyring"
+rm -f "$keyring"
+
+# Add Radxa APT software source and update package index
+
+sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg] https://radxa-repo.github.io/bookworm/ bookworm main"
+sudo apt-get update
+
+```
+
+</NewCodeBlock>
+
+(Note: If you are already using RadxaOS or have configured the corresponding software sources, you can skip the above steps.)
+
+:::tip
+If you have difficulty accessing GitHub, you can use domestic mirror git and software source sites:
+
+```
+
+git clone https://gitcode.com/radxaos-sdk/rsdk.git
+sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [trusted=yes] https://mirrors.sdu.edu.cn/radxa-repo/bookworm/ bookworm main"
+
+```
+
+:::
+
+2. Install build-related dependencies and prepare the build environment:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+sudo apt-get update
+sudo apt-get install devscripts dpkg-dev build-essential
+sudo apt build-dep .
+
+```
+
+</NewCodeBlock>
+
+3. Build the deb package:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+dpkg-buildpackage -us -uc -b
+
+```
+
+</NewCodeBlock>
+
+4. After successful build, the generated deb package is located in the parent directory (..), and can be installed with the following command:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+sudo apt install ../rsdk\_\*.deb
+
+```
+
+</NewCodeBlock>
+
+5. After installation, use the `rsdk` command to start the TUI wizard (same steps as Method 1).
+
+## Using `rsdk`
+
+The `rsdk` command is the universal CLI entry point; when run without any parameters, it defaults to launching the rsdk-tui wizard.
+
+Start the TUI wizard: Run `rsdk` in the terminal.
+
+- In the wizard, select the task to run, use the **arrow keys** to navigate, press **Enter** to confirm the operation in the current window, press **Esc** to exit the current window.
+
+- In the example below, we select **Build system image**:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
 ┌─────────────────┤ RSDK ├──────────────────┐
-│ Please select a task:                     │
-│                                           │
-│            Build system image             │
-│            =========                      │
-│            About                          │
-│                                           │
-│         <Ok>             <Cancel>         │
-│                                           │
+│ Please select a task: │
+│ │
+│ Build system image │
+│ ========= │
+│ About │
+│ │
+│ <Ok> <Cancel> │
+│ │
 └───────────────────────────────────────────┘
-```
-
-Select the task you want to run: For example, select `rock-5b`
 
 ```
+
+</NewCodeBlock>
+
+Select the product to build. **Note**: Use the **space key** to select the product, the selected item will display `*` in parentheses (pressing Enter alone will not select the product):
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
 ┌─────────────────┤ RSDK ├──────────────────┐
-│ Please select a product:                  │
-│                                           │
-│  ( ) rock-5a                          ▒   │
-│  (*) rock-5b                          ▒   │
-│  ( ) rock-5c                          ▒   │
-│                                           │
-│         <Ok>             <Cancel>         │
-│                                           │
+│ Please select a product: │
+│ │
+│ ( ) radxa-e25 ▒ │
+│ (\*) rock-5b-6_1 ▒ │
+│ ( ) rock-5b ▒ │
+│ │
+│ <Ok> <Cancel> │
+│ │
 └───────────────────────────────────────────┘
-```
-
-Select Yes to start the build process.
-rsdk-tui will then run the associated CLI commands to complete the task:
 
 ```
+
+</NewCodeBlock>
+
+Select **Yes** to start building, rsdk-tui will run the associated CLI commands to complete the task.
+
+Before starting the actual build, the wizard will ask if you want to configure optional package mirrors (Radxa's radxa-deb mirror and optional Debian/Ubuntu mirror). If you select **No**, it will use the default mirror and proceed directly to confirmation; if you select **Yes**, the wizard will guide you to select mirrors (you can choose the default). If you cancel during mirror selection, it will return to the question of whether to configure mirrors.
+
+:::tip
+It is recommended for users in China to choose to use mirror sources to improve package download speed.
+:::
+
+Example: Select Radxa APT mirror:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
 ┌─────────────────┤ RSDK ├──────────────────┐
-│                                           │
-│ Are you sure to build for 'rock-5b'?      │
-│                                           │
-│                                           │
-│          <Yes>             <No>           │
-│                                           │
+│ Select Radxa APT mirror (radxa-deb): │
+│ │
+│ (\*) Use official Radxa repository │
+│ ( ) mirrors.aghost.cn (radxa-deb) │
+│ ( ) mirrors.lzu.edu.cn (radxa-deb) │
+│ ( ) mirrors.hust.edu.cn (radxa-deb) │
+│ ( ) mirrors.sdu.edu.cn (radxa-deb) │
+│ ( ) mirror.nju.edu.cn (radxa-deb) │
+│ ( ) mirror.nyist.edu.cn (radxa-deb) │
+│ │
+│ <Ok> <Cancel> │
+│ │
 └───────────────────────────────────────────┘
-```
-
-After compilation, an `out` directory will be generated, and output.img is the final generated image
 
 ```
+
+</NewCodeBlock>
+
+Then you can select an optional Debian/Ubuntu mirror (or keep the default):
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+┌─────────────────┤ RSDK ├──────────────────┐
+│ Select Debian/Ubuntu mirror (optional): │
+│ │
+│ (\*) Use default Debian/Ubuntu mirror │
+│ ( ) mirrors.ustc.edu.cn │
+│ ( ) mirrors.tuna.tsinghua.edu.cn │
+│ ( ) mirrors.lzu.edu.cn │
+│ ( ) mirrors.hust.edu.cn │
+│ ( ) mirrors.sdu.edu.cn │
+│ ( ) mirror.nju.edu.cn │
+│ ( ) mirror.nyist.edu.cn │
+│ │
+│ <Ok> <Cancel> │
+│ │
+└───────────────────────────────────────────┘
+
+```
+
+</NewCodeBlock>
+
+Confirm and start building: After mirror configuration (if any), the wizard will display a summary of the selected product and mirrors (corresponding to the final CLI command to be executed), please carefully check the summary and select **Yes** to start building, or select **No** to return and modify:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+┌─────────────────┤ RSDK ├──────────────────┐
+│ │
+│ Are you sure to build with: │
+│ │
+│ Product: rock-5b-6_1 │
+│ Radxa mirror: https://mirrors.example/r… │
+│ Debian/Ubuntu mirror: https://mirrors… │
+│ Are you sure to build for 'rock-5b-6_1'? │
+│ │
+│ │
+│ <Yes> <No> │
+│ │
+└───────────────────────────────────────────┘
+
+```
+
+</NewCodeBlock>
+
+- For advanced building, please use the `rsdk-build` command.
+
+After compilation, an `out` directory will be generated, and `output.img` is the final generated image:
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
 vscode ➜ /workspaces/rsdk (main) $ ls out/rock-5b_bookworm_kde/
-build-image  config.yaml  debs  manifest  output.img  rootfs.tar  seed.tar.xz
+build-image config.yaml debs manifest output.img rootfs.tar seed.tar.xz
+
 ```
 
-Please refer to the [rsdk](https://radxaos-sdk.github.io/rsdk/) page for detailed use of the warehouse.
+</NewCodeBlock>
 
-If you need to conduct secondary development on the basis of `rsdk`, please continue reading the documentation [Build customization](https://radxaos-sdk.github.io/rsdk/tutorials/customize.html)。
+For detailed usage of the repository, please refer to the [rsdk](https://radxaos-sdk.github.io/rsdk/) page.
 
-Common issues
+If you need to conduct secondary development based on `rsdk`, please continue reading the documentation [Build customization](https://radxaos-sdk.github.io/rsdk/tutorials/customize.html).
 
-1. devcontainer setup paused with You might be rate limited by GitHub. message
+### Common Issues
 
-You might be rate limited by GitHub. Please follow the instruction listed in the output.
-
-2. Failed to launch devcontainer.
-
-Please edit .devcontainer/devcontainer.json, and adjust runArgs property.
+1. Devcontainer setup paused with the message: You might be rate limited by GitHub. You might be rate limited by GitHub. Please follow the instructions listed in the output.
+2. Failed to launch devcontainer. Please edit .devcontainer/devcontainer.json, and adjust the runArgs property.
+```
