@@ -51,34 +51,35 @@ The bare board version of the Radxa E24C offers more peripheral interfaces compa
 
 ## Technical Specifications
 
-| Category                | Specifications                                                                                               |
-| :---------------------- | :----------------------------------------------------------------------------------------------------------- |
-| **Processor**           |                                                                                                              |
-| SoC                     | Rockchip RK3528A                                                                                             |
-| CPU                     | Quad-core ARM Cortex‑A53, up to 2.0GHz                                                                       |
-| GPU                     | ARM Mali-450 GPU, supports OpenGL® ES1.1, ES2.0, OpenVG® 1.1                                               |
-| **Memory & Storage**    |                                                                                                              |
-| Memory (Optional)       | 1GB/2GB/4GB, LPDDR4                                                                                          |
-| Onboard eMMC (Optional) | 8GB/16GB/32GB, eMMC 5.1 standard; Note: Some models boot from SPI Nor Flash; the two are mutually exclusive. |
-| Expandable Storage      | MicroSD card slot (supports UHS-I)                                                                           |
-| High-speed Storage      | M.2 PCIe 2.1 NVMe SSD interface (supports 2280 form factor)                                                  |
-| **Networking**          |                                                                                                              |
-| Ethernet                | 4x Gigabit Ethernet ports (WAN/LAN configurable)                                                             |
-| Network Controller      | RTL8367RB-CG built-in switch chip                                                                            |
-| **I/O Ports**           |                                                                                                              |
-| USB Ports               | 3x USB 2.0 Type-A + 1x USB 2.0 Type-C (OTG)                                                                  |
-| Video Output            | HDMI 2.1: Supports up to 4K@60Hz resolution                                                                  |
-| Expansion Headers       | 14-pin header: Supports UART, SPI, I2C, and power output                                                     |
-| Other Interfaces        | Power button, Maskrom button, User button, Fan header, RTC battery connector                                 |
-| **Power & Physical**    |                                                                                                              |
-| Power Input             | DC 12V/2A, 5.5x2.5mm power jack                                                                              |
-| Power Consumption       | Typical: 5W (idle), Maximum: 12W (full load)                                                                 |
-| Cooling Solution        | Aluminum alloy enclosure (passive cooling) / Optional active fan cooling                                     |
-| Dimensions (Bare Board) | 143 × 99 × 25.3 mm                                                                                           |
-| Operating Temperature   | 0°C ~ 70°C                                                                                                   |
-| **Software Support**    |                                                                                                              |
-| Operating Systems       | Debian Linux, OpenWrt, and more                                                                              |
-| Boot Options            | Boot from MicroSD, eMMC, NVMe SSD, or SPI Nor Flash (some models)                                            |
+| Category                   | Specifications                                                                                   |
+| :------------------------- | :----------------------------------------------------------------------------------------------- |
+| **Processor**              |                                                                                                  |
+| SoC                        | Rockchip RK3528A                                                                                 |
+| CPU                        | Quad-core ARM Cortex‑A53, up to 2.0GHz                                                           |
+| GPU                        | ARM Mali-450 GPU, supports OpenGL® ES1.1, ES2.0, OpenVG® 1.1                                   |
+| **Memory & Storage**       |                                                                                                  |
+| Memory (Capacity Optional) | 1GB/2GB/4GB, LPDDR4                                                                              |
+| Onboard eMMC (Optional)    | 8GB/16GB/32GB, eMMC 5.1 standard; Models without eMMC include SPI Nor Flash; mutually exclusive. |
+| SPI Nor Flash (Optional)   | 16MB SPI Nor Flash; Only on models without eMMC                                                  |
+| Expandable Storage         | MicroSD card slot (supports UHS-I)                                                               |
+| High-speed Storage         | M.2 PCIe 2.1 NVMe SSD interface (supports 2280 form factor)                                      |
+| **Networking**             |                                                                                                  |
+| Ethernet                   | 4x Gigabit Ethernet ports (WAN/LAN configurable)                                                 |
+| Network Controller         | RTL8367RB-CG built-in switch chip                                                                |
+| **I/O Ports**              |                                                                                                  |
+| USB Ports                  | 3x USB 2.0 Type-A + 1x USB 2.0 Type-C (OTG)                                                      |
+| Video Output               | HDMI 2.1: Supports up to 4K@60Hz resolution                                                      |
+| Expansion Headers          | 14-pin header: Supports UART, SPI, I2C, and power output                                         |
+| Other Interfaces           | Power button, Maskrom button, User button, Fan header, RTC battery connector                     |
+| **Power & Physical**       |                                                                                                  |
+| Power Input                | DC 12V/2A, 5.5x2.5mm power jack                                                                  |
+| Power Consumption          | Typical: 5W (idle), Maximum: 12W (full load)                                                     |
+| Cooling Solution           | Aluminum alloy enclosure (passive cooling) / Optional active fan cooling                         |
+| Dimensions (Bare Board)    | 143 × 99 × 25.3 mm                                                                               |
+| Operating Temperature      | 0°C ~ 70°C                                                                                       |
+| **Software Support**       |                                                                                                  |
+| Operating Systems          | Debian Linux, OpenWrt, and more                                                                  |
+| Boot Options               | Boot from MicroSD, eMMC, NVMe SSD, or SPI Nor Flash (some models)                                |
 
 ## Interface Layout
 
