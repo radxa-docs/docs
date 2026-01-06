@@ -14,7 +14,7 @@
 | bootloader        |                         引导加载程序 | bootloader                           | 统一译法为“引导加载程序”。                                             |
 | MicroSD / SD card |                           MicroSD 卡 | MicroSD / SD card                    | 存储卡命名；写作 `MicroSD 卡` 时保留大小写。                           |
 | GPIO              |                                 GPIO | GPIO                                 | 通用 I/O，首现可扩展为“通用输入输出（GPIO）”。                         |
-| PCIe              |                                 PCIe | PCIe                                 | e 必须是小写 ｜                                                        |
+| PCIe              |                                 PCIe | PCIe                                 | e 必须是小写                                                           |
 
 ---
 
