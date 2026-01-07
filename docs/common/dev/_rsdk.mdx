@@ -1,4 +1,4 @@
-## 使用 `rsdk`
+## 安装 `rsdk`
 
 [`rsdk`](https://github.com/RadxaOS-SDK/rsdk) 是目前 RadxaOS 的生成环境，其有以下几个特点：
 
@@ -6,10 +6,13 @@
 2. 模块化的生成代码，修改方便
 3. 支持 x86、ARM64 平台上运行
 
-### 这里简单介绍如何安装并使用 `rsdk`
+### 这里简单介绍如何安装 `rsdk`
+
+#### 方法一：通过 DevContainer 安装（推荐用于开发环境）
 
 1. 首先，请安装所需的依赖项：
 
+<NewCodeBlock tip="x86 Linux PC" type="PC">
 ```
 sudo apt-get update
 sudo apt-get install git qemu-user-static binfmt-support
@@ -17,8 +20,11 @@ sudo apt-get install npm docker.io
 sudo usermod -a -G docker $USER
 ```
 
-2. 使用以下命令克隆项目git并安装devcontainer
+</NewCodeBlock>
 
+2. 使用以下命令克隆项目并安装 DevContainer：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
 ```
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 cd rsdk
@@ -28,8 +34,11 @@ rsdk devcon up
 rsdk devcon
 ```
 
+</NewCodeBlock>
+
 当终端出现以下所示，表明现在处于 rsdk 的 dev 容器 shell 中
 
+<NewCodeBlock tip="x86 Linux PC" type="PC">
 ```
 ██████╗ ███████╗██████╗ ██╗  ██╗
 ██╔══██╗██╔════╝██╔══██╗██║ ██╔╝
@@ -45,63 +54,256 @@ direnv: export +AR +AS +CC +CONFIG_SHELL +CXX +DETERMINISTIC_BUILD +DEVENV_DOTFI
 +DEVENV_STATE +DEVENV_TASKS +HOST_PATH +IN_NIX_SHELL +LD +LOCALE_ARCHIVE +NIX_BINTOOLS +NIX_BINTOOLS_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu
 +NIX_BUILD_CORES +NIX_CC +NIX_CC_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu +NIX_CFLAGS_COMPILE +NIX_ENFORCE_NO_NATIVE +NIX_HARDENING_ENABLE +NIX_LDFLAGS
 +NIX_PKG_CONFIG_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu +NIX_STORE +NM +NODE_PATH +OBJCOPY +OBJDUMP +PKG_CONFIG +PKG_CONFIG_PATH +PYTHONHASHSEED +PYTHONNOUSERSITE
-+PYTHONPATH +RANLIB +READELF +SIZE +SOURCE_DATE_EPOCH +STARSHIP_SESSION_KEY +STRINGS +STRIP +_PYTHON_HOST_PLATFORM +_PYTHON_SYSCONFIGDATA_NAME +__structuredAttrs +buildInputs
++PYTHONPATH +RANLIB +READELF +SIZE +SOURCE_DATE_EPOCH +STARSHIP_SESSION_KEY +STRINGS +STRIP +\_PYTHON_HOST_PLATFORM +\_PYTHON_SYSCONFIGDATA_NAME +\_\_structuredAttrs +buildInputs
 +buildPhase +builder +cmakeFlags +configureFlags +depsBuildBuild +depsBuildBuildPropagated +depsBuildTarget +depsBuildTargetPropagated +depsHostHost +depsHostHostPropagated
 +depsTargetTarget +depsTargetTargetPropagated +doCheck +doInstallCheck +dontAddDisableDepTrack +hardeningDisable +mesonFlags +name +nativeBuildInputs +out +outputs +patches
 +phases +preferLocalBuild +propagatedBuildInputs +propagatedNativeBuildInputs +shell +shellHook +stdenv +strictDeps +system ~PATH ~XDG_DATA_DIRS
 
 vscode ➜ /workspaces/rsdk (main) $
-```
-
-3.在终端中运行 rsdk 来启动 TUI 向导。
 
 ```
+
+</NewCodeBlock>
+
+
+
+仓库详细使用，请参考 [rsdk](https://radxaos-sdk.github.io/rsdk/) 页面。
+
+如需要在 `rsdk` 基础上进行二次开发，则请继续阅读文档 [Build customization](https://radxaos-sdk.github.io/rsdk/tutorials/customize.html)。
+
+#### 方法二：从源码构建 rsdk deb 包（推荐 Debian 12）
+
+对于 Debian 12 系统，您可以从源码构建 rsdk 的 deb 包，无需使用 DevContainer。构建并安装后即可本地使用 `rsdk` 命令。
+
+1. 克隆源码仓库：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
+cd rsdk
+
+```
+
+</NewCodeBlock>
+
+如果您的系统不是基于 RadxaOS（或尚未配置 Radxa 软件源），请先添加 Radxa 的签名密钥环并添加软件源以满足构建依赖：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+# 安装签名密钥环
+
+keyring="$(mktemp)"
+version="$(curl -L https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/VERSION)"
+curl -L --output "$keyring" "https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_${version}\_all.deb"
+sudo dpkg -i "$keyring"
+rm -f "$keyring"
+
+# 添加 Radxa APT 软件源并更新包索引
+
+sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg] https://radxa-repo.github.io/bookworm/ bookworm main"
+sudo apt-get update
+
+```
+
+</NewCodeBlock>
+
+（注：如果您已使用 RadxaOS 或已经配置了相应的软件源，可跳过上述步骤。）
+
+:::tip
+如果你访问 github 困难，可以使用国内的镜像 git 和软件源站点：
+
+```
+
+git clone https://gitcode.com/radxaos-sdk/rsdk.git
+sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [trusted=yes] https://mirrors.sdu.edu.cn/radxa-repo/bookworm/ bookworm main"
+
+```
+
+:::
+
+2. 安装构建相关依赖并准备构建环境：
+
+
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+sudo apt-get update
+sudo apt-get install devscripts dpkg-dev build-essential
+sudo apt build-dep .
+
+```
+
+</NewCodeBlock>
+
+
+3. 构建 deb 包：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+dpkg-buildpackage -us -uc -b
+
+```
+
+</NewCodeBlock>
+
+4. 构建成功后，生成的 deb 包位于上级目录（..），可通过以下命令安装：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+sudo apt install ../rsdk\_\*.deb
+
+```
+
+</NewCodeBlock>
+
+5. 安装完成后，使用 `rsdk` 命令启动 TUI 向导（步骤同方法一）。
+
+## 使用 `rsdk`
+
+`rsdk` 命令是通用的 CLI 入口；当不带任何参数运行时，默认会启动 rsdk-tui 向导。
+
+开始 TUI 向导：在终端中运行 `rsdk`。
+
+- 在向导中选择要运行的任务，使用 **方向键** 导航，按 **Enter** 键确认当前窗口中的操作，按 **Esc** 退出当前窗口。
+
+- 在下面的示例中，我们选择 **Build system image**：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
 ┌─────────────────┤ RSDK ├──────────────────┐
-│ Please select a task:                     │
-│                                           │
-│            Build system image             │
-│            =========                      │
-│            About                          │
-│                                           │
-│         <Ok>             <Cancel>         │
-│                                           │
+│ Please select a task: │
+│ │
+│ Build system image │
+│ ========= │
+│ About │
+│ │
+│ <Ok> <Cancel> │
+│ │
 └───────────────────────────────────────────┘
-```
-
-选择要构建的产品：以 `rock-5b` 为例
 
 ```
+
+</NewCodeBlock>
+
+选择要构建的产品。**注意**：使用 **空格键** 来选择产品，被选择的项会在括号内显示 `*`（仅按 Enter 键不会选择产品）：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
 ┌─────────────────┤ RSDK ├──────────────────┐
-│ Please select a product:                  │
-│                                           │
-│  ( ) rock-5a                          ▒   │
-│  (*) rock-5b                          ▒   │
-│  ( ) rock-5c                          ▒   │
-│                                           │
-│         <Ok>             <Cancel>         │
-│                                           │
+│ Please select a product: │
+│ │
+│ ( ) radxa-e25 ▒ │
+│ (*) rock-5b-6_1 ▒ │
+│ ( ) rock-5b ▒ │
+│ │
+│ <Ok> <Cancel> │
+│ │
 └───────────────────────────────────────────┘
-```
-
-选择`yes`开始构建, rsdk-tui 将运行相关的 CLI 命令来完成镜像编译
 
 ```
+
+</NewCodeBlock>
+
+选择 **Yes** 开始构建，rsdk-tui 会运行相应的 CLI 命令来完成该任务。
+
+在开始实际构建前，向导会询问是否要配置可选的包镜像（Radxa 的 radxa-deb 镜像以及可选的 Debian/Ubuntu 镜像）。如果选择 **No**，将使用默认镜像并直接进入确认；如果选择 **Yes**，向导会引导你选择镜像（可以选择默认项）。在镜像选择过程中如果取消，将返回到是否配置镜像的问题。
+
+:::tip
+建议国内用户选择使用镜像源，以提高下载软件包速度。
+:::
+
+示例：选择 Radxa APT 镜像：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
 ┌─────────────────┤ RSDK ├──────────────────┐
-│                                           │
-│ Are you sure to build for 'rock-5b'?      │
-│                                           │
-│                                           │
-│          <Yes>             <No>           │
-│                                           │
+│ Select Radxa APT mirror (radxa-deb): │
+│ │
+│ (*) Use official Radxa repository │
+│ ( ) mirrors.aghost.cn (radxa-deb) │
+│ ( ) mirrors.lzu.edu.cn (radxa-deb) │
+│ ( ) mirrors.hust.edu.cn (radxa-deb) │
+│ ( ) mirrors.sdu.edu.cn (radxa-deb) │
+│ ( ) mirror.nju.edu.cn (radxa-deb) │
+│ ( ) mirror.nyist.edu.cn (radxa-deb) │
+│ │
+│ <Ok> <Cancel> │
+│ │
 └───────────────────────────────────────────┘
-```
-
-编译结束之后会生成一个 `out`目录, output.img 即最终生成的镜像
 
 ```
+
+</NewCodeBlock>
+
+然后可以选择可选的 Debian/Ubuntu 镜像（或保留默认）：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+┌─────────────────┤ RSDK ├──────────────────┐
+│ Select Debian/Ubuntu mirror (optional): │
+│ │
+│ (*) Use default Debian/Ubuntu mirror │
+│ ( ) mirrors.ustc.edu.cn │
+│ ( ) mirrors.tuna.tsinghua.edu.cn │
+│ ( ) mirrors.lzu.edu.cn │
+│ ( ) mirrors.hust.edu.cn │
+│ ( ) mirrors.sdu.edu.cn │
+│ ( ) mirror.nju.edu.cn │
+│ ( ) mirror.nyist.edu.cn │
+│ │
+│ <Ok> <Cancel> │
+│ │
+└───────────────────────────────────────────┘
+
+```
+
+</NewCodeBlock>
+
+确认并开始构建：在镜像配置（如果有）完成后，向导会展示所选产品和镜像的汇总（对应于将要执行的最终 CLI 命令），请仔细检查摘要并选择 **Yes** 开始构建，或选择 **No** 返回修改：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
+┌─────────────────┤ RSDK ├──────────────────┐
+│ │
+│ Are you sure to build with: │
+│ │
+│ Product: rock-5b-6_1 │
+│ Radxa mirror: https://mirrors.example/r… │
+│ Debian/Ubuntu mirror: https://mirrors… │
+│ Are you sure to build for 'rock-5b-6_1'? │
+│ │
+│ │
+│ <Yes> <No> │
+│ │
+└───────────────────────────────────────────┘
+
+```
+
+</NewCodeBlock>
+
+- 高级构建请使用 `rsdk-build` 命令。
+
+编译结束之后会生成一个 `out` 目录，`output.img` 即最终生成的镜像：
+
+<NewCodeBlock tip="x86 Linux PC" type="PC">
+```
+
 vscode ➜ /workspaces/rsdk (main) $ ls out/rock-5b_bookworm_kde/
-build-image  config.yaml  debs  manifest  output.img  rootfs.tar  seed.tar.xz
+build-image config.yaml debs manifest output.img rootfs.tar seed.tar.xz
+
 ```
+
+</NewCodeBlock>
 
 仓库详细使用，请参考 [rsdk](https://radxaos-sdk.github.io/rsdk/) 页面。
 
@@ -109,5 +311,6 @@ build-image  config.yaml  debs  manifest  output.img  rootfs.tar  seed.tar.xz
 
 ### 常见问题
 
-1. 开发容器设置暂停并提示：You might be rate limited by GitHub。您可能受到GitHub的速率限制。请按照输出中列出的说明进行操作。
+1. 开发容器设置暂停并提示：You might be rate limited by GitHub。您可能受到 GitHub 的速率限制。请按照输出中列出的说明进行操作。
 2. 启动开发容器失败。请编辑 .devcontainer/devcontainer.json，并调整runArgs属性。
+```
