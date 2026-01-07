@@ -6,7 +6,7 @@ import BIOS from '../../../common/orion-common/low-level-dev/\_bios.mdx';
 
 # Update BIOS Firmware
 
-<BIOS board="Radxa Orion O6" power="20V Type-C Power Adapter" download_page="../../download" tag="o6" />
+<BIOS board="Radxa Orion O6" power="20V Type-C Power Adapter" download_page="../../download" tag="o6" serial_login="../system-use/uart"/>
 
 ## Update BIOS Firmware Using a Programmer
 
