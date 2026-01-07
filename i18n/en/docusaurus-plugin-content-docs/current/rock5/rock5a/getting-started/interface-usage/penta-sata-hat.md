@@ -77,13 +77,14 @@ radxa@rock-5a:~$
 
 ## Software Support
 
-We provide an installation script to help you install the software we provide that enables the Penta top panel to display information and control fans.
+To make the OLED display and fan on the top panel work properly, we provide the rockpi-penta software package, which can be installed with the following commands.
 
 ```
-curl -sL https://rock.sh/get-rockpi-penta | sudo -E bash -
+sudo apt update
+sudo apt install wget
+wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta-0.2.2.deb
+sudo apt install -y ./rockpi-penta-0.2.2.deb
 ```
-
-Simply copy the above command and paste it into the terminal and press enter.
 
 ### Software configuration
 

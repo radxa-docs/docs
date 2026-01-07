@@ -106,64 +106,65 @@
 
 - Software Support
 
-  1. We provide an installation script to help you install the software we provide that enables the Penta top panel to display messages and control fans.
+To make the OLED display and fan on the top panel work properly, we provide the rockpi-penta software package, which can be installed with the following commands.
 
-  ```
-  curl -sL https://rock.sh/get-rockpi-penta | sudo -E bash -
-  ```
+```
+sudo apt update
+sudo apt install wget
+wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta-0.2.2.deb
+sudo apt install -y ./rockpi-penta-0.2.2.deb
+```
 
-  Simply copy the command above and paste it into the terminal and press enter.
+2. Software Configuration
 
-  2. Software Configuration
+Edit /etc/rockpi-penta.conf, and use the following command to make it effective.
 
-  Edit /etc/rockpi-penta.conf, and use the following command to make it effective.
+```
+sudo systemctl restart rockpi-penta.service
+```
 
-  ```
-  sudo systemctl restart rockpi-penta.service
-  ```
+3. Default configuration
 
-  3. Default configuration
+The following is the default configuration of /etc/rockpi-penta.conf, which you can modify according to the comments.
 
-  The following is the default configuration of /etc/rockpi-penta.conf, which you can modify according to the comments.
+```
+[fan]
+# When the temperature is above lv0 (35'C), the fan at 25% power,
+# and lv1 at 50% power, lv2 at 75% power, and lv3 at 100% power.
+# When the temperature is below lv0, the fan is turned off.
+# You can change these values if necessary.
+lv0 = 35
+lv1 = 40
+lv2 = 45
+lv3 = 50
 
-  ```
-  [fan]
-  # When the temperature is above lv0 (35'C), the fan at 25% power,
-  # and lv1 at 50% power, lv2 at 75% power, and lv3 at 100% power.
-  # When the temperature is below lv0, the fan is turned off.
-  # You can change these values if necessary.
-  lv0 = 35
-  lv1 = 40
-  lv2 = 45
-  lv3 = 50
+[key]
+# You can customize the function of the key, currently available functions are
+# slider: oled display next page
+# switch: fan turn on/off switch
+# reboot, poweroff
+# If you have any good suggestions for key functions,
+# please add an issue on https://rock.sh/rockpi-sata
+click = slider
+twice = switch
+press = none
 
-  [key]
-  # You can customize the function of the key, currently available functions are
-  # slider: oled display next page
-  # switch: fan turn on/off switch
-  # reboot, poweroff
-  # If you have any good suggestions for key functions,
-  # please add an issue on https://rock.sh/rockpi-sata
-  click = slider
-  twice = switch
-  press = none
+[time]
+# twice: maximum time between double clicking (seconds)
+# press: long press time (seconds)
+twice = 0.7
+press = 1.8
 
-  [time]
-  # twice: maximum time between double clicking (seconds)
-  # press: long press time (seconds)
-  twice = 0.7
-  press = 1.8
+[slider]
+# Whether the oled auto display next page and the time interval (seconds)
+auto = true
+time = 10
 
-  [slider]
-  # Whether the oled auto display next page and the time interval (seconds)
-  auto = true
-  time = 10
-
-  [oled]
-  # Whether rotate the text of oled 180 degrees, whether use Fahrenheit
-  rotate = false
-  f-temp = false
-  ```
+[oled]
+# Whether rotate the text of oled 180 degrees, whether use Fahrenheit
+rotate = false
+f-temp = false
+```
 
 - Refer
 
