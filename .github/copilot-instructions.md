@@ -56,18 +56,18 @@
 │   └── README.md
 ├── README.md
 └── system-config
-    ├── app_usage.md
-    ├── audio_usage.md
-    ├── auto_login.md
-    ├── blue_usage.md
-    ├── no_display.md
+    ├── app-usage.md
+    ├── audio-usage.md
+    ├── auto-login.md
+    ├── blue-usage.md
+    ├── no-display.md
     ├── README.md
     ├── rsetup.md
-    ├── ssh_remote.md
-    ├── system_update.md
-    ├── uart_debug.md
-    ├── vnc_remote.md
-    └── wifi_usage.md
+    ├── ssh-remote.md
+    ├── system-update.md
+    ├── uart-debug.md
+    ├── vnc-remote.md
+    └── wifi-usage.md
 ```
 
 - 规则摘要：
