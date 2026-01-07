@@ -75,13 +75,14 @@ radxa@rock-5a:~$
 
 ## 软件支持
 
-我们提供了一个安装脚本来帮助您安装我们提供的软件，它能让 Penta 顶板显示信息和控制风扇。
+为了让顶板的 OLED 显示屏和风扇正常工作，我们提供了 rockpi-penta 软件包，可以通过下面的命令安装。
 
 ```
-curl -sL https://rock.sh/get-rockpi-penta | sudo -E bash -
+sudo apt update
+sudo apt install wget
+wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta-0.2.2.deb
+sudo apt install -y ./rockpi-penta-0.2.2.deb
 ```
-
-只需复制上面的命令并将其粘贴到终端并按回车键即可。
 
 ### 软件配置
 
