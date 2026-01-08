@@ -5,14 +5,26 @@ import InstallOverlays from "./rsetup/_install-overlays.mdx";
 import DisableFIQ from "./rsetup/_disable-fiq.mdx";
 import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 
-## rsetup
+# Rsetup User Guide
 
-`rsetup` is a system configuration tool for Radxa OS.
+## Introduction
 
-To start `rsetup`, execute the `rsetup` command in a terminal, or find the `rsetup` application from the system menu:
+`rsetup` is a system configuration tool for Radxa OS. It provides a friendly TUI (text user interface) for managing system settings, hardware configuration, and network connectivity.
+
+## Launch rsetup
+
+To start `rsetup`, run:
+
+```bash
+rsetup
+```
+
+Or launch it from the system menu.
 
 :::tip
-`rsetup` requires administrator privileges to run. Please make sure you have `sudo` privilege.
+`rsetup` requires administrator privileges. Please make sure you have `sudo` permission.
+
+If you start it as a normal user, the system may prompt you to elevate privileges using `pkexec` or `sudo`.
 
 The options listed below are for reference only and are subject to the actual program output.
 :::
@@ -27,6 +39,7 @@ The options listed below are for reference only and are subject to the actual pr
 │                             Connectivity                                     │
 │                             User Settings                                    │
 │                             Localization                                     │
+│                             Common Tasks                                     │
 │                             About                                            │
 │                                                                              │
 │                     <Ok>                         <Cancel>                    │
@@ -34,22 +47,21 @@ The options listed below are for reference only and are subject to the actual pr
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Interface Operation
+## UI navigation
 
-Use the `Up` and `Down` keys to select between the menu options. The currently selected item is highlighted.
+### Basic keys
 
-Use the `Tab` key to select between the menu area and the command area.
-
-Use the `Left` and `Right` keys to toggle between the `<Ok>` and `<Cancel>` commands. Use the `Enter` key to execute the selected command.
-Pressing the `Enter` key, when the command area is not selected, will immediately execute the `<Ok>` command.
-
-Use the `Space` key to select items. Items are prefixed with `[ ]` (indicating multiple selections) or `( )` (indicating single selection) to show the current selection status.
+- **Up/Down**: Move between menu items
+- **Tab**: Switch between the menu area and the command area
+- **Left/Right**: Switch between `<Ok>` and `<Cancel>`
+- **Enter**: Confirm/execute
+- **Space**: Select options (`[ ]` for multi-select, `( )` for single-select)
+- **Esc**: Go back
 
 :::tip
-Using the `Enter` key does not select any item. It executes the `<Ok>` command directly.
+Pressing `Enter` does not toggle options. It executes `<Ok>` directly.
+To toggle an option, use `Space`.
 :::
-
-Use the `Esc` key to return to the previous menu.
 
 ## System Maintenance
 
@@ -60,41 +72,101 @@ This menu contains the following options:
 │ System Maintenance                                                           │
 │                                                                              │
 │                         System Update                                        │
+│                         Change APT Sources                                   │
+│                         Change default boot target                           │
 │                         Update Bootloader                                    │
 │                         Update SPI Bootloader                                │
 │                         Update eMMC Boot partition                           │
+│                         Sleep / Hibernate Control                            │
 │                                                                              │
 │                     <Ok>                         <Cancel>                    │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 
+### Change APT Sources
+
+This option lets you switch Radxa and Debian/Ubuntu mirrors to improve download speed.
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ APT Sources                                                                  │
+│                                                                              │
+│                         Select Radxa mirror                                  │
+│                         Select Debian/Ubuntu mirror                          │
+│                         Restore official sources                             │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+Supported mirrors include:
+
+- **Radxa mirrors**:
+
+  - https://mirrors.aghost.cn/radxa-deb
+  - https://mirrors.lzu.edu.cn/radxa-deb (Lanzhou University)
+  - https://mirrors.hust.edu.cn/radxa-deb (HUST)
+  - https://mirrors.sdu.edu.cn/radxa-deb (Shandong University)
+  - https://mirror.nju.edu.cn/radxa-deb (Nanjing University)
+  - https://mirror.nyist.edu.cn/radxa-deb (NYIST)
+
+- **Debian/Ubuntu mirrors**:
+  - https://mirrors.ustc.edu.cn (USTC)
+  - https://mirrors.tuna.tsinghua.edu.cn (Tsinghua University)
+  - https://mirrors.lzu.edu.cn (Lanzhou University)
+  - https://mirrors.hust.edu.cn (HUST)
+  - https://mirrors.sdu.edu.cn (Shandong University)
+  - https://mirror.nju.edu.cn (Nanjing University)
+  - https://mirror.nyist.edu.cn (NYIST)
+
+Steps:
+
+1. Choose `Select Radxa mirror` or `Select Debian/Ubuntu mirror`
+2. Select a mirror from the list
+3. Confirm to update sources
+4. To revert, choose `Restore official sources`
+
 ### System Update
 
 :::warning
-Do not use the `apt-get upgrade` command to update the system, as this will result in an incomplete update, which may lead to abnormal or missing functionality, or even a failure to boot the system.  
-You should use `rsetup` to update the system.
+Do not use `apt-get upgrade` to update the system. It may result in an incomplete upgrade, missing functionality, or even a failure to boot.
+Use `rsetup` for system updates.
 :::
 
-This option will update the packages installed on your system to the latest release.
+This option updates installed packages to the latest release.
 
-Since RadxaOS provides some packages that conflict with the upstream Debian, it is recommended to update your system in this way to ensure system consistency.
+Since Radxa OS provides packages that may conflict with upstream Debian, updating via `rsetup` is recommended.
+
+### Change default boot target
+
+Set the default boot target:
+
+- `multi-user.target`: CLI
+- `graphical.target`: Desktop
 
 ### Update Bootloader
 
-This option updates the bootloader on the disk where the root file system is located.
+Updates the bootloader on the disk where the root filesystem resides.
 
 ### Update SPI Bootloader
 
-This option updates the bootloader on the SPI Flash.
+Updates the bootloader on SPI flash.
 
 ### Update eMMC Boot partition
 
-This option updates the bootloader on the eMMC Boot partition.
+Updates the bootloader on the eMMC Boot partition.
+
+### Sleep / Hibernate Control
+
+- **Enable Sleep / Hibernate**: Enable suspend/hibernate
+- **Disable Sleep / Hibernate**: Disable suspend/hibernate
+
+Reboot is recommended after changes.
 
 ## Hardware
 
-Some peripherals can be modified on this menu, the following is the introduction of them.
+Some peripherals can be configured here:
 
 ```
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
@@ -102,8 +174,10 @@ Some peripherals can be modified on this menu, the following is the introduction
 │                                                                              │
 │                      Video capture devices                                   │
 │                      GPIO LEDs                                               │
+│                      RGB LEDs                                                │
 │                      Thermal governor                                        │
 │                      Configure DSI display mirroring                         │
+│                      40-pin GPIO                                             │
 │                      USB OTG services                                        │
 │                                                                              │
 │                     <Ok>                         <Cancel>                    │
@@ -113,42 +187,64 @@ Some peripherals can be modified on this menu, the following is the introduction
 
 ### Video capture devices
 
-If you have connect a video device, this option can help you to capture an image for testing.
+If a video device is connected, this option can help you test it.
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Select video capture device:                                                │
+│                                                                              │
+│                         video0                                               │
+│                         video1                                               │
+│                         video2                                               │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
 
 ### GPIO LEDs
 
-On this option, you can change the status of power LED and user LED on the board (Sometimes only one).
+You can change the status of the power LED and user LED.
 
 <details>
   <summary>LED Setup</summary>
   <Led />
 </details>
 
+### RGB LEDs
+
+Control onboard RGB LEDs.
+
 ### Thermal governor
 
-This module is used to adjust the fan and other temperature options.
-Generally, we select `power_allocator` when using DC fan or fanless, select `step_wise` when using PWM fan.
-**Note: If you connect the fan directly to the GPIO on 5V and GND pins, it would not be controlled and always work.**
+Adjust thermal policy and fan behavior.
+
+Generally, choose `power_allocator` for DC fan/fanless, and `step_wise` for PWM fan.
+
+**Note: If you connect a fan directly to GPIO 5V and GND, it will always run and cannot be controlled.**
 
 ### Configure DSI display mirroring
 
-If DSI display has some problems when using HDMI display and DSI display at the same time, enable this option will helpful.
+If the DSI display has issues when HDMI and DSI are used together, enabling this option may help.
 
 ### USB OTG services
 
-Enabling Device function configuration for the OTG port:
+Configure gadget functions for the OTG port:
 
 ```
 # `*.*` is the corresponding USB controller
 
-radxa-adbd@*.*  # Configured as an ADB device
-radxa-ecm@*.*   # Configured as an ECM device (not recommended)
-radxa-ncm@*.*   # Configured as an NCM device (recommended)
+radxa-adbd@*.*  # ADB device
+radxa-ecm@*.*   # ECM device (not recommended)
+radxa-ncm@*.*   # NCM device (recommended)
 ```
+
+### 40-pin GPIO
+
+Configure the 40-pin GPIO header.
 
 ## Overlays
 
-This option is for Configure Device Tree Overlay.
+This option is used to configure device tree overlays.
 
 <details>
   <summary>Device Tree Configuration</summary>
@@ -177,30 +273,332 @@ This option is for Configure Device Tree Overlay.
 
 ## Connectivity
 
-This option is normally similar to network setting.
+This option is similar to network settings.
+
+After selecting Network, `nmtui` (NetworkManager Text User Interface) will start:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         NetworkManager TUI                                  │
+│                                                                             │
+│  Please select an option                                                    │
+│                                                                             │
+│  Edit a connection                                                          │
+│  Activate a connection                                                      │
+│  Set system hostname                                                        │
+│                                                                             │
+│  Quit                                                                       │
+│                                                                             │
+│                                  <OK>                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Network management features**:
+
+#### Edit a connection
+
+- Add new connections (Wi-Fi, Ethernet, VPN, etc.)
+- Edit existing connection profiles
+- Delete unused connections
+- Configure IP address (static/DHCP)
+- Configure DNS servers
+
+#### Activate a connection
+
+- View available connections
+- Connect to a Wi-Fi network
+- Activate or deactivate network interfaces
+- Check connection status
+
+#### Set system hostname
+
+- Change the system hostname
+
+Wi-Fi steps:
+
+1. Choose `Activate a connection`
+2. Select your Wi-Fi network
+3. Enter password
+4. Wait until connected
+
+Ethernet steps:
+
+1. Choose `Edit a connection`
+2. Select your Ethernet profile
+3. Choose `Automatic (DHCP)` or `Manual`
+
+:::tip
+
+- Use `Tab` to switch between areas
+- Use `Enter` to confirm
+- Use `Esc` to go back
+- NetworkManager settings usually take effect immediately
+  :::
 
 ## User Settings
 
 ### Password
 
-Changes the password of the current user.
+Change the password of the current user.
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please enter the new password for radxa:                                    │
+│                                                                              │
+│ ********________________________________________________________             │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+Steps:
+
+1. Enter a new password (input is masked as `*`)
+2. Confirm the new password
+3. If the passwords do not match, you will be prompted to re-enter
+
+:::warning
+
+- Password should be at least 8 characters
+- Use a combination of letters, numbers, and symbols if possible
+- Keep your password safe; losing it may prevent you from logging in
+  :::
 
 ### Hostname
 
-Modify the current hostname.
+Change the system hostname.
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please enter the new hostname:                                              │
+│                                                                              │
+│ radxa-rock-5b___________________________________________________             │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+Hostname rules:
+
+- Only letters, numbers and hyphens (`-`)
+- Must not start or end with a hyphen
+- Length must be &lt;= 63 characters
+
+:::tip
+Reboot is recommended after changing the hostname to ensure all services pick up the new name.
+:::
 
 ### Configure auto login
 
 :::tip
-If the `rsetup` option does not show `Configure auto login`, please use the `System` -> `System Update` option in the `rsetup` tool to update and restart the system.
+If `Configure auto login` is missing, update the system using `System` -> `System Update` and reboot.
 :::
 
-Configure auto login for TTY Terminal and Desktop Manager.
+Configure auto login for TTY and desktop display manager.
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select the service(s) you want to enable auto login:                 │
+│                                                                              │
+│    [ ] getty@tty1.service                                                    │
+│    [ ] sddm.service                                                          │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+Supported display managers:
+
+- `getty@tty*.service`: TTY auto login (CLI)
+- `serial-getty@*.service`: serial console auto login
+- SDDM: KDE Plasma
+- GDM: GNOME
+- LightDM: lightweight display manager
+
+:::warning
+Enabling auto login reduces system security. Only use it on personal devices or test environments.
+:::
 
 ## Localization
 
-On this option, you can change `Timezone` `Locale` `Keybaed layout` `Wi-Fi Country`.
+Here you can change `Timezone`, `Locale`, `Keyboard layout`, and `Wi-Fi Country`.
+
+### Timezone
+
+This option sets the system timezone and typically launches `dpkg-reconfigure tzdata`.
+
+Example UI:
+
+```
+┌──────────────────────────────────┤ Configuring tzdata ├──────────────────────┐
+│                                                                              │
+│ Please select the geographic area in which you live.                         │
+│                                                                              │
+│ Geographic area:                                                             │
+│                                                                              │
+│              Africa                                                          │
+│              America                                                         │
+│              Asia                                   ▒                        │
+│              Europe                                 ▒                        │
+│              Etc                                    ▒                        │
+│                                                                              │
+│                      <Ok>                      <Cancel>                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+Common timezones:
+
+- `Asia/Shanghai` (UTC+8)
+- `UTC`
+
+### Locale
+
+This option configures language/region settings and typically launches `dpkg-reconfigure locales`.
+
+Example UI:
+
+```
+┌──────────────────────────────────┤ Configuring locales ├────────────────────┐
+│ Locales to be generated:                                                    │
+│                                                                              │
+│    [ ] en_GB.UTF-8                                                    ▒      │
+│    [*] en_US.UTF-8                                                    ▒      │
+│    [ ] zh_CN.UTF-8                                                    ▒      │
+│                                                                              │
+│                      <Ok>                      <Cancel>                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+Recommended locales:
+
+- `en_US.UTF-8`
+- `zh_CN.UTF-8`
+
+### Wi-Fi Country
+
+This option sets the Wi-Fi regulatory domain.
+
+Why it matters:
+
+- Different countries have different Wi-Fi channel and power limits
+- Correct settings can improve compatibility and stability
+
+:::warning
+Incorrect settings may cause connection issues, reduced signal strength, or regulatory violations.
+:::
+
+## Common Tasks
+
+Quick shortcuts to perform common setup tasks.
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select all tasks you want to perform:                                │
+│                                                                              │
+│    [ ] Install Docker                                                        │
+│    [ ] Configure SSH                                                         │
+│    [ ] Install Baota Panel                                                   │
+│                                                                              │
+│                      <Ok>                      <Cancel>                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Tasks (normal mode)
+
+In normal mode, Common Tasks is a multi-select list.
+
+#### Install Docker
+
+Installs Docker engine and related tools.
+
+#### Configure SSH
+
+Configures SSH server settings.
+
+#### Install Baota Panel
+
+Installs Baota Panel (BT-Panel).
+
+### Tasks (DEBUG mode)
+
+In DEBUG mode, Common Tasks may show a dedicated menu:
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select an option below:                                              │
+│                                                                              │
+│                         Docker                                               │
+│                         SSH                                                  │
+│                                                                              │
+│                      <Ok>                      <Cancel>                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+Execution flow:
+
+1. Use `Space` to select tasks
+2. Choose `<Ok>` to confirm
+3. Review the task list
+4. Confirm again to start
+5. Review the output/info shown after completion
+6. Press `Enter` to continue
+
+:::warning
+
+- Some tasks require network access
+- Do not interrupt while tasks are running
+- Record important information (ports/passwords) shown by the tool
+  :::
 
 ## About
 
-Here is the information of `rsetup`.
+Information about `rsetup`.
+
+## Troubleshooting
+
+### rsetup fails to start
+
+**Issue**: `rsetup` cannot start or shows a permission error
+
+**Fix**:
+
+1. Make sure you run `sudo rsetup` or allow the system to elevate privileges
+2. Try setting `export TERM=xterm-256color` if your terminal type is unsupported
+3. Try another terminal emulator
+
+### System update fails
+
+**Issue**: errors occur during system update
+
+**Fix**:
+
+1. Check your network connection
+2. Try switching APT mirrors
+3. Verify system time (TLS certificate checks may fail if time is wrong)
+4. Review error messages and ask the community for help if needed
+
+### System fails to boot after enabling an overlay
+
+**Issue**: system cannot boot after enabling an overlay
+
+**Fix**:
+
+1. Connect via serial console or SSH (if possible)
+2. Edit `/boot/config.txt` or `/boot/uEnv.txt` to remove/comment the problematic overlay
+3. Reboot
+4. If software recovery is not possible, boot from SD card and fix the configuration
+
+## Best practices
+
+1. Use `System Update` regularly to keep packages up to date
+2. Avoid updating/erasing bootloaders unless necessary
+3. Understand overlays before enabling them
+4. Back up important data before major changes
+5. Keep a record of configuration changes for troubleshooting
+
+## References
+
+- Radxa Docs: https://docs.radxa.com/
+- Radxa Forum: https://forum.radxa.com/
+- Radxa GitHub: https://github.com/radxa
+- rsetup source: https://github.com/radxa-pkg/rsetup
