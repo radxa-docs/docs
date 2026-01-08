@@ -46,7 +46,7 @@ pip3 install numpy pillow ai_edge_litert
   将 -e 换成 libteflon.so 路径
 
 ```bash
-python3 classification.py -i ./grace_hopper.bmp -m ./mobilenet_v1_1.0_224_quant.tflite =l labels_mobilenet_quant_v1_224.txt -e ./libteflon.so
+python3 classification.py -i ./grace_hopper.bmp -m ./mobilenet_v1_1.0_224_quant.tflite -l labels_mobilenet_quant_v1_224.txt -e /usr/lib/teflon/libteflon.so
 ```
 
 ```bash
