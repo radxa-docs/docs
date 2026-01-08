@@ -5,14 +5,26 @@ import InstallOverlays from "./rsetup/_install-overlays.mdx";
 import DisableFIQ from "./rsetup/_disable-fiq.mdx";
 import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 
-## rsetup
+# Rsetup 使用指南
 
-`rsetup` 是一个适用于 Radxa OS 的系统配置工具。
+## 简介
 
-要启动 `rsetup`，请在终端中执行 `rsetup` 命令，或从系统菜单中找到 `rsetup` 应用：
+`rsetup` 是一个适用于 Radxa OS 的系统配置工具，提供了友好的 TUI（文本用户界面）来管理系统设置、硬件配置和网络连接等功能。
+
+## 启动 rsetup
+
+要启动 `rsetup`，请在终端中执行以下命令：
+
+```bash
+rsetup
+```
+
+或从系统菜单中找到 `rsetup` 应用启动。
 
 :::tip
 `rsetup` 运行时需要管理员权限，请确保你拥有 `sudo` 权限。
+
+如果以普通用户身份启动，系统会自动提示使用 `pkexec` 或 `sudo` 提权。
 
 下面列出的选项仅供参考，请以实际程序输出为准。
 :::
@@ -27,6 +39,7 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 │                             Connectivity                                     │
 │                             User Settings                                    │
 │                             Localization                                     │
+│                             Common Tasks                                     │
 │                             About                                            │
 │                                                                              │
 │                     <Ok>                         <Cancel>                    │
@@ -36,6 +49,17 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 
 ## 界面操作
 
+### 基本操作
+
+你可以使用下列按键进行操作：
+
+- **上下键** (`Up`/`Down`): 在菜单项之间切换，当前选中的项目会高亮显示
+- **Tab 键**: 在菜单区域和命令区域之间切换
+- **左右键** (`Left`/`Right`): 在 `<Ok>` 和 `<Cancel>` 命令之间切换
+- **Enter 键**: 执行当前选中的命令或菜单项
+- **Space 键**: 选择选项（用于多选框 `[ ]` 或单选框 `( )`）
+- **Esc 键**: 返回到上一级菜单
+
 使用 `Up` 和 `Down` 键来切换选项。当前选中的项目会高亮显示。
 
 使用 `Tab` 键来切换菜单区域和命令区域。
@@ -43,7 +67,7 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 使用 `Left` 和 `Right` 键来切换 `<Ok>` 和 `<Cancel>` 命令。使用 `Enter` 键来执行选中的命令。
 当命令没有被选中时按下 `Enter` 键，会立即执行 `<Ok>` 命令。
 
-使用 `Space` 键选择选项。选项会包含 `[ ]` （多项选择） 或 `( )` （单项选择）前缀来显示当前的选择状态。
+使用 `Space` 键选择选项。选项会包含 `[ ]` （多项选择）或 `( )` （单项选择）前缀来显示当前的选择状态。
 
 :::tip
 使用 `Enter` 键不会选择选项。它会直接执行 `<Ok>` 命令。
@@ -60,14 +84,95 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 │ System Maintenance                                                           │
 │                                                                              │
 │                         System Update                                        │
+│                         Change APT Sources                                   │
+│                         Change default boot target                           │
 │                         Update Bootloader                                    │
 │                         Update SPI Bootloader                                │
 │                         Update eMMC Boot partition                           │
+│                         Sleep / Hibernate Control                            │
 │                                                                              │
 │                     <Ok>                         <Cancel>                    │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
+
+### Change APT Sources
+
+此功能允许你切换 Radxa 和 Debian/Ubuntu 的软件源镜像，以获得更快的下载速度。
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ APT Sources                                                                  │
+│                                                                              │
+│                         Select Radxa mirror                                  │
+│                         Select Debian/Ubuntu mirror                          │
+│                         Restore official sources                             │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+支持的镜像站包括：
+
+- **Radxa 镜像**：
+
+  - https://mirrors.aghost.cn/radxa-deb
+  - https://mirrors.lzu.edu.cn/radxa-deb（兰州大学）
+  - https://mirrors.hust.edu.cn/radxa-deb（华中科技大学）
+  - https://mirrors.sdu.edu.cn/radxa-deb（山东大学）
+  - https://mirror.nju.edu.cn/radxa-deb（南京大学）
+  - https://mirror.nyist.edu.cn/radxa-deb（南阳理工学院）
+
+- **Debian/Ubuntu 镜像**：
+  - https://mirrors.ustc.edu.cn（中国科学技术大学）
+  - https://mirrors.tuna.tsinghua.edu.cn（清华大学）
+  - https://mirrors.lzu.edu.cn（兰州大学）
+  - https://mirrors.hust.edu.cn（华中科技大学）
+  - https://mirrors.sdu.edu.cn（山东大学）
+  - https://mirror.nju.edu.cn（南京大学）
+  - https://mirror.nyist.edu.cn（南阳理工学院）
+
+#### 选择 Radxa 镜像
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Select Radxa mirror:                                                         │
+│                                                                              │
+│                         https://mirrors.aghost.cn/radxa-deb                  │
+│                         https://mirrors.lzu.edu.cn/radxa-deb                 │
+│                         https://mirrors.hust.edu.cn/radxa-deb                │
+│                         https://mirrors.sdu.edu.cn/radxa-deb                 │
+│                         https://mirror.nju.edu.cn/radxa-deb                  │
+│                         https://mirror.nyist.edu.cn/radxa-deb                │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### 选择 Debian/Ubuntu 镜像
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Select Debian/Ubuntu mirror:                                                 │
+│                                                                              │
+│                         https://mirrors.ustc.edu.cn                          │
+│                         https://mirrors.tuna.tsinghua.edu.cn                 │
+│                         https://mirrors.lzu.edu.cn                           │
+│                         https://mirrors.hust.edu.cn                          │
+│                         https://mirrors.sdu.edu.cn                           │
+│                         https://mirror.nju.edu.cn                            │
+│                         https://mirror.nyist.edu.cn                          │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+操作步骤：
+
+1. 选择 `Select Radxa mirror` 或 `Select Debian/Ubuntu mirror`
+2. 从列表中选择合适的镜像站
+3. 确认后系统会自动更新源配置文件
+4. 如需恢复官方源，选择 `Restore official sources`
 
 ### System Update
 
@@ -79,6 +184,13 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 本选项会更新你的系统中安装的软件包到最新状态。
 
 由于 RadxaOS 提供了一些和上游 Debian 有所冲突的软件包，为了保证系统一致性，建议通过此方式进行系统更新。
+
+### Change default boot target
+
+设置系统默认启动到命令行界面或图形界面：
+
+- **multi-user.target**: 命令行界面（CLI）
+- **graphical.target**: 图形界面（桌面环境）
 
 ### Update Bootloader
 
@@ -92,6 +204,13 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 
 本选项会更新 eMMC Boot 分区上的启动器。
 
+### Sleep / Hibernate Control
+
+- **Enable Sleep / Hibernate**: 启用系统休眠功能
+- **Disable Sleep / Hibernate**: 禁用系统休眠功能
+
+更改后建议重启系统以使设置生效。
+
 ## Hardware
 
 在这个菜单上可以修改一些外围设备，下面是对它们的介绍。
@@ -102,8 +221,10 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 │                                                                              │
 │                      Video capture devices                                   │
 │                      GPIO LEDs                                               │
+│                      RGB LEDs                                                │
 │                      Thermal governor                                        │
 │                      Configure DSI display mirroring                         │
+│                      40-pin GPIO                                             │
 │                      USB OTG services                                        │
 │                                                                              │
 │                     <Ok>                         <Cancel>                    │
@@ -115,6 +236,36 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
 
 如果你有连接一个视频设备，这个选项可以帮助你测试该设备。
 
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Select video capture device:                                                │
+│                                                                              │
+│                         video0                                               │
+│                         video1                                               │
+│                         video2                                               │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+选择设备后，会显示测试选项：
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select the test case:                                                │
+│                                                                              │
+│                         Show live video                                      │
+│                         Capture a picture                                    │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+**功能说明**：
+
+- **Show live video**: 实时显示摄像头画面（需要图形界面环境）
+- **Capture a picture**: 捕获一张图片并保存到 `/tmp` 目录
+
 ### GPIO LEDs
 
 在这个选项上，你可以改变板子上的电源 LED 和用户 LED 的状态（有时只有一个）。
@@ -123,6 +274,68 @@ import EnableUart2 from "./rsetup/_enable-uart2-m0.mdx";
   <summary>LED 设置</summary>
   <Led />
 </details>
+
+你也可以在界面中选择 LED 并设置触发器：
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Below are the available LEDs and their triggers.                            │
+│ Select any to update their trigger.                                         │
+│                                                                              │
+│    [ ] pwr-led [heartbeat]                                                   │
+│    [ ] user-led [none]                                                       │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+选择 LED 后，可以设置触发器：
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select the new trigger:                                              │
+│                                                                              │
+│    ( ) none                                                                  │
+│    ( ) heartbeat                                                             │
+│    ( ) timer                                                                 │
+│    ( ) default-on                                                            │
+│    ( ) mmc0                                                                  │
+│    ( ) mmc1                                                                  │
+│    ( ) netdev                                                                │
+│    ( ) pattern                                                               │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### RGB LEDs
+
+控制板载的 RGB LED，可以设置不同灯光效果。
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Below are the available LEDs.                                               │
+│ Select any to update their pattern.                                         │
+│                                                                              │
+│    [ ] rgb-led0                                                              │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+选择 RGB LED 后，可以选择预设模式：
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select the LED pattern:                                              │
+│                                                                              │
+│    ( ) Breath                                                                │
+│    ( ) Rainbow                                                               │
+│    ( ) Solid color                                                           │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
 
 ### Thermal governor
 
@@ -147,9 +360,60 @@ radxa-ecm@*.*   # 配置为 ECM 设备（不推荐）
 radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 ```
 
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Below are the available UDC functions.                                      │
+│ Select any to update their status.                                          │
+│                                                                              │
+│    [ ] radxa-adbd@fe8a0000.usb                                               │
+│    [ ] radxa-ncm@fe8a0000.usb                                                │
+│    [ ] radxa-ecm@fe8a0000.usb                                                │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 40-pin GPIO
+
+配置 40 针 GPIO 排针的功能。
+
 ## Overlays
 
 该选项用于配置设备树 Overlays。
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Manage overlays                                                              │
+│                                                                              │
+│                         Manage device tree overlays                          │
+│                         Install 3rd party overlay                            │
+│                         Reset overlays configuration                         │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Manage device tree overlays
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Below are the overlays compatible with your hardware.                       │
+│ Press Space to select.                                                      │
+│                                                                              │
+│    [ ] Enable UART2-M0                                                ▒      │
+│    [ ] Enable UART4-M2                                                ▒      │
+│    [*] Enable I2C1-M0                                                 ▒      │
+│    [ ] Enable SPI3-M1                                                 ▒      │
+│    [ ] Enable PCIe2x1l2                                               ▒      │
+│    [*] Enable PWM1-M1                                                 ▒      │
+│    [ ] Radxa Camera 4K                                                ▒      │
+│    [ ] Radxa Display 8 HD                                             ▒      │
+│    [ ] Radxa Display 10 FHD                                           ▒      │
+│    [ ] Disable LED                                                    ▒      │
+│                                                                              │
+│                      <Ok>                      <Cancel>                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
 
 <details>
   <summary>设备树配置</summary>
@@ -180,15 +444,110 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 该选项与网络设置类似。
 
+选择 Network 选项后，会启动 `nmtui`（NetworkManager Text User Interface），提供完整的网络管理功能：
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         NetworkManager TUI                                  │
+│                                                                             │
+│  Please select an option                                                    │
+│                                                                             │
+│  Edit a connection                                                          │
+│  Activate a connection                                                      │
+│  Set system hostname                                                        │
+│                                                                             │
+│  Quit                                                                       │
+│                                                                             │
+│                                  <OK>                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**网络管理功能**：
+
+#### Edit a connection（编辑连接）
+
+- 添加新的网络连接（Wi-Fi、以太网、VPN 等）
+- 编辑现有连接的配置
+- 删除不需要的连接
+- 配置 IP 地址（静态/DHCP）
+- 设置 DNS 服务器
+
+#### Activate a connection（激活连接）
+
+- 查看可用的网络连接
+- 连接到 Wi-Fi 网络
+- 激活或停用网络接口
+- 查看连接状态
+
+#### Set system hostname（设置主机名）
+
+- 修改系统主机名
+
+### Wi-Fi 配置步骤
+
+1. 选择 `Activate a connection`
+2. 选择你的 Wi-Fi 网络（会显示可用的 SSID 列表）
+3. 输入 Wi-Fi 密码
+4. 等待连接成功
+
+### 有线网络配置
+
+1. 选择 `Edit a connection`
+2. 选择以太网接口
+3. 配置 IP 地址模式：
+   - **Automatic (DHCP)**: 自动获取 IP 地址
+   - **Manual**: 手动配置静态 IP
+
+:::tip
+
+- 使用 `Tab` 键在不同选项间切换
+- 使用 `Enter` 键确认选择
+- 使用 `Esc` 键返回上一级菜单
+- NetworkManager 配置通常会立即生效，无需重启
+  :::
+
 ## User Settings
 
 ### Password
 
 修改当前用户的密码。
 
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please enter the new password for radxa:                                    │
+│                                                                              │
+│ ********________________________________________________________             │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+操作步骤：
+
+1. 输入新密码（密码输入时会显示为 `*`）
+2. 确认新密码
+3. 如果两次输入不一致，会提示重新输入
+
+:::warning
+
+- 密码至少应包含 8 个字符
+- 建议使用字母、数字和特殊字符的组合
+- 请记住新密码，忘记密码可能导致无法登录系统
+  :::
+
 ### Hostname
 
 修改当前的主机名称。
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please enter the new hostname:                                              │
+│                                                                              │
+│ radxa-rock-5b___________________________________________________             │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
 
 ### Configure auto login
 
@@ -198,10 +557,270 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 设置 TTY 终端与桌面管理器的自动登陆配置。
 
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select the service(s) you want to enable auto login:                 │
+│                                                                              │
+│    [ ] getty@tty1.service                                                    │
+│    [ ] sddm.service                                                          │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+**支持的登录管理器**：
+
+- **getty@tty\*.service**: TTY 终端自动登录（命令行界面）
+- **serial-getty@\*.service**: 串口终端自动登录
+- **SDDM**: KDE Plasma 桌面管理器
+- **GDM**: GNOME 桌面管理器
+- **LightDM**: 轻量级桌面管理器
+
+:::warning
+启用自动登录会降低系统安全性，任何人都可以直接访问系统。仅在个人设备或测试环境中使用。
+:::
+
 ## Localization
 
-在这个选项中, 你可以改变 `Timezone` `Locale` `Keybaed layout` `Wi-Fi Country`.
+在这个选项中，你可以改变 `Timezone` `Locale` `Keybaed layout` `Wi-Fi Country`.
+
+### Timezone
+
+设置系统时区。选择此选项后会启动 `dpkg-reconfigure tzdata`。
+
+下面是 `tzdata` 的典型界面示意：
+
+```
+┌──────────────────────────────────┤ Configuring tzdata ├──────────────────────┐
+│                                                                              │
+│ Please select the geographic area in which you live.                         │
+│                                                                              │
+│ Geographic area:                                                             │
+│                                                                              │
+│              Africa                                                          │
+│              America                                                         │
+│              Asia                                   ▒                        │
+│              Europe                                 ▒                        │
+│              Etc                                    ▒                        │
+│                                                                              │
+│                      <Ok>                      <Cancel>                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+常用时区：
+
+- **Asia/Shanghai**: 中国标准时间（UTC+8）
+- **UTC**: 协调世界时
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select your timezone:                                                 │
+│                                                                              │
+│    ( ) America/New_York                                                      │
+│    ( ) Asia/Shanghai                                                         │
+│    ( ) Europe/London                                                         │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Locale
+
+配置系统语言和区域设置。选择此选项后会启动 `dpkg-reconfigure locales`。
+
+下面是 `locales` 的典型界面示意：
+
+```
+┌──────────────────────────────────┤ Configuring locales ├────────────────────┐
+│ Locales to be generated:                                                    │
+│                                                                              │
+│    [ ] en_AG UTF-8                                                    ▒      │
+│    [ ] en_GB.UTF-8                                                    ▒      │
+│    [*] en_US.UTF-8                                                    ▒      │
+│    [ ] zh_CN.UTF-8                                                    ▒      │
+│    [ ] zh_TW.UTF-8                                                    ▒      │
+│                                                                              │
+│                      <Ok>                      <Cancel>                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+推荐的 locale 设置：
+
+- **en_US.UTF-8**: 英语（美国），通用性好
+- **zh_CN.UTF-8**: 简体中文
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select your locale:                                                   │
+│                                                                              │
+│    ( ) en_US.UTF-8                                                           │
+│    ( ) zh_CN.UTF-8                                                           │
+│    ( ) fr_FR.UTF-8                                                           │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Keybaed layout
+
+配置键盘布局。
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select your keyboard layout:                                          │
+│                                                                              │
+│    ( ) US                                                                      │
+│    ( ) UK                                                                      │
+│    ( ) FR                                                                      │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Wi-Fi Country
+
+设置 Wi-Fi 国家代码以符合当地法规。
+
+**为什么需要设置 Wi-Fi 国家代码？**
+
+- 不同国家/地区的 Wi-Fi 频道和功率限制不同
+- 设置正确的国家代码可以：
+  - 确保使用合法的 Wi-Fi 频道
+  - 避免违反当地无线电法规
+  - 获得更好的 Wi-Fi 性能与稳定性
+
+:::warning
+设置错误的国家代码可能导致：
+
+- 无法连接到某些 Wi-Fi 网络
+- Wi-Fi 信号变弱
+- 违反当地法律法规
+  :::
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select your Wi-Fi country code:                                       │
+│                                                                              │
+│    ( ) US                                                                      │
+│    ( ) CN                                                                      │
+│    ( ) FR                                                                      │
+│                                                                              │
+│                     <Ok>                         <Cancel>                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+## Common Tasks
+
+常用任务菜单提供了一些快捷操作，方便用户快速完成常见配置任务。
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select all tasks you want to perform:                                │
+│                                                                              │
+│    [ ] Install Docker                                                        │
+│    [ ] Configure SSH                                                         │
+│    [ ] Install Baota Panel                                                   │
+│                                                                              │
+│                      <Ok>                      <Cancel>                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 可用任务（正常模式）
+
+在正常模式下，Common Tasks 以多选列表形式显示，可以一次选择多个任务批量执行。
+
+#### Install Docker
+
+自动安装 Docker 容器引擎及相关工具。
+
+#### Configure SSH
+
+配置 SSH 服务器设置。
+
+#### Install Baota Panel
+
+安装宝塔面板（Linux 服务器管理面板）。
+
+### 可用任务（DEBUG 模式）
+
+在 DEBUG 模式下，会显示独立的任务菜单：
+
+```
+┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
+│ Please select an option below:                                              │
+│                                                                              │
+│                         Docker                                               │
+│                         SSH                                                  │
+│                                                                              │
+│                      <Ok>                      <Cancel>                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+**执行流程**：
+
+1. 使用 `Space` 键选择要执行的任务
+2. 选择 `<Ok>` 确认
+3. 系统会显示即将执行的任务列表
+4. 再次确认后开始执行
+5. 任务执行完成后，会显示相关信息
+6. 按 `Enter` 键继续
+
+:::warning
+
+- 某些任务需要网络连接才能完成
+- 任务执行过程中请勿中断
+- 执行完成后请记录重要信息（如端口号、密码等）
+  :::
 
 ## About
 
 这里是 `rsetup` 的相关信息。
+
+## 故障排除
+
+### rsetup 启动失败
+
+**问题**: 运行 `rsetup` 后无法启动或提示权限错误
+
+**解决方案**:
+
+1. 确保使用 `sudo rsetup` 或系统会自动提权
+2. 检查终端是否支持当前的 TERM 类型，如果不支持尝试使用 `export TERM=xterm-256color` 设置环境变量
+3. 尝试在不同的终端模拟器中运行
+
+### 更新失败
+
+**问题**: 系统更新过程中出现错误
+
+**解决方案**:
+
+1. 检查网络连接是否正常
+2. 尝试更换 APT 源镜像
+3. 检查系统时间是否正确（可能导致 HTTPS 证书验证失败）
+4. 查看错误信息，必要时在社区寻求帮助
+
+### Overlay 配置后无法启动
+
+**问题**: 启用某个 overlay 后系统无法启动
+
+**解决方案**:
+
+1. 通过串口或 SSH 连接到系统（如果可能）
+2. 编辑 `/boot/config.txt` 或 `/boot/uEnv.txt`，移除或注释掉问题的 overlay
+3. 重启系统
+4. 如果无法通过软件方式修复，可能需要从 SD 卡启动并修改配置文件
+
+## 最佳实践
+
+1. **定期更新**: 使用 `System Update` 定期更新系统，保持软件包为最新状态
+2. **谨慎配置启动器**: 除非必要，不要随意更新或擦除启动器
+3. **测试 Overlay**: 启用新的 overlay 前，先了解其功能和可能的影响
+4. **备份重要数据**: 在进行重大配置更改前，备份重要数据
+5. **记录更改**: 记录你所做的配置更改，便于故障排除
+
+## 参考资源
+
+- [Radxa 官方文档](https://docs.radxa.com/)
+- [Radxa 论坛](https://forum.radxa.com/)
+- [Radxa GitHub](https://github.com/radxa)
+- [rsetup 源代码](https://github.com/radxa-pkg/rsetup)
