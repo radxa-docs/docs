@@ -22,18 +22,18 @@ sidebar_position: 1
 
 ## 使用前提
 
-正常启动和使用 Radxa E24C 设备,您需要准备以下配件：电源适配器、系统启动介质、调试数据线( USB Type-A 转 Type-C 数据线)。
+正常启动和使用 Radxa E24C 设备，您需要准备以下配件：电源适配器、系统启动介质、调试数据线 ( USB Type-A 转 Type-C 数据线)。
 
 :::tip
-对于不同开发能力的用户，我们建议额外增加以下配件使用 Radxa E24C ，这样会缩短熟悉产品和开发的时间。
+对于不同开发能力的用户，我们建议额外增加以下配件使用 Radxa E24C，这样会缩短熟悉产品和开发的时间。
 
 - 初学者
 
-准备配件：电源适配器、系统启动介质、显示器、HDMI数据线
+准备配件：电源适配器、系统启动介质、显示器、HDMI 数据线
 
 - 开发者
 
-准备配件：电源适配器、系统启动介质、调试数据线( USB Type-A 转 Type-C 数据线)
+准备配件：电源适配器、系统启动介质、调试数据线 ( USB Type-A 转 Type-C 数据线)
 
 说明：其中显示器可以显示系统界面和进行图形化操作！
 :::
@@ -48,9 +48,9 @@ Radxa E24C 仅支持 12V 电源输入，建议电流 2A 及以上，以确保所
 
 参考电源：
 
-- [瑞莎 DC12 36W电源适配器](https://radxa.com/products/accessories/power-dc12-36w)(推荐使用)
-- [瑞莎 DC12 60W电源适配器](https://radxa.com/products/accessories/power-dc12-60w)
-- 标准12V/2A DC电源适配器(DC5525接口)
+- [瑞莎 DC12 36W 电源适配器](https://radxa.com/products/accessories/power-dc12-36w)(推荐使用)
+- [瑞莎 DC12 60W 电源适配器](https://radxa.com/products/accessories/power-dc12-60w)
+- 标准 12V/2A DC 电源适配器 (DC5525 接口)
 
 :::
 
@@ -76,10 +76,10 @@ Radxa E24C 上有一个 USB Type‑C 型接口，主要用于调试和访问系�
 
 - 系统下载
 
-进入[资源下载汇总](../download)页面下载对应的操作系统镜像压缩包，下载完成后解压系统镜像压缩包，得到的 `*.img` 后缀文件就是后面安装系统镜像需要的文件。
+进入 [资源下载汇总](../download) 页面下载对应的操作系统镜像压缩包，下载完成后解压系统镜像压缩包，得到的 `*.img` 后缀文件就是后面安装系统镜像需要的文件。
 
 :::tip
-下载的系统镜像是一个压缩文件，需要解压后才能通过镜像烧录软件写入到SD卡
+下载的系统镜像是一个压缩文件，需要解压后才能通过镜像烧录软件写入到 SD 卡
 :::
 
 - 硬件连接
@@ -132,9 +132,9 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
   <img src="/img/e/e24c/etcher-02.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-① ： 选择需要安装系统镜像的磁盘设备
+① ：选择需要安装系统镜像的磁盘设备
 
-② ： 点击 `Select 1` 选项确认设备选择
+② ：点击 `Select 1` 选项确认设备选择
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/etcher-03.webp" style={{width: '100%', maxWidth: '600px'}} />
@@ -201,7 +201,7 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
 打开 PC 的浏览器，输入 `http://192.168.1.1` 地址，按回车键访问系统的 Luci 的 web 配置界面，然后输入用户名和密码进行登陆。
 
 :::tip
-OpenWrt系统
+OpenWrt 系统
 
 用户账号：root
 
@@ -240,7 +240,7 @@ Luci 界面提供了丰富的系统管理功能，包括系统状态、网络设
 
 用户密码：password
 
-## 登陆系统(串口)
+## 登陆系统 (串口)
 
 :::tip
 若用户有显示器和 HDMI 数据线，可以直接使用显示器看系统界面进行操作！
@@ -272,9 +272,9 @@ Luci 界面提供了丰富的系统管理功能，包括系统状态、网络设
 
 Windows 平台推荐使用 PuTTY 软件串口登陆 Radxa E24C 系统。
 
-- PuTTY使用
+- PuTTY 使用
 
-Radxa E24C 和 PC 通过 USB Type-A 转 Type-C 数据线连接后，可以进入系统的设备管理器查看 Radxa E24C 对应的串口号(示意图中 COM4 就是当前系统中对应的 Radxa E24C 设备)。
+Radxa E24C 和 PC 通过 USB Type-A 转 Type-C 数据线连接后，可以进入系统的设备管理器查看 Radxa E24C 对应的串口号 (示意图中 COM4 就是当前系统中对应的 Radxa E24C 设备)。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/serial-01.webp" style={{width: '80%', maxWidth: '600px'}} />
@@ -282,7 +282,7 @@ Radxa E24C 和 PC 通过 USB Type-A 转 Type-C 数据线连接后，可以进入
 
 :::tip
 
-若系统无法正确识别设备或者设备前面带有感叹号，需要自行安装[CH340驱动](https://www.wch.cn/downloads/CH341SER_EXE.html)，完成安装后重启系统。
+若系统无法正确识别设备或者设备前面带有感叹号，需要自行安装[CH340 驱动](https://www.wch.cn/downloads/CH341SER_EXE.html)，完成安装后重启系统。
 
 :::
 
@@ -316,7 +316,7 @@ Radxa E24C 和 PC 通过 USB Type-A 转 Type-C 数据线连接后，可以进入
 
 Linux 推荐使用 Screen 软件串口登陆 Radxa E24C 系统。
 
-- 安装Screen
+- 安装 Screen
 
 <NewCodeBlock tip="Linux-host$" type="host">
 ```
@@ -327,7 +327,7 @@ sudo apt install screen
 
 - 查找串口设备
 
-打开终端使用 ls 命令查看串口设备:
+打开终端使用 ls 命令查看串口设备：
 
 若 PC 只有一个串口设备，系统默认是 ttyUSB0；
 
@@ -363,13 +363,13 @@ macOS 平台推荐使用 Screen 软件串口登陆 Radxa E24C 系统。
 
 :::tip
 
-若系统无法正确识别设备，需要自行安装[CH340驱动](https://www.wch.cn/downloads/CH341SER_MAC_ZIP.html)，完成安装后重启系统。
+若系统无法正确识别设备，需要自行安装 [CH340 驱动](https://www.wch.cn/downloads/CH341SER_MAC_ZIP.html)，完成安装后重启系统。
 
 :::
 
 - 查找串口设备
 
-打开终端使用 ls 命令查看串口设备:
+打开终端使用 ls 命令查看串口设备：
 
 找到类似 /dev/tty.wchusbserial14xx0 的设备名称，若 PC 有多个串口设备，可以插拔 USB 设备，使用下面命令观察变化的设备号。
 

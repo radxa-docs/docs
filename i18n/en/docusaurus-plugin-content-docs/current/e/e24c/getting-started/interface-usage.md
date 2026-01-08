@@ -15,23 +15,24 @@ sidebar_position: 2
   <img src="/img/e/e24c/e24c-interface.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-| No. | Description                                    | Qty |
-| :-: | :--------------------------------------------- | :-: |
-|  ①  | Power Interface: DC5525                        |  1  |
-|  ②  | Onboard eMMC                                   |  1  |
-|  ③  | USB 2.0 Type-C: Combined Device & Debug Port   |  1  |
-|  ④  | User Button                                    |  1  |
-|  ⑤  | USB 2.0 Type-A Ports                           |  3  |
-|  ⑥  | RTC Battery Connector                          |  1  |
-|  ⑦  | MicroSD Card Slot                              |  1  |
-|  ⑧  | GPIO: 14-Pin Expansion Header                  |  1  |
-|  ⑨  | LED Indicators (1 Power, 4 Ethernet Port LEDs) |  5  |
-|  ⑩  | Power Button                                   |  1  |
-|  ⑪  | Fan Header                                     |  1  |
-|  ⑫  | Maskrom Button                                 |  1  |
-|  ⑬  | Gigabit Ethernet Ports (Configurable WAN/LAN)  |  4  |
-|  ⑭  | HDMI 2.1 Output                                |  1  |
-|  ⑮  | M.2 NVMe SSD Slot                              |  1  |
+| No. | Description                                                              | Qty |
+| :-: | :----------------------------------------------------------------------- | :-: |
+|  ①  | Power Interface: DC5525                                                  |  1  |
+|  ②  | Onboard eMMC (optional; mutually exclusive with SPI Nor Flash for boot)  |  1  |
+|  ③  | USB 2.0 Type-C: Combined Device & Debug Port                             |  1  |
+|  ④  | User Button                                                              |  1  |
+|  ⑤  | USB 2.0 Type-A Ports                                                     |  3  |
+|  ⑥  | RTC Battery Connector                                                    |  1  |
+|  ⑦  | MicroSD Card Slot                                                        |  1  |
+|  ⑧  | GPIO: 14-Pin Expansion Header                                            |  1  |
+|  ⑨  | LED Indicators (1 Power, 4 Ethernet Port LEDs)                           |  5  |
+|  ⑩  | Power Button                                                             |  1  |
+|  ⑪  | Fan Header                                                               |  1  |
+|  ⑫  | Maskrom Button                                                           |  1  |
+|  ⑬  | Gigabit Ethernet Ports (Configurable WAN/LAN)                            |  4  |
+|  ⑭  | HDMI 2.1 Output                                                          |  1  |
+|  ⑮  | M.2 NVMe SSD Slot                                                        |  1  |
+|  ⑯  | SPI Nor Flash (boot device on some models; mutually exclusive with eMMC) |  1  |
 
 </TabItem>
 
@@ -79,7 +80,7 @@ Recommended power supplies:
 
 ### Onboard eMMC
 
-Optional onboard eMMC storage configuration.
+Optional onboard eMMC storage configuration. Note: Some models use SPI Nor Flash for boot; this is mutually exclusive with onboard eMMC.
 
 ### USB 2.0 Type-C Port
 
