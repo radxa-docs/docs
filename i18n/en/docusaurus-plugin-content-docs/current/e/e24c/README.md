@@ -1,9 +1,8 @@
 ---
 sidebar_position: 50
-sidebar_label: E24C
 ---
 
-# Radxa E24C - Compact High-Performance Network Computer
+# Radxa E24C
 
 ## Product Overview
 
