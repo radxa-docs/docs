@@ -82,8 +82,8 @@ repos:
           - pre-push
   - repo: local
     hooks:
-      - id: forbid-ds-store
-        name: Forbid .DS_Store files
+      - id: cleanup-ds-store
+        name: Cleanup .DS_Store files
         language: system
         entry: bash
         pass_filenames: false
@@ -92,8 +92,21 @@ repos:
           - |
             files=$(find . -name ".DS_Store" -not -path "./.git/*")
             if [ -n "$files" ]; then
-              echo "Error: .DS_Store files found:"
+              echo "Removing .DS_Store files:"
               echo "$files"
-              echo "Please delete them and try again."
-              exit 1
+              find . -name ".DS_Store" -not -path "./.git/*" -delete
             fi
+
+            tracked=$(git ls-files -- ':(glob)**/.DS_Store')
+            if [ -n "$tracked" ]; then
+              echo "Staging .DS_Store deletions:"
+              echo "$tracked"
+              printf '%s\n' "$tracked" | while IFS= read -r f; do
+                [ -n "$f" ] && git add -u -- "$f"
+              done
+            fi
+      - id: forbid-ds-store
+        name: Forbid .DS_Store files
+        language: system
+        entry: bash
+        pass_filenames: false
