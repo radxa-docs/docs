@@ -24,7 +24,7 @@ To boot the ROCK 5 ITX, you will also need the following:
 - One or two network cables and an Ethernet-enabled switch or router, as the ROCK 5 ITX has two 2.5G RJ45 Ethernet ports, which will be required for installing and updating your system.
 
 :::tip Note
-In the interface labelling diagram, [number ⑭] (./introduction#Motherboard Overview) is the HDMI input port and cannot be used to connect an HDMI monitor. To connect an HDMI monitor, use [No. ⑩ or ⑪] (./introduction#Motherboard Overview) HDMI connector.
+In the interface labelling diagram, [number ⑭](./introduction#Motherboard Overview) is the HDMI input port and cannot be used to connect an HDMI monitor. To connect an HDMI monitor, use [No. ⑩ or ⑪](./introduction#Motherboard Overview) HDMI connector.
 :::
 
 Peripherals that are not required but can enhance the basic functions of the ROCK 5 ITX:

@@ -26,7 +26,7 @@ The password is radxa.
 
 ### Enable Overlay
 
-ROCK 5 ITX's eMMC is disabled by default, we need to enable overlay in the system via [Device Tree Configuration] (../os-config/rsetup#overlays) to enable eMMC.
+ROCK 5 ITX's eMMC is disabled by default, we need to enable overlay in the system via [Device Tree Configuration](../os-config/rsetup#overlays) to enable eMMC.
 
 :::tip
 

@@ -19,7 +19,7 @@ Rock 3a can boot from microSD card or eMMC, so install os on microSD card or eMM
 
 - 1x microSD card (capacity >=8GB)
 - 1x microSD card reader
-- 5V power adapter (recommended [Radxa Power PD30W] (/accessories/power/pd_30w))
+- 5V power adapter (recommended [Radxa Power PD30W](/accessories/power/pd_30w))
 
 ## Image Download
 

@@ -149,7 +149,7 @@ The resolution of the HDMI output depends on the monitor, and the Radxa ZERO 2 P
 
 ## eMMC
 
-On-board [eMMC on the back of the development board] (../hardware-design/hardware-interfaceInterfaces-Overview) for eMMC booting or data storage.
+On-board [eMMC on the back of the development board](../hardware-design/hardware-interfaceInterfaces-Overview) for eMMC booting or data storage.
 
 ## WIFI/BT
 

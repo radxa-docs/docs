@@ -24,7 +24,7 @@ ADB (android debug bridge) is a bridge between your Android device and your comp
 
 #### Windows
 
-Download the Windows version of the adb toolkit from Android [official website] (https://developer.android.google.cn/).
+Download the Windows version of the adb toolkit from Android [official website](https://developer.android.google.cn/).
 After downloading and decompressing, you need to configure environment variables:
 
 Method 1: Enter the following command in the terminal window
@@ -46,7 +46,7 @@ sudo apt install adb
 
 #### Mac
 
-Download the Windows version of the adb toolkit from Android [official website] (https://developer.android.google.cn/). After downloading and decompressing, you need to configure environment variables:
+Download the Windows version of the adb toolkit from Android [official website](https://developer.android.google.cn/). After downloading and decompressing, you need to configure environment variables:
 
 Open the terminal and enter the command to configure environment variables.
 
