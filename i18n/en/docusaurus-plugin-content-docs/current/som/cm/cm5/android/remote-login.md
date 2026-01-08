@@ -46,7 +46,7 @@ sudo apt install adb
 
 #### Mac
 
-Download the Windows version of the adb toolkit from Android [official website](https://developer.android.google.cn/). After downloading and decompressing, you need to configure environment variables:
+Download the Mac version of the adb toolkit from Android [official website](https://developer.android.google.cn/). After downloading and decompressing, you need to configure environment variables:
 
 Open the terminal and enter the command to configure environment variables.
 
