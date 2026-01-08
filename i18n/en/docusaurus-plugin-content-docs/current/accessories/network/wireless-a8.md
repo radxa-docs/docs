@@ -2,11 +2,11 @@
 sidebar_position: 6
 ---
 
-# 瑞莎 A8 无线模块
+# Radxa Wireless Module A8
 
-瑞莎无线模块 A8 是一款采用 Realtek RTL8852BE 芯片的标准 M.2 2230 规格无线模块，支持 Wi-Fi 6 和蓝牙 5.2 技术。
+Radxa Wireless Module A8 is a standard M.2 2230 wireless module based on the Realtek RTL8852BE chipset. It supports Wi-Fi 6 and Bluetooth 5.2.
 
-目前，瑞莎无线模块 A8 提供两个版本。
+Currently, Radxa Wireless Module A8 is available in two versions.
 
 - V1.0
 
@@ -16,126 +16,125 @@ sidebar_position: 6
 
 ![Radxa Wireless Module A8 V2.0](/img/accessories/network/a8-module-03.webp)
 
-## 硬件信息
+## Hardware information
 
-### 基本规格
+### Basic specifications
 
-| 特征     | 描述                                                                                 |
-| -------- | ------------------------------------------------------------------------------------ |
-| 名字     | Radxa Wireless Module A8                                                             |
-| 产品描述 | IEEE 802.11a/b/g/n/ac/ax 无线局域网 2T2R 和蓝牙 5.2 组合模块 (M.2 2230)              |
-| 芯片     | RTL8852BE                                                                            |
-| 主接口   | Wi-Fi: PCIe BT: USB                                                                  |
-| 尺寸     | 22mm x 30mm x 2.25mm                                                                 |
-| 接口规格 | M.2 2230 E Key                                                                       |
-| 天线接口 | I-PEX MHF4 接头插座 (20449) ANT1(Main): WiFi/Bluetooth  TX/RX ANT2(AUX): WiFi  TX/RX |
-| 工作温度 | 0 to +70°C                                                                           |
-| 重量     | 3g                                                                                   |
+| Item                  | Description                                                                   |
+| --------------------- | ----------------------------------------------------------------------------- |
+| Name                  | Radxa Wireless Module A8                                                      |
+| Product description   | IEEE 802.11a/b/g/n/ac/ax WLAN 2T2R + Bluetooth 5.2 combo module (M.2 2230)    |
+| Chipset               | RTL8852BE                                                                     |
+| Host interface        | Wi-Fi: PCIe, Bluetooth: USB                                                   |
+| Dimensions            | 22 mm x 30 mm x 2.25 mm                                                       |
+| Form factor           | M.2 2230 E Key                                                                |
+| Antenna connectors    | I-PEX MHF4 (20449), ANT1 (Main): WiFi/Bluetooth TX/RX, ANT2 (AUX): WiFi TX/RX |
+| Operating temperature | 0 to +70°C                                                                    |
+| Weight                | 3 g                                                                           |
 
-### 无线局域网
+### WLAN
 
-- IEEE 802.11 a/b/g/n/ac/ax 无线局域网
-- IEEE 802.11 ac/ax 支持 2T2R，并且符合 Wave 2 技术标准，支持多用户多输入多输出 ( MU-MIMO ) 技术。
-- IEEE 802.11 n 支持标准的 MIMO（多输入多输出），并且适用于 2.4 GHz 和 5 GHz 两个频段。
-- 使用 20MHz 带宽时最大 PHY 数据速率高达 286.8 Mbps，使用 40MHz 带宽时高达 573.5Mbps，使用 80MHz 带宽时高达 1201Mbps
-- 以 802.11n 数据速率运行时向后兼容 802.11a/b/g 设备
-- 以 802.11ax 数据速率运行时向后兼容 802.11a/n/ac 设备
-- 支持 IEEE 802.11i，包括 WPA, WPA2, WPA3 安全协议，并且还支持 WAPI 安全协议。
-- 802.11g 的最大数据传输速率为 54Mbps，802.11n 的最大数据传输速率为 300Mbps，而 802.11ax 的最大数据传输速率则为 1201Mbps。
+- IEEE 802.11 a/b/g/n/ac/ax WLAN
+- IEEE 802.11 ac/ax supports 2T2R and complies with the Wave 2 standard, supporting MU-MIMO.
+- IEEE 802.11 n supports standard MIMO and works on both 2.4 GHz and 5 GHz bands.
+- Maximum PHY rate: 286.8 Mbps @ 20 MHz, 573.5 Mbps @ 40 MHz, 1201 Mbps @ 80 MHz.
+- Backward compatible with 802.11a/b/g devices when operating in 802.11n mode.
+- Backward compatible with 802.11a/n/ac devices when operating in 802.11ax mode.
+- Supports IEEE 802.11i including WPA/WPA2/WPA3, and also supports WAPI.
+- Maximum data rate: 54 Mbps for 802.11g, 300 Mbps for 802.11n, 1201 Mbps for 802.11ax.
 
-### 蓝牙
+### Bluetooth
 
-- 支持蓝牙 V5.2
-- 兼容蓝牙 V2.1 + EDR
-- 支持无线局域网和蓝牙共存
-- 支持蓝牙低能耗（BLE）模式
-- 支持在基本速率（BR）和增强数据率（EDR）下的所有蓝牙数据包类型
+- Bluetooth 5.2
+- Backward compatible with Bluetooth 2.1 + EDR
+- WLAN/Bluetooth coexistence
+- Bluetooth Low Energy (BLE)
+- Supports all Bluetooth packet types in BR and EDR modes
 
-## ID 列表
+## ID list
 
-| 版本 | 无线局域网 VID | 无线局域网 PID | 蓝牙 VID | 蓝牙 PID |
-| ---- | -------------- | -------------- | -------- | -------- |
-| V1.0 | 10EC           | B852           | 0BDA     | B85B     |
-| V2.0 | 10EC           | B852           | 13D3     | 3570     |
+| Version | WLAN VID | WLAN PID | Bluetooth VID | Bluetooth PID |
+| ------- | -------- | -------- | ------------- | ------------- |
+| V1.0    | 10EC     | B852     | 0BDA          | B85B          |
+| V2.0    | 10EC     | B852     | 13D3          | 3570          |
 
-## 支持列表
+## Compatibility list
 
-| 版本                                | V1.0 版本 | V1.0 版本 | V1.0 版本 | V2.0 版本           | V2.0 版本 | V2.0 版本 |
-| ----------------------------------- | --------- | --------- | --------- | ------------------- | --------- | --------- |
-| 系统                                | Linux     | Android   | Windows   | Linux               | Android   | Windows   |
-| Radxa X2L                           | 支持      | N/A       | 支持      | 内核大于 6.7 才支持 | N/A       | 支持      |
-| Radxa ROCK 3A                       | 支持      | 支持      | N/A       | 支持                | 正在调试  | N/A       |
-| Radxa ROCK 3B                       | 支持      | 支持      | N/A       | 支持                | 正在调试  | N/A       |
-| Radxa ROCK 5A                       | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
-| Radxa ROCK 5B                       | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
-| Radxa ROCK 5 ITX                    | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
-| Radxa CM3I 搭配 Radxa CM3I IO Board | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
-| Radxa NX5 搭配 Radxa NX5 IO Board   | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
-| Radxa CM5 搭配 Radxa CM5 IO Board   | 支持      | 支持      | N/A       | 支持                | 支持      | N/A       |
+| Board / System                   | V1.0 (Linux) | V1.0 (Android) | V1.0 (Windows) | V2.0 (Linux)             | V2.0 (Android) | V2.0 (Windows) |
+| -------------------------------- | ------------ | -------------- | -------------- | ------------------------ | -------------- | -------------- |
+| Radxa X2L                        | Supported    | N/A            | Supported      | Supported (Linux >= 6.7) | N/A            | Supported      |
+| Radxa ROCK 3A                    | Supported    | Supported      | N/A            | Supported                | Debugging      | N/A            |
+| Radxa ROCK 3B                    | Supported    | Supported      | N/A            | Supported                | Debugging      | N/A            |
+| Radxa ROCK 5A                    | Supported    | Supported      | N/A            | Supported                | Supported      | N/A            |
+| Radxa ROCK 5B                    | Supported    | Supported      | N/A            | Supported                | Supported      | N/A            |
+| Radxa ROCK 5 ITX                 | Supported    | Supported      | N/A            | Supported                | Supported      | N/A            |
+| Radxa CM3I + Radxa CM3I IO Board | Supported    | Supported      | N/A            | Supported                | Supported      | N/A            |
+| Radxa NX5 + Radxa NX5 IO Board   | Supported    | Supported      | N/A            | Supported                | Supported      | N/A            |
+| Radxa CM5 + Radxa CM5 IO Board   | Supported    | Supported      | N/A            | Supported                | Supported      | N/A            |
 
-### 原理框图
+### Block diagram
 
-![原理框图](/img/accessories/network/wireless-a8-block-diagram.webp)
+![Block diagram](/img/accessories/network/wireless-a8-block-diagram.webp)
 
-### 尺寸
+### Dimensions
 
-![2D 尺寸图](/img/accessories/network/radxa-wireless-module-2d.webp)
+![2D mechanical drawing](/img/accessories/network/radxa-wireless-module-2d.webp)
 
-## 使用教程
+## Usage
 
-### 安装
+### Installation
 
-对于支持 A8 模块的产品，瑞莎已在官方镜像中集成了对应驱动，直接将该无线模块插入 M.2 E Key 底座即可使用。
+For products that support the A8 module, Radxa official images already include the required drivers. Insert the module into an M.2 E Key socket to use it.
 
-以在 ROCK 5B 上官方的 Debian 系统下使用为例，安装如图所示：
+The following example shows installation on ROCK 5B with Radxa official Debian image:
 
 ![Radxa Wireless Module A8](/img/accessories/network/a8-module-02.webp)
 
-### Wi-Fi 使用
+### Wi-Fi
 
-1. 在进入系统后，打开终端
+1. After booting into the system, open a terminal.
 
-2. 输入以下命令打开 Wi-Fi
+1. Run the following command to enable Wi-Fi:
 
 ```bash
 sudo nmcli r wifi on
 ```
 
 :::tip
-首次使用 sudo 命令时需要输入登录账户的密码。
+The first time you use `sudo`, you will be prompted for the password of your login account.
 :::
 
-3. 输入以下命令扫描 WIFI
+1. Scan available Wi-Fi networks:
 
 ```bash
 sudo nmcli dev wifi
 ```
 
-4. 输入以下命令连接 WIFI 网络
+1. Connect to a Wi-Fi network:
 
 ```bash
 sudo nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
-其中，`wifi_name` 为您要连接的 WiFi 名称（SSID），`wifi_password` 为该 WiFi 的密码。
+Replace `wifi_name` with your Wi-Fi SSID and `wifi_password` with the Wi-Fi password.
 
-另外，您也可以通过 Linux 桌面提供的 WiFi 控件来进行可视化操作。
+Alternatively, you can use the Wi-Fi UI provided by the Linux desktop environment.
 
-### 蓝牙使用
+### Bluetooth usage
 
-1. 测试蓝牙模块情况，检查蓝牙设备。
+1. Check the Bluetooth service status:
 
 ```bash
 sudo systemctl status bluetooth
 ```
 
-2. 运行蓝牙设备。
+1. Start the Bluetooth service:
 
 ```bash
 sudo systemctl start bluetooth
 ```
 
-3. 检测蓝牙设备
+1. Verify the Bluetooth adapter:
 
 ```bash
 sudo hciconfig
@@ -148,23 +147,23 @@ hci0:   Type: Primary  Bus: UART
        TX bytes:2814 acl:0 sco:0 commands:58 errors:0
 ```
 
-4. 测试蓝牙功能
+1. Test Bluetooth functionality
 
-   连接蓝牙扬声器：
+   Connect to a Bluetooth speaker:
 
-   首先安装 `pulseaudio`
+   First install `pulseaudio`:
 
    ```bash
    sudo apt-get install -y pulseaudio-module-bluetooth pulseaudio
    ```
 
-   运行 `pulseaudio`
+   Start `pulseaudio`:
 
    ```bash
    sudo pulseaudio --start
    ```
 
-   使用 `pulseaudio` 连接
+   Use `bluetoothctl` to pair and connect:
 
    ```bash
    sudo bluetoothctl
@@ -177,13 +176,13 @@ hci0:   Type: Primary  Bus: UART
    [bluetooth]# connect 41:42:1A:8D:A9:65
    ```
 
-## 常见问题
+## FAQ
 
-### 使用 Radxa OS Bookworm 系统时，不会出现两个 wlan 设备
+### When using Radxa OS Bookworm, only one WLAN device appears
 
-这是因为 wifi 驱动差异导致的。Radxa OS Bookworm 使用的 `rtw89` 驱动相对于小内存设备的性能更好，Radxa OS Bullseye 使用的 `8852be` 驱动相对则有更多特性。
+This is caused by different Wi-Fi drivers. Radxa OS Bookworm uses the `rtw89` driver, which performs better on low-memory devices. Radxa OS Bullseye uses the `8852be` driver, which may provide more features.
 
-可通过以下操作更换驱动：
+You can switch drivers with the following steps:
 
 ```bash
 sudo apt-get update
@@ -203,8 +202,8 @@ sudo update-initramfs -u -k all
 sudo reboot
 ```
 
-更多信息参见[rtw8852be](https://github.com/lwfinger/rtw8852be)
+For more information, see [rtw8852be](https://github.com/lwfinger/rtw8852be).
 
-### 使用 `NetworkManager` 无法开启 5G 热点
+### Can't enable a 5 GHz hotspot with NetworkManager
 
-[尝试指定信道](../template/sbc/radxa-os/ap#常见问题)
+See [Wi-Fi hotspot](../../template/sbc/radxa-os/ap#q-a) and try specifying the `Channel` as `A (5 GHz) 36`.

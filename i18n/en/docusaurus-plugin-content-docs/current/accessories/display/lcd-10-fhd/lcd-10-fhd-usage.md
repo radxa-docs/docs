@@ -21,7 +21,7 @@ Connect the touch screen using the motherboard's MIPI DSI interface. The connect
 ②: Connect to the display's interface with the gold fingers (metal contacts) facing toward the display
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rock4d-dsi.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/rock4d-dsi.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## Software Configuration
@@ -37,13 +37,13 @@ rsetup
 1. Use the arrow keys to select the `Overlays` option, then press Enter to confirm.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rsetup-overlays-dsi-1.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/rsetup-overlays-dsi-1.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 2. Use the arrow keys to select the `Manage overlays` option, then press Enter to confirm.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rsetup-overlays-dsi-2.webp" style={{width: '100%', maxWidth: '1200px'}} />
+  <img src="/en/img/rock4/4d/rsetup-overlays-dsi-2.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 3. Use the arrow keys to select the `Enable Radxa Display 10 HD` option, then press the Spacebar to check the `Enable Radxa Display 10HD` option, and finally press Enter to confirm.

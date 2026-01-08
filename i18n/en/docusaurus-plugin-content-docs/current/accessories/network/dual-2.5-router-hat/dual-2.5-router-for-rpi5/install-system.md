@@ -2,173 +2,173 @@
 sidebar_position: 1
 ---
 
-# 瑞莎双 2.5G 以太网扩展板
+# Radxa Dual 2.5G Router HAT
 
 ![Radxa Dual 2.5G Router HAT](/img/accessories/network/dual-2.5-router-hat/dual-2.5-router-hat-01.webp)
 
-## 概述
+## Overview
 
-瑞莎双 2.5G 以太网扩展板专为 ROCK 系列和树莓派 5 精心打造，通过 PCIe 接口为系统提供卓越的网络和存储性能。该扩展板具有以下关键特性：
+The Radxa Dual 2.5G Router HAT is designed for the ROCK series and Raspberry Pi 5. It provides high-performance networking and storage expansion through the PCIe interface. Key features include:
 
-- 配备两个 2.5G 以太网端口，提供高速稳定的网络连接
-- 通过 M.2 M Key 接口支持 NVMe SSD 存储扩展
-- 通过 FPC 接口提供额外的 PCIe 扩展能力
+- Two 2.5GbE Ethernet ports for high-speed and stable networking
+- NVMe SSD storage expansion via an M.2 M Key connector
+- Additional PCIe expansion via an FPC connector
 
-这款扩展板非常适合网络应用和高性能存储解决方案，能显著提升您单板计算机的功能。
+This HAT is ideal for networking applications and high-performance storage solutions, significantly extending the capabilities of your single-board computer.
 
-## 兼容的单板计算机
+## Compatible SBCs
 
-瑞莎双 2.5G 以太网扩展板目前支持以下单板机：
+The Radxa Dual 2.5G Router HAT currently supports the following single-board computers:
 
 - ROCK 2A / 2F
 - ROCK 4D
 - ROCK 5C
-- 树莓派 5
+- Raspberry Pi 5
 
-## 特征
+## Features
 
-- 2 个 2.5G 以太网端口，用于高速网络连接
-- 1 个 M.2 M Key 接口带 PCIe 3.0/2.0 1-lane，用于 NVMe SSD 存储
-- 1 个 FPC 接口带 PCIe 3.0/2.0 1-lane，用于额外扩展
-- 1 个 12V DC 接口，DC 规格为 5525
+- 2 x 2.5GbE Ethernet ports for high-speed networking
+- 1 x M.2 M Key connector with PCIe 3.0/2.0 1-lane for NVMe SSD
+- 1 x FPC connector with PCIe 3.0/2.0 1-lane for additional expansion
+- 1 x 12 V DC jack (5.5 mm outer diameter / 2.5 mm inner diameter)
 
 ![Radxa Dual 2.5G Router HAT](/img/accessories/network/dual-2.5-router-hat/dual-2.5-router-hat-02.webp)
 
-## 技术规格
+## Specifications
 
-| 组件         | 规格                    |
-| ------------ | ----------------------- |
-| 以太网控制器 | Realtek RTL8125B        |
-| 以太网速度   | 2 × 2.5 千兆            |
-| PCIe 接口    | PCIe 3.0/2.0 1-lane     |
-| 存储支持     | M.2 M Key 2280 NVMe SSD |
-| 电源输入     | 12V DC（5525 接口）     |
-| 尺寸         | 兼容 HAT 规格           |
+| Item                | Specification             |
+| ------------------- | ------------------------- |
+| Ethernet controller | Realtek RTL8125B          |
+| Ethernet speed      | 2 x 2.5GbE                |
+| PCIe                | PCIe 3.0/2.0 1-lane       |
+| Storage             | M.2 M Key 2280 NVMe SSD   |
+| Power input         | 12 V DC (5.5/2.5 mm jack) |
+| Form factor         | HAT-compatible            |
 
-## 套装内容
+## Package contents
 
-- 1× 瑞莎双 2.5G 以太网扩展板
-- 4× 铜柱（用于安装）
-- 8× 螺丝（用于固定扩展板和 SSD）
-- 1× 散热片（用于冷却以太网控制器）
-- 1× 转接板（用于连接兼容的单板机）
-- 1× 连接线缆
+- 1 x Radxa Dual 2.5G Router HAT
+- 4 x standoffs
+- 8 x screws (for securing the HAT and SSD)
+- 1 x heatsink (for cooling the Ethernet controller)
+- 1 x adapter board (for connecting to compatible SBCs)
+- 1 x connection cable
 
-## 板卡布局
+## Board layout
 
 ![Radxa Dual 2.5G Router HAT Board](/img/accessories/network/dual-2.5-router-hat/AC016-zh.webp)
 
-## 40 针 Pinout
+## 40-pin header pinout
 
-| 描述       | 功能    | 针脚# | 针脚# | 功能    | 描述                          |
-| ---------- | ------- | ----- | ----- | ------- | ----------------------------- |
-| 未使用     |         | 1     | 2     | VCC     | 5V                            |
-| 未使用     |         | 3     | 4     | VCC     | 5V                            |
-| 未使用     |         | 5     | 6     | GND     | 接地                          |
-| 未使用     |         | 7     | 8     | 未使用  |                               |
-| 接地       | GND     | 9     | 10    | 未使用  |                               |
-| 未使用     |         | 11    | 12    | 未使用  |                               |
-| 未使用     |         | 13    | 14    | GND     | 接地                          |
-| 未使用     |         | 15    | 16    | GPIO    | FPC 电源（控制 FPC 接口电源） |
-| 未使用     |         | 17    | 18    | 未使用  |                               |
-| 未使用     |         | 19    | 20    | GND     | 接地                          |
-| 未使用     |         | 21    | 22    | 未使用  |                               |
-| 未使用     |         | 23    | 24    | 未使用  |                               |
-| 接地       | GND     | 25    | 26    | 未使用  |                               |
-| EEPROM I2C | I2C_SDA | 27    | 28    | I2C_SCL | EEPROM I2C                    |
-| 未使用     |         | 29    | 30    | GND     | 接地                          |
-| 未使用     |         | 31    | 32    | 未使用  |                               |
-| 未使用     |         | 33    | 34    | GND     | 接地                          |
-| 未使用     |         | 35    | 36    | 未使用  |                               |
-| 未使用     |         | 37    | 38    | 未使用  |                               |
-| 接地       | GND     | 39    | 40    | 未使用  |                               |
+| Description | Function | Pin # | Pin # | Function | Description                    |
+| ----------- | -------- | ----- | ----- | -------- | ------------------------------ |
+| Not used    |          | 1     | 2     | VCC      | 5 V                            |
+| Not used    |          | 3     | 4     | VCC      | 5 V                            |
+| Not used    |          | 5     | 6     | GND      | Ground                         |
+| Not used    |          | 7     | 8     | Not used |                                |
+| Ground      | GND      | 9     | 10    | Not used |                                |
+| Not used    |          | 11    | 12    | Not used |                                |
+| Not used    |          | 13    | 14    | GND      | Ground                         |
+| Not used    |          | 15    | 16    | GPIO     | FPC power (controls FPC power) |
+| Not used    |          | 17    | 18    | Not used |                                |
+| Not used    |          | 19    | 20    | GND      | Ground                         |
+| Not used    |          | 21    | 22    | Not used |                                |
+| Not used    |          | 23    | 24    | Not used |                                |
+| Ground      | GND      | 25    | 26    | Not used |                                |
+| EEPROM I2C  | I2C_SDA  | 27    | 28    | I2C_SCL  | EEPROM I2C                     |
+| Not used    |          | 29    | 30    | GND      | Ground                         |
+| Not used    |          | 31    | 32    | Not used |                                |
+| Not used    |          | 33    | 34    | GND      | Ground                         |
+| Not used    |          | 35    | 36    | Not used |                                |
+| Not used    |          | 37    | 38    | Not used |                                |
+| Ground      | GND      | 39    | 40    | Not used |                                |
 
-## 安装指南
+## Installation
 
-### 在 ROCK 系列板卡上安装
+### Install on ROCK series boards
 
-1. 完全关闭您的单板机电源
-2. 将铜柱安装到您的单板机上
-3. 将转接板连接到单板机的 PCIe 接口
-4. 将双 2.5G 以太网扩展板与 40 针接口和铜柱对齐
-5. 使用提供的螺丝固定扩展板
-6. 如果使用 NVMe SSD，将其安装到 M.2 插槽并用螺丝固定
-7. 将 12V 电源连接到 DC 接口
-8. 开启单板机电源
+1. Power off your SBC completely.
+2. Install the standoffs on the SBC.
+3. Connect the adapter board to the SBC PCIe interface.
+4. Align the Dual 2.5G Router HAT with the 40-pin header and standoffs.
+5. Secure the HAT using the provided screws.
+6. If you use an NVMe SSD, install it into the M.2 slot and secure it with a screw.
+7. Connect a 12 V power supply to the DC jack.
+8. Power on the SBC.
 
-### 在树莓派 5 上安装
+### Install on Raspberry Pi 5
 
-1. 完全关闭您的树莓派 5 电源
-2. 将转接板连接到树莓派 5 的 PCIe 接口
-3. 将双 2.5G 以太网扩展板与 40 针接口对齐
-4. 使用提供的铜柱和螺丝固定扩展板
-5. 如果使用 NVMe SSD，将其安装到 M.2 插槽并用螺丝固定
-6. 将 12V 电源连接到 DC 接口
-7. 开启树莓派 5 电源
+1. Power off your Raspberry Pi 5 completely.
+2. Connect the adapter board to the Raspberry Pi 5 PCIe interface.
+3. Align the Dual 2.5G Router HAT with the 40-pin header.
+4. Secure the HAT using the provided standoffs and screws.
+5. If you use an NVMe SSD, install it into the M.2 slot and secure it with a screw.
+6. Connect a 12 V power supply to the DC jack.
+7. Power on the Raspberry Pi 5.
 
-## 软件配置
+## Software configuration
 
-### 网络设置
+### Network setup
 
-以太网端口通常会显示为额外的网络接口（例如 eth1 和 eth2）。您可以使用标准的 Linux 网络工具进行配置。
+The Ethernet ports typically appear as additional network interfaces (for example, `eth1` and `eth2`). You can configure them with standard Linux networking tools.
 
-基本配置示例：
+Example configuration:
 
 ```bash
-# 检查可用接口
+# List available interfaces
 ip addr
 
-# 为 eth1 配置静态 IP
+# Configure a static IP for eth1
 sudo ip addr add 192.168.1.100/24 dev eth1
 sudo ip link set eth1 up
 
-# 为 eth2 配置 DHCP
+# Request an IP address via DHCP for eth2
 sudo dhclient eth2
 ```
 
-### NVMe SSD 设置
+### NVMe SSD setup
 
-安装 NVMe SSD 后，您可以使用标准的 Linux 命令进行格式化和挂载：
+After installing an NVMe SSD, you can format and mount it using standard Linux commands:
 
 ```bash
-# 检查 SSD 是否被检测到
+# Check whether the SSD is detected
 lsblk
 
-# 格式化 SSD（将 nvme0n1 替换为您的设备名称）
+# Format the SSD (replace nvme0n1 with your device)
 sudo mkfs.ext4 /dev/nvme0n1
 
-# 挂载 SSD
+# Mount the SSD
 sudo mkdir -p /mnt/ssd
 sudo mount /dev/nvme0n1 /mnt/ssd
 ```
 
-## 故障排除
+## Troubleshooting
 
-### 常见问题
+### Common issues
 
-1. **以太网端口未被检测到**
+1. **Ethernet ports are not detected**
 
-   - 确保扩展板正确连接到 PCIe 接口
-   - 检查 12V 电源是否连接并正常工作
-   - 验证内核是否支持 RTL8125B 控制器
+   - Make sure the HAT is properly connected to the PCIe interface
+   - Check that the 12 V power supply is connected and working
+   - Verify that your Linux kernel supports the RTL8125B controller
 
-2. **NVMe SSD 未被检测到**
+2. **NVMe SSD is not detected**
 
-   - 确保 SSD 正确插入 M.2 插槽
-   - 尝试使用不同的 SSD 排除硬件兼容性问题
-   - 检查 PCIe 相关的内核日志：`dmesg | grep -i pcie`
+   - Make sure the SSD is properly seated in the M.2 slot
+   - Try a different SSD to rule out compatibility issues
+   - Check PCIe-related kernel logs: `dmesg | grep -i pcie`
 
-3. **网络性能不佳**
-   - 更新到最新的操作系统和内核版本
-   - 检查网络线缆（使用 Cat5e 或更好的线缆以支持 2.5G 速度）
-   - 确保连接的网络设备支持 2.5G 速度
+3. **Poor network performance**
+   - Update to the latest OS and Linux kernel version
+   - Check network cabling (use Cat5e or better for 2.5GbE)
+   - Make sure the connected network equipment supports 2.5GbE
 
-## 应用场景
+## Use cases
 
-瑞莎双 2.5G 以太网扩展板非常适合：
+The Radxa Dual 2.5G Router HAT is well suited for:
 
-- 构建高性能路由器或防火墙
-- 配备快速网络的网络附加存储（NAS）
-- 需要高速数据传输的边缘计算
-- 需要多个网络接口的家庭实验室服务器
-- 具有快速存储和网络的媒体流服务器
+- Building a high-performance router or firewall
+- Network-attached storage (NAS) with fast networking
+- Edge computing workloads that require high data throughput
+- Home lab servers that need multiple network interfaces
+- Media servers with fast networking and storage
