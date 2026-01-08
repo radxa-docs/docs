@@ -1,330 +1,349 @@
-### 目录
+---
+sidebar_position: 11
+---
 
-- [Docker 更新方法](#docker-更新方法)
+# ROCK 4D - Industrial-Grade AI Single Board Computer
 
-- [Docker 镜像目录迁移](#docker-镜像目录迁移)
+## Product Overview
 
-- [CasaOS 安装](#casaos-安装)
+The Radxa ROCK 4D is a compact single-board computer (SBC) featuring numerous top-tier functions, features, and expansion options.
 
-- [安装 radxa 一键启动大模型 Apps](#安装-radxa-一键启动大模型-apps)
+Equipped with the Rockchip RK3576 or RK3576J SoC, the ROCK 4D boasts an octa-core CPU (4x Cortex-A72 + 4x Cortex-A53), Mali-G52 GPU, and a powerful 6 TOPS NPU, making it ideal for AI and multimedia tasks.
 
-  - [安装自定义软件](#安装自定义软件)
-  - [安装 radxa stable diffusion 文生图 App](#安装-radxa-stable-diffusion-文生图-app)
-  - [安装 radxa whisper 语音识别总结 App](#安装-radxa-whisper-语音识别总结-app)
-  - [安装 radxa ImageSearch 图片搜索 App](#安装-radxa-ImageSearch-图片搜索-app)
-  - [安装 radxa chatdoc 文档聊天 App](#安装-radxa-chatdoc-文档聊天-app)
-  - [App 启动与卸载](#app-启动与卸载)
+The ROCK 4D is perfect for makers, IoT enthusiasts, hobbyists, gamers, PC users, OEMs, industrial applications, and anyone in need of a high-performance, reliable platform.
 
-- [App 构建方法](#app-构建方法)
+Two versions are available: the commercial-grade ROCK 4D based on RK3576, and the industrial-grade ROCK 4D based on RK3576J.
 
-### Docker 更新方法
+## Product Appearance
 
-- 查看当前 Docker 版本
+<Tabs queryString="versions">
+  <TabItem value="ROCK 4D">
+    ROCK 4D Font View
+    <img src="/img/rock4/4d/rock4d-top.webp" alt="ROCK 4D top" width="800" />
+    ROCK 4D Rear View
+    <img
+      src="/img/rock4/4d/rock4d-bottom.webp"
+      alt="ROCK 4D bottom"
+      width="800"
+    />
+  </TabItem>
+  <TabItem value="ROCK 4D v1.12">
+    ROCK 4D v1.12 Font View
+    <img
+      src="/img/rock4/4d/rock4d-v1.12-top.webp"
+      alt="ROC 4D v1.12 top"
+      width="800"
+    />
+    ROCK 4D v1.12 Rear View
+    <img
+      src="/img/rock4/4d/rock4d-v1.12-bottom.webp"
+      alt="ROC 4D v1.12 bottom"
+      width="800"
+    />
+  </TabItem>
+</Tabs>
 
-  ```bash
-  docker --version
-  ```
+## Specifications
 
-- 如果版本低于 24.0.7 卸载 docker
+| Category     | Specification                                                                                                                                                                                                       |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Processor    | System on Chip (SoC): Rockchip RK3576 / RK3576J <br/> CPU: 4x Cortex-A72 + 4x Cortex-A53 <br/> GPU: Arm Mali-G52 MC3 <br/> Neural Processing Unit (NPU): 6 TOPS (supports INT4 / INT8 / INT16 / FP16 / BF16 / TF32) |
+| Memory (RAM) | LPDDR5, options: 2GB / 4GB / 8GB / 16GB                                                                                                                                                                             |
+| Storage      | Boot: 16MB SPI NOR Flash <br/> Expandable: eMMC / UFS module interface, MicroSD card slot                                                                                                                           |
+| Networking   | Wired: 1x Gigabit Ethernet (PoE supported with external HAT) <br/> Wireless: Wi-Fi 6, Bluetooth 5.4, external antenna interface                                                                                     |
+| Video Output | HDMI: 1× HDMI 2.1, up to 4K@120fps <br/> MIPI DSI: 1× 4-lane MIPI DSI                                                                                                                                               |
+| Camera Input | MIPI CSI: 1× 4-lane (configurable as 2× 2-lane) + 1× 2-lane CSI                                                                                                                                                     |
+| Audio        | Audio Jack: 3.5mm 4-pole headphone jack with mic input <br/> Audio Output: Supports stereo output, can drive 32Ω headphones directly                                                                                |
+| USB Ports    | USB 3.0: 1× Type-A HOST, 1× Type-A OTG/HOST <br/> USB 2.0: 2× Type-A HOST                                                                                                                                           |
+| Expansion    | GPIO Header: Supports UART, SPI, I2C, I2S, PWM, CAN, ADC, etc. <br/> PCIe Slot: PCIe 2.1 x1 via FPC interface <br/> Fan Connector: 1× 2-pin 1.25mm PWM controlled fan header                                        |
+| Power Input  | Power Supply: USB Type-C or via GPIO header                                                                                                                                                                         |
+| OS Support   | Operating Systems: Debian Linux, Android 14, Yocto, Buildroot                                                                                                                                                       |
+| Temperature  | Commercial: 0°C ~ 60°C (RK3576) <br/> Industrial: -40°C ~ 85°C (RK3576J)                                                                                                                                            |
 
-  ```bash
-  for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
-  ```
+## Interface Description
 
-- 配置 Docker apt 仓库
+Click on the interface names for tutorials on connecting external devices.
 
-  ```bash
-  # Add Docker's official GPG key:
-  sudo apt-get update
-  sudo apt-get install ca-certificates curl gnupg
-  sudo install -m 0755 -d /etc/apt/keyrings
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+<Tabs queryString="versions">
+    <TabItem value="ROCK 4D">
+        <img src="/en/img/rock4/4d/rock4d-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-  # Add the repository to Apt sources:
-  echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  sudo apt-get update
-  ```
+|  #  | Description                                         | Qty |  #  | Description                                                                                                     | Qty |  #  | Description                                                   | Qty |
+| :-: | :-------------------------------------------------- | :-: | :-: | :-------------------------------------------------------------------------------------------------------------- | :-: | :-: | :------------------------------------------------------------ | :-: |
+|  ①  | [USB Type-C Port](./hardware-use/usb-type-c.md)     |  1  |  ⑩  | [PoE Port](./hardware-use/gigabit-ethernet.md)                                                                  |  1  |  ⑲  | [MIPI CSI Interface](./hardware-use/mipi-csi.md)              |  1  |
+|  ②  | User LED                                            |  1  |  ⑪  | [Maskrom Button](./hardware-use/maskrom.md)                                                                     |  1  |  ⑳  | [HDMI 2.1 Port](./hardware-use/hdmi.md)                       |  1  |
+|  ③  | Power LED                                           |  1  |  ⑫  | [USB 2.0 Type-A Ports](./hardware-use/usb-type-a.md)                                                            |  2  | ㉑  | [Recovery Pins](./hardware-use/recovery.md)                   |  1  |
+|  ④  | Power Button                                        |  1  |  ⑬  | Rockchip RK3576(J)                                                                                              |  1  | ㉒  | [UFS Module Interface](./hardware-use/emmc-ufs-connector.md)  |  1  |
+|  ⑤  | [FPC Connector](./hardware-use/fpc-connector.md)    |  1  |  ⑭  | [USB 3.0 Type-A Ports](./hardware-use/usb-type-a.md)<br />Up: USB 3.0 Type-A OTG<br />Down: USB 3.0 Type-A HOST |  2  | ㉓  | [RTC Interface](./hardware-use/rtc.md)                        |  1  |
+|  ⑥  | [WiFi 6 & Bluetooth 5.4](./hardware-use/ante.md)    |  1  |  ⑮  | SPI NOR Flash                                                                                                   |  1  | ㉔  | [eMMC Module Interface](./hardware-use/emmc-ufs-connector.md) |  1  |
+|  ⑦  | [Antenna Connector](./hardware-use/ante.md)         |  1  |  ⑯  | [Gigabit Ethernet (PoE)](./hardware-use/gigabit-ethernet.md)                                                    |  1  | ㉕  | [MIPI CSI Interface](./hardware-use/mipi-csi.md)              |  1  |
+|  ⑧  | [40-Pin GPIO Header](./hardware-use/40-pin-gpio.md) |  1  |  ⑰  | [Fan Connector](./hardware-use/fan.md)                                                                          |  1  | ㉖  | [MicroSD Card Slot](./hardware-use/microsd.md)                |  1  |
+|  ⑨  | LPDDR5 RAM                                          |  1  |  ⑱  | [Headphone Jack](./hardware-use/headphone.md)                                                                   |  1  | ㉗  | [MIPI DSI Interface](./hardware-use/mipi-dsi.md)              |  1  |
 
-- 获取预下载的新版deb包（如无会无法安装最新版docker），并手动安装
+    </TabItem>
+    <TabItem value="ROCK 4D v1.12">
+        <img src="/en/img/rock4/4d/rock4d-v1.12-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-  ```bash
-  wget https://github.com/radxa-edge/TPU-Edge-AI/releases/download/v0.1.0/Docker_Naspackage.zip
-  unzip Docker_Naspackage.zip
+|  #  |                     Description                     | Qty |  #  |                                                   Description                                                   | Qty |  #  |                          Description                          | Qty |
+| :-: | :-------------------------------------------------: | :-: | :-: | :-------------------------------------------------------------------------------------------------------------: | :-: | :-: | :-----------------------------------------------------------: | :-: |
+|  ①  |  [USB Type-C Port ](./hardware-use/usb-type-c.md)   |  1  |  ⑪  |                                   [Maskrom Button](./hardware-use/maskrom.md)                                   |  1  | ㉑  |              [HDMI 2.1](./hardware-use/hdmi.md)               |  1  |
+|  ②  |                      User LED                       |  1  |  ⑫  |                              [USB 2.0 Type-A Ports](./hardware-use/usb-type-a.md)                               |  2  | ㉒  |    [Power Input Interface](./hardware-use/power_header.md)    |  1  |
+|  ③  |                      Power LED                      |  1  |  ⑬  |                                              Rockchip RK3576（J）                                               |  1  | ㉓  |      [Maskrom Reserved Pads](./hardware-use/maskrom.md)       |  1  |
+|  ④  |                    Power Button                     |  1  |  ⑭  | [USB 3.0 Type-A Ports](./hardware-use/usb-type-a.md)<br />Up: USB 3.0 Type-A OTG<br />Down: USB 3.0 Type-A HOST |  2  | ㉔  | [UFS Module Interface](./hardware-use/emmc-ufs-connector.md)  |  1  |
+|  ⑤  |  [FPC Connector](./hardware-use/fpc-connector.md)   |  1  |  ⑮  |                                                  SPI NOR Flash                                                  |  1  | ㉕  |            [RTC Interface](./hardware-use/rtc.md)             |  1  |
+|  ⑥  |   [WiFi6 & Bluetooth 5.4](./hardware-use/ante.md)   |  1  |  ⑯  |                          [Gigabit Ethernet (PoE)](./hardware-use/gigabit-ethernet.md)                           |  1  | ㉖  | [eMMC Module Interface](./hardware-use/emmc-ufs-connector.md) |  1  |
+|  ⑦  |     [Antenna Connector](./hardware-use/ante.md)     |  1  |  ⑰  |                                     [Fan Connector](./hardware-use/fan.md)                                      |  1  | ㉗  |       [MIPI CSI Interface](./hardware-use/mipi-csi.md)        |  1  |
+|  ⑧  | [40 Pin GPIO Header](./hardware-use/40-pin-gpio.md) |  1  |  ⑱  |                                  [Headphone Jack](./hardware-use/headphone.md)                                  |  1  | ㉘  |        [MicroSD Card Slot](./hardware-use/microsd.md)         |  1  |
+|  ⑨  |                     LPDDR5 RAM                      |  1  |  ⑲  |                                [MIPI CSI Interface](./hardware-use/mipi-csi.md)                                 |  1  | ㉙  |       [MIPI DSI Interface](./hardware-use/mipi-dsi.md)        |  1  |
+|  ⑩  |   [PoE Port](./hardware-use/gigabit-ethernet.md)    |  1  |  ⑳  |                                              Speaker Reserved Pads                                              |  1  |     |                                                               |     |
 
-  cd Docker_Naspackage
-  sudo apt install ./*.deb
-  ```
+    </TabItem>
 
-- 安装新版Docker
-  ```bash
-  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-  ```
+</Tabs>
 
-### Docker 镜像目录迁移
+- User LED
 
-因为Docker 默认安装于根目录，此时拉取镜像会把镜像安装在/var/lib/docker里，很容易把根目录占满。
+Blinks when the system is booting normally.
 
-在这里将讲述如何们利用软链接的方法将 docker 文件夹软链接到大容量的硬盘下（强烈建议在安装docker后立即建立）
+- Power LED
 
-- 查看当前主机的磁盘空间
+Lights up when the system is powered on.
 
-  ```bash
-  df -h
-  ```
+- Power Button
 
-  ![store.webp](/img/general-tutorial/tpu_ai/store.webp)
+Short press to power on or access power menu; long press to power off.
 
-  此时发现 /data 目录下有充足的空间（如有更大的空间请使用更大空间的目录），此案例使用/data
+- LPDDR5 Memory
 
-- 利用**超级用户**将/var/lib/docker剪切到目标目录中(/data)
+Available in 2GB / 4GB / 8GB / 16GB capacities.
 
-  ```bash
-  sudo su
-  mv /var/lib/docker /data
-  ```
+- Rockchip RK3576(J)
 
-- 利用**超级用户**建立软链接
+Two SoC versions available: commercial-grade ROCK 4D with RK3576 and industrial-grade ROCK 4D with RK3576J.
 
-  ```bash
-  ln -s /data/docker /var/lib
-  ```
+## Application Scenarios
 
-  此时软链接就创建完成，输入命令 ls -l /vae/lib/docker 可以查看软链接的链接地址
+### Linux Beginners
 
-  ```bash
-  $ ls -l /var/lib/docker
-  lrwxrwxrwx 1 root root 16 Dec 20 17:42 /var/lib/docker -> /data/docker
-  ```
+As a Linux-based single-board computer, the ROCK 4D is perfect for learning Linux, as well as low-level and application development.
 
-### CasaOS 安装
+### Robotics Development
 
-- 安装 CasaOS 需要检查当前的 docker 版本，如版本低于24.0.7需要卸载并更新，BM1684X docker更新方法[可看这里](#Docker-更新方法)
+Serves as a main controller for robotics development, offering excellent performance and rich hardware interfaces for developing robotic applications.
 
-  ```bash
-  curl -fsSL https://get.casaos.io | sudo bash
-  ```
+### Embedded Development
 
-- 跟随安装引导安装
+Features extensive GPIO interfaces supporting UART, SPI, I2C, I2S, and other communication protocols, making it easy to drive various hardware components.
 
-  ![casaos_install.webp](/img/general-tutorial/tpu_ai/casaos_install.webp)
+### AI Development
 
-  如果根目录空间低于 5GB， 仍然能通过输入 1 进行强制安装
+Equipped with a powerful 6 TOPS NPU for AI inference and training.
 
-- 通过端口 bm1684:81 访问 CasaOS, 首次访问需要创建账户
-  ![casaos_1.webp](/img/general-tutorial/tpu_ai/casaos_1.webp)
+## System Platform
 
-### 安装 radxa 一键启动大模型 Apps
+The ROCK 4D, based on the RK3576 or RK3576J chipset, supports the ArmV8 instruction set and multiple operating systems.
 
-这里将介绍如何在 CasaOS 安装 radxa 大模型 App, CasaOS 中的第三方 App 以 docker image 的形式进行安装，
-上传到 CasaOS App store [可参考这里](https://github.com/IceWhaleTech/CasaOS-AppStore/tree/main)，
-radxa 目前已将 `Stable Diffusion`, `whisper`, `chatdoc`, `imagesearch` 四个大模型App上传至 [docker hub](https://hub.docker.com/u/radxazifeng278)，
-更多详细信息清参考 [App 构建方法](#App-构建方法)
-
-| App                                                               | Docker Image                             | Container port |
-| ----------------------------------------------------------------- | ---------------------------------------- | -------------- |
-| [Radxa Stable Diffusion](#安装-radxa-stable-diffusion-文生图-app) | radxazifeng278/radxa_sd_app:0.1.0        | 8999           |
-| [Radxa whisper](#安装-radxa-whisper-语音识别总结-app)             | radxazifeng278/radxa_whisper_app:0.1.0   | 7860           |
-| [Radxa ImageSearch](#安装-radxa-imagesearch-图片搜索-app)         | radxazifeng278/radxa_imgsearch_app:0.1.0 | 8501           |
-| [Radxa chatdoc](#安装-radxa-chatdoc-文档聊天-app)                 | radxazifeng278/radxa_chatdoc_app:0.1.0   | 8501           |
-
-#### 安装自定义软件
-
-- 点击 CasaOS App 栏的 "+" 标志，选择 Install a customized app
+- Debian Linux
+- Yocto Linux
+- Buildroot
+- Android 14
+- Click the `+` button in the CasaOS App section, then choose `Install a customized app`.
 
 ![casaos_2.webp](/img/general-tutorial/tpu_ai/casaos_2.webp)
 
-#### 安装 radxa stable diffusion 文生图 App
+#### Install Radxa Stable Diffusion (text-to-image) app
 
-- 填入 radxa stable diffusion 容器安装所需信息
+- Fill in the required information to install the Radxa Stable Diffusion container.
 
-  ##### 信息详解
+  ##### Field details
 
-  **Docker Image** 镜像名字，填入会自动在docker hub中拉取镜像
+  **Docker Image**: the image name. CasaOS will pull it from Docker Hub.
 
   ```bash
   radxazifeng278/radxa_sd_app:0.1.0
   ```
 
-  **Title** App 名字，用户自定义
+  **Title**: the app name (customizable).
 
-  _Icon URL_ App 图标（可选）
+  _Icon URL_: app icon (optional).
 
-  **Web UI 端口** 指定访问 App 时的默认访问端口, 建议用户可以在 7000-10000中选取，不可与其他 CasaOS 的 APP 端口冲突
+  **Web UI Port**: the default port for accessing the app. Choose a port in the `7000-10000` range and avoid conflicts with other CasaOS apps.
 
-  **Port** docker 容器端口映射，Host 端口为 Web UI 指定的端口， **容器端口为 8999**
+  **Port**: Docker port mapping. The host port is the Web UI Port; the **container port is 8999**.
 
   ```bash
   8999
   ```
 
-  **Devices** 设备挂载，将 TPU 挂载进 Docker 容器中，建议全部挂载 Host: **/dev**, Container: **/dev**
+  **Devices**: device mapping. Mount the TPU devices into the container. It is recommended to map all devices: Host: **/dev**, Container: **/dev**.
 
-  **Privileges** 开启取得最高权限
+  **Privileges**: enable privileged mode.
 
-  **Memory limit** 容器内存限制，建议拉满，否则可能无法启动服务
+  **Memory limit**: container memory limit. Set it high enough; otherwise the service may fail to start.
 
-  **CPU Shares** CPU 能力，建议 Medium
+  **CPU Shares**: CPU allocation. Medium is recommended.
 
   ![casaos_sd_0.1.0.webp](/img/general-tutorial/tpu_ai/casaos_sd_0.1.0.webp)
 
-- 整个安装方法如同以下 docker 命令创建容器，CasaOS 对其进行管理
+- Essentially, this is equivalent to running the following Docker command; CasaOS will manage the container for you:
   ```bash
   docker run -d -p 9001:8999 --privileged --device=/dev:/dev radxazifeng278/radxa_sd_app:0.1.0
   ```
 
-#### 安装 radxa whisper 语音识别总结 App
+#### Install Radxa Whisper (speech-to-text) app
 
-- 填入 radxa whisper 容器安装所需信息
+- Fill in the required information to install the Radxa Whisper container.
 
-  ##### 信息详解
+  ##### Field details
 
-  **Docker Image** 镜像名字，填入会自动在docker hub中拉取镜像
+  **Docker Image**: the image name. CasaOS will pull it from Docker Hub.
 
   ```bash
   radxazifeng278/radxa_whisper_app:0.1.0
   ```
 
-  **Title** App名字，用户自定义
+  **Title**: the app name (customizable).
 
-  _Icon URL_ App 图标(可选)
+  _Icon URL_: app icon (optional).
 
-  **Web UI 端口** 指定访问 App 时的默认访问端口, 建议用户可以在 7000-10000中选取，不可与其他 CasaOS 的 APP 端口冲突
+  **Web UI Port**: the default port for accessing the app. Choose a port in the `7000-10000` range and avoid conflicts with other CasaOS apps.
 
-  **Port** docker 容器端口映射，Host 端口为 Web UI 指定的端口， **容器端口为 7860**
+  **Port**: Docker port mapping. The host port is the Web UI Port; the **container port is 7860**.
 
   ```bash
   7860
   ```
 
-  **Devices** 设备挂载，将 TPU 挂载进 Docker 容器中，建议全部挂载 Host: **/dev**, Container: **/dev**
+  **Devices**: device mapping. Mount the TPU devices into the container. It is recommended to map all devices: Host: **/dev**, Container: **/dev**.
 
-  **Privileges** 开启取得最高权限
+  **Privileges**: enable privileged mode.
 
-  **Memory limit** 容器内存限制，建议拉满，否则可能无法启动服务
+  **Memory limit**: container memory limit. Set it high enough; otherwise the service may fail to start.
 
-  **CPU Shares** CPU 能力，建议 Medium
+  **CPU Shares**: CPU allocation. Medium is recommended.
 
   ![casaos_whisper_0.1.0.webp](/img/general-tutorial/tpu_ai/casaos_whisper_0.1.0.webp)
 
-- 整个安装方法如同以下 docker 命令创建容器，CasaOS 对其进行管理
+- Essentially, this is equivalent to running the following Docker command; CasaOS will manage the container for you:
 
   ```bash
   docker run -d -p 8004:7860 --privileged --device=/dev:/dev radxazifeng278/radxa_whisper_app:0.1.0
   ```
 
-#### 安装 radxa ImageSearch 图片搜索 App
+#### Install Radxa ImageSearch app
 
-- 填入 radxa ImageSearch 容器安装所需信息
+- Fill in the required information to install the Radxa ImageSearch container.
 
-  ##### 信息详解
+  ##### Field details
 
-  **Docker Image** 镜像名字，填入会自动在 docker hub 中拉取镜像
+  **Docker Image**: the image name. CasaOS will pull it from Docker Hub.
 
   ```bash
   radxazifeng278/radxa_imgsearch_app:0.1.0
   ```
 
-  **Title** App 名字，用户自定义
+  **Title**: the app name (customizable).
 
-  _Icon URL_ App 图标(可选)
+  _Icon URL_: app icon (optional).
 
-  **Web UI 端口** 指定访问 App 时的默认访问端口, 建议用户可以在 7000-10000 中选取，不可与其他 CasaOS 的 APP 端口冲突
+  **Web UI Port**: the default port for accessing the app. Choose a port in the `7000-10000` range and avoid conflicts with other CasaOS apps.
 
-  **Port** docker 容器端口映射，Host 端口为 Web UI 指定的端口， **容器端口为 8501**
+  **Port**: Docker port mapping. The host port is the Web UI Port; the **container port is 8501**.
 
   ```bash
   8501
   ```
 
-  **Devices** 设备挂载，将 TPU 挂载进 Docker 容器中，建议全部挂载 Host: **/dev**, Container: **/dev**
+  **Devices**: device mapping. Mount the TPU devices into the container. It is recommended to map all devices: Host: **/dev**, Container: **/dev**.
 
-  **Privileges** 开启取得最高权限
+  **Privileges**: enable privileged mode.
 
-  **Memory limit** 容器内存限制，建议拉满，否则可能无法启动服务
+  **Memory limit**: container memory limit. Set it high enough; otherwise the service may fail to start.
 
-  **CPU Shares** CPU 能力，建议 Medium
+  **CPU Shares**: CPU allocation. Medium is recommended.
 
   ![casaos_imagesearch_0.1.0.webp](/img/general-tutorial/tpu_ai/casaos_imagesearch_0.1.0.webp)
 
-- 整个安装方法如同以下 docker 命令创建容器，CasaOS 对其进行管理
+- Essentially, this is equivalent to running the following Docker command; CasaOS will manage the container for you:
 
   ```bash
   docker run -d -p 8007:8501 --privileged --device=/dev:/dev radxazifeng278/radxa_imgsearch_app:0.1.0
   ```
 
-#### 安装 radxa chatdoc 文档聊天 App
+#### Install Radxa ChatDoc app
 
-**安装 chatdoc 前必须参考[内存分布修改工具](../app-development/memory_allocate) 修改 1684X 内存分配**
+**Before installing ChatDoc, you must update the memory allocation for BM1684X. See: [Memory allocation tool](../app-development/memory_allocate).**
 
-建议分配 -NPU 7168, -VPU 2048, -VPP 3072
+Recommended allocation: `-NPU 7168`, `-VPU 2048`, `-VPP 3072`.
 
-- 填入 radxa chatdoc 容器安装所需信息
+- Fill in the required information to install the Radxa ChatDoc container.
 
-  ##### 信息详解
+  ##### Field details
 
-  **Docker Image** 镜像名字，填入会自动在 docker hub中拉取镜像
+  **Docker Image**: the image name. CasaOS will pull it from Docker Hub.
 
   ```bash
   radxazifeng278/radxa_chatdoc_app:0.1.0
   ```
 
-  **Title** App名字，用户自定义
+  **Title**: the app name (customizable).
 
-  _Icon URL_ App 图标(可选)
+  _Icon URL_: app icon (optional).
 
-  **Web UI 端口** 指定访问App时的默认访问端口, 建议用户可以在 7000-10000 中选取，不可与其他 CasaOS 的 APP 端口冲突
+  **Web UI Port**: the default port for accessing the app. Choose a port in the `7000-10000` range and avoid conflicts with other CasaOS apps.
 
-  **Port** docker 容器端口映射，Host 端口为 Web UI 指定的端口， **容器端口为 8501**
+  **Port**: Docker port mapping. The host port is the Web UI Port; the **container port is 8501**.
 
   ```bash
   8501
   ```
 
-  **Devices** 设备挂载，将 TPU 挂载进 Docker 容器中，建议全部挂载 Host: **/dev**, Container: **/dev**
+  **Devices**: device mapping. Mount the TPU devices into the container. It is recommended to map all devices: Host: **/dev**, Container: **/dev**.
 
-  **Privileges** 开启取得最高权限
+  **Privileges**: enable privileged mode.
 
-  **Memory limit** 容器内存限制，建议拉满，否则可能无法启动服务
+  **Memory limit**: container memory limit. Set it high enough; otherwise the service may fail to start.
 
-  **CPU Shares** CPU 能力，建议High
+  **CPU Shares**: CPU allocation. High is recommended.
 
   ![casaos_chatdoc_0.1.0.webp](/img/general-tutorial/tpu_ai/casaos_chatdoc_0.1.0.webp)
 
-- 整个安装方法如同以下 docker 命令创建容器，CasaOS 对其进行管理
+- Essentially, this is equivalent to running the following Docker command; CasaOS will manage the container for you:
 
   ```bash
   docker run -d -p 8009:8501 --privileged --device=/dev:/dev radxazifeng278/radxa_chatdoc_app:0.1.0
   ```
 
-### App 启动与卸载
+### Start and uninstall apps
 
-CasaOS 中 App 开启状态为 App 图标颜色高亮，关闭状态为 App 图标灰色状态
+In CasaOS, an app is running when its icon is highlighted. When it is stopped, the icon appears grey.
 
-启动 App 单击图标即可，也可以在选中 App 右上角图标更多功能选项中启动
+To start an app, click the app icon. You can also use the menu in the top-right corner of the selected app.
 
-卸载 App 单击 Uninstall 即可
+To uninstall an app, click `Uninstall`.
 
 ![casaos_3.webp](/img/general-tutorial/tpu_ai/casaos_3.webp)
 
-### App 构建方法
+### How to build an app
 
-在参考Apo构建方法前可先参考 [手动部署应用 ](sd-lcm)文档熟悉整个应用部署流程过程与细节。
+Before following this build guide, you may want to read [Manual app deployment](sd-lcm) to understand the full deployment workflow and details.
 
-CasaOS 的第三方应用利用 docker image 创建容器并安装到 CasaOS 中，CasaOS 可对容器配置进行设置与管理, 在此之前我们需要准备我们的 Docker image 且 Dockerfile, 这里将以 radxa stable diffusion 为例子详细讲述大模型 App 的 docker image 的构建过程。
+CasaOS third-party apps are installed as containers created from Docker images. CasaOS can configure and manage container settings. To build an app image, you need a Docker image and a Dockerfile. This section uses Radxa Stable Diffusion as an example to explain how to build an AI app image.
 
-radxa 大模型 App image 是以 ubuntu20.04 为基础进行四层 layer 的方式进行拆分构建，每层的构建都是基于上一层，分别是 ubuntu20.04 层， SDK base 层，App env 运行所需环境层，与顶层 App code + model 源码和模型层。
+Radxa app images are built by splitting into four layers based on Ubuntu 20.04. Each layer builds on the previous one:
+
+1. Ubuntu 20.04 base layer
+2. SDK base layer
+3. App environment layer (runtime dependencies)
+4. App source code + model layer
 
 ![casaos_docker_1.webp](/img/general-tutorial/tpu_ai/casaos_docker_1.webp)
 
-#### SDK base 层
+#### SDK base layer
 
-在SDK base 中安装了必备的工具： libncurses5, libatomic1, kmod, python3, python3-pip, vim
+The SDK base layer installs essential tools such as: `libncurses5`, `libatomic1`, `kmod`, `python3`, `python3-pip`, and `vim`.
 
-并安装了 sophon SDK: libsophon-0.5.0, sophon-ffmpeg_0.7.1, sophon-opencv_0.7.1 这三个 deb 与 sophon-sail 和 tpu-perf 模块
+It also installs the Sophon SDK packages (`libsophon-0.5.0`, `sophon-ffmpeg_0.7.1`, `sophon-opencv_0.7.1`) along with `sophon-sail` and `tpu-perf`.
 
 **_Dockerfile_**
 
@@ -346,11 +365,13 @@ RUN apt update && \
     pip3 install ./tpu_perf-1.2.31-py3-none-manylinux2014_aarch64.whl
 ```
 
-#### App env 层
+#### App environment layer
 
-App env 层基于 SDK base 镜像基础上添加 App 运行必须的环境，例如 python modules, 和一些特殊需要安装的 deb,
-拆分此层的目的是后续 App 源码更新在环境不变的情况下减少安装速度，并且可通过 App env + SDK base 镜像外部挂载 App 源码和模型卷可直接启动服务，
-可在此层加入 CMD 默认启动 App 服务
+The app environment layer is based on the SDK base image and adds runtime dependencies required by the app, such as Python modules and additional `.deb` packages.
+
+Separating this layer helps speed up iterations when only the app code changes. You can also mount the app code and model volumes into a container built from the SDK base + app environment images.
+
+You can set a default `CMD` here to start the service.
 
 ![casaos_docker_2.webp](/img/general-tutorial/tpu_ai/casaos_docker_2.webp)
 
@@ -372,9 +393,9 @@ WORKDIR /StableDiffusion_v2-TPU
 CMD ["bash", "run.sh"]
 ```
 
-- ### App source code with model 层
+- ### App source code + model layer
 
-  App source code with model 层将基于上一 App env 镜像中放入源码与模型从而构建成一个完整的 App，并且加入 App 启动命令 CMD
+  This layer copies the app source code and model into the image based on the app environment image, producing a complete runnable app image, and defines the startup `CMD`.
 
   ![casaos_docker_3.webp](/img/general-tutorial/tpu_ai/casaos_docker_3.webp)
 
@@ -392,4 +413,4 @@ CMD ["bash", "run.sh"]
   CMD ["bash", "run.sh"]
   ```
 
-当得到完整的 App 镜像后可参考 [安装 radxa 一键启动大模型 Apps](#安装-radxa-一键启动大模型-Apps) 对自定义 App 在 CasaOS 中进行安装
+After you have built the complete app image, you can install it in CasaOS by following [Install Radxa one-click LLM apps](#install-radxa-one-click-llm-apps).

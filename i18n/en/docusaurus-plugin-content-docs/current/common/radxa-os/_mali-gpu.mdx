@@ -95,7 +95,7 @@ Enable Arm Mali GPU driver`Overlay by referring to [Overlay Enablement Tutorial]
 
 ## Modify Module Blacklist
 
-编辑 `/etc/modprobe.d/panfrost.conf` 文件：
+Edit the `/etc/modprobe.d/panfrost.conf` file:
 
 ```bash
 # settings for panfrost
@@ -111,7 +111,7 @@ blacklist       panfrost
 #blacklist   midgard_kbase
 ```
 
-## Turn off Zink support
+## Turn off Zinc support
 
 ```bash
 echo "LIBGL_KOPPER_DISABLE=true" | sudo tee -a /etc/environment

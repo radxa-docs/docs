@@ -1,9 +1,8 @@
 ---
 sidebar_position: 11
-sidebar_label: ROCK 4D
 ---
 
-# ROCK 4D - Industrial-Grade AI Single Board Computer
+# ROCK 4D
 
 ## Product Overview
 

@@ -1,9 +1,8 @@
 ---
 sidebar_position: 50
-sidebar_label: E54C
 ---
 
-# Radxa E54C - High-Performance AI Edge Network Computing Device
+# Radxa E54C
 
 ## Product Overview
 
