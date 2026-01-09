@@ -12,7 +12,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 <img src="/img/e/e20c/radxa-e20c-machine.webp" width="500" alt="radxa-e20c pack" />
 
-要启动 Radxa E20C，您需要以下设备：
+要启动瑞莎 E20C，您需要以下设备：
 
 - 一个 5V/2A 的电源头（E20C 只支持 5V 输入，可以使用支持 5V 的 PD 电源头）更多过供电详情，请参考[电源方案](./power-supply)。
 - 两根 USB TYPE-A 转 TYPE-C 数据线，供电及查看日志输出和访问系统。
@@ -53,11 +53,11 @@ import { Section, Image } from "@site/src/utils/docs";
 
 ### 串口登录
 
-1.将 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接 Radxa E20C 调试口，波特率设置为1500000
+1.将 USB Type-A 转 Type-C 数据线的 Type-A 口接电脑，Type-C 口接瑞莎 E20C 调试口，波特率设置为1500000
 
 <img src="/img/e/e20c/radxa-e20c-serial-login1.webp" width="500" alt="radxa-e20c pack" />
 
-2.将电源适配器插入 Radxa E20C 的电源接口。设备上电启动，系统状态灯将亮起。
+2.将电源适配器插入瑞莎 E20C 的电源接口。设备上电启动，系统状态灯将亮起。
 
 <img src="/img/e/e20c/radxa-e20c-serial-login2.webp" width="500" alt="radxa-e20c pack" />
 
@@ -65,26 +65,26 @@ import { Section, Image } from "@site/src/utils/docs";
 
 <img src="/img/e/e20c/radxa-e20c-power1.webp" width="500" alt="radxa-e20c pack" />
 
-4.如果是 windows 系统，确保电脑已安装 CH340 驱动
-
-将 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接 Radxa E20C 调试口，在电脑的设备管理器查看是否已经有 CH340 驱动
-
-<img src="/img/e/e20c/radxa-e20c-ch340-install.webp" width="500" alt="radxa-e20c pack" />
-
-能看到上图中的 USB-SERIAL CH340 表示已有驱动，如果没有，请安装 [CH340驱动](https://www.wch.cn/download/CH341SER_EXE.html)
-
-5.使用串口工具
+4.使用串口工具
 
 <Tabs queryString="os">
 <TabItem value="windows" label="Windows" default>
-
-### Windows
 
 Putty 是一个可以在 Windows 上使用，支持多种波特率的串口工具。下面介绍如何使用 Putty 连接串口。
 
 1. 下载 [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) 并安装。
 
-2. 将 USB 转 TTL 串口线的 USB 一端插到 PC，查看**设备管理器**，以找到 COM 编号。这里假设是 COM3。
+2. 使用 USB TYPE-A 转 TYPE-C 数据线的 TYPE-A 口接电脑，TYPE-C 口接瑞莎 E20C 调试口，查看电脑**设备管理器**界面，以找到 COM 口编号。这里假设是 COM4。
+
+<img src="/img/e/e20c/radxa-e20c-ch340-install.webp" width="500" alt="radxa-e20c pack" />
+
+:::tip 驱动安装
+
+如果无法正常识别串口设备，确保电脑已安装 CH340 驱动
+
+如果没有安装驱动，请安装 [CH340驱动](https://www.wch.cn/downloads/CH341SER_EXE.html)
+
+:::
 
 3. 打开 Putty，并按如下方式进行设置：
 
@@ -102,8 +102,6 @@ Putty 是一个可以在 Windows 上使用，支持多种波特率的串口工�
 </TabItem>
 
 <TabItem value="linux" label="Linux">
-
-### Linux
 
 Minicom 是一个可以在 Linux 上使用，支持多种波特率的串口工具。下面介绍如何使用 Minicom 连接串口。
 
@@ -182,8 +180,6 @@ minicom 1500000-usb0
 </TabItem>
 
 <TabItem value="mac" label="Mac" >
-
-### Mac
 
 Picocom 是一个可以在 Mac 上使用，支持多种波特率的串口工具。下面介绍如何使用 Picocom 连接串口。
 
