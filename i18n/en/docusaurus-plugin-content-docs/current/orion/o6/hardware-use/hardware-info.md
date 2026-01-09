@@ -335,4 +335,4 @@ Onboard dual MIPI CSI 4-lane interfaces for connecting camera modules.
 
 Onboard RTC battery holder for CR1220 coin cell battery, providing continuous clock signal and power management functionality.
 
-Note: Removing the RTC battery will not clear BIOS settings.
+Note: Removing the RTC battery will not immediately clear the BIOS settings; however, if there is no battery and the system is fully powered off and then powered on again, the firmware may detect an RTC power loss and automatically restore the BIOS default values.
