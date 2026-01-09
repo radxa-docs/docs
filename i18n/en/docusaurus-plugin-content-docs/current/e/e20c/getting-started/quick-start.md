@@ -10,6 +10,8 @@ import { Section, Image } from "@site/src/utils/docs";
 
 <img src="/img/e/e20c/radxa-e20c-machine.webp" width="500" alt="radxa-e20c pack" />
 
+E20C is available in several configurations, including with enclosure, bare board, with on-board EMMC, and without EMMC. Please confirm your specific product model before operation.
+
 To start the Radxa E20C, you need the following equipment:
 
 - 1x 5V/2A power adapter (E20C can only be powered by 5V, you can use a PD power supply that supports 5V), For more details on power supply, please refer to [power-supply](./power-supply).
@@ -83,7 +85,7 @@ Putty is a serial port tool that can be used on Windows and supports multiple ba
 
 1. Download [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it. 2.
 
-2. Plug the USB end of the USB to TTL serial cable into the PC and check the **Device Manager** to find the COM number. Here we assume it is COM3.
+2. Connect the USB-A end of the USB TYPE-A to TYPE-C cable to the PC and the USB-C end to the E20C debug port, then check **Device Manager** to find the COM port number. Here we assume it is COM3.
 
 3. Open Putty and set it up as follows:
 
@@ -186,17 +188,29 @@ minicom 1500000-usb0
 
 Picocom is a serial port utility that can be used on a Mac and supports multiple baud rates. Here is how to use Picocom to connect to a serial port.
 
-1. Install picocom
+1. Install picocom:
 
 ```bash
 % brew install --build-from-source radxa/picocom/picocom
 ```
 
-2. Start picocom
+2. Connect the cable and find the serial device:
+
+Connect the USB-A end of the cable to the PC and the USB-C end to the E20C debug port, then list serial devices:
 
 ```bash
-% picocom -b 1500000 -d 8 /dev/tty.usbserial-2130
+ls /dev/tty.usb*
 ```
+
+Typically the device name is similar to `tty.usbserial-2130`. Please adjust the actual device name as needed.
+
+3. Start picocom:
+
+```bash
+% sudo picocom -b 1500000 -d 8 /dev/tty.usbserial-2130
+```
+
+The specific serial device may be different. Please modify it according to your actual device.
 
 </TabItem>
 </Tabs>
@@ -215,9 +229,11 @@ Picocom is a serial port utility that can be used on a Mac and supports multiple
 
 <img src="/img/e/e20c/radxa-e20c-power2.webp" width="500" alt="radxa-e20c pack" />
 
-4. Use Angryip to find IP
+4. Find the IP address
 
-This method can be used to find IP address when you can't directly operate the motherboard to get no screen or remote IP address.
+The default iStoreOS IP address is 192.168.100.1.
+
+If this has been changed, you can use AngryIP to scan and find the device IP.
 
 - First of all, the host needs to download [Angryip](https://angryip.org/download/), and then make sure the host and motherboard are in the same LAN.
 

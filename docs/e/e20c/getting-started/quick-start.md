@@ -84,7 +84,7 @@ Putty 是一个可以在 Windows 上使用，支持多种波特率的串口工�
 
 1. 下载 [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) 并安装。
 
-2. 将 USB 转 TTL 串口线的 USB 一端插到 PC，查看**设备管理器**，以找到 COM 编号。这里假设是 COM3。
+2. 将数据线 USB-A 一端插到 PC，USB-C 插到设备调试口，查看**设备管理器**，以找到 COM 编号。这里假设是 COM3。
 
 3. 打开 Putty，并按如下方式进行设置：
 
@@ -107,7 +107,7 @@ Putty 是一个可以在 Windows 上使用，支持多种波特率的串口工�
 
 Minicom 是一个可以在 Linux 上使用，支持多种波特率的串口工具。下面介绍如何使用 Minicom 连接串口。
 
-1. 将串口 USB 端插入主机 PC 后，请先找到串口设备：
+1. 将数据线 USB-A 一端插到主机 PC，USB-C 一端插到设备调试口后，请先找到串口设备：
 
 在终端输入 `dmesg | tail` 会得到类似下面的打印：
 
@@ -193,11 +193,22 @@ Picocom 是一个可以在 Mac 上使用，支持多种波特率的串口工具�
 % brew install --build-from-source radxa/picocom/picocom
 ```
 
-2. 开启 picocom
+2. 链接设备
+   将数据线 USB-A 一端插到 PC，USB-C 插到设备调试口，查看**系统信息**，以找到串口设备。
+
+```
+ls /dev/tty.usb*
+```
+
+一般为：`tty.usbserial-2130` 或者其他类似名称，请根据实际情况修改。
+
+3. 开启 picocom
 
 ```bash
-% picocom -b 1500000 -d 8 /dev/tty.usbserial-2130
+% sudo picocom -b 1500000 -d 8 /dev/tty.usbserial-2130
 ```
+
+具体串口设备可能不同，请根据实际情况修改。
 
 </TabItem>
 </Tabs>
