@@ -1,0 +1,150 @@
+## fcitx 使用说明
+
+主要介绍如何在 Radxa OS（Debian 系）上安装与使用输入法框架 Fcitx5，并配置中文输入。
+
+本文要求安装以下软件包：
+
+- `fcitx5`
+- `fcitx5-chinese-addons`
+- `fcitx5-config-qt`
+
+## 安装 Fcitx5
+
+在桌面环境下通过终端安装：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install -y fcitx5 fcitx5-chinese-addons fcitx5-config-qt
+```
+
+</NewCodeBlock>
+
+## 启用输入法（让应用程序使用 Fcitx5）
+
+多数桌面环境需要在“会话级别”选择输入法框架，通常需要退出登录后重新登录（或重启）才能完全生效。
+
+### 方式一：使用 im-config（推荐）
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+im-config
+```
+
+</NewCodeBlock>
+
+在弹出的界面中选择 `fcitx5` 并确认。然后：
+
+- 退出当前桌面会话并重新登录
+- 或者直接重启系统
+
+### 方式二：设置环境变量（排查/高级用法）
+
+如果你遇到“Fcitx5 已启动但某些应用无法输入”的情况，可以检查以下环境变量是否生效：
+
+```
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+```
+
+:::tip
+不同桌面环境的环境变量加载位置可能不同（例如 `~/.profile`、`~/.xprofile`、桌面会话设置等）。
+修改后通常需要重新登录。
+:::
+
+## 配置中文输入（fcitx5-chinese-addons）
+
+安装 `fcitx5-chinese-addons` 后，你将获得常用的中文输入引擎（例如拼音）。
+
+### 打开配置工具（fcitx5-config-qt）
+
+你可以通过应用菜单启动 `Fcitx 5 Configuration`，或在终端启动：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+fcitx5-config-qt
+```
+
+</NewCodeBlock>
+
+### 添加中文输入法
+
+1. 打开 `Fcitx 5 Configuration`
+2. 在 `Input Method` 页面点击 `Add`
+3. 搜索并添加 `Pinyin`（或你需要的其他中文输入引擎）
+4. 通过上下移动调整输入法顺序
+
+## 启动/重启 Fcitx5
+
+如果 Fcitx5 没有自动启动，或需要重启以应用配置：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+fcitx5 -rd
+```
+
+</NewCodeBlock>
+
+其中：
+
+- `-r`：如果已有实例则替换
+- `-d`：后台运行
+
+## 常见问题排查
+
+### 输入法已安装但无法切换/无候选框
+
+1. 确认 Fcitx5 进程是否存在：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+ps -ef | grep -E "fcitx5($|\\s)" | grep -v grep
+```
+
+</NewCodeBlock>
+
+2. 运行诊断工具（输出会提示缺失的组件/环境变量问题）：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+fcitx5-diagnose
+```
+
+</NewCodeBlock>
+
+3. 通过 `im-config` 选择 `fcitx5` 并重新登录
+
+### 只在某些应用里无法输入
+
+这通常与环境变量或前端模块有关：
+
+- 检查 `GTK_IM_MODULE` / `QT_IM_MODULE` / `XMODIFIERS`
+- 重新登录后再测试
+- wayland 环境下 electron 应用可能需要添加 flags 启动，具体应用可能不同 请自行搜索 应用名 + wayland 以获取更多信息
+
+:::tip
+
+一般情况下 electron 应用添加 flags 是在`~/.config/` 目录下创建 `<应用名>-flags.conf` 文件，内容为：
+
+```
+--enable-features=UseOzonePlatform --ozone-platform=auto --enable-wayland-ime --wayland-text-input-version=3
+```
+
+仅作为参考，具体应用可能不同，请自行搜索以获取更多信息
+:::
+
+### Wayland 与 X11
+
+不同桌面环境在 Wayland 下的输入法支持路径可能不同。
+
+如果你在 Wayland 会话下遇到问题，可以尝试：
+
+1. 先在 X11 会话下验证（登录界面通常可以选择会话类型）
+2. 确保你使用的是系统推荐的桌面与输入法组合
