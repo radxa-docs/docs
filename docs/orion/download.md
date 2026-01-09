@@ -93,8 +93,8 @@ Radxa OS 的默认凭据如下：
 #### 瑞莎星睿 O6
         | 类型     | 版本 / 描述                      | 下载链接                                                                                                                                                                                                                             | 备注                           |
         | :------- | :------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- |
-        | BIOS     | Android BIOS 0.0.1 版本          | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/orion-o6-bios-android-0.0.1.zip)                                                                                       | 用于 Android 系统的 BIOS 固件 |
-        | 系统镜像 | Android 14 RC2 20250903 系统镜像 | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/Radxa_Orion_O6_Android14_RC2_20250903_images.zip)                                                                     | Android 14 RC2 系统镜像        |
+        | BIOS     | Android BIOS 1.0.0 版本          | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc3.4-20251127/O6-BIOS-V1.0.0.zip)                                                                                       | 用于 Android 系统的 BIOS 固件 |
+        | 系统镜像 | Android 14 RC3.4 20251127 系统镜像 | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc3.4-20251127/Radxa-orion-android14-r3.4-20251127-gpt.zip)                                                                     | Android 14 RC3.4 系统镜像        |
     </TabItem>
     <TabItem value="星睿 O6N">
 #### 瑞莎星睿 O6N

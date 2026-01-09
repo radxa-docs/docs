@@ -93,8 +93,8 @@ Radxa Orion O6 and O6N provide different BIOS firmware and Android system images
 #### Radxa Orion O6
         | Type     | Version / Description                | Download Link                                                                                                                                                                                                                             | Remarks                        |
         | :------- | :----------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- |
-        | BIOS     | Android BIOS 0.0.1 Version          | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/orion-o6-bios-android-0.0.1.zip)                                                                                       | BIOS Firmware for Android OS   |
-        | System Image | Android 14 RC2 20250903 | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc2-20250903/Radxa_Orion_O6_Android14_RC2_20250903_images.zip)                                                                     | Android 14 RC2 System Image    |
+        | BIOS     | Android BIOS 1.0.0 Version          | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc3.4-20251127/O6-BIOS-V1.0.0.zip)                                                                                       | BIOS Firmware for Android OS   |
+        | System Image | Android 14 RC3.4 20251127 | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc3.4-20251127/Radxa-orion-android14-r3.4-20251127-gpt.zip)                                                                     | Android 14 RC3.4 System Image    |
     </TabItem>
     <TabItem value="Orion O6N">
 #### Radxa Orion O6N
