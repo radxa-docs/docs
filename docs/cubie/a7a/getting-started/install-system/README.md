@@ -20,7 +20,7 @@ MicroSD 卡、UFS 模块和 eMMC 模块特性：
 
 读写速度相比于 MicroSD 卡要快，适合小容量存储（8GB ~ 128GB），具体参数可以参考 [瑞莎 eMMC 模块](https://radxa.com/products/accessories/emmc-module) 产品。
 
-#### [安装系统到 MicroSD 卡](/cubie/a7a/getting-started/install-system/sd_system)
+#### [安装系统到 MicroSD 卡](/cubie/a7a/getting-started/install-system/sd-system)
 
 主要介绍 Cubie A7A 使用 MicroSD 卡安装系统的方法。
 

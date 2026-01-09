@@ -50,7 +50,7 @@ Cubie A7A 主板兼容 PD 协议的 5V 电源输入，建议电流 3A 以上，�
 
 您可以根据自己的系统启动介质和拥有的硬件设备，参考下面教程进行系统安装：
 
-- [安装系统到 MicroSD 卡](./install-system/sd_system)
+- [安装系统到 MicroSD 卡](./install-system/sd-system)
 
 :::tip 安装系统到其它启动介质
 目前支持 MicroSD 卡、eMMC 模块、UFS 模块启动系统。
@@ -126,7 +126,7 @@ NVMe SSD：目前正常识别，可作为拓展存储空间，无法作为启动
 
 ## 登录系统
 
-主要介绍 Cubie A7A 搭配 USB 串口数据线登录系统，串口登录系统可以参考 [串口调试](../system-config/uart_debug) 教程。
+主要介绍 Cubie A7A 搭配 USB 串口数据线登录系统，串口登录系统可以参考 [串口调试](../system-config/uart-debug) 教程。
 
 :::tip
 Cubie A7A 搭配显示器使用，整体操作比较直观和简单，这里便不再介绍！
@@ -150,14 +150,14 @@ Cubie A7A 搭配显示器使用，整体操作比较直观和简单，这里便�
 
 > **串口登录**
 
-您可以根据 [串口调试](../system-config/uart_debug) 教程进行串口登录系统，获取路由器给 Cubie A7A 分配的 IP 地址，然后通过 SSH 远程登录系统。
+您可以根据 [串口调试](../system-config/uart-debug) 教程进行串口登录系统，获取路由器给 Cubie A7A 分配的 IP 地址，然后通过 SSH 远程登录系统。
 
 注意：若您可以直接登录路由器后台查看 Cubie A7A 的 IP 地址，您可以跳过串口登录的步骤，直接根据分配的 IP 地址，进行 SSH 远程登录系统。
 
 > **SSH 远程**
 
-您可以根据 [SSH 远程](../system-config/ssh_remote) 教程完成 SSH 远程登录 Cubie A7A 的命令行界面。
+您可以根据 [SSH 远程](../system-config/ssh-remote) 教程完成 SSH 远程登录 Cubie A7A 的命令行界面。
 
 > **VNC 远程**
 
-您可以根据 [VNC 远程](../system-config/vnc_remote) 教程完成 VNC 远程登录 Cubie A7A 的图形化界面。
+您可以根据 [VNC 远程](../system-config/vnc-remote) 教程完成 VNC 远程登录 Cubie A7A 的图形化界面。

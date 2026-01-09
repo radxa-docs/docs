@@ -1,12 +1,12 @@
 ---
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 # 安装系统
 
 介绍如何使用 Phoenix 工具给 Cubie A7A 安装系统。
 
-#### [安装系统到 MicroSD 卡](/cubie/a7a/low-level-dev/install-system/sd_system)
+#### [安装系统到 MicroSD 卡](/cubie/a7a/low-level-dev/install-system/sd-system)
 
 使用 PhoenixCard 工具安装系统到 MicroSD 卡。
 
