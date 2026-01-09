@@ -1,0 +1,116 @@
+## Overview
+
+You need to access the CIX Developer Center to obtain the latest CIX AI development toolkit: NOE SDK (NeuralONE AI SDK).
+
+NOE SDK leverages NPU heterogeneous hardware acceleration to help developers efficiently build and deploy energy-efficient edge AI inference applications.
+
+:::tip CIX Developer Center
+
+The CIX Developer Center provides resources such as SDKs, chip manuals, and development documentation.
+
+:::
+
+## Get the SDK
+
+Register and sign in to the [CIX Developer Center](https://developer.cixtech.com/). Scroll to the Software SDK section and click `Learn more` for NeuralONE AI SDK. The SDK will be downloaded automatically.
+
+Extract the SDK:
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+tar -zxvf cix_noe_sdk_xxx_release.tar.gz
+```
+
+</NewCodeBlock>
+
+Extracted directory structure:
+
+```bash
+.
+├── CixBuilder-6.1.3407.2-cp310-none-linux_x86_64.whl
+├── cix-noe-umd_2.0.2_arm64.deb
+├── cix-npu-driver_2.0.1_arm64.deb
+├── env_setup.sh
+├── npu_sdk_last_manifest_list.xml
+└── requirements.txt
+```
+
+## Set up the host environment
+
+### Create a virtual environment
+
+It is recommended to use [miniconda](https://www.anaconda.com/docs/getting-started/miniconda/main) to manage virtual environments.
+
+:::warning[Python version]
+The SDK is only compatible with Python 3.10.
+:::
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+conda create -n noe python=3.10
+conda activate noe
+```
+
+</NewCodeBlock>
+
+### Use the script to set up the development environment
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+bash env_setup.sh
+```
+
+</NewCodeBlock>
+
+### Verify the build environment
+
+Run `cixbuild -v` in the terminal to check the build environment version.
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild -v
+```
+
+</NewCodeBlock>
+
+## Set up the environment on the device
+
+### Install the NPU driver
+
+:::tip[NPU driver]
+The official OS image for Radxa Orion O6 / O6N already includes the NPU driver, so you do not need to install it again.
+:::
+
+Copy the NPU driver package to the device and run the following command to install it.
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+sudo dpkg -i ./cix-npu-driver_xxx_arm64.deb
+```
+
+</NewCodeBlock>
+
+### Install NPU UMD
+
+:::info[UMD]
+UMD stands for User Mode Driver.
+
+UMD provides standard APIs as a shared library. It parses application requests and coordinates with the NPU driver for resource allocation and task submission.
+
+For detailed API usage, refer to [**API manual**](../../../../orion/o6/app-development/artificial-intelligence/API-manual.md).
+:::
+
+Copy the UMD package to the device and run the following command to install it.
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+sudo dpkg -i ./cix-noe-umd_xxx_arm64.deb
+```
+
+</NewCodeBlock>

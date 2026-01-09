@@ -1,0 +1,150 @@
+**DeepLabV3** is a classic semantic segmentation model proposed by Google. By extensively exploring atrous convolution, it enlarges the receptive field without increasing the parameter count, effectively addressing the loss of spatial information when segmenting multi-scale objects in deep neural networks.
+
+- Key features: Excellent at capturing complex and fine-grained edges in images, with strong multi-scale perception. It enables pixel-level accurate class assignment and is widely used in medical imaging analysis, autonomous-driving perception, and satellite image processing.
+- Version notes: This example uses the DeepLabV3 architecture. As a benchmark model in semantic segmentation, it improves recognition accuracy for objects of different sizes using an enhanced ASPP module and global average pooling. While maintaining deep feature extraction, it reconstructs spatial structures through a well-designed architecture, making it a mature and well-balanced choice for industrial use.
+
+:::info[Environment setup]
+You need to set up the environment in advance.
+
+- [Environment setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick start
+
+### Download model files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/deeplab_v3.cix
+```
+
+</NewCodeBlock>
+
+### Test the model
+
+:::info
+Activate the virtual environment before running.
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Full conversion workflow
+
+### Download model files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Semantic_Segmentation/onnx_deeplab_v3/model/deeplabv3_resnet50.onnx
+```
+
+</NewCodeBlock>
+
+### Project structure
+
+```txt
+├── cfg
+├── datasets
+├── deeplab_v3.cix
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── test_data
+└── Tutorials.ipynb
+```
+
+### Quantize and convert the model
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/onnx_deeplab_v3_build.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Copy to device]
+After conversion, copy the `.cix` model files to the device.
+:::
+
+### Test inference on the host
+
+#### Run the inference script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py --image_path test_data --onnx_path model/deeplabv3_resnet50.onnx
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py --image_path test_data --onnx_path model/deeplabv3_resnet50.onnx
+save output: onnx_ILSVRC2012_val_00004704.JPEG
+```
+
+</NewCodeBlock>
+
+<div>
+
+{" "}
+
+<img src="/en/img/orion/o6/ai-models/deeplab1.webp" />
+
+</div>
+
+### Deploy on NPU
+
+#### Run the inference script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py --image_path test_data --model_path deeplab_v3.cix
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py --image_path test_data --model_path deeplab_v3.cix
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+save output: npu_ILSVRC2012_val_00004704.JPEG
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div>
+
+{" "}
+
+<img src="/en/img/orion/o6/ai-models/deeplab2.webp" />
+
+</div>

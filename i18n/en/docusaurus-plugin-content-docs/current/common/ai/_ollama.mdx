@@ -1,27 +1,27 @@
-Ollama is a tool for running and managing large language models (LLMs) locally.
-It allows you to easily pull, run, and manage various AI models such as LLaMA, Mistral, and Gemma on your local device without complex environment configurations.
+Ollama is an efficient tool for managing and running local large language models (LLMs).
+It greatly simplifies AI model deployment. With minimal environment setup, you can pull, run, and manage models on your local device.
 
-## Ollama Installation
+## Install Ollama
 
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
-For local build methods, please refer to the [official documentation](https://github.com/ollama/ollama/blob/main/docs/development.md).
+For building from source locally, refer to the [official documentation](https://github.com/ollama/ollama/blob/main/docs/development.md).
 
 ## Usage
 
-### Pull a Model
+### Pull a model
 
-This command downloads the model files from the internet.
+This command downloads the model files from the Internet.
 
 ```bash
 ollama pull deepseek-r1:1.5b
 ```
 
-### Run a Model
+### Run a model
 
-This command runs the model directly. If the model is not cached locally, it will be downloaded automatically before running.
+This command starts the model. If it is not cached locally, Ollama will download it automatically and then run it.
 
 ```bash
 ollama run deepseek-r1:1.5b
@@ -33,19 +33,19 @@ ollama run deepseek-r1:1.5b
 ollama show deepseek-r1:1.5b
 ```
 
-### List models on your computer
+### List downloaded models
 
 ```bash
 ollama list
 ```
 
-### List which models are currently loaded
+### List loaded models
 
 ```bash
 ollama ps
 ```
 
-### Stop a model which is currently running
+### Stop a running model
 
 ```bash
 ollama stop deepseek-r1:1.5b
@@ -57,6 +57,6 @@ ollama stop deepseek-r1:1.5b
 ollama rm deepseek-r1:1.5b
 ```
 
-## Reference Information
+## References
 
-For more detailed information about Ollama, please refer to the [official documentation](https://github.com/ollama/ollama).
+For more details about Ollama, refer to the [official documentation](https://github.com/ollama/ollama).

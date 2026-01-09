@@ -1,0 +1,228 @@
+**CLIP** is a general-purpose multimodal pre-trained model developed by OpenAI. By performing contrastive learning on hundreds of millions of image-text pairs collected from the Internet, it breaks away from the limitations of traditional vision models that rely on manually labeled categories, enabling AI to “understand” the visual world directly through natural language.
+
+- Key features: Strong cross-modal alignment and zero-shot transfer capability. It can recognize object categories it has never seen without task-specific fine-tuning. It is widely used for semantic image-text retrieval, automatic prompt generation, and as the core text encoder for generative AI such as Stable Diffusion.
+- Version notes: This example uses the CLIP-ViT-B/32 model. As a baseline that balances performance and deployment efficiency, it uses a Vision Transformer (ViT) as the visual backbone and processes image features with 32x32 patches. While maintaining strong semantic alignment accuracy, it has a smaller parameter size and faster inference, making it a common balanced choice for real-world multimodal applications.
+
+:::info[Environment setup]
+You need to set up the environment in advance.
+
+- [Environment setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick start
+
+### Download model files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/Generative_AI/Image_to_Text/onnx_clip
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Image_to_Text/onnx_clip/clip_txt.cix
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Image_to_Text/onnx_clip/clip_visual.cix
+```
+
+</NewCodeBlock>
+
+### Test the model
+
+:::info
+Activate the virtual environment before running.
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Full conversion workflow
+
+### Download model files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/Generative_AI/Image_to_Text/onnx_clip/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Image_to_Text/onnx_clip/model/clip_text_model_vitb32.onnx
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Image_to_Text/onnx_clip/model/clip_visual.onnx
+```
+
+</NewCodeBlock>
+
+### Project structure
+
+```txt
+├── cfg
+├── clip_visual.cix
+├── clip_txt.cix
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+└── test_data
+```
+
+### Quantize and convert the model
+
+#### Convert the image module
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/clip_visualbuild.cfg
+```
+
+</NewCodeBlock>
+
+#### Convert the text module
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/clip_text_model_vitb32build.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Copy to device]
+After conversion, copy the `.cix` model files to the device.
+:::
+
+### Test inference on the host
+
+#### Run the inference script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py
+[[0.03632354 0.96057177 0.00310465]]
+test_data/000000464522.jpg, max similarity: a dog
+[[0.03074941 0.00429748 0.9649532 ]]
+test_data/000000032811.jpg, max similarity: a bird
+[[0.8280978  0.08798673 0.08391542]]
+test_data/000000010698.jpg, max similarity: a person
+```
+
+</NewCodeBlock>
+
+#### Test images
+
+<div style={{
+  display: 'flex',
+  gap: '10px',
+  alignItems: 'stretch',
+  height: '330px'
+}}>
+
+{" "}
+
+<div
+  style={{
+    flex: 2,
+    display: "flex",
+    gap: "10px",
+  }}
+>
+  <div style={{ flex: 1 }}>
+    <img
+      src="/en/img/orion/o6/ai-models/clip-test-dog.webp"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+  </div>
+  <div style={{ flex: 1 }}>
+    <img
+      src="/en/img/orion/o6/ai-models/clip-test-bird.webp"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+  </div>
+</div>
+
+{" "}
+
+<div style={{ flex: 1.5 }}>
+  <img
+    src="/en/img/orion/o6/ai-models/clip-test-person.webp"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      borderRadius: "8px",
+    }}
+  />
+</div>
+
+</div>
+
+### Deploy on NPU
+
+#### Run the inference script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### Runtime output
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+[[0.09763492 0.00929287 0.89307225]]
+test_data/000000032811.jpg, max similarity: a bird
+[[0.02777621 0.9682566  0.00396715]]
+test_data/000000464522.jpg, max similarity: a dog
+[[0.8495277  0.08247717 0.06799505]]
+test_data/000000010698.jpg, max similarity: a person
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+#### Test images
+
+**Same as above.**

@@ -1,0 +1,147 @@
+**YOLOv8-pose** is an advanced deep learning model specialized for human pose estimation, launched by Ultralytics. It inherits the excellent architecture of the YOLOv8 series in object detection and integrates object detection with keypoint localization in a single-stage inference process, enabling efficient capture of complex human movements.
+
+- **Key Features**: Supports real-time human keypoint detection and pose recognition, capable of accurately locating human skeletal joint points. Widely used in human motion analysis, interactive games, behavior monitoring, and rehabilitation guidance.
+- **Version Note**: This case uses the YOLOv8s-pose model. As a lightweight advanced version in the series, it maintains extremely high inference speed while enhancing feature extraction capabilities for complex backgrounds and limb occlusion scenarios by increasing model depth and channel count. It is currently the ideal choice for finding balance between performance and real-time performance, especially suitable for practical application scenarios that require both detection accuracy and edge deployment efficiency.
+
+:::info[Environment Setup]
+Configure the required environment in advance.
+
+- [Environment Setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick Start
+
+### Download Model Files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Pose_Estimation/onnx_yolov8s_pose
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Pose_Estimation/onnx_yolov8s_pose/yolov8s-pose.cix
+```
+
+</NewCodeBlock>
+
+### Model Testing
+
+:::info
+Activate the virtual environment before running!
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Complete Conversion Workflow
+
+### Download Model Files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Pose_Estimation/onnx_yolov8s_pose/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Pose_Estimation/onnx_yolov8s_pose/model/yolov8s-pose.onnx
+```
+
+</NewCodeBlock>
+
+### Project Structure
+
+```txt
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── test_data
+└── yolov8s-pose.cix
+```
+
+### Perform Model Quantization and Conversion
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/yolov8s_posebuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Push to Board]
+After completing the model conversion, push the cix model file to the board.
+:::
+
+### Test Host Inference
+
+#### Run Inference Script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### Model Inference Results
+
+<div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+
+{" "}
+
+<img
+  src="/en/img/orion/o6/ai-models/yolov8s-pose-host-out1.webp"
+  height="300"
+/>
+<img
+  src="/en/img/orion/o6/ai-models/yolov8s-pose-host-out2.webp"
+  height="300"
+/>
+
+</div>
+
+### Deploy to NPU
+
+#### Run Inference Script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### Model Inference Results
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+
+{" "}
+
+<img src="/en/img/orion/o6/ai-models/yolov8s-pose-npu-out1.webp" height="300" />
+<img src="/en/img/orion/o6/ai-models/yolov8s-pose-npu-out2.webp" height="300" />
+
+</div>

@@ -1,0 +1,277 @@
+**PP-OCR** is an open-source general-purpose OCR model family developed by Baidu. It uses a complete end-to-end vision recognition pipeline, covering three core modules: text detection, direction classification, and text recognition, aiming to provide robust text extraction that works reliably in a wide range of complex environments.
+
+- Key features: Supports high-accuracy multilingual text extraction and recognition, with strong background-noise suppression and robustness to skewed or blurry text. It is widely used in document digitization, industrial inspection, license-plate recognition, and autonomous-driving scenarios.
+- Version notes: This example uses PP-OCRv4. As the latest advanced version in the series, it introduces a lighter yet stronger detection architecture and recognition distillation techniques, significantly improving accuracy for small text and rare characters without additional compute overhead. It is a common lightweight choice that balances accuracy and extreme inference speed for real-time mobile text analysis.
+
+:::info[Environment setup]
+You need to set up the environment in advance.
+
+- [Environment setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick start
+
+### Download model files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/OCR/onnx_PP_OCRv4
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/cls.cix
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/PP-OCRv4_det.cix
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/rec.cix
+```
+
+</NewCodeBlock>
+
+### Test the model
+
+:::info
+Activate the virtual environment before running.
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Full conversion workflow
+
+### Download model files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/OCR/onnx_PP_OCRv4/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/model/cls.onnx
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/model/PP-OCRv4_det.onnx
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/OCR/onnx_PP_OCRv4/model/rec.onnx
+```
+
+</NewCodeBlock>
+
+### Project structure
+
+```txt
+├── cfg
+├── cls.cix
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ppocr_keys_v1.txt
+├── pp_ocr.py
+├── PP-OCRv4_det.cix
+├── ReadMe.md
+├── rec.cix
+├── simfang.ttf
+└── test_data
+```
+
+### Quantize and convert the model
+
+#### Convert the detection module
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/detbuild.cfg
+```
+
+</NewCodeBlock>
+
+#### Convert the classification module
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/clsbuild.cfg
+```
+
+</NewCodeBlock>
+
+#### Convert the recognition module
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/recbuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Copy to device]
+After conversion, copy the `.cix` model files to the device.
+:::
+
+### Test inference on the host
+
+#### Run the inference script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py
+[[[36.0, 409.0], [486.0, 386.0], [489.0, 434.0], [38.0, 457.0]], ('<sample_text_1>', 0.9942322969436646)]
+[[[183.0, 453.0], [401.0, 444.0], [403.0, 485.0], [185.0, 494.0]], ('<sample_text_2>', 0.9480939507484436)]
+[[[14.0, 501.0], [519.0, 483.0], [521.0, 537.0], [15.0, 555.0]], ('<sample_text_3>', 0.9961597919464111)]
+[[[73.0, 550.0], [451.0, 539.0], [452.0, 576.0], [74.0, 587.0]], ('<sample_text_4>', 0.9754183292388916)]
+[[[292.0, 295.0], [335.0, 294.0], [350.0, 852.0], [307.0, 853.0]], ('<sample_text_5>', 0.9570525288581848)]
+[[[343.0, 298.0], [380.0, 297.0], [389.0, 665.0], [352.0, 666.0]], ('<sample_text_6>', 0.9861757755279541)]
+[[[34.0, 79.0], [440.0, 82.0], [439.0, 174.0], [33.0, 171.0]], ('<sample_text_7>', 0.9949513673782349)]
+[[[31.0, 183.0], [253.0, 183.0], [253.0, 243.0], [31.0, 243.0]], ('<sample_text_8>', 0.9937998652458191)]
+[[[39.0, 258.0], [469.0, 258.0], [469.0, 309.0], [39.0, 309.0]], ('<sample_text_9>', 0.9810954928398132)]
+[[[35.0, 325.0], [410.0, 327.0], [409.0, 382.0], [34.0, 380.0]], ('<sample_text_10>', 0.999457061290741)]
+[[[34.0, 406.0], [435.0, 406.0], [435.0, 454.0], [34.0, 454.0]], ('<sample_text_11>', 0.9994476437568665)]
+[[[32.0, 477.0], [341.0, 474.0], [341.0, 526.0], [32.0, 528.0]], ('<sample_text_12>', 0.9984829425811768)]
+[[[32.0, 549.0], [353.0, 549.0], [353.0, 600.0], [32.0, 600.0]], ('<sample_text_13>', 0.9997670650482178)]
+[[[30.0, 621.0], [263.0, 617.0], [264.0, 668.0], [31.0, 672.0]], ('<sample_text_14>', 0.9565265774726868)]
+[[[33.0, 692.0], [365.0, 695.0], [364.0, 743.0], [33.0, 740.0]], ('<sample_text_15>', 0.9993946552276611)]
+[[[32.0, 763.0], [499.0, 766.0], [498.0, 816.0], [32.0, 813.0]], ('<sample_text_16>', 0.9533663392066956)]
+[[[38.0, 840.0], [407.0, 840.0], [407.0, 884.0], [38.0, 884.0]], ('<sample_text_17>', 0.9451590776443481)]
+[[[525.0, 842.0], [690.0, 842.0], [690.0, 898.0], [525.0, 898.0]], ('<sample_text_18>', 0.9980840682983398)]
+[[[34.0, 910.0], [522.0, 910.0], [522.0, 957.0], [34.0, 957.0]], ('<sample_text_19>', 0.9985333681106567)]
+[[[39.0, 983.0], [536.0, 983.0], [536.0, 1027.0], [39.0, 1027.0]], ('<sample_text_20>', 0.9993751645088196)]
+[[[32.0, 1051.0], [201.0, 1048.0], [202.0, 1104.0], [33.0, 1107.0]], ('<sample_text_21>', 0.9753393530845642)]
+```
+
+</NewCodeBlock>
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "2px",
+    minHeight: "250px",
+    border: "1px solid #ccc",
+  }}
+>
+  <img
+    src="/en/img/orion/o6/ai-models/pp-ocr-v4-host-out1.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+  <img
+    src="/en/img/orion/o6/ai-models/pp-ocr-v4-host-out2.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+  <img
+    src="/en/img/orion/o6/ai-models/pp-ocr-v4-host-out3.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+</div>
+
+### Deploy on NPU
+
+#### Run the inference script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### Runtime output
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+[[[36.0, 409.0], [486.0, 386.0], [489.0, 434.0], [38.0, 457.0]], ('<sample_text_1>', 0.9929969906806946)]
+[[[141.0, 456.0], [403.0, 444.0], [404.0, 483.0], [143.0, 495.0]], ('<sample_text_2>', 0.862202525138855)]
+[[[17.0, 505.0], [519.0, 484.0], [521.0, 535.0], [19.0, 555.0]], ('<sample_text_3>', 0.9960622787475586)]
+[[[67.0, 550.0], [418.0, 539.0], [420.0, 578.0], [68.0, 590.0]], ('<sample_text_4>', 0.9729113578796387)]
+[[[34.0, 78.0], [442.0, 80.0], [441.0, 174.0], [33.0, 171.0]], ('<sample_text_5>', 0.9860424399375916)]
+[[[30.0, 181.0], [255.0, 181.0], [255.0, 244.0], [30.0, 244.0]], ('<sample_text_6>', 0.949313759803772)]
+[[[39.0, 258.0], [478.0, 258.0], [478.0, 309.0], [39.0, 309.0]], ('<sample_text_7>', 0.9828777313232422)]
+[[[36.0, 321.0], [411.0, 325.0], [411.0, 384.0], [35.0, 380.0]], ('<sample_text_8>', 0.9913207292556763)]
+[[[37.0, 406.0], [432.0, 406.0], [432.0, 450.0], [37.0, 450.0]], ('<sample_text_9>', 0.9849441051483154)]
+[[[31.0, 475.0], [342.0, 472.0], [342.0, 527.0], [31.0, 530.0]], ('<sample_text_10>', 0.9962107539176941)]
+[[[593.0, 539.0], [623.0, 539.0], [623.0, 700.0], [593.0, 700.0]], ('ODM OEM', 0.9357462525367737)]
+[[[31.0, 549.0], [353.0, 546.0], [353.0, 599.0], [31.0, 601.0]], ('<sample_text_11>', 0.9970366358757019)]
+[[[29.0, 620.0], [264.0, 617.0], [264.0, 668.0], [30.0, 671.0]], ('<sample_text_12>', 0.9971547722816467)]
+[[[33.0, 691.0], [367.0, 694.0], [367.0, 742.0], [33.0, 739.0]], ('<sample_text_13>', 0.9611490964889526)]
+[[[33.0, 764.0], [497.0, 767.0], [497.0, 813.0], [33.0, 811.0]], ('<sample_text_14>', 0.9434943795204163)]
+[[[37.0, 839.0], [409.0, 839.0], [409.0, 886.0], [37.0, 886.0]], ('<sample_text_15>', 0.9171066880226135)]
+[[[526.0, 843.0], [689.0, 843.0], [689.0, 896.0], [526.0, 896.0]], ('<sample_text_16>', 0.8261211514472961)]
+[[[33.0, 908.0], [522.0, 910.0], [522.0, 957.0], [33.0, 955.0]], ('<sample_text_17>', 0.9950319528579712)]
+[[[39.0, 983.0], [536.0, 983.0], [536.0, 1027.0], [39.0, 1027.0]], ('<sample_text_18>', 0.9946616291999817)]
+[[[34.0, 1051.0], [201.0, 1051.0], [201.0, 1103.0], [34.0, 1103.0]], ('<sample_text_19>', 0.9353836178779602)]
+[[[292.0, 297.0], [335.0, 295.0], [350.0, 850.0], [307.0, 851.0]], ('<sample_text_20>', 0.976573646068573)]
+[[[344.0, 299.0], [381.0, 298.0], [387.0, 662.0], [351.0, 663.0]], ('<sample_text_21>', 0.9912211298942566)]
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "2px",
+    minHeight: "250px",
+    border: "1px solid #ccc",
+  }}
+>
+  <img
+    src="/en/img/orion/o6/ai-models/pp-ocr-v4-npu-out1.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+  <img
+    src="/en/img/orion/o6/ai-models/pp-ocr-v4-npu-out2.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+  <img
+    src="/en/img/orion/o6/ai-models/pp-ocr-v4-npu-out3.webp"
+    height="230"
+    style={{ objectFit: "contain" }}
+  />
+</div>

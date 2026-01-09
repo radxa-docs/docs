@@ -1,0 +1,128 @@
+**Fast-SCNN** is a lightweight convolutional neural network designed for real-time semantic segmentation on high-resolution images. It adopts an innovative multi-branch architecture. By sharing feature extraction modules and using a lightweight design, it alleviates the heavy compute pressure of traditional segmentation models when processing large images.
+
+- Key features: Focuses on pixel-level real-time semantic segmentation, enabling low-latency class labeling for complex scenes. It is widely used in areas with strict responsiveness requirements such as autonomous driving, mobile AR, and robot obstacle avoidance.
+- Version notes: This example uses Fast-SCNN. With a unique “learning to downsample” module combined with global feature extraction, it greatly improves inference efficiency without sacrificing key spatial details. It reduces reliance on high-end GPUs and is a common lightweight choice for high-resolution real-time image understanding on embedded devices.
+
+:::info[Environment setup]
+You need to set up the environment in advance.
+
+- [Environment setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick start
+
+### Download model files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Semantic_Segmentation/torch_fast_scnn
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Semantic_Segmentation/torch_fast_scnn/fast_scnn.cix
+```
+
+</NewCodeBlock>
+
+### Test the model
+
+:::info
+Activate the virtual environment before running.
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Full conversion workflow
+
+### Project structure
+
+```txt
+├── cfg
+├── datasets
+├── fast_scnn.cix
+├── inference_npu.py
+├── inference_pt.py
+├── model
+├── ReadMe.md
+└── test_data
+```
+
+### Quantize and convert the model
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/fast_scnnbuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Copy to device]
+After conversion, copy the `.cix` model files to the device.
+:::
+
+### Test inference on the host
+
+#### Run the inference script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_pt.py
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<div>
+
+{" "}
+
+<img src="/en/img/orion/o6/ai-models/fast-scnn-host-out.webp" />
+
+</div>
+
+### Deploy on NPU
+
+#### Run the inference script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div>
+
+{" "}
+
+<img src="/en/img/orion/o6/ai-models/fast-scnn-npu-out.webp" />
+
+</div>

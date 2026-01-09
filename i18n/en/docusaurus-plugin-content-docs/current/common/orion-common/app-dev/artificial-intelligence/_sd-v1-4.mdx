@@ -1,0 +1,250 @@
+**Stable Diffusion** is a text-to-image model based on latent diffusion. By compressing images into a low-dimensional latent space for denoising training, it reduces the heavy compute requirements of generative AI and makes it possible to generate high-quality, artistic images on consumer-grade GPUs.
+
+- Key features: Supports text-to-image generation, image-to-image (understanding and re-rendering), and inpainting. It can generate visually compelling artwork from natural-language prompts.
+- Version notes: This example uses Stable Diffusion v1.4. As the first industrial-grade mainstream version in the series, it was deeply pre-trained on hundreds of millions of image-text pairs and has strong aesthetic expression and instruction following. It offers an excellent balance between output quality and VRAM usage, and remains one of the most widely supported models in the generative AI ecosystem.
+
+:::info[Environment setup]
+You need to set up the environment in advance.
+
+- [Environment setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick start
+
+### Download model files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/decoder.cix
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/default_seed.npy
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/encoder.cix
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/uncondition.npy
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/unet.cix
+```
+
+</NewCodeBlock>
+
+### Test the model
+
+:::info
+Activate the virtual environment before running.
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Full conversion workflow
+
+### Download model files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/decoder
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/decoder/decoder.onnx
+cd ../encoder
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/encoder/encoder.onnx
+cd ../unet
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/unet/unet.onnx
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/unet/weights.pb
+```
+
+</NewCodeBlock>
+
+### Project structure
+
+```txt
+├── cfg
+├── datasets
+├── decoder.cix
+├── default_seed.npy
+├── encoder.cix
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── tokenizer
+├── uncondition.npy
+└── unet.cix
+```
+
+### Quantize and convert the model
+
+#### Convert the text encoder
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ../..
+cixbuild cfg/encoder/encoderbuild.cfg
+```
+
+</NewCodeBlock>
+
+#### Convert the U-Net network
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/unet/unetbuild.cfg
+```
+
+</NewCodeBlock>
+
+#### Convert the VAE decoder
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/decoder/decoderbuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Copy to device]
+After conversion, copy the `.cix` model files to the device.
+:::
+
+### Test inference on the host
+
+#### Run the inference script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py
+please input prompt text: majestic crystal mountains under aurora borealis, fantasy landscape, trending on artstation
+using unified predictor-corrector with order 1 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+do not run corrector at the last step
+using unified predictor-corrector with order 1 (solver type: B(h))
+Decoder:
+SD time : 56.92895817756653
+```
+
+</NewCodeBlock>
+
+#### Generated image
+
+<div>
+
+    <img src="/en/img/orion/o6/ai-models/sd-host.webp" height="300" />
+
+</div>
+
+### Deploy on NPU
+
+#### Run the inference script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### Runtime output
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+please input prompt text: a single wilting rose on a marble table, cinematic lighting, moody atmosphere
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 3.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 1 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+using unified predictor-corrector with order 2 (solver type: B(h))
+using corrector
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+do not run corrector at the last step
+using unified predictor-corrector with order 1 (solver type: B(h))
+Decoder:
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+SD time : 20.26415753364563
+```
+
+</NewCodeBlock>
+
+#### Generated image
+
+<div>
+
+    <img src="/en/img/orion/o6/ai-models/sd-npu.webp" height="300" />
+
+</div>

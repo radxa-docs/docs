@@ -1,0 +1,159 @@
+**YOLOv8n** is the smallest and fastest lightweight vision model in the YOLOv8 series released by Ultralytics. Based on an advanced deep learning architecture, it delivers excellent real-time detection performance with very low compute cost, making it a preferred choice for edge and mobile deployments.
+
+- Key features: Supports high-accuracy real-time object detection, instance segmentation, image classification, and pose estimation (keypoint detection).
+- Version notes: This example uses **YOLOv8n (Nano)**. As a lightweight benchmark in the family, it achieves very high FPS with minimal parameters, greatly reducing hardware requirements while maintaining mainstream detection accuracy. It is a strong choice that balances real-time responsiveness and ease of deployment.
+
+:::info[Environment setup]
+You need to set up the environment in advance.
+
+- [Environment setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick start
+
+### Download model files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Object_Detection/onnx_yolov8_n
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Object_Detection/onnx_yolov8_n/yolov8n.cix
+```
+
+</NewCodeBlock>
+
+### Test the model
+
+:::info
+Activate the virtual environment before running.
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Full conversion workflow
+
+### Download model files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Object_Detection/onnx_yolov8_n/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Object_Detection/onnx_yolov8_n/model/yolov8n.onnx
+```
+
+</NewCodeBlock>
+
+### Project structure
+
+```txt
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── test_data
+└── yolov8n.cix
+```
+
+### Quantize and convert the model
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/yolov8_nbuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Copy to device]
+After conversion, copy the `.cix` model files to the device.
+:::
+
+### Test inference on the host
+
+#### Run the inference script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### Host inference output
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 19.24it/s]
+```
+
+</NewCodeBlock>
+
+<div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
+  <img
+    src="/en/img/orion/o6/ai-models/yolov8n-host-out1.webp"
+    style={{ height: "300px", width: "auto" }}
+    alt="Image 1"
+  />
+  <img
+    src="/en/img/orion/o6/ai-models/yolov8n-host-out2.webp"
+    style={{ height: "300px", width: "auto" }}
+    alt="Image 2"
+  />
+</div>
+
+### Deploy on NPU
+
+#### Run the inference script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 18.07it/s]
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
+  <img
+    src="/en/img/orion/o6/ai-models/yolov8n-npu-out1.webp"
+    style={{ height: "300px", width: "auto" }}
+    alt="Image 1"
+  />
+  <img
+    src="/en/img/orion/o6/ai-models/yolov8n-npu-out2.webp"
+    style={{ height: "300px", width: "auto" }}
+    alt="Image 2"
+  />
+</div>

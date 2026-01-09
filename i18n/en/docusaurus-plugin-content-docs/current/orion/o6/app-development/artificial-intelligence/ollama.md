@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 8
 ---
 
 import Ollama from '../../../../common/ai/\_ollama.mdx';

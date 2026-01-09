@@ -1,0 +1,273 @@
+**MiDaS** is an advanced deep learning model focused on monocular depth estimation. It removes the reliance on stereo cameras or infrared sensors and can infer relative depth from a single RGB image, effectively turning a 2D image into a depth map with spatial layering.
+
+- Key features: Excellent zero-shot generalization that can handle unseen complex indoor and outdoor environments. It produces depth maps with clear object boundaries and smooth depth transitions, and is widely used in AR, background blur, robot obstacle avoidance, and 3D scene reconstruction.
+- Version notes: This example uses MiDaS v2. As a mature classic version in the series, it addresses common scene limitations in monocular depth estimation through pre-training on large mixed datasets. While maintaining mainstream inference speed, it provides stable depth predictions with high spatial fidelity, making it a balanced choice for low-cost, high-quality spatial perception tasks.
+
+:::info[Environment setup]
+You need to set up the environment in advance.
+
+- [Environment setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick start
+
+### Download model files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Depth_Estimation/onnx_MiDaS_v2
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Depth_Estimation/onnx_MiDaS_v2/MiDaS_v2.cix
+```
+
+</NewCodeBlock>
+
+### Test the model
+
+:::info
+Activate the virtual environment before running.
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Full conversion workflow
+
+### Download model files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Depth_Estimation/onnx_MiDaS_v2/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Depth_Estimation/onnx_MiDaS_v2/model/MiDaS_v2.onnx
+```
+
+</NewCodeBlock>
+
+### Project structure
+
+```txt
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── README.md
+├── test_data
+└── MiDaS_v2.cix
+```
+
+### Quantize and convert the model
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/onnx_MiDasV2build.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Copy to device]
+After conversion, copy the `.cix` model files to the device.
+:::
+
+### Test inference on the host
+
+#### Run the inference script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+$ python3 inference_onnx.py
+initialize
+loading model...
+  processing ./test_data/1.jpg
+Inference time: 18.44 ms
+  processing ./test_data/2.jpg
+Inference time: 16.14 ms
+  processing ./test_data/3.jpg
+Inference time: 15.61 ms
+Finished
+```
+
+</NewCodeBlock>
+
+<div style={{
+  display: 'flex',
+  gap: '10px',
+  alignItems: 'stretch',
+  height: '600px'
+}}>
+
+{/* Left container: portrait image */}
+
+{" "}
+
+<div style={{ flex: 1 }}>
+  <img
+    src="/en/img/orion/o6/ai-models/midas-v2-host-out2.webp"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      borderRadius: "8px",
+    }}
+  />
+</div>
+
+{/* Right container: two landscape images */}
+
+{" "}
+
+<div
+  style={{
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+  <div style={{ flex: 1 }}>
+    <img
+      src="/en/img/orion/o6/ai-models/midas-v2-host-out1.webp"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+  </div>
+  <div style={{ flex: 1 }}>
+    <img
+      src="/en/img/orion/o6/ai-models/midas-v2-host-out3.webp"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+  </div>
+</div>
+
+</div>
+
+### Deploy on NPU
+
+#### Run the inference script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+initialize
+loading model...
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+  processing ./test_data/3.jpg
+Inference time: 4.72 ms
+  processing ./test_data/2.jpg
+Inference time: 6.10 ms
+  processing ./test_data/1.jpg
+Inference time: 6.42 ms
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+finished
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<div style={{
+  display: 'flex',
+  gap: '10px',
+  alignItems: 'stretch',
+  height: '600px'
+}}>
+
+{/* Left container: portrait image */}
+
+{" "}
+
+<div style={{ flex: 1 }}>
+  <img
+    src="/en/img/orion/o6/ai-models/midas-v2-npu-out2.webp"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      borderRadius: "8px",
+    }}
+  />
+</div>
+
+{/* Right container: two landscape images */}
+
+{" "}
+
+<div
+  style={{
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+  <div style={{ flex: 1 }}>
+    <img
+      src="/en/img/orion/o6/ai-models/midas-v2-npu-out1.webp"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+  </div>
+  <div style={{ flex: 1 }}>
+    <img
+      src="/en/img/orion/o6/ai-models/midas-v2-npu-out3.webp"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "8px",
+      }}
+    />
+  </div>
+</div>
+
+</div>
