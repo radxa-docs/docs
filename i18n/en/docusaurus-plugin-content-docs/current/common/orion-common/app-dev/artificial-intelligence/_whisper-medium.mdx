@@ -1,0 +1,195 @@
+**Whisper** is an open-source general-purpose speech recognition model released by OpenAI. Pre-trained on 680,000 hours of large-scale multilingual data, it is highly robust and can handle complex background noise and various accents.
+
+- Key features: Supports high-accuracy multilingual speech-to-text, automatic language detection, and speech translation.
+- Version notes: This example uses the Whisper Medium Multilingual model. As a mid-sized member of the family, it balances accuracy (including Chinese and other languages) with inference efficiency, making it a mainstream choice that balances performance and speed.
+
+:::info[Environment setup]
+You need to set up the environment in advance.
+
+- [Environment setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick start
+
+### Download the model
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/Audio/Speech_Recognotion/onnx_whisper_medium_multilingual
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Audio/Speech_Recognotion/onnx_whisper_medium_multilingual/whisper_medium_multilingual_decoder.cix
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Audio/Speech_Recognotion/onnx_whisper_medium_multilingual/whisper_medium_multilingual_encoder.cix
+```
+
+</NewCodeBlock>
+
+### Install dependencies
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+sudo apt update
+sudo apt install ffmpeg
+```
+
+</NewCodeBlock>
+
+### Test the model
+
+:::info
+Activate the virtual environment before running.
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Full conversion workflow
+
+### Download model files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/Audio/Speech_Recognotion/onnx_whisper_medium_multilingual/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Audio/Speech_Recognotion/onnx_whisper_medium_multilingual/model/whisper_medium_multilingual_decoder.onnx
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Audio/Speech_Recognotion/onnx_whisper_medium_multilingual/model/whisper_medium_multilingual_encoder.onnx
+```
+
+</NewCodeBlock>
+
+### Project structure
+
+```txt
+.
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── test_data
+├── whisper
+├── whisper-medium
+├── whisper_medium_multilingual_decoder.cix
+└── whisper_medium_multilingual_encoder.cix
+```
+
+### Quantize and convert the model
+
+Convert the encoder
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/whisper_medium_multilingual_encoder/whisper_medium_multilingual_encoder_build.cfg
+```
+
+</NewCodeBlock>
+
+Convert the decoder
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild cfg/whisper_medium_multilingual_decoder/whisper_medium_multilingual_decoder_build.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Copy to device]
+After conversion, copy the `.cix` model files to the device.
+:::
+
+### Test inference on the host
+
+#### Install ffmpeg
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+sudo apt update
+sudo apt install ffmpeg
+```
+
+</NewCodeBlock>
+
+#### Run the inference script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+A file named `test_audio_npu.txt` will be generated under the `output` directory.
+
+```txt
+They regain their apartment, apparently without disturbing the household of Gainwell.
+```
+
+### Deploy on NPU
+
+#### Install ffmpeg
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+sudo apt update
+sudo apt install ffmpeg
+```
+
+</NewCodeBlock>
+
+#### Run the inference script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py --backend npu --encoder_model_path whisper_medium_multilingual_encoder.cix --decoder_model_path whisper_medium_multilingual_decoder.cix
+```
+
+</NewCodeBlock>
+
+#### Inference output
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py --backend npu --encoder_model_path whisper_medium_multilingual_encoder.cix --decoder_model_path whisper_medium_multilingual_decoder.cix
+2025-12-29 10:55:26.758036920 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card3/device/vendor"
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 5.
+Output tensor count is 2.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+A file named `test_audio_npu.txt` will be generated under the `output` directory.
+
+```txt
+They regain their apartment, apparently without disturbing the household of Gainwell.
+```

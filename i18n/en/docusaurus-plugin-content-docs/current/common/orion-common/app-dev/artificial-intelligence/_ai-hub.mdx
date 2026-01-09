@@ -1,16 +1,47 @@
-The CIX AI Model Hub is a collection of machine learning models optimized for deployment on CIX SOC. It includes AI model examples across various domains (such as computer vision, speech recognition, generative AI, and other open-source models) along with configuration files compiled for the CIX SOC NPU. This document primarily introduces how to download and run models from the AI Model Hub.
+The CIX AI Model Hub repository is hosted on ModelScope. Visit: [cix ai_model_hub](https://modelscope.cn/models/cix/ai_model_hub_25_Q3)
 
-## Download CIX AI Model Hub Repository
+## Clone the repository
 
-The CIX AI Model Hub repository is hosted on the ModelScope community platform. Access it at [cix ai_model_hub](https://modelscope.cn/models/cix/ai_model_hub_25_Q3).
+With the following command, you can clone only the files that are not tracked by Git LFS (make sure Git LFS is installed):
 
-You can download it using git (ensure git-lfs is installed):
+:::info
+After cloning the directory structure on the device, decide whether you also need to clone on the host depending on whether you plan to convert models on the host.
+:::
 
 ```bash
+GIT_LFS_SKIP_SMUDGE=1 git clone https://www.modelscope.cn/cix/ai_model_hub_25_Q3.git
+```
+
+## Set up the environment on the device
+
+:::info
+Activate the virtual environment before running.
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 -m venv --system-site-packages .venv
+pip3 install -r requirements.txt
+```
+
+</NewCodeBlock>
+
+## Download the entire repository
+
+:::tip Recommendation
+Since the repository is large, it is recommended to avoid cloning everything.
+:::
+
+Download with Git (make sure Git LFS is installed):
+
+```bash
+mkdir ai-model-hub && cd ai-model-hub
+git lfs install
 git clone https://www.modelscope.cn/cix/ai_model_hub_25_Q3.git
 ```
 
-Model example directory structure:
+Directory structure:
 
 ```bash
 .
@@ -67,50 +98,4 @@ Model example directory structure:
     ├── segment_postprocess.py
     ├── text_process.py
     └── tools.py
-```
-
-## Running Models
-
-### Configuring the Environment
-
-Navigate to the model directory:
-
-```bash
-cd ai_model_hub_25_Q3
-```
-
-Create a Python virtual environment:
-
-```bash
-python3 -m venv venv
-```
-
-Activate the virtual environment:
-
-```bash
-source venv/bin/activate
-```
-
-Install the Python environment:
-
-```bash
-pip3 install -r requirements.txt
-```
-
-### Model Examples
-
-1. Preprocess human-readable input into model input.
-2. Run model inference.
-3. Postprocess model output into a human-readable format.
-
-All model example codes can run end-to-end on the NPU of the O6/O6N:
-
-```bash
-python3 inference_npu.py
-```
-
-Additionally, you can run the end-to-end examples locally on an X86 host or on the O6/O6N using CPU with OnnxRuntime:
-
-```bash
-python3 inference_onnx.py
 ```

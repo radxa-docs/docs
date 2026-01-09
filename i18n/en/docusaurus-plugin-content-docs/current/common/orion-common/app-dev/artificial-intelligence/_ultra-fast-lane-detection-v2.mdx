@@ -1,0 +1,143 @@
+**Ultra Fast Lane Detection (UFLD)** is a class of ultra-fast deep learning algorithms focused on lane detection. It changes the traditional pixel-level segmentation approach by introducing an innovative row-based selection classification mechanism, transforming the detection task into a simple classification problem, greatly improving model runtime speed.
+
+- **Key Features**: Focuses on real-time lane detection in road scenarios, capable of quickly and accurately outlining lane boundaries, providing core visual support for autonomous driving systems' lane keeping assistance (LKA) and lane departure warning (LDW).
+- **Version Note**: This case uses the Ultra Fast Lane Detection V2 (UFLDv2) model. As an advanced version of this series, it introduces a hybrid anchor mechanism that not only enhances detection robustness for curves and complex occlusion scenarios but also maintains the series' consistent ultra-fast inference advantages. It further improves spatial structure capture capabilities while ensuring low latency, making it the current mainstream balanced choice for efficient real-time lane perception on in-vehicle embedded endpoints.
+
+:::info[Environment Setup]
+Configure the required environment in advance.
+
+- [Environment Setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick Start
+
+### Download Model Files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Lane_Detection/onnx_Ultra_Fast_Lane_Detection_v2
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Lane_Detection/onnx_Ultra_Fast_Lane_Detection_v2/Ultra_Fast_Lane_Detection_v2.cix
+```
+
+</NewCodeBlock>
+
+### Model Testing
+
+:::info
+Activate the virtual environment before running!
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Complete Conversion Workflow
+
+### Download Model Files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Lane_Detection/onnx_Ultra_Fast_Lane_Detection_v2/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Lane_Detection/onnx_Ultra_Fast_Lane_Detection_v2/model/Ultra_Fast_Lane_Detection_v2.onnx
+```
+
+</NewCodeBlock>
+
+### Project Structure
+
+```txt
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+├── test_data
+└── Ultra_Fast_Lane_Detection_v2.cix
+```
+
+### Perform Model Quantization and Conversion
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/Ultra-Fast-Lane-Detection_v2build.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Push to Board]
+After completing the model conversion, push the cix model file to the board.
+:::
+
+### Test Host Inference
+
+#### Run Inference Script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### Model Inference Results
+
+<div>
+
+{" "}
+
+<img src="/en/img/orion/o6/ai-models/UFLD-host-out1.webp" height="300" />
+<img src="/en/img/orion/o6/ai-models/UFLD-host-out2.webp" height="300" />
+<img src="/en/img/orion/o6/ai-models/UFLD-host-out3.webp" height="300" />
+
+</div>
+
+### Deploy to NPU
+
+#### Run Inference Script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### Model Inference Results
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 4.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div>
+
+{" "}
+
+<img src="/en/img/orion/o6/ai-models/UFLD-npu-out1.webp" height="300" />
+<img src="/en/img/orion/o6/ai-models/UFLD-npu-out2.webp" height="300" />
+<img src="/en/img/orion/o6/ai-models/UFLD-npu-out3.webp" height="300" />
+
+</div>

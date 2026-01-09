@@ -1,0 +1,141 @@
+**Real-ESRGAN** is a super-resolution algorithm developed by Tencent ARC Lab designed to restore real-world complex degraded images. It improves traditional GAN training methods by using second-order degradation models to simulate blur, noise, and compression artifacts in real images, enabling natural reconstruction of low-quality images.
+
+- **Key Features**: Supports extremely high-quality image detail enhancement and artifact removal, significantly improving low-resolution image clarity while restoring texture quality. Widely used in old photo restoration, video enhancement, anime upscaling, and security image analysis.
+- **Version Note**: This case uses the Real-ESRGAN_x4plus model. As the most generalized version in this family, it is specifically optimized for various unknown degradations in real-world scenarios. While maintaining the classic RRDB architecture, it achieves excellent balance between image clarity and visual realism through deeper feature extraction capabilities, making it the preferred solution for general image upscaling and restoration tasks.
+
+:::info[Environment Setup]
+Configure the required environment in advance.
+
+- [Environment Setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick Start
+
+### Download Model Files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Super_Resolution/onnx_real_esrgan
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Super_Resolution/onnx_real_esrgan/real_esrgan.cix
+```
+
+</NewCodeBlock>
+
+### Model Testing
+
+:::info
+Activate the virtual environment before running!
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+## Complete Conversion Workflow
+
+### Download Model Files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Super_Resolution/onnx_real_esrgan/model
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Super_Resolution/onnx_real_esrgan/model/realesrgan-x4.onnx
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Super_Resolution/onnx_real_esrgan/model/RealESRGAN_x4plus.pth
+```
+
+</NewCodeBlock>
+
+### Project Structure
+
+```txt
+├── cfg
+├── datasets
+├── inference_npu.py
+├── inference_onnx.py
+├── model
+├── pytorch2onnx_x4.py
+├── README.md
+├── real_esrgan.cix
+└── test_data
+```
+
+### Perform Model Quantization and Conversion
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ..
+cixbuild cfg/onnx_realesrganbuild.cfg
+```
+
+</NewCodeBlock>
+
+:::info[Push to Board]
+After completing the model conversion, push the cix model file to the board.
+:::
+
+### Test Host Inference
+
+#### Run Inference Script
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py
+```
+
+</NewCodeBlock>
+
+#### Model Inference Results
+
+<div>
+
+{" "}
+
+<img src="/en/img/orion/o6/ai-models/real-esrgan-host-out.webp" height="300" />
+
+</div>
+
+### Deploy to NPU
+
+#### Run Inference Script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_npu.py
+```
+
+</NewCodeBlock>
+
+#### Model Runtime Results
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 inference_npu.py
+npu: noe_init_context success
+npu: noe_load_graph success
+Input tensor count is 1.
+Output tensor count is 1.
+npu: noe_create_job success
+npu: noe_clean_job success
+npu: noe_unload_graph success
+npu: noe_deinit_context success
+```
+
+</NewCodeBlock>
+
+<div>
+
+{" "}
+
+<img src="/en/img/orion/o6/ai-models/real-esrgan-npu-out.webp" height="300" />
+
+</div>

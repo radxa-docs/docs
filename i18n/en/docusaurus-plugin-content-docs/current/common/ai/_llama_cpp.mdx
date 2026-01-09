@@ -1,69 +1,94 @@
-The primary goal of llama.cpp is to enable LLM inference on various hardware (both local and cloud) with minimal setup and state-of-the-art performance.
+The core goal of llama.cpp is to enable high-performance large language model (LLM) inference across a wide range of hardware, from local devices to the cloud, with minimal configuration.
 
-## Clone the Repository
+:::note[What is llama.cpp?]
+llama.cpp is a high-performance LLM inference framework implemented in pure C/C++. It avoids heavy external dependencies and supports efficient computation on both CPUs and GPUs. With its GGUF format and quantization techniques, models that were previously too large can run smoothly on consumer devices such as PCs, Macs, and even phones.
+:::
+
+This document will help you get started with llama.cpp quickly and complete environment setup and model execution efficiently.
+
+## Clone the repository
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 git clone https://github.com/ggml-org/llama.cpp.git
 ```
 
-## Compile llama.cpp
+</NewCodeBlock>
 
-### Install Build Tools
+## Build llama.cpp
+
+### Install build tools
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 sudo apt install cmake gcc g++
 ```
 
-### Build the Project
+</NewCodeBlock>
+
+### Build
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cmake -B build
-cmake --build build --config Release
+cmake --build build --config Release -j$(nproc)
 ```
 
-:::tip
-If you are using the [Radxa Orion O6](/orion/o6) with an ARM-v9 CPU, you can add the `armv9-a` and `KleidiAI` compile option for hardware-level optimization:
+</NewCodeBlock>
+
+:::info[KleidiAI]
+On devices using the ARMv9 architecture, such as [Radxa Orion O6 / O6N](/orion/o6), you can enable the `armv9-a` and KleidiAI build options for hardware-level optimization.
+:::
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cmake -B build -DGGML_NATIVE=OFF -DGGML_CPU_ARM_ARCH=armv9-a+i8mm+dotprod -DGGML_CPU_KLEIDIAI=ON
 cmake --build build --config Release
 ```
 
+</NewCodeBlock>
+
+:::tip[Hardware optimization]
+llama.cpp integrates the Arm KleidiAI library, which provides highly optimized matrix-multiplication kernels for hardware features such as SME, I8MM, and dot-product acceleration. You can enable this feature with the build option `GGML_CPU_KLEIDIAI=ON`.
 :::
 
-:::tip
-Llama.cpp integrates Arm's KleidiAI library, which provides optimized matrix multiplication kernels for hardware features like sme, i8mm, and dot-product acceleration.
-You can enable this feature using the `GGML_CPU_KLEIDIAI` build option:
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cmake -B build -DGGML_CPU_KLEIDIAI=ON
 cmake --build build --config Release
 ```
 
-:::
+</NewCodeBlock>
 
-## Usage
-
-### GGUF Model Conversion
+## Quick Start
 
 :::tip
-Here, we take [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) as an example.
+Python 3.11 or later is recommended.
 :::
 
-#### Download the Hugging Face Model
+In the following steps, the example model is [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B).
 
-Use [git LFS](https://git-lfs.com/) to clone the repository:
+### Download the example model
+
+Make sure you have [git LFS](https://git-lfs.com/) installed.
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 git lfs install
 git clone https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
 ```
 
-#### Generate GGUF Model
+</NewCodeBlock>
 
-:::tip
-It is recommended to use Python 3.11 or later.
-:::
+### Convert the model
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cd llama.cpp
@@ -71,16 +96,22 @@ pip3 install -r ./requirements.txt
 python3 convert_hf_to_gguf.py DeepSeek-R1-Distill-Qwen-1.5B/
 ```
 
-#### Quantize the Model
+</NewCodeBlock>
+
+### Quantize the model
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cd build/bin
 ./llama-quantize DeepSeek-R1-Distill-Qwen-1.5B-F16.gguf DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf Q4_K_M
 ```
 
-Available quantization types:
+</NewCodeBlock>
 
-```bash
+Optional quantization options:
+
+```txt
    2  or  Q4_0    :  4.34G, +0.4685 ppl @ Llama-3-8B
    3  or  Q4_1    :  4.78G, +0.4511 ppl @ Llama-3-8B
    8  or  Q5_0    :  5.21G, +0.1316 ppl @ Llama-3-8B
@@ -119,14 +150,20 @@ Available quantization types:
           COPY    : only copy tensors, no quantizing
 ```
 
-### Run GGUF Model
+### Validate the model
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 cd build/bin
 ./llama-cli -m DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf
 ```
 
-```bash
+</NewCodeBlock>
+
+Example output:
+
+```txt
 > hi, who are you
 <think>
 
@@ -135,13 +172,17 @@ cd build/bin
 Hi! I'm DeepSeek-R1, an artificial intelligence assistant created by DeepSeek. I'm at your service and would be delighted to assist you with any inquiries or tasks you may have.
 ```
 
-### GGUF Benchmark Test
+### Benchmark the model
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 ./llama-bench -m DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf
 ```
 
-```bash
+</NewCodeBlock>
+
+```txt
 radxa@orion-o6:~/llama.cpp/build/bin$ ./llama-bench -m ~/DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf -t 8
 | model                          |       size |     params | backend    | threads |          test |                  t/s |
 | ------------------------------ | ---------: | ---------: | ---------- | ------: | ------------: | -------------------: |
@@ -151,4 +192,4 @@ radxa@orion-o6:~/llama.cpp/build/bin$ ./llama-bench -m ~/DeepSeek-R1-Distill-Qwe
 
 ## References
 
-For more details on llama.cpp, please refer to the [official documentation](https://github.com/ggml-org/llama.cpp).
+For more details about llama.cpp, refer to the [official documentation](https://github.com/ggml-org/llama.cpp).
