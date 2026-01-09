@@ -10,6 +10,6 @@ sidebar_position: 2
 
 安装系统参考以下教程：
 
-- [安装系统到 MicroSD 卡](../../low-level-dev/install-system/sd_system)
-- [安装系统到 eMMC 模块](../../low-level-dev/install-system/fel-install-system/emmc_system)
-- [安装系统到 UFS 模块](../../low-level-dev/install-system/fel-install-system/ufs_system)
+- [安装系统到 MicroSD 卡](../../low-level-dev/install-system/sd-system)
+- [安装系统到 eMMC 模块](../../low-level-dev/install-system/fel-install-system/emmc-system)
+- [安装系统到 UFS 模块](../../low-level-dev/install-system/fel-install-system/ufs-system)

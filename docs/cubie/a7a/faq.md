@@ -16,7 +16,7 @@ sidebar_position: 7
 
 - Phoenix 系统镜像：不包含分区表，需要借助 Phoenix 工具烧录系统镜像。
 
-若使用 Phoenix 系统镜像，根据自己的系统启动介质参考 [安装系统到 MicroSD 卡](./low-level-dev/install-system/sd_system) 和 [底层开发 → FEL 模式安装系统](./low-level-dev/install-system/fel-install-system/) 教程进行系统安装。
+若使用 Phoenix 系统镜像，根据自己的系统启动介质参考 [安装系统到 MicroSD 卡](./low-level-dev/install-system/sd-system) 和 [底层开发 → FEL 模式安装系统](./low-level-dev/install-system/fel-install-system/) 教程进行系统安装。
 
 先确认安装的系统镜像是否正确，若系统镜像正确，可以通过串口调试获取系统启动日志，根据日志信息进行排查。
 
