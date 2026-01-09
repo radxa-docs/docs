@@ -4,11 +4,13 @@ sidebar_position: 2
 
 import { Section, Image } from "@site/src/utils/docs";
 
-# Quick start
+# Quick Start
 
-## Physical image
+## Physical Image
 
-<img src="/img/e/e20c/radxa-e20c-machine.webp" width="500" alt="radxa-e20c pack" />
+Currently, E20C has multiple configurations, including with casing, bare board, with onboard EMMC, and with empty EMMC soldering. Please distinguish your product model before operation.
+
+<img src="/en/img/e/e20c/radxa-e20c-machine.webp" width="500" alt="radxa-e20c pack" />
 
 To start the Radxa E20C, you need the following equipment:
 
@@ -16,7 +18,7 @@ To start the Radxa E20C, you need the following equipment:
 - 2x USB TYPE-A to TYPE-C cable to power and view log output and access the system.
 - 2x Ethernet network cable.
 
-## Installing the operating system
+## Installing the Operating System
 
 <Tabs queryString="mode">
 
@@ -33,11 +35,11 @@ Prepare the MicroSD card, and refer to [Install System](./install-os/) to instal
 </TabItem>
 </Tabs>
 
-## Wiring and powering up
+## Wiring and Powering Up
 
 Connect WAN and LAN，then power on, the system will boot automatically.
 
-<img src="/img/e/e20c/e20c-connect.webp" width="500" alt="e20c connect" />
+<img src="/en/img/e/e20c/e20c-connect.webp" width="500" alt="e20c connect" />
 
 ## Login
 
@@ -46,51 +48,51 @@ Connect WAN and LAN，then power on, the system will boot automatically.
 If the LAN port is connected to the PC, you can login to the iStoreOS system background through the browser via the iStoreOS default ip 192.168.100.1,
 The default username of the iStoreOS background is root, and the password is password.
 
-<img src="/img/e/e20c/e20c-istoreos-login.webp" width="700" alt="e20c-istoreos" />
+<img src="/en/img/e/e20c/e20c-istoreos-login.webp" width="700" alt="e20c-istoreos" />
 
-<img src="/img/e/e20c/e20c-istoreos-login-enter.webp" width="700" alt="e20c-istoreos" />
+<img src="/en/img/e/e20c/e20c-istoreos-login-enter.webp" width="700" alt="e20c-istoreos" />
 
-### Login Via Serial port
+### Login Via Serial Port
 
-1. Connect the TYPE-A port of the USB TYPE-A to TYPE-C cable to the computer, and the TYPE-C port to the Radxa E20C debug port, and set the baud rate to 1500000.
+1. Connect the TYPE-A port of the USB Type-A to Type-C cable to the computer, and the Type-C port to the Radxa E20C debug port, and set the baud rate to 1500000.
 
-<img src="/img/e/e20c/radxa-e20c-serial-login1.webp" width="500" alt="radxa-e20c pack" />
+<img src="/en/img/e/e20c/radxa-e20c-serial-login1.webp" width="500" alt="radxa-e20c pack" />
 
 2. Plug the power adapter into the Radxa E20C's power connector. The device will power up and start, the system status light will be on.
 
-<img src="/img/e/e20c/radxa-e20c-serial-login2.webp" width="500" alt="radxa-e20c pack" />
+<img src="/en/img/e/e20c/radxa-e20c-serial-login2.webp" width="500" alt="radxa-e20c pack" />
 
 3. After the system is up, the system status light will flash
 
-<img src="/img/e/e20c/radxa-e20c-power1.webp" width="500" alt="radxa-e20c pack" />
+<img src="/en/img/e/e20c/radxa-e20c-power1.webp" width="500" alt="radxa-e20c pack" />
 
-4. If you are on windows system, make sure the CH340 driver is installed on your computer.
-
-Connect the TYPE-A port of the USB TYPE-A to TYPE-C cable to the computer, and the TYPE-C port to the Radxa E20C debug port, and check whether there is a CH340 driver in the device manager of the computer.
-
-<img src="/img/e/e20c/radxa-e20c-ch340-install.webp" width="500" alt="radxa-e20c pack" />
-
-You can see the USB-SERIAL CH340 in the picture above, it means there is a driver, if not, please install the [CH340 driver](https://www.wch.cn/download/CH341SER_EXE.html).
-
-5. Use the serial port tool
+4. Use the serial port tool
 
 <Tabs queryString="os">
 <TabItem value="windows" label="Windows" default>
 
-### Windows
-
 Putty is a serial port tool that can be used on Windows and supports multiple baud rates. Here is how to use Putty to connect to a serial port.
 
-1. Download [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it. 2.
+1. Download [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it.
 
-2. Plug the USB end of the USB to TTL serial cable into the PC and check the **Device Manager** to find the COM number. Here we assume it is COM3.
+2. Use the USB Type-A to Type-C cable's Type-A port to connect to the computer, and the Type-C port to connect to the Radxa E20C debug port, check the computer's **Device Manager** interface to find the COM port number. Here we assume it is COM4.
+
+<img src="/en/img/e/e20c/radxa-e20c-ch340-install.webp" width="500" alt="radxa-e20c pack" />
+
+:::tip Driver Installation
+
+If you cannot properly recognize the serial device, make sure the computer has the CH340 driver installed
+
+If the driver is not installed, please install the [CH340 driver](https://www.wch.cn/downloads/CH341SER_EXE.html)
+
+:::
 
 3. Open Putty and set it up as follows:
 
 - Select Session in the left column, set the serial line to COM3, the baud rate to 1500000, and the connection type to Serial.
 - Write radxa-e20c in the Saved Sessions column and press Save.
 
-Press Save. [Putty](/img/common/putty/putty-rk-1.webp)
+![Putty](/img/common/putty/putty-rk-1.webp)
 
 4. Select Serial at the bottom of the left column and configure it with the following parameters:
 
@@ -100,9 +102,7 @@ Press Save. [Putty](/img/common/putty/putty-rk-1.webp)
 
 </TabItem>
 
-<TabItem value="Linux" label="Linux">
-
-### Linux
+<TabItem value="linux" label="Linux">
 
 Minicom is a serial port utility that can be used on Linux and supports multiple baud rates. Here is how to use Minicom to connect to a serial port.
 
@@ -132,7 +132,7 @@ There may be cases where you do not have permission to read or write to the seri
 sudo chmod 777 /dev/ttyUSB0
 ```
 
-**Permanent: add the current user to the dialout group** ``bash sudo chmod 777 /dev/ttyUSB0\*\*.
+**Permanent: add the current user to the dialout group**
 
 ```bash
 sudo usermod -aG dialout $USER
@@ -151,25 +151,25 @@ sudo apt-get install minicom
 
 First, add the current non-root or non-sudo user to the plugdev group.
 
-````bash
+```bash
 sudo usermod -aG plugdev $USER
-``
+```
 
 Edit ~/.bashrc, add the following parameters, and reopen a new terminal.
 
 ```bash
 alias minicom='minicom -w -t xterm -l -R UTF-8'
-````
+```
 
 Create and edit the file ~/.minirc.1500000-usb0 to add the following:
 
 ```
-pu port /dev/ttyUSB0
-pu baudrate 1500000
-pu bits 8
-pu parity N
-pu stopbits 1
-pu rtscts No
+pu port             /dev/ttyUSB0
+pu baudrate         1500000
+pu bits             8
+pu parity           N
+pu stopbits         1
+pu rtscts           No
 ```
 
 4. Execute the following command to connect the device, specifying the parameter 1500000-usb0 to use the above configuration.
@@ -180,9 +180,7 @@ minicom 1500000-usb0
 
 </TabItem>
 
-<TabItem value="mac" label="Mac">
-
-### Mac
+<TabItem value="mac" label="Mac" >
 
 Picocom is a serial port utility that can be used on a Mac and supports multiple baud rates. Here is how to use Picocom to connect to a serial port.
 
@@ -205,21 +203,23 @@ Picocom is a serial port utility that can be used on a Mac and supports multiple
 
 1. Connect the network cable to the WAN or LAN port, the following is an example of how to access the device by SSH using the WAN port
 
-<img src="/img/e/e20c/radxa-e20c-serial-net-login1.webp" width="500" alt="radxa-e20c pack" />
+<img src="/en/img/e/e20c/radxa-e20c-serial-net-login1.webp" width="500" alt="radxa-e20c pack" />
 
 2. Plug the power adapter into the Radxa E20C's power connector. The device will power up and start, the system status light will be on.
 
-<img src="/img/e/e20c/radxa-e20c-serial-net-login2.webp" width="500" alt="radxa-e20c pack" />
+<img src="/en/img/e/e20c/radxa-e20c-serial-net-login2.webp" width="500" alt="radxa-e20c pack" />
 
 3. When the system is up, the system status light will blink and the WAN port light will also be on
 
-<img src="/img/e/e20c/radxa-e20c-power2.webp" width="500" alt="radxa-e20c pack" />
+<img src="/en/img/e/e20c/radxa-e20c-power2.webp" width="500" alt="radxa-e20c pack" />
 
-4. Use Angryip to find IP
+4. Find IP
 
-This method can be used to find IP address when you can't directly operate the motherboard to get no screen or remote IP address.
+The iStoreOS system default IP address is 192.168.100.1
 
-- First of all, the host needs to download [Angryip](https://angryip.org/download/), and then make sure the host and motherboard are in the same LAN.
+But if the user modifies it themselves, they can use the Angryip tool to query it
+
+- First, the host needs to download [Angryip](https://angryip.org/download/), and then make sure the host and motherboard are in the same LAN.
 
 - Open Angryip, select the IP range 192.168.2.0 - 192.168.2.255 (select the network segment where the host computer and motherboard are located), click Start, as shown in the figure.
 
@@ -227,32 +227,29 @@ This method can be used to find IP address when you can't directly operate the m
 
 - Ctrl + F Look for the `2a` keyword to find the IP address of the motherboard.
 
-  5.SSH connection to Radxa E20C
+5. SSH connection to Radxa E20C
 
 ```bash
 ssh [username]@[IP address] # or ssh [username]@[hostname]
 ```
 
-## System login
+Default username: root
+Default password: password
 
-iStoreOS
-Default UserName: root
-Default Password: password
-
-## istoreos expansion
+## iStoreOS Expansion
 
 Please follow the instructions in the picture to expand/scale up the capacity.
 
-<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-1.webp" width="700" alt="e20c-istoreos" />
+<img src="/en/img/e/e20c/radxa-e20c-istoreos-expansion-1.webp" width="700" alt="e20c-istoreos" />
 
-<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-8.webp" width="700" alt="e20c-istoreos" />
+<img src="/en/img/e/e20c/radxa-e20c-istoreos-expansion-2.webp" width="700" alt="e20c-istoreos" />
 
-<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-9.webp" width="700" alt="e20c-istoreos" />
+<img src="/en/img/e/e20c/radxa-e20c-istoreos-expansion-3.webp" width="700" alt="e20c-istoreos" />
 
-<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-10.webp" width="700" alt="e20c-istoreos" />
+<img src="/en/img/e/e20c/radxa-e20c-istoreos-expansion-4.webp" width="700" alt="e20c-istoreos" />
 
-<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-5.webp" width="700" alt="e20c-istoreos" />
+<img src="/en/img/e/e20c/radxa-e20c-istoreos-expansion-5.webp" width="700" alt="e20c-istoreos" />
 
-<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-11.webp" width="700" alt="e20c-istoreos" />
+<img src="/en/img/e/e20c/radxa-e20c-istoreos-expansion-6.webp" width="700" alt="e20c-istoreos" />
 
-<img src="/img/e/e20c/radxa-e20c-istoreos-expansion-7.webp" width="700" alt="e20c-istoreos" />
+<img src="/en/img/e/e20c/radxa-e20c-istoreos-expansion-7.webp" width="700" alt="e20c-istoreos" />
