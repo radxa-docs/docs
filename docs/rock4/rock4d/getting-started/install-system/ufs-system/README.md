@@ -14,10 +14,4 @@ UFS 模块相比于 MicroSD 卡读写速度快，对于想提高系统读写和�
 
 更多关于瑞莎 eMMC / UFS 二合一模块读卡器的信息可以参考[瑞莎 eMMC/UFS 二合一模块读卡器页面](https://radxa.com/products/accessories/emmc-ufs-module-reader)。
 
-#### [使用瑞莎 eMMC/UFS 二合一模块读卡器](/rock4/rock4d/getting-started/install-system/ufs-system/ufs_reader)
-
-主要介绍用户在有瑞莎 eMMC / UFS 二合一模块读卡器的情况下，如何安装系统和启动系统。
-
-#### [不使用瑞莎 eMMC/UFS 二合一模块读卡器](/rock4/rock4d/getting-started/install-system/ufs-system/no_ufs_reader)
-
-主要介绍用户在不使用瑞莎 eMMC / UFS 二合一模块读卡器的情况下，如何安装系统和启动系统。
+<DocCardList />
