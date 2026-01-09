@@ -60,7 +60,7 @@ If there is a SATA power cable in the chassis, just plug the SATA power cable in
 
 ### Install the F_PANEL cable
 
-Insert F_PANEL into labelled 8 in [Interface Description] (../getting-started/introduction#motherboard-overview) in marker 8.
+Insert F_PANEL into labelled 8 in [Interface Description](../getting-started/introduction#motherboard-overview) in marker 8.
 
 <img src="/img/rock5itx/rock5itx-pwr-led.webp" width="700" alt="rock 5 itx pwr led" />
 <img src="/img/rock5itx/rock5itx-pwr-sw.webp" width="700" alt="pwr sw" />

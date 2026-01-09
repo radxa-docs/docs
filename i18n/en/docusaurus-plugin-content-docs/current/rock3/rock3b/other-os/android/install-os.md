@@ -62,7 +62,7 @@ rkdeveloptool rd
 
 - 1x microSD card / eMMC(capacity >=8GB)
 - 1x microSD card / eMMC reader
-- 5V power adapter (recommended [Radxa Power PD30W] (/accessories/power/pd_30w))
+- 5V power adapter (recommended [Radxa Power PD30W](/accessories/power/pd_30w))
 
 ## Image Download
 

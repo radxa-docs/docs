@@ -218,7 +218,7 @@ Connect the ROCK 5 ITX via FPC cable as shown in the figure:
 radxa@rock-5itx:~$ rsetup
 ```
 
-- Configure the device tree with [Device Tree Configuration] (... /... /os-config/rsetup#overlays) to enable Overlay for the Rxa 8" touchscreen.
+- Configure the device tree with [Device Tree Configuration](... /... /os-config/rsetup#overlays) to enable Overlay for the Rxa 8" touchscreen.
 
 :::tip
 
