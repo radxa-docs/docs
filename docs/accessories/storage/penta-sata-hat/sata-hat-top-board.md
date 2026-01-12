@@ -14,7 +14,7 @@ Radxa Penta SATA HAT 有一个 2x5 的座子，座子的信号如下：
 | 7   | GND      | 8   | PWM_33     |
 | 9   | GND      | 10  | NC         |
 
-这个座子可以用来链接顶板，顶板上有一个 0.91 寸的 OLED 显示屏和一个 4010 风扇，显示屏可以显示 IP 地址和存储信息等，风扇用于散热。
+这个座子可以用来连接顶板，顶板上有一个 0.91 寸的 OLED 显示屏和一个 4010 风扇，显示屏可以显示 IP 地址和存储信息等，风扇用于散热。
 
 ![SATA HAT top board](/img/accessories/storage/penta/sata-hat-top-board.webp)
 
