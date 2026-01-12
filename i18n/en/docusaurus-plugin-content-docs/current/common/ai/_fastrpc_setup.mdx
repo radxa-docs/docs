@@ -44,11 +44,32 @@ Install using radxa apt source
 
 Add fastrpc device permissions for user
 
-<NewCodeBlock tip="Device" type="device">
+<Tabs>
+    <TabItem value="QCS6490">
 
-```bash
-sudo chmod 660 /dev/fastrpc-*
-sudo chmod 660 /dev/dma_heap/system
-```
+    <NewCodeBlock tip="Device" type="device">
 
-</NewCodeBlock>
+    ```bash
+    sudo chmod 666 /dev/fastrpc-*
+    sudo chmod 666 /dev/dma_heap/system
+    ```
+
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    sudo chmod 660 /dev/fastrpc-*
+    sudo chmod 660 /dev/dma_heap/system
+    ```
+
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>

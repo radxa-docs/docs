@@ -1,0 +1,77 @@
+本文档讲述如何在瑞莎 Dragon Q6A 上使用 NPU 推理 Qwen2.5-0.5B 大语言模型
+
+## 下载示例
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/Qwen2.5-0.5B-v68 --local ./Qwen2.5-0.5B-v68
+```
+
+</NewCodeBlock>
+
+## 模型推理
+
+### 构造 prompt
+
+Qwen2.5 的 prompt 构造需要遵守以下格式
+
+```bash
+"<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nPlease give a brief introduction to relativity.<|im_end|>\n<|im_start|>assistant\n"
+```
+
+### LLM 推理
+
+#### 配置环境
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ./Qwen2.5-0.5B-v68
+export LD_LIBRARY_PATH=$(pwd)
+chmod +x genie-t2t-run
+```
+
+</NewCodeBlock>
+
+#### 执行推理
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./genie-t2t-run -c qwen2.5-0.5B-1k-htp.json  -p "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nPlease give a brief introduction to relativity.<|im_end|>\n<|im_start|>assistant\n"
+```
+
+</NewCodeBlock>
+
+```bash
+rock@radxa-dragon-q6a:~/ssd/qualcomm/701/Qwen2.5-0.5B-v68$ ./genie-t2t-run -c qwen2.5-0.5B-1k-htp.json  -p "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nPlease give a brief introduction to relativity.<|im_end|>\n<|im_start|>assistant\n"
+Using libGenie.so version 1.13.0
+
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.40.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+[INFO]  "Using create From Binary"
+[INFO]  "Allocated total size = 45466112 across 1 buffers"
+[PROMPT]: <|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nPlease give a brief introduction to relativity.<|im_end|>\n<|im_start|>assistant\n
+
+[BEGIN]: Relativity is a branch of physics that deals with the concepts of time dilation, length contraction, and the speed of light. These effects are important in many areas of science and engineering, including GPS navigation, the study of black holes, and the understanding of the structure of the universe. The idea behind relativity is that the laws of physics are the same for all observers, regardless of their relative motion or frame of reference. This means that the same physical laws apply to objects in the same state of motion, even if they are observed from different points of reference.[END]
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.40.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+```
+
+## 性能分析
+
+可以使用 `--profile` 选项开启性能分析功能
+
+```bash
+./genie-t2t-run -c qwen2.5-0.5B-1k-htp.json  -p "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nPlease give a brief introduction to relativity.<|im_end|>\n<|im_start|>assistant\n" --profile profile.txt
+```
+
+| Dragon Q6A             | CTX_LENGTH 1024             |
+| ---------------------- | --------------------------- |
+| duration               | 4,781,040 us                |
+| num-prompt-tokens      | 29                          |
+| prompt-processing-rate | 309.214599609375 toks/sec   |
+| time-to-first-token    | 93,811 us                   |
+| num-generated-tokens   | 114                         |
+| token-generation-rate  | 24.327939987182617 toks/sec |
+| token-generation-time  | 4,686,046 us                |
