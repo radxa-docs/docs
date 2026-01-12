@@ -11,7 +11,7 @@ sidebar_position: 12
 将天线安装到 Dragon Q6A 的天线接口。
 
 :::tip 接口位置
-可以参考 [硬件信息](./hardware_info) 教程找到对应硬件接口位置
+可以参考 [硬件信息](./hardware-info) 教程找到对应硬件接口位置
 :::
 
 ## 查看信号

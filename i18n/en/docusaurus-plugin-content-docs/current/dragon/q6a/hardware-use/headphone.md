@@ -11,7 +11,7 @@ The Radxa Dragon Q6A has a built-in 3.5mm four-segment headphone jack that suppo
 Plug the 3.5mm headphone jack into the headphone jack on the Radxa Dragon Q6A.
 
 :::tip
-You can refer to the [Hardware Information](./hardware_info) tutorial to find the corresponding hardware interface location.
+You can refer to the [Hardware Information](./hardware-info) tutorial to find the corresponding hardware interface location.
 :::
 
 ## Audio Testing

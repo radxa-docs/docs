@@ -11,7 +11,7 @@ The Radxa Dragon Q6A features an onboard MicroSD card slot compatible with Micro
 Insert the MicroSD card into the MicroSD card slot on the Radxa Dragon Q6A.
 
 :::tip Interface Location
-Refer to the [Hardware Information](./hardware_info) tutorial to locate the corresponding hardware interface.
+Refer to the [Hardware Information](./hardware-info) tutorial to locate the corresponding hardware interface.
 :::
 
 ## Usage Guide

@@ -13,7 +13,7 @@ Connect the HDMI cable to the Dragon Q6A's HDMI interface and the other end to t
 :::tip
 Some monitors may be incompatible. Try replacing the monitor to test.
 
-Refer to the [Hardware Information](./hardware_info) tutorial to locate the corresponding hardware interface positions.
+Refer to the [Hardware Information](./hardware-info) tutorial to locate the corresponding hardware interface positions.
 :::
 
 ## Interface Pin Definition

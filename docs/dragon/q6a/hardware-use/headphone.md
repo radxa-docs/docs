@@ -11,7 +11,7 @@ sidebar_position: 14
 将 3.5 mm 耳机的接口插入瑞莎 Dragon Q6A 的耳机插孔。
 
 :::tip
-可以参考 [硬件信息](./hardware_info) 教程找到对应硬件接口位置。
+可以参考 [硬件信息](./hardware-info) 教程找到对应硬件接口位置。
 :::
 
 ## 音频测试

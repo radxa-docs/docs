@@ -16,7 +16,7 @@ sidebar_position: 8
 
 T4 及最新系统镜像需要使用最新的 SPI 启动固件.
 
-1. 若是 2025 年 10 月份前购买的，需要烧录最新 [SPI 启动固件](../q6a/low-dev/spi_fw.md)。
+1. 若是 2025 年 10 月份前购买的，需要烧录最新 [SPI 启动固件](../q6a/low-level-dev/spi-fw.md)。
 
 2. 使用命令查看系统 BIOS 版本信息
 
@@ -61,7 +61,7 @@ sudo apt install -y task-qualcomm embloader sdboot-is-embloader
 
 Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启动固件，若系统启动异常，可以尝试重新烧录 SPI 启动固件。
 
-烧录 SPI 启动固件的详细步骤参考 [烧录 SPI 启动固件](../q6a/low-dev/spi_fw/) 教程。
+烧录 SPI 启动固件的详细步骤参考 [烧录 SPI 启动固件](../q6a/low-level-dev/spi-fw/) 教程。
 
 - 高通设备驱动
 

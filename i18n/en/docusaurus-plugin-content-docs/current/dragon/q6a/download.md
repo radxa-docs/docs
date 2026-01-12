@@ -16,7 +16,7 @@ sidebar_position: 8
 
 T4 and the latest system images require the latest SPI boot firmware.
 
-1. If purchased before October 2025, you need to flash the latest [SPI boot firmware](../q6a/low-dev/spi_fw.md).
+1. If purchased before October 2025, you need to flash the latest [SPI boot firmware](../q6a/low-level-dev/spi-fw.md).
 
 2. Use the command below to check the system BIOS version:
 
@@ -61,7 +61,7 @@ This page hosts the latest official and test system images. Test releases begin 
 
 The Dragon Q6A comes with the SPI boot firmware pre-flashed by default. Under normal circumstances, it is not necessary to re-flash the boot firmware. If the system fails to boot properly, you can try re-flashing the SPI boot firmware.
 
-For detailed steps on flashing the SPI boot firmware, please refer to the [Flashing SPI Boot Firmware](../q6a/low-dev/spi_fw/) tutorial.
+For detailed steps on flashing the SPI boot firmware, please refer to the [Flashing SPI Boot Firmware](../q6a/low-level-dev/spi-fw/) tutorial.
 
 - Qualcomm device driver
 
