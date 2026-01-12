@@ -16,7 +16,7 @@ If using a standard system image, refer to the [Quick Start → Install System](
 
 - **Phoenix System Image**: Does not include a partition table and requires the Phoenix tool to flash the system image.
 
-If using a Phoenix system image, refer to the tutorials [Install System to MicroSD Card](./low-level-dev/install-system/sd_system) and [Low-Level Development → Install System in FEL Mode](./low-level-dev/install-system/fel-install-system/) based on your system boot medium.
+If using a Phoenix system image, refer to the tutorials [Install System to MicroSD Card](./low-level-dev/install-system/sd-system) and [Low-Level Development → Install System in FEL Mode](./low-level-dev/install-system/fel-install-system/) based on your system boot medium.
 
 First, confirm whether the installed system image is correct. If the system image is correct, you can use serial debugging to obtain system boot logs and troubleshoot based on the log information.
 

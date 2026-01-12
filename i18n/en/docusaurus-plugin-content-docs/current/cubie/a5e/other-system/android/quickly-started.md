@@ -36,7 +36,7 @@ If the board is powered on correctly, the power indicator will light up green. I
 
 ## Login to the System
 
-This section mainly introduces how to log in to the system using a USB-to-serial cable. For detailed instructions, please refer to the [Serial Login](./uart_login) tutorial.
+This section mainly introduces how to log in to the system using a USB-to-serial cable. For detailed instructions, please refer to the [Serial Login](./uart-debug) tutorial.
 
 :::tip
 When using the Cubie A5E with a display, the operation is quite intuitive and straightforward, so it won't be covered in detail here!

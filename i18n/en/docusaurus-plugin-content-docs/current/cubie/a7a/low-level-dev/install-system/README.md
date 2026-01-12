@@ -6,7 +6,7 @@ sidebar_position: 0
 
 Introduction on how to use the Phoenix tool to install the system on Cubie A7A.
 
-#### [Install System to MicroSD Card](/cubie/a7a/low-level-dev/install-system/sd_system)
+#### [Install System to MicroSD Card](/cubie/a7a/low-level-dev/install-system/sd-system)
 
 Use the PhoenixCard tool to install the system to a MicroSD card.
 

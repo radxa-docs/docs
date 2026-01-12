@@ -49,7 +49,7 @@ Because the board's passive cooling is limited, the SoC may overheat and cause s
 
 You can install the system by following the tutorials below, based on your boot media and available hardware:
 
-- [Install System to MicroSD Card](./install-system/sd_system)
+- [Install System to MicroSD Card](./install-system/sd-system)
 
 :::tip Installing System to Other Boot Media
 Currently supports booting from MicroSD card, eMMC module and UFS module.
@@ -123,7 +123,7 @@ Password: radxa
 
 ## System Login
 
-This section mainly introduces how to log in to the Cubie A7A system using a USB-to-TTL serial cable. For serial login, you can refer to the [Serial Debugging](../system-config/uart_debug) tutorial.
+This section mainly introduces how to log in to the Cubie A7A system using a USB-to-TTL serial cable. For serial login, you can refer to the [Serial Debugging](../system-config/uart-debug) tutorial.
 
 :::tip
 Using Cubie A7A with a display offers a more intuitive and simpler operation, so it won't be covered here!
@@ -147,14 +147,14 @@ You can directly connect an Ethernet cable to Cubie A7A to ensure network connec
 
 > **Serial Login**
 
-You can follow the [Serial Debugging](../system-config/uart_debug) tutorial to log in via serial console, obtain the IP address assigned to Cubie A7A by your router, and then log in to the system remotely via SSH.
+You can follow the [Serial Debugging](../system-config/uart-debug) tutorial to log in via serial console, obtain the IP address assigned to Cubie A7A by your router, and then log in to the system remotely via SSH.
 
 Note: If you can directly access your router's admin interface to check the IP address assigned to Cubie A7A, you can skip the serial login step and proceed directly to SSH remote login using the assigned IP address.
 
 > **SSH Remote Access**
 
-You can follow the [SSH Remote Access](../system-config/ssh_remote) tutorial to complete the SSH remote login to Cubie A7A's command-line interface.
+You can follow the [SSH Remote Access](../system-config/ssh-remote) tutorial to complete the SSH remote login to Cubie A7A's command-line interface.
 
 > **VNC Remote Access**
 
-You can follow the [VNC Remote Access](../system-config/vnc_remote) tutorial to complete the VNC remote login to Cubie A7A's graphical interface.
+You can follow the [VNC Remote Access](../system-config/vnc-remote) tutorial to complete the VNC remote login to Cubie A7A's graphical interface.
