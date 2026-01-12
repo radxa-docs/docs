@@ -1,0 +1,112 @@
+BIOS（UEFI 固件）是计算机主板上的固件程序，通电后第一段运行的代码，用于唤醒硬件、完成自检，并引导操作系统启动。换言之，BIOS 是连接硬件与操作系统的“桥梁”。
+
+## BIOS 总览
+
+:::tip 操作说明
+
+- 方向键：在菜单之间移动。
+- Enter：进入或确认当前选项。
+- ESC：返回上一层或退出设置界面。
+
+掌握上述快捷键，有助于在接下来的各功能页面中快速导航。
+
+:::
+
+<img
+  src="/img/orion/o6/bios/orion-o6-bios-view.webp"
+  alt="BIOS 总览"
+  style={{ width: "100%", maxWidth: "600px" }}
+/>
+
+## BIOS 语言
+
+在 “BIOS Language” 选项中可以切换 BIOS 界面显示的语言，方便不同使用者阅读。
+
+<img
+  src="/img/orion/o6/bios/orion-o6-bios-language.webp"
+  alt="BIOS 语言"
+  style={{ width: "100%", maxWidth: "600px" }}
+/>
+
+## 设备管理器
+
+在 “Device Manager” 选项中可以查看与配置各类硬件，例如 CPU、内存、存储、外设等，可在此启用/禁用或查看设备状态。
+
+<img
+  src="/img/orion/o6/bios/orion-o6-bios-device-manager-01.webp"
+  alt="设备管理器"
+  style={{ width: "100%", maxWidth: "600px" }}
+/>
+
+- Console Preference Selection: 控制台偏好设置。
+- System Information: 系统信息。
+- SE Configuration: SE 配置。
+- O/S Hardware Description Selection: 操作系统硬件描述选择。
+- Secure Boot Configuration: 安全启动配置。
+- RAM Disk Configuration: RAM 磁盘配置。
+- Network Device List: 网络设备列表。
+
+<img
+  src="/img/orion/o6/bios/orion-o6-bios-device-manager-02.webp"
+  alt="设备管理器选项"
+  style={{ width: "100%", maxWidth: "600px" }}
+/>
+
+## 启动管理器
+
+在 “Boot Manager” 中可以临时调整启动顺序，适合需要从 USB、网络或其它介质启动系统的场景。
+
+<img
+  src="/img/orion/o6/bios/orion-o6-bios-boot-manager-01.webp"
+  alt="启动管理器"
+  style={{ width: "100%", maxWidth: "600px" }}
+/>
+
+<img
+  src="/img/orion/o6/bios/orion-o6-bios-boot-manager-02.webp"
+  alt="启动管理器列表"
+  style={{ width: "100%", maxWidth: "600px" }}
+/>
+
+## 启动维护管理器
+
+该模块提供更细致的启动项管理功能，可创建、修改、删除自定义启动项，并控制驱动与控制台行为。
+
+<img
+  src="/img/orion/o6/bios/orion-o6-bios-boot-maintenance-manager-01.webp"
+  alt="启动维护管理器"
+  style={{ width: "100%", maxWidth: "600px" }}
+/>
+
+- Boot Options: 管理启动选项。
+- Driver Options: 管理驱动选项。
+- Console Options: 管理控制台选项。
+- Boot From File: 手动选择并启动特定的 EFI 可执行文件。
+- Boot Discovery Policy: 启动发现策略。
+- Auto Boot Time-out: 设置自动启动超时时间。
+
+<img
+  src="/img/orion/o6/bios/orion-o6-bios-boot-maintenance-manager-02.webp"
+  alt="启动维护管理器选项"
+  style={{ width: "100%", maxWidth: "600px" }}
+/>
+
+## 继续（Continue）
+
+保存当前设置并退出 BIOS，继续后续启动流程。
+
+<img
+  src="/img/orion/o6/bios/orion-o6-bios-continue.webp"
+  alt="继续"
+  style={{ width: "100%", maxWidth: "600px" }}
+/>
+
+## 重置（Reset）
+
+恢复默认设置或重新启动 BIOS 配置流程，适合排查异常设置导致的问题。
+
+<img
+  src="/img/orion/o6/bios/orion-o6-bios-reset.webp"
+  alt="重置"
+  style={{ width: "100%", maxWidth: "600px" }}
+/>
