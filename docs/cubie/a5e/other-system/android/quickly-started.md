@@ -37,7 +37,7 @@ sidebar_position: 1
 
 ## 登录系统
 
-主要介绍 Cubie A5E 搭配 USB 串口数据线登录系统，串口登录系统可以参考 [串口登录](./uart_login) 教程。
+主要介绍 Cubie A5E 搭配 USB 串口数据线登录系统，串口登录系统可以参考 [串口登录](./uart-debug) 教程。
 
 :::tip
 Cubie A5E 搭配显示器使用，整体操作比较直观和简单，这里便不再介绍！

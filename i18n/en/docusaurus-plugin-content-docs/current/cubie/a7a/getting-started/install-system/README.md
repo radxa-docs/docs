@@ -25,7 +25,7 @@ The Radxa Cubie A7A supports booting from three types of storage media: MicroSD 
   - Suitable for smaller capacity storage (8GB ~ 128GB)
   - For detailed specifications, see the [Radxa eMMC Module](https://radxa.com/products/accessories/emmc-module) product page
 
-#### [Install System to MicroSD Card](/cubie/a7a/getting-started/install-system/sd_system)
+#### [Install System to MicroSD Card](/cubie/a7a/getting-started/install-system/sd-system)
 
 This guide explains how to install the operating system on Cubie A7A using a MicroSD card.
 

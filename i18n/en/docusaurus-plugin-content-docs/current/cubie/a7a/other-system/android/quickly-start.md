@@ -65,7 +65,7 @@ Used to display the system interface and perform graphical operations, suitable 
 
 You can refer to the following tutorial to install the system based on your system boot medium and available hardware:
 
-- [Install System](./install_system)
+- [Install System](./install-system)
 
 ## Boot System
 
@@ -112,7 +112,7 @@ When the system boots successfully, the power indicator will light up green, and
 
 ## Login to the System
 
-This section mainly introduces how to log in to the system on the Cubie A7A using a USB serial data cable. Refer to the [Serial Debugging](./uart_debug) tutorial for details.
+This section mainly introduces how to log in to the system on the Cubie A7A using a USB serial data cable. Refer to the [Serial Debugging](./uart-debug) tutorial for details.
 
 :::tip
 When using the Cubie A7A with a monitor, the operation is more intuitive and straightforward, so it is not covered here!

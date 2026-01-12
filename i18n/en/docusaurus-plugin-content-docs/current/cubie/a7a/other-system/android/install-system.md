@@ -10,6 +10,6 @@ The process of installing the Android system on the Radxa Cubie A7A is similar t
 
 Refer to the following tutorials for installation:
 
-- [Install System to MicroSD Card](../../low-level-dev/install-system/sd_system)
-- [Install System to eMMC Module](../../low-level-dev/install-system/fel-install-system/emmc_system)
-- [Install System to UFS Module](../../low-level-dev/install-system/fel-install-system/ufs_system)
+- [Install System to MicroSD Card](../../low-level-dev/install-system/sd-system)
+- [Install System to eMMC Module](../../low-level-dev/install-system/fel-install-system/emmc-system)
+- [Install System to UFS Module](../../low-level-dev/install-system/fel-install-system/ufs-system)
