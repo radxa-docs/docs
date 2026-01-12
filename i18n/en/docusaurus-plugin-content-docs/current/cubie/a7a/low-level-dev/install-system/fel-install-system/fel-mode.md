@@ -34,5 +34,5 @@ After Cubie A7A enters FEL mode, you can install a system image to the eMMC / UF
 
 For instructions on installing the system image, refer to:
 
-- [Install System to eMMC Module](./emmc_system)
-- [Install System to UFS Module](./ufs_system)
+- [Install System to eMMC Module](./emmc-system)
+- [Install System to UFS Module](./ufs-system)

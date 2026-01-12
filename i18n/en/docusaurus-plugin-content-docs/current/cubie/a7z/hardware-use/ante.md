@@ -14,7 +14,7 @@ For the specific location of the antenna interface, please refer to the interfac
 
 Connect the antenna to the corresponding antenna interface. The antenna interface uses 1st generation IPEX connector.
 
-After completing the antenna installation, you can configure the wireless network, check the wireless signal strength, and test network bandwidth performance according to the [Wireless Network](../system-config/wifi_usage) guide.
+After completing the antenna installation, you can configure the wireless network, check the wireless signal strength, and test network bandwidth performance according to the [Wireless Network](../system-config/wifi-usage) guide.
 
 ## Interface Specifications
 
