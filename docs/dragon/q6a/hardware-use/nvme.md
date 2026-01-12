@@ -22,7 +22,7 @@ sidebar_position: 4
 将 M.2 M Key 2230 SSD 安装到瑞莎 Dragon Q6A 的 M.2 M Key 2230 卡槽上。
 
 :::tip 接口位置
-可以参考 [硬件信息](./hardware_info) 教程找到对应硬件接口位置
+可以参考 [硬件信息](./hardware-info) 教程找到对应硬件接口位置
 :::
 
 ## 使用指南
@@ -35,7 +35,7 @@ M.2 M Key 2230 SSD 存在正常启动的系统时，且没有比 M.2 M Key 2230 
 
 :::tip
 
-参考 [安装系统到 NVMe SSD](../getting-started/install-system/nvme_system/)
+参考 [安装系统到 NVMe SSD](../getting-started/install-system/nvme-system/)
 
 :::
 

@@ -11,7 +11,7 @@ sidebar_position: 3
 将 MicroSD 卡安装到瑞莎 Dragon Q6A 的 MicroSD 卡槽上。
 
 :::tip 接口位置
-可以参考 [硬件信息](./hardware_info) 教程找到对应硬件接口位置
+可以参考 [硬件信息](./hardware-info) 教程找到对应硬件接口位置
 :::
 
 ## 使用指南

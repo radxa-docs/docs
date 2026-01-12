@@ -11,7 +11,7 @@ The Dragon Q6A board features built-in WiFi 6 and Bluetooth 5.4 antenna interfac
 Install the antenna into the Dragon Q6A's antenna interface.
 
 :::tip Interface Location
-Refer to the [Hardware Information](./hardware_info) tutorial to locate the corresponding hardware interface.
+Refer to the [Hardware Information](./hardware-info) tutorial to locate the corresponding hardware interface.
 :::
 
 ## Check Signal Strength

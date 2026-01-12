@@ -11,7 +11,7 @@ sidebar_position: 13
 ② : Power 引脚
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/q6a_power_header.webp" style={{width: '80%', maxWidth: '1200px'}} />
+   <img src="/img/dragon/q6a/q6a-power-header.webp" style={{width: '80%', maxWidth: '1200px'}} />
 </div>
 
 ## 使用指南
