@@ -110,3 +110,24 @@ repos:
         language: system
         entry: bash
         pass_filenames: false
+      - id: check-markdown-filename
+        name: Check Markdown filenames for underscores
+        language: system
+        entry: bash
+        files: '\.md$'
+        args:
+          - -c
+          - |
+            for file in "$@"; do
+              filename=$(basename "$file")
+              if [[ "$filename" =~ ^_ ]]; then
+                continue
+              fi
+              if [[ "$filename" =~ _ ]]; then
+                echo "Error: Markdown file contains underscore: $file"
+                echo "Please rename to use hyphens (-) instead of underscores (_)"
+                echo "Example: file_name.md -> file-name.md"
+                exit 1
+              fi
+            done
+          - --
