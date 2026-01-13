@@ -11,7 +11,7 @@ sidebar_position: 1
 Radxa E25 is powered via USB Type-C port and only supports 5V input. It is recommended to use a minimum 5V/2A power adapter.
 
 :::tip
-Radxa recommends [Radxa Power PD30W](../accessories/power/pd_30w).
+Radxa recommends [Radxa Power PD30W](../accessories/pd-30w).
 :::
 
 ### Boot Media

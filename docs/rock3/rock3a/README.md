@@ -96,7 +96,7 @@ sidebar_position: 1
 瑞莎系统 (Radxa OS) 是 Radxa 基于Debian OS 定制的一套操作系统，这里主要介绍 系统登录，网络连接等内容，
 方便用户快速的熟悉并使用系统。
 
-### [系统配置](/rock3/rock3a/os-config)
+### [系统配置](/rock3/rock3a/system-config)
 
 介绍如何使用通过工具（例如rsetup）或者命令去使用设备或者功能。
 

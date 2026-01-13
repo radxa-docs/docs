@@ -34,7 +34,7 @@ Radxa ROCK 3C 拥有一个 15 PIN 的 CSI 接口,接口定义如下:
 
 <img src="../../../img/rock3/3c/rock3c-8hd-connect.webp" width = "700" alt="rock 3c dsi connect"/>
 
-2. 使用[`rsetup`](../os-config/rsetup)开启 `Radxa 10HD overlay`
+2. 使用[`rsetup`](../system-config/rsetup)开启 `Radxa 10HD overlay`
 
 <img src="../../../img/rock3/3c/rock3c-8hd-overlay.webp" width = "500" alt="rock 3c 10hd overlay"/>
 
@@ -50,7 +50,7 @@ Radxa ROCK 3C 拥有一个 15 PIN 的 CSI 接口,接口定义如下:
 
 <img src="../../../img/rock3/3c/rock3c-rpi-7hd-connect.webp" width = "700" alt="rock 3c dsi connect"/>
 
-使用[`rsetup`](../os-config/rsetup)开启 `Enable Raspberry Pi 7-inch Touchscreen` overlay
+使用[`rsetup`](../system-config/rsetup)开启 `Enable Raspberry Pi 7-inch Touchscreen` overlay
 
 ## FAQ
 

@@ -19,7 +19,7 @@ sidebar_position: 2
 - 电源：  
   ROCK 3C 采用 Type-C 接口供电，仅支持 5V 输入。不使用固态硬盘时，建议最低使用 5V/3A 电源适配器；使用固态硬盘时，建议使用 5V/5A 电源适配器。
   :::tip
-  瑞莎推荐使用 [Radxa Power PD30W](../../../accessories/power/pd_30w)。
+  瑞莎推荐使用 [Radxa Power PD30W](../../../accessories/power/pd-30w)。
   :::
 
 - USB 键鼠  
@@ -60,6 +60,6 @@ sidebar_position: 2
 
 首先，选择您要使用的[官方镜像](../../images)并下载。
 
-然后，参考[操作系统安装指南](install-os)将镜像刷写到存储介质中。
+然后，参考[操作系统安装指南](install-system)将镜像刷写到存储介质中。
 
 最后，将系统存储介质：microSD 卡或 eMMC 模块插入主板上的插口，并通过 Type-C 电源适配器供电启动 ROCK 3C。
