@@ -7,7 +7,7 @@ description: "从 SSD 启动"
 
 ## 安装系统
 
-- 使用硬盘盒将系统烧录到 SSD 中。烧录可参照[安装系统](../install-os/boot_from_sd_card.md)
+- 使用硬盘盒将系统烧录到 SSD 中。烧录可参照[安装系统](../install-os/boot-from-sd-card.md)
 
 ## 向 SPI Flash 中烧写 Bootloader
 

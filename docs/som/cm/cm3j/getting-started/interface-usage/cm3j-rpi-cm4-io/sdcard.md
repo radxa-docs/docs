@@ -17,7 +17,7 @@ Micro SD，全称Micro Secure Digital，是一种小型存储卡，属于Secure 
 
 瑞莎 CM3J + 树莓派 Compute Module 4 IO Board 支持从 SD 卡启动系统。
 
-详细步骤可参考[安装系统到 SD 卡启动](../../install-os/boot_from_sd_card.md)
+详细步骤可参考[安装系统到 SD 卡启动](../../install-os/boot-from-sd-card.md)
 
 ### 作为存储介质
 

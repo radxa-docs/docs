@@ -17,7 +17,7 @@ The Raspberry Pi Compute Module 4 IO Board includes a uSD card slot that support
 
 Radxa CM3J + Raspberry Pi Compute Module 4 IO Board supports booting the system from an SD card.
 
-For detailed steps, refer to [Install the System to Boot from SD Card](../../install-os/boot_from_sd_card.md).
+For detailed steps, refer to [Install the System to Boot from SD Card](../../install-os/boot-from-sd-card.md).
 
 ### As a storage medium
 

@@ -7,7 +7,7 @@ description: "Boot from SSD"
 
 ## Install System
 
-- Use an external hard drive enclosure to flash the system onto the SSD. For flashing instructions, refer to the [Install System](./boot_from_sd_card.md).
+- Use an external hard drive enclosure to flash the system onto the SSD. For flashing instructions, refer to the [Install System](./boot-from-sd-card.md).
 
 ## Flash the Bootloader to the SPI Flash.
 
