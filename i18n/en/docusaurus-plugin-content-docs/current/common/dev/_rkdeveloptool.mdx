@@ -19,7 +19,7 @@ If your operating system does not provide rkdeveloptool, you will need to compil
 <Tabs queryString="host-os">
 <TabItem value="archlinux" label="Arch Linux">
 
-The rkdeveloptool can be installed from [AUR](https://aur.archlinux.org/packages/rkdeveloptool).
+The rkdeveloptool can be installed from [AUR](https://aur.archlinux.org/packages/rkdeveloptool-git).
 
 </TabItem>
 <TabItem value="debian" label="Debian">
@@ -96,3 +96,45 @@ Download links for the required Loader and Image files can be found below.
 ```bash
 sudo rkdeveloptool rd
 ```
+
+## Installation for rkdeveloptool-gui
+
+If your operating system does not provide rkdeveloptool-gui, you will need to compile and install it from source.
+
+<Tabs queryString="host-os">
+<TabItem value="archlinux" label="Arch Linux">
+
+The rkdeveloptool can be installed from [AUR](https://aur.archlinux.org/packages/rkdeveloptool-gui).
+
+</TabItem>
+<TabItem value="debian" label="Debian">
+
+Execute the following command from the command line to install:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y git
+git clone https://github.com/gahingwoo/RKDevelopTool-GUI.git
+cd RKDevelopTool-GUI
+pip install -r requirements.txt
+python -m build_nuitka.py
+sudo cp rkdeveloptool-gui /usr/local/sbin/
+```
+
+</TabItem>
+<TabItem value="macos" label="macOS">
+
+Please install [Homebrew](https://brew.sh/) first, then run the following command from the command line to install it:
+
+```bash
+brew install git
+git clone https://github.com/gahingwoo/RKDevelopTool-GUI.git
+cd RKDevelopTool-GUI
+pip install -r requirements.txt
+python -m build_nuitka.py
+cp rkdeveloptool-gui /opt/homebrew/bin/
+```
+
+</TabItem>
+</Tabs>
+
