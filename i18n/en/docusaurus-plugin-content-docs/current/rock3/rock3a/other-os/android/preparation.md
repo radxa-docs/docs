@@ -11,7 +11,7 @@ sidebar_position: 1
 Radxa ROCK 3A supports QC 3.0/2.0 adapter, 9V/2A, 12V/1.5A
 
 :::tip
-Radxa recommends using [Radxa Power PD30W](../../accessories/power/pd_30w).
+Radxa recommends using [Radxa Power PD30W](../../accessories/power/pd-30w).
 :::
 
 ### Storage

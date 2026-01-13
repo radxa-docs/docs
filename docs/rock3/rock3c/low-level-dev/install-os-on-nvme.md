@@ -6,4 +6,4 @@ sidebar_position: 22
 
 import NVME from '../../../common/dev/\_nvme.mdx'
 
-<NVME model="rock-3c" release_num="b42" install_os_path="../getting-started/install-os" rsetup_path="../os-config/rsetup" />
+<NVME model="rock-3c" release_num="b42" install_os_path="../getting-started/install-os" rsetup_path="../system-config/rsetup" />

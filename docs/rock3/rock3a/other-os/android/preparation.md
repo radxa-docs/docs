@@ -11,7 +11,7 @@ sidebar_position: 1
 Radxa ROCK 3A 支持 QC 3.0/2.0 适配器, 9V/2A, 12V/1.5A
 
 :::tip
-瑞莎推荐使用 [Radxa Power PD30W](../../accessories/power/pd_30w)。
+瑞莎推荐使用 [Radxa Power PD30W](../../accessories/power/pd-30w)。
 :::
 
 ### 存储

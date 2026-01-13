@@ -96,7 +96,7 @@ By introducing system programming, system login, accessory usage, etc., let user
 Radxa OS is an operating system customized by Radxa based on Debian OS.
 This chapter introduces system login, network connection, etc to let user to be familiar with the system quickly.
 
-### [System Configuration](/rock3/rock3a/os-config)
+### [System Configuration](/rock3/rock3a/system-config)
 
 Introduces how to use tools like rsetup or command line to use devices or function.
 

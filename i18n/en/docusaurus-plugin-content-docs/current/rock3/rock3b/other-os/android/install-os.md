@@ -62,7 +62,7 @@ rkdeveloptool rd
 
 - 1x microSD card / eMMC(capacity >=8GB)
 - 1x microSD card / eMMC reader
-- 5V power adapter (recommended [Radxa Power PD30W](/accessories/power/pd_30w))
+- 5V power adapter (recommended [Radxa Power PD30W](/accessories/power/pd-30w))
 
 ## Image Download
 
@@ -78,7 +78,7 @@ Please go to [Resource Download](../../../images) to download the corresponding 
 - The power supply interface of ROCK 3B is [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface), please use Type-C cable to connect the power supply port and the adapter.
 
 :::tip
-Radxa ROCK 3B supports QC 3.0/2.0 adapter, 9V/2A, 12V/1.5A. Radxa recommends using the [Radxa Power PD30W](../../../../accessories/power/pd_30w).
+Radxa ROCK 3B supports QC 3.0/2.0 adapter, 9V/2A, 12V/1.5A. Radxa recommends using the [Radxa Power PD30W](../../../../accessories/power/pd-30w).
 :::
 
 </TabItem>

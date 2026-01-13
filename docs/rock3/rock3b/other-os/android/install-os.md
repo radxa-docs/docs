@@ -62,7 +62,7 @@ rkdeveloptool rd
 
 - 1x microSD 卡/ eMMC (容量 >=8GB)
 - 1x microSD / eMMC 读卡器
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd_30w))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd-30w))
 
 ## 镜像下载
 
@@ -78,7 +78,7 @@ rkdeveloptool rd
 - ROCK 3B 的供电接口为 [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
 
 :::tip
-Radxa ROCK 3B 支持 QC 3.0/2.0 适配器, 9V/2A，12V/1.5A。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd_30w)。
+Radxa ROCK 3B 支持 QC 3.0/2.0 适配器, 9V/2A，12V/1.5A。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd-30w)。
 :::
 
 ## 参考文档
@@ -90,7 +90,7 @@ Radxa ROCK 3B 支持 QC 3.0/2.0 适配器, 9V/2A，12V/1.5A。瑞莎推荐使用
 ## 准备工作
 
 - 1x NVME ssd （M.2）
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd_30w))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd-30w))
 
 ## 镜像下载
 

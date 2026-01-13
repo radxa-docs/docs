@@ -20,7 +20,7 @@ To boot up the ROCK 3B, you will also need the following:
 - A network cable, which is required to update the system.
 
 :::tip
-Power adapter The official [Radxa PD30W adapter](../../../accessories/power/pd_30w) is recommended.
+Power adapter The official [Radxa PD30W adapter](../../../accessories/power/pd-30w) is recommended.
 :::.
 
 Peripherals that are not required but enhance the basic functionality of the ROCK 3B:
@@ -31,7 +31,7 @@ Peripherals that are not required but enhance the basic functionality of the ROC
 
 ## M.2 NVMe SSDs.
 
-Refer to the [Install System](./install-os/) section to install the operating system.
+Refer to the [Install System](./install-system/) section to install the operating system.
 
 ## Wiring and Powering Up
 

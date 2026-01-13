@@ -19,7 +19,7 @@ We will introduce the board information as much as possible.
 - Power Supply:  
   The ROCK 3 is powered by Type-C port and support 5V input only. The suggested power adapter is 5V/3A when using without SSD, 5V/5A when using with SSD.  
   :::tip
-  The official recommendation is to use [Radxa Power PD30W](../../../accessories/power/pd_30w).
+  The official recommendation is to use [Radxa Power PD30W](../../../accessories/power/pd-30w).
   :::
 
 - USB Keyboard and Mouse  
@@ -60,6 +60,6 @@ We will introduce the board information as much as possible.
 
 First, choose the [official image](../../images) that you want to flash and download it.
 
-Then, flash the image to the storage media by referring the [OS Installation guide](install-os).
+Then, flash the image to the storage media by referring the [OS Installation guide](install-system).
 
 Finally, insert the system storage media, microSD Card or eMMC Module into the socket on the board and power on ROCK 3C by adapter with Type-C port.
