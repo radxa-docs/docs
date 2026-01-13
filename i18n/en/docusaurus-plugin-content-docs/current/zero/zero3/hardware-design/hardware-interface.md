@@ -79,7 +79,7 @@ By default, Pin-27 can be configured in software for functions such as GPIO4_B2 
 - **Solder 0-ohm resistors at R45 and R46.**
 
 :::tip
-The schematic and resistor locations can be viewed and downloaded from the hardware documentation.[Hardware Documentation Download](../getting-started/download)
+The schematic and resistor locations can be viewed and downloaded from the hardware documentation.[Hardware Documentation Download](../download)
 :::
 
 :::caution [Operation Note]
