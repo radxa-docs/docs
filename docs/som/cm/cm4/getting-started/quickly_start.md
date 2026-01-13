@@ -65,7 +65,7 @@ sidebar_position: 1
 :::tip 系统启动优先级
 若您在主板上安装了多个系统启动介质，系统启动优先级如下：目前暂不支持 UFS 模块启动系统
 
-MicroSD 卡 > 板载 eMMC > UFS 模块（暂不支持） > NVMe SSD
+MicroSD 卡 > 板载 eMMC > UFS 模块 > NVMe SSD
 :::
 
 <div style={{textAlign: 'center'}}>
