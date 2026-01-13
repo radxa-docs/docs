@@ -14,7 +14,7 @@ import BIOS from '../../../common/orion-common/low-level-dev/\_bios.mdx';
 
 BIOS 固件更新成功后，按照下面教程将最新 Android 系统刷入到 NVMe 固态硬盘中。
 
-- [安装系统到 NVMe 固态硬盘](../getting-started/install-system/nvme-system/nvme_reader)
+- [安装系统到 NVMe 固态硬盘](../getting-started/install-system/nvme-system/nvme-reader)
 
 :::tip 注意事项
 
