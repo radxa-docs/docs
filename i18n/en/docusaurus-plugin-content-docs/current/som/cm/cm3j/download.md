@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 99
 ---
 
 # Resource Download
@@ -20,7 +20,7 @@ sidebar_position: 2
 
 Debian OS:
 
-- System Image： [Debian b2](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b2/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b2.output.img.xz)
+- System Image: [Debian b2](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b2/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b2.output.img.xz)
 
 ## Hardware Design
 
