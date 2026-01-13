@@ -11,7 +11,7 @@ sidebar_position: 5
 
 ## Image download
 
-Please go to [Resource Download](../getting-started/download) to download the corresponding image file.
+Please go to [Resource Download](../download) to download the corresponding image file.
 
 ### Put it in Maskrom mode
 
