@@ -115,6 +115,8 @@ repos:
         language: system
         entry: bash
         files: '\.md$'
+        stages:
+          - pre-commit
         args:
           - -c
           - |
