@@ -1,0 +1,150 @@
+## Fcitx Usage Guide
+
+This document describes how to install and use the Fcitx5 input method framework on Radxa OS (Debian-based), and how to configure Chinese input.
+
+The following packages are required:
+
+- `fcitx5`
+- `fcitx5-chinese-addons`
+- `fcitx5-config-qt`
+
+## Install Fcitx5
+
+Install in the desktop environment through the terminal:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install -y fcitx5 fcitx5-chinese-addons fcitx5-config-qt
+```
+
+</NewCodeBlock>
+
+## Enable the Input Method (Make Applications Use Fcitx5)
+
+Most desktop environments need to select the input method framework at the "session level". Usually you need to log out and log back in (or reboot) for it to fully take effect.
+
+### Method 1: Use im-config (Recommended)
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+im-config
+```
+
+</NewCodeBlock>
+
+In the pop-up interface, select `fcitx5` and confirm. Then:
+
+- Log out of the current desktop session and log back in, or
+- Directly reboot the system
+
+### Method 2: Set Environment Variables (Troubleshooting / Advanced Usage)
+
+If you encounter a situation where "Fcitx5 has started but some applications cannot input", you can check whether the following environment variables are in effect:
+
+```
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+```
+
+:::tip
+The location where environment variables are loaded may differ between desktop environments (for example `~/.profile`, `~/.xprofile`, or desktop session settings).
+After modifying them you usually need to log in again.
+:::
+
+## Configure Chinese Input (fcitx5-chinese-addons)
+
+After installing `fcitx5-chinese-addons`, you will get common Chinese input engines (such as Pinyin).
+
+### Open the Configuration Tool (fcitx5-config-qt)
+
+You can start `Fcitx 5 Configuration` from the application menu, or start it in the terminal:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+fcitx5-config-qt
+```
+
+</NewCodeBlock>
+
+### Add Chinese Input Method
+
+1. Open `Fcitx 5 Configuration`
+2. On the `Input Method` page click `Add`
+3. Search for and add `Pinyin` (or other Chinese input engines you need)
+4. Adjust the input method order by moving them up and down
+
+## Start/Restart Fcitx5
+
+If Fcitx5 does not start automatically, or you need to restart it to apply configuration changes:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+fcitx5 -rd
+```
+
+</NewCodeBlock>
+
+Where:
+
+- `-r`: Replace the existing instance if there is one
+- `-d`: Run in the background (daemon)
+
+## Troubleshooting
+
+### Input Method Installed but Cannot Switch / No Candidate Window
+
+1. Confirm whether the Fcitx5 process exists:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+ps -ef | grep -E "fcitx5($|\\s)" | grep -v grep
+```
+
+</NewCodeBlock>
+
+2. Run the diagnosis tool (the output will indicate missing components / environment variable issues):
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+fcitx5-diagnose
+```
+
+</NewCodeBlock>
+
+3. Use `im-config` to select `fcitx5` and log in again
+
+### Cannot Input Only in Certain Applications
+
+This is usually related to environment variables or frontend modules:
+
+- Check `GTK_IM_MODULE` / `QT_IM_MODULE` / `XMODIFIERS`
+- Test again after logging out and logging back in
+- In Wayland environments, Electron applications may need flags to be added at startup. The specific flags may vary by application. Please search for `<application-name> + wayland` for more information.
+
+:::tip
+
+In most cases, to add flags for an Electron application you create a `<application-name>-flags.conf` file under the `~/.config/` directory with the following content:
+
+```
+--enable-features=UseOzonePlatform --ozone-platform=auto --enable-wayland-ime --wayland-text-input-version=3
+```
+
+This is for reference only. The exact configuration may vary by application. Please search for more detailed information according to the specific application.
+:::
+
+### Wayland vs X11
+
+The way input method support is integrated under Wayland may differ between desktop environments.
+
+If you encounter problems in a Wayland session, you can try:
+
+1. First verify in an X11 session (the login screen usually allows you to select the session type)
+2. Make sure you are using the desktop and input method combination recommended by the system
