@@ -12,39 +12,27 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 ## SPI 文件下载
 
-您可以根据自己的系统镜像和启动方式选择下载对应 `spi.img`文件。
+最新的 SPI 文件支持启动 Linux 和 Android 系统。
 
 :::tip
-Linux 系统镜像：
 
-- MicroSD 卡 / NVME SSD / U 盘 / UFS 模块启动系统都使用相同的 `spi.img` 文件。
+擦除和烧录 SPI 启动固件请参考 [擦除/烧录 SPI 启动固件](./low-level-dev/spi_flash) 教程。
 
-Android 系统镜像：
-
-- MicroSD 卡启动使用和 Linux 相同的 `spi.img` 文件
-- UFS 模块启动需要擦除 SPI Flash
-- NVME SSD 启动需要烧录安卓对应的 `spi.img` 文件到 SPI Flash
-  :::
-
-#### Linux 系统镜像
-
-瑞莎 ROCK 4D 出厂默认下载 Linux 系统对应的 `spi.img` 文件到 SPI Flash。
+:::
 
 - [spi.img](https://dl.radxa.com/rock4/4d/images/rock-4d-spi-flash-image.img)
 
-#### Android 系统镜像
-
-注意：只有 NVME SSD 启动才需要烧录安卓对应的 `spi.img` 文件到 SPI Flash。
-
-:::tip
-擦除和烧录 SPI 启动固件请参考 [擦除/烧录 SPI 启动固件](./low-level-dev/spi_flash) 教程。
-:::
-
-- [spi.img](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4D-Android14-nvme-spi.zip)
-
 ## 系统镜像下载
 
-#### Linux 系统镜像
+### Linux 系统镜像
+
+:::info 最新系统镜像发布页面
+
+- [ROCK 4D Linux 系统镜像](https://github.com/radxa-build/radxa-rk3576/releases)
+
+该页面会发布最新的正式版本和测试版本的系统镜像，测试版本以 `t` 开头，正式版本以 `r` 开头。
+
+:::
 
 若没有清除过 SPI Flash，可以直接写入系统镜像到 MicroSD 卡 / UFS 模块 / NVME / eMMC 启动系统。
 
@@ -60,17 +48,25 @@ Android 系统镜像：
 
 #### Android 系统镜像
 
+:::info 最新系统镜像发布页面
+
+- [ROCK 4D Android 系统镜像](https://github.com/radxa/manifests/releases?q=4D&expanded=true)
+
+:::
+
 - 适用于 MicroSD 卡启动的系统镜像：[Android-SD.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-sd-20250527-gpt.zip)
 
-- 适用于 UFS 模块启动的系统镜像：[Android-UFS.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-ufs-20250527-gpt.zip)
+- 适用于 UFS 模块启动的 update 系统镜像：[Android-UFS-update.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20251014/Rock4d-Android14-rk6-gms-ufs-20251014-update.zip)
+
+- 适用于 UFS 模块启动的 gpt 系统镜像：[Android-UFS-gpt.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-ufs-20250527-gpt.zip)
 
 - 适用于 NVME 启动的系统镜像：[Android-NVME.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-nvme-20250527-gpt.zip)
 
 ## 硬件设计
 
-- [原理图](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SCH_V1.11.pdf)
+- [原理图 v1.11](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SCH_V1.11.pdf)
 - [原理图 v1.12](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SCH_V1.12.pdf)
-- [位号图](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SMD_V1.11.pdf)
+- [位号图 v1.11](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SMD_V1.11.pdf)
 - [位号图 v1.12](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SMD_v1.12.pdf)
 - [3D 模型](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_3D_v1_11_20250328.stp)
 
