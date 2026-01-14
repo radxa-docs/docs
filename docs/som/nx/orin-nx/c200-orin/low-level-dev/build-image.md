@@ -4,7 +4,7 @@ sidebar_position: 10
 
 # 编译 / 烧录瑞莎 BIOS 固件
 
-瑞莎 C200 Orin 开发套件预装瑞莎的 BIOS 固件，支持从 U 盘或 NVMe 固态硬盘启动系统。
+烧录我们提供的 BIOS 固件，支持从 U 盘或 NVMe 固态硬盘启动系统。
 
 若您使用 SDK Manager 或命令行安装过系统，将会擦除瑞莎 C200 Orin 开发套件的预装 BIOS 固件，无法通过 U 盘启动系统，可以通过以下方式重新烧录瑞莎 BIOS 固件。
 
