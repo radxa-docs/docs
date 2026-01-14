@@ -8,6 +8,15 @@ sidebar_position: 150
 
 搭配瑞莎 BIOS 固件使用，支持 U 盘和 NVMe 固态硬盘启动系统。
 
+:::tip 烧录 BIOS 固件
+
+烧录 BIOS 固件教程请参考：下面两个教程参考其中一个就行
+
+- [使用瑞莎预编译 BIOS 固件](./low-level-dev/prebuild-image.md)：使用预编译的 BIOS 固件进行烧录，适合小白用户
+- [编译 / 烧录瑞莎 BIOS 固件](./low-level-dev/build-image.md)：自行编译和烧录 BIOS 固件，适合有经验的用户
+
+:::
+
 - [Jetson Orin Nano 镜像（Jetpack 6.2）：适用于 Radxa C200 Orin 开发套件](https://developer.nvidia.com/downloads/embedded/L4T/r36_Release_v4.4/jp62-r1-orin-nano-sd-card-image.zip)
 
 ## 硬件设计
