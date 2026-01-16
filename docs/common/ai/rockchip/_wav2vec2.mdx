@@ -1,0 +1,172 @@
+## 环境配置
+
+:::info
+参考 [RKNN 安装](./rknn_install) 配置好相关环境。
+
+参考 [RKNN Model Zoo](./rknn_model_zoo) 下载示例文件。
+:::
+
+## 模型下载
+
+下载 onnx 模型文件。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd rknn_model_zoo/examples/wav2vec2/model/
+bash download_model.sh
+```
+
+</NewCodeBlock>
+
+## 模型转换
+
+选择目标平台。
+
+<Tabs>
+
+<TabItem value="rk3588">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk3588
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="rk356x">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk356x
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+将 onnx 模型转换为 rknn 模型。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../python/
+python convert.py ../model/wav2vec2_base_960h_20s.onnx ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+## C API
+
+### 编译示例
+
+切换到 rknn_model_zoo 目录下执行 build-linux.sh 编译脚本。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../../..
+bash build-linux.sh -t ${TARGET_PLATFORM} -a aarch64 -d wav2vec2
+```
+
+</NewCodeBlock>
+
+### 文件同步
+
+然后将编译生成的 install 目录下的 demo 目录推送到板端。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd install/${TARGET_PLATFORM}_linux_aarch64/
+scp -r rknn_wav2vec2_demo/ user@your_device_ip:target_directory
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+导出运行时库到环境变量。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn_wav2vec2_demo/
+export LD_LIBRARY_PATH=./lib
+```
+
+</NewCodeBlock>
+
+运行示例。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./rknn_wav2vec2_demo ./model/wav2vec2_base_960h_20s.rknn ./model/test.wav
+```
+
+</NewCodeBlock>
+
+```bash
+$ ./rknn_wav2vec2_demo ./model/wav2vec2_base_960h_20s.rknn ./model/test.wav
+-- read_audio & convert_channels & resample_audio use: 0.616000 ms
+-- audio_preprocess use: 0.464000 ms
+model input num: 1, output num: 1
+input tensors:
+  index=0, name=input, n_dims=2, dims=[1, 320000], n_elems=320000, size=640000, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+output tensors:
+  index=0, name=output, n_dims=3, dims=[1, 999, 32], n_elems=31968, size=63936, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+-- init_wav2vec2_model use: 705.586975 ms
+-- inference_wav2vec2_model use: 3297.358887 ms
+
+Wav2vec2 output: MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL
+
+Real Time Factor (RTF): 3.297 / 20.000 = 0.165
+```
+
+## Python API
+
+### 激活虚拟环境
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+conda activate rknn
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+将相关文件推送到板端执行下面的命令。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python wav2vec2.py --model_path ../model/wav2vec2_base_960h_20s.rknn --target ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+```bash
+$ python wav2vec2.py --model_path ../model/wav2vec2_base_960h_20s.rknn --target rk3588
+2026-01-16 09:12:33.885150713 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"
+/home/radxa/miniforge3/envs/rknn/lib/python3.12/site-packages/rknn/api/rknn.py:51: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  self.rknn_base = RKNNBase(cur_path, verbose)
+I rknn-toolkit2 version: 2.3.2
+--> Loading model
+done
+--> Init runtime environment
+I target set by user is: rk3588
+done
+W inference: Inputs should be placed in a list, like [img1, img2], both the img1 and img2 are ndarray.
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+
+Wav2vec2 output: MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL
+```
