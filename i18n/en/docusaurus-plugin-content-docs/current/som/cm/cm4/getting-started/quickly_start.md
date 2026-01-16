@@ -65,7 +65,7 @@ After completing the system installation, insert the MicroSD card into the CM4 I
 :::tip Boot Priority
 If you have multiple boot media installed, the system will boot in the following priority order:
 
-MicroSD Card > Onboard eMMC > UFS Module (Not Supported) > NVMe SSD
+MicroSD Card > Onboard eMMC > UFS Module > NVMe SSD
 :::
 
 <div style={{textAlign: 'center'}}>

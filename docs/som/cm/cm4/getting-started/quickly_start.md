@@ -63,9 +63,9 @@ sidebar_position: 1
 完成系统的安装后，你可以将 MicroSD 卡安装到 CM4 IO 板的 MicroSD 卡槽上，然后连接电源适配器启动系统。
 
 :::tip 系统启动优先级
-若您在主板上安装了多个系统启动介质，系统启动优先级如下：目前暂不支持 UFS 模块启动系统
+若您在主板上安装了多个系统启动介质，系统启动优先级如下：
 
-MicroSD 卡 > 板载 eMMC > UFS 模块（暂不支持） > NVMe SSD
+MicroSD 卡 > 板载 eMMC > UFS 模块 > NVMe SSD
 :::
 
 <div style={{textAlign: 'center'}}>

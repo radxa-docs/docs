@@ -15,9 +15,9 @@ If you haven't installed the system yet, please refer to the [Install System](./
 Install the boot media in the corresponding slot on the motherboard, then power on the board using the power adapter to start the system.
 
 :::tip Boot Priority
-If you have multiple boot media installed on the motherboard, the system will boot in the following priority order (Note: UFS module boot is currently not supported):
+If you have multiple boot media installed on the motherboard, the system will boot in the following priority order:
 
-MicroSD Card > Onboard eMMC > UFS Module (Not Supported) > NVMe SSD
+MicroSD Card > Onboard eMMC > UFS Module > NVMe SSD
 :::
 
 **Note:** You can remove the higher priority boot media to force the system to boot from a lower priority media.
