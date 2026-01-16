@@ -22,13 +22,14 @@ Radxa 25W PoE+ HAT supports the following Radxa products:
 - Radxa ROCK 4C+
 - Radxa ROCK 5A
 - Radxa ROCK 5B
+- Radxa Cubie A7A
 
 ## Features
 
 - Compliant with IEEE 802.3af/at standards
 - Wide input voltage range: 37V to 57V
 - Output Voltage/Current: 5V / 4.8A, 12V / 2.1A
-  - When only a 5 load is connected, the PoE output is up to 5V DC / 4.8A
+  - When only a 5V load is connected, the PoE output is up to 5V DC / 4.8A
   - When only a 12V load is connected, the PoE output is up to 12V DC / 2.1A
 - Features a programmable temperature sensor
 - Equipped with a customizable Cooling Fan delivering 1.45CFM for processor cooling
@@ -82,6 +83,11 @@ Usage steps:
     <TabItem value="3a_3c" label="ROCK 3A, ROCK 3C">
 
     ![25W PoE 3A](/img/accessories/poe-hat/25w-poe-3c.webp)
+
+    </TabItem>
+    <TabItem value="cubie_a7a" label="Cubie A7A">
+
+    ![25W PoE Cubie A7A](/img/accessories/poe-hat/25w-poe-cubie-a7a.webp)
 
     </TabItem>
 

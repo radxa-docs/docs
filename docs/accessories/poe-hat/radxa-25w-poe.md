@@ -22,10 +22,12 @@ Radxa 25W PoE+ 拓展板支持以下瑞莎产品：
 - Radxa ROCK 4C+
 - Radxa ROCK 5A
 - Radxa ROCK 5B
+- Radxa Cubie A7A
 
 ## 功能
 
 - 符合 IEEE 802.3af/at 标准
+- 宽输入电压范围：37V to 57V
 - 输出：5V/4.8A、12V/2.1A
   - 仅连接 5V 负载时，PoE 输出高达 5V DC / 4.8A
   - 仅连接 12V 负载时，PoE 输出高达 12V DC / 2.1A
@@ -81,6 +83,11 @@ Radxa 25W PoE+ 拓展板支持以下瑞莎产品：
     <TabItem value="3a_3c" label="ROCK 3A, ROCK 3C">
 
     ![25W PoE 3A](/img/accessories/poe-hat/25w-poe-3c.webp)
+
+    </TabItem>
+    <TabItem value="cubie_a7a" label="Cubie A7A">
+
+    ![25W PoE Cubie A7A](/img/accessories/poe-hat/25w-poe-cubie-a7a.webp)
 
     </TabItem>
 
