@@ -6,9 +6,9 @@ sidebar_position: 2
 
 ## DSI Interface definition
 
-Radxa ROCK 3C has a 15 PIN CSI interface. The interface definition is as follows:
+Radxa ROCK 3C has a 15 PIN DSI interface. The interface definition is as follows:
 
-<img src="../../../img/rock3/3c/rock3c-dsi-pin.webp" width = "800" alt="rock 3c csi 2lanes"/>
+<img src="../../../img/rock3/3c/rock3c-dsi-pin.webp" width = "800" alt="rock 3c dsi 2lanes"/>
 
 Currently supported MIPI DSI screens are:
 

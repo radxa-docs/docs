@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## DSI 接口定义
 
-Radxa ROCK 3C 拥有一个 15 PIN 的 CSI 接口,接口定义如下:
+Radxa ROCK 3C 拥有一个 15 PIN 的 DSI 接口,接口定义如下:
 
 <img src="../../../img/rock3/3c/rock3c-dsi-pin.webp" width = "800" alt="rock 3c csi 2lanes"/>
 
