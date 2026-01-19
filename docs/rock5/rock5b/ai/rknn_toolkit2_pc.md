@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 6
 description: "利用 RKNN 工具包，探索 AI 模型的模拟推理，体验智能图像分割的高效与精准"
 ---
 

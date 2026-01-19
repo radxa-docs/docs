@@ -1,5 +1,5 @@
 ---
-sidebar_position: 11
+sidebar_position: 7
 ---
 
 # 板端部署 YOLOv5 目标检测

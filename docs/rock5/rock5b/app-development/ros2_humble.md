@@ -1,5 +1,5 @@
 ---
-sidebar_position: 20
+sidebar_position: 8
 ---
 
 # 安装 ROS2 HUMBLE

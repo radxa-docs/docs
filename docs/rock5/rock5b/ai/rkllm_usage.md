@@ -1,8 +1,8 @@
 ---
-sidebar_position: 14
+sidebar_position: 4
 ---
 
-# RKLLM 使用与大语言模型部署
+# RKLLM 使用
 
 import Rkllmusage from '../../../common/dev/\_rkllm-usage.mdx';
 

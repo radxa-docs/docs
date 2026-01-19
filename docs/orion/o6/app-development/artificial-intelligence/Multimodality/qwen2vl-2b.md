@@ -1,5 +1,5 @@
 ---
-sidebar-position: 1
+sidebar_position: 1
 ---
 
 import Qwen2_vl from '../../../../../common/orion-common/app-dev/artificial-intelligence/\_qwen2vl-2b.mdx';

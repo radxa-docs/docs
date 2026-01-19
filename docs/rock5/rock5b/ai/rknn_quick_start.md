@@ -1,5 +1,5 @@
 ---
-sidebar_position: 14
+sidebar_position: 5
 ---
 
 # RKNN 快速例子

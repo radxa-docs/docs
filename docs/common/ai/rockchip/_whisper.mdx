@@ -1,0 +1,262 @@
+## 环境配置
+
+:::info
+参考 [RKNN 安装](./rknn_install) 配置好相关环境。
+
+参考 [RKNN Model Zoo](./rknn_model_zoo) 下载示例文件。
+:::
+
+## 模型下载
+
+下载 onnx 模型文件。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd rknn_model_zoo/examples/whisper/model/
+bash download_model.sh
+```
+
+</NewCodeBlock>
+
+## 模型转换
+
+选择目标平台。
+
+<Tabs>
+
+<TabItem value="rk3588">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk3588
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="rk356x">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk356x
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+将 onnx 模型转换为 rknn 模型。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../python/
+python convert.py ../model/whisper_encoder_base_20s.onnx ${TARGET_PLATFORM}
+python convert.py ../model/whisper_decoder_base_20s.onnx ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+## C API
+
+### 编译示例
+
+切换到 rknn_model_zoo 目录下执行 build-linux.sh 编译脚本。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../../..
+bash build-linux.sh -t ${TARGET_PLATFORM} -a aarch64 -d whisper
+```
+
+</NewCodeBlock>
+
+### 文件同步
+
+然后将编译生成的 install 目录下的 demo 目录推送到板端。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd install/${TARGET_PLATFORM}_linux_aarch64/
+scp -r rknn_whisper_demo/ user@your_device_ip:target_directory
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+导出运行时库到环境变量。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn_whisper_demo/
+export LD_LIBRARY_PATH=./lib
+```
+
+</NewCodeBlock>
+
+运行示例。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+# 中文语音
+./rknn_whisper_demo ./model/whisper_encoder_base_20s.rknn ./model/whisper_decoder_base_20s.rknn zh ./model/test_zh.wav
+# 英文语音
+./rknn_whisper_demo ./model/whisper_encoder_base_20s.rknn ./model/whisper_decoder_base_20s.rknn en ./model/test_en.wav
+```
+
+</NewCodeBlock>
+
+中文语音：
+
+```bash
+$ ./rknn_whisper_demo ./model/whisper_encoder_base_20s.rknn ./model/whisper_decoder_base_20s.rknn zh ./model/test_zh.wav
+-- read_audio & convert_channels & resample_audio use: 6.659000 ms
+-- read_mel_filters & read_vocab use: 54.120998 ms
+model input num: 1, output num: 1
+input tensors:
+  index=0, name=x, n_dims=3, dims=[1, 80, 2000], n_elems=160000, size=320000, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+output tensors:
+  index=0, name=out, n_dims=3, dims=[1, 1000, 512], n_elems=512000, size=1024000, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+-- init_whisper_encoder_model use: 199.550995 ms
+model input num: 2, output num: 1
+input tensors:
+  index=0, name=tokens, n_dims=2, dims=[1, 12], n_elems=12, size=96, fmt=UNDEFINED, type=INT64, qnt_type=AFFINE, zp=0, scale=1.000000
+  index=1, name=audio, n_dims=3, dims=[1, 1000, 512], n_elems=512000, size=1024000, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+output tensors:
+  index=0, name=out, n_dims=3, dims=[1, 12, 51865], n_elems=622380, size=1244760, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+-- init_whisper_decoder_model use: 282.627014 ms
+-- inference_whisper_model use: 1656.614014 ms
+
+Whisper output: 对我做了介绍,我想说的是大家如果对我的研究感兴趣
+
+Real Time Factor (RTF): 1.657 / 5.611 = 0.295
+```
+
+英文语音：
+
+```bash
+$ ./rknn_whisper_demo ./model/whisper_encoder_base_20s.rknn ./model/whisper_decoder_base_20s.rknn en ./model/test_en.wav
+-- read_audio & convert_channels & resample_audio use: 2.198000 ms
+-- read_mel_filters & read_vocab use: 60.438000 ms
+model input num: 1, output num: 1
+input tensors:
+  index=0, name=x, n_dims=3, dims=[1, 80, 2000], n_elems=160000, size=320000, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+output tensors:
+  index=0, name=out, n_dims=3, dims=[1, 1000, 512], n_elems=512000, size=1024000, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+-- init_whisper_encoder_model use: 121.598999 ms
+model input num: 2, output num: 1
+input tensors:
+  index=0, name=tokens, n_dims=2, dims=[1, 12], n_elems=12, size=96, fmt=UNDEFINED, type=INT64, qnt_type=AFFINE, zp=0, scale=1.000000
+  index=1, name=audio, n_dims=3, dims=[1, 1000, 512], n_elems=512000, size=1024000, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+output tensors:
+  index=0, name=out, n_dims=3, dims=[1, 12, 51865], n_elems=622380, size=1244760, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+-- init_whisper_decoder_model use: 222.567993 ms
+-- inference_whisper_model use: 1372.854980 ms
+
+Whisper output:  Mr. Quilter is the apostle of the middle classes and we are glad to welcome his gospel.
+
+Real Time Factor (RTF): 1.373 / 5.855 = 0.234
+```
+
+## Python API
+
+### 激活虚拟环境
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+conda activate rknn
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+:::info
+**依赖说明**：运行下面的命令安装依赖。
+
+```bash
+pip install soundfile
+```
+
+:::
+
+将相关文件推送到板端执行下面的命令。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+# 中文语音
+python whisper.py --encoder_model_path ../model/whisper_encoder_base_20s.rknn --decoder_model_path ../model/whisper_decoder_base_20s.rknn --task zh --audio_path ../model/test_zh.wav --target ${TARGET_PLATFORM}
+# 英文语音
+python whisper.py --encoder_model_path ../model/whisper_encoder_base_20s.rknn --decoder_model_path ../model/whisper_decoder_base_20s.rknn --task en --audio_path ../model/test_en.wav --target ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+中文语音：
+
+```bash
+$ python whisper.py --encoder_model_path ../model/whisper_encoder_base_20s.rknn --decoder_model_path ../model/whisper_decoder_base_20s.rknn --task zh --audio_path ../model/test_zh.wav --target rk3588
+2026-01-16 08:54:55.503119681 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"
+/home/radxa/miniforge3/envs/rknn/lib/python3.12/site-packages/rknn/api/rknn.py:51: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  self.rknn_base = RKNNBase(cur_path, verbose)
+I rknn-toolkit2 version: 2.3.2
+--> Loading model
+done
+--> Init runtime environment
+I target set by user is: rk3588
+done
+I rknn-toolkit2 version: 2.3.2
+--> Loading model
+done
+--> Init runtime environment
+I target set by user is: rk3588
+done
+W inference: Inputs should be placed in a list, like [img1, img2], both the img1 and img2 are ndarray.
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+
+Whisper output: 对我做了介绍,我想说的是,如果对我的研究感兴趣
+```
+
+英文语音：
+
+```bash
+$ python whisper.py --encoder_model_path ../model/whisper_encoder_base_20s.rknn --decoder_model_path ../model/whisper_decoder_base_20s.rknn --task en --audio_path ../model/test_en.wav --target rk3588
+2026-01-16 08:54:35.451693658 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"
+/home/radxa/miniforge3/envs/rknn/lib/python3.12/site-packages/rknn/api/rknn.py:51: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  self.rknn_base = RKNNBase(cur_path, verbose)
+I rknn-toolkit2 version: 2.3.2
+--> Loading model
+done
+--> Init runtime environment
+I target set by user is: rk3588
+done
+I rknn-toolkit2 version: 2.3.2
+--> Loading model
+done
+--> Init runtime environment
+I target set by user is: rk3588
+done
+W inference: Inputs should be placed in a list, like [img1, img2], both the img1 and img2 are ndarray.
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+
+Whisper output:  Mr. Quilter is the apostle of the middle classes and we are glad to welcome his gospel.
+```

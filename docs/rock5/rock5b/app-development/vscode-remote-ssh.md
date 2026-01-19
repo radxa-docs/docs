@@ -1,5 +1,5 @@
 ---
-sidebar_position: 50
+sidebar_position: 11
 ---
 
 import VSCODEREMOTESSH from '../../../common/dev/\_vscode-remote-ssh.mdx';

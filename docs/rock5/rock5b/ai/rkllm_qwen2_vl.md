@@ -1,5 +1,5 @@
 ---
-sidebar_position: 24
+sidebar_position: 13
 description: "使用 RKLLM 运行 Qwen2_VL 大语言模型"
 ---
 

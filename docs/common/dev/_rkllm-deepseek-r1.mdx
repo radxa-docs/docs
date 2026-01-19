@@ -1,177 +1,247 @@
-[DeepSeek-R1](https://api-docs.deepseek.com/news/news250120) 是由杭州[深度求索](https://www.deepseek.com/)公司开发,
-该模型完全开源了所有训练技术和模型权重，性能对齐闭源的 OpenAI-o1,
-deepseek 通过 DeepSeek-R1 的输出，蒸馏了 6 个小模型给开源社区，包括 Qwen2.5 和 Llama3.1。
-本文档将讲述如何使用 RKLLM 将 DeepSeek-R1 蒸馏模型 [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) 大语言模型部署到 RK3588 上利用 NPU 进行硬件加速推理。
+[DeepSeek-R1](https://api-docs.deepseek.com/news/news250120) 是由杭州深度求索（DeepSeek）公司开发的顶尖推理模型。
+该模型不仅完整开源了全套训练技术与模型权重，其性能表现更可比肩闭源的 OpenAI-o1。
+此外，DeepSeek 官方还通过 DeepSeek-R1 的输出，通过知识蒸馏技术推出了 6 款开源轻量化模型（涵盖 Qwen2.5 和 Llama3.1 系列）。
+本文档将详细演示如何利用 RKLLM 工具链，将蒸馏模型 DeepSeek-R1-Distill-Qwen-1.5B 部署至 RK3588 开发板，并调用其内置的 NPU 实现高效的硬件加速推理。
 
 ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_ds_1.webp)
 
-### 模型文件下载
+## 快速开始
 
-:::tip
-瑞莎已经提供编译好的 rkllm 模型和执行文件，用户可直接下载使用，如要参考编译过程可继续参考可选部分
+### 下载示例
+
+从 ModelScope 下载完整示例。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip install -U modelscope
+modelscope download --model radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd demo_Linux_aarch64/
+export LD_LIBRARY_PATH=./lib
+./llm_demo ../DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
+```
+
+</NewCodeBlock>
+
+## 完整转换流程
+
+:::info[先决条件]
+根据 [RKLLM 安装](./rkllm_install)配置好开发环境。
 :::
 
-- 使用 [git LFS](https://git-lfs.com/) 从 [ModelScope](https://modelscope.cn/models/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM) 下载预编译好的 rkllm
-
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  git lfs install
-  git clone https://www.modelscope.cn/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM.git
-  ```
-
-  </NewCodeBlock>
-
-### （可选）模型编译
-
-:::tip
-请用户根据 [RKLLM安装](./rkllm_install) 完成 PC 端和开发板端 RKLLM 工作环境的准备
-:::
-:::tip
-RK358X 用户 TARGET_PLATFORM 请指定 `rk3588` 平台
+:::warning[版本问题]
+在 rkllm 1.2.3 环境下运行此示例会导致严重的精度损失，触发模型‘复读机’效应（产生大量重复输出）而无法正常回复。
+建议降级至 rkllm 1.2.2 版本以解决该问题，详情请参考 [GitHub Issue](https://github.com/airockchip/rknn-llm/issues/424) 。
 :::
 
-- x86 PC 工作站中下载 [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) 权重文件, 如没安装 [git-lfs](https://git-lfs.com/)，请自行安装
+### 激活虚拟环境
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  ```bash
-  git lfs install
-  git clone https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
-  ```
+```bash
+conda activate rkllm
+pip install -U huggingface_hub
+```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-- 激活 rkllm conda 环境, 可参考[RKLLM conda 安装](rkllm_install#x86-pc-工作站)
+### 下载模型
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  ```bash
-  conda activate rkllm
-  ```
+```bash
+cd RK-SDK/rknn-llm/examples/rkllm_api_demo/
+hf download https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B --local-dir ./DeepSeek-R1-Distill-Qwen-1.5B
+```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-- 生成 LLM 模型量化校准文件
+### 模型转换
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+生成量化校准文件并将模型导出为 rkllm 模型。
 
-  ```bash
-  cd examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export
-  python3 generate_data_quant.py -m /path/to/DeepSeek-R1-Distill-Qwen-1.5B
-  ```
+:::tip
+如对 max_context 长度有需求，可在 export_rkllm.py 中的 llm.build 函数接口中修改 max_context 参数的值，
+默认是 4096, 值越大，占用内存越多。不得超过 16,384，且必须是 32 的倍数（例如，32、64、96、...、16,384）
+:::
 
-  </NewCodeBlock>
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  | 参数   | 必要性 | 描述                         | 选项 |
-  | ------ | ------ | ---------------------------- | ---- |
-  | `path` | 必要   | Huggingface 模型文件夹路径。 | N    |
+```bash
+cd export/
+python generate_data_quant.py -m ../DeepSeek-R1-Distill-Qwen-1.5B -o ../DeepSeek-R1-Distill-Qwen-1.5B/data_quant.json
+# 运行前修改模型路径和量化校准文件路径
+python export_rkllm.py
+```
 
-  generate_data_quant.py 会生成模型量化时使用到的量化文件 `data_quant.json`
+</NewCodeBlock>
 
-- 更改 `rknn-llm/xamples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export/export_rkllm.py` 中 modelpath 模型路径
+### 编译可执行文件
 
-  <NewCodeBlock tip="Python Code" type="PC">
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  ```python
-  11 modelpath = '/path/to/DeepSeek-R1-Distill-Qwen-1.5B_Demo'
-  ```
+```bash
+cd ../deploy/
+# 导出交叉编译器路径
+export GCC_COMPILER=/path/to/your/gcc/bin/aarch64-linux-gnu
+bash build-linux.sh
+```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-- 更改模型上下文最大值 max_context
-
-  如对 max_context 长度有需求，可在 `rknn-llm/xamples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export/export_rkllm.py` 中的 llm.build 函数接口中修改 `max_context` 参数的值，默认是 4096, 值越大，占用内存越多。不得超过 16,384，且必须是 32 的倍数（例如，32、64、96、...、16,384）
-
-- 运行模型转换脚本
-
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  python3 export_rkllm.py
-  ```
-
-  </NewCodeBlock>
-
-  转换成功后可得到 rkllm 模型, 此处应得到 `./DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm`，从模型命名中可以看出此模型是经过 W8A8 量化的适用于 RK3588 平台的 DeepSeek-R1-Distill-Qwen-1.5B RKLLM 模型。
-
-### （可选）编译可执行文件
-
-- 下载交叉编译工具链 [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11)
-- 修改主程序 `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/src/llm_demo.cpp` 代码
-
-  这里需要注释掉 165 行的代码，RKLLM 在转换模型时，会自动解析 Hugging Face 模型 tokenizer_config.json 文件中的
-  chat_template 字段，故无需修改 chat_template。
-
-  <NewCodeBlock tip="CPP Code" type="PC">
-
-  ```vim
-  165 // rkllm_set_chat_template(llmHandle, "", "<｜User｜>", "<｜Assistant｜>");
-  ```
-
-  </NewCodeBlock>
-
-- 修改 `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/build-linux.sh` 编译脚本中 GCC_COMPILER_PATH 路径
-
-  <NewCodeBlock tip="BASH" type="PC">
-
-  ```vim
-  8 GCC_COMPILER_PATH=/path/to/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
-  ```
-
-  </NewCodeBlock>
-
-- 运行模型转换脚本
-
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  cd rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/
-  bash build-linux.sh
-  ```
-
-  </NewCodeBlock>
-
-  生成的可执行文件在 `install/demo_Linux_aarch64`
+生成的可执行文件在 `install/demo_Linux_aarch64`
 
 ### 板端部署
 
-#### 终端模式
+将转换成功后的模型与编译后生成的 `demo_Linux_aarch64` 目录传输到板端。
 
-- 将转换成功后的 `DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm` 模型与编译后生成的 `demo_Linux_aarch64` 文件夹拷贝到板端
-- 导入环境变量
+<NewCodeBlock tip="Device" type="device">
 
-  <NewCodeBlock tip="Radxa OS" type="device">
+```bash
+cd demo_Linux_aarch64/
+export RKLLM_LOG_LEVEL=1
+export LD_LIBRARY_PATH=./lib
+./llm_demo ../DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
+```
 
-  ```bash
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/demo_Linux_aarch64/lib
-  ```
+</NewCodeBlock>
 
-  </NewCodeBlock>
+运行示例，输入 exit 退出。
 
-  :::tip
-  使用 ModelScope 下载的用户可直接 export 下载仓库里的 librkllmrt.so
-  :::
+<NewCodeBlock tip="Device" type="device">
 
-- 运行 llm_demo，输入 `exit` 退出
+```bash
+./llm_demo ../DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
+```
 
-  <NewCodeBlock tip="Radxa OS" type="device">
+</NewCodeBlock>
 
-  ```bash
-  export RKLLM_LOG_LEVEL=1
-  ## Usage: ./llm_demo model_path max_new_tokens max_context_len
-  ./llm_demo /path/to/DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
-  ```
+```bash
+$ ./llm_demo ../DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
+rkllm init start
+I rkllm: rkllm-runtime version: 1.2.2, rknpu driver version: 0.9.8, platform: RK3588
+I rkllm: loading rkllm model from ./DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm
+I rkllm: rkllm-toolkit version: 1.2.2, max_context_limit: 4096, npu_core_num: 3, target_platform: RK3588, model_dtype: W8A8
+I rkllm: Enabled cpus: [4, 5, 6, 7]
+I rkllm: Enabled cpus num: 4
+rkllm init success
 
-  </NewCodeBlock>
+**********************可输入以下问题对应序号获取回答/或自定义输入********************
 
-  | 参数              | 必要性 | 描述                   | 选项                             |
-  | ----------------- | ------ | ---------------------- | -------------------------------- |
-  | `path`            | 必要   | RKLLM 模型文件夹路径。 | N                                |
-  | `max_new_tokens`  | 必要   | 每轮最大生成 token 数  | 小于等于 max_context_len         |
-  | `max_context_len` | 必要   | 模型最大上下文范围     | 小于等于模型转换时的 max_context |
+[0] 现有一笼子，里面有鸡和兔子若干只，数一数，共有头14个，腿38条，求鸡和兔子各有多少只？
+[1] 有28位小朋友排成一行,从左边开始数第10位是学豆,从右边开始数他是第几位?
 
-  ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_ds_3.webp)
+*************************************************************************
+
+
+user: 0
+现有一笼子，里面有鸡和兔子若干只，数一数，共有头14个，腿38条，求鸡和兔子各有多少只？
+robot: <think>
+首先，设鸡的数量为x只，兔子的数量为y只。
+
+根据题意，头的总数是14个，因此可以得出方程：
+x + y = 14
+
+接下来，考虑腿的总数。每只鸡有2条腿，每只兔子有4条腿，腿的总数为38条，所以另一个方程为：
+2x + 4y = 38
+
+现在有两个方程：
+1. x + y = 14
+2. 2x + 4y = 38
+
+通过代数方法解这个方程组。首先，将第一个方程中的x表示为：
+x = 14 - y
+
+然后，将其代入第二个方程：
+2(14 - y) + 4y = 38
+展开并简化方程得到：
+28 - 2y + 4y = 38
+合并同类项：
+28 + 2y = 38
+解出y的值：
+2y = 10
+y = 5
+
+最后，将y=5代入x=14-y中得到：
+x = 9
+
+因此，鸡有9只，兔子有5只。
+</think>
+
+要解决这个问题，我们可以设：
+
+- 鸡的数量为 \( x \) 只
+- 兔子的数量为 \( y \) 只
+
+根据题意，列出方程如下：
+
+1. **头的总数**：每只动物各有一个头，所以：
+   \[
+   x + y = 14
+   \]
+
+2. **腿的总数**：鸡有两条腿，兔子有四条腿。总腿数为38条：
+   \[
+   2x + 4y = 38
+   \]
+
+接下来解这个方程组：
+
+首先，简化第二个方程：
+\[
+2x + 4y = 38 \\
+x + 2y = 19 \quad \text{(两边同时除以2)}
+\]
+
+然后，用代入法求解。从第一个方程中解出 \( x \)：
+\[
+x = 14 - y
+\]
+
+将 \( x = 14 - y \) 代入简化后的第二个方程：
+\[
+(14 - y) + 2y = 19 \\
+14 + y = 19 \\
+y = 5
+\]
+
+接下来，求出 \( x \)：
+\[
+x = 14 - y = 14 - 5 = 9
+\]
+
+因此，鸡有 **9** 只，兔子有 **5** 只。
+
+\[
+\boxed{鸡有9只，兔有5只}
+\]
+I rkllm: --------------------------------------------------------------------------------------
+I rkllm:  Model init time (ms)  2082.90
+I rkllm: --------------------------------------------------------------------------------------
+I rkllm:  Stage         Total Time (ms)  Tokens    Time per Token (ms)      Tokens per Second
+I rkllm: --------------------------------------------------------------------------------------
+I rkllm:  Prefill       415.12           38        10.92                    91.54
+I rkllm:  Generate      39445.01         585       67.43                    14.83
+I rkllm: --------------------------------------------------------------------------------------
+I rkllm:  Peak Memory Usage (GB)
+I rkllm:  1.73
+I rkllm: --------------------------------------------------------------------------------------
+```
+
+| 参数              | 必要性 | 描述                   | 选项                             |
+| ----------------- | ------ | ---------------------- | -------------------------------- |
+| `path`            | 必要   | RKLLM 模型文件夹路径。 | N                                |
+| `max_new_tokens`  | 必要   | 每轮最大生成 token 数  | 小于等于 max_context_len         |
+| `max_context_len` | 必要   | 模型最大上下文范围     | 小于等于模型转换时的 max_context |
 
 ### 性能分析
 

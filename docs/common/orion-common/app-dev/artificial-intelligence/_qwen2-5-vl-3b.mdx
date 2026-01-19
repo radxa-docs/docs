@@ -8,7 +8,7 @@
 
 ## 环境配置
 
-参考 [llama.cpp](../../../../orion/o6/app-development/artificial-intelligence/llama_cpp.md) 文档准备好 llama.cpp 工具。
+参考 [llama.cpp](./llama-cpp) 文档准备好 llama.cpp 工具。
 
 ## 快速开始
 
@@ -111,7 +111,7 @@ python3 ./convert_hf_to_gguf.py --mmproj ./Qwen2.5-VL-3B-Instruct
 <NewCodeBlock tip="O6 / O6N" type="device">
 
 ```bash
-./build/bin/llama-mtmd-cli -m ./Qwen2.5-VL-3B-Instruct/Qwen2.5-VL-3B-Instruct-Q5_K_M.gguf --mmproj ./Qwen2.5-VL-3B-Instruct/mmproj-Qwen2.5-VL-3b-Instruct-F16.gguf -p "Describe this image." --image ./Qwen2.5-VL-3B-Instruct/test.png
+./build/bin/llama-mtmd-cli -m ./Qwen2.5-VL-3B-Instruct/Qwen2.5-VL-3B-Instruct-Q5_K_M.gguf --mmproj ./Qwen2.5-VL-3B-Instruct/mmproj-Qwen2.5-VL-3b-Instruct-F16.gguf -p "Describe this image." --image ./test.png
 ```
 
 </NewCodeBlock>

@@ -1,241 +1,235 @@
-[Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) 是由阿里巴巴公司开发的多模态VLM 模型。
-Qwen2-VL 可对各种分辨率和比例的图像进行理解，能理解20分钟以上的视频，甚至可以作为操作手机、机器人的 agent, 并支持多种语言。
-本文档将讲述如何使用 RKLLM 将 [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) 视觉多模态模型部署到 RK3588 上利用 NPU 进行硬件加速推理。
+[Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) 是由阿里巴巴开发的一款多模态视觉语言模型（VLM）。
+该模型具备卓越的视觉感知能力，能够自适应处理各种分辨率与比例的图像，并支持对 20 分钟以上长视频的深度理解。
+此外，Qwen2-VL 拥有强大的多语言支持，并能作为智能体（Agent）胜任手机操控与机器人指令下达等复杂任务。
+本文档将介绍如何使用 RKLLM 工具链，将 Qwen2-VL-2B-Instruct 视觉多模态模型部署到 RK3588 平台，并利用其内置 NPU 实现高效的硬件加速推理。
 
 ![rkllm_qwen2_vl_1.webp](/img/general-tutorial/rknn/rkllm_qwen2_vl_1.webp)
 
-### 模型文件下载
+## 快速开始
 
-:::tip
-瑞莎已经提供编译好的 rkllm 模型和执行文件，用户可直接下载使用，如要参考编译过程可继续参考可选部分
+### 下载示例
+
+从 ModelScope 下载完整示例。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip install -U modelscope
+modelscope download --model radxa/Qwen2-VL-2B-RKLLM.git
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd demo_Linux_aarch64/
+export LD_LIBRARY_PATH=./lib
+./demo demo.jpg ../qwen2_vl_2b_vision_rk3588.rknn ../qwen2-vl-2b-instruct_W8A8_rk3588.rkllm 2048 4096 3 "<|vision_start|>" "<|vision_end|>" "<|image_pad|>"
+```
+
+</NewCodeBlock>
+
+## 完整转换流程
+
+:::info[先决条件]
+根据 [RKNN 安装](./rknn_install)、 [RKLLM 安装](./rkllm_install)配置好开发环境。
+
+由于 RKLLM 暂时只支持转换纯语言模型，所以部署多模态模型需要使用 RKNN 工具链转换视觉模块。
 :::
 
-- 使用 [git LFS](https://git-lfs.com/) 从 [ModelScope](https://modelscope.cn/models/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM) 下载预编译好的 rkllm
+### 激活虚拟环境
 
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  ```bash
-  git lfs install
-  git clone https://www.modelscope.cn/radxa/Qwen2-VL-2B-RKLLM.git
-  ```
+```bash
+conda activate rkllm
+pip install -U huggingface_hub
+```
 
-    </NewCodeBlock>
+</NewCodeBlock>
 
-### （可选）模型编译
+### 下载模型
 
-:::tip
-请用户根据 [RKLLM安装](./rkllm_install) 完成 PC 端和开发板端 RKLLM 工作环境的准备
-:::
-:::tip
-RK358X 用户 TARGET_PLATFORM 请指定 `rk3588` 平台
-:::
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-- x86 PC 工作站中下载 [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) 权重文件, 如没安装 [git-lfs](https://git-lfs.com/)，请自行安装
+```bash
+cd RK-SDK/rknn-llm/examples/multimodal_model_demo/
+hf download https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct  --local-dir ./Qwen2-VL-2B-Instruct
+```
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-  ```bash
-  git lfs install
-  git clone https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct
-  ```
+### 模型转换
 
-  </NewCodeBlock>
+生成静态位置编码。
 
-- 激活 rkllm conda 环境, 可参考[RKLLM conda 安装](rkllm_install#x86-pc-工作站)
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+```bash
+python export/export_vision_qwen2.py --step 1 --path ./Qwen2-VL-2B-Instruct
+```
 
-  ```bash
-  conda activate rkllm
-  ```
+</NewCodeBlock>
 
-  </NewCodeBlock>
+| 参数名称   | 必要性 | 描述                         | 选项                                                                                                                        |
+| ---------- | ------ | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `step`     | 必要   | 导出步骤                     | 1/2，当 `step==1` 时仅生成 cu_seqlens 和 rotary_pos_emb，当 `step==2` 时导出 ONNX，需要先执行 `step == 1` 再执行 `step ==2` |
+| `path`     | 可选   | Huggingface 模型文件夹路径。 | 默认为 `Qwen/Qwen2-VL-2B-Instruct`                                                                                          |
+| `batch`    | 可选   | batch size                   | 默认为 1                                                                                                                    |
+| `height`   | 可选   | 图片高度                     | 默认为 392                                                                                                                  |
+| `width`    | 可选   | 图片宽度                     | 默认为 392                                                                                                                  |
+| `savepath` | 可选   | RKNN 模型保存路径            | 默认为 `qwen2-vl-2b/qwen2_vl_2b_vision.onnx`                                                                                |
 
-#### 编译图片解码模型
+将视觉模块导出为 onnx 模型。
 
-- 安装 rknn-toolkit2
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+```bash
+pip install onnx==1.18
+python export/export_vision_qwen2.py --step 2 --path ./Qwen2-VL-2B-Instruct
+```
 
-  ```bash
-  pip3 install rknn-toolkit2 -i https://mirrors.aliyun.com/pypi/simple
-  ```
+</NewCodeBlock>
 
-  </NewCodeBlock>
+导出 rknn 格式的视觉模块模型。
 
-- 转换为 ONNX
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  - 生成 cu_seqlens 和 rotary_pos_emb
+```bash
+conda activate rknn
+python export/export_vision_rknn.py --path /path/to/save/qwen2-vl-vision.onnx --target-platform rk3588
+```
 
-      <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-    ```bash
-    python3 export/export_vision.py --step 1 --path /path/to/Qwen2-VL-2B-Instruct/ --batch 1 --height 392 --width 392
-    ```
+生成量化校准文件。
 
-      </NewCodeBlock>
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  - 导出为 ONNX
+```bash
+conda activate rkllm
+python data/make_input_embeds_for_quantize.py --path /path/to/Qwen2-VL-model
+```
 
-      <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-    ```bash
-    python3 export/export_vision.py --step 2 --path /path/to/Qwen2-VL-2B-Instruct/ --batch 1 --height 392 --width 392
-    ```
+| 参数   | 必要性 | 描述                         | 选项 |
+| ------ | ------ | ---------------------------- | ---- |
+| `path` | 必要   | Huggingface 模型文件夹路径。 | None |
 
-      </NewCodeBlock>
+导出 rkllm 格式的语言模块模型。
 
-  | 参数名称   | 必要性 | 描述                         | 选项                                                                                                                        |
-  | ---------- | ------ | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-  | `step`     | 必要   | 导出步骤                     | 1/2，当 `step==1` 时仅生成 cu_seqlens 和 rotary_pos_emb，当 `step==2` 时导出 ONNX，需要先执行 `step == 1` 再执行 `step ==2` |
-  | `path`     | 可选   | Huggingface 模型文件夹路径。 | 默认为 `Qwen/Qwen2-VL-2B-Instruct`                                                                                          |
-  | `batch`    | 可选   | batch size                   | 默认为 1                                                                                                                    |
-  | `height`   | 可选   | 图片高度                     | 默认为 392                                                                                                                  |
-  | `width`    | 可选   | 图片宽度                     | 默认为 392                                                                                                                  |
-  | `savepath` | 可选   | RKNN 模型保存路径            | 默认为 `qwen2-vl-2b/qwen2_vl_2b_vision.onnx`                                                                                |
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-#### 编译 RKLLM 模型
+```bash
+python export/export_rkllm.py
+```
 
-- 生成 VLM 模型量化校准文件
+</NewCodeBlock>
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+| 参数              | 必要性 | 描述                       | 选项                                                                                                                                                                                                                                                                   |
+| ----------------- | ------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `path`            | 可选   | Huggingface 模型文件夹路径 | 默认为 `Qwen/Qwen2-VL-2B-Instruct`                                                                                                                                                                                                                                     |
+| `target-platform` | 可选   | 目标运行平台               | 可选 rk3588/rk3576/rk3562， 默认为 `rk3588`                                                                                                                                                                                                                            |
+| `num_npu_core`    | 可选   | 使用 NPU 核心个数          | `rk3588` 可选项为[1,2,3]，`rk3576` 可选项为[1,2]，`rk3562` 可选项为[1]。默认为 `3`                                                                                                                                                                                     |
+| `quantized_dtype` | 可选   | RKLLM 量化类型             | `rk3588` 支持 “w8a8”, “w8a8_g128”, “w8a8_g256”, “w8a8_g512” 四种量化类型。`rk3576` 支持 “w4a16”, “w4a16_g32”, “w4a16_g64”, “w4a16_g128” 和 “w8a8” 五种量化类型。`rk3562` 支持 “w8a8”，“w4a16_g32”, “w4a16_g64”，“w4a16_g128” 和 “w4a8_g32” 五种量化类型。默认为 `w8a8` |
+| `device`          | 可选   | 模型转换时使用的设备       | 可选 cpu/cuda， 默认为 `cpu`                                                                                                                                                                                                                                           |
+| `savepath`        | 可选   | RKLLM 模型保存路径         | 默认为 `qwen2_vl_2b_instruct.rkllm`                                                                                                                                                                                                                                    |
 
-  ```bash
-  cd rknn-llm/examples/Qwen2-VL_Demo
-  python3 data/make_input_embeds_for_quantize.py --path /path/to/Qwen2-VL-2B-Instruct
-  ```
+### 编译可执行文件
 
-  </NewCodeBlock>
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  | 参数   | 必要性 | 描述                         | 选项 |
-  | ------ | ------ | ---------------------------- | ---- |
-  | `path` | 必要   | Huggingface 模型文件夹路径。 | N    |
+```bash
+cd deploy/
+export GCC_COMPILER=/path/to/your/gcc/bin/aarch64-linux-gnu
+bash build-linux.sh
+```
 
-  生成校准文件保存在 `data/input.json`
+</NewCodeBlock>
 
-- 更改模型上下文最大值 max_context
-
-  如对 max_context 长度有需求，可在 `rknn-llm/examples/Qwen2-VL_Demo/export/export_rkllm.py` 中的 llm.build 函数接口中修改 `max_context` 参数的值, 值越大，占用内存越多。不得超过 16,384，且必须是 32 的倍数（例如，32、64、96、...、16,384）
-
-- 运行模型转换脚本
-
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ````bash
-  python3 export_rkllm.py --path /path/to/Qwen2-VL-2B-Instruct/  --target-platform rk3588 --num_npu_core 3 --quantized_dtype w8a8 --device cuda --savepath ./qwen2-vl-llm_rk3588.rkllm  ```
-  ````
-
-  </NewCodeBlock>
-
-  | 参数              | 必要性 | 描述                       | 选项                                                                                                                                                                                                                                                                   |
-  | ----------------- | ------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | `path`            | 可选   | Huggingface 模型文件夹路径 | 默认为 `Qwen/Qwen2-VL-2B-Instruct`                                                                                                                                                                                                                                     |
-  | `target-platform` | 可选   | 目标运行平台               | 可选 rk3588/rk3576/rk3562， 默认为 `rk3588`                                                                                                                                                                                                                            |
-  | `num_npu_core`    | 可选   | 使用 NPU 核心个数          | `rk3588` 可选项为[1,2,3]，`rk3576` 可选项为[1,2]，`rk3562` 可选项为[1]。默认为 `3`                                                                                                                                                                                     |
-  | `quantized_dtype` | 可选   | RKLLM 量化类型             | `rk3588` 支持 “w8a8”, “w8a8_g128”, “w8a8_g256”, “w8a8_g512” 四种量化类型。`rk3576` 支持 “w4a16”, “w4a16_g32”, “w4a16_g64”, “w4a16_g128” 和 “w8a8” 五种量化类型。`rk3562` 支持 “w8a8”，“w4a16_g32”, “w4a16_g64”，“w4a16_g128” 和 “w4a8_g32” 五种量化类型。默认为 `w8a8` |
-  | `device`          | 可选   | 模型转换时使用的设备       | 可选 cpu/cuda， 默认为 `cpu`                                                                                                                                                                                                                                           |
-  | `savepath`        | 可选   | RKLLM 模型保存路径         | 默认为 `qwen2_vl_2b_instruct.rkllm`                                                                                                                                                                                                                                    |
-
-  生成 RKLLM 模型为 `qwen2-vl-llm_rk3588.rkllm`
-
-### （可选）编译可执行文件
-
-- 下载交叉编译工具链 [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11)
-
-- 修改主程序 `rknn-llm/examples/Qwen2-VL_Demo/deploy/src/main.cpp` 代码
-
-  这里需要注释掉 179 行的代码，RKLLM 在转换模型时，会自动解析 Hugging Face 模型 tokenizer_config.json 文件中的
-  chat_template 字段，故无需修改 chat_template。
-
-  <NewCodeBlock tip="CPP Code" type="PC">
-
-  ```vim
-  179 // rkllm_set_chat_template(llmHandle, "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n", "<|im_start|>user\n", "<|im_end|>\n<|im_start|>assistant\n");
-  ```
-
-  </NewCodeBlock>
-
-- 修改主程序 `rknn-llm/examples/Qwen2-VL_Demo/deploy/src/llm.cpp` 代码
-
-  这里需要注释掉 120 行的代码，RKLLM 在转换模型时，会自动解析 Hugging Face 模型 tokenizer_config.json 文件中的
-  chat_template 字段，故无需修改 chat_template。
-
-  <NewCodeBlock tip="CPP Code" type="PC">
-
-  ```vim
-  120 // rkllm_set_chat_template(llmHandle, "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n", "<|im_start|>user\n", "<|im_end|>\n<|im_start|>assistant\n");
-  ```
-
-  </NewCodeBlock>
-
-- 修改 `rknn-llm/examples/Qwen2-VL_Demo/deploy/build-linux.sh` 编译脚本中 GCC_COMPILER_PATH 路径
-
-  <NewCodeBlock tip="BASH" type="PC">
-
-  ```vim
-  5 GCC_COMPILER_PATH=/path/to/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
-  ```
-
-  </NewCodeBlock>
-
-- 运行模型转换脚本
-
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  cd rknn-llm/examples/Qwen2-VL_Demo/deploy
-  bash build-linux.sh
-  ```
-
-  </NewCodeBlock>
-
-  生成的可执行文件在 `install/demo_Linux_aarch64`
+生成的可执行文件在 `install/demo_Linux_aarch64`
 
 ### 板端部署
 
-#### 终端模式
+将转换成功后的模型与编译后生成的 `demo_Linux_aarch64` 目录传输到板端。
 
-- 将转换成功后的 `qwen2-vl-llm_rk3588.rkllm` 模型与编译后生成的 `demo_Linux_aarch64` 文件夹拷贝到板端
-- 导入环境变量
+<NewCodeBlock tip="Device" type="device">
 
-  <NewCodeBlock tip="Radxa OS" type="device">
+```bash
+cd demo_Linux_aarch64/
+export RKLLM_LOG_LEVEL=1
+export LD_LIBRARY_PATH=./lib
+./demo demo.jpg ../qwen2_vl_2b_vision_rk3588.rknn ../qwen2-vl-2b-instruct_W8A8_rk3588.rkllm 2048 4096 3 "<|vision_start|>" "<|vision_end|>" "<|image_pad|>"
+```
 
-  ```bash
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/demo_Linux_aarch64/lib
-  ```
+</NewCodeBlock>
 
-  </NewCodeBlock>
+运行示例，输入 exit 退出。
 
-  :::tip
-  使用 ModelScope 下载的用户可直接 export 下载仓库里的 librkllmrt.so
-  :::
+<NewCodeBlock tip="Device" type="device">
 
-- 运行 llm_demo，输入 `exit` 退出
+```bash
+./demo demo.jpg ../qwen2_vl_2b_vision_rk3588.rknn ../qwen2-vl-2b-instruct_W8A8_rk3588.rkllm 2048 4096 3 "<|vision_start|>" "<|vision_end|>" "<|image_pad|>"
+```
 
-  <NewCodeBlock tip="Radxa OS" type="device">
+</NewCodeBlock>
 
-  ```bash
-  export RKLLM_LOG_LEVEL=1
-  ## Usage: ./demo image_path encoder_model_path llm_model_path max_new_tokens max_context_len core_num
-  ./demo demo.jpg ./qwen2_vl_2b_vision_rk3588.rknn ./qwen2-vl-llm_rk3588.rkllm 128 512 3
-  ```
+| 参数                 | 必要性 | 描述                  | 选项                                                                   |
+| -------------------- | ------ | --------------------- | ---------------------------------------------------------------------- |
+| `image_path`         | 必要   | 图片路径              | N                                                                      |
+| `encoder_model_path` | 必要   | rknn 解码模型路径     | N                                                                      |
+| `llm_model_path`     | 必要   | rkllm 模型路径        | N                                                                      |
+| `max_new_tokens`     | 必要   | 每轮最大生成 token 数 | 小于等于 max_context_len                                               |
+| `max_context_len`    | 必要   | 模型最大上下文范围    | max_context_len 必须大于 text-token-num+image-token-num+max_new_tokens |
+| `core_num`           | 必要   | 使用 NPU 核心个数     | `rk3588` 可选项为[1,2,3]，`rk3576` 可选项为[1,2]，`rk3562` 可选项为[1] |
 
-  </NewCodeBlock>
+```bash
+$ ./demo demo.jpg ../qwen2_vl_2b_vision_rk3588.rknn ../qwen2-vl-2b-instruct_W8A8_rk3588.rkllm 2048 4096 3
+ "<|vision_start|>" "<|vision_end|>" "<|image_pad|>"
+I rkllm: rkllm-runtime version: 1.2.3, rknpu driver version: 0.9.8, platform: RK3588
+I rkllm: loading rkllm model from ../qwen2-vl-2b-instruct_W8A8_rk3588.rkllm
+I rkllm: rkllm-toolkit version: 1.2.3, max_context_limit: 4096, npu_core_num: 3, target_platform: RK3588, model_dtype: W8A8
+I rkllm: Enabled cpus: [4, 5, 6, 7]
+I rkllm: Enabled cpus num: 4
+I rkllm: Using mrope
+rkllm init success
+main: LLM Model loaded in  3052.79 ms
+===the core num is 3===
+model input num: 1, output num: 1
+input tensors:
+  index=0, name=onnx::Expand_0, n_dims=4, dims=[1, 392, 392, 3], n_elems=460992, size=921984, fmt=NHWC, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+output tensors:
+  index=0, name=4542, n_dims=2, dims=[196, 1536, 0, 0], n_elems=301056, size=602112, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+model input height=392, width=392, channel=3
+main: ImgEnc Model loaded in  2362.74 ms
+main: ImgEnc Model inference took  3762.45 ms
 
-  | 参数                 | 必要性 | 描述                  | 选项                                                                   |
-  | -------------------- | ------ | --------------------- | ---------------------------------------------------------------------- |
-  | `image_path`         | 必要   | 图片路径              | N                                                                      |
-  | `encoder_model_path` | 必要   | rknn 解码模型路径     | N                                                                      |
-  | `llm_model_path`     | 必要   | rkllm 模型路径        | N                                                                      |
-  | `max_new_tokens`     | 必要   | 每轮最大生成 token 数 | 小于等于 max_context_len                                               |
-  | `max_context_len`    | 必要   | 模型最大上下文范围    | max_context_len 必须大于 text-token-num+image-token-num+max_new_tokens |
-  | `core_num`           | 必要   | 使用 NPU 核心个数     | `rk3588` 可选项为[1,2,3]，`rk3576` 可选项为[1,2]，`rk3562` 可选项为[1] |
+**********************可输入以下问题对应序号获取回答/或自定义输入********************
 
-  ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_qwen2_vl_2.webp)
+[0] <image>What is in the image?
+[1] <image>这张图片中有什么？
 
-### 性能分析
+*************************************************************************
 
-在 RK3588 上达 15.39 token/s,
+
+user: 0
+<image>What is in the image?
+robot: The image depicts an astronaut sitting on a chair with a green beer bottle in his hand, overlooking Earth from the moon. The background shows the moon and the Earth, with stars visible in the sky.
+
+user: 1
+<image>这张图片中有什么？
+robot: 这张图片展示了一位穿着宇航服的宇航员，他坐在月球表面的一块岩石上。背景是地球和星空，月亮上可以看到一些绿色的物体。宇航员手里拿着一个绿色的瓶子，似乎在庆祝或享受某种活动。整体氛围显得非常有趣和富有想象力。
+```
+
+测试使用图片。
+
+![demo.jpg](/img/rock5b/ai/qwen2vl-test.webp)
+
+性能表现如下。
 
 | Stage    | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
 | -------- | --------------- | ------ | ------------------- | ----------------- |
