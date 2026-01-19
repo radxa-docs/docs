@@ -8,7 +8,12 @@ This tutorial is designed to help you get started quickly with the Radxa C200 Or
 
 :::tip Note
 
-The Radxa C200 Orin Development Kit comes pre-installed with Radxa's BIOS firmware, supporting system boot from USB drives or NVMe SSDs.
+The Radxa C200 Orin Development Kit uses the system images provided by Radxa. You need to flash the BIOS firmware before you can boot the system from a USB drive or NVMe SSD.
+
+For BIOS firmware flashing, please refer to one of the following tutorials:
+
+- [Use Radxa Prebuilt BIOS Firmware](../low-level-dev/prebuild-image.md): Use the prebuilt BIOS firmware provided by Radxa, suitable for beginner users
+- [Compile / Flash Radxa BIOS Firmware](../low-level-dev/build-image.md): Compile and flash the BIOS firmware yourself, suitable for experienced users
 
 This quick start guide only covers installing the system to a USB drive. For other boot media or installation methods, please refer to the [System Installation](./install-system/) tutorial.
 :::

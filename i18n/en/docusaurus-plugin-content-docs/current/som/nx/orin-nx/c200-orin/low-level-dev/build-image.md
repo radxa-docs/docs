@@ -4,7 +4,7 @@ sidebar_position: 10
 
 # Compile / Flash Radxa BIOS Firmware
 
-The Radxa C200 Orin Development Kit comes pre-installed with Radxa's BIOS firmware, supporting system boot from USB drives or NVMe SSDs.
+By flashing the BIOS firmware provided by Radxa, you can boot the system from USB drives or NVMe SSDs.
 
 If you have installed the system using SDK Manager or command line, it will erase the pre-installed BIOS firmware of the Radxa C200 Orin Development Kit, and you won't be able to boot the system from a USB drive. You can reflash the Radxa BIOS firmware using the following method.
 
@@ -77,6 +77,8 @@ After successful compilation, the terminal will display the message `DTBs compil
 :::tip Recovery Mode
 
 To enter Recovery Mode, simply ensure the FC REC pin is connected to GND during the boot process. You can remove the jumper cap or DuPont wire during the system flashing process.
+
+The FC REC pin and GND pin locations can be referenced in the [GPIO interface documentation](../../c200-orin/hardware-use/pin-gpio.md#other-gpio-headers)
 
 :::
 
