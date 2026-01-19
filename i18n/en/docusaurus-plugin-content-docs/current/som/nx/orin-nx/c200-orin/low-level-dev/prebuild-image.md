@@ -22,6 +22,8 @@ It is recommended to use an Ubuntu 22.04 host to perform the installation. If yo
 
 To enter Recovery mode, it is sufficient that the FC REC pin is detected as connected to GND during power‑on. You may remove the jumper cap or DuPont wire during the flashing process.
 
+The FC REC pin and GND pin locations can be referenced in the [GPIO interface documentation](../../c200-orin/hardware-use/pin-gpio.md#other-gpio-headers)
+
 :::
 
 <div style={{ textAlign: "center" }}>

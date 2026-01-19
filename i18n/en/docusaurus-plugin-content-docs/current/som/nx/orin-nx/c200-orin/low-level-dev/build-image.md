@@ -78,6 +78,8 @@ After successful compilation, the terminal will display the message `DTBs compil
 
 To enter Recovery Mode, simply ensure the FC REC pin is connected to GND during the boot process. You can remove the jumper cap or DuPont wire during the system flashing process.
 
+The FC REC pin and GND pin locations can be referenced in the [GPIO interface documentation](../../c200-orin/hardware-use/pin-gpio.md#other-gpio-headers)
+
 :::
 
 <div style={{ textAlign: "center" }}>

@@ -78,6 +78,8 @@ DTC=/usr/bin/dtc make build
 
 进入 Recovery 模式只需要在开机过程中检测到 FC REC 引脚连接到 GND 即可，烧录系统过程中可拔掉跳线帽或者杜邦线。
 
+FC REC 引脚和 GND 引脚位置可以参考 [GPIO 接口文档](../../c200-orin/hardware-use/pin-gpio.md#其它-gpio-接口)
+
 :::
 
 <div style={{ textAlign: "center" }}>
