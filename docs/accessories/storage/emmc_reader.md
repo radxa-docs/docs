@@ -1,72 +1,48 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
 ---
 
-# 瑞莎 eMMC 模块
+# 瑞莎 eMMC 读写器
 
-Radxa eMMC 模块采用 eMMC 5.1 规范，提供四种容量选择：16g / 32g / 64g / 128g。同时，你可以选择支持工业级长寿命的型号。此外，该模块支持 JEDEC 的标准 eMMC 命令集，并为高速读写而设计，使数据传输更快。
+Radxa eMMC USB3 读卡器是一款真正具有 USB3.0 性能的 eMMC 读卡器。基于 GL3227E 芯片设计。GL3227E 是一个 USB 3.1 Gen1 eMMC 控制器，它提供单一的 LUN（逻辑单元编号），可以支持 eMMC v5.0、1/4/8bit 数据总线、高速 SDR /高速 DDR / HS200 / HS400 模式。
 
-![eMMC Module](/img/accessories/storage/emmc-module.webp)
+![eMMC Reader](/img/accessories/storage/emmc-reader.webp)
 
-## 读 / 写速度测试
+## 特征
 
-我们使用的 eMMC 芯片的是 Foresee，由深圳嵌入式存储公司 Longsys 生产，他们在 2017 年收购了 Lexar 品牌。
+- 高速 USB3.1 Gen2 GL3227E 控制器
+- 支持 eMMC HS400 模式
+- eMMC 模块双重固定
+- 支持 ROCK eMMC 模块，最高可达 128GB
+- 兼容 Odroid/PINE64 eMMC 模块
+- 支持 Linux/Windows/MacOS
+- 支持 GPT 分区表和固件
 
-下面是我们对不同品牌的 eMMC 芯片做的测试。
+:::tip eMMC 启动分区限制
 
-| Capacity | Brand       | Read    | Write    |
-| -------- | ----------- | ------- | -------- |
-| 8G       | Sandisk     | 270MB/s | 39.4MB/s |
-| 16G      | Sandisk     | 230MB/s | 79.6MB/s |
-| 16G      | Kingston    | 160MB/s | 50.1MB/s |
-| 16G      | **Foresee** | 189MB/s | 74.4MB/s |
-| 16G      | **Foresee** | 241MB/s | 79.5MB/s |
-| 32G      | Sandisk     | 263MB/s | 139MB/s  |
-| 32G      | Samsung     | 263MB/s | 78.3MB/s |
-| 32G      | Kingston    | 152MB/s | 87.2MB/s |
-| 64G      | Sandisk     | 207MB/s | 100MB/s  |
-| 64G      | **Foresee** | 215MB/s | 148MB/s  |
-| 64G      | **Foresee** | 194MB/s | 148MB/s  |
-| 128G     | Toshiba     | 217MB/s | 143MB/s  |
+当使用瑞莎 eMMC 读卡器通过 USB 连接 eMMC 模块时，主机电脑只能访问用户数据区。
+此行为由读卡器中使用的 USB 转 eMMC 桥接器固件决定。
 
-## 接口规格
+支持：
 
-- JEDEC 标准：v5.1
-- B2B 连接器规格：GB042-34S-H10（插座 -34 针）+ GB042-30S-H10（插座 -30 针）
-- 存储选项：16G / 32G / 64G / 128G
-- 兼容性：兼容 ROCK 3A / 3B / 3C / 4A / 4B / 4C / 4C PLUS / 4D\* / 4SE / 5A / 5B
-- 尺寸：13mm x 18mm x 1.5mm
+- 用户数据区（作为 USB 驱动器可见的普通 eMMC 存储）
 
-> 注意：因为引脚复用关系，ROCK 4D 带 SPI Flash 的 版本不支持 eMMC 模块。
+不支持：
 
-[**购买链接**](https://radxa.com/products/accessories/emmc-module#buy)
+- Boot0 分区
+- Boot1 分区
+- RPMB（重放保护内存块）
 
-## 引脚说明
+如果您的使用场景需要访问 Boot0 或 Boot1（例如刷写引导加载程序或设备固件），请将 eMMC 模块直接连接到开发板原生的 eMMC 接口（通过 SDIO 或焊接插座）。
 
-### GB042-34S-H10（插座 -34 针）
+💡 背景信息
 
-主要用于信号传输。
+瑞莎 eMMC 读卡器中使用的 USB 桥接控制器未实现切换到启动分区的命令（CMD8/CMD49），而这些命令是进行底层 eMMC 访问所必需的。这是市场上大多数 USB eMMC 读卡器的常见限制。
 
-| Signal      | Pin | Pin | Signal   |
-| ----------- | --- | --- | -------- |
-| GND         | 1   | 18  | GND      |
-| EMMC D5     | 2   | 19  | GND      |
-| GND         | 3   | 20  | VCC 1V8  |
-| EMMC D4     | 4   | 21  | VCC 1V8  |
-| GND         | 5   | 22  | VCC 3V3  |
-| EMMC D0     | 6   | 23  | VCC 3V3  |
-| GND         | 7   | 24  | GND      |
-| EMMC CLK    | 8   | 25  | EMMC CMD |
-| GND         | 9   | 26  | GND      |
-| EMMC D3     | 10  | 27  | EMMC D2  |
-| GND         | 11  | 28  | GND      |
-| VCC 1V8     | 12  | 29  | EMMC D1  |
-| GND         | 13  | 30  | GND      |
-| GND         | 14  | 31  | EMMC D7  |
-| EMMC STROBE | 15  | 32  | GND      |
-| GND         | 16  | 33  | EMMC D6  |
-| GND         | 17  | 34  | GND      |
+:::
 
-### GB042-30S-H10（插座 -30 针）
+## 尺寸
 
-主要用于机械固定和支撑。
+- 大小：55 x 20 x 5 mm
+
+[**立即购买**](https://radxa.com/products/accessories/emmc-usb3-reader#buy)
