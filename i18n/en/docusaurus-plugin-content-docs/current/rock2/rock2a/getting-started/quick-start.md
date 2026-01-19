@@ -16,7 +16,7 @@ To start using ROCK 2A, you will also need the following equipment:
 
 ## Installing the Operating System
 
-Refer to [Installing the System](./install-os/boot_from_sd_card) section to set up the operating system.
+Refer to [Installing the System](./install-os/boot-from-sd-card) section to set up the operating system.
 
 ## Wiring and Powering Up
 
