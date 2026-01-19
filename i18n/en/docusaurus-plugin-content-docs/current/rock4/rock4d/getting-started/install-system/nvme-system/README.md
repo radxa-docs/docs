@@ -20,10 +20,4 @@ To use the FPC interface, you'll need to purchase a PCIe to M.2 M Key HAT and in
 
 :::
 
-#### [Using an M.2 NVMe SSD Enclosure](/rock4/rock4d/getting-started/install-system/nvme-system/nvme_reader)
-
-This guide explains how to install and boot the system when you have an M.2 NVMe SSD enclosure.
-
-#### [Without an M.2 NVMe SSD Enclosure](/rock4/rock4d/getting-started/install-system/nvme-system/no_nvme_reader)
-
-This guide explains how to install and boot the system when you don't have an M.2 NVMe SSD enclosure.
+<DocCardList />
