@@ -11,6 +11,8 @@ This page organizes the download resources for Radxa Orion O6 / O6N by use case.
 - [BIOS Firmware](#bios-firmware)
 - [System Images (Radxa OS / Android / OpenHarmony / Fedora)](#system-images)
 - [Hardware Design Resources](#hardware-design)
+- [Community Resources](#community-resources)
+- [Reference Manuals](#reference-manuals)
 
 :::
 
@@ -157,6 +159,25 @@ Below are the schematics, component placement diagrams, and 3D files required fo
         | 3D File | `radxa_orion_o6n_3d_stp_v1.11` | STP | [Download](https://dl.radxa.com/orion/o6n/docs/hw/radxa_orion_o6n_3d_stp_v1.11.zip) |
     </TabItem>
 </Tabs>
+
+## Community Resources
+
+### Linux Mainline Support Progress
+
+:::tip
+The following links are **community-maintained resources, not official Radxa documentation**. Their content may change along with kernel versions and community testing progress. Please verify against your actual test results.
+
+Intended audience: OS integrators, kernel developers, distribution maintainers, and other advanced developers. For typical users, we recommend using the official images and distributions provided on this page first.
+:::
+
+- [Orion O6 Mainline Status (Community)](https://github.com/System64fumo/linux/blob/main/hardware/devices/arm/radxa/orion/orion.md)  
+  Community-maintained notes and test records for mainline support on the Orion O6.
+
+- [Sky1 Linux (Community Mainline Builds / Driver Support)](https://github.com/Sky1-Linux/)  
+  Community project providing mainline Linux kernel patches, driver support, and build resources for the CIX P1 SoC.
+
+- [CIX SoC Mainline Support](https://github.com/cixtech/linux-mainline/wiki)  
+  Platform-level summary of mainline Linux support progress and common issues for the CIX platform.
 
 ## Reference Manuals
 
