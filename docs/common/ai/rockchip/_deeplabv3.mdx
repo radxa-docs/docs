@@ -1,0 +1,216 @@
+## 环境配置
+
+:::info
+参考 [RKNN 安装](./rknn-install) 配置好相关环境。
+
+参考 [RKNN Model Zoo](./rknn-model-zoo) 下载示例文件。
+:::
+
+## 模型下载
+
+下载 onnx 模型文件。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd rknn_model_zoo/examples/deeplabv3/model/
+bash download_model.sh
+```
+
+</NewCodeBlock>
+
+## 模型转换
+
+选择目标平台。
+
+<Tabs>
+
+<TabItem value="rk3588">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk3588
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="rk356x">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk356x
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+将 onnx 模型转换为 rknn 模型。
+
+:::info
+如果提示加载模型错误，需要使用下面的命令安装 TensorFlow 库：
+
+```bash
+pip3 install 'tensorflow>=1.12.0,<=2.16.0rc0'
+```
+
+:::
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../python/
+python convert.py ../model/deeplab-v3-plus-mobilenet-v2.pb ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+## C API
+
+### 编译示例
+
+切换到 rknn_model_zoo 目录下执行 build-linux.sh 编译脚本。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../../..
+bash build-linux.sh -t ${TARGET_PLATFORM} -a aarch64 -d deeplabv3
+```
+
+</NewCodeBlock>
+
+### 文件同步
+
+然后将编译生成的 install 目录下的 demo 目录推送到板端。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd install/${TARGET_PLATFORM}_linux_aarch64/
+scp -r rknn_deeplabv3_demo/ user@your_device_ip:target_directory
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+:::info
+**依赖说明**：本示例的 C API 实现需要 libOpenCL.so 库支持。在 RK3588/RK356X 平台上，可使用 Mali GPU 驱动中的 libmali.so.1.9.0 库替代。
+:::
+
+RK3588/RK356X 设备在 Debian 12 (Bookworm) 系统中默认使用 Panfrost/Panthor GPU 驱动，需要先切换到 Mali GPU 驱动。
+
+> 参考文档：[切换 GPU 驱动](../radxa-os/mali-gpu)
+
+创建软链接（将 libmali.so.1.9.0 链接为 libOpenCL.so）。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn_deeplabv3_demo/lib/
+ln -s /usr/lib/aarch64-linux-gnu/libmali.so.1.9.0 libOpenCL.so
+```
+
+</NewCodeBlock>
+
+导出运行时库到环境变量。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ..
+export LD_LIBRARY_PATH=./lib
+```
+
+</NewCodeBlock>
+
+运行示例。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./rknn_deeplabv3_demo ./model/deeplab-v3-plus-mobilenet-v2.rknn ./model/test_image.jpg
+```
+
+</NewCodeBlock>
+
+```bash
+$ ./rknn_deeplabv3_demo ./model/deeplab-v3-plus-mobilenet-v2.rknn ./model/test_image.jpg
+arm_release_ver: g24p0-00eac0, rk_so_ver: 3
+model input num: 1, output num: 1
+input tensors:
+  index=0, name=sub_7:0, n_dims=4, dims=[1, 513, 513, 3], n_elems=789507, size=789507, fmt=NHWC, type=INT8, qnt_type=AFFINE, zp=0, scale=0.007843
+output tensors:
+  index=0, name=logits/semantic/BiasAdd:0, n_dims=4, dims=[1, 65, 65, 21], n_elems=88725, size=88725, fmt=NCHW, type=INT8, qnt_type=AFFINE, zp=-109, scale=0.100937
+model is NHWC input fmt
+model input height=513, width=513, channel=3
+origin size=513x513 crop size=512x512
+input image: 513 x 513, subsampling: 4:4:4, colorspace: YCbCr, orientation: 1
+model is NHWC input fmt
+output_mems-> fd = 12, offset = 0, size = 354900
+post_buf_mem-> fd = 13, offset = 0, size = 263169
+rknn_run
+write_image path: out.png width=513 height=513 channel=3 data=0x33a04740
+```
+
+### 效果展示
+
+![](/img/rock5b/ai/deeplabv3-cpp.webp)
+
+## Python API
+
+### 激活虚拟环境
+
+:::info
+**依赖说明**：本示例的 Python API 实现依赖 Matplotlib 库，通过下面的命令安装。
+
+```bash
+pip install matplotlib
+```
+
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+conda activate rknn
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+将相关文件推送到板端执行下面的命令。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python deeplabv3.py --model_path ../model/deeplab-v3-plus-mobilenet-v2.rknn --target ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+```bash
+$ python deeplabv3.py --model_path ../model/deeplab-v3-plus-mobilenet-v2.rknn --target rk3588
+/home/radxa/miniforge3/envs/rknn/lib/python3.12/site-packages/rknn/api/rknn.py:51: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  self.rknn_base = RKNNBase(cur_path, verbose)
+I rknn-toolkit2 version: 2.3.2
+done
+--> Init runtime environment
+I target set by user is: rk3588
+done
+--> Running model
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+--> done
+```
+
+### 效果展示
+
+![](/img/rock5b/ai/deeplabv3-python.webp)

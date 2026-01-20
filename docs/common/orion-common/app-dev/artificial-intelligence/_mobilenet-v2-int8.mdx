@@ -1,0 +1,127 @@
+**MobileNet** 是由 Google 专门为移动端和嵌入式设备设计的轻量级深度神经网络系列。它通过革新卷积计算方式，大幅降低了模型的参数量与计算复杂度，使得高性能视觉算法能够在智能手机、物联网终端等算力受限的设备上实时运行。
+
+- 核心特点：支持高效的图像分类、目标检测及语义分割，通过极低的延迟实现高质量的视觉感知，是移动端深度学习应用的核心引擎。
+- 版本说明：本案例采用的是 MobileNetV2 Int8 版本。作为轻量级网络的代表，它在计算效率与识别准确率之间实现了优异平衡，非常适合移动端及边缘设备的实时视觉任务部署。
+
+:::info[环境配置]
+需要提前配置好相关环境。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## 快速开始
+
+### 下载模型文件
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Image_Classification/onnx_mobilenet_v2_12_int8/model
+wget https://modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Image_Classification/onnx_mobilenet_v2_12_int8/model/mobilenetv2-12-int8-fix.onnx
+```
+
+</NewCodeBlock>
+
+### 模型测试
+
+:::info
+运行前激活虚拟环境！
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_onnx.py --EP NPU
+```
+
+</NewCodeBlock>
+
+## 完整转换流程
+
+### 下载模型文件
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Image_Classification/onnx_mobilenet_v2_12_int8/model
+wget https://modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Image_Classification/onnx_mobilenet_v2_12_int8/model/mobilenetv2-12-int8.onnx
+```
+
+</NewCodeBlock>
+
+### 项目结构
+
+```txt
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+└── test_data
+```
+
+### 固定模型输入形状
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 -m onnxruntime.tools.make_dynamic_shape_fixed --dim_param batch_size --dim_value 1 mobilenetv2-12-int8.onnx mobilenetv2-12-int8-fix.onnx
+```
+
+</NewCodeBlock>
+
+:::info[推送到板端]
+完成模型转换之后需要将 cix 模型文件推送到板端。
+:::
+
+### 测试主机推理
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py --EP CPU
+```
+
+</NewCodeBlock>
+
+### 进行 NPU 部署
+
+#### 导出环境变量
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+export LD_LIBRARY_PATH=/usr/share/cix/lib/onnxruntime:$LD_LIBRARY_PATH
+export OPERATOR_PATH=/usr/share/cix/lib/onnxruntime/operator/
+```
+
+</NewCodeBlock>
+
+#### 运行推理脚本
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_onnx.py --EP NPU
+```
+
+</NewCodeBlock>
+
+#### 模型推理结果
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 ./inference_onnx.py --EP npu
+image path : ./test_data/ILSVRC2012_val_00037133.JPEG
+ice bear, polar bear, Ursus Maritimus, Thalarctos maritimus
+image path : ./test_data/ILSVRC2012_val_00021564.JPEG
+coucal
+image path : ./test_data/ILSVRC2012_val_00024154.JPEG
+Ibizan hound, Ibizan Podenco
+image path : ./test_data/ILSVRC2012_val_00002899.JPEG
+rock python, rock snake, Python sebae
+image path : ./test_data/ILSVRC2012_val_00045790.JPEG
+Yorkshire terrier
+```
+
+</NewCodeBlock>

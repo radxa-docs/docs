@@ -1,5 +1,5 @@
 ---
-sidebar_position: 21
+sidebar_position: 9
 description: "帮助您使用云手机 (redroid) 镜像"
 ---
 
