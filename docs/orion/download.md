@@ -11,6 +11,8 @@ sidebar_position: 150
 - [BIOS 固件](#bios-固件)
 - [系统镜像（Radxa OS / Android / OpenHarmony / Fedora）](#系统镜像)
 - [硬件设计资料](#硬件设计)
+- [社区资源](#社区资源)
+- [参考手册](#参考手册)
 
 :::
 
@@ -68,7 +70,6 @@ sidebar_position: 150
 :::tip 镜像文件说明
 
 - 星睿 O6 支持 U 盘 / NVMe 固态硬盘启动。
-
 - 星睿 O6N 支持 U 盘 / NVMe 固态硬盘 / UFS 模块启动。
 
 :::
@@ -158,6 +159,25 @@ Fedora 系统的默认凭据如下：
     </TabItem>
 </Tabs>
 
+## 社区资源
+
+### Linux 主线支持进展
+
+:::tip
+以下链接为 **社区维护内容，非瑞莎官方文档**，内容可能随内核版本与社区测试进展变动，请以实际测试结果为准。
+
+适用人群：OS 集成 / 内核开发 / 发行版维护者等高级开发者，普通用户建议优先使用本页面提供的官方镜像与发行版。
+:::
+
+- [星睿 O6 主线状态（社区）](https://github.com/System64fumo/linux/blob/main/hardware/devices/arm/radxa/orion/orion.md)  
+  社区维护的星睿 O6 主线适配笔记与测试记录。
+
+- [Sky1 Linux（社区主线构建/驱动支持）](https://github.com/Sky1-Linux/)  
+  社区项目提供针对此芯 P1 的主线 Linux 内核补丁、支持驱动及构建资源。
+
+- [CIX 平台主线支持](https://github.com/cixtech/linux-mainline/wiki)  
+  此芯平台主线支持进展汇总与共性问题记录。
+
 ## 参考手册
 
-- 参考手册请前往此芯开发者中心注册账号后下载： [此芯开发者中心](https://developer.cixtech.com/)
+- 参考手册请前往此芯开发者中心注册账号后下载：[此芯开发者中心](https://developer.cixtech.com/)
