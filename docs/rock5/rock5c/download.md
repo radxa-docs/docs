@@ -27,6 +27,13 @@ Armbian 的默认凭据如下：
 | 用户名 | `root` |
 | 密码   | `1234` |
 
+开鸿 Beta 版本固件如下：
+
+- [Radxa ROCK 5C Kaihong OS for eMMC HDMI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-HDMI-EMMC-GPT-20260121-0329.zip)：适用于 eMMC 模块启动系统，支持 HDMI 显示。
+- [Radxa ROCK 5C Kaihong OS for eMMC MIPI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-MIPI-EMMC-GPT-20260121-0316.zip)：适用于 eMMC 模块启动系统，支持瑞莎 8 寸显示屏。
+- [Radxa ROCK 5C Kaihong OS for microSD HDMI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-HDMI-SD-GPT-20260121-0346.zip)：适用于 microSD 卡启动系统，支持 HDMI 显示。
+- [Radxa ROCK 5C Kaihong OS for microSD MIPI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-MIPI-SD-GPT-20260121-0531.zip)：适用于 microSD 卡启动系统，支持瑞莎 8 寸显示屏。
+
 ## 硬件设计
 
 ### V1.1
