@@ -11,7 +11,7 @@ The Dragon Q6A has a built-in power button and power pin for controlling the mot
 ② : Power Pin
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/q6a_power-header.webp" style={{width: '80%', maxWidth: '1200px'}} />
+   <img src="/en/img/dragon/q6a/q6a_power_header.webp" style={{width: '80%', maxWidth: '1200px'}} />
 </div>
 
 ## User Guide
