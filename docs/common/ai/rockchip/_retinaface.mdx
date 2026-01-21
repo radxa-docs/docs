@@ -1,0 +1,207 @@
+## 环境配置
+
+:::info
+参考 [RKNN 安装](./rknn-install) 配置好相关环境。
+
+参考 [RKNN Model Zoo](./rknn-model-zoo) 下载示例文件。
+:::
+
+## 模型下载
+
+下载 onnx 模型文件。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd rknn_model_zoo/examples/RetinaFace/model/
+bash download_model.sh
+```
+
+</NewCodeBlock>
+
+## 模型转换
+
+选择目标平台。
+
+<Tabs>
+
+<TabItem value="rk3588">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk3588
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="rk356x">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk356x
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+将 onnx 模型转换为 rknn 模型。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../python/
+python convert.py ../model/RetinaFace_mobile320.onnx ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+## C API
+
+### 编译示例
+
+切换到 rknn_model_zoo 目录下执行 build-linux.sh 编译脚本。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../../..
+bash build-linux.sh -t ${TARGET_PLATFORM} -a aarch64 -d RetinaFace
+```
+
+</NewCodeBlock>
+
+### 文件同步
+
+然后将编译生成的 install 目录下的 demo 目录推送到板端。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd install/${TARGET_PLATFORM}_linux_aarch64/
+scp -r rknn_RetinaFace_demo/ user@your_device_ip:target_directory
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+导出运行时库到环境变量。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn_RetinaFace_demo/
+export LD_LIBRARY_PATH=./lib
+```
+
+</NewCodeBlock>
+
+运行示例。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./rknn_retinaface_demo ./model/RetinaFace.rknn ./model/test.jpg
+```
+
+</NewCodeBlock>
+
+```bash
+$ ./rknn_retinaface_demo ./model/RetinaFace.rknn ./model/test.jpg
+model input num: 1, output num: 3
+input tensors:
+  index=0, name=input0, n_dims=4, dims=[1, 320, 320, 3], n_elems=307200, size=307200, fmt=NHWC, type=INT8, qnt_type=AFFINE, zp=-14, scale=1.074510
+output tensors:
+  index=0, name=output0, n_dims=3, dims=[1, 4200, 4, 0], n_elems=16800, size=16800, fmt=UNDEFINED, type=INT8, qnt_type=AFFINE, zp=0, scale=0.044699
+  index=1, name=572, n_dims=3, dims=[1, 4200, 2, 0], n_elems=8400, size=16800, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+  index=2, name=571, n_dims=3, dims=[1, 4200, 10, 0], n_elems=42000, size=42000, fmt=UNDEFINED, type=INT8, qnt_type=AFFINE, zp=-22, scale=0.086195
+model is NHWC input fmt
+model input height=320, width=320, channel=3
+origin size=640x427 crop size=640x416
+input image: 640 x 427, subsampling: 4:2:0, colorspace: YCbCr, orientation: 1
+scale=0.500000 dst_box=(0 54 319 265) allow_slight_change=1 _left_offset=0 _top_offset=54 padding_w=0 padding_h=108
+rga_api version 1.10.1_[0]
+fill dst image (x y w h)=(0 0 320 320) with color=0x72727272
+ RgaCollorFill(1819) RGA_COLORFILL fail: Invalid argument
+ RgaCollorFill(1820) RGA_COLORFILL fail: Invalid argument
+161 im2d_rga_impl rga_task_submit(2171): Failed to call RockChipRga interface, please use 'dmesg' command to view driver error log.
+161 im2d_rga_impl rga_dump_channel_info(1500): src_channel:
+  rect[x,y,w,h] = [0, 0, 0, 0]
+  image[w,h,ws,hs,f] = [0, 0, 0, 0, rgba8888]
+  buffer[handle,fd,va,pa] = [0, 0, 0, 0]
+  color_space = 0x0, global_alpha = 0x0, rd_mode = 0x0
+
+161 im2d_rga_impl rga_dump_channel_info(1500): dst_channel:
+  rect[x,y,w,h] = [0, 0, 320, 320]
+  image[w,h,ws,hs,f] = [320, 320, 320, 320, rgb888]
+  buffer[handle,fd,va,pa] = [2, 0, 0, 0]
+  color_space = 0x0, global_alpha = 0xff, rd_mode = 0x1
+
+161 im2d_rga_impl rga_dump_opt(1550): opt version[0x0]:
+
+161 im2d_rga_impl rga_dump_opt(1551): set_core[0x0], priority[0]
+
+161 im2d_rga_impl rga_dump_opt(1554): color[0x72727272]
+161 im2d_rga_impl rga_dump_opt(1563):
+
+161 im2d_rga_impl rga_task_submit(2180): acquir_fence[-1], release_fence_ptr[0x0], usage[0x280000]
+
+rknn_run
+face @(302 72 476 296) score=0.999023
+write_image path: result.jpg width=640 height=427 channel=3 data=0x6dfc610
+```
+
+### 效果展示
+
+![](/img/rock5b/ai/retinaface-cpp.webp)
+
+## Python API
+
+### 激活虚拟环境
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+conda activate rknn
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+将相关文件推送到板端执行下面的命令。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python RetinaFace.py --model_path ../model/RetinaFace.rknn --target ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+```bash
+$ python RetinaFace.py --model_path ../model/RetinaFace.rknn --target rk3588
+/home/radxa/miniforge3/envs/rknn/lib/python3.12/site-packages/rknn/api/rknn.py:51: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  self.rknn_base = RKNNBase(cur_path, verbose)
+I rknn-toolkit2 version: 2.3.2
+done
+--> Init runtime environment
+I target set by user is: rk3588
+done
+--> Running model
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+image_size: (320, 320)  num_priors= 4200
+face @ (302 74 478 300) 0.999023
+save image in ./result.jpg
+```
+
+### 效果展示
+
+![](/img/rock5b/ai/retinaface-python.webp)

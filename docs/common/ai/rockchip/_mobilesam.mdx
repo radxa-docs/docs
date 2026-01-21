@@ -1,0 +1,201 @@
+## 环境配置
+
+:::info
+参考 [RKNN 安装](./rknn-install) 配置好相关环境。
+
+参考 [RKNN Model Zoo](./rknn-model-zoo) 下载示例文件。
+:::
+
+## 模型下载
+
+下载 onnx 模型文件。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd rknn_model_zoo/examples/mobilesam/model/
+bash download_model.sh
+```
+
+</NewCodeBlock>
+
+## 模型转换
+
+选择目标平台。
+
+:::info
+目前 MobileSAM 模型只支持 rk3562 和 rk3588 平台。
+:::
+
+<Tabs>
+
+<TabItem value="rk3588">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk3588
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="rk356x">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk356x
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+将 onnx 模型转换为 rknn 模型。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../python/decoder/
+python convert.py ../../model/mobilesam_decoder.onnx ${TARGET_PLATFORM}
+cd ../encoder/
+python convert.py ../../model/mobilesam_decoder.onnx ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+## C API
+
+### 编译示例
+
+切换到 rknn_model_zoo 目录下执行 build-linux.sh 编译脚本。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../../../..
+bash build-linux.sh -t ${TARGET_PLATFORM} -a aarch64 -d mobilesam
+```
+
+</NewCodeBlock>
+
+### 文件同步
+
+然后将编译生成的 install 目录下的 demo 目录推送到板端。
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd install/${TARGET_PLATFORM}_linux_aarch64/
+scp -r rknn_mobilesam_demo user@your_device_ip:target_directory
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+导出运行时库到环境变量。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn_mobilesam_demo/
+export LD_LIBRARY_PATH=./lib
+```
+
+</NewCodeBlock>
+
+运行示例。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./rknn_mobilesam_demo ./model/mobilesam_encoder.rknn ./model/picture.jpg ./model/mobilesam_decoder.rknn ./model/coords.txt ./model/labels.txt
+```
+
+</NewCodeBlock>
+
+```bash
+$ ./rknn_mobilesam_demo ./model/mobilesam_encoder.rknn ./model/picture.jpg ./model/mobilesam_decoder.rknn ./model/coords.txt ./model/labels.txt
+--> init mobilesam encoder model
+model input num: 1, output num: 1
+input tensors:
+  index=0, name=input.1, n_dims=4, dims=[1, 448, 448, 3], n_elems=602112, size=1204224, fmt=NHWC, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+output tensors:
+  index=0, name=2044, n_dims=4, dims=[1, 256, 28, 28], n_elems=200704, size=401408, fmt=NCHW, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+model is NHWC input fmt
+input image height=448, input image width=448, input image channel=3
+--> init mobilesam decoder model
+model input num: 5, output num: 2
+input tensors:
+  index=0, name=image_embeddings, n_dims=4, dims=[1, 28, 28, 256], n_elems=200704, size=401408, fmt=NHWC, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+  index=1, name=point_coords, n_dims=3, dims=[1, 2, 2], n_elems=4, size=8, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+  index=2, name=point_labels, n_dims=2, dims=[1, 2], n_elems=2, size=4, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+  index=3, name=mask_input, n_dims=4, dims=[1, 112, 112, 1], n_elems=12544, size=25088, fmt=NHWC, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+  index=4, name=has_mask_input, n_dims=1, dims=[1], n_elems=1, size=2, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+output tensors:
+  index=0, name=iou_predictions, n_dims=2, dims=[1, 4], n_elems=4, size=8, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+  index=1, name=low_res_masks, n_dims=4, dims=[1, 4, 112, 112], n_elems=50176, size=100352, fmt=NCHW, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+model is NHWC input fmt
+input image height=28, input image width=28, input image channel=256
+origin size=769x770 crop size=768x768
+input image: 769 x 770, subsampling: 4:2:0, colorspace: YCbCr, orientation: 1
+num_lines=2
+num_lines=2
+--> inference mobilesam encoder model
+src_height:770, src_width:769
+newh:448 neww:447 padh:0 padw:1
+rknn_run
+--> inference mobilesam decoder model
+rknn_run
+write_image path: out.png width=769 height=770 channel=3 data=0xffff79479010
+```
+
+### 效果展示
+
+![](/img/rock5b/ai/mobilesam-cpp.webp)
+
+## Python API
+
+### 激活虚拟环境
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+conda activate rknn
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+将相关文件推送到板端执行下面的命令
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python mobilesam.py --encoder ../model/mobilesam_encoder.rknn --decoder ../model/mobilesam_decoder.rknn --target ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+```bash
+$ python mobilesam.py --encoder ../model/mobilesam_encoder.rknn --decoder ../model/mobilesam_decoder.rknn --target rk3588
+/home/radxa/miniforge3/envs/rknn/lib/python3.12/site-packages/rknn/api/rknn.py:51: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  self.rknn_base = RKNNBase(cur_path, verbose)
+I rknn-toolkit2 version: 2.3.2
+I target set by user is: rk3588
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+I rknn-toolkit2 version: 2.3.2
+I target set by user is: rk3588
+[ WARN:0@3.457] global loadsave.cpp:848 imwrite_ Unsupported depth image for selected encoder is fallbacked to CV_8U.
+result save to result.jpg
+```
+
+### 效果展示
+
+![](/img/rock5b/ai/mobilesam-python.webp)

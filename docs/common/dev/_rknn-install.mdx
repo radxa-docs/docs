@@ -1,4 +1,4 @@
-:::tip
+:::info
 本文档旨在演示如何安装 RKNN SDK，更多资料请查看 [RKNN Toolkit2 源码库](https://github.com/rockchip-linux/rknn-toolkit2) 的 doc 目录。
 :::
 
@@ -6,9 +6,9 @@
 
 Rockchip RK3566/RK3568 系列， RK3588 系列， RK3562 系列， RV1103/RV1106 系列芯片搭载神经网络处理器 NPU，
 利用 RKNN 可以帮助用户快速部署 AI 模型到 Rockchip 芯片上使用 NPU 硬件加速模型推理。
-为了使用 RKNPU，用户首先需要在 x86 计算机上使用 RKNN-Toolkit2 工具，将训练好的模型转换为 RKNN 格式的模型，然后在开发板上使用 RKNN C API 或 Python API进行推断。
+为了使用 RKNPU，用户首先需要在 x86 计算机上使用 RKNN-Toolkit2 工具，将训练好的模型转换为 RKNN 格式的模型，然后在开发板上使用 RKNN C API 或 Python API 进行推断。
 
-所需工具：
+包含工具：
 
 - RKNN-Toolkit2 是一个软件开发工具包，供用户在 PC 和 Rockchip NPU 平台上执行模型转换、推断和性能评估。
 - RKNN-Toolkit-Lite2 为 Rockchip NPU 平台提供了 Python 编程接口，帮助用户部署 RKNN 模型并加速实施 AI 应用。
@@ -19,194 +19,167 @@ Rockchip RK3566/RK3568 系列， RK3588 系列， RK3562 系列， RV1103/RV1106
 
 ![framework.png](/img/general-tutorial/rknn/framework.webp)
 
-## 安装 RKNN 环境
+## 下载 SDK
 
-### PC 端下载 RKNN-Toolkit2 仓库
-
-- 下载 RKNN 仓库
-
-  建议新建一个目录用来存放 RKNN 仓库，例如新建一个名称为 Projects 的文件夹，并将
-  RKNN-Toolkit2 和 RKNN Model Zoo 仓库存放至该目录下。
-
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  # 新建 Projects 文件夹
-  mkdir Projects && cd Projects
-  # 下载 RKNN-Toolkit2 仓库
-  git clone -b v2.3.0 https://github.com/airockchip/rknn-toolkit2.git
-  # 下载 RKNN Model Zoo 仓库
-  git clone -b v2.3.0 https://github.com/airockchip/rknn_model_zoo.git
-  ```
-
-    </NewCodeBlock>
-
-- （可选）安装 [Anaconda](https://www.anaconda.com/)
-
-  如果系统中没有安装 Python 3.8（建议版本），或者同时有多个版本的 Python 环境，建议使用 [Anaconda](https://www.anaconda.com/) 创建新的 Python 3.8 环境。
-
-  - 安装 Anaconda
-
-    在终端窗口中执行以下命令，检查是否安装 Anaconda，若已安装则可省略此节步骤。
-
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-    ```bash
-    $ conda --version
-    conda 24.9.2
-    ```
-
-    </NewCodeBlock>
-
-    如出现 conda: command not found, 则表示未安装 anaconda, 请参考 [Anaconda](https://www.anaconda.com/) 官网进行安装。
-
-  - 创建 conda 环境
-
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-    ```bash
-    conda create -n rknn python=3.8.2
-    ```
-
-    </NewCodeBlock>
-
-  - 进入 rknn conda 环境
-
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-    ```bash
-    conda activate rknn
-    ```
-
-    </NewCodeBlock>
-
-  - 退出环境
-
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-    ```bash
-    conda deactivate
-    ```
-
-    </NewCodeBlock>
-
-### PC 端安装 RKNN-Toolkit2
-
-- 激活 conda rknn 环境后，进入 rknn-toolkit2 目录，根据您的架构平台和 Python 版本选择相应的 requirements_cpxx.txt 安装依赖，
-  并通过 wheel 包安装 RKNN-Toolkit2，这里以 64 位 x86 架构 Python3.8 环境的 PC 为例子，参考命令如下:
-
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  # 进入 rknn-toolkit2 目录
-  cd rknn-toolkit2/rknn-toolkit2/packages/x86_64/
-  # 请根据不同的 python 版本，选择不同的 requirements 文件, 这里以 python3.8 为例子
-  pip3 install -r requirements_cp38-2.3.0.txt
-  # 请根据不同的 python 版本及处理器架构，选择不同的 wheel 安装包文件
-  pip3 install ./rknn_toolkit2-2.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-  ```
-
-    </NewCodeBlock>
-
-  :::tip
-  如果您使用的是 ARM 架构平台，请安装 arm64 下的依赖
-  :::
-
-- 验证是否安装成功
-
-  执行以下命令，若没有报错，则代表 RKNN-Toolkit2 环境安装成功。
-
-  <NewCodeBlock tip="X86 Linux PC" type="host">
-
-  ```bash
-  $ python3
-  >>> from rknn.api import RKNN
-  ```
-
-  </NewCodeBlock>
-
-### 板端安装 RKNN Toolkit Lite2 及其所需依赖
+克隆 RKNN-Toolkit2 仓库。
 
 :::tip
-RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `sudo rsetup -> Overlays -> Manage overlays -> Enable NPU`，最后重启系统。
-
-如 overlays 选项中无 `Enable NPU` 选项，请通过: `sudo rsetup -> System -> System Update` 升级系统, 重启后执行上述步骤开启 NPU。
-:::
-:::info
-Radxa 官方镜像已默认安装 RKNPU2 及其所需依赖，仅需安装 python3-rknnlite2，如无法运行可尝试注释命令
+建议新建一个目录用来统一存放相关的SDK。
 :::
 
-  <NewCodeBlock tip="Radxa OS" type="device">
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-sudo apt update
-sudo apt install python3-rknnlite2
+mkdir RKSDK && cd RKSDK
+git clone -b v2.3.2 https://github.com/airockchip/rknn-toolkit2.git
+```
+
+</NewCodeBlock>
+
+## 版本信息
+
+:::info
+RKNN-Toolkit2 通过 Python 环境进行模型转换，量化等操作，同时板端也通过 Python 环境和 NPU 驱动的 Python API 交互。
+不同架构和操作系统版本依赖的 Python 版本和环境不同，可以参考下方的信息进行选择。
+建议使用 Python 环境管理工具进行管理。推荐使用 [Miniforge](https://conda-forge.org/miniforge/)。
+:::
+
+版本对应关系如下：
+
+- 使用RKNN-Toolkit2时需要满足以下运行环境要求：
+
+| 操作系统版本 | Ubuntu18.04 (x64) | Ubuntu20.04 (x64) | Ubuntu22.04 (x64) | Ubuntu24.04 (x64) |
+| ------------ | ----------------- | ----------------- | ----------------- | ----------------- |
+| Python版本   | 3.6 / 3.7         | 3.8 / 3.9         | 3.10 / 3.11       | 3.12              |
+
+- ARM64版本运行环境要求：
+
+| 操作系统版本 | Debian10 (arm64) | Debian11 (arm64) | Debian12 (arm64)   |
+| ------------ | ---------------- | ---------------- | ------------------ |
+| Python版本   | 3.6 / 3.7        | 3.8 / 3.9        | 3.10 / 3.11 / 3.12 |
+
+:::info
+需要根据上方的版本信息，按照下方的步骤在主机配置虚拟环境，如需使用板端 Python API ，则板端同样需要配置对应的虚拟环境。
+:::
+
+## 安装 Miniforge
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+wget https://github.com/conda-forge/miniforge/releases/download/25.11.0-0/Miniforge3-25.11.0-0-Linux-x86_64.sh
+chmod +x Miniforge3-25.11.0-0-Linux-x86_64.sh
+bash Miniforge3-25.11.0-0-Linux-x86_64.sh
+```
+
+</NewCodeBlock>
+
+## 创建虚拟环境
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+conda create -n rknn python=3.8
+```
+
+</NewCodeBlock>
+
+## 激活虚拟环境
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+conda activate rknn
+```
+
+</NewCodeBlock>
+
+## 安装依赖包
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd rknn-toolkit2/rknn-toolkit2/packages/x86_64
+pip install rknn_toolkit2-2.3.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+```
+
+</NewCodeBlock>
+
+如果是 arm64 架构（即板端）：
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn-toolkit2/rknn-toolkit2/packages/arm64
+pip install rknn_toolkit2-2.3.2-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+```
+
+</NewCodeBlock>
+
+## 验证安装
+
+执行以下命令，若没有报错，则代表 RKNN-Toolkit2 环境安装成功。
+
+<NewCodeBlock tip="X86 Linux PC" type="host">
+
+```bash
+$ python3
+>>> from rknn.api import RKNN
+```
+
+</NewCodeBlock>
+
+## 编译工具
+
+编译板端运行代码时需要用到交叉编译工具链。
+
+点击下载：[交叉编译工具链](https://developer.arm.com/-/media/files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz?rev=33c6e30e5ac64e6dba8f0431f2c35f1b&revision=33c6e30e-5ac6-4e6d-ba8f-0431f2c35f1b&hash=632C6C0BD43C3E4B59CA8A09A7055D30)。
+
+下载完成之后解压即可。
+
+编译前需要导出编译器路径到环境变量，让脚本能找到下载的交叉编译器。
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+export GCC_COMPILER=/path/to/your/gcc/bin/aarch64-linux-gnu
+```
+
+</NewCodeBlock>
+
+## 板端驱动配置
+
+:::tip
+RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `sudo rsetup` -> `Overlays` -> `Manage overlays` -> `Enable NPU`，最后重启系统。
+
+如 overlays 选项中无 `Enable NPU` 选项，请通过: `sudo rsetup` -> `System` -> `System Update` 升级系统, 重启后执行上述步骤开启 NPU。
+:::
+
+:::info
+Radxa 官方镜像已默认安装 RKNPU2 及其所需依赖，如无法运行可尝试注释命令。
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+# sudo apt update
 # sudo apt install rknpu2-rk3588 #SOC为RK3588系列
 # sudo apt install rknpu2-rk356x #SOC为RK356X系列
 ```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-- 如您使用的是 CLI 版本可访问 rknn toolkit lite2 [deb 包下载地址](https://github.com/radxa-pkg/rknn2/releases)
+检查 rknpu2 的驱动版本, 以下输出表示 rknpu2 驱动版本为 0.9.6，建议RKNPU驱动版本>=0.9.2。
 
-- 检查 rknpu2 的驱动版本, 以下输出表示 rknpu2 驱动版本为 0.9.6
-  :::tip
-  rk356X 产品系统， rknpu2 驱动版本为 0.8.8
-  :::
+:::info
+rk356X 产品系统， rknpu2 驱动版本为 0.8.8
+:::
 
-  <NewCodeBlock tip="Radxa OS" type="device">
-
-  ```bash
-  sudo dmesg | grep "Initialized rknpu"
-  [ 15.522298] [drm] Initialized rknpu 0.9.6 20240322 for fdab0000.npu on minor 1
-  ```
-
-  </NewCodeBlock>
-
-### (可选) 板端虚拟环境中安装 rknn_toolkit-lite2 Python API
-
-若您偏好在板端系统中使用 python venv 虚拟环境，你须单独安装 rknn_toolkit-lite2 wheel
-
-虚拟环境使用方法请参考[Python 虚拟环境使用](./venv_usage)
-
-  <NewCodeBlock tip="Radxa OS" type="device">
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd rknn-toolkit2/rknn-toolkit-lite2/packages/
+sudo dmesg | grep "Initialized rknpu"
+[ 15.522298] [drm] Initialized rknpu 0.9.6 20240322 for fdab0000.npu on minor 1
 ```
 
-  </NewCodeBlock>
-
-根据板端系统的 **python 版本**将对应的 `rknn_toolkit_lite2-2.3.0-cp3X-cp3X-manylinux_2_17_aarch64.manylinux2014_aarch64.whl` 复制到板端
-
-进入虚拟环境后使用 pip3 安装
-
-  <NewCodeBlock tip="Radxa OS" type="device">
-
-```bash
-pip3 install ./rknn_toolkit_lite2-2.3.0-cp3X-cp3X-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
-```
-
-  </NewCodeBlock>
-
-执行以下命令，若没有报错，则代表 rknn_toolkit-lite2 环境安装成功。
-
-  <NewCodeBlock tip="Radxa OS" type="device">
-
-```bash
-$ python3
->>> from rknnlite.api import RKNNLite as RKNN
-```
-
-  </NewCodeBlock>
-
-### (可选) 板端安装 RKNN Model Zoo
-
-  <NewCodeBlock tip="Radxa OS" type="device">
-
-```bash
-# 下载 RKNN Model Zoo 仓库
-git clone -b v2.3.0 https://github.com/airockchip/rknn_model_zoo.git
-```
-
-  </NewCodeBlock>
+</NewCodeBlock>
