@@ -13,7 +13,7 @@ The Dragon Q6A supports three power supply methods:
 ③ Power supply via PoE+ HAT (not described here)
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/dragon/q6a/q6a_power.webp" style={{width: '80%', maxWidth: '1200px'}} />
+   <img src="/en/img/dragon/q6a/q6a_power.webp" style={{width: '80%', maxWidth: '1200px'}} />
 </div>
 
 ## Hardware Connection
