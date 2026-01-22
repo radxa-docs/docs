@@ -16,6 +16,43 @@ sidebar_position: 11
 
 如果无法播放音频，可以尝试插拔耳机线或者检查音频输出设备是否设置正确。
 
+:::tip
+
+最新生产的批次 Cubie A7A 使用的是 AC101B 音频编解码器，使用最新系统镜像可以正常播放音频。
+
+若使用旧版本的 AC101 音频编解码器，需要通过 Rsetup 使能 AC101 音频编解码器。
+
+- 区分音频解码器
+
+可以观察主板背面的芯片丝印判断音频解码器型号。
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/cubie/a7a/radxa-cubie-a7a-codec.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+- 软件使能
+
+使用瑞莎系统自带的 Rsetup 工具使能 AC101 音频编解码器。
+
+在终端命令行运行 `rsetup` 命令启动 Rsetup 工具：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+rsetup
+```
+
+</NewCodeBlock>
+
+在 Rsetup 工具中依次进入 `Overlays` -> `Manage overlays`。
+
+1. 通过方向键找到 [ ] Enable Allwinner AC101 Codec 选项
+2. 按空格出现 [*] Enable Allwinner AC101 Codec 说明已选中该功能
+3. 按 `Enter` 确认并保存设置，使能摄像头。
+4. 重启系统，使配置生效。
+
+:::
+
 ### 查看音频设备
 
 使用 `aplay -l` 命令查看音频播放设备（扬声器），使用 `arecord -l` 命令查看音频录制设备（麦克风）。
@@ -30,7 +67,7 @@ aplay -l
 
 </NewCodeBlock>
 
-终端输出类似信息：其中 `card 0: sndi2s0` 板载的 AC101 音频编解码器，通常用于 3.5mm 耳机接口的输入（麦克风）和输出（音频播放）。
+终端输出类似信息：其中 `card 0: sndi2s0` 板载的 AC101B 音频编解码器，通常用于 3.5mm 耳机接口的输入（麦克风）和输出（音频播放）。
 
 ```
 **** List of PLAYBACK Hardware Devices ****
@@ -52,7 +89,7 @@ arecord -l
 
 </NewCodeBlock>
 
-输出类似如下信息：其中 `card 0: sndi2s0` 板载的 AC101 音频编解码器，通常用于 3.5mm 耳机接口的输入（麦克风）和输出（音频播放）。
+输出类似如下信息：其中 `card 0: sndi2s0` 板载的 AC101B 音频编解码器，通常用于 3.5mm 耳机接口的输入（麦克风）和输出（音频播放）。
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
