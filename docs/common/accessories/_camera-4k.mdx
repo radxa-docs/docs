@@ -1,10 +1,10 @@
 import { Image } from "@site/src/utils/docs";
 
-{props.product} 的板载 MIPI CSI 接口可用于连接[瑞莎 8M 219 摄像头](https://radxa.com/products/accessories/camera-8m-219)，实现图像采集功能。
+{props.product} 的板载 MIPI CSI 接口可用于连接[瑞莎 4K 摄像头](https://radxa.com/products/accessories/camera4k)，实现图像采集功能。
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/common/accessories/camera-8m-219-view.webp"
+    src="/img/common/accessories/camera-4k-view.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
@@ -13,9 +13,9 @@ import { Image } from "@site/src/utils/docs";
 
 ### 摄像头接口
 
-瑞莎 8M 219 摄像头接口规格如下：
+瑞莎 Camera 4K 摄像头接口规格如下：
 
-- 接口类型：15-Pin 1.0 mm 间距 SMD 卧式 FPC 接口
+- 接口类型：31-Pin 0.3 mm 间距 SMD 卧式 FPC 接口
 - 连接方式：翻盖式，下接触
 
 ### 主板 MIPI CSI 接口
@@ -27,7 +27,7 @@ import { Image } from "@site/src/utils/docs";
 
 ## 硬件连接
 
-将 FPC 排线的 15-Pin 金属接触点末端插入摄像头接口，将 FPC 排线的 {props.pins} 金属接触点末端插入主板 MIPI CSI 接口。
+将 FPC 排线的 31-Pin 金属接触点末端插入摄像头接口，将 FPC 排线的 {props.pins} 金属接触点末端插入主板 MIPI CSI 接口。
 
 :::tip 注意事项
 
@@ -37,7 +37,7 @@ import { Image } from "@site/src/utils/docs";
 :::
 
 <Image
-  src="/img/common/accessories/camera-8m-219-#board#.webp"
+  src="/img/common/accessories/camera-4k-#board#.webp"
   board={props.board}
   fallback={props.board}
   width="1200"
@@ -45,7 +45,7 @@ import { Image } from "@site/src/utils/docs";
 
 ## 软件使能
 
-使用瑞莎系统自带的 Rsetup 工具使能瑞莎 8M 219 摄像头。
+使用瑞莎系统自带的 Rsetup 工具使能瑞莎 Camera 4K 摄像头。
 
 :::tip Rsetup 使用指南
 
@@ -69,11 +69,11 @@ rsetup
 
 在 Rsetup 工具中依次进入 `Overlays` -> `Manage overlays`。
 
-1. 通过方向键找到 [ ] {props?.enable_camera ?? 'Enable Radxa Camera 8M 219'} 选项
-2. 按空格出现 [*] {props?.enable_camera ?? 'Enable Radxa Camera 8M 219'} 说明已选中该功能
+1. 通过方向键找到 [ ] {props?.enable_camera ?? 'Enable Radxa Camera 4K on CAM1'} 选项
+2. 按空格出现 [*] {props?.enable_camera ?? 'Enable Radxa Camera 4K on CAM1'} 说明已选中该功能
 3. 按 `Enter` 确认并保存设置，使能摄像头。
 4. 重启系统，使配置生效。
 
 :::tip
-若主板有多个 MIPI CSI 接口，Rsetup 可能会显示 `[ ] Enable Radxa Camera 8M 219 on CAM *` 选项，选择对应 MIPI CSI 接口的选项即可。
+若主板有多个 MIPI CSI 接口，Rsetup 可能会显示 `[ ] Enable Radxa Camera 4K on CAM *` 选项，选择对应 MIPI CSI 接口的选项即可。
 :::
