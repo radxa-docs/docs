@@ -27,10 +27,10 @@ sidebar_position: 1
 
 ## 特征
 
-- 2个 2.5G 以太网端口，用于高速网络连接
-- 1个 M.2 M Key 接口带 PCIe 3.0/2.0 1-lane，用于 NVMe SSD 存储
-- 1个 FPC 接口带 PCIe 3.0/2.0 1-lane，用于额外扩展
-- 1个 12V DC 接口，DC 规格为 5525
+- 2 个 2.5G 以太网端口，用于高速网络连接
+- 1 个 M.2 M Key 接口带 PCIe 3.0/2.0 1-lane，用于 NVMe SSD 存储
+- 1 个 FPC 接口带 PCIe 3.0/2.0 1-lane，用于额外扩展
+- 1 个 12V DC 接口，DC 规格为 5525
 
 ![Radxa Dual 2.5G Router HAT](/img/accessories/network/dual-2.5-router-hat/dual-2.5-router-hat-02.webp)
 
@@ -42,7 +42,7 @@ sidebar_position: 1
 | 以太网速度   | 2 × 2.5 千兆            |
 | PCIe 接口    | PCIe 3.0/2.0 1-lane     |
 | 存储支持     | M.2 M Key 2280 NVMe SSD |
-| 电源输入     | 12V DC（5525接口）      |
+| 电源输入     | 12V DC（5525 接口）     |
 | 尺寸         | 兼容 HAT 规格           |
 
 ## 套装内容
@@ -107,6 +107,14 @@ sidebar_position: 1
 7. 开启树莓派 5 电源
 
 ## 软件配置
+
+### 安装必要软件包
+
+```bash
+# 安装网络管理工具
+sudo apt update
+sudo apt install -y net-tools dhcpcd5
+```
 
 ### 网络设置
 
