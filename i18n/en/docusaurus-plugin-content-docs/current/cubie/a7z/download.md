@@ -30,25 +30,25 @@ We strongly recommend that new users download the official Radxa OS GPT image an
 
 #### GPT System Image (Recommended)
 
-:::info Latest System Image Releases
+:::tip A733 Unified System Image
 
-- [Radxa Cubie A7Z](https://github.com/radxa-build/radxa-cubie-a7z/releases)
+- [Latest system image release page](https://github.com/radxa-build/radxa-a733/releases)
 
-This page publishes the latest official and beta system images. Beta versions start with `t`, while official releases start with `r` (older official releases start with `b`).
+Suitable for all A733 SoC products, such as Cubie A7Z, Cubie A7A, etc. Beta versions start with `t`, while official releases start with `r`.
 
 :::
 
-Supports booting from MicroSD cards and onboard UFS.
+Currently supports booting from MicroSD cards, eMMC modules, and UFS modules. NVMe/SSD boot requires flashing the SPI Nor Flash firmware.
 
-- [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b1/radxa-cubie-a7z_bullseye_kde_b1.output_512.img.xz)（MicroSD Card）
+- [Radxa Cubie A7Z Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz) (SD / eMMC)
 
-- [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b2/radxa-cubie-a7z_bullseye_kde_b2.output_4096.img.xz) (UFS)
+- [Radxa Cubie A7Z Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_4096.img.xz) (UFS)
 
-:::tip A733 Unified System Image
+:::tip Cubie A7Z Legacy Images
 
-Compatible with all A733 SoC products, such as Cubie A7Z, Cubie A7A, etc. Currently in beta version, we recommend using the stable version above.
+- [Radxa Cubie A7Z](https://github.com/radxa-build/radxa-cubie-a7z/releases)
 
-If needed, please visit our [latest system image release page](https://github.com/radxa-build/radxa-a733/releases) to get the latest image.
+This page contains legacy system images for Cubie A7Z and is no longer updated.
 
 :::
 

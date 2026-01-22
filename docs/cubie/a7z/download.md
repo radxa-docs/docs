@@ -30,25 +30,25 @@ sidebar_position: 8
 
 #### GPT 系统镜像（推荐）
 
-:::info 最新系统镜像发布页面
+:::tip A733 统一系统镜像
 
-- [Radxa Cubie A7Z](https://github.com/radxa-build/radxa-cubie-a7z/releases)
+- [最新系统镜像发布页面](https://github.com/radxa-build/radxa-a733/releases)
 
-该页面会发布最新的正式版本和测试版本的系统镜像，测试版本以 `t` 开头，正式版本以 `r` 开头（旧版本的正式版本以 `b` 开头）。
+适合所有 A733 SoC 产品，如 Cubie A7Z、Cubie A7A 等，测试版本以 `t` 开头，正式版本以 `r` 开头。
 
 :::
 
-支持 MicroSD 卡和板载 UFS 启动系统。
+目前支持 MicroSD 卡/ eMMC 模块 / UFS 模块启动系统，NVMe/SSD 启动需要刷写 SPI Nor Flash 固件
 
-- [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b1/radxa-cubie-a7z_bullseye_kde_b1.output_512.img.xz)（MicroSD 卡）
+- [Radxa Cubie A7Z Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz) （SD / eMMC）
 
-- [Radxa Cubie A7Z Debian 11](https://github.com/radxa-build/radxa-cubie-a7z/releases/download/rsdk-b2/radxa-cubie-a7z_bullseye_kde_b2.output_4096.img.xz)（UFS）
+- [Radxa Cubie A7Z Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_4096.img.xz) （UFS）
 
-:::tip A733 统一系统镜像
+:::tip Cubie A7Z 旧版镜像
 
-适合所有 A733 SoC 产品，如 Cubie A7Z、Cubie A7A 等，目前处于测试版本，建议使用上方的稳定版本。
+- [Radxa Cubie A7Z](https://github.com/radxa-build/radxa-cubie-a7z/releases)
 
-如有需要，请访问我们的[最新系统镜像发布页面](https://github.com/radxa-build/radxa-a733/releases)获取最新镜像
+该页面是 Cubie A7Z 的旧版系统镜像，该页面目前已不再更新。
 
 :::
 
