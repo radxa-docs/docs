@@ -38,6 +38,12 @@ Android:
 
 - 原理图
 
+  [Radxa CM3 V1.31 Schematic](https://dl.radxa.com/cm3/docs/hw/RADXA_CM3_V1.31A_SCH_20221010.pdf)
+
+  [Radxa CM3 V1.321 Schematic](https://dl.radxa.com/cm3/docs/v1.321/radxa_cm3_v1.321_schematic.pdf)
+
+  [Radxa CM3 V1.322 Schematic](https://dl.radxa.com/cm3/docs/v1.322/radxa_cm3_v1.322_schematic.pdf)
+
   [Radxa CM3 IO Board V1.32 Schematic](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_schematic.pdf)
 
   [Radxa CM3 IO Board V1.33 Schematic](https://dl.radxa.com/cm3/io_board/SCH_CM3_IO_V1.33_20230223.pdf)
@@ -49,6 +55,12 @@ Android:
   [不同版本之间的修改历史](https://dl.radxa.com/cm3/io_board/revision_history)
 
 - 位号图
+
+  [Radxa CM3 V1.31 Components Placement Map](https://dl.radxa.com/cm3/docs/hw/RADXA_CM3_V1.31A_CAM_20220526.pdf)
+
+  [Radxa CM3 V1.321 Components Placement Map](https://dl.radxa.com/cm3/docs/v1.321/radxa_cm3_v1.321_components_placement_map.pdf)
+
+  [Radxa CM3 V1.322 Components Placement Map](https://dl.radxa.com/cm3/docs/v1.322/radxa_cm3_v1.322_components_placement_map.pdf)
 
   [Radxa CM3 IO Board V1.32 Components Placement Map](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_v1.32_components_placement_map.pdf)
 
@@ -65,6 +77,10 @@ Android:
 - GENERAL PARAMETERS OF THE PCB DESIGN
 
   [B2B Connector Param](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_b2b_connector_20230718.asc)
+
+- 3D 图
+
+  [Radxa CM3 V1.31 3D](https://dl.radxa.com/cm3/docs/hw/radxa_cm3_pcba_3d.stp.zip)
 
 - 核心板连接器 PINOUT
 
