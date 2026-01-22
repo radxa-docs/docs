@@ -1,10 +1,10 @@
 import { Image } from "@site/src/utils/docs";
 
-{props.product}'s onboard MIPI CSI interface can be used to connect the [Radxa Camera 8M 219](https://radxa.com/products/accessories/camera-8m-219) for image capture.
+{props.product}'s onboard MIPI CSI interface can be used to connect the [Radxa Camera 13M 214](https://radxa.com/products/accessories/camera-13m-214) for image capture.
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/en/img/common/accessories/camera-8m-219-view.webp"
+    src="/en/img/common/accessories/camera-13m-214-view.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
@@ -13,9 +13,9 @@ import { Image } from "@site/src/utils/docs";
 
 ### Camera interface
 
-The Radxa Camera 8M 219 interface has the following specifications:
+The Radxa Camera 13M 214 interface has the following specifications:
 
-- Connector type: 15-pin 1.0 mm pitch SMD Horizontal FPC connector
+- Connector type: 31-pin 0.3 mm pitch SMD Horizontal FPC connector
 - Connection type: Flip type, bottom contact
 
 ### Board MIPI CSI interface
@@ -27,7 +27,7 @@ The {props.product} MIPI CSI interface has the following specifications:
 
 ## Hardware connection
 
-Insert the 15-pin metal contacts of the FPC cable into the camera connector, and insert the {props.pins} metal contacts of the FPC cable into the board MIPI CSI connector.
+Insert the 31-pin metal contacts of the FPC cable into the camera connector, and insert the {props.pins} metal contacts of the FPC cable into the board MIPI CSI connector.
 
 :::tip Notes
 
@@ -37,7 +37,7 @@ Insert the 15-pin metal contacts of the FPC cable into the camera connector, and
 :::
 
 <Image
-  src="/en/img/common/accessories/camera-8m-219-#board#.webp"
+  src="/en/img/common/accessories/camera-13m-214-#board#.webp"
   board={props.board}
   fallback={props.board}
   width="1200"
@@ -45,7 +45,7 @@ Insert the 15-pin metal contacts of the FPC cable into the camera connector, and
 
 ## Software enablement
 
-Use the Rsetup tool provided by the Radxa system to enable the Radxa Camera 8M 219.
+Use the Rsetup tool provided by the Radxa system to enable the Radxa Camera 13M 214.
 
 :::tip Rsetup usage guide
 
@@ -69,11 +69,11 @@ rsetup
 
 In Rsetup, go to `Overlays` -> `Manage overlays`.
 
-1. Use the arrow keys to find the [ ] {props?.enable_camera ?? 'Enable Radxa Camera 8M 219'} option.
-2. Press `Space` so it changes to [*] {props?.enable_camera ?? 'Enable Radxa Camera 8M 219'}, indicating that the feature is enabled.
+1. Use the arrow keys to find the [ ] {props?.enable_camera ?? 'Enable Radxa Camera 13M 214'} option.
+2. Press `Space` so it changes to [*] {props?.enable_camera ?? 'Enable Radxa Camera 13M 214'}, indicating that the feature is enabled.
 3. Press `Enter` to confirm and save the settings to enable the camera.
 4. Reboot the system to make the configuration take effect.
 
 :::tip
-If the board has multiple MIPI CSI interfaces, Rsetup may show options such as `[ ] Enable Radxa Camera 8M 219 on CAM *`. Select the option corresponding to the MIPI CSI interface you are using.
+If the board has multiple MIPI CSI interfaces, Rsetup may show options such as `[ ] Enable Radxa Camera 13M 214 on CAM *`. Select the option corresponding to the MIPI CSI interface you are using.
 :::
