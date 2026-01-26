@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Accessory Usage Instructions
 
-This section describes the common accessories supported by the Radxa-CM5-IO and how to use them.
+This section describes the common accessories supported by the Radxa CM5 IO Board and how to use them.
 
 ## Interface Overview
 
@@ -12,73 +12,84 @@ This section describes the common accessories supported by the Radxa-CM5-IO and 
 
 ## Camera
 
-The Radxa-CM5-IO comes with one 4-lane CSI interface and one 2-lane CSI interface. Below is the list of currently supported cameras:
+The Radxa CM5 IO Board provides one MIPI CSI camera interface (4 lane, 31-pin) and one MIPI CSI camera interface (2 lane, 15-pin). The following cameras are currently supported:
 
 <table>
   <tr>
     <th>Camera Name</th>
-    <th>Sensor Type</th>
+    <th>Sensor Model</th>
     <th>Resolution</th>
+    <th>Interface</th>
   </tr>
   <tr>
     <td>OKDO 5MP Camera</td>
     <td>OV5647</td>
     <td>5 megapixels</td>
+    <td>MIPI CSI (15-pin)</td>
   </tr>
   <tr>
     <td>Radxa Camera 8M</td>
     <td>IMX219</td>
     <td>8 megapixels</td>
+    <td>MIPI CSI (31-pin)</td>
   </tr>
   <tr>
     <td>Radxa Camera 4K</td>
     <td>IMX415</td>
     <td>8.29 megapixels</td>
+    <td>MIPI CSI (31-pin)</td>
   </tr>
   <tr>
     <td>Raspberry Pi Camera V2</td>
     <td>IMX219</td>
     <td>8 megapixels</td>
+    <td>MIPI CSI (15-pin)</td>
   </tr>
   <tr>
     <td>Raspberry Pi Camera v1.3</td>
     <td>OV5647</td>
     <td>5 megapixels</td>
+    <td>MIPI CSI (15-pin)</td>
   </tr>
 </table>
 
-For 4lane camera usage, please see [Camera usage tutorial](../accessories/camera_4k)  
-For the 2lane camera, see [Camera Tutorial](../accessories/camera_8m)
+The 4-lane MIPI CSI (31-pin) camera interface can be used with the [Radxa Camera 4K usage tutorial](../accessories/camera_4k).  
+The 2-lane MIPI CSI (15-pin) camera interface can be used with the [Radxa Camera 8M usage tutorial](../accessories/camera_8m).
 
 ## Display
 
-The Radxa-CM5-IO comes with a 4-lane DSI interface and has a 2-lane DSI interface. The following is a list of currently supported screens:
+The Radxa CM5 IO Board provides one MIPI DSI display interface (4 lane, 39-pin) and one MIPI DSI display interface (2 lane, 15-pin). The following displays are currently supported:
 
 <table>
   <tr>
     <th>Screen Name</th>
     <th>Resolution</th>
+    <th>Interface</th>
   </tr>
   <tr>
     <td>ALLNET 5 inch DSI Display</td>
-    <td>800 ×3(RGB) ×480 pixel</td>
+    <td>800 ×3(RGB) ×480 pixels</td>
+    <td>MIPI DSI (40-pin)</td>
   </tr>
   <tr>
     <td>Radxa Display 8 HD</td>
-    <td>1280x800 pixel</td>
+    <td>1280x800 pixels</td>
+    <td>MIPI DSI (40-pin)</td>
   </tr>
   <tr>
     <td>Radxa Display 10FHD</td>
-    <td>1200x1920 pixel </td>
+    <td>1200x1920 pixels</td>
+    <td>MIPI DSI (40-pin)</td>
   </tr>
   <tr>
     <td>Raspberry Pi 7 inch Touchscreen</td>
     <td>800 x 480 pixels</td>
+    <td>MIPI DSI (15-pin)</td>
   </tr>
 </table>
 
-For 4lane Radxa 8" screen use see [Screen Usage](../accessories/8hd-display_use)  
-For 2lane Raspberry Pi 7 inch screen use please refer to [Screen Usage](../accessories/rpi-7inch-display)
+The 4-lane MIPI DSI (39-pin) display interface can be used with the [Radxa 8" HD Display usage tutorial](../accessories/8hd-display_use).  
+The 2-lane MIPI DSI (15-pin) display interface can be used with the [Raspberry Pi 7 inch display usage tutorial](../accessories/rpi-7inch-display).
 
 ## WIFI & BT Support Module List
 
