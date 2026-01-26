@@ -48,7 +48,7 @@ rsetup
 
 1. 通过方向键找到 [ ] Enable Allwinner AC101 Codec 选项
 2. 按空格出现 [*] Enable Allwinner AC101 Codec 说明已选中该功能
-3. 按 `Enter` 确认并保存设置，使能摄像头。
+3. 按 `Enter` 确认并保存设置。
 4. 重启系统，使配置生效。
 
 :::
