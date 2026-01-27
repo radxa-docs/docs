@@ -1,12 +1,12 @@
-## RKLLM Introduction
+## RKLLM Overview
 
-RKLLM helps users quickly deploy LLM models onto Rockchip chips. Currently supported chips are: RK3588/RK3576/RK3562 series chips.
+RKLLM helps you deploy LLM models to Rockchip SoCs. Currently supported chips include the RK3588 / RK3576 / RK3562 series.
 
-The overall framework of RKLLM is as follows:
+RKLLM architecture:
 
 ![rkllm_1.webp](/img/general-tutorial/rknn/rkllm_1.webp)
 
-#### Currently Supported Models
+#### Supported models
 
 - [LLAMA models](https://huggingface.co/meta-llama)
 - [TinyLLAMA models](https://huggingface.co/TinyLlama)
@@ -26,129 +26,140 @@ The overall framework of RKLLM is as follows:
 - [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct)
 - [Qwen3](https://huggingface.co/collections/Qwen/qwen3-67dd247413f0e2e4f653967f)
 
-## RKLLM Installation
+## Download the SDK
 
-To use RKNPU, users need to first run the RKLLM-Toolkit on an x86 workstation to convert trained models into RKLLM format, and then perform inference on the development board using the RKLLM C API.
+Go to your SDK directory and clone the RKLLM repository.
 
-### x86 PC Workstation
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-- (Optional) Install [Anaconda](https://www.anaconda.com/)
+```bash
+cd RKSDK
+git clone -b release-v1.2.3 https://github.com/airockchip/rknn-llm.git
+```
 
-  If Python 3.11 (required version) is not installed in your system or you have multiple Python environments, it is recommended to use [Anaconda](https://www.anaconda.com/) to create a new Python 3.11 environment.
+</NewCodeBlock>
 
-  - Install Anaconda
+## Install Miniforge
 
-    Execute the following command in the terminal window of your computer to check whether Anaconda is already installed. If yes, skip this section.
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
+```bash
+wget https://github.com/conda-forge/miniforge/releases/download/25.11.0-0/Miniforge3-25.11.0-0-Linux-x86_64.sh
+chmod +x Miniforge3-25.11.0-0-Linux-x86_64.sh
+bash Miniforge3-25.11.0-0-Linux-x86_64.sh
+```
 
-    ```bash
-    $ conda --version
-    conda 24.9.2
-    ```
+</NewCodeBlock>
 
-    </NewCodeBlock>
+## Create a virtual environment
 
-    If you see "conda: command not found", it means Anaconda is not installed. Please refer to the [Anaconda](https://www.anaconda.com/) official website for installation instructions.
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  - Create a conda environment
+```bash
+conda create -n rkllm python=3.12
+```
 
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-    ```bash
-    conda create -n rkllm python=3.11.11
-    ```
+## Activate the virtual environment
 
-    </NewCodeBlock>
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  - Enter the rkllm conda environment
+```bash
+conda activate rkllm
+```
 
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-    ```bash
-    conda activate rkllm
-    ```
+## Install dependencies
 
-    </NewCodeBlock>
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  - _To exit the environment_
+```bash
+cd rknn-llm/rkllm-toolkit/packages
+pip install rkllm_toolkit-1.2.3-cp312-cp312-linux_x86_64.whl
+```
 
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-    ```bash
-    conda deactivate
-    ```
+## Verify the installation
 
-    </NewCodeBlock>
+If the following commands run without errors, the installation is successful.
 
-- Clone the RKLLM repository
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+```bash
+$python3
+>>>from rkllm.api import RKLLM
+```
 
-  ```bash
-  git clone -b release-v1.2.1b1 https://github.com/airockchip/rknn-llm.git   && cd rknn-llm
-  ```
+</NewCodeBlock>
 
-  </NewCodeBlock>
+## Toolchain for building on-device examples
 
-- Install RKLLM-Toolkit
+To build the on-device runtime examples, you need a cross-compilation toolchain.
 
-  RKLLM-Toolkit is a software development kit that allows users to quantize and convert Huggingface-format LLM models on X86 PCs.
+Download: [Cross compilation toolchain](https://developer.arm.com/-/media/files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz?rev=33c6e30e5ac64e6dba8f0431f2c35f1b&revision=33c6e30e-5ac6-4e6d-ba8f-0431f2c35f1b&hash=632C6C0BD43C3E4B59CA8A09A7055D30).
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+Extract it after downloading.
 
-  ```bash
-  pip3 install ./rkllm-toolkit/rkllm_toolkit-1.2.1b1-cp311-cp311-linux_x86_64.whl
-  ```
+Before building, export the compiler path so the scripts can find the toolchain.
 
-  </NewCodeBlock>
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  If no errors occur when executing the following commands, the installation was successful.
+```bash
+export GCC_COMPILER=/path/to/your/gcc/bin/aarch64-linux-gnu
+```
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-  ```bash
-  $python3
-  >>>from rkllm.api import RKLLM
-  ```
+## Device driver requirements
 
-  </NewCodeBlock>
+RKLLM requires a newer RKNPU driver. Before running RKLLM Runtime on the device, confirm that your RKNPU driver is **v0.9.8**.
 
-### Development Board
+:::tip
+Radxa OS 6.1 images may ship with RKNPU driver **0.9.6** by default.
+Upgrade via `sudo rsetup` -> `System` -> `System Update` to get RKNPU driver **0.9.8**.
+After upgrading, run **`sudo apt autopurge`** and reboot.
+:::
 
-- Check whether the RKNPU driver version is at least 0.9.8. If it is lower than this version, download and flash the latest radxa 6.1 firmware.
-  :::tip
-  The default RKNPU driver version in the radxa 6.1 firmware is 0.9.6. Please update to version 0.9.8 via: `sudo rsetup -> System -> System Update`.
-  After the update, be sure to execute **`sudo apt autopurge`** and then reboot.
-  :::
+Check the driver version:
 
-  <NewCodeBlock tip="Radxa OS" type="device">
+<NewCodeBlock tip="Radxa OS" type="device">
 
-  ```bash
-  $ sudo cat /sys/kernel/debug/rknpu/version
-  RKNPU driver: v0.9.8
-  ```
+```bash
+$ sudo cat /sys/kernel/debug/rknpu/version
+RKNPU driver: v0.9.8
+```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-- (Optional) Manually compile the NPU kernel
+Optional: build the NPU driver manually
 
-  If you are using a non-official firmware, you may need to update the kernel. The RKNPU driver supports two main kernel versions: [kernel-5.10](https://github.com/radxa/kernel/tree/stable-5.10-rock5) and [kernel-6.1](https://github.com/radxa/kernel/tree/linux-6.1-stan-rkr1). You can confirm the specific version number in the Makefile at the root directory of the kernel. The specific steps to update the kernel are as follows:
+If you are using a non-official firmware image, you may need to update the kernel.
+The RKNPU driver package supports two major kernel versions:
+[kernel-5.10](https://github.com/radxa/kernel/tree/stable-5.10-rock5) and
+[kernel-6.1](https://github.com/radxa/kernel/tree/linux-6.1-stan-rkr1).
+You can confirm the exact version in the kernel root `Makefile`. The general update steps are:
 
-  1. Download the archive file [rknpu_driver_0.9.8_20241009.tar.bz2](https://github.com/airockchip/rknn-llm/tree/release-v1.2.1b1/rknpu-driver).
+1. Download [rknpu_driver_0.9.8_20241009.tar.bz2](https://github.com/airockchip/rknn-llm/tree/release-v1.2.1b1/rknpu-driver).
 
-  2. Extract the archive and replace the rknpu driver code in the current kernel source directory with it.
+2. Extract it and overwrite the `rknpu` driver sources in your kernel tree.
 
-  3. Recompile the kernel.
+3. Rebuild the kernel.
 
-  4. Flash the newly compiled kernel to the device.
+4. Flash the newly built kernel to the device.
 
-- RKLLM Runtime provides C/C++ programming interfaces for the Rockchip NPU platform, helping users deploy RKLLM models and accelerate the implementation of LLM applications. Clone the RKLLM repository on the device side.
+## Clone the repository on the device
 
-  <NewCodeBlock tip="Radxa OS" type="device">
+RKLLM Runtime provides C/C++ APIs for Rockchip NPUs to help you deploy RKLLM models and accelerate LLM applications.
 
-  ```bash
-  git clone -b release-v1.2.1b1 https://github.com/airockchip/rknn-llm.git
-  ```
+Clone the RKLLM repository on the device:
 
-  </NewCodeBlock>
+<NewCodeBlock tip="Radxa OS" type="device">
+
+```bash
+git clone -b release-v1.2.3 https://github.com/airockchip/rknn-llm.git
+```
+
+</NewCodeBlock>

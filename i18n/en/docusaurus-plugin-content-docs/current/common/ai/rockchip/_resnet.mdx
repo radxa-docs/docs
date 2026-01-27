@@ -1,0 +1,160 @@
+## Environment Setup
+
+:::info
+Follow [RKNN Installation](./rknn-install) to set up the environment.
+
+Follow [RKNN Model Zoo](./rknn-model-zoo) to download the example files.
+:::
+
+## Model Download
+
+Download the ONNX model file.
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd rknn_model_zoo/examples/resnet/model/
+bash download_model.sh
+```
+
+</NewCodeBlock>
+
+## Model Conversion
+
+Select the target platform.
+
+<Tabs>
+
+<TabItem value="rk3588">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk3588
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="rk356x">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk356x
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+Convert the ONNX model to an RKNN model.
+
+:::tip
+After running the conversion script, you can see the model output.
+:::
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../python/
+python resnet.py ../model/resnet50-v2-7.onnx ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+Model output:
+
+```bash
+-----TOP 5-----
+[155] score=0.83 class="n02086240 Shih-Tzu"
+[154] score=0.14 class="n02086079 Pekinese, Pekingese, Peke"
+[262] score=0.02 class="n02112706 Brabancon griffon"
+[283] score=0.00 class="n02123394 Persian cat"
+[152] score=0.00 class="n02085782 Japanese spaniel"
+```
+
+## C API
+
+### Build the Example
+
+Go to the rknn_model_zoo directory and run build-linux.sh to build.
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../../..
+bash build-linux.sh -t ${TARGET_PLATFORM} -a aarch64 -d resnet
+```
+
+</NewCodeBlock>
+
+### Sync Files to the Device
+
+Copy the built demo directory under the install folder to the device.
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd install/${TARGET_PLATFORM}_linux_aarch64/
+scp -r rknn_resnet_demo/ user@your_device_ip:target_directory
+```
+
+</NewCodeBlock>
+
+### Run the Example
+
+Export the runtime libraries to the environment variable.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn_resnet_demo/
+export LD_LIBRARY_PATH=./lib
+```
+
+</NewCodeBlock>
+
+Run the example.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./rknn_resnet_demo ./model/resnet50-v2-7.rknn ./model/dog_224x224.jpg
+```
+
+</NewCodeBlock>
+
+```bash
+$ ./rknn_resnet_demo ./model/resnet50-v2-7.rknn ./model/dog_224x224.jpg
+num_lines=1001
+model input num: 1, output num: 1
+input tensors:
+  index=0, name=data, n_dims=4, dims=[1, 224, 224, 3], n_elems=150528, size=150528, fmt=NHWC, type=INT8, qnt_type=AFFINE, zp=-14, scale=0.018658
+output tensors:
+  index=0, name=resnetv24_dense0_fwd, n_dims=2, dims=[1, 1000, 0, 0], n_elems=1000, size=1000, fmt=UNDEFINED, type=INT8, qnt_type=AFFINE, zp=-62, scale=0.146746
+model is NHWC input fmt
+model input height=224, width=224, channel=3
+origin size=224x224 crop size=224x224
+input image: 224 x 224, subsampling: 4:2:0, colorspace: YCbCr, orientation: 1
+rga_api version 1.10.1_[0]
+rknn_run
+[155] score=0.792182 class=n02086240 Shih-Tzu
+[154] score=0.182606 class=n02086079 Pekinese, Pekingese, Peke
+[262] score=0.013012 class=n02112706 Brabancon griffon
+[152] score=0.002237 class=n02085782 Japanese spaniel
+[283] score=0.001931 class=n02123394 Persian cat
+```
+
+This output indicates the model classifies this image as **Shih-Tzu** （西施狗）的图片。
+
+### Test Image
+
+![](/img/rock5b/ai/resnet-test.webp)
+
+## Python API
+
+This example does not provide a standalone Python API script; you can implement one yourself.

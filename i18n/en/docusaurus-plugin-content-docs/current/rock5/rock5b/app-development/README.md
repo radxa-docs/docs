@@ -2,8 +2,8 @@
 sidebar_position: 4
 ---
 
-# Application development
+# Application Development
 
-Introduces upper-layer application development, such as QT, WiringX, Mraa, etc.
+This section covers application development on the platform, such as Qt, WiringX, Mraa, and more.
 
 <DocCardList />

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 22
+sidebar_position: 10
 ---
 
-# Python Virtual Environment Usage
+# Python Virtual Environments
 
 import VENVUSAGE from '../../../common/dev/\_venv_usage.mdx';
 

@@ -1,0 +1,173 @@
+## Environment Setup
+
+:::info
+Follow [RKNN Installation](./rknn-install) to set up the environment.
+
+Follow [RKNN Model Zoo](./rknn-model-zoo) to download the example files.
+:::
+
+## Model Download
+
+Download the ONNX model file.
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd rknn_model_zoo/examples/LPRNet/model/
+bash download_model.sh
+```
+
+</NewCodeBlock>
+
+## Model Conversion
+
+Select the target platform.
+
+<Tabs>
+
+<TabItem value="rk3588">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk3588
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="rk356x">
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk356x
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+Convert the ONNX model to an RKNN model.
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../python/
+python convert.py ../model/lprnet.onnx ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+## C API
+
+### Build the Example
+
+Go to the rknn_model_zoo directory and run build-linux.sh to build.
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd ../../..
+bash build-linux.sh -t ${TARGET_PLATFORM} -a aarch64 -d LPRNet
+```
+
+</NewCodeBlock>
+
+### Sync Files to the Device
+
+Copy the built demo directory under the install folder to the device.
+
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+cd install/${TARGET_PLATFORM}_linux_aarch64/
+scp -r rknn_lprnet_demo/ user@your_device_ip:target_directory
+```
+
+</NewCodeBlock>
+
+### Run the Example
+
+Export the runtime libraries to the environment variable.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn_lprnet_demo/
+export LD_LIBRARY_PATH=./lib
+```
+
+</NewCodeBlock>
+
+Run the example.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./rknn_lprnet_demo ./model/lprnet.rknn ./model/test.jpg
+```
+
+</NewCodeBlock>
+
+```bash
+$ ./rknn_lprnet_demo ./model/lprnet.rknn ./model/test.jpg
+model input num: 1, output num: 1
+input tensors:
+  index=0, name=input, n_dims=4, dims=[1, 24, 94, 3], n_elems=6768, size=6768, fmt=NHWC, type=INT8, qnt_type=AFFINE, zp=0, scale=0.007843
+output tensors:
+  index=0, name=output, n_dims=3, dims=[1, 68, 18], n_elems=1224, size=1224, fmt=UNDEFINED, type=INT8, qnt_type=AFFINE, zp=50, scale=0.643529
+model is NHWC input fmt
+model input height=24, width=94, channel=3
+origin size=94x24 crop size=80x16
+input image: 94 x 24, subsampling: 4:2:0, colorspace: YCbCr, orientation: 1
+rknn_run
+Plate recognition result: 湘F6CL03
+```
+
+### Test Image
+
+![](/img/rock5b/ai/lprnet-test.webp)
+
+## Python API
+
+### Activate the virtual environment
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+conda activate rknn
+```
+
+</NewCodeBlock>
+
+### Run the Example
+
+Copy the related files to the device and run the following commands.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python lprnet.py --model_path ../model/lprnet.rknn --target ${TARGET_PLATFORM}
+```
+
+</NewCodeBlock>
+
+```bash
+$ python lprnet.py --model_path ../model/lprnet.rknn --target rk3588
+/home/radxa/miniforge3/envs/rknn/lib/python3.12/site-packages/rknn/api/rknn.py:51: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  self.rknn_base = RKNNBase(cur_path, verbose)
+I rknn-toolkit2 version: 2.3.2
+done
+rk3588
+--> Init runtime environment
+I target set by user is: rk3588
+done
+--> Running model
+W inference: The 'data_format' is not set, and its default value is 'nhwc'!
+--> PostProcess
+Plate recognition result: 湘F6CL03
+```

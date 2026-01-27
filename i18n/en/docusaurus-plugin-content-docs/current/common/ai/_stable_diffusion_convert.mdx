@@ -1,21 +1,20 @@
-Stable Diffusion is a text-to-image generation model based on latent diffusion. By progressively adding and removing noise in latent space, it turns random noise into images that match a text prompt.
-In recent years, Stable Diffusion has continued to evolve, with many optimized variants emerging in the open-source community, significantly improving generation quality, speed, and computational efficiency.
-This demo uses **Stable Diffusion LCM Dreamshaper V7**, a lightweight variant that combines Latent Consistency Model (LCM) acceleration to maintain high-quality image generation with very few inference steps, producing clear images in just **4 steps**.
-This guide walks through how to deploy the model to the NPU on Rockchip chips using the RKNN toolchain, enabling efficient, low-latency on-device image generation.
+Stable Diffusion is a text-to-image generation model based on latent diffusion. It gradually adds and removes noise in latent space to turn random noise into images that match a text prompt.
+In recent years, Stable Diffusion has evolved rapidly, with many community-optimized variants that improve quality, speed, and efficiency.
+This guide uses **Stable Diffusion LCM Dreamshaper V7**, a lightweight variant that applies Latent Consistency Model (LCM) acceleration to generate high-quality images with very few steps (as few as **4 steps**).
+This document shows how to deploy the model to the NPU on Rockchip SoCs using the RKNN toolchain for efficient, low-latency on-device generation.
 
 :::tip
-This document uses RK3588 and Dreamshaper V7 as an example to demonstrate how to deploy a text-to-image model on the Rockchip NPU.
-You need to set up the RKNN-related environment on your PC in advance.
-For detailed environment setup steps, refer to [RKNN Installation](./rknn_install).
+This document uses RK3588 and Dreamshaper V7 as an example.
+You need to set up the RKNN environment on your PC first. See [RKNN Installation](./rknn-install).
 :::
 
-## Download model files
+## Model Download
 
-**Radxa provides converted RKNN models and executables with an output resolution of 256x256. You can download and use them directly by following the steps below.**
+**Radxa provides pre-converted RKNN models and runnable files (output resolution: 256×256). You can download and use them directly:**
 
-- **Download model files using modelscope**
+- **Download the model files using `modelscope`**
 
-  - **Create a directory to store the model files**
+  - **Create a directory for the model files**
 
 <NewCodeBlock tip="Linux PC" type="PC">
 
@@ -25,18 +24,18 @@ mkdir sd-lcm-rknn && cd sd-lcm-rknn
 
 </NewCodeBlock>
 
-- **Install the modelscope package via pip**
+- **Install `modelscope` via pip**
 
 <NewCodeBlock tip="Linux PC" type="PC">
 
 ```bash
-# Use a recent Python version to avoid compatibility issues
+# Use a recent Python version to avoid compatibility issues.
 pip3 install modelscope
 ```
 
 </NewCodeBlock>
 
-- **Download the Stable-Diffusion-LCM_RKNN repository**
+- **Download the `Stable-Diffusion-LCM_RKNN` package**
 
 <NewCodeBlock tip="Linux PC" type="PC">
 
@@ -46,13 +45,13 @@ modelscope download --model radxa/Stable-Diffusion-LCM_RKNN
 
 </NewCodeBlock>
 
-## (Optional) Convert the model
+## Model Conversion (Optional)
 
-**If you want to set a custom output resolution, you can convert the model yourself. Follow the steps below.**
+**If you want a different output resolution, you can convert the model yourself:**
 
-- **Download the ONNX model from HuggingFace and convert it to an RKNN model**
+- **Download the ONNX model from Hugging Face and convert it to RKNN**
 
-  - **Create a directory to store the model files**
+  - **Create a directory for the model files**
 
 <NewCodeBlock tip="Linux PC" type="PC">
 
@@ -67,7 +66,7 @@ mkdir sd-lcm-rknn && cd sd-lcm-rknn
 <NewCodeBlock tip="Linux PC" type="PC">
 
 ```bash
-# Install git lfs if it is not already available
+# Requires git lfs. Install it first if needed.
 git lfs install
 git clone https://huggingface.co/thanhtantran/Stable-Diffusion-1.5-LCM-ONNX-RKNN2
 ```
@@ -84,27 +83,30 @@ conda activate your_rknn_env
 
 </NewCodeBlock>
 
-- **Optionally run _run_onnx-lcm.py_ to validate the model**
+- **Optionally run `run_onnx-lcm.py` to verify the ONNX model**
 
 <NewCodeBlock tip="Linux PC" type="PC">
 
 ```bash
+# Use -h to view help.
 python run_onnx-lcm.py -i ./model -o ./images --prompt "Majestic mountain landscape with snow-capped peaks, autumn foliage in vibrant reds and oranges, a turquoise river winding through a valley, crisp and serene atmosphere, ultra-realistic style."
 ```
 
 </NewCodeBlock>
 
-- **Run _convert-onnx-to-rknn.py_ to convert the model**
+- **Run `convert-onnx-to-rknn.py` to convert the model**
 
 <NewCodeBlock tip="Linux PC" type="PC">
 
 ```bash
+# Use -h to view help. Replace N with your desired resolution.
+# The converted model will only output at that resolution.
 python convert-onnx-to-rknn.py -i ./model -r NxN
 ```
 
 </NewCodeBlock>
 
-- **Organize the files into the following directory structure, then proceed to the next step**
+- **Arrange files in the following directory layout**
 
 ```txt
 ---sd-lcm-rknn
@@ -123,11 +125,11 @@ python convert-onnx-to-rknn.py -i ./model -r NxN
      ---run_rknn-lcm.py
 ```
 
-## Deploy on the device
+## On-device Deployment
 
-- **Copy the converted RKNN models and executables to the device**
+- **Copy the RKNN models and runtime files to the device**
 
-  - **Enter the corresponding directory on the device**
+  - **Enter the directory on the device**
 
 <NewCodeBlock tip="Radxa SBC" type="device">
 
@@ -172,24 +174,24 @@ pip3 install diffusers pillow "numpy<2.0" torch transformers rknn-toolkit-lite2
 <NewCodeBlock tip="Radxa SBC" type="device">
 
 ```bash
-# Use -h to view help. If you converted the model yourself, update the resolution argument accordingly.
+# Use -h to view help. If you converted the model yourself, adjust the resolution accordingly.
 python ./run_rknn-lcm.py -i ./model -o ./images -s 256x256 --prompt "Majestic mountain landscape with snow-capped peaks, autumn foliage in vibrant reds and oranges, a turquoise river winding through a valley, crisp and serene atmosphere, ultra-realistic style."
 ```
 
 </NewCodeBlock>
 
-## Results and performance
+## Results and Performance
 
-- **256x256 output image on the device**
+- **Example output (256×256 on-device)**
 
 ![sb-lcm-mountain.webp](/img/rock5b/sb-lcm-mountain.webp)
 
-- **Single-run performance (for reference only):**
+- **Single-run timing (for reference only):**
 
 ```txt
-Text encoder load time: Took 0.7 seconds.
-UNet load time: Took 2.8 seconds.
-VAE decoder load time: Took 0.4 seconds.
+text_encoder load time: Took 0.7 seconds.
+unet load time: Took 2.8 seconds.
+vae_decoder load time: Took 0.4 seconds.
 Prompt encoding time: 0.08s
 Inference time: 4.55s
 Decode time: 3.15s

@@ -1,15 +1,18 @@
-**Qwen2.5-VL** is a multimodal vision-language model series developed by Alibaba Cloud's Tongyi Qianwen team. Building on the advantages of its predecessor, this series further strengthens deep understanding of dynamic video, precise parsing of ultra-long documents, and logical reasoning capabilities in complex scenarios, committed to providing more universal visual interaction experiences.
+**Qwen2.5-VL** is a multimodal vision-language model (VLM) family developed by the Qwen team (Alibaba Cloud).
+Building on the strengths of the previous generation, it improves long-video understanding, ultra-long document parsing, and logical reasoning in complex scenes, aiming to provide more general and practical visual interaction capabilities.
 
-- **Key Features**: The series models possess excellent visual perception and alignment capabilities, capable of processing high-resolution images and video inputs of over 1 hour. Their standout advantage lies in enhanced "Visual Agent" capabilities, supporting precise coordinate perception, UI interface interaction, and complex structured data extraction, demonstrating powerful performance in automated task processing, multimodal search, and high-precision visual Q&A.
-- **Version Note**: This model Qwen2.5-VL-3B-Instruct is a medium-quantized practice version of the series with approximately 3 billion parameters, having undergone strict instruction fine-tuning. It achieves excellent balance between model performance and computational cost, retaining strong multimodal reasoning capabilities while ensuring deployment flexibility, widely suitable for edge devices, real-time interactive applications, and various low-resource development environments.
+- Key features: strong visual perception and alignment, supporting high-resolution images and video inputs longer than 1 hour.
+  A major highlight is the improved “Visual Agent” capability, enabling accurate coordinate grounding, UI interaction, and complex structured data extraction for automation workflows, multimodal search, and high-accuracy visual Q&A.
+- Model variant: **Qwen2.5-VL-3B-Instruct** is a mid-sized (~3B parameters) instruction-tuned model.
+  It provides an excellent balance between capability and compute cost, making it suitable for edge devices, real-time interactive applications, and low-resource development environments.
 
 ## Environment Setup
 
-Refer to the [llama.cpp](../../../../orion/o6/app-development/artificial-intelligence/llama_cpp.md) documentation to prepare the llama.cpp tools.
+Follow the [llama.cpp](../llama-cpp) document to prepare `llama.cpp`.
 
 ## Quick Start
 
-### Download Model
+### Download the Model
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -23,7 +26,7 @@ modelscope download --model radxa/Qwen2.5-VL-3B-Instruct-NOE test.png --local_di
 
 </NewCodeBlock>
 
-### Run Model
+### Run the Model
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -33,9 +36,9 @@ modelscope download --model radxa/Qwen2.5-VL-3B-Instruct-NOE test.png --local_di
 
 </NewCodeBlock>
 
-## Complete Conversion Workflow
+## Full Conversion Workflow
 
-### Clone Model Repository
+### Clone the Model Repository
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -46,7 +49,7 @@ git clone https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct
 
 </NewCodeBlock>
 
-### Create Virtual Environment
+### Create a Virtual Environment
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -60,7 +63,7 @@ pip3 install -r requirements.txt
 
 ### Model Conversion
 
-#### Convert Text Module
+#### Convert the Text Module
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -70,7 +73,7 @@ python3 ./convert_hf_to_gguf.py ./Qwen2.5-VL-3B-Instruct
 
 </NewCodeBlock>
 
-#### Convert Vision Module
+#### Convert the Vision Module
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -82,7 +85,7 @@ python3 ./convert_hf_to_gguf.py --mmproj ./Qwen2.5-VL-3B-Instruct
 
 ### Model Quantization
 
-Here we use Q5_K_M quantization.
+This guide uses **Q5_K_M** quantization.
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -101,14 +104,14 @@ Here we use Q5_K_M quantization.
     style={{ display: "block", margin: "0 auto" }}
   />
   <div className="image-caption" style={{ marginTop: "8px" }}>
-    Model test input
+    Test input image
   </div>
 </div>
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
 ```bash
-./build/bin/llama-mtmd-cli -m ./Qwen2.5-VL-3B-Instruct/Qwen2.5-VL-3B-Instruct-Q5_K_M.gguf --mmproj ./Qwen2.5-VL-3B-Instruct/mmproj-Qwen2.5-VL-3b-Instruct-F16.gguf -p "Describe this image." --image ./Qwen2.5-VL-3B-Instruct/test.png
+./build/bin/llama-mtmd-cli -m ./Qwen2.5-VL-3B-Instruct/Qwen2.5-VL-3B-Instruct-Q5_K_M.gguf --mmproj ./Qwen2.5-VL-3B-Instruct/mmproj-Qwen2.5-VL-3b-Instruct-F16.gguf -p "Describe this image." --image ./test.png
 ```
 
 </NewCodeBlock>

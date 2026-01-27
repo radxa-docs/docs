@@ -1,14 +1,18 @@
-This document describes how to use llama.cpp with [KleidiAI](https://www.arm.com/markets/artificial-intelligence/software/kleidi) on Radxa Orion O6 / O6N to accelerate inference for Baidu ERNIE models: [ERNIE-4.5-0.3B](https://huggingface.co/baidu/ERNIE-4.5-0.3B-PT) and [ERNIE-4.5-0.3B-Base](https://huggingface.co/baidu/ERNIE-4.5-0.3B-Base-PT).
+This document explains how to run Baidu ERNIE models on the Radxa Orion O6 / O6N using `llama.cpp` with [KleidiAI](https://www.arm.com/markets/artificial-intelligence/software/kleidi) acceleration:
+[ERNIE-4.5-0.3B](https://huggingface.co/baidu/ERNIE-4.5-0.3B-PT) and
+[ERNIE-4.5-0.3B-Base](https://huggingface.co/baidu/ERNIE-4.5-0.3B-Base-PT).
 
 Model links:
 
 - [ERNIE-4.5-0.3B-PT](https://huggingface.co/baidu/ERNIE-4.5-0.3B-PT)
 - [ERNIE-4.5-0.3B-Base-PT](https://huggingface.co/baidu/ERNIE-4.5-0.3B-Base-PT)
 
-## Download models
+## Download the model
 
-Radxa provides prebuilt GGUF files: [ERNIE-4.5-0.3B-PT-Q4_0.gguf](https://modelscope.cn/models/radxa/ERNIE-4.5-GGUF/file/view/master/ERNIE-4.5-0.3B-PT-Q4_0.gguf?status=2)
-and [ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf](https://modelscope.cn/models/radxa/ERNIE-4.5-GGUF/file/view/master/ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf?status=2). You can download them using `modelscope`.
+Radxa provides pre-built GGUF files:
+[ERNIE-4.5-0.3B-PT-Q4_0.gguf](https://modelscope.cn/models/radxa/ERNIE-4.5-GGUF/file/view/master/ERNIE-4.5-0.3B-PT-Q4_0.gguf?status=2) and
+[ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf](https://modelscope.cn/models/radxa/ERNIE-4.5-GGUF/file/view/master/ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf?status=2).
+You can download them with `modelscope`:
 
 <Tabs>
     <TabItem value="ERNIE-4.5-0.3B-PT">
@@ -39,23 +43,23 @@ and [ERNIE-4.5-0.3B-Base-PT-Q4_0.gguf](https://modelscope.cn/models/radxa/ERNIE-
 
 </Tabs>
 
-## Model conversion
+## Convert the model (optional)
 
 :::tip
-If you are interested in converting models to GGUF, follow this section to perform the conversion on an x86 host.
+If you want to convert the model to GGUF yourself, follow this section on an x86 host.
 
-If you do not want to convert models yourself, download the GGUF models provided by Radxa and skip to [**Model inference**](#model-inference).
+Otherwise, download the pre-built GGUF from Radxa and skip to [**Inference**](#inference).
 :::
 
 ### Build llama.cpp
 
-Build llama.cpp on an x86 host.
+Build `llama.cpp` on an x86 host.
 
 :::tip
-Follow [**llama.cpp**](../../orion/o6/app-development/artificial-intelligence/llama_cpp.md) to build llama.cpp on an x86 host.
+Follow [**llama.cpp**](../llama-cpp) to build `llama.cpp` on an x86 host.
 :::
 
-Build commands:
+Build command:
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
@@ -68,9 +72,9 @@ cmake --build build --config Release
 
 </NewCodeBlock>
 
-### Download the model
+### Download the source model
 
-Use `modelscope` to download the source model.
+Use `modelscope` to download the original model:
 
 <Tabs>
     <TabItem value="ERNIE-4.5-0.3B-PT">
@@ -100,7 +104,7 @@ Use `modelscope` to download the source model.
 
 </Tabs>
 
-### Convert to a floating-point GGUF model
+### Convert to a float (F16) GGUF
 
 <Tabs>
     <TabItem value="ERNIE-4.5-0.3B-PT">
@@ -130,11 +134,11 @@ Use `modelscope` to download the source model.
 
 </Tabs>
 
-Running `convert_hf_to_gguf.py` will generate an F16 floating-point GGUF model in the source model directory.
+Running `convert_hf_to_gguf.py` generates an F16 (float) GGUF file in the model directory.
 
-### Quantize the GGUF model
+### Quantize the GGUF
 
-Use `llama-quantize` to quantize the floating-point GGUF model to Q4_0.
+Use `llama-quantize` to quantize the float GGUF to Q4_0:
 
 <Tabs>
     <TabItem value="ERNIE-4.5-0.3B-PT">
@@ -164,17 +168,17 @@ Use `llama-quantize` to quantize the floating-point GGUF model to Q4_0.
 
 </Tabs>
 
-Running `llama-quantize` will generate a GGUF model with the specified quantization in the target directory.
+Running `llama-quantize` generates a GGUF file with the selected quantization format in the target path.
 
-## Model inference
+## Inference
 
 ### Build llama.cpp
 
 :::tip
-Follow [**llama.cpp**](../../orion/o6/app-development/artificial-intelligence/llama_cpp.md) to build llama.cpp with **KleidiAI** enabled on Radxa Orion O6 / O6N.
+Follow [**llama.cpp**](../llama-cpp) to build `llama.cpp` with **KleidiAI** enabled on the Radxa Orion O6 / O6N.
 :::
 
-Build commands:
+Build command:
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -189,7 +193,7 @@ cmake --build build --config Release
 
 ### Run inference
 
-Use `llama-cli` to chat with the model.
+Use `llama-cli` to chat with the model:
 
 <Tabs>
     <TabItem value="ERNIE-4.5-0.3B-PT">
@@ -283,7 +287,7 @@ Use `llama-cli` to chat with the model.
 
 </Tabs>
 
-## Performance analysis
+## Performance benchmarking
 
 You can use `llama-bench` to benchmark the model.
 

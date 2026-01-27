@@ -1,6 +1,6 @@
 ---
-sidebar_position: 5
-description: "Open the door to OpenCV computer vision that seamlessly connects images to the real world"
+sidebar_position: 4
+description: "Get started with OpenCV for computer vision"
 ---
 
 # OpenCV
