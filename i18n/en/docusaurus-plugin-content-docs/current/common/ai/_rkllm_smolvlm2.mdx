@@ -1,0 +1,377 @@
+[SmolVLM2](https://huggingface.co/blog/smolvlm2) is a compact yet powerful vision-language model developed by Hugging Face, designed to bring advanced vision-language capabilities to resource-constrained devices such as smartphones and embedded systems.
+These models are characterized by their small footprint and are suitable for running on compact devices, bridging the gap between large models and limited hardware resources.
+This document describes how to use RKLLM to deploy SmolVLM2 [256M](https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct) / [500M](https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct) / [2.2B](https://huggingface.co/HuggingFaceTB/SmolVLM2-2.2B-Instruct) on RK3588 and run inference accelerated by the NPU.
+
+:::tip
+**Original Contribution**
+
+This model was provided by the Radxa community user @[**Rients Politiek**](https://forum.radxa.com/u/rients_politiek/summary).
+
+Original Radxa community forum post: [**SmolVLM2 for RK3588 NPU**](https://forum.radxa.com/t/smolvlm2-for-rk3588-npu/30077)
+:::
+
+## Model Deployment
+
+SmolVLM2 provides three model sizes. Please choose the parameters according to your needs.
+
+### Parameter Selection
+
+<Tabs>
+
+   <TabItem value="256M">
+
+   <NewCodeBlock tip="Device" type="device">
+
+     ```bash
+     export MODEL_SIZE=256m REPO_SIZE=256M
+     ```
+
+   </NewCodeBlock>
+
+   </TabItem>
+
+   <TabItem value="500M">
+
+   <NewCodeBlock tip="Device" type="device">
+
+     ```bash
+     export MODEL_SIZE=500m REPO_SIZE=500M
+     ```
+
+   </NewCodeBlock>
+
+   </TabItem>
+
+   <TabItem value="2.2B">
+
+   <NewCodeBlock tip="Device" type="device">
+
+     ```bash
+     export MODEL_SIZE=2.2b REPO_SIZE=2B
+     ```
+
+   </NewCodeBlock>
+
+   </TabItem>
+
+</Tabs>
+
+### Download the Code
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+git clone https://github.com/Qengineering/SmolVLM2-${REPO_SIZE}-NPU.git && cd SmolVLM2-${REPO_SIZE}-NPU
+```
+
+</NewCodeBlock>
+
+### Build the Project
+
+#### Install Dependencies
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt update
+sudo apt install cmake gcc g++ make libopencv-dev
+```
+
+</NewCodeBlock>
+
+#### Build with CMake
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cmake -B build -DRK_LIB_PATH=${PWD}/aarch64/library -DCMAKE_CXX_FLAGS="-I${PWD}/aarch64/include"
+cmake --build build -j4
+```
+
+</NewCodeBlock>
+
+### Download the Model
+
+#### Install hf-cli
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+curl -LsSf https://hf.co/cli/install.sh | bash
+```
+
+</NewCodeBlock>
+
+#### Download the Model
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+hf download Qengineering/SmolVLM2-${MODEL_SIZE}-rk3588 --local-dir ./SmolVLM2-${MODEL_SIZE}-rk3588
+```
+
+</NewCodeBlock>
+
+### Run the Examples
+
+<Tabs>
+
+   <TabItem value="256M">
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export RKLLM_LOG_LEVEL=1
+    # VLM_NPU Picture RKNN_model RKLLM_model NewTokens ContextLength
+    ./VLM_NPU ./Moon.jpg ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2_${MODEL_SIZE}_vision_fp16_rk3588.rknn ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2-${MODEL_SIZE}-instruct_w8a8_rk3588.rkllm 2048 4096
+    ```
+
+    </NewCodeBlock>
+
+   </TabItem>
+
+   <TabItem value="500M">
+
+   <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export RKLLM_LOG_LEVEL=1
+    # VLM_NPU Picture RKNN_model RKLLM_model NewTokens ContextLength
+    ./VLM_NPU ./Moon.jpg ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2_${MODEL_SIZE}_vision_fp16_rk3588.rknn ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2_${MODEL_SIZE}_llm_w8a8_rk3588.rkllm 2048 4096
+    ```
+
+   </NewCodeBlock>
+
+   </TabItem>
+
+   <TabItem value="2.2B">
+
+   <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    export RKLLM_LOG_LEVEL=1
+    # VLM_NPU Picture RKNN_model RKLLM_model NewTokens ContextLength
+    ./VLM_NPU ./Moon.jpg ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2-${MODEL_SIZE}_vision_fp16_rk3588.rknn ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2-${MODEL_SIZE}-instruct_w8a8_rk3588.rkllm 2048 4096
+    ```
+
+   </NewCodeBlock>
+
+   </TabItem>
+
+</Tabs>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/general-tutorial/rknn/rkllm-smolvlm2-input.webp"
+    style={{ width: "65%" }}
+  />
+  input image
+</div>
+
+```bash
+prompt: <image>Describe the image.
+```
+
+<Tabs>
+
+   <TabItem value="256M">
+
+    ```bash
+    rock@rock-5b-plus:~/SmolVLM2-256M-NPU$ ./VLM_NPU ./Moon.jpg ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2_${MODEL_SIZE}_vision_fp16_rk3588.rknn ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2-${MODEL_SIZE}-instruct_w8a8_rk3588.rkllm 2048 4096
+    I rkllm: rkllm-runtime version: 1.2.3, rknpu driver version: 0.9.8, platform: RK3588
+    I rkllm: loading rkllm model from ./SmolVLM2-256m-rk3588/smolvlm2-256m-instruct_w8a8_rk3588.rkllm
+    I rkllm: rkllm-toolkit version: 1.2.2, max_context_limit: 4096, npu_core_num: 3, target_platform: RK3588, model_dtype: W8A8
+    I rkllm: Enabled cpus: [4, 5, 6, 7]
+    I rkllm: Enabled cpus num: 4
+    rkllm init success
+    I rkllm: reset chat template:
+    I rkllm: system_prompt: <|im_start|>system\nYou are a helpful assistant.<|im_end|>\n
+    I rkllm: prompt_prefix: <|im_start|>user\n
+    I rkllm: prompt_postfix: <|im_end|>\n<|im_start|>assistant\n
+    W rkllm: Calling rkllm_set_chat_template will disable the internal automatic chat template parsing, including enable_thinking. Make sure your custom prompt is complete and valid.
+
+    used NPU cores 3
+
+    model input num: 1, output num: 1
+
+    Input tensors:
+      index=0, name=pixel_values, n_dims=4, dims=[1, 384, 384, 3], n_elems=442368, size=884736, fmt=NHWC, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+
+    Output tensors:
+      index=0, name=output, n_dims=3, dims=[1, 36, 576, 0], n_elems=20736, size=41472, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+
+    Model input height=384, width=384, channel=3
+
+
+    User: <image>Describe the image.
+    Answer: The image depicts a scene from space, specifically looking at the moon's surface. The moon is in the process of being tidied up and has been cleaned to remove any debris or stains that might have accumulated over time. The overall atmosphere appears to be clear and bright, with no visible signs of pollution or other human activity.
+
+    The image also includes a large number of small objects scattered across the surface of the moon, which appear to be rocks or boulders. These objects are scattered randomly around the moon's surface, creating a sense of randomness and disorder. The overall atmosphere is calm and serene, with no signs of any movement or activity in the scene.
+
+    Overall, this image gives a sense of the beauty and cleanliness of the lunar environment, as well as the ongoing process of tidying up the moon's surface.
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Model init time (ms)  227.84
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Stage         Total Time (ms)  Tokens    Time per Token (ms)      Tokens per Second
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Prefill       97.59            78        1.25                     799.24
+    I rkllm:  Generate      2643.09          166       15.92                    62.81
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Peak Memory Usage (GB)
+    I rkllm:  0.59
+    I rkllm: --------------------------------------------------------------------------------------
+    ```
+
+   </TabItem>
+
+   <TabItem value="500M">
+
+    ```bash
+    rock@rock-5b-plus:~/SmolVLM2-500M-NPU$ ./VLM_NPU ./Moon.jpg ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2_${MODEL_SIZE}_vision_fp16_rk3588.rknn ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2_${MODEL_SIZE}_llm_w8a8_rk3588.rkllm 2048 4096
+    I rkllm: rkllm-runtime version: 1.2.3, rknpu driver version: 0.9.8, platform: RK3588
+    I rkllm: loading rkllm model from ./SmolVLM2-500m-rk3588/smolvlm2_500m_llm_w8a8_rk3588.rkllm
+    I rkllm: rkllm-toolkit version: 1.2.2, max_context_limit: 4096, npu_core_num: 3, target_platform: RK3588, model_dtype: W8A8
+    I rkllm: Enabled cpus: [4, 5, 6, 7]
+    I rkllm: Enabled cpus num: 4
+    rkllm init success
+    I rkllm: reset chat template:
+    I rkllm: system_prompt: <|im_start|>system\nYou are a helpful assistant.<|im_end|>\n
+    I rkllm: prompt_prefix: <|im_start|>user\n
+    I rkllm: prompt_postfix: <|im_end|>\n<|im_start|>assistant\n
+    W rkllm: Calling rkllm_set_chat_template will disable the internal automatic chat template parsing, including enable_thinking. Make sure your custom prompt is complete and valid.
+
+    used NPU cores 3
+
+    model input num: 1, output num: 1
+
+    Input tensors:
+      index=0, name=pixel_values, n_dims=4, dims=[1, 384, 384, 3], n_elems=442368, size=884736, fmt=NHWC, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+
+    Output tensors:
+      index=0, name=output, n_dims=3, dims=[1, 36, 960, 0], n_elems=34560, size=69120, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+
+    Model input height=384, width=384, channel=3
+
+
+    User: <image>Describe the image.
+    Answer: The image is a surreal and fantastical representation of a space station orbiting a planet, set against a backdrop of stars and nebulae. The station, which resembles a large, spherical structure with multiple levels and windows, is depicted as being constructed from metallic materials that reflect the light of the distant stars. The station's interior is filled with various objects and structures, including what appears to be a control room or laboratory area, complete with computers, monitors, and other equipment.
+
+    The planet itself is depicted as having a surface covered in a thick layer of ice or snow, which gives it a cold and desolate appearance. The sky above the station is filled with stars, creating a sense of vastness and isolation. The overall atmosphere of the image suggests that the space station is located in a region of space where there are no other planets or celestial bodies visible in the background.
+
+    The colors in the image are predominantly dark and muted, with the exception of the bright lights and reflective surfaces of the station's interior. This contrast creates a sense of depth and distance, drawing the viewer's eye towards the central structure of the space station. The image also features a series of small, glowing orbs scattered throughout the scene, which add to the surreal and dreamlike quality of the image.
+
+    Overall, the image is a striking representation of a space station orbiting a planet in a region of space where there are no other celestial bodies visible in the background. It evokes a sense of wonder and curiosity about the possibilities of life beyond our own planet.
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Model init time (ms)  512.04
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Stage         Total Time (ms)  Tokens    Time per Token (ms)      Tokens per Second
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Prefill       150.43           78        1.93                     518.52
+    I rkllm:  Generate      7967.56          311       25.62                    39.03
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Peak Memory Usage (GB)
+    I rkllm:  0.88
+    I rkllm: --------------------------------------------------------------------------------------
+    ```
+
+
+    </TabItem>
+
+   <TabItem value="2.2B">
+
+    ```bash
+    rock@rock-5b-plus:~/SmolVLM2-2B-NPU$ ./VLM_NPU ./Moon.jpg ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2-${MODEL_SIZE}_vision_fp16_rk3588.rknn ./SmolVLM2-${MODEL_SIZE}-rk3588/smolvlm2-${MODEL_SIZE}-instruct_w8a8_rk3588.rkllm 2048 4096
+    I rkllm: rkllm-runtime version: 1.2.3, rknpu driver version: 0.9.8, platform: RK3588
+    I rkllm: loading rkllm model from ./SmolVLM2-2.2b-rk3588/smolvlm2-2.2b-instruct_w8a8_rk3588.rkllm
+    I rkllm: rkllm-toolkit version: 1.2.2, max_context_limit: 4096, npu_core_num: 3, target_platform: RK3588, model_dtype: W8A8
+    I rkllm: Enabled cpus: [4, 5, 6, 7]
+    I rkllm: Enabled cpus num: 4
+    rkllm init success
+    I rkllm: reset chat template:
+    I rkllm: system_prompt: <|im_start|>system\nYou are a helpful assistant.<|im_end|>\n
+    I rkllm: prompt_prefix: <|im_start|>user\n
+    I rkllm: prompt_postfix: <|im_end|>\n<|im_start|>assistant\n
+    W rkllm: Calling rkllm_set_chat_template will disable the internal automatic chat template parsing, including enable_thinking. Make sure your custom prompt is complete and valid.
+
+    used NPU cores 3
+
+    model input num: 1, output num: 1
+
+    Input tensors:
+      index=0, name=pixel_values, n_dims=4, dims=[1, 384, 384, 3], n_elems=442368, size=884736, fmt=NHWC, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+
+    Output tensors:
+      index=0, name=output, n_dims=3, dims=[1, 81, 2048, 0], n_elems=165888, size=331776, fmt=UNDEFINED, type=FP16, qnt_type=AFFINE, zp=0, scale=1.000000
+
+    Model input height=384, width=384, channel=3
+
+
+    User: <image>Describe the image.
+    Answer: In this captivating image, an astronaut is comfortably seated on the surface of the moon, which is bathed in the soft glow of a distant star. The lunar landscape stretches out around him, punctuated by craters and mountains that add texture to the otherwise barren terrain.
+
+    The astronaut himself is clad in a pristine white spacesuit, its reflective visor gleaming under the celestial light. His helmet is adorned with a gold visor, adding an air of sophistication to his appearance. A green bottle rests casually on his lap, suggesting a moment of relaxation amidst the vastness of space.
+
+    In the background, Earth hangs in the sky, its blue and white hues contrasting sharply with the moon's gray surface. The planet is dotted with clouds, hinting at the diversity of life that exists within its atmosphere.
+
+    The image as a whole paints a picture of exploration and discovery, capturing not just the physical environment but also the emotional journey of an astronaut venturing into the unknown. It's a testament to human ingenuity and our innate desire to explore the cosmos.
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Model init time (ms)  2096.35
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Stage         Total Time (ms)  Tokens    Time per Token (ms)      Tokens per Second
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Prefill       608.84           123       4.95                     202.02
+    I rkllm:  Generate      15548.70         214       72.66                    13.76
+    I rkllm: --------------------------------------------------------------------------------------
+    I rkllm:  Peak Memory Usage (GB)
+    I rkllm:  3.39
+    I rkllm: --------------------------------------------------------------------------------------
+    ```
+
+   </TabItem>
+
+</Tabs>
+
+## Performance Analysis
+
+<Tabs>
+
+   <TabItem value="256M">
+
+On ROCK 5B+ it reaches 62.81 tokens/s.
+
+| Stage    | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
+| -------- | --------------- | ------ | ------------------- | ----------------- |
+| Prefill  | 97.59           | 78     | 1.25                | 799.24            |
+| Generate | 2643.09         | 166    | 15.92               | 62.81             |
+
+   </TabItem>
+
+   <TabItem value="500M">
+
+On ROCK 5B+ it reaches 39.03 tokens/s.
+
+| Stage    | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
+| -------- | --------------- | ------ | ------------------- | ----------------- |
+| Prefill  | 150.43          | 78     | 1.93                | 518.52            |
+| Generate | 7967.56         | 311    | 25.62               | 39.03             |
+
+   </TabItem>
+
+   <TabItem value="2.2B">
+
+On ROCK 5B+ it reaches 13.76 tokens/s.
+
+| Stage    | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
+| -------- | --------------- | ------ | ------------------- | ----------------- |
+| Prefill  | 608.84          | 123    | 4.95                | 202.02            |
+| Generate | 15548.70        | 214    | 72.66               | 13.76             |
+
+   </TabItem>
+
+</Tabs>
+
+## Memory Usage
+
+|                        | 256M | 500M | 2.2B |
+| ---------------------- | ---- | ---- | ---- |
+| Peak Memory Usage (GB) | 0.59 | 0.88 | 3.39 |
