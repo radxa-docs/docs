@@ -32,7 +32,7 @@ sidebar_position: 150
 #### 瑞莎星睿 O6N
         | 下载平台                                                             | 文件格式 | 获取方式                                                                                            |
         | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-1.zip)                      | `.zip`   | 固件位于压缩包内                                                                                                  |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-2.zip)                      | `.zip`   | 固件位于压缩包内                                                                                                  |
         | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` 目录下 |
     </TabItem>
 </Tabs>
@@ -146,7 +146,11 @@ Fedora 系统的默认凭据如下：
         | 原理图         | `radxa_orion_o6_schematic_v1.20`               | PDF  | [下载](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_schematic.pdf)                                                                                                                                                                             |
         | 位号图（顶层） | `radxa_orion_o6_components_placement_map_top_v1.20` | PDF  | [下载](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_top.pdf)                                                                                                                                                          |
         | 位号图（底层） | `radxa_orion_o6_components_placement_map_bot_v1.20` | PDF  | [下载](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_v1.20_Components_Placement_map_bot.pdf)                                                                                                                                                          |
-        | 3D 文件        | `radxa_orion_o6_io_shield_3d`                  | STP  | [下载](https://dl.radxa.com/orion/o6/hw/RADXA_ROCK_Orion_O6_IO_shield_3D.zip)                                                                                                                                                                           |
+        | 2D 尺寸(顶层) | `radxa_orion_o6_2d_dimensions_top_v1.20` | PDF | [下载](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_2d_dimensions_top.pdf)
+        | 2D 尺寸(底层) | `radxa_orion_o6_2d_dimensions_bottom_v1.20` | PDF | [下载](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_2d_dimensions_bottom.pdf)
+        | 2D 文件        | `radxa_orion_o6_2d_dxf_v1.20`                  | DXF  | [下载](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_2d_dxf.zip)                                                                                                                                                                                |
+        | 3D 文件        | `radxa_orion_o6_3d_stp_v1.20`                  | STP  | [下载](https://dl.radxa.com/orion/o6/hw/radxa_orion_o6_3d_stp.zip)                                                                                                                                                                                |
+        | 3D 文件（IO 挡板） | `radxa_orion_o6_io_shield_3d`                  | STP  | [下载](https://dl.radxa.com/orion/o6/hw/RADXA_ROCK_Orion_O6_IO_shield_3D.zip)                                                                                                                                                                           |
     </TabItem>
     <TabItem value="星睿 O6N">
 ### 瑞莎星睿 O6N
