@@ -135,7 +135,7 @@ sudo chmod 666 /dev/dma_heap/*
 
 ### 启动摄像头
 
-进入 libcamera 的 build 目录，启动 qcam。
+打开系统桌面终端，进入 libcamera 的 build 目录，启动 qcam。
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
