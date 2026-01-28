@@ -12,8 +12,8 @@ sidebar_position: 10
 
 是的。ROCK 5T 可以从 PCIe M.2 NVME 固态硬盘启动。
 ROCK 5T 配备了一个 16MB 的 SPI Nor Flash 和 PCIe M.2 M-Key 接口。
-SPI Nor Flash 存储引导程序。NVME 固态硬盘存储整个系统映像（至少包括内核和 rootfs）。
-有关映像写入，请参阅本指南。[SPI Nor Flash](./getting-started/install-os/erase_spi-flash) 和 [PCIe NVME SSD](./getting-started/install-os/nvme) 启动。
+SPI Nor Flash 存储引导程序。NVME 固态硬盘存储整个系统镜像（至少包括内核和 rootfs）。
+有关镜像写入，请参阅本指南。[SPI Nor Flash](./getting-started/install-os/erase-spi-flash) 和 [PCIe NVME SSD](./getting-started/install-os/nvme) 启动。
 
 ## Q3： 另外，价格中是否包含散热片和风扇？
 

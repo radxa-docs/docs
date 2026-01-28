@@ -16,9 +16,9 @@ sidebar_position: 4
 
 <img src="/img/common/rsetup/system-maintenance.webp" alt="System Maintenance" style={{ width: "80%" }} />
 
-- 选择 "OK" 之后，按空格键，选中 "rock-5t"/"rock-5t"
+- 选择 "OK" 之后，按空格键，选中 "rock-5t"
 
-<img src="/img/common/rsetup/rsetup-rock-5bp.webp" alt="rsetup rock-5bp" style={{ width: "80%" }} />
+<img src="/img/common/nvme/rsetup-select-bootloader-rock-5t.webp" alt="rsetup select bootloader rock-5t" style={{ width: "80%" }} />
 
 ## 不能启动到系统
 
