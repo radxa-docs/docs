@@ -224,3 +224,170 @@ startup.nsh
 3. Reboot the system
 
 After the update completes, unplug and reconnect the power adapter to reboot the system.
+
+## Flash BIOS Firmware Using a Programmer (Only When System Cannot Boot)
+
+For advanced users who need to recover from a corrupted BIOS or prefer direct hardware access, you can use a Serial Flash programmer (such as CH341A) to flash the BIOS firmware (cix_flash_all.bin) directly to the SPI NOR Flash chip. This method completely bypasses the operating system and works even when the device cannot boot.
+
+### Preparation
+
+1. Prepare hardware
+
+- Programmer: CH341A / CH341B programmer recommended
+- 1.8V adapter
+- SOP8 clip
+- Linux PC
+
+2. Download BIOS firmware
+
+Visit the <a href={props?.download_page ?? '../download.md'}>Downloads</a> page to download the BIOS firmware.
+The firmware downloaded from the radxa-dl website is in zip format and requires two extractions:
+
+<NewCodeBlock tip="user@linux$" type="host">
+
+```
+unzip orion-o6-bios-v1.x.x.zip # The BIOS filename for Orion O6N is similar
+cd orion-o6-bios-v1.x.x # Enter the extracted directory
+gzip -d cix_flash_all.bin.gz
+```
+
+</NewCodeBlock>
+
+3. Install flashrom tool
+
+<NewCodeBlock tip="user@linux$" type="host">
+
+```
+sudo apt-get install flashrom
+```
+
+</NewCodeBlock>
+
+### Assemble the Programming Clip
+
+1. Set the CH341A/B programmer to flash mode
+   Set the programmer's jumper to flash mode. Refer to the programmer's manual for the specific position.
+
+   <div style={{ textAlign: "center" }}>
+     <img
+       src="/en/img/orion/o6/bios/orion-o6-ch341-pin.webp"
+       style={{ width: "100%", maxWidth: "1200px" }}
+     />
+   </div>
+
+2. Place the 1.8V adapter on the CH341A/B programmer's clip and lock the lever
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/orion/o6/bios/orion-o6-ch341-adapter-clamp.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. Place the SOP8 clip on the 1.8V adapter's pins and lock the lever
+
+   <div style={{ textAlign: "center" }}>
+     <img
+       src="/en/img/orion/o6/bios/orion-o6-adapter-sop8-clamp-lock.webp"
+       style={{ width: "100%", maxWidth: "1200px" }}
+     />
+   </div>
+
+4. Clip onto the Flash ROM chip
+
+<Tabs queryString="type">
+  <TabItem
+    value="Orion O6"
+    default={props.tag === "o6"}
+    attributes={{ className: props.tag === "o6n" && "tab_none" }}
+  >
+    Clip onto the Flash ROM chip on the board. Ensure the clip's pins correspond
+    correctly to the chip's pins - the red wire is pin 1 of the SOP8, which
+    corresponds to the pin marked with a circular dot on the chip.
+    <div style={{ textAlign: "center" }}>
+      <img
+        src="/en/img/orion/o6/bios/orion-o6-ch341-eeprom-clamp.webp"
+        style={{ width: "100%", maxWidth: "1200px" }}
+      />
+    </div>
+  </TabItem>
+  <TabItem
+    value="Orion O6N"
+    default={props.tag === "o6n"}
+    attributes={{ className: props.tag === "o6" && "tab_none" }}
+  >
+    Clip onto the removed Flash ROM chip. Ensure the clip's pins correspond
+    correctly to the chip's pins - the red wire is pin 1 of the SOP8, which
+    corresponds to the pin marked with a circular dot on the chip. Refer to the
+    "Remove SPI Flash Chip" and "Install SPI Flash Chip" sections below for
+    steps on removing and installing the BIOS chip.
+    <div style={{ textAlign: "center" }}>
+      <img
+        src="/en/img/orion/o6/bios/orion-o6n-ch341-eeprom-clamp.webp"
+        style={{ width: "100%", maxWidth: "1200px" }}
+      />
+    </div>
+  </TabItem>
+</Tabs>
+
+### Flash BIOS Firmware
+
+1. Insert the programmer and boot the PC
+
+Insert the assembled programmer into the USB port of a Linux PC.
+
+2. Check programmer recognition
+
+<NewCodeBlock tip="user@linux$" type="host">
+
+```
+sudo flashrom -L | grep ch341
+```
+
+</NewCodeBlock>
+
+If output similar to the following appears, the programmer is recognized successfully:
+
+```
+Supported USB devices for the ch34la_spi programmer
+```
+
+3. Check chip recognition
+
+<NewCodeBlock tip="user@linux$" type="host">
+
+```
+sudo flashrom -p ch341a_spi -n
+```
+
+</NewCodeBlock>
+
+If output similar to the following appears, the chip is recognized successfully:
+
+```
+Found Winbond flash chip "W25Q64.W" (8192 kB, SPI) on ch341a_spi.
+```
+
+4. Flash BIOS firmware
+
+Ensure the programmer and chip are stably connected during this step to avoid flash failure due to power loss or unstable connections.
+
+Make sure the `cix_flash_all.bin` file to be flashed is in the current directory.
+
+<NewCodeBlock tip="user@linux$" type="host">
+
+```
+sudo flashrom -p ch341a_spi -w cix_flash_all.bin
+```
+
+</NewCodeBlock>
+
+Wait for flashing to complete. The following message indicates successful flashing:
+
+```
+Verifying flash... VERIFIED.
+```
+
+5. Reboot the system
+
+After the update completes, unplug and reconnect the power adapter to reboot the system!

@@ -8,9 +8,7 @@ import BIOS from '../../../common/orion-common/low-level-dev/\_bios.mdx';
 
 <BIOS board="Radxa Orion O6" power="20V Type-C Power Adapter" download_page="../../download" tag="o6" serial_login="../system-use/uart"/>
 
-## Update BIOS Firmware Using a Programmer
-
-For advanced users who need to recover from a corrupted BIOS or prefer direct hardware access, you can use a Serial Flash programmer (such as CH341A) to flash the BIOS firmware (cix_flash_all.bin) directly to the SPI NOR Flash chip. This method completely bypasses the operating system and works even if the device cannot boot.
+## Remove and Install the SPI Flash Chip
 
 ### Remove the SPI Flash Chip
 
@@ -27,12 +25,6 @@ After completing the above steps, use tweezers to remove the SPI Flash chip from
 <div style={{textAlign: 'center'}}>
     <img src="/en/img/orion/o6/o6_spi_uninstall.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
-
-### Flash the BIOS Firmware
-
-For detailed instructions and hardware requirements, please refer to the comprehensive [forum guide](https://forum.radxa.com/t/guide-flash-bios-with-ch341a-macos-linux/26742) provided by community member Meco.
-
-The `cix_flash_all.bin` file required for the forum guide is located in the downloaded BIOS package.
 
 ### Install the SPI Flash Chip
 
