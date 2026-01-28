@@ -9,7 +9,7 @@ Each model provides the original model source, the ONNX model, the compiled DXNN
 
 ## DX Model Link
 
-Link: [**DX Model Zoo**](https://developer.deepx.ai/wp-content/modelzoo/modelzoo_v2.0.0.html)
+Link: [**DX Model Zoo**](https://developer.deepx.ai/modelzoo/)
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-dx-m1/dx-model-zoo.webp"/>

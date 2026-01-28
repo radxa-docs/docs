@@ -37,6 +37,9 @@ sudo apt-get install -y --no-install-recommends libgl1-mesa-glx libglib2.0-0 mak
 ### Download the DX-COM Package
 
 Download the DX-COM package from the DX-M1 SDK [Downloads](../download.md) page and extract it.
+:::tip
+[**DEEPX Developers**](https://developer.deepx.ai/) is now open for registration. Users can register and log in to download all SDK software from [**Sw-Download**](https://developer.deepx.ai/sw-download/).
+:::
 
 <NewCodeBlock tip="X86 PC" type="PC">
 

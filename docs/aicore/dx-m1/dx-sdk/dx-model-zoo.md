@@ -9,7 +9,7 @@ sidebar_position: 7
 
 ## DX Model Link
 
-链接： [**DX Model Zoo**](https://developer.deepx.ai/wp-content/modelzoo/modelzoo_v2.0.0.html)
+链接： [**DX Model Zoo**](https://developer.deepx.ai/modelzoo/)
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/aicore-dx-m1/dx-model-zoo.webp"/>
