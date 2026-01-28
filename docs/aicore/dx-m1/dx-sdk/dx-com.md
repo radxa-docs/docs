@@ -37,6 +37,9 @@ sudo apt-get install -y --no-install-recommends libgl1-mesa-glx libglib2.0-0 mak
 ### 下载 DX-COM 安装包
 
 请在 DX-M1 SDK [资源下载](../download.md)页面下载 DX-COM 安装包并解压
+:::tip
+[**DEEPX Developers**](https://developer.deepx.ai/) 开放对外注册，用户自行注册登录后即可在 [**S/W Download**](https://developer.deepx.ai/sw-download/) 上下载所有 SDK 软件
+:::
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
