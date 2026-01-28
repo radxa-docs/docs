@@ -26,129 +26,135 @@ RKLLM 整体框架如下：
 - [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct)
 - [Qwen3](https://huggingface.co/collections/Qwen/qwen3-67dd247413f0e2e4f653967f)
 
-## RKLLM 安装
+## 下载 SDK
 
-要使用 RKNPU，用户需要先在 x86 工作站上运行 RKLLM-Toolkit 工具，将训练好的模型转换为 RKLLM 格式的模型，然后在开发板上使用 RKLLM C API 进行推理。
+进入统一存放 SDK 的目录并克隆 RKLLM 仓库。
 
-### x86 PC 工作站
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-- （可选）安装 [Anaconda](https://www.anaconda.com/)
+```bash
+cd RKSDK
+git clone -b release-v1.2.3 https://github.com/airockchip/rknn-llm.git
+```
 
-  如果系统中没有安装 Python 3.11（必要版本），或者同时有多个版本的 Python 环境，建议使用 [Anaconda](https://www.anaconda.com/) 创建新的 Python 3.11 环境。
+</NewCodeBlock>
 
-  - 安装 Anaconda
+## 安装 Miniforge
 
-    在计算机的终端窗口中执行以下命令，检查是否安装 Anaconda，若已安装则可省略此节步骤。
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
+```bash
+wget https://github.com/conda-forge/miniforge/releases/download/25.11.0-0/Miniforge3-25.11.0-0-Linux-x86_64.sh
+chmod +x Miniforge3-25.11.0-0-Linux-x86_64.sh
+bash Miniforge3-25.11.0-0-Linux-x86_64.sh
+```
 
-    ```bash
-    $ conda --version
-    conda 24.9.2
-    ```
+</NewCodeBlock>
 
-    </NewCodeBlock>
+## 创建虚拟环境
 
-    如出现 conda: command not found, 则表示未安装 anaconda, 请参考 [Anaconda](https://www.anaconda.com/) 官网进行安装。
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  - 创建 conda 环境
+```bash
+conda create -n rkllm python=3.12
+```
 
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-    ```bash
-    conda create -n rkllm python=3.11.11
-    ```
+## 激活虚拟环境
 
-    </NewCodeBlock>
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  - 进入 rkllm conda 环境
+```bash
+conda activate rkllm
+```
 
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-    ```bash
-    conda activate rkllm
-    ```
+## 安装依赖包
 
-    </NewCodeBlock>
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  - _如要退出环境_
+```bash
+cd rknn-llm/rkllm-toolkit/packages
+pip install rkllm_toolkit-1.2.3-cp312-cp312-linux_x86_64.whl
+```
 
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-    ```bash
-    conda deactivate
-    ```
+## 验证安装
 
-    </NewCodeBlock>
+若执行以下命令没有报错，则安装成功。
 
-- 克隆 RKLLM 仓库
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+```bash
+$python3
+>>>from rkllm.api import RKLLM
+```
 
-  ```bash
-  git clone -b release-v1.2.1b1 https://github.com/airockchip/rknn-llm.git && cd rknn-llm
-  ```
+</NewCodeBlock>
 
-  </NewCodeBlock>
+## 编译工具
 
-- 安装 RKLLM-Toolkit
+编译板端运行代码时需要用到交叉编译工具链。
 
-  RKLLM-Toolkit 是一套软件开发包，供用户在 X86 PC 上进行 Huggingface 格式的 LLM 模型量化和转换。
+点击下载：[交叉编译工具链](https://developer.arm.com/-/media/files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz?rev=33c6e30e5ac64e6dba8f0431f2c35f1b&revision=33c6e30e-5ac6-4e6d-ba8f-0431f2c35f1b&hash=632C6C0BD43C3E4B59CA8A09A7055D30)。
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+下载完成之后解压即可。
 
-  ```bash
-  pip3 install ./rkllm-toolkit/rkllm_toolkit-1.2.1b1-cp311-cp311-linux_x86_64.whl
-  ```
+编译前需要导出编译器路径到环境变量，让脚本能找到下载的交叉编译器。
 
-  </NewCodeBlock>
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
-  若执行以下命令没有报错，则安装成功。
+```bash
+export GCC_COMPILER=/path/to/your/gcc/bin/aarch64-linux-gnu
+```
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+</NewCodeBlock>
 
-  ```bash
-  $python3
-  >>>from rkllm.api import RKLLM
-  ```
+## 板端驱动配置
 
-  </NewCodeBlock>
+由于所提供的 RKLLM 所需要的 NPU 内核版本较高，用户在板端使用 RKLLM Runtime 进行模型推理前，首先需要确认板端的 NPU 内核是否为 v0.9.8 版本。
 
-### 开发板
+:::tip
+radxa 6.1 固件默认 RKNPU 驱动版本为 0.9.6，请通过: `sudo rsetup` -> `System` -> `System Update` 升级系统以更新至 0.9.8 RKNPU 驱动。
+升级后请务必执行 **`sudo apt autopurge`** 然后重启。
+:::
 
-- 检查 RKNPU 驱动版本是否大于等于 0.9.8，如小于此版本请下载并烧录最新 radxa 6.1 固件
-  :::tip
-  radxa 6.1 固件默认 RKNPU 驱动版本为 0.9.6，请通过: `sudo rsetup -> System -> System Update` 升级系统以更新至 0.9.8 RKNPU 驱动。
-  升级后请务必执行 **`sudo apt autopurge`** 然后重启。
-  :::
+查看驱动版本：
 
-  <NewCodeBlock tip="Radxa OS" type="device">
+<NewCodeBlock tip="Radxa OS" type="device">
 
-  ```bash
-  $ sudo cat /sys/kernel/debug/rknpu/version
-  RKNPU driver: v0.9.8
-  ```
+```bash
+$ sudo cat /sys/kernel/debug/rknpu/version
+RKNPU driver: v0.9.8
+```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-- （可选）手动编译 NPU 内核
+（可选）手动编译 NPU 内核：
 
-  若用户所使用的为非官方固件，需要对内核进行更新；其中，RKNPU 驱动包支持两个主要内核版本：[kernel-5.10](https://github.com/radxa/kernel/tree/stable-5.10-rock5) 和 [kernel-6.1](https://github.com/radxa/kernel/tree/linux-6.1-stan-rkr1)；用户可在内核根目录下的 Makefile 中确认具体版本号。内核的具体的更新步骤如下：
+若用户所使用的为非官方固件，需要对内核进行更新；其中，RKNPU 驱动包支持两个主要内核版本：[kernel-5.10](https://github.com/radxa/kernel/tree/stable-5.10-rock5) 和 [kernel-6.1](https://github.com/radxa/kernel/tree/linux-6.1-stan-rkr1)；用户可在内核根目录下的 Makefile 中确认具体版本号。内核的具体的更新步骤如下：
 
-  1） 下载压缩包 [rknpu_driver_0.9.8_20241009.tar.bz2](https://github.com/airockchip/rknn-llm/tree/release-v1.2.1b1/rknpu-driver)。
+1） 下载压缩包 [rknpu_driver_0.9.8_20241009.tar.bz2](https://github.com/airockchip/rknn-llm/tree/release-v1.2.1b1/rknpu-driver)。
 
-  2） 解压该压缩包，将其中的 rknpu 驱动代码覆盖到当前内核代码目录。
+2） 解压该压缩包，将其中的 rknpu 驱动代码覆盖到当前内核代码目录。
 
-  3） 重新编译内核。
+3） 重新编译内核。
 
-  4） 将新编译的内核烧录到设备中。
+4） 将新编译的内核烧录到设备中。
 
-- RKLLM Runtime 为 Rockchip NPU 平台提供 C/C++ 编程接口，帮助用户部署 RKLLM 模型，加速 LLM 应用的实现。在板端克隆 RKLLM 仓库。
+## 板端克隆仓库
 
-  <NewCodeBlock tip="Radxa OS" type="device">
+RKLLM Runtime 为 Rockchip NPU 平台提供 C/C++ 编程接口，帮助用户部署 RKLLM 模型，加速 LLM 应用的实现。
 
-  ```bash
-  git clone -b release-v1.2.1b1 https://github.com/airockchip/rknn-llm.git
-  ```
+在板端克隆 RKLLM 仓库：
 
-  </NewCodeBlock>
+<NewCodeBlock tip="Radxa OS" type="device">
+
+```bash
+git clone -b release-v1.2.3 https://github.com/airockchip/rknn-llm.git
+```
+
+</NewCodeBlock>
