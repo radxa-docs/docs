@@ -18,11 +18,11 @@
 
 ```bash
 cd ai_model_hub_25_Q3/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/decoder.cix
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/default_seed.npy
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/encoder.cix
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/uncondition.npy
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/unet.cix
+wget -O decoder.cix https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/decoder.cix
+wget -O default_seed.npy https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/default_seed.npy
+wget -O encoder.cix https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/encoder.cix
+wget -O uncondition.npy https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/uncondition.npy
+wget -O unet.cix https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/unet.cix
 ```
 
 </NewCodeBlock>
@@ -49,12 +49,12 @@ python3 inference_npu.py
 
 ```bash
 cd ai_model_hub_25_Q3/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/decoder
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/decoder/decoder.onnx
+wget -O decoder.onnx https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/decoder/decoder.onnx
 cd ../encoder
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/encoder/encoder.onnx
+wget -O encoder.onnx https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/encoder/encoder.onnx
 cd ../unet
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/unet/unet.onnx
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/unet/weights.pb
+wget -O unet.onnx https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/unet/unet.onnx
+wget -O weights.pb https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/Generative_AI/Text_to_Image/onnx_stable_diffusion_v1_4/model/unet/weights.pb
 ```
 
 </NewCodeBlock>

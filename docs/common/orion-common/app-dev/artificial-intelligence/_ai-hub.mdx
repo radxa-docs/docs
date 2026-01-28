@@ -2,7 +2,7 @@ CIX AI Model Hub 仓库托管在魔搭社区上，访问地址 [cix ai_model_hub
 
 ## 克隆目录
 
-通过下面的命令可以仅克隆非 git lfs 跟踪的文件（请确保安装git lfs）：
+通过下面的命令可以仅克隆非 git lfs 跟踪的文件：
 
 :::info
 板端克隆目录结构之后，根据是否要进行主机端模型转换决定是否在主机克隆。
@@ -18,10 +18,16 @@ GIT_LFS_SKIP_SMUDGE=1 git clone https://www.modelscope.cn/cix/ai_model_hub_25_Q3
 运行前激活虚拟环境！
 :::
 
+:::tip
+这里创建虚拟环境时必须加上 --system-site-packages 继承系统包。
+:::
+
 <NewCodeBlock tip="O6 / O6N" type="device">
 
 ```bash
+cd ai_model_hub_25_Q3/
 python3 -m venv --system-site-packages .venv
+source .venv/bin/activate
 pip3 install -r requirements.txt
 ```
 

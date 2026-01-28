@@ -18,8 +18,8 @@
 
 ```bash
 cd ai_model_hub_25_Q3/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/arcface.cix
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/scrfd.cix
+wget -O arcface.cix https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/arcface.cix
+wget -O scrfd.cix https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/scrfd.cix
 ```
 
 </NewCodeBlock>
@@ -46,11 +46,11 @@ python3 inference_npu.py --det_model_path ./scrfd.cix --rec_model_path ./arcface
 
 ```bash
 cd ai_model_hub_25_Q3/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model/det_10g.onnx
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model/det_2_5g.onnx
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model/det_500m.onnx
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model/w600k_mbf.onnx
-wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model/w600k_r50.onnx
+wget -O det_10g.onnx https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model/det_10g.onnx
+wget -O det_2_5g.onnx https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model/det_2_5g.onnx
+wget -O det_500m.onnx https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model/det_500m.onnx
+wget -O w600k_mbf.onnx https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model/w600k_mbf.onnx
+wget -O w600k_r50.onnx https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Face_Recognition/onnx_scrfd_arcface/model/w600k_r50.onnx
 ```
 
 </NewCodeBlock>

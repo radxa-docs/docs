@@ -37,13 +37,14 @@ hf download AXERA-TECH/YOLOv8 --local-dir ./YOLOv8
 
 ```bash
 cd YOLOv8
-./axcl_yolov8 --model ./ax650/yolov8s.axmodel --image ./football.jpg
+chmod +x ./axcl_aarch64/axcl_yolov8
+./axcl_aarch64/axcl_yolov8 --model ./ax650/yolov8s.axmodel --image ./football.jpg
 ```
 
 </NewCodeBlock>
 
 ```bash
-(.venv) rock@rock-5b-plus:~/ssd/axera/YOLOv8$ ./axcl_yolov8 --model ./ax650/yolov8s.axmodel --image ./football.jpg
+(.venv) rock@rock-5b-plus:~/ssd/axera/YOLOv8$ ./axcl_aarch64/axcl_yolov8 --model ./ax650/yolov8s.axmodel --image ./football.jpg
 --------------------------------------
 model file : ./ax650/yolov8s.axmodel
 image file : ./football.jpg
