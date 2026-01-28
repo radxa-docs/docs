@@ -1,10 +1,10 @@
 ---
-sidebar_position: 21
-description: "Help you use Redroid cloud mirroring"
+sidebar_position: 9
+description: "Use the Redroid cloud-phone image"
 ---
 
 import Redroid from '../../../common/dev/\_redroid.mdx';
 
-# USE Redroid
+# Using Redroid
 
 <Redroid />

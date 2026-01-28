@@ -1,193 +1,160 @@
-[DeepSeek-R1](https://api-docs.deepseek.com/news/news250120) is developed by Hangzhou [DeepSeek](https://www.deepseek.com/), a company focused on AI research.
-This model fully open-sources all training techniques and model weights, with performance aligned to the closed-source OpenAI-o1.
-DeepSeek has distilled six smaller models from DeepSeek-R1 for the open-source community, including Qwen2.5 and Llama3.1.
-
-This document will guide you through deploying the DeepSeek-R1 distilled model [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) using RKLLM onto the RK3588 platform for hardware-accelerated inference using NPU.
+[DeepSeek-R1](https://api-docs.deepseek.com/news/news250120) is a state-of-the-art reasoning model developed by DeepSeek.
+DeepSeek has open-sourced the training approach and model weights, and its performance is competitive with closed-source reasoning models.
+DeepSeek also released multiple distilled open-source lightweight variants (covering the Qwen2.5 and Llama3.1 families) using knowledge distillation.
+This document demonstrates how to deploy the distilled **DeepSeek-R1-Distill-Qwen-1.5B** model to an RK3588 device with the RKLLM toolchain and run hardware-accelerated inference on the built-in NPU.
 
 ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_ds_1.webp)
 
-## Model File Download
+## Quick Start
 
-:::tip
-Radxa has already provided precompiled rkllm models and executables. Users can directly download and use them. If you want to reference the compilation process, continue with the optional section below.
+### Download the demo
+
+Download the complete demo from ModelScope.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip install -U modelscope
+modelscope download --model radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM
+```
+
+</NewCodeBlock>
+
+### Run the Example
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd demo_Linux_aarch64/
+export LD_LIBRARY_PATH=./lib
+./llm_demo ../DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
+```
+
+</NewCodeBlock>
+
+## Full Conversion Workflow
+
+:::info[Prerequisites]
+Set up the development environment by following [RKLLM Installation](./rkllm-install).
 :::
 
-- Use [git LFS](https://git-lfs.com/) to download the precompiled rkllm model from [ModelScope](https://modelscope.cn/models/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM)
-
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  git lfs install
-  git clone https://www.modelscope.cn/radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM.git
-  ```
-
-  </NewCodeBlock>
-
-### (Optional) Model Compilation
-
-:::tip
-Please complete the RKLLM setup on both PC and development board according to [RKLLM Installation](./rkllm_install)
-:::
-:::tip
-For RK358X users, please specify the `rk3588` platform as TARGET_PLATFORM
+:::warning[Version note]
+Running this example with RKLLM **1.2.3** may cause severe quality degradation (repetitive output).
+It is recommended to use RKLLM **1.2.2** for this demo. See: [GitHub Issue](https://github.com/airockchip/rknn-llm/issues/424).
 :::
 
-- On your x86 PC workstation, download the [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) model weights. If you haven't installed [git-lfs](https://git-lfs.com/), please install it first.
+### Activate the virtual environment
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  ```bash
-  git lfs install
-  git clone https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
-  ```
+```bash
+conda activate rkllm
+pip install -U huggingface_hub
+```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-- Activate the rkllm conda environment. You can refer to [RKLLM conda Installation](rkllm_install#x86-pc-workstation)
+### Download the Model
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  ```bash
-  conda activate rkllm
-  ```
+```bash
+cd RK-SDK/rknn-llm/examples/rkllm_api_demo/
+hf download https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B --local-dir ./DeepSeek-R1-Distill-Qwen-1.5B
+```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-- Generate the quantization calibration file for the LLM model
+### Model Conversion
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+Generate a quantization calibration file and export the model to the RKLLM format.
 
-  ```bash
-  cd examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export
-  python3 generate_data_quant.py -m /path/to/DeepSeek-R1-Distill-Qwen-1.5B
-  ```
+:::tip
+If you need a different `max_context` length, adjust the `max_context` parameter in the `llm.build` call in `export_rkllm.py`.
+The default is **4096**. Larger values use more memory. The value must be ≤ **16384** and a multiple of **32** (e.g., 32, 64, 96, …, 16384).
+:::
 
-  </NewCodeBlock>
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  | Parameter | Required | Description                      | Options |
-  | --------- | -------- | -------------------------------- | ------- |
-  | `path`    | Required | Path to Huggingface model folder | N       |
+```bash
+cd export/
+python generate_data_quant.py -m ../DeepSeek-R1-Distill-Qwen-1.5B -o ../DeepSeek-R1-Distill-Qwen-1.5B/data_quant.json
+# Before running, update the model path and calibration file path as needed.
+python export_rkllm.py
+```
 
-  `generate_data_quant.py` will generate a quantization file named `data_quant.json`.
+</NewCodeBlock>
 
-- Modify the model path in `rknn-llm/xamples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export/export_rkllm.py`
+### Build the executable
 
-  <NewCodeBlock tip="Python Code" type="PC">
+<NewCodeBlock tip="X64 Linux PC" type="PC">
 
-  ```python
-  11 modelpath = '/path/to/DeepSeek-R1-Distill-Qwen-1.5B_Demo'
-  ```
+```bash
+cd ../deploy/
+# Export the cross-compiler path.
+export GCC_COMPILER=/path/to/your/gcc/bin/aarch64-linux-gnu
+bash build-linux.sh
+```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-- Adjust the maximum context length (`max_context`)
+The generated binaries are located at `install/demo_Linux_aarch64`.
 
-  If you have specific requirements for `max_context`, modify the value of the `max_context` parameter in the `llm.build` function within `rknn-llm/xamples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export/export_rkllm.py`. The default is 4096. A higher value increases memory usage. Do not exceed 16,384, and ensure the value is a multiple of 32 (e.g., 32, 64, 96, ..., 16,384).
+### Deploy to the device
 
-- Run the model conversion script
+Copy the converted model and the built `demo_Linux_aarch64` directory to the device.
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+<NewCodeBlock tip="Device" type="device">
 
-  ```bash
-  python3 export_rkllm.py
-  ```
+```bash
+cd demo_Linux_aarch64/
+export RKLLM_LOG_LEVEL=1
+export LD_LIBRARY_PATH=./lib
+./llm_demo ../DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
+```
 
-  </NewCodeBlock>
+</NewCodeBlock>
 
-  After successful conversion, you will obtain the rkllm model file `./DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm`. From the naming convention, this model is W8A8 quantized and designed for the RK3588 platform.
+Run the demo. Type `exit` to quit.
 
-### (Optional) Build Executable
+<NewCodeBlock tip="Device" type="device">
 
-- Download the cross-compilation toolchain [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11)
+```bash
+./llm_demo ../DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
+```
 
-- Modify the main program code in `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/src/llm_demo.cpp`
+</NewCodeBlock>
 
-  Comment out line 165. When converting the model, RKLLM automatically parses the `chat_template` field in the tokenizer_config.json file of the Hugging Face model, so no manual changes are required.
+```bash
+$ ./llm_demo ../DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
+rkllm init start
+I rkllm: rkllm-runtime version: 1.2.2, rknpu driver version: 0.9.8, platform: RK3588
+...
+rkllm init success
 
-  <NewCodeBlock tip="CPP Code" type="PC">
+user: Solve x+y=14 and 2x+4y=38.
+assistant: x=9, y=5
+```
 
-  ```vim
-  165 // rkllm_set_chat_template(llmHandle, "", "<｜User｜>", "<｜Assistant｜>");
-  ```
+| Parameter         | Required | Description               | Notes                          |
+| ----------------- | -------- | ------------------------- | ------------------------------ |
+| `path`            | Yes      | Path to the RKLLM model   | N/A                            |
+| `max_new_tokens`  | Yes      | Max generated tokens/turn | Must be ≤ `max_context_len`    |
+| `max_context_len` | Yes      | Max context length        | Must be ≤ export `max_context` |
 
-  </NewCodeBlock>
+### Performance
 
-- Update the `GCC_COMPILER_PATH` in the build script `rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/build-linux.sh`
+For the math prompt: `Solve x+y=12 and 2x+4y=34. Find x and y.`,
 
-  <NewCodeBlock tip="BASH" type="PC">
-
-  ```vim
-  8 GCC_COMPILER_PATH=/path/to/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
-  ```
-
-  </NewCodeBlock>
-
-- Run the build script
-
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  cd rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy/
-  bash build-linux.sh
-  ```
-
-  </NewCodeBlock>
-
-  The generated executable will be located at `install/demo_Linux_aarch64`.
-
-## Board-side Deployment
-
-### Terminal Mode
-
-- Copy the converted `DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm` model and the compiled `demo_Linux_aarch64` folder to the development board.
-- Set the environment variable
-
-  <NewCodeBlock tip="Radxa OS" type="device">
-
-  ```bash
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/demo_Linux_aarch64/lib
-  ```
-
-  </NewCodeBlock>
-
-  :::tip
-  Users who downloaded from ModelScope can directly export the `librkllmrt.so` from the downloaded repository.
-  :::
-
-- Run the `llm_demo`. Type `exit` to quit.
-
-  <NewCodeBlock tip="Radxa OS" type="device">
-
-  ```bash
-  export RKLLM_LOG_LEVEL=1
-  ## Usage: ./llm_demo model_path max_new_tokens max_context_len
-  ./llm_demo /path/to/DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
-  ```
-
-  </NewCodeBlock>
-
-  | Parameter         | Required | Description                        | Options                       |
-  | ----------------- | -------- | ---------------------------------- | ----------------------------- |
-  | `path`            | Required | Path to RKLLM model folder         | N                             |
-  | `max_new_tokens`  | Required | Max number of tokens to generate   | Must be ≤ max_context_len     |
-  | `max_context_len` | Required | Maximum context size for the model | Must be ≤ model's max_context |
-
-  ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_ds_3.webp)
-
-## Performance Analysis
-
-For the math problem: "Solve the equations x + y = 12, 2x + 4y = 34, find the values of x and y",
-
-Performance on RK3588 reaches **15.36 tokens/s**:
+RK3588 achieves **15.36 tokens/s**:
 
 | Stage    | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
 | -------- | --------------- | ------ | ------------------- | ----------------- |
 | Prefill  | 122.70          | 29     | 4.23                | 236.35            |
 | Generate | 27539.16        | 423    | 65.10               | 15.36             |
 
-On RK3582, the performance reaches **10.61 tokens/s**:
-
-| Stage    | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
-| -------- | --------------- | ------ | ------------------- | ----------------- |
-| Prefill  | 599.71          | 81     | 7.4                 | 135.07            |
-| Generate | 76866.41        | 851    | 94.25               | 10.61             |
+RK3582 achieves **10.61 tokens/s**:
+| Stage | Total Time (ms) | Tokens | Time per Token (ms) | Tokens per Second |
+|----------|-----------------|--------|---------------------|-------------------|
+| Prefill | 599.71 | 81 | 7.4 | 135.07 |
+| Generate | 76866.41 | 851 | 94.25 | 10.61 |

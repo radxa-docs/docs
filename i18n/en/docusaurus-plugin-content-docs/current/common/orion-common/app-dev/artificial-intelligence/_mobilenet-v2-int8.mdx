@@ -1,0 +1,128 @@
+**MobileNet** is a lightweight deep neural network family designed by Google for mobile and embedded devices.
+By using efficient convolution designs, it significantly reduces parameter count and compute cost, enabling real-time vision workloads on resource-constrained devices such as smartphones and IoT terminals.
+
+- Key features: efficient image classification, object detection, and semantic segmentation with low latency.
+- Variant: this guide uses **MobileNetV2 Int8**, which balances accuracy and efficiency and is well-suited for real-time edge deployments.
+
+:::info[Environment setup]
+Make sure the required environment is ready:
+
+- [Environment setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick Start
+
+### Download the model files
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Image_Classification/onnx_mobilenet_v2_12_int8/model
+wget https://modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Image_Classification/onnx_mobilenet_v2_12_int8/model/mobilenetv2-12-int8-fix.onnx
+```
+
+</NewCodeBlock>
+
+### Test the model
+
+:::info
+Activate your virtual environment before running.
+:::
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_onnx.py --EP NPU
+```
+
+</NewCodeBlock>
+
+## Full Conversion Workflow
+
+### Download the model files
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cd ai_model_hub_25_Q3/models/ComputeVision/Image_Classification/onnx_mobilenet_v2_12_int8/model
+wget https://modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Image_Classification/onnx_mobilenet_v2_12_int8/model/mobilenetv2-12-int8.onnx
+```
+
+</NewCodeBlock>
+
+### Project structure
+
+```txt
+├── inference_onnx.py
+├── model
+├── ReadMe.md
+└── test_data
+```
+
+### Fix the model input shape
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 -m onnxruntime.tools.make_dynamic_shape_fixed --dim_param batch_size --dim_value 1 mobilenetv2-12-int8.onnx mobilenetv2-12-int8-fix.onnx
+```
+
+</NewCodeBlock>
+
+:::info[Copy to the device]
+After the conversion, copy the `cix` model files to the device.
+:::
+
+### Test inference on the host
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+python3 inference_onnx.py --EP CPU
+```
+
+</NewCodeBlock>
+
+### Deploy on the NPU
+
+#### Export environment variables
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+export LD_LIBRARY_PATH=/usr/share/cix/lib/onnxruntime:$LD_LIBRARY_PATH
+export OPERATOR_PATH=/usr/share/cix/lib/onnxruntime/operator/
+```
+
+</NewCodeBlock>
+
+#### Run the inference script
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+python3 inference_onnx.py --EP NPU
+```
+
+</NewCodeBlock>
+
+#### Inference result
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python3 ./inference_onnx.py --EP npu
+image path : ./test_data/ILSVRC2012_val_00037133.JPEG
+ice bear, polar bear, Ursus Maritimus, Thalarctos maritimus
+image path : ./test_data/ILSVRC2012_val_00021564.JPEG
+coucal
+image path : ./test_data/ILSVRC2012_val_00024154.JPEG
+Ibizan hound, Ibizan Podenco
+image path : ./test_data/ILSVRC2012_val_00002899.JPEG
+rock python, rock snake, Python sebae
+image path : ./test_data/ILSVRC2012_val_00045790.JPEG
+Yorkshire terrier
+```
+
+</NewCodeBlock>

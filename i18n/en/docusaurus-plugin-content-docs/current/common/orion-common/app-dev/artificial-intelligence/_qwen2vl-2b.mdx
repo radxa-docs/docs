@@ -1,15 +1,17 @@
-**Qwen2-VL** is an open-source multimodal vision-language model series developed by Alibaba Cloud's Tongyi Qianwen team. This series achieves deep fusion between unified visual encoders and large language model foundations, aiming to provide powerful image understanding, fine-grained reasoning, and open-world dialogue capabilities.
+**Qwen2-VL** is an open-source multimodal vision-language model (VLM) family developed by the Qwen team (Alibaba Cloud).
+It fuses a unified vision encoder with a large language model backbone to enable strong image understanding, fine-grained reasoning, and open-world conversations.
 
-- **Key Features**: The series models generally possess efficient visual-semantic alignment capabilities, supporting precise image content description, complex Q&A, logical reasoning, and multi-turn interactions. Their architecture balances performance and efficiency, showing broad application potential in document analysis, intelligent assistants, and multimodal search scenarios.
-- **Version Note**: This model Qwen2-VL-2B-Instruct is a lightweight practice version of the series with approximately 2 billion parameters, optimized through instruction fine-tuning for deployment in edge and low-resource environments, enabling real-time multimodal interaction.
+- Key features: strong vision-language alignment for accurate image captioning, complex Q&A, logical reasoning, and multi-turn interactions.
+  The design balances performance and efficiency, making it suitable for document analysis, AI assistants, and multimodal search.
+- Model variant: **Qwen2-VL-2B-Instruct** is a lightweight variant (~2B parameters) fine-tuned for instructions, making it suitable for edge devices and low-resource environments for real-time multimodal interaction.
 
 ## Environment Setup
 
-Refer to the [llama.cpp](../../../../orion/o6/app-development/artificial-intelligence/llama_cpp.md) documentation to prepare the llama.cpp tools.
+Follow the [llama.cpp](../llama-cpp) document to prepare `llama.cpp`.
 
 ## Quick Start
 
-### Download Model
+### Download the Model
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -23,7 +25,7 @@ modelscope download --model radxa/Qwen2-VL-2B-Instruct-NOE test.png --local_dir 
 
 </NewCodeBlock>
 
-### Run Model
+### Run the Model
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -33,9 +35,9 @@ modelscope download --model radxa/Qwen2-VL-2B-Instruct-NOE test.png --local_dir 
 
 </NewCodeBlock>
 
-## Complete Conversion Workflow
+## Full Conversion Workflow
 
-### Clone Model Repository
+### Clone the Model Repository
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -46,7 +48,7 @@ git clone https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct
 
 </NewCodeBlock>
 
-### Create Virtual Environment
+### Create a Virtual Environment
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -60,7 +62,7 @@ pip3 install -r requirements.txt
 
 ### Model Conversion
 
-#### Convert Text Module
+#### Convert the Text Module
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -70,7 +72,7 @@ python3 ./convert_hf_to_gguf.py ./Qwen2-VL-2B-Instruct
 
 </NewCodeBlock>
 
-#### Convert Vision Module
+#### Convert the Vision Module
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -82,7 +84,7 @@ python3 ./convert_hf_to_gguf.py --mmproj ./Qwen2-VL-2B-Instruct
 
 ### Model Quantization
 
-Here we use Q5_K_M quantization.
+This guide uses **Q5_K_M** quantization.
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
@@ -101,14 +103,14 @@ Here we use Q5_K_M quantization.
     style={{ display: "block", margin: "0 auto" }}
   />
   <div className="image-caption" style={{ marginTop: "8px" }}>
-    Model test input
+    Test input image
   </div>
 </div>
 
 <NewCodeBlock tip="O6 / O6N" type="device">
 
 ```bash
-./build/bin/llama-mtmd-cli -m ./Qwen2-VL-2B-Instruct/Qwen2-VL-2B-Instruct-Q5_K_M.gguf --mmproj ./Qwen2-VL-2B-Instruct/mmproj-Qwen2-VL-2b-Instruct-F16.gguf -p "Describe this image." --image ./Qwen2-VL-2B-Instruct/test.png
+./build/bin/llama-mtmd-cli -m ./Qwen2-VL-2B-Instruct/Qwen2-VL-2B-Instruct-Q5_K_M.gguf --mmproj ./Qwen2-VL-2B-Instruct/mmproj-Qwen2-VL-2b-Instruct-F16.gguf -p "Describe this image." --image ./test.png
 ```
 
 </NewCodeBlock>

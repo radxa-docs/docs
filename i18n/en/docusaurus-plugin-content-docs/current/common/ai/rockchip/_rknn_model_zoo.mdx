@@ -1,0 +1,138 @@
+RKNN Model Zoo 基于 RKNPU SDK 工具链开发，提供了目前主流算法的部署示例。包含导出 RKNN 模型, 使用 Python API，C API 推理 RKNN 模型的流程。
+
+RKNN Model Zoo 依赖 RKNN-Toolkit2 进行模型转换， 编译 C API demo 时需要用到对应的编译工具链。
+
+## 下载仓库
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+mkdir RKSDK && cd RKSDK
+git clone -b v2.3.2 https://github.com/airockchip/rknn_model_zoo.git
+```
+
+</NewCodeBlock>
+
+## 仓库目录结构
+
+```bash
+./
+├── 3rdparty
+├── asset
+├── build
+├── build-android.sh
+├── build-linux.sh
+├── datasets
+├── docs
+├── examples # 示例目录
+│   ├── clip
+│   ├── deeplabv3
+│   ├── lite_transformer
+│   ├── LPRNet
+│   ├── mms_tts
+│   ├── mobilenet
+│   ├── mobilesam
+│   ├── PPOCR
+│   ├── ppseg
+│   ├── ppyoloe
+│   ├── resnet
+│   ├── RetinaFace
+│   ├── wav2vec2
+│   ├── whisper
+│   ├── yamnet
+│   ├── yolo11
+│   ├── yolov10
+│   ├── yolov5
+│   ├── yolov5_seg
+│   ├── yolov6
+│   ├── yolov7
+│   ├── yolov8
+│   ├── yolov8_obb
+│   ├── yolov8_pose
+│   ├── yolov8_seg
+│   ├── yolo_world
+│   ├── yolox
+│   └── zipformer
+├── FAQ_CN.md
+├── FAQ.md
+├── install
+├── LICENSE
+├── py_utils
+│   ├── coco_utils.py
+│   ├── __init__.py
+│   ├── onnx_executor.py
+│   ├── pytorch_executor.py
+│   └── rknn_executor.py
+├── README_CN.md
+├── README.md
+├── scaling_frequency.sh
+└── utils
+    ├── audio_utils.c
+    ├── audio_utils.h
+    ├── CMakeLists.txt
+    ├── common.h
+    ├── file_utils.c
+    ├── file_utils.h
+    ├── font.h
+    ├── image_drawing.c
+    ├── image_drawing.h
+    ├── image_utils.c
+    └── image_utils.h
+```
+
+## 基本使用流程
+
+### C API
+
+使用根目录下的 build-linux.sh 脚本进行编译。
+
+想要在 x64 主机上编译出能在 arm64 设备运行的可执行程序，你需要下载交叉编译工具链。
+
+点击下载：[交叉编译工具链](https://developer.arm.com/-/media/files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz?rev=33c6e30e5ac64e6dba8f0431f2c35f1b&revision=33c6e30e-5ac6-4e6d-ba8f-0431f2c35f1b&hash=632C6C0BD43C3E4B59CA8A09A7055D30)。
+
+下载完成之后解压即可。
+
+使用脚本前需要导出编译器路径到环境变量，让脚本能找到下载的交叉编译器。
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+export GCC_COMPILER=/path/to/your/gcc/bin/aarch64-linux-gnu
+```
+
+</NewCodeBlock>
+
+脚本基本使用格式：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./build-linux.sh -t <target> -a <arch> -d <build_demo_name> [-b <build_type>] [-m]
+    -t : target (rk356x/rk3588)
+    -a : arch (aarch64)
+    -d : demo name
+    -b : build_type(Debug/Release)
+    -m : enable address sanitizer, build_type need set to Debug
+Note: 'rk356x' represents rk3562/rk3566/rk3568.
+
+# 以编译 RK3566 的 yolov5 demo 为例:
+./build-linux.sh -t rk356x -a aarch64 -d yolov5
+```
+
+</NewCodeBlock>
+
+### Python API
+
+Activate the virtual environment，将模型转换为 rknn 格式之后进入目标示例目录直接运行对应的 python 脚本即可。
+
+以 RK3566 的 yolov5 demo 为例：
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+conda activate rknn
+cd examples/yolov5/python/
+python3 yolov5.py --target rk356x --img_show
+```
+
+</NewCodeBlock>

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 20
+sidebar_position: 8
 ---
 
-# Install ROS2 HUMBLE
+# Install ROS 2 Humble
 
 import ROS2 from '../../../common/dev/\_ros2-humble-compilation.mdx';
 

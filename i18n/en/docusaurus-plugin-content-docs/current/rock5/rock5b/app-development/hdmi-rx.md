@@ -1,6 +1,6 @@
 ---
-sidebar_position: 4
-description: "Explore HDMI RX features and experience seamless access and processing of HD video and audio"
+sidebar_position: 3
+description: "Explore HDMI RX and handle high-quality video/audio input"
 ---
 
 import HdmiRX from '../../../common/dev/\_hdmi-rx.mdx';
