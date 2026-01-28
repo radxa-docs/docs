@@ -135,7 +135,7 @@ sudo chmod 666 /dev/dma_heap/*
 
 ### Start the camera
 
-Go to the libcamera build directory and start qcam.
+Open the system desktop terminal, go to the libcamera build directory, and start qcam.
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
