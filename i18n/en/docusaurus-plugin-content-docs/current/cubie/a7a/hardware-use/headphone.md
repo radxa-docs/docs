@@ -16,6 +16,43 @@ Connect a 3.5mm headphone cable to the headphone jack of the Cubie A7A and your 
 
 If you cannot play audio, try unplugging and replugging the headphone cable or check if the audio output device is set correctly.
 
+:::tip
+
+The latest production batches of Cubie A7A use the AC101B audio codec and can play audio normally when using the latest system image.
+
+If you are using an earlier version with the AC101 audio codec, you need to enable the AC101 audio codec via the Rsetup tool.
+
+- Distinguish the audio codec
+
+You can check the silkscreen on the back of the board to determine the audio codec model.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/en/img/cubie/a7a/radxa-cubie-a7a-codec.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+- Enable in software
+
+Use the Rsetup tool provided by the Radxa system to enable the AC101 audio codec.
+
+Run the `rsetup` command in the terminal to start the Rsetup tool:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+rsetup
+```
+
+</NewCodeBlock>
+
+In Rsetup, go to `Overlays` -> `Manage overlays`.
+
+1. Use the arrow keys to find the [ ] Enable Allwinner AC101 Codec option.
+2. Press `Space` so it changes to [*] Enable Allwinner AC101 Codec, indicating that the feature is enabled.
+3. Press `Enter` to confirm and save the settings.
+4. Reboot the system to make the configuration take effect.
+
+:::
+
 ### Check Audio Devices
 
 Use the `aplay -l` command to view audio playback devices (speakers), and use the `arecord -l` command to view audio recording devices (microphones).
@@ -30,7 +67,7 @@ aplay -l
 
 </NewCodeBlock>
 
-Sample terminal output: `card 0: sndi2s0` is the onboard AC101 audio codec, usually used for input (microphone) and output (audio playback) of the 3.5mm headphone jack.
+Sample terminal output: `card 0: sndi2s0` is the onboard AC101B audio codec, usually used for input (microphone) and output (audio playback) of the 3.5mm headphone jack.
 
 ```
 **** List of PLAYBACK Hardware Devices ****
@@ -52,7 +89,7 @@ arecord -l
 
 </NewCodeBlock>
 
-Sample output: `card 0: sndi2s0` is the onboard AC101 audio codec, usually used for input (microphone) and output (audio playback) of the 3.5mm headphone jack.
+Sample output: `card 0: sndi2s0` is the onboard AC101B audio codec, usually used for input (microphone) and output (audio playback) of the 3.5mm headphone jack.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
