@@ -17,7 +17,7 @@ sidebar_position: 150
 
 :::
 
-- [Jetson Orin Nano 镜像（Jetpack 6.2）：适用于 Radxa C200 Orin 开发套件](https://developer.nvidia.com/downloads/embedded/L4T/r36_Release_v4.4/jp62-r1-orin-nano-sd-card-image.zip)
+- [Jetson Orin Nano 镜像（Jetpack 6.2.1）：适用于 Radxa C200 Orin 开发套件](https://developer.nvidia.com/downloads/embedded/L4T/r36_Release_v4.4/jp62-r1-orin-nano-sd-card-image.zip)
 
 ## 硬件设计
 
