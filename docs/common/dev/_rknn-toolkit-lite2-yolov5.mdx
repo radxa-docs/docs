@@ -1,5 +1,5 @@
 :::tip
-本文档旨在演示如何在 rockchip RK3588/3566 系列芯片上运行板端推理 YOLOv5 目标检测模型，所需环境配置请参考[ RKNN 安装](./rknn_install)
+本文档旨在演示如何在 rockchip RK3588/3566 系列芯片上运行板端推理 YOLOv5 目标检测模型，所需环境配置请参考[ RKNN 安装](./rknn-install)
 :::
 
 此示例用 [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) 中预训练好的 ONNX 格式模型为例子通过模型转换到板端推理做完整示例。
@@ -93,7 +93,7 @@ RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `s
 
 - 修改 `rknn_model_zoo/py_utils/rknn_executor.py` 代码，**请备份原版代码**
 
-  请根据[板端安装 RKNN Model Zoo](./rknn_install#可选-板端安装-rknn-model-zoo) 配置 RKNN Model Zoo 代码仓库
+  请根据 [RKNN Model Zoo](./rknn-model-zoo) 配置 RKNN Model Zoo 代码仓库
 
   <NewCodeBlock tip="Python Code" type="device">
 
@@ -140,9 +140,9 @@ RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `s
 
 - 进入虚拟环境
 
-  虚拟环境使用请参考: [Python 虚拟环境使用](./venv_usage)
+  虚拟环境使用请参考: [Python 虚拟环境使用](../venv-usage)
 
-  安装 rknn_toolkit-lite2 Python API 请参考 [板端虚拟环境中安装 rknn_toolkit-lite2 Python API](./rknn_install#可选-板端虚拟环境中安装-rknn_toolkit-lite2-python-api)
+  安装 rknn_toolkit-lite2 Python API 请参考 [安装 rknn_toolkit-lite2](./rknn-install#安装-rknn_toolkit-lite2)
 
 - 安装依赖环境
   ```bash
