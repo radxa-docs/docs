@@ -233,9 +233,9 @@ Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 </Tabs>
 
-### Configure UFS
+### Provision UFS
 
-Navigate to the `qcs9075-provision` folder, open a terminal, and use the following command to configure UFS.
+Navigate to the `qcs9075-provision` folder, open a terminal, and use the following command to provision UFS.
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -255,7 +255,7 @@ UFS provisioning succeeded
 
 ### Flash SAIL
 
-Navigate to the `fw702-ubuntu-noble-gnome-xxx\sail_nor` folder, open a terminal, and use the following command to flash SAIL.
+Navigate to the `radxa-airbox-q900_noble_gnome_xxx\sail_nor` folder, open a terminal, and use the following command to flash SAIL.
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -275,31 +275,9 @@ flashed "BackupGPT" successfully
 11 patches applied
 ```
 
-### Flash CDT
-
-Navigate to the `fw702-ubuntu-noble-gnome-xxx` folder, open a terminal, and use the following command to flash CDT.
-
-<NewCodeBlock tip="PC$" type="host">
-
-```
-qdl prog_firehose_ddr.elf rawprogram3.xml patch3.xml
-```
-
-</NewCodeBlock>
-
-Terminal output example:
-
-```
-Waiting for EDL device
-waiting for programmer...
-flashed "PrimaryGPT" successfully
-flashed "BackupGPT" successfully
-13 patches applied
-```
-
 ### Flash System Image
 
-Navigate to the `fw702-ubuntu-noble-gnome-xxx` folder, open a terminal, and use the following command to flash the system image.
+Navigate to the `radxa-airbox-q900_noble_gnome_xxx` folder, open a terminal, and use the following command to flash the system image.
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -368,3 +346,30 @@ partition 1 is now bootable
 ## Using the System
 
 After completing the above operations, you can use the Fogwise® AIRbox Q900 by following the [Quick Start](../quickly-start.md) guide.
+
+## Other Operation
+
+### Erase System on UFS
+
+Boot AIRbox Q900 to EDL mode.
+
+Navigate to the `radxa-airbox-q900_noble_gnome_xxx/partition_ufs` folder, open a terminal, and use the following command to erase UFS.
+
+<NewCodeBlock tip="PC$" type="host">
+
+```
+qdl --storage ufs ../prog_firehose_ddr.elf rawprogram*_BLANK_GPT.xml
+```
+
+</NewCodeBlock>
+
+Terminal output example:
+
+```
+flashed "PrimaryGPT" successfully
+flashed "PrimaryGPT" successfully
+flashed "PrimaryGPT" successfully
+flashed "PrimaryGPT" successfully
+flashed "PrimaryGPT" successfully
+0 patches applied
+```
