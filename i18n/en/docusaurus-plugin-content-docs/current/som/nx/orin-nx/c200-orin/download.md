@@ -17,7 +17,7 @@ For BIOS firmware flashing, please refer to one of the following tutorials:
 
 :::
 
-- [Jetson Orin Nano Image (Jetpack 6.2): For Radxa C200 Orin Development Kit](https://developer.nvidia.com/downloads/embedded/L4T/r36_Release_v4.4/jp62-r1-orin-nano-sd-card-image.zip)
+- [Jetson Orin Nano Image (Jetpack 6.2.1): For Radxa C200 Orin Development Kit](https://developer.nvidia.com/downloads/embedded/L4T/r36_Release_v4.4/jp62-r1-orin-nano-sd-card-image.zip)
 
 ## Hardware Design
 
