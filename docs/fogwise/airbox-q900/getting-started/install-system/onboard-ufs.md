@@ -254,7 +254,7 @@ UFS provisioning succeeded
 
 ### 烧录 SAIL
 
-进入 `fw702-ubuntu-noble-gnome-xxx\sail_nor` 文件夹下，打开终端，使用以下命令烧录 SAIL。
+进入 `radxa-airbox-q900_noble_gnome_xxx\sail_nor` 文件夹下，打开终端，使用以下命令烧录 SAIL。
 
 <NewCodeBlock tip="PC$" type="host">
 
@@ -274,36 +274,14 @@ flashed "BackupGPT" successfully
 11 patches applied
 ```
 
-### 烧录 CDT
-
-进入 `fw702-ubuntu-noble-gnome-xxx` 文件夹下，打开终端，使用以下命令烧录 CDT。
-
-<NewCodeBlock tip="PC$" type="host">
-
-```
-qdl prog_firehose_ddr.elf rawprogram3.xml patch3.xml
-```
-
-</NewCodeBlock>
-
-终端输出示例：
-
-```
-Waiting for EDL device
-waiting for programmer...
-flashed "PrimaryGPT" successfully
-flashed "BackupGPT" successfully
-13 patches applied
-```
-
 ### 烧录系统镜像
 
-进入 `fw702-ubuntu-noble-gnome-xxx` 文件夹下，打开终端，使用以下命令烧录系统镜像。
+进入 `radxa-airbox-q900_noble_gnome_xxx` 文件夹下，打开终端，使用以下命令烧录系统镜像。
 
 <NewCodeBlock tip="PC$" type="host">
 
 ```
-qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
+qdl --storage ufs prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 ```
 
 </NewCodeBlock>
@@ -367,3 +345,30 @@ partition 1 is now bootable
 ## 使用系统
 
 完成以上操作，可以按照 [快速上手](../quickly-start.md) 教程使用 Fogwise® AIRbox Q900。
+
+## 其他操作
+
+### 擦除 UFS
+
+1，先令 AIRbox Q900 进入 EDL 模式。
+
+2，进入 `radxa-airbox-q900_noble_gnome_xxx/partition_ufs` 文件夹下，打开终端，使用以下命令擦除 UFS。
+
+<NewCodeBlock tip="PC$" type="host">
+
+```
+qdl --storage ufs ../prog_firehose_ddr.elf rawprogram*_BLANK_GPT.xml
+```
+
+</NewCodeBlock>
+
+终端输出示例：
+
+```
+flashed "PrimaryGPT" successfully
+flashed "PrimaryGPT" successfully
+flashed "PrimaryGPT" successfully
+flashed "PrimaryGPT" successfully
+flashed "PrimaryGPT" successfully
+0 patches applied
+```
