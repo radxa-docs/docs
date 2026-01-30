@@ -40,7 +40,7 @@ FC REC 引脚和 GND 引脚位置可以参考 [GPIO 接口文档](../../c200-ori
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
 ```
-wget https://developer.download.nvidia.com/embedded/L4T/r36_Release_v4.3/release/Jetson_Linux_R36.4.3_aarch64.tbz2 -O Jetson_Linux_aarch64.tbz2
+wget https://developer.download.nvidia.com/embedded/L4T/r36_Release_v4.4/release/Jetson_Linux_R36.4.4_aarch64.tbz2 -O Jetson_Linux_aarch64.tbz2
 tar -xf Jetson_Linux_aarch64.tbz2
 ```
 
