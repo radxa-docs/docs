@@ -1,12 +1,12 @@
 :::tip
-This document demonstrates how to perform inference for the YOLOv11 object detection model on RK3588/356X. For the required environment setup, please refer to [RKNN Installation](./rknn_install).
+This document demonstrates how to run inference for the YOLOv11 object detection model on RK3588/356X. For the required environment setup, please refer to [RKNN Installation](./rknn-install).
 :::
 
 Currently, the [Ultralytics](https://docs.ultralytics.com/integrations/rockchip-rknn/) library officially supports the RKNN platform. Users of RK3588/356X products can directly use the `ultralytics` library for YOLOv11 model conversion and deployment.
 
 ## Model Conversion on PC
 
-**Radxa has provided a pre-converted `yolov11n.rknn` model. Users can skip the PC-side model conversion section and directly refer to [YOLOv11 Inference on Board](#yolov11-inference-on-board).**
+**Radxa provides a pre-converted `yolov11n.rknn` model. Users can skip the PC-side model conversion section and directly refer to [YOLOv11 Inference on Device](#yolov11-inference-on-device).**
 
 - Install the latest version of Ultralytics:
 
@@ -19,6 +19,9 @@ Currently, the [Ultralytics](https://docs.ultralytics.com/integrations/rockchip-
   </NewCodeBlock>
 
 - Use Ultralytics to export the YOLOv11 model in RKNN format:
+  :::tip
+  For RK358X users, set `TARGET_PLATFORM` (or `name`) to `rk3588`.
+  :::
 
     <Tabs>
 
@@ -39,7 +42,7 @@ Currently, the [Ultralytics](https://docs.ultralytics.com/integrations/rockchip-
 
         <NewCodeBlock tip="Python Code" type="PC">
 
-        ```bash
+        ```python
         from ultralytics import YOLO
 
         # Load the YOLOv11 model
@@ -60,24 +63,26 @@ Currently, the [Ultralytics](https://docs.ultralytics.com/integrations/rockchip-
 
 - Copy the **yolo11n_rknn_model** directory to the target device.
 
-## YOLOv11 Inference on Board
+## YOLOv11 Inference on Device
 
 :::tip
-For users of RK356X products, you need to enable the NPU in the terminal using **rsetup** before using the NPU: `sudo rsetup -> Overlays -> Manage overlays -> Enable NPU`, then restart the system.
+For RK356X products, you need to enable the NPU in the terminal using **rsetup** before using the NPU:
+`sudo rsetup -> Overlays -> Manage overlays -> Enable NPU`, then reboot the system.
 
-If there is no `Enable NPU` option in the overlays options, please update the system via: `sudo rsetup -> system -> System Update`, restart, and execute the above steps to enable the NPU.
+If there is no `Enable NPU` option in `Overlays`, please run: `sudo rsetup -> System -> System Update` to upgrade the system, reboot, and then repeat the above steps to enable the NPU.
 :::
 
-- (Optional) Download the YOLOv11n RKNN model provided by Radxa:
-  | Platform | Download Link |
-  | -------- | ------------------------------------------------------------ |
-  | rk3566 | [yolo11n_3566_rknn_model](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov11/yolo11n_3566_rknn_model.zip) |
-  | rk3568 | [yolo11n_3568_rknn_model](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov11/yolo11n_3568_rknn_model.zip) |
-  | rk3588 | [yolo11n_3588_rknn_model](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov11/yolo11n_3588_rknn_model.zip) |
+- (Optional) Download the YOLOv11n RKNN models prepared by Radxa:
+
+  | Platform | Download Link                                                                                                                   |
+  | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+  | rk3566   | [yolo11n_3566_rknn_model](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov11/yolo11n_3566_rknn_model.zip) |
+  | rk3568   | [yolo11n_3568_rknn_model](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov11/yolo11n_3568_rknn_model.zip) |
+  | rk3588   | [yolo11n_3588_rknn_model](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov11/yolo11n_3588_rknn_model.zip) |
 
 - Install the latest version of Ultralytics in a virtual environment:
 
-  For instructions on virtual environments, refer to [Python Virtual Environment Usage](venv_usage).
+  For instructions on virtual environments, refer to [Python Virtual Environment Usage](../venv-usage).
 
   <NewCodeBlock tip="Radxa OS" type="device">
 
@@ -87,7 +92,7 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
 
   </NewCodeBlock>
 
-- Run inference on the board:
+- Run inference on the device:
 
       <Tabs>
           <TabItem value="CLI">
@@ -101,6 +106,7 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
           </NewCodeBlock>
 
           </TabItem>
+
           <TabItem value="Python">
 
           <NewCodeBlock tip="Python Code" type="device">
@@ -122,7 +128,7 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
 
       The results are saved in `runs/detect/predict`.
 
-  <img width="400" src="/en/img/general-tutorial/rknn/yolov11.webp" />
+<img width="400" src="/en/img/general-tutorial/rknn/yolov11.webp" />
 
 ## Additional Usage Details
 

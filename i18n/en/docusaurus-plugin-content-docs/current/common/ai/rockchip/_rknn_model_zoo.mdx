@@ -1,8 +1,8 @@
-RKNN Model Zoo 基于 RKNPU SDK 工具链开发，提供了目前主流算法的部署示例。包含导出 RKNN 模型, 使用 Python API，C API 推理 RKNN 模型的流程。
+RKNN Model Zoo is built on top of the RKNPU SDK toolchain and provides deployment examples for many mainstream algorithms. It covers the full workflow of exporting RKNN models and performing inference using both the Python API and the C API.
 
-RKNN Model Zoo 依赖 RKNN-Toolkit2 进行模型转换， 编译 C API demo 时需要用到对应的编译工具链。
+RKNN Model Zoo depends on **RKNN-Toolkit2** for model conversion. When compiling C API demos, you also need the corresponding cross-compilation toolchain.
 
-## 下载仓库
+## Clone the Repository
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -13,7 +13,7 @@ git clone -b v2.3.2 https://github.com/airockchip/rknn_model_zoo.git
 
 </NewCodeBlock>
 
-## 仓库目录结构
+## Repository Structure
 
 ```bash
 ./
@@ -24,7 +24,7 @@ git clone -b v2.3.2 https://github.com/airockchip/rknn_model_zoo.git
 ├── build-linux.sh
 ├── datasets
 ├── docs
-├── examples # 示例目录
+├── examples # example directory
 │   ├── clip
 │   ├── deeplabv3
 │   ├── lite_transformer
@@ -80,19 +80,19 @@ git clone -b v2.3.2 https://github.com/airockchip/rknn_model_zoo.git
     └── image_utils.h
 ```
 
-## 基本使用流程
+## Basic Usage Flow
 
 ### C API
 
-使用根目录下的 build-linux.sh 脚本进行编译。
+Use the `build-linux.sh` script in the repository root to compile the C demos.
 
-想要在 x64 主机上编译出能在 arm64 设备运行的可执行程序，你需要下载交叉编译工具链。
+If you want to build executables on an x86_64 host that run on an arm64 target device, you must first download a cross-compilation toolchain.
 
-点击下载：[交叉编译工具链](https://developer.arm.com/-/media/files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz?rev=33c6e30e5ac64e6dba8f0431f2c35f1b&revision=33c6e30e-5ac6-4e6d-ba8f-0431f2c35f1b&hash=632C6C0BD43C3E4B59CA8A09A7055D30)。
+Download link: [Cross-compilation toolchain](https://developer.arm.com/-/media/files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz?rev=33c6e30e5ac64e6dba8f0431f2c35f1b&revision=33c6e30e-5ac6-4e6d-ba8f-0431f2c35f1b&hash=632C6C0BD43C3E4B59CA8A09A7055D30).
 
-下载完成之后解压即可。
+After the download is complete, extract the archive.
 
-使用脚本前需要导出编译器路径到环境变量，让脚本能找到下载的交叉编译器。
+Before using the build script, you need to export the compiler path to an environment variable so that the script can find the downloaded cross toolchain.
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -102,7 +102,7 @@ export GCC_COMPILER=/path/to/your/gcc/bin/aarch64-linux-gnu
 
 </NewCodeBlock>
 
-脚本基本使用格式：
+Basic usage of the script:
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -113,9 +113,9 @@ export GCC_COMPILER=/path/to/your/gcc/bin/aarch64-linux-gnu
     -d : demo name
     -b : build_type(Debug/Release)
     -m : enable address sanitizer, build_type need set to Debug
-Note: 'rk356x' represents rk3562/rk3566/rk3568.
+Note: `rk356x` represents rk3562/rk3566/rk3568.
 
-# 以编译 RK3566 的 yolov5 demo 为例:
+# Example: build the YOLOv5 demo for RK3566:
 ./build-linux.sh -t rk356x -a aarch64 -d yolov5
 ```
 
@@ -123,9 +123,9 @@ Note: 'rk356x' represents rk3562/rk3566/rk3568.
 
 ### Python API
 
-Activate the virtual environment，将模型转换为 rknn 格式之后进入目标示例目录直接运行对应的 python 脚本即可。
+Activate the virtual environment. After the model has been converted to RKNN format, enter the target example directory and run the corresponding Python script directly.
 
-以 RK3566 的 yolov5 demo 为例：
+For example, to run the YOLOv5 demo on an RK3566 target:
 
 <NewCodeBlock tip="Device" type="device">
 
