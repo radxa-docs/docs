@@ -1,4 +1,4 @@
-很多用户可以跑通 [RKNN Model Zoo](https://github.com/airockchip/rknn_model_zoo) 仓库里的 YOLO 模型示例，但反馈不知道如何转换自己训练的 YOLO 系列模型，在 [板端部署 YOLOv5 目标检测](rknn_toolkit_lite2_yolov5) 或者在
+很多用户可以跑通 [RKNN Model Zoo](https://github.com/airockchip/rknn_model_zoo) 仓库里的 YOLO 模型示例，但反馈不知道如何转换自己训练的 YOLO 系列模型，在 [板端部署 YOLOv5 目标检测](rknn-toolkit-lite2-yolov5) 或者在
 [RKNN Model Zoo](https://github.com/airockchip/rknn_model_zoo) 中的 YOLO 系列模型，
 使用的模型是 Rockchip 提供下载的 ONNX 模型和 radxa 提供的预编译 rknn 模型。此文档将讲述如何使用 RKNN 编译自训练的 YOLO 模型，并在板端上进行推理
 
@@ -106,7 +106,7 @@ Results saved to /mnt/ssd/rknn/rknn_model_zoo/examples/yolo11/model/runs/detect/
 
 #### 使用 ultralytics 转换
 
-如果是 ultralytics 发布的模型，可以使用 Ultralytics 进行模型转换, 详细介绍请参考 [RKNN Ultralytics YOLOv11](./rknn_ultralytics)
+如果是 ultralytics 发布的模型，可以使用 Ultralytics 进行模型转换, 详细介绍请参考 [RKNN Ultralytics YOLOv11](./rknn-ultralytics)
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -160,7 +160,7 @@ Results saved to /mnt/ssd/rknn/rknn_model_zoo/examples/yolo11/model/runs/detect/
 如果非 ultralytics 的 yolo 模型，rknn_model_zoo/examples 下对应的 yolo 模型目录下都有一个 `python/convert.py` 脚本，可以使用此脚本对 ONNX 模型直接转换成 fp 格式的 RKNN 模型
 将 pytorch 模型导出为 ONNX 模型后使用 convert.py 脚本指定量化类型为 `fp` 即可
 
-具体请参考 [板端部署 YOLOv5 目标检测](rknn_toolkit_lite2_yolov5#pc端模型转换)
+具体请参考 [板端部署 YOLOv5 目标检测](rknn-toolkit-lite2-yolov5#pc端模型转换)
 
 ### 转换 INT8 量化模型
 
@@ -325,7 +325,7 @@ done
 
 - 修改 `rknn_model_zoo/py_utils/rknn_executor.py` 代码，**请备份原版代码**
 
-  请根据[板端安装 RKNN Model Zoo](./rknn_model_zoo) 配置 RKNN Model Zoo 代码仓库
+  请根据 [板端安装 RKNN Model Zoo](./rknn-model-zoo) 配置 RKNN Model Zoo 代码仓库
 
   <NewCodeBlock tip="Python Code" type="device">
 
