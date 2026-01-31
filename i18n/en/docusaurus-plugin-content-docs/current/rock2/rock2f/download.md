@@ -30,6 +30,10 @@ This image is fully compatible with E20C, ROCK 2A, and ROCK 2F devices, all inco
 ROCK 2A and ROCK 2F use the same Android image.
 :::
 
+Armbian:
+
+[Armbian](https://www.armbian.com/rock-2a/) (Including Ubuntu and Debian systems)
+
 ## Hardware
 
 Radxa ROCK 2F V1.0
