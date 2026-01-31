@@ -11,6 +11,7 @@ The Dragon Q6A has one 4-lane MIPI DSI interface on board for connecting MIPI di
 |                                    Model                                     | Size (in inches) | Resolution |
 | :--------------------------------------------------------------------------: | :--------------: | :--------: |
 | [Radxa Display 10 FHD](https://radxa.com/products/accessories/display-10fhd) |       10.1       | 1200\*1920 |
+|   [Radxa Display 8 HD](https://radxa.com/products/accessories/display-8hd)   |        8         | 800\*1280  |
 
 ## Hardware Connection
 

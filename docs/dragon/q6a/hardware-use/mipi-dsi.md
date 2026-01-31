@@ -11,6 +11,7 @@ sidebar_position: 11
 |                                     型号                                     | 尺寸（单位：英寸） |   分辨率   |
 | :--------------------------------------------------------------------------: | :----------------: | :--------: |
 | [Radxa Display 10 FHD](https://radxa.com/products/accessories/display-10fhd) |        10.1        | 1200\*1920 |
+|   [Radxa Display 8 HD](https://radxa.com/products/accessories/display-8hd)   |         8          | 800\*1280  |
 
 ## 硬件连接
 

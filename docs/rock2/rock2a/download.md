@@ -18,12 +18,6 @@ Radxa OS:
 
 [radxa-rk3528_bookworm_kde_r3.output_512.img.xz](https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-r3/radxa-rk3528_bookworm_kde_r3.output_512.img.xz)
 
-Android13 ：
-
-[rock2a_android13_box_20241230_gpt.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_gpt.zip) （用于 SD 卡启动）
-
-[rock2a_android13_box_20241230_update.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_update.zip) （用于 EMMC 启动）
-
 :::tip
 镜像完全兼容 E20C、ROCK 2A 和 ROCK 2F 设备，所有这些设备都采用RK3528芯片。兼容的方法如下：
 
@@ -31,6 +25,16 @@ Android13 ：
 - 每个设备都有预定义的ADC范围值。
 - 在u-boot初始化阶段，根据读取的ADC值动态选择适当的设备树，从而实现这些平台之间的无缝兼容。
   :::
+
+Android13 ：
+
+[rock2a_android13_box_20241230_gpt.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_gpt.zip) （用于 SD 卡启动）
+
+[rock2a_android13_box_20241230_update.img](https://github.com/radxa/manifests/releases/download/radxa-rock2a-20241230/ROCK2A_Android13_box_20241230_update.zip) （用于 EMMC 启动）
+
+Armbian ：
+
+[Armbian](https://www.armbian.com/rock-2a/) （包含 Ubuntu 和 Debian 系统）
 
 ## 硬件设计
 
