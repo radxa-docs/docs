@@ -4,14 +4,17 @@ sidebar_position: 6
 
 # Vulkan User Guide
 
+This guide shows how to install Vulkan components and verify that Vulkan works on the Dragon Q6A (Mesa Turnip driver).
+
 ## Install Vulkan
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-
-sudo apt install mesa-vulkan-drivers
-
+sudo apt update
+# mesa-vulkan-drivers: Vulkan ICD (Turnip/Freedreno)
+# vulkan-tools: provides vulkaninfo
+sudo apt install -y mesa-vulkan-drivers vulkan-tools
 ```
 
 </NewCodeBlock>
@@ -21,22 +24,23 @@ sudo apt install mesa-vulkan-drivers
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-
 vulkaninfo
-
 ```
 
 </NewCodeBlock>
 
+If you can see output like `driverName = turnip` and `deviceName = ... Adreno ...`, Vulkan is working.
+
 ## Run vkpeak
 
-Build tool vkepak.
+`vkpeak` is a simple Vulkan benchmark that can help quickly confirm the GPU and driver are working.
+
+Build `vkpeak`:
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-
-sudo apt install cmake g++
+sudo apt install -y git cmake g++
 git clone https://github.com/nihui/vkpeak.git
 cd vkpeak
 git submodule update --init --recursive
@@ -44,21 +48,18 @@ git submodule update --init --recursive
 mkdir build
 cd build
 cmake ..
-cmake --build . -j 4
-
+cmake --build . -j"$(nproc)"
 ```
 
 </NewCodeBlock>
 
-Run vkpeak.
+Run `vkpeak`:
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-
 cd ./vkpeak/build
 ./vkpeak 0
-
 ```
 
 </NewCodeBlock>

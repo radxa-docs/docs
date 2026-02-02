@@ -4,14 +4,17 @@ sidebar_position: 6
 
 # Vulkan 使用指南
 
+本教程用于在 Dragon Q6A 上安装 Vulkan 相关组件并验证 Vulkan 是否可用（Mesa Turnip 驱动）。
+
 ## 安装 Vulkan
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-
-sudo apt install mesa-vulkan-drivers
-
+sudo apt update
+# mesa-vulkan-drivers: Vulkan ICD (Turnip/Freedreno)
+# vulkan-tools: provides vulkaninfo
+sudo apt install -y mesa-vulkan-drivers vulkan-tools
 ```
 
 </NewCodeBlock>
@@ -21,22 +24,23 @@ sudo apt install mesa-vulkan-drivers
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-
 vulkaninfo
-
 ```
 
 </NewCodeBlock>
 
+若输出中能看到类似 `driverName = turnip` / `deviceName = ... Adreno ...`，说明 Vulkan 已正常工作。
+
 ## 运行 vkpeak
 
-构建工具 vkepak。
+`vkpeak` 是一个简单的 Vulkan 性能测试工具，可用于快速验证 GPU 跑分与驱动工作状态。
+
+构建 `vkpeak`：
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-
-sudo apt install cmake g++
+sudo apt install -y git cmake g++
 git clone https://github.com/nihui/vkpeak.git
 cd vkpeak
 git submodule update --init --recursive
@@ -44,21 +48,18 @@ git submodule update --init --recursive
 mkdir build
 cd build
 cmake ..
-cmake --build . -j 4
-
+cmake --build . -j"$(nproc)"
 ```
 
 </NewCodeBlock>
 
-运行 vkpeak。
+运行 `vkpeak`：
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-
 cd ./vkpeak/build
 ./vkpeak 0
-
 ```
 
 </NewCodeBlock>
