@@ -1,193 +1,153 @@
-:::tip
-This document aims to demonstrate how to install the RKNN SDK. For more information, please refer to the [RKNN Toolkit2 source repository](https://github.com/rockchip-linux/rknn-toolkit2) in the doc directory.
+:::info
+This document demonstrates how to install the RKNN SDK. For more detailed information, please refer to the `doc` directory of the [RKNN Toolkit2 repository](https://github.com/rockchip-linux/rknn-toolkit2).
 :::
 
-## Introduction to RKNN
+## RKNN Overview
 
-The Rockchip RK3566/RK3568 series, RK3588 series, RK3562 series, and RV1103/RV1106 series chips are equipped with a neural network processor (NPU). RKNN helps users quickly deploy AI models onto Rockchip chips using NPU hardware acceleration for model inference. To use RKNPU, users first need to convert their trained models to RKNN format using the RKNN-Toolkit2 tool on an x86 computer, and then perform inference on the development board using the RKNN C API or Python API.
+Rockchip RK3566/RK3568 series, RK3588 series, RK3562 series, and RV1103/RV1106 series chips are equipped with an NPU (Neural Processing Unit).
+Using RKNN helps you quickly deploy AI models to Rockchip chips and run inference accelerated by the NPU hardware.
+To use RKNPU, you first need to use the RKNN-Toolkit2 tools on an x86 PC to convert trained models into RKNN-format models, and then run inference on the target board using the RKNN C API or Python API.
 
-Required tools:
+The toolchain consists of:
 
-- **RKNN-Toolkit2** is a software development kit for users to perform model conversion, inference, and performance evaluation on PC and Rockchip NPU platforms.
-- **RKNN-Toolkit-Lite2** provides a Python programming interface for the Rockchip NPU platform, helping users deploy RKNN models and accelerate AI application implementation.
-- **RKNN Runtime** offers a C/C++ programming interface for the Rockchip NPU platform, assisting users in deploying RKNN models and accelerating AI application implementation.
-- **RKNPU Kernel Driver** is responsible for interacting with the NPU hardware.
+- **RKNN-Toolkit2**: a software development toolkit for performing model conversion, inference, and performance evaluation on both PC and Rockchip NPU platforms.
+- **RKNN-Toolkit-Lite2**: provides Python APIs on Rockchip NPU platforms to deploy RKNN models and accelerate AI applications.
+- **RKNN Runtime**: provides C/C++ APIs on Rockchip NPU platforms to deploy RKNN models and accelerate AI applications.
+- **RKNPU kernel driver**: responsible for interacting with the NPU hardware.
 
 The overall framework is as follows:
 
 ![framework.png](/img/general-tutorial/rknn/framework.webp)
 
-## Installing the RKNN Environment
+## Download the SDK
 
-### Download RKNN-Toolkit2 Repository on PC
-
-- Download the RKNN repository.
-
-  It is recommended to create a new directory to store the RKNN repository. For example, create a folder named "Projects" and store the RKNN-Toolkit2 and RKNN Model Zoo repositories in that directory.
-
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  # Create Projects folder
-  mkdir Projects && cd Projects
-  # Download RKNN-Toolkit2 repository
-  git clone -b v2.3.0 https://github.com/airockchip/rknn-toolkit2.git
-  # Download RKNN Model Zoo repository
-  git clone -b v2.3.0 https://github.com/airockchip/rknn_model_zoo.git
-  ```
-
-  </NewCodeBlock>
-
-- (Optional) Install [Anaconda](https://www.anaconda.com/)
-
-  If Python 3.8 (recommended version) is not installed on your system, or if you have multiple versions of Python environments, it is recommended to use [Anaconda](https://www.anaconda.com/) to create a new Python 3.8 environment.
-
-  - Install Anaconda
-
-    Execute the following command in the terminal to check if Anaconda is installed. If it is installed, you can skip this step.
-
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-    ```bash
-    $ conda --version
-    conda 24.9.2
-    ```
-
-    </NewCodeBlock>
-
-    If "conda: command not found" appears, it indicates that Anaconda is not installed. Please refer to the [Anaconda](https://www.anaconda.com/) official website for installation instructions.
-
-  - Create a conda environment
-
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-    ```bash
-    conda create -n rknn python=3.8.2
-    ```
-
-    </NewCodeBlock>
-
-  - Activate the rknn conda environment
-
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-    ```bash
-    conda activate rknn
-    ```
-
-    </NewCodeBlock>
-
-  - Exit the environment
-
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-    ```bash
-    conda deactivate
-    ```
-
-    </NewCodeBlock>
-
-### Install RKNN-Toolkit2 on PC
-
-- After activating the conda rknn environment, enter the rknn-toolkit2 directory and install dependencies according to your architecture platform and Python version by selecting the corresponding `requirements_cpxx.txt`. Install RKNN-Toolkit2 via wheel package. Here is an example command for a 64-bit x86 architecture Python 3.8 environment:
-
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  # Enter rknn-toolkit2 directory
-  cd rknn-toolkit2/rknn-toolkit2/packages/x86_64/
-  # Please select the appropriate requirements file based on your Python version; here it is for python3.8
-  pip3 install -r requirements_cp38-2.3.0.txt
-  # Please select the appropriate wheel installation package based on your Python version and processor architecture:
-  pip3 install ./rknn_toolkit2-2.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-  ```
-
-  </NewCodeBlock>
-
-  :::tip
-  If you are using an ARM architecture platform, please install the dependencies under arm64.
-  :::
-
-- Verify successful installation
-
-  Execute the following command. If there are no errors, it means that the RKNN-Toolkit2 environment has been installed successfully.
-
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
-
-  ```bash
-  $ python3
-  >>> from rknn.api import RKNN
-  ```
-
-  </NewCodeBlock>
-
-### Install RKNN Toolkit Lite2 and its dependencies on the board
+Clone the RKNN-Toolkit2 repository.
 
 :::tip
-For users of RK356X products, you need to enable the NPU in the terminal using **rsetup** before using the NPU: `sudo rsetup -> Overlays -> Manage overlays -> Enable NPU`, then restart the system.
-
-If there is no `Enable NPU` option in the overlays options, please update the system via: `sudo rsetup -> system -> System Update`, restart, and execute the above steps to enable the NPU.
+It is recommended to create a dedicated directory to store the related SDKs.
 :::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+mkdir RKSDK && cd RKSDK
+git clone -b v2.3.2 https://github.com/airockchip/rknn-toolkit2.git
+```
+
+</NewCodeBlock>
+
+## Version Information
+
 :::info
-The official Radxa image has RKNPU2 and its required dependencies installed by default. You only need to install `python3-rknnlite2`. If it does not run, you can try commenting out the command.
+RKNN-Toolkit2 uses a Python environment for model conversion, quantization, and other operations. On the target board, the Python environment is also used to interact with the NPU driver via Python APIs.
+Different CPU architectures and OS versions require different Python versions and environments. Please refer to the following tables to choose the appropriate setup.
+It is recommended to use a Python environment manager. We recommend [Miniforge](https://conda-forge.org/miniforge/).
 :::
 
-<NewCodeBlock tip="Radxa OS" type="device">
+The version mapping is as follows:
+
+- When using RKNN-Toolkit2, the following runtime environments are required:
+
+| OS Version | Ubuntu18.04 (x64) | Ubuntu20.04 (x64) | Ubuntu22.04 (x64) | Ubuntu24.04 (x64) |
+| ---------- | ----------------- | ----------------- | ----------------- | ----------------- |
+| Python     | 3.6 / 3.7         | 3.8 / 3.9         | 3.10 / 3.11       | 3.12              |
+
+- ARM64 runtime requirements:
+
+| OS Version | Debian10 (arm64) | Debian11 (arm64) | Debian12 (arm64)   |
+| ---------- | ---------------- | ---------------- | ------------------ |
+| Python     | 3.6 / 3.7        | 3.8 / 3.9        | 3.10 / 3.11 / 3.12 |
+
+:::info
+Based on the version information above, configure the virtual environment on your host by following the steps below. If you plan to use the Python API on the target board, you must configure a matching virtual environment on the board as well.
+:::
+
+## Install Miniforge
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-sudo apt update
-sudo apt install python3-rknnlite2
-# sudo apt install rknpu2-rk3588   # If the SOC is RK3588 series
-# sudo apt install rknpu2-rk356x   # If the SOC is RK356X series
+wget https://github.com/conda-forge/miniforge/releases/download/25.11.0-0/Miniforge3-25.11.0-0-Linux-x86_64.sh
+chmod +x Miniforge3-25.11.0-0-Linux-x86_64.sh
+bash Miniforge3-25.11.0-0-Linux-x86_64.sh
 ```
 
 </NewCodeBlock>
 
-- If you are using the CLI version, you can access the rknn toolkit lite2 [deb package download link](https://github.com/radxa-pkg/rknn2/releases)
+## Create a Virtual Environment
 
-- Check the rknpu2 driver version. The output below indicates that the rknpu2 driver version is 0.9.6.
-  :::tip
-  rk356X product system, rknpu2 driver version is 0.8.8
-  :::
-
-  <NewCodeBlock tip="Radxa OS" type="device">
-
-  ```bash
-  sudo dmesg | grep "Initialized rknpu"
-  [   15.522298] [drm] Initialized rknpu 0.9.6 20240322 for fdab0000.npu on minor 1
-  ```
-
-  </NewCodeBlock>
-
-### (Optional) Install rknn_toolkit-lite2 Python API in a virtual environment on the board
-
-If you prefer to use the Python venv virtual environment on the board system, you need to install the rknn_toolkit-lite2 wheel separately.
-
-For instructions on using the virtual environment, please refer to [Python Virtual Environment Usage](./venv_usage).
-
-<NewCodeBlock tip="Radxa OS" type="device">
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd rknn-toolkit2/rknn-toolkit-lite2/packages/
+conda create -n rknn python=3.8
 ```
 
 </NewCodeBlock>
 
-Copy the corresponding `rknn_toolkit_lite2-2.3.0-cp3X-cp3X-manylinux_2_17_aarch64.manylinux2014_aarch64.whl` to the board based on the **Python version** of the board system.
+## Activate the Virtual Environment
 
-After entering the virtual environment, use pip3 to install:
-
-<NewCodeBlock tip="Radxa OS" type="device">
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-pip3 install ./rknn_toolkit_lite2-2.3.0-cp3X-cp3X-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+conda activate rknn
 ```
 
 </NewCodeBlock>
 
-Execute the following command. If there are no errors, it means that the rknn_toolkit-lite2 environment has been installed successfully.
+## Install rknn-toolkit2
 
-<NewCodeBlock tip="Radxa OS" type="device">
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd rknn-toolkit2/rknn-toolkit2/packages/x86_64
+pip install rknn_toolkit2-2.3.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+```
+
+</NewCodeBlock>
+
+For arm64 architecture (i.e., on the target board):
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn-toolkit2/rknn-toolkit2/packages/arm64
+pip install rknn_toolkit2-2.3.2-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+```
+
+</NewCodeBlock>
+
+## Verify the Installation
+
+Run the following commands. If no error is reported, the RKNN-Toolkit2 environment has been installed successfully.
+
+<NewCodeBlock tip="X86 Linux PC" type="host">
+
+```bash
+$ python3
+>>> from rknn.api import RKNN
+```
+
+</NewCodeBlock>
+
+## Install rknn-toolkit-lite2
+
+:::tip
+Compared with `rknn_toolkit2`, `rknn-toolkit-lite2` removes the model-conversion functionality and only provides the Python APIs for NPU inference.
+It has a much smaller footprint and is suitable for users who only need to run inference on the target board. Choose the appropriate `rknn-toolkit-lite2` package according to the Python version on your board.
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd rknn-toolkit2/rknn-toolkit-lite2/packages
+pip3 install rknn_toolkit2-2.3.2-cp3X-cp3X-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+```
+
+</NewCodeBlock>
+
+Run the following commands. If no error is reported, the `rknn_toolkit-lite2` environment has been installed successfully.
+
+<NewCodeBlock tip="Device" type="device">
 
 ```bash
 $ python3
@@ -196,13 +156,58 @@ $ python3
 
 </NewCodeBlock>
 
-### (Optional) Install RKNN Model Zoo on the board
+## Toolchain for Cross Compilation
 
-<NewCodeBlock tip="Radxa OS" type="device">
+To compile programs that run on the target board, you need a cross-compilation toolchain.
+
+Download: [Cross-compilation toolchain](https://developer.arm.com/-/media/files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz?rev=33c6e30e5ac64e6dba8f0431f2c35f1b&revision=33c6e30e-5ac6-4e6d-ba8f-0431f2c35f1b&hash=632C6C0BD43C3E4B59CA8A09A7055D30).
+
+After the download is complete, extract the archive.
+
+Before compiling, export the compiler path to an environment variable so that scripts can locate the downloaded cross-compiler.
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-# Download RKNN Model Zoo repository
-git clone -b v2.3.0 https://github.com/airockchip/rknn_model_zoo.git
+export GCC_COMPILER=/path/to/your/gcc/bin/aarch64-linux-gnu
+```
+
+</NewCodeBlock>
+
+## NPU Driver Configuration on the Board
+
+:::tip
+For RK356X products, you must enable the NPU with **rsetup** before using it:
+`sudo rsetup` -> `Overlays` -> `Manage overlays` -> `Enable NPU`, then reboot the system.
+
+If there is no `Enable NPU` option in `Overlays`, please run: `sudo rsetup` -> `System` -> `System Update` to upgrade the system, then reboot and repeat the steps above to enable the NPU.
+:::
+
+:::info
+Radxa official images come with RKNPU2 and its required dependencies preinstalled. If you encounter issues running NPU workloads, you can try uncommenting and executing the following commands.
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+# sudo apt update
+# sudo apt install rknpu2-rk3588 #SOC为RK3588系列
+# sudo apt install rknpu2-rk356x #SOC为RK356X系列
+```
+
+</NewCodeBlock>
+
+Check the `rknpu2` driver version. In the example below, the `rknpu2` driver version is 0.9.6. It is recommended to use an RKNPU driver version >= 0.9.2.
+
+:::info
+On RK356X product systems, the `rknpu2` driver version may be 0.8.8.
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo dmesg | grep "Initialized rknpu"
+[ 15.522298] [drm] Initialized rknpu 0.9.6 20240322 for fdab0000.npu on minor 1
 ```
 
 </NewCodeBlock>

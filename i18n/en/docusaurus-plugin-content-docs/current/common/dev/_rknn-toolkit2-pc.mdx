@@ -1,12 +1,12 @@
 :::tip
-This document demonstrates how to use the `rknn-toolkit2` to simulate inference of the YOLOv5 segmentation model on an x86 PC without a development board. For the required environment setup, refer to [RKNN Installation](./rknn_install).  
+This document demonstrates how to use `rknn-toolkit2` on an x86 PC to perform simulation inference of the YOLOv5 segmentation model without a development board. For the required environment setup, please refer to [RKNN Installation](./rknn-install).
 :::
 
 ## Prepare the Model
 
-This example uses a pretrained ONNX model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo). The model is converted and simulated on the PC.
+This example uses a pre-trained ONNX model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as a case study, converting the model and running simulation inference on the PC.
 
-- If using `conda`, activate the `rknn` conda environment first:
+- If you are using Conda, first activate the `rknn` Conda environment:
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -22,17 +22,17 @@ This example uses a pretrained ONNX model from the [rknn_model_zoo](https://gith
 
   ```bash
   cd rknn_model_zoo/examples/yolov5_seg/model
-  # Download the pretrained yolov5s-seg.onnx model
+  # Download the pre-trained yolov5s-seg.onnx model
   bash download_model.sh
   ```
 
   </NewCodeBlock>
 
-  :::tip  
-  If you encounter network issues, visit [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) to download the model manually and place it in the corresponding folder.  
+  :::tip
+  If you encounter network issues, you can visit [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) to manually download the model and place it in the corresponding folder.
   :::
 
-- Rename the ONNX model file to `rknn` format (**only for PC simulation purposes**):
+- Rename the ONNX model file suffix to `.rknn` (**only for PC-side result simulation**):
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -42,14 +42,13 @@ This example uses a pretrained ONNX model from the [rknn_model_zoo](https://gith
 
   </NewCodeBlock>
 
-- (Optional) Convert the ONNX model to `yolov5s-seg.rknn` using `rknn-toolkit2`:
+- (Optional) Use `rknn-toolkit2` to convert the model to `yolov5s-seg.rknn`:
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov5_seg/python
   python3 convert.py <onnx_model> <TARGET_PLATFORM> <dtype> <output_rknn_path>
-  # Example:
   # python3 convert.py ../model/yolov5s-seg.onnx rk3588 i8 ../model/yolov5s-seg.rknn
   ```
 
@@ -58,13 +57,15 @@ This example uses a pretrained ONNX model from the [rknn_model_zoo](https://gith
   Parameter explanation:
 
   - `<onnx_model>`: Path to the ONNX model.
-  - `<TARGET_PLATFORM>`: Target NPU platform, such as `rk3562`, `rk3566`, `rk3568`, `rk3576`, `rk3588`, `rk1808`, `rv1109`, `rv1126`.
-  - `<dtype>`: Quantization type (`i8` for int8, `fp` for fp16). Default is `i8`.
-  - `<output_rknn_path>`: Path to save the RKNN model. Defaults to the same directory as the ONNX model with the filename `yolov5s-seg.rknn`.
+  - `<TARGET_PLATFORM>`: Name of the NPU platform. Options: `rk3562, rk3566, rk3568, rk3576, rk3588, rk1808, rv1109, rv1126`.
+  - `<dtype>`: Choose `i8` or `fp`. `i8` is for INT8 quantization; `fp` is for FP16 quantization. The default is `i8`.
+  - `<output_rknn_path>`: Path to save the RKNN model. By default it is saved in the same directory as the ONNX model with the filename `yolov5s-seg.rknn`.
+
+  :::tip
+  For RK358X users, set `TARGET_PLATFORM` to `rk3588`.
+  :::
 
 ## ONNX Model Inference on PC
-
-Run the inference script:
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -74,9 +75,7 @@ python3 yolov5_seg.py --model_path ../model/yolov5s-seg.onnx --img_show
 
 </NewCodeBlock>
 
-Example output:
-
-<NewCodeBlock tip="Results" type="PC">
+<NewCodeBlock tip="Result" type="PC">
 
 ```bash
 person @ (212 242 285 510) 0.871
@@ -95,7 +94,7 @@ person @ (80 328 125 517) 0.470
 
 ## RKNN Model Simulation Inference on PC
 
-- Install required dependencies via `pip3`:
+- Install the required dependencies with `pip3`:
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -105,71 +104,69 @@ person @ (80 328 125 517) 0.470
 
   </NewCodeBlock>
 
-- Modify the `rknn_model_zoo/py_utils/rknn_executor.py` file as follows (**make a backup of the original file**):
-
-  <NewCodeBlock tip="Python Code" type="PC">
-
-  ```python
-  from rknn.api import RKNN
-
-  class RKNN_model_container():
-      def __init__(self, model_path, target=None, device_id=None) -> None:
-          rknn = RKNN()
-          DATASET_PATH = '../../../datasets/COCO/coco_subset_20.txt'
-          onnx_model = model_path[:-4] + 'onnx'
-          rknn.config(mean_values=[[0, 0, 0]], std_values=[[255, 255, 255]], target_platform=target)
-          rknn.load_onnx(model=onnx_model)
-          rknn.build(do_quantization=True, dataset=DATASET_PATH)
-          rknn.init_runtime()
-          self.rknn = rknn
-
-      def run(self, inputs):
-          if isinstance(inputs, list) or isinstance(inputs, tuple):
-              pass
-          else:
-              inputs = [inputs]
-
-          result = self.rknn.inference(inputs=inputs)
-          return result
-
-      def release(self):
-          self.rknn.release()
-          self.rknn = None
-  ```
-
-  </NewCodeBlock>
-
 - Run the simulation inference script:
 
-  <NewCodeBlock tip="X86 Linux PC" type="PC">
+  - Modify `rknn_model_zoo/py_utils/rknn_executor.py` to the following code (**be sure to back up the original file**):
 
-  ```bash
-  python3 yolov5_seg.py --target <TARGET_PLATFORM> --model_path <RKNN_MODEL_PATH> --img_show
-  # Example:
-  # python3 yolov5_seg.py --target rk3588 --model_path ../model/yolov5s-seg.rknn --img_show
-  ```
+    <NewCodeBlock tip="Python Code" type="PC">
 
-  </NewCodeBlock>
+    ```python
+    from rknn.api import RKNN
 
-  Parameters:
+    class RKNN_model_container():
+        def __init__(self, model_path, target=None, device_id=None) -> None:
+            rknn = RKNN()
+            DATASET_PATH = '../../../datasets/COCO/coco_subset_20.txt'
+            onnx_model = model_path[:-4] + 'onnx'
+            rknn.config(mean_values=[[0, 0, 0]], std_values=[[255, 255, 255]], target_platform=target)
+            rknn.load_onnx(model=onnx_model)
+            rknn.build(do_quantization=True, dataset=DATASET_PATH)
+            rknn.init_runtime()
+            self.rknn = rknn
 
-  - `--target`: Specifies the NPU platform for simulation. Options include `rk3562`, `rk3566`, `rk3568`, `rk3576`, `rk3588`, `rk1808`, `rv1109`, `rv1126`.
-  - `--model_path`: Path to the RKNN model to simulate.
+        def run(self, inputs):
+            if isinstance(inputs, list) or isinstance(inputs, tuple):
+                pass
+            else:
+                inputs = [inputs]
 
-Example output:
+            result = self.rknn.inference(inputs=inputs)
+            return result
 
-<NewCodeBlock tip="Results" type="PC">
+        def release(self):
+            self.rknn.release()
+            self.rknn = None
+    ```
 
-```bash
-person @ (213 239 284 516) 0.882
-person @ (109 240 224 535) 0.869
-person @ (473 231 560 523) 0.845
-bus  @ (97 136 548 459) 0.821
-person @ (80 328 124 519) 0.499
-```
+    </NewCodeBlock>
 
-</NewCodeBlock>
+  - Run the simulation inference script:
 
-- The simulation inference result (only simulates NPU computation; actual performance and accuracy depend on inference on the target board):
+      <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+    ```bash
+    python3 yolov5_seg.py --target <TARGET_PLATFORM> --model_path <RKNN_MODEL_PATH> --img_show
+    # python3 yolov5_seg.py --target rk3588 --model_path ../model/yolov5s-seg.rknn --img_show
+    ```
+
+      </NewCodeBlock>
+
+    `--target`: Name of the NPU platform to simulate. Options: `rk3562, rk3566, rk3568, rk3576, rk3588, rk1808, rv1109, rv1126`.
+
+    `--model_path`: Path to the RKNN model to be simulated.
+
+      <NewCodeBlock tip="Results" type="PC">
+
+    ```bash
+    person @ (213 239 284 516) 0.882
+    person @ (109 240 224 535) 0.869
+    person @ (473 231 560 523) 0.845
+    bus  @ (97 136 548 459) 0.821
+    person @ (80 328 124 519) 0.499
+    ```
+
+      </NewCodeBlock>
+
+  - Simulation inference result (the simulator only simulates NPU computation; actual performance and accuracy are determined by inference on the target board):
 
 <img width="550" src="/en/img/general-tutorial/rknn/yolov5_seg_result.webp" />

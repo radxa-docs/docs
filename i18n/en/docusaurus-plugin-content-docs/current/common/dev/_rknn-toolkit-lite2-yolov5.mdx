@@ -1,21 +1,21 @@
 :::tip
-This document demonstrates how to perform on-device inference for YOLOv5 object detection models on Rockchip RK3588/3566 series chips. For environment setup, refer to [RKNN Installation](./rknn_install).
+This document demonstrates how to run on-device inference of the YOLOv5 object detection model on Rockchip RK3588/3566 series chips. For the required environment setup, please refer to [RKNN Installation](./rknn-install).
 :::
 
-This example uses a pre-trained ONNX model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as a case study, showcasing the complete workflow from model conversion to on-device inference.
+This example uses a pre-trained ONNX model from the [rknn_model_zoo](https://github.com/airockchip/rknn_model_zoo) as a case study, showing the complete process from model conversion to on-device inference.
 
-Deploying YOLOv5 with RKNN involves two steps:
+Deploying YOLOv5 with RKNN involves two main steps:
 
-- Use `rknn-toolkit2` on a PC to convert models from various frameworks to RKNN format.
-- Use the Python API of `rknn-toolkit2-lite` on the device for model inference.
+- On the PC, use **rknn-toolkit2** to convert models from different frameworks into RKNN format.
+- On the device, use the Python API of **rknn-toolkit2-lite** to run inference.
 
 ### Model Conversion on PC
 
 :::tip
-Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model. Users can directly skip to [On-Device YOLOv5 Inference](#on-device-yolov5-inference) and skip the PC model conversion section.
+Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model. Users can skip the PC-side model conversion section and directly refer to [YOLOv5 Inference on Device](#yolov5-inference-on-device).
 :::
 
-- Activate the `rknn` Conda environment if you are using Conda:
+- If you are using Conda, first activate the `rknn` Conda environment:
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -41,22 +41,22 @@ Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model. Users can directly s
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/model
+  # Download the pre-trained yolov5s_relu.onnx model
   bash download_model.sh
   ```
 
   </NewCodeBlock>
 
-  If network issues occur, download the model from [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) and place it in the appropriate directory.
+  If you encounter network issues, you can visit [this page](https://github.com/airockchip/rknn_model_zoo?tab=readme-ov-file#model-support) to manually download the model and place it in the corresponding folder.
 
-- Convert the model to RKNN format using `rknn-toolkit2`:
+- Convert the ONNX model to `yolov5s_relu.rknn` using **rknn-toolkit2**:
 
   <NewCodeBlock tip="X86 Linux PC" type="PC">
 
   ```bash
   cd rknn_model_zoo/examples/yolov5/python
   python3 convert.py <onnx_model> <TARGET_PLATFORM> <dtype> <output_rknn_path>
-  # Example:
-  python3 convert.py ../model/yolov5s_relu.onnx rk3588 i8 ../model/yolov5s_relu_rk3588.rknn
+  # python3 convert.py ../model/yolov5s_relu.onnx rk3588 i8 ../model/yolov5s_relu_rk3588.rknn
   ```
 
   </NewCodeBlock>
@@ -64,21 +64,27 @@ Radxa provides a pre-converted `yolov5s_rk35XX.rknn` model. Users can directly s
   Parameter explanation:
 
   - `<onnx_model>`: Path to the ONNX model.
-  - `<TARGET_PLATFORM>`: Target NPU platform. Options include `rk3562, rk3566, rk3568, rk3576, rk3588, rk1808, rv1109, rv1126`.
-  - `<dtype>`: Choose `i8` for int8 quantization or `fp` for fp16 quantization. Default is `i8`.
-  - `<output_rknn_path>`: Path to save the RKNN model. Defaults to the same directory as the ONNX model.
+  - `<TARGET_PLATFORM>`: Name of the NPU platform. Options: `rk3562, rk3566, rk3568, rk3576, rk3588, rk1808, rv1109, rv1126`.
+  - `<dtype>`: Choose `i8` or `fp`. `i8` is for INT8 quantization; `fp` is for FP16 quantization. The default is `i8`.
+  - `<output_rknn_path>`: Path to save the RKNN model. By default it is saved in the same directory as the ONNX model.
 
-- Transfer the RKNN model to the target device.
+  :::tip
+  For RK358X users, set `TARGET_PLATFORM` to `rk3588`.
+  :::
 
-### On-Device YOLOv5 Inference
+- Copy the generated RKNN model to the device.
+
+### YOLOv5 Inference on Device
 
 :::tip
-For users of RK356X products, you need to enable the NPU in the terminal using **rsetup** before using the NPU: `sudo rsetup -> Overlays -> Manage overlays -> Enable NPU`, then restart the system.
+For RK356X products, you must enable the NPU using **rsetup** before running NPU workloads:
 
-If there is no `Enable NPU` option in the overlays options, please update the system via: `sudo rsetup -> system -> System Update`, restart, and execute the above steps to enable the NPU.
+`sudo rsetup -> Overlays -> Manage overlays -> Enable NPU`, then reboot the system.
+
+If there is no `Enable NPU` option in `Overlays`, please run: `sudo rsetup -> System -> System Update` to upgrade the system, reboot, and then repeat the above steps to enable the NPU.
 :::
 
-- (Optional) Download pre-converted YOLOv5s RKNN models provided by Radxa:
+- (Optional) Download the YOLOv5s RKNN models prepared by Radxa:
 
   | Platform | Download Link                                                                                                            |
   | -------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -86,7 +92,9 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
   | rk3568   | [yolov5s_rk3568.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3568.rknn) |
   | rk3588   | [yolov5s_rk3588.rknn](https://github.com/zifeng-radxa/rknn_model_zoo/releases/download/yolov5s_rknn/yolov5s_rk3588.rknn) |
 
-- Modify `rknn_model_zoo/py_utils/rknn_executor.py` (backup the original code):
+- Modify `rknn_model_zoo/py_utils/rknn_executor.py` (**remember to back up the original code**):
+
+  Configure the RKNN Model Zoo repository as described in [RKNN Model Zoo](./rknn-model-zoo).
 
   <NewCodeBlock tip="Python Code" type="device">
 
@@ -101,12 +109,17 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
           self.rknn = rknn
 
       def run(self, inputs):
-          if not self.rknn:
-              print("ERROR: RKNN has been released")
+          if self.rknn is None:
+              print("ERROR: rknn has been released")
               return []
 
-          inputs = [inputs] if not isinstance(inputs, (list, tuple)) else inputs
+          if isinstance(inputs, list) or isinstance(inputs, tuple):
+              pass
+          else:
+              inputs = [inputs]
+
           result = self.rknn.inference(inputs=inputs)
+
           return result
 
       def release(self):
@@ -116,7 +129,7 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
 
   </NewCodeBlock>
 
-- Update line 262 in `rknn_model_zoo/examples/yolov5/python/yolov5.py` (backup the original code):
+- Modify line 262 in `rknn_model_zoo/examples/yolov5/python/yolov5.py` (**remember to back up the original code**):
 
   <NewCodeBlock tip="Python Code" type="device">
 
@@ -128,18 +141,15 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
 
 - Enter the virtual environment:
 
-  Refer to [Python Virtual Environment Usage](./venv_usage).  
-  Install the `rknn_toolkit-lite2` Python API as described in [Install rknn_toolkit-lite2 Python API in a virtual environment on the board](rknn_install#optional-install-rknn_toolkit-lite2-python-api-in-a-virtual-environment-on-the-board).
+  For virtual environment usage, refer to [Python Virtual Environment Usage](../venv-usage).
+
+  To install the `rknn_toolkit-lite2` Python API, see [Install rknn_toolkit-lite2](./rknn-install#Install-rknn-toolkit-lite2).
 
 - Install dependencies:
-
-  <NewCodeBlock tip="Radxa OS" type="device">
 
   ```bash
   pip3 install opencv-python-headless
   ```
-
-  </NewCodeBlock>
 
 - Run the YOLOv5 example:
 
@@ -152,7 +162,7 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
 
   </NewCodeBlock>
 
-  If using a custom-converted model, copy it from the PC to the device and specify the path with `--model_path`.
+  If you are using a model converted on the PC, copy it from the PC to the device and specify the model path with the `--model_path` parameter.
 
   <NewCodeBlock tip="Results" type="device">
 
@@ -182,9 +192,9 @@ If there is no `Enable NPU` option in the overlays options, please update the sy
   Parameter explanation:
 
   - `--model_path`: Path to the RKNN model.
-  - `--img_folder`: Folder of images for inference. Default: `../model`.
-  - `--img_save`: Save inference results to `./result`. Default: `False`.
+  - `--img_folder`: Folder containing images for inference, default is `../model`.
+  - `--img_save`: Whether to save the inference result images to `./result`. Default is `False`.
 
-- All inference results are saved in `./result`.
+- All inference results are stored in the `./result` directory.
 
 <img width="550" src="/en/img/general-tutorial/rknn/result.webp" />
