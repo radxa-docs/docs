@@ -6,7 +6,7 @@ sidebar_position: 150
 
 ## 系统镜像
 
-- [radxa-airbox-q900-ubuntu-noble-gnome-t4](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900-ubuntu-noble-gnome-t4.tar.gz)
+- [radxa-airbox-q900_noble_gnome_r1](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900_noble_gnome_r1_4096.tar.gz)
 
 - [qcs9075-provision](https://dl.radxa.com/fogwise/airbox-q900/images/qcs9075-provision.tar.gz)
 
