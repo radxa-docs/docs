@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 145
 ---
 
 # Frequently Asked Questions (FAQ)
@@ -88,13 +88,13 @@ Because KDE or GNOME desktop environment stores Wi-Fi passwords in the user-spec
 To solve this problem, you can choose one of the following three methods:
 
 - Enable automatic login:
-    This will allow the system to automatically log in to the specified user, unlocking the keyring, allowing Wi-Fi connection. Use the rsetup tool to enable automatic login.
+  This will allow the system to automatically log in to the specified user, unlocking the keyring, allowing Wi-Fi connection. Use the rsetup tool to enable automatic login.
 - Disable keyring encryption:
-    You can disable keyring encryption by following these steps: KDE Settings -> KDE Wallet -> Disable keyring encryption.
-    Then forget the Wi-Fi password and reconnect to the Wi-Fi.
-    This way, the keyring will no longer be encrypted, and the system can access the Wi-Fi password without user login, enabling automatic connection to Wi-Fi networks. Please note that this method reduces system security.
+  You can disable keyring encryption by following these steps: KDE Settings -> KDE Wallet -> Disable keyring encryption.
+  Then forget the Wi-Fi password and reconnect to the Wi-Fi.
+  This way, the keyring will no longer be encrypted, and the system can access the Wi-Fi password without user login, enabling automatic connection to Wi-Fi networks. Please note that this method reduces system security.
 - Use nmtui/nmcli tools to manually add Wi-Fi password:
-    Use command-line tools nmtui or nmcli to manually configure Wi-Fi network connections and save the password to system-wide configuration files instead of the user's keyring.
+  Use command-line tools nmtui or nmcli to manually configure Wi-Fi network connections and save the password to system-wide configuration files instead of the user's keyring.
 
 <NewCodeBlock tip="Linux$" type="host">
 
