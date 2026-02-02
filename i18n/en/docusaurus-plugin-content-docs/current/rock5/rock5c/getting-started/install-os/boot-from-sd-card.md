@@ -21,11 +21,11 @@ Insert MicroSD Card into SDCard Reader，then input Reader into PC's USB Port.
 
 ## Boot up the system
 
-After successfully burning the EMMC Module according to the above steps, insert the EMMC Module into the EMMC Module slot (as shown in the following figure), and then power on the system, the system will start booting and HDMI will display the desktop.
+After successfully burning the microSD card system following the above steps, insert the microSD card into the microSD card slot (as shown in the figure below), then power on, the system will start, and the HDMI connected monitor will display the desktop.
 
 <img
 src="/img/rock5c/rock-5c-sd-slot.webp"
-alt="emmc slot"
+alt="microSD slot"
 style={{ width: "60%"}}
 />
 

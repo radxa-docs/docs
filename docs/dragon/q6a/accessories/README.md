@@ -2,7 +2,7 @@
 sidebar_position: 99
 ---
 
-# 配件
+# 配件使用
 
 本页面列出了与 Dragon Q6A 兼容的官方配件。
 

@@ -21,11 +21,11 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## 启动系统
 
-按照上述步骤成功烧录 EMMC Module 后， 将 EMMC Module 插入到 EMMC Module 插槽内（如下图所示)，然后上电，系统开始启动，HDMI显示桌面。
+按照上述步骤成功烧录 microSD 卡系统后， 将 microSD 卡插入到 microSD 卡插槽内（如下图所示），然后上电，系统开始启动，HDMI 连接显示器会显示桌面。
 
 <img
 src="/img/rock5c/rock-5c-sd-slot.webp"
-alt="emmc slot"
+alt="microSD slot"
 style={{ width: "60%"}}
 />
 
