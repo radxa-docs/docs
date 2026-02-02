@@ -30,6 +30,10 @@ sidebar_position: 2
 ROCK 2A 和 ROCK 2F 使用同一个安卓系统镜像。
 :::
 
+Armbian ：
+
+[Armbian](https://www.armbian.com/rock-2f/) （包含 Ubuntu 和 Debian 系统）
+
 ## 硬件设计
 
 Radxa ROCK 2F V1.0 版本
