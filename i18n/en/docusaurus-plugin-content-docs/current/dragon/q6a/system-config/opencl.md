@@ -8,7 +8,7 @@ Install and verify OpenCL on the Dragon Q6A (based on Mesa RustiCL + Freedreno G
 
 ## Install OpenCL
 
-<NewCodeBlock tip="Linux$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 
@@ -23,7 +23,7 @@ sudo apt install mesa-opencl-icd -y
 
 Enable the Freedreno backend and view OpenCL info:
 
-<NewCodeBlock tip="Linux$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 

@@ -9,7 +9,7 @@ For smoother playback and lower power consumption, set mpv's hardware decode bac
 
 ## Install mpv
 
-<NewCodeBlock tip="dragon-q6a$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 sudo apt update
@@ -22,7 +22,7 @@ sudo apt install mpv -y
 
 Create the directory and edit the config:
 
-<NewCodeBlock tip="dragon-q6a$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 mkdir -p ~/.config/mpv
@@ -33,7 +33,7 @@ nano ~/.config/mpv/mpv.conf
 
 Add the following to the user configuration file:
 
-<NewCodeBlock tip="mpv.conf" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a" type="device">
 
 ```
 # Fast preset for resource-constrained devices
@@ -81,7 +81,7 @@ If you do not create a user config, mpv uses `/etc/mpv/mpv.conf` directly. In th
 
 Play any video on the board to verify the configuration. Download a video file to the board first.
 
-<NewCodeBlock tip="dragon-q6a$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 mpv /path/to/your/video.mp4
@@ -95,7 +95,7 @@ When hardware decoding is enabled, the terminal will show a message like `Using 
 
 You can also set parameters on the command line, for example:
 
-<NewCodeBlock tip="dragon-q6a$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 mpv --hwdec=v4l2m2m-copy --vo=gpu --swapchain-depth=8 --sws-fast=yes /path/to/your/video.mp4

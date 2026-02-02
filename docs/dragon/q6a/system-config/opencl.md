@@ -8,7 +8,7 @@ sidebar_position: 5
 
 ## 安装 OpenCL
 
-<NewCodeBlock tip="Linux$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 
@@ -23,7 +23,7 @@ sudo apt install mesa-opencl-icd -y
 
 启用 Freedreno 后端并查看 OpenCL 信息：
 
-<NewCodeBlock tip="Linux$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 

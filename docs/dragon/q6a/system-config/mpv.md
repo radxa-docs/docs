@@ -9,7 +9,7 @@ sidebar_position: 5
 
 ## 安装 mpv
 
-<NewCodeBlock tip="dragon-q6a$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 sudo apt update
@@ -22,7 +22,7 @@ sudo apt install mpv -y
 
 创建目录并编辑配置：
 
-<NewCodeBlock tip="dragon-q6a$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 mkdir -p ~/.config/mpv
@@ -81,7 +81,7 @@ mpv 的配置文件优先级如下：
 
 可以在主板上播放任意视频来验证配置是否生效。需提前在主板上下载视频文件。
 
-<NewCodeBlock tip="dragon-q6a$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 mpv /path/to/your/video.mp4
@@ -95,7 +95,7 @@ mpv /path/to/your/video.mp4
 
 直接在命令行中指定 mpv 参数，例如：
 
-<NewCodeBlock tip="dragon-q6a$" type="device">
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
 mpv --hwdec=v4l2m2m-copy --vo=gpu --swapchain-depth=8 --sws-fast=yes /path/to/your/video.mp4
