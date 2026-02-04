@@ -36,7 +36,7 @@ sidebar_position: 1
 Cubie A7S 板载 1 个 千兆以太网口，用于有线连接网络，支持 10/100/1000 Mbps 自适应速率。
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/orion/o6/rj45_led.webp" style={{width: '25%', maxWidth: '1200px'}} />
+   <img src="/img/cubie/a7s/rj45_led.webp" style={{width: '25%', maxWidth: '1200px'}} />
 </div>
 
 | LED  | 状态 | 描述                                   |
@@ -134,7 +134,7 @@ FEL 是 Allwinner（全志）芯片中的一种低级启动和刷机模式，主
 
 - 进入 FEL 模式
 
-主板上电前，按住 Cubie A7S 的 UBOOT 按键，主板上电后，松开 UBOOT 按键就可以进入 FEL 模式。
+主板上电前，按住 Cubie A7S 的 USB BOOT 按键，主板上电后，松开 USB BOOT 按键就可以进入 FEL 模式。
 
 :::
 
