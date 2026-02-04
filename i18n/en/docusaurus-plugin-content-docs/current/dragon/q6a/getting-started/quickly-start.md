@@ -191,3 +191,47 @@ For users who want to boot the system using other methods (such as eMMC, UFS, or
 Boot priority: USB > MicroSD > NVMe SSD > eMMC Module > UFS Module
 
 :::
+
+## Update the System
+
+We recommend using the `Rsetup` tool to update your system.
+
+:::tip
+Using `Rsetup` is a safer way to update the system.
+
+Upgrading with `sudo apt update && sudo apt upgrade` may result in incomplete updates or unexpected system issues.
+
+For more details about `Rsetup`, see:
+
+- [Rsetup Tool](../system-config/rsetup.md)
+  :::
+
+### Rsetup Tool
+
+Open a terminal and run `sudo rsetup` to launch the `Rsetup` tool:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Update the System
+
+In `Rsetup`, select `System` -> `System Update`, then follow the on-screen prompts to complete the update.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system-update.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
