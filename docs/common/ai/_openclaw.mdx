@@ -1,0 +1,135 @@
+[OpenClaw](https://github.com/openclaw/openclaw) 是由 Peter Steinberger 开发的开源 AI Agent 项目,
+可以在任意设备，任意 OS 上部署的个人 AI 助手。
+
+## 安装 OpenClaw
+
+使用安装脚本安装 OpenClaw
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+</NewCodeBlock>
+
+## 配置 OpenClaw
+
+:::tip
+使用脚本安装时就会出现配置方式。如果想重新配置请运行以下命令
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+openclaw onboard --install-daemon
+```
+
+</NewCodeBlock>
+:::
+
+- 风险声明
+
+  选择 `Yes`
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/rock5b/openclaw_1.webp" />
+  </div>
+
+- 新手引导模式
+
+  选择 `QucikStart`
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/rock5b/openclaw_2.webp" />
+  </div>
+
+- 模型供应商选择
+
+  这里可根据用户已有的模型 API-Key 选择模型
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/rock5b/openclaw_3.webp" />
+  </div>
+
+  对于没有 API-Key 的用户，可以选择使用 [Qwen 的 OAuth](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/)（免费）
+  点击跳转链接 登陆/注册 qwen.ai 账号即可进行 OAuth 认证
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/rock5b/openclaw_4.webp" />
+  </div>
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/rock5b/openclaw_5.webp" style={{ width: "60%" }} />
+  </div>
+
+  认证完毕后选择默认的 `qwen-portal/coder-model` 模型即可
+
+- 配置 Channel
+
+  这里可根据用户常用社交网络 APP 与 openclaw 进行匹配，配置方式请按提示进行，这里不做阐述。
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/rock5b/openclaw_10.webp" />
+  </div>
+
+- 配置 skills
+
+  选择 `yes`
+
+- 选择 Homebrew 按安装方式
+
+  选择 `npm`
+
+- 选择安装缺失的技能依赖包
+
+  用户可以按照需求选择
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/rock5b/openclaw_11.webp" style={{ width: "80%" }} />
+  </div>
+
+- 配置各技能所用到的 API_KEY
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/img/rock5b/openclaw_6.webp" style={{ width: "60%" }} />
+  </div>
+
+- 启动交互界面
+
+  在 `How do you want to hatch your bot?` 这一栏下可以选择两种交互模式，
+  一种是 TUI 命令行模式，一种是 Web UI。
+
+  - 使用 Web UI （推荐）
+    :::tip
+    端口：18789
+    :::
+
+    <div style={{ textAlign: "center" }}>
+      <img src="/img/rock5b/openclaw_8.webp" />
+    </div>
+
+  - 使用 TUI 命令行
+
+    <div style={{ textAlign: "center" }}>
+      <img src="/img/rock5b/openclaw_9.webp" />
+    </div>
+
+## 更多功能
+
+更多使用细节请参考 [**OpenClaw 官方文档**](https://docs.openclaw.ai/)
