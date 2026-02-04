@@ -78,4 +78,4 @@ Dragon Q6A 搭载高通 QCS6490 SoC，采用 “1+3+4” 三丛集设计（1× K
 
 - Ubuntu Linux
 - Qualcomm Linux（基于 Yocto 开发）
-- Android 15 (CS) 或 Android 16 (ES) 系统
+- Android 14

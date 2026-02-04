@@ -78,4 +78,4 @@ Based on Qualcomm QCS6490 SoC, supports multiple operating systems:
 
 - Ubuntu Linux
 - Qualcomm Linux (Based on Yocto development)
-- Android 15 (CS) or Android 16 (ES) System
+- Android 14
