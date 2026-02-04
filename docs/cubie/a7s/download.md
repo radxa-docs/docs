@@ -56,8 +56,11 @@ Radxa OS Lite 系统镜像不包含图形桌面环境。
 
 ## 硬件设计
 
-- [原理图 V1.10](www.radxa.com)
-- [位号图 V1.10](www.radxa.com)
+- [原理图 V1.10](https://dl.radxa.com/cubie/a7s/hw/radxa_cubie_a7s_schematic_v1.10.pdf)
+- [位号图 V1.10](https://dl.radxa.com/cubie/a7s/hw/radxa_cubie_a7s_components_placement_map_v1.10.pdf)
+- [2D 尺寸](https://dl.radxa.com/cubie/a7s/hw/radxa_cubie_a7s_2d_dimensions_v1.10.pdf)
+- [2D 文件](https://dl.radxa.com/cubie/a7s/hw/radxa_cubie_a7s_2d_v1.10.zip)
+- [3D 文件](https://dl.radxa.com/cubie/a7s/hw/radxa_cubie_a7s_3d_stp_v1.10.zip)
 
 ## 参考资料
 

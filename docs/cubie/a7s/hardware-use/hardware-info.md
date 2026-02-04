@@ -24,7 +24,7 @@ sidebar_position: 1
 | 4    | 天线座                                 | 5    | USB 2.0 Type-A   | 6    | FPC 接口<br />- PCIe 3.0 x1, 支持拓展 NVMe 固态硬盘 |
 | 7    | USB BOOT 按键                          | 8    | 30-Pin GPIO 排针 | 9    | 板载 eMMC                                           |
 | 10   | MIPI CSI 摄像头接口                    | 11   | 风扇接口         | 12   | microSD 卡槽                                        |
-| 13   | 全志 A733                              | 14   | LPDDR5           | 15   | USB-C 2<br />- USB 3.0, 支持 DP Alt 模式和 OTG 功能 |
+| 13   | 全志 A733                              | 14   | LPDDR5           | 15   | USB-C 2<br />- USB 3.2, 支持 DP Alt 模式和 OTG 功能 |
 | 16   | USB-C 1<br />- 支持 5V 供电和 OTG 功能 |      |                  |      |                                                     |
 
 :::tip 板载 eMMC
@@ -55,11 +55,11 @@ Cubie A7S 板载 1 个 天线座，用于连接天线，增强无线信号。
 
 ### USB
 
-Cubie A7S 板载 1 个 USB 2.0 Type-A、1 个 USB 2.0 Type-C（USB-C1）、1 个 USB 3.0 Type-C（USB-C2）接口。
+Cubie A7S 板载 1 个 USB 2.0 Type-A、1 个 USB 2.0 Type-C（USB-C1）、1 个 USB 3.2 Type-C（USB-C2）接口。
 
 - USB 2.0 Type-A：用于连接 USB 2.0 设备，如鼠标、键盘、U 盘等。
 - USB 2.0 Type-C（USB-C1）：支持 5V 供电和 OTG 功能。
-- USB 3.0 Type-C（USB-C2）： 支持 DP Alt 模式和 OTG 功能。
+- USB 3.2 Type-C（USB-C2）： 支持 DP Alt 模式和 OTG 功能。
 
 ### 30-Pin GPIO 排针
 

@@ -46,7 +46,7 @@ sidebar_position: 4
 | 网络           | 1X 千兆以太网<br />板载 Wi‑Fi 6 & BT5.4 模组<br />- 1X 天线接口                                                                                                  |
 | 显示           | 1X USB‑C 接口，支持 DisplayPort Alt 模式，最高 4Kp60                                                                                                             |
 | 摄像头         | 1X MIPI 摄像头（4 通道）                                                                                                                                         |
-| USB            | 1X USB Type-C (USB 3.0, 支持 DisplayPort Alt 模式和 OTG 功能)<br />1X USB Type-C (USB 2.0, 支持 5V 供电和 OTG 功能)<br />1X USB Type-A (USB 2.0, 支持 HOST 模式) |
+| USB            | 1X USB Type-C (USB 3.2, 支持 DisplayPort Alt 模式和 OTG 功能)<br />1X USB Type-C (USB 2.0, 支持 5V 供电和 OTG 功能)<br />1X USB Type-A (USB 2.0, 支持 HOST 模式) |
 | PCIe           | 1X FPC 接口 (PCIe 3.0 x1)<br />- 支持拓展 NVMe 固态硬盘                                                                                                          |
 | 其他接口       | 1X 风扇接口<br />1X USB BOOT 按键 <br />15-Pin 和 30-Pin GPIO 排针<br />- 支持 UART, I2C, I2S, PWM, GPIOs 等功能                                                 |
 | 供电方式       | USB Type-C (5V 电源输入)                                                                                                                                         |
@@ -66,7 +66,7 @@ sidebar_position: 4
 | 4    | 天线座                                 | 5    | USB 2.0 Type-A   | 6    | FPC 接口<br />- PCIe 3.0 x1, 支持拓展 NVMe 固态硬盘 |
 | 7    | USB BOOT 按键                          | 8    | 30-Pin GPIO 排针 | 9    | 板载 eMMC                                           |
 | 10   | MIPI CSI 摄像头接口                    | 11   | 风扇接口         | 12   | microSD 卡槽                                        |
-| 13   | 全志 A733                              | 14   | LPDDR5           | 15   | USB-C 2<br />- USB 3.0, 支持 DP Alt 模式和 OTG 功能 |
+| 13   | 全志 A733                              | 14   | LPDDR5           | 15   | USB-C 2<br />- USB 3.2, 支持 DP Alt 模式和 OTG 功能 |
 | 16   | USB-C 1<br />- 支持 5V 供电和 OTG 功能 |      |                  |      |                                                     |
 
 :::tip 板载 eMMC
