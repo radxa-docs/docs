@@ -44,6 +44,10 @@ ROCK 3B provides complete hardware design schematics and software source code, a
     <td>ROCK 3B</td>
   </tr>
   <tr>
+    <td>SoC</td>
+    <td>rk3568</td>
+  </tr>
+  <tr>
     <td>CPU</td>
     <td>Quad Cortex®-A55 @ 2 GHz based on Arm® DynamIQ™ configuration</td>
   </tr>

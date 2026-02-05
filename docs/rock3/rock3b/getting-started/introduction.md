@@ -44,6 +44,10 @@ ROCK 3B 提供了完整的硬件设计原理图和软件源代码，这一特性
     <td>ROCK 3B</td>
   </tr>
   <tr>
+    <td>SoC</td>
+    <td>rk3568</td>
+  </tr>
+  <tr>
     <td>CPU</td>
     <td>基于 Arm® DynamIQ™ 配置的四路 Cortex®-A55 @ 2 GHz</td>
   </tr>
