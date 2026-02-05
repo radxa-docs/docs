@@ -1,8 +1,8 @@
 ---
-sidebar_position: 7
+sidebar_position: 105
 ---
 
-# FAQ
+# Frequently Asked Questions
 
 ## System Issues
 
