@@ -12,9 +12,9 @@ MIPI CSI 接口具体位置可以查看 [硬件接口](./hardware-info) 教程�
 
 ## 支持列表
 
-- [Camera 4K](https://radxa.com/products/accessories/camera4k)
-- [Camera 8M 219](https://radxa.com/products/accessories/camera-8m-219)
-- [Camera 13M 214](https://radxa.com/products/accessories/camera-13m-214)
+- [Camera 4K](../accessories/camera-4k.md)
+- [Camera 8M 219](../accessories/camera-8m-219.md)
+- [Camera 13M 214](../accessories/camera-13m-214.md)
 
 ## 接口规格
 
