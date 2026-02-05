@@ -58,7 +58,7 @@ Compatible with MicroSD cards, eMMC modules, and UFS modules.
 
 #### FEL System Image
 
-- [Radxa Cubie A7A Android 13](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip)
+- [Radxa Cubie A7A Android 13 Beta](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20260205/a733_android13_radxa_a7a_uart0.zip)
 
 ## Flashing Tools
 
