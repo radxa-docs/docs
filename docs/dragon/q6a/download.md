@@ -6,19 +6,32 @@ sidebar_position: 150
 
 ## 系统镜像
 
+:::info 最新系统镜像发布页面
+
+- [Dragon Q6A](https://github.com/radxa-build/radxa-dragon-q6a/releases)
+
+该页面会发布最新的正式版本和测试版本的系统镜像，测试版本以 `t` 开头，正式版本以 `r` 开头。
+
+:::
+
 - Radxa OS
-  - [radxa-dragon-q6a_noble_kde_t4.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_512.img.xz)：适用于 MicroSD 卡 / U 盘 / eMMC / NVMe 启动系统
-  - [radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz)：适用于 UFS 启动系统
 
-:::tip T4 镜像和 SPI 启动固件说明
+**说明**：R1 正式版系统镜像需要使用 20251013 或更新版本的 SPI 启动固件。
 
-- **SPI 启动固件**
+- [radxa-dragon-q6a_noble_gnome_r1.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r1/radxa-dragon-q6a_noble_gnome_r1.output_512.img.xz)：适用于 MicroSD 卡 / U 盘 / eMMC / NVMe 启动系统
+- [radxa-dragon-q6a_noble_gnome_r1.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r1/radxa-dragon-q6a_noble_gnome_r1.output_4096.img.xz)：适用于 UFS 启动系统
 
-T4 及最新系统镜像需要使用最新的 SPI 启动固件.
+:::tip 固件信息
 
-1. 若是 2025 年 10 月份前购买的，需要烧录最新 [SPI 启动固件](../q6a/low-level-dev/spi-fw.md)。
+可以根据以下方式判断系统 SPI 固件版本信息：
 
-2. 使用命令查看系统 BIOS 版本信息
+1. 购买时间
+
+若是 2026 年购买的产品，出厂为 20251230 版本的启动固件，无需烧录更新 SPI 启动固件。
+
+2. 命令查询
+
+若系统可以正常启动，可以使用以下命令查询 SPI 启动固件版本信息：
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
@@ -28,32 +41,17 @@ dmidecode -s bios-version
 
 </NewCodeBlock>
 
-终端会输出类似信息：其中 `251013` 表示 SPI 启动固件的版本日期。
+终端会输出类似信息：其中 251013 表示 SPI 启动固件的版本日期。
 
 ```
+
 6.0.251013.BOOT.MXF.1.0.c1-00364-KODIAKLA-1
-```
-
-- **T4 镜像说明**
-
-用户按照快速上手的教程成功启动系统后，请使用以下命令更新软件包：安装高通平台必要的工具链和启动配置组件
-
-<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```
-sudo apt update
-sudo apt install -y task-qualcomm embloader sdboot-is-embloader
-```
 
-</NewCodeBlock>
+3. 系统启动异常
 
-:::
-
-:::info 最新系统镜像发布页面
-
-- [Dragon Q6A](https://github.com/radxa-build/radxa-dragon-q6a/releases)
-
-该页面会发布最新的正式版本和测试版本的系统镜像，测试版本以 `t` 开头，正式版本以 `r` 开头。
+若系统无法正常启动，可以尝试重新烧录最新 SPI 启动固件。
 
 :::
 
@@ -73,16 +71,7 @@ Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
 
 - SPI 启动固件
 
-  - [flat_build_251013](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_251013.zip)
-
-:::tip 最新固件说明
-
-1. 支持 eMMC 启动
-2. 增加默认启动设备顺序：USB > SD > NVMe > eMMC > UFS
-3. 增加启动设备选择
-4. 加快启动速度
-
-:::
+  - [flat_build_260120](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260120.zip)
 
 ## 硬件设计
 
