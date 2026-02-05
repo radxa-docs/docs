@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# Accessories
+# Accessories Usage
 
 :::tip Usage notes
 

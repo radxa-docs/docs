@@ -2,6 +2,6 @@
 sidebar_position: 5
 ---
 
-# MediaPipe development
+# MediaPipe Development
 
 <DocCardList />

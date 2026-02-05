@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Getting Started Guide
+# Getting Started
 
 This guide helps you quickly understand and start using the Radxa Cubie A7A board.
 

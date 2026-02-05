@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Install the System
+# Install System
 
 This guide explains how to use the Phoenix suite to install Android on the Cubie A7Z.
 

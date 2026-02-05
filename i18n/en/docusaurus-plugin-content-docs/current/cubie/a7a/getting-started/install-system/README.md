@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# System Installation
+# Install System
 
 The Radxa Cubie A7A supports booting from three types of storage media: MicroSD cards, UFS modules, and eMMC modules. Users can choose the appropriate boot medium based on their needs.
 

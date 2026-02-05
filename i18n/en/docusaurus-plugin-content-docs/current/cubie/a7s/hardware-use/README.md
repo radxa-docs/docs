@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Hardware
+# Hardware Usage
 
 This section introduces how to use the board hardware interfaces.
 

@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# ROS 1 development
+# ROS1 Development
 
 <DocCardList />

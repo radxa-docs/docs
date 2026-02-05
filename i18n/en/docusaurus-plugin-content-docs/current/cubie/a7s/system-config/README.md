@@ -2,6 +2,6 @@
 sidebar_position: 2
 ---
 
-# System configuration
+# System Usage
 
 <DocCardList />
