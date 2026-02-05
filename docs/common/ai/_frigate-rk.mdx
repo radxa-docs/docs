@@ -1,0 +1,258 @@
+[Frigate](https://frigate.video/) 是一个 专门为 [Home Assistant](https://www.home-assistant.io/) 设计的 NVR 项目。
+它能够充分调用本地硬件算力，并通过 AI 模型对监控画面进行实时的目标检测、识别与物体分类（如区分行人、车辆、宠物等）。
+
+:::tip
+Home Assistant，目前全球最流行的开源智能家居控制中心。
+:::
+
+更多相关内容参考[官方文档](https://docs.frigate.video/)或者[官方中文文档](https://docs.frigate-cn.video/)。
+
+本文档介绍如何在搭载 RK3588 芯片的瑞莎开发板上部署该项目。
+
+## 安装系统
+
+Frigate 官方建议使用 Debian12(Bookworm) 系统，参考设备对应的指引文档安装好系统。
+
+接下来你可以使用图形化界面或者 SSH 远程等方式进行下面的步骤。
+
+推荐使用 VSCode，可以参考 [VS Code Remote SSH 开发](./vscode-remote-ssh)连接到开发板。
+
+## 安装 Docker
+
+Frigate 项目以容器的方式进行部署。
+参考 [Docker安装](https://docs.docker.com/engine/install/debian/)
+在设备上安装好 Docker 以进行后续步骤。
+
+## 安装 Frigate
+
+创建初始目录结构。
+
+<NewCodeBlock tip='Device'>
+
+```bash
+mkdir frigate && cd frigate
+mkdir storage config && touch docker-compose.yml
+```
+
+</NewCodeBlock>
+
+将下面的内容粘贴到 docker-compose.yml 中。
+
+<NewCodeBlock tip='Device'>
+
+```bash
+services:
+  frigate:
+    container_name: frigate
+    restart: unless-stopped
+    stop_grace_period: 30s
+    image: docker.cnb.cool/frigate-cn/frigate:stable-rk # 这里指定拉取的镜像，针对不同的硬件有不同的镜像，我们选rk
+    volumes:
+      - ./config:/config
+      - ./storage:/media/frigate
+      - type: tmpfs
+        target: /tmp/cache
+        tmpfs:
+          size: 1000000000
+    security_opt:
+      - apparmor=unconfined
+      - systempaths=unconfined
+    devices:
+      - /dev/dri
+      - /dev/dma_heap
+      - /dev/rga
+      - /dev/mpp_service
+    ports:
+      - '8971:8971'
+      - '8555:8554' # RTSP 视频流，这里使用宿主机的8555端口而不是8554是因为后续模拟推流需要使用8554端口。如果你不需要模拟推流则用8554端口就行。不改也行。
+```
+
+</NewCodeBlock>
+
+:::tip
+Frigate 项目针对不同的硬件平台封装了不同版本的 Docker 容器，如有兴趣读者可自行探索其他平台的部署。
+:::
+
+接下来就可以运行下面的命令直接启动 Frigate 了。
+
+注意这个命令需要在包含 docker-compose.yml 的文件夹下面运行。
+
+<NewCodeBlock tip='Device'>
+
+```bash
+docker compose up -d
+```
+
+</NewCodeBlock>
+
+成功拉取并运行之后会在 https://your_device_ip:8971 开启前端界面服务。
+
+查看开发版 IP 地址：
+
+<NewCodeBlock tip='Device'>
+
+```bash
+hostname -I
+```
+
+</NewCodeBlock>
+
+然后将最前面的 IP 地址替换上面的 your_device_ip，在浏览器输入该地址即可进入。
+
+登录的账户和密码通过下面的命令查看：
+
+<NewCodeBlock tip='Device'>
+
+```bash
+docker logs frigate
+```
+
+</NewCodeBlock>
+
+日志消息可能比较长，需要找一下，如果找不到就在 VSCode 终端中用 Ctrl + F 输入 admin 等相关信息查找。
+
+接下来你可以使用前端界面的**配置编辑器**修改相关配置。
+
+![](/img/common/frigate-config.webp)
+
+## 模拟推流
+
+如果你暂时没有 IP 摄像头（有当然最好，直接使用即可），使用 FFmpeg + MediaMTX 模拟推流是一个很好的验证方式。
+
+使用方式也很简单，参考下面的步骤。
+
+### MediaMTX
+
+<NewCodeBlock tip='Device'>
+
+```bash
+mkdir mediamtx && cd mediamtx
+wget https://github.com/bluenviron/mediamtx/releases/download/v1.16.0/mediamtx_v1.16.0_linux_arm64.tar.gz
+tar -xvf mediamtx_v1.16.0_linux_arm64.tar.gz
+./mediamtx
+```
+
+</NewCodeBlock>
+
+然后就会在当前终端开启一个 RTSP 服务器，等待接收视频流信息。
+
+接下来新打开一个终端，使用 FFmpeg 进行推流。
+
+### FFmpeg
+
+<NewCodeBlock tip='Device'>
+
+```bash
+sudo apt install ffmpeg
+```
+
+</NewCodeBlock>
+
+然后你需要准备一个视频，这里使用 huggingface 公开数据集 KAI-KratosAI/Street-videos 的一个视频。
+
+<NewCodeBlock tip='Device'>
+
+```bash
+wget https://huggingface.co/datasets/KAI-KratosAI/Street-videos/resolve/0d33ede195de1fc061723d5dfa4623b30162af66/041896fb-20da-4625-9455-195172efc4d5.mp4_041896fb-20da-4625-9455-195172efc4d5.mp4#t=0.001
+mv 041896fb-20da-4625-9455-195172efc4d5.mp4_041896fb-20da-4625-9455-195172efc4d5.mp4 test.mp4
+ffmpeg -re -stream_loop -1 -i test.mp4 -c copy -f rtsp rtsp://localhost:8554/mystream
+```
+
+</NewCodeBlock>
+
+参数解释：
+
+- `-re`：以“本地速度”读取。如果不加这个，FFmpeg 会以极快的速度把视频塞给服务器，导致画面像快进一样。
+- `-stream_loop -1`：让视频无限循环。这对测试 Frigate 非常有用，不用担心视频播完就断开。
+- `-i test.mp4`：指定你的视频源文件。
+- `-c copy`：直接复制视频和音频编码，不重新编码。这最省 CPU，直接把原始数据包封装进 RTSP。
+- `-f rtsp`：指定输出格式为 RTSP。
+- `rtsp://localhost:8554/mystream`：推流地址。mystream 是你给这个流起的 ID。
+
+然后在前端界面修改配置文件：
+
+![](/img/common/frigate-config-rtsp-addr.webp)
+
+然后就可以在首页看到监控画面。
+
+## 启用 AI 模型
+
+首先要确保使用带有 Rockchip BSP 内核 5.10 或 6.1 以及必要驱动程序（特别是 rkvdec2 和 rknpu）的 Linux 发行版：
+
+<NewCodeBlock tip='Device'>
+
+```bash
+uname -r
+# 5.10.xxx-rockchip 或 6.1.xxx；-rockchip后缀很重要
+ls /dev/dri
+# by-path  card0  card1  renderD128  renderD129 应列出renderD128（VPU）和renderD129（NPU）
+sudo cat /sys/kernel/debug/rknpu/version
+# RKNPU driver: v0.9.2 或更高版本
+```
+
+</NewCodeBlock>
+
+然后在前端界面修改配置文件：
+
+```txt
+mqtt:
+  enabled: false
+
+detectors:
+  rknn_0:
+    type: rknn
+    num_cores: 3
+
+model: # required
+  # 模型名称（将自动下载）或自定义.rknn模型文件路径
+  # 可选值：
+  # - frigate-fp16-yolov9-t
+  # - frigate-fp16-yolov9-s
+  # - frigate-fp16-yolov9-m
+  # - frigate-fp16-yolov9-c
+  # - frigate-fp16-yolov9-e
+  # 或你的yolo_model.rknn容器内完整路径
+  # 参考官方文档获取更多模型配置相关信息
+  path: frigate-fp16-yolov9-t
+  model_type: yolo-generic
+  width: 320
+  height: 320
+  input_tensor: nhwc
+  labelmap_path: /labelmap/coco-80.txt
+
+# ffmpeg:
+#   hwaccel_args: preset-rkmpp # <-----这两行是官方文档中的优化配置，但是可能和 FFmpeg 推流冲突，故不启用
+
+go2rtc:
+  streams:
+    camera:
+      - rtsp://your_device_ip:8554/mystream # <----- 这里需要修改成你的 IP 地址！
+      - 'ffmpeg:back#video=h264#hardware'
+
+cameras:
+  name_of_your_camera: # <------ Name the camera
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://your_device_ip:8554/mystream # <----- The stream you want to use for detection
+          roles:
+            - detect
+    detect:
+      enabled: true # <---- disable detection until you have a working camera feed
+      width: 848
+      height: 464
+
+detect:
+  enabled: true
+version: 0.16-0
+```
+
+参考官方文档获取更多模型配置相关信息。
+
+修改完成之后重启 Frigate 即可。
+
+![](/img/common/frigate-ai-detection-case.webp)
+
+![](/img/common/frigate-ai-detection-result.webp)
+
+于是你成功在 RK3588 上部署 Frigate 。

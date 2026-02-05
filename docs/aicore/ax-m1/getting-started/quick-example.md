@@ -22,7 +22,7 @@ python3 -m venv .venv && source .venv/bin/activate
 
 ## 推理测试
 
-这里使用编译好的可执行程序快速验证环境，具体编译方法参考：[**AXCL-Samples 编译示例**](../axcl-samples.md)。
+这里使用编译好的可执行程序快速验证环境，具体编译方法参考：[**AXCL-Samples 编译示例**](../axcl-samples)。
 
 <NewCodeBlock tip="Host" type="device">
 
