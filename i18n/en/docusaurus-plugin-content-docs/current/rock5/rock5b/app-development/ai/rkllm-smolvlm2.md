@@ -1,5 +1,5 @@
 ---
-sidebar_position: 27
+sidebar_position: 28
 description: Use RKLLM SmolVLM2 on ROCK 5B
 ---
 

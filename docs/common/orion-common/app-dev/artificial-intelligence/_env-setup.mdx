@@ -1,9 +1,103 @@
-通过下面的命令安装相关依赖。
+## 获取 SDK
 
-<NewCodeBlock tip="Device" type="device">
+通过瑞莎下载站获取 NPU SDK 。
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+wget https://dl.radxa.com/orion/common/cix_noe_sdk_25_q3_release.tar.gz
+tar -xvf cix_noe_sdk_25_q3_release.tar.gz
+cd cix_noe_sdk_25_q3_release/
+```
+
+</NewCodeBlock>
+
+解压后的目录结构:
+
+```bash
+.
+├── CixBuilder-6.1.3407.2-cp310-none-linux_x86_64.whl
+├── cix-noe-umd_2.0.2_arm64.deb
+├── cix-npu-driver_2.0.1_arm64.deb
+├── env_setup.sh
+├── npu_sdk_last_manifest_list.xml
+└── requirements.txt
+```
+
+## 配置主机环境
+
+### 创建虚拟环境
+
+推荐使用 miniforge 来管理虚拟环境。
+
+[点击](https://github.com/conda-forge/miniforge/releases/download/25.11.0-0/Miniforge3-25.11.0-0-Linux-x86_64.sh) 下载安装脚本。
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+chmod +x Miniforge3-25.11.0-0-Linux-x86_64.sh
+bash Miniforge3-25.11.0-0-Linux-x86_64.sh
+```
+
+</NewCodeBlock>
+
+然后按照脚本指引安装即可。
+
+:::warning[Python 版本]
+SDK 只兼容 Python 3.10。
+:::
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+conda create -n noe python=3.10
+conda activate noe
+```
+
+</NewCodeBlock>
+
+### 使用脚本配置开发环境
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+bash env_setup.sh
+```
+
+</NewCodeBlock>
+
+### 验证编译环境
+
+在终端运行 `cixbuild -v` 验证编译环境。
+
+<NewCodeBlock tip="Linux PC" type="PC">
+
+```bash
+cixbuild -v
+```
+
+</NewCodeBlock>
+
+## 配置板端环境
+
+:::tip[NPU driver]
+瑞莎官方镜像已经预先安装好相关 NPU 驱动，无需重复安装。
+:::
+
+运行下面的命令确保板端相关环境正确安装即可。
+
+<NewCodeBlock tip="O6 / O6N" type="device">
 
 ```bash
 sudo apt install cix-drivers-dkms cix-noe-umd cix-npu-onnxruntime task-cix-npu
 ```
 
 </NewCodeBlock>
+
+:::info[UMD]
+UMD 即 User Mode Driver.
+
+UMD 以共享库的形式提供标准API。它负责解析应用程序的请求，并与NPU驱动程序协调，完成资源分配和任务提交。
+
+详细的 API 使用方法，请参考 [**API 手册**](./API-manual).
+:::
