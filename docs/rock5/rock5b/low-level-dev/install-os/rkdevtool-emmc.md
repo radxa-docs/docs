@@ -10,4 +10,4 @@ import EMMC from '../../../../common/radxa-os/rkdevtool/\_emmc.mdx';
 Loader 文件和系统镜像文件可以到 [资源下载汇总](../../download) 下载。
 :::
 
-<EMMC />
+<EMMC download_page="../../download" />
