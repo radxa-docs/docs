@@ -2,7 +2,7 @@
 sidebar_position: 99
 ---
 
-# Accessories
+# Accessories Usage
 
 This page lists the official accessories compatible with Cubie A7Z.
 

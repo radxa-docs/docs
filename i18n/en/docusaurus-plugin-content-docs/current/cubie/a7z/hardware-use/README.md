@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Hardware Use
+# Hardware Usage
 
 This section provides an overview of the hardware interfaces on the Cubie A7Z.
 

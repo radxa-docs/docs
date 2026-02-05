@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Low-level development
+# Low-level Development
 
 An introduction to low-level development on Radxa Cubie A7S.
 

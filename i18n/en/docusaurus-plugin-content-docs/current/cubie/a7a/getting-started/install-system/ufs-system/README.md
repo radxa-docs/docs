@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Installing System to UFS Module
+# Install System to UFS Module
 
 UFS modules offer significantly faster read/write speeds compared to MicroSD cards and eMMC modules, making them an excellent choice for users looking to enhance system performance and boot times.
 

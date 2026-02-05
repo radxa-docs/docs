@@ -32,7 +32,7 @@ sidebar_position: 8
 
 :::info A733 SoC 系统镜像发布页面
 
-- [Radxa Cubie A7Z](https://github.com/radxa-build/radxa-a733/releases)
+- [Radxa Cubie A7S](https://github.com/radxa-build/radxa-a733/releases)
 
 该页面会发布最新的正式版本和测试版本的系统镜像，测试版本以 `t` 开头，正式版本以 `r` 开头（旧版本的正式版本以 `b` 开头）。
 

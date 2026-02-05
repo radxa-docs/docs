@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# Build system
+# Build System
 
 <DocCardList />

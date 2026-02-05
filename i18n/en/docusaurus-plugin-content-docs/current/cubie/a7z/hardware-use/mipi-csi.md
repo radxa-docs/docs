@@ -12,9 +12,9 @@ For the specific location of the MIPI CSI interface, please refer to the interfa
 
 ## Supported Cameras
 
-- [4K Camera](https://radxa.com/products/accessories/camera4k)
-- [8M 219 Camera](https://radxa.com/products/accessories/camera-8m-219)
-- [13M 214 Camera](https://radxa.com/products/accessories/camera-13m-214)
+- [4K Camera](../accessories/camera-4k.md)
+- [8M 219 Camera](../accessories/camera-8m-219.md)
+- [13M 214 Camera](../accessories/camera-13m-214.md)
 
 ## Interface Specifications
 

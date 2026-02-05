@@ -2,6 +2,6 @@
 sidebar_position: 6
 ---
 
-# Other System
+# Other Systems
 
 <DocCardList />

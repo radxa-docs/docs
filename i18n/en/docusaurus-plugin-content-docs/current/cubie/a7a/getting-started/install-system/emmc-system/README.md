@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Installing System to eMMC Module
+# Install System to eMMC Module
 
 eMMC modules offer faster read/write speeds compared to MicroSD cards, making them an excellent choice for users looking to enhance their system's performance and boot times.
 
