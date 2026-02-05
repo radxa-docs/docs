@@ -16,7 +16,7 @@ sidebar_position: 150
 
 - Radxa OS
 
-**说明**：R1 正式版系统镜像需要使用 20251013 或更新版本的 SPI 启动固件。
+**说明**：R1 正式版系统镜像需要使用 20251230 或更新版本的 SPI 启动固件。
 
 - [radxa-dragon-q6a_noble_gnome_r1.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r1/radxa-dragon-q6a_noble_gnome_r1.output_512.img.xz)：适用于 MicroSD 卡 / U 盘 / eMMC / NVMe 启动系统
 - [radxa-dragon-q6a_noble_gnome_r1.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r1/radxa-dragon-q6a_noble_gnome_r1.output_4096.img.xz)：适用于 UFS 启动系统
