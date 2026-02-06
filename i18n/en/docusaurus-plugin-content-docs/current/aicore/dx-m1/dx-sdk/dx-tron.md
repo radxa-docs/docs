@@ -4,15 +4,15 @@ sidebar_position: 8
 
 # DX-Tron
 
-**DX-Tron (DXNN Model Viewer)** is a tool for inspecting DXNN model structures. It is developed based on [Netron](https://github.com/lutzroeder/netron) and supports Windows and Linux on x86 platforms.
+**DX-Tron (DXNN model viewer)** is a structure viewer for DXNN models. It is developed based on [Netron](https://github.com/lutzroeder/netron) and supports Windows and Linux on the x86 platform.
 
 ## Installation
 
-Download DX-Tron from the DX-M1 SDK [Downloads](../download.md) page.
+Download DX-Tron from the DX-M1 / DX-M1M SDK [Downloads page](../download.md).
 
 ### Linux
 
-#### Install Dependencies
+#### Install dependencies
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
@@ -23,7 +23,7 @@ sudo apt install -y libfuse2 libxss1 libxtst6 libappindicator1 libgconf-2-4 libn
 
 </NewCodeBlock>
 
-#### Add Execute Permission
+#### Add execute permission
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
@@ -57,7 +57,7 @@ In the GUI, click `Open Model` to open a DXNN model file and view its structure.
 
 <br />
 
-In the right panel of the GUI, you can choose to view the overall model graph, the NPU graph, or the CPU graph.
+In the panel on the right, you can switch between the full model graph, the NPU graph, and the CPU graph.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-dx-m1/dx-tron-2.webp"/>

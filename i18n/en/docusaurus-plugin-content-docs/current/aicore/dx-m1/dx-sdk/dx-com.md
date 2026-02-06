@@ -2,29 +2,29 @@
 sidebar_position: 2
 ---
 
-# DX-COM Model Compiler
+# DX-COM model compiler
 
-## Overview
+## Introduction
 
-**DX-COM (model compiler)** generates NPU instruction sets based on the provided ONNX model and configuration file, compiling the ONNX model into a DXNN model file that can run on the NPU. A DXNN file contains the generated instruction set and weight data.
+**DX-COM (model compiler)** generates an NPU instruction set based on the provided ONNX model and configuration file, compiling the ONNX model into the DXNN model format executable on the NPU. A DXNN file contains the generated instruction set and weight information.
 
-## System Requirements
+## System requirements
 
-| CPU          | x86 (x64)                      |
-| ------------ | ------------------------------ |
-| Memory (RAM) | ≥ 16GB                         |
-| Storage      | ≥ 8GB                          |
-| OS           | Ubuntu 18.04/20.04/22.04 (x64) |
-| LDD Version  | ≥ 2.28                         |
+| CPU          | x86（x64）                       |
+| ------------ | -------------------------------- |
+| Memory (RAM) | ≥ 16GB                           |
+| Storage      | ≥ 8GB                            |
+| OS           | Ubuntu 18.04, 20.04, 22.04 (x64) |
+| LDD version  | ≥ 2.28                           |
 
 ## Installation
 
-### Install Required Libraries
+### Install required libraries
 
 - libgl1-mesa-glx
 - libglib2.0-0
 
-Install the required libraries using the following command.
+Use the following command to install the required libraries.
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
@@ -34,11 +34,11 @@ sudo apt-get install -y --no-install-recommends libgl1-mesa-glx libglib2.0-0 mak
 
 </NewCodeBlock>
 
-### Download the DX-COM Package
+### Download the DX-COM package
 
-Download the DX-COM package from the DX-M1 SDK [Downloads](../download.md) page and extract it.
+Download the DX-COM package from the DX-M1 / DX-M1M SDK [Downloads page](../download.md) and extract it.
 :::tip
-[**DEEPX Developers**](https://developer.deepx.ai/) is now open for registration. Users can register and log in to download all SDK software from [**Sw-Download**](https://developer.deepx.ai/sw-download/).
+[**DEEPX Developers**](https://developer.deepx.ai/) is open for public registration. After registering and logging in, you can download all SDK software from [**S/W Download**](https://developer.deepx.ai/sw-download/).
 :::
 
 <NewCodeBlock tip="X86 PC" type="PC">
@@ -51,13 +51,13 @@ tar -xvf dx_com_M1_v2.1.0.tar.gz
 
 ## Usage
 
-### Model Configuration
+### Model configuration
 
-The parameters used for compilation must be configured in a JSON file.
+Parameters used for model compilation must be configured in a JSON file.
 
-#### Model Input Configuration
+#### Model input configuration
 
-Set the input layer name and input shape for the ONNX model.
+Specify the ONNX model input names and input shapes.
 
 ```vim
 inputs : ONNX input name shape info
@@ -77,20 +77,20 @@ inputs : ONNX input name shape info
   }
 ```
 
-#### Calibration Method Configuration
+#### Model calibration configuration
 
-Configure the parameters for the calibration method.
+Configure the calibration method parameters.
 
-**calibration_num**: number of images used for calibration.
+**calibration_num**: Number of images used for calibration.
 
-To minimize accuracy loss, try different `calibration_num` values. You can compile the model with different settings (e.g., `calibration_num=1`, `5`, `10`, `100`, or `1000`), measure the accuracy for each setting, and choose the one with the best accuracy.
+To minimize accuracy degradation, try different values of `calibration_num`. You can compile the model with different settings (such as `calibration_num=1`, `5`, `10`, `100`, or `1000`), measure the accuracy for each setting, and choose the value that yields the best accuracy.
 
-**calibration_method**: calibration method.
+**calibration_method**: Calibration method.
 
 Options: `["ema", "minmax"]`
 
 :::tip
-In most cases, `"ema"` provides better accuracy, but in some scenarios `"minmax"` may work better.
+In most cases, `"ema"` provides better accuracy, but in some cases `"minmax"` may work better.
 :::
 
 **Example:**
@@ -102,15 +102,15 @@ In most cases, `"ema"` provides better accuracy, but in some scenarios `"minmax"
 ...
 ```
 
-#### Data Loader Configuration
+#### Data loader configuration
 
-Configure the parameters for the calibration dataset. It is recommended to use the same dataset you use for training or inference.
+Configure calibration dataset parameters. It is recommended to use the same dataset that will be used for training or inference for calibration.
 
-- dataset_path: root directory of the calibration dataset (files will be searched recursively).
+- dataset_path: Root directory path of the calibration dataset (files will be searched recursively).
 
-- file_extensions: target image file extensions.
+- file_extensions: File extensions of target images.
 
-- preprocessings: image preprocessing steps.
+- preprocessings: Image preprocessing methods.
 
 **Example:**
 
@@ -132,32 +132,32 @@ Configure the parameters for the calibration dataset. It is recommended to use t
 ...
 ```
 
-Input Image Preprocessing Configuration
+Input image preprocessing configuration
 
-The preprocessing pipeline required before feeding images into the ONNX model. These configurations are used to preprocess the calibration dataset during compilation.
-Items marked with (\*) will be executed on the NPU side to reduce CPU workload. Therefore, preprocessing steps moved to the NPU should be omitted in runtime software. If no preprocessing is required, you can skip this section.
+The preprocessing pipeline required before feeding images into the ONNX model. These configurations are used to preprocess the calibration dataset during model compilation.
+Items marked with (\*) will be executed on the NPU side to reduce CPU workload. Therefore, preprocessing operations offloaded to the NPU should be omitted in the runtime software. If preprocessing is not needed, you can skip this section.
 
-| Preprocessing   | Parameters / Options                          | Description                                                                                                                                                                                                                            | Example                       |
-| --------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| `convertColor`  | `RGB2BGR`, `BGR2RGB`, `BGR2GRAY`, `BGR2YCrCb` | Convert color channel order                                                                                                                                                                                                            | `"RGB2BGR"`                   |
-| `resize`        | `mode`                                        | `default` (opencv) or `torchvision`                                                                                                                                                                                                    | `"default"` / `"torchvision"` |
-|                 | `width`, `height`                             | Target image size (default mode only)                                                                                                                                                                                                  | `width: 224`, `height: 224`   |
-|                 | `size`                                        | Target short-side size (torchvision mode only)                                                                                                                                                                                         | `size: 256`                   |
-|                 | `interpolation`                               | Interpolation (optional)<br />Options for **`default`**: "NEAREST", "LINEAR"(default), "AREA", "CUBIC", "LANCZOS4" <br /> Options for **`torchvision`**: <br /> "NEAREST", "LANCZOS", "BILINEAR"(default), "BICUBIC", "BOX", "HAMMING" | `LINEAR`, `BILINEAR`          |
-| `centercrop`    | `width`, `height`                             | Crop the given size from the image center                                                                                                                                                                                              | `width: 224`, `height: 224`   |
-| `transpose`     | `axis`                                        | Dimension order (permute)                                                                                                                                                                                                              | `[2, 0, 1]`                   |
-| `normalize (*)` | `mean`, `std`                                 | Normalization; supports scalar or array                                                                                                                                                                                                | `[0.5,0.5,0.5]`               |
-| `mul (*)`       | `x`                                           | Multiply all pixels by a value                                                                                                                                                                                                         | `x: 255`                      |
-| `add (*)`       | `x`                                           | Add a value to all pixels                                                                                                                                                                                                              | `x: 0.1`                      |
-| `subtract (*)`  | `x`                                           | Subtract a value from all pixels                                                                                                                                                                                                       | `x: 0.1`                      |
-| `div (*)`       | `x`                                           | Divide all pixels by a value                                                                                                                                                                                                           | `x: 255.0`                    |
-| `expandDim`     | `axis`                                        | Expand one dimension at the specified axis                                                                                                                                                                                             | `axis: 0`                     |
+| Preprocessing item | Parameter/sub-option                          | Description                                                                                                                                                                                                                    | Example                       |
+| ------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- |
+| `convertColor`     | `RGB2BGR`, `BGR2RGB`, `BGR2GRAY`, `BGR2YCrCb` | Convert color channel order                                                                                                                                                                                                    | `"RGB2BGR"`                   |
+| `resize`           | `mode`                                        | `default` (opencv) or `torchvision`                                                                                                                                                                                            | `"default"` / `"torchvision"` |
+|                    | `width`, `height`                             | Target image size (default mode only)                                                                                                                                                                                          | `width: 224`, `height: 224`   |
+|                    | `size`                                        | Target short-side length (torchvision mode only)                                                                                                                                                                               | `size: 256`                   |
+|                    | `interpolation`                               | Interpolation method (optional)<br />**`default`** mode: "NEAREST", "LINEAR"(default), "AREA", "CUBIC", "LANCZOS4" <br /> **`torchviion`** mode: <br /> "NEAREST", "LANCZOS", "BILINEAR"(default), "BICUBIC", "BOX", "HAMMING" | `LINEAR`, `BILINEAR`          |
+| `centercrop`       | `width`, `height`                             | Crop the image from the center to the specified size                                                                                                                                                                           | `width: 224`, `height: 224`   |
+| `transpose`        | `axis`                                        | Dimension transpose order                                                                                                                                                                                                      | `[2, 0, 1]`                   |
+| `normalize (*)`    | `mean`, `std`                                 | Normalization; supports scalar or arrays                                                                                                                                                                                       | `[0.5,0.5,0.5]`               |
+| `mul (*)`          | `x`                                           | Multiply all pixels by a value                                                                                                                                                                                                 | `x: 255`                      |
+| `add (*)`          | `x`                                           | Add a value to all pixels                                                                                                                                                                                                      | `x: 0.1`                      |
+| `subtract (*)`     | `x`                                           | Subtract a value from all pixels                                                                                                                                                                                               | `x: 0.1`                      |
+| `div (*)`          | `x`                                           | Divide all pixels by a value                                                                                                                                                                                                   | `x: 255.0`                    |
+| `expandDim`        | `axis`                                        | Expand a dimension at the specified position                                                                                                                                                                                   | `axis: 0`                     |
 
 :::info
 Items marked with (\*) will be executed on the NPU side.
 :::
 
-#### Model Configuration Example
+#### Model configuration example
 
 ```json
 "preprocessings": [               # Set pre-processings for Inference in order.
@@ -215,34 +215,33 @@ Items marked with (\*) will be executed on the NPU side.
 ]
 ```
 
-#### Enhanced Accuracy Scheme Configuration
+#### Accuracy enhancement scheme configuration
 
-To further improve model accuracy, you can enable the Enhanced Scheme options named **DXQ-P0 \~ DXQ-P5**.
+To further improve model accuracy, you can choose to use an Enhanced Scheme named **DXQ-P0 \~ DXQ-P5**.
 
 :::tip
 
 - Each scheme is independent, so you can enable multiple schemes at the same time.
-- These schemes **do not always improve accuracy**; evaluate the results based on your use case.
+- These schemes **do not necessarily improve accuracy in every case**. Evaluate the effect based on your actual workload.
 - Enabling these schemes in a **CPU-only environment can significantly increase compilation time**.
   :::
 
-| Scheme ID  | Name                   | Parameter Description                                                                                                                          |
-| ---------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **DXQ-P0** | Fusing                 | `alpha`: fusing ratio, range `0 < alpha < 1.0`, **recommended: 0.5**                                                                           |
-| **DXQ-P1** | Search Best Parameters | `true/false`; enabling it significantly increases CPU compilation time                                                                         |
-| **DXQ-P2** | Relax Range Search     | `alpha`: min ratio of calibration range, `0 < alpha < beta`, recommended: **0.1**; `beta`: max ratio, `alpha < beta < ∞`, recommended: **1.0** |
-| **DXQ-P3** | Fine-tuning (Method 1) | `num_samples`: number of samples for calibration, `0 < num_samples < ∞`, **recommended: 1024**                                                 |
-| **DXQ-P4** | Fine-tuning (Method 2) | Same as DXQ-P3                                                                                                                                 |
-| **DXQ-P5** | Fine-tuning (Method 3) | Same as DXQ-P3                                                                                                                                 |
+| Scheme     | Name                                                 | Parameter description                                                                                                                                               |
+| ---------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **DXQ-P0** | Fusing operations                                    | `alpha`: fusion ratio, range `0 < alpha < 1.0`, **recommended: 0.5**                                                                                                |
+| **DXQ-P1** | Search optimal parameters                            | `true/false`. Enabling this will significantly increase CPU compilation time                                                                                        |
+| **DXQ-P2** | Relax calibration range to search optimal parameters | `alpha`: min ratio of calibration range, `0 < alpha < beta`, recommended: **0.1**; `beta`: max ratio of calibration range, `alpha < beta < ∞`, recommended: **1.0** |
+| **DXQ-P3** | Parameter fine-tuning (method 1)                     | `num_samples`: number of samples used for calibration, `0 < num_samples < ∞`, **recommended: 1024**                                                                 |
+| **DXQ-P4** | Parameter fine-tuning (method 2)                     | Same as DXQ-P3                                                                                                                                                      |
+| **DXQ-P5** | Parameter fine-tuning (method 3)                     | Same as DXQ-P3                                                                                                                                                      |
 
 :::tip
-Although DXQ-P3, DXQ-P4, and DXQ-P5 share the same parameters, they use **different fine-tuning methods**.
+DXQ-P3, DXQ-P4, and DXQ-P5 use the same parameters, but apply **different fine-tuning methods**.
 :::
 
 **Enhanced scheme configuration example**
 
 ```json
-  '''
   "enhanced_scheme": {
     "DXQ-P0": {
         "alpha": 0.5
@@ -263,13 +262,11 @@ Although DXQ-P3, DXQ-P4, and DXQ-P5 share the same parameters, they use **differ
         "num_samples": 1024
     }
   },
-}
 ```
 
-**Enhanced scheme enable/disable example**
+**Enhanced scheme single-switch configuration example**
 
 ```json
-  '''
   "enhanced_scheme": {
     "DXQ-P0": false,      # this line can be remove for not using 'DXQ-P0' scheme
     "DXQ-P1": false,
@@ -278,45 +275,42 @@ Although DXQ-P3, DXQ-P4, and DXQ-P5 share the same parameters, they use **differ
     "DXQ-P4": false,
     "DXQ-P5": false
   },
- '''
 ```
 
-| Name   | Compile Speed | Accuracy Improvement Tendency |
-| ------ | ------------- | ----------------------------- |
-| DXQ-P0 | Very fast     | Low                           |
-| DXQ-P1 | Fast          | Low-Medium                    |
-| DXQ-P2 | Slow          | Medium-High                   |
-| DXQ-P3 | Very slow     | High                          |
-| DXQ-P4 | Very slow     | High                          |
-| DXQ-P5 | Very slow     | High                          |
+| Name   | Compile speed | Likelihood of accuracy improvement |
+| ------ | ------------- | ---------------------------------- |
+| DXQ-P0 | Very fast     | Low                                |
+| DXQ-P1 | Fast          | Low-Medium                         |
+| DXQ-P2 | Slow          | Medium-High                        |
+| DXQ-P3 | Very slow     | High                               |
+| DXQ-P4 | Very slow     | High                               |
+| DXQ-P5 | Very slow     | High                               |
 
-### PPU Post-processing Acceleration
+### PPU post-processing acceleration
 
-PPU (Post-Processing Unit) provides hardware-accelerated post-processing for object detection models. If your target model uses a YOLO-family architecture, you can add PPU configuration parameters in the model compilation config file.
+PPU (Post-Processing Unit) provides hardware-accelerated post-processing for object detection models. If your model uses a YOLO-family architecture, you can add PPU configuration parameters to the model compilation config file.
 
-#### Supported PPU Types
+#### Supported PPU types
 
-There are two supported object detection model architectures for PPU:
+There are two object detection model architectures that support PPU.
 
 - **Type 0 (Anchor-Based YOLO)**
 
-  Designed for anchor-based models, such as YOLOv3, YOLOv4, YOLOv5, and YOLOv7.
+  Designed for anchor-based models such as YOLOv3, YOLOv4, YOLOv5, and YOLOv7.
 
 - **Type 1 (Anchor-Free YOLO)**
 
-  Designed for anchor-free models, such as YOLOX.
+  Designed for anchor-free models such as YOLOX.
 
-#### Identify ONNX Nodes That Can Use PPU
+#### Identify ONNX nodes that can use PPU
 
 <Tabs queryString="backend">
 
     <TabItem value="Type 0">
 
+Trace back from the model outputs and locate the output heads where the `Conv` output shape is [1, num_anchors*(5+num_classes), H, W]. After these conv layers, `reshape`, `permute`, and other post-processing operations are typically applied.
 
-    Trace backward from the model outputs to find detection heads whose `Conv` output shape is `[1, num_anchors*(5+num_classes), H, W]`. These conv outputs are typically followed by `reshape`, `permute`, and other post-processing operations.
-
-    Using [yolo5s.onnx](https://github.com/ultralytics/yolov5/releases/download/v6.0/yolov5s.onnx) as an example: YOLOv5s has `num_anchors=3` and `num_classes=80`, so the `Conv` nodes to look for have output shape `[1, 255, H, W]`.
-    By tracing backward from the model outputs, you can identify three `Conv` nodes: `Conv_196`, `Conv_308`, and `Conv_420`. Configure these node names in the PPU section of the compilation config file.
+Take [yolo5s.onnx](https://github.com/ultralytics/yolov5/releases/download/v6.0/yolov5s.onnx) as an example. For yolov5s, num_anchors is 3 and num_classes is 80, so you should find `Conv` nodes with a [1, 255, H, W] output feature. By tracing back from the model outputs, you can identify the three `Conv` nodes: `Conv_196`, `Conv_308`, and `Conv_420`, and configure these node names in the PPU section of the compilation config file.
 
     <div style={{textAlign: 'center'}}>
        <img src="/en/img/aicore-dx-m1/ppu-type0.webp"/>
@@ -324,8 +318,7 @@ There are two supported object detection model architectures for PPU:
     </div>
 
     ```json
-    '''
-      "ppu": {
+    "ppu": {
         "type":0,
         "conf_thres":0.25,
         "activation": "Sigmoid",
@@ -342,23 +335,21 @@ There are two supported object detection model architectures for PPU:
           }
         }
       },
-    '''
     ```
 
     </TabItem>
 
     <TabItem value="Type 1">
 
-    Trace backward from the model outputs. For each detection scale, identify three types of `Conv` nodes: `bbox`, `obj_conf`, and `cls_conf`.
+Trace back from the model outputs. For each detection scale, find three types of `Conv` nodes: `bbox`, `obj_conf`, and `cls_conf`.
 
-    - `bbox`: conv layer that outputs bounding box regression values `[1, 4, H, W]`
+- `bbox`: conv layer that outputs bounding box regression values [1,4,H,W]
 
-    - `obj_conf`: conv layer that outputs object confidence scores `[1, 1, H, W]`
+- `obj_conf`: conv layer that outputs object confidence scores [1,1,H,W]
 
-    - `cls_conf`: conv layer that outputs class prediction scores (e.g. `[1, 80, H, W]`)
+- `cls_conf`: conv layer that outputs class prediction scores [1,80,HW]
 
-    Using [YOLOXS-1.onnx](https://sdk.deepx.ai/modelzoo/onnx/YOLOXS-1.onnx) as an example: YOLOXS has three scales. You need to identify nine `Conv` nodes in total (`bbox`, `obj_conf`, `cls_conf` for each scale).
-    By tracing backward from the model outputs, you can identify these 9 `Conv` nodes and then configure their names in the PPU section of the compilation config file.
+Take [YOLOXS-1.onnx](https://sdk.deepx.ai/modelzoo/onnx/YOLOXS-1.onnx) as an example. YOLOXS has three scales. You need to locate a total of nine `Conv` nodes for `bbox`, `obj_conf`, and `cls_conf`. By tracing back from the outputs, you can identify these 9 `Conv` nodes and configure them in the PPU section of the compilation config file.
 
     <div style={{textAlign: 'center'}}>
        <img src="/en/img/aicore-dx-m1/ppu-type1.webp"/>
@@ -366,8 +357,7 @@ There are two supported object detection model architectures for PPU:
     </div>
 
     ```json
-    '''
-      "ppu": {
+    "ppu": {
         "type":1,
         "conf_thres":0.25,
         "num_classes": 80,
@@ -389,28 +379,27 @@ There are two supported object detection model architectures for PPU:
         }
         ]
       },
-    '''
     ```
 
     </TabItem>
 
 </Tabs>
 
-#### Parameter Description
+#### Parameter description
 
-| Parameter        | Type   | Description                                                                                                          |
-| ---------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
-| `type`           | int    | Model type identifier. Setting `type=1` indicates an **Anchor-Free YOLO model**.                                     |
-| `conf_thres`     | float  | Confidence threshold for filtering detections.<br/>**Note: fixed at compile time and cannot be changed at runtime.** |
-| `num_classes`    | int    | Number of classes supported by the model.                                                                            |
-| `layer`          | list   | Detection head configuration list. Each element corresponds to one head and contains the following fields:           |
-| `layer.bbox`     | string | Layer name that outputs **Bounding Box** coordinates.                                                                |
-| `layer.obj_conf` | string | Layer name that outputs **Object Confidence**.                                                                       |
-| `layer.cls_conf` | string | Layer name that outputs **Class Confidence**.                                                                        |
+| Parameter        | Type   | Description                                                                                                                               |
+| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`           | int    | Model type identifier. Set to `1` for **Anchor-Free YOLO models**                                                                         |
+| `conf_thres`     | float  | Confidence threshold for filtering detection results.<br/>**Note: This value is fixed at compile time and cannot be changed at runtime.** |
+| `num_classes`    | int    | Number of object categories supported by the model                                                                                        |
+| `layer`          | list   | Detection layer configuration list. Each element corresponds to one detection head and contains the following fields:                     |
+| `layer.bbox`     | string | Layer name that outputs **bounding box coordinates (Bounding Box)**                                                                       |
+| `layer.obj_conf` | string | Layer name that outputs **object confidence (Object Confidence)**                                                                         |
+| `layer.cls_conf` | string | Layer name that outputs **class confidence (Class Confidence)**                                                                           |
 
-### Run Model Compilation
+### Run model compilation
 
-After finishing the model configuration file, compile the model using the following command.
+After completing the model configuration file, use the following command to compile the model.
 
 <NewCodeBlock tip="X86 PC" type="PC">
 
@@ -424,10 +413,10 @@ dx_com  -m <MODEL_PATH> -c <CONFIG_PATH> -o <OUTPUT_DIR>
 
 </NewCodeBlock>
 
-#### Compilation Examples
+#### Compilation example
 
 :::tip
-The `sample` directory under dx-com contains multiple example compilation config files.
+The `sample` directory under dx-com contains multiple example compilation configuration files.
 :::
 
 <NewCodeBlock tip="X86 PC" type="PC">
@@ -449,21 +438,21 @@ $./dx_com/dx_com    \
 </NewCodeBlock>
 
 :::tip
-**DX-COM** only supports models with batch size 1. If the model input shape is (**batchsize**, C, H, W) or (**batchsize**, H, W, C), make sure `batchsize` is set to 1.
+**DX-COM** only supports models with batch size 1. If your model input shape is (**batchsize**,C,H,W) or (**batchsize**,H,W,C), make sure batchsize is 1.
 :::
 
 After successful compilation, the DXNN model will be saved under the `output/mobilenetv1` directory.
 
-## Build DX-COM Documentation
+## Build DX-COM documentation
 
 :::tip
-For more details on how to use DX-COM, please build the full documentation and refer to it.
+For more details on how to use DX-COM, build the full documentation and refer to it.
 :::
 
-### Clone the DX-ALL-SUITE Repository
+### Clone the DX-ALL-SUITE repository
 
 :::tip
-Clone the specified DX-ALL-SUITE version following [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite).
+Follow [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite) to clone the specified version of the DX-ALL-SUITE repository.
 :::
 
 ### Install MkDocs
@@ -476,7 +465,7 @@ pip install mkdocs mkdocs-material mkdocs-video pymdown-extensions mkdocs-with-p
 
 </NewCodeBlock>
 
-### Build Documentation
+### Build the docs
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -487,11 +476,11 @@ mkdocs build
 
 </NewCodeBlock>
 
-After the build completes, `DEEPX_DX-COM_UM_v2.1.0_Nov_2025.pdf` will be generated in the current directory.
+After the build finishes, `DEEPX_DX-COM_UM_v2.1.0_Nov_2025.pdf` will be generated in the current directory.
 
-### Start the Documentation Server
+### Serve the docs
 
-You can access the documentation in a web browser.
+You can access the documentation website in a browser.
 
 <NewCodeBlock tip="Host" type="device">
 

@@ -9,7 +9,7 @@ sidebar_position: 8
 
 ## 安装方法
 
-请在 DX-M1 SDK [资源下载](../download.md)页面下载 DX-Tron
+请在 DX-M1 / DX-M1M SDK [资源下载](../download.md)页面下载 DX-Tron
 
 ### Linux 安装方法
 

@@ -4,13 +4,13 @@ sidebar_position: 4
 
 # DXRT-NPU-Driver
 
-**DXRT-NPU-Driver** is the driver software for the Radxa AI Core DX-M1. You need to install this driver on the host where the DX-M1 is installed.
+**DXRT-NPU-Driver** is the driver for Radxa AIcore DX-M1 / DX-M1M. Install this driver on the host machine that has AIcore DX-M1 / DX-M1M installed.
 
 ## Installation
 
-### Check Hardware Connection
+### Check hardware connectivity
 
-Install the Radxa AI Core DX-M1 by following [Hardware Installation](../hardware_install).
+Follow [Hardware installation](../hardware-install) to install AIcore DX-M1 / DX-M1M.
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -24,13 +24,13 @@ lspci
 0001:11:00.0 Processing accelerators: DEEPX Co., Ltd. DX_M1 (rev 01)
 ```
 
-On some systems, the device name may not be shown and you may see the following output instead:
+On some systems, the device name is not shown, and you may see the following output instead:
 
 ```bash
 0b:00.0 1200: 1ff4:0000
 ```
 
-### Install System Dependencies
+### Install system dependencies
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -40,13 +40,13 @@ sudo apt install git gcc g++ cmake ninja-build python3-dev python3-venv kmod lib
 
 </NewCodeBlock>
 
-### Clone the DX-ALL-SUITE Repository
+### Clone the DX-ALL-SUITE repository
 
 :::tip
-Clone the specified DX-ALL-SUITE version following [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite).
+Follow [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite) to clone the specified version of the DX-ALL-SUITE repository.
 :::
 
-### Install the Driver
+### Install the driver
 
 Enter the `dx-all-suite/dx-runtime/dx_rt_npu_linux_driver/modules` directory.
 
@@ -59,17 +59,17 @@ cd dx-all-suite/dx-runtime/dx_rt_npu_linux_driver/modules
 </NewCodeBlock>
 
 :::tip
-There are three ways to install DXRT-NPU-Driver. Choose any one of the following:
+There are three ways to install DXRT-NPU-Driver. Choose any one of them:
 
-- Install via .deb package
+- Install via a deb package
 
-- Build via script
+- Build using the script
 
-- Build via Makefile
+- Build using the Makefile
 
 :::
 
-#### Install via .deb Package
+#### Install via a deb package
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -79,7 +79,7 @@ sudo apt install ./release/latest/dxrt-driver-dkms_1.8.0-2_all.deb
 
 </NewCodeBlock>
 
-#### Build via Script
+#### Build using the script
 
 Build dx-npu-driver using the `build.sh` script.
 
@@ -122,9 +122,9 @@ sudo reboot
 
 </NewCodeBlock>
 
-#### Build via Makefile
+#### Build using the Makefile
 
-Build dx-npu-driver using make.
+Build dx-npu-driver with make.
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -145,7 +145,7 @@ sudo cp dx_dma.conf /etc/modprobe.d/
 
 </NewCodeBlock>
 
-Reboot the host.
+Reboot the host
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -155,7 +155,7 @@ sudo reboot
 
 </NewCodeBlock>
 
-### Check Driver Status
+### Check driver status
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -171,9 +171,9 @@ dxrt_driver            45056  2
 dx_dma                483328  9 dxrt_driver
 ```
 
-### Uninstall the Driver
+### Uninstall
 
-#### Uninstall (Installed via .deb)
+#### Uninstall (deb package)
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -183,7 +183,7 @@ sudo apt remove dxrt-driver-dkms
 
 </NewCodeBlock>
 
-#### Uninstall (Installed via script)
+#### Uninstall (script build)
 
 <NewCodeBlock tip="Host" type="device">
 

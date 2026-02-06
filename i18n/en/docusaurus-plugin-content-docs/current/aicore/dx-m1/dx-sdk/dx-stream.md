@@ -4,8 +4,8 @@ sidebar_position: 9
 
 # DX-STREAM
 
-DX-STREAM is a custom GStreamer plugin for integrating real-time streaming data into AI inference applications based on the DEEPX NPU.
-It provides a modular pipeline framework with configurable pre-processing, inference, and post-processing components, designed specifically for vision AI workloads. DX-STREAM enables developers to build flexible, high-performance applications for scenarios such as video analytics, smart cameras, and edge AI systems.
+DX-STREAM is a custom GStreamer plugin used to integrate real-time streaming data into AI inference applications based on the DEEPX NPU.
+It provides a modular pipeline framework with configurable pre-processing, inference, and post-processing components, designed for computer vision workloads. DX-STREAM enables developers to build flexible, high-performance applications for scenarios such as video analytics, smart cameras, and edge AI systems.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/aicore-dx-m1/dx-stream-arch.webp"/>
@@ -14,10 +14,10 @@ It provides a modular pipeline framework with configurable pre-processing, infer
 
 ## Installation
 
-### Clone the DX-ALL-SUITE Repository
+### Clone the DX-ALL-SUITE repository
 
 :::tip
-Clone the specified DX-ALL-SUITE version following [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite).
+Follow [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite) to clone the specified version of the DX-ALL-SUITE repository.
 :::
 
 ### Build DX-STREAM
@@ -32,7 +32,7 @@ cd dx-all-suite/dx-runtime/dx_stream
 
 </NewCodeBlock>
 
-#### Install Required Dependencies
+#### Install required dependencies
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -100,9 +100,9 @@ Plugin Details:
 
 </NewCodeBlock>
 
-## Running Examples
+## Examples
 
-### Download Sample Models and Videos
+### Download sample models and videos
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -112,7 +112,7 @@ Plugin Details:
 
 </NewCodeBlock>
 
-### Run the Demo
+### Run the demo
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -122,7 +122,7 @@ Plugin Details:
 
 </NewCodeBlock>
 
-After running `run_demo.sh`, select a demo from the menu.
+After running `run_demo.sh`, select the demo from the list of options.
 
 ```bash
 (.venv) rock@rock-5b-plus:~/ssd/deepx/v2.1.0/docs/dx-all-suite/dx-runtime/dx_stream$ ./run_demo.sh
@@ -148,10 +148,10 @@ which AI demo do you want to run:(timeout:10s, default:0)
    DX-STREAM Demo
 </div>
 
-## Build DX-STREAM Documentation
+## Build DX-STREAM documentation
 
 :::tip
-For more details on how to use DX-STREAM, please build the full documentation and refer to it.
+For more details on how to use DX-STREAM, build the full documentation and refer to it.
 :::
 
 ### Install MkDocs
@@ -164,7 +164,7 @@ pip install mkdocs mkdocs-material mkdocs-video pymdown-extensions mkdocs-with-p
 
 </NewCodeBlock>
 
-### Build Documentation
+### Build the docs
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -175,11 +175,11 @@ mkdocs build
 
 </NewCodeBlock>
 
-After the build completes, `DEEPX_DX-STREAM_UM_v2.1.0.pdf` will be generated in the current directory.
+After the build finishes, `DEEPX_DX-STREAM_UM_v2.1.0.pdf` will be generated in the current directory.
 
-### Start the Documentation Server
+### Serve the docs
 
-You can access the documentation in a web browser.
+You can access the documentation website in a browser.
 
 <NewCodeBlock tip="Host" type="device">
 
