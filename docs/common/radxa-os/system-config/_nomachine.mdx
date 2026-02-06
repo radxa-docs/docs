@@ -129,57 +129,19 @@ wget <download_url>
 
 :::
 
-### 安装依赖包
-
-安装虚拟显示器驱动，这是 NoMachine 远程桌面正常工作所必需的：
-
-<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-
-```
-sudo apt update
-sudo apt install xserver-xorg-video-dummy -y
-```
-
-</NewCodeBlock>
-
 ### 配置虚拟显示器
 
-创建虚拟显示器配置文件，使 NoMachine 能够在没有物理显示器的情况下正常工作：
+修改配置文件，使 NoMachine 能够在没有物理显示器的情况下正常工作：
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
-sudo nano /usr/share/X11/xorg.conf.d/10-dummy.conf
+sudo nano /usr/NX/etc/node.cfg
 ```
 
 </NewCodeBlock>
 
-将以下配置内容复制到文件中并保存：
-
-```
-Section "Device"
-    Identifier "DummyDevice"
-    Driver "dummy"
-    VideoRam 256000
-EndSection
-
-Section "Monitor"
-    Identifier "DummyMonitor"
-    HorizSync 28.0-80.0
-    VertRefresh 48.0-75.0
-    Option "DPMS" "false"
-EndSection
-
-Section "Screen"
-    Identifier "DummyScreen"
-    Device "DummyDevice"
-    Monitor "DummyMonitor"
-    SubSection "Display"
-        Depth 24
-        Modes "1920x1080"
-    EndSubSection
-EndSection
-```
+将文件内的 `PhysicalDisplays :0` 改为 `PhysicalDisplays :1`，然后保存文件。
 
 ### 重启系统
 

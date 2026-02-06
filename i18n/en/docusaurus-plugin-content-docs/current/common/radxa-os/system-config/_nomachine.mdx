@@ -129,57 +129,19 @@ wget <download_url>
 
 :::
 
-### Install Dependencies
-
-Install the virtual display driver, which is required for NoMachine remote desktop to work properly:
-
-<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-
-```
-sudo apt update
-sudo apt install xserver-xorg-video-dummy -y
-```
-
-</NewCodeBlock>
-
 ### Configure Virtual Display
 
-Create a virtual display configuration file to allow NoMachine to work properly without a physical display:
+Modify the configuration file so that NoMachine can work properly without a physical display:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```
-sudo nano /usr/share/X11/xorg.conf.d/10-dummy.conf
+sudo nano /usr/NX/etc/node.cfg
 ```
 
 </NewCodeBlock>
 
-Copy the following configuration content to the file and save:
-
-```
-Section "Device"
-    Identifier "DummyDevice"
-    Driver "dummy"
-    VideoRam 256000
-EndSection
-
-Section "Monitor"
-    Identifier "DummyMonitor"
-    HorizSync 28.0-80.0
-    VertRefresh 48.0-75.0
-    Option "DPMS" "false"
-EndSection
-
-Section "Screen"
-    Identifier "DummyScreen"
-    Device "DummyDevice"
-    Monitor "DummyMonitor"
-    SubSection "Display"
-        Depth 24
-        Modes "1920x1080"
-    EndSubSection
-EndSection
-```
+Change `PhysicalDisplays :0` to `PhysicalDisplays :1` in the file, then save it.
 
 ### Restart System
 

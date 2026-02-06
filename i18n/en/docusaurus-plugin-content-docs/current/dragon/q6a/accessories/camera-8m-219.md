@@ -36,6 +36,7 @@ sudo apt install \
     qtdeclarative5-dev \
     libqt5opengl5-dev \
     qml-module-qtquick-controls \
+    libgles2-mesa-dev \
     qml-module-qtquick2 -y
 ```
 
@@ -77,49 +78,30 @@ sudo nano /usr/local/share/libcamera/ipa/simple/imx219.yaml
 Copy the following content into `/usr/local/share/libcamera/ipa/simple/imx219.yaml`.
 
 ```
+# SPDX-License-Identifier: CC0-1.0
 %YAML 1.1
 ---
 version: 1
 algorithms:
   - BlackLevel:
   - Awb:
-      bayes:
-        k: 0.02
-        sigma: 0.1
-      priors:
-        - lux: 400
-          prior: [2.2, 1.0, 1.2]
-        - lux: 100
-          prior: [2.7, 1.0, 1.9]
-  # Optional but recommended for IMX219
+      # Manual white balance guidance (important)
+      gains:
+        red: 1.8
+        green: 1.0
+        blue: 1.4
   - Ccm:
       ccms:
-        - ct: 4500
-          ccm:
-            [ 1.31, -0.59, 0.28,
-             -0.32,  1.73, -0.41,
-             -0.04, -0.98, 2.02 ]
         - ct: 6500
-          ccm:
-            [ 1.48, -0.74, 0.26,
-             -0.35,  1.86, -0.51,
-             -0.06, -1.09, 2.15 ]
-  - Lut:
-      curve:
-        - [0, 0]
-        - [1024, 487]
-        - [2048, 1096]
-        - [3072, 1780]
-        - [4096, 2593]
-        - [5120, 3410]
-        - [6144, 4095]
+          ccm: [
+            1.35, -0.25, -0.10,
+           -0.10,  0.80, -0.10,
+           -0.05, -0.30,  1.35
+          ]
   - Agc:
+      # Prevent grayish auto exposure
+      target: 0.55
       speed: 0.2
-      metering-mode: centre-weighted
-      exposure-mode: normal
-      constraint-mode: normal
-      fixed-shutter: 0
-      fixed-analogue-gain: 0.0
 ...
 ```
 
@@ -141,7 +123,7 @@ Open the system desktop terminal, go to the libcamera build directory, and start
 
 ```
 cd libcamera/build/src/apps/qcam/
-./qcam --renderer=gles --stream pixelformat=YUYV,width=1920,height=1080
+./qcam --stream pixelformat=YUYV,width=1920,height=1080
 ```
 
 </NewCodeBlock>
