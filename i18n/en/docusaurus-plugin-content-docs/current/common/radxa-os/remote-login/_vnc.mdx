@@ -1,0 +1,341 @@
+import { Image } from "@site/src/utils/docs";
+
+## Notes
+
+VNC remote login requires both devices to be on the same LAN and the target device to have a graphical desktop environment. VNC must be enabled on both devices.
+
+## Controller (PC)
+
+### Download VNC Viewer
+
+### Download VNC Viewer
+
+Install VNC Viewer on the controller device to control the board.
+
+Download the VNC Viewer installer from the official [RealVNC](https://www.realvnc.com/en/connect/download/viewer) website.
+
+① : Select the operating system platform of the controller device
+
+② : Download the VNC Viewer installer
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-download.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+### Install VNC Viewer
+
+<Tabs queryString="install-vnc">
+
+<TabItem value="Windows">
+
+After downloading the Windows `*.exe` installer:
+
+- Run the installer
+
+Run the `VNC-Viewer-xxx.exe` installer as an administrator.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-windows-install-01.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+- Language
+
+Select `English` and click `OK` to continue.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-windows-install-02.webp"
+    style={{ width: "100%", maxWidth: "300px" }}
+  />
+</div>
+
+- Start installation
+
+Click `Next` to continue.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-windows-install-03.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+- Accept the license
+
+Check `I accept the terms in the License Agreement`, then click `Next`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-windows-install-04.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+- Installation path
+
+We recommend using the default installation path, then click `Next`.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-windows-install-05.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+- Install
+
+Click `Install` to start the installation.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-windows-install-06.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+- Finish
+
+Click `Finish` to complete the installation.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-windows-install-07.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+</TabItem>
+
+<TabItem value="Linux">
+
+After downloading the Linux `*.deb` package, run the following command in a terminal to install VNC Viewer:
+
+<NewCodeBlock tip="Linux$" type="host">
+
+```
+sudo dpkg -i VNC-Viewer-xxx.deb
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+### Launch VNC Viewer
+
+After installation, open VNC Viewer. You can use VNC Viewer without signing in.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-windows-use-01.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+  VNC Viewer interface
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-windows-use-02.webp"
+    style={{ width: "100%", maxWidth: "600px" }}
+  />
+</div>
+
+## Target (Board)
+
+### Install the VNC Server
+
+Run the following commands on the board to install the VNC server:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt update
+sudo apt install -y tigervnc-standalone-server tigervnc-tools dbus-x11 tigervnc-common
+```
+
+</NewCodeBlock>
+
+### Set a VNC Password
+
+Run the following command on the board to set a VNC password:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+vncpasswd
+```
+
+</NewCodeBlock>
+
+:::tip
+The password and confirmation will not be shown on screen. When asked whether to create a view-only password, choose `n` (No).
+:::
+
+After setting the password, you will see output similar to the following:
+
+```
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+A view-only password is not used
+```
+
+### Configure the VNC Startup Script
+
+Edit the `~/.vnc/xstartup` file on the board:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo vi ~/.vnc/xstartup
+```
+
+</NewCodeBlock>
+
+Replace the contents of `~/.vnc/xstartup` with the following:
+
+<Tabs queryString="desktop">
+
+<TabItem value="x11" default={props.desktop === "x11"} attributes={{className: props.desktop === "gnome" && "tab_none"}}>
+
+```
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+export XDG_SESSION_TYPE=x11
+export DESKTOP_SESSION=plasma
+exec startplasma-x11
+```
+
+</TabItem>
+
+<TabItem value="gnome" default={props.desktop === "gnome"} attributes={{className: props.desktop === "x11" && "tab_none"}}>
+
+```
+#!/bin/sh
+
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+unset XDG_RUNTIME_DIR
+
+if command -v dbus-launch >/dev/null 2>&1; then
+    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+fi
+
+export XDG_SESSION_TYPE=x11
+export DESKTOP_SESSION=ubuntu
+
+exec gnome-session
+```
+
+</TabItem>
+
+</Tabs>
+
+After editing `~/.vnc/xstartup`, make it executable:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo chmod +x ~/.vnc/xstartup
+```
+
+</NewCodeBlock>
+
+### Start the VNC Server
+
+Run the following command on the board to start the VNC server. The `-localhost no` option allows remote access.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+vncserver -localhost no
+```
+
+</NewCodeBlock>
+
+After a successful start, the terminal will print output similar to the following, which includes the VNC server port.
+
+```
+New Xtigervnc server \*\*\*:1 (radxa)' on port 5901 for display :1.
+Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :1 to connect to the VNC server.
+```
+
+### Check VNC Server Status
+
+Run the following command on the board to check the VNC server status:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+vncserver -list
+```
+
+</NewCodeBlock>
+
+The terminal will output something like this:
+
+```
+TigerVNC server sessions:
+
+X DISPLAY # RFB PORT # RFB UNIX PATH PROCESS ID # SERVER
+1 5901 3283 Xtigervnc
+```
+
+### Stop the VNC Server
+
+Run the following command on the board to stop the VNC server. In the command, `:1` is the display number.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+vncserver -kill :1
+```
+
+</NewCodeBlock>
+
+After the VNC server is stopped, VNC Viewer will disconnect automatically.
+
+## VNC Remote Login
+
+Open VNC Viewer on another device and connect using the board's IP address and port.
+
+① : Enter the board's IP address and port
+
+② : Click `Connect to address ···` to connect to the board
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-connect-01.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+① : Enter the VNC password
+
+② : Check `Remember password` to save the password for next time
+
+③ : Click `OK` to connect
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/vnc-connect-02.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+<Image
+  src="/en/img/common/radxa-os/system-config/vnc-#desktop#-succ.webp"
+  desktop={props.desktop}
+  fallback={props.desktop}
+  width="1200"
+/>
+
+:::tip VNC Black Screen
+If the VNC session shows a black screen, check whether auto-login is enabled. If it is enabled, disable auto-login.
+:::
