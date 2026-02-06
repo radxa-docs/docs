@@ -66,7 +66,7 @@ You can refer to the [Headphone Jack](./hardware-use/headphone.md) guide to iden
 
 - [Radxa Cubie A7A Android 13 20250814](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip): for Cubie A7A with AC101 audio codec
 
-- [Radxa Cubie A7A Android 13 20260205](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20260205/a733_android13_radxa_a7a_20260105_uart0.zip): for Cubie A7A with AC101B audio codec
+- [Radxa Cubie A7A Android 13 20260105](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20260205/a733_android13_radxa_a7a_20260105_uart0.zip): for Cubie A7A with AC101B audio codec
 
 ## Flashing Tools
 
