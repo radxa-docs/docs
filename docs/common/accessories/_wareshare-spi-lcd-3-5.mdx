@@ -1,0 +1,111 @@
+在 {props.product} 上使用微雪 3.5 寸树莓派显示屏（WareShare 3.5" RPi LCD (B)）。
+
+## 硬件连接
+
+将显示屏安装到主板上。
+
+## 软件使能
+
+使用瑞莎系统自带的 Rsetup 工具使能微雪 3.5 寸树莓派显示屏。
+
+:::tip Rsetup 使用指南
+
+- 选中选项 ： 对应选项会高亮显示
+- 确认选择 ： 按 `Enter`
+- 取消选择 ： 按 `ESC`
+- 切换选项 ： 按 `Up` 、 `Down` 、 `Left` 、 `Right` 控制
+- 多选界面 ： 按 `Space` 选择，按 `Enter` 确认选择；选择对应功能后，对应选项框会出现一个 `*` ,表示该选项已启用
+
+:::
+
+在终端命令行运行 `rsetup` 命令启动 Rsetup 工具：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+rsetup
+```
+
+</NewCodeBlock>
+
+在 Rsetup 工具中依次进入 Overlays -> Manage overlays。
+
+1. 通过方向键找到 [ ] Enable Waveshare 3.5inch RPi LCD (B) on SPI12 选项
+2. 按空格出现 [*] Enable Waveshare 3.5inch RPi LCD (B) on SPI12 说明已启用该功能
+3. 按 Enter 确认并保存设置，使能显示屏。
+4. 重启系统，使配置生效。
+
+## 查看设备
+
+使用命令查看设备对应 fb（framebuffer）：显示屏对应的设备 ID 是 fb_ili9486。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+cat /sys/class/graphics/fb0/name
+```
+
+</NewCodeBlock>
+
+如果显示屏被正确启用，你应该会看到类似以下的输出（以 fb0 为例）：
+
+```
+fb_ili9486
+```
+
+说明：若显示屏设备不在 fb0，可以修改命令中的 `fb0`，如 `cat /sys/class/graphics/fb1/name`。
+
+## 显示图片
+
+### 安装 fbi
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt-get update
+sudo apt-get install -y fbi
+```
+
+</NewCodeBlock>
+
+### 显示图片
+
+将图片显示到显示屏的 framebuffer：提前准备好图片，以 fb0 作为示例。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo fbi  -vt 1 --noverbose -d /dev/fb0 logo.bmp
+```
+
+</NewCodeBlock>
+
+### 显示终端
+
+- 将 tty2 的输出映射到显示屏上
+
+键盘同时按下 Ctrl + Alt + F2 进入 TTY2 纯文本模式， 将在显示屏上显示 tty2 终端。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo con2fbmap 2 0
+```
+
+</NewCodeBlock>
+
+参数说明：其中 2 为 TTY2，0 为 fb0。
+
+- 将 tty3 的输出映射到显示屏上
+
+键盘同时按下 Ctrl + Alt + F3 进入 TTY3 纯文本模式， 将在显示屏上显示 tty3 终端。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo con2fbmap 3 0
+```
+
+</NewCodeBlock>
+
+参数说明：其中 3 为 TTY3，0 为 fb0。

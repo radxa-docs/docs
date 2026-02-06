@@ -1,0 +1,111 @@
+Use the Waveshare 3.5-inch Raspberry Pi LCD (Waveshare 3.5" RPi LCD (B)) on {props.product}.
+
+## Hardware connection
+
+Attach the display to the board.
+
+## Enable in software
+
+Use the built-in Rsetup tool in Radxa OS to enable the Waveshare 3.5-inch Raspberry Pi LCD.
+
+:::tip Rsetup quick guide
+
+- Select an item: the item will be highlighted
+- Confirm: press `Enter`
+- Cancel/Back: press `ESC`
+- Navigate: use `Up`, `Down`, `Left`, `Right`
+- Multi-select: press `Space` to toggle, then press `Enter` to confirm; a `*` indicates the option is enabled
+
+:::
+
+Run `rsetup` in the terminal to start Rsetup:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+rsetup
+```
+
+</NewCodeBlock>
+
+In Rsetup, go to: Overlays -> Manage overlays.
+
+1. Use the arrow keys to find: [ ] Enable Waveshare 3.5inch RPi LCD (B) on SPI12
+2. Press `Space` to toggle it to: [*] Enable Waveshare 3.5inch RPi LCD (B) on SPI12
+3. Press `Enter` to confirm and save the settings.
+4. Reboot the system to apply the configuration.
+
+## Check the device
+
+Check which fb (framebuffer) device the screen is bound to. The device name for this LCD is `fb_ili9486`.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+cat /sys/class/graphics/fb0/name
+```
+
+</NewCodeBlock>
+
+If the display is enabled correctly, you should see output similar to the following (fb0 as an example):
+
+```
+fb_ili9486
+```
+
+Note: If the LCD is not on `fb0`, replace `fb0` with the actual one, e.g. `cat /sys/class/graphics/fb1/name`.
+
+## Display an image
+
+### Install fbi
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo apt-get update
+sudo apt-get install -y fbi
+```
+
+</NewCodeBlock>
+
+### Show an image
+
+Display an image to the LCD framebuffer. Prepare an image file in advance. The following uses `fb0` as an example.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo fbi -vt 1 --noverbose -d /dev/fb0 logo.bmp
+```
+
+</NewCodeBlock>
+
+### Show a terminal (TTY)
+
+- Map the output of tty2 to the LCD
+
+Press Ctrl + Alt + F2 to switch to TTY2 text mode. tty2 will be shown on the LCD.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo con2fbmap 2 0
+```
+
+</NewCodeBlock>
+
+Parameter notes: `2` is TTY2, `0` is fb0.
+
+- Map the output of tty3 to the LCD
+
+Press Ctrl + Alt + F3 to switch to TTY3 text mode. tty3 will be shown on the LCD.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```
+sudo con2fbmap 3 0
+```
+
+</NewCodeBlock>
+
+Parameter notes: `3` is TTY3, `0` is fb0.
