@@ -66,7 +66,7 @@ sidebar_position: 150
 
 - [Radxa Cubie A7A Android 13 20250814](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip)：适用于 AC101 音频编解码器版本的 Cubie A7A
 
-- [Radxa Cubie A7A Android 13 20260205](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20260205/a733_android13_radxa_a7a_20260205_uart0.zip)：适用于 AC101B 音频编解码器版本的 Cubie A7A
+- [Radxa Cubie A7A Android 13 20260206](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20260205/a733_android13_radxa_a7a_20260206_uart0.zip)：适用于 AC101B 音频编解码器版本的 Cubie A7A
 
 ## 刷机工具
 
