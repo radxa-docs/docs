@@ -25,11 +25,7 @@ This page hosts the latest official and test system images. Test releases begin 
 
 You can determine the system SPI firmware version using the following methods:
 
-1. Purchase Time
-
-If you purchased the product in 2026, it comes with boot firmware version 20251230 pre-installed, so there's no need to update the SPI boot firmware.
-
-2. Command Query
+1. Command Query
 
 If the system can boot normally, you can use the following command to check the SPI boot firmware version:
 
@@ -49,7 +45,7 @@ The terminal will output something like the following. The `260120` portion indi
 
 ```
 
-3. System Boot Issues
+2. System Boot Issues
 
 If the system fails to boot properly, you can try re-flashing the latest SPI boot firmware.
 
