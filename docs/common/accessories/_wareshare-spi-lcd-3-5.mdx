@@ -84,7 +84,7 @@ sudo fbi  -vt 1 --noverbose -d /dev/fb0 logo.bmp
 
 - 将 tty2 的输出映射到显示屏上
 
-键盘同时按下 Ctrl + Alt + F2 进入 TTY2 纯文本模式， 将在显示屏上显示 tty2 终端。
+终端输入以下命令，将 tty2 的输出映射到显示屏上。
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -96,9 +96,11 @@ sudo con2fbmap 2 0
 
 参数说明：其中 2 为 TTY2，0 为 fb0。
 
+键盘同时按下 Ctrl + Alt + F2 进入 TTY2 纯文本模式， 将在显示屏上显示 tty2 终端。
+
 - 将 tty3 的输出映射到显示屏上
 
-键盘同时按下 Ctrl + Alt + F3 进入 TTY3 纯文本模式， 将在显示屏上显示 tty3 终端。
+终端输入以下命令，将 tty3 的输出映射到显示屏上。
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -109,3 +111,5 @@ sudo con2fbmap 3 0
 </NewCodeBlock>
 
 参数说明：其中 3 为 TTY3，0 为 fb0。
+
+键盘同时按下 Ctrl + Alt + F3 进入 TTY3 纯文本模式， 将在显示屏上显示 tty3 终端。

@@ -84,7 +84,7 @@ sudo fbi -vt 1 --noverbose -d /dev/fb0 logo.bmp
 
 - Map the output of tty2 to the LCD
 
-Press Ctrl + Alt + F2 to switch to TTY2 text mode. tty2 will be shown on the LCD.
+Run the following command in the terminal to map the output of tty2 to the LCD.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -96,9 +96,11 @@ sudo con2fbmap 2 0
 
 Parameter notes: `2` is TTY2, `0` is fb0.
 
+Press Ctrl + Alt + F2 to switch to TTY2 text mode. tty2 will be shown on the LCD.
+
 - Map the output of tty3 to the LCD
 
-Press Ctrl + Alt + F3 to switch to TTY3 text mode. tty3 will be shown on the LCD.
+Run the following command in the terminal to map the output of tty3 to the LCD.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -109,3 +111,5 @@ sudo con2fbmap 3 0
 </NewCodeBlock>
 
 Parameter notes: `3` is TTY3, `0` is fb0.
+
+Press Ctrl + Alt + F3 to switch to TTY3 text mode. tty3 will be shown on the LCD.
