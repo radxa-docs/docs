@@ -58,13 +58,21 @@ Compatible with MicroSD cards, eMMC modules, and UFS modules.
 
 #### FEL System Image
 
-- [Radxa Cubie A7A Android 13](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip)
+:::tip Differentiate audio codec versions
+
+You can refer to the [Headphone Jack](./hardware-use/headphone.md) guide to identify which audio codec version your board uses.
+
+:::
+
+- [Radxa Cubie A7A Android 13 20250814](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip): for Cubie A7A with AC101 audio codec
+
+- [Radxa Cubie A7A Android 13 20260205](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20260205/a733_android13_radxa_a7a_20260205_uart0.zip): for Cubie A7A with AC101B audio codec
 
 ## Flashing Tools
 
 SD Card Boot Disk Creation Tool:
 
-[PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
+[PhoenixCard V4.3.2](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.2_20250331_1604_Release.zip)
 
 System Flashing Tools:
 
