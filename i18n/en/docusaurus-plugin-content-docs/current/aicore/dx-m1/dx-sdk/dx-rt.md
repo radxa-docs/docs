@@ -2,17 +2,17 @@
 sidebar_position: 5
 ---
 
-# DX-RT Runtime
+# DX-RT runtime
 
-**DX-RT (runtime software)** is the runtime used to interact with DEEPX NPU hardware. It provides pre/post-processing during inference and manages NPU inputs and outputs.
+**DX-RT (runtime software)** is the runtime used to interact with DEEPX NPU hardware. It provides pre-processing and post-processing during inference and manages NPU inputs and outputs.
 DX-RT supports running inference with DXNN models compiled by DX-COM.
 
 ## Installation
 
-### Clone the DX-ALL-SUITE Repository
+### Clone the DX-ALL-SUITE repository
 
 :::tip
-Clone the specified DX-ALL-SUITE version following [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite).
+Follow [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite) to clone the specified version of the DX-ALL-SUITE repository.
 :::
 
 ### Build DX-RT
@@ -27,7 +27,7 @@ cd dx-all-suite/dx-runtime/dx_rt
 
 </NewCodeBlock>
 
-#### Create a Python Virtual Environment
+#### Create a Python virtual environment
 
 This virtual environment is used to install the DXRT Python API. You can create a Python virtual environment in any directory.
 
@@ -41,7 +41,7 @@ pip3 install --upgrade pip
 
 </NewCodeBlock>
 
-#### Install Required Dependencies
+#### Install required dependencies
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -76,7 +76,7 @@ Options:
   --help                      Display this help message and exit.
 ```
 
-#### Build and Install DX-RT
+#### Build and install DX-RT
 
 :::tip
 The DX-RT installation script will automatically install the dx-engine Python API.
@@ -90,9 +90,9 @@ The DX-RT installation script will automatically install the dx-engine Python AP
 
 </NewCodeBlock>
 
-### Register the dxrt-service
+### Register the dxrt-service service
 
-DX-RT supports background multi-threading. To enable this feature, you need to register `dxrt-service`.
+DX-RT supports background multi-threaded operations. To enable multi-threading, you need to register `dxrt-service`.
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -104,7 +104,7 @@ sudo systemctl enable dxrt.service
 
 </NewCodeBlock>
 
-### Install the DX-RT Python Package
+### Install the DX-RT Python library
 
 :::tip
 The DX-RT installation script will automatically install the dx-engine Python API.
@@ -134,28 +134,28 @@ cd dx-all-suite/dx-runtime/dx_rt
 
 ### dxrt-cli
 
-`dxrt-cli` reads the Radxa AI Core DX-M1 device status. Source: `dx_rt/cli/dxrt-cli.cpp`.
+`dxrt-cli` can read Radxa AIcore DX-M1 / DX-M1M device status. Source file: `dx_rt/cli/dxrt-cli.cpp`
 
 ```bash
 dxrt-cli <option> <argument>
 ```
 
-| Parameter                           | Description                                                                                                                      |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `-s`, `--status`                    | Get device status information.                                                                                                   |
-| `-i`, `--info`                      | Get detailed device information.                                                                                                 |
-| `-m`, `--monitor <seconds>`         | Monitor device status at the specified interval.                                                                                 |
-| `-r`, `--reset <option>`            | Reset device:<br/> `0` - reset NPU only (default)<br/> `1` - reset the whole device                                              |
-| `-d`, `--device <device_id>`        | Specify device ID. If omitted, the command will be sent to all devices (default: `-1`).                                          |
-| `-u`, `--fwupdate <firmware_file>`  | Update firmware using a DeepX firmware file. Options:<br/> `force` - force update<br/> `unreset` - do not reset (default resets) |
-| `-g`, `--fwversion <firmware_file>` | Read firmware version information from a specified DeepX firmware file.                                                          |
-| `-C`, `--fwconfig_json <json_file>` | Update firmware configuration from a JSON file.                                                                                  |
-| `-v`, `--version`                   | Print the minimum required versions for driver, firmware, and model compiler.                                                    |
-| `-h`, `--help`                      | Show help and usage.                                                                                                             |
+| Option                              | Description                                                                                                                                         |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-s`, `--status`                    | Get device status information                                                                                                                       |
+| `-i`, `--info`                      | Get detailed device information                                                                                                                     |
+| `-m`, `--monitor <seconds>`         | Monitor device status at the specified interval (seconds)                                                                                           |
+| `-r`, `--reset <option>`            | Reset device:<br/> `0` - reset NPU only (default)<br/> `1` - reset the entire device                                                                |
+| `-d`, `--device <device_id>`        | Specify device ID to run the command. If omitted, the command will be sent to all devices (default: `-1`)                                           |
+| `-u`, `--fwupdate <firmware_file>`  | Update firmware using a DeepX firmware file. Sub-options:<br/> `force` - force update<br/> `unreset` - do not reset the device (default will reset) |
+| `-g`, `--fwversion <firmware_file>` | Read firmware version info from the specified DeepX firmware file                                                                                   |
+| `-C`, `--fwconfig_json <json_file>` | Update firmware settings from a JSON file                                                                                                           |
+| `-v`, `--version                    | Print the minimum required versions for driver, firmware, and model compiler                                                                        |
+| `-h`, `--help`                      | Show help and usage                                                                                                                                 |
 
 #### Examples
 
-##### Check Radxa AI Core DX-M1 Device Status
+##### Check Radxa AIcore DX-M1 / DX-M1M device status
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -187,7 +187,7 @@ NPU 2: voltage 750 mV, clock 1000 MHz, temperature 41'C
 =======================================================
 ```
 
-##### Reset Radxa AI Core DX-M1 NPU
+##### Reset Radxa AIcore DX-M1 / DX-M1M NPU
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -203,7 +203,7 @@ DXRT v3.1.0
     Device 0 reset by option 0
 ```
 
-##### Print Radxa AI Core DX-M1 NPU Temperature Every Second
+##### Print Radxa AIcore DX-M1 / DX-M1M NPU temperature every second
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -223,14 +223,14 @@ NPU 2: voltage 750 mV, clock 1000 MHz, temperature 40'C
 =======================================================
 ```
 
-##### Update Radxa AI Core DX-M1 Firmware
+##### Update Radxa AIcore DX-M1 / DX-M1M firmware
 
 :::info
-If the DX-M1 firmware version is lower than v2.4.0, please upgrade to v2.4.0. Use `dxrt-cli -s` to check the current firmware version.
+If the DX-M1 / DX-M1M firmware version is lower than v2.4.0, please upgrade to v2.4.0. Use `dxrt-cli -s` to check the current firmware version.
 :::
 
 :::tip
-The latest firmware is available in the [dx-fw](https://github.com/DEEPX-AI/dx_fw/tree/v2.4.0) repository. Upgrade carefully.
+The latest firmware is hosted in the [dx-fw](https://github.com/DEEPX-AI/dx_fw/tree/v2.4.0) repository. Upgrade carefully.
 :::
 
 <NewCodeBlock tip="Host" type="device">
@@ -241,7 +241,7 @@ cd dx-all-suite/dx-runtime/dx_fw
 
 </NewCodeBlock>
 
-Check firmware file version information.
+View firmware file version information
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -262,7 +262,7 @@ DDR Type    : LPDDR5
 Firmware Ver: 2.4.0
 ```
 
-Update DX-M1 firmware.
+Update DX-M1 / DX-M1M firmware
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -276,19 +276,19 @@ dxrt-cli -u m1/latest/mdot2/fw.bin
 
 `parse_model` parses a DXNN model and prints detailed model information.
 
-Source: `dx_rt/cli/parse_model.cpp`
+Source file: `dx_rt/cli/parse_model.cpp`
 
 ```bash
 parse_model -m <dxnn_model_path>
 ```
 
-| Parameter             | Description                                      |
-| --------------------- | ------------------------------------------------ |
-| `-m`, `--model FILE`  | DXNN model path (required)                       |
-| `-v`, `--verbose`     | Show detailed task dependencies and memory usage |
-| `-o`, `--output FILE` | Save output to a file                            |
-| `-j`, `--json`        | Save binary data (graph_info, rmap_info) as JSON |
-| `-h`, `--help`        | Show help and usage                              |
+| Option                | Description                                             |
+| --------------------- | ------------------------------------------------------- |
+| `-m`, `--model FILE`  | DXNN model path (required)                              |
+| `-v`, `--verbose`     | Show detailed task dependencies and memory usage        |
+| `-o`, `--output FILE` | Save output to a file                                   |
+| `-j`, `--json`        | Save binary data (graph_info, rmap_info) in JSON format |
+| `-h`, `--help`        | Show help and usage                                     |
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -335,24 +335,24 @@ Task[0]: npu_0 [NPU] (model input) (model output)
 
 ### run_model
 
-`run_model` runs inference on DXNN models, measures inference time, and checks model outputs. It can be used to benchmark DXNN models.
+`run_model` runs inference on a DXNN model, measures inference time, and checks model outputs. It can be used to **benchmark** DXNN models.
 
-Source: `dx_rt/cli/run_model.cpp`
+Source file: `dx_rt/cli/run_model.cpp`
 
-| Parameter                 | Description                                  |
-| ------------------------- | -------------------------------------------- |
-| `-m`, `--model FILE`      | DXNN model path (required)                   |
-| `-b`, `--benchmark`       | Run benchmark                                |
-| `-s`, `--single`          | Run a single test                            |
-| `-v`, `--verbose`         | Show NPU processing time and latency         |
-| `-n`, `--npu arg`         | NPU core (default: 0)                        |
-| `-l`, `--loops arg`       | Number of inference loops (default: 30)      |
-| `-t`, `--time arg`        | Inference duration (seconds)                 |
-| `-w`, `--warmup-runs arg` | Warm-up runs (default: 0)                    |
-| `-d`, `--devices arg`     | Specify NPU device(s) (default: all)         |
-| `-f`, `--fps arg`         | Target FPS                                   |
-| `--use-ort`               | Enable ONNX Runtime to execute CPU subgraphs |
-| `-h`, `--help`            | Show help and usage                          |
+| Option                    | Description                                           |
+| ------------------------- | ----------------------------------------------------- |
+| `-m`, `--model FILE`      | DXNN model path (required)                            |
+| `-b`, `--benchmark`       | Run benchmark                                         |
+| `-s`, `--single`          | Run a single test                                     |
+| `-v`, `--verbose`         | Show NPU processing time and latency                  |
+| `-n`, `--npu arg`         | NPU core (default: 0)                                 |
+| `-l`, `--loops arg`       | Number of inference loops (default: 30)               |
+| `-t`, `--time arg`        | Inference duration (seconds)                          |
+| `-w`, `--warmup-runs arg` | Number of warmup runs (default: 0)                    |
+| `-d`, `--devices arg`     | Specify NPU devices (default: all)                    |
+| `-f`, `--fps arg`         | Target FPS                                            |
+| `--use-ort`               | Enable ONNX Runtime to execute the CPU operator graph |
+| `-h`, `--help`            | Show help and usage                                   |
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -422,7 +422,7 @@ Tasks:
 
 ### dxtop
 
-`dxtop` is a device monitoring tool for DeepX devices. It monitors each NPU status in real time, including NPU memory usage, per-core utilization, temperature, voltage, and frequency.
+`dxtop` is a DEEPX device status monitoring tool. It monitors each NPU status in real time, including NPU memory usage, per-core utilization, temperature, voltage, and frequency.
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -445,9 +445,9 @@ DX-RT: v3.1.0     NPU Device driver: v1.8.0     DX-TOP: v1.0.1
 --------------------------------------------------------------------------------------------------------------------------------------------
 ```
 
-## C++/Python Example Code
+## C++/Python example code
 
-DXRT C++/Python example code can be found under `dx-all-suite/dx-runtime/dx_rt/examples` in the `cpp` or `python` directories.
+DXRT C++/Python example code is available under the `cpp` and `python` directories in `dx-all-suite/dx-runtime/dx_rt/examples`.
 
 ```bash
 .
@@ -535,9 +535,9 @@ DXRT C++/Python example code can be found under `dx-all-suite/dx-runtime/dx_rt/e
     └── run_sync_model.py
 ```
 
-## C++ API Reference
+## C++ API reference manual
 
-The C++ API reference can be generated using Doxygen.
+The C++ API reference manual can be built with Doxygen.
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -556,12 +556,12 @@ doxygen Doxyfile
 
 </NewCodeBlock>
 
-The generated API docs will be saved under `./html` and `./latex`. Open `./html/index.html` in a browser to view the API docs.
+The API manual will be saved under `./html` and `./latex`. You can open `./html/index.html` in a browser to view it.
 
-## Build DX-RT Documentation
+## Build DX-RT documentation
 
 :::tip
-For more details on DX-RT usage and the DX-RT Python API, please build the full documentation and refer to it.
+For more details on how to use DX-RT and the DX-RT Python API, build the full documentation and refer to it.
 :::
 
 ### Install MkDocs
@@ -574,7 +574,7 @@ pip install mkdocs mkdocs-material mkdocs-video pymdown-extensions mkdocs-with-p
 
 </NewCodeBlock>
 
-### Build Documentation
+### Build the docs
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -585,11 +585,11 @@ mkdocs build
 
 </NewCodeBlock>
 
-After the build completes, `DEEPX_DX-APP_UM_v2.1.0.pdf` will be generated in the current directory.
+After the build finishes, `DEEPX_DX-APP_UM_v2.1.0.pdf` will be generated in the current directory.
 
-### Start the Documentation Server
+### Serve the docs
 
-You can access the documentation in a web browser.
+You can access the documentation website in a browser.
 
 <NewCodeBlock tip="Host" type="device">
 

@@ -2,9 +2,9 @@
 sidebar_position: 6
 ---
 
-# DX-APP Application Examples
+# DX-APP examples
 
-**DX-APP** is an application demo template built on the Radxa AI Core DX-M1 NPU. You can use this demo template as a reference to design your own AI applications.
+**DX-APP** is a demo application template based on the AIcore DX-M1 / DX-M1M NPU. You can use this demo as a reference to design your own AI applications.
 
 :::tip
 DX-APP depends on OpenCV and [DX-RT](./dx-rt).
@@ -12,13 +12,13 @@ DX-APP depends on OpenCV and [DX-RT](./dx-rt).
 
 ## Installation
 
-### Clone the DX-ALL-SUITE Repository
+### Clone the DX-ALL-SUITE repository
 
 :::tip
-Clone the specified DX-ALL-SUITE version following [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite).
+Follow [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite) to clone the specified version of the DX-ALL-SUITE repository.
 :::
 
-### Install Dependencies
+### Install dependencies
 
 Enter the `dx-all-suite/dx-runtime/dx_app` directory.
 
@@ -30,7 +30,7 @@ cd dx-all-suite/dx-runtime/dx_app
 
 </NewCodeBlock>
 
-#### Install Required Dependencies
+#### Install required dependencies
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -43,7 +43,7 @@ cd dx-all-suite/dx-runtime/dx_app
 ### Build DX-APP
 
 :::tip
-DX-APP must be built in a Python virtual environment. Please enter the Python virtual environment created when you [**build DX-RT**](./dx-rt#build-and-install-dx-rt).
+DX-APP must be built inside a Python virtual environment. Use the virtual environment created when you [**build DX-RT**](./dx-rt#build-dx-rt).
 :::
 
 <NewCodeBlock tip="Host" type="device">
@@ -54,9 +54,9 @@ DX-APP must be built in a Python virtual environment. Please enter the Python vi
 
 </NewCodeBlock>
 
-## Running Examples
+## Examples
 
-### Download Test Models/Images/Videos
+### Download test models/images/videos
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -66,7 +66,7 @@ DX-APP must be built in a Python virtual environment. Please enter the Python vi
 
 </NewCodeBlock>
 
-### ImageNet Classification
+### ImageNet classification
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -100,7 +100,7 @@ config json is valid
 /mnt/ssd/deepx/v2.1.0/dx_app
 ```
 
-### YOLOv5s Object Detection
+### YOLOv5s object detection
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -155,7 +155,7 @@ save file : result-app5.jpg
    run_detector demo result
 </div>
 
-## C++ Application Demos
+## C++ demo applications
 
 ### Classification
 
@@ -180,7 +180,7 @@ Top1 Result : class 321
 [DXAPP] [INFO] fps : 71.4286
 ```
 
-### ImageNet Classification
+### ImageNet classification
 
 Source file: `./demos/classification/imagenet_classification.cpp`
 
@@ -197,7 +197,7 @@ Source file: `./demos/classification/imagenet_classification.cpp`
    imagenet_classification demo result
 </div>
 
-### YOLOv5 Object Detection
+### YOLOv5 object detection
 
 Source file: `./demos/object_detection/yolo_1channel.cpp`
 
@@ -246,7 +246,7 @@ Result saved to result.jpg
    yolov5s demo result
 </div>
 
-### Multi-stream Object Detection
+### Multi-channel object detection
 
 Source file: `./demos/object_detection/yolo_demo_multi.cpp`
 
@@ -292,7 +292,7 @@ Use the following JSON as a reference to create the configuration file.
    yolov5s multi result
 </div>
 
-### Pose Estimation
+### Pose estimation
 
 Source file: `./demos/pose_estimation/yolo_pose.cpp`
 
@@ -330,11 +330,11 @@ Result saved to result.jpg
    YOLOV5Pose result
 </div>
 
-### Image Segmentation
+### Image segmentation
 
 Source file: `./demos/segmentation/segmentation.cpp`
 
-#### Segmentation
+#### Image segmentation
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -363,7 +363,7 @@ Result saved to result.jpg
    segmentation result
 </div>
 
-#### Object Detection + Segmentation
+#### Object detection + segmentation
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -413,13 +413,13 @@ Result saved to result.jpg
    segmentation and objection detection result
 </div>
 
-## Python Application Demos
+## Python demo applications
 
 :::tip
-Before running model inference in Python, make sure you have entered the virtual environment where the [**dx-engine Python library**](dx-rt#install-the-dx-rt-python-package) is installed.
+Before running inference in Python, make sure you have activated the virtual environment where the [**dx-engine Python library**](dx-rt#install-dx-rt-python-library) is installed.
 :::
 
-Install Python dependencies
+Install Python dependencies.
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -429,7 +429,7 @@ pip install -r ./templates/python/requirements.txt
 
 </NewCodeBlock>
 
-### ImageNet Python Example
+### ImageNet Python example
 
 Source file: `./templates/python/imageNet_example.py`
 
@@ -451,7 +451,7 @@ python3 ./templates/python/imageNet_example.py --config example/run_classifier/i
 [sample/ILSVRC2012/3.jpeg] Top1 Result : class 794 (shower curtain)
 ```
 
-### YOLOv5s Python Example
+### YOLOv5s Python example
 
 Source file: `templates/python/yolov5s_example.py`
 
@@ -534,10 +534,10 @@ save file : yolov5s_5.jpg
     yolov5s objection detection result
 </div>
 
-## Build DX-APP Documentation
+## Build DX-APP documentation
 
 :::tip
-For more details on how to use DX-APP, please build the full documentation and refer to it.
+For more details on how to use DX-APP, build the full documentation and refer to it.
 :::
 
 ### Install MkDocs
@@ -550,7 +550,7 @@ pip install mkdocs mkdocs-material mkdocs-video pymdown-extensions mkdocs-with-p
 
 </NewCodeBlock>
 
-### Build Documentation
+### Build the docs
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -561,11 +561,11 @@ mkdocs build
 
 </NewCodeBlock>
 
-After the build completes, `DEEPX_DX-APP_UM_v2.1.0.pdf` will be generated in the current directory.
+After the build finishes, `DEEPX_DX-APP_UM_v2.1.0.pdf` will be generated in the current directory.
 
-### Start the Documentation Server
+### Serve the docs
 
-You can access the documentation in a web browser.
+You can access the documentation website in a browser.
 
 <NewCodeBlock tip="Host" type="device">
 

@@ -2,8 +2,8 @@
 sidebar_position: 3
 ---
 
-# DX-M1 SDK
+# DX-M1 / DX-M1M SDK
 
-This section introduces application development for AI hardware acceleration on the Radxa AI Core DX-M1 using the DX-M1 SDK.
+This section mainly introduces application development using the DX-M1 / DX-M1M SDK for hardware-accelerated AI on Radxa AIcore DX-M1 / DX-M1M.
 
 <DocCardList />

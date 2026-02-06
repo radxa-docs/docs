@@ -134,7 +134,7 @@ cd dx-all-suite/dx-runtime/dx_rt
 
 ### dxrt-cli
 
-`dxrt-cli` 可读取瑞萨 AIcore DX-M1 设备状态，源码位置 `dx_rt/cli/dxrt-cli.cpp`
+`dxrt-cli` 可读取瑞萨 AIcore DX-M1 / DX-M1M 设备状态，源码位置 `dx_rt/cli/dxrt-cli.cpp`
 
 ```bash
 dxrt-cli <option> <argument>
@@ -155,7 +155,7 @@ dxrt-cli <option> <argument>
 
 #### 使用示例
 
-##### 查看瑞莎 AICore DX-M1 设备状态
+##### 查看瑞莎 AICore DX-M1 / DX-M1M 设备状态
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -187,7 +187,7 @@ NPU 2: voltage 750 mV, clock 1000 MHz, temperature 41'C
 =======================================================
 ```
 
-##### 重置瑞莎 AICore DX-M1 NPU
+##### 重置瑞莎 AICore DX-M1 / DX-M1M NPU
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -203,7 +203,7 @@ DXRT v3.1.0
     Device 0 reset by option 0
 ```
 
-##### 每格一秒打印瑞莎 AICore DX-M1 NPU 温度
+##### 每格一秒打印瑞莎 AICore DX-M1 / DX-M1M NPU 温度
 
 <NewCodeBlock tip="Host" type="device">
 
@@ -223,10 +223,10 @@ NPU 2: voltage 750 mV, clock 1000 MHz, temperature 40'C
 =======================================================
 ```
 
-##### 更新瑞莎 AICore DX-M1 固件
+##### 更新瑞莎 AICore DX-M1 / DX-M1M 固件
 
 :::info
-如 DX-M1 固件低于 v2.4.0， 请升级至 v2.4.0, 请使用 `dxrt-cli -s` 查看当前固件版本
+如 DX-M1 / DX-M1M 固件低于 v2.4.0， 请升级至 v2.4.0, 请使用 `dxrt-cli -s` 查看当前固件版本
 :::
 
 :::tip
@@ -262,7 +262,7 @@ DDR Type    : LPDDR5
 Firmware Ver: 2.4.0
 ```
 
-更新 DX-M1 固件
+更新 DX-M1 / DX-M1M 固件
 
 <NewCodeBlock tip="Host" type="device">
 

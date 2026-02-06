@@ -4,13 +4,13 @@ sidebar_position: 4
 
 # DXRT-NPU-Driver 驱动
 
-**DXRT-NPU-Driver** 是瑞莎智核 DX-M1 的驱动软件，用户需在安装了智核 DX-M1 的 host (主机) 上安装此驱动软件。
+**DXRT-NPU-Driver** 是瑞莎智核 DX-M1 / DX-M1M 的驱动软件，用户需在安装了智核 DX-M1 / DX-M1M 的 host (主机) 上安装此驱动软件。
 
 ## 安装方法
 
 ### 检查硬件连接状态
 
-请参考 [硬件安装](../hardware_install) 安装智核 DX-M1
+请参考 [硬件安装](../hardware-install) 安装智核 DX-M1 / DX-M1M
 
 <NewCodeBlock tip="Host" type="device">
 

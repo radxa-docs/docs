@@ -4,8 +4,8 @@ sidebar_position: 7
 
 # DX Model Zoo
 
-**DX Model Zoo** includes a series of pre-compiled DXNN models for image classification, object detection, image segmentation, face recognition, image denoising, and more.
-Each model provides the original model source, the ONNX model, the compiled DXNN model, the compilation config file download, and benchmark/accuracy data.
+**DX Model Zoo** provides a collection of pre-compiled DXNN models for tasks such as image classification, object detection, image segmentation, face recognition, and image denoising.
+Each model includes the original model source, the ONNX model, the compiled DXNN model, downloadable compilation configuration files, and related data such as benchmarks and accuracy.
 
 ## DX Model Link
 
@@ -22,15 +22,15 @@ Link: [**DX Model Zoo**](https://developer.deepx.ai/modelzoo/)
 DX-Model-Zoo is only supported on x86 Ubuntu 20.04 LTS or 22.04 LTS.
 :::
 
-### Clone the DX-ALL-SUITE Repository
+### Clone the DX-ALL-SUITE repository
 
 :::tip
-Clone the specified DX-ALL-SUITE version following [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite).
+Follow [DX-ALL-SUITE](./dx-sdk-introduction#dx-all-suite) to clone the specified version of the DX-ALL-SUITE repository.
 :::
 
 ### Install DXMZ (Deepx Model Zoo)
 
-#### Manual Installation
+#### Manual installation
 
 Enter the `dx-all-suite/dx-modelzoo` directory.
 
@@ -43,7 +43,7 @@ cd dx-all-suite/dx-modelzoo
 
 </NewCodeBlock>
 
-After installation, a virtual environment will be created at `./venv-dx-modelzoo-local`.
+After installation, a virtual environment named `./venv-dx-modelzoo-local` will be created in the current directory.
 
 <NewCodeBlock tip="X86 Ubuntu PC" type="PC">
 
@@ -53,9 +53,9 @@ source ./venv-dx-modelzoo-local/bin/activate
 
 </NewCodeBlock>
 
-## CLI Usage
+## CLI usage
 
-### List Models
+### List models
 
 Command:
 
@@ -63,7 +63,7 @@ Command:
 dxmz models
 ```
 
-Description: list all models available in Deepx Model Zoo.
+Description: List models available in Deepx Model Zoo.
 
 <NewCodeBlock tip="X86 Ubuntu PC" type="PC">
 
@@ -73,7 +73,7 @@ dxmz models
 
 </NewCodeBlock>
 
-### Evaluate Model Accuracy
+### Evaluate model accuracy
 
 Command:
 
@@ -81,7 +81,7 @@ Command:
 dxmz eval <model_name> [--onnx <path> | --dxnn <path>] --data_dir <dataset_path>
 ```
 
-Description: measure the accuracy of a specified model.
+Description: Measure the accuracy of a specified model.
 
 ```bash
 # To use onnx runtime:
@@ -96,10 +96,10 @@ dxmz eval <Model Name> --dxnn <dxnn file path> --data_dir <dataset root dir path
 dxmz eval ResNet18 --dxnn ./ResNet18.dxnn --data_dir ./datasets/ILSVRC2012/val
 ```
 
-## Build DX-Model-Zoo Documentation
+## Build DX-Model-Zoo documentation
 
 :::tip
-For more details on how to use DX-Model-Zoo, please build the full documentation and refer to it.
+For more details on how to use DX-Model-Zoo, build the full documentation and refer to it.
 :::
 
 ### Install MkDocs
@@ -112,7 +112,7 @@ pip install mkdocs mkdocs-material mkdocs-video pymdown-extensions mkdocs-with-p
 
 </NewCodeBlock>
 
-### Build Documentation
+### Build the docs
 
 <NewCodeBlock tip="X86 Ubuntu PC" type="PC">
 
@@ -123,11 +123,11 @@ mkdocs build
 
 </NewCodeBlock>
 
-After the build completes, `dx-modelzoo_v0.1.0.pdf` will be generated under `output_web`.
+After the build finishes, `dx-modelzoo_v0.1.0.pdf` will be generated under `output_web`.
 
-### Start the Documentation Server
+### Serve the docs
 
-You can access the documentation in a web browser.
+You can access the documentation website in a browser.
 
 <NewCodeBlock tip="X86 Ubuntu PC" type="PC">
 

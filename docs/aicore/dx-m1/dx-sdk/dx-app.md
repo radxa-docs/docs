@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # DX-APP 应用示例
 
-**DX-APP** 是基于智核 DX-M1 NPU 的应用 demo 模板。用户可以参考此 demo 模板设计自己的 AI 应用。
+**DX-APP** 是基于智核 DX-M1 / DX-M1M NPU 的应用 demo 模板。用户可以参考此 demo 模板设计自己的 AI 应用。
 
 :::tip
 DX-APP 依赖 opencv 与 [DX-RT](./dx-rt)
