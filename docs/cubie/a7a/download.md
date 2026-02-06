@@ -58,13 +58,21 @@ sidebar_position: 150
 
 #### FEL 系统镜像
 
-- [Radxa Cubie A7A Android 13](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip)
+:::tip 区分音频编解码器
+
+可以参考 [耳机插孔](./hardware-use/headphone.md) 的教程区分音频编解码器版本。
+
+:::
+
+- [Radxa Cubie A7A Android 13 20250814](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip)：适用于 AC101 音频编解码器版本的 Cubie A7A
+
+- [Radxa Cubie A7A Android 13 20260205](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20260205/a733_android13_radxa_a7a_20260105_uart0.zip)：适用于 AC101B 音频编解码器版本的 Cubie A7A
 
 ## 刷机工具
 
 SD卡启动盘制作工具：
 
-[PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)
+[PhoenixCard V4.3.2](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.2_20250331_1604_Release.zip)
 
 系统烧录工具：
 
