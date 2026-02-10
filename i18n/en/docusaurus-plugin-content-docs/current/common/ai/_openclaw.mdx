@@ -1,0 +1,136 @@
+[OpenClaw](https://github.com/openclaw/openclaw) is an open-source AI agent project developed by Peter Steinberger.
+It can be deployed on any device and any OS as a personal AI assistant.
+
+## Install OpenClaw
+
+Install OpenClaw using the installation script.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+</NewCodeBlock>
+
+## Configure OpenClaw
+
+:::tip
+If you install with the script, you will be guided through the configuration during installation.
+If you want to reconfigure, run the following command.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+openclaw onboard --install-daemon
+```
+
+</NewCodeBlock>
+:::
+
+- Risk disclaimer
+
+  Select `Yes`.
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/en/img/rock5b/openclaw_1.webp" />
+  </div>
+
+- Onboarding mode
+
+  Select `QuickStart`.
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/en/img/rock5b/openclaw_2.webp" />
+  </div>
+
+- Model provider
+
+  Choose a provider based on the model API key you already have.
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/en/img/rock5b/openclaw_3.webp" />
+  </div>
+
+  If you don't have an API key, you can use [Qwen OAuth](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/) (free).
+  Follow the link to log in/register a qwen.ai account to complete OAuth authorization.
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/en/img/rock5b/openclaw_4.webp" />
+  </div>
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/en/img/rock5b/openclaw_5.webp" style={{ width: "60%" }} />
+  </div>
+
+  After authorization, select the default `qwen-portal/coder-model` model.
+
+- Configure channels
+
+  Match OpenClaw with the social apps you commonly use. Follow the on-screen prompts to configure; details are omitted here.
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/en/img/rock5b/openclaw_10.webp" />
+  </div>
+
+- Configure skills
+
+  Select `yes`.
+
+- Choose how to install Homebrew
+
+  Select `npm`.
+
+- Install missing skill dependencies
+
+  Choose according to your needs.
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/en/img/rock5b/openclaw_11.webp" style={{ width: "80%" }} />
+  </div>
+
+- Configure API keys used by each skill
+
+  {" "}
+
+  <div style={{ textAlign: "center" }}>
+    <img src="/en/img/rock5b/openclaw_6.webp" style={{ width: "60%" }} />
+  </div>
+
+- Start the interactive UI
+
+  In `How do you want to hatch your bot?`, you can choose between two interaction modes:
+  TUI (terminal UI) or Web UI.
+
+  - Web UI (recommended)
+    :::tip
+    Port: 18789
+    :::
+
+    <div style={{ textAlign: "center" }}>
+      <img src="/en/img/rock5b/openclaw_8.webp" />
+    </div>
+
+  - TUI (terminal)
+
+    <div style={{ textAlign: "center" }}>
+      <img src="/en/img/rock5b/openclaw_9.webp" />
+    </div>
+
+## More features
+
+For more usage details, see the [**official OpenClaw documentation**](https://docs.openclaw.ai/).
