@@ -54,6 +54,15 @@ If you need a monitor UI or graphical applications, use the full Radxa OS image.
 
 [radxa-a733-bullseye-cli-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_cli_r2.output_512.img.xz): supports booting from microSD and onboard eMMC.
 
+:::tip Built-in OpenClaw environment image
+
+`radxa_cubie_a733_trixie_cli_beta_v2` image supports booting from microSD and onboard eMMC, with OpenClaw pre-installed. Users only need to [configure OpenClaw](./app-dev/openclaw.md#configure-openclaw) to get started.
+
+- [Radxa official website download](https://dl.radxa.com/cubie/a7s/images/radxa_cubie_a733_trixie_cli_beta_v2.gpt.zip)
+- [Baidu Netdisk](https://pan.baidu.com/s/1m3ucJAHB9fCuoTzwpNMKLw?pwd=1234) (Extraction code: 1234)
+
+:::
+
 ## Hardware design
 
 - [Schematic V1.10](https://dl.radxa.com/cubie/a7s/hw/radxa_cubie_a7s_schematic_v1.10.pdf)

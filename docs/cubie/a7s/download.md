@@ -54,6 +54,15 @@ Radxa OS Lite 系统镜像不包含图形桌面环境。
 
 [radxa-a733-bullseye-cli-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_cli_r2.output_512.img.xz)：支持 MicroSD 卡和板载 eMMC 启动系统。
 
+:::tip 内置 OpenClaw 环境镜像
+
+`radxa_cubie_a733_trixie_cli_beta_v2` 镜像支持 MicroSD 卡和板载 eMMC 启动系统，内置 OpenClaw 环境，用户只需 [配置 OpenClaw](./app-dev/openclaw.md#配置-openclaw) 即可开始使用。
+
+- [瑞莎官网下载](https://dl.radxa.com/cubie/a7s/images/radxa_cubie_a733_trixie_cli_beta_v2.gpt.zip)
+- [百度网盘](https://pan.baidu.com/s/1m3ucJAHB9fCuoTzwpNMKLw?pwd=1234)（提取码：1234）
+
+:::
+
 ## 硬件设计
 
 - [原理图 V1.10](https://dl.radxa.com/cubie/a7s/hw/radxa_cubie_a7s_schematic_v1.10.pdf)
