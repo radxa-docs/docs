@@ -12,8 +12,8 @@ NPU Environment Configuration Checklist
 
 Install using radxa apt source
 
-<Tabs>
-    <TabItem value="QCS6490">
+<Tabs queryString="platform">
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
 
@@ -27,7 +27,7 @@ Install using radxa apt source
 
     </TabItem>
 
-    <TabItem value="QCS9075">
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
 
@@ -44,8 +44,8 @@ Install using radxa apt source
 
 Add fastrpc device permissions for user
 
-<Tabs>
-    <TabItem value="QCS6490">
+<Tabs queryString="platform">
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
 
@@ -59,7 +59,7 @@ Add fastrpc device permissions for user
 
     </TabItem>
 
-    <TabItem value="QCS9075">
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
 
