@@ -6,4 +6,4 @@ sidebar_position: 0
 
 import FASTRPCSETUP from '../../../../common/ai/\_fastrpc_setup.mdx';
 
-<FASTRPCSETUP />
+<FASTRPCSETUP tag="qcs6490" />
