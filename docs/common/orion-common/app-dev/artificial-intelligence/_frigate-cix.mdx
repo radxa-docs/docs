@@ -7,23 +7,14 @@ Home Assistant，目前全球最流行的开源智能家居控制中心。
 
 更多相关内容参考[官方文档](https://docs.frigate.video/)或者[官方中文文档](https://docs.frigate-cn.video/)。
 
-本文档介绍如何在搭载 RK3588 芯片的瑞莎开发板上部署该项目。
+本文档使用的 Frigate 版本为 0.16.4，目前，官方还没有直接支持 CIX P1 芯片平台，
+让我们来一起看看如何通过添加自定义插件代码调用未支持的硬件实现 Frigate 的 AI 检测功能。
 
-## 安装系统
+## 准备环节
 
-Frigate 官方建议使用 Debian12(Bookworm) 系统，参考设备对应的指引文档安装好系统。
+### 目录结构
 
-接下来你可以使用图形化界面或者 SSH 远程等方式进行下面的步骤。
-
-推荐使用 VSCode，可以参考 [VS Code Remote SSH 开发](./vscode-remote-ssh)连接到开发板。
-
-## 安装 Docker
-
-Frigate 项目以容器的方式进行部署。
-参考 [Docker安装](https://docs.docker.com/engine/install/debian/)
-在设备上安装好 Docker 以进行后续步骤。
-
-## 安装 Frigate
+可以通过 ssh 远程连接或者直接外接显示器和键鼠使用 O6/O6N ，本文使用 ssh 远程连接。
 
 创建初始目录结构。
 
@@ -36,42 +27,79 @@ mkdir storage config && touch docker-compose.yml
 
 </NewCodeBlock>
 
-将下面的内容粘贴到 docker-compose.yml 中。
+### 模型文件
 
-<NewCodeBlock tip='Device'>
+这里我们使用官方模型仓库转换出来的 yolov8n.cix 作为检测模型。
+
+如果你对转换模型感兴趣，后续想要使用自己的模型作为检测模型，你可以参考 [YOLOv8n](./Vision/yolov8n) 转换模型。
+
+直接从魔搭社区的官方仓库下载模型文件。
+
+<NewCodeBlock tip="Device">
 
 ```bash
+wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/models/ComputeVision/Object_Detection/onnx_yolov8_n/yolov8n.cix
+```
+
+</NewCodeBlock>
+
+### 推理库
+
+想要在容器中能够正常执行推理，我们还需要将 NPU 的 API 库挂载到容器中。
+
+找到 系统中的 libnoe 库：
+
+<NewCodeBlock tip="Device">
+
+```bash
+find / -name "libnoe" 2>/dev/null
+```
+
+</NewCodeBlock>
+
+这里我们找到的路径是：`/usr/local/lib/python3.11/dist-packages/libnoe/`
+
+### 插件代码
+
+使用我们编写好的代码文件即可，你可以阅读其逻辑作为自主实现的参考。
+
+<NewCodeBlock tip="Device">
+
+```bash
+wget https://github.com/Ronin-1124/Frigate-NVR-for-CIX/blob/main/cix.py
+```
+
+</NewCodeBlock>
+
+这样我们就准备好了需要的所有材料。
+
+## 启动 Frigate
+
+将下面的内容粘贴到 docker-compose.yml
+
+```yml
 services:
   frigate:
     container_name: frigate
     restart: unless-stopped
     stop_grace_period: 30s
-    image: docker.cnb.cool/frigate-cn/frigate:stable-rk # 这里指定拉取的镜像，针对不同的硬件有不同的镜像，我们选rk
+    image: docker.cnb.cool/frigate-cn/frigate:stable
+    devices:
+      - /dev/aipu:/dev/aipu
     volumes:
+      - /usr/local/lib/python3.11/dist-packages/libnoe/:/usr/local/lib/python3.11/dist-packages/libnoe/
+      - ./cix.py:/opt/frigate/frigate/detectors/plugins/cix.py
+      - ./yolov8n.cix:/config/model_cache/yolov8n.cix
       - ./config:/config
       - ./storage:/media/frigate
-      - type: tmpfs
+      - type: tmpfs # 可选：1GB内存，减少SSD/SD卡损耗
         target: /tmp/cache
         tmpfs:
           size: 1000000000
-    security_opt:
-      - apparmor=unconfined
-      - systempaths=unconfined
-    devices:
-      - /dev/dri
-      - /dev/dma_heap
-      - /dev/rga
-      - /dev/mpp_service
     ports:
-      - '8971:8971'
-      - '8555:8554' # RTSP 视频流，这里使用宿主机的8555端口而不是8554是因为后续模拟推流需要使用8554端口。如果你不需要模拟推流则用8554端口就行。不改也行。
+      - "8971:8971"
+      - "8555:8554" # RTSP 视频流，这里使用宿主机的8555端口而不是8554是因为后续模拟推流需要使用8554端口。如果你不需要模拟推流则用8554端口就行。不改也行。
 ```
-
-</NewCodeBlock>
-
-:::tip
-Frigate 项目针对不同的硬件平台封装了不同版本的 Docker 容器，如有兴趣读者可自行探索其他平台的部署。
-:::
 
 接下来就可以运行下面的命令直接启动 Frigate 了。
 
@@ -119,7 +147,7 @@ docker logs frigate
 超过二十四小时未登录过 Frigate 会需要密码才能登录，建议通过左下角的账户及时修改密码，方便长期使用。
 :::
 
-## 模拟推流
+## 模拟推流并启用 AI 模型
 
 如果你暂时没有 IP 摄像头（有当然最好，直接使用即可），使用 FFmpeg + MediaMTX 模拟推流是一个很好的验证方式。
 
@@ -173,90 +201,43 @@ ffmpeg -re -stream_loop -1 -i test.mp4 -c copy -f rtsp rtsp://localhost:8554/mys
 - `-f rtsp`：指定输出格式为 RTSP。
 - `rtsp://localhost:8554/mystream`：推流地址。mystream 是你给这个流起的 ID。
 
-然后在前端界面修改配置文件：
+### 修改配置文件
 
-![](/img/common/frigate-config-rtsp-addr.webp)
-
-然后就可以在首页看到监控画面。
-
-## 启用 AI 模型
-
-首先要确保使用带有 Rockchip BSP 内核 5.10 或 6.1 以及必要驱动程序（特别是 rkvdec2 和 rknpu）的 Linux 发行版：
-
-<NewCodeBlock tip='Device'>
-
-```bash
-uname -r
-# 5.10.xxx-rockchip 或 6.1.xxx；-rockchip后缀很重要
-ls /dev/dri
-# by-path  card0  card1  renderD128  renderD129 应列出renderD128（VPU）和renderD129（NPU）
-sudo cat /sys/kernel/debug/rknpu/version
-# RKNPU driver: v0.9.2 或更高版本
-```
-
-</NewCodeBlock>
-
-然后在前端界面修改配置文件：
-
-```txt
+```yaml
 mqtt:
   enabled: false
-
-detectors:
-  rknn_0:
-    type: rknn
-    num_cores: 3
-
-model: # required
-  # 模型名称（将自动下载）或自定义.rknn模型文件路径
-  # 可选值：
-  # - frigate-fp16-yolov9-t
-  # - frigate-fp16-yolov9-s
-  # - frigate-fp16-yolov9-m
-  # - frigate-fp16-yolov9-c
-  # - frigate-fp16-yolov9-e
-  # 或你的yolo_model.rknn容器内完整路径
-  # 参考官方文档获取更多模型配置相关信息
-  path: frigate-fp16-yolov9-t
-  model_type: yolo-generic
-  width: 320
-  height: 320
-  input_tensor: nhwc
-  labelmap_path: /labelmap/coco-80.txt
-
-# ffmpeg:
-#   hwaccel_args: preset-rkmpp # <-----这两行是官方文档中的优化配置，但是可能和 FFmpeg 推流冲突，故不启用
-
-go2rtc:
-  streams:
-    camera:
-      - rtsp://your_device_ip:8554/mystream # <----- 这里需要修改成你的 IP 地址！
-      - 'ffmpeg:back#video=h264#hardware'
 
 cameras:
   name_of_your_camera: # <------ Name the camera
     enabled: true
     ffmpeg:
       inputs:
-        - path: rtsp://your_device_ip:8554/mystream # <----- The stream you want to use for detection
+        - path: rtsp://192.168.2.223:8554/mystream # <----- The stream you want to use for detection
           roles:
             - detect
     detect:
       enabled: true # <---- disable detection until you have a working camera feed
-      width: 848
-      height: 464
+      width: 1280
+      height: 720
+
+detectors:
+  cix:
+    type: cix
+
+model:
+  height: 640
+  width: 640
+  path: /config/model_cache/yolov8n.cix
 
 detect:
   enabled: true
 version: 0.16-0
 ```
 
-参考官方文档获取更多模型配置相关信息。
+然后就可以在首页看到实时检测的监控画面了。
 
-修改完成之后重启 Frigate 即可。
-
-![](/img/common/frigate-ai-detection-case.webp)
+你可以点进调试界面查看实时检测效果。
 
 ![](/img/common/frigate-ai-detection-result.webp)
 
-于是你成功在 RK3588 上部署 Frigate 。
+现在你成功在 O6/O6N 上部署了 Frigate 。
