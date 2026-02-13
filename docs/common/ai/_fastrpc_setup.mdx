@@ -19,7 +19,7 @@ NPU 环境配置清单
 
     ```bash
     sudo apt update
-    sudo apt install fastrpc fastrpc-dev libcdsprpc1 radxa-firmware-qcs6490
+    sudo apt install fastrpc libcdsprpc1
     ```
 
     </NewCodeBlock>
@@ -33,7 +33,7 @@ NPU 环境配置清单
 
     ```bash
     sudo apt update
-    sudo apt install fastrpc fastrpc-dev libcdsprpc1 radxa-firmware-qcs9075
+    sudo apt install fastrpc libcdsprpc1
     ```
 
     </NewCodeBlock>
@@ -43,7 +43,38 @@ NPU 环境配置清单
 
 </Tabs>
 
-对用户增加 fastrpc 设备权限
+{/* 对用户增加 fastrpc 设备权限 */}
+
+{/* <Tabs queryString="platform"> */}
+{/* <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}> */}
+
+{/* <NewCodeBlock tip="Device" type="device"> */}
+
+{/* ```bash */}
+{/* sudo chmod 666 /dev/fastrpc-* */}
+{/* sudo chmod 666 /dev/dma_heap/system */}
+{/* ``` */}
+
+{/* </NewCodeBlock> */}
+
+{/* </TabItem> */}
+
+{/* <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}> */}
+
+{/* <NewCodeBlock tip="Device" type="device"> */}
+
+{/* ```bash */}
+{/* sudo chmod 660 /dev/fastrpc-* */}
+{/* sudo chmod 660 /dev/dma_heap/system */}
+{/* ``` */}
+
+{/* </NewCodeBlock> */}
+
+{/* </TabItem> */}
+
+{/* </Tabs> */}
+
+验证 fastrpc 状态
 
 <Tabs queryString="platform">
     <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
@@ -51,12 +82,58 @@ NPU 环境配置清单
     <NewCodeBlock tip="Device" type="device">
 
     ```bash
-    sudo chmod 666 /dev/fastrpc-*
-    sudo chmod 666 /dev/dma_heap/system
+    sudo apt install fastrpc-test
+    fastrpc_test -a v68
     ```
 
     </NewCodeBlock>
 
+    ```bash
+    rock@radxa-dragon-q6a:~$ fastrpc_test -a v68
+
+    Demonstrating FARF run-time logging
+
+    hap_example function PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+
+    Demonstrating HAP_mem.h APIs
+
+    hap_example function PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+
+    Demonstrating HAP_perf.h APIs
+
+    hap_example function PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+    [PASS] libhap_example.so
+
+    Test PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+    [PASS] libmultithreading.so
+
+
+    Allocate 4000 bytes from ION heap
+    Creating sequence of numbers from 0 to 999
+    Compute sum on domain 3
+
+    Call calculator_sum on the DSP
+    Sum = 499500
+
+    Call calculator_max on the DSP
+    Max value = 999
+    [PASS] libcalculator.so
+
+
+    ========================================
+    Test Summary:
+      Total tests run:    3
+      Passed:             3
+      Failed:             0
+      Skipped:            0
+    ========================================
+
+    RESULT: All applicable tests PASSED
+    ```
 
     </TabItem>
 
@@ -65,11 +142,58 @@ NPU 环境配置清单
     <NewCodeBlock tip="Device" type="device">
 
     ```bash
-    sudo chmod 660 /dev/fastrpc-*
-    sudo chmod 660 /dev/dma_heap/system
+    sudo apt install fastrpc-test
+    fastrpc_test -a v75
     ```
 
     </NewCodeBlock>
+
+    ```bash
+    rock@radxa-airbox-q900:~$ fastrpc_test -a v75
+
+    Allocate 4000 bytes from ION heap
+    Creating sequence of numbers from 0 to 999
+    Compute sum on domain 3
+
+    Call calculator_sum on the DSP
+    Sum = 499500
+
+    Call calculator_max on the DSP
+    Max value = 999
+    [PASS] libcalculator.so
+
+    Test PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+    [PASS] libmultithreading.so
+
+
+    Demonstrating FARF run-time logging
+
+    hap_example function PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+
+    Demonstrating HAP_mem.h APIs
+
+    hap_example function PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+
+    Demonstrating HAP_perf.h APIs
+
+    hap_example function PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+    [PASS] libhap_example.so
+
+
+    ========================================
+    Test Summary:
+      Total tests run:    3
+      Passed:             3
+      Failed:             0
+      Skipped:            0
+    ========================================
+
+    RESULT: All applicable tests PASSED
+    ```
 
     </TabItem>
 

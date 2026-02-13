@@ -1,0 +1,66 @@
+本文档提供一个开箱即用的 [Inception_v3](https://aihub.qualcomm.com/models/inception_v3) 目标识别模型的 TFLite Delegate 推理示例，
+此示例是在瑞莎 Dragon Ubuntu 系统下通过 [TFLite Delegate](https://ai.google.dev/edge/litert/performance/delegates) 使用 Qualcomm® Hexagon™ Processor (NPU) 进行硬件加速推理。
+
+:::tip
+此文档可用于验证 TFLite delegate, fastrpc 与 NPU 的状态与可用性。
+
+进行 TFLite Delegate 验证 前请参考 [**板端启用 NPU**](./fastrpc-setup) 使能 NPU
+:::
+
+## 下载示例
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/Inception_v3_qairt_tflite_delegate --local ./Inception_v3_qairt_tflite_delegate
+```
+
+</NewCodeBlock>
+
+## 运行示例
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd Inception_v3_qairt_tflite_delegate
+chmod +x qtld-net-run
+export LD_LIBRARY_PATH=$(pwd)/libs:$LD_LIBRARY_PATH
+export ADSP_LIBRARY_PATH=$(pwd)/libs
+./qtld-net-run --model  inception_v3_quant.tflite --input input_list.txt --output outputs --backend htp
+```
+
+</NewCodeBlock>
+
+## 验证示例
+
+可以使用 python 脚本进行结果验证
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd scripts
+python3 show_inceptionv3_classifications.py --input_list ../input_list.txt -o ../outputs --labels_file ../data/imagenet_slim_labels.txt
+```
+
+</NewCodeBlock>
+
+```bash
+(.venv) rock@radxa-dragon-q6a:~/Inception_v3_qairt_tflite_delegate/scripts$ python3 show_inceptionv3_classifications.py --input_list ../input_list.txt -o ../outputs --labels_file ../data/imagenet_slim_labels.txt
+Classification results
+data/cropped/ILSVRC2012_val_00003441.raw 0.875000 403 acoustic guitar
+data/cropped/ILSVRC2012_val_00008465.raw 0.992188 928 trifle
+data/cropped/ILSVRC2012_val_00010218.raw 0.515625 282 tabby
+data/cropped/ILSVRC2012_val_00044076.raw 0.941406 377 proboscis monkey
+```
+
+通过结果打印与测试图片类容对比，可以确认 inception_v3 通过 TFLite delegate 使用 Qualcomm® NPU 推理输出的结果正确。
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/qairt_resnet50.webp" style={{ width: "60%" }} />
+  inceptionv3 input images
+</div>
+
+## 参考文档
+
+- [**Tutorial - Preparing and Executing a Model with TFLite Delegate**](https://docs.qualcomm.com/doc/80-63442-10/topic/tutorial_preparing_and_executing.html)
