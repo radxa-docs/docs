@@ -80,6 +80,14 @@ sudo kernel-install add $(uname -r) /boot/vmlinuz-$(uname -r)
 
 Finally, reboot the system.
 
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+sudo reboot
+```
+
+</NewCodeBlock>
+
 ## Initialize the Android system
 
 On first use, you need to initialize the system image. You can click the Waydroid icon or run the command below in a terminal.

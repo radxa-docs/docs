@@ -80,6 +80,14 @@ sudo kernel-install add $(uname -r) /boot/vmlinuz-$(uname -r)
 
 最后，重启系统。
 
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+sudo reboot
+```
+
+</NewCodeBlock>
+
 ## 初始化 Android 系统
 
 首次使用需要初始化系统镜像，可以点击 Waydroid 图标或者终端使用命令初始化。
