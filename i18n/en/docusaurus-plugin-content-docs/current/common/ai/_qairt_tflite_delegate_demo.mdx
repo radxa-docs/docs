@@ -1,0 +1,67 @@
+This document provides an out-of-the-box TFLite Delegate inference demo using the [Inception_v3](https://aihub.qualcomm.com/models/inception_v3) image classification model.
+
+This demo runs on Radxa Dragon Ubuntu and uses the [TFLite Delegate](https://ai.google.dev/edge/litert/performance/delegates) to offload inference to the Qualcomm® Hexagon™ Processor (NPU).
+
+:::tip
+This document can be used to verify that TFLite Delegate, fastrpc, and the NPU are working properly.
+
+Before running the TFLite Delegate verification, please refer to [**Enable NPU on the device**](./fastrpc-setup).
+:::
+
+## Download the demo
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/Inception_v3_qairt_tflite_delegate --local ./Inception_v3_qairt_tflite_delegate
+```
+
+</NewCodeBlock>
+
+## Run the demo
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd Inception_v3_qairt_tflite_delegate
+chmod +x qtld-net-run
+export LD_LIBRARY_PATH=$(pwd)/libs:$LD_LIBRARY_PATH
+export ADSP_LIBRARY_PATH=$(pwd)/libs
+./qtld-net-run --model  inception_v3_quant.tflite --input input_list.txt --output outputs --backend htp
+```
+
+</NewCodeBlock>
+
+## Verify the results
+
+You can use a Python script to verify the output:
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd scripts
+python3 show_inceptionv3_classifications.py --input_list ../input_list.txt -o ../outputs --labels_file ../data/imagenet_slim_labels.txt
+```
+
+</NewCodeBlock>
+
+```bash
+(.venv) rock@radxa-dragon-q6a:~/Inception_v3_qairt_tflite_delegate/scripts$ python3 show_inceptionv3_classifications.py --input_list ../input_list.txt -o ../outputs --labels_file ../data/imagenet_slim_labels.txt
+Classification results
+data/cropped/ILSVRC2012_val_00003441.raw 0.875000 403 acoustic guitar
+data/cropped/ILSVRC2012_val_00008465.raw 0.992188 928 trifle
+data/cropped/ILSVRC2012_val_00010218.raw 0.515625 282 tabby
+data/cropped/ILSVRC2012_val_00044076.raw 0.941406 377 proboscis monkey
+```
+
+By comparing the printed results with the test images, you can confirm that Inception_v3 inference via TFLite Delegate on the Qualcomm® NPU produces correct outputs.
+
+<div style={{ textAlign: "center" }}>
+  <img src="/en/img/dragon/q6a/qairt_resnet50.webp" style={{ width: "60%" }} />
+  inceptionv3 input images
+</div>
+
+## References
+
+- [**Tutorial - Preparing and Executing a Model with TFLite Delegate**](https://docs.qualcomm.com/doc/80-63442-10/topic/tutorial_preparing_and_executing.html)
