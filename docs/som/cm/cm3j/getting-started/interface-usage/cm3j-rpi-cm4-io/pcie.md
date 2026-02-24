@@ -49,4 +49,4 @@ sidebar_position: 11
 
 ### 从 NVME 启动系统
 
-启动过程请参考[烧录镜像到 SSD 启动](../../install-os/boot_from_ssd.md)
+启动过程请参考[烧录镜像到 SSD 启动](../../install-os/boot-from-ssd.md)
