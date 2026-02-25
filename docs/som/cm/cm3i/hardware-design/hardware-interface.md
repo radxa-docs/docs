@@ -28,7 +28,7 @@ sidebar_position: 1
 <Tabs queryString="model">
     <TabItem value="CM3I 核心板">
 
-        ### AP6256
+        ### AP6256 / AP6745
 
             | Pin |       Name              | Pin |           Name          |
             | :-: | :---------------------: | :-: | :---------------------: |
