@@ -15,7 +15,6 @@ Prepare the following hardware:
 - Power supply: DC 12V/2A power adapter (DC-5525)
 - Display: monitor and HDMI cable
 - Input devices: keyboard and mouse (for GUI operation)
-- Debug tool: USB-to-UART serial cable (for serial console login)
 
 :::tip Recommended accessories
 Radxa ROCK 5T supports 12V power input. A power adapter rated at 2A or higher is recommended to ensure stable operation of all peripherals.
