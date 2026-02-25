@@ -4,18 +4,18 @@ sidebar_position: 9
 
 # Waydroid User Guide
 
-Waydroid is an Android container solution based on Wayland, allowing you to run Android apps on the Dragon Q6A.
+Waydroid is an Android container environment based on Wayland. It allows you to run Android apps on the Dragon Q6A.
 
-Waydroid runs a full Android system in a container and integrates it with the desktop environment, so Android apps can run like native applications.
+Waydroid runs a complete Android system in a container and integrates with the Linux desktop, so Android apps can run like native applications.
 
 :::tip
 
-- [Waydroid Official Documentation](https://docs.waydro.id/)
+- [Waydroid official documentation](https://docs.waydro.id/)
   :::
 
 ## Prerequisites
 
-Waydroid only works under a Wayland session. You can use the following command to check the current session type.
+Waydroid only works under a Wayland session. You can check your current session type with the following command.
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
@@ -25,9 +25,9 @@ echo $XDG_SESSION_TYPE
 
 </NewCodeBlock>
 
-If the output is `wayland`, it means your current session is Wayland and you can run Waydroid.
+If the output is `wayland`, your current session is Wayland and you can run Waydroid.
 
-If the output is something else, select the GNOME desktop environment at the bottom-right of the login screen and log in again.
+If the output is not `wayland`, select the **GNOME (Wayland)** session (avoid Xorg) from the login screen and log in again.
 
 ## Install Waydroid
 
@@ -56,14 +56,15 @@ sudo apt install waydroid -y
 
 ## PSI kernel parameter
 
-If Android gets stuck on the boot animation, add the PSI parameter.
+Add the PSI kernel parameter.
 
 ### Edit boot parameters
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-sudo sed -i 's/$/ psi=1/' /etc/kernel/cmdline
+sudo cp /etc/kernel/cmdline /etc/kernel/cmdline.bak
+grep -q 'psi=1' /etc/kernel/cmdline || sudo sed -i 's/$/ psi=1/' /etc/kernel/cmdline
 ```
 
 </NewCodeBlock>
@@ -88,9 +89,9 @@ sudo reboot
 
 </NewCodeBlock>
 
-## Initialize the Android system
+## Initialize Waydroid
 
-On first use, you need to initialize the system image. You can click the Waydroid icon or run the command below in a terminal.
+Before first use, you need to initialize Waydroid. You can click the Waydroid icon or run the command below in a terminal.
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
@@ -100,18 +101,80 @@ sudo waydroid init
 
 </NewCodeBlock>
 
-Initializing will automatically download `system.img` and `vendor.img`. The downloaded images will be stored in `/var/lib/waydroid/images`.
+Initialization will automatically download `system.img` and `vendor.img`.
 
-## Install Android apps
+:::tip Manually initialize Waydroid
 
-Install Android apps from the command line.
+If automatic initialization fails or downloads are very slow, you can manually download the system/vendor archives and extract them to `/etc/waydroid-extra/images`.
+
+- Get the download URL
+
+Copy the download URL from the JSON files below. The dates of `system.img` and `vendor.img` should match; otherwise apps may crash.
+
+[system.img](https://ota.waydro.id/system/lineage/waydroid_arm64/VANILLA.json)
+
+[vendor.img](https://ota.waydro.id/vendor/waydroid_arm64/MAINLINE.json)
+
+- Extract the image archives
+
+Open a terminal, go to the directory where you downloaded the files, and extract the system/vendor archives to `/etc/waydroid-extra/images`.
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-waydroid app install xxx.apk
+sudo mkdir -p /etc/waydroid-extra/images
+sudo unzip lineage-*-system.zip -d /etc/waydroid-extra/images
+sudo unzip lineage-*-vendor.zip -d /etc/waydroid-extra/images
+rm lineage-*-system.zip lineage-*-vendor.zip
 ```
 
 </NewCodeBlock>
 
-After installation, the app will appear in the Linux desktop application menu.
+- Re-initialize Waydroid
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+sudo waydroid init -f
+```
+
+</NewCodeBlock>
+
+:::
+
+## Start Waydroid
+
+After initialization, start the Waydroid container service.
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+sudo systemctl enable --now waydroid-container
+```
+
+</NewCodeBlock>
+
+Then start the Waydroid session and open the UI.
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+waydroid session start
+waydroid show-full-ui
+```
+
+</NewCodeBlock>
+
+## Install Android apps
+
+Open a terminal, change to the directory that contains the APK, and install it with the command below.
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+waydroid app install xyz.apk
+```
+
+</NewCodeBlock>
+
+After installation, the app will appear in your application menu.
