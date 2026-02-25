@@ -69,7 +69,7 @@ grep -q 'psi=1' /etc/kernel/cmdline || sudo sed -i 's/$/ psi=1/' /etc/kernel/cmd
 
 </NewCodeBlock>
 
-## Update boot entry
+### Update boot entry
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
@@ -172,7 +172,7 @@ Open a terminal, change to the directory that contains the APK, and install it w
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
 ```bash
-waydroid app install xyz.apk
+waydroid app install example-app.apk
 ```
 
 </NewCodeBlock>
