@@ -6,4 +6,4 @@ sidebar_position: 2
 
 import QAIRTINSTALL from '../../../../common/ai/\_qairt-install.mdx';
 
-<QAIRTINSTALL />
+<QAIRTINSTALL tag="qcs6490"/>

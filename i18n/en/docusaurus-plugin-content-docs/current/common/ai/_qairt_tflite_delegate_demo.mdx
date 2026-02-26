@@ -1,13 +1,14 @@
-本文档提供一个开箱即用的 [Inception_v3](https://aihub.qualcomm.com/models/inception_v3) 目标识别模型的 TFLite Delegate 推理示例，
-此示例是在瑞莎 Dragon Ubuntu 系统下通过 [TFLite Delegate](https://ai.google.dev/edge/litert/performance/delegates) 使用 Qualcomm® Hexagon™ Processor (NPU) 进行硬件加速推理。
+This document provides an out-of-the-box TFLite Delegate inference demo using the [Inception_v3](https://aihub.qualcomm.com/models/inception_v3) image classification model.
+
+This demo runs on Radxa Dragon Ubuntu and uses the [TFLite Delegate](https://ai.google.dev/edge/litert/performance/delegates) to offload inference to the Qualcomm® Hexagon™ Processor (NPU).
 
 :::tip
-此文档可用于验证 TFLite delegate, fastrpc 与 NPU 的状态与可用性。
+This document can be used to verify that TFLite Delegate, fastrpc, and the NPU are working properly.
 
-进行 TFLite Delegate 验证 前请参考 [**板端启用 NPU**](./fastrpc-setup) 使能 NPU
+Before running the TFLite Delegate verification, please refer to [**Enable NPU on the device**](./fastrpc-setup).
 :::
 
-## 下载示例
+## Download the demo
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -18,7 +19,7 @@ modelscope download --model radxa/Inception_v3_qairt_tflite_delegate --local ./I
 
 </NewCodeBlock>
 
-## 运行示例
+## Run the demo
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -32,9 +33,9 @@ export ADSP_LIBRARY_PATH=$(pwd)/libs
 
 </NewCodeBlock>
 
-## 验证示例
+## Verify the results
 
-可以使用 python 脚本进行结果验证
+You can use a Python script to verify the output:
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -54,13 +55,13 @@ data/cropped/ILSVRC2012_val_00010218.raw 0.515625 282 tabby
 data/cropped/ILSVRC2012_val_00044076.raw 0.941406 377 proboscis monkey
 ```
 
-通过结果打印与测试图片内容对比，可以确认 inception_v3 通过 TFLite delegate 使用 Qualcomm® NPU 推理输出的结果正确。
+By comparing the printed results with the test images, you can confirm that Inception_v3 inference via TFLite Delegate on the Qualcomm® NPU produces correct outputs.
 
 <div style={{ textAlign: "center" }}>
-  <img src="/img/dragon/q6a/qairt_resnet50.webp" style={{ width: "60%" }} />
+  <img src="/en/img/dragon/q6a/qairt_resnet50.webp" style={{ width: "60%" }} />
   inceptionv3 input images
 </div>
 
-## 参考文档
+## References
 
 - [**Tutorial - Preparing and Executing a Model with TFLite Delegate**](https://docs.qualcomm.com/doc/80-63442-10/topic/tutorial_preparing_and_executing.html)
