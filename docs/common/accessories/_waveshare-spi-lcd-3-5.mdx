@@ -22,7 +22,7 @@
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rsetup
 ```
 
@@ -41,7 +41,7 @@ rsetup
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 cat /sys/class/graphics/fb0/name
 ```
 
@@ -49,7 +49,7 @@ cat /sys/class/graphics/fb0/name
 
 如果显示屏被正确启用，你应该会看到类似以下的输出（以 fb0 为例）：
 
-```
+```text
 fb_ili9486
 ```
 
@@ -61,7 +61,7 @@ fb_ili9486
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y fbi
 ```
@@ -74,7 +74,7 @@ sudo apt-get install -y fbi
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo fbi  -vt 1 --noverbose -d /dev/fb0 logo.bmp
 ```
 
@@ -88,7 +88,7 @@ sudo fbi  -vt 1 --noverbose -d /dev/fb0 logo.bmp
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo con2fbmap 2 0
 ```
 
@@ -104,7 +104,7 @@ sudo con2fbmap 2 0
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo con2fbmap 3 0
 ```
 

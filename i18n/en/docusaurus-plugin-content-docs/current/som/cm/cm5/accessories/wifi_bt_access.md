@@ -26,25 +26,25 @@ sidebar_position: 2
 
 1. Switch to the ROOT user mode.
 
-```
+```bash
 sudo su
 ```
 
 2. Turn on the WIFI
 
-```
+```bash
 nmcli r wifi on
 ```
 
 3. Scan WIFI
 
-```
+```bash
 nmcli dev wifi
 ```
 
 4. Connect to the wifi network
 
-```
+```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
@@ -52,7 +52,7 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 - When using Radxa Wireless A8 module, the following blacklist must be added for BT to work properly.
 
-```
+```text
 root@radxa-cm5-io:~# cat /etc/modprobe.d/blacklist.conf
 blacklist pgdrv
 blacklist btusb
@@ -65,26 +65,26 @@ root@radxa-cm5-io:~# reboot
 
 - Radxa APT includes the Broadcom-WiFIbt-Firmware package for broadcom wireless modules and the Intel-WiFIbt-Firmware package for intel wireless modules. You need to download the corresponding software package.
 
-```
+```text
 root@radxa-cm5-io:~# apt-get update -y
 root@radxa-cm5-io:~# apt-get install -y broadcom-wifibt-firmware intel-wifibt-firmware
 ```
 
 1. Test the status of Bluetooth module and check Bluetooth device.
 
-```
+```text
 root@radxa-cm5-io:~# systemctl status bluetooth
 ```
 
 2. Run the Bluetooth device.
 
-```
+```text
 root@radxa-cm5-io:~# systemctl start bluetooth
 ```
 
 3. Detect Bluetooth devices
 
-```
+```text
 root@radxa-cm5-io:~# hciconfig
 hci0:   Type: Primary Bus: UART
        BD Address: 10:2C:6B:49:D5:53 ACL MTU: 1021:8 SCO MTU: 64:1
@@ -95,19 +95,19 @@ hci0:   Type: Primary Bus: UART
 
 4. Test: Connect Bluetooth speaker, first install pulseaudio
 
-```
+```text
 root@radxa-cm5-io:~# apt-get install -y pulseaudio-module-bluetooth pulseaudio
 ```
 
 5. Run pulseaudio
 
-```
+```text
 root@radxa:~# pulseaudio --start
 ```
 
 6. Connect using pulseaudio
 
-```
+```text
 root@radxa-cm5-io:~# bluetoothctl
 [bluetooth]# default-agent
 [bluetooth]# power on

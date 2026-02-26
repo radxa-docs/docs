@@ -35,7 +35,7 @@ Add the following to the user configuration file:
 
 <NewCodeBlock tip="radxa@dragon-q6a" type="device">
 
-```
+```bash
 # Fast preset for resource-constrained devices
 profile=fast
 

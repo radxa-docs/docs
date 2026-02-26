@@ -14,7 +14,7 @@ Use GStreamer to preview the camera image.
 
 <NewCodeBlock tip='radxa@cubie-a7a$' type="device">
 
-```
+```bash
 DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=4208,height=3120,framerate=24/1  ! xvimagesink
 ```
 

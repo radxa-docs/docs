@@ -28,14 +28,14 @@ Connect a coin cell battery with the appropriate connector to the RTC battery in
 Use the following command to verify if the RTC hardware is functioning properly.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
-```
+```bash
 sudo dmesg | grep rtc
 ```
 </NewCodeBlock>
 
 If the RTC battery is properly recognized, the terminal will display output similar to: `registered as rtc0`.
 
-```
+```text
 [    6.259233] rtc-ds1307 10-0068: registered as rtc0
 [    6.260658] rtc-ds1307 10-0068: setting system clock to 2025-08-06T08:39:15 UTC (1754469555)
 ```
@@ -46,7 +46,7 @@ Use the `hwclock` command in the terminal to read the current time from the RTC 
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install util-linux util-linux-extra -y
 sudo hwclock -r -f /dev/rtc0
@@ -60,7 +60,7 @@ Use the `date` command to display the current system time.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 date
 ```
 
@@ -71,7 +71,7 @@ date
 If the RTC time is out of sync with the system time, you can use the `hwclock` command to write the current system time to the RTC.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
-```
+```bash
 sudo hwclock -w -f /dev/rtc0
 ```
 </NewCodeBlock>

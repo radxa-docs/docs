@@ -40,7 +40,7 @@ Please extract the downloaded `update.img` system image before use.
 :::
 
 <NewCodeBlock tip="Linux$" type="host">
-```
+```bash
 sudo ./upgrade_tool uf <xx-update.img-path>
 ```
 </NewCodeBlock>

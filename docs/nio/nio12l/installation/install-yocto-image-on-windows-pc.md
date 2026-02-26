@@ -24,7 +24,7 @@ Yocto 系统的烧录需要使用联发科提供的 Genio Tools 烧录工具，G
 
 安装完成后，打开git bash程序，执行以下配置命令：
 
-```
+```text
 > git config --global http.sslBackend schannel
 > git config --global credential.helper manager-core
 ```
@@ -54,7 +54,7 @@ Google USB 驱动程序包含 Windows 上的 `adb` 和 `fastboot` 设备驱动�
 
 通过以下命令检查是否正确安装：
 
-```
+```text
 > fastboot --version
 fastboot version 34.0.4-10411341
 ```
@@ -71,7 +71,7 @@ fastboot version 34.0.4-10411341
 
 确保 pip3 的版本大于 20.3，并通过pip3安裝必要的包：
 
-```
+```text
 > pip3 --version
 pip 21.2.4 from c:\python39\lib\site-packages\pip (python 3.9)
 >pip3 install python-certifi-win32 --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host gitlab.com
@@ -79,7 +79,7 @@ pip 21.2.4 from c:\python39\lib\site-packages\pip (python 3.9)
 
 安装完成后，将以下环境变量添加到您的Windows系统中：
 
-```
+```text
 > setx REQUESTS_CA_BUNDLE %LOCALAPPDATA%\.certifi\cacert.pem
 > set REQUESTS_CA_BUNDLE=%LOCALAPPDATA%\.certifi\cacert.pem
 ```
@@ -88,7 +88,7 @@ pip 21.2.4 from c:\python39\lib\site-packages\pip (python 3.9)
 
 以管理员身份运行以下命令来安装 Genio Tools：
 
-```
+```text
 > pip3 install -U genio-tools
 ```
 
@@ -96,7 +96,7 @@ pip 21.2.4 from c:\python39\lib\site-packages\pip (python 3.9)
 缺少依赖项
 如果遇到安装错误，例如缺少 `setuptools_scm`，可以先使用以下命令安装软件包：
 
-```
+```text
 > pip3 install wheel setuptools_scm gpiod libusb1 packaging pyserial pyftdi pyusb pyyaml pyparsing enum34 oyaml windows-curses --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host gitlab.com
 ```
 
@@ -105,7 +105,7 @@ pip 21.2.4 from c:\python39\lib\site-packages\pip (python 3.9)
 
 使用以下命令检查是否正确安装:
 
-```
+```text
 > genio-flash --version
 1.3.4
 > genio-config

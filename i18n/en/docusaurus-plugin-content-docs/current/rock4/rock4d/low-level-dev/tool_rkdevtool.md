@@ -42,7 +42,7 @@ Download the [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2
 Open a terminal and run the following commands to install the necessary dependencies and compile rkdeveloptool:
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -59,7 +59,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 After installation, you can check the installed version of rkdeveloptool with the following command:
 
 <NewCodeBlock tip="PC - Host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -75,7 +75,7 @@ rkdeveloptool -V
 If you don't have Homebrew installed, you can install it by running the following command in your terminal:
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 </NewCodeBlock>
@@ -85,7 +85,7 @@ If you don't have Homebrew installed, you can install it by running the followin
 Open Terminal and run the following commands to install the required dependencies and compile rkdeveloptool:
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -101,7 +101,7 @@ cp rkdeveloptool /opt/local/sbin/
 After installation, you can check the installed version of rkdeveloptool with the following command:
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>

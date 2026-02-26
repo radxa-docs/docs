@@ -13,7 +13,7 @@
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 docker pull ubuntu:22.04
 ```
 
@@ -27,7 +27,7 @@ docker pull ubuntu:22.04
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vi ros_humble.sh
 ```
 
@@ -35,7 +35,7 @@ vi ros_humble.sh
 
 添加以下内容到脚本内：
 
-```
+```text
 #!/bin/bash
 xhost +
 
@@ -66,7 +66,7 @@ ubuntu:22.04 /bin/bash
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 bash ros_humble.sh
 ```
 
@@ -80,7 +80,7 @@ bash ros_humble.sh
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 locale
 ```
 
@@ -88,7 +88,7 @@ locale
 
 若系统编码格式是 UTF-8，你可以在终端看到类似以下信息输出：
 
-```
+```text
 LANG=en_US.UTF-8
 LANGUAGE=
 LC_CTYPE="en_US.UTF-8"
@@ -110,7 +110,7 @@ LC_ALL=
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt update && apt install locales
 locale-gen en_US en_US.UTF-8
 echo "export LANG=en_US.UTF-8" >> ~/.bashrc
@@ -125,7 +125,7 @@ source ~/.bashrc
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt-cache policy | grep universe
 apt install software-properties-common curl -y
 add-apt-repository universe
@@ -139,14 +139,14 @@ curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vi /etc/hosts
 ```
 
 </NewCodeBlock>
 添加以下内容：
 
-```
+```text
 185.199.110.133 raw.githubusercontent.com
 ```
 
@@ -154,7 +154,7 @@ vi /etc/hosts
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 ```
 
@@ -164,7 +164,7 @@ curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 ```
 
@@ -176,7 +176,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt update && apt upgrade
 apt install ros-humble-desktop-full -y
 ```
@@ -189,7 +189,7 @@ apt install ros-humble-desktop-full -y
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt install ros-dev-tools -y
 ```
 
@@ -201,7 +201,7 @@ apt install ros-dev-tools -y
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -216,7 +216,7 @@ source ~/.bashrc
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 docker commit ros2 ros_humble:1.0
 ```
 
@@ -229,7 +229,7 @@ docker commit ros2 ros_humble:1.0
 
 等待提交完成，完成后会输出类似以下信息输出：
 
-```
+```text
 sha256:32288d439ffab73505d0754d4c43d8aad83210441b41553118e81ff6ab2887af
 ```
 
@@ -239,7 +239,7 @@ sha256:32288d439ffab73505d0754d4c43d8aad83210441b41553118e81ff6ab2887af
 
 <NewCodeBlock tip="ros_humble.sh" type="device">
 
-```
+```bash
 #!/bin/bash
 
 xhost +

@@ -40,7 +40,7 @@ For example, `192.168.31.53` is the IP address assigned by the router.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli radio wifi on
 ```
 
@@ -50,7 +50,7 @@ sudo nmcli radio wifi on
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli device wifi list
 ```
 
@@ -60,7 +60,7 @@ sudo nmcli device wifi list
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
 
 # Example
@@ -74,7 +74,7 @@ sudo nmcli device wifi connect wifi_demo password 12345678
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -82,7 +82,7 @@ ip a
 
 The terminal will display output similar to the following, where `192.168.31.76` is the IP address assigned by the router:
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 inet 127.0.0.1/8 scope host lo
@@ -126,7 +126,7 @@ Additional commands:
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli device wifi hotspot ifname <ifname> con-name <name> ssid <SSID> password <password>
 
 # Example
@@ -145,7 +145,7 @@ This command creates a WiFi hotspot named "My-Hotspot" with the password "123456
 
 After successful setup, the terminal will display output similar to:
 
-```
+```text
 Device 'wlan0' successfully activated with 'd73e5af7-a49c-4608-bdab-bd28a36bdbef'.
 Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 ```
@@ -154,7 +154,7 @@ Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli connection down My-Hotspot
 ```
 
@@ -164,7 +164,7 @@ sudo nmcli connection down My-Hotspot
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli connection up My-Hotspot
 ```
 
@@ -174,7 +174,7 @@ sudo nmcli connection up My-Hotspot
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli connection delete My-Hotspot
 ```
 
@@ -204,7 +204,7 @@ Both server and client need to have `iperf` installed.
 
 <NewCodeBlock tip="radxa@device$ & Linux$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install iperf
 ```
@@ -219,7 +219,7 @@ Open a terminal and enter the following command to start the server:
 
 <NewCodeBlock tip="Linux" type="host">
 
-```
+```bash
 iperf -s
 ```
 
@@ -227,7 +227,7 @@ iperf -s
 
 After successful startup, the terminal will display output similar to:
 
-```
+```text
 ---
 
 ## Server listening on 5201 (test #1)
@@ -242,7 +242,7 @@ Solution:
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 ps -ef | grep iperf3
 ```
 
@@ -252,7 +252,7 @@ ps -ef | grep iperf3
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo kill <PID>
 ```
 
@@ -267,7 +267,7 @@ Open a terminal and enter the following command to test the client's upload band
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time>
 
 # Example
@@ -288,7 +288,7 @@ Open a terminal and enter the following command to test the client's download ba
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time> -R
 
 # Example

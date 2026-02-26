@@ -33,7 +33,7 @@ Navigate to the root directory of the official Allwinner SDK source code, then u
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 repo sync -l
 ```
 
@@ -43,7 +43,7 @@ Note: This command is equivalent to `.repo/repo/repo sync -l` and does not requi
 
 After successful execution, the terminal will output information similar to the following:
 
-```
+```text
 Updating files: 100% (14802/14802), done.dating files:  71% (10553/14802)
 Updating files: 100% (15025/15025), done.ting files:  47% (7062/15025)
 Updating files: 100% (588/588), done.rm/configUpdating files:   9% (1355/14239)
@@ -89,7 +89,7 @@ If the `repo` command is not installed, you can install it manually:
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 sudo apt update
 sudo apt install repo
 ```
@@ -129,7 +129,7 @@ It is recommended to navigate to the official Allwinner SDK source code director
 Navigate to the specified directory in the official Allwinner SDK source code, then execute the commands to add the remote repository, update it, and switch branches.
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-```
+```bash
 cd target/a527/
 git remote add radxa https://github.com/radxa/allwinner-target.git
 git fetch radxa
@@ -152,7 +152,7 @@ Ubuntu 20.04 / 22.04 / 24.04 system
 #### Install Dependencies
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-```
+```bash
 sudo apt update
 sudo apt install build-essential subversion git-core libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc libxml-parser-perl mercurial bzr ecj cvs unzip lib32z1 lib32z1-dev lib32stdc++6 libstdc++6 lib32ncurses-dev lib32z1 ncurses-term bison libexpat-dev cpio busybox -y
 ```
@@ -162,7 +162,7 @@ sudo apt install build-essential subversion git-core libncurses5-dev zlib1g-dev 
 
 Before compiling, we need to add a patch in the `build/pack` directory of the official Allwinner SDK source code to support extlinux boot.
 
-```
+```text
 --- a/pack
 +++ b/pack
 @@ -235,6 +235,9 @@ ${LICHEE_CHIP_CONFIG_DIR}/configs/${PACK_BOARD}/wavefile/*:${LICHEE_PACK_OUT_DIR}
@@ -186,14 +186,14 @@ Navigate to the official Allwinner SDK source code directory, then initialize th
 ### Initialize Build Environment
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-```
+```bash
 source build/envsetup.sh
 ```
 </NewCodeBlock>
 
 After successful initialization, the terminal will output information similar to the following:
 
-```
+```text
 NOTE: The SDK(/home/milir/download/tina_sdk) was successfully loaded
 load yocto... ok
 load buildroot,dragonboard,bsp...ok
@@ -249,7 +249,7 @@ Usage: pack [args]
 ### Launch Configuration Interface
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-```
+```bash
 ./build.sh config
 ```
 </NewCodeBlock>
@@ -258,7 +258,7 @@ After running the command, select the following options in sequence: System Type
 
 After successful configuration, the terminal will output information similar to the following. You can refer to this information for configuration:
 
-```
+```text
 ========ACTION List: mk_config ;========
 options :
 All available platform:
@@ -334,7 +334,7 @@ Solution:
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 sudo apt update
 sudo apt install python3
 sudo ln -s /usr/bin/python3 /usr/bin/python
@@ -347,14 +347,14 @@ sudo ln -s /usr/bin/python3 /usr/bin/python
 ### Image Compilation
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-```
+```bash
 ./build.sh
 ```
 </NewCodeBlock>
 
 After compilation is complete, the terminal will output information similar to the following:
 
-```
+```text
 Use init ramdisk file: '/home/milir/download/tina_sdk/kernel/linux-5.15/bsp/ramfs/ramfs_aarch64.cpio.gz'.
 15983 blocks
 30954 blocks
@@ -417,7 +417,7 @@ INFO: ----------------------------------------
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 ./build.sh pack
 ```
 
@@ -425,7 +425,7 @@ INFO: ----------------------------------------
 
 After the image packaging is complete, the terminal will output information similar to the following: The generated system image will be located in the `out` directory of the official Allwinner SDK source code.
 
-```
+```text
 Dragon execute image.cfg SUCCESS !
 ----------image is at----------
 
@@ -440,7 +440,7 @@ To compile U-Boot separately, follow these steps:
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 ./build.sh bootloader
 ```
 
@@ -451,7 +451,7 @@ Running './build.sh bootloader' will execute the build.sh script located in the 
 
 This command is equivalent to the following, which uses the `sun55iw3p1_defconfig` file in the `u-boot-2018/configs` directory:
 
-```
+```text
 cd brandy/brandy-2.0/
 ./build.sh -p sun55iw3p1 -b a527
 ```
@@ -460,7 +460,7 @@ cd brandy/brandy-2.0/
 
 After compilation is complete, the terminal will output information similar to the following: Compiling U-Boot will generate u-boot, boot0, fes1, and sboot files, with the file locations output in the terminal log.
 
-```
+```text
 ========ACTION List: build_bootloader ;========
 options :
 find: '/home/milir/download/tina_sdk/brandy/brandy-2.0/spl': No such file or directory
@@ -483,7 +483,7 @@ To compile the Kernel separately, follow these steps:
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 ./build.sh kernel
 ```
 
@@ -497,7 +497,7 @@ Running './build.sh kernel' will use the `defconfig` configuration file in the `
 
 After compilation is complete, the terminal will output information similar to the following: Compiling the Kernel will generate kernel image files, with the generated files located in the `out/a527/cubie_a5e/debian/` directory.
 
-```
+```text
 Use init ramdisk file: '/home/milir/download/tina_sdk/kernel/linux-5.15/bsp/ramfs/ramfs_aarch64.cpio.gz'.
 15983 blocks
 30954 blocks

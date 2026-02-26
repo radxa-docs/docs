@@ -35,7 +35,7 @@ SPI 启动固件的核心任务是**初始化关键硬件**，例如：
 成功启动系统并且确保系统连接网络正常，我们可以打开 ROCK 4D 终端命令行，使用 Rsetup 工具来更新系统。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo rsetup
 ```
 </NewCodeBlock>
@@ -70,7 +70,7 @@ rsetup 工具使用指南：详细使用教程参考 [Rsetup 工具](../../syste
 完成后所有操作后，使用命令重启系统。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo reboot
 ```
 </NewCodeBlock>
@@ -106,7 +106,7 @@ sudo reboot
 完成后所有操作后，使用命令重启系统。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo reboot
 ```
 </NewCodeBlock>
@@ -120,7 +120,7 @@ sudo reboot
 终端命令行输入 `rsetup` 命令，进入 Rsetup 工具界面。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>

@@ -21,7 +21,7 @@ Use the `curl` command to download the script on your device.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 curl -sL https://rock.sh/rockpi-backup -o rockpi-backup.sh
 ```
 
@@ -33,7 +33,7 @@ Add execute permissions to the script.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 chmod +x rockpi-backup.sh
 ```
 
@@ -43,7 +43,7 @@ You can view the script's help information using the `-h` parameter.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo ./rockpi-backup.sh -h
 ```
 
@@ -51,7 +51,7 @@ sudo ./rockpi-backup.sh -h
 
 Example terminal output:
 
-```
+```text
 Usage:
 sudo ./rockpi-backup.sh [-o path|-e pattern|-u|-m path]
 -o Specify output position, default is $PWD.
@@ -66,7 +66,7 @@ Run the script with root privileges. You'll need to manually confirm dependency 
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo ./rockpi-backup.sh
 ```
 
@@ -93,7 +93,7 @@ After the backup is complete, the script will display the path to the backup fil
 
 Example terminal output:
 
-```
+```text
 Backup done, the file is /home/radxa/**_-backup-_**.img
 ```
 
@@ -130,7 +130,7 @@ Use the `lsblk` command to identify the removable disk information.
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 lsblk
 ```
 
@@ -138,7 +138,7 @@ lsblk
 
 Example terminal output (where `sda` is the system disk of the board in this example). You can identify the correct device by safely removing and reconnecting the removable medium.
 
-```
+```text
 sda 8:0 1 58G 0 disk
 ├─sda1 8:1 1 16M 0 part /media/wml/config
 ├─sda2 8:2 1 300M 0 part
@@ -155,7 +155,7 @@ Open a terminal on your Linux system and use the `dd` command to back up the sys
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo dd if=/dev/sda of=system-backup.img bs=4M status=progress
 ```
 
@@ -170,7 +170,7 @@ The backup process will display progress and speed. Upon completion, it will sho
 
 Example terminal output:
 
-```
+```text
 62205722624 bytes (62 GB, 58 GiB) copied, 1609 s, 38.7 MB/s
 14839+0 records in
 14839+0 records out

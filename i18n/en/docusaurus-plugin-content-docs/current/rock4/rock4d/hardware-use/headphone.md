@@ -23,14 +23,14 @@ Use the `aplay -l` command to view audio playback devices (speakers) and `arecor
 - View Playback Devices
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 aplay -l
 ```
 </NewCodeBlock>
 
 Terminal output will show information similar to below. The `card 1: rockchipes8388` represents the onboard ES8388 audio codec, which is typically used for both input (microphone) and output (audio playback) through the 3.5mm headphone jack.
 
-```
+```text
 card 0: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
@@ -42,7 +42,7 @@ card 1: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 H
 - View Recording Devices
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 arecord -l
 ```
 </NewCodeBlock>
@@ -50,7 +50,7 @@ arecord -l
 The output will be similar to the following information: The onboard ES8388 audio codec `card 1: rockchipes8388` is typically used for both input (microphone) and output (audio playback) through the 3.5mm headphone jack.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 card 0: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
@@ -65,7 +65,7 @@ card 1: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 H
 This feature requires headphones with a built-in microphone. Use the `arecord` command to record audio.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo arecord -Dhw:1,0 -d 20 -f cd -r 44100 -c 2 -t wav /tmp/tmp.wav
 ```
 </NewCodeBlock>
@@ -83,7 +83,7 @@ sudo arecord -Dhw:1,0 -d 20 -f cd -r 44100 -c 2 -t wav /tmp/tmp.wav
 Use the `aplay` command to play audio.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo aplay -Dhw:1,0 /tmp/tmp.wav
 ```
 </NewCodeBlock>

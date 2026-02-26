@@ -6,7 +6,7 @@ Run the following command to download the RK3576 YOLOv5 demo archive.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 wget https://dl.radxa.com/rock4/4d/images/rk3576_rknn_yolov5_demo.tar.gz
 ```
 
@@ -20,7 +20,7 @@ Extract the archive to obtain the `rk3576_rknn_yolov5_demo` directory, which con
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 tar -xzf rk3576_rknn_yolov5_demo.tar.gz
 ```
 
@@ -32,7 +32,7 @@ Enter the directory and run the executable. The sample command uses `bus.jpg` as
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 cd rk3576_rknn_yolov5_demo
 ./rknn_yolov5_demo ./model/yolov5s_relu_rk3576.rknn ./model/bus.jpg
 ```
@@ -49,7 +49,7 @@ Command parameters:
 
 After the inference succeeds, the terminal prints model information, parsed results, and the confidence for each detection, for example:
 
-```
+```text
 load label ./model/coco_80_labels_list.txt
 model input num: 1, output num: 3
 input tensors:

@@ -82,7 +82,7 @@ Click `Finish` to complete the installation.
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo dpkg -i nomachine_xxx.deb
 ```
 
@@ -109,7 +109,7 @@ Visit the [NoMachine official website](https://www.nomachine.com/) to download t
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo dpkg -i nomachine_xxx.deb
 ```
 
@@ -121,7 +121,7 @@ If you are logged into the board system via serial port or SSH, you can use the 
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 wget <download_url>
 ```
 
@@ -135,7 +135,7 @@ Modify the configuration file so that NoMachine can work properly without a phys
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo nano /usr/NX/etc/node.cfg
 ```
 
@@ -149,7 +149,7 @@ Restart the system to apply all configurations.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo reboot
 ```
 

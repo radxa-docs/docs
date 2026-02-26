@@ -43,7 +43,7 @@ rkdeveloptool 不支持选择 Maskrom 设备，也无法选择待写入的存储
 1. 解压镜像文件 (镜像文件详见[资源下载汇总](../../../download.md)部分， 此处以 radxa-cm3j-rpi-cm4-io_bullseye_xfce_b1.output.img.xz 为例)
 
    ```bash
-   xz -d radxa-cm3j-rpi-cm4-io_bullseye_xfce_b1.output.img.xz (如果是gz格式，请使用gunzip -d xxx.gz命令)
+   xz -d radxa-cm3j-rpi-cm4-io_bullseye_xfce_b1.output.img.xz (如果是 gz 格式，请使用 `gunzip -d <image>.gz` 命令)
    ```
 
 2. 烧录 Loader (实际文件详见[资源下载汇总](../../../download.md)部分，这里以 rk356x_spl_loader_ddr1056_v1.12.109_no_check_todly.bin 为例)

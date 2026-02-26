@@ -39,7 +39,7 @@ Note: `Headphones` are for speakers, and `Headset Microphone` is for the microph
 Use the `alsamixer` command-line tool to configure audio devices. Enter the following command in the terminal to open the `alsamixer` UI interface.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 alsamixer
 ```
 </NewCodeBlock>

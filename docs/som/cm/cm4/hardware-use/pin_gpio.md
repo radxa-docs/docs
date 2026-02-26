@@ -70,7 +70,7 @@ sidebar_position: 10
 使用 `gpiofind` 命令找到 GPIO 引脚对应的设备节点，然后使用 `gpioget` 命令读取引脚状态。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 gpioget $(gpiofind PIN_3)
 ```
 </NewCodeBlock>
@@ -79,7 +79,7 @@ gpioget $(gpiofind PIN_3)
 
 终端输出类似信息：我将引脚连接到 GND 输出的结果（终端输出 0 表示引脚为低电平，输出 1 表示引脚为高电平）。
 
-```
+```text
 0
 ```
 
@@ -100,7 +100,7 @@ gpioget $(gpiofind PIN_3)
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 # 输出高电平
 gpioset -m signal $(gpiofind PIN_3)=1
 # 输出低电平
@@ -152,7 +152,7 @@ UART（通用异步收发传输器） 是一种广泛使用的串行通信协议
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo chmod 777 /dev/ttyS4
 ```
 
@@ -164,7 +164,7 @@ sudo chmod 777 /dev/ttyS4
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo stty -F /dev/ttyS4 115200 cs8 -parenb -cstopb -echo
 ```
 
@@ -182,7 +182,7 @@ sudo stty -F /dev/ttyS4 115200 cs8 -parenb -cstopb -echo
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 while true; do echo "UART4 test" > /dev/ttyS4; sleep 1; done
 ```
 
@@ -194,7 +194,7 @@ while true; do echo "UART4 test" > /dev/ttyS4; sleep 1; done
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 cat /dev/ttyS4
 ```
 
@@ -241,7 +241,7 @@ I2C 是一种广泛使用的同步串行通信协议，由飞利浦（现恩智�
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install python3-periphery i2c-tools
 ```
@@ -254,7 +254,7 @@ sudo apt install python3-periphery i2c-tools
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo i2cdetect -l
 ```
 
@@ -262,7 +262,7 @@ sudo i2cdetect -l
 
 终端输出类似信息：
 
-```
+```text
 i2c-1   i2c             rk3x-i2c                                I2C adapter
 i2c-2   i2c             rk3x-i2c                                I2C adapter
 i2c-3   i2c             rk3x-i2c                                I2C adapter
@@ -277,7 +277,7 @@ i2c-10  i2c             ddc                                     I2C adapter
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo i2cdetect -y -r *
 # 示例
 sudo i2cdetect -y -r 8
@@ -289,7 +289,7 @@ sudo i2cdetect -y -r 8
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:                         -- -- -- -- -- -- -- --
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -313,7 +313,7 @@ sudo i2cdetect -y -r 8
   <summary>oled_test.py</summary>
   <p>
 
-```
+```text
 from periphery import I2C
 import time
 
@@ -400,7 +400,7 @@ i2c.close()
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 python3 oled_test.py
 ```
 
@@ -441,7 +441,7 @@ SPI（串行外设接口）是一种高速、全双工、同步串行通信协�
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ls /dev/spidev\*
 ```
 
@@ -449,7 +449,7 @@ ls /dev/spidev\*
 
 终端输出类似信息：
 
-```
+```text
 /dev/spidev1.0
 ```
 
@@ -462,7 +462,7 @@ ls /dev/spidev\*
 <details>
   <summary>spidev_test.c</summary>
   <p>
-```
+```text
 /\*
 
 - SPI testing utility (using spidev driver)
@@ -873,7 +873,7 @@ int fd;
 
 }
 
-```
+````
 </p>
 </details>
 
@@ -883,12 +883,12 @@ int fd;
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 
 sudo apt update
 sudo apt install build-essential
 
-```
+````
 
 </NewCodeBlock>
 
@@ -898,7 +898,7 @@ sudo apt install build-essential
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 
 gcc -o spidev_test spidev_test.c
 
@@ -912,7 +912,7 @@ gcc -o spidev_test spidev_test.c
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 
 sudo ./spidev_test
 
@@ -922,7 +922,7 @@ sudo ./spidev_test
 
 若回环测试正常，我们可以在终端看到输出以下信息：
 
-```
+```text
 
 spi mode: 0x0
 bits per word: 8
@@ -930,5 +930,7 @@ max speed: 500000 Hz (500 KHz)
 RX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D | ......@....�..................�.
 
 ```
+
+```text
 
 ```

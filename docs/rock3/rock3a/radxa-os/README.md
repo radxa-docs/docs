@@ -10,7 +10,7 @@ import Serial from "../../../common/general/\_serial.mdx"
 
 ## 用户名和密码
 
-```
+```text
 User name：radxa/rock
 Password： radxa/rock
 ```
@@ -23,7 +23,7 @@ Password： radxa/rock
 
 ### 连接WiFi
 
-```
+```bash
 nmcli device wifi                                           #扫描WiFi
 sudo nmcli device wifi connect <ssid> password <passwd>     #连接WiFi
 ```

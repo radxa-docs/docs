@@ -24,24 +24,24 @@ sidebar_position: 2
 
 1. 首先进入ROOT用户模式。
 
-```
+```bash
 sudo su
 ```
 
 2. 打开WIFI
 
-```
+```bash
 nmcli r wifi on
 ```
 
 3. 扫描WIFI
 
-```
+```bash
 nmcli dev wifi
 ```
 
 4. 连接wifi网络
 
-```
+```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```

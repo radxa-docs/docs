@@ -31,14 +31,14 @@ You can connect USB devices such as a mouse or keyboard to each USB Type-A port,
 Use the `lsusb` command to view the list of USB devices.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsusb
 ```
 </NewCodeBlock>
 
 Sample terminal output:
 
-```
+```text
 Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 003: ID a69c:8d80 aicsemi AIC Wlan
 Bus 003 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
@@ -52,14 +52,14 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Use the `lsusb` command to view the list of USB devices and check if the connected USB device is recognized.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsusb
 ```
 </NewCodeBlock>
 
 Sample terminal output: I connected a card reader to the USB port
 
-```
+```text
 Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 003: ID a69c:8d80 aicsemi AIC Wlan
 Bus 003 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
@@ -80,14 +80,14 @@ Connect a USB flash drive to the USB 2.0 or USB 3.0 Type-A port, and use the `dd
 Use the `lsblk` command to confirm the device name of the USB flash drive.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
 
 Sample terminal output: Here, `sda` is the device name of my current USB flash drive. Please replace it according to your actual situation.
 
-```
+```text
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1   58G  0 disk
 mtdblock0    31:0    0   16M  0 disk
@@ -101,7 +101,7 @@ zram0       253:0    0  1.9G  0 disk [SWAP]
 #### Test Write Performance
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 ```
 </NewCodeBlock>
@@ -116,7 +116,7 @@ This command writes 100MB of zero bytes to the USB flash drive and displays the 
 
 Sample terminal output:
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 3.40424 s, 30.8 MB/s
@@ -125,7 +125,7 @@ Sample terminal output:
 #### Test Read Performance
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 ```
 </NewCodeBlock>
@@ -140,7 +140,7 @@ This command reads 100MB of data from the USB flash drive to `/dev/null` and dis
 
 Sample terminal output:
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 4.0582 s, 25.8 MB/s

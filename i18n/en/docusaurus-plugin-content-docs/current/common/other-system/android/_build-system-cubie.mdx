@@ -11,7 +11,7 @@ If using 16GB RAM, you need to enable swap space before compiling the Android sy
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 sudo fallocate -l 16G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
@@ -26,7 +26,7 @@ sudo swapon /swapfile
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 sudo apt update -y
 sudo apt install libelf-dev libssl-dev bc flex bison dwarves repo git-lfs libncurses5 gawk lib32z1 lib32z1-dev -y
 ```
@@ -37,7 +37,7 @@ sudo apt install libelf-dev libssl-dev bc flex bison dwarves repo git-lfs libncu
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 mkdir -p ~/android
 cd ~/android
 repo init -u https://github.com/radxa/allwinner-android-manifests -b Android13_A733_v1.0 -m aw-a733-release.xml
@@ -57,7 +57,7 @@ Navigate to the downloaded source code's `longan` directory and use `./build.sh 
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 cd ~/android/longan
 ./build.sh config
 ```
@@ -75,7 +75,7 @@ In the interactive terminal configuration, select the following options in order
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 cd ~/android/longan
 ./build.sh
 ```
@@ -92,7 +92,7 @@ The generated kernel files will be located in the `out` directory of the current
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 cd ~/android
 source build/envsetup.sh
 ```
@@ -103,7 +103,7 @@ source build/envsetup.sh
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 lunch <board-model>
 ```
 
@@ -115,7 +115,7 @@ Replace `<board-model>` with {props.config}, for example: lunch {props.config}
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 make -j$(nproc)
 ```
 
@@ -127,7 +127,7 @@ After successful compilation, the terminal will display a message similar to `##
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 pack
 ```
 

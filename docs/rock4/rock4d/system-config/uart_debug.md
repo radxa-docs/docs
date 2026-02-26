@@ -150,7 +150,7 @@ Tabby 软件主界面
 以 Linux 系统为例，若串口设备权限不足，您需要在终端命令行运行以下命令，让所有用户都有权限访问串口设备。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 sudo chmod 777 /dev/ttyUSB0
 ```
 </NewCodeBlock>

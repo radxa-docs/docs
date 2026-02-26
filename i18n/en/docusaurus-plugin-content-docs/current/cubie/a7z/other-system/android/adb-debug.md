@@ -44,7 +44,7 @@ Run `./adb version` to confirm the installed ADB version.
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb version
 ```
 
@@ -52,7 +52,7 @@ Run `./adb version` to confirm the installed ADB version.
 
 Successful output looks like:
 
-```
+```text
 Android Debug Bridge version 1.0.41
 Version 36.0.0-13206524
 ```
@@ -90,7 +90,7 @@ Run `./adb devices` to display attached devices.
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb devices
 ```
 
@@ -98,7 +98,7 @@ Run `./adb devices` to display attached devices.
 
 Successful output resembles:
 
-```
+```text
 List of devices attached
 7c0016117200887238d	device
 ```
@@ -112,7 +112,7 @@ From inside the `platform-tools` directory, run `./adb shell` to enter the devic
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb shell
 ```
 
@@ -120,7 +120,7 @@ From inside the `platform-tools` directory, run `./adb shell` to enter the devic
 
 You should see a shell prompt similar to:
 
-```
+```text
 radxa-A7Z:/ $
 ```
 
@@ -131,7 +131,7 @@ From the same directory, run `./adb connect <device_ip:port>` to initiate a wire
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb connect <device_ip:port>
 
 # Example
@@ -144,7 +144,7 @@ From the same directory, run `./adb connect <device_ip:port>` to initiate a wire
 
 Expected output:
 
-```
+```text
 already connected to 192.168.31.201:43167
 ```
 
@@ -152,7 +152,7 @@ After connecting, use `./adb shell` to drop into the device shell.
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb shell
 ```
 
@@ -160,7 +160,7 @@ After connecting, use `./adb shell` to drop into the device shell.
 
 You should again see:
 
-```
+```text
 radxa-A7Z:/ $
 ```
 

@@ -37,7 +37,7 @@ To connect a display using the MIPI DSI interface, the ROCK 4D requires a dedica
 1. Open a terminal and enter the `rsetup` command to configure display options:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>

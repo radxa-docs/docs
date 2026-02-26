@@ -12,7 +12,7 @@
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 bash ros_noetic.sh
 ```
 
@@ -32,7 +32,7 @@ bash ros_noetic.sh
 ROS1 需要先启动 Master 节点，再启动 Turtlesim 节点。
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-```
+```bash
 roscore
 ```
 
@@ -51,7 +51,7 @@ roscore
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosrun turtlesim turtlesim_node
 ```
 
@@ -72,7 +72,7 @@ rosrun turtlesim turtlesim_node
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosrun turtlesim turtle_teleop_key
 ```
 
@@ -116,7 +116,7 @@ rosrun turtlesim turtle_teleop_key
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosnode list
 ```
 
@@ -146,7 +146,7 @@ rosnode list
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rostopic list
 ```
 
@@ -163,7 +163,7 @@ rostopic list
 
 使用 `rostopic pub` 命令发布速度控制消息，让小乌龟移动：
 
-```
+```text
 rostopic pub -r 10 /turtle1/cmd_vel geometry_msgs/Twist "{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}"
 ```
 
@@ -182,7 +182,7 @@ rostopic pub -r 10 /turtle1/cmd_vel geometry_msgs/Twist "{linear: {x: 0.5, y: 0.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rostopic echo -n 1 /turtle1/pose
 ```
 
@@ -213,7 +213,7 @@ rostopic echo -n 1 /turtle1/pose
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosservice list
 ```
 
@@ -232,7 +232,7 @@ rosservice list
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosservice call /clear
 ```
 

@@ -50,7 +50,7 @@ You can also transfer the system image file to your ROCK 4D using other methods,
 :::
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 # Install wget if not already installed
 sudo apt-get install wget
 # Download the system image file
@@ -76,7 +76,7 @@ wget [URL]
 Use the following command to extract and write the compressed system image directly to the M.2 NVMe SSD. Please modify the command according to the actual system image filename you downloaded.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo xzcat ~/radxa-rk3576_bookworm_kde_t2.output_512.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
 ```
 </NewCodeBlock>
@@ -92,14 +92,14 @@ sudo xzcat ~/radxa-rk3576_bookworm_kde_t2.output_512.img.xz | sudo dd of=/dev/nv
 After writing is complete, you can verify that the partition table was created correctly on the M.2 NVMe SSD:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo fdisk -l /dev/nvme0n1
 ```
 </NewCodeBlock>
 
 If successful, you should see partition information similar to the following:
 
-```
+```text
 Disk /dev/nvme0n1: 465.76 GiB, 500107862016 bytes, 976773168 sectors
 Disk model: Samsung SSD 980 500GB
 Units: sectors of 1 \* 512 = 512 bytes
@@ -145,14 +145,14 @@ After the system starts, both the blue and green LED lights will turn on simulta
 After the system boots, you can use the `lsblk` command to view the system partition information:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo lsblk
 ```
 </NewCodeBlock>
 
 If you see `/dev/nvme0n1p3` mounted as the root directory `/`, it means the system has successfully booted from the M.2 NVMe SSD.
 
-```
+```text
 mtdblock0    31:0    0    16M  0 disk
 zram0       253:0    0   1.9G  0 disk [SWAP]
 nvme0n1     259:0    0 465.8G  0 disk

@@ -21,14 +21,14 @@ Connect the Cubie A5E's Ethernet interface to your router using an Ethernet cabl
 You can view network interface status and IP address information by entering the `ip a` command in the terminal.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 ip a
 ```
 </NewCodeBlock>
 
 The terminal will display output similar to the following, where 192.168.2.106 is the IP address assigned by your router.
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo

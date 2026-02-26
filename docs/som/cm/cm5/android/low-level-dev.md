@@ -14,7 +14,7 @@ Docker 是一个开源的应用容器引擎，可以帮助开发者更有效地�
 
 Dockerfile 是一个构建 Docker 镜像的文本文件，可以根据以下内容构建编译 Android12 所需环境。
 
-```
+```text
 FROM ubuntu:20.04
 
 RUN rm /etc/apt/sources.list

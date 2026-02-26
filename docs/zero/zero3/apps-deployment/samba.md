@@ -8,20 +8,20 @@ Samba 是 Linux 下常用的 SMB/CIFS 工具。通过 Samba ，您可以和包�
 
 1. 安装 samba
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install samba
 ```
 
 2. 编辑Samba配置文件,打开 /etc/samba/smb.conf 文件
 
-```
+```bash
 sudo nano /etc/samba/smb.conf
 ```
 
 3. 在文件末尾添加以下配置
 
-```
+```text
 [radxa]
 comment = Shared from my Radxa device
 path = /media/samba
@@ -33,26 +33,26 @@ writable = yes
 
 4. 创建共享文件夹
 
-```
+```bash
 sudo mkdir /media/samba
 sudo chmod 755 /media/samba
 ```
 
 5. 创建 Samba 用户和密码
 
-```
+```bash
 sudo smbpasswd -a radxa
 ```
 
 6. 重新启动 Samba 服务以加载更新后的配置
 
-```
+```bash
 sudo systemctl restart
 ```
 
 7. 执行 `systemctl status smbd` 查看 samba 运行状态
 
-```
+```bash
 radxa@radxa-zero3:~$ systemctl status smbd
 ● smbd.service - Samba SMB Daemon
      Loaded: loaded (/lib/systemd/system/smbd.service; enabled; vendor preset: >

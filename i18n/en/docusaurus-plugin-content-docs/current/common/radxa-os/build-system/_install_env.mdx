@@ -36,7 +36,7 @@ Use the `curl` command to download the official Docker installation script.
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 sudo apt update
 sudo apt install curl -y
 sudo curl -fsSL https://get.docker.com -o get-docker.sh
@@ -50,7 +50,7 @@ Run the installation script with `sudo` for root privileges.
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 sudo sh get-docker.sh
 ```
 
@@ -62,7 +62,7 @@ Check if Docker Engine is installed successfully using the `docker --version` co
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 docker --version
 ```
 
@@ -74,7 +74,7 @@ If the terminal displays the Docker version information, the installation was su
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 sudo usermod -aG docker $USER
 ```
 
@@ -97,7 +97,7 @@ Navigate to the directory containing the Docker Desktop installation package and
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 sudo apt-get install ./docker-desktop-amd64.deb
 ```
 
@@ -109,7 +109,7 @@ Check if Docker Desktop is installed successfully using the `docker --version` c
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 docker --version
 ```
 
@@ -121,7 +121,7 @@ If the terminal displays the Docker version information, the installation was su
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 sudo usermod -aG docker $USER
 ```
 
@@ -157,7 +157,7 @@ Navigate to the directory containing the Visual Studio Code installation package
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 sudo apt-get install ./code_xxx_amd64.deb
 ```
 

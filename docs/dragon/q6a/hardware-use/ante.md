@@ -19,7 +19,7 @@ sidebar_position: 12
 完成天线的安装后，可以打开终端使用命令对比安装天线前后的信号强度：
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo nmcli device wifi list
 ```
 </NewCodeBlock>

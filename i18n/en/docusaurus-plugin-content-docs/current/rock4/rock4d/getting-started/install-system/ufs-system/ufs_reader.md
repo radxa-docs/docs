@@ -188,14 +188,14 @@ When the system boots, both the blue and green LED indicators will light up. Aft
 After the system boots, you can check the partition information using the `lsblk` command:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo lsblk
 ```
 </NewCodeBlock>
 
 If you see `/dev/sda3` mounted as the root directory `/`, it means the system has successfully booted from the UFS module.
 
-```
+```text
 NAME      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda         8:0    0 119.1G  0 disk
 ├─sda1      8:1    0   128M  0 part /config

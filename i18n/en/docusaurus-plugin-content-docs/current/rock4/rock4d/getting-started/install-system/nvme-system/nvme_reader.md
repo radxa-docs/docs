@@ -180,14 +180,14 @@ After the system starts, both the blue and green LED lights will turn on simulta
 After the system boots, you can use the `lsblk` command to view the system partition information:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo lsblk
 ```
 </NewCodeBlock>
 
 If you see `/dev/nvme0n1p3` mounted as the root directory `/`, it means the system has successfully booted from the M.2 NVMe SSD.
 
-```
+```text
 mtdblock0    31:0    0    16M  0 disk
 zram0       253:0    0   1.9G  0 disk [SWAP]
 nvme0n1     259:0    0 465.8G  0 disk

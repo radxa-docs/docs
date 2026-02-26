@@ -26,7 +26,7 @@ Pay attention to the positive and negative polarity when connecting the fan.
 1. Use the `ls` command to view registered fan devices in the system.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 ls /sys/devices/platform/ | grep fan
 ```
 </NewCodeBlock>
@@ -34,7 +34,7 @@ ls /sys/devices/platform/ | grep fan
 Terminal output will be similar to:
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 pwm-fan
 ```
 </NewCodeBlock>
@@ -48,7 +48,7 @@ PWM control files for the fan are typically located in the `/sys/class/hwmon/` d
 Use the `ls` command to view the PWM control files for the `pwm-fan` device.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 ls /sys/class/hwmon/
 ```
 </NewCodeBlock>
@@ -56,7 +56,7 @@ ls /sys/class/hwmon/
 Terminal output will be similar to:
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 hwmon0
 ```
 </NewCodeBlock>
@@ -66,14 +66,14 @@ hwmon0
 Use the `ls` command to view the PWM control files for the `pwm-fan` device in the `hwmon` directory.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 ls -l /sys/class/hwmon/hwmon*/device
 ```
 </NewCodeBlock>
 
 Terminal output will be similar to:
 
-```
+```text
 /sys/class/hwmon/hwmon0/device -> ../../../pwm-fan
 ```
 
@@ -86,7 +86,7 @@ Use the `echo` command to set the fan speed. The PWM control range is typically 
 - Full Speed
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 echo 255 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 ```
 </NewCodeBlock>
@@ -94,7 +94,7 @@ echo 255 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 - Half Speed
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 echo 128 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 ```
 </NewCodeBlock>
@@ -102,7 +102,7 @@ echo 128 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 - Turn Off Fan
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 echo 0 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 ```
 </NewCodeBlock>

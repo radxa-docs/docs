@@ -39,7 +39,7 @@ Download the NVIDIA L4T source package.
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 wget https://developer.download.nvidia.com/embedded/L4T/r36_Release_v4.4/release/Jetson_Linux_R36.4.4_aarch64.tbz2 -O Jetson_Linux_aarch64.tbz2
 tar -xf Jetson_Linux_aarch64.tbz2
 ```
@@ -52,7 +52,7 @@ Download the Radxa prebuilt BIOS firmware to the specified directory.
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 cd Linux_for_Tegra
 # For Radxa C200 Orin Developer Kit:
 wget https://github.com/radxa/c200-bootupd/releases/latest/download/uefi_jetson_c200.bin -O bootloader/uefi_jetson.bin
@@ -66,7 +66,7 @@ Use the flashing script provided by NVIDIA to flash the BIOS firmware.
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 sudo ./flash.sh p3768-0000-p3767-0000-a0-qspi internal
 ```
 

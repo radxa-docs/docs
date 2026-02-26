@@ -24,7 +24,7 @@ Hosts tested:
 
 Once installed, open the git bash program and execute the following configuration commands:
 
-```
+```text
 > git config --global http.sslBackend schannel
 > git config --global credential.helper manager-core
 ```
@@ -54,7 +54,7 @@ The fastboot device driver may not be detected correctly until you actually conn
 
 Check if it is installed correctly by the following command:
 
-```
+```text
 > fastboot --version
 fastboot version 34.0.4-10411341
 ```
@@ -71,7 +71,7 @@ Known issues with Python 3.10 have been reported when installing genio-tools on 
 
 Ensure that pip3 is older than 20.3 and install the necessary packages via pip3:
 
-```
+```text
 > pip3 --version
 pip 21.2.4 from c:\python39\lib\site-packages\pip (python 3.9)
 >pip3 install python-certifi-win32 --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted- host gitlab.com
@@ -79,7 +79,7 @@ pip 21.2.4 from c:\python39\lib\site-packages\pip (python 3.9)
 
 Once the installation is complete, add the following environment variables to your Windows system:
 
-```
+```text
 > setx REQUESTS_CA_BUNDLE %LOCALAPPDATA%\.certifi\cacert.pem
 > set REQUESTS_CA_BUNDLE=%LOCALAPPDATA%\.certifi\cacert.pem
 ```
@@ -88,7 +88,7 @@ Once the installation is complete, add the following environment variables to yo
 
 Run the following command as administrator to install Genio Tools:
 
-```
+```text
 > pip3 install -U genio-tools
 ```
 
@@ -96,7 +96,7 @@ Run the following command as administrator to install Genio Tools:
 Missing dependencies
 If you encounter installation errors, such as missing `setuptools_scm`, you can first install the package using the following command:
 
-```
+```text
 > pip3 install wheel setuptools_scm gpiod libusb1 packaging pyserial pyftdi pyusb pyyaml pyparsing enum34 oyaml windows-curses --trusted-host pypi. org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host gitlab.com
 ```
 
@@ -105,7 +105,7 @@ Then run `pip3 install -U genio-tools`.
 
 Check for proper installation with the following command:.
 
-```
+```text
 > genio-flash --version
 1.3.4
 > genio-config
@@ -128,21 +128,21 @@ On the host computer, go to the directory where the Ubuntu system files are stor
 
 For NIO 12L with 4GB DDR, please run
 
-```
+```text
 > cp fip-ddr4g.bin fip.bin && cp u-boot-initial-env-ddr4g u-boot-initial-env
 > genio-flash
 ```
 
 For NIO 12L with 8GB DDR, please run
 
-```
+```text
 > cp fip-ddr8g.bin fip.bin && cp u-boot-initial-env-ddr8g u-boot-initial-env
 > genio-flash
 ```
 
 For NIO 12L with 16GB DDR, please run
 
-```
+```text
 > cp fip-ddr16g.bin fip.bin && cp u-boot-initial-env-ddr16g u-boot-initial-env
 > genio-flash
 ```

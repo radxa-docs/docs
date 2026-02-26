@@ -17,7 +17,7 @@ import SSDISKTOOL from "../../../common/general/\_sddisktool.mdx"
 
 ## 安装编译依赖包
 
-```
+```bash
 sudo apt update
 sudo apt install python2 git rsync gcc g++ make device-tree-compiler bc flex bison lz4 libssl-dev libgmp-dev libmpc-dev expect expect-dev file unzip bzip2 fakeroot bsdmainutils
 sudo ln -s /bin/python2 /bin/python
@@ -32,7 +32,7 @@ sudo ln -s /bin/python2 /bin/python
 
 在 Ubuntu PC 上，使用如下命令解压 SDK。
 
-```
+```bash
 tar xvf rk356x_linux5.10_rkr8_sdk.repo.tar
 .repo/repo/repo  sync -l
 ```
@@ -41,7 +41,7 @@ tar xvf rk356x_linux5.10_rkr8_sdk.repo.tar
 
 使用 Radxa 维护的 rockchip 仓库。
 
-```
+```text
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
 git fetch radxa
@@ -50,7 +50,7 @@ git checkout -b rk3566_rk3568-linux-5.10 remotes/radxa/rk3566_rk3568-linux-5.10
 
 使用 Radxa 维护的 kernel 仓库。
 
-```
+```text
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
 git fetch radxa
@@ -61,7 +61,7 @@ git checkout -b linux-5.10-gen-rkr8-buildroot remotes/radxa/linux-5.10-gen-rkr8-
 
 在 SDK 的顶层目录，执行命令：
 
-```
+```bash
 ./build.sh
 ```
 

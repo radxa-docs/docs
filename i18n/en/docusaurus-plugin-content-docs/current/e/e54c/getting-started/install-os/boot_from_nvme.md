@@ -42,7 +42,7 @@ Rsetup Tool Guide: Interface may vary slightly between versions. Please refer to
 Open the system command line and run the `rsetup` tool to update.
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>
@@ -157,7 +157,7 @@ Download the [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2
 Open the system terminal or command line and run the following commands to install.
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -174,7 +174,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 After installing RKDevTool, you can check the version using the following command:
 
 <NewCodeBlock tip="PC - Host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -190,7 +190,7 @@ rkdeveloptool -V
 If you don't have HomeBrew installed, you can install it with the following command:
 
 <NewCodeBlock tip="MacOS-host$" type="host">
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 </NewCodeBlock>
@@ -200,7 +200,7 @@ If you don't have HomeBrew installed, you can install it with the following comm
 Open the system terminal or command line and run the following commands to install.
 
 <NewCodeBlock tip="MacOS-host$" type="host">
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -216,7 +216,7 @@ cp rkdeveloptool /opt/local/sbin/
 After installing RKDevTool, you can check the version using the following command:
 
 <NewCodeBlock tip="MacOS-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -258,14 +258,14 @@ rkdeveloptool -V
 Use the `rkdeveloptool ld` command to view the recognized device information:
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 Output similar to the following indicates a Maskrom device is recognized:
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -274,7 +274,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 Replace `demo.bin` with the Loader file corresponding to E54C. You can download the Loader file from the [Resource Download](../../download) page.
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool db  demo.bin
 ```
 </NewCodeBlock>
@@ -284,7 +284,7 @@ sudo rkdeveloptool db  demo.bin
 Replace `spi.img` with the SPI boot firmware corresponding to E54C. You can download the SPI boot firmware from the [Resource Download](../../download) page.
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool wl 0 spi.img
 ```
 </NewCodeBlock>
@@ -292,7 +292,7 @@ sudo rkdeveloptool wl 0 spi.img
 5. Reboot the system to make the SPI Flash flashing take effect
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>
@@ -310,7 +310,7 @@ After completing the SPI Flash flashing operation, we can check if the system re
 Open the system command line and use the `lsblk` command to check if the system recognizes the NVMe device.
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
@@ -321,7 +321,7 @@ lsblk
 
 Example output from `lsblk`:
 
-```
+```text
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 mtdblock0    31:0    0    16M  0 disk
 mmcblk1     179:0    0    58G  0 disk
@@ -344,7 +344,7 @@ You can also download the system image from the [Resource Download](../../downlo
 :::
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 # Install wget
 sudo apt-get install wget
 # Download system image file
@@ -359,7 +359,7 @@ wget https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e
 Use the following command to extract and write the compressed system image directly to the NVMe device.
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
 ```
 </NewCodeBlock>
@@ -375,7 +375,7 @@ sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 
 After writing is complete, you can verify if the partition table in NVMe was created correctly:
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 sudo fdisk -l /dev/nvme0n1
 ```
 </NewCodeBlock>
@@ -403,7 +403,7 @@ After completing the above operations, please follow these steps:
 After the system boots, you can verify if the system has successfully booted from NVMe by:
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 lsblk
 df -h
 ```
@@ -438,7 +438,7 @@ After successfully booting from NVMe, you can perform the following operations:
 ### System Update
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 sudo apt update && sudo apt upgrade
 ```
 </NewCodeBlock>
@@ -454,7 +454,7 @@ Regularly back up important data using the `dd` or `rsync` command.
 Test read speed (1GB of data).
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
 ```
 </NewCodeBlock>
@@ -462,7 +462,7 @@ sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
 - Check NVMe Temperature
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 # Install nvme-cli
 sudo apt install nvme-cli
 # Check temperature
@@ -473,7 +473,7 @@ sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
 - View NVMe Device Details and Health Status
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 sudo nvme list
 ```
 </NewCodeBlock>

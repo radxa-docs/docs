@@ -24,7 +24,7 @@ Use the `aplay -l` command to view audio playback devices (speakers), and use th
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 aplay -l
 ```
 
@@ -32,7 +32,7 @@ aplay -l
 
 The terminal outputs similar information:
 
-```
+```text
 **** List of PLAYBACK Hardware Devices ****
 card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 0: MultiMedia1 Playback (*) []
   Subdevices: 1/1
@@ -46,7 +46,7 @@ card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 1: MultiMedia2 Playba
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 arecord -l
 ```
 
@@ -56,7 +56,7 @@ Output information similar to the following:
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 **** List of CAPTURE Hardware Devices ****
 card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 2: MultiMedia3 Capture (*) []
   Subdevices: 1/1
@@ -71,7 +71,7 @@ This feature requires headphones that support microphone functionality and uses 
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo arecord -Dhw:0,2 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 ```
 
@@ -93,7 +93,7 @@ Use the `aplay` command to play audio.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo aplay -Dhw:0,1 /tmp/tmp.wav
 ```
 

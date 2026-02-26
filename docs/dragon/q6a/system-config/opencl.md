@@ -255,7 +255,7 @@ ICD loader properties
 
 ### OpenCL 平台信息
 
-```
+```text
 Platform Name        rusticl
 Platform Vendor      Mesa/X.org
 Platform Version     OpenCL 3.0
@@ -266,7 +266,7 @@ Platform Profile     FULL_PROFILE
 
 ### GPU 设备信息
 
-```
+```text
 Device Name          FD643
 Device Vendor        Qualcomm
 Device Type          GPU
@@ -276,7 +276,7 @@ Driver Version       25.0.7-0ubuntu0.24.04.2
 
 ### OpenCL C 支持情况
 
-```
+```text
 Device OpenCL C Version    OpenCL C 1.2
 ```
 
@@ -284,7 +284,7 @@ Device OpenCL C Version    OpenCL C 1.2
 
 ### ICD Loader 信息
 
-```
+```text
 ICD loader Name      OpenCL ICD Loader
 ICD loader Vendor    OCL Icd free software
 ICD loader Version   2.3.2

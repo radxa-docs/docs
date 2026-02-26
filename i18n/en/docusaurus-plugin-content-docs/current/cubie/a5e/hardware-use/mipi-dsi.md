@@ -30,7 +30,7 @@ Enter the `rsetup` command in the terminal to configure display options using th
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 rsetup
 ```
 

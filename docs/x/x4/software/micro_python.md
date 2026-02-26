@@ -68,7 +68,7 @@ import PWM from "../../../common/dev/\_micropython-pwm.mdx"
 
   A2： 将 flash_nuke.uf2 烧录到 RP2040 中，以清除 RP2040
 
-- Q3: ImportError: no module named 'xxx'
+- Q3: ImportError: no module named `<module-name>`
 
   A2: Thonny tools 栏选择 "Manage Packages"， 然后安装你所需要的 Package
 

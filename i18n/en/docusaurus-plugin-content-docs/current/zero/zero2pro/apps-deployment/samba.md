@@ -8,20 +8,20 @@ Samba is a popular SMB/CIFS tool for Linux. With Samba, you can share files with
 
 1. Install samba
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install samba
 ```
 
 2. Editing the Samba Configuration File `/etc/samba/smb.conf`
 
-```
+```bash
 sudo vim /etc/samba/smb.conf
 ```
 
 3. Add the following configuration to the end of the file
 
-```
+```text
 [radxa]
 comment = Shared from my Radxa device
 path = /media/samba
@@ -33,26 +33,26 @@ writable = yes
 
 4. Creating a shared folder
 
-```
+```bash
 sudo mkdir /media/samba
 sudo chmod 755 /media/samba
 ```
 
 5. Create Samba user and password
 
-```
+```bash
 sudo smbpasswd -a radxa
 ```
 
 6. Restart the Samba service to load the updated configuration
 
-```
+```bash
 sudo systemctl restart
 ```
 
 7. Execute `systemctl status smbd` to check the status of samba
 
-```
+```bash
 radxa@radxa-zero3:~$ systemctl status smbd
 ● smbd.service - Samba SMB Daemon
      Loaded: loaded (/lib/systemd/system/smbd.service; enabled; vendor preset: >

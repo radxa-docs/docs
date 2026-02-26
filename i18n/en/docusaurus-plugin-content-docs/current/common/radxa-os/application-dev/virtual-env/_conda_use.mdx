@@ -8,7 +8,7 @@ Open the terminal and use the `conda --help` command to view the usage of all Co
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda --help
 ```
 
@@ -16,7 +16,7 @@ conda --help
 
 The terminal will output information similar to the following:
 
-```
+```text
 usage: conda [-h] [-v] [--no-plugins] [-V] COMMAND ...
 
 conda is a tool for managing and deploying applications, environments and packages.
@@ -80,7 +80,7 @@ Open the terminal and use the `conda --version` command to check the Conda versi
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda --version
 ```
 
@@ -88,7 +88,7 @@ conda --version
 
 The terminal will output information similar to the following:
 
-```
+```text
 conda 24.9.2
 ```
 
@@ -98,7 +98,7 @@ Open the terminal and use the `conda info` command to view the current environme
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda info
 ```
 
@@ -106,7 +106,7 @@ conda info
 
 The terminal will output information similar to the following:
 
-```
+```text
      active environment : base
     active env location : /home/radxa/anaconda3
             shell level : 1
@@ -149,7 +149,7 @@ Open the terminal and use the `conda env list` command to view all environments.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda env list
 ```
 
@@ -157,7 +157,7 @@ conda env list
 
 The terminal will output information similar to the following, indicating that only the base environment exists:
 
-```
+```text
 # conda environments:
 
 #
@@ -171,7 +171,7 @@ base * /home/radxa/anaconda3
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda create --name <env_name>
 
 # Example: Create an environment named my_env
@@ -183,7 +183,7 @@ conda create --name my_env
 
 Create the environment, the terminal will output information similar to the following, asking for confirmation to proceed.
 
-```
+```text
 Channels:
 
 - defaults
@@ -224,7 +224,7 @@ Executing transaction: done
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda create --name <env_name> python=<python_version>
 
 # Example: Create a Python 3.9 environment named my_env_py39
@@ -236,7 +236,7 @@ conda create --name my_env_py39 python=3.9
 
 Create the environment, the terminal will output information similar to the following, asking for confirmation to proceed.
 
-```
+```text
 Channels:
 
 - defaults
@@ -342,7 +342,7 @@ Executing transaction: done
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda activate <env_name>
 
 # Example: Activate the my_env_py39 environment
@@ -358,7 +358,7 @@ After activating the environment, the terminal prompt will change to indicate th
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda deactivate
 ```
 
@@ -368,7 +368,7 @@ conda deactivate
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda remove --name <env_name> --all
 
 # Example: Delete the my_env_py39 environment

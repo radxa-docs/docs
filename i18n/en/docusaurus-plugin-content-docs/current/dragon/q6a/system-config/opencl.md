@@ -255,7 +255,7 @@ ICD loader properties
 
 ### OpenCL platform information
 
-```
+```text
 Platform Name        rusticl
 Platform Vendor      Mesa/X.org
 Platform Version     OpenCL 3.0
@@ -266,7 +266,7 @@ This indicates that the Mesa RustiCL OpenCL platform is enabled and supports the
 
 ### GPU device information
 
-```
+```text
 Device Name          FD643
 Device Vendor        Qualcomm
 Device Type          GPU
@@ -276,7 +276,7 @@ Driver Version       25.0.7-0ubuntu0.24.04.2
 
 ### OpenCL C support
 
-```
+```text
 Device OpenCL C Version    OpenCL C 1.2
 ```
 
@@ -284,7 +284,7 @@ This indicates that the system supports OpenCL C 1.2.
 
 ### ICD loader information
 
-```
+```text
 ICD loader Name      OpenCL ICD Loader
 ICD loader Vendor    OCL Icd free software
 ICD loader Version   2.3.2

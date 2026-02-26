@@ -59,7 +59,7 @@ VNC 远程需要您手动配置 VNC 服务器；若按照教程操作，每次�
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 sudo chmod 777 /dev/ttyUSB0
 ```
 
@@ -79,7 +79,7 @@ sudo chmod 777 /dev/ttyUSB0
 
 <NewCodeBlock tip="Linux@host$" type="device">
 
-```
+```bash
 ps -ef | grep iperf3
 ```
 
@@ -89,7 +89,7 @@ ps -ef | grep iperf3
 
 <NewCodeBlock tip="Linux@host$" type="device">
 
-```
+```bash
 sudo kill <PID>
 ```
 
@@ -100,7 +100,7 @@ sudo kill <PID>
 KDE Discover 默认使用 OpenGL 渲染，而当前 GPU 驱动不支持 OpenGL 渲染，导致 KDE Discover 无法使用，解决方案：直接使用 apt 命令行工具安装软件包。
 
 <NewCodeBlock tip="Linux@host$" type="device">
-```
+```bash
 sudo apt search <package_name>
 sudo apt install <package_name>
 ```
@@ -111,7 +111,7 @@ apt 可以模糊搜索软件包，在使用 apt install 命令时，可以使用
 例如，安装 VLC 媒体播放器：
 
 <NewCodeBlock tip="Linux@host$" type="device">
-```
+```bash
 sudo apt search vlc
 sudo apt install vlc
 ```

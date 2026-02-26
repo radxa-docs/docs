@@ -44,7 +44,7 @@ The MAC address of Radxa E54C is unique and fixed. It remains unchanged after ea
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 sudo apt-get install iperf3
 ```
 
@@ -54,7 +54,7 @@ sudo apt-get install iperf3
 
 <NewCodeBlock type="host">
 
-```
+```bash
 iperf -s
 ```
 
@@ -66,7 +66,7 @@ iperf -s
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 iperf3 -c server-ip -t 60
 ```
 
@@ -76,7 +76,7 @@ iperf3 -c server-ip -t 60
 
 <NewCodeBlock type="host">
 
-```
+```bash
 iperf3 -c server-ip -t 60 -R
 ```
 
@@ -102,7 +102,7 @@ The following example demonstrates setting up USB mass storage using an NVMe SSD
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 modprobe libcomposite
 modprobe usb_f_mass_storage
 systemctl daemon-reload
@@ -139,7 +139,7 @@ Connect your PC to the E54C using a USB Type-A to Type-C cable, and the followin
 
 <NewCodeBlock type="host">
 
-```
+```bash
 $ lsblk
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 ...
@@ -153,7 +153,7 @@ You can copy files to this mass storage device:
 
 <NewCodeBlock type="host">
 
-```
+```bash
 $ lsblk
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 ...
@@ -168,7 +168,7 @@ View on the E54C:
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 systemctl daemon-reload
 mount /dev/nvme0n1p1 /mnt/
 ls /mnt/
@@ -205,7 +205,7 @@ Storage device recognition:
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 $ lsusb
   Bus 001 Device 003: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
 ```
@@ -222,7 +222,7 @@ Use lsblk to confirm the USB storage device
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 $ lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 sda            8:0    1 29.3G  0 disk
@@ -239,7 +239,7 @@ mmcblk0      179:0    0 14.5G  0 disk
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 # Test write speed
 dd if=/dev/zero of=/mnt/usb/test.img bs=1M count=1024 oflag=direct
 
@@ -268,7 +268,7 @@ Provides a PCIe 2.1 1-lane interface for connecting M.2 NVMe SSDs. Supports stan
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 # Install testing tools
 sudo apt-get install hdparm
 
@@ -295,7 +295,7 @@ A 14-Pin 0.1" (2.54mm) interface that supports various interface functions:
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 # Install GPIO control tools
 sudo apt-get install gpiod
 

@@ -62,7 +62,7 @@ Open your system terminal or command line and run the following commands to inst
 
 <NewCodeBlock tip="Linux-host$" type="host">
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -80,7 +80,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 After installing RKDevTool, you can check the version with the following command:
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -97,7 +97,7 @@ If you don't have HomeBrew installed, follow these instructions:
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
@@ -109,7 +109,7 @@ Open your system terminal or command line and run the following commands to inst
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -127,7 +127,7 @@ After installing RKDevTool, you can check the version with the following command
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 rkdeveloptool -V
 ```
 
@@ -206,14 +206,14 @@ Reboot the system for the SPI Flash erasure to take effect.
 Use the rkdeveloptool ld command to check the recognized device information:
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 Output similar to the following indicates a Maskrom device is recognized:
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -222,7 +222,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 Replace `demo.bin` with the appropriate Loader file for E54C. You can download the Loader file from the [Resource Download](../../download) page.
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool db demo.bin
 ```
 </NewCodeBlock>
@@ -230,7 +230,7 @@ sudo rkdeveloptool db demo.bin
 4. Erase SPI Flash
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool ef
 ```
 </NewCodeBlock>
@@ -240,7 +240,7 @@ sudo rkdeveloptool ef
 Reboot for the SPI Flash erasure to take effect:
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>
@@ -284,14 +284,14 @@ Use the RKDevTool to flash the SPI boot firmware.
 Use the rkdeveloptool ld command to check the recognized device information:
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 Output similar to the following indicates a Maskrom device is recognized:
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -300,7 +300,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 Replace `demo.bin` with the appropriate Loader file for E54C. You can download the Loader file from the [Resource Download](../../download) page.
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool db demo.bin
 ```
 </NewCodeBlock>
@@ -310,7 +310,7 @@ sudo rkdeveloptool db demo.bin
 Replace `spi.img` with the appropriate SPI boot firmware for E54C. You can download the SPI boot firmware from the [Resource Download](../../download) page.
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool wl 0 spi.img
 ```
 </NewCodeBlock>
@@ -320,7 +320,7 @@ sudo rkdeveloptool wl 0 spi.img
 Reboot for the changes to take effect:
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>

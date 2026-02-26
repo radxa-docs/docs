@@ -29,25 +29,25 @@ PCIe E Key 是用于连接嵌入式设备的接口，通常用于连接存储卡
 
 - 首先进入ROOT用户模式。
 
-```
+```bash
 sudo su
 ```
 
 - 打开WIFI
 
-```
+```bash
 nmcli r wifi on
 ```
 
 - 扫描WIFI
 
-```
+```bash
 nmcli dev wifi
 ```
 
 - 连接wifi网络
 
-```
+```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
@@ -55,7 +55,7 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 - 使用 Radxa 无线 A8 模块时，必须添加以下黑名单才能使 BT 正常工作。
 
-```
+```text
 root@rock-5-itx:~# cat /etc/modprobe.d/blacklist.conf
 blacklist pgdrv
 blacklist btusb
@@ -68,26 +68,26 @@ root@rock-5-itx:~# reboot
 
 - Radxa APT 包括用于Broadcom无线模块的broadcom-wifibt-firmware软件包和用于Intel无线模块的intel-wifibt-firmware软件包。需要下载相应的软件包。
 
-```
+```text
 root@rock-5-itx:~# apt-get update -y
 root@rock-5-itx:~# apt-get install -y broadcom-wifibt-firmware intel-wifibt-firmware
 ```
 
 - 测试蓝牙模块的状态并检查蓝牙设备。
 
-```
+```text
 root@rock-5-itx:~# systemctl status bluetooth
 ```
 
 - 运行蓝牙设备。
 
-```
+```text
 root@rock-5-itx:~# systemctl start bluetooth
 ```
 
 - 检测蓝牙设备
 
-```
+```text
 root@rock-5-itx:~# hciconfig
 hci0:   Type: Primary Bus: UART
        BD Address: 10:2C:6B:49:D5:53 ACL MTU: 1021:8 SCO MTU: 64:1
@@ -98,19 +98,19 @@ hci0:   Type: Primary Bus: UART
 
 - 测试：连接蓝牙音箱，首先安装 pulseaudio
 
-```
+```text
 root@rock-5-itx:~# apt-get install -y pulseaudio-module-bluetooth pulseaudio
 ```
 
 - 运行 pulseaudio
 
-```
+```text
 root@rock-5-itx:~# pulseaudio --start
 ```
 
 - 使用 pulseaudio 连接
 
-```
+```text
 root@rock-5-itx:~# bluetoothctl
 [bluetooth]# default-agent
 [bluetooth]# power on

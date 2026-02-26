@@ -148,7 +148,7 @@ If you encounter the error `Error: Permission denied, cannot open /dev/ttyUSB0` 
 For Linux systems, if the serial device lacks sufficient permissions, run the following command to grant all users access to the serial device:
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 sudo chmod 777 /dev/ttyUSB0
 ```
 </NewCodeBlock>

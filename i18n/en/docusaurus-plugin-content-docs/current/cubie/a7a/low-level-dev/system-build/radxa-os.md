@@ -26,7 +26,7 @@ Open the terminal and use the `git clone` command to download the RadxaOS SDK (r
 
 <NewCodeBlock tip="PC@host$" type="host">
 
-```
+```bash
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 ```
 
@@ -72,13 +72,13 @@ After starting the development environment, navigate to the RadxaOS SDK (rsdk) s
 
 <NewCodeBlock tip="PC@host$" type="host">
 
-```
+```bash
 rsdk
 ```
 
 </NewCodeBlock>
 
-```
+```text
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a task:                     │
 │                                           │
@@ -93,7 +93,7 @@ rsdk
 
 Select the `Build system image` option to further choose the target board model.
 
-```
+```text
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a product:                  │
 │                                           │
@@ -106,7 +106,7 @@ Select the `Build system image` option to further choose the target board model.
 
 Select `Yes` to start building Radxa OS. The `rsdk` tool will automatically complete the image compilation.
 
-```
+```text
 ┌─────────────────┤ RSDK ├───────────────────────┐
 │                                                │
 │ Are you sure to build for 'radxa-cubie-a7a'?   │

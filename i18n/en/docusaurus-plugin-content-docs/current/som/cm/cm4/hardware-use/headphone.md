@@ -24,7 +24,7 @@ Use the `aplay -l` command to view audio playback devices (speakers), and `areco
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 aplay -l
 ```
 
@@ -32,7 +32,7 @@ aplay -l
 
 Terminal output example: The onboard ES8388 audio codec (`card 1: rockchipes8388`) is typically used for both input (microphone) and output (audio playback) through the 3.5mm headphone jack.
 
-```
+```text
 card 0: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
@@ -45,7 +45,7 @@ card 1: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 H
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 arecord -l
 ```
 
@@ -55,7 +55,7 @@ Example output: The onboard ES8388 audio codec (`card 1: rockchipes8388`) is typ
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 card 0: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
@@ -72,7 +72,7 @@ This feature requires headphones with microphone support. Use the `arecord` comm
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo arecord -Dhw:1,0 -d 20 -f cd -r 44100 -c 2 -t wav /tmp/tmp.wav
 ```
 
@@ -92,7 +92,7 @@ Use the `aplay` command to play audio.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo aplay -Dhw:1,0 /tmp/tmp.wav
 ```
 

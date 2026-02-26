@@ -84,7 +84,7 @@ sudo nmcli connection up AP
 这是因为 `NetworkManager` 的前端描述错误导致的，加密方式选择了 `WPA2` 但是其实实际开启的的是 `WPA3`，
 又因为部分网卡不支持 `WPA3`，导致只能扫描到热点但是连接失败，可通过添加以下参数关闭 `WPA3` 能力。
 
-```
+```bash
 sudo nmcli connection modify <CONNECTION NAME> wifi-sec.key-mgmt wpa-psk
 sudo nmcli connection down <CONNECTION NAME> connection
 sudo nmcli connection up <CONNECTION NAME> connection --ask

@@ -16,7 +16,7 @@ Please refer to [Device Tree Configuration](../../radxa-os/rsetup#overlays) to e
 
 ## Connection
 
-```
+```text
 master            CAN module          CAN module         Host
 3.3V     <-->     VCC                 VCC      <-->      VCC
 GND      <-->     GND                 GND      <-->      GND
@@ -28,14 +28,14 @@ CAN_RX   <-->     CRX                 CRX      <-->      CAN_RX
 
 ## Installation of test tools
 
-```
+```bash
 sudo apt update
 sudo apt-get install can-utils iproute2
 ```
 
 ## Check CAN node
 
-```
+```bash
 $ ip a
 can0: flags=193<UP,RUNNING,NOARP>  mtu 72
        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
@@ -52,7 +52,7 @@ One board acts as the transmitter and the other as the receiver
 
 - sending end
 
-```
+```bash
 $ sudo ip link set can0 down
 $ sudo ip link set can0 type can bitrate 1000000 dbitrate 1000000 loopback on fd on
 $ sudo ip link set can0 up
@@ -61,7 +61,7 @@ $ sudo cansend can0 123#11223344
 
 - receiving end
 
-```
+```bash
 $ sudo ip link set can0 down
 $ sudo ip link set can0 type can bitrate 1000000 dbitrate 1000000 loopback on fd on
 $ sudo ip link set can0 up

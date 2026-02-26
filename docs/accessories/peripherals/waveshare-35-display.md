@@ -17,7 +17,7 @@ sidebar_position: 10
 
 - 启用 Waveshare 3.5 inch Display 的 overlay
 
-```
+```text
 [*] Enable Waveshare 3.5 inch Display on SPI1
 ```
 
@@ -25,13 +25,13 @@ sidebar_position: 10
 
 - 备份 `/usr/share/X11/xorg.conf.d/20-modesetting.conf`
 
-```
+```bash
 sudo mv /usr/share/X11/xorg.conf.d/20-modesetting.conf /usr/share/X11/xorg.conf.d/20-modesetting.conf.bak
 ```
 
 - 在 `/etc/X11/xorg.conf.d` 下添加一个配置文件 `20-modesetting.conf`，内容如下：
 
-```
+```text
 Section "Device"
      Identifier  "Rockchip Graphics"
      Driver      "fbdev"
@@ -46,7 +46,7 @@ EndSection
 
 在 /etc/X11/xorg.conf.d 下添加一个配置文件 99-touchscreen-calibration.conf，内容如下：
 
-```
+```text
 Section "InputClass"
     Identifier "calibration"
     MatchProduct "ADS7846 Touchscreen"
@@ -56,7 +56,7 @@ EndSection
 
 ## 重启系统
 
-```
+```bash
 sudo reboot
 ```
 

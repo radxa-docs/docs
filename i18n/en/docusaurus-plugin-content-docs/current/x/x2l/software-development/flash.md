@@ -8,7 +8,7 @@ sidebar_position: 2
 
 - Create a new usb.sh file to open the rp2040 usb.
 
-```
+```bash
 ps@ps-palmshell:~$ cat usb.sh
 /bin/bash /bin/bash
 

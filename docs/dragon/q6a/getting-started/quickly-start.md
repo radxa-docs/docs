@@ -212,7 +212,7 @@ Radxa OS 的默认凭据如下：
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo rsetup
 ```
 

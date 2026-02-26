@@ -230,36 +230,36 @@ Open your system terminal or command line and perform the following steps.
 
 - Run Loader
 
-Replace `xxx.bin` with the actual Loader filename you downloaded.
+Replace `<loader-file>.bin` with the actual Loader filename you downloaded.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
-sudo rkdeveloptool db xxx.bin
+```bash
+sudo rkdeveloptool db <loader-file>.bin
 ```
 </NewCodeBlock>
 
 On successful download, the terminal will display output similar to:
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```text
 Downloading bootloader succeeded.
 ```
 </NewCodeBlock>
 
 - Install System Image
 
-Replace `xxx.img` with the actual system image filename you downloaded.
+Replace `<system-image>.img` with the actual system image filename you downloaded.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
-sudo rkdeveloptool wl 0 xxx.img
+```bash
+sudo rkdeveloptool wl 0 <system-image>.img
 ```
 </NewCodeBlock>
 
 - Reboot the Device
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>

@@ -52,7 +52,7 @@ description: "usb2.0"
 
 通过 lsblk 命令确认 USB 存储设备
 
-```
+```bash
 radxa@radxa-cm3j-rpi-cm4-io:~$ lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda            8:0    1   1.9G  0 disk

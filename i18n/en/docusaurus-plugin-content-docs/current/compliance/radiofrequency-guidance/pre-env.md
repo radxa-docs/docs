@@ -127,7 +127,7 @@ sudo wget -O /lib/firmware/mp_rtl8852b_fw       https://dl.radxa.com/fix_freq_do
 sudo reboot
 ```
 
-```
+```bash
 # WiFi verification, the return value is ok.
 sudo su
 rtwpriv wlan0 mp_start

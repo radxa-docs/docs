@@ -77,7 +77,7 @@ sudo dmesg | grep -i kvm
 
 If you see output like the following, KVM has been initialized successfully:
 
-```
+```text
 [    0.114874] kvm [1]: nv: 567 coarse grained trap handlers
 [    0.115147] kvm [1]: IPA Size Limit: 40 bits
 [    0.115181] kvm [1]: GICv3: no GICV resource entry

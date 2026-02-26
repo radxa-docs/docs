@@ -24,7 +24,7 @@ sidebar_position: 7
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 lsusb | grep -i Quectel
 ```
 
@@ -32,7 +32,7 @@ lsusb | grep -i Quectel
 
 若系统识别正常，终端会输出类似信息：
 
-```
+```text
 Bus 005 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
 
@@ -42,7 +42,7 @@ Bus 005 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE m
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ls /dev/cdc-wdm*
 ```
 
@@ -50,7 +50,7 @@ ls /dev/cdc-wdm*
 
 若识别正常，终端会输出类似信息：
 
-```
+```text
 /dev/cdc-wdm0
 ```
 
@@ -60,7 +60,7 @@ ls /dev/cdc-wdm*
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo apt install libqmi-utils modemmanager -y
 ```
 
@@ -70,7 +70,7 @@ sudo apt install libqmi-utils modemmanager -y
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo qmicli -d /dev/cdc-wdm0 -e
 ```
 
@@ -82,7 +82,7 @@ sudo qmicli -d /dev/cdc-wdm0 -e
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo qmicli -d /dev/cdc-wdm0 -w
 ```
 
@@ -96,7 +96,7 @@ sudo qmicli -d /dev/cdc-wdm0 -w
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection add type gsm ifname cdc-wdm0
 ```
 
@@ -104,7 +104,7 @@ sudo nmcli connection add type gsm ifname cdc-wdm0
 
 若创建成功，终端会输出类似信息：
 
-```
+```text
 Connection 'gsm-cdc-wdm0' (6a044568-6947-436e-9b46-51a1f2a9b65d) successfully added.
 ```
 
@@ -114,7 +114,7 @@ Connection 'gsm-cdc-wdm0' (6a044568-6947-436e-9b46-51a1f2a9b65d) successfully ad
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection edit gsm-cdc-wdm0
 ```
 
@@ -122,7 +122,7 @@ sudo nmcli connection edit gsm-cdc-wdm0
 
 终端会自动进入交互式界面，可以输入 `help` 或 `?` 查看帮助信息。
 
-```
+```text
 ===| nmcli interactive connection editor |===
 
 Editing existing 'gsm' connection: 'gsm-cdc-wdm0'
@@ -146,7 +146,7 @@ nmcli> quit
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -154,7 +154,7 @@ ip a
 
 若连接成功，终端会输出类似信息：
 
-```
+```text
 ···
 4: wwan0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
     link/none
@@ -169,7 +169,7 @@ ip a
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo ping baidu.com -I wwan0 -c 5
 ```
 
@@ -177,7 +177,7 @@ sudo ping baidu.com -I wwan0 -c 5
 
 若网络正常，终端会输出类似信息：
 
-```
+```text
 PING baidu.com (220.181.7.203) from 10.10.24.33 wwan0: 56(84) bytes of data.
 64 bytes from 220.181.7.203: icmp_seq=1 ttl=52 time=60.6 ms
 64 bytes from 220.181.7.203: icmp_seq=2 ttl=52 time=59.5 ms

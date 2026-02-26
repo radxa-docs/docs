@@ -66,7 +66,7 @@ cd ./vkpeak/build
 
 输出结果如下：
 
-```
+```text
 device       = Turnip Adreno (TM) 643
 driver       = turnip Mesa driver / Mesa 25.2.8-0ubuntu0.24.04.1
 

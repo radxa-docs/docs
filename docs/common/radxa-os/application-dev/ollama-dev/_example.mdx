@@ -15,7 +15,7 @@ Ollama 提供了丰富的命令行工具，可以方便的进行模型的拉取�
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ollama -h
 ```
 
@@ -23,7 +23,7 @@ ollama -h
 
 输出信息如下：
 
-```
+```text
 Large language model runner
 
 Usage:
@@ -70,7 +70,7 @@ Ollama 模型的参数和设备的内存有关，我们拉取模型的参数需�
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ollama pull deepseek-r1:1.5b
 ```
 
@@ -78,7 +78,7 @@ ollama pull deepseek-r1:1.5b
 
 整个拉取过程会在终端显示进度，拉取完成后，终端会输出类似下面信息：
 
-```
+```text
 pulling manifest
 pulling aabd4debf0c8: 100% ▕███████████████████████████████████████████████████▏ 1.1 GB
 pulling c5ad996bda6e: 100% ▕███████████████████████████████████████████████████▏ 556 B
@@ -96,7 +96,7 @@ success
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ollama run deepseek-r1:1.5b
 ```
 
@@ -106,7 +106,7 @@ ollama run deepseek-r1:1.5b
 
 我们可以直接提问 `Please introduce yourself`，模型会自动回复。
 
-```
+```text
 > > > Please introduce yourself
 > > > Hello! I'm DeepSeek-R1, an artificial intelligence assistant created by DeepSeek. I'm at your service and
 > > > would be delighted to assist you with any inquiries or tasks you may have.
@@ -132,7 +132,7 @@ Ollama 提供简单易用的 Python 库，可以方便的进行模型的拉取�
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 pip3 install ollama
 ```
 
@@ -148,7 +148,7 @@ pip3 install ollama
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 from ollama import chat
 from ollama import ChatResponse
 
@@ -177,7 +177,7 @@ print(response.message.content)
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 from ollama import chat
 
 stream = chat(

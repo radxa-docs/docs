@@ -17,14 +17,14 @@ sidebar_position: 2
 可以通过 Docker 内置的帮助命令查看 Docker 所有命令的使用方法。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker --help
 ```
 </NewCodeBlock>
 
 终端会输出类似如下信息：
 
-```
+```text
 Usage:  docker [OPTIONS] COMMAND
 
 A self-sufficient runtime for containers
@@ -114,14 +114,14 @@ To get more help with docker, check out our guides at https://docs.docker.com/go
 使用 `docker info` 命令可以查看 Docker 系统信息，包括 Docker 版本、系统配置、存储驱动、网络配置等。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker info
 ```
 </NewCodeBlock>
 
 终端会输出类似如下的信息：
 
-```
+```text
 Client:
 Context: default
 Debug Mode: false
@@ -178,14 +178,14 @@ Live Restore Enabled: false
 只看 Docker 版本信息，可以使用 `docker --version` 命令。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker --version
 ```
 </NewCodeBlock>
 
 终端会输出类似如下的信息：
 
-```
+```text
 Docker version 20.10.24+dfsg1, build 297e128
 ```
 
@@ -194,7 +194,7 @@ Docker version 20.10.24+dfsg1, build 297e128
 使用 `docker pull` 命令可以从云端（默认是 Docker Hub）拉取镜像。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker pull <image_name>
 # 示例：拉取 hello-world 最新镜像
 docker pull hello-world
@@ -202,7 +202,7 @@ docker pull hello-world
 </NewCodeBlock>
 拉取镜像成功后，终端会输出类似如下的信息：
 
-```
+```text
 Using default tag: latest
 latest: Pulling from library/hello-world
 c9c5fd25a1bd: Pull complete
@@ -216,7 +216,7 @@ docker.io/library/hello-world:latest
 若本地没有运行的镜像，Docker 会自动从云端拉取镜像，然后运行容器。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker run <image_name>
 # 示例：运行 hello-world 最新镜像
 docker run hello-world
@@ -225,7 +225,7 @@ docker run hello-world
 
 运行容器成功后，终端会输出类似如下的信息：
 
-```
+```text
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 
@@ -254,7 +254,7 @@ https://docs.docker.com/get-started/
 在交互模式下，容器会保持运行状态，你可以直接在终端命令行操作容器，直到你输入 `exit` 退出容器。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker run -it <image_name> /bin/bash
 # 示例：以交互模式运行 ubuntu:24.04 镜像
 docker run -it ubuntu:24.04 /bin/bash
@@ -263,7 +263,7 @@ docker run -it ubuntu:24.04 /bin/bash
 
 运行容器成功后，终端会输出类似如下的信息：其中 `8a18a7ee0838` 为容器 ID。
 
-```
+```text
 root@8a18a7ee0838:/#
 ```
 
@@ -272,7 +272,7 @@ root@8a18a7ee0838:/#
 ### 多终端进入同一个容器
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker exec -it <container_id> /bin/bash
 # 示例：根据正在运行的容器 ID 进入容器
 docker exec -it 8a18a7ee0838 /bin/bash
@@ -282,14 +282,14 @@ docker exec -it 8a18a7ee0838 /bin/bash
 ## 查看镜像
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker images
 ```
 </NewCodeBlock>
 
 终端会输出类似如下的信息：
 
-```
+```text
 REPOSITORY TAG IMAGE ID CREATED SIZE
 ubuntu 24.04 9d45648b4030 11 days ago 101MB
 hello-world latest f1f77a0f96b7 4 months ago 5.2kB
@@ -298,14 +298,14 @@ hello-world latest f1f77a0f96b7 4 months ago 5.2kB
 ## 查看容器
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker ps -a
 ```
 </NewCodeBlock>
 
 终端会输出类似如下的信息：我们可以通过 `status` 来判断容器是否正在运行。
 
-```
+```text
 CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
 8a18a7ee0838 ubuntu:24.04 "/bin/bash" 2 minutes ago Up About a minute frosty_beaver
 d1799e93de85 hello-world "/hello" 2 minutes ago Exited (0) 2 minutes ago epic_gagarin
@@ -316,7 +316,7 @@ d1799e93de85 hello-world "/hello" 2 minutes ago Exited (0) 2 minutes ago epic_ga
 若你对正在运行的容器做了修改，可以使用 `docker commit` 命令保存容器为镜像，以后可以基于该镜像快速创建容器。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker commit <container_id> <new_image_name>
 # 示例：将 id 为 8a18a7ee0838 的容器保存为 ubuntu_24_v1 镜像
 docker commit 8a18a7ee0838 ubuntu_24_v1
@@ -325,7 +325,7 @@ docker commit 8a18a7ee0838 ubuntu_24_v1
 
 保存成功后，终端会输出类似如下的信息：
 
-```
+```text
 sha256:be234207cfb6841bbef6bb4639ac2cc035a4bbebdcf5e74a08a8db327a57d569
 ```
 
@@ -336,7 +336,7 @@ sha256:be234207cfb6841bbef6bb4639ac2cc035a4bbebdcf5e74a08a8db327a57d569
 若你不在正在运行的容器内，可以使用 `docker stop` 命令停止容器。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker stop <container_id>
 # 示例：停止 id 为 8a18a7ee0838 的容器
 docker stop 8a18a7ee0838
@@ -345,7 +345,7 @@ docker stop 8a18a7ee0838
 
 停止容器成功后，终端会输出类似如下的信息:
 
-```
+```text
 8a18a7ee0838
 ```
 
@@ -354,14 +354,14 @@ docker stop 8a18a7ee0838
 该命令只会清理停止的容器，不会影响正在运行的容器。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker container prune
 ```
 </NewCodeBlock>
 
 终端会输出类似如下的信息：输入命令后需要输入 `y` 确认执行。
 
-```
+```text
 WARNING! This will remove all stopped containers.
 Are you sure you want to continue? [y/N] y
 Deleted Containers:yun3
@@ -375,7 +375,7 @@ Total reclaimed space: 5B
 使用 `docker rmi` 命令可以删除镜像。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker rmi <image_name>
 # 示例：删除 ubuntu:24.04 镜像
 docker rmi ubuntu:24.04
@@ -384,7 +384,7 @@ docker rmi ubuntu:24.04
 
 删除镜像成功后，终端会输出类似如下的信息:
 
-```
+```text
 Untagged: ubuntu:24.04
 Untagged: ubuntu@sha256:b59d21599a2b151e23eea5f6602f4af4d7d31c4e236d22bf0b62b86d2e386b8f
 Deleted: sha256:9d45648b40307b523984e200d90f737b39a705c335fbf484113d4ad0660d97a6

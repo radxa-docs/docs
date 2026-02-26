@@ -14,7 +14,7 @@ Ubuntu 20.04 or later is recommended.
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 repo init -u https://github.com/radxa/manifests -b  Android14_RK3576_Radxa_rk6  -m rockchip-u-release.xml
 repo sync
 repo forall -c 'git lfs pull'
@@ -35,7 +35,7 @@ Suitable for the first build or when a complete rebuild is needed, takes longer.
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch rk3576_rock_4d-userdebug
 ./build.sh -UACKup
@@ -53,7 +53,7 @@ Suitable for use after modifying specific components, with faster compilation sp
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch rk3576_rock_4d-userdebug
 ./build.sh -AUup
@@ -65,7 +65,7 @@ lunch rk3576_rock_4d-userdebug
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch rk3576_rock_4d-userdebug
 ./build.sh -ACKup
@@ -77,7 +77,7 @@ lunch rk3576_rock_4d-userdebug
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch rk3576_rock_4d-userdebug
 ./build.sh -Aup

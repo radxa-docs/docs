@@ -125,7 +125,7 @@ lo        Link encap:Local Loopback
          RX bytes:176 TX bytes:176
 
 eth0     Link encap:Ethernet  HWaddr xxxxxxxx  Driver rk_gmac-dwmac
-         inet addr:192.168.xxx.xxx  Bcast:192.168.xxx.255  Mask:255.255.255.0
+         inet addr:192.168.<subnet>.<host>  Bcast:192.168.<subnet>.255  Mask:255.255.255.0
          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
          RX packets:2381 errors:0 dropped:0 overruns:0 frame:0
          TX packets:186 errors:0 dropped:0 overruns:0 carrier:0

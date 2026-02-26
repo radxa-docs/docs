@@ -17,7 +17,7 @@ sidebar_position: 0
 在终端命令行输入 `rsetup` 命令，使用 Rsetup 工具启用自动登录功能：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>

@@ -50,7 +50,7 @@ sidebar_position: 1
 
   <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 lsusb
 ```
 
@@ -58,7 +58,7 @@ lsusb
 
 设备进入 EDL 模式后，会显示类似下面的信息：
 
-```
+```bash
 Bus 001 Device 008: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (EDL mode)
 ```
 

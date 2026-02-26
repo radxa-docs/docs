@@ -39,7 +39,7 @@ Enter `rsetup` command in the terminal command line, and use the Rsetup tool to 
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 rsetup
 ```
 

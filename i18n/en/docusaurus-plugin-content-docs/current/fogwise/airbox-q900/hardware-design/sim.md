@@ -24,7 +24,7 @@ Use the `lsusb` command to check if the 4G/5G module is properly recognized.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 lsusb | grep -i Quectel
 ```
 
@@ -32,7 +32,7 @@ lsusb | grep -i Quectel
 
 If the system recognizes the module correctly, the terminal will display output similar to:
 
-```
+```text
 Bus 005 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
 
@@ -42,7 +42,7 @@ Use the `ls` command to verify if the system has successfully enumerated the `cd
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ls /dev/cdc-wdm*
 ```
 
@@ -50,7 +50,7 @@ ls /dev/cdc-wdm*
 
 If recognized correctly, the terminal will display output similar to:
 
-```
+```text
 /dev/cdc-wdm0
 ```
 
@@ -60,7 +60,7 @@ Install the necessary dial-up networking packages.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo apt install libqmi-utils modemmanager -y
 ```
 
@@ -70,7 +70,7 @@ sudo apt install libqmi-utils modemmanager -y
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo qmicli -d /dev/cdc-wdm0 -e
 ```
 
@@ -82,7 +82,7 @@ This should be set to `raw-ip`. If not, use `sudo qmicli -d /dev/cdc-wdm0 -E raw
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo qmicli -d /dev/cdc-wdm0 -w
 ```
 
@@ -96,7 +96,7 @@ Use the `nmcli` command to create a network interface configuration.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection add type gsm ifname cdc-wdm0
 ```
 
@@ -104,7 +104,7 @@ sudo nmcli connection add type gsm ifname cdc-wdm0
 
 If successful, the terminal will display output similar to:
 
-```
+```text
 Connection 'gsm-cdc-wdm0' (6a044568-6947-436e-9b46-51a1f2a9b65d) successfully added.
 ```
 
@@ -114,7 +114,7 @@ This step is optional. If you experience network connection issues, you may need
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection edit gsm-cdc-wdm0
 ```
 
@@ -122,7 +122,7 @@ sudo nmcli connection edit gsm-cdc-wdm0
 
 The terminal will enter an interactive interface. Type `help` or `?` to view available commands.
 
-```
+```text
 ===| nmcli interactive connection editor |===
 
 Editing existing 'gsm' connection: 'gsm-cdc-wdm0'
@@ -146,7 +146,7 @@ Use the `ip a` command to check if the `wwan0` interface has been assigned an IP
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -154,7 +154,7 @@ ip a
 
 If connected successfully, the terminal will display output similar to:
 
-```
+```text
 ···
 4: wwan0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
     link/none
@@ -169,7 +169,7 @@ Test the network connection using the `ping` command.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo ping baidu.com -I wwan0 -c 5
 ```
 
@@ -177,7 +177,7 @@ sudo ping baidu.com -I wwan0 -c 5
 
 If the network is functioning properly, the terminal will display output similar to:
 
-```
+```text
 PING baidu.com (220.181.7.203) from 10.10.24.33 wwan0: 56(84) bytes of data.
 64 bytes from 220.181.7.203: icmp_seq=1 ttl=52 time=60.6 ms
 64 bytes from 220.181.7.203: icmp_seq=2 ttl=52 time=59.5 ms

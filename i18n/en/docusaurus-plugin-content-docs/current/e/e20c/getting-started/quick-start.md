@@ -163,7 +163,7 @@ alias minicom='minicom -w -t xterm -l -R UTF-8'
 
 Create and edit the file ~/.minirc.1500000-usb0 to add the following:
 
-```
+```text
 pu port             /dev/ttyUSB0
 pu baudrate         1500000
 pu bits             8

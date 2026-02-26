@@ -18,7 +18,7 @@ import SSDISKTOOL from "../../../common/general/\_sddisktool.mdx"
 ## 安装编译依赖包
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 sudo apt update
 sudo apt install python2 git rsync gcc g++ make device-tree-compiler bc flex bison lz4 libssl-dev libgmp-dev libmpc-dev expect expect-dev file unzip bzip2 fakeroot bsdmainutils
 sudo ln -s /bin/python2 /bin/python
@@ -36,7 +36,7 @@ sudo ln -s /bin/python2 /bin/python
 在 Ubuntu PC 上，使用如下命令解压 SDK。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 tar xvf rk3576_linux6.1_rkr4_sdk.repo.tar
 .repo/repo/repo sync -l
 ```
@@ -47,7 +47,7 @@ tar xvf rk3576_linux6.1_rkr4_sdk.repo.tar
 使用 Radxa 维护的 rockchip 仓库。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
 git fetch radxa
@@ -58,7 +58,7 @@ git checkout -b rk3576-linux-6.1 remotes/radxa/rk3576-linux-6.1
 使用 Radxa 维护的 kernel 仓库。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
 git fetch radxa
@@ -69,7 +69,7 @@ git checkout -b linux-6.1-stan-rkr4.1-buildroot remotes/radxa/linux-6.1-stan-rkr
 使用 Radxa 维护的 rkwifibt 仓库。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 cd external/rkwifibt
 git remote add radxa https://github.com/radxa/rkwifibt.git
 git fetch radxa
@@ -80,7 +80,7 @@ git checkout -b develop remotes/radxa/develop
 使用 Radxa 维护的 buildroot 仓库。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 cd buildroot
 git remote add radxa https://github.com/radxa/buildroot.git
 git fetch radxa
@@ -93,7 +93,7 @@ git checkout -b rockchip/2024.02 remotes/radxa/rockchip/2024.02
 在 SDK 的顶层目录，执行命令：
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 ./build.sh
 ```
 </NewCodeBlock>
@@ -109,7 +109,7 @@ git checkout -b rockchip/2024.02 remotes/radxa/rockchip/2024.02
 在 Linux/Mac OS 主机上，使用 [upgrade_tool](https://dl.radxa.com/tools/linux/Linux_Upgrade_Tool_V2.1.zip) 工具，通过 Type-A 烧录口，将系统镜像 `update.img` 烧写到 UFS / EMMC 中。
 
 <NewCodeBlock tip="Host-PC$" type="host">
-```
+```bash
 upgrade_tool uf update.img
 ```
 </NewCodeBlock>

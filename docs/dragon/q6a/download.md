@@ -31,7 +31,7 @@ sidebar_position: 150
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
-```
+```bash
 sudo dmidecode -s bios-version
 ```
 
@@ -39,7 +39,7 @@ sudo dmidecode -s bios-version
 
 终端会输出类似信息：其中 260120 表示 SPI 启动固件的版本日期。
 
-```
+```text
 
 6.0.260120.BOOT.MXF.1.0.1-00549-KODIAKWP-1
 

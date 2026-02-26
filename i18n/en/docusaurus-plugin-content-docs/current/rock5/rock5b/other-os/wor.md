@@ -25,7 +25,7 @@ only the top USB 3.0 Type-A port would work, any other port on the board has not
 
 An error may occur during the installation process like following, ignore it and wait for it to restart:
 
-```
+```text
 Your device ran into a problem and needs to restart.
 We'll restart for you.
 

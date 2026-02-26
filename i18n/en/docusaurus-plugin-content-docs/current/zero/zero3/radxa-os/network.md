@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Connect WiFi
 
-```
+```bash
 nmcli device wifi                                           #Scan WiFi
 sudo nmcli device wifi connect <ssid> password <passwd>     #Connect WiFi
 ```

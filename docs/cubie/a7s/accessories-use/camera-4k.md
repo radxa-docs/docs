@@ -30,7 +30,7 @@ import Camera4K from '../../../common/accessories/\_camera-4k.mdx';
 
 <NewCodeBlock tip="radxa@cubie-a7s$" type="device">
 
-```
+```bash
 DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=3840,height=2160,framerate=24/1  ! xvimagesink
 ```
 

@@ -24,7 +24,7 @@ sidebar_position: 11
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 aplay -l
 ```
 
@@ -32,7 +32,7 @@ aplay -l
 
 终端输出类似信息：其中 `card 1: rockchipes8388` 板载的 ES8388 音频编解码器，通常用于 3.5mm 耳机接口的输入（麦克风）和输出（音频播放）。
 
-```
+```text
 card 0: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
@@ -45,7 +45,7 @@ card 1: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 H
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 arecord -l
 ```
 
@@ -55,7 +55,7 @@ arecord -l
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 card 0: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
@@ -72,7 +72,7 @@ card 1: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 H
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo arecord -Dhw:1,0 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 ```
 
@@ -92,7 +92,7 @@ sudo arecord -Dhw:1,0 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo aplay -Dhw:1,0 /tmp/tmp.wav
 ```
 

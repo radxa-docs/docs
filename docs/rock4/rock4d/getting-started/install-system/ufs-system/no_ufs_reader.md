@@ -44,7 +44,7 @@ ROCK 4D 主板仅支持 5V 电源输入，建议电流 3A 以上，确保所有�
 :::
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 # 安装 wget
 sudo apt-get install wget
 # 下载系统镜像文件
@@ -77,7 +77,7 @@ UFS 模块安装步骤：
 使用命令将压缩的系统镜像解压并直接写入到 UFS 模块，请根据实际下载的系统镜像文件名进行修改。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/sda bs=1M status=progress
 ```
 </NewCodeBlock>
@@ -93,14 +93,14 @@ sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/s
 写入完成后，您可以验证 UFS 模块中的分区表是否正确创建：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo fdisk -l /dev/sda
 ```
 </NewCodeBlock>
 
 正确写入后，应该会看到类似以下的分区信息：
 
-```
+```text
 Disk /dev/sda: 119.15 GiB, 127934660608 bytes, 31234048 sectors
 Disk model: KLUDG4UHDC-B0E1
 Units: sectors of 1 \* 4096 = 4096 bytes
@@ -155,14 +155,14 @@ UFS 模块安装步骤：
 系统启动后，您可以使用 `lsblk` 命令查看系统分区信息：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo lsblk
 ```
 </NewCodeBlock>
 
 如果您看到 `/dev/sda3` 被挂载为根目录 `/`，则表示系统已成功从 UFS 模块启动。
 
-```
+```text
 NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
 sda 8:0 0 119.1G 0 disk
 ├─sda1 8:1 0 128M 0 part /config

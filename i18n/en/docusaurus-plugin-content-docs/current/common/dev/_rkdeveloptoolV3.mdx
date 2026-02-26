@@ -127,13 +127,13 @@ If you need to write to multiple devices at the same time, use upgrade_tool.
 1. Extract the image file (See **File Download** above for details of the image file, here rock_debian_bullseye-\_desktop_release_b1.img.xz is used as an example)
 
 ```bash
-xz -d rock_debian_bullseye-_desktop_release_b1.img.xz (if the image file is gz format，then use `gunzip -d xxx.gz` command)
+xz -d rock_debian_bullseye-_desktop_release_b1.img.xz (if the image file is gz format，then use `gunzip -d <image>.gz` command)
 ```
 
-2. Flash Loader(See **File Download** above for details of the loader file，here rkxxxx_spl_loader_v1.xxx.bin is just an example)
+2. Flash Loader(See **File Download** above for details of the loader file，here `<loader-file>.bin` is just an example)
 
 ```bash
-sudo rkdeveloptool db rkxxxx_spl_loader_v1.xxx.bin
+sudo rkdeveloptool db <loader-file>.bin
 ```
 
 3. Flash System Image (Here rock_debian_bullseye-\_desktop_release_b1.img is an example, use the file got from step1 as a replacement)

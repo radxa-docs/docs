@@ -24,7 +24,7 @@ sidebar_position: 14
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 aplay -l
 ```
 
@@ -32,7 +32,7 @@ aplay -l
 
 终端输出类似信息：
 
-```
+```text
 **** List of PLAYBACK Hardware Devices ****
 card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 0: MultiMedia1 Playback (*) []
   Subdevices: 1/1
@@ -46,7 +46,7 @@ card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 1: MultiMedia2 Playba
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 arecord -l
 ```
 
@@ -56,7 +56,7 @@ arecord -l
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 **** List of CAPTURE Hardware Devices ****
 card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 2: MultiMedia3 Capture (*) []
   Subdevices: 1/1
@@ -71,7 +71,7 @@ card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 2: MultiMedia3 Captur
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo arecord -Dhw:0,2 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 ```
 
@@ -93,7 +93,7 @@ sudo arecord -Dhw:0,2 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo aplay -Dhw:0,1 /tmp/tmp.wav
 ```
 

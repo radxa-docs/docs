@@ -16,7 +16,7 @@ Docker is an open source application container engine that helps developers buil
 
 Dockerfile is a text file for building a Docker image. The environment required to compile Android11 can be built according to the following content.
 
-```
+```text
 FROM ubuntu:16.04
 
 ENV DEBIAN_FRONTEND noninteractive

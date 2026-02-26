@@ -26,7 +26,7 @@ The script backup only supports Linux systems and is the recommended method for 
 Use the `curl` command on the development board to download the script.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 curl -sL https://rock.sh/rockpi-backup -o rockpi-backup.sh
 ```
 </NewCodeBlock>
@@ -36,7 +36,7 @@ curl -sL https://rock.sh/rockpi-backup -o rockpi-backup.sh
 Make the script executable.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 chmod +x rockpi-backup.sh
 ```
 </NewCodeBlock>
@@ -44,14 +44,14 @@ chmod +x rockpi-backup.sh
 You can use the `-h` parameter to view the script's help information.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo ./rockpi-backup.sh -h
 ```
 </NewCodeBlock>
 
 Example terminal output:
 
-```
+```text
 Usage:
   sudo ./rockpi-backup.sh [-o path|-e pattern|-u|-m path]
     -o Specify output position, default is $PWD.
@@ -65,7 +65,7 @@ Usage:
 Run the script with root privileges. You'll need to manually confirm dependency installation and backup operations during the process.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo ./rockpi-backup.sh
 ```
 </NewCodeBlock>
@@ -91,7 +91,7 @@ After the backup is complete, the script will display the path to the backup fil
 
 Example terminal output:
 
-```
+```text
 Backup done, the file is /home/radxa/rock-4d-s16-backup-250612-0930.img
 ```
 
@@ -127,14 +127,14 @@ After converting the development board's system boot disk to a removable device,
 Use the `lsblk` command to confirm the removable disk information.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
 
 Example terminal output (in this example, `sda` is the development board's system disk). You can identify the correct device by safely removing and reconnecting the removable media.
 
-```
+```text
 sda           8:0    1    58G  0 disk
 ├─sda1        8:1    1    16M  0 part /media/wml/config
 ├─sda2        8:2    1   300M  0 part
@@ -150,7 +150,7 @@ nvme0n1     259:0    0 953.9G  0 disk
 On your PC, open a terminal and use the `dd` command to back up the system. Adjust the parameters as needed.
 
 <NewCodeBlock tip="PC-Host$" type="host">
-```
+```bash
 sudo dd if=/dev/sda of=rock-4d-spi-backup.img bs=4M status=progress
 ```
 </NewCodeBlock>
@@ -164,7 +164,7 @@ The backup process will display the progress and speed. When complete, it will s
 
 Example terminal output:
 
-```
+```text
 62205722624 bytes (62 GB, 58 GiB) copied, 1609 s, 38.7 MB/s
 14839+0 records in
 14839+0 records out

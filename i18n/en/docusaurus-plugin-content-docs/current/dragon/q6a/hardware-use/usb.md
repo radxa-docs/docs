@@ -32,7 +32,7 @@ Use the `lsusb` command to view the devices currently recognized by the system.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 lsusb
 ```
 
@@ -40,7 +40,7 @@ lsusb
 
 Terminal output example:
 
-```
+```text
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus 001 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
 Bus 001 Device 004: ID a69c:8d81 AICSemi AIC 8800D80
@@ -54,7 +54,7 @@ Connect devices such as card readers, mice, and keyboards to the USB port, and u
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 lsusb
 ```
 
@@ -62,7 +62,7 @@ lsusb
 
 Terminal output example: I connected a card reader to the USB port.
 
-```
+```text
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus 001 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
 Bus 001 Device 004: ID a69c:8d81 AICSemi AIC 8800D80
@@ -85,7 +85,7 @@ Use the `lsblk` command to confirm the device name of the USB flash drive.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 lsblk
 ```
 
@@ -93,7 +93,7 @@ lsblk
 
 Terminal output example: Where `sda` is the name of my current USB flash drive device, please replace it according to the actual situation.
 
-```
+```text
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1  29.3G  0 disk
 ├─sda1        8:1    1    16M  0 part
@@ -107,7 +107,7 @@ mmcblk2     179:0    0    58G  0 disk
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 ```
 
@@ -123,7 +123,7 @@ This command writes 100MB of zero bytes to the USB flash drive and displays the 
 
 Terminal output example:
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 3.40424 s, 30.8 MB/s
@@ -133,7 +133,7 @@ Terminal output example:
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 ```
 
@@ -149,7 +149,7 @@ This command reads 100MB of data from the USB flash drive to `/dev/null` and dis
 
 Terminal output example:
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 4.0582 s, 25.8 MB/s

@@ -144,7 +144,7 @@ mount /dev/sdx3 $ROOT_MOUNT_POINT # /dev/sdx3 替换为真实的分区路径
 
 ```bash
 sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT
-# sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o xxx.img
+# sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o <backup-file>.img
 ```
 
 :::info
@@ -204,7 +204,7 @@ Do you want to apt-get install the packages? [y/N]
 ```text
 --------------------
 Checking disk...
-The backup file will be saved at /home/radxa/xxx.img
+The backup file will be saved at /home/radxa/<backup-file>.img
 After this operation, 4560 MB of additional disk space will be used.
 
 Do you want to continue? [y/N]
@@ -219,7 +219,7 @@ Do you want to continue? [y/N]
 
 ```text
 Checking disk...
-The backup file will be saved at /home/radxaxxx.img
+The backup file will be saved at /home/radxa/<backup-file>.img
 After this operation, 4560 MB of additional disk space will be used.
 
 Do you want to continue? [y/N] y
@@ -262,7 +262,7 @@ Total bytes received: 2,241,928
 sent 3,879,593,182 bytes  received 2,241,928 bytes  11,962,511.90 bytes/sec
 total size is 4,588,642,152  speedup is 1.18
 
-Backup done, the file is /home/radxa/xxx.img
+Backup done, the file is /home/radxa/<backup-file>.img
 ```
 
 </div>
@@ -278,22 +278,22 @@ Backup done, the file is /home/radxa/xxx.img
 <TabItem value="online" label="在线备份" default>
 
 ```bash
-sudo ./rockpi-backup.sh -o xxx.img # 进行重命名，不改变输出位置
+sudo ./rockpi-backup.sh -o <backup-file>.img # 进行重命名，不改变输出位置
 
 sudo ./rockpi-backup.sh -o /mnt/sda1/ # 不进行重命名，改变输出位置
 
-sudo ./rockpi-backup.sh -o /mnt/sda1/xxx.img # 进行重命名并改变输出位置
+sudo ./rockpi-backup.sh -o /mnt/sda1/<backup-file>.img # 进行重命名并改变输出位置
 ```
 
 </TabItem>
 <TabItem value="offline" label="离线备份">
 
 ```bash
-sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o xxx.img # 进行重命名，不改变输出位置
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o <backup-file>.img # 进行重命名，不改变输出位置
 
 sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/ # 不进行重命名，改变输出位置
 
-sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/xxx.img # 进行重命名并改变输出位置
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/<backup-file>.img # 进行重命名并改变输出位置
 ```
 
 </TabItem>
@@ -380,7 +380,7 @@ sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/xxx.img # 进行重命
 将您的安装介质通过USB或其他方式连接到您的计算机，并执行以下操作。
 
 ```bash
-dd if=/dev/sdx of=xxx.img bs=4M status=progress # /dev/sdx 替换为真实的设备路径 xxx.img替换为输出的文件名
+dd if=/dev/sdx of=<backup-file>.img bs=4M status=progress # /dev/sdx 替换为真实的设备路径 <backup-file>.img替换为输出的文件名
 ```
 
 ## 恢复系统

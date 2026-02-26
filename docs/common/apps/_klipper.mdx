@@ -1,24 +1,24 @@
 #### 更新软件源
 
-```
+```bash
 sudo apt-get update -y
 ```
 
 #### 安装基础工具
 
-```
+```bash
 sudo apt-get install git build-essential python3-pip -y
 ```
 
 #### 下载安装脚本
 
-```
+```text
 git clone https://github.com/dw-0/kiauh.git
 ```
 
 或者
 
-```
+```text
 git clone https://gitee.com/miroky/kiauh.git
 ```
 
@@ -26,7 +26,7 @@ git clone https://gitee.com/miroky/kiauh.git
 
 1. 运行kiauh.sh，出现如下界面
 
-```
+```bash
 ./kiauh/kiauh.sh
 ```
 
@@ -121,14 +121,14 @@ Perform action 选择 1， 进入插件安装列表
 
 将设备插入板子 USB 口，查看设备
 
-```
+```bash
 ls /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 ```
 
 在 printer_data/config/printer.cfg 中添加设备
 
-```
+```bash
 cat printer_data/config/printer.cfg
 [include fluidd.cfg]
 [include mainsail.cfg]
@@ -154,6 +154,6 @@ serial:/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 
 在未连接网络的情况下，开机后连接可能需要十多秒，这是因为一些服务需要等待网络启动，在最新的系统上已经优化了，在老系统中需要做如下修改
 
-```
+```bash
 sudo systemctl mask systemd-networkd-wait-online.service
 ```

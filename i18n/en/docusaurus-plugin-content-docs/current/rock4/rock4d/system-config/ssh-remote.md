@@ -20,7 +20,7 @@ Ensure both devices are on the same local network:
 To enable SSH remote control, install the OpenSSH server by running the following commands in the Radxa ROCK 4D terminal:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo apt update
 sudo apt install openssh-server -y
 ```
@@ -31,7 +31,7 @@ sudo apt install openssh-server -y
 Run the following command to start the SSH service on your ROCK 4D:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo systemctl start ssh
 ```
 </NewCodeBlock>
@@ -41,7 +41,7 @@ sudo systemctl start ssh
 To ensure the SSH service starts automatically on boot, run:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo systemctl enable ssh
 ```
 </NewCodeBlock>
@@ -51,14 +51,14 @@ sudo systemctl enable ssh
 To verify the SSH service status, use the following command:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo systemctl status ssh
 ```
 </NewCodeBlock>
 
 The output will show whether the SSH service is active and enabled to start on boot:
 
-```
+```text
 ● ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)
      Active: active (running) since Tue 2025-05-27 10:18:30 UTC; 4min 39s ago
@@ -80,14 +80,14 @@ The output will show whether the SSH service is active and enabled to start on b
 On another device, open a terminal and use the following command to connect. You can find the ROCK 4D's IP address using the `ip a` command.
 
 <NewCodeBlock tip="Host-PC$" type="host">
-```
+```bash
 ssh <user-name>@<ip-address>
 
 # Example
 
 ssh radxa@192.168.2.106
 
-```
+````
 </NewCodeBlock>
 
 Where `<user-name>` is your ROCK 4D username and `<ip-address>` is the board's IP address.
@@ -202,4 +202,5 @@ Once successfully connected, the remote interface will appear.
 
 </TabItem>
 </Tabs>
-```
+```text
+````

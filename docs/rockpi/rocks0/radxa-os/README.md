@@ -12,7 +12,7 @@ import Serial from "../../../common/general/\_serial.mdx"
 
 Radxa ROCK S0 系列默认添加的用户名和密码为：
 
-```
+```text
 用户名：radxa/rock
 密码：  radxa/rock
 ```
@@ -25,7 +25,7 @@ Radxa ROCK S0 系列默认添加的用户名和密码为：
 
 ### 连接WiFi
 
-```
+```bash
 nmcli device wifi                                           #扫描WiFi
 sudo nmcli device wifi connect <ssid> password <passwd>     #连接WiFi
 ```
@@ -42,7 +42,7 @@ Radxa ROCK S0 板载100M以太网，只需要将网线连接即可开启上网�
 
 - Debian/Ubuntu
 
-```
+```bash
 ssh [username]@[hostname]
 or
 ssh [username]@[IP address]

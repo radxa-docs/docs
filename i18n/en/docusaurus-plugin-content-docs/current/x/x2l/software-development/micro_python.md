@@ -14,7 +14,7 @@ To use MicroPython, you leverage the embedded RP2040 SoC, which communicates wit
 
 - Install Thonny IDE
 
-```
+```bash
 sudo apt-get install thonny -y
 ```
 
@@ -32,7 +32,7 @@ As the RP2040 is acting as if it's a USB and UART attached Pi Pico, you can use 
 
 If the RP2040 core crashes, you can pull GPIO 60 high for 1 second to reset the SoC:
 
-```
+```bash
 sudo gpioset gpiochip1 60=1
 sleep 1
 sudo gpioset gpiochip1 60=0

@@ -78,7 +78,7 @@ Use the `python-periphery` library to control GPIO pins.
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
 
-```
+```bash
 sudo pip3 install python-periphery
 ```
 
@@ -98,7 +98,7 @@ The following code is used to read the high and low level of the PK4 pin using t
 <details>
 <summary>gpio_input.py</summary>
 
-```
+```text
 from periphery import GPIO
 import time
 
@@ -163,7 +163,7 @@ The following code is used to control the PK3 pin to output high and low levels,
 <details>
 <summary>gpio_output.py</summary>
 
-```
+```text
 from periphery import GPIO
 import time
 
@@ -276,7 +276,7 @@ The following code is used to test PWM output using the python-periphery library
 <details>
 <summary>pwm_output.py</summary>
 
-```
+```text
 from periphery import PWM
 import time
 
@@ -359,7 +359,7 @@ The following code is used to test UART4 loopback communication using the python
 <details>
 <summary>uart_example.py</summary>
 
-```
+```text
 from periphery import Serial
 import time
 
@@ -435,7 +435,7 @@ The following code is used to test I2C communication using the python-periphery 
 <details>
 <summary>i2c_example.py</summary>
 
-```
+```text
 from periphery import I2C
 
 def i2c_device_detection():
@@ -512,7 +512,7 @@ The following code is used to test SPI loopback communication using the python-p
 <details>
 <summary>spi_example.py</summary>
 
-```
+```text
 from periphery import SPI
 
 def spi_communication_test():

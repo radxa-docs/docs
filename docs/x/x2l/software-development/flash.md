@@ -8,7 +8,7 @@ sidebar_position: 2
 
 - 新建一个 usb.sh 文件， 用于打开 rp2040 usb
 
-```
+```bash
 ps@ps-palmshell:~$ cat usb.sh
 #! /bin/bash
 
@@ -23,7 +23,7 @@ sudo gpioset gpiochip1 61=0
 
 - 执行一下 usb.sh 程序， RP2040 将以 usb 设备形式出现
 
-```
+```text
 chmod a+x usb.sh
 source usb.sh
 ```

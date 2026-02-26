@@ -17,7 +17,7 @@ A virtual machine is also acceptable:
 
 ## Install Build Dependencies
 
-```
+```bash
 sudo apt update
 sudo apt install python2 git rsync gcc g++ make device-tree-compiler bc flex bison lz4 libssl-dev libgmp-dev libmpc-dev expect expect-dev file unzip bzip2 fakeroot bsdmainutils
 sudo ln -s /bin/python2 /bin/python
@@ -32,7 +32,7 @@ sudo ln -s /bin/python2 /bin/python
 
 On the Ubuntu PC, use the following commands to extract the SDK:
 
-```
+```bash
 tar xvf rk3588_linux6.1_rkr4_sdk.repo.tar
 .repo/repo/repo sync -l
 ```
@@ -41,7 +41,7 @@ tar xvf rk3588_linux6.1_rkr4_sdk.repo.tar
 
 Use Radxa's maintained rockchip repository:
 
-```
+```text
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
 git fetch radxa
@@ -50,7 +50,7 @@ git checkout -b rk3588-linux-6.1 remotes/radxa/rk3588-linux-6.1
 
 Use Radxa's maintained u-boot repository:
 
-```
+```text
 cd u-boot
 git remote add radxa https://github.com/radxa/u-boot.git
 git fetch radxa
@@ -59,7 +59,7 @@ git checkout -b next-dev-buildroot remotes/radxa/next-dev-buildroot
 
 Use Radxa's maintained kernel repository:
 
-```
+```text
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
 git fetch radxa
@@ -68,7 +68,7 @@ git checkout -b linux-6.1-stan-rkr4.1-buildroot remotes/radxa/linux-6.1-stan-rkr
 
 Use Radxa's maintained rkwifibt repository:
 
-```
+```text
 cd external/rkwifibt
 git remote add radxa https://github.com/radxa/rkwifibt.git
 git fetch radxa
@@ -77,7 +77,7 @@ git checkout -b develop remotes/radxa/develop
 
 Use Radxa's maintained buildroot repository:
 
-```
+```text
 cd buildroot
 git remote add radxa https://github.com/radxa/buildroot.git
 git fetch radxa
@@ -114,7 +114,7 @@ Enabling `BR2_PACKAGE_RKWIFIBT_AIC8800D80_USB_FIRMWARE` will install the WiFi fi
 
 In the SDK's top-level directory, run the command:
 
-```
+```bash
 ./build.sh
 ```
 
@@ -128,7 +128,7 @@ After the build is complete, the images will be generated in the `rockdev/` dire
 
 On a Linux/Mac OS host, use the `upgrade_tool` utility through the Type-A port to flash the system image `update.img` to eMMC:
 
-```
+```text
 upgrade_tool uf update.img
 ```
 

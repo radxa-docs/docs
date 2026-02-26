@@ -12,7 +12,7 @@ import Serial from "../../../../common/general/\_serial.mdx"
 
 Radxa ROCK 系列默认添加的用户名和密码为：
 
-```
+```text
 用户名：radxa/rock
 密码：  radxa/rock
 ```
@@ -31,7 +31,7 @@ Radxa ROCK 系列默认添加的用户名和密码为：
 
 为了更快进入桌面，可以设置桌面自动登录,修改 `/etc/lightdm/lightdm.conf` 文件
 
-```
+```bash
 sudo vim /etc/lightdm/lightdm.conf
 找到 [Seat:*] 下的 #autologin-user= ，将这个配置修改为你需要登录的用户
 
@@ -46,13 +46,13 @@ autologin-user-timeout=0
 
 1. 安装简体中文字体：
 
-```
+```bash
 sudo apt-get install fonts-wqy-zenhei
 ```
 
 2. 设置系统语言为中文桌面：
 
-```
+```bash
 sudo dpkg-reconfigure locales
 ```
 
@@ -64,7 +64,7 @@ sudo dpkg-reconfigure locales
 
 4. 重启系统后即可
 
-```
+```bash
 sudo reboot
 ```
 
@@ -78,7 +78,7 @@ sudo reboot
 
 - Debian/Ubuntu
 
-```
+```bash
 ssh [username]@[hostname]
 or
 ssh [username]@[IP address]
@@ -101,7 +101,7 @@ Windows 有许多 SSH 工具，这里以 [Mobaxterm](https://mobaxterm.mobatek.n
 
 1. 安装 TigerVNC Server 和 dbus-x11 依赖项
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install tigervnc-standalone-server
 sudo apt-get install dbus-x11
@@ -109,7 +109,7 @@ sudo apt-get install dbus-x11
 
 2. 安装后完成VNC服务器的初始配置，请使用vncserver命令来设置安全密码并创建初始配置文件：
 
-```
+```text
 vncserver
 ```
 
@@ -119,7 +119,7 @@ Would you like to enter a view-only password (y/n)? n 提示是否只是观看�
 
 3. 配置 VNC 服务器
 
-```
+```text
 vncserver -kill :*
 touch ~/.vnc/xstartup
 chmod +x ~/.vnc/xstartup
@@ -127,7 +127,7 @@ chmod +x ~/.vnc/xstartup
 
 编辑 `~/.vnc/xstartup`，将下列的配置复制进去并保存
 
-```
+```text
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -142,13 +142,13 @@ startkde &
 
 4. 配置编辑好后，重新启动VNC服务器：
 
-```
+```text
 vncserver -localhost no
 ```
 
 5. 查看 VNC 服务器
 
-```
+```bash
 radxa@radxa-zero3:~$ vncserver -list
 
 TigerVNC server sessions:

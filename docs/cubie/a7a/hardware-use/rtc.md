@@ -23,14 +23,14 @@ RTC 接口具体位置可以查看 [硬件接口](./hardware-info) 教程的接�
 终端输入命令查看系统是否正确识别 RTC 电池。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dmesg | grep rtc
 ```
 </NewCodeBlock>
 
 终端输出类似信息：`registered as rtc0`，说明 RTC 电池被正确识别。
 
-```
+```text
 [    0.033261] sunxi:ccu-ng:[INFO]: sunxi rtc-ccu version: 0.5.5
 [    0.044358] sunxi:ccu-ng:[INFO]: rtc_ccu: sunxi ccu init OK
 [    0.161008] axp8191-rtcldo: supplied by regulator-dummy
@@ -47,7 +47,7 @@ sudo dmesg | grep rtc
 终端使用 `hwclock` 命令读取 RTC 芯片（/dev/rtc0）的当前时间。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo hwclock -r -f /dev/rtc0
 ```
 </NewCodeBlock>
@@ -57,7 +57,7 @@ sudo hwclock -r -f /dev/rtc0
 使用 `date` 命令显示系统当前时间。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 date
 ```
 </NewCodeBlock>
@@ -67,7 +67,7 @@ date
 若 RTC 时间和系统时间不一致，可以使用 `hwclock` 命令将系统当前时间写入 RTC。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo hwclock -w -f /dev/rtc0
 ```
 </NewCodeBlock>

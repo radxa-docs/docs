@@ -14,7 +14,7 @@ glmark2 是一个开源、跨平台的基准测试工具，专门用于评估和
 
 使用鼠标和键盘打开桌面左上角的终端，运行命令：
 
-```
+```text
 glmark2-es2-wayland
 ```
 
@@ -28,7 +28,7 @@ glmark2-es2-wayland
 
 打开串口终端运行命令：
 
-```
+```text
 root@rockchip-rk3588s-rock-5c:~# XDG_RUNTIME_DIR=/run/user/1000/ WAYLAND_DISPLAY=wayland-0 glmark2-es2-wayland
 ```
 

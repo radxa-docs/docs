@@ -55,7 +55,7 @@ For example, using `/dev/ttyUSB0`:
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 ls -l /dev/ttyUSB0
 ```
 
@@ -63,7 +63,7 @@ ls -l /dev/ttyUSB0
 
 If the device exists, you will see output similar to:
 
-```
+```text
 crw-rw---- 1 root dialout 188, 0 Sep 10 21:24 /dev/ttyUSB0
 ```
 
@@ -71,7 +71,7 @@ crw-rw---- 1 root dialout 188, 0 Sep 10 21:24 /dev/ttyUSB0
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo usermod -a -G dialout $USER
 ```
 
@@ -81,7 +81,7 @@ sudo usermod -a -G dialout $USER
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 newgrp dialout
 ```
 
@@ -101,7 +101,7 @@ Fix:
 
 <NewCodeBlock tip="Linux@host$" type="device">
 
-```
+```bash
 ps -ef | grep iperf3
 ```
 
@@ -111,7 +111,7 @@ ps -ef | grep iperf3
 
 <NewCodeBlock tip="Linux@host$" type="device">
 
-```
+```bash
 sudo kill <PID>
 ```
 
@@ -122,7 +122,7 @@ sudo kill <PID>
 KDE Discover uses OpenGL rendering by default. If the current GPU driver does not support OpenGL rendering, KDE Discover may not work. Use `apt` in the terminal to install packages instead.
 
 <NewCodeBlock tip="Linux@host$" type="device">
-```
+```bash
 sudo apt search <package_name>
 sudo apt install <package_name>
 ```
@@ -133,7 +133,7 @@ sudo apt install <package_name>
 For example, to install VLC:
 
 <NewCodeBlock tip="Linux@host$" type="device">
-```
+```bash
 sudo apt search vlc
 sudo apt install vlc
 ```

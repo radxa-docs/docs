@@ -61,7 +61,7 @@ Solution:
 
 When I try to run apt update, I get the following error:
 
-```
+```text
 root@rock-5T:~# apt update
 Hit:1 http://security.debian.org/debian-security bookworm-security InRelease
 Hit:2 http://httpredir.debian.org/debian bookworm InRelease
@@ -79,7 +79,7 @@ N: See apt-secure(8) manpage for repository creation and user configuration deta
 
 The reason is that the public key has expired. You can execute the following command to get a new available key.
 
-```
+```bash
 sudo apt-get install -y wget
 export DISTRO=bookworm-stable
 wget -O - apt.radxa.com/$DISTRO/public.key | sudo apt-key add -

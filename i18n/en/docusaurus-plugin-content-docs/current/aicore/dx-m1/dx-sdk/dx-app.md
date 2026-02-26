@@ -132,7 +132,7 @@ config json is valid
 [app2] : entered post process thread function.
 [app3] : entered post process thread function.
 [app4] : entered post process thread function.
-[result save mode] ./xxx.jpg
+[result save mode] ./<output>.jpg
 Create Thread to save jpg
 [app5] : entered post process thread function.
 [app1] : notify to this thread function.

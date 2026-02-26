@@ -44,7 +44,7 @@ Radxa E54C 的 MAC 地址是唯一且固定的，在每次断电重启或者软�
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 sudo apt-get install iperf3
 ```
 
@@ -54,7 +54,7 @@ sudo apt-get install iperf3
 
 <NewCodeBlock type="host">
 
-```
+```bash
 iperf -s
 ```
 
@@ -66,7 +66,7 @@ iperf -s
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 iperf3 -c server-ip -t 60
 ```
 
@@ -76,7 +76,7 @@ iperf3 -c server-ip -t 60
 
 <NewCodeBlock type="host">
 
-```
+```bash
 iperf3 -c server-ip -t 60 -R
 ```
 
@@ -100,7 +100,7 @@ iperf3 -c server-ip -t 60 -R
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 modprobe libcomposite
 modprobe usb_f_mass_storage
 systemctl daemon-reload
@@ -137,7 +137,7 @@ echo fc000000.usb > UDC
 
 <NewCodeBlock type="host">
 
-```
+```bash
 $ lsblk
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 ...
@@ -151,7 +151,7 @@ sdb           8:16   1 953.9G  0 disk /media/devmon/sdb-usb-Linux_File-Stor_
 
 <NewCodeBlock type="host">
 
-```
+```bash
 $ lsblk
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 ...
@@ -166,7 +166,7 @@ md5sum /media/devmon/sdb-usb-Linux_File-Stor_/test.wav
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 systemctl daemon-reload
 mount /dev/nvme0n1p1 /mnt/
 ls /mnt/
@@ -216,7 +216,7 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
   <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 $ lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 sda            8:0    1 29.3G  0 disk
@@ -233,7 +233,7 @@ mmcblk0      179:0    0 14.5G  0 disk
 
   <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 # 测试写入速度
 dd if=/dev/zero of=/mnt/usb/test.img bs=1M count=1024 oflag=direct
 
@@ -262,7 +262,7 @@ dd if=/mnt/usb/test.img of=/dev/null bs=1M count=1024 iflag=direct
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 # 安装测试工具
 sudo apt-get install hdparm
 
@@ -301,7 +301,7 @@ sudo dd if=/dev/zero of=/mnt/nvme/test.img bs=1M count=1024 oflag=direct
 
 <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-```
+```bash
 # 安装 GPIO 控制工具
 sudo apt-get install gpiod
 

@@ -8,7 +8,7 @@ After a successful connection, you can check the network connection details by o
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -16,7 +16,7 @@ ip a
 
 The terminal will display output similar to the following, where `192.168.2.186` is the IP address assigned by the router:
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 inet 127.0.0.1/8 scope host lo
@@ -67,7 +67,7 @@ Both the server and client need to have `iperf` installed.
 
 <NewCodeBlock tip="radxa@device$ & Linux$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install iperf
 ```
@@ -82,7 +82,7 @@ Open a terminal on the server and start the iperf server with the following comm
 
 <NewCodeBlock tip="Linux" type="device">
 
-```
+```bash
 iperf -s
 ```
 
@@ -90,7 +90,7 @@ iperf -s
 
 Upon successful startup, the terminal will display output similar to:
 
-```
+```text
 ---
 
 ## Server listening on 5201 (test #1)
@@ -105,7 +105,7 @@ To resolve this:
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 ps -ef | grep iperf3
 ```
 
@@ -115,7 +115,7 @@ ps -ef | grep iperf3
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo kill <PID>
 ```
 
@@ -130,7 +130,7 @@ Open a terminal on the client and run the following command to test upload bandw
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time>
 
 # Example
@@ -151,7 +151,7 @@ To test download bandwidth, use the following command (again replacing `<server_
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time> -R
 
 # Example

@@ -12,7 +12,7 @@ System reserves a part of memory for NPU to ensure NPU works properly, so the av
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo rmmod aipu
 ```
 
@@ -22,7 +22,7 @@ sudo rmmod aipu
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo vim /etc/modprobe.d/blacklist-aipu.conf
 ```
 
@@ -32,7 +32,7 @@ Add:
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 blacklist aipu
 ```
 
@@ -42,7 +42,7 @@ Save and reboot:
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo reboot
 ```
 

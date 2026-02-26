@@ -46,7 +46,7 @@ Open a terminal in the download directory and run the following command to insta
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 sudo dpkg -i sdkmanager_xxx_amd64.deb
 ```
 
@@ -58,7 +58,7 @@ If you encounter the error `dpkg: error processing package sdkmanager` during in
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 sudo apt --fix-broken install -y
 sudo dpkg -i sdkmanager_xxx_amd64.deb
 ```

@@ -29,7 +29,7 @@ After downloading and decompressing, you need to configure environment variables
 
 Method 1: Enter the following command in the terminal window
 
-```
+```text
 set HTTP_PROXY=myserver:1981
 
 ```

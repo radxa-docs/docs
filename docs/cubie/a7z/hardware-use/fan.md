@@ -29,7 +29,7 @@ sidebar_position: 9
 1. 使用 `ls` 命令查看系统中已注册的风扇设备。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 ls /sys/devices/platform/ | grep fan
 ```
 </NewCodeBlock>
@@ -37,7 +37,7 @@ ls /sys/devices/platform/ | grep fan
 终端输出类似结果：
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 pwm-fan
 ```
 </NewCodeBlock>
@@ -51,7 +51,7 @@ pwm-fan
 使用 `ls` 命令查看 `pwm-fan` 设备的 PWM 控制文件。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 ls /sys/class/hwmon/
 ```
 </NewCodeBlock>
@@ -59,7 +59,7 @@ ls /sys/class/hwmon/
 终端会输出类似结果：
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 hwmon0
 ```
 </NewCodeBlock>
@@ -69,14 +69,14 @@ hwmon0
 使用 `ls` 命令查看 `hwmon` 目录下 `pwm-fan` 设备的 PWM 控制文件。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 ls -l /sys/class/hwmon/hwmon*/device
 ```
 </NewCodeBlock>
 
 终端输出类似结果：
 
-```
+```text
 /sys/class/hwmon/hwmon0/device -> ../../../pwm-fan
 ```
 
@@ -90,7 +90,7 @@ ls -l /sys/class/hwmon/hwmon*/device
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 echo 255 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 ```
 
@@ -100,7 +100,7 @@ echo 255 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 echo 128 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 ```
 
@@ -109,7 +109,7 @@ echo 128 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 - 关闭风扇
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 echo 0 | sudo tee /sys/class/hwmon/hwmon0/pwm1
 ```
 </NewCodeBlock>

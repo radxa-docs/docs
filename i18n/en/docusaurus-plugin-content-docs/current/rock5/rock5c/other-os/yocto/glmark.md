@@ -14,7 +14,7 @@ Utilize glmark2 to benchmark the GPU performance.
 
 Open a terminal from the top-left corner of the desktop using the mouse and keyboard, then run the command:
 
-```
+```text
 glmark2-es2-wayland
 ```
 
@@ -28,7 +28,7 @@ The result will look like this:
 
 Open a serial terminal and run the command:
 
-```
+```text
 root@rockchip-rk3588s-rock-5c:~# XDG_RUNTIME_DIR=/run/user/1000/ WAYLAND_DISPLAY=wayland-0 glmark2-es2-wayland
 ```
 

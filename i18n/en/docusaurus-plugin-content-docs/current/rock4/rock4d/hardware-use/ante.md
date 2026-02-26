@@ -17,7 +17,7 @@ Connect the two antennas to their corresponding antenna interfaces. The antenna 
 After successfully booting the system, you can check the WiFi signal strength using the following command:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo nmcli device wifi list
 ```
 </NewCodeBlock>

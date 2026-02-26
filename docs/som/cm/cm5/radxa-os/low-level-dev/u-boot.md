@@ -13,7 +13,7 @@ sidebar_position: 2
 
 完成 bsp 环境配置后，需要先编译一次 U-Boot 才会从仓库拉取相关代码，可以执行`./bsp u-boot rknext radxa-cm5-io`构建 U-Boot, U-Boot 源码的路径位于 bsp 目录下的 `.src/u-boot`
 
-```
+```text
 cd bsp
 mkdir output
 cd output
@@ -27,19 +27,19 @@ cd output
 
 编译完成后会在 bsp/output 目录生成许多 `deb` 包， 只需要安装下面的 `deb` 即可
 
-```
+```text
 u-boot-rknext_2017.09-1_arm64.deb
 ```
 
 将上面两个 `deb` 包复制到板子上使用 `dpkg` 指令安装即可完成 U-Boot 安装
 
-```
+```bash
 sudo dpkg -i u-boot-rknext_2017.09-1_arm64.deb
 ```
 
 安装完成后需要将 U-Boot 刷到启动介质中
 
-```
+```text
 cd /usr/lib/u-boot/radxa-cm5-io/
 sudo ./setup.sh update_bootloader /dev/mmcblk1   #/dev/mmcblk1 为你当前使用的启动介质，需要根据实际使用的设备来选择
 sudo reboot

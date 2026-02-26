@@ -14,7 +14,7 @@ sidebar_position: 6
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 repo init -u https://github.com/radxa/manifests -b  Android14_RK3576_Radxa_rk6  -m rockchip-u-release.xml
 repo sync
 repo forall -c 'git lfs pull'
@@ -35,7 +35,7 @@ Android 系统支持两种编译方式：
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch rk3576_radxa_cm4-userdebug
 ./build.sh -UACKup
@@ -53,7 +53,7 @@ lunch rk3576_radxa_cm4-userdebug
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch rk3576_radxa_cm4-userdebug
 ./build.sh -AUup
@@ -65,7 +65,7 @@ lunch rk3576_radxa_cm4-userdebug
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch rk3576_radxa_cm4-userdebug
 ./build.sh -ACKup
@@ -77,7 +77,7 @@ lunch rk3576_radxa_cm4-userdebug
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch rk3576_radxa_cm4-userdebug
 ./build.sh -Aup

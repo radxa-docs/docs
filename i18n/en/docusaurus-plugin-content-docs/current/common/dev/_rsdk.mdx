@@ -13,7 +13,7 @@
 1. First, please install the required dependencies:
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 sudo apt-get update
 sudo apt-get install git qemu-user-static binfmt-support
 sudo apt-get install npm docker.io
@@ -25,7 +25,7 @@ sudo usermod -a -G docker $USER
 2. Use the following commands to clone the project and install DevContainer:
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 cd rsdk
 npm install @devcontainers/cli
@@ -39,7 +39,7 @@ rsdk devcon
 When the terminal appears as follows, you are now inside the rsdk's dev container shell.
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 ██████╗ ███████╗██████╗ ██╗  ██╗
 ██╔══██╗██╔════╝██╔══██╗██║ ██╔╝
 ██████╔╝███████╗██║  ██║█████╔╝
@@ -54,14 +54,14 @@ direnv: export +AR +AS +CC +CONFIG_SHELL +CXX +DETERMINISTIC_BUILD +DEVENV_DOTFI
 +DEVENV_STATE +DEVENV_TASKS +HOST_PATH +IN_NIX_SHELL +LD +LOCALE_ARCHIVE +NIX_BINTOOLS +NIX_BINTOOLS_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu
 +NIX_BUILD_CORES +NIX_CC +NIX_CC_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu +NIX_CFLAGS_COMPILE +NIX_ENFORCE_NO_NATIVE +NIX_HARDENING_ENABLE +NIX_LDFLAGS
 +NIX_PKG_CONFIG_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu +NIX_STORE +NM +NODE_PATH +OBJCOPY +OBJDUMP +PKG_CONFIG +PKG_CONFIG_PATH +PYTHONHASHSEED +PYTHONNOUSERSITE
-+PYTHONPATH +RANLIB +READELF +SIZE +SOURCE_DATE_EPOCH +STARSHIP_SESSION_KEY +STRINGS +STRIP +_PYTHON_HOST_PLATFORM +_PYTHON_SYSCONFIGDATA_NAME +__structuredAttrs +buildInputs
++PYTHONPATH +RANLIB +READELF +SIZE +SOURCE_DATE_EPOCH +STARSHIP_SESSION_KEY +STRINGS +STRIP +\_PYTHON_HOST_PLATFORM +\_PYTHON_SYSCONFIGDATA_NAME +\_\_structuredAttrs +buildInputs
 +buildPhase +builder +cmakeFlags +configureFlags +depsBuildBuild +depsBuildBuildPropagated +depsBuildTarget +depsBuildTargetPropagated +depsHostHost +depsHostHostPropagated
 +depsTargetTarget +depsTargetTargetPropagated +doCheck +doInstallCheck +dontAddDisableDepTrack +hardeningDisable +mesonFlags +name +nativeBuildInputs +out +outputs +patches
 +phases +preferLocalBuild +propagatedBuildInputs +propagatedNativeBuildInputs +shell +shellHook +stdenv +strictDeps +system ~PATH ~XDG_DATA_DIRS
 
 vscode ➜ /workspaces/rsdk (main) $
 
-```
+````
 
 </NewCodeBlock>
 
@@ -76,25 +76,25 @@ For Debian 12 systems, you can build the rsdk deb package from source without us
 1. Clone the source repository:
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 cd rsdk
 
-```
+````
 
 </NewCodeBlock>
 
 If your system is not based on RadxaOS (or has not configured Radxa software sources), please first add the Radxa signature keyring and add the software source to meet build dependencies:
 
 <NewCodeBlock tip="Linux" type="host">
-```
+```bash
 
 # Install signature keyring
 
 keyring="$(mktemp)"
 version="$(curl -L https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/VERSION)"
-curl -L --output "$keyring" "https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_${version}_all.deb"
+curl -L --output "$keyring" "https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_${version}\_all.deb"
 sudo dpkg -i "$keyring"
 rm -f "$keyring"
 
@@ -103,7 +103,7 @@ rm -f "$keyring"
 sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg] https://radxa-repo.github.io/bookworm/ bookworm main"
 sudo apt-get update
 
-```
+````
 
 </NewCodeBlock>
 
@@ -112,47 +112,47 @@ sudo apt-get update
 :::tip
 If you have difficulty accessing GitHub, you can use domestic mirror git and software source sites:
 
-```
+```text
 
 git clone https://gitcode.com/radxaos-sdk/rsdk.git
 sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [trusted=yes] https://mirrors.sdu.edu.cn/radxa-repo/bookworm/ bookworm main"
 
-```
+````
 
 :::
 
 2. Install build-related dependencies and prepare the build environment:
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 
 sudo apt-get update
 sudo apt-get install devscripts dpkg-dev build-essential
 sudo apt build-dep .
 
-```
+````
 
 </NewCodeBlock>
 
 3. Build the deb package:
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 
 dpkg-buildpackage -us -uc -b
 
-```
+````
 
 </NewCodeBlock>
 
 4. After successful build, the generated deb package is located in the parent directory (..), and can be installed with the following command:
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 
-sudo apt install ../rsdk_\*.deb
+sudo apt install ../rsdk\_\*.deb
 
-```
+````
 
 </NewCodeBlock>
 
@@ -169,7 +169,7 @@ Start the TUI wizard: Run `rsdk` in the terminal.
 - In the example below, we select **Build system image**:
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a task:                     │
 │                                           │
@@ -180,14 +180,14 @@ Start the TUI wizard: Run `rsdk` in the terminal.
 │ <Ok> <Cancel>                             │
 │                                           │
 └───────────────────────────────────────────┘
-```
+````
 
 </NewCodeBlock>
 
 Select the product to build. **Note**: Use the **space key** to select the product, the selected item will display `*` in parentheses (pressing Enter alone will not select the product):
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a product:                  │
 │                                           │
@@ -213,7 +213,7 @@ It is recommended for users in China to choose to use mirror sources to improve 
 Example: Select Radxa APT mirror:
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Select Radxa APT mirror (radxa-deb):     │
 │                                           │
@@ -235,7 +235,7 @@ Example: Select Radxa APT mirror:
 Then you can select an optional Debian/Ubuntu mirror (or keep the default):
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Select Debian/Ubuntu mirror (optional):   │
 │                                           │
@@ -258,7 +258,7 @@ Then you can select an optional Debian/Ubuntu mirror (or keep the default):
 Confirm and start building: After mirror configuration (if any), the wizard will display a summary of the selected product and mirrors (corresponding to the final CLI command to be executed), please carefully check the summary and select **Yes** to start building, or select **No** to return and modify:
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 ┌─────────────────┤ RSDK ├──────────────────┐
 │                                           │
 │ Are you sure to build with:               │
@@ -281,12 +281,12 @@ Confirm and start building: After mirror configuration (if any), the wizard will
 After compilation, an `out` directory will be generated, and `output.img` is the final generated image:
 
 <NewCodeBlock tip="Linux PC" type="host">
-```
+```bash
 
 vscode ➜ /workspaces/rsdk (main) $ ls out/rock-5b_bookworm_kde/
 build-image config.yaml debs manifest output.img rootfs.tar seed.tar.xz
 
-```
+````
 
 </NewCodeBlock>
 
@@ -298,4 +298,5 @@ If you need to conduct secondary development based on `rsdk`, please continue re
 
 1. Devcontainer setup paused with the message: You might be rate limited by GitHub. You might be rate limited by GitHub. Please follow the instructions listed in the output.
 2. Failed to launch devcontainer. Please edit .devcontainer/devcontainer.json, and adjust the runArgs property.
-```
+```text
+````

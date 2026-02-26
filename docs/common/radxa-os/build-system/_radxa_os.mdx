@@ -17,7 +17,7 @@ import { Image } from "@site/src/utils/docs";
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 git clone --recurse-submodules <git_repo_url>
 ```
 
@@ -50,13 +50,13 @@ git clone --recurse-submodules <git_repo_url>
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 rsdk
 ```
 
 </NewCodeBlock>
 
-```
+```text
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a task:                     │
 │                                           │
@@ -71,7 +71,7 @@ rsdk
 
 选择 `Build system image` 选项，可以进一步选择需要构建的主板型号：`<sbc_model>` 是你需要构建的主板型号。
 
-```
+```text
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a product:                  │
 │                                           │
@@ -84,7 +84,7 @@ rsdk
 
 选择 `yes` 后开始构建 Radxa OS，rsdk 会自动完成镜像编译：`<sbc_model>` 是你需要构建的主板型号。
 
-```
+```text
 ┌─────────────────┤ RSDK ├───────────────────────┐
 │                                                │
 │ Are you sure to build for 'radxa-<sbc_model>'? │

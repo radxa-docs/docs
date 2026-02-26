@@ -40,14 +40,14 @@ Open the RKDevTool software and check the detected device information:
 <TabItem value="Linux/MacOS">
 Use the `rkdeveloptool ld` command to check the detected device information:
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 Output similar to the following indicates that a Maskrom device has been detected:
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 

@@ -319,7 +319,7 @@ Linux users are recommended to use the Screen utility for serial port login to t
 - Install Screen
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo apt update
 sudo apt install screen
 ```
@@ -334,7 +334,7 @@ If there's only one serial device, it will typically be ttyUSB0.
 If there are multiple serial devices, you can plug/unplug the USB device and observe which device number changes using the command below.
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 ls /dev/ttyUSB*
 ```
 </NewCodeBlock>
@@ -344,7 +344,7 @@ ls /dev/ttyUSB*
 To connect via Screen, you only need to specify the serial port and baud rate.
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo screen /dev/ttyUSB0 1500000
 ```
 </NewCodeBlock>
@@ -374,7 +374,7 @@ Open a terminal and use the ls command to check the serial port devices.
 Look for a device name similar to /dev/tty.wchusbserial14xx0. If there are multiple serial devices, you can plug/unplug the USB device and observe which device appears/disappears using the command below.
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 ls /dev/tty.*
 ```
 </NewCodeBlock>
@@ -384,7 +384,7 @@ ls /dev/tty.*
 To connect via Screen, you only need to specify the serial port and baud rate.
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 screen /dev/tty.wchusbserial14xx0 1500000
 ```
 </NewCodeBlock>

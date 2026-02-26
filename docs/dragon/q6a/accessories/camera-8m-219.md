@@ -16,7 +16,7 @@ import Camera8M219 from '../../../common/accessories/\_camera-8m-219.mdx';
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install build-essential git pkg-config -y
 sudo apt install meson ninja-build -y
@@ -46,7 +46,7 @@ sudo apt install \
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
-```
+```bash
 git clone https://git.linuxtv.org/libcamera.git
 cd libcamera
 meson setup build --wipe \
@@ -69,7 +69,7 @@ sudo ldconfig
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
-```
+```bash
 sudo nano /usr/local/share/libcamera/ipa/simple/imx219.yaml
 ```
 
@@ -77,7 +77,7 @@ sudo nano /usr/local/share/libcamera/ipa/simple/imx219.yaml
 
 将下面内容复制到 `/usr/local/share/libcamera/ipa/simple/imx219.yaml`文件。
 
-```
+```bash
 # SPDX-License-Identifier: CC0-1.0
 %YAML 1.1
 ---
@@ -109,7 +109,7 @@ algorithms:
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
-```
+```bash
 sudo chmod 666 /dev/dma_heap/*
 ```
 
@@ -121,7 +121,7 @@ sudo chmod 666 /dev/dma_heap/*
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
-```
+```bash
 cd libcamera/build/src/apps/qcam/
 ./qcam --stream pixelformat=YUYV,width=1920,height=1080
 ```

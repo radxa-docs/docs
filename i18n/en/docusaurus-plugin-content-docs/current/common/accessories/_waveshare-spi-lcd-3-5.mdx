@@ -22,7 +22,7 @@ Run `rsetup` in the terminal to start Rsetup:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rsetup
 ```
 
@@ -41,7 +41,7 @@ Check which fb (framebuffer) device the screen is bound to. The device name for 
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 cat /sys/class/graphics/fb0/name
 ```
 
@@ -49,7 +49,7 @@ cat /sys/class/graphics/fb0/name
 
 If the display is enabled correctly, you should see output similar to the following (fb0 as an example):
 
-```
+```text
 fb_ili9486
 ```
 
@@ -61,7 +61,7 @@ Note: If the LCD is not on `fb0`, replace `fb0` with the actual one, e.g. `cat /
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y fbi
 ```
@@ -74,7 +74,7 @@ Display an image to the LCD framebuffer. Prepare an image file in advance. The f
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo fbi -vt 1 --noverbose -d /dev/fb0 logo.bmp
 ```
 
@@ -88,7 +88,7 @@ Run the following command in the terminal to map the output of tty2 to the LCD.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo con2fbmap 2 0
 ```
 
@@ -104,7 +104,7 @@ Run the following command in the terminal to map the output of tty3 to the LCD.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo con2fbmap 3 0
 ```
 

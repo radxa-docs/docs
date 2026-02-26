@@ -319,7 +319,7 @@ Linux 推荐使用 Screen 软件串口登陆 Radxa E24C 系统。
 - 安装 Screen
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo apt update
 sudo apt install screen
 ```
@@ -334,7 +334,7 @@ sudo apt install screen
 若 PC 有多个串口设备，可以插拔 USB 设备，使用下面命令观察变化的设备号。
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 ls /dev/ttyUSB*
 ```
 </NewCodeBlock>
@@ -344,7 +344,7 @@ ls /dev/ttyUSB*
 使用 Screen 连接串口，只需要设置串口号和波特率。
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo screen /dev/ttyUSB0 1500000
 ```
 </NewCodeBlock>
@@ -374,7 +374,7 @@ macOS 平台推荐使用 Screen 软件串口登陆 Radxa E24C 系统。
 找到类似 /dev/tty.wchusbserial14xx0 的设备名称，若 PC 有多个串口设备，可以插拔 USB 设备，使用下面命令观察变化的设备号。
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 ls /dev/tty.*
 ```
 </NewCodeBlock>
@@ -384,7 +384,7 @@ ls /dev/tty.*
 使用 Screen 连接串口，只需要设置串口号和波特率。
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 screen /dev/tty.wchusbserial14xx0 1500000
 ```
 </NewCodeBlock>

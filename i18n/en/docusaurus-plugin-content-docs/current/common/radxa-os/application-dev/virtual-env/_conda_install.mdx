@@ -39,8 +39,8 @@ After downloading, navigate to the download directory, open a terminal, and run 
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
-bash Anaconda3-xxx-Linux-aarch64.sh
+```bash
+bash Anaconda3-<version>-Linux-aarch64.sh
 ```
 
 </NewCodeBlock>
@@ -49,8 +49,8 @@ During installation, press `Enter` to proceed through the steps. Then type `yes`
 
 The terminal will display information similar to the following:
 
-```
-Welcome to Anaconda3 xxx
+```bash
+Welcome to Anaconda3 <version>
 
 In order to continue the installation process, please review the license
 agreement.
@@ -79,7 +79,7 @@ Open the terminal and use the `conda --version` command to check the Conda versi
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda --version
 ```
 
@@ -87,7 +87,7 @@ conda --version
 
 If the terminal outputs information similar to the following, the installation was successful:
 
-```
+```bash
 conda 24.9.2
 ```
 
@@ -97,7 +97,7 @@ To exit the Conda environment, use the `conda deactivate` command.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda deactivate
 ```
 
@@ -113,7 +113,7 @@ Modify Conda's configuration to add Tsinghua University's mirror source for fast
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda config --set show_channel_urls yes
 ```
 
@@ -123,7 +123,7 @@ conda config --set show_channel_urls yes
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 vi ~/.condarc
 ```
 
@@ -133,7 +133,7 @@ Add the following content to the configuration file:
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 channels:
 
 - defaults
@@ -155,7 +155,7 @@ Use the `conda clean` command to clear the cache and temporary files.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda clean -i
 ```
 
@@ -167,7 +167,7 @@ Open the terminal and use the `conda config --show-sources` command to view all 
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda config --show-sources
 ```
 
@@ -175,7 +175,7 @@ conda config --show-sources
 
 If the configuration is successful, the terminal will display information similar to the following:
 
-```
+```bash
 ==> /home/radxa/anaconda3/.condarc <==
 channels:
 

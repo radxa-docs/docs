@@ -53,13 +53,13 @@ Restart the system for the SPI Flash erase operation to take effect.
 
 Use the `rkdeveloptool ld` command to view the detected devices.
 
-```
+```text
 rkdeveloptool ld
 ```
 
 Output similar to the following indicates that a Maskrom device has been detected:
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -67,19 +67,19 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 
 You need to replace `demo.bin` with the Loader file for your board.
 
-```
+```bash
 sudo rkdeveloptool db demo.bin
 ```
 
 4. Erase SPI Flash
 
-```
+```bash
 sudo rkdeveloptool ef
 ```
 
 5. Restart the system for the SPI Flash erase operation to take effect
 
-```
+```bash
 sudo rkdeveloptool rd
 ```
 
@@ -128,13 +128,13 @@ Restart the system for the SPI boot firmware to take effect.
 
 Use the `rkdeveloptool ld` command to view the detected devices:
 
-```
+```text
 rkdeveloptool ld
 ```
 
 Output similar to the following indicates that a Maskrom device has been detected:
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -144,7 +144,7 @@ You need to replace `demo.bin` with the Loader file for your board.
 
 <NewCodeBlock tip="Linux / MacOS$" type="host">
 
-```
+```bash
 sudo rkdeveloptool db demo.bin
 ```
 
@@ -154,13 +154,13 @@ sudo rkdeveloptool db demo.bin
 
 You need to replace `spi.img` with the SPI boot firmware corresponding to your board.
 
-```
+```bash
 sudo rkdeveloptool wl 0 spi.img
 ```
 
 5. Restart the system for the flashed SPI boot firmware to take effect
 
-```
+```bash
 sudo rkdeveloptool rd
 ```
 

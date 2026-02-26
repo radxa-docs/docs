@@ -78,14 +78,14 @@ sidebar_position: 1
 将智核 DX-M1 / DX-M1M 安装到主板 M.2 M Key 接口，主板启动系统后，你可以打开终端输入 `lspci` 命令识别智核 DX-M1 / DX-M1M 是否被系统正确识别：
 
 <NewCodeBlock tip="Device" type="device">
-```
+```bash
 lspci
 ```
 </NewCodeBlock>
 
 若系统识别到智核 DX-M1 / DX-M1M，终端会输出类似如下的信息：
 
-```
+```text
 0000:01:00.0 Processing accelerators: DEEPX Co., Ltd. DX_M1A
 ```
 

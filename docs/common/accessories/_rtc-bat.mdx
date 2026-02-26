@@ -27,7 +27,7 @@ import { Image } from "@site/src/utils/docs";
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo dmesg | grep rtc
 ```
 
@@ -35,7 +35,7 @@ sudo dmesg | grep rtc
 
 终端输出类似信息：`registered as rtc0`，说明 RTC 电池被正确识别。
 
-```
+```text
 [    0.368528] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
 [    0.368720] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
 [    6.259233] rtc-ds1307 10-0068: registered as rtc0
@@ -48,7 +48,7 @@ sudo dmesg | grep rtc
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install util-linux util-linux-extra -y
 sudo hwclock -r -f /dev/rtc0
@@ -62,7 +62,7 @@ sudo hwclock -r -f /dev/rtc0
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 date
 ```
 
@@ -74,7 +74,7 @@ date
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo hwclock -w -f /dev/rtc0
 ```
 

@@ -15,7 +15,7 @@ You can use the `ollama -h` command to view the help information for Ollama.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ollama -h
 ```
 
@@ -23,7 +23,7 @@ ollama -h
 
 The output will be as follows:
 
-```
+```text
 Large language model runner
 
 Usage:
@@ -70,7 +70,7 @@ Use the `ollama pull` command to download a model. You can find more models and 
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ollama pull deepseek-r1:1.5b
 ```
 
@@ -78,7 +78,7 @@ ollama pull deepseek-r1:1.5b
 
 The download progress will be displayed in the terminal. Once completed, you'll see output similar to the following:
 
-```
+```text
 pulling manifest
 pulling aabd4debf0c8: 100% ▕███████████████████████████████████████████████████▏ 1.1 GB
 pulling c5ad996bda6e: 100% ▕███████████████████████████████████████████████████▏ 556 B
@@ -96,7 +96,7 @@ Use the `ollama run` command to run a model. If the model isn't available locall
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ollama run deepseek-r1:1.5b
 ```
 
@@ -106,7 +106,7 @@ After successful execution, an interactive interface will appear in the terminal
 
 You can directly ask questions like `Please introduce yourself`, and the model will respond.
 
-```
+```text
 > > > Please introduce yourself
 > > > Hello! I'm DeepSeek-R1, an artificial intelligence assistant created by DeepSeek. I'm at your service and
 > > > would be delighted to assist you with any inquiries or tasks you may have.
@@ -132,7 +132,7 @@ You can install the Ollama Python library using the `pip` command.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 pip3 install ollama
 ```
 
@@ -148,7 +148,7 @@ Make sure the `model` parameter in the Python code matches a model that has been
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 from ollama import chat
 from ollama import ChatResponse
 
@@ -177,7 +177,7 @@ Make sure the `model` parameter in the Python code matches a model that has been
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 from ollama import chat
 
 stream = chat(

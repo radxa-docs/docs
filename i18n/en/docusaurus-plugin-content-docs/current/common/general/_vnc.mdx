@@ -4,7 +4,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 1. Installing TigerVNC Server and dbus-x11 dependencies
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install tigervnc-standalone-server
 sudo apt-get install dbus-x11
@@ -12,7 +12,7 @@ sudo apt-get install dbus-x11
 
 2. To complete the initial configuration of the VNC server after installation, use the vncserver command to set the security password and create the initial configuration file:
 
-```
+```text
 vncserver
 ```
 
@@ -24,7 +24,7 @@ Prompt whether just watch, it is recommended to choose no, enter n, so that the 
 
 3. Configuring the VNC Server
 
-```
+```text
 vncserver -kill :*
 touch ~/.vnc/xstartup
 chmod +x ~/.vnc/xstartup
@@ -32,7 +32,7 @@ chmod +x ~/.vnc/xstartup
 
 Edit `~/.vnc/xstartup`, copy the following configuration in and save it
 
-```
+```text
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -47,13 +47,13 @@ startkde &
 
 4. Once the configuration is edited, restart the VNC server:
 
-```
+```text
 vncserver -localhost no
 ```
 
 5. Viewing the VNC Server
 
-```
+```text
 vncserver -list
 
 TigerVNC server sessions:

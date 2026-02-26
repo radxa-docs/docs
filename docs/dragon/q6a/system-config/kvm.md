@@ -77,7 +77,7 @@ sudo dmesg | grep -i kvm
 
 若输出类似信息，则说明 KVM 已成功初始化。
 
-```
+```text
 [    0.114874] kvm [1]: nv: 567 coarse grained trap handlers
 [    0.115147] kvm [1]: IPA Size Limit: 40 bits
 [    0.115181] kvm [1]: GICv3: no GICV resource entry

@@ -26,7 +26,7 @@ sidebar_position: 11
 在终端命令行输入 `rsetup` 命令，使用 Rsetup 工具设置风扇选项。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>
@@ -58,7 +58,7 @@ rsetup
 1. 使用 `ls` 命令查看系统中已注册的风扇设备。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 ls /sys/devices/platform/ | grep fan
 ```
 </NewCodeBlock>
@@ -66,7 +66,7 @@ ls /sys/devices/platform/ | grep fan
 终端输出类似结果：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 pwm-fan
 radxa-poe-fan
 ```
@@ -82,7 +82,7 @@ radxa-poe-fan
 使用 `ls` 命令查看 `pwm-fan` 设备的 PWM 控制文件。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 ls /sys/class/hwmon/
 ```
 </NewCodeBlock>
@@ -90,7 +90,7 @@ ls /sys/class/hwmon/
 终端会输出类似结果：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 hwmon0  hwmon1  hwmon2  hwmon3  hwmon4  hwmon5  hwmon6  hwmon7
 ```
 </NewCodeBlock>
@@ -100,14 +100,14 @@ hwmon0  hwmon1  hwmon2  hwmon3  hwmon4  hwmon5  hwmon6  hwmon7
 使用 `ls` 命令查看 `hwmon` 目录下 `pwm-fan` 设备的 PWM 控制文件。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 ls -l /sys/class/hwmon/hwmon*/device
 ```
 </NewCodeBlock>
 
 终端输出类似结果：
 
-```
+```text
 /sys/class/hwmon/hwmon0/device -> ../../thermal_zone0
 /sys/class/hwmon/hwmon1/device -> ../../thermal_zone1
 /sys/class/hwmon/hwmon2/device -> ../../thermal_zone2
@@ -128,7 +128,7 @@ ls -l /sys/class/hwmon/hwmon*/device
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 
-```
+```bash
 echo 255 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 ```
 
@@ -138,7 +138,7 @@ echo 255 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 
-```
+```bash
 echo 128 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 ```
 
@@ -147,7 +147,7 @@ echo 128 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 - 关闭风扇
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 echo 0 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 ```
 </NewCodeBlock>

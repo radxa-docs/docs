@@ -43,7 +43,7 @@ If you need to write to multiple devices simultaneously, please use upgrade_tool
 1. Decompress the image file (for the image file details, refer to the [Resource Download](../../../download.md) section. Here, we take radxa-cm3j-rpi-cm4-io_bullseye_xfce_b1.output.img.xz as an example).
 
    ```bash
-   xz -d radxa-cm3j-rpi-cm4-io_bullseye_xfce_b1.output.img.xz (If it's in gz format, use the command `gunzip -d xxx.gz`)
+   xz -d radxa-cm3j-rpi-cm4-io_bullseye_xfce_b1.output.img.xz (If it is in gz format, use `gunzip -d <image>.gz`)
    ```
 
 2. Flash the Loader (for the actual file details, refer to the [Resource Download](../../../download.md) section. Here, we take rk356x_spl_loader_ddr1056_v1.12.109_no_check_todly.bin as an example).

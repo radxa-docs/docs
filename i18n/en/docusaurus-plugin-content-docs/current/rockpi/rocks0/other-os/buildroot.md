@@ -17,7 +17,7 @@ You can also work inside a virtual machine:
 ## Install Build Dependencies
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 sudo apt update
 sudo apt install python2 git rsync gcc g++ make device-tree-compiler bc flex bison lz4 libssl-dev libgmp-dev libmpc-dev expect expect-dev file unzip bzip2 fakeroot bsdmainutils
 sudo ln -s /bin/python2 /bin/python
@@ -35,7 +35,7 @@ sudo ln -s /bin/python2 /bin/python
 On the Ubuntu host, run the following commands to unpack the SDK:
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 tar -xvzf rk3308_linux5.10_rkr8_sdk.repo.tar.gz
 .repo/repo/repo sync -l
 ```
@@ -46,7 +46,7 @@ tar -xvzf rk3308_linux5.10_rkr8_sdk.repo.tar.gz
 Use the Radxa-maintained rockchip repository:
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
 git fetch radxa
@@ -57,7 +57,7 @@ git checkout -b rk3308-linux-5.10 remotes/radxa/rk3308-linux-5.10
 Use the Radxa-maintained rkbin repository:
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 cd rkbin
 git remote add radxa https://github.com/radxa/rkbin.git
 git fetch radxa
@@ -68,7 +68,7 @@ git checkout -b develop-v2025.04 remotes/radxa/develop-v2025.04
 Use the Radxa-maintained kernel repository:
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
 git fetch radxa
@@ -81,7 +81,7 @@ git checkout -b linux-5.10-gen-rkr8-buildroot remotes/radxa/linux-5.10-gen-rkr8-
 From the root of the SDK run:
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 ./build.sh
 ```
 </NewCodeBlock>
@@ -97,7 +97,7 @@ After the build finishes, images are produced under the `rockdev/` directory. Th
 On a Linux or macOS host, use [upgrade_tool](https://dl.radxa.com/tools/linux/Linux_Upgrade_Tool_V2.1.zip) over the 4-pin USB2.0 OTG port to flash the `update.img` system image into eMMC:
 
 <NewCodeBlock tip="Host-PC$" type="host">
-```
+```bash
 upgrade_tool uf update.img
 ```
 </NewCodeBlock>

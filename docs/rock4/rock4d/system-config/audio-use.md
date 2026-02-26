@@ -39,7 +39,7 @@ sidebar_position: 8
 通过 `alsamixer` 命令行工具来设置音频设备,终端输入下面命令即可打开 `alsamixer` UI 界面。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 alsamixer
 ```
 </NewCodeBlock>

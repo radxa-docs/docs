@@ -24,7 +24,7 @@ Prepare the following hardware before using the Radxa AICore AX-M1:
 
 > **Verified Radxa-compatible boards**
 
-```
+```text
 - ROCK 5A
 - ROCK 5B
 - ROCK 5B+

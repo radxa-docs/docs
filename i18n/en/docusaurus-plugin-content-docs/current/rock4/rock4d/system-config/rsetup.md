@@ -22,7 +22,7 @@ Rsetup Usage Guide:
 :::
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo rsetup
 ```
 </NewCodeBlock>

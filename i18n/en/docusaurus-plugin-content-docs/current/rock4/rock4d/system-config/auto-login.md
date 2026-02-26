@@ -17,7 +17,7 @@ If you need to use VNC remote control, you may want to disable the auto login fe
 Enter the `rsetup` command in the terminal to enable auto login using the Rsetup tool:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>

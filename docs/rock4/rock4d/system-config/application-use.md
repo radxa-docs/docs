@@ -37,7 +37,7 @@ ROCK 4D 的架构是 aarch64（arm64）。
 将实际下载的 deb 包名称替换到命令中。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo dpkg -i QQ_xxx_arm64.deb
 ```
 </NewCodeBlock>
@@ -47,7 +47,7 @@ sudo dpkg -i QQ_xxx_arm64.deb
 双击 QQ 图标或者终端命令行运行下面命令启动。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 qq
 ```
 </NewCodeBlock>
@@ -69,7 +69,7 @@ LibreOffice 是一款由文档基金会（The Document Foundation）开发的免
 通过 apt 安装 LibreOffice。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo apt update
 sudo apt install libreoffice
 ```

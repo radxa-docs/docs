@@ -41,14 +41,14 @@ RKDevTool 的使用可以参考 [RKDevTool 使用](../low-level-dev/tool_rkdevto
 <TabItem value="Linux/MacOS">
 使用 `rkdeveloptool ld` 命令查看识别到的设备信息：
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 输出类似内容：说明识别到一个 Maskrom 设备
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 

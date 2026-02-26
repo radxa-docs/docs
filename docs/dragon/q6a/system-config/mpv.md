@@ -35,7 +35,7 @@ nano ~/.config/mpv/mpv.conf
 
 <NewCodeBlock tip="mpv.conf" type="device">
 
-```
+```bash
 # 适用于资源受限设备的快速预设
 profile=fast
 

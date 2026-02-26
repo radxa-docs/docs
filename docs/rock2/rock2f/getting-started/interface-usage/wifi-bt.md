@@ -9,25 +9,25 @@ description: ""
 
 - 首先进入ROOT用户模式。
 
-```
+```bash
 sudo su
 ```
 
 - 打开WIFI
 
-```
+```bash
 nmcli r wifi on
 ```
 
 - 扫描WIFI
 
-```
+```bash
 nmcli dev wifi
 ```
 
 - 连接wifi网络
 
-```
+```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
@@ -35,19 +35,19 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 - 测试蓝牙模块的状态并检查蓝牙设备。
 
-```
+```bash
 # systemctl status bluetooth
 ```
 
 - 运行蓝牙设备。
 
-```
+```bash
 # systemctl start bluetooth
 ```
 
 - 检测蓝牙设备
 
-```
+```bash
 # hciconfig
 hci0:   Type: Primary  Bus: USB
         BD Address: 88:00:01:00:00:A2  ACL MTU: 1021:9  SCO MTU: 255:4
@@ -58,19 +58,19 @@ hci0:   Type: Primary  Bus: USB
 
 - 测试：连接蓝牙音箱，首先安装 pulseaudio
 
-```
+```bash
 # apt-get install -y pulseaudio-module-bluetooth pulseaudio
 ```
 
 - 运行 pulseaudio
 
-```
+```bash
 # pulseaudio --start
 ```
 
 - 使用 pulseaudio 连接
 
-```
+```bash
 # bluetoothctl
 [bluetooth]# default-agent
 [bluetooth]# power on

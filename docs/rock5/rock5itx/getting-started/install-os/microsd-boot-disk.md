@@ -39,7 +39,7 @@ ROCK 5 ITX 的 eMMC 是默认关闭的，我们需要在系统中通过[设备�
 
 打开终端，用命令 lsblk 查看 mmc 设备
 
-```
+```bash
 radxa@rock-5-itx:~$ lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 mtdblock0     31:0    0   16M  0 disk
@@ -73,7 +73,7 @@ eMMC 默认是 mmcblk0
 
 镜像文件详见 [文件下载](#文件下载)，下面以 rock-5-itx_debian_bullseye_kde_b3.img.xz 为例。
 
-```
+```bash
 radxa@rock-5-itx:~$ sudo xzcat /home/radxa/rock-5-itx_debian_bullseye_kde_b3.img.xz | dd of=/dev/mmcblk0 bs=1M status=progress
 ```
 

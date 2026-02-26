@@ -35,7 +35,7 @@ You need to boot the ROCK 4D using a MicroSD card. You can refer to the [Quick S
 After successfully booting the system and ensuring the network connection is working, open the ROCK 4D terminal command line and use the Rsetup tool to update the system.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo rsetup
 ```
 </NewCodeBlock>
@@ -70,7 +70,7 @@ Select 'yes' to continue, then follow the on-screen prompts to complete the rema
 After completing all operations, use the following command to reboot the system.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo reboot
 ```
 </NewCodeBlock>
@@ -106,7 +106,7 @@ The system will automatically download the latest `spi.img` and flash it to the 
 After completing all operations, use the following command to reboot the system.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo reboot
 ```
 </NewCodeBlock>
@@ -120,7 +120,7 @@ Erasing the SPI Flash will remove the SPI boot firmware stored in it. After eras
 Enter the `rsetup` command in the terminal to launch the Rsetup tool interface.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>

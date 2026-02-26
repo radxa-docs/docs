@@ -23,14 +23,14 @@ sidebar_position: 11
 - 查看音频播放设备
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 aplay -l
 ```
 </NewCodeBlock>
 
 终端输出类似信息：其中 `card 1: rockchipes8388` 板载的 ES8388 音频编解码器，通常用于 3.5mm 耳机接口的输入（麦克风）和输出（音频播放）。
 
-```
+```text
 card 0: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
@@ -42,7 +42,7 @@ card 1: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 H
 - 查看音频录制设备
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 arecord -l
 ```
 </NewCodeBlock>
@@ -50,7 +50,7 @@ arecord -l
 输出类似如下信息：其中 `card 1: rockchipes8388` 板载的 ES8388 音频编解码器，通常用于 3.5mm 耳机接口的输入（麦克风）和输出（音频播放）。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 card 0: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
@@ -65,7 +65,7 @@ card 1: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 H
 该功能需要耳机支持麦克风功能，使用 `arecord` 命令录制音频。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo arecord -Dhw:1,0 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 ```
 </NewCodeBlock>
@@ -83,7 +83,7 @@ sudo arecord -Dhw:1,0 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 使用 `aplay` 命令播放音频。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo aplay -Dhw:1,0 /tmp/tmp.wav
 ```
 </NewCodeBlock>

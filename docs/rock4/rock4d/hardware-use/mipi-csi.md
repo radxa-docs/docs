@@ -39,7 +39,7 @@ sidebar_position: 7
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 rsetup
 ```
 

@@ -4,7 +4,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 1. 安装 TigerVNC Server 和 dbus-x11 依赖项
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install tigervnc-standalone-server
 sudo apt-get install dbus-x11
@@ -12,7 +12,7 @@ sudo apt-get install dbus-x11
 
 2. 安装后完成VNC服务器的初始配置，请使用vncserver命令来设置安全密码并创建初始配置文件：
 
-```
+```text
 vncserver
 ```
 
@@ -22,7 +22,7 @@ Would you like to enter a view-only password (y/n)? n 提示是否只是观看�
 
 3. 配置 VNC 服务器
 
-```
+```text
 vncserver -kill :*
 touch ~/.vnc/xstartup
 chmod +x ~/.vnc/xstartup
@@ -30,7 +30,7 @@ chmod +x ~/.vnc/xstartup
 
 编辑 `~/.vnc/xstartup`，将下列的配置复制进去并保存
 
-```
+```text
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -45,13 +45,13 @@ startkde &
 
 4. 配置编辑好后，重新启动VNC服务器：
 
-```
+```text
 vncserver -localhost no
 ```
 
 5. 查看 VNC 服务器
 
-```
+```text
 vncserver -list
 
 TigerVNC server sessions:

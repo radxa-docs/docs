@@ -59,7 +59,7 @@ xrandr 是 Linux 系统中用于配置显示器的命令行工具，主要用于
 直接运行 xrandr（不带参数）会列出所有连接的显示设备（如 HDMI-1, DP-1 等）及其支持的分辨率和刷新率。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 xrandr
 ```
 </NewCodeBlock>
@@ -67,7 +67,7 @@ xrandr
 终端输出示例：查看当前显示器配置
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 Screen 0: minimum 320 x 200, current 3840 x 2160, maximum 16384 x 16384
 HDMI-1 connected primary 3840x2160+0+0 (normal left inverted right x axis y axis) 597mm x 336mm
    3840x2160     60.00*+  60.00    50.00    59.94    30.00    25.00    24.00    29.97    23.98  
@@ -95,7 +95,7 @@ HDMI-1 connected primary 3840x2160+0+0 (normal left inverted right x axis y axis
 设置 HDMI-1 分辨率为 1920x1080，刷新率为 60Hz:
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 xrandr --output HDMI-1 --mode 1920x1080 --rate 60
 ```
 </NewCodeBlock>

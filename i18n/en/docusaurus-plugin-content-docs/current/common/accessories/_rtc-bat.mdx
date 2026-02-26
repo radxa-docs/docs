@@ -27,7 +27,7 @@ Use the following command to verify that the RTC hardware is working properly.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo dmesg | grep rtc
 ```
 
@@ -35,7 +35,7 @@ sudo dmesg | grep rtc
 
 If you see output similar to `registered as rtc0`, it indicates that the RTC is detected correctly.
 
-```
+```text
 [    0.368528] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
 [    0.368720] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
 [    6.259233] rtc-ds1307 10-0068: registered as rtc0
@@ -48,7 +48,7 @@ Use the `hwclock` command to read the current time from the RTC device (`/dev/rt
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install util-linux util-linux-extra -y
 sudo hwclock -r -f /dev/rtc0
@@ -62,7 +62,7 @@ Use the `date` command to display the current system time.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 date
 ```
 
@@ -74,7 +74,7 @@ If the RTC time does not match the system time, you can use `hwclock` to write t
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo hwclock -w -f /dev/rtc0
 ```
 

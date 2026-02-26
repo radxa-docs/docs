@@ -9,7 +9,7 @@ Using the Radxa 5B as an example, you need to modify the device tree overlay fil
 
 - Hardware connections
 
-```
+```text
 GPIO3_C1(PIN11)(3.3V) <----> Resistor (select size according to LED datasheet) <----> LED positive <----> LED Negative <----> GND(PIN9)
 ```
 
@@ -25,7 +25,7 @@ The following is the content of the DTBO:
 The triggers that can be used: none rc-feedback rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock tcpm-source-psy-4-0022-online disk-activity disk-read disk-write ide-disk mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic mmc2 mmc1 mmc0 default-on heartbeat pattern timer rfkill1 phy0rx phy0tx phy0assoc phy0radio rfkill2 rfkill3
 :::
 
-```
+```text
 /dts-v1/;
 /plugin/;
 

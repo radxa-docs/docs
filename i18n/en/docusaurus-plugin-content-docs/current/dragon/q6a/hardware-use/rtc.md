@@ -29,14 +29,14 @@ Interface parameters:
 Use the following command to confirm that the RTC hardware is functioning properly.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dmesg | grep rtc
 ```
 </NewCodeBlock>
 
 The terminal outputs information similar to: `registered as rtc0`, indicating that the RTC battery has been correctly identified.
 
-```
+```text
 [    0.368528] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
 [    0.368720] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
 [    6.259233] rtc-ds1307 10-0068: registered as rtc0
@@ -49,7 +49,7 @@ The terminal uses the `hwclock` command to read the current time from the RTC ch
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install util-linux util-linux-extra -y
 sudo hwclock -r -f /dev/rtc0
@@ -63,7 +63,7 @@ Use the `date` command to display the current system time.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 date
 ```
 
@@ -74,7 +74,7 @@ date
 If the RTC time and system time are inconsistent, you can use the `hwclock` command to write the current system time to the RTC.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo hwclock -w -f /dev/rtc0
 ```
 </NewCodeBlock>

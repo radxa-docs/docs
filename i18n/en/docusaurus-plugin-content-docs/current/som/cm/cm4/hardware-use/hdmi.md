@@ -55,7 +55,7 @@ xrandr is a command-line tool in Linux systems for configuring displays. It's pr
 Running xrandr (without parameters) lists all connected display devices (e.g., HDMI-1, DP-1) along with their supported resolutions and refresh rates.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 xrandr
 ```
 </NewCodeBlock>
@@ -63,7 +63,7 @@ xrandr
 Example output showing current display configuration:
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 Screen 0: minimum 320 x 200, current 3840 x 2160, maximum 16384 x 16384
 HDMI-1 connected primary 3840x2160+0+0 (normal left inverted right x axis y axis) 597mm x 336mm
    3840x2160     60.00*+  60.00    50.00    59.94    30.00    25.00    24.00    29.97    23.98  
@@ -91,7 +91,7 @@ HDMI-1 connected primary 3840x2160+0+0 (normal left inverted right x axis y axis
 To set HDMI-1 to 1920x1080 resolution at 60Hz refresh rate:
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 xrandr --output HDMI-1 --mode 1920x1080 --rate 60
 ```
 </NewCodeBlock>

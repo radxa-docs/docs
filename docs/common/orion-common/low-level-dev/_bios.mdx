@@ -63,7 +63,7 @@
 
 BIOS 固件内容如下：
 
-```
+```text
 BuildOptions
 BurnImage.efi
 cix_flash_all.bin
@@ -138,7 +138,7 @@ USB 转 TTL 串口线的连接方式可以参考 <a href={props?.serial_login ??
 
 <TabItem value="无屏模式">
 
-```
+```text
 Tianocore/EDK2 firmware version 1.0.0-2
 Press ESCAPE for boot options
 ```
@@ -208,7 +208,7 @@ UEFI Shell 界面的 Mapping table 会显示系统检测到的磁盘信息，我
 
 <NewCodeBlock tip="radxa@UEFI-Shell$" type="device">
 
-```
+```bash
 startup.nsh
 ```
 
@@ -245,7 +245,7 @@ startup.nsh
 
 <NewCodeBlock tip="user@linux$" type="host">
 
-```
+```bash
 unzip orion-o6-bios-v1.x.x.zip # orion o6n 的 bios 名称与之类似
 cd orion-o6-bios-v1.x.x # 进入解压后的目录
 gzip -d cix_flash_all.bin.gz
@@ -257,7 +257,7 @@ gzip -d cix_flash_all.bin.gz
 
 <NewCodeBlock tip="user@linux$" type="host">
 
-```
+```bash
 sudo apt-get install flashrom
 ```
 
@@ -339,7 +339,7 @@ sudo apt-get install flashrom
 
 <NewCodeBlock tip="user@linux$" type="host">
 
-```
+```bash
 sudo flashrom -L | grep ch341
 ```
 
@@ -347,7 +347,7 @@ sudo flashrom -L | grep ch341
 
 如果显示类似如下信息，表示编程器识别成功：
 
-```
+```text
 Supported USB devices for the ch34la_spi programmer
 ```
 
@@ -355,7 +355,7 @@ Supported USB devices for the ch34la_spi programmer
 
 <NewCodeBlock tip="user@linux$" type="host">
 
-```
+```bash
 sudo flashrom -p ch341a_spi -n
 ```
 
@@ -363,7 +363,7 @@ sudo flashrom -p ch341a_spi -n
 
 如果显示类似如下信息，表示芯片识别成功：
 
-```
+```text
 Found Winbond flash chip "W25Q64.W" (8192 kB, SPI) on ch341a_spi.
 ```
 
@@ -375,7 +375,7 @@ Found Winbond flash chip "W25Q64.W" (8192 kB, SPI) on ch341a_spi.
 
 <NewCodeBlock tip="user@linux$" type="host">
 
-```
+```bash
 sudo flashrom -p ch341a_spi -w cix_flash_all.bin
 ```
 
@@ -383,7 +383,7 @@ sudo flashrom -p ch341a_spi -w cix_flash_all.bin
 
 等待刷写完成，显示如下信息表示刷写成功：
 
-```
+```text
 Verifying flash... VERIFIED.
 ```
 

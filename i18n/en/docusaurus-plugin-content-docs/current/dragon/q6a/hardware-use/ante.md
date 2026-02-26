@@ -19,7 +19,7 @@ Refer to the [Hardware Information](./hardware-info) tutorial to locate the corr
 After installing the antenna, open the terminal and use the command to compare signal strength before and after installation:
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo nmcli device wifi list
 ```
 </NewCodeBlock>

@@ -38,7 +38,7 @@ sidebar_position: 11
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rsetup
 ```
 
@@ -61,7 +61,7 @@ rsetup
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 aplay -l
 ```
 
@@ -69,7 +69,7 @@ aplay -l
 
 终端输出类似信息：其中 `card 0: sndi2s0` 板载的 AC101B 音频编解码器，通常用于 3.5mm 耳机接口的输入（麦克风）和输出（音频播放）。
 
-```
+```text
 **** List of PLAYBACK Hardware Devices ****
 card 0: sndi2s0 [sndi2s0], device 0: sunxi-snd-plat-i2s-ac101-codec sunxi-ac101.15-001a-0 []
   Subdevices: 1/1
@@ -83,7 +83,7 @@ card 1: sndhdmi [sndhdmi], device 0: sunxi-snd-plat-i2s-sunxi-snd-codec-hdmi soc
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 arecord -l
 ```
 
@@ -93,7 +93,7 @@ arecord -l
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 **** List of CAPTURE Hardware Devices ****
 card 0: sndi2s0 [sndi2s0], device 0: sunxi-snd-plat-i2s-ac101-codec sunxi-ac101.15-001a-0 []
   Subdevices: 1/1
@@ -111,7 +111,7 @@ card 1: sndhdmi [sndhdmi], device 0: sunxi-snd-plat-i2s-sunxi-snd-codec-hdmi soc
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo arecord -Dhw:0,0 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 ```
 
@@ -131,7 +131,7 @@ sudo arecord -Dhw:0,0 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo aplay -Dhw:0,0 /tmp/tmp.wav
 ```
 

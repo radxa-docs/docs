@@ -17,7 +17,7 @@ Use the `git clone` command to clone the RadxaOS SDK (rsdk) source code.
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 git clone --recurse-submodules <git_repo_url>
 ```
 
@@ -49,13 +49,13 @@ After starting the development environment, use the `rsdk` command to run the TU
 
 <NewCodeBlock tip="PC@host$" type="host">
 
-```
+```bash
 rsdk
 ```
 
 </NewCodeBlock>
 
-```
+```text
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a task:                     │
 │                                           │
@@ -70,7 +70,7 @@ rsdk
 
 Select the `Build system image` option to further choose the target board model you want to build for.
 
-```
+```text
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a product:                  │
 │                                           │
@@ -83,7 +83,7 @@ Select the `Build system image` option to further choose the target board model 
 
 After selecting `yes`, the Radxa OS build process will start, and rsdk will automatically complete the image compilation.
 
-```
+```text
 ┌─────────────────┤ RSDK ├───────────────────────┐
 │                                                │
 │ Are you sure to build for 'radxa-<sbc_model>'? │

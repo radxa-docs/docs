@@ -13,7 +13,7 @@
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 docker pull ubuntu:20.04
 ```
 
@@ -27,7 +27,7 @@ docker pull ubuntu:20.04
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vi ros_noetic.sh
 ```
 
@@ -35,7 +35,7 @@ vi ros_noetic.sh
 
 添加以下内容到 `ros_noetic.sh` 脚本内：
 
-```
+```text
 #!/bin/bash
 xhost +
 
@@ -66,7 +66,7 @@ ubuntu:20.04 /bin/bash
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 bash ros_noetic.sh
 ```
 
@@ -80,7 +80,7 @@ bash ros_noetic.sh
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 locale
 ```
 
@@ -88,7 +88,7 @@ locale
 
 若系统编码格式是 UTF-8，你可以在终端看到类似以下信息输出：
 
-```
+```text
 LANG=en_US.UTF-8
 LANGUAGE=
 LC_CTYPE="en_US.UTF-8"
@@ -110,7 +110,7 @@ LC_ALL=
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt update && apt install locales
 locale-gen en_US en_US.UTF-8
 echo "export LANG=en_US.UTF-8" >> ~/.bashrc
@@ -125,7 +125,7 @@ source ~/.bashrc
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt update && apt upgrade
 apt install lsb-core
 sh -c '. /etc/lsb-release && echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -140,7 +140,7 @@ apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BAD
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt update && apt upgrade
 apt install ros-noetic-desktop-full -y
 ```
@@ -153,7 +153,7 @@ apt install ros-noetic-desktop-full -y
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential -y
 ```
 
@@ -165,7 +165,7 @@ apt install python3-rosdep python3-rosinstall python3-rosinstall-generator pytho
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosdep init
 rosdep update
 ```
@@ -176,14 +176,14 @@ rosdep update
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vi /etc/hosts
 ```
 
 </NewCodeBlock>
 添加以下内容：
 
-```
+```text
 185.199.110.133 raw.githubusercontent.com
 ```
 
@@ -195,7 +195,7 @@ vi /etc/hosts
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -208,7 +208,7 @@ source ~/.bashrc
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 roscore
 ```
 
@@ -216,7 +216,7 @@ roscore
 
 若安装成功，你会看到类似以下信息输出：
 
-```
+```text
 ... logging to /root/.ros/log/a9473172-5731-11f0-9a87-5acb6b3cedae/roslaunch-rock-4d-spi-27211.log
 Checking log directory for disk usage. This may take a while.
 Press Ctrl-C to interrupt
@@ -253,7 +253,7 @@ started core service [/rosout]
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 docker commit ros1 ros_noetic:1.0
 ```
 
@@ -266,7 +266,7 @@ docker commit ros1 ros_noetic:1.0
 
 等待提交完成，完成后会输出类似以下信息输出：
 
-```
+```text
 sha256:43b559a4d879c83477764730e0af90e8904e8fb8aeeeb9b653967e665bb7a7ca
 ```
 
@@ -274,7 +274,7 @@ sha256:43b559a4d879c83477764730e0af90e8904e8fb8aeeeb9b653967e665bb7a7ca
 
 将启动脚本 `ros_noetic.sh` 内的启动镜像修改为刚才保存的镜像名称：
 
-```
+```text
 #!/bin/bash
 
 xhost +

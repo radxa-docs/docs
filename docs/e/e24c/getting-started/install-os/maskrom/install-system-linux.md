@@ -85,28 +85,28 @@ DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 
 - 烧录 Loader
 
-将下面的`xxx.bin`文件名称修改成实际下载的 Loader 文件名称。
+将命令中的 `<loader-file>.bin` 替换为实际下载的 Loader 文件名。
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
-sudo rkdeveloptool db xxx.bin
+```bash
+sudo rkdeveloptool db <loader-file>.bin
 ```
 </NewCodeBlock>
 
 - 烧录系统镜像
 
-将下面的`xxx.img`文件名称修改成实际下载的系统镜像文件名称。
+将命令中的 `<system-image>.img` 替换为实际下载的系统镜像文件名。
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
-sudo rkdeveloptool wl 0 xxx.img
+```bash
+sudo rkdeveloptool wl 0 <system-image>.img
 ```
 </NewCodeBlock>
 
 - 重启设备
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>

@@ -59,7 +59,7 @@ For example, on a Linux system, if the serial device lacks sufficient permission
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 sudo chmod 777 /dev/ttyUSB0
 ```
 
@@ -79,7 +79,7 @@ If the system displays the error `iperf3: error - unable to start listener for c
 
 <NewCodeBlock tip="Linux@host$" type="device">
 
-```
+```bash
 ps -ef | grep iperf3
 ```
 
@@ -89,7 +89,7 @@ ps -ef | grep iperf3
 
 <NewCodeBlock tip="Linux@host$" type="device">
 
-```
+```bash
 sudo kill <PID>
 ```
 
@@ -100,7 +100,7 @@ sudo kill <PID>
 KDE Discover uses OpenGL rendering by default, which is not supported by the current GPU driver, causing KDE Discover to be unusable. The solution is to use the apt command-line tool to install packages directly.
 
 <NewCodeBlock tip="Linux@host$" type="device">
-```
+```bash
 sudo apt search <package_name>
 sudo apt install <package_name>
 ```
@@ -111,7 +111,7 @@ apt can also perform fuzzy search for software packages. When using the apt inst
 For example, to install VLC media player:
 
 <NewCodeBlock tip="Linux@host$" type="device">
-```
+```bash
 sudo apt search vlc
 sudo apt install vlc
 ```

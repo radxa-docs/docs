@@ -21,7 +21,7 @@
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 curl -sL https://rock.sh/rockpi-backup -o rockpi-backup.sh
 ```
 
@@ -33,7 +33,7 @@ curl -sL https://rock.sh/rockpi-backup -o rockpi-backup.sh
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 chmod +x rockpi-backup.sh
 ```
 
@@ -43,7 +43,7 @@ chmod +x rockpi-backup.sh
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo ./rockpi-backup.sh -h
 ```
 
@@ -51,7 +51,7 @@ sudo ./rockpi-backup.sh -h
 
 终端输出示例：
 
-```
+```text
 Usage:
 sudo ./rockpi-backup.sh [-o path|-e pattern|-u|-m path]
 -o Specify output position, default is $PWD.
@@ -66,7 +66,7 @@ sudo ./rockpi-backup.sh [-o path|-e pattern|-u|-m path]
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo ./rockpi-backup.sh
 ```
 
@@ -93,7 +93,7 @@ sudo ./rockpi-backup.sh
 
 终端输出类似信息：
 
-```
+```text
 Backup done, the file is /home/radxa/**_-backup-_**.img
 ```
 
@@ -134,7 +134,7 @@ Backup done, the file is /home/radxa/**_-backup-_**.img
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 lsblk
 ```
 
@@ -142,7 +142,7 @@ lsblk
 
 终端输出类似信息：其中 `sda` 为演示的主板系统盘，您可以通过安全插拔可移动介质来判断对应设备信息。
 
-```
+```text
 sda 8:0 1 58G 0 disk
 ├─sda1 8:1 1 16M 0 part /media/wml/config
 ├─sda2 8:2 1 300M 0 part
@@ -159,7 +159,7 @@ nvme0n1 259:0 0 953.9G 0 disk
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo dd if=/dev/sda of=system-backup.img bs=4M status=progress
 ```
 
@@ -174,7 +174,7 @@ sudo dd if=/dev/sda of=system-backup.img bs=4M status=progress
 
 终端输出类似信息：
 
-```
+```text
 
 62205722624 bytes (62 GB, 58 GiB) copied, 1609 s, 38.7 MB/s
 14839+0 records in

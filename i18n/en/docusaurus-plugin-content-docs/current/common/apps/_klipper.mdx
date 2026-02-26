@@ -1,24 +1,24 @@
 #### Updating software sources
 
-```
+```bash
 sudo apt-get update -y
 ```
 
 #### Install base tools
 
-```
+```bash
 sudo apt-get install git build-essential python3-pip -y
 ```
 
 #### Download the install script
 
-```
+```text
 git clone https://github.com/dw-0/kiauh.git
 ```
 
 Or
 
-```
+```text
 git clone https://gitee.com/miroky/kiauh.git
 ```
 
@@ -26,7 +26,7 @@ git clone https://gitee.com/miroky/kiauh.git
 
 1. Run kiauh.sh and the following screen will appear
 
-```
+```text
 . /kiauh/kiauh.sh
 ```
 
@@ -123,14 +123,14 @@ If you are installing on a system with a browser and a graphical interface, you 
 
 Plug the device into the board's USB port and view the device
 
-```
+```bash
 ls /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
 ```
 
 Add the device in printer_data/config/printer.cfg
 
-```
+```bash
 cat printer_data/config/printer.cfg
 [include fluidd.cfg]
 [include mainsail.cfg]
@@ -156,6 +156,6 @@ Reboot the system to access the klipper
 
 When not connected to the network, it may take more than ten seconds to connect after booting, this is because some services need to wait for the network to start, it has been optimized on the newest system, on the old system you need to make the following changes
 
-```
+```bash
 sudo systemctl mask systemd-networkd-wait-online.service
 ```

@@ -11,19 +11,19 @@ description: ""
 
 - 在 Linux PC，如 Ubuntu 20.04 上安装 ModemManager API 工具。
 
-```
+```bash
 $ sudo apt install -y modemmanager
 ```
 
 - 获取 SP Flash Tool
 
-```
+```bash
 $ mkdir -p ~/sp_flash_tool && wget https://dl.radxa.com/nio12l/tools/sp_flash_tool.tar.gz && tar zxvf sp_flash_tool.tar.gz -C ~/sp_flash_tool
 ```
 
 - 运行格式化 UFS 脚本
 
-```
+```bash
 $ cd ~/sp_flash_tool
 $ ./format_ufs.sh
 ===[Start format UFS]===
@@ -65,7 +65,7 @@ Search usb, timeout set as 3600000 ms
 
 - 查看格式化过程，有如下输出：
 
-```
+```bash
 $ cd ~/sp_flash_tool
 $ ./format_ufs.sh
 ===[Start format UFS]===

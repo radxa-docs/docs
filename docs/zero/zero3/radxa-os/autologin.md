@@ -6,7 +6,7 @@ sidebar_position: 5
 
 为了更快进入桌面，可以设置桌面自动登录,修改 `/etc/lightdm/lightdm.conf` 文件
 
-```
+```bash
 sudo vim /etc/lightdm/lightdm.conf
 找到 [Seat:*] 下的 #autologin-user= ，将这个配置修改为你需要登录的用户
 

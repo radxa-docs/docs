@@ -95,7 +95,7 @@ sidebar_position: 2
 以 USB 大容量存储示例，执行命令前通过 M-Key 插好 SSD。
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="host">
-```
+```bash
 modprobe libcomposite
 modprobe usb_f_mass_storage
 systemctl daemon-reload
@@ -174,7 +174,7 @@ echo fc000000.usb > UDC
 #### GPIO 使用示例
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="device">
-```
+```bash
 # 安装 GPIO 控制工具
 sudo apt-get install gpiod
 # 列出可用的 GPIO 芯片
@@ -193,7 +193,7 @@ gpioget <chip> <line>
 ##### I2C 传感器连接
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="device">
-```
+```bash
 # 安装 I2C 工具
 sudo apt-get install i2c-tools
 # 扫描 I2C 总线上的设备
@@ -237,7 +237,7 @@ Radxa E24C 的 MAC 地址是唯一且固定的，在每次断电重启或者软�
 - 网口测速
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="host">
-```
+```bash
 # 安装 iperf3 工具
 sudo apt install iperf3
 # 在服务器端运行命令

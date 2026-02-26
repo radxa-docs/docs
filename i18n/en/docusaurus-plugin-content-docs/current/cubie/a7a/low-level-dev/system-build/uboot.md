@@ -26,7 +26,7 @@ Open the terminal and use the `git clone` command to download the U-Boot source 
 
 <NewCodeBlock tip="PC@host$" type="host">
 
-```
+```bash
 git clone --recurse-submodules https://github.com/radxa-pkg/u-boot-aw2501.git
 ```
 
@@ -72,7 +72,7 @@ After starting the development environment, navigate to the U-Boot source code d
 
 <NewCodeBlock tip="PC@host$" type="host">
 
-```
+```bash
 make deb
 ```
 

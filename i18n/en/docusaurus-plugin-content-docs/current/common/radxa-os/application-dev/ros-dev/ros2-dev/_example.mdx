@@ -12,7 +12,7 @@ Use the following command to start the Docker script: `ros_humble.sh` is the scr
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 bash ros_humble.sh
 ```
 
@@ -33,7 +33,7 @@ Use the following command to start Turtlesim:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ros2 run turtlesim turtlesim_node
 ```
 
@@ -54,7 +54,7 @@ Use the following command to control the turtle's movement:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ros2 run turtlesim turtle_teleop_key
 ```
 
@@ -98,7 +98,7 @@ Use the `ros2 node list` command to view nodes: currently only the command to st
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ros2 node list
 ```
 
@@ -128,7 +128,7 @@ Use the `ros2 topic list` command to view topics:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ros2 topic list
 ```
 
@@ -145,7 +145,7 @@ ros2 topic list
 
 Use the `ros2 topic pub` command to publish velocity control messages to make the turtle move:
 
-```
+```text
 ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}"
 ```
 
@@ -164,7 +164,7 @@ Use the `ros2 topic echo` command to subscribe to topics and view topic messages
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ros2 topic echo /turtle1/pose --once
 ```
 
@@ -195,7 +195,7 @@ Use the `ros2 service list` command to view services:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ros2 service list
 ```
 
@@ -214,7 +214,7 @@ Use the `ros2 service call` command to call services to make the turtle clear th
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ros2 service call /clear std_srvs/srv/Empty
 ```
 
@@ -247,7 +247,7 @@ Use the `ros2 action list` command to view actions:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ros2 action list
 ```
 
@@ -266,7 +266,7 @@ Use the `ros2 action send_goal` command to send action goals to make the turtle 
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
 ```
 

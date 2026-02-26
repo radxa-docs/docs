@@ -12,7 +12,7 @@ Introduces system login, network connection, etc to let user to be familiar with
 
 The user name and password added by default to the Radxa ROCK S0 series are:
 
-```
+```text
 User name：radxa/rock
 Password： radxa/rock
 ```
@@ -25,7 +25,7 @@ Password： radxa/rock
 
 ### Connect WiFi
 
-```
+```bash
 nmcli device wifi                                           #Scan WiFi
 sudo nmcli device wifi connect <ssid> password <passwd>     #Connect WiFi
 ```
@@ -42,7 +42,7 @@ After connecting to the network, you can use SSH to debug remotely, the official
 
 - Debian/Ubuntu
 
-```
+```bash
 ssh [username]@[hostname]
 or
 ssh [username]@[IP address]

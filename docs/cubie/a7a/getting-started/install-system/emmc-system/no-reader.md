@@ -66,7 +66,7 @@ eMMC 模块安装步骤：
 复制 [资源汇总下载](../../../../download) 页面的系统镜像文件下载地址，然后在 Cubie A7A 上使用 `wget` 命令下载系统镜像文件。
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
+```bash
 sudo apt install wget
 wget [url]
 ```
@@ -88,7 +88,7 @@ wget [url]
 :::
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
+```bash
 sudo dd if=[image_path] of=/dev/mmcblk1 bs=4M status=progress
 ```
 </NewCodeBlock>
@@ -103,14 +103,14 @@ sudo dd if=[image_path] of=/dev/mmcblk1 bs=4M status=progress
 使用 `fdisk` 命令查看 UFS 模块的分区信息。
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
+```bash
 sudo fdisk -l /dev/mmcblk1
 ```
 </NewCodeBlock>
 
 写入成功后，终端会输出类似以下的分区信息：
 
-```
+```text
 Disk /dev/mmcblk1: 119.15 GiB, 127934660608 bytes, 31234048 sectors
 Disk model: KLUDG4UHDC-B0E1
 Units: sectors of 1 \* 4096 = 4096 bytes

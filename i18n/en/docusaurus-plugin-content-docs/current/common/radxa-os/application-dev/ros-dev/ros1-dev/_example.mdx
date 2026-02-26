@@ -12,7 +12,7 @@ Use the following command to start the Docker script: `ros_noetic.sh` is the scr
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 bash ros_noetic.sh
 ```
 
@@ -32,7 +32,7 @@ It is recommended to use multiple terminals to enter the same Docker container f
 ROS1 needs to start the Master node first, then start the Turtlesim node.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-```
+```bash
 roscore
 ```
 
@@ -51,7 +51,7 @@ Use the following command to start Turtlesim:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosrun turtlesim turtlesim_node
 ```
 
@@ -72,7 +72,7 @@ Use the following command to control the turtle's movement:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosrun turtlesim turtle_teleop_key
 ```
 
@@ -116,7 +116,7 @@ Use the `rosnode list` command to view nodes: currently only the command to star
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosnode list
 ```
 
@@ -146,7 +146,7 @@ Use the `rostopic list` command to view topics:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rostopic list
 ```
 
@@ -163,7 +163,7 @@ rostopic list
 
 Use the `rostopic pub` command to publish velocity control messages to make the turtle move:
 
-```
+```text
 rostopic pub -r 10 /turtle1/cmd_vel geometry_msgs/Twist "{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}"
 ```
 
@@ -182,7 +182,7 @@ Use the `rostopic echo` command to subscribe to topics and view topic messages:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rostopic echo -n 1 /turtle1/pose
 ```
 
@@ -213,7 +213,7 @@ Use the `rosservice list` command to view services:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosservice list
 ```
 
@@ -232,7 +232,7 @@ Use the `rosservice call` command to call services to make the turtle clear the 
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosservice call /clear
 ```
 

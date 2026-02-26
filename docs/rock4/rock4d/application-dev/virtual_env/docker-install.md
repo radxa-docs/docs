@@ -15,7 +15,7 @@ Radxa Debian 系统在内核已经开启 Docker 相关的配置，只需安装 D
 终端输入以下命令安装 Docker：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo apt update
 sudo apt install docker.io
 ```
@@ -24,7 +24,7 @@ sudo apt install docker.io
 ## 配置 iptables
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
 sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 ```
@@ -35,14 +35,14 @@ sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 ## 验证安装
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker --version
 ```
 </NewCodeBlock>
 
 终端输出类似如下的信息表示安装成功：
 
-```
+```text
 Docker version 20.10.24+dfsg1, build 297e128
 ```
 
@@ -51,7 +51,7 @@ Docker version 20.10.24+dfsg1, build 297e128
 终端输入以下命令添加系统当前用户对 Docker 守护程序的访问权限：不需要使用 sudo 命令就可以使用 Docker 命令。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo usermod -aG docker $USER
 ```
 </NewCodeBlock>

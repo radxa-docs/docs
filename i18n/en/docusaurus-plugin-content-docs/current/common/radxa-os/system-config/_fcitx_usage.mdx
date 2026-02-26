@@ -14,7 +14,7 @@ Install in the desktop environment through the terminal:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install -y fcitx5 fcitx5-chinese-addons fcitx5-config-qt
 ```
@@ -29,7 +29,7 @@ Most desktop environments need to select the input method framework at the "sess
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 im-config
 ```
 
@@ -44,7 +44,7 @@ In the pop-up interface, select `fcitx5` and confirm. Then:
 
 If you encounter a situation where "Fcitx5 has started but some applications cannot input", you can check whether the following environment variables are in effect:
 
-```
+```text
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
@@ -65,7 +65,7 @@ You can start `Fcitx 5 Configuration` from the application menu, or start it in 
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 fcitx5-config-qt
 ```
 
@@ -84,7 +84,7 @@ If Fcitx5 does not start automatically, or you need to restart it to apply confi
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 fcitx5 -rd
 ```
 
@@ -103,7 +103,7 @@ Where:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ps -ef | grep -E "fcitx5($|\\s)" | grep -v grep
 ```
 
@@ -113,7 +113,7 @@ ps -ef | grep -E "fcitx5($|\\s)" | grep -v grep
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 fcitx5-diagnose
 ```
 
@@ -133,7 +133,7 @@ This is usually related to environment variables or frontend modules:
 
 In most cases, to add flags for an Electron application you create a `<application-name>-flags.conf` file under the `~/.config/` directory with the following content:
 
-```
+```text
 --enable-features=UseOzonePlatform --ozone-platform=auto --enable-wayland-ime --wayland-text-input-version=3
 ```
 

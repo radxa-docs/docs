@@ -57,14 +57,14 @@ Reboot the system for the SPI Flash erase operation to take effect.
 Use the `rkdeveloptool ld` command to view the detected device information:
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 Output similar to the following indicates a Maskrom device is detected:
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -73,7 +73,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 Replace `demo.bin` with the Loader file for ROCK 4D. You can download the Loader file from the [Resource Downloads](../download) page.
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool db demo.bin
 ```
 </NewCodeBlock>
@@ -81,7 +81,7 @@ sudo rkdeveloptool db demo.bin
 4. Erase SPI Flash
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool ef
 ```
 </NewCodeBlock>
@@ -89,7 +89,7 @@ sudo rkdeveloptool ef
 5. Reboot the system for the SPI Flash erase operation to take effect
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>
@@ -133,14 +133,14 @@ Using RKDevTool to flash SPI boot firmware.
 Use the `rkdeveloptool ld` command to view the detected device information:
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 Output similar to the following indicates a Maskrom device is detected:
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -149,7 +149,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 Replace `demo.bin` with the Loader file for ROCK 4D. You can download the Loader file from the [Resource Downloads](../download) page.
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool db demo.bin
 ```
 </NewCodeBlock>
@@ -159,7 +159,7 @@ sudo rkdeveloptool db demo.bin
 Replace `spi.img` with the SPI boot firmware for ROCK 4D. You can download the SPI boot firmware from the [Resource Downloads](../download) page.
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool wl 0x0 spi.img
 ```
 </NewCodeBlock>
@@ -167,7 +167,7 @@ sudo rkdeveloptool wl 0x0 spi.img
 5. Reboot the system for the SPI Flash operation to take effect
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>
