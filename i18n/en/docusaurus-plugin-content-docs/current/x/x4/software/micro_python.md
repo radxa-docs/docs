@@ -68,7 +68,7 @@ sudo apt-get install thonny -y
 
   A2: Burn flash_nuke.uf2 to RP2040 to clear RP2040
 
-- Q3: ImportError: no module named 'xxx'
+- Q3: ImportError: no module named `<module-name>`
 
   A2: Thonny tools column select "Manage Packages", then install the Package you need.
 

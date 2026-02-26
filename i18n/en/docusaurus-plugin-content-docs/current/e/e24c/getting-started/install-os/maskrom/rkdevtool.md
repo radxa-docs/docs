@@ -224,24 +224,24 @@ dd if=/dev/zero of=./zero.img bs=1M count=64
 Verify if the device is detected in Maskrom mode.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 Expected output: One device detected
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 ```
 
 3. Write Loader
 
-Go to the [Downloads Summary](../../../download) page to download the corresponding Loader file. Replace `xxx.bin` with the actual filename you downloaded.
+Go to the [Downloads Summary](../../../download) page to download the corresponding Loader file, then replace `<loader-file>.bin` with the actual filename you downloaded.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
-sudo rkdeveloptool db xxx.bin
+```bash
+sudo rkdeveloptool db <loader-file>.bin
 ```
 </NewCodeBlock>
 

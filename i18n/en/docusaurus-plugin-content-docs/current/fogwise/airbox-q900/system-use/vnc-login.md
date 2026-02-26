@@ -41,7 +41,7 @@ After downloading the Windows `*.exe` installer:
 
 - Run the Installer
 
-Run the `VNC-Viewer-xxx.exe` installer as administrator.
+Run the `VNC-Viewer-<version>.exe` installer as administrator.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -123,8 +123,8 @@ After downloading the Linux `*.deb` package, run the following command in the te
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
-sudo dpkg -i VNC-Viewer-xxx.deb
+```bash
+sudo dpkg -i VNC-Viewer-<version>.deb
 ```
 
 </NewCodeBlock>

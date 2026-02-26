@@ -34,7 +34,7 @@ After downloading the Windows version of the `*.exe` installation package:
 
 - Run the installer
 
-Run the `VNC-Viewer-xxx.exe` installer as administrator.
+Run the `VNC-Viewer-<version>.exe` installer as administrator.
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-windows-install-01.webp" style={{width: '100%', maxWidth: '600px'}} />
@@ -94,8 +94,8 @@ Click `Finish` to complete the installation.
 After downloading the Linux version of the `*.deb` package, run the following command in the terminal to install VNC Viewer:
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
-sudo dpkg -i VNC-Viewer-xxx.deb
+```bash
+sudo dpkg -i VNC-Viewer-<version>.deb
 ```
 </NewCodeBlock>
 

@@ -224,24 +224,24 @@ dd if=/dev/zero of=./zero.img bs=1M count=64
 检查设备是否可以识别 Maskrom。
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 正常输出内容：识别到一个设备
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 ```
 
 1. 写入 Loader
 
-进入[资源下载汇总](../../../download)页面下载对应的 Loader 文件，将下面的`xxx.bin`文件名称修改成实际下载的文件名称。
+进入[资源下载汇总](../../../download)页面下载对应的 Loader 文件，并将命令中的 `<loader-file>.bin` 替换为实际下载的文件名。
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
-sudo rkdeveloptool db xxx.bin
+```bash
+sudo rkdeveloptool db <loader-file>.bin
 ```
 </NewCodeBlock>
 

@@ -34,7 +34,7 @@ VNC 远程控制适合带有图形界面的系统，若系统没有图形化桌�
 
 - 运行安装包
 
-以管理员身份运行 `VNC-Viewer-xxx.exe` 安装程序。
+以管理员身份运行 `VNC-Viewer-<version>.exe` 安装程序。
 
 <div style={{textAlign: 'center'}}>
     <img src="/img/rock4/4d/vnc-windows-install-01.webp" style={{width: '100%', maxWidth: '600px'}} />
@@ -94,8 +94,8 @@ VNC 远程控制适合带有图形界面的系统，若系统没有图形化桌�
 下载 Linux 版本的 `*.deb` 安装包后，在终端命令行运行以下命令安装 VNC Viewer：
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
-sudo dpkg -i VNC-Viewer-xxx.deb
+```bash
+sudo dpkg -i VNC-Viewer-<version>.deb
 ```
 </NewCodeBlock>
 
