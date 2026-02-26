@@ -2,8 +2,8 @@
 sidebar_position: 7
 ---
 
-# Android OS
+# Android
 
-Introduce how to use android and do development on it
+This section describes how to use the Android system.
 
-<!-- <DocCardList /> -->
+<DocCardList />
