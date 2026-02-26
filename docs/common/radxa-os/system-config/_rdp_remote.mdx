@@ -1,3 +1,5 @@
+import { Image } from "@site/src/utils/docs";
+
 主要介绍在同一局域网下通过 PC 远程控制主板。
 
 ## 配置 RDP（主板）
@@ -210,9 +212,9 @@ macOS 系统平台可以在 APP Store 安装 `Microsoft APP` 应用。
 
 远程登录成功后，可以看到主板的系统桌面。
 
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/img/common/radxa-os/system-config/rdp-login-succ.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
+<Image
+  src="/img/common/radxa-os/system-config/vnc-#desktop#-succ.webp"
+  desktop={props.desktop}
+  fallback={props.desktop}
+  width="1200"
+/>

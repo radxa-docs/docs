@@ -35,7 +35,7 @@ OpenCV 提供了丰富的计算机视觉算法，包括图像处理、特征检�
 
 <TabItem value="Python">
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 pip3 install opencv-python opencv-contrib-python
@@ -47,7 +47,7 @@ pip3 install opencv-python opencv-contrib-python
 
 打开终端，在命令行输入 `python3` 进入 Python 交互模式。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 python3
@@ -57,7 +57,7 @@ python3
 
 进入 Python 交互模式后，分别输入下面命令来验证 OpenCV 是否安装成功。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 import cv2
@@ -72,7 +72,7 @@ print(cv2.__version__)
 
 <TabItem value="C++">
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 sudo apt update
@@ -85,7 +85,7 @@ sudo apt install libopencv-dev
 
 打开终端，在终端输入 `pkg-config --modversion opencv4` 来验证 OpenCV 是否安装成功。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 pkg-config --modversion opencv4
@@ -105,7 +105,7 @@ pkg-config --modversion opencv4
 
 #### 安装编译依赖
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 sudo apt update
@@ -116,7 +116,7 @@ sudo apt install cmake gcc g++ python3-dev python3-numpy libavcodec-dev libavfor
 
 #### 安装可选依赖
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 sudo apt install libpng-dev libjpeg-dev libopenexr-dev libtiff-dev libwebp-dev -y
@@ -128,7 +128,7 @@ sudo apt install libpng-dev libjpeg-dev libopenexr-dev libtiff-dev libwebp-dev -
 
 使用 `git` 下载 OpenCV 源码。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 sudo apt install git -y
@@ -141,7 +141,7 @@ git clone https://github.com/opencv/opencv.git
 
 进入 OpenCV 源码目录，然后输入以下命令来编译 OpenCV。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 cd opencv
@@ -158,7 +158,7 @@ sudo make install
 
 打开终端，在命令行输入 `python3` 进入 Python 交互模式。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 python3
@@ -168,7 +168,7 @@ python3
 
 进入 Python 交互模式后，分别输入下面命令来验证 OpenCV 是否安装成功。
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 import cv2

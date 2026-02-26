@@ -4,7 +4,7 @@ sidebar_position: 2
 
 import VNC_REMOTE from '../../../common/radxa-os/remote-login/\_vnc.mdx';
 
-# VNC Remote Login
+# VNC Login
 
 :::tip Credits
 

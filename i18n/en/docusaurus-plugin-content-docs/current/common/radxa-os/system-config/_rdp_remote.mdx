@@ -1,3 +1,5 @@
+import { Image } from "@site/src/utils/docs";
+
 This guide explains how to control the board remotely from a PC on the same LAN.
 
 ## Configure RDP (Board)
@@ -210,9 +212,9 @@ Select the device, then enter the board’s username and password to connect.
 
 After the connection succeeds, the board’s desktop is displayed.
 
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/system-config/rdp-login-succ.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
+<Image
+  src="/en/img/common/radxa-os/system-config/vnc-#desktop#-succ.webp"
+  desktop={props.desktop}
+  fallback={props.desktop}
+  width="1200"
+/>
