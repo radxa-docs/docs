@@ -20,16 +20,26 @@ Before starting ROCK 5 ITX using microSD card/eMMC, it is necessary to erase the
 
 <Images loader={false} system_img={false} spi_img={false} miniloader={true} />
 
-2. Enter maskrom mode
+2. Enter Maskrom mode
 
-- Disconnect the board from the power supply.
-- Connect the USB3.0 port of the Radxa ROCK 5 ITX to the PC side with USB cable.
-- Press and hold the Maskrom key，Power up the board.
-- Remove the right yellow jumper cap and keep the left yellow jumper cap.
+There is a dedicated Maskrom button on the board. Press and hold the Maskrom button before powering on the board. After power is applied, the system will detect the button press and automatically enter maskrom mode.
 
-- Check for USB devices
-  - Linux/macOS: Check if "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company" is displayed after running lsusb.
-  - Windows: Open RKDevTool and you will see the device in "maskrom mode".
+Steps:
+
+① Press and hold the Maskrom button.
+
+② Power on the board using the power adapter.
+
+③ Release the Maskrom button.
+
+④ Use a data cable to connect the board's OTG port to a USB port on your computer.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/rock5itx/rock-5-itx-maskrom.webp"
+    style={{ width: "100%", maxWidth: "700" }}
+  />
+</div>
 
 3. Erase SPI as follows
 

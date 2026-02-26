@@ -20,15 +20,26 @@ ROCK 5 ITX 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以从
 
 <Images loader={false} system_img={false} spi_img={false} miniloader={true} />
 
-2. 设备进入 maskrom 模式，连接到PC端
+2. 设备进入 Maskrom 模式
 
-- 断开开发板电源
-- 移除 SD 卡
-- 用 Type-C 转 Type-A USB 线缆连接 Radxa ROCK 5 ITX 的 Type-C 口 和 PC 端
-- 按住 maskrom 按键，给开发板上电
-- 查看是否有 USB 设备
-  - Linux/macOS: 检查执行 lsusb 后是否有显示 "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company"
-  - Windows: 打开 RKDevTool 您会看到设备处于 "maskrom mode".
+主板上有一个专用的 Maskrom 按键，在给主板上电前按住 Maskrom 按键，通电后系统检测到 Maskrom 按键被按下，主板就会自动进入 Maskrom 模式。
+
+详细步骤：
+
+① : 按住 Maskrom 按键
+
+② : 使用电源适配器给主板上电
+
+③ : 松开 Maskrom 按键
+
+④ : 使用数据线连接主板的 OTG 端口和电脑的 USB 端口
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/rock5itx/rock-5-itx-maskrom.webp"
+    style={{ width: "100%", maxWidth: "700" }}
+  />
+</div>
 
 3. 按以下操作擦除 SPI
 
