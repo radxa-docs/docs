@@ -49,4 +49,4 @@ sidebar_position: 11
 
 ### Boot the system from NVME
 
-For the boot process, please refer to [Boot from SSD](../../install-os/boot_from_ssd.md)
+For the boot process, please refer to [Boot from SSD](../../install-os/boot-from-ssd.md)

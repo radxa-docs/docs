@@ -17,7 +17,7 @@ Insert [eMMC Module](../../../../accessories/emmc_module) into [eMMC Reader](../
 
 :::tip
 
-For on-board eMMC, please refer to [USB Flashing section](../../low-level-dev/install-os/rkdevtool_emmc.md)
+For on-board eMMC, please refer to [USB Flashing section](../../low-level-dev/install-os/rkdevtool-emmc.md)
 
 :::
 

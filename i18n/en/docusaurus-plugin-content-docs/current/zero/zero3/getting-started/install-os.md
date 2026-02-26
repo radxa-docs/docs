@@ -14,7 +14,7 @@ import Ether from '../../../common/general/\_etcher.mdx'
 
 ## Image download
 
-Please go to [Resource Download](./download) to download the corresponding image file
+Please go to [Resource Download](../download.md) to download the corresponding image file
 
 ## Install System
 
