@@ -1,5 +1,5 @@
 ---
-sidebar_position: 15
+sidebar_position: 11
 ---
 
 # AXCL-Samples 编译示例
