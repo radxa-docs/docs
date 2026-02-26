@@ -45,13 +45,13 @@ Usage:
 ### Run a `bmodel`
 
 ```bash
-bmrt_test --bmodel xxx.bmodel
+bmrt_test --bmodel <model>.bmodel
 ```
 
 ### Run a Multi-Stage `bmodel`
 
 ```bash
-bmrt_test --bmodel xxx.bmodel --stage_idx 0 --shapes "[1,3,224,224]"
+bmrt_test --bmodel <model>.bmodel --stage_idx 0 --shapes "[1,3,224,224]"
 ```
 
 ### Run a `bmodel` from a Directory
@@ -73,7 +73,7 @@ bmrt_test --context_dir bmodel_dir
 ### Generate Profile Data
 
 ```bash
-BMRUNTIME_ENABLE_PROFILE=1 bmrt_test --bmodel xxx.bmodel
+BMRUNTIME_ENABLE_PROFILE=1 bmrt_test --bmodel <model>.bmodel
 ```
 
 ### Save Inference Data
@@ -81,5 +81,5 @@ BMRUNTIME_ENABLE_PROFILE=1 bmrt_test --bmodel xxx.bmodel
 Saves input and output inference data to `input_ref_data.dat.bmrt` and `output_ref_data.dat.bmrt`.
 
 ```bash
-BMRT_SAVE_IO_TENSORS=1 bmrt_test --bmodel xxx.bmodel
+BMRT_SAVE_IO_TENSORS=1 bmrt_test --bmodel <model>.bmodel
 ```

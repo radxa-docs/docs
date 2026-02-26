@@ -37,7 +37,7 @@ sidebar_position: 8
 在终端命令行输入 `rsetup` 命令，使用 Rsetup 工具设置显示器选项。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>

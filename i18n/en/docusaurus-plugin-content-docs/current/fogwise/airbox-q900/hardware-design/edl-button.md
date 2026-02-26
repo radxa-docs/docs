@@ -60,7 +60,7 @@ Use the `lsusb` command to check if the device has entered QDL mode.
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 lsusb
 ```
 
@@ -68,7 +68,7 @@ lsusb
 
 If the board is in QDL mode, the terminal will display output similar to:
 
-```
+```text
 Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 ```
 

@@ -13,7 +13,7 @@ sidebar_position: 2
 
 完成 bsp 环境配置后，需要先编译一次内核才会从仓库拉取内核代码，可以执行`./bsp linux rockchip`构建内核, 内核源码的路径位于 bsp 目录下的 `.src/linux`
 
-```
+```text
 cd bsp
 mkdir output
 cd output
@@ -28,14 +28,14 @@ cd output
 
 编译完成后会在 bsp/output 目录生成许多 `deb` 包， 只需要安装下面两个 `deb` 即可
 
-```
+```text
 linux-headers-5.10.110-1-rockchip_5.10.110-1_arm64.deb
 linux-image-5.10.110-1-rockchip_5.10.110-1_arm64.deb
 ```
 
 将上面两个 `deb` 包复制到板子上使用 `dpkg` 指令安装即可完成内核安装
 
-```
+```bash
 sudo dpkg -i linux-headers-5.10.110-1-rockchip_5.10.110-1_arm64.deb
 sudo dpkg -i linux-image-5.10.110-1-rockchip_5.10.110-1_arm64.deb
 sudo reboot

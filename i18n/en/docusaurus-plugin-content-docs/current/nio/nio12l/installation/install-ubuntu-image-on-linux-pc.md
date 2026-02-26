@@ -20,14 +20,14 @@ Ubuntu host tested:
 
 ### 1. Install the necessary software
 
-```
+```bash
 $ sudo apt update
 $ sudo apt install -y git python3 python3-pip
 ```
 
 Run the following command to check the Python and pip versions:
 
-```
+```bash
 $ python3 --version
 Python 3.9.2
 $ pip3 --version
@@ -36,13 +36,13 @@ pip 21.2.4 from /usr/bin/pip3 (python 3.9)
 
 If pip3 version is lower than 20.3. upgrade by running the following command:
 
-```
+```bash
 $ pip3 install --upgrade pip
 ```
 
 ### 2. Fastboot Installation
 
-```
+```bash
 $ sudo apt update
 $ sudo apt install -y android-tools-adb android-tools-fastboot
 ```
@@ -53,7 +53,7 @@ If the host is running a Linux distribution other than Ubuntu, see the [Android 
 
 In order for the host to be able to communicate with the device via USB without root privileges, we need to create a udev rule that grants the user access to the device:
 
-```
+```bash
 $ echo -n \
 'SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="201c", MODE="0660", TAG+="uaccess"
 SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="0003", MODE="0660", TAG+="uaccess"
@@ -68,7 +68,7 @@ $ sudo udevadm trigger
 
 Also, if using adb to connect to the development board, add a new udev rule and add your user account to the plugdev group:
 
-```
+```bash
 $ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="201c", MODE="0660", $ GROUP="plugdev"' \
  | sudo tee -a /etc/udev/rules.d/96-rity.rules
 $ sudo udevadm control --reload-rules
@@ -80,7 +80,7 @@ udev is a device manager for the Linux kernel. It can be used to grant users or 
 
 ### 4. Genio Tools Installation
 
-```
+```bash
 $ pip3 install -U genio-tools
 ```
 
@@ -90,7 +90,7 @@ Log out and log back in after installing genio-tools. This ensures that the PATH
 
 After logging back in, use genio-config to check your installation.
 
-```
+```bash
 $ genio-config
 fastboot: OK
 udev rules: OK
@@ -110,35 +110,35 @@ Go to the [**Resource Download**](../download) to download the Ubuntu image and 
 
 Go to the directory where the files are located and execute the `genio-flash` command.
 
-```
+```bash
 radxa@ubuntu:~$ cd ~/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b7/
 ```
 
 - For NIO 12L with 4GB RAM:
 
-```
+```text
     radxa@ubuntu:~/baoshan...ufs-b7$ cp fip-ddr4g.bin fip.bin && cp u-boot-initial-env-ddr4g u-boot-initial-env
 ```
 
 - For NIO 12L with 8GB RAM:
 
-```
+```text
     radxa@ubuntu:~/baoshan...ufs-b7$ cp fip-ddr8g.bin fip.bin && cp u-boot-initial-env-ddr8g u-boot-initial-env
 ```
 
 - For NIO 12L with 16GB RAM:
 
-```
+```text
     radxa@ubuntu:~/baoshan...ufs-b7$ cp fip-ddr16g.bin fip.bin && cp u-boot-initial-env-ddr16g u-boot-initial-env
 ```
 
-```
+```bash
 radxa@ubuntu:~/baoshan...ufs-b7$ genio-flash
 ```
 
 Output:
 
-```
+```text
 Genio Tools: v1.3.6
 Ubuntu Image:
 	edition:  Ubuntu classic/core images

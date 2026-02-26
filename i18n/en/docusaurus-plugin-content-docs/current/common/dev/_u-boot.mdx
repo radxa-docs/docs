@@ -89,19 +89,19 @@ cd bsp
 
 After compilation, many `deb` packages will be generated in the current directory, you just need to install the following `deb` packages.
 
-```
+```text
 u-boot-rk2410_2017.09-999_arm64.deb
 ```
 
 Copy the above one `deb` packages to the board and install them with the `dpkg` command to complete the U-Boot installation.
 
-```
+```bash
 sudo dpkg -i u-boot-rk2410_2017.09-999_arm64.deb
 ```
 
 After the installation is complete, you need to flash U-Boot to the boot media
 
-```
+```text
 cd /usr/lib/u-boot/rock-5b/                     # rock-5b is your current model, you need to choose according to the actual model used
 sudo ./setup.sh update_bootloader /dev/mmcblk1  # /dev/mmcblk1 is your current boot media, you need to choose according to the actual device used
 sudo reboot

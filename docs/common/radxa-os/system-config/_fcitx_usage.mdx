@@ -14,7 +14,7 @@
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install -y fcitx5 fcitx5-chinese-addons fcitx5-config-qt
 ```
@@ -29,7 +29,7 @@ sudo apt install -y fcitx5 fcitx5-chinese-addons fcitx5-config-qt
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 im-config
 ```
 
@@ -44,7 +44,7 @@ im-config
 
 如果你遇到“Fcitx5 已启动但某些应用无法输入”的情况，可以检查以下环境变量是否生效：
 
-```
+```text
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
@@ -65,7 +65,7 @@ XMODIFIERS=@im=fcitx
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 fcitx5-config-qt
 ```
 
@@ -84,7 +84,7 @@ fcitx5-config-qt
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 fcitx5 -rd
 ```
 
@@ -103,7 +103,7 @@ fcitx5 -rd
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ps -ef | grep -E "fcitx5($|\\s)" | grep -v grep
 ```
 
@@ -113,7 +113,7 @@ ps -ef | grep -E "fcitx5($|\\s)" | grep -v grep
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 fcitx5-diagnose
 ```
 
@@ -133,7 +133,7 @@ fcitx5-diagnose
 
 一般情况下 electron 应用添加 flags 是在`~/.config/` 目录下创建 `<应用名>-flags.conf` 文件，内容为：
 
-```
+```text
 --enable-features=UseOzonePlatform --ozone-platform=auto --enable-wayland-ime --wayland-text-input-version=3
 ```
 

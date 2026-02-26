@@ -38,7 +38,7 @@ Enter the Linux folder in the removable disk and run the script to install the d
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 bash install_for_linux.sh
 ```
 

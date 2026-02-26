@@ -59,7 +59,7 @@ ROCK 5T 支持将 USB PD 电源协商至更高的电压，如 9V、12V、15V、2
 
 当我尝试运行 apt update 时，得到以下错误信息：
 
-```
+```text
 root@rock-5T:~# apt update
 Hit:1 http://security.debian.org/debian-security bookworm-security InRelease
 Hit:2 http://httpredir.debian.org/debian bookworm InRelease
@@ -77,7 +77,7 @@ N: See apt-secure(8) manpage for repository creation and user configuration deta
 
 原因是公钥已过期。您可以执行以下命令获取新的可用密钥。
 
-```
+```bash
 sudo apt-get install -y wget
 export DISTRO=bookworm-stable
 wget -O - apt.radxa.com/$DISTRO/public.key | sudo apt-key add -

@@ -26,25 +26,25 @@ sidebar_position: 2
 
 1. 首先进入ROOT用户模式。
 
-```
+```bash
 sudo su
 ```
 
 2. 打开WIFI
 
-```
+```bash
 nmcli r wifi on
 ```
 
 3. 扫描WIFI
 
-```
+```bash
 nmcli dev wifi
 ```
 
 1. 连接wifi网络
 
-```
+```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
@@ -52,7 +52,7 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 - 使用Radxa无线A8模块时，必须添加以下黑名单才能使BT正常工作。
 
-```
+```text
 root@radxa-cm5-io:~# cat /etc/modprobe.d/blacklist.conf
 blacklist pgdrv
 blacklist btusb
@@ -65,19 +65,19 @@ root@radxa-cm5-io:~# reboot
 
 1. 测试蓝牙模块的状态并检查蓝牙设备。
 
-```
+```text
 root@radxa-cm5-io:~# systemctl status bluetooth
 ```
 
 2. 运行蓝牙设备。
 
-```
+```text
 root@radxa-cm5-io:~# systemctl start bluetooth
 ```
 
 3. 检测蓝牙设备
 
-```
+```text
 root@radxa-cm5-io:~# hciconfig
 hci0:   Type: Primary Bus: UART
        BD Address: 10:2C:6B:49:D5:53 ACL MTU: 1021:8 SCO MTU: 64:1
@@ -88,19 +88,19 @@ hci0:   Type: Primary Bus: UART
 
 4. 测试：连接蓝牙音箱，首先安装pulseaudio
 
-```
+```text
 root@radxa-cm5-io:~# apt-get install -y pulseaudio-module-bluetooth pulseaudio
 ```
 
 5. 运行 pulseaudio
 
-```
+```text
 root@radxa-cm5-io:~# pulseaudio --start
 ```
 
 6. 使用 pulseaudio 连接
 
-```
+```text
 root@radxa-cm5-io:~# bluetoothctl
 [bluetooth]# default-agent
 [bluetooth]# power on

@@ -78,14 +78,14 @@ For most host boards, installing an M.2 M Key add-on device follows the same gen
 After installing AIcore DX-M1 / DX-M1M into the host board's M.2 M Key slot and booting the OS, you can run `lspci` to verify whether the device is detected:
 
 <NewCodeBlock tip="Device" type="device">
-```
+```bash
 lspci
 ```
 </NewCodeBlock>
 
 If AIcore DX-M1 / DX-M1M is detected, you should see output similar to the following:
 
-```
+```text
 0000:01:00.0 Processing accelerators: DEEPX Co., Ltd. DX_M1A
 ```
 

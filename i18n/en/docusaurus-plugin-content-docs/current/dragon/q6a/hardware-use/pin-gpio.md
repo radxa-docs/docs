@@ -57,7 +57,7 @@ Use the `python-periphery` library to control GPIO pins.
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install -y python3-periphery -y
 ```
@@ -82,7 +82,7 @@ The following code uses the python-periphery library to control the GPIO_25 pin 
 <details>
 <summary>gpio_output_input.py</summary>
 
-```
+```text
 from periphery import GPIO
 import time
 

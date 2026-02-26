@@ -26,7 +26,7 @@
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install docker.io
 ```
@@ -37,7 +37,7 @@ sudo apt install docker.io
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
 sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 ```
@@ -50,7 +50,7 @@ sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 docker --version
 ```
 
@@ -58,7 +58,7 @@ docker --version
 
 终端输出类似如下的信息表示安装成功：
 
-```
+```text
 Docker version 20.10.24+dfsg1, build 297e128
 ```
 
@@ -68,7 +68,7 @@ Docker version 20.10.24+dfsg1, build 297e128
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo usermod -aG docker $USER
 ```
 

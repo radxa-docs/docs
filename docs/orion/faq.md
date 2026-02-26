@@ -12,7 +12,7 @@ sidebar_position: 200
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo rmmod aipu
 ```
 
@@ -22,7 +22,7 @@ sudo rmmod aipu
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo vim /etc/modprobe.d/blacklist-aipu.conf
 ```
 
@@ -32,7 +32,7 @@ sudo vim /etc/modprobe.d/blacklist-aipu.conf
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 blacklist aipu
 ```
 
@@ -42,7 +42,7 @@ blacklist aipu
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo reboot
 ```
 

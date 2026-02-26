@@ -8,7 +8,7 @@
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -16,7 +16,7 @@ ip a
 
 终端会输出类似如下信息：其中 `192.168.2.186` 就是路由器分配的 IP 地址。
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 inet 127.0.0.1/8 scope host lo
@@ -67,7 +67,7 @@ link/ether 76:13:0d:bc:43:06 brd ff:ff:ff:ff:ff:ff permaddr 2c:c6:82:85:8d:fe
 
 <NewCodeBlock tip="radxa@device$ & Linux$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install iperf
 ```
@@ -82,7 +82,7 @@ sudo apt install iperf
 
 <NewCodeBlock tip="Linux" type="device">
 
-```
+```bash
 iperf -s
 ```
 
@@ -90,7 +90,7 @@ iperf -s
 
 成功启动后，终端会输出类似如下信息：
 
-```
+```text
 ---
 
 ## Server listening on 5201 (test #1)
@@ -105,7 +105,7 @@ iperf -s
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 ps -ef | grep iperf3
 ```
 
@@ -115,7 +115,7 @@ ps -ef | grep iperf3
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo kill <PID>
 ```
 
@@ -130,7 +130,7 @@ sudo kill <PID>
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time>
 
 # 示例
@@ -151,7 +151,7 @@ iperf -c 192.168.2.186 -t 60
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time> -R
 
 # 示例

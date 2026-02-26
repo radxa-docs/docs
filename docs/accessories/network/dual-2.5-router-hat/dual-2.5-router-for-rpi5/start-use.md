@@ -50,7 +50,7 @@ sudo nano /boot/firmware/config.txt
 
 2. 在文件末尾添加以下行：
 
-```
+```text
 dtparam=pciex1
 ```
 
@@ -116,7 +116,7 @@ sudo nano /boot/firmware/config.txt
 
 2. 添加以下行：
 
-```
+```text
 dtparam=pciex1_gen=3
 ```
 
@@ -212,7 +212,7 @@ sudo nano /etc/dhcpcd.conf
 
 添加以下行为您的网络接口分配静态 IP：
 
-```
+```text
 interface eth1
 static ip_address=192.168.1.100/24
 static routers=192.168.1.1

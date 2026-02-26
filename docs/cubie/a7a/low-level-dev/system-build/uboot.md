@@ -26,7 +26,7 @@ sidebar_position: 1
 
 <NewCodeBlock tip="PC@host$" type="host">
 
-```
+```bash
 git clone --recurse-submodules https://github.com/radxa-pkg/u-boot-aw2501.git
 ```
 
@@ -72,7 +72,7 @@ git clone --recurse-submodules https://github.com/radxa-pkg/u-boot-aw2501.git
 
 <NewCodeBlock tip="PC@host$" type="host">
 
-```
+```bash
 make deb
 ```
 

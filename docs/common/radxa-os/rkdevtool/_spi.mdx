@@ -53,13 +53,13 @@ SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化�
 
 使用 rkdeveloptool ld 命令查看识别到的设备信息
 
-```
+```text
 rkdeveloptool ld
 ```
 
 输出类似内容：说明识别到一个 Maskrom 设备
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -67,19 +67,19 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 
 你需要将 `demo.bin` 换成主板对应的 Loader 文件
 
-```
+```bash
 sudo rkdeveloptool db demo.bin
 ```
 
 4. 擦除 SPI Flash
 
-```
+```bash
 sudo rkdeveloptool ef
 ```
 
 5. 重启系统，擦除 SPI Flash 的操作生效
 
-```
+```bash
 sudo rkdeveloptool rd
 ```
 
@@ -128,13 +128,13 @@ sudo rkdeveloptool rd
 
 使用 `rkdeveloptool ld` 命令查看识别到的设备信息：
 
-```
+```text
 rkdeveloptool ld
 ```
 
 输出类似内容：说明识别到一个 Maskrom 设备
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -144,7 +144,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 
 <NewCodeBlock tip="Linux / macOS$" type="host">
 
-```
+```bash
 sudo rkdeveloptool db demo.bin
 ```
 
@@ -154,13 +154,13 @@ sudo rkdeveloptool db demo.bin
 
 你需要将 `spi.img` 换成主板对应的 SPI 启动固件
 
-```
+```bash
 sudo rkdeveloptool wl 0 spi.img
 ```
 
 5. 重启系统，下载的 SPI 启动固件生效
 
-```
+```bash
 sudo rkdeveloptool rd
 ```
 

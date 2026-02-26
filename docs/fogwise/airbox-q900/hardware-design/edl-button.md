@@ -58,7 +58,7 @@ Fogwise® AIRbox Q900 板载 EDL 按键，主要用于进入紧急下载模式�
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 lsusb
 ```
 
@@ -66,7 +66,7 @@ lsusb
 
 若主板进入 QDL 模式，终端会输出类似以下结果：
 
-```
+```text
 Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 ```
 

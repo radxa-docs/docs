@@ -17,7 +17,7 @@ Connect the screen with the development board as follows:
 
 - Enable the overlay of Waveshare 3.5 inch Display
 
-```
+```text
 [*] Enable Waveshare 3.5 inch Display on SPI1
 ```
 
@@ -25,13 +25,13 @@ Connect the screen with the development board as follows:
 
 - backup `/usr/share/X11/xorg.conf.d/20-modesetting.conf`
 
-```
+```bash
 sudo mv /usr/share/X11/xorg.conf.d/20-modesetting.conf /usr/share/X11/xorg.conf.d/20-modesetting.conf.bak
 ```
 
 - Add a configuration file `20-modesetting.conf` under `/etc/X11/xorg.conf.d` with the following contents:
 
-```
+```text
 Section "Device"
      Identifier  "Rockchip Graphics"
      Driver      "fbdev"
@@ -46,7 +46,7 @@ please check whether the device is /dev/fb0 or /dev/fb1.
 
 Add a configuration file 99-touchscreen-calibration.conf under /etc/X11/xorg.conf.d with the following contents:
 
-```
+```text
 Section "InputClass"
     Identifier "calibration"
     MatchProduct "ADS7846 Touchscreen"
@@ -56,7 +56,7 @@ EndSection
 
 ## Reboot the system
 
-```
+```bash
 sudo reboot
 ```
 

@@ -59,7 +59,7 @@ sidebar_position: 7
 配置好中文语言和时区后，终端输入下面命令重启系统：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo reboot
 ```
 </NewCodeBlock>

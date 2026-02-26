@@ -54,7 +54,7 @@ nmcli (NetworkManager Command Line Interface) is the command-line management too
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo nmcli radio wifi on
 ```
 
@@ -66,7 +66,7 @@ If WiFi is enabled but no networks are found, you can try restarting the system.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo nmcli device wifi list
 ```
 
@@ -76,7 +76,7 @@ sudo nmcli device wifi list
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
 # Example
 sudo nmcli device wifi connect wifi-demo password 12345678
@@ -86,15 +86,15 @@ sudo nmcli device wifi connect wifi-demo password 12345678
 
 After a successful connection, the terminal will display output similar to the following:
 
-```
-Device 'wlan0' successfully activated with 'xxxxxx'.
+```bash
+Device 'wlan0' successfully activated with '<connection-uuid>'.
 ```
 
 #### View Detailed Network Connection Information
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -102,7 +102,7 @@ ip a
 
 The terminal will display output similar to the following. For example, `192.168.31.104` is the IP address assigned by the router.
 
-```
+```bash
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -162,7 +162,7 @@ Use the `ip a` command to check the wireless network interface name.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -170,7 +170,7 @@ ip a
 
 The terminal will display output similar to the following, where `wlan0` is the wireless network interface name.
 
-```
+```bash
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -214,7 +214,7 @@ The terminal will display output similar to the following, where `wlan0` is the 
 Open the system terminal and enter the following command to set up a WiFi hotspot:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-```
+```bash
 sudo nmcli device wifi hotspot ifname <ifname> con-name <name> ssid <SSID> password <password>
 # Example
 sudo nmcli device wifi hotspot ifname wlan0 con-name My-Hotspot ssid My-Hotspot password 12345678
@@ -230,8 +230,8 @@ Parameter explanation: This creates a WiFi hotspot named My-Hotspot with passwor
 
 After successful setup, the terminal will display output similar to the following:
 
-```
-Device 'wlan0' successfully activated with 'xxxxxx'.
+```bash
+Device 'wlan0' successfully activated with '<connection-uuid>'.
 Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 ```
 
@@ -239,7 +239,7 @@ Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo nmcli connection down My-Hotspot
 ```
 
@@ -249,7 +249,7 @@ sudo nmcli connection down My-Hotspot
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo nmcli connection up My-Hotspot
 ```
 
@@ -259,7 +259,7 @@ sudo nmcli connection up My-Hotspot
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo nmcli connection delete My-Hotspot
 ```
 
@@ -289,7 +289,7 @@ Both the server and client need to have `iperf` installed.
 
 <NewCodeBlock tip="radxa@device & Linux@host$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install iperf
 ```
@@ -304,7 +304,7 @@ Open a terminal and enter the following command to start the server:
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 iperf -s
 ```
 
@@ -312,7 +312,7 @@ iperf -s
 
 After successful startup, the terminal will display output similar to the following:
 
-```
+```bash
 -----------------------------------------------------------
 Server listening on 5201 (test #1)
 -----------------------------------------------------------
@@ -326,7 +326,7 @@ Open a terminal and enter the following command to test the client's upload band
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time>
 # Example
 iperf -c 192.168.2.186 -t 60
@@ -345,7 +345,7 @@ Open a terminal and enter the following command to test the client's download ba
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time> -R
 # Example
 iperf -c 192.168.2.186 -t 60 -R

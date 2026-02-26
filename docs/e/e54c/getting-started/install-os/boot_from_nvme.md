@@ -43,7 +43,7 @@ Rsetup 工具使用指南：可能会因为版本界面有微小差异，请以�
 打开系统命令行，运行 `rsetup` 工具进行更新。
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>
@@ -158,7 +158,7 @@ RKDevTool 是瑞芯微（Rockchip）平台为 Windows/Linux/MacOS 平台下进�
 打开系统终端或命令行，运行以下命令进行安装。
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -175,7 +175,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
 <NewCodeBlock tip="PC - Host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -191,7 +191,7 @@ rkdeveloptool -V
 若没有安装 HomeBrew，可以按照教程进行安装。
 
 <NewCodeBlock tip="MacOS-host$" type="host">
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 </NewCodeBlock>
@@ -201,7 +201,7 @@ rkdeveloptool -V
 打开系统终端或命令行，运行以下命令进行安装。
 
 <NewCodeBlock tip="MacOS-host$" type="host">
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -217,7 +217,7 @@ cp rkdeveloptool /opt/local/sbin/
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
 <NewCodeBlock tip="MacOS-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -259,14 +259,14 @@ rkdeveloptool -V
 使用 rkdeveloptool ld 命令查看识别到的设备信息：
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 输出类似内容：说明识别到一个 Maskrom 设备
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -275,7 +275,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 你需要将 `demo.bin` 换成 E54C 对应的 Loader 文件，可以去 [资源汇总下载](../../download) 下载 Loader 文件。
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool db  demo.bin
 ```
 </NewCodeBlock>
@@ -285,7 +285,7 @@ sudo rkdeveloptool db  demo.bin
 你需要将 `spi.img` 换成 E54C 对应的 SPI 启动固件，可以去 [资源汇总下载](../../download) 下载 SPI 启动固件。
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool wl 0 spi.img
 ```
 </NewCodeBlock>
@@ -293,7 +293,7 @@ sudo rkdeveloptool wl 0 spi.img
 5. 重启系统，烧录 SPI Flash 的操作生效
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>
@@ -311,7 +311,7 @@ sudo rkdeveloptool rd
 打开系统命令行, 使用 `lsblk` 命令检查系统是否识别到 NVME 设备。
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
@@ -322,7 +322,7 @@ lsblk
 
 使用 `lsblk` 输出的示例信息：
 
-```
+```text
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 mtdblock0    31:0    0    16M  0 disk
 mmcblk1     179:0    0    58G  0 disk
@@ -345,7 +345,7 @@ nvme0n1     259:0    0 119.2G  0 disk
 :::
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 # 安装 wget
 sudo apt-get install wget
 # 下载系统镜像文件
@@ -360,7 +360,7 @@ wget https://github.com/radxa-build/radxa-e54c/releases/download/rsdk-b2/radxa-e
 使用命令将压缩的系统镜像解压并直接写入到 NVME 设备。
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
 ```
 </NewCodeBlock>
@@ -376,7 +376,7 @@ sudo xzcat ~/radxa-e54c_bookworm_cli_b2.output.img.xz | sudo dd of=/dev/nvme0n1 
 写入完成后，您可以验证NVMe中的分区表是否正确创建：
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 sudo fdisk -l /dev/nvme0n1
 ```
 </NewCodeBlock>
@@ -404,7 +404,7 @@ sudo fdisk -l /dev/nvme0n1
 系统启动后，可通过以下方式验证系统是否成功从NVMe启动：
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 lsblk
 df -h
 ```
@@ -439,7 +439,7 @@ df -h
 ### 系统更新
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 sudo apt update && sudo apt upgrade
 ```
 </NewCodeBlock>
@@ -455,7 +455,7 @@ sudo apt update && sudo apt upgrade
 测试读取速度（1GB 数据）。
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
 ```
 </NewCodeBlock>
@@ -463,7 +463,7 @@ sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024 iflag=direct
 - 检查NVMe温度
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 # 安装 nvme-cli
 sudo apt install nvme-cli
 # 检查温度
@@ -474,7 +474,7 @@ sudo nvme smart-log /dev/nvme0n1 | grep "temperature"
 - 查看NVMe设备的详细信息和健康状态
 
 <NewCodeBlock tip="radxa@radxa-e54c$" type="host">
-```
+```bash
 sudo nvme list
 ```
 </NewCodeBlock>

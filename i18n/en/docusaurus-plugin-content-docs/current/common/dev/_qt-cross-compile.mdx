@@ -4,7 +4,7 @@
 
 ### Setting up the cross-compilation toolchain
 
-```
+```bash
 sudo apt-get install build-essential cmake
 wget https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/aarch64-linux-gnu/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
 sudo tar xvf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz  -C /usr/local/
@@ -12,7 +12,7 @@ sudo tar xvf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz  -C /usr/l
 
 ### Download QT source code
 
-```
+```bash
 mkdir -p pro/qtSourceDir && cd pro/qtSourceDir
 wget https://download.qt.io/archive/qt/5.12/5.12.2/single/qt-everywhere-src-5.12.2.tar.xz
 tar -xvf qt-everywhere-src-5.12.2.tar.xz
@@ -26,7 +26,7 @@ tar -xvf qt-everywhere-src-5.12.2.tar.xz
 
 before modification
 
-```
+```bash
 #
 # qmake configuration for building with aarch64-linux-gnu-g++
 #
@@ -56,7 +56,7 @@ load(qt_config)
 
 after modification
 
-```
+```bash
 #
 # qmake configuration for building with aarch64-linux-gnu-g++
 #
@@ -92,7 +92,7 @@ load(qt_config)
 
 vi auto.sh
 
-```
+```bash
 #!/bin/sh
 
 export CROSS_COMPILE=/usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
@@ -147,26 +147,26 @@ sudo make install
 
 - Execute the autoconfiguration script
 
-```
+```bash
 sudo chmod +x auto.sh
 sudo ./auto.sh
 ```
 
 If you encounter an error similar to the following
 
-```
+```bash
 error: 'numeric_limits' is not a member of 'std'
 ```
 
 Under the sol.hpp file, add
 
-```
+```bash
 #include <limits>
 ```
 
 - Check if the installation was successful
 
-```
+```bash
 test@test-desktop:/opt$ ls /opt/qtInstallDir/
 bin  doc  include  lib  mkspecs  plugins  translations
 
@@ -178,7 +178,7 @@ test@test-desktop:/opt$ ls /opt/qt5.9.4-arm/
 
 - Download and install tools
 
-```
+```bash
 wget https://download.qt.io/archive/qt/5.12/5.12.2/qt-opensource-linux-x64-5.12.2.run
 ```
 
@@ -186,7 +186,7 @@ Or download it from [here](https://download.qt.io/archive/qt/).
 
 - installation
 
-```
+```bash
 sudo chmod +x qt-opensource-linux-x64-5.12.2.run
 sudo ./qt-opensource-linux-x64-5.12.2.run
 ```
@@ -197,7 +197,7 @@ sudo ./qt-opensource-linux-x64-5.12.2.run
 
 - Required environment
 
-```
+```bash
 sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev -y
 ```
 
@@ -229,21 +229,21 @@ click Debugger->rock->Debug
 
 - Copying the compiled project to the board
 
-```
-scp -r build-demo4-ext4-Debug radxa@192.168.2.xxx:~
+```bash
+scp -r build-demo4-ext4-Debug radxa@<board-ip>:~
 ```
 
 ## On the development board
 
 ### Env
 
-```
+```bash
 sudo apt-get install libqt5gui5 -y
 ```
 
 ### Execute the program
 
-```
+```bash
 sudo chmod +x ./demo4
 ./demo4
 ```

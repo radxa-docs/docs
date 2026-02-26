@@ -19,7 +19,7 @@ Yocto 默认的用户名是 `root`。不需要输入用户密码。
 SSH 服务默认是使能的。
 可以在路由器管理界面查看设备的 IP；或者是通过电脑主机的 [angryip](https://angryip.org/) 来找到设备的 IP。
 
-```
+```bash
 $ ping ip-of-device
 $ ssh root@ip-of-device
 ```
@@ -32,13 +32,13 @@ Yocto 系统默认开启了 adbd 服务。
 
 在主机上查看 adb 设备
 
-```
+```text
 adb devices
 ```
 
 在主机上访问设备
 
-```
+```text
 adb shell
 ```
 
@@ -52,7 +52,7 @@ adb shell
 
 使用 `lsblk` 查看 UFS 设备。`/dev/sda`，`/dev/sdb` 和 `/dev/sdc` 都属于 UFS 设备文件。
 
-```
+```text
 NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda       8:0    0     4M  0 disk
 sdb       8:16   0     4M  0 disk
@@ -73,7 +73,7 @@ sdc       8:32   0 119.2G  0 disk
 
 使用 `lsblk | grep mmc` 查看 MicroSD 卡。如这里的 `/dev/mmcblk1`。
 
-```
+```text
 mmcblk1     179:0    0  58.9G  0 disk
 |-mmcblk1p1 179:1    0     1G  0 part
 `-mmcblk1p2 179:2    0  57.9G  0 part
@@ -83,7 +83,7 @@ mmcblk1     179:0    0  58.9G  0 disk
 
 使用 `free -h` 查看内存容量。
 
-```
+```text
                total        used        free      shared  buff/cache   available
 Mem:           7.6Gi       508Mi       6.8Gi        51Mi       386Mi       6.8Gi
 Swap:             0B          0B          0B
@@ -123,7 +123,7 @@ Type-C 口是有 USB host/device 和显示功能。系统根据插入的设备�
 
 - 使用命令 `ifconfig` 查看以太网是否正常。可以看到网卡名，IP 等信息。使用 `ping` 去连接一个正常的域名。
 
-```
+```text
 ifconfig
 ping www.baidu.com
 ```
@@ -138,19 +138,19 @@ ping www.baidu.com
 
 - 打开 Wi-Fi
 
-```
+```bash
 nmcli radio wifi on
 ```
 
 - 扫描热点
 
-```
+```bash
 nmcli dev wifi
 ```
 
 - 连接热点
 
-```
+```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
@@ -160,25 +160,25 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 - 查看蓝牙状态
 
-```
+```text
 hciconfig -a
 ```
 
 - 开启蓝牙
 
-```
+```text
 hciconfig hci0 up
 ```
 
 - 设置蓝牙为可发现
 
-```
+```text
 hciconfig hci0 piscan
 ```
 
 - 扫描周边蓝牙设备
 
-```
+```text
 hcitool lescan
 ```
 
@@ -188,7 +188,7 @@ hcitool lescan
 
 使用指令：
 
-```
+```text
 aplay -D hdmi_dp_out ./test.wav
 ```
 
@@ -196,14 +196,14 @@ aplay -D hdmi_dp_out ./test.wav
 
 录音
 
-```
+```bash
 amixer -c mt8395evk cset name='PGA1 Volume' 3
 arecord -D jack_mic -r 48000 -f S32_LE sample.wav
 ```
 
 录音
 
-```
+```text
 aplay -D jack_speaker ./sample.wav
 ```
 
@@ -213,13 +213,13 @@ aplay -D jack_speaker ./sample.wav
 
 加载 radxa-nio-12l-camera1-imx214 dtbo
 
-```
+```bash
 genio-flash --load-dtbo radxa-nio-12l-camera1-imx214.dtbo
 ```
 
 预览摄像头
 
-```
+```text
 declare -a video=(`v4l2-ctl --list-devices | grep mtk-v4l2-camera -A 3 | grep video | tr -d "\n"`)
 printf "Preview Node\t= ${video[0]}\nVideo Node\t= ${video[1]}\nCapture Node\t= ${video[2]}\n"
 gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,format=YUY2 ! waylandsink sync=false
@@ -229,13 +229,13 @@ gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,f
 
 加载 radxa-nio-12l-camera2-imx214 dtbo
 
-```
+```bash
 genio-flash --load-dtbo radxa-nio-12l-camera2-imx214.dtbo
 ```
 
 预览摄像头
 
-```
+```text
 declare -a video=(`v4l2-ctl --list-devices | grep mtk-v4l2-camera -A 3 | grep video | tr -d "\n"`)
 printf "Preview Node\t= ${video[0]}\nVideo Node\t= ${video[1]}\nCapture Node\t= ${video[2]}\n"
 gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,format=YUY2 ! waylandsink sync=false
@@ -245,7 +245,7 @@ gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,f
 
 通过 `ls -l /sys/class/video4linux` 查看 v4l2 设备节点。可以看到有设备 `/dev/vidoe6`。
 
-```
+```bash
 ls -l /sys/class/video4linux
 total 0
 lrwxrwxrwx 1 root root 0 Jan  1 02:44 video0 -> ../../devices/platform/soc/14001000.mdp3-rdma0/video4linux/video0
@@ -260,7 +260,7 @@ lrwxrwxrwx 1 root root 0 Jan  1 02:50 video7 -> ../../devices/platform/soc/112f0
 
 捕获预览指令为：
 
-```
+```text
 gst-launch-1.0 v4l2src device=/dev/video6 io-mode=mmap ! videoconvert ! waylandsink sync=false
 ```
 
@@ -272,6 +272,6 @@ gst-launch-1.0 v4l2src device=/dev/video6 io-mode=mmap ! videoconvert ! waylands
 
 在 NIO 12L Yocto 系统上，执行指令：
 
-```
+```text
 gst-launch-1.0 -v v4l2src device=/dev/video5 ! video/x-raw,width=3840,height=2160,format=YUY2 ! queue ! fpsdisplaysink video-sink=waylandsink text-overlay=false
 ```

@@ -38,7 +38,7 @@ VS Code 通过 SSH 连接到 Radxa SBC，并在远端自动部署 VS Code Server
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl enable --now ssh
 sudo systemctl status ssh
 ```
@@ -49,7 +49,7 @@ sudo systemctl status ssh
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -88,7 +88,7 @@ ip a
 
 <NewCodeBlock tip="Host$" type="host">
 
-```
+```bash
 ssh radxa@<SBC_IP>
 ```
 
@@ -102,7 +102,7 @@ ssh radxa@<SBC_IP>
 
 <NewCodeBlock tip="Host$" type="host">
 
-```
+```bash
 nano ~/.ssh/config
 ```
 
@@ -112,7 +112,7 @@ nano ~/.ssh/config
 
 <NewCodeBlock tip="Host$" type="host">
 
-```
+```bash
 Host radxa-sbc
   HostName 192.168.1.88
   User radxa
@@ -129,7 +129,7 @@ Host radxa-sbc
 
 <NewCodeBlock tip="Host$" type="host">
 
-```
+```bash
 ssh-keygen -t ed25519
 ```
 
@@ -139,7 +139,7 @@ ssh-keygen -t ed25519
 
 <NewCodeBlock tip="Host$" type="host">
 
-```
+```bash
 ssh-copy-id radxa@<SBC_IP>
 ```
 
@@ -149,7 +149,7 @@ ssh-copy-id radxa@<SBC_IP>
 
 <NewCodeBlock tip="Host$" type="host">
 
-```
+```bash
 ssh radxa@<SBC_IP>
 ```
 
@@ -172,7 +172,7 @@ ssh radxa@<SBC_IP>
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 /home/radxa/Dev/project
 ```
 
@@ -190,7 +190,7 @@ ssh radxa@<SBC_IP>
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 uname -a
 ```
 
@@ -210,7 +210,7 @@ uname -a
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rm -rf ~/.vscode-server
 ```
 
@@ -226,7 +226,7 @@ rm -rf ~/.vscode-server
 
 <NewCodeBlock tip="Host$" type="host">
 
-```
+```bash
 ServerAliveInterval 30
 ServerAliveCountMax 3
 ```

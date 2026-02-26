@@ -87,7 +87,7 @@ and some WIFI devices do not support `WPA3`.
 Because some WIFI devices don't support `WPA3`, it can only scan the hotspot but fail to connect,
 you can disable `WPA3` by adding the following parameter.
 
-```
+```bash
 sudo nmcli connection modify <CONNECTION NAME> wifi-sec.key-mgmt wpa-psk
 sudo nmcli connection down <CONNECTION NAME> connection
 sudo nmcli connection up <CONNECTION NAME> connection --ask

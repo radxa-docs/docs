@@ -19,7 +19,7 @@ You can view the Desktop on the HDMI monitor.
 SSH service is enabled by default.
 You can find the IP from the router management windows or [angryip](https://angryip.org/).
 
-```
+```bash
 $ ping ip-of-device
 $ ssh root@ip-of-device
 ```
@@ -32,13 +32,13 @@ Also need to install adb tool on host PC.
 
 Check adb device on host PC.
 
-```
+```text
 adb devices
 ```
 
 Access the device on host PC.
 
-```
+```text
 adb shell
 ```
 
@@ -52,7 +52,7 @@ Please refer to [NIO 12L serial port usage](../low-level-dev/serial).
 
 User `lsblk` to check UFS device. `/dev/sda`, `/dev/sdb` and `/dev/sdc` belong to UFS device files.
 
-```
+```text
 NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda       8:0    0     4M  0 disk
 sdb       8:16   0     4M  0 disk
@@ -73,7 +73,7 @@ sdc       8:32   0 119.2G  0 disk
 
 Use `lsblk | grep mmc` to check MicroSD card. For example, here `/dev/mmcblk1`.
 
-```
+```text
 mmcblk1     179:0    0  58.9G  0 disk
 |-mmcblk1p1 179:1    0     1G  0 part
 `-mmcblk1p2 179:2    0  57.9G  0 part
@@ -83,7 +83,7 @@ mmcblk1     179:0    0  58.9G  0 disk
 
 Use `free -h` to check the capacity.
 
-```
+```text
                total        used        free      shared  buff/cache   available
 Mem:           7.6Gi       508Mi       6.8Gi        51Mi       386Mi       6.8Gi
 Swap:             0B          0B          0B
@@ -123,7 +123,7 @@ Test Ethernet:
 
 - Check whether the Ethernet is normal by command, ifconfig, which would show us a network card and the Ethernet IP address. Also, use tool `ping` to connect to a normal domain.
 
-```
+```text
 ifconfig
 ping www.baidu.com
 ```
@@ -139,19 +139,19 @@ Test Wi-Fi:
 
 - Open Wi-Fi
 
-```
+```bash
 nmcli radio wifi on
 ```
 
 - Scan AP
 
-```
+```bash
 nmcli dev wifi
 ```
 
 - Connect to AP
 
-```
+```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
@@ -161,25 +161,25 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 - Check Bluetooth device
 
-```
+```text
 hciconfig -a
 ```
 
 - Set up Bluetooth
 
-```
+```text
 hciconfig hci0 up
 ```
 
 - Make Bluetooth discoverable
 
-```
+```text
 hciconfig hci0 piscan
 ```
 
 - Scan remote Bluetooth device
 
-```
+```text
 hcitool lescan
 ```
 
@@ -189,7 +189,7 @@ hcitool lescan
 
 Run command
 
-```
+```text
 aplay -D hdmi_dp_out ./test.wav
 ```
 
@@ -197,14 +197,14 @@ aplay -D hdmi_dp_out ./test.wav
 
 Playback command
 
-```
+```bash
 amixer -c mt8395evk cset name='PGA1 Volume' 3
 arecord -D jack_mic -r 48000 -f S32_LE sample.wav
 ```
 
 Record command
 
-```
+```text
 aplay -D jack_speaker ./sample.wav
 ```
 
@@ -214,13 +214,13 @@ aplay -D jack_speaker ./sample.wav
 
 Load radxa-nio-12l-camera1-imx214 dtbo
 
-```
+```bash
 genio-flash --load-dtbo radxa-nio-12l-camera1-imx214.dtbo
 ```
 
 Launch camera
 
-```
+```text
 declare -a video=(`v4l2-ctl --list-devices | grep mtk-v4l2-camera -A 3 | grep video | tr -d "\n"`)
 printf "Preview Node\t= ${video[0]}\nVideo Node\t= ${video[1]}\nCapture Node\t= ${video[2]}\n"
 gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,format=YUY2 ! waylandsink sync=false
@@ -230,13 +230,13 @@ gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,f
 
 Load radxa-nio-12l-camera2-imx214 dtbo
 
-```
+```bash
 genio-flash --load-dtbo radxa-nio-12l-camera2-imx214.dtbo
 ```
 
 Launch camera
 
-```
+```text
 declare -a video=(`v4l2-ctl --list-devices | grep mtk-v4l2-camera -A 3 | grep video | tr -d "\n"`)
 printf "Preview Node\t= ${video[0]}\nVideo Node\t= ${video[1]}\nCapture Node\t= ${video[2]}\n"
 gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,format=YUY2 ! waylandsink sync=false
@@ -246,7 +246,7 @@ gst-launch-1.0 v4l2src device=${video[0]} ! video/x-raw,width=1920,height=1080,f
 
 Find v4l2 device node via command `ls -l /sys/class/video4linux`. There is `/dev/video6` here.
 
-```
+```bash
 ls -l /sys/class/video4linux
 total 0
 lrwxrwxrwx 1 root root 0 Jan  1 02:44 video0 -> ../../devices/platform/soc/14001000.mdp3-rdma0/video4linux/video0
@@ -261,7 +261,7 @@ lrwxrwxrwx 1 root root 0 Jan  1 02:50 video7 -> ../../devices/platform/soc/112f0
 
 Capture Preview
 
-```
+```text
 gst-launch-1.0 v4l2src device=/dev/video6 io-mode=mmap ! videoconvert ! waylandsink sync=false
 ```
 
@@ -274,6 +274,6 @@ And the device `/dev/video5` will show up on Yocto OS.
 
 Run command on NIO 12L Yocto OS.
 
-```
+```text
 gst-launch-1.0 -v v4l2src device=/dev/video5 ! video/x-raw,width=3840,height=2160,format=YUY2 ! queue ! fpsdisplaysink video-sink=waylandsink text-overlay=false
 ```

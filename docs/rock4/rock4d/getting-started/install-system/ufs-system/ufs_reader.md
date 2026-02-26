@@ -191,14 +191,14 @@ UFS 模块安装步骤：
 系统启动后，您可以使用 `lsblk` 命令查看系统分区信息：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo lsblk
 ```
 </NewCodeBlock>
 
 如果您看到 `/dev/sda3` 被挂载为根目录 `/`，则表示系统已成功从 UFS 模块启动。
 
-```
+```text
 NAME      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda         8:0    0 119.1G  0 disk
 ├─sda1      8:1    0   128M  0 part /config

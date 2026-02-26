@@ -27,14 +27,14 @@ When powered solely via PoE (without an external power adapter), the Radxa CM4 I
 You can view detailed network information using the `ip a` command.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 ip a
 ```
 </NewCodeBlock>
 
 Example output (where `192.168.4.160` is the IP address of the Gigabit Ethernet interface):
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo

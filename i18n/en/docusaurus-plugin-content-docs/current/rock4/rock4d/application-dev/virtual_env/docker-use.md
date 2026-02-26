@@ -17,14 +17,14 @@ This guide demonstrates common Docker commands and their usage. All the followin
 You can view the usage of all Docker commands using the built-in help command.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker --help
 ```
 </NewCodeBlock>
 
 The terminal will display output similar to:
 
-```
+```text
 Usage:  docker [OPTIONS] COMMAND
 
 A self-sufficient runtime for containers
@@ -114,14 +114,14 @@ To get more help with docker, check out our guides at https://docs.docker.com/go
 Use the `docker info` command to view Docker system information, including version, system configuration, storage driver, network configuration, and more.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker info
 ```
 </NewCodeBlock>
 
 The terminal will display output similar to:
 
-```
+```text
 Client:
 Context: default
 Debug Mode: false
@@ -178,14 +178,14 @@ Live Restore Enabled: false
 To view only the Docker version information, use the `docker --version` command.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker --version
 ```
 </NewCodeBlock>
 
 The terminal will display output similar to:
 
-```
+```text
 Docker version 20.10.24+dfsg1, build 297e128
 ```
 
@@ -194,7 +194,7 @@ Docker version 20.10.24+dfsg1, build 297e128
 Use the `docker pull` command to download an image from a registry (Docker Hub by default).
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker pull <image_name>
 # Example: Pull the latest hello-world image
 docker pull hello-world
@@ -202,7 +202,7 @@ docker pull hello-world
 </NewCodeBlock>
 After successfully pulling the image, the terminal will display output similar to:
 
-```
+```text
 Using default tag: latest
 latest: Pulling from library/hello-world
 c9c5fd25a1bd: Pull complete
@@ -216,7 +216,7 @@ docker.io/library/hello-world:latest
 If the image is not available locally, Docker will automatically pull it from the cloud and then run the container.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker run <image_name>
 # Example: Run the latest hello-world image
 docker run hello-world
@@ -225,7 +225,7 @@ docker run hello-world
 
 After the container runs successfully, the terminal will display output similar to:
 
-```
+```text
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 
@@ -254,7 +254,7 @@ https://docs.docker.com/get-started/
 In interactive mode, the container will keep running, allowing you to directly operate within the container from the terminal command line until you type `exit` to leave the container.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker run -it <image_name> /bin/bash
 # Example: Run ubuntu:24.04 image in interactive mode
 docker run -it ubuntu:24.04 /bin/bash
@@ -263,7 +263,7 @@ docker run -it ubuntu:24.04 /bin/bash
 
 After the container runs successfully, the terminal will display output similar to: where `8a18a7ee0838` is the container ID.
 
-```
+```text
 root@8a18a7ee0838:/#
 ```
 
@@ -272,7 +272,7 @@ Type `exit` inside the container to exit.
 ### Access the Same Container from Multiple Terminals
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker exec -it <container_id> /bin/bash
 # Example: Access a running container by its ID
 docker exec -it 8a18a7ee0838 /bin/bash
@@ -282,14 +282,14 @@ docker exec -it 8a18a7ee0838 /bin/bash
 ## List Images
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker images
 ```
 </NewCodeBlock>
 
 The terminal will display output similar to:
 
-```
+```text
 REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
 ubuntu        24.04     9d45648b4030   11 days ago   101MB
 hello-world   latest    f1f77a0f96b7   4 months ago  5.2kB
@@ -298,14 +298,14 @@ hello-world   latest    f1f77a0f96b7   4 months ago  5.2kB
 ## List Containers
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker ps -a
 ```
 </NewCodeBlock>
 
 The terminal will display output similar to: You can check the `STATUS` column to see if a container is running.
 
-```
+```text
 CONTAINER ID   IMAGE           COMMAND       CREATED         STATUS                     PORTS     NAMES
 8a18a7ee0838   ubuntu:24.04   "/bin/bash"   2 minutes ago   Up About a minute                   frosty_beaver
 d1799e93de85   hello-world    "/hello"      2 minutes ago   Exited (0) 2 minutes ago             epic_gagarin
@@ -316,7 +316,7 @@ d1799e93de85   hello-world    "/hello"      2 minutes ago   Exited (0) 2 minutes
 If you've made changes to a running container, you can use the `docker commit` command to save the container as a new image, which can be used to quickly create new containers later.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker commit <container_id> <new_image_name>
 # Example: Save container with ID 8a18a7ee0838 as ubuntu_24_v1 image
 docker commit 8a18a7ee0838 ubuntu_24_v1
@@ -325,7 +325,7 @@ docker commit 8a18a7ee0838 ubuntu_24_v1
 
 After successfully saving, the terminal will display output similar to:
 
-```
+```text
 sha256:be234207cfb6841bbef6bb4639ac2cc035a4bbebdcf5e74a08a8db327a57d569
 ```
 
@@ -336,7 +336,7 @@ If your terminal is inside a running container, you can type `exit` to leave the
 If you're not inside a running container, you can use the `docker stop` command to stop it.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker stop <container_id>
 # Example: Stop container with ID 8a18a7ee0838
 docker stop 8a18a7ee0838
@@ -345,7 +345,7 @@ docker stop 8a18a7ee0838
 
 After successfully stopping the container, the terminal will display output similar to:
 
-```
+```text
 8a18a7ee0838
 ```
 
@@ -354,14 +354,14 @@ After successfully stopping the container, the terminal will display output simi
 This command will only remove stopped containers and won't affect running ones.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker container prune
 ```
 </NewCodeBlock>
 
 The terminal will display output similar to: You'll need to confirm by typing `y` after entering the command.
 
-```
+```text
 WARNING! This will remove all stopped containers.
 Are you sure you want to continue? [y/N] y
 Deleted Containers:yun3
@@ -375,7 +375,7 @@ Total reclaimed space: 5B
 Use the `docker rmi` command to remove an image.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 docker rmi <image_name>
 # Example: Remove the ubuntu:24.04 image
 docker rmi ubuntu:24.04
@@ -384,7 +384,7 @@ docker rmi ubuntu:24.04
 
 After successfully removing the image, the terminal will display output similar to:
 
-```
+```text
 Untagged: ubuntu:24.04
 Untagged: ubuntu@sha256:b59d21599a2b151e23eea5f6602f4af4d7d31c4e236d22bf0b62b86d2e386b8f
 Deleted: sha256:9d45648b40307b523984e200d90f737b39a705c335fbf484113d4ad0660d97a6

@@ -6,13 +6,13 @@ sidebar_position: 5
 
 1. Install Simplified Chinese fonts:
 
-```
+```bash
 sudo apt-get install fonts-wqy-zenhei
 ```
 
 2. Set the system language to Chinese desktop:
 
-```
+```bash
 sudo dpkg-reconfigure locales
 ```
 
@@ -24,7 +24,7 @@ sudo dpkg-reconfigure locales
 
 4. Just reboot the system
 
-```
+```bash
 sudo reboot
 ```
 

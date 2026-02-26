@@ -34,14 +34,14 @@ Connect USB devices such as mice and keyboards to each USB Type-A port, then rep
 Use the `lsusb` command to list all USB devices.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 lsusb
 ```
 </NewCodeBlock>
 
 Example output:
 
-```
+```text
 Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 003: ID a69c:8d80 aicsemi AIC Wlan
 Bus 003 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
@@ -55,14 +55,14 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Use the `lsusb` command to check the USB device list and verify if the connected USB peripherals are recognized.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 lsusb
 ```
 </NewCodeBlock>
 
 Example output (with a USB card reader connected):
 
-```
+```text
 Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 003: ID a69c:8d80 aicsemi AIC Wlan
 Bus 003 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
@@ -83,14 +83,14 @@ Connect a USB flash drive to either a USB 2.0 or USB 3.0 Type-A port and use the
 Use the `lsblk` command to identify your USB device name.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
 
 Example output (in this case, `sda` is the USB flash drive - replace with your actual device name):
 
-```
+```text
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1   58G  0 disk
 mtdblock0    31:0    0   16M  0 disk
@@ -104,7 +104,7 @@ zram0       253:0    0  1.9G  0 disk [SWAP]
 #### Test Write Performance
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 ```
 </NewCodeBlock>
@@ -119,7 +119,7 @@ This command writes 100MB of zero bytes to the USB drive and displays the write 
 
 Example output:
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 3.40424 s, 30.8 MB/s
@@ -128,7 +128,7 @@ Example output:
 #### Test Read Performance
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 ```
 </NewCodeBlock>
@@ -143,7 +143,7 @@ This command reads 100MB of data from the USB drive to `/dev/null` and displays 
 
 Example output:
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 4.0582 s, 25.8 MB/s

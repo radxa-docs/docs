@@ -38,7 +38,7 @@ sidebar_position: 12
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rsetup
 ```
 

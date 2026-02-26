@@ -45,7 +45,7 @@ Use the `./adb version` command to view the version information of the ADB tool.
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb version
 ```
 
@@ -53,7 +53,7 @@ Use the `./adb version` command to view the version information of the ADB tool.
 
 Upon successful execution, it will display the version information of the ADB tool, similar to the following:
 
-```
+```text
 Android Debug Bridge version 1.0.41
 Version 36.0.0-13206524
 ```
@@ -94,7 +94,7 @@ Use the `./adb devices` command to view the device list.
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb devices
 ```
 
@@ -102,7 +102,7 @@ Use the `./adb devices` command to view the device list.
 
 Upon successful execution, it will display the device list, similar to the following:
 
-```
+```text
 List of devices attached
 7c0016117200887238d	device
 ```
@@ -116,7 +116,7 @@ In the `platform-tools` folder directory, use the `./adb shell` command to enter
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb shell
 ```
 
@@ -124,7 +124,7 @@ In the `platform-tools` folder directory, use the `./adb shell` command to enter
 
 Upon successful execution, it will display the Android device's terminal shell, similar to the following:
 
-```
+```text
 radxa-a7a:/ $
 ```
 
@@ -135,7 +135,7 @@ In the `platform-tools` folder directory, use the `./adb connect <device_ip>` co
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb connect <device_ip:port>
 
 # Example
@@ -147,7 +147,7 @@ In the `platform-tools` folder directory, use the `./adb connect <device_ip>` co
 
 Upon successful connection, you'll see a message similar to:
 
-```
+```text
 already connected to 192.168.31.201:43167
 ```
 
@@ -155,7 +155,7 @@ After a successful connection, use the `./adb shell` command to access the Andro
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb shell
 ```
 
@@ -163,7 +163,7 @@ After a successful connection, use the `./adb shell` command to access the Andro
 
 Successful access will display the Android device's terminal shell, similar to:
 
-```
+```text
 radxa-a7a:/ $
 ```
 

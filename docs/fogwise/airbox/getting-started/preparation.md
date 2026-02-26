@@ -14,14 +14,14 @@ Airbox 采用 USB Type-C 接口供电，支持 PD 电压协商，协商电压 20
 
 用户一：
 
-```
+```text
 用户名：linaro
 密 码：linaro
 ```
 
 用户二：
 
-```
+```text
 用户名： admin
 密 码： admin
 ```
@@ -57,7 +57,7 @@ Windows 下需要安装串口驱动，请参考：[安装串口驱动](./serial-
 
 1.安装 Picocom ：
 
-```
+```bash
 sudo apt-get update
 
 sudo apt-get install picocom
@@ -65,7 +65,7 @@ sudo apt-get install picocom
 
 2.开启 Picocom ：
 
-```
+```bash
 sudo picocom -b 115200 /dev/ttyUSBX
 ```
 
@@ -95,7 +95,7 @@ X是不同设备，一般是0。
 
 ##### Debian/Ubuntu
 
-```
+```bash
 ssh [username]@[hostname]
 or
 ssh [username]@[IP address]

@@ -22,7 +22,7 @@ Using `/dev/ttyUSB0` as an example:
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 ls -l /dev/ttyUSB0
 ```
 
@@ -30,7 +30,7 @@ ls -l /dev/ttyUSB0
 
 If the device exists on the system, you will see output similar to:
 
-```
+```text
 crw-rw---- 1 root dialout 188, 0 Sep 10 21:24 /dev/ttyUSB0
 ```
 
@@ -38,7 +38,7 @@ crw-rw---- 1 root dialout 188, 0 Sep 10 21:24 /dev/ttyUSB0
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo usermod -a -G dialout $USER
 ```
 
@@ -48,7 +48,7 @@ sudo usermod -a -G dialout $USER
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 newgrp dialout
 ```
 

@@ -24,19 +24,19 @@ Usage:
 ### 查看 bmodel 简要信息
 
 ```bash
-tpu_model --info xxx.bmodel
+tpu_model --info <model>.bmodel
 ```
 
 ### 查看 bmodel 详细参数信息
 
 ```bash
-tpu_model --print xxx.bmodel
+tpu_model --print <model>.bmodel
 ```
 
 ### 分解 bmodel
 
 ```bash
-tpu_model --extract xxx.bmodel
+tpu_model --extract <model>.bmodel
 ```
 
 将一个包含多个网络多种 stage 的 bmodel 分解成只包含一个网络的一个 stage 的各个 bmodel，分解出来的 bmodel 按照 net 序号和 stage 序号，命名为 bm_net0_stage0.bmodel, bm_net1_stage0.bmodel 等等。
@@ -69,7 +69,7 @@ tpu_model --combine_dir a_dir b_dir c_dir -o abc_dir
 ### 导出二进制数据
 
 ```bash
-tpu_model --dump xxx.bmodel start_offset byte_size out_file
+tpu_model --dump <model>.bmodel start_offset byte_size out_file
 ```
 
 将 bmodel 中的二进制数据保存到一个文件中。通过 print 功能可以查看所有二进制数据的 [start, size]，对应此处的 start_offset 和 byte_size。

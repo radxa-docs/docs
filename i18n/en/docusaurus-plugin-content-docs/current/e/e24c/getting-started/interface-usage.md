@@ -95,7 +95,7 @@ Supports ADB, USB network, and mass storage.
 Example for USB mass storage (ensure SSD is connected via M.2 M-Key before executing commands):
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="host">
-```
+```bash
 modprobe libcomposite
 modprobe usb_f_mass_storage
 systemctl daemon-reload
@@ -174,7 +174,7 @@ All signal pins are 3.3V level. Do not connect 5V signals as this may damage the
 #### GPIO Usage Example
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="device">
-```
+```bash
 # Install GPIO control tools
 sudo apt-get install gpiod
 # List available GPIO chips
@@ -193,7 +193,7 @@ gpioget <chip> <line>
 ##### I2C Sensor Connection
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="device">
-```
+```bash
 # Install I2C tools
 sudo apt-get install i2c-tools
 # Scan for I2C devices
@@ -237,7 +237,7 @@ The Radxa E24C has a unique and fixed MAC address that remains consistent across
 - Network Speed Test
 
 <NewCodeBlock tip="radxa@radxa-e24c$" type="host">
-```
+```bash
 # Install iperf3 tool
 sudo apt install iperf3
 # Run on the server side

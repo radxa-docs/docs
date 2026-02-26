@@ -14,14 +14,14 @@ The default user name and password for the system are as follows:
 
 User one:
 
-```
+```text
 username: linaro
 password: linaro
 ```
 
 User two:
 
-```
+```text
 username: admin
 password: admin
 ```
@@ -57,7 +57,7 @@ Illustrated with the Picocom tool:
 
 1. Install Picocom:
 
-```
+```bash
 sudo apt-get update
 
 sudo apt-get install picocom
@@ -65,7 +65,7 @@ sudo apt-get install picocom
 
 2. Turn on Picocom:
 
-```
+```bash
 sudo picocom -b 115200 /dev/ttyUSBX
 ```
 
@@ -95,7 +95,7 @@ After obtaining the board IP:
 
 ##### Debian/Ubuntu
 
-```
+```bash
 ssh [username]@[hostname]
 or
 ssh [username]@[IP address]

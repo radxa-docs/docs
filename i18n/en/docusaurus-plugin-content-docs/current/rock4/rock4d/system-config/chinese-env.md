@@ -59,7 +59,7 @@ Change the system time to Beijing time.
 After configuring both the Chinese language and timezone, enter the following command in the terminal to reboot the system:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo reboot
 ```
 </NewCodeBlock>

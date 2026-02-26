@@ -21,7 +21,7 @@ UART debugging is a core method in embedded development for interacting with the
 :::tip Maskrom Mode
 If the motherboard enters Maskrom mode and you connect the Debug port to your computer's USB port using a USB Type-C cable, the system will show two devices, similar to the following information:
 
-```
+```text
 Bus 001 Device 014: ID 1a86:7523 QinHeng Electronics CH340 serial converter
 Bus 001 Device 015: ID 2207:350c Fuzhou Rockchip Electronics Company
 ```

@@ -23,14 +23,14 @@ Connect an RTC battery to the RTC interface. Battery parameters:
 Enter the following command in the terminal to check if the RTC battery is recognized by the system.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dmesg | grep rtc
 ```
 </NewCodeBlock>
 
 Sample terminal output: `registered as rtc0` indicates the RTC battery is recognized.
 
-```
+```text
 [    0.033261] sunxi:ccu-ng:[INFO]: sunxi rtc-ccu version: 0.5.5
 [    0.044358] sunxi:ccu-ng:[INFO]: rtc_ccu: sunxi ccu init OK
 [    0.161008] axp8191-rtcldo: supplied by regulator-dummy
@@ -47,7 +47,7 @@ Sample terminal output: `registered as rtc0` indicates the RTC battery is recogn
 Use the `hwclock` command in the terminal to read the current time from the RTC chip (/dev/rtc0).
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo hwclock -r -f /dev/rtc0
 ```
 </NewCodeBlock>
@@ -57,7 +57,7 @@ sudo hwclock -r -f /dev/rtc0
 Use the `date` command to display the current system time.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 date
 ```
 </NewCodeBlock>
@@ -67,7 +67,7 @@ date
 If the RTC time and system time are inconsistent, you can use the `hwclock` command to write the current system time to the RTC.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo hwclock -w -f /dev/rtc0
 ```
 </NewCodeBlock>

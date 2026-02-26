@@ -37,7 +37,7 @@ Enter the following command in the terminal to use the Rsetup tool for display c
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 rsetup
 ```
 

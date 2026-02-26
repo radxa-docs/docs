@@ -17,7 +17,7 @@ import SSDISKTOOL from "../../../common/general/\_sddisktool.mdx"
 ## 安装编译依赖包
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 sudo apt update
 sudo apt install python2 git rsync gcc g++ make device-tree-compiler bc flex bison lz4 libssl-dev libgmp-dev libmpc-dev expect expect-dev file unzip bzip2 fakeroot bsdmainutils
 sudo ln -s /bin/python2 /bin/python
@@ -35,7 +35,7 @@ sudo ln -s /bin/python2 /bin/python
 在 Ubuntu PC 上，使用如下命令解压 SDK。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 tar -xvzf rk3308_linux5.10_rkr8_sdk.repo.tar.gz
 .repo/repo/repo sync -l
 ```
@@ -46,7 +46,7 @@ tar -xvzf rk3308_linux5.10_rkr8_sdk.repo.tar.gz
 使用 Radxa 维护的 rockchip 仓库。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
 git fetch radxa
@@ -57,7 +57,7 @@ git checkout -b rk3308-linux-5.10 remotes/radxa/rk3308-linux-5.10
 使用 Radxa 维护的 rkbin 仓库。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 cd rkbin
 git remote add radxa https://github.com/radxa/rkbin.git
 git fetch radxa
@@ -68,7 +68,7 @@ git checkout -b develop-v2025.04 remotes/radxa/develop-v2025.04
 使用 Radxa 维护的 kernel 仓库。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
 git fetch radxa
@@ -81,7 +81,7 @@ git checkout -b linux-5.10-gen-rkr8-buildroot remotes/radxa/linux-5.10-gen-rkr8-
 在 SDK 的顶层目录，执行命令：
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 ./build.sh
 ```
 </NewCodeBlock>
@@ -97,7 +97,7 @@ git checkout -b linux-5.10-gen-rkr8-buildroot remotes/radxa/linux-5.10-gen-rkr8-
 在 Linux/Mac OS 主机上，使用 [upgrade_tool](https://dl.radxa.com/tools/linux/Linux_Upgrade_Tool_V2.1.zip) 工具，通过 4-Pin USB2.0 OTG 烧录口，将系统镜像 `update.img` 烧写到 EMMC 中。
 
 <NewCodeBlock tip="Host-PC$" type="host">
-```
+```bash
 upgrade_tool uf update.img
 ```
 </NewCodeBlock>

@@ -63,7 +63,7 @@ Go to the <a href={props?.download_page ?? '../download.md'}>Downloads</a> page 
 
 The BIOS firmware package contains the following files:
 
-```
+```text
 BuildOptions
 BurnImage.efi
 cix_flash_all.bin
@@ -138,7 +138,7 @@ After powering on the board, when the Radxa logo and progress bar appear on the 
 
 <TabItem value="Headless">
 
-```
+```text
 Tianocore/EDK2 firmware version 1.0.0-2
 Press ESCAPE for boot options
 ```
@@ -208,7 +208,7 @@ Run `startup.nsh` and press `Enter` to update the BIOS firmware.
 
 <NewCodeBlock tip="radxa@UEFI-Shell$" type="device">
 
-```
+```bash
 startup.nsh
 ```
 
@@ -245,7 +245,7 @@ The firmware downloaded from the radxa-dl website is in zip format and requires 
 
 <NewCodeBlock tip="user@linux$" type="host">
 
-```
+```bash
 unzip orion-o6-bios-v1.x.x.zip # The BIOS filename for Orion O6N is similar
 cd orion-o6-bios-v1.x.x # Enter the extracted directory
 gzip -d cix_flash_all.bin.gz
@@ -257,7 +257,7 @@ gzip -d cix_flash_all.bin.gz
 
 <NewCodeBlock tip="user@linux$" type="host">
 
-```
+```bash
 sudo apt-get install flashrom
 ```
 
@@ -340,7 +340,7 @@ Insert the assembled programmer into the USB port of a Linux PC.
 
 <NewCodeBlock tip="user@linux$" type="host">
 
-```
+```bash
 sudo flashrom -L | grep ch341
 ```
 
@@ -348,7 +348,7 @@ sudo flashrom -L | grep ch341
 
 If output similar to the following appears, the programmer is recognized successfully:
 
-```
+```text
 Supported USB devices for the ch34la_spi programmer
 ```
 
@@ -356,7 +356,7 @@ Supported USB devices for the ch34la_spi programmer
 
 <NewCodeBlock tip="user@linux$" type="host">
 
-```
+```bash
 sudo flashrom -p ch341a_spi -n
 ```
 
@@ -364,7 +364,7 @@ sudo flashrom -p ch341a_spi -n
 
 If output similar to the following appears, the chip is recognized successfully:
 
-```
+```text
 Found Winbond flash chip "W25Q64.W" (8192 kB, SPI) on ch341a_spi.
 ```
 
@@ -376,7 +376,7 @@ Make sure the `cix_flash_all.bin` file to be flashed is in the current directory
 
 <NewCodeBlock tip="user@linux$" type="host">
 
-```
+```bash
 sudo flashrom -p ch341a_spi -w cix_flash_all.bin
 ```
 
@@ -384,7 +384,7 @@ sudo flashrom -p ch341a_spi -w cix_flash_all.bin
 
 Wait for flashing to complete. The following message indicates successful flashing:
 
-```
+```text
 Verifying flash... VERIFIED.
 ```
 

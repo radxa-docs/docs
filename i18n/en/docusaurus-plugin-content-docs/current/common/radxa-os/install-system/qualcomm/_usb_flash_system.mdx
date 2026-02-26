@@ -12,7 +12,7 @@ You need to copy the extracted system image file to the SPI boot firmware's {pro
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 edl-ng --loader <path-to-loader> --memory <storage-type> write-sector <start-sector> <path-to-image-file>
 ```
 

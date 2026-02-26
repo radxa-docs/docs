@@ -44,7 +44,7 @@ sidebar_position: 9
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 lspci | grep -i net
 ```
 
@@ -52,7 +52,7 @@ lspci | grep -i net
 
 若系统识别正常，终端会输出类似信息：
 
-```
+```text
 0000:01:00.0 Network controller: Realtek Semiconductor Co., Ltd. RTL8852BE PCIe 802.11ax Wireless Network Controller
 ```
 
@@ -66,7 +66,7 @@ nmcli（NetworkManager Command Line Interface）是 NetworkManager 的命令行�
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli radio wifi on
 ```
 
@@ -78,7 +78,7 @@ sudo nmcli radio wifi on
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli device wifi list
 ```
 
@@ -88,7 +88,7 @@ sudo nmcli device wifi list
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
 # 示例
 sudo nmcli device wifi connect wifi-demo password 12345678
@@ -98,7 +98,7 @@ sudo nmcli device wifi connect wifi-demo password 12345678
 
 连接成功后，终端会输出类似如下信息：
 
-```
+```text
 Device 'wlp1s0' successfully activated with 'fb6ae336-87b2-4d36-af8b-ae9ac6b335d4'.
 ```
 
@@ -106,7 +106,7 @@ Device 'wlp1s0' successfully activated with 'fb6ae336-87b2-4d36-af8b-ae9ac6b335d
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -114,7 +114,7 @@ ip a
 
 终端会输出类似如下信息：其中 `192.168.31.231` 就是路由器分配的 IP 地址。
 
-```
+```text
 ···
 4: wlp1s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
     link/ether fc:23:cd:90:8e:04 brd ff:ff:ff:ff:ff:ff
@@ -156,7 +156,7 @@ ip a
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -164,7 +164,7 @@ ip a
 
 终端会输出类似如下信息：其中 `wlp1s0` 就是无线网卡设备名称。
 
-```
+```text
 ···
 4: wlp1s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
     link/ether fc:23:cd:90:8e:04 brd ff:ff:ff:ff:ff:ff
@@ -195,7 +195,7 @@ ip a
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli device wifi hotspot ifname <ifname> con-name <name> ssid <SSID> password <password>
 # 示例
 sudo nmcli device wifi hotspot ifname wlp1s0 con-name My-Hotspot ssid My-Hotspot password 12345678
@@ -212,7 +212,7 @@ sudo nmcli device wifi hotspot ifname wlp1s0 con-name My-Hotspot ssid My-Hotspot
 
 设置成功后，终端会输出类似如下信息：
 
-```
+```text
 Device 'wlp1s0' successfully activated with 'f680a445-8f38-44a0-9f50-cb1a8daafb30'.
 Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 ```
@@ -221,7 +221,7 @@ Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection down My-Hotspot
 ```
 
@@ -231,7 +231,7 @@ sudo nmcli connection down My-Hotspot
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection up My-Hotspot
 ```
 
@@ -241,7 +241,7 @@ sudo nmcli connection up My-Hotspot
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection delete My-Hotspot
 ```
 
@@ -257,7 +257,7 @@ sudo nmcli connection delete My-Hotspot
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 lsusb | grep -i Quectel
 ```
 
@@ -265,7 +265,7 @@ lsusb | grep -i Quectel
 
 若系统识别正常，终端会输出类似信息：
 
-```
+```text
 Bus 005 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
 
@@ -275,7 +275,7 @@ Bus 005 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE m
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ls /dev/cdc-wdm*
 ```
 
@@ -283,7 +283,7 @@ ls /dev/cdc-wdm*
 
 若识别正常，终端会输出类似信息：
 
-```
+```text
 /dev/cdc-wdm0
 ```
 
@@ -293,7 +293,7 @@ ls /dev/cdc-wdm*
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo apt install libqmi-utils modemmanager -y
 ```
 
@@ -303,7 +303,7 @@ sudo apt install libqmi-utils modemmanager -y
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo qmicli -d /dev/cdc-wdm0 -e
 ```
 
@@ -315,7 +315,7 @@ sudo qmicli -d /dev/cdc-wdm0 -e
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo qmicli -d /dev/cdc-wdm0 -w
 ```
 
@@ -329,7 +329,7 @@ sudo qmicli -d /dev/cdc-wdm0 -w
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection add type gsm ifname cdc-wdm0
 ```
 
@@ -337,7 +337,7 @@ sudo nmcli connection add type gsm ifname cdc-wdm0
 
 若创建成功，终端会输出类似信息：
 
-```
+```text
 Connection 'gsm-cdc-wdm0' (6a044568-6947-436e-9b46-51a1f2a9b65d) successfully added.
 ```
 
@@ -347,7 +347,7 @@ Connection 'gsm-cdc-wdm0' (6a044568-6947-436e-9b46-51a1f2a9b65d) successfully ad
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection edit gsm-cdc-wdm0
 ```
 
@@ -355,7 +355,7 @@ sudo nmcli connection edit gsm-cdc-wdm0
 
 终端会自动进入交互式界面，可以输入 `help` 或 `?` 查看帮助信息。
 
-```
+```text
 ===| nmcli interactive connection editor |===
 
 Editing existing 'gsm' connection: 'gsm-cdc-wdm0'
@@ -379,7 +379,7 @@ nmcli> quit
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -387,7 +387,7 @@ ip a
 
 若连接成功，终端会输出类似信息：
 
-```
+```text
 ···
 4: wwan0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
     link/none
@@ -402,7 +402,7 @@ ip a
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo ping baidu.com -I wwan0 -c 5
 ```
 
@@ -410,7 +410,7 @@ sudo ping baidu.com -I wwan0 -c 5
 
 若网络正常，终端会输出类似信息：
 
-```
+```text
 PING baidu.com (220.181.7.203) from 10.10.24.33 wwan0: 56(84) bytes of data.
 64 bytes from 220.181.7.203: icmp_seq=1 ttl=52 time=60.6 ms
 64 bytes from 220.181.7.203: icmp_seq=2 ttl=52 time=59.5 ms

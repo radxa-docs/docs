@@ -52,7 +52,7 @@ Enter the username and password to log into the system, then check if all periph
 
 Confirm USB memory device via lsblk
 
-```
+```bash
 radxa@radxa-cm3j-rpi-cm4-io:~$ lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda            8:0    1   1.9G  0 disk

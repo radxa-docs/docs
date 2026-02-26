@@ -26,7 +26,7 @@ Pay attention to the positive and negative polarity when installing the fan.
 Enter the `rsetup` command in the terminal to configure the fan settings using the Rsetup tool.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>
@@ -58,7 +58,7 @@ A `*` in the option box indicates that the option is enabled.
 1. Use the `ls` command to view the registered fan devices in the system.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 ls /sys/devices/platform/ | grep fan
 ```
 </NewCodeBlock>
@@ -66,7 +66,7 @@ ls /sys/devices/platform/ | grep fan
 Terminal will display output similar to:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 pwm-fan
 radxa-poe-fan
 ```
@@ -82,7 +82,7 @@ The fan's PWM control files are typically located in the `/sys/class/hwmon/` dir
 Use the `ls` command to view the PWM control files for the `pwm-fan` device.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 ls /sys/class/hwmon/
 ```
 </NewCodeBlock>
@@ -90,7 +90,7 @@ ls /sys/class/hwmon/
 The terminal will display output similar to:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 hwmon0  hwmon1  hwmon2  hwmon3  hwmon4  hwmon5  hwmon6  hwmon7
 ```
 </NewCodeBlock>
@@ -100,14 +100,14 @@ hwmon0  hwmon1  hwmon2  hwmon3  hwmon4  hwmon5  hwmon6  hwmon7
 Use the `ls` command to view the PWM control files for the `pwm-fan` device in the `hwmon` directory.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 ls -l /sys/class/hwmon/hwmon*/device
 ```
 </NewCodeBlock>
 
 The terminal will display output similar to:
 
-```
+```text
 /sys/class/hwmon/hwmon0/device -> ../../thermal_zone0
 /sys/class/hwmon/hwmon1/device -> ../../thermal_zone1
 /sys/class/hwmon/hwmon2/device -> ../../thermal_zone2
@@ -128,7 +128,7 @@ Use the `echo` command to set the fan speed: The PWM control range is typically 
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 
-```
+```bash
 echo 255 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 ```
 
@@ -138,7 +138,7 @@ echo 255 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 
-```
+```bash
 echo 128 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 ```
 
@@ -147,7 +147,7 @@ echo 128 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 - Turn Off Fan
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 echo 0 | sudo tee /sys/class/hwmon/hwmon7/pwm1
 ```
 </NewCodeBlock>

@@ -74,7 +74,7 @@ sudo apt install dkms
   解压下载的压缩包，进入 LiveSuit 目录，运行下面命令给文件添加可执行权限。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 sudo chmod +x LiveSuit.run
 ```
 </NewCodeBlock>
@@ -84,14 +84,14 @@ sudo chmod +x LiveSuit.run
 运行 `LiveSuit.run` 文件安装程序。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 ./LiveSuit.run
 ```
 </NewCodeBlock>
 
 程序安装成功后，会输出类似以下信息：其中 `user_name` 为当前登录的用户名。
 
-```
+```text
 ========***********LiveSuit installed completely***********===========
 LiveSuit  has been installed in /home/user_name/Bin/livesuit
 ========***********LiveSuit installed completely***********===========
@@ -102,7 +102,7 @@ LiveSuit  has been installed in /home/user_name/Bin/livesuit
 进入程序目录，输入下面命令运行 LiveSuit 工具。
 <NewCodeBlock tip="Host-Linux$" type="host">
 
-```
+```bash
 sudo ./LiveSuit
 ```
 
@@ -116,7 +116,7 @@ sudo ./LiveSuit
 若运行程序提示有关找不到 `libpng12.so.0` 的错误，可以运行以下命令解决。
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 mkdir libpng
 cd libpng/
 wget https://ppa.launchpadcontent.net/linuxuprising/libpng12/ubuntu/pool/main/libp/libpng/libpng_1.2.54.orig.tar.xz

@@ -21,14 +21,14 @@ sidebar_position: 8
 使用 `lsblk` 命令查看当前系统的 NVMe 设备信息。
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
 
 输出示例：
 
-```
+```text
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 ···
 nvme0n1     259:39   0 119.2G  0 disk
@@ -44,7 +44,7 @@ nvme0n1     259:39   0 119.2G  0 disk
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo dd if=source_file/device of=target_file/device bs=block_size count=block_number
 ```
 
@@ -68,7 +68,7 @@ sudo dd if=source_file/device of=target_file/device bs=block_size count=block_nu
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=1024
 ```
 
@@ -82,7 +82,7 @@ sudo dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=1024
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024
 ```
 

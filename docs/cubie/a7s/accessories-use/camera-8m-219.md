@@ -30,7 +30,7 @@ import Camera8M219 from '../../../common/accessories/\_camera-8m-219.mdx';
 
 <NewCodeBlock tip="radxa@cubie-a7s$" type="device">
 
-```
+```bash
 DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=0 ! video/x-raw,format=NV12,width=3280,height=2464,framerate=24/1  ! xvimagesink
 ```
 

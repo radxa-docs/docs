@@ -31,14 +31,14 @@ USB Type-A 接口具体位置可以查看 [硬件接口](./hardware-info) 教程
 使用 `lsusb` 命令查看 USB 设备列表。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsusb
 ```
 </NewCodeBlock>
 
 终端输出示例：
 
-```
+```text
 Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 003: ID a69c:8d80 aicsemi AIC Wlan
 Bus 003 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
@@ -52,14 +52,14 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 使用 `lsusb` 命令查看 USB 设备列表，观察是否识别到连接的 USB 外设。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsusb
 ```
 </NewCodeBlock>
 
 终端输出示例：我在 USB 接口连接了一个读卡器
 
-```
+```text
 Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 003: ID a69c:8d80 aicsemi AIC Wlan
 Bus 003 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
@@ -80,14 +80,14 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 使用 `lsblk` 命令确认 U 盘的设备名称。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
 
 终端输出示例：其中 `sda` 为 我当前 U 盘设备名称，请根据实际情况替换。
 
-```
+```text
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1   58G  0 disk
 mtdblock0    31:0    0   16M  0 disk
@@ -101,7 +101,7 @@ zram0       253:0    0  1.9G  0 disk [SWAP]
 #### 测试写入性能
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 ```
 </NewCodeBlock>
@@ -116,7 +116,7 @@ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 
 终端输出示例：
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 3.40424 s, 30.8 MB/s
@@ -125,7 +125,7 @@ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 #### 测试读取性能
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 ```
 </NewCodeBlock>
@@ -140,7 +140,7 @@ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 
 终端输出示例：
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 4.0582 s, 25.8 MB/s

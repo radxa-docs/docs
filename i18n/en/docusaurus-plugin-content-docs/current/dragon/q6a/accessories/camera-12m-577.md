@@ -16,7 +16,7 @@ Use libcamera to preview the camera image.
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install build-essential git pkg-config -y
 sudo apt install meson ninja-build -y
@@ -45,7 +45,7 @@ sudo apt install \
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
-```
+```bash
 git clone https://git.linuxtv.org/libcamera.git
 cd libcamera
 meson setup build --wipe \
@@ -66,7 +66,7 @@ sudo ldconfig
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
-```
+```bash
 sudo chmod 666 /dev/dma_heap/*
 ```
 
@@ -78,7 +78,7 @@ Open the system desktop terminal, go to the libcamera build directory, and start
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
-```
+```bash
 cd libcamera/build/src/apps/qcam/
 ./qcam --renderer=gles --stream pixelformat=YUYV,width=1920,height=1080
 ```

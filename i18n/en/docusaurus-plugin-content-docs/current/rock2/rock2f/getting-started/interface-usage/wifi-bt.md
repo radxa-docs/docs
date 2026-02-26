@@ -8,25 +8,25 @@ sidebar_position: 3
 
 - First, enter ROOT user mode.
 
-```
+```bash
 sudo su
 ```
 
 - Turn on Wi-Fi.
 
-```
+```bash
 nmcli r wifi on
 ```
 
 - Scan for Wi-Fi networks.
 
-```
+```bash
 nmcli dev wifi
 ```
 
 - Connect to the Wi-Fi network.
 
-```
+```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
@@ -34,19 +34,19 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 - Test the status of the Bluetooth module and check for Bluetooth devices.
 
-```
+```bash
 # systemctl status bluetooth
 ```
 
 - Run the Bluetooth devices.
 
-```
+```bash
 # systemctl start bluetooth
 ```
 
 - Detect Bluetooth Devices
 
-```
+```bash
 # hciconfig
 hci0:   Type: Primary  Bus: USB
         BD Address: 88:00:01:00:00:A2  ACL MTU: 1021:9  SCO MTU: 255:4
@@ -57,19 +57,19 @@ hci0:   Type: Primary  Bus: USB
 
 - Testing: Connect to a Bluetooth Speaker, First, install pulseaudio:
 
-```
+```bash
 # apt-get install -y pulseaudio-module-bluetooth pulseaudio
 ```
 
 - Run pulseaudio
 
-```
+```bash
 # pulseaudio --start
 ```
 
 - Using pulseaudio to Connect
 
-```
+```bash
 # bluetoothctl
 [bluetooth]# default-agent
 [bluetooth]# power on

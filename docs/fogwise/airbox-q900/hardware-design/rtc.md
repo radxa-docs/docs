@@ -28,14 +28,14 @@ sidebar_position: 11
 使用以下命令来确认 RTC 硬件是否正常工作。
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
-```
+```bash
 sudo dmesg | grep rtc
 ```
 </NewCodeBlock>
 
 终端输出类似信息：`registered as rtc0`，说明 RTC 电池被正确识别。
 
-```
+```text
 [    6.259233] rtc-ds1307 10-0068: registered as rtc0
 [    6.260658] rtc-ds1307 10-0068: setting system clock to 2025-08-06T08:39:15 UTC (1754469555)
 ```
@@ -46,7 +46,7 @@ sudo dmesg | grep rtc
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install util-linux util-linux-extra -y
 sudo hwclock -r -f /dev/rtc0
@@ -60,7 +60,7 @@ sudo hwclock -r -f /dev/rtc0
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 date
 ```
 
@@ -71,7 +71,7 @@ date
 若 RTC 时间和系统时间不一致，可以使用 `hwclock` 命令将系统当前时间写入 RTC。
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
-```
+```bash
 sudo hwclock -w -f /dev/rtc0
 ```
 </NewCodeBlock>

@@ -17,7 +17,7 @@ sidebar_position: 12
 成功启动系统后，可以使用以下命令查看 WiFi 信号强度：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo nmcli device wifi list
 ```
 </NewCodeBlock>

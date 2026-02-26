@@ -10,7 +10,7 @@ import Serial from "../../../common/general/\_serial.mdx"
 
 The user name and password added by default to the ROCK 3C series are:
 
-```
+```text
 User name：radxa
 Password： radxa
 ```

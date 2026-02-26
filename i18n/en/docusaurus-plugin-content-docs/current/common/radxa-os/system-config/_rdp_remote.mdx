@@ -8,7 +8,7 @@ Install and enable the RDP service on the board so that Windows, Ubuntu, or macO
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install xrdp plasma-workspace xorg dbus-x11 -y
 ```
@@ -21,7 +21,7 @@ Use `vim` to open `/etc/xrdp/startwm.sh`, then replace its contents with the scr
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 #!/bin/sh
 # xrdp X session start script (c) 2015, 2017, 2021 mirabilos
 # published under The MirOS Licence
@@ -49,7 +49,7 @@ Enable the RDP service so it launches automatically on boot.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl enable --now xrdp
 ```
 
@@ -119,7 +119,7 @@ If Remmina is missing, install it with the command below.
 
 <NewCodeBlock tip={`Ubuntu$`} type="host">
 
-```
+```bash
 sudo apt install remmina -y
 ```
 

@@ -85,19 +85,19 @@ cd bsp
 
 编译完成后会在当前目录生成许多 `deb`包，只需要安装下面的 `deb` 即可
 
-```
+```text
 u-boot-rk2410_2017.09-999_arm64.deb
 ```
 
 将上面两个 `deb` 包复制到板子上使用 `dpkg` 指令安装即可完成 U-Boot 安装
 
-```
+```bash
 sudo dpkg -i u-boot-rk2410_2017.09-999_arm64.deb
 ```
 
 安装完成后需要将 U-Boot 刷到启动介质中
 
-```
+```text
 cd /usr/lib/u-boot/rock-5b/                     # rock-5b 为你当前使用的型号，需要根据实际使用的设备来选择
 sudo ./setup.sh update_bootloader /dev/mmcblk1  # /dev/mmcblk1 为你当前使用的启动介质，需要根据实际使用的设备来选择
 sudo reboot

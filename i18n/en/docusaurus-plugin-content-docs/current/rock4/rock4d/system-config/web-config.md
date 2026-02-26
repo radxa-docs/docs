@@ -33,14 +33,14 @@ Connect the Radxa ROCK 4D's Gigabit Ethernet port to your router using an Ethern
 Enter the following command in the terminal to view detailed network connection information:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 ip a
 ```
 </NewCodeBlock>
 
 The terminal will output information similar to the following. The IP address `192.168.2.106` is assigned by the router.
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -104,7 +104,7 @@ The IP address `192.168.31.53` is assigned by the router.
 1. Enable WiFi
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo nmcli radio wifi on
 ```
 </NewCodeBlock>
@@ -112,7 +112,7 @@ sudo nmcli radio wifi on
 2. Search for nearby WiFi networks
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo nmcli device wifi list
 ```
 </NewCodeBlock>
@@ -120,7 +120,7 @@ sudo nmcli device wifi list
 3. Connect to a WiFi network
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
 # Example
 sudo nmcli device wifi connect wifi_demo password 12345678
@@ -130,14 +130,14 @@ sudo nmcli device wifi connect wifi_demo password 12345678
 4. View network connection details
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 ip a
 ```
 </NewCodeBlock>
 
 The terminal will output information similar to the following. The IP address `192.168.31.53` is assigned by the router.
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo

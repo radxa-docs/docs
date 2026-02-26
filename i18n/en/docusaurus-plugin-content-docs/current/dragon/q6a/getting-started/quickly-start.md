@@ -212,7 +212,7 @@ Open a terminal and run `sudo rsetup` to launch the `Rsetup` tool:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo rsetup
 ```
 

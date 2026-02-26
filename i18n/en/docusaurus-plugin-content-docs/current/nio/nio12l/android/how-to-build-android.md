@@ -15,7 +15,7 @@ Please send an email to support@radxa.com to contact us.
 - x86 PC
 - Ubuntu 20.04 or Later Version
 
-```
+```text
  sudo apt-get install python3
  sudo apt-get install python-pip && pip install pycrypto
  sudo apt-get install bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf lib32z-dev lib32z1 libc6-dev-i386 \
@@ -25,7 +25,7 @@ Please send an email to support@radxa.com to contact us.
 
 #### Build Commands
 
-```
+```text
  . build/envsetup.sh
  lunch  full_radxa_g1200-userdebug //nio 12l
  make pl

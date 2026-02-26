@@ -27,14 +27,14 @@ To use the RTC connector, connect an RTC battery with the following specificatio
 To verify if the system recognizes the RTC battery, run the following command in the terminal:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo dmesg | grep rtc
 ```
 </NewCodeBlock>
 
 If the RTC battery is properly recognized, you should see output similar to `rtc information is valid`:
 
-```
+```text
 [    8.145303] [drm] Esmart1-win0(possible_vp_mask = 0x00000006) has no possible crtcs
 [    8.145370] [drm] Esmart3-win0(possible_vp_mask = 0x00000006) has no possible crtcs
 [    8.153133] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
@@ -50,7 +50,7 @@ If the RTC battery is properly recognized, you should see output similar to `rtc
 To read the current time from the RTC chip (/dev/rtc0), use the `hwclock` command:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo hwclock -r -f /dev/rtc0
 ```
 </NewCodeBlock>
@@ -60,7 +60,7 @@ sudo hwclock -r -f /dev/rtc0
 To view the current system time, use the `date` command:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 date
 ```
 </NewCodeBlock>
@@ -70,7 +70,7 @@ date
 If the RTC time doesn't match the system time, you can write the current system time to the RTC using:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo hwclock -w -f /dev/rtc0
 ```
 </NewCodeBlock>

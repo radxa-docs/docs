@@ -162,7 +162,7 @@ alias minicom='minicom -w -t xterm -l -R UTF-8'
 
 创建并且编辑文件 ~/.minirc.1500000-usb0，添加下列内容：
 
-```
+```text
 pu port             /dev/ttyUSB0
 pu baudrate         1500000
 pu bits             8

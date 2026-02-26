@@ -52,7 +52,7 @@ You can use the `wget` command to download the system image file to your device.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install wget -y
 wget <download_url>
@@ -70,7 +70,7 @@ Our system images are generally in `*.img.xz` format and need to be extracted be
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt install xz-utils -y
 unxz <path_to_image_unxz>
 ```
@@ -91,7 +91,7 @@ Note: If the disk capacities are similar, you can safely remove and reinsert the
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 lsblk
 ```
 
@@ -101,7 +101,7 @@ If the system recognizes the eMMC device, it will typically be identified as a `
 
 Terminal output example:
 
-```
+```text
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 ···
 mmcblk1      179:0    0 29.1G  0 disk
@@ -115,7 +115,7 @@ Use the `dd` command to install the system image to the eMMC.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo dd if=<path_to_image> of=<device_target> bs=4M status=progress
 ```
 
@@ -143,7 +143,7 @@ After the system installation is complete, you can use the `lsblk` command to ch
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 lsblk
 ```
 
@@ -151,7 +151,7 @@ lsblk
 
 Terminal output example:
 
-```
+```text
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 ···
 mmcblk0      179:0    0 29.1G  0 disk

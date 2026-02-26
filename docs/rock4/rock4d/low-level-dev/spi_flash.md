@@ -57,14 +57,14 @@ SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化�
 使用 rkdeveloptool ld 命令查看识别到的设备信息：
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 输出类似内容：说明识别到一个 Maskrom 设备
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -73,7 +73,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 你需要将 `demo.bin` 换成 ROCK 4D 对应的 Loader 文件，可以去 [资源汇总下载](../download) 下载 Loader 文件。
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool db  demo.bin
 ```
 </NewCodeBlock>
@@ -81,7 +81,7 @@ sudo rkdeveloptool db  demo.bin
 4. 擦除 SPI Flash
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool ef
 ```
 </NewCodeBlock>
@@ -89,7 +89,7 @@ sudo rkdeveloptool ef
 5. 重启系统，擦除 SPI Flash 的操作生效
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>
@@ -133,14 +133,14 @@ sudo rkdeveloptool rd
 使用 rkdeveloptool ld 命令查看识别到的设备信息：
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 输出类似内容：说明识别到一个 Maskrom 设备
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -149,7 +149,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 你需要将 `demo.bin` 换成 ROCK 4D 对应的 Loader 文件，可以去 [资源汇总下载](../download) 下载 Loader 文件。
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool db  demo.bin
 ```
 </NewCodeBlock>
@@ -159,7 +159,7 @@ sudo rkdeveloptool db  demo.bin
 你需要将 `spi.img` 换成 ROCK 4D 对应的 SPI 启动固件，可以去 [资源汇总下载](../download) 下载 SPI 启动固件。
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool wl 0 spi.img
 ```
 </NewCodeBlock>
@@ -167,7 +167,7 @@ sudo rkdeveloptool wl 0 spi.img
 5. 重启系统，烧录 SPI Flash 的操作生效
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>

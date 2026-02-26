@@ -97,7 +97,7 @@ import { Section, Image } from "@site/src/utils/docs";
 <Section compatible="aml" platform={props.platform}>
 基于 Amlogic 芯片的瑞莎产品的串口默认配置如下：
 
-```
+```text
 baudrate: 115200
 data bit: 8
 stop bit: 1
@@ -110,7 +110,7 @@ flow control: none
 <Section compatible="mtk" platform={props.platform}>
 基于 MediaTek 芯片的瑞莎产品的串口默认配置如下：
 
-```
+```text
 baudrate: 921600
 data bit: 8
 stop bit: 1
@@ -123,7 +123,7 @@ flow control: none
 <Section compatible="rk" platform={props.platform}>
 基于 Rockchip 芯片的瑞莎产品的串口默认配置如下：
 
-```
+```text
 baudrate: 1500000
 data bit: 8
 stop bit: 1
@@ -261,7 +261,7 @@ alias minicom='minicom -w -t xterm -l -R UTF-8'
 <Section compatible="aml" platform={props.platform}>
 创建并且编辑文件 ~/.minirc.115200-usb0，添加下列内容：
 
-```
+```text
 pu port             /dev/ttyUSB0
 pu baudrate         115200
 pu bits             8
@@ -281,7 +281,7 @@ minicom 115200-usb0
 <Section compatible="mtk" platform={props.platform}>
 创建并且编辑文件 ~/.minirc.921600-usb0，添加下列内容：
 
-```
+```text
 pu port             /dev/ttyUSB0
 pu baudrate         921600
 pu bits             8
@@ -301,7 +301,7 @@ minicom 921600-usb0
 <Section compatible="rk" platform={props.platform}>
 创建并且编辑文件 ~/.minirc.1500000-usb0，添加下列内容：
 
-```
+```text
 pu port             /dev/ttyUSB0
 pu baudrate         1500000
 pu bits             8

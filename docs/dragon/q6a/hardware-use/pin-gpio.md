@@ -57,7 +57,7 @@ Dragon Q6A 支持给板载的 GPIO 引脚外接外部设备，支持 UART、SPI�
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install -y python3-periphery -y
 ```
@@ -82,7 +82,7 @@ sudo apt install -y python3-periphery -y
 <details>
 <summary>gpio_output_input.py</summary>
 
-```
+```text
 from periphery import GPIO
 import time
 

@@ -38,7 +38,7 @@ Run `rsetup` in the terminal to start the Rsetup tool:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rsetup
 ```
 

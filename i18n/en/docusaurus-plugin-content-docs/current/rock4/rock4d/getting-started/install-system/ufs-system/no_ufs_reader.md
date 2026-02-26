@@ -44,7 +44,7 @@ You can also transfer the system image file to your ROCK 4D using other methods 
 :::
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 # Install wget if not already installed
 sudo apt-get install wget
 # Download the system image file
@@ -77,7 +77,7 @@ UFS Module Installation Steps:
 Use the following command to extract and write the compressed system image directly to the UFS module. Modify the filename according to the actual system image you downloaded.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/sda bs=1M status=progress
 ```
 </NewCodeBlock>
@@ -93,14 +93,14 @@ sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/s
 After writing is complete, verify that the partition table was created correctly on the UFS module:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo fdisk -l /dev/sda
 ```
 </NewCodeBlock>
 
 If successful, you should see partition information similar to:
 
-```
+```text
 Disk /dev/sda: 119.15 GiB, 127934660608 bytes, 31234048 sectors
 Disk model: KLUDG4UHDC-B0E1
 Units: sectors of 1 \* 4096 = 4096 bytes
@@ -155,14 +155,14 @@ When the system boots, both the blue and green LED indicators will light up. Aft
 After the system boots, you can check the partition information using the `lsblk` command:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo lsblk
 ```
 </NewCodeBlock>
 
 If you see `/dev/sda3` mounted as the root directory `/`, it means the system has successfully booted from the UFS module.
 
-```
+```text
 NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
 sda 8:0 0 119.1G 0 disk
 ├─sda1 8:1 0 128M 0 part /config

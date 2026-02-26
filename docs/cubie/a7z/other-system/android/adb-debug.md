@@ -44,7 +44,7 @@ Cubie A7Z 的 Type-C 接口支持供电和 OTG 功能，我们可以使用 Type-
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb version
 ```
 
@@ -52,7 +52,7 @@ Cubie A7Z 的 Type-C 接口支持供电和 OTG 功能，我们可以使用 Type-
 
 运行成功会显示 ADB 工具的版本信息，类似以下信息：
 
-```
+```text
 Android Debug Bridge version 1.0.41
 Version 36.0.0-13206524
 ```
@@ -93,7 +93,7 @@ Cubie A7Z 的 Android 系统默认开启 USB 调试功能，Android 11 版本以
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb devices
 ```
 
@@ -101,7 +101,7 @@ Cubie A7Z 的 Android 系统默认开启 USB 调试功能，Android 11 版本以
 
 运行成功会显示设备列表，类似以下信息：
 
-```
+```text
 List of devices attached
 7c0016117200887238d	device
 ```
@@ -115,7 +115,7 @@ List of devices attached
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb shell
 ```
 
@@ -123,7 +123,7 @@ List of devices attached
 
 连接成功后会显示 Android 设备的终端 Shell，类似以下信息：
 
-```
+```text
 radxa-A7Z:/ $
 ```
 
@@ -134,7 +134,7 @@ radxa-A7Z:/ $
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb connect <device_ip:port>
 
 # 示例
@@ -147,7 +147,7 @@ radxa-A7Z:/ $
 
 连接成功后会显示类似以下信息：
 
-```
+```text
 already connected to 192.168.31.201:43167
 ```
 
@@ -155,7 +155,7 @@ already connected to 192.168.31.201:43167
 
 <NewCodeBlock tip="Host-PC$" type="device">
 
-```
+```bash
 ./adb shell
 ```
 
@@ -163,7 +163,7 @@ already connected to 192.168.31.201:43167
 
 进入成功后会显示 Android 设备的终端 Shell，类似以下信息：
 
-```
+```text
 radxa-A7Z:/ $
 ```
 

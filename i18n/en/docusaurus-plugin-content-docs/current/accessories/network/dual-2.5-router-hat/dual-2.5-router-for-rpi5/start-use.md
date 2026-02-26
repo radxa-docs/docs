@@ -49,7 +49,7 @@ sudo nano /boot/firmware/config.txt
 
 2. Add the following line at the end of the file:
 
-```
+```text
 dtparam=pciex1
 ```
 
@@ -115,7 +115,7 @@ sudo nano /boot/firmware/config.txt
 
 2. Add the following line:
 
-```
+```text
 dtparam=pciex1_gen=3
 ```
 
@@ -211,7 +211,7 @@ sudo nano /etc/dhcpcd.conf
 
 Add the following lines to assign static IPs to your network interfaces:
 
-```
+```text
 interface eth1
 static ip_address=192.168.1.100/24
 static routers=192.168.1.1

@@ -44,7 +44,7 @@ You can use the `lspci` command to check if the wireless network card is properl
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 lspci | grep -i net
 ```
 
@@ -52,7 +52,7 @@ lspci | grep -i net
 
 If the system recognizes it correctly, the terminal will display output similar to:
 
-```
+```text
 0000:01:00.0 Network controller: Realtek Semiconductor Co., Ltd. RTL8852BE PCIe 802.11ax Wireless Network Controller
 ```
 
@@ -66,7 +66,7 @@ nmcli (NetworkManager Command Line Interface) is a command-line management tool 
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli radio wifi on
 ```
 
@@ -78,7 +78,7 @@ If no WiFi networks are found after enabling WiFi, try restarting the system.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli device wifi list
 ```
 
@@ -88,7 +88,7 @@ sudo nmcli device wifi list
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
 # Example
 sudo nmcli device wifi connect wifi-demo password 12345678
@@ -98,7 +98,7 @@ sudo nmcli device wifi connect wifi-demo password 12345678
 
 After a successful connection, the terminal will display output similar to:
 
-```
+```text
 Device 'wlp1s0' successfully activated with 'fb6ae336-87b2-4d36-af8b-ae9ac6b335d4'.
 ```
 
@@ -106,7 +106,7 @@ Device 'wlp1s0' successfully activated with 'fb6ae336-87b2-4d36-af8b-ae9ac6b335d
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -114,7 +114,7 @@ ip a
 
 The terminal will display output similar to the following, where `192.168.31.231` is the IP address assigned by the router:
 
-```
+```text
 ...
 4: wlp1s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
     link/ether fc:23:cd:90:8e:04 brd ff:ff:ff:ff:ff:ff
@@ -156,7 +156,7 @@ Use the `ip a` command to find the wireless network interface name.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -164,7 +164,7 @@ ip a
 
 The terminal will display output similar to the following, where `wlp1s0` is the wireless network interface name:
 
-```
+```text
 ...
 4: wlp1s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
     link/ether fc:23:cd:90:8e:04 brd ff:ff:ff:ff:ff:ff
@@ -195,7 +195,7 @@ Open the system terminal and enter the following command to set up a WiFi hotspo
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli device wifi hotspot ifname <ifname> con-name <name> ssid <SSID> password <password>
 # Example
 sudo nmcli device wifi hotspot ifname wlp1s0 con-name My-Hotspot ssid My-Hotspot password 12345678
@@ -212,7 +212,7 @@ Parameter description: This creates a WiFi hotspot named `My-Hotspot` with passw
 
 After successful setup, the terminal will display output similar to:
 
-```
+```text
 Device 'wlp1s0' successfully activated with 'f680a445-8f38-44a0-9f50-cb1a8daafb30'.
 Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 ```
@@ -221,7 +221,7 @@ Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection down My-Hotspot
 ```
 
@@ -231,7 +231,7 @@ sudo nmcli connection down My-Hotspot
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection up My-Hotspot
 ```
 
@@ -241,7 +241,7 @@ sudo nmcli connection up My-Hotspot
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection delete My-Hotspot
 ```
 
@@ -257,7 +257,7 @@ You can use the `lsusb` command to check if the 4G/5G module is properly recogni
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 lsusb | grep -i Quectel
 ```
 
@@ -265,7 +265,7 @@ lsusb | grep -i Quectel
 
 If the system recognizes it correctly, the terminal will display output similar to:
 
-```
+```text
 Bus 005 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
 
@@ -275,7 +275,7 @@ Use the `ls` command to check if the system has properly enumerated the `cdc-wdm
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ls /dev/cdc-wdm*
 ```
 
@@ -283,7 +283,7 @@ ls /dev/cdc-wdm*
 
 If recognized correctly, the terminal will display output similar to:
 
-```
+```text
 /dev/cdc-wdm0
 ```
 
@@ -293,7 +293,7 @@ Install the necessary packages for dial-up networking.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo apt install libqmi-utils modemmanager -y
 ```
 
@@ -303,7 +303,7 @@ sudo apt install libqmi-utils modemmanager -y
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo qmicli -d /dev/cdc-wdm0 -e
 ```
 
@@ -315,7 +315,7 @@ This should be set to `raw-ip`. If not, use `sudo qmicli -d /dev/cdc-wdm0 -E raw
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo qmicli -d /dev/cdc-wdm0 -w
 ```
 
@@ -329,7 +329,7 @@ Use the `nmcli` command to create a network interface configuration.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection add type gsm ifname cdc-wdm0
 ```
 
@@ -337,7 +337,7 @@ sudo nmcli connection add type gsm ifname cdc-wdm0
 
 If successful, the terminal will display output similar to:
 
-```
+```text
 Connection 'gsm-cdc-wdm0' (6a044568-6947-436e-9b46-51a1f2a9b65d) successfully added.
 ```
 
@@ -347,7 +347,7 @@ This step is optional. If you experience network connection issues, you may need
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo nmcli connection edit gsm-cdc-wdm0
 ```
 
@@ -355,7 +355,7 @@ sudo nmcli connection edit gsm-cdc-wdm0
 
 The terminal will enter an interactive interface. Type `help` or `?` to see available commands.
 
-```
+```text
 ===| nmcli interactive connection editor |===
 
 Editing existing 'gsm' connection: 'gsm-cdc-wdm0'
@@ -379,7 +379,7 @@ Use the `ip a` command to check if the `wwan0` interface has been assigned an IP
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -387,7 +387,7 @@ ip a
 
 If connected successfully, the terminal will display output similar to:
 
-```
+```text
 ...
 4: wwan0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
     link/none
@@ -402,7 +402,7 @@ Test the network connection using the `ping` command.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo ping baidu.com -I wwan0 -c 5
 ```
 
@@ -410,7 +410,7 @@ sudo ping baidu.com -I wwan0 -c 5
 
 If the network is functioning properly, the terminal will display output similar to:
 
-```
+```text
 PING baidu.com (220.181.7.203) from 10.10.24.33 wwan0: 56(84) bytes of data.
 64 bytes from 220.181.7.203: icmp_seq=1 ttl=52 time=60.6 ms
 64 bytes from 220.181.7.203: icmp_seq=2 ttl=52 time=59.5 ms

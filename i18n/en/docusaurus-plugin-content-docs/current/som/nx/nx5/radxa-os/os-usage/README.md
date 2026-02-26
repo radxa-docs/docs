@@ -12,7 +12,7 @@ Introduces system login, network connection, etc to let user to be familiar with
 
 The user name and password added by default to the Radxa ZERO 3 series are:
 
-```
+```text
 User name：radxa/rock
 Password： radxa/rock
 ```
@@ -25,7 +25,7 @@ Password： radxa/rock
 
 ### Connect WiFi
 
-```
+```bash
 nmcli device wifi                                           #Scan WiFi
 sudo nmcli device wifi connect <ssid> password <passwd>     #Connect WiFi
 ```
@@ -36,7 +36,7 @@ sudo nmcli device wifi connect <ssid> password <passwd>     #Connect WiFi
 
 For faster access to the desktop, you can set the desktop to log you in automatically by modifying the `/etc/lightdm/lightdm.conf` file.
 
-```
+```bash
 sudo vim /etc/lightdm/lightdm.conf
 Find [Seat:*] configured #autologin-user= ,modify this configuration to the user you need to log in as
 
@@ -51,13 +51,13 @@ autologin-user-timeout=0
 
 1. Install Simplified Chinese fonts:
 
-```
+```bash
 sudo apt-get install fonts-wqy-zenhei
 ```
 
 2. Set the system language to Chinese desktop:
 
-```
+```bash
 sudo dpkg-reconfigure locales
 ```
 
@@ -69,7 +69,7 @@ sudo dpkg-reconfigure locales
 
 4. Just reboot the system
 
-```
+```bash
 sudo reboot
 ```
 
@@ -83,7 +83,7 @@ After connecting to the network, you can use SSH to debug remotely, the official
 
 - Debian/Ubuntu
 
-```
+```bash
 ssh [username]@[hostname]
 or
 ssh [username]@[IP address]
@@ -106,7 +106,7 @@ Click `Session` in the upper left corner to create a new SSH connection, enter t
 
 1. Installing TigerVNC Server and dbus-x11 dependencies
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install tigervnc-standalone-server
 sudo apt-get install dbus-x11
@@ -114,7 +114,7 @@ sudo apt-get install dbus-x11
 
 2. To complete the initial configuration of the VNC server after installation, use the vncserver command to set the security password and create the initial configuration file:
 
-```
+```text
 vncserver
 ```
 
@@ -125,7 +125,7 @@ Prompt whether just watch, it is recommended to choose no, enter n, so that the 
 
 3. Configuring the VNC Server
 
-```
+```text
 vncserver -kill :*
 touch ~/.vnc/xstartup
 chmod +x ~/.vnc/xstartup
@@ -133,7 +133,7 @@ chmod +x ~/.vnc/xstartup
 
 Edit `~/.vnc/xstartup`, copy the following configuration in and save it
 
-```
+```text
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -148,13 +148,13 @@ startkde &
 
 4. Once the configuration is edited, restart the VNC server:
 
-```
+```text
 vncserver -localhost no
 ```
 
 5. Viewing the VNC Server
 
-```
+```bash
 radxa@radxa-zero3:~$ vncserver -list
 
 TigerVNC server sessions:

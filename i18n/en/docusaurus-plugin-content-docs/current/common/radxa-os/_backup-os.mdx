@@ -144,7 +144,7 @@ mount /dev/sdx3 $ROOT_MOUNT_POINT # Replace /dev/sdx3 with the actual partition 
 
 ```bash
 sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT
-# sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o xxx.img
+# sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o <backup-file>.img
 ```
 
 :::info
@@ -204,7 +204,7 @@ Do you want to apt-get install the packages? [y/N]
 ```text
 --------------------
 Checking disk...
-The backup file will be saved at /home/radxa/xxx.img
+The backup file will be saved at /home/radxa/<backup-file>.img
 After this operation, 4560 MB of additional disk space will be
 
  used.
@@ -221,7 +221,7 @@ Do you want to continue? [y/N]
 
 ```text
 Checking disk...
-The backup file will be saved at /home/radxaxxx.img
+The backup file will be saved at /home/radxa/<backup-file>.img
 After this operation, 4560 MB of additional disk space will be used.
 
 Do you want to continue? [y/N] y
@@ -264,7 +264,7 @@ Total bytes received: 2,241,928
 sent 3,879,593,182 bytes  received 2,241,928 bytes  11,962,511.90 bytes/sec
 total size is 4,588,642,152  speedup is 1.18
 
-Backup done, the file is /home/radxa/xxx.img
+Backup done, the file is /home/radxa/<backup-file>.img
 ```
 
 </div>
@@ -280,22 +280,22 @@ Command reference:
 <TabItem value="online" label="Online Backup" default>
 
 ```bash
-sudo ./rockpi-backup.sh -o xxx.img # Rename without changing the output location
+sudo ./rockpi-backup.sh -o <backup-file>.img # Rename without changing the output location
 
 sudo ./rockpi-backup.sh -o /mnt/sda1/ # Do not rename, change the output location
 
-sudo ./rockpi-backup.sh -o /mnt/sda1/xxx.img # Rename and change the output location
+sudo ./rockpi-backup.sh -o /mnt/sda1/<backup-file>.img # Rename and change the output location
 ```
 
 </TabItem>
 <TabItem value="offline" label="Offline Backup">
 
 ```bash
-sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o xxx.img # Rename without changing the output location
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o <backup-file>.img # Rename without changing the output location
 
 sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/ # Do not rename, change the output location
 
-sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/xxx.img # Rename and change the output location
+sudo ./rockpi-backup.sh -m $ROOT_MOUNT_POINT -o /mnt/sda1/<backup-file>.img # Rename and change the output location
 ```
 
 </TabItem>
@@ -382,7 +382,7 @@ If your system to be backed up is installed on removable media.
 Connect your installation media to your computer via USB or other means, and perform the following steps.
 
 ```bash
-dd if=/dev/sdx of=xxx.img bs=4M status=progress # Replace /dev/sdx with the actual device path, and replace xxx.img with the output file name
+dd if=/dev/sdx of=<backup-file>.img bs=4M status=progress # Replace /dev/sdx with the actual device path, and replace <backup-file>.img with the output file name
 ```
 
 ## Restore System

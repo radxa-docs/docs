@@ -24,19 +24,19 @@ Currently, the tool supports the following six operations:
 ### View Brief `bmodel` Information
 
 ```bash
-tpu_model --info xxx.bmodel
+tpu_model --info <model>.bmodel
 ```
 
 ### View Detailed `bmodel` Parameters
 
 ```bash
-tpu_model --print xxx.bmodel
+tpu_model --print <model>.bmodel
 ```
 
 ### Split `bmodel`
 
 ```bash
-tpu_model --extract xxx.bmodel
+tpu_model --extract <model>.bmodel
 ```
 
 This command extracts a multi-network, multi-stage `bmodel` into separate `bmodels`, each containing only one network and one stage. The extracted `bmodels` are named according to their network and stage indices, e.g., `bm_net0_stage0.bmodel`, `bm_net1_stage0.bmodel`, etc.
@@ -73,7 +73,7 @@ Similar to the `combine` function, but it merges entire directories. In addition
 ### Export Binary Data
 
 ```bash
-tpu_model --dump xxx.bmodel start_offset byte_size out_file
+tpu_model --dump <model>.bmodel start_offset byte_size out_file
 ```
 
 This command extracts binary data from a `bmodel` and saves it to a file. You can use the `print` command to view the `[start, size]` values of all binary data, which correspond to the `start_offset` and `byte_size` parameters in this command.

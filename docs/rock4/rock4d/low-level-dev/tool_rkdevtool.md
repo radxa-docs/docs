@@ -43,7 +43,7 @@ RKDevTool 是瑞芯微（Rockchip）平台为 Windows/Linux/MacOS 平台下进�
 打开系统终端或命令行，运行以下命令进行安装。
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -60,7 +60,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
 <NewCodeBlock tip="PC - Host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -76,7 +76,7 @@ rkdeveloptool -V
 若没有安装 HomeBrew，可以按照教程进行安装。
 
 <NewCodeBlock tip="MacOS-host$" type="host">
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 </NewCodeBlock>
@@ -86,7 +86,7 @@ rkdeveloptool -V
 打开系统终端或命令行，运行以下命令进行安装。
 
 <NewCodeBlock tip="MacOS-host$" type="host">
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -102,7 +102,7 @@ cp rkdeveloptool /opt/local/sbin/
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
 <NewCodeBlock tip="MacOS-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>

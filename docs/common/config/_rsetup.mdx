@@ -29,7 +29,7 @@ rsetup
 下面列出的选项仅供参考，请以实际程序输出为准。
 :::
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select an option below:                                               │
 │                                                                              │
@@ -79,7 +79,7 @@ rsetup
 
 本菜单包含以下选项：
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ System Maintenance                                                           │
 │                                                                              │
@@ -100,7 +100,7 @@ rsetup
 
 此功能允许你切换 Radxa 和 Debian/Ubuntu 的软件源镜像，以获得更快的下载速度。
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ APT Sources                                                                  │
 │                                                                              │
@@ -134,7 +134,7 @@ rsetup
 
 #### 选择 Radxa 镜像
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Select Radxa mirror:                                                         │
 │                                                                              │
@@ -151,7 +151,7 @@ rsetup
 
 #### 选择 Debian/Ubuntu 镜像
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Select Debian/Ubuntu mirror:                                                 │
 │                                                                              │
@@ -215,7 +215,7 @@ rsetup
 
 在这个菜单上可以修改一些外围设备，下面是对它们的介绍。
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Manage on-board hardware                                                     │
 │                                                                              │
@@ -236,7 +236,7 @@ rsetup
 
 如果你有连接一个视频设备，这个选项可以帮助你测试该设备。
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Select video capture device:                                                │
 │                                                                              │
@@ -250,7 +250,7 @@ rsetup
 
 选择设备后，会显示测试选项：
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select the test case:                                                │
 │                                                                              │
@@ -277,7 +277,7 @@ rsetup
 
 你也可以在界面中选择 LED 并设置触发器：
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Below are the available LEDs and their triggers.                            │
 │ Select any to update their trigger.                                         │
@@ -291,7 +291,7 @@ rsetup
 
 选择 LED 后，可以设置触发器：
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select the new trigger:                                              │
 │                                                                              │
@@ -312,7 +312,7 @@ rsetup
 
 控制板载的 RGB LED，可以设置不同灯光效果。
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Below are the available LEDs.                                               │
 │ Select any to update their pattern.                                         │
@@ -325,7 +325,7 @@ rsetup
 
 选择 RGB LED 后，可以选择预设模式：
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select the LED pattern:                                              │
 │                                                                              │
@@ -352,7 +352,7 @@ rsetup
 
 用于开启 OTG 端口的设备功能配置：
 
-```
+```text
 # `*.*` 为对应的 USB 控制器
 
 radxa-adbd@*.*  # 配置为 ADB 设备
@@ -360,7 +360,7 @@ radxa-ecm@*.*   # 配置为 ECM 设备（不推荐）
 radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 ```
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Below are the available UDC functions.                                      │
 │ Select any to update their status.                                          │
@@ -381,7 +381,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 该选项用于配置设备树 Overlays。
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Manage overlays                                                              │
 │                                                                              │
@@ -395,7 +395,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 ### Manage device tree overlays
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Below are the overlays compatible with your hardware.                       │
 │ Press Space to select.                                                      │
@@ -446,7 +446,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 选择 Network 选项后，会启动 `nmtui`（NetworkManager Text User Interface），提供完整的网络管理功能：
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         NetworkManager TUI                                  │
 │                                                                             │
@@ -512,7 +512,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 修改当前用户的密码。
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please enter the new password for radxa:                                    │
 │                                                                              │
@@ -539,7 +539,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 修改当前的主机名称。
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please enter the new hostname:                                              │
 │                                                                              │
@@ -557,7 +557,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 设置 TTY 终端与桌面管理器的自动登陆配置。
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select the service(s) you want to enable auto login:                 │
 │                                                                              │
@@ -590,7 +590,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 下面是 `tzdata` 的典型界面示意：
 
-```
+```text
 ┌──────────────────────────────────┤ Configuring tzdata ├──────────────────────┐
 │                                                                              │
 │ Please select the geographic area in which you live.                         │
@@ -612,7 +612,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 - **Asia/Shanghai**: 中国标准时间（UTC+8）
 - **UTC**: 协调世界时
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select your timezone:                                                 │
 │                                                                              │
@@ -630,7 +630,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 下面是 `locales` 的典型界面示意：
 
-```
+```text
 ┌──────────────────────────────────┤ Configuring locales ├────────────────────┐
 │ Locales to be generated:                                                    │
 │                                                                              │
@@ -649,7 +649,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 - **en_US.UTF-8**: 英语（美国），通用性好
 - **zh_CN.UTF-8**: 简体中文
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select your locale:                                                   │
 │                                                                              │
@@ -665,7 +665,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 配置键盘布局。
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select your keyboard layout:                                          │
 │                                                                              │
@@ -697,7 +697,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 - 违反当地法律法规
   :::
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select your Wi-Fi country code:                                       │
 │                                                                              │
@@ -713,7 +713,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 常用任务菜单提供了一些快捷操作，方便用户快速完成常见配置任务。
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select all tasks you want to perform:                                │
 │                                                                              │
@@ -745,7 +745,7 @@ radxa-ncm@*.*   # 配置为 NCM 设备（推荐）
 
 在 DEBUG 模式下，会显示独立的任务菜单：
 
-```
+```text
 ┌──────────────────────────────────┤ RSETUP ├──────────────────────────────────┐
 │ Please select an option below:                                              │
 │                                                                              │

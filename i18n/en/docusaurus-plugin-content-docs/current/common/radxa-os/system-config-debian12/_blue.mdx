@@ -60,7 +60,7 @@ Pair and connect Bluetooth devices using command line tools.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo systemctl start bluetooth
 ```
 
@@ -70,7 +70,7 @@ sudo systemctl start bluetooth
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo systemctl enable bluetooth
 ```
 
@@ -80,7 +80,7 @@ sudo systemctl enable bluetooth
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo systemctl status bluetooth
 ```
 
@@ -98,7 +98,7 @@ To exit the `bluetoothctl` interface, type `exit`.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 bluetoothctl
 ```
 
@@ -110,7 +110,7 @@ In the `bluetoothctl` interface, type `power on` to enable Bluetooth.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 power on
 ```
 
@@ -122,7 +122,7 @@ In the `bluetoothctl` interface, type `agent on` to enable the agent.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 agent on
 ```
 
@@ -134,7 +134,7 @@ In the `bluetoothctl` interface, type `scan on` to search for nearby Bluetooth d
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 scan on
 ```
 
@@ -142,7 +142,7 @@ scan on
 
 Discovered devices will appear in the terminal with their MAC address and name. For example, `EC:30:B3:40:0A:20` is the device's MAC address, and `Redmi K50 Ultra` is the device name.
 
-```
+```text
 [NEW] Device EC:30:B3:40:0A:20 Redmi K50 Ultra
 ```
 
@@ -152,7 +152,7 @@ If not stopped, `bluetoothctl` will continue scanning. It's recommended to scan 
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 scan off
 ```
 
@@ -164,7 +164,7 @@ In the `bluetoothctl` interface, type `pair <device_address>` to pair with a dev
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 pair <device_address>
 
 # Example
@@ -178,7 +178,7 @@ pair EC:30:B3:40:0A:20
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 trust <device_address>
 
 # Example
@@ -194,7 +194,7 @@ In the `bluetoothctl` interface, type `connect <device_address>` to connect to a
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 connect <device_address>
 
 # Example
@@ -210,7 +210,7 @@ In the `bluetoothctl` interface, type `disconnect <device_address>` to disconnec
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 disconnect <device_address>
 
 # Example
@@ -224,7 +224,7 @@ disconnect EC:30:B3:40:0A:20
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 remove <device_address>
 
 # Example
@@ -238,7 +238,7 @@ remove EC:30:B3:40:0A:20
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 power off
 ```
 

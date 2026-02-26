@@ -40,7 +40,7 @@ microSD 卡和 NVMe 启动系统相比于 UFS 启动系统步骤不同，请按�
 :::
 
 <NewCodeBlock tip="Linux$" type="host">
-```
+```bash
 sudo ./upgrade_tool uf <xx-update.img-path>
 ```
 </NewCodeBlock>

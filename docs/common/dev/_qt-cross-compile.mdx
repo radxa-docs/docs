@@ -4,7 +4,7 @@
 
 ### 设置交叉编译工具链
 
-```
+```bash
 sudo apt-get install build-essential cmake
 wget https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/aarch64-linux-gnu/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
 sudo tar xvf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz  -C /usr/local/
@@ -12,7 +12,7 @@ sudo tar xvf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz  -C /usr/l
 
 ### 下载 QT 源码
 
-```
+```bash
 mkdir -p pro/qtSourceDir && cd pro/qtSourceDir
 wget https://download.qt.io/archive/qt/5.12/5.12.2/single/qt-everywhere-src-5.12.2.tar.xz
 tar -xvf qt-everywhere-src-5.12.2.tar.xz
@@ -26,7 +26,7 @@ tar -xvf qt-everywhere-src-5.12.2.tar.xz
 
 修改之前
 
-```
+```bash
 #
 # qmake configuration for building with aarch64-linux-gnu-g++
 #
@@ -56,7 +56,7 @@ load(qt_config)
 
 修改之后
 
-```
+```bash
 #
 # qmake configuration for building with aarch64-linux-gnu-g++
 #
@@ -92,7 +92,7 @@ load(qt_config)
 
 vi auto.sh
 
-```
+```bash
 #!/bin/sh
 
 export CROSS_COMPILE=/usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
@@ -147,26 +147,26 @@ sudo make install
 
 - 执行自动配置脚本
 
-```
+```bash
 sudo chmod +x auto.sh
 sudo ./auto.sh
 ```
 
 如果您遇到类似以下的错误
 
-```
+```bash
 error: 'numeric_limits' is not a member of 'std'
 ```
 
 在 sol.hpp 文件下添加
 
-```
+```bash
 #include <limits>
 ```
 
 - 检查是否安装成功
 
-```
+```bash
 test@test-desktop:/opt$ ls /opt/qtInstallDir/
 bin  doc  include  lib  mkspecs  plugins  translations
 
@@ -178,7 +178,7 @@ test@test-desktop:/opt$ ls /opt/qt5.9.4-arm/
 
 - 下载安装工具
 
-```
+```bash
 wget https://download.qt.io/archive/qt/5.12/5.12.2/qt-opensource-linux-x64-5.12.2.run
 ```
 
@@ -186,7 +186,7 @@ wget https://download.qt.io/archive/qt/5.12/5.12.2/qt-opensource-linux-x64-5.12.
 
 - 安装
 
-```
+```bash
 sudo chmod +x qt-opensource-linux-x64-5.12.2.run
 sudo ./qt-opensource-linux-x64-5.12.2.run
 ```
@@ -197,7 +197,7 @@ sudo ./qt-opensource-linux-x64-5.12.2.run
 
 - 所需环境
 
-```
+```bash
 sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev -y
 ```
 
@@ -229,21 +229,21 @@ sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev -y
 
 - 复制编译后的工程到板子上
 
-```
-scp -r build-demo4-ext4-Debug radxa@192.168.2.xxx:~
+```bash
+scp -r build-demo4-ext4-Debug radxa@<board-ip>:~
 ```
 
 ## 在开发板上
 
 ### 环境
 
-```
+```bash
 sudo apt-get install libqt5gui5 -y
 ```
 
 ### 执行程序
 
-```
+```bash
 sudo chmod +x ./demo4
 ./demo4
 ```

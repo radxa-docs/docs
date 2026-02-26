@@ -6,7 +6,7 @@ sidebar_position: 5
 
 ## 默认用户名和密码
 
-```
+```text
 username : ubuntu
 password : ubuntu
 ```
@@ -22,7 +22,7 @@ password : ubuntu
 SSH 服务默认是使能的。
 可以在路由器管理界面查看设备的 IP；或者是通过电脑主机的 [angryip](https://angryip.org/) 来找到设备的 IP。
 
-```
+```bash
 $ ping ip-of-device
 $ ssh ubuntu@ip-of-device
 ```
@@ -35,7 +35,7 @@ $ ssh ubuntu@ip-of-device
 
 ## 添加源并安装视频硬件包
 
-```
+```bash
 $ sudo apt-add-repository ppa:mediatek-genio/genio-public
 $ sudo apt update
 $ sudo apt install mediatek-vpud-genio1200
@@ -49,7 +49,7 @@ $ sudo rm ~/.cache/gstreamer-1.0/registry.aarch64.bin
 
 下载最新的 kernel 包，并安装
 
-```
+```bash
 $ wget https://dl.radxa.com/nio12l/images/ubuntu/radxa-nio-12l-kernel-5.15.0-1029.33-packages.tar.gz
 $ tar zxvf radxa-nio-12l-kernel-5.15.0-1029.33-packages.tar.gz
 $ sudo dpkg -i radxa-nio-12l-kernel-5.15.0-1029.33-packages/*.deb
@@ -69,13 +69,13 @@ $ sudo dpkg -i radxa-nio-12l-kernel-5.15.0-1029.33-packages/*.deb
 修改文件 `u-boot-initial-env`。
 找到 `list_dtbo=` 行，追加写入 `radxa-nio-12l-radxa-display-8hd.dtbo` 字符串。如：
 
-```
+```text
 list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo radxa-nio-12l-radxa-display-8hd.dtbo
 ```
 
 ### 步骤三：执行命令 `genio-flash board-assets`
 
-```
+```bash
 $ genio-flash board-assets
 ```
 
@@ -103,7 +103,7 @@ NIO 12L 有一个 40-PIN 的扩展座子。UART1 和 PWM 没法同时用。
 系统默认开启了 I2C-2。
 可以在系统中看到
 
-```
+```bash
 ubuntu@mtk-genio:~$ ls /dev/i2c-2
 /dev/i2c-2
 ```
@@ -123,13 +123,13 @@ ubuntu@mtk-genio:~$ ls /dev/i2c-2
 修改文件 `u-boot-initial-env`。
 找到 `list_dtbo=` 行，追加写入 `i2c3.dtbo` 字符串。如：
 
-```
+```text
 list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c3.dtbo
 ```
 
 2，执行命令 `genio-flash board-assets`
 
-```
+```bash
 $ genio-flash board-assets
 ```
 
@@ -141,7 +141,7 @@ $ genio-flash board-assets
 
 断电重启设备后，将会看到有设备。
 
-```
+```bash
 ubuntu@mtk-genio:~$ ls /dev/i2c-3
 /dev/i2c-3
 ```
@@ -161,13 +161,13 @@ ubuntu@mtk-genio:~$ ls /dev/i2c-3
 修改文件 `u-boot-initial-env`。
 找到 `list_dtbo=` 行，追加写入 `i2c4.dtbo` 字符串。如：
 
-```
+```text
 list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c4.dtbo
 ```
 
 2，执行命令 `genio-flash board-assets`
 
-```
+```bash
 $ genio-flash board-assets
 ```
 
@@ -179,7 +179,7 @@ $ genio-flash board-assets
 
 断电重启设备后，将会看到有设备。
 
-```
+```bash
 ubuntu@mtk-genio:~$ ls /dev/i2c-4
 /dev/i2c-4
 ```
@@ -204,13 +204,13 @@ ubuntu@mtk-genio:~$ ls /dev/i2c-4
 修改文件 `u-boot-initial-env`。
 找到 `list_dtbo=` 行，追加写入 `uart1.dtbo` 字符串。如：
 
-```
+```text
 list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo uart1.dtbo
 ```
 
 2，执行命令 `genio-flash board-assets`
 
-```
+```bash
 $ genio-flash board-assets
 ```
 
@@ -222,7 +222,7 @@ $ genio-flash board-assets
 
 断电重启设备后，将会看到有如下内核日志信息。
 
-```
+```bash
 ubuntu@mtk-genio:~$ sudo dmesg | grep ttyS1
 [    0.476376] 11001200.serial: ttyS1 at MMIO 0x11001200 (irq = 289, base_baud = 1625000) is a ST16650V2
 ```
@@ -246,13 +246,13 @@ ubuntu@mtk-genio:~$ sudo dmesg | grep ttyS1
 修改文件 `u-boot-initial-env`。
 找到 `list_dtbo=` 行，追加写入 `spi1-spidev.dtbo` 字符串。如：
 
-```
+```text
 list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo spi1-spidev.dtbo
 ```
 
 2，执行命令 `genio-flash board-assets`
 
-```
+```bash
 $ genio-flash board-assets
 ```
 
@@ -264,7 +264,7 @@ $ genio-flash board-assets
 
 断电重启设备后，将会看到有设备。
 
-```
+```bash
 ubuntu@mtk-genio:~$ ls /dev/spidev1.0
 /dev/spidev1.0
 ```
@@ -286,13 +286,13 @@ ubuntu@mtk-genio:~$ ls /dev/spidev1.0
 修改文件 `u-boot-initial-env`。
 找到 `list_dtbo=` 行，追加写入 `spi2-spidev.dtbo` 字符串。如：
 
-```
+```text
 list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo spi2-spidev.dtbo
 ```
 
 2，执行命令 `genio-flash board-assets`
 
-```
+```bash
 $ genio-flash board-assets
 ```
 
@@ -304,7 +304,7 @@ $ genio-flash board-assets
 
 断电重启设备后，将会看到有设备。
 
-```
+```bash
 ubuntu@mtk-genio:~$ ls /dev/spidev2.0
 /dev/spidev2.0
 ```
@@ -323,13 +323,13 @@ ubuntu@mtk-genio:~$ ls /dev/spidev2.0
 修改文件 `u-boot-initial-env`。
 找到 `list_dtbo=` 行，追加写入 `gpio104-pwm.dtbo` 字符串。如：
 
-```
+```text
 list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo gpio104-pwm.dtbo
 ```
 
 2，执行命令 `genio-flash board-assets`
 
-```
+```bash
 $ genio-flash board-assets
 ```
 
@@ -341,7 +341,7 @@ $ genio-flash board-assets
 
 断电重启设备后，将会看到有设备文件。
 
-```
+```bash
 ubuntu@mtk-genio:~$ ls /sys/class/pwm/pwmchip0/
 device  export  npwm  power  subsystem  uevent  unexport
 ```
@@ -350,13 +350,13 @@ device  export  npwm  power  subsystem  uevent  unexport
 
 安装 qtcreator。
 
-```
+```bash
 $ sudo apt update && sudo apt install -y qtcreator
 ```
 
 说明：
 用户可以同时打开多个 dt overlay，如：
 
-```
+```text
 list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c3.dtbo i2c4.dtbo gpio104-pwm.dtbo spi1-spidev.dtbo spi2-spidev.dtbo
 ```

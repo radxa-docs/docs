@@ -41,14 +41,14 @@ USB Type-A/C 接口可以连接鼠标、键盘、U 盘等设备进行使用；
 使用 `lsusb` 命令查看当前系统识别的设备。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsusb
 ```
 </NewCodeBlock>
 
 终端输出示例：
 
-```
+```text
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 004: ID a69c:8d81 AICSemi AIC 8800D80
 Bus 001 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
@@ -60,14 +60,14 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 连接读卡器、鼠标、键盘等设备到 USB 接口，使用 `lsusb` 命令查看是否新增设备。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsusb
 ```
 </NewCodeBlock>
 
 终端输出示例：我在 USB 接口连接了一个读卡器
 
-```
+```text
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 004: ID a69c:8d81 AICSemi AIC 8800D80
 Bus 001 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
@@ -88,14 +88,14 @@ Bus 002 Device 003: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
 使用 `lsblk` 命令确认 U 盘的设备名称。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
 
 终端输出示例：其中 `sda` 为 我当前 U 盘设备名称，请根据实际情况替换。
 
-```
+```text
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1   58G  0 disk
 mtdblock0    31:0    0   16M  0 disk
@@ -109,7 +109,7 @@ zram0       253:0    0  1.9G  0 disk [SWAP]
 #### 测试写入性能
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 ```
 </NewCodeBlock>
@@ -124,7 +124,7 @@ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 
 终端输出示例：
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 3.40424 s, 30.8 MB/s
@@ -133,7 +133,7 @@ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 #### 测试读取性能
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 ```
 </NewCodeBlock>
@@ -148,7 +148,7 @@ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 
 终端输出示例：
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 4.0582 s, 25.8 MB/s
@@ -167,7 +167,7 @@ Rsetup 工具使用可以参考 [Rsetup 使用](../system-use/rsetup) 教程。
 :::
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>
@@ -181,7 +181,7 @@ rsetup
 #### 安装 ADB 工具
 
 <NewCodeBlock tip="Linux$" type="host">
-```
+```bash
 sudo apt install adb
 ```
 </NewCodeBlock>
@@ -191,14 +191,14 @@ sudo apt install adb
 使用 `adb devices` 命令查看 ADB 设备。
 
 <NewCodeBlock tip="Linux$" type="host">
-```
+```bash
 adb devices
 ```
 </NewCodeBlock>
 
 终端输出示例：说明识别到一个 ADB 设备
 
-```
+```text
 List of devices attached
 0123456789ABCDEF	device
 ```
@@ -208,7 +208,7 @@ List of devices attached
 使用 `adb shell` 命令进入瑞莎 CM4 终端 Shell。
 
 <NewCodeBlock tip="Linux$" type="host">
-```
+```bash
 adb shell
 ```
 </NewCodeBlock>

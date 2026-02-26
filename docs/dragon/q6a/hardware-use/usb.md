@@ -32,7 +32,7 @@ USB Type-C 仅支持 12 V 给主板供电，兼容 PD 协议。
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 lsusb
 ```
 
@@ -40,7 +40,7 @@ lsusb
 
 终端输出示例：
 
-```
+```text
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus 001 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
 Bus 001 Device 004: ID a69c:8d81 AICSemi AIC 8800D80
@@ -54,7 +54,7 @@ Bus 003 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 lsusb
 ```
 
@@ -62,7 +62,7 @@ lsusb
 
 终端输出示例：我在 USB 接口连接了一个读卡器
 
-```
+```text
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus 001 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
 Bus 001 Device 004: ID a69c:8d81 AICSemi AIC 8800D80
@@ -85,7 +85,7 @@ Bus 003 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 lsblk
 ```
 
@@ -93,7 +93,7 @@ lsblk
 
 终端输出示例：其中 `sda` 为 我当前 U 盘设备名称，请根据实际情况替换。
 
-```
+```text
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1  29.3G  0 disk
 ├─sda1        8:1    1    16M  0 part
@@ -107,7 +107,7 @@ mmcblk2     179:0    0    58G  0 disk
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 ```
 
@@ -123,7 +123,7 @@ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 
 终端输出示例：
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 3.40424 s, 30.8 MB/s
@@ -133,7 +133,7 @@ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 ```
 
@@ -149,7 +149,7 @@ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 
 终端输出示例：
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 4.0582 s, 25.8 MB/s

@@ -22,7 +22,7 @@ Use the following command to verify if the RTC hardware is functioning properly.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo dmesg | grep rtc
 ```
 
@@ -30,7 +30,7 @@ sudo dmesg | grep rtc
 
 If the output includes a line containing `rtc information is valid`, it indicates that the RTC battery has been correctly recognized.
 
-```
+```text
 [    8.145303] [drm] Esmart1-win0(possible_vp_mask = 0x00000006) has no possible crtcs
 [    8.145370] [drm] Esmart3-win0(possible_vp_mask = 0x00000006) has no possible crtcs
 [    8.153133] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
@@ -47,7 +47,7 @@ Use the `hwclock` command to read the current time from the RTC chip (/dev/rtc0)
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo hwclock -r -f /dev/rtc0
 ```
 
@@ -59,7 +59,7 @@ Use the `date` command to display the current system time.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 date
 ```
 
@@ -71,7 +71,7 @@ If the RTC time is not synchronized with the system time, you can write the curr
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo hwclock -w -f /dev/rtc0
 ```
 

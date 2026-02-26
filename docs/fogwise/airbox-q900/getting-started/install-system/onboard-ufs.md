@@ -66,7 +66,7 @@ Fogwise® AIRbox Q900 板载 128GB UFS。
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 lsusb
 ```
 
@@ -74,7 +74,7 @@ lsusb
 
 若主板进入 QDL 模式，终端会输出类似以下结果：
 
-```
+```text
 Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 ```
 
@@ -126,7 +126,7 @@ Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
 <NewCodeBlock tip="Windows$" type="host">
 
-```
+```bash
 qdl
 ```
 
@@ -134,7 +134,7 @@ qdl
 
 终端输出示例：
 
-```
+```text
 Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
  -d, --debug                    Print detailed debug info
  -v, --version                  Print the current version and exit
@@ -162,7 +162,7 @@ Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 realpath qdl
 ```
 
@@ -170,7 +170,7 @@ realpath qdl
 
 终端输出示例：
 
-```
+```text
 /home/user_name/download/QDL_2.3.9.2_Linux_x64/qdl
 ```
 
@@ -180,7 +180,7 @@ realpath qdl
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 sudo chmod 777 qdl
 ```
 
@@ -190,7 +190,7 @@ sudo chmod 777 qdl
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 sudo ln -s /home/user_name/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
 ```
 
@@ -202,7 +202,7 @@ sudo ln -s /home/user_name/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 qdl
 ```
 
@@ -210,7 +210,7 @@ qdl
 
 终端输出示例：
 
-```
+```text
 Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
  -d, --debug                    Print detailed debug info
  -v, --version                  Print the current version and exit
@@ -238,7 +238,7 @@ Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 <NewCodeBlock tip="PC$" type="host">
 
-```
+```bash
 qdl --storage ufs prog_firehose_ddr.elf provision_1_2.xml
 ```
 
@@ -246,7 +246,7 @@ qdl --storage ufs prog_firehose_ddr.elf provision_1_2.xml
 
 终端输出示例：
 
-```
+```text
 Waiting for EDL device
 waiting for programmer...
 UFS provisioning succeeded
@@ -258,13 +258,13 @@ UFS provisioning succeeded
 
 <NewCodeBlock tip="PC$" type="host">
 
-```
+```bash
 qdl --storage spinor prog_firehose_ddr.elf rawprogram0.xml patch0.xml
 ```
 
 </NewCodeBlock>
 
-```
+```text
 Waiting for EDL device
 waiting for programmer...
 flashed "SAIL_HYP" successfully
@@ -280,7 +280,7 @@ flashed "BackupGPT" successfully
 
 <NewCodeBlock tip="PC$" type="host">
 
-```
+```bash
 qdl --storage ufs prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 ```
 
@@ -288,7 +288,7 @@ qdl --storage ufs prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 终端输出示例：
 
-```
+```text
 Waiting for EDL device
 waiting for programmer...
 flashed "efi" successfully at 40329kB/s
@@ -356,7 +356,7 @@ partition 1 is now bootable
 
 <NewCodeBlock tip="PC$" type="host">
 
-```
+```bash
 qdl --storage ufs ../prog_firehose_ddr.elf rawprogram*_BLANK_GPT.xml
 ```
 
@@ -364,7 +364,7 @@ qdl --storage ufs ../prog_firehose_ddr.elf rawprogram*_BLANK_GPT.xml
 
 终端输出示例：
 
-```
+```text
 flashed "PrimaryGPT" successfully
 flashed "PrimaryGPT" successfully
 flashed "PrimaryGPT" successfully

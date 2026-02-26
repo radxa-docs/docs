@@ -29,7 +29,7 @@ Connect the touch screen using the motherboard's MIPI DSI interface. The connect
 Enter the `rsetup` command in the terminal to configure the display settings using the Rsetup tool.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>

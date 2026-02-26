@@ -20,7 +20,7 @@ sidebar_position: 4
 SSH 远程控制需要安装 OpenSSH 服务器, 在瑞莎 ROCK 4D 的终端命令行运行以下命令安装：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo apt update
 sudo apt install openssh-server -y
 ```
@@ -31,7 +31,7 @@ sudo apt install openssh-server -y
 在 ROCK 4D 的终端命令行运行以下命令启动 SSH 服务：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo systemctl start ssh
 ```
 </NewCodeBlock>
@@ -41,7 +41,7 @@ sudo systemctl start ssh
 在 ROCK 4D 的终端命令行运行以下命令设置 SSH 服务自启动：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo systemctl enable ssh
 ```
 </NewCodeBlock>
@@ -51,14 +51,14 @@ sudo systemctl enable ssh
 在 ROCK 4D 的终端命令行运行以下命令查看 SSH 服务状态：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo systemctl status ssh
 ```
 </NewCodeBlock>
 
 终端会输出类似信息: 提示您 SSH 服务是否自启动和当前运行状态。
 
-```
+```text
 ● ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)
      Active: active (running) since Tue 2025-05-27 10:18:30 UTC; 4min 39s ago
@@ -80,14 +80,14 @@ sudo systemctl status ssh
 在另一台设备上打开终端，输入以下命令进行远程登录：可以使用 `ip a` 命令查看 ROCK 4D 的 IP 地址。
 
 <NewCodeBlock tip="Host-PC$" type="host">
-```
+```bash
 ssh <user-name>@<ip-address>
 
 # 示例
 
 ssh radxa@192.168.2.106
 
-```
+````
 </NewCodeBlock>
 
 其中，`<user-name>` 和 `<ip-address>` 分别是 ROCK 4D 的用户名和 IP 地址。
@@ -202,4 +202,5 @@ Tabby 软件主界面
 
 </TabItem>
 </Tabs>
-```
+```text
+````

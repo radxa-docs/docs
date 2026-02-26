@@ -38,7 +38,7 @@ Run the `rsetup` command in the terminal to start the Rsetup tool:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rsetup
 ```
 
@@ -61,7 +61,7 @@ Use the `aplay -l` command to view audio playback devices (speakers), and use th
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 aplay -l
 ```
 
@@ -69,7 +69,7 @@ aplay -l
 
 Sample terminal output: `card 0: sndi2s0` is the onboard AC101B audio codec, usually used for input (microphone) and output (audio playback) of the 3.5mm headphone jack.
 
-```
+```text
 **** List of PLAYBACK Hardware Devices ****
 card 0: sndi2s0 [sndi2s0], device 0: sunxi-snd-plat-i2s-ac101-codec sunxi-ac101.15-001a-0 []
   Subdevices: 1/1
@@ -83,7 +83,7 @@ card 1: sndhdmi [sndhdmi], device 0: sunxi-snd-plat-i2s-sunxi-snd-codec-hdmi soc
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 arecord -l
 ```
 
@@ -93,7 +93,7 @@ Sample output: `card 0: sndi2s0` is the onboard AC101B audio codec, usually used
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 **** List of CAPTURE Hardware Devices ****
 card 0: sndi2s0 [sndi2s0], device 0: sunxi-snd-plat-i2s-ac101-codec sunxi-ac101.15-001a-0 []
   Subdevices: 1/1
@@ -111,7 +111,7 @@ This function requires the headset to support a microphone. Use the `arecord` co
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo arecord -Dhw:0,0 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 ```
 
@@ -131,7 +131,7 @@ Use the `aplay` command to play audio.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo aplay -Dhw:0,0 /tmp/tmp.wav
 ```
 

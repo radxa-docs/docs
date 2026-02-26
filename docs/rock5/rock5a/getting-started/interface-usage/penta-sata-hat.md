@@ -51,7 +51,7 @@ sidebar_position: 10
 
 1、通过`lsblk`查看 SATA 设备是否被识别。
 
-```
+```bash
 radxa@rock-5a:~$ lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda            8:0    0 465.8G  0 disk
@@ -77,7 +77,7 @@ radxa@rock-5a:~$
 
 为了让顶板的 OLED 显示屏和风扇正常工作，我们提供了 rockpi-penta 软件包，可以通过下面的命令安装。
 
-```
+```bash
 sudo apt update
 sudo apt install wget
 wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta-0.2.2.deb
@@ -88,7 +88,7 @@ sudo apt install -y ./rockpi-penta-0.2.2.deb
 
 编辑 /etc/rockpi-penta.conf, 并使用下面的命令使它生效。
 
-```
+```bash
 sudo systemctl restart rockpi-penta.service
 ```
 
@@ -96,7 +96,7 @@ sudo systemctl restart rockpi-penta.service
 
 下面是 /etc/rockpi-penta.conf 的默认配置，你可以根据注释进行修改。
 
-```
+```text
 [fan]
 # When the temperature is above lv0 (35'C), the fan at 25% power,
 # and lv1 at 50% power, lv2 at 75% power, and lv3 at 100% power.

@@ -38,7 +38,7 @@
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli radio wifi on
 ```
 
@@ -48,7 +48,7 @@ sudo nmcli radio wifi on
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli device wifi list
 ```
 
@@ -58,7 +58,7 @@ sudo nmcli device wifi list
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
 
 # 示例
@@ -72,7 +72,7 @@ sudo nmcli device wifi connect wifi_demo password 12345678
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -80,7 +80,7 @@ ip a
 
 终端会输出类似如下信息：其中 `192.168.31.76` 就是路由器分配的 IP 地址。
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 inet 127.0.0.1/8 scope host lo
@@ -124,7 +124,7 @@ Nmcli 是 Network Manager Command Line Interface 的简称，是 Linux 下管理
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli device wifi hotspot ifname <ifname> con-name <name> ssid <SSID> password <password>
 
 # 示例
@@ -143,7 +143,7 @@ sudo nmcli device wifi hotspot ifname wlan0 con-name My-Hotspot ssid My-Hotspot 
 
 设置成功后，终端会输出类似如下信息：
 
-```
+```text
 Device 'wlan0' successfully activated with 'd73e5af7-a49c-4608-bdab-bd28a36bdbef'.
 Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 ```
@@ -152,7 +152,7 @@ Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli connection down My-Hotspot
 ```
 
@@ -162,7 +162,7 @@ sudo nmcli connection down My-Hotspot
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli connection up My-Hotspot
 ```
 
@@ -172,7 +172,7 @@ sudo nmcli connection up My-Hotspot
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo nmcli connection delete My-Hotspot
 ```
 
@@ -202,7 +202,7 @@ sudo nmcli connection delete My-Hotspot
 
 <NewCodeBlock tip="radxa@device$ & Linux$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install iperf
 ```
@@ -217,7 +217,7 @@ sudo apt install iperf
 
 <NewCodeBlock tip="Linux" type="host">
 
-```
+```bash
 iperf -s
 ```
 
@@ -225,7 +225,7 @@ iperf -s
 
 成功启动后，终端会输出类似如下信息：
 
-```
+```text
 ---
 
 ## Server listening on 5201 (test #1)
@@ -240,7 +240,7 @@ iperf -s
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 ps -ef | grep iperf3
 ```
 
@@ -250,7 +250,7 @@ ps -ef | grep iperf3
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo kill <PID>
 ```
 
@@ -265,7 +265,7 @@ sudo kill <PID>
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time>
 
 # 示例
@@ -286,7 +286,7 @@ iperf -c 192.168.2.186 -t 60
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time> -R
 
 # 示例

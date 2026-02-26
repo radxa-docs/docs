@@ -8,7 +8,7 @@
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install xrdp plasma-workspace xorg dbus-x11 -y
 ```
@@ -21,7 +21,7 @@ sudo apt install xrdp plasma-workspace xorg dbus-x11 -y
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 #!/bin/sh
 # xrdp X session start script (c) 2015, 2017, 2021 mirabilos
 # published under The MirOS Licence
@@ -49,7 +49,7 @@ exec /usr/bin/startplasma-x11
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl enable --now xrdp
 ```
 
@@ -119,7 +119,7 @@ Ubuntu 系统平台一般自带 `Remmina` 工具，打开 `Remmina`。
 
 <NewCodeBlock tip={`Ubuntu$`} type="host">
 
-```
+```bash
 sudo apt install remmina -y
 ```
 

@@ -187,7 +187,7 @@ ffmpeg -re -stream_loop -1 -i test.mp4 -c copy -f rtsp rtsp://localhost:8554/mys
 
 ```bash
 uname -r
-# 5.10.xxx-rockchip 或 6.1.xxx；-rockchip后缀很重要
+# 5.10.x-rockchip 或 6.1.x-rockchip；-rockchip 后缀很重要
 ls /dev/dri
 # by-path  card0  card1  renderD128  renderD129 应列出renderD128（VPU）和renderD129（NPU）
 sudo cat /sys/kernel/debug/rknpu/version

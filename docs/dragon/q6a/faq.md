@@ -22,7 +22,7 @@ sidebar_position: 145
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 ls -l /dev/ttyUSB0
 ```
 
@@ -30,7 +30,7 @@ ls -l /dev/ttyUSB0
 
 若系统存在该设备，您会看到类似以下的输出：
 
-```
+```text
 crw-rw---- 1 root dialout 188, 0 Sep 10 21:24 /dev/ttyUSB0
 ```
 
@@ -38,7 +38,7 @@ crw-rw---- 1 root dialout 188, 0 Sep 10 21:24 /dev/ttyUSB0
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo usermod -a -G dialout $USER
 ```
 
@@ -48,7 +48,7 @@ sudo usermod -a -G dialout $USER
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 newgrp dialout
 ```
 

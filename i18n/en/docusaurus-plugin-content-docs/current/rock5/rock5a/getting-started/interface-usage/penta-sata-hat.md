@@ -53,7 +53,7 @@ sidebar_position: 10
 
 1. Check if the SATA device is recognized by `lsblk`.
 
-```
+```bash
 radxa@rock-5a:~$ lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda            8:0    0 465.8G  0 disk
@@ -79,7 +79,7 @@ radxa@rock-5a:~$
 
 To make the OLED display and fan on the top panel work properly, we provide the rockpi-penta software package, which can be installed with the following commands.
 
-```
+```bash
 sudo apt update
 sudo apt install wget
 wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta-0.2.2.deb
@@ -90,7 +90,7 @@ sudo apt install -y ./rockpi-penta-0.2.2.deb
 
 Edit /etc/rockpi-penta.conf, and enable it with the following command.
 
-```
+```bash
 sudo systemctl restart rockpi-penta.service
 ```
 
@@ -98,7 +98,7 @@ sudo systemctl restart rockpi-penta.service
 
 The following is the default configuration of /etc/rockpi-penta.conf, which you can modify according to the comments.
 
-```
+```text
 [fan]
 # When the temperature is above lv0 (35'C), the fan at 25% power,
 # and lv1 at 50% power, lv2 at 75% power, and lv3 at 100% power.

@@ -16,7 +16,7 @@ CANBUS 简介
 
 ### 连接
 
-```
+```text
 主设备             CAN 模块            CAN 模块            主设备
 3.3V     <-->     VCC                 VCC      <-->      VCC
 GND      <-->     GND                 GND      <-->      GND
@@ -28,14 +28,14 @@ CAN_RX   <-->     CRX                 CRX      <-->      CAN_RX
 
 ### 安装测试工具
 
-```
+```bash
 sudo apt update
 sudo apt-get install can-utils iproute2
 ```
 
 ### 检查 CAN 节点
 
-```
+```bash
 $ ip a
 can0: flags=193<UP,RUNNING,NOARP>  mtu 72
        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
@@ -52,7 +52,7 @@ can0: flags=193<UP,RUNNING,NOARP>  mtu 72
 
 - 发送端
 
-```
+```bash
 $ sudo ip link set can0 down
 $ sudo ip link set can0 type can bitrate 1000000 dbitrate 1000000 loopback on fd on
 $ sudo ip link set can0 up
@@ -61,7 +61,7 @@ $ sudo cansend can0 123#11223344
 
 - 接收端
 
-```
+```bash
 $ sudo ip link set can0 down
 $ sudo ip link set can0 type can bitrate 1000000 dbitrate 1000000 loopback on fd on
 $ sudo ip link set can0 up

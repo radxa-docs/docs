@@ -25,7 +25,7 @@ You can use the `lsusb` command to compare USB peripheral information before and
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 lsusb
 ```
 
@@ -40,7 +40,7 @@ Use the `lsusb` command to view the current system's USB device information.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 lsusb
 ```
 
@@ -48,7 +48,7 @@ lsusb
 
 Example output:
 
-```
+```text
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
@@ -62,7 +62,7 @@ Use the `lsusb` command to view the current system's USB device information.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 lsusb
 ```
 
@@ -70,7 +70,7 @@ lsusb
 
 Example output:
 
-```
+```text
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 002 Device 002: ID 3535:6300 aigo  U330
@@ -90,7 +90,7 @@ Connect a card reader or USB flash drive to the USB Type-A port and perform read
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo dd if=source_file/device of=target_file/device bs=block_size count=block_number
 ```
 
@@ -117,7 +117,7 @@ Use the `lsblk` command to view the system's storage device information (you can
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 lsblk
 ```
 
@@ -125,7 +125,7 @@ lsblk
 
 Example output:
 
-```
+```text
 NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda       8:0    0 114.4G  0 disk
 ├─sda1    8:1    0   512M  0 part /boot/efi
@@ -143,7 +143,7 @@ Use the `dd` command to write 1GB of data to the USB flash drive.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo dd if=/dev/zero of=/dev/sdi bs=1M count=1024
 ```
 
@@ -157,7 +157,7 @@ Use the `dd` command to read 1GB of data from the USB flash drive.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo dd if=/dev/sdi of=/dev/null bs=1M count=1024
 ```
 

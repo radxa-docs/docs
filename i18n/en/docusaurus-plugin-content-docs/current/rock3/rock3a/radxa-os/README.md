@@ -10,7 +10,7 @@ Introduces system login, network connection, etc to let user to be familiar with
 
 ## User name and Password
 
-```
+```text
 User name：radxa/rock
 Password： radxa/rock
 ```
@@ -23,7 +23,7 @@ Password： radxa/rock
 
 ### Connect WiFi
 
-```
+```bash
 nmcli device wifi                                           # Scan WiFi
 sudo nmcli device wifi connect <ssid> password <passwd>     # Connect to WiFi
 ```

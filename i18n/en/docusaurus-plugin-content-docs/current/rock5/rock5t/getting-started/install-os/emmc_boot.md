@@ -42,7 +42,7 @@ We provide the following methods to download the system image file to your board
 You can copy the system image file link from the [Resource Download Center](../../download) page and use the `wget` command on your board to download it.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo apt install wget
 wget [url]
 # Example
@@ -70,7 +70,7 @@ The downloaded system image file is compressed and needs to be extracted before 
 Use the `unxz` command to extract the system image file.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo apt install xz-utils
 unxz [image_path]
 # Example
@@ -88,7 +88,7 @@ When using the `dd` command, make sure to select the correct device file to avoi
 :::
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dd if=[image_path] of=/dev/mmcblk0 bs=4M status=progress
 # Example
 sudo dd if=~/rock-5t_bookworm_kde_b2.output.img of=/dev/mmcblk0 bs=4M status=progress
@@ -105,14 +105,14 @@ Parameter explanation:
 After writing the system image, you can use the `fdisk` command to view the partition information of the boot medium to confirm if the system image was written successfully.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo fdisk -l /dev/mmcblk0
 ```
 </NewCodeBlock>
 
 If the system was written successfully, the terminal will output partition information similar to the following:
 
-```
+```text
 Disk /dev/mmcblk0: 119.15 GiB, 127934660608 bytes, 31234048 sectors
 Disk model: KLUDG4UHDC-B0E1
 Units: sectors of 1 \* 4096 = 4096 bytes

@@ -31,7 +31,7 @@ If the system can boot normally, you can use the following command to check the 
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
-```
+```bash
 sudo dmidecode -s bios-version
 ```
 
@@ -39,7 +39,7 @@ sudo dmidecode -s bios-version
 
 The terminal will output something like the following. The `260120` portion indicates the SPI boot firmware date/version.
 
-```
+```text
 
 6.0.260120.BOOT.MXF.1.0.1-00549-KODIAKWP-1
 

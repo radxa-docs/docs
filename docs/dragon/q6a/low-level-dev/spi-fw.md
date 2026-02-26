@@ -44,7 +44,7 @@ SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化�
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 realpath edl-ng
 ```
 
@@ -52,7 +52,7 @@ realpath edl-ng
 
 终端输出示例：
 
-```
+```text
 /home/user/edl-ng-dist/linux-x64/edl-ng
 ```
 
@@ -60,7 +60,7 @@ realpath edl-ng
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo ln -s [edl-ng path] /usr/local/bin/edl-ng
 # 示例
 sudo ln -s /home/user/edl-ng-dist/linux-x64/edl-ng /usr/local/bin/edl-ng
@@ -78,7 +78,7 @@ sudo ln -s /home/user/edl-ng-dist/linux-x64/edl-ng /usr/local/bin/edl-ng
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 edl-ng --version
 ```
 
@@ -94,7 +94,7 @@ edl-ng --version
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo edl-ng --memory=spinor rawprogram rawprogram0.xml patch0.xml --loader=prog_firehose_ddr.elf
 ```
 

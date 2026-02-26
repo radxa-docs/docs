@@ -81,7 +81,7 @@ FPC 排线：标准 31p 0.3mm 间距排线，长度 150mm
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 rsetup
 ```
 

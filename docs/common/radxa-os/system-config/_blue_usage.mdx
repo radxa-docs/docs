@@ -67,7 +67,7 @@ import { Image } from "@site/src/utils/docs";
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl start bluetooth
 ```
 
@@ -77,7 +77,7 @@ sudo systemctl start bluetooth
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl enable bluetooth
 ```
 
@@ -87,7 +87,7 @@ sudo systemctl enable bluetooth
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl status bluetooth
 ```
 
@@ -105,7 +105,7 @@ sudo systemctl status bluetooth
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 bluetoothctl
 ```
 
@@ -117,7 +117,7 @@ bluetoothctl
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 power on
 ```
 
@@ -129,7 +129,7 @@ power on
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 agent on
 ```
 
@@ -141,7 +141,7 @@ agent on
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 scan on
 ```
 
@@ -149,7 +149,7 @@ scan on
 
 扫描到的蓝牙设备会在终端出现蓝牙设备的物理地址和名称，类似输出以下信息：其中 `EC:30:B3:40:0A:20` 为蓝牙设备的物理地址，`Redmi K50 Ultra` 为蓝牙设备的名称。
 
-```
+```text
 [NEW] Device EC:30:B3:40:0A:20 Redmi K50 Ultra
 ```
 
@@ -159,7 +159,7 @@ scan on
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 scan off
 ```
 
@@ -171,7 +171,7 @@ scan off
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 pair <device_address>
 
 # 示例
@@ -184,7 +184,7 @@ pair EC:30:B3:40:0A:20
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 trust <device_address>
 
 # 示例
@@ -199,7 +199,7 @@ trust EC:30:B3:40:0A:20
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 connect <device_address>
 
 # 示例
@@ -214,7 +214,7 @@ connect EC:30:B3:40:0A:20
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 disconnect <device_address>
 
 # 示例
@@ -227,7 +227,7 @@ disconnect EC:30:B3:40:0A:20
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 remove <device_address>
 
 # 示例
@@ -240,7 +240,7 @@ remove EC:30:B3:40:0A:20
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 power off
 ```
 

@@ -29,7 +29,7 @@
 
   <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 lsusb
 ```
 
@@ -37,7 +37,7 @@ lsusb
 
 设备进入 QDL 模式后，会显示类似下面的信息：
 
-```
+```bash
 Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 ```
 
@@ -98,7 +98,7 @@ Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
 <NewCodeBlock tip="Windows$" type="host">
 
-```
+```bash
 qdl
 ```
 
@@ -106,7 +106,7 @@ qdl
 
 终端输出示例：
 
-```
+```text
 Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
  -d, --debug                    Print detailed debug info
  -v, --version                  Print the current version and exit
@@ -134,7 +134,7 @@ Example: qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 realpath qdl
 ```
 
@@ -142,7 +142,7 @@ realpath qdl
 
 终端输出示例：
 
-```
+```text
 /home/milir/download/QDL_2.3.9.2_Linux_x64/qdl
 ```
 
@@ -152,7 +152,7 @@ realpath qdl
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 sudo chmod 777 qdl
 ```
 
@@ -164,7 +164,7 @@ sudo chmod 777 qdl
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 sudo ln -s /home/milir/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
 ```
 
@@ -176,7 +176,7 @@ sudo ln -s /home/milir/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 qdl
 ```
 
@@ -184,7 +184,7 @@ qdl
 
 终端输出示例：
 
-```
+```text
 Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
  -d, --debug                    Print detailed debug info
  -v, --version                  Print the current version and exit

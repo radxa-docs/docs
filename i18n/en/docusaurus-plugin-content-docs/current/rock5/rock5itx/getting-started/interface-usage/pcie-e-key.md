@@ -29,25 +29,25 @@ PCIe E Key is an interface for connecting embedded devices, usually used for con
 
 - First enter ROOT user mode.
 
-```
+```bash
 sudo su
 ```
 
 - Turn on WIFI
 
-```
+```bash
 nmcli r wifi on
 ```
 
 - Scanning WIFI
 
-```
+```bash
 nmcli dev wifi
 ```
 
 - Connecting to wifi networks
 
-```
+```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
@@ -55,7 +55,7 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 - When using the Radxa Wireless A8 module, the following blacklists must be added for BT to work properly.
 
-```
+```text
 root@rock-5-itx:~# cat /etc/modprobe.d/blacklist.conf
 blacklist pgdrv
 blacklist btusb
@@ -68,26 +68,26 @@ root@rock-5-itx:~# reboot
 
 - Radxa APT includes the broadcom-wifibt-firmware package for Broadcom wireless modules and the intel-wifibt-firmware package for Intel wireless modules. The corresponding packages need to be downloaded.
 
-```
+```text
 root@rock-5-itx:~# apt-get update -y
 root@rock-5-itx:~# apt-get install -y broadcom-wifibt-firmware intel-wifibt-firmware
 ```
 
 - Test the status of the Bluetooth module and check the Bluetooth device.
 
-```
+```text
 root@rock-5-itx:~# systemctl status bluetooth
 ```
 
 - Run the Bluetooth device.
 
-```
+```text
 root@rock-5-itx:~# systemctl start bluetooth
 ```
 
 - Detecting Bluetooth devices
 
-```
+```text
 root@rock-5-itx:~# hciconfig
 hci0:   Type: Primary Bus: UART
        BD Address: 10:2C:6B:49:D5:53 ACL MTU: 1021:8 SCO MTU: 64:1
@@ -98,19 +98,19 @@ hci0:   Type: Primary Bus: UART
 
 - Test: Connecting the Bluetooth speaker, first install pulseaudio
 
-```
+```text
 root@rock-5-itx:~# apt-get install -y pulseaudio-module-bluetooth pulseaudio
 ```
 
 - Run pulseaudio
 
-```
+```text
 root@rock-5-itx:~# pulseaudio --start
 ```
 
 - Connecting with pulseaudio
 
-```
+```text
 root@rock-5-itx:~# bluetoothctl
 [bluetooth]# default-agent
 [bluetooth]# power on

@@ -22,7 +22,7 @@ WAN 和 LAN 区分：靠近 USB Type-C 接口的为 WAN 口，远离 USB Type-C 
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -30,7 +30,7 @@ ip a
 
 若连接成功，终端会输出类似信息：其中 `end1` 为 LAN 口，`end0` 为 WAN 口，`192.168.11.102` 是路由器分配的 IP 地址。
 
-```
+```text
 ···
 2: end1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
     link/ether 6e:1b:2b:cf:7e:b7 brd ff:ff:ff:ff:ff:ff
@@ -71,7 +71,7 @@ ip a
 
 <NewCodeBlock tip="radxa@airbox$ & Linux@host$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install iperf
 ```
@@ -86,7 +86,7 @@ sudo apt install iperf
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 iperf -s
 ```
 
@@ -94,7 +94,7 @@ iperf -s
 
 成功启动后，终端会输出类似如下信息：
 
-```
+```text
 ------------------------------------------------------------
 Server listening on TCP port 5001
 TCP window size:  128 KByte (default)
@@ -109,7 +109,7 @@ TCP window size:  128 KByte (default)
 
 <NewCodeBlock tip="radxa@airbox$ & Linux@host$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time>
 # 示例
 iperf -c 192.168.11.101 -t 60
@@ -128,7 +128,7 @@ iperf -c 192.168.11.101 -t 60
 
 <NewCodeBlock tip="radxa@airbox$ & Linux@host$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time> -R
 # 示例
 iperf -c 192.168.11.101 -t 60 -R

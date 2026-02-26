@@ -21,14 +21,14 @@ After powering off the motherboard, insert the M.2 2230 SSD into the M.2 M Key 2
 Use the `lsblk` command to view NVMe device information on the system.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
 
 Example output:
 
-```
+```text
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 ···
 nvme0n1     259:39   0 119.2G  0 disk
@@ -44,7 +44,7 @@ Use the `dd` command to test the read and write speeds of the NVMe device.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo dd if=source_file/device of=target_file/device bs=block_size count=block_number
 ```
 
@@ -68,7 +68,7 @@ Use the `dd` command to write 1GB of data to the NVMe device.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=1024
 ```
 
@@ -82,7 +82,7 @@ Use the `dd` command to read 1GB of data from the NVMe device.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024
 ```
 

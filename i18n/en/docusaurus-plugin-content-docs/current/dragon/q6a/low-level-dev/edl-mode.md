@@ -50,7 +50,7 @@ Specific steps:
 
   <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 lsusb
 ```
 
@@ -58,7 +58,7 @@ lsusb
 
 After the device enters EDL mode, it will display information similar to the following:
 
-```
+```bash
 Bus 001 Device 008: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (EDL mode)
 ```
 

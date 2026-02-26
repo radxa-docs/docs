@@ -6,13 +6,13 @@ sidebar_position: 5
 
 1. 安装简体中文字体：
 
-```
+```bash
 sudo apt-get install fonts-wqy-zenhei
 ```
 
 2. 设置系统语言为中文桌面：
 
-```
+```bash
 sudo dpkg-reconfigure locales
 ```
 
@@ -24,7 +24,7 @@ sudo dpkg-reconfigure locales
 
 4. 重启系统后即可
 
-```
+```bash
 sudo reboot
 ```
 

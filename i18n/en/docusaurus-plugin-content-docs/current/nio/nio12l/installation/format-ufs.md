@@ -11,19 +11,19 @@ Formatting UFS can be done on a Linux PC.
 
 - Install the ModemManager API tool on Linux PC, such as Ubuntu 20.04.
 
-```
+```bash
 $ sudo apt install -y modemmanager
 ```
 
 - Get SP Flash Tool
 
-```
+```bash
 $ mkdir -p ~/sp_flash_tool && wget https://dl.radxa.com/nio12l/tools/sp_flash_tool.tar.gz && tar zxvf sp_flash_tool.tar.gz -C ~/sp_flash_tool
 ```
 
 - Run the Format UFS Script
 
-```
+```bash
 $ cd ~/sp_flash_tool
 $ ./format_ufs.sh
 ===[Start format UFS]===
@@ -65,7 +65,7 @@ Search usb, timeout set as 3600000 ms
 
 - Viewing the formatting process, there is the following output:
 
-```
+```bash
 $ cd ~/sp_flash_tool
 $ ./format_ufs.sh
 ===[Start format UFS]===

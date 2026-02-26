@@ -27,14 +27,14 @@ sidebar_position: 10
 终端输入命令查看系统是否正确识别 RTC 电池。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo dmesg | grep rtc
 ```
 </NewCodeBlock>
 
 终端输出类似信息：`rtc information is valid`，说明 RTC 电池被正确识别。
 
-```
+```text
 [    8.145303] [drm] Esmart1-win0(possible_vp_mask = 0x00000006) has no possible crtcs
 [    8.145370] [drm] Esmart3-win0(possible_vp_mask = 0x00000006) has no possible crtcs
 [    8.153133] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
@@ -50,7 +50,7 @@ sudo dmesg | grep rtc
 终端使用 `hwclock` 命令读取 RTC 芯片（/dev/rtc0）的当前时间。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo hwclock -r -f /dev/rtc0
 ```
 </NewCodeBlock>
@@ -60,7 +60,7 @@ sudo hwclock -r -f /dev/rtc0
 使用 `date` 命令显示系统当前时间。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 date
 ```
 </NewCodeBlock>
@@ -70,7 +70,7 @@ date
 若 RTC 时间和系统时间不一致，可以使用 `hwclock` 命令将系统当前时间写入 RTC。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo hwclock -w -f /dev/rtc0
 ```
 </NewCodeBlock>

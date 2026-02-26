@@ -27,7 +27,7 @@ sidebar_position: 1
 
 <NewCodeBlock tip="radxa@radxa-c200$" type="device">
 
-```
+```bash
 sudo cp /boot/tegra234-p3768-0000+p3767-0001-nv.dtb /boot/dtb/kernel_tegra234-p3768-0000+p3767-0001-nv.dtb
 ```
 
@@ -39,7 +39,7 @@ sudo cp /boot/tegra234-p3768-0000+p3767-0001-nv.dtb /boot/dtb/kernel_tegra234-p3
 
 <NewCodeBlock tip="radxa@radxa-c200$" type="device">
 
-```
+```bash
 sudo /opt/nvidia/jetson-io/jetson-io.py
 ```
 
@@ -53,7 +53,7 @@ sudo /opt/nvidia/jetson-io/jetson-io.py
 
 <NewCodeBlock tip="radxa@radxa-c200$" type="device">
 
-```
+```bash
 sudo apt-get install nvidia-l4t-gstreamer -y
 ```
 
@@ -65,7 +65,7 @@ sudo apt-get install nvidia-l4t-gstreamer -y
 
 <NewCodeBlock tip="radxa@radxa-c200$" type="device">
 
-```
+```bash
 nvgstcapture-1.0
 ```
 

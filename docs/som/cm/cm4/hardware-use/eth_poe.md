@@ -27,14 +27,14 @@ sidebar_position: 5
 我们可以使用 `ip a` 命令查看网络的详细信息。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 ip a
 ```
 </NewCodeBlock>
 
 终端输出示例：其中 `192.168.4.160` 为千兆以太网接口 IP 地址。
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo

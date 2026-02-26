@@ -20,14 +20,14 @@ Yocto 系统的烧录需要使用联发科提供的 Genio Tools 烧录工具，G
 
 ### 1. 安装必要软件
 
-```
+```bash
 $ sudo apt update
 $ sudo apt install -y git python3 python3-pip
 ```
 
 运行以下命令来检查 Python 和 pip 版本：
 
-```
+```bash
 $ python3 --version
 Python 3.9.2
 $ pip3 --version
@@ -36,13 +36,13 @@ pip 21.2.4 from /usr/bin/pip3 (python 3.9)
 
 如果 pip3 版本低于 20.3。请通过运行以下命令进行升级：
 
-```
+```bash
 $ pip3 install --upgrade pip
 ```
 
 ### 2. Fastboot 安装
 
-```
+```bash
 $ sudo apt update
 $ sudo apt install -y android-tools-adb android-tools-fastboot
 ```
@@ -53,7 +53,7 @@ $ sudo apt install -y android-tools-adb android-tools-fastboot
 
 为了让主机能够通过 USB 与设备通信而无需 root 权限，我们需要创建一个 udev 规则来授予用户访问设备的权限：
 
-```
+```bash
 $ echo -n 'SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="201c", MODE="0660", TAG+="uaccess"
 SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="0003", MODE="0660", TAG+="uaccess"
 SUBSYSTEM=="usb", ATTR{idVendor}=="0403", MODE="0660", TAG+="uaccess"
@@ -67,7 +67,7 @@ $ sudo udevadm trigger
 
 另外，如果使用 adb 连接到开发板，请添加新的 udev 规则并将您的用户帐户添加到 plugdev 组：
 
-```
+```bash
 $ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="201c", MODE="0660", $ GROUP="plugdev"' | sudo tee -a /etc/udev/rules.d/96-rity.rules
 $ sudo udevadm control --reload-rules
 $ sudo udevadm trigger
@@ -78,7 +78,7 @@ udev 是 Linux 内核的设备管理器。它可用于授予用户或组访问�
 
 ### 4. Genio Tools 安装
 
-```
+```bash
 $ pip3 install -U genio-tools
 ```
 
@@ -88,7 +88,7 @@ $ pip3 install -U genio-tools
 
 重新登录后，请使用 genio-config 检查您的安装。
 
-```
+```bash
 $ genio-config
 fastboot: OK
 udev rules: OK
@@ -108,7 +108,7 @@ udev rules: OK
 
 进入到放置文件的目录下，执行命令 genio-flash。
 
-```
+```bash
 stephen@stephen:~$ cd ~/genio-1200-radxa-nio-12l-ufs
 stephen@stephen:~/genio-1200-radxa-nio-12l-ufs$ genio-flash
 AIoT Tools: v1.3.6

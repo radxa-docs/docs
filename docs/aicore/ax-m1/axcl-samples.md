@@ -18,7 +18,7 @@ AXCL-Samples提供**本地编译**和**交叉编译**两种编译方式，本文
 
 <NewCodeBlock tip="Host" type="device">
 
-```
+```bash
 git clone https://github.com/AXERA-TECH/axcl-samples.git
 ```
 
@@ -28,7 +28,7 @@ git clone https://github.com/AXERA-TECH/axcl-samples.git
 
 <NewCodeBlock tip="Host" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install build-essential cmake libopencv-dev
 ```
@@ -39,7 +39,7 @@ sudo apt install build-essential cmake libopencv-dev
 
 <NewCodeBlock tip="Host" type="device">
 
-```
+```bash
 mkdir build && cd build
 cmake ..
 make install -j4
@@ -49,7 +49,7 @@ make install -j4
 
 编译完成后在 `./install/bin` 下看到相关示例程序，即为编译成功
 
-```
+```bash
 radxa@rock-5b-plus:/Workspace/ax-sdk-demo/axcl-samples/build/install/bin$ tree ./
 ./
 ├── axcl_classification

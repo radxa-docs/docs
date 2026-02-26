@@ -74,7 +74,7 @@ GPIOCHIP0 -> 7 + 32 \* (A ~ K) -> 7 + 32 \* 1 -> 39
 
 <NewCodeBlock tip="radxa@cubie-a7z$" type="device">
 
-```
+```bash
 sudo pip3 install python-periphery
 ```
 
@@ -96,7 +96,7 @@ sudo pip3 install python-periphery
 <details>
 <summary>gpio_input.py</summary>
 
-```
+```text
 from periphery import GPIO
 import time
 
@@ -161,7 +161,7 @@ False 代表低电平，True 代表高电平。
 <details>
 <summary>gpio_output.py</summary>
 
-```
+```text
 from periphery import GPIO
 import time
 
@@ -274,7 +274,7 @@ False 代表低电平，True 代表高电平。
 <details>
 <summary>pwm_output.py</summary>
 
-```
+```text
 from periphery import PWM
 import time
 
@@ -357,7 +357,7 @@ UART（通用异步收发传输器） 是一种广泛使用的串行通信协议
 <details>
 <summary>uart_example.py</summary>
 
-```
+```text
 from periphery import Serial
 import time
 
@@ -433,7 +433,7 @@ I2C 是一种广泛使用的同步串行通信协议，由飞利浦（现恩智�
 <details>
 <summary>i2c_example.py</summary>
 
-```
+```text
 from periphery import I2C
 
 def i2c_device_detection():
@@ -510,7 +510,7 @@ SPI（串行外设接口）是一种高速、全双工、同步串行通信协�
 <details>
 <summary>spi_example.py</summary>
 
-```
+```text
 from periphery import SPI
 
 def spi_communication_test():

@@ -17,7 +17,7 @@ We can also use virtual machine
 
 ## Install build dependencies
 
-```
+```bash
 sudo apt update
 sudo apt install python2 git rsync gcc g++ make device-tree-compiler bc flex bison lz4 libssl-dev libgmp-dev libmpc-dev expect expect-dev file unzip bzip2 fakeroot bsdmainutils
 sudo ln -s /bin/python2 /bin/python
@@ -32,7 +32,7 @@ sudo ln -s /bin/python2 /bin/python
 
 On Ubuntu PC we use the following commands to extract the SDK.
 
-```
+```bash
 tar xvf rk356x_linux5.10_rkr8_sdk.repo.tar
 .repo/repo/repo  sync -l
 ```
@@ -41,7 +41,7 @@ tar xvf rk356x_linux5.10_rkr8_sdk.repo.tar
 
 Use Radxa reposiory, rockchip.
 
-```
+```text
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
 git fetch radxa
@@ -50,7 +50,7 @@ git checkout -b rk3566_rk3568-linux-5.10 remotes/radxa/rk3566_rk3568-linux-5.10
 
 Use Radxa repository, kernel.
 
-```
+```text
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
 git fetch radxa
@@ -61,7 +61,7 @@ git checkout -b linux-5.10-gen-rkr8-buildroot remotes/radxa/linux-5.10-gen-rkr8-
 
 Navigate to the top-level directory of the SDK, run command.
 
-```
+```bash
 ./build.sh
 ```
 

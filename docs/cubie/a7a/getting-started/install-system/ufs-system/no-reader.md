@@ -67,7 +67,7 @@ UFS 模块安装步骤：
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
 
-```
+```bash
 sudo apt install wget
 wget [url]
 ```
@@ -91,7 +91,7 @@ wget [url]
 :::
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
+```bash
 sudo dd if=[image_path] of=/dev/sda bs=4M status=progress
 ```
 </NewCodeBlock>
@@ -106,14 +106,14 @@ sudo dd if=[image_path] of=/dev/sda bs=4M status=progress
 使用 `fdisk` 命令查看 UFS 模块的分区信息。
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
+```bash
 sudo fdisk -l /dev/sda
 ```
 </NewCodeBlock>
 
 写入成功后，终端会输出类似以下的分区信息：
 
-```
+```text
 Disk /dev/sda: 119.15 GiB, 127934660608 bytes, 31234048 sectors
 Disk model: KLUDG4UHDC-B0E1
 Units: sectors of 1 \* 4096 = 4096 bytes

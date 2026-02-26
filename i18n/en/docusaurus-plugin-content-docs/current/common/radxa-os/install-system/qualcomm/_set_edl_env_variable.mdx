@@ -29,7 +29,7 @@ This document explains how to install Qualcomm device drivers, set up EDL tool e
 
   <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 lsusb
 ```
 
@@ -37,7 +37,7 @@ lsusb
 
 When the device enters EDL mode, you will see output similar to the following:
 
-```
+```bash
 Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 ```
 
@@ -98,7 +98,7 @@ Setting up environment variables can simplify subsequent flashing operations and
 
 <NewCodeBlock tip="Windows$" type="host">
 
-```
+```bash
 edl-ng
 ```
 
@@ -106,7 +106,7 @@ edl-ng
 
 Terminal output example:
 
-```
+```text
 Description:
   edl-ng - Qualcomm Emergency Download CLI
 
@@ -150,7 +150,7 @@ Navigate to the EDL tool's directory based on your system platform and use the `
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 realpath edl-ng
 ```
 
@@ -158,7 +158,7 @@ realpath edl-ng
 
 Terminal output example:
 
-```
+```text
 /home/milir/download/edl-ng-dist/linux-x64/edl-ng
 ```
 
@@ -168,7 +168,7 @@ Use the `chmod` command to add execute permissions to the EDL tool.
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 sudo chmod 777 edl-ng
 ```
 
@@ -180,7 +180,7 @@ You need to replace `/home/milir/download/edl-ng-dist/linux-x64/edl-ng` with the
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 sudo ln -s /home/milir/download/edl-ng-dist/linux-x64/edl-ng /usr/local/bin/edl-ng
 ```
 
@@ -192,7 +192,7 @@ Open a terminal in any location and verify that you can use the `edl-ng` command
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 edl-ng
 ```
 
@@ -200,7 +200,7 @@ edl-ng
 
 Terminal output example:
 
-```
+```text
 Description:
   edl-ng - Qualcomm Emergency Download CLI
 

@@ -10,7 +10,7 @@ import Serial from "../../../common/general/\_serial.mdx"
 
 ROCK 3C 系列默认添加的用户名和密码为：
 
-```
+```text
 用户名：radxa
 密码：  radxa
 ```

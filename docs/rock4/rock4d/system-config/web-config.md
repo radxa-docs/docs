@@ -33,14 +33,14 @@ sidebar_position: 3
 终端命令行输入以下命令可以查看网络连接的详细信息：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 ip a
 ```
 </NewCodeBlock>
 
 终端会输出类似如下信息：其中 `192.168.2.106` 就是路由器分配的 IP 地址。
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -104,7 +104,7 @@ ROCK 4D 预留两个板载天线接口，您需要将天线安装到接口位置
 1. 开启 WiFi 功能
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo nmcli radio wifi on
 ```
 </NewCodeBlock>
@@ -112,7 +112,7 @@ sudo nmcli radio wifi on
 2. 搜索附近 WiFi 网络
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo nmcli device wifi list
 ```
 </NewCodeBlock>
@@ -120,7 +120,7 @@ sudo nmcli device wifi list
 3. 连接 WiFi 网络
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo nmcli device wifi connect <SSID> password <PASSWORD>
 # 示例
 sudo nmcli device wifi connect wifi_demo password 12345678
@@ -130,14 +130,14 @@ sudo nmcli device wifi connect wifi_demo password 12345678
 4. 查看网络连接的详细信息
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 ip a
 ```
 </NewCodeBlock>
 
 终端会输出类似如下信息：其中 `192.168.31.53` 就是路由器分配的 IP 地址。
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo

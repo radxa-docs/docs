@@ -28,7 +28,7 @@ We can use the `ip a` command to view detailed network information.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -36,7 +36,7 @@ ip a
 
 Terminal output example: where `192.168.4.165` is the Gigabit Ethernet interface IP address.
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo

@@ -68,7 +68,7 @@ Follow these steps to connect the front panel interfaces:
 
 ### **1. Power Button & LED Headers**
 
-```
+```text
 2-4: Power LED +/-
 6-8: Power Switch
 5-7: Reset Button

@@ -22,7 +22,7 @@ Use the `ip a` command to view network interface information.
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 ip a
 ```
 
@@ -30,7 +30,7 @@ ip a
 
 Upon successful connection, the terminal will display output similar to the following: `end1` represents the LAN port, `end0` represents the WAN port, and `192.168.11.102` is the IP address assigned by the router.
 
-```
+```text
 ···
 2: end1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
     link/ether 6e:1b:2b:cf:7e:b7 brd ff:ff:ff:ff:ff:ff
@@ -70,7 +70,7 @@ Both the server and client need to have `iperf` installed.
 
 <NewCodeBlock tip="radxa@airbox$ & Linux@host$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install iperf
 ```
@@ -85,7 +85,7 @@ Open a terminal and start the server with the following command:
 
 <NewCodeBlock tip="Linux@host$" type="host">
 
-```
+```bash
 iperf -s
 ```
 
@@ -93,7 +93,7 @@ iperf -s
 
 After successful startup, the terminal will display output similar to:
 
-```
+```text
 ------------------------------------------------------------
 Server listening on TCP port 5001
 TCP window size:  128 KByte (default)
@@ -108,7 +108,7 @@ Open a terminal and test the upload bandwidth using the following command. Repla
 
 <NewCodeBlock tip="radxa@airbox$ & Linux@host$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time>
 # Example
 iperf -c 192.168.11.101 -t 60
@@ -127,7 +127,7 @@ Open a terminal and test the download bandwidth using the following command. Rep
 
 <NewCodeBlock tip="radxa@airbox$ & Linux@host$" type="device">
 
-```
+```bash
 iperf -c <server_ip> -t <time> -R
 # Example
 iperf -c 192.168.11.101 -t 60 -R

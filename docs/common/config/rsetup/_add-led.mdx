@@ -9,7 +9,7 @@ Radxa 发售的单板计算机或者计算模块一般默认情况下拥有两�
 
 - 硬件连接
 
-```
+```text
 GPIO3_C1(PIN11)(3.3V) <----> 电阻 (根据 LED 的数据手册选择大小) <----> LED正极 <----> LED负极 <----> GND(PIN9)
 ```
 
@@ -25,7 +25,7 @@ nano ~/user_led3.dts
 可使用的触发器有：none rc-feedback rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock tcpm-source-psy-4-0022-online disk-activity disk-read disk-write ide-disk mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic mmc2 mmc1 mmc0 default-on heartbeat pattern timer rfkill1 phy0rx phy0tx phy0assoc phy0radio rfkill2 rfkill3
 :::
 
-```
+```text
 /dts-v1/;
 /plugin/;
 

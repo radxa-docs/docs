@@ -48,7 +48,7 @@ export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
 
 ### 创建 `DockerFile` 文件
 
-```
+```text
 FROM ubuntu:xenial
 RUN apt-get update -y && apt-get install -y openjdk-8-jdk python python-pip git-core gnupg flex bison gperf build-essential \
     zip curl liblz4-tool zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \

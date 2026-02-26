@@ -24,7 +24,7 @@ sidebar_position: 1
 
 > **瑞莎兼容主板（实测）**
 
-```
+```text
 - ROCK 5A
 - ROCK 5B
 - ROCK 5B+

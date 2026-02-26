@@ -37,7 +37,7 @@ You can install the Python version of OpenCV using `pip`, or the C++ version usi
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 pip3 install opencv-python opencv-contrib-python
 ```
 
@@ -49,7 +49,7 @@ Open a terminal and enter the Python interactive mode by typing `python3`.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 python3
 ```
 
@@ -59,7 +59,7 @@ Once in the Python interactive mode, enter the following commands to verify Open
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 import cv2
 print(cv2.__version__)
 ```
@@ -74,7 +74,7 @@ If the OpenCV version number is displayed, the installation was successful.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install libopencv-dev
 ```
@@ -87,7 +87,7 @@ In the terminal, run the following command to verify the OpenCV installation:
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 pkg-config --modversion opencv4
 ```
 
@@ -107,7 +107,7 @@ This method involves compiling OpenCV from source.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install cmake gcc g++ python3-dev python3-numpy libavcodec-dev libavformat-dev libswscale-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libgtk-3-dev -y
 ```
@@ -118,7 +118,7 @@ sudo apt install cmake gcc g++ python3-dev python3-numpy libavcodec-dev libavfor
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo apt install libpng-dev libjpeg-dev libopenexr-dev libtiff-dev libwebp-dev -y
 ```
 
@@ -130,7 +130,7 @@ Use `git` to download the OpenCV source code.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo apt install git -y
 git clone https://github.com/opencv/opencv.git
 ```
@@ -143,7 +143,7 @@ Navigate to the OpenCV source directory and run the following commands to compil
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 cd opencv
 mkdir build
 cd build
@@ -160,7 +160,7 @@ Open a terminal and enter the Python interactive mode by typing `python3`.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 python3
 ```
 
@@ -170,7 +170,7 @@ Once in the Python interactive mode, enter the following commands to verify Open
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 import cv2
 print(cv2.__version__)
 ```

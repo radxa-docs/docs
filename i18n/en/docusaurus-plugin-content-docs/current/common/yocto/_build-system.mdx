@@ -17,7 +17,7 @@ Linux distributions supported by Yocto Project: [Reference Link](https://docs.yo
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install \
     build-essential chrpath cpio debianutils diffstat file gawk gcc git \
@@ -32,7 +32,7 @@ sudo apt-get install \
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 mkdir ~/yocto-rockchip-sdk && cd ~/yocto-rockchip-sdk
 repo init -u https://github.com/radxa/yocto-manifests.git -b scarthgap
 repo sync
@@ -46,7 +46,7 @@ Link the configuration file for {props?.board ?? 'board'} to `local.conf`.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 cd ~/yocto-rockchip-sdk/build/conf
 ln -sf rockchip-<soc>-<board>.conf local.conf
 ```
@@ -63,7 +63,7 @@ ln -sf rockchip-<soc>-<board>.conf local.conf
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 cd ~/yocto-rockchip-sdk
 source ./oe-init-build-env
 bitbake core-image-minimal
@@ -94,7 +94,7 @@ If the system does not have `en_US.UTF-8`, you need to set it up according to th
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt install locales
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
@@ -116,7 +116,7 @@ Where `BB_NUMBER_THREADS` is the number of threads for parallel compilation, and
 
 <NewCodeBlock tip="Ubuntu" type="host">
 
-```
+```bash
 BB_NUMBER_THREADS = "8"
 PARALLEL_MAKE = "-j 8"
 ```

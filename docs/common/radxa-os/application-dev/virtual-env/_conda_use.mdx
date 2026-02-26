@@ -6,7 +6,7 @@
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda --help
 ```
 
@@ -14,7 +14,7 @@ conda --help
 
 终端会输出类似如下的信息：
 
-```
+```text
 usage: conda [-h] [-v] [--no-plugins] [-V] COMMAND ...
 
 conda is a tool for managing and deploying applications, environments and packages.
@@ -79,7 +79,7 @@ update (upgrade) Update conda packages to the latest compatible version.
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda --version
 ```
 
@@ -87,7 +87,7 @@ conda --version
 
 终端会输出类似如下的信息：
 
-```
+```text
 conda 24.9.2
 ```
 
@@ -97,7 +97,7 @@ conda 24.9.2
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda info
 ```
 
@@ -105,7 +105,7 @@ conda info
 
 终端会输出类似如下的信息：
 
-```
+```text
      active environment : base
     active env location : /home/radxa/anaconda3
             shell level : 1
@@ -148,7 +148,7 @@ offline mode : False
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda env list
 ```
 
@@ -156,7 +156,7 @@ conda env list
 
 终端会输出类似如下的信息：表示当前系统只有 base 环境。
 
-```
+```text
 # conda environments:
 
 #
@@ -170,7 +170,7 @@ base \* /home/radxa/anaconda3
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda create --name <env_name>
 
 # 示例：创建一个名为 my_env 的环境
@@ -182,7 +182,7 @@ conda create --name my_env
 
 创建环境后，终端会输出类似如下的信息：创建过程中需要确认是否继续。
 
-```
+```text
 Channels:
 
 - defaults
@@ -223,7 +223,7 @@ Executing transaction: done
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda create --name <env_name> python=<python_version>
 
 # 示例：创建一个名为 my_env_py39 的 Python 3.9 环境
@@ -235,7 +235,7 @@ conda create --name my_env_py39 python=3.9
 
 创建环境后，终端会输出类似如下的信息：创建过程中需要输入 `y` 确认是否继续操作。
 
-```
+```text
 Channels:
 
 - defaults
@@ -341,7 +341,7 @@ Executing transaction: done
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda activate <env_name>
 
 # 示例：激活 my_env_py39 环境
@@ -357,7 +357,7 @@ conda activate my_env_py39
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda deactivate
 ```
 
@@ -367,7 +367,7 @@ conda deactivate
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 conda remove --name <env_name> --all
 
 # 示例：删除 my_env_py39 环境
@@ -379,7 +379,7 @@ conda remove --name my_env_py39 --all
 
 删除环境后，终端会输出类似如下的信息：中间需要您输入 `y` 确认删除操作。
 
-```
+```text
 Remove all packages in environment /home/radxa/anaconda3/envs/my_env_py39:
 
 ## Package Plan

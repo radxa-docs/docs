@@ -32,7 +32,7 @@ sidebar_position: 3
 
 如果 RP2040 崩溃，你可以将 GPIO 60 拉高 1 秒以重置 SoC：
 
-```
+```text
 bash
 sudo gpioset gpiochip1 60=1
 sleep 1

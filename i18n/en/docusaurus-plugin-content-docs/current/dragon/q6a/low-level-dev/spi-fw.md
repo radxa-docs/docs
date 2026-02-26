@@ -44,7 +44,7 @@ You can open a terminal in the folder where the `edl-ng` tool is located, use th
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 realpath edl-ng
 ```
 
@@ -52,7 +52,7 @@ realpath edl-ng
 
 Terminal output example:
 
-```
+```text
 /home/user/edl-ng-dist/linux-x64/edl-ng
 ```
 
@@ -60,7 +60,7 @@ Terminal output example:
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo ln -s [edl-ng path] /usr/local/bin/edl-ng
 # Example
 sudo ln -s /home/user/edl-ng-dist/linux-x64/edl-ng /usr/local/bin/edl-ng
@@ -78,7 +78,7 @@ You can open a terminal from any location and use the `edl-ng --version` command
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 edl-ng --version
 ```
 
@@ -94,7 +94,7 @@ Go to the [Resource Download](../../download) page, download the `spi firmware` 
 
 <NewCodeBlock tip="Linux$" type="host">
 
-```
+```bash
 sudo edl-ng --memory=spinor rawprogram rawprogram0.xml patch0.xml --loader=prog_firehose_ddr.elf
 ```
 

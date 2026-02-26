@@ -22,7 +22,7 @@ sidebar_position: 10
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 sudo apt update
 sudo apt install docker.io
 sudo usermod -a -G docker ${USER}
@@ -39,7 +39,7 @@ newgrp docker
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 sudo apt install make gcc device-tree-compiler build-essential flex bison libssl-dev -y
 ```
 
@@ -49,7 +49,7 @@ sudo apt install make gcc device-tree-compiler build-essential flex bison libssl
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 git clone https://github.com/radxa/c200-bootupd.git
 ```
 
@@ -59,7 +59,7 @@ git clone https://github.com/radxa/c200-bootupd.git
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 cd c200-bootupd
 DTC=/usr/bin/dtc make build
 ```
@@ -93,7 +93,7 @@ FC REC 引脚和 GND 引脚位置可以参考 [GPIO 接口文档](../../c200-ori
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 make flash_spi
 ```
 

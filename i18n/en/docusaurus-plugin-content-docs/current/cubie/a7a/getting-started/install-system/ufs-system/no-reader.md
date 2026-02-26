@@ -65,7 +65,7 @@ Recommended methods to download the system image to your Cubie A7A:
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
 
-```
+```bash
 sudo apt install wget
 wget [url]
 ```
@@ -88,7 +88,7 @@ When using the `dd` command, make absolutely sure you've selected the correct de
 :::
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
+```bash
 sudo dd if=[image_path] of=/dev/sda bs=4M status=progress
 ```
 </NewCodeBlock>
@@ -105,14 +105,14 @@ Parameter explanation:
 Use the `fdisk` command to check the partition information of the UFS module.
 
 <NewCodeBlock tip="radxa@cubie-a7a$" type="device">
-```
+```bash
 sudo fdisk -l /dev/sda
 ```
 </NewCodeBlock>
 
 After a successful write, the terminal will display partition information similar to:
 
-```
+```text
 Disk /dev/sda: 119.15 GiB, 127934660608 bytes, 31234048 sectors
 Disk model: KLUDG4UHDC-B0E1
 Units: sectors of 1 * 4096 = 4096 bytes

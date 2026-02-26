@@ -21,7 +21,7 @@ import UART_DEBUG from '../../../common/radxa-os/system-config/\_uart_debug.mdx'
 :::tip Maskrom 模式
 若主板进入 Maskrom 模式，使用 USB Type-C 数据线连接主板的 Debug 端口和电脑的 USB 端口，系统会出现两个设备，类似如下信息：
 
-```
+```text
 Bus 001 Device 014: ID 1a86:7523 QinHeng Electronics CH340 serial converter
 Bus 001 Device 015: ID 2207:350c Fuzhou Rockchip Electronics Company
 ```

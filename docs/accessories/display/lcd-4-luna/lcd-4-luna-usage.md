@@ -38,7 +38,7 @@ sidebar_position: 6
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 bash install_for_linux.sh
 ```
 

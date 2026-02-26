@@ -21,14 +21,14 @@ PoE 功能需要搭配 PoE HAT 和以太网 PoE 交换机，实现单线供电�
 终端输入 `ip a` 命令可以查看网络接口状态和 IP 地址等信息。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 ip a
 ```
 </NewCodeBlock>
 
 终端会输出类似如下信息：其中 192.168.2.106 就是路由器分配的 IP 地址。
 
-```
+```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo

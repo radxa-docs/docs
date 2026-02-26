@@ -26,7 +26,7 @@ sidebar_position: 9
 在开发板上使用 `curl` 命令下载脚本。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 curl -sL https://rock.sh/rockpi-backup -o rockpi-backup.sh
 ```
 </NewCodeBlock>
@@ -36,7 +36,7 @@ curl -sL https://rock.sh/rockpi-backup -o rockpi-backup.sh
 给脚本添加可执行权限。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 chmod +x rockpi-backup.sh
 ```
 </NewCodeBlock>
@@ -44,14 +44,14 @@ chmod +x rockpi-backup.sh
 您可以使用 `-h` 参数查看脚本帮助信息。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo ./rockpi-backup.sh -h
 ```
 </NewCodeBlock>
 
 终端输出示例：
 
-```
+```text
 Usage:
   sudo ./rockpi-backup.sh [-o path|-e pattern|-u|-m path]
     -o Specify output position, default is $PWD.
@@ -65,7 +65,7 @@ Usage:
 使用 root 权限运行脚本:运行脚本过程中需要手动确认安装依赖和确认继续备份操作。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo ./rockpi-backup.sh
 ```
 </NewCodeBlock>
@@ -91,7 +91,7 @@ sudo ./rockpi-backup.sh
 
 终端输出类似信息：
 
-```
+```text
 Backup done, the file is /home/radxa/rock-4d-s16-backup-250612-0930.img
 ```
 
@@ -131,14 +131,14 @@ Backup done, the file is /home/radxa/rock-4d-s16-backup-250612-0930.img
 使用 `lsblk` 命令确认可移动磁盘信息。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
 
 终端输出类似信息：其中 `sda` 为演示的开发板系统盘，您可以通过安全插拔可移动介质来判断对应设备信息。
 
-```
+```text
 sda           8:0    1    58G  0 disk
 ├─sda1        8:1    1    16M  0 part /media/wml/config
 ├─sda2        8:2    1   300M  0 part
@@ -154,7 +154,7 @@ nvme0n1     259:0    0 953.9G  0 disk
 在 PC 上打开终端，使用 `dd` 命令备份系统：命令中的参数可以根据实际情况进行修改。
 
 <NewCodeBlock tip="PC-Host$" type="host">
-```
+```bash
 sudo dd if=/dev/sda of=rock-4d-spi-backup.img bs=4M status=progress
 ```
 </NewCodeBlock>
@@ -168,7 +168,7 @@ sudo dd if=/dev/sda of=rock-4d-spi-backup.img bs=4M status=progress
 
 终端输出类似信息：
 
-```
+```text
 62205722624 bytes (62 GB, 58 GiB) copied, 1609 s, 38.7 MB/s
 14839+0 records in
 14839+0 records out

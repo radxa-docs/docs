@@ -10,7 +10,7 @@ You need to prepare an Ubuntu 22.04 (Jammy) x86_64 host.
 
 Install the following packages on the host:
 
-```
+```bash
 $ echo "deb-src http://archive.ubuntu.com/ubuntu jammy main" | sudo tee -a /etc/apt/sources.list.d/jammy.list
 $ sudo apt-get update
 $ sudo apt-get build-dep linux
@@ -19,14 +19,14 @@ $ sudo apt-get install git fakeroot libncurses-dev gcc-aarch64-linux-gnu
 
 ## Getting the kernel code
 
-```
+```bash
 $ git clone https://github.com/radxa/kernel.git -b Ubuntu-mtk-5.15.0-1029.33 linux
 $ cd linux
 ```
 
 ## Setting cross-compile environment variables
 
-```
+```bash
 $ export ARCH=arm64
 $ export $(dpkg-architecture -aarm64)
 $ export CROSS_COMPILE=aarch64-linux-gnu-
@@ -34,14 +34,14 @@ $ export CROSS_COMPILE=aarch64-linux-gnu-
 
 ## Build the kernel
 
-```
+```bash
 $ fakeroot debian/rules clean
 $ fakeroot debian/rules binary
 ```
 
 After the build is complete, you will get the following kernel package.
 
-```
+```bash
 $ cd ..
 $ ls -1 *.deb
 linux-buildinfo-5.15.0-1029-mtk_5.15.0-1029.33_arm64.deb

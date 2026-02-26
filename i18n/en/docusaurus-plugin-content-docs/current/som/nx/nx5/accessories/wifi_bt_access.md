@@ -24,24 +24,24 @@ sidebar_position: 2
 
 1. Switch to the ROOT user mode.
 
-```
+```bash
 sudo su
 ```
 
 2. Turn on the WIFI
 
-```
+```bash
 nmcli r wifi on
 ```
 
 3. Scan WIFI
 
-```
+```bash
 nmcli dev wifi
 ```
 
 4. Connect to the wifi network
 
-```
+```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```

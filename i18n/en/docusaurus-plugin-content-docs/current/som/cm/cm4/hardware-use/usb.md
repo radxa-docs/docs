@@ -49,14 +49,14 @@ Connect devices like card readers, mice, or keyboards to test if they are proper
 Use the `lsusb` command to view currently recognized USB devices.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsusb
 ```
 </NewCodeBlock>
 
 Example output:
 
-```
+```text
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 004: ID a69c:8d81 AICSemi AIC 8800D80
 Bus 001 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
@@ -68,14 +68,14 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 After connecting a device (e.g., card reader, mouse, keyboard), run `lsusb` again to check for the new device.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsusb
 ```
 </NewCodeBlock>
 
 Example output after connecting a card reader:
 
-```
+```text
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 004: ID a69c:8d81 AICSemi AIC 8800D80
 Bus 001 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
@@ -94,14 +94,14 @@ Connect a USB flash drive and use the `dd` command to test read/write speeds.
 Use `lsblk` to identify your flash drive's device name.
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 lsblk
 ```
 </NewCodeBlock>
 
 Example output (in this case, the flash drive is `sda`):
 
-```
+```text
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1   58G  0 disk
 mtdblock0    31:0    0   16M  0 disk
@@ -115,7 +115,7 @@ zram0       253:0    0  1.9G  0 disk [SWAP]
 #### Test Write Performance
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
 ```
 </NewCodeBlock>
@@ -130,7 +130,7 @@ This command writes 100MB of zero bytes to the flash drive and displays the writ
 
 Example output:
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 3.40424 s, 30.8 MB/s
@@ -139,7 +139,7 @@ Example output:
 #### Test Read Performance
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo dd if=/dev/sda of=/dev/null bs=1M count=100
 ```
 </NewCodeBlock>
@@ -154,7 +154,7 @@ This command reads 100MB of data from the flash drive and displays the read spee
 
 Example output:
 
-```
+```text
 100+0 records in
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 4.0582 s, 25.8 MB/s
@@ -173,7 +173,7 @@ For more information about using Rsetup, refer to the [Rsetup Usage](../system-u
 :::
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 rsetup
 ```
 </NewCodeBlock>
@@ -187,7 +187,7 @@ Connect your PC to the Radxa CM4's USB 3.0 Type-C port using a Type-C cable, the
 #### Install ADB Tools
 
 <NewCodeBlock tip="Linux$" type="host">
-```
+```bash
 sudo apt install adb
 ```
 </NewCodeBlock>
@@ -197,14 +197,14 @@ sudo apt install adb
 Use the `adb devices` command to list connected ADB devices.
 
 <NewCodeBlock tip="Linux$" type="host">
-```
+```bash
 adb devices
 ```
 </NewCodeBlock>
 
 Example output (showing one ADB device connected):
 
-```
+```text
 List of devices attached
 0123456789ABCDEF	device
 ```
@@ -214,7 +214,7 @@ List of devices attached
 Access the Radxa CM4's terminal shell using the `adb shell` command.
 
 <NewCodeBlock tip="Linux$" type="host">
-```
+```bash
 adb shell
 ```
 </NewCodeBlock>

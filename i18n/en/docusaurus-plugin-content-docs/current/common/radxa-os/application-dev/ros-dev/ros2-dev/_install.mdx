@@ -13,7 +13,7 @@ Use the `docker pull` command to pull the Ubuntu 22.04 Docker image.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 docker pull ubuntu:22.04
 ```
 
@@ -27,7 +27,7 @@ You need to write a startup script `ros_humble.sh`:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vi ros_humble.sh
 ```
 
@@ -35,7 +35,7 @@ vi ros_humble.sh
 
 Add the following content to the script:
 
-```
+```text
 #!/bin/bash
 xhost +
 
@@ -66,7 +66,7 @@ Use the `bash` command to start the script.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 bash ros_humble.sh
 ```
 
@@ -80,7 +80,7 @@ Ensure that the environment for installing Humble supports UTF-8 encoding.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 locale
 ```
 
@@ -88,7 +88,7 @@ locale
 
 If the system encoding format is UTF-8, you can see similar information output in the terminal:
 
-```
+```text
 LANG=en_US.UTF-8
 LANGUAGE=
 LC_CTYPE="en_US.UTF-8"
@@ -110,7 +110,7 @@ If the terminal output information is not UTF-8 encoded, you can enter the follo
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt update && apt install locales
 locale-gen en_US en_US.UTF-8
 echo "export LANG=en_US.UTF-8" >> ~/.bashrc
@@ -125,7 +125,7 @@ Ensure the system is in the latest environment, then enable the Ubuntu Universe 
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt-cache policy | grep universe
 apt install software-properties-common curl -y
 add-apt-repository universe
@@ -139,14 +139,14 @@ Solution: Visit `https://www.ipaddress.com/` to search for the `raw.githubuserco
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vi /etc/hosts
 ```
 
 </NewCodeBlock>
 Add the following content:
 
-```
+```text
 185.199.110.133 raw.githubusercontent.com
 ```
 
@@ -154,7 +154,7 @@ Then re-run the command to add ROS2 keys.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 ```
 
@@ -164,7 +164,7 @@ Add the repository to the sources list:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 ```
 
@@ -176,7 +176,7 @@ Use the following command to install Humble full desktop version.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt update && apt upgrade
 apt install ros-humble-desktop-full -y
 ```
@@ -189,7 +189,7 @@ Use the following command to install ROS2 development tools.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt install ros-dev-tools -y
 ```
 
@@ -201,7 +201,7 @@ Use the following command to set environment variables:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -216,7 +216,7 @@ Note: If not saved as an image, you will need to reinstall the ROS2 environment 
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 docker commit ros2 ros_humble:1.0
 ```
 
@@ -229,7 +229,7 @@ Parameter description:
 
 Wait for the commit to complete. After completion, you will see similar information output:
 
-```
+```text
 sha256:32288d439ffab73505d0754d4c43d8aad83210441b41553118e81ff6ab2887af
 ```
 
@@ -239,7 +239,7 @@ Modify the startup image in the startup script `ros_humble.sh` to the image name
 
 <NewCodeBlock tip="ros_humble.sh" type="device">
 
-```
+```bash
 #!/bin/bash
 
 xhost +

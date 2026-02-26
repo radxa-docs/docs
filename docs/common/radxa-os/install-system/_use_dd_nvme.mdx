@@ -62,7 +62,7 @@ import { Image } from "@site/src/utils/docs";
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install wget -y
 wget <download_url>
@@ -82,7 +82,7 @@ wget <download_url>
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt install xz-utils -y
 unxz <path_to_image_unxz>
 ```
@@ -103,7 +103,7 @@ unxz <path_to_image_unxz>
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 lsblk
 ```
 
@@ -113,7 +113,7 @@ lsblk
 
 终端输出示例:
 
-```
+```text
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 ···
 nvme0n1     259:0    0 119.2G  0 disk
@@ -127,7 +127,7 @@ nvme0n1     259:0    0 119.2G  0 disk
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo dd if=<path_to_image> of=<device_target> bs=4M status=progress
 ```
 
@@ -155,7 +155,7 @@ sudo dd if=<path_to_image> of=<device_target> bs=4M status=progress
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 lsblk
 ```
 
@@ -163,7 +163,7 @@ lsblk
 
 终端输出示例:
 
-```
+```text
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 ···
 nvme0n1     259:0    0 119.2G  0 disk

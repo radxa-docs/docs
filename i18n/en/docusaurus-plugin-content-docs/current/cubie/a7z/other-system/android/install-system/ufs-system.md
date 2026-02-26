@@ -74,7 +74,7 @@ sudo apt install dkms
 Unzip the package, enter the LiveSuit directory, and run:
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 sudo chmod +x LiveSuit.run
 ```
 </NewCodeBlock>
@@ -84,14 +84,14 @@ sudo chmod +x LiveSuit.run
 Execute `LiveSuit.run` to install the program.
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 ./LiveSuit.run
 ```
 </NewCodeBlock>
 
 After a successful installation you will see output similar to:
 
-```
+```text
 ========***********LiveSuit installed completely***********===========
 LiveSuit  has been installed in /home/user_name/Bin/livesuit
 ========***********LiveSuit installed completely***********===========
@@ -102,7 +102,7 @@ LiveSuit  has been installed in /home/user_name/Bin/livesuit
 Switch to the installation directory and run:
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 sudo ./LiveSuit
 ```
 </NewCodeBlock>
@@ -115,7 +115,7 @@ sudo ./LiveSuit
 If the program reports that `libpng12.so.0` is missing, build and install it with the following commands:
 
 <NewCodeBlock tip="Host-Linux$" type="host">
-```
+```bash
 mkdir libpng
 cd libpng/
 wget https://ppa.launchpadcontent.net/linuxuprising/libpng12/ubuntu/pool/main/libp/libpng/libpng_1.2.54.orig.tar.xz

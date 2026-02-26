@@ -26,7 +26,7 @@ sidebar_position: 3
 
 <NewCodeBlock tip="PC@host$" type="host">
 
-```
+```bash
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 ```
 
@@ -72,13 +72,13 @@ git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 
 <NewCodeBlock tip="PC@host$" type="host">
 
-```
+```bash
 rsdk
 ```
 
 </NewCodeBlock>
 
-```
+```text
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a task:                     │
 │                                           │
@@ -93,7 +93,7 @@ rsdk
 
 选择 `Build system image` 选项，可以进一步选择需要构建的主板型号。
 
-```
+```text
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a product:                  │
 │                                           │
@@ -106,7 +106,7 @@ rsdk
 
 选择 `yes` 后开始构建 Radxa OS，rsdk 会自动完成镜像编译。
 
-```
+```text
 ┌─────────────────┤ RSDK ├───────────────────────┐
 │                                                │
 │ Are you sure to build for 'radxa-cubie-a7a'?   │

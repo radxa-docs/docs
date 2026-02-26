@@ -13,7 +13,7 @@ Use the `docker pull` command to pull the Ubuntu 20.04 Docker image.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 docker pull ubuntu:20.04
 ```
 
@@ -27,7 +27,7 @@ You need to write a startup script `ros_noetic.sh`:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vi ros_noetic.sh
 ```
 
@@ -35,7 +35,7 @@ vi ros_noetic.sh
 
 Add the following content to the `ros_noetic.sh` script:
 
-```
+```text
 #!/bin/bash
 xhost +
 
@@ -66,7 +66,7 @@ Use the `bash` command to start the script.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 bash ros_noetic.sh
 ```
 
@@ -80,7 +80,7 @@ Ensure that the environment for installing Noetic supports UTF-8 encoding.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 locale
 ```
 
@@ -88,7 +88,7 @@ locale
 
 If the system encoding format is UTF-8, you can see similar information output in the terminal:
 
-```
+```text
 LANG=en_US.UTF-8
 LANGUAGE=
 LC_CTYPE="en_US.UTF-8"
@@ -110,7 +110,7 @@ If the terminal output information is not UTF-8 encoded, you can enter the follo
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt update && apt install locales
 locale-gen en_US en_US.UTF-8
 echo "export LANG=en_US.UTF-8" >> ~/.bashrc
@@ -125,7 +125,7 @@ Ensure the system is in the latest environment, then add Tsinghua software sourc
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt update && apt upgrade
 apt install lsb-core
 sh -c '. /etc/lsb-release && echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -140,7 +140,7 @@ Use the following command to install Noetic full desktop version.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt update && apt upgrade
 apt install ros-noetic-desktop-full -y
 ```
@@ -153,7 +153,7 @@ Use the following command to install Noetic dependency packages.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential -y
 ```
 
@@ -165,7 +165,7 @@ Use the following command to initialize rosdep.
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 rosdep init
 rosdep update
 ```
@@ -176,14 +176,14 @@ If rosdep init shows the error `ERROR: cannot download default sources list from
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vi /etc/hosts
 ```
 
 </NewCodeBlock>
 Add the following content:
 
-```
+```text
 185.199.110.133 raw.githubusercontent.com
 ```
 
@@ -195,7 +195,7 @@ Use the following command to set environment variables:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -208,7 +208,7 @@ Enter the following command in the terminal to verify whether the ROS environmen
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device$'}`} type="device">
 
-```
+```bash
 roscore
 ```
 
@@ -216,7 +216,7 @@ roscore
 
 If the installation is successful, you will see similar information output:
 
-```
+```text
 ... logging to /root/.ros/log/a9473172-5731-11f0-9a87-5acb6b3cedae/roslaunch-rock-4d-spi-27211.log
 Checking log directory for disk usage. This may take a while.
 Press Ctrl-C to interrupt
@@ -253,7 +253,7 @@ Note: If not saved as an image, you will need to reinstall the ROS environment w
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 docker commit ros1 ros_noetic:1.0
 ```
 
@@ -266,7 +266,7 @@ Parameter description:
 
 Wait for the commit to complete. After completion, you will see similar information output:
 
-```
+```text
 sha256:43b559a4d879c83477764730e0af90e8904e8fb8aeeeb9b653967e665bb7a7ca
 ```
 
@@ -274,7 +274,7 @@ sha256:43b559a4d879c83477764730e0af90e8904e8fb8aeeeb9b653967e665bb7a7ca
 
 Modify the startup image in the startup script `ros_noetic.sh` to the image name just saved:
 
-```
+```text
 #!/bin/bash
 
 xhost +

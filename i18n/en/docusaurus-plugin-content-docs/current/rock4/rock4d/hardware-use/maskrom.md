@@ -41,7 +41,7 @@ Open the RKDevTool software to view the detected device information:
 <TabItem value="Linux/MacOS">
 Use the `rkdeveloptool ld` command to view the detected device information:
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
@@ -49,7 +49,7 @@ sudo rkdeveloptool ld
 Example output showing a detected Maskrom device:
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 </NewCodeBlock>

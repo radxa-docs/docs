@@ -67,7 +67,7 @@ Use the `lsusb` command to check if the device has entered QDL mode.
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 lsusb
 ```
 
@@ -75,7 +75,7 @@ lsusb
 
 If the board has successfully entered QDL mode, the terminal will output something similar to:
 
-```
+```text
 Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 ```
 
@@ -127,7 +127,7 @@ Setting environment variables can simplify subsequent flashing operations and co
 
 <NewCodeBlock tip="Windows$" type="host">
 
-```
+```bash
 qdl
 ```
 
@@ -135,7 +135,7 @@ qdl
 
 Terminal output example:
 
-```
+```text
 Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
  -d, --debug                    Print detailed debug info
  -v, --version                  Print the current version and exit
@@ -163,7 +163,7 @@ Navigate to the QDL tool directory and use the `realpath` command to view the QD
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 realpath qdl
 ```
 
@@ -171,7 +171,7 @@ realpath qdl
 
 Terminal output example:
 
-```
+```text
 /home/user_name/download/QDL_2.3.9.2_Linux_x64/qdl
 ```
 
@@ -181,7 +181,7 @@ Use the `chmod` command to add execute permissions to the QDL tool.
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 sudo chmod 777 qdl
 ```
 
@@ -191,7 +191,7 @@ sudo chmod 777 qdl
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 sudo ln -s /home/user_name/download/QDL_2.3.9.2_Linux_x64/qdl /usr/local/bin/qdl
 ```
 
@@ -203,7 +203,7 @@ Open a terminal in any location, and if you can view the version information usi
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 qdl
 ```
 
@@ -211,7 +211,7 @@ qdl
 
 Terminal output example:
 
-```
+```text
 Usage: qdl [options] <prog.mbn> [<program> <patch> ...]
  -d, --debug                    Print detailed debug info
  -v, --version                  Print the current version and exit
@@ -239,7 +239,7 @@ Navigate to the `qcs9075-provision` folder, open a terminal, and use the followi
 
 <NewCodeBlock tip="PC$" type="host">
 
-```
+```bash
 qdl --storage ufs prog_firehose_ddr.elf provision_1_2.xml
 ```
 
@@ -247,7 +247,7 @@ qdl --storage ufs prog_firehose_ddr.elf provision_1_2.xml
 
 Terminal output example:
 
-```
+```text
 Waiting for EDL device
 waiting for programmer...
 UFS provisioning succeeded
@@ -259,13 +259,13 @@ Navigate to the `radxa-airbox-q900_noble_gnome_xxx\sail_nor` folder, open a term
 
 <NewCodeBlock tip="PC$" type="host">
 
-```
+```bash
 qdl --storage spinor prog_firehose_ddr.elf rawprogram0.xml patch0.xml
 ```
 
 </NewCodeBlock>
 
-```
+```text
 Waiting for EDL device
 waiting for programmer...
 flashed "SAIL_HYP" successfully
@@ -281,7 +281,7 @@ Navigate to the `radxa-airbox-q900_noble_gnome_xxx` folder, open a terminal, and
 
 <NewCodeBlock tip="PC$" type="host">
 
-```
+```bash
 qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 ```
 
@@ -289,7 +289,7 @@ qdl prog_firehose_ddr.elf rawprogram*.xml patch*.xml
 
 Terminal output example:
 
-```
+```text
 Waiting for EDL device
 waiting for programmer...
 flashed "efi" successfully at 40329kB/s
@@ -357,7 +357,7 @@ Navigate to the `radxa-airbox-q900_noble_gnome_xxx/partition_ufs` folder, open a
 
 <NewCodeBlock tip="PC$" type="host">
 
-```
+```bash
 qdl --storage ufs ../prog_firehose_ddr.elf rawprogram*_BLANK_GPT.xml
 ```
 
@@ -365,7 +365,7 @@ qdl --storage ufs ../prog_firehose_ddr.elf rawprogram*_BLANK_GPT.xml
 
 Terminal output example:
 
-```
+```text
 flashed "PrimaryGPT" successfully
 flashed "PrimaryGPT" successfully
 flashed "PrimaryGPT" successfully

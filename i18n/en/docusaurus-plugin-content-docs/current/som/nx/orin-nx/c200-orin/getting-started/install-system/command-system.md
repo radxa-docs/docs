@@ -46,7 +46,7 @@ Open a terminal in the download directory and extract the files to the specified
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 tar xf Jetson_Linux_R36.4.3_aarch64.tbz2
 sudo tar xpf Tegra_Linux_Sample-Root-Filesystem_R36.4.3_aarch64.tbz2 -C Linux_for_Tegra/rootfs/
 cd Linux_for_Tegra/
@@ -60,7 +60,7 @@ Run the `l4t_flash_prerequisites.sh` script to install the Jetson Linux developm
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 sudo ./tools/l4t_flash_prerequisites.sh
 ```
 
@@ -72,7 +72,7 @@ Run the `apply_binaries.sh` script to install NVIDIA Jetson components to the ro
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 sudo ./apply_binaries.sh
 ```
 
@@ -108,7 +108,7 @@ Run the following command in the terminal to flash the system to the NVMe SSD on
 
 <NewCodeBlock tip="Ubuntu 22.04" type="host">
 
-```
+```bash
 sudo ./tools/kernel_flash/l4t_initrd_flash.sh --external-device nvme0n1p1 -c tools/kernel_flash/flash_l4t_t234_nvme.xml -p "-c bootloader/generic/cfg/flash_t234_qspi.xml" --showlogs --network usb0 jetson-orin-nano-devkit-super internal
 ```
 

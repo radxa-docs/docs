@@ -33,7 +33,7 @@ sidebar_position: 3
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 repo sync -l
 ```
 
@@ -43,7 +43,7 @@ repo sync -l
 
 运行正常后，终端会输出类似如下信息：
 
-```
+```text
 Updating files: 100% (14802/14802), done.dating files:  71% (10553/14802)
 Updating files: 100% (15025/15025), done.ting files:  47% (7062/15025)
 Updating files: 100% (588/588), done.rm/configUpdating files:   9% (1355/14239)
@@ -89,7 +89,7 @@ repo sync has finished successfully.
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 sudo apt update
 sudo apt install repo
 ```
@@ -129,7 +129,7 @@ sudo apt install repo
 进入 Allwinner 官方原始 SDK 源码目录下的指定文件夹，然后依次执行添加远程仓库地址、更新远程仓库、切换分支命令。
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-```
+```bash
 cd target/a527/
 git remote add radxa https://github.com/radxa/allwinner-target.git
 git fetch radxa
@@ -152,7 +152,7 @@ Ubuntu 20.04 / 22.04 / 24.04 系统
 #### 安装依赖包
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-```
+```bash
 sudo apt update
 sudo apt install build-essential subversion git-core libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc libxml-parser-perl mercurial bzr ecj cvs unzip lib32z1 lib32z1-dev lib32stdc++6 libstdc++6 lib32ncurses-dev lib32z1 ncurses-term bison libexpat-dev cpio busybox -y
 ```
@@ -162,7 +162,7 @@ sudo apt install build-essential subversion git-core libncurses5-dev zlib1g-dev 
 
 编译前，我们需要在 Allwinner 官方原始 SDK 源码目录的 `build/pack` 中添加补丁，用来支持 extlinux 启动。
 
-```
+```text
 --- a/pack
 +++ b/pack
 @@ -235,6 +235,9 @@ ${LICHEE_CHIP_CONFIG_DIR}/configs/${PACK_BOARD}/wavefile/*:${LICHEE_PACK_OUT_DIR
@@ -186,14 +186,14 @@ sudo apt install build-essential subversion git-core libncurses5-dev zlib1g-dev 
 ### 初始化编译环境
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-```
+```bash
 source build/envsetup.sh
 ```
 </NewCodeBlock>
 
 初始化成功后，终端会输出类似如下信息：
 
-```
+```text
 NOTE: The SDK(/home/milir/download/tina_sdk) was successfully loaded
 load yocto... ok
 load buildroot,dragonboard,bsp...ok
@@ -249,7 +249,7 @@ Usage: pack [args]
 ### 启动配置界面
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-```
+```bash
 ./build.sh config
 ```
 </NewCodeBlock>
@@ -258,7 +258,7 @@ Usage: pack [args]
 
 配置成功后，终端会输出类似如下信息：你可以参考以下信息进行配置
 
-```
+```text
 ========ACTION List: mk_config ;========
 options :
 All available platform:
@@ -334,7 +334,7 @@ INFO: prepare_buildserver
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 sudo apt update
 sudo apt install python3
 sudo ln -s /usr/bin/python3 /usr/bin/python
@@ -347,14 +347,14 @@ sudo ln -s /usr/bin/python3 /usr/bin/python
 ### 镜像编译
 
 <NewCodeBlock tip="Linux-Host$" type="host">
-```
+```bash
 ./build.sh
 ```
 </NewCodeBlock>
 
 编译完成后，终端会输出类似如下信息：
 
-```
+```text
 Use init ramdisk file: '/home/milir/download/tina_sdk/kernel/linux-5.15/bsp/ramfs/ramfs_aarch64.cpio.gz'.
 15983 blocks
 30954 blocks
@@ -417,7 +417,7 @@ INFO: ----------------------------------------
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 ./build.sh pack
 ```
 
@@ -425,7 +425,7 @@ INFO: ----------------------------------------
 
 镜像打包完成后，终端会输出类似如下信息：生成的系统镜像会存放在 Allwinner 官方原始 SDK 源码目录的 `out` 文件夹中。
 
-```
+```text
 Dragon execute image.cfg SUCCESS !
 ----------image is at----------
 
@@ -440,7 +440,7 @@ pack finish
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 ./build.sh bootloader
 ```
 
@@ -451,7 +451,7 @@ pack finish
 
 命令等效于下面命令：命令会使用 `u-boot-2018/configs` 目录下的 `sun55iw3p1_defconfig` 文件
 
-```
+```text
 cd brandy/brandy-2.0/
 ./build.sh -p sun55iw3p1 -b a527
 ```
@@ -460,7 +460,7 @@ cd brandy/brandy-2.0/
 
 编译完成后，终端会输出类似如下信息：编译 U-Boot 会生成 u-boot、boot0、fes1 以及 sboot 文件，其中生成的文件位置会通过终端日志输出。
 
-```
+```text
 ========ACTION List: build_bootloader ;========
 options :
 find: '/home/milir/download/tina_sdk/brandy/brandy-2.0/spl': No such file or directory
@@ -483,7 +483,7 @@ INFO: skip build brandy.
 
 <NewCodeBlock tip="Linux-Host$" type="host">
 
-```
+```bash
 ./build.sh kernel
 ```
 
@@ -497,7 +497,7 @@ INFO: skip build brandy.
 
 编译完成后，终端会输出类似如下信息：编译 Kernel 会生成内核镜像文件，其中生成的文件位于 `out/a527/cubie_a5e/debian/` 目录下。
 
-```
+```text
 Use init ramdisk file: '/home/milir/download/tina_sdk/kernel/linux-5.15/bsp/ramfs/ramfs_aarch64.cpio.gz'.
 15983 blocks
 30954 blocks

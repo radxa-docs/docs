@@ -15,7 +15,7 @@ To enable Wi-Fi, please try the following steps.
 
 1.Get AIC8800 driver and firmware packages from https://github.com/radxa-pkg/aic8800/releases . For example,
 
-```
+```bash
 wget https://github.com/radxa-pkg/aic8800/releases/download/3.0%2Bgit20240327.3561b08f-2/aic8800-firmware_3.0+git20240327.3561b08f-2_all.deb
 wget https://github.com/radxa-pkg/aic8800/releases/download/3.0%2Bgit20240327.3561b08f-2/aic8800-usb-dkms_3.0+git20240327.3561b08f-2_all.deb
 wget https://github.com/radxa-pkg/aic8800/releases/download/3.0%2Bgit20240327.3561b08f-2/aicrf-test_3.0+git20240327.3561b08f-2_arm64.deb
@@ -23,12 +23,12 @@ wget https://github.com/radxa-pkg/aic8800/releases/download/3.0%2Bgit20240327.35
 
 2.Install AIC8800 packages.
 
-```
+```bash
 sudo dpkg -i *.deb
 ```
 
 3.Reboot OS and you will find the Wi-Fi icon.
 
-```
+```bash
 sudo reboot
 ```
