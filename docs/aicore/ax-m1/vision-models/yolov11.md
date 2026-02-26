@@ -96,5 +96,5 @@ detection num: 7
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/aicore-ax-m1/yolo11_out.webp"/>
-   yolov8 demo output
+   yolov11 demo output
 </div>

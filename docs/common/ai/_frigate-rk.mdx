@@ -152,13 +152,11 @@ sudo apt install ffmpeg
 
 </NewCodeBlock>
 
-然后你需要准备一个视频，这里使用 huggingface 公开数据集 KAI-KratosAI/Street-videos 的一个视频。
+然后你需要准备一个视频，这里需要你自己准备并重命名为 test.mp4 。
 
 <NewCodeBlock tip='Device'>
 
 ```bash
-wget https://huggingface.co/datasets/KAI-KratosAI/Street-videos/resolve/0d33ede195de1fc061723d5dfa4623b30162af66/041896fb-20da-4625-9455-195172efc4d5.mp4_041896fb-20da-4625-9455-195172efc4d5.mp4#t=0.001
-mv 041896fb-20da-4625-9455-195172efc4d5.mp4_041896fb-20da-4625-9455-195172efc4d5.mp4 test.mp4
 ffmpeg -re -stream_loop -1 -i test.mp4 -c copy -f rtsp rtsp://localhost:8554/mystream
 ```
 
