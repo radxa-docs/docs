@@ -31,7 +31,7 @@ ZERO 2 PRO 带有一个 4-lane 的 CSI 接口。以下是目前支持的摄像�
   </tr>
 </table>
 
-<!-- 摄像头使用请参见[摄像头使用教程](../accessories/camera_4k) -->
+<!-- 摄像头使用请参见[摄像头使用教程](../accessories/camera/camera-4k) -->
 
 ## 屏幕
 

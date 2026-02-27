@@ -53,8 +53,8 @@ The Radxa CM5 IO Board provides one MIPI CSI camera interface (4 lane, 31-pin) a
   </tr>
 </table>
 
-The 4-lane MIPI CSI (31-pin) camera interface can be used with the [Radxa Camera 4K usage tutorial](../accessories/camera_4k).  
-The 2-lane MIPI CSI (15-pin) camera interface can be used with the [Radxa Camera 8M usage tutorial](../accessories/camera_8m).
+The 4-lane MIPI CSI (31-pin) camera interface can be used with the [Radxa Camera 4K usage tutorial](../accessories/camera/camera-4k).  
+The 2-lane MIPI CSI (15-pin) camera interface can be used with the [Radxa Camera 8M usage tutorial](../accessories/camera/camera-8m-219).
 
 ## Display
 
