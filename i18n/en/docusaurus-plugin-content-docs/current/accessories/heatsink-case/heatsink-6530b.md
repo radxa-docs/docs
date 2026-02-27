@@ -35,12 +35,15 @@ This guide uses Radxa Cubie A7Z as an example for installing the 6530B heatsink.
 - Power off the device before installation, and avoid plugging/unplugging the fan connector while the board is powered.
 - Tighten the screws gradually in a diagonal pattern to avoid uneven pressure that can cause poor contact with the SoC.
 - If the thermal pad has protective films, remove the films on both sides before applying the pad.
+- Tighten the screws until they are secure. Avoid overtightening to prevent stripped threads or board damage.
 
 ### Package Contents
 
-- 1x Heatsink
-- 2x Thermal pads
-- 4x Screws (CM2*4*4)
+- 1× Heatsink
+- 2× Thermal pads
+- 4× Screws (CM2 × 4 × 4 mm)
+
+Note: One of the thermal pads is a spare and can be used as needed.
 
 ### Place the Thermal Pad
 
@@ -60,7 +63,7 @@ Align the heatsink with the mounting holes and place it onto the board, ensuring
 
 ### Secure the Heatsink
 
-Secure the heatsink to the board using the four screws. It is recommended to tighten them gradually in a diagonal pattern.
+Secure the heatsink to the board using the four screws. It is recommended to tighten them gradually in a diagonal pattern to ensure even pressure.
 
 <div style={{textAlign: 'center'}}>
     <img src="/en/img/accessories/heatsink-case/heatsink-6530b/fasten-heatsink.webp" style={{width: '100%', maxWidth: '1200px'}} />
