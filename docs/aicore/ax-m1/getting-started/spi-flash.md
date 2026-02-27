@@ -19,28 +19,12 @@ sidebar_position: 5
 
 ```bash
 sudo dpkg -i axclhost-firmware_3.6.5-1_all.deb
-sudo dpkg -i axcl_host_xxx.deb
+sudo dpkg -i task-axclhost_3.6.5-1_all.deb
 sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
 sudo systemctl restart systemd-modules-load
 ```
 
 </NewCodeBlock>
-
-其中 `axcl_host_xxx.deb` 根据自己的系统架构选择对应的版本。
-
-:::tip 系统架构说明
-
-可使用以下命令查看主板系统架构：
-
-<NewCodeBlock tip="Host" type="host">
-
-```bash
-uname -m
-```
-
-</NewCodeBlock>
-
-:::
 
 ## 识别设备
 

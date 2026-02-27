@@ -19,28 +19,12 @@ Go to the [Downloads](../download.md) page to download the required software pac
 
 ```bash
 sudo dpkg -i axclhost-firmware_3.6.5-1_all.deb
-sudo dpkg -i axcl_host_xxx.deb
+sudo dpkg -i task-axclhost_3.6.5-1_all.deb
 sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
 sudo systemctl restart systemd-modules-load
 ```
 
 </NewCodeBlock>
-
-Select `axcl_host_xxx.deb` according to your system architecture.
-
-:::tip System architecture
-
-You can use the following command to check the host system architecture:
-
-<NewCodeBlock tip="Host" type="host">
-
-```bash
-uname -m
-```
-
-</NewCodeBlock>
-
-:::
 
 ## Detect the device
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 15
+sidebar_position: 11
 ---
 
 # AXCL-Samples Build Examples

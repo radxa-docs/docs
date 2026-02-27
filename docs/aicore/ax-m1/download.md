@@ -7,8 +7,9 @@ sidebar_position: 13
 ## AXCL 驱动包
 
 - Firmware：[axclhost-firmware_3.6.5-1_all.deb](https://dl.radxa.com/aicore/ax_m1/axclhost-firmware_3.6.5-1_all.deb)
+- Task：[task-axclhost_3.6.5-1_all.deb](https://dl.radxa.com/aicore/ax_m1/task-axclhost_3.6.5-1_all.deb)
 - ARM64（AArch64）：[axcl_host_aarch64_V3.6.5_20250908154509_NO4973.deb](https://dl.radxa.com/aicore/ax_m1/axcl_host_aarch64_V3.6.5_20250908154509_NO4973.deb)
-- X86 (AMD64): [axcl_host_x86_64_V3.6.5_20250908154509_NO4973.deb](https://dl.radxa.com/aicore/ax_m1/axcl_host_x86_64_V3.6.5_20250908154509_NO4973.deb)
+- X86 (AMD64)：[axcl_host_x86_64_V3.6.5_20250908154509_NO4973.deb](https://dl.radxa.com/aicore/ax_m1/axcl_host_x86_64_V3.6.5_20250908154509_NO4973.deb)
 - DKMS：[axclhost-dkms_3.6.5-1_all.deb](https://dl.radxa.com/aicore/ax_m1/axclhost-dkms_3.6.5-1_all.deb)
 
 ## SPI Flash 固件
