@@ -6,4 +6,10 @@ sidebar_position: 0
 
 import FASTRPCSETUP from '../../../../common/ai/\_fastrpc_setup.mdx';
 
+:::tip
+
+When using system image version R2 or higher, the NPU runtime environment is pre-installed and no additional installation is required.
+
+:::
+
 <FASTRPCSETUP tag="qcs6490" />
