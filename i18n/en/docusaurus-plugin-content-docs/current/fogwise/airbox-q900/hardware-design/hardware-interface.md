@@ -55,7 +55,7 @@ Three independent external antenna interfaces using SMA female connectors. Used 
 
 ## RTC Battery Connector
 
-Real-Time Clock (RTC) battery connector using 2P XH 1.25mm interface specification. Used to connect a coin cell battery or equivalent battery pack (battery voltage: 3V) to maintain RTC operation during system power-off, ensuring accurate system timekeeping. Reference battery: [Radxa 2-Pin RTC Battery](../../../accessories/2p-rtc-bat.md).
+Real-Time Clock (RTC) battery connector using 2P XH 1.25mm interface specification. Used to connect a coin cell battery or equivalent battery pack (battery voltage: 3V) to maintain RTC operation during system power-off, ensuring accurate system timekeeping. Reference battery: [Radxa 2-Pin RTC Battery](../../../accessories/battery/2p-rtc-bat.md).
 
 ## Mini PCIe Slot
 
