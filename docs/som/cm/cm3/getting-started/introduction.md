@@ -13,7 +13,7 @@ description: "简单介绍 CM3/CM3 IO Board"
         Radxa CM3 核心板使用 3x 100P 0.4mm 间距 B2B 连接器，提供强大的功能支持，可与客户的底板结合，构建完整的产品功能，从而加快研发进程。
     </TabItem>
     <TabItem value="CM3 IO 板">
-        我们提供[瑞莎 CM3 接口板](../../../accessories/cm3-io-board)与 Radxa CM3 相兼容，你可以使用它开发出你想要的产品。例如，HMI，机器人，可视对讲机，智能家居等。
+        我们提供[瑞莎 CM3 接口板](../../../accessories/io-board/cm3-io-board)与 Radxa CM3 相兼容，你可以使用它开发出你想要的产品。例如，HMI，机器人，可视对讲机，智能家居等。
     </TabItem>
 </Tabs>
 
