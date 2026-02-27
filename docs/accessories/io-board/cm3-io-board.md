@@ -6,11 +6,11 @@ sidebar_position: 80
 
 # 介绍
 
-Radxa CM3 IO Board 是 Radxa CM3 的功能验证底板，可用于产品评估及前期研发使用。
+瑞莎 CM3 载板是瑞莎 CM3 的功能验证底板，可用于产品评估及前期研发使用。
 
 尺寸: 160mm × 90mm
 
-![Radxa CM3 IO Board](/img/accessories/cm3-io-board/cm3-io-board-01.webp)
+![瑞莎 CM3 载板](/img/accessories/cm3-io-board/cm3-io-board-01.webp)
 
 # 外设概述
 
@@ -35,6 +35,6 @@ Radxa CM3 IO Board 是 Radxa CM3 的功能验证底板，可用于产品评估�
 
 # 机械规格
 
-![Radxa CM3 IO Board Top](/img/accessories/cm3-io-board/cm3-io-board-02.webp)
+![瑞莎 CM3 载板正面](/img/accessories/cm3-io-board/cm3-io-board-02.webp)
 
-![Radxa CM3 IO Board Bottom](/img/accessories/cm3-io-board/cm3-io-board-03.webp)
+![瑞莎 CM3 载板背面](/img/accessories/cm3-io-board/cm3-io-board-03.webp)

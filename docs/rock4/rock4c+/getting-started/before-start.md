@@ -67,7 +67,7 @@ ROCK 4C+ 支持千兆以太网。
 ROCK 4C+ 支持摄像头功能。
 
 :::tip
-官方推荐使用 [Radxa Camera 4K](../../../accessories/camera_4k).
+官方推荐使用 [Radxa Camera 4K](../../../accessories/camera/camera-4k).
 :::
 
 - LCD 屏

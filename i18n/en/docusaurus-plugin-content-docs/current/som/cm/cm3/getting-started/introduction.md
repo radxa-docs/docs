@@ -13,7 +13,7 @@ description: "A brief introduction to the CM3/CM3 IO Board"
         Radxa CM3 Core Board uses 3x 100P 0.4mm pitch B2B connectors, providing robust functionality support to integrate with customers' baseboards for accelerated product development processes.
     </TabItem>
     <TabItem value="CM3 IO Board">
-        We offer [Radxa CM3 IO Board](../../../accessories/cm3-io-board), compatible with Radxa CM3, allowing you to develop the products you envision, such as HMI, robots, intercoms, smart homes, and more.
+        We offer [Radxa CM3 IO Board](../../../accessories/io-board/cm3-io-board), compatible with Radxa CM3, allowing you to develop the products you envision, such as HMI, robots, intercoms, smart homes, and more.
     </TabItem>
 </Tabs>
 

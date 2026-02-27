@@ -53,8 +53,8 @@ sidebar_position: 4
   </tr>
 </table>
 
-MIPI CSI 摄像头接口（4 lane, 31-pin）连接摄像头使用，可以参考 [瑞莎 4K 摄像头使用教程](../accessories/camera_4k)  
-MIPI CSI 摄像头接口（2 lane, 15-pin）连接摄像头使用，可以参考 [瑞莎 8M 摄像头使用教程](../accessories/camera_8m)
+MIPI CSI 摄像头接口（4 lane, 31-pin）连接摄像头使用，可以参考 [瑞莎 4K 摄像头使用教程](../accessories/camera/camera-4k)  
+MIPI CSI 摄像头接口（2 lane, 15-pin）连接摄像头使用，可以参考 [瑞莎 8M 摄像头使用教程](../accessories/camera/camera-8m-219)
 
 ## 屏幕
 
