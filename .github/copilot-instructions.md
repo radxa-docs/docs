@@ -111,6 +111,12 @@
 
 为保证 AI（Copilot / LLM）生成的文档质量与仓库规范一致，请遵守以下约束并优先使用示例提示词进行交互：
 
+- Agent 文档规范：`AGENT-DOC-SPEC.md`
+- 增量校验脚本：`scripts/agent-doc-lint.sh`
+- 漂移门禁脚本：`scripts/agent-doc-drift-guard.sh`
+- 翻译占位门禁脚本：`scripts/agent-doc-translation-guard.sh`
+- 页面模板：`.github/agent-doc-page-template.md`
+
 ### 基本约束（必须遵守）
 
 - 语言与目录对应：`docs/` 下为中文；若要生成英文版本，请同步到 `i18n/en/docusaurus-plugin-content-docs/current/` 并确保英文文件中不包含中文。
@@ -121,6 +127,8 @@
 - 风格与语气：专业、简洁、客观；步骤使用清晰的标题（例如 `## 使用前提`、`## 安装系统`）。
 - 组件与模板：尽量复用仓库的 `_*.mdx` 组件（勿新增未注册组件）；确保 `Tabs` 组件带 `queryString` 属性。
 - 提交与测试：修改后运行本地 pre-commit / lint；如果更改了 `docs/`，同时评估是否需要更新 `i18n/en/...`。
+- 禁止新增路径漂移：不得引入新的 `docs-only` / `i18n-only` 文件路径，如确需新增需在同一 PR 更新 `.github/agent-doc-drift-baseline.md`。
+- 禁止新增翻译占位：如确需新增“Translation In Progress / 内容同步中”占位页，需在同一 PR 更新 `.github/agent-doc-translation-baseline.md` 并在 `.github/agent-doc-translation-backlog.md` 记录。
 
 ### AI 生成内容的质量检查（必须执行）
 

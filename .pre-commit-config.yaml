@@ -126,6 +126,10 @@ repos:
                 continue
               fi
               if [[ "$filename" =~ _ ]]; then
+                if git cat-file -e "HEAD:$file" 2>/dev/null; then
+                  # Legacy file kept for compatibility; only block new underscore names.
+                  continue
+                fi
                 echo "Error: Markdown file contains underscore: $file"
                 echo "Please rename to use hyphens (-) instead of underscores (_)"
                 echo "Example: file_name.md -> file-name.md"
@@ -133,3 +137,26 @@ repos:
               fi
             done
           - --
+      - id: agent-doc-lint
+        name: Agent doc lint
+        language: system
+        entry: scripts/agent-doc-lint.sh
+        files: '^(docs|i18n/en/docusaurus-plugin-content-docs/current)/.*\.(md|mdx)$'
+        stages:
+          - pre-commit
+      - id: agent-doc-drift-guard
+        name: Agent doc drift guard
+        language: system
+        entry: scripts/agent-doc-drift-guard.sh
+        pass_filenames: false
+        files: '^(docs|i18n/en/docusaurus-plugin-content-docs/current)/.*\.(md|mdx)$'
+        stages:
+          - pre-commit
+      - id: agent-doc-translation-guard
+        name: Agent doc translation guard
+        language: system
+        entry: scripts/agent-doc-translation-guard.sh
+        pass_filenames: false
+        files: '^(docs|i18n/en/docusaurus-plugin-content-docs/current)/.*\.(md|mdx)$'
+        stages:
+          - pre-commit
