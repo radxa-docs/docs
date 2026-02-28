@@ -14,7 +14,7 @@ sidebar_position: 3
 
 - 安装 Thonny IDE
 
-  ```
+  ```bash
   sudo apt-get install thonny -y
   ```
 

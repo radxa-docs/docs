@@ -23,7 +23,7 @@ sudo gpioset gpiochip1 61=0
 
 - Execute the usb.sh program and the RP2040 will appear as a usb device.
 
-  ```
+  ```bash
   chmod a+x usb.sh
   source usb.sh
   ```
