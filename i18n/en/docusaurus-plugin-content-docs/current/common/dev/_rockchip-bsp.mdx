@@ -1,0 +1,164 @@
+The following describes how to build the {props.product} image on a host PC.
+
+## Install git
+
+```bash
+sudo apt-get update
+sudo apt-get install git
+```
+
+## Get the source code
+
+```bash
+git clone -b master https://github.com/radxa/rockchip-bsp.git
+cd rockchip-bsp
+git submodule init
+git submodule update
+```
+
+After updating submodules, you will get:
+
+```bash
+build  kernel  README.md  rkbin  rootfs  u-boot
+```
+
+- build: script and config files used to build u-boot, kernel, and rootfs.
+
+- kernel: kernel source code, current version is 4.4.
+
+- rkbin: prebuilt Rockchip binaries, including the first-stage loader and ATF (Arm Trusted Firmware).
+
+- rootfs: Debian-based rootfs build files, supporting armhf and arm64 architectures, and Debian Jessie, Stretch, and Buster.
+
+- u-boot: u-boot as the second-stage bootloader.
+
+## Update source code
+
+`rockchip-bsp` is continuously updated, so you can update source code before building the system image.
+
+```bash
+cd rockchip-bsp
+git checkout master
+git fetch origin
+git rebase origin/master
+git submodule update
+```
+
+## Install Linaro toolchain
+
+```bash
+wget https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/aarch64-linux-gnu/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
+sudo tar xvf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz  -C /usr/local/
+export CROSS_COMPILE=/usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+export PATH=/usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin:$PATH
+```
+
+Check whether the Linaro toolchain is selected by default:
+
+```bash
+which aarch64-linux-gnu-gcc
+/usr/local/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc
+```
+
+## Install other build tools
+
+```bash
+sudo apt-get install gcc-aarch64-linux-gnu device-tree-compiler libncurses5 libncurses5-dev build-essential libssl-dev mtools
+sudo apt-get install bc python dosfstools
+```
+
+If package installation fails, you can try:
+
+```bash
+sudo apt-get install aptitude
+sudo aptitude install bc python dosfstools
+```
+
+## Build u-boot
+
+<code>./build/mk-uboot.sh {props.u - boot_param} #For ROCK Pi 4 Mode B</code>
+
+Generated images will be copied to the `out/u-boot` directory.
+
+```bash
+ls out/u-boot/
+idbloader.img  rk3399_loader_v1.12.112.bin  trust.img  uboot.img
+```
+
+## Build kernel
+
+Build the kernel with the default `rockchip_linux_defconfig`.
+
+<code>./build/mk-kernel.sh {[props.kernel_param]} #For ROCK Pi 4 Mode B</code>
+
+## Modify kernel config (optional)
+
+If you want to change the default kernel configuration:
+
+<code>
+  cd kernel export ARCH=arm64 export CROSS_COMPILE=aarch64-linux-gnu- make
+  rockchip_linux_defconfig make menuconfig make savedefconfig cp defconfig
+  arch/arm64/configs/rockchip_linux_defconfig cd .. ./build/mk-kernel.sh{" "}
+  {[props.kernel_param]} #For ROCK Pi 4 Mode B
+</code>
+
+You will get the kernel image and dtb file.
+
+<code>ls out/kernel/ Image {props.kernel_param}.dtb</code>
+
+## Build rootfs image
+
+Check the rootfs source code. Repository: https://github.com/radxa/rk-rootfs-build.git, branch: `debian`.
+
+Build 32-bit rootfs:
+
+```bash
+export ARCH=armhf
+```
+
+Build 64-bit rootfs:
+
+```bash
+export ARCH=arm64
+```
+
+- Build a base Debian system from Linaro using Ubuntu build service.
+
+```bash
+cd rootfs
+sudo apt-get install binfmt-support qemu-user-static cpio gdisk
+sudo dpkg -i ubuntu-build-service/packages/*        # ignore the broken dependencies, we will fix it next step
+sudo apt-get install -f
+RELEASE=buster TARGET=desktop ARCH=arm64 ./mk-base-debian.sh
+```
+
+This will bootstrap a Debian Buster image and produce a rootfs archive named `linaro-buster-alip-xxxx.tar.gz`.
+
+- Build `rk-debian` root filesystem.
+
+```bash
+RELEASE=buster ARCH=arm64 ./mk-rootfs.sh
+```
+
+- Create the ext4 image (`linaro-rootfs.img`):
+
+```bash
+./mk-image.sh
+```
+
+- Merge all parts into one image.
+
+<code>
+  build/mk-image.sh -c rk3399 -b {props.kernel_param} -t system -r
+  rootfs/linaro-rootfs.img
+</code>
+
+This merges u-boot, kernel, and rootfs into one image and generates the GPT partition table. Output:
+
+```bash
+out/system.img
+```
+
+### Flash image
+
+Refer to the [Install OS](props.install-os_path) section to install the system. Use the system image `out/system.img` generated above.

@@ -1,0 +1,115 @@
+# `libgpiod`
+
+Linux 4.8 起，GPIO 的 sysfs 接口逐步废弃。用户态建议使用 `libgpiod` 通过字符设备访问 GPIO。
+
+## 主要特性
+
+- 易用：提供清晰的 API，方便完成 GPIO 读写与事件处理。
+- 独立：不依赖特定芯片平台，适用于多种支持 GPIO 的嵌入式设备。
+- 多语言：原生支持 C，同时提供 Python 绑定（`python3-libgpiod`）。
+- 事件能力：支持边沿事件监听，便于实现事件驱动程序。
+
+## 命令行工具
+
+`libgpiod` 自带多种工具，可用于查看与控制 GPIO。
+
+### `gpioinfo`
+
+显示 GPIO 设备与引脚信息：
+
+```bash
+radxa@radxa-zero2:~$ gpioinfo
+gpiochip0 - 85 lines:
+        line   0:     "PIN_27"       unused   input  active-high
+        line   1:     "PIN_28"       unused   input  active-high
+...
+```
+
+### `gpiodetect`
+
+列出系统中的 GPIO 控制器：
+
+```bash
+radxa@rock-pi-s:~$ gpiodetect
+gpiochip0 [gpio0] (32 lines)
+gpiochip1 [gpio1] (32 lines)
+gpiochip2 [gpio2] (32 lines)
+gpiochip3 [gpio3] (32 lines)
+gpiochip4 [gpio4] (32 lines)
+```
+
+### `gpioget`
+
+读取 GPIO 输入电平：
+
+```bash
+radxa@radxa-zero2:~$ gpioget gpiochip0 0
+1
+```
+
+### `gpioset`
+
+:::info
+默认情况下，`gpioset` 设置完成后会退出。若希望持续保持输出电平，请使用 `-m signal` 模式。
+:::
+
+设置 GPIO 输出电平：
+
+```bash
+radxa@radxa-zero2:~$ gpioset -m signal gpiochip0 0=1
+(Press Ctrl+C to stop)
+```
+
+### `gpiomon`
+
+监听 GPIO 事件：
+
+```bash
+radxa@radxa-zero2:~$ gpiomon gpiochip0 0
+(GPIO event output)
+```
+
+### `gpiofind`
+
+根据引脚名查找对应的 gpiochip 与 line：
+
+```bash
+radxa@radxa-zero2:~$ gpiofind PIN_27
+gpiochip0 0
+```
+
+:::tip
+可以把 `gpiofind` 与 `gpioget`/`gpioset`/`gpiomon` 组合使用，避免在脚本中硬编码 line 编号。
+:::
+
+## 编程参考
+
+<Tabs queryString="lang">
+<TabItem value="C">
+
+使用前请安装头文件：
+
+```bash
+sudo apt-get update
+sudo apt-get install libgpiod-dev
+```
+
+- [示例代码](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/tree/examples)
+- [官方文档](https://libgpiod.readthedocs.io/en/latest/index.html)
+
+</TabItem>
+<TabItem value="Python">
+
+使用前请安装 Python 库：
+
+```bash
+sudo apt-get update
+sudo apt-get install python3-libgpiod
+```
+
+- [示例代码](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/tree/bindings/python/examples)
+- [官方文档](https://libgpiod.readthedocs.io/en/latest/index.html)
+- [官方实现](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/tree/bindings/python/gpiod)
+
+</TabItem>
+</Tabs>
