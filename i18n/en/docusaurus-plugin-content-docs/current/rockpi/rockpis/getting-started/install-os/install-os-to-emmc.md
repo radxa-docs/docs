@@ -74,7 +74,7 @@ Download the [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2
 Open your system terminal or command line and run the following commands to install:
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -91,7 +91,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 After installation, check the RKDevTool version with the following command:
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -107,7 +107,7 @@ rkdeveloptool -V
 If you don't have HomeBrew installed, you can install it using the following command:
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 </NewCodeBlock>
@@ -117,7 +117,7 @@ If you don't have HomeBrew installed, you can install it using the following com
 Open your system terminal or command line and run the following commands to install:
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -134,7 +134,7 @@ sudo cp rkdeveloptool /opt/local/sbin/
 After installing RKDevTool, check the version with the following command:
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -186,7 +186,7 @@ Open RKDevTool to view the recognized device information:
 <TabItem value="Linux/MacOS">
 Use the `rkdeveloptool ld` command to view recognized device information:
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
@@ -194,7 +194,7 @@ sudo rkdeveloptool ld
 Example output showing a Maskrom device is detected:
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x330e,LocationID=101	Maskrom
 ```
 </NewCodeBlock>

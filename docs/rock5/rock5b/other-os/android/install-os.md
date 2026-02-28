@@ -6,6 +6,8 @@ title: 系统安装
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
 import EnterMaskromMode from '../../\_enter_maskrom_mode.mdx'
 
+# 系统安装
+
 本文档将介绍如何把 Android 镜像安装到 ROCK 5B/5B+。
 
 ROCK 5B/5B+ 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以从 SSD 启动，基于不同的启动方式，安装系统到不同的介质上。

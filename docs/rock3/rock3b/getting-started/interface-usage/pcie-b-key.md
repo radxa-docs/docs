@@ -1,5 +1,10 @@
 ---
 sidebar_position: 7
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/accessories/_mobile-lte-em05-ce.mdx
 ---
 
 # PCIe B Key

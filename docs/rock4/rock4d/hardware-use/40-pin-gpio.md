@@ -69,7 +69,7 @@ ROCK 4D 支持给板载的 GPIO 引脚外接外部设备，支持 UART、SPI、I
 使用 `gpiofind` 命令找到 GPIO 引脚对应的设备节点，然后使用 `gpioget` 命令读取引脚状态。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 gpioget $(gpiofind PIN_3)
 ```
 </NewCodeBlock>
@@ -78,7 +78,7 @@ gpioget $(gpiofind PIN_3)
 
 终端输出类似信息：我将引脚连接到 GND 输出的结果（终端输出 0 表示引脚为低电平，输出 1 表示引脚为高电平）。
 
-```
+```text
 0
 ```
 
@@ -98,7 +98,7 @@ gpioget $(gpiofind PIN_3)
 使用 `gpiofind` 命令找到 GPIO 引脚对应的设备节点，然后使用 `gpioset` 命令设置引脚状态。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 # 输出高电平
 gpioset -m signal $(gpiofind PIN_3)=1
 # 输出低电平
@@ -148,7 +148,7 @@ UART（通用异步收发传输器） 是一种广泛使用的串行通信协议
 我们使能的是 `UART4-M1`，对应的设备节点是 `/dev/ttyS4`，我们需要设置串口权限，确保当前用户有权限访问该设备节点。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo chmod 777 /dev/ttyS4
 ```
 </NewCodeBlock>
@@ -158,7 +158,7 @@ sudo chmod 777 /dev/ttyS4
 使用下面命令设置串口通讯参数：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo stty -F /dev/ttyS4 115200 cs8 -parenb -cstopb -echo
 ```
 </NewCodeBlock>
@@ -174,7 +174,7 @@ sudo stty -F /dev/ttyS4 115200 cs8 -parenb -cstopb -echo
 打开一个终端，在终端输入下面命令：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 while true; do echo "UART4 test" > /dev/ttyS4; sleep 1; done
 ```
 </NewCodeBlock>
@@ -184,7 +184,7 @@ while true; do echo "UART4 test" > /dev/ttyS4; sleep 1; done
 再开一个终端，在终端输入下面命令：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 cat /dev/ttyS4
 ```
 </NewCodeBlock>
@@ -229,7 +229,7 @@ I2C 是一种广泛使用的同步串行通信协议，由飞利浦（现恩智�
 打开终端，输入下面命令安装 Python3-periphery 和 i2c-tools。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo apt update
 sudo apt install python3-periphery i2c-tools
 ```
@@ -240,14 +240,14 @@ sudo apt install python3-periphery i2c-tools
 使用 `i2cdetect` 命令查看设备所有 I2C 总线。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo i2cdetect -l
 ```
 </NewCodeBlock>
 
 终端输出类似信息：
 
-```
+```text
 i2c-1   i2c             rk3x-i2c                                I2C adapter
 i2c-2   i2c             rk3x-i2c                                I2C adapter
 i2c-3   i2c             rk3x-i2c                                I2C adapter
@@ -261,7 +261,7 @@ i2c-10  i2c             ddc                                     I2C adapter
 使用 `i2cdetect` 命令查看指定 I2C 总线上挂载的设备：其中 `*` 可以替换成数字，例如填写 8 就表示查看 `i2c-8` 上挂载的设备。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo i2cdetect -y -r *
 # 示例
 sudo i2cdetect -y -r 8
@@ -271,7 +271,7 @@ sudo i2cdetect -y -r 8
 终端输出示例：其中 OLED 对应的 I2C 地址是 0x3c。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:                         -- -- -- -- -- -- -- --
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -291,7 +291,7 @@ sudo i2cdetect -y -r 8
 新建名称为 `oled_test.py` 的 Python 脚本，脚本内容如下：其中 `I2C_ADDR` 是 OLED 对应的 I2C 地址，`I2C_BUS` 是 OLED 挂载的 I2C 总线，请根据实际情况修改。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 from periphery import I2C
 import time
 
@@ -368,7 +368,7 @@ i2c.transfer(I2C_ADDR, [I2C.Message([0x40, byte])])
 
 i2c.close()
 
-```
+````
 </NewCodeBlock>
 
 - 运行脚本
@@ -376,11 +376,12 @@ i2c.close()
 打开终端，输入下面命令运行脚本：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 python3 oled_test.py
 
-```
+````
+
 </NewCodeBlock>
 
 若一切正常，我们可以在 OLED 屏幕上看到 `Hello Radxa` 的输出。
@@ -417,20 +418,20 @@ SPI（串行外设接口）是一种高速、全双工、同步串行通信协�
 使用 `ls /dev/spidev*` 命令可以查询 SPI 总线设备相关信息。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 ls /dev/spidev\*
 
-```
+````
 </NewCodeBlock>
 
 终端输出类似信息：
 
-```
+```text
 
 /dev/spidev1.0
 
-```
+````
 
 3. SPI 通讯测试
 
@@ -439,7 +440,7 @@ ls /dev/spidev\*
 新建名称为 `spidev_test.c` 的 C 代码，代码内容如下：其中 `static const char *device = "/dev/spidev1.0";` 是 SPI 总线设备节点，请根据实际情况修改。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 /\*
 
@@ -851,7 +852,7 @@ int fd;
 
 }
 
-```
+````
 </NewCodeBlock>
 
 - 编译工具
@@ -859,12 +860,13 @@ int fd;
 打开终端，输入下面命令安装编译工具：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 sudo apt update
 sudo apt install build-essential
 
-```
+````
+
 </NewCodeBlock>
 
 - 编译代码
@@ -872,11 +874,11 @@ sudo apt install build-essential
 打开终端，输入下面命令编译代码：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 gcc -o spidev_test spidev_test.c
 
-```
+````
 </NewCodeBlock>
 
 - 运行代码
@@ -884,16 +886,17 @@ gcc -o spidev_test spidev_test.c
 打开终端，输入下面命令运行代码：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 sudo ./spidev_test
 
-```
+````
+
 </NewCodeBlock>
 
 若回环测试正常，我们可以在终端看到输出以下信息：
 
-```
+```text
 
 spi mode: 0x0
 bits per word: 8
@@ -901,5 +904,7 @@ max speed: 500000 Hz (500 KHz)
 RX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D | ......@....�..................�.
 
 ```
+
+```text
 
 ```

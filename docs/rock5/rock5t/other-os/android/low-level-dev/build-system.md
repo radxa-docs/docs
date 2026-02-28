@@ -14,7 +14,7 @@ sidebar_position: 2
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```text
 repo init -u https://github.com/radxa/manifests.git -b Android12_Radxa_rk14 -m rockchip-s-release.xml
 repo sync
 repo forall -c 'git lfs pull'
@@ -35,7 +35,7 @@ Android 系统支持两种编译方式：
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch RadxaRock5BPro-userdebug
 ./build.sh -UACKup
@@ -53,7 +53,7 @@ lunch RadxaRock5BPro-userdebug
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch RadxaRock5BPro-userdebug
 ./build.sh -AUup
@@ -65,7 +65,7 @@ lunch RadxaRock5BPro-userdebug
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch RadxaRock5BPro-userdebug
 ./build.sh -ACKup
@@ -77,7 +77,7 @@ lunch RadxaRock5BPro-userdebug
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
-```
+```bash
 source build/envsetup.sh
 lunch RadxaRock5BPro-userdebug
 ./build.sh -Aup

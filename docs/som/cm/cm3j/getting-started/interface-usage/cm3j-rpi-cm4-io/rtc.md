@@ -22,7 +22,7 @@ sidebar_position: 7
 
   - 使用 hwclock 命令来读取 RTC 的当前时间，在终端中执行以下命令：
 
-    ```
+    ```bash
     sudo hwclock -r
     ```
 
@@ -30,7 +30,7 @@ sidebar_position: 7
 
   - 如果需要设置 RTC 的时间，可以使用 hwclock 命令并通过 --set 选项提供一个新的时间值。例如，设置为当前系统时间可以使用：
 
-    ```
+    ```bash
     sudo hwclock --set --date="2024-07-09 15:43:15"
     ```
 

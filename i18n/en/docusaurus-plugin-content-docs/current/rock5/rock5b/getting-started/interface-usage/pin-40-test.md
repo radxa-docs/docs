@@ -1,5 +1,14 @@
 ---
 sidebar_position: 10
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_gpio.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_i2c.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_pwm.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_spi.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_uart.mdx
 ---
 
 import GPIO from '../../../../common/dev/\_gpio.mdx';

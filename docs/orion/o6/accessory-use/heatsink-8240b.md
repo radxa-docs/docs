@@ -1,5 +1,10 @@
 ---
 sidebar_position: 20
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/orion-common/accessory-use/_heatsink-8240b.mdx
 ---
 
 import Heatsink8240B from "../../../common/orion-common/accessory-use/\_heatsink-8240b.mdx"

@@ -1,6 +1,13 @@
 ---
 sidebar_position: 1
 description: "Flash via USB under Windows"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_rkdevtoolV3.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/e/e52c/_image.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/e/e52c/getting-started/install-os/maskrom/_maskrom.mdx
 ---
 
 import Rkdevtool from "../../../../../common/dev/\_rkdevtoolV3.mdx";

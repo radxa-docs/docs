@@ -1,20 +1,20 @@
 [Frigate](https://frigate.video/) is an NVR project designed specifically for [Home Assistant](https://www.home-assistant.io/).
-It can fully utilize local hardware acceleration and use AI models for real-time object detection, recognition, and classification on surveillance video (for example, distinguishing people, vehicles, pets, and more).
+It can fully leverage local hardware compute and use AI models for real-time object detection, recognition, and classification in surveillance video (for example, distinguishing pedestrians, vehicles, and pets).
 
 :::tip
-Home Assistant is currently the most popular open-source smart home hub in the world.
+Home Assistant is currently the world's most popular open-source smart home control center.
 :::
 
-For more information, see the [official documentation](https://docs.frigate.video/) or the [official Chinese documentation](https://docs.frigate-cn.video/).
+For more details, refer to the [official documentation](https://docs.frigate.video/) or the [official Chinese documentation](https://docs.frigate-cn.video/).
 
-This document uses Frigate version 0.16.4. Currently, the official Frigate project does not directly support the CIX P1 platform.
-Let's see how to enable Frigate AI detection on unsupported hardware by adding a custom detector plugin.
+This document uses Frigate version 0.16.4. At the moment, Frigate does not officially support the CIX P1 platform.
+Let's see how to enable Frigate AI detection on unsupported hardware by adding custom plugin code.
 
 ## Preparation
 
 ### Directory structure
 
-You can use O6/O6N via SSH or by connecting a display, keyboard, and mouse. This guide uses SSH.
+You can use O6/O6N either via SSH or with an external display, keyboard, and mouse. This guide uses SSH.
 
 Create the initial directory structure.
 
@@ -29,11 +29,11 @@ mkdir storage config && touch docker-compose.yml
 
 ### Model file
 
-Here we use `yolov8n.cix` converted from the official model repository as the detection model.
+Here we use `yolov8n.cix`, converted from the official model repository, as the detection model.
 
-If you are interested in model conversion and want to use your own model later, refer to [YOLOv8n](./Vision/yolov8n).
+If you are interested in model conversion and want to use your own model later, you can refer to the [YOLOv8n](./Vision/yolov8n) model conversion guide.
 
-Download the model file directly from the official ModelScope repository.
+Download the model file directly from the official repository on ModelScope.
 
 <NewCodeBlock tip="Device">
 
@@ -43,11 +43,11 @@ wget https://www.modelscope.cn/models/cix/ai_model_hub_25_Q3/resolve/master/mode
 
 </NewCodeBlock>
 
-### Inference libraries
+### Inference library
 
-To run inference properly inside the container, you need to mount the NPU API libraries into the container.
+To run inference correctly inside the container, you also need to mount the NPU API library into the container.
 
-Find the `libnoe` directory on the system:
+Find the `libnoe` library on the system:
 
 <NewCodeBlock tip="Device">
 
@@ -57,21 +57,21 @@ find / -name "libnoe" 2>/dev/null
 
 </NewCodeBlock>
 
-In this example, the path is: `/usr/local/lib/python3.11/dist-packages/libnoe/`
+In this guide, the path is: `/usr/local/lib/python3.11/dist-packages/libnoe/`
 
 ### Plugin code
 
-Use the code file we prepared. You can also read its implementation as a reference for your own detector plugin.
+You can directly use the code file we prepared. You can also read through its logic as a reference for your own implementation.
 
 <NewCodeBlock tip="Device">
 
 ```bash
- git clone https://github.com/Ronin-1124/Frigate-NVR-for-CIX.git
+wget https://github.com/Ronin-1124/Frigate-NVR-for-CIX/blob/main/cix.py
 ```
 
 </NewCodeBlock>
 
-Now all required files are ready.
+Now all required materials are ready.
 
 ## Start Frigate
 
@@ -92,18 +92,18 @@ services:
       - ./yolov8n.cix:/config/model_cache/yolov8n.cix
       - ./config:/config
       - ./storage:/media/frigate
-      - type: tmpfs # Optional: use 1GB tmpfs to reduce SSD/SD card wear
+      - type: tmpfs # Optional: 1 GB memory to reduce SSD/SD card wear
         target: /tmp/cache
         tmpfs:
           size: 1000000000
     ports:
       - "8971:8971"
-      - "8555:8554" # RTSP stream. Use host port 8555 (instead of 8554) because the RTSP simulation uses 8554. If you don't need simulation, you can use 8554.
+      - "8555:8554" # RTSP stream. Host port 8555 is used instead of 8554 because port 8554 is needed later for simulated streaming. If you do not need simulation, you can use 8554 directly.
 ```
 
-Now you can start Frigate with the following command.
+Then run the command below to start Frigate.
 
-Make sure you run this command in the directory that contains `docker-compose.yml`.
+Make sure you run it in the directory that contains `docker-compose.yml`.
 
 <NewCodeBlock tip='Device'>
 
@@ -113,9 +113,9 @@ docker compose up -d
 
 </NewCodeBlock>
 
-After the image is pulled and the container is running, the web UI will be available at https://your_device_ip:8971.
+After Frigate is pulled and started successfully, the frontend service will be available at `https://your_device_ip:8971`.
 
-Check the device IP address:
+Check the development board IP address:
 
 <NewCodeBlock tip='Device'>
 
@@ -125,9 +125,9 @@ hostname -I
 
 </NewCodeBlock>
 
-Replace `your_device_ip` with the first IP address from the output, then open the URL in your browser.
+Replace `your_device_ip` with the first IP address shown above, then open it in your browser.
 
-View the login username and password using the following command:
+View the login account and password with:
 
 <NewCodeBlock tip='Device'>
 
@@ -137,21 +137,21 @@ docker logs frigate
 
 </NewCodeBlock>
 
-The log output may be long. If you can't find it easily, use Ctrl + F in the VS Code terminal and search for keywords such as `admin`.
+The logs may be long. If you cannot find the credentials, use `Ctrl + F` in the VSCode terminal and search for keywords such as `admin`.
 
-Next, you can edit the configuration using the **configuration editor** in the web UI.
+Next, you can use the frontend **Configuration Editor** to modify related settings.
 
 ![](/img/common/frigate-config.webp)
 
 :::tip
-If you haven't logged into Frigate for more than 24 hours, you will be prompted for a password. It's recommended to change the password promptly from the account menu at the bottom-left for long-term use.
+If you have not logged into Frigate for more than 24 hours, it may require a password again. It is recommended to update your password in the account menu at the bottom-left for long-term use.
 :::
 
-## Simulate RTSP streaming and enable the AI model
+## Simulate streaming and enable the AI model
 
-If you don't have an IP camera yet (if you do, you can use it directly), simulating an RTSP stream with FFmpeg + MediaMTX is a good way to validate your setup.
+If you do not have an IP camera yet (if you do, that is even better), simulating a stream with FFmpeg + MediaMTX is a good way to validate the setup.
 
-Follow the steps below.
+It is straightforward to use. Follow the steps below.
 
 ### MediaMTX
 
@@ -166,9 +166,9 @@ tar -xvf mediamtx_v1.16.0_linux_arm64.tar.gz
 
 </NewCodeBlock>
 
-This will start an RTSP server in the current terminal and wait for incoming streams.
+This starts an RTSP server in the current terminal and waits for incoming stream data.
 
-Then open a new terminal and use FFmpeg to push a stream.
+Open a new terminal, then use FFmpeg to push a stream.
 
 ### FFmpeg
 
@@ -180,11 +180,13 @@ sudo apt install ffmpeg
 
 </NewCodeBlock>
 
-Next, you need a video file. Prepare one yourself and rename it to `test.mp4`.
+Next, prepare a video file. This guide uses one video from the public Hugging Face dataset `KAI-KratosAI/Street-videos`.
 
 <NewCodeBlock tip='Device'>
 
 ```bash
+wget https://huggingface.co/datasets/KAI-KratosAI/Street-videos/resolve/0d33ede195de1fc061723d5dfa4623b30162af66/041896fb-20da-4625-9455-195172efc4d5.mp4_041896fb-20da-4625-9455-195172efc4d5.mp4#t=0.001
+mv 041896fb-20da-4625-9455-195172efc4d5.mp4_041896fb-20da-4625-9455-195172efc4d5.mp4 test.mp4
 ffmpeg -re -stream_loop -1 -i test.mp4 -c copy -f rtsp rtsp://localhost:8554/mystream
 ```
 
@@ -192,14 +194,14 @@ ffmpeg -re -stream_loop -1 -i test.mp4 -c copy -f rtsp rtsp://localhost:8554/mys
 
 Parameter explanation:
 
-- `-re`: Read input at its native frame rate. Without this, FFmpeg may push frames as fast as possible and the video will look like fast-forward.
-- `-stream_loop -1`: Loop the video infinitely. This is useful for testing Frigate so the stream doesn't stop when the video ends.
+- `-re`: Read input at native frame rate. Without this, FFmpeg may push data too fast and the stream appears like fast-forward.
+- `-stream_loop -1`: Loop the video indefinitely. This is useful for Frigate testing so the stream does not stop when the video ends.
 - `-i test.mp4`: Specify the input video file.
-- `-c copy`: Copy audio/video streams without re-encoding. This uses minimal CPU and simply repackages the original packets into RTSP.
-- `-f rtsp`: Set the output format to RTSP.
-- `rtsp://localhost:8554/mystream`: The RTSP push URL. `mystream` is the stream ID you choose.
+- `-c copy`: Copy video/audio streams directly without re-encoding. This minimizes CPU usage.
+- `-f rtsp`: Set output format to RTSP.
+- `rtsp://localhost:8554/mystream`: Stream URL. `mystream` is the stream ID.
 
-### Update the configuration
+### Modify the configuration file
 
 ```yaml
 mqtt:
@@ -232,9 +234,9 @@ detect:
 version: 0.16-0
 ```
 
-Now you should see the live camera feed with detections on the home page.
+You should now see the live detection feed on the homepage.
 
-You can open the debug page to observe real-time detection results.
+You can open the debug page to inspect real-time detection results.
 
 ![](/img/common/frigate-ai-detection-result.webp)
 

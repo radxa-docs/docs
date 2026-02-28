@@ -1,5 +1,11 @@
 ---
 sidebar_position: 1
+
+doc_kind: wrapper
+source_of_truth: local
+imports_resolve_to:
+  - docs/e/e54c/_image.mdx
+  - docs/common/general/_etcherV2.mdx
 ---
 
 import Images from "../../\_image.mdx"

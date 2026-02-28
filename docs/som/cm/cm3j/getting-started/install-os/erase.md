@@ -23,7 +23,7 @@ import Maskrom from "./maskrom/\_maskrom.mdx"
 
     2. 确保主机能识别到 Maskrom
 
-        ```
+        ```bash
         sudo rkdeveloptool ld
         DevNo=1	Vid=0x2207,Pid=0x350a,LocationID=109	Maskrom
         ```
@@ -77,7 +77,7 @@ import Maskrom from "./maskrom/\_maskrom.mdx"
 
     2. 确保主机能识别到 Maskrom
 
-        ```
+        ```bash
         sudo rkdeveloptool ld
         DevNo=1	Vid=0x2207,Pid=0x350a,LocationID=109	Maskrom
         ```

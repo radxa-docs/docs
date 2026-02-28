@@ -160,7 +160,7 @@ Run the following commands in the board's terminal to install the VNC server:
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install tigervnc-standalone-server tigervnc-common -y
 ```
@@ -173,7 +173,7 @@ Run the following command in the board's terminal to set the VNC remote password
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 vncpasswd
 ```
 
@@ -185,7 +185,7 @@ The password and confirmation won't be displayed on screen. When prompted to cre
 
 After setting the password, you'll see output similar to:
 
-```
+```bash
 Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
@@ -198,7 +198,7 @@ Edit the `~/.vnc/xstartup` file on the board:
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo vi ~/.vnc/xstartup
 ```
 
@@ -206,7 +206,7 @@ sudo vi ~/.vnc/xstartup
 
 Modify the `~/.vnc/xstartup` file with the following content:
 
-```
+```bash
 #!/bin/sh
 
 unset SESSION_MANAGER
@@ -223,7 +223,7 @@ After editing the `~/.vnc/xstartup` file, you need to make it executable:
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo chmod +x ~/.vnc/xstartup
 ```
 
@@ -235,7 +235,7 @@ Run the following command in the board's terminal to start the VNC server. The `
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 vncserver -localhost no
 ```
 
@@ -243,7 +243,7 @@ vncserver -localhost no
 
 After successful startup, the terminal will display output similar to the following, showing the VNC server's port number:
 
-```
+```bash
 /usr/bin/xauth:  file /home/radxa/.Xauthority does not exist
 
 New Xtigervnc server 'airbox:1 (radxa)' on port 5901 for display :1.
@@ -256,7 +256,7 @@ Run the following command in the board's terminal to check the VNC server status
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 vncserver -list
 ```
 
@@ -264,7 +264,7 @@ vncserver -list
 
 The terminal will display output similar to:
 
-```
+```bash
 TigerVNC server sessions:
 
 X DISPLAY #     RFB PORT #      RFB UNIX PATH   PROCESS ID #    SERVER
@@ -277,7 +277,7 @@ To stop the VNC server, run the following command in the board's terminal. The `
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 vncserver -kill :1
 ```
 

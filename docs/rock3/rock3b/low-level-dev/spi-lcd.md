@@ -1,5 +1,10 @@
 ---
 sidebar_position: 8
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_spi-screen-dts-writing.mdx
 ---
 
 import LCD from '../../../common/dev/\_spi-screen-dts-writing.mdx'

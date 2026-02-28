@@ -74,7 +74,7 @@ RKDevTool 是瑞芯微（Rockchip）平台为 Windows/Linux/macOS 平台下进�
 打开系统终端或命令行，运行以下命令进行安装。
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -91,7 +91,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -107,7 +107,7 @@ rkdeveloptool -V
 若没有安装 HomeBrew，可以按照教程进行安装。
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 </NewCodeBlock>
@@ -117,7 +117,7 @@ rkdeveloptool -V
 打开系统终端或命令行，运行以下命令进行安装。
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -133,7 +133,7 @@ cp rkdeveloptool /opt/local/sbin/
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -185,7 +185,7 @@ ROCK Pi S 需要拔掉 MicroSD 卡才可以进入 Maskrom 模式，否则会直�
 <TabItem value="Linux/MacOS">
 使用 `rkdeveloptool ld` 命令查看识别到的设备信息：
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
@@ -193,7 +193,7 @@ sudo rkdeveloptool ld
 输出类似内容：识别到一个 Maskrom 设备
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x330e,LocationID=101	Maskrom
 ```
 </NewCodeBlock>

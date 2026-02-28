@@ -6,6 +6,8 @@ title: Install OS
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
 import EnterMaskromMode from '../../\_enter_maskrom_mode.mdx'
 
+# Install OS
+
 This document describes how to install an Android image to the ROCK 5B/5B+.
 
 ROCK 5B/5B+ can be booted from microSD card or EMMC, depending on the boot method, the system will be installed on different media.

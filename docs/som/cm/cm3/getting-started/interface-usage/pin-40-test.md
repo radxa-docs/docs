@@ -1,6 +1,16 @@
 ---
 sidebar_position: 10
 description: "测试 40-PIN GPIO"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_gpio.mdx
+  - docs/common/dev/_i2c.mdx
+  - docs/common/dev/_pwm.mdx
+  - docs/common/dev/_spi.mdx
+  - docs/common/dev/_w1.mdx
+  - docs/common/accessories/_waveshare-35-display.mdx
 ---
 
 import GPIO from '../../../../../common/dev/\_gpio.mdx';

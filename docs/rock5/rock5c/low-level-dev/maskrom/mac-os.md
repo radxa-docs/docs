@@ -1,6 +1,12 @@
 ---
 sidebar_position: 2
 description: "MacOS 下通过 USB 刷机"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_rkdeveloptoolV2.mdx
+  - docs/rock5/rock5c/_image.mdx
 ---
 
 import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV2.mdx";

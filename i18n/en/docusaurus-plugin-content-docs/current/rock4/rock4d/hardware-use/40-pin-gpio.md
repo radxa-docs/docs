@@ -69,7 +69,7 @@ To perform GPIO input testing using GPIO_Pin_3, you can connect to the PIN_3 usi
 Use the `gpiofind` command to locate the device node corresponding to the GPIO pin, then use the `gpioget` command to read the pin state.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 gpioget $(gpiofind PIN_3)
 ```
 </NewCodeBlock>
@@ -78,7 +78,7 @@ You can connect the jumper wire from PIN3 to either GND or 3.3V, then read the p
 
 Terminal output example: When I connect the pin to GND, the output is (terminal output 0 indicates the pin is low, 1 indicates high level):
 
-```
+```text
 0
 ```
 
@@ -98,7 +98,7 @@ To perform GPIO output testing using GPIO_Pin_3, you can connect to the PIN_3 us
 Use the `gpiofind` command to locate the device node corresponding to the GPIO pin, then use the `gpioset` command to set the pin state.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 # Set output high
 gpioset -m signal $(gpiofind PIN_3)=1
 # Set output low
@@ -148,7 +148,7 @@ For more information about the `rsetup` tool, refer to the [Rsetup Tool](../syst
 For `UART4-M1`, the corresponding device node is `/dev/ttyS4`. We need to set the serial port permissions to ensure the current user has access to this device node.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo chmod 777 /dev/ttyS4
 ```
 </NewCodeBlock>
@@ -158,7 +158,7 @@ sudo chmod 777 /dev/ttyS4
 Use the following command to set the serial communication parameters:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo stty -F /dev/ttyS4 115200 cs8 -parenb -cstopb -echo
 ```
 </NewCodeBlock>
@@ -174,7 +174,7 @@ sudo stty -F /dev/ttyS4 115200 cs8 -parenb -cstopb -echo
 Open a terminal and enter the following command:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 while true; do echo "UART4 test" > /dev/ttyS4; sleep 1; done
 ```
 </NewCodeBlock>
@@ -184,7 +184,7 @@ while true; do echo "UART4 test" > /dev/ttyS4; sleep 1; done
 Open another terminal and enter the following command:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 cat /dev/ttyS4
 ```
 </NewCodeBlock>
@@ -229,7 +229,7 @@ Use the `i2cdetect` command to query information about I2C bus devices.
 Open a terminal and enter the following commands to install Python3-periphery and i2c-tools:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo apt update
 sudo apt install python3-periphery i2c-tools
 ```
@@ -240,14 +240,14 @@ sudo apt install python3-periphery i2c-tools
 Use the `i2cdetect` command to view all I2C buses on the device.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo i2cdetect -l
 ```
 </NewCodeBlock>
 
 Terminal output will be similar to:
 
-```
+```text
 i2c-1   i2c             rk3x-i2c                                I2C adapter
 i2c-2   i2c             rk3x-i2c                                I2C adapter
 i2c-3   i2c             rk3x-i2c                                I2C adapter
@@ -261,7 +261,7 @@ i2c-10  i2c             ddc                                     I2C adapter
 Use the `i2cdetect` command to view devices mounted on a specific I2C bus. Replace `*` with a number, for example, use 8 to view devices on `i2c-8`.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 sudo i2cdetect -y -r *
 # Example
 sudo i2cdetect -y -r 8
@@ -271,7 +271,7 @@ sudo i2cdetect -y -r 8
 Example terminal output (the OLED display has I2C address 0x3c):
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:                         -- -- -- -- -- -- -- --
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -291,7 +291,7 @@ Example terminal output (the OLED display has I2C address 0x3c):
 Create a new Python script named `oled_test.py` with the following content. Note that `I2C_ADDR` is the I2C address of the OLED display, and `I2C_BUS` is the I2C bus where the OLED is mounted. Modify these values according to your setup.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 from periphery import I2C
 import time
 
@@ -368,7 +368,7 @@ i2c.transfer(I2C_ADDR, [I2C.Message([0x40, byte])])
 
 i2c.close()
 
-```
+````
 </NewCodeBlock>
 
 - Run the Script
@@ -376,11 +376,12 @@ i2c.close()
 Open a terminal and enter the following command to run the script:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 python3 oled_test.py
 
-```
+````
+
 </NewCodeBlock>
 
 If everything works correctly, you should see the output `Hello Radxa` on the OLED display.
@@ -417,20 +418,20 @@ After enabling SPI1-M0, a system reboot is required for the changes to take effe
 Use the `ls /dev/spidev*` command to query information about SPI bus devices.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 ls /dev/spidev\*
 
-```
+````
 </NewCodeBlock>
 
 Terminal output will be similar to:
 
-```
+```text
 
 /dev/spidev1.0
 
-```
+````
 
 3. SPI Communication Test
 
@@ -439,7 +440,7 @@ Terminal output will be similar to:
 Create a new C file named `spidev_test.c` with the following content. Note that `static const char *device = "/dev/spidev1.0";` is the SPI bus device node. Modify this according to your actual setup.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 /\*
 
@@ -851,7 +852,7 @@ int fd;
 
 }
 
-```
+````
 </NewCodeBlock>
 
 - Compilation Tools
@@ -859,12 +860,13 @@ int fd;
 Open a terminal and enter the following commands to install the build tools:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 sudo apt update
 sudo apt install build-essential
 
-```
+````
+
 </NewCodeBlock>
 
 - Compile the Code
@@ -872,11 +874,11 @@ sudo apt install build-essential
 Open a terminal and enter the following command to compile the code:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 gcc -o spidev_test spidev_test.c
 
-```
+````
 </NewCodeBlock>
 
 - Run the Code
@@ -884,16 +886,17 @@ gcc -o spidev_test spidev_test.c
 Open a terminal and enter the following command to run the code:
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
-```
+```bash
 
 sudo ./spidev_test
 
-```
+````
+
 </NewCodeBlock>
 
 If the loopback test is successful, you should see output similar to the following in the terminal:
 
-```
+```text
 
 spi mode: 0x0
 bits per word: 8
@@ -901,5 +904,7 @@ max speed: 500000 Hz (500 KHz)
 RX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D | ......@....�..................�.
 
 ```
+
+```text
 
 ```

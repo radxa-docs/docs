@@ -1,5 +1,12 @@
 ---
 sidebar_position: 2
+
+doc_kind: wrapper
+source_of_truth: local
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/som/cm/cm5/radxa-os/install-os.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/som/cm/cm5/android/install-os.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/som/_install_uninstall_coreboard_guide.mdx
 ---
 
 import Installdebian from "../radxa-os/install-os.mdx";

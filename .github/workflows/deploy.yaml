@@ -20,6 +20,57 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
+      - name: Agent doc lint (changed files)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          FROM_REF=""
+          TO_REF=""
+
+          if [ "${{ github.event_name }}" == "push" ]
+          then
+            if [ "${{ github.event.created }}" != "true" ]
+            then
+              FROM_REF="${{ github.event.before }}"
+              TO_REF="${{ github.event.after }}"
+            fi
+          elif [ "${{ github.event_name }}" == "pull_request" ]
+          then
+            FROM_REF="${{ github.event.pull_request.base.sha }}"
+            TO_REF="${{ github.event.pull_request.head.sha }}"
+          elif [ "${{ github.event_name }}" == "merge_group" ]
+          then
+            FROM_REF="${{ github.event.merge_group.base_sha }}"
+            TO_REF="${{ github.event.merge_group.head_sha }}"
+          fi
+
+          if [ -z "$FROM_REF" ] || [ -z "$TO_REF" ]
+          then
+            echo "No diff range available for this event, skipping agent-doc-lint."
+            exit 0
+          fi
+
+          mapfile -t files < <(git diff --name-only "$FROM_REF" "$TO_REF" | grep -E '^(docs|i18n/en/docusaurus-plugin-content-docs/current)/.*\.(md|mdx)$' || true)
+
+          if [ "${#files[@]}" -eq 0 ]
+          then
+            echo "No markdown docs changed, skipping agent-doc-lint."
+            exit 0
+          fi
+
+          echo "Running agent-doc-lint on ${#files[@]} file(s)."
+          ./scripts/agent-doc-lint.sh "${files[@]}"
+      - name: Agent doc drift guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./scripts/agent-doc-drift-guard.sh
+      - name: Agent doc translation guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./scripts/agent-doc-translation-guard.sh
       - name: pre-commit checks
         shell: bash
         run: |
@@ -68,7 +119,7 @@ jobs:
             echo 'Suggest changes are listed above.'
             echo 'Please install pre-commit and run `pre-commit run --all-files` to fix it.'
             echo 'Strongly recommended to run `pre-commit install` to catch issues before pushing.'
-            echo 'You can learn more abour pre-commit from https://pre-commit.com/'
+            echo 'You can learn more about pre-commit from https://pre-commit.com/'
             exit 1
           fi
   test-optional:
@@ -131,7 +182,7 @@ jobs:
             echo 'Suggest changes are listed above.'
             echo 'Please install pre-commit and run `pre-commit run --all-files` to fix it.'
             echo 'Strongly recommended to run `pre-commit install` to catch issues before pushing.'
-            echo 'You can learn more abour pre-commit from https://pre-commit.com/'
+            echo 'You can learn more about pre-commit from https://pre-commit.com/'
             exit 1
           fi
   build:

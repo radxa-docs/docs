@@ -3,6 +3,8 @@ sidebar_position: 2
 title: 系统安装
 ---
 
+# 系统安装
+
 本文档将介绍如何把 OS 镜像安装到 AirBox 中。
 
 ## 准备工作
@@ -53,7 +55,7 @@ Balena Etcher 是一个跨平台且，用户界面友好的镜像文件烧写工
 请将 Fogwise® AirBox 断电，插入 SD 卡，并连接串口终端（使用usb type-a转type-c数据线，type-c接 Fogwise® AirBox 的debug口，type a连接电脑，波特率设置成115200，debug口位置在[Fogwise® AirBox硬件开发下的硬件接口说明](../../airbox/hardware-design/hardware-interface)寻找），然后给整机上电。您将看到
 SG2300X 自动进入刷机流程：
 
-```
+```text
 Hit any key to stop autoboot:  0
 switch to partitions #0, OK
 mmc1 is current device
@@ -82,7 +84,7 @@ update eMMC
 刷机通常耗时约 3 分钟，结束后，会看到拔掉 SD 卡并重启 SG2300X 的提示，请依照操作
 即可：
 
-```
+```text
 eMMC update done
 bm savelog 449 bytes written in 10 ms (43 KiB/s)
 all done

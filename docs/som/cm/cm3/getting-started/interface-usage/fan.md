@@ -1,6 +1,11 @@
 ---
 sidebar_position: 3
 description: "测试风扇接口"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/accessories/_fan.mdx
 ---
 
 import FAN from "../../../../../common/accessories/\_fan.mdx";

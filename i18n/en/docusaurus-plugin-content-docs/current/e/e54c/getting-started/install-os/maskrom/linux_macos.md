@@ -1,6 +1,13 @@
 ---
 sidebar_position: 2
 description: "Flashing via USB on Linux"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_rkdeveloptoolV3.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/e/e54c/_image.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/e/e54c/getting-started/install-os/maskrom/_maskrom.mdx
 ---
 
 import Rkdeveloptool from "../../../../../common/dev/\_rkdeveloptoolV3.mdx";
