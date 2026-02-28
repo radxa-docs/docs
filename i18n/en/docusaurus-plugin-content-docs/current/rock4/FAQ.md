@@ -1,3 +1,7 @@
+---
+sidebar_position: 99
+---
+
 import { Details } from "@site/src/utils/docs";
 
 # Frequently Asked Questions
@@ -25,7 +29,7 @@ Older ROCK 4SE systems run normally on old hardware versions but fail to boot on
 
 - The final serial port output looks similar to:
 
-```
+```text
 channel 0 training pass!
 channel 1 training pass!
 change freq to 800MHz 1,0
@@ -41,7 +45,7 @@ ERR
 
 - When your system boots normally, the serial output will show it's using `U-Boot 2017.09`:
 
-```
+```text
 U-Boot 2017.09-2700-g70b4cfe057 (Jun 05 2021 - 07:28:02 +0000), Build: jenkins-linux-build-release-604
 
 Model: Radxa ROCK Pi 4B
@@ -83,7 +87,7 @@ sudo ./setup.sh update_idbloader ___/dev/sdX_or_/dev/mmcblkX_or_system.img___
 
 - Taking the 4GB version as an example, the normal serial boot output looks like:
 
-```
+```text
 U-Boot TPL 2022.04-1 (Apr 21 2022 - 18:07:16)
 Channel 0: LPDDR4, 50MHz
 BW=32 Col=10 Bk=8 CS0 Row=16/15 CS=1 Die BW=16 Size=2048MB
@@ -98,7 +102,7 @@ Returning to boot ROM...
 
 - When abnormal, the detected memory size in the serial boot output does not match the actual value:
 
-```
+```text
 U-Boot TPL 2022.04-1 (Apr 21 2022 - 18:07:16)
 Channel 0: LPDDR4, 50MHz
 BW=32 Col=10 Bk=8 CS0 Row=16/15 CS=1 Die BW=16 Size=2048MB

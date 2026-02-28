@@ -44,7 +44,7 @@ Open your system terminal or command line and run the following commands to inst
 
 <NewCodeBlock tip="Linux-host$" type="host">
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -63,7 +63,7 @@ After installing RKDevTool, you can check the version with the following command
 
 <NewCodeBlock tip="Linux-host$" type="host">
 
-```
+```bash
 rkdeveloptool -V
 ```
 
@@ -81,7 +81,7 @@ If you don't have HomeBrew installed, follow these instructions:
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
@@ -93,7 +93,7 @@ Open your system terminal or command line and run the following commands to inst
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -111,7 +111,7 @@ After installing RKDevTool, you can check the version with the following command
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 rkdeveloptool -V
 ```
 
@@ -222,7 +222,7 @@ Click the `ResetDevice` option to restart the device.
 Use the rkdeveloptool ld command to check the recognized device information:
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 dd if=/dev/zero of=./zero.img bs=1M count=64
 ```
 </NewCodeBlock>
@@ -232,25 +232,25 @@ dd if=/dev/zero of=./zero.img bs=1M count=64
 Check if the device can be recognized in Maskrom mode.
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 Output similar to the following indicates a Maskrom device is recognized:
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
 3. Run the Loader File
 
-Replace `demo.bin` with the appropriate Loader file for E54C. You can download the Loader file from the [Resource Download](../../download) page.
+Replace `<loader-file>.bin` with the appropriate Loader file for E54C. You can download the Loader file from the [Resource Download](../../download) page.
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
 
-```
-sudo rkdeveloptool db demo.bin
+```bash
+sudo rkdeveloptool db <loader-file>.bin
 ```
 
 </NewCodeBlock>
@@ -258,7 +258,7 @@ sudo rkdeveloptool db demo.bin
 4. Erase eMMC
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool wl 0 zero.img
 ```
 
@@ -270,7 +270,7 @@ Reboot for the eMMC erasure to take effect:
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
 
-```
+```bash
 sudo rkdeveloptool rd
 ```
 

@@ -13,7 +13,7 @@
 1. 首先，请安装所需的依赖项：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 sudo apt-get update
 sudo apt-get install git qemu-user-static binfmt-support
 sudo apt-get install npm docker.io
@@ -25,7 +25,7 @@ sudo usermod -a -G docker $USER
 2. 使用以下命令克隆项目并安装 DevContainer：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 cd rsdk
 npm install @devcontainers/cli
@@ -39,7 +39,7 @@ rsdk devcon
 当终端出现以下所示，表明现在处于 rsdk 的 dev 容器 shell 中
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 ██████╗ ███████╗██████╗ ██╗  ██╗
 ██╔══██╗██╔════╝██╔══██╗██║ ██╔╝
 ██████╔╝███████╗██║  ██║█████╔╝
@@ -61,7 +61,7 @@ direnv: export +AR +AS +CC +CONFIG_SHELL +CXX +DETERMINISTIC_BUILD +DEVENV_DOTFI
 
 vscode ➜ /workspaces/rsdk (main) $
 
-```
+````
 
 </NewCodeBlock>
 
@@ -78,19 +78,19 @@ vscode ➜ /workspaces/rsdk (main) $
 1. 克隆源码仓库：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 cd rsdk
 
-```
+````
 
 </NewCodeBlock>
 
 如果您的系统不是基于 RadxaOS（或尚未配置 Radxa 软件源），请先添加 Radxa 的签名密钥环并添加软件源以满足构建依赖：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 
 # 安装签名密钥环
 
@@ -105,7 +105,7 @@ rm -f "$keyring"
 sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg] https://radxa-repo.github.io/bookworm/ bookworm main"
 sudo apt-get update
 
-```
+````
 
 </NewCodeBlock>
 
@@ -114,27 +114,25 @@ sudo apt-get update
 :::tip
 如果你访问 github 困难，可以使用国内的镜像 git 和软件源站点：
 
-```
+```text
 
 git clone https://gitcode.com/radxaos-sdk/rsdk.git
 sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [trusted=yes] https://mirrors.sdu.edu.cn/radxa-repo/bookworm/ bookworm main"
 
-```
+````
 
 :::
 
 2. 安装构建相关依赖并准备构建环境：
 
-
-
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 
 sudo apt-get update
 sudo apt-get install devscripts dpkg-dev build-essential
 sudo apt build-dep .
 
-```
+````
 
 </NewCodeBlock>
 
@@ -142,22 +140,22 @@ sudo apt build-dep .
 3. 构建 deb 包：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 
 dpkg-buildpackage -us -uc -b
 
-```
+````
 
 </NewCodeBlock>
 
 4. 构建成功后，生成的 deb 包位于上级目录（..），可通过以下命令安装：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 
 sudo apt install ../rsdk\_\*.deb
 
-```
+````
 
 </NewCodeBlock>
 
@@ -174,7 +172,7 @@ sudo apt install ../rsdk\_\*.deb
 - 在下面的示例中，我们选择 **Build system image**：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a task:                     │
 │                                           │
@@ -185,14 +183,14 @@ sudo apt install ../rsdk\_\*.deb
 │ <Ok> <Cancel>                             │
 │                                           │
 └───────────────────────────────────────────┘
-```
+````
 
 </NewCodeBlock>
 
 选择要构建的产品。**注意**：使用 **空格键** 来选择产品，被选择的项会在括号内显示 `*`（仅按 Enter 键不会选择产品）：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Please select a product:                  │
 │                                           │
@@ -218,7 +216,7 @@ sudo apt install ../rsdk\_\*.deb
 示例：选择 Radxa APT 镜像：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Select Radxa APT mirror (radxa-deb):     │
 │                                           │
@@ -240,7 +238,7 @@ sudo apt install ../rsdk\_\*.deb
 然后可以选择可选的 Debian/Ubuntu 镜像（或保留默认）：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 ┌─────────────────┤ RSDK ├──────────────────┐
 │ Select Debian/Ubuntu mirror (optional):   │
 │                                           │
@@ -263,7 +261,7 @@ sudo apt install ../rsdk\_\*.deb
 确认并开始构建：在镜像配置（如果有）完成后，向导会展示所选产品和镜像的汇总（对应于将要执行的最终 CLI 命令），请仔细检查摘要并选择 **Yes** 开始构建，或选择 **No** 返回修改：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 ┌─────────────────┤ RSDK ├──────────────────┐
 │                                           │
 │ Are you sure to build with:               │
@@ -286,12 +284,12 @@ sudo apt install ../rsdk\_\*.deb
 编译结束之后会生成一个 `out` 目录，`output.img` 即最终生成的镜像：
 
 <NewCodeBlock tip="x86 Linux PC" type="PC">
-```
+```bash
 
 vscode ➜ /workspaces/rsdk (main) $ ls out/rock-5b_bookworm_kde/
 build-image config.yaml debs manifest output.img rootfs.tar seed.tar.xz
 
-```
+````
 
 </NewCodeBlock>
 
@@ -303,4 +301,5 @@ build-image config.yaml debs manifest output.img rootfs.tar seed.tar.xz
 
 1. 开发容器设置暂停并提示：You might be rate limited by GitHub。您可能受到 GitHub 的速率限制。请按照输出中列出的说明进行操作。
 2. 启动开发容器失败。请编辑 .devcontainer/devcontainer.json，并调整runArgs属性。
-```
+```text
+````

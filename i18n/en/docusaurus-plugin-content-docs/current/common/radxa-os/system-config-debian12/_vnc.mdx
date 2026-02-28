@@ -164,7 +164,7 @@ Run the following commands in the terminal of the mainboard to install the VNC s
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install tigervnc-standalone-server tigervnc-common -y
 ```
@@ -177,7 +177,7 @@ Run the following command in the terminal of the mainboard to set the VNC remote
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 vncpasswd
 ```
 
@@ -189,7 +189,7 @@ When entering the password and verification, the characters won't be displayed o
 
 After completing the password setup, you'll see output similar to:
 
-```
+```bash
 Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
@@ -202,7 +202,7 @@ Edit the `~/.vnc/xstartup` file on the mainboard:
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo vi ~/.vnc/xstartup
 ```
 
@@ -210,7 +210,7 @@ sudo vi ~/.vnc/xstartup
 
 Modify the content of `~/.vnc/xstartup` to:
 
-```
+```bash
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -223,7 +223,7 @@ After editing the `~/.vnc/xstartup` file, you need to make it executable:
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 sudo chmod +x ~/.vnc/xstartup
 ```
 
@@ -235,7 +235,7 @@ Run the following command in the terminal of the mainboard to start the VNC serv
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 vncserver -localhost no
 ```
 
@@ -243,7 +243,7 @@ vncserver -localhost no
 
 After successful startup, the terminal will display information similar to the following, indicating the VNC server's port number:
 
-```
+```bash
 New Xtigervnc server ***:1 (radxa)' on port 5901 for display :1.
 Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :1 to connect to the VNC server.
 ```
@@ -254,7 +254,7 @@ To check the status of the VNC server, run the following command in the terminal
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 vncserver -list
 ```
 
@@ -262,7 +262,7 @@ vncserver -list
 
 The terminal will display output similar to:
 
-```
+```bash
 TigerVNC server sessions:
 
 X DISPLAY # RFB PORT # RFB UNIX PATH PROCESS ID # SERVER
@@ -275,7 +275,7 @@ To stop the VNC server, run the following command in the terminal of the mainboa
 
 <NewCodeBlock tip="radxa@device$" type="device">
 
-```
+```bash
 vncserver -kill :1
 ```
 

@@ -3,6 +3,8 @@ sidebar_position: 2
 title: System Installation
 ---
 
+# System Installation
+
 This document describes how to install an OS image into AirBox.
 
 ## Preparation
@@ -53,7 +55,7 @@ Balena Etcher is a cross-platform and user-friendly image burning tool that we r
 Please power off the Fogwise® AirBox, insert the SD card, and connect the serial terminal (use usb type-a to type-c cable, type-c connects to the debug port of the Fogwise® AirBox, type a connects to the computer, the baud rate is set to 115200, and the location of the debug port is in the [hardware-interface](../hardware-design/hardware-interface) to find it, then power up the whole machine. You will see
 The SG2300X automatically enters the flashing process:
 
-```
+```text
 Hit any key to stop autoboot:  0
 switch to partitions #0, OK
 mmc1 is current device
@@ -82,7 +84,7 @@ update eMMC
 Flashing usually takes about 3 minutes, after finishing, you will see a prompt to unplug the SD card and reboot the SG2300X, please follow the steps below
 Please follow the instructions:
 
-```
+```text
 eMMC update done
 bm savelog 449 bytes written in 10 ms (43 KiB/s)
 all done
