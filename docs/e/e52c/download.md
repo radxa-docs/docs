@@ -1,5 +1,10 @@
 ---
 sidebar_position: 2
+
+doc_kind: wrapper
+source_of_truth: local
+imports_resolve_to:
+  - docs/e/e52c/_image.mdx
 ---
 
 import Images from "./\_image.mdx"

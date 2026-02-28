@@ -1,5 +1,10 @@
 ---
 sidebar_position: 5
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_rknn-toolkit-lite2-yolov5.mdx
 ---
 
 # Deploy YOLOv5 Object Detection on the Board

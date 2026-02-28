@@ -1,6 +1,11 @@
 ---
 sidebar_position: 4
 description: "Deploy YOLOv5 on RK3582 board to usher in a new era of intelligent object detection, where technology and humanity perfectly blend in precise recognition"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_rknn-toolkit-lite2-yolov5.mdx
 ---
 
 # Deploy YOLOv5 Object Detection on the Board

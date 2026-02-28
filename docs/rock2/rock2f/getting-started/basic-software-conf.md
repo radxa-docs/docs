@@ -1,6 +1,11 @@
 ---
 sidebar_position: 4
 description: ""
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/radxa-os/xfce/_basicSoftwareConf.mdx
 ---
 
 import BasicSoftWareConf from "../../../common/radxa-os/xfce/\_basicSoftwareConf.mdx";

@@ -1,6 +1,11 @@
 ---
 sidebar_position: 4
 description: "没有键盘或显示器的情况下使用系统"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/radxa-os/_headless.mdx
 ---
 
 import Headless from "../../../../common/radxa-os/\_headless.mdx";

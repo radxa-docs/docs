@@ -1,6 +1,15 @@
 ---
 sidebar_position: 7
 description: ""
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_gpio.mdx
+  - docs/common/dev/_i2c.mdx
+  - docs/common/dev/_pwm.mdx
+  - docs/common/dev/_spi.mdx
+  - docs/common/dev/_uart.mdx
 ---
 
 import GPIO from '../../../../common/dev/\_gpio.mdx';

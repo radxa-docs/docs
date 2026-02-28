@@ -1,5 +1,11 @@
 ---
 sidebar_position: 1
+
+doc_kind: wrapper
+source_of_truth: local
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/rock2/rock2a/_image.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/general/_etcherV2.mdx
 ---
 
 import Images from "../../\_image.mdx"

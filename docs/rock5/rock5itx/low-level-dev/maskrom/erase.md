@@ -1,6 +1,11 @@
 ---
 sidebar_position: 4
 description: "通过 Maskrom 清除 eMMC 或者 SPI Flash"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_erase-spi-emmc.mdx
 ---
 
 import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
