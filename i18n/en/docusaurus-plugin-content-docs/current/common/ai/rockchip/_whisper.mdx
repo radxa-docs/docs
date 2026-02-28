@@ -109,15 +109,15 @@ Run the example.
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-# 中文语音
+# Chinese audio
 ./rknn_whisper_demo ./model/whisper_encoder_base_20s.rknn ./model/whisper_decoder_base_20s.rknn zh ./model/test_zh.wav
-# 英文语音
+# English audio
 ./rknn_whisper_demo ./model/whisper_encoder_base_20s.rknn ./model/whisper_decoder_base_20s.rknn en ./model/test_en.wav
 ```
 
 </NewCodeBlock>
 
-中文语音：
+Chinese audio:
 
 ```bash
 $ ./rknn_whisper_demo ./model/whisper_encoder_base_20s.rknn ./model/whisper_decoder_base_20s.rknn zh ./model/test_zh.wav
@@ -138,12 +138,12 @@ output tensors:
 -- init_whisper_decoder_model use: 282.627014 ms
 -- inference_whisper_model use: 1656.614014 ms
 
-Whisper output: 对我做了介绍,我想说的是大家如果对我的研究感兴趣
+Whisper output: He introduced me, and I want to say that if you are interested in my research
 
 Real Time Factor (RTF): 1.657 / 5.611 = 0.295
 ```
 
-英文语音：
+English audio:
 
 ```bash
 $ ./rknn_whisper_demo ./model/whisper_encoder_base_20s.rknn ./model/whisper_decoder_base_20s.rknn en ./model/test_en.wav
@@ -184,7 +184,7 @@ conda activate rknn
 ### Run the Example
 
 :::info
-**依赖说明**：运行下面的命令安装依赖。
+**Dependency note**: Install dependencies with the command below.
 
 ```bash
 pip install soundfile
@@ -197,15 +197,15 @@ Copy the related files to the device and run the following commands.
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-# 中文语音
+# Chinese audio
 python whisper.py --encoder_model_path ../model/whisper_encoder_base_20s.rknn --decoder_model_path ../model/whisper_decoder_base_20s.rknn --task zh --audio_path ../model/test_zh.wav --target ${TARGET_PLATFORM}
-# 英文语音
+# English audio
 python whisper.py --encoder_model_path ../model/whisper_encoder_base_20s.rknn --decoder_model_path ../model/whisper_decoder_base_20s.rknn --task en --audio_path ../model/test_en.wav --target ${TARGET_PLATFORM}
 ```
 
 </NewCodeBlock>
 
-中文语音：
+Chinese audio:
 
 ```bash
 $ python whisper.py --encoder_model_path ../model/whisper_encoder_base_20s.rknn --decoder_model_path ../model/whisper_decoder_base_20s.rknn --task zh --audio_path ../model/test_zh.wav --target rk3588
@@ -230,10 +230,10 @@ W inference: The 'data_format' is not set, and its default value is 'nhwc'!
 W inference: The 'data_format' is not set, and its default value is 'nhwc'!
 W inference: The 'data_format' is not set, and its default value is 'nhwc'!
 
-Whisper output: 对我做了介绍,我想说的是,如果对我的研究感兴趣
+Whisper output: He introduced me, and I want to say that if you are interested in my research
 ```
 
-英文语音：
+English audio:
 
 ```bash
 $ python whisper.py --encoder_model_path ../model/whisper_encoder_base_20s.rknn --decoder_model_path ../model/whisper_decoder_base_20s.rknn --task en --audio_path ../model/test_en.wav --target rk3588

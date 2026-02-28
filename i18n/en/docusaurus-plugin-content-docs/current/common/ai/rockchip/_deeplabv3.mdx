@@ -54,7 +54,7 @@ export TARGET_PLATFORM=rk356x
 Convert the ONNX model to an RKNN model.
 
 :::info
-如果提示加载模型错误，需要使用下面的命令安装 TensorFlow 库：
+If model loading fails, install TensorFlow with the command below:
 
 ```bash
 pip3 install 'tensorflow>=1.12.0,<=2.16.0rc0'
@@ -102,14 +102,14 @@ scp -r rknn_deeplabv3_demo/ user@your_device_ip:target_directory
 ### Run the Example
 
 :::info
-**依赖说明**：本示例的 C API 实现需要 libOpenCL.so 库支持。在 RK3588/RK356X 平台上，可使用 Mali GPU 驱动中的 libmali.so.1.9.0 库替代。
+**Dependency note**: The C API example requires the `libOpenCL.so` library. On RK3588/RK356X platforms, you can use `libmali.so.1.9.0` from the Mali GPU driver as a replacement.
 :::
 
-RK3588/RK356X 设备在 Debian 12 (Bookworm) 系统中默认使用 Panfrost/Panthor GPU 驱动，需要先切换到 Mali GPU 驱动。
+On Debian 12 (Bookworm), RK3588/RK356X devices use the Panfrost/Panthor GPU driver by default. Switch to the Mali GPU driver first.
 
-> 参考文档：[切换 GPU 驱动](../radxa-os/mali-gpu)
+> Reference: [Switch GPU Driver](../radxa-os/mali-gpu)
 
-创建软链接（将 libmali.so.1.9.0 链接为 libOpenCL.so）。
+Create a symlink (link `libmali.so.1.9.0` to `libOpenCL.so`).
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -160,7 +160,7 @@ rknn_run
 write_image path: out.png width=513 height=513 channel=3 data=0x33a04740
 ```
 
-### 效果展示
+### Result Preview
 
 ![](/img/rock5b/ai/deeplabv3-cpp.webp)
 
@@ -169,7 +169,7 @@ write_image path: out.png width=513 height=513 channel=3 data=0x33a04740
 ### Activate the virtual environment
 
 :::info
-**依赖说明**：本示例的 Python API 实现依赖 Matplotlib 库，通过下面的命令安装。
+**Dependency note**: The Python API example depends on `matplotlib`. Install it with the command below.
 
 ```bash
 pip install matplotlib
@@ -211,6 +211,6 @@ W inference: The 'data_format' is not set, and its default value is 'nhwc'!
 --> done
 ```
 
-### 效果展示
+### Result Preview
 
 ![](/img/rock5b/ai/deeplabv3-python.webp)

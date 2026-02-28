@@ -24,7 +24,7 @@ bash download_model.sh
 Select the target platform.
 
 :::info
-目前 MobileSAM 模型只支持 rk3562 和 rk3588 平台。
+Currently, the MobileSAM model only supports rk3562 and rk3588 platforms.
 :::
 
 <Tabs>
@@ -155,7 +155,7 @@ rknn_run
 write_image path: out.png width=769 height=770 channel=3 data=0xffff79479010
 ```
 
-### 效果展示
+### Result Preview
 
 ![](/img/rock5b/ai/mobilesam-cpp.webp)
 
@@ -173,7 +173,7 @@ conda activate rknn
 
 ### Run the Example
 
-将相关文件Copy to the device执行下面的命令
+Copy the related files to the device and run the following command.
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -196,6 +196,6 @@ I target set by user is: rk3588
 result save to result.jpg
 ```
 
-### 效果展示
+### Result Preview
 
 ![](/img/rock5b/ai/mobilesam-python.webp)
