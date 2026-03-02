@@ -12,7 +12,7 @@ This tutorial applies to the Radxa OS system image.
 
 :::
 
-<Camera4K product='Radxa Cubie A7S' interface='31-pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-pin connector' board='cubie-a7s'/>
+<Camera4K product='Radxa Cubie A7S' interface='31-pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='opposite side' board='cubie-a7s'/>
 
 ## Preview the camera
 

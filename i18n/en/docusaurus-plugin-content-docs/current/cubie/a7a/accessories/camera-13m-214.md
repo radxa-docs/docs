@@ -6,7 +6,7 @@ import Camera13M214 from '../../../common/accessories/\_camera-13m-214.mdx';
 
 # Radxa Camera 13M 214
 
-<Camera13M214 product='Radxa Cubie A7A' interface='31-Pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin connector' board='cubie-a7a' />
+<Camera13M214 product='Radxa Cubie A7A' interface='31-Pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='opposite side' board='cubie-a7a' />
 
 ## Preview the camera
 

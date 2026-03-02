@@ -6,7 +6,7 @@ import Camera4K from '../../../common/accessories/\_camera-4k.mdx';
 
 # Radxa Camera 4K
 
-<Camera4K product='Radxa Cubie A7A' interface='31-Pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin connector' board='cubie-a7a' enable_camera='Enable Radxa Camera 4K' />
+<Camera4K product='Radxa Cubie A7A' interface='31-Pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='opposite side' board='cubie-a7a' enable_camera='Enable Radxa Camera 4K' />
 
 ## Preview the camera
 

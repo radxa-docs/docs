@@ -6,7 +6,7 @@ import Camera12M577 from '../../../common/accessories/\_camera-12m-577.mdx';
 
 # 瑞莎 12M 577 摄像头
 
-<Camera12M577 product='瑞莎 Dragon Q6A' interface='31-Pin 0.3 mm 间距 SMD 卧式 FPC 接口' connect='翻盖式，下接触' pins='31-Pin 接口' board='dragon-q6a'/>
+<Camera12M577 product='瑞莎 Dragon Q6A' interface='31-Pin 0.3 mm 间距 SMD 卧式 FPC 接口' connect='翻盖式，下接触' pins='31-Pin' pitch='0.3mm 间距' orientation='异面' board='dragon-q6a'/>
 
 ## 预览摄像头
 

@@ -6,7 +6,7 @@ import Camera13M214 from '../../../common/accessories/\_camera-13m-214.mdx';
 
 # Radxa Camera 13M 214
 
-<Camera13M214 product='Radxa Dragon Q6A' interface='31-pin 0.3 mm pitch SMD Horizontal FPC connector' connect='Flip type, bottom contact' pins='31-pin connector' board='dragon-q6a' />
+<Camera13M214 product='Radxa Dragon Q6A' interface='31-pin 0.3 mm pitch SMD Horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='opposite side' board='dragon-q6a' />
 
 ## Preview the camera
 
