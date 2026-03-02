@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 高通 Linux 编译指南
+# 高通 Linux 指南
 
 ## 瑞莎 AIRbox Q900 Yocto 编译指南
 
