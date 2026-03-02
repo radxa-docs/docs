@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Qualcomm Linux Build Guide
+# Qualcomm Linux Guide
 
 ## Radxa AIRbox Q900 Yocto Build Guide
 
