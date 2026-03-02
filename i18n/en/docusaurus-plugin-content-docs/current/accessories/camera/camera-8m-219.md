@@ -40,21 +40,33 @@ Radxa Camera 8M 219 is an high resolution camera module for Radxa products power
   - length: 150 mm
   - Compatible with Radxa ZERO 3E / 3W
 
-**For compatibility with other Radxa SBCs, an additional fpc cable is required.**。
+**For compatibility with other Radxa SBCs, an additional FPC cable is required.**
 
 ## FPC Cable
 
-- Support for ZERO 3W / 3E
+- Supports ZERO 3W / 3E
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-02.webp)
+  Cable spec: 22-Pin 0.5 mm pitch → 15-Pin 1.0 mm pitch (same side) FPC cable
 
-- Support for ROCK 5 Series
+  <div style={{ textAlign: 'center' }}>
+    <img src="/en/img/accessories/camera-8m-219-02.webp" style={{ width: '50%', maxWidth: '1200px' }} />
+  </div>
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-03.webp)
+- Supports ROCK 5A / ROCK 5B / ROCK 5C / Cubie A5E / Cubie A7A / Cubie A7Z / Cubie A7S
 
-- Support for ROCK 3 / 4 Series
+  Cable spec: 31-Pin 0.3 mm pitch → 15-Pin 1.0 mm pitch (same side) FPC cable
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-04.webp)
+  <div style={{ textAlign: 'center' }}>
+    <img src="/en/img/accessories/camera-8m-219-03.webp" style={{ width: '50%', maxWidth: '1200px' }} />
+  </div>
+
+- Supports ROCK 3C / ROCK 4SE / Dragon Q6A
+
+  Cable spec: 15-Pin 1.0 mm pitch → 15-Pin 1.0 mm pitch (opposite side) FPC cable
+
+  <div style={{ textAlign: 'center' }}>
+    <img src="/en/img/accessories/camera-8m-219-04.webp" style={{ width: '50%', maxWidth: '1200px' }} />
+  </div>
 
 ## Datasheet
 

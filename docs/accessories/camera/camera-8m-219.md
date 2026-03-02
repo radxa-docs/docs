@@ -46,15 +46,27 @@ sidebar_position: 4
 
 - 支持 ZERO 3W / 3E
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-02.webp)
+  排线规格：22-Pin 0.5 mm 间距 → 15-Pin 1.0 mm 间距（同面）FPC 排线
 
-- 支持 ROCK 5 系列
+  <div style={{ textAlign: 'center' }}>
+    <img src="/img/accessories/camera-8m-219-02.webp" style={{ width: '50%', maxWidth: '1200px' }} />
+  </div>
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-03.webp)
+- 支持 ROCK 5A / ROCK 5B / ROCK 5C / Cubie A5E / Cubie A7A / Cubie A7Z / Cubie A7S
 
-- 支持 ROCK 3 / 4 系列
+  排线规格：31-Pin 0.3 mm 间距 → 15-Pin 1.0 mm 间距（同面）FPC 排线
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-04.webp)
+  <div style={{ textAlign: 'center' }}>
+    <img src="/img/accessories/camera-8m-219-03.webp" style={{ width: '50%', maxWidth: '1200px' }} />
+  </div>
+
+- 支持 ROCK 3C / ROCK 4SE / Dragon Q6A
+
+  排线规格：15-Pin 1.0 mm 间距 → 15-Pin 1.0 mm 间距（异面）FPC 排线
+
+  <div style={{ textAlign: 'center' }}>
+    <img src="/img/accessories/camera-8m-219-04.webp" style={{ width: '50%', maxWidth: '1200px' }} />
+  </div>
 
 ## 数据手册
 
