@@ -38,7 +38,7 @@ When using CAM0 or DISP0, you need to short-circuit the location on the board as
 
   - Use the Ctrl + T shortcut to open the terminal, then run the `rsetup` command:
 
-    ```
+    ```text
     radxa@radxa-cm3j-rpi-cm4-io:~$ rsetup
     ```
 

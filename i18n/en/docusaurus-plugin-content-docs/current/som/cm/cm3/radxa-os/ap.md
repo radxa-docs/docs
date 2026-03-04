@@ -1,6 +1,11 @@
 ---
 sidebar_position: 13
 description: "You can access the Internet by connecting to WIFI!"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/radxa-os/_ap.mdx
 ---
 
 import AP from "../../../../common/radxa-os/\_ap.mdx";

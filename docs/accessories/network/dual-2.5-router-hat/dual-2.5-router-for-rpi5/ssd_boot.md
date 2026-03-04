@@ -55,7 +55,7 @@ sidebar_position: 7
 
 2. 这将打开一个文本编辑器。添加或修改以下行：
 
-   ```
+   ```text
    BOOT_ORDER=0xf416
    PCIE_PROBE=1
    ```
@@ -234,7 +234,7 @@ sidebar_position: 7
 
    要在重启后保持此设置，请将以下内容添加到 `/etc/udev/rules.d/60-scheduler.rules`：
 
-   ```
+   ```bash
    ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
    ```
 

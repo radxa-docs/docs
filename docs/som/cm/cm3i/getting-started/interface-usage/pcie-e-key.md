@@ -1,5 +1,13 @@
 ---
 sidebar_position: 8
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/accessories/_wifi-bt.mdx
+  - docs/common/accessories/_m.2-sata-break-board.mdx
+  - docs/common/accessories/_m.2-extension-board.mdx
+  - docs/common/accessories/_penta-sata-hat.mdx
 ---
 
 import WIFI_BT from "../../../../../common/accessories/\_wifi-bt.mdx";

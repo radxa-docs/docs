@@ -123,7 +123,7 @@ VNC Viewer Interface
 Run the following commands in the Radxa ROCK 4D terminal to install the VNC server:
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 sudo apt update
 sudo apt install tigervnc-standalone-server tigervnc-common -y
 ```
@@ -134,7 +134,7 @@ sudo apt install tigervnc-standalone-server tigervnc-common -y
 Run the following command in the ROCK 4D terminal to set the VNC remote password:
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 
-```
+```bash
 vncpasswd
 ```
 
@@ -146,7 +146,7 @@ The password and confirmation will not be displayed on the screen. When prompted
 
 After setting the password, the system will display similar information:
 
-```
+```bash
 Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
@@ -158,7 +158,7 @@ A view-only password is not used
 Edit the `~/.vnc/xstartup` file on ROCK 4D:
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 sudo vi ~/.vnc/xstartup
 ```
 </NewCodeBlock>
@@ -166,7 +166,7 @@ sudo vi ~/.vnc/xstartup
 Modify the contents of the `~/.vnc/xstartup` file to:
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -179,7 +179,7 @@ exec startplasma-x11
 After editing the `~/.vnc/xstartup` file, make it executable:
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 sudo chmod +x ~/.vnc/xstartup
 ```
 </NewCodeBlock>
@@ -189,14 +189,14 @@ sudo chmod +x ~/.vnc/xstartup
 Run the following command in the ROCK 4D terminal to start the VNC server. Use the `-localhost no` parameter to allow remote access.
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 vncserver -localhost no
 ```
 </NewCodeBlock>
 
 After successful startup, the terminal will display information similar to this, indicating the VNC server's port number:
 
-```
+```bash
 New Xtigervnc server 'rock-4d-spi:1 (radxa)' on port 5901 for display :1.
 Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :1 to connect to the VNC server.
 ```
@@ -206,14 +206,14 @@ Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :
 To check the status of the VNC server, run the following command in the ROCK 4D terminal:
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 vncserver -list
 ```
 </NewCodeBlock>
 
 The terminal will display output similar to:
 
-```
+```bash
 TigerVNC server sessions:
 
 X DISPLAY #	RFB PORT #	RFB UNIX PATH	PROCESS ID #	SERVER
@@ -225,7 +225,7 @@ X DISPLAY #	RFB PORT #	RFB UNIX PATH	PROCESS ID #	SERVER
 To stop the VNC server, run the following command in the ROCK 4D terminal. The `:1` in the command represents the VNC server's display number.
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 vncserver -kill :1
 ```
 </NewCodeBlock>

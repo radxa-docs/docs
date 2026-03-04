@@ -14,7 +14,7 @@ sidebar_position: 5
 
 - 安装驱动
 
-下载并解压 [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)文件。
+下载并解压 [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssistant_v5.0.zip)文件。
 
 找到 ` DriverInstall.exe`文件并以管理员身份运行：
 
@@ -44,7 +44,7 @@ sidebar_position: 5
 
 <NewCodeBlock tip="Linux-host$" type="host">
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -63,7 +63,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 
 <NewCodeBlock tip="Linux-host$" type="host">
 
-```
+```bash
 rkdeveloptool -V
 ```
 
@@ -81,7 +81,7 @@ rkdeveloptool -V
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
@@ -93,7 +93,7 @@ rkdeveloptool -V
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -111,7 +111,7 @@ cp rkdeveloptool /opt/homebrew/bin/
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 rkdeveloptool -V
 ```
 
@@ -224,7 +224,7 @@ Radxa E54C 有一个专用的 Maskrom 按键，在系统启动过程中检测到
 在当前目录生成内容全为0的64MB文件。
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 dd if=/dev/zero of=./zero.img bs=1M count=64
 ```
 </NewCodeBlock>
@@ -263,7 +263,7 @@ sudo rkdeveloptool db <loader-file>.bin
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
 
-```
+```bash
 sudo rkdeveloptool wl 0 zero.img
 ```
 
@@ -275,7 +275,7 @@ sudo rkdeveloptool wl 0 zero.img
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
 
-```
+```bash
 sudo rkdeveloptool rd
 ```
 

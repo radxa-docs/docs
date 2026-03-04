@@ -1,5 +1,10 @@
 ---
 sidebar_position: 22
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_nvme.mdx
 ---
 
 # 从 NVME 启动系统

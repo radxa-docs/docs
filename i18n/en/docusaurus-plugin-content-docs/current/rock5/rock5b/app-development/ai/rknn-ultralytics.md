@@ -1,6 +1,11 @@
 ---
 sidebar_position: 9
 description: "Deploy Ultralytics YOLO models on RK3588/RK356X"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_rknn-ultralytics.mdx
 ---
 
 # RKNN Ultralytics YOLOv11

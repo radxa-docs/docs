@@ -1,5 +1,10 @@
 ---
 sidebar_position: 6
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/accessories/_pcie-m-key.mdx
 ---
 
 import PCIe_M from "../../../../common/accessories/\_pcie-m-key.mdx";

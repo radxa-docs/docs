@@ -12,7 +12,7 @@ SSH 远程控制需要安装 OpenSSH, 在主板的终端运行以下命令安装
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update && sudo apt install openssh-server -y
 ```
 
@@ -24,7 +24,7 @@ sudo apt update && sudo apt install openssh-server -y
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl start ssh
 ```
 
@@ -36,7 +36,7 @@ sudo systemctl start ssh
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl enable ssh
 ```
 
@@ -48,7 +48,7 @@ sudo systemctl enable ssh
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl status ssh
 ```
 
@@ -56,7 +56,7 @@ sudo systemctl status ssh
 
 终端会输出类似信息: 提示您 SSH 服务是否自启动和当前运行状态。
 
-```
+```bash
 ● ssh.service - OpenBSD Secure Shell server
 Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
 Active: active (running) since Sat 2000-01-01 00:14:50 UTC; 25 years 5 months ago
@@ -80,7 +80,7 @@ CGroup: /system.slice/ssh.service
 
 <NewCodeBlock tip="PC$" type="host">
 
-```
+```bash
 ssh <user-name>@<ip-address>
 # 示例
 

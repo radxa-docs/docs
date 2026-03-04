@@ -1,5 +1,5 @@
-PP-OCR 是一套灵活的 OCR 解决方案，既支持检测与识别模块的独立调用，也支持端到端的系统集成。
-本案例将演示如何利用 Rockchip 平台的计算资源，部署并运行这套“图片进、文字出”的高性能文字识别系统。
+PP-OCR is a flexible OCR solution that supports both standalone detection/recognition modules and end-to-end system integration.
+This example demonstrates how to deploy and run this high-performance text recognition pipeline ("image in, text out") using Rockchip platform compute resources.
 
 ## Environment Setup
 
@@ -69,7 +69,7 @@ python convert.py ../model/ppocrv4_det.onnx ${TARGET_PLATFORM}
 
 </NewCodeBlock>
 
-将转换好的模型拷贝到 PPOCR-System/model 目录下。
+Copy the converted models to the `PPOCR-System/model` directory.
 
 <NewCodeBlock tip="X64 Linux PC" type="pc">
 
@@ -154,42 +154,42 @@ src width is not 4/16-aligned, convert image use cpu
 finish
 DRAWING OBJECT
 [0] @ [(28, 37), (302, 39), (301, 71), (27, 69)]
-recognize result: 纯臻营养护发素, score=0.711077
+recognize result: Nourishing Hair Conditioner, score=0.711077
 [1] @ [(26, 82), (172, 82), (172, 104), (26, 104)]
-recognize result: 产品信息/参数, score=0.709612
+recognize result: Product Information/Parameters, score=0.709612
 [2] @ [(27, 112), (332, 112), (332, 134), (27, 134)]
-recognize result: （45元/每公斤，100公斤起订）, score=0.691406
+recognize result: (45 CNY/kg, minimum order: 100 kg), score=0.691406
 [3] @ [(28, 142), (282, 144), (281, 163), (27, 162)]
-recognize result: 每瓶22元，1000瓶起订）, score=0.706613
+recognize result: 22 CNY per bottle, minimum order: 1000 bottles), score=0.706613
 [4] @ [(25, 179), (298, 177), (300, 194), (26, 195)]
-recognize result: 【品牌】：代加工方式/OEMODM, score=0.704963
+recognize result: [Brand]: Contract Manufacturing / OEM ODM, score=0.704963
 [5] @ [(26, 209), (234, 209), (234, 228), (26, 228)]
-recognize result: 【品名】：纯臻营养护发素, score=0.710124
+recognize result: [Product Name]: Nourishing Hair Conditioner, score=0.710124
 [6] @ [(26, 240), (241, 240), (241, 259), (26, 259)]
-recognize result: 【产品编号】：YM-X-3011, score=0.703522
+recognize result: [Product ID]: YM-X-3011, score=0.703522
 [7] @ [(413, 233), (429, 233), (429, 305), (413, 305)]
 recognize result: ODMOEM, score=0.708415
 [8] @ [(25, 270), (179, 270), (179, 289), (25, 289)]
-recognize result: 【净含量】：220ml, score=0.707519
+recognize result: [Net Content]: 220 ml, score=0.707519
 [9] @ [(26, 303), (252, 303), (252, 321), (26, 321)]
-recognize result: 【适用人群】：适合所有肤质, score=0.709698
+recognize result: [Suitable For]: All skin types, score=0.709698
 [10] @ [(26, 333), (341, 333), (341, 351), (26, 351)]
-recognize result: 【主要成分】：鲸蜡硬脂醇、燕麦β-葡聚, score=0.689684
+recognize result: [Main Ingredients]: Cetearyl Alcohol, Oat Beta-Glucan, score=0.689684
 [11] @ [(27, 363), (283, 365), (282, 384), (26, 382)]
-recognize result: 糖、椰油酰胺丙基甜菜碱、泛酸, score=0.691807
+recognize result: Sugar, Cocamidopropyl Betaine, Pantothenic Acid, score=0.691807
 [12] @ [(368, 368), (476, 368), (476, 388), (368, 388)]
-recognize result: （成品包材）, score=0.706706
+recognize result: (Finished Packaging Material), score=0.706706
 [13] @ [(27, 394), (362, 396), (361, 414), (26, 413)]
-recognize result: 【主要功能】：可紧致头发磷层，从而达到, score=0.696854
+recognize result: [Main Function]: Tightens the hair cuticle to improve smoothness, score=0.696854
 [14] @ [(27, 428), (371, 428), (371, 446), (27, 446)]
-recognize result: 即时持久改善头发光泽的效果，给干燥的头, score=0.711040
+recognize result: Improves hair shine immediately and over time, while nourishing dry hair, score=0.711040
 [15] @ [(27, 459), (136, 459), (136, 478), (27, 478)]
-recognize result: 发足够的滋养, score=0.711344
+recognize result: Provides sufficient nourishment, score=0.711344
     SAVE TO ./out.jpg
 write_image path: ./out.jpg width=500 height=500 channel=3 data=0x2bf82010
 ```
 
-### 效果展示
+### Result Preview
 
 ![](/img/rock5b/ai/ppocr-cpp.webp)
 
@@ -208,7 +208,7 @@ conda activate rknn
 ### Run the Example
 
 :::info
-**依赖说明**：运行下面的命令安装依赖。
+**Dependency note**: Install dependencies with the command below.
 
 ```bash
 pip install shapely pyclipper
@@ -244,5 +244,5 @@ W inference: The 'data_format' is not set, and its default value is 'nhwc'!
 W inference: The 'data_format' is not set, and its default value is 'nhwc'!
 W inference: The 'data_format' is not set, and its default value is 'nhwc'!
 W inference: The 'data_format' is not set, and its default value is 'nhwc'!
-[[('纯臻营养护发素', 0.7113560438156128)], [('产品信息/参数', 0.7074497938156128)], [('（45元/每公斤，100公斤起订）', 0.6900849938392639)], [('每瓶22元，1000瓶起订）', 0.7073799967765808)], [('【品牌】：代加工方式/OEMODM', 0.7077493071556091)], [('【品名】：纯臻营养护发素', 0.7105305790901184)], [('【产品编号】：YM-X-3011', 0.705413818359375)], [('ODM OEM', 0.6839424967765808)], [('【净含量】：220ml', 0.7086736559867859)], [('【适用人群】：适合所有肤质', 0.7099984884262085)], [('【主要成分】：鲸蜡硬脂醇、燕麦β-葡聚', 0.6929739117622375)], [('糖、椰油酰胺丙基甜菜碱、泛酸', 0.6709420084953308)], [('（成品包材）', 0.708251953125)], [('【主要功能】：可紧致头发磷层，从而达到', 0.7064401507377625)], [('即时持久改善头发光泽的效果，给干燥的头', 0.7103207111358643)], [('发足够的滋养', 0.7110188603401184)]]
+[[('Nourishing Hair Conditioner', 0.7113560438156128)], [('Product Information/Parameters', 0.7074497938156128)], [('(45 CNY/kg, minimum order: 100 kg)', 0.6900849938392639)], [('22 CNY per bottle, minimum order: 1000 bottles)', 0.7073799967765808)], [('[Brand]: Contract Manufacturing/OEM ODM', 0.7077493071556091)], [('[Product Name]: Nourishing Hair Conditioner', 0.7105305790901184)], [('[Product ID]: YM-X-3011', 0.705413818359375)], [('ODM OEM', 0.6839424967765808)], [('[Net Content]: 220ml', 0.7086736559867859)], [('[Suitable For]: All skin types', 0.7099984884262085)], [('[Main Ingredients]: Cetearyl Alcohol, Oat Beta-Glucan', 0.6929739117622375)], [('Sugar, Cocamidopropyl Betaine, Pantothenic Acid', 0.6709420084953308)], [('(Finished Packaging Material)', 0.708251953125)], [('[Main Function]: Tightens the hair cuticle for better shine', 0.7064401507377625)], [('Improves shine and nourishes dry hair', 0.7103207111358643)], [('Provides sufficient nourishment', 0.7110188603401184)]]
 ```

@@ -43,7 +43,7 @@ Download the [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2
 Open your system terminal or command line and run the following commands to install:
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -60,7 +60,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 After completing the RKDevTool installation, use the following command to check the RKDevTool version.
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -76,7 +76,7 @@ rkdeveloptool -V
 If you don't have HomeBrew installed, follow these instructions to install it.
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 </NewCodeBlock>
@@ -86,7 +86,7 @@ If you don't have HomeBrew installed, follow these instructions to install it.
 Open your system terminal or command line and run the following commands to install:
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -102,7 +102,7 @@ cp rkdeveloptool /opt/homebrew/bin/
 After completing the RKDevTool installation, use the following command to check the RKDevTool version.
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -214,7 +214,7 @@ Before using the tool, ensure your PC can detect the device in Maskrom mode, the
 Create a 64MB file filled with zeros in the current directory.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 dd if=/dev/zero of=./zero.img bs=1M count=64
 ```
 </NewCodeBlock>
@@ -250,7 +250,7 @@ sudo rkdeveloptool db <loader-file>.bin
 Use the RKDevTool to write zero.img to the starting sector of the device, which is used to erase or initialize the eMMC of Rockchip devices.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool wl 0 zero.img
 ```
 </NewCodeBlock>
@@ -260,7 +260,7 @@ sudo rkdeveloptool wl 0 zero.img
 Use the RKDevTool to reboot the device.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>

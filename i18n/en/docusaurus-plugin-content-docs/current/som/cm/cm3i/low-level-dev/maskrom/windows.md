@@ -1,6 +1,11 @@
 ---
 sidebar_position: 3
 description: "Flash via Maskrom under  Windows"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_rkdevtoolV2.mdx
 ---
 
 import Rkdevtool from "../../../../../common/dev/\_rkdevtoolV2.mdx";

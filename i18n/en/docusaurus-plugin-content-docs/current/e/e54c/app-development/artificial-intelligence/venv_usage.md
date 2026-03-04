@@ -1,6 +1,11 @@
 ---
 sidebar_position: 22
 description: "Using virtual environments to isolate system environments"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_venv_usage.mdx
 ---
 
 # Python Virtual Environment Usage

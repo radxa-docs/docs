@@ -1,6 +1,11 @@
 ---
 sidebar_position: 9
 description: ""
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/accessories/_usb.mdx
 ---
 
 import USB from "../../../../common/accessories/\_usb.mdx";

@@ -18,7 +18,7 @@ To use MicroPython, you leverage the embedded RP2040 SoC, which communicates wit
 
 - Install Thonny IDE
 
-```
+```bash
 sudo apt-get install thonny -y
 ```
 

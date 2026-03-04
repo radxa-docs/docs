@@ -66,7 +66,7 @@ Radxa E24C 有一个专用的 Maskrom 按键，在系统启动过程中检测到
 打开系统终端或命令行，运行下面命令检查是否识别到 Maskrom 设备。
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
@@ -74,7 +74,7 @@ sudo rkdeveloptool ld
 正常输出内容：识别到一个设备
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 ```
 </NewCodeBlock>

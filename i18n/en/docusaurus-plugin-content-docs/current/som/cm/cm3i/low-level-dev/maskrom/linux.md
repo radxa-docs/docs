@@ -1,6 +1,11 @@
 ---
 sidebar_position: 1
 description: "Flash via Maskrom under Linux"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_rkdeveloptoolV3.mdx
 ---
 
 import Rkdeveloptool from "../../../../../common/dev/\_rkdeveloptoolV3.mdx";

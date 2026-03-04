@@ -1,5 +1,10 @@
 ---
 sidebar_position: 6
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/other-system/android/_build-system-cubie.mdx
 ---
 
 import BuildSystem from '../../../../../common/other-system/android/\_build-system-cubie.mdx';

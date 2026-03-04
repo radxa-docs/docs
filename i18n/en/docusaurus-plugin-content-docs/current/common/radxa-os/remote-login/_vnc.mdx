@@ -152,7 +152,7 @@ Run the following commands on the board to install the VNC server:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install -y tigervnc-standalone-server tigervnc-tools dbus-x11 tigervnc-common
 ```
@@ -165,7 +165,7 @@ Run the following command on the board to set a VNC password:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vncpasswd
 ```
 
@@ -177,7 +177,7 @@ The password and confirmation will not be shown on screen. When asked whether to
 
 After setting the password, you will see output similar to the following:
 
-```
+```bash
 Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
@@ -190,7 +190,7 @@ Edit the `~/.vnc/xstartup` file on the board:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo vi ~/.vnc/xstartup
 ```
 
@@ -202,7 +202,7 @@ Replace the contents of `~/.vnc/xstartup` with the following:
 
 <TabItem value="x11" default={props.desktop === "x11"} attributes={{className: props.desktop === "gnome" && "tab_none"}}>
 
-```
+```bash
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -215,7 +215,7 @@ exec startplasma-x11
 
 <TabItem value="gnome" default={props.desktop === "gnome"} attributes={{className: props.desktop === "x11" && "tab_none"}}>
 
-```
+```bash
 #!/bin/sh
 
 unset SESSION_MANAGER
@@ -240,7 +240,7 @@ After editing `~/.vnc/xstartup`, make it executable:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo chmod +x ~/.vnc/xstartup
 ```
 
@@ -252,7 +252,7 @@ Run the following command on the board to start the VNC server. The `-localhost 
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vncserver -localhost no
 ```
 
@@ -260,7 +260,7 @@ vncserver -localhost no
 
 After a successful start, the terminal will print output similar to the following, which includes the VNC server port.
 
-```
+```bash
 New Xtigervnc server \*\*\*:1 (radxa)' on port 5901 for display :1.
 Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :1 to connect to the VNC server.
 ```
@@ -271,7 +271,7 @@ Run the following command on the board to check the VNC server status:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vncserver -list
 ```
 
@@ -279,7 +279,7 @@ vncserver -list
 
 The terminal will output something like this:
 
-```
+```bash
 TigerVNC server sessions:
 
 X DISPLAY # RFB PORT # RFB UNIX PATH PROCESS ID # SERVER
@@ -292,7 +292,7 @@ Run the following command on the board to stop the VNC server. In the command, `
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 vncserver -kill :1
 ```
 

@@ -1,5 +1,10 @@
 ---
 sidebar_position: 1
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/accessories/_camera-8m-219.mdx
 ---
 
 import Camera8M219 from '../../../common/accessories/\_camera-8m-219.mdx';

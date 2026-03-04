@@ -12,7 +12,7 @@ SSH remote control requires OpenSSH to be installed. Run the following command i
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo apt update && sudo apt install openssh-server -y
 ```
 
@@ -24,7 +24,7 @@ Run the following command in the board's terminal to start the SSH service:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl start ssh
 ```
 
@@ -36,7 +36,7 @@ Run the following command in the board's terminal to enable SSH service on boot:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl enable ssh
 ```
 
@@ -48,7 +48,7 @@ Run the following command in the board's terminal to check the SSH service statu
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-```
+```bash
 sudo systemctl status ssh
 ```
 
@@ -56,7 +56,7 @@ sudo systemctl status ssh
 
 The terminal will display information indicating whether the SSH service is enabled on boot and its current status.
 
-```
+```bash
 ● ssh.service - OpenBSD Secure Shell server
 Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
 Active: active (running) since Sat 2000-01-01 00:14:50 UTC; 25 years 5 months ago
@@ -80,7 +80,7 @@ Open a terminal on another device and enter the following command to log in remo
 
 <NewCodeBlock tip="PC$" type="host">
 
-```
+```bash
 ssh <user-name>@<ip-address>
 # Example
 

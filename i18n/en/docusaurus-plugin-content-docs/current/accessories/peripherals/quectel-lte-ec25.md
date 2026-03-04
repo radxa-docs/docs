@@ -15,7 +15,7 @@ Only M.2 B Key interface is supported; M.2 M Key interface is not supported.
 Execute the following commands in the terminal to install the necessary dial-up networking software:
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
-```
+```bash
 sudo apt update
 sudo apt install libqmi-utils modemmanager
 ```
@@ -28,35 +28,35 @@ First, install the Quectel LTE EC25-AU module into the M.2 B Key slot on the ROC
 You can check if the device is properly connected with the following command:
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
-```
+```bash
 lsusb | grep -i Quectel
 ```
 </NewCodeBlock>
 
 If connected properly, the terminal will display output similar to:
 
-```
+```text
 Bus 002 Device 002: ID 2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem
 ```
 
 Check if the system has correctly enumerated the corresponding cdc-wdm device:
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
-```
+```bash
 ls /dev/cdc-wdm*
 ```
 </NewCodeBlock>
 
 If recognized correctly, the terminal will display output similar to:
 
-```
+```text
 /dev/cdc-wdm0
 ```
 
 Check the data port format:
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
-```
+```bash
 sudo qmicli -d /dev/cdc-wdm0 -e
 ```
 </NewCodeBlock>
@@ -66,7 +66,7 @@ It should be configured as `raw-ip`. If not, use the command `sudo qmicli -d /de
 Check the data network interface:
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
-```
+```bash
 sudo qmicli -d /dev/cdc-wdm0 -w
 ```
 </NewCodeBlock>
@@ -78,14 +78,14 @@ It should be configured as `wwan0`. If not, use the command `sudo qmicli -d /dev
 First, use `nmcli` to create the interface configuration:
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
-```
+```bash
 sudo nmcli connection add type gsm ifname cdc-wdm0
 ```
 </NewCodeBlock>
 
 If successful, the terminal will display output similar to:
 
-```
+```text
 Connection 'gsm-cdc-wdm0' (e26d1d79-ba6b-44f3-9135-1ef7a80d982a) successfully added.
 ```
 
@@ -97,7 +97,7 @@ Type `print` to display all configuration information.
 :::
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
-```
+```bash
 sudo nmcli connection edit gsm-cdc-wdm0
 
 ===| nmcli interactive connection editor |===
@@ -114,7 +114,7 @@ nmcli> save
 Connection 'gsm-cdc-wdm0' (e26d1d79-ba6b-44f3-9135-1ef7a80d982a) successfully updated.
 nmcli> quit
 
-```
+````
 </NewCodeBlock>
 
 ## Check Network
@@ -122,15 +122,17 @@ nmcli> quit
 Check if the wwan interface has been assigned an IP address. If not, use the command `sudo nmcli connection up gsm-cdc-wdm0` to reconnect:
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
-```
+```bash
 
 ip a
 
-```
+````
+
 </NewCodeBlock>
 
 If connected successfully, the IP query will display output similar to:
-```
+
+```text
 
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -156,7 +158,7 @@ valid_lft forever preferred_lft forever
 Use the `ping` command with the `wwan` interface to check if the network is working properly:
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
-```
+```bash
 
 sudo ping baidu.com -I wwan0 -c 5
 PING baidu.com (39.156.66.10) from 10.10.239.91 wwan0: 56(84) bytes of data.
@@ -170,7 +172,7 @@ PING baidu.com (39.156.66.10) from 10.10.239.91 wwan0: 56(84) bytes of data.
 5 packets transmitted, 5 received, 0% packet loss, time 4004ms
 rtt min/avg/max/mdev = 61.224/93.320/172.271/40.800 ms
 
-```
+````
 </NewCodeBlock>
 
 ## Troubleshooting
@@ -180,20 +182,24 @@ rtt min/avg/max/mdev = 61.224/93.320/172.271/40.800 ms
 Please check if the corresponding driver is included in your current system. You can check by executing the following command:
 
 <NewCodeBlock tip="radxa@rock-5b-plus$" type="device">
-```
+```bash
 
 sudo lsmod | grep qmi_wwan
 
-```
+````
+
 </NewCodeBlock>
 
 If the driver is loaded, the terminal will display output similar to:
-```
+
+```text
 
 qmi_wwan 36864 0
 cdc_wdm 28672 2 qmi_wwan
 usbnet 36864 1 qmi_wwan
 
 ```
+
+```text
 
 ```

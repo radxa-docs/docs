@@ -199,7 +199,7 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
     <NewCodeBlock tip="root@radxa-e54c#" type="device">
 
-    ```
+    ```bash
     $ lsusb
       Bus 001 Device 003: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
     ```

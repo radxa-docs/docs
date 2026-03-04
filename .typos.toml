@@ -7,5 +7,12 @@ extend-ignore-identifiers-re = [
     "hda",
     "noe",
     "NOE",
-    "BA"
+    "BA",
+    "lin2-rin2"
+]
+extend-ignore-re = [
+    "lin2-rin2",
+    "certifi",
+    "python-certifi-win32",
+    "SHW"
 ]

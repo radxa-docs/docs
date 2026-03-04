@@ -1,5 +1,10 @@
 ---
 sidebar_position: 5
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/yocto/_build-system.mdx
 ---
 
 import BuildSystem from '../../../../common/yocto/\_build-system.mdx';

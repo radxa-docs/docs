@@ -42,7 +42,7 @@ sidebar_position: 3
 您可以复制 [资源汇总下载](../../download) 页面的系统镜像文件链接，然后在主板上使用 `wget` 命令下载。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+```bash
 sudo apt install wget
 wget [url]
 # 示例
@@ -70,12 +70,14 @@ wget https://github.com/radxa-build/rock-5t/releases/download/rsdk-b2/rock-5t_bo
 使用 `unxz` 命令解压系统镜像文件。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+
+```bash
 sudo apt install xz-utils
 unxz [image_path]
 # 示例
 unxz ~/rock-5t_bookworm_kde_b2.output.img.xz
 ```
+
 </NewCodeBlock>
 参数解释：其中 `[image_path]` 需要替换成实际的系统镜像文件路径。
 
@@ -88,14 +90,15 @@ unxz ~/rock-5t_bookworm_kde_b2.output.img.xz
 :::
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+
+```bash
 sudo dd if=[image_path] of=/dev/mmcblk0 bs=4M status=progress
 
 # 示例
 
 sudo dd if=~/rock-5t_bookworm_kde_b2.output.img of=/dev/mmcblk0 bs=4M status=progress
-
 ```
+
 </NewCodeBlock>
 参数说明：
 - `if`：指定写入文件，将 `[image_path]` 替换为解压后的系统镜像文件路径
@@ -108,16 +111,18 @@ sudo dd if=~/rock-5t_bookworm_kde_b2.output.img of=/dev/mmcblk0 bs=4M status=pro
 写入系统镜像完成后，您可以使用 `fdisk` 命令查看系统待启动介质的分区信息，从而确定系统镜像是否写入成功。
 
 <NewCodeBlock tip="radxa@device$" type="device">
-```
+
+```bash
 
 sudo fdisk -l /dev/mmcblk0
 
 ```
+
 </NewCodeBlock>
 
 若系统成功写入，终端会输出类似以下的分区信息：
 
-```
+```text
 
 Disk /dev/mmcblk0: 119.15 GiB, 127934660608 bytes, 31234048 sectors
 Disk model: KLUDG4UHDC-B0E1
@@ -147,4 +152,3 @@ Device Start End Sectors Size Type
 用户账号：radxa
 
 用户密码：radxa
-```

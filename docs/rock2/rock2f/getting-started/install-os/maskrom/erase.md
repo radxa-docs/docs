@@ -1,6 +1,12 @@
 ---
 sidebar_position: 4
 description: "通过 Maskrom 清除 eMMC"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_erase-emmc.mdx
+  - docs/rock2/rock2f/getting-started/install-os/maskrom/_maskrom.mdx
 ---
 
 import ERASE from "../../../../../common/dev/\_erase-emmc.mdx";

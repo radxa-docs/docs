@@ -22,7 +22,7 @@ sidebar_position: 7
 
   - Use the `hwclock` command to read the current RTC time. Execute the following command in the terminal:
 
-    ```
+    ```bash
     sudo hwclock -r
     ```
 
@@ -30,7 +30,7 @@ sidebar_position: 7
 
   - If you need to set the RTC time, you can use the `hwclock` command and provide a new time value with the `--set` option. For example, to set it to the current system time, use:
 
-    ```
+    ```bash
     sudo hwclock --set --date="2024-07-09 15:43:15"
     ```
 

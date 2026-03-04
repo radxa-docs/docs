@@ -156,19 +156,19 @@ sudo apt-get install minicom
 
 First, add the current non-root or non-sudo user to the plugdev group.
 
-````bash
+```bash
 sudo usermod -aG plugdev $USER
-``
+```
 
 Edit ~/.bashrc, add the following parameters, and reopen a new terminal.
 
 ```bash
 alias minicom='minicom -w -t xterm -l -R UTF-8'
-````
+```
 
 Create and edit the file ~/.minirc.1500000-usb0 to add the following:
 
-```
+```text
 pu port /dev/ttyUSB0
 pu baudrate 1500000
 pu bits 8
@@ -238,9 +238,11 @@ Picocom is a serial port utility that can be used on a Mac and supports multiple
 
 5. Connecting to Radxa E52C via SSH
 
-```bash
+````
+
 ssh [username]@[IP address] # or ssh [username]@[hostname]
-```
+
+```text
 
 ## System login
 
@@ -271,3 +273,4 @@ Because the default file system size of iStoreOS is only 2GB, if you need to exp
 <img src="/img/e/e52c/radxa-e52c-istoreos-expansion-6.webp" width="700" alt="e52c-istoreos" />
 
 <img src="/img/e/e52c/radxa-e52c-istoreos-expansion-7.webp" width="700" alt="e52c-istoreos" />
+````

@@ -38,7 +38,7 @@ sidebar_position: 6
 
   - 使用 Ctrl + T 组合键打开终端, 运行 rsetup 命令：
 
-    ```
+    ```text
     radxa@radxa-cm3j-rpi-cm4-io:~$ rsetup
     ```
 

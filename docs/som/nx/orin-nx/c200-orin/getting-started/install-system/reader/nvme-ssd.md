@@ -1,5 +1,10 @@
 ---
 sidebar_position: 3
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/radxa-os/install-system/_use_etcher_nvme.mdx
 ---
 
 import BalenaEtcherUse from '../../../../../../../common/radxa-os/install-system/\_use_etcher_nvme.mdx';

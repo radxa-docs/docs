@@ -17,7 +17,7 @@ import SSDISKTOOL from "../../../common/general/\_sddisktool.mdx"
 
 ## 安装编译依赖包
 
-```
+```bash
 sudo apt update
 sudo apt install python2 git rsync gcc g++ make device-tree-compiler bc flex bison lz4 libssl-dev libgmp-dev libmpc-dev expect expect-dev file unzip bzip2 fakeroot bsdmainutils
 sudo ln -s /bin/python2 /bin/python
@@ -32,7 +32,7 @@ sudo ln -s /bin/python2 /bin/python
 
 在 Ubuntu PC 上，使用如下命令解压 SDK。
 
-```
+```bash
 tar xvf rk3588_linux6.1_rkr4_sdk.repo.tar
 .repo/repo/repo sync -l
 ```
@@ -41,7 +41,7 @@ tar xvf rk3588_linux6.1_rkr4_sdk.repo.tar
 
 使用 Radxa 维护的 rockchip 仓库。
 
-```
+```text
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
 git fetch radxa
@@ -50,7 +50,7 @@ git checkout -b rk3588-linux-6.1 remotes/radxa/rk3588-linux-6.1
 
 使用 Radxa 维护的 u-boot 仓库。
 
-```
+```text
 cd u-boot
 git remote add radxa https://github.com/radxa/u-boot.git
 git fetch radxa
@@ -59,7 +59,7 @@ git checkout -b next-dev-buildroot remotes/radxa/next-dev-buildroot
 
 使用 Radxa 维护的 kernel 仓库。
 
-```
+```text
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
 git fetch radxa
@@ -68,7 +68,7 @@ git checkout -b linux-6.1-stan-rkr4.1-buildroot remotes/radxa/linux-6.1-stan-rkr
 
 使用 Radxa 维护的 rkwifibt 仓库。
 
-```
+```text
 cd external/rkwifibt
 git remote add radxa https://github.com/radxa/rkwifibt.git
 git fetch radxa
@@ -77,7 +77,7 @@ git checkout -b develop remotes/radxa/develop
 
 使用 Radxa 维护的 buildroot 仓库。
 
-```
+```text
 cd buildroot
 git remote add radxa https://github.com/radxa/buildroot.git
 git fetch radxa
@@ -105,7 +105,7 @@ wifi模组想要正常工作，需要加载固件。
 在 buildroot/configs/rockchip_rk3588_defconfig文件中 添加 BR2_PACKAGE_RKWIFIBT_AIC8800D80_USB_FIRMWARE=y，如下所示
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/rock5c/rock5c_rockchip_rk3588_defconfig.webp" style={{width: '100%', maxWidth: '600px'}} /> 
+    <img src="/img/rock5c/rock5c_rockchip_rk3588_defconfig.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
 启用BR2_PACKAGE_RKWIFIBT_AIC8800D80_USB_FIRMWARE后会将wifi固件安装在系统中。
@@ -114,7 +114,7 @@ wifi模组想要正常工作，需要加载固件。
 
 在 SDK 的顶层目录，执行命令：
 
-```
+```bash
 ./build.sh
 ```
 
@@ -128,7 +128,7 @@ wifi模组想要正常工作，需要加载固件。
 
 在 Linux/Mac OS 主机上，使用 `upgrade_tool` 工具，通过 Type-A 烧录口，将系统镜像 `update.img` 烧写到 eMMC 中。
 
-```
+```text
 upgrade_tool uf update.img
 ```
 

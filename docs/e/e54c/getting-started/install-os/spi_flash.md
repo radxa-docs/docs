@@ -32,7 +32,7 @@ RKDevTool 是 Rockchip 为 Windows/Linux/macOS 平台下进行 USB 烧录所开�
 
 - 安装驱动
 
-下载并解压 [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)文件。
+下载并解压 [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssistant_v5.0.zip)文件。
 
 找到 ` DriverInstall.exe`文件并以管理员身份运行：
 
@@ -62,7 +62,7 @@ RKDevTool 是 Rockchip 为 Windows/Linux/macOS 平台下进行 USB 烧录所开�
 
 <NewCodeBlock tip="Linux-host$" type="host">
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -80,7 +80,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -97,7 +97,7 @@ rkdeveloptool -V
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
@@ -109,7 +109,7 @@ rkdeveloptool -V
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -127,7 +127,7 @@ cp rkdeveloptool /opt/homebrew/bin/
 
 <NewCodeBlock tip="macOS-host$" type="host">
 
-```
+```bash
 rkdeveloptool -V
 ```
 
@@ -206,14 +206,14 @@ Radxa E54C 有一个专用的 Maskrom 按键，在系统启动过程中检测到
 使用 rkdeveloptool ld 命令查看识别到的设备信息：
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 输出类似内容：说明识别到一个 Maskrom 设备
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -222,7 +222,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 你需要将 `demo.bin` 换成 E54C 对应的 Loader 文件，可以去 [资源汇总下载](../../download) 下载 Loader 文件。
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool db  demo.bin
 ```
 </NewCodeBlock>
@@ -230,7 +230,7 @@ sudo rkdeveloptool db  demo.bin
 4. 擦除 SPI Flash
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool ef
 ```
 </NewCodeBlock>
@@ -238,7 +238,7 @@ sudo rkdeveloptool ef
 5. 重启系统，擦除 SPI Flash 的操作生效
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>
@@ -282,14 +282,14 @@ sudo rkdeveloptool rd
 使用 rkdeveloptool ld 命令查看识别到的设备信息：
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 rkdeveloptool ld
 ```
 </NewCodeBlock>
 
 输出类似内容：说明识别到一个 Maskrom 设备
 
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 ```
 
@@ -298,7 +298,7 @@ DevNo=1	Vid=0x2207,Pid=0x350e,LocationID=109 Maskrom
 你需要将 `demo.bin` 换成 E54C 对应的 Loader 文件，可以去 [资源汇总下载](../../download) 下载 Loader 文件。
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool db  demo.bin
 ```
 </NewCodeBlock>
@@ -308,7 +308,7 @@ sudo rkdeveloptool db  demo.bin
 你需要将 `spi.img` 换成 E54C 对应的 SPI 启动固件，可以去 [资源汇总下载](../../download) 下载 SPI 启动固件。
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool wl 0 spi.img
 ```
 </NewCodeBlock>
@@ -316,7 +316,7 @@ sudo rkdeveloptool wl 0 spi.img
 5. 重启系统，烧录 SPI Flash 的操作生效
 
 <NewCodeBlock tip="Linux/MacOS-Host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>

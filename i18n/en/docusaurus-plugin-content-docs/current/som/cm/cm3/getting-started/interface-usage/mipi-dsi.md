@@ -1,6 +1,11 @@
 ---
 sidebar_position: 5
 description: "Test MIPI DSI Interface"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/accessories/_display-usage.mdx
 ---
 
 import DISPLAY from "../../../../../common/accessories/\_display-usage.mdx";

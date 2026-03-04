@@ -1,6 +1,11 @@
 ---
 sidebar_position: 6
 description: "测试 EDP 接口"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/accessories/_display-usage.mdx
 ---
 
 import DISPLAY from "../../../../../common/accessories/\_display-usage.mdx";

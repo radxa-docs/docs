@@ -1,6 +1,11 @@
 ---
 sidebar_position: 5
 description: "Rockchip 芯片提供防抄板技术，保护客户的固件、私有数据、核心代码。"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_rk_anti_copy_board.mdx
 ---
 
 import ANTICOPY from '../../../common/dev/\_rk_anti_copy_board.mdx'

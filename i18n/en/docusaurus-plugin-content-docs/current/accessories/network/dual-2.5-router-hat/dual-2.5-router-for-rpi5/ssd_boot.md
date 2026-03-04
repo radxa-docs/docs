@@ -55,7 +55,7 @@ By default, Raspberry Pi 5 devices boot from the microSD card. This guide will w
 
 2. This will open a text editor. Add or modify the following lines:
 
-   ```
+   ```text
    BOOT_ORDER=0xf416
    PCIE_PROBE=1
    ```
@@ -234,7 +234,7 @@ To get the most out of your NVMe SSD boot setup:
 
    To make this persistent across reboots, add the following to `/etc/udev/rules.d/60-scheduler.rules`:
 
-   ```
+   ```bash
    ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
    ```
 

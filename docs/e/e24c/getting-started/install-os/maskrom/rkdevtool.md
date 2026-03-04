@@ -43,7 +43,7 @@ RKDevTool 是 Rockchip 为 Windows/Linux/macOS 平台下进行 USB 烧录所开�
 打开系统终端或命令行，运行以下命令进行安装。
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
@@ -60,7 +60,7 @@ sudo cp rkdeveloptool /usr/local/sbin/
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
 <NewCodeBlock tip="Linux-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -76,7 +76,7 @@ rkdeveloptool -V
 若没有安装 HomeBrew，可以按照教程进行安装。
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 </NewCodeBlock>
@@ -86,7 +86,7 @@ rkdeveloptool -V
 打开系统终端或命令行，运行以下命令进行安装。
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 brew install automake autoconf libusb pkg-config git wget
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
@@ -102,7 +102,7 @@ cp rkdeveloptool /opt/homebrew/bin/
 完成 RKDevTool 安装后，使用以下命令可以查看 RKDevTool 版本号。
 
 <NewCodeBlock tip="macOS-host$" type="host">
-```
+```bash
 rkdeveloptool -V
 ```
 </NewCodeBlock>
@@ -214,7 +214,7 @@ Radxa E24C 有一个专用的 Maskrom 按键，在系统启动过程中检测到
 在当前目录生成内容全为0的64MB文件。
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 dd if=/dev/zero of=./zero.img bs=1M count=64
 ```
 </NewCodeBlock>
@@ -250,7 +250,7 @@ sudo rkdeveloptool db <loader-file>.bin
 使用 RKDevTool 工具将 zero.img 写入设备的起始扇区，用于擦除或初始化 Rockchip 设备的 eMMC。
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool wl 0 zero.img
 ```
 </NewCodeBlock>
@@ -260,7 +260,7 @@ sudo rkdeveloptool wl 0 zero.img
 使用 RKDevTool 工具重启设备。
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool rd
 ```
 </NewCodeBlock>

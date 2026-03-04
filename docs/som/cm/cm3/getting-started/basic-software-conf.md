@@ -1,5 +1,10 @@
 ---
 sidebar_position: 4
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/radxa-os/_basicSoftwareConf.mdx
 ---
 
 import BasicSoftWareConf from "../../../../common/radxa-os/\_basicSoftwareConf.mdx";

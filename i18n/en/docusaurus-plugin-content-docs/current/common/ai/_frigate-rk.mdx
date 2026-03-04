@@ -1,26 +1,26 @@
 [Frigate](https://frigate.video/) is an NVR project designed specifically for [Home Assistant](https://www.home-assistant.io/).
-It can fully utilize local hardware acceleration and use AI models for real-time object detection, recognition, and classification on surveillance video (for example, distinguishing people, vehicles, pets, and more).
+It can fully leverage local hardware compute and use AI models for real-time object detection, recognition, and classification in surveillance video (for example, distinguishing pedestrians, vehicles, and pets).
 
 :::tip
-Home Assistant is currently the most popular open-source smart home hub in the world.
+Home Assistant is currently the world's most popular open-source smart home control center.
 :::
 
-For more information, see the [official documentation](https://docs.frigate.video/) or the [official Chinese documentation](https://docs.frigate-cn.video/).
+For more details, refer to the [official documentation](https://docs.frigate.video/) or the [official Chinese documentation](https://docs.frigate-cn.video/).
 
-This document describes how to deploy Frigate on Radxa boards based on the RK3588 SoC.
+This document shows how to deploy this project on Radxa boards powered by RK3588.
 
 ## Install the OS
 
-Frigate officially recommends Debian 12 (Bookworm). Follow the installation guide for your device to install the OS.
+Frigate officially recommends Debian 12 (Bookworm). Follow the installation guide for your device first.
 
-You can complete the following steps using the GUI or via SSH.
+Then you can proceed with the following steps using either the desktop UI or SSH remote access.
 
-VS Code is recommended. Refer to [VS Code Remote SSH](./vscode-remote-ssh) to connect to the board.
+VSCode is recommended. You can refer to [VS Code Remote SSH Development](./vscode-remote-ssh) to connect to the board.
 
 ## Install Docker
 
-Frigate is deployed using containers.
-Follow the official [Docker installation guide](https://docs.docker.com/engine/install/debian/) to install Docker on your device.
+Frigate is deployed as containers.
+Refer to [Install Docker](https://docs.docker.com/engine/install/debian/) and install Docker on the device before continuing.
 
 ## Install Frigate
 
@@ -45,7 +45,7 @@ services:
     container_name: frigate
     restart: unless-stopped
     stop_grace_period: 30s
-    image: docker.cnb.cool/frigate-cn/frigate:stable-rk # Select the image to pull. Different hardware requires different images; use the rk image here.
+    image: docker.cnb.cool/frigate-cn/frigate:stable-rk # This image is for RK hardware. Different hardware platforms use different images.
     volumes:
       - ./config:/config
       - ./storage:/media/frigate
@@ -63,18 +63,18 @@ services:
       - /dev/mpp_service
     ports:
       - '8971:8971'
-      - '8555:8554' # RTSP stream. Use host port 8555 (instead of 8554) because the RTSP simulation uses 8554. If you don't need simulation, you can use 8554.
+      - '8555:8554' # RTSP stream. Host port 8555 is used instead of 8554 because port 8554 is needed later for simulated streaming. If you do not need simulation, you can use 8554 directly.
 ```
 
 </NewCodeBlock>
 
 :::tip
-Frigate provides different Docker images for different hardware platforms. If you're interested, you can explore deployments for other platforms.
+Frigate provides different container variants for different hardware platforms. You can explore other platform deployments if needed.
 :::
 
-Now you can start Frigate with the following command.
+Now start Frigate with the command below.
 
-Make sure you run this command in the directory that contains `docker-compose.yml`.
+Run it in the directory containing `docker-compose.yml`.
 
 <NewCodeBlock tip='Device'>
 
@@ -84,9 +84,9 @@ docker compose up -d
 
 </NewCodeBlock>
 
-After the image is pulled and the container is running, the web UI will be available at https://your_device_ip:8971.
+After Frigate starts successfully, the frontend service will be available at `https://your_device_ip:8971`.
 
-Check the device IP address:
+Check the board IP address:
 
 <NewCodeBlock tip='Device'>
 
@@ -96,9 +96,9 @@ hostname -I
 
 </NewCodeBlock>
 
-Replace `your_device_ip` with the first IP address from the output, then open the URL in your browser.
+Replace `your_device_ip` with the first IP shown above, then open the URL in your browser.
 
-View the login username and password using the following command:
+View the login account and password with:
 
 <NewCodeBlock tip='Device'>
 
@@ -108,21 +108,21 @@ docker logs frigate
 
 </NewCodeBlock>
 
-The log output may be long. If you can't find it easily, use Ctrl + F in the VS Code terminal and search for keywords such as `admin`.
+The log may be long. If you cannot find credentials, use `Ctrl + F` in the VSCode terminal and search for keywords like `admin`.
 
-Next, you can edit the configuration using the **configuration editor** in the web UI.
+Then use the frontend **Configuration Editor** to adjust settings.
 
 ![](/img/common/frigate-config.webp)
 
 :::tip
-If you haven't logged into Frigate for more than 24 hours, you will be prompted for a password. It's recommended to change the password promptly from the account menu at the bottom-left for long-term use.
+If you have not logged in for more than 24 hours, Frigate may require password login again. It is recommended to update your password from the account menu at the bottom-left.
 :::
 
-## Simulate RTSP streaming
+## Simulated streaming
 
-If you don't have an IP camera yet (if you do, you can use it directly), simulating an RTSP stream with FFmpeg + MediaMTX is a good way to validate your setup.
+If you do not yet have an IP camera (if you do, use it directly), simulating a stream with FFmpeg + MediaMTX is a good way to validate the setup.
 
-Follow the steps below.
+Follow these steps.
 
 ### MediaMTX
 
@@ -137,9 +137,9 @@ tar -xvf mediamtx_v1.16.0_linux_arm64.tar.gz
 
 </NewCodeBlock>
 
-This will start an RTSP server in the current terminal and wait for incoming streams.
+This starts an RTSP server in the current terminal and waits for incoming stream data.
 
-Then open a new terminal and use FFmpeg to push a stream.
+Open a new terminal, then use FFmpeg to push the stream.
 
 ### FFmpeg
 
@@ -151,11 +151,13 @@ sudo apt install ffmpeg
 
 </NewCodeBlock>
 
-Next, you need a video file. Prepare one yourself and rename it to `test.mp4`.
+Prepare a video file. This guide uses a public video from the Hugging Face dataset `KAI-KratosAI/Street-videos`.
 
 <NewCodeBlock tip='Device'>
 
 ```bash
+wget https://huggingface.co/datasets/KAI-KratosAI/Street-videos/resolve/0d33ede195de1fc061723d5dfa4623b30162af66/041896fb-20da-4625-9455-195172efc4d5.mp4_041896fb-20da-4625-9455-195172efc4d5.mp4#t=0.001
+mv 041896fb-20da-4625-9455-195172efc4d5.mp4_041896fb-20da-4625-9455-195172efc4d5.mp4 test.mp4
 ffmpeg -re -stream_loop -1 -i test.mp4 -c copy -f rtsp rtsp://localhost:8554/mystream
 ```
 
@@ -163,37 +165,37 @@ ffmpeg -re -stream_loop -1 -i test.mp4 -c copy -f rtsp rtsp://localhost:8554/mys
 
 Parameter explanation:
 
-- `-re`: Read input at its native frame rate. Without this, FFmpeg may push frames as fast as possible and the video will look like fast-forward.
-- `-stream_loop -1`: Loop the video infinitely. This is useful for testing Frigate so the stream doesn't stop when the video ends.
-- `-i test.mp4`: Specify the input video file.
-- `-c copy`: Copy audio/video streams without re-encoding. This uses minimal CPU and simply repackages the original packets into RTSP.
-- `-f rtsp`: Set the output format to RTSP.
-- `rtsp://localhost:8554/mystream`: The RTSP push URL. `mystream` is the stream ID you choose.
+- `-re`: Read at native speed. Without this, FFmpeg may push data too fast and the stream appears as fast-forward.
+- `-stream_loop -1`: Loop video indefinitely, useful for Frigate testing.
+- `-i test.mp4`: Input video file.
+- `-c copy`: Copy codecs without re-encoding, minimizing CPU usage.
+- `-f rtsp`: Output RTSP format.
+- `rtsp://localhost:8554/mystream`: Stream URL. `mystream` is the stream ID.
 
-Then update the configuration in the web UI:
+Then modify the configuration in the frontend UI:
 
 ![](/img/common/frigate-config-rtsp-addr.webp)
 
-Now you should see the camera feed on the home page.
+Then you should be able to see the live camera feed on the homepage.
 
-## Enable the AI model
+## Enable AI model
 
-First, make sure you are using a Linux distribution with Rockchip BSP kernel 5.10 or 6.1 and the required drivers (especially rkvdec2 and rknpu):
+First ensure you are running a Linux distribution with Rockchip BSP kernel 5.10 or 6.1 and required drivers (especially `rkvdec2` and `rknpu`):
 
 <NewCodeBlock tip='Device'>
 
 ```bash
 uname -r
-# 5.10.x-rockchip or 6.1.x-rockchip; the -rockchip suffix matters
+# 5.10.x-rockchip or 6.1.x-rockchip; the -rockchip suffix is important
 ls /dev/dri
-# by-path  card0  card1  renderD128  renderD129; it should include renderD128 (VPU) and renderD129 (NPU)
+# by-path  card0  card1  renderD128  renderD129; renderD128 (VPU) and renderD129 (NPU) should be present
 sudo cat /sys/kernel/debug/rknpu/version
 # RKNPU driver: v0.9.2 or later
 ```
 
 </NewCodeBlock>
 
-Then update the configuration in the web UI:
+Then update the configuration in the frontend UI:
 
 ```txt
 mqtt:
@@ -205,15 +207,15 @@ detectors:
     num_cores: 3
 
 model: # required
-  # Model name (will be downloaded automatically) or the path to a custom .rknn model file
+  # Model name (auto-downloaded) or path to a custom .rknn model file
   # Optional values:
   # - frigate-fp16-yolov9-t
   # - frigate-fp16-yolov9-s
   # - frigate-fp16-yolov9-m
   # - frigate-fp16-yolov9-c
   # - frigate-fp16-yolov9-e
-  # Or the full path to your yolo_model.rknn inside the container
-  # Refer to the official documentation for more details about model configuration
+  # Or a full in-container path to your yolo_model.rknn file
+  # Refer to official docs for more model configuration details
   path: frigate-fp16-yolov9-t
   model_type: yolo-generic
   width: 320
@@ -222,12 +224,12 @@ model: # required
   labelmap_path: /labelmap/coco-80.txt
 
 # ffmpeg:
-#   hwaccel_args: preset-rkmpp # <----- This is an optimization from the official docs, but it may conflict with FFmpeg RTSP simulation, so it's disabled here.
+#   hwaccel_args: preset-rkmpp # <----- these two lines are optimization settings from official docs, but may conflict with FFmpeg push streaming, so they are disabled here
 
 go2rtc:
   streams:
     camera:
-      - rtsp://your_device_ip:8554/mystream # <----- Replace with your IP address!
+      - rtsp://your_device_ip:8554/mystream # <----- replace with your device IP
       - 'ffmpeg:back#video=h264#hardware'
 
 cameras:
@@ -248,9 +250,9 @@ detect:
 version: 0.16-0
 ```
 
-Refer to the official documentation for more details about model configuration.
+Refer to official documentation for additional model configuration options.
 
-After updating the configuration, restart Frigate.
+Restart Frigate after the modification.
 
 ![](/img/common/frigate-ai-detection-case.webp)
 

@@ -1,0 +1,14 @@
+---
+sidebar_position: 7
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_opencv.mdx
+---
+
+# OpenCV（计算机视觉）
+
+import OPENCV from '../../../common/dev/\_opencv.mdx';
+
+<OPENCV />

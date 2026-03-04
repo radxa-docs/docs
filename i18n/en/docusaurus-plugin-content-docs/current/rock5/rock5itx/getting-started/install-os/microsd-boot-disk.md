@@ -4,7 +4,7 @@ sidebar_position: 2
 
 import Images from "../../\_image.mdx"
 
-## Boot from SD card to eMMC as boot disc
+# Boot from SD card to eMMC as boot disc
 
 ### File download
 
@@ -39,7 +39,7 @@ ROCK 5 ITX's eMMC is disabled by default, we need to enable overlay in the syste
 
 Open a terminal and use the command lsblk to view the mmc device.
 
-```
+```bash
 radxa@rock-5-itx:~$ lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 mtdblock0     31:0    0   16M  0 disk
@@ -73,7 +73,7 @@ eMMC defaults to mmcblk0
 
 See [file download](#file download) for details of the image file, below is rock-5-itx_debian_bullseye_kde_b3.img.xz as an example.
 
-```
+```bash
 radxa@rock-5-itx:~$ sudo xzcat /home/radxa/rock-5-itx_debian_bullseye_kde_b3.img.xz | dd of=/dev/mmcblk0 bs=1M status=progress
 ```
 

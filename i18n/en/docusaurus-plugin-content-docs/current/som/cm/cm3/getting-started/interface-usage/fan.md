@@ -1,6 +1,11 @@
 ---
 sidebar_position: 3
 description: "Test Fan Interface"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/accessories/_fan.mdx
 ---
 
 import FAN from "../../../../../common/accessories/\_fan.mdx";

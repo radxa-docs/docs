@@ -1,6 +1,11 @@
 ---
 sidebar_position: 4
 description: "介绍常见设置项，帮助初次使用者快速配置环境并上手操作"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/radxa-os/_basicSoftwareConf.mdx
 ---
 
 import BasicSoftWareConf from "../../../../common/radxa-os/\_basicSoftwareConf.mdx";

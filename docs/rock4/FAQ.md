@@ -1,3 +1,7 @@
+---
+sidebar_position: 99
+---
+
 import { Details } from "@site/src/utils/docs";
 
 # 常见问题
@@ -25,7 +29,7 @@ ROCK 4SE 旧系统在旧的硬件版本上正常运行，但是在新的硬件�
 
 - 串口最后输出类似以下内容：
 
-```
+```text
 channel 0 training pass!
 channel 1 training pass!
 change freq to 800MHz 1,0
@@ -41,7 +45,7 @@ ERR
 
 - 您的系统在正常启动时，会在串口提示系统使用的是 `U-Boot 2017.09`：
 
-```
+```text
 U-Boot 2017.09-2700-g70b4cfe057 (Jun 05 2021 - 07:28:02 +0000), Build: jenkins-linux-build-release-604
 
 Model: Radxa ROCK Pi 4B
@@ -83,7 +87,7 @@ ROCK 4B 在使用 Manjaro-ARM-minimal-rockpi4b-22.06.img.xz 时系统内内存�
 
 - 以 4GB 版本为例，正常时串口启动输出类似以下内容：
 
-```
+```text
 U-Boot TPL 2022.04-1 (Apr 21 2022 - 18:07:16)
 Channel 0: LPDDR4, 50MHz
 BW=32 Col=10 Bk=8 CS0 Row=16/15 CS=1 Die BW=16 Size=2048MB
@@ -98,7 +102,7 @@ Returning to boot ROM...
 
 - 异常时，串口启动输出所检测到的内存大小不匹配实际值：
 
-```
+```text
 U-Boot TPL 2022.04-1 (Apr 21 2022 - 18:07:16)
 Channel 0: LPDDR4, 50MHz
 BW=32 Col=10 Bk=8 CS0 Row=16/15 CS=1 Die BW=16 Size=2048MB

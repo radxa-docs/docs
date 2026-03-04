@@ -13,7 +13,7 @@ Repeatedly unplug and plug in peripherals.
 
 - Identify the mouse and keyboard.
 
-  ```
+  ```text
   radxa@radxa-cm3j-rpi-cm4-io:~$ lsusb
   Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
   Bus 001 Device 003: ID c0f4:04c0 SZH usb keyboard
@@ -26,7 +26,7 @@ Repeatedly unplug and plug in peripherals.
 
 - Identify storage devices
 
-  ```
+  ```bash
   radxa@radxa-cm3j-rpi-cm4-io:~$ lsusb -tv
   /:  Bus 02.Port 1: Dev 1, Class=root_hub, Driver=xhci-hcd/1p, 5000M
       ID 1d6b:0003 Linux Foundation 3.0 root hub
@@ -74,7 +74,7 @@ As shown above, the USB storage device inserted is /dev/sda and /deb/sdb.
 
 - Read Test
 
-  ```
+  ```text
   radxa@radxa-cm3j-rpi-cm4-io:~$ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
   100+0 records in 100+0 records out 104857600 bytes (105 MB, 100
   MiB) copied, 1.31635 s, 30.7 MB/s
@@ -84,7 +84,7 @@ As shown above, the USB storage device inserted is /dev/sda and /deb/sdb.
 
 - Write Test
 
-  ```
+  ```text
   radxa@radxa-cm3j-rpi-cm4-io:~$ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
   100+0 records in 100+0 records out 104857600 bytes (105 MB, 100
   MiB) copied, 1.31635 s, 20.4 MB/s

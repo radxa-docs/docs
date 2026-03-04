@@ -5,6 +5,8 @@ title: Install OS
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
 
+# Install OS
+
 This document describes how to install an Android image to the ROCK 5A.
 
 ROCK 5A can be booted from microSD card or EMMC, depending on the boot method, the system will be installed on different media.

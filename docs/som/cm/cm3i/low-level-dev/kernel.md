@@ -1,6 +1,11 @@
 ---
 sidebar_position: 3
 description: "Kernel 开发"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_kernel.mdx
 ---
 
 import KERNEL from '../../../../common/dev/\_kernel.mdx'

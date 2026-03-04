@@ -160,7 +160,7 @@ sudo dpkg -i VNC-Viewer-<version>.deb
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo apt update
 sudo apt install tigervnc-standalone-server tigervnc-common -y
 ```
@@ -173,7 +173,7 @@ sudo apt install tigervnc-standalone-server tigervnc-common -y
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 vncpasswd
 ```
 
@@ -185,7 +185,7 @@ vncpasswd
 
 完成密码设置后，系统会提示类似信息：
 
-```
+```bash
 Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
@@ -198,7 +198,7 @@ A view-only password is not used
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo vi ~/.vnc/xstartup
 ```
 
@@ -206,7 +206,7 @@ sudo vi ~/.vnc/xstartup
 
 修改 `~/.vnc/xstartup` 文件内容为：
 
-```
+```bash
 #!/bin/sh
 
 unset SESSION_MANAGER
@@ -223,7 +223,7 @@ exec gnome-session --session=ubuntu > ~/.vnc/gnome-startup.log 2>&1
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 sudo chmod +x ~/.vnc/xstartup
 ```
 
@@ -235,7 +235,7 @@ sudo chmod +x ~/.vnc/xstartup
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 vncserver -localhost no
 ```
 
@@ -243,7 +243,7 @@ vncserver -localhost no
 
 启动成功后，终端会输出类似信息，提示 VNC 服务器的端口号。
 
-```
+```bash
 /usr/bin/xauth:  file /home/radxa/.Xauthority does not exist
 
 New Xtigervnc server 'airbox:1 (radxa)' on port 5901 for display :1.
@@ -256,7 +256,7 @@ Use xtigervncviewer -SecurityTypes VncAuth,TLSVnc -passwd /tmp/tigervnc.9lBgyh/p
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 vncserver -list
 ```
 
@@ -264,7 +264,7 @@ vncserver -list
 
 终端会输出类似信息：
 
-```
+```bash
 TigerVNC server sessions:
 
 X DISPLAY #     RFB PORT #      RFB UNIX PATH   PROCESS ID #    SERVER
@@ -277,7 +277,7 @@ X DISPLAY #     RFB PORT #      RFB UNIX PATH   PROCESS ID #    SERVER
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
-```
+```bash
 vncserver -kill :1
 ```
 

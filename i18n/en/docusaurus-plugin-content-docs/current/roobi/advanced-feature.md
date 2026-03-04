@@ -1,3 +1,7 @@
+---
+sidebar_position: 25
+---
+
 # Advanced Features of ROOBI OS
 
 This content is aimed at professionals, and you should be aware of the consequences of all your actions.
@@ -137,7 +141,7 @@ For example:
 ```json
 {
   "en": "Choose the disk to install.",
-  "zh-CN": "选择安装的磁盘"
+  "zh-CN": "Select the disk to install."
 }
 ```
 

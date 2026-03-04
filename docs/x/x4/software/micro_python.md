@@ -18,7 +18,7 @@ import PWM from "../../../common/dev/\_micropython-pwm.mdx"
 
 - 安装 Thonny IDE
 
-  ```
+  ```bash
   sudo apt-get install thonny -y
   ```
 

@@ -5,6 +5,8 @@ title: 系统安装
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx'
 
+# 系统安装
+
 本文档将介绍如何把 Android 镜像安装到 ROCK 5C。
 
 ROCK 5A 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的启动方式，安装系统到不同的介质上.

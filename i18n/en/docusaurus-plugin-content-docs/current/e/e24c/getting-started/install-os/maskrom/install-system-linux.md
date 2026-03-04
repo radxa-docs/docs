@@ -66,7 +66,7 @@ For information on using the RKDevTool, refer to [RKDevTool Usage](./rkdevtool)
 Open your system terminal or command line and run the following command to check if the Maskrom device is detected.
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```bash
 sudo rkdeveloptool ld
 ```
 </NewCodeBlock>
@@ -74,7 +74,7 @@ sudo rkdeveloptool ld
 Expected output: One device detected
 
 <NewCodeBlock tip="Linux/macOS-host$" type="host">
-```
+```text
 DevNo=1	Vid=0x2207,Pid=0x350c,LocationID=101	Maskrom
 ```
 </NewCodeBlock>

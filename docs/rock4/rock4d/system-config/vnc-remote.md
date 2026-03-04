@@ -123,7 +123,7 @@ VNC Viewer 界面
 在 瑞莎 ROCK 4D 的终端命令行运行以下命令安装 VNC 服务器：
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 sudo apt update
 sudo apt install tigervnc-standalone-server tigervnc-common -y
 ```
@@ -134,7 +134,7 @@ sudo apt install tigervnc-standalone-server tigervnc-common -y
 在 ROCK 4D 的终端命令行运行以下命令设置 VNC 远程密码：
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
 
-```
+```bash
 vncpasswd
 ```
 
@@ -146,7 +146,7 @@ vncpasswd
 
 完成密码设置后，系统会提示类似信息：
 
-```
+```bash
 Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
@@ -158,7 +158,7 @@ A view-only password is not used
 在 ROCK 4D 编辑 `~/.vnc/xstartup` 文件：
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 sudo vi ~/.vnc/xstartup
 ```
 </NewCodeBlock>
@@ -166,7 +166,7 @@ sudo vi ~/.vnc/xstartup
 修改 `~/.vnc/xstartup` 文件内容为：
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -179,7 +179,7 @@ exec startplasma-x11
 编辑 `~/.vnc/xstartup` 文件后，需要赋予该文件可执行权限：
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 sudo chmod +x ~/.vnc/xstartup
 ```
 </NewCodeBlock>
@@ -189,14 +189,14 @@ sudo chmod +x ~/.vnc/xstartup
 在 ROCK 4D 的终端命令行运行以下命令启动 VNC 服务器：使用 `-localhost no` 参数可以允许远程访问。
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 vncserver -localhost no
 ```
 </NewCodeBlock>
 
 启动成功后，终端会输出类似信息，提示 VNC 服务器的端口号。
 
-```
+```bash
 New Xtigervnc server 'rock-4d-spi:1 (radxa)' on port 5901 for display :1.
 Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :1 to connect to the VNC server.
 ```
@@ -206,14 +206,14 @@ Use xtigervncviewer -SecurityTypes VncAuth -passwd /tmp/tigervnc.VQ4DfI/passwd :
 在 ROCK 4D 的终端命令行运行以下命令查看 VNC 服务器状态：
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 vncserver -list
 ```
 </NewCodeBlock>
 
 终端会输出类似信息：
 
-```
+```bash
 TigerVNC server sessions:
 
 X DISPLAY #	RFB PORT #	RFB UNIX PATH	PROCESS ID #	SERVER
@@ -225,7 +225,7 @@ X DISPLAY #	RFB PORT #	RFB UNIX PATH	PROCESS ID #	SERVER
 在 ROCK 4D 的终端命令行运行以下命令可以关闭 VNC 服务器：其中命令中的 `:1` 代表 VNC 服务器的显示编号。
 
 <NewCodeBlock tip="radxa@radxa-rock-4d$" type="device">
-```
+```bash
 vncserver -kill :1
 ```
 </NewCodeBlock>

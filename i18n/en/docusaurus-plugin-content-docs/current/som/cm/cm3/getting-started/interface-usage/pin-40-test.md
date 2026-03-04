@@ -1,6 +1,16 @@
 ---
 sidebar_position: 10
 description: "Test 40-PIN GPIO"
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_gpio.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_i2c.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_pwm.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_spi.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/dev/_w1.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/accessories/_waveshare-35-display.mdx
 ---
 
 import GPIO from '../../../../../common/dev/\_gpio.mdx';
