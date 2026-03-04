@@ -6,7 +6,7 @@ import Camera12M577 from '../../../common/accessories/\_camera-12m-577.mdx';
 
 # Radxa Camera 12M 577
 
-<Camera12M577 product='Radxa Dragon Q6A' interface='31-pin 0.3 mm pitch SMD Horizontal FPC connector' connect='Flip type, bottom contact' pins='31-pin connector' board='dragon-q6a' />
+<Camera12M577 product='Radxa Dragon Q6A' interface='31-pin 0.3 mm pitch SMD Horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='opposite side' board='dragon-q6a' />
 
 ## Preview the camera
 

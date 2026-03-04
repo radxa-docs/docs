@@ -6,7 +6,7 @@ import Camera8M219 from '../../../common/accessories/\_camera-8m-219.mdx';
 
 # Radxa Camera 8M 219
 
-<Camera8M219 product='Radxa Dragon Q6A' interface='15-pin 1.0 mm pitch SMD Horizontal FPC connector' connect='Flip type, bottom contact' pins='15-pin connector' board='dragon-q6a' />
+<Camera8M219 product='Radxa Dragon Q6A' interface='15-pin 1.0 mm pitch SMD Horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='same side' board='dragon-q6a' />
 
 ## Preview the camera
 

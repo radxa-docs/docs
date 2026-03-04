@@ -6,7 +6,7 @@ import Camera4K from '../../../common/accessories/\_camera-4k.mdx';
 
 # Radxa Camera 4K
 
-<Camera4K product='Radxa Dragon Q6A' interface='31-pin 0.3 mm pitch SMD Horizontal FPC connector' connect='Flip type, bottom contact' pins='31-pin connector' board='dragon-q6a' />
+<Camera4K product='Radxa Dragon Q6A' interface='31-pin 0.3 mm pitch SMD Horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='opposite side' board='dragon-q6a' />
 
 ## Preview the camera
 

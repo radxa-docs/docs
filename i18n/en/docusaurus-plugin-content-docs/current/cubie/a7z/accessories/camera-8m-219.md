@@ -11,7 +11,7 @@ import Camera8M219 from '../../../common/accessories/\_camera-8m-219.mdx';
 
 # Radxa Camera 8M 219
 
-<Camera8M219 product='Radxa Cubie A7Z' interface='31-Pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin connector' board='cubie-a7z' />
+<Camera8M219 product='Radxa Cubie A7Z' interface='31-Pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='same side' board='cubie-a7z' />
 
 ## Preview the camera
 
