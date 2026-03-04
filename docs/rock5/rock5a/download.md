@@ -47,4 +47,15 @@ OpenWRT 不是瑞莎官方维护的系统，瑞莎不能保证完整功能，如
 
 ## 质量认证
 
+| 文档                | 下载链接                                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------------------------ |
+| CE-EMC 测试报告     | [下载](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_CE-EMC_Report.pdf)        |
+| CE-EMC 符合性声明   | [下载](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_CE-EMC_Declaration.pdf)   |
+| CE-EMC 证书         | [下载](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_CE-EMC_Certificate.pdf)   |
+| FCC sDoC 测试报告   | [下载](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_FCC_sDoC_Report.pdf)      |
+| FCC sDoC 符合性声明 | [下载](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_FCC_sDoC_Declaration.pdf) |
+| FCC sDoC 证书       | [下载](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_FCC_sDoC_Certificate.pdf) |
+
+如需其它法规或地区的认证文件，请联系 Radxa 销售团队，我们可以根据批量订单需求安排新增认证。
+
 ## 参考文档
