@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Radxa AIRbox Q900 Yocto Build Guide
 
-Please refer to [Radxa AIRbox Q900 Yocto Build Guide](https://github.com/radxa/meta-radxa-dragon/tree/scarthgap_qcom-6.6.97-QLI.1.6-Ver.1.2.1)
+Please refer to [Radxa AIRbox Q900 Yocto Build Guide](https://github.com/radxa/meta-radxa-dragon/blob/scarthgap_qcom-6.6.116-QLI.1.7-Ver.1.1/README.md)
 
 ## Qualcomm Linux Build Guide
 
