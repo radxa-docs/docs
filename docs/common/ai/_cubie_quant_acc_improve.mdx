@@ -40,7 +40,7 @@ cmd="$PEGASUS quantize \
 
 ### 混合量化例子
 
-这里以上一章节的 [MobileNetV2_ImaegNet](./cubie_acuity_usage#量化模型) 的 uint8 为例子，此模型直接使用 ACUITY 进行 uint8 量化后精度损失，推理得到的结果与浮点模型存在明显精度损失。
+这里以上一章节的 [MobileNetV2_ImaegNet](./cubie-acuity-usage#量化模型) 的 uint8 为例子，此模型直接使用 ACUITY 进行 uint8 量化后精度损失，推理得到的结果与浮点模型存在明显精度损失。
 
 MobileNetV2_ImageNet 在经过 uint8 直接量化后与浮点模型的结果对比
 
@@ -145,4 +145,4 @@ I 04:00:10 833: 4.153002373641357e-05
 
 此时经过混合量化后的模型，在推理完成后打印的 Top5 结果中，812 置信度最高且置信度达 0.998，这与浮点模型的结果一致，证明混合量化后的 uint8 模型已成功减少模型精度损失。
 
-接下来可以继续 NPU 的部署工作进行 [模型编译并导出](./cubie_acuity_usage#模型编译并导出), **因为混合量化后模型结构发生改变，在进行模型转换时请使用混合量化生成的 ACUITY 模型结构 `quantize.json` 文件名作为 `--model` 参数**。
+接下来可以继续 NPU 的部署工作进行 [模型编译并导出](./cubie-acuity-usage#模型编译并导出), **因为混合量化后模型结构发生改变，在进行模型转换时请使用混合量化生成的 ACUITY 模型结构 `quantize.json` 文件名作为 `--model` 参数**。
