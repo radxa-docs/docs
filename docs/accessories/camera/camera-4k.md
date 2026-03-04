@@ -47,3 +47,16 @@ Radxa Camera 4K 是一款适用于 Radxa 产品的高分辨率相机模块，采
 
 ![Radxa Camera 4K](/img/accessories/camera-4k-spec-1.webp)
 ![Radxa Camera 4K](/img/accessories/camera-4k-spec-2.webp)
+
+## 引脚定义
+
+| 引脚号 | 定义    | 引脚号 | 定义  | 引脚号 | 定义  | 引脚号 | 定义    |
+| ------ | ------- | ------ | ----- | ------ | ----- | ------ | ------- |
+| 1      | GND     | 2      | MDN4  | 3      | MDP4  | 4      | GND     |
+| 5      | MDN3    | 6      | MDP3  | 7      | GND   | 8      | NC      |
+| 9      | NC      | 10     | GND   | 11     | MDN2  | 12     | MDP2    |
+| 13     | GND     | 14     | MDN1  | 15     | MDP1  | 16     | GND     |
+| 17     | MCN     | 18     | MCP   | 19     | GND   | 20     | MCLK    |
+| 21     | GND     | 22     | NC    | 23     | NC    | 24     | SCL     |
+| 25     | SDA     | 26     | NC    | 27     | RESET | 28     | VCC3.3V |
+| 29     | VCC3.3V | 30     | VCC5V | 31     | VCC5V |        |         |
