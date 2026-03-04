@@ -4,7 +4,7 @@ sidebar_position: 2
 
 import Images from "./\_image.mdx"
 
-# Summary of resource downloads
+# Resource Downloads Summary
 
 ## Hardware Design
 
@@ -13,7 +13,7 @@ Radxa ROCK 5A Version V1.1
 [v1.1 2D dxf](https://dl.radxa.com/rock5/5a/docs/hw/radxa_rock5a_X1.11_2D.dxf)  
 [v1.1 3D stp](https://dl.radxa.com/rock5/5a/docs/hw/rock_5a_3d_pcba.rar)  
 [v1.1 Schematic pdf](https://dl.radxa.com/rock5/5a/docs/hw/radxa_rock5a_V1.1_sch.pdf)  
-[v1.1 compents placement map pdf](https://dl.radxa.com/rock5/5a/docs/hw/radxa_rock5a_V1.1_smd.pdf)
+[v1.1 components placement map pdf](https://dl.radxa.com/rock5/5a/docs/hw/radxa_rock5a_V1.1_smd.pdf)
 
 ## System Image
 
@@ -27,11 +27,11 @@ Radxa ROCK 5A Version V1.1
 
 :::caution
 
-If you encounter any problems, please go to the corresponding community for help
+These images are not maintained by Radxa officially. Radxa cannot guarantee full functionality. If you encounter any problems, please seek help from the corresponding community.
 
 :::
 
-More System：[Radxa ROCK 5A Release](https://github.com/radxa-build/rock-5a/releases)
+More releases: [Radxa ROCK 5A Release](https://github.com/radxa-build/rock-5a/releases)
 
 ### OpenWRT
 
@@ -45,6 +45,17 @@ OpenWRT is not maintained by Radxa officially. Radxa cannot guarantee full funct
 
 :::
 
-## Quality Approvals
+## Compliance Documents
 
-## Reference Documents
+| Document                           | Download                                                                                                   |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| CE-EMC Test Report                 | [Download](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_CE-EMC_Report.pdf)        |
+| CE-EMC Declaration of Conformity   | [Download](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_CE-EMC_Declaration.pdf)   |
+| CE-EMC Certificate                 | [Download](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_CE-EMC_Certificate.pdf)   |
+| FCC sDoC Test Report               | [Download](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_FCC_sDoC_Report.pdf)      |
+| FCC sDoC Declaration of Conformity | [Download](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_FCC_sDoC_Declaration.pdf) |
+| FCC sDoC Certificate               | [Download](https://github.com/radxa-docs/compliance/raw/main/rock5/rock5a/ROCK5A_FCC_sDoC_Certificate.pdf) |
+
+If you require compliance documentation for additional regulations or regions, please contact the Radxa sales team. We can arrange new certifications based on bulk order requirements.
+
+## Reference Documentation
