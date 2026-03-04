@@ -15,4 +15,4 @@ import SPI from '../../../../common/radxa-os/rkdevtool/\_spi.mdx';
 You can download the Loader file and system image from the [Downloads Summary](../../download) page.
 :::
 
-<SPI />
+<SPI download_page="../../download"/>
