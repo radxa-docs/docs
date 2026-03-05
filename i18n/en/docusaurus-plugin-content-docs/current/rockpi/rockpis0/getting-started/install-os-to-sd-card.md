@@ -29,7 +29,7 @@ Please go to [Download Summary](./download) to download the corresponding image 
 
 - After successfully burning the microSD card according to the above steps, insert the microSD card into the MicroSD Card Slot.
 
-- The power supply port of ROCK Pi S0 is 4-Pin USB 2.0 OTG port, please use [USB OTG Cable](/rockpi/rocks0/getting-started/preparation#usb-otg-cable) to Connect the power supply port and the power adapter.
+- The power supply port of ROCK Pi S0 is 4-Pin USB 2.0 OTG port, please use [USB OTG Cable](/rockpi/rockpis0/getting-started/preparation#usb-otg-cable) to Connect the power supply port and the power adapter.
 
 :::tip
 ROCK Pi S0 only supports `5V` power supply.

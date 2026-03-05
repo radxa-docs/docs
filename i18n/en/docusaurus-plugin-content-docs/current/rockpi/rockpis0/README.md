@@ -29,39 +29,39 @@ _The images presented depict a particular configuration of the Radxa ROCK Pi S0.
 Except for the **other systems** directory below, the other contents are based on Radxa OS (Radxa's customized system based on Debian).
 :::
 
-### [Getting started](/rockpi/rocks0/getting-started)
+### [Getting started](/rockpi/rockpis0/getting-started)
 
 By introducing system programming, system login, accessory usage, etc., let user can get started quickly.
 
-### [Radxa OS](/rockpi/rocks0/radxa-os)
+### [Radxa OS](/rockpi/rockpis0/radxa-os)
 
 Radxa OS is an operating system customized by Radxa based on Debian OS.
 This chapter introduces system login, network connection, etc to let user to be familiar with the system quickly.
 
-### [System Configuration](/rockpi/rocks0/os-config)
+### [System Configuration](/rockpi/rockpis0/os-config)
 
 Introduces how to use tools like rsetup or command line to use devices or function.
 
-### [Application Deployment](/rockpi/rocks0/apps-deployment)
+### [Application Deployment](/rockpi/rockpis0/apps-deployment)
 
 Introduces how to deploy the applications such as Samba, Docker, remote control panel, etc.
 
-### [Application Development](/rockpi/rocks0/app-development)
+### [Application Development](/rockpi/rockpis0/app-development)
 
 Introduces upper-layer application development, such as WiringX, Mraa, etc.
 
-### [Hardware Development](/rockpi/rocks0/hardware)
+### [Hardware Development](/rockpi/rockpis0/hardware)
 
 Introduces hardware information, such as hardware interfaces, supported accessories, etc.
 
-### [Lower level Development](/rockpi/rocks0/low-level-dev)
+### [Lower level Development](/rockpi/rockpis0/low-level-dev)
 
 Introduces uboot, kernel, debian os compilation and packaging, etc.
 
-### [Other Systems](/rockpi/rocks0/other-os)
+### [Other Systems](/rockpi/rockpis0/other-os)
 
 Introduces other systems than Radxa OS.
 
-### [Accessories](/rockpi/rocks0/accessories)
+### [Accessories](/rockpi/rockpis0/accessories)
 
 Introduces supported accessory models and instructions for use.

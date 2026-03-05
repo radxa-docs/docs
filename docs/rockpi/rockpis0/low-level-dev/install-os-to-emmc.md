@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## 准备工作
 
-- 1x [Radxa 4P to USB-A Male Cable](/rockpi/rocks0/getting-started/preparation#usb-otg-线材)
+- 1x [Radxa 4P to USB-A Male Cable](/rockpi/rockpis0/getting-started/preparation#usb-otg-线材)
 
 ## 镜像下载
 
@@ -32,6 +32,6 @@ Radxa ROCK Pi S0 进入 Maskrom 模式的方法
 
 ## 启动系统
 
-- 使用 [Radxa 4P to USB-A Male Cable](/rockpi/rocks0/getting-started/preparation#usb-otg-线材) 连接板子上的 4-Pin USB2.0 OTG 接口到电源适配器上，然后系统开始启动，绿灯闪烁。
+- 使用 [Radxa 4P to USB-A Male Cable](/rockpi/rockpis0/getting-started/preparation#usb-otg-线材) 连接板子上的 4-Pin USB2.0 OTG 接口到电源适配器上，然后系统开始启动，绿灯闪烁。
 
 ## 常见问题

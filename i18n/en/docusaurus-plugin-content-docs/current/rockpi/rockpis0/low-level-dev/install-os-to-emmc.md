@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Preparation
 
-- 1x [Radxa 4P to USB-A Male Cable](/rockpi/rocks0/getting-started/preparation#usb-otg-cable)
+- 1x [Radxa 4P to USB-A Male Cable](/rockpi/rockpis0/getting-started/preparation#usb-otg-cable)
 
 ## Image Download
 
@@ -32,6 +32,6 @@ In Maskrom mode, you can use [rkdevtool](../low-level-dev/rkdevtool) or [upgrade
 
 ## Boot the system
 
-- Using [Radxa 4P to USB-A Male Cable](/rockpi/rocks0/getting-started/preparation#usb-otg-cable) to connect the 4-Pin USB2.0 OTG connector on the board to the power adapter, and then the system will start booting up with the green light blinking.
+- Using [Radxa 4P to USB-A Male Cable](/rockpi/rockpis0/getting-started/preparation#usb-otg-cable) to connect the 4-Pin USB2.0 OTG connector on the board to the power adapter, and then the system will start booting up with the green light blinking.
 
 ## FAQ
