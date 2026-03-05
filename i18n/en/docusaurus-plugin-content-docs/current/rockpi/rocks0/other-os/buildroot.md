@@ -41,7 +41,7 @@ tar -xvzf rk3308_linux5.10_rkr8_sdk.repo.tar.gz
 ```
 </NewCodeBlock>
 
-## Add ROCK S0 Board Support
+## Add ROCK Pi S0 Board Support
 
 Use the Radxa-maintained rockchip repository:
 

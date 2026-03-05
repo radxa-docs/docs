@@ -2,16 +2,16 @@
 sidebar_position: 4
 ---
 
-## Hardware interface description
+# Hardware interface description
 
 ## Interface overview
 
-- **ROCK S0**
-  ![Radxa ROCK S0](/img/rockpi/s0/mark_rock_pi_s0.webp)
+- **ROCK Pi S0**
+  ![Radxa ROCK Pi S0](/img/rockpi/s0/mark_rock_pi_s0.webp)
 
 ## Power Supply Interface
 
-The power supply interface of Radxa ROCK S0 is [4 Pin USB 2.0 OTG port](/img/rockpi/s0/rocks0-otg-wire.webp), which supports 5V input only.
+The power supply interface of Radxa ROCK Pi S0 is [4 Pin USB 2.0 OTG port](/img/rockpi/s0/rocks0-otg-wire.webp), which supports 5V input only.
 
 ## Debug Serial Port
 
@@ -51,7 +51,7 @@ Can be used as system boot media or storage media
 
 #### GPIO Interface
 
-The ROCK S0 provides a 40 pin GPIO socket that is compatible with most SBC accessories on the market.
+The ROCK Pi S0 provides a 40 pin GPIO socket that is compatible with most SBC accessories on the market.
 
 **Hint: Actual compatibility is subject to usage. **
 

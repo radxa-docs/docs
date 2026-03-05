@@ -7,23 +7,23 @@ title: Resource Download
 
 ## Hardware Design
 
-ROCK S0 v1.1 Version
+ROCK Pi S0 v1.1 Version
 
-[ROCK S0 v1.1 product brief pdf](https://dl.radxa.com/rockpis0/radxa_rock_pi_s0_product_brief.pdf)
+[ROCK Pi S0 v1.1 product brief pdf](https://dl.radxa.com/rockpis0/radxa_rock_pi_s0_product_brief.pdf)
 
-[ROCK S0 v1.1 schematic pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_schematic.pdf)
+[ROCK Pi S0 v1.1 schematic pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_schematic.pdf)
 
-[ROCK S0 v1.1 smd pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_smd.pdf)
+[ROCK Pi S0 v1.1 smd pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1_1_smd.pdf)
 
-ROCK S0 v1.2 Version
+ROCK Pi S0 v1.2 Version
 
-[ROCK S0 v1.2 schematic pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_schematic.pdf)
+[ROCK Pi S0 v1.2 schematic pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_schematic.pdf)
 
-[ROCK S0 v1.2 smd pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_smd.pdf)
+[ROCK Pi S0 v1.2 smd pdf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_smd.pdf)
 
-[ROCK S0 v1.2 3D stp](https://dl.radxa.com/rockpis0/radxa_rockpi_s0_v1200_pcba_3d_stp.zip)
+[ROCK Pi S0 v1.2 3D stp](https://dl.radxa.com/rockpis0/radxa_rockpi_s0_v1200_pcba_3d_stp.zip)
 
-[ROCK S0 v1.2 2D dxf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_2d_dxf.zip)
+[ROCK Pi S0 v1.2 2D dxf](https://dl.radxa.com/rockpis0/radxa_rock_s0_v1200_2d_dxf.zip)
 
 ## Tools
 
@@ -37,17 +37,17 @@ ROCK S0 v1.2 Version
 ### Official Operating System Image
 
 - [Loader](https://dl.radxa.com/rockpis/images/loader/rk3308_loader_ddr589MHz_uart0_m0_v2.06.136sd.bin)
-- [Radxa ROCK S0 Debian Build 6](https://github.com/radxa-build/rock-s0/releases/download/b6/rock-s0_debian_bookworm_cli_b6.img.xz)
+- [Radxa ROCK Pi S0 Debian Build 6](https://github.com/radxa-build/rock-s0/releases/download/b6/rock-s0_debian_bookworm_cli_b6.img.xz)
 
 :::caution
 Except for the above images, which have been fully tested officially, the other images have not been rigorously tested, may have unknown issues, and are for evaluation use only.
 :::
 
-For more images, please check: [Radxa ROCK S0 Release](https://github.com/radxa-build/rock-s0/releases)
+For more images, please check: [Radxa ROCK Pi S0 Release](https://github.com/radxa-build/rock-s0/releases)
 
 ### Third-Party Operating System images
 
-- [Radxa ROCK S0 Armbian](https://www.armbian.com/radxa-rock-s0/)
+- [Radxa ROCK Pi S0 Armbian](https://www.armbian.com/radxa-rock-s0/)
 
 Default Armbian credentials:
 

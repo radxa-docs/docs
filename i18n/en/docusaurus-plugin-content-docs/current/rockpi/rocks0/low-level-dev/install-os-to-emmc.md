@@ -14,9 +14,9 @@ Please go to [Download Summary](../getting-started/download) to download the cor
 
 ## Enter Maskrom mode
 
-![ROCK S0 Overview](/img/rockpi/s0/mark_rock_pi_s0.webp)
+![ROCK Pi S0 Overview](/img/rockpi/s0/mark_rock_pi_s0.webp)
 
-How to enter Maskrom Mode of Radxa ROCK S0
+How to enter Maskrom Mode of Radxa ROCK Pi S0
 
 1. Disconnect the microSD card and power.
 2. Press and hold the Maskrom button on the front of the device.

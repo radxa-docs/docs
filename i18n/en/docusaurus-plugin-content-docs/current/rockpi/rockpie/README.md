@@ -12,7 +12,7 @@ sidebar_position: 55
 
 ![Radxa ROCK Pi E V3.0](/img/rockpi/pie/marked_rock_pi_e_v3000.webp)
 
-_The images presented depict a particular configuration of the Radxa ROCK S0. Please note that the actual component layout and specifications may differ based on the selected Stock Keeping Unit (SKU)._
+_The images presented depict a particular configuration of the Radxa ROCK Pi S0. Please note that the actual component layout and specifications may differ based on the selected Stock Keeping Unit (SKU)._
 
 ## Features
 

@@ -41,7 +41,7 @@ tar -xvzf rk3308_linux5.10_rkr8_sdk.repo.tar.gz
 ```
 </NewCodeBlock>
 
-## 添加板子 ROCK S0 支持
+## 添加板子 ROCK Pi S0 支持
 
 使用 Radxa 维护的 rockchip 仓库。
 

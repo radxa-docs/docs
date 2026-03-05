@@ -14,9 +14,9 @@ sidebar_position: 1
 
 ## 进入 Maskrom 模式
 
-![ROCK S0 Overview](/img/rockpi/s0/mark_rock_pi_s0.webp)
+![ROCK Pi S0 Overview](/img/rockpi/s0/mark_rock_pi_s0.webp)
 
-Radxa ROCK S0 进入 Maskrom 模式的方法
+Radxa ROCK Pi S0 进入 Maskrom 模式的方法
 
 1. 拔出 microSD 卡和电源线
 2. 按住正面的 Maskrom 按钮

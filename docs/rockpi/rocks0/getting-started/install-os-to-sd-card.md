@@ -27,11 +27,11 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## 启动系统
 
-- 按照上述步骤成功烧录 microSD 卡后，将 microSD 卡插入 ROCK S0 的 microSD 插槽内。
-- ROCK S0 的供电接口为 4-Pin USB2.0 OTG 接口，请使用 [Radxa 4P to USB-A Male Cable](/rockpi/rocks0/getting-started/preparation#usb-otg-线材) 连接供电口和适配器。
+- 按照上述步骤成功烧录 microSD 卡后，将 microSD 卡插入 ROCK Pi S0 的 microSD 插槽内。
+- ROCK Pi S0 的供电接口为 4-Pin USB2.0 OTG 接口，请使用 [Radxa 4P to USB-A Male Cable](/rockpi/rocks0/getting-started/preparation#usb-otg-线材) 连接供电口和适配器。
 
 :::tip
-ROCK S0 只支持 `5V` 供电。
+ROCK Pi S0 只支持 `5V` 供电。
 :::
 
 ## 烧录 OS 到 eMMC

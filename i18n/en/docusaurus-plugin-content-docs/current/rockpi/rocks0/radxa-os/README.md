@@ -10,7 +10,7 @@ Introduces system login, network connection, etc to let user to be familiar with
 
 ## User name and Password
 
-The user name and password added by default to the Radxa ROCK S0 series are:
+The user name and password added by default to the Radxa ROCK Pi S0 series are:
 
 ```text
 User name：radxa/rock
@@ -32,7 +32,7 @@ sudo nmcli device wifi connect <ssid> password <passwd>     #Connect WiFi
 
 ### Ethernet
 
-The Radxa ROCK S0 has 100M Ethernet on board, just connect the cable to enable internet access, use the `ip a ` command to view the ip.
+The Radxa ROCK Pi S0 has 100M Ethernet on board, just connect the cable to enable internet access, use the `ip a ` command to view the ip.
 
 ## Remote Login
 

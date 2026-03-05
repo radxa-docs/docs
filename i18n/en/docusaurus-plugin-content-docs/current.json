@@ -247,9 +247,9 @@
     "message": "ROCK Pi S",
     "description": "The label for category ROCK Pi S in sidebar rockpi"
   },
-  "sidebar.rockpi.category.ROCK S0": {
-    "message": "ROCK S0",
-    "description": "The label for category ROCK S0 in sidebar rockpi"
+  "sidebar.rockpi.category.ROCK Pi S0": {
+    "message": "ROCK Pi S0",
+    "description": "The label for category ROCK Pi S0 in sidebar rockpi"
   },
   "sidebar.rockpi.category.Getting Started": {
     "message": "Getting Started",

@@ -2,15 +2,15 @@
 sidebar_position: 55
 ---
 
-# ROCK S0
+# ROCK Pi S0
 
-![Radxa ROCK S0](/img/rockpi/s0/mark_rock_pi_s0.webp)
+![Radxa ROCK Pi S0](/img/rockpi/s0/mark_rock_pi_s0.webp)
 
 **提示：主板外观可能因为硬件版本不同而有细微的差别。**
 
 ## 主要参数
 
-| 型号     | Radxa ROCK S0                                                                                                     |
+| 型号     | Radxa ROCK Pi S0                                                                                                  |
 | -------- | :---------------------------------------------------------------------------------------------------------------- |
 | SoC      | RK3308B                                                                                                           |
 | CPU      | Quad‑core Arm® Cortex®‑A35 64‑bit @ 1.0GHz                                                                      |
