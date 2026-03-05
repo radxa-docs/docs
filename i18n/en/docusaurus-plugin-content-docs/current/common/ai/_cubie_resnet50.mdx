@@ -6,7 +6,7 @@ This example uses a pre-trained ONNX format model from [resnet50-v2-7.onnx](http
 
 Deploying ResNet50 on the board requires two steps:
 
-- On the PC side, use [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) to convert models from different frameworks to NBG format
+- On the PC side, use [ACUITY Toolkit](./cubie-acuity-sdk#acuity-toolkit) to convert models from different frameworks to NBG format
 - On the board side, use the awnn API for model inference
 
 ## Download ai-sdk Example Repository
@@ -27,7 +27,7 @@ Radxa provides a pre-converted `resnet50.nb` model. Users can directly refer to 
 
 - Enter the ACUITY Toolkit Docker Container
 
-  For ACUITY Toolkit Docker environment setup, please refer to [ACUITY Toolkit Environment Configuration](./cubie_acuity_env)
+  For ACUITY Toolkit Docker environment setup, please refer to [ACUITY Toolkit Environment Configuration](./cubie-acuity-env)
 
   Configure Environment Variables
 
@@ -60,7 +60,7 @@ Radxa provides a pre-converted `resnet50.nb` model. Users can directly refer to 
       </Tabs>
 
   :::tip
-  Specify NPU_VERSION: use `v3` for A733 and `v2` for T527. For reference, see [**NPU Version Comparison Table**](cubie_acuity_usage#npu-version-comparison-table)
+  Specify NPU_VERSION: use `v3` for A733 and `v2` for T527. For reference, see [**NPU Version Comparison Table**](cubie-acuity-usage#npu-version-comparison-table)
   :::
 
 - Download the ResNet50 ONNX Model
@@ -343,7 +343,7 @@ Import environment variables
 </Tabs>
 
 :::tip
-Specify NPU_SW_VERSION: select `v2.0` for A733 and `v1.13` for T527. For NPU information, refer to [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison)
+Specify NPU_SW_VERSION: select `v2.0` for A733 and `v1.13` for T527. For NPU information, refer to [NPU Version Comparison Table](./cubie-acuity-usage#npu-version-comparison)
 :::
 
 Enter the example installation directory
