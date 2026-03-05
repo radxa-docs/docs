@@ -343,13 +343,13 @@ sidebar_custom_props:
                   ],
               },
               {
-                products_name: "ROCK S0",
-                products_photo_url: "/home/product-pictures/rocks0.webp",
-                products_link: "/rockpi/rocks0",
+                products_name: "ROCK Pi S0",
+                products_photo_url: "/home/product-pictures/rockpis0.webp",
+                products_link: "/rockpi/rockpis0",
                 docs:
                   [
                     {
-                      docs_link: "/rockpi/rocks0",
+                      docs_link: "/rockpi/rockpis0",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
                       docs_name_zh: "Overview",
