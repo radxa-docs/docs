@@ -59,7 +59,7 @@
     "message": "ROCK 5 Series",
     "description": "Navbar item with label ROCK 5 系列"
   },
-  "item.label.ROCK Pi": {
+  "item.label.ROCK Pi 系列": {
     "message": "ROCK Pi Series",
     "description": "Navbar item with label ROCK Pi"
   },
@@ -187,9 +187,9 @@
     "message": "→ ROCK Pi S",
     "description": "Navbar item with label → ROCK Pi S"
   },
-  "item.label.→ ROCK S0": {
-    "message": "→ ROCK S0",
-    "description": "Navbar item with label → ROCK S0"
+  "item.label.→ ROCK Pi S0": {
+    "message": "→ ROCK Pi S0",
+    "description": "Navbar item with label → ROCK Pi S0"
   },
   "item.label.→ Cubie A5E": {
     "message": "→ Cubie A5E",
