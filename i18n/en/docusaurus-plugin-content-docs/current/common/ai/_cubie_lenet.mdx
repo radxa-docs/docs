@@ -4,7 +4,7 @@ This document demonstrates how to run on-board inference of the LeNet handwritte
 
 Deploying LeNet on the board requires two steps:
 
-- On the PC side, use [ACUITY Toolkit](./cubie_acuity_sdk#acuity-toolkit) to convert models from different frameworks to NBG format
+- On the PC side, use [ACUITY Toolkit](./cubie-acuity-sdk#acuity-toolkit) to convert models from different frameworks to NBG format
 - On the board side, use the awnn API for model inference
 
 ## Download ai-sdk Example Repository
@@ -29,7 +29,7 @@ The files used in the LeNet example are already included in the `models/lenet` d
 
 - Enter the ACUITY Toolkit Docker Container
 
-  For ACUITY Toolkit Docker environment setup, please refer to [ACUITY Toolkit Environment Configuration](./cubie_acuity_env)
+  For ACUITY Toolkit Docker environment setup, please refer to [ACUITY Toolkit Environment Configuration](./cubie-acuity-env)
 
   Configure Environment Variables
 
@@ -62,7 +62,7 @@ The files used in the LeNet example are already included in the `models/lenet` d
       </Tabs>
 
   :::tip
-  Specify NPU_VERSION: use `v3` for A733 and `v2` for T527. For reference, see [**NPU Version Comparison Table**](cubie_acuity_usage#npu-version-comparison)
+  Specify NPU_VERSION: use `v3` for A733 and `v2` for T527. For reference, see [**NPU Version Comparison Table**](cubie-acuity-usage#npu-version-comparison)
   :::
 
 - Enter the LeNet Model Directory
@@ -299,7 +299,7 @@ Import environment variables
 </Tabs>
 
 :::tip
-Specify NPU_SW_VERSION: Select v2.0 for A733, select v1.13 for T527. For NPU information, please refer to the [NPU Version Comparison Table](./cubie_acuity_usage#npu-version-comparison)
+Specify NPU_SW_VERSION: Select v2.0 for A733, select v1.13 for T527. For NPU information, please refer to the [NPU Version Comparison Table](./cubie-acuity-usage#npu-version-comparison)
 :::
 
 Enter the example installation directory

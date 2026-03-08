@@ -40,7 +40,7 @@ If a quantized model's precision cannot meet the requirements, and cannot be imp
 
 ### Hybrid quantization example
 
-Here, we use the uint8 of [MobileNetV2_ImaegNet](./cubie_acuity_usage#quantize-model) from the previous chapter as an example. This model directly uses ACUITY to quantize uint8, and the precision loss is obvious after inference, and the inference result is obviously different from the floating-point model.
+Here, we use the uint8 of [MobileNetV2_ImaegNet](./cubie-acuity-usage#quantize-model) from the previous chapter as an example. This model directly uses ACUITY to quantize uint8, and the precision loss is obvious after inference, and the inference result is obviously different from the floating-point model.
 
 MobileNetV2_ImageNet in the uint8 direct quantization result contrast with floating-point model
 
@@ -145,4 +145,4 @@ I 04:00:10 833: 4.153002373641357e-05
 
 After hybrid quantization, the model in the inference result after inference is the same as the floating-point model, proving that the hybrid quantized uint8 model has successfully reduced the model precision loss.
 
-Next, you can continue the NPU deployment work to [model compilation and export](./cubie_acuity_usage#model-compilation-and-export), **because the model structure has changed after hybrid quantization, please use the hybrid quantized ACUITY model structure `quantize.json` file name as the `--model` parameter when converting the model**.
+Next, you can continue the NPU deployment work to [model compilation and export](./cubie-acuity-usage#model-compilation-and-export), **because the model structure has changed after hybrid quantization, please use the hybrid quantized ACUITY model structure `quantize.json` file name as the `--model` parameter when converting the model**.
