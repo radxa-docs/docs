@@ -6,6 +6,10 @@ sidebar_position: 2
 
 瑞莎 ROCK 4D 板载 eMMC / UFS 二合一模块接口，支持安装 eMMC / UFS 模块，可以用于系统启动盘或扩展存储空间。
 
+:::danger
+严禁使用未经测试的第三方 UFS / eMMC 模块。部分第三方模块可能会导致 SBC 短路损坏，同时我们不会为此类行为导致的硬件损坏提供保修。
+:::
+
 :::tip
 由于 ROCK 4D 出厂默认贴 SPI Nor Flash，所以无法使用 eMMC 模块，教程只介绍使用 UFS 模块
 :::

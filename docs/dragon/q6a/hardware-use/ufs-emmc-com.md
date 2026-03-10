@@ -6,6 +6,10 @@ sidebar_position: 5
 
 瑞莎 Dragon Q6A 板载 eMMC / UFS 模块二合一接口，支持 eMMC 和 UFS 模块。
 
+:::danger
+严禁使用未经测试的第三方 UFS / eMMC 模块。部分第三方模块可能会导致 SBC 短路损坏，同时我们不会为此类行为导致的硬件损坏提供保修。
+:::
+
 ## 硬件连接
 
 将 eMMC 模块或 UFS 模块安装到瑞莎 Dragon Q6A 的 eMMC / UFS 模块二合一接口。
