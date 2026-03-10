@@ -1,0 +1,128 @@
+import Etcher from "../../general/_etcherV2.mdx";
+import Rkdevtool from "../../dev/_rkdevtoolV3.mdx";
+
+## OpenWrt Mainline Installation
+
+This document describes how to install an OpenWrt mainline image on {props.product}.
+
+## Image Download
+
+Please go to <a href={props?.download_page ?? "../download"}>Resource Download</a> to download the corresponding image.
+
+Recommended image filename:
+
+{props.image_name}
+
+:::warning
+Make sure the downloaded image matches your product model. Extract the image before continuing.
+:::
+
+## Install the System
+
+<Tabs queryString="target">
+
+<TabItem
+  value="microsd"
+  label="Install system to microSD card"
+  default={props.show_emmc === false}
+>
+
+### Preparation
+
+- 1x microSD card
+- 1x microSD card reader
+- 1x power adapter (recommended: {props.power})
+
+### Install the System
+
+<Etcher model={props.model} />
+
+### Boot the System
+
+- Insert the flashed microSD card into the microSD slot on {props.product}
+- Power on the board with {props.power}
+
+</TabItem>
+
+<TabItem
+  value="emmc"
+  label="Install system to eMMC"
+  attributes={{ className: props.show_emmc === false && "tab_none" }}
+>
+
+### Preparation
+
+- USB data cable
+- x86 PC
+- Extracted image file
+- {props.product} with eMMC
+
+### Enter Maskrom Mode
+
+{props?.maskrom_page ? (
+
+{" "}
+
+<p>
+  Please refer to <a href={props.maskrom_page}>Maskrom Guide</a>.
+</p>
+) : (<p>
+  Please follow the corresponding product documentation to enter Maskrom mode.
+</p>
+)}
+
+### Windows
+
+<Rkdevtool
+  emmc={false}
+  pcie={false}
+  sata={false}
+  rkdevtool_emmc_img={
+    props?.rkdevtool_emmc_img ?? "/img/rkdevtool/emmc-path.webp"
+  }
+>
+  {props.children}
+</Rkdevtool>
+
+### Linux
+
+{props?.linux_page ? (
+
+{" "}
+
+<p>
+  Please refer to <a href={props.linux_page}>Linux flashing guide</a>.
+</p>
+) : (<p>
+  Please use `rkdeveloptool` or `upgrade_tool` according to the corresponding
+  product documentation.
+</p>
+)}
+
+</TabItem>
+
+</Tabs>
+
+## Log In
+
+- The default management address is usually `192.168.1.1`
+- The default username is usually `root`
+- Set the password when prompted on first login
+
+## Storage Expansion
+
+If the root partition does not occupy the whole storage on first boot, refer to the official OpenWrt guide first:
+
+- <a href="https://openwrt.org/docs/guide-user/advanced/expand_root">
+    Expanding root partition and filesystem
+  </a>
+
+:::tip
+Storage device names, partition numbers, and expansion steps may vary by product. Do not directly reuse partition commands from another board.
+:::
+
+## Frequently Asked Questions
+
+- Device not detected: check whether the board has entered Maskrom mode, and try another cable or USB port.
+- Flashing failed: check the image format, file integrity, and model match.
+- LuCI is not reachable: check the default IP, Ethernet port, and host network settings.
