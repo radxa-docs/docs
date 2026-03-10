@@ -65,6 +65,15 @@ Taking Radxa ROCK 5B as an example, the linux profile is "rk2410". The following
 |                 |          |        rock-3c        | rk356x  |                 |         | radxa-cm4-rpi-cm4-io | rk2410  |
 |                 |          |        rock-2         | rk356x  |                 |         |     radxa-cm5-io     | rk2410  |
 |                 |          |                       |         |                 |         | radxa-cm5-rpi-cm4-io | rk2410  |
+|                 |          |                       |         |                 |         |     radxa-rk3576     | rk2410  |
+
+:::tip
+
+If the product model is not found in the table, select the corresponding option based on your product's SoC model.
+
+Example: Radxa CM4 uses the Rockchip RK3576 SoC. According to the table, select `rk2410` as the `profile` parameter for `radxa-rk3576`.
+
+:::
 
 Then fill in the `profile` parameter of the `bsp` command with the product's corresponding `profile`: `rk2410` to pull and configure the code, for example:
 
