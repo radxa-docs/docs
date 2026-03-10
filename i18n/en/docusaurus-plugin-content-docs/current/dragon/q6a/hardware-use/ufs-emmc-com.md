@@ -6,6 +6,10 @@ sidebar_position: 5
 
 The Radxa Dragon Q6A features an onboard eMMC/UFS module combination interface, supporting both eMMC and UFS modules.
 
+:::danger
+Do not use untested third-party UFS or eMMC modules. Some third-party modules may short the SBC and cause permanent hardware damage, and such damage is not covered by warranty.
+:::
+
 ## Hardware Connection
 
 Install the eMMC module or UFS module into the eMMC/UFS module combination interface on the Radxa Dragon Q6A.

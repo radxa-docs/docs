@@ -6,6 +6,10 @@ sidebar_position: 2
 
 The Radxa ROCK 4D features an onboard eMMC/UFS combo module interface that supports both eMMC and UFS modules, which can be used as a system boot drive or for expanding storage capacity.
 
+:::danger
+Do not use untested third-party UFS or eMMC modules. Some third-party modules may short the SBC and cause permanent hardware damage, and such damage is not covered by warranty.
+:::
+
 :::tip
 Since the ROCK 4D comes with SPI Nor Flash by default, eMMC modules are not supported. This guide only covers the use of UFS modules.
 :::
