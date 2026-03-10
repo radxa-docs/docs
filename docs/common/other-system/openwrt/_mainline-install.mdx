@@ -1,0 +1,123 @@
+import Etcher from "../../general/_etcherV2.mdx";
+import Rkdevtool from "../../dev/_rkdevtoolV3.mdx";
+
+## OpenWrt 主线安装
+
+本文档将介绍如何把 OpenWrt 主线镜像安装到 {props.product}。
+
+## 镜像下载
+
+请到 <a href={props?.download_page ?? "../download"}>资源下载页面</a> 下载对应的镜像文件。
+
+推荐镜像文件名：
+
+{props.image_name}
+
+:::warning
+请确认下载的镜像文件名与产品型号一致，避免误刷其他型号镜像，下载完成后需要先解压文件再进行后续操作。
+:::
+
+## 安装系统
+
+<Tabs queryString="target">
+
+<TabItem
+  value="microsd"
+  label="安装系统到 microSD 卡"
+  default={props.show_emmc === false}
+>
+
+### 准备工作
+
+- 1x microSD 卡
+- 1x microSD 读卡器
+- 1x 电源适配器（推荐使用 {props.power}）
+
+### 安装系统
+
+<Etcher model={props.model} />
+
+### 启动系统
+
+- 将写好镜像的 microSD 卡插入 {props.product} 的 MicroSD 卡槽
+- 连接 {props.power} 并启动系统
+
+</TabItem>
+
+<TabItem
+  value="emmc"
+  label="安装系统到 eMMC"
+  attributes={{ className: props.show_emmc === false && "tab_none" }}
+>
+
+### 准备工作
+
+- USB 数据线
+- x86 PC
+- 已解压的镜像文件
+- 带 eMMC 的 {props.product}
+
+### 进入 Maskrom 模式
+
+{props?.maskrom_page ? (
+
+{" "}
+
+<p>
+  请参考 <a href={props.maskrom_page}>Maskrom 操作说明</a>。
+</p>
+) : (<p>请根据对应产品文档进入 Maskrom 模式。</p>
+)}
+
+### Windows
+
+<Rkdevtool
+  emmc={false}
+  pcie={false}
+  sata={false}
+  rkdevtool_emmc_img={
+    props?.rkdevtool_emmc_img ?? "/img/rkdevtool/emmc-path.webp"
+  }
+>
+  {props.children}
+</Rkdevtool>
+
+### Linux
+
+{props?.linux_page ? (
+
+{" "}
+
+<p>
+  请参考 <a href={props.linux_page}>Linux 刷机说明</a>。
+</p>
+) : (<p>请根据对应产品文档使用 `rkdeveloptool` 或 `upgrade_tool` 进行刷机。</p>
+)}
+
+</TabItem>
+
+</Tabs>
+
+## 系统登录
+
+- 默认管理地址通常为 `192.168.1.1`
+- 默认用户名通常为 `root`
+- 首次登录后请按页面提示设置密码
+
+## 存储扩容
+
+如 OpenWrt 主线镜像首次启动后根分区未占满整盘，建议优先参考 OpenWrt 官方扩容说明：
+
+- <a href="https://openwrt.org/docs/guide-user/advanced/expand_root">
+    Expanding root partition and filesystem
+  </a>
+
+:::tip
+不同产品的系统盘节点、分区号和扩容方式可能不同，请不要直接复用其他产品的分区命令。
+:::
+
+## 常见问题
+
+- 设备无法识别：检查是否正确进入 Maskrom 模式，或更换数据线与 USB 接口。
+- 刷写失败：检查镜像格式、下载完整性与设备型号是否匹配。
+- 无法访问管理页面：检查默认 IP、网口连接方式与主机网段配置。

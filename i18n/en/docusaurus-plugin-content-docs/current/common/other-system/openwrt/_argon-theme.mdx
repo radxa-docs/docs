@@ -1,0 +1,29 @@
+## Argon Theme
+
+To customize the LuCI interface, you can install the Argon theme.
+
+### Install Argon with apk from GitHub
+
+Recent OpenWrt versions use `apk` as the package manager.  
+If the package comes from a GitHub Release instead of the official OpenWrt feed, download the `.apk` file first and then install it with `apk`.
+
+```bash
+cd /tmp
+wget https://github.com/jerrykuku/luci-theme-argon/releases/download/v2.4.3/luci-theme-argon-2.4.3-r20250722.apk
+apk add --allow-untrusted ./luci-theme-argon-2.4.3-r20250722.apk
+```
+
+### Switch the Theme
+
+After installation, run the following commands to switch LuCI to Argon:
+
+```bash
+uci set luci.main.mediaurlbase='/luci-static/argon'
+uci commit luci
+/etc/init.d/uhttpd restart
+```
+
+### Theme Configuration
+
+`luci-app-argon-config` is still mainly released as an `.ipk` package upstream, so it may not be suitable for systems that only use `apk`.  
+On `apk`-based systems, install the theme itself first, then add the configuration app later if an `.apk` release becomes available.

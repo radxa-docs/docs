@@ -1,0 +1,29 @@
+## Argon 主题
+
+如需美化 LuCI 界面，可安装 Argon 主题。
+
+### 使用 apk 从 GitHub 安装 Argon
+
+OpenWrt 新版本已使用 `apk` 作为包管理工具。  
+如果软件包来自 GitHub Release，而不是 OpenWrt 官方软件源，可先下载对应的 `.apk` 文件，再使用 `apk` 安装。
+
+```bash
+cd /tmp
+wget https://github.com/jerrykuku/luci-theme-argon/releases/download/v2.4.3/luci-theme-argon-2.4.3-r20250722.apk
+apk add --allow-untrusted ./luci-theme-argon-2.4.3-r20250722.apk
+```
+
+### 切换主题
+
+安装完成后，可执行以下命令切换到 Argon 主题：
+
+```bash
+uci set luci.main.mediaurlbase='/luci-static/argon'
+uci commit luci
+/etc/init.d/uhttpd restart
+```
+
+### 主题配置说明
+
+`luci-app-argon-config` 当前 GitHub Release 仍主要提供 `.ipk` 包，不一定适用于使用 `apk` 的系统。  
+如果你的系统仅支持 `apk`，建议先只安装主题本体；若后续发布了对应的 `.apk` 包，再按相同方式安装。
