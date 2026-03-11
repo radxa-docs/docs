@@ -1,0 +1,137 @@
+**CIX NPU 多路视频实时目标检测系统** 是基于 瑞莎 Orion O6 NPU 的多进程 YOLO 多路视频实时目标检测系统。它利用 NPU 进行 YOLO 模型推理，支持多路视频并行处理，适用于视频监控、智能交通等场景。
+
+- 核心特点：NPU 硬件加速、多进程架构、V4L2 硬件解码、YOLO 后处理、COCO 80 类目标检测
+- 版本说明：本项目提供两种工作模式——队列缓冲模式（推荐）和自适应速度模式，前者追求最高吞吐量，后者适合资源受限场景
+
+:::info[环境配置]
+需要提前配置好相关环境。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+:::
+
+## 快速开始
+
+### 环境依赖
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+pip install opencv-python numpy
+```
+
+</NewCodeBlock>
+
+### 下载项目
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+git clone https://github.com/Ronin-1124/cix-demo.git
+cd cix-demo
+```
+
+</NewCodeBlock>
+
+### 项目结构
+
+```txt
+cix-demo/
+├── models/                      # 预训练模型目录
+│   ├── yolov8n.cix            # YOLOv8 Nano 量化模型
+│   ├── yolov8s.cix            # YOLOv8 Small 量化模型
+│   ├── yolov12n.cix          # YOLOv12 Nano 模型
+│   └── yolov13n.cix          # YOLOv13 Nano 模型
+├── test_videos_360P/           # 测试视频目录 (360P)
+├── test_videos_720P/           # 测试视频目录 (720P)
+├── benchmark_multi_video.py     # 性能测试工具
+├── multi_video_inference_queue.py     # 主程序 - 队列缓冲模式 (推荐)
+├── multi_video_inference_adaptive.py  # 主程序 - 自适应速度模式
+└── README.md                   # 项目文档
+```
+
+## 完整转换流程
+
+### 运行示例
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+# 队列缓冲模式（推荐）- 单个视频
+python multi_video_inference_queue.py --video_paths test_videos_360P/test9.mp4 --model_path models/yolov8n.cix
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+# 队列缓冲模式 - 多个视频
+python multi_video_inference_queue.py --video_paths test_videos_360P/ --model_path models/yolov8n.cix
+```
+
+</NewCodeBlock>
+
+<div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
+  <img
+    src="/img/orion/o6/cix-multi-video-inference.webp"
+    style={{ width: "100%", height: "auto" }}
+    alt="8路YOLOv8n推理效果"
+  />
+</div>
+
+可以看到，8路推理时，最高可以达到 173FPS 的实时吞吐率，平均每路 20FPS 左右。
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python multi_video_inference_v6.py --video_path test_videos_360P/ --model_path models/yolov8s.cix
+
+============================================================
+视频数量: 8
+模型路径: models/yolov8s.cix
+工作进程: 8 (每个视频一个工作进程)
+解码方式: V4L2 硬件解码
+============================================================
+
+检测到显示环境，将实时显示
+启动 Worker 0, PID: 23150
+...
+[Worker 0] 性能统计: 解码=6.2ms(9%), 预处理=4.5ms(7%), 推理=53.0ms(79%), 后处理=3.2ms(5%)
+[Worker 0] 收到停止信号，正在退出...
+[Worker 0] 处理完成，共处理 472 帧
+
+处理完成!
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+# 自适应速度模式
+python multi_video_inference_adaptive.py --video_paths test_videos_360P/ --model_path models/yolov8n.cix
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+# 指定参数
+python multi_video_inference_queue.py --video_paths test_videos_360P/ --model_path models/yolov8n.cix --conf_thr 0.6 --nms_thr 0.5 --timeout 60
+```
+
+</NewCodeBlock>
+
+### 参数说明
+
+| 参数 | 默认值 | 说明 |
+|------|--------|------|
+| `--video_paths` | 必填 | 输入视频文件路径或目录（支持多个） |
+| `--model_path` | 必填 | CIX 量化模型文件路径 |
+| `--conf_thr` | 0.5 | 置信度阈值 |
+| `--nms_thr` | 0.45 | NMS IoU 阈值 |
+| `--target_size` | 640 | 模型输入尺寸 |
+| `--output_dir` | ./output_videos | 无头模式下输出目录 |
+| `--timeout` | 0 | 运行时长限制（秒），0 表示无限制 |
