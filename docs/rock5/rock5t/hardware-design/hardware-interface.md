@@ -197,43 +197,43 @@ description: "详细介绍 ROCK 5T 硬件信息"
     </TabItem>
     <TabItem value="ROCK 5T Industrial V2.01">
         <div className='gpio_style' style={{ overflow :"auto"}} >
-        | Pin |        Name        |                         Description                          |
 
+| Pin |        Name        |                         Description                          |
 | :-: | :----------------: | :----------------------------------------------------------: |
-| 1 | GND | Ground, common reference for electrical circuits |
-| 2 | MIPI_CSI1_RX_D3N | MIPI CSI-1 receive data lane 3 negative |
-| 3 | MIPI_CSI1_RX_D3P | MIPI CSI-1 receive data lane 3 positive |
-| 4 | GND | Ground |
-| 5 | MIPI_CSI1_RX_D2N | MIPI CSI-1 receive data lane 2 negative |
-| 6 | MIPI_CSI1_RX_D2P | MIPI CSI-1 receive data lane 2 positive |
-| 7 | GND | Ground |
-| 8 | MIPI_CSI1_RX_CLK1N | MIPI CSI-1 receive clock lane 1 negative |
-| 9 | MIPI_CSI1_RX_CLK1P | MIPI CSI-1 receive clock lane 1 positive |
-| 10 | GND | Ground |
-| 11 | MIPI_CSI1_RX_D1N | MIPI CSI-1 receive data lane 1 negative |
-| 12 | MIPI_CSI1_RX_D1P | MIPI CSI-1 receive data lane 1 positive |
-| 13 | GND | Ground |
-| 14 | MIPI_CSI1_RX_D0N | MIPI CSI-1 receive data lane 0 negative |
-| 15 | MIPI_CSI1_RX_D0P | MIPI CSI-1 receive data lane 0 positive |
-| 16 | GND | Ground |
-| 17 | MIPI_CSI1_RX_CLK0N | MIPI CSI-1 receive clock lane 0 negative |
-| 18 | MIPI_CSI1_RX_CLK0P | MIPI CSI-1 receive clock lane 0 positive |
-| 19 | GND | Ground |
-| 20 | MIPI_CAM4_CLKOUT | Clock output for MIPI Camera 4 |
-| 21 | GND | Ground |
-| 22 | MIPI_CAM2_CLKOUT | General Purpose Input/Output pin, bank 1 bit 6 |
-| 23 | MIPI_CAM2_PDN_L | Power down signal for MIPI CSI-1, active high |
-| 24 | I2C6_SCL_M0 | I2C bus 3 clock line, master 0 for MIPI interface |
-| 25 | I2C6_SDA_M0 | I2C bus 3 data line, master 0 for MIPI interface |
-| 26 | MIPI_CAM2_PDN2_L | Power down signal for second port of MIPI CSI-1, active high |
-| 27 | CAM2_RST_L | Camera module reset, active low |
-| 28 | VCC_3V3_S3 | 3.3V power supply for Camera 1 |
-| 29 | VCC_3V3_S3 | 3.3V power supply for Camera 1 |
-| 30 | VCC_5V | 3.3V power supply for Camera 1 |
-| 31 | VCC_5V | 3.3V power supply for Camera 1 |
+|  1  |        GND         |       Ground, common reference for electrical circuits       |
+|  2  |  MIPI_CSI1_RX_D3N  |           MIPI CSI-1 receive data lane 3 negative            |
+|  3  |  MIPI_CSI1_RX_D3P  |           MIPI CSI-1 receive data lane 3 positive            |
+|  4  |        GND         |                            Ground                            |
+|  5  |  MIPI_CSI1_RX_D2N  |           MIPI CSI-1 receive data lane 2 negative            |
+|  6  |  MIPI_CSI1_RX_D2P  |           MIPI CSI-1 receive data lane 2 positive            |
+|  7  |        GND         |                            Ground                            |
+|  8  | MIPI_CSI1_RX_CLK1N |           MIPI CSI-1 receive clock lane 1 negative           |
+|  9  | MIPI_CSI1_RX_CLK1P |           MIPI CSI-1 receive clock lane 1 positive           |
+| 10  |        GND         |                            Ground                            |
+| 11  |  MIPI_CSI1_RX_D1N  |           MIPI CSI-1 receive data lane 1 negative            |
+| 12  |  MIPI_CSI1_RX_D1P  |           MIPI CSI-1 receive data lane 1 positive            |
+| 13  |        GND         |                            Ground                            |
+| 14  |  MIPI_CSI1_RX_D0N  |           MIPI CSI-1 receive data lane 0 negative            |
+| 15  |  MIPI_CSI1_RX_D0P  |           MIPI CSI-1 receive data lane 0 positive            |
+| 16  |        GND         |                            Ground                            |
+| 17  | MIPI_CSI1_RX_CLK0N |           MIPI CSI-1 receive clock lane 0 negative           |
+| 18  | MIPI_CSI1_RX_CLK0P |           MIPI CSI-1 receive clock lane 0 positive           |
+| 19  |        GND         |                            Ground                            |
+| 20  |  MIPI_CAM4_CLKOUT  |                Clock output for MIPI Camera 4                |
+| 21  |        GND         |                            Ground                            |
+| 22  |  MIPI_CAM2_CLKOUT  |        General Purpose Input/Output pin, bank 1 bit 6        |
+| 23  |  MIPI_CAM2_PDN_L   |        Power down signal for MIPI CSI-1, active high         |
+| 24  |    I2C6_SCL_M0     |      I2C bus 6 clock line, master 0 for MIPI interface       |
+| 25  |    I2C6_SDA_M0     |       I2C bus 6 data line, master 0 for MIPI interface       |
+| 26  |  MIPI_CAM2_PDN2_L  | Power down signal for second port of MIPI CSI-1, active high |
+| 27  |     CAM2_RST_L     |               Camera module reset, active low                |
+| 28  |     VCC_3V3_S3     |                3.3V power supply for Camera 1                |
+| 29  |     VCC_3V3_S3     |                3.3V power supply for Camera 1                |
+| 30  |       VCC_5V       |                 5V power supply for Camera 1                 |
+| 31  |       VCC_5V       |                 5V power supply for Camera 1                 |
 
 </div>
-</TabItem>
+    </TabItem>
 </Tabs>
 
 摄像头座子采用的是 FH35C-31S-0.3SHW（50），间距 0.3 mm。

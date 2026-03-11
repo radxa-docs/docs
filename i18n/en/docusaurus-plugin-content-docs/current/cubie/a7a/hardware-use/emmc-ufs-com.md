@@ -6,6 +6,10 @@ sidebar_position: 2
 
 The Radxa Cubie A7A features an onboard eMMC/UFS combo module interface that supports installing either eMMC or UFS modules, which can be used as a system boot drive or for expanded storage.
 
+:::danger
+Do not use untested third-party UFS or eMMC modules. Some third-party modules may short the SBC and cause permanent hardware damage, and such damage is not covered by warranty.
+:::
+
 ## User Guide
 
 eMMC modules are suitable for smaller capacity storage (8-128GB), while UFS modules are ideal for larger capacity storage (64GB-1TB).
