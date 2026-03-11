@@ -36,6 +36,7 @@ sudo apt install \
     qtdeclarative5-dev \
     libqt5opengl5-dev \
     qml-module-qtquick-controls \
+    libgles2-mesa-dev \
     qml-module-qtquick2 -y
 ```
 
@@ -80,7 +81,7 @@ Open the system desktop terminal, go to the libcamera build directory, and start
 
 ```bash
 cd libcamera/build/src/apps/qcam/
-./qcam --renderer=gles --stream pixelformat=YUYV,width=1920,height=1080
+./qcam --stream pixelformat=YUYV,width=1920,height=1080
 ```
 
 </NewCodeBlock>

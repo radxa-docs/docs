@@ -65,17 +65,18 @@ sudo ldconfig
 
 ### Modify configuration file
 
-Edit the `/usr/local/share/libcamera/ipa/simple/imx219.yaml` file.
+Enter the `libcamera` directory and edit `libcamera/src/ipa/simple/data/imx219.yaml`.
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-sudo nano /usr/local/share/libcamera/ipa/simple/imx219.yaml
+cd libcamera
+sudo nano src/ipa/simple/data/imx219.yaml
 ```
 
 </NewCodeBlock>
 
-Copy the following content into `/usr/local/share/libcamera/ipa/simple/imx219.yaml`.
+Copy the following content into `src/ipa/simple/data/imx219.yaml`.
 
 ```bash
 # SPDX-License-Identifier: CC0-1.0
@@ -127,3 +128,35 @@ cd libcamera/build/src/apps/qcam/
 ```
 
 </NewCodeBlock>
+
+## Troubleshooting
+
+### Check if the camera is recognized
+
+Use the following command to check if the camera is recognized by the system:
+
+<NewCodeBlock tip='radxa@dragon-q6a$' type="device">
+
+```bash
+sudo dmesg | grep imx
+```
+
+</NewCodeBlock>
+
+If the terminal outputs the following information, the camera is recognized properly:
+
+```text
+[    5.949209] imx219 18-0010: supply VANA not found, using dummy regulator
+[    5.951349] imx219 18-0010: supply VDIG not found, using dummy regulator
+[    5.951506] imx219 18-0010: supply VDDL not found, using dummy regulator
+```
+
+If the terminal outputs the following information, the camera is not recognized by the system, and you need to check if the camera cable is properly installed:
+
+```text
+[    5.949209] imx219 18-0010: supply VANA not found, using dummy regulator
+[    5.951349] imx219 18-0010: supply VDIG not found, using dummy regulator
+[    5.951506] imx219 18-0010: supply VDDL not found, using dummy regulator
+[    5.958515] imx219 18-0010: Error reading reg 0x0000: -6
+[    5.958522] imx219 18-0010: error -ENXIO: failed to read chip id 219
+```
