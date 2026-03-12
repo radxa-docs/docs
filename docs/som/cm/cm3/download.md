@@ -29,6 +29,8 @@ Android:
 ## 第三方镜像
 
 - [Radxa CM3 IO OpenWrt](https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=rockchip%2Farmv8&id=radxa_cm3-io)
+- [Radxa CM3 IO OpenWrt ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_cm3-io-ext4-sysupgrade.img.gz)
+- [Radxa CM3 IO OpenWrt squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_cm3-io-squashfs-sysupgrade.img.gz)
 
 ## 硬件设计
 

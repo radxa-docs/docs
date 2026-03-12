@@ -64,8 +64,12 @@ Armbian 的默认凭据如下：
 - [Radxa Zero 3W OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)
 
 - [OpenWRT 技术数据页面：Radxa Zero 3W](https://openwrt.org/toh/hwdata/radxa/radxa_zero_3w)
+- [Radxa ZERO 3W OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_zero-3w-ext4-sysupgrade.img.gz)
+- [Radxa ZERO 3W OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_zero-3w-squashfs-sysupgrade.img.gz)
 
 - [OpenWRT 技术数据页面：Radxa Zero 3E](https://openwrt.org/toh/hwdata/radxa/radxa_zero_3e)
+- [Radxa ZERO 3E OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_zero-3e-ext4-sysupgrade.img.gz)
+- [Radxa ZERO 3E OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_zero-3e-squashfs-sysupgrade.img.gz)
 
 :::caution
 非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到 [OpenWRT 论坛](https://forum.openwrt.org/) 寻求帮助。

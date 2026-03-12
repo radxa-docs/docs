@@ -39,6 +39,9 @@ OpenWRT 官方支持 Radxa ROCK 5A 设备，您可以从以下链接获取相关
 
 [OpenWRT 技术数据页面：Radxa Rock 5A](https://openwrt.org/toh/hwdata/radxa/radxa_rock_5a)
 
+- [Radxa ROCK 5A OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5a-ext4-sysupgrade.img.gz)
+- [Radxa ROCK 5A OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5a-squashfs-sysupgrade.img.gz)
+
 :::caution
 
 OpenWRT 不是瑞莎官方维护的系统，瑞莎不能保证完整功能，如遇到问题，请到 OpenWRT 社区寻求帮助。

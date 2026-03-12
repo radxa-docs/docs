@@ -27,6 +27,8 @@ Default Armbian credentials:
 | Password | `1234` |
 
 - [Radxa ROCK PI S OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_s)
+- [Radxa ROCK PI S OpenWRT ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-pi-s-ext4-sysupgrade.img.gz)
+- [Radxa ROCK PI S OpenWRT squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-pi-s-squashfs-sysupgrade.img.gz)
 
 - [Radxa ROCK PI S DietPi](https://dietpi.com/downloads/images/DietPi_ROCKPiS-ARMv8-Bookworm.img.xz)
 

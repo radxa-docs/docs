@@ -19,6 +19,7 @@ Except for the above mirrors which have been fully tested officially, the other 
 ### Third-Party Operating System images
 
 - [Radxa ROCK 3B OpenWrt](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3b)
+- [Radxa ROCK 3B OpenWrt ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-3b-ext4-sysupgrade.img.gz)
 
 ## Hardware Design
 
@@ -28,7 +29,7 @@ Except for the above mirrors which have been fully tested officially, the other 
 
 [Radxa_ROCK_3B_V1.51_SCH](https://dl.radxa.com/rock3/docs/hw/3b/Radxa_ROCK_3B_V1.51_SCH.pdf)
 
-- Compents Placement Map
+- Components Placement Map
 
 [Radxa_ROCK_3B_V1.51_SMD](https://dl.radxa.com/rock3/docs/hw/3b/Radxa_ROCK_3B_V1.51_SMD.pdf)
 

@@ -46,3 +46,4 @@ sidebar_position: 20
 ### 第三方操作系统镜像
 
 - [Radxa ROCK 3C OpenWrt](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3c)
+- [Radxa ROCK 3C OpenWrt ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-3c-ext4-sysupgrade.img.gz)
