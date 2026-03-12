@@ -22,6 +22,11 @@ Flippy OpenWrt:
 
 [Flippy OpenWrt Github](https://github.com/unifreq/openwrt_packit)
 
+Official OpenWrt images:
+
+- [Radxa E20C OpenWrt ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_e20c-ext4-sysupgrade.img.gz)
+- [Radxa E20C OpenWrt squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_e20c-squashfs-sysupgrade.img.gz)
+
 :::tip
 This image is a unified image for the ROCK 2 series and supports the following devices based on the RK3528A:
 
