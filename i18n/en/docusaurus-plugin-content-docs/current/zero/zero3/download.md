@@ -64,8 +64,12 @@ Default Armbian credentials:
 - [Radxa Zero 3w OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)
 
 - [OpenWRT Technical Data Page: Radxa Zero 3W](https://openwrt.org/toh/hwdata/radxa/radxa_zero_3w)
+- [Radxa ZERO 3W OpenWRT ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_zero-3w-ext4-sysupgrade.img.gz)
+- [Radxa ZERO 3W OpenWRT squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_zero-3w-squashfs-sysupgrade.img.gz)
 
 - [OpenWRT Technical Data Page: Radxa Zero 3E](https://openwrt.org/toh/hwdata/radxa/radxa_zero_3e)
+- [Radxa ZERO 3E OpenWRT ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_zero-3e-ext4-sysupgrade.img.gz)
+- [Radxa ZERO 3E OpenWRT squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_zero-3e-squashfs-sysupgrade.img.gz)
 
 :::caution
 These images are not maintained by Radxa officially. Radxa cannot guarantee full functionality. If you encounter any problems, please seek help from the [OpenWRT Forum](https://forum.openwrt.org/).

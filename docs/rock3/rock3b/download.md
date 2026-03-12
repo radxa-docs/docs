@@ -19,6 +19,7 @@ import Images from "./\_image.mdx"
 ### 第三方操作系统镜像
 
 - [Radxa ROCK 3B OpenWrt](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3b)
+- [Radxa ROCK 3B OpenWrt ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-3b-ext4-sysupgrade.img.gz)
 
 ## 硬件设计
 

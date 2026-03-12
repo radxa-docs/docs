@@ -22,5 +22,9 @@ Default Armbian credentials:
 | Password | `1234` |
 
 - [Radxa ROCK Pi E OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_e)
+- [Radxa ROCK Pi E OpenWRT ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-pi-e-ext4-sysupgrade.img.gz)
+- [Radxa ROCK Pi E OpenWRT squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-pi-e-squashfs-sysupgrade.img.gz)
 
 - [Radxa ROCK Pi E V3.0 OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_e-v3.0)
+- [Radxa ROCK Pi E V3.0 OpenWRT ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-pi-e-v3-ext4-sysupgrade.img.gz)
+- [Radxa ROCK Pi E V3.0 OpenWRT squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-pi-e-v3-squashfs-sysupgrade.img.gz)

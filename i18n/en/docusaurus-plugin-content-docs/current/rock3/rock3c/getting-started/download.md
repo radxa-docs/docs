@@ -47,3 +47,4 @@ Except for the above mirrors which have been fully tested officially, the other 
 ### Third-Party Operating System images
 
 - [Radxa ROCK 3C OpenWrt](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3c)
+- [Radxa ROCK 3C OpenWrt ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-3c-ext4-sysupgrade.img.gz)

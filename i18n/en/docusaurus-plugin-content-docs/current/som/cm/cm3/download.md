@@ -29,6 +29,8 @@ Android:
 ## Third Part Images
 
 - [Radxa CM3 IO OpenWrt](https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=rockchip%2Farmv8&id=radxa_cm3-io)
+- [Radxa CM3 IO OpenWrt ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_cm3-io-ext4-sysupgrade.img.gz)
+- [Radxa CM3 IO OpenWrt squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_cm3-io-squashfs-sysupgrade.img.gz)
 
 ## Hardware Design
 
@@ -36,7 +38,7 @@ Android:
 
   [Radxa CM3 Datasheet](https://dl.radxa.com/cm3/docs/radxa_cm3_datasheet.pdf)
 
-- Schmatic
+- Schematic
 
   [Radxa CM3 V1.31 Schematic](https://dl.radxa.com/cm3/docs/hw/RADXA_CM3_V1.31A_SCH_20221010.pdf)
 

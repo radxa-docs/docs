@@ -68,6 +68,13 @@ ROCK 4SE:
 
 - [Android TV by Mo123](https://forum.radxa.com/t/libreelec-rockpi-4/1869)
 
+#### OpenWRT
+
+- [Radxa ROCK Pi 4A OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-pi-4a-ext4-sysupgrade.img.gz)
+- [Radxa ROCK Pi 4A OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-pi-4a-squashfs-sysupgrade.img.gz)
+- [Radxa ROCK 4SE OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4se-ext4-sysupgrade.img.gz)
+- [Radxa ROCK 4SE OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4se-squashfs-sysupgrade.img.gz)
+
 ## Datasheet
 
 - [ROCK 4A/B 的 SOC RK3399 datasheet](http://rockchip.fr/RK3399%20datasheet%20V1.8.pdf)

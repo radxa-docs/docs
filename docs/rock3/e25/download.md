@@ -13,3 +13,5 @@ Debian OS:
 OpenWRT:
 
 - [Radxa E25 OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_e25)
+- [Radxa E25 OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_e25-ext4-sysupgrade.img.gz)
+- [Radxa E25 OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_e25-squashfs-sysupgrade.img.gz)

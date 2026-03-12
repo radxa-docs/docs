@@ -34,7 +34,7 @@ Android：
     [ROCK 5B Android 12 GPT Image](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240419/Rock5B_Android12_rkr14_20240419-gpt.zip)(used for booting from sdcard/emmc)
 
     [ROCK 5B Android 12 RKupdate Image](https://github.com/radxa/manifests/releases/download/Rock-android12-20221104/ROCK-5B-Android12-rkr10-20221103-spi-nvme-rkupdate.zip)(used for booting from SPI-NVME)
-    
+
     [ROCK_5B+_Android12_gpt](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SD-or-eMMC-20240705-1-gpt.zip)(used for booting from sdcard/emmc)
 
     [ROCK_5B+_Android12_update](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SPI_NVME-20240705-update.zip)(used for booting from SPI-NVME)
@@ -103,7 +103,7 @@ Android：
     <tr>
         <td align="center"><img src="/img/rock5b/downloads/openwrt.webp" alt="OpenWRT" style={{ width: "70%" }} /></td>
         <td align="center">OpenWRT is a Linux operating system for embedded devices. It provides a fully writable filesystem with package management, allowing you to freely choose and customize applications and features on your device.</td>
-        <td align="center"><a href="https://openwrt.org/toh/hwdata/radxa/radxa_rock_5b" >OpenWRT Technical Data Page: Radxa Rock 5B</a><br /><br /><a href="https://openwrt.org/" >OpenWRT Official Website</a><br /><br /><a href="https://forum.openwrt.org/" >OpenWRT Forum</a></td>
+        <td align="center"><a href="https://openwrt.org/toh/hwdata/radxa/radxa_rock_5b" >OpenWRT Technical Data Page: Radxa Rock 5B</a><br /><br /><a href="https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5b-ext4-sysupgrade.img.gz" >ROCK 5B OpenWRT ext4 sysupgrade image</a><br /><br /><a href="https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5b-squashfs-sysupgrade.img.gz" >ROCK 5B OpenWRT squashfs sysupgrade image</a><br /><br /><a href="https://openwrt.org/" >OpenWRT Official Website</a><br /><br /><a href="https://forum.openwrt.org/" >OpenWRT Forum</a></td>
     </tr>
 
 </table>

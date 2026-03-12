@@ -39,6 +39,9 @@ OpenWRT officially supports Radxa ROCK 5A devices. You can get related firmware 
 
 [OpenWRT Technical Data Page: Radxa Rock 5A](https://openwrt.org/toh/hwdata/radxa/radxa_rock_5a)
 
+- [Radxa ROCK 5A OpenWRT ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5a-ext4-sysupgrade.img.gz)
+- [Radxa ROCK 5A OpenWRT squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5a-squashfs-sysupgrade.img.gz)
+
 :::caution
 
 OpenWRT is not maintained by Radxa officially. Radxa cannot guarantee full functionality. If you encounter any problems, please seek help from the OpenWRT community.
