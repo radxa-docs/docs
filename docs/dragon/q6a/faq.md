@@ -121,3 +121,18 @@ vim /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.
 </NewCodeBlock>
 
 修改文件中的 `sleep-inactive-ac-timeout` 和 `sleep-inactive-battery-timeout` 参数默认值为 `0`，然后重启系统即可使更改生效。
+
+## 为什么调用硬件编码器会导致 Q6A 直接重启？
+
+在使用硬件编码器前，需要先在 BIOS 中启用相关配置：
+
+`Hypervisor Settings -> Hypervisor Override in UEFI Setup`
+
+开机时按 `F2` 即可进入 UEFI Setup。
+
+如果没有启用该选项，调用硬件编码器时系统可能会直接重启。
+
+启用硬件编码器后，会有以下影响：
+
+- 系统会以 `EL2` 而不是 `EL1` 启动，此时**可以**使用 KVM
+- `/dev/mtd0` 会消失，因此不能直接在板子上更新 SPI 固件

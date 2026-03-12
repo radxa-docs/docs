@@ -119,3 +119,18 @@ vim /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.
 </NewCodeBlock>
 
 Modify the `sleep-inactive-ac-timeout` and `sleep-inactive-battery-timeout` parameters in the file to have a default value of `0`, then restart the system for the changes to take effect.
+
+## Why does Q6A reboot immediately when using the hardware encoder?
+
+Before using the hardware encoder, you need to enable the following option in BIOS:
+
+`Hypervisor Settings -> Hypervisor Override in UEFI Setup`
+
+You can enter UEFI Setup by pressing `F2` during boot.
+
+If this option is not enabled, calling the hardware encoder may cause the system to reboot immediately.
+
+After enabling the hardware encoder, the following changes apply:
+
+- The system boots in `EL2` instead of `EL1`, and KVM **can** be used
+- `/dev/mtd0` disappears, so you cannot update the SPI firmware directly on the board
