@@ -59,16 +59,13 @@ Make sure the downloaded image matches your product model. Extract the image bef
 
 ### Enter Maskrom Mode
 
-{props?.maskrom_page ? (
+{props?.maskrom_page ? (<p>
+Please refer to <a href={props.maskrom_page}>Maskrom Guide</a>.
 
-{" "}
-
-<p>
-  Please refer to <a href={props.maskrom_page}>Maskrom Guide</a>.
-</p>
-) : (<p>
-  Please follow the corresponding product documentation to enter Maskrom mode.
-</p>
+</p>) : (
+  <p>
+    Please follow the corresponding product documentation to enter Maskrom mode.
+  </p>
 )}
 
 ### Windows
@@ -86,17 +83,14 @@ Make sure the downloaded image matches your product model. Extract the image bef
 
 ### Linux
 
-{props?.linux_page ? (
+{props?.linux_page ? (<p>
+Please refer to <a href={props.linux_page}>Linux flashing guide</a>.
 
-{" "}
-
-<p>
-  Please refer to <a href={props.linux_page}>Linux flashing guide</a>.
-</p>
-) : (<p>
-  Please use `rkdeveloptool` or `upgrade_tool` according to the corresponding
-  product documentation.
-</p>
+</p>) : (
+  <p>
+    Please use `rkdeveloptool` or `upgrade_tool` according to the corresponding
+    product documentation.
+  </p>
 )}
 
 </TabItem>

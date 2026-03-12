@@ -59,14 +59,10 @@ import Rkdevtool from "../../dev/_rkdevtoolV3.mdx";
 
 ### 进入 Maskrom 模式
 
-{props?.maskrom_page ? (
+{props?.maskrom_page ? (<p>
+请参考 <a href={props.maskrom_page}>Maskrom 操作说明</a>。
 
-{" "}
-
-<p>
-  请参考 <a href={props.maskrom_page}>Maskrom 操作说明</a>。
-</p>
-) : (<p>请根据对应产品文档进入 Maskrom 模式。</p>
+</p>) : (<p>请根据对应产品文档进入 Maskrom 模式。</p>
 )}
 
 ### Windows
@@ -84,14 +80,10 @@ import Rkdevtool from "../../dev/_rkdevtoolV3.mdx";
 
 ### Linux
 
-{props?.linux_page ? (
+{props?.linux_page ? (<p>
+请参考 <a href={props.linux_page}>Linux 刷机说明</a>。
 
-{" "}
-
-<p>
-  请参考 <a href={props.linux_page}>Linux 刷机说明</a>。
-</p>
-) : (<p>请根据对应产品文档使用 `rkdeveloptool` 或 `upgrade_tool` 进行刷机。</p>
+</p>) : (<p>请根据对应产品文档使用 `rkdeveloptool` 或 `upgrade_tool` 进行刷机。</p>
 )}
 
 </TabItem>
