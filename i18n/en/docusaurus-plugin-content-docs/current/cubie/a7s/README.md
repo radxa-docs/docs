@@ -50,7 +50,7 @@ For connectivity, it provides Gigabit Ethernet, Wi‑Fi 6, and Bluetooth 5.4. St
 | PCIe                  | 1× FPC connector (PCIe 3.0 x1)<br />- Supports NVMe SSD expansion                                                                                  |
 | Other I/O             | 1× fan header<br />1× USB BOOT button<br />15‑pin and 30‑pin GPIO headers<br />- UART, I2C, I2S, PWM, GPIOs, etc.                                  |
 | Power                 | USB Type‑C (5V input)                                                                                                                              |
-| OS                    | Debian, Android 13                                                                                                                                 |
+| OS                    | Debian                                                                                                                                             |
 | Dimensions            | 51 mm × 51 mm                                                                                                                                      |
 | Operating temperature | 0–60°C                                                                                                                                             |
 
@@ -100,4 +100,4 @@ Cubie A7S is based on the Allwinner A733 SoC and supports multiple operating sys
 - Debian Linux
 - Buildroot
 - Tina Linux
-- Android 13
+
