@@ -21,6 +21,8 @@ import { Section, Image } from "@site/src/utils/docs";
 <Section compatible="cix" platform={props.platform}>
 基于 CIX 芯片的瑞莎产品，UART 默认配置为 115200n8，无流量控制。
 
+对于星睿 O6 的 EC UART，如使用 `edk2-cix` `1.0.0-1` 及更早版本，请改用 `460800n8` 连接；该例外仅适用于 EC 日志串口，不影响默认的 AP / 系统控制台 UART。
+
 </Section>
 
 <Section compatible="aml" platform={props.platform}>
