@@ -11,7 +11,7 @@ imports_resolve_to:
 
 import NVME from '../../../../common/dev/\_nvme.mdx';
 
-<NVME model="rock-5-itx" release_num="b3" desktop="kde" rsetup_path="../os-config/rsetup" etcher_path="./etcher" download_path="../../download" pwr="12V/8A DC" />
+<NVME model="rock-5-itx" release_num="b3" desktop="kde" rsetup_path="../../radxa-os/rsetup" etcher_path="./microsd-boot-disk" download_path="../../download" pwr="12V/8A DC" />
 
 :::tip
 系统从上电到开机启动，整个过程持续约53秒，然后进入系统桌面。
