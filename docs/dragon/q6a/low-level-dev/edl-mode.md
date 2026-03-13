@@ -10,6 +10,8 @@ sidebar_position: 1
 
 主板上电前，按住 EDL 按键；主板上电后，松开 EDL 按键，进入 EDL 模式。
 
+如果不确定按键位置，可先参考 [Q6A 硬件信息中的接口说明](../hardware-use/hardware-info#接口说明)。
+
 具体操作步骤：
 
 ① ： 按住 EDL 按键
