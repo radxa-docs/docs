@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+warn_only=false
+
+if [[ "${1:-}" == "--warn-only" ]]; then
+  warn_only=true
+  shift
+fi
+
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
@@ -61,7 +68,11 @@ new_docs_count="$(wc -l <"$new_docs_only_tmp" | awk '{print $1}')"
 new_i18n_count="$(wc -l <"$new_i18n_only_tmp" | awk '{print $1}')"
 
 if [[ "$new_docs_count" -gt 0 || "$new_i18n_count" -gt 0 ]]; then
-  echo "ERROR: new docs/i18n drift detected against baseline."
+  if [[ "$warn_only" == true ]]; then
+    echo "WARNING: new docs/i18n drift detected against baseline."
+  else
+    echo "ERROR: new docs/i18n drift detected against baseline."
+  fi
   if [[ "$new_docs_count" -gt 0 ]]; then
     echo
     echo "[new_docs_only]"
@@ -74,6 +85,10 @@ if [[ "$new_docs_count" -gt 0 || "$new_i18n_count" -gt 0 ]]; then
   fi
   echo
   echo "If this drift is intentional, update $BASELINE_FILE in the same PR."
+  if [[ "$warn_only" == true ]]; then
+    echo "agent-doc-drift-guard completed with warnings."
+    exit 0
+  fi
   exit 1
 fi
 

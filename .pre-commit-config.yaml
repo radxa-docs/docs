@@ -148,6 +148,8 @@ repos:
         name: Agent doc drift guard
         language: system
         entry: scripts/agent-doc-drift-guard.sh
+        args:
+          - --warn-only
         pass_filenames: false
         files: '^(docs|i18n/en/docusaurus-plugin-content-docs/current)/.*\.(md|mdx)$'
         stages:

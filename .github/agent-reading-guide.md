@@ -52,5 +52,6 @@
 - 规范：`AGENT-DOC-SPEC.md`
 - 页面模板：`.github/agent-doc-page-template.md`
 - 校验脚本：`scripts/agent-doc-lint.sh`
-- 漂移门禁：`scripts/agent-doc-drift-guard.sh`
+- 漂移校验：`scripts/agent-doc-drift-guard.sh`
+  本地 pre-commit 仅警告；CI 仍按阻塞模式执行
 - 翻译占位门禁：`scripts/agent-doc-translation-guard.sh`
