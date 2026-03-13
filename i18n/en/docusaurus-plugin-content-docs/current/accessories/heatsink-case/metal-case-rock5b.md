@@ -16,6 +16,7 @@ Radxa has designed a specially customized metal case for the ROCK 5 Model B sing
 - 1x Rear plastic plate
 - 1x Bottom cover
 - 4x KM2x8 screws for installing bottom cover
+- Screw pack contents: 4x board-side standoff screws, 4x case-side standoff screws, and 5x case screws
 
 # Physical picture
 
@@ -39,7 +40,7 @@ Radxa has designed a specially customized metal case for the ROCK 5 Model B sing
 
 <img src="/en/img/accessories/heatsink-case/use-metal-case-4.webp" alt="use metal case 4" />
 
-- Finally the bottom cover is secured with screws.
+- Finally, secure the bottom cover with the case screws. The package includes 5 case screws in total, and 4 of them are used for the bottom cover.
 
 # Mechanical Specification
 
