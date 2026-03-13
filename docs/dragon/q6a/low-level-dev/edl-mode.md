@@ -12,6 +12,8 @@ sidebar_position: 1
 
 具体操作步骤：
 
+EDL 按键位置可参考 [EDL 按键](../hardware-use/edl) 页面。
+
 ① ： 按住 EDL 按键
 
 ② ： 连接 12V Type-C 电源适配器（兼容 PD 协议）
