@@ -50,7 +50,7 @@ sidebar_position: 4
 | PCIe           | 1X FPC 接口 (PCIe 3.0 x1)<br />- 支持拓展 NVMe 固态硬盘                                                                                                          |
 | 其他接口       | 1X 风扇接口<br />1X USB BOOT 按键 <br />15-Pin 和 30-Pin GPIO 排针<br />- 支持 UART, I2C, I2S, PWM, GPIOs 等功能                                                 |
 | 供电方式       | USB Type-C (5V 电源输入)                                                                                                                                         |
-| 操作系统       | 支持 Debian Linux                                                                                                                                                 |
+| 操作系统       | 支持 Debian Linux、Buildroot、Tina Linux 等系统                                                                                                                  |
 | 机械尺寸       | 51 毫米 x 51 毫米                                                                                                                                                |
 | 工作温度       | 0 - 60°C                                                                                                                                                         |
 
@@ -95,7 +95,7 @@ sidebar_position: 4
 
 ## 系统平台
 
-Cubie A7S 基于全志 A733 SoC，支持多种操作系统：
+Cubie A7S 基于全志 A733 SoC，目前支持以下系统：
 
 - Debian Linux
 - Buildroot
