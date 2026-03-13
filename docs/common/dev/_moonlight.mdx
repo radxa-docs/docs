@@ -19,7 +19,7 @@ sudo apt-get update
 sudo apt-get install libegl1-mesa-dev libgl1-mesa-dev libopus-dev libsdl2-dev libsdl2-ttf-dev libssl-dev \
 libavcodec-dev libavformat-dev libswscale-dev libva-dev libvdpau-dev libxkbcommon-dev wayland-protocols \
 libdrm-dev qt6-base-dev qt6-declarative-dev libqt6svg6-dev qml6-module-qtquick-controls qml6-module-qtquick-templates \
-qml6-module-qtquick-layouts qml6-module-qtqml-workerscript qml6-module-qtquick-window qml6-module-qtquick
+qml6-module-qtquick-layouts qml6-module-qtqml-workerscript qml6-module-qtquick-window qml6-module-qtquick zlib1g-dev
 ```
 
 ## 获取 Moonlight 源码
@@ -33,9 +33,11 @@ git submodule update --init --recursive
 ## 添加 rockchip-ffmpeg 路径及依赖参数
 
 ```bash
-echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> app/app.pro
-echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> moonlight-qt.pro
+echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale -lz' >> app/app.pro
+echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale -lz' >> moonlight-qt.pro
 ```
+
+如果链接阶段报错 `undefined reference to symbol 'inflateEnd'` 或 `DSO missing from command line`，请确认已经安装 `zlib1g-dev`，并且上面的 `LIBS +=` 行包含了 `-lz`。
 
 ## 编译 Moonlight
 

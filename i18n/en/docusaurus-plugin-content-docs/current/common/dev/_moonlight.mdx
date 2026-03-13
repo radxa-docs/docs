@@ -19,7 +19,7 @@ sudo apt-get update
 sudo apt-get install libegl1-mesa-dev libgl1-mesa-dev libopus-dev libsdl2-dev libsdl2-ttf-dev libssl-dev \
 libavcodec-dev libavformat-dev libswscale-dev libva-dev libvdpau-dev libxkbcommon-dev wayland-protocols \
 libdrm-dev qt6-base-dev qt6-declarative-dev libqt6svg6-dev qml6-module-qtquick-controls qml6-module-qtquick-templates \
-qml6-module-qtquick-layouts qml6-module-qtqml-workerscript qml6-module-qtquick-window qml6-module-qtquick
+qml6-module-qtquick-layouts qml6-module-qtqml-workerscript qml6-module-qtquick-window qml6-module-qtquick zlib1g-dev
 ```
 
 ## Clone Moonlight source code
@@ -33,9 +33,11 @@ git submodule update --init --recursive
 ## Add rockchip-ffmpeg path and dependency parameters
 
 ```bash
-echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> app/app.pro
-echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> moonlight-qt.pro
+echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale -lz' >> app/app.pro
+echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale -lz' >> moonlight-qt.pro
 ```
+
+If the linker reports `undefined reference to symbol 'inflateEnd'` or `DSO missing from command line`, make sure `zlib1g-dev` is installed and that the `LIBS +=` lines above include `-lz`.
 
 ## Compile Moonlight
 
