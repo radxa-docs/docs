@@ -29,6 +29,12 @@ wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta
 sudo apt install -y ./rockpi-penta-0.2.2.deb
 ```
 
+:::note Scope
+The `rockpi-penta` package and installation steps on this page are only documented for validated use on official Radxa Debian / Ubuntu images.
+
+If you are using a non-Radxa platform such as Raspberry Pi 5, or a different distribution such as Debian 13 Trixie, `rockpi-penta` may not work as-is because of GPIO / `libgpiod` environment differences. Those combinations are currently outside the scope of this page.
+:::
+
 ### Software configuration
 
 After installing the package, if you need to modify the configuration, you can edit the configuration file `/etc/rockpi-penta.conf`, the following is the default value of the configuration file.

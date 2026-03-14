@@ -29,6 +29,12 @@ wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta
 sudo apt install -y ./rockpi-penta-0.2.2.deb
 ```
 
+:::note 适用范围
+当前页面里的 `rockpi-penta` 软件包与安装步骤仅覆盖 Radxa 官方 Debian / Ubuntu 镜像上的验证场景。
+
+如果你是在 Raspberry Pi 5 等非 Radxa 平台上，或者使用 Debian 13 Trixie 这类不同发行版，`rockpi-penta` 可能因为 GPIO / `libgpiod` 环境差异而无法直接工作；这类组合目前不在本页步骤的支持范围内。
+:::
+
 ### 软件配置
 
 安装软件包后，如果需要修改配置，可以编辑配置文件 `/etc/rockpi-penta.conf`，下面是配置文件的默认值。
