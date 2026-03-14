@@ -35,3 +35,49 @@ Example:
 } write-sector ${props?.start_sector ?? "<start-sector>"} ${
   props?.image_file ?? "<path-to-image-file>"
 }`}</code>
+
+## How to tell whether flashing succeeded
+
+The exact `edl-ng` output can vary slightly by version, host OS, and USB connection state, but you can usually judge the result using the checks below.
+
+### Common signs of a successful flash
+
+- The terminal shows the device entering the `Sahara` / `Firehose` stages.
+- The terminal shows ongoing write progress or chunked write messages.
+- The command finishes normally and returns to the shell prompt.
+- **No error keywords such as `error`, `failed`, `timeout`, `sahara error`, or `firehose error` appear during the whole process.**
+
+Reference output example (actual wording may differ by version):
+
+```text
+$ edl-ng --loader prog_firehose_ddr.elf --memory ufs write-sector 0 radxa-dragon-q6a_noble_kde_t4.output_4096.img
+[Info] Detected Qualcomm device in Sahara mode
+[Info] Uploading loader: prog_firehose_ddr.elf
+[Info] Loader uploaded successfully
+[Info] Switching to Firehose mode
+[Info] Writing image to sector 0
+[Info] ... writing data ...
+[Info] Operation completed successfully
+```
+
+### Common signs of a failed flash
+
+- The terminal shows errors such as `error`, `failed`, `timeout`, `sahara`, `firehose`, `cannot open`, or `no device detected`.
+- The command stops midway through writing, or hangs for a long time and then exits.
+- The command exits without a normal completion message and does not finish the full write.
+
+Common failure examples:
+
+```text
+[Error] No device detected in Sahara mode
+[Error] Failed to upload loader
+[Error] Firehose configure failed
+[Error] Timeout while writing sector data
+```
+
+### If you are not sure whether it succeeded
+
+1. Put the board back into EDL mode and run the flash command again.
+2. Try a known-good USB Type-A to Type-A data cable.
+3. Make sure you are using the extracted image file and that the file path is correct.
+4. Keep the last few dozen terminal log lines for troubleshooting.

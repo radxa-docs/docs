@@ -35,3 +35,49 @@ edl-ng --loader <path-to-loader> --memory <storage-type> write-sector <start-sec
 } write-sector ${props?.start_sector ?? "<start-sector>"} ${
   props?.image_file ?? "<path-to-image-file>"
 }`}</code>
+
+## 如何判断烧录成功或失败
+
+`edl-ng` 的具体输出会因版本、主机系统和 USB 状态略有不同，但通常可以按下面的方法判断结果：
+
+### 成功时常见特征
+
+- 终端中可以看到设备进入 `Sahara` / `Firehose` 阶段。
+- 终端中可以看到持续写入的进度或分块写入信息。
+- 命令最终正常结束并返回 shell 提示符。
+- **整个过程中没有出现 `error`、`failed`、`timeout`、`sahara error`、`firehose error` 等报错关键词。**
+
+参考输出示例（不同版本输出可能不同，仅用于帮助判断）：
+
+```text
+$ edl-ng --loader prog_firehose_ddr.elf --memory ufs write-sector 0 radxa-dragon-q6a_noble_kde_t4.output_4096.img
+[Info] Detected Qualcomm device in Sahara mode
+[Info] Uploading loader: prog_firehose_ddr.elf
+[Info] Loader uploaded successfully
+[Info] Switching to Firehose mode
+[Info] Writing image to sector 0
+[Info] ... writing data ...
+[Info] Operation completed successfully
+```
+
+### 失败时常见特征
+
+- 终端中出现 `error`、`failed`、`timeout`、`sahara`、`firehose`、`cannot open`、`no device detected` 等错误信息。
+- 命令在写入过程中中断，或长时间卡住后退出。
+- 命令退出后没有正常完成提示，且没有完成全部写入。
+
+常见失败示例：
+
+```text
+[Error] No device detected in Sahara mode
+[Error] Failed to upload loader
+[Error] Firehose configure failed
+[Error] Timeout while writing sector data
+```
+
+### 如果不确定是否成功
+
+1. 重新让主板进入 EDL 模式后再执行一次烧录命令。
+2. 更换一根稳定的 USB Type-A to Type-A 数据线。
+3. 确认使用的是解压后的镜像文件，并且路径中没有写错。
+4. 保留终端最后几十行日志，便于后续排查。
