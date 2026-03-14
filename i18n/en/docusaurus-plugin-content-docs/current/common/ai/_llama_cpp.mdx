@@ -23,7 +23,7 @@ git clone https://github.com/ggml-org/llama.cpp.git
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-sudo apt install cmake gcc g++
+sudo apt install cmake gcc g++ libcurl4-openssl-dev
 ```
 
 </NewCodeBlock>
@@ -39,15 +39,18 @@ cmake --build build --config Release -j$(nproc)
 
 </NewCodeBlock>
 
-:::info[KleidiAI]
+:::info[ARMv9]
 On devices using the ARMv9 architecture, such as [Radxa Orion O6 / O6N](/orion/o6), you can enable the `armv9-a` and KleidiAI build options for hardware-level optimization.
+
+**Please use `4aced7a` commit**.
 :::
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
+git checkout 4aced7a
 cmake -B build -DGGML_NATIVE=OFF -DGGML_CPU_ARM_ARCH=armv9-a+i8mm+dotprod -DGGML_CPU_KLEIDIAI=ON
-cmake --build build --config Release
+cmake --build build --config Release -j$(nproc)
 ```
 
 </NewCodeBlock>
@@ -60,7 +63,7 @@ llama.cpp integrates the Arm KleidiAI library, which provides highly optimized m
 
 ```bash
 cmake -B build -DGGML_CPU_KLEIDIAI=ON
-cmake --build build --config Release
+cmake --build build --config Release -j$(nproc)
 ```
 
 </NewCodeBlock>
