@@ -1,0 +1,129 @@
+Multi-stream Video Object Detection with YOLOv8 on RK3588 NPU
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/general-tutorial/rknn/yolov8-multi-stream.webp"
+    style={{ width: "85%" }}
+  />
+</div>
+
+## Features
+
+- **Multi-stream Processing**: Supports 9+ video streams simultaneously
+- **3-core NPU Acceleration**: Fully utilizes RK3588's 3 NPU cores
+- **Pipeline Architecture**: Decode → NPU Inference → Post-processing → Display
+- **Real-time Display**: Grid display with frame rate statistics (video FPS + inference FPS)
+- **Letterbox Preprocessing**: Maintains aspect ratio to ensure detection accuracy
+
+## Installation
+
+### Clone Project Repository
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+git clone https://github.com/ZIFENG278/RK3588-Multi-Stream-YOLOv8-Detection.git
+```
+
+</NewCodeBlock>
+
+### Install Dependencies
+
+:::tip
+Please install dependencies in a Python <a href={props?.venv_usage ?? '../venv-usage'}>virtual environment</a>
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install rknn-toolkit-lite2 opencv-python
+```
+
+</NewCodeBlock>
+
+## Usage
+
+### Basic Run (9 streams, 3 cores)
+
+:::tip
+--video-dir: Please specify the folder containing video files
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python3 main_rknn_pipeline.py --video-dir ./video
+```
+
+</NewCodeBlock>
+
+### No Display Mode (suitable for testing)
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python3 main_rknn_pipeline.py --video-dir ./video --no-display --max-frames 100
+```
+
+</NewCodeBlock>
+
+### Custom Parameters
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python3 main_rknn_pipeline.py \
+    --num-streams 6 \
+    --num-cores 3 \
+    --model yolov8n-i8-3588.rknn \
+    --video-dir video \
+    --conf-threshold 0.5 \
+    --iou-threshold 0.45
+```
+
+</NewCodeBlock>
+
+## Command Line Parameters
+
+| Parameter          | Default              | Description             |
+| ------------------ | -------------------- | ----------------------- |
+| `--num-streams`    | 9                    | Number of video streams |
+| `--num-cores`      | 3                    | NPU core count (1-3)    |
+| `--model`          | yolov8n-i8-3588.rknn | Model file path         |
+| `--video-dir`      | video                | Video directory         |
+| `--conf-threshold` | 0.4                  | Confidence threshold    |
+| `--iou-threshold`  | 0.45                 | NMS IoU threshold       |
+| `--no-display`     | False                | Disable display         |
+| `--max-frames`     | None                 | Limit number of frames  |
+
+## Performance Reference
+
+### Test Conditions
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python main_rknn_pipeline.py \
+    --num-streams 9 \
+    --num-cores 3 \
+    --model yolov8n-i8-3588.rknn \
+    --video-dir video \
+    --max-frames 1000
+```
+
+</NewCodeBlock>
+
+| Hardware | Memory | Video Count | NPU Cores | Model   | Quantization | Frames |
+| -------- | ------ | ----------- | --------- | ------- | ------------ | ------ |
+| ROCK5B+  | 8GB    | 9           | 3         | yolov8n | INT8         | 1000   |
+
+### Test Results
+
+| Stage         | Time (avg ms) |
+| ------------- | ------------- |
+| Decode        | 2.24          |
+| Preprocess    | 2.00          |
+| NPU Inference | 25.77         |
+| Post-process  | 15.66         |
+| Draw          | 1.43          |
+| **Total**     | **47.10**     |
