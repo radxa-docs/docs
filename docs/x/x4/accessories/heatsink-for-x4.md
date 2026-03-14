@@ -4,6 +4,15 @@ sidebar_position: 15
 
 # 瑞莎 X4 专用散热器
 
+## 规格参数
+
+- 适配型号：Radxa X4
+- 材质：铝合金外壳
+- 整体尺寸：97 x 75 x 72 毫米
+- 风扇转速：4000rpm ± 10%
+- 风扇接口：2-Pin 1.25mm 间距接口
+- 供电规格：5V DC
+
 ## 配件清单
 
 ![install_heatsink_01](/img/x/x4/heatsink_for_x4_01.webp)
