@@ -77,6 +77,8 @@ radxa@rock-5a:~$
 
 ## Software Support
 
+Note: the current `rockpi-penta` package is validated on Radxa Debian/Ubuntu images. When running Debian Trixie on a Raspberry Pi 5, `rockpi-penta.service` is known to fail to drive the fan or OLED because of `libgpiod` / GPIO interface differences; that combination is currently outside the support scope of this guide.
+
 To make the OLED display and fan on the top panel work properly, we provide the rockpi-penta software package, which can be installed with the following commands.
 
 ```bash

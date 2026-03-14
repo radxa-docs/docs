@@ -20,6 +20,8 @@ Radxa Penta SATA HAT 有一个 2x5 的座子，座子的信号如下：
 
 ## 软件支持
 
+注意：当前 `rockpi-penta` 软件包按 Radxa 的 Debian/Ubuntu 系统验证。若你在 Raspberry Pi 5 上使用 Debian Trixie，已知可能因为 `libgpiod` / GPIO 接口差异导致 `rockpi-penta.service` 无法正常驱动风扇或 OLED；这种组合目前不在本文档的支持范围内。
+
 为了让顶板的 OLED 显示屏和风扇正常工作，我们提供了 `rockpi-penta` 软件包，可以通过下面的命令安装。
 
 ```shell

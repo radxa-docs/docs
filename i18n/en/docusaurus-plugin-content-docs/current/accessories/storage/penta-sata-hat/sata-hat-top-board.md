@@ -20,6 +20,8 @@ This seat can be used to link to the top plate, which has a 0.91 inch OLED displ
 
 ## Software support
 
+Note: the current `rockpi-penta` package is validated on Radxa Debian/Ubuntu images. When running Debian Trixie on a Raspberry Pi 5, `rockpi-penta.service` is known to fail to drive the fan or OLED because of `libgpiod` / GPIO interface differences; that combination is currently outside the support scope of this guide.
+
 In order to get the top panel OLED display and fan working properly, we provide the `rockpi-penta` package, which can be installed with the following command.
 
 ```shell
