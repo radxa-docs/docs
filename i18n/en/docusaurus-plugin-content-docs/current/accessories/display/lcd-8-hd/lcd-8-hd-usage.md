@@ -53,8 +53,9 @@ Recommended [Radxa PD 30W Adapter](../../power/pd_30w).
 
 3. Connect the monitor or USB serial port debugging, power into the system
 
-4. Enable the overlay option of `Radxa Display 8 HD' via the terminal, see Device Tree Settings.
-<!-- [Device Tree Settings](/radxa-os/rsetup/devicetree) for details. -->
+4. Enable the `Radxa Display 8 HD` overlay via the terminal. For the board-specific overlay steps, refer to:
+   - [ROCK 5A MIPI DSI](../../../rock5/rock5a/getting-started/interface-usage/mipi-dsi)
+   - [ROCK 5B / 5B+ MIPI DSI](../../../rock5/rock5b/getting-started/interface-usage/mipi-dsi)
 
 5. Reboot the SBC to apply overlay and the display will output a screen.
 
@@ -158,8 +159,10 @@ The physical connection diagram is referenced below:
 
 4. Connect the monitor or USB serial port debugging, power into the system
 
-5. Enable the overlay option of `Radxa Display 8 HD' via the terminal, see Device Tree Settings.
-<!-- [Device Tree Settings](/radxa-os/rsetup/devicetree) for details. -->
+5. Enable the `Radxa Display 8 HD` overlay via the terminal. For the board-specific overlay steps, refer to:
+   - [ROCK 3A display guide](../../../rock3/rock3a/accessories/display)
+   - [ROCK 3C display configuration](../../../rock3/rock3c/radxa-os/display)
+   - [ROCK 4SE DSI guide](../../../rock4/rock4ab-se/getting-started/interface-usage/dsi)
 
 6. Reboot the SBC to apply overlay and the display will output a screen.
 
