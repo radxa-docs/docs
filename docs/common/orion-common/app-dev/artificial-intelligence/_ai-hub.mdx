@@ -33,6 +33,12 @@ pip3 install -r requirements.txt
 
 </NewCodeBlock>
 
+:::tip 安装提示
+如果 `pip3 install -r requirements.txt` 在构建 `openai-clip` 时失败，而您当前并不需要运行 CLIP 相关 demo，可以先注释 `requirements.txt` 中对应的 `openai-clip` 依赖后再继续安装。
+
+如果必须使用 CLIP 模型，请尝试改用 [openai-clip 历史版本](https://pypi.org/project/openai-clip/#history)，并结合实际报错日志进一步排查。
+:::
+
 ## 下载整个仓库
 
 :::tip[建议]
