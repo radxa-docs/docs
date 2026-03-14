@@ -113,7 +113,8 @@
 
 - Agent 文档规范：`AGENT-DOC-SPEC.md`
 - 增量校验脚本：`scripts/agent-doc-lint.sh`
-- 漂移门禁脚本：`scripts/agent-doc-drift-guard.sh`
+- 漂移校验脚本：`scripts/agent-doc-drift-guard.sh`
+  pre-commit 默认只警告；CI 直接执行脚本时仍会阻塞
 - 翻译占位门禁脚本：`scripts/agent-doc-translation-guard.sh`
 - 页面模板：`.github/agent-doc-page-template.md`
 
