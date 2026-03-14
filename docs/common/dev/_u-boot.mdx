@@ -65,6 +65,15 @@ cd bsp
 |  rock-5c-spi   | rk2410  |                       |         |     rock-pi-n10      | latest  |                 |         |
 |  rock-5d-spi   | rk2410  |                       |         |       rock-s0        | latest  |                 |         |
 |   radxa-e52c   | rk2410  |                       |         |      rock-pi-s       | latest  |                 |         |
+|  radxa-rk3576  | rk2410  |                       |         |                      |         |                 |         |
+
+:::tip
+
+若没有找到对应产品的型号，请根据自己产品的 SoC 型号选择对应选项。
+
+示例：瑞莎 CM4 使用瑞芯微 RK3576 SoC，根据表格中的 `radxa-rk3576` 选择 `rk2410` 作为 `profile` 参数。
+
+:::
 
 然后将产品对应 `profile`: `rk2410` 填入 `bsp` 命令的 `profile` 参数即可拉取与配置代码，例如：
 

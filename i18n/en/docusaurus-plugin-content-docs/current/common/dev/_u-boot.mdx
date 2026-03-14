@@ -69,6 +69,15 @@ Taking Radxa ROCK 5B as an example, the U-Boot profile is "rk2410". The followin
 |  rock-5c-spi   | rk2410  |                       |         |     rock-pi-n10      | latest  |                 |         |
 |  rock-5d-spi   | rk2410  |                       |         |       rock-s0        | latest  |                 |         |
 |   radxa-e52c   | rk2410  |                       |         |      rock-pi-s       | latest  |                 |         |
+|  radxa-rk3576  | rk2410  |                       |         |                      |         |                 |         |
+
+:::tip
+
+If the product model is not found in the table, select the corresponding option based on your product's SoC model.
+
+Example: Radxa CM4 uses the Rockchip RK3576 SoC. According to the table, select `rk2410` as the `profile` parameter for `radxa-rk3576`.
+
+:::
 
 Then fill in the `profile` parameter of the `bsp` command with the product's corresponding `profile`: `rk2410` to pull and configure the code, for example:
 
