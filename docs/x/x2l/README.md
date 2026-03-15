@@ -29,7 +29,7 @@ Radxa X2L 是瑞莎全新推出的基于 Intel J4125 的 X86 单板机。
 |  USB   | 2 个 USB 3.0 HOST 端口，2个 USB 2.0 HOST 端口                                                             |
 | 以太网 | 支持千兆以太网                                                                                            |
 |   IO   | 40 pin GPIO 扩展座                                                                                        |
-|  电源  | USB Type-C 12V / 2A                                                                                       |
+|  电源  | USB Type-C PD；BIOS `1.32` 及以上版本额外支持 12V DC 输入                                                  |
 |  按钮  | 1 个用户按钮， 1 个电源按钮， 1 个BOOTSEL 按钮（用于重置 RP2040），1 个Clear CMOS 按钮（用于重置 BIOS）   |
 |  尺寸  | 155mm x 80mm                                                                                              |
 

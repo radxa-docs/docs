@@ -29,7 +29,7 @@ The Radxa X2L is a new X86 SBC launched by Radxa, featuring the Intel J4125 proc
 |    USB     | 2x USB3.0 Type A HOST ports, 2x USB2.0 Type A HOST ports                                                         |
 |  Ethernet  | 1x Gigabit Ethernet                                                                                              |
 |     IO     | 40-Pin GPIO Header                                                                                               |
-|   Power    | USB Type-C 12V/2A                                                                                                |
+|   Power    | USB Type-C PD; BIOS `1.32` and later also support 12V DC input                                                  |
 |   Button   | 1x Power Button, 1x BOOTSEL Button for RP2040, 1x User Button, 1x Clear CMOS Button                              |
 | Form Fator | 155mm x 80mm                                                                                                     |
 
