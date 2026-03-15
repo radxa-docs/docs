@@ -10,6 +10,8 @@ sidebar_position: 1
 
 主板上电前，按住 EDL 按键；主板上电后，松开 EDL 按键，进入 EDL 模式。
 
+如果您需要先确认 EDL 按键的位置，可参考 [硬件信息](../hardware-use/hardware-info) 页面中的接口位置示意，或查看 [EDL 按键](../hardware-use/edl) 页面了解更多说明。
+
 具体操作步骤：
 
 ① ： 按住 EDL 按键
