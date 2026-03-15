@@ -35,3 +35,38 @@ edl-ng --loader <path-to-loader> --memory <storage-type> write-sector <start-sec
 } write-sector ${props?.start_sector ?? "<start-sector>"} ${
   props?.image_file ?? "<path-to-image-file>"
 }`}</code>
+
+## 如何判断刷写是否成功
+
+执行 `edl-ng ... write-sector ...` 后，终端会先显示写入进度；如果刷写成功，进度会到 `100.0%`，随后返回类似下面的成功信息：
+
+```text
+Writing: 100.0% (4096.00 / 4096.00 MiB) [22.31 MiB/s]
+Successfully wrote 4096.00 MiB in 183.55s.
+```
+
+出现以上输出，并且命令正常返回到终端提示符，一般就表示镜像已经写入完成。
+
+## 常见失败特征
+
+如果终端没有出现 `Successfully wrote ...`，或者直接输出 `Error:` / `Operation Error:` / `IO Error:` / `Platform Error:` 等报错信息，就说明本次刷写没有成功。常见情况例如：
+
+```text
+Error: Input file '/path/to/image.img' not found.
+```
+
+```text
+Error: Sector range exceeds supported bounds.
+```
+
+```text
+An unexpected error occurred in 'write-sector': <具体错误信息>
+```
+
+如果刷写失败，请优先检查：
+
+1. 主板是否已经正确进入 EDL 模式。
+2. `prog_firehose_ddr.elf` 路径是否正确。
+3. 存储类型参数是否与目标介质一致（例如 `ufs` / `Sdcc --slot 0` / `nvme`）。
+4. 镜像文件是否已经完整解压，且路径填写正确。
+5. USB 数据线是否正常，主板与电脑连接是否稳定。

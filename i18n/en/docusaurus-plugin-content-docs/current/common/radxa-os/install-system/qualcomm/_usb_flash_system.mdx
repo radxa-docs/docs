@@ -35,3 +35,38 @@ Example:
 } write-sector ${props?.start_sector ?? "<start-sector>"} ${
   props?.image_file ?? "<path-to-image-file>"
 }`}</code>
+
+## How to tell whether flashing succeeded
+
+After you run `edl-ng ... write-sector ...`, the terminal will first show write progress. If flashing succeeds, the progress will reach `100.0%`, then you should see output similar to:
+
+```text
+Writing: 100.0% (4096.00 / 4096.00 MiB) [22.31 MiB/s]
+Successfully wrote 4096.00 MiB in 183.55s.
+```
+
+If you see output like this and the command returns to the shell prompt normally, the image write is generally complete.
+
+## Common failure signs
+
+If the terminal never shows `Successfully wrote ...`, or instead prints errors such as `Error:` / `Operation Error:` / `IO Error:` / `Platform Error:`, then the flash did not complete successfully. Common examples include:
+
+```text
+Error: Input file '/path/to/image.img' not found.
+```
+
+```text
+Error: Sector range exceeds supported bounds.
+```
+
+```text
+An unexpected error occurred in 'write-sector': <specific error message>
+```
+
+If flashing fails, first check:
+
+1. Whether the board has actually entered EDL mode.
+2. Whether the `prog_firehose_ddr.elf` path is correct.
+3. Whether the storage type matches the target media (for example `ufs`, `Sdcc --slot 0`, or `nvme`).
+4. Whether the image file has been fully extracted and the path is correct.
+5. Whether the USB data cable and the board-to-host connection are stable.
