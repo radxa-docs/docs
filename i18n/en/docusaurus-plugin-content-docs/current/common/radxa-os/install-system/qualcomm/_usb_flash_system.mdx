@@ -35,3 +35,34 @@ Example:
 } write-sector ${props?.start_sector ?? "<start-sector>"} ${
   props?.image_file ?? "<path-to-image-file>"
 }`}</code>
+
+## How to Judge Whether Flashing Succeeded
+
+During a normal flash, `edl-ng` usually prints the connection status first, then a write progress line, and finally a success summary.
+
+Typical success indicators look like this:
+
+```text
+Sahara handshake successful.
+Loader uploaded and started successfully via Sahara.
+Writing 123456 sectors (63178752 bytes) to LUN 0, starting at sector 0...
+Writing: 100.0% (60.25 / 60.25 MiB) [12.34 MiB/s]
+Successfully wrote 60.25 MiB in 4.88s.
+```
+
+If you see `Successfully wrote ...` at the end, it usually means the image has been written successfully.
+
+Common failure indicators look like this:
+
+```text
+Firehose configuration might have failed (check logs).
+An unexpected error occurred in 'write-sector': <error details>
+Sahara handshake failed.
+```
+
+If the progress stops midway, the command exits directly, or the final `Successfully wrote ...` line never appears, treat the flash as failed and re-check the following items:
+
+1. Whether the board is still in EDL mode
+2. Whether the `prog_firehose_*.elf` loader file matches the board
+3. Whether the `--memory` parameter matches the target media (`ufs`, `nvme`, `Sdcc --slot 0`, `Sdcc --slot 1`, etc.)
+4. Whether the image file path is correct and whether the image was extracted before flashing

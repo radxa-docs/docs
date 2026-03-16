@@ -35,3 +35,34 @@ edl-ng --loader <path-to-loader> --memory <storage-type> write-sector <start-sec
 } write-sector ${props?.start_sector ?? "<start-sector>"} ${
   props?.image_file ?? "<path-to-image-file>"
 }`}</code>
+
+## 如何判断刷写是否成功
+
+正常刷写时，`edl-ng` 一般会先输出连接状态，然后显示写入进度，最后打印成功总结。
+
+常见的成功提示类似下面这样：
+
+```text
+Sahara handshake successful.
+Loader uploaded and started successfully via Sahara.
+Writing 123456 sectors (63178752 bytes) to LUN 0, starting at sector 0...
+Writing: 100.0% (60.25 / 60.25 MiB) [12.34 MiB/s]
+Successfully wrote 60.25 MiB in 4.88s.
+```
+
+如果最后出现 `Successfully wrote ...`，通常表示镜像已经成功写入。
+
+常见的失败提示类似下面这样：
+
+```text
+Firehose configuration might have failed (check logs).
+An unexpected error occurred in 'write-sector': <错误详情>
+Sahara handshake failed.
+```
+
+如果进度条中途停止、命令直接退出，或者最后没有出现 `Successfully wrote ...`，都应视为本次刷写失败，建议重点检查以下几项：
+
+1. 主板是否仍然处于 EDL 模式
+2. `prog_firehose_*.elf` 加载器文件是否和当前主板匹配
+3. `--memory` 参数是否和目标介质一致（如 `ufs`、`nvme`、`Sdcc --slot 0`、`Sdcc --slot 1`）
+4. 镜像文件路径是否正确，以及镜像是否已经先解压再刷写
