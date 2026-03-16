@@ -10,6 +10,8 @@ Qualcomm Download Mode (EDL) is an emergency download mode for Qualcomm processo
 
 Before powering on the motherboard, hold down the EDL button; after powering on the motherboard, release the EDL button to enter EDL mode.
 
+If you are not sure where the EDL button is located, first check the [Hardware Information](../hardware-use/hardware-info.md#interface-description) page. The EDL button is item `20` in the interface diagram.
+
 Specific steps:
 
 ①: Hold down the EDL button
