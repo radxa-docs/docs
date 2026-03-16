@@ -21,6 +21,14 @@ This page hosts the latest official and test system images. Test releases begin 
 - [radxa-dragon-q6a_noble_gnome_r2.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r2/radxa-dragon-q6a_noble_gnome_r2.output_512.img.xz): For booting from MicroSD card / USB drive / eMMC / NVMe
 - [radxa-dragon-q6a_noble_gnome_r2.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r2/radxa-dragon-q6a_noble_gnome_r2.output_4096.img.xz): For booting from UFS
 
+:::note Usage note
+
+The files above are compressed `.img.xz` system images. If your flashing tool cannot write `.xz` archives directly, extract the archive first to get the `.img` file, then flash that `.img` file.
+
+For the complete procedure, see [Quick Start](./getting-started/quickly-start) or [Install System](./getting-started/install-system/).
+
+:::
+
 :::tip Firmware Information
 
 You can determine the system SPI firmware version using the following methods:

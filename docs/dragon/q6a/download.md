@@ -21,6 +21,14 @@ sidebar_position: 150
 - [radxa-dragon-q6a_noble_gnome_r2.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r2/radxa-dragon-q6a_noble_gnome_r2.output_512.img.xz)：适用于 MicroSD 卡 / U 盘 / eMMC / NVMe 启动系统
 - [radxa-dragon-q6a_noble_gnome_r2.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r2/radxa-dragon-q6a_noble_gnome_r2.output_4096.img.xz)：适用于 UFS 启动系统
 
+:::note 使用提示
+
+上述文件为 `.img.xz` 压缩镜像。如果所使用的烧录工具不支持直接写入 `.xz` 压缩包，请先解压得到 `.img` 文件，再进行烧录。
+
+如需完整步骤，可参考 [快速上手](./getting-started/quickly-start) 或 [安装系统](./getting-started/install-system/) 页面。
+
+:::
+
 :::tip 固件信息
 
 可以根据以下方式判断系统 SPI 固件版本信息：
