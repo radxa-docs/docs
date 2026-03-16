@@ -84,6 +84,6 @@ ROCK 4C+ 支持 LCD 显示功能。
 
 ## 系统安装
 
-首先，请从 [ROCK 4 官方镜像下载页](../../official-images)下载 ROCK 4C+ 的官方镜像。  
-然后，参照[操作系统安装指南](install-os)安装操作系统。  
+首先，请从 [ROCK 4C+ 资源下载页](../download)下载 ROCK 4C+ 的官方镜像。
+然后，参照[操作系统安装指南](install-os)安装操作系统。
 最后，将系统存储介质：microSD 卡或 eMMC 模块插入主板上的插口，并通过 Type-C 供电启动 ROCK 4C+。
