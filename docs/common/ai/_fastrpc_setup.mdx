@@ -8,6 +8,10 @@ NPU 环境配置清单
 
 使用 radxa apt 源进行安装
 
+:::note 前置条件
+以下软件包依赖 Radxa 官方镜像里预置的 Radxa APT 源。请先确认设备运行的是对应机型的官方 RadxaOS 镜像；如果当前使用的是第三方 Ubuntu / Debian 镜像或自行更换过软件源，`fastrpc` / `fastrpc-test` 可能无法安装。
+:::
+
 <Tabs queryString="platform">
     <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
 
