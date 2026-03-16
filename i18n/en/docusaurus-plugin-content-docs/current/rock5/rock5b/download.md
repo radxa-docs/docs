@@ -200,6 +200,10 @@ Pins 1-31 widened to 0.3mm, two locator pins widened to 0.7mm
 
 <TabItem value="ROCK 5B+">
 
+:::note
+The block diagram inside the `v1.2 Schematic pdf` still shows an older interface annotation and does not fully reflect the current ROCK 5B+ PCIe layout. The actual ROCK 5B+ provides **2 PCIe M Key slots and 1 PCIe B Key slot**, and **does not provide a PCIe E Key slot**. For the current interface summary, refer to the [Hardware Interface](./hardware-design/hardware-interface) page.
+:::
+
 - [v1.2 Schematic pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_schematic.pdf)
 - [v1.2 Components Placement Map pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_components_placement_map.pdf)
 - [v1.2 2D DXF](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v12_2d.zip)
