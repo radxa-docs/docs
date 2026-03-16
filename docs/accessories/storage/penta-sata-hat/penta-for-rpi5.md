@@ -88,6 +88,10 @@ Penta SATA HAT 配备了一个 DC 接口（座子规格为外径 5.5mm，内径 
 
 ## 开始使用
 
+:::info
+本页只说明 Penta SATA HAT 在 Raspberry Pi 5 上的存储启用流程，**不包含**可选顶板 OLED、风扇和按键的 `rockpi-penta` 配置方法。如果你同时查看了顶板页面，请把那里的 `rockpi-penta` 安装步骤视为 ROCK 板卡专用，除非文档后续明确补充了树莓派支持。
+:::
+
 把安装好系统的 microSD 卡插入树莓派中，并使用 12V/5A 的电源，从 Radxa Penta SATA HAT 的 DC 座子供电。让我们通过 ssh 登录到树莓派。
 
 ```bash

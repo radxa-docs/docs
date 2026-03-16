@@ -20,6 +20,10 @@ This seat can be used to link to the top plate, which has a 0.91 inch OLED displ
 
 ## Software support
 
+:::info
+The `rockpi-penta` package flow below is intended for the supported Radxa ROCK boards listed in the Penta SATA HAT overview. If you are using the Penta SATA HAT with **Raspberry Pi 5**, follow the separate [Raspberry Pi 5 guide](penta-for-rpi5) for storage bring-up. The Raspberry Pi 5 guide does not include a documented `rockpi-penta` setup for the top board OLED, fan, or key.
+:::
+
 In order to get the top panel OLED display and fan working properly, we provide the `rockpi-penta` package, which can be installed with the following command.
 
 ```shell

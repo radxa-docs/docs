@@ -20,6 +20,10 @@ Radxa Penta SATA HAT 有一个 2x5 的座子，座子的信号如下：
 
 ## 软件支持
 
+:::info
+下面的 `rockpi-penta` 软件包流程面向 Penta SATA HAT 总览页中列出的受支持 Radxa ROCK 板卡。如果你搭配 **Raspberry Pi 5** 使用 Penta SATA HAT，请改为参考单独的[树莓派 5 使用指南](penta-for-rpi5)完成存储部分的启用；当前树莓派 5 指南**没有**提供顶板 OLED、风扇和按键的 `rockpi-penta` 配置流程。
+:::
+
 为了让顶板的 OLED 显示屏和风扇正常工作，我们提供了 `rockpi-penta` 软件包，可以通过下面的命令安装。
 
 ```shell

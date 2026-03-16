@@ -88,6 +88,10 @@ Please go to https://www.raspberrypi.com/software/ to download Raspberry Pi Imag
 
 ## Start Use
 
+:::info
+This page documents the Raspberry Pi 5 storage bring-up flow for the Penta SATA HAT. It does **not** include a documented `rockpi-penta` setup for the optional top board OLED, fan, or key. If you are looking at the top board page, treat its `rockpi-penta` package steps as ROCK-board-specific unless Raspberry Pi support is added there explicitly.
+:::
+
 Insert the installed system microSD card into the Raspberry Pi and use 12V/5A power supply from the Radxa Penta SATA HAT DC seat. Let's ssh into Raspberry Pi.
 
 ```bash
