@@ -59,6 +59,20 @@ If you use large capacity 3.5-inch mechanical hard drives on the Penta SATA HAT,
 
   ![Radxa M.2 Extension Board](/img/accessories/storage/penta-sata-hat-04.webp)
 
+## Components and troubleshooting scope
+
+The Penta SATA HAT family is commonly used in the following combinations:
+
+- **Base board**: the storage board used for SATA connectivity
+- **Top board (optional)**: adds the OLED display and fan; see [Penta SATA HAT top board](./sata-hat-top-board.md)
+- **Full kit**: base board + top board + the matching accessories
+
+If you run into installation or boot problems, identify which combination you are using before troubleshooting further:
+
+1. With only the base board connected, first confirm the system image, kernel version, and whether the SATA devices are detected
+2. Install the `rockpi-penta` package only when the top board is present, because it is used for the OLED and fan features
+3. If the system becomes unstable after connecting the IPEX cable, record the board model, whether you are using the base board or the full kit, and any serial or kernel logs
+
 ## 40Pin Pinout
 
 | Description   | Function | Pin# | Pin# | Function | Description |
