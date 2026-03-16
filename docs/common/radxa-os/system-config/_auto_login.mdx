@@ -33,6 +33,16 @@ sudo rsetup
 
 进入 `Rsetup` 工具后，选择 `User Settings` -> `Configure auto login`选项，使能 `sddm.service`，然后按照 `Rsetup` 工具提示完成剩下操作。
 
+:::note 关于密钥环 / KWallet
+为避免自动登录场景下反复弹出密钥环解锁窗口，RadxaOS 桌面镜像默认不会预先启用用户的 KDE Wallet / Keyring。这样虽然更适合广告机、自启动程序等免密码登录场景，但也可能带来以下影响：
+
+- Chromium、Chrome 或其他 Electron 应用无法正常保存密码
+- 使用 SSH 公钥 / 私钥时，桌面密钥管理功能可能无法按预期工作
+- 其他依赖系统密钥环保存凭据的应用，可能出现异常行为
+
+如果您需要这些功能，请在登录桌面后打开 `System Settings` -> `KDE Wallet`，按照界面提示手动启用钱包并设置密码。若您启用了自动登录，请根据自己的安全需求决定是否保留钱包密码。
+:::
+
 - User Settings
 
 <div style={{ textAlign: "center" }}>
