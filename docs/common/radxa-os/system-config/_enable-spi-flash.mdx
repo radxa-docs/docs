@@ -1,0 +1,66 @@
+:::note 说明
+教程仅适用于瑞莎系统（Radxa OS）使用
+:::
+
+使用 `Rsetup` 工具使能 SPI Flash。
+
+## 使能 SPI Flash
+
+由于 eMMC 和 SPI Flash 互斥，系统默认可开启 eMMC，关闭 SPI Flash；若需要开启 SPI Flash，可以参考下面步骤。
+
+:::tip Rsetup 使用指南
+
+- 选中选项 ： 对应选项会高亮显示
+- 确认选择 ： 按 `Enter`
+- 取消选择 ： 按 `ESC`
+- 切换选项 ： 按 `Up` 、 `Down` 、 `Left` 、 `Right` 控制
+- 多选界面 ： 按 `Space` 选择，按 `Enter` 确认选择；选择对应功能后，对应选项框会出现一个 `*` ,表示该选项已启用
+  :::
+
+1. 打开终端，输入 `sudo rsetup` 命令打开 `Rsetup` 工具
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. 进入 `Overlays` -> `Manage overlays` 选项后，按 `Enter` 确认选择。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/radxa-os/system-config/rsetup-overlays-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. 按空格选中 `Enable SPI Flash` 选项后，按 `Enter` 确认选择。
+
+4. 使能完成后，重启系统。
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo reboot
+```
+
+</NewCodeBlock>
+
+## 验证 SPI Flash
+
+重启系统后，可以使用以下命令验证 SPI Flash 是否成功使能：
+
+```bash
+lsblk
+```
+
+如果看到 `mtdblock0` 设备，说明 SPI Flash 已成功使能。

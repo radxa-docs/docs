@@ -9,7 +9,7 @@ imports_resolve_to:
 
 import SPIFlash from '../../../../../common/radxa-os/rkdevtool/\_spi.mdx';
 
-# 擦除 / 烧录 SPI Flash
+# 使用 rkdeveloptool 擦除 / 烧录 SPI Flash
 
 :::tip Maskrom 模式
 
