@@ -11,4 +11,14 @@ imports_resolve_to:
 
 import FASTRPCSETUP from '../../../common/ai/\_fastrpc_setup.mdx';
 
+:::caution Prerequisites
+
+The `fastrpc` package on this page is provided through the Radxa APT repository, so you should first flash and boot an official **RadxaOS** image.
+If the current system is not an official RadxaOS image, `apt install fastrpc` may fail because the package cannot be found or dependencies are not satisfied.
+
+- Official image download: [`Fogwise® AIRbox Q900` Resource Downloads](../../download)
+- Installation guide: [Install System to Onboard UFS](../getting-started/install-system/onboard-ufs)
+
+:::
+
 <FASTRPCSETUP tag="qcs9075" />
