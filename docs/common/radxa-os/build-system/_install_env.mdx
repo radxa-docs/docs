@@ -12,6 +12,35 @@
 
 我们需要在 PC 上安装 Visual Studio Code、Dev Container 拓展插件和 Docker，方便快速构建 {props?.items ?? 'U-Boot、Kernel and Radxa OS'} 的编译和开发环境。
 
+:::tip 环境搭建完成的判断标准
+
+满足以下条件时，可以认为本机已经具备后续编译环境的基础条件：
+
+- 终端执行 `docker --version` 能正常输出版本信息。
+- 重新登录系统后，执行 `docker ps` 不再提示权限错误。
+- Visual Studio Code 可以正常启动，并能在拓展市场中搜索到 `Dev Containers` 拓展。
+- 后续打开源码目录时，Visual Studio Code 能识别 `.devcontainer` 配置并提示 `Reopen in Container`。
+
+:::
+
+:::info 下载体量与耗时说明
+
+- `get-docker.sh` 安装脚本本身体积很小，但安装 Docker 依赖时通常还需要额外下载数百 MB 的软件包。
+- Visual Studio Code 的 Ubuntu `deb` 安装包通常约为 `100 ~ 150 MB`，Docker Desktop 安装包通常约为 `400 ~ 700 MB`，实际大小会随版本变化。
+- 首次使用 Dev Container 时，还会额外拉取容器基础镜像和依赖，通常需要再预留 `1 ~ 3 GB` 的下载空间。
+- 在 `100 Mbps` 左右的稳定网络下，完成基础软件下载和首次容器依赖拉取通常需要 `10 ~ 30 分钟`；若网络较慢或需重复重试，时间会更长。
+
+:::
+
+:::caution 常见网络问题
+
+- 如果无法访问 `get.docker.com`、Docker Hub 或 Visual Studio Code 拓展市场，请优先检查网络连通性、代理设置或镜像源配置。
+- 中国大陆网络环境下，首次拉取 Docker 相关资源可能较慢，必要时请配置 Docker 镜像源或使用代理。
+- 如果安装过程因网络中断失败，建议先重新执行 `sudo apt update`，再重新下载或重新运行安装命令。
+- 若使用 `deb` 安装包，下载异常时建议删除未下载完整的文件后重新下载，避免安装残缺包。
+
+:::
+
 ### Docker
 
 可以根据自己使用需求选择 Docker 引擎或 Docker 桌面版本进行安装。
