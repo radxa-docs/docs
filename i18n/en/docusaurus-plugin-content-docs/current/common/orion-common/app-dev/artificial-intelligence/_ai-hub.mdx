@@ -21,11 +21,19 @@ Activate the virtual environment before running.
 <NewCodeBlock tip="O6 / O6N" type="device">
 
 ```bash
+cd ai_model_hub_25_Q3/
 python3 -m venv --system-site-packages .venv
+source .venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
 </NewCodeBlock>
+
+:::tip Installation note
+If `pip3 install -r requirements.txt` fails while building `openai-clip` and you do not need to run CLIP-related demos, comment out the `openai-clip` entry in `requirements.txt` before continuing.
+
+If you do need CLIP support, try an [older openai-clip release](https://pypi.org/project/openai-clip/#history) and continue troubleshooting with the full build log.
+:::
 
 ## Download the entire repository
 
