@@ -1,0 +1,132 @@
+**CIX NPU Multi-Channel Video Real-time Object Detection System** is a multi-process YOLO multi-channel video real-time object detection system based on the Radxa Orion O6 / O6N NPU. It uses the NPU for YOLO model inference, supports multi-channel video parallel processing, and is suitable for video surveillance, intelligent transportation, and other scenarios.
+
+- Core Features: NPU Hardware Acceleration, Multi-process Architecture, V4L2 Hardware Decoding, YOLO Post-processing, COCO 80-class Object Detection
+- Version Notes: This project provides two working modes — Queue Buffer Mode (Recommended) and Adaptive Speed Mode. The former pursues maximum throughput, while the latter is suitable for resource-constrained scenarios.
+
+:::info[Environment Setup]
+
+The relevant environment needs to be configured in advance.
+
+- [Environment Setup](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## Quick Start
+
+### Environment Dependencies
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+pip install opencv-python numpy
+```
+
+</NewCodeBlock>
+
+### Download Project
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+git clone https://github.com/Ronin-1124/cix-demo.git
+cd cix-demo
+```
+
+</NewCodeBlock>
+
+### Project Structure
+
+```txt
+cix-demo/
+├── models/                      # Pre-trained model directory
+│   ├── yolov8n.cix            # YOLOv8 Nano quantized model
+│   ├── yolov8s.cix            # YOLOv8 Small quantized model
+│   ├── yolov12n.cix          # YOLOv12 Nano model
+│   └── yolov13n.cix          # YOLOv13 Nano model
+├── test_videos_360P/           # Test video directory (360P)
+├── test_videos_720P/           # Test video directory (720P)
+├── benchmark_multi_video.py     # Performance testing tool
+├── multi_video_inference_queue.py     # Main program - Queue Buffer Mode (Recommended)
+├── multi_video_inference_adaptive.py  # Main program - Adaptive Speed Mode
+└── README.md                   # Project documentation
+```
+
+## Complete Conversion Process
+
+### Running Examples
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+# Queue Buffer Mode (Recommended) - Single Video
+python multi_video_inference_queue.py --video_paths test_videos_360P/test9.mp4 --model_path models/yolov8n.cix
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+# Queue Buffer Mode - Multiple Videos
+python multi_video_inference_queue.py --video_paths test_videos_360P/ --model_path models/yolov8n.cix
+```
+
+</NewCodeBlock>
+
+![](/img/orion/o6/cix-multi-video-inference.webp)
+
+As shown, with 8-channel inference, it can achieve up to 173 FPS real-time throughput, with an average of about 20 FPS per channel.
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+$ python multi_video_inference_v6.py --video_path test_videos_360P/ --model_path models/yolov8s.cix
+
+============================================================
+Video Count: 8
+Model Path: models/yolov8s.cix
+Worker Processes: 8 (one worker process per video)
+Decoding Method: V4L2 Hardware Decoding
+============================================================
+
+Display environment detected, will display in real-time
+Starting Worker 0, PID: 23150
+...
+[Worker 0] Performance Stats: Decoding=6.2ms(9%), Preprocessing=4.5ms(7%), Inference=53.0ms(79%), Post-processing=3.2ms(5%)
+[Worker 0] Received stop signal, exiting...
+[Worker 0] Processing complete, processed 472 frames
+
+Processing complete!
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+# Adaptive Speed Mode
+python multi_video_inference_adaptive.py --video_paths test_videos_360P/ --model_path models/yolov8n.cix
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+# Specify Parameters
+python multi_video_inference_queue.py --video_paths test_videos_360P/ --model_path models/yolov8n.cix --conf_the 0.6 --nms_the 0.5 --timeout 60
+```
+
+</NewCodeBlock>
+
+### Parameter Description
+
+| Parameter       | Default         | Description                                            |
+| --------------- | --------------- | ------------------------------------------------------ |
+| `--video_paths` | Required        | Input video file path or directory (supports multiple) |
+| `--model_path`  | Required        | CIX quantized model file path                          |
+| `--conf_the`    | 0.5             | Confidence threshold                                   |
+| `--nms_the`     | 0.45            | NMS IoU threshold                                      |
+| `--target_size` | 640             | Model input size                                       |
+| `--output_dir`  | ./output_videos | Output directory in headless mode                      |
+| `--timeout`     | 0               | Runtime duration limit (seconds), 0 means unlimited    |
