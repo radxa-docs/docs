@@ -46,150 +46,46 @@ sudo apt install ffmpeg
 
 </NewCodeBlock>
 
-## Generic Decode Commands
+## Decode Examples
 
-### AVC / H.264
+The following examples use FFmpeg to generate a 10-second 1080p 30FPS test video, and then use GStreamer to validate hardware decoding.
 
-<NewCodeBlock tip="Device" type="device">
-
-```bash
-gst-launch-1.0 filesrc location=./<file>.mp4 ! qtdemux ! h264parse ! v4l2h264dec capture-io-mode=4 output-io-mode=4 ! video/x-raw,format=NV12 ! waylandsink fullscreen=true
-```
-
-</NewCodeBlock>
-
-### HEVC / H.265
+### AVC / H.264 Decode
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-gst-launch-1.0 filesrc location=./<file>.mp4 ! qtdemux ! h265parse ! v4l2h265dec capture-io-mode=4 output-io-mode=4 ! video/x-raw,format=NV12 ! waylandsink fullscreen=true
-```
-
-</NewCodeBlock>
-
-### VP9
-
-<NewCodeBlock tip="Device" type="device">
-
-```bash
-gst-launch-1.0 -e filesrc location=./<file>.webm ! matroskademux ! v4l2vp9dec capture-io-mode=4 output-io-mode=4 ! video/x-raw,format=NV12 ! waylandsink fullscreen=true
-```
-
-</NewCodeBlock>
-
-## Decode Capability Matrix
-
-### AVC / H.264
-
-| Test File                  | Result        |
-| -------------------------- | ------------- |
-| `8k-AVC-8bit-60FPS.mp4`    | Decode failed |
-| `8k-AVC-8bit-30FPS.mp4`    | Decode failed |
-| `4k-AVC-8bit-60FPS.mp4`    | Decode failed |
-| `4k-AVC-8bit-30FPS.mp4`    | Decode passed |
-| `2k-AVC-8bit-60FPS.mp4`    | Decode passed |
-| `2k-AVC-8bit-30FPS.mp4`    | Decode passed |
-| `1080p-AVC-8bit-60FPS.mp4` | Decode passed |
-| `1080p-AVC-8bit-30FPS.mp4` | Decode passed |
-
-### HEVC / H.265
-
-| Test File                   | Result        |
-| --------------------------- | ------------- |
-| `8k-HEVC-8bit-60FPS.mp4`    | Decode failed |
-| `8k-HEVC-8bit-30FPS.mp4`    | Decode failed |
-| `4k-HEVC-8bit-60FPS.mp4`    | Decode passed |
-| `4k-HEVC-8bit-30FPS.mp4`    | Decode passed |
-| `2k-HEVC-8bit-60FPS.mp4`    | Decode passed |
-| `2k-HEVC-8bit-30FPS.mp4`    | Decode passed |
-| `1080p-HEVC-8bit-60FPS.mp4` | Decode passed |
-| `1080p-HEVC-8bit-30FPS.mp4` | Decode passed |
-
-### VP9
-
-| Test File                   | Result        |
-| --------------------------- | ------------- |
-| `8k-VP9-8bit-60FPS.webm`    | Decode failed |
-| `8k-VP9-8bit-30FPS.webm`    | Decode failed |
-| `4k-VP9-8bit-60FPS.webm`    | Decode passed |
-| `4k-VP9-8bit-30FPS.webm`    | Decode passed |
-| `2k-VP9-8bit-60FPS.webm`    | Decode passed |
-| `2k-VP9-8bit-30FPS.webm`    | Decode passed |
-| `1080p-VP9-8bit-60FPS.webm` | Decode passed |
-| `1080p-VP9-8bit-30FPS.webm` | Decode passed |
-
-## Generate Test Videos with FFmpeg
-
-### AVC / H.264
-
-<details>
-<summary>Expand AVC / H.264 generation commands</summary>
-
-<NewCodeBlock tip="Device" type="device">
-
-```bash
-ffmpeg -f lavfi -i testsrc=duration=10:size=7680x4320:rate=60 -c:v libx264 -pix_fmt yuv420p -preset fast -crf 18 8k-AVC-8bit-60FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=7680x4320:rate=30 -c:v libx264 -pix_fmt yuv420p -preset fast -crf 18 8k-AVC-8bit-30FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=3840x2160:rate=60 -c:v libx264 -pix_fmt yuv420p -preset fast -crf 18 4k-AVC-8bit-60FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=3840x2160:rate=30 -c:v libx264 -pix_fmt yuv420p -preset fast -crf 18 4k-AVC-8bit-30FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=2560x1440:rate=60 -c:v libx264 -pix_fmt yuv420p -preset fast -crf 18 2k-AVC-8bit-60FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=2560x1440:rate=30 -c:v libx264 -pix_fmt yuv420p -preset fast -crf 18 2k-AVC-8bit-30FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=1920x1080:rate=60 -c:v libx264 -pix_fmt yuv420p -preset fast -crf 18 1080p-AVC-8bit-60FPS.mp4
 ffmpeg -f lavfi -i testsrc=duration=10:size=1920x1080:rate=30 -c:v libx264 -pix_fmt yuv420p -preset fast -crf 18 1080p-AVC-8bit-30FPS.mp4
+gst-launch-1.0 filesrc location=./1080p-AVC-8bit-30FPS.mp4 ! qtdemux ! h264parse ! v4l2h264dec capture-io-mode=4 output-io-mode=4 ! video/x-raw,format=NV12 ! waylandsink fullscreen=true
 ```
 
 </NewCodeBlock>
 
-</details>
-
-### HEVC / H.265
-
-<details>
-<summary>Expand HEVC / H.265 generation commands</summary>
+### HEVC / H.265 Decode
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-ffmpeg -f lavfi -i testsrc=duration=10:size=7680x4320:rate=60 -c:v libx265 -preset fast -pix_fmt yuv420p -crf 14 8k-HEVC-8bit-60FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=7680x4320:rate=30 -c:v libx265 -preset fast -pix_fmt yuv420p -crf 14 8k-HEVC-8bit-30FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=3840x2160:rate=60 -c:v libx265 -preset fast -pix_fmt yuv420p -crf 14 4k-HEVC-8bit-60FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=3840x2160:rate=30 -c:v libx265 -preset fast -pix_fmt yuv420p -crf 14 4k-HEVC-8bit-30FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=2560x1440:rate=60 -c:v libx265 -preset fast -pix_fmt yuv420p -crf 14 2k-HEVC-8bit-60FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=2560x1440:rate=30 -c:v libx265 -preset fast -pix_fmt yuv420p -crf 14 2k-HEVC-8bit-30FPS.mp4
-ffmpeg -f lavfi -i testsrc=duration=10:size=1920x1080:rate=60 -c:v libx265 -preset fast -pix_fmt yuv420p -crf 14 1080p-HEVC-8bit-60FPS.mp4
 ffmpeg -f lavfi -i testsrc=duration=10:size=1920x1080:rate=30 -c:v libx265 -preset fast -pix_fmt yuv420p -crf 14 1080p-HEVC-8bit-30FPS.mp4
+gst-launch-1.0 filesrc location=./1080p-HEVC-8bit-30FPS.mp4 ! qtdemux ! h265parse ! v4l2h265dec capture-io-mode=4 output-io-mode=4 ! video/x-raw,format=NV12 ! waylandsink fullscreen=true
 ```
 
 </NewCodeBlock>
 
-</details>
-
-### VP9
-
-<details>
-<summary>Expand VP9 generation commands</summary>
+### VP9 Decode
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-ffmpeg -f lavfi -i testsrc=duration=10:size=7680x4320:rate=60 -c:v libvpx-vp9 -pix_fmt yuv420p -b:v 0 -crf 30 -row-mt 1 -threads 8 8k-VP9-8bit-60FPS.webm
-ffmpeg -f lavfi -i testsrc=duration=10:size=7680x4320:rate=30 -c:v libvpx-vp9 -pix_fmt yuv420p -b:v 0 -crf 30 -row-mt 1 -threads 8 8k-VP9-8bit-30FPS.webm
-ffmpeg -f lavfi -i testsrc=duration=10:size=3840x2160:rate=60 -c:v libvpx-vp9 -pix_fmt yuv420p -b:v 0 -crf 30 -row-mt 1 -threads 8 4k-VP9-8bit-60FPS.webm
-ffmpeg -f lavfi -i testsrc=duration=10:size=3840x2160:rate=30 -c:v libvpx-vp9 -pix_fmt yuv420p -b:v 0 -crf 30 -row-mt 1 -threads 8 4k-VP9-8bit-30FPS.webm
-ffmpeg -f lavfi -i testsrc=duration=10:size=2560x1440:rate=60 -c:v libvpx-vp9 -pix_fmt yuv420p -b:v 0 -crf 30 -row-mt 1 -threads 8 2k-VP9-8bit-60FPS.webm
-ffmpeg -f lavfi -i testsrc=duration=10:size=2560x1440:rate=30 -c:v libvpx-vp9 -pix_fmt yuv420p -b:v 0 -crf 30 -row-mt 1 -threads 8 2k-VP9-8bit-30FPS.webm
-ffmpeg -f lavfi -i testsrc=duration=10:size=1920x1080:rate=60 -c:v libvpx-vp9 -pix_fmt yuv420p -b:v 0 -crf 30 -row-mt 1 -threads 8 1080p-VP9-8bit-60FPS.webm
 ffmpeg -f lavfi -i testsrc=duration=10:size=1920x1080:rate=30 -c:v libvpx-vp9 -pix_fmt yuv420p -b:v 0 -crf 30 -row-mt 1 -threads 8 1080p-VP9-8bit-30FPS.webm
+gst-launch-1.0 -e filesrc location=./1080p-VP9-8bit-30FPS.webm ! matroskademux ! v4l2vp9dec capture-io-mode=4 output-io-mode=4 ! video/x-raw,format=NV12 ! waylandsink fullscreen=true
 ```
 
 </NewCodeBlock>
-
-</details>
 
 ## GStreamer Hardware Encode Validation
 
-The following commands are currently used to validate HEVC 1080p 30FPS encoding:
+Only the HEVC / H.265 1080p 30FPS encode validation example is kept below:
 
 <NewCodeBlock tip="Device" type="device">
 
