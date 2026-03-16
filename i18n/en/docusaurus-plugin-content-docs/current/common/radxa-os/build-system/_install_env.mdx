@@ -12,6 +12,35 @@ This guide covers setting up the development environment for {props?.items ?? 'U
 
 To quickly set up a compilation and development environment for {props?.items ?? 'U-Boot, Kernel, Radxa OS'}, we need to install Visual Studio Code, the Dev Container extension, and Docker on your PC.
 
+:::tip How to confirm the environment setup is complete
+
+You can consider the host ready for the next build steps when all of the following are true:
+
+- Running `docker --version` prints a valid Docker version.
+- After signing in again, `docker ps` works without a permission error.
+- Visual Studio Code launches normally and the `Dev Containers` extension can be found in the Extensions marketplace.
+- When you later open the source tree, Visual Studio Code detects the `.devcontainer` configuration and offers `Reopen in Container`.
+
+:::
+
+:::info Expected download size and time
+
+- The `get-docker.sh` script itself is very small, but installing Docker usually downloads several hundred MB of additional packages.
+- The Ubuntu `deb` package for Visual Studio Code is usually around `100 ~ 150 MB`, while Docker Desktop is usually around `400 ~ 700 MB`. The actual size depends on the version.
+- The first Dev Container startup will also pull base container images and dependencies, so it is recommended to reserve another `1 ~ 3 GB` of download capacity.
+- On a stable `100 Mbps` network, downloading the required software and completing the first container dependency pull usually takes around `10 ~ 30 minutes`. Slower or unstable networks may take longer.
+
+:::
+
+:::caution Common network issues
+
+- If `get.docker.com`, Docker Hub, or the Visual Studio Code extension marketplace cannot be reached, first check network connectivity, proxy settings, or mirror configuration.
+- In Mainland China, the first Docker-related download may be slow. Configure a Docker mirror or use a proxy if needed.
+- If installation fails because of an interrupted network connection, run `sudo apt update` again before retrying the download or installation command.
+- If you are installing from a `deb` package, delete any partially downloaded file before downloading it again to avoid installing a corrupted package.
+
+:::
+
 ### Docker
 
 You can choose to install either Docker Engine or Docker Desktop based on your needs.
