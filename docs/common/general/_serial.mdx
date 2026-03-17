@@ -23,7 +23,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 <Section compatible="o6" model={props.model}>
 瑞莎星睿 O6 上用于系统/EDK2 管理控制台的 UART2(AP) 默认也是 115200n8。
-如果使用的是 1.0.0-1 或更早版本的 BIOS，并连接的是 EC UART，则需要使用 460800 波特率。
+如果使用的是 1.0.0-1 或更早版本的 BIOS，并连接的是 EC UART，则需要使用 460800 波特率，并且需要添加 LF 转 CRLF 映射（使用 picocom 时添加 `--imap lfcrlf` 参数）。
 </Section>
 
 </Section>

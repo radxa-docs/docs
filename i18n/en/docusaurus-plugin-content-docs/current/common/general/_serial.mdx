@@ -23,7 +23,7 @@ For Radxa products based on CIX chips, the default UART configuration is 115200n
 
 <Section compatible="o6" model={props.model}>
 On Radxa Orion O6, UART2 (AP), which is used as the system/EDK2 management console, also defaults to 115200n8.
-If you are using BIOS version 1.0.0-1 or earlier and connecting to the EC UART instead, use 460800 baud.
+If you are using BIOS version 1.0.0-1 or earlier and connecting to the EC UART instead, use 460800 baud and add LF to CRLF mapping (add `--imap lfcrlf` parameter when using picocom).
 </Section>
 
 </Section>
