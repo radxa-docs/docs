@@ -34,6 +34,17 @@ For system installation, refer to the following tutorials:
 
 - [Install System to UFS](../getting-started/install-system/ufs-system)
 
+## UFS Performance Reference
+
+The following table shows measured read/write performance of the Radxa UFS Module on the Dragon Q6A, tested using the `dd` command. Data is for reference only.
+
+| Product Name       | Capacity | Read Speed | Write Speed | Test Environment   |
+| ------------------ | -------- | ---------- | ----------- | ------------------ |
+| Radxa UFS Module   | 128GB    | 1703 MB/s  | 388 MB/s    | Radxa OS (Linux)   |
+| Radxa UFS Module   | 256GB    | 1811 MB/s  | 557 MB/s    | Radxa OS (Linux)   |
+
+> Note: Actual read/write speeds may vary depending on the UFS module brand, capacity, firmware version, and test environment. The above data are measured reference values.
+
 ## Interface Pin Definition
 
 Refer to the hardware schematic diagram on the [Resource Summary Download](../download) page.
