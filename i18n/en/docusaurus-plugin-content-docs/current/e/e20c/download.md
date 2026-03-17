@@ -22,6 +22,12 @@ Flippy OpenWrt:
 
 [Flippy OpenWrt Github](https://github.com/unifreq/openwrt_packit)
 
+:::note
+Flippy OpenWrt is a third-party community image. Package feeds and ongoing maintenance are controlled by the upstream project, not by Radxa.
+
+If you need more stable package feeds and maintained follow-up releases, we recommend using the official OpenWrt images below.
+:::
+
 Official OpenWrt images:
 
 - [Radxa E20C OpenWrt ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_e20c-ext4-sysupgrade.img.gz)

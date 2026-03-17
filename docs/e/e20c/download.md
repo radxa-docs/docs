@@ -22,6 +22,12 @@ Flippy OpenWrt:
 
 [Flippy OpenWrt Github](https://github.com/unifreq/openwrt_packit)
 
+:::note
+Flippy OpenWrt 为第三方社区镜像，软件源与后续维护状态由上游项目决定，不受 Radxa 控制。
+
+如果你需要更稳定、持续维护的软件源与后续版本更新，建议优先使用下方的 OpenWrt 官方镜像。
+:::
+
 OpenWrt 官方镜像:
 
 - [Radxa E20C OpenWrt ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_e20c-ext4-sysupgrade.img.gz)
