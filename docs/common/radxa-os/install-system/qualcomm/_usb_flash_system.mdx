@@ -13,6 +13,10 @@
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
+# 方式一：使用 rawprogram XML 文件刷写（推荐）
+edl-ng --loader <path-to-loader> --memory <storage-type> rawprogram rawprogram*.xml patch*.xml
+
+# 方式二：直接写入原始扇区
 edl-ng --loader <path-to-loader> --memory <storage-type> write-sector <start-sector> <path-to-image-file>
 ```
 
