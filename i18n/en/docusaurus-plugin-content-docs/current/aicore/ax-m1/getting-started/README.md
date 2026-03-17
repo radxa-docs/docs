@@ -25,10 +25,17 @@ Prepare the following hardware before using the Radxa AICore AX-M1:
 > **Verified Radxa-compatible boards**
 
 ```text
-- ROCK 5A
-- ROCK 5B
-- ROCK 5B+
-- ROCK 5 ITX
+- ROCK 2A
+- ROCK 2F
+- ROCK 3B
+- ROCK 3C
+- ROCK 4A/4A+/4B/4B+/SE
+- ROCK 5A/5B/5B+/5C/5T/5ITX
+- Dragon Q6A
+- Orion O6
+- Orion O6N
+- Cubie A5E
+- Raspberry Pi 5
 ```
 
 :::tip Requirements
