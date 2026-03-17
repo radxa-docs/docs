@@ -68,6 +68,19 @@ GPIOCHIP0 -> 7 + 32 \* (A ~ K) -> 7 + 32 \* 1 -> 39
 
 Through the 40-Pin GPIO interface, demonstrate common GPIO usage.
 
+## Overlay Notes
+
+On Cubie A7Z, the same peripheral function can usually be routed to multiple pins, so the `rsetup` `Overlay` -> `Manage overlays` page only exposes a few common example overlays instead of every possible pinmux combination.
+
+If you need to move PWM, UART, I2C, SPI, or other functions to different pins listed in the table above, use this workflow:
+
+1. Use the GPIO multiplexing table above to confirm the target function and target pin
+2. Try the built-in overlay examples in `rsetup` first
+3. If the built-in options do not cover your target pin, adapt an overlay by following the examples in [radxa-overlays](https://github.com/radxa-pkg/radxa-overlays)
+4. After editing, install your custom DTS / DTBO from `rsetup` -> `Overlay` -> `Install 3rd party overlay`
+
+This keeps `rsetup` practical for common cases while still letting you extend the pinmux to other pins when your project needs it.
+
 ## Install python-periphery
 
 Use the `python-periphery` library to control GPIO pins.
