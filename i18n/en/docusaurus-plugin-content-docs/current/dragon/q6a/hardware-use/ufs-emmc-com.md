@@ -34,6 +34,17 @@ For system installation, refer to the following tutorials:
 
 - [Install System to UFS](../getting-started/install-system/ufs-system)
 
+## UFS Performance Reference
+
+The following table shows measured read/write performance of different UFS modules on the Dragon Q6A, tested using the `dd` command. Data is for reference only.
+
+| Product Name       | UFS Chip Brand/Model                  | Capacity | Read Speed | Write Speed | Test Environment   |
+| ------------------ | ------------------------------------- | -------- | ---------- | ----------- | ------------------ |
+| Radxa UFS Module   | Samsung KLUDG4UHGC-B0E1 (UFS 3.1)    | 128GB    | 1300 MB/s  | 1200 MB/s   | Radxa OS (Linux)   |
+| Radxa UFS Module   | Kioxia THGJFGT1E45BAILB              | 256GB    | 1811 MB/s  | 557 MB/s    | Radxa OS (Linux)   |
+
+> Note: Actual read/write speeds may vary depending on the UFS module brand, capacity, firmware version, and test environment. The above data are measured reference values.
+
 ## Interface Pin Definition
 
 Refer to the hardware schematic diagram on the [Resource Summary Download](../download) page.
