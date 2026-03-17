@@ -34,3 +34,7 @@ Armbian 的默认凭据如下：
 :::caution
 非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到对应的社区寻求帮助。
 :::
+
+## 硬件设计
+
+- [ROCK Pi S 硬件设计资料](https://dl.radxa.com/rockpis/docs/hw/)

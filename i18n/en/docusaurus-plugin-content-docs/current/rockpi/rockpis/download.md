@@ -35,3 +35,7 @@ Default Armbian credentials:
 :::caution
 For images that are not officially maintained by Radxa, Radxa cannot guarantee full functionality. If you encounter problems, please seek help from the corresponding community.
 :::
+
+## Hardware Design
+
+- [ROCK Pi S hardware design files](https://dl.radxa.com/rockpis/docs/hw/)
