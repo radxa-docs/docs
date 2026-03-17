@@ -21,6 +21,11 @@ Please connect according to the pin functions specified by the cable’s manufac
 <Section compatible="cix" platform={props.platform}>
 For Radxa products based on CIX chips, the default UART configuration is 115200n8 without flow control.
 
+<Section compatible="o6" model={props.model}>
+On Radxa Orion O6, UART2 (AP), which is used as the system/EDK2 management console, also defaults to 115200n8.
+If you are using BIOS version 1.0.0-1 or earlier and connecting to the EC UART instead, use 460800 baud and add LF to CRLF mapping (add `--imap lfcrlf` parameter when using picocom).
+</Section>
+
 </Section>
 
 <Section compatible="aml" platform={props.platform}>
@@ -93,6 +98,23 @@ Please do not connect the red power line!
 :::
 
 ## Using Serial Tools
+
+<Section compatible="cix" platform={props.platform}>
+For Radxa products based on CIX chips, the default UART configuration is as follows:
+
+```text
+baudrate: 115200
+data bit: 8
+stop bit: 1
+parity  : none
+flow control: none
+```
+
+<Section compatible="o6" model={props.model}>
+If you are using BIOS version 1.0.0-1 or earlier and connecting to the EC UART, use 460800 baud instead.
+</Section>
+
+</Section>
 
 <Section compatible="aml" platform={props.platform}>
 For Radxa products based on Amlogic chips, the default UART configuration is as follows:
