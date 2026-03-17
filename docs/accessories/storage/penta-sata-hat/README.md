@@ -59,6 +59,20 @@ sidebar_position: 1
 
   ![Radxa Penta SATA HAT](/img/accessories/storage/penta-sata-hat-04.webp)
 
+## 组件说明与排查建议
+
+Penta SATA HAT 系列通常由以下部分组成：
+
+- **Base board（主板）**：负责 SATA 存储连接
+- **Top board（顶板，可选）**：提供 OLED 显示屏和风扇，详情见 [Penta SATA HAT TOP 板](./sata-hat-top-board.md)
+- **完整套件（full kit）**：Base board + Top board + 对应配件
+
+如果您在安装或启动时遇到问题，建议先确认当前使用的是哪一种组合，再继续排查：
+
+1. 仅连接 base board 时，先确认系统镜像、内核版本，以及 SATA 设备是否能被识别
+2. 只有在安装了 top board 时，才需要 `rockpi-penta` 软件包来驱动 OLED 和风扇
+3. 如果接入 IPEX 线缆后系统异常，建议同时记录具体板型、使用的是 base board 还是 full kit，以及串口/内核日志
+
 ## 40 针引脚定义
 
 | 描述          | 功能    | 引脚# | 引脚# | 功能 | 描述       |
