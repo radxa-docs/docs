@@ -33,8 +33,8 @@ git submodule update --init --recursive
 ## Add rockchip-ffmpeg path and dependency parameters
 
 ```bash
-echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> app/app.pro
-echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> moonlight-qt.pro
+echo 'LIBS += -L/usr/lib -lavformat -lavcodec -lavutil -lswscale' >> app/app.pro
+echo 'QMAKE_LIBS += -lswresample -lx264 -lx265 -lrockchip_mpp -lrga -lz -llzma' >> app/app.pro
 ```
 
 ## Compile Moonlight
