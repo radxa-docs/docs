@@ -38,18 +38,34 @@ edl-ng --loader <path-to-loader> --memory <storage-type> write-sector <start-sec
 
 ## 如何判断刷写是否成功
 
-执行 `edl-ng ... write-sector ...` 后，终端会先显示写入进度；如果刷写成功，进度会到 `100.0%`，随后返回类似下面的成功信息：
+执行 `edl-ng ... rawprogram ...` 后，终端会显示每个分区的写入进度；如果刷写成功，会显示类似下面的信息：
 
 ```text
-Writing: 100.0% (4096.00 / 4096.00 MiB) [22.31 MiB/s]
-Successfully wrote 4096.00 MiB in 183.55s.
+05:22:17.239 [INFO] Operating in host device mode (direct MTD access)
+05:22:17.241 [INFO] Host device initialized: /dev/mtd0
+05:22:17.242 [INFO] Device size: 32.00 MiB (33554432 bytes)
+Writing cdt (cdt.bin): 100.0% ( 0.00 / 0.00 MiB) [N/A ]
+Writing XBL (xbl.elf): 100.0% ( 0.80 / 0.80 MiB) [98.49 KiB/s]
+Writing XblRamdump (XblRamdump.elf): 100.0% ( 0.19 / 0.19 MiB) [99.37 KiB/s]
+Writing XBL_CONFIG (xbl_config.elf): 100.0% ( 0.31 / 0.31 MiB) [99.11 KiB/s]
+Writing UEFI (uefi.elf): 100.0% ( 4.51 / 4.51 MiB) [99.45 KiB/s]
+Writing AOP (aop.mbn): 100.0% ( 0.20 / 0.20 MiB) [97.24 KiB/s]
+Writing TZ (tz.mbn): 100.0% ( 3.98 / 3.98 MiB) [97.76 KiB/s]
+...
+05:24:19.602 [ERROR] Error: Image file 'fat12test.bin' not found. Skipping this file.
+05:24:20.490 [INFO] 'rawprogram' command finished in 123.25s.
+05:24:20.490 [INFO] 'rawprogram' command finished successfully.
 ```
 
-出现以上输出，并且命令正常返回到终端提示符，一般就表示镜像已经写入完成。
+出现以上输出，并且最后显示 `command finished successfully`，就表示镜像已经写入完成。
+
+:::info 注意
+如果出现 `Error: Image file ... not found` 错误，但最后仍然显示 `command finished successfully`，这个错误可以忽略，它只是因为某些可选分区文件不存在导致的。
+:::
 
 ## 常见失败特征
 
-如果终端没有出现 `Successfully wrote ...`，或者直接输出 `Error:` / `Operation Error:` / `IO Error:` / `Platform Error:` 等报错信息，就说明本次刷写没有成功。常见情况例如：
+如果终端没有出现 `command finished successfully`，或者直接输出 `Error:` / `Operation Error:` / `IO Error:` / `Platform Error:` 等报错信息，就说明本次刷写没有成功。常见情况例如：
 
 ```text
 Error: Input file '/path/to/image.img' not found.

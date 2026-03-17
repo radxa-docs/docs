@@ -38,18 +38,34 @@ Example:
 
 ## How to tell whether flashing succeeded
 
-After you run `edl-ng ... write-sector ...`, the terminal will first show write progress. If flashing succeeds, the progress will reach `100.0%`, then you should see output similar to:
+After you run `edl-ng ... rawprogram ...`, the terminal will show the write progress for each partition. If flashing succeeds, you should see output similar to:
 
 ```text
-Writing: 100.0% (4096.00 / 4096.00 MiB) [22.31 MiB/s]
-Successfully wrote 4096.00 MiB in 183.55s.
+05:22:17.239 [INFO] Operating in host device mode (direct MTD access)
+05:22:17.241 [INFO] Host device initialized: /dev/mtd0
+05:22:17.242 [INFO] Device size: 32.00 MiB (33554432 bytes)
+Writing cdt (cdt.bin): 100.0% ( 0.00 / 0.00 MiB) [N/A ]
+Writing XBL (xbl.elf): 100.0% ( 0.80 / 0.80 MiB) [98.49 KiB/s]
+Writing XblRamdump (XblRamdump.elf): 100.0% ( 0.19 / 0.19 MiB) [99.37 KiB/s]
+Writing XBL_CONFIG (xbl_config.elf): 100.0% ( 0.31 / 0.31 MiB) [99.11 KiB/s]
+Writing UEFI (uefi.elf): 100.0% ( 4.51 / 4.51 MiB) [99.45 KiB/s]
+Writing AOP (aop.mbn): 100.0% ( 0.20 / 0.20 MiB) [97.24 KiB/s]
+Writing TZ (tz.mbn): 100.0% ( 3.98 / 3.98 MiB) [97.76 KiB/s]
+...
+05:24:19.602 [ERROR] Error: Image file 'fat12test.bin' not found. Skipping this file.
+05:24:20.490 [INFO] 'rawprogram' command finished in 123.25s.
+05:24:20.490 [INFO] 'rawprogram' command finished successfully.
 ```
 
-If you see output like this and the command returns to the shell prompt normally, the image write is generally complete.
+If you see output like this and it shows `command finished successfully` at the end, the image write is complete.
+
+:::info Note
+If you see `Error: Image file ... not found` but it still shows `command finished successfully` at the end, you can ignore this error - it's just because some optional partition files don't exist.
+:::
 
 ## Common failure signs
 
-If the terminal never shows `Successfully wrote ...`, or instead prints errors such as `Error:` / `Operation Error:` / `IO Error:` / `Platform Error:`, then the flash did not complete successfully. Common examples include:
+If the terminal doesn't show `command finished successfully`, or instead prints errors such as `Error:` / `Operation Error:` / `IO Error:` / `Platform Error:`, then the flash did not complete successfully. Common examples include:
 
 ```text
 Error: Input file '/path/to/image.img' not found.
