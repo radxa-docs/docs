@@ -4,6 +4,15 @@ sidebar_position: 15
 
 # Radxa Heatsink for X4
 
+## Specifications
+
+- Compatible model: Radxa X4
+- Material: aluminum alloy case
+- Overall dimensions: 97 x 75 x 72 mm
+- Fan speed: 4000rpm ± 10%
+- Fan connector: 2-pin 1.25mm pitch connector
+- Power input: 5V DC
+
 ## Package List
 
 ![install_heatsink_01](/img/x/x4/heatsink_for_x4_01.webp)
