@@ -201,6 +201,10 @@ L2203 L2205 L2300 L2301 L2303 改成 3225 封装的 RHP322512T-R24M
 
 ### V1.2
 
+:::note
+`v1.2 原理图 pdf` 中的 Block Diagram 仍包含旧版接口标注，不完全代表当前 ROCK 5B+ 的实际 PCIe 布局。ROCK 5B+ 实际为 **2 个 PCIe M Key + 1 个 PCIe B Key**，**没有 PCIe E Key**。当前接口说明请以 [硬件接口](./hardware-design/hardware-interface) 页面为准。
+:::
+
 - [v1.2 原理图 pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_schematic.pdf)
 - [v1.2 位号图 pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_components_placement_map.pdf)
 - [v1.2 2D DXF](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v12_2d.zip)
