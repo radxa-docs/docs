@@ -53,8 +53,9 @@ sidebar_position: 6
 
 3. 连接显示器或 USB 串口调试，通电进入系统
 
-4. 通过终端打开 `Radxa Display 8 HD` 的 overlay 选项，具体操作请参阅设备树设置。
-<!-- [设备树设置](/radxa-os/rsetup/devicetree)。 -->
+4. 通过终端打开 `Radxa Display 8 HD` 的 overlay 选项。不同板型的具体操作可参考：
+   - [ROCK 5A MIPI DSI 使用说明](../../../rock5/rock5a/getting-started/interface-usage/mipi-dsi)
+   - [ROCK 5B / 5B+ MIPI DSI 使用说明](../../../rock5/rock5b/getting-started/interface-usage/mipi-dsi)
 
 5. 重启 SBC 以启用 overlay，显示屏输出画面
 
@@ -158,8 +159,10 @@ Step 3：将卡扣向下按紧，固定排线
 
 4. 连接显示器或 USB 串口调试，通电进入系统
 
-5. 通过终端打开 `Radxa Display 8 HD` 的 overlay 选项，具体操作请参阅设备树设置。
-<!-- [设备树设置](/radxa-os/rsetup/devicetree)。 -->
+5. 通过终端打开 `Radxa Display 8 HD` 的 overlay 选项。不同板型的具体操作可参考：
+   - [ROCK 3A 显示屏使用说明](../../../rock3/rock3a/accessories/display)
+   - [ROCK 3C 显示配置说明](../../../rock3/rock3c/radxa-os/display)
+   - [ROCK 4SE DSI 使用说明](../../../rock4/rock4ab-se/getting-started/interface-usage/dsi)
 
 6. 重启 SBC 以启用 overlay，显示屏将会输出画面
 
