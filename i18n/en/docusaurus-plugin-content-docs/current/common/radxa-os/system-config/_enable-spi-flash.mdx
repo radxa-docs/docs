@@ -1,0 +1,66 @@
+:::note Note
+This guide only applies to Radxa OS.
+:::
+
+Use the `Rsetup` tool to enable SPI Flash.
+
+## Enable SPI Flash
+
+Because eMMC and SPI Flash are mutually exclusive, the system enables eMMC and disables SPI Flash by default. If you need to enable SPI Flash, follow the steps below.
+
+:::tip Rsetup Usage Guide
+
+- Select option: The corresponding option will be highlighted
+- Confirm selection: Press `Enter`
+- Cancel selection: Press `ESC`
+- Navigate options: Use `Up`, `Down`, `Left`, and `Right`
+- Multiple selection interface: Press `Space` to select, then `Enter` to confirm; a `*` next to the option indicates that it is enabled
+  :::
+
+1. Open a terminal and run `sudo rsetup` to launch the `Rsetup` tool.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+2. Go to `Overlays` -> `Manage overlays`, then press `Enter` to confirm.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/system-config/rsetup-overlays-manage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+3. Press the spacebar to select `Enable SPI Flash`, then press `Enter` to confirm.
+
+4. Reboot the system after SPI Flash is enabled.
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo reboot
+```
+
+</NewCodeBlock>
+
+## Verify SPI Flash
+
+After the system reboots, run the following command to verify whether SPI Flash has been enabled successfully:
+
+```bash
+lsblk
+```
+
+If you see the `mtdblock0` device, SPI Flash has been enabled successfully.
