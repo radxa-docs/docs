@@ -6,24 +6,6 @@ sidebar_position: 1
 
 This guide explains how to get started with Radxa AIcore DX-M1 / DX-M1M.
 
-:::info Compatibility
-
-AIcore DX-M1 / DX-M1M has been verified to work with multiple Radxa single-board computers (SBCs).
-
-- Compatible boards
-  - ROCK 2A
-  - ROCK 2F
-  - ROCK 3B
-  - ROCK 3C
-  - ROCK 4A/4A+/4B/4B+/SE
-  - ROCK 5A/5B/5B+/5C/5T
-  - Dragon Q6A
-  - Orion O6
-  - Orion O6N
-  - Cubie A5E
-  - Raspberry Pi 5
-    :::
-
 ## Product photos
 
 <Tabs queryString="Product">
@@ -51,6 +33,7 @@ AIcore DX-M1 / DX-M1M has been verified to work with multiple Radxa single-board
 </TabItem>
 
 </Tabs>
+
 ## Prerequisites
 
 Prepare the following hardware to use AIcore DX-M1 / DX-M1M:
@@ -59,11 +42,30 @@ Prepare the following hardware to use AIcore DX-M1 / DX-M1M:
 - **Host board kit**: A compatible host board + power adapter + boot media (such as a microSD card)
 
 :::tip Requirements
-The host board must meet the following requirements:
 
-- Able to boot into an OS normally
-- Provides an available **M.2 M Key** slot (PCIe Gen 3.0 supported) for installing AIcore DX-M1 / DX-M1M
-  :::
+- **AIcore DX-M1**
+
+The host board must provide an available M.2 M Key slot, supporting PCIe Gen 3.0
+
+- **AIcore DX-M1M**
+
+The host board must provide an available M.2 M Key or B Key slot, supporting PCIe Gen 3.0
+:::
+
+:::info Compatibility
+
+AIcore DX-M1 / DX-M1M has been verified to work with multiple Radxa single-board computers (SBCs).
+
+> **Verified Radxa-compatible boards**
+
+```text
+- ROCK 5A
+- ROCK 5B
+- ROCK 5B+
+- ROCK 5 ITX
+```
+
+:::
 
 ## Hardware installation
 

@@ -6,24 +6,6 @@ sidebar_position: 1
 
 介绍如何搭配瑞莎智核 DX-M1 / DX-M1M 产品使用。
 
-:::info 兼容性
-
-智核 DX-M1 / DX-M1M 产品目前实测可以搭配瑞莎多款单板计算机 (SBC) 使用。
-
-- 兼容主板
-  - ROCK 2A
-  - ROCK 2F
-  - ROCK 3B
-  - ROCK 3C
-  - ROCK 4A/4A+/4B/4B+/SE
-  - ROCK 5A/5B/5B+/5C/5T
-  - Dragon Q6A
-  - Orion O6
-  - Orion O6N
-  - Cubie A5E
-  - 树莓派 5
-    :::
-
 ## 产品实物
 
 <Tabs queryString="Product">
@@ -51,6 +33,7 @@ sidebar_position: 1
 </TabItem>
 
 </Tabs>
+
 ## 使用前提
 
 您需要提前准备以下硬件设备搭配智核 DX-M1 / DX-M1M 产品使用：
@@ -59,11 +42,30 @@ sidebar_position: 1
 - **主板套件**：兼容智核 DX-M1 / DX-M1M 的主板 + 电源适配器 + 系统启动介质（如 microSD 卡等）
 
 :::tip 使用条件
-主板需要满足以下要求：
 
-- 可正常启动系统
-- 提供未被占用的 **M.2 M Key 接口**（支持 PCIe Gen 3.0），用于安装智核 DX-M1 / DX-M1M
-  :::
+- 智核 DX-M1
+
+主板需要提供未被占用的 M.2 M Key 接口，支持 PCIe Gen 3.0
+
+- 智核 DX-M1M
+
+主板需要提供未被占用的 M.2 M Key 或者 B Key 接口，支持 PCIe Gen 3.0
+:::
+
+:::info 兼容性
+
+智核 DX-M1 / DX-M1M 产品目前实测可以搭配瑞莎多款单板计算机 (SBC) 使用。
+
+> **瑞莎兼容主板（实测）**
+
+```text
+- ROCK 5A
+- ROCK 5B
+- ROCK 5B+
+- ROCK 5 ITX
+```
+
+:::
 
 ## 硬件安装
 
