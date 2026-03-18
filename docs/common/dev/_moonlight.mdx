@@ -12,6 +12,12 @@
 参考至[编译并安装 ffmpeg-rockchip](rtsp?target=ffmpeg#编译并安装-ffmpeg-rockchip)
 即可安装 rockchip-ffmpeg。
 
+:::tip
+如果你是自行编译 `ffmpeg-rockchip` 给 Moonlight 使用，请确保 `ffmpeg-rockchip` 的 `./configure`
+参数包含 `--enable-shared`。否则 Moonlight 在链接阶段可能会误用静态 `libavcodec.a`，并报出类似
+`undefined reference to symbol 'inflateEnd'` 这样的缺少 zlib 依赖错误。
+:::
+
 ## 安装 Moonlight 编译依赖
 
 ```bash

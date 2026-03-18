@@ -12,6 +12,12 @@ but the results may be unsatisfactory.
 Refer to [RTSP Streaming](rtsp?target=ffmpeg), there is no need to follow the entire documentation. Just follow the instructions up to
 [Compile and Install ffmpeg-rockchip](rtsp?target=ffmpeg#compile-and-install-ffmpeg-rockchip) to install rockchip-ffmpeg.
 
+:::tip
+If you build `ffmpeg-rockchip` yourself for Moonlight, make sure the `ffmpeg-rockchip` `./configure`
+arguments include `--enable-shared`. Otherwise Moonlight may pick the static `libavcodec.a` during
+linking and fail with missing system library errors such as `undefined reference to symbol 'inflateEnd'`.
+:::
+
 ## Install Moonlight build dependencies
 
 ```bash
