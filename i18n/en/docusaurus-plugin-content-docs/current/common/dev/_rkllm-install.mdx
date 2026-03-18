@@ -123,6 +123,22 @@ Upgrade via `sudo rsetup` -> `System` -> `System Update` to get RKNPU driver **0
 After upgrading, run **`sudo apt autopurge`** and reboot.
 :::
 
+:::info
+Some CLI / minimal images may not have the RKNPU2 userspace package preinstalled that RKLLM requires. If you see `failed to open rknpu module` or `failed to open rknn device` when running `llm_demo`, install the RKNPU2 package for your SoC and reboot first.
+:::
+
+<NewCodeBlock tip="Radxa OS" type="device">
+
+```bash
+sudo apt update
+# RK3588 / RK3582 series
+sudo apt install rknpu2-rk3588
+# RK356X series: sudo apt install rknpu2-rk356x
+sudo reboot
+```
+
+</NewCodeBlock>
+
 Check the driver version:
 
 <NewCodeBlock tip="Radxa OS" type="device">
