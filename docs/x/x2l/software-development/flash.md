@@ -21,6 +21,8 @@ sudo gpioset gpiochip1 60=0
 sudo gpioset gpiochip1 61=0
 ```
 
+> **Note:** `gpioset` is part of the `gpiod` package. On Debian/Ubuntu, install it with: `sudo apt install gpiod`
+
 - 执行一下 usb.sh 程序， RP2040 将以 usb 设备形式出现
 
 ```text
