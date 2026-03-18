@@ -13,6 +13,10 @@
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
+# 方式一：使用 rawprogram XML 文件刷写（推荐）
+edl-ng --loader <path-to-loader> --memory <storage-type> rawprogram rawprogram*.xml patch*.xml
+
+# 方式二：直接写入原始扇区
 edl-ng --loader <path-to-loader> --memory <storage-type> write-sector <start-sector> <path-to-image-file>
 ```
 
@@ -35,3 +39,66 @@ edl-ng --loader <path-to-loader> --memory <storage-type> write-sector <start-sec
 } write-sector ${props?.start_sector ?? "<start-sector>"} ${
   props?.image_file ?? "<path-to-image-file>"
 }`}</code>
+
+## 如何判断刷写是否成功
+
+执行 `edl-ng ... rawprogram ...` 后，终端会显示每个分区的写入进度；如果刷写成功，会显示类似下面的信息：
+
+```text
+radxa@radxa-dragon-q6a:~$ sudo edl-ng --hostdev-as-target /dev/mtd0 rawprogram rawprogram0.xml patch0.xml
+05:22:17.239 [INFO] Operating in host device mode (direct MTD access)
+05:22:17.239 [INFO] — Processing LUN 0 using rawprogram0.xml —
+05:22:17.241 [INFO] Host device initialized: /dev/mtd0
+05:22:17.241 [INFO] Device size: 32.00 MiB (33554432 bytes)
+05:22:17.242 [INFO] Erase block size: 4096 bytes
+Writing cdt (cdt.bin): 100.0% ( 0.00 / 0.00 MiB) [N/A ]
+Writing XBL (xbl.elf): 100.0% ( 0.80 / 0.80 MiB) [98.49 KiB/s]
+Writing XblRamdump (XblRamdump.elf): 100.0% ( 0.19 / 0.19 MiB) [99.37 KiB/s]
+Writing XBL_CONFIG (xbl_config.elf): 100.0% ( 0.31 / 0.31 MiB) [99.11 KiB/s]
+Writing UEFI (uefi.elf): 100.0% ( 4.51 / 4.51 MiB) [99.45 KiB/s]
+Writing AOP (aop.mbn): 100.0% ( 0.20 / 0.20 MiB) [97.24 KiB/s]
+Writing TZ (tz.mbn): 100.0% ( 3.98 / 3.98 MiB) [97.76 KiB/s]
+Writing DEVCFG (devcfg.mbn): 100.0% ( 0.05 / 0.05 MiB) [97.40 KiB/s]
+Writing HYP (hypvm.mbn): 100.0% ( 1.46 / 1.46 MiB) [98.65 KiB/s]
+Writing QUP (qupv3fw.elf): 100.0% ( 0.05 / 0.05 MiB) [103.01 KiB/s]
+Writing CPUCP (cpucp.elf): 100.0% ( 0.18 / 0.18 MiB) [99.78 KiB/s]
+Writing SHRM (shrm.elf): 100.0% ( 0.04 / 0.04 MiB) [102.88 KiB/s]
+Writing ImageFv (imagefv.elf): 100.0% ( 0.02 / 0.02 MiB) [107.93 KiB/s]
+05:24:19.602 [ERROR] Error: Image file '/home/radxa/Downloads/flat_build/spinor/dragon-q6a/fat12test.bin' for (Label: FATTEST) not found. Skipping this file.
+Writing PrimaryGPT (gpt_main0.bin): 100.0% ( 0.02 / 0.02 MiB) [100.22 KiB/s]
+Writing BackupGPT (gpt_backup0.bin): 100.0% ( 0.02 / 0.02 MiB) [100.70 KiB/s]
+05:24:20.041 [INFO] — Patching LUN 0 using patch0.xml —
+05:24:20.490 [INFO] 'rawprogram' command finished in 123.25s.
+05:24:20.490 [INFO] 'rawprogram' command finished successfully.
+radxa@radxa-dragon-q6a:~$
+```
+
+出现以上输出，并且最后显示 `command finished successfully`，就表示镜像已经写入完成。
+
+:::info 注意
+如果出现 `Error: Image file ... not found` 错误，但最后仍然显示 `command finished successfully`，这个错误可以忽略，它只是因为某些可选分区文件不存在导致的。
+:::
+
+## 常见失败特征
+
+如果终端没有出现 `command finished successfully`，或者直接输出 `Error:` / `Operation Error:` / `IO Error:` / `Platform Error:` 等报错信息，就说明本次刷写没有成功。常见情况例如：
+
+```text
+Error: Input file '/path/to/image.img' not found.
+```
+
+```text
+Error: Sector range exceeds supported bounds.
+```
+
+```text
+An unexpected error occurred in 'write-sector': <具体错误信息>
+```
+
+如果刷写失败，请优先检查：
+
+1. 主板是否已经正确进入 EDL 模式。
+2. `prog_firehose_ddr.elf` 路径是否正确。
+3. 存储类型参数是否与目标介质一致（例如 `ufs` / `Sdcc --slot 0` / `nvme`）。
+4. 镜像文件是否已经完整解压，且路径填写正确。
+5. USB 数据线是否正常，主板与电脑连接是否稳定。
