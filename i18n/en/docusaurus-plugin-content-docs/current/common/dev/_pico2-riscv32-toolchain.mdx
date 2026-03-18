@@ -25,7 +25,7 @@ git clone https://github.com/riscv-collab/riscv-gnu-toolchain.git
 - Create an output directory
 
 ```bash
-mkdir /honme/radxa/riscv32_toolchain
+mkdir /home/radxa/riscv32_toolchain
 ```
 
 - Compile
@@ -37,7 +37,7 @@ mkdir build
 
 cd build
 
-../configure --prefix=/honme/radxa/riscv32_toolchain --with-arch=rv32gc --with-abi=ilp32 --enable-multilib
+../configure --prefix=/home/radxa/riscv32_toolchain --with-arch=rv32gc --with-abi=ilp32 --enable-multilib
 
 make -j$(nproc)
 ```
