@@ -86,9 +86,22 @@ rkdeveloptool -V
 
 打开系统终端或命令行，运行以下命令进行安装。
 
-:::note
-`git` 和 `wget` 已随 Xcode Command Line Tools 安装，无需通过 Homebrew 单独安装。macOS 不支持 `$(nproc)`，请使用 `make` 直接编译。`main.cpp` 中使用了可变长度数组（VLA），macOS 的 Clang 默认不允许在 C++ 中使用 VLA，需要先将变量声明为 `const`。
+:::tip 推荐
+推荐通过第三方 Homebrew Tap 直接安装，无需手动编译：
 :::
+
+<NewCodeBlock tip="macOS$" type="host">
+
+```bash
+brew tap IgorKha/rkdeveloptool
+brew install rkdeveloptool
+```
+
+</NewCodeBlock>
+
+:::details 从源码编译（备选）
+
+如果 Tap 安装失败，也可以从源码编译。macOS 不支持 `$(nproc)`，请使用 `make` 直接编译。`main.cpp` 中使用了可变长度数组（VLA），macOS 的 Clang 默认不允许在 C++ 中使用 VLA，需要先将变量声明为 `const`。
 
 <NewCodeBlock tip="macOS$" type="host">
 
@@ -104,6 +117,8 @@ cp rkdeveloptool /opt/homebrew/bin/
 ```
 
 </NewCodeBlock>
+
+:::
 
 - 验证版本号
 
