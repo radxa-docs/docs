@@ -49,6 +49,7 @@ sudo apt install \
 ```bash
 git clone https://git.linuxtv.org/libcamera.git
 cd libcamera
+git checkout 02277d4c1a5ae7fee582f635936877435a12db64 # Optional. The following test steps are based on this version of libcamera.
 meson setup build --wipe \
     -Dpipelines=simple \
     -Dcam=enabled \
