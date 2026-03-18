@@ -168,6 +168,10 @@ RK358X 用户 TARGET_PLATFORM 请指定 `rk3588` 平台
 
   </NewCodeBlock>
 
+  :::tip
+  如果这里报错 `failed to open rknpu module` 或 `failed to open rknn device`，通常说明板端缺少 RKNPU2 用户态包，或驱动版本未满足 RKLLM 要求。请先回到 [RKLLM 安装](./rkllm_install#板端驱动配置) 中的板端驱动配置章节，确认 `rknpu2-rk3588` 已安装，并检查 `/sys/kernel/debug/rknpu/version`。
+  :::
+
   | 参数              | 必要性 | 描述                   | 选项                             |
   | ----------------- | ------ | ---------------------- | -------------------------------- |
   | `path`            | 必要   | RKLLM 模型文件夹路径。 | N                                |

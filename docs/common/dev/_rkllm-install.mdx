@@ -122,6 +122,22 @@ radxa 6.1 固件默认 RKNPU 驱动版本为 0.9.6，请通过: `sudo rsetup` ->
 升级后请务必执行 **`sudo apt autopurge`** 然后重启。
 :::
 
+:::info
+部分 CLI / 最小化镜像可能不会预装 RKLLM 运行时所需的 RKNPU2 用户态包。若运行 `llm_demo` 时出现 `failed to open rknpu module` 或 `failed to open rknn device`，请先手动安装对应 SoC 的 RKNPU2 包并重启。
+:::
+
+<NewCodeBlock tip="Radxa OS" type="device">
+
+```bash
+sudo apt update
+# RK3588 / RK3582 系列
+sudo apt install rknpu2-rk3588
+# RK356X 系列请改为：sudo apt install rknpu2-rk356x
+sudo reboot
+```
+
+</NewCodeBlock>
+
 查看驱动版本：
 
 <NewCodeBlock tip="Radxa OS" type="device">
