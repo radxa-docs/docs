@@ -36,6 +36,7 @@ sudo apt install \
     qtdeclarative5-dev \
     libqt5opengl5-dev \
     qml-module-qtquick-controls \
+    libgles2-mesa-dev \
     qml-module-qtquick2 -y
 ```
 
@@ -48,6 +49,7 @@ sudo apt install \
 ```bash
 git clone https://git.linuxtv.org/libcamera.git
 cd libcamera
+git checkout 02277d4c1a5ae7fee582f635936877435a12db64 # Optional. The following test steps are based on this version of libcamera.
 meson setup build --wipe \
     -Dpipelines=simple \
     -Dcam=enabled \
@@ -80,7 +82,7 @@ Open the system desktop terminal, go to the libcamera build directory, and start
 
 ```bash
 cd libcamera/build/src/apps/qcam/
-./qcam --renderer=gles --stream pixelformat=YUYV,width=1920,height=1080
+./qcam --stream pixelformat=YUYV,width=1920,height=1080
 ```
 
 </NewCodeBlock>
