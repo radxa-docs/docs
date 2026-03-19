@@ -63,9 +63,15 @@ sudo rsetup
 # 选择 Overlays → Install 3rd Party overlay → 选中对应的 dts 文件
 ```
 
-rsetup 会自动编译选中的 dts 文件并启用。
+rsetup 会自动编译选中的 dts 文件并启用。启用后需要重启系统使 overlay 生效。
 
-#### 步骤三：验证
+#### 步骤三：重启系统
+
+```bash
+sudo reboot
+```
+
+#### 步骤四：验证
 
 ```bash
 lsusb
