@@ -101,7 +101,12 @@ When using HDMI RX, gst-mppenc does not support NV24(YCbCr444) and RGB input, yo
 
 ```bash
 sudo apt update
-sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev meson librga-dev
+sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev python3-venv librga-dev
+# gst-rtsp-server requires meson >= 1.1.
+# Debian 12 backports provides meson 1.7.0, or you can install it in a virtual environment:
+python3 -m venv venv
+source venv/bin/activate
+pip install meson
 ```
 
 ### Get gst-rtsp-server source code
@@ -118,6 +123,7 @@ git switch 1.22
 ### Compile gst-rtsp-server
 
 ```bash
+source venv/bin/activate
 meson build
 cd build
 ninja
