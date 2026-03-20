@@ -22,10 +22,9 @@ sidebar_position: 8
 ### Can the ROCK 5B boot from a PCIe M.2 NVME SSD without an eMMC and TF card?
 
 - Yes. The ROCK 5B can boot from a PCIe M.2 NVME SSD.
-  The ROCK 5B is equipped with a 16MB SPI NOR Flash and a PCIe M.2 M-Key connector. the SPI NOR Flash stores the bootloader.
-  the NVME SSD stores the entire system image (at least the kernel and rootfs).
-  the ROCK 5B is equipped with a 16MB SPI NOR Flash and a PCIe M.2 M-Key connector.  
-  For more information, please check [SPI NOR Flash and PCIe NVME SSD boot](./lowlevel-development/bootloader_spi_flash)
+  The ROCK 5B is equipped with a 16MB SPI NOR Flash and a PCIe M.2 M-Key connector. The SPI NOR Flash stores the bootloader.
+  The NVME SSD stores the entire system image (at least the kernel and rootfs).
+  For more information, please check the following guides: [SPI Nor Flash](./rock5b/getting-started/install-os/erase_spi-flash) and [PCIe NVME SSD](./rock5b/getting-started/install-os/nvme).
 
 ### Is the heatsink included in the price?
 
