@@ -100,7 +100,10 @@ gst-launch-1.0 -v v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=512
 
 ```bash
 sudo apt update
-sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev meson librga-dev
+sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev python3-pip librga-dev
+# gst-rtsp-server requires meson >= 1.1, which is newer than the apt version (0.56.x).
+# Install meson via pip instead:
+pip3 install meson
 ```
 
 ### 获取 gst-rtsp-server 源码

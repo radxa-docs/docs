@@ -101,7 +101,10 @@ When using HDMI RX, gst-mppenc does not support NV24(YCbCr444) and RGB input, yo
 
 ```bash
 sudo apt update
-sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev meson librga-dev
+sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev python3-pip librga-dev
+# gst-rtsp-server requires meson >= 1.1, which is newer than the apt version (0.56.x).
+# Install meson via pip instead:
+pip3 install meson
 ```
 
 ### Get gst-rtsp-server source code
