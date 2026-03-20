@@ -24,6 +24,12 @@ For erasing and flashing the SPI boot firmware, please refer to the [Erase/Flash
 
 ## System Image Downloads
 
+:::note Usage note
+
+`.img.xz` files on this page are compressed system images. If your flashing tool cannot write `.xz` archives directly, extract the archive first to get the `.img` file, then flash that `.img` file.
+
+:::
+
 ### Linux System Images
 
 :::info Latest Image Release Page
@@ -62,6 +68,11 @@ If the SPI Flash has not been erased, you can directly write the system image to
 - GPT system image for booting from UFS module: [Android-UFS-gpt.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-ufs-20250527-gpt.zip)
 
 - System image for booting from NVMe: [Android-NVME.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-nvme-20250527-gpt.zip)
+
+### OpenWRT
+
+- [Radxa ROCK 4D OpenWRT ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4d-ext4-sysupgrade.img.gz)
+- [Radxa ROCK 4D OpenWRT squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4d-squashfs-sysupgrade.img.gz)
 
 ## Hardware Design
 

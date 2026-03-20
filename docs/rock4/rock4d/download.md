@@ -24,6 +24,12 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 ## 系统镜像下载
 
+:::note 使用提示
+
+本页中的 `.img.xz` 文件为压缩镜像。如果所使用的烧录工具不支持直接写入 `.xz` 压缩包，请先解压得到 `.img` 文件，再进行烧录。
+
+:::
+
 ### Linux 系统镜像
 
 :::info 最新系统镜像发布页面
@@ -61,6 +67,11 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 - 适用于 UFS 模块启动的 gpt 系统镜像：[Android-UFS-gpt.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-ufs-20250527-gpt.zip)
 
 - 适用于 NVME 启动的系统镜像：[Android-NVME.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-nvme-20250527-gpt.zip)
+
+### OpenWRT
+
+- [Radxa ROCK 4D OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4d-ext4-sysupgrade.img.gz)
+- [Radxa ROCK 4D OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4d-squashfs-sysupgrade.img.gz)
 
 ## 硬件设计
 
