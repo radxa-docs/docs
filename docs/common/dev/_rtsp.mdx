@@ -100,10 +100,12 @@ gst-launch-1.0 -v v4l2src device=/dev/video-camera0 ! queue ! mpph265enc bps=512
 
 ```bash
 sudo apt update
-sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev python3-pip librga-dev
-# gst-rtsp-server requires meson >= 1.1, which is newer than the apt version (0.56.x).
-# Install meson via pip instead:
-pip3 install meson
+sudo apt install build-essential gobject-introspection libcgroup-dev libgirepository1.0-dev libgstreamer-plugins-bad1.0-dev libgstreamer-plugins-base1.0-dev python3-venv librga-dev
+# gst-rtsp-server requires meson >= 1.1.
+# Debian 12 backports 提供 meson 1.7.0，也可使用 pip 安装到虚拟环境中：
+python3 -m venv venv
+source venv/bin/activate
+pip install meson
 ```
 
 ### 获取 gst-rtsp-server 源码
@@ -120,6 +122,7 @@ git switch 1.22
 ### 编译 gst-rtsp-server
 
 ```bash
+source venv/bin/activate
 meson build
 cd build
 ninja
