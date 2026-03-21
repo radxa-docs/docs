@@ -40,7 +40,7 @@ OTG 模式：通过 Rsetup 开启 OTG 模式。
 
 ### USB-C Power 接口作为 Host 使用
 
-A7Z 的 USB-C Power 接口（紧邻 DC 电源圆口）默认工作在 device 模式。如果需要连接无线鼠标接收器、键盘、U 盘等外设，需要通过设备树 overlay 将其切换为 host 模式。
+A7Z 的 USB-C Power 接口（接口①，USB-C 2.0 OTG & Power）默认工作在 device 模式。如果需要连接无线鼠标接收器、键盘、U 盘等外设，需要通过设备树 overlay 将其切换为 host 模式。
 
 #### 步骤一：获取 overlay 参考
 
