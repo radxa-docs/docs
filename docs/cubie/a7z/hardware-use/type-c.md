@@ -42,17 +42,26 @@ OTG 模式：通过 Rsetup 开启 OTG 模式。
 
 A7Z 的 USB-C Power 接口（接口①，USB-C 2.0 OTG & Power）默认工作在 device 模式。如果需要连接无线鼠标接收器、键盘、U 盘等外设，需要通过设备树 overlay 将其切换为 host 模式。
 
-#### 步骤一：获取 overlay 参考
+#### 步骤一：创建 overlay 文件
 
-可参考 [radxa-overlays](https://github.com/radxa-pkg/radxa-overlays) 仓库中 cubie-a7a 相关的 overlay 写法（如 [cubie-a7a-radxa-25w-poe.dts](https://github.com/radxa-pkg/radxa-overlays/blob/main/arch/arm64/boot/dts/allwinner/overlays/cubie-a7a-radxa-25w-poe.dts)）。
-
-核心设置如下：
+需要通过设备树 overlay 将 USB-C Power 接口切换为 host 模式。以下为最小配置示例：
 
 ```dts
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "allwinner,sun50i-a733";
+};
+
 &usbc0 {
- usb_port_type = <0x1>; // 0x0: device  0x01: host
+    usb_port_type = <0x1>; /* 0x0: device, 0x1: host */
 };
 ```
+
+:::info
+`usb_port_type` 设置项用于切换 USB-C 接口角色：设为 `0x1` 即为 host 模式，可连接鼠标、键盘、U 盘等外设。
+:::
 
 #### 步骤二：安装 overlay
 
