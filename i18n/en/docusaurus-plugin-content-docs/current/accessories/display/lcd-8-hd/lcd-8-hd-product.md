@@ -88,3 +88,9 @@ The Radxa Display 8 HD touch panel is powered by GT911, a new‑generation 5‑p
 ## Mechanical Specification
 
 ![Radxa Display 8 HD](/img/accessories/display/display-8-hd-spec.webp)
+
+## Downloads
+
+### Product Information
+
+- [3D Drawings (STEP)](https://dl.radxa.com/accessories/8-hd/radxa_display_8_hd_3d.stp.zip)
