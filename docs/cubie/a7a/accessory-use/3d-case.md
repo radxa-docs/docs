@@ -8,16 +8,16 @@ sidebar_position: 2
 
 > 说明：以下外壳均为第三方设计，与 Radxa 官方无从属关系，请在打印和使用前自行评估风险。
 
-## 型号一：Cubie A7A 外壳面锣丝
+## 型号一：Cubie A7A 无螺丝外壳
 
 - MakerWorld 模型页面：
-  - https://makerworld.com.cn/zh/models/2294186-rui-sha-cubie-a7a-wai-ke-mian-luo-si
+  - https://makerworld.com/zh/models/2558376-risa-cubie-a7a-screwless-case
 
 特点概述：
 
 - 适配 Radxa Cubie A7A 板卡孔位
-- 专为 Cubie A7A 设计的面锣丝外壳方案
-- 适合需要固定在机柜、工作台等场景
+- 无螺丝固定设计，通过卡扣固定，安装拆卸方便
+- 适合桌面或机柜等固定场景
 
 ---
 
