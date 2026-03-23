@@ -36,6 +36,14 @@ Armbian ：
 
 [Armbian](https://www.armbian.com/rock-2a/) （包含 Ubuntu 和 Debian 系统）
 
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+:::
+
+- [百度网盘下载（rk3528）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frk3528&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## 硬件设计
 
 Radxa ROCK 2A V1.2 版本
