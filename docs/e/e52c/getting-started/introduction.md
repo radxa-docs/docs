@@ -47,6 +47,10 @@ Radxa E52C 是一款紧凑型网络计算机，具有广泛的网络功能和强
         <td colspan="2" align="center">无 GPU</td>
     </tr>
     <tr>
+        <td align="center">NPU</td>
+        <td colspan="2" align="center">NPU 支持 INT4/INT8/INT16/FP16/BF16 和 TF32 加速，计算能力高达 5TOPs</td>
+    </tr>
+    <tr>
         <td align="center">内存</td>
         <td colspan="2" align="center">1GB / 2GB / 4GB 32位 LPDDR4</td>
     </tr>
