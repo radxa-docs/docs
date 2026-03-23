@@ -32,7 +32,9 @@ Android:
 百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
 :::
 
-- [百度网盘下载（radxa-cm3-io 等）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-io&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（radxa-cm3-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-io&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（radxa-cm3-rpi-cm4-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-rpi-cm4-io&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（radxa-cm3-sodimm-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-sodimm-io&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 第三方镜像
 
