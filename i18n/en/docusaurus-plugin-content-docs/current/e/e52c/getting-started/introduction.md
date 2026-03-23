@@ -47,6 +47,10 @@ It provides a reliable and powerful platform for developers, IoT enthusiasts, DI
         <td colspan="2" align="center"> N/A </td>
     </tr>
     <tr>
+        <td align="center">NPU</td>
+        <td colspan="2" align="center">NPU supports INT4/INT8/INT16/FP16/BF16 and TF32 acceleration, computing power up to 5TOPs</td>
+    </tr>
+    <tr>
         <td align="center">DDR</td>
         <td colspan="2" align="center">1GB / 2GB / 4GB 32-bit LPDDR4</td>
     </tr>
