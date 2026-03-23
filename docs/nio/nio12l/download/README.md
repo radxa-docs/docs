@@ -32,6 +32,14 @@ Ubuntu:
 Android:
 [n12l_android11_20240912.zip](https://dl.radxa.com/nio12l/images/android/n12l_android11_20240912.zip)
 
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+:::
+
+- [百度网盘下载（radxa-nio-12l）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-nio-12l&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ### 硬件资料下载
 
 V1.3
