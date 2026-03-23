@@ -34,6 +34,14 @@ Armbian 的默认凭据如下：
 - [Radxa ROCK 5C Kaihong OS for microSD HDMI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-HDMI-SD-GPT-20260121-0346.zip)：适用于 microSD 卡启动系统，支持 HDMI 显示。
 - [Radxa ROCK 5C Kaihong OS for microSD MIPI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-MIPI-SD-GPT-20260121-0531.zip)：适用于 microSD 卡启动系统，支持瑞莎 8 寸显示屏。
 
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+:::
+
+- [百度网盘下载（rock-5c）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5c&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## 硬件设计
 
 ### V1.1
