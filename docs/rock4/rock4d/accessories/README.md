@@ -25,3 +25,7 @@ sidebar_position: 99
 | SATA 扩展 | Penta SATA HAT         | 五盘位 SATA 扩展板，支持搭建 NAS 存储系统                | [查看详情](https://radxa.com/products/accessories/penta-sata-hat)         |
 | 网络扩展  | Dual 2.5G Router HAT   | 双 2.5G 以太网路由器扩展板                               | [查看详情](https://radxa.com/products/accessories/dual-2-5g-router-hat)   |
 | 散热方案  | Heatsink 2513          | 散热器，尺寸 25x13mm                                     | [查看详情](https://radxa.com/products/accessories/heatsink-2513)          |
+
+## 3D 打印外壳
+
+- [第三方 3D 打印外壳](./3d-case)：社区设计的 ROCK 4D 专用外壳
