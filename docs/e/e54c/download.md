@@ -38,6 +38,14 @@ SPI 启动固件文件，用于刷入 SPI Flash
 
 [spi.img](https://dl.radxa.com/e/e54c/images/radxa-e54c-spi-flash-image.img)
 
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+:::
+
+- [百度网盘下载（radxa-e54c）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-e54c&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## 硬件设计
 
 Radxa E54C V1.2 版本
