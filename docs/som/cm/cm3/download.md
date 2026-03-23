@@ -26,6 +26,14 @@ Android:
 
 - [Radxa_CM3_Android11-rkr12-20240719-gpt.zip](https://github.com/radxa/manifests/releases/download/android11-radxa-20240719/Radxa_CM3_Android11-rkr12-20240719-gpt.zip)
 
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+:::
+
+- [百度网盘下载（radxa-cm3-io 等）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-io&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## 第三方镜像
 
 - [Radxa CM3 IO OpenWrt](https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=rockchip%2Farmv8&id=radxa_cm3-io)
