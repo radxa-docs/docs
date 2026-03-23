@@ -61,4 +61,12 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
   CM5 搭载 CM5 IO: [radxa-cm5-io-android12_rkr14](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240511/Radxa_CM5_Android12_rkr14_GMS_20240511-gpt.zip)
 
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+:::
+
+- [百度网盘下载（radxa-cm5-io 等）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm5-io&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ### 质量认证
