@@ -160,6 +160,8 @@ Android：
 :::
 
 - [百度网盘下载（rock-5b）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5b&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（rock-5b-plus）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5b-plus&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（rock-5b-plus-6_1）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5b-plus-6_1&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 硬件设计
 

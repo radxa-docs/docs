@@ -58,6 +58,7 @@ Armbian 的默认凭据如下：
 :::
 
 - [百度网盘下载（rock-5-itx）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5-itx&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（rock-5-itx-6_1）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5-itx-6_1&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 质量认证
 
