@@ -23,3 +23,7 @@ This page lists the official accessories compatible with Cubie A7A.
 | PoE      | 25W PoE+ HAT           | Power-over-Ethernet expansion board supporting IEEE 802.3at              | [Learn more](https://radxa.com/products/accessories/25w-poe-plus-hat)       |
 | Network  | Dual 2.5G Router HAT   | Dual 2.5G Ethernet router expansion board                                | [Learn more](https://radxa.com/products/accessories/dual-2-5g-router-hat)   |
 | Thermal  | Heatsink 6540B         | Heatsink, 65x40 mm                                                       | [Learn more](https://radxa.com/products/accessories/heatsink-6540b)         |
+
+## 3D-Printed Cases
+
+- [Third-Party 3D-Printed Cases](./3d-case): Community-designed cases for Cubie A7A
