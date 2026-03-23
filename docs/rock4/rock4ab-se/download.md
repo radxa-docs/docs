@@ -75,6 +75,17 @@ ROCK 4SE:
 - [Radxa ROCK 4SE OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4se-ext4-sysupgrade.img.gz)
 - [Radxa ROCK 4SE OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4se-squashfs-sysupgrade.img.gz)
 
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+:::
+
+- [百度网盘下载（rock-4se）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-4se&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（rock-pi-4a）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-pi-4a&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（rock-pi-4a-plus）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-pi-4a-plus&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（rock-pi-4b）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-pi-4b&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## Datasheet
 
 - [ROCK 4A/B 的 SOC RK3399 datasheet](http://rockchip.fr/RK3399%20datasheet%20V1.8.pdf)
