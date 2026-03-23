@@ -68,6 +68,14 @@ sidebar_position: 150
 
 - [Radxa Cubie A7A Android 13 20260206](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20260205/a733_android13_radxa_a7a_20260206_uart0.zip)：适用于 AC101B 音频编解码器版本的 Cubie A7A
 
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+:::
+
+- [百度网盘下载（radxa-a733）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-a733&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## 刷机工具
 
 SD卡启动盘制作工具：
