@@ -29,6 +29,14 @@ MD5: 8f4604533c67f5198417dea1a532af99
 
 - [瑞莎下载站](https://dl.radxa.com/sg2300x/images/sdcard-radxa-airbox-b5-20240606.img)
 
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+:::
+
+- [百度网盘下载（radxa-airbox）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-airbox&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ### 硬件设计
 
 ### 质量认证
