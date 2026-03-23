@@ -67,6 +67,9 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
 :::
 
-- [百度网盘下载（radxa-cm5-io 等）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm5-io&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（radxa-cm5-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm5-io&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（radxa-cm5-io-d_1）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm5-io-d_1&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（radxa-cm5-rpi-cm4-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm5-rpi-cm4-io&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（radxa-cm5-rpi-cm4-io-d_1）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm5-rpi-cm4-io-d_1&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ### 质量认证
