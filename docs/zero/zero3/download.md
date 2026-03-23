@@ -75,6 +75,14 @@ Armbian 的默认凭据如下：
 非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到 [OpenWRT 论坛](https://forum.openwrt.org/) 寻求帮助。
 :::
 
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+:::
+
+- [百度网盘下载（radxa-zeros3）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-zeros3&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## 质量认证
 
 ## 外壳
