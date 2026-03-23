@@ -1,23 +1,23 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # 第三方 3D 打印外壳
 
-本页收录社区作者为 Radxa ROCK 4D 设计并开源的第三方 3D 打印外壳，方便用户快速打印并保护主板。
+本页收录社区作者为 ROCK 5B+ 设计并开源的第三方 3D 打印外壳，方便用户快速打印并保护主板。
 
 > 说明：以下外壳均为第三方设计，与 Radxa 官方无从属关系，请在打印和使用前自行评估风险。
 
-## 型号一：ROCK 4D 无螺丝外壳
+## 型号一：ROCK 5B+ 外壳
 
 - MakerWorld 模型页面：
-  - https://makerworld.com/en/models/2558377-radxa-rock-4d-screwless
+  - https://makerworld.com.cn/zh/models/2272559
 
 特点概述：
 
-- 适配 Radxa ROCK 4D 板卡孔位
-- 无螺丝固定设计，安装拆卸方便
-- 适合桌面或机柜等固定场景
+- 适配 ROCK 5B+ 板卡外形和接口开孔
+- 适合作为桌面或实验环境中的日常防护外壳
+- 可作为 3D 打印自制外壳的参考方案
 
 ---
 

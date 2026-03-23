@@ -25,3 +25,7 @@ This page lists the official accessories compatible with ROCK 4D.
 | SATA Expansion | Penta SATA HAT         | Five-bay SATA expansion board for NAS builds                             | [Learn more](https://radxa.com/products/accessories/penta-sata-hat)         |
 | Network        | Dual 2.5G Router HAT   | Dual 2.5G Ethernet router expansion board                                | [Learn more](https://radxa.com/products/accessories/dual-2-5g-router-hat)   |
 | Thermal        | Heatsink 2513          | Heatsink, 25x13 mm                                                       | [Learn more](https://radxa.com/products/accessories/heatsink-2513)          |
+
+## 3D-Printed Cases
+
+- [Third-Party 3D-Printed Cases](./3d-case): Community-designed cases for ROCK 4D
