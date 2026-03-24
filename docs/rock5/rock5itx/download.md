@@ -57,8 +57,8 @@ Armbian 的默认凭据如下：
 百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
 
 **版本说明：**
-- **B 版本**：经过测试的稳定版本，功能可靠，推荐一般用户使用
-- **T 版本**：测试版本，较新但可能存在不稳定问题，需要一定技术能力，适合高级用户或测试用途
+- **B / R 版本**：经过测试的稳定版本，功能可靠，推荐一般用户使用
+- **T 版本**：正式版本前的测试版本，测试用途
 :::
 - [百度网盘下载（rock-5-itx）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5-itx&parentPath=%2Fsharelink3108273493-988411983016443)
 - [百度网盘下载（rock-5-itx-6_1）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5-itx-6_1&parentPath=%2Fsharelink3108273493-988411983016443)
