@@ -16,6 +16,10 @@ import Images from "./\_image.mdx"
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
 :::
 
+:::note
+目前 ROCK 5C 官方提供的 Android 镜像仅为 Android 12 版本，其他 Android 版本暂不提供。
+:::
+
 ### 第三方操作系统镜像
 
 - [Radxa ROCK 5C Armbian](https://www.armbian.com/radxa-rock-5c/)
