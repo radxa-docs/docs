@@ -15,7 +15,7 @@ For the specific location of the fan interface, please refer to the interface de
 | Item | Specification |
 |------|---------------|
 | Interface Type | 3-Pin Female Header |
-| Pin Spacing | 1.25mm |
+| Pin Spacing | 0.8mm |
 | Arrangement | Single-row 3-pin |
 | Installation Method | SMD, bottom-mount |
 | Operating Voltage | 5V (VCC5V0_SYS) |

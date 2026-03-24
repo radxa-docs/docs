@@ -144,7 +144,7 @@ Cubie A7S includes one 3‑Pin fan header for active cooling with PWM speed cont
 
 Key specifications:
 
-- Interface type: 3‑Pin female header, 1.25mm pin spacing
+- Interface type: 3‑Pin female header, 0.8mm pin spacing
 - Operating voltage: 5V (VCC5V0_SYS)
 - Speed control: PWM (no tachometer feedback)
 - PWM signal: PJ27_PWM1-9
