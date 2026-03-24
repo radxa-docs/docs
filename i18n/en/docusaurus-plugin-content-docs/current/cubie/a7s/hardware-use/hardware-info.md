@@ -149,7 +149,7 @@ Key specifications:
 - Speed control: PWM (no tachometer feedback)
 - PWM signal: PJ27_PWM1-9
 
-For detailed pin definitions and usage instructions, see the [Fan Interface](./fan) tutorial.
+For detailed pin definitions and usage instructions, see the [Fan Interface](./fan) tutorial (note: the triangle silkscreen marking points to the GND pin).
 
 ### MIPI camera connector
 

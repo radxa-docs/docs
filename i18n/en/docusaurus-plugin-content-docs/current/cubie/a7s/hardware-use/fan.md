@@ -30,7 +30,7 @@ For the specific location of the fan interface, please refer to the interface de
 | 3 | VCC5V0_SYS | 5V power input |
 
 :::tip
-Pay attention to the polarity when connecting the fan. Do not reverse the connection.
+Pay attention to the polarity when connecting the fan. The triangle silkscreen marking points to the GND pin. Do not reverse the connection.
 :::
 
 ## Usage Guide
