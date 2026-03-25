@@ -1,0 +1,151 @@
+这是一个基于 Radxa O6/O6N 的多路视频流 YOLO 目标检测推理系统。
+
+:::info[环境配置]
+需要提前配置好相关环境。
+
+- [环境配置](../../../../orion/o6/app-development/artificial-intelligence/env-setup.md)
+- [AI Model Hub](../../../../orion/o6/app-development/artificial-intelligence/ai-hub.md)
+  :::
+
+## 功能特性
+
+- 支持多路视频流并行处理
+- 线程/进程双模式推理
+- NPU 硬件加速
+- 实时 FPS 显示
+- 多流合并显示，全屏切换
+
+## 项目结构
+
+```txt
+cix-multistream-yolo/
+├── main.py                      # 程序入口
+├── src/
+│   ├── capture/                # 视频读取
+│   │   ├── video_reader.py     # 视频帧读取
+│   │   └── video_reader_pipeline.py  # 读取流水线
+│   ├── processing/              # 推理处理
+│   │   ├── inference.py         # NPU 推理引擎
+│   │   ├── inference_pipeline.py # 推理流水线
+│   │   └── post_processing.py  # 后处理(NMS)
+│   └── utils/
+│       ├── manager.py          # 主协调器
+│       ├── tools.py            # 工具函数
+│       ├── displaying.py       # 显示模块
+│       └── download_model.sh   # 模型下载脚本
+├── models/                     # 模型文件
+├── data/                       # 测试视频
+│   ├── test_videos_360P/
+│   └── test_videos_720P/
+└── test/                       # 测试代码
+```
+
+## 依赖
+
+- Python 3.11+
+- OpenCV
+- FFmpeg
+- NumPy
+- libnoe (NPU 库)
+
+## 使用方法
+
+### 环境依赖
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+pip install opencv-python numpy
+```
+
+</NewCodeBlock>
+
+### 下载项目
+
+<NewCodeBlock tip="O6 / O6N" type="device">
+
+```bash
+git clone https://github.com/Ronin-1124/cix-multistream-yolo.git
+cd cix-multistream-yolo
+```
+
+</NewCodeBlock>
+
+### 基本用法
+
+```bash
+python main.py
+```
+
+### 指定参数
+
+```bash
+# 指定视频源
+python main.py -i video.mp4
+python main.py -i video1.mp4 video2.mp4
+python main.py -i data/test_videos_360P/
+
+# 指定模型
+python main.py -m models/yolov8s.cix
+
+# 选择推理模式 (thread 或 process)
+python main.py -t process
+```
+
+### 运行效果
+
+<div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
+  <img
+    src="/img/orion/o6/cix-multi-video-inference.webp"
+    style={{ width: "100%", height: "auto" }}
+    alt="8路YOLOv8n推理效果"
+  />
+</div>
+
+可以看到，8路推理时，最高可以达到 173FPS 的实时吞吐率，平均每路 20FPS 左右。
+
+### 参数说明
+
+| 参数          | 说明                                    | 默认值                  |
+| ------------- | --------------------------------------- | ----------------------- |
+| `-i, --input` | 视频文件、目录或多个路径                | `data/test_videos_360P` |
+| `-m, --model` | 模型文件路径                            | `models/yolov8n.cix`    |
+| `-t, --type`  | 推理模式: `thread`/`t` 或 `process`/`p` | `thread`                |
+
+### 快捷键
+
+| 按键 | 功能         |
+| ---- | ------------ |
+| `q`  | 退出程序     |
+| `f`  | 切换全屏模式 |
+
+## 支持的模型
+
+- `yolov8n` - YOLOv8 Nano
+- `yolov8s` - YOLOv8 Small
+
+模型文件不存在时会自动从 ModelScope 下载。
+
+## 架构设计
+
+```txt
+视频读取 (VideoReader)
+       ↓
+   帧队列 (Queue)
+       ↓
+ 预处理 (pre_processing)
+       ↓
+ NPU 推理 (InferenceEngine)
+       ↓
+ 后处理 (NMS)
+       ↓
+ 结果队列
+       ↓
+ 显示模块 (Display)
+```
+
+## 测试
+
+```bash
+pytest test/
+```
