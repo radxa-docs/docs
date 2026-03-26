@@ -11,6 +11,10 @@ import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV3.mdx";
 
 This document describes how to install an Android image to the ROCK 5C.
 
+:::note
+Currently, only Android 12 is officially available for ROCK 5C.
+:::
+
 ROCK 5C can be booted from microSD card or EMMC, depending on the boot method, the system will be installed on different media.
 
 <Tabs queryString="target">
