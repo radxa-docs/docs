@@ -138,6 +138,19 @@ Before powering on, press and hold the Cubie A7S USB BOOT button. Power on the b
 
 :::
 
+### Fan header
+
+Cubie A7S includes one 3‑Pin fan header for active cooling with PWM speed control.
+
+Key specifications:
+
+- Interface type: 3‑Pin female header, 0.8mm pin spacing
+- Operating voltage: 5V (VCC5V0_SYS)
+- Speed control: PWM (no tachometer feedback)
+- PWM signal: PJ27_PWM1-9
+
+For detailed pin definitions and usage instructions, see the [Fan Interface](./fan) tutorial (note: the triangle silkscreen marking points to pin 1).
+
 ### MIPI camera connector
 
 Cubie A7S includes one 4‑lane MIPI camera connector for connecting a MIPI camera module.
