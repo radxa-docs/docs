@@ -20,7 +20,7 @@ ROOBI Flasher is a flashing tool used to restore ROOBI OS. If your ROOBI system 
 
 1. Obtain the flashing image:
 
-> [SLiM X2L](https://gate.radxa.com/palmshell/RoobiOS/releases/download/ps006_flasher_v1.1.3/ps006_flasher-v1.1.3.img.xz)
+> [SLiM X2L / SLiM X4L](https://gate.radxa.com/palmshell/RoobiOS/releases/download/ps006_flasher_v1.1.3/ps006_flasher-v1.1.3.img.xz)
 >
 > PuER N1 Coming Soon
 >
