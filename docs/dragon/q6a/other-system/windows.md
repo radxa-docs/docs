@@ -114,7 +114,9 @@ Windows 安装完成后，系统仍然缺少诸如网络、GPU、音频等专用
 
 此时，大部分硬件（包括网络、GPU、多媒体、音频等）应可在 Windows 中正常工作。
 
-## 后续建议
+:::info 已知限制：板载千兆以太网（RTL8111H）
+Dragon Q6A 板载的 RTL8111H 千兆以太网控制器在 Windows on ARM 下存在已知兼容性限制：设备在系统内显示正常（无感叹号），但无法正常收发数据包。如遇此问题，建议使用 **USB 千兆以太网适配器**（推荐 ASIX AX88179 或 Realtek RTL8153 芯片方案），这些方案在 Windows ARM64 下有完善驱动支持。如需进一步支持，请通过 support@radxa.com 联系 Radxa 技术支持团队。
+:::
 
 - 通过 Windows Update 检查并安装最新系统更新；
 - 从 Microsoft Store 安装 OpenCL、OpenGL、Vulkan 相关兼容包，以获得更完整的 GPU 能力；

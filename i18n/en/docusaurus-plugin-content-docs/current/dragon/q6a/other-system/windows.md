@@ -118,7 +118,9 @@ After Windows installation, the system still lacks specific drivers (network, GP
 
 At this point, most hardware including networking, GPU, multimedia and audio should work properly under Windows.
 
-## 4. Next Steps
+:::info Known Issue: Onboard Gigabit Ethernet (RTL8111H)
+The onboard RTL8111H Gigabit Ethernet controller on Dragon Q6A has a **known compatibility limitation** under Windows on ARM: the device appears normal in Device Manager (no yellow exclamation mark), but is unable to send or receive any network packets. If you encounter this issue, the recommended workaround is to use a **USB Gigabit Ethernet adapter** (ASIX AX88179 or Realtek RTL8153 chipset-based adapters are well-supported under Windows ARM64). For further assistance, please contact Radxa support at support@radxa.com.
+:::
 
 - Use Windows Update to check for and install the latest system updates;
 - Install OpenCL/OpenGL/Vulkan compatibility packs from Microsoft Store for full GPU capabilities;
