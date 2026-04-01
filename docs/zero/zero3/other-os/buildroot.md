@@ -39,13 +39,15 @@ tar xvf rk356x_linux5.10_rkr8_sdk.repo.tar
 
 ## 添加板子 Zero 3E 板子支持
 
+> **注意**：请勿使用 root 用户进行编译，以免产生权限问题。建议使用普通用户编译。
+
 使用 Radxa 维护的 rockchip 仓库。
 
 ```text
 cd device/rockchip
 git remote add radxa https://github.com/radxa/device-rockchip.git
 git fetch radxa
-git checkout -b rk3566_rk3568-linux-5.10 remotes/radxa/rk3566_rk3568-linux-5.10
+git switch -c rk3566_rk3568-linux-5.10 radxa/rk3566_rk3568-linux-5.10
 ```
 
 使用 Radxa 维护的 kernel 仓库。
@@ -54,7 +56,7 @@ git checkout -b rk3566_rk3568-linux-5.10 remotes/radxa/rk3566_rk3568-linux-5.10
 cd kernel
 git remote add radxa https://github.com/radxa/kernel.git
 git fetch radxa
-git checkout -b linux-5.10-gen-rkr8-buildroot remotes/radxa/linux-5.10-gen-rkr8-buildroot
+git switch -c linux-5.10-gen-rkr8-buildroot radxa/linux-5.10-gen-rkr8-buildroot
 ```
 
 ## 构建 SDK
