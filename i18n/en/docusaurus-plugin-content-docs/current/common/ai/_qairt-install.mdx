@@ -181,6 +181,16 @@ Radxa provides a Docker image for using the QAIRT SDK on the board. Alternativel
       <NewCodeBlock tip="Device" type="device">
 
       ```bash
+      sudo docker pull radxazifeng278/qairt-npu:v1.0
+      ```
+
+      </NewCodeBlock>
+
+      - Run the Docker image
+
+      <NewCodeBlock tip="Device" type="device">
+
+      ```bash
       sudo docker run --privileged -it -v /dev:/dev -v $(pwd):/workspace --name qairt-sdk radxazifeng278/qairt-npu:v1.0 /bin/bash
       ```
 
@@ -189,6 +199,16 @@ Radxa provides a Docker image for using the QAIRT SDK on the board. Alternativel
     </TabItem>
 
     <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+
+      <NewCodeBlock tip="Device" type="device">
+
+      ```bash
+      sudo docker pull radxazifeng278/qairt-npu-9075:v1.1
+      ```
+
+      </NewCodeBlock>
+
+      - Run the Docker image
 
       <NewCodeBlock tip="Device" type="device">
 
