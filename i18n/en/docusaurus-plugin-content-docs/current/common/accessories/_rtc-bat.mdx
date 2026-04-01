@@ -35,13 +35,6 @@ sudo dmesg | grep rtc
 
 If you see output similar to `registered as rtc0`, it indicates that the RTC is detected correctly.
 
-```text
-[    0.368528] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
-[    0.368720] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
-[    6.259233] rtc-ds1307 10-0068: registered as rtc0
-[    6.260658] rtc-ds1307 10-0068: setting system clock to 2025-08-06T08:39:15 UTC (1754469555)
-```
-
 ### Read RTC time
 
 Use the `hwclock` command to read the current time from the RTC device (`/dev/rtc0`).

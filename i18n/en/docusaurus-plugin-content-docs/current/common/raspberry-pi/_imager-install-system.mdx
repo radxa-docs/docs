@@ -1,0 +1,114 @@
+Use [Raspberry Pi Imager](https://www.raspberrypi.com/software/) to install the system image to the storage device.
+
+### Install Raspberry Pi Imager
+
+<Tabs queryString="Platform">
+
+<TabItem value="Debian/Ubuntu">
+
+Use the following command in the terminal to install Raspberry Pi Imager.
+
+<NewCodeBlock tip="Debian/Ubuntu$" type="host">
+
+```
+sudo apt update
+sudo apt install rpi-imager -y
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="macOS">
+
+Visit the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) download page to download and install Raspberry Pi Imager.
+
+</TabItem>
+
+</Tabs>
+
+### Using Raspberry Pi Imager
+
+Use Raspberry Pi Imager to install the system image to the storage device.
+
+#### Open Raspberry Pi Imager
+
+:::tip
+
+Different versions of Raspberry Pi Imager may have slightly different interfaces. Please operate according to the actual situation.
+
+:::
+
+#### Select Device
+
+Open Raspberry Pi Imager, select the `Device` option, and choose `Raspberry Pi CM5`. This option includes the Raspberry Pi CM5 device.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/raspberry-pi/raspberry-pi-imager-device.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Select Operating System
+
+Open Raspberry Pi Imager, select the `Operating System` option, and choose the system image you want to install.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/raspberry-pi/raspberry-pi-imager-operating-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Select Storage Device
+
+Open Raspberry Pi Imager, select the `Storage` option, and choose the storage device for the Raspberry Pi CM5.
+
+:::tip
+
+You can determine if the correct storage device is selected based on its capacity or by safely ejecting the storage device. Selecting the wrong storage device will result in data loss.
+
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/raspberry-pi/raspberry-pi-imager-storage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Configure System Information
+
+System information can be configured according to your needs. Here we will skip the system information settings.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/raspberry-pi/raspberry-pi-imager-skip-system-info.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### Start Installation
+
+Click `Write` and confirm with `I Understand ...` to start installing the system image to the storage device.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/raspberry-pi/raspberry-pi-imager-write.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+The entire installation process will write and verify the system image. Please wait patiently until the installation is complete.
+
+#### Installation Complete
+
+After the installation is complete, click `FINISH` to complete the installation.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/raspberry-pi/raspberry-pi-imager-finish.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
