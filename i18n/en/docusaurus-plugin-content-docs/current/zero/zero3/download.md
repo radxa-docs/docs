@@ -15,6 +15,7 @@ ZERO 3W V1.11 Production Version
 - [v1.11 2D dxf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_2d_dxf.zip)
 - [v1.11 3D stp](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_3d_stp.zip)
 - [v1.11 Schematic pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1110_schematic.pdf)
+- [v1.12 Schematic pdf (AIC8800 version)](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1.12_schematic.pdf)
 - [v1.11 Component Placement Diagram zip](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1110_smb.zip)
 - [Product brief pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_product_brief.pdf)
 
