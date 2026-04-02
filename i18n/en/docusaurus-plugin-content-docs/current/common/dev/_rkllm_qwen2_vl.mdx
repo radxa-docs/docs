@@ -11,11 +11,14 @@ This document explains how to deploy **Qwen2-VL-2B-Instruct** on RK3588 using th
 
 Download the complete demo from ModelScope.
 
+For virtual environment setup, refer to [Virtual Environment Usage](../venv-usage).
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
+python3 -m venv .venv && source .venv/bin/activate
 pip install -U modelscope
-modelscope download --model radxa/Qwen2-VL-2B-RKLLM
+modelscope download --model radxa/Qwen2-VL-2B-RKLLM --local_dir ./Qwen2-VL-2B-RKLLM
 ```
 
 </NewCodeBlock>
@@ -25,8 +28,9 @@ modelscope download --model radxa/Qwen2-VL-2B-RKLLM
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd demo_Linux_aarch64/
+cd Qwen2-VL-2B-RKLLM/demo_Linux_aarch64/
 export LD_LIBRARY_PATH=./lib
+chmod +x ./demo
 ./demo demo.jpg ../qwen2_vl_2b_vision_rk3588.rknn ../qwen2-vl-2b-instruct_W8A8_rk3588.rkllm 2048 4096 3 "<|vision_start|>" "<|vision_end|>" "<|image_pad|>"
 ```
 
@@ -41,6 +45,8 @@ RKLLM currently only converts the language model part, so deploying a multimodal
 :::
 
 ### Activate the virtual environment
+
+For virtual environment setup, refer to [Create Virtual Environment](./rkllm-install#create-virtual-environment).
 
 <NewCodeBlock tip="X64 Linux PC" type="PC">
 
@@ -57,7 +63,7 @@ pip install -U huggingface_hub
 
 ```bash
 cd RK-SDK/rknn-llm/examples/multimodal_model_demo/
-hf download https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct  --local-dir ./Qwen2-VL-2B-Instruct
+hf download Qwen/Qwen2-VL-2B-Instruct  --local-dir ./Qwen2-VL-2B-Instruct
 ```
 
 </NewCodeBlock>
@@ -94,7 +100,7 @@ python export/export_vision_qwen2.py --step 2 --path ./Qwen2-VL-2B-Instruct
 
 </NewCodeBlock>
 
-Convert the vision module to RKNN.
+Convert the vision module to RKNN. For RKNN virtual environment setup, refer to [Create Virtual Environment](./rknn-install#create-virtual-environment).
 
 <NewCodeBlock tip="X64 Linux PC" type="PC">
 
@@ -140,6 +146,8 @@ python export/export_rkllm.py
 | `savepath`        | No       | Output RKLLM model path       | Default: `qwen2_vl_2b_instruct.rkllm`                            |
 
 ### Build the executable
+
+For cross-compiler setup, refer to [Compiler Tools](./rkllm-install#compiler-tools).
 
 <NewCodeBlock tip="X64 Linux PC" type="PC">
 
