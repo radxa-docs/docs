@@ -151,6 +151,12 @@ bash build-linux.sh
 
 </NewCodeBlock>
 
+If you do not already have a cross-compilation toolchain, you can download Arm GNU Toolchain `10.2-2020.11` here:
+<https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11>
+
+After extracting it, point `GCC_COMPILER` to the `aarch64-linux-gnu` toolchain prefix under the `bin` directory, for example:
+`/path/to/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu`
+
 The generated binaries are located at `install/demo_Linux_aarch64`.
 
 ### Deploy to the device

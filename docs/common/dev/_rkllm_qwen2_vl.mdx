@@ -151,6 +151,12 @@ bash build-linux.sh
 
 </NewCodeBlock>
 
+如果还没有交叉编译工具链，可从 Arm GNU Toolchain 下载 `10.2-2020.11` 版本：
+<https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11>
+
+下载并解压后，将 `GCC_COMPILER` 指向工具链 `bin` 目录下的 `aarch64-linux-gnu` 前缀即可，例如：
+`/path/to/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu`
+
 生成的可执行文件在 `install/demo_Linux_aarch64`
 
 ### 板端部署
