@@ -57,27 +57,21 @@ pip install huggingface_hub
 <TabItem value="08b">
 
 ```shell
-mkdir -p Qwen3.5-0.8B
-cd Qwen3.5-0.8B
-hf download AXERA-TECH/Qwen3.5-0.8B-AX650-C128-P1152-CTX2047 --local-dir .
+hf download AXERA-TECH/Qwen3.5-0.8B-AX650-C128-P1152-CTX2047 --local-dir ./Qwen3.5-0.8B
 ```
 
 </TabItem>
 <TabItem value="2b" default>
 
 ```shell
-mkdir -p Qwen3.5-2B
-cd Qwen3.5-2B
-hf download AXERA-TECH/Qwen3.5-2B-AX650-C128-P1152-CTX2047 --local-dir .
+hf download AXERA-TECH/Qwen3.5-2B-AX650-C128-P1152-CTX2047 --local-dir ./Qwen3.5-2B
 ```
 
 </TabItem>
 <TabItem value="4b">
 
 ```shell
-mkdir -p Qwen3.5-4B
-cd Qwen3.5-4B
-hf download AXERA-TECH/Qwen3.5-4B-AX650-GPTQ-Int4-C128-P1152-CTX2047 --local-dir .
+hf download AXERA-TECH/Qwen3.5-4B-AX650-GPTQ-Int4-C128-P1152-CTX2047 --local-dir ./Qwen3.5-4B
 ```
 
 </TabItem>

@@ -50,9 +50,7 @@ pip install huggingface_hub
 ### Download model
 
 ```shell
-mkdir -p Qwen3-VL-2B
-cd Qwen3-VL-2B
-hf download AXERA-TECH/Qwen3-VL-2B-Instruct-GPTQ-Int4 --local-dir .
+hf download AXERA-TECH/Qwen3-VL-2B-Instruct-GPTQ-Int4 --local-dir ./Qwen3-VL-2B
 ```
 
 ## Run Model
@@ -131,4 +129,5 @@ print(completion.choices[0].message.content)
 
 - **TTFT** (Time To First Token): First token latency
 - **Generation Speed**: Unit is tokens/second
+- **Test Platform**: Rock 5B Plus + AX-M1
   :::

@@ -2,9 +2,6 @@
 sidebar_position: 5
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Qwen3.5
 
 Qwen3.5 is a native multimodal large model released by Alibaba Cloud's Tongyi Lab in **February 2026**, using a hybrid architecture (linear attention + MoE) with 397 billion total parameters and 17 billion activated parameters, supporting **201 languages**, and performing excellently in reasoning, programming, agent capabilities, and multimodal understanding.
@@ -60,27 +57,21 @@ pip install huggingface_hub
 <TabItem value="08b">
 
 ```shell
-mkdir -p Qwen3.5-0.8B
-cd Qwen3.5-0.8B
-hf download AXERA-TECH/Qwen3.5-0.8B-AX650-C128-P1152-CTX2047 --local-dir .
+hf download AXERA-TECH/Qwen3.5-0.8B-AX650-C128-P1152-CTX2047 --local-dir ./Qwen3.5-0.8B
 ```
 
 </TabItem>
 <TabItem value="2b" default>
 
 ```shell
-mkdir -p Qwen3.5-2B
-cd Qwen3.5-2B
-hf download AXERA-TECH/Qwen3.5-2B-AX650-C128-P1152-CTX2047 --local-dir .
+hf download AXERA-TECH/Qwen3.5-2B-AX650-C128-P1152-CTX2047 --local-dir ./Qwen3.5-2B
 ```
 
 </TabItem>
 <TabItem value="4b">
 
 ```shell
-mkdir -p Qwen3.5-4B
-cd Qwen3.5-4B
-hf download AXERA-TECH/Qwen3.5-4B-AX650-GPTQ-Int4-C128-P1152-CTX2047 --local-dir .
+hf download AXERA-TECH/Qwen3.5-4B-AX650-GPTQ-Int4-C128-P1152-CTX2047 --local-dir ./Qwen3.5-4B
 ```
 
 </TabItem>

@@ -50,9 +50,7 @@ pip install huggingface_hub
 ### 下载模型
 
 ```shell
-mkdir -p Qwen3-VL-2B
-cd Qwen3-VL-2B
-hf download AXERA-TECH/Qwen3-VL-2B-Instruct-GPTQ-Int4 --local-dir .
+hf download AXERA-TECH/Qwen3-VL-2B-Instruct-GPTQ-Int4 --local-dir ./Qwen3-VL-2B
 ```
 
 ## 运行模型
@@ -130,4 +128,5 @@ print(completion.choices[0].message.content)
 
 - **TTFT** (Time To First Token)：首 token 延迟
 - **生成速度**：单位为 tokens/second
+- **测试平台**：Rock 5B Plus + AX-M1
   :::
