@@ -31,7 +31,7 @@ sidebar_position: 4
 
 Radxa ZERO 3 provides a 40-pin GPIO header, which is compatible with most SBC accessories on the market.
 
-**Tips: Actual compatibility is based on usage **
+**Tip: Actual compatibility depends on the use case.**
 
 :::tip
 Pin 3, Pin 5, Pin 27, and Pin 28 add extra pull-up resistors for I2C device power supply, so they work abnormally when used as GPIOs.
