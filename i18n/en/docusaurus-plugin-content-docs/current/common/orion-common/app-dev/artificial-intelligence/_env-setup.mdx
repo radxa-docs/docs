@@ -66,6 +66,12 @@ bash env_setup.sh
 
 </NewCodeBlock>
 
+:::note[Script compatibility]
+The `env_setup.sh` script checks for Python 3.10. If you are using a newer Python version (e.g., Python 3.13), the script may report an error. If you encounter this issue, you can:
+1. Ensure you are using the correct Python 3.10 environment: `conda activate noe`
+2. Or manually install dependencies: `pip install -r requirements.txt CixBuilder-6.1.3407.2-cp310-none-linux_x86_64.whl`
+:::
+
 ### Verify the build environment
 
 Run `cixbuild -v` in the terminal to check the build environment version.

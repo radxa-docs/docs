@@ -66,6 +66,12 @@ bash env_setup.sh
 
 </NewCodeBlock>
 
+:::note[脚本兼容性]
+`env_setup.sh` 脚本会检查 Python 3.10 版本。如果您使用更高版本的 Python（如 Python 3.13），脚本可能会报错。如果遇到此问题，您可以：
+1. 确保使用正确的 Python 3.10 环境：`conda activate noe`
+2. 或者手动安装依赖：`pip install -r requirements.txt CixBuilder-6.1.3407.2-cp310-none-linux_x86_64.whl`
+:::
+
 ### 验证编译环境
 
 在终端运行 `cixbuild -v` 验证编译环境。
