@@ -28,7 +28,7 @@ NX5 & NX5 IO Board
 1. [Etcher](https://etcher.balena.io/#download-etcher/)
 2. [rkdeveloptool open source version](https://opensource.rock-chips.com/wiki_Rkdeveloptool)
 3. [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip)
-4. [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)(related driver)
+4. [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)(related driver)
 
 ## Images
 

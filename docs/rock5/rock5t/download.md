@@ -37,7 +37,7 @@ Armbian 的默认凭据如下：
 
 &emsp;&emsp; [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (烧录工具)
 
-&emsp;&emsp; [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)（USB驱动）
+&emsp;&emsp; [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)（USB驱动）
 
 ## 百度网盘下载
 
