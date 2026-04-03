@@ -42,42 +42,52 @@ sudo apt install \
 
 </NewCodeBlock>
 
-### 编译安装 libcamera
+### 使用 Debian 官方打包仓库自打包安装 libcamera
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-git clone https://git.linuxtv.org/libcamera.git
+# 安装构建依赖
+sudo apt update
+sudo apt install -y devscripts build-essential debhelper dh-make quilt git
+
+# 克隆 Debian 官方 libcamera 仓库
+git clone https://salsa.debian.org/multimedia-team/libcamera.git
 cd libcamera
-git checkout 02277d4c1a5ae7fee582f635936877435a12db64 # Optional. The following test steps are based on this version of libcamera.
-meson setup build --wipe \
-    -Dpipelines=simple \
-    -Dcam=enabled \
-    -Dgstreamer=disabled \
-    -Dv4l2=enabled \
-    -Dlc-compliance=disabled \
-    -Dqcam=enabled
-ninja -C build -j$(nproc)
-sudo ninja -C build install
-sudo ldconfig
+
+# 切换到 debian/0.4.0-7 分支
+git checkout debian/0.4.0-7
+
+# 安装构建依赖
+sudo mk-build-deps --install --remove debian/control
+
+# 构建 deb 包
+dpkg-buildpackage -us -uc -b
+
+# 安装构建的 deb 包
+cd ..
+sudo dpkg -i libcamera*.deb libcamera-dev*.deb libcamera-tools*.deb || sudo apt-get install -f -y
 ```
 
 </NewCodeBlock>
 
 ### 修改配置文件
 
-进入 `libcamera` 目录，修改 `libcamera/src/ipa/simple/data/imx219.yaml`文件。
+由于使用 Debian 打包的 libcamera，配置文件路径可能不同。如果需要修改配置文件：
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-cd libcamera
-sudo nano src/ipa/simple/data/imx219.yaml
+# 查找 libcamera 配置文件位置
+find /usr -name "imx219.yaml" -type f 2>/dev/null
+
+# 如果找到配置文件，可以编辑它
+# sudo nano /找到的路径/imx219.yaml
 ```
 
 </NewCodeBlock>
 
-将下面内容复制到 `src/ipa/simple/data/imx219.yaml`文件。
+将下面内容复制到相应的配置文件中（如果需要）：
 
 ```bash
 # SPDX-License-Identifier: CC0-1.0
@@ -117,15 +127,29 @@ sudo chmod 666 /dev/dma_heap/*
 
 </NewCodeBlock>
 
-### 启动摄像头
+### 启动摄像头（使用 GStreamer）
 
-打开系统桌面终端，进入 libcamera 的 build 目录，启动 qcam。
+使用 GStreamer 管道启动摄像头，使用 libcamera 元素 -> autovideosink 元素：
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-cd libcamera/build/src/apps/qcam/
-./qcam --stream pixelformat=YUYV,width=1920,height=1080
+# 安装 GStreamer 相关包
+sudo apt install -y gstreamer1.0-tools gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
+
+# 启动摄像头预览
+gst-launch-1.0 libcamerasrc ! autovideosink
+```
+
+</NewCodeBlock>
+
+如果要指定摄像头参数，可以使用：
+
+<NewCodeBlock tip='radxa@dragon-q6a$' type="device">
+
+```bash
+# 指定分辨率、帧率等参数
+gst-launch-1.0 libcamerasrc ! video/x-raw,width=1920,height=1080,framerate=30/1 ! autovideosink
 ```
 
 </NewCodeBlock>
