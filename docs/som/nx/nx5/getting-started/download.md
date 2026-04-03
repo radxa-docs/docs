@@ -27,7 +27,7 @@ sidebar_position: 4
 1. [Etcher](https://etcher.balena.io/#download-etcher/)
 2. [rkdeveloptool 开源版本](https://opensource.rock-chips.com/wiki_Rkdeveloptool)
 3. [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (含中文使用文档)
-4. [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)（相关驱动）
+4. [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)（相关驱动）
 
 ### 操作系统镜像
 

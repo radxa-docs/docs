@@ -76,7 +76,7 @@ Download the [ROCK 4A/4B/4SE system images](../../../../download) from the resou
             <li>Download and extract the following files to install RKDevTool:</li>
             <ul>
                 <li><a href="https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip">RKDevTool v2.96</a> (includes Chinese documentation)</li>
-                <li><a href="https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip">DriverAssistant v5.0</a></li>
+                <li><a href="https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip">DriverAssistant v5.14</a></li>
             </ul>
             <br />
             <li>Select "Upgrade Firmware"</li>
