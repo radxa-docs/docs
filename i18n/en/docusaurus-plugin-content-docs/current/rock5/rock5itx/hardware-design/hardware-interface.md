@@ -16,6 +16,13 @@ sidebar_position: 4
 
 <img src="/img/rock5itx/rock5itx-real.webp" width="600" />
 
+**Image description:**
+- **Top left**: PCIe M.2 M Key slot (supports NVMe SSD)
+- **Top right**: PCIe M.2 E Key slot (supports WiFi/Bluetooth modules)
+- **Center**: RK3588 SoC chip
+- **Bottom**: Various interfaces including HDMI, USB, Ethernet, SATA, etc.
+- **Edges**: 40-pin GPIO interface, camera interface, LCD interface, etc.
+
 The following are the detailed interface wiring sequences and descriptions for each hardware interface.
 
 ## TP Interface

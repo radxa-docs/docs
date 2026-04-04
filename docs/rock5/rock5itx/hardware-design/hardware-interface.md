@@ -16,6 +16,13 @@ sidebar_position: 4
 
 <img src="/img/rock5itx/rock5itx-real.webp" width="600" />
 
+**图片说明：**
+- **左上角**：PCIe M.2 M Key 插槽（支持 NVMe SSD）
+- **右上角**：PCIe M.2 E Key 插槽（支持 WiFi/蓝牙模块）
+- **中间**：RK3588 SoC 芯片
+- **下方**：各种接口，包括 HDMI、USB、以太网、SATA 等
+- **边缘**：40-pin GPIO 接口、摄像头接口、LCD 接口等
+
 以下是各个硬件接口的详细接口线序以及说明。
 
 ## TP 接口
