@@ -20,6 +20,10 @@ sidebar_position: 1
 - ROCK 5A
 - ROCK 5C
 
+:::note
+**RockPi 4B 兼容性说明**：RockPi 4B 即为 ROCK 4B，完全兼容 Penta SATA HAT。如果您的设备标注为 RockPi 4B，请参考 ROCK 4B 的安装指南。
+:::
+
 目前支持的树莓派型号：
 
 - Raspberry Pi 5

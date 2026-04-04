@@ -20,6 +20,10 @@ Currently supported Radxa ROCK Series products:
 - ROCK 5A
 - ROCK 5C
 
+:::note
+**RockPi 4B Compatibility Note**: RockPi 4B is the same as ROCK 4B and is fully compatible with Penta SATA HAT. If your device is labeled as RockPi 4B, please refer to the installation guide for ROCK 4B.
+:::
+
 Currently supported Raspberry Pi models:
 
 - Raspberry Pi 5
