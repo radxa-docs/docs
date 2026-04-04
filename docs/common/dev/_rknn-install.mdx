@@ -182,6 +182,48 @@ RK356X 产品用户使用 NPU 前需要在终端使用 **rsetup** 开启 NPU: `s
 如 overlays 选项中无 `Enable NPU` 选项，请通过: `sudo rsetup` -> `System` -> `System Update` 升级系统, 重启后执行上述步骤开启 NPU。
 :::
 
+### 故障排除
+
+如果 `Enable NPU` 选项在系统更新后仍然不出现，请尝试以下步骤：
+
+1. **确认系统更新成功**：
+   - 检查 `System Update` 是否完成且没有报错
+   - 确认系统已完全重启（不是休眠或待机）
+
+2. **检查 NPU 驱动状态**：
+   ```bash
+   # 检查 NPU 驱动是否已加载
+   lsmod | grep rknpu
+   # 或使用 dmesg 查看启动日志
+   sudo dmesg | grep -i npu
+   ```
+
+3. **验证镜像版本**：
+   - 确保使用最新版本的 Radxa 官方镜像
+   - 部分早期镜像可能不包含完整的 NPU 支持
+
+4. **手动安装 NPU 驱动**：
+   ```bash
+   # 对于 RK356X 系列
+   sudo apt update
+   sudo apt install rknpu2-rk356x
+   sudo reboot
+   ```
+
+5. **检查硬件兼容性**：
+   - 确认您的设备型号支持 NPU 功能
+   - 某些入门级或特定配置的设备可能没有 NPU 硬件
+
+如果以上步骤仍无法解决问题，请在 Radxa 论坛或 GitHub 仓库提交问题，并附上：
+- 设备型号和镜像版本
+- `sudo dmesg | grep -i npu` 的输出
+- `lsmod | grep rknpu` 的输出
+- `sudo rsetup` 界面的截图（如果可能）
+
+:::info
+Radxa 官方镜像已默认安装 RKNPU2 及其所需依赖，如无法运行可尝试注释命令。
+:::
+
 :::info
 Radxa 官方镜像已默认安装 RKNPU2 及其所需依赖，如无法运行可尝试注释命令。
 :::
