@@ -136,3 +136,30 @@ vim /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.
 
 - 系统会以 `EL2` 而不是 `EL1` 启动，此时**可以**使用 KVM
 - `/dev/mtd0` 会消失，因此不能直接在板子上更新 SPI 固件
+
+## 为什么启用 8-inch DSI overlay 后 Q6A 无法启动？
+
+部分用户在 Dragon Q6A 上启用 Radxa Display 8 HD 的 DSI overlay 后遇到启动失败问题（蓝灯常亮后闪烁，无显示输出）。
+
+这是一个已知的兼容性问题，与特定内核版本相关：
+
+**已知受影响版本：**
+- `linux-image-6.18.2-3-qcom` 及更早版本
+
+**解决方案：**
+1. 检查当前内核版本：
+   ```bash
+   apt policy linux-image-6.18.2-4-qcom
+   ```
+2. 如果 `linux-image-6.18.2-4-qcom` 可用，更新系统：
+   ```bash
+   sudo apt update
+   sudo apt upgrade
+   ```
+3. 重启系统后再次尝试启用 DSI overlay
+
+**如果问题仍然存在：**
+- 请暂时禁用 DSI overlay，等待 [linux-qcom](https://github.com/radxa-pkg/linux-qcom/releases) 发布修复版本
+- 可以通过串口或恢复模式访问系统来禁用 overlay
+
+**注意：** 此问题仅影响 Radxa Display 8 HD 的 DSI overlay，HDMI 输出和其他功能不受影响。
