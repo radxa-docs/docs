@@ -1,0 +1,117 @@
+---
+sidebar_position: 1
+---
+
+# Radxa Penta SATA HAT
+
+Radxa ROCK Penta SATA HAT is an addon HAT designed for ROCK Series. It utilizes the high speed PCIe buses on ROCK Series and provides a complete NAS solution based on ROCK Series.
+
+![Radxa Penta SATA HAT](/img/accessories/storage/penta-sata-hat-01.webp)
+
+Currently supported Radxa ROCK Series products:
+
+- ROCK 2A
+- ROCK 2F
+- ROCK 3A
+- ROCK 3C
+- ROCK 4A / 4B
+- ROCK 4A+ / 4B+
+- ROCK 4SE
+- ROCK 5A
+- ROCK 5C
+
+:::note
+**RockPi 4B Compatibility Note**: RockPi 4B is the same as ROCK 4B and is fully compatible with Penta SATA HAT. If your device is labeled as RockPi 4B, please refer to the installation guide for ROCK 4B.
+:::
+
+Currently supported Raspberry Pi models:
+
+- Raspberry Pi 5
+
+## Feature
+
+- Up to 5x HDD/SSD, support 2.5inch or 3.5inch SSD, up to 100T Storage
+- 4x SATA + 1x eSATA with power
+- Utilize PCIe buses on ROCK Series and Raspberry Pi
+- External standard ATX power supply support for HDDs and SBC itself
+- 12V DC power input for 2.5/3.5 HDD power and SBC itself (polarity: center positive)
+- Support HDD suspend mode
+- Support software RAID 0/1/5
+- Optional PWM control fan for HDD heat dispatching
+- Optional OLED display for IP/Storage info
+
+:::tip
+If you use large capacity 3.5-inch mechanical hard drives on the Penta SATA HAT, you need to check the hard drive specification to determine the peak current of the hard drive. We recommend using a hard drive with a peak current less than 1.7A.
+:::
+
+## Package List
+
+- Radxa ROCK Penta SATA HAT
+- Copper Pillar for fixing
+- Adapter Board
+- IPEX Cable
+
+- **Penta SATA HAT Kit with ROCK 5A support**
+
+  ![Radxa M.2 Extension Board](/img/accessories/storage/penta-sata-hat-02.webp)
+
+- **Penta SATA HAT with ROCK 3A / 4A / 4B / 4A+ / 4B+ / 4SE support**
+
+  ![Radxa M.2 Extension Board](/img/accessories/storage/penta-sata-hat-03.webp)
+
+- **Penta SATA HAT with ROCK 3C support**
+
+  ![Radxa M.2 Extension Board](/img/accessories/storage/penta-sata-hat-04.webp)
+
+## Components and troubleshooting scope
+
+The Penta SATA HAT family is commonly used in the following combinations:
+
+- **Base board**: the storage board used for SATA connectivity
+- **Top board (optional)**: adds the OLED display and fan; see [Penta SATA HAT top board](./sata-hat-top-board.md)
+- **Full kit**: base board + top board + the matching accessories
+
+If you run into installation or boot problems, identify which combination you are using before troubleshooting further:
+
+1. With only the base board connected, first confirm the system image, kernel version, and whether the SATA devices are detected
+2. Install the `rockpi-penta` package only when the top board is present, because it is used for the OLED and fan features
+3. If the system becomes unstable after connecting the IPEX cable, record the board model, whether you are using the base board or the full kit, and any serial or kernel logs
+
+## 40Pin Pinout
+
+| Description   | Function | Pin# | Pin# | Function | Description |
+| ------------- | -------- | ---- | ---- | -------- | ----------- |
+|               |          | 1    | 2    | VCC      |             |
+| OLED I2C      | I2C_SDA  | 3    | 4    | VCC      |             |
+| OLED I2C      | I2C_SCL  | 5    | 6    | GND      |             |
+|               |          | 7    | 8    |          |             |
+|               | GND      | 9    | 10   |          |             |
+| top board key | GPIO     | 11   | 12   |          |             |
+|               |          | 13   | 14   | GND      |             |
+|               |          | 15   | 16   | GPIO     | reset OLED  |
+|               |          | 17   | 18   |          |             |
+|               |          | 19   | 20   | GND      |             |
+|               |          | 21   | 22   |          |             |
+|               |          | 23   | 24   |          |             |
+|               | GND      | 25   | 26   |          |             |
+|               |          | 27   | 28   |          |             |
+|               |          | 29   | 30   | GND      |             |
+|               |          | 31   | 32   |          |             |
+| tb-fan speed  | PWM      | 33   | 34   | GND      |             |
+|               |          | 35   | 36   |          |             |
+|               |          | 37   | 38   |          |             |
+|               | GND      | 39   | 40   |          |             |
+
+## 2x5 Pin Pinout
+
+| Pin | Signal   | Pin | Signal     |
+| --- | -------- | --- | ---------- |
+| 1   | I2C_SDA  | 2   | VCC3V3_SYS |
+| 3   | I2C_SCL  | 4   | VCC5V0_SYS |
+| 5   | GPIO4_D2 | 6   | GPIO4_C2   |
+| 7   | GND      | 8   | PWM_33     |
+| 9   | GND      | 10  | NC         |
+
+## User Guide
+
+<DocCardList />
