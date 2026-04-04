@@ -50,7 +50,7 @@ This is a known compatibility issue related to specific kernel versions.
 3. Reboot the system
 
 **If the issue persists:**
-- Temporarily disable DSI overlay and wait for [linux-qcom](https://github.com/radxa-pkg/linux-qualcomm/releases) to release a fix
+- Temporarily disable DSI overlay and wait for [linux-qcom](https://github.com/radxa-pkg/linux-qcom/releases) to release a fix
 - You can access the system via serial port or recovery mode to disable the overlay
 
 **Note:** This issue only affects the DSI overlay for Radxa Display 8 HD. Radxa Display 10 FHD and other functions are not affected.
