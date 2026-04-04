@@ -31,6 +31,17 @@ sudo apt install -y ./rockpi-penta-0.2.2.deb
 
 ### 软件配置
 
+:::note
+**最新 Raspberry Pi OS (Debian trixie) 用户注意**
+
+如果您在最新的 Raspberry Pi OS (Debian trixie) 上遇到以下问题：
+- OLED 显示屏只显示静态消息 "RADXA SATA HAT Loading..."
+- 风扇固定在 100% 功率
+- 服务启动报错 `FileNotFoundError: No such file or directory`
+
+可能需要应用额外的修复。请参考 [GitHub issue #1540](https://github.com/radxa-docs/docs/issues/1540) 中用户报告的解决方案：https://github.com/HabiRabbu/rockpi-penta-pi5-fix
+:::
+
 安装软件包后，如果需要修改配置，可以编辑配置文件 `/etc/rockpi-penta.conf`，下面是配置文件的默认值。
 
 ```ini
