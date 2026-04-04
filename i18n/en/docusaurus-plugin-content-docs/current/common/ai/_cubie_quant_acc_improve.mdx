@@ -101,6 +101,30 @@ Execution of the quantization script `pegasus_quantize.sh` will generate `MODEL_
 
 Users can refer to the value of `entropy.txt` to appropriately add or delete the layer in `MODEL_DIR_QUANTIZE.quantize` customized_quantize_layers.
 
+**Editing customized_quantize_layers configuration example:**
+
+Open the generated `.quantize` file and find the `customized_quantize_layers` section. You can manually edit this section to specify different quantization precision for certain layers. For example, if you need some layers to use int16 quantization while others use uint8:
+
+```json
+"customized_quantize_layers": {
+  "conv1": "int16",
+  "conv2": "int16",
+  "conv3": "uint8",
+  "conv4": "uint8"
+}
+```
+
+**Configuration considerations:**
+
+1. **Layer name matching**: Ensure the layer names used exactly match the actual layer names in the model
+2. **Data type compatibility**: Pay attention to data type compatibility between adjacent layers. For example, if the previous layer outputs int16 and the next layer expects uint8, you may need to add conversion layers or ensure automatic type conversion exists
+3. **Entropy reference**: Prioritize specifying higher precision quantization types (like int16) for layers with high entropy values (close to 1.0)
+4. **Hybrid quantization execution**: After editing the `.quantize` file, execute the quantization command with the `--hybrid` flag (instead of `--rebuild`), and the system will read the `customized_quantize_layers` configuration
+
+**Common issue resolution:**
+
+If you encounter data type mismatch errors (such as "Inputs/Outputs data type not supported"), check the `customized_quantize_layers` configuration to ensure data type compatibility between adjacent layers. For complex models like YOLO, more careful planning of quantization strategies for each layer may be required.
+
 #### Execute hybrid quantization command
 
 :::tip

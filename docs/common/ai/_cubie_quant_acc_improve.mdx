@@ -101,6 +101,30 @@ pegasus_quantize.sh MobileNetV2_Imagenet uint8 10
 
 用户可以参考 `entropy.txt` 的值对 MODEL_DIR_QUANTIZE.quantize 中的 customized_quantize_layers 里的层适当进行增删修改。
 
+**编辑 customized_quantize_layers 配置示例：**
+
+打开生成的 `.quantize` 文件，找到 `customized_quantize_layers` 部分。你可以手动编辑这个部分来指定某些层使用不同的量化精度。例如，如果你需要某些层使用 int16 量化而其他层使用 uint8：
+
+```json
+"customized_quantize_layers": {
+  "conv1": "int16",
+  "conv2": "int16",
+  "conv3": "uint8",
+  "conv4": "uint8"
+}
+```
+
+**配置注意事项：**
+
+1. **层名匹配**：确保使用的层名与模型中实际的层名完全一致
+2. **数据类型兼容性**：注意相邻层之间的数据类型兼容性。例如，如果前一层输出 int16，后一层输入 uint8，可能需要添加转换层或确保有自动类型转换
+3. **熵值参考**：优先为熵值高（接近 1.0）的层指定更高精度的量化类型（如 int16）
+4. **混合量化执行**：编辑完 `.quantize` 文件后，使用 `--hybrid` 标志（而不是 `--rebuild`）执行量化命令，系统会读取 `customized_quantize_layers` 配置
+
+**常见问题解决：**
+
+如果遇到数据类型不匹配错误（如 "Inputs/Outputs data type not supported"），检查 `customized_quantize_layers` 配置，确保相邻层的数据类型兼容。对于复杂模型如 YOLO，可能需要更仔细地规划各层的量化策略。
+
 #### 执行混合量化命令
 
 :::tip
