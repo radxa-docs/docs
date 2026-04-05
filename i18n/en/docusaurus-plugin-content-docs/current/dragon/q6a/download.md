@@ -59,6 +59,18 @@ If the system fails to boot properly, you can try re-flashing the latest SPI boo
 
 :::
 
+## Baidu Netdisk Download
+
+:::tip
+The Baidu Netdisk share link is regularly updated with the latest image files. We recommend downloading via Baidu Netdisk to get the most recent images.
+
+**Version Notes:**
+- **R Version**: Tested stable release, recommended for use
+- **T Version**: Test version (for evaluation only)
+:::
+
+- [Baidu Netdisk Download (radxa-dragon-q6a)](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-dragon-q6a&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## Boot Firmware
 
 The Dragon Q6A comes with the SPI boot firmware pre-flashed by default. Under normal circumstances, it is not necessary to re-flash the boot firmware. If the system fails to boot properly, you can try re-flashing the SPI boot firmware.
