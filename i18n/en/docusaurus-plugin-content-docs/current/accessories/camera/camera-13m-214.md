@@ -46,6 +46,21 @@ FPC Cable: Standard 31p 0.3mm pitch cable, 150mm length
 - Radxa ROCK 4D
 - Radxa CM4 IO Board
 
+:::note Compatibility with Cubie A7Z
+Based on user feedback, the Radxa 13M 214 camera (IMX214 sensor) may not work properly on the Cubie A7Z (Allwinner A733) platform. When using this camera with Cubie A7Z, you may encounter the following issues:
+
+- Camera not detected by the system
+- No `/dev/video*` device nodes created
+- IMX214 driver not loaded
+
+If you experience camera detection issues on Cubie A7Z, please check:
+1. Whether your current kernel version includes IMX214 driver support
+2. If the device tree configuration is correct
+3. Additional kernel patches or configuration may be required
+
+Before using with Cubie A7Z, it is recommended to verify that your system image includes complete camera driver support.
+:::
+
 ## Mechanical Dimensions
 
 <div style={{textAlign: 'center'}}>
