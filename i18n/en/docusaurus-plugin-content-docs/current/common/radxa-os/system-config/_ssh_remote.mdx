@@ -212,3 +212,186 @@ After a successful connection, the remote interface will appear.
 </Tabs>
 
 After successfully logging in via SSH, you can run commands to control the system through the SSH connection.
+
+## Troubleshooting
+
+If you encounter issues during SSH connection, try the following troubleshooting steps:
+
+### 1. Check SSH Service Status
+
+Ensure the SSH service is running:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo systemctl status ssh
+```
+
+</NewCodeBlock>
+
+If the service is not running, start it:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo systemctl start ssh
+```
+
+</NewCodeBlock>
+
+### 2. Check SSH Configuration
+
+Ensure SSH configuration allows password authentication (enabled by default):
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo grep -E "^PasswordAuthentication" /etc/ssh/sshd_config
+```
+
+</NewCodeBlock>
+
+If the output is not `PasswordAuthentication yes`, edit the configuration file:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+</NewCodeBlock>
+
+Find the `PasswordAuthentication` line, ensure it's set to `yes`, then restart SSH service:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo systemctl restart ssh
+```
+
+</NewCodeBlock>
+
+### 3. Check Firewall Settings
+
+Ensure firewall is not blocking SSH connections (default port 22):
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo ufw status
+```
+
+</NewCodeBlock>
+
+If firewall is enabled, ensure SSH port is open:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo ufw allow ssh
+```
+
+</NewCodeBlock>
+
+### 4. Verify IP Address
+
+Ensure you are using the correct IP address. Run on the device:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+ip addr show
+```
+
+</NewCodeBlock>
+
+Or use `arp -a` command on Windows to see devices on the network.
+
+### 5. Check SSH Logs
+
+View SSH service logs for more information:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo journalctl -u ssh -b --no-pager | tail -20
+```
+
+</NewCodeBlock>
+
+### 6. Common Issues
+
+#### Issue: SSH Connection Rejected (Permission denied)
+
+**Possible causes and solutions:**
+
+1. **Incorrect password**: Ensure using correct username and password. Default username is `radxa`, password is `radxa`.
+2. **User account issue**: Try resetting password:
+   
+   <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+   ```bash
+   sudo passwd radxa
+   ```
+
+   </NewCodeBlock>
+
+3. **SSH key issue**: If you previously set up SSH keys but forgot, try removing existing keys and regenerating:
+   
+   <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+   ```bash
+   rm -rf ~/.ssh
+   ```
+
+   </NewCodeBlock>
+
+#### Issue: Windows SSH Client Problems
+
+If experiencing issues with Windows SSH client:
+
+1. **Try using WSL (Windows Subsystem for Linux)**: Attempt SSH connection in WSL terminal
+2. **Use alternative SSH clients**: Such as Tabby, PuTTY, MobaXterm, etc.
+3. **Check Windows Firewall**: Ensure Windows firewall is not blocking SSH connections
+
+#### Issue: Connection Timeout
+
+**Possible causes and solutions:**
+
+1. **Network connectivity issue**: Ensure devices are on the same network
+2. **Incorrect IP address**: Re-check the IP address
+3. **Router/firewall blocking**: Check router settings
+
+### 7. Reset SSH Configuration
+
+If none of the above steps resolve the issue, try resetting SSH configuration:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+# Backup current configuration
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup
+
+# Reinstall SSH service
+sudo apt remove --purge openssh-server -y
+sudo apt install openssh-server -y
+
+# Restart SSH service
+sudo systemctl restart ssh
+```
+
+</NewCodeBlock>
+
+### 8. Get More Help
+
+If the issue persists, please provide the following information for further assistance:
+
+1. SSH service status output
+2. `PasswordAuthentication` setting in SSH configuration
+3. Firewall status
+4. Complete error information when attempting to connect from client
+5. SSH logs on the device (using `sudo journalctl -u ssh -b`)
+
+:::tip
+Most SSH connection issues can be resolved by checking service status, configuration, and network connectivity. If the problem persists, consider reinstalling the system image or contacting technical support.
+:::
