@@ -2,8 +2,8 @@
 sidebar_position: 45
 ---
 
-# Other System
+# Other Systems
 
-Introduces other systems than Radxa OS, such as Android.
+Introduces other systems than Radxa OS, such as Android, OpenWrt, etc.
 
 <DocCardList />
