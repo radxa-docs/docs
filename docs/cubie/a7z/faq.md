@@ -114,3 +114,51 @@ sudo apt install vlc
 ```
 
 </NewCodeBlock>
+
+## 系统安装与软件更新问题
+
+### 安装软件或更新 initramfs 时系统卡死
+
+在 Cubie A7Z 上安装软件或更新 initramfs 时，如果系统卡死并出现以下错误：
+- `FDT_ERR_BADMAGIC` 设备树错误
+- SD 卡时序错误（`RTO` - Response Timeout）
+- 系统挂起或响应缓慢
+
+#### 排查方法：
+
+1. **检查 SD 卡质量与兼容性**：
+   - 使用知名品牌的正品 SD 卡（如 Samsung EVO、SanDisk Extreme、Kingston Canvas）
+   - 推荐使用 U3/A2 速度等级的 SD 卡以获得更好的持续性能
+   - 避免使用标称速度过高（300MB/s+）的 SD 卡，可能与 Allwinner 平台存在兼容性问题
+   - 确保 SD 卡不是假冒产品（假冒卡通常报告错误的规格）
+
+2. **检查电源供应**：
+   - 使用专用的 5V/4A 电源适配器
+   - 在更新 initramfs 或安装软件时断开所有外设
+   - 确保电源线连接牢固，无接触不良
+
+3. **软件解决方法**：
+   - 手动更新 initramfs 并降低 I/O 优先级：
+   <NewCodeBlock tip="Linux@host$" type="device">
+   
+   ```bash
+   sudo ionice -c 3 update-initramfs -u
+   ```
+   
+   </NewCodeBlock>
+   - 如果系统在安装软件包时挂起，尝试逐个安装软件包
+   - 考虑使用不同的系统镜像版本（如果有可用的更新版本）
+
+4. **SD 卡性能优化**：
+   - 如果使用极高速 SD 卡，可以尝试在 U-Boot 中限制 SD 卡速度
+   - 检查 SD 卡是否有坏块或文件系统错误
+
+5. **系统日志检查**：
+   - 通过串口查看完整的系统启动日志
+   - 检查 `dmesg` 输出中是否有 SD/MMC 控制器错误
+   - 查看 `/var/log/syslog` 中 initramfs 更新过程的详细错误信息
+
+如果以上方法都无法解决问题，可能是内核或驱动程序的问题，建议：
+- 更新到最新的系统镜像
+- 向 Radxa 技术支持报告具体错误日志
+- 考虑使用 UFS 存储作为替代方案

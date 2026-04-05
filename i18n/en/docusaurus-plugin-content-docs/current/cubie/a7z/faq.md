@@ -110,3 +110,51 @@ sudo apt search vlc
 sudo apt install vlc
 ```
 </NewCodeBlock>
+
+## System Installation and Software Update Issues
+
+### System Hangs During Software Installation or initramfs Update
+
+On the Cubie A7Z, if the system hangs during software installation or initramfs update with the following errors:
+- `FDT_ERR_BADMAGIC` device tree errors
+- SD card timing errors (`RTO` - Response Timeout)
+- System freezes or becomes unresponsive
+
+#### Troubleshooting Steps:
+
+1. **Check SD Card Quality and Compatibility**:
+   - Use genuine SD cards from reputable brands (such as Samsung EVO, SanDisk Extreme, Kingston Canvas)
+   - Recommended to use U3/A2 speed class SD cards for better sustained performance
+   - Avoid SD cards with extremely high theoretical speeds (300MB/s+) as they may have compatibility issues with Allwinner platforms
+   - Ensure the SD card is not counterfeit (counterfeit cards often report incorrect specifications)
+
+2. **Check Power Supply**:
+   - Use a dedicated 5V/4A power adapter
+   - Disconnect all peripherals during initramfs updates or software installation
+   - Ensure the power cable is securely connected without loose contacts
+
+3. **Software Workarounds**:
+   - Manually update initramfs with lower I/O priority:
+   <NewCodeBlock tip="Linux@host$" type="device">
+   
+   ```bash
+   sudo ionice -c 3 update-initramfs -u
+   ```
+   
+   </NewCodeBlock>
+   - If the system hangs during package installation, try installing packages one at a time
+   - Consider using a different system image version if an updated version is available
+
+4. **SD Card Performance Optimization**:
+   - If using extremely high-speed SD cards, try limiting the SD card speed in U-Boot
+   - Check the SD card for bad blocks or filesystem errors
+
+5. **System Log Checking**:
+   - View complete system boot logs via serial port
+   - Check `dmesg` output for SD/MMC controller errors
+   - Examine `/var/log/syslog` for detailed error information during initramfs updates
+
+If the above methods do not resolve the issue, it may be a kernel or driver problem. We recommend:
+- Updating to the latest system image
+- Reporting specific error logs to Radxa technical support
+- Considering UFS storage as an alternative solution
