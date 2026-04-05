@@ -31,6 +31,10 @@ sudo apt install -y ./rockpi-penta-0.2.2.deb
 
 ### 软件配置
 
+:::caution Raspberry Pi OS 最新版本兼容性
+在最新的 Raspberry Pi OS（如 bookworm 或更高版本）上，`rockpi-penta` 软件包可能无法正常工作。如果遇到问题，请参考 [rockpi-penta-pi5-fix](https://github.com/HabiRabbu/rockpi-penta-pi5-fix) 获取可能的解决方案。
+:::
+
 安装软件包后，如果需要修改配置，可以编辑配置文件 `/etc/rockpi-penta.conf`，下面是配置文件的默认值。
 
 ```ini

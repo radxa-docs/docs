@@ -31,6 +31,10 @@ sudo apt install -y ./rockpi-penta-0.2.2.deb
 
 ### Software configuration
 
+:::caution Latest Raspberry Pi OS compatibility
+On the latest Raspberry Pi OS (such as bookworm or later), the `rockpi-penta` package may not work properly. If you encounter issues, please refer to [rockpi-penta-pi5-fix](https://github.com/HabiRabbu/rockpi-penta-pi5-fix) for possible solutions.
+:::
+
 After installing the package, if you need to modify the configuration, you can edit the configuration file `/etc/rockpi-penta.conf`, the following is the default value of the configuration file.
 
 ```ini
