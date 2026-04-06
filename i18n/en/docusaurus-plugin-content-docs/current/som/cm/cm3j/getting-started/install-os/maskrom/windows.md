@@ -19,7 +19,7 @@ Please download and unzip the following file to install RKDevTool:
 
 - [RKDevTool_Release_v2.86](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.86.zip)
 
-- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+- [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)
 
 ## Install Drivers
 

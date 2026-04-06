@@ -1,0 +1,114 @@
+使用 [Raspberry Pi Imager](https://www.raspberrypi.com/software/) 安装系统镜像到存储设备中。
+
+### 安装 Raspberry Pi Imager
+
+<Tabs queryString="Platform">
+
+<TabItem value="Debian/Ubuntu">
+
+在终端上使用以下命令安装 Raspberry Pi Imager。
+
+<NewCodeBlock tip="Debian/Ubuntu$" type="host">
+
+```
+sudo apt update
+sudo apt install rpi-imager -y
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="macOS">
+
+访问 [Raspberry Pi Imager](https://www.raspberrypi.com/software/) 下载页面，下载并安装 Raspberry Pi Imager。
+
+</TabItem>
+
+</Tabs>
+
+### 使用 Raspberry Pi Imager
+
+使用 Raspberry Pi Imager 安装系统镜像到可存储设备中。
+
+#### 打开 Raspberry Pi Imager
+
+:::tip
+
+Raspberry Pi Imager 版本不同，实际的界面可能略有不同，请根据实际情况进行操作。
+
+:::
+
+#### 选择设备
+
+打开 Raspberry Pi Imager，选择 `Device` 选项，选择 `Raspberry Pi CM5` 选项，该选项包含了树莓派 CM5 设备。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/raspberry-pi/raspberry-pi-imager-device.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 选择操作系统
+
+打开 Raspberry Pi Imager，选择 `Operating System` 选项，选择需要安装的系统镜像。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/raspberry-pi/raspberry-pi-imager-operating-system.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 选择存储设备
+
+打开 Raspberry Pi Imager，选择 `Storage` 选项，选择树莓派 CM5 的存储设备。
+
+:::tip
+
+你可以根据你的存储设备的容量大小或者安全插拔存储设备来判断是否选对了存储设备。如果选错了存储设备，会导致重要数据丢失。
+
+:::
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/raspberry-pi/raspberry-pi-imager-storage.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 设置系统信息
+
+系统信息可以根据自己需求设置，我这里直接跳过系统信息设置。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/raspberry-pi/raspberry-pi-imager-skip-system-info.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+#### 开始安装
+
+点击 `Write` 选项和 `I Understand ...` 确认，开始安装系统镜像到存储设备中。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/raspberry-pi/raspberry-pi-imager-write.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+整个安装过程会进行系统镜像的写入和校验，请耐心等待，直到安装完成。
+
+#### 安装完成
+
+安装完成后，点击 `FINISH` 选项完成安装。
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/raspberry-pi/raspberry-pi-imager-finish.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>

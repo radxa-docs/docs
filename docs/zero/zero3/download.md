@@ -14,6 +14,7 @@ Radxa ZERO 3W V1.11 量产版本
 - [v1.11 2D dxf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_2d_dxf.zip)
 - [v1.11 3D stp](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_3d_stp.zip)
 - [v1.11 原理图 pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1110_schematic.pdf)
+- [v1.12 原理图 pdf（AIC8800 版本）](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1.12_schematic.pdf)
 - [v1.11 位号图 pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1110_smb.zip)
 - [产品简介 pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_product_brief.pdf)
 

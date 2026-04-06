@@ -11,11 +11,14 @@
 
 从 ModelScope 下载完整示例。
 
+参考[虚拟环境使用](../venv-usage)创建虚拟环境。
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
+python3 -m venv .venv && source .venv/bin/activate
 pip install -U modelscope
-modelscope download --model radxa/Qwen2-VL-2B-RKLLM
+modelscope download --model radxa/Qwen2-VL-2B-RKLLM --local_dir ./Qwen2-VL-2B-RKLLM
 ```
 
 </NewCodeBlock>
@@ -25,8 +28,9 @@ modelscope download --model radxa/Qwen2-VL-2B-RKLLM
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd demo_Linux_aarch64/
+cd Qwen2-VL-2B-RKLLM/demo_Linux_aarch64/
 export LD_LIBRARY_PATH=./lib
+chmod +x ./demo
 ./demo demo.jpg ../qwen2_vl_2b_vision_rk3588.rknn ../qwen2-vl-2b-instruct_W8A8_rk3588.rkllm 2048 4096 3 "<|vision_start|>" "<|vision_end|>" "<|image_pad|>"
 ```
 
@@ -41,6 +45,8 @@ export LD_LIBRARY_PATH=./lib
 :::
 
 ### 激活虚拟环境
+
+虚拟环境配置参考[创建虚拟环境](./rkllm-install#创建虚拟环境)。
 
 <NewCodeBlock tip="X64 Linux PC" type="PC">
 
@@ -57,7 +63,7 @@ pip install -U huggingface_hub
 
 ```bash
 cd RK-SDK/rknn-llm/examples/multimodal_model_demo/
-hf download https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct  --local-dir ./Qwen2-VL-2B-Instruct
+hf download Qwen/Qwen2-VL-2B-Instruct  --local-dir ./Qwen2-VL-2B-Instruct
 ```
 
 </NewCodeBlock>
@@ -94,7 +100,7 @@ python export/export_vision_qwen2.py --step 2 --path ./Qwen2-VL-2B-Instruct
 
 </NewCodeBlock>
 
-导出 rknn 格式的视觉模块模型。
+导出 rknn 格式的视觉模块模型，虚拟环境配置参考[创建虚拟环境](./rknn-install#创建虚拟环境)。
 
 <NewCodeBlock tip="X64 Linux PC" type="PC">
 
@@ -140,6 +146,8 @@ python export/export_rkllm.py
 | `savepath`        | 可选   | RKLLM 模型保存路径         | 默认为 `qwen2_vl_2b_instruct.rkllm`                                                                                                                                                                                                                                    |
 
 ### 编译可执行文件
+
+交叉编译工具链配置参考[编译工具](./rkllm-install#编译工具)。
 
 <NewCodeBlock tip="X64 Linux PC" type="PC">
 

@@ -35,13 +35,6 @@ sudo dmesg | grep rtc
 
 终端输出类似信息：`registered as rtc0`，说明 RTC 电池被正确识别。
 
-```text
-[    0.368528] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
-[    0.368720] msm_dpu ae01000.display-controller: [drm] Cannot find any crtc or sizes
-[    6.259233] rtc-ds1307 10-0068: registered as rtc0
-[    6.260658] rtc-ds1307 10-0068: setting system clock to 2025-08-06T08:39:15 UTC (1754469555)
-```
-
 ### 读取 RTC 时间
 
 终端使用 `hwclock` 命令读取 RTC 芯片（/dev/rtc0）的当前时间。

@@ -18,7 +18,7 @@ sidebar_position: 14
 | 项目   | 规格                                      |
 | ------ | ----------------------------------------- |
 | DEVICE | 瑞莎 AX-M1（Rock 5B+ Host）               |
-| NPU    | AX650N（AXCL SDK V3.6.5）                 |
+| NPU    | AX8850（AXCL SDK V3.6.5）                 |
 | 解码   | FFmpeg 7.1（`h264_axdec` / `hevc_axdec`） |
 
 ## 项目结构
@@ -37,6 +37,17 @@ axera-multistream-yolo/
 ```
 
 ## 快速开始
+
+### 克隆仓库
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+git clone https://github.com/Ronin-1124/axera-multistream-yolo.git
+cd axera-multistream-yolo/
+```
+
+</NewCodeBlock>
 
 ### 编译
 
@@ -103,10 +114,10 @@ LD_LIBRARY_PATH="/usr/lib/axcl/ffmpeg:/usr/lib/axcl:$LD_LIBRARY_PATH" \
 # 阶段时间分解（H2D / NPU kernel / D2H / Post）
 ./build/tools/npu_bench <model> <image> --stages [N]
 
-# 线程扩展性扫描（1..N 线程）
+# 线程并行性能测试（1..N 线程）
 ./build/tools/npu_bench <model> <image> --sweep <max_threads> <iters>
 
-# 多线程吞吐测试
+# 指定并行线程数测试
 ./build/tools/npu_bench <model> <image> --mt <threads> <iters>
 ```
 

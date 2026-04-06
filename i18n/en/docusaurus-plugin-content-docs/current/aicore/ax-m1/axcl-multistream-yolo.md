@@ -18,7 +18,7 @@ This project depends on AXCL SDK and FFmpeg hardware decoding. Before proceeding
 | Item   | Specification                             |
 | ------ | ----------------------------------------- |
 | DEVICE | Radxa AX-M1（Rock 5B+ Host）              |
-| NPU    | AX650N（AXCL SDK V3.6.5）                 |
+| NPU    | AX8850（AXCL SDK V3.6.5）                 |
 | Decode | FFmpeg 7.1（`h264_axdec` / `hevc_axdec`） |
 
 ## Project Structure
@@ -37,6 +37,17 @@ axera-multistream-yolo/
 ```
 
 ## Quick Start
+
+### Clone the repository
+
+<NewCodeBlock tip="Host" type="device">
+
+```bash
+git clone https://github.com/Ronin-1124/axera-multistream-yolo.git
+cd axera-multistream-yolo/
+```
+
+</NewCodeBlock>
 
 ### Build
 
@@ -100,13 +111,13 @@ When `display=false`, only frame rate monitoring logs are output:
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-# Stage time breakdown（H2D / NPU kernel / D2H / Post）
+# Stage time breakdown (H2D / NPU kernel / D2H / Post)
 ./build/tools/npu_bench <model> <image> --stages [N]
 
-# Thread scalability scan（1..N threads）
+# Thread scalability test (1..N threads)
 ./build/tools/npu_bench <model> <image> --sweep <max_threads> <iters>
 
-# Multi-thread throughput test
+# Fixed thread count test
 ./build/tools/npu_bench <model> <image> --mt <threads> <iters>
 ```
 
