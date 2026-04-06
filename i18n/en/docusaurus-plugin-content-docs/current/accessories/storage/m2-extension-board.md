@@ -14,6 +14,24 @@ Radxa M.2 Extension Boards are solutions for expanding the storage capacity of e
 - M.2 M key connector, support M key SSD and B&M key SSD
 - Support 2280 / 2260 / 2242 / 2230 M.2 SSD
 
+## M.2 Key Types and Protocol Support
+
+M.2 interfaces come with different key types, each supporting specific protocols:
+
+| Key Type | Supported Protocols | Primary Use |
+|----------|---------------------|-------------|
+| **M Key** | PCIe x4, SATA (some) | NVMe SSD, high-performance storage |
+| **B Key** | PCIe x2, SATA, USB | SATA SSD, USB devices, wireless modules |
+| **B+M Key** | PCIe x2, SATA | Compatibility SSD (has both B and M notches) |
+| **E Key** | PCIe x1, USB, I2C, SDIO | Wireless cards (WiFi/BT), LTE modules |
+| **A Key** | PCIe x2, USB, DP, I2C | Wireless cards, WWAN modules |
+
+**Key Differences:**
+- **M Key**: Primarily for high-speed NVMe SSDs, supports PCIe x4 lanes
+- **B Key**: Primarily for SATA SSDs or USB devices, supports PCIe x2 lanes
+- **B+M Key**: Compatible design, can be used in both M Key and B Key slots, but performance is limited to B Key's PCIe x2
+- **E Key**: Primarily for wireless communication modules (WiFi/Bluetooth)
+
 ## Package List
 
 - 1 x Radxa M.2 Extension Board
