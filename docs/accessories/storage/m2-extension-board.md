@@ -2,11 +2,29 @@
 sidebar_position: 17
 ---
 
-# PCIe E Key
+# M.2 接口与 PCIe E Key
 
-## 简介
+## M.2 接口概述
 
-PCIe E Key 是用于连接嵌入式设备的接口，通常用于连接存储卡、WiFi 模块、蓝牙模块等设备。
+M.2 接口有多种 key 类型，每种支持不同的协议：
+
+| Key 类型 | 支持的协议 | 主要用途 |
+|----------|------------|----------|
+| **M Key** | PCIe x4, SATA (部分) | NVMe SSD, 高性能存储 |
+| **B Key** | PCIe x2, SATA, USB | SATA SSD, USB 设备, 无线模块 |
+| **B+M Key** | PCIe x2, SATA | 兼容性 SSD (同时有 B 和 M 缺口) |
+| **E Key** | PCIe x1, USB, I2C, SDIO | 无线网卡 (WiFi/BT), LTE 模块 |
+| **A Key** | PCIe x2, USB, DP, I2C | 无线网卡, WWAN 模块 |
+
+**关键区别：**
+- **M Key**：主要用于高速 NVMe SSD，支持 PCIe x4 通道
+- **B Key**：主要用于 SATA SSD 或 USB 设备，支持 PCIe x2 通道
+- **B+M Key**：兼容设计，可在 M Key 或 B Key 插槽中使用，但性能受限于 B Key 的 PCIe x2
+- **E Key**：主要用于无线通信模块 (WiFi/蓝牙)
+
+## PCIe E Key 简介
+
+PCIe E Key 是 M.2 接口的一种，专门用于连接嵌入式设备，通常用于连接存储卡、WiFi 模块、蓝牙模块等设备。
 
 ## 支持的配件
 
