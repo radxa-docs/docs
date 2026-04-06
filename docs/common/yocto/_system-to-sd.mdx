@@ -17,19 +17,56 @@ Yocto 项目构建步骤可以参考 [构建系统](../build-system) 文档。
 
 ## 安装系统
 
-我需要使用瑞芯微官方的 [SDDiskTool](https://dl.radxa.com/tools/windows/SDDiskTool_en_v1.74.zip) 工具烧录系统镜像到 MicroSD 卡。
+您可以使用以下工具烧录系统镜像到 MicroSD 卡：
 
 :::warning
 安装系统会格式化 MicroSD 卡，如果有重要数据请提前备份！
 :::
 
-### SDDiskTool
+### Windows 系统：SDDiskTool
 
-SDDiskTool 目前仅支持 Windows 系统，请在 Windows 系统下使用。
+SDDiskTool 是瑞芯微官方的烧录工具，支持 Windows 系统。
 
 - [SDDiskTool](https://dl.radxa.com/tools/windows/SDDiskTool_en_v1.74.zip)
 
 下载 SDDiskTool 后，解压并鼠标双击打开 SDDiskTool.exe 就可以使用。
+
+### Linux/Mac 系统：dd 命令或 balenaEtcher
+
+#### 方法一：使用 dd 命令（命令行）
+
+1. 首先找到您的 MicroSD 卡设备路径：
+   ```bash
+   # Linux
+   lsblk
+   
+   # Mac
+   diskutil list
+   ```
+
+2. 卸载 MicroSD 卡（如果已挂载）：
+   ```bash
+   # Linux
+   sudo umount /dev/sdX*
+   
+   # Mac
+   sudo diskutil unmountDisk /dev/diskX
+   ```
+
+3. 烧录镜像：
+   ```bash
+   # Linux/Mac
+   sudo dd if=core-image-minimal-rockchip-${props?.soc ?? "<soc>"}-${props?.board_name ?? "<board_name>"}.rootfs.update.img of=/dev/sdX bs=4M status=progress conv=fsync
+   ```
+   将 `/dev/sdX` 替换为您的 MicroSD 卡设备路径。
+
+#### 方法二：使用 balenaEtcher（图形界面）
+
+1. 下载并安装 [balenaEtcher](https://www.balena.io/etcher/)
+2. 打开 balenaEtcher
+3. 选择系统镜像文件
+4. 选择 MicroSD 卡设备
+5. 点击 "Flash!" 按钮开始烧录
 
 ### 硬件连接
 

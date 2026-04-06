@@ -15,6 +15,8 @@ Yocto 项目支持的 Linux 发行版：[参考链接](https://docs.yoctoproject
 
 ## 环境搭建
 
+### Ubuntu/Debian 系统
+
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
@@ -24,6 +26,34 @@ sudo apt-get install \
     iputils-ping libacl1 liblz4-tool locales python3 python3-git \
     python3-jinja2 python3-pexpect python3-pip python3-subunit socat \
     texinfo unzip wget xz-utils zstd repo -y
+```
+
+</NewCodeBlock>
+
+### 安装 repo 工具（如果未安装）
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+mkdir -p ~/.bin
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+chmod a+x ~/.bin/repo
+echo 'export PATH="$HOME/.bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### 设置语言环境
+
+确保系统使用 UTF-8 编码：
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+sudo locale-gen en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 ```
 
 </NewCodeBlock>
