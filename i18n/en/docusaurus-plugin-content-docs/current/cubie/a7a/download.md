@@ -85,6 +85,74 @@ System Flashing Tools:
 - [Schematic V1.10](https://dl.radxa.com/cubie/a7a/docs/hw/radxa_cubie_a7a_v1.10_schematic.pdf)
 - [Component Placement Map V1.10](https://dl.radxa.com/cubie/a7a/docs/hw/radxa_cubie_a7a_v1.10_Components_Placement_map.pdf)
 
+## Download Frequently Asked Questions
+
+### Q: The download fails halfway through, showing "Failed to download, an issue occurred"
+A: This is usually caused by:
+
+1. **Unstable network connection**
+   - Try using wired connection instead of WiFi
+   - Restart router or change network environment
+   - Use download manager tools (e.g., IDM, FDM) that support resume capability
+
+2. **Browser cache issues**
+   - Clear browser cache and cookies
+   - Try private/incognito mode
+   - Switch to other browsers (Chrome, Firefox, Edge)
+
+3. **GitHub Releases download issues**
+   - GitHub downloads may interrupt due to network restrictions
+   - Try using command-line tools `wget` or `curl`:
+     ```bash
+     # Using wget (supports resume)
+     wget -c https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz
+     
+     # Using curl
+     curl -L -O -C - https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz
+
+     ```
+
+4. **Baidu Netdisk download issues**
+   - Ensure you are logged into Baidu Netdisk account
+   - Check if Baidu Netdisk client is installed (large files usually require client)
+   - Try using mobile Baidu Netdisk App
+
+5. **Antivirus software interference**
+   - Temporarily disable antivirus or firewall
+   - Add download tools to antivirus whitelist
+
+6. **Insufficient disk space**
+   - Ensure enough disk space (image file requires extra space after decompression)
+   - Reserve at least 2 times the image file size
+
+### Q: Download speed is very slow, what to do?
+A:
+- Try downloading during off-peak hours (e.g., midnight)
+- Use download accelerator or VPN
+- For GitHub downloads, try using mirror sites
+- For Baidu Netdisk, consider purchasing membership for speed boost
+
+### Q: Downloaded file is corrupted or verification fails?
+A:
+1. **Verify file integrity**
+   - Compare MD5/SHA256 checksums if available
+   - Use `md5sum` or `sha256sum` commands to verify
+
+2. **Re-download**
+   - Delete corrupted downloaded file
+   - Re-download entire file (avoid resume)
+
+3. **Use officially recommended tool**
+   - Use [Balena Etcher](https://www.balena.io/etcher/) to write image directly, it automatically verifies file integrity
+
+### Q: Are there other download options?
+A:
+- Try visiting [Radxa official mirror server](https://dl.radxa.com/) for alternative download sources
+- Ask other users in community forums or Discord for backup download links
+- Follow [Radxa official announcements](https://forum.radxa.com/) for latest download information
+
+If none of the above solutions work, please report the specific problem in [GitHub Issues](https://github.com/radxa-docs/docs/issues). We'll do our best to help resolve it.
+
 ## References Documentation
 
 ### [Tina5.0 AIoT Documentation](https://gitlab.com/tina5.0_aiot/product/docs/)

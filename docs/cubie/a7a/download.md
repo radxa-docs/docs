@@ -96,6 +96,73 @@ SD卡启动盘制作工具：
 - [原理图 V1.10](https://dl.radxa.com/cubie/a7a/docs/hw/radxa_cubie_a7a_v1.10_schematic.pdf)
 - [位号图 V1.10](https://dl.radxa.com/cubie/a7a/docs/hw/radxa_cubie_a7a_v1.10_Components_Placement_map.pdf)
 
+## 下载常见问题
+
+### Q: 下载镜像时中途失败，显示"无法下载，出现问题"
+A: 这通常是由以下原因导致的：
+
+1. **网络连接不稳定**
+   - 尝试使用有线网络连接代替 WiFi
+   - 重启路由器或更换网络环境
+   - 使用下载管理器工具（如 IDM、FDM）支持断点续传
+
+2. **浏览器缓存问题**
+   - 清除浏览器缓存和 cookies
+   - 尝试使用隐私模式/无痕浏览
+   - 更换其他浏览器（Chrome、Firefox、Edge）
+
+3. **GitHub Releases 下载问题**
+   - GitHub 下载有时会因为网络限制而中断
+   - 可以尝试使用 `wget` 或 `curl` 命令行工具下载：
+     ```bash
+     # 使用 wget 下载（支持断点续传）
+     wget -c https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz
+     
+     # 使用 curl 下载
+     curl -L -O -C - https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz
+     ```
+
+4. **百度网盘下载问题**
+   - 确保已登录百度网盘账号
+   - 检查是否已安装百度网盘客户端（大文件通常需要客户端）
+   - 尝试使用手机端百度网盘 App 下载
+
+5. **防病毒软件干扰**
+   - 暂时禁用防病毒软件或防火墙
+   - 将下载工具添加到防病毒软件白名单
+
+6. **磁盘空间不足**
+   - 确保有足够的磁盘空间（镜像文件解压后需要额外空间）
+   - 建议至少预留 2 倍于镜像文件大小的空间
+
+### Q: 下载速度很慢怎么办？
+A: 
+- 尝试在非高峰时段下载（如凌晨）
+- 使用下载加速工具或 VPN
+- 如果是 GitHub 下载，可以尝试使用镜像站点
+- 对于百度网盘，可以考虑开通会员获得加速
+
+### Q: 下载的文件损坏或验证失败？
+A:
+1. **验证文件完整性**
+   - 比较文件的 MD5/SHA256 校验和（如果有提供）
+   - 使用 `md5sum` 或 `sha256sum` 命令验证
+
+2. **重新下载**
+   - 删除已下载的损坏文件
+   - 重新下载整个文件（不要使用断点续传）
+
+3. **使用官方推荐工具**
+   - 使用 [Balena Etcher](https://www.balena.io/etcher/) 直接写入镜像，它会自动验证文件完整性
+
+### Q: 还有其他下载方式吗？
+A:
+- 可以尝试访问 [Radxa 官方镜像服务器](https://dl.radxa.com/) 查看是否有其他下载源
+- 在社区论坛或 Discord 中询问其他用户是否有备用下载链接
+- 关注 [Radxa 官方公告](https://forum.radxa.com/) 获取最新下载信息
+
+如果以上方法都无法解决问题，请在 [GitHub Issues](https://github.com/radxa-docs/docs/issues) 中报告具体问题，我们会尽力协助解决。
+
 ## 参考资料
 
 ### [Tina5.0 AIoT 文档](https://gitlab.com/tina5.0_aiot/product/docs/)
