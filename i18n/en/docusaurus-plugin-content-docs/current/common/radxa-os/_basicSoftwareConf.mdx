@@ -20,14 +20,13 @@ import RemoteAccess from "../radxa-os/_remote-access.mdx";
 </table>
 
 :::note
-**Note:** Different image versions may use different default username and password. If the above credentials don't work, try the following:
+**Note:** If you are unable to log in using the default credentials above, try the following:
 
-- Check the release notes of the image you downloaded for specific default credentials
+- Ensure you have entered the username and password correctly (note case sensitivity)
 - Try using the `root` user (no password needed, just press Enter)
 - Try logging in via serial console for troubleshooting
-- For some Debian-based images, try `pi` / `raspberry`
 
-If you still cannot log in, there may be an issue with the image download or flashing process. Please re-download and re-flash the image.
+If none of the above methods work, it may be because the user creation process was not completed during the first system boot (e.g., due to power loss during initial setup). In this case, please re-flash the system image.
 :::
 
 ## Updating the system
