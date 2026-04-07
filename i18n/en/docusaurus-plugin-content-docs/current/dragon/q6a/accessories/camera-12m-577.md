@@ -42,24 +42,31 @@ sudo apt install \
 
 </NewCodeBlock>
 
-### Build and install libcamera
+### Build and install libcamera using Debian official packaging repository
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-git clone https://git.linuxtv.org/libcamera.git
+# Install build dependencies
+sudo apt update
+sudo apt install -y devscripts build-essential debhelper dh-make quilt git
+
+# Clone Debian official libcamera repository
+git clone https://salsa.debian.org/multimedia-team/libcamera.git
 cd libcamera
-git checkout 02277d4c1a5ae7fee582f635936877435a12db64 # Optional. The following test steps are based on this version of libcamera.
-meson setup build --wipe \
-    -Dpipelines=simple \
-    -Dcam=enabled \
-    -Dgstreamer=disabled \
-    -Dv4l2=enabled \
-    -Dlc-compliance=disabled \
-    -Dqcam=enabled
-ninja -C build -j$(nproc)
-sudo ninja -C build install
-sudo ldconfig
+
+# Switch to debian/0.4.0-7 branch
+git checkout debian/0.4.0-7
+
+# Install build dependencies
+sudo mk-build-deps --install --remove debian/control
+
+# Build deb packages
+dpkg-buildpackage -us -uc -b
+
+# Install built deb packages
+cd ..
+sudo dpkg -i libcamera*.deb libcamera-dev*.deb libcamera-tools*.deb || sudo apt-get install -f -y
 ```
 
 </NewCodeBlock>
@@ -74,15 +81,29 @@ sudo chmod 666 /dev/dma_heap/*
 
 </NewCodeBlock>
 
-### Start the camera
+### Start the camera (using GStreamer)
 
-Open the system desktop terminal, go to the libcamera build directory, and start qcam.
+Start the camera using GStreamer pipeline with libcamera element -> autovideosink element:
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-cd libcamera/build/src/apps/qcam/
-./qcam --stream pixelformat=YUYV,width=1920,height=1080
+# Install GStreamer packages
+sudo apt install -y gstreamer1.0-tools gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
+
+# Start camera preview
+gst-launch-1.0 libcamerasrc ! autovideosink
+```
+
+</NewCodeBlock>
+
+To specify camera parameters, you can use:
+
+<NewCodeBlock tip='radxa@dragon-q6a$' type="device">
+
+```bash
+# Specify resolution, framerate, etc.
+gst-launch-1.0 libcamerasrc ! video/x-raw,width=1920,height=1080,framerate=30/1 ! autovideosink
 ```
 
 </NewCodeBlock>
