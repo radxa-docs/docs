@@ -42,31 +42,33 @@ sudo apt install \
 
 </NewCodeBlock>
 
-### 编译安装 libcamera
+### 使用 Debian 官方打包仓库自打包安装 libcamera
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-git clone https://git.linuxtv.org/libcamera.git
+# 安装打包工具和依赖
+sudo apt install -y devscripts
+sudo apt build-dep libcamera
+
+# 获取 Debian 官方打包仓库的 0.4.0-7 分支
+git clone https://salsa.debian.org/multimedia-team/libcamera.git
 cd libcamera
-git checkout 02277d4c1a5ae7fee582f635936877435a12db64 # Optional. The following test steps are based on this version of libcamera.
-meson setup build --wipe \
-    -Dpipelines=simple \
-    -Dcam=enabled \
-    -Dgstreamer=disabled \
-    -Dv4l2=enabled \
-    -Dlc-compliance=disabled \
-    -Dqcam=enabled
-ninja -C build -j$(nproc)
-sudo ninja -C build install
-sudo ldconfig
+git checkout debian/0.4.0-7
+
+# 编译打包 libcamera
+debuild --no-lintian --no-sign -b
+
+# 安装生成的 deb 包，包括 gstreamer 插件
+sudo apt-get install ./../libcamera*.deb ./../libcamera-dev*.deb ./../libcamera-tools*.deb
+sudo apt-get install ./../gstreamer1.0-libcamera*.deb
 ```
 
 </NewCodeBlock>
 
 ### 修改配置文件
 
-进入 `libcamera` 目录，修改 `libcamera/src/ipa/simple/data/imx219.yaml`文件。
+进入 Debian 打包的 libcamera 目录，修改 `src/ipa/simple/data/imx219.yaml`文件。
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
@@ -119,13 +121,24 @@ sudo chmod 666 /dev/dma_heap/*
 
 ### 启动摄像头
 
-打开系统桌面终端，进入 libcamera 的 build 目录，启动 qcam。
+使用 gstreamer 的 libcamera 元素预览摄像头画面：
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-cd libcamera/build/src/apps/qcam/
-./qcam --stream pixelformat=YUYV,width=1920,height=1080
+# 使用 libcamera 元素连接到 autovideosink
+gst-launch-1.0 libcamerasrc ! autovideosink
+```
+
+</NewCodeBlock>
+
+或者指定具体的分辨率和格式：
+
+<NewCodeBlock tip='radxa@dragon-q6a$' type="device">
+
+```bash
+# 指定分辨率和格式
+gst-launch-1.0 libcamerasrc ! video/x-raw,width=1920,height=1080,format=YUYV ! autovideosink
 ```
 
 </NewCodeBlock>
