@@ -87,6 +87,16 @@ This will update the new `u-boot-initial-env` to the device from the host.
 
 After powering off and rebooting the device, you should see the desktop displayed on the 8HD touchscreen.
 
+## Enable Multiple DT Overlays Simultaneously
+
+You can enable multiple DT overlays at the same time, for example:
+
+```text
+list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c3.dtbo i2c4.dtbo gpio104-pwm.dtbo spi1-spidev.dtbo spi2-spidev.dtbo
+```
+
+This allows you to enable multiple hardware features in a single configuration without having to modify the `u-boot-initial-env` file multiple times.
+
 ## Common hardware interfaces: I2C, UART, SPI, etc.
 
 NIO 12L has a 40‑pin expansion header. UART1 and PWM cannot be used at the same time.
@@ -421,10 +431,3 @@ For more details, please refer to the official MediaTek NeuroPilot documentation
 
 - [NeuroPilot Overview](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/ai-experience-suite/overview.html)
 - [Neuron SDK Documentation](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/yocto/ml-guide/ml-neuron-sdk.html)
-
-Note:
-You can enable multiple DT overlays at the same time, for example:
-
-```text
-list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c3.dtbo i2c4.dtbo gpio104-pwm.dtbo spi1-spidev.dtbo spi2-spidev.dtbo
-```

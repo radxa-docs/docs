@@ -87,6 +87,19 @@ $ genio-flash board-assets
 
 断电重启设备后，将会看到 8HD 触摸屏显示桌面。
 
+## 同时启用多个 DT overlay
+
+用户可以同时打开多个 dt overlay，如：
+
+```text
+list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c3.dtbo i2c4.dtbo gpio104-pwm.dtbo spi1-spidev.dtbo spi2-spidev.dtbo
+```
+
+这样可以在一次配置中启用多个硬件功能，无需多次修改 `u-boot-initial-env` 文件。
+
+
+
+
 ## 常用硬件接口 I2C, UART, SPI, etc
 
 NIO 12L 有一个 40-PIN 的扩展座子。UART1 和 PWM 没法同时用。
@@ -421,10 +434,3 @@ NeuroPilot Neuron SDK 主要支持以下模型格式：
 
 - [NeuroPilot 主页](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/ai-experience-suite/overview.html)
 - [Neuron SDK 文档](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/yocto/ml-guide/ml-neuron-sdk.html)
-
-说明：
-用户可以同时打开多个 dt overlay，如：
-
-```text
-list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c3.dtbo i2c4.dtbo gpio104-pwm.dtbo spi1-spidev.dtbo spi2-spidev.dtbo
-```
