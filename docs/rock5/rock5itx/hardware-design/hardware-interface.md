@@ -433,6 +433,8 @@ SATA Power 是 Floppy Power Header，每个针脚间距为 2.54 mm
 
 ## PCIE M KEY
 
+M.2 M Key 接口支持 PCIe 3.0 x4 协议，主要用于连接 NVMe SSD 存储设备。不支持 SATA 协议。
+
 | Pin |         Name         |         Description          | Pin |         Name          |       Description       |
 | :-: | :------------------: | :--------------------------: | :-: | :-------------------: | :---------------------: |
 |  1  |         GND          |            Ground            |  2  |      VCC3V3_MKEY      | 3.3V Power for M.2 Key  |
@@ -477,6 +479,16 @@ SATA Power 是 Floppy Power Header，每个针脚间距为 2.54 mm
 PCIe M Key 座子采用的是 LOTES APC10359-P001A，间距 0.5 mm
 
 ## PCIE E KEY
+
+M.2 E Key 接口支持多种协议，包括：
+- PCIe 2.0/3.0 x1
+- USB 3.0
+- SATA
+- SDIO
+- UART (用于蓝牙)
+4. I2S (用于音频)
+
+主要用于连接 WiFi 6/6E 和蓝牙模块。
 
 | Pin | Name                      | Description                   | Pin | Name                   | Description                         |
 | :-: | :------------------------ | :---------------------------- | :-: | :--------------------- | :---------------------------------- |

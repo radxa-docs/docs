@@ -91,7 +91,7 @@ ROCK 5A 提供了完整的硬件设计原理图和软件源代码，这一特性
   </tr>
   <tr>
     <th>M.2 连接器</th>
-    <th>提供一个 M.2 E Key，带有 2230 个插孔<br/>可提供 PCIe 2.1 单通道或 SATA 和 USB 信号<br/>支持工业标准 M.2 WiFi 6 模块。</th>
+    <th>提供一个 M.2 E Key，带有 2230 个插孔<br/>可提供 PCIe 2.1 单通道或 SATA 和 USB 信号<br/>支持工业标准 M.2 WiFi 6 模块。<br/><small>详细 M.2 接口协议说明请参考<a href="/common/m2-interface">M.2 接口协议说明</a></small></th>
   </tr>
   <tr>
     <th>音频接口</th>

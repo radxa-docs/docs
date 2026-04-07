@@ -108,8 +108,8 @@ ROCK 5B 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">M.2</td>
-        <td align="center">M.2 E Key 连接器，提供 PCIe 2.1 单通道、USB、SATA、SDIO、PCM 和 UART 信号，支持工业标准 M.2 WiFi 6 模块。<br/>M.2 M Key 连接器，带有四通道 PCIe 3.0 接口。电路板上有一个标准 M.2 2280 安装孔，可安装 M.2 2280 NVMe 固态硬盘。请注意，不支持 M.2 SATA 固态硬盘。</td>
-        <td>M.2 B Key 连接器，可提供 USB 信号并支持 4G 模块。通过使用 SIM 卡，可方便地连接移动网络。<br/>M.2 M Key 连接器，共提供两个双通道 PCIe 3.0 接口，标准的 M.2 2280 安装孔，可以安装 M.2 2280 NVMe 固态硬盘。值得注意的是，不支持 M.2 SATA 固态硬盘。</td>
+        <td align="center">M.2 E Key 连接器，提供 PCIe 2.1 单通道、USB、SATA、SDIO、PCM 和 UART 信号，支持工业标准 M.2 WiFi 6 模块。<br/>M.2 M Key 连接器，带有四通道 PCIe 3.0 接口。电路板上有一个标准 M.2 2280 安装孔，可安装 M.2 2280 NVMe 固态硬盘。原生不支持 SATA 协议，但可通过转接板使用 SATA 设备。<br/><small>详细 M.2 接口协议说明请参考<a href="/common/m2-interface">M.2 接口协议说明</a></small></td>
+        <td>M.2 B Key 连接器，可提供 USB 信号并支持 4G 模块。通过使用 SIM 卡，可方便地连接移动网络。<br/>M.2 M Key 连接器，共提供两个双通道 PCIe 3.0 接口，标准的 M.2 2280 安装孔，可以安装 M.2 2280 NVMe 固态硬盘。原生不支持 SATA 协议，但可通过转接板使用 SATA 设备。<br/><small>详细 M.2 接口协议说明请参考<a href="/common/m2-interface">M.2 接口协议说明</a></small></td>
     </tr>
     <tr>
         <td align="center">USB</td>
