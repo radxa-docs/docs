@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Getting Started
 
-This guide helps users quickly understand and start using the Radxa ROCK Pi S Radxa ROCK Pi S.
+This guide helps users quickly understand and start using the Radxa ROCK Pi S Motherboard.
 
 #### [Quick Start](/rockpi/rockpis/getting-started/quickly-start)
 
