@@ -76,32 +76,6 @@ sidebar_position: 15
 
 ![Intel_Ethernet_Driver_03](/img/x/x4/intel_network_connection_03.webp)
 
-## RP2040 驱动下载
-
-- 安装包下载 [Zadig](https://dl.radxa.com/x/x2l/radxa_x2l_rp2040_driver.zip)
-
-- 将安装包 Zadig 复制到 Radxa X4 内。
-
-- 双击打开安装包，安装完成后重启即可。
-
-![Zadig_01](/img/x/x2l/zadig_01.webp)
-
-![Zadig_02](/img/x/x2l/zadig_02.webp)
-
-![Zadig_03](/img/x/x2l/zadig_03.webp)
-
-## 音频驱动安装
-
-- 安装包下载 [Realtek Audio Controller Driver](https://dl.radxa.com/x/x2l/radxa_x2l_audio_driver.zip)
-
-- 将 Realtek Audio Controller Driver 复制到 Radxa X4 内
-
-- 双击打开 Realtek Audio Controller Driver 安装包，安装完成后重新启动系统。
-
-![Realtek Audio_01](/img/x/x2l/realtek_audio_01.webp)
-
-![Realtek Audio_02](/img/x/x2l/realtek_audio_02.webp)
-
 ## 无线驱动安装
 
 瑞莎X4提供了WiFi 5/蓝牙5和WiFi 6/蓝牙5.2两种配置供您选择。请根据您购买的配置下载相应的驱动程序，并按照流程完成驱动的安装。
