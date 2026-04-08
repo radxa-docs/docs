@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 上手指南
 
-上手指南可以让用户快速了解和使用瑞莎 ROCK Pi S 开发板。
+上手指南可以让用户快速了解和使用瑞莎 ROCK Pi S 主板。
 
 #### [快速上手](/rockpi/rockpis/getting-started/quickly-start)
 

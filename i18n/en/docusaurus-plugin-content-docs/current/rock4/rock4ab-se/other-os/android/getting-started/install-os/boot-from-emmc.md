@@ -55,7 +55,7 @@ Download the [ROCK 4A/4B/4SE system images](../../../../download) from the resou
                 <li><a href="https://dl.radxa.com/tools/linux/Linux_Upgrade_Tool_V2.1.zip">upgrade_tool v2.1</a></li>
             </ul>
             <br />
-            <li>Confirm that the development board has entered Maskrom mode</li>
+            <li>Confirm that the Radxa ROCK 4AB SE has entered Maskrom mode</li>
             <br />
             <pre>
                 $ sudo upgrade_tool ld

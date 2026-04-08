@@ -104,7 +104,7 @@ The resolution of the HDMI output depends on the monitor, and the Radxa ZERO wil
 
 ## eMMC
 
-The on-board [eMMC is located on the back of the development board](../hardware-design/hardware-interface#interface-overview) for eMMC booting or data storage. We offer options from none to 128GB.
+The on-board [eMMC is located on the back of the Radxa Zero](../hardware-design/hardware-interface#interface-overview) for eMMC booting or data storage. We offer options from none to 128GB.
 
 ## WIFI/BT
 

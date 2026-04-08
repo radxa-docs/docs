@@ -6,7 +6,7 @@ sidebar_position: 10
 
 ## Connect the screen
 
-Connect the screen with the development board as follows:
+Connect the screen with the motherboard as follows:
 
 ![Waveshare35-spi-display](/img/accessories/waveshare35-spi-display.webp)
 

@@ -62,11 +62,11 @@ Radxa ROCK 3A 支持 QC 3.0/2.0 适配器, 9V/2A，12V/1.5A。瑞莎推荐使用
 
 2. 进入 maskrom 模式
 
-- 断开开发板电源
+- 断开瑞莎 ROCK 3A电源
 - 移除 SD 卡，并插入 eMMC 模块
 - 用 USB A-A 连接 Radxa ROCK 3A 的 USB3.0 口 和 PC 端
 - 短接下面引脚
-- 给开发板上电
+- 给瑞莎 ROCK 3A上电
 - 摘下右边的黄色跳线帽，保留左边的黄色跳线帽
 
 <img src="/img/rock3/3a/rock3a-maskrom.webp" alt="rock 3a maskrom" width="500" />

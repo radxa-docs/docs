@@ -17,11 +17,11 @@ sidebar_position: 1
 
 ## 进入 Maskrom 模式
 
-- 断开开发板电源
+- 断开瑞莎 ROCK 3A电源
 - 移除 SD 卡，并插入 eMMC 模块
 - 用 USB A-A 连接 Radxa ROCK 3A 的 USB3.0 口 和 PC 端
 - 短接下面引脚
-- 给开发板上电
+- 给瑞莎 ROCK 3A上电
 - 摘下右边的黄色跳线帽，保留左边的黄色跳线帽
 
 <img src="/img/rock3/3a/rock3a-maskrom.webp" alt="rock 3a maskrom" width="500" />
@@ -39,7 +39,7 @@ sidebar_position: 1
 
 ## 启动系统
 
-- 给开发板上电，然后系统开始启动，状态灯闪烁。
+- 给瑞莎 ROCK 3A上电，然后系统开始启动，状态灯闪烁。
 
 :::tip
 Radxa ROCK 3A 支持 `5V/12V` 供电。瑞莎推荐使用 [Radxa Power PD30W](../accessories/power/pd-30w)。
