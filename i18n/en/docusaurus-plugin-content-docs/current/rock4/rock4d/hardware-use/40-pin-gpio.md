@@ -57,7 +57,7 @@ This section demonstrates common GPIO usage methods through the onboard 40-Pin G
 
 #### Hardware Preparation
 
-- Radxa ROCK 4D: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - 1x Female-to-Female Jumper Wire
 
 #### Hardware Connection
@@ -86,7 +86,7 @@ Terminal output example: When I connect the pin to GND, the output is (terminal 
 
 #### Hardware Preparation
 
-- Radxa ROCK 4D: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - 1x Female-to-Female Jumper Wire
 
 #### Hardware Connection
@@ -118,7 +118,7 @@ UART (Universal Asynchronous Receiver/Transmitter) is a widely used serial commu
 
 #### Hardware Preparation
 
-- Radxa ROCK 4D: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - 1x Female-to-Female Jumper Wire
 
 #### Hardware Connection
@@ -197,7 +197,7 @@ I2C is a widely used synchronous serial communication protocol developed by Phil
 
 #### Hardware Preparation
 
-- Radxa ROCK 4D: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - 4x Female-to-Female Jumper Wires
 - OLED Display (I2C Communication)
 
@@ -392,7 +392,7 @@ SPI (Serial Peripheral Interface) is a high-speed, full-duplex, synchronous seri
 
 #### Hardware Preparation
 
-- Radxa ROCK 4D: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - 1x Female-to-Female Jumper Wire
 
 #### Hardware Connection
