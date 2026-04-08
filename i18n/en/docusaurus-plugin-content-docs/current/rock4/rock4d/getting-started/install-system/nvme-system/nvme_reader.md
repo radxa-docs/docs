@@ -18,7 +18,7 @@ Installing the system on an M.2 NVMe SSD using an enclosure doesn't require a Mi
 
 You'll need the following hardware:
 
-- Development Board: Radxa ROCK 4D
+- Radxa ROCK 4D: Radxa ROCK 4D
 - M.2 NVMe SSD: Purchase separately
 - M.2 NVMe SSD Enclosure: Purchase separately
 - PCIe to M.2 M Key HAT: Purchase separately

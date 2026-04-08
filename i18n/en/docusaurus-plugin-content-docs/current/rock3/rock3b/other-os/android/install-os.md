@@ -26,7 +26,7 @@ Before starting ROCK 3B using microSD card/eMMC, it is necessary to erase the SP
 - Disconnect the board from the power supply.
 - Remove the SD card, NVME SSD and insert the eMMC module.
 - Connect the USB3.0 port of the Radxa ROCK 3B to the PC side with USB cable.
-- Short circuit Maskrom Key with DuPont wire to power on the development board.
+- Short circuit Maskrom Key with DuPont wire to power on the Radxa ROCK 3B.
 - Check for USB devices
   - Linux/macOS: Check if "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company" is displayed after running lsusb.
   - Windows: Open RKDevTool and you will see the device in "maskrom mode".

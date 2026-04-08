@@ -21,7 +21,7 @@ This chapter is designed to help you quickly get started with the Radxa ROCK 4D.
 
 To complete all the steps in this quick start guide, you'll need to prepare the following hardware in advance:
 
-- Development board: Radxa ROCK 4D
+- Radxa ROCK 4D: Radxa ROCK 4D
 - Boot media: MicroSD card
 - USB-to-TTL serial cable (optional): For serial debugging and login
 - Display (optional): HDMI monitor and HDMI cable

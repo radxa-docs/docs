@@ -17,7 +17,7 @@ sidebar_position: 1
 
 #### 启动系统
 
-- 开发板： 瑞莎 ROCK 4D
+- 瑞莎 ROCK 4D： 瑞莎 ROCK 4D
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)
 
 :::tip

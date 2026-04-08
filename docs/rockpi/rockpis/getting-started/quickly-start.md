@@ -32,7 +32,7 @@ sidebar_position: 0
 
 您需要提前准备以下硬件设备，以便完成快速上手教程的所有操作。
 
-- 开发板： 瑞莎 ROCK Pi S
+- 瑞莎 ROCK Pi S： 瑞莎 ROCK Pi S
 - 系统启动介质： MicroSD 卡
 - MicroSD 卡读卡器：用于读写 MicroSD 卡
 - USB 串口数据线：用于串口调试和登录

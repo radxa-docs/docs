@@ -17,7 +17,7 @@ Prepare the following hardware to complete the system installation and boot proc
 
 #### For Booting
 
-- Development Board: Radxa ROCK Pi S
+- Radxa ROCK Pi S: Radxa ROCK Pi S
 - Power Supply: Type-C power adapter or Type-C to Type-A cable connected to a PC
 
 :::tip

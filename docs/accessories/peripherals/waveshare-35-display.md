@@ -6,7 +6,7 @@ sidebar_position: 10
 
 ## 连接该显示屏
 
-按照以下方法将屏幕连接到开发板：
+按照以下方法将屏幕连接到主板：
 
 ![Waveshare35-spi-display](/img/accessories/waveshare35-spi-display.webp)
 

@@ -4,13 +4,13 @@ sidebar_position: 3
 
 # UART Debugging
 
-UART debugging is a core method in embedded development for interacting with development boards through a serial communication interface (UART). Using a serial port tool, you can view system output and perform debugging.
+UART debugging is a core method in embedded development for interacting with Radxa ROCK 4Ds through a serial communication interface (UART). Using a serial port tool, you can view system output and perform debugging.
 
 ## Hardware Requirements
 
-- Development Board: Radxa ROCK 4D
+- Radxa ROCK 4D: Radxa ROCK 4D
 - USB-to-TTL Serial Cable: Connect the board's UART0 interface to your PC's USB port
-- Power Adapter: For powering the development board (supports PD protocol, 5V power input)
+- Power Adapter: For powering the Radxa ROCK 4D (supports PD protocol, 5V power input)
 
 ## Hardware Connection
 

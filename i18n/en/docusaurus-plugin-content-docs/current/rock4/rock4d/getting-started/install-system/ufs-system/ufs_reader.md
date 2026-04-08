@@ -12,7 +12,7 @@ When using the Radxa eMMC/UFS combo module reader to install the system, there's
 
 **You will need the following hardware:**
 
-- Development board: Radxa ROCK 4D
+- Radxa ROCK 4D: Radxa ROCK 4D
 - [UFS Module](https://radxa.com/products/accessories/ufs-module)
 - [Radxa eMMC/UFS Combo Module Reader](https://radxa.com/products/accessories/emmc-ufs-module-reader)
 - Power adapter: Type-C power adapter (with PD protocol support, 5V input, 3A or higher recommended)

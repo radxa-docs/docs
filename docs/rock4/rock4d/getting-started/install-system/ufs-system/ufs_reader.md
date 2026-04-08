@@ -12,7 +12,7 @@ sidebar_position: 1
 
 **您需要准备以下硬件：**
 
-- 开发板： 瑞莎 ROCK 4D
+- 瑞莎 ROCK 4D： 瑞莎 ROCK 4D
 - [UFS 模块](https://radxa.com/products/accessories/ufs-module)
 - [瑞莎 eMMC / UFS 二合一模块读卡器](https://radxa.com/products/accessories/emmc-ufs-module-reader)
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)
