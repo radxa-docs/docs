@@ -14,7 +14,7 @@ ROCK 5B/5B+ 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以�
 
 ### 清除 SPI Flash
 
-在使用 microSD 卡/ eMMC 启动时，如果SPI Flash 里面有数据，需要先清空 SPI Flash，参考 [清除 SPI Flash](../../low-level-dev/maskrom/erase)。
+在使用 microSD 卡/ eMMC 启动时，如果SPI Flash 里面有数据，需要先清空 SPI Flash，参考 [清除 SPI Flash](../../getting-started/install-os/erase_spi-flash)。
 
 <details>
 
@@ -37,7 +37,7 @@ ROCK 5B/5B+ 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以�
 
 - 1x microSD 卡(容量 >=8GB)
 - 1x microSD 读卡器
-- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd_30w))
+- 5V 电源适配器 (推荐使用 [Radxa Power PD30W](https://radxa.com/products/accessories/power-pd-30w))
 
 #### 安装系统
 
@@ -49,7 +49,7 @@ ROCK 5B/5B+ 可以从 microSD 卡启动，也可以从 EMMC 启动，还可以�
 - Radxa ROCK 5B/5B+ 的供电接口为 [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
 
 :::tip
-ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](../../../../accessories/power/pd_30w)。
+ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](https://radxa.com/products/accessories/power-pd-30w)。
 :::
 
 #### 参考文档
@@ -73,7 +73,7 @@ ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。�
 
 #### Linux 系统使用 rkdeveloptool 写入
 
-[rkdeveloptool](../../low-level-dev/maskrom/linux)
+[rkdeveloptool](../../low-level-dev/install-os/rkdevtool-emmc?platform=Linux+%2F+macOS)
 
 </TabItem>
 
@@ -81,7 +81,7 @@ ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。�
 
 #### Mac 系统使用 rkdeveloptool 写入
 
-[rkdeveloptool](../../low-level-dev/maskrom/mac-os)
+[rkdeveloptool](../../low-level-dev/install-os/rkdevtool-emmc?platform=Linux+%2F+macOS)
 
 </TabItem>
 
@@ -89,7 +89,7 @@ ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。�
 
 #### Windows 系统使用 rkdevtool 写入
 
-[rkdevtool](../../low-level-dev/maskrom/windows)
+[rkdevtool](../../low-level-dev/install-os/rkdevtool-emmc?platform=Windows)
 
 </TabItem>
 
@@ -115,26 +115,6 @@ ROCK 5B/5B+ 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。�
 请到 [资源下载中心](../../download) 下载对应的镜像文件
 
 #### 系统安装
-
-<Tabs queryString="target">
-
-<TabItem value="linux" label="Linux(适用于 Rock5B)">
-
-#### Linux 系统使用 rkdeveloptool 写入
-
-[rkdeveloptool](../../low-level-dev/maskrom/linux)
-
-</TabItem>
-
-<TabItem value="mac" label="mac(适用于Rock 5B)">
-
-#### Mac 系统使用 rkdeveloptool 写入
-
-[rkdeveloptool](../../low-level-dev/maskrom/mac-os)
-
-</TabItem>
-
-<TabItem value="windows" label="Windows（适用于Rock 5B/5B+）">
 
 ##### 安装 RKDevTool
 
@@ -163,10 +143,6 @@ RKDevTool 是 Rockchip 为 Windows 平台下进行 USB 烧录所开发的软件�
 ##### 按照以下操作烧入镜像
 
 ![RK Android update](/img/rock5itx/rock5itx_android_update_zh.webp)
-
-</TabItem>
-
-</Tabs>
 
 #### 启动 ROCK 5B/5B+
 

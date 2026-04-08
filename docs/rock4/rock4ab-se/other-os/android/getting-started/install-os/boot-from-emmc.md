@@ -59,7 +59,7 @@ import UPGRADE_TOOL from "../../../../../../common/dev/\_upgrade-tool.mdx";
                 <li><a href="https://dl.radxa.com/tools/linux/Linux_Upgrade_Tool_V2.1.zip">upgrade_tool v2.1</a></li>
             </ul>
             <br />
-            <li>确认开发板已经进入 Maskrom 模式</li>
+            <li>确认瑞莎 ROCK 4AB SE已经进入 Maskrom 模式</li>
             <br />
             <pre>
                 $ sudo upgrade_tool ld

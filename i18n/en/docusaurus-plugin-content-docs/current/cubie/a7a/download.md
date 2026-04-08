@@ -110,7 +110,7 @@ This documentation system provides comprehensive technical support for Allwinner
 
 - **Hardware Design Resources**
 
-  Offers reusable design templates and specifications, including reference schematics, development board/prototype schematics, PCB reference designs, design guidelines, and hardware checklists. Also includes IBIS models and PMIC selection guides to directly support hardware development.
+  Offers reusable design templates and specifications, including reference schematics, motherboard/prototype schematics, PCB reference designs, design guidelines, and hardware checklists. Also includes IBIS models and PMIC selection guides to directly support hardware development.
 
 - **Chip Manuals**
 

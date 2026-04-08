@@ -14,7 +14,7 @@ ROCK 5B/5B+ can be booted from microSD card or EMMC, depending on the boot metho
 
 ### Erase SPI Flash
 
-Before using a microSD card/eMMC to boot an SBC with SPI Flash, If there is data in SPI Flash, the SPI Flash needs to be erased. Refer to [Erase SPI Flash](../../low-level-dev/maskrom/erase)
+Before using a microSD card/eMMC to boot an SBC with SPI Flash, If there is data in SPI Flash, the SPI Flash needs to be erased. Refer to [Erase SPI Flash](../../getting-started/install-os/erase_spi-flash)
 
 <details>
 
@@ -42,7 +42,7 @@ For scenarios where an NVMe drive is needed to boot the system, the SPI Flash im
 
 - 1x microSD card (capacity >=8GB)
 - 1x microSD card reader
-- 5V power adapter (Recommended [Radxa Power PD30W](../../../../accessories/power/pd_30w))
+- 5V power adapter (Recommended [Radxa Power PD30W](https://radxa.com/products/accessories/power-pd-30w))
 
 #### Image Download
 
@@ -58,7 +58,7 @@ Please go to [Resource Download](../../download) to download the corresponding i
 - The power supply interface of Radxa ROCK 5B is [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface), please connect the power supply port and the adapter with Type-C cable.
 
 :::tip
-The ROCK 5B/5B+ supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using the [Radxa Power PD30W](../../../../accessories/power/pd_30w).
+The ROCK 5B/5B+ supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using the [Radxa Power PD30W](https://radxa.com/products/accessories/power-pd-30w).
 :::
 
 #### Reference Documentation
@@ -86,7 +86,7 @@ Please go to [Resource Download](../../download) to download the corresponding i
 
 #### Linux systems are written using rkdeveloptool
 
-[rkdeveloptool](../../low-level-dev/maskrom/linux)
+[rkdeveloptool](../../low-level-dev/install-os/rkdevtool-emmc?platform=Linux+%2F+macOS)
 
 </TabItem>
 
@@ -94,7 +94,7 @@ Please go to [Resource Download](../../download) to download the corresponding i
 
 #### Mac systems are written using rkdeveloptool
 
-[rkdeveloptool](../../low-level-dev/maskrom/mac-os)
+[rkdeveloptool](../../low-level-dev/install-os/rkdevtool-emmc?platform=Linux+%2F+macOS)
 
 </TabItem>
 
@@ -102,7 +102,7 @@ Please go to [Resource Download](../../download) to download the corresponding i
 
 #### Windows systems write with rkdevtool
 
-[rkdevtool](../../low-level-dev/maskrom/windows)
+[rkdevtool](../../low-level-dev/install-os/rkdevtool-emmc?platform=Windows)
 
 </TabItem>
 
@@ -128,28 +128,6 @@ Please go to [Resource Download](../../download) to download the corresponding i
 Please go to [Resource Download](../../download) to download the corresponding image file.
 
 #### System Installation
-
-#### Install the system
-
-<Tabs queryString="target">
-
-<TabItem value="linux" label="Linux(Rock 5B)">
-
-#### Linux systems are written using rkdeveloptool
-
-[rkdeveloptool](../../low-level-dev/maskrom/linux)
-
-</TabItem>
-
-<TabItem value="mac" label="Mac(Rock 5B)">
-
-#### Mac systems are written using rkdeveloptool
-
-[rkdeveloptool](../../low-level-dev/maskrom/mac-os)
-
-</TabItem>
-
-<TabItem value="windows" label="Windows(Rock 5B/5B+)">
 
 #### Install RKDevTool
 
@@ -178,10 +156,6 @@ unzip RKDevTool_Release_v2.96_zh.zip ，click RKDevTool.exe to open.
 ##### Follow the steps below to flash the operation image
 
 ![RK Android update](/img/rock5itx/rock5itx_android_update_en.webp)
-
-</TabItem>
-
-</Tabs>
 
 #### Boot the system
 

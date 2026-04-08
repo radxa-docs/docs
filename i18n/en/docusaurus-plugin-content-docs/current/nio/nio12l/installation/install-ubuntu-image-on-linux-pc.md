@@ -66,7 +66,7 @@ $ sudo udevadm control --reload-rules
 $ sudo udevadm trigger
 ```
 
-Also, if using adb to connect to the development board, add a new udev rule and add your user account to the plugdev group:
+Also, if using adb to connect to the NIO 12L, add a new udev rule and add your user account to the plugdev group:
 
 ```bash
 $ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="201c", MODE="0660", $ GROUP="plugdev"' \

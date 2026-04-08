@@ -33,7 +33,7 @@ Not Supported:
 - Boot1 partition
 - RPMB (Replay Protected Memory Block)
 
-If your workflow requires access to Boot0 or Boot1 (for example, flashing bootloaders or device firmware), please connect the eMMC module directly to the development board’s native eMMC interface (via SDIO or soldered socket).
+If your workflow requires access to Boot0 or Boot1 (for example, flashing bootloaders or device firmware), please connect the eMMC module directly to the motherboard’s native eMMC interface (via SDIO or soldered socket).
 
 💡 Background
 

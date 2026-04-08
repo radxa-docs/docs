@@ -15,7 +15,7 @@ The script backup has only been tested on official Radxa systems and does not su
 
 ## Online System Backup
 
-Online system backup refers to backing up a running system directly on the development board.
+Online system backup refers to backing up a running system directly on the Radxa ROCK 4D.
 
 :::tip
 The script backup only supports Linux systems and is the recommended method for backing up Debian and Ubuntu systems.
@@ -23,7 +23,7 @@ The script backup only supports Linux systems and is the recommended method for 
 
 ### Download the Script
 
-Use the `curl` command on the development board to download the script.
+Use the `curl` command on the Radxa ROCK 4D to download the script.
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```bash
@@ -97,7 +97,7 @@ Backup done, the file is /home/radxa/rock-4d-s16-backup-250612-0930.img
 
 ## Offline System Backup
 
-Offline system backup involves connecting the development board's system disk to a PC as a removable device for backup.
+Offline system backup involves connecting the Radxa ROCK 4D's system disk to a PC as a removable device for backup.
 
 :::tip
 Offline system backup requires converting the system boot disk to a removable medium before connecting it to a PC for backup.
@@ -120,7 +120,7 @@ Converting different boot media to removable media:
 
 ### Connect to PC
 
-After converting the development board's system boot disk to a removable device, connect it to a PC for backup (recommended to perform the backup on an Ubuntu system).
+After converting the Radxa ROCK 4D's system boot disk to a removable device, connect it to a PC for backup (recommended to perform the backup on an Ubuntu system).
 
 ### Confirm the Disk
 
@@ -132,7 +132,7 @@ lsblk
 ```
 </NewCodeBlock>
 
-Example terminal output (in this example, `sda` is the development board's system disk). You can identify the correct device by safely removing and reconnecting the removable media.
+Example terminal output (in this example, `sda` is the Radxa ROCK 4D's system disk). You can identify the correct device by safely removing and reconnecting the removable media.
 
 ```text
 sda           8:0    1    58G  0 disk
@@ -155,7 +155,7 @@ sudo dd if=/dev/sda of=rock-4d-spi-backup.img bs=4M status=progress
 ```
 </NewCodeBlock>
 
-- `/dev/sda`: The disk corresponding to the development board
+- `/dev/sda`: The disk corresponding to the Radxa ROCK 4D
 - `rock-4d-spi-backup.img`: Specifies the output filename
 - `bs=4M`: Block size
 - `status=progress`: Shows backup progress and speed

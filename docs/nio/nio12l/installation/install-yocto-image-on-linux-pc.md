@@ -65,7 +65,7 @@ $ sudo udevadm control --reload-rules
 $ sudo udevadm trigger
 ```
 
-另外，如果使用 adb 连接到开发板，请添加新的 udev 规则并将您的用户帐户添加到 plugdev 组：
+另外，如果使用 adb 连接到NIO 12L，请添加新的 udev 规则并将您的用户帐户添加到 plugdev 组：
 
 ```bash
 $ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0e8d", ATTR{idProduct}=="201c", MODE="0660", $ GROUP="plugdev"' | sudo tee -a /etc/udev/rules.d/96-rity.rules

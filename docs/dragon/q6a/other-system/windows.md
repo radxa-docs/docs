@@ -32,7 +32,7 @@ sidebar_position: 5
 
 在开始安装 Windows on ARM 之前，请确认：
 
-- 已经准备好一块 Radxa Dragon Q6A 开发板，以及合适的电源适配器；
+- 已经准备好一块 Radxa Dragon Q6A，以及合适的电源适配器；
 - 有 HDMI 显示器、USB 键盘和鼠标；
 - 有一台运行 Windows 的主机电脑，用于制作 Windows 安装 U 盘；
 - Dragon Q6A 已刷入支持 Windows 启动的 UEFI 固件（参考[spi-fw](../low-level-dev/spi-fw.md)）。
@@ -71,7 +71,7 @@ sidebar_position: 5
 ## 从 U 盘启动安装程序
 
 1. 将制作好的 Windows 安装 U 盘插入 Dragon Q6A 的任意 USB 接口；
-2. 接好 HDMI 显示器、键盘和鼠标，给开发板上电；
+2. 接好 HDMI 显示器、键盘和鼠标，给Dragon Q6A上电；
 3. 当启动画面出现时，按下 **F12** 键进入启动菜单（Boot Menu）；
 4. 在启动菜单中选择对应的 USB 启动项（例如“UEFI: USB ...”），回车确认；
 5. 系统会从 U 盘启动标准的 Windows 安装程序，之后可以按常规 Windows 安装流程进行：

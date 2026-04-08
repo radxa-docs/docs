@@ -17,7 +17,7 @@ You will need the following hardware to complete the system installation and boo
 
 #### For System Boot
 
-- Development board: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - Power adapter: Type-C power adapter (with PD protocol support, 5V input, 3A or higher recommended)
 
 :::tip

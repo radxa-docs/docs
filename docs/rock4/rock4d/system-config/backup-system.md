@@ -15,7 +15,7 @@ sidebar_position: 9
 
 ## 在线系统备份
 
-在线系统备份是指在开发板上备份正在运行的系统。
+在线系统备份是指在瑞莎 ROCK 4D上备份正在运行的系统。
 
 :::tip
 脚本备份仅支持 Linux 系统，推荐使用该方式备份 Debian 和 Ubuntu 系统。
@@ -23,7 +23,7 @@ sidebar_position: 9
 
 ### 下载脚本
 
-在开发板上使用 `curl` 命令下载脚本。
+在瑞莎 ROCK 4D上使用 `curl` 命令下载脚本。
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```bash
@@ -97,7 +97,7 @@ Backup done, the file is /home/radxa/rock-4d-s16-backup-250612-0930.img
 
 ## 离线系统备份
 
-离线系统备份是指将开发板的系统以可移动介质的方式连接到 PC 上备份。
+离线系统备份是指将瑞莎 ROCK 4D的系统以可移动介质的方式连接到 PC 上备份。
 
 :::tip
 离线系统备份需要将系统启动盘转为可移动介质，再连接到 PC 上备份。
@@ -124,7 +124,7 @@ Backup done, the file is /home/radxa/rock-4d-s16-backup-250612-0930.img
 
 ### 连接 PC
 
-将开发板的系统启动盘转为可移动介质后，连接到 PC 上备份（推荐在 Ubuntu 系统下备份）。
+将瑞莎 ROCK 4D的系统启动盘转为可移动介质后，连接到 PC 上备份（推荐在 Ubuntu 系统下备份）。
 
 ### 确认磁盘
 
@@ -136,7 +136,7 @@ lsblk
 ```
 </NewCodeBlock>
 
-终端输出类似信息：其中 `sda` 为演示的开发板系统盘，您可以通过安全插拔可移动介质来判断对应设备信息。
+终端输出类似信息：其中 `sda` 为演示的瑞莎 ROCK 4D系统盘，您可以通过安全插拔可移动介质来判断对应设备信息。
 
 ```text
 sda           8:0    1    58G  0 disk
@@ -159,7 +159,7 @@ sudo dd if=/dev/sda of=rock-4d-spi-backup.img bs=4M status=progress
 ```
 </NewCodeBlock>
 
-- `/dev/sda`：开发板对应的磁盘。
+- `/dev/sda`：瑞莎 ROCK 4D对应的磁盘。
 - `rock-4d-spi-backup.img`：指定输出文件名称。
 - `bs=4M`：块大小。
 - `status=progress`：输出备份的进度和速度。

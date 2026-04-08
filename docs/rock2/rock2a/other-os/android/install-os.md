@@ -56,11 +56,11 @@ ROCK 2A 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 
 进入 maskrom 模式
 
-- 断开开发板电源
+- 断开瑞莎 ROCK 2A电源
 - 移除 SD-card
 - 用 USB A-A 连接 ROCK 2A 的 USB3.0 口 和 PC 端
 - 按住 Maskrom 按键
-- 给开发板上电
+- 给瑞莎 ROCK 2A上电
 - PC 端查看是否有 USB 设备
   - Linux/macOS: 检查执行 lsusb 后是否有显示 "Bus 001 Device 112: ID 2207:350a Fuzhou Rockchip Electronics Company"
   - Windows: 打开 RKDevTool 您会看到设备处于 "maskrom mode".

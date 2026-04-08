@@ -22,6 +22,13 @@ Hardware versions of the Radxa Dual 2.5G Router HAT follow the "V1.x" format, wh
 - **Resistor Placement Adjustment**: Optimized the layout of resistors around the power interface to resolve component interference issues when connecting/disconnecting the power cable
 - **Structural Stability Enhancement**: Improved overall component layout for increased reliability during long-term use
 
+#### 2-Pin 12V Power Output Connector Specifications
+
+- **Pin Pitch**: 2.5mm
+- **Form Factor**: 1x2PIN, horizontal mount, SMD
+- **Compatible Plug**: JST PH 2P housing (2.5mm pitch)
+- **Note**: This connector provides 12V DC power output only and does not support PWM speed control
+
 #### Application Scenarios
 
 - All production environments and commercial applications
@@ -40,6 +47,13 @@ Hardware versions of the Radxa Dual 2.5G Router HAT follow the "V1.x" format, wh
 - Optimized connector layout for more convenient external device connections
 - Enhanced stability of the power output interface
 
+#### 2-Pin 12V Power Output Connector Specifications
+
+- **Pin Pitch**: 2.5mm
+- **Form Factor**: 1x2PIN, horizontal mount, SMD
+- **Compatible Plug**: JST PH 2P housing (2.5mm pitch)
+- **Note**: This connector provides 12V DC power output only and does not support PWM speed control
+
 ### V1.3 (Development Preview Version)
 
 #### Hardware Changes
@@ -55,6 +69,13 @@ Hardware versions of the Radxa Dual 2.5G Router HAT follow the "V1.x" format, wh
 - Simplified the installation process for improved assembly efficiency
 - Enhanced physical compatibility with Raspberry Pi and Radxa mainboards
 - Extended power output functionality with additional device connection options
+
+#### 2-Pin 12V Power Output Connector Specifications
+
+- **Pin Pitch**: 2.54mm
+- **Form Factor**: 1x2PIN, vertical mount, SMD, without locating post
+- **Compatible Plug**: Standard JST PH 2P housing (2.54mm pitch)
+- **Note**: This connector provides 12V DC power output only and does not support PWM speed control
 
 ## Version Identification Methods
 

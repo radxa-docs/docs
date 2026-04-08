@@ -89,7 +89,7 @@ As a main controller for robotics development, the Radxa Cubie A7Z provides exce
 
 ### Developer Kit
 
-Serves as an entry-level development board for embedded enthusiasts and robotics developers, offering open-source hardware design, comprehensive technical documentation, and development resources.
+Serves as an entry-level motherboard for embedded enthusiasts and robotics developers, offering open-source hardware design, comprehensive technical documentation, and development resources.
 
 ## Supported Platforms
 

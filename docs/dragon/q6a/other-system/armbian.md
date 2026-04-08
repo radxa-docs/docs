@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Armbian
 
-Armbian 是一个面向 ARM 开发板的轻量级 Linux 发行版，以稳定性、高性能和良好的硬件支持而闻名。它提供了针对各种 ARM 单板计算机优化的 Debian 和 Ubuntu 基础系统。
+Armbian 是一个面向 ARM 主板的轻量级 Linux 发行版，以稳定性、高性能和良好的硬件支持而闻名。它提供了针对各种 ARM 单板计算机优化的 Debian 和 Ubuntu 基础系统。
 
 :::tip
 Radxa Dragon Q6A 需要最新的 UEFI 固件才能运行 Armbian。固件下载地址：[Dragon Q6A 固件快照](https://forum.radxa.com/t/radxa-dragon-q6a-firmware-snapshot/)

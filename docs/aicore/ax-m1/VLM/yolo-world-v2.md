@@ -110,6 +110,6 @@ output size: 1
    yolo_world_v2 demo output
 </div>
 
-如果您的开发板 IP Address 是 192.168.1.100, 那么使用浏览器访问以下链接 http://192.168.1.100:7860.
+如果您的主板 IP Address 是 192.168.1.100, 那么使用浏览器访问以下链接 http://192.168.1.100:7860.
 
 <img width="1871" height="980" alt="image" src="https://github.com/user-attachments/assets/a41c0f65-ba5f-4af6-9ad7-80ec5c7d14e1" />

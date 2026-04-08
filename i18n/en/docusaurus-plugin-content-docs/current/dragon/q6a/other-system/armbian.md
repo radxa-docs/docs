@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Armbian
 
-Armbian is a lightweight Linux distribution for ARM development boards, known for its stability, high performance, and excellent hardware support. It provides Debian and Ubuntu-based systems optimized for various ARM single-board computers.
+Armbian is a lightweight Linux distribution for ARM motherboards, known for its stability, high performance, and excellent hardware support. It provides Debian and Ubuntu-based systems optimized for various ARM single-board computers.
 
 :::tip
 Radxa Dragon Q6A requires the latest UEFI firmware to run Armbian. Firmware download: [Dragon Q6A Firmware Snapshot](https://forum.radxa.com/t/radxa-dragon-q6a-firmware-snapshot/)
