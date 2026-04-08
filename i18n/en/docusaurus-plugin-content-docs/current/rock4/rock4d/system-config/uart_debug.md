@@ -8,7 +8,7 @@ UART debugging is a core method in embedded development for interacting with Rad
 
 ## Hardware Requirements
 
-- Radxa ROCK 4D: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - USB-to-TTL Serial Cable: Connect the board's UART0 interface to your PC's USB port
 - Power Adapter: For powering the Radxa ROCK 4D (supports PD protocol, 5V power input)
 

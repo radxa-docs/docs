@@ -21,7 +21,7 @@ sidebar_position: 1
 
 您需要提前准备以下硬件设备，以便完成快速上手教程的所有操作。
 
-- 瑞莎 ROCK 4D：瑞莎 ROCK 4D
+- 主板：瑞莎 ROCK 4D
 - 系统启动介质：MicroSD 卡
 - USB串口数据线（可选）：用于串口调试和登录
 - 显示器（可选）：HDMI 显示器和 HDMI 数据线

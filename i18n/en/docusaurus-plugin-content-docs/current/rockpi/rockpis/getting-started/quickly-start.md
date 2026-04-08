@@ -32,7 +32,7 @@ This chapter is designed to help you get started quickly with the Radxa ROCK Pi 
 
 To complete all the steps in this quick start guide, you'll need to prepare the following hardware in advance:
 
-- Radxa ROCK Pi S: Radxa ROCK Pi S
+- Motherboard: Radxa ROCK Pi S
 - Boot Media: MicroSD Card
 - MicroSD Card Reader: For reading/writing the MicroSD card
 - USB to UART Serial Cable: For serial debugging and login

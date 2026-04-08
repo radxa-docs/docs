@@ -17,7 +17,7 @@ sidebar_position: 1
 
 #### 启动系统
 
-- 瑞莎 ROCK Pi S： 瑞莎 ROCK Pi S
+- 主板：瑞莎 ROCK Pi S
 - 供电方式：Type-C 电源适配器或使用 Type-C 转 Type-A 数据线连接 PC 供电
 
 :::tip

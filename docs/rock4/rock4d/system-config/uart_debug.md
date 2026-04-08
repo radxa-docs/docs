@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ## 硬件准备
 
-- 瑞莎 ROCK 4D： 瑞莎 ROCK 4D
+- 主板：瑞莎 ROCK 4D
 - USB 串口数据线： 将瑞莎 ROCK 4D的 UART0 接口连接到 PC 机的 USB 端口
 - 电源适配器： 给瑞莎 ROCK 4D供电（支持 PD 协议，5V 电源输入）
 

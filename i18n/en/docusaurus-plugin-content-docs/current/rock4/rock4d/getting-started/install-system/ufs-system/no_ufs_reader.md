@@ -16,7 +16,7 @@ We'll be working within the system on the MicroSD card and use the `dd` command 
 
 **You will need the following hardware:**
 
-- Radxa ROCK 4D: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - [UFS Module](https://radxa.com/products/accessories/ufs-module)
 - Functional MicroSD card with bootable system
 - Power adapter: Type-C power adapter (with PD protocol support, 5V input, 3A or higher recommended)

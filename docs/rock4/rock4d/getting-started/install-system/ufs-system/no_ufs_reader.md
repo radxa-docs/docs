@@ -16,7 +16,7 @@ sidebar_position: 2
 
 **您需要准备以下硬件：**
 
-- 瑞莎 ROCK 4D： 瑞莎 ROCK 4D
+- 主板：瑞莎 ROCK 4D
 - [UFS 模块](https://radxa.com/products/accessories/ufs-module)
 - 正常启动系统的 MicroSD 卡
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)

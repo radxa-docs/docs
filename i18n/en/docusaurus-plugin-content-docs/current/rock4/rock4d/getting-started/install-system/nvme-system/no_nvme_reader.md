@@ -22,7 +22,7 @@ We'll be working within the system on the MicroSD card and use the `dd` command 
 
 You'll need the following hardware:
 
-- Radxa ROCK 4D: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - MicroSD card with a working system
 - M.2 NVMe SSD: Purchase separately
 - PCIe to M.2 M Key HAT: Purchase separately
