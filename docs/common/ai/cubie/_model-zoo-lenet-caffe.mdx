@@ -1,0 +1,251 @@
+本文档讲述如何在 NPU 上运行 LeNet。
+
+:::info
+参考 [Model Zoo 下载](./model-zoo-download)获取示例。
+:::
+
+LeNet 示例目录结构：
+
+```bash
+$ tree ./
+./
+├── class_pre.cpp
+├── CMakeLists.txt
+├── convert_model
+│   ├── config_yml.py
+│   └── convert_model_env.sh
+├── main.cpp
+├── model
+│   ├── 3.jpg
+│   ├── 4.jpg
+│   └── 5.jpg
+└── README.md
+```
+
+## 模型转换
+
+### 下载模型
+
+点击下载 [lenet.caffemodel](http://netstorage.allwinnertech.com:5000/sharing/JG3iqvFvH) 。
+
+点击下载 [lenet.prototxt](http://netstorage.allwinnertech.com:5000/sharing/Wf4J4DsTR) 。
+
+然后将模型移动到 convert_model/ 目录下。
+
+### 创建转换脚本的软链接
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd convert_model/
+./convert_model_env.sh
+```
+
+</NewCodeBlock>
+
+### 模型导入/量化/转换
+
+需要先进入容器开发环境。可以参考 Model Zoo 下载中[创建容器](./model-zoo-download#创建并启动容器)这一部分。
+
+:::info
+不同平台请使用对应的 Docker 镜像：
+
+- A733：ubuntu-npu:v2.0.10.1
+- T527：ubuntu-npu:v1.8.11
+  :::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+进入容器对应目录之后运行脚本。
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/lenet_caffe/convert_model/
+./pegasus_import.sh lenet
+./pegasus_quantize.sh lenet uint8 12
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh lenet uint8 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh lenet uint8 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+导出的模型文件存放在../model目录。
+
+### 编译示例
+
+接下来可以编译示例，**先 exit 退出容器**，然后执行下面的命令编译示例。
+
+首先需要配置第三方库和交叉编译工具链。
+
+:::info
+如果你已经在其他示例中配置过第三方库和交叉编译工具链则可以跳过这一步。
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../../../3rdparty/opencv/
+unzip opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
+cd ../../0-toolchains/
+```
+
+</NewCodeBlock>
+
+需要先手动[点击链接](http://netstorage.allwinnertech.com:5000/sharing/e2nD8YwB4)下载之后放到 0-toolchains/ 再执行下面的命令：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/lenet_caffe/
+../build_linux.sh -t a733 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/lenet_caffe/
+../build_linux.sh -t t527 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+## 模型部署
+
+编译示例完成之后，示例会安装到 install 目录，可以使用 scp 传输到板端。
+
+### 配置 NPU 驱动
+
+:::info
+如果你已经在其他示例中配置过 NPU 驱动则可以跳过这一步。
+:::
+
+将驱动库 scp 传输到板端的 lib 目录。
+
+- A733 对应 common/lib_linux_aarch64/A733 目录
+- T527 对应 common/lib_linux_aarch64/T527 目录
+
+然后执行下面的命令导出到环境变量。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+配置好驱动之后就可以运行示例了。
+
+:::tip
+对于 T527 平台，你还需要参考 A5E 的`板端启用 NPU`文档先启用 NPU ，然后使用下面的命令增加当前用户使用 /dev/vipcore 的权限。
+:::
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+  ```bash sudo chmod 777 /dev/vipcore ```
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd lenet_demo_linux_a733/
+chmod +x ./lenet_demo_a733
+./lenet_demo_a733 -nb model/lenet_uint8_a733.nb -i model/3.jpg
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd lenet_demo_linux_t527/
+chmod +x ./lenet_demo_t527
+./lenet_demo_t527 -nb model/lenet_uint8_t527.nb -i model/3.jpg
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+运行结果如下：
+
+```bash
+$ ./lenet_demo_a733 -nb model/lenet_uint8_a733.nb -i model/3.jpg
+model_file=model/lenet_uint8_a733.nb, input=model/3.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+input  0 dim 28 28 1 1, data_format=2, quant_format=0, name=input/output[0], none-quant
+output 0 dim 10 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/lenet_uint8_a733.nb, size: 407776.
+create network 0: 1486 us.
+prepare network: 176 us.
+network: 0, loop count: 1
+run time for this network 0: 281 us.
+Image: model/3.jpg, Predicted digit: 3, Probability: 1.000000
+Class probabilities: 0 : 0.0000  1 : 0.0000  2 : 0.0000  3 : 1.0000  4 : 0.0000  5 : 0.0000  6 : 0.0000  7 : 0.0000  8 : 0.0000  9 : 0.0000
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC       | NPU             | 模型  | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时 | 帧率      |
+| :-------- | :-------------- | :---- | :--------- | :----------- | :----------- | :----------- | :--------- | :----- | :-------- |
+| 全志 A733 | Vivante VIP9000 | lenet | 28×28      | 1.5 ms       | 0.2 ms       | 0.3 ms       |            | 2.0 ms | 500.0 FPS |

@@ -1,0 +1,355 @@
+本文档讲述如何在 NPU 上运行 YOLO11 Pose。
+
+:::info
+参考 [Model Zoo 下载](./model-zoo-download)获取示例。
+:::
+
+YOLO11 Pose 示例目录结构：
+
+```bash
+$ tree ./
+./
+├── CMakeLists.txt
+├── convert_model
+│   ├── config_yml.py
+│   ├── convert_model_env.sh
+│   ├── python
+│   │   ├── onnx_extract.py
+│   │   └── yolo11s-pose_640.txt
+│   └── yolo11s-pose_9.txt
+├── figures
+│   ├── diff_img.png
+│   └── out_yolo11_pose_pcq.png
+├── main.cpp
+├── model
+│   └── COCO_train2014_000000500390.jpg
+├── model_config.h
+├── README.md
+├── yolo11_pose_9_post.cpp
+└── yolo11_pose_9_pre.cpp
+```
+
+## 模型转换
+
+### 配置虚拟环境
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install ultralytics
+```
+
+</NewCodeBlock>
+
+### 导出 onnx 模型
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd convert_model/python/
+yolo export model=yolo11s-pose.pt format=onnx simplify=True dynamic=False opset=11 nms=False batch=1 device=cpu
+```
+
+</NewCodeBlock>
+
+### 裁剪模型
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python onnx_extract.py
+mv ./yolo11s-pose_9.onnx ../
+cd ..
+```
+
+</NewCodeBlock>
+
+### 创建转换脚本的软链接
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./convert_model_env.sh
+```
+
+</NewCodeBlock>
+
+### 模型导入/量化/转换
+
+需要先进入容器开发环境。可以参考 Model Zoo 下载中[创建容器](./model-zoo-download#创建并启动容器)这一部分。
+
+:::info
+不同平台请使用对应的 Docker 镜像：
+
+- A733：ubuntu-npu:v2.0.10.1
+- T527：ubuntu-npu:v1.8.11
+  :::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+进入容器对应目录之后运行脚本。
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/yolo11_pose/convert_model/
+./pegasus_import.sh yolo11s-pose_9
+./pegasus_quantize.sh yolo11s-pose_9 uint8 12
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh yolo11s-pose_9 uint8 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh yolo11s-pose_9 uint8 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+导出的模型文件存放在../model目录。
+
+### 编译示例
+
+接下来可以编译示例，**先 exit 退出容器**，然后执行下面的命令编译示例。
+
+首先需要配置第三方库和交叉编译工具链。
+
+:::info
+如果你已经在其他示例中配置过第三方库和交叉编译工具链则可以跳过这一步。
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../../../3rdparty/opencv/
+unzip opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
+cd ../../0-toolchains/
+```
+
+</NewCodeBlock>
+
+需要先手动[点击链接](http://netstorage.allwinnertech.com:5000/sharing/e2nD8YwB4)下载之后放到 0-toolchains/ 再执行下面的命令：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/yolo11_pose/
+../build_linux.sh -t a733 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/yolo11_pose/
+../build_linux.sh -t t527 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+## 模型部署
+
+编译示例完成之后，示例会安装到 install 目录，可以使用 scp 传输到板端。
+
+### 配置 NPU 驱动
+
+:::info
+如果你已经在其他示例中配置过 NPU 驱动则可以跳过这一步。
+:::
+
+将驱动库 scp 传输到板端的 lib 目录。
+
+- A733 对应 common/lib_linux_aarch64/A733 目录
+- T527 对应 common/lib_linux_aarch64/T527 目录
+
+然后执行下面的命令导出到环境变量。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+配置好驱动之后就可以运行示例了。
+
+:::tip
+对于 T527 平台，你还需要参考 A5E 的`板端启用 NPU`文档先启用 NPU ，然后使用下面的命令增加当前用户使用 /dev/vipcore 的权限。
+:::
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+  ```bash sudo chmod 777 /dev/vipcore ```
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolo11_pose_demo_linux_a733/
+chmod +x ./yolo11_pose_demo_a733
+./yolo11_pose_demo_a733 -nb model/yolo11s-pose_9_uint8_a733.nb -i model/COCO_train2014_000000500390.jpg
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolo11_pose_demo_linux_t527/
+chmod +x ./yolo11_pose_demo_t527
+./yolo11_pose_demo_t527 -nb model/yolo11s-pose_9_uint8_t527.nb -i model/COCO_train2014_000000500390.jpg
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+运行结果如下：
+
+```bash
+$ ./yolo11_pose_demo_a733 -nb model/yolo11s-pose_9_uint8_a733.nb -i model/COCO_train2014_000000500390.jpg
+model_file=model/yolo11s-pose_9_uint8_a733.nb, input=model/COCO_train2014_000000500390.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input/output[0], none-quant
+output 0 dim 80 80 64 1, data_format=0, name=uid_17_out_0b_uid_1_out_0, none-quant
+output 1 dim 80 80 1 1, data_format=0, name=uid_16_out_0b_uid_1_out_0, none-quant
+output 2 dim 80 80 51 1, data_format=0, name=uid_15_out_0b_uid_1_out_0, none-quant
+output 3 dim 40 40 64 1, data_format=0, name=uid_14_out_0b_uid_1_out_0, none-quant
+output 4 dim 40 40 1 1, data_format=0, name=uid_13_out_0b_uid_1_out_0, none-quant
+output 5 dim 40 40 51 1, data_format=0, name=uid_12_out_0b_uid_1_out_0, none-quant
+output 6 dim 20 20 64 1, data_format=0, name=uid_11_out_0b_uid_1_out_0, none-quant
+output 7 dim 20 20 1 1, data_format=0, name=uid_10_out_0b_uid_1_out_0, none-quant
+output 8 dim 20 20 51 1, data_format=0, name=uid_9_out_0ub_uid_1_out_0, none-quant
+nbg name=model/yolo11s-pose_9_uint8_a733.nb, size: 7284048.
+create network 0: 16110 us.
+prepare network: 3977 us.
+buffer ptr: 0x202f5380, buffer size: 1228800
+network: 0, loop count: 1
+run time for this network 0: 32374 us.
+output 0, ptr 0x20421480, size 409600.
+output 1, ptr 0x205b1500, size 6400.
+output 2, ptr 0x205b7980, size 326400.
+output 3, ptr 0x206f6640, size 102400.
+output 4, ptr 0x2075a6c0, size 1600.
+output 5, ptr 0x2075c040, size 81600.
+output 6, ptr 0x207abbc0, size 25600.
+output 7, ptr 0x207c4c80, size 400.
+output 8, ptr 0x207c5340, size 20400.
+post process time : 4 ms
+detection num: 3
+ 0:  94%, [ 370,    0,  589,  346], person
+405.75 26.20 = 0.96988
+419.11 23.03 = 0.96501
+405.65 21.63 = 0.29929
+441.04 31.18 = 0.99146
+421.11 22.33 = 0.04379
+455.76 67.51 = 0.99977
+430.35 62.14 = 0.99950
+466.39 121.18 = 0.99797
+405.08 109.99 = 0.98330
+447.50 96.32 = 0.98985
+382.14 70.42 = 0.94582
+466.06 166.69 = 0.99986
+455.44 165.19 = 0.99974
+411.43 242.60 = 0.99939
+497.02 230.87 = 0.99880
+408.66 307.99 = 0.98213
+562.98 301.11 = 0.97806
+ 0:  88%, [  86,   27,  292,  389], person
+146.77 66.48 = 0.99659
+157.56 60.56 = 0.99517
+138.54 62.15 = 0.93738
+177.10 58.15 = 0.97191
+136.75 58.00 = 0.22714
+182.16 88.95 = 0.99876
+146.17 100.58 = 0.99755
+210.99 144.46 = 0.99757
+161.48 152.14 = 0.98186
+171.08 179.70 = 0.99453
+131.07 188.60 = 0.97326
+222.98 197.17 = 0.99975
+178.42 204.61 = 0.99950
+250.05 264.09 = 0.99831
+151.41 290.25 = 0.99650
+287.21 296.16 = 0.97016
+127.74 355.67 = 0.95755
+ 0:  92%, [ 228,   39,  399,  407], person
+275.86 94.61 = 0.99351
+286.44 88.28 = 0.98999
+267.42 87.73 = 0.88035
+308.03 73.30 = 0.97833
+265.48 74.83 = 0.23741
+339.54 98.91 = 0.99963
+280.47 109.74 = 0.99938
+372.16 125.90 = 0.99505
+272.82 170.12 = 0.98157
+380.93 163.22 = 0.98073
+243.21 204.51 = 0.94730
+339.07 225.60 = 0.99986
+302.82 223.45 = 0.99980
+294.02 310.02 = 0.99952
+314.44 286.69 = 0.99926
+270.90 355.43 = 0.99344
+374.00 318.30 = 0.99277
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC       | NPU             | 模型         | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
+| :-------- | :-------------- | :----------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
+| 全志 A733 | Vivante VIP9000 | yolo11s-pose | 640×640    | 16.1 ms      | 4.0 ms       | 32.4 ms      | 4.0 ms     | 56.5 ms | 17.7 FPS |
