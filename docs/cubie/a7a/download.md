@@ -44,6 +44,12 @@ sidebar_position: 150
 
 - [Radxa Cubie A7A Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_4096.img.xz) （UFS）
 
+:::tip 百度网盘下载（备选）
+
+如果通过 GitHub 下载镜像速度比较慢或者中断，可以通过百度网盘下载系统镜像：
+
+- [百度网盘下载（radxa-a733）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-a733&parentPath=%2Fsharelink3108273493-988411983016443)
+
 :::tip Cubie A7A 旧版镜像
 
 - [Radxa Cubie A7A](https://github.com/radxa-build/radxa-cubie-a7a/releases)
