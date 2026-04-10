@@ -37,6 +37,6 @@ Please make sure that your network device (such as a switch, router, or hub) sup
 
 :::tip
 
-Please refer to [PoE FAN ](../software/c_sdk_examples#rp2040-control-the-40-pin)
+Please refer to [PoE FAN ](../software/c_sdk_examples?type=PoE+FAN#rp2040-control-the-40-pin)
 
 :::

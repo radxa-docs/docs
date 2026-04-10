@@ -11,4 +11,4 @@ ROCK 3 系列是瑞莎基于Rockchip RK3566/RK3568研发的一系列SBC（单板
 
 | <font size='5'>ROCK 3A</font><br/> 适用于多场景的卡片电脑 | <font size='5'>ROCK 3B</font> <br/> 低功耗工控机 | <font size='5'>ROCK 3C</font> <br/> 适用于多场景的卡片电脑 |
 | :-------------------------------------------------------: | :----------------------------------------------: | :--------------------------------------------------------: |
-|        ![ROCK 3A](/img/rock3/600px-Start-3a.webp)         |    ![ROCK 3B](/img/rock3/600px-Start-3b.webp)    |         ![ROCK 3C](/img/rock3/600px-Start-3c.webp)         |
+| [![ROCK 3A](/img/rock3/600px-Start-3a.webp)](/rock3/rock3a/getting-started/) | [![ROCK 3B](/img/rock3/600px-Start-3b.webp)](/rock3/rock3b/getting-started/) | [![ROCK 3C](/img/rock3/600px-Start-3c.webp)](/rock3/rock3c/getting-started/) |

@@ -1,0 +1,156 @@
+本文档将介绍如何在高通平台上通过 Qualcomm® Genie 使用 NPU 硬件加速推理 Qwen2.5-0.5B-Instruct 模型
+
+- 源模型 [Qwen/Qwen2.5-0.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct)
+
+- 源模型许可证：[Apache 2.0](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct/blob/main/LICENSE)
+
+## 模型细节
+
+| 模型                  | 量化方式 | 上下文长度 |
+| --------------------- | -------- | ---------- |
+| Qwen2.5-0.5B-Instruct | W4A16    | 4096       |
+
+## 支持设备
+
+:::tip
+请参考 [SoC 架构对照表](../qairt-sdk#soc-架构对照表) 查寻当前设备 SoC 的 DSP 架构
+:::
+
+- 此示例支持 **v73** DSP 架构的高通平台 SoC
+
+  | dsp_arch |
+  | -------- |
+  | v73      |
+
+- 运行设备
+
+  | 设备                  | SoC     | dsp_arch |
+  | --------------------- | ------- | -------- |
+  | Fogwise® AIRbox Q900 | QCS9075 | v73      |
+
+## 下载 genie 工具包
+
+:::info
+敬请期待
+:::
+
+## 下载模型
+
+:::info
+敬请期待
+:::
+
+## 推理模型
+
+### 构建 prompt
+
+prompt 支持以文件形式或者参数形式传入
+
+<Tabs>
+
+<TabItem value="prompt">
+
+```bash
+<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant\n
+```
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+vim chat.txt
+```
+
+</NewCodeBlock>
+
+```vim
+<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant\n
+```
+
+</TabItem>
+
+</Tabs>
+
+### 执行推理
+
+<Tabs>
+
+<TabItem value="prompt">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c qwen2.5-0.5b-instruct-htp.json -p '<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant\n'
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c qwen2.5-0.5b-instruct-htp.json --prompt_file chat.txt
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+```bash
+(.venv) rock@radxa-airbox-q900:/mnt/ssd/qualcomm/Qwen2.5-0.5B-Instruct$ genie-t2t-run -c qwen2.5-0.5b-instruct-htp.json -p '<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant\n'
+Using libGenie.so version 1.14.0
+
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+[INFO]  "Using create From Binary"
+[INFO]  "Allocated total size = 65356288 across 3 buffers"
+[PROMPT]: <|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant\n
+
+[BEGIN]: A large language model is a type of artificial intelligence model that can generate human-like text. These models are trained on large amounts of text data, such as books, articles, and other written content. The model learns the patterns and structure of the language, and can generate human-like text that is similar to the original text. These models are often used for generating text that is difficult or impossible to generate by other models.[END]
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+```
+
+## 性能参考
+
+可以使用 `--profile` 选项开启性能分析功能
+
+```bash
+genie-t2t-run -c qwen2.5-0.5b-instruct-htp.json --prompt_file chat.txt --profile profile.txt
+```
+
+| Fogwise® AIRbox Q900      |                            |
+| -------------------------- | -------------------------- |
+| **GenieDialog_create**     | 730,239 us                 |
+| **num-prompt-tokens**      | 39                         |
+| **prompt-processing-rate** | 1213.59228515625 toks/sec  |
+| **time-to-first-token**    | 32,165 us                  |
+| **num-generated-tokens**   | 136                        |
+| **token-generation-rate**  | 85.06295013427734 toks/sec |
+| **token-generation-time**  | 1,598,914 us               |
+| **GenieDialog_free**       | 86,155 us                  |
+
+### 指标含义解析
+
+| 指标                       | 含义解释                                                                                              |
+| -------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **GenieDialog_create**     | 初始化一个会话对象的时间。包括模型加载、上下文准备、内存分配等。                                      |
+| **num-prompt-tokens**      | 本次输入给模型的 prompt（提示词）的 token 数量，也就是模型接收到的文本拆分成的最小单元数量。          |
+| **prompt-processing-rate** | 模型处理输入 prompt 的速度，单位为 token 每秒（toks/sec），表示模型分析 prompt 并准备生成输出的效率。 |
+| **time-to-first-token**    | 从开始处理到生成第一个输出 token 所花的时间，反映模型响应的延迟。                                     |
+| **num-generated-tokens**   | 模型在本次生成中实际输出的 token 数量，也就是模型生成的文本长度（以 token 为单位）。                  |
+| **token-generation-rate**  | 模型生成 token 的速度，单位为 token 每秒（toks/sec），反映生成效率。                                  |
+| **token-generation-time**  | 模型生成所有输出 token 总共花费的时间，单位通常为微秒（us）。                                         |
+| **GenieDialog_free**       | 释放会话对象的时间，包括释放内存和清理资源。                                                          |
+
+## Genie 官方文档
+
+如果想深入了解 Qualcomm® Genie 的使用方法与详细 API 请参考
+
+- [**Genie 官方文档**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)
