@@ -28,7 +28,7 @@ sidebar_position: 150
 
 :::
 
-- [radxa-rk3576_bookworm_kde_r4.output_512.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r4/radxa-rk3576_bookworm_kde_r4.output_512.img.xz)
+- [radxa-rk3576_bookworm_kde_r6.output_512.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
 
 ## 硬件设计
 
