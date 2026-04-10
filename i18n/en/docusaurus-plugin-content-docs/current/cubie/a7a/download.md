@@ -44,6 +44,12 @@ Currently supports booting from MicroSD cards, eMMC modules, and UFS modules. NV
 
 - [Radxa Cubie A7A Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_4096.img.xz) (UFS)
 
+:::tip Baidu Netdisk Download (Alternative)
+
+If the download from GitHub is slow or interrupted, you can download the system image via Baidu Netdisk:
+
+- [Baidu Netdisk Download (radxa-a733)](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-a733&parentPath=%2Fsharelink3108273493-988411983016443)
+
 :::tip Cubie A7A Legacy Images
 
 - [Radxa Cubie A7A](https://github.com/radxa-build/radxa-cubie-a7a/releases)
