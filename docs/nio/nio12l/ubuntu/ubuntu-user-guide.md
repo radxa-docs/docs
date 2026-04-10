@@ -429,5 +429,5 @@ NeuroPilot Neuron SDK 主要支持以下模型格式：
 
 更多详细信息请参考 MediaTek 官方文档：
 
-- [NeuroPilot 主页](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/ai-experience-suite/overview.html)
-- [Neuron SDK 文档](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/sw/yocto/ml-guide/ml-neuron-sdk.html)
+- [NeuroPilot 主页](https://neuropilot-developer.mediatek.com/resources/public/latest/en/docs/readme)
+- [Neuron SDK 文档](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/release/v25.0/sw/yocto/ml-guide/ml-neuron-sdk.html)
