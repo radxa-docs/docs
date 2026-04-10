@@ -78,7 +78,7 @@ Use the following command to extract and write the compressed system image direc
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```bash
-sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/sda bs=1M status=progress
+sudo xzcat ~/radxa-rk3576_bookworm_kde_r6.output_4096.img.xz | sudo dd of=/dev/sda bs=1M status=progress
 ```
 </NewCodeBlock>
 
