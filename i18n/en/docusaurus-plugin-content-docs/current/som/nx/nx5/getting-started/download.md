@@ -21,6 +21,8 @@ NX5 & NX5 IO Board
 
 [NX5 IO V1.4 2D dxf](https://dl.radxa.com/nx5/nx5-io-board/radxa_nx5_io_board_v1400_top_2d.dxf)
 
+[NX5 Pinout Definition V1.1 xlsx](https://dl.radxa.com/nx5/radxa_nx5_pinout_v1.1.xlsx)
+
 [NX5 IO Board Design Resources](https://github.com/radxa/radxa-cm-projects/tree/main/nx5/radxa-nx5-io-board)
 
 ## Tools
