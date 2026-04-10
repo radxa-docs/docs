@@ -4,6 +4,17 @@ sidebar_position: 150
 
 # 资源汇总下载
 
+:::caution MEGA 链接访问说明
+部分 MEGA 链接可能在某些地区或网络环境下无法正常访问。如果遇到访问问题，请尝试以下方法：
+
+1. **使用 VPN 或代理服务**：部分地区的网络可能限制了对 MEGA 的访问
+2. **使用 MEGA 官方客户端**：下载并安装 [MEGA 官方客户端](https://mega.io/desktop) 可能提供更好的下载体验
+3. **联系技术支持**：如果以上方法都无法解决问题，请通过 [support@radxa.com](mailto:support@radxa.com) 联系我们获取帮助
+4. **检查网络连接**：确保您的网络连接稳定，并尝试刷新页面
+
+我们正在努力寻找更稳定的替代下载源。如果您有可用的镜像文件，欢迎通过 GitHub Issue 分享。
+:::
+
 ## 系统镜像
 
 :::tip 新手入门推荐
@@ -31,17 +42,17 @@ sidebar_position: 150
 #### GPT 系统镜像 (推荐)
 
 - [Radxa OS - Debian 11 Bullseye KDE](https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-b1/radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz)
-- [Tina Linux - Debian 11 Bullseye XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
+- [Tina Linux - Debian 11 Bullseye XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk) ⚠️ *MEGA 链接，部分地区可能无法访问*
 
 #### FEL 系统镜像
 
-- [Tina Linux - Debian 11 XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk)
+- [Tina Linux - Debian 11 XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk) ⚠️ *MEGA 链接，部分地区可能无法访问*
 
 ### Android
 
 #### FEL 系统镜像
 
-- [Android 13](https://mega.nz/file/NjxmXBbT#EaY4bTCNCKTWp8e9r9q2da9EijEovJdlJx_7_xXP-akk)
+- [Android 13](https://mega.nz/file/NjxmXBbT#EaY4bTCNCKTWp8e9r9q2da9EijEovJdlJx_7_xXP-akk) ⚠️ *MEGA 链接，部分地区可能无法访问*
 
 ## 刷机工具
 
