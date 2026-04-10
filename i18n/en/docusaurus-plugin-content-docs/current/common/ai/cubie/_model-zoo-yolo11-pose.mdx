@@ -1,0 +1,481 @@
+This document describes how to run YOLO11 Pose on NPU.
+
+:::info
+Refer to [Model Zoo Download](./model-zoo-download) for the example.
+:::
+
+YOLO11 Pose Example Directory Structure:
+
+```bash
+$ tree ./
+./
+├── CMakeLists.txt
+├── convert_model
+│   ├── config_yml.py
+│   ├── convert_model_env.sh
+│   ├── python
+│   │   ├── onnx_extract.py
+│   │   └── yolo11s-pose_640.txt
+│   └── yolo11s-pose_9.txt
+├── figures
+│   ├── diff_img.png
+│   └── out_yolo11_pose_pcq.png
+├── main.cpp
+├── model
+│   └── COCO_train2014_000000500390.jpg
+├── model_config.h
+├── README.md
+├── yolo11_pose_9_post.cpp
+└── yolo11_pose_9_pre.cpp
+```
+
+## Model Conversion
+
+### Configure Virtual Environment
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install ultralytics
+```
+
+</NewCodeBlock>
+
+### Export ONNX Model
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd convert_model/python/
+yolo export model=yolo11s-pose.pt format=onnx simplify=True dynamic=False opset=11 nms=False batch=1 device=cpu
+```
+
+</NewCodeBlock>
+
+### Prune Model
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python onnx_extract.py
+mv ./yolo11s-pose_9.onnx ../
+cd ..
+```
+
+</NewCodeBlock>
+
+### Create Symlink for Conversion Script
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./convert_model_env.sh
+```
+
+</NewCodeBlock>
+
+### Model Import/Quantization/Conversion
+
+You need to enter the container development environment first. Refer to the [Create Container](./model-zoo-download#创建并启动容器) section in Model Zoo Download.
+
+:::info
+Different platforms use corresponding Docker images:
+
+- A733: ubuntu-npu:v2.0.10.1
+- T527: ubuntu-npu:v1.8.11
+  :::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+After entering the container, navigate to the corresponding directory and run the script.
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/yolo11_pose/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_import.sh yolo11s-pose_9
+./pegasus_quantize.sh yolo11s-pose_9 uint8 12
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh yolo11s-pose_9 uint8 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh yolo11s-pose_9 uint8 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+The exported model files are stored in the ../model directory.
+
+### Compile Example
+
+Now you can compile the example. **First exit the container**, then execute the following command to compile the example.
+
+First, you need to configure third-party libraries and cross-compilation toolchain.
+
+:::info
+You can skip this step if you have already configured third-party libraries and cross-compilation toolchain in other examples.
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../../../3rdparty/opencv/
+unzip opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
+cd ../../0-toolchains/
+```
+
+</NewCodeBlock>
+
+You need to manually download via [this link](http://netstorage.allwinnertech.com:5000/sharing/e2nD8YwB4) first, then place it in 0-toolchains/ before executing the following command:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/yolo11_pose/
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t a733 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t t527 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+## Model Deployment
+
+After compilation, the example will be installed in the install directory. You can use scp to transfer it to the board.
+
+### Configure NPU Driver
+
+:::info
+You can skip this step if you have already configured NPU driver in other examples.
+:::
+
+Transfer the driver library to the board's lib directory via scp.
+
+- A733 corresponds to the common/lib_linux_aarch64/A733 directory
+- T527 corresponds to the common/lib_linux_aarch64/T527 directory
+
+Then execute the following command to export to environment variables.
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### Run Example
+
+After configuring the driver, you can run the example.
+
+:::tip
+For T527 platform, you need to first enable NPU by referring to the A5E's "Enable NPU on Board" documentation, then use the following command to grant the current user permission to use /dev/vipcore.
+:::
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolo11_pose_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./yolo11_pose_demo_a733
+./yolo11_pose_demo_a733 -nb model/yolo11s-pose_9_uint8_a733.nb -i model/COCO_train2014_000000500390.jpg
+```
+
+</NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./yolo11_pose_demo_a733 -nb model/yolo11s-pose_9_uint8_a733.nb -i model/COCO_train2014_000000500390.jpg
+model_file=model/yolo11s-pose_9_uint8_a733.nb, input=model/COCO_train2014_000000500390.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input/output[0], none-quant
+output 0 dim 80 80 64 1, data_format=0, name=uid_17_out_0b_uid_1_out_0, none-quant
+output 1 dim 80 80 1 1, data_format=0, name=uid_16_out_0b_uid_1_out_0, none-quant
+output 2 dim 80 80 51 1, data_format=0, name=uid_15_out_0b_uid_1_out_0, none-quant
+output 3 dim 40 40 64 1, data_format=0, name=uid_14_out_0b_uid_1_out_0, none-quant
+output 4 dim 40 40 1 1, data_format=0, name=uid_13_out_0b_uid_1_out_0, none-quant
+output 5 dim 40 40 51 1, data_format=0, name=uid_12_out_0b_uid_1_out_0, none-quant
+output 6 dim 20 20 64 1, data_format=0, name=uid_11_out_0b_uid_1_out_0, none-quant
+output 7 dim 20 20 1 1, data_format=0, name=uid_10_out_0b_uid_1_out_0, none-quant
+output 8 dim 20 20 51 1, data_format=0, name=uid_9_out_0ub_uid_1_out_0, none-quant
+nbg name=model/yolo11s-pose_9_uint8_a733.nb, size: 7284048.
+create network 0: 16110 us.
+prepare network: 3977 us.
+buffer ptr: 0x202f5380, buffer size: 1228800
+network: 0, loop count: 1
+run time for this network 0: 32374 us.
+output 0, ptr 0x20421480, size 409600.
+output 1, ptr 0x205b1500, size 6400.
+output 2, ptr 0x205b7980, size 326400.
+output 3, ptr 0x206f6640, size 102400.
+output 4, ptr 0x2075a6c0, size 1600.
+output 5, ptr 0x2075c040, size 81600.
+output 6, ptr 0x207abbc0, size 25600.
+output 7, ptr 0x207c4c80, size 400.
+output 8, ptr 0x207c5340, size 20400.
+post process time : 4 ms
+detection num: 3
+ 0:  94%, [ 370,    0,  589,  346], person
+405.75 26.20 = 0.96988
+419.11 23.03 = 0.96501
+405.65 21.63 = 0.29929
+441.04 31.18 = 0.99146
+421.11 22.33 = 0.04379
+455.76 67.51 = 0.99977
+430.35 62.14 = 0.99950
+466.39 121.18 = 0.99797
+405.08 109.99 = 0.98330
+447.50 96.32 = 0.98985
+382.14 70.42 = 0.94582
+466.06 166.69 = 0.99986
+455.44 165.19 = 0.99974
+411.43 242.60 = 0.99939
+497.02 230.87 = 0.99880
+408.66 307.99 = 0.98213
+562.98 301.11 = 0.97806
+ 0:  88%, [  86,   27,  292,  389], person
+146.77 66.48 = 0.99659
+157.56 60.56 = 0.99517
+138.54 62.15 = 0.93738
+177.10 58.15 = 0.97191
+136.75 58.00 = 0.22714
+182.16 88.95 = 0.99876
+146.17 100.58 = 0.99755
+210.99 144.46 = 0.99757
+161.48 152.14 = 0.98186
+171.08 179.70 = 0.99453
+131.07 188.60 = 0.97326
+222.98 197.17 = 0.99975
+178.42 204.61 = 0.99950
+250.05 264.09 = 0.99831
+151.41 290.25 = 0.99650
+287.21 296.16 = 0.97016
+127.74 355.67 = 0.95755
+ 0:  92%, [ 228,   39,  399,  407], person
+275.86 94.61 = 0.99351
+286.44 88.28 = 0.98999
+267.42 87.73 = 0.88035
+308.03 73.30 = 0.97833
+265.48 74.83 = 0.23741
+339.54 98.91 = 0.99963
+280.47 109.74 = 0.99938
+372.16 125.90 = 0.99505
+272.82 170.12 = 0.98157
+380.93 163.22 = 0.98073
+243.21 204.51 = 0.94730
+339.07 225.60 = 0.99986
+302.82 223.45 = 0.99980
+294.02 310.02 = 0.99952
+314.44 286.69 = 0.99926
+270.90 355.43 = 0.99344
+374.00 318.30 = 0.99277
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model        | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :----------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner A733 | Vivante VIP9000 | yolo11s-pose | 640×640          | 16.1 ms               | 4.0 ms                   | 32.4 ms                     | 4.0 ms               | 56.5 ms    | 17.7 FPS   |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolo11_pose_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./yolo11_pose_demo_t527
+./yolo11_pose_demo_t527 -nb model/yolo11s-pose_9_uint8_t527.nb -i model/COCO_train2014_000000500390.jpg
+```
+
+</NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./yolo11_pose_demo_t527 -nb model/yolo11s-pose_9_uint8_t527.nb -i model/COCO_train2014_000000500390.jpg
+model_file=model/yolo11s-pose_9_uint8_t527.nb, input=model/COCO_train2014_000000500390.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 80 80 64 1, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+output 1 dim 80 80 1 1, data_format=0, name=uid_20001_sub_uid_1_out_0, none-quant
+output 2 dim 80 80 51 1, data_format=0, name=uid_20002_sub_uid_1_out_0, none-quant
+output 3 dim 40 40 64 1, data_format=0, name=uid_20003_sub_uid_1_out_0, none-quant
+output 4 dim 40 40 1 1, data_format=0, name=uid_20004_sub_uid_1_out_0, none-quant
+output 5 dim 40 40 51 1, data_format=0, name=uid_20005_sub_uid_1_out_0, none-quant
+output 6 dim 20 20 64 1, data_format=0, name=uid_20006_sub_uid_1_out_0, none-quant
+output 7 dim 20 20 1 1, data_format=0, name=uid_20007_sub_uid_1_out_0, none-quant
+output 8 dim 20 20 51 1, data_format=0, name=uid_20008_sub_uid_1_out_0, none-quant
+nbg name=model/yolo11s-pose_9_uint8_t527.nb, size: 8148288.
+create network 0: 23417 us.
+prepare network: 10280 us.
+buffer ptr: 0x22f74380, buffer size: 1228800
+network: 0, loop count: 1
+run time for this network 0: 75989 us.
+output 0, ptr 0x230a0440, size 409600.
+output 1, ptr 0x23230500, size 6400.
+output 2, ptr 0x23236980, size 326400.
+output 3, ptr 0x23375600, size 102400.
+output 4, ptr 0x233d9680, size 1600.
+output 5, ptr 0x233db040, size 81600.
+output 6, ptr 0x2342abc0, size 25600.
+output 7, ptr 0x23443c40, size 400.
+output 8, ptr 0x23444300, size 20400.
+post process time : 11 ms
+detection num: 3
+ 0:  94%, [ 371,    0,  587,  346], person
+406.01 30.36 = 0.96783
+418.34 26.25 = 0.95618
+406.01 26.25 = 0.45198
+434.78 30.36 = 0.98485
+418.34 26.25 = 0.12014
+455.34 71.46 = 0.99981
+426.56 67.35 = 0.99938
+467.67 120.79 = 0.99790
+406.01 104.35 = 0.98050
+451.23 96.12 = 0.98748
+389.57 75.57 = 0.93298
+475.89 174.23 = 0.99984
+459.45 170.12 = 0.99967
+414.23 244.11 = 0.99955
+484.11 235.88 = 0.99903
+410.12 301.65 = 0.99145
+558.10 297.54 = 0.98825
+ 0:  87%, [  86,   27,  292,  389], person
+147.67 66.46 = 0.99650
+160.00 58.25 = 0.99518
+139.45 58.25 = 0.94058
+180.55 58.25 = 0.96977
+135.34 54.13 = 0.22788
+180.55 87.02 = 0.99866
+147.67 99.35 = 0.99729
+213.44 144.57 = 0.99729
+164.11 148.68 = 0.98050
+172.33 177.45 = 0.99417
+131.23 189.78 = 0.97160
+221.66 198.00 = 0.99971
+176.44 202.12 = 0.99946
+250.43 263.77 = 0.99816
+151.78 288.44 = 0.99627
+283.32 292.55 = 0.96783
+123.00 354.21 = 0.95618
+ 0:  92%, [ 228,   38,  399,  408], person
+275.67 96.12 = 0.99247
+288.00 87.90 = 0.98897
+267.45 87.90 = 0.86560
+308.55 75.57 = 0.97646
+267.45 75.57 = 0.22788
+341.44 100.23 = 0.99960
+279.78 108.46 = 0.99930
+374.32 124.90 = 0.99487
+275.67 170.12 = 0.97924
+382.54 161.89 = 0.98050
+242.78 203.00 = 0.94407
+341.44 227.66 = 0.99985
+304.44 223.55 = 0.99978
+292.11 309.88 = 0.99949
+312.66 285.21 = 0.99920
+271.56 355.09 = 0.99294
+374.32 318.10 = 0.99198
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model        | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :----------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner T527 | Vivante VIP9000 | yolo11s-pose | 640×640          | 23.4 ms               | 10.3 ms                  | 76.0 ms                     | 11.0 ms              | 120.7 ms   | 8.3 FPS    |
+
+</TabItem>
+</Tabs>

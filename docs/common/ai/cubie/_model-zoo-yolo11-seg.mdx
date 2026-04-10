@@ -1,0 +1,383 @@
+本文档讲述如何在 NPU 上运行 YOLO11 Seg。
+
+:::info
+参考 [Model Zoo 下载](./model-zoo-download)获取示例。
+:::
+
+YOLO11 Seg 示例目录结构：
+
+```bash
+$ tree ./
+./
+├── CMakeLists.txt
+├── convert_model
+│   ├── config_yml.py
+│   ├── convert_model_env.sh
+│   ├── python
+│   │   ├── onnx_extract.py
+│   │   └── yolo11s-seg_640.txt
+│   └── yolo11s-seg_10.txt
+├── figures
+│   ├── diff_img.png
+│   └── out_yolo11_seg_pcq.png
+├── main.cpp
+├── model
+│   └── dog.jpg
+├── model_config.h
+├── README.md
+├── yolo11_seg_10_post.cpp
+└── yolo11_seg_10_pre.cpp
+```
+
+## 模型转换
+
+### 配置虚拟环境
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install ultralytics
+```
+
+</NewCodeBlock>
+
+### 导出 onnx 模型
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd convert_model/python/
+yolo export model=yolo11s-seg.pt format=onnx imgsz=640 dynamic=False simplify=True opset=11 nms=False batch=1 device=cpu
+```
+
+</NewCodeBlock>
+
+### 裁剪模型
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+python onnx_extract.py
+mv yolo11s-seg_10.onnx ../
+cd ..
+```
+
+</NewCodeBlock>
+
+### 创建转换脚本的软链接
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./convert_model_env.sh
+```
+
+</NewCodeBlock>
+
+### 模型导入/量化/转换
+
+需要先进入容器开发环境。可以参考 Model Zoo 下载中[创建容器](./model-zoo-download#创建并启动容器)这一部分。
+
+:::info
+不同平台请使用对应的 Docker 镜像：
+
+- A733：ubuntu-npu:v2.0.10.1
+- T527：ubuntu-npu:v1.8.11
+  :::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+进入容器对应目录之后运行脚本。
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/yolo11_seg/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_import.sh yolo11s-seg_10
+./pegasus_quantize.sh yolo11s-seg_10 uint8 12
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh yolo11s-seg_10 uint8 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh yolo11s-seg_10 uint8 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+导出的模型文件存放在../model目录。
+
+### 编译示例
+
+接下来可以编译示例，**先 exit 退出容器**，然后执行下面的命令编译示例。
+
+首先需要配置第三方库和交叉编译工具链。
+
+:::info
+如果你已经在其他示例中配置过第三方库和交叉编译工具链则可以跳过这一步。
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../../../3rdparty/opencv/
+unzip opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
+cd ../../0-toolchains/
+```
+
+</NewCodeBlock>
+
+需要先手动[点击链接](http://netstorage.allwinnertech.com:5000/sharing/e2nD8YwB4)下载之后放到 0-toolchains/ 再执行下面的命令：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/yolo11_seg/
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t a733 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t t527 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+## 模型部署
+
+编译示例完成之后，示例会安装到 install 目录，可以使用 scp 传输到板端。
+
+### 配置 NPU 驱动
+
+:::info
+如果你已经在其他示例中配置过 NPU 驱动则可以跳过这一步。
+:::
+
+将驱动库 scp 传输到板端的 lib 目录。
+
+- A733 对应 common/lib_linux_aarch64/A733 目录
+- T527 对应 common/lib_linux_aarch64/T527 目录
+
+然后执行下面的命令导出到环境变量。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+配置好驱动之后就可以运行示例了。
+
+:::tip
+对于 T527 平台，你还需要参考 A5E 的`板端启用 NPU`文档先启用 NPU ，然后使用下面的命令增加当前用户使用 /dev/vipcore 的权限。
+:::
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolo11_seg_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./yolo11_seg_demo_a733
+./yolo11_seg_demo_a733 -nb model/yolo11s-seg_10_uint8_a733.nb -i model/dog.jpg
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./yolo11_seg_demo_a733 -nb model/yolo11s-seg_10_uint8_a733.nb -i model/dog.jpg
+model_file=model/yolo11s-seg_10_uint8_a733.nb, input=model/dog.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input/output[0], none-quant
+output 0 dim 80 80 64 1, data_format=0, name=uid_19_out_0b_uid_1_out_0, none-quant
+output 1 dim 80 80 80 1, data_format=0, name=uid_18_out_0b_uid_1_out_0, none-quant
+output 2 dim 80 80 32 1, data_format=0, name=uid_17_out_0b_uid_1_out_0, none-quant
+output 3 dim 40 40 64 1, data_format=0, name=uid_16_out_0b_uid_1_out_0, none-quant
+output 4 dim 40 40 80 1, data_format=0, name=uid_15_out_0b_uid_1_out_0, none-quant
+output 5 dim 40 40 32 1, data_format=0, name=uid_14_out_0b_uid_1_out_0, none-quant
+output 6 dim 20 20 64 1, data_format=0, name=uid_13_out_0b_uid_1_out_0, none-quant
+output 7 dim 20 20 80 1, data_format=0, name=uid_12_out_0b_uid_1_out_0, none-quant
+output 8 dim 20 20 32 1, data_format=0, name=uid_11_out_0ub_uid_1_out_0, none-quant
+output 9 dim 160 160 32 1, data_format=0, name=uid_20009_sub_uid_1_out_0, none-quant
+nbg name=model/yolo11s-seg_10_uint8_a733.nb, size: 7326672.
+create network 0: 24693 us.
+prepare network: 2986 us.
+buffer ptr: 0x226f1600, buffer size: 1228800
+network: 0, loop count: 1
+run time for this network 0: 37744 us.
+output 0, ptr 0x2281d780, size 409600.
+output 1, ptr 0x229ad800, size 512000.
+output 2, ptr 0x22ba1880, size 204800.
+output 3, ptr 0x22c69900, size 102400.
+output 4, ptr 0x22ccd9c0, size 128000.
+output 5, ptr 0x22d4aa40, size 51200.
+output 6, ptr 0x22d7cac0, size 25600.
+output 7, ptr 0x22d95b40, size 32000.
+output 8, ptr 0x22db5000, size 12800.
+output 9, ptr 0x22dc1880, size 819200.
+post process time : 11 ms
+detection num: 3
+ 1:  95%, [ 126,  126,  568,  420], bicycle
+16:  95%, [ 131,  221,  311,  541], dog
+ 2:  86%, [ 467,   75,  691,  172], car
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC       | NPU             | 模型        | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
+| :-------- | :-------------- | :---------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
+| 全志 A733 | Vivante VIP9000 | yolo11s-seg | 640×640    | 24.7 ms      | 3.0 ms       | 37.7 ms      | 11.0 ms    | 76.4 ms | 13.1 FPS |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolo11_seg_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./yolo11_seg_demo_t527
+./yolo11_seg_demo_t527 -nb model/yolo11s-seg_10_uint8_t527.nb -i model/dog.jpg
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./yolo11_seg_demo_t527 -nb model/yolo11s-seg_10_uint8_t527.nb -i model/dog.jpg
+model_file=model/yolo11s-seg_10_uint8_t527.nb, input=model/dog.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 80 80 64 1, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+output 1 dim 80 80 80 1, data_format=0, name=uid_20001_sub_uid_1_out_0, none-quant
+output 2 dim 80 80 32 1, data_format=0, name=uid_20002_sub_uid_1_out_0, none-quant
+output 3 dim 40 40 64 1, data_format=0, name=uid_20003_sub_uid_1_out_0, none-quant
+output 4 dim 40 40 80 1, data_format=0, name=uid_20004_sub_uid_1_out_0, none-quant
+output 5 dim 40 40 32 1, data_format=0, name=uid_20005_sub_uid_1_out_0, none-quant
+output 6 dim 20 20 64 1, data_format=0, name=uid_20006_sub_uid_1_out_0, none-quant
+output 7 dim 20 20 80 1, data_format=0, name=uid_20007_sub_uid_1_out_0, none-quant
+output 8 dim 20 20 32 1, data_format=0, name=uid_20008_sub_uid_1_out_0, none-quant
+output 9 dim 160 160 32 1, data_format=0, name=uid_20009_sub_uid_1_out_0, none-quant
+nbg name=model/yolo11s-seg_10_uint8_t527.nb, size: 8522240.
+create network 0: 26153 us.
+prepare network: 11813 us.
+buffer ptr: 0x38e48600, buffer size: 1228800
+network: 0, loop count: 1
+run time for this network 0: 94147 us.
+output 0, ptr 0x38f74740, size 409600.
+output 1, ptr 0x391047c0, size 512000.
+output 2, ptr 0x392f8880, size 204800.
+output 3, ptr 0x393c0900, size 102400.
+output 4, ptr 0x39424980, size 128000.
+output 5, ptr 0x394a1a00, size 51200.
+output 6, ptr 0x394d3ac0, size 25600.
+output 7, ptr 0x394ecb40, size 32000.
+output 8, ptr 0x3950bfc0, size 12800.
+output 9, ptr 0x39518840, size 819200.
+post process time : 51 ms
+detection num: 3
+ 1:  94%, [ 126,  124,  568,  420], bicycle
+16:  95%, [ 132,  222,  311,  541], dog
+ 2:  82%, [ 467,   76,  692,  172], car
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC       | NPU             | 模型        | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时   | 帧率    |
+| :-------- | :-------------- | :---------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------- | :------ |
+| 全志 T527 | Vivante VIP9000 | yolo11s-seg | 640×640    | 26.2 ms      | 11.8 ms      | 94.1 ms      | 51.0 ms    | 183.1 ms | 5.5 FPS |
+
+</TabItem>
+</Tabs>

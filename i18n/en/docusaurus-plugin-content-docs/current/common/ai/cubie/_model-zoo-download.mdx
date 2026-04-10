@@ -1,0 +1,112 @@
+You can obtain the Model Zoo from the [Allwinner Customer Service Platform](https://open.allwinnertech.com/).
+
+Click Register Now:
+
+![Allwinner Customer Service Platform Login](/img/cubie/allwinnertech-login.webp)
+
+After successfully registering and logging in, you will enter the dashboard interface. Click Resource Download:
+
+![Click Resource Download](/img/cubie/allwinnertech-model-zoo-download-guide1.webp)
+
+Click AI Development SDK under Tool Query on the left sidebar, then find the v0.9.0 version of Model Zoo and download it to your local machine.
+
+![Download Model Zoo](/img/cubie/allwinnertech-model-zoo-download-guide2.webp)
+
+Or you can download via dl.radxa:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+wget https://dl.radxa.com/cubie/allwinner-model-zoo.tar.gz
+```
+
+</NewCodeBlock>
+
+Before running examples in the Model Zoo, you need to download the container development package. You can find the corresponding version for download on the interface above, or refer to our [guidance document](../cubie-acuity-env).
+
+:::info
+Note that T527 and A733 use different versions of the container development package.
+:::
+
+After downloading both the container development package and Model Zoo, you can refer to the steps below:
+
+## Extract Model Zoo
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf 1768567762439_awnpu_model_zoo-v0.9.0-20260116-83a67d4b.tar.gz
+cd awnpu_model_zoo-v0.9.0-20260116-83a67d4b/
+```
+
+</NewCodeBlock>
+
+## Create and Start Container
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+sudo docker run --ipc=host -d -v ${PWD}:/workspace --name model-zoo ubuntu-npu:v2.0.10.1 tail -f /dev/null
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+sudo docker run --ipc=host -d -v ${PWD}:/workspace --name model-zoo ubuntu-npu:v1.8.11 tail -f /dev/null
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+When the container is created, you can see this container in `docker ps` with the name `model-zoo`.
+
+## Enter Container
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+sudo docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+After completion, the Model Zoo directory has been mounted to the `/workspace` directory in the container. Execute inside the container:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace
+ls -al
+```
+
+</NewCodeBlock>
+
+You can see the Model Zoo directory structure:
+
+```bash
+/workspace# ls -al
+total 52
+drwxr-xr-x 10 1000 1000 4096 Apr  2 19:09 .
+drwxr-xr-x  9 root root 4096 Apr  2 18:48 ..
+drwxr-xr-x 10 1000 1000 4096 Jan 16 20:44 0-toolchains              # Cross-compilation toolchain
+drwxr-xr-x  3 1000 1000 4096 Jan 16 20:44 3rdparty                  # Third-party toolchain
+-rwxr-xr-x  1 1000 1000 4976 Jan 16 20:44 README.md                 # README document
+drwxr-xr-x  2 1000 1000 4096 Apr  3 12:06 cmake_toolchain           # Compilation toolchain configuration
+drwxr-xr-x  3 1000 1000 4096 Jan 16 20:44 common                    # Common library
+drwxr-xr-x  3 1000 1000 4096 Jan 16 20:44 docs                      # Documentation
+drwxr-xr-x 26 1000 1000 4096 Jan 16 20:44 examples                  # Example directory
+drwxr-xr-x  6 1000 1000 4096 Jan 16 20:44 functions                 # Special features
+drwxr-xr-x  2 1000 1000 4096 Jan 16 20:44 scripts_model_convert     # Conversion scripts
+-rwxr-xr-x  1 1000 1000    6 Jan 16 20:44 version                   # Version number
+```
