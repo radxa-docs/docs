@@ -17,4 +17,4 @@ sidebar_position: 100
 
 - [原理图 V1.20](https://dl.radxa.com/x/x5/docs/hw/radxa_x5_%20v1.20_schematic.pdf)
 - [位号图 V1.20](https://dl.radxa.com/x/x5/docs/hw/radxa_x5_v1.20_components_placement_map.pdf)
-- [引脚定义 V1.1](https://dl.radxa.com/nx5/radxa_nx5_pinout_v1.1.xlsx)
+
