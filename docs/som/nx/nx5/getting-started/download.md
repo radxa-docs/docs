@@ -20,6 +20,8 @@ sidebar_position: 4
 
 [NX5 IO V1.4 平面图 dxf](https://dl.radxa.com/nx5/nx5-io-board/radxa_nx5_io_board_v1400_top_2d.dxf)
 
+[NX5 引脚定义 V1.1 xlsx](https://dl.radxa.com/nx5/radxa_nx5_pinout_v1.1.xlsx)
+
 [NX5 IO 板设计资料](https://github.com/radxa/radxa-cm-projects/tree/main/nx5/radxa-nx5-io-board)
 
 ### 刷机工具
