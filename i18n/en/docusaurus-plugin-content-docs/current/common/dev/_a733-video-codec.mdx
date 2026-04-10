@@ -1,0 +1,117 @@
+This document explains how to use GStreamer with OpenMAX components on Allwinner platforms for video decoding,
+encoding, and encode-decode loopback validation. It applies to Radxa Allwinner-based boards such as Radxa Cubie A5E,
+Radxa Cubie A7A, Radxa Cubie A7S, and Radxa Cubie A7Z running Debian desktop images.
+
+## Preparation
+
+### Install GStreamer Tools
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt-get update
+sudo apt-get install -y gstreamer1.0-plugins-base-apps
+```
+
+</NewCodeBlock>
+
+### Check available OMX plugins
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+gst-inspect-1.0 | grep omx
+```
+
+</NewCodeBlock>
+
+:::note Compatibility note
+The OMX elements available on the system may vary depending on the SoC and image version.
+It is recommended to run `gst-inspect-1.0 | grep omx` first and use the codec elements that are actually present on your board.
+:::
+
+:::tip Display output note
+The following examples assume a local desktop session, so they use `DISPLAY=:0` together with `xvimagesink`.
+
+If you are testing through SSH, serial console, or in a headless environment, you can remove `DISPLAY=:0` and
+replace `xvimagesink` with `fakesink` or `filesink` to verify that the pipeline itself works.
+:::
+
+## Supported OpenMAX codecs
+
+### Video decoders
+
+| Element            | Description                 |
+| ------------------ | --------------------------- |
+| `omxavsvideodec`   | OpenMAX AVS Video Decoder   |
+| `omxh263videodec`  | OpenMAX H.263 Video Decoder |
+| `omxh264dec`       | OpenMAX H.264 Video Decoder |
+| `omxhevcvideodec`  | OpenMAX H.265 Video Decoder |
+| `omxmjpegvideodec` | OpenMAX MJPEG Video Decoder |
+| `omxmpeg1videodec` | OpenMAX MPEG1 Video Decoder |
+| `omxmpeg2videodec` | OpenMAX MPEG2 Video Decoder |
+| `omxmpeg4videodec` | OpenMAX MPEG4 Video Decoder |
+| `omxvp8videodec`   | OpenMAX VP8 Video Decoder   |
+| `omxvp9videodec`   | OpenMAX VP9 Video Decoder   |
+
+### Video encoders
+
+| Element            | Description                 |
+| ------------------ | --------------------------- |
+| `omxh264videoenc`  | OpenMAX H.264 Video Encoder |
+| `omxmjpegvideoenc` | OpenMAX MJPEG Video Encoder |
+
+## Example pipelines
+
+### Decode and play an H.264 file
+
+The following example uses `bbb_sunflower_1080p_60fps_normal.mp4` as the test file.
+If the file is not in the current directory, replace `location` with the actual path.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 filesrc location=bbb_sunflower_1080p_60fps_normal.mp4 ! parsebin ! omxh264dec ! xvimagesink
+```
+
+</NewCodeBlock>
+
+### Encode H.264 to a Matroska file
+
+The following pipeline uses `videotestsrc` to generate 600 frames,
+encodes them with the hardware H.264 encoder, and saves the result as `test.mkv`.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 videotestsrc num-buffers=600 ! omxh264videoenc ! h264parse ! matroskamux ! filesink location=test.mkv
+```
+
+</NewCodeBlock>
+
+### H.264 encode-decode loopback
+
+This example encodes a test pattern to H.264 and immediately decodes it for display.
+The pipeline runs continuously until you stop it with `Ctrl+C`.
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 videotestsrc ! omxh264videoenc ! omxh264dec ! xvimagesink
+```
+
+</NewCodeBlock>
+
+:::note Compatibility note
+The encode-decode loopback example above is temporarily available only on A733.
+:::
+
+## Usage notes
+
+- If your input is not H.264, keep the same pipeline structure and replace `omxh264dec` with the matching OMX decoder,
+  such as `omxhevcvideodec` for H.265 or `omxvp9videodec` for VP9.
+- `parsebin` automatically selects a demuxer and parser. If parsing fails for a specific file,
+  you can switch to an explicit pipeline such as `qtdemux ! h264parse` or `matroskademux ! h265parse`.
+- To test MJPEG encoding, replace the encoder with `omxmjpegvideoenc` and choose an appropriate muxer,
+  or write directly to JPEG sequence files if needed.
+- When using file output pipelines, let the pipeline exit normally whenever possible to avoid incomplete container metadata.
