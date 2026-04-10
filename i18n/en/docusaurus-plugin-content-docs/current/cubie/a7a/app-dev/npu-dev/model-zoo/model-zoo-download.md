@@ -7,7 +7,7 @@ imports_resolve_to:
   - docs/common/ai/cubie/_model-zoo-download.mdx
 ---
 
-# Model Zoo 下载
+# Model Zoo Download
 
 import ModelZooDownload from '../../../../../common/ai/cubie/\_model-zoo-download.mdx';
 

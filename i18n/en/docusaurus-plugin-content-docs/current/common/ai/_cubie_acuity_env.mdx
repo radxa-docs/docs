@@ -9,13 +9,17 @@ Ubuntu is used as an example below.
 ### Uninstall old versions of Docker
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
-  ```bash for pkg in docker.io docker-doc docker-compose docker-compose-v2
-  podman-docker containerd runc; do sudo apt-get remove $pkg; done ```
+
+```bash
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+
 </NewCodeBlock>
 
 ### Configure the Docker APT repository
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
+
 ```bash
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -31,16 +35,17 @@ echo \
  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
+```
 
-````
 </NewCodeBlock>
 
 ### Install Docker
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
+
 ```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-````
+```
 
 </NewCodeBlock>
 
@@ -55,33 +60,47 @@ Due to SDK version compatibility, you need to choose the appropriate package bas
 Download the ACUITY Docker archive from [Allwinner Netdisk](https://netstorage.allwinnertech.com:5001/sharing/Mh23BhPHq) and extract it.
 
 <Tabs groupId="npu-type">
-  <TabItem value="A733">
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-      ```bash unzip docker_images_v2.0.x.zip ```
-    </NewCodeBlock>
-  </TabItem>
-  <TabItem value="T527">
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-      ```bash unzip docker_images_v1.8.x.zip ```
-    </NewCodeBlock>
-  </TabItem>
+<TabItem value="A733">
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+unzip docker_images_v2.0.x.zip
+```
+
+</NewCodeBlock>
+</TabItem>
+<TabItem value="T527">
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+unzip docker_images_v1.8.x.zip
+```
+
+</NewCodeBlock>
+</TabItem>
 </Tabs>
 
 ### Load the Image
 
 <Tabs groupId="npu-type">
-  <TabItem value="A733">
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-      ```bash cd docker_images_v2.0.x unzip ubuntu-npu_v2.0.10.1.tar.zip sudo
-      docker load -i ubuntu-npu_v2.0.10.1.tar ```
-    </NewCodeBlock>
-  </TabItem>
-  <TabItem value="T527">
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-      ```bash cd docker_images_v1.8.x unzip ubuntu-npu_v1.8.11.tar.zip sudo
-      docker load -i ubuntu-npu_v1.8.11.tar ```
-    </NewCodeBlock>
-  </TabItem>
+<TabItem value="A733">
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd docker_images_v2.0.x unzip ubuntu-npu_v2.0.10.1.tar.zip sudo docker load -i ubuntu-npu_v2.0.10.1.tar
+```
+
+</NewCodeBlock>
+</TabItem>
+<TabItem value="T527">
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd docker_images_v1.8.x unzip ubuntu-npu_v1.8.11.tar.zip sudo docker load -i ubuntu-npu_v1.8.11.tar
+```
+
+</NewCodeBlock>
+</TabItem>
 </Tabs>
 
 After the Docker image is loaded, you can see it with `docker images`. The image name is `ubuntu‑npu:v2.0.10.1` (A733) or `ubuntu-npu:v1.8.11` (T527).
@@ -89,20 +108,24 @@ After the Docker image is loaded, you can see it with `docker images`. The image
 ### Create a Docker Container
 
 <Tabs groupId="npu-type">
-  <TabItem value="A733">
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-      ```bash mkdir docker_data && cd docker_data sudo docker run --ipc=host
-      -itd -v ${PWD}:/workspace --name allwinner_v2.0.10.1 ubuntu-npu:v2.0.10.1
-      /bin/bash ```
-    </NewCodeBlock>
-  </TabItem>
-  <TabItem value="T527">
-    <NewCodeBlock tip="X86 Linux PC" type="PC">
-      ```bash mkdir docker_data && cd docker_data sudo docker run --ipc=host
-      -itd -v ${PWD}:/workspace --name allwinner_v1.8.11 ubuntu-npu:v1.8.11
-      /bin/bash ```
-    </NewCodeBlock>
-  </TabItem>
+<TabItem value="A733">
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+mkdir docker_data && cd docker_data sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v2.0.10.1 ubuntu-npu:v2.0.10.1 /bin/bash
+```
+
+</NewCodeBlock>
+</TabItem>
+<TabItem value="T527">
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+mkdir docker_data && cd docker_data sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v1.8.11 ubuntu-npu:v1.8.11 /bin/bash
+```
+
+</NewCodeBlock>
+</TabItem>
 </Tabs>
 
 After the Docker container is created, you can see it with `docker ps -a`. The container name is `allwinner_v2.0.10.1` (A733) or `allwinner_v1.8.11` (T527).
@@ -112,7 +135,9 @@ After the Docker container is created, you can see it with `docker ps -a`. The c
 Use `docker ps -a` to find the container ID.
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
+
 ```bash
 sudo docker exec -it <CONTAINER_ID> /bin/bash
 ```
+
 </NewCodeBlock>
