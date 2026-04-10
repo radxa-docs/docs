@@ -100,6 +100,13 @@ docker exec -it model-zoo /bin/bash
 
 ```bash
 cd /workspace/examples/yolo11_seg/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
 ./pegasus_import.sh yolo11s-seg_10
 ./pegasus_quantize.sh yolo11s-seg_10 uint8 12
 ```
@@ -164,13 +171,20 @@ tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
 
 </NewCodeBlock>
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/yolo11_seg/
+```
+
+</NewCodeBlock>
+
 <Tabs groupId="npu-version">
 <TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/yolo11_seg/
 ../build_linux.sh -t a733 -s debian11
 ```
 
@@ -183,7 +197,6 @@ cd ../examples/yolo11_seg/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/yolo11_seg/
 ../build_linux.sh -t t527 -s debian11
 ```
 
@@ -226,7 +239,11 @@ echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
 
 <Tabs groupId="npu-version">
@@ -236,28 +253,18 @@ echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 ```bash
 cd yolo11_seg_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./yolo11_seg_demo_a733
 ./yolo11_seg_demo_a733 -nb model/yolo11s-seg_10_uint8_a733.nb -i model/dog.jpg
 ```
 
 </NewCodeBlock>
-
-</TabItem>
-
-<TabItem value="T527" label="T527">
-
-<NewCodeBlock tip="Radxa SBC" type="device">
-
-```bash
-cd yolo11_seg_demo_linux_t527/
-chmod +x ./yolo11_seg_demo_t527
-./yolo11_seg_demo_t527 -nb model/yolo11s-seg_10_uint8_t527.nb -i model/dog.jpg
-```
-
-</NewCodeBlock>
-
-</TabItem>
-</Tabs>
 
 运行结果如下：
 
@@ -274,7 +281,7 @@ output 4 dim 40 40 80 1, data_format=0, name=uid_15_out_0b_uid_1_out_0, none-qua
 output 5 dim 40 40 32 1, data_format=0, name=uid_14_out_0b_uid_1_out_0, none-quant
 output 6 dim 20 20 64 1, data_format=0, name=uid_13_out_0b_uid_1_out_0, none-quant
 output 7 dim 20 20 80 1, data_format=0, name=uid_12_out_0b_uid_1_out_0, none-quant
-output 8 dim 20 20 32 1, data_format=0, name=uid_11_out_0b_uid_1_out_0, none-quant
+output 8 dim 20 20 32 1, data_format=0, name=uid_11_out_0ub_uid_1_out_0, none-quant
 output 9 dim 160 160 32 1, data_format=0, name=uid_20009_sub_uid_1_out_0, none-quant
 nbg name=model/yolo11s-seg_10_uint8_a733.nb, size: 7326672.
 create network 0: 24693 us.
@@ -304,3 +311,73 @@ destroy npu finished.
 | SoC       | NPU             | 模型        | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
 | :-------- | :-------------- | :---------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
 | 全志 A733 | Vivante VIP9000 | yolo11s-seg | 640×640    | 24.7 ms      | 3.0 ms       | 37.7 ms      | 11.0 ms    | 76.4 ms | 13.1 FPS |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolo11_seg_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./yolo11_seg_demo_t527
+./yolo11_seg_demo_t527 -nb model/yolo11s-seg_10_uint8_t527.nb -i model/dog.jpg
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./yolo11_seg_demo_t527 -nb model/yolo11s-seg_10_uint8_t527.nb -i model/dog.jpg
+model_file=model/yolo11s-seg_10_uint8_t527.nb, input=model/dog.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 80 80 64 1, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+output 1 dim 80 80 80 1, data_format=0, name=uid_20001_sub_uid_1_out_0, none-quant
+output 2 dim 80 80 32 1, data_format=0, name=uid_20002_sub_uid_1_out_0, none-quant
+output 3 dim 40 40 64 1, data_format=0, name=uid_20003_sub_uid_1_out_0, none-quant
+output 4 dim 40 40 80 1, data_format=0, name=uid_20004_sub_uid_1_out_0, none-quant
+output 5 dim 40 40 32 1, data_format=0, name=uid_20005_sub_uid_1_out_0, none-quant
+output 6 dim 20 20 64 1, data_format=0, name=uid_20006_sub_uid_1_out_0, none-quant
+output 7 dim 20 20 80 1, data_format=0, name=uid_20007_sub_uid_1_out_0, none-quant
+output 8 dim 20 20 32 1, data_format=0, name=uid_20008_sub_uid_1_out_0, none-quant
+output 9 dim 160 160 32 1, data_format=0, name=uid_20009_sub_uid_1_out_0, none-quant
+nbg name=model/yolo11s-seg_10_uint8_t527.nb, size: 8522240.
+create network 0: 26153 us.
+prepare network: 11813 us.
+buffer ptr: 0x38e48600, buffer size: 1228800
+network: 0, loop count: 1
+run time for this network 0: 94147 us.
+output 0, ptr 0x38f74740, size 409600.
+output 1, ptr 0x391047c0, size 512000.
+output 2, ptr 0x392f8880, size 204800.
+output 3, ptr 0x393c0900, size 102400.
+output 4, ptr 0x39424980, size 128000.
+output 5, ptr 0x394a1a00, size 51200.
+output 6, ptr 0x394d3ac0, size 25600.
+output 7, ptr 0x394ecb40, size 32000.
+output 8, ptr 0x3950bfc0, size 12800.
+output 9, ptr 0x39518840, size 819200.
+post process time : 51 ms
+detection num: 3
+ 1:  94%, [ 126,  124,  568,  420], bicycle
+16:  95%, [ 132,  222,  311,  541], dog
+ 2:  82%, [ 467,   76,  692,  172], car
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC       | NPU             | 模型        | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时   | 帧率    |
+| :-------- | :-------------- | :---------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------- | :------ |
+| 全志 T527 | Vivante VIP9000 | yolo11s-seg | 640×640    | 26.2 ms      | 11.8 ms      | 94.1 ms      | 51.0 ms    | 183.1 ms | 5.5 FPS |
+
+</TabItem>
+</Tabs>

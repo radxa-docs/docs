@@ -230,7 +230,11 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
 
 <Tabs groupId="npu-version">
@@ -240,33 +244,23 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 
 ```bash
 cd yolo26_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./yolo26_demo_a733
 ./yolo26_demo_a733 -nb model/yolo26s_6_pcq_a733.nb -i model/dog.jpg
 ```
 
 </NewCodeBlock>
 
-</TabItem>
-
-<TabItem value="T527" label="T527">
-
-<NewCodeBlock tip="Radxa SBC" type="device">
-
-```bash
-cd yolo26_demo_linux_t527/
-chmod +x ./yolo26_demo_t527
-./yolo26_demo_t527 -nb model/yolo26s_6_pcq_t527.nb -i model/dog.jpg
-```
-
-</NewCodeBlock>
-
-</TabItem>
-</Tabs>
-
 The running result is as follows:
 
 ```bash
-radxa@radxa-cubie-a7a:~/Project/yolo26_demo_linux_a733$ ./yolo26_demo_a733 -nb model/yolo26s_6_pcq_a733.nb -i model/dog.jpg
+$ ./yolo26_demo_a733 -nb model/yolo26s_6_pcq_a733.nb -i model/dog.jpg
 model_file=model/yolo26s_6_pcq_a733.nb, input=model/dog.jpg, loop_count=1, malloc_mbyte=10
 VIPLite driver software version 2.0.3.2-AW-2024-08-30
 input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input/output[0], none-quant
@@ -300,3 +294,64 @@ destroy npu finished.
 | SoC            | NPU             | Model   | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :------ | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
 | Allwinner A733 | Vivante VIP9000 | yolo26s | 640×640          | 18.3 ms               | 8.9 ms                   | 34.8 ms                     | 6 ms                 | 68.0 ms    | 14.7 FPS   |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolo26_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./yolo26_demo_t527
+./yolo26_demo_t527 -nb model/yolo26s_6_pcq_t527.nb -i model/dog.jpg
+```
+
+</NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./yolo26_demo_t527 -nb model/yolo26s_6_pcq_t527.nb -i model/dog.jpg
+model_file=model/yolo26s_6_pcq_t527.nb, input=model/dog.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 6400 4 1 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+output 1 dim 1600 4 1 0, data_format=0, name=uid_20001_sub_uid_1_out_0, none-quant
+output 2 dim 400 4 1 0, data_format=0, name=uid_20002_sub_uid_1_out_0, none-quant
+output 3 dim 6400 80 1 0, data_format=0, name=uid_20003_sub_uid_1_out_0, none-quant
+output 4 dim 1600 80 1 0, data_format=0, name=uid_20004_sub_uid_1_out_0, none-quant
+output 5 dim 400 80 1 0, data_format=0, name=uid_20005_sub_uid_1_out_0, none-quant
+nbg name=model/yolo26s_6_pcq_t527.nb, size: 9920576.
+create network 0: 20397 us.
+prepare network: 11311 us.
+buffer ptr: 0x6fe6600, buffer size: 1228800
+network: 0, loop count: 1
+run time for this network 0: 87270 us.
+output 0, ptr 0x7112700, size 25600.
+output 1, ptr 0x712b780, size 6400.
+output 2, ptr 0x7131c40, size 1600.
+output 3, ptr 0x71335c0, size 512000.
+output 4, ptr 0x7327640, size 128000.
+output 5, ptr 0x73a46c0, size 32000.
+postprocess time : 20 ms
+detection num: 2
+ 1:  94%, [ 128,  135,  566,  418], bicycle
+16:  92%, [ 133,  219,  311,  541], dog
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model   | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :------ | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner T527 | Vivante VIP9000 | yolo26s | 640×640          | 20.4 ms               | 11.3 ms                  | 87.3 ms                     | 20.0 ms              | 139.0 ms   | 7.2 FPS    |
+
+</TabItem>
+</Tabs>

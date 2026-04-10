@@ -97,6 +97,13 @@ docker exec -it model-zoo /bin/bash
 
 ```bash
 cd /workspace/examples/yolox/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
 ./pegasus_import.sh yolox_s_sim
 ./pegasus_quantize.sh yolox_s_sim uint8 12
 ```
@@ -161,13 +168,20 @@ tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
 
 </NewCodeBlock>
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/yolox/
+```
+
+</NewCodeBlock>
+
 <Tabs groupId="npu-version">
 <TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/yolox/
 ../build_linux.sh -t a733 -s debian11
 ```
 
@@ -180,7 +194,6 @@ cd ../examples/yolox/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/yolox/
 ../build_linux.sh -t t527 -s debian11
 ```
 
@@ -223,7 +236,11 @@ echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
 
 <Tabs groupId="npu-version">
@@ -233,28 +250,18 @@ echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 ```bash
 cd yolox_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./yolox_demo_a733
 ./yolox_demo_a733 -nb model/yolox_s_sim_uint8_a733.nb -i model/bus.jpg
 ```
 
 </NewCodeBlock>
-
-</TabItem>
-
-<TabItem value="T527" label="T527">
-
-<NewCodeBlock tip="Radxa SBC" type="device">
-
-```bash
-cd yolox_demo_linux_t527/
-chmod +x ./yolox_demo_t527
-./yolox_demo_t527 -nb model/yolox_s_sim_uint8_t527.nb -i model/bus.jpg
-```
-
-</NewCodeBlock>
-
-</TabItem>
-</Tabs>
 
 运行结果如下：
 
@@ -288,3 +295,60 @@ destroy npu finished.
 | SoC       | NPU             | 模型    | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
 | :-------- | :-------------- | :------ | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
 | 全志 A733 | Vivante VIP9000 | yolox_s | 640×640    | 17.3 ms      | 7.8 ms       | 30.1 ms      |            | 55.2 ms | 18.1 FPS |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolox_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./yolox_demo_t527
+./yolox_demo_t527 -nb model/yolox_s_sim_uint8_t527.nb -i model/bus.jpg
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./yolox_demo_t527 -nb model/yolox_s_sim_uint8_t527.nb -i model/bus.jpg
+model_file=model/yolox_s_sim_uint8_t527.nb, input=model/bus.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 80 80 85 1, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+output 1 dim 40 40 85 1, data_format=0, name=uid_20001_sub_uid_1_out_0, none-quant
+output 2 dim 20 20 85 1, data_format=0, name=uid_20002_sub_uid_1_out_0, none-quant
+nbg name=model/yolox_s_sim_uint8_t527.nb, size: 9132672.
+create network 0: 25385 us.
+prepare network: 18164 us.
+buffer ptr: 0x116c6600, buffer size: 1228800
+Original image size: 640x640
+YOLOX preprocess completed: model/bus.jpg -> 640x640, buffer size: 1228800
+feed input cost: 62033 us.
+network: 0, loop count: 1
+run time for this network 0: 73697 us.
+detection num: 5
+ 5:  93%, [  98,  137,  550,  435], bus
+ 0:  89%, [ 107,  239,  210,  533], person
+ 0:  87%, [ 477,  239,  560,  519], person
+ 0:  89%, [ 214,  243,  283,  506], person
+ 0:  58%, [  79,  329,  120,  516], person
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC       | NPU             | 模型    | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时   | 帧率    |
+| :-------- | :-------------- | :------ | :--------- | :----------- | :----------- | :----------- | :--------- | :------- | :------ |
+| 全志 T527 | Vivante VIP9000 | yolox_s | 640×640    | 25.4 ms      | 18.2 ms      | 73.7 ms      |            | 117.3 ms | 8.5 FPS |
+
+</TabItem>
+</Tabs>

@@ -74,6 +74,13 @@ docker exec -it model-zoo /bin/bash
 
 ```bash
 cd /workspace/examples/yolov5/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
 ./pegasus_import.sh yolov5s_rt
 ./pegasus_quantize.sh yolov5s_rt uint8 12
 ```
@@ -138,13 +145,20 @@ tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
 
 </NewCodeBlock>
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/yolov5/
+```
+
+</NewCodeBlock>
+
 <Tabs groupId="npu-version">
 <TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/yolov5/
 ../build_linux.sh -t a733 -s debian11
 ```
 
@@ -157,7 +171,6 @@ cd ../examples/yolov5/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/yolov5/
 ../build_linux.sh -t t527 -s debian11
 ```
 
@@ -200,7 +213,11 @@ echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
 
 <Tabs groupId="npu-version">
@@ -210,28 +227,18 @@ echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 ```bash
 cd yolov5_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./yolov5_demo_a733
 ./yolov5_demo_a733 -nb model/yolov5s_rt_uint8_a733.nb -i model/dog.jpg
 ```
 
 </NewCodeBlock>
-
-</TabItem>
-
-<TabItem value="T527" label="T527">
-
-<NewCodeBlock tip="Radxa SBC" type="device">
-
-```bash
-cd yolov5_demo_linux_t527/
-chmod +x ./yolov5_demo_t527
-./yolov5_demo_t527 -nb model/yolov5s_rt_uint8_t527.nb -i model/dog.jpg
-```
-
-</NewCodeBlock>
-
-</TabItem>
-</Tabs>
 
 运行结果如下：
 
@@ -262,3 +269,57 @@ destroy npu finished.
 | SoC       | NPU             | 模型    | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
 | :-------- | :-------------- | :------ | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
 | 全志 A733 | Vivante VIP9000 | yolov5s | 640×640    | 11.6 ms      | 2.8 ms       | 20.1 ms      | 32.0 ms    | 66.5 ms | 15.0 FPS |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolov5_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./yolov5_demo_t527
+./yolov5_demo_t527 -nb model/yolov5s_rt_uint8_t527.nb -i model/dog.jpg
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./yolov5_demo_t527 -nb model/yolov5s_rt_uint8_t527.nb -i model/dog.jpg
+model_file=model/yolov5s_rt_uint8_t527.nb, input=model/dog.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 80 80 85 3, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+output 1 dim 40 40 85 3, data_format=0, name=uid_20001_sub_uid_1_out_0, none-quant
+output 2 dim 20 20 85 3, data_format=0, name=uid_20002_sub_uid_1_out_0, none-quant
+nbg name=model/yolov5s_rt_uint8_t527.nb, size: 6300672.
+create network 0: 24270 us.
+prepare network: 10842 us.
+buffer ptr: 0x18296780, buffer size: 1228800
+feed input cost: 90901 us.
+network: 0, loop count: 1
+run time for this network 0: 49985 us.
+detection num: 3
+16:  92%, [ 137,  229,  303,  539], dog
+ 7:  69%, [ 471,   79,  687,  171], truck
+ 1:  44%, [ 151,  120,  560,  429], bicycle
+draw objects time : 81 ms
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC       | NPU             | 模型    | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时   | 帧率    |
+| :-------- | :-------------- | :------ | :--------- | :----------- | :----------- | :----------- | :--------- | :------- | :------ |
+| 全志 T527 | Vivante VIP9000 | yolov5s | 640×640    | 24.3 ms      | 10.8 ms      | 50.0 ms      | 81.0 ms    | 166.1 ms | 6.0 FPS |
+
+</TabItem>
+</Tabs>

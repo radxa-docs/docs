@@ -70,6 +70,13 @@ After entering the container, navigate to the corresponding directory and run th
 
 ```bash
 cd /workspace/examples/ppseg/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
 ./pegasus_import.sh pp_liteseg_cityscapes
 ./pegasus_quantize.sh pp_liteseg_cityscapes pcq 10
 ```
@@ -134,13 +141,20 @@ tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
 
 </NewCodeBlock>
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/ppseg/
+```
+
+</NewCodeBlock>
+
 <Tabs groupId="npu-version">
 <TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/ppseg/
 ../build_linux.sh -t a733 -s debian11
 ```
 
@@ -153,7 +167,6 @@ cd ../examples/ppseg/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/ppseg/
 ../build_linux.sh -t t527 -s debian11
 ```
 
@@ -196,13 +209,27 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="Radxa SBC" type="device">
 
 ```bash
 cd ppseg_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./ppseg_demo_a733
 ./ppseg_demo_a733 -nb model/pp_liteseg_cityscapes_pcq_a733.nb -i model/munster_000022_000019_leftImg8bit.png
 ```
@@ -233,3 +260,52 @@ destroy npu finished.
 | SoC            | NPU             | Model                 | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :-------------------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
 | Allwinner A733 | Vivante VIP9000 | pp_liteseg_cityscapes | 512×512          | 30.5 ms               | 1.6 ms                   | 81.8 ms                     | 146.0 ms             | 260 ms     | 3.8 FPS    |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd ppseg_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./ppseg_demo_t527
+./ppseg_demo_t527 -nb model/pp_liteseg_cityscapes_pcq_t527.nb -i model/munster_000022_000019_leftImg8bit.png
+```
+
+</NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./ppseg_demo_t527 -nb model/pp_liteseg_cityscapes_pcq_t527.nb -i model/munster_000022_000019_leftImg8bit.png
+model_file=model/pp_liteseg_cityscapes_pcq_t527.nb, input=model/munster_000022_000019_leftImg8bit.png, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 512 512 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 512 512 19 1, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/pp_liteseg_cityscapes_pcq_t527.nb, size: 10894912.
+create network 0: 39396 us.
+prepare network: 6386 us.
+buffer ptr: 0x2fa182c0, buffer size: 786432
+network: 0, loop count: 1
+run time for this network 0: 122524 us.
+output 0, ptr 0xffff8f7d9040, size 4980736.
+post process time : 346 ms
+ppseg_postprocess finished.
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model                 | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :-------------------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner T527 | Vivante VIP9000 | pp_liteseg_cityscapes | 512×512          | 39.4 ms               | 6.4 ms                   | 122.5 ms                    | 346.0 ms             | 514.3 ms   | 1.9 FPS    |
+
+</TabItem>
+</Tabs>

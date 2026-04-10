@@ -65,6 +65,13 @@ docker exec -it model-zoo /bin/bash
 
 ```bash
 cd /workspace/examples/densenet121_keras/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
 ./pegasus_import.sh densenet121_batch1_224x224
 ./pegasus_quantize.sh densenet121_batch1_224x224 uint8 10
 ```
@@ -129,13 +136,20 @@ tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
 
 </NewCodeBlock>
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/densenet121_keras/
+```
+
+</NewCodeBlock>
+
 <Tabs groupId="npu-version">
 <TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/densenet121_keras/
 ../build_linux.sh -t a733 -s debian11
 ```
 
@@ -148,7 +162,6 @@ cd ../examples/densenet121_keras/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/densenet121_keras/
 ../build_linux.sh -t t527 -s debian11
 ```
 
@@ -191,7 +204,11 @@ echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
 
 <Tabs groupId="npu-version">
@@ -201,28 +218,18 @@ echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 ```bash
 cd densenet121_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./densenet121_demo_a733
 ./densenet121_demo_a733 -nb model/densenet121_batch1_224x224_uint8_a733.nb -i model/space_shuttle_224x224.jpg
 ```
 
 </NewCodeBlock>
-
-</TabItem>
-
-<TabItem value="T527" label="T527">
-
-<NewCodeBlock tip="Radxa SBC" type="device">
-
-```bash
-cd densenet121_demo_linux_t527/
-chmod +x ./densenet121_demo_t527
-./densenet121_demo_t527 -nb model/densenet121_batch1_224x224_uint8_t527.nb -i model/space_shuttle_224x224.jpg
-```
-
-</NewCodeBlock>
-
-</TabItem>
-</Tabs>
 
 运行结果如下：
 
@@ -251,3 +258,55 @@ destroy npu finished.
 | SoC       | NPU             | 模型        | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
 | :-------- | :-------------- | :---------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
 | 全志 A733 | Vivante VIP9000 | densenet121 | 224×224    | 10.4 ms      | 3.6 ms       | 8.3 ms       |            | 22.3 ms | 44.8 FPS |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd densenet121_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./densenet121_demo_t527
+./densenet121_demo_t527 -nb model/densenet121_batch1_224x224_uint8_t527.nb -i model/space_shuttle_224x224.jpg
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./densenet121_demo_t527 -nb model/densenet121_batch1_224x224_uint8_t527.nb -i model/space_shuttle_224x224.jpg
+model_file=model/densenet121_batch1_224x224_uint8_t527.nb, input=model/space_shuttle_224x224.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 224 224 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 1000 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/densenet121_batch1_224x224_uint8_t527.nb, size: 5857536.
+create network 0: 12870 us.
+prepare network: 2366 us.
+network: 0, loop count: 1
+run time for this network 0: 10573 us.
+class_postprocess.cpp run.
+========== top5 ==========
+class id: 812, prob: 0.961914, label: space shuttle
+class id: 569, prob: 0.008011, label: garbage truck, dustcart
+class id: 408, prob: 0.004963, label: amphibian, amphibious vehicle
+class id: 403, prob: 0.003466, label: aircraft carrier, carrier, flattop, attack aircraft carrier
+class id: 895, prob: 0.003466, label: warplane, military plane
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC       | NPU             | 模型        | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
+| :-------- | :-------------- | :---------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
+| 全志 T527 | Vivante VIP9000 | densenet121 | 224×224    | 12.9 ms      | 2.4 ms       | 10.6 ms      |            | 25.9 ms | 38.6 FPS |
+
+</TabItem>
+</Tabs>

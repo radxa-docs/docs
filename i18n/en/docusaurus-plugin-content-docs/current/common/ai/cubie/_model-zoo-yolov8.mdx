@@ -110,6 +110,13 @@ After entering the container, navigate to the corresponding directory and run th
 
 ```bash
 cd /workspace/examples/yolov8/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
 ./pegasus_import.sh yolov8n_6
 ./pegasus_quantize.sh yolov8n_6 uint8 12
 ```
@@ -174,13 +181,20 @@ tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
 
 </NewCodeBlock>
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/yolov8/
+```
+
+</NewCodeBlock>
+
 <Tabs groupId="npu-version">
 <TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/yolov8/
 ../build_linux.sh -t a733 -s debian11
 ```
 
@@ -193,7 +207,6 @@ cd ../examples/yolov8/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/yolov8/
 ../build_linux.sh -t t527 -s debian11
 ```
 
@@ -236,7 +249,11 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
 
 <Tabs groupId="npu-version">
@@ -246,28 +263,18 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 
 ```bash
 cd yolov8_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./yolov8_demo_a733
 ./yolov8_demo_a733 -nb model/yolov8n_6_uint8_a733.nb -i model/dog.jpg
 ```
 
 </NewCodeBlock>
-
-</TabItem>
-
-<TabItem value="T527" label="T527">
-
-<NewCodeBlock tip="Radxa SBC" type="device">
-
-```bash
-cd yolov8_demo_linux_t527/
-chmod +x ./yolov8_demo_t527
-./yolov8_demo_t527 -nb model/yolov8n_6_uint8_t527.nb -i model/dog.jpg
-```
-
-</NewCodeBlock>
-
-</TabItem>
-</Tabs>
 
 The running result is as follows:
 
@@ -305,3 +312,64 @@ destroy npu finished.
 | SoC            | NPU             | Model   | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :------ | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
 | Allwinner A733 | Vivante VIP9000 | yolov8n | 640×640          | 11.5 ms               | 1.8 ms                   | 12.6 ms                     |                      | 25.9 ms    | 38.6 FPS   |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd yolov8_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./yolov8_demo_t527
+./yolov8_demo_t527 -nb model/yolov8n_6_uint8_t527.nb -i model/dog.jpg
+```
+
+</NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./yolov8_demo_t527 -nb model/yolov8n_6_uint8_t527.nb -i model/dog.jpg
+model_file=model/yolov8n_6_uint8_t527.nb, input=model/dog.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 640 640 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 80 80 64 1, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+output 1 dim 80 80 80 1, data_format=0, name=uid_20001_sub_uid_1_out_0, none-quant
+output 2 dim 40 40 64 1, data_format=0, name=uid_20003_sub_uid_1_out_0, none-quant
+output 3 dim 40 40 80 1, data_format=0, name=uid_20004_sub_uid_1_out_0, none-quant
+output 4 dim 20 20 64 1, data_format=0, name=uid_20005_sub_uid_1_out_0, none-quant
+output 5 dim 20 20 80 1, data_format=0, name=uid_20006_sub_uid_1_out_0, none-quant
+nbg name=model/yolov8n_6_uint8_t527.nb, size: 2915520.
+create network 0: 16603 us.
+prepare network: 5775 us.
+buffer ptr: 0x3e36c600, buffer size: 1228800
+network: 0, loop count: 1
+run time for this network 0: 30967 us.
+output 0, ptr 0x3e498700, size 409600.
+output 1, ptr 0x3e628780, size 512000.
+output 2, ptr 0x3e81c840, size 102400.
+output 3, ptr 0x3e8808c0, size 128000.
+output 4, ptr 0x3e8fd940, size 25600.
+output 5, ptr 0x3e9169c0, size 32000.
+detection num: 3
+ 1:  88%, [ 130,  135,  568,  419], bicycle
+16:  93%, [ 131,  219,  307,  540], dog
+ 2:  68%, [ 466,   74,  695,  171], car
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model   | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :------ | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner T527 | Vivante VIP9000 | yolov8n | 640×640          | 16.6 ms               | 5.8 ms                   | 31.0 ms                     |                      | 53.4 ms    | 18.7 FPS   |
+
+</TabItem>
+</Tabs>

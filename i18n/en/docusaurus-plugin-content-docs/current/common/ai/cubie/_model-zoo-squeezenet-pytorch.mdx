@@ -67,6 +67,13 @@ After entering the container, navigate to the corresponding directory and run th
 
 ```bash
 cd /workspace/examples/squeezenet_pytorch/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
 ./pegasus_import.sh squeezenet1_0
 ./pegasus_quantize.sh squeezenet1_0 uint8 10
 ```
@@ -131,13 +138,20 @@ tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
 
 </NewCodeBlock>
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/squeezenet_pytorch/
+```
+
+</NewCodeBlock>
+
 <Tabs groupId="npu-version">
 <TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/squeezenet_pytorch/
 ../build_linux.sh -t a733 -s debian11
 ```
 
@@ -150,7 +164,6 @@ cd ../examples/squeezenet_pytorch/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/squeezenet_pytorch/
 ../build_linux.sh -t t527 -s debian11
 ```
 
@@ -193,7 +206,11 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
 
 <Tabs groupId="npu-version">
@@ -203,11 +220,46 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 
 ```bash
 cd squeezenet_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./squeezenet_demo_a733
 ./squeezenet_demo_a733 -nb model/squeezenet1_0_uint8_a733.nb -i model/space_shuttle_227x227.jpg
 ```
 
 </NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./squeezenet_demo_a733 -nb model/squeezenet1_0_uint8_a733.nb -i model/space_shuttle_227x227.jpg
+model_file=model/squeezenet1_0_uint8_a733.nb, input=model/space_shuttle_227x227.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+input  0 dim 3 227 227 1, data_format=2, quant_format=0, name=input/output[0], none-quant
+output 0 dim 1000 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/squeezenet1_0_uint8_a733.nb, size: 1066072.
+create network 0: 2628 us.
+prepare network: 844 us.
+network: 0, loop count: 1
+run time for this network 0: 2455 us.
+class_postprocess.cpp run.
+========== top5 ==========
+class id: 812, prob: 16.893208, label: space shuttle
+class id: 404, prob: 15.730225, label: airliner
+class id: 833, prob: 14.984619, label: submarine, pigboat, sub, U-boat
+class id: 554, prob: 14.686523, label: fireboat
+class id: 895, prob: 14.611816, label: warplane, military plane
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model      | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :--------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner A733 | Vivante VIP9000 | squeezenet | 227×227          | 2.6 ms                | 0.8 ms                   | 2.5 ms                      |                      | 5.9 ms     | 169.5 FPS  |
 
 </TabItem>
 
@@ -217,11 +269,46 @@ chmod +x ./squeezenet_demo_a733
 
 ```bash
 cd squeezenet_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./squeezenet_demo_t527
 ./squeezenet_demo_t527 -nb model/squeezenet1_0_uint8_t527.nb -i model/space_shuttle_227x227.jpg
 ```
 
 </NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./squeezenet_demo_t527 -nb model/squeezenet1_0_uint8_t527.nb -i model/space_shuttle_227x227.jpg
+model_file=model/squeezenet1_0_uint8_t527.nb, input=model/space_shuttle_227x227.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 227 227 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 1000 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/squeezenet1_0_uint8_t527.nb, size: 1078912.
+create network 0: 2536 us.
+prepare network: 1301 us.
+network: 0, loop count: 1
+run time for this network 0: 3103 us.
+class_postprocess.cpp run.
+========== top5 ==========
+class id: 812, prob: 16.922852, label: space shuttle
+class id: 404, prob: 15.730225, label: airliner
+class id: 833, prob: 14.984619, label: submarine, pigboat, sub, U-boat
+class id: 554, prob: 14.686523, label: fireboat
+class id: 895, prob: 14.611816, label: warplane, military plane
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model      | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :--------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner T527 | Vivante VIP9000 | squeezenet | 227×227          | 2.5 ms                | 1.3 ms                   | 3.1 ms                      |                      | 6.9 ms     | 144.9 FPS  |
 
 </TabItem>
 </Tabs>

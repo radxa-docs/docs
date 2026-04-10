@@ -76,6 +76,13 @@ After entering the container, navigate to the corresponding directory and run th
 
 ```bash
 cd /workspace/examples/retinaface/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
 ./pegasus_import.sh Retinaface_resnet50_320
 ./pegasus_quantize.sh Retinaface_resnet50_320 uint8 10
 ```
@@ -140,13 +147,20 @@ tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
 
 </NewCodeBlock>
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/retinaface/
+```
+
+</NewCodeBlock>
+
 <Tabs groupId="npu-version">
 <TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/retinaface/
 ../build_linux.sh -t a733 -s debian11
 ```
 
@@ -159,7 +173,6 @@ cd ../examples/retinaface/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/retinaface/
 ../build_linux.sh -t t527 -s debian11
 ```
 
@@ -202,7 +215,11 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
 
 <Tabs groupId="npu-version">
@@ -212,11 +229,53 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 
 ```bash
 cd retinaface_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./retinaface_demo_a733
 ./retinaface_demo_a733 -nb model/Retinaface_resnet50_320_uint8_a733.nb -i model/test.jpg
 ```
 
 </NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./retinaface_demo_a733 -nb model/Retinaface_resnet50_320_uint8_a733.nb -i model/test.jpg
+model_file=model/Retinaface_resnet50_320_uint8_a733.nb, input=model/test.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+input  0 dim 3 320 320 1, data_format=2, quant_format=0, name=input/output[0], none-quant
+output 0 dim 4 4200 1 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+output 1 dim 2 4200 1 0, data_format=0, name=uid_20001_sub_uid_1_out_0, none-quant
+output 2 dim 10 4200 1 0, data_format=0, name=uid_20002_sub_uid_1_out_0, none-quant
+nbg name=model/Retinaface_resnet50_320_uint8_a733.nb, size: 19056048.
+create network 0: 20781 us.
+prepare network: 2285 us.
+buffer ptr: 0x25971380, buffer size: 307200
+network: 0, loop count: 1
+run time for this network 0: 18564 us.
+output 0, ptr 0x259d7240, size 16800.
+output 1, ptr 0x259e5240, size 8400.
+output 2, ptr 0x259f3240, size 42000.
+post process time : 1 ms
+detection num: 1
+100%, [ 244,   45,  363,  208], face
+275.10 113.49
+328.03 112.26
+300.95 147.94
+277.57 166.40
+326.80 165.17
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model               | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :------------------ | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner A733 | Vivante VIP9000 | Retinaface_resnet50 | 320×320          | 20.8 ms               | 2.3 ms                   | 18.6 ms                     | 1.0 ms               | 42.7 ms    | 23.4 FPS   |
 
 </TabItem>
 
@@ -226,11 +285,53 @@ chmod +x ./retinaface_demo_a733
 
 ```bash
 cd retinaface_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./retinaface_demo_t527
 ./retinaface_demo_t527 -nb model/Retinaface_resnet50_320_uint8_t527.nb -i model/test.jpg
 ```
 
 </NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./retinaface_demo_t527 -nb model/Retinaface_resnet50_320_uint8_t527.nb -i model/test.jpg
+model_file=model/Retinaface_resnet50_320_uint8_t527.nb, input=model/test.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 320 320 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 4 4200 1 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+output 1 dim 2 4200 1 0, data_format=0, name=uid_20001_sub_uid_1_out_0, none-quant
+output 2 dim 10 4200 1 0, data_format=0, name=uid_20002_sub_uid_1_out_0, none-quant
+nbg name=model/Retinaface_resnet50_320_uint8_t527.nb, size: 18714688.
+create network 0: 27602 us.
+prepare network: 5276 us.
+buffer ptr: 0x23c57380, buffer size: 307200
+network: 0, loop count: 1
+run time for this network 0: 30483 us.
+output 0, ptr 0x23ca2440, size 16800.
+output 1, ptr 0x23cb2b40, size 8400.
+output 2, ptr 0x23cbaf40, size 42000.
+post process time : 1 ms
+detection num: 1
+100%, [ 244,   45,  363,  208], face
+275.10 113.49
+328.03 112.26
+300.95 147.94
+277.57 166.40
+326.80 165.17
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model               | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :------------------ | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner T527 | Vivante VIP9000 | Retinaface_resnet50 | 320×320          | 27.6 ms               | 5.3 ms                   | 30.5 ms                     | 1.0 ms               | 64.4 ms    | 15.5 FPS   |
 
 </TabItem>
 </Tabs>

@@ -66,6 +66,13 @@ After entering the container, navigate to the corresponding directory and run th
 
 ```bash
 cd /workspace/examples/mobilenetv2/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
 ./pegasus_import.sh mobilenetv2-12
 ./pegasus_quantize.sh mobilenetv2-12 pcq 10
 ```
@@ -130,13 +137,20 @@ tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
 
 </NewCodeBlock>
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/mobilenetv2/
+```
+
+</NewCodeBlock>
+
 <Tabs groupId="npu-version">
 <TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/mobilenetv2/
 ../build_linux.sh -t a733 -s debian11
 ```
 
@@ -149,7 +163,6 @@ cd ../examples/mobilenetv2/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/mobilenetv2/
 ../build_linux.sh -t t527 -s debian11
 ```
 
@@ -192,7 +205,11 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
 
 <Tabs groupId="npu-version">
@@ -202,11 +219,46 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 
 ```bash
 cd mobilenetv2_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./mobilenetv2_demo_a733
 ./mobilenetv2_demo_a733 -nb model/mobilenetv2-12_pcq_a733.nb -i model/1.jpg
 ```
 
 </NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./mobilenetv2_demo_a733 -nb model/mobilenetv2-12_pcq_a733.nb -i model/1.jpg
+model_file=model/mobilenetv2-12_pcq_a733.nb, input=model/1.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+input  0 dim 3 224 224 1, data_format=2, quant_format=0, name=input/output[0], none-quant
+output 0 dim 1000 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/mobilenetv2-12_pcq_a733.nb, size: 3617080.
+create network 0: 6194 us.
+prepare network: 1134 us.
+network: 0, loop count: 1
+run time for this network 0: 1792 us.
+class_postprocess.cpp run.
+========== top5 ==========
+class id: 281, prob: 15.055555, label: tabby, tabby cat
+class id: 285, prob: 13.879630, label: Egyptian cat
+class id: 287, prob: 11.990741, label: lynx, catamount
+class id: 282, prob: 8.842592, label: tiger cat
+class id: 631, prob: 4.837963, label: grey fox
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model       | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :---------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner A733 | Vivante VIP9000 | mobilenetv2 | 224×224          | 6.2 ms                | 1.1 ms                   | 1.8 ms                      |                      | 9.1 ms     | 109.9 FPS  |
 
 </TabItem>
 
@@ -216,11 +268,46 @@ chmod +x ./mobilenetv2_demo_a733
 
 ```bash
 cd mobilenetv2_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./mobilenetv2_demo_t527
 ./mobilenetv2_demo_t527 -nb model/mobilenetv2-12_pcq_t527.nb -i model/1.jpg
 ```
 
 </NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./mobilenetv2_demo_t527 -nb model/mobilenetv2-12_pcq_t527.nb -i model/1.jpg
+model_file=model/mobilenetv2-12_pcq_t527.nb, input=model/1.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 224 224 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 1000 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/mobilenetv2-12_pcq_t527.nb, size: 3515008.
+create network 0: 6479 us.
+prepare network: 1872 us.
+network: 0, loop count: 1
+run time for this network 0: 3127 us.
+class_postprocess.cpp run.
+========== top5 ==========
+class id: 281, prob: 14.506104, label: tabby, tabby cat
+class id: 282, prob: 13.106445, label: tiger cat
+class id: 285, prob: 12.215820, label: Egyptian cat
+class id: 287, prob: 8.143799, label: lynx, catamount
+class id: 478, prob: 7.889282, label: carton
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model       | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :---------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner T527 | Vivante VIP9000 | mobilenetv2 | 224×224          | 6.5 ms                | 1.9 ms                   | 3.1 ms                      |                      | 11.5 ms    | 87.0 FPS   |
 
 </TabItem>
 </Tabs>

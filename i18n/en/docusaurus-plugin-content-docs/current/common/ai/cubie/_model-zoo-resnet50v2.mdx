@@ -66,6 +66,13 @@ After entering the container, navigate to the corresponding directory and run th
 
 ```bash
 cd /workspace/examples/resnet50v2/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
 ./pegasus_import.sh resnet50v2
 ./pegasus_quantize.sh resnet50v2 uint8 10
 ```
@@ -130,13 +137,20 @@ tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
 
 </NewCodeBlock>
 
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/resnet50v2/
+```
+
+</NewCodeBlock>
+
 <Tabs groupId="npu-version">
 <TabItem value="A733" label="A733" defaultValue="A733">
 
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/resnet50v2/
 ../build_linux.sh -t a733 -s debian11
 ```
 
@@ -149,7 +163,6 @@ cd ../examples/resnet50v2/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd ../examples/resnet50v2/
 ../build_linux.sh -t t527 -s debian11
 ```
 
@@ -192,7 +205,11 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 :::
 
 <NewCodeBlock tip="Radxa SBC" type="device">
-  ```bash sudo chmod 777 /dev/vipcore ```
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
 </NewCodeBlock>
 
 <Tabs groupId="npu-version">
@@ -202,11 +219,46 @@ For T527 platform, you need to first enable NPU by referring to the A5E's "Enabl
 
 ```bash
 cd resnet50v2_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./resnet50v2_demo_a733
 ./resnet50v2_demo_a733 -nb model/resnet50v2_uint8_a733.nb -i model/1.jpg
 ```
 
 </NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./resnet50v2_demo_a733 -nb model/resnet50v2_uint8_a733.nb -i model/1.jpg
+model_file=model/resnet50v2_uint8_a733.nb, input=model/1.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+input  0 dim 3 224 224 1, data_format=2, quant_format=0, name=input/output[0], none-quant
+output 0 dim 1000 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/resnet50v2_uint8_a733.nb, size: 17593328.
+create network 0: 15664 us.
+prepare network: 1734 us.
+network: 0, loop count: 1
+run time for this network 0: 8900 us.
+class_postprocess.cpp run.
+========== top5 ==========
+class id: 281, prob: 11.682373, label: tabby, tabby cat
+class id: 285, prob: 11.270020, label: Egyptian cat
+class id: 282, prob: 10.033203, label: tiger cat
+class id: 287, prob: 6.047363, label: lynx, catamount
+class id: 292, prob: 5.085327, label: tiger, Panthera tigris
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model      | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :--------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner A733 | Vivante VIP9000 | resnet50v2 | 224×224          | 15.7 ms               | 1.7 ms                   | 8.9 ms                      |                      | 26.3 ms    | 38.0 FPS   |
 
 </TabItem>
 
@@ -216,11 +268,46 @@ chmod +x ./resnet50v2_demo_a733
 
 ```bash
 cd resnet50v2_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
 chmod +x ./resnet50v2_demo_t527
 ./resnet50v2_demo_t527 -nb model/resnet50v2_uint8_t527.nb -i model/1.jpg
 ```
 
 </NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./resnet50v2_demo_t527 -nb model/resnet50v2_uint8_t527.nb -i model/1.jpg
+model_file=model/resnet50v2_uint8_t527.nb, input=model/1.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 224 224 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 1000 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/resnet50v2_uint8_t527.nb, size: 17309120.
+create network 0: 27251 us.
+prepare network: 3129 us.
+network: 0, loop count: 1
+run time for this network 0: 16298 us.
+class_postprocess.cpp run.
+========== top5 ==========
+class id: 281, prob: 11.682373, label: tabby, tabby cat
+class id: 285, prob: 11.270020, label: Egyptian cat
+class id: 282, prob: 10.033203, label: tiger cat
+class id: 287, prob: 6.047363, label: lynx, catamount
+class id: 292, prob: 5.085327, label: tiger, Panthera tigris
+destroy npu finished.
+~NpuUint.
+```
+
+| SoC            | NPU             | Model      | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :--------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner T527 | Vivante VIP9000 | resnet50v2 | 224×224          | 27.3 ms               | 3.1 ms                   | 16.3 ms                     |                      | 46.7 ms    | 21.4 FPS   |
 
 </TabItem>
 </Tabs>
