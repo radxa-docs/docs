@@ -92,6 +92,8 @@ sidebar_position: 15
 
 ## 音频驱动安装
 
+> **注意：** Windows 11 系统已内置 Realtek 音频驱动，无需单独安装。如果您使用的是 Windows 11，可以跳过此步骤。Windows 10 用户请按以下步骤安装音频驱动。
+
 - 安装包下载 [Realtek Audio Controller Driver](https://dl.radxa.com/x/x2l/radxa_x2l_audio_driver.zip)
 
 - 将 Realtek Audio Controller Driver 复制到 Radxa X4 内
