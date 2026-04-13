@@ -136,3 +136,58 @@ vim /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.
 
 - 系统会以 `EL2` 而不是 `EL1` 启动，此时**可以**使用 KVM
 - `/dev/mtd0` 会消失，因此不能直接在板子上更新 SPI 固件
+
+## 7 寸屏显示花屏如何解决？
+
+7 寸屏默认会使用 1080p 分辨率，如果屏幕不支持该分辨率会导致花屏，需要手动设置屏幕分辨率。
+
+### 查看支持分辨率
+
+首先连接屏幕并登录系统，查看 HDMI 输出支持的分辨率：
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+# 解析 EDID 内容（需安装 edid-decode）
+sudo apt install edid-decode
+sudo edid-decode /sys/class/drm/card1-HDMI-A-1/edid
+```
+
+</NewCodeBlock>
+
+在输出中确认屏幕支持的分辨率列表。若 7 寸屏的 1024x600 分辨率没有出现在默认的 modes 中，说明默认的 1080p 分辨率设置会导致显示异常。
+
+### 调整分辨率
+
+确认分辨率后，修改内核命令行参数来指定正确的屏幕分辨率：
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+old=$(cat /etc/kernel/cmdline)
+echo "$old video=HDMI-A-1:1024x600@60" | sudo tee /etc/kernel/cmdline
+```
+
+</NewCodeBlock>
+
+### 更新内核
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+sudo kernel-install add $(uname -r) /boot/vmlinuz-$(uname -r)
+```
+
+</NewCodeBlock>
+
+### 重启
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+sudo reboot
+```
+
+</NewCodeBlock>
+
+重启后如果仍然显示异常，请重新插拔 HDMI 线缆。
