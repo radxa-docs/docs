@@ -21,9 +21,15 @@ Linux distributions supported by Yocto Project: [Reference Link](https://docs.yo
 sudo apt-get update
 sudo apt-get install \
     build-essential chrpath cpio debianutils diffstat file gawk gcc git \
-    iputils-ping libacl1 liblz4-tool locales python3 python3-git \
+    iputils-ping libacl1 lz4 locales python3 python3-git \
     python3-jinja2 python3-pexpect python3-pip python3-subunit socat \
-    texinfo unzip wget xz-utils zstd repo -y
+    texinfo unzip wget xz-utils zstd -y
+
+# Install repo tool
+mkdir -p ~/bin
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo
+export PATH="$HOME/bin:$PATH"
 ```
 
 </NewCodeBlock>
@@ -119,6 +125,59 @@ Where `BB_NUMBER_THREADS` is the number of threads for parallel compilation, and
 ```bash
 BB_NUMBER_THREADS = "8"
 PARALLEL_MAKE = "-j 8"
+```
+
+</NewCodeBlock>
+
+### Weston Build Error (Missing PAM Feature)
+
+When building Weston, you may encounter the following error:
+
+```
+ERROR: weston-10.0.4-r0 do_configure: Function failed: do_configure
+ERROR: Logfile of failure stored in: .../weston-10.0.4-r0/temp/log.do_configure.xxxx
+ERROR: Task (.../recipes-graphics/wayland/weston_10.0.4.bb:do_configure) failed with exit code '1'
+```
+
+This is usually caused by missing PAM (Pluggable Authentication Modules) support. Solution:
+
+1. **Install PAM development package**:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+# Ubuntu/Debian
+sudo apt-get install libpam0g-dev -y
+# Fedora/RHEL
+sudo dnf install pam-devel -y
+# Arch Linux
+sudo pacman -S pam --noconfirm
+```
+
+</NewCodeBlock>
+
+2. **Add configuration in local.conf**:
+
+Add the following configuration in `local.conf` to enable PAM support:
+
+<NewCodeBlock tip="Ubuntu" type="host">
+
+```bash
+# Enable PAM support
+DISTRO_FEATURES:append = " pam"
+```
+
+</NewCodeBlock>
+
+3. **Clean and rebuild**:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+cd ~/yocto-rockchip-sdk
+source ./oe-init-build-env
+bitbake -c cleansstate weston
+bitbake core-image-minimal
 ```
 
 </NewCodeBlock>
