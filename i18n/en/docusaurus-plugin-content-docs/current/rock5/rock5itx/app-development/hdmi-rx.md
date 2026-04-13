@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 11
 
 doc_kind: wrapper
 source_of_truth: common
@@ -9,6 +9,6 @@ imports_resolve_to:
 
 import HdmiRX from '../../../common/dev/\_hdmi-rx.mdx';
 
-# HDMI RX Usage
+# HDMI RX
 
 <HdmiRX />

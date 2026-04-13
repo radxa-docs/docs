@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 description: "Take a Deep Dive into GPIOD"
 
 doc_kind: wrapper

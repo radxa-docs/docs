@@ -11,4 +11,4 @@ import Retinaface from "../../../../common/ai/rockchip/\_retinaface.mdx"
 
 # RetinaFace
 
-<Retinaface />
+<Retinaface platform="rk3588" />

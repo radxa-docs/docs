@@ -11,4 +11,4 @@ import PPOCR from "../../../../common/ai/rockchip/\_ppocr.mdx"
 
 # PP-OCR
 
-<PPOCR />
+<PPOCR platform="rk3588" />
