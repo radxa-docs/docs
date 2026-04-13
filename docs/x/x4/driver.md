@@ -76,6 +76,20 @@ sidebar_position: 15
 
 ![Intel_Ethernet_Driver_03](/img/x/x4/intel_network_connection_03.webp)
 
+## RP2040 驱动下载
+
+- 安装包下载 [Zadig](https://dl.radxa.com/x/x2l/radxa_x2l_rp2040_driver.zip)
+
+- 将安装包 Zadig 复制到 Radxa X4 内。
+
+- 双击打开安装包，安装完成后重启即可。
+
+![Zadig_01](/img/x/x2l/zadig_01.webp)
+
+![Zadig_02](/img/x/x2l/zadig_02.webp)
+
+![Zadig_03](/img/x/x2l/zadig_03.webp)
+
 ## 音频驱动安装
 
 > **注意：** Windows 11 系统已内置 Realtek 音频驱动，无需单独安装。如果您使用的是 Windows 11，可以跳过此步骤。Windows 10 用户请按以下步骤安装音频驱动。

@@ -92,6 +92,8 @@ sidebar_position: 15
 
 ## Audio Driver Installation
 
+> **Note:** Windows 11 systems have built-in Realtek audio drivers and do not require separate installation. If you are using Windows 11, you can skip this step. Windows 10 users, please follow the steps below to install the audio driver.
+
 - Download the installation package [Realtek Audio Controller Driver](https://dl.radxa.com/x/x2l/radxa_x2l_audio_driver.zip)
 
 - Copy the Realtek Audio Controller Driver to the Radxa X4.
