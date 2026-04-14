@@ -2,23 +2,20 @@
 sidebar_position: 2
 ---
 
-import Images from "./\_image.mdx"
-
 # Summary of resource downloads
 
 ## Operating system image
 
-### Official Operating System Image
+### Radxa System
 
-<Images loader={false} system_img={true} spi_img={false} />
-
-- [Rock-3b Bookworm KDE R1](https://github.com/radxa-build/rock-3b/releases/download/rsdk-r1/rock-3b_bookworm_kde_r1.output_512.img.xz)(For booting from microSD card and eMMC module)
+- [Rock-3b Debian Bullseye XFCE b18](https://github.com/radxa-build/rock-3b/releases/download/b18/rock-3b_debian_bullseye_xfce_b18.img.xz)
+- [Rock-3b Bookworm KDE R1](https://github.com/radxa-build/rock-3b/releases/download/rsdk-r1/rock-3b_bookworm_kde_r1.output_512.img.xz)
 
 :::caution
 Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
 :::
 
-### Third-Party Operating System images
+### Third-Party System
 
 - [Radxa ROCK 3B OpenWrt](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3b)
 - [Radxa ROCK 3B OpenWrt ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-3b-ext4-sysupgrade.img.gz)
