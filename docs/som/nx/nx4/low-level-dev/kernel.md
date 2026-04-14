@@ -8,8 +8,8 @@ imports_resolve_to:
   - docs/common/dev/_kernel.mdx
 ---
 
-import KERNEL from '../../../../common/dev/\_kernel.mdx'
+import KERNEL from '../../../../../common/dev/\_kernel.mdx'
 
 # Kernel 开发
 
-<KERNEL model="Radxa ROCK 4D" soc="rk3576" />
+<KERNEL model="Radxa NX4" soc="rk3576" />
