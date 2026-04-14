@@ -16,8 +16,8 @@ The Radxa Penta SATA HAT has a 2x5 seat with the following signal:
 
 **Technical Specifications:**
 - **Connector Type:** 2x5 pin header
-- **Pitch:** 2.54mm
-- **Compatible Connectors:** Standard 2.54mm pitch 2x5 pin header (2x5 pin header, 2.54mm pitch)
+- **Pitch:** 2.0mm
+- **Compatible Connectors:** Standard 2.0mm pitch 2x5 pin header (2x5 pin header, 2.0mm pitch)
 
 This seat can be used to link to the top plate, which has a 0.91 inch OLED display and a 4010 fan, which can display IP address and storage information, etc., and the fan is used for cooling.
 
