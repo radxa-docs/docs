@@ -90,13 +90,13 @@ Then continue with the next section to configure the CIX PPA and install the ope
 The open-source driver stack depends on newer firmware from Debian 13 backports:
 
 ```bash
-echo "deb http://deb.debian.org/debian trixie-backports main contrib non-free non-free-firmware" | sudo tee -a /etc/apt/sources.list
+echo "deb https://deb.debian.org/debian trixie-backports main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list.d/debian-trixie-backports.list
 sudo apt update
 sudo apt install firmware-misc-nonfree libgl1-mesa-dri -t trixie-backports
 ```
 
 :::tip Local mirrors
-If a regional Debian mirror works better in your network environment, you can replace `deb.debian.org` with that mirror.
+If a regional Debian mirror works better in your network environment, you can replace `deb.debian.org` with that mirror while still using a dedicated `.list` file.
 :::
 
 ### 2. Run the CIX setup script

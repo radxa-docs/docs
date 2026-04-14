@@ -90,13 +90,13 @@ CIX 的开源驱动方案基于主线开发内核，核心内容包括：
 开源驱动方案依赖 Debian 13 backports 中的较新固件。先执行：
 
 ```bash
-echo "deb http://deb.debian.org/debian trixie-backports main contrib non-free non-free-firmware" | sudo tee -a /etc/apt/sources.list
+echo "deb https://deb.debian.org/debian trixie-backports main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list.d/debian-trixie-backports.list
 sudo apt update
 sudo apt install firmware-misc-nonfree libgl1-mesa-dri -t trixie-backports
 ```
 
 :::tip 国内镜像
-如果你的网络环境更适合国内镜像，可以将 `deb.debian.org` 替换为常用的 Debian 镜像站。
+如果你的网络环境更适合国内镜像，可以将 `deb.debian.org` 替换为常用的 Debian 镜像站，并保持使用独立的 `.list` 文件。
 :::
 
 ### 2. 运行 CIX 配置脚本
