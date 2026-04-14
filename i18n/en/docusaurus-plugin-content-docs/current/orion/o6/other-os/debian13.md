@@ -52,7 +52,7 @@ Download a **Debian 13 arm64** installation image. If you want a desktop system 
 
 Use the official Debian image directory:
 
-- Debian official: <https://cdimage.debian.org/debian-cd/current/arm64/>
+- [Debian official](https://cdimage.debian.org/debian-cd/current/arm64/)
 
 ### 2. Write the image to a USB drive
 
