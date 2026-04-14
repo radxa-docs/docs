@@ -204,8 +204,7 @@ HDMI (High-Definition Multimedia Interface) is a unified method of transmitting 
   |  9  |        GND        | 10  |  MIPI_CSI_RX_D1P  |
   | 11  |  MIPI_CSI_RX_D1N  | 12  |        GND        |
   | 13  |  MIPI_CSI_RX_D0P  | 14  |  MIPI_CSI_RX_D0N  |
-  | 15  |        GND        | 16  |        GND        |
-  | 17  |        GND        |     |                   |
+  | 15  |        GND        |     |                   |
 
 - Camera_2
 
@@ -218,8 +217,7 @@ HDMI (High-Definition Multimedia Interface) is a unified method of transmitting 
   |  9  |        GND        | 10  |  MIPI_CSI_RX_D3P  |
   | 11  |  MIPI_CSI_RX_D3N  | 12  |        GND        |
   | 13  |  MIPI_CSI_RX_D2P  | 14  |  MIPI_CSI_RX_D2N  |
-  | 15  |        GND        | 16  |        GND        |
-  | 17  |        GND        |     |                   |
+  | 15  |        GND        |     |                   |
 
 ### MIPI DSI
 
