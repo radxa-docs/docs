@@ -8,7 +8,7 @@ imports_resolve_to:
   - docs/common/dev/_rsdk.mdx
 ---
 
-import RSDK from '../../../../common/dev/\_rsdk.mdx'
+import RSDK from '../../../common/dev/\_rsdk.mdx'
 
 # 编译 RadxaOS
 
