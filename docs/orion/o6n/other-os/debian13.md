@@ -106,7 +106,13 @@ curl -fsSL -o cix-repo-community.sh https://archive.cixtech.com/cix-repo-communi
 sudo sh ./cix-repo-community.sh
 ```
 
-脚本运行后会提示选择驱动方案，请输入 `2` 安装开源驱动。
+脚本运行后会提示选择操作项，常见选项如下：
+
+- `1`：安装闭源驱动方案
+- `2`：安装开源驱动方案
+- `3`：卸载已安装的 CIX 驱动方案
+
+如果你要安装本文所述的开源驱动方案，请输入 `2`。
 
 :::warning 执行脚本前请先检查内容
 请先检查下载到本地的脚本内容，再使用 `sudo sh` 执行，避免直接以 root 权限执行远端返回内容。

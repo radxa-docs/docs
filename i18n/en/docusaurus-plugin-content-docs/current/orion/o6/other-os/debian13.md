@@ -106,7 +106,13 @@ curl -fsSL -o cix-repo-community.sh https://archive.cixtech.com/cix-repo-communi
 sudo sh ./cix-repo-community.sh
 ```
 
-When prompted, enter `2` to install the open-source driver option.
+The script prompts you to choose an action. The common options are:
+
+- `1`: install the closed-source driver stack
+- `2`: install the open-source driver stack
+- `3`: remove the installed CIX driver stack
+
+If you want to install the open-source driver stack described in this document, enter `2`.
 
 :::warning Review the script before execution
 Download the script locally and review it before running `sudo sh`, instead of piping remote content directly into a root shell.
