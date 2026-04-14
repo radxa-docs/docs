@@ -9,7 +9,7 @@ This page organizes the download resources for Radxa Orion O6 / O6N by use case.
 :::info Quick Navigation
 
 - [BIOS Firmware](#bios-firmware)
-- [System Images (Radxa OS / Android / OpenHarmony / Fedora)](#system-images)
+- [System Images (Radxa OS / Android / OpenHarmony / Fedora / Debian 13)](#system-images)
 - [Hardware Design Resources](#hardware-design)
 - [Community Resources](#community-resources)
 - [Reference Manuals](#reference-manuals)
@@ -134,6 +134,15 @@ Default Fedora system credentials:
 | :------- | :-------- |
 | Username | `root`    |
 | Password | `aarch64` |
+
+### Debian 13
+
+Debian 13 is intended for developers who want to use the CIX community open-source driver stack. This path now supports both Radxa Orion O6 and O6N. It uses a manually installed Debian 13 (trixie) system together with the CIX PPA open-source driver stack, so there is no prebuilt DD image on this page.
+
+- Orion O6 guide: [Orion O6 Debian 13](./o6/other-os/debian13.md)
+- Orion O6N guide: [Orion O6N Debian 13](./o6n/other-os/debian13.md)
+- Suitable for: mainline kernel validation, NPU / VPU driver debugging, and community development testing
+- Note: this stack is based on the development kernel `7.0.0-rc5-generic`; enable `Enable ACPI SCMI` in BIOS before installation
 
 ## Hardware Design
 
