@@ -50,12 +50,9 @@ After flashing the BIOS, enter BIOS Setup and enable the option below. Otherwise
 
 Download a **Debian 13 arm64** installation image. If you want a desktop system directly, choose an installer image with GNOME. If you use `netinst`, you can also select the GNOME desktop environment during installation.
 
-You can use one of these mirror directories:
+Use the official Debian image directory:
 
 - Debian official: <https://cdimage.debian.org/debian-cd/current/arm64/>
-- Tsinghua University: <https://mirrors.tuna.tsinghua.edu.cn/debian-cd/current/arm64/>
-- USTC: <https://mirrors.ustc.edu.cn/debian-cd/current/arm64/>
-- Aliyun: <https://mirrors.aliyun.com/debian-cd/current/arm64/>
 
 ### 2. Write the image to a USB drive
 
@@ -94,10 +91,6 @@ echo "deb https://deb.debian.org/debian trixie-backports main contrib non-free n
 sudo apt update
 sudo apt install firmware-misc-nonfree libgl1-mesa-dri -t trixie-backports
 ```
-
-:::tip Local mirrors
-If a regional Debian mirror works better in your network environment, you can replace `deb.debian.org` with that mirror while still using a dedicated `.list` file.
-:::
 
 ### 2. Run the CIX setup script
 
