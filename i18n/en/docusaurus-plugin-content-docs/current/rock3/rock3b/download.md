@@ -12,6 +12,8 @@ import Images from "./\_image.mdx"
 
 <Images loader={false} system_img={true} spi_img={false} />
 
+- [Rock-3b Bookworm KDE R1](https://github.com/radxa-build/rock-3b/releases/download/rsdk-r1/rock-3b_bookworm_kde_r1.output_512.img.xz)(For booting from microSD card and eMMC module)
+
 :::caution
 Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
 :::
