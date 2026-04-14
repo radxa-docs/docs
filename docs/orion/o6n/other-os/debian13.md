@@ -103,7 +103,6 @@ sudo apt install firmware-misc-nonfree libgl1-mesa-dri -t trixie-backports
 
 ```bash
 curl -fsSL -o cix-repo-community.sh https://archive.cixtech.com/cix-repo-community.sh
-less cix-repo-community.sh
 sudo sh ./cix-repo-community.sh
 ```
 
@@ -176,7 +175,6 @@ apt search cix-
 
 ```bash
 curl -fsSL -o cix-repo-community.sh https://archive.cixtech.com/cix-repo-community.sh
-less cix-repo-community.sh
 sudo sh ./cix-repo-community.sh
 ```
 

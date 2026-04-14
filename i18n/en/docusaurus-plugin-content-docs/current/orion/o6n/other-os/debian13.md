@@ -103,7 +103,6 @@ If a regional Debian mirror works better in your network environment, you can re
 
 ```bash
 curl -fsSL -o cix-repo-community.sh https://archive.cixtech.com/cix-repo-community.sh
-less cix-repo-community.sh
 sudo sh ./cix-repo-community.sh
 ```
 
@@ -176,7 +175,6 @@ Run the script again and choose option `3`:
 
 ```bash
 curl -fsSL -o cix-repo-community.sh https://archive.cixtech.com/cix-repo-community.sh
-less cix-repo-community.sh
 sudo sh ./cix-repo-community.sh
 ```
 
