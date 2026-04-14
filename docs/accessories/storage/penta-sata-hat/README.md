@@ -108,6 +108,11 @@ Penta SATA HAT 系列通常由以下部分组成：
 | 7   | GND      | 8   | PWM_33     |
 | 9   | GND      | 10  | NC         |
 
+**技术规格：**
+- **连接器类型：** 2x5 针座子
+- **针距 (Pitch)：** 2.0mm
+- **兼容连接器：** 标准 2.0mm 间距 2x5 针排针 (2x5 pin header, 2.0mm pitch)
+
 ## 用户指南
 
 <DocCardList />
