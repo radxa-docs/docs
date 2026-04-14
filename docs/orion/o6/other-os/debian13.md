@@ -102,10 +102,16 @@ sudo apt install firmware-misc-nonfree libgl1-mesa-dri -t trixie-backports
 ### 2. 运行 CIX 配置脚本
 
 ```bash
-curl -fsSL https://archive.cixtech.com/cix-repo-community.sh | sudo sh
+curl -fsSL -o cix-repo-community.sh https://archive.cixtech.com/cix-repo-community.sh
+less cix-repo-community.sh
+sudo sh ./cix-repo-community.sh
 ```
 
 脚本运行后会提示选择驱动方案，请输入 `2` 安装开源驱动。
+
+:::warning 执行脚本前请先检查内容
+请先检查下载到本地的脚本内容，再使用 `sudo sh` 执行，避免直接以 root 权限执行远端返回内容。
+:::
 
 ### 3. 重启系统
 
@@ -144,9 +150,10 @@ CIX 配置脚本会自动完成以下操作：
 
 ### 更新系统
 
+建议直接使用以下命令完成系统更新：
+
 ```bash
 sudo apt update
-sudo apt upgrade
 sudo apt full-upgrade
 ```
 
@@ -168,7 +175,9 @@ apt search cix-
 再次运行脚本，并在交互菜单中选择 `3`：
 
 ```bash
-curl -fsSL https://archive.cixtech.com/cix-repo-community.sh | sudo sh
+curl -fsSL -o cix-repo-community.sh https://archive.cixtech.com/cix-repo-community.sh
+less cix-repo-community.sh
+sudo sh ./cix-repo-community.sh
 ```
 
 脚本会移除开源内核包、CIX 相关配置，并尝试将系统恢复到安装前状态。

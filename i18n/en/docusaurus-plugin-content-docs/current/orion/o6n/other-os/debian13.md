@@ -102,10 +102,16 @@ If a regional Debian mirror works better in your network environment, you can re
 ### 2. Run the CIX setup script
 
 ```bash
-curl -fsSL https://archive.cixtech.com/cix-repo-community.sh | sudo sh
+curl -fsSL -o cix-repo-community.sh https://archive.cixtech.com/cix-repo-community.sh
+less cix-repo-community.sh
+sudo sh ./cix-repo-community.sh
 ```
 
 When prompted, enter `2` to install the open-source driver option.
+
+:::warning Review the script before execution
+Download the script locally and review it before running `sudo sh`, instead of piping remote content directly into a root shell.
+:::
 
 ### 3. Reboot
 
@@ -144,9 +150,10 @@ Related paths:
 
 ### Update the system
 
+Use the following command sequence as the recommended update path:
+
 ```bash
 sudo apt update
-sudo apt upgrade
 sudo apt full-upgrade
 ```
 
@@ -168,7 +175,9 @@ apt search cix-
 Run the script again and choose option `3`:
 
 ```bash
-curl -fsSL https://archive.cixtech.com/cix-repo-community.sh | sudo sh
+curl -fsSL -o cix-repo-community.sh https://archive.cixtech.com/cix-repo-community.sh
+less cix-repo-community.sh
+sudo sh ./cix-repo-community.sh
 ```
 
 The script removes the open-source kernel packages, CIX-related configuration, and attempts to restore the system to its previous state.
