@@ -32,7 +32,8 @@ CIX 的开源驱动方案基于主线开发内核，核心内容包括：
 - 已将设备 BIOS 更新到较新版本：
   - Orion O6：请参考 [Orion O6 BIOS 更新](../../o6/low-level-dev/bios.md)
   - Orion O6N：请参考 [BIOS 更新](../low-level-dev/bios.md)
-- 已手动安装 **Debian 13 (trixie)**，并可以正常联网
+- 已准备一个容量不小于 8GB 的 U 盘
+- 已准备一台可用于下载镜像并写入 U 盘的电脑
 - 当前用户具备 `sudo` 权限
 
 :::warning BIOS 必选配置
@@ -43,7 +44,46 @@ CIX 的开源驱动方案基于主线开发内核，核心内容包括：
 
 :::
 
-## 快速安装
+## 安装 Debian 13
+
+### 1. 下载 Debian 13 安装镜像
+
+请下载 **Debian 13 arm64** 安装镜像。若希望直接安装桌面系统，建议选择带 GNOME 的安装镜像；如果选择 `netinst`，也可以在安装过程中手动选择 GNOME 桌面环境。
+
+可参考以下镜像目录：
+
+- Debian 官方：<https://cdimage.debian.org/debian-cd/current/arm64/>
+- 清华大学：<https://mirrors.tuna.tsinghua.edu.cn/debian-cd/current/arm64/>
+- 中国科学技术大学：<https://mirrors.ustc.edu.cn/debian-cd/current/arm64/>
+- 阿里云：<https://mirrors.aliyun.com/debian-cd/current/arm64/>
+
+### 2. 将镜像写入 U 盘
+
+将下载好的 Debian 13 安装镜像写入 U 盘。可以使用以下任意工具：
+
+- Balena Etcher
+- Rufus
+- `dd`
+
+### 3. 从 U 盘启动并安装系统
+
+将 U 盘插入设备后，从 BIOS 启动菜单选择 U 盘启动，并按照 Debian 安装程序提示完成系统安装。
+
+安装目标介质建议如下：
+
+- Orion O6：安装到 NVMe SSD
+- Orion O6N：安装到 NVMe SSD 或 UFS 模块
+
+### 4. 首次进入系统
+
+安装完成后，进入 Debian 13 系统并确认：
+
+- 系统可以正常联网
+- 当前用户具备 `sudo` 权限
+
+然后继续下一节配置 CIX PPA 并安装开源驱动。
+
+## 配置 CIX PPA 并安装开源驱动
 
 ### 1. 配置 backports 并安装依赖
 

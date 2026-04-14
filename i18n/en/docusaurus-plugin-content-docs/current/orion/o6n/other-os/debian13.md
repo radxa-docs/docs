@@ -32,7 +32,8 @@ Before you begin, make sure:
 - Your device BIOS is already updated:
   - Orion O6: see [Orion O6 BIOS Update](../../o6/low-level-dev/bios.md)
   - Orion O6N: see [BIOS Update](../low-level-dev/bios.md)
-- You have manually installed **Debian 13 (trixie)** and have working network access
+- You have prepared a USB flash drive with at least 8GB capacity
+- You have a computer available to download the image and write it to the USB drive
 - Your current user has `sudo` privileges
 
 :::warning Required BIOS Setting
@@ -43,7 +44,46 @@ After flashing the BIOS, enter BIOS Setup and enable the option below. Otherwise
 
 :::
 
-## Quick Start
+## Install Debian 13
+
+### 1. Download the Debian 13 installation image
+
+Download a **Debian 13 arm64** installation image. If you want a desktop system directly, choose an installer image with GNOME. If you use `netinst`, you can also select the GNOME desktop environment during installation.
+
+You can use one of these mirror directories:
+
+- Debian official: <https://cdimage.debian.org/debian-cd/current/arm64/>
+- Tsinghua University: <https://mirrors.tuna.tsinghua.edu.cn/debian-cd/current/arm64/>
+- USTC: <https://mirrors.ustc.edu.cn/debian-cd/current/arm64/>
+- Aliyun: <https://mirrors.aliyun.com/debian-cd/current/arm64/>
+
+### 2. Write the image to a USB drive
+
+Write the downloaded Debian 13 installation image to a USB drive. You can use any of the following tools:
+
+- Balena Etcher
+- Rufus
+- `dd`
+
+### 3. Boot from the USB drive and install the system
+
+Insert the USB drive into the device, select USB boot from the BIOS boot menu, and complete the installation by following the Debian installer.
+
+Recommended target media:
+
+- Orion O6: install to an NVMe SSD
+- Orion O6N: install to an NVMe SSD or UFS module
+
+### 4. First boot into the system
+
+After installation, boot into Debian 13 and confirm:
+
+- the system has working network access
+- the current user has `sudo` privileges
+
+Then continue with the next section to configure the CIX PPA and install the open-source drivers.
+
+## Configure the CIX PPA and Install the Open-Source Driver Stack
 
 ### 1. Enable backports and install required packages
 
