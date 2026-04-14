@@ -1,5 +1,5 @@
 ---
-sidebar_position: 22
+sidebar_position: 5
 
 doc_kind: wrapper
 source_of_truth: common
