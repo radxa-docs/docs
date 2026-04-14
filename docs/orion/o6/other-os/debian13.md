@@ -52,10 +52,10 @@ CIX 的开源驱动方案基于主线开发内核，核心内容包括：
 
 可参考以下镜像目录：
 
-- Debian 官方：<https://cdimage.debian.org/debian-cd/current/arm64/>
-- 清华大学：<https://mirrors.tuna.tsinghua.edu.cn/debian-cd/current/arm64/>
-- 中国科学技术大学：<https://mirrors.ustc.edu.cn/debian-cd/current/arm64/>
-- 阿里云：<https://mirrors.aliyun.com/debian-cd/current/arm64/>
+- [Debian 官方](https://cdimage.debian.org/debian-cd/current/arm64/)
+- [清华大学](https://mirrors.tuna.tsinghua.edu.cn/debian-cd/current/arm64/)
+- [中国科学技术大学](https://mirrors.ustc.edu.cn/debian-cd/current/arm64/)
+- [阿里云](https://mirrors.aliyun.com/debian-cd/current/arm64/)
 
 ### 2. 将镜像写入 U 盘
 
