@@ -9,8 +9,8 @@ This document describes the **axera-multistream-yolo** project, a real-time mult
 :::tip
 This project depends on AXCL SDK and FFmpeg hardware decoding. Before proceeding, ensure you have configured:
 
-- [**AXCL Driver**](../getting-started/env_install.md)
-- [**AXCL FFmpeg Hardware Decoding**](./axcl-ffmpeg-guide.md)
+- [**AXCL Driver**](./getting-started/env_install)
+- [**AXCL FFmpeg Hardware Decoding**](./axcl-ffmpeg-guide)
   :::
 
 ## Hardware Environment

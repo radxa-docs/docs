@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 11
 description: "Explore HDMI RX features and experience seamless access and processing of HD video and audio"
 
 doc_kind: wrapper
@@ -10,6 +10,6 @@ imports_resolve_to:
 
 import HdmiRX from '../../../common/dev/\_hdmi-rx.mdx';
 
-# HDMI RX Usage
+# HDMI RX
 
 <HdmiRX />

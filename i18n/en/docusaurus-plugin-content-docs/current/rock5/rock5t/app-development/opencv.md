@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
 description: "Open the door to OpenCV computer vision that seamlessly connects images to the real world"
 
 doc_kind: wrapper

@@ -11,4 +11,4 @@ import CLIP from "../../../../common/ai/rockchip/\_clip.mdx"
 
 # CLIP
 
-<CLIP />
+<CLIP platform="rk3588" />

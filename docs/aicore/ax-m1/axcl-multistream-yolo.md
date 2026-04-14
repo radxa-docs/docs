@@ -9,8 +9,8 @@ sidebar_position: 14
 :::tip
 本项目依赖 AXCL SDK 和 FFmpeg 硬件解码能力，使用前请确保已配置好：
 
-- [**AXCL 驱动**](../getting-started/env_install.md)
-- [**AXCL FFmpeg 硬件解码**](./axcl-ffmpeg-guide.md)
+- [**AXCL 驱动**](./getting-started/env_install)
+- [**AXCL FFmpeg 硬件解码**](./axcl-ffmpeg-guide)
   :::
 
 ## 硬件环境

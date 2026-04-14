@@ -11,4 +11,4 @@ import MobileNet from "../../../../common/ai/rockchip/\_mobilenet.mdx"
 
 # MobileNet
 
-<MobileNet />
+<MobileNet platform="rk3588" />

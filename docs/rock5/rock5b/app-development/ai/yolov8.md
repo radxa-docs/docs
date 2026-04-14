@@ -11,4 +11,4 @@ import YOLOv8 from "../../../../common/ai/rockchip/\_yolov8.mdx"
 
 # YOLOv8
 
-<YOLOv8 />
+<YOLOv8 platform="rk3588" />

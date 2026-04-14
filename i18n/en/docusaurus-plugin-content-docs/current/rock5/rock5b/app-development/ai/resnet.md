@@ -11,4 +11,4 @@ import ResNet from "../../../../common/ai/rockchip/\_resnet.mdx"
 
 # ResNet
 
-<ResNet />
+<ResNet platform="rk3588" />

@@ -11,4 +11,4 @@ import Deeplabv3 from "../../../../common/ai/rockchip/\_deeplabv3.mdx"
 
 # DeepLabV3
 
-<Deeplabv3 />
+<Deeplabv3 platform="rk3588" />

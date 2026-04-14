@@ -11,4 +11,4 @@ import Mobilesam from "../../../../common/ai/rockchip/\_mobilesam.mdx"
 
 # MobileSAM
 
-<Mobilesam />
+<Mobilesam platform="rk3588" />
