@@ -48,4 +48,6 @@ Radxa has designed a specially customized metal case for the ROCK 5 Model B sing
 
 # Mechanical Specification
 
+Unit: mm
+
 ![Radxa Metal Case for ROCK 5B](/img/accessories/heatsink-case/metal-case-3.webp)
