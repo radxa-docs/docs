@@ -108,6 +108,11 @@ If you run into installation or boot problems, identify which combination you ar
 | 7   | GND      | 8   | PWM_33     |
 | 9   | GND      | 10  | NC         |
 
+**Technical Specifications:**
+- **Connector Type:** 2x5 pin header
+- **Pitch:** 2.0mm
+- **Compatible Connectors:** Standard 2.0mm pitch 2x5 pin header (2x5 pin header, 2.0mm pitch)
+
 ## User Guide
 
 <DocCardList />
