@@ -175,5 +175,5 @@ The script removes the open-source kernel packages, CIX-related configuration, a
 
 ## References
 
-- [CIX PPA User Manual (Open-Source Driver Edition)](https://github.com/cixtech/cix-developer-docs/wiki/CIX%20PPA%20%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C%EF%BC%88%E5%BC%80%E6%BA%90%E9%A9%B1%E5%8A%A8%E7%89%88%EF%BC%89)
+- [CIX PPA User Manual (Open-Source Driver Edition)](https://github.com/cixtech/cix-developer-docs/wiki/CIX%20PPA%20User%20Manual%20%28Open%E2%80%90Source%20Driver%20Edition%29)
 - [CIX SoC Mainline Support](https://github.com/cixtech/linux-mainline/wiki)
