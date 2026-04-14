@@ -68,7 +68,11 @@ ROCK 3B 可以兼容 ROCK 3A 的大部分镜像，但是由于硬件接口差异
 
 以下系统已由瑞莎官方测试验证：
 
-ROCK 3B：[Build 18](https://github.com/radxa-build/rock-3b/releases/download/b18/rock-3b_debian_bullseye_xfce_b18.img.xz)
+ROCK 3B：
+
+- [Build 18](https://github.com/radxa-build/rock-3b/releases/download/b18/rock-3b_debian_bullseye_xfce_b18.img.xz)(适用于 microSD 卡和 eMMC 模块启动系统)
+
+- [Bookworm KDE R1](https://github.com/radxa-build/rock-3b/releases/download/rsdk-r1/rock-3b_bookworm_kde_r1.output_512.img.xz)(适用于 microSD 卡和 eMMC 模块启动系统)
 
 - [Rock3B-An11-r12-sd-or-emmc-boot-20240619-gpt.img](https://github.com/radxa/manifests/releases/download/Rock-android11-20240619/Rock3B-An11-r12-sd-or-emmc-boot-20240619-gpt.zip)(用于使用读卡器向 EMMC 和 SD 卡中刷入系统)
 
