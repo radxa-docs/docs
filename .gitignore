@@ -3,3 +3,4 @@
 /static/json/commit_update_data.json
 .DS_Store
 /.vs
+node_modules

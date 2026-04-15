@@ -273,9 +273,11 @@ destroy npu finished.
 ~NpuUint.
 ```
 
+This performance data only calculates the time consumption of model inference. Unless otherwise specified, it does not include the time consumption of pre-processing and post-processing.
+
 | SoC            | NPU             | Model               | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :------------------ | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
-| Allwinner A733 | Vivante VIP9000 | Retinaface_resnet50 | 320×320          | 20.8 ms               | 2.3 ms                   | 18.6 ms                     | 1.0 ms               | 42.7 ms    | 23.4 FPS   |
+| Allwinner A733 | Vivante VIP9000 | Retinaface_resnet50 | 320×320          | 20.8 ms               | 2.3 ms                   | 15.7 ms                     | 0.0 ms               | 38.8 ms    | 63.7 FPS   |
 
 </TabItem>
 
@@ -329,44 +331,11 @@ destroy npu finished.
 ~NpuUint.
 ```
 
+This performance data only calculates the time consumption of model inference. Unless otherwise specified, it does not include the time consumption of pre-processing and post-processing.
+
 | SoC            | NPU             | Model               | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :------------------ | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
-| Allwinner T527 | Vivante VIP9000 | Retinaface_resnet50 | 320×320          | 27.6 ms               | 5.3 ms                   | 30.5 ms                     | 1.0 ms               | 64.4 ms    | 15.5 FPS   |
+| Allwinner T527 | Vivante VIP9000 | Retinaface_resnet50 | 320×320          | 27.6 ms               | 5.3 ms                   | 30.5 ms                     | 1.0 ms               | 64.4 ms    | 32.8 FPS   |
 
 </TabItem>
 </Tabs>
-
-The running result is as follows:
-
-```bash
-$ ./retinaface_demo_a733 -nb model/Retinaface_resnet50_320_uint8_a733.nb -i model/test.jpg
-model_file=model/Retinaface_resnet50_320_uint8_a733.nb, input=model/test.jpg, loop_count=1, malloc_mbyte=10
-VIPLite driver software version 2.0.3.2-AW-2024-08-30
-input  0 dim 3 320 320 1, data_format=2, quant_format=0, name=input/output[0], none-quant
-output 0 dim 4 4200 1 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
-output 1 dim 2 4200 1 0, data_format=0, name=uid_20001_sub_uid_1_out_0, none-quant
-output 2 dim 10 4200 1 0, data_format=0, name=uid_20002_sub_uid_1_out_0, none-quant
-nbg name=model/Retinaface_resnet50_320_uint8_a733.nb, size: 19056048.
-create network 0: 20781 us.
-prepare network: 2285 us.
-buffer ptr: 0x25971380, buffer size: 307200
-network: 0, loop count: 1
-run time for this network 0: 15703 us.
-output 0, ptr 0x259bc480, size 16800.
-output 1, ptr 0x259ccb80, size 8400.
-output 2, ptr 0x259d4f40, size 42000.
-post process time : 0 ms
-detection num: 1
-100%, [ 244,   46,  363,  209], face
-275.10 113.49
-328.03 112.26
-300.95 147.94
-277.57 165.17
-326.80 165.17
-destroy npu finished.
-~NpuUint.
-```
-
-| SoC            | NPU             | Model               | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
-| :------------- | :-------------- | :------------------ | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
-| Allwinner A733 | Vivante VIP9000 | Retinaface_resnet50 | 320×320          | 20.8 ms               | 2.3 ms                   | 15.7 ms                     | 0.0 ms               | 38.8 ms    | 25.8 FPS   |

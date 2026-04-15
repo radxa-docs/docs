@@ -357,9 +357,11 @@ destroy npu finished.
 ~NpuUint.
 ```
 
+This performance data only calculates the time consumption of model inference. Unless otherwise specified, it does not include the time consumption of pre-processing and post-processing.
+
 | SoC            | NPU             | Model        | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :----------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
-| Allwinner A733 | Vivante VIP9000 | yolo11s-pose | 640×640          | 16.1 ms               | 4.0 ms                   | 32.4 ms                     | 4.0 ms               | 56.5 ms    | 17.7 FPS   |
+| Allwinner A733 | Vivante VIP9000 | yolo11s-pose | 640×640          | 16.1 ms               | 4.0 ms                   | 32.4 ms                     | 4.0 ms               | 56.5 ms    | 30.9 FPS   |
 
 </TabItem>
 
@@ -473,9 +475,11 @@ destroy npu finished.
 ~NpuUint.
 ```
 
+This performance data only calculates the time consumption of model inference. Unless otherwise specified, it does not include the time consumption of pre-processing and post-processing.
+
 | SoC            | NPU             | Model        | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :----------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
-| Allwinner T527 | Vivante VIP9000 | yolo11s-pose | 640×640          | 23.4 ms               | 10.3 ms                  | 76.0 ms                     | 11.0 ms              | 120.7 ms   | 8.3 FPS    |
+| Allwinner T527 | Vivante VIP9000 | yolo11s-pose | 640×640          | 23.4 ms               | 10.3 ms                  | 76.0 ms                     | 11.0 ms              | 120.7 ms   | 13.2 FPS   |
 
 </TabItem>
 </Tabs>

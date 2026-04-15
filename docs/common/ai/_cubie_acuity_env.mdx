@@ -57,10 +57,11 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 ### 获取 ACUITY 下载包
 
-在 [全志网盘](https://netstorage.allwinnertech.com:5001/sharing/Mh23BhPHq) 下载 ACUITY docker 压缩包并解压
-
 <Tabs groupId="npu-type">
 <TabItem value="A733">
+
+在 [全志网盘](https://netstorage.allwinnertech.com:5001/sharing/Mh23BhPHq) 下载 ACUITY docker 压缩包并解压。
+
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
@@ -70,6 +71,9 @@ unzip docker_images_v2.0.x.zip
 </NewCodeBlock>
 </TabItem>
 <TabItem value="T527">
+
+在 [全志网盘](https://netstorage.allwinnertech.com:5001/sharing/N6TVlZQVZ) 下载 ACUITY docker 压缩包并解压。
+
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
@@ -87,7 +91,9 @@ unzip docker_images_v1.8.x.zip
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd docker_images_v2.0.x unzip ubuntu-npu_v2.0.10.1.tar.zip sudo docker load -i ubuntu-npu_v2.0.10.1.tar
+cd docker_images_v2.0.x
+unzip ubuntu-npu_v2.0.10.1.tar.zip
+sudo docker load -i ubuntu-npu_v2.0.10.1.tar
 ```
 
 </NewCodeBlock>
@@ -96,7 +102,9 @@ cd docker_images_v2.0.x unzip ubuntu-npu_v2.0.10.1.tar.zip sudo docker load -i u
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-cd docker_images_v1.8.x unzip ubuntu-npu_v1.8.11.tar.zip sudo docker load -i ubuntu-npu_v1.8.11.tar
+cd docker_images_v1.8.x
+unzip ubuntu-npu_v1.8.11.tar.zip
+sudo docker load -i ubuntu-npu_v1.8.11.tar
 ```
 
 </NewCodeBlock>
@@ -112,7 +120,8 @@ cd docker_images_v1.8.x unzip ubuntu-npu_v1.8.11.tar.zip sudo docker load -i ubu
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-mkdir docker_data && cd docker_data sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v2.0.10.1 ubuntu-npu:v2.0.10.1 /bin/bash
+mkdir docker_data && cd docker_data
+sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v2.0.10.1 ubuntu-npu:v2.0.10.1 /bin/bash
 ```
 
 </NewCodeBlock>
@@ -121,7 +130,8 @@ mkdir docker_data && cd docker_data sudo docker run --ipc=host -itd -v ${PWD}:/w
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-mkdir docker_data && cd docker_data sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v1.8.11 ubuntu-npu:v1.8.11 /bin/bash
+mkdir docker_data && cd docker_data
+sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v1.8.11 ubuntu-npu:v1.8.11 /bin/bash
 ```
 
 </NewCodeBlock>
