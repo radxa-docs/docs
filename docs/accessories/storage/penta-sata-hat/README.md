@@ -20,6 +20,18 @@ sidebar_position: 1
 - ROCK 5A
 - ROCK 5C
 
+:::note
+**ROCKPi 4 系列与 ROCK 4 系列兼容性说明**：ROCKPi 4 系列是早期产品名称，现已统一规范为 ROCK 4 系列。
+
+- ROCKPi 4A = ROCK 4A
+- ROCKPi 4B = ROCK 4B
+- ROCKPi 4A+ = ROCK 4A+
+- ROCKPi 4B+ = ROCK 4B+
+- ROCKPi 4SE = ROCK 4SE
+
+ROCK 4A/4A+/4B/4B+/4SE 与 ROCKPi 4A/4A+/4B/4B+/4SE 兼容性一致，均完全兼容 Penta SATA HAT。如果您的设备标注为 ROCKPi 4A/B/4SE，请参考对应 ROCK 4A/B/4SE 的安装指南。
+:::
+
 目前支持的树莓派型号：
 
 - Raspberry Pi 5
