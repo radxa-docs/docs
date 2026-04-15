@@ -257,9 +257,11 @@ destroy npu finished.
 ~NpuUint.
 ```
 
+This performance data only calculates the time consumption of model inference. Unless otherwise specified, it does not include the time consumption of pre-processing and post-processing.
+
 | SoC            | NPU             | Model       | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :---------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
-| Allwinner A733 | Vivante VIP9000 | mobilenetv1 | 224×224          | 5.7 ms                | 1.1 ms                   | 1.8 ms                      |                      | 8.6 ms     | 116.3 FPS  |
+| Allwinner A733 | Vivante VIP9000 | mobilenetv1 | 224×224          | 5.7 ms                | 1.1 ms                   | 1.8 ms                      |                      | 8.6 ms     | 555.6 FPS  |
 
 </TabItem>
 
@@ -306,37 +308,11 @@ destroy npu finished.
 ~NpuUint.
 ```
 
+This performance data only calculates the time consumption of model inference. Unless otherwise specified, it does not include the time consumption of pre-processing and post-processing.
+
 | SoC            | NPU             | Model       | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :---------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
-| Allwinner T527 | Vivante VIP9000 | mobilenetv1 | 224×224          | 5.6 ms                | 1.0 ms                   | 3.8 ms                      |                      | 10.4 ms    | 96.2 FPS   |
+| Allwinner T527 | Vivante VIP9000 | mobilenetv1 | 224×224          | 5.6 ms                | 1.0 ms                   | 3.8 ms                      |                      | 10.4 ms    | 263.2 FPS  |
 
 </TabItem>
 </Tabs>
-
-The running result is as follows:
-
-```bash
-$ ./mobilenetv1_demo_a733 -nb model/mobilenet_v1_1.0_224_frozen_uint8_a733.nb -i model/space_shuttle_224x224.jpg
-model_file=model/mobilenet_v1_1.0_224_frozen_uint8_a733.nb, input=model/space_shuttle_224x224.jpg, loop_count=1, malloc_mbyte=10
-VIPLite driver software version 2.0.3.2-AW-2024-08-30
-input  0 dim 3 224 224 1, data_format=2, quant_format=0, name=input/output[0], none-quant
-output 0 dim 1001 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
-nbg name=model/mobilenet_v1_1.0_224_frozen_uint8_a733.nb, size: 3182272.
-create network 0: 5661 us.
-prepare network: 1085 us.
-network: 0, loop count: 1
-run time for this network 0: 1845 us.
-class_postprocess.cpp run.
-========== top5 ==========
-class id: 813, prob: 0.995117, label: space shuttle
-class id: 868, prob: 0.001483, label: trailer truck, tractor trailer, trucking rig, rig, articulated lorry, semi
-class id: 405, prob: 0.000979, label: airliner
-class id: 406, prob: 0.000563, label: airship, dirigible
-class id: 628, prob: 0.000371, label: limousine, limo
-destroy npu finished.
-~NpuUint.
-```
-
-| SoC            | NPU             | Model       | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
-| :------------- | :-------------- | :---------- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
-| Allwinner A733 | Vivante VIP9000 | mobilenetv1 | 224×224          | 5.7 ms                | 1.1 ms                   | 1.8 ms                      |                      | 8.6 ms     | 116.3 FPS  |

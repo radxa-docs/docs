@@ -253,9 +253,11 @@ destroy npu finished.
 ~NpuUint.
 ```
 
+This performance data only calculates the time consumption of model inference. Unless otherwise specified, it does not include the time consumption of pre-processing and post-processing.
+
 | SoC            | NPU             | Model | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :---- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
-| Allwinner A733 | Vivante VIP9000 | lenet | 28×28            | 1.5 ms                | 0.2 ms                   | 0.3 ms                      |                      | 2.0 ms     | 500.0 FPS  |
+| Allwinner A733 | Vivante VIP9000 | lenet | 28×28            | 1.5 ms                | 0.2 ms                   | 0.3 ms                      |                      | 2.0 ms     | 3333.3 FPS |
 
 </TabItem>
 
@@ -297,9 +299,11 @@ destroy npu finished.
 ~NpuUint.
 ```
 
+This performance data only calculates the time consumption of model inference. Unless otherwise specified, it does not include the time consumption of pre-processing and post-processing.
+
 | SoC            | NPU             | Model | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
 | :------------- | :-------------- | :---- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
-| Allwinner T527 | Vivante VIP9000 | lenet | 28×28            | 0.7 ms                | 0.1 ms                   | 0.2 ms                      |                      | 1.0 ms     | 1000.0 FPS |
+| Allwinner T527 | Vivante VIP9000 | lenet | 28×28            | 0.7 ms                | 0.1 ms                   | 0.2 ms                      |                      | 1.0 ms     | 5000.0 FPS |
 
 </TabItem>
 </Tabs>
