@@ -1,7 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 5
 ---
 
-# 快速上手
+# 上手指南
 
 <DocCardList />
