@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 import UseRKDevTool from '../../../../common/radxa-os/rkdevtool/\_use.mdx';
@@ -8,7 +8,7 @@ import Maskrom from '../../../../common/radxa-os/rkdevtool/\_maskrom.mdx';
 
 # 快速上手
 
-本节教程将指导您快速上手使用瑞莎 NX5 开发套件，帮助您快速验证瑞莎 NX5 的功能。
+本节教程目的是为了让大家快速上手使用瑞莎 NX5 的 Android 系统。
 
 ## 产品实物
 
@@ -84,19 +84,6 @@ import Maskrom from '../../../../common/radxa-os/rkdevtool/\_maskrom.mdx';
 
 ③ : 使用 5V DC 电源适配器给主板供电
 
-若主板供电正常，瑞莎 NX5 系统指示灯和瑞莎 NX5 载板的电源指示灯亮绿色；若系统启动正常，瑞莎 NX5 系统指示灯绿色闪烁，瑞莎 NX5 载板的状态指示灯蓝色闪烁。
+若主板供电正常，瑞莎 NX5 载板的电源指示灯亮绿色；显示器显示安卓系统桌面。
 
-## 登录系统
-
-当您首次启动系统后，需要使用默认的用户名和密码登录。
-
-Radxa OS 的默认凭据如下：
-
-| 项目   | 内容    |
-| :----- | :------ |
-| 用户名 | `radxa` |
-| 密码   | `radxa` |
-
-## 使用系统
-
-成功登录系统后，您就可以在瑞莎 NX5 开发套件上进行系统配置与开发。
+说明：瑞莎 NX5 载板的系统状态指示灯并不会亮起。

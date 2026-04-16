@@ -34,7 +34,7 @@ sidebar_position: 150
 
 ### 安卓系统
 
-- [Radxa-NX5-Android12-rkr14-20240326-update.zip](https://github.com/radxa/manifests/releases/download/radxa-nx5-android12-rkr14-20240326/Radxa-NX5-Android12-rkr14-20240326-update.zip)
+- [Radxa-NX5-Android12-rkr14-20240326-gpt.zip](https://github.com/radxa/manifests/releases/download/radxa-nx5-android12-rkr14-20240326/Radxa-NX5-Android12-rkr14-20240326-gpt.zip)
 
 ## 硬件设计
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 import UseRKDevTool from '../../../../common/radxa-os/rkdevtool/\_use.mdx';
@@ -8,7 +8,7 @@ import Maskrom from '../../../../common/radxa-os/rkdevtool/\_maskrom.mdx';
 
 # Quick Start
 
-This guide will help you quickly get started with the Radxa NX5 Development Kit and quickly validate the features of Radxa NX5.
+This guide will help you quickly get started with the Android system on Radxa NX5.
 
 ## Product Image
 
@@ -84,19 +84,6 @@ After the system installation is complete, connect the HDMI display, then re-plu
 
 ③: Power the board using a 5V DC power adapter
 
-If the board is powered normally, the Radxa NX5 system indicator LED and the Radxa NX5 IO Board power indicator LED will light up green. If the system boots normally, the Radxa NX5 system indicator LED will blink green, and the Radxa NX5 IO Board status indicator LED will blink blue.
+If the board is powered normally, the Radxa NX5 IO Board power indicator LED will light up green. The monitor will display the Android system desktop.
 
-## Log In
-
-When you first boot the system, you need to log in using the default username and password.
-
-The default credentials for Radxa OS are:
-
-| Item     | Value   |
-| :------- | :------ |
-| Username | `radxa` |
-| Password | `radxa` |
-
-## Use the System
-
-After successfully logging in, you can configure the system and develop on the Radxa NX5 Development Kit.
+Note: The Radxa NX5 IO Board system status indicator LED will not light up.
