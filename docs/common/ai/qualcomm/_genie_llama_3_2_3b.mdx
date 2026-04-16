@@ -30,17 +30,50 @@
 
 ## 下载 genie 工具包
 
-:::info
-敬请期待
-:::
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/qcom-genie-sdk-v73/qcom-genie-sdk-v73.tar.gz
+tar -xvf qcom-genie-sdk-v73.tar.gz
+```
+
+</NewCodeBlock>
+
+### 导入环境变量
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qcom-genie-sdk-v73
+export ADSP_LIBRARY_PATH=$(pwd)
+```
+
+</NewCodeBlock>
 
 ## 下载模型
 
-:::info
-敬请期待
+:::tip
+请在 python 虚拟环境中安装 modelscope python 包，虚拟环境使用请参考 [**Python 虚拟环境使用**](/rock5/rock5b/app-development/venv-usage)
 :::
 
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/Llama-3.2-3B-Instruct-w4a16-4096-v73 --local_dir ./Llama-3.2-3B-Instruct-w4a16-4096-v73
+```
+
+</NewCodeBlock>
+
 ## 推理模型
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd Llama-3.2-3B-Instruct-w4a16-4096-v73
+```
+
+</NewCodeBlock>
 
 ### 构建 prompt
 
