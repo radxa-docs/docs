@@ -36,6 +36,17 @@ sudo apt install -y ./rockpi-penta-0.2.2.deb
 
 ### Software configuration
 
+:::note
+**Note for latest Raspberry Pi OS (Debian trixie) users**
+
+If you encounter the following issues on the latest Raspberry Pi OS (Debian trixie):
+- OLED display only shows static message "RADXA SATA HAT Loading..."
+- Fan stuck at 100% power
+- Service startup error `FileNotFoundError: No such file or directory`
+
+Additional fixes may be required. Please refer to the solution reported by users in [GitHub issue #1540](https://github.com/radxa-docs/docs/issues/1540): https://github.com/HabiRabbu/rockpi-penta-pi5-fix
+:::
+
 After installing the package, if you need to modify the configuration, you can edit the configuration file `/etc/rockpi-penta.conf`, the following is the default value of the configuration file.
 
 ```ini
