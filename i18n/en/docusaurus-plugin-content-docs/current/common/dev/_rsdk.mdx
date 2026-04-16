@@ -77,11 +77,9 @@ For Debian 12 systems, you can build the rsdk deb package from source without us
 
 <NewCodeBlock tip="Linux PC" type="host">
 ```bash
-
 git clone --recurse-submodules https://github.com/RadxaOS-SDK/rsdk.git
 cd rsdk
-
-````
+```
 
 </NewCodeBlock>
 
@@ -89,7 +87,6 @@ If your system is not based on RadxaOS (or has not configured Radxa software sou
 
 <NewCodeBlock tip="Linux" type="host">
 ```bash
-
 # Install signature keyring
 
 keyring="$(mktemp)"
@@ -102,8 +99,7 @@ rm -f "$keyring"
 
 sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [signed-by=/usr/share/keyrings/radxa-archive-keyring.gpg] https://radxa-repo.github.io/bookworm/ bookworm main"
 sudo apt-get update
-
-````
+```
 
 </NewCodeBlock>
 
@@ -125,12 +121,10 @@ sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [trusted=yes] https://mi
 
 <NewCodeBlock tip="Linux PC" type="host">
 ```bash
-
 sudo apt-get update
 sudo apt-get install devscripts dpkg-dev build-essential
 sudo apt build-dep .
-
-````
+```
 
 </NewCodeBlock>
 
@@ -138,10 +132,8 @@ sudo apt build-dep .
 
 <NewCodeBlock tip="Linux PC" type="host">
 ```bash
-
 dpkg-buildpackage -us -uc -b
-
-````
+```
 
 </NewCodeBlock>
 
@@ -149,10 +141,8 @@ dpkg-buildpackage -us -uc -b
 
 <NewCodeBlock tip="Linux PC" type="host">
 ```bash
-
 sudo apt install ../rsdk\_\*.deb
-
-````
+```
 
 </NewCodeBlock>
 
@@ -289,11 +279,9 @@ After compilation, an `out` directory will be generated, and `output.img` is the
 
 <NewCodeBlock tip="Linux PC" type="host">
 ```bash
-
 vscode ➜ /workspaces/rsdk (main) $ ls out/rock-5b_bookworm_kde/
 build-image config.yaml debs manifest output.img rootfs.tar seed.tar.xz
-
-````
+```
 
 </NewCodeBlock>
 

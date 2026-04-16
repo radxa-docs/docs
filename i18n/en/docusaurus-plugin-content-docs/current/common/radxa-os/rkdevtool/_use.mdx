@@ -100,7 +100,7 @@ brew install rkdeveloptool
 
 </NewCodeBlock>
 
-:::details Compile from source (alternative)
+:::tip Compile from source (alternative)
 
 If the Tap installation fails, you can also compile from source. macOS does not support `$(nproc)`, use `make` directly. `main.cpp` uses variable-length arrays (VLA), macOS Clang does not allow VLA in C++ by default, so you need to declare the variable as `const` first.
 
