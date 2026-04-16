@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Shufflenet-v2 示例
 
-import SHUFFLENETV2QAIAPPBUILDER from '../../../../../common/ai/\_shufflenet_v2_qai-app-builder.mdx';
+import SHUFFLENETV2QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_shufflenet_v2_qai-app-builder.mdx';
 
 <SHUFFLENETV2QAIAPPBUILDER />

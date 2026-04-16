@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # CasaOS 部署 AI 应用
 
-import Casaosappinstallqualcomm from '../../../common/ai/\_casaos_app_install_qualcomm.mdx';
+import Casaosappinstallqualcomm from '../../../common/ai/qualcomm/\_casaos_app_install_qualcomm.mdx';
 
 <Casaosappinstallqualcomm />

@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # YamNet 示例
 
-import YAMNETQAIAPPBUILDER from '../../../../common/ai/\_yamnet_qai-app-builder.mdx';
+import YAMNETQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_yamnet_qai-app-builder.mdx';
 
-<YAMNETQAIAPPBUILDER />
+<YAMNETQAIAPPBUILDER tag="qcs9075"/>

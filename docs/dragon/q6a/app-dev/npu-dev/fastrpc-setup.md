@@ -9,7 +9,7 @@ imports_resolve_to:
 
 # 板端启用 NPU
 
-import FASTRPCSETUP from '../../../../common/ai/\_fastrpc_setup.mdx';
+import FASTRPCSETUP from '../../../../common/ai/qualcomm/\_fastrpc_setup.mdx';
 
 :::tip
 

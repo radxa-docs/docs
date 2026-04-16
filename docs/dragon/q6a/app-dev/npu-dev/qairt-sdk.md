@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # NPU 开发指南
 
-import QAIRTSDK from '../../../../common/ai/\_qairt-sdk.mdx';
+import QAIRTSDK from '../../../../common/ai/qualcomm/\_qairt-sdk.mdx';
 
 <QAIRTSDK />

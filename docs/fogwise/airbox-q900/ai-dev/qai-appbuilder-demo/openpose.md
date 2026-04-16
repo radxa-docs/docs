@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # OpenPose 示例
 
-import OPENPOSEQAIAPPBUILDER from '../../../../common/ai/\_openpose_qai-app-builder.mdx';
+import OPENPOSEQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_openpose_qai-app-builder.mdx';
 
-<OPENPOSEQAIAPPBUILDER />
+<OPENPOSEQAIAPPBUILDER tag="qcs9075"/>

@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # LaMa-Dilated 示例
 
-import LAMADILATEDQAIAPPBUILDER from '../../../../common/ai/\_lama_dilated_qai-app-builder.mdx';
+import LAMADILATEDQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_lama_dilated_qai-app-builder.mdx';
 
-<LAMADILATEDQAIAPPBUILDER />
+<LAMADILATEDQAIAPPBUILDER tag="qcs9075"/>

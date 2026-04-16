@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # SqueezeNet-1.1 示例
 
-import SQUEEZENET11QAIAPPBUILDER from '../../../../../common/ai/\_squeezenet1_1_qai-app-builder.mdx';
+import SQUEEZENET11QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_squeezenet1_1_qai-app-builder.mdx';
 
 <SQUEEZENET11QAIAPPBUILDER />

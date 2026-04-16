@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Qwen1.5-1.8B-Chat
 
-import GENIEQWEN1518B from '../../../../common/ai/\_genie_qwen_1_5_1_8b.mdx';
+import GENIEQWEN1518B from '../../../../common/ai/qualcomm/\_genie_qwen_1_5_1_8b.mdx';
 
 <GENIEQWEN1518B />

@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # ResNet-3D 示例
 
-import RESNET3DQAIAPPBUILDER from '../../../../common/ai/\_resnet3d_qai-app-builder.mdx';
+import RESNET3DQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_resnet3d_qai-app-builder.mdx';
 
-<RESNET3DQAIAPPBUILDER />
+<RESNET3DQAIAPPBUILDER tag="qcs9075"/>

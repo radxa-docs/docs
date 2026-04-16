@@ -4,11 +4,11 @@ sidebar_position: 0
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_fcn-resnet50_qai-app-builder.mdx
+  - docs/common/ai/_fcn-resnet50_qai-app-builder-6490.mdx
 ---
 
 # FCN-ResNet50 示例
 
-import FCNRESNRT50QAIAPPBUILDER from '../../../../../common/ai/\_fcn-resnet50_qai-app-builder.mdx';
+import FCNRESNRT50QAIAPPBUILDER6490 from '../../../../../common/ai/qualcomm/\_fcn-resnet50_qai-app-builder-6490.mdx';
 
-<FCNRESNRT50QAIAPPBUILDER />
+<FCNRESNRT50QAIAPPBUILDER6490 />

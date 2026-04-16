@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # QAI AppBuilder
 
-import QAIAPPBUILDER from '../../../common/ai/\_qai-appbuilder.mdx';
+import QAIAPPBUILDER from '../../../common/ai/qualcomm/\_qai-appbuilder.mdx';
 
-<QAIAPPBUILDER />
+<QAIAPPBUILDER tag="qcs9075"/>

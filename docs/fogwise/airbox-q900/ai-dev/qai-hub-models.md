@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # QAI Hub Models
 
-import QAIHUBMODELS from '../../../common/ai/\_qai-hub-models.mdx';
+import QAIHUBMODELS from '../../../common/ai/qualcomm/\_qai-hub-models.mdx';
 
-<QAIHUBMODELS />
+<QAIHUBMODELS tag="qcs9075"/>

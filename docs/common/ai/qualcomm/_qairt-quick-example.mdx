@@ -1,0 +1,85 @@
+本文档提供一个开箱即用的 resnet50 目标识别模型推理示例，
+此示例是在瑞莎 Dragon Ubuntu 系统下使用 Qualcomm® Hexagon™ Processor (NPU) 进行硬件加速推理。
+
+:::tip
+进行 NPU 快速验证 前请参考 [**板端启用 NPU**](./fastrpc-setup) 使能 NPU
+:::
+
+## 下载示例
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/resnet50_qairt --local ./resnet50_qairt
+```
+
+</NewCodeBlock>
+
+## 运行示例
+
+请根据 SoC 导入环境变量
+
+<Tabs queryString="platform">
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=6490
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=9075
+    ```
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+执行模型推理
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd resnet50_qairt/${PRODUCT_SOC}
+chmod +x qnn-net-run
+./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_${PRODUCT_SOC}.bin --input_list ./test_list.txt --output_dir output_bin
+```
+
+</NewCodeBlock>
+
+## 验证示例
+
+可以使用 python 脚本进行结果验证
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ../scripts
+python3 show_resnet50_classifications.py --input_list ../${PRODUCT_SOC}/test_list.txt -o ../${PRODUCT_SOC}/output_bin/ --labels_file ../data/imagenet_classes.txt
+```
+
+</NewCodeBlock>
+
+```bash
+$ python3 show_resnet50_classifications.py --input_list ../${PRODUCT_SOC}/test_list.txt -o ../${PRODUCT_SOC}/output_bin/ --labels_file ../data/imagenet_classes.txt
+Classification results
+../data/test/crop/ILSVRC2012_val_00003441.raw 21.476509 402 acoustic guitar
+../data/test/crop/ILSVRC2012_val_00008465.raw 22.651005 927 trifle
+../data/test/crop/ILSVRC2012_val_00010218.raw 12.248322 281 tabby
+../data/test/crop/ILSVRC2012_val_00044076.raw 18.456375 376 proboscis monkey
+```
+
+通过结果打印与测试图片内容对比，可以确认 resnet50 模型移植到 Qualcomm® NPU 上输出的结果正确。
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/qairt_resnet50.webp" style={{ width: "60%" }} />
+  resnet50 input images
+</div>

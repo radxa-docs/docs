@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Whisper-Base 示例
 
-import WHISPERBASEENQAIAPPBUILDER from '../../../../common/ai/\_whisper_base_en_qai-app-builder.mdx';
+import WHISPERBASEENQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_whisper_base_en_qai-app-builder.mdx';
 
-<WHISPERBASEENQAIAPPBUILDER />
+<WHISPERBASEENQAIAPPBUILDER tag="qcs9075"/>

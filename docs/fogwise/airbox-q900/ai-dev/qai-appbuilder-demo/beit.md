@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Beit 示例
 
-import BEITQAIAPPBUILDER from '../../../../common/ai/\_beit_qai-app-builder.mdx';
+import BEITQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_beit_qai-app-builder.mdx';
 
-<BEITQAIAPPBUILDER />
+<BEITQAIAPPBUILDER tag="qcs9075"/>

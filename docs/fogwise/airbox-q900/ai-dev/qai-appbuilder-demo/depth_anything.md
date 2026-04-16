@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Depth-Anything 示例
 
-import DEPTHANYTHINGQAIAPPBUILDER from '../../../../common/ai/\_depth_anything_qai-app-builder.mdx';
+import DEPTHANYTHINGQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_depth_anything_qai-app-builder.mdx';
 
-<DEPTHANYTHINGQAIAPPBUILDER />
+<DEPTHANYTHINGQAIAPPBUILDER tag="qcs9075"/>

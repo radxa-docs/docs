@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # XLSR 示例
 
-import XLSRQAIAPPBUILDER from '../../../../../common/ai/\_xlsr_qai-app-builder.mdx';
+import XLSRQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_xlsr_qai-app-builder.mdx';
 
 <XLSRQAIAPPBUILDER />

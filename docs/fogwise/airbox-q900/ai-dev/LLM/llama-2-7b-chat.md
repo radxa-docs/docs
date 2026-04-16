@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Llama-2-7B-Chat
 
-import GENIELLAMA27BCHAT from '../../../../common/ai/\_genie_llama_2_7b_chat.mdx';
+import GENIELLAMA27BCHAT from '../../../../common/ai/qualcomm/\_genie_llama_2_7b_chat.mdx';
 
 <GENIELLAMA27BCHAT />

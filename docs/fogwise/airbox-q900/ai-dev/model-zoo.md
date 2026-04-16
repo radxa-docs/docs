@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # 模型下载中心
 
-import QAIRTMODELZOO from '../../../common/ai/\_qairt-model-zoo.mdx';
+import QAIRTMODELZOO from '../../../common/ai/qualcomm/\_qairt-model-zoo.mdx';
 
 <QAIRTMODELZOO />

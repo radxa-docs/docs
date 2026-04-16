@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Llama-3.1-8B-Instruct
 
-import GENIELLAMA318B from '../../../../common/ai/\_genie_llama_31_8b.mdx';
+import GENIELLAMA318B from '../../../../common/ai/qualcomm/\_genie_llama_31_8b.mdx';
 
 <GENIELLAMA318B />
