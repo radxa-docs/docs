@@ -1,257 +1,47 @@
-## Prerequisites
+## Troubleshooting
 
-For SSH login, both devices must be on the same local network, and the target device must have the SSH service enabled.
+If you encounter issues during SSH connection, try the following troubleshooting steps.
 
-:::tip
-Our system images have SSH service enabled by default. If SSH is not installed or enabled, you can follow this tutorial to set it up!
-:::
+### Check SSH Service Status
 
-## Install OpenSSH
-
-SSH remote control requires OpenSSH to be installed. Run the following command in the board's terminal to install it:
+If you are connecting remotely (over LAN, not via direct display), ensure the SSH service is running:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
-sudo apt update && sudo apt install openssh-server -y
+sudo systemctl status ssh
 ```
 
 </NewCodeBlock>
 
-### Start SSH Service
-
-Run the following command in the board's terminal to start the SSH service:
+If the service is not running, start it with:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 sudo systemctl start ssh
-```
-
-</NewCodeBlock>
-
-### Enable SSH Service on Boot
-
-Run the following command in the board's terminal to enable SSH service on boot:
-
-<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-
-```bash
 sudo systemctl enable ssh
 ```
 
 </NewCodeBlock>
 
-### Check SSH Service Status
+:::tip
+If the `ssh` service name does not work, try `sshd`: `sudo systemctl status sshd`
+:::
 
-Run the following command in the board's terminal to check the SSH service status:
+### Check SSH Configuration
 
-<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-
-```bash
-sudo systemctl status ssh
-```
-
-</NewCodeBlock>
-
-The terminal will display information indicating whether the SSH service is enabled on boot and its current status.
-
-```bash
-● ssh.service - OpenBSD Secure Shell server
-Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
-Active: active (running) since Sat 2000-01-01 00:14:50 UTC; 25 years 5 months ago
-Docs: man:sshd(8)
-man:sshd_config(5)
-Main PID: 518 (sshd)
-CPU: 284ms
-CGroup: /system.slice/ssh.service
-└─518 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
-```
-
-## SSH Remote Control
-
-You can use either the terminal command line or the Tabby software for SSH remote login.
-
-<Tabs queryString="ssh-mode">
-
-<TabItem value="Terminal Command Line">
-
-Open a terminal on another device and enter the following command to log in remotely:
-
-<NewCodeBlock tip="PC$" type="host">
-
-```bash
-ssh <user-name>@<ip-address>
-# Example
-
-ssh radxa@192.168.2.186
-```
-
-</NewCodeBlock>
-
-Where `<user-name>` and `<ip-address>` are the actual username and IP address of the target device, respectively.
-
-You'll need to confirm the connection by typing `yes` during the connection process.
-
-<div style={{textAlign: 'center'}}>
-    <img src="/en/img/common/radxa-os/system-config/ssh-login.webp" style={{width: '100%', maxWidth: '1200px'}} />
-</div>
-</TabItem>
-
-<TabItem value="Using Tabby Software">
-
-Tabby is a powerful cross-platform serial debugging tool that supports multiple protocols including serial port and SSH. We recommend using Tabby for SSH remote login.
-
-#### Download Tabby
-
-Visit the [Tabby official website](https://tabby.sh/) to download and install the Tabby software.
-
-#### Install Tabby
-
-Select the appropriate installation package for your operating system and hardware architecture (Windows: `tabby-<version>.exe`, Linux: `tabby-<version>.deb`, macOS: `tabby-<version>.dmg`) to install the Tabby software.
-
-#### Using Tabby
-
-Double-click the Tabby icon to launch the application.
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/system-config/tabby-welcome.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
-
-#### SSH Configuration
-
-① --> `Settings`: Click to open settings
-
-② --> `Profiles & connections`: Click to configure connection options
-
-③ --> `New profile`: Click to add a new configuration
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/system-config/tabby-profile.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
-
-#### Select SSH Template
-
-Choose a base configuration as a template: Select the `SSH connection` template. You can modify parameters such as device name, IP address, and port in the subsequent configuration interface.
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/system-config/tabby-template.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
-
-After selecting the `SSH connection` template, modify the following parameters:
-
-① --> `Name`: Set the connection name
-
-② --> `Host`: Enter the IP address of the target device
-
-③ --> `User`: Set the username (default is `radxa`)
-
-④ --> `Save`: Save the configuration
-
-The default port is `22`, which doesn't need to be changed.
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/system-config/tabby-ssh-parameter.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
-
-#### Run SSH Connection
-
-Click the run button to connect to the SSH device remotely.
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/system-config/tabby-ssh-connect.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
-
-After clicking the run button, Tabby will display a key verification and password input interface.
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/system-config/tabby-ssh-verify.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
-
-① --> password: Enter the password for the target device
-
-② --> OK: Confirm the connection
-
-It's recommended to check the `Remember` option so you won't need to enter the password again for future connections.
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/system-config/tabby-ssh-password.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
-
-After a successful connection, the remote interface will appear.
-
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/system-config/tabby-ssh-success.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
-
-</TabItem>
-</Tabs>
-
-After successfully logging in via SSH, you can run commands to control the system through the SSH connection.
-
-## Troubleshooting
-
-If you encounter issues during SSH connection, try the following troubleshooting steps:
-
-### 1. Check SSH Service Status
-
-Ensure the SSH service is running:
+Ensure SSH configuration allows password authentication:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
-sudo systemctl status ssh
+sudo grep -v "^#" /etc/ssh/sshd_config | grep PasswordAuthentication
 ```
 
 </NewCodeBlock>
 
-If the service is not running, start it:
-
-<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-
-```bash
-sudo systemctl start ssh
-```
-
-</NewCodeBlock>
-
-### 2. Check SSH Configuration
-
-Ensure SSH configuration allows password authentication (enabled by default):
-
-<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-
-```bash
-sudo grep -E "^PasswordAuthentication" /etc/ssh/sshd_config
-```
-
-</NewCodeBlock>
-
-If the output is not `PasswordAuthentication yes`, edit the configuration file:
+Expected output should be `PasswordAuthentication yes`. If not, edit the configuration file:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -261,7 +51,13 @@ sudo nano /etc/ssh/sshd_config
 
 </NewCodeBlock>
 
-Find the `PasswordAuthentication` line, ensure it's set to `yes`, then restart SSH service:
+Find and ensure the following line is uncommented and set to `yes`:
+
+```
+PasswordAuthentication yes
+```
+
+Save and restart the SSH service:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -271,100 +67,124 @@ sudo systemctl restart ssh
 
 </NewCodeBlock>
 
-### 3. Check Firewall Settings
+### Check Network and Firewall
 
-Ensure firewall is not blocking SSH connections (default port 22):
-
-<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
-
-```bash
-sudo ufw status
-```
-
-</NewCodeBlock>
-
-If firewall is enabled, ensure SSH port is open:
+Ensure the firewall is not blocking SSH connections (default port 22):
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
-sudo ufw allow ssh
+# Check iptables rules
+sudo iptables -L -n | grep -E "22|ssh"
+
+# or check nftables
+sudo nft list ruleset 2>/dev/null | grep -E "22|ssh"
 ```
 
 </NewCodeBlock>
 
-### 4. Verify IP Address
+### Verify IP Address
 
-Ensure you are using the correct IP address. Run on the device:
+Ensure you are using the correct IP address:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
-ip addr show
+ip addr show | grep inet
 ```
 
 </NewCodeBlock>
 
-Or use `arp -a` command on Windows to see devices on the network.
+You can also confirm the device IP from your PC:
 
-### 5. Check SSH Logs
+<NewCodeBlock tip="PC$" type="host">
 
-View SSH service logs for more information:
+```bash
+# Windows
+arp -a | findstr "192.168"
+
+# Linux/macOS
+arp -a | grep 192.168
+```
+
+</NewCodeBlock>
+
+### Check SSH Logs
+
+View SSH service logs for detailed error information:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
-sudo journalctl -u ssh -b --no-pager | tail -20
+sudo journalctl -u ssh -b --no-pager | tail -30
 ```
 
 </NewCodeBlock>
 
-### 6. Common Issues
+### Common Issues
 
-#### Issue: SSH Connection Rejected (Permission denied)
+#### Incorrect Password
 
-**Possible causes and solutions:**
+Ensure you are using the correct username and password. Radxa OS default username is `radxa`, password is `radxa`.
 
-1. **Incorrect password**: Ensure using correct username and password. Default username is `radxa`, password is `radxa`.
-2. **User account issue**: Try resetting password:
-   
-   <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+If you forgot the password, you can reset it via serial connection or by connecting a display:
 
-   ```bash
-   sudo passwd radxa
-   ```
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-   </NewCodeBlock>
+```bash
+sudo passwd radxa
+```
 
-3. **SSH key issue**: If you previously set up SSH keys but forgot, try removing existing keys and regenerating:
-   
-   <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+</NewCodeBlock>
 
-   ```bash
-   rm -rf ~/.ssh
-   ```
+#### SSH Public Key Permission Issues
 
-   </NewCodeBlock>
+If you previously configured SSH public key authentication, permission errors may cause login failures. Check server-side permissions:
 
-#### Issue: Windows SSH Client Problems
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
-If experiencing issues with Windows SSH client:
+```bash
+# Check .ssh directory permissions
+ls -la ~/.ssh
 
-1. **Try using WSL (Windows Subsystem for Linux)**: Attempt SSH connection in WSL terminal
-2. **Use alternative SSH clients**: Such as Tabby, PuTTY, MobaXterm, etc.
-3. **Check Windows Firewall**: Ensure Windows firewall is not blocking SSH connections
+# Correct permissions should be 700
+chmod 700 ~/.ssh
 
-#### Issue: Connection Timeout
+# Check authorized_keys permissions (should be 600)
+chmod 600 ~/.ssh/authorized_keys
+```
 
-**Possible causes and solutions:**
+</NewCodeBlock>
 
-1. **Network connectivity issue**: Ensure devices are on the same network
-2. **Incorrect IP address**: Re-check the IP address
-3. **Router/firewall blocking**: Check router settings
+#### Windows SSH Client Problems
 
-### 7. Reset SSH Configuration
+If you encounter issues with Windows SSH client:
 
-If none of the above steps resolve the issue, try resetting SSH configuration:
+1. Try Windows built-in SSH client (PowerShell or CMD)
+2. Try [Tabby](https://tabby.sh/), [PuTTY](https://www.putty.org/), or [MobaXterm](https://mobaxterm.mobatek.net/)
+3. Check Windows Firewall settings to ensure SSH connections are not blocked
+
+#### Connection Timeout
+
+1. Confirm device and PC are on the same LAN
+2. Confirm the IP address is correct (device IP cannot be `127.0.0.1`)
+3. Try ping the device IP to verify network connectivity
+
+<NewCodeBlock tip="PC$" type="host">
+
+```bash
+ping 192.168.x.x
+```
+
+</NewCodeBlock>
+
+### Reset SSH Configuration
+
+:::warning
+The following operations will interrupt your SSH connection. If you are connecting remotely, ensure you have an alternative access method (such as serial connection) before proceeding.
+:::
+
+If none of the above steps resolve the issue, you can reset the SSH configuration:
 
 <NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
@@ -372,26 +192,21 @@ If none of the above steps resolve the issue, try resetting SSH configuration:
 # Backup current configuration
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup
 
-# Reinstall SSH service
-sudo apt remove --purge openssh-server -y
-sudo apt install openssh-server -y
-
-# Restart SSH service
-sudo systemctl restart ssh
+# Restore default configuration
+sudo dpkg-reconfigure openssh-server
 ```
 
 </NewCodeBlock>
 
-### 8. Get More Help
+Restart and reconfigure your SSH connection after completion.
 
-If the issue persists, please provide the following information for further assistance:
+### Get Help
 
-1. SSH service status output
-2. `PasswordAuthentication` setting in SSH configuration
-3. Firewall status
-4. Complete error information when attempting to connect from client
-5. SSH logs on the device (using `sudo journalctl -u ssh -b`)
+If the issue persists, please submit a GitHub Issue with the following information:
 
-:::tip
-Most SSH connection issues can be resolved by checking service status, configuration, and network connectivity. If the problem persists, consider reinstalling the system image or contacting technical support.
-:::
+- SSH service status output (`sudo systemctl status ssh`)
+- `PasswordAuthentication` setting in SSH configuration
+- Firewall status
+- Complete error message when attempting to connect from the client
+- SSH logs (`sudo journalctl -u ssh -b --no-pager | tail -30`)
+
