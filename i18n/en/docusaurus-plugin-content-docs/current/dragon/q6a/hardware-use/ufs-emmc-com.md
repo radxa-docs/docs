@@ -40,7 +40,7 @@ The following table shows measured read/write performance of different UFS modul
 
 | Product Name       | UFS Chip Brand/Model                  | Capacity | Read Speed | Write Speed | Test Environment   |
 | ------------------ | ------------------------------------- | -------- | ---------- | ----------- | ------------------ |
-| Radxa UFS Module   | Samsung KLUDG4UHGC-B0E1 (UFS 3.1)    | 128GB    | 1300 MB/s  | 1200 MB/s   | Radxa OS (Linux)   |
+| Radxa UFS Module   | Samsung KLUDG4UHDC-B0E1 (UFS 3.1)    | 128GB    | 1703 MB/s | 388 MB/s   | Radxa OS (Linux)   |
 | Radxa UFS Module   | Kioxia THGJFGT1E45BAILB              | 256GB    | 1811 MB/s  | 557 MB/s    | Radxa OS (Linux)   |
 
 > Note: Actual read/write speeds may vary depending on the UFS module brand, capacity, firmware version, and test environment. The above data are measured reference values.
