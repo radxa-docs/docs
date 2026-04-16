@@ -1,9 +1,9 @@
 ---
-sidebar_position: 3
+sidebar_position: 25
 ---
 
-# Android
+# Android System
 
-Introduces how to build and use Android System
+This section provides a brief introduction to using and developing the Android system on Radxa NX5.
 
-<!-- <DocCardList /> -->
+<DocCardList />
