@@ -14,7 +14,7 @@ sidebar_position: 60
 
 ### 检查电源
 - 确保使用 **5V** 电源适配器
-- 推荐使用 [Radxa Power PD30W](../accessories/power/pd_30w)
+- 推荐使用 [Radxa Power PD30W](accessories/pd-30w)
 - 检查 Type-C 线缆是否正常工作
 - 确保电源接口连接正确（USB 2.0 OTG Type-C 端口）
 
