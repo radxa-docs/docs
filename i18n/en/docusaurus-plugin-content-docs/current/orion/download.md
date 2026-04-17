@@ -26,14 +26,14 @@ Radxa Orion O6 and O6N use different BIOS firmware.
         | Download Platform                                                                     | Format | How to Access                                                                                          |
         | :------------------------------------------------------------------------------------ | :----- | :---------------------------------------------------------------------------------------------------- |
         | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.1.0-1.zip)    | `.zip` | Firmware is inside the zip file                                                                       |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)                   | `.deb` | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` directory |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-1)                   | `.deb` | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` directory |
     </TabItem>
     <TabItem value="Orion O6N">
 #### Radxa Orion O6N
         | Download Platform                                                             | Format | How to Access                                                                                            |
         | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
         | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-2.zip)                      | `.zip`   | Firmware is inside the zip file                                                                                    |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` directory |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-2) | `.deb`   | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` directory |
     </TabItem>
 </Tabs>
 
