@@ -1,0 +1,200 @@
+本文档将介绍如何在高通平台上通过 Qualcomm® Genie 使用 NPU 硬件加速推理 Gemma-2-2B-it 模型
+
+- 源模型 [Gemma](https://ai.google.dev/gemma/docs/core)
+
+- 源模型许可证：[Gemma Terms of Use](https://ai.google.dev/gemma/terms)
+
+## 模型细节
+
+| 模型          | 量化方式 | 上下文长度 |
+| ------------- | -------- | ---------- |
+| Gemma-2-2B-it | W4A16    | 4096       |
+
+## 支持设备
+
+:::tip
+请参考 [SoC 架构对照表](../qairt-sdk#soc-架构对照表) 查寻当前设备 SoC 的 DSP 架构
+:::
+
+- 此示例支持 **v73** DSP 架构的高通平台 SoC
+
+  | dsp_arch |
+  | -------- |
+  | v73      |
+
+- 运行设备
+
+  | 设备                 | SoC     | dsp_arch |
+  | -------------------- | ------- | -------- |
+  | Fogwise® AIRbox Q900 | QCS9075 | v73      |
+
+## 下载 genie 工具包
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/qcom-genie-sdk-v73/qcom-genie-sdk-v73.tar.gz
+tar -xvf qcom-genie-sdk-v73.tar.gz
+```
+
+</NewCodeBlock>
+
+### 导入环境变量
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qcom-genie-sdk-v73
+export ADSP_LIBRARY_PATH=$(pwd)
+```
+
+</NewCodeBlock>
+
+## 下载模型
+
+:::tip
+请在 python 虚拟环境中安装 modelscope python 包，虚拟环境使用请参考 [**Python 虚拟环境使用**](/rock5/rock5b/app-development/venv-usage)
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/Gemma-2-2B-it-w4a16-4096-v73 --local_dir ./Gemma-2-2B-it-w4a16-4096-v73
+```
+
+</NewCodeBlock>
+
+## 推理模型
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd Gemma-2-2B-it-w4a16-4096-v73
+```
+
+</NewCodeBlock>
+
+### 构建 prompt
+
+prompt 支持以文件形式或者参数形式传入
+
+<Tabs>
+
+<TabItem value="prompt">
+
+```bash
+<bos><start_of_turn>user\nIntroduce yourself.<end_of_turn>\n<start_of_turn>model
+```
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+vim chat.txt
+```
+
+</NewCodeBlock>
+
+```vim
+<bos><start_of_turn>user\nIntroduce yourself.<end_of_turn>\n<start_of_turn>model
+```
+
+</TabItem>
+
+</Tabs>
+
+### 执行推理
+
+<Tabs>
+
+<TabItem value="prompt">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c gemma-2-2b-it-htp.json -p "<bos><start_of_turn>user\nIntroduce yourself.<end_of_turn>\n<start_of_turn>model"
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c gemma-2-2b-it-htp.json --prompt_file chat.txt
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+```bash
+(.venv) rock@radxa-airbox-q900:/mnt/ssd/qualcomm/Gemma-2-2B-it$ genie-t2t-run -c gemma-2-2b-it-htp.json -p "<bos><start_of_turn>user\nIntroduce yourself.<end_of_turn>\n<start_of_turn>model"
+Using libGenie.so version 1.14.0
+
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+[INFO]  "Using create From Binary"
+[INFO]  "Allocated total size = 285344256 across 3 buffers"
+[PROMPT]: <bos><start_of_turn>user\nIntroduce yourself.<end_of_turn>\n<start_of_turn>model
+
+[BEGIN]:
+
+Hello! 👋 I'm Gemma, an AI assistant created by the Gemma team. I'm here to help you with text-based tasks, answer your questions, and generate creative content.
+
+Just keep in mind:
+
+* I'm still under development, so I'm always learning.
+* I'm a text-only model, so I can't process images or audio.
+* I don't have access to real-time information or the internet.
+
+I'm excited to see what we can create together! 😊
+[END]
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+```
+
+## 性能参考
+
+可以使用 `--profile` 选项开启性能分析功能
+
+```bash
+genie-t2t-run -c gemma-2-2b-it-htp.json --prompt_file chat.txt --profile profile.txt
+```
+
+| Fogwise® AIRbox Q900       |                             |
+| -------------------------- | --------------------------- |
+| **GenieDialog_create**     | 2,022,259 us                |
+| **num-prompt-tokens**      | 14                          |
+| **prompt-processing-rate** | 160.25640869140625 toks/sec |
+| **time-to-first-token**    | 87,368 us                   |
+| **num-generated-tokens**   | 170                         |
+| **token-generation-rate**  | 19.333011627197266 toks/sec |
+| **token-generation-time**  | 8,793,398 us                |
+| **GenieDialog_free**       | 105,481 us                  |
+
+### 指标含义解析
+
+| 指标                       | 含义解释                                                                                              |
+| -------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **GenieDialog_create**     | 初始化一个会话对象的时间。包括模型加载、上下文准备、内存分配等。                                      |
+| **num-prompt-tokens**      | 本次输入给模型的 prompt（提示词）的 token 数量，也就是模型接收到的文本拆分成的最小单元数量。          |
+| **prompt-processing-rate** | 模型处理输入 prompt 的速度，单位为 token 每秒（toks/sec），表示模型分析 prompt 并准备生成输出的效率。 |
+| **time-to-first-token**    | 从开始处理到生成第一个输出 token 所花的时间，反映模型响应的延迟。                                     |
+| **num-generated-tokens**   | 模型在本次生成中实际输出的 token 数量，也就是模型生成的文本长度（以 token 为单位）。                  |
+| **token-generation-rate**  | 模型生成 token 的速度，单位为 token 每秒（toks/sec），反映生成效率。                                  |
+| **token-generation-time**  | 模型生成所有输出 token 总共花费的时间，单位通常为微秒（us）。                                         |
+| **GenieDialog_free**       | 释放会话对象的时间，包括释放内存和清理资源。                                                          |
+
+## Genie 官方文档
+
+如果想深入了解 Qualcomm® Genie 的使用方法与详细 API 请参考
+
+- [**Genie 官方文档**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)

@@ -1,0 +1,205 @@
+This document describes how to perform NPU hardware-accelerated inference of the Qwen1.5-1.8B-Chat model on Qualcomm platforms using Qualcomm® Genie.
+
+- Source model: [Qwen/Qwen1.5-1.8B-Chat](https://huggingface.co/Qwen/Qwen1.5-1.8B-Chat)
+
+- Source model license: [Tongyi Qianwen RESEARCH LICENSE AGREEMENT](https://huggingface.co/Qwen/Qwen1.5-1.8B-Chat/blob/main/LICENSE)
+
+## Model Details
+
+| Model             | Quantization | Context Length |
+| ----------------- | ------------ | -------------- |
+| Qwen1.5-1.8B-Chat | W4A16        | 1024           |
+
+## Supported Devices
+
+:::tip
+Refer to the [SoC Architecture Reference](../qairt-sdk#soc-architecture) to find the DSP architecture of your device's SoC.
+:::
+
+- This example supports Qualcomm platform SoCs with **v73** DSP architecture.
+
+  | dsp_arch |
+  | -------- |
+  | v73      |
+
+- Supported devices
+
+  | Device               | SoC     | dsp_arch |
+  | -------------------- | ------- | -------- |
+  | Fogwise® AIRbox Q900 | QCS9075 | v73      |
+
+## Download Genie Toolkit
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/qcom-genie-sdk-v73/qcom-genie-sdk-v73.tar.gz
+tar -xvf qcom-genie-sdk-v73.tar.gz
+```
+
+</NewCodeBlock>
+
+### Import Environment Variables
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qcom-genie-sdk-v73
+export ADSP_LIBRARY_PATH=$(pwd)
+```
+
+</NewCodeBlock>
+
+## Download Model
+
+:::tip
+Please install the modelscope Python package in a Python virtual environment. For virtual environment usage, refer to [**Python Virtual Environment Usage**](/rock5/rock5b/app-development/venv-usage)
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/Qwen1.5-1.8B-Chat-w4a16-1024-v73 --local_dir ./Qwen1.5-1.8B-Chat-w4a16-1024-v73
+```
+
+</NewCodeBlock>
+
+## Run Inference
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd Qwen1.5-1.8B-Chat-w4a16-1024-v73
+```
+
+</NewCodeBlock>
+
+### Build Prompt
+
+Prompts can be passed as a file or as a parameter.
+
+<Tabs>
+
+<TabItem value="prompt">
+
+```bash
+<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant
+```
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+vim chat.txt
+```
+
+</NewCodeBlock>
+
+```vim
+<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant
+```
+
+</TabItem>
+
+</Tabs>
+
+### Run Inference
+
+<Tabs>
+
+<TabItem value="prompt">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c qwen1.5-1.8b-chat-htp.json -p '<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant'
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c qwen1.5-1.8b-chat-htp.json --prompt_file chat.txt
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+```bash
+(.venv) rock@radxa-airbox-q900:/mnt/ssd/qualcomm/Qwen1.5-1.8B-Chat$ genie-t2t-run -c qwen1.5-1.8b-chat-htp.json -p '<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant'
+Using libGenie.so version 1.14.0
+
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+[INFO]  "Using create From Binary"
+[INFO]  "Allocated total size = 426774528 across 8 buffers"
+[PROMPT]: <|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant
+
+[BEGIN]:
+
+Large language model (LLM) is a type of artificial intelligence (AI) that is designed to process and generate human-like language. These models are typically large, complex systems that are trained on vast amounts of text data, including books, articles, and other written materials. They use advanced algorithms and statistical techniques to analyze and understand the structure and meaning of language, allowing them to generate text that is both coherent and contextually appropriate.
+
+The main purpose of an LLM is to process natural language inputs from users, such as questions, statements, or commands, and generate human-like responses. These responses can be in the form of text, speech, or other forms of output, and they are often used in a wide range of applications, including chatbots, virtual assistants, language translation, text summarization, and more.
+
+There are several different types of LLMs, each with its own strengths and weaknesses. Some examples include:
+
+1. Recurrent Neural Networks (RNNs): These are a type of neural network that are designed to process sequences of data, such as sentences or words. They use a feedback loop to process the previous words in a sentence and use this information to generate the next word. RNNs are particularly effective at processing natural language, and they have been used in a wide range of LLM applications, including language translation and text generation.
+
+2. Transformer Models: These are a type of neural network that are designed to process sequences of data, but they are particularly effective at processing long sequences of words. They use a self-attention mechanism to process the information in each word and generate a sequence of words that is coherent and contextually appropriate. Transformer models have been used in a wide range of LLM applications, including language translation and text generation.
+
+3. Seq2Seq Models: These are a type of LLM that are designed to process sequences of data, such as sentences or paragraphs. They use a two-layer feedforward neural network to process the input sequence and generate the output sequence. Seq2Seq models are often used in tasks that involve processing large amounts of text, such as sentiment analysis or text summarization.
+
+4. Seq3Seq Models: These are a type of LLM that are designed to process sequences of data, such as sentences or paragraphs. They use a three-layer feedforward neural network to process the input sequence and generate the output sequence. Seq3Seq models are often used in tasks that involve processing large amounts of text, such as text summarization or question answering.
+
+Overall, the key to developing an effective LLM is to use advanced algorithms and statistical techniques to analyze and understand the structure and meaning of language. By training an LLM on large amounts of text data, developers can create models that are capable of generating text that is both coherent and contextually appropriate, and that can be used in a wide range of applications.[END]
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+```
+
+## Performance Reference
+
+You can enable performance profiling with the `--profile` option.
+
+```bash
+genie-t2t-run -c qwen1.5-1.8b-chat-htp.json --prompt_file chat.txt --profile profile.txt
+```
+
+| Fogwise® AIRbox Q900       |                            |
+| -------------------------- | -------------------------- |
+| **GenieDialog_create**     | 1,636,745 us               |
+| **num-prompt-tokens**      | 29                         |
+| **prompt-processing-rate** | 62.19292068481445 toks/sec |
+| **time-to-first-token**    | 466,319 us                 |
+| **num-generated-tokens**   | 349                        |
+| **token-generation-rate**  | 33.35779571533203 toks/sec |
+| **token-generation-time**  | 10,462,572 us              |
+| **GenieDialog_free**       | 202,542 us                 |
+
+### Metric Definitions
+
+| Metric                     | Definition                                                                                                                                           |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **GenieDialog_create**     | Time to initialize a dialog object, including model loading, context preparation, and memory allocation.                                             |
+| **num-prompt-tokens**      | Number of tokens in the prompt sent to the model (i.e., the smallest unit the input text is split into).                                             |
+| **prompt-processing-rate** | Speed at which the model processes the prompt, in tokens per second (toks/sec), reflecting the efficiency of prompt analysis and output preparation. |
+| **time-to-first-token**    | Time elapsed from the start of processing to the generation of the first output token, reflecting the model's response latency.                      |
+| **num-generated-tokens**   | Number of tokens actually output by the model in this generation, representing the length of the generated text in tokens.                           |
+| **token-generation-rate**  | Speed at which the model generates tokens, in tokens per second (toks/sec), reflecting generation efficiency.                                        |
+| **token-generation-time**  | Total time spent generating all output tokens, in microseconds (us).                                                                                 |
+| **GenieDialog_free**       | Time to free the dialog object, including memory release and resource cleanup.                                                                       |
+
+## Official Genie Documentation
+
+For more details on Qualcomm® Genie usage and API, refer to:
+
+- [**Genie Official Documentation**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)

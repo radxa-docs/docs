@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # QNN Execution Provider
 
-import QNNONNXRTEXECUTIONPROVIDER from '../../../../common/ai/\_qnn_onnxrt_execution_provider.mdx';
+import QNNONNXRTEXECUTIONPROVIDER from '../../../../common/ai/qualcomm/\_qnn_onnxrt_execution_provider.mdx';
 
-<QNNONNXRTEXECUTIONPROVIDER />
+<QNNONNXRTEXECUTIONPROVIDER tag="qcs6490"/>

@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # OpenAI-Clip 示例
 
-import OPENAICLIPQAIAPPBUILDER from '../../../../common/ai/\_openai_clip_qai-app-builder.mdx';
+import OPENAICLIPQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_openai_clip_qai-app-builder.mdx';
 
-<OPENAICLIPQAIAPPBUILDER />
+<OPENAICLIPQAIAPPBUILDER tag="qcs9075"/>

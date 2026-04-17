@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # LeViT 示例
 
-import LEVITQAIAPPBUILDER from '../../../../../common/ai/\_levit_qai-app-builder.mdx';
+import LEVITQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_levit_qai-app-builder.mdx';
 
 <LEVITQAIAPPBUILDER />

@@ -4,12 +4,12 @@ sidebar_position: 0
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - i18n/en/docusaurus-plugin-content-docs/current/common/ai/_fastrpc_setup.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/ai/qualcomm/_fastrpc_setup.mdx
 ---
 
 # Enable NPU on Board
 
-import FASTRPCSETUP from '../../../../common/ai/\_fastrpc_setup.mdx';
+import FASTRPCSETUP from '../../../../common/ai/qualcomm/\_fastrpc_setup.mdx';
 
 :::tip
 

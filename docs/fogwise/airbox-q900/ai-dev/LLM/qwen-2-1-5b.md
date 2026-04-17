@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Qwen2-1.5B-Instruct
 
-import GENIEQWEN215B from '../../../../common/ai/\_genie_qwen_2_1_5b.mdx';
+import GENIEQWEN215B from '../../../../common/ai/qualcomm/\_genie_qwen_2_1_5b.mdx';
 
 <GENIEQWEN215B />

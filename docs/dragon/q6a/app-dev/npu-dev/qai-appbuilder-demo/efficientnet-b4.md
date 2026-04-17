@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # EfficientNet-B4 示例
 
-import EFFICIENTNETB4QAIAPPBUILDER from '../../../../../common/ai/\_efficientnet_b4_qai-app-builder.mdx';
+import EFFICIENTNETB4QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_efficientnet_b4_qai-app-builder.mdx';
 
 <EFFICIENTNETB4QAIAPPBUILDER />

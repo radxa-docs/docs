@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # GoogLeNet 示例
 
-import GOOGLENETQAIAPPBUILDER from '../../../../common/ai/\_googlenet_qai-app-builder.mdx';
+import GOOGLENETQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_googlenet_qai-app-builder.mdx';
 
-<GOOGLENETQAIAPPBUILDER />
+<GOOGLENETQAIAPPBUILDER tag="qcs9075"/>

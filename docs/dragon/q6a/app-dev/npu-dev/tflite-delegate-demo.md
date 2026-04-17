@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # TFLite Delegate 验证
 
-import QAIRTTFLITEDELEGATEDEMO from '../../../../common/ai/\_qairt_tflite_delegate_demo.mdx';
+import QAIRTTFLITEDELEGATEDEMO from '../../../../common/ai/qualcomm/\_qairt_tflite_delegate_demo.mdx';
 
 <QAIRTTFLITEDELEGATEDEMO />

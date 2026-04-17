@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # WideResNet50 示例
 
-import WIDERESNET50QAIAPPBUILDER from '../../../../../common/ai/\_wideresnet50_qai-app-builder.mdx';
+import WIDERESNET50QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_wideresnet50_qai-app-builder.mdx';
 
 <WIDERESNET50QAIAPPBUILDER />

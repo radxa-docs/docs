@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # ConvNext-Base 示例
 
-import CONVNEXTBASEQAIAPPBUILDER from '../../../../../common/ai/\_convnext_base_qai-app-builder.mdx';
+import CONVNEXTBASEQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_convnext_base_qai-app-builder.mdx';
 
 <CONVNEXTBASEQAIAPPBUILDER />

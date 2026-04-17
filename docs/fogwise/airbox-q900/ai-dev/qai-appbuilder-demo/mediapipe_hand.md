@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # MediaPipe-Hand-Detection 示例
 
-import MEDIAPIPEHANDQAIAPPBUILDER from '../../../../common/ai/\_mediapipe_hand_qai-app-builder.mdx';
+import MEDIAPIPEHANDQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_mediapipe_hand_qai-app-builder.mdx';
 
-<MEDIAPIPEHANDQAIAPPBUILDER />
+<MEDIAPIPEHANDQAIAPPBUILDER tag="qcs9075"/>

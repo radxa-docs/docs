@@ -4,11 +4,11 @@ sidebar_position: 0
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_googlenet_qai-app-builder.mdx
+  - docs/common/ai/_googlenet_qai-app-builder-6490.mdx
 ---
 
 # GoogLeNet 示例
 
-import GOOGLENETQAIAPPBUILDER from '../../../../../common/ai/\_googlenet_qai-app-builder.mdx';
+import GOOGLENETQAIAPPBUILDER6490 from '../../../../../common/ai/qualcomm/\_googlenet_qai-app-builder-6490.mdx';
 
-<GOOGLENETQAIAPPBUILDER />
+<GOOGLENETQAIAPPBUILDER6490 tag="qcs6490"/>

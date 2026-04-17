@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # AIMET 量化工具
 
-import AIMET from '../../../../common/ai/\_aimet.mdx';
+import AIMET from '../../../../common/ai/qualcomm/\_aimet.mdx';
 
 <AIMET />

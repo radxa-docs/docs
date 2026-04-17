@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Unet-Segmentation 示例
 
-import UNETSEGQAIAPPBUILDER from '../../../../common/ai/\_unet_seg_qai-app-builder.mdx';
+import UNETSEGQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_unet_seg_qai-app-builder.mdx';
 
-<UNETSEGQAIAPPBUILDER />
+<UNETSEGQAIAPPBUILDER tag="qcs9075"/>

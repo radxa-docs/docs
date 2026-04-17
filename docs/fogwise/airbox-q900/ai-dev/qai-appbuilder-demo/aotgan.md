@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # AOT-GAN 示例
 
-import AOTGANQAIAPPBUILDER from '../../../../common/ai/\_aotgan_qai-app-builder.mdx';
+import AOTGANQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_aotgan_qai-app-builder.mdx';
 
-<AOTGANQAIAPPBUILDER />
+<AOTGANQAIAPPBUILDER tag="qcs9075"/>

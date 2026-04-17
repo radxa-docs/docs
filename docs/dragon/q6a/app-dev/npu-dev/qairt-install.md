@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # QAIRT SDK 安装
 
-import QAIRTINSTALL from '../../../../common/ai/\_qairt-install.mdx';
+import QAIRTINSTALL from '../../../../common/ai/qualcomm/\_qairt-install.mdx';
 
 <QAIRTINSTALL tag="qcs6490"/>

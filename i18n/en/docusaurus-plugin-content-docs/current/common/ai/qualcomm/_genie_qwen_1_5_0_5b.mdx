@@ -1,0 +1,194 @@
+This document describes how to perform NPU hardware-accelerated inference of the Qwen1.5-0.5B-Chat model on Qualcomm platforms using Qualcomm® Genie.
+
+- Source model: [Qwen/Qwen1.5-0.5B-Chat](https://huggingface.co/Qwen/Qwen1.5-0.5B-Chat)
+
+- Source model license: [Tongyi Qianwen RESEARCH LICENSE AGREEMENT](https://huggingface.co/Qwen/Qwen1.5-0.5B-Chat/blob/main/LICENSE)
+
+## Model Details
+
+| Model             | Quantization | Context Length |
+| ----------------- | ------------ | -------------- |
+| Qwen1.5-0.5B-Chat | W4A16        | 1024           |
+
+## Supported Devices
+
+:::tip
+Refer to the [SoC Architecture Reference](../qairt-sdk#soc-architecture) to find the DSP architecture of your device's SoC.
+:::
+
+- This example supports Qualcomm platform SoCs with **v73** DSP architecture.
+
+  | dsp_arch |
+  | -------- |
+  | v73      |
+
+- Supported devices
+
+  | Device               | SoC     | dsp_arch |
+  | -------------------- | ------- | -------- |
+  | Fogwise® AIRbox Q900 | QCS9075 | v73      |
+
+## Download Genie Toolkit
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/qcom-genie-sdk-v73/qcom-genie-sdk-v73.tar.gz
+tar -xvf qcom-genie-sdk-v73.tar.gz
+```
+
+</NewCodeBlock>
+
+### Import Environment Variables
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qcom-genie-sdk-v73
+export ADSP_LIBRARY_PATH=$(pwd)
+```
+
+</NewCodeBlock>
+
+## Download Model
+
+:::tip
+Please install the modelscope Python package in a Python virtual environment. For virtual environment usage, refer to [**Python Virtual Environment Usage**](/rock5/rock5b/app-development/venv-usage)
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/Qwen1.5-0.5B-Chat-w4a16-1024-v73 --local_dir ./Qwen1.5-0.5B-Chat-w4a16-1024-v73
+```
+
+</NewCodeBlock>
+
+## Run Inference
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd Qwen1.5-0.5B-Chat-w4a16-1024-v73
+```
+
+</NewCodeBlock>
+
+### Build Prompt
+
+Prompts can be passed as a file or as a parameter.
+
+<Tabs>
+
+<TabItem value="prompt">
+
+```bash
+<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant
+```
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+vim chat.txt
+```
+
+</NewCodeBlock>
+
+```vim
+<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant
+```
+
+</TabItem>
+
+</Tabs>
+
+### Run Inference
+
+<Tabs>
+
+<TabItem value="prompt">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c qwen1.5-0.5b-chat-htp.json -p '<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nGive me a short introduction to large language model.<|im_end|>\n<|im_start|>assistant'
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c qwen1.5-0.5b-chat-htp.json --prompt_file chat.txt
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+```bash
+(.venv) rock@radxa-airbox-q900:/mnt/ssd/qualcomm/Qwen1.5-0.5B-Chat$ genie-t2t-run -c qwen1.5-0.5b-chat-htp.json --prompt_file chat.txt
+Using libGenie.so version 1.14.0
+
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+[INFO]  "Using create From Binary"
+[INFO]  "Allocated total size = 363728896 across 1 buffers"
+[PROMPT]: <|im_start|>system
+You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Give me a short introduction to large language model.<|im_end|>
+<|im_start|>assistant
+
+
+[BEGIN]: The Large Language Model is a type of artificial intelligence model designed to generate text based on patterns and structures learned from large datasets of text. It is trained on a large corpus of text data, including books, articles, and other types of written content, and is able to generate text that is coherent, relevant, and grammatically correct. The Large Language Model is often used in various fields such as natural language processing, machine learning, and artificial intelligence, among others.[END]
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+```
+
+## Performance Reference
+
+You can enable performance profiling with the `--profile` option.
+
+```bash
+genie-t2t-run -c qwen1.5-0.5b-chat-htp.json --prompt_file chat.txt --profile profile.txt
+```
+
+| Fogwise® AIRbox Q900       |                              |
+| -------------------------- | ---------------------------- |
+| **GenieDialog_create**     | 915,852 us                   |
+| **num-prompt-tokens**      | 29                           |
+| **prompt-processing-rate** | 126.53422546386719, toks/sec |
+| **time-to-first-token**    | 229,204 us                   |
+| **num-generated-tokens**   | 94                           |
+| **token-generation-rate**  | 83.3055648803711 toks/sec    |
+| **token-generation-time**  | 1,128,428 us                 |
+| **GenieDialog_free**       | 86,258 us                    |
+
+### Metric Definitions
+
+| Metric                     | Definition                                                                                                                                           |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **GenieDialog_create**     | Time to initialize a dialog object, including model loading, context preparation, and memory allocation.                                             |
+| **num-prompt-tokens**      | Number of tokens in the prompt sent to the model (i.e., the smallest unit the input text is split into).                                             |
+| **prompt-processing-rate** | Speed at which the model processes the prompt, in tokens per second (toks/sec), reflecting the efficiency of prompt analysis and output preparation. |
+| **time-to-first-token**    | Time elapsed from the start of processing to the generation of the first output token, reflecting the model's response latency.                      |
+| **num-generated-tokens**   | Number of tokens actually output by the model in this generation, representing the length of the generated text in tokens.                           |
+| **token-generation-rate**  | Speed at which the model generates tokens, in tokens per second (toks/sec), reflecting generation efficiency.                                        |
+| **token-generation-time**  | Total time spent generating all output tokens, in microseconds (us).                                                                                 |
+| **GenieDialog_free**       | Time to free the dialog object, including memory release and resource cleanup.                                                                       |
+
+## Official Genie Documentation
+
+For more details on Qualcomm® Genie usage and API, refer to:
+
+- [**Genie Official Documentation**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)

@@ -1,0 +1,221 @@
+本文档将介绍如何在高通平台上通过 Qualcomm® Genie 使用 NPU 硬件加速推理 Phi-3.5-mini-instruct 模型
+
+- 源模型 [microsoft/Phi-3.5-mini-instruct](https://huggingface.co/microsoft/Phi-3.5-mini-instruct)
+
+- 源模型许可证：[MIT](https://huggingface.co/microsoft/Phi-3.5-mini-instruct/blob/main/LICENSE)
+
+## 模型细节
+
+| 模型                  | 量化方式 | 上下文长度 |
+| --------------------- | -------- | ---------- |
+| Phi-3.5-mini-instruct | W4A16    | 4096       |
+
+## 支持设备
+
+:::tip
+请参考 [SoC 架构对照表](../qairt-sdk#soc-架构对照表) 查寻当前设备 SoC 的 DSP 架构
+:::
+
+- 此示例支持 **v73** DSP 架构的高通平台 SoC
+
+  | dsp_arch |
+  | -------- |
+  | v73      |
+
+- 运行设备
+
+  | 设备                 | SoC     | dsp_arch |
+  | -------------------- | ------- | -------- |
+  | Fogwise® AIRbox Q900 | QCS9075 | v73      |
+
+## 下载 genie 工具包
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/qcom-genie-sdk-v73/qcom-genie-sdk-v73.tar.gz
+tar -xvf qcom-genie-sdk-v73.tar.gz
+```
+
+</NewCodeBlock>
+
+### 导入环境变量
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qcom-genie-sdk-v73
+export ADSP_LIBRARY_PATH=$(pwd)
+```
+
+</NewCodeBlock>
+
+## 下载模型
+
+:::tip
+请在 python 虚拟环境中安装 modelscope python 包，虚拟环境使用请参考 [**Python 虚拟环境使用**](/rock5/rock5b/app-development/venv-usage)
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/Phi-3.5-mini-instruct-w4a16-4096-v73 --local_dir ./Phi-3.5-mini-instruct-w4a16-4096-v73
+```
+
+</NewCodeBlock>
+
+## 推理模型
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd Phi-3.5-mini-instruct-w4a16-4096-v73
+```
+
+</NewCodeBlock>
+
+### 构建 prompt
+
+prompt 支持以文件形式或者参数形式传入
+
+<Tabs>
+
+<TabItem value="prompt">
+
+```bash
+<|system|>You are a helpful assistant.<|end|><|user|>How to explain Internet for a medieval knight?<|end|><|assistant|>
+```
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+vim chat.txt
+```
+
+</NewCodeBlock>
+
+```vim
+<|system|>You are a helpful assistant.<|end|><|user|>How to explain Internet for a medieval knight?<|end|><|assistant|>
+```
+
+</TabItem>
+
+</Tabs>
+
+### 执行推理
+
+<Tabs>
+
+<TabItem value="prompt">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c Phi-3.5-mini-instruct-htp.json -p '<|system|>You are a helpful assistant.<|end|><|user|>How to explain Internet for a medieval knight?<|end|><|assistant|>'
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c Phi-3.5-mini-instruct-htp.json --prompt_file chat.txt
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+```bash
+(.venv) rock@radxa-airbox-q900:/mnt/ssd/qualcomm/modelfarm_models/Phi-3.5-mini-instruct$ genie-t2t-run -c Phi-3.5-mini-instruct-htp.json -p '<|system|>You are a helpful assistant.<|end|><|user|>How to explain Internet for a medieval knight?<|end|><|assistant|>'
+Using libGenie.so version 1.14.0
+
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+[INFO]  "Using create From Binary"
+[INFO]  "Allocated total size = 816947712 across 8 buffers"
+[PROMPT]: <|system|>You are a helpful assistant.<|end|><|user|>How to explain Internet for a medieval knight?<|end|><|assistant|>
+
+[BEGIN]:  To explain the Internet to a medieval knight, you would need to break down the concept into fundamental ideas and relate them to familiar medieval scenarios. Here's a step-by터 approach:
+
+1. **Understanding the Concept of a "Network":**
+   - **Metaphor:** Explain the Internet as a vast network of roads, similar to the intricate web of trade routes and alliances that knights might travel on. Just as knights can journey from one castle to another, the Internet allows people to travel from one place to another, not on horseback, but through a system of interconnected pathways.
+
+2. **The Role of the "Knights of the Round Table" (Internet Service Providers):**
+   - **Explanation:** Describe ISPs as the local lords or guild masters who provide access to the roads. They maintain the infrastructure (like roads) and ensure that travelers (users) can move from one place to another.
+
+3. **The "Code of Chivalry" (Internet Protocols/Standards):**
+   - **Illustration:** Just as knights follow a code of conduct, the Internet has its own set of rules that ensure communication and data exchange are orderly and efficient. These rules are known as protocols, which are agreed-upon methods for knights (devices and users) to interact safely.
+
+4. **The "Tournament of the Field" (Data Exchange):**
+   - **Analogy:** When a knight competes in a tournament, he aims to win or achieve a goal. Similarly, the Internet allows individuals to send and receive information (letters, messages, scrolls) to achieve their objectives.
+
+5. **The "Four Postern Door" (Firewall):**
+   - **Security Measure:** Explain that just as a castle has a gatekeeper to protect its inhabitants from invaders, the Internet has security measures (firewalls) to protect against malicious entities.
+
+6. **The "Tale of Two Cities" (Internet Speed and Connectivity):**
+   - **Variation:** Some castles (computers) have faster horses (faster Internet speeds) and more direct routes (better connectivity) than others. This difference can affect how quickly one can send messages or travel to distant lands.
+
+7. **The "Crossbow" (Data Transmission):**
+   - **Tool:** Describe how data is sent across the Internet using a metaphor such as a crossbow. The Internet is like a vast battlefield where crossbows (data packets) are launched from one knight's (user's) position to another, carrying messages or information.
+
+8. **The "Alchemist's Potion" (Data Encryption):**
+   - **Secrecy:** Just as a potion can be concocted to remain hidden from prying eyes, data on the Internet is often encrypted, ensuring that only those with the right key (password or decryption key) can read the information.
+
+9. **The "Dragon's Lair" (Server Farms):**
+   - **Central Hub:** Explain that there are central hubs, like a dragon's lair, where vast amounts of scrolls (data) are stored. These are called servers, and they hold the knowledge and resources that knights (users) can access when they travel the Internet.
+
+10. **The "Mercantile Guilds" (Social Networks and Online Communities):**
+    - **Social Interaction:** The Internet also serves as a marketplace and a gathering place for knights to exchange news, share tales of adventure, and forge alliances, much like the social networks and online communities of today.
+
+By using these medieval metaphors and scenarios, you can help a medieval knight grasp the abstract and complex nature of the Internet in a context they can understand. Remember, the goal is to make the explanation relatable while maintaining the essence of how the Internet functions.[END]
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+```
+
+## 性能参考
+
+可以使用 `--profile` 选项开启性能分析功能
+
+```bash
+genie-t2t-run -c Phi-3.5-mini-instruct-htp.json --prompt_file chat.txt --profile profile.txt
+```
+
+| Fogwise® AIRbox Q900       |                             |
+| -------------------------- | --------------------------- |
+| **GenieDialog_create**     | 2,143,046 us                |
+| **num-prompt-tokens**      | 21                          |
+| **prompt-processing-rate** | 122.04051971435547 toks/sec |
+| **time-to-first-token**    | 172,091 us                  |
+| **num-generated-tokens**   | 901                         |
+| **token-generation-rate**  | 9.163215637207031 toks/sec  |
+| **token-generation-time**  | 98,328,012 us               |
+| **GenieDialog_free**       | 122,259 us                  |
+
+### 指标含义解析
+
+| 指标                       | 含义解释                                                                                              |
+| -------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **GenieDialog_create**     | 初始化一个会话对象的时间。包括模型加载、上下文准备、内存分配等。                                      |
+| **num-prompt-tokens**      | 本次输入给模型的 prompt（提示词）的 token 数量，也就是模型接收到的文本拆分成的最小单元数量。          |
+| **prompt-processing-rate** | 模型处理输入 prompt 的速度，单位为 token 每秒（toks/sec），表示模型分析 prompt 并准备生成输出的效率。 |
+| **time-to-first-token**    | 从开始处理到生成第一个输出 token 所花的时间，反映模型响应的延迟。                                     |
+| **num-generated-tokens**   | 模型在本次生成中实际输出的 token 数量，也就是模型生成的文本长度（以 token 为单位）。                  |
+| **token-generation-rate**  | 模型生成 token 的速度，单位为 token 每秒（toks/sec），反映生成效率。                                  |
+| **token-generation-time**  | 模型生成所有输出 token 总共花费的时间，单位通常为微秒（us）。                                         |
+| **GenieDialog_free**       | 释放会话对象的时间，包括释放内存和清理资源。                                                          |
+
+## Genie 官方文档
+
+如果想深入了解 Qualcomm® Genie 的使用方法与详细 API 请参考
+
+- [**Genie 官方文档**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)

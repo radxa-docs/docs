@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # RegNet 示例
 
-import REGNETQAIAPPBUILDER from '../../../../../common/ai/\_regnet_qai-app-builder.mdx';
+import REGNETQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_regnet_qai-app-builder.mdx';
 
 <REGNETQAIAPPBUILDER />

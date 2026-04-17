@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # ConvNext-Tiny 示例
 
-import CONVNEXTTINYQAIAPPBUILDER from '../../../../../common/ai/\_convnext_tiny_qai-app-builder.mdx';
+import CONVNEXTTINYQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_convnext_tiny_qai-app-builder.mdx';
 
 <CONVNEXTTINYQAIAPPBUILDER />

@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Phi-3.5-mini-instruct
 
-import GENIEPHI35MINI from '../../../../common/ai/\_genie_phi_3_5_mini.mdx';
+import GENIEPHI35MINI from '../../../../common/ai/qualcomm/\_genie_phi_3_5_mini.mdx';
 
 <GENIEPHI35MINI />

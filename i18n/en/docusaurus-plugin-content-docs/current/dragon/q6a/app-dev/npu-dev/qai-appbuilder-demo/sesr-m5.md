@@ -4,11 +4,11 @@ sidebar_position: 0
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - i18n/en/docusaurus-plugin-content-docs/current/common/ai/_sesr_m5_qai-app-builder.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/ai/qualcomm/_sesr_m5_qai-app-builder.mdx
 ---
 
 # SESR-M5 Example
 
-import SESRM5QAIAPPBUILDER from '../../../../../common/ai/\_sesr_m5_qai-app-builder.mdx';
+import SESRM5QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_sesr_m5_qai-app-builder.mdx';
 
 <SESRM5QAIAPPBUILDER />

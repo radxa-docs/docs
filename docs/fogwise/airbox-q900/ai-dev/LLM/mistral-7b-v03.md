@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Mistral-7B-Instruct-v0.3
 
-import GENIEMISTRAL7BV03 from '../../../../common/ai/\_genie_mistral_7b_v_03.mdx';
+import GENIEMISTRAL7BV03 from '../../../../common/ai/qualcomm/\_genie_mistral_7b_v_03.mdx';
 
 <GENIEMISTRAL7BV03 />

@@ -1,0 +1,86 @@
+This document provides an out-of-the-box resnet50 object recognition model inference example.
+This example performs hardware-accelerated inference using Qualcomm® Hexagon™ Processor (NPU) on Radxa Dragon Ubuntu system.
+
+:::tip
+Before performing NPU Quick Verification, please refer to [**Enable NPU on Board**](./fastrpc-setup)
+to make sure the NPU is enabled.
+:::
+
+## Download Example
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/resnet50_qairt --local ./resnet50_qairt
+```
+
+</NewCodeBlock>
+
+## Run Example
+
+Please import environment variables according to SoC
+
+<Tabs queryString="platform">
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=6490
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=9075
+    ```
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+Execute model inference
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd resnet50_qairt/${PRODUCT_SOC}
+chmod +x qnn-net-run
+./qnn-net-run --backend ./libQnnHtp.so --retrieve_context ./resnet50_aimet_quantized_${PRODUCT_SOC}.bin --input_list ./test_list.txt --output_dir output_bin
+```
+
+</NewCodeBlock>
+
+## Verify Example
+
+You can use python script for result verification
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ../scripts
+python3 show_resnet50_classifications.py --input_list ../${PRODUCT_SOC}/test_list.txt -o ../${PRODUCT_SOC}/output_bin/ --labels_file ../data/imagenet_classes.txt
+```
+
+</NewCodeBlock>
+
+```bash
+$ python3 show_resnet50_classifications.py --input_list ../${PRODUCT_SOC}/test_list.txt -o ../${PRODUCT_SOC}/output_bin/ --labels_file ../data/imagenet_classes.txt
+Classification results
+../data/test/crop/ILSVRC2012_val_00003441.raw 21.476509 402 acoustic guitar
+../data/test/crop/ILSVRC2012_val_00008465.raw 22.651005 927 trifle
+../data/test/crop/ILSVRC2012_val_00010218.raw 12.248322 281 tabby
+../data/test/crop/ILSVRC2012_val_00044076.raw 18.456375 376 proboscis monkey
+```
+
+By comparing the printed results with the test image content, you can confirm that the output results of the resnet50 model ported to Qualcomm® NPU are correct.
+
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/qairt_resnet50.webp" style={{ width: "60%" }} />
+  resnet50 input images
+</div>

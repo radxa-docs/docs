@@ -4,11 +4,11 @@ sidebar_position: 2
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - i18n/en/docusaurus-plugin-content-docs/current/common/ai/_qairt-install.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/ai/qualcomm/_qairt-install.mdx
 ---
 
 # QAIRT SDK Install
 
-import QAIRTINSTALL from '../../../common/ai/\_qairt-install.mdx';
+import QAIRTINSTALL from '../../../common/ai/qualcomm/\_qairt-install.mdx';
 
 <QAIRTINSTALL tag="qcs9075"/>

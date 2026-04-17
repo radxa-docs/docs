@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # EasyOCR 示例
 
-import EASYOCRQAIAPPBUILDER from '../../../../common/ai/\_easy_ocr_qai-app-builder.mdx';
+import EASYOCRQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_easy_ocr_qai-app-builder.mdx';
 
-<EASYOCRQAIAPPBUILDER />
+<EASYOCRQAIAPPBUILDER tag="qcs9075"/>

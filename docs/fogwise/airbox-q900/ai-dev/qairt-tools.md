@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # QAIRT CLI Tools
 
-import QAIRTTOOLS from '../../../common/ai/\_qairt-tools.mdx';
+import QAIRTTOOLS from '../../../common/ai/qualcomm/\_qairt-tools.mdx';
 
 <QAIRTTOOLS />

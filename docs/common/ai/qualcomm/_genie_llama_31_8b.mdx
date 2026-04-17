@@ -1,0 +1,189 @@
+本文档将介绍如何在高通平台上通过 Qualcomm® Genie 使用 NPU 硬件加速推理 Llama-3.1-8B-Instruct 模型
+
+- 源模型 [meta-llama/Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)
+
+- 源模型许可证：[LLAMA 3.1 COMMUNITY LICENSE AGREEMENT](https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE)
+
+## 模型细节
+
+| 模型                  | 量化方式 | 上下文长度 |
+| --------------------- | -------- | ---------- |
+| Llama-3.1-8B-Instruct | W4A16    | 4096       |
+
+## 支持设备
+
+:::tip
+请参考 [SoC 架构对照表](../qairt-sdk#soc-架构对照表) 查寻当前设备 SoC 的 DSP 架构
+:::
+
+- 此示例支持 **v73** DSP 架构的高通平台 SoC
+
+  | dsp_arch |
+  | -------- |
+  | v73      |
+
+- 运行设备
+
+  | 设备                 | SoC     | dsp_arch |
+  | -------------------- | ------- | -------- |
+  | Fogwise® AIRbox Q900 | QCS9075 | v73      |
+
+## 下载 genie 工具包
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/qcom-genie-sdk-v73/qcom-genie-sdk-v73.tar.gz
+tar -xvf qcom-genie-sdk-v73.tar.gz
+```
+
+</NewCodeBlock>
+
+### 导入环境变量
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qcom-genie-sdk-v73
+export ADSP_LIBRARY_PATH=$(pwd)
+```
+
+</NewCodeBlock>
+
+## 下载模型
+
+:::tip
+请在 python 虚拟环境中安装 modelscope python 包，虚拟环境使用请参考 [**Python 虚拟环境使用**](/rock5/rock5b/app-development/venv-usage)
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/Llama-3.1-8B-Instruct-w4a16-4096-v73 --local_dir ./Llama-3.1-8B-Instruct-w4a16-4096-v73
+```
+
+</NewCodeBlock>
+
+## 推理模型
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd Llama-3.1-8B-Instruct-w4a16-4096-v73
+```
+
+</NewCodeBlock>
+
+### 构建 prompt
+
+prompt 支持以文件形式或者参数形式传入
+
+<Tabs>
+
+<TabItem value="prompt">
+
+```bash
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>\nYou are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>n\Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n
+```
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+vim chat.txt
+```
+
+</NewCodeBlock>
+
+```vim
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>\nYou are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>n\Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n
+```
+
+</TabItem>
+
+</Tabs>
+
+### 执行推理
+
+<Tabs>
+
+<TabItem value="prompt">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c Meta-Llama-3.1-8B-Instruct-htp.json -p '<|begin_of_text|><|start_header_id|>system<|end_header_id|>\nYou are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>n\Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n'
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c Meta-Llama-3.1-8B-Instruct-htp.json --prompt_file chat.txt
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+```bash
+(.venv) rock@radxa-airbox-q900:/mnt/ssd/qualcomm/Meta-Llama-3.1-8B-Instruct/qnn229_qcs8550_cl4096$ genie-t2t-run -c Meta-Llama-3.1-8B-Instruct-htp.json -p '<|begin_of_text|><|start_header_id|>system<|end_header_id|>\nYou are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>n\Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n'
+Using libGenie.so version 1.14.0
+
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+[INFO]  "Using create From Binary List Async"
+[INFO]  "Allocated total size = 306545152 across 10 buffers"
+[PROMPT]: <|begin_of_text|><|start_header_id|>system<|end_header_id|>\nYou are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>n\Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n
+
+[BEGIN]: Me be ol' Blackbeak Billy, a scurvy pirate scallywag! I sail the treacherous seven seas may friend, in search of gold, jewels, and fine rum to drink! Yer might be wonderin' why ye should me of me? Fear me if ye be, landlubber! I be here to guide ye through me wittles of trivia an' piratey priddy jokes! What be trouvin' ye today, me hearty?[END]
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+```
+
+## 性能参考
+
+可以使用 `--profile` 选项开启性能分析功能
+
+```bash
+genie-t2t-run -c Meta-Llama-3.1-8B-Instruct-htp.json --prompt_file chat.txt --profile profile.txt
+```
+
+| Fogwise® AIRbox Q900       |                            |
+| -------------------------- | -------------------------- |
+| **GenieDialog_create**     | 2,182,009 us               |
+| **num-prompt-tokens**      | 32                         |
+| **prompt-processing-rate** | 140.2327880859375 toks/sec |
+| **time-to-first-token**    | 228,202 us                 |
+| **num-generated-tokens**   | 65                         |
+| **token-generation-rate**  | 8.106289863586426 toks/sec |
+| **token-generation-time**  | 8,018,490 us               |
+| **GenieDialog_free**       | 190,095 us                 |
+
+### 指标含义解析
+
+| 指标                       | 含义解释                                                                                              |
+| -------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **GenieDialog_create**     | 初始化一个会话对象的时间。包括模型加载、上下文准备、内存分配等。                                      |
+| **num-prompt-tokens**      | 本次输入给模型的 prompt（提示词）的 token 数量，也就是模型接收到的文本拆分成的最小单元数量。          |
+| **prompt-processing-rate** | 模型处理输入 prompt 的速度，单位为 token 每秒（toks/sec），表示模型分析 prompt 并准备生成输出的效率。 |
+| **time-to-first-token**    | 从开始处理到生成第一个输出 token 所花的时间，反映模型响应的延迟。                                     |
+| **num-generated-tokens**   | 模型在本次生成中实际输出的 token 数量，也就是模型生成的文本长度（以 token 为单位）。                  |
+| **token-generation-rate**  | 模型生成 token 的速度，单位为 token 每秒（toks/sec），反映生成效率。                                  |
+| **token-generation-time**  | 模型生成所有输出 token 总共花费的时间，单位通常为微秒（us）。                                         |
+| **GenieDialog_free**       | 释放会话对象的时间，包括释放内存和清理资源。                                                          |
+
+## Genie 官方文档
+
+如果想深入了解 Qualcomm® Genie 的使用方法与详细 API 请参考
+
+- [**Genie 官方文档**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)
