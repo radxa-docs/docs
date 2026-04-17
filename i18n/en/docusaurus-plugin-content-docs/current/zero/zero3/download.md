@@ -62,6 +62,8 @@ Default Armbian credentials:
 
 - [Radxa ZERO 3 DietPi](https://dietpi.com/downloads/images/DietPi_RadxaZERO3-ARMv8-Bookworm.img.xz)
 
+- [Radxa ZERO 3W E Android](https://github.com/radxa/manifests/releases/download/radxa-zero3-we-android11-rkr12-20240111/Radxa-Zero3WE-20231130-gpt.zip)
+
 - [Radxa Zero 3w OpenIPC](https://github.com/OpenIPC/sbc-groundstations/releases)
 
 - [OpenWRT Technical Data Page: Radxa Zero 3W](https://openwrt.org/toh/hwdata/radxa/radxa_zero_3w)
