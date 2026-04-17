@@ -13,7 +13,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## 镜像下载
 
-请到 [资源下载汇总](./download) 下载对应的镜像文件
+请到 [资源下载汇总](../download) 下载对应的镜像文件
 
 ## 安装系统
 
@@ -25,7 +25,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 - ZERO 2 PRO 的供电接口为 [USB OTG](../hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
 
 :::tip
-ZERO 2 PRO 支持 5V 电源输入，建议使用额定最大电流大于2A的电源适配器。瑞莎推荐使用 [Radxa Power PD30W](../accessories/power/pd_30w)。
+ZERO 2 PRO 支持 5V 电源输入，建议使用额定最大电流大于2A的电源适配器。瑞莎推荐使用 [Radxa Power PD30W](../accessories/pd-30w)。
 :::
 
 ## 登录系统
