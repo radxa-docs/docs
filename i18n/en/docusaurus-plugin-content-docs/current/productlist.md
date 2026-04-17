@@ -7,7 +7,6 @@ sidebar_position: 2
 Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules, and network computing devices, covering ARM, x86, and other architecture platforms, widely used in embedded development, multimedia entertainment, artificial intelligence, and edge computing applications.
 
 - **Mini Boards / Motherboards**: From credit-card size to palm-sized, ranging from entry-level to flagship performance
-- **Host**: Standard desktop mini PCs for everyday use and multimedia entertainment
 - **Motherboards**: Standard ATX / ITX form factor for desktop and industrial applications
 - **Compute Modules**: Standard SODIMM / B2B interfaces for rapid integration into embedded products and industrial equipment
 - **Edge Computing**: Mini computing devices designed for edge AI and IoT applications
@@ -96,17 +95,6 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 | Model                            | Description                                    |
 | -------------------------------- | ---------------------------------------------- |
 | [Dragon Q6A](/dragon/q6a/)   | Qualcomm QCS6490 based Edge AI Mini Board     |
-
-## Radxa Host
-
-Palmshell® Brand, General-Purpose Desktop Mini PCs
-
-| Model     | Description                          |
-| --------- | ------------------------------------ |
-| SLiM X2L  | RK3308 based Ultra-Compact Mini PC   |
-| SLiM X4L  | RK3308 based Ultra-Compact Mini PC   |
-| PuER N1   | RK3588 based Mini PC                |
-| NeXT H2   | RK3588 based Mini PC                |
 
 ## Radxa Motherboards
 
