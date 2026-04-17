@@ -118,8 +118,8 @@ Fogwise® Brand, Edge AI and IoT Mini Computing Devices
 
 | Model           | Description                                 |
 | --------------- | ------------------------------------------ |
-| AirBox          | RK3588S based Edge AI Mini Host            |
-| AIRbox Q900     | RK3588 based Edge AI Computing Device      |
+| AirBox          | SOPHON SG2300x based Edge AI Mini Host            |
+| AIRbox Q900     | Qualcomm IQ-9075 based Edge AI Computing Device  |
 
 ## Radxa Compute Modules
 
