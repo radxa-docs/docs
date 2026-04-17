@@ -2,8 +2,8 @@
 sidebar_position: 99
 ---
 
-# Demos Example
+# CV Demos
 
 Example collection of using Qai-APPBuilder Python API to utilize NPU inference models.
 
-<DocCardList />
+<DocCardList tag="qcs9075" />

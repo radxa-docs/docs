@@ -4,11 +4,11 @@ sidebar_position: 0
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - i18n/en/docusaurus-plugin-content-docs/current/common/ai/_face_attrib_net_qai-app-builder.mdx
+  - i18n/en/docusaurus-plugin-content-docs/current/common/ai/qualcomm/_face_attrib_net_qai-app-builder.mdx
 ---
 
 # Facial-Attribute-Detection Example
 
-import FACEATTRIBNETQAIAPPBUILDER from '../../../../common/ai/\_face_attrib_net_qai-app-builder.mdx';
+import FACEATTRIBNETQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_face_attrib_net_qai-app-builder.mdx';
 
-<FACEATTRIBNETQAIAPPBUILDER />
+<FACEATTRIBNETQAIAPPBUILDER tag="qcs9075" />

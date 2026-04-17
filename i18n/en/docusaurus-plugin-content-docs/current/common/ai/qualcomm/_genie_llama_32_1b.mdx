@@ -1,0 +1,156 @@
+This document describes how to perform NPU hardware-accelerated inference of the Llama-3.2-1B-Instruct model on Qualcomm platforms using Qualcomm® Genie.
+
+- Source model: [meta-llama/Llama-3.2-1B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct)
+
+- Source model license: [LLAMA 3.2 COMMUNITY LICENSE AGREEMENT](https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/LICENSE)
+
+## Model Details
+
+| Model                 | Quantization | Context Length |
+| --------------------- | ------------ | -------------- |
+| Llama-3.2-1B-Instruct | W4A16        | 4096           |
+
+## Supported Devices
+
+:::tip
+Refer to the [SoC Architecture Reference](../qairt-sdk#soc-architecture) to find the DSP architecture of your device's SoC.
+:::
+
+- This example supports Qualcomm platform SoCs with **v73** DSP architecture.
+
+  | dsp_arch |
+  | -------- |
+  | v73      |
+
+- Supported devices
+
+  | Device               | SoC     | dsp_arch |
+  | -------------------- | ------- | -------- |
+  | Fogwise® AIRbox Q900 | QCS9075 | v73      |
+
+## Download Genie Toolkit
+
+:::info
+Coming soon.
+:::
+
+## Download Model
+
+:::info
+Coming soon.
+:::
+
+## Run Inference
+
+### Build Prompt
+
+Prompts can be passed as a file or as a parameter.
+
+<Tabs>
+
+<TabItem value="prompt">
+
+```bash
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>You are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+```
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+vim chat.txt
+```
+
+</NewCodeBlock>
+
+```vim
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>You are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+```
+
+</TabItem>
+
+</Tabs>
+
+### Run Inference
+
+<Tabs>
+
+<TabItem value="prompt">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c Meta-Llama-3.2-1B-Instruct-htp.json -p '<|begin_of_text|><|start_header_id|>system<|end_header_id|>You are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>'
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="prompt_file">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+genie-t2t-run -c Meta-Llama-3.2-1B-Instruct-htp.json --prompt_file chat.txt
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+```bash
+(.venv) rock@radxa-airbox-q900:/mnt/ssd/qualcomm/Meta-Llama-3.2-1B-Instruct$ genie-t2t-run -c Meta-Llama-3.2-1B-Instruct-htp.json -p '<|begin_of_text|><|start_header_id|>system<|end_header_id|>You are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>'
+Using libGenie.so version 1.14.0
+
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
+[INFO]  "Using create From Binary"
+[INFO]  "Allocated total size = 101532160 across 3 buffers"
+[PROMPT]: <|begin_of_text|><|start_header_id|>system<|end_header_id|>You are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[BEGIN]:  Yarrr, I be Captain Blackbeak, the most feared and respected pirate to ever sail the seven seas! Me and me crew be the scourge o' the landlubers and the sea dogs alike. Yer bestest matey in all the land, and I be here to help ye with yer questions, savvy?[END]
+/prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
+```
+
+## Performance Reference
+
+You can enable performance profiling with the `--profile` option.
+
+```bash
+genie-t2t-run -c Meta-Llama-3.2-1B-Instruct-htp.json --prompt_file chat.txt --profile profile.txt
+```
+
+| Fogwise® AIRbox Q900       |                            |
+| -------------------------- | -------------------------- |
+| **GenieDialog_create**     | 1,127,555 us               |
+| **num-prompt-tokens**      | 32                         |
+| **prompt-processing-rate** | 573.06591796875 toks/sec   |
+| **time-to-first-token**    | 55,857 us                  |
+| **num-generated-tokens**   | 181                        |
+| **token-generation-rate**  | 35.06926345825195 toks/sec |
+| **token-generation-time**  | 5,161,266 us               |
+| **GenieDialog_free**       | 34,715 us                  |
+
+### Metric Definitions
+
+| Metric                     | Definition                                                                                                                                           |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **GenieDialog_create**     | Time to initialize a dialog object, including model loading, context preparation, and memory allocation.                                             |
+| **num-prompt-tokens**      | Number of tokens in the prompt sent to the model (i.e., the smallest unit the input text is split into).                                             |
+| **prompt-processing-rate** | Speed at which the model processes the prompt, in tokens per second (toks/sec), reflecting the efficiency of prompt analysis and output preparation. |
+| **time-to-first-token**    | Time elapsed from the start of processing to the generation of the first output token, reflecting the model's response latency.                      |
+| **num-generated-tokens**   | Number of tokens actually output by the model in this generation, representing the length of the generated text in tokens.                           |
+| **token-generation-rate**  | Speed at which the model generates tokens, in tokens per second (toks/sec), reflecting generation efficiency.                                        |
+| **token-generation-time**  | Total time spent generating all output tokens, in microseconds (us).                                                                                 |
+| **GenieDialog_free**       | Time to free the dialog object, including memory release and resource cleanup.                                                                       |
+
+## Official Genie Documentation
+
+For more details on Qualcomm® Genie usage and API, refer to:
+
+- [**Genie Official Documentation**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-100/introduction.html?product=1601111740062489)

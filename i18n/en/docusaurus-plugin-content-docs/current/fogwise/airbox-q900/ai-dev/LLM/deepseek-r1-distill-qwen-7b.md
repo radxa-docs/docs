@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # DeepSeek-R1-Distill-Qwen-7B
 
-import GENIEDSR1QWEN7B from '../../../../common/ai/\_genie_ds_r1_qwen_7b.mdx';
+import GENIEDSR1QWEN7B from '../../../../common/ai/qualcomm/\_genie_ds_r1_qwen_7b.mdx';
 
 <GENIEDSR1QWEN7B />

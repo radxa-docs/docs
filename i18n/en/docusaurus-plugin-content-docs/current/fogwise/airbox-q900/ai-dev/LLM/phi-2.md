@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # Phi-2
 
-import GENIEPHI2 from '../../../../common/ai/\_genie_phi_2.mdx';
+import GENIEPHI2 from '../../../../common/ai/qualcomm/\_genie_phi_2.mdx';
 
 <GENIEPHI2 />

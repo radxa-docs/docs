@@ -9,6 +9,6 @@ imports_resolve_to:
 
 # MiniCPM-1B-sft
 
-import GENIEMINICPM1BSFT from '../../../../common/ai/\_genie_minicpm_1b_sft.mdx';
+import GENIEMINICPM1BSFT from '../../../../common/ai/qualcomm/\_genie_minicpm_1b_sft.mdx';
 
 <GENIEMINICPM1BSFT />
