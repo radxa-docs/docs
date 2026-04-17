@@ -19,7 +19,7 @@ ROCK 5A can be booted from microSD card or EMMC, depending on the boot method, t
 
 - 1x microSD card (capacity >=16GB, speed level >= class10)
 - 1x microSD card reader
-- 5V power adapter (Recommended [Radxa Power PD30W](../../accessories/power/pd_30w))
+- 5V power adapter (Recommended [Radxa Power PD30W](https://radxa.com/products/accessories/power-pd-30w))
 
 ### Image Download
 
@@ -44,7 +44,7 @@ Please go to [Resource Download](../../download) to download the corresponding i
 
 - USB connector cable (A-A)
 - 1x eMMC module
-- 5V power adapter (Recommended [Radxa Power PD30W](../../accessories/power/pd_30w))
+- 5V power adapter (Recommended [Radxa Power PD30W](https://radxa.com/products/accessories/power-pd-30w))
 
 #### Download the image
 

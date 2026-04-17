@@ -35,7 +35,7 @@ The ROCK 5A is used here as a demonstration, and other boards operate in a simil
 - Power supply
 
 :::tip
-Recommended [Radxa PD 30W Adapter](../../power/pd_30w).
+Recommended [Radxa PD 30W Adapter](https://radxa.com/products/accessories/power-pd-30w).
 :::
 
 - Storage media with the latest official software of the corresponding product.
@@ -75,7 +75,7 @@ The ROCK 3C is used here as a demonstration, and other products operate in a sim
 - Power supply
 
 :::tip
-Recommended [Radxa PD 30W Adapter](../../power/pd_30w).
+Recommended [Radxa PD 30W Adapter](https://radxa.com/products/accessories/power-pd-30w).
 :::
 
 - Storage media with the latest official software of the corresponding product.

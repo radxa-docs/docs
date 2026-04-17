@@ -35,7 +35,7 @@ sidebar_position: 6
 - 产品适配的电源适配器
 
 :::tip
-推荐使用[瑞莎 PD 30W 适配器](../../power/pd_30w)。
+推荐使用[瑞莎 PD 30W 适配器](https://radxa.com/products/accessories/power-pd-30w)。
 :::
 
 - 已烧录对应产品官方最新固件的存储介质
@@ -75,7 +75,7 @@ sidebar_position: 6
 - 产品适配的电源适配器
 
 :::tip
-推荐使用[瑞莎 PD 30W 适配器](../../power/pd_30w)。
+推荐使用[瑞莎 PD 30W 适配器](https://radxa.com/products/accessories/power-pd-30w)。
 :::
 
 - 已烧录对应产品官方最新固件的存储介质

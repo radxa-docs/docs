@@ -19,7 +19,7 @@ If the BIOS version is `1.32` or later, both of the following power-input method
 | `>= 1.32` | Supported | Supported |
 
 :::tip
-Radxa recommends using [Radxa Power PD30W](../accessories/power/pd_30w).
+Radxa recommends using [Radxa Power PD30W](https://radxa.com/products/accessories/power-pd-30w).
 If you plan to use 12V DC input, check the [BIOS update guide](../bios/update-bios) first to confirm the current version.
 :::
 

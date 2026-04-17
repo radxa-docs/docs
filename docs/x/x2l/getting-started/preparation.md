@@ -19,7 +19,7 @@ sidebar_position: 1
 | `>= 1.32` | 支持 | 支持 |
 
 :::tip
-瑞莎推荐使用 [Radxa Power PD30W](../accessories/power/pd_30w)。
+瑞莎推荐使用 [Radxa Power PD30W](https://radxa.com/products/accessories/power-pd-30w)。
 如果你计划使用 12V DC 输入，建议先参考 [BIOS 更新文档](../bios/update-bios) 确认当前版本。
 :::
 

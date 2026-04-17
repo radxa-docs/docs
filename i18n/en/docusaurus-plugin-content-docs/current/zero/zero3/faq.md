@@ -14,7 +14,7 @@ If your Radxa ZERO 3 cannot boot from a microSD card, follow these troubleshooti
 
 ### Check Power Supply
 - Ensure using a **5V** power adapter
-- Recommended: [Radxa Power PD30W](../accessories/power/pd_30w)
+- Recommended: [Radxa Power PD30W](accessories/pd-30w)
 - Check if the Type-C cable is working properly
 - Ensure the power interface is correctly connected (USB 2.0 OTG Type-C port)
 
