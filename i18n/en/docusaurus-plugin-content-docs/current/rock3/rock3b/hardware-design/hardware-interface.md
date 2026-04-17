@@ -36,7 +36,7 @@ Actual compatibility is subject to actual use.
 <Tabs queryString="revision">
 <TabItem value="v1_1" label="v1.1">
 
-<div className='gpio_style'>
+<div className='gpio_style' style={{ overflow :"auto"}} >
 
 | GPIO number |  Function4  |  Function3   |  Function2  |  Function1  |               Pin#               |              Pin#               | Function1 |                 Function2                 |  Function3  |  Function4  | GPIO number |
 | ----------- | :---------: | :----------: | :---------: | :---------: | :------------------------------: | :-----------------------------: | :-------: | :---------------------------------------: | :---------: | :---------: | ----------- |

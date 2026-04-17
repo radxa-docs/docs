@@ -9,7 +9,8 @@ The ROCK Pi E provides a 40-pin GPIO Header.
 ** Note: Actual compatibility is based on usage. **
 ** Note: 40-Pin GPIO for V1.20, V1.21 and V3.0 are functionally identical **
 
-<div className='gpio_style'>
+<TabItem value="GPIO">
+     <div className='gpio_style' style={{ overflow :"auto"}} >
 
 | GPIO Number | Function3  | Function2    | Function1 | Pin#                             | Pin#                            | Function1 | Function2    | Function3 | GPIO Number |
 | ----------- | ---------- | ------------ | --------- | -------------------------------- | ------------------------------- | --------- | ------------ | --------- | ----------- |
@@ -34,4 +35,7 @@ The ROCK Pi E provides a 40-pin GPIO Header.
 | 86          |            | PDM_SDI3     | GPIO2_C6  | <div className='green'>37</div>  | <div className='green'>38</div> | GPIO2_C3  | PDM_SDIO     | I2S1_SDI  | 83          |
 |             |            |              | GND       | <div className='green'>39</div>  | <div className='green'>40</div> | GPIO2_C7  | PDM_FSYNC    | I2S1_SDO  | 87          |
 
-</div>
+
+
+   </div>
+</TabItem>

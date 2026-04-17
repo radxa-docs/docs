@@ -55,7 +55,8 @@ The ROCK Pi S0 provides a 40 pin GPIO socket that is compatible with most SBC ac
 
 **Hint: Actual compatibility is subject to usage. **
 
-<div className='gpio_style'>
+<TabItem value="GPIO">
+     <div className='gpio_style' style={{ overflow :"auto"}} >
 
 | GPIO Number | Function8        | Function7     | Function6  | Function5   | Function4 | Function3    | Function2   | Function1 | Pin#                             | Pin#                            | Function1 | Function2   | Function3    | Function4 | Function5 | Function6        | Function7        | GPIO Number |
 | ----------- | ---------------- | ------------- | ---------- | ----------- | --------- | ------------ | ----------- | --------- | -------------------------------- | ------------------------------- | --------- | ----------- | ------------ | --------- | --------- | ---------------- | ---------------- | ----------- |
@@ -80,4 +81,7 @@ The ROCK Pi S0 provides a 40 pin GPIO socket that is compatible with most SBC ac
 | 66          |                  |               | UART0_CTSN |             |           | SPI0_CLK     | I2C2_SDA    | GPIO2_A2  | <div className='green'>37</div>  | <div className='green'>38</div> | GPIO2_A5  |             | SPI1_MOSI_M1 |           |           | I2S0_8CH_SCLK_TX |                  | 69          |
 |             |                  |               |            |             |           |              |             | GND       | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO2_A7  |             | SPI1_CLK_M1  |           |           | I2S0_8CH_LRCK_TX |                  | 71          |
 
-</div>
+
+
+   </div>
+</TabItem>
