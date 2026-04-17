@@ -132,7 +132,34 @@ auto = true
 time = 10
 
 [oled]
-# Whether rotate the text of oled 180 degrees, whether use Fahrenheit
-rotate = false
-f-temp = false
+# Whether rotate the text of oled 180 degrees, whether use Fahrenheit rotate = false f-temp = false
+
+## Troubleshooting
+
+### Fan remains on after system shutdown
+
+Some users have reported that the Penta SATA HAT fan remains on even after system shutdown. This could be due to:
+
+1. **Power management issues**: Certain power configurations may keep the fan powered after shutdown
+2. **Software configuration problems**: The `rockpi-penta` service may not be stopping properly
+3. **Hardware design**: The fan may be powered by an independent power circuit
+
+**Solutions**:
+
+1. **Check power connection**: Ensure the system is fully powered off, not just in standby mode
+2. **Stop service**: Manually stop the `rockpi‑penta` service before shutdown:
+   ```bash
+   sudo systemctl stop rockpi‑penta.service
+   ```
+3. **Adjust configuration**: If fan functionality isn’t needed, disable the fan or raise its temperature thresholds:
+   ```ini
+   [fan]
+   lv0 = 60  # Raise thresholds so the fan runs less often
+   lv1 = 65
+   lv2 = 70
+   lv3 = 75
+   ```
+4. **Disconnect physically**: If the problem persists, consider physically disconnecting the fan
+
+**Note**: A brief fan run after shutdown may be normal, especially in hot environments. If the fan continues to run, check whether the system is completely powered down.
 ```
