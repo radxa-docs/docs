@@ -30,15 +30,50 @@ Refer to the [SoC Architecture Reference](../qairt-sdk#soc-architecture) to find
 
 ## Download Genie Toolkit
 
-:::info
-Coming soon.
-:::
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/qcom-genie-sdk-v73/qcom-genie-sdk-v73.tar.gz
+tar -xvf qcom-genie-sdk-v73.tar.gz
+```
+
+</NewCodeBlock>
+
+### Import Environment Variables
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qcom-genie-sdk-v73
+export ADSP_LIBRARY_PATH=$(pwd)
+```
+
+</NewCodeBlock>
 
 ## Download Model
 
-:::info
-Coming soon.
+:::tip
+Please install the modelscope Python package in a Python virtual environment. For virtual environment usage, refer to [**Python Virtual Environment Usage**](/rock5/rock5b/app-development/venv-usage)
 :::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/DeepSeek-R1-Distill-Qwen-7B-w4a16-4096-v73 --local_dir ./DeepSeek-R1-Distill-Qwen-7B-w4a16-4096-v73
+```
+
+</NewCodeBlock>
+
+## Run Inference
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd DeepSeek-R1-Distill-Qwen-7B-w4a16-4096-v73
+```
+
+</NewCodeBlock>
 
 ## Run Inference
 
