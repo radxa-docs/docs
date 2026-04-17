@@ -37,7 +37,7 @@ Default Armbian credentials:
 
 &emsp;&emsp; [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (Windows flash tool)
 
-&emsp;&emsp; [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)（USB driver）
+&emsp;&emsp; [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)（USB driver）
 
 ## Hardware Design
 

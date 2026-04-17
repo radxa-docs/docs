@@ -134,3 +134,58 @@ After enabling the hardware encoder, the following changes apply:
 
 - The system boots in `EL2` instead of `EL1`, and KVM **can** be used
 - `/dev/mtd0` disappears, so you cannot update the SPI firmware directly on the board
+
+## How to Fix 7-inch Display Garbled Screen Issue?
+
+The 7-inch display defaults to 1080p resolution. If the display does not support this resolution, it will cause a garbled screen, and you need to manually set the correct screen resolution.
+
+### Check Supported Resolutions
+
+First, connect the display and log into the system, then check the HDMI output supported resolutions:
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+# Parse EDID content (edid-decode needs to be installed)
+sudo apt install edid-decode
+sudo edid-decode /sys/class/drm/card1-HDMI-A-1/edid
+```
+
+</NewCodeBlock>
+
+Check the output to confirm the list of supported resolutions. If the 7-inch display's 1024x600 resolution does not appear in the default modes list, it means the default 1080p resolution setting is causing the display issue.
+
+### Adjust Resolution
+
+After confirming the resolution, modify the kernel command line parameters to specify the correct screen resolution:
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+old=$(cat /etc/kernel/cmdline)
+echo "$old video=HDMI-A-1:1024x600@60" | sudo tee /etc/kernel/cmdline
+```
+
+</NewCodeBlock>
+
+### Update Kernel
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+sudo kernel-install add $(uname -r) /boot/vmlinuz-$(uname -r)
+```
+
+</NewCodeBlock>
+
+### Reboot
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+sudo reboot
+```
+
+</NewCodeBlock>
+
+If the display is still abnormal after rebooting, please reconnect the HDMI cable.

@@ -1,0 +1,309 @@
+This document describes how to run LeNet on NPU.
+
+:::info
+Refer to [Model Zoo Download](./model-zoo-download) for the example.
+:::
+
+LeNet Example Directory Structure:
+
+```bash
+$ tree ./
+./
+├── class_pre.cpp
+├── CMakeLists.txt
+├── convert_model
+│   ├── config_yml.py
+│   └── convert_model_env.sh
+├── main.cpp
+├── model
+│   ├── 3.jpg
+│   ├── 4.jpg
+│   └── 5.jpg
+└── README.md
+```
+
+## Model Conversion
+
+### Download Model
+
+Click to download [lenet.caffemodel](http://netstorage.allwinnertech.com:5000/sharing/JG3iqvFvH).
+
+Click to download [lenet.prototxt](http://netstorage.allwinnertech.com:5000/sharing/Wf4J4DsTR).
+
+Then move the model to the convert_model/ directory.
+
+### Create Symlink for Conversion Script
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd convert_model/
+./convert_model_env.sh
+```
+
+</NewCodeBlock>
+
+### Model Import/Quantization/Conversion
+
+You need to enter the container development environment first. Refer to the [Create Container](./model-zoo-download#创建并启动容器) section in Model Zoo Download.
+
+:::info
+Different platforms use corresponding Docker images:
+
+- A733: ubuntu-npu:v2.0.10.1
+- T527: ubuntu-npu:v1.8.11
+  :::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+After entering the container, navigate to the corresponding directory and run the script.
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/lenet_caffe/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_import.sh lenet
+./pegasus_quantize.sh lenet uint8 12
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh lenet uint8 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh lenet uint8 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+The exported model files are stored in the ../model directory.
+
+### Compile Example
+
+Now you can compile the example. **First exit the container**, then execute the following command to compile the example.
+
+First, you need to configure third-party libraries and cross-compilation toolchain.
+
+:::info
+You can skip this step if you have already configured third-party libraries and cross-compilation toolchain in other examples.
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../../../3rdparty/opencv/
+unzip opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
+cd ../../0-toolchains/
+```
+
+</NewCodeBlock>
+
+You need to manually download via [this link](http://netstorage.allwinnertech.com:5000/sharing/e2nD8YwB4) first, then place it in 0-toolchains/ before executing the following command:
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/lenet_caffe/
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t a733 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t t527 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+## Model Deployment
+
+After compilation, the example will be installed in the install directory. You can use scp to transfer it to the board.
+
+### Configure NPU Driver
+
+:::info
+You can skip this step if you have already configured NPU driver in other examples.
+:::
+
+Transfer the driver library to the board's lib directory via scp.
+
+- A733 corresponds to the common/lib_linux_aarch64/A733 directory
+- T527 corresponds to the common/lib_linux_aarch64/T527 directory
+
+Then execute the following command to export to environment variables.
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### Run Example
+
+After configuring the driver, you can run the example.
+
+:::tip
+For T527 platform, you need to first enable NPU by referring to the A5E's "Enable NPU on Board" documentation, then use the following command to grant the current user permission to use /dev/vipcore.
+:::
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd lenet_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./lenet_demo_a733
+./lenet_demo_a733 -nb model/lenet_uint8_a733.nb -i model/3.jpg
+```
+
+</NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./lenet_demo_a733 -nb model/lenet_uint8_a733.nb -i model/3.jpg
+model_file=model/lenet_uint8_a733.nb, input=model/3.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+input  0 dim 28 28 1 1, data_format=2, quant_format=0, name=input/output[0], none-quant
+output 0 dim 10 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/lenet_uint8_a733.nb, size: 407776.
+create network 0: 1486 us.
+prepare network: 176 us.
+network: 0, loop count: 1
+run time for this network 0: 281 us.
+Image: model/3.jpg, Predicted digit: 3, Probability: 1.000000
+Class probabilities: 0 : 0.0000  1 : 0.0000  2 : 0.0000  3 : 1.0000  4 : 0.0000  5 : 0.0000  6 : 0.0000  7 : 0.0000  8 : 0.0000  9 : 0.0000
+destroy npu finished.
+~NpuUint.
+```
+
+This performance data only calculates the time consumption of model inference. Unless otherwise specified, it does not include the time consumption of pre-processing and post-processing.
+
+| SoC            | NPU             | Model | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :---- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner A733 | Vivante VIP9000 | lenet | 28×28            | 1.5 ms                | 0.2 ms                   | 0.3 ms                      |                      | 2.0 ms     | 3333.3 FPS |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd lenet_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./lenet_demo_t527
+./lenet_demo_t527 -nb model/lenet_uint8_t527.nb -i model/3.jpg
+```
+
+</NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ ./lenet_demo_t527 -nb model/lenet_uint8_t527.nb -i model/3.jpg
+model_file=model/lenet_uint8_t527.nb, input=model/3.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 28 28 1 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 10 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/lenet_uint8_t527.nb, size: 403520.
+create network 0: 744 us.
+prepare network: 123 us.
+network: 0, loop count: 1
+run time for this network 0: 219 us.
+Image: model/3.jpg, Predicted digit: 1, Probability: 0.607422
+Class probabilities: 0 : 0.0523  1 : 0.6074  2 : 0.0154  3 : 0.0132  4 : 0.0243  5 : 0.0610  6 : 0.0449  7 : 0.1530  8 : 0.0045  9 : 0.0243
+destroy npu finished.
+~NpuUint.
+```
+
+This performance data only calculates the time consumption of model inference. Unless otherwise specified, it does not include the time consumption of pre-processing and post-processing.
+
+| SoC            | NPU             | Model | Input Resolution | Network Creation Time | Network Preparation Time | Single Frame Inference Time | Post-processing Time | Total Time | Frame Rate |
+| :------------- | :-------------- | :---- | :--------------- | :-------------------- | :----------------------- | :-------------------------- | :------------------- | :--------- | :--------- |
+| Allwinner T527 | Vivante VIP9000 | lenet | 28×28            | 0.7 ms                | 0.1 ms                   | 0.2 ms                      |                      | 1.0 ms     | 5000.0 FPS |
+
+</TabItem>
+</Tabs>

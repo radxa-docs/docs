@@ -346,6 +346,16 @@ ubuntu@mtk-genio:~$ ls /sys/class/pwm/pwmchip0/
 device  export  npwm  power  subsystem  uevent  unexport
 ```
 
+## Enable Multiple DT Overlays Simultaneously
+
+You can enable multiple DT overlays at the same time, for example:
+
+```text
+list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c3.dtbo i2c4.dtbo gpio104-pwm.dtbo spi1-spidev.dtbo spi2-spidev.dtbo
+```
+
+This allows you to enable multiple hardware features in a single configuration without having to modify the `u-boot-initial-env` file multiple times.
+
 ## Install Qt
 
 Install `qtcreator`:
@@ -354,9 +364,70 @@ Install `qtcreator`:
 $ sudo apt update && sudo apt install -y qtcreator
 ```
 
-Note:
-You can enable multiple DT overlays at the same time, for example:
+## Using NeuroPilot (APU)
 
-```text
-list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c3.dtbo i2c4.dtbo gpio104-pwm.dtbo spi1-spidev.dtbo spi2-spidev.dtbo
+The NIO 12L is powered by the MediaTek MT8395 (Genio 1200), which integrates an APU (AI Processor Unit) and an AI Accelerator (Aia). You can use the NeuroPilot software stack on Ubuntu to access the hardware accelerator for AI inference workloads.
+
+### Install NeuroPilot Components
+
+First, install the platform-specific firmware package:
+
+```bash
+# Genio 1200 (used by NIO 12L)
+sudo apt install mediatek-apusys-firmware-genio1200
 ```
+
+Then install the Neuron runtime packages:
+
+```bash
+sudo apt install mediatek-libneuron mediatek-neuron-utils mediatek-libneuron-dev
+sudo reboot
+```
+
+### Verify the APU is Working
+
+After rebooting, verify the APU with:
+
+```bash
+sudo vpu5_test -a ks -l 10
+```
+
+The result should show `PASS`.
+
+### Run the Benchmark Example
+
+Run the benchmark program provided by MediaTek:
+
+```bash
+# Create workaround directory
+sudo mkdir -p /usr/share/benchmark_dla
+sudo cp /usr/share/neuropilot/benchmark_dla/* /usr/share/benchmark_dla/
+
+# Install dependencies
+sudo apt install python3-pip
+sudo pip3 install numpy
+
+# Run benchmark
+sudo python3 /usr/share/benchmark_dla/benchmark.py --auto
+```
+
+Example output:
+
+```
+root@mtk-genio:/usr/share/benchmark_dla# python3 benchmark.py --auto
+2023-07-31 07:04:19,029 [INFO] ssd_mobilenet_v1_coco_quantized.tflite, mdla3.0, avg inference time: 2.53
+2023-07-31 07:04:24,499 [INFO] ssd_mobilenet_v1_coco_quantized.tflite, vpu, avg inference time: 46.14
+...
+```
+
+### Supported Model Formats
+
+The NeuroPilot Neuron SDK primarily supports the following model formats:
+- **TFLite** (.tflite)
+- **ONNX** (.onnx) — requires loading via the Neuron API
+- **Caffe** (.caffemodel)
+
+For more details, please refer to the official MediaTek NeuroPilot documentation:
+
+- [NeuroPilot Overview](https://neuropilot-developer.mediatek.com/resources/public/latest/en/docs/readme)
+- [Neuron SDK Documentation](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/release/v25.0/sw/yocto/ml-guide/ml-neuron-sdk.html)

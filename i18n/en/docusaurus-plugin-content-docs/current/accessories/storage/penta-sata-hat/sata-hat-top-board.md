@@ -14,6 +14,11 @@ The Radxa Penta SATA HAT has a 2x5 seat with the following signal:
 | 7   | GND      | 8   | PWM_33     |
 | 9   | GND      | 10  | NC         |
 
+**Technical Specifications:**
+- **Connector Type:** 2x5 pin header
+- **Pitch:** 2.0mm
+- **Compatible Connectors:** Standard 2.0mm pitch 2x5 pin header (2x5 pin header, 2.0mm pitch)
+
 This seat can be used to link to the top plate, which has a 0.91 inch OLED display and a 4010 fan, which can display IP address and storage information, etc., and the fan is used for cooling.
 
 ![SATA HAT top board](/img/accessories/storage/penta/sata-hat-top-board.webp)
@@ -30,6 +35,17 @@ sudo apt install -y ./rockpi-penta-0.2.2.deb
 ```
 
 ### Software configuration
+
+:::note
+**Note for latest Raspberry Pi OS (Debian trixie) users**
+
+If you encounter the following issues on the latest Raspberry Pi OS (Debian trixie):
+- OLED display only shows static message "RADXA SATA HAT Loading..."
+- Fan stuck at 100% power
+- Service startup error `FileNotFoundError: No such file or directory`
+
+Additional fixes may be required. Please refer to the solution reported by users in [GitHub issue #1540](https://github.com/radxa-docs/docs/issues/1540): https://github.com/HabiRabbu/rockpi-penta-pi5-fix
+:::
 
 After installing the package, if you need to modify the configuration, you can edit the configuration file `/etc/rockpi-penta.conf`, the following is the default value of the configuration file.
 

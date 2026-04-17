@@ -1,0 +1,112 @@
+我们可以从[全志客户服务平台](https://open.allwinnertech.com/)获取 Model Zoo 。
+
+点击立即注册：
+
+![全志客户服务平台登陆](/img/cubie/allwinnertech-login.webp)
+
+成功注册并登陆之后会进入工作台界面，点击资源下载：
+
+![点击资源下载](/img/cubie/allwinnertech-model-zoo-download-guide1.webp)
+
+点击左侧工具查询下的 AI 开发 SDK，然后找到 v0.9.0 版本的 Model Zoo 下载到本地即可。
+
+![下载 Model Zoo](/img/cubie/allwinnertech-model-zoo-download-guide2.webp)
+
+或者你也可以通过 dl.radxa 下载：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+wget https://dl.radxa.com/cubie/allwinner-model-zoo.tar.gz
+```
+
+</NewCodeBlock>
+
+运行 Model Zoo 中的案例之前，你需要下载好容器开发包，你可以在上面的界面找到对应版本下载，或者参考我们的[指引文档](../cubie-acuity-env)。
+
+:::info
+注意 T527 和 A733 使用不同版本的容器开发包。
+:::
+
+容器开发包和 Model Zoo 都下载好之后，可以参考下面的步骤：
+
+## 解压 Model Zoo
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf 1768567762439_awnpu_model_zoo-v0.9.0-20260116-83a67d4b.tar.gz
+cd awnpu_model_zoo-v0.9.0-20260116-83a67d4b/
+```
+
+</NewCodeBlock>
+
+## 创建并启动容器
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+sudo docker run --ipc=host -d -v ${PWD}:/workspace --name model-zoo ubuntu-npu:v2.0.10.1 tail -f /dev/null
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+sudo docker run --ipc=host -d -v ${PWD}:/workspace --name model-zoo ubuntu-npu:v1.8.11 tail -f /dev/null
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+当容器创建完成后可以在 `docker ps` 中看到此容器，名字为 `model-zoo`。
+
+## 进入容器
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+sudo docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+完成之后 Model Zoo 目录已经挂载到容器的 `/workspace` 目录下，在容器内执行：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace
+ls -al
+```
+
+</NewCodeBlock>
+
+可以看到 Model Zoo 目录结构：
+
+```bash
+/workspace# ls -al
+total 52
+drwxrwxr-x 10 1000 1000 4096 Apr  2 19:09 .
+drwxr-xr-x  1 root root 4096 Apr  2 18:48 ..
+drwxrwxr-x  4 1000 1000 4096 Apr  3 12:03 0-toolchains              # 交叉编译工具链
+drwxrwxr-x  3 1000 1000 4096 Jan 16 20:44 3rdparty                  # 第三方工具链
+-rwxrwxr-x  1 1000 1000 4976 Jan 16 20:44 README.md                 # README文档
+drwxrwxr-x  2 1000 1000 4096 Apr  3 12:06 cmake_toolchain           # 编译工具链配置
+drwxrwxr-x  3 1000 1000 4096 Jan 16 20:44 common                    # 通用库
+drwxrwxr-x  2 1000 1000 4096 Jan 16 20:44 docs                      # 文档
+drwxrwxr-x 26 1000 1000 4096 Jan 16 20:44 examples                  # 示例目录
+drwxrwxr-x  6 1000 1000 4096 Jan 16 20:44 functions                 # 特色功能
+drwxrwxr-x  2 1000 1000 4096 Jan 16 20:44 scripts_model_convert     # 转换脚本
+-rwxrwxr-x  1 1000 1000    6 Jan 16 20:44 version                   # 版本号
+```

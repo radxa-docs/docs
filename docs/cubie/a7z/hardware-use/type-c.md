@@ -37,3 +37,57 @@ MicroSD 卡槽具体位置可以查看 [硬件接口](./hardware-info) 教程的
 显示功能：使用 USB Type-C 数据线连接显示器，支持 DisplayPort Alt 模式。
 
 OTG 模式：通过 Rsetup 开启 OTG 模式。
+
+### USB-C Power 接口作为 Host 使用
+
+A7Z 的 USB-C Power 接口（接口①，USB-C 2.0 OTG & Power）默认工作在 device 模式。如果需要连接无线鼠标接收器、键盘、U 盘等外设，需要通过设备树 overlay 将其切换为 host 模式。
+
+#### 步骤一：创建 overlay 文件
+
+需要通过设备树 overlay 将 USB-C Power 接口切换为 host 模式。以下为最小配置示例：
+
+```dts
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "allwinner,sun50i-a733";
+};
+
+&usbc0 {
+    usb_port_type = <0x1>; /* 0x0: device, 0x1: host */
+};
+```
+
+:::info
+`usb_port_type` 设置项用于切换 USB-C 接口角色：设为 `0x1` 即为 host 模式，可连接鼠标、键盘、U 盘等外设。
+:::
+
+#### 步骤二：安装 overlay
+
+将写好的 dts 文件放到任意目录，然后通过 rsetup 安装：
+
+```bash
+sudo rsetup
+# 选择 Overlays → Install 3rd Party overlay → 选中对应的 dts 文件
+```
+
+rsetup 会自动编译选中的 dts 文件并启用。启用后需要重启系统使 overlay 生效。
+
+#### 步骤三：重启系统
+
+```bash
+sudo reboot
+```
+
+#### 步骤四：验证
+
+```bash
+lsusb
+```
+
+如果能看到连接的设备，说明 host 模式已成功启用。
+
+:::info 兼容性
+该方法同样适用于 Cubie A7S 板型。
+:::

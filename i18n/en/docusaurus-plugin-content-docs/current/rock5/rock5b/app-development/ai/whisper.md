@@ -11,4 +11,4 @@ import Whisper from "../../../../common/ai/rockchip/\_whisper.mdx"
 
 # Whisper
 
-<Whisper />
+<Whisper platform="rk3588" />

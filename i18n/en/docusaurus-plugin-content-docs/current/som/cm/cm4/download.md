@@ -16,7 +16,7 @@ For USB flashing, the Loader file is used for USB download initialization.
 
 Compatible with MicroSD cards, onboard eMMC, and NVMe SSD for system boot.
 
-[Radxa Debian Linux Debian12 KDE](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz)
+[Radxa Debian Linux Debian12 KDE](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
 
 - Android
 
@@ -51,7 +51,7 @@ Compatible with MicroSD cards, onboard eMMC, and NVMe SSD for system boot.
 ## Flashing Tools
 
 - [Balena Etcher](https://etcher.balena.io/)
-- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+- [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)
 - [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar)
 
 ## Community Resources

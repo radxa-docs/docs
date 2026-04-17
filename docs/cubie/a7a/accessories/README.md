@@ -23,3 +23,7 @@ sidebar_position: 99
 | PoE 扩展 | 25W PoE+ HAT           | 通过以太网供电的扩展板，支持 IEEE 802.3at 标准           | [查看详情](https://radxa.com/products/accessories/25w-poe-plus-hat)       |
 | 网络扩展 | Dual 2.5G Router HAT   | 双 2.5G 以太网路由器扩展板                               | [查看详情](https://radxa.com/products/accessories/dual-2-5g-router-hat)   |
 | 散热方案 | Heatsink 6540B         | 散热器，尺寸 65x40mm                                     | [查看详情](https://radxa.com/products/accessories/heatsink-6540b)         |
+
+## 3D 打印外壳
+
+- [第三方 3D 打印外壳](./3d-case)：社区设计的 Cubie A7A 专用外壳

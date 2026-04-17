@@ -51,6 +51,12 @@ Default Armbian credentials:
 | Username | `root` |
 | Password | `1234` |
 
+## OpenWrt
+
+- [OpenWrt hardware data page: Radxa ROCK 5 ITX](https://openwrt.org/toh/hwdata/radxa/radxa_rock_5_itx)
+- [Radxa ROCK 5 ITX OpenWrt ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5-itx-ext4-sysupgrade.img.gz)
+- [Radxa ROCK 5 ITX OpenWrt squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5-itx-squashfs-sysupgrade.img.gz)
+
 ## Quality Certification
 
 ## Reference Documentation

@@ -22,6 +22,12 @@ Flippy OpenWrt:
 
 [Flippy OpenWrt Github](https://github.com/unifreq/openwrt_packit)
 
+:::note
+Flippy OpenWrt 为第三方社区镜像，软件源与后续维护状态由上游项目决定，不受 Radxa 控制。
+
+如果你需要更稳定、持续维护的软件源与后续版本更新，建议优先使用下方的 OpenWrt 官方镜像。
+:::
+
 OpenWrt 官方镜像:
 
 - [Radxa E20C OpenWrt ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_e20c-ext4-sysupgrade.img.gz)
@@ -40,6 +46,17 @@ OpenWrt 官方镜像:
 ## Loader 文件
 
 [rk3528_spl_loader_v1.07.104.bin](https://dl.radxa.com/rock2/images/loader/rk3528_spl_loader_v1.07.104.bin)
+
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+
+**版本说明：**
+- **R 版本**：经过测试的稳定版本，推荐使用
+- **T 版本**：测试版本（仅用于评估）
+:::
+- [百度网盘下载（rk3528）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frk3528&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 硬件设计
 

@@ -27,10 +27,21 @@ Yocto:
 [NIO-12L-D16 genio-1200-radxa-nio-12l-d16-ufs-kirkstone-k5.15-v24.0-b3-20250109.tar.gz](https://dl.radxa.com/nio12l/images/yocto/genio-1200-radxa-nio-12l-d16-ufs-kirkstone-k5.15-v24.0-b3-20250109.tar.gz)
 
 Ubuntu:
-[baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b9.tar.gz](https://dl.radxa.com/nio12l/images/ubuntu/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b9.tar.gz)
+[baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b10.tar.gz](https://dl.radxa.com/nio12l/images/ubuntu/baoshan-classic-desktop-2204-x01-20231005-133-g1200-radxa-nio-12l-ufs-b10.tar.gz)
 
 Android:
 [n12l_android11_20240912.zip](https://dl.radxa.com/nio12l/images/android/n12l_android11_20240912.zip)
+
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+
+**版本说明：**
+- **R 版本**：经过测试的稳定版本，推荐使用
+- **T 版本**：测试版本（仅用于评估）
+:::
+- [百度网盘下载（radxa-nio-12l）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-nio-12l&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ### 硬件资料下载
 

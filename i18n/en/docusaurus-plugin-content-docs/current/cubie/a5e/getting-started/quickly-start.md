@@ -27,7 +27,7 @@ You will need to prepare the following hardware devices in advance:
 - System Boot Media: MicroSD card (for system installation and booting)
 - Display: HDMI cable and monitor (for graphical interface display)
 - Input Devices: Keyboard and mouse (for graphical interface operation)
-- Debugging Tools (Optional): USB to UART cable (for serial login) and USB-A hub (for expanding USB peripherals)
+- Debugging Tools (Optional): USB to UART cable (for serial login, refer to the [Serial Login](../system-config/uart-login) guide) and USB-A hub (for expanding USB peripherals)
 
 It is recommended to use the Cubie A5E with a monitor, keyboard, and mouse.
 

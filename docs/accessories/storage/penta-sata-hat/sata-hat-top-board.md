@@ -14,6 +14,11 @@ Radxa Penta SATA HAT 有一个 2x5 的座子，座子的信号如下：
 | 7   | GND      | 8   | PWM_33     |
 | 9   | GND      | 10  | NC         |
 
+**技术规格：**
+- **连接器类型：** 2x5 针座子
+- **针距 (Pitch)：** 2.0mm
+- **兼容连接器：** 标准 2.0mm 间距 2x5 针排针 (2x5 pin header, 2.0mm pitch)
+
 这个座子可以用来连接顶板，顶板上有一个 0.91 寸的 OLED 显示屏和一个 4010 风扇，显示屏可以显示 IP 地址和存储信息等，风扇用于散热。
 
 ![SATA HAT top board](/img/accessories/storage/penta/sata-hat-top-board.webp)
@@ -30,6 +35,17 @@ sudo apt install -y ./rockpi-penta-0.2.2.deb
 ```
 
 ### 软件配置
+
+:::note
+**最新 Raspberry Pi OS (Debian trixie) 用户注意**
+
+如果您在最新的 Raspberry Pi OS (Debian trixie) 上遇到以下问题：
+- OLED 显示屏只显示静态消息 "RADXA SATA HAT Loading..."
+- 风扇固定在 100% 功率
+- 服务启动报错 `FileNotFoundError: No such file or directory`
+
+可能需要应用额外的修复。请参考 [GitHub issue #1540](https://github.com/radxa-docs/docs/issues/1540) 中用户报告的解决方案：https://github.com/HabiRabbu/rockpi-penta-pi5-fix
+:::
 
 安装软件包后，如果需要修改配置，可以编辑配置文件 `/etc/rockpi-penta.conf`，下面是配置文件的默认值。
 

@@ -9,7 +9,7 @@ sidebar_position: 2
 <Tabs queryString="flash_way">
     <TabItem value="Hardware">
 
-        - 按一下 BOOTSEL 按键，松开之后，你会发现有一个 USB 大容量存储设（即 RP2040）
+        - 按一下 BOOTSEL 按键，松开之后，你会发现有一个 USB 大容量存储设备（即 RP2040）
 
     </TabItem>
     <TabItem value="Software">

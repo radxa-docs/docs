@@ -49,6 +49,7 @@ sudo apt install \
 ```bash
 git clone https://git.linuxtv.org/libcamera.git
 cd libcamera
+git checkout 02277d4c1a5ae7fee582f635936877435a12db64 # Optional. The following test steps are based on this version of libcamera.
 meson setup build --wipe \
     -Dpipelines=simple \
     -Dcam=enabled \
@@ -65,17 +66,18 @@ sudo ldconfig
 
 ### 修改配置文件
 
-修改 `/usr/local/share/libcamera/ipa/simple/imx219.yaml`文件。
+进入 `libcamera` 目录，修改 `libcamera/src/ipa/simple/data/imx219.yaml`文件。
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-sudo nano /usr/local/share/libcamera/ipa/simple/imx219.yaml
+cd libcamera
+sudo nano src/ipa/simple/data/imx219.yaml
 ```
 
 </NewCodeBlock>
 
-将下面内容复制到 `/usr/local/share/libcamera/ipa/simple/imx219.yaml`文件。
+将下面内容复制到 `src/ipa/simple/data/imx219.yaml`文件。
 
 ```bash
 # SPDX-License-Identifier: CC0-1.0
@@ -127,3 +129,35 @@ cd libcamera/build/src/apps/qcam/
 ```
 
 </NewCodeBlock>
+
+## 排查指南
+
+### 检查摄像头是否被识别
+
+使用以下命令检查摄像头是否被系统识别：
+
+<NewCodeBlock tip='radxa@dragon-q6a$' type="device">
+
+```bash
+sudo dmesg | grep imx
+```
+
+</NewCodeBlock>
+
+若终端输出以下信息，说明摄像头被正常识别：
+
+```text
+[    5.949209] imx219 18-0010: supply VANA not found, using dummy regulator
+[    5.951349] imx219 18-0010: supply VDIG not found, using dummy regulator
+[    5.951506] imx219 18-0010: supply VDDL not found, using dummy regulator
+```
+
+若终端输出以下信息，说明摄像头未被系统识别，需要检查摄像头排线是否安装到位：
+
+```text
+[    5.949209] imx219 18-0010: supply VANA not found, using dummy regulator
+[    5.951349] imx219 18-0010: supply VDIG not found, using dummy regulator
+[    5.951506] imx219 18-0010: supply VDDL not found, using dummy regulator
+[    5.958515] imx219 18-0010: Error reading reg 0x0000: -6
+[    5.958522] imx219 18-0010: error -ENXIO: failed to read chip id 219
+```

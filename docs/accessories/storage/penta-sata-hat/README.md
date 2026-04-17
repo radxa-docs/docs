@@ -20,6 +20,18 @@ sidebar_position: 1
 - ROCK 5A
 - ROCK 5C
 
+:::note
+**ROCKPi 4 系列与 ROCK 4 系列兼容性说明**：ROCKPi 4 系列是早期产品名称，现已统一规范为 ROCK 4 系列。
+
+- ROCKPi 4A = ROCK 4A
+- ROCKPi 4B = ROCK 4B
+- ROCKPi 4A+ = ROCK 4A+
+- ROCKPi 4B+ = ROCK 4B+
+- ROCKPi 4SE = ROCK 4SE
+
+ROCK 4A/4A+/4B/4B+/4SE 与 ROCKPi 4A/4A+/4B/4B+/4SE 兼容性一致，均完全兼容 Penta SATA HAT。如果您的设备标注为 ROCKPi 4A/B/4SE，请参考对应 ROCK 4A/B/4SE 的安装指南。
+:::
+
 目前支持的树莓派型号：
 
 - Raspberry Pi 5
@@ -59,6 +71,20 @@ sidebar_position: 1
 
   ![Radxa Penta SATA HAT](/img/accessories/storage/penta-sata-hat-04.webp)
 
+## 组件说明与排查建议
+
+Penta SATA HAT 系列通常由以下部分组成：
+
+- **Base board（主板）**：负责 SATA 存储连接
+- **Top board（顶板，可选）**：提供 OLED 显示屏和风扇，详情见 [Penta SATA HAT TOP 板](./sata-hat-top-board.md)
+- **完整套件（full kit）**：Base board + Top board + 对应配件
+
+如果您在安装或启动时遇到问题，建议先确认当前使用的是哪一种组合，再继续排查：
+
+1. 仅连接 base board 时，先确认系统镜像、内核版本，以及 SATA 设备是否能被识别
+2. 只有在安装了 top board 时，才需要 `rockpi-penta` 软件包来驱动 OLED 和风扇
+3. 如果接入 IPEX 线缆后系统异常，建议同时记录具体板型、使用的是 base board 还是 full kit，以及串口/内核日志
+
 ## 40 针引脚定义
 
 | 描述          | 功能    | 引脚# | 引脚# | 功能 | 描述       |
@@ -93,6 +119,11 @@ sidebar_position: 1
 | 5   | GPIO4_D2 | 6   | GPIO4_C2   |
 | 7   | GND      | 8   | PWM_33     |
 | 9   | GND      | 10  | NC         |
+
+**技术规格：**
+- **连接器类型：** 2x5 针座子
+- **针距 (Pitch)：** 2.0mm
+- **兼容连接器：** 标准 2.0mm 间距 2x5 针排针 (2x5 pin header, 2.0mm pitch)
 
 ## 用户指南
 

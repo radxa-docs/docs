@@ -11,4 +11,4 @@ import PPYOLOE from "../../../../common/ai/rockchip/\_ppyoloe.mdx"
 
 # PP-YOLOE
 
-<PPYOLOE />
+<PPYOLOE platform="rk3588" />

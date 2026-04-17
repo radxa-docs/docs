@@ -10,7 +10,7 @@ The following shows you how to build a kernel with bsp using Radxa ROCK 5B as an
 
 The following is the recommended environment for `bsp`.  
 Hardware: x86_64 PC recommended  
-System: Ubuntu or Debian
+System: Ubuntu 22.04 or Debian 12
 
 #### installs dependencies
 
@@ -62,7 +62,7 @@ Taking Radxa ROCK 5B as an example, the U-Boot profile is "rk2410". The followin
 |    rock-5a     | rk2410  |     radxa-cm5-io      | rk2410  | radxa-cm3-rpi-cm4-io | latest  | rock-pi-4b-plus | latest  |
 |    rock-5b     | rk2410  | radxa-cm5-rpi-cm4-io  | rk2410  | radxa-cm3-sodimm-io  | latest  |  rock-4c-plus   | latest  |
 |  rock-5b-plus  | rk2410  | radxa-cm3j-rpi-cm4-io | rk2410  |      radxa-e23       | latest  |   rock-pi-4a    | latest  |
-|    rock-5c     | rk2410  |       radxa-e25       | rknext  |     radxa-zero3      | latest  |   rock-pi-4b    | latest  |
+|    rock-5c     | rk2410  |       radxa-e25       | rknext  |     radxa-zero3      | rk2410  |   rock-pi-4b    | latest  |
 |    rock-5d     | rk2410  |     radxa-cm3i-io     | rknext  |       rock-3a        | latest  |   rock-pi-4c    | latest  |
 |    rock-5t     | rk2410  |                       |         |       rock-3b        | latest  | rock-4-core-io  | latest  |
 |  rock-5a-spi   | rk2410  |                       |         |       rock-3c        | latest  |                 |         |
@@ -75,11 +75,11 @@ Taking Radxa ROCK 5B as an example, the U-Boot profile is "rk2410". The followin
 
 If the product model is not found in the table, select the corresponding option based on your product's SoC model.
 
-Example: Radxa CM4 uses the Rockchip RK3576 SoC. According to the table, select `rk2410` as the `profile` parameter for `radxa-rk3576`.
+Example: Radxa CM4 / NX4 and ROCK 4D use the Rockchip RK3576 SoC. According to the table, select `rk2410` as the `profile` parameter for `radxa-rk3576`.
 
 :::
 
-Then fill in the `profile` parameter of the `bsp` command with the product's corresponding `profile`: `rk2410` to pull and configure the code, for example:
+Then fill in the `profile` parameter of the `bsp` command with the product's corresponding `profile`: `rk2410` to pull and configure the code, for example, using rock-5b as the example:
 
 ```bash
 ./bsp u-boot rk2410 rock-5b --no-build

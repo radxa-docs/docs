@@ -1,0 +1,14 @@
+---
+sidebar_position: 13
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/ai/rockchip/_deeplabv3.mdx
+---
+
+import Deeplabv3 from "../../../../common/ai/rockchip/\_deeplabv3.mdx"
+
+# DeepLabv3
+
+<Deeplabv3 platform="rk356x" />

@@ -21,6 +21,13 @@ The Radxa Dragon Q6A features an onboard M.2 M Key 2230 slot, ideal for users re
 
 Install the M.2 M Key 2230 SSD into the M.2 M Key 2230 slot on the Radxa Dragon Q6A.
 
+### Installation Steps
+
+1. Insert the M.2 2230 SSD into the slot at approximately 30 degrees
+2. Gently press down the SSD to ensure good contact with the slot
+3. Secure the SSD to the motherboard using an M2 × 4mm screw
+4. Ensure the screw is tight but not over-tightened to avoid damaging the threads
+
 :::tip Interface Location
 Refer to the [Hardware Information](./hardware-info) tutorial to locate the corresponding hardware interface.
 :::

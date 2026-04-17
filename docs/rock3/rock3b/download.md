@@ -2,21 +2,20 @@
 sidebar_position: 2
 ---
 
-import Images from "./\_image.mdx"
-
 # 资源下载汇总
 
 ## 操作系统镜像
 
-### 官方操作系统镜像
+### 瑞莎系统
 
-<Images loader={false} system_img={true} spi_img={false} />
+- [Rock-3b Debian Bullseye XFCE b18](https://github.com/radxa-build/rock-3b/releases/download/b18/rock-3b_debian_bullseye_xfce_b18.img.xz)
+- [Rock-3b Bookworm KDE R1](https://github.com/radxa-build/rock-3b/releases/download/rsdk-r1/rock-3b_bookworm_kde_r1.output_512.img.xz)
 
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
 :::
 
-### 第三方操作系统镜像
+### 第三方系统
 
 - [Radxa ROCK 3B OpenWrt](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3b)
 - [Radxa ROCK 3B OpenWrt ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-3b-ext4-sysupgrade.img.gz)

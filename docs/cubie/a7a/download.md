@@ -44,6 +44,12 @@ sidebar_position: 150
 
 - [Radxa Cubie A7A Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_4096.img.xz) （UFS）
 
+:::tip 百度网盘下载（备选）
+
+如果通过 GitHub 下载镜像速度比较慢或者中断，可以通过百度网盘下载系统镜像：
+
+- [百度网盘下载（radxa-a733）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-a733&parentPath=%2Fsharelink3108273493-988411983016443)
+
 :::tip Cubie A7A 旧版镜像
 
 - [Radxa Cubie A7A](https://github.com/radxa-build/radxa-cubie-a7a/releases)
@@ -67,6 +73,17 @@ sidebar_position: 150
 - [Radxa Cubie A7A Android 13 20250814](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20250814/a733_android13_radxa_a7a_20250814_uart0.zip)：适用于 AC101 音频编解码器版本的 Cubie A7A
 
 - [Radxa Cubie A7A Android 13 20260206](https://github.com/radxa/allwinner-android-manifests/releases/download/A733-Android13-20260205/a733_android13_radxa_a7a_20260206_uart0.zip)：适用于 AC101B 音频编解码器版本的 Cubie A7A
+
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+
+**版本说明：**
+- **R 版本**：经过测试的稳定版本，推荐使用
+- **T 版本**：测试版本（仅用于评估）
+:::
+- [百度网盘下载（radxa-a733）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-a733&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 刷机工具
 
@@ -113,7 +130,7 @@ SD卡启动盘制作工具：
 
 - 硬件设计资源
 
-提供可直接复用的设计模板与规范，包括标案原理图、开发板 / 原型机原理图、PCB 参考模板、设计指南及硬件 Checklist，同时配套 IBIS 模型、PMIC 选型说明，直接支撑硬件落地开发。
+提供可直接复用的设计模板与规范，包括标案原理图、主板 / 原型机原理图、PCB 参考模板、设计指南及硬件 Checklist，同时配套 IBIS 模型、PMIC 选型说明，直接支撑硬件落地开发。
 
 - 芯片手册
 

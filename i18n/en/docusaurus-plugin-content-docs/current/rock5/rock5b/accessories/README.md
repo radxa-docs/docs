@@ -24,3 +24,7 @@ This page lists the official accessories compatible with ROCK 5B.
 | Thermal  | Heatsink 4012          | Universal heatsink, 40x12 mm                                             | [Learn more](https://radxa.com/products/accessories/heatsink-4012)      |
 | Thermal  | Heatsink 4025A         | Active cooling heatsink with fan, 40x25 mm                               | [Learn more](https://radxa.com/products/accessories/heatsink-4025A)     |
 | Thermal  | Metal Case for ROCK 5B | Metal case providing cooling and protection                              | [Learn more](https://radxa.com/products/accessories/rock5b-metal-case)  |
+
+## 3D-Printed Cases
+
+- [Third-Party 3D-Printed Cases](./3d-case): Community-designed cases for ROCK 5B

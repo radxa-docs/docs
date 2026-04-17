@@ -1,5 +1,5 @@
 ---
-sidebar_position: 0
+sidebar_position: 1
 description: "RK3582 NPU Platform Specific Instructions"
 
 doc_kind: wrapper

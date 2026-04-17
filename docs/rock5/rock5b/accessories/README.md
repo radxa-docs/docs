@@ -24,3 +24,7 @@ sidebar_position: 99
 | 散热方案 | Heatsink 4012          | 通用型散热器，尺寸 40x12mm                               | [查看详情](https://radxa.com/products/accessories/heatsink-4012)      |
 | 散热方案 | Heatsink 4025A         | 主动散热器，带风扇，尺寸 40x25mm                         | [查看详情](https://radxa.com/products/accessories/heatsink-4025A)     |
 | 散热方案 | Metal Case for ROCK 5B | 金属外壳，提供优秀的散热和保护性能                       | [查看详情](https://radxa.com/products/accessories/rock5b-metal-case)  |
+
+## 3D 打印外壳
+
+- [第三方 3D 打印外壳](./3d-case)：社区设计的 ROCK 5B 专用外壳

@@ -24,6 +24,12 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 ## 系统镜像下载
 
+:::note 使用提示
+
+本页中的 `.img.xz` 文件为压缩镜像。如果所使用的烧录工具不支持直接写入 `.xz` 压缩包，请先解压得到 `.img` 文件，再进行烧录。
+
+:::
+
 ### Linux 系统镜像
 
 :::info 最新系统镜像发布页面
@@ -36,9 +42,9 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 若没有清除过 SPI Flash，可以直接写入系统镜像到 MicroSD 卡 / UFS 模块 / NVME / eMMC 启动系统。
 
-- 适用于 MicroSD 卡 / NVME SSD / U 盘 / eMMC 等介质启动的系统镜像： [Linux-SD-NVME-UDisk.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz)
+- 适用于 MicroSD 卡 / NVME SSD / U 盘 / eMMC 等介质启动的系统镜像： [Linux-SD-NVME-UDisk.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
 
-- 适用于 UFS 启动的系统镜像： [Linux-UFS.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_4096.img.xz)
+- 适用于 UFS 启动的系统镜像： [Linux-UFS.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_4096.img.xz)
 
 :::caution
 
@@ -61,6 +67,22 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 - 适用于 UFS 模块启动的 gpt 系统镜像：[Android-UFS-gpt.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-ufs-20250527-gpt.zip)
 
 - 适用于 NVME 启动的系统镜像：[Android-NVME.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-nvme-20250527-gpt.zip)
+
+### OpenWRT
+
+- [Radxa ROCK 4D OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4d-ext4-sysupgrade.img.gz)
+- [Radxa ROCK 4D OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4d-squashfs-sysupgrade.img.gz)
+
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+
+**版本说明：**
+- **R 版本**：经过测试的稳定版本，推荐使用
+- **T 版本**：测试版本（仅用于评估）
+:::
+- [百度网盘下载（radxa-rk3576）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-rk3576&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 硬件设计
 

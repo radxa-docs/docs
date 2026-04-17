@@ -37,7 +37,18 @@ Armbian 的默认凭据如下：
 
 &emsp;&emsp; [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (烧录工具)
 
-&emsp;&emsp; [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)（USB驱动）
+&emsp;&emsp; [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)（USB驱动）
+
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+
+**版本说明：**
+- **R 版本**：经过测试的稳定版本，推荐使用
+- **T 版本**：测试版本（仅用于评估）
+:::
+- [百度网盘下载（rock-5t）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5t&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 硬件设计
 

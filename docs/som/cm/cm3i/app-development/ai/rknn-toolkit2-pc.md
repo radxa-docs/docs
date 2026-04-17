@@ -1,0 +1,14 @@
+---
+sidebar_position: 4
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/dev/_rknn-toolkit2-pc.mdx
+---
+
+# 模拟推理 YOLOv5 分割模型
+
+import RKNNTOOLKIT2PC from '../../../../../common/dev/\_rknn-toolkit2-pc.mdx';
+
+<RKNNTOOLKIT2PC />

@@ -1,0 +1,113 @@
+本文档介绍如何在全志平台使用 GStreamer 调用 OpenMAX 组件完成视频解码、编码和编解码回环验证，
+适用于 Radxa Cubie A5E、Radxa Cubie A7A、Radxa Cubie A7S、Radxa Cubie A7Z 等瑞莎全志平台机型的 Debian 桌面镜像。
+
+## 前置准备
+
+### 安装 GStreamer 工具
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt-get update
+sudo apt-get install -y gstreamer1.0-plugins-base-apps
+```
+
+</NewCodeBlock>
+
+### 查看 OMX 插件
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+gst-inspect-1.0 | grep omx
+```
+
+</NewCodeBlock>
+
+:::note 兼容性说明
+不同 SoC 和系统镜像中实际可用的 OMX 元素可能略有差异，建议先执行 `gst-inspect-1.0 | grep omx`，
+再按实际输出选择对应的解码器或编码器。
+:::
+
+:::tip 显示输出说明
+以下示例默认在本地桌面环境中运行，因此使用 `DISPLAY=:0` 和 `xvimagesink` 显示画面。
+
+如果当前通过 SSH、串口或无显示器环境测试，可先去掉 `DISPLAY=:0`，再将 `xvimagesink` 替换为 `fakesink` 或 `filesink`，
+仅验证编解码管线是否工作正常。
+:::
+
+## 支持的 OpenMAX 编解码器
+
+### 视频解码器
+
+| 元素名             | 说明                        |
+| ------------------ | --------------------------- |
+| `omxavsvideodec`   | OpenMAX AVS Video Decoder   |
+| `omxh263videodec`  | OpenMAX H.263 Video Decoder |
+| `omxh264dec`       | OpenMAX H.264 Video Decoder |
+| `omxhevcvideodec`  | OpenMAX H.265 Video Decoder |
+| `omxmjpegvideodec` | OpenMAX MJPEG Video Decoder |
+| `omxmpeg1videodec` | OpenMAX MPEG1 Video Decoder |
+| `omxmpeg2videodec` | OpenMAX MPEG2 Video Decoder |
+| `omxmpeg4videodec` | OpenMAX MPEG4 Video Decoder |
+| `omxvp8videodec`   | OpenMAX VP8 Video Decoder   |
+| `omxvp9videodec`   | OpenMAX VP9 Video Decoder   |
+
+### 视频编码器
+
+| 元素名             | 说明                        |
+| ------------------ | --------------------------- |
+| `omxh264videoenc`  | OpenMAX H.264 Video Encoder |
+| `omxmjpegvideoenc` | OpenMAX MJPEG Video Encoder |
+
+## 用例示例
+
+### H.264 文件解码播放
+
+以下示例使用 `bbb_sunflower_1080p_60fps_normal.mp4` 进行本地播放测试。若测试文件不在当前目录，请将 `location` 改为实际路径。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 filesrc location=bbb_sunflower_1080p_60fps_normal.mp4 ! parsebin ! omxh264dec ! xvimagesink
+```
+
+</NewCodeBlock>
+
+### H.264 编码到 Matroska 文件
+
+以下示例使用 `videotestsrc` 生成 600 帧测试图像，经硬件 H.264 编码后保存为 `test.mkv`。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 videotestsrc num-buffers=600 ! omxh264videoenc ! h264parse ! matroskamux ! filesink location=test.mkv
+```
+
+</NewCodeBlock>
+
+### H.264 编解码回环显示
+
+以下示例将测试图像编码为 H.264 后立即解码显示。该命令会持续运行，按 `Ctrl+C` 结束即可。
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 videotestsrc ! omxh264videoenc ! omxh264dec ! xvimagesink
+```
+
+</NewCodeBlock>
+
+:::note 兼容性说明
+上述编解码回环示例暂时只在 A733 上可用。
+:::
+
+## 使用建议
+
+- 若输入文件不是 H.264，可保持同样的管线结构，仅将 `omxh264dec` 替换为对应的 OMX 解码器，
+  例如 H.265 对应 `omxhevcvideodec`，VP9 对应 `omxvp9videodec`。
+- `parsebin` 会自动选择解复用器和解析器；如果遇到个别文件解析失败，
+  可按容器格式手动拆分为 `qtdemux ! h264parse`、`matroskademux ! h265parse` 等更明确的管线。
+- 若需要测试 MJPEG 编码，可将编码器替换为 `omxmjpegvideoenc`，
+  并根据输出格式选择合适的复用器或直接输出到 JPEG 序列文件。
+- 使用文件输出的编码示例时，建议等待管线自然结束，避免在文件尚未完成封装时直接断电或强制关闭终端。

@@ -22,7 +22,7 @@ M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
 
 您需要准备以下硬件：
 
-- 开发板：瑞莎 ROCK 4D
+- 主板：瑞莎 ROCK 4D
 - 正常启动系统的 MicroSD 卡
 - M.2 NVMe SSD: 自行购买
 - PCIe 转 M.2 M Key HAT : 自行购买
@@ -78,7 +78,7 @@ wget [URL]
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```bash
-sudo xzcat ~/radxa-rk3576_bookworm_kde_t2.output_512.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
+sudo xzcat ~/radxa-rk3576_bookworm_kde_r6.output_512.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
 ```
 </NewCodeBlock>
 

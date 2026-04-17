@@ -30,7 +30,7 @@ ROCK Pi S0 v1.2 Version
 1. [Etcher](https://etcher.balena.io/#download-etcher/)
 2. [rkdeveloptool open source version](https://opensource.rock-chips.com/wiki_Rkdeveloptool)
 3. [RKDevTool v2.86](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.86.zip)  
-   [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) (related driver)
+   [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip) (related driver)
 
 ## Operating system images
 

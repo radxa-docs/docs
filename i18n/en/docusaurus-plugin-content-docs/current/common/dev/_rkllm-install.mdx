@@ -99,7 +99,7 @@ $python3
 
 To build the on-device runtime examples, you need a cross-compilation toolchain.
 
-Download: [Cross compilation toolchain](https://developer.arm.com/-/media/files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz?rev=33c6e30e5ac64e6dba8f0431f2c35f1b&revision=33c6e30e-5ac6-4e6d-ba8f-0431f2c35f1b&hash=632C6C0BD43C3E4B59CA8A09A7055D30).
+Download the officially recommended version: [gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu](https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11).
 
 Extract it after downloading.
 
@@ -122,6 +122,22 @@ Radxa OS 6.1 images may ship with RKNPU driver **0.9.6** by default.
 Upgrade via `sudo rsetup` -> `System` -> `System Update` to get RKNPU driver **0.9.8**.
 After upgrading, run **`sudo apt autopurge`** and reboot.
 :::
+
+:::info
+Some CLI / minimal images may not have the RKNPU2 userspace package preinstalled that RKLLM requires. If you see `failed to open rknpu module` or `failed to open rknn device` when running `llm_demo`, install the RKNPU2 package for your SoC and reboot first.
+:::
+
+<NewCodeBlock tip="Radxa OS" type="device">
+
+```bash
+sudo apt update
+# RK3588 / RK3582 series
+sudo apt install rknpu2-rk3588
+# RK356X series: sudo apt install rknpu2-rk356x
+sudo reboot
+```
+
+</NewCodeBlock>
 
 Check the driver version:
 

@@ -169,6 +169,10 @@ This section uses [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.
 
   </NewCodeBlock>
 
+  :::tip
+  If you see `failed to open rknpu module` or `failed to open rknn device` here, it usually means the RKNPU2 userspace package is missing or the driver version doesn't meet RKLLM requirements. Go back to the [RKLLM Install](./rkllm_install#board-side-driver-configuration) board-side driver configuration section, confirm that `rknpu2-rk3588` is installed, and check `/sys/kernel/debug/rknpu/version`.
+  :::
+
   | Parameter         | Required | Description               | Notes                          |
   | ----------------- | -------- | ------------------------- | ------------------------------ |
   | `path`            | Yes      | Path to the RKLLM model   | N/A                            |

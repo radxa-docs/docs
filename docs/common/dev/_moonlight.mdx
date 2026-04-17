@@ -12,6 +12,12 @@
 参考至[编译并安装 ffmpeg-rockchip](rtsp?target=ffmpeg#编译并安装-ffmpeg-rockchip)
 即可安装 rockchip-ffmpeg。
 
+:::tip
+如果你是自行编译 `ffmpeg-rockchip` 给 Moonlight 使用，请确保 `ffmpeg-rockchip` 的 `./configure`
+参数包含 `--enable-shared`。否则 Moonlight 在链接阶段可能会误用静态 `libavcodec.a`，并报出类似
+`undefined reference to symbol 'inflateEnd'` 这样的缺少 zlib 依赖错误。
+:::
+
 ## 安装 Moonlight 编译依赖
 
 ```bash
@@ -33,8 +39,8 @@ git submodule update --init --recursive
 ## 添加 rockchip-ffmpeg 路径及依赖参数
 
 ```bash
-echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> app/app.pro
-echo 'LIBS += -L/usr/lib -lavcodec -lavutil -lavformat -lswscale' >> moonlight-qt.pro
+echo 'LIBS += -L/usr/lib -lavformat -lavcodec -lavutil -lswscale' >> app/app.pro
+echo 'QMAKE_LIBS += -lswresample -lx264 -lx265 -lrockchip_mpp -lrga -lz -llzma' >> app/app.pro
 ```
 
 ## 编译 Moonlight

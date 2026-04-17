@@ -16,7 +16,7 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 适用于 MicroSD 卡、板载 eMMC、NVMe SSD 启动系统。
 
-[Radxa Debian12 Linux Debian KDE](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-b3/radxa-rk3576_bookworm_kde_b3.output_512.img.xz)
+[Radxa Debian12 Linux Debian KDE](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
 
 :::caution
 
@@ -29,6 +29,17 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 [Radxa CM4 Android 14 MicroSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa-cm4-android14-rkr6-sd_emmc-20250903-gpt.zip)：适用于 MicroSD 卡、板载 eMMC 启动系统。
 
 [Radxa CM4 Android 14 UFS Module System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa_cm4_android14_rkr6_ufs_20250829-update.zip)：适用于 UFS 模块启动系统。
+
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+
+**版本说明：**
+- **R 版本**：经过测试的稳定版本，推荐使用
+- **T 版本**：测试版本（仅用于评估）
+:::
+- [百度网盘下载（radxa-cm4-rpi-cm4-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm4-rpi-cm4-io&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 硬件设计
 
@@ -52,7 +63,7 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 - [Balena Etcher](https://etcher.balena.io/)
 
-- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+- [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)
 
 - [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar)
 

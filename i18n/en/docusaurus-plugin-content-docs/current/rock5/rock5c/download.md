@@ -17,6 +17,10 @@ import Images from "./\_image.mdx"
 Except for the above images which have been fully tested officially, the other images have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
 :::
 
+:::note
+Currently, only Android 12 is officially available for ROCK 5C.
+:::
+
 ### Third-Party Operating System images
 
 - [Radxa ROCK 5C Armbian](https://www.armbian.com/radxa-rock-5c/)

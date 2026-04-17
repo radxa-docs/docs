@@ -22,7 +22,7 @@ We'll be working within the system on the MicroSD card and use the `dd` command 
 
 You'll need the following hardware:
 
-- Development Board: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - MicroSD card with a working system
 - M.2 NVMe SSD: Purchase separately
 - PCIe to M.2 M Key HAT: Purchase separately
@@ -77,7 +77,7 @@ Use the following command to extract and write the compressed system image direc
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```bash
-sudo xzcat ~/radxa-rk3576_bookworm_kde_t2.output_512.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
+sudo xzcat ~/radxa-rk3576_bookworm_kde_r6.output_512.img.xz | sudo dd of=/dev/nvme0n1 bs=1M status=progress
 ```
 </NewCodeBlock>
 

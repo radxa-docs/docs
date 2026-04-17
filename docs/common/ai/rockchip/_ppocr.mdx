@@ -28,9 +28,8 @@ bash download_model.sh
 
 选择目标平台。
 
-<Tabs>
-
-<TabItem value="rk3588">
+<Tabs queryString="platform">
+<TabItem value="rk3588" default={!props.platform || props.platform === "rk3588"} attributes={{className: props.platform && props.platform !== "rk3588" ? "tab_none" : undefined}}>
 
 <NewCodeBlock tip="X64 Linux PC" type="pc">
 
@@ -41,8 +40,7 @@ export TARGET_PLATFORM=rk3588
 </NewCodeBlock>
 
 </TabItem>
-
-<TabItem value="rk356x">
+<TabItem value="rk356x" default={props.platform === "rk356x"} attributes={{className: props.platform && props.platform !== "rk356x" ? "tab_none" : undefined}}>
 
 <NewCodeBlock tip="X64 Linux PC" type="pc">
 
@@ -53,7 +51,17 @@ export TARGET_PLATFORM=rk356x
 </NewCodeBlock>
 
 </TabItem>
+<TabItem value="rk3576" default={props.platform === "rk3576"} attributes={{className: props.platform && props.platform !== "rk3576" ? "tab_none" : undefined}}>
 
+<NewCodeBlock tip="X64 Linux PC" type="pc">
+
+```bash
+export TARGET_PLATFORM=rk3576
+```
+
+</NewCodeBlock>
+
+</TabItem>
 </Tabs>
 
 将 onnx 模型转换为 rknn 模型。

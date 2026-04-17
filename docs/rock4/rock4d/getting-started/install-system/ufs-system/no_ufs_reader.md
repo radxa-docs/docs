@@ -16,7 +16,7 @@ sidebar_position: 2
 
 **您需要准备以下硬件：**
 
-- 开发板： 瑞莎 ROCK 4D
+- 主板：瑞莎 ROCK 4D
 - [UFS 模块](https://radxa.com/products/accessories/ufs-module)
 - 正常启动系统的 MicroSD 卡
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)
@@ -78,7 +78,7 @@ UFS 模块安装步骤：
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```bash
-sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/sda bs=1M status=progress
+sudo xzcat ~/radxa-rk3576_bookworm_kde_r6.output_4096.img.xz | sudo dd of=/dev/sda bs=1M status=progress
 ```
 </NewCodeBlock>
 

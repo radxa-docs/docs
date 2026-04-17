@@ -6,7 +6,7 @@ RKDevTool is a software developed by Rockchip for USB flashing on Windows/Linux/
 
 - Install Drivers
 
-Download and extract the [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) file.
+Download and extract the [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip) file.
 
 Locate the `DriverInstall.exe` file and run it as administrator:
 
@@ -85,21 +85,41 @@ If you don't have HomeBrew installed, you can install it using the following com
 
 - Install rkdeveloptool
 
-Open your system terminal or command line and run the following commands to install:
+Open your system terminal or command line and run the following commands to install.
+
+:::tip Recommended
+It is recommended to install directly via a third-party Homebrew Tap, no manual compilation needed:
+:::
 
 <NewCodeBlock tip="MacOS$" type="host">
 
 ```bash
-brew install automake autoconf libusb pkg-config git wget
+brew tap IgorKha/rkdeveloptool
+brew install rkdeveloptool
+```
+
+</NewCodeBlock>
+
+:::tip Compile from source (alternative)
+
+If the Tap installation fails, you can also compile from source. macOS does not support `$(nproc)`, use `make` directly. `main.cpp` uses variable-length arrays (VLA), macOS Clang does not allow VLA in C++ by default, so you need to declare the variable as `const` first.
+
+<NewCodeBlock tip="MacOS$" type="host">
+
+```bash
+brew install automake autoconf libusb pkg-config
 git clone https://github.com/rockchip-linux/rkdeveloptool
 cd rkdeveloptool
 autoreconf -i
 ./configure
-make -j $(nproc)
+sed -i '' 's/int nSectorSize = 512;/const int nSectorSize = 512;/' main.cpp
+make
 cp rkdeveloptool /opt/homebrew/bin/
 ```
 
 </NewCodeBlock>
+
+:::
 
 - Verify Installation
 

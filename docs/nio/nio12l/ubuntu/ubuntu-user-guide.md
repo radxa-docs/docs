@@ -346,6 +346,16 @@ ubuntu@mtk-genio:~$ ls /sys/class/pwm/pwmchip0/
 device  export  npwm  power  subsystem  uevent  unexport
 ```
 
+## 同时启用多个 DT overlay
+
+用户可以同时打开多个 dt overlay，如：
+
+```text
+list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c3.dtbo i2c4.dtbo gpio104-pwm.dtbo spi1-spidev.dtbo spi2-spidev.dtbo
+```
+
+这样可以在一次配置中启用多个硬件功能，无需多次修改 `u-boot-initial-env` 文件。
+
 ## 安装 QT
 
 安装 qtcreator。
@@ -354,9 +364,70 @@ device  export  npwm  power  subsystem  uevent  unexport
 $ sudo apt update && sudo apt install -y qtcreator
 ```
 
-说明：
-用户可以同时打开多个 dt overlay，如：
+## 使用 NeuroPilot (APU)
 
-```text
-list_dtbo= gpu-mali.dtbo video.dtbo ddr-8g.dtbo i2c3.dtbo i2c4.dtbo gpio104-pwm.dtbo spi1-spidev.dtbo spi2-spidev.dtbo
+NIO 12L 搭载的 MediaTek MT8395 (Genio 1200) 内置 APU (AI Processor Unit) 和 AI Accelerator (Aia)，可通过 NeuroPilot 软件栈在 Ubuntu 上调用硬件加速进行 AI 推理。
+
+### 安装 NeuroPilot 组件
+
+首先安装对应平台的固件包：
+
+```bash
+# Genio 1200 (NIO 12L 使用)
+sudo apt install mediatek-apusys-firmware-genio1200
 ```
+
+然后安装 Neuron runtime 包：
+
+```bash
+sudo apt install mediatek-libneuron mediatek-neuron-utils mediatek-libneuron-dev
+sudo reboot
+```
+
+### 验证 APU 是否正常工作
+
+重启后，运行以下命令验证：
+
+```bash
+sudo vpu5_test -a ks -l 10
+```
+
+测试结果应显示 `PASS`。
+
+### 运行 benchmark 示例
+
+运行 MediaTek 提供的 benchmark 示例程序：
+
+```bash
+# 创建 workaround 目录
+sudo mkdir -p /usr/share/benchmark_dla
+sudo cp /usr/share/neuropilot/benchmark_dla/* /usr/share/benchmark_dla/
+
+# 安装依赖
+sudo apt install python3-pip
+sudo pip3 install numpy
+
+# 运行 benchmark
+sudo python3 /usr/share/benchmark_dla/benchmark.py --auto
+```
+
+结果示例：
+
+```
+root@mtk-genio:/usr/share/benchmark_dla# python3 benchmark.py --auto
+2023-07-31 07:04:19,029 [INFO] ssd_mobilenet_v1_coco_quantized.tflite, mdla3.0, avg inference time: 2.53
+2023-07-31 07:04:24,499 [INFO] ssd_mobilenet_v1_coco_quantized.tflite, vpu, avg inference time: 46.14
+...
+```
+
+### 支持的模型格式
+
+NeuroPilot Neuron SDK 主要支持以下模型格式：
+- **TFLite** (.tflite)
+- **ONNX** (.onnx) — 需通过 Neuron API 加载
+- **Caffe** (.caffemodel)
+
+更多详细信息请参考 MediaTek 官方文档：
+
+- [NeuroPilot 主页](https://neuropilot-developer.mediatek.com/resources/public/latest/en/docs/readme)
+- [Neuron SDK 文档](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/release/v25.0/sw/yocto/ml-guide/ml-neuron-sdk.html)

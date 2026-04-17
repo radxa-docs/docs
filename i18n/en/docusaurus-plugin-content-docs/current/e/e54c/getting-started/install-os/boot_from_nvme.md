@@ -128,7 +128,7 @@ RKDevTool is a software developed by Rockchip for USB burning on Windows/Linux/M
 
 - Install Driver
 
-Download and extract the [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) file.
+Download and extract the [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip) file.
 
 Locate the `DriverInstall.exe` file and run it as administrator:
 

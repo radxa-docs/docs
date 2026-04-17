@@ -71,7 +71,7 @@ $ sudo udevadm trigger
 
 ```
 
-Also, if using adb to connect to the development board, add a new udev rule and add your user account to the plugdev group:
+Also, if using adb to connect to the NIO 12L, add a new udev rule and add your user account to the plugdev group:
 
 ```bash
 

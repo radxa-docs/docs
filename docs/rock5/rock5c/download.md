@@ -16,6 +16,10 @@ import Images from "./\_image.mdx"
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
 :::
 
+:::note
+目前 ROCK 5C 官方提供的 Android 镜像仅为 Android 12 版本，其他 Android 版本暂不提供。
+:::
+
 ### 第三方操作系统镜像
 
 - [Radxa ROCK 5C Armbian](https://www.armbian.com/radxa-rock-5c/)
@@ -33,6 +37,18 @@ Armbian 的默认凭据如下：
 - [Radxa ROCK 5C Kaihong OS for eMMC MIPI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-MIPI-EMMC-GPT-20260121-0316.zip)：适用于 eMMC 模块启动系统，支持瑞莎 8 寸显示屏。
 - [Radxa ROCK 5C Kaihong OS for microSD HDMI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-HDMI-SD-GPT-20260121-0346.zip)：适用于 microSD 卡启动系统，支持 HDMI 显示。
 - [Radxa ROCK 5C Kaihong OS for microSD MIPI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-MIPI-SD-GPT-20260121-0531.zip)：适用于 microSD 卡启动系统，支持瑞莎 8 寸显示屏。
+
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+
+**版本说明：**
+- **R 版本**：经过测试的稳定版本，推荐使用
+- **T 版本**：测试版本（仅用于评估）
+:::
+- [百度网盘下载（rock-5c）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5c&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（rock-5c-6_1）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5c-6_1&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 硬件设计
 

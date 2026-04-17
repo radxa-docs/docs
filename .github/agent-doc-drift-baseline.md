@@ -1,6 +1,6 @@
 # Agent Doc Drift Baseline
 
-Snapshot date: 2026-02-27
+Snapshot date: 2026-03-12
 
 ## Summary
 
@@ -12,6 +12,8 @@ Snapshot date: 2026-02-27
 Files that exist in `docs/` but are missing in `i18n/en/docusaurus-plugin-content-docs/current/`:
 
 - `aicore/ax-m1/frigate-axera.md`
+- `common/ai/_rknn_yolov8_multi_stream.mdx`
+- `rock5/rock5b/app-development/ai/yolov8-multi-stream.md`
 
 ## i18n_only
 

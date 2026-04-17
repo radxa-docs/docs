@@ -4,6 +4,12 @@ sidebar_position: 2
 
 # Radxa Products
 
+Welcome to Radxa Product Center! We offer a variety of single-board computers, compute modules, and network computing devices for different application scenarios. Here's a quick guide:
+
+- **ROCK Series**: Suitable for general computing, multimedia, and IoT applications
+- **Compute Module Series**: Suitable for embedded systems, industrial control, and customized products
+- **Network Computer Series**: Suitable for network devices, routers, and edge computing
+
 ## Radxa SBC Family
 
 ### ROCK 3 Series

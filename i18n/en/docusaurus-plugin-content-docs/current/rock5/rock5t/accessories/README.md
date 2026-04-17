@@ -21,3 +21,7 @@ This page lists the official accessories compatible with ROCK 5T.
 | Thermal  | Heatsink 4012        | Universal heatsink, 40x12 mm                                | [Learn more](https://radxa.com/products/accessories/heatsink-4012)            |
 | Thermal  | Metal Case 1290      | Metal case 1290                                             | [Learn more](https://radxa.com/products/accessories/metal-case-1290)          |
 | PoE      | 25W PoE+ Module 5514 | 25W PoE+ module 5514                                        | [Learn more](https://radxa.com/products/accessories/25w-poe-push-module-5514) |
+
+## 3D-Printed Cases
+
+- [Third-Party 3D-Printed Cases](./3d-case): Community-designed cases for ROCK 5T

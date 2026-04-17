@@ -1,0 +1,317 @@
+本文档讲述如何在 NPU 上运行 ResNet50 V2。
+
+:::info
+参考 [Model Zoo 下载](./model-zoo-download)获取示例。
+:::
+
+ResNet50 V2 示例目录结构：
+
+```bash
+$ tree ./
+./
+├── class_post.cpp
+├── class_pre.cpp
+├── CMakeLists.txt
+├── convert_model
+│   ├── config_yml.py
+│   └── convert_model_env.sh
+├── label.h
+├── main.cpp
+├── model
+│   └── 1.jpg
+└── README.md
+```
+
+## 模型转换
+
+### 下载模型
+
+点击下载 [resnet50v2.onnx](http://netstorage.allwinnertech.com:5000/sharing/WQ6FcVgs5) 。
+
+然后将模型移动到 convert_model/ 目录下。
+
+### 创建转换脚本的软链接
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd convert_model/
+./convert_model_env.sh
+```
+
+</NewCodeBlock>
+
+### 模型导入/量化/转换
+
+需要先进入容器开发环境。可以参考 Model Zoo 下载中[创建容器](./model-zoo-download#创建并启动容器)这一部分。
+
+:::info
+不同平台请使用对应的 Docker 镜像：
+
+- A733：ubuntu-npu:v2.0.10.1
+- T527：ubuntu-npu:v1.8.11
+  :::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+进入容器对应目录之后运行脚本。
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/resnet50v2/convert_model/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_import.sh resnet50v2
+./pegasus_quantize.sh resnet50v2 uint8 10
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh resnet50v2 uint8 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh resnet50v2 uint8 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+导出的模型文件存放在../model目录。
+
+### 编译示例
+
+接下来可以编译示例，**先 exit 退出容器**，然后执行下面的命令编译示例。
+
+首先需要配置第三方库和交叉编译工具链。
+
+:::info
+如果你已经在其他示例中配置过第三方库和交叉编译工具链则可以跳过这一步。
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../../../3rdparty/opencv/
+unzip opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
+cd ../../0-toolchains/
+```
+
+</NewCodeBlock>
+
+需要先手动[点击链接](http://netstorage.allwinnertech.com:5000/sharing/e2nD8YwB4)下载之后放到 0-toolchains/ 再执行下面的命令：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../examples/resnet50v2/
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t a733 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t t527 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+## 模型部署
+
+编译示例完成之后，示例会安装到 install 目录，可以使用 scp 传输到板端。
+
+### 配置 NPU 驱动
+
+:::info
+如果你已经在其他示例中配置过 NPU 驱动则可以跳过这一步。
+:::
+
+将驱动库 scp 传输到板端的 lib 目录。
+
+- A733 对应 common/lib_linux_aarch64/A733 目录
+- T527 对应 common/lib_linux_aarch64/T527 目录
+
+然后执行下面的命令导出到环境变量。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+配置好驱动之后就可以运行示例了。
+
+:::tip
+对于 T527 平台，你还需要参考 A5E 的`板端启用 NPU`文档先启用 NPU ，然后使用下面的命令增加当前用户使用 /dev/vipcore 的权限。
+:::
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd resnet50v2_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./resnet50v2_demo_a733
+./resnet50v2_demo_a733 -nb model/resnet50v2_uint8_a733.nb -i model/1.jpg
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./resnet50v2_demo_a733 -nb model/resnet50v2_uint8_a733.nb -i model/1.jpg
+model_file=model/resnet50v2_uint8_a733.nb, input=model/1.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+input  0 dim 3 224 224 1, data_format=2, quant_format=0, name=input/output[0], none-quant
+output 0 dim 1000 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/resnet50v2_uint8_a733.nb, size: 17593328.
+create network 0: 15664 us.
+prepare network: 1734 us.
+network: 0, loop count: 1
+run time for this network 0: 8900 us.
+class_postprocess.cpp run.
+========== top5 ==========
+class id: 281, prob: 11.564558, label: tabby, tabby cat
+class id: 285, prob: 10.988928, label: Egyptian cat
+class id: 282, prob: 9.769331, label: tiger cat
+class id: 287, prob: 5.913674, label: lynx, catamount
+class id: 292, prob: 4.939133, label: tiger, Panthera tigris
+destroy npu finished.
+~NpuUint.
+```
+
+此性能数据仅计算模型推理的时间消耗。如无特别说明，不包含预处理和后处理的时间消耗。
+
+| SoC       | NPU             | 模型       | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率      |
+| :-------- | :-------------- | :--------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :-------- |
+| 全志 A733 | Vivante VIP9000 | resnet50v2 | 224×224    | 15.7 ms      | 1.7 ms       | 8.9 ms       |            | 26.3 ms | 112.4 FPS |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd resnet50v2_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./resnet50v2_demo_t527
+./resnet50v2_demo_t527 -nb model/resnet50v2_uint8_t527.nb -i model/1.jpg
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./resnet50v2_demo_t527 -nb model/resnet50v2_uint8_t527.nb -i model/1.jpg
+model_file=model/resnet50v2_uint8_t527.nb, input=model/1.jpg, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+input  0 dim 3 224 224 1, data_format=2, quant_format=0, name=input[0], none-quant
+output 0 dim 1000 1 0 0, data_format=0, name=uid_20000_sub_uid_1_out_0, none-quant
+nbg name=model/resnet50v2_uint8_t527.nb, size: 17309120.
+create network 0: 27251 us.
+prepare network: 3129 us.
+network: 0, loop count: 1
+run time for this network 0: 16298 us.
+class_postprocess.cpp run.
+========== top5 ==========
+class id: 281, prob: 11.682373, label: tabby, tabby cat
+class id: 285, prob: 11.270020, label: Egyptian cat
+class id: 282, prob: 10.033203, label: tiger cat
+class id: 287, prob: 6.047363, label: lynx, catamount
+class id: 292, prob: 5.085327, label: tiger, Panthera tigris
+destroy npu finished.
+~NpuUint.
+```
+
+此性能数据仅计算模型推理的时间消耗。如无特别说明，不包含预处理和后处理的时间消耗。
+
+| SoC       | NPU             | 模型       | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
+| :-------- | :-------------- | :--------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
+| 全志 T527 | Vivante VIP9000 | resnet50v2 | 224×224    | 27.3 ms      | 3.1 ms       | 16.3 ms      |            | 46.7 ms | 61.3 FPS |
+
+</TabItem>
+</Tabs>

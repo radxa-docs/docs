@@ -26,7 +26,7 @@ sidebar_position: 99
 1. [Etcher](https://etcher.balena.io/#download-etcher/)
 2. [rkdeveloptool open source version](https://opensource.rock-chips.com/wiki_Rkdeveloptool)
 3. [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip)
-   [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) (related driver)
+   [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip) (related driver)
 
 ### Loader File
 

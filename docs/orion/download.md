@@ -9,7 +9,7 @@ sidebar_position: 150
 :::info 快速导航
 
 - [BIOS 固件](#bios-固件)
-- [系统镜像（Radxa OS / Android / OpenHarmony / Fedora）](#系统镜像)
+- [系统镜像（Radxa OS / Android / OpenHarmony / Fedora / Debian 13）](#系统镜像)
 - [硬件设计资料](#硬件设计)
 - [社区资源](#社区资源)
 - [参考手册](#参考手册)
@@ -26,14 +26,14 @@ sidebar_position: 150
         | 下载平台                                                                            | 文件格式 | 获取方式                                                                                            |
         | :---------------------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
         | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.1.0-1.zip) | `.zip`   | 固件位于压缩包内                                                                                                  |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases)                | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` 目录下 |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-1)                | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` 目录下 |
     </TabItem>
     <TabItem value="星睿 O6N">
 #### 瑞莎星睿 O6N
         | 下载平台                                                             | 文件格式 | 获取方式                                                                                            |
         | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
         | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-2.zip)                      | `.zip`   | 固件位于压缩包内                                                                                                  |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases) | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` 目录下 |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-2) | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` 目录下 |
     </TabItem>
 </Tabs>
 
@@ -133,6 +133,15 @@ Fedora 系统的默认凭据如下：
 | :----- | :-------- |
 | 用户名 | `root`    |
 | 密码   | `aarch64` |
+
+### Debian 13
+
+Debian 13 适合需要使用 CIX 社区开源驱动栈的开发者。该方案现已支持瑞莎星睿 O6 和 O6N，采用手动安装 Debian 13 (trixie) 后再通过 CIX PPA 安装开源驱动的方式，不提供现成的 DD 系统镜像。
+
+- Orion O6 使用说明：[Orion O6 Debian 13](./o6/other-os/debian13.md)
+- Orion O6N 使用说明：[Orion O6N Debian 13](./o6n/other-os/debian13.md)
+- 适用场景：主线内核验证、NPU / VPU 驱动调试、社区开发测试
+- 注意：该方案基于开发内核 `7.0.0-rc5-generic`，安装前需在 BIOS 中启用 `Enable ACPI SCMI`
 
 ## 硬件设计
 

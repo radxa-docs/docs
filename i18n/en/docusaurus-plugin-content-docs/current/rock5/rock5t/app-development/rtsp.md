@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 7
 description: "Dig deep into the RTSP push streaming capabilities of the ROCK 5 series and enjoy the perfect blend of technology and humanity that makes HD video streaming as smooth as poetry"
 
 doc_kind: wrapper

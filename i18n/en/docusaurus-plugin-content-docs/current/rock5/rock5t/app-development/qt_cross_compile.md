@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 5
 description: "Enjoy the convenience and fun of developing efficient and user-friendly applications on the ARM platform with QT cross-compilation"
 
 doc_kind: wrapper

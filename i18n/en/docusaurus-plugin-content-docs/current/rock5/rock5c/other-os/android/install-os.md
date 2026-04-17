@@ -11,6 +11,10 @@ import Rkdeveloptool from "../../../../common/dev/\_rkdeveloptoolV3.mdx";
 
 This document describes how to install an Android image to the ROCK 5C.
 
+:::note
+Currently, only Android 12 is officially available for ROCK 5C.
+:::
+
 ROCK 5C can be booted from microSD card or EMMC, depending on the boot method, the system will be installed on different media.
 
 <Tabs queryString="target">
@@ -105,7 +109,7 @@ RKDevTool is Rockchip's software for USB burning on Windows platform. If RKDevTo
 Please download and extract the following files to install RKDevTool:
 
 - [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (Includes Chinese documentation)
-- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+- [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)
 
 ### Installation of drivers
 

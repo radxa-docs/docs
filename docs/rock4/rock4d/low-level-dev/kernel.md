@@ -1,14 +1,15 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
+description: "用 Radxa BSP 工具，轻松构建个性化 Linux 内核，享受定制化硬件开发的乐趣"
 
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/radxa-os/build-system/_kernel.mdx
+  - docs/common/dev/_kernel.mdx
 ---
 
-import Kernel from '../../../common/radxa-os/build-system/\_kernel.mdx';
+import KERNEL from '../../../common/dev/\_kernel.mdx'
 
 # Kernel 开发
 
-<Kernel  git_url="https://github.com/radxa-pkg/linux-rk2410-nocsf" />
+<KERNEL model="Radxa ROCK 4D" soc="rk3576" />

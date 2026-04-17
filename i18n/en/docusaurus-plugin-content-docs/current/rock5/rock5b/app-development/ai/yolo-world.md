@@ -11,4 +11,4 @@ import YOLOWorld from "../../../../common/ai/rockchip/\_yolo_world.mdx"
 
 # YOLO World
 
-<YOLOWorld />
+<YOLOWorld platform="rk3588" />

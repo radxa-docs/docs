@@ -16,7 +16,7 @@ We'll be working within the system on the MicroSD card and use the `dd` command 
 
 **You will need the following hardware:**
 
-- Development board: Radxa ROCK 4D
+- Motherboard: Radxa ROCK 4D
 - [UFS Module](https://radxa.com/products/accessories/ufs-module)
 - Functional MicroSD card with bootable system
 - Power adapter: Type-C power adapter (with PD protocol support, 5V input, 3A or higher recommended)
@@ -78,7 +78,7 @@ Use the following command to extract and write the compressed system image direc
 
 <NewCodeBlock tip="radxa@radxa-4d$" type="device">
 ```bash
-sudo xzcat ~/radxa-rk3576_bookworm_kde_b1.output_4096.img.xz | sudo dd of=/dev/sda bs=1M status=progress
+sudo xzcat ~/radxa-rk3576_bookworm_kde_r6.output_4096.img.xz | sudo dd of=/dev/sda bs=1M status=progress
 ```
 </NewCodeBlock>
 

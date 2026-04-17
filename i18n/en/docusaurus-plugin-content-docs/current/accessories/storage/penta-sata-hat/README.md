@@ -20,6 +20,18 @@ Currently supported Radxa ROCK Series products:
 - ROCK 5A
 - ROCK 5C
 
+:::note
+**ROCKPi 4 Series vs. ROCK 4 Series Compatibility Note**: ROCKPi 4 series is the early product name, now unified as the ROCK 4 series.
+
+- ROCKPi 4A = ROCK 4A
+- ROCKPi 4B = ROCK 4B
+- ROCKPi 4A+ = ROCK 4A+
+- ROCKPi 4B+ = ROCK 4B+
+- ROCKPi 4SE = ROCK 4SE
+
+ROCK 4A/4A+/4B/4B+/4SE are fully compatible with ROCKPi 4A/4A+/4B/4B+/4SE and all are fully compatible with Penta SATA HAT. If your device is labeled as ROCKPi 4A/B/4SE, please refer to the installation guide for the corresponding ROCK 4A/B/4SE.
+:::
+
 Currently supported Raspberry Pi models:
 
 - Raspberry Pi 5
@@ -59,6 +71,20 @@ If you use large capacity 3.5-inch mechanical hard drives on the Penta SATA HAT,
 
   ![Radxa M.2 Extension Board](/img/accessories/storage/penta-sata-hat-04.webp)
 
+## Components and troubleshooting scope
+
+The Penta SATA HAT family is commonly used in the following combinations:
+
+- **Base board**: the storage board used for SATA connectivity
+- **Top board (optional)**: adds the OLED display and fan; see [Penta SATA HAT top board](./sata-hat-top-board.md)
+- **Full kit**: base board + top board + the matching accessories
+
+If you run into installation or boot problems, identify which combination you are using before troubleshooting further:
+
+1. With only the base board connected, first confirm the system image, kernel version, and whether the SATA devices are detected
+2. Install the `rockpi-penta` package only when the top board is present, because it is used for the OLED and fan features
+3. If the system becomes unstable after connecting the IPEX cable, record the board model, whether you are using the base board or the full kit, and any serial or kernel logs
+
 ## 40Pin Pinout
 
 | Description   | Function | Pin# | Pin# | Function | Description |
@@ -93,6 +119,11 @@ If you use large capacity 3.5-inch mechanical hard drives on the Penta SATA HAT,
 | 5   | GPIO4_D2 | 6   | GPIO4_C2   |
 | 7   | GND      | 8   | PWM_33     |
 | 9   | GND      | 10  | NC         |
+
+**Technical Specifications:**
+- **Connector Type:** 2x5 pin header
+- **Pitch:** 2.0mm
+- **Compatible Connectors:** Standard 2.0mm pitch 2x5 pin header (2x5 pin header, 2.0mm pitch)
 
 ## User Guide
 

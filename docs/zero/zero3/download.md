@@ -14,6 +14,7 @@ Radxa ZERO 3W V1.11 量产版本
 - [v1.11 2D dxf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_2d_dxf.zip)
 - [v1.11 3D stp](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_3d_stp.zip)
 - [v1.11 原理图 pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1110_schematic.pdf)
+- [v1.12 原理图 pdf（AIC8800 版本）](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1.12_schematic.pdf)
 - [v1.11 位号图 pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1110_smb.zip)
 - [产品简介 pdf](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_product_brief.pdf)
 
@@ -74,6 +75,17 @@ Armbian 的默认凭据如下：
 :::caution
 非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到 [OpenWRT 论坛](https://forum.openwrt.org/) 寻求帮助。
 :::
+
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+
+**版本说明：**
+- **R 版本**：经过测试的稳定版本，推荐使用
+- **T 版本**：测试版本（仅用于评估）
+:::
+- [百度网盘下载（radxa-zero3）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-zero3&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 质量认证
 

@@ -16,7 +16,7 @@ Prepare the following hardware to complete the system installation and boot proc
 
 #### For Installation/Booting
 
-- Development Board: Radxa ROCK Pi S V1.5
+- Radxa ROCK Pi S: Radxa ROCK Pi S V1.5
 - Power Supply: Use a Type-C to Type-A data line to connect to the PC for power supply and data transmission
 
 ## Installing the OS
@@ -45,7 +45,7 @@ RKDevTool is a software developed by Rockchip for USB flashing on Windows/Linux/
 
 - Install Drivers
 
-Download and extract the [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip) file.
+Download and extract the [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip) file.
 
 Find the `DriverInstall.exe` file and run it as an administrator:
 
@@ -164,7 +164,7 @@ The MicroSD card must be removed for the ROCK Pi S to enter Maskrom mode. Otherw
 Follow these steps:
 
 1. With the ROCK Pi S powered off, press and hold the Maskrom button
-2. Connect the development board to your PC using a Type-C to Type-A cable (Type-C end to the board, Type-A end to the PC)
+2. Connect the Radxa ROCK Pi S to your PC using a Type-C to Type-A cable (Type-C end to the board, Type-A end to the PC)
 3. Release the Maskrom button
 
 ### Using RKDevTool

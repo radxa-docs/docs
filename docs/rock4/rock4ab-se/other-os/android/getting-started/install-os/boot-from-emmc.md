@@ -59,7 +59,7 @@ import UPGRADE_TOOL from "../../../../../../common/dev/\_upgrade-tool.mdx";
                 <li><a href="https://dl.radxa.com/tools/linux/Linux_Upgrade_Tool_V2.1.zip">upgrade_tool v2.1</a></li>
             </ul>
             <br />
-            <li>确认开发板已经进入 Maskrom 模式</li>
+            <li>确认瑞莎 ROCK 4AB SE已经进入 Maskrom 模式</li>
             <br />
             <pre>
                 $ sudo upgrade_tool ld
@@ -80,7 +80,7 @@ import UPGRADE_TOOL from "../../../../../../common/dev/\_upgrade-tool.mdx";
             <li>请下载并解压以下文件以安装 RKDevTool：</li>
             <ul>
                 <li><a href="https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip">RKDevTool v2.96</a> (含中文使用文档)</li>
-                <li><a href="https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip">DriverAssistant v5.0</a></li>
+                <li><a href="https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip">DriverAssistant v5.14</a></li>
             </ul>
             <br />
             <li>选择 "升级固件"</li>

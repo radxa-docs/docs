@@ -68,6 +68,19 @@ GPIOCHIP0 -> 7 + 32 \* (A ~ K) -> 7 + 32 \* 1 -> 39
 
 通过板载的 40-Pin GPIO 接口，演示常见的 GPIO 使用方法。
 
+## Overlay 说明
+
+A7Z 的同一种外设功能通常可以复用到多个不同引脚上，因此 `rsetup` 的 `Overlay` -> `Manage overlays` 页面主要提供的是常见用法示例，而不是把所有可选 pinmux 组合全部列出来。
+
+如果你需要把 PWM、UART、I2C、SPI 等功能切换到表中列出的其他引脚，建议按下面的顺序处理：
+
+1. 先根据上面的 GPIO 复用表确认目标功能和目标引脚
+2. 先尝试 `rsetup` 里现成的 overlay 示例
+3. 如果现成选项不覆盖你的目标引脚，可以参考 [radxa-overlays](https://github.com/radxa-pkg/radxa-overlays) 的写法修改 overlay
+4. 修改完成后，可通过 `rsetup` 的 `Overlay` -> `Install 3rd party overlay` 安装自定义 DTS / DTBO
+
+这样可以避免把每一种 pinmux 组合都做成单独的内置选项，同时也方便你按项目需要扩展到其他引脚。
+
 ## 安装 python-periphery
 
 使用 `python-periphery` 库来控制 GPIO 引脚。

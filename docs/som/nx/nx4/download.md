@@ -8,7 +8,7 @@ sidebar_position: 150
 
 - [Balena Etcher](https://etcher.balena.io/)
 
-- [DriverAssistant v5.0](https://dl.radxa.com/tools/windows/DriverAssitant_v5.0.zip)
+- [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)
 
 - [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar)
 
@@ -28,7 +28,7 @@ sidebar_position: 150
 
 :::
 
-- [radxa-rk3576_bookworm_kde_r4.output_512.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r4/radxa-rk3576_bookworm_kde_r4.output_512.img.xz)
+- [radxa-rk3576_bookworm_kde_r6.output_512.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
 
 ## 硬件设计
 

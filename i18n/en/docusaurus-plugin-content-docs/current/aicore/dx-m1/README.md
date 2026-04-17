@@ -6,21 +6,51 @@ sidebar_position: 2
 
 ## Product overview
 
-Radxa AIcore DX‑M1/DX‑M1M is a high-performance AI accelerator compute module based on the DEEPX DX‑M1 module. It features high energy efficiency, high-precision computation, and ease of use, and is optimized for edge computing scenarios.
+<Tabs queryString="Product">
 
-- **High-efficiency design**
+<TabItem value="DX-M1">
 
-Delivers 25 TOPS at only 3-5W power consumption, offering excellent inference performance with low power.
+Radxa AICore DX-M1 is a high-performance edge AI acceleration computing module based on DEEPX's DX-M1 module. It features high energy efficiency, high-precision computing, and ease of use, specifically optimized for edge computing scenarios and machine vision.
 
-- **High-precision computing**
+The Radxa AICore DX-M1 module is currently compatible with various single-board computers (SBCs), such as Radxa ROCK 5B/5B+ and other boards.
 
-Uses IQ8™ (Intelligent Quantization Integer 8) quantization technology, where 8-bit integer quantization accuracy is equivalent to GPU floating-point (FP32) computation.
+- **High Energy Efficiency Design**
 
-- **Ease of use**
-  - Supports mainstream AI frameworks such as ONNX, PyTorch, and TensorFlow.
-  - Supports mainstream operating systems such as Ubuntu and Debian.
-  - Supports ARM hardware architectures.
-  - Uses the standard M.2 2280 M Key form factor, compatible with mainstream industrial and embedded devices.
+Features an energy-efficient design with excellent inference performance and low power consumption, achieving 25 TOPS computing power with only 3-5W power consumption.
+
+- **High-Precision Computing**
+
+Utilizes IQ8™ (Intelligent Quantization Integer 8) technology, maintaining the same precision level as GPU's FP32.
+
+- **Ease of Use**
+  - AI Frameworks: Supports ONNX, PyTorch, TensorFlow.
+  - System Support: Supports Ubuntu, Debian.
+  - Standardized Interface: Adopts standard M.2 2280 M Key form factor, compatible with industrial and embedded devices.
+
+</TabItem>
+
+<TabItem value="DX-M1M">
+
+Radxa AICore DX-M1M is a compact edge AI acceleration module powered by the DEEPX DX-M1M, designed for fast and efficient on-device inference in embedded and industrial systems.
+
+This AI processor delivers a stunning 25 TOPS (INT8) while maintaining ultra-low power consumption at just 3W, enabling high performance within a highly efficient power budget. It integrates onboard memory and QSPI flash in a standard M.2 M + B Key (PCIe Gen3 ×2) form factor. With broad host and OS compatibility, AICore DX-M1M provides a scalable, plug-in path for accelerating edge AI workloads, from proof-of-concept to production deployment.
+
+- **High Energy Efficiency Design**
+
+Achieves up to 25 TOPS of inference performance while consuming only up to 3W, providing an exceptional performance‑per‑watt ratio for edge and embedded deployments.
+
+- **Seamless Developer Experience**
+
+Built on a standard PCIe‑based module interface with broad OS and framework support, the AICore DX‑M1M ensures quick integration and shortened time‑to‑deployment.
+
+- Standard Interface: M.2 M + B Key (PCIe Gen3 x2)
+- Host Platform: x86 / ARM
+- Software Support: Windows 10 / 11, Ubuntu 24.04 / 22.04 / 20.04 LTS, Docker
+- AI Frameworks: Supports TensorFlow, ONNX, Keras, PyTorch via DX-COM compiler
+
+</TabItem>
+
+</Tabs>
 
 ## Product appearance
 
@@ -73,19 +103,20 @@ Uses IQ8™ (Intelligent Quantization Integer 8) quantization technology, where 
 
 <TabItem value="DX-M1M">
 
-| Product               | AIcore DX-M1M                                                                                 |
-| --------------------- | --------------------------------------------------------------------------------------------- |
-| Type                  | AI accelerator module                                                                         |
-| AI performance        | 25 TOPS                                                                                       |
-| Memory                | 1GB LPDDR4X@4200 MT/s (64-bit)                                                                |
-| Storage               | QSPI 1Gbit NAND / NOR Flash                                                                   |
-| Interface             | M.2 M Key (PCIe Gen3 x2)                                                                      |
-| Software              | Windows 10 / 11, Ubuntu 20.04 / 22.04 LTS, Debian 11, Debian 12, Docker                       |
-| AI frameworks         | Converted via the DX-COM compiler; compatible with TensorFlow, ONNX, Keras, PyTorch, and more |
-| Operating temperature | -25°C ~ 65°C                                                                                  |
-| Host platform         | x86 / ARM                                                                                     |
-| Power                 | ≤ 5W                                                                                          |
-| Dimensions            | 22mm x 42mm                                                                                   |
+| Product               | AICore DX-M1M                                                         |
+| --------------------- | --------------------------------------------------------------------- |
+| Type                  | AI Acceleration Module                                                |
+| AI Performance        | 25 TOPS                                                               |
+| Memory                | 1GB LPDDR4X@4266 MT/s                                                 |
+| Storage               | QSPI 1Gbit NAND / NOR Flash                                           |
+| Module Interface      | PCIe Gen3 x2                                                          |
+| Host Interface        | PCIe Gen3 x4 (Supports Gen 1/2/3 & x1/x2)                             |
+| Software              | Support Windows 10 / 11, Ubuntu 24.04 / 22.04 / 20.04 LTS, Docker     |
+| Al Frameworks         | Support TensorFlow, ONNX, Keras, PyTorch by DX-COM compiler converted |
+| Operating Temperature | -25 ~ 65°C (Non-Throttling) / -25 ~ 85°C (Throttling)                 |
+| Host Platform         | x86 / ARM                                                             |
+| Power Consumption     | 3W (Typical)                                                          |
+| Form Factor           | M.2 M + B Key, 22mm x 42mm                                            |
 
 </TabItem>
 

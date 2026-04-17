@@ -1,7 +1,7 @@
 [DeepSeek-R1](https://api-docs.deepseek.com/news/news250120) 是由杭州深度求索（DeepSeek）公司开发的顶尖推理模型。
 该模型不仅完整开源了全套训练技术与模型权重，其性能表现更可比肩闭源的 OpenAI-o1。
 此外，DeepSeek 官方还通过 DeepSeek-R1 的输出，通过知识蒸馏技术推出了 6 款开源轻量化模型（涵盖 Qwen2.5 和 Llama3.1 系列）。
-本文档将详细演示如何利用 RKLLM 工具链，将蒸馏模型 DeepSeek-R1-Distill-Qwen-1.5B 部署至 RK3588 开发板，并调用其内置的 NPU 实现高效的硬件加速推理。
+本文档将详细演示如何利用 RKLLM 工具链，将蒸馏模型 DeepSeek-R1-Distill-Qwen-1.5B 部署至 RK3588 主板，并调用其内置的 NPU 实现高效的硬件加速推理。
 
 ![rkllm_2.webp](/img/general-tutorial/rknn/rkllm_ds_1.webp)
 
@@ -11,11 +11,14 @@
 
 从 ModelScope 下载完整示例。
 
+参考[虚拟环境使用](../venv-usage)创建虚拟环境。
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
+python3 -m venv .venv && source .venv/bin/activate
 pip install -U modelscope
-modelscope download --model radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM
+modelscope download --model radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM --local_dir ./DeepSeek-R1-Distill-Qwen-1.5B_RKLLM
 ```
 
 </NewCodeBlock>
@@ -25,8 +28,9 @@ modelscope download --model radxa/DeepSeek-R1-Distill-Qwen-1.5B_RKLLM
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd demo_Linux_aarch64/
+cd DeepSeek-R1-Distill-Qwen-1.5B_RKLLM/demo_Linux_aarch64/
 export LD_LIBRARY_PATH=./lib
+chmod +x ./llm_demo
 ./llm_demo ../DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3588.rkllm 2048 4096
 ```
 
@@ -45,6 +49,8 @@ export LD_LIBRARY_PATH=./lib
 
 ### 激活虚拟环境
 
+虚拟环境配置参考[创建虚拟环境](./rkllm-install#创建虚拟环境)。
+
 <NewCodeBlock tip="X64 Linux PC" type="PC">
 
 ```bash
@@ -60,7 +66,7 @@ pip install -U huggingface_hub
 
 ```bash
 cd RK-SDK/rknn-llm/examples/rkllm_api_demo/
-hf download https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B --local-dir ./DeepSeek-R1-Distill-Qwen-1.5B
+hf download deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B --local-dir ./DeepSeek-R1-Distill-Qwen-1.5B
 ```
 
 </NewCodeBlock>
@@ -86,6 +92,8 @@ python export_rkllm.py
 </NewCodeBlock>
 
 ### 编译可执行文件
+
+交叉编译工具链配置参考[编译工具](./rkllm-install#编译工具)。
 
 <NewCodeBlock tip="X64 Linux PC" type="PC">
 
@@ -237,11 +245,11 @@ I rkllm:  1.73
 I rkllm: --------------------------------------------------------------------------------------
 ```
 
-| 参数              | 必要性 | 描述                   | 选项                             |
-| ----------------- | ------ | ---------------------- | -------------------------------- |
-| `path`            | 必要   | RKLLM 模型文件夹路径。 | N                                |
-| `max_new_tokens`  | 必要   | 每轮最大生成 token 数  | 小于等于 max_context_len         |
-| `max_context_len` | 必要   | 模型最大上下文范围     | 小于等于模型转换时的 max_context |
+| 参数              | 必要性 | 描述                           | 选项                             |
+| ----------------- | ------ | ------------------------------ | -------------------------------- |
+| `path`            | 必要   | RKLLM 模型文件路径（.rkllm）。 | N                                |
+| `max_new_tokens`  | 必要   | 每轮最大生成 token 数          | 小于等于 max_context_len         |
+| `max_context_len` | 必要   | 模型最大上下文范围             | 小于等于模型转换时的 max_context |
 
 ### 性能分析
 

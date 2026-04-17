@@ -1,5 +1,5 @@
 ---
-sidebar_position: 0
+sidebar_position: 1
 description: "RK3582 NPU 平台指定使用说明"
 
 doc_kind: wrapper

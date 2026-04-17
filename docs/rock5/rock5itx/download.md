@@ -51,6 +51,24 @@ Armbian 的默认凭据如下：
 | 用户名 | `root` |
 | 密码   | `1234` |
 
+## OpenWrt
+
+- [OpenWrt 技术数据页面：Radxa ROCK 5 ITX](https://openwrt.org/toh/hwdata/radxa/radxa_rock_5_itx)
+- [Radxa ROCK 5 ITX OpenWrt ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5-itx-ext4-sysupgrade.img.gz)
+- [Radxa ROCK 5 ITX OpenWrt squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5-itx-squashfs-sysupgrade.img.gz)
+
+## 百度网盘下载
+
+:::tip
+百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+
+**版本说明：**
+- **R 版本**：经过测试的稳定版本，推荐使用
+- **T 版本**：测试版本（仅用于评估）
+:::
+- [百度网盘下载（rock-5-itx）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5-itx&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（rock-5-itx-6_1）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5-itx-6_1&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## 质量认证
 
 ## 参考文档

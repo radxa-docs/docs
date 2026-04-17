@@ -9,7 +9,7 @@ imports_resolve_to:
 
 import SPIFlash from '../../../../../common/radxa-os/rkdevtool/\_spi.mdx';
 
-# Erase / Flash SPI Flash
+# Erase / Flash SPI Flash with rkdeveloptool
 
 :::tip Maskrom mode
 

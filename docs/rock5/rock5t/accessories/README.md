@@ -21,3 +21,7 @@ sidebar_position: 99
 | 散热方案 | Heatsink 4012        | 通用型散热器，尺寸 40x12mm                       | [查看详情](https://radxa.com/products/accessories/heatsink-4012)            |
 | 散热方案 | Metal Case 1290      | 金属外壳 1290                                    | [查看详情](https://radxa.com/products/accessories/metal-case-1290)          |
 | PoE 扩展 | 25W PoE+ Module 5514 | 25W PoE+ 模块 5514                               | [查看详情](https://radxa.com/products/accessories/25w-poe-push-module-5514) |
+
+## 3D 打印外壳
+
+- [第三方 3D 打印外壳](./3d-case)：社区设计的 ROCK 5T 专用外壳

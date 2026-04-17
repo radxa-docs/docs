@@ -31,7 +31,7 @@ sidebar_position: 4
 
 ZERO 3W/3E 提供了一个40 pin 针脚的 GPIO 座子，与市场上大多数的 SBC 配件兼容。
 
-**提示：实际兼容情况以使用情况为准。**
+**提示：实际兼容性以实际使用情况为准。**
 
 <TabItem value="Zero 3">
      <div className='gpio_style' style={{ overflow :"auto"}}  >
