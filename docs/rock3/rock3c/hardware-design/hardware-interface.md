@@ -41,7 +41,7 @@ ROCK 3C 提供一个 40 pin GPIO 扩展座，兼容市场上大多数外设。
 Pin 3 与 Pin 5 为 I2C 设备供电添加了额外的上拉电阻，故在作为 GPIO 使用时会工作异常。
 :::
 
-<div className='gpio_style'>
+<div className='gpio_style' style={{ overflow :"auto"}} >
 
 | GPIO number | Function5   |  Function4   |    Function3    |  Function2   | Function1 |               Pin#               |              Pin#               | Function1 |                 Function2                 | Function3 |  Function4  | Function5    | GPIO number |
 | ----------- | ----------- | :----------: | :-------------: | :----------: | :-------: | :------------------------------: | :-----------------------------: | :-------: | :---------------------------------------: | :-------: | :---------: | ------------ | ----------- |

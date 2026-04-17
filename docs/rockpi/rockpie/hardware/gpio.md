@@ -9,7 +9,8 @@ ROCK Pi E 提供了一个40 pin 针脚的 GPIO 座子。
 **提示：实际兼容情况以使用情况为准。**
 **提示：V1.20，V1.21 和 V3.0 的 40-Pin GPIO 引脚功能一致**
 
-<div className='gpio_style'>
+<TabItem value="GPIO">
+     <div className='gpio_style' style={{ overflow :"auto"}} >
 
 | GPIO Number | Function3  | Function2    | Function1 | Pin#                             | Pin#                            | Function1 | Function2    | Function3 | GPIO Number |
 | ----------- | ---------- | ------------ | --------- | -------------------------------- | ------------------------------- | --------- | ------------ | --------- | ----------- |
@@ -34,4 +35,7 @@ ROCK Pi E 提供了一个40 pin 针脚的 GPIO 座子。
 | 86          |            | PDM_SDI3     | GPIO2_C6  | <div className='green'>37</div>  | <div className='green'>38</div> | GPIO2_C3  | PDM_SDIO     | I2S1_SDI  | 83          |
 |             |            |              | GND       | <div className='green'>39</div>  | <div className='green'>40</div> | GPIO2_C7  | PDM_FSYNC    | I2S1_SDO  | 87          |
 
-</div>
+
+
+   </div>
+</TabItem>

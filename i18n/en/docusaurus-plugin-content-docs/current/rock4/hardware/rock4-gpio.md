@@ -19,7 +19,8 @@ RK3399 and OP1 have three IO voltages, 1.8V/3.0V/3.3V. Below is the default volt
 ROCK 4 series has a 40-pin expansion header. Each pin is distinguished by color.  
 The following pin-out is applicable for all products of ROCK 4 series.
 
-<div className='gpio_style'>
+<TabItem value="GPIO">
+     <div className='gpio_style' style={{ overflow :"auto"}} >
 
 :::caution
 Not all functions can be turned on at the same time. Only one function can be assigned to a pin at a time.
@@ -48,7 +49,10 @@ Not all functions can be turned on at the same time. Only one function can be as
 |     158     |           |                                        | GPIO4_D6 | <div className='green'>37</div>  | <div className='green'>38</div> | GPIO4_A6 |                I2S1_SDI                 |            |     134     |
 |             |           |                  GND                   |          | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO4_A7 |                I2S1_SDO                 |            |     135     |
 
-</div>
+
+
+   </div>
+</TabItem>
 
 ## Notes about 40-pin Header
 

@@ -19,7 +19,8 @@ RK3399 与 OP1 支持 1.8V/3.0V/3.3V 三种 IO 电压，以下为默认配置：
 ROCK 4 系列提供 40Pin 扩展排针，不同颜色表示不同类型引脚。
 下表适用于 ROCK 4 系列产品。
 
-<div className='gpio_style'>
+<TabItem value="GPIO">
+     <div className='gpio_style' style={{ overflow :"auto"}} >
 
 :::caution
 同一引脚在同一时刻只能复用一种功能，无法同时启用多个复用功能。
@@ -48,7 +49,10 @@ ROCK 4 系列提供 40Pin 扩展排针，不同颜色表示不同类型引脚。
 |     158     |           |                                        | GPIO4_D6 | <div className='green'>37</div>  | <div className='green'>38</div> | GPIO4_A6 |                I2S1_SDI                 |            |     134     |
 |             |           |                  GND                   |          | <div className='black'>39</div>  | <div className='green'>40</div> | GPIO4_A7 |                I2S1_SDO                 |            |     135     |
 
-</div>
+
+
+   </div>
+</TabItem>
 
 ## 40Pin 排针说明
 

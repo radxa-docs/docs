@@ -399,7 +399,7 @@ Tips: The actual compatibility is subject to usage.
 <Tabs queryString="revision">
 <TabItem value="v1_1" label="v1.1">
 
-<div className='gpio_style'>
+<div className='gpio_style' style={{ overflow :"auto"}} >
 
 :::tip
 

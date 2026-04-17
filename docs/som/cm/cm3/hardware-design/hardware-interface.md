@@ -399,7 +399,7 @@ Radxa CM3 IO 提供一个 40 pin GPIO 扩展座，兼容市场上大多数传感
 <Tabs queryString="revision">
 <TabItem value="v1_1" label="v1.1">
 
-<div className='gpio_style'>
+<div className='gpio_style' style={{ overflow :"auto"}} >
 
 :::tip
 
