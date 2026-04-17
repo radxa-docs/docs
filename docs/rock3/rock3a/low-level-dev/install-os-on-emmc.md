@@ -19,10 +19,14 @@ sidebar_position: 1
 
 - 断开瑞莎 ROCK 3A电源
 - 移除 SD 卡，并插入 eMMC 模块
-- 用 USB A-A 连接 Radxa ROCK 3A 的 USB3.0 口 和 PC 端
+- 用 USB A-A 连接 Radxa ROCK 3A 的 **USB 3.0 OTG 接口**（顶部/上方的 USB 3.0 口）和 PC 端
 - 短接下面引脚
 - 给瑞莎 ROCK 3A上电
 - 摘下右边的黄色跳线帽，保留左边的黄色跳线帽
+
+:::note
+部分 V1.3 版本板卡可能没有预留跳线帽引脚，此时需要用镊子等工具直接短接下图中所示的 eMMC_CLKOUT 针脚与 GND 针脚，再接通电源即可进入 Maskrom 模式。
+:::
 
 <img src="/img/rock3/3a/rock3a-maskrom.webp" alt="rock 3a maskrom" width="500" />
 

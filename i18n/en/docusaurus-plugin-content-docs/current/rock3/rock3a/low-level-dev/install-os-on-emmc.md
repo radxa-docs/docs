@@ -19,10 +19,14 @@ Please go to [Download Summary](../getting-started/download) to download the cor
 
 - Disconnect power to the board
 - Remove the SD card and insert the eMMC module.
-- Connect the USB3.0 port of the Radxa ROCK 3A to the PC with USB A-A.
+- Connect the **USB 3.0 OTG port** (the top/upper USB 3.0 port) of the Radxa ROCK 3A to the PC with USB A-A.
 - Short the following pins
 - Power up the board.
 - Remove the right yellow jumper cap, keep the left yellow jumper cap.
+
+:::note
+On some V1.3 board revisions, the jumper pins may not be populated. In that case, use tweezers or a similar tool to directly short the eMMC_CLKOUT pin and GND pin as shown in the image below, then power on the board to enter Maskrom mode.
+:::
 
 <img src="/img/rock3/3a/rock3a-maskrom.webp" alt="rock 3a maskrom" width="500" />
 
