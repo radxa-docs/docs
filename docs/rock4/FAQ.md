@@ -81,7 +81,7 @@ curl https://dl.radxa.com/rockpi4/troubleshooting/rock-4ab-uboot-2017-idbloader.
 sudo ./setup.sh update_idbloader ___/dev/sdX_or_/dev/mmcblkX_or_system.img___
 ```
 
-ROCK 4B 在使用 Manjaro-ARM-minimal-rockpi4b-22.06.img.xz 时系统内内存总大小在重启后可能会变化
+## ROCK 4B 在使用 Manjaro-ARM-minimal-rockpi4b-22.06.img.xz 时系统内内存总大小在重启后可能会变化
 
 ### 现象
 
