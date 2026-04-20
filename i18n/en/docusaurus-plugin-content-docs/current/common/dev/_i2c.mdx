@@ -1,19 +1,19 @@
-I2C Introduction
+## I2C Introduction
 
 I2C (Inter-Integrated Circuit; pronounced "eye-squared-see" or "eye-two-see"), also known as I2C or IIC, is a synchronous, multi-controller/multi-destination (historically known as master/slave), single-ended, serial communications bus invented by Philips Semiconductors in 1982.
 
-### Preparations
+## Preparations
 
 <ul>
   <li>One {props.product_name}</li>
   <li>One OLED </li>
 </ul>
 
-#### Enable Overlay
+### Enable Overlay
 
 Please refer to <a href="../../radxa-os/rsetup#overlays"> Device Tree Configuration </a> to enable I2C Related Overlay, eg: "Enable {props.i2c_overlay_name}".
 
-### Connection
+## Connection
 
 <p>Connect {props.product_name} and OLED as follows </p>
 
@@ -47,7 +47,7 @@ Please refer to <a href="../../radxa-os/rsetup#overlays"> Device Tree Configurat
 
 <img src={props.i2c_connection} alt="i2c connection" style={{ width: "80%" }} />
 
-### Test
+## Test
 
 - Open a terminal and install the Python library python3-periphery by typing the following command in the terminal
 

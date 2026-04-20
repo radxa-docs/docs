@@ -1,24 +1,24 @@
 import { PreView } from "@site/src/utils/docs";
 
-SPI 简介
+## SPI 简介
 
 串行外设接口（SPI）是同步串行通信的实际标准（有许多变体），主要用于嵌入式系统中集成电路之间的短距离有线通信。
 
-### 准备
+## 准备
 
 <ul>
   <li>一块 {props.model}</li>
   <li>一根母对母杜邦线</li>
 </ul>
 
-### 开启 Overlay
+## 开启 Overlay
 
 <p>
   请参照<a href="../../radxa-os/rsetup#overlays">设备树配置</a>启用 SPIDEV 相关
   Overlay, eg: "Enable {props.spi_overlay_name}"。
 </p>
 
-### 连接
+## 连接
 
 <p>
   如图所示，短接 {props.spi_mosi} 和 {props.spi_miso}
@@ -26,7 +26,7 @@ SPI 简介
 
 <img src={props.spi_connection} alt="spi connection" style={{ width: "80%" }} />
 
-### 测试
+## 测试
 
 - 打开终端，在终端中输入以下命令安装编译工具
 

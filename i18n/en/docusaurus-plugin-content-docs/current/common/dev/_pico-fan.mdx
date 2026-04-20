@@ -1,14 +1,14 @@
 import { PreView } from "@site/src/utils/docs";
 
-##### FAN
+#### FAN
 
 The purpose of this paragraph is to provide the user with an example of the {props.product_name} CPU communicating with the MCU RP2040 by obtaining the temperature of the {props.product_name} CPU and making the fan spin up when the specified temperature is reached.
 
-###### 1. Connection
+##### 1. Connection
 
 Connect the fan's pwm pin to PIN_3, the fan VCC to {props.product_name}'s VCC, and the fan GND to {props.product_name}'s GND.
 
-###### 2. Install the required Python libraries On the {props.product_name}
+##### 2. Install the required Python libraries On the {props.product_name}
 
 ```bash
 pip install pyserial psutil
@@ -17,7 +17,7 @@ sudo apt-get install stress
 sudo apt-get install minicom
 ```
 
-###### 3. Create a new Temperature.py file on the {props.product_name} with the following contents:
+##### 3. Create a new Temperature.py file on the {props.product_name} with the following contents:
 
 <details>
 
@@ -60,7 +60,7 @@ sudo apt-get install minicom
 
 </details>
 
-###### 4. Add a directory for pwm_fan inside pico-examples/pwm/CMakeLists.txt
+##### 4. Add a directory for pwm_fan inside pico-examples/pwm/CMakeLists.txt
 
 :::tip
 About how to use pico-examples, Please refer to the pico-sdk/pico-examples section above
@@ -86,7 +86,7 @@ Replace pico-example/pwm/CMakeLists.txt with the following code
 
 </details>
 
-###### 5. Create a new CMakeLists.txt in the pico-examples/pwm/pwm_fan/ directory with the following contents:
+##### 5. Create a new CMakeLists.txt in the pico-examples/pwm/pwm_fan/ directory with the following contents:
 
 <details>
 
@@ -111,7 +111,7 @@ Replace pico-example/pwm/CMakeLists.txt with the following code
 
 </details>
 
-###### 6. Create a new pwm_fan.c in the pico-examples/pwm/pwm_fan/ directory with the following contents:
+##### 6. Create a new pwm_fan.c in the pico-examples/pwm/pwm_fan/ directory with the following contents:
 
 <details>
 
@@ -188,7 +188,7 @@ Replace pico-example/pwm/CMakeLists.txt with the following code
 
 </details>
 
-###### 7. Compile
+##### 7. Compile
 
 {" "}
 
@@ -225,12 +225,12 @@ Replace pico-example/pwm/CMakeLists.txt with the following code
 
 After successful compilation, a file named pwm_fan.uf2 is generated in the build/pwm/pwm_fan directory
 
-###### 8. Flash
+##### 8. Flash
 
     - <a href={props.flash_url}>Reboot RP2040</a>
     - Drag the pwm_fan.uf2 file into the RP2040, and after the RP2040 disappears, the program starts to read the messages from /dev/ttyS0.
 
-###### 9. Run Temperature.py on the board
+##### 9. Run Temperature.py on the board
 
 ```bash
 sudo python3 Temperature.py
@@ -238,7 +238,7 @@ sudo python3 Temperature.py
 
 If the program runs successfully, the program gets the current temperature of the {props.product_name} computer, sends the temperature to the serial port /dev/ttyS0, and formats the output temperature such as “CPU Temperature: 42.0°C”
 
-###### 10. Run the minicom on the board
+##### 10. Run the minicom on the board
 
 ```bash
 sudo minicom -D /dev/ttyS0 -b 115200
