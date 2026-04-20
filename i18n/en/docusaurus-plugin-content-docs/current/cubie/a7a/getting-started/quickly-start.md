@@ -158,3 +158,28 @@ You can follow the [SSH Remote Access](../system-config/ssh-remote) tutorial to 
 > **VNC Remote Access**
 
 You can follow the [VNC Remote Access](../system-config/vnc-remote) tutorial to complete the VNC remote login to Cubie A7A's graphical interface.
+
+## Troubleshooting
+
+### HDMI Stack Overflow Issue
+
+Some users may encounter HDMI stack overflow errors, causing the system to fail to boot properly or display abnormalities. If you encounter the following error message:
+
+```
+Unhandled Exception in EL3.
+x30            = 0x00000000480002b0
+x0             = 0x0000000048020a70
+x1             = 0x00000000004404ff
+```
+
+You can try the following solutions:
+
+1. **Use a higher capacity SD card**: Some SD cards may have compatibility issues with the system. We recommend using a high-speed SD card with 32GB or larger capacity.
+
+2. **Headless mode for first boot**: After flashing the system for the first time, do not connect the HDMI monitor. Let the system complete the initial boot and initialization first. Connect the HDMI monitor only after the system has fully booted.
+
+3. **Check power supply**: Ensure you're using a 5V/3A or higher specification Type-C power adapter. Insufficient power supply may cause HDMI-related circuits to malfunction.
+
+4. **Update system image**: Use the latest version of the system image. Older versions may contain known HDMI compatibility issues.
+
+If the above methods still don't resolve the issue, we recommend logging in to the system via [Serial Debugging](../system-config/uart-debug) to obtain more debugging information, or contact technical support.
