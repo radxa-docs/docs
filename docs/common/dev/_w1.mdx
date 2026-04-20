@@ -1,22 +1,22 @@
-One Wire 简介
+## One Wire 简介
 
 单线总线是一种简单的主从总线，通过单根信号线（加上地线，即两根线）进行通信。
 
-### 准备
+## 准备
 
 <ul>
   <li>一块 {props.product_name}</li>
   <li>一个 One Wire 传感器 </li>
 </ul>
 
-### 开启 Overlay
+## 开启 Overlay
 
 <p>
   请参照<a href="../../radxa-os/rsetup#overlays">设备树配置</a>启用 One Wire
   相关 Overlay, eg: "Enable {props.w1_overlay_name}"。
 </p>
 
-### 连接
+## 连接
 
 <p>按照以下方式连接 {props.product_name} 和 One Wire 设备 </p>
 
@@ -49,7 +49,7 @@ One Wire 简介
   style={{ width: "80%" }}
 />
 
-### 测试
+## 测试
 
 - 启动 {props.product_name} 之后，检查目录 /sys/bus/w1/devices/ 下会有一个 28 开头的设备
 

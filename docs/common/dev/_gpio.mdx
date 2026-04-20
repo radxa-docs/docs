@@ -1,17 +1,17 @@
 import { PreView } from "@site/src/utils/docs";
 
-GPIO 简介
+## GPIO 简介
 
 通用输入/输出（GPIO）是集成电路或电子电路（如 MCU/MPU）电路板上的非专用数字信号引脚，可用作输入或输出，或同时用作输入和输出，并可由软件控制。
 
-### 准备
+## 准备
 
 <ul>
   <li>一块 {props.product_name}</li>
   <li>一个 LED 灯</li>
 </ul>
 
-### 连接
+## 连接
 
 <p>
   如图所示，连接 {props.product_name} 的 PIN_{props.gpio_pin}
@@ -23,9 +23,9 @@ GPIO 简介
   style={{ width: "80%" }}
 />
 
-### 测试
+## 测试
 
-#### 输入测试
+### 输入测试
 
 将 {props.gpio_pin} 接地或者接 3.3V，
 
@@ -37,7 +37,7 @@ GPIO 简介
 
 如果接的是地，该命令输出 0，如果接的是 3.3V，该命令输出 1。
 
-#### 输出测试
+### 输出测试
 
 <PreView params={{ model: props.model, gpio_pin: props.gpio_pin }}>
   {`

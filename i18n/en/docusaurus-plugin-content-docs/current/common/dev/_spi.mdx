@@ -1,17 +1,17 @@
 import { PreView } from "@site/src/utils/docs";
 
-Introduction to SPI
+## Introduction to SPI
 
 The Serial Peripheral Interface (SPI) is the de facto standard for synchronous serial communication (there are many variants), primarily used for short-range wired communication between integrated circuits in embedded systems.
 
-### Preparation
+## Preparation
 
 <ul>
   <li>One {props.model}</li>
   <li>One female-to-female Dupont wire</li>
 </ul>
 
-### Enable Overlay
+## Enable Overlay
 
 <p>
   Please refer to{" "}
@@ -19,7 +19,7 @@ The Serial Peripheral Interface (SPI) is the de facto standard for synchronous s
   SPIDEV Related Overlay, eg: "Enable {props.spi_overlay_name}"。
 </p>
 
-### Connection
+## Connection
 
 <p>
   Short {props.spi_mosi} and {props.spi_miso} as shown
@@ -27,7 +27,7 @@ The Serial Peripheral Interface (SPI) is the de facto standard for synchronous s
 
 <img src={props.spi_connection} alt="spi connection" style={{ width: "80%" }} />
 
-### Test
+## Test
 
 - Open a terminal and enter the following command in the terminal to install the compilation tool
 

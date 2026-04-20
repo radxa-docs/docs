@@ -1,23 +1,23 @@
 import { PreView } from "@site/src/utils/docs";
 
-UART Introduction
+## UART Introduction
 
 A UART (Universal Asynchronous Receiver/Transmitter) is the microchip with programming that controls a computer's interface to its attached serial devices.
 
-### Preparation
+## Preparation
 
 <ul>
   <li>One {props.model}</li>
   <li>Two female-to-female DuPont cable</li>
 </ul>
 
-### Loopback test
+## Loopback test
 
-#### Enable Overlay
+### Enable Overlay
 
 Please refer to <a href="../../radxa-os/rsetup#overlays"> Device Tree Configuration </a> to enable UART Related Overlay, eg: "Enable {props.uart1_name}".
 
-#### Connection
+### Connection
 
 <p>
   As shown in the figure, short the {props.product_name} {props.uart1_name}'s{" "}
@@ -30,7 +30,7 @@ Please refer to <a href="../../radxa-os/rsetup#overlays"> Device Tree Configurat
   style={{ width: "80%" }}
 />
 
-#### Test
+## Test
 
 - Open a terminal and enter the following command in the terminal to set the serial port parameters
 
@@ -56,13 +56,13 @@ Please refer to <a href="../../radxa-os/rsetup#overlays"> Device Tree Configurat
   `}
 </PreView>
 
-### Transceiver test
+## Transceiver test
 
-#### Enable Overlay
+### Enable Overlay
 
 Please refer to <a href="../../radxa-os/rsetup#overlays"> Device Tree Configuration </a> to enable UART Related Overlay, eg: "Enable {props.uart1_name} and {props.uart2_name}".
 
-#### Connection
+### Connection
 
 <p>
   Connect {props.uart1_name} and {props.uart2_name} as follows{" "}
@@ -94,7 +94,7 @@ As shown:
   style={{ width: "80%" }}
 />
 
-#### Test
+## Test
 
 - Open a terminal and enter the following command in the terminal to set the serial port parameters
 

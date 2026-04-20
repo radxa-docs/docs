@@ -1,26 +1,26 @@
 import { PreView } from "@site/src/utils/docs";
 
-UART 简介
+## UART 简介
 
 UART（通用异步接收器/发送器）是一种带有编程功能的微型芯片，用于控制计算机与其连接的串行设备的接口。
 
-### 准备
+## 准备
 
 <ul>
   <li>一块 {props.model}</li>
   <li>两根母对母杜邦线</li>
 </ul>
 
-### 回环测试
+## 回环测试
 
-#### 开启 Overlay
+### 开启 Overlay
 
 <p>
   请参照<a href="../../radxa-os/rsetup#overlays">设备树配置</a>启用 UART 相关
   Overlay, eg: "Enable {props.uart1_name}"。
 </p>
 
-#### 连接
+### 连接
 
 <p>
   如图所示，短接 {props.product_name} {props.uart1_name} 的 {props.tx1_pin} 和{" "}
@@ -33,7 +33,7 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
   style={{ width: "80%" }}
 />
 
-#### 测试
+### 测试
 
 - 打开终端，在终端中输入以下命令设置串口参数
 
@@ -59,16 +59,16 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
   `}
 </PreView>
 
-### 收发测试
+## 收发测试
 
-#### 开启 Overlay
+### 开启 Overlay
 
 <p>
   请参照<a href="../../radxa-os/rsetup#overlays">设备树配置</a>启用 UART 相关
   Overlay, eg: "Enable {props.uart1_name}" 和"Enable {props.uart2_name}"。
 </p>
 
-#### 连接
+### 连接
 
 <p>
   按照以下方式连接 {props.uart1_name} 和 {props.uart2_name}{" "}
@@ -100,7 +100,7 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
   style={{ width: "80%" }}
 />
 
-#### 测试
+### 测试
 
 - 打开终端，在终端中输入以下命令设置串口参数
 

@@ -1,17 +1,17 @@
 import { PreView } from "@site/src/utils/docs";
 
-GPIO Introduction
+## GPIO Introduction
 
 General Purpose Inputs/Outputs (GPIOs) are non-dedicated digital signal pins on the circuit board of an integrated circuit or electronic circuit (e.g., MCU/MPU) that can be used as inputs or outputs, or both, and can be controlled by software.
 
-### Preparations
+## Preparations
 
 <ul>
   <li>One {props.product_name}</li>
   <li>One LED</li>
 </ul>
 
-### Connection
+## Connection
 
 <p>
   Connecting PIN_{props.gpio_pin} of {props.product_name} as shown
@@ -23,9 +23,9 @@ General Purpose Inputs/Outputs (GPIOs) are non-dedicated digital signal pins on 
   style={{ width: "80%" }}
 />
 
-### Test
+## Test
 
-#### Input Tests
+### Input Tests
 
 Ground {props.gpio_pin} or connect to 3.3V,
 
@@ -37,7 +37,7 @@ Ground {props.gpio_pin} or connect to 3.3V,
 
 This command outputs 0 if ground is connected and 1 if 3.3V is connected.
 
-#### Output Test
+### Output Test
 
 <PreView params={{ model: props.model, gpio_pin: props.gpio_pin }}>
   {`
