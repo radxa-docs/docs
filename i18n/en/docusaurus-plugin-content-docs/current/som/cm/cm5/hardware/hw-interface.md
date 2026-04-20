@@ -84,7 +84,7 @@ Radxa CM5 IO provides a 40pin GPIO socket, which is compatible with most sensor 
 <Tabs queryString="revision">
 <TabItem value="v2_21" label="v2.21">
 
-<div className='gpio_style'>
+<div className='gpio_style' style={{ overflow :"auto"}} >
 
 | GPIO number |  Function5   |  Function4  |  Function3   |  Function2  |  Function1  |               Pin#               |              Pin#               | Function1 |                 Function2                 |  Function3   |  Function4   |  Function5  | GPIO number |
 | ----------- | :----------: | :---------: | :----------: | :---------: | :---------: | :------------------------------: | :-----------------------------: | :-------: | :---------------------------------------: | :----------: | :----------: | :---------: | ----------- |

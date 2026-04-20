@@ -24,7 +24,8 @@ E25 提供了一个 26 pin 针脚的 GPIO 座子
 
 **提示：实际兼容情况以使用情况为准。**
 
-<div className='gpio_style'>
+<TabItem value="GPIO">
+     <div className='gpio_style' style={{ overflow :"auto"}} >
 
 | Gpio number | Function3       | Function2   | Function1    |   GPIO   |               PIN               |               PIN               |    GPIO     | Function1    | Function2   | Function3       | Gpio number |
 | :---------: | --------------- | ----------- | ------------ | :------: | :-----------------------------: | :-----------------------------: | :---------: | ------------ | ----------- | --------------- | :---------: |
@@ -42,4 +43,7 @@ E25 提供了一个 26 pin 针脚的 GPIO 座子
 |     91      | I2S1_SDI0_M2    |             | SPI0_CLK_M1  | GPIO2_D3 | <div className='green'>23</div> | <div className='green'>24</div> |  GPIO4_C6   |              | PWM13_M1    |                 |     150     |
 |             |                 |             |              |   GND    | <div className='black'>25</div> | <div className='green'>26</div> |  GPIO3_C0   |              | PWM13_M0    | UART3_RX_M1     |     112     |
 
-</div>
+
+
+   </div>
+</TabItem>
