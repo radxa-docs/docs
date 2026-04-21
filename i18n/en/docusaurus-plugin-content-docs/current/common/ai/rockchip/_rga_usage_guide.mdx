@@ -1,0 +1,416 @@
+## RGA Overview
+
+RGA (Raster Graphic Acceleration) is a 2D image processing hardware accelerator provided by Rockchip, specifically designed for accelerating image scaling, color conversion, format conversion and other operations. Available on RK3588 and other chips.
+
+**Typical Advantages:**
+
+- Hardware acceleration, zero CPU overhead
+- Efficient image scaling (resize)
+- Color space conversion (BGR↔RGB, RGB↔YUV)
+- Supports DMA zero-copy
+
+**Application Scenarios:**
+
+- Image preprocessing for object detection like YOLO
+- Video/image format conversion
+- Camera pipeline image processing
+
+## RGA Quick Start
+
+### Clone Repository
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+git clone https://github.com/airockchip/librga.git
+```
+
+</NewCodeBlock>
+
+### Directory Structure
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./
+├── CHANGELOG.md
+├── COPYING
+├── docs
+│   ├── RGA_FAQ.assets
+│   ├── Rockchip_Developer_Guide_RGA_CN.md
+│   ├── Rockchip_Developer_Guide_RGA_EN.md
+│   ├── Rockchip_FAQ_RGA_CN.md
+│   └── Rockchip_FAQ_RGA_EN.md
+├── include
+│   ├── drmrga.h
+│   ├── GrallocOps.h
+│   ├── im2d_buffer.h
+│   ├── im2d_common.h
+│   ├── im2d_expand.h
+│   ├── im2d.h
+│   ├── im2d.hpp
+│   ├── im2d_mpi.h
+│   ├── im2d_single.h
+│   ├── im2d_task.h
+│   ├── im2d_type.h
+│   ├── im2d_version.h
+│   ├── RgaApi.h
+│   ├── rga.h
+│   ├── RgaMutex.h
+│   ├── RgaSingleton.h
+│   ├── RgaUtils.h
+│   └── RockchipRga.h
+├── libs
+│   ├── AndroidNdk
+│   └── Linux
+├── README.md
+├── samples
+│   ├── allocator_demo
+│   ├── alpha_demo
+│   ├── async_demo
+│   ├── build
+│   ├── cmake-android.sh
+│   ├── cmake-linux.sh
+│   ├── CMakeLists.txt
+│   ├── config_demo
+│   ├── copy_demo
+│   ├── crop_demo
+│   ├── cvtcolor_demo
+│   ├── fill_demo
+│   ├── gauss_demo
+│   ├── im2d_api_demo
+│   ├── mosaic_demo
+│   ├── padding_demo
+│   ├── palette_demo
+│   ├── README.md
+│   ├── resize_demo
+│   ├── rop_demo
+│   ├── sample_file
+│   ├── SConscript
+│   ├── toolchain_local.cmake
+│   ├── transform_demo
+│   └── utils
+├── toolchains
+│   ├── toolchain_android_ndk.cmake
+│   ├── toolchain_linux_1106.cmake
+│   ├── toolchain_linux.cmake
+│   └── toolchain_rt_thread.cmake
+└── tools
+    └── bin
+```
+
+</NewCodeBlock>
+
+### Run Demo
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd librga/tools/bin/Linux/gcc-aarch64
+./rgaImDemo -h
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./rgaImDemo --copy
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./rgaImDemo --resize up
+```
+
+</NewCodeBlock>
+
+### Header Files and Libraries
+
+**Header File References:**
+
+- RGA header location: `librga/include/`
+- C++ call im2d API: `im2d.hpp`
+- C call im2d API: `im2d.h`
+
+**Library Files:**
+
+- RGA library location: `librga/libs/Linux/gcc-aarch64/`
+- `librga.so`
+- `librga.a`
+
+## Core Concepts
+
+### Buffer Management
+
+RGA operates on buffers, which need to be imported first.
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+#include <im2d.hpp>
+#include <RgaUtils.h>
+
+// 1. Allocate user-space memory
+uint8_t* src_buf = malloc(width * height * 3);
+
+// 2. Import to RGA (virtual address method)
+rga_buffer_handle_t src_handle = importbuffer_virtualaddr(src_buf, buf_size);
+
+// 3. Wrap as rga_buffer_t
+rga_buffer_t src_img = wrapbuffer_handle(src_handle, width, height, RK_FORMAT_BGR_888);
+
+// 4. Release
+releasebuffer_handle(src_handle);
+free(src_buf);
+```
+
+</NewCodeBlock>
+
+### Common Formats
+
+| Format                   | Description    |
+| ------------------------ | -------------- |
+| `RK_FORMAT_BGR_888`      | 3-channel BGR  |
+| `RK_FORMAT_RGB_888`      | 3-channel RGB  |
+| `RK_FORMAT_RGBA_8888`    | 4-channel RGBA |
+| `RK_FORMAT_YCbCr_420_SP` | NV12           |
+
+### API Overview
+
+| Operation           | API            | Description                   |
+| ------------------- | -------------- | ----------------------------- |
+| Scale               | `imresize()`   | Image scaling                 |
+| Color conversion    | `imcvtcolor()` | BGR↔RGB, RGB↔YUV              |
+| Fill border         | `imfill()`     | Rectangle area fill           |
+| Combined processing | `improcess()`  | crop+resize+format conversion |
+| Memory copy         | `imcopy()`     | Buffer copy                   |
+
+## Code Examples
+
+### Simple Example: Image Scaling
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+#include <im2d.hpp>
+#include <RgaUtils.h>
+
+void resize_example() {
+    int src_w = 1920, src_h = 1080;
+    int dst_w = 640, dst_h = 640;
+
+    // Allocate memory
+    uint8_t* src = malloc(src_w * src_h * 3);
+    uint8_t* dst = malloc(dst_w * dst_h * 3);
+
+    // Import buffer
+    rga_buffer_handle_t src_handle = importbuffer_virtualaddr(src, src_w * src_h * 3);
+    rga_buffer_handle_t dst_handle = importbuffer_virtualaddr(dst, dst_w * dst_h * 3);
+
+    // Wrap
+    rga_buffer_t src_img = wrapbuffer_handle(src_handle, src_w, src_h, RK_FORMAT_BGR_888);
+    rga_buffer_t dst_img = wrapbuffer_handle(dst_handle, dst_w, dst_h, RK_FORMAT_BGR_888);
+
+    // Scale
+    IM_STATUS ret = imresize(src_img, dst_img);
+
+    // Release
+    releasebuffer_handle(src_handle);
+    releasebuffer_handle(dst_handle);
+    free(src);
+    free(dst);
+}
+```
+
+</NewCodeBlock>
+
+### Color Conversion
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+// BGR -> RGB
+imcvtcolor(src_img, dst_img, RK_FORMAT_BGR_888, RK_FORMAT_RGB_888);
+
+// BGR -> YUV (NV12)
+imcvtcolor(src_img, dst_img, RK_FORMAT_BGR_888, RK_FORMAT_YCbCr_420_SP);
+```
+
+</NewCodeBlock>
+
+### Fill Background
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+// Fill gray rectangle area
+rga_buffer_t canvas = wrapbuffer_handle(handle, width, height, RK_FORMAT_BGR_888);
+
+// Gray: B=114, G=114, R=114 (BGR order)
+int gray = (114 << 16) | (114 << 8) | 114;
+
+// Fill entire image with gray
+imfill(canvas, {0, 0, width, height}, gray);
+```
+
+</NewCodeBlock>
+
+### Combined Processing improcess()
+
+`improcess()` is the most powerful API, can simultaneously:
+
+- Specify source region (crop)
+- Scale to target region
+- Color format conversion
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+// Syntax
+improcess(src_img, dst_img, {}, srect, drect, {}, -1, nullptr, nullptr, IM_SYNC);
+
+// Parameter description:
+// src_img, dst_img: source and destination buffer
+// {}: third parameter is pat (pattern), generally not used
+// srect: source region {x, y, width, height}
+// drect: destination region {x, y, width, height}
+// {}: prect, generally not used
+// -1: acquire_fence_fd
+// nullptr: release_fence_fd
+// nullptr: opt_ptr
+// IM_SYNC: synchronous execution
+```
+
+</NewCodeBlock>
+
+## Usage in YOLO Preprocessing
+
+### Problem Analysis
+
+YOLO preprocessing requires:
+
+1. Aspect ratio preserved scaling (letterbox)
+2. Gray padding edges
+3. BGR → RGB conversion
+
+### Complete Implementation
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+int preprocess_with_rga(const cv::Mat& img0, int orig_w, int orig_h,
+                       int target_size, float ratio, int dw, int dh,
+                       std::vector<uint8_t>& input_data, PerfStats& perf) {
+    Timer timer;
+    double t_padding = 0, t_resize = 0;
+
+    int new_unpad_w = static_cast<int>(orig_w * ratio);
+    int new_unpad_h = static_cast<int>(orig_h * ratio);
+
+    // RGA requires both stride and width pixels to be 16-aligned
+    // BGR_888: stride_bytes must be multiple of 16, and width_px must also be multiple of 16
+    int src_width_px = ((orig_w + 15) / 16) * 16;
+    int dst_width_px = ((target_size + 15) / 16) * 16;
+    int src_stride = src_width_px * 3;
+    int dst_stride = dst_width_px * 3;
+
+    int src_buf_size = src_stride * orig_h;
+    int dst_buf_size = dst_stride * target_size;
+
+    std::vector<uint8_t> src_buf(src_buf_size);
+    std::vector<uint8_t> dst_buf(dst_buf_size);
+
+    // Copy original image data (line by line, preserve row spacing)
+    for (int h = 0; h < orig_h; ++h) {
+        memcpy(src_buf.data() + h * src_stride, img0.data + h * orig_w * 3, orig_w * 3);
+    }
+
+    // Step 1: RGA fill gray background
+    {
+        rga_buffer_handle_t canvas_handle = importbuffer_virtualaddr(dst_buf.data(), dst_width_px, target_size, RK_FORMAT_BGR_888);
+        if (canvas_handle == 0) {
+            std::cerr << "Warning: RGA importbuffer failed for canvas\n";
+            return -1;
+        }
+
+        rga_buffer_t canvas = wrapbuffer_handle(canvas_handle, dst_width_px, target_size, RK_FORMAT_BGR_888);
+
+        int gray_color = (114 << 16) | (114 << 8) | 114;
+
+        timer.reset();
+        IM_STATUS ret = imfill(canvas, {0, 0, dst_width_px, target_size}, gray_color);
+        t_padding = timer.elapsed_ms();
+
+        if (ret != IM_STATUS_SUCCESS) {
+            std::cerr << "Warning: RGA imfill failed: " << imStrError(ret) << "\n";
+            releasebuffer_handle(canvas_handle);
+            return -1;
+        }
+
+        releasebuffer_handle(canvas_handle);
+    }
+
+    // Step 2: RGA improcess - scale original to center region + BGR to RGB
+    {
+        rga_buffer_handle_t src_handle = importbuffer_virtualaddr(src_buf.data(), src_width_px, orig_h, RK_FORMAT_BGR_888);
+        rga_buffer_handle_t dst_handle = importbuffer_virtualaddr(dst_buf.data(), dst_width_px, target_size, RK_FORMAT_RGB_888);
+
+        if (src_handle == 0 || dst_handle == 0) {
+            std::cerr << "Warning: RGA importbuffer failed\n";
+            return -1;
+        }
+
+        rga_buffer_t src_img = wrapbuffer_handle(src_handle, src_width_px, orig_h, RK_FORMAT_BGR_888);
+        rga_buffer_t dst_img = wrapbuffer_handle(dst_handle, dst_width_px, target_size, RK_FORMAT_RGB_888);
+
+        im_rect srect = {0, 0, orig_w, orig_h};
+        im_rect drect = {dw, dh, new_unpad_w, new_unpad_h};
+
+        timer.reset();
+        IM_STATUS ret = improcess(src_img, dst_img, {}, srect, drect, {}, -1, nullptr, nullptr, IM_SYNC);
+        t_resize = timer.elapsed_ms();
+
+        if (ret != IM_STATUS_SUCCESS) {
+            std::cerr << "Warning: RGA improcess failed: " << imStrError(ret) << "\n";
+            releasebuffer_handle(src_handle);
+            releasebuffer_handle(dst_handle);
+            return -1;
+        }
+
+        releasebuffer_handle(src_handle);
+        releasebuffer_handle(dst_handle);
+    }
+
+    // Copy to output
+    input_data = std::move(dst_buf);
+
+    perf.preprocess = t_padding + t_resize;
+    return 0;
+}
+```
+
+</NewCodeBlock>
+
+## Performance Comparison
+
+```bash
+================================================
+               BENCHMARK RESULTS
+================================================
+
+Metric                               OpenCV          RGA      Speedup
+--------------------------------------------------
+Preprocess (ms)                        2.01         2.42         .83x
+Inference (ms)                        63.62        63.81
+TOTAL (ms)                           128.30       126.93
+--------------------------------------------------
+
+Iterations: 10 per version
+Test completed.
+```
+
+As you can see, with very simple preprocessing, OpenCV and RGA have minimal difference.

@@ -1,0 +1,238 @@
+## Overview
+
+G2D is a 2D graphics hardware accelerator integrated into Allwinner SoCs, responsible for image rotation, scaling, format conversion, color filling and other operations.
+
+Typical application scenarios:
+
+- Image preprocessing (scaling, color space conversion) before and after video encoding/decoding
+- Camera real-time preview image processing
+- Format conversion (RGB ↔ YUV) before display output
+- Batch image processing pipeline
+
+**Project Environment:**
+
+| Item               | Value                              |
+| ------------------ | ---------------------------------- |
+| SoC                | Allwinner A733                     |
+| Linux              | 5.15.147-100-a733                  |
+| G2D Driver Version | 1.0.0                              |
+| Driver Module      | `g2d_sunxi`                        |
+| Device Node        | `/dev/g2d`, `/dev/dma_heap/system` |
+
+## Environment Setup
+
+### Verify Driver Status
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+# Check if driver module is loaded
+lsmod | grep g2d
+# Output example: g2d_sunxi  90112  0
+
+# Check driver version
+cat /sys/module/g2d_sunxi/version
+# Output: 1.0.0
+```
+
+</NewCodeBlock>
+
+If not loaded, manually load:
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo modprobe g2d_sunxi
+```
+
+</NewCodeBlock>
+
+### Device Node Permissions
+
+Current system is configured to run without root:
+
+```text
+/dev/g2d              (0666)
+/dev/dma_heap/system  (0666)
+```
+
+To reconfigure udev rules if needed:
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo sh -c 'echo "KERNEL==\"system\", SUBSYSTEM==\"dma_heap\", MODE=\"0666\"" > /etc/udev/rules.d/99-dma-heap.rules'
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+</NewCodeBlock>
+
+### Header Files
+
+G2D API header file location:
+
+```text
+/usr/include/bsp/linux/sunxi-g2d.h
+```
+
+## Quick Start
+
+### Core Concepts
+
+Standard workflow for using G2D:
+
+```text
+1. Allocate DMA buffer (image data buffer)
+2. Fill source image data
+3. Configure g2d_blit_h structure
+4. Call ioctl(G2D_CMD_BITBLT_H, ...)
+5. Read result from target DMA buffer
+6. Release resources
+```
+
+**Key: G2D operates on DMA buffer, not regular memory.**
+
+DMA buffer is allocated by `/dev/dma_heap/system`, physically contiguous, hardware can access directly.
+
+### Example (Rotate 90°)
+
+Complete runnable code see `g2d_rotation_or_mirror.c`.
+
+<NewCodeBlock tip="Device" type="device">
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <bsp/linux/sunxi-g2d.h>
+#include <linux/dma-heap.h>
+#include <sys/mman.h>
+
+#define W 1920
+#define H 1080
+
+// Allocate DMA buffer, return fd and virtual address
+static int alloc_dmabuf(int *fd, void **vaddr, size_t size)
+{
+    struct dma_heap_allocation_data alloc_data = {
+        .len = size, .fd_flags = O_RDWR | O_CLOEXEC, .heap_flags = 0,
+    };
+    int heap_fd = open("/dev/dma_heap/system", O_RDONLY);
+    if (heap_fd < 0) return -1;
+    if (ioctl(heap_fd, DMA_HEAP_IOCTL_ALLOC, &alloc_data) < 0) {
+        close(heap_fd); return -1;
+    }
+    close(heap_fd);
+    *fd = alloc_data.fd;
+    *vaddr = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, *fd, 0);
+    if (*vaddr == MAP_FAILED) { close(*fd); return -1; }
+    return 0;
+}
+
+int main(void)
+{
+    int g2d_fd, src_fd, dst_fd;
+    void *src_v, *dst_v;
+    g2d_blt_h blit;
+
+    // 1. Allocate two DMA buffers (source and destination)
+    alloc_dmabuf(&src_fd, &src_v, W * H * 4);
+    alloc_dmabuf(&dst_fd, &dst_v, W * H * 4);
+
+    // 2. Fill source image data (gradient example)
+    fill_pattern(src_v, W, H);
+
+    // 3. Open G2D device
+    g2d_fd = open("/dev/g2d", O_RDWR);
+
+    // 4. Configure operation parameters
+    memset(&blit, 0, sizeof(blit));
+    blit.flag_h = G2D_ROT_90;  // Rotate 90°
+
+    blit.src_image_h.fd = src_fd;
+    blit.src_image_h.format = G2D_FORMAT_ARGB8888;
+    blit.src_image_h.width = W;
+    blit.src_image_h.height = H;
+
+    blit.dst_image_h.fd = dst_fd;
+    blit.dst_image_h.format = G2D_FORMAT_ARGB8888;
+    blit.dst_image_h.width = H;   // Width and height swap after rotation
+    blit.dst_image_h.height = W;
+
+    // 5. Execute hardware accelerated operation
+    ioctl(g2d_fd, G2D_CMD_BITBLT_H, (unsigned long)(&blit));
+
+    // 6. Result is already in dst_v, verify or submit to subsequent process
+
+    // 7. Release resources
+    close(g2d_fd);
+    munmap(src_v, W * H * 4); close(src_fd);
+    munmap(dst_v, W * H * 4); close(dst_fd);
+    return 0;
+}
+```
+
+</NewCodeBlock>
+
+Compilation
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt install gcc g++ cmake
+gcc -o g2d_rotation g2d_rotation.c
+```
+
+</NewCodeBlock>
+
+## Example Results
+
+| Example           | Operation                     | Result                     |
+| ----------------- | ----------------------------- | -------------------------- |
+| `g2d_rotation`    | ARGB8888 1920×1080 rotate 90° | **8.24 ms**, 251.8 MP/sec  |
+| `g2d_format_conv` | ARGB8888 → YUV420 1920×1080   | **9.56 ms**, 216.8 MP/sec  |
+| `g2d_scaler`      | 4096×4096 → 1920×1080 scale   | **68.60 ms**, 244.6 MP/sec |
+| `g2d_color_fill`  | 1920×1080 solid color fill    | **8.53 ms**, 243.2 MP/sec  |
+
+Note: `g2d_scaler` source resolution upper limit is 4096×4096 (8192×8192 triggers `EPERM`).
+
+## API Reference
+
+Complete API definition and all supported formats see header file:
+
+```text
+/usr/include/bsp/linux/sunxi-g2d.h
+```
+
+Common ioctl commands:
+
+| Command              | Purpose                                                       |
+| -------------------- | ------------------------------------------------------------- |
+| `G2D_CMD_BITBLT_H`   | Single image bit block transfer (rotate/scale/format convert) |
+| `G2D_CMD_FILLRECT_H` | Color fill rectangle                                          |
+| `G2D_CMD_STRETCHBLT` | Stretch bit block transfer                                    |
+| `G2D_CMD_BLD_H`      | Porter-Duff blend operation                                   |
+| `G2D_CMD_MIXER_TASK` | Batch tasks (submit multiple operations at once)              |
+
+Supported formats (partial):
+
+| Format                          | Description          |
+| ------------------------------- | -------------------- |
+| `G2D_FORMAT_ARGB8888`           | 32bpp Alpha-RGB      |
+| `G2D_FORMAT_RGB888`             | 24bpp RGB            |
+| `G2D_FORMAT_RGB565`             | 16bpp                |
+| `G2D_FORMAT_YUV420UVC_U1V1U0V0` | NV12 standard format |
+
+Rotation flags: `G2D_ROT_0` / `G2D_ROT_90` / `G2D_ROT_180` / `G2D_ROT_270` / `G2D_ROT_H` (horizontal flip) / `G2D_ROT_V` (vertical flip)
+
+## Notes
+
+- **DMA buffer must be physically contiguous**, regular `malloc` cannot be used for G2D
+- **IOMMU is responsible for address translation**, G2D accesses IOMMU-mapped physical addresses, no need to care about specific address values
+- **DMA buffer passed through fd**, user space uses `mmap`-ed virtual address for read/write
+- **Target resolution should match source**, width and height swap when rotating 90°
+- **Format conversion** (e.g. RGB → YUV) is done by G2D hardware, just set source and destination format fields separately
+- **For debugging**, failure returns `-1`, `errno` records specific reason, use `perror()` to print
