@@ -107,6 +107,23 @@ Do you want to apt-get install the packages? [y/N]
 </div>
 </details>
 
+:::caution
+**If apt reports an expired `apt-key` or signature verification error**, first manually update the Radxa apt keyring, then run the script again:
+
+```bash
+# Download the latest radxa-archive-keyring package
+curl -sL https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_latest_arm64.deb -o radxa-archive-keyring.deb
+# Or for amd64:
+# curl -sL https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_latest_amd64.deb -o radxa-archive-keyring.deb
+
+# Install manually
+sudo dpkg -i radxa-archive-keyring.deb
+
+# Run the backup script again
+sudo ./rockpi-backup.sh
+```
+:::
+
 </TabItem>
 <TabItem value="offline" label="Offline Backup">
 
@@ -193,6 +210,23 @@ Do you want to apt-get install the packages? [y/N]
 
 </div>
 </details>
+
+:::caution
+**If apt reports an expired `apt-key` or signature verification error**, first manually update the Radxa apt keyring, then run the script again:
+
+```bash
+# Download the latest radxa-archive-keyring package
+curl -sL https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_latest_arm64.deb -o radxa-archive-keyring.deb
+# Or for amd64:
+# curl -sL https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_latest_amd64.deb -o radxa-archive-keyring.deb
+
+# Install manually
+sudo dpkg -i radxa-archive-keyring.deb
+
+# Run the backup script again
+sudo ./rockpi-backup.sh
+```
+:::
 
 </TabItem>
 </Tabs>
