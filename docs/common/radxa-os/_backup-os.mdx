@@ -107,6 +107,23 @@ Do you want to apt-get install the packages? [y/N]
 </div>
 </details>
 
+:::caution
+**如果 apt 报错 `apt-key` 过期或签名验证失败**，请先手动更新瑞莎的 apt keyring，再运行脚本：
+
+```bash
+# 下载最新的 radxa-archive-keyring 包
+curl -sL https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_latest_arm64.deb -o radxa-archive-keyring.deb
+# 或下载 amd64 版本
+# curl -sL https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_latest_amd64.deb -o radxa-archive-keyring.deb
+
+# 手动安装
+sudo dpkg -i radxa-archive-keyring.deb
+
+# 安装完后再运行备份脚本
+sudo ./rockpi-backup.sh
+```
+:::
+
 </TabItem>
 <TabItem value="offline" label="离线备份">
 
@@ -193,6 +210,23 @@ Do you want to apt-get install the packages? [y/N]
 
 </div>
 </details>
+
+:::caution
+**如果 apt 报错 `apt-key` 过期或签名验证失败**，请先手动更新瑞莎的 apt keyring，再运行脚本：
+
+```bash
+# 下载最新的 radxa-archive-keyring 包
+curl -sL https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_latest_arm64.deb -o radxa-archive-keyring.deb
+# 或下载 amd64 版本
+# curl -sL https://github.com/radxa-pkg/radxa-archive-keyring/releases/latest/download/radxa-archive-keyring_latest_amd64.deb -o radxa-archive-keyring.deb
+
+# 手动安装
+sudo dpkg -i radxa-archive-keyring.deb
+
+# 安装完后再运行备份脚本
+sudo ./rockpi-backup.sh
+```
+:::
 
 </TabItem>
 </Tabs>
