@@ -1,0 +1,236 @@
+## 概述
+
+G2D 是 Allwinner SoC 集成的 2D 图形硬件加速器，负责图像旋转、缩放、格式转换、颜色填充等操作。
+
+典型应用场景：
+
+- 视频编解码前后的图像预处理（缩放、色彩空间转换）
+- 相机实时预览的图像处理
+- 显示输出前的格式转换（RGB ↔ YUV）
+- 批量图像处理流水线
+
+**本项目环境：**
+
+| 项目         | 值                                 |
+| ------------ | ---------------------------------- |
+| SoC          | Allwinner A733                     |
+| Linux        | 5.15.147-100-a733                  |
+| G2D 驱动版本 | 1.0.0                              |
+| 驱动模块     | `g2d_sunxi`                        |
+| 设备节点     | `/dev/g2d`、`/dev/dma_heap/system` |
+
+## 环境准备
+
+### 验证驱动状态
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+# 检查驱动模块是否已加载
+lsmod | grep g2d
+# 输出类似: g2d_sunxi  90112  0
+
+# 查看驱动版本
+cat /sys/module/g2d_sunxi/version
+# 输出: 1.0.0
+```
+
+</NewCodeBlock>
+
+若未加载，手动加载：
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo modprobe g2d_sunxi
+```
+
+</NewCodeBlock>
+
+### 设备节点权限
+
+当前系统已配置为无需 root 运行：
+
+```text
+/dev/g2d              (0666)
+/dev/dma_heap/system  (0666)
+```
+
+如需重新配置 udev 规则：
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo sh -c 'echo "KERNEL==\"system\", SUBSYSTEM==\"dma_heap\", MODE=\"0666\"" > /etc/udev/rules.d/99-dma-heap.rules'
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+</NewCodeBlock>
+
+### 头文件
+
+G2D API 头文件位于：
+
+```text
+/usr/include/bsp/linux/sunxi-g2d.h
+```
+
+## 快速启动
+
+### 核心概念
+
+使用 G2D 的标准流程：
+
+```text
+1. 分配 DMA buffer（图像数据缓冲区）
+2. 填充源图像数据
+3. 配置 g2d_blit_h 结构体
+4. 调用 ioctl(G2D_CMD_BITBLT_H, ...)
+5. 从目标 DMA buffer 读取结果
+6. 释放资源
+```
+
+**关键：G2D 操作的是 DMA buffer，不是普通内存。**
+
+DMA buffer 由 `/dev/dma_heap/system` 分配，物理地址连续，硬件可直接访问。
+
+### 示例（旋转 90°）
+
+<NewCodeBlock tip="Device" type="device">
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <bsp/linux/sunxi-g2d.h>
+#include <linux/dma-heap.h>
+#include <sys/mman.h>
+
+#define W 1920
+#define H 1080
+
+// 分配 DMA buffer，返回 fd 和虚拟地址
+static int alloc_dmabuf(int *fd, void **vaddr, size_t size)
+{
+    struct dma_heap_allocation_data alloc_data = {
+        .len = size, .fd_flags = O_RDWR | O_CLOEXEC, .heap_flags = 0,
+    };
+    int heap_fd = open("/dev/dma_heap/system", O_RDONLY);
+    if (heap_fd < 0) return -1;
+    if (ioctl(heap_fd, DMA_HEAP_IOCTL_ALLOC, &alloc_data) < 0) {
+        close(heap_fd); return -1;
+    }
+    close(heap_fd);
+    *fd = alloc_data.fd;
+    *vaddr = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, *fd, 0);
+    if (*vaddr == MAP_FAILED) { close(*fd); return -1; }
+    return 0;
+}
+
+int main(void)
+{
+    int g2d_fd, src_fd, dst_fd;
+    void *src_v, *dst_v;
+    g2d_blt_h blit;
+
+    // 1. 分配两个 DMA buffer（源和目标）
+    alloc_dmabuf(&src_fd, &src_v, W * H * 4);
+    alloc_dmabuf(&dst_fd, &dst_v, W * H * 4);
+
+    // 2. 填充源图像数据（渐变示例）
+    fill_pattern(src_v, W, H);
+
+    // 3. 打开 G2D 设备
+    g2d_fd = open("/dev/g2d", O_RDWR);
+
+    // 4. 配置操作参数
+    memset(&blit, 0, sizeof(blit));
+    blit.flag_h = G2D_ROT_90;  // 旋转 90°
+
+    blit.src_image_h.fd = src_fd;
+    blit.src_image_h.format = G2D_FORMAT_ARGB8888;
+    blit.src_image_h.width = W;
+    blit.src_image_h.height = H;
+
+    blit.dst_image_h.fd = dst_fd;
+    blit.dst_image_h.format = G2D_FORMAT_ARGB8888;
+    blit.dst_image_h.width = H;   // 旋转后宽高互换
+    blit.dst_image_h.height = W;
+
+    // 5. 执行硬件加速操作
+    ioctl(g2d_fd, G2D_CMD_BITBLT_H, (unsigned long)(&blit));
+
+    // 6. 结果已在 dst_v 中，验证或提交给后续流程
+
+    // 7. 释放资源
+    close(g2d_fd);
+    munmap(src_v, W * H * 4); close(src_fd);
+    munmap(dst_v, W * H * 4); close(dst_fd);
+    return 0;
+}
+```
+
+</NewCodeBlock>
+
+编译
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt install gcc g++ cmake
+gcc -o g2d_rotation g2d_rotation.c
+```
+
+</NewCodeBlock>
+
+## 示例运行结果
+
+| 示例              | 操作                        | 结果                       |
+| ----------------- | --------------------------- | -------------------------- |
+| `g2d_rotation`    | ARGB8888 1920×1080 旋转 90° | **8.24 ms**，251.8 MP/sec  |
+| `g2d_format_conv` | ARGB8888 → YUV420 1920×1080 | **9.56 ms**，216.8 MP/sec  |
+| `g2d_scaler`      | 4096×4096 → 1920×1080 缩放  | **68.60 ms**，244.6 MP/sec |
+| `g2d_color_fill`  | 1920×1080 纯色填充          | **8.53 ms**，243.2 MP/sec  |
+
+注：`g2d_scaler` 源图分辨率上限为 4096×4096（8192×8192 会触发 `EPERM`）。
+
+## API 参考
+
+完整 API 定义和所有支持格式见头文件：
+
+```text
+/usr/include/bsp/linux/sunxi-g2d.h
+```
+
+常用 ioctl 命令：
+
+| 命令                 | 用途                                 |
+| -------------------- | ------------------------------------ |
+| `G2D_CMD_BITBLT_H`   | 单图像位块传输（旋转/缩放/格式转换） |
+| `G2D_CMD_FILLRECT_H` | 颜色填充矩形                         |
+| `G2D_CMD_STRETCHBLT` | 伸缩位块传输                         |
+| `G2D_CMD_BLD_H`      | Porter-Duff 混合操作                 |
+| `G2D_CMD_MIXER_TASK` | 批量任务（一次提交多个操作）         |
+
+支持格式（部分）：
+
+| 格式                            | 说明            |
+| ------------------------------- | --------------- |
+| `G2D_FORMAT_ARGB8888`           | 32bpp Alpha-RGB |
+| `G2D_FORMAT_RGB888`             | 24bpp RGB       |
+| `G2D_FORMAT_RGB565`             | 16bpp           |
+| `G2D_FORMAT_YUV420UVC_U1V1U0V0` | NV12 标准格式   |
+
+旋转标志：`G2D_ROT_0` / `G2D_ROT_90` / `G2D_ROT_180` / `G2D_ROT_270` / `G2D_ROT_H`（水平翻转）/ `G2D_ROT_V`（垂直翻转）
+
+## 注意事项
+
+- **DMA buffer 必须物理连续**，普通 `malloc` 不能用于 G2D
+- **IOMMU 负责地址翻译**，G2D 访问的是 IOMMU 映射后的物理地址，无需关心具体地址值
+- **DMA buffer 通过 fd 传递**，用户空间用 `mmap` 后的虚拟地址读写
+- **目标分辨率应与源配合**，旋转 90° 时宽高互换
+- **格式转换**（如 RGB → YUV）由 G2D 硬件完成，源和目标 format 字段分别设置即可
+- **调试时**，失败返回 `-1`，`errno` 记录具体原因，用 `perror()` 打印

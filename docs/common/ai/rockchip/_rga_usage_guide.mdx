@@ -1,0 +1,416 @@
+## RGA 简介
+
+RGA (Raster Graphic Acceleration) 是 Rockchip 提供的 2D 图像处理硬件加速器，专门用于加速图像的缩放、颜色转换、格式转换等操作。在 RK3588 等芯片上可用。
+
+**典型优势：**
+
+- 硬件加速，CPU 零开销
+- 高效的图像缩放 (resize)
+- 色彩空间转换 (BGR↔RGB, RGB↔YUV)
+- 支持 DMA 零拷贝
+
+**适用场景：**
+
+- YOLO 等目标检测的图像预处理
+- 视频/图像的格式转换
+- 相机 pipeline 的图像处理
+
+## RGA 快速上手
+
+### 克隆仓库
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+git clone https://github.com/airockchip/librga.git
+```
+
+</NewCodeBlock>
+
+### 目录结构
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./
+├── CHANGELOG.md
+├── COPYING
+├── docs
+│   ├── RGA_FAQ.assets
+│   ├── Rockchip_Developer_Guide_RGA_CN.md
+│   ├── Rockchip_Developer_Guide_RGA_EN.md
+│   ├── Rockchip_FAQ_RGA_CN.md
+│   └── Rockchip_FAQ_RGA_EN.md
+├── include
+│   ├── drmrga.h
+│   ├── GrallocOps.h
+│   ├── im2d_buffer.h
+│   ├── im2d_common.h
+│   ├── im2d_expand.h
+│   ├── im2d.h
+│   ├── im2d.hpp
+│   ├── im2d_mpi.h
+│   ├── im2d_single.h
+│   ├── im2d_task.h
+│   ├── im2d_type.h
+│   ├── im2d_version.h
+│   ├── RgaApi.h
+│   ├── rga.h
+│   ├── RgaMutex.h
+│   ├── RgaSingleton.h
+│   ├── RgaUtils.h
+│   └── RockchipRga.h
+├── libs
+│   ├── AndroidNdk
+│   └── Linux
+├── README.md
+├── samples
+│   ├── allocator_demo
+│   ├── alpha_demo
+│   ├── async_demo
+│   ├── build
+│   ├── cmake-android.sh
+│   ├── cmake-linux.sh
+│   ├── CMakeLists.txt
+│   ├── config_demo
+│   ├── copy_demo
+│   ├── crop_demo
+│   ├── cvtcolor_demo
+│   ├── fill_demo
+│   ├── gauss_demo
+│   ├── im2d_api_demo
+│   ├── mosaic_demo
+│   ├── padding_demo
+│   ├── palette_demo
+│   ├── README.md
+│   ├── resize_demo
+│   ├── rop_demo
+│   ├── sample_file
+│   ├── SConscript
+│   ├── toolchain_local.cmake
+│   ├── transform_demo
+│   └── utils
+├── toolchains
+│   ├── toolchain_android_ndk.cmake
+│   ├── toolchain_linux_1106.cmake
+│   ├── toolchain_linux.cmake
+│   └── toolchain_rt_thread.cmake
+└── tools
+    └── bin
+```
+
+</NewCodeBlock>
+
+### 运行 Demo
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd librga/tools/bin/Linux/gcc-aarch64
+./rgaImDemo -h
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./rgaImDemo --copy
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+./rgaImDemo --resize up
+```
+
+</NewCodeBlock>
+
+### 头文件与库文件
+
+**头文件引用：**
+
+- RGA 头文件位置: `librga/include/`
+- C++ 调用 im2d API：`im2d.hpp`
+- C 调用 im2d API：`im2d.h`
+
+**库文件：**
+
+- RGA 库文件位置： `librga/libs/Linux/gcc-aarch64/`
+- `librga.so`
+- `librga.a`
+
+## 核心概念
+
+### Buffer 管理
+
+RGA 操作的是 buffer，需要先导入再用。
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+#include <im2d.hpp>
+#include <RgaUtils.h>
+
+// 1. 分配用户态内存
+uint8_t* src_buf = malloc(width * height * 3);
+
+// 2. 导入到 RGA (虚拟地址方式)
+rga_buffer_handle_t src_handle = importbuffer_virtualaddr(src_buf, buf_size);
+
+// 3. 包装成 rga_buffer_t
+rga_buffer_t src_img = wrapbuffer_handle(src_handle, width, height, RK_FORMAT_BGR_888);
+
+// 4. 释放
+releasebuffer_handle(src_handle);
+free(src_buf);
+```
+
+</NewCodeBlock>
+
+### 常用格式
+
+| 格式                     | 说明        |
+| ------------------------ | ----------- |
+| `RK_FORMAT_BGR_888`      | 3 通道 BGR  |
+| `RK_FORMAT_RGB_888`      | 3 通道 RGB  |
+| `RK_FORMAT_RGBA_8888`    | 4 通道 RGBA |
+| `RK_FORMAT_YCbCr_420_SP` | NV12        |
+
+### API 概览
+
+| 操作     | API            | 说明                 |
+| -------- | -------------- | -------------------- |
+| 缩放     | `imresize()`   | 图像缩放             |
+| 颜色转换 | `imcvtcolor()` | BGR↔RGB, RGB↔YUV     |
+| 填充边框 | `imfill()`     | 矩形区域填充         |
+| 综合处理 | `improcess()`  | crop+resize+格式转换 |
+| 内存拷贝 | `imcopy()`     | buffer 拷贝          |
+
+## 代码示例
+
+### 简单示例：图像缩放
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+#include <im2d.hpp>
+#include <RgaUtils.h>
+
+void resize_example() {
+    int src_w = 1920, src_h = 1080;
+    int dst_w = 640, dst_h = 640;
+
+    // 分配内存
+    uint8_t* src = malloc(src_w * src_h * 3);
+    uint8_t* dst = malloc(dst_w * dst_h * 3);
+
+    // 导入 buffer
+    rga_buffer_handle_t src_handle = importbuffer_virtualaddr(src, src_w * src_h * 3);
+    rga_buffer_handle_t dst_handle = importbuffer_virtualaddr(dst, dst_w * dst_h * 3);
+
+    // 包装
+    rga_buffer_t src_img = wrapbuffer_handle(src_handle, src_w, src_h, RK_FORMAT_BGR_888);
+    rga_buffer_t dst_img = wrapbuffer_handle(dst_handle, dst_w, dst_h, RK_FORMAT_BGR_888);
+
+    // 缩放
+    IM_STATUS ret = imresize(src_img, dst_img);
+
+    // 释放
+    releasebuffer_handle(src_handle);
+    releasebuffer_handle(dst_handle);
+    free(src);
+    free(dst);
+}
+```
+
+</NewCodeBlock>
+
+### 颜色转换
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+// BGR -> RGB
+imcvtcolor(src_img, dst_img, RK_FORMAT_BGR_888, RK_FORMAT_RGB_888);
+
+// BGR -> YUV (NV12)
+imcvtcolor(src_img, dst_img, RK_FORMAT_BGR_888, RK_FORMAT_YCbCr_420_SP);
+```
+
+</NewCodeBlock>
+
+### 填充背景
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+// 填充灰色矩形区域
+rga_buffer_t canvas = wrapbuffer_handle(handle, width, height, RK_FORMAT_BGR_888);
+
+// 灰色: B=114, G=114, R=114 (按 BGR 顺序)
+int gray = (114 << 16) | (114 << 8) | 114;
+
+// 填充整个图像为灰色
+imfill(canvas, {0, 0, width, height}, gray);
+```
+
+</NewCodeBlock>
+
+### 综合处理 improcess()
+
+`improcess()` 是最强大的 API，可以同时完成：
+
+- 指定源区域 (crop)
+- 缩放到目标区域
+- 颜色格式转换
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+// 语法
+improcess(src_img, dst_img, {}, srect, drect, {}, -1, nullptr, nullptr, IM_SYNC);
+
+// 参数说明:
+// src_img, dst_img: 源和目标 buffer
+// {}: 第三个参数是 pat (pattern)，一般不用
+// srect: 源区域 {x, y, width, height}
+// drect: 目标区域 {x, y, width, height}
+// {}: prect，一般不用
+// -1: acquire_fence_fd
+// nullptr: release_fence_fd
+// nullptr: opt_ptr
+// IM_SYNC: 同步执行
+```
+
+</NewCodeBlock>
+
+## YOLO 预处理中的使用
+
+### 问题分析
+
+YOLO 预处理需要：
+
+1. 保持纵横比的缩放 (letterbox)
+2. 灰色填充边缘
+3. BGR → RGB 转换
+
+### 完整实现
+
+<NewCodeBlock tip="Device" type="device">
+
+```cpp
+int preprocess_with_rga(const cv::Mat& img0, int orig_w, int orig_h,
+                       int target_size, float ratio, int dw, int dh,
+                       std::vector<uint8_t>& input_data, PerfStats& perf) {
+    Timer timer;
+    double t_padding = 0, t_resize = 0;
+
+    int new_unpad_w = static_cast<int>(orig_w * ratio);
+    int new_unpad_h = static_cast<int>(orig_h * ratio);
+
+    // RGA 要求 stride 和 width 像素数都按 16 对齐
+    // BGR_888: stride_bytes 必须是 16 的倍数，且 width_px 也必须是 16 的倍数
+    int src_width_px = ((orig_w + 15) / 16) * 16;
+    int dst_width_px = ((target_size + 15) / 16) * 16;
+    int src_stride = src_width_px * 3;
+    int dst_stride = dst_width_px * 3;
+
+    int src_buf_size = src_stride * orig_h;
+    int dst_buf_size = dst_stride * target_size;
+
+    std::vector<uint8_t> src_buf(src_buf_size);
+    std::vector<uint8_t> dst_buf(dst_buf_size);
+
+    // 复制原图数据 (逐行拷贝，保留行间距)
+    for (int h = 0; h < orig_h; ++h) {
+        memcpy(src_buf.data() + h * src_stride, img0.data + h * orig_w * 3, orig_w * 3);
+    }
+
+    // Step 1: RGA 填充灰色背景
+    {
+        rga_buffer_handle_t canvas_handle = importbuffer_virtualaddr(dst_buf.data(), dst_width_px, target_size, RK_FORMAT_BGR_888);
+        if (canvas_handle == 0) {
+            std::cerr << "Warning: RGA importbuffer failed for canvas\n";
+            return -1;
+        }
+
+        rga_buffer_t canvas = wrapbuffer_handle(canvas_handle, dst_width_px, target_size, RK_FORMAT_BGR_888);
+
+        int gray_color = (114 << 16) | (114 << 8) | 114;
+
+        timer.reset();
+        IM_STATUS ret = imfill(canvas, {0, 0, dst_width_px, target_size}, gray_color);
+        t_padding = timer.elapsed_ms();
+
+        if (ret != IM_STATUS_SUCCESS) {
+            std::cerr << "Warning: RGA imfill failed: " << imStrError(ret) << "\n";
+            releasebuffer_handle(canvas_handle);
+            return -1;
+        }
+
+        releasebuffer_handle(canvas_handle);
+    }
+
+    // Step 2: RGA improcess - 缩放原图到中间区域 + BGR to RGB
+    {
+        rga_buffer_handle_t src_handle = importbuffer_virtualaddr(src_buf.data(), src_width_px, orig_h, RK_FORMAT_BGR_888);
+        rga_buffer_handle_t dst_handle = importbuffer_virtualaddr(dst_buf.data(), dst_width_px, target_size, RK_FORMAT_RGB_888);
+
+        if (src_handle == 0 || dst_handle == 0) {
+            std::cerr << "Warning: RGA importbuffer failed\n";
+            return -1;
+        }
+
+        rga_buffer_t src_img = wrapbuffer_handle(src_handle, src_width_px, orig_h, RK_FORMAT_BGR_888);
+        rga_buffer_t dst_img = wrapbuffer_handle(dst_handle, dst_width_px, target_size, RK_FORMAT_RGB_888);
+
+        im_rect srect = {0, 0, orig_w, orig_h};
+        im_rect drect = {dw, dh, new_unpad_w, new_unpad_h};
+
+        timer.reset();
+        IM_STATUS ret = improcess(src_img, dst_img, {}, srect, drect, {}, -1, nullptr, nullptr, IM_SYNC);
+        t_resize = timer.elapsed_ms();
+
+        if (ret != IM_STATUS_SUCCESS) {
+            std::cerr << "Warning: RGA improcess failed: " << imStrError(ret) << "\n";
+            releasebuffer_handle(src_handle);
+            releasebuffer_handle(dst_handle);
+            return -1;
+        }
+
+        releasebuffer_handle(src_handle);
+        releasebuffer_handle(dst_handle);
+    }
+
+    // 复制到输出
+    input_data = std::move(dst_buf);
+
+    perf.preprocess = t_padding + t_resize;
+    return 0;
+}
+```
+
+</NewCodeBlock>
+
+## 性能对比
+
+```bash
+================================================
+               BENCHMARK RESULTS
+================================================
+
+Metric                               OpenCV          RGA      Speedup
+--------------------------------------------------
+Preprocess (ms)                        2.01         2.42         .83x
+Inference (ms)                        63.62        63.81
+TOTAL (ms)                           128.30       126.93
+--------------------------------------------------
+
+Iterations: 10 per version
+Test completed.
+```
+
+可以看到在预处理非常简单的前提下，直接用 OpenCV 处理和 RGA 处理差异不大。
