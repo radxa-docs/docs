@@ -43,6 +43,15 @@ When starting the development environment for the first time, Dev Containers wil
   />
 </div>
 
+Wait for the container to automatically connect and initialize the environment. You can click the bottom right corner to select to display logs in the terminal.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/low-level-dev/vscode-dev-container-log.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
 ## Compile Radxa OS
 
 After starting the development environment, use the `rsdk` command to run the TUI interface.
@@ -95,3 +104,7 @@ After selecting `yes`, the Radxa OS build process will start, and rsdk will auto
 ```
 
 After compilation is complete, a folder corresponding to the board model and system version will be generated in the `out` directory, containing the Radxa OS image named `output.img`.
+
+:::info Radxa Cubie A7A / A7Z / A7S Build System Options
+After selecting `Build system image`, choose the `radxa-a733` option from the board model list.
+:::
