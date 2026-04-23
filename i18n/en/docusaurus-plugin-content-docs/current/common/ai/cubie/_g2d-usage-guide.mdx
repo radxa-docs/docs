@@ -2,6 +2,23 @@
 
 G2D is a 2D graphics hardware accelerator integrated into Allwinner SoCs, responsible for image rotation, scaling, format conversion, color filling and other operations.
 
+:::info
+G2D is not enabled by default in the current version. If needed, configure according to the commands below.
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/cubie-image/sun60iw2p1/releases/download/linux_package4/linux-headers-5.15.147-100-a733_5.15.147-100_arm64.deb
+wget https://github.com/cubie-image/sun60iw2p1/releases/download/linux_package4/linux-image-5.15.147-100-a733_5.15.147-100_arm64.deb
+sudo dpkg -i linux-headers-5.15.147-100-a733_5.15.147-100_arm64.deb
+sudo dpkg -i linux-image-5.15.147-100-a733_5.15.147-100_arm64.deb
+# Then reboot
+sudo reboot
+```
+
+</NewCodeBlock>
+
 Typical application scenarios:
 
 - Image preprocessing (scaling, color space conversion) before and after video encoding/decoding
@@ -56,12 +73,13 @@ Current system is configured to run without root:
 /dev/dma_heap/system  (0666)
 ```
 
-To reconfigure udev rules if needed:
+If you encounter permission issues, it is recommended to configure udev rules:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-sudo sh -c 'echo "KERNEL==\"system\", SUBSYSTEM==\"dma_heap\", MODE=\"0666\"" > /etc/udev/rules.d/99-dma-heap.rules'
+sudo sh -c 'echo "KERNEL==\"g2d\", MODE=\"0666\"" > /etc/udev/rules.d/99-g2d.rules'
+sudo sh -c 'echo "KERNEL==\"system\", SUBSYSTEM==\"dma_heap\", MODE=\"0666\"" >> /etc/udev/rules.d/99-g2d.rules'
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
@@ -187,6 +205,10 @@ gcc -o g2d_rotation g2d_rotation.c
 ```
 
 </NewCodeBlock>
+
+:::tip
+Example code is available on [github](https://github.com/Ronin-1124/allwinner-g2d-usage-guide).
+:::
 
 ## Example Results
 

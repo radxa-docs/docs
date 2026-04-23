@@ -2,6 +2,23 @@
 
 G2D 是 Allwinner SoC 集成的 2D 图形硬件加速器，负责图像旋转、缩放、格式转换、颜色填充等操作。
 
+:::info
+当前版本默认不启用 g2d ，如有需要，按照下面的命令配置。
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget https://github.com/cubie-image/sun60iw2p1/releases/download/linux_package4/linux-headers-5.15.147-100-a733_5.15.147-100_arm64.deb
+wget https://github.com/cubie-image/sun60iw2p1/releases/download/linux_package4/linux-image-5.15.147-100-a733_5.15.147-100_arm64.deb
+sudo dpkg -i linux-headers-5.15.147-100-a733_5.15.147-100_arm64.deb
+sudo dpkg -i linux-image-5.15.147-100-a733_5.15.147-100_arm64.deb
+# 然后重启
+sudo reboot
+```
+
+</NewCodeBlock>
+
 典型应用场景：
 
 - 视频编解码前后的图像预处理（缩放、色彩空间转换）
@@ -56,12 +73,13 @@ sudo modprobe g2d_sunxi
 /dev/dma_heap/system  (0666)
 ```
 
-如需重新配置 udev 规则：
+如遇权限不够，推荐配置 udev 规则：
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-sudo sh -c 'echo "KERNEL==\"system\", SUBSYSTEM==\"dma_heap\", MODE=\"0666\"" > /etc/udev/rules.d/99-dma-heap.rules'
+sudo sh -c 'echo "KERNEL==\"g2d\", MODE=\"0666\"" > /etc/udev/rules.d/99-g2d.rules'
+sudo sh -c 'echo "KERNEL==\"system\", SUBSYSTEM==\"dma_heap\", MODE=\"0666\"" >> /etc/udev/rules.d/99-g2d.rules'
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
@@ -187,6 +205,10 @@ gcc -o g2d_rotation g2d_rotation.c
 </NewCodeBlock>
 
 ## 示例运行结果
+
+:::tip
+示例代码可查阅 [github](https://github.com/Ronin-1124/allwinner-g2d-usage-guide) 。
+:::
 
 | 示例              | 操作                        | 结果                       |
 | ----------------- | --------------------------- | -------------------------- |
