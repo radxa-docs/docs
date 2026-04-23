@@ -8,7 +8,7 @@ sidebar_position: 150
 
 - [Balena Etcher](https://etcher.balena.io/)
 
-- [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)
+- [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)
 
 - [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip)
 

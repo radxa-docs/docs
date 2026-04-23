@@ -32,7 +32,7 @@ ROCK Pi S0 v1.2 版本
 
 3. [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip)
 
-   [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)（相关驱动）
+   [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)（相关驱动）
 
 ## 操作系统镜像
 

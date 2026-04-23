@@ -145,11 +145,11 @@ RKDevTool is Rockchip's software for USB burning on Windows platform. If RKDevTo
 Please download and extract the following files to install RKDevTool:
 
 - [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip) (Includes Chinese documentation)
-- [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)
+- [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)
 
 ### Installation of drivers
 
-Download and unzip DriverAssistant, then execute DriverInstall.exe and click the `Install Driver` button to install the driver.
+Download and unzip DriverAssitant, then execute DriverInstall.exe and click the `Install Driver` button to install the driver.
 If you have already installed another version of driver, please click `Uninstall Driver` to uninstall the driver first, and then reinstall it again.
 
 ![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
@@ -231,11 +231,11 @@ RKDevTool is Rockchip's software for USB burning on Windows platform. If RKDevTo
 Please download and extract the following files to install RKDevTool:
 
 - [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip) (Includes Chinese documentation)
-- [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)
+- [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)
 
 ### Installation of drivers
 
-Download and unzip DriverAssistant, then execute DriverInstall.exe and click the `Install Driver` button to install the driver.
+Download and unzip DriverAssitant, then execute DriverInstall.exe and click the `Install Driver` button to install the driver.
 If you have already installed another version of driver, please click `Uninstall Driver` to uninstall the driver first, and then reinstall it again.
 
 ![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)

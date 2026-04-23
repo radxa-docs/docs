@@ -14,7 +14,7 @@ sidebar_position: 5
 
 - 安装驱动
 
-下载并解压 [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)文件。
+下载并解压 [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)文件。
 
 找到 ` DriverInstall.exe`文件并以管理员身份运行：
 

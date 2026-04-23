@@ -80,7 +80,7 @@ import UPGRADE_TOOL from "../../../../../../common/dev/\_upgrade-tool.mdx";
             <li>请下载并解压以下文件以安装 RKDevTool：</li>
             <ul>
                 <li><a href="https://dl.radxa.com/tools/windows/RKDevTool_Release.zip">RKDevTool v2.96</a> (含中文使用文档)</li>
-                <li><a href="https://dl.radxa.com/tools/windows/DriverAssitant.zip">DriverAssistant v5.14</a></li>
+                <li><a href="https://dl.radxa.com/tools/windows/DriverAssitant.zip">DriverAssitant v5.14</a></li>
             </ul>
             <br />
             <li>选择 "升级固件"</li>

@@ -39,7 +39,7 @@ sidebar_position: 99
 1. [Etcher](https://etcher.balena.io/#download-etcher/) - SD 卡镜像烧录工具
 2. [rkdeveloptool](https://opensource.rock-chips.com/wiki_Rkdeveloptool) - 开源命令行 USB 刷机工具
 3. [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip) - Windows 图形化刷机工具(内含中文使用文档)
-4. [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip) - Rockchip 平台 Windows 通用驱动
+4. [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip) - Rockchip 平台 Windows 通用驱动
 
 ### Loader 文件
 

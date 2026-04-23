@@ -25,7 +25,7 @@ Users of eMMC modules need RKDevTool, while microSD users need SD_Firmware_Tool.
 
 ### Install drivers
 
-Download [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip), extract it, run DriverInstall.exe, and click `Install Driver`.
+Download [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip), extract it, run DriverInstall.exe, and click `Install Driver`.
 
 If you have installed other driver versions before, click `Uninstall Driver` first, then reinstall.
 
