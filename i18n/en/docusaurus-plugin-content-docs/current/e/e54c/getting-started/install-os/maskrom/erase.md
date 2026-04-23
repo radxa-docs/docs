@@ -14,7 +14,7 @@ You can use the RKDevTool utility to erase the eMMC storage.
 
 - Install Drivers
 
-Download and extract the [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip) file.
+Download and extract the [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip) file.
 
 Locate the `DriverInstall.exe` file and run it as administrator:
 
@@ -32,7 +32,7 @@ If you have previously installed other versions of the driver, please uninstall 
 
 - Download RKDevTool
 
-Download the [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar) utility, then extract the downloaded file. The `RKDevTool.exe` is the executable program - simply double-click it to launch the software.
+Download the [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip) utility, then extract the downloaded file. The `RKDevTool.exe` is the executable program - simply double-click it to launch the software.
 
 </TabItem>
 
