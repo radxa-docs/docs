@@ -131,8 +131,8 @@ RKDevTool is Rockchip's software for USB burning on Windows platform. If RKDevTo
 
 Please download and extract the following files to install RKDevTool:
 
-- [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip) (Includes Chinese documentation)
-- [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)
+- [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip) (Includes Chinese documentation)
+- [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)
 
 ### Installation of drivers
 
@@ -143,7 +143,7 @@ If you have already installed another version of driver, please click `Uninstall
 
 ### Install RKDevTool
 
-unzip RKDevTool_Release_v2.96_zh.zip ，click RKDevTool.exe to open.
+unzip RKDevTool_Release.zip ，click RKDevTool.exe to open.
 
 ## Enter Maskrom mode
 

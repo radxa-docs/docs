@@ -25,7 +25,7 @@ Users of eMMC modules need RKDevTool, while microSD users need SD_Firmware_Tool.
 
 ### Install drivers
 
-Download [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip), extract it, run DriverInstall.exe, and click `Install Driver`.
+Download [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip), extract it, run DriverInstall.exe, and click `Install Driver`.
 
 If you have installed other driver versions before, click `Uninstall Driver` first, then reinstall.
 
@@ -35,9 +35,9 @@ RKDevTool is a Rockchip utility for USB flashing on Windows. If it is not instal
 
 Download and extract:
 
-- [RKDevTool v2.96](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96_zh.zip)
+- [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip)
 
-After extracting `RKDevTool_Release_v2.96_zh.zip`, run `RKDevTool.exe`.
+After extracting `RKDevTool_Release.zip`, run `RKDevTool.exe`.
 
 ### Install SD_Firmware_Tool
 
