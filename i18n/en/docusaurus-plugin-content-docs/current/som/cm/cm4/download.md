@@ -51,8 +51,8 @@ Compatible with MicroSD cards, onboard eMMC, and NVMe SSD for system boot.
 ## Flashing Tools
 
 - [Balena Etcher](https://etcher.balena.io/)
-- [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)
-- [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar)
+- [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)
+- [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip)
 
 ## Community Resources
 

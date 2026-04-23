@@ -14,7 +14,7 @@ sidebar_position: 5
 
 - 安装驱动
 
-下载并解压 [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)文件。
+下载并解压 [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)文件。
 
 找到 ` DriverInstall.exe`文件并以管理员身份运行：
 
@@ -32,7 +32,7 @@ sidebar_position: 5
 
 - 下载 RKDevTool 工具
 
-下载 [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release_v2.96-20221121.rar) 工具，然后解压下载的文件，其中 `RKDevTool.exe` 就是可执行程序，直接双击可以打开使用软件。
+下载 [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip) 工具，然后解压下载的文件，其中 `RKDevTool.exe` 就是可执行程序，直接双击可以打开使用软件。
 
 </TabItem>
 
