@@ -8,7 +8,7 @@ sidebar_position: 10
 
 ### 原理图
 
-[Radxa X4 V1.11 原理图下载](https://dl.radxa.com/x/x4/radxa_x4_v1.11_schematic.pdf)
+原理图暂不提供公开下载，如有需要请联系 Radxa 获取。
 
 ### 位号图
 
