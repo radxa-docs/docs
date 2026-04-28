@@ -1,0 +1,512 @@
+This guide describes how to deploy Home Assistant Container on a Radxa SBC running Debian / Ubuntu with Docker Compose, and how to leave a path for adding a temperature and humidity sensor through the 40-pin GPIO header later.
+
+:::info
+
+Home Assistant Container includes Home Assistant Core only. It does not include the Supervisor or Add-ons. If you need services such as an MQTT broker, Node-RED, ESPHome, Zigbee2MQTT, or a database, deploy them as independent containers in the same `docker-compose.yml`.
+
+:::
+
+## Prerequisites
+
+- A Radxa SBC running Debian / Ubuntu with network access
+- A system user with `sudo` privileges
+- Ethernet is recommended so Home Assistant can discover LAN devices more reliably
+- Before wiring a sensor, check the voltage and pinout of the 40-pin GPIO header for your specific Radxa SBC
+
+## Install Docker and Compose
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo apt update
+sudo apt install -y docker.io docker-compose-plugin git
+sudo systemctl enable --now docker
+```
+
+</NewCodeBlock>
+
+Add the current user to the `docker` group. Log in again before running Docker without `sudo`:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+docker version
+```
+
+</NewCodeBlock>
+
+Home Assistant officially requires Docker Engine 23.0.0 or later. If the Docker version provided by your system repository is too old, install Docker Engine from Docker's official package repository instead.
+
+## Deployment Layout
+
+This guide uses one Docker Compose project to manage Home Assistant and the helper services used later:
+
+| Service                 | Purpose                                                                      |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| `homeassistant`         | Home Assistant web UI, automation, and device management                     |
+| `mosquitto`             | MQTT broker for GPIO temperature and humidity sensor data                    |
+| Host-side Python script | Reads GPIO / I2C sensor data and publishes it to Home Assistant through MQTT |
+
+The final directory layout is:
+
+<NewCodeBlock tip="/opt/homeassistant" type="device">
+
+```text
+/opt/homeassistant/
+|-- docker-compose.yml
+|-- config/
+|-- mosquitto/
+|   |-- config/
+|   |   `-- mosquitto.conf
+|   |-- data/
+|   `-- log/
+`-- sensors/
+    `-- sht31_mqtt.py
+```
+
+</NewCodeBlock>
+
+## Create Configuration Directories
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo mkdir -p /opt/homeassistant/config
+sudo mkdir -p /opt/homeassistant/mosquitto/config
+sudo mkdir -p /opt/homeassistant/mosquitto/data
+sudo mkdir -p /opt/homeassistant/mosquitto/log
+sudo mkdir -p /opt/homeassistant/sensors
+sudo chown -R $USER:$USER /opt/homeassistant
+cd /opt/homeassistant
+```
+
+</NewCodeBlock>
+
+Create the Mosquitto configuration file `mosquitto/config/mosquitto.conf`:
+
+<NewCodeBlock tip="mosquitto.conf" type="device">
+
+```text
+listener 1883 0.0.0.0
+allow_anonymous true
+persistence true
+persistence_location /mosquitto/data/
+log_dest file /mosquitto/log/mosquitto.log
+```
+
+</NewCodeBlock>
+
+:::caution
+
+The Mosquitto configuration above is suitable for quick testing. It exposes port 1883 on the LAN and allows anonymous access. For production use, enable a username and password and allow access only from trusted networks.
+
+:::
+
+## Create the Docker Compose File
+
+Create `/opt/homeassistant/docker-compose.yml`:
+
+<NewCodeBlock tip="docker-compose.yml" type="device">
+
+```text
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    restart: unless-stopped
+    network_mode: host
+    privileged: true
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto:2
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+```
+
+</NewCodeBlock>
+
+Start all services:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+docker compose up -d
+docker compose ps
+```
+
+</NewCodeBlock>
+
+Open `http://<SBC IP address>:8123` in a browser and finish the Home Assistant onboarding flow.
+
+:::tip
+
+`network_mode: host` helps Home Assistant use LAN discovery protocols such as mDNS and SSDP. It also lets Home Assistant connect to Mosquitto on the same host through `127.0.0.1:1883`.
+
+:::
+
+## Connect MQTT to Home Assistant
+
+In the Home Assistant web UI, open:
+
+`Settings` -> `Devices & services` -> `Add integration` -> `MQTT`
+
+Use these values:
+
+| Field               | Value       |
+| ------------------- | ----------- |
+| Broker              | `127.0.0.1` |
+| Port                | `1883`      |
+| Username / Password | Leave blank |
+
+After MQTT is added, Home Assistant can receive MQTT data from the sensor script.
+
+## Add Xiaomi Home Devices
+
+If you already use Xiaomi Home devices, use the official `ha_xiaomi_home` integration maintained by Xiaomi. It is not a Home Assistant Add-on. It is a Home Assistant custom integration and must be installed under `custom_components` in the Home Assistant configuration directory.
+
+:::info
+
+Xiaomi's official documentation requires Home Assistant Core `2024.4.4` or later. This guide uses the `ghcr.io/home-assistant/home-assistant:stable` image, which usually satisfies that requirement. If you use a fixed old image tag, check the Home Assistant version first.
+
+:::
+
+### Install the Xiaomi Home Integration
+
+The `/config` directory inside the Home Assistant container maps to `/opt/homeassistant/config` on the host. When running the installation commands on the Radxa SBC, use `/opt/homeassistant/config` as the target configuration directory:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd /opt/homeassistant/config
+git clone https://github.com/XiaoMi/ha_xiaomi_home.git
+cd ha_xiaomi_home
+./install.sh /opt/homeassistant/config
+cd /opt/homeassistant
+docker compose restart homeassistant
+```
+
+</NewCodeBlock>
+
+After installation, confirm that the integration was copied into the Home Assistant configuration directory:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+ls /opt/homeassistant/config/custom_components/xiaomi_home
+```
+
+</NewCodeBlock>
+
+### Sign in to the Xiaomi Account
+
+In the Home Assistant web UI, open:
+
+`Settings` -> `Devices & services` -> `Add integration` -> `Xiaomi Home`
+
+Follow the setup flow:
+
+| Setting           | Description                                                           |
+| ----------------- | --------------------------------------------------------------------- |
+| Xiaomi account    | Sign in with the account used by the Xiaomi Home / Mi Home app        |
+| Home and devices  | Select the Xiaomi Home home and devices to import into Home Assistant |
+| Multiple accounts | Add more Xiaomi accounts later from the Xiaomi Home integration page  |
+
+After setup, open `Settings` -> `Devices & services` and confirm that the expected devices and entities appear under the Xiaomi Home integration.
+
+:::caution
+
+The Xiaomi Home integration uses OAuth 2.0 and does not store the Xiaomi account password in Home Assistant. However, the Home Assistant configuration directory stores user information, device information, certificates, tokens, and related data. Protect `/opt/homeassistant/config` and do not upload it publicly.
+
+:::
+
+### Update the Xiaomi Home Integration
+
+To update to a specific version, switch to the target tag in the existing source directory and install again:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd /opt/homeassistant/config/ha_xiaomi_home
+git fetch --tags
+git checkout <version-tag>
+./install.sh /opt/homeassistant/config
+cd /opt/homeassistant
+docker compose restart homeassistant
+```
+
+</NewCodeBlock>
+
+Replace `<version-tag>` with the target version, for example `v1.0.0`.
+
+### Common Issues
+
+| Symptom                                | What to check                                                                                                         |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| The Xiaomi Home integration is missing | Restart Home Assistant and check whether `custom_components/xiaomi_home` exists                                       |
+| No devices after sign-in               | Confirm that the correct Xiaomi account, region, home, and device list were selected                                  |
+| Some devices are unsupported           | The official integration supports most Xiaomi Home devices, but Bluetooth, IR, and virtual devices may be unsupported |
+| Local control is unavailable           | Local control depends on a Xiaomi central hub or LAN control capability; without a hub, control may use Xiaomi Cloud  |
+| Cross-subnet control is unstable       | Test with Home Assistant and the target device on the same LAN or subnet first                                        |
+
+## Daily Maintenance
+
+Enter the Docker Compose project directory first:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd /opt/homeassistant
+```
+
+</NewCodeBlock>
+
+Common maintenance commands are:
+
+| Command                                | Purpose                                                                     | When to use it                                                             |
+| -------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `docker compose ps`                    | Shows whether the Home Assistant and Mosquitto containers are running       | When you need to check service status                                      |
+| `docker compose logs -f homeassistant` | Follows the Home Assistant logs in real time                                | When the Home Assistant web UI does not open or reports errors             |
+| `docker compose logs -f mosquitto`     | Follows the MQTT broker logs in real time                                   | When MQTT devices do not appear in Home Assistant                          |
+| `docker compose pull`                  | Downloads newer container images defined by the compose file                | Before upgrading the services                                              |
+| `docker compose up -d`                 | Starts or updates services in the background using the current compose file | On first startup, after configuration changes, or after pulling new images |
+| `docker compose restart homeassistant` | Restarts only the Home Assistant container without affecting Mosquitto      | After changing only Home Assistant configuration                           |
+
+For example, upgrade Home Assistant and Mosquitto with:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd /opt/homeassistant
+docker compose ps
+docker compose logs -f homeassistant
+docker compose logs -f mosquitto
+docker compose pull
+docker compose up -d
+docker compose restart homeassistant
+```
+
+</NewCodeBlock>
+
+## Replace Add-ons with Docker Compose Services
+
+Docker-based deployment cannot install official Add-ons from the Home Assistant UI, but common Add-on services can be managed as independent Docker Compose services.
+
+| Home Assistant Add-on | Docker Compose service         |
+| --------------------- | ------------------------------ |
+| Mosquitto broker      | `eclipse-mosquitto`            |
+| Node-RED              | `nodered/node-red`             |
+| ESPHome               | `ghcr.io/esphome/esphome`      |
+| Zigbee2MQTT           | `koenkk/zigbee2mqtt`           |
+| MariaDB               | `mariadb`                      |
+| InfluxDB / Grafana    | `influxdb` / `grafana/grafana` |
+
+These services do not appear on the Home Assistant Add-ons page and must be managed with `docker compose`. This layout is easy to back up and inspect, but each service configuration is maintained separately.
+
+## Add a Temperature and Humidity Sensor
+
+### Wiring
+
+SHT31, AHT20, and BME280 I2C temperature and humidity sensor modules are recommended. They connect through the I2C pins on the 40-pin GPIO header and are usually more reliable than single-wire DHT11 / DHT22 sensors.
+
+Common 40-pin GPIO header wiring is shown below. Always follow the hardware document for your specific Radxa SBC:
+
+| Sensor pin | Radxa SBC 40-pin header |
+| ---------- | ----------------------- |
+| VCC        | 3.3V                    |
+| GND        | GND                     |
+| SDA        | I2C SDA                 |
+| SCL        | I2C SCL                 |
+
+If the target I2C bus is not enabled by default, enable it with `rsetup` or the product-specific Overlay documentation, then reboot.
+
+Install I2C tools and check the device address:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo apt update
+sudo apt install -y i2c-tools python3-pip
+ls /dev/i2c-*
+sudo i2cdetect -y 1
+```
+
+</NewCodeBlock>
+
+SHT31 commonly uses address `0x44` or `0x45`. If your board does not use `/dev/i2c-1`, change `I2C_BUS` in the script below to the actual bus number.
+
+### Create the Collector Script
+
+Install Python dependencies:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+pip3 install --user paho-mqtt smbus2
+```
+
+</NewCodeBlock>
+
+Create `/opt/homeassistant/sensors/sht31_mqtt.py`:
+
+<NewCodeBlock tip="sht31_mqtt.py" type="device">
+
+```text
+#!/usr/bin/env python3
+import json
+import time
+
+import paho.mqtt.client as mqtt
+from smbus2 import SMBus
+
+MQTT_HOST = "127.0.0.1"
+MQTT_PORT = 1883
+I2C_BUS = 1
+SHT31_ADDR = 0x44
+STATE_TOPIC = "radxa/sbc/sht31/state"
+AVAILABILITY_TOPIC = "radxa/sbc/sht31/availability"
+
+
+def read_sht31():
+    with SMBus(I2C_BUS) as bus:
+        bus.write_i2c_block_data(SHT31_ADDR, 0x24, [0x00])
+        time.sleep(0.02)
+        data = bus.read_i2c_block_data(SHT31_ADDR, 0x00, 6)
+
+    raw_temperature = data[0] << 8 | data[1]
+    raw_humidity = data[3] << 8 | data[4]
+    temperature = -45 + 175 * raw_temperature / 65535
+    humidity = 100 * raw_humidity / 65535
+    return round(temperature, 1), round(humidity, 1)
+
+
+def publish_discovery(client):
+    device = {
+        "identifiers": ["radxa_sbc_sht31"],
+        "name": "Radxa SBC SHT31",
+        "manufacturer": "Radxa",
+        "model": "SHT31 over 40-Pin GPIO header",
+    }
+
+    temperature_config = {
+        "name": "Temperature",
+        "unique_id": "radxa_sbc_sht31_temperature",
+        "state_topic": STATE_TOPIC,
+        "availability_topic": AVAILABILITY_TOPIC,
+        "device_class": "temperature",
+        "state_class": "measurement",
+        "unit_of_measurement": "°C",
+        "value_template": "{{ value_json.temperature }}",
+        "device": device,
+    }
+
+    humidity_config = {
+        "name": "Humidity",
+        "unique_id": "radxa_sbc_sht31_humidity",
+        "state_topic": STATE_TOPIC,
+        "availability_topic": AVAILABILITY_TOPIC,
+        "device_class": "humidity",
+        "state_class": "measurement",
+        "unit_of_measurement": "%",
+        "value_template": "{{ value_json.humidity }}",
+        "device": device,
+    }
+
+    client.publish(
+        "homeassistant/sensor/radxa_sbc_sht31_temperature/config",
+        json.dumps(temperature_config),
+        retain=True,
+    )
+    client.publish(
+        "homeassistant/sensor/radxa_sbc_sht31_humidity/config",
+        json.dumps(humidity_config),
+        retain=True,
+    )
+
+
+def main():
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+    client.connect(MQTT_HOST, MQTT_PORT, 60)
+    publish_discovery(client)
+    client.publish(AVAILABILITY_TOPIC, "online", retain=True)
+
+    while True:
+        temperature, humidity = read_sht31()
+        payload = {"temperature": temperature, "humidity": humidity}
+        client.publish(STATE_TOPIC, json.dumps(payload), retain=True)
+        client.loop(timeout=1.0)
+        time.sleep(30)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+</NewCodeBlock>
+
+Run a test:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+mkdir -p /opt/homeassistant/sensors
+chmod +x /opt/homeassistant/sensors/sht31_mqtt.py
+python3 /opt/homeassistant/sensors/sht31_mqtt.py
+```
+
+</NewCodeBlock>
+
+If the MQTT integration is enabled in Home Assistant, the `Radxa SBC SHT31` device and its temperature and humidity entities should appear under `Settings` -> `Devices & services` -> `MQTT` after a few seconds.
+
+### Create a systemd Service
+
+Create `/etc/systemd/system/radxa-sht31-mqtt.service`:
+
+<NewCodeBlock tip="radxa-sht31-mqtt.service" type="device">
+
+```text
+[Unit]
+Description=Radxa SHT31 MQTT publisher
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/homeassistant/sensors/sht31_mqtt.py
+Restart=always
+RestartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target
+```
+
+</NewCodeBlock>
+
+Enable the service:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now radxa-sht31-mqtt.service
+sudo systemctl status radxa-sht31-mqtt.service
+```
+
+</NewCodeBlock>
+
+## Next Steps
+
+- If you use a DHT22 / AM2302 single-wire sensor, connect the data pin to a 3.3V GPIO pin and add a 4.7 kΩ to 10 kΩ pull-up resistor. Keep the collector on the host side and publish values to Home Assistant through MQTT.
+- If you need Zigbee, Thread, Z-Wave, or a USB serial gateway, map the corresponding `/dev/ttyUSB*` or `/dev/ttyACM*` device into the container as described by Home Assistant.

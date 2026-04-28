@@ -15,5 +15,7 @@ extend-ignore-re = [
     "lin2-rin2",
     "certifi",
     "python-certifi-win32",
-    "SHW"
+    "SHW",
+    "Mosquitto",
+    "mosquitto"
 ]
