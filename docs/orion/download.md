@@ -23,17 +23,17 @@ sidebar_position: 150
 <Tabs queryString="versions">
     <TabItem value="星睿 O6">
 #### 瑞莎星睿 O6
-        | 下载平台                                                                            | 文件格式 | 获取方式                                                                                            |
-        | :---------------------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.1.0-1.zip) | `.zip`   | 固件位于压缩包内                                                                                                  |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-1)                | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` 目录下 |
+        | 下载平台                                                                            | 版本       | 文件格式 | 获取方式                                                                                            |
+        | :---------------------------------------------------------------------------------- | :--------- | :------- | :-------------------------------------------------------------------------------------------------- |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.1.0-1.zip) | `1.1.0-1` | `.zip`   | 固件位于压缩包内                                                                                                  |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-1)                | `1.1.0-1` | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` 目录下 |
     </TabItem>
     <TabItem value="星睿 O6N">
 #### 瑞莎星睿 O6N
-        | 下载平台                                                             | 文件格式 | 获取方式                                                                                            |
-        | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-2.zip)                      | `.zip`   | 固件位于压缩包内                                                                                                  |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-2) | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` 目录下 |
+        | 下载平台                                                             | 版本       | 文件格式 | 获取方式                                                                                            |
+        | :------------------------------------------------------------------- | :--------- | :------- | :-------------------------------------------------------------------------------------------------- |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-2.zip)                      | `1.1.0-2` | `.zip`   | 固件位于压缩包内                                                                                                  |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-2) | `1.1.0-2` | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` 目录下 |
     </TabItem>
 </Tabs>
 
@@ -94,14 +94,14 @@ Radxa OS 的默认凭据如下：
 #### 瑞莎星睿 O6
         | 类型     | 版本 / 描述                      | 下载链接                                                                                                                                                                                                                             | 备注                           |
         | :------- | :------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- |
-        | BIOS     | Android BIOS 1.0.0 版本          | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc3.4-20251127/O6-BIOS-V1.0.0.zip)                                                                                       | 用于 Android 系统的 BIOS 固件 |
+        | BIOS     | Android BIOS `1.0.0` 版本          | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc3.4-20251127/O6-BIOS-V1.0.0.zip)                                                                                       | 用于 Android 系统的 BIOS 固件 |
         | 系统镜像 | Android 14 RC3.4 20251127 系统镜像 | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc3.4-20251127/Radxa-orion-android14-r3.4-20251127-gpt.zip)                                                                     | Android 14 RC3.4 系统镜像        |
     </TabItem>
     <TabItem value="星睿 O6N">
 #### 瑞莎星睿 O6N
         | 类型     | 版本 / 描述 | 下载链接 | 备注               |
         | :------- | :---------- | :------- | :----------------- |
-        | BIOS     | Android BIOS 1.0.0 版本 | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6n-android14-rc3.4-20251124/O6N-BIOS-V1.0.0.zip) | 用于 Android 系统的 BIOS 固件 |
+        | BIOS     | Android BIOS `1.0.0` 版本 | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6n-android14-rc3.4-20251124/O6N-BIOS-V1.0.0.zip) | 用于 Android 系统的 BIOS 固件 |
         | 系统镜像 | Android 14 RC3.4 20250903 系统镜像 | [下载](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6n-android14-rc3.4-20251124/Radxa_orion_o6n-Andrid14-r3.4-20251124-gpt.zip) | Android 14 RC3.4 系统镜像        |
     </TabItem>
 </Tabs>
@@ -114,7 +114,7 @@ Radxa OS 的默认凭据如下：
 
         | 类型     | 版本 / 描述                   | 下载链接                                                                                                                                                                                                                         | 备注                         |
         | :------- | :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
-        | BIOS     | OpenHarmony BIOS v1.0 版本    | [下载](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_bios.zip)                                                                                                  | 用于 OpenHarmony BIOS 固件 |
+        | BIOS     | OpenHarmony BIOS `v1.0` 版本    | [下载](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_bios.zip)                                                                                                  | 用于 OpenHarmony BIOS 固件 |
         | 系统镜像 | OpenHarmony 20251016 系统镜像 | [下载](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_images.zip)                                                                                                | OpenHarmony 系统镜像         |
 
 ### Fedora

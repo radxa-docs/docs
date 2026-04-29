@@ -23,17 +23,17 @@ Radxa Orion O6 and O6N use different BIOS firmware.
 <Tabs queryString="versions">
     <TabItem value="Orion O6">
 #### Radxa Orion O6
-        | Download Platform                                                                     | Format | How to Access                                                                                          |
-        | :------------------------------------------------------------------------------------ | :----- | :---------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.1.0-1.zip)    | `.zip` | Firmware is inside the zip file                                                                       |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-1)                   | `.deb` | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` directory |
+        | Download Platform                                                                     | Version   | Format | How to Access                                                                                          |
+        | :------------------------------------------------------------------------------------ | :-------- | :----- | :---------------------------------------------------------------------------------------------------- |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6/images/bios/orion-o6-bios-1.1.0-1.zip)    | `1.1.0-1` | `.zip` | Firmware is inside the zip file                                                                       |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-1)                   | `1.1.0-1` | `.deb` | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6` directory |
     </TabItem>
     <TabItem value="Orion O6N">
 #### Radxa Orion O6N
-        | Download Platform                                                             | Format | How to Access                                                                                            |
-        | :------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-2.zip)                      | `.zip`   | Firmware is inside the zip file                                                                                    |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-2) | `.deb`   | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` directory |
+        | Download Platform                                                             | Version   | Format | How to Access                                                                                            |
+        | :------------------------------------------------------------------- | :-------- | :------- | :-------------------------------------------------------------------------------------------------- |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-2.zip)                      | `1.1.0-2` | `.zip`   | Firmware is inside the zip file                                                                                    |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-2) | `1.1.0-2` | `.deb`   | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` directory |
     </TabItem>
 </Tabs>
 
@@ -95,14 +95,14 @@ Radxa Orion O6 and O6N provide different BIOS firmware and Android system images
 #### Radxa Orion O6
         | Type     | Version / Description                | Download Link                                                                                                                                                                                                                             | Remarks                        |
         | :------- | :----------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- |
-        | BIOS     | Android BIOS 1.0.0 Version          | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc3.4-20251127/O6-BIOS-V1.0.0.zip)                                                                                       | BIOS Firmware for Android OS   |
+        | BIOS     | Android BIOS `1.0.0` Version          | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc3.4-20251127/O6-BIOS-V1.0.0.zip)                                                                                       | BIOS Firmware for Android OS   |
         | System Image | Android 14 RC3.4 20251127 | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6-android14-rc3.4-20251127/Radxa-orion-android14-r3.4-20251127-gpt.zip)                                                                     | Android 14 RC3.4 System Image    |
     </TabItem>
     <TabItem value="Orion O6N">
 #### Radxa Orion O6N
         | Type     | Version / Description | Download Link | Remarks               |
         | :------- | :------------------- | :------------ | :------------------- |
-        | BIOS     | Android BIOS 1.0.0 Version | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6n-android14-rc3.4-20251124/O6N-BIOS-V1.0.0.zip) | BIOS Firmware for Android OS   |
+        | BIOS     | Android BIOS `1.0.0` Version | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6n-android14-rc3.4-20251124/O6N-BIOS-V1.0.0.zip) | BIOS Firmware for Android OS   |
         | System Image | Android 14 RC3.4 20250903 | [Download](https://github.com/radxa/cix-android-manifests/releases/download/radxa-orion-o6n-android14-rc3.4-20251124/Radxa_orion_o6n-Andrid14-r3.4-20251124-gpt.zip) | Android 14 RC3.4 System Image |
     </TabItem>
 </Tabs>
@@ -115,7 +115,7 @@ Currently, only Radxa Orion O6 images are available.
 
         | Type     | Version / Description                | Download Link                                                                                                                                                                                                                         | Remarks                      |
         | :------- | :----------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
-        | BIOS     | OpenHarmony BIOS v1.0 Version        | [Download](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_bios.zip)                                                                                                  | BIOS Firmware for OpenHarmony |
+        | BIOS     | OpenHarmony BIOS `v1.0` Version        | [Download](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_bios.zip)                                                                                                  | BIOS Firmware for OpenHarmony |
         | System Image | OpenHarmony 20251016 System Image | [Download](https://github.com/radxa/cix-openharmony-manifests/releases/download/radxa-orion-o6-Harmony-20251016-v1.0/ohos_images.zip)                                                                                                | OpenHarmony System Image     |
 
 ### Fedora
