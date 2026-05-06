@@ -10,7 +10,7 @@ import Images from "./\_image.mdx"
 
 iStoreOS:
 
-[istoreos-e20c](https://site.istoreos.com/firmware/download?devicename=e20c)
+[官方产品页面](https://site.istoreos.com/firmware/download?devicename=e20c)
 
 Radxa OS:
 
