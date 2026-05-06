@@ -10,7 +10,7 @@ import Images from "./\_image.mdx"
 
 iStoreOS:
 
-[istoreos-22.03.6-2024062810-e20c-squashfs.img.gz](https://site.istoreos.com/firmware/download?devicename=e20c)
+[istoreos-e20c](https://site.istoreos.com/firmware/download?devicename=e20c)
 
 Radxa OS:
 
