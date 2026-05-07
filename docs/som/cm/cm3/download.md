@@ -67,6 +67,8 @@ Android:
 
   [Radxa CM3 IO Board V1.35 Schematic](https://dl.radxa.com/cm3/io_board/SCH_CM3_IO_V1.35_20240119.pdf)
 
+  [Radxa CM3 IO Board V1.36 Schematic](https://github.com/radxa/radxa-som-projects/blob/main/cm3/radxa-cm3-io-board-v1360/radxa_cm3_io_board_v1360_schematic.pdf)
+
   [不同版本之间的修改历史](https://dl.radxa.com/cm3/io_board/revision_history)
 
 - 位号图
@@ -84,6 +86,8 @@ Android:
   [Radxa CM3 IO Board V1.34 Components Placement Map](https://dl.radxa.com/cm3/io_board/CM3_IO_V1.34_20230718_components_placement_map.pdf)
 
   [Radxa CM3 IO Board V1.35 Components Placement Map](https://dl.radxa.com/cm3/io_board/CM3_IO_V1.35_20231013_components_placement_map.pdf)
+
+  [Radxa CM3 IO Board V1.36 Components Placement Map](https://github.com/radxa/radxa-som-projects/blob/main/cm3/radxa-cm3-io-board-v1360/radxa_cm3_io_board_components_placement_map_v1360.pdf)
 
 - 2D 图
 
@@ -103,7 +107,7 @@ Android:
 
   - [Radxa CM3 V1300 To V1320 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1300_to_1320_pinout.xlsx)
 
-- [CM3 IO 板设计资料](https://github.com/radxa/radxa-cm-projects/tree/main/cm3/radxa-cm3-io-board)
+- [CM3 IO 板设计资料](https://github.com/radxa/radxa-som-projects/tree/main/cm3)
 
 ## Quality certification
 
