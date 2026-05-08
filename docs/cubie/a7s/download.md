@@ -40,6 +40,8 @@ sidebar_position: 8
 
 - Radxa OS
 
+[radxa-a733-bullseye-kde-r6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_512.img.xz)：支持 MicroSD 卡和板载 eMMC 启动系统。
+
 [radxa-a733-bullseye-kde-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz)：支持 MicroSD 卡和板载 eMMC 启动系统。
 
 - Radxa OS Lite
@@ -51,6 +53,8 @@ Radxa OS Lite 系统镜像不包含图形桌面环境。
 如果你需要显示器、窗口界面或图形应用，请选择 Radxa OS 系统镜像。
 
 :::
+
+[radxa-a733-bullseye-cli-r6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_cli_r6.output_512.img.xz)：支持 MicroSD 卡和板载 eMMC 启动系统。
 
 [radxa-a733-bullseye-cli-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_cli_r2.output_512.img.xz)：支持 MicroSD 卡和板载 eMMC 启动系统。
 

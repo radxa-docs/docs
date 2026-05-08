@@ -40,6 +40,8 @@ This page publishes the latest stable and test images. Test versions start with 
 
 - Radxa OS
 
+[radxa-a733-bullseye-kde-r6 (Latest)](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_512.img.xz): supports booting from microSD and onboard eMMC.
+
 [radxa-a733-bullseye-kde-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz): supports booting from microSD and onboard eMMC.
 
 - Radxa OS Lite
@@ -51,6 +53,8 @@ Radxa OS Lite does not include a graphical desktop environment.
 If you need a monitor UI or graphical applications, use the full Radxa OS image.
 
 :::
+
+[radxa-a733-bullseye-cli-r6 (Latest)](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_cli_r6.output_512.img.xz): supports booting from microSD and onboard eMMC.
 
 [radxa-a733-bullseye-cli-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_cli_r2.output_512.img.xz): supports booting from microSD and onboard eMMC.
 
