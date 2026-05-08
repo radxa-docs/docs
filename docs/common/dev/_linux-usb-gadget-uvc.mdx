@@ -1,0 +1,384 @@
+本教程适用于支持 USB Device / OTG 模式的瑞莎设备，例如 E25、E52C、ROCK4D、ROCK5B 等。如果不确定设备是否支持，请参考对应主板型号硬件文档中关于 OTG / Device 模式的说明。
+
+在进行以下步骤前，请使用一条数据线将主板的 USB OTG 端口（通常为 USB Type-C 接口）连接到上位机（PC 或其他主机设备），建议优先使用 USB 3.0 线缆和接口，以获得更好的传输性能。
+
+:::tip
+如果你的设备 OTG 口是 USB Type A 请使用 A to A 数据线连接设备和主机
+:::
+
+## 概述
+
+USB UVC Gadget允许设备通过 USB 向主机暴露UVC[[0]]设备，主机会将其识别为网络摄像头。
+
+本教程尝试简述配置流程。本教程信息主要来源于以下Linux资料链接，请以Linux官方资料为准：
+
+https://origin.kernel.org/doc/html/v6.19/usb/gadget_configfs.html
+
+https://origin.kernel.org/doc/html/v6.19/usb/gadget_uvc.html
+
+---
+
+## 前置条件
+
+在开始之前，请确认：
+
+- 设备已成功启动 RadxaOS；
+- USB 线已正确连接主板的 OTG 端口和上位机；
+
+然后运行以下命令检查系统是否支持 Gadget 模式：
+
+```bash
+ls /sys/class/udc
+```
+
+示例输出：
+
+```bash
+fc000000.usb
+```
+
+该名称对应 USB Device Controller（UDC），即 `gadget_name`。
+
+如果列出了多个设备：
+
+- 选择与 USB Type-C 口绑定的 UDC。
+- 插拔 USB-C 并使用 `dmesg | grep -i udc` 辅助判断。
+
+如果看不到 udc 设备，需要使用 rsetup 打开 USB OTG overlay
+
+![USB OTG overlay](/img/common/ums.webp)
+
+:::tip
+请确保您的USB OTG 工作在client模式（Device模式），而非host模式。
+:::
+
+---
+
+## 获取 `gadget_name`
+
+运行以下命令：
+
+```bash
+ls /sys/class/udc
+```
+
+如果输出为：
+
+```bash
+fc000000.usb
+```
+
+则 `gadget_name` 为：
+
+```bash
+fc000000.usb
+```
+
+此参数需传递给所有脚本。
+
+---
+
+## 创建 Gadget（初始化脚本）
+
+此步骤仅需执行一次。将以下脚本保存为：
+
+```bash
+/usr/local/sbin/gadget-init.sh
+```
+
+```bash
+#!/bin/bash
+#
+# 初始化 USB Gadget，仅需执行一次
+#
+set -euo pipefail
+GADGET_NAME=${1:-}
+
+if [[ -z "${GADGET_NAME}" ]]; then
+  echo "用法: sudo $0 <gadget_name>"
+  exit 1
+fi
+
+if [[ $EUID -ne 0 ]]; then
+  echo "请以 root 权限运行"
+  exit 1
+fi
+
+# 确保 configfs 已挂载
+if ! mountpoint -q /sys/kernel/config; then
+  mount -t configfs none /sys/kernel/config
+fi
+
+# 尝试加载 configfs gadget 核心
+# CONFIG_USB_CONFIGFS=m 时需要这一句
+modprobe libcomposite 2>/dev/null || true
+
+# 检查 usb_gadget 子系统是否存在
+if [[ ! -d /sys/kernel/config/usb_gadget ]]; then
+  echo "当前内核已启用 CONFIG_USB_CONFIGFS=m，但未发现 /sys/kernel/config/usb_gadget。"
+  echo "请确认 libcomposite 模块已正确加载，或检查内核模块安装是否完整。"
+  exit 1
+fi
+
+G="/sys/kernel/config/usb_gadget/${GADGET_NAME}"
+
+if [[ -d "${G}" ]]; then
+  echo "Gadget 已存在：${GADGET_NAME}"
+  exit 0
+fi
+
+mkdir -p "${G}"
+cd "${G}"
+
+echo 0x1d6b > idVendor
+echo 0x0104 > idProduct
+
+mkdir -p strings/0x409
+echo "1234567890"        > strings/0x409/serialnumber
+echo "Radxa"             > strings/0x409/manufacturer
+echo "Radxa USB Gadget"  > strings/0x409/product
+
+mkdir -p configs/r.1
+mkdir -p configs/r.1/strings/0x409
+echo "Radxa Config" > configs/r.1/strings/0x409/configuration
+
+echo "初始化完成：${GADGET_NAME}"
+echo "下一步：使用 uvc.sh 启用 uvc 功能"
+
+```
+
+赋予执行权限并运行（以 fc000000.usb 为例）：
+
+```bash
+sudo chmod +x /usr/local/sbin/gadget-init.sh
+sudo /usr/local/sbin/gadget-init.sh fc000000.usb
+```
+
+成功执行后，应看到：
+
+```bash
+ls /sys/kernel/config/usb_gadget
+fc000000.usb
+```
+
+---
+
+## 创建 USB UVC Gadget 启用/禁用脚本
+
+:::info
+Linux USB UVC Gadget有若干可配置参数，诸如视频分辨率、视频像素、视频格式等等。
+以下脚本主要用于示例，具体参数配置请参考Linux官方文档[1]。
+:::
+
+将以下脚本保存为：
+
+```bash
+/usr/local/sbin/uvc.sh
+```
+
+```bash
+#!/bin/bash
+#
+# 控制 USB UVC Gadget启用/禁用
+#
+set -euo pipefail
+
+ACTION=${1:-}
+GADGET_NAME=${2:-}
+FUNCTION_NAME="uvc.0"
+
+if [[ $EUID -ne 0 ]]; then
+  echo "请以 root 权限运行"
+  exit 1
+fi
+
+G="/sys/kernel/config/usb_gadget/${GADGET_NAME}"
+F="${G}/functions/${FUNCTION_NAME}"
+
+detect_udc() {
+  if [[ -f "${G}/UDC" ]]; then
+    local cur
+    cur=$(cat "${G}/UDC" 2>/dev/null || echo "")
+    if [[ -n "${cur}" ]]; then echo "${cur}"; return; fi
+  fi
+
+  if [[ -e "/sys/class/udc/${GADGET_NAME}" ]]; then
+    echo "${GADGET_NAME}"; return
+  fi
+
+  local lst
+  mapfile -t lst < <(ls /sys/class/udc || true)
+  if [[ ${#lst[@]} -eq 1 ]]; then echo "${lst[0]}"; return; fi
+
+  echo ""
+}
+
+disable_gadget() {
+  if [[ ! -d "${G}" ]]; then return 0; fi
+  local cur
+  cur=$(cat "${G}/UDC" 2>/dev/null || echo "")
+
+  if [[ -n "${cur}" ]]; then echo "" > "${G}/UDC" 2>/dev/null || true; fi
+
+  rm -f "${G}/configs/r.1/${FUNCTION_NAME}" 2>/dev/null || true
+
+  if [[ -e "${F}/streaming/header/h" ]]; then
+    pushd ${F}/streaming/header/h
+    rm yuyv
+    cd ../../class/fs
+    rm h
+    cd ../../class/hs
+    rm h
+    cd ../../class/ss
+    rm h
+    cd ../../../control
+    rm class/fs/h
+    rm class/ss/h
+    rmdir header/h
+    popd
+    rmdir ${F}/streaming/header/h
+  fi
+
+  if [[ -e "${F}/streaming/uncompressed" ]]; then
+    rmdir ${F}/streaming/uncompressed/yuyv/720p
+    rmdir ${F}/streaming/uncompressed/yuyv/1080p
+    rmdir ${F}/streaming/uncompressed/yuyv/1200p
+    rmdir ${F}/streaming/uncompressed/yuyv
+  fi
+
+  rmdir "${G}/functions/uvc.0" 2>/dev/null || true
+}
+
+enable_gadget() {
+  UDC=$(detect_udc)
+  if [[ -z "${UDC}" ]]; then
+    echo "无法确定 UDC 名称"
+    exit 1
+  fi
+
+  disable_gadget
+
+  mkdir -p "${G}/configs/r.1"
+  mkdir -p "${F}"
+
+  # You must configure the gadget by telling it which formats you support, as
+  # well as the frame sizes and frame intervals that are supported for each
+  # format.
+  # https://origin.kernel.org/doc/html/v6.19/usb/gadget_uvc.html#formats-and-frames
+  create_frame 1280 720 uncompressed yuyv
+  create_frame 1600 1200 uncompressed yuyv
+  create_frame 1920 1080 uncompressed yuyv
+
+  # Header linking is required
+  # https://origin.kernel.org/doc/html/v6.19/usb/gadget_uvc.html#formats-and-frames
+  mkdir ${F}/streaming/header/h
+  pushd ${F}/streaming/header/h
+  ln -s ../../uncompressed/yuyv
+  cd ../../class/fs
+  ln -s ../../header/h
+  cd ../../class/hs
+  ln -s ../../header/h
+  cd ../../class/ss
+  ln -s ../../header/h
+  cd ../../../control
+  mkdir header/h
+  ln -s header/h class/fs
+  ln -s header/h class/ss
+  popd
+
+  # Maximize framerate
+  # https://docs.kernel.org/usb/gadget_uvc.html#bandwidth-configuration
+  echo 1    > ${F}/streaming_interval
+  echo 3072 > ${F}/streaming_maxpacket
+  echo 15   > ${F}/streaming_maxburst
+
+  ln -sf "${G}/functions/${FUNCTION_NAME}" "${G}/configs/r.1/${FUNCTION_NAME}"
+  echo "${UDC}" > "${G}/UDC"
+
+  echo "USB UVC Gadget 已启用"
+}
+
+create_frame() {
+  # Example usage:
+  # create_frame <width> <height> <group> <format name>
+
+  WIDTH=$1
+  HEIGHT=$2
+  FORMAT=$3
+  NAME=$4
+
+  wdir=${F}/streaming/$FORMAT/$NAME/${HEIGHT}p
+
+  mkdir -p $wdir
+  echo $WIDTH > $wdir/wWidth
+  echo $HEIGHT > $wdir/wHeight
+  echo $(( $WIDTH * $HEIGHT * 2 )) > $wdir/dwMaxVideoFrameBufferSize
+  cat <<EOF > $wdir/dwFrameInterval
+666666
+166666
+100000
+5000000
+EOF
+}
+
+case "${ACTION}" in
+  enable)
+    enable_gadget
+    ;;
+  disable)
+    disable_gadget
+    echo "USB UVC Gadget 已禁用"
+    ;;
+  *)
+    echo "用法:"
+    echo "  sudo $0 enable  <gadget_name>"
+    echo "  sudo $0 disable <gadget_name>"
+    ;;
+esac
+```
+
+赋予执行权限：
+
+```bash
+sudo chmod +x /usr/local/sbin/uvc.sh
+```
+
+---
+
+## 准备用户层应用
+
+只启用Linux USB UVC Gadget并不会起什么作用，还需要搭配一个合适的用户层应用。
+这里简单演示Linux官方资料中提到的uvc-gadget示例应用[2]。
+
+拉取并且编译这个仓库的代码：
+https://gitlab.freedesktop.org/camera/uvc-gadget
+
+## 启用与禁用USB UVC Gadget
+
+启用：
+
+```bash
+sudo uvc.sh enable fc000000.usb
+```
+
+然后运行刚刚编译的uvc-gadget：
+
+```bash
+./uvc-gadget/build/src/uvc-gadget
+```
+
+然后就能在上位机看到有摄像头设备注册。
+
+---
+
+## 执行顺序总结
+
+首次：
+
+```bash
+gadget-init.sh → uvc.sh enable → uvc-gadget
+```
+
+[0]: https://en.wikipedia.org/wiki/USB_video_device_class
+[1]: https://origin.kernel.org/doc/html/v6.19/usb/gadget_uvc.html
+[2]: https://origin.kernel.org/doc/html/v6.19/usb/gadget_uvc.html#the-userspace-application
