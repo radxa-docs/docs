@@ -880,6 +880,22 @@ sidebar_custom_props:
                     },
                   ],
               },
+              {
+                products_name: "Dragon Q8B",
+                products_photo_url: "/home/product-pictures/dragon_q8b.webp",
+                products_link: "/dragon/q8b",
+                docs:
+                  [
+                    {
+                      docs_link: "/dragon/q8b",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Overview",
+                      docs_info_en: "Overview of the dragon q8b",
+                      docs_info_zh: "Overview of the dragon q8b",
+                    },
+                  ],
+              },
             ],
         },
         {
