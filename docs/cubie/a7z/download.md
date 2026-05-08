@@ -40,9 +40,21 @@ sidebar_position: 150
 
 目前支持 MicroSD 卡/ eMMC 模块 / UFS 模块启动系统，NVMe/SSD 启动需要刷写 SPI Nor Flash 固件
 
+- [Radxa Cubie A7Z Debian 11 KDE R6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_512.img.xz) （SD / eMMC）
+
+- [Radxa Cubie A7Z Debian 11 CLI R6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_cli_r6.output_512.img.xz) （SD / eMMC）
+
+- [Radxa Cubie A7Z Debian 11 KDE R6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_4096.img.xz) （UFS）
+
+- [Radxa Cubie A7Z Debian 11 CLI R6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_cli_r6.output_4096.img.xz) （UFS）
+
+:::tip 旧版镜像
+
 - [Radxa Cubie A7Z Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz) （SD / eMMC）
 
 - [Radxa Cubie A7Z Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_4096.img.xz) （UFS）
+
+:::
 
 :::tip Cubie A7Z 旧版镜像
 

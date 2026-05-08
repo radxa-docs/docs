@@ -40,9 +40,21 @@ Suitable for all A733 SoC products, such as Cubie A7Z, Cubie A7A, etc. Beta vers
 
 Currently supports booting from MicroSD cards, eMMC modules, and UFS modules. NVMe/SSD boot requires flashing the SPI Nor Flash firmware.
 
+- [Radxa Cubie A7Z Debian 11 KDE R6 (Latest)](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_512.img.xz) (SD / eMMC)
+
+- [Radxa Cubie A7Z Debian 11 CLI R6 (Latest)](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_cli_r6.output_512.img.xz) (SD / eMMC)
+
+- [Radxa Cubie A7Z Debian 11 KDE R6 (Latest)](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_4096.img.xz) (UFS)
+
+- [Radxa Cubie A7Z Debian 11 CLI R6 (Latest)](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_cli_r6.output_4096.img.xz) (UFS)
+
+:::tip Legacy Images
+
 - [Radxa Cubie A7Z Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz) (SD / eMMC)
 
 - [Radxa Cubie A7Z Debian 11 KDE R2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_4096.img.xz) (UFS)
+
+:::
 
 :::tip Cubie A7Z Legacy Images
 
