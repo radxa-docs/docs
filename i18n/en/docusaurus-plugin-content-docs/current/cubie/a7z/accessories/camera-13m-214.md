@@ -20,17 +20,23 @@ Use GStreamer to preview the camera image.
 <NewCodeBlock tip='radxa@cubie-a7z$' type="device">
 
 ```bash
-DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=4208,height=3120,framerate=30/1 ! xvimagesink
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=0 ! video/x-raw,format=NV12,width=1920,height=1080,framerate=30/1 ! xvimagesink
 ```
 
 </NewCodeBlock>
-
-### 3840x2160
 
 <NewCodeBlock tip='radxa@cubie-a7z$' type="device">
 
 ```bash
 DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=3840,height=2160,framerate=30/1 ! xvimagesink
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip='radxa@cubie-a7z$' type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=4208,height=3120,framerate=30/1 ! xvimagesink
 ```
 
 </NewCodeBlock>
@@ -43,8 +49,6 @@ The notes below summarize the Cubie A7Z results confirmed in issue #1360 and are
 - Full-resolution preview: use `/dev/video1` at `4208x3120` with `en-largemode=1`
 - 1080p preview: use `/dev/video0` at `1920x1080` with `en-largemode=0`
 - Lower resolutions were not fully validated in that software flow; switching directly to smaller resolutions may still produce abnormal output
-
-### 1920x1080
 
 <NewCodeBlock tip='radxa@cubie-a7z$' type="device">
 

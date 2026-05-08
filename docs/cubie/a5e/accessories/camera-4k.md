@@ -20,17 +20,15 @@ import Camera4K from '../../../common/accessories/\_camera-4k.mdx';
 <NewCodeBlock tip='radxa@cubie-a5e$' type="device">
 
 ```bash
-DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=I420,width=3840,height=2160,framerate=30/1  ! xvimagesink
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=0 ! video/x-raw,format=I420,width=1920,height=1080,framerate=30/1 ! xvimagesink
 ```
 
 </NewCodeBlock>
 
-### 1920x1080
-
 <NewCodeBlock tip='radxa@cubie-a5e$' type="device">
 
 ```bash
-DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=0 ! video/x-raw,format=I420,width=1920,height=1080,framerate=30/1 ! xvimagesink
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=I420,width=3840,height=2160,framerate=30/1  ! xvimagesink
 ```
 
 </NewCodeBlock>
