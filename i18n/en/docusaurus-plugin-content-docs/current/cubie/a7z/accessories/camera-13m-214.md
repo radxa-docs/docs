@@ -44,7 +44,7 @@ The notes below summarize the Cubie A7Z results confirmed in issue #1360 and are
 - 1080p preview: use `/dev/video0` at `1920x1080` with `en-largemode=0`
 - Lower resolutions were not fully validated in that software flow; switching directly to smaller resolutions may still produce abnormal output
 
-### 1080p preview
+### 1920x1080
 
 <NewCodeBlock tip='radxa@cubie-a7z$' type="device">
 

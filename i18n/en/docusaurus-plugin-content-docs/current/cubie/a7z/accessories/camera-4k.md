@@ -25,12 +25,12 @@ DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 !
 
 </NewCodeBlock>
 
-### 4208x3120
+### 1920x1080
 
 <NewCodeBlock tip='radxa@cubie-a7z$' type="device">
 
 ```bash
-DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=4208,height=3120,framerate=30/1 ! xvimagesink
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=0 ! video/x-raw,format=NV12,width=1920,height=1080,framerate=30/1 ! xvimagesink
 ```
 
 </NewCodeBlock>
