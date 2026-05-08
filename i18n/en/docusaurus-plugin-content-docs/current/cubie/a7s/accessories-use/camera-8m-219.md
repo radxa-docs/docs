@@ -23,6 +23,12 @@ This tutorial applies to the Radxa OS system image.
 
 Use GStreamer to preview the camera stream.
 
+:::tip Usage notes
+
+This tutorial applies to the Radxa OS system image.
+
+:::
+
 :::tip Camera device node
 
 - Use `ls /dev/video*` to find the camera device node, and update the `device=` argument accordingly.
@@ -36,7 +42,13 @@ Run the following command on the board to preview the camera stream.
 <NewCodeBlock tip="radxa@cubie-a7s$" type="device">
 
 ```bash
-DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=0 ! video/x-raw,format=NV12,width=3280,height=2464,framerate=24/1  ! xvimagesink
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=0 ! video/x-raw,format=NV12,width=1920,height=1080,framerate=30/1 ! xvimagesink
+```
+
+</NewCodeBlock><NewCodeBlock tip="radxa@cubie-a7s$" type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=3280,height=2464,framerate=30/1 ! xvimagesink
 ```
 
 </NewCodeBlock>

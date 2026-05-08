@@ -20,12 +20,22 @@ Use GStreamer to preview the camera image.
 <NewCodeBlock tip='radxa@cubie-a7z$' type="device">
 
 ```bash
-DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=4208,height=3120,framerate=24/1 ! xvimagesink
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=0 ! video/x-raw,format=NV12,width=1920,height=1080,framerate=30/1 ! xvimagesink
 ```
 
-</NewCodeBlock>
+</NewCodeBlock><NewCodeBlock tip='radxa@cubie-a7z$' type="device">
 
-## Verified setup and common pipelines
+```bash
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=3840,height=2160,framerate=30/1 ! xvimagesink
+```
+
+</NewCodeBlock><NewCodeBlock tip='radxa@cubie-a7z$' type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=4208,height=3120,framerate=30/1 ! xvimagesink
+```
+
+</NewCodeBlock>## Verified setup and common pipelines
 
 The notes below summarize the Cubie A7Z results confirmed in issue #1360 and are intended as a quick validation baseline.
 
@@ -34,17 +44,13 @@ The notes below summarize the Cubie A7Z results confirmed in issue #1360 and are
 - 1080p preview: use `/dev/video0` at `1920x1080` with `en-largemode=0`
 - Lower resolutions were not fully validated in that software flow; switching directly to smaller resolutions may still produce abnormal output
 
-### 1080p preview
-
 <NewCodeBlock tip='radxa@cubie-a7z$' type="device">
 
 ```bash
 DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=0 ! video/x-raw,format=NV12,width=1920,height=1080,framerate=30/1 ! xvimagesink
 ```
 
-</NewCodeBlock>
-
-## Troubleshooting
+</NewCodeBlock>## Troubleshooting
 
 - If no `/dev/video*` nodes appear, first confirm that you are using a recent official image, then reseat the FPC cable and verify its orientation and latch state
 - To quickly confirm whether the camera has been detected by the kernel, run `v4l2-ctl --list-devices`
