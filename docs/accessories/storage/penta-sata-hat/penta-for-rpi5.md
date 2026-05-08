@@ -98,6 +98,18 @@ ssh pi@raspberrypi.local
 
 编辑 `/boot/firmware/config.txt`，把 `dtparam=pciex1` 添加到文件末尾，保存后重启。
 
+:::caution JMB585 控制器内核兼容性问题
+Penta SATA HAT 使用 JMB585 PCIe SATA 控制芯片。自 Linux 内核 commit ee95f3c 起，该芯片在树莓派 5 上需要额外配置才能正常工作。如果在系统更新后发现硬盘无法识别或 AHCI 驱动加载失败，请在 `/boot/firmware/config.txt` 中添加：
+
+```bash
+dtoverlay=pcie-32bit-dma-pi5
+```
+
+添加后重启即可。该配置会影响 PCIe DMA 宽度，启用 32-bit DMA 以确保 JMB585 控制器正常工作。
+
+相关讨论：https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/615
+:::
+
 ![step1](/img/accessories/storage/penta/rpi-using-1.webp)
 
 ### 查看硬盘
