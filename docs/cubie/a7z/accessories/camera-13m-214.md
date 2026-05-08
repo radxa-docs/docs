@@ -20,7 +20,23 @@ import Camera13M214 from '../../../common/accessories/\_camera-13m-214.mdx';
 <NewCodeBlock tip='radxa@cubie-a7z$' type="device">
 
 ```bash
-DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=4208,height=3120,framerate=24/1 ! xvimagesink
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video0 en-awisp=1 en-largemode=0 ! video/x-raw,format=NV12,width=1920,height=1080,framerate=30/1 ! xvimagesink
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip='radxa@cubie-a7z$' type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=3840,height=2160,framerate=30/1 ! xvimagesink
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip='radxa@cubie-a7z$' type="device">
+
+```bash
+DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 ! video/x-raw,format=NV12,width=4208,height=3120,framerate=30/1 ! xvimagesink
 ```
 
 </NewCodeBlock>
@@ -33,8 +49,6 @@ DISPLAY=:0 gst-launch-1.0 v4l2src device=/dev/video1 en-awisp=1 en-largemode=1 !
 - 全分辨率预览：使用 `/dev/video1`，分辨率 `4208x3120`，并保持 `en-largemode=1`
 - 1080p 预览：使用 `/dev/video0`，分辨率 `1920x1080`，并使用 `en-largemode=0`
 - 当前软件流中，更低分辨率未在该 issue 对应环境下完成验证；如果直接切到更低分辨率，可能出现画面异常
-
-### 1080p 预览
 
 <NewCodeBlock tip='radxa@cubie-a7z$' type="device">
 
