@@ -98,6 +98,18 @@ ssh pi@raspberrypi.local
 
 Edit `/boot/firmware/config.txt` and add `dtparam=pciex1` to the end of the file, save and reboot.
 
+:::caution JMB585 Controller Kernel Compatibility Issue
+The Penta SATA HAT uses the JMB585 PCIe SATA controller chip. Since Linux kernel commit ee95f3c, this chip requires additional configuration to work properly on Raspberry Pi 5. If hard drives are not detected or the AHCI driver fails to load after a system update, add the following to `/boot/firmware/config.txt`:
+
+```bash
+dtoverlay=pcie-32bit-dma-pi5
+```
+
+After adding, reboot. This configuration affects the PCIe DMA width, enabling 32-bit DMA to ensure the JMB585 controller works correctly.
+
+Related discussion: https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/615
+:::
+
 ![step1](/img/accessories/storage/penta/rpi-using-1.webp)
 
 ### Check disk
