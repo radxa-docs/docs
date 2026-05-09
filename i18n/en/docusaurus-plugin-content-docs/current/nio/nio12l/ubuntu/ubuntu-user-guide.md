@@ -413,7 +413,7 @@ sudo python3 /usr/share/benchmark_dla/benchmark.py --auto
 
 Example output:
 
-```
+```bash
 root@mtk-genio:/usr/share/benchmark_dla# python3 benchmark.py --auto
 2023-07-31 07:04:19,029 [INFO] ssd_mobilenet_v1_coco_quantized.tflite, mdla3.0, avg inference time: 2.53
 2023-07-31 07:04:24,499 [INFO] ssd_mobilenet_v1_coco_quantized.tflite, vpu, avg inference time: 46.14
@@ -423,6 +423,7 @@ root@mtk-genio:/usr/share/benchmark_dla# python3 benchmark.py --auto
 ### Supported Model Formats
 
 The NeuroPilot Neuron SDK primarily supports the following model formats:
+
 - **TFLite** (.tflite)
 - **ONNX** (.onnx) — requires loading via the Neuron API
 - **Caffe** (.caffemodel)
