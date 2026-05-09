@@ -12,6 +12,19 @@ This guide covers setting up the development environment for {props?.items ?? 'U
 
 To quickly set up a compilation and development environment for {props?.items ?? 'U-Boot, Kernel, Radxa OS'}, we need to install Visual Studio Code, the Dev Container extension, and Docker on your PC.
 
+### Enable binfmt {#binfmt}
+
+Enables running cross-architecture binaries.
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```bash
+sudo apt-get update
+sudo apt-get install git qemu-user-static binfmt-support
+```
+
+</NewCodeBlock>
+
 ### Docker
 
 You can choose to install either Docker Engine or Docker Desktop based on your needs.
