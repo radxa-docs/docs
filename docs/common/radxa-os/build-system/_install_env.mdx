@@ -12,6 +12,19 @@
 
 我们需要在 PC 上安装 Visual Studio Code、Dev Container 拓展插件和 Docker，方便快速构建 {props?.items ?? 'U-Boot、Kernel and Radxa OS'} 的编译和开发环境。
 
+### 启用 binfmt {#binfmt}
+
+支持以运行跨架构二进制文件。
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```bash
+sudo apt-get update
+sudo apt-get install git qemu-user-static binfmt-support
+```
+
+</NewCodeBlock>
+
 ### Docker
 
 可以根据自己使用需求选择 Docker 引擎或 Docker 桌面版本进行安装。
