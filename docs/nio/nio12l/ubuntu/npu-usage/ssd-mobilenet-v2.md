@@ -12,6 +12,12 @@ description: NIO12L 平台 SSDMobileNetV2 模型的 Host 端转换与 Device 端
 
 ## Host 端模型转换
 
+:::tip 快速体验
+
+如果只需在设备端快速运行模型，可以跳过 Host 端转换，直接使用[预编译 DLA 模型](#方式一下载预编译-dla推荐)。
+
+:::
+
 ### 克隆项目
 
 <NewCodeBlock tip="Host PC" type="host">
@@ -85,9 +91,22 @@ cd nio12l-model-zoo
 
 </NewCodeBlock>
 
-### 传输模型
+### 获取模型
 
-将 Host 端生成的 tflite 文件传输到设备端：
+#### 方式一：下载预编译 DLA（推荐）
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget -P examples/ssd_mobilenet_v2/model/int8 https://github.com/Ronin-1124/nio12l-model-zoo/releases/download/v2026.05.11-dla/ssd_mobilenet_v2_int8.dla
+wget -P examples/ssd_mobilenet_v2/model/fp32 https://github.com/Ronin-1124/nio12l-model-zoo/releases/download/v2026.05.11-dla/ssd_mobilenet_v2_fp32.dla
+```
+
+</NewCodeBlock>
+
+#### 方式二：从 Host 端转换
+
+##### 传输模型
 
 <NewCodeBlock tip="Host PC" type="host">
 
@@ -97,8 +116,7 @@ scp ssd_mobilenet_v2_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/e
 ```
 
 </NewCodeBlock>
-
-### 转换为 DLA
+##### 转换为 DLA
 
 <NewCodeBlock tip="Device" type="device">
 

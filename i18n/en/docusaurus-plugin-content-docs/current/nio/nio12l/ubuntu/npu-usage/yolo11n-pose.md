@@ -12,6 +12,12 @@ Before you begin, complete the environment setup:
 
 ## Host-Side Model Conversion
 
+:::tip Quick Start
+
+If you only need to run the model on the device, you can skip Host-Side conversion and use [pre-compiled DLA models](#method-1-download-pre-compiled-dla-recommended).
+
+:::
+
 ### Clone the Repository
 
 <NewCodeBlock tip="Host PC" type="host">
@@ -107,9 +113,22 @@ cd nio12l-model-zoo
 
 </NewCodeBlock>
 
-### Transfer Models
+### Get Models
 
-Transfer the host-generated tflite files to the device:
+#### Method 1: Download Pre-Compiled DLA (Recommended)
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+wget -P examples/yolo11n-pose/model/int8 https://github.com/Ronin-1124/nio12l-model-zoo/releases/download/v2026.05.11-dla/yolo11n-pose_int8.dla
+wget -P examples/yolo11n-pose/model/fp32 https://github.com/Ronin-1124/nio12l-model-zoo/releases/download/v2026.05.11-dla/yolo11n-pose_fp32.dla
+```
+
+</NewCodeBlock>
+
+#### Method 2: Convert from Host
+
+##### Transfer Models
 
 <NewCodeBlock tip="Host PC" type="host">
 
@@ -119,8 +138,7 @@ scp yolo11n-pose_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/examp
 ```
 
 </NewCodeBlock>
-
-### Convert to DLA
+##### Convert to DLA
 
 <NewCodeBlock tip="Device" type="device">
 
