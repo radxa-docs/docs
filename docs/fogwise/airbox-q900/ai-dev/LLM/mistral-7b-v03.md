@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import GENIEMISTRAL7BV03 from '../../../../common/ai/qualcomm/\_genie_mistral_7b_v_03.mdx';
 
-<GENIEMISTRAL7BV03 />
+<GENIEMISTRAL7BV03 tag="qcs9075"/>

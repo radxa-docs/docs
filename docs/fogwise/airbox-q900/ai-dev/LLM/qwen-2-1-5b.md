@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import GENIEQWEN215B from '../../../../common/ai/qualcomm/\_genie_qwen_2_1_5b.mdx';
 
-<GENIEQWEN215B />
+<GENIEQWEN215B tag="qcs9075"/>

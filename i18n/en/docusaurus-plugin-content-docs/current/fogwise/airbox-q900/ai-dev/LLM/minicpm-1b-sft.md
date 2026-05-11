@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import GENIEMINICPM1BSFT from '../../../../common/ai/qualcomm/\_genie_minicpm_1b_sft.mdx';
 
-<GENIEMINICPM1BSFT />
+<GENIEMINICPM1BSFT tag="qcs9075"/>

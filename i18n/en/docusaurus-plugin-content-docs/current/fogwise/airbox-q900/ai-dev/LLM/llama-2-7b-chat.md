@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import GENIELLAMA27BCHAT from '../../../../common/ai/qualcomm/\_genie_llama_2_7b_chat.mdx';
 
-<GENIELLAMA27BCHAT />
+<GENIELLAMA27BCHAT tag="qcs9075"/>

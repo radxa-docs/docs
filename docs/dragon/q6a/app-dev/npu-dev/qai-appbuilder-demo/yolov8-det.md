@@ -4,11 +4,11 @@ sidebar_position: 0
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_yolov8_det_qai-app-builder-6490.mdx
+  - docs/common/ai/_yolov8_det_qai-app-builder.mdx
 ---
 
 # YOLOv8-det 示例
 
-import YOLOV8DETQAIAPPBUILDER6490 from '../../../../../common/ai/qualcomm/\_yolov8_det_qai-app-builder-6490.mdx';
+import YOLOV8DETQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_yolov8_det_qai-app-builder.mdx';
 
-<YOLOV8DETQAIAPPBUILDER6490 tag="qcs6490"/>
+<YOLOV8DETQAIAPPBUILDER tag="qcs6490"/>
