@@ -17,8 +17,8 @@ Before you begin, complete the environment setup:
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-git clone https://github.com/Ronin-1124/nio12l-model-conversion.git
-cd nio12l-model-conversion
+git clone https://github.com/Ronin-1124/nio12l-model-zoo.git
+cd nio12l-model-zoo
 ```
 
 </NewCodeBlock>
@@ -40,7 +40,7 @@ If you haven't set up the yolo-export environment, create it and install depende
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd yolo12n
+cd examples/yolo12n/convert_model
 conda activate yolo-export
 yolo export model=yolo12n format=onnx opset=13 imgsz=512
 ```
@@ -71,7 +71,7 @@ python cut_onnx.py
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd ..
+cd ../../..
 python prepare_calibration_data.py path=./datasets/coco128/images/train2017 imgsz=512
 ```
 
@@ -82,17 +82,17 @@ python prepare_calibration_data.py path=./datasets/coco128/images/train2017 imgs
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd yolo12n
+cd examples/yolo12n/convert_model
 python convert_mtk_fp32.py
 python convert_mtk_int8.py
 ```
 
 </NewCodeBlock>
 
-After conversion, the following files are generated in `yolo12n/`:
+After conversion, the following files are generated in `examples/yolo12n/model/`:
 
-- `yolo12n_mtk_fp32.tflite`
-- `yolo12n_mtk_int8.tflite`
+- `int8/yolo12n_mtk_int8.tflite`
+- `fp32/yolo12n_mtk_fp32.tflite`
 
 ## Device-Side Deployment
 
@@ -114,8 +114,8 @@ Transfer the host-generated tflite files to the device:
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-scp yolo12n_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yolo12n/int8/
-scp yolo12n_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yolo12n/fp32/
+scp yolo12n_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/yolo12n/model/int8/
+scp yolo12n_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/yolo12n/model/fp32/
 ```
 
 </NewCodeBlock>
@@ -125,7 +125,7 @@ scp yolo12n_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yol
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd models/yolo12n/int8
+cd examples/yolo12n/model/int8
 ncc-tflite --arch=mdla2.0 -d yolo12n_int8.dla yolo12n_mtk_int8.tflite
 cd ../fp32
 ncc-tflite --arch=mdla2.0 -d yolo12n_fp32.dla yolo12n_mtk_fp32.tflite --relax-fp32

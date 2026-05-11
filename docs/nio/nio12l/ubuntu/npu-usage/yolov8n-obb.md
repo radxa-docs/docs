@@ -17,8 +17,8 @@ description: NIO12L 平台 YOLOv8n-OBB 模型的 Host 端转换与 Device 端部
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-git clone https://github.com/Ronin-1124/nio12l-model-conversion.git
-cd nio12l-model-conversion
+git clone https://github.com/Ronin-1124/nio12l-model-zoo.git
+cd nio12l-model-zoo
 ```
 
 </NewCodeBlock>
@@ -40,7 +40,7 @@ cd nio12l-model-conversion
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd yolov8n-obb
+cd examples/yolov8n-obb/convert_model
 conda activate yolo-export
 yolo export model=yolov8n-obb format=onnx opset=13 imgsz=1024
 ```
@@ -71,7 +71,7 @@ python cut_onnx.py
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd ..
+cd ../../..
 python prepare_calibration_data.py path=./datasets/dota128/images/train imgsz=1024
 ```
 
@@ -82,17 +82,17 @@ python prepare_calibration_data.py path=./datasets/dota128/images/train imgsz=10
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd yolov8n-obb
+cd examples/yolov8n-obb/convert_model
 python convert_mtk_fp32.py
 python convert_mtk_int8.py
 ```
 
 </NewCodeBlock>
 
-转换完成后，在 `yolov8n-obb/` 目录下生成：
+转换完成后，在 `examples/yolov8n-obb/model/` 目录下生成：
 
-- `yolov8n-obb_mtk_fp32.tflite`
-- `yolov8n-obb_mtk_int8.tflite`
+- `int8/yolov8n-obb_mtk_int8.tflite`
+- `fp32/yolov8n-obb_mtk_fp32.tflite`
 
 ## Device 端部署
 
@@ -114,8 +114,8 @@ cd nio12l-model-zoo
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-scp yolov8n-obb_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yolov8n-obb/int8/
-scp yolov8n-obb_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yolov8n-obb/fp32/
+scp yolov8n-obb_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/yolov8n-obb/model/int8/
+scp yolov8n-obb_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/yolov8n-obb/model/fp32/
 ```
 
 </NewCodeBlock>
@@ -125,7 +125,7 @@ scp yolov8n-obb_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd models/yolov8n-obb/int8
+cd examples/yolov8n-obb/model/int8
 ncc-tflite --arch=mdla2.0 -d yolov8n-obb_int8.dla yolov8n-obb_mtk_int8.tflite
 cd ../fp32
 ncc-tflite --arch=mdla2.0 -d yolov8n-obb_fp32.dla yolov8n-obb_mtk_fp32.tflite --relax-fp32

@@ -17,8 +17,8 @@ Before you begin, complete the environment setup:
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-git clone https://github.com/Ronin-1124/nio12l-model-conversion.git
-cd nio12l-model-conversion
+git clone https://github.com/Ronin-1124/nio12l-model-zoo.git
+cd nio12l-model-zoo
 ```
 
 </NewCodeBlock>
@@ -36,8 +36,8 @@ If you haven't installed project dependencies, run this in the project root:
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
+cd examples/ssd_mobilenet_v2/convert_model
 conda activate np8
-cd ssd_mobilenet_v2
 python download_model.py
 python export_onnx.py
 ```
@@ -49,7 +49,7 @@ python export_onnx.py
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd ..
+cd ../../..
 python prepare_calibration_data.py path=./datasets/coco128/images/train2017 imgsz=300
 ```
 
@@ -60,17 +60,17 @@ python prepare_calibration_data.py path=./datasets/coco128/images/train2017 imgs
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd ssd_mobilenet_v2
+cd examples/ssd_mobilenet_v2/convert_model
 python convert_mtk_fp32.py
 python convert_mtk_int8.py
 ```
 
 </NewCodeBlock>
 
-After conversion, the following files are generated in `ssd_mobilenet_v2/`:
+After conversion, the following files are generated in `examples/ssd_mobilenet_v2/model/`:
 
-- `ssd_mobilenet_v2_mtk_fp32.tflite`
-- `ssd_mobilenet_v2_mtk_int8.tflite`
+- `int8/ssd_mobilenet_v2_mtk_int8.tflite`
+- `fp32/ssd_mobilenet_v2_mtk_fp32.tflite`
 
 ## Device-Side Deployment
 
@@ -92,8 +92,8 @@ Transfer the host-generated tflite files to the device:
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-scp ssd_mobilenet_v2_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/ssd_mobilenet_v2/int8/
-scp ssd_mobilenet_v2_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/ssd_mobilenet_v2/fp32/
+scp ssd_mobilenet_v2_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/ssd_mobilenet_v2/model/int8/
+scp ssd_mobilenet_v2_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/ssd_mobilenet_v2/model/fp32/
 ```
 
 </NewCodeBlock>
@@ -103,7 +103,7 @@ scp ssd_mobilenet_v2_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/m
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd models/ssd_mobilenet_v2/int8
+cd examples/ssd_mobilenet_v2/model/int8
 ncc-tflite --arch=mdla2.0 -d ssd_mobilenet_v2_int8.dla ssd_mobilenet_v2_mtk_int8.tflite
 cd ../fp32
 ncc-tflite --arch=mdla2.0 -d ssd_mobilenet_v2_fp32.dla ssd_mobilenet_v2_mtk_fp32.tflite --relax-fp32

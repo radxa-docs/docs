@@ -17,8 +17,8 @@ Before you begin, complete the environment setup:
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-git clone https://github.com/Ronin-1124/nio12l-model-conversion.git
-cd nio12l-model-conversion
+git clone https://github.com/Ronin-1124/nio12l-model-zoo.git
+cd nio12l-model-zoo
 ```
 
 </NewCodeBlock>
@@ -40,7 +40,7 @@ If you haven't set up the yolo-export environment, create it and install depende
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd yolov8n-seg
+cd examples/yolov8n-seg/convert_model
 conda activate yolo-export
 yolo export model=yolov8n-seg format=onnx opset=13 imgsz=640
 ```
@@ -71,7 +71,7 @@ python cut_onnx.py
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd ..
+cd ../../..
 python prepare_calibration_data.py path=./datasets/coco128/images/train2017 imgsz=640
 ```
 
@@ -82,17 +82,17 @@ python prepare_calibration_data.py path=./datasets/coco128/images/train2017 imgs
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd yolov8n-seg
+cd examples/yolov8n-seg/convert_model
 python convert_mtk_fp32.py
 python convert_mtk_int8.py
 ```
 
 </NewCodeBlock>
 
-After conversion, the following files are generated in `yolov8n-seg/`:
+After conversion, the following files are generated in `examples/yolov8n-seg/model/`:
 
-- `yolov8n-seg_mtk_fp32.tflite`
-- `yolov8n-seg_mtk_int8.tflite`
+- `int8/yolov8n-seg_mtk_int8.tflite`
+- `fp32/yolov8n-seg_mtk_fp32.tflite`
 
 ## Device-Side Deployment
 
@@ -114,8 +114,8 @@ Transfer the host-generated tflite files to the device:
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-scp yolov8n-seg_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yolov8n-seg/int8/
-scp yolov8n-seg_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yolov8n-seg/fp32/
+scp yolov8n-seg_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/yolov8n-seg/model/int8/
+scp yolov8n-seg_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/yolov8n-seg/model/fp32/
 ```
 
 </NewCodeBlock>
@@ -125,7 +125,7 @@ scp yolov8n-seg_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd models/yolov8n-seg/int8
+cd examples/yolov8n-seg/model/int8
 ncc-tflite --arch=mdla2.0 -d yolov8n-seg_int8.dla yolov8n-seg_mtk_int8.tflite
 cd ../fp32
 ncc-tflite --arch=mdla2.0 -d yolov8n-seg_fp32.dla yolov8n-seg_mtk_fp32.tflite --relax-fp32

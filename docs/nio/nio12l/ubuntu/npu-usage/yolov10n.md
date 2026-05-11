@@ -17,8 +17,8 @@ description: NIO12L 平台 YOLOv10n 模型的 Host 端转换与 Device 端部署
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-git clone https://github.com/Ronin-1124/nio12l-model-conversion.git
-cd nio12l-model-conversion
+git clone https://github.com/Ronin-1124/nio12l-model-zoo.git
+cd nio12l-model-zoo
 ```
 
 </NewCodeBlock>
@@ -40,7 +40,7 @@ cd nio12l-model-conversion
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd yolov10n
+cd examples/yolov10n/convert_model
 conda activate yolo-export
 yolo export model=yolov10n format=onnx opset=13 imgsz=512
 ```
@@ -72,7 +72,7 @@ python check_yolo_model_list.py
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd ..
+cd ../../..
 python prepare_calibration_data.py path=./datasets/coco128/images/train2017 imgsz=512
 ```
 
@@ -83,17 +83,17 @@ python prepare_calibration_data.py path=./datasets/coco128/images/train2017 imgs
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd yolov10n
+cd examples/yolov10n/convert_model
 python convert_mtk_fp32.py
 python convert_mtk_int8.py
 ```
 
 </NewCodeBlock>
 
-转换完成后，在 `yolov10n/` 目录下生成：
+转换完成后，在 `examples/yolov10n/model/` 目录下生成：
 
-- `yolov10n_mtk_fp32.tflite`
-- `yolov10n_mtk_int8.tflite`
+- `int8/yolov10n_mtk_int8.tflite`
+- `fp32/yolov10n_mtk_fp32.tflite`
 
 ## Device 端部署
 
@@ -115,8 +115,8 @@ cd nio12l-model-zoo
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-scp yolov10n_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yolov10n/int8/
-scp yolov10n_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yolov10n/fp32/
+scp yolov10n_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/yolov10n/model/int8/
+scp yolov10n_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/yolov10n/model/fp32/
 ```
 
 </NewCodeBlock>
@@ -126,7 +126,7 @@ scp yolov10n_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yo
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd models/yolov10n/int8
+cd examples/yolov10n/model/int8
 ncc-tflite --arch=mdla2.0 -d yolov10n_int8.dla yolov10n_mtk_int8.tflite
 cd ../fp32
 ncc-tflite --arch=mdla2.0 -d yolov10n_fp32.dla yolov10n_mtk_fp32.tflite --relax-fp32

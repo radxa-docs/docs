@@ -17,8 +17,8 @@ Before you begin, complete the environment setup:
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-git clone https://github.com/Ronin-1124/nio12l-model-conversion.git
-cd nio12l-model-conversion
+git clone https://github.com/Ronin-1124/nio12l-model-zoo.git
+cd nio12l-model-zoo
 ```
 
 </NewCodeBlock>
@@ -40,7 +40,7 @@ If you haven't set up the yolo-export environment, create it and install depende
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd yolo26n-pose
+cd examples/yolo26n-pose/convert_model
 conda activate yolo-export
 yolo export model=yolo26n-pose format=onnx opset=13 imgsz=512
 ```
@@ -71,7 +71,7 @@ python cut_onnx.py
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd ..
+cd ../../..
 python prepare_calibration_data.py path=./datasets/coco128/images/train2017 imgsz=512
 ```
 
@@ -82,17 +82,17 @@ python prepare_calibration_data.py path=./datasets/coco128/images/train2017 imgs
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd yolo26n-pose
+cd examples/yolo26n-pose/convert_model
 python convert_mtk_fp32.py
 python convert_mtk_int8.py
 ```
 
 </NewCodeBlock>
 
-After conversion, the following files are generated in `yolo26n-pose/`:
+After conversion, the following files are generated in `examples/yolo26n-pose/model/`:
 
-- `yolo26n-pose_mtk_fp32.tflite`
-- `yolo26n-pose_mtk_int8.tflite`
+- `int8/yolo26n-pose_mtk_int8.tflite`
+- `fp32/yolo26n-pose_mtk_fp32.tflite`
 
 ## Device-Side Deployment
 
@@ -114,8 +114,8 @@ Transfer the host-generated tflite files to the device:
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-scp yolo26n-pose_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yolo26n-pose/int8/
-scp yolo26n-pose_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/yolo26n-pose/fp32/
+scp yolo26n-pose_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/yolo26n-pose/model/int8/
+scp yolo26n-pose_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/yolo26n-pose/model/fp32/
 ```
 
 </NewCodeBlock>
@@ -125,7 +125,7 @@ scp yolo26n-pose_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/model
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd models/yolo26n-pose/int8
+cd examples/yolo26n-pose/model/int8
 ncc-tflite --arch=mdla2.0 -d yolo26n-pose_int8.dla yolo26n-pose_mtk_int8.tflite
 cd ../fp32
 ncc-tflite --arch=mdla2.0 -d yolo26n-pose_fp32.dla yolo26n-pose_mtk_fp32.tflite --relax-fp32

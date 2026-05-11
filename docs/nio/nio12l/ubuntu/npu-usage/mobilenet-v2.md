@@ -17,8 +17,8 @@ description: NIO12L 平台 MobileNetV2 模型的 Host 端转换与 Device 端部
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-git clone https://github.com/Ronin-1124/nio12l-model-conversion.git
-cd nio12l-model-conversion
+git clone https://github.com/Ronin-1124/nio12l-model-zoo.git
+cd nio12l-model-zoo
 ```
 
 </NewCodeBlock>
@@ -36,8 +36,8 @@ cd nio12l-model-conversion
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
+cd examples/mobilenet_v2/convert_model
 conda activate np8
-cd mobilenet_v2
 python download_model.py
 ```
 
@@ -48,7 +48,7 @@ python download_model.py
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd ..
+cd ../../..
 python prepare_calibration_data.py path=./datasets/imagenet100 imgsz=224
 ```
 
@@ -59,17 +59,17 @@ python prepare_calibration_data.py path=./datasets/imagenet100 imgsz=224
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-cd mobilenet_v2
+cd examples/mobilenet_v2/convert_model
 python convert_mtk_fp32.py
 python convert_mtk_int8.py
 ```
 
 </NewCodeBlock>
 
-转换完成后，在 `mobilenet_v2/` 目录下生成：
+转换完成后，在 `examples/mobilenet_v2/model/` 目录下生成：
 
-- `mobilenet_v2_mtk_fp32.tflite`
-- `mobilenet_v2_mtk_int8.tflite`
+- `int8/mobilenet_v2_mtk_int8.tflite`
+- `fp32/mobilenet_v2_mtk_fp32.tflite`
 
 ## Device 端部署
 
@@ -91,8 +91,8 @@ cd nio12l-model-zoo
 <NewCodeBlock tip="Host PC" type="host">
 
 ```bash
-scp mobilenet_v2_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/mobilenet_v2/int8/
-scp mobilenet_v2_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/models/mobilenet_v2/fp32/
+scp mobilenet_v2_mtk_int8.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/mobilenet_v2/model/int8/
+scp mobilenet_v2_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/examples/mobilenet_v2/model/fp32/
 ```
 
 </NewCodeBlock>
@@ -102,7 +102,7 @@ scp mobilenet_v2_mtk_fp32.tflite <user>@<device>:/path/to/nio12l-model-zoo/model
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd models/mobilenet_v2/int8
+cd examples/mobilenet_v2/model/int8
 ncc-tflite --arch=mdla2.0 -d mobilenet_v2_int8.dla mobilenet_v2_mtk_int8.tflite
 cd ../fp32
 ncc-tflite --arch=mdla2.0 -d mobilenet_v2_fp32.dla mobilenet_v2_mtk_fp32.tflite --relax-fp32
@@ -144,4 +144,4 @@ cmake --build build -j
 
 </NewCodeBlock>
 
-结果保存在 `outputs/mobilenet_v2/classifications/` 目录下。
+结果保存在 `outputs/mobilenet_v2/classifications/`。
