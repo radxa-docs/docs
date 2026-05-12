@@ -196,4 +196,11 @@ cmake --build build -j
 
 </NewCodeBlock>
 
+性能参考（1000 次推理取平均耗时）：
+
+| 精度 | 耗时 (ms) | 帧率 (FPS) |
+| ---- | --------- | ---------- |
+| INT8 | 24.268    | 41.21      |
+| FP32 | 47.901    | 20.88      |
+
 结果保存在 `outputs/yolov10n/` 目录下（`vis/` 为可视化图片，`detections/` 为 JSON）。

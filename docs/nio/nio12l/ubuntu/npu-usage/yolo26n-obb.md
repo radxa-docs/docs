@@ -195,4 +195,11 @@ cmake --build build -j
 
 </NewCodeBlock>
 
+性能参考（1000 次推理取平均耗时）：
+
+| 精度 | 耗时 (ms) | 帧率 (FPS) |
+| ---- | --------- | ---------- |
+| INT8 | 217.068   | 4.61       |
+| FP32 | 185.319   | 5.40       |
+
 结果保存在 `outputs/yolo26n-obb/` 目录下（`vis/` 为可视化图片，`detections/` 为 JSON）。

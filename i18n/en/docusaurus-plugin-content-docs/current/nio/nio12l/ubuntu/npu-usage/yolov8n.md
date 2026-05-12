@@ -195,4 +195,11 @@ Specify images:
 
 </NewCodeBlock>
 
+Performance reference (1000-inference average):
+
+| Precision | Time (ms) | FPS   |
+| --------- | --------- | ----- |
+| INT8      | 34.559    | 28.94 |
+| FP32      | 67.767    | 14.76 |
+
 Results are saved in `outputs/yolov8n/` (`vis/` for visualization images, `detections/` for JSON).

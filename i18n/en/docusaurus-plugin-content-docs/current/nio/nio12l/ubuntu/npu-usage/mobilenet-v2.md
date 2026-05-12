@@ -162,4 +162,11 @@ Use FP32 model:
 
 </NewCodeBlock>
 
+Performance reference (1000-inference average):
+
+| Precision | Time (ms) | FPS    |
+| --------- | --------- | ------ |
+| INT8      | 7.034     | 142.17 |
+| FP32      | 13.460    | 74.29  |
+
 Results are saved in `outputs/mobilenet_v2/classifications/`.

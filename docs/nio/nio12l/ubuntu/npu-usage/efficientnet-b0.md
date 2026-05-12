@@ -165,4 +165,11 @@ cmake --build build -j
 
 </NewCodeBlock>
 
+性能参考（1000 次推理取平均耗时）：
+
+| 精度 | 耗时 (ms) | 帧率 (FPS) |
+| ---- | --------- | ---------- |
+| INT8 | 11.923    | 83.87      |
+| FP32 | 20.975    | 47.68      |
+
 结果保存在 `outputs/efficientnet_b0_classification/classifications/`。

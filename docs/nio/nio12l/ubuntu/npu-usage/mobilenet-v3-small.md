@@ -162,4 +162,11 @@ cmake --build build -j
 
 </NewCodeBlock>
 
+性能参考（1000 次推理取平均耗时）：
+
+| 精度 | 耗时 (ms) | 帧率 (FPS) |
+| ---- | --------- | ---------- |
+| INT8 | 3.466     | 288.52     |
+| FP32 | 7.953     | 125.74     |
+
 结果保存在 `outputs/mobilenet_v3_small/classifications/`。

@@ -162,4 +162,11 @@ cmake --build build -j
 
 </NewCodeBlock>
 
+性能参考（1000 次推理取平均耗时）：
+
+| 精度 | 耗时 (ms) | 帧率 (FPS) |
+| ---- | --------- | ---------- |
+| INT8 | 19.990    | 50.03      |
+| FP32 | 44.142    | 22.65      |
+
 结果保存在 `outputs/resnet50/classifications/`。

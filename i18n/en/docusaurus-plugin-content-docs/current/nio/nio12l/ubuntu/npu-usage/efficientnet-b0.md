@@ -165,4 +165,11 @@ Use FP32 model:
 
 </NewCodeBlock>
 
+Performance reference (1000-inference average):
+
+| Precision | Time (ms) | FPS   |
+| --------- | --------- | ----- |
+| INT8      | 11.923    | 83.87 |
+| FP32      | 20.975    | 47.68 |
+
 Results are saved in `outputs/efficientnet_b0_classification/classifications/`.

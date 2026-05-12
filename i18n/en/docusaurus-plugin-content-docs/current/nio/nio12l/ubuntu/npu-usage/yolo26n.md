@@ -195,4 +195,11 @@ Specify images:
 
 </NewCodeBlock>
 
+Performance reference (1000-inference average):
+
+| Precision | Time (ms) | FPS   |
+| --------- | --------- | ----- |
+| INT8      | 25.938    | 38.55 |
+| FP32      | 45.995    | 21.74 |
+
 Results are saved in `outputs/yolo26n/` (`vis/` for visualization images, `detections/` for JSON).

@@ -162,4 +162,11 @@ Use FP32 model:
 
 </NewCodeBlock>
 
+Performance reference (1000-inference average):
+
+| Precision | Time (ms) | FPS   |
+| --------- | --------- | ----- |
+| INT8      | 19.990    | 50.03 |
+| FP32      | 44.142    | 22.65 |
+
 Results are saved in `outputs/resnet50/classifications/`.

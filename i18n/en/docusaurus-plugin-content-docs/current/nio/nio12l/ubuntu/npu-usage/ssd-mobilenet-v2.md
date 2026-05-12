@@ -163,4 +163,11 @@ Use FP32 model and specify an image:
 
 </NewCodeBlock>
 
+Performance reference (1000-inference average):
+
+| Precision | Time (ms) | FPS   |
+| --------- | --------- | ----- |
+| INT8      | 10.006    | 99.94 |
+| FP32      | 18.299    | 54.65 |
+
 Results are saved in `outputs/ssd_mobilenet_v2/` (`vis/` for visualization images, `detections/` for JSON).

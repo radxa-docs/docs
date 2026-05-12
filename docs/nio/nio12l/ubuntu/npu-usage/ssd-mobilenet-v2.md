@@ -163,4 +163,11 @@ cmake --build build -j
 
 </NewCodeBlock>
 
+性能参考（1000 次推理取平均耗时）：
+
+| 精度 | 耗时 (ms) | 帧率 (FPS) |
+| ---- | --------- | ---------- |
+| INT8 | 10.006    | 99.94      |
+| FP32 | 18.299    | 54.65      |
+
 结果保存在 `outputs/ssd_mobilenet_v2/` 目录下（`vis/` 为可视化图片，`detections/` 为 JSON）。
