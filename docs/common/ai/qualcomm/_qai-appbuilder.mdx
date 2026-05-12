@@ -18,25 +18,63 @@
 
 ## 安装方法
 
+:::tip
+可 [**使用 wheel 包安装**](#使用-wheel-包安装) 或 [**源码编译**](#源码编译) 进行安装
+:::
+
 ### 克隆仓库
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-git clone https://github.com/quic/ai-engine-direct-helper.git && cd ai-engine-direct-helper
-git checkout 5e85a52
+git clone -b radxa-dev https://github.com/ZIFENG278/ai-engine-direct-helper.git && cd ai-engine-direct-helper
+```
+
+</NewCodeBlock>
+
+### 使用 wheel 包安装
+
+##### 创建虚拟环境
+
+:::tip
+安装 python 库前需要创建虚拟环境进行环境隔
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt install python3-venv
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/radxa-dev-2.38.0/qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
+```
+
+</NewCodeBlock>
+
+### 源码编译
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
 git submodule update --init --recursive
 ```
 
 </NewCodeBlock>
 
-### 下载 QAIRT SDK
+#### 下载 QAIRT SDK
 
 :::tip
 请根据 [**下载 QAIRT SDK 压缩包**](./qairt-install#下载-qairt-sdk-压缩包) 下载 QAIRT SDK 并解压
 :::
 
-#### 配置 QAIRT 环境变量
+##### 配置 QAIRT 环境变量
 
 <Tabs queryString="platform">
     <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
@@ -73,9 +111,9 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-oe-linux-gcc11
 
 </NewCodeBlock>
 
-### 编译 qai_appbuilder
+#### 编译 qai_appbuilder
 
-#### 创建虚拟环境
+##### 创建虚拟环境
 
 :::tip
 安装 python 库前需要创建虚拟环境进行环境隔
@@ -91,7 +129,7 @@ source .venv/bin/activate
 
 </NewCodeBlock>
 
-#### 编译 qai_appbuilder wheel
+##### 编译 qai_appbuilder wheel
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -103,33 +141,151 @@ python3 setup.py bdist_wheel
 
 </NewCodeBlock>
 
-编译完成会在 `dist` 目录下生成一个 `qai_appbuilder-2.42.0.68-cp312-cp312-linux_aarch64.whl` 文件
+编译完成会在 `dist` 目录下生成一个 `qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
 
-### 安装 qai_appbuilder
+` 文件
 
-#### 安装 qai_appbuilder wheel
+#### 安装 qai_appbuilder
+
+##### 安装 qai_appbuilder wheel
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
 cd dist
-pip3 install ./qai_appbuilder-2.42.0.68-cp312-cp312-linux_aarch64.whl
+pip3 install ./qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
 ```
 
 </NewCodeBlock>
 
 ### 创建 QAIRT SDK LIB 软链接
 
-请在 `ai-engine-direct-helper/samples/python` 下创建 `qai_libs` 软链接，用于链接 QAIRT SDK 里的 `lib/aarch64-oe-linux-gcc11.2` 目录
+请在 `ai-engine-direct-helper/samples/python` 下创建 `qai_libs` 软链接，用于链接 QAIRT SDK 里的 lib 目录
+
+<Tabs>
+
+<TabItem value="qcom-qairt">
+
+:::tip
+如果没有下载完整的 QAIRT_SDK 可以安装 `qcom-qairt` 后进行软链接
+
+qcom-qairt 是一个体积缩小版的 QAIRT-SDK，仅安装所需的文件
+:::
+
+<Tabs queryString="platform">
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    sudo apt install qcom-qnn-sdk-v68 qcom-genie-sdk-v68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    sudo apt install qcom-qnn-sdk-v73 qcom-genie-sdk-v73
+    ```
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd ../../
-ln -s qairt/2.42.0.251225/lib/aarch64-oe-linux-gcc11.2/ ai-engine-direct-helper/samples/python/qai_libs
+ln -s /usr/lib/aarch64-linux-gnu samples/python/qai_libs
 ```
 
 </NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="QAIRT-SDK">
+
+:::tip
+如果用户已经下载了完整版本的 QAIRT-SDK， 可以链接 QAIRT-SDK 下的 `lib/aarch64-oe-linux-gcc11.2/`
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+ln -s qairt/2.42.0.251225/lib/aarch64-oe-linux-gcc11.2/ samples/python/qai_libs
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+### 创建 ADSP 环境变量
+
+<Tabs>
+
+<TabItem value="qcom-qairt">
+
+:::tip
+如果安装 `qcom-qairt` 包的用户，可以使用以下命令创建 `ADSP_LIBRARY_PATH` 环境变量
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="QAIRT-SDK">
+
+:::tip
+如果安装了完整的 QAIRT-SDK 的用户，可以使用以下命令创建 `ADSP_LIBRARY_PATH` 环境变量
+:::
+
+<Tabs queryString="platform">
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=6490 DSP_ARCH=68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=9075 DSP_ARCH=73
+    ```
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qairt/2.42.0.251225
+export ADSP_LIBRARY_PATH=$(pwd)/lib/hexagon-v${DSP_ARCH}/unsigned
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 ## 应用例子
 

@@ -21,25 +21,63 @@ Supports Python API / C++ API
 
 ## Installation Methods
 
+:::tip
+You can [**install via wheel package**](#install-via-wheel-package) or [**build from source**](#build-from-source)
+:::
+
 ### Clone the Repository
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-git clone https://github.com/quic/ai-engine-direct-helper.git && cd ai-engine-direct-helper
-git checkout 5e85a52
+git clone -b radxa-dev https://github.com/ZIFENG278/ai-engine-direct-helper.git && cd ai-engine-direct-helper
+```
+
+</NewCodeBlock>
+
+### Install via Wheel Package
+
+##### Create a Virtual Environment
+
+:::tip
+Create a virtual environment to isolate the Python libraries
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt install python3-venv
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/radxa-dev-2.38.0/qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
+```
+
+</NewCodeBlock>
+
+### Build from Source
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
 git submodule update --init --recursive
 ```
 
 </NewCodeBlock>
 
-### Download QAIRT SDK
+#### Download QAIRT SDK
 
 :::tip
 Please download and extract the QAIRT SDK according to [**Download QAIRT SDK Package**](./qairt-install#download-qairt-sdk-package)
 :::
 
-#### Configure QAIRT Environment Variables
+##### Configure QAIRT Environment Variables
 
 <Tabs queryString="platform">
     <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
@@ -76,9 +114,9 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-oe-linux-gcc11
 
 </NewCodeBlock>
 
-### Compile qai_appbuilder
+#### Compile qai_appbuilder
 
-#### Create a Virtual Environment
+##### Create a Virtual Environment
 
 :::tip
 Create a virtual environment to isolate the Python libraries
@@ -94,7 +132,7 @@ source .venv/bin/activate
 
 </NewCodeBlock>
 
-#### Compile qai_appbuilder Wheel
+##### Compile qai_appbuilder Wheel
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -106,33 +144,149 @@ python3 setup.py bdist_wheel
 
 </NewCodeBlock>
 
-After compilation, a `qai_appbuilder-2.42.0.68-cp312-cp312-linux_aarch64.whl` file will be generated in the `dist` directory
+After compilation, a `qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl` file will be generated in the `dist` directory
 
-### Install qai_appbuilder
+#### Install qai_appbuilder
 
-#### Install qai_appbuilder Wheel
+##### Install qai_appbuilder Wheel
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
 cd dist
-pip3 install ./qai_appbuilder-2.42.0.68-cp312-cp312-linux_aarch64.whl
+pip3 install ./qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
 ```
 
 </NewCodeBlock>
 
 ### Create QAIRT SDK LIB Symlink
 
-Create a `qai_libs` symlink in `ai-engine-direct-helper/samples/python` to link to the `lib/aarch64-oe-linux-gcc11.2` directory in the QAIRT SDK
+Create a `qai_libs` symlink in `ai-engine-direct-helper/samples/python` to link to the lib directory of the QAIRT SDK
+
+<Tabs>
+
+<TabItem value="qcom-qairt">
+
+:::tip
+If you haven't downloaded the complete QAIRT_SDK, you can install `qcom-qairt` and then create the symlink.
+
+qcom-qairt is a slimmed-down version of QAIRT-SDK, installing only the required files
+:::
+
+<Tabs queryString="platform">
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    sudo apt install qcom-qnn-sdk-v68 qcom-genie-sdk-v68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    sudo apt install qcom-qnn-sdk-v73 qcom-genie-sdk-v73
+    ```
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd ../../
-ln -s qairt/2.42.0.251225/lib/aarch64-oe-linux-gcc11.2/ ai-engine-direct-helper/samples/python/qai_libs
+ln -s /usr/lib/aarch64-linux-gnu samples/python/qai_libs
 ```
 
 </NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="QAIRT-SDK">
+
+:::tip
+If you have already downloaded the complete QAIRT-SDK, you can link to the `lib/aarch64-oe-linux-gcc11.2/` directory under QAIRT-SDK
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+ln -s qairt/2.42.0.251225/lib/aarch64-oe-linux-gcc11.2/ samples/python/qai_libs
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+### Create ADSP Environment Variables
+
+<Tabs>
+
+<TabItem value="qcom-qairt">
+
+:::tip
+If you installed the `qcom-qairt` package, use the following command to create the `ADSP_LIBRARY_PATH` environment variable
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="QAIRT-SDK">
+
+:::tip
+If you installed the complete QAIRT-SDK, use the following command to create the `ADSP_LIBRARY_PATH` environment variable
+:::
+
+<Tabs queryString="platform">
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=6490 DSP_ARCH=68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=9075 DSP_ARCH=73
+    ```
+    </NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qairt/2.42.0.251225
+export ADSP_LIBRARY_PATH=$(pwd)/lib/hexagon-v${DSP_ARCH}/unsigned
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+</Tabs>
 
 ## Application Examples
 
