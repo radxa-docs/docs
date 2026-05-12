@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 1
 ---
 
 # Ubuntu 用户指南
@@ -413,7 +413,7 @@ sudo python3 /usr/share/benchmark_dla/benchmark.py --auto
 
 结果示例：
 
-```
+```text
 root@mtk-genio:/usr/share/benchmark_dla# python3 benchmark.py --auto
 2023-07-31 07:04:19,029 [INFO] ssd_mobilenet_v1_coco_quantized.tflite, mdla3.0, avg inference time: 2.53
 2023-07-31 07:04:24,499 [INFO] ssd_mobilenet_v1_coco_quantized.tflite, vpu, avg inference time: 46.14
@@ -423,6 +423,7 @@ root@mtk-genio:/usr/share/benchmark_dla# python3 benchmark.py --auto
 ### 支持的模型格式
 
 NeuroPilot Neuron SDK 主要支持以下模型格式：
+
 - **TFLite** (.tflite)
 - **ONNX** (.onnx) — 需通过 Neuron API 加载
 - **Caffe** (.caffemodel)
