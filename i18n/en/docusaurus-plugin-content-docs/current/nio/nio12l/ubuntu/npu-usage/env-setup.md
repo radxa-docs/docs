@@ -1,11 +1,25 @@
 ---
 sidebar_position: 2
-description: Introduces how to install Neuron SDK
+description: Introduces how to set up the NPU development environment
 ---
 
-# Device Environment Setup
+# NPU Environment Setup
 
-Configuring the NPU environment on the device side under Ubuntu is simple. Run the following command in the terminal:
+The NIO 12L is powered by the MediaTek MT8395 (Genio 1200), which integrates an APU (AI Processor Unit) and AI Accelerator (Aia). You can use the NeuroPilot software stack on Ubuntu to access hardware acceleration for AI inference.
+
+## Install Firmware and Runtime
+
+First, install the APU firmware and Neuron runtime:
+
+```bash
+sudo apt install mediatek-apusys-firmware-genio1200
+sudo apt install mediatek-libneuron mediatek-neuron-utils mediatek-libneuron-dev
+sudo reboot
+```
+
+## Install Neuron SDK
+
+After rebooting, install the Neuron SDK:
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -15,150 +29,59 @@ snap install mtk-neuropilot --edge
 
 </NewCodeBlock>
 
-The `--edge` channel publishes the latest software packages, which may be updated more frequently than the stable channel. If you want to use it for a stable production environment, you can go to the Snap Store to check each channel's version and official support status.
+The `--edge` channel publishes the latest packages, which may update more frequently than the stable channel. For stable production use, check the Snap Store for each channel's version and support status.
 
----
+## Verify Installation
 
-After `mtk-neuropilot` is installed, verify the installation in the terminal:
+### vpu5_test
 
-`ncc-tflite` is a command-line tool for converting models from tflite format to dla format.
+```bash
+sudo vpu5_test -a ks -l 10
+```
+
+The result should show `PASS`.
+
+### ncc-tflite
+
+`ncc-tflite` is a command-line tool for converting models from tflite format to dla format:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-$ ncc-tflite
-
-Usage:
-  ncc-tflite [OPTION...] filename
-
-      --verify                  Force tflite model verification
-      --no-verify               Bypass tflite model verification
-  -d, --dla-file <file>         Specify a filename for the output DLA file
-      --check-target-only       Check target support and exit
-      --resize <dims,...>       Specify a list of input dimensions for resizing
-                                (e.g., 1x3x5,2x4x6)
-  -s, --show-tflite             Show tensors and nodes in the tflite model
-      --show-io-info            Show input and output tensors of the tflite
-                                model
-      --show-builtin-ops        Show available builtin operations and exit
-      --show-mtkext-ops         Show available MTKEXT operations and exit
-      --verbose                 Enable verbose mode
-      --version                 Output version information and exit
-      --help                    Display this help and exit
-  -e, --exec                    Enable execution (inference) mode
-  -i, --input <file,...>        Specify a list of input files for inference
-  -o, --output <file,...>       Specify a list of output files for inference
-      --arch <name,...>         Specify a list of target architecture names
-      --platform <name>         Platform preference as hint for compilation
-  -O, --opt <level>             Specify which optimization level to use:
-                                [0]: no optimization
-                                [1]: enable basic optimization for fast codegen
-                                [2]: enable most optimizations
-                                [3]: enable -O2 with other optimizations that
-                                     take longer compilation time (default: 2)
-      --opt-accuracy            Optimize for accuracy
-      --opt-aggressive          Enable optimizations that may lose accuracy
-      --opt-bw                  Optimize for memory bandwidth
-      --opt-footprint           Optimize for memory footprint
-      --opt-size                Optimize for size, including code and static
-                                data
-      --relax-fp32              Run fp32 models using fp16
-      --l1-size-kb <size>       Hint the size of L1 memory (default: 0)
-      --l2-size-kb <size>       Hint the size of L2 memory (default: 0)
-      --suppress-input          Suppress input data conversion
-      --suppress-output         Suppress output data conversion
-      --gen-debug-info          Produce debugging information in the DLA file.
-                                Runtime can work with this info for profiling
-      --show-exec-plan          Show execution plan
-      --show-memory-summary     Show memory allocation summary
-      --dla-metadata <key1:file1,key2:file2,...>
-                                Specify a list of key:file pairs for DLA
-                                metadata
-      --disallow-bridge         Report error if bridging is needed
-      --avoid-reorder           Keep execution order during graph optimization
-                                if possible
-      --extract-static-data <filename>
-                                Extract static parameters into file and make
-                                them as input tensors
-      --intval-color-fast       Disable exhaustive search in interval coloring
-      --show-l1-req             Show the requirement for L1 without dropping.
-                                Only effective when global buffer allocation is
-                                in effect
-      --int8-to-uint8           Convert data types from INT8 to UINT8
-      --fc-to-conv              Convert Fully Connected to Conv2D
-      --decompose-qlstmv2       Decompose QLSTM V2 to sub-OPs
-      --stable-linearize        Stable linearize NIR (respect the input NIR
-                                order), making layer order predictable
-      --rewrite-pattern <pattern1,pattern2,...>
-                                Specify a list of patterns to be rewritten if
-                                matched in a graph.
-                                Use --rewrite-pattern=? to show available
-                                patterns
-      --sink-concat             Sink concat operations if possible
-      --reshape-to-4d           Reshape tensor to 4D if possible
-
- aps options:
-      --aps-cbfc-vids <vid,...>
-                                Provide idle CBFC vids for APS internal use.
-                                (e.g., 0,1)
-      --aps-ext-datatype        Enable more datatype support for extension.
-
- gno options:
-      --gno <opt1,opt2,...>  Specify a list of graphite neuron optimizations.
-                             Available options: NDF, SMP, BMP
-      --basic-tiling         Enable basic tiling
-
- gpu options:
-      --cltuner-file <path>   An output file path for CL tuner that generates
-                              optimization settings (default:
-                              /vendor/etc/armnn_app.config)
-      --cltuning-mode <mode>  Set the tuning level of CL tuner (default: -1)
-      --cmdl-dir <path>       An output directory for CmdL that dumps infos
-      --clprofile             Enable CmdL clprofile
-      --clfinish              Enable CmdL clfinish
-
- mdla options:
-      --num-mdla <num>          Use numbers of MDLA cores (default: 1)
-      --mdla-bw <num>           Hint MDLA bandwidth (MB/s) (default: 10240)
-      --mdla-freq <num>         Hint MDLA frequency (MHz) (default: 960)
-      --mdla-wt-to-l1           Hint MDLA try to put weight into L1
-      --mdla-wt-pruned          The weight of given model has been pruned
-      --prefer-large-acc <num>  Use large accumulator to improve accuracy
-      --use-sw-dilated-conv     Use software dilated convolution
-      --use-sw-deconv           Convert DeConvolution to Conv2Ds
-      --req-per-ch-conv         Requant invalid per-channel convs
-      --trim-io-alignment       Trim the model IO alignment
-
- mvpu options:
-      --mvpu-algo <bit_flags>   The selection of MVPU algo libraries:
-                                [bit 0]: NN
-                                [bit 1]: CV
-                                [bit 16~17]: custom (default: 0xFFFFFFFF)
-      --mvpu-l1-heuristic <percentage>
-                                Hint the percentage of L1 memory usage:
-                                The range is from 0 to 100 (default: 75)
-      --mvpu-l2-limit <size>    Hint the maximum L2(TCM) usage size limit
-                                 (default: 1048576)
-      --mvpu-disable-cycle-mem-opt
-                                Disable MVPU cycle memory optimization
-      --num-mvpu <num>          Use numbers of MVPU cores (default: 1)
-
- vpu options:
-      --dual-vpu  Use dual VPU
+ncc-tflite --help
 ```
 
 </NewCodeBlock>
 
----
+### neuronrt
 
-`neuronrt` can run dla models to test model integrity.
+`neuronrt` can run dla models to verify model integrity:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-$ neuronrt -v
-INFO: dlopen libneuronusdk_runtime.mtk.so
-Version: 6.3.3
+neuronrt -v
 ```
 
 </NewCodeBlock>
+
+## Run Benchmark
+
+```bash
+sudo mkdir -p /usr/share/benchmark_dla
+sudo cp /usr/share/neuropilot/benchmark_dla/* /usr/share/benchmark_dla/
+sudo apt install python3-pip
+sudo pip3 install numpy
+sudo python3 /usr/share/benchmark_dla/benchmark.py --auto
+```
+
+## Supported Model Formats
+
+- **TFLite** (`.tflite`)
+- **ONNX** (`.onnx`) — requires loading via the Neuron API
+- **Caffe** (`.caffemodel`)
+
+For more details, refer to the official MediaTek documentation:
+
+- [NeuroPilot Overview](https://neuropilot-developer.mediatek.com/resources/public/latest/en/docs/readme)
+- [Neuron SDK Documentation](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/release/v25.0/sw/yocto/ml-guide/ml-neuron-sdk.html)
