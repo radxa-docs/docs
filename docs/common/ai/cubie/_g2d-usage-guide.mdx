@@ -2,9 +2,12 @@
 
 G2D 是 Allwinner SoC 集成的 2D 图形硬件加速器，负责图像旋转、缩放、格式转换、颜色填充等操作。
 
-:::info
-当前版本默认不启用 g2d ，如有需要，按照下面的命令配置。
+:::tip
+新版镜像已默认启用 g2d，可直接跳转到下方[验证驱动状态](#验证驱动状态)确认。若处于旧版镜像，请展开下方手动安装。
 :::
+
+<details>
+<summary>旧版镜像：手动安装 g2d 内核</summary>
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -18,6 +21,8 @@ sudo reboot
 ```
 
 </NewCodeBlock>
+
+</details>
 
 典型应用场景：
 
