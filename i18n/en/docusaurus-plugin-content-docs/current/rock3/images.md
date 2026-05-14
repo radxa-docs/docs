@@ -27,7 +27,7 @@ Tip: We will publish relevant information about each version release in [Raxa Fo
 
 The following systems have been officially tested and verified by Radxa:
 
-ROCK 3A: [Build 25](https://github.com/radxa-build/rock-3a/releases/download/b25/rock-3a_debian_bullseye_xfce_b25.img.xz)
+ROCK 3A: [Bookworm KDE R2](https://github.com/radxa-build/rock-3a/releases/download/rsdk-r2/rock-3a_bookworm_kde_r2.output_512.img.xz)
 
 For more images, please check: [ROCK 3A radxa-build](https://github.com/radxa-build/rock-3a/releases/latest)
 

@@ -25,7 +25,7 @@ sidebar_position: 7
 
 以下系统已由瑞莎官方测试验证：
 
-ROCK 3A: [Build 25](https://github.com/radxa-build/rock-3a/releases/download/b25/rock-3a_debian_bullseye_xfce_b25.img.xz)
+ROCK 3A: [Bookworm KDE R2](https://github.com/radxa-build/rock-3a/releases/download/rsdk-r2/rock-3a_bookworm_kde_r2.output_512.img.xz)
 
 更多镜像请查看： [ROCK 3A radxa-build](https://github.com/radxa-build/rock-3a/releases/latest)
 

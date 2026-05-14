@@ -80,7 +80,7 @@ ROCK 5B provides complete hardware design schematics and software source code, a
     </tr>
     <tr>
         <td align="center">RAM</td>
-        <td align="center">4/8/16 64 bit LPDDR4</td>
+        <td align="center">4/8/16 64 bit LPDDR4X</td>
         <td align="center">4/8/16/32 64 bit LPDDR5</td>
     </tr>
     <tr>
