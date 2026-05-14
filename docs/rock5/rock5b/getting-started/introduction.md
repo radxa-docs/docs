@@ -80,7 +80,7 @@ ROCK 5B 提供了完整的硬件设计原理图和软件源代码，这一特性
     </tr>
     <tr>
         <td align="center">内存</td>
-        <td align="center">4/8/16 64 位 LPDDR4</td>
+        <td align="center">4/8/16 64 位 LPDDR4X</td>
         <td align="center">4/8/16/32 64 位 LPDDR5</td>
     </tr>
     <tr>
