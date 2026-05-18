@@ -2,9 +2,12 @@
 
 G2D is a 2D graphics hardware accelerator integrated into Allwinner SoCs, responsible for image rotation, scaling, format conversion, color filling and other operations.
 
-:::info
-G2D is not enabled by default in the current version. If needed, configure according to the commands below.
+:::tip
+New images already include G2D by default. Skip to [Verify Driver Status](#verify-driver-status) below to confirm. For older images, expand below for manual installation.
 :::
+
+<details>
+<summary>Older images: Manual G2D kernel installation</summary>
 
 <NewCodeBlock tip="Device" type="device">
 
@@ -18,6 +21,8 @@ sudo reboot
 ```
 
 </NewCodeBlock>
+
+</details>
 
 Typical application scenarios:
 
