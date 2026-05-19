@@ -32,7 +32,7 @@ import { Section, Image } from "@site/src/utils/docs";
 
 <TabItem value="withoutemmc" label="不带板载EMMC">
 
-准备 MicroSD 卡, 参考[安装系统](./install-os/) 安装操作系统。
+准备 microSD 卡, 参考[安装系统](./install-os/) 安装操作系统。
 
 </TabItem>
 </Tabs>

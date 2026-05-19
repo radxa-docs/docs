@@ -18,7 +18,7 @@ sidebar_position: 4
 
 使用 USB Type-A 转 Type-C 数据线连接整机 Debug 口和 PC 端，波特率 115200。
 
-## MicroSD
+## microSD
 
 支持热插拔。目前推荐三星和闪迪的SD卡。
 

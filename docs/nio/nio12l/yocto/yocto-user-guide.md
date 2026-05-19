@@ -69,9 +69,9 @@ sdc       8:32   0 119.2G  0 disk
 `-sdc10   8:42   0 118.9G  0 part /
 ```
 
-### MicroSD 卡
+### microSD 卡
 
-使用 `lsblk | grep mmc` 查看 MicroSD 卡。如这里的 `/dev/mmcblk1`。
+使用 `lsblk | grep mmc` 查看 microSD 卡。如这里的 `/dev/mmcblk1`。
 
 ```text
 mmcblk1     179:0    0  58.9G  0 disk

@@ -9,6 +9,6 @@ imports_resolve_to:
 
 import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use_etcher_sd.mdx';
 
-# 安装系统到 MicroSD 卡
+# 安装系统到 microSD 卡
 
 <BalenaEtcherUse />

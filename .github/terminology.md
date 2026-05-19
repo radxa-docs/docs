@@ -14,7 +14,7 @@
 | system image      |                    系统镜像（或 system image） | system image                                   | 镜像文件的正式称呼，中文可并列原文。                                   |
 | flash / 刷机      |                                刷机 / 写入镜像 | flash / write image                            | 建议首选译法为“写入镜像”；用词受上下文影响时可在术语表中注明替代用法。 |
 | bootloader        |                                   引导加载程序 | bootloader                                     | 统一译法为“引导加载程序”。                                             |
-| MicroSD / SD card |                                     MicroSD 卡 | MicroSD / SD card                              | 存储卡命名；写作 `MicroSD 卡` 时保留大小写。                           |
+| microSD / SD card |                                     microSD 卡 | microSD / SD card                              | 存储卡命名；写作 `microSD 卡` 时保留大小写。                           |
 | GPIO              |                                           GPIO | GPIO                                           | 通用 I/O，首现可扩展为“通用输入输出（GPIO）”。                         |
 | PCIe              |                                           PCIe | PCIe                                           | e 必须是小写 ｜                                                        |
 

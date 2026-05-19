@@ -17,7 +17,7 @@ Android SDK Platform-Tools includes tools like ADB (Android Debug Bridge) and Fa
 ## Hardware Requirements
 
 - Board: Radxa Cubie A7A
-- Boot media: MicroSD card, eMMC module, or UFS module (choose one)
+- Boot media: microSD card, eMMC module, or UFS module (choose one)
 - Power adapter: 5V Type-C power adapter
 - Type-C cable: For connecting the board to your computer
 

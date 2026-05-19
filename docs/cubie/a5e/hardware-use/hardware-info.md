@@ -23,7 +23,7 @@ sidebar_position: 1
 | ①    | Wi-Fi / 蓝牙模块    | ⑧    | PoE 排针               | ⑭    | LPDDR4 / LPDDR4x 内存      |
 | ②    | 天线座              | ⑨    | 千兆以太网（支持 PoE） | ⑮    | 全志 A527 / T527           |
 | ③    | USB 3.0 Type-A HOST | ⑩    | MIPI DSI               | ⑯    | 板载 eMMC（预留）          |
-| ④    | HDMI                | ⑪    | MicroSD 卡槽           | ⑰    | 40 Pin GPIO 排针           |
+| ④    | HDMI                | ⑪    | microSD 卡槽           | ⑰    | 40 Pin GPIO 排针           |
 | ⑤    | SPI Flash           | ⑫    | MIPI CSI               | ⑱    | USB Type-C (5V 供电 & OTG) |
 | ⑥    | UBOOT 按键          | ⑬    | M.2 M Key 2230 插槽    | ⑲    | 千兆以太网（不支持 PoE）   |
 | ⑦    | 状态指示灯          |      |                        |      |                            |

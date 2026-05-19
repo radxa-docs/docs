@@ -19,7 +19,7 @@ Please download the system image and Loader refer to [Summary of resource downlo
 <Rkdeveloptool>
 
 <ol>
-    <li>Remove the MicroSD card from the base Board</li>
+    <li>Remove the microSD card from the base Board</li>
     <li>Simultaneously press and hold the Maskrom Button (SPI Flash) and Maskrom Button (eMMC) on the CM3I.</li>
     <li>Connect a PC host from the OTG port using a USB-A to USB-A cable</li>
     <li>Connect the power supply, you can enter the MASKROM mode</li>

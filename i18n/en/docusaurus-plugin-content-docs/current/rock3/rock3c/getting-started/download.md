@@ -36,9 +36,9 @@ title: Resource Download
 
 - Android
 
-[Radxa ROCK 3C Android 11 MicroSD and eMMC Image](https://github.com/radxa/manifests/releases/download/android11-radxa-20240806/Rock3C-Android11_r12-20240806-gpt.zip)：Suitable for booting from MicroSD card or eMMC module.
+[Radxa ROCK 3C Android 11 microSD and eMMC Image](https://github.com/radxa/manifests/releases/download/android11-radxa-20240806/Rock3C-Android11_r12-20240806-gpt.zip)：Suitable for booting from microSD card or eMMC module.
 
-[Radxa ROCK 3C Android 14 MicroSD and eMMC Image](https://github.com/radxa/manifests/releases/download/Android14-rkr6-ROCK3c/ROCK3C-Android14-20250718-HDMI-gpt.zip)：Suitable for booting from MicroSD card or eMMC module.
+[Radxa ROCK 3C Android 14 microSD and eMMC Image](https://github.com/radxa/manifests/releases/download/Android14-rkr6-ROCK3c/ROCK3C-Android14-20250718-HDMI-gpt.zip)：Suitable for booting from microSD card or eMMC module.
 
 :::caution
 Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.

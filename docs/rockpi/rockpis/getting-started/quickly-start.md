@@ -33,8 +33,8 @@ sidebar_position: 0
 您需要提前准备以下硬件设备，以便完成快速上手教程的所有操作。
 
 - 主板：瑞莎 ROCK Pi S
-- 系统启动介质： MicroSD 卡
-- MicroSD 卡读卡器：用于读写 MicroSD 卡
+- 系统启动介质： microSD 卡
+- microSD 卡读卡器：用于读写 microSD 卡
 - USB 串口数据线：用于串口调试和登录
 - 供电方式: 5V Type-C 电源适配器或使用 Type-C 转 Type-A 数据线连接 PC 供电
 
@@ -48,9 +48,9 @@ sidebar_position: 0
 
 Pi S 主板仅支持 5V 电源输入，建议电流 1A 以上，确保所有外设稳定运行。
 
-- MicroSD 卡读卡器
+- microSD 卡读卡器
 
-ROCK Pi S V1.5 支持 eMMC 安装和启动系统，若安装系统到 eMMC，则不需要准备 MicroSD 卡读卡器。
+ROCK Pi S V1.5 支持 eMMC 安装和启动系统，若安装系统到 eMMC，则不需要准备 microSD 卡读卡器。
 
 :::
 
@@ -62,17 +62,17 @@ ROCK Pi S V1.5 支持 eMMC 安装和启动系统，若安装系统到 eMMC，则
 
 <TabItem value=" ROCK Pi S V1.3 ">
 
-ROCK Pi S V1.3 支持 MicroSD 卡安装和启动系统。
+ROCK Pi S V1.3 支持 microSD 卡安装和启动系统。
 
-- 参考 [安装系统到 MicroSD 卡](./install-os/install-os-to-sd.md) 教程。
+- 参考 [安装系统到 microSD 卡](./install-os/install-os-to-sd.md) 教程。
 
 </TabItem>
 
 <TabItem value=" ROCK Pi S V1.5 ">
 
-ROCK Pi S V1.5 支持 MicroSD 卡和板载 eMMC 安装和启动系统，你可以选择一种方式安装系统，其中安装系统到 MicroSD 卡比较简单。
+ROCK Pi S V1.5 支持 microSD 卡和板载 eMMC 安装和启动系统，你可以选择一种方式安装系统，其中安装系统到 microSD 卡比较简单。
 
-- 参考 [安装系统到 MicroSD 卡](./install-os/install-os-to-sd.md) 教程
+- 参考 [安装系统到 microSD 卡](./install-os/install-os-to-sd.md) 教程
 - 参考 [安装系统到 eMMC (适用 V1.5 )](./install-os/install-os-to-emmc.md) 教程
 
 </TabItem>

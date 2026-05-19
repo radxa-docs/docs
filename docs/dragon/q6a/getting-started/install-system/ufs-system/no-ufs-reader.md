@@ -4,13 +4,13 @@ sidebar_position: 4
 
 import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_dd_ufs.mdx';
 
-# 从 MicroSD 卡启动并将系统安装到 UFS
+# 从 microSD 卡启动并将系统安装到 UFS
 
 <InstallSystem tag="ufs_module" board="dragon-q6a" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz" path_to_image_unxz="radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz" path_to_image="radxa-dragon-q6a_noble_kde_t4.output_4096.img" />
 
 ## 启动系统
 
-完成系统的安装后，将 MicroSD 卡取下，确认 UFS 模块已安装到 Dragon Q6A 的 UFS 模块接口中，然后使用 12V Type-C 电源适配器给 Dragon Q6A 供电。
+完成系统的安装后，将 microSD 卡取下，确认 UFS 模块已安装到 Dragon Q6A 的 UFS 模块接口中，然后使用 12V Type-C 电源适配器给 Dragon Q6A 供电。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/dragon/q6a/dragon-q6a-boot-system-ufs.webp" style={{width: '100%', maxWidth: '1200px'}} />

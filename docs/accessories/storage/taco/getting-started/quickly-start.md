@@ -26,7 +26,7 @@ sidebar_position: 1
 - 显示设备：HDMI 数据线和显示器
 - 输入设备：USB 键盘和鼠标
 
-说明：若树莓派 CM5 无板载 eMMC，需要额外准备 MicroSD 卡用于系统安装。
+说明：若树莓派 CM5 无板载 eMMC，需要额外准备 microSD 卡用于系统安装。
 
 :::tip 推荐配件
 
@@ -40,7 +40,7 @@ sidebar_position: 1
 请根据树莓派 CM5 是否有板载 eMMC，选择不同的安装方式：
 
 - 若树莓派 CM5 有板载 eMMC，参考 [安装系统到 eMMC](./install-system/emmc-system) 教程
-- 若树莓派 CM5 无板载 eMMC，需要安装系统到 MicroSD 卡，参考 [安装系统到 MicroSD 卡](./install-system/sd-system) 教程
+- 若树莓派 CM5 无板载 eMMC，需要安装系统到 microSD 卡，参考 [安装系统到 microSD 卡](./install-system/sd-system) 教程
 
 ## 启动系统
 
@@ -54,7 +54,7 @@ sidebar_position: 1
 
 <TabItem value="树莓派 CM5 无板载 eMMC">
 
-完成系统安装后，将 MicroSD 卡安装到瑞莎 Taco 的 microSD 卡槽中，然后使用 12V DC 电源适配器给瑞莎 Taco 供电，系统将从 MicroSD 卡启动。
+完成系统安装后，将 microSD 卡安装到瑞莎 Taco 的 microSD 卡槽中，然后使用 12V DC 电源适配器给瑞莎 Taco 供电，系统将从 microSD 卡启动。
 
 </TabItem>
 

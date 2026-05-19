@@ -33,7 +33,7 @@ ROCK 4C Plus is equipped with two micro HDMI connectors, one supports up to 1440
 Only two of HDMI 2k, HDMI 4K and MIPI DSI can work at the same time.
 :::
 
-- MicroSD Card Reader
+- microSD Card Reader
 
 For flashing the image to the microSD Card.
 

@@ -32,7 +32,7 @@ sidebar_position: 0
 |  ⑤   | [FPC 接口](./fpc-connector)|  1   |  ⑭  | [USB 3.0 Type-A 接口](./usb-type-a)<br />上层：USB 3.0 Type-A OTG<br />下层：USB 3.0 Type-A HOST |  2   |  ㉓  | [RTC 接口](./rtc)           |  1   |
 |  ⑥   | [WiFi6 和 蓝牙 5.4](./ante.md) |  1   |  ⑮  | SPI NOR Flash               |  1   |  ㉔  | [eMMC 模块接口](./emmc-ufs-connector) |  1   |
 |  ⑦   | [天线接口](./ante.md)          |  1   |  ⑯  | [千兆以太网口（支持 PoE）](./gigabit-ethernet) |  1   |  ㉕  | [MIPI CSI 接口](./mipi-csi) |  1   |
-|  ⑧   | [40 Pin GPIO 接口](./pin-gpio)|  1   |  ⑰  | [风扇接口](./fan)            |  1   |  ㉖  | [MicroSD 卡槽](./microsd)   |  1   |
+|  ⑧   | [40 Pin GPIO 接口](./pin-gpio)|  1   |  ⑰  | [风扇接口](./fan)            |  1   |  ㉖  | [microSD 卡槽](./microsd)   |  1   |
 |  ⑨   | LPDDR5 内存                |  1   |  ⑱  | [耳机插孔](./headphone)      |  1   |  ㉗  | [MIPI DSI 接口](./mipi-dsi) |  1   |
     </TabItem>
     <TabItem value="ROCK 4D v1.12">
@@ -46,7 +46,7 @@ sidebar_position: 0
 | ⑤  | [FPC 接口](./fpc-connector)     | 1  | ⑮  | SPI NOR Flash                                                                            | 1  | ㉕  | [RTC 接口](./rtc)                   | 1  |
 | ⑥  | [WiFi6 和 蓝牙 5.4](./ante.md)   | 1  | ⑯  | [千兆以太网口（支持 PoE）](./gigabit-ethernet)                                                      | 1  | ㉖  | [eMMC 模块接口](./emmc-ufs-connector) | 1  |
 | ⑦  | [天线接口](./ante.md)                | 1  | ⑰  | [风扇接口](./fan)                                                                            | 1  | ㉗  | [MIPI CSI 接口](./mipi-csi)         | 1  |
-| ⑧  | [40 Pin GPIO 接口](./pin-gpio)  | 1  | ⑱  | [耳机插孔](./headphone)                                                                      | 1  | ㉘  | [MicroSD 卡槽](./microsd)           | 1  |
+| ⑧  | [40 Pin GPIO 接口](./pin-gpio)  | 1  | ⑱  | [耳机插孔](./headphone)                                                                      | 1  | ㉘  | [microSD 卡槽](./microsd)           | 1  |
 | ⑨  | LPDDR5 内存                     | 1  | ⑲  | [MIPI CSI 接口](./mipi-csi)                                                                | 1  | ㉙  | [MIPI DSI 接口](./mipi-dsi)         | 1  |
 | ⑩  | [PoE 接口](./gigabit-ethernet)  | 1  | ⑳  | 扬声器预留焊盘                                                                                  | 1  |    |                                   |    |
     </TabItem>

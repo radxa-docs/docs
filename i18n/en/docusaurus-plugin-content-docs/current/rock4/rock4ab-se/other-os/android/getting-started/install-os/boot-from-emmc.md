@@ -6,7 +6,7 @@ import UPGRADE_TOOL from "../../../../../../common/dev/\_upgrade-tool.mdx";
 
 # Installing System to eMMC
 
-We can directly install the Android system into the eMMC module. Please refer to the [Installing System to MicroSD Card](./boot-from-sd) section.
+We can directly install the Android system into the eMMC module. Please refer to the [Installing System to microSD Card](./boot-from-sd) section.
 This article mainly describes how to install the Android system in <strong>update format</strong> to the ROCK 4A/4B/4A+/4B+/4SE eMMC via Maskrom mode.
 
 ## File Downloads
@@ -20,7 +20,7 @@ Download the [ROCK 4A/4B/4SE system images](../../../../download) from the resou
     <TabItem value="With onboard eMMC">
 
         <ol>
-            <li>Remove the MicroSD card and disconnect the power</li>
+            <li>Remove the microSD card and disconnect the power</li>
             <li>If there is an SPI Nor Flash on the board, short the SPI Nor Flash pins</li>
             <li>Connect to the PC host using a USB-A to USB-A cable from the OTG port</li>
             <li>Press and hold the Maskrom button</li>
@@ -34,7 +34,7 @@ Download the [ROCK 4A/4B/4SE system images](../../../../download) from the resou
     <TabItem value="Without onboard eMMC">
 
         <ol>
-            <li>Remove the MicroSD card and disconnect the power</li>
+            <li>Remove the microSD card and disconnect the power</li>
             <li>If there is an SPI Nor Flash on the board, short the SPI Nor Flash pins</li>
             <li>Connect to the PC host using a USB-A to USB-A cable from the OTG port</li>
             <li>Connect the power cable. If the power LED stays solid green, you've successfully entered Maskrom mode</li>

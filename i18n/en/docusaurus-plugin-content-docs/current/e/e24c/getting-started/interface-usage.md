@@ -23,7 +23,7 @@ sidebar_position: 2
 |  ④  | User Button                                                              |  1  |
 |  ⑤  | USB 2.0 Type-A Ports                                                     |  3  |
 |  ⑥  | RTC Battery Connector                                                    |  1  |
-|  ⑦  | MicroSD Card Slot                                                        |  1  |
+|  ⑦  | microSD Card Slot                                                        |  1  |
 |  ⑧  | GPIO: 14-Pin Expansion Header                                            |  1  |
 |  ⑨  | LED Indicators (1 Power, 4 Ethernet Port LEDs)                           |  5  |
 |  ⑩  | Power Button                                                             |  1  |
@@ -50,7 +50,7 @@ sidebar_position: 2
 |  ③  | Gigabit Ethernet Ports (Configurable WAN/LAN)  |  4  |
 |  ④  | Power Button                                   |  1  |
 |  ⑤  | LED Indicators (1 Power, 4 Ethernet Port LEDs) |  5  |
-|  ⑥  | MicroSD Card Slot                              |  1  |
+|  ⑥  | microSD Card Slot                              |  1  |
 |  ⑦  | USB 2.0 Type-A Ports                           |  3  |
 |  ⑧  | Maskrom Button                                 |  1  |
 |  ⑨  | User Button                                    |  1  |
@@ -135,9 +135,9 @@ Three USB 2.0 ports for connecting external devices such as keyboards, mice, and
 
 2-Pin 1.25mm RTC battery connector for connecting a real-time clock battery to maintain accurate system time during power loss.
 
-### MicroSD Card Slot
+### microSD Card Slot
 
-For inserting a MicroSD card, which can be used as a system boot device or for additional storage.
+For inserting a microSD card, which can be used as a system boot device or for additional storage.
 
 ### GPIO: 14-Pin Expansion Header
 

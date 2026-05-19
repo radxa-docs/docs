@@ -17,7 +17,7 @@ It bundles ADB, Fastboot, and other tools, and is available for Linux, Windows, 
 ## Hardware Requirements
 
 - Board: Radxa Cubie A7Z
-- Boot media: MicroSD card or onboard UFS
+- Boot media: microSD card or onboard UFS
 - Type‑C data cable to connect the board and PC
 
 Ensure the Cubie A7Z has already booted into Android; otherwise ADB cannot connect.

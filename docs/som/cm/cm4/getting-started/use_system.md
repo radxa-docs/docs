@@ -17,7 +17,7 @@ sidebar_position: 3
 :::tip 系统启动优先级
 若您在主板上安装了多个系统启动介质，系统启动优先级如下：
 
-MicroSD 卡 > 板载 eMMC > UFS 模块 > NVMe SSD
+microSD 卡 > 板载 eMMC > UFS 模块 > NVMe SSD
 :::
 
 **说明：你可以将优先级较高的系统启动介质取下来，这样系统就会从优先级较低的系统启动介质启动。**

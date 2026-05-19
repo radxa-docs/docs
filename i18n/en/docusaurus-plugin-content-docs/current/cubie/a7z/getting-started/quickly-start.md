@@ -20,7 +20,7 @@ This tutorial is designed to help you get started quickly with the Cubie A7Z mot
 You will need to prepare the following hardware:
 
 - Motherboard: Radxa Cubie A7Z
-- System Boot Media: MicroSD Card (Recommended)
+- System Boot Media: microSD Card (Recommended)
 - Power Adapter: 5V USB-C Power Adapter
 
 :::tip Recommended Accessories
@@ -39,7 +39,7 @@ Because the board's passive cooling is limited, the SoC may overheat and cause s
 
 Based on your system boot media and available hardware, please refer to the following tutorials for system installation:
 
-- [Install System to MicroSD Card](./install-system/microsd)
+- [Install System to microSD Card](./install-system/microsd)
 - [Install System to Onboard UFS](./install-system/ufs)
 
 ## Booting the System
@@ -47,9 +47,9 @@ Based on your system boot media and available hardware, please refer to the foll
 After completing the system installation, you need to install the corresponding system boot media on the Cubie A7Z.
 
 <Tabs queryString="system boot">
-<TabItem value="MicroSD Card">
+<TabItem value="microSD Card">
 
-Insert the MicroSD card into the Cubie A7Z's MicroSD card slot, then connect the Cubie A7Z to a 5V USB-C power adapter to boot the system.
+Insert the microSD card into the Cubie A7Z's microSD card slot, then connect the Cubie A7Z to a 5V USB-C power adapter to boot the system.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/cubie/a7z/a7z-microsd-boot.webp" style={{width: '100%', maxWidth: '1200px'}} />

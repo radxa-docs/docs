@@ -2,12 +2,12 @@
 sidebar_position: 1
 ---
 
-# Install System to MicroSD Card
+# Install System to microSD Card
 
-This section explains how to deploy the Android system onto a MicroSD card.
+This section explains how to deploy the Android system onto a microSD card.
 
 :::warning
-Flashing the image will format the MicroSD card. Back up any important data in advance!
+Flashing the image will format the microSD card. Back up any important data in advance!
 :::
 
 ## Hardware Checklist
@@ -15,8 +15,8 @@ Flashing the image will format the MicroSD card. Back up any important data in a
 Prepare the following items:
 
 - Board: Radxa Cubie A7Z
-- Boot media: MicroSD card
-- Card reader: MicroSD card reader
+- Boot media: microSD card
+- Card reader: microSD card reader
 - Power supply: 5 V USB Type‑C adapter
 
 :::tip Recommended accessory
@@ -28,11 +28,11 @@ Prepare the following items:
 
 Cubie A7Z accepts PD-compliant 5 V input; use an adapter capable of at least 3 A to keep peripherals stable.
 
-- **Power adapter**: Once the image has been written to the MicroSD card, power the board via a USB‑C adapter to avoid power shortages during development.
+- **Power adapter**: Once the image has been written to the microSD card, power the board via a USB‑C adapter to avoid power shortages during development.
 
 ## Connect the Hardware
 
-Insert the MicroSD card into the reader, then plug the reader into your PC.
+Insert the microSD card into the reader, then plug the reader into your PC.
 
 <div style={{textAlign: 'center'}}>
   <img src="/en/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -40,9 +40,9 @@ Insert the MicroSD card into the reader, then plug the reader into your PC.
 
 ## Software Preparation
 
-You need Allwinner’s Phoenix utilities to flash the Phoenix-format Android image to the MicroSD card. Download them from the [Resources download page](../../../download).
+You need Allwinner’s Phoenix utilities to flash the Phoenix-format Android image to the microSD card. Download them from the [Resources download page](../../../download).
 
-**PhoenixCard**: Windows utility for creating bootable MicroSD cards.
+**PhoenixCard**: Windows utility for creating bootable microSD cards.
 
 ## Flash the System
 
@@ -50,7 +50,7 @@ Unzip PhoenixCard, open the directory, and run `PhoenixCard.exe` as Administrato
 
 1. Choose **Image** and select the decompressed system image file.
 2. Set the card type to **Start up** to build a bootable card.
-3. Tick the drive letter that corresponds to your MicroSD card.
+3. Tick the drive letter that corresponds to your microSD card.
 4. Click **Burn** to start writing.
 
 <div style={{textAlign: 'center'}}>

@@ -12,7 +12,7 @@ An M.2 NVMe SSD is a solid-state drive that supports the M.2 interface and NVMe 
 
 ## Hardware Preparation
 
-Installing the system on an M.2 NVMe SSD using an enclosure doesn't require a MicroSD card. Simply insert the M.2 NVMe SSD into the enclosure and use the Etcher software to install the system onto the SSD.
+Installing the system on an M.2 NVMe SSD using an enclosure doesn't require a microSD card. Simply insert the M.2 NVMe SSD into the enclosure and use the Etcher software to install the system onto the SSD.
 
 **Note: Booting from an M.2 NVMe SSD requires using it with a PCIe to M.2 M Key HAT.**
 
@@ -163,7 +163,7 @@ Password: radxa
 After completing the system image installation:
 
 1. Remove the M.2 NVMe SSD from the M.2 SSD enclosure
-2. Remove the MicroSD card from the ROCK 4D
+2. Remove the microSD card from the ROCK 4D
 3. Install the M.2 NVMe SSD into the PCIe to M.2 M Key HAT
 4. Install the PCIe to M.2 M Key HAT onto the ROCK 4D
 5. Connect the power supply to the ROCK 4D

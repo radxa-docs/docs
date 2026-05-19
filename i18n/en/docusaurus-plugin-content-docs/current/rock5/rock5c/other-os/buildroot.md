@@ -134,8 +134,8 @@ upgrade_tool uf update.img
 
 On a Windows host, use the `RKDevTool` utility through the Type-A port to flash the system image `update.img` to eMMC.
 
-### Flash Image to MicroSD Card
+### Flash Image to microSD Card
 
-Use SDDiskTool to flash the generated image to a MicroSD Card.
+Use SDDiskTool to flash the generated image to a microSD Card.
 
 <SSDISKTOOL />

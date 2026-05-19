@@ -24,7 +24,7 @@ sidebar_position: 2
 
 - 主板：瑞莎 Cubie A5E
 - 供电：5V Type-C 电源适配器
-- 系统启动介质：MicroSD 卡（用于安装系统与启动）
+- 系统启动介质：microSD 卡（用于安装系统与启动）
 - 显示设备：HDMI 数据线与显示器（用于显示图形界面）
 - 输入设备：键盘和鼠标（用于图形界面操作）
 - 调试工具（可选）：USB 串口数据线（用于串口登录）和 USB-A 拓展坞（用于拓展 USB 外设）
@@ -43,7 +43,7 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 **镜像类型选择**
 
-- **GPT 镜像（推荐新手）**：适用于 MicroSD 卡和 NVMe SSD，使用 Balena Etcher 工具安装
+- **GPT 镜像（推荐新手）**：适用于 microSD 卡和 NVMe SSD，使用 Balena Etcher 工具安装
 - **FEL 镜像（高级）**：适用于 eMMC 安装，使用 Phoenix 工具烧录
 
 ## 安装系统
@@ -52,7 +52,7 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 **GPT 镜像安装**
 
-- [安装系统到 MicroSD 卡](../../getting-started/quickly-start#安装系统)（新用户推荐）
+- [安装系统到 microSD 卡](../../getting-started/quickly-start#安装系统)（新用户推荐）
 - [安装系统到 NVMe SSD](../../getting-started/install-system/nvme-system)
 
 **FEL 镜像安装**
@@ -61,7 +61,7 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 ## 启动系统
 
-① : 将 MicroSD 卡插入 MicroSD 卡槽
+① : 将 microSD 卡插入 microSD 卡槽
 
 ② : 使用 HDMI 数据线连接显示器和主板
 

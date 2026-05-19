@@ -113,8 +113,8 @@ On Windows, use `RKDevTool` via the Type-A flashing port to write `update.img` i
     <img src="/en/img/rock4/4d/other-os-burn-img.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### Flash the Image to a MicroSD Card
+### Flash the Image to a microSD Card
 
-Use SDDiskTool to write the generated image to a MicroSD card.
+Use SDDiskTool to write the generated image to a microSD card.
 
 <SSDISKTOOL />

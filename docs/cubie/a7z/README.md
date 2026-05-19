@@ -34,7 +34,7 @@ Cubie A7Z 搭载全志 A733 SoC，内置混合架构高性能八核 CPU（双核
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 处理器   | 系统级芯片 (SoC)： 全志 A733 <br/> 中央处理器 (CPU)： 2 核 Cortex-A76 + 6 核 Cortex-A55 <br/> 图形处理器 (GPU)： Imagination BXM-4-64 MC1, 支持 OpenGL ES 3.2、Vulkan 1.3、OpenCL 3.0 <br/> 神经网络加速器 (NPU)： 3 TOPS@INT8 AI 加速引擎 |
 | 内存     | LPDDR4/4x，可选：1GB / 2GB / 4GB / 8GB / 16GB                                                                                                                                                                                              |
-| 存储     | 板载存储：可选板载 UFS 模块（最高可选 1TB） <br/> 拓展存储：MicroSD 卡槽                                                                                                                                                                   |
+| 存储     | 板载存储：可选板载 UFS 模块（最高可选 1TB） <br/> 拓展存储：microSD 卡槽                                                                                                                                                                   |
 | 网络     | 板载 Wi-Fi 6、蓝牙 5.4 芯片，可外接天线增强信号                                                                                                                                                                                            |
 | 视频输出 | 1 个 Micro HDMI 接口，最高支持 4K@60fps <br/> 1 个 USB-C 3.0 接口，兼容 DisplayPort Alt 模式.可外接高清显示屏                                                                                                                              |
 | 摄像头   | 1 个 4-lane MIPI CSI（可拆分成 2 个 2-lane MIPI CSI）                                                                                                                                                                                      |
@@ -56,7 +56,7 @@ Cubie A7Z 搭载全志 A733 SoC，内置混合架构高性能八核 CPU（双核
 | ①    | USB-C 2.0 OTG & Power 接口      | ⑥    | 天线接口             | ⑪    | PCIe 3.0 FPC 接口 |
 | ②    | USB-C 3.1 OTG & DP Alt 模式接口 | ⑦    | WiFi 6 / BT5 模组    | ⑫    | 40-Pin GPIO 接口  |
 | ③    | Allwinner A733                  | ⑧    | 4-lane MIPI CSI 接口 | ⑬    | LPDDR4/4x RAM     |
-| ④    | Micro HDMI 接口                 | ⑨    | 板载 UFS             | ⑭    | MicroSD 卡槽      |
+| ④    | Micro HDMI 接口                 | ⑨    | 板载 UFS             | ⑭    | microSD 卡槽      |
 | ⑤    | FAN 接口                        | ⑩    | UBOOT 按键           |      |                   |
 
 - 电源指示灯

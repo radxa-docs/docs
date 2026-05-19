@@ -10,15 +10,15 @@ imports_resolve_to:
 
 import Etcher from '../../../../../common/general/\_etcherV2.mdx';
 
-# Install OS to MicroSD Card
+# Install OS to microSD Card
 
 ## File download
 
 Please download the system image refer to [Summary of resource downloads](../../download).
 
-## MicroSD card preparation
+## microSD card preparation
 
-Insert the MicroSD card into the SD card reader, and then insert the card reader into the USB port of the PC.
+Insert the microSD card into the SD card reader, and then insert the card reader into the USB port of the PC.
 
 ## Image burning
 
@@ -26,7 +26,7 @@ Insert the MicroSD card into the SD card reader, and then insert the card reader
 
 ## Boot the system
 
-After successfully burning the MicroSD Card according to the above steps, insert the MicroSD Card into the MicroSD Card slot (as shown in the following figure), and then power on the system, the system will start booting up and HDMI will display the desktop.
+After successfully burning the microSD Card according to the above steps, insert the microSD Card into the microSD Card slot (as shown in the following figure), and then power on the system, the system will start booting up and HDMI will display the desktop.
 
 <img
 src="/img/cm3i/radxa-cm3i-io-board-sd-slot.webp"

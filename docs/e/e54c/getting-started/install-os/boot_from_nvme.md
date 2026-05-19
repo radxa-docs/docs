@@ -6,18 +6,18 @@ sidebar_position: 2
 
 ## 概览
 
-Radxa E54C 通过 NVME 启动系统需要先通过MicroSD 卡或 eMMC 启动系统，然后通过 `rsetup` 工具或 `RKDevTool` 工具刷入 SPI Flash，最后通过 `dd` 命令写入系统镜像到 NVME 设备
+Radxa E54C 通过 NVME 启动系统需要先通过microSD 卡或 eMMC 启动系统，然后通过 `rsetup` 工具或 `RKDevTool` 工具刷入 SPI Flash，最后通过 `dd` 命令写入系统镜像到 NVME 设备
 
-教程以 MicroSD 卡启动系统作为演示。eMMC 系统安装方式没有区别。
+教程以 microSD 卡启动系统作为演示。eMMC 系统安装方式没有区别。
 
 ## 启动系统
 
-可以参考[快速上手](../quick-start)教程，使系统通过 MicroSD 卡启动。
+可以参考[快速上手](../quick-start)教程，使系统通过 microSD 卡启动。
 
 确认 Radxa E54C 系统成功启动，关机并断开 Radxa E54C 电源，然后将 NVME 插入 Radxa E54C 主板的 M.2 接口。
 
 :::tip
-MicroSD 卡的作用是相当于 x86 系统的启动盘，目的是进入一个可以安装系统的 Linux 环境，并拿到 SPI Flash 的 Image 文件 - `spi.img`，然后将 `spi.img` 通过 `rsetup` 工具刷到 SPI Flash 中
+microSD 卡的作用是相当于 x86 系统的启动盘，目的是进入一个可以安装系统的 Linux 环境，并拿到 SPI Flash 的 Image 文件 - `spi.img`，然后将 `spi.img` 通过 `rsetup` 工具刷到 SPI Flash 中
 :::
 
 ## 刷入 SPI Flash
@@ -395,7 +395,7 @@ sudo fdisk -l /dev/nvme0n1
 
 1. 关闭系统：`sudo shutdown -h now`
 2. 断开 Radxa E54C 与电源
-3. 移除 MicroSD 卡
+3. 移除 microSD 卡
 4. 重新连接电源
 5. 等待系统从NVMe启动
 
@@ -423,13 +423,13 @@ df -h
 
 - **系统无法启动**：
 
-  - 重新插入MicroSD卡，启动系统
+  - 重新插入microSD卡，启动系统
   - 尝试更换刷入 SPI Flash 的 Bootloader 文件选项（优先选择最新版本）
   - 检查 M.2 接口是否连接良好，可尝试重新插拔NVMe
 
 - **系统可以启动但无法登录**：
   - 默认用户名：`radxa`，密码：`radxa`
-  - 如密码错误，可重新使用MicroSD卡启动，然后重新下载并写入系统镜像
+  - 如密码错误，可重新使用microSD卡启动，然后重新下载并写入系统镜像
     :::
 
 ## 后续步骤

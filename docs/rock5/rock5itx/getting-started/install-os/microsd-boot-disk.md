@@ -14,7 +14,7 @@ import Images from "../../\_image.mdx"
 
 ### 制作启动盘
 
-参考上文 [制作 MicroSD 启动盘](./etcher)，接下来我们以此为基础，将系统安装到 eMMC 中。
+参考上文 [制作 microSD 启动盘](./etcher)，接下来我们以此为基础，将系统安装到 eMMC 中。
 
 ### 登录到系统
 

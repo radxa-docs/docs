@@ -4,13 +4,13 @@ sidebar_position: 1
 
 import BalenaEtcherUse from '../../../../common/radxa-os/install-system/\_use_etcher_sd.mdx';
 
-# Install System to MicroSD Card
+# Install System to microSD Card
 
 <BalenaEtcherUse />
 
 ## Boot the System
 
-① Insert the MicroSD card into the MicroSD card slot
+① Insert the microSD card into the microSD card slot
 
 ② Connect the monitor to the board using an HDMI cable
 

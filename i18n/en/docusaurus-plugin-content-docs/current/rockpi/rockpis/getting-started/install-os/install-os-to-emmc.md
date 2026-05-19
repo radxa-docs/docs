@@ -7,7 +7,7 @@ sidebar_position: 2
 This section tutorial mainly introduces how to install the system to the on-chip eMMC of the Radxa ROCK Pi S V1.5.
 
 :::tip
-ROCK Pi S V1.5 is based on the V1.3 version, and it has added the on-chip eMMC, so you can directly boot the system through eMMC without using a MicroSD card.
+ROCK Pi S V1.5 is based on the V1.3 version, and it has added the on-chip eMMC, so you can directly boot the system through eMMC without using a microSD card.
 :::
 
 ## Hardware Preparation
@@ -148,14 +148,14 @@ rkdeveloptool -V
 We need to put the ROCK Pi S into Maskrom mode to install the system on the eMMC.
 
 :::tip
-The MicroSD card must be removed for the ROCK Pi S to enter Maskrom mode. Otherwise, it will boot directly from the MicroSD card instead of entering Maskrom mode.
+The microSD card must be removed for the ROCK Pi S to enter Maskrom mode. Otherwise, it will boot directly from the microSD card instead of entering Maskrom mode.
 :::
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rockpi/pis/rock-pi-s-v15-maskrom.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① : MicroSD card slot --> Ensure the MicroSD card is removed
+① : microSD card slot --> Ensure the microSD card is removed
 
 ② : Maskrom button
 

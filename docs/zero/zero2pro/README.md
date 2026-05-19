@@ -52,7 +52,7 @@ sidebar_position: 40
     </tr>
     <tr>
         <td align="center">存储</td>
-        <td align="center">可选板载 eMMC 模块：16/32/64 GB<br/>MicroSD 存储卡</td>
+        <td align="center">可选板载 eMMC 模块：16/32/64 GB<br/>microSD 存储卡</td>
     </tr>
     <tr>
         <td align="center">显示</td>

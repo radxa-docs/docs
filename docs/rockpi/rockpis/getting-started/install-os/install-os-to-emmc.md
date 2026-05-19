@@ -7,7 +7,7 @@ sidebar_position: 2
 本节教程主要介绍如何给瑞莎 ROCK Pi S V1.5 的板载 eMMC 安装系统。
 
 :::tip
-ROCK Pi S V1.5 在 V1.3 的基础上增加了板载 eMMC,您可以直接通过 eMMC 启动系统，无需 MicroSD 卡。
+ROCK Pi S V1.5 在 V1.3 的基础上增加了板载 eMMC,您可以直接通过 eMMC 启动系统，无需 microSD 卡。
 :::
 
 ## 硬件准备
@@ -147,14 +147,14 @@ rkdeveloptool -V
 我们需要让 ROCK Pi S 进入 Maskrom 模式，然后基于这个模式给 eMMC 安装系统。
 
 :::tip
-ROCK Pi S 需要拔掉 MicroSD 卡才可以进入 Maskrom 模式，否则会直接启动系统，无法进入 Maskrom 模式。
+ROCK Pi S 需要拔掉 microSD 卡才可以进入 Maskrom 模式，否则会直接启动系统，无法进入 Maskrom 模式。
 :::
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rockpi/pis/rock-pi-s-v15-maskrom.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① ： MicroSD 卡槽 --> 确保 MicroSD 卡拔掉
+① ： microSD 卡槽 --> 确保 microSD 卡拔掉
 
 ② ： Maskrom 按键
 

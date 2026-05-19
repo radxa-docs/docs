@@ -128,8 +128,8 @@ upgrade_tool uf update.img
     <img src="/img/rock4/4d/other-os-burn-img.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### 烧录镜像到 MicroSD Card 中
+### 烧录镜像到 microSD Card 中
 
-使用 SDDiskTool 将生成的镜像烧录到 MicroSD Card 中。
+使用 SDDiskTool 将生成的镜像烧录到 microSD Card 中。
 
 <SSDISKTOOL />

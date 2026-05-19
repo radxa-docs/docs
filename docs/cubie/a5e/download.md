@@ -18,13 +18,13 @@ sidebar_position: 150
 ## 系统镜像
 
 :::tip 新手入门推荐
-我们强烈建议新手用户下载 GPT 格式的 Radxa OS 官方切换分支，并使用 [Balena Etcher](./getting-started/quickly-start#安装系统镜像) 工具将其安装到 MicroSD 卡中。这是最简单、最快捷的上手方式。
+我们强烈建议新手用户下载 GPT 格式的 Radxa OS 官方切换分支，并使用 [Balena Etcher](./getting-started/quickly-start#安装系统镜像) 工具将其安装到 microSD 卡中。这是最简单、最快捷的上手方式。
 
 **镜像类型说明**
 
 - GPT 系统镜像（推荐新手）：
 
-  - 适用于 MicroSD 卡或 NVMe SSD
+  - 适用于 microSD 卡或 NVMe SSD
   - 使用 Balena Etcher 图形化工具，操作简单
   - 支持 `dd` 命令行烧录
   - 瑞莎推荐的镜像类型，兼容性最佳
@@ -63,7 +63,7 @@ sidebar_position: 150
   - 适用于 GPT 系统镜像
   - 界面友好，操作简单
   - 自动校验镜像完整性
-  - 最适合将系统安装到 MicroSD 卡或 NVMe SSD
+  - 最适合将系统安装到 microSD 卡或 NVMe SSD
 
 - **[PhoenixSuit (Windows)](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip)** / **[LiveSuit (Linux)](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip)**
 
@@ -73,7 +73,7 @@ sidebar_position: 150
   - 需要一定技术基础
 
 - **[PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)** (Windows)
-  - 支持 FEL 固件制作可启动 MicroSD 卡
+  - 支持 FEL 固件制作可启动 microSD 卡
   - 可用于批量生产场景
 
 ## 硬件设计

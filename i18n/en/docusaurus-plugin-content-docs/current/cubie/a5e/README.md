@@ -39,7 +39,7 @@ The Cubie A5E achieves an optimal balance between performance and power efficien
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Processor    | SoC: Allwinner A527 <br/> CPU: 8-core Cortex-A55 <br/> GPU: Arm Mali-G57; Supports OpenGL® ES 1.1 / 2.0 / 3.1 / 3.2, Vulkan® 1.1, OpenCL™ 1.1 / 1.2 / 2.0 <br/> NPU: None                                          |
 | Memory       | LPDDR4 / LPDDR4x, Options: 1GB / 2GB / 4GB                                                                                                                                                                            |
-| Storage      | Boot Storage: On-board SPI Flash <br/> System Storage: Supports MicroSD Card / On-board eMMC (Options: 0GB / 8GB / 16GB / 32GB) / M.2 M Key NVMe SSD <br/> **Boot Priority**: MicroSD Card > NVMe SSD > On-board eMMC |
+| Storage      | Boot Storage: On-board SPI Flash <br/> System Storage: Supports microSD Card / On-board eMMC (Options: 0GB / 8GB / 16GB / 32GB) / M.2 M Key NVMe SSD <br/> **Boot Priority**: microSD Card > NVMe SSD > On-board eMMC |
 | Network      | Wired: 2x Gigabit Ethernet (PoE supported, requires external PoE HAT) <br/> Wireless: Wi-Fi 6, Bluetooth 5.4, with antenna connector                                                                                  |
 | Video Output | HDMI: 1x HDMI port, supports up to 4K@60fps <br/> MIPI DSI: 1x 4-lane MIPI DSI                                                                                                                                        |
 | Camera       | 1x 4-lane MIPI CSI or 2x 2-lane MIPI CSI                                                                                                                                                                              |
@@ -56,7 +56,7 @@ The Cubie A5E achieves an optimal balance between performance and power efficien
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Processor    | SoC: Allwinner T527 <br/> CPU: 8-core Cortex-A55 <br/> GPU: Arm Mali-G57; Supports OpenGL® ES 1.1 / 2.0 / 3.1 / 3.2, Vulkan® 1.1, OpenCL™ 1.1 / 1.2 / 2.0 <br/> NPU: 2TOPS@INT8                                    |
 | Memory       | LPDDR4 / LPDDR4x, Options: 1GB / 2GB / 4GB                                                                                                                                                                            |
-| Storage      | Boot Storage: On-board SPI Flash <br/> System Storage: Supports MicroSD Card / On-board eMMC (Options: 0GB / 8GB / 16GB / 32GB) / M.2 M Key NVMe SSD <br/> **Boot Priority**: MicroSD Card > NVMe SSD > On-board eMMC |
+| Storage      | Boot Storage: On-board SPI Flash <br/> System Storage: Supports microSD Card / On-board eMMC (Options: 0GB / 8GB / 16GB / 32GB) / M.2 M Key NVMe SSD <br/> **Boot Priority**: microSD Card > NVMe SSD > On-board eMMC |
 | Network      | Wired: 2x Gigabit Ethernet (PoE supported, requires external PoE HAT) <br/> Wireless: Wi-Fi 6, Bluetooth 5.4, with antenna connector                                                                                  |
 | Video Output | HDMI: 1x HDMI port, supports up to 4K@60fps <br/> MIPI DSI: 1x 4-lane MIPI DSI                                                                                                                                        |
 | Camera       | 1x 4-lane MIPI CSI or 2x 2-lane MIPI CSI                                                                                                                                                                              |
@@ -80,7 +80,7 @@ The Cubie A5E achieves an optimal balance between performance and power efficien
 | ①   | Wi-Fi / Bluetooth   | ⑧   | PoE Header             | ⑭   | LPDDR4 / LPDDR4x Memory     |
 | ②   | Antenna Connector   | ⑨   | Gigabit Ethernet (PoE) | ⑮   | Allwinner A527 / T527       |
 | ③   | USB 3.0 Type-A HOST | ⑩   | MIPI DSI               | ⑯   | On-board eMMC (Reserved)    |
-| ④   | HDMI                | ⑪   | MicroSD Card Slot      | ⑰   | 40-pin GPIO Header          |
+| ④   | HDMI                | ⑪   | microSD Card Slot      | ⑰   | 40-pin GPIO Header          |
 | ⑤   | SPI Flash           | ⑫   | MIPI CSI               | ⑱   | USB Type-C (5V Power & OTG) |
 | ⑥   | UBOOT Button        | ⑬   | M.2 M Key 2230 Slot    | ⑲   | Gigabit Ethernet (Non-PoE)  |
 | ⑦   | Status LED          |     |                        |     |                             |

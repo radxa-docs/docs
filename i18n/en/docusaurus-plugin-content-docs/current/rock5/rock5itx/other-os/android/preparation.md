@@ -24,7 +24,7 @@ The ROCK 5 ITX is powered by a 12V power supply, and it is recommended to use a 
 
 ### Storage (choose one out of three)
 
--MicroSD, greater than 8GB (for booting from SD)
+-microSD, greater than 8GB (for booting from SD)
 -EMMC Module (On board)
 -NVME SSD (M.2 interface ,for booting from SPI-NVME)
 

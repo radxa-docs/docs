@@ -25,7 +25,7 @@ You will need to prepare the following hardware devices in advance:
 
 - Board: Radxa Cubie A5E
 - Power Supply: 5V Type-C Power Adapter
-- System Boot Media: MicroSD Card (for system installation and booting)
+- System Boot Media: microSD Card (for system installation and booting)
 - Display: HDMI Cable and Monitor (for graphical interface)
 - Input Devices: Keyboard and Mouse (for GUI operation)
 - Debugging Tools (Optional): USB-to-Serial Cable (for serial login) and USB-A Hub (for expanding USB peripherals)
@@ -44,7 +44,7 @@ Please visit the [Resource Downloads](../../download#tina-linux) page to get the
 
 **Image Type Selection**
 
-- **GPT Image (Recommended for beginners)**: Suitable for MicroSD cards and NVMe SSDs, installed using Balena Etcher tool
+- **GPT Image (Recommended for beginners)**: Suitable for microSD cards and NVMe SSDs, installed using Balena Etcher tool
 - **FEL Image (Advanced)**: Suitable for eMMC installation, flashed using Phoenix tools
 
 ## Install System
@@ -53,7 +53,7 @@ You can refer to the following general installation tutorials:
 
 **GPT Image Installation**
 
-- [Install System to MicroSD Card](../../getting-started/quickly-start#install-system) (Recommended for new users)
+- [Install System to microSD Card](../../getting-started/quickly-start#install-system) (Recommended for new users)
 - [Install System to NVMe SSD](../../getting-started/install-system/nvme-system)
 
 **FEL Image Installation**
@@ -62,7 +62,7 @@ You can refer to the following general installation tutorials:
 
 ## Booting the System
 
-① : Insert the MicroSD card into the MicroSD card slot
+① : Insert the microSD card into the microSD card slot
 
 ② : Connect the monitor to the board using an HDMI cable
 

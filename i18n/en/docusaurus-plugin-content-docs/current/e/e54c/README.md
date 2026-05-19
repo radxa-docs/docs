@@ -63,7 +63,7 @@ All models can be expanded with an M.2 NVMe SSD for storage, providing higher st
 
 - **Powerful Processing Performance**: Rockchip RK3582 processor, dual-core Cortex-A76 (up to 2.2GHz) and quad-core Cortex-A55 (up to 1.8GHz) 64-bit processor
 - **Rich Network Connectivity**: Equipped with 4 gigabit Ethernet ports, supporting multi-WAN access, load balancing, and complex network topologies
-- **Flexible Storage Solutions**: Supports MicroSD card boot, optional onboard eMMC, and M.2 NVMe SSD high-speed storage expansion
+- **Flexible Storage Solutions**: Supports microSD card boot, optional onboard eMMC, and M.2 NVMe SSD high-speed storage expansion
 - **AI Acceleration Capability**: Built-in NPU with computing power up to 5TOPs@INT8, supporting mainstream AI frameworks and inference tasks
 - **Multi-functional Interfaces**: Provides USB 3.0/2.0 interfaces, HDMI 2.1 output (supporting up to 8K), and GPIO expansion interface
 - **Efficient Heat Dissipation Design**: Aluminum alloy case provides excellent passive cooling, with optional fan for active cooling
@@ -78,7 +78,7 @@ All models can be expanded with an M.2 NVMe SSD for storage, providing higher st
 | **NPU**                   | Computing power up to 5TOPs@INT8, supporting mainstream AI inference frameworks              |
 | **Memory**                | 2GB/4GB/8GB/16GB/32GB LPDDR4                                                                 |
 | **Onboard Storage**       | Optional eMMC: 8GB/16GB/32GB/64GB/128GB                                                      |
-| **Storage Expansion**     | MicroSD card slot + M.2 M-Key interface (PCIe 2.1), supporting NVMe SSD                      |
+| **Storage Expansion**     | microSD card slot + M.2 M-Key interface (PCIe 2.1), supporting NVMe SSD                      |
 | **Ethernet**              | 4 gigabit Ethernet ports (WAN/LAN configurable)                                              |
 | **USB Ports**             | 1 USB 3.0 Type-A + 2 USB 2.0 Type-A + 1 USB 3.0 Type-C (OTG)                                 |
 | **Video Output**          | HDMI 2.1 interface, supporting up to 8K resolution                                           |
@@ -99,7 +99,7 @@ The above image shows the main hardware interfaces and component layout of E54C,
 2. USB 3.0/2.0 ports
 3. HDMI 2.1 output port
 4. M.2 NVMe SSD slot
-5. MicroSD card slot
+5. microSD card slot
 6. GPIO expansion interface
 7. 12V DC power connector
 

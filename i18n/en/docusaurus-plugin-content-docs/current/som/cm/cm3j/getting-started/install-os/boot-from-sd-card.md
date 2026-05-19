@@ -16,9 +16,9 @@ import Etcher from '../../../../../common/general/\_etcherV2.mdx';
 
 Please go to the [Resource Download](../../download.md) section to download the corresponding image.
 
-## MicroSD Card Preparation
+## microSD Card Preparation
 
-Insert the MicroSD card into the SD card reader, and then plug the reader into the USB port of your PC.
+Insert the microSD card into the SD card reader, and then plug the reader into the USB port of your PC.
 
 ## Image Flash
 

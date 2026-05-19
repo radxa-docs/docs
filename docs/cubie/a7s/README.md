@@ -42,7 +42,7 @@ sidebar_position: 4
 | 微控制器       | RISC-V 玄铁 E902，最高 200 MHz                                                                                                                                   |
 | 内存           | LPDDR5<br />- 最高可选 16 GB                                                                                                                                     |
 | 视频编解码     | 视频编码<br />- H.264 / H.265 编码，最高支持 4K@30fps<br />视频解码<br />- H.265 / VP9 / AVS2 解码，最高支持 4K@60fps<br />- H.264 解码，最高支持 4K@30fps       |
-| 存储           | 可选 eMMC<br />- 最大可选 256GB<br />1X MicroSD 卡槽                                                                                                             |
+| 存储           | 可选 eMMC<br />- 最大可选 256GB<br />1X microSD 卡槽                                                                                                             |
 | 网络           | 1X 千兆以太网<br />板载 Wi‑Fi 6 & BT5.4 模组<br />- 1X 天线接口                                                                                                  |
 | 显示           | 1X USB‑C 接口，支持 DisplayPort Alt 模式，最高 4Kp60                                                                                                             |
 | 摄像头         | 1X MIPI 摄像头（4 通道）                                                                                                                                         |

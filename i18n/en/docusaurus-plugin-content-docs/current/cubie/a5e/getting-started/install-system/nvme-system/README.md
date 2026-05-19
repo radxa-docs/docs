@@ -17,4 +17,4 @@ To use an NVMe SSD as a boot drive, you need to follow these steps and tutorials
 You can choose different writing methods based on your hardware:
 
 - [Write System Image Using an External SSD Reader](./install-system/reader.md): Requires an NVMe SSD enclosure, relatively simple to operate!
-- [Write System Image from SD Card to NVMe](./install-system/no-reader.md): Requires booting Cubie A5E system normally from a MicroSD card first, then using the `dd` command to install the system to the NVMe SSD.
+- [Write System Image from SD Card to NVMe](./install-system/no-reader.md): Requires booting Cubie A5E system normally from a microSD card first, then using the `dd` command to install the system to the NVMe SSD.

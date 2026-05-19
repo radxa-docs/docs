@@ -9,5 +9,5 @@ The Android system installation steps are similar to the Linux system. You can r
 Notes:
 
 - MNVMe SSD cannot boot Android system
-- MicroSD card and eMMC boot use the same Android system image
+- microSD card and eMMC boot use the same Android system image
 - UFS module uses a dedicated Android system image

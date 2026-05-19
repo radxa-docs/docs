@@ -28,7 +28,7 @@ We'll use the CM4 with the CM4 IO Board for this quick start demonstration.
 You'll need to prepare the following hardware (choose one of the optional items for easier setup):
 
 - Mainboard: Radxa CM4 with CM4 IO Board
-- Boot media: MicroSD card
+- Boot media: microSD card
 - Power adapter: Standard DC 12V/2A power adapter (DC-5525 interface)
 - USB-to-TTL serial cable (optional): For serial debugging and system login
 - HDMI cable and monitor (optional): For displaying the system interface and GUI operations
@@ -44,7 +44,7 @@ The Radxa CM4 IO Board only supports 12V power input. A minimum of 2A current is
 
 You can install the system according to your boot media and hardware by following these tutorials:
 
-- [Install System to MicroSD Card](./install-system/microsd_boot) (Recommended)
+- [Install System to microSD Card](./install-system/microsd_boot) (Recommended)
 - [Install System to Onboard eMMC](./install-system/emmc_boot)
 - [Install System to NVMe SSD](./install-system/nvme_boot)
 
@@ -60,16 +60,16 @@ Password: radxa
 
 ## Booting the System
 
-After completing the system installation, insert the MicroSD card into the CM4 IO Board's MicroSD card slot, then connect the power adapter to boot the system.
+After completing the system installation, insert the microSD card into the CM4 IO Board's microSD card slot, then connect the power adapter to boot the system.
 
 :::tip Boot Priority
 If you have multiple boot media installed, the system will boot in the following priority order:
 
-MicroSD Card > Onboard eMMC > UFS Module > NVMe SSD
+microSD Card > Onboard eMMC > UFS Module > NVMe SSD
 :::
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/cm4/cm4_boot_sd.webp" alt="CM4 Booting from MicroSD Card" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/cm4/cm4_boot_sd.webp" alt="CM4 Booting from microSD Card" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 When the system boots normally, the Radxa CM4's LED will light up green when powered on. After the system is running, it will turn off for a few seconds, then the CM4 IO Board's power indicator (red) will light up, and the user LED (green) along with the CM4's LED (green) will blink together.

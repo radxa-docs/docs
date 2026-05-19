@@ -46,7 +46,7 @@ ROCK 5T 支持将 USB PD 电源协商至更高的电压，如 9V、12V、15V、2
 
 原因确认:
 
-去掉 MicroSD 及 NVME 设备，短接 DISABLE SPI 并按住 Maskrom 按键上电，然后通过 USB 线连接板子和PC，此时看设备是否进入 [Maskrom 状态](./low-level-dev/maskrom/)，
+去掉 microSD 及 NVME 设备，短接 DISABLE SPI 并按住 Maskrom 按键上电，然后通过 USB 线连接板子和PC，此时看设备是否进入 [Maskrom 状态](./low-level-dev/maskrom/)，
 如果不是MaskRom状态，则大概率是下面的原因:
 
 在 [通过 USB 烧录系统到eMMC](./low-level-dev/maskrom/) 的时候没有按照说明 按 Maskrom 按键，导致烧录系统到了 [SPI Flash](./low-level-dev/maskrom/erase)中, 而系统启动的时候，先读取SPI的信息，此时出现错误，无法正常启动。

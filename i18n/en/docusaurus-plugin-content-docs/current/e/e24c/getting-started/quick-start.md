@@ -58,7 +58,7 @@ Recommended power supply:
 
 Radxa E24C supports various configurations, with the main difference being the presence of onboard eMMC storage.
 
-**For boards without eMMC**: You will need a MicroSD card and a card reader.
+**For boards without eMMC**: You will need a microSD card and a card reader.
 
 **For boards with eMMC**: The system is pre-installed at the factory and ready to use!
 
@@ -72,7 +72,7 @@ Radxa E24C features a USB Type-C port primarily used for debugging and system ac
 
 <TabItem value="No eMMC System">
 
-For systems without onboard eMMC, you'll need to write the system image to a MicroSD card using a card reader.
+For systems without onboard eMMC, you'll need to write the system image to a microSD card using a card reader.
 
 - System Download
 
@@ -84,7 +84,7 @@ The downloaded system image is a compressed file that needs to be extracted befo
 
 - Hardware Connection
 
-Insert the MicroSD card into the card reader, then connect the card reader to your PC's USB port.
+Insert the microSD card into the card reader, then connect the card reader to your PC's USB port.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-sd-insert.webp" style={{width: '100%', maxWidth: '600px'}} />
@@ -178,7 +178,7 @@ For users with onboard eMMC, the system comes pre-installed with OpenWrt - no ne
 
 <TabItem value="No eMMC System">
 
-After writing the system image to the MicroSD card, insert it into the Radxa E24C's MicroSD card slot, then power on the device using the 12V DC power adapter.
+After writing the system image to the microSD card, insert it into the Radxa E24C's microSD card slot, then power on the device using the 12V DC power adapter.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-insert-sd.webp" style={{width: '100%', maxWidth: '600px'}} />

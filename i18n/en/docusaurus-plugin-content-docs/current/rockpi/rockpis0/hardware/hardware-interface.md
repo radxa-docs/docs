@@ -37,7 +37,7 @@ The AP6212 Wi-Fi/BT module is on board, which can access the network via Wi-Fi.
 
 The AP6212 Wi-Fi/BT module is onboard, which allows you to access devices such as Bluetooth stereo via BT.
 
-## MicroSD
+## microSD
 
 Can be used as system boot media or storage media
 

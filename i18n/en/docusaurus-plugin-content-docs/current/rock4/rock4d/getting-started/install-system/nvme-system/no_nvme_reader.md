@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Without Using an M.2 NVMe SSD Enclosure
 
-This tutorial is for users who don't have an M.2 NVMe SSD enclosure. It explains how to install the system on an M.2 NVMe SSD using a MicroSD card as the boot medium.
+This tutorial is for users who don't have an M.2 NVMe SSD enclosure. It explains how to install the system on an M.2 NVMe SSD using a microSD card as the boot medium.
 
 :::tip
 An M.2 NVMe SSD is a solid-state drive that supports the M.2 interface and NVMe protocol.
@@ -12,18 +12,18 @@ An M.2 NVMe SSD is a solid-state drive that supports the M.2 interface and NVMe 
 
 ## Hardware Preparation
 
-To install the system without an M.2 NVMe SSD enclosure, you'll need to be able to boot your Radxa ROCK 4D from a MicroSD card.
+To install the system without an M.2 NVMe SSD enclosure, you'll need to be able to boot your Radxa ROCK 4D from a microSD card.
 
-**Note: If the MicroSD card doesn't boot properly, please refer to the [Installing System to MicroSD Card](../boot_sd) tutorial to install the system on a MicroSD card first.**
+**Note: If the microSD card doesn't boot properly, please refer to the [Installing System to microSD Card](../boot_sd) tutorial to install the system on a microSD card first.**
 
-We'll be working within the system on the MicroSD card and use the `dd` command to install the system to the M.2 NVMe SSD.
+We'll be working within the system on the microSD card and use the `dd` command to install the system to the M.2 NVMe SSD.
 
 **Note: Booting from an M.2 NVMe SSD requires using it with a PCIe to M.2 M Key HAT.**
 
 You'll need the following hardware:
 
 - Motherboard: Radxa ROCK 4D
-- MicroSD card with a working system
+- microSD card with a working system
 - M.2 NVMe SSD: Purchase separately
 - PCIe to M.2 M Key HAT: Purchase separately
 - Power Adapter: Type-C power adapter (PD protocol supported, 5V input, recommended 3A or higher)
@@ -130,7 +130,7 @@ After completing the system image installation:
 
 1. Shut down the system: `sudo shutdown -h now`
 2. Disconnect the power supply from the ROCK 4D
-3. Remove the MicroSD card
+3. Remove the microSD card
 4. Reconnect the power supply to the ROCK 4D
 5. Wait for the system to boot from the M.2 NVMe SSD
 

@@ -14,7 +14,7 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 - Debian Linux
 
-适用于 MicroSD 卡、板载 eMMC、NVMe SSD 启动系统。
+适用于 microSD 卡、板载 eMMC、NVMe SSD 启动系统。
 
 [Radxa Debian12 Linux Debian KDE](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
 
@@ -26,7 +26,7 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 - Android
 
-[Radxa CM4 Android 14 MicroSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa-cm4-android14-rkr6-sd_emmc-20250903-gpt.zip)：适用于 MicroSD 卡、板载 eMMC 启动系统。
+[Radxa CM4 Android 14 microSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa-cm4-android14-rkr6-sd_emmc-20250903-gpt.zip)：适用于 microSD 卡、板载 eMMC 启动系统。
 
 [Radxa CM4 Android 14 UFS Module System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa_cm4_android14_rkr6_ufs_20250829-update.zip)：适用于 UFS 模块启动系统。
 

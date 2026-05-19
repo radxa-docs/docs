@@ -257,7 +257,7 @@ ROCK 5C 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 
 参考 [屏幕配件](../accessories/display)
 
-### MicroSD
+### microSD
 
 可用于系统启动盘，也可以充当存储介质使用
 

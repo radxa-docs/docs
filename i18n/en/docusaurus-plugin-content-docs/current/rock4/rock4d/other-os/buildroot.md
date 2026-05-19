@@ -128,8 +128,8 @@ On a Windows host, use the `RKDevTool` to flash the system image `update.img` to
     <img src="/en/img/rock4/4d/other-os-burn-img.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### Flash Image to MicroSD Card
+### Flash Image to microSD Card
 
-Use SDDiskTool to flash the generated image to a MicroSD Card.
+Use SDDiskTool to flash the generated image to a microSD Card.
 
 <SSDISKTOOL />

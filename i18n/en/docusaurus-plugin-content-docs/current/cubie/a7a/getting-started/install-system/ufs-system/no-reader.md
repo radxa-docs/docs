@@ -6,7 +6,7 @@ sidebar_position: 3
 
 This guide explains how to install the system to a UFS module without using the Radxa eMMC/UFS Combo Module Reader.
 
-This method involves booting the Cubie A7A from a MicroSD card and then using the `dd` command to install the system image to the UFS module.
+This method involves booting the Cubie A7A from a microSD card and then using the `dd` command to install the system image to the UFS module.
 
 :::warning
 Installing the system will format the UFS module. Please back up any important data before proceeding!
@@ -17,7 +17,7 @@ Installing the system will format the UFS module. Please back up any important d
 Prepare the following hardware in advance:
 
 - Single Board Computer: Radxa Cubie A7A
-- Boot media: MicroSD card
+- Boot media: microSD card
 - Installation target: UFS module
 - Power adapter: 5V Type-C power adapter
 
@@ -31,7 +31,7 @@ The Cubie A7A supports 5V power input with PD protocol. A power adapter with 3A 
 
 ## Hardware Connection
 
-After confirming that the Cubie A7A has successfully booted from the MicroSD card, install the UFS module into the eMMC/UFS combo module interface of the Cubie A7A.
+After confirming that the Cubie A7A has successfully booted from the microSD card, install the UFS module into the eMMC/UFS combo module interface of the Cubie A7A.
 
 :::caution
 

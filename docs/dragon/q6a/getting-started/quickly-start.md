@@ -22,7 +22,7 @@ sidebar_position: 1
 
 - 主板：瑞莎 Dragon Q6A
 - 供电：12V Type-C 电源适配器（兼容 PD 协议）
-- 系统启动介质：MicroSD 卡（用于安装系统与启动）
+- 系统启动介质：microSD 卡（用于安装系统与启动）
 - 显示设备：HDMI 数据线和显示器
 - 输入设备：键盘和鼠标（用于图形界面操作）
 - 调试工具（可选）：USB 串口数据线（用于串口登录）
@@ -36,22 +36,22 @@ sidebar_position: 1
 
 ## 安装系统
 
-主要介绍安装系统到 MicroSD 卡。
+主要介绍安装系统到 microSD 卡。
 
 :::warning 重要提醒
 
-**安装系统会完全格式化 MicroSD 卡，所有数据将被永久删除！**
+**安装系统会完全格式化 microSD 卡，所有数据将被永久删除！**
 
 请在操作前确认：
 
-- MicroSD 卡中无重要数据或已完成资料备份
+- microSD 卡中无重要数据或已完成资料备份
 - 选择正确的存储设备，避免格式化其他磁盘
 
 :::
 
 ## 硬件连接
 
-将 MicroSD 卡插入 MicroSD 卡读卡器，再将 MicroSD 卡读卡器插入电脑。
+将 microSD 卡插入 microSD 卡读卡器，再将 microSD 卡读卡器插入电脑。
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -72,7 +72,7 @@ sidebar_position: 1
 
 ### 安装系统镜像
 
-使用 Balena Etcher 软件可以将系统镜像安装到 MicroSD 卡中。
+使用 Balena Etcher 软件可以将系统镜像安装到 microSD 卡中。
 
 :::tip Balena Etcher
 
@@ -93,7 +93,7 @@ sidebar_position: 1
 
 #### 选择存储设备
 
-点击 `Select target` 选项，选择 MicroSD 卡设备。
+点击 `Select target` 选项，选择 microSD 卡设备。
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -111,7 +111,7 @@ sidebar_position: 1
 
 #### 开始烧录
 
-点击 `Flash!` 选项，开始烧录系统镜像到 MicroSD 卡中。
+点击 `Flash!` 选项，开始烧录系统镜像到 microSD 卡中。
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -146,13 +146,13 @@ sidebar_position: 1
 
 ## 启动系统
 
-完成系统的安装后，将 MicroSD 卡安装到 Dragon Q6A 的 MicroSD 卡槽中，然后使用 12V Type-C 电源适配器给 Dragon Q6A 供电，即可启动系统。
+完成系统的安装后，将 microSD 卡安装到 Dragon Q6A 的 microSD 卡槽中，然后使用 12V Type-C 电源适配器给 Dragon Q6A 供电，即可启动系统。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/dragon/q6a/dragon-q6a-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① ：安装 MicroSD 卡
+① ：安装 microSD 卡
 
 ② ：使用 HDMI 数据线连接显示器和主板
 
@@ -182,13 +182,13 @@ Radxa OS 的默认凭据如下：
 :::tip 其它启动系统方式
 对于想通过其它方式启动系统的用户（如 eMMC、UFS、以及 NVMe SSD 启动系统），可以参考下面教程完成对应系统启动介质安装系统：
 
-- [安装系统到 MicroSD 卡](./install-system/sd-system.md)
+- [安装系统到 microSD 卡](./install-system/sd-system.md)
 - [安装系统到 U 盘](./install-system/udisk-system.md)
 - [安装系统到 UFS](./install-system/ufs-system/)
 - [安装系统到 eMMC](./install-system/emmc-system/)
 - [安装系统到 NVMe 固态硬盘](./install-system/nvme-system/)
 
-系统启动优先级：USB > MicroSD > NVMe 固态硬盘 > eMMC 模块 > UFS 模块
+系统启动优先级：USB > microSD > NVMe 固态硬盘 > eMMC 模块 > UFS 模块
 
 :::
 

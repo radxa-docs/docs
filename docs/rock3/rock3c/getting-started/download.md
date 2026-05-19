@@ -35,9 +35,9 @@ sidebar_position: 20
 
 - Android
 
-[Radxa ROCK 3C Android 11 MicroSD and eMMC Image](https://github.com/radxa/manifests/releases/download/android11-radxa-20240806/Rock3C-Android11_r12-20240806-gpt.zip)：适用于 MicroSD 卡、eMMC 模块启动系统。
+[Radxa ROCK 3C Android 11 microSD and eMMC Image](https://github.com/radxa/manifests/releases/download/android11-radxa-20240806/Rock3C-Android11_r12-20240806-gpt.zip)：适用于 microSD 卡、eMMC 模块启动系统。
 
-[Radxa ROCK 3C Android 14 MicroSD and eMMC Image](https://github.com/radxa/manifests/releases/download/Android14-rkr6-ROCK3c/ROCK3C-Android14-20250718-HDMI-gpt.zip)：适用于 MicroSD 卡、eMMC 模块启动系统。
+[Radxa ROCK 3C Android 14 microSD and eMMC Image](https://github.com/radxa/manifests/releases/download/Android14-rkr6-ROCK3c/ROCK3C-Android14-20250718-HDMI-gpt.zip)：适用于 microSD 卡、eMMC 模块启动系统。
 
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。

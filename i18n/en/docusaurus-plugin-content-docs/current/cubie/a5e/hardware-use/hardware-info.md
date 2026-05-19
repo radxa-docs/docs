@@ -23,7 +23,7 @@ This section provides information about the board's hardware interfaces.
 | ①   | Wi-Fi / Bluetooth   | ⑧   | PoE Header                  | ⑭   | LPDDR4 / LPDDR4x RAM           |
 | ②   | Antenna Connector   | ⑨   | Gigabit Ethernet (with PoE) | ⑮   | Allwinner A527 / T527          |
 | ③   | USB 3.0 Type-A HOST | ⑩   | MIPI DSI                    | ⑯   | Onboard eMMC (Reserved)        |
-| ④   | HDMI                | ⑪   | MicroSD Card Slot           | ⑰   | 40-Pin GPIO Header             |
+| ④   | HDMI                | ⑪   | microSD Card Slot           | ⑰   | 40-Pin GPIO Header             |
 | ⑤   | SPI Flash           | ⑫   | MIPI CSI                    | ⑱   | USB Type-C (5V Power & OTG)    |
 | ⑥   | UBOOT Button        | ⑬   | M.2 M Key 2230 Slot         | ⑲   | Gigabit Ethernet (without PoE) |
 | ⑦   | Status LED          |     |                             |     |                                |

@@ -34,4 +34,4 @@ sidebar_position: 4
 
 ## WIFI
 
-## MicroSD
+## microSD

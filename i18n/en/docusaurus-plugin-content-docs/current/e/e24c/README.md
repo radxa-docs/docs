@@ -60,7 +60,7 @@ The bare board version of the Radxa E24C offers more peripheral interfaces compa
 | Memory (Capacity Optional) | 1GB/2GB/4GB, LPDDR4                                                                              |
 | Onboard eMMC (Optional)    | 8GB/16GB/32GB, eMMC 5.1 standard; Models without eMMC include SPI Nor Flash; mutually exclusive. |
 | SPI Nor Flash (Optional)   | 16MB SPI Nor Flash; Only on models without eMMC                                                  |
-| Expandable Storage         | MicroSD card slot (supports UHS-I)                                                               |
+| Expandable Storage         | microSD card slot (supports UHS-I)                                                               |
 | High-speed Storage         | M.2 PCIe 2.1 NVMe SSD interface (supports 2280 form factor)                                      |
 | **Networking**             |                                                                                                  |
 | Ethernet                   | 4x Gigabit Ethernet ports (WAN/LAN configurable)                                                 |
@@ -78,7 +78,7 @@ The bare board version of the Radxa E24C offers more peripheral interfaces compa
 | Operating Temperature      | 0°C ~ 70°C                                                                                       |
 | **Software Support**       |                                                                                                  |
 | Operating Systems          | Debian Linux, OpenWrt, and more                                                                  |
-| Boot Options               | Boot from MicroSD, eMMC, NVMe SSD, or SPI Nor Flash (some models)                                |
+| Boot Options               | Boot from microSD, eMMC, NVMe SSD, or SPI Nor Flash (some models)                                |
 
 ## Interface Layout
 
@@ -98,7 +98,7 @@ The bare board version of the Radxa E24C offers more peripheral interfaces compa
 |  ③  | Gigabit Ethernet Ports (WAN/LAN configurable) |  4  |
 |  ④  | Power Button                                  |  1  |
 |  ⑤  | LED Indicators (1x Power, 4x Ethernet)        |  5  |
-|  ⑥  | MicroSD Card Slot                             |  1  |
+|  ⑥  | microSD Card Slot                             |  1  |
 |  ⑦  | USB 2.0 Type-A Ports                          |  3  |
 |  ⑧  | Maskrom Button                                |  1  |
 |  ⑨  | User Button                                   |  1  |
@@ -121,7 +121,7 @@ The bare board version of the Radxa E24C offers more peripheral interfaces compa
 |  4  | User Button                                                              |  1  |
 |  5  | USB 2.0 Type-A Ports                                                     |  3  |
 |  6  | RTC Battery Connector                                                    |  1  |
-|  7  | MicroSD Card Slot                                                        |  1  |
+|  7  | microSD Card Slot                                                        |  1  |
 |  8  | GPIO: 14-pin Expansion Header                                            |  1  |
 |  9  | LED Indicators (1x Power, 4x Ethernet)                                   |  5  |
 | 10  | Power Button                                                             |  1  |
@@ -176,7 +176,7 @@ The Radxa E24C offers multiple configuration options, with the standard package 
 The following accessories may be included or need to be purchased separately depending on the configuration:
 
 - 12V/2A Power Adapter with DC5525 connector
-- MicroSD Card (required for versions without eMMC)
+- microSD Card (required for versions without eMMC)
 - M.2 NVMe SSD (for users needing expanded storage)
 - USB Type-A to Type-C Cable (for debugging)
 - HDMI Cable (for display connection)

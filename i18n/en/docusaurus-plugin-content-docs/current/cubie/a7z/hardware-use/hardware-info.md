@@ -23,7 +23,7 @@ This section provides an overview of the hardware interfaces on the Cubie A7Z.
 | ①   | USB-C 2.0 OTG & Power Port       | ⑥   | Antenna Connector         | ⑪   | PCIe 3.0 FPC Connector |
 | ②   | USB-C 3.1 OTG & DP Alt Mode Port | ⑦   | WiFi 6 / BT5 Module       | ⑫   | 40-Pin GPIO Header     |
 | ③   | Allwinner A733 SoC               | ⑧   | 4-lane MIPI CSI Connector | ⑬   | LPDDR4/4x RAM          |
-| ④   | Micro HDMI Port                  | ⑨   | Onboard UFS               | ⑭   | MicroSD Card Slot      |
+| ④   | Micro HDMI Port                  | ⑨   | Onboard UFS               | ⑭   | microSD Card Slot      |
 | ⑤   | Fan Connector                    | ⑩   | U-Boot Button             |     |                        |
 
 - Power Indicator

@@ -4,19 +4,19 @@ sidebar_position: 1
 
 import BalenaEtcherUse from '../../../../common/radxa-os/install-system/\_use_etcher_sd.mdx';
 
-# Install System to MicroSD Card
+# Install System to microSD Card
 
 <BalenaEtcherUse />
 
 ## Booting the System
 
-After completing the system installation, insert the MicroSD card into the MicroSD card slot of the Dragon Q6A, then power on the Dragon Q6A using the 12V Type-C power adapter to boot the system.
+After completing the system installation, insert the microSD card into the microSD card slot of the Dragon Q6A, then power on the Dragon Q6A using the 12V Type-C power adapter to boot the system.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/dragon/q6a/dragon-q6a-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① : Insert the MicroSD card
+① : Insert the microSD card
 
 ② : Connect the monitor to the board using an HDMI cable
 

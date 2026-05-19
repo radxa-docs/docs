@@ -6,7 +6,7 @@ import UPGRADE_TOOL from "../../../../../../common/dev/\_upgrade-tool.mdx";
 
 # 安装系统到 eMMC
 
-我们可以直接将 Android 系统安装到 eMMC 模块中，请参考 [安装系统到 MicroSD 卡](./boot-from-sd) 章节 。
+我们可以直接将 Android 系统安装到 eMMC 模块中，请参考 [安装系统到 microSD 卡](./boot-from-sd) 章节 。
 本篇主要讲述如何通过 Maskrom 模式将 <strong> update 格式</strong>的 Android 系统安装到 ROCK 4A/4B/4A+/4B+/4SE eMMC 上。
 
 ## 文件下载
@@ -20,7 +20,7 @@ import UPGRADE_TOOL from "../../../../../../common/dev/\_upgrade-tool.mdx";
     <TabItem value="板载 eMMC 的">
 
         <ol>
-            <li>移除 MicroSD 卡，断开电源</li>
+            <li>移除 microSD 卡，断开电源</li>
             <li>如果板上有一个 SPI Nor Flash，则将 SPI Nor Flash 短路</li>
             <li>使用 USB-A 转 USB-A 线从 OTG 端口连接 PC 主机</li>
             <li>按住 Maskrom 按键</li>
@@ -38,7 +38,7 @@ import UPGRADE_TOOL from "../../../../../../common/dev/\_upgrade-tool.mdx";
     <TabItem value="不板载 eMMC 的">
 
         <ol>
-            <li>移除 MicroSD 卡，断开电源</li>
+            <li>移除 microSD 卡，断开电源</li>
             <li>如果板上有一个 SPI Nor Flash，则将 SPI Nor Flash 短路</li>
             <li>使用 USB-A 转 USB-A 线从 OTG 端口连接 PC 主机</li>
             <li>插入电源线上电，如果电源绿灯常亮则成功进入 Maskrom 模式</li>

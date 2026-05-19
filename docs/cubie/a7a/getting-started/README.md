@@ -12,4 +12,4 @@ sidebar_position: 1
 
 #### [安装系统](/cubie/a7a/getting-started/install-system)
 
-主要介绍 Cubie A7A 如何通过不同启动介质（如 MicroSD 卡、UFS 模块、eMMC 模块等）来安装系统。
+主要介绍 Cubie A7A 如何通过不同启动介质（如 microSD 卡、UFS 模块、eMMC 模块等）来安装系统。

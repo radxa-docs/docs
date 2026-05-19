@@ -30,7 +30,7 @@ This tutorial will guide you through the process of flashing the SPI boot firmwa
 
 ## Obtaining the Latest SPI Boot Firmware
 
-You need to boot the ROCK 4D using a MicroSD card. You can refer to the [Quick Start](../quickly_start) guide to complete this step.
+You need to boot the ROCK 4D using a microSD card. You can refer to the [Quick Start](../quickly_start) guide to complete this step.
 
 After successfully booting the system and ensuring the network connection is working, open the ROCK 4D terminal command line and use the Rsetup tool to update the system.
 

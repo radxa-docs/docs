@@ -4,19 +4,19 @@ sidebar_position: 1
 
 import BalenaEtcherUse from '../../../../common/radxa-os/install-system/\_use_etcher_sd.mdx';
 
-# 安装系统到 MicroSD 卡
+# 安装系统到 microSD 卡
 
 <BalenaEtcherUse />
 
 ## 启动系统
 
-完成系统的安装后，将 MicroSD 卡安装到 Dragon Q6A 的 MicroSD 卡槽中，然后使用 12V Type-C 电源适配器给 Dragon Q6A 供电，即可启动系统。
+完成系统的安装后，将 microSD 卡安装到 Dragon Q6A 的 microSD 卡槽中，然后使用 12V Type-C 电源适配器给 Dragon Q6A 供电，即可启动系统。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/dragon/q6a/dragon-q6a-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① ：安装 MicroSD 卡
+① ：安装 microSD 卡
 
 ② ：使用 HDMI 数据线连接显示器和主板
 

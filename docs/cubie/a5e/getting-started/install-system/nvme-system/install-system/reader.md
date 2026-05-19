@@ -12,7 +12,7 @@ import InstallSystem from '../../../../../../common/radxa-os/install-system/\_us
 
 完成系统的安装后，将主板关机，断开主板电源，按照以下操作完成系统启动：
 
-① : 将 MicroSD 卡从主板上取下
+① : 将 microSD 卡从主板上取下
 
 ② : 将 NVMe SSD 安装到主板上
 

@@ -4,12 +4,12 @@ sidebar_position: 3
 
 # 安装系统到 eMMC
 
-若您的瑞莎 ROCK 5T 板载 eMMC，您可以在 MicroSD 卡启动主板的情况下，使用 `dd` 命令将系统镜像写入 eMMC。
+若您的瑞莎 ROCK 5T 板载 eMMC，您可以在 microSD 卡启动主板的情况下，使用 `dd` 命令将系统镜像写入 eMMC。
 
 :::tip 注意事项
 安装系统会格式化 eMMC，如果有重要数据请提前备份！
 
-若您的系统目前还无法通过 MicroSD 卡启动，可以参考 [安装系统到 MicroSD 卡](./boot_from_sd_card.md) 教程。
+若您的系统目前还无法通过 microSD 卡启动，可以参考 [安装系统到 microSD 卡](./boot_from_sd_card.md) 教程。
 :::
 
 ## 使用前提
@@ -17,10 +17,10 @@ sidebar_position: 3
 您需要准备以下硬件设备：
 
 - 主板：瑞莎 ROCK 5T
-- 系统启动介质：MicroSD 卡
+- 系统启动介质：microSD 卡
 - 电源适配器：标准 DC 12V/2A 电源适配器（DC-5525 接口）
 
-我们需要基于 MicroSD 卡启动主板系统，进入主板系统后下载系统镜像文件，然后使用 `dd` 命令将系统镜像写入 eMMC。
+我们需要基于 microSD 卡启动主板系统，进入主板系统后下载系统镜像文件，然后使用 `dd` 命令将系统镜像写入 eMMC。
 
 :::tip 推荐配件
 瑞莎 ROCK 5T 仅支持 12V 电源输入，建议电流 2A 及以上，以确保所有外设稳定运行。
@@ -141,7 +141,7 @@ Device Start End Sectors Size Type
 
 ## 启动系统
 
-完成系统的安装后，将主板关机并断电，然后拔下 MicroSD 卡，重新插上电源适配器，系统会自动从 eMMC 启动。
+完成系统的安装后，将主板关机并断电，然后拔下 microSD 卡，重新插上电源适配器，系统会自动从 eMMC 启动。
 
 ## 系统信息
 

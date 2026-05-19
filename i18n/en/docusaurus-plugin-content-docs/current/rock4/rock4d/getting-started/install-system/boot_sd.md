@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Installing System to MicroSD Card
+# Installing System to microSD Card
 
-This tutorial explains how to install the system on a MicroSD card.
+This tutorial explains how to install the system on a microSD card.
 
 ## Hardware Preparation
 
@@ -12,8 +12,8 @@ You will need the following hardware to complete the system installation and boo
 
 #### For System Installation
 
-- Card reader: MicroSD card reader
-- Boot medium: MicroSD card (32GB or larger recommended)
+- Card reader: microSD card reader
+- Boot medium: microSD card (32GB or larger recommended)
 
 #### For System Boot
 
@@ -32,13 +32,13 @@ Recommended power supplies:
 
 ## Installing the System
 
-Installing the system will format the MicroSD card. Please back up any important data before proceeding.
+Installing the system will format the microSD card. Please back up any important data before proceeding.
 
 ### Download System Image
 
-On your PC, visit the [Downloads Summary](../../download) page and locate the system image for MicroSD card.
+On your PC, visit the [Downloads Summary](../../download) page and locate the system image for microSD card.
 
-After downloading, extract the system image file. The resulting `*.img` file is the system image that will be written to the MicroSD card.
+After downloading, extract the system image file. The resulting `*.img` file is the system image that will be written to the microSD card.
 
 :::tip
 The downloaded system image is a compressed file that must be extracted before it can be written to the SD card using the image flashing software. If you try to flash the compressed file directly to the SD card without extracting it first, the system installation or boot process may fail.
@@ -46,7 +46,7 @@ The downloaded system image is a compressed file that must be extracted before i
 
 ### Hardware Connection
 
-Insert the MicroSD card into the card reader, then connect the card reader to your PC's USB port.
+Insert the microSD card into the card reader, then connect the card reader to your PC's USB port.
 
 <div style={{textAlign: 'center'}}>
   <img src="/en/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -54,7 +54,7 @@ Insert the MicroSD card into the card reader, then connect the card reader to yo
 
 ### Installing the System Image
 
-Use the open-source image flashing tool Etcher to write the system image to the MicroSD card.
+Use the open-source image flashing tool Etcher to write the system image to the microSD card.
 
 #### Downloading Etcher
 
@@ -159,8 +159,8 @@ Password: `radxa`
 
 After completing the system image installation:
 
-1. Remove the MicroSD card from the card reader
-2. Insert the card into the MicroSD card slot on the ROCK 4D motherboard
+1. Remove the microSD card from the card reader
+2. Insert the card into the microSD card slot on the ROCK 4D motherboard
 3. Power on the system using a 5V Type-C power adapter
 
 When the system boots, both the blue and green LED indicators will light up. After a few seconds, the green LED will stay solid and the blue LED will blink, indicating that the system has successfully booted.

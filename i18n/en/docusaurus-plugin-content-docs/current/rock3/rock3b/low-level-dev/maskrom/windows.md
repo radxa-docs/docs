@@ -21,7 +21,7 @@ import Images from "../../\_image.mdx"
 <Rkdevtool rkdevtool_emmc_img="/img/rock3/3b/rock-3b-rkdevtool-maskrom-flash-system.webp" loader_name="rk356x_spl_loader__v1.15.113.bin" emmc={false} pcie={false} sata={false} >
 
 <ol>
-    <li>Remove MicroSD card, insert eMMC</li>
+    <li>Remove microSD card, insert eMMC</li>
     <li>Set the dip switch below the USB 3.0 cradle to the device side.</li>
     <li>Short the Maskrom pin, which is located between the USB 3.0 cradle and the Ethernet.</li>
     <li>Connecting a PC host from the OTG port using a USB-A to USB-A cable</li>

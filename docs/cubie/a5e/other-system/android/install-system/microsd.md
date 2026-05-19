@@ -7,9 +7,9 @@ imports_resolve_to:
   - docs/common/other-system/fel-image/_microsd_system.mdx
 ---
 
-import MicroSD from '../../../../../common/other-system/fel-image/\_microsd_system.mdx';
+import microSD from '../../../../../common/other-system/fel-image/\_microsd_system.mdx';
 
-# 安装系统到 MicroSD 卡
+# 安装系统到 microSD 卡
 
 :::info 下载地址
 
@@ -17,4 +17,4 @@ import MicroSD from '../../../../../common/other-system/fel-image/\_microsd_syst
 
   :::
 
-<MicroSD />
+<microSD />

@@ -174,7 +174,7 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
       </tr>
       <tr>
         <th>4</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">MicroSD</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">microSD</a></th>
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>
@@ -272,7 +272,7 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
       </tr>
       <tr>
         <th>4</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">MicroSD</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">microSD</a></th>
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>
@@ -366,7 +366,7 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
       </tr>
       <tr>
         <th>4</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">MicroSD</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">microSD</a></th>
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>

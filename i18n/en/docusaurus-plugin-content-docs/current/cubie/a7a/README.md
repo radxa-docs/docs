@@ -32,7 +32,7 @@ Powered by the Allwinner A733 SoC, the Cubie A7A features a hybrid octa-core hig
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Processor  | SoC: Allwinner A733 <br/> CPU: 2× Cortex-A76 + 6× Cortex-A55 <br/> GPU: Imagination BXM-4-64 MC1; Supports OpenGL ES 3.2, Vulkan 1.3, OpenCL 3.0 <br/> NPU: 3 TOPS AI Acceleration Engine |
 | Memory     | LPDDR5, Options: 2GB / 4GB / 6GB / 8GB / 12GB / 16GB                                                                                                                                      |
-| Storage    | Boot: 8MB SPI NOR Flash <br/> System Storage: Supports MicroSD card / eMMC module / UFS module                                                                                            |
+| Storage    | Boot: 8MB SPI NOR Flash <br/> System Storage: Supports microSD card / eMMC module / UFS module                                                                                            |
 | Network    | Wired: 1× Gigabit Ethernet (PoE supported with external PoE HAT) <br/> Wireless: Wi-Fi 6, Bluetooth 5.4, external antenna interface                                                       |
 | Video Out  | HDMI: 1× HDMI port, up to 4K@60fps <br/> MIPI DSI: 1× 4-lane MIPI DSI                                                                                                                     |
 | Camera     | 1× 4-lane MIPI CSI or 2× 2-lane MIPI CSI                                                                                                                                                  |
@@ -56,7 +56,7 @@ Powered by the Allwinner A733 SoC, the Cubie A7A features a hybrid octa-core hig
 | ④   | [Headphone Jack](/cubie/a7a/hardware-use/headphone)       | ⑪   | [PoE Connector](/cubie/a7a/hardware-use/ethernet)                    | ⑱   | [Power Button](/cubie/a7a/hardware-use/power-key)                    |
 | ⑤   | [UBOOT Button](/cubie/a7a/hardware-use/uboot-key)         | ⑫   | WiFi 6 & Bluetooth 5.4                                               | ⑲   | [eMMC / UFS Module Combo Slot](/cubie/a7a/hardware-use/emmc-ufs-com) |
 | ⑥   | [USB 2.0 Type-A Port](/cubie/a7a/hardware-use/usb-type-a) | ⑬   | [40-pin GPIO Header](/cubie/a7a/hardware-use/pin-gpio)               | ⑳   | [MIPI CSI Connector](/cubie/a7a/hardware-use/mipi-csi)               |
-| ⑦   | [RTC Header](/cubie/a7a/hardware-use/rtc)                 | ⑭   | [MIPI DSI Connector](/cubie/a7a/hardware-use/mipi-dsi)               | ㉑  | [MicroSD Card Slot](/cubie/a7a/hardware-use/microsd)                 |
+| ⑦   | [RTC Header](/cubie/a7a/hardware-use/rtc)                 | ⑭   | [MIPI DSI Connector](/cubie/a7a/hardware-use/mipi-dsi)               | ㉑  | [microSD Card Slot](/cubie/a7a/hardware-use/microsd)                 |
 
 - Power LED
 

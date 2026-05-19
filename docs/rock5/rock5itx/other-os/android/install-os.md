@@ -87,7 +87,7 @@ rkdeveloptool rd
 
 ## 启动系统
 
-- 按照上述步骤成功烧录 microSD 卡后，将 microSD 卡插入 ROCK 5 ITX 的 MicroSD 插槽内
+- 按照上述步骤成功烧录 microSD 卡后，将 microSD 卡插入 ROCK 5 ITX 的 microSD 插槽内
 - 使用 12V DC 电源为 ROCK 5 ITX 供电
 
 </TabItem>

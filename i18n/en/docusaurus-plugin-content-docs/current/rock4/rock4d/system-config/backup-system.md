@@ -104,8 +104,8 @@ Offline system backup requires converting the system boot disk to a removable me
 
 Converting different boot media to removable media:
 
-- MicroSD Card
-  Convert the MicroSD card to a removable device using a card reader.
+- microSD Card
+  Convert the microSD card to a removable device using a card reader.
 
 - Non-onboard eMMC Module
   Convert the eMMC module to a removable device using an eMMC reader.

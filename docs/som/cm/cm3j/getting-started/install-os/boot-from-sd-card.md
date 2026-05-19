@@ -16,9 +16,9 @@ import Etcher from '../../../../../common/general/\_etcherV2.mdx';
 
 请到[资源下载汇总](../../download.md)部分下载对应的 Image
 
-## MicroSD 卡准备
+## microSD 卡准备
 
-将 MicroSD 卡插入到 SD 卡读卡器中，然后将读卡器插入到 PC 的 USB 端口上
+将 microSD 卡插入到 SD 卡读卡器中，然后将读卡器插入到 PC 的 USB 端口上
 
 ## 镜像烧录
 

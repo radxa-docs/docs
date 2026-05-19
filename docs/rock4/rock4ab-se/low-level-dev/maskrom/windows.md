@@ -19,7 +19,7 @@ import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 
     <TabItem value="板载 eMMC">
 
-断开主板电源，取下 MicroSD 卡。
+断开主板电源，取下 microSD 卡。
 
 详细步骤：
 
@@ -39,7 +39,7 @@ import Rkdevtool from "../../../../common/dev/\_rkdevtoolV2.mdx";
 
     <TabItem value="无板载 eMMC">
 
-断开主板电源，移除可启动系统介质（如 MicroSD 卡和 eMMC 模块等）。
+断开主板电源，移除可启动系统介质（如 microSD 卡和 eMMC 模块等）。
 
 详细步骤：
 

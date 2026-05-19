@@ -2,22 +2,22 @@
 sidebar_position: 1
 ---
 
-# MicroSD Card Slot
+# microSD Card Slot
 
-The Radxa ROCK 4D features a standard onboard MicroSD card slot, compatible with MicroSD / MicroSDHC / MicroSDXC cards, primarily used as a system boot drive or for expanding storage capacity.
+The Radxa ROCK 4D features a standard onboard microSD card slot, compatible with microSD / microSDHC / microSDXC cards, primarily used as a system boot drive or for expanding storage capacity.
 
-For optimal performance, it's recommended to use a MicroSD card with a capacity of 32GB or larger.
+For optimal performance, it's recommended to use a microSD card with a capacity of 32GB or larger.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/rock4d-microsd-slot.webp" style={{width: '80%', maxWidth: '1200px'}} alt="ROCK 4D MicroSD Card Slot Location" />
+  <img src="/img/rock4/4d/rock4d-microsd-slot.webp" style={{width: '80%', maxWidth: '1200px'}} alt="ROCK 4D microSD Card Slot Location" />
 </div>
 
 ## User Guide
 
-You can refer to the [Quick Start](../getting-started/quickly_start) or [Install System to MicroSD Card](../getting-started/install-system/boot_sd) tutorials to install the system image onto a MicroSD card. After installation, insert the MicroSD card into the card slot and test if the system boots normally.
+You can refer to the [Quick Start](../getting-started/quickly_start) or [Install System to microSD Card](../getting-started/install-system/boot_sd) tutorials to install the system image onto a microSD card. After installation, insert the microSD card into the card slot and test if the system boots normally.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/rock4/4d/boot-sd.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Booting from MicroSD Card" />
+  <img src="/img/rock4/4d/boot-sd.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Booting from microSD Card" />
 </div>
 
 ## Interface Specifications

@@ -33,7 +33,7 @@ For interfaces that support external devices, click on the interface description
 |  ⑤  | [FPC Connector](./fpc-connector) |  1  |  ⑭  | [USB 3.0 Type-A Ports](./usb-type-a)<br />Up：USB 3.0 Type-A OTG<br />Down：USB 3.0 Type-A HOST |  2  | ㉓  | [RTC Interface](./rtc)                        |  1  |
 |  ⑥  | [WiFi 6 & Bluetooth 5.4](./ante) |  1  |  ⑮  | SPI NOR Flash                                                                                   |  1  | ㉔  | [eMMC Module Interface](./emmc-ufs-connector) |  1  |
 |  ⑦  | [Antenna Connector](./ante)      |  1  |  ⑯  | [Gigabit Ethernet (PoE)](./gigabit-ethernet)                                                    |  1  | ㉕  | [MIPI CSI Interface](./mipi-csi)              |  1  |
-|  ⑧  | [40-Pin GPIO Header](./pin-gpio) |  1  |  ⑰  | [Fan Connector](./fan)                                                                          |  1  | ㉖  | [MicroSD Card Slot](./microsd)                |  1  |
+|  ⑧  | [40-Pin GPIO Header](./pin-gpio) |  1  |  ⑰  | [Fan Connector](./fan)                                                                          |  1  | ㉖  | [microSD Card Slot](./microsd)                |  1  |
 |  ⑨  | LPDDR5 RAM                       |  1  |  ⑱  | [Headphone Jack](./headphone)                                                                   |  1  | ㉗  | [MIPI DSI Interface](./mipi-dsi)              |  1  |
 
     </TabItem>
@@ -49,7 +49,7 @@ For interfaces that support external devices, click on the interface description
 |  ⑤  | [FPC Connector](./fpc-connector) |  1  |  ⑮  |                                          SPI NOR Flash                                          |  1  | ㉕  |            [RTC Interface](./rtc)             |  1  |
 |  ⑥  | [WiFi6 & Bluetooth 5.4](./ante)  |  1  |  ⑯  |                          [Gigabit Ethernet (PoE)](./gigabit-ethernet)                           |  1  | ㉖  | [eMMC Module Interface](./emmc-ufs-connector) |  1  |
 |  ⑦  |   [Antenna Connector](./ante)    |  1  |  ⑰  |                                     [Fan Connector](./fan)                                      |  1  | ㉗  |       [MIPI CSI Interface](./mipi-csi)        |  1  |
-|  ⑧  | [40 Pin GPIO Header](./pin-gpio) |  1  |  ⑱  |                                  [Headphone Jack](./headphone)                                  |  1  | ㉘  |        [MicroSD Card Slot](./microsd)         |  1  |
+|  ⑧  | [40 Pin GPIO Header](./pin-gpio) |  1  |  ⑱  |                                  [Headphone Jack](./headphone)                                  |  1  | ㉘  |        [microSD Card Slot](./microsd)         |  1  |
 |  ⑨  |            LPDDR5 RAM            |  1  |  ⑲  |                                [MIPI CSI Interface](./mipi-csi)                                 |  1  | ㉙  |       [MIPI DSI Interface](./mipi-dsi)        |  1  |
 |  ⑩  |  [PoE Port](./gigabit-ethernet)  |  1  |  ⑳  |                                      Speaker Reserved Pads                                      |  1  |     |                                               |     |
 

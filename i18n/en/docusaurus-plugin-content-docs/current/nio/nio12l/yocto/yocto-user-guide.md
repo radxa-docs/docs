@@ -69,9 +69,9 @@ sdc       8:32   0 119.2G  0 disk
 `-sdc10   8:42   0 118.9G  0 part /
 ```
 
-### MicroSD Card
+### microSD Card
 
-Use `lsblk | grep mmc` to check MicroSD card. For example, here `/dev/mmcblk1`.
+Use `lsblk | grep mmc` to check microSD card. For example, here `/dev/mmcblk1`.
 
 ```text
 mmcblk1     179:0    0  58.9G  0 disk

@@ -9,13 +9,13 @@ imports_resolve_to:
 
 import USBSystem from '../../../../../common/radxa-os/install-system/qualcomm/\_usb_flash_system.mdx';
 
-# Flash System Image to MicroSD Card
+# Flash System Image to microSD Card
 
-This guide explains how to flash a system image to a MicroSD card using a USB Type-A to Type-A cable.
+This guide explains how to flash a system image to a microSD card using a USB Type-A to Type-A cable.
 
 ## Prerequisites
 
-1. Insert the MicroSD card into the board's MicroSD card slot
+1. Insert the microSD card into the board's microSD card slot
 
 2. Put the board into EDL mode and connect it to your computer using a USB Type-A to Type-A cable --> Refer to the [Entering EDL Mode](./edl-mode) guide
 

@@ -134,8 +134,8 @@ upgrade_tool uf update.img
 
 在 Windows 主机上，使用 `RKDevTool` 工具，通过 Type-A 烧录口，将系统镜像 `update.img` 烧写到 eMMC 中。
 
-### 烧录镜像到 MicroSD Card 中
+### 烧录镜像到 microSD Card 中
 
-使用 SDDiskTool 将生成的镜像烧录到 MicroSD Card 中。
+使用 SDDiskTool 将生成的镜像烧录到 microSD Card 中。
 
 <SSDISKTOOL />

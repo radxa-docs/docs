@@ -11,4 +11,4 @@ import UseSystem from '../../../common/radxa-os/install-system/\_use_system.mdx'
 
 # Use System
 
-<UseSystem system_start_priority="System Startup Priority: MicroSD Card > NVMe SSD > eMMC" />
+<UseSystem system_start_priority="System Startup Priority: microSD Card > NVMe SSD > eMMC" />

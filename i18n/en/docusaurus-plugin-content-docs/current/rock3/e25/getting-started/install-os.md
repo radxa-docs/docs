@@ -27,7 +27,7 @@ Please go to [Resource Download](../../images) to download the corresponding ima
 
 ## Boot the system
 
-- After successfully burning the microSD card according to the above steps, insert the microSD card into the MicroSD Card Slot.
+- After successfully burning the microSD card according to the above steps, insert the microSD card into the microSD Card Slot.
 
 - The Radxa Radxa E25 is powered by a [USB Type C port](../README), using a Type C cable to connect the power port to the adapter.
 

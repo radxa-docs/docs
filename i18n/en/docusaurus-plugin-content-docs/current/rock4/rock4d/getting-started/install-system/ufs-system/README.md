@@ -4,13 +4,13 @@ sidebar_position: 2
 
 # Installing System to UFS Module
 
-UFS modules offer faster read/write speeds compared to MicroSD cards, making them an excellent choice for users looking to improve system performance and boot times.
+UFS modules offer faster read/write speeds compared to microSD cards, making them an excellent choice for users looking to improve system performance and boot times.
 
 We provide two methods to install the system on a UFS module:
 
 - For users with a Radxa eMMC/UFS combo module reader: Directly write the system image using the Radxa eMMC/UFS combo module reader on your PC.
 
-- For users without a Radxa eMMC/UFS combo module reader: Use a MicroSD card to boot the system first, then use the `dd` command to install the system image to the UFS module.
+- For users without a Radxa eMMC/UFS combo module reader: Use a microSD card to boot the system first, then use the `dd` command to install the system image to the UFS module.
 
 For more information about the Radxa eMMC/UFS combo module reader, please refer to the [Radxa eMMC/UFS Combo Module Reader Page](https://radxa.com/products/accessories/emmc-ufs-module-reader).
 

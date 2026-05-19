@@ -2,24 +2,24 @@
 sidebar_position: 1
 ---
 
-# Install System to MicroSD Card
+# Install System to microSD Card
 
-This guide explains how to install the operating system onto a MicroSD card.
+This guide explains how to install the operating system onto a microSD card.
 
 :::warning
-Installing the system will format the MicroSD card. Please back up any important data in advance!
+Installing the system will format the microSD card. Please back up any important data in advance!
 :::
 
 ## Hardware Requirements
 
 Prepare the following hardware in advance:
 
-- Boot media: MicroSD card
-- Card reader: MicroSD card reader
+- Boot media: microSD card
+- Card reader: microSD card reader
 
 ## Hardware Connection
 
-1. Insert the MicroSD card into the card reader
+1. Insert the microSD card into the card reader
 2. Connect the card reader to a USB port on your PC
 
 <div style={{textAlign: 'center'}}>
@@ -28,7 +28,7 @@ Prepare the following hardware in advance:
 
 ## Software Preparation
 
-Use the open-source image flashing tool Etcher to write the system image to the MicroSD card.
+Use the open-source image flashing tool Etcher to write the system image to the microSD card.
 
 ### Download System Image
 

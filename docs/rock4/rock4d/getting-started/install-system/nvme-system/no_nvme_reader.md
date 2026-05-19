@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 不使用 M.2 NVMe 固态硬盘盒
 
-本节教程适用于没有 M.2 NVMe 固态硬盘盒的用户，主要介绍如何在 MicroSD 卡启动系统的基础上将系统安装到 M.2 NVMe SSD 中。
+本节教程适用于没有 M.2 NVMe 固态硬盘盒的用户，主要介绍如何在 microSD 卡启动系统的基础上将系统安装到 M.2 NVMe SSD 中。
 
 :::tip
 M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
@@ -12,18 +12,18 @@ M.2 NVMe SSD 是指支持 M.2 接口和 NVMe 协议的固态硬盘。
 
 ## 硬件准备
 
-在没有 M.2 NVMe 固态硬盘盒的情况下安装系统，需要瑞莎 ROCK 4D 通过 MicroSD 卡能正常启动系统。
+在没有 M.2 NVMe 固态硬盘盒的情况下安装系统，需要瑞莎 ROCK 4D 通过 microSD 卡能正常启动系统。
 
-**注意： 若 MicroSD 卡启动异常，可以参考 [安装系统到 MicroSD 卡](../boot_sd)教程，先安装系统到 MicroSD 卡上。**
+**注意： 若 microSD 卡启动异常，可以参考 [安装系统到 microSD 卡](../boot_sd)教程，先安装系统到 microSD 卡上。**
 
-我们会在 MicroSD 卡上的系统进行操作，使用 `dd` 命令将系统安装到 M.2 NVMe SSD 中。
+我们会在 microSD 卡上的系统进行操作，使用 `dd` 命令将系统安装到 M.2 NVMe SSD 中。
 
 **注意：使用 M.2 NVMe SSD 启动系统都需要搭配 PCIe 转 M.2 M Key HAT 使用。**
 
 您需要准备以下硬件：
 
 - 主板：瑞莎 ROCK 4D
-- 正常启动系统的 MicroSD 卡
+- 正常启动系统的 microSD 卡
 - M.2 NVMe SSD: 自行购买
 - PCIe 转 M.2 M Key HAT : 自行购买
 - 电源适配器：Type-C 电源适配器( 支持 PD 协议，5V 电源输入，建议电流 3A 以上)
@@ -131,7 +131,7 @@ Device Start End Sectors Size Type
 
 1. 关闭系统：`sudo shutdown -h now`
 2. 断开 ROCK 4D 的电源
-3. 移除 MicroSD 卡
+3. 移除 microSD 卡
 4. 重新连接 ROCK 4D 的电源
 5. 等待系统从 M.2 NVMe SSD 启动
 

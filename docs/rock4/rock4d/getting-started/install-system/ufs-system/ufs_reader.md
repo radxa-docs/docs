@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ## 硬件准备
 
-使用瑞莎 eMMC / UFS 二合一模块读卡器安装系统，不需要依赖MicroSD 卡，直接将 UFS 模块插入 eMMC / UFS 模块读卡器中，使用 Etcher 软件安装系统到 UFS 模块中。
+使用瑞莎 eMMC / UFS 二合一模块读卡器安装系统，不需要依赖microSD 卡，直接将 UFS 模块插入 eMMC / UFS 模块读卡器中，使用 Etcher 软件安装系统到 UFS 模块中。
 
 **您需要准备以下硬件：**
 
@@ -166,7 +166,7 @@ UFS 模块安装步骤：
 完成系统镜像的安装后：
 
 1. 将 UFS 模块从瑞莎 eMMC / UFS 二合一模块读卡器上取下来
-2. 取下 ROCK 4D 上的 MicroSD 卡
+2. 取下 ROCK 4D 上的 microSD 卡
 3. 将 UFS 模块安装到 ROCK 4D的 eMMC / UFS 模块接口上
 4. 连接 ROCK 4D 的电源
 5. 等待系统从 UFS 模块启动

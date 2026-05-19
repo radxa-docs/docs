@@ -159,7 +159,7 @@ This procedure requires soldering skills, and it is recommended that it be perfo
 | 21  |         GND         | 22  |                     |
 | 23  |         GND         |     |                     |
 
-### MicroSD Card
+### microSD Card
 
 | Pin |         Name          | Pin |         Name          |
 | :-: | :-------------------: | :-: | :-------------------: |

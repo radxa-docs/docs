@@ -22,7 +22,7 @@ Before you begin, please prepare the following hardware:
 
 - Board: Radxa Dragon Q6A
 - Power Supply: 12V Type-C Power Adapter (PD compatible)
-- Boot Media: MicroSD Card (for system installation and booting)
+- Boot Media: microSD Card (for system installation and booting)
 - Display: HDMI cable and monitor
 - Input Devices: Keyboard and mouse (for GUI operation)
 - Debug Tool (Optional): USB to UART cable (for serial console access)
@@ -36,22 +36,22 @@ Before you begin, please prepare the following hardware:
 
 ## System Installation
 
-This section explains how to install the system on a MicroSD card.
+This section explains how to install the system on a microSD card.
 
 :::warning Important Notice
 
-**Installing the system will completely format your MicroSD card, and all data will be permanently deleted!**
+**Installing the system will completely format your microSD card, and all data will be permanently deleted!**
 
 Before proceeding, please confirm:
 
-- There is no important data on the MicroSD card, or you have backed up all important data
+- There is no important data on the microSD card, or you have backed up all important data
 - You have selected the correct storage device to avoid formatting other disks
 
 :::
 
 ## Hardware Connection
 
-Insert the MicroSD card into a card reader, then connect the card reader to your computer.
+Insert the microSD card into a card reader, then connect the card reader to your computer.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -72,7 +72,7 @@ The downloaded file is in `.img.xz` compressed format. You need to extract it to
 
 ### Install System Image
 
-Use Balena Etcher software to write the system image to the MicroSD card.
+Use Balena Etcher software to write the system image to the microSD card.
 
 :::tip Balena Etcher
 
@@ -93,7 +93,7 @@ Click the `Flash from file` button and select the extracted system image file.
 
 #### Select Storage Device
 
-Click the `Select target` button and choose your MicroSD card device.
+Click the `Select target` button and choose your microSD card device.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -111,7 +111,7 @@ Click the `Select target` button and choose your MicroSD card device.
 
 #### Start Flashing
 
-Click the `Flash!` button to begin writing the system image to the MicroSD card.
+Click the `Flash!` button to begin writing the system image to the microSD card.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -146,13 +146,13 @@ Click the `Flash!` button to begin writing the system image to the MicroSD card.
 
 ## Booting the System
 
-After completing the system installation, insert the MicroSD card into the Dragon Q6A's MicroSD card slot, then power on the Dragon Q6A using the 12V Type-C power adapter to boot the system.
+After completing the system installation, insert the microSD card into the Dragon Q6A's microSD card slot, then power on the Dragon Q6A using the 12V Type-C power adapter to boot the system.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/dragon/q6a/dragon-q6a-boot-system.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-① : Insert the MicroSD card
+① : Insert the microSD card
 
 ② : Connect the monitor to the board using an HDMI cable
 
@@ -182,13 +182,13 @@ After successfully booting the system, you can start using the Radxa system on y
 :::tip Alternative Boot Methods
 For users who want to boot the system using other methods (such as eMMC, UFS, or NVMe SSD), please refer to the following guides for installing the system on different boot media:
 
-- [Install System to MicroSD Card](./install-system/sd-system.md)
+- [Install System to microSD Card](./install-system/sd-system.md)
 - [Install System to USB Drive](./install-system/udisk-system.md)
 - [Install System to UFS](./install-system/ufs-system/)
 - [Install System to eMMC](./install-system/emmc-system/)
 - [Install System to NVMe SSD](./install-system/nvme-system/)
 
-Boot priority: USB > MicroSD > NVMe SSD > eMMC Module > UFS Module
+Boot priority: USB > microSD > NVMe SSD > eMMC Module > UFS Module
 
 :::
 

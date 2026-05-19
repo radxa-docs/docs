@@ -33,7 +33,7 @@ ROCK 2A 可以从 microSD 卡启动，也可以从 EMMC 启动，基于不同的
 
 ## 启动系统
 
-- 按照上述步骤成功烧录 microSD 卡后，将 microSD 卡插入 ROCK 2A 的 MicroSD 插槽内。
+- 按照上述步骤成功烧录 microSD 卡后，将 microSD 卡插入 ROCK 2A 的 microSD 插槽内。
 - ROCK 2A 的供电接口为 [Type C port](../../hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
 
 </TabItem>

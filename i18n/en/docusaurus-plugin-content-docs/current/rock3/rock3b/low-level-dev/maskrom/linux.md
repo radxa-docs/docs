@@ -21,7 +21,7 @@ import Images from "../../\_image.mdx"
 <Rkdeveloptool model="rock-3b" release_num="18" desktop="xfce" platform="linux" loader="rk356x_spl_loader__v1.15.113.bin">
 
 <ol>
-    <li>Remove MicroSD card, insert eMMC</li>
+    <li>Remove microSD card, insert eMMC</li>
     <li>Set the dip switch below the USB 3.0 cradle to the device side.</li>
     <li>Short the Maskrom pin, which is located between the USB 3.0 cradle and the Ethernet.</li>
     <li>Connecting a PC host from the OTG port using a USB-A to USB-A cable</li>

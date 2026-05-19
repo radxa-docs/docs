@@ -155,9 +155,9 @@ On-board [eMMC on the back of the Radxa Zero 2 Pro](../hardware-design/hardware-
 
 ZERO 2 PRO has a Wi-Fi 5 (802.11 b/g/n/ac) & BT 5.0 with BLE wireless module on board.
 
-## MicroSD card slot
+## microSD card slot
 
-For MicroSD card boot or data storage.
+For microSD card boot or data storage.
 
 ## Power button
 

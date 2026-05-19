@@ -249,7 +249,7 @@ dd if=/mnt/usb/test.img of=/dev/null bs=1M count=1024 iflag=direct
 
 </NewCodeBlock>
 
-### MicroSD Card Slot
+### microSD Card Slot
 
 Used for inserting a microSD storage card, which can serve as a system boot drive or additional storage space.
 

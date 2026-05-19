@@ -4,13 +4,13 @@ sidebar_position: 4
 
 import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_dd_ufs.mdx';
 
-# Boot from MicroSD Card and Install System to UFS
+# Boot from microSD Card and Install System to UFS
 
 <InstallSystem tag="ufs_module" board="dragon-q6a" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-t4/radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz" path_to_image_unxz="radxa-dragon-q6a_noble_kde_t4.output_4096.img.xz" path_to_image="radxa-dragon-q6a_noble_kde_t4.output_4096.img" />
 
 ## Booting the System
 
-After completing the system installation, remove the MicroSD card, ensure the UFS module is properly installed in the UFS module interface of the Dragon Q6A, then power on the Dragon Q6A using the 12V Type-C power adapter.
+After completing the system installation, remove the microSD card, ensure the UFS module is properly installed in the UFS module interface of the Dragon Q6A, then power on the Dragon Q6A using the 12V Type-C power adapter.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/dragon/q6a/dragon-q6a-boot-system-ufs.webp" style={{width: '100%', maxWidth: '1200px'}} />

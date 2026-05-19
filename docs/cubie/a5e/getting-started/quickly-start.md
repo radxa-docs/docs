@@ -24,7 +24,7 @@ sidebar_position: 1
 
 - 主板：瑞莎 Cubie A5E
 - 供电：5V Type-C 电源适配器
-- 系统启动介质：MicroSD 卡（用于安装系统与启动）
+- 系统启动介质：microSD 卡（用于安装系统与启动）
 - 显示设备：HDMI 数据线与显示器（用于显示图形界面）
 - 输入设备：键盘和鼠标（用于图形界面操作）
 - 调试工具（可选）：USB 串口数据线（用于串口登录，参考[串口登录](../system-config/uart-login)教程）和 USB-A 拓展坞（用于拓展 USB 外设）
@@ -39,20 +39,20 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 ## 安装系统
 
-主要介绍安装系统到 MicroSD 卡。
+主要介绍安装系统到 microSD 卡。
 
 :::warning 重要提醒
-**安装系统会完全格式化 MicroSD 卡，所有数据将被永久删除！**
+**安装系统会完全格式化 microSD 卡，所有数据将被永久删除！**
 
 请在操作前确认：
 
-- MicroSD 卡中没有重要数据，或已完成备份
+- microSD 卡中没有重要数据，或已完成备份
 - 选择了正确的存储设备（避免误格式化其他磁盘）
   :::
 
 ### 硬件连接
 
-将 MicroSD 卡插入 MicroSD 卡读卡器，再将 MicroSD 卡读卡器插入电脑。
+将 microSD 卡插入 microSD 卡读卡器，再将 microSD 卡读卡器插入电脑。
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -71,7 +71,7 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 ### 安装系统镜像
 
-使用 Balena Etcher 软件可以将系统镜像安装到 MicroSD 卡中。
+使用 Balena Etcher 软件可以将系统镜像安装到 microSD 卡中。
 
 :::tip Balena Etcher
 对于 Balena Etcher 的安装和使用，可以参考 [Etcher 使用](/common/radxa-os/install-system/balena-etcher) 教程。
@@ -90,7 +90,7 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 #### 选择存储设备
 
-点击 `Select target` 选项，选择 MicroSD 卡设备。
+点击 `Select target` 选项，选择 microSD 卡设备。
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -108,7 +108,7 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 #### 开始烧录
 
-点击 `Flash!` 选项，开始烧录系统镜像到 MicroSD 卡中。
+点击 `Flash!` 选项，开始烧录系统镜像到 microSD 卡中。
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -143,7 +143,7 @@ Cubie A5E 主板兼容 PD 协议的 5V Type-C 电源输入，建议电流 3A 以
 
 ## 启动系统
 
-① : 将 MicroSD 卡插入 MicroSD 卡槽
+① : 将 microSD 卡插入 microSD 卡槽
 
 ② : 使用 HDMI 数据线连接显示器和主板
 

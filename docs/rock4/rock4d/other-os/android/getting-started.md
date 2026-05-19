@@ -20,7 +20,7 @@ sidebar_position: 2
 您需要提前准备以下硬件设备：
 
 - 主板：瑞莎 ROCK 4D
-- 系统启动介质：MicroSD 卡
+- 系统启动介质：microSD 卡
 - 供电设备：5V Type-C 电源适配器
 - 显示设备：显示器和 HDMI 数据线
 - 输入设备：键盘和鼠标（用于图形界面操作）
@@ -35,22 +35,22 @@ sidebar_position: 2
 
 ## 安装系统
 
-主要介绍安装系统到 MicroSD 卡。
+主要介绍安装系统到 microSD 卡。
 
 :::warning 重要提醒
 
-**安装系统会完全格式化 MicroSD 卡，所有数据将被永久删除！**
+**安装系统会完全格式化 microSD 卡，所有数据将被永久删除！**
 
 请在操作前确认：
 
-- MicroSD 卡中无重要数据或已完成资料备份
+- microSD 卡中无重要数据或已完成资料备份
 - 选择正确的存储设备，避免格式化其他磁盘
 
 :::
 
 ### 硬件连接
 
-将 MicroSD 卡插入 MicroSD 卡读卡器，再将 MicroSD 卡读卡器插入电脑。
+将 microSD 卡插入 microSD 卡读卡器，再将 microSD 卡读卡器插入电脑。
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -71,7 +71,7 @@ sidebar_position: 2
 
 ### 写入系统镜像
 
-使用 Balena Etcher 软件可以将系统镜像安装到 MicroSD 卡中。
+使用 Balena Etcher 软件可以将系统镜像安装到 microSD 卡中。
 
 :::tip Balena Etcher
 
@@ -92,7 +92,7 @@ sidebar_position: 2
 
 #### 选择存储设备
 
-点击 `Select target` 选项，选择 MicroSD 卡设备。
+点击 `Select target` 选项，选择 microSD 卡设备。
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -110,7 +110,7 @@ sidebar_position: 2
 
 #### 开始烧录
 
-点击 `Flash!` 选项，开始烧录系统镜像到 MicroSD 卡中。
+点击 `Flash!` 选项，开始烧录系统镜像到 microSD 卡中。
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -145,4 +145,4 @@ sidebar_position: 2
 
 ## 启动系统
 
-完成系统的写入后，将 MicroSD 卡安装到 ROCK 4D 的 MicroSD 卡槽中，然后使用 5V Type-C 电源适配器给 ROCK 4D 供电，即可启动系统。
+完成系统的写入后，将 microSD 卡安装到 ROCK 4D 的 microSD 卡槽中，然后使用 5V Type-C 电源适配器给 ROCK 4D 供电，即可启动系统。

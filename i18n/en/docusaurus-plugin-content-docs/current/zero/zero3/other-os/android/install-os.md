@@ -16,7 +16,7 @@ There are two main methods to install the operating system depends on where you 
 
 **Boot from SD Card** (**recommended**)
 
-- Install the system image to a MicroSD card via a card reader
+- Install the system image to a microSD card via a card reader
 
 **Boot from eMMC OnBoard**
 
@@ -39,7 +39,7 @@ If the board doesn't come with eMMC, you can't boot from eMMC, such as Radxa ZER
 
 #### Install OS
 
-1. Insert MicroSD Card into SD Card reader, and then insert SD card Reader into PC's USB Port
+1. Insert microSD Card into SD Card reader, and then insert SD card Reader into PC's USB Port
 
 2. [Download](https://etcher.balena.io/) Flash tool `Etcher`.
    ![ROCK5A via Etcher 01](/img/rock5a/rock5a-etcher.webp)

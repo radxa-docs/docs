@@ -95,7 +95,7 @@ import GPIO from '../../\_rock4-gpio.mdx';
 | 21  |    GND    | 22  |     GND     |
 | 23  |    GND    | 24  |             |
 
-### MicroSD
+### microSD
 
 | Pin |     Name     |
 | :-: | :----------: |

@@ -51,7 +51,7 @@ For detailed hardware interface pinouts of Radxa E24C, refer to the [Hardware Sc
 |  4  | User Button                            |  1  |
 |  5  | USB 2.0 Type-A Ports                   |  3  |
 |  6  | RTC Battery Connector                  |  1  |
-|  7  | MicroSD Card Slot                      |  1  |
+|  7  | microSD Card Slot                      |  1  |
 |  8  | GPIO: 14-pin Expansion Header          |  1  |
 |  9  | LED Indicators (1x Power, 4x Ethernet) |  5  |
 | 10  | Power Button                           |  1  |
@@ -62,9 +62,9 @@ For detailed hardware interface pinouts of Radxa E24C, refer to the [Hardware Sc
 | 15  | M.2 NVMe SSD Slot                      |  1  |
 | 16  | SPI Nor Flash                          |  1  |
 
-### MicroSD Card Slot
+### microSD Card Slot
 
-The E24C features a MicroSD card slot, which can be used for storing system data, system images, and system configurations.
+The E24C features a microSD card slot, which can be used for storing system data, system images, and system configurations.
 
 | PIN | Name       | Function Description        |
 | --- | ---------- | --------------------------- |
@@ -84,18 +84,18 @@ The E24C features a MicroSD card slot, which can be used for storing system data
 
 #### Usage Guide
 
-- **Supported Card Types**: Compatible with MicroSD/MicroSDHC/MicroSDXC memory cards
+- **Supported Card Types**: Compatible with microSD/microSDHC/microSDXC memory cards
 - **Recommended Specifications**: Class 10/UHS-I or higher recommended for better performance
-- **Maximum Capacity**: Theoretically supports up to 2TB MicroSDXC cards, tested with 512GB cards
+- **Maximum Capacity**: Theoretically supports up to 2TB microSDXC cards, tested with 512GB cards
 
 #### Main Application Scenarios
 
-- **System Boot**: E24C can boot the operating system from a MicroSD card, which is the most common usage
+- **System Boot**: E24C can boot the operating system from a microSD card, which is the most common usage
 - **Data Storage**: Can be used to expand storage space when the system is already running (e.g., when booted from eMMC)
 - **System Backup**: Can be used to back up the current system and data
 
 :::tip
-For production environments or systems requiring 24/7 operation, it is recommended to use eMMC or M.2 SSD as the primary storage and boot device, as they provide better stability and read/write endurance. MicroSD cards are suitable for temporary storage and development/testing scenarios.
+For production environments or systems requiring 24/7 operation, it is recommended to use eMMC or M.2 SSD as the primary storage and boot device, as they provide better stability and read/write endurance. microSD cards are suitable for temporary storage and development/testing scenarios.
 :::
 
 ### USB Interfaces
