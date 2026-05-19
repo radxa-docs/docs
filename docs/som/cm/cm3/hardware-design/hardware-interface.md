@@ -37,13 +37,6 @@ description: "详细介绍 CM3/CM3 IO 硬件信息"
 
 ### DIP_2.54MM_3PIN_180
 
-- U31
-
-  | Pin |  Name   | Pin | Name |
-  | :-: | :-----: | :-: | :--: |
-  |  1  | WL_nDis |  2  | GND  |
-  |  3  | BT_nDis |     |      |
-
 - U32
 
   | Pin |   Name    | Pin | Name |

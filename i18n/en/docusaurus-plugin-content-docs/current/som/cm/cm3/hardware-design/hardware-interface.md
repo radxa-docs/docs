@@ -37,13 +37,6 @@ The following outlines the comprehensive interface details for the Radxa CM3 IO 
 
 ### DIP_2.54MM_3PIN_180
 
-- U31
-
-  | Pin |  Name   | Pin | Name |
-  | :-: | :-----: | :-: | :--: |
-  |  1  | WL_nDis |  2  | GND  |
-  |  3  | BT_nDis |     |      |
-
 - U32
 
   | Pin |   Name    | Pin | Name |
