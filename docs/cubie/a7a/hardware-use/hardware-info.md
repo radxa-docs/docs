@@ -24,7 +24,7 @@ sidebar_position: 1
 | ④    | [耳机插孔](/cubie/a7a/hardware-use/headphone)             | ⑪    | [PoE 接口](/cubie/a7a/hardware-use/ethernet)                   | ⑱    | [电源按键](/cubie/a7a/hardware-use/power-key)                     |
 | ⑤    | [UBOOT 按键](/cubie/a7a/hardware-use/uboot-key)           | ⑫    | WiFi6 和 蓝牙5.4                                               | ⑲    | [eMMC / UFS 模块二合一接口](/cubie/a7a/hardware-use/emmc-ufs-com) |
 | ⑥    | [USB 2.0 Type-A 接口](/cubie/a7a/hardware-use/usb-type-a) | ⑬    | [40 Pin GPIO 排针](/cubie/a7a/hardware-use/pin-gpio)           | ⑳    | [MIPI CSI 接口](/cubie/a7a/hardware-use/mipi-csi)                 |
-| ⑦    | [RTC 接口](/cubie/a7a/hardware-use/rtc)                   | ⑭    | [MIPI DSI 接口](/cubie/a7a/hardware-use/mipi-dsi)              | ㉑   | [MicroSD 卡槽](/cubie/a7a/hardware-use/microsd)                   |
+| ⑦    | [RTC 接口](/cubie/a7a/hardware-use/rtc)                   | ⑭    | [MIPI DSI 接口](/cubie/a7a/hardware-use/mipi-dsi)              | ㉑   | [microSD 卡槽](/cubie/a7a/hardware-use/microsd)                   |
 
 - 电源指示灯
 

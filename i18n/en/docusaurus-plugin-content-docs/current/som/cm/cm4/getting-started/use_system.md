@@ -17,7 +17,7 @@ Install the boot media in the corresponding slot on the motherboard, then power 
 :::tip Boot Priority
 If you have multiple boot media installed on the motherboard, the system will boot in the following priority order:
 
-MicroSD Card > Onboard eMMC > UFS Module > NVMe SSD
+microSD Card > Onboard eMMC > UFS Module > NVMe SSD
 :::
 
 **Note:** You can remove the higher priority boot media to force the system to boot from a lower priority media.

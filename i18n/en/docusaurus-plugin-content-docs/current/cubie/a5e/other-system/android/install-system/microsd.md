@@ -7,13 +7,13 @@ imports_resolve_to:
   - i18n/en/docusaurus-plugin-content-docs/current/common/other-system/fel-image/_microsd_system.mdx
 ---
 
-import MicroSD from '../../../../../common/other-system/fel-image/\_microsd_system.mdx';
+import microSD from '../../../../../common/other-system/fel-image/\_microsd_system.mdx';
 
-# Install System to MicroSD Card
+# Install System to microSD Card
 
 :::info Download Address
 
 - The tools and system images required for the tutorial can be downloaded from the [Resource Download](../../../download) page.
   :::
 
-<MicroSD />
+<microSD />

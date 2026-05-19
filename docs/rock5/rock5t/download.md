@@ -16,7 +16,7 @@ import Images from "./\_image.mdx"
 
 - Android
 
-[Radxa ROCK 5T Android 12 MicroSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-rock5t-20250226/Rock5T-Android12-rk14-20250226-gpt.zip)：适用于 MicroSD 卡、板载 eMMC 启动系统。
+[Radxa ROCK 5T Android 12 microSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-rock5t-20250226/Rock5T-Android12-rk14-20250226-gpt.zip)：适用于 microSD 卡、板载 eMMC 启动系统。
 
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。

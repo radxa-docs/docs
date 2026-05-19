@@ -20,13 +20,13 @@ sidebar_position: 1
 
 您可以根据自己的系统启动介质和拥有的硬件设备，参考下面教程进行系统安装：
 
-- [安装系统到 MicroSD 卡](./install-system/microsd)（新用户推荐）
+- [安装系统到 microSD 卡](./install-system/microsd)（新用户推荐）
 - [安装系统到板载 eMMC](./install-system/emmc)
 
 ## 启动系统
 
 :::tip
-若 Cubie A5E 安装了多个系统启动介质，Cubie A5E 的系统启动优先级为：MicroSD 卡 > NVMe SSD(暂不支持) > 板载 eMMC
+若 Cubie A5E 安装了多个系统启动介质，Cubie A5E 的系统启动优先级为：microSD 卡 > NVMe SSD(暂不支持) > 板载 eMMC
 :::
 
 ① : 将对应系统启动介质安装到 Cubie A5E 的对应接口

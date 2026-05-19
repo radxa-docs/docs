@@ -9,17 +9,17 @@ imports_resolve_to:
 
 import Etcher from '../../../../../../common/general/\_etcherV2.mdx';
 
-# 安装系统到 MicroSD 卡
+# 安装系统到 microSD 卡
 
-本文介绍如何在 ROCK 4A/4B/4A+/4B+/4SE 上将系统安装到 MicroSD 卡 中，并通过 MicroSD 卡 启动系统。
+本文介绍如何在 ROCK 4A/4B/4A+/4B+/4SE 上将系统安装到 microSD 卡 中，并通过 microSD 卡 启动系统。
 
 ## 文件下载
 
 到资源下载汇总页面下载 [ROCK 4A/4B/4A+/4B+/4SE 系统镜像](../../../../download)
 
-## MicroSD 卡准备
+## microSD 卡准备
 
-将 MicroSD 卡插入到 SD 卡读卡器中，然后将读卡器插入到 PC 的 USB 端口上
+将 microSD 卡插入到 SD 卡读卡器中，然后将读卡器插入到 PC 的 USB 端口上
 
 ## 镜像烧录
 
@@ -27,7 +27,7 @@ import Etcher from '../../../../../../common/general/\_etcherV2.mdx';
 
 ## 启动系统
 
-按照上述步骤成功烧录 MicroSD Card 后， 将 MicroSD Card 插入到 MicroSD Card 插槽内（如下图所示)，然后上电，系统开始启动，HDMI显示桌面。
+按照上述步骤成功烧录 microSD Card 后， 将 microSD Card 插入到 microSD Card 插槽内（如下图所示)，然后上电，系统开始启动，HDMI显示桌面。
 
 <img
 src="/img/rock4/rock4-sd-slot.webp"

@@ -16,7 +16,7 @@ This tutorial is for users with the Cubie A5E onboard eMMC version.
 
 After completing the system installation, power off the board and disconnect the power supply. Follow these steps to boot the system:
 
-① Remove the MicroSD card from the board
+① Remove the microSD card from the board
 
 ② Connect the monitor to the board using an HDMI cable
 

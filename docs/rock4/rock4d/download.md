@@ -40,16 +40,16 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 :::
 
-若没有清除过 SPI Flash，可以直接写入系统镜像到 MicroSD 卡 / UFS 模块 / NVME / eMMC 启动系统。
+若没有清除过 SPI Flash，可以直接写入系统镜像到 microSD 卡 / UFS 模块 / NVME / eMMC 启动系统。
 
-- 适用于 MicroSD 卡 / NVME SSD / U 盘 / eMMC 等介质启动的系统镜像： [Linux-SD-NVME-UDisk.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
+- 适用于 microSD 卡 / NVME SSD / U 盘 / eMMC 等介质启动的系统镜像： [Linux-SD-NVME-UDisk.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
 
 - 适用于 UFS 启动的系统镜像： [Linux-UFS.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_4096.img.xz)
 
 :::caution
 
 1. 请根据自己的系统启动介质下载对应系统镜像文件，下载错误的镜像会导致无法启动系统， UFS 镜像和普通镜像主要区别是 UFS 镜像的块大小是 4K 字节，普通镜像块大小是 512 字节。
-2. 下载的系统镜像是经过压缩的，请务必解压后再写入到 MicroSD 卡/UFS 模块/NVME 启动系统。
+2. 下载的系统镜像是经过压缩的，请务必解压后再写入到 microSD 卡/UFS 模块/NVME 启动系统。
    :::
 
 #### Android 系统镜像
@@ -60,7 +60,7 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 :::
 
-- 适用于 MicroSD 卡启动的系统镜像：[Android-SD.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-sd-20250527-gpt.zip)
+- 适用于 microSD 卡启动的系统镜像：[Android-SD.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-sd-20250527-gpt.zip)
 
 - 适用于 UFS 模块启动的 update 系统镜像：[Android-UFS-update.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20251014/Rock4d-Android14-rk6-gms-ufs-20251014-update.zip)
 

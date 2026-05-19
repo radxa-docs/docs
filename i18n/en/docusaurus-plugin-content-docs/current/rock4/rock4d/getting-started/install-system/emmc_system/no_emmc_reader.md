@@ -9,7 +9,7 @@ imports_resolve_to:
 
 import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_dd_emmc.mdx';
 
-# Boot from MicroSD Card and Install System to eMMC
+# Boot from microSD Card and Install System to eMMC
 
 :::tip eMMC System Startup Prompt
 Only the ROCK 4D without SPI Flash version supports eMMC startup, and the version with on-chip SPI Flash does not support eMMC startup.
@@ -19,7 +19,7 @@ Only the ROCK 4D without SPI Flash version supports eMMC startup, and the versio
 
 ## Boot System
 
-After completing the system installation, remove the MicroSD card, confirm that the eMMC module is installed in the eMMC module interface of ROCK 4D, then power on the ROCK 4D using the power adapter to boot the system.
+After completing the system installation, remove the microSD card, confirm that the eMMC module is installed in the eMMC module interface of ROCK 4D, then power on the ROCK 4D using the power adapter to boot the system.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/rock4/4d/rock-4d-boot-system-emmc.webp" style={{width: '100%', maxWidth: '1200px'}} />

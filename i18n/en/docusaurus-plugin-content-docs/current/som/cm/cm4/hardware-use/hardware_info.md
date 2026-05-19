@@ -44,7 +44,7 @@ sidebar_position: 1
 | ②   | Power Header (for shutdown/reboot) | ⑨   | Gigabit Ethernet (PoE supported with PoE HAT) | ⑯   | RTC Interface             |
 | ③   | Power Output                       | ⑩   | USB 3.0 Type-A Port                           | ⑰   | UFS Module Interface      |
 | ④   | Fan Connector                      | ⑪   | HDMI Port                                     | ⑱   | 4-lane MIPI CSI Interface |
-| ⑤   | MicroSD Card Slot                  | ⑫   | 2x 2-lane MIPI CSI Interfaces                 | ⑲   | 4-lane MIPI DSI Interface |
+| ⑤   | microSD Card Slot                  | ⑫   | 2x 2-lane MIPI CSI Interfaces                 | ⑲   | 4-lane MIPI DSI Interface |
 | ⑥   | Headphone Jack                     | ⑬   | PoE Interface                                 | ⑳   | M.2 M Key 2280 Slot       |
 | ⑦   | 2x USB 3.0 Type-C Ports            | ⑭   | 40 Pin GPIO Header                            | ㉑  | 3x 100 Pin B2B Connectors |
 

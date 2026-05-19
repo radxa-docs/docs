@@ -4,13 +4,13 @@ sidebar_position: 1
 
 import BalenaEtcherUse from '../../../../common/radxa-os/install-system/\_use_etcher_sd.mdx';
 
-# 安装系统到 MicroSD 卡
+# 安装系统到 microSD 卡
 
 <BalenaEtcherUse />
 
 ## 启动系统
 
-① : 将 MicroSD 卡插入 MicroSD 卡槽
+① : 将 microSD 卡插入 microSD 卡槽
 
 ② : 使用 HDMI 数据线连接显示器和主板
 

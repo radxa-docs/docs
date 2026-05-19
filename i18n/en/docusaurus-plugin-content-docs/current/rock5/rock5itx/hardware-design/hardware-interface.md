@@ -81,7 +81,7 @@ sidebar_position: 4
       </tr>
       <tr>
         <th>4</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">MicroSD</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">microSD</a></th>
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>
@@ -179,7 +179,7 @@ sidebar_position: 4
       </tr>
       <tr>
         <th>4</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">MicroSD</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">microSD</a></th>
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>
@@ -273,7 +273,7 @@ sidebar_position: 4
       </tr>
       <tr>
         <th>4</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">MicroSD</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#miscro-sd">microSD</a></th>
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>

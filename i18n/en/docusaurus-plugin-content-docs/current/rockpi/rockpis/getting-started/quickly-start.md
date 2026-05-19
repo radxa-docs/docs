@@ -33,8 +33,8 @@ This chapter is designed to help you get started quickly with the Radxa ROCK Pi 
 To complete all the steps in this quick start guide, you'll need to prepare the following hardware in advance:
 
 - Motherboard: Radxa ROCK Pi S
-- Boot Media: MicroSD Card
-- MicroSD Card Reader: For reading/writing the MicroSD card
+- Boot Media: microSD Card
+- microSD Card Reader: For reading/writing the microSD card
 - USB to UART Serial Cable: For serial debugging and login
 - Power Supply: 5V Type-C power adapter or Type-C to Type-A cable connected to a PC
 
@@ -48,9 +48,9 @@ You can use this to access system output, verify successful boot, and log into t
 
 The ROCK Pi S board only supports 5V power input. A minimum current of 1A is recommended to ensure stable operation of all peripherals.
 
-- MicroSD Card Reader
+- microSD Card Reader
 
-ROCK Pi S V1.5 supports eMMC for system installation and booting. If you install the system to eMMC, a MicroSD card reader is not required.
+ROCK Pi S V1.5 supports eMMC for system installation and booting. If you install the system to eMMC, a microSD card reader is not required.
 
 :::
 
@@ -62,17 +62,17 @@ Choose the installation tutorial that matches your ROCK Pi S version.
 
 <TabItem value=" ROCK Pi S V1.3 ">
 
-ROCK Pi S V1.3 supports MicroSD card installation and system booting.
+ROCK Pi S V1.3 supports microSD card installation and system booting.
 
-- Refer to the [Install System to MicroSD Card](./install-os/install-os-to-sd.md) tutorial.
+- Refer to the [Install System to microSD Card](./install-os/install-os-to-sd.md) tutorial.
 
 </TabItem>
 
 <TabItem value=" ROCK Pi S V1.5 ">
 
-ROCK Pi S V1.5 supports MicroSD card and on-chip eMMC installation and system booting. You can choose one of the two methods to install the system, and installing the system to MicroSD card is simpler.
+ROCK Pi S V1.5 supports microSD card and on-chip eMMC installation and system booting. You can choose one of the two methods to install the system, and installing the system to microSD card is simpler.
 
-- Refer to the [Install System to MicroSD Card](./install-os/install-os-to-sd.md) tutorial
+- Refer to the [Install System to microSD Card](./install-os/install-os-to-sd.md) tutorial
 - Refer to the [Install System to eMMC (Applicable to V1.5)](./install-os/install-os-to-emmc.md) tutorial
 
 </TabItem>

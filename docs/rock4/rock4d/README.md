@@ -38,7 +38,7 @@ ROCK 4D 提供两个版本：基于 RK3576 的商业级 ROCK 4D 和 基于 RK357
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 处理器     | 系统级芯片 (SoC)： 瑞芯微 RK3576 / RK3576J <br/> 中央处理器 (CPU)： 4 核 Cortex-A72 + 4 核 Cortex-A53 <br/> 图形处理器 (GPU)： Arm Mali-G52 MC3 <br/> 神经网络加速器 (NPU)： 6 TOPS（支持 INT4 / INT8 / INT16 / FP16 / BF16 / TF32） |
 | 内存 (RAM) | LPDDR5，可选：2GB / 4GB / 8GB / 16GB                                                                                                                                                                                                 |
-| 存储       | 启动存储： 16MB SPI NOR Flash <br/> 拓展存储： eMMC / UFS 模块接口，MicroSD 卡槽                                                                                                                                                     |
+| 存储       | 启动存储： 16MB SPI NOR Flash <br/> 拓展存储： eMMC / UFS 模块接口，microSD 卡槽                                                                                                                                                     |
 | 网络       | 有线连接： 1 个千兆以太网口（支持 PoE，需外接 HAT） <br/> 无线连接： Wi-Fi 6、蓝牙 5.4，外接天线接口                                                                                                                                 |
 | 视频输出   | HDMI 接口： 1× HDMI 2.1，最高支持 4K@120fps <br/> MIPI DSI 接口： 1× 4-lane MIPI DSI                                                                                                                                                 |
 | 摄像头接口 | MIPI CSI 接口 : 1 路 4-lane（可分为 2 路 2-lane）+ 1 路 2-lane CSI                                                                                                                                                                   |
@@ -65,7 +65,7 @@ ROCK 4D 提供两个版本：基于 RK3576 的商业级 ROCK 4D 和 基于 RK357
 |  ⑤   | [FPC 接口](./hardware-use/fpc-connector.md)|  1   |  ⑭  | [USB 3.0 Type-A 接口](./hardware-use/usb-type-a.md)<br />上层：USB 3.0 Type-A OTG<br />下层：USB 3.0 Type-A HOST |  2   |  ㉓  | [RTC 接口](./hardware-use/rtc.md)           |  1   |
 |  ⑥   | [WiFi6 和 蓝牙 5.4](./hardware-use/ante.md) |  1   |  ⑮  | SPI NOR Flash               |  1   |  ㉔  | [eMMC 模块接口](./hardware-use/emmc-ufs-connector.md) |  1   |
 |  ⑦   | [天线接口](./hardware-use/ante.md)          |  1   |  ⑯  | [千兆以太网口（支持 PoE）](./hardware-use/gigabit-ethernet.md) |  1   |  ㉕  | [MIPI CSI 接口](./hardware-use/mipi-csi.md) |  1   |
-|  ⑧   | [40 Pin GPIO 接口](./hardware-use/40-pin-gpio.md)|  1   |  ⑰  | [风扇接口](./hardware-use/fan.md)            |  1   |  ㉖  | [MicroSD 卡槽](./hardware-use/microsd.md)   |  1   |
+|  ⑧   | [40 Pin GPIO 接口](./hardware-use/40-pin-gpio.md)|  1   |  ⑰  | [风扇接口](./hardware-use/fan.md)            |  1   |  ㉖  | [microSD 卡槽](./hardware-use/microsd.md)   |  1   |
 |  ⑨   | LPDDR5 内存                |  1   |  ⑱  | [耳机插孔](./hardware-use/headphone.md)      |  1   |  ㉗  | [MIPI DSI 接口](./hardware-use/mipi-dsi.md) |  1   |
     </TabItem>
     <TabItem value="ROCK 4D v1.12">
@@ -79,7 +79,7 @@ ROCK 4D 提供两个版本：基于 RK3576 的商业级 ROCK 4D 和 基于 RK357
 | ⑤  | [FPC 接口](./hardware-use/fpc-connector.md)     | 1  | ⑮  | SPI NOR Flash                                                                            | 1  | ㉕  | [RTC 接口](./hardware-use/rtc.md)                   | 1  |
 | ⑥  | [WiFi6 和 蓝牙 5.4](./hardware-use/ante.md)   | 1  | ⑯  | [千兆以太网口（支持 PoE）](./hardware-use/gigabit-ethernet.md)                                                      | 1  | ㉖  | [eMMC 模块接口](./hardware-use/emmc-ufs-connector.md) | 1  |
 | ⑦  | [天线接口](./hardware-use/ante.md)                | 1  | ⑰  | [风扇接口](./hardware-use/fan.md)                                                                            | 1  | ㉗  | [MIPI CSI 接口](./hardware-use/mipi-csi.md)         | 1  |
-| ⑧  | [40 Pin GPIO 接口](./hardware-use/40-pin-gpio.md)  | 1  | ⑱  | [耳机插孔](./hardware-use/headphone.md)                                                                      | 1  | ㉘  | [MicroSD 卡槽](./hardware-use/microsd.md)           | 1  |
+| ⑧  | [40 Pin GPIO 接口](./hardware-use/40-pin-gpio.md)  | 1  | ⑱  | [耳机插孔](./hardware-use/headphone.md)                                                                      | 1  | ㉘  | [microSD 卡槽](./hardware-use/microsd.md)           | 1  |
 | ⑨  | LPDDR5 内存                     | 1  | ⑲  | [MIPI CSI 接口](./hardware-use/mipi-csi.md)                                                                | 1  | ㉙  | [MIPI DSI 接口](./hardware-use/mipi-dsi.md)         | 1  |
 | ⑩  | [PoE 接口](./hardware-use/gigabit-ethernet.md)  | 1  | ⑳  | 扬声器预留焊盘                                                                                  | 1  |    |                                   |    |
     </TabItem>

@@ -22,7 +22,7 @@ We use CM4 with CM4 IO board for the quick start demonstration.
 You need to prepare the following hardware devices in advance:
 
 - Board: Radxa CM4 with CM4 IO board
-- System boot medium: MicroSD card
+- System boot medium: microSD card
 - Power supply: Standard DC 12V/2A power adapter (DC-5525 interface)
 - Display device: Monitor and HDMI cable
 - Input devices: Keyboard and mouse (for GUI operation)
@@ -37,22 +37,22 @@ The Radxa CM4 IO board only supports 12V power input. It is recommended to use 2
 
 ## Install System
 
-Mainly introduces installing the system to MicroSD card.
+Mainly introduces installing the system to microSD card.
 
 :::warning Important Notice
 
-**Installing the system will completely format the MicroSD card, and all data will be permanently deleted!**
+**Installing the system will completely format the microSD card, and all data will be permanently deleted!**
 
 Please confirm before operation:
 
-- The MicroSD card contains no important data or data backup has been completed
+- The microSD card contains no important data or data backup has been completed
 - Select the correct storage device to avoid formatting other disks
 
 :::
 
 ### Hardware Connection
 
-Insert the MicroSD card into the MicroSD card reader, then insert the MicroSD card reader into the computer.
+Insert the microSD card into the microSD card reader, then insert the microSD card reader into the computer.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -73,7 +73,7 @@ The image file is a compressed package in `.img.xz` format. After downloading, i
 
 ### Write System Image
 
-Using Balena Etcher software, you can install the system image to the MicroSD card.
+Using Balena Etcher software, you can install the system image to the microSD card.
 
 :::tip Balena Etcher
 
@@ -94,7 +94,7 @@ Click the `Flash from file` option and select the system image file you download
 
 #### Select Storage Device
 
-Click the `Select target` option and select the MicroSD card device.
+Click the `Select target` option and select the microSD card device.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -112,7 +112,7 @@ Click the `Select target` option and select the MicroSD card device.
 
 #### Start Flashing
 
-Click the `Flash!` option to start flashing the system image to the MicroSD card.
+Click the `Flash!` option to start flashing the system image to the microSD card.
 
 <div style={{ textAlign: "center" }}>
   Wait for system installation to complete
@@ -140,4 +140,4 @@ Click the `Flash!` option to start flashing the system image to the MicroSD card
 
 ## Boot System
 
-After completing the system write, install the MicroSD card into the MicroSD card slot of the CM4 IO board, then use the 12V DC power adapter to power the CM4, and the system will start.
+After completing the system write, install the microSD card into the microSD card slot of the CM4 IO board, then use the 12V DC power adapter to power the CM4, and the system will start.

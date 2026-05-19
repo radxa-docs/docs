@@ -2,24 +2,24 @@
 sidebar_position: 1
 ---
 
-# 安装系统到 MicroSD 卡
+# 安装系统到 microSD 卡
 
-主要介绍如何将系统安装到 MicroSD 卡中。
+主要介绍如何将系统安装到 microSD 卡中。
 
 :::warning
-安装系统会格式化 MicroSD 卡，如果有重要数据请提前备份！
+安装系统会格式化 microSD 卡，如果有重要数据请提前备份！
 :::
 
 ## 硬件准备
 
 您需要提前准备以下硬件：
 
-- 系统启动介质：MicroSD 卡
-- 读卡器：MicroSD 卡读卡器
+- 系统启动介质：microSD 卡
+- 读卡器：microSD 卡读卡器
 
 ## 硬件连接
 
-将 MicroSD 卡插入读卡器中，然后将读卡器插入 PC 的 USB 端口上。
+将 microSD 卡插入读卡器中，然后将读卡器插入 PC 的 USB 端口上。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -27,7 +27,7 @@ sidebar_position: 1
 
 ## 软件准备
 
-使用开源镜像烧录工具 Etcher 烧写系统镜像文件到 MicroSD 卡。
+使用开源镜像烧录工具 Etcher 烧写系统镜像文件到 microSD 卡。
 
 ### 下载系统镜像
 
@@ -79,7 +79,7 @@ sidebar_position: 1
   <img src="/img/rock4/4d/etcher-01.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-2. 选择 MicroSD 卡对应的磁盘：点击 `Select target` 选项，选择自己接入 PC 的读卡器对应磁盘设备。
+2. 选择 microSD 卡对应的磁盘：点击 `Select target` 选项，选择自己接入 PC 的读卡器对应磁盘设备。
 
 :::danger
 请勿选错磁盘，否则 Etcher 将格式化被选中的磁盘，造成重要数据丢失！

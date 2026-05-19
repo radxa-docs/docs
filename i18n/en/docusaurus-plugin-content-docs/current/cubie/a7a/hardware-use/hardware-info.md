@@ -24,7 +24,7 @@ sidebar_position: 1
 | ④   | [Headphone Jack](/cubie/a7a/hardware-use/headphone)       | ⑪   | [PoE Interface](/cubie/a7a/hardware-use/ethernet)               | ⑱   | [Power Button](/cubie/a7a/hardware-use/power-key)                       |
 | ⑤   | [UBOOT Button](/cubie/a7a/hardware-use/uboot-key)         | ⑫   | WiFi 6 and Bluetooth 5.4                                        | ⑲   | [eMMC/UFS Combo Module Interface](/cubie/a7a/hardware-use/emmc-ufs-com) |
 | ⑥   | [USB 2.0 Type-A Port](/cubie/a7a/hardware-use/usb-type-a) | ⑬   | [40-Pin GPIO Header](/cubie/a7a/hardware-use/pin-gpio)          | ⑳   | [MIPI CSI Interface](/cubie/a7a/hardware-use/mipi-csi)                  |
-| ⑦   | [RTC Interface](/cubie/a7a/hardware-use/rtc)              | ⑭   | [MIPI DSI Interface](/cubie/a7a/hardware-use/mipi-dsi)          | ㉑  | [MicroSD Card Slot](/cubie/a7a/hardware-use/microsd)                    |
+| ⑦   | [RTC Interface](/cubie/a7a/hardware-use/rtc)              | ⑭   | [MIPI DSI Interface](/cubie/a7a/hardware-use/mipi-dsi)          | ㉑  | [microSD Card Slot](/cubie/a7a/hardware-use/microsd)                    |
 
 - **Power LED**
 

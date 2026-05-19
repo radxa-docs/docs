@@ -4,13 +4,13 @@ sidebar_position: 3
 
 # Install System to eMMC Module
 
-eMMC modules offer faster read/write speeds compared to MicroSD cards, making them an excellent choice for users looking to enhance their system's performance and boot times.
+eMMC modules offer faster read/write speeds compared to microSD cards, making them an excellent choice for users looking to enhance their system's performance and boot times.
 
 We provide two methods to install the system to an eMMC module:
 
 - **With Radxa eMMC/UFS Combo Module Reader**: Directly write the system image using the Radxa eMMC/UFS Combo Module Reader on your PC.
 
-- **Without Radxa eMMC/UFS Combo Module Reader**: Boot the system using a MicroSD card first, then use the `dd` command to install the system image to the eMMC module.
+- **Without Radxa eMMC/UFS Combo Module Reader**: Boot the system using a microSD card first, then use the `dd` command to install the system image to the eMMC module.
 
 For more information about the Radxa eMMC/UFS Combo Module Reader, please visit the [Radxa eMMC/UFS Combo Module Reader product page](https://radxa.com/products/accessories/emmc-ufs-module-reader).
 

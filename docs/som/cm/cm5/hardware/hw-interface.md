@@ -54,7 +54,7 @@ Radxa CM5 IO 支持 MIPI DSI 显示功能。
 瑞莎建议使用 [Radxa Display 8 HD](/accessories/display/lcd-8-hd) 或 [Radxa Display 10 FHD](../../../accessories/display/lcd-10-fhd)。
 :::
 
-## MicroSD
+## microSD
 
 可用于系统启动盘，也可以充当存储介质使用
 

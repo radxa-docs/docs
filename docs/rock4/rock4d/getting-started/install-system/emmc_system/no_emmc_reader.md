@@ -9,7 +9,7 @@ imports_resolve_to:
 
 import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_dd_emmc.mdx';
 
-# 从 MicroSD 卡启动并将系统安装到 eMMC
+# 从 microSD 卡启动并将系统安装到 eMMC
 
 :::tip eMMC 系统启动提示
 仅 ROCK 4D 无 SPI Flash 版本支持 eMMC 启动，板载 SPI Flash 的版本不支持 eMMC 启动。
@@ -19,7 +19,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 ## 启动系统
 
-完成系统的安装后，将 MicroSD 卡取下，确认 eMMC 模块已安装到 ROCK 4D 的 eMMC 模块接口中，然后使用电源适配器给 ROCK 4D 供电，即可启动系统。
+完成系统的安装后，将 microSD 卡取下，确认 eMMC 模块已安装到 ROCK 4D 的 eMMC 模块接口中，然后使用电源适配器给 ROCK 4D 供电，即可启动系统。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/rock4/4d/rock-4d-boot-system-emmc.webp" style={{width: '100%', maxWidth: '1200px'}} />

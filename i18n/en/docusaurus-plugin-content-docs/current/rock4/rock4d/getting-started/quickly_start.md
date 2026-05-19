@@ -22,7 +22,7 @@ This chapter is designed to help you quickly get started with the Radxa ROCK 4D.
 To complete all the steps in this quick start guide, you'll need to prepare the following hardware in advance:
 
 - Motherboard: Radxa ROCK 4D
-- Boot media: MicroSD card
+- Boot media: microSD card
 - USB-to-TTL serial cable (optional): For serial debugging and login
 - Display (optional): HDMI monitor and HDMI cable
 - Power adapter: Type-C power adapter (supports PD protocol, 5V input, recommended current ≥3A)
@@ -59,7 +59,7 @@ Recommended power adapters:
 
 ### Boot Media
 
-While the ROCK 4D supports booting from MicroSD cards, NVMe, and UFS, this quick start guide will focus on booting from a MicroSD card.
+While the ROCK 4D supports booting from microSD cards, NVMe, and UFS, this quick start guide will focus on booting from a microSD card.
 
 ### Serial Debugging
 
@@ -67,11 +67,11 @@ The ROCK 4D supports serial debugging via a USB-to-TTL serial cable. You'll need
 
 ## Writing the System Image
 
-You'll need to download the system image file to your PC and then write it to a MicroSD card.
+You'll need to download the system image file to your PC and then write it to a microSD card.
 
 ### Downloading the System Image
 
-Visit the [Downloads](../download) page on your PC to download the system image package for the ROCK 4D. After downloading, extract the package to get the `*.img` file, which is the system image to be written to your MicroSD card.
+Visit the [Downloads](../download) page on your PC to download the system image package for the ROCK 4D. After downloading, extract the package to get the `*.img` file, which is the system image to be written to your microSD card.
 
 :::tip
 The downloaded system image is a compressed file that must be extracted before writing to the SD card. Writing the compressed file directly to the SD card may result in system write or boot failures.
@@ -79,7 +79,7 @@ The downloaded system image is a compressed file that must be extracted before w
 
 ### Writing the System Image
 
-Insert the MicroSD card into a card reader, then connect the card reader to your PC's USB port.
+Insert the microSD card into a card reader, then connect the card reader to your PC's USB port.
 
 <div style={{textAlign: 'center'}}>
   <img src="/en/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -165,7 +165,7 @@ Password: radxa
 
 ## Booting the System
 
-After writing the system image to your MicroSD card, insert it into the ROCK 4D's MicroSD card slot. Then, power on the system using a 5V Type-C power adapter.
+After writing the system image to your microSD card, insert it into the ROCK 4D's microSD card slot. Then, power on the system using a 5V Type-C power adapter.
 
 When the system boots, both the blue and green LEDs will light up simultaneously. After a few seconds, the green LED will stay lit while the blue LED blinks, indicating a successful system boot.
 

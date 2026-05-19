@@ -2,13 +2,13 @@
 sidebar_position: 3
 ---
 
-# MicroSD Card Slot
+# microSD Card Slot
 
-The Radxa Dragon Q6A features an onboard MicroSD card slot compatible with MicroSD/MicroSDHC/MicroSDXC cards, which can be used as a system boot drive or for expanded storage.
+The Radxa Dragon Q6A features an onboard microSD card slot compatible with microSD/microSDHC/microSDXC cards, which can be used as a system boot drive or for expanded storage.
 
 ## Hardware Connection
 
-Insert the MicroSD card into the MicroSD card slot on the Radxa Dragon Q6A.
+Insert the microSD card into the microSD card slot on the Radxa Dragon Q6A.
 
 :::tip Interface Location
 Refer to the [Hardware Information](./hardware-info) tutorial to locate the corresponding hardware interface.
@@ -16,15 +16,15 @@ Refer to the [Hardware Information](./hardware-info) tutorial to locate the corr
 
 ## Usage Guide
 
-The MicroSD card can be used as a system boot media or as extended storage space.
+The microSD card can be used as a system boot media or as extended storage space.
 
 ### System Boot Media
 
-When a MicroSD card contains a normally functioning system, the Radxa Dragon Q6A will default to booting the system from the MicroSD card.
+When a microSD card contains a normally functioning system, the Radxa Dragon Q6A will default to booting the system from the microSD card.
 
 ### Expanded Storage Space
 
-If the MicroSD card does not contain a system or the system is booted from another boot media, the MicroSD card will function as expanded storage space.
+If the microSD card does not contain a system or the system is booted from another boot media, the microSD card will function as expanded storage space.
 
 ## Interface Pin Definitions
 

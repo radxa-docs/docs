@@ -44,7 +44,7 @@ sidebar_position: 1
 | ②    | 电源引脚（可触发关机、重启） | ⑨    | 千兆以太网口（支持PoE，需搭配 PoE HAT） | ⑯    | RTC 接口             |
 | ③    | 电源输出                     | ⑩    | USB 3.0 Type-A 接口                     | ⑰    | UFS 模块接口         |
 | ④    | 风扇接口                     | ⑪    | HDMI 接口                               | ⑱    | 4 通道 MIPI CSI 接口 |
-| ⑤    | MicroSD 卡槽                 | ⑫    | 2x 2 通道 MIPI CSI 接口                 | ⑲    | 4 通道 MIPI DSI 接口 |
+| ⑤    | microSD 卡槽                 | ⑫    | 2x 2 通道 MIPI CSI 接口                 | ⑲    | 4 通道 MIPI DSI 接口 |
 | ⑥    | 耳机插孔                     | ⑬    | PoE 接口                                | ⑳    | M.2 M Key 2280 接口  |
 | ⑦    | 2x USB 3.0 Type-C 接口       | ⑭    | 40 Pin GPIO 接口                        | ㉑   | 3x 100 Pin B2B 接口  |
 

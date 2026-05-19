@@ -30,15 +30,15 @@ import Etcher from '../../../common/general/\_etcherV2.mdx';
 
 <TabItem value="withoutemmc" label="不带板载EMMC" default>
 
-对于不带 eMMC 的 E54C，需要使用 MicroSD 卡安装系统。
+对于不带 eMMC 的 E54C，需要使用 microSD 卡安装系统。
 
 ### 文件下载
 
 请到[镜像下载页面](../download)下载对应的操作系统镜像。
 
-### MicroSD 卡准备
+### microSD 卡准备
 
-将 MicroSD 卡插入到 SD 卡读卡器中，然后将读卡器插入到 PC 的 USB 端口上
+将 microSD 卡插入到 SD 卡读卡器中，然后将读卡器插入到 PC 的 USB 端口上
 
 ### 镜像烧录
 
@@ -46,7 +46,7 @@ import Etcher from '../../../common/general/\_etcherV2.mdx';
 
 ## 启动系统
 
-按照上述步骤成功烧录 MicroSD Card 后， 将 MicroSD Card 插入到 MicroSD Card 插槽内，然后插上 12V DC 适配器，系统开始自动启动，LED 指示灯 SYS 灯开始闪烁。
+按照上述步骤成功烧录 microSD Card 后， 将 microSD Card 插入到 microSD Card 插槽内，然后插上 12V DC 适配器，系统开始自动启动，LED 指示灯 SYS 灯开始闪烁。
 
 <img src="/img/e/e54c/radxa-e54c-insert-sd.webp" width="500" alt="radxa-e54c pack" />
 

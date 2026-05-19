@@ -4,21 +4,21 @@ sidebar_position: 2
 
 # Without Using Radxa eMMC/UFS Combo Module Reader
 
-This tutorial is for users who don't have a Radxa eMMC/UFS combo module reader. It explains how to install the system to a UFS module using a MicroSD card as the boot medium.
+This tutorial is for users who don't have a Radxa eMMC/UFS combo module reader. It explains how to install the system to a UFS module using a microSD card as the boot medium.
 
 ## Hardware Preparation
 
-To install the system on a UFS module without a Radxa eMMC/UFS combo module reader, you'll need to have your Radxa ROCK 4D booting properly from a MicroSD card.
+To install the system on a UFS module without a Radxa eMMC/UFS combo module reader, you'll need to have your Radxa ROCK 4D booting properly from a microSD card.
 
-We'll be working within the system on the MicroSD card and use the `dd` command to install the system to the UFS module.
+We'll be working within the system on the microSD card and use the `dd` command to install the system to the UFS module.
 
-**Note:** If you're having issues booting from the MicroSD card, please refer to the [Install System to MicroSD Card](../boot_sd) tutorial first to install the system on a MicroSD card.
+**Note:** If you're having issues booting from the microSD card, please refer to the [Install System to microSD Card](../boot_sd) tutorial first to install the system on a microSD card.
 
 **You will need the following hardware:**
 
 - Motherboard: Radxa ROCK 4D
 - [UFS Module](https://radxa.com/products/accessories/ufs-module)
-- Functional MicroSD card with bootable system
+- Functional microSD card with bootable system
 - Power adapter: Type-C power adapter (with PD protocol support, 5V input, 3A or higher recommended)
 
 :::tip
@@ -131,7 +131,7 @@ After completing the system image installation:
 
 1. Shut down the system: `sudo shutdown -h now`
 2. Disconnect power from the ROCK 4D
-3. Remove the MicroSD card
+3. Remove the microSD card
 4. Reconnect the power
 5. Wait for the system to boot from the UFS module
 

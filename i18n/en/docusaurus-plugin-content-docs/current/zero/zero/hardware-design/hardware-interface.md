@@ -116,9 +116,9 @@ ZERO has an ap6212/ap6256/aw-cm256sm WiFi/BT module on board,the specific parame
 |    ap6256    | 802.11 a/b/g/n/ac |     2.4GHz/5GHz     |            433.3Mbps            |   Bluetooth 5.2    |
 |  aw-cm256sm  | 802.11 a/b/g/n/ac |     2.4GHz/5GHz     |            433.3Mbps            |   Bluetooth 4.2    |
 
-## MicroSD slot
+## microSD slot
 
-For MicroSD card booting or data storage.
+For microSD card booting or data storage.
 
 ## USB BOOT Button
 

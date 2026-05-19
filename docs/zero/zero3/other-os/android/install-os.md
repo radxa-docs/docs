@@ -16,7 +16,7 @@ sidebar_position: 2
 
 **从 SD 卡启动** （**推荐**）
 
-- 通过读卡器将系统镜像烧写到 MicroSD 卡
+- 通过读卡器将系统镜像烧写到 microSD 卡
 
 **从板载eMMC 启动**
 

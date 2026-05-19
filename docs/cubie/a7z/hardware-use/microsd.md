@@ -2,25 +2,25 @@
 sidebar_position: 3
 ---
 
-# MicroSD 卡槽
+# microSD 卡槽
 
-瑞莎 Cubie A7Z 板载标准的 MicroSD 卡槽，兼容 MicroSD / MicroSDHC / MicroSDXC 卡，主要用作系统启动盘或扩展存储空间。
+瑞莎 Cubie A7Z 板载标准的 microSD 卡槽，兼容 microSD / microSDHC / microSDXC 卡，主要用作系统启动盘或扩展存储空间。
 
-推荐使用容量 32GB 及以上的 MicroSD 卡，以获得更好的存储空间。
+推荐使用容量 32GB 及以上的 microSD 卡，以获得更好的存储空间。
 
 :::info 接口位置
-MicroSD 卡槽具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
+microSD 卡槽具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
 :::
 
 ## 使用指南
 
-您可以参考 [快速上手](../getting-started/quickly-start) 或 [安装系统到 MicroSD 卡](../getting-started/install-system/microsd) 教程，将系统镜像安装到 MicroSD 卡中，然后将 MicroSD 卡插入 MicroSD 卡槽中，测试启动系统是否正常。
+您可以参考 [快速上手](../getting-started/quickly-start) 或 [安装系统到 microSD 卡](../getting-started/install-system/microsd) 教程，将系统镜像安装到 microSD 卡中，然后将 microSD 卡插入 microSD 卡槽中，测试启动系统是否正常。
 
 <Tabs queryString="boot_system">
 
-<TabItem value="MicroSD 卡">
+<TabItem value="microSD 卡">
 
-将 MicroSD 卡插入 Cubie A7Z 的 MicroSD 卡槽中。
+将 microSD 卡插入 Cubie A7Z 的 microSD 卡槽中。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/cubie/a7z/a7z-microsd-boot.webp" style={{width: '100%', maxWidth: '1200px'}} />

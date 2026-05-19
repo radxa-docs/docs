@@ -6,7 +6,7 @@ sidebar_position: 3
 
 This guide explains how to install the system to an eMMC module without using an eMMC/UFS combo module reader.
 
-We'll be using the `dd` command to install the system image to the eMMC module while the Cubie A7A is booted from a MicroSD card.
+We'll be using the `dd` command to install the system image to the eMMC module while the Cubie A7A is booted from a microSD card.
 
 :::warning
 Installing the system will format the eMMC module. Please back up any important data in advance!
@@ -17,7 +17,7 @@ Installing the system will format the eMMC module. Please back up any important 
 Prepare the following hardware in advance:
 
 - Mainboard: Radxa Cubie A7A
-- Boot media: MicroSD card with system image
+- Boot media: microSD card with system image
 - Target installation media: eMMC module
 - Power adapter: 5V Type-C power adapter
 
@@ -31,7 +31,7 @@ The Cubie A7A supports 5V power input with standard PD protocol. A power adapter
 
 ## Hardware Connection
 
-After confirming that the Cubie A7A has successfully booted from the MicroSD card, install the eMMC module into the eMMC/UFS combo module interface of the Cubie A7A.
+After confirming that the Cubie A7A has successfully booted from the microSD card, install the eMMC module into the eMMC/UFS combo module interface of the Cubie A7A.
 
 :::caution
 

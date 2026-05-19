@@ -80,7 +80,7 @@ If you haven't performed this step, the system will boot normally.
 
 ![Balena_Etcher](/img/roobi/balena_etcher.webp)
 
-4. After writing is complete, remove the SD card from the host machine and insert it into the [MicroSD](../rock5/rock5itx/getting-started/introduction#board-overview) slot on your device, located at number **4**.
+4. After writing is complete, remove the SD card from the host machine and insert it into the [microSD](../rock5/rock5itx/getting-started/introduction#board-overview) slot on your device, located at number **4**.
 
 5. Remove any other storage media from your device and power it on.s
 

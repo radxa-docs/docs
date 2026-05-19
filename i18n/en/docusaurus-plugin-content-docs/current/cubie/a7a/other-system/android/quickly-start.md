@@ -22,7 +22,7 @@ This tutorial aims to help you quickly get started with the Android system on th
 You need to prepare the following hardware devices in advance. **Optional hardware is not mandatory!**
 
 - Mainboard: Radxa Cubie A7A
-- System boot medium: Supports MicroSD card, eMMC / UFS module (choose one system boot medium)
+- System boot medium: Supports microSD card, eMMC / UFS module (choose one system boot medium)
 - Power/Data cable: USB Type A to Type C data cable
 - Power adapter: 5V Type-C power adapter
 - USB serial data cable (optional): For serial debugging and system login
@@ -43,7 +43,7 @@ The Cubie A7A mainboard supports standard PD protocol 5V power input. A current 
 
 - System Boot Medium
 
-Used to boot the Cubie A7A system. Supports MicroSD card, eMMC / UFS module (choose one system boot medium).
+Used to boot the Cubie A7A system. Supports microSD card, eMMC / UFS module (choose one system boot medium).
 
 - Power/Data Cable
 
@@ -70,16 +70,16 @@ You can refer to the following tutorial to install the system based on your syst
 ## Boot System
 
 :::tip
-If multiple system boot media are installed on the Cubie A7A, the system boot priority is: MicroSD card > eMMC or UFS module.
+If multiple system boot media are installed on the Cubie A7A, the system boot priority is: microSD card > eMMC or UFS module.
 :::
 
-After installing the system, insert the corresponding system boot medium (e.g., MicroSD card, eMMC module, UFS module) into the appropriate interface on the Cubie A7A.
+After installing the system, insert the corresponding system boot medium (e.g., microSD card, eMMC module, UFS module) into the appropriate interface on the Cubie A7A.
 
 <Tabs queryString="boot_system">
 
-<TabItem value="MicroSD Card">
+<TabItem value="microSD Card">
 
-Insert the MicroSD card into the MicroSD card slot of the Cubie A7A.
+Insert the microSD card into the microSD card slot of the Cubie A7A.
 
 <div style={{textAlign: 'center'}}>
   <img src="/en/img/cubie/a7a/a7a-microsd.webp" style={{width: '45%', maxWidth: '1200px'}} />

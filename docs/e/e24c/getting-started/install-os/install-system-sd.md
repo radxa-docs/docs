@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 安装系统到 MicroSD 卡
+# 安装系统到 microSD 卡
 
 ## 系统下载
 
@@ -14,7 +14,7 @@ sidebar_position: 1
 
 ## 硬件连接
 
-将 MicroSD 卡插入读卡器中，然后将读卡器插入 PC 的 USB 端口上。
+将 microSD 卡插入读卡器中，然后将读卡器插入 PC 的 USB 端口上。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-sd-insert.webp" style={{width: '100%', maxWidth: '600px'}} />
@@ -56,7 +56,7 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
   <img src="/img/e/e24c/etcher-01.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-- 选择MicroSD卡对应的磁盘
+- 选择microSD卡对应的磁盘
 
 点击 `Select target` 选项，选择自己接入 PC 的读卡器对应磁盘设备。
 
@@ -102,7 +102,7 @@ Windows 和 Linux 只需要打开对应程序就可以使用，无需安装！
 
 ## 启动系统
 
-在 MicroSD 卡上完成系统镜像的写入后，我们可以将读卡器上的 MicroSD 卡装入 Radxa E24C 的 MicroSD 卡槽中，然后使用 12V DC 电源适配器启动系统。
+在 microSD 卡上完成系统镜像的写入后，我们可以将读卡器上的 microSD 卡装入 Radxa E24C 的 microSD 卡槽中，然后使用 12V DC 电源适配器启动系统。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-insert-sd.webp" style={{width: '100%', maxWidth: '600px'}} />

@@ -45,7 +45,7 @@ The above diagram shows the data channels and connection methods between the RK3
 - **USB Interface**: USB 3.0 and USB 2.0 interfaces connected to the main processor through independent buses
 - **Display Output**: HDMI 2.1 interface providing high-resolution output through dedicated controllers
 - **Storage Interface**:
-  - MicroSD card using a dedicated SDMMC controller
+  - microSD card using a dedicated SDMMC controller
   - Optional onboard eMMC storage connected via high-speed bus
   - M.2 PCIe interface providing high-speed storage expansion through PCIe 2.1 channel
 - **Expansion Interface**: GPIO pins and other interfaces provide highly customizable expansion capabilities
@@ -76,7 +76,7 @@ The hardware design of E54C has the following advantages over other similar prod
 
 **Side and Internal Interfaces**:
 
-- MicroSD Card Slot
+- microSD Card Slot
 - M.2 M-Key Slot (PCIe 2.1)
 - 14-Pin GPIO Expansion Interface
 - Fan and RTC Battery Interfaces
@@ -118,7 +118,7 @@ E54C is equipped with a standard microSD card slot, supporting hot-swapping func
 - **System Backup**: Can be used to backup current system and data
 
 :::tip Usage Suggestions
-For production environments or systems that need to run 24/7, it is recommended to use eMMC or M.2 SSD as the primary storage and boot device, as they provide better stability and read/write durability. MicroSD cards are suitable for temporary storage and development testing scenarios.
+For production environments or systems that need to run 24/7, it is recommended to use eMMC or M.2 SSD as the primary storage and boot device, as they provide better stability and read/write durability. microSD cards are suitable for temporary storage and development testing scenarios.
 :::
 
 ### USB Interfaces

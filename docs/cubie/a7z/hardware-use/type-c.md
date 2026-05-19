@@ -14,7 +14,7 @@ sidebar_position: 2
   - 数据传输：支持 USB OTG
 
 :::info 接口位置
-MicroSD 卡槽具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
+microSD 卡槽具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
 :::
 
 ## 使用指南

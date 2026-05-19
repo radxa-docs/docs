@@ -24,7 +24,7 @@ You will need to prepare the following hardware devices in advance:
 
 - Board: Radxa Cubie A5E
 - Power Supply: 5V Type-C power adapter
-- System Boot Media: MicroSD card (for system installation and booting)
+- System Boot Media: microSD card (for system installation and booting)
 - Display: HDMI cable and monitor (for graphical interface display)
 - Input Devices: Keyboard and mouse (for graphical interface operation)
 - Debugging Tools (Optional): USB to UART cable (for serial login, refer to the [Serial Login](../system-config/uart-login) guide) and USB-A hub (for expanding USB peripherals)
@@ -39,20 +39,20 @@ The Cubie A5E board is compatible with PD protocol 5V Type-C power input. A curr
 
 ## Install System
 
-This section mainly introduces how to install the system to a MicroSD card.
+This section mainly introduces how to install the system to a microSD card.
 
 :::warning Important Reminder
-**Installing the system will completely format the MicroSD card, and all data will be permanently deleted!**
+**Installing the system will completely format the microSD card, and all data will be permanently deleted!**
 
 Please confirm before proceeding:
 
-- There is no important data on the MicroSD card, or backups have been completed
+- There is no important data on the microSD card, or backups have been completed
 - You have selected the correct storage device (to avoid accidentally formatting other drives)
   :::
 
 ### Hardware Connection
 
-Insert the MicroSD card into a MicroSD card reader, then connect the card reader to your computer.
+Insert the microSD card into a microSD card reader, then connect the card reader to your computer.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -71,7 +71,7 @@ The downloaded system image is a compressed file and needs to be extracted befor
 
 ### Install System Image
 
-You can use Balena Etcher software to install the system image to the MicroSD card.
+You can use Balena Etcher software to install the system image to the microSD card.
 
 :::tip Balena Etcher
 For installation and usage of Balena Etcher, please refer to the [Etcher Usage](/common/radxa-os/install-system/balena-etcher) tutorial.
@@ -90,7 +90,7 @@ Click the `Flash from file` option and select the pre-downloaded and extracted s
 
 #### Select Storage Device
 
-Click the `Select target` option and choose the MicroSD card device.
+Click the `Select target` option and choose the microSD card device.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -108,7 +108,7 @@ Click the `Select target` option and choose the MicroSD card device.
 
 #### Start Flashing
 
-Click the `Flash!` button to start writing the system image to the MicroSD card.
+Click the `Flash!` button to start writing the system image to the microSD card.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -143,7 +143,7 @@ Click the `Flash!` button to start writing the system image to the MicroSD card.
 
 ## Boot the System
 
-①: Insert the MicroSD card into the MicroSD card slot
+①: Insert the microSD card into the microSD card slot
 
 ②: Connect a monitor to the board using an HDMI cable
 

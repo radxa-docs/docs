@@ -50,9 +50,9 @@ Follow the steps below to troubleshoot ROCK 5B:
 
 ## Q8: I burned eMMC with RKDevTool successfully, but after powering up, the Led doesn't flash and there is no output on the screen.
 
-Confirmation: Remove eMMC Module, MicroSD and NVME devices.
+Confirmation: Remove eMMC Module, microSD and NVME devices.
 
-Remove the eMMC Module, MicroSD and NVME device, then connect the board and PC via USB cable, then see if the device enters [Maskrom state](./low-level-dev/install-os/rkdevtool_maskrom).
+Remove the eMMC Module, microSD and NVME device, then connect the board and PC via USB cable, then see if the device enters [Maskrom state](./low-level-dev/install-os/rkdevtool_maskrom).
 If it's not in MaskRom state, it's most likely due to the following reasons.
 
 In [Burning system to eMMC via USB](./low-level-dev/install-os/rkdevtool_maskrom), did not follow the instructions to press the Maskrom button, causing the system to reach the [SPI Flash](./low-level-dev/install-os/rkdevtool_spi), and when the system starts, it reads the SPI information first, and then there is an error and it cannot start normally.

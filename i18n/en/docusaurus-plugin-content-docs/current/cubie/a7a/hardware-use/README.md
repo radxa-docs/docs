@@ -10,9 +10,9 @@ This section mainly introduces how to use the hardware of Cubie A7A.
 
 Mainly introduces the hardware interface information of Cubie A7A.
 
-#### [MicroSD Slot](/cubie/a7a/hardware-use/microsd)
+#### [microSD Slot](/cubie/a7a/hardware-use/microsd)
 
-Mainly introduces how to use the MicroSD slot of Cubie A7A.
+Mainly introduces how to use the microSD slot of Cubie A7A.
 
 #### [eMMC / UFS Module Interface](/cubie/a7a/hardware-use/emmc-ufs-com)
 

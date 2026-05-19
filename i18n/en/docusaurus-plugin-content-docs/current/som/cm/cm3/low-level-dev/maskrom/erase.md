@@ -16,7 +16,7 @@ import ERASE from "../../../../../common/dev/\_erase-spi-emmc.mdx";
 
 <ol>
     <li>Install the CM3 onto the CM3 IO board</li>
-    <li>Remove (unplug) the MicroSD card from the CM3 IO board</li>
+    <li>Remove (unplug) the microSD card from the CM3 IO board</li>
     <li>Before powering on, press and hold the SPI Disable button or the eMMC Disable button on the CM3, and keep it pressed</li>
     <li>Connect a USB-A to Micro-USB cable to the OTG port (Micro-USB port) on the CM3 IO board, and the other end to the computer</li>
     <li>Connect the DC 12V power supply to power the CM3 IO board; if the green power LED stays on, it has successfully entered Maskrom mode (you can release the button at this point)</li>

@@ -9,13 +9,13 @@ imports_resolve_to:
 
 import USBSystem from '../../../../../common/radxa-os/install-system/qualcomm/\_usb_flash_system.mdx';
 
-# 线刷系统镜像到 MicroSD 卡
+# 线刷系统镜像到 microSD 卡
 
-介绍使用双头 USB Type-A 数据线给主板刷入 MicroSD 卡系统镜像。
+介绍使用双头 USB Type-A 数据线给主板刷入 microSD 卡系统镜像。
 
 ## 使用前提
 
-1. 将 MicroSD 卡插入主板的 MicroSD 卡槽
+1. 将 microSD 卡插入主板的 microSD 卡槽
 
 2. 使主板进入 EDL 模式并使用双头 USB Type-A 数据线连接主板和电脑 --> 可参考 [进入 EDL 模式](./edl-mode.md) 教程
 

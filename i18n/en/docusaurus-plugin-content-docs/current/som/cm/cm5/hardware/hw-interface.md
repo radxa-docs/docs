@@ -54,7 +54,7 @@ The Radxa CM5 IO supports the MIPI DSI display function.
 Radxa recommends using [Radxa Display 8 HD](/accessories/display/lcd-8-hd) or [Radxa Display 10 FHD](../../../accessories/display/lcd-10-fhd).
 :::
 
-## MicroSD
+## microSD
 
 Can be used as a system boot disk or as a storage medium
 

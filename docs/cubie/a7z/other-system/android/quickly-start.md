@@ -20,8 +20,8 @@ sidebar_position: 1
 您需要提前准备以下硬件设备：
 
 - 主板：瑞莎 Cubie A7Z
-- 系统启动介质：MicroSD 卡
-- 读卡器：MicroSD 卡读卡器
+- 系统启动介质：microSD 卡
+- 读卡器：microSD 卡读卡器
 - 电源适配器：5V Type-C 电源适配器
 
 :::tip 推荐配件
@@ -31,7 +31,7 @@ sidebar_position: 1
 
 ## 硬件连接
 
-将 MicroSD 卡插入读卡器中，然后将读卡器插入 PC 的 USB 端口上。
+将 microSD 卡插入读卡器中，然后将读卡器插入 PC 的 USB 端口上。
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -39,9 +39,9 @@ sidebar_position: 1
 
 ## 软件准备
 
-给 MicroSD 卡烧录 Phoenix 系统镜像需要用到全志平台提供的工具，该工具可以去[ 资源汇总下载 ](../../download)页面下载软件。
+给 microSD 卡烧录 Phoenix 系统镜像需要用到全志平台提供的工具，该工具可以去[ 资源汇总下载 ](../../download)页面下载软件。
 
-**PhoenixCard**：基于 Windows 平台的工具，可以用来制作 MicroSD 卡启动盘。
+**PhoenixCard**：基于 Windows 平台的工具，可以用来制作 microSD 卡启动盘。
 
 ## 安装系统
 
@@ -51,7 +51,7 @@ sidebar_position: 1
 
 ② : 选择 `Start up` 选项，表示制作的卡种类选择为启动卡
 
-③ : 勾选 MicroSD 卡对应的磁盘选项
+③ : 勾选 microSD 卡对应的磁盘选项
 
 ④ : 点击 `Burn` 按钮开始制作启动盘
 
@@ -63,7 +63,7 @@ sidebar_position: 1
 
 ## 启动系统
 
-完成系统的安装后，将 MicroSD 卡插入 Cubie A7Z 的 MicroSD 卡槽，然后将 Cubie A7Z 插入 5V USB-C 电源适配器，即可启动系统。
+完成系统的安装后，将 microSD 卡插入 Cubie A7Z 的 microSD 卡槽，然后将 Cubie A7Z 插入 5V USB-C 电源适配器，即可启动系统。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/cubie/a7z/a7z-microsd-boot.webp" style={{width: '100%', maxWidth: '1200px'}} />

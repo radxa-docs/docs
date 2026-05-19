@@ -30,7 +30,7 @@ E20C with onBoard EMMC is equipped with a pre-installed system [istoreos](../ist
 
 <TabItem value="withoutemmc" label="without onBoard EMMC">
 
-Prepare the MicroSD card, and refer to [Install System](./install-os/) to install the operating system.
+Prepare the microSD card, and refer to [Install System](./install-os/) to install the operating system.
 
 </TabItem>
 </Tabs>

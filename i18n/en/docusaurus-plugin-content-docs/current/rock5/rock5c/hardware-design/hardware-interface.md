@@ -258,7 +258,7 @@ MIPI screen support. Utilizes a 39-pin, 0.3 mm pitch, gold-plated connector, mod
 
 Refer [Display accessories](../accessories/display)
 
-### MicroSD
+### microSD
 
 Can be used as a system boot disk or as a storage medium.
 

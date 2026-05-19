@@ -4,17 +4,17 @@ sidebar_position: 2
 
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
-# Install OS to MicroSD Card
+# Install OS to microSD Card
 
-This article explains how to install the operating system to a MicroSD card and boot the system from it on ROCK 4A/4B/4A+/4B+/4SE.
+This article explains how to install the operating system to a microSD card and boot the system from it on ROCK 4A/4B/4A+/4B+/4SE.
 
 ## File Download
 
 Download the [ROCK 4A/4B/4A+/4B+/4SE system image](../../download) from the resource download page.
 
-## Prepare MicroSD Card
+## Prepare microSD Card
 
-Insert the MicroSD card into an SD card reader, then connect the reader to your PC's USB port.
+Insert the microSD card into an SD card reader, then connect the reader to your PC's USB port.
 
 ## Write the Image
 
@@ -22,7 +22,7 @@ Insert the MicroSD card into an SD card reader, then connect the reader to your 
 
 ## Boot the System
 
-After successfully writing the image to the MicroSD card, insert it into the MicroSD card slot (as shown below), then power on the device. The system will start booting, and the desktop will be displayed on the HDMI monitor.
+After successfully writing the image to the microSD card, insert it into the microSD card slot (as shown below), then power on the device. The system will start booting, and the desktop will be displayed on the HDMI monitor.
 
 <img
 src="/img/rock4/rock4-sd-slot.webp"

@@ -118,9 +118,9 @@ ZERO 板载一个 ap6212/ap6256/aw-cm256sm WiFi/BT，各个模块具体参数如
 |   ap6256   | 802.11 a/b/g/n/ac | 2.4GHz/5GHz |     433.3Mbps      | Bluetooth 5.2 |
 | aw-cm256sm | 802.11 a/b/g/n/ac | 2.4GHz/5GHz |     433.3Mbps      | Bluetooth 4.2 |
 
-## MicroSD 卡槽
+## microSD 卡槽
 
-用于 MicroSD 卡启动或数据存储。
+用于 microSD 卡启动或数据存储。
 
 ## USB BOOT 按钮
 

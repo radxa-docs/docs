@@ -7,13 +7,13 @@ sidebar_position: 8
 ## 系统镜像
 
 :::tip 新手入门推荐
-我们强烈建议新手用户下载 GPT 格式的 Radxa OS 官方切换分支，并使用 [Balena Etcher](./getting-started/install-system/microsd) 工具将其安装到 MicroSD 卡中。这是最简单、最快捷的上手方式。
+我们强烈建议新手用户下载 GPT 格式的 Radxa OS 官方切换分支，并使用 [Balena Etcher](./getting-started/install-system/microsd) 工具将其安装到 microSD 卡中。这是最简单、最快捷的上手方式。
 
 **镜像类型说明**
 
 - GPT 系统镜像（推荐新手）：
 
-  - 适用于 MicroSD 卡或 NVMe SSD
+  - 适用于 microSD 卡或 NVMe SSD
   - 使用 Balena Etcher 图形化工具，操作简单
   - 支持 `dd` 命令行烧录
   - 瑞莎推荐的镜像类型，兼容性最佳
@@ -40,9 +40,9 @@ sidebar_position: 8
 
 - Radxa OS
 
-[radxa-a733-bullseye-kde-r6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_512.img.xz)：支持 MicroSD 卡和板载 eMMC 启动系统。
+[radxa-a733-bullseye-kde-r6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_512.img.xz)：支持 microSD 卡和板载 eMMC 启动系统。
 
-[radxa-a733-bullseye-kde-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz)：支持 MicroSD 卡和板载 eMMC 启动系统。
+[radxa-a733-bullseye-kde-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz)：支持 microSD 卡和板载 eMMC 启动系统。
 
 - Radxa OS Lite
 
@@ -54,13 +54,13 @@ Radxa OS Lite 系统镜像不包含图形桌面环境。
 
 :::
 
-[radxa-a733-bullseye-cli-r6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_cli_r6.output_512.img.xz)：支持 MicroSD 卡和板载 eMMC 启动系统。
+[radxa-a733-bullseye-cli-r6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_cli_r6.output_512.img.xz)：支持 microSD 卡和板载 eMMC 启动系统。
 
-[radxa-a733-bullseye-cli-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_cli_r2.output_512.img.xz)：支持 MicroSD 卡和板载 eMMC 启动系统。
+[radxa-a733-bullseye-cli-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_cli_r2.output_512.img.xz)：支持 microSD 卡和板载 eMMC 启动系统。
 
 :::tip 内置 OpenClaw 环境镜像
 
-`radxa_cubie_a733_trixie_cli_beta_v2` 镜像支持 MicroSD 卡和板载 eMMC 启动系统，内置 OpenClaw 环境，用户只需 [配置 OpenClaw](./app-dev/openclaw.md#配置-openclaw) 即可开始使用。
+`radxa_cubie_a733_trixie_cli_beta_v2` 镜像支持 microSD 卡和板载 eMMC 启动系统，内置 OpenClaw 环境，用户只需 [配置 OpenClaw](./app-dev/openclaw.md#配置-openclaw) 即可开始使用。
 
 - [瑞莎官网下载](https://dl.radxa.com/cubie/a7s/images/radxa_cubie_a733_trixie_cli_beta_v2.gpt.zip)
 - [百度网盘](https://pan.baidu.com/s/1m3ucJAHB9fCuoTzwpNMKLw?pwd=1234)（提取码：1234）

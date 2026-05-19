@@ -27,7 +27,7 @@ Please go to [Resource Download](../download.md) to download the corresponding i
 
 ## Boot the system
 
-- After successfully burning the microSD card according to the above steps, insert the microSD card into the MicroSD Card Slot.
+- After successfully burning the microSD card according to the above steps, insert the microSD card into the microSD Card Slot.
 
 - The Radxa ZERO 3 is powered by a [USB 2.0 OTG Type C port](../hardware-design/hardware-interface), using a Type C cable to connect the power port to the adapter.
 

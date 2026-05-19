@@ -26,7 +26,7 @@ You need to prepare the following hardware in advance:
 - Display: HDMI cable and monitor
 - Input devices: USB keyboard and mouse
 
-Note: If the Raspberry Pi CM5 does not have onboard eMMC, you need an additional MicroSD card for system installation.
+Note: If the Raspberry Pi CM5 does not have onboard eMMC, you need an additional microSD card for system installation.
 
 :::tip Recommended Accessories
 
@@ -40,7 +40,7 @@ Note: If the Raspberry Pi CM5 does not have onboard eMMC, you need an additional
 Please choose the appropriate installation method based on whether your Raspberry Pi CM5 has onboard eMMC:
 
 - If the Raspberry Pi CM5 has onboard eMMC, refer to [Install System to eMMC](./install-system/emmc-system)
-- If the Raspberry Pi CM5 does not have onboard eMMC, you need to install the system to a MicroSD card, refer to [Install System to MicroSD Card](./install-system/sd-system)
+- If the Raspberry Pi CM5 does not have onboard eMMC, you need to install the system to a microSD card, refer to [Install System to microSD Card](./install-system/sd-system)
 
 ## Boot System
 
@@ -54,7 +54,7 @@ After completing the system installation, power the Radxa Taco with the 12V DC p
 
 <TabItem value="Raspberry Pi CM5 without onboard eMMC">
 
-After completing the system installation, install the MicroSD card into the Radxa Taco's microSD card slot, then power the Radxa Taco with the 12V DC power adapter. The system will boot from the MicroSD card.
+After completing the system installation, install the microSD card into the Radxa Taco's microSD card slot, then power the Radxa Taco with the 12V DC power adapter. The system will boot from the microSD card.
 
 </TabItem>
 

@@ -104,9 +104,9 @@ Backup done, the file is /home/radxa/rock-4d-s16-backup-250612-0930.img
 
 不同启动介质转可移动介质：
 
-- MicroSD 卡
+- microSD 卡
 
-将 MicroSD 卡通过读卡器转为可移动介质。
+将 microSD 卡通过读卡器转为可移动介质。
 
 - 非板载 eMMC 模块
 

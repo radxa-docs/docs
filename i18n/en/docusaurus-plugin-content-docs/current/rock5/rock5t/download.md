@@ -16,7 +16,7 @@ import Images from "./\_image.mdx"
 
 - Android
 
-[Radxa ROCK 5T Android 12 MicroSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-rock5t-20250226/Rock5T-Android12-rk14-20250226-gpt.zip)：Suitable for booting from MicroSD card or onboard eMMC.
+[Radxa ROCK 5T Android 12 microSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-rock5t-20250226/Rock5T-Android12-rk14-20250226-gpt.zip)：Suitable for booting from microSD card or onboard eMMC.
 
 :::caution
 Except for the above images which have been fully tested officially, the other images have not been rigorously tested and may have unknown issues and are for evaluation purposes only.

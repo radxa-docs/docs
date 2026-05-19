@@ -13,7 +13,7 @@ import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
 
     <TabItem value="With onboard eMMC">
 
-Disconnect the board power and remove the MicroSD card.
+Disconnect the board power and remove the microSD card.
 
 Detailed steps:
 
@@ -33,7 +33,7 @@ Detailed steps:
 
     <TabItem value="Without onboard eMMC">
 
-Disconnect the board power and remove bootable media (such as MicroSD card and eMMC module, etc.).
+Disconnect the board power and remove bootable media (such as microSD card and eMMC module, etc.).
 
 Detailed steps:
 

@@ -52,7 +52,7 @@ In order to maximize the performance of the Radxa ZERO 2 PRO, it is equipped wit
     </tr>
     <tr>
         <td align="center">Storage</td>
-        <td align="center">Optional onboard eMMC module: 16/32/64 GB<br/>MicroSD memory card</td>
+        <td align="center">Optional onboard eMMC module: 16/32/64 GB<br/>microSD memory card</td>
     </tr>
     <tr>
         <td align="center">Displays</td>

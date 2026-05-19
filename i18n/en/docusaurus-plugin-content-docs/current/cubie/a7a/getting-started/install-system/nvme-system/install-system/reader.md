@@ -12,7 +12,7 @@ import InstallSystem from '../../../../../../common/radxa-os/install-system/\_us
 
 After completing the system installation, shut down the board, disconnect the power supply, and follow these steps to boot the system:
 
-① : Remove the MicroSD card from the board
+① : Remove the microSD card from the board
 
 ② : Install the NVMe SSD to the board through the PCIe FPC interface with an M.2 M Key HAT
 

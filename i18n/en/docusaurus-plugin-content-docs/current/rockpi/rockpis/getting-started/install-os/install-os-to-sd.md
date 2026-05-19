@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Installing OS to MicroSD Card
+# Installing OS to microSD Card
 
-This guide explains how to install an operating system to a MicroSD card.
+This guide explains how to install an operating system to a microSD card.
 
 ## Hardware Requirements
 
@@ -12,8 +12,8 @@ Prepare the following hardware to complete the system installation and boot proc
 
 #### For Installation
 
-- Card Reader: MicroSD card reader
-- Boot Media: MicroSD card (32GB or larger recommended)
+- Card Reader: microSD card reader
+- Boot Media: microSD card (32GB or larger recommended)
 
 #### For Booting
 
@@ -26,13 +26,13 @@ The ROCK Pi S board only supports 5V power input. A minimum current of 1A is rec
 
 ## Installing the OS
 
-Installing the OS will format the MicroSD card. Please back up any important data before proceeding.
+Installing the OS will format the microSD card. Please back up any important data before proceeding.
 
 ### Download System Image
 
 On your PC, visit the [Downloads](../../download) page to find the official operating system image.
 
-After downloading, extract the system image file. The resulting `*.img` file is the system image to be flashed to the MicroSD card.
+After downloading, extract the system image file. The resulting `*.img` file is the system image to be flashed to the microSD card.
 
 :::tip
 The downloaded system image is a compressed file that must be extracted before it can be written to the SD card using image writing software. Writing the compressed file directly to the SD card may result in installation failure or boot issues.
@@ -40,7 +40,7 @@ The downloaded system image is a compressed file that must be extracted before i
 
 ### Hardware Connection
 
-Insert the MicroSD card into the card reader, then connect the card reader to a USB port on your PC.
+Insert the microSD card into the card reader, then connect the card reader to a USB port on your PC.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -48,7 +48,7 @@ Insert the MicroSD card into the card reader, then connect the card reader to a 
 
 ### Install System Image
 
-Use the open-source image burning tool Etcher to burn the system image file to the MicroSD card.
+Use the open-source image burning tool Etcher to burn the system image file to the microSD card.
 
 #### Download Etcher
 
@@ -153,8 +153,8 @@ Password: radxa
 
 After completing the system image installation:
 
-1. Remove the MicroSD card from the card reader
-2. Insert the card into the MicroSD card slot on the mainboard
+1. Remove the microSD card from the card reader
+2. Insert the card into the microSD card slot on the mainboard
 3. Power on the system using either:
    - A 5V Type-C power adapter, or
    - A Type-C to Type-A cable connected to a PC

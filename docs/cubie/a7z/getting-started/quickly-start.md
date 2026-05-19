@@ -20,7 +20,7 @@ sidebar_position: 1
 您需要提前准备以下硬件设备：
 
 - 主板：瑞莎 Cubie A7Z
-- 系统启动介质：MicroSD 卡（推荐使用）
+- 系统启动介质：microSD 卡（推荐使用）
 - 电源适配器：5V USB-C 电源适配器
 
 :::tip 推荐配件
@@ -39,7 +39,7 @@ sidebar_position: 1
 
 您可以根据自己的系统启动介质和拥有的硬件设备，参考下面教程进行系统安装：
 
-- [安装系统到 MicroSD 卡](./install-system/microsd)
+- [安装系统到 microSD 卡](./install-system/microsd)
 - [安装系统到板载 UFS](./install-system/ufs)
 
 ## 启动系统
@@ -47,9 +47,9 @@ sidebar_position: 1
 完成系统的安装后，需要将对应的系统启动介质安装到 Cubie A7Z 上
 
 <Tabs queryString="system boot">
-<TabItem value="MicroSD 卡">
+<TabItem value="microSD 卡">
 
-将 MicroSD 卡插入 Cubie A7Z 的 MicroSD 卡槽，然后将 Cubie A7Z 插入 5V USB-C 电源适配器，即可启动系统。
+将 microSD 卡插入 Cubie A7Z 的 microSD 卡槽，然后将 Cubie A7Z 插入 5V USB-C 电源适配器，即可启动系统。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/cubie/a7z/a7z-microsd-boot.webp" style={{width: '100%', maxWidth: '1200px'}} />

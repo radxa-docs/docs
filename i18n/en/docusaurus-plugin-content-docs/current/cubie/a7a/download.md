@@ -7,13 +7,13 @@ sidebar_position: 150
 ## System Images
 
 :::tip For Beginners
-We strongly recommend that new users download the official Radxa OS GPT image and use the [Balena Etcher](./getting-started/install-system/sd-system.md) tool to install it onto a MicroSD card. This is the simplest and quickest way to get started.
+We strongly recommend that new users download the official Radxa OS GPT image and use the [Balena Etcher](./getting-started/install-system/sd-system.md) tool to install it onto a microSD card. This is the simplest and quickest way to get started.
 
 **Image Type Descriptions**
 
 - GPT System Image (Recommended for Beginners):
 
-  - Compatible with MicroSD cards or NVMe SSDs
+  - Compatible with microSD cards or NVMe SSDs
   - Uses the user-friendly Balena Etcher graphical tool
   - Supports `dd` command line flashing
   - Radxa's recommended image type with best compatibility
@@ -38,7 +38,7 @@ Suitable for all A733 SoC products, such as Cubie A7Z, Cubie A7A, etc. Beta vers
 
 :::
 
-Currently supports booting from MicroSD cards, eMMC modules, and UFS modules. NVMe/SSD boot requires flashing the SPI Nor Flash firmware.
+Currently supports booting from microSD cards, eMMC modules, and UFS modules. NVMe/SSD boot requires flashing the SPI Nor Flash firmware.
 
 - [Radxa Cubie A7A Debian 11 KDE R6 (Latest)](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_512.img.xz) (SD / eMMC)
 
@@ -68,7 +68,7 @@ This page contains legacy system images for Cubie A7A and is no longer updated.
 
 ### Android
 
-Compatible with MicroSD cards, eMMC modules, and UFS modules.
+Compatible with microSD cards, eMMC modules, and UFS modules.
 
 #### FEL System Image
 

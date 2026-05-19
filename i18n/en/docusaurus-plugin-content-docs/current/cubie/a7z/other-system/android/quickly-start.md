@@ -20,8 +20,8 @@ This tutorial helps you get up and running with the Cubie A7Z Android system as 
 Prepare the following hardware:
 
 - Board: Radxa Cubie A7Z
-- Boot media: MicroSD card
-- Card reader: MicroSD card reader
+- Boot media: microSD card
+- Card reader: microSD card reader
 - Power adapter: 5 V Type‑C adapter
 
 :::tip Recommended accessory
@@ -31,7 +31,7 @@ Prepare the following hardware:
 
 ## Hardware Setup
 
-Insert the MicroSD card into the reader, then plug the reader into the PC’s USB port.
+Insert the microSD card into the reader, then plug the reader into the PC’s USB port.
 
 <div style={{textAlign: 'center'}}>
   <img src="/en/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -39,9 +39,9 @@ Insert the MicroSD card into the reader, then plug the reader into the PC’s US
 
 ## Software Preparation
 
-Use Allwinner’s Phoenix tool to flash the Android image to the MicroSD card. Download it from the [Resources download page](../../download).
+Use Allwinner’s Phoenix tool to flash the Android image to the microSD card. Download it from the [Resources download page](../../download).
 
-**PhoenixCard**: Windows utility for creating bootable MicroSD cards.
+**PhoenixCard**: Windows utility for creating bootable microSD cards.
 
 ## Install the System
 
@@ -51,7 +51,7 @@ Unzip PhoenixCard, open the directory, and run `PhoenixCard.exe` as Administrato
 
 2. Choose **Start up** to build a bootable card.
 
-3. Select the drive letter of the MicroSD card.
+3. Select the drive letter of the microSD card.
 
 4. Click **Burn** to write the image.
 
@@ -59,11 +59,11 @@ Unzip PhoenixCard, open the directory, and run `PhoenixCard.exe` as Administrato
   <img src="/en/img/cubie/a7a/a7a-phoenixcard-windows.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-After the burn completes, close PhoenixCard and insert the MicroSD card into the Cubie A7Z to boot Android.
+After the burn completes, close PhoenixCard and insert the microSD card into the Cubie A7Z to boot Android.
 
 ## Boot the System
 
-After flashing, insert the MicroSD card into the Cubie A7Z slot and connect a 5 V USB‑C power adapter to boot Android.
+After flashing, insert the microSD card into the Cubie A7Z slot and connect a 5 V USB‑C power adapter to boot Android.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/cubie/a7z/a7z-microsd-boot.webp" style={{width: '100%', maxWidth: '1200px'}} />

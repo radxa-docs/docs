@@ -167,4 +167,4 @@
 - 要求自检清单：在回复末尾添加“自检清单”并列出上面『质量检查』项的逐项确认。
 
 > 例子 (英文提示词)
-> "Using `docs/cubie/a7z/README.md` as a reference, produce an English `README.md` for a new board `XYZ`: include product overview, specs (table), quick start, install system (MicroSD/eMMC/UFS/NVMe), tips/ warnings. Add frontmatter: `sidebar_position: 1`, `slug: /xyz`, `description`. Ensure English files contain no Chinese. Return the full markdown file and a self-check list confirming frontmatter + local image paths + internal links are valid."
+> "Using `docs/cubie/a7z/README.md` as a reference, produce an English `README.md` for a new board `XYZ`: include product overview, specs (table), quick start, install system (microSD/eMMC/UFS/NVMe), tips/ warnings. Add frontmatter: `sidebar_position: 1`, `slug: /xyz`, `description`. Ensure English files contain no Chinese. Return the full markdown file and a self-check list confirming frontmatter + local image paths + internal links are valid."

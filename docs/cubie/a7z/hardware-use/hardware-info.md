@@ -23,7 +23,7 @@ sidebar_position: 1
 | ①    | USB-C 2.0 OTG & Power 接口      | ⑥    | 天线接口             | ⑪    | PCIe 3.0 FPC 接口 |
 | ②    | USB-C 3.1 OTG & DP Alt 模式接口 | ⑦    | WiFi 6 / BT5 模组    | ⑫    | 40-Pin GPIO 接口  |
 | ③    | Allwinner A733                  | ⑧    | 4-lane MIPI CSI 接口 | ⑬    | LPDDR4/4x RAM     |
-| ④    | Micro HDMI 接口                 | ⑨    | 板载 UFS             | ⑭    | MicroSD 卡槽      |
+| ④    | Micro HDMI 接口                 | ⑨    | 板载 UFS             | ⑭    | microSD 卡槽      |
 | ⑤    | FAN 接口                        | ⑩    | UBOOT 按键           |      |                   |
 
 - 电源指示灯

@@ -22,7 +22,7 @@ This tutorial is designed to help you quickly get started with the Cubie A7A pro
 Prepare the following hardware components in advance: **Choose one of the optional hardware components**
 
 - Mainboard: Radxa Cubie A7A
-- Boot media: MicroSD card
+- Boot media: microSD card
 - Power adapter: 5V Type-C power adapter
 - USB-to-TTL serial cable (optional): For serial debugging and system login
 - HDMI cable and monitor (optional): For display output and GUI operation
@@ -49,10 +49,10 @@ Because the board's passive cooling is limited, the SoC may overheat and cause s
 
 You can install the system by following the tutorials below, based on your boot media and available hardware:
 
-- [Install System to MicroSD Card](./install-system/sd-system)
+- [Install System to microSD Card](./install-system/sd-system)
 
 :::tip Installing System to Other Boot Media
-Currently supports booting from MicroSD card, eMMC module and UFS module.
+Currently supports booting from microSD card, eMMC module and UFS module.
 
 NVMe SSD: Currently recognized and can be used as expanded storage, but cannot be used as boot media.
 
@@ -64,16 +64,16 @@ NVMe SSD: Currently recognized and can be used as expanded storage, but cannot b
 ## Booting the System
 
 :::tip
-If multiple boot media are installed in Cubie A7A, the system boot priority is: MicroSD Card > NVMe SSD > UFS Module > eMMC Module
+If multiple boot media are installed in Cubie A7A, the system boot priority is: microSD Card > NVMe SSD > UFS Module > eMMC Module
 :::
 
-After completing the system installation, install the corresponding boot media (such as MicroSD card / eMMC module / UFS module / NVMe SSD) to the corresponding interface of Cubie A7A.
+After completing the system installation, install the corresponding boot media (such as microSD card / eMMC module / UFS module / NVMe SSD) to the corresponding interface of Cubie A7A.
 
 <Tabs queryString="boot_system">
 
-<TabItem value="MicroSD Card">
+<TabItem value="microSD Card">
 
-Insert the MicroSD card into the MicroSD card slot of Cubie A7A.
+Insert the microSD card into the microSD card slot of Cubie A7A.
 
 <div style={{textAlign: 'center'}}>
   <img src="/en/img/cubie/a7a/a7a-microsd.webp" style={{width: '45%', maxWidth: '1200px'}} />

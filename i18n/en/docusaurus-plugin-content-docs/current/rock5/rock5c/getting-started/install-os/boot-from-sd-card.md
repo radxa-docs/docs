@@ -11,15 +11,15 @@ imports_resolve_to:
 import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcher.mdx';
 
-# Install the system on the MicroSD card
+# Install the system on the microSD card
 
 ## File download
 
 <Images loader={false} system_img={true} spi_img={false} />
 
-## MicroSD Preparation
+## microSD Preparation
 
-Insert MicroSD Card into SDCard Reader，then input Reader into PC's USB Port.
+Insert microSD Card into SDCard Reader，then input Reader into PC's USB Port.
 
 ## Burn the image
 

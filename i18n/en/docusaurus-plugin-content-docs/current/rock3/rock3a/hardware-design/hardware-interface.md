@@ -160,4 +160,4 @@ This procedure requires soldering skills, and it is recommended that it be perfo
 
 ## WIFI
 
-## MicroSD
+## microSD

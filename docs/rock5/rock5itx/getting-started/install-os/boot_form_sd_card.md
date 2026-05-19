@@ -9,7 +9,7 @@ imports_resolve_to:
 
 import Etcher from '../../../../common/general/\_etcher.mdx';
 
-# 制作 MicroSD 启动盘
+# 制作 microSD 启动盘
 
 <Etcher model="rock5itx" product="Radxa ROCK 5 ITX" power_supply="12V DC" sd_slot="/img/rock5itx/rock5itx-sd-slot.webp" />
 

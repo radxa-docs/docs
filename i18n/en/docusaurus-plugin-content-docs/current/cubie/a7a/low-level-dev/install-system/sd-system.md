@@ -2,12 +2,12 @@
 sidebar_position: 1
 ---
 
-# Install System to MicroSD Card
+# Install System to microSD Card
 
-This section mainly describes how to install the system onto a MicroSD card.
+This section mainly describes how to install the system onto a microSD card.
 
 :::warning
-Installing the system will format the MicroSD card. Please back up any important data in advance!
+Installing the system will format the microSD card. Please back up any important data in advance!
 :::
 
 ## Hardware Preparation
@@ -15,8 +15,8 @@ Installing the system will format the MicroSD card. Please back up any important
 You need to prepare the following hardware in advance:
 
 - Board: Radxa Cubie A7A
-- System boot medium: MicroSD card
-- Card reader: MicroSD card reader
+- System boot medium: microSD card
+- Card reader: microSD card reader
 - Power adapter: 5V Type-C power adapter
 
 :::tip
@@ -31,11 +31,11 @@ The Cubie A7A board supports standard PD protocol 5V power input. A current of 3
 
 - Power Adapter
 
-After the system image is written to the MicroSD card, you can use a Type-C power adapter to power the Cubie A7A, avoiding insufficient power issues during later development.
+After the system image is written to the microSD card, you can use a Type-C power adapter to power the Cubie A7A, avoiding insufficient power issues during later development.
 
 ## Hardware Connection
 
-Insert the MicroSD card into the card reader, then plug the card reader into the PC's USB port.
+Insert the microSD card into the card reader, then plug the card reader into the PC's USB port.
 
 <div style={{textAlign: 'center'}}>
   <img src="/en/img/rock4/4d/sd-insert.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -43,9 +43,9 @@ Insert the MicroSD card into the card reader, then plug the card reader into the
 
 ## Software Preparation
 
-To write the Phoenix system image to the MicroSD card, you need to use the tool provided by Allwinner. You can download the software from the [Resources Download](../../download) page.
+To write the Phoenix system image to the microSD card, you need to use the tool provided by Allwinner. You can download the software from the [Resources Download](../../download) page.
 
-**PhoenixCard**: A Windows-based tool that can be used to create a bootable MicroSD card.
+**PhoenixCard**: A Windows-based tool that can be used to create a bootable microSD card.
 
 ## Install System
 
@@ -55,7 +55,7 @@ Extract the downloaded PhoenixCard archive, enter the PhoenixCard directory, and
 
 ② : Select the `Start up` option, which means the card type to be created is a boot card
 
-③ : Check the disk option corresponding to the MicroSD card
+③ : Check the disk option corresponding to the microSD card
 
 ④ : Click the `Burn` button to start creating the bootable card
 

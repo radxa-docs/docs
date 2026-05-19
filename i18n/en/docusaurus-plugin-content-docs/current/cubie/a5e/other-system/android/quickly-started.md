@@ -20,13 +20,13 @@ This tutorial is designed to help you get started quickly with the Android syste
 
 Based on your system boot media and available hardware, please refer to the following tutorials for system installation:
 
-- [Install System to MicroSD Card](./install-system/microsd) (Recommended for new users)
+- [Install System to microSD Card](./install-system/microsd) (Recommended for new users)
 - [Install System to Onboard eMMC](./install-system/emmc)
 
 ## Boot the System
 
 :::tip
-If multiple boot media are installed in Cubie A5E, the boot priority is: MicroSD Card > NVMe SSD (Not supported yet) > Onboard eMMC
+If multiple boot media are installed in Cubie A5E, the boot priority is: microSD Card > NVMe SSD (Not supported yet) > Onboard eMMC
 :::
 
 1. Insert the corresponding system boot media into the appropriate interface of the Cubie A5E

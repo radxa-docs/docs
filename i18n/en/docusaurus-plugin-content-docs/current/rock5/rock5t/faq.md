@@ -48,7 +48,7 @@ Follow the steps below to troubleshoot ROCK 5T:
 
 Confirmation:
 
-Remove the MicroSD, NVME device and short DISABLE SPI pin, then connect the board and PC via USB cableand press Maskrom key，then see if the device enters [Maskrom state](./low-level-dev/maskrom/).
+Remove the microSD, NVME device and short DISABLE SPI pin, then connect the board and PC via USB cableand press Maskrom key，then see if the device enters [Maskrom state](./low-level-dev/maskrom/).
 If it's not in MaskRom state, it's most likely due to the following reasons.
 
 In [Burning system to eMMC via USB](./low-level-dev/maskrom/), did not follow the instructions to press the Maskrom button, causing the system to reach the [SPI Flash](./low-level-dev/maskrom/erase), and when the system starts, it reads the SPI information first, and then there is an error and it cannot start normally.

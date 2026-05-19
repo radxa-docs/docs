@@ -6,18 +6,18 @@ sidebar_position: 2
 
 ## Overview
 
-To boot Radxa E54C from NVMe, you first need to boot the system from a MicroSD card or eMMC, then flash the SPI Flash using either the `rsetup` tool or `RKDevTool`, and finally write the system image to the NVMe device using the `dd` command.
+To boot Radxa E54C from NVMe, you first need to boot the system from a microSD card or eMMC, then flash the SPI Flash using either the `rsetup` tool or `RKDevTool`, and finally write the system image to the NVMe device using the `dd` command.
 
-This tutorial demonstrates the process using a MicroSD card. The installation process is identical for eMMC systems.
+This tutorial demonstrates the process using a microSD card. The installation process is identical for eMMC systems.
 
 ## Boot the System
 
-Refer to the [Quick Start](../quick-start) guide to boot the system from a MicroSD card.
+Refer to the [Quick Start](../quick-start) guide to boot the system from a microSD card.
 
 After confirming that the Radxa E54C system has successfully booted, shut it down and disconnect the power. Then insert the NVMe drive into the M.2 slot on the Radxa E54C motherboard.
 
 :::tip
-The MicroSD card functions similarly to a boot disk in an x86 system. Its purpose is to provide a Linux environment for system installation, obtain the SPI Flash image file (`spi.img`), and then flash `spi.img` to the SPI Flash using the `rsetup` tool.
+The microSD card functions similarly to a boot disk in an x86 system. Its purpose is to provide a Linux environment for system installation, obtain the SPI Flash image file (`spi.img`), and then flash `spi.img` to the SPI Flash using the `rsetup` tool.
 :::
 
 ## Flash SPI Flash
@@ -394,7 +394,7 @@ After completing the above operations, please follow these steps:
 
 1. Shut down the system: `sudo shutdown -h now`
 2. Disconnect power from the Radxa E54C
-3. Remove the MicroSD card
+3. Remove the microSD card
 4. Reconnect the power
 5. Wait for the system to boot from NVMe
 
@@ -422,13 +422,13 @@ If you encounter issues during the boot process, try the following solutions:
 
 - **System Fails to Boot**:
 
-  - Reinsert the MicroSD card and boot the system
+  - Reinsert the microSD card and boot the system
   - Try changing the Bootloader file option for the SPI Flash (prioritize the latest version)
   - Check if the M.2 interface is properly connected; try reseating the NVMe drive
 
 - **System Boots But Cannot Log In**:
   - Default username: `radxa`, password: `radxa`
-  - If the password is incorrect, you can boot using the MicroSD card again, then re-download and rewrite the system image
+  - If the password is incorrect, you can boot using the microSD card again, then re-download and rewrite the system image
     :::
 
 ## Next Steps

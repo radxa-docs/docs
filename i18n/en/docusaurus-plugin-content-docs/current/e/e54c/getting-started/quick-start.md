@@ -30,15 +30,15 @@ To start the Radxa E54C, you will need the following equipment:
 
 <TabItem value="withoutemmc" label="Without onboard EMMC" default>
 
-For E54C without eMMC, you need to use a MicroSD card to install the system.
+For E54C without eMMC, you need to use a microSD card to install the system.
 
 ### File Download
 
 Please go to the [Image Download Page](../download) to download the corresponding operating system image.
 
-### MicroSD Card Preparation
+### microSD Card Preparation
 
-Insert the MicroSD card into the SD card reader, then plug the reader into a USB port on your PC
+Insert the microSD card into the SD card reader, then plug the reader into a USB port on your PC
 
 ### Image Flashing
 
@@ -46,7 +46,7 @@ Insert the MicroSD card into the SD card reader, then plug the reader into a USB
 
 ## Starting the System
 
-After successfully flashing the MicroSD Card as described above, insert the MicroSD Card into the MicroSD Card slot, then plug in the 12V DC adapter. The system will start automatically, and the SYS LED indicator will begin flashing.
+After successfully flashing the microSD Card as described above, insert the microSD Card into the microSD Card slot, then plug in the 12V DC adapter. The system will start automatically, and the SYS LED indicator will begin flashing.
 
 <img src="/img/e/e54c/radxa-e54c-insert-sd.webp" width="500" alt="radxa-e54c pack" />
 

@@ -14,13 +14,13 @@ For USB flashing, the Loader file is used for USB download initialization.
 
 - Debian Linux
 
-Compatible with MicroSD cards, onboard eMMC, and NVMe SSD for system boot.
+Compatible with microSD cards, onboard eMMC, and NVMe SSD for system boot.
 
 [Radxa Debian Linux Debian12 KDE](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
 
 - Android
 
-[Radxa CM4 Android 14 MicroSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa-cm4-android14-rkr6-sd_emmc-20250903-gpt.zip)：Suitable for booting from MicroSD card or onboard eMMC.
+[Radxa CM4 Android 14 microSD and eMMC System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa-cm4-android14-rkr6-sd_emmc-20250903-gpt.zip)：Suitable for booting from microSD card or onboard eMMC.
 
 [Radxa CM4 Android 14 UFS Module System Image](https://github.com/radxa/manifests/releases/download/radxa-cm4-android14-20250829/Radxa_cm4_android14_rkr6_ufs_20250829-update.zip)：Suitable for booting from UFS module.
 

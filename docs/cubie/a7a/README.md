@@ -32,7 +32,7 @@ Cubie A7A 搭载全志 A733 SoC，采用混合八核高性能 CPU（双核 Arm C
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 处理器   | 系统级芯片 (SoC)： 全志 A733 <br/> 中央处理器 (CPU)： 2 核 Cortex-A76 + 6 核 Cortex-A55 <br/> 图形处理器 (GPU)： Imagination BXM-4-64 MC1; 支持 OpenGL ES 3.2、Vulkan 1.3、OpenCL 3.0 <br/> 神经网络加速器 (NPU)： 3 TOPS AI 加速引擎 |
 | 内存     | LPDDR5，可选：2GB / 4GB / 6GB / 8GB / 12GB / 16GB                                                                                                                                                                                     |
-| 存储     | 启动存储： 板载 8MB SPI NOR Flash <br/> 系统存储： 支持 MicroSD 卡 / eMMC 模块 / UFS 模块                                                                                                                                             |
+| 存储     | 启动存储： 板载 8MB SPI NOR Flash <br/> 系统存储： 支持 microSD 卡 / eMMC 模块 / UFS 模块                                                                                                                                             |
 | 网络     | 有线连接： 1 个千兆以太网口（支持 PoE，需外接 PoE HAT） <br/> 无线连接： Wi-Fi 6、蓝牙 5.4，外接天线接口                                                                                                                              |
 | 视频输出 | HDMI： 1 个 HDMI 接口，最高支持 4K@60fps <br/> MIPI DSI： 1 个 4 通道 MIPI DSI                                                                                                                                                        |
 | 摄像头   | 1 个 4 通道 MIPI CSI 或 2 个 2 通道 MIPI CSI                                                                                                                                                                                          |
@@ -56,7 +56,7 @@ Cubie A7A 搭载全志 A733 SoC，采用混合八核高性能 CPU（双核 Arm C
 | ④    | [耳机插孔](/cubie/a7a/hardware-use/headphone)             | ⑪    | [PoE 接口](/cubie/a7a/hardware-use/ethernet)                   | ⑱    | [电源按键](/cubie/a7a/hardware-use/power-key)                     |
 | ⑤    | [UBOOT 按键](/cubie/a7a/hardware-use/uboot-key)           | ⑫    | WiFi6 和 蓝牙5.4                                               | ⑲    | [eMMC / UFS 模块二合一接口](/cubie/a7a/hardware-use/emmc-ufs-com) |
 | ⑥    | [USB 2.0 Type-A 接口](/cubie/a7a/hardware-use/usb-type-a) | ⑬    | [40 Pin GPIO 排针](/cubie/a7a/hardware-use/pin-gpio)           | ⑳    | [MIPI CSI 接口](/cubie/a7a/hardware-use/mipi-csi)                 |
-| ⑦    | [RTC 接口](/cubie/a7a/hardware-use/rtc)                   | ⑭    | [MIPI DSI 接口](/cubie/a7a/hardware-use/mipi-dsi)              | ㉑   | [MicroSD 卡槽](/cubie/a7a/hardware-use/microsd)                   |
+| ⑦    | [RTC 接口](/cubie/a7a/hardware-use/rtc)                   | ⑭    | [MIPI DSI 接口](/cubie/a7a/hardware-use/mipi-dsi)              | ㉑   | [microSD 卡槽](/cubie/a7a/hardware-use/microsd)                   |
 
 - 电源指示灯
 

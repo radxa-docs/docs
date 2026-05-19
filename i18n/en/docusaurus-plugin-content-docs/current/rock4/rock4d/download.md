@@ -40,16 +40,16 @@ This page provides the latest stable and testing system images. Testing versions
 
 :::
 
-If the SPI Flash has not been erased, you can directly write the system image to a MicroSD card / UFS module / NVMe / eMMC to boot the system.
+If the SPI Flash has not been erased, you can directly write the system image to a microSD card / UFS module / NVMe / eMMC to boot the system.
 
-- System image for booting from MicroSD card / NVMe SSD / USB drive / eMMC: [Linux-SD-NVME-UDisk.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
+- System image for booting from microSD card / NVMe SSD / USB drive / eMMC: [Linux-SD-NVME-UDisk.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_512.img.xz)
 
 - System image for booting from UFS: [Linux-UFS.img.xz](https://github.com/radxa-build/radxa-rk3576/releases/download/rsdk-r6/radxa-rk3576_bookworm_kde_r6.output_4096.img.xz)
 
 :::caution
 
 1. Please download the system image that matches your chosen boot media. Downloading the wrong image may result in the system failing to boot. The main difference between the UFS image and the normal image is that the UFS image uses a 4K byte block size, while the normal image uses a 512 byte block size.
-2. The downloaded system images are compressed. Be sure to extract them before writing to the MicroSD card / UFS module / NVMe to boot the system.
+2. The downloaded system images are compressed. Be sure to extract them before writing to the microSD card / UFS module / NVMe to boot the system.
 
 :::
 
@@ -61,7 +61,7 @@ If the SPI Flash has not been erased, you can directly write the system image to
 
 :::
 
-- System image for booting from MicroSD card: [Android-SD.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-sd-20250527-gpt.zip)
+- System image for booting from microSD card: [Android-SD.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20250528/Rock4d-Android14-rkr6-sd-20250527-gpt.zip)
 
 - Update system image for booting from UFS module: [Android-UFS-update.zip](https://github.com/radxa/manifests/releases/download/radxa-rock4d-20251014/Rock4d-Android14-rk6-gms-ufs-20251014-update.zip)
 

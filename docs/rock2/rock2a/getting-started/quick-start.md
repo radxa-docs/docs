@@ -20,7 +20,7 @@ sidebar_position: 2
 
 ## 接线和上电
 
-1. 按照上述步骤成功烧录 MicroSD Card 后， 将 MicroSD Card 插入到 MicroSD Card 插槽内（如下图所示)
+1. 按照上述步骤成功烧录 microSD Card 后， 将 microSD Card 插入到 microSD Card 插槽内（如下图所示)
 
 <img src="/img/rock2a/rock-2a-insert-sd.webp" width="500" alt="rock-2a pack" />
 

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Installing the Operating System to a MicroSD Card
+# Installing the Operating System to a microSD Card
 
 ## Download the System Image
 
@@ -14,7 +14,7 @@ The downloaded system image is a compressed file that needs to be extracted befo
 
 ## Hardware Connection
 
-Insert the MicroSD card into a card reader, then connect the card reader to your PC's USB port.
+Insert the microSD card into a card reader, then connect the card reader to your PC's USB port.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-sd-insert.webp" style={{width: '100%', maxWidth: '600px'}} />
@@ -56,7 +56,7 @@ Click on the `Flash from file` option and select the system image file you downl
   <img src="/img/e/e24c/etcher-01.webp" style={{width: '100%', maxWidth: '600px'}} />
 </div>
 
-- Select the target MicroSD card
+- Select the target microSD card
 
 Click on the `Select target` option and choose the disk device corresponding to your card reader connected to the PC.
 
@@ -102,7 +102,7 @@ After successfully writing the system image, close the Etcher software!
 
 ## Booting the System
 
-After completing the system image writing to the MicroSD card, you can insert the MicroSD card from the card reader into the Radxa E24C's MicroSD card slot, then power on the system using a 12V DC power adapter.
+After completing the system image writing to the microSD card, you can insert the microSD card from the card reader into the Radxa E24C's microSD card slot, then power on the system using a 12V DC power adapter.
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/e/e24c/e24c-insert-sd.webp" style={{width: '100%', maxWidth: '600px'}} />

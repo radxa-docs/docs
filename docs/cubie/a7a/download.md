@@ -7,13 +7,13 @@ sidebar_position: 150
 ## 系统镜像
 
 :::tip 新手入门推荐
-我们强烈建议新手用户下载 GPT 格式的 Radxa OS 官方切换分支，并使用 [Balena Etcher](./getting-started/install-system/sd-system.md) 工具将其安装到 MicroSD 卡中。这是最简单、最快捷的上手方式。
+我们强烈建议新手用户下载 GPT 格式的 Radxa OS 官方切换分支，并使用 [Balena Etcher](./getting-started/install-system/sd-system.md) 工具将其安装到 microSD 卡中。这是最简单、最快捷的上手方式。
 
 **镜像类型说明**
 
 - GPT 系统镜像（推荐新手）：
 
-  - 适用于 MicroSD 卡或 NVMe SSD
+  - 适用于 microSD 卡或 NVMe SSD
   - 使用 Balena Etcher 图形化工具，操作简单
   - 支持 `dd` 命令行烧录
   - 瑞莎推荐的镜像类型，兼容性最佳
@@ -38,7 +38,7 @@ sidebar_position: 150
 
 :::
 
-目前支持 MicroSD 卡/ eMMC 模块 / UFS 模块启动系统，NVMe/SSD 启动需要刷写 SPI Nor Flash 固件
+目前支持 microSD 卡/ eMMC 模块 / UFS 模块启动系统，NVMe/SSD 启动需要刷写 SPI Nor Flash 固件
 
 - [Radxa Cubie A7A Debian 11 KDE R6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_512.img.xz) （SD / eMMC）
 
@@ -68,7 +68,7 @@ sidebar_position: 150
 
 ### Android
 
-适用于 MicroSD 卡/ eMMC 模块 / UFS 模块。
+适用于 microSD 卡/ eMMC 模块 / UFS 模块。
 
 #### FEL 系统镜像
 

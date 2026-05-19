@@ -74,7 +74,7 @@ Radxa CM4 is available in two product versions, differing in their SoC and opera
 | CPU                   | Quad-core Cortex-A72 + Quad-core Cortex-A53, up to 2.2GHz                                                                                             |
 | GPU                   | ARM Mali G52 MC3 <br /> - Supports OpenGL ES 1.1, 2.0 and 3.2, OpenCL 2.1, Vulkan 1.2                                                                 |
 | NPU                   | Up to 6 TOPS@INT8 <br /> - Supports INT4/INT8/INT16/FP16/TF32 <br /> - Supports mainstream AI frameworks: TensorFlow, ONNX, PyTorch, Caffe            |
-| Storage               | Memory: LPDDR4X, up to 16GB <br /> Storage: Supports onboard eMMC, MicroSD card, UFS module, M.2 M Key NVMe SSD for data storage or system boot       |
+| Storage               | Memory: LPDDR4X, up to 16GB <br /> Storage: Supports onboard eMMC, microSD card, UFS module, M.2 M Key NVMe SSD for data storage or system boot       |
 | Networking            | Wired: 1x Gigabit Ethernet (PoE supported, requires external HAT) <br /> Wireless (optional): Wi-Fi 6, Bluetooth 5.4, with external antenna interface |
 | USB                   | - 2x USB 2.0 Type A HOST<br /> - 1x USB 3.0 Type A HOST<br /> - 1x USB 3.0 Type C OTG/HOST                                                            |
 | Audio Interface       | Audio Input: 3.5mm 4-pole headphone jack with microphone support <br /> Audio Output: Supports stereo output, can directly drive 32Ω headphones       |
@@ -117,7 +117,7 @@ Radxa CM4 is available in two product versions, differing in their SoC and opera
 | ②   | Function Pins (Power off/Reboot) | ⑨   | Gigabit Ethernet (PoE supported) | ⑯   | RTC Interface             |
 | ③   | Power Output                     | ⑩   | USB 3.0 Type-A Port              | ⑰   | UFS Module Interface      |
 | ④   | Fan Connector                    | ⑪   | HDMI Port                        | ⑱   | 4-lane MIPI CSI Interface |
-| ⑤   | MicroSD Card Slot                | ⑫   | 2x 2-lane MIPI CSI Interfaces    | ⑲   | 4-lane MIPI DSI Interface |
+| ⑤   | microSD Card Slot                | ⑫   | 2x 2-lane MIPI CSI Interfaces    | ⑲   | 4-lane MIPI DSI Interface |
 | ⑥   | Headphone Jack                   | ⑬   | PoE Interface                    | ⑳   | M.2 M Key 2280 Slot       |
 | ⑦   | USB 3.0 Type-C Ports             | ⑭   | 40 Pin GPIO Interface            | ㉑  | 3x 100 Pin B2B Connectors |
 

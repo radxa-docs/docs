@@ -18,7 +18,7 @@ sidebar_position: 4
 
 Use USB Type-A to Type-C cable to connect the Debug port of the whole machine to the PC, baud rate 115200.
 
-## MicroSD
+## microSD
 
 Supports hot-swapping. Samsung and SanDisk SD cards are currently recommended.
 

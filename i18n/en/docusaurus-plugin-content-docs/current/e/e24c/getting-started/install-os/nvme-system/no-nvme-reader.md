@@ -4,9 +4,9 @@ sidebar_position: 10
 
 import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_dd_nvme.mdx';
 
-# Boot from MicroSD card and install the system to NVMe SSD
+# Boot from microSD card and install the system to NVMe SSD
 
-<InstallSystem boot_device="MicroSD card" board="e24c" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-t2/radxa-rk3528_bookworm_kde_t2.output.img.xz" path_to_image_unxz="radxa-rk3528_bookworm_kde_t2.output.img.xz" path_to_image="radxa-rk3528_bookworm_kde_t2.output.img" />
+<InstallSystem boot_device="microSD card" board="e24c" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-t2/radxa-rk3528_bookworm_kde_t2.output.img.xz" path_to_image_unxz="radxa-rk3528_bookworm_kde_t2.output.img.xz" path_to_image="radxa-rk3528_bookworm_kde_t2.output.img" />
 
 ## Boot the system
 
@@ -16,7 +16,7 @@ To boot the system from an NVMe SSD, you must flash the SPI boot firmware first.
 
 :::
 
-After the system installation is complete, remove the MicroSD card, make sure the NVMe SSD is installed in the NVMe SSD slot on the Radxa E24C, and then power the Radxa E24C with a 12V DC power adapter.
+After the system installation is complete, remove the microSD card, make sure the NVMe SSD is installed in the NVMe SSD slot on the Radxa E24C, and then power the Radxa E24C with a 12V DC power adapter.
 
 Detailed steps:
 

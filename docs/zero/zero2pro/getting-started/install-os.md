@@ -21,7 +21,7 @@ import Etcher from '../../../common/general/\_etcher.mdx'
 
 ## 启动系统
 
-- 按照上述步骤成功烧录 microSD 卡 后，将 microSD 卡插入 ZERO 2 PRO 的 MicroSD 插槽内。
+- 按照上述步骤成功烧录 microSD 卡 后，将 microSD 卡插入 ZERO 2 PRO 的 microSD 插槽内。
 - ZERO 2 PRO 的供电接口为 [USB OTG](../hardware-design/hardware-interface)，请使用 Type-C 线缆连接供电口和适配器。
 
 :::tip

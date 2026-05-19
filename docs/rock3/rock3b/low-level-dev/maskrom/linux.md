@@ -21,7 +21,7 @@ import Images from "../../\_image.mdx"
 <Rkdeveloptool model="rock-3b" release_num="18" desktop="xfce" platform="linux" loader="rk356x_spl_loader__v1.15.113.bin">
 
 <ol>
-    <li>移除 MicroSD 卡，插入 eMMC</li>
+    <li>移除 microSD 卡，插入 eMMC</li>
     <li>将 USB 3.0 座子下方的拨码开关调至 device 侧</li>
     <li>短接 Maskrom 引脚，其位于 USB 3.0 座子和以太网中间</li>
     <li>使用 USB-A 转 USB-A 线从 OTG 端口连接 PC 主机</li>

@@ -8,7 +8,7 @@ This tutorial is for users who have a Radxa eMMC/UFS combo module reader. It exp
 
 ## Hardware Preparation
 
-When using the Radxa eMMC/UFS combo module reader to install the system, there's no need to rely on a MicroSD card. Simply insert the UFS module into the eMMC/UFS module reader and use the Etcher software to install the system to the UFS module.
+When using the Radxa eMMC/UFS combo module reader to install the system, there's no need to rely on a microSD card. Simply insert the UFS module into the eMMC/UFS module reader and use the Etcher software to install the system to the UFS module.
 
 **You will need the following hardware:**
 
@@ -163,7 +163,7 @@ When using our provided system image for the first time, you'll need to log in w
 After completing the system image installation:
 
 1. Remove the UFS module from the Radxa eMMC/UFS combo module reader
-2. Remove any MicroSD card from the ROCK 4D
+2. Remove any microSD card from the ROCK 4D
 3. Install the UFS module into the eMMC/UFS module interface on the ROCK 4D
 4. Connect power to the ROCK 4D
 5. Wait for the system to boot from the UFS module

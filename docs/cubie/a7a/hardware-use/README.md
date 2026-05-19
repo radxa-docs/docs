@@ -10,9 +10,9 @@ sidebar_position: 3
 
 主要介绍 Cubie A7A 的硬件接口信息。
 
-#### [MicroSD 卡槽](/cubie/a7a/hardware-use/microsd)
+#### [microSD 卡槽](/cubie/a7a/hardware-use/microsd)
 
-主要介绍 Cubie A7A 的 MicroSD 卡槽使用方法。
+主要介绍 Cubie A7A 的 microSD 卡槽使用方法。
 
 #### [eMMC / UFS 模块接口](/cubie/a7a/hardware-use/emmc-ufs-com)
 

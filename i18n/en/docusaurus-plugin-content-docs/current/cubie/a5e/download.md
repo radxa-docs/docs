@@ -7,13 +7,13 @@ sidebar_position: 150
 ## System Images
 
 :::tip Beginner's Recommendation
-We strongly recommend that beginners download GPT format Radxa OS official images and use the [Balena Etcher](./getting-started/quickly-start#install-system-image) tool to install them to MicroSD cards. This is the simplest and fastest way to get started.
+We strongly recommend that beginners download GPT format Radxa OS official images and use the [Balena Etcher](./getting-started/quickly-start#install-system-image) tool to install them to microSD cards. This is the simplest and fastest way to get started.
 
 **Image Type Description**
 
 - GPT System Images (Recommended for beginners):
 
-  - Suitable for MicroSD cards or NVMe SSDs
+  - Suitable for microSD cards or NVMe SSDs
   - Use Balena Etcher graphical tool, simple operation
   - Support `dd` command line flashing
   - Radxa recommended image type, best compatibility
@@ -52,7 +52,7 @@ We strongly recommend that beginners download GPT format Radxa OS official image
   - Suitable for GPT system images
   - User-friendly interface, simple operation
   - Automatic image integrity verification
-  - Best for installing systems to MicroSD cards or NVMe SSDs
+  - Best for installing systems to microSD cards or NVMe SSDs
 
 - **[PhoenixSuit (Windows)](https://dl.radxa.com/tools/windows/PhoenixSuit_V2.0.4.zip)** / **[LiveSuit (Linux)](https://dl.radxa.com/tools/linux/LiveSuit_Linux_V3.0.8.zip)**
 
@@ -62,7 +62,7 @@ We strongly recommend that beginners download GPT format Radxa OS official image
   - Requires some technical knowledge
 
 - **[PhoenixCard](https://dl.radxa.com/tools/windows/PhoenixCard_V4.3.1.zip)** (Windows)
-  - Supports creating bootable MicroSD cards with FEL firmware
+  - Supports creating bootable microSD cards with FEL firmware
   - Can be used for mass production scenarios
 
 ## Hardware Design

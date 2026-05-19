@@ -4,12 +4,12 @@ sidebar_position: 3
 
 # Install the system to eMMC
 
-If your Radxa ROCK 5T has onboard eMMC, you can use the `dd` command to write the system image to eMMC while booting from a MicroSD card.
+If your Radxa ROCK 5T has onboard eMMC, you can use the `dd` command to write the system image to eMMC while booting from a microSD card.
 
 :::tip Important Notes
 Installing the system will format the eMMC. Please back up any important data in advance!
 
-If your system cannot currently boot from a MicroSD card, you can refer to the [Install OS to MicroSD Card](./boot_from_sd_card.md) tutorial.
+If your system cannot currently boot from a microSD card, you can refer to the [Install OS to microSD Card](./boot_from_sd_card.md) tutorial.
 :::
 
 ## Prerequisites
@@ -17,10 +17,10 @@ If your system cannot currently boot from a MicroSD card, you can refer to the [
 You will need the following hardware:
 
 - Board: Radxa ROCK 5T
-- Boot medium: MicroSD card
+- Boot medium: microSD card
 - Power adapter: Standard DC 12V/2A power adapter (DC-5525 interface)
 
-We will boot the system from the MicroSD card, download the system image file after entering the system, and then use the `dd` command to write the system image to eMMC.
+We will boot the system from the microSD card, download the system image file after entering the system, and then use the `dd` command to write the system image to eMMC.
 
 :::tip Recommended Accessories
 Radxa ROCK 5T only supports 12V power input, and a current of 2A or higher is recommended to ensure stable operation of all peripherals.
@@ -129,7 +129,7 @@ Device Start End Sectors Size Type
 
 ## Boot the System
 
-After completing the system installation, power off the board, remove the MicroSD card, and then reconnect the power adapter. The system will automatically boot from eMMC.
+After completing the system installation, power off the board, remove the microSD card, and then reconnect the power adapter. The system will automatically boot from eMMC.
 
 ## System Information
 

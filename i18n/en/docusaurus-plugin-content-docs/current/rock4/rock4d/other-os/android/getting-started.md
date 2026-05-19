@@ -20,7 +20,7 @@ This tutorial is designed to help you quickly get started with the Android syste
 You will need the following hardware:
 
 - Board: Radxa ROCK 4D
-- Boot media: MicroSD card
+- Boot media: microSD card
 - Power supply: 5V Type-C power adapter
 - Display: Monitor and HDMI cable
 - Input devices: Keyboard and mouse (for GUI operation)
@@ -34,22 +34,22 @@ You will need the following hardware:
 
 ## System Installation
 
-This section explains how to install the system on a MicroSD card.
+This section explains how to install the system on a microSD card.
 
 :::warning Important Notice
 
-**Installing the system will completely format your MicroSD card, and all data will be permanently deleted!**
+**Installing the system will completely format your microSD card, and all data will be permanently deleted!**
 
 Before proceeding, please ensure:
 
-- There is no important data on the MicroSD card or you have backed up all important data
+- There is no important data on the microSD card or you have backed up all important data
 - You have selected the correct storage device to avoid formatting the wrong disk
 
 :::
 
 ### Hardware Connection
 
-Insert the MicroSD card into a card reader, then connect the card reader to your computer.
+Insert the microSD card into a card reader, then connect the card reader to your computer.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -70,7 +70,7 @@ The downloaded file is in `.img.xz` compressed format. You need to extract it fi
 
 ### Write System Image
 
-Use Balena Etcher to write the system image to the MicroSD card.
+Use Balena Etcher to write the system image to the microSD card.
 
 :::tip Balena Etcher
 
@@ -91,7 +91,7 @@ Click the `Flash from file` button and select the downloaded and extracted syste
 
 #### Select Storage Device
 
-Click `Select target` and choose your MicroSD card.
+Click `Select target` and choose your microSD card.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -109,7 +109,7 @@ Click `Select target` and choose your MicroSD card.
 
 #### Start Flashing
 
-Click the `Flash!` button to begin writing the system image to the MicroSD card.
+Click the `Flash!` button to begin writing the system image to the microSD card.
 
 <div style={{ textAlign: "center" }}>
   <img
@@ -144,4 +144,4 @@ Click the `Flash!` button to begin writing the system image to the MicroSD card.
 
 ## Booting the System
 
-After completing the system write, insert the MicroSD card into the ROCK 4D's MicroSD card slot, then power on the ROCK 4D using a 5V Type-C power adapter to boot the system.
+After completing the system write, insert the microSD card into the ROCK 4D's microSD card slot, then power on the ROCK 4D using a 5V Type-C power adapter to boot the system.

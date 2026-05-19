@@ -34,7 +34,7 @@ With its compact size and powerful performance, it can efficiently handle comple
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Processor             | SoC: Allwinner A733 <br/> CPU: 2x Cortex-A76 + 6x Cortex-A55 <br/> GPU: Imagination BXM-4-64 MC1, supports OpenGL ES 3.2, Vulkan 1.3, OpenCL 3.0 <br/> NPU: 3 TOPS@INT8 AI acceleration engine                                                                          |
 | Memory                | LPDDR4/4x, options: 1GB / 2GB / 4GB / 8GB / 16GB                                                                                                                                                                                                                        |
-| Storage               | Onboard: Optional UFS module (up to 1TB) <br/> Expandable: MicroSD card slot                                                                                                                                                                                            |
+| Storage               | Onboard: Optional UFS module (up to 1TB) <br/> Expandable: microSD card slot                                                                                                                                                                                            |
 | Networking            | Onboard Wi-Fi 6, Bluetooth 5.4 chip, external antenna supported for enhanced signal                                                                                                                                                                                     |
 | Video Output          | 1x Micro HDMI port, supports up to 4K@60fps <br/> 1x USB-C 3.0 port with DisplayPort Alt Mode support for external high-definition displays                                                                                                                             |
 | Camera                | 1x 4-lane MIPI CSI (can be split into 2x 2-lane MIPI CSI)                                                                                                                                                                                                               |
@@ -56,7 +56,7 @@ With its compact size and powerful performance, it can efficiently handle comple
 | ①   | USB-C 2.0 OTG & Power Port       | ⑥   | Antenna Connector         | ⑪   | PCIe 3.0 FPC Connector |
 | ②   | USB-C 3.1 OTG & DP Alt Mode Port | ⑦   | WiFi 6 / BT5 Module       | ⑫   | 40-Pin GPIO Interface  |
 | ③   | Allwinner A733 SoC               | ⑧   | 4-lane MIPI CSI Interface | ⑬   | LPDDR4/4x RAM          |
-| ④   | Micro HDMI Port                  | ⑨   | Onboard UFS               | ⑭   | MicroSD Card Slot      |
+| ④   | Micro HDMI Port                  | ⑨   | Onboard UFS               | ⑭   | microSD Card Slot      |
 | ⑤   | Fan Connector                    | ⑩   | U-Boot Button             |     |                        |
 
 - Power Indicator

@@ -14,7 +14,7 @@ For third-party systems, please refer to [Resource Download](../../download)
 
 ### Creating a boot disk
 
-Refer to [Making a MicroSD boot disc](./etcher) above, we will use it as a base to install the system into eMMC.
+Refer to [Making a microSD boot disc](./etcher) above, we will use it as a base to install the system into eMMC.
 
 ### Logging in to the system
 
