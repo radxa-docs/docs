@@ -261,3 +261,9 @@ gcc -o g2d_rotation g2d_rotation.c
 - **目标分辨率应与源配合**，旋转 90° 时宽高互换
 - **格式转换**（如 RGB → YUV）由 G2D 硬件完成，源和目标 format 字段分别设置即可
 - **调试时**，失败返回 `-1`，`errno` 记录具体原因，用 `perror()` 打印
+
+### 关于 2.0 接口与 1.0 接口
+
+本文档示例默认使用 G2D 2.0 接口（`G2D_CMD_BITBLT_H`，结构体 `g2d_blt_h`）。部分系统（如某些旧版镜像或特定内核配置）下，2.0 接口可能返回 "Operation not permitted" 或 "G2D irq pending flag timeout" 错误。
+
+如遇此情况，可尝试改用 G2D 1.0 接口（`G2D_CMD_BITBLT`，结构体 `g2d_blt`）作为兼容方案。两者的主要区别在于结构体字段命名（`flag_h`/`src_image_h` 等 2.0 专用字段在 1.0 结构体中对应名称不同），请参考头文件 `/usr/include/bsp/linux/sunxi-g2d.h` 中 `g2d_blt` 的定义。
