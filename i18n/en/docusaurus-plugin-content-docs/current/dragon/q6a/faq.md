@@ -135,6 +135,26 @@ After enabling the hardware encoder, the following changes apply:
 - The system boots in `EL2` instead of `EL1`, and KVM **can** be used
 - `/dev/mtd0` disappears, so you cannot update the SPI firmware directly on the board
 
+## Why does the system fail to boot after running `sudo apt upgrade`?
+
+Running `sudo apt upgrade` to upgrade the system may cause incomplete updates or system abnormalities (such as failure to boot). It is recommended to use the Rsetup tool for system updates:
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+In Rsetup, select **System** -> **System Update** to complete the update.
+
+For more details, please refer to: [System Update](../system-config/system-update).
+
+:::warning
+If the power is interrupted or the update fails during the process, the system may fail to boot normally. In this case, you need to re-flash the system image.
+:::
+
 ## How to Fix 7-inch Display Garbled Screen Issue?
 
 The 7-inch display defaults to 1080p resolution. If the display does not support this resolution, it will cause a garbled screen, and you need to manually set the correct screen resolution.
