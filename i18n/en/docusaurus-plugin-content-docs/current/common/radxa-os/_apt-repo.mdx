@@ -165,6 +165,16 @@ sudo apt-get update
 ```
 
   </TabItem>
+  <TabItem value="cqu">
+
+This mirror is provided by [Chongqing University Open Source Software Mirror Station](https://mirrors.cqu.edu.cn).
+
+```bash
+sudo sed -i "s|https://radxa-repo.github.io|https://mirrors.cqu.edu.cn/radxa-deb|g" /etc/apt/sources.list.d/*radxa*.list
+sudo apt-get update
+```
+
+  </TabItem>
   <TabItem value="LZUOSS">
 
 This mirror is provided by [LZUOSS](https://mirrors.lzu.edu.cn).
@@ -219,6 +229,7 @@ sudo apt-get update
 
 ```bash
 sudo sed -e "s|https://mirrors.aghost.cn/radxa-deb|https://radxa-repo.github.io|g" \
+         -e "s|https://mirrors.cqu.edu.cn/radxa-deb|https://radxa-repo.github.io|g" \
          -e "s|https://mirrors.lzu.edu.cn/radxa-deb|https://radxa-repo.github.io|g" \
          -e "s|https://mirrors.hust.edu.cn/radxa-deb|https://radxa-repo.github.io|g" \
          -e "s|https://mirrors.sdu.edu.cn/radxa-deb|https://radxa-repo.github.io|g" \
@@ -257,6 +268,16 @@ sudo apt-get update
 ```
 
   </TabItem>
+  <TabItem value="cqu">
+This mirror is provided by [Chongqing University Open Source Software Mirror Station](https://mirrors.cqu.edu.cn).
+
+```bash
+sudo sed -i 's/deb.debian.org/mirrors.cqu.edu.cn/g' /etc/apt/sources.list.d/*
+sudo sed -i 's/deb.ubuntu.com/mirrors.cqu.edu.cn/g' /etc/apt/sources.list.d/*
+sudo apt-get update
+```
+
+  </TabItem>
   <TabItem value="default" label="Restore Defaults">
 
 ```bash
@@ -264,6 +285,8 @@ sudo sed -i 's/mirrors.ustc.edu.cn/deb.debian.org/g' /etc/apt/sources.list.d/*
 sudo sed -i 's/mirrors.ustc.edu.cn/deb.ubuntu.com/g' /etc/apt/sources.list.d/*
 sudo sed -i 's/mirrors.tuna.tsinghua.edu.cn/deb.debian.org/g' /etc/apt/sources.list.d/*
 sudo sed -i 's/mirrors.tuna.tsinghua.edu.cn/deb.ubuntu.com/g' /etc/apt/sources.list.d/*
+sudo sed -i 's/mirrors.cqu.edu.cn/deb.debian.org/g' /etc/apt/sources.list.d/*
+sudo sed -i 's/mirrors.cqu.edu.cn/deb.ubuntu.com/g' /etc/apt/sources.list.d/*
 sudo apt-get update
 ```
 
