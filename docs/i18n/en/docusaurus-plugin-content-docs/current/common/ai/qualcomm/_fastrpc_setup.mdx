@@ -1,4 +1,4 @@
-NPU 环境配置清单
+NPU Environment Configuration Checklist
 
 - [fastrpc](https://github.com/qualcomm/fastrpc)
 - /dev/fastrpc-adsp
@@ -6,10 +6,10 @@ NPU 环境配置清单
 - /dev/fastrpc-cdsp-secure
 - /usr/lib/dsp libraries
 
-使用 radxa apt 源进行安装
+Install using radxa apt source
 
-:::note 前置条件
-以下软件包依赖 Radxa 官方镜像里预置的 Radxa APT 源。请先确认设备运行的是对应机型的官方 RadxaOS 镜像；如果当前使用的是第三方 Ubuntu / Debian 镜像或自行更换过软件源，`fastrpc` / `fastrpc-test` 可能无法安装。
+:::note Prerequisite
+These packages depend on the Radxa APT source included in the official RadxaOS images. Before following the steps below, make sure the device is running the official RadxaOS image for the target board. If you are using a third-party Ubuntu/Debian image or have replaced the package sources, `fastrpc` / `fastrpc-test` may not be available.
 :::
 
 <Tabs queryString="platform">
@@ -38,68 +38,36 @@ NPU 环境配置清单
 
     </NewCodeBlock>
 
-
     </TabItem>
 
 </Tabs>
 
-{/* 对用户增加 fastrpc 设备权限 */}
+Check /dev/fastrpc* device nodes
 
-{/* <Tabs queryString="platform"> */}
-{/* <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}> */}
-
-{/* <NewCodeBlock tip="Device" type="device"> */}
-
-{/* ```bash */}
-{/* sudo chmod 666 /dev/fastrpc-* */}
-{/* sudo chmod 666 /dev/dma_heap/system */}
-{/* ``` */}
-
-{/* </NewCodeBlock> */}
-
-{/* </TabItem> */}
-
-{/* <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}> */}
-
-{/* <NewCodeBlock tip="Device" type="device"> */}
-
-{/* ```bash */}
-{/* sudo chmod 660 /dev/fastrpc-* */}
-{/* sudo chmod 660 /dev/dma_heap/system */}
-{/* ``` */}
-
-{/* </NewCodeBlock> */}
-
-{/* </TabItem> */}
-
-{/* </Tabs> */}
-
-检查 /dev/fastrpc* 设备节点
-
-安装软件包后，可先确认设备节点已正常创建，再运行测试：
+After installing the packages, verify that the device nodes have been created before running the test:
 
 ```bash
 ls /dev/fastrpc*
 ```
 
-若看到 `/dev/fastrpc-cdsp` 等设备节点，说明驱动已加载，可继续运行验证步骤。
+If you see `/dev/fastrpc-cdsp` and other device nodes, the kernel driver is loaded and you can proceed to the verification step.
 
-若设备节点不存在（`ls: /dev/fastrpc*: No such file or directory`），通常为内核 FastRPC 驱动未加载所致，可尝试：
+If the devices do not exist (`ls: /dev/fastrpc*: No such file or directory`), the FastRPC kernel driver is likely not loaded. Try loading it manually:
 
 ```bash
-# 查看驱动是否已加载
+# Check if the driver is loaded
 lsmod | grep fastrpc
 
-# 如未加载，尝试手动加载驱动
+# If not loaded, try loading the driver manually
 sudo modprobe qcom_fastrpc
 ls /dev/fastrpc*
 ```
 
-:::tip 使用 RadxaOS 官方镜像
-RadxaOS 镜像（Debian）已预置 FastRPC 内核驱动。若在使用第三方 Ubuntu 镜像或自行编译的内核，驱动可能缺失。请确认设备运行的是 Radxa 官方镜像。
+:::tip Use official RadxaOS image
+The RadxaOS (Debian) image includes the FastRPC kernel driver by default. If you are using a third-party Ubuntu image or a self-built kernel, the driver may be missing. Make sure the device is running the official RadxaOS image.
 :::
 
-验证 fastrpc 状态
+Verify fastrpc status
 
 <Tabs queryString="platform">
     <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
