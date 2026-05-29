@@ -2,9 +2,9 @@
 sidebar_position: 99
 ---
 
-# 资源下载汇总
+# Resource Download
 
-## 官方引导加载程序和系统镜像
+## Official Bootloader and System Image
 
 ### SPL Loader
 
@@ -16,36 +16,36 @@ sidebar_position: 99
 
 - [zero image](https://dl.radxa.com/cm3j/images/zero.img)
 
-### 操作系统镜像
+### System Images
 
 Debian OS:
 
-- 系统镜像： [Debian 12 (Bookworm) KDE](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-r3/radxa-cm3j-rpi-cm4-io_bookworm_kde_r3.output_512.img.xz)
+- System Image: [Debian 12 (Bookworm) KDE](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-r3/radxa-cm3j-rpi-cm4-io_bookworm_kde_r3.output_512.img.xz)
 
-- 系统镜像： [Debian b2](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b2/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b2.output.img.xz)
+- System Image: [Debian b2](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b2/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b2.output.img.xz)
 
-## 硬件设计
+## Hardware Design
 
-- 数据手册
+- Datasheet
 
   [Raspberry CM4 IO Board Datasheet](https://datasheets.raspberrypi.com/cm4io/cm4io-datasheet.pdf)
 
-- 原理图
+- Schmatic
 
   [Radxa CM3J V1.2 Schematic](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_schematic_v1.2_20250115.pdf)
 
-- 位号图
+- Bit Map
 
   [Radxa CM3J V1.2 Placement Map](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_components_placement_map_v1.2_20250110.pdf)
 
-- 3D文件
+- 3D File
 
   [radxa_cm3j_pcba_3d_v1_2_20250115](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_pcba_3d_v1_2_20250115.stp)
 
-- 2D文件
+- 2D File
 
   [radxa_cm3j_v1.2_2d_dxf](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_v1.2_2d_dxf.zip)
 
-- 核心板连接器 PINOUT
+- Core Board Connector PINOUT
 
   [Radxa CM3J V1.2 PinOut](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_pinout_v1.2.xlsx)
