@@ -129,6 +129,26 @@ Please go to [Resource Download](../../download) to download the corresponding i
 
 #### System Installation
 
+<Tabs queryString="nvme-platform">
+
+<TabItem value="linux" label="Linux">
+
+#### Linux systems are written using rkdeveloptool
+
+[rkdeveloptool](../../low-level-dev/install-os/rkdevtool-emmc?platform=Linux+%2F+macOS)
+
+</TabItem>
+
+<TabItem value="mac" label="Mac">
+
+#### Mac systems are written using rkdeveloptool
+
+[rkdeveloptool](../../low-level-dev/install-os/rkdevtool-emmc?platform=Linux+%2F+macOS)
+
+</TabItem>
+
+<TabItem value="windows" label="Windows">
+
 #### Install RKDevTool
 
 RKDevTool is Rockchip's software for USB burning on Windows platform. If RKDevTool is not installed on your Windows host, please follow the steps below to install it.
@@ -156,6 +176,10 @@ unzip RKDevTool_Release.zip ，click RKDevTool.exe to open.
 ##### Follow the steps below to flash the operation image
 
 ![RK Android update](/img/rock5itx/rock5itx_android_update_en.webp)
+
+</TabItem>
+
+</Tabs>
 
 #### Boot the system
 
