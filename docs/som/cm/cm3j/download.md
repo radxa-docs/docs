@@ -20,6 +20,8 @@ sidebar_position: 99
 
 Debian OS:
 
+- 系统镜像： [Debian 12 (Bookworm) KDE](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-r3/radxa-cm3j-rpi-cm4-io_bookworm_kde_r3.output_512.img.xz)
+
 - 系统镜像： [Debian b2](https://github.com/radxa-build/radxa-cm3j-rpi-cm4-io/releases/download/rsdk-b2/radxa-cm3j-rpi-cm4-io_bullseye_xfce_b2.output.img.xz)
 
 ## 硬件设计
