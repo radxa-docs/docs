@@ -788,7 +788,7 @@ sidebar_custom_props:
           series_en: "Cubie Series",
           series_zh: "Cubie 系列",
           series_introduction_en: "Radxa Cubie Series is a single board computer series based on the Allwinner SoC",
-          series_introduction_zh: "Cubie 系列是 Radxa 推出的基于 AllWinner 单板计算机系列。",
+          series_introduction_zh: "Cubie 系列是 Radxa 推出的基于全志处理器的主板系列。",
           products:
             [
               {
@@ -861,7 +861,7 @@ sidebar_custom_props:
           series_en: "Dragon Series",
           series_zh: "Dragon 系列",
           series_introduction_en: "Radxa Dragon Series is a single board computer series based on the Qualcomm SoC",
-          series_introduction_zh: "Dragon 系列是 Radxa 推出的基于 Qualcomm 单板计算机系列。",
+          series_introduction_zh: "Dragon 系列是 Radxa 推出的基于高通处理器的主板系列。",
           products:
             [
               {
@@ -877,6 +877,22 @@ sidebar_custom_props:
                       docs_name_zh: "Dragon Q6A 概览",
                       docs_info_en: "Overview of the dragon q6a",
                       docs_info_zh: "Radxa Dragon Q6A 概览",
+                    },
+                  ],
+              },
+              {
+                products_name: "Dragon Q8B",
+                products_photo_url: "/home/product-pictures/dragon_q8b.webp",
+                products_link: "/dragon/q8b",
+                docs:
+                  [
+                    {
+                      docs_link: "/dragon/q8b",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Dragon Q8B 概览",
+                      docs_info_en: "Overview of the dragon q8b",
+                      docs_info_zh: "Radxa Dragon Q8B 概览",
                     },
                   ],
               },
