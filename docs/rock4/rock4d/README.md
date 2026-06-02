@@ -3,11 +3,11 @@ sidebar_position: 11
 sidebar_label: ROCK 4D
 ---
 
-# ROCK 4D - 工业级 AI 单板计算机
+# ROCK 4D - 工业级 AI 迷你主板
 
 ## 产品概述
 
-瑞莎 ROCK 4D 是一款紧凑型单板计算机 (SBC)，拥有众多一流功能、特性和扩展选项。
+瑞莎 ROCK 4D 是一款紧凑型迷你主板，拥有众多一流功能、特性和扩展选项。
 
 ROCK 4D 搭载 Rockchip RK3576 或 RK3576J SoC，配备八核 CPU（4 个 Cortex-A72 + 4 个 Cortex-A53）、Mali-G52 GPU 和强大的 6 TOPS NPU，非常适合 AI 和多媒体任务。
 

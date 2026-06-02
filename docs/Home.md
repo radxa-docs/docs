@@ -788,7 +788,7 @@ sidebar_custom_props:
           series_en: "Cubie Series",
           series_zh: "Cubie 系列",
           series_introduction_en: "Radxa Cubie Series is a single board computer series based on the Allwinner SoC",
-          series_introduction_zh: "Cubie 系列是 Radxa 推出的基于 AllWinner 单板计算机系列。",
+          series_introduction_zh: "Cubie 系列是 Radxa 推出的基于全志处理器的主板系列。",
           products:
             [
               {
