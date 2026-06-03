@@ -183,7 +183,6 @@ Radxa OS 的默认凭据如下：
 对于想通过其它方式启动系统的用户（如 eMMC、UFS、以及 NVMe SSD 启动系统），可以参考下面教程完成对应系统启动介质安装系统：
 
 - [安装系统到 microSD 卡](./install-system/sd-system.md)
-- [安装系统到 U 盘](./install-system/udisk-system.md)
 - [安装系统到 UFS](./install-system/ufs-system/)
 - [安装系统到 NVMe 固态硬盘](./install-system/nvme-system/)
 
