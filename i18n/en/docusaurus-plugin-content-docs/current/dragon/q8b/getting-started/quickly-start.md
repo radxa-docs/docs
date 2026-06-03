@@ -183,7 +183,6 @@ After the system boots successfully, you can start using Radxa OS on the Dragon 
 For users who want to boot the system from other media, such as eMMC, UFS, or NVMe SSD, refer to the guides below to install the system to the corresponding boot media:
 
 - [Install System to MicroSD Card](./install-system/sd-system.md)
-- [Install System to USB Drive](./install-system/udisk-system.md)
 - [Install System to UFS](./install-system/ufs-system/)
 - [Install System to NVMe SSD](./install-system/nvme-system/)
 
