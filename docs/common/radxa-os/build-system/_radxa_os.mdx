@@ -21,119 +21,119 @@ Radxa OS 的开发环境提供两种搭建方式：**方式一**基于 Dev Conta
 <Tabs queryString="setup-method">
 <TabItem value="devcontainer" label="方式一：DevContainer">
 
-### 下载 rsdk 源码
+- **下载 rsdk 源码**
 
-使用 `git clone` 命令克隆 RadxaOS SDK（rsdk）源码。
+  使用 `git clone` 命令克隆 RadxaOS SDK（rsdk）源码。
 
-<NewCodeBlock tip="Linux-Host$" type="host">
+  <NewCodeBlock tip="Linux-Host$" type="host">
 
-```bash
-git clone --recurse-submodules <git_repo_url>
-```
+  ```bash
+  git clone --recurse-submodules <git_repo_url>
+  ```
 
-</NewCodeBlock>
+  </NewCodeBlock>
 
-其中 `<git_repo_url>` 需要替换成：{props.git_url}
+  其中 `<git_repo_url>` 需要替换成：{props.git_url}
 
-### 启动开发环境
+- **启动开发环境**
 
-使用 Visual Studio Code 打开 Radxa OS SDK（rsdk）源码目录：一般 `Dev Container` 拓展会自动识别文件夹下的配置文件，会提示你是否重新打开容器开发环境。
+  使用 Visual Studio Code 打开 Radxa OS SDK（rsdk）源码目录：一般 `Dev Container` 拓展会自动识别文件夹下的配置文件，会提示你是否重新打开容器开发环境。
 
-:::tip
-首次启动开发环境时，Dev Containers 会自动下载并安装依赖，需要耐心等待一段时间。
-:::
+  :::tip
+  首次启动开发环境时，Dev Containers 会自动下载并安装依赖，需要耐心等待一段时间。
+  :::
 
-①：点击左下角的 `Remote` 选项
+  ①：点击左下角的 `Remote` 选项
 
-②：选择 `Reopen in Container` 选项
+  ②：选择 `Reopen in Container` 选项
 
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/img/common/radxa-os/low-level-dev/vscode-dev-container-reopen.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/common/radxa-os/low-level-dev/vscode-dev-container-reopen.webp"
+      style={{ width: "100%", maxWidth: "1200px" }}
+    />
+  </div>
 
-等待容器自动连接和初始化环境，可以点击右下角选择在终端显示日志。
+  等待容器自动连接和初始化环境，可以点击右下角选择在终端显示日志。
 
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/img/common/radxa-os/low-level-dev/vscode-dev-container-log.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/img/common/radxa-os/low-level-dev/vscode-dev-container-log.webp"
+      style={{ width: "100%", maxWidth: "1200px" }}
+    />
+  </div>
 
 </TabItem>
 <TabItem value="rsdk-image" label="方式二：rsdk-image 容器">
 
-### 关于 rsdk-image
+- **关于 rsdk-image**
 
-`rsdk-image` 是 Radxa 官方提供的预制 Docker 镜像，内置了 `rsdk` 命令行工具，无需在本地安装 Nix 或自行构建 deb 包即可快速使用 `rsdk`。该方式**不需要** Visual Studio Code 和 Dev Containers，仅依赖 Docker 与 Radxa 的 `radxa-deb` 软件源，适合只需要构建系统镜像、不打算修改 rsdk 本身的用户。
+  `rsdk-image` 是 Radxa 官方提供的预制 Docker 镜像，内置了 `rsdk` 命令行工具，无需在本地安装 Nix 或自行构建 deb 包即可快速使用 `rsdk`。该方式**不需要** Visual Studio Code 和 Dev Containers，仅依赖 Docker 与 Radxa 的 `radxa-deb` 软件源，适合只需要构建系统镜像、不打算修改 rsdk 本身的用户。
 
-### 安装 rsdk-image
+- **安装 rsdk-image**
 
-#### 方式 A：通过 apt 源安装
+  - **方式 A：通过 apt 源安装**
 
-添加 Radxa `radxa-deb` 软件源（`rsdk-image` 当前发布在 testing 源中）：
+    添加 Radxa `radxa-deb` 软件源（`rsdk-image` 当前发布在 testing 源中）：
 
-<NewCodeBlock tip="Linux@host$" type="host">
+    <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [trusted=yes] https://mirrors.hust.edu.cn/radxa-deb/rsdk-test/ rsdk-test main"
-sudo apt update
-```
+    ```bash
+    sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [trusted=yes] https://mirrors.hust.edu.cn/radxa-deb/rsdk-test/ rsdk-test main"
+    sudo apt update
+    ```
 
-</NewCodeBlock>
+    </NewCodeBlock>
 
-安装 `rsdk-image` deb 包：
+    安装 `rsdk-image` deb 包：
 
-<NewCodeBlock tip="Linux@host$" type="host">
+    <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-sudo apt install rsdk-image
-```
+    ```bash
+    sudo apt install rsdk-image
+    ```
 
-</NewCodeBlock>
+    </NewCodeBlock>
 
-#### 方式 B：手动下载 deb 安装
+  - **方式 B：手动下载 deb 安装**
 
-访问 [`radxa-pkg/rsdk-image` Releases](https://github.com/radxa-pkg/rsdk-image/releases) 下载最新的 `rsdk-image_*_amd64.deb`，然后本地安装：
+    访问 [`radxa-pkg/rsdk-image` Releases](https://github.com/radxa-pkg/rsdk-image/releases) 下载最新的 `rsdk-image_*_amd64.deb`，然后本地安装：
 
-<NewCodeBlock tip="Linux@host$" type="host">
+    <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-sudo apt install ./rsdk-image_*_amd64.deb
-```
+    ```bash
+    sudo apt install ./rsdk-image_*_amd64.deb
+    ```
 
-</NewCodeBlock>
+    </NewCodeBlock>
 
-### 运行 rsdk-image
+- **运行 rsdk-image**
 
-使用 `rsdk-image` 命令启动一个预配置好的容器环境：
+  使用 `rsdk-image` 命令启动一个预配置好的容器环境：
 
-<NewCodeBlock tip="Linux@host$" type="host">
+  <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-rsdk-image --name rsdk
-```
+  ```bash
+  rsdk-image --name rsdk
+  ```
 
-</NewCodeBlock>
+  </NewCodeBlock>
 
-- `--name` 参数为容器名称，可以自定义。
-- 如果容器已经存在，会直接进入容器；如果需要重建容器，请先执行 `docker rm -f rsdk` 删除旧容器。
-- 也可以传入需要执行的命令：`rsdk-image --name rsdk -- <command>`。
+  - `--name` 参数为容器名称，可以自定义。
+  - 如果容器已经存在，会直接进入容器；如果需要重建容器，请先执行 `docker rm -f rsdk` 删除旧容器。
+  - 也可以传入需要执行的命令：`rsdk-image --name rsdk -- <command>`。
 
-进入容器后，使用方式一中克隆的 rsdk 源码，或在容器内重新克隆：
+  进入容器后，使用方式一中克隆的 rsdk 源码，或在容器内重新克隆：
 
-<NewCodeBlock tip="Linux@host$" type="host">
+  <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-git clone --recurse-submodules <git_repo_url>
-```
+  ```bash
+  git clone --recurse-submodules <git_repo_url>
+  ```
 
-</NewCodeBlock>
+  </NewCodeBlock>
 
-其中 `<git_repo_url>` 需要替换成：{props.git_url}
+  其中 `<git_repo_url>` 需要替换成：{props.git_url}
 
 </TabItem>
 </Tabs>

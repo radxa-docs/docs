@@ -21,118 +21,118 @@ You can follow the tutorial below to install Docker / Visual Studio Code / Dev C
 <Tabs queryString="setup-method">
 <TabItem value="devcontainer" label="Method 1: DevContainer">
 
-### Download rsdk Source Code
+- **Download rsdk source code**
 
-Use the `git clone` command to clone the RadxaOS SDK (rsdk) source code.
+  Use the `git clone` command to clone the RadxaOS SDK (rsdk) source code.
 
-<NewCodeBlock tip="Linux@host$" type="host">
+  <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-git clone --recurse-submodules <git_repo_url>
-```
+  ```bash
+  git clone --recurse-submodules <git_repo_url>
+  ```
 
-</NewCodeBlock>
+  </NewCodeBlock>
 
-Replace `<git_repo_url>` with: {props.git_url}
+  Replace `<git_repo_url>` with: {props.git_url}
 
-### Start Development Environment
+- **Start development environment**
 
-Open the Radxa OS SDK (rsdk) source code directory with Visual Studio Code: The `Dev Container` extension will usually automatically detect the configuration file in the folder and prompt you to reopen in the container development environment.
+  Open the Radxa OS SDK (rsdk) source code directory with Visual Studio Code: The `Dev Container` extension will usually automatically detect the configuration file in the folder and prompt you to reopen in the container development environment.
 
-:::tip
-When starting the development environment for the first time, Dev Containers will automatically download and install dependencies. Please be patient as this may take some time.
-:::
+  :::tip
+  When starting the development environment for the first time, Dev Containers will automatically download and install dependencies. Please be patient as this may take some time.
+  :::
 
-1. Click the `Remote` option in the bottom-left corner
-2. Select the `Reopen in Container` option
+  1. Click the `Remote` option in the bottom-left corner
+  2. Select the `Reopen in Container` option
 
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/low-level-dev/vscode-dev-container-reopen.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/en/img/common/radxa-os/low-level-dev/vscode-dev-container-reopen.webp"
+      style={{ width: "100%", maxWidth: "1200px" }}
+    />
+  </div>
 
-Wait for the container to automatically connect and initialize the environment. You can click the bottom right corner to select to display logs in the terminal.
+  Wait for the container to automatically connect and initialize the environment. You can click the bottom right corner to select to display logs in the terminal.
 
-<div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/common/radxa-os/low-level-dev/vscode-dev-container-log.webp"
-    style={{ width: "100%", maxWidth: "1200px" }}
-  />
-</div>
+  <div style={{ textAlign: "center" }}>
+    <img
+      src="/en/img/common/radxa-os/low-level-dev/vscode-dev-container-log.webp"
+      style={{ width: "100%", maxWidth: "1200px" }}
+    />
+  </div>
 
 </TabItem>
 <TabItem value="rsdk-image" label="Method 2: rsdk-image Container">
 
-### About rsdk-image
+- **About rsdk-image**
 
-`rsdk-image` is a prebuilt Docker image provided by Radxa. It comes with the `rsdk` command-line tool pre-installed, so you do not need to install Nix or build the deb package locally. This method **does not require** Visual Studio Code or Dev Containers; it only depends on Docker and access to the Radxa `radxa-deb` repository. It is suitable for users who only need to build system images and do not plan to modify `rsdk` itself.
+  `rsdk-image` is a prebuilt Docker image provided by Radxa. It comes with the `rsdk` command-line tool pre-installed, so you do not need to install Nix or build the deb package locally. This method **does not require** Visual Studio Code or Dev Containers; it only depends on Docker and access to the Radxa `radxa-deb` repository. It is suitable for users who only need to build system images and do not plan to modify `rsdk` itself.
 
-### Install rsdk-image
+- **Install rsdk-image**
 
-#### Option A: Install via apt repository
+  - **Option A: Install via apt repository**
 
-Add the Radxa `radxa-deb` repository (`rsdk-image` is currently published in the testing repository):
+    Add the Radxa `radxa-deb` repository (`rsdk-image` is currently published in the testing repository):
 
-<NewCodeBlock tip="Linux@host$" type="host">
+    <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [trusted=yes] https://mirrors.hust.edu.cn/radxa-deb/rsdk-test/ rsdk-test main"
-sudo apt update
-```
+    ```bash
+    sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [trusted=yes] https://mirrors.hust.edu.cn/radxa-deb/rsdk-test/ rsdk-test main"
+    sudo apt update
+    ```
 
-</NewCodeBlock>
+    </NewCodeBlock>
 
-Install the `rsdk-image` deb package:
+    Install the `rsdk-image` deb package:
 
-<NewCodeBlock tip="Linux@host$" type="host">
+    <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-sudo apt install rsdk-image
-```
+    ```bash
+    sudo apt install rsdk-image
+    ```
 
-</NewCodeBlock>
+    </NewCodeBlock>
 
-#### Option B: Install via manual deb download
+  - **Option B: Install via manual deb download**
 
-Visit [`radxa-pkg/rsdk-image` Releases](https://github.com/radxa-pkg/rsdk-image/releases) to download the latest `rsdk-image_*_amd64.deb`, then install it locally:
+    Visit [`radxa-pkg/rsdk-image` Releases](https://github.com/radxa-pkg/rsdk-image/releases) to download the latest `rsdk-image_*_amd64.deb`, then install it locally:
 
-<NewCodeBlock tip="Linux@host$" type="host">
+    <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-sudo apt install ./rsdk-image_*_amd64.deb
-```
+    ```bash
+    sudo apt install ./rsdk-image_*_amd64.deb
+    ```
 
-</NewCodeBlock>
+    </NewCodeBlock>
 
-### Run rsdk-image
+- **Run rsdk-image**
 
-Use the `rsdk-image` command to launch a preconfigured container environment:
+  Use the `rsdk-image` command to launch a preconfigured container environment:
 
-<NewCodeBlock tip="Linux@host$" type="host">
+  <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-rsdk-image --name rsdk
-```
+  ```bash
+  rsdk-image --name rsdk
+  ```
 
-</NewCodeBlock>
+  </NewCodeBlock>
 
-- The `--name` parameter specifies the container name and can be customized.
-- If the container already exists, you will enter it directly. To rebuild the container, first run `docker rm -f rsdk` to remove the existing one.
-- You can also pass a command to execute inside the container: `rsdk-image --name rsdk -- <command>`.
+  - The `--name` parameter specifies the container name and can be customized.
+  - If the container already exists, you will enter it directly. To rebuild the container, first run `docker rm -f rsdk` to remove the existing one.
+  - You can also pass a command to execute inside the container: `rsdk-image --name rsdk -- <command>`.
 
-After entering the container, use the rsdk source cloned in Method 1, or clone it again inside the container:
+  After entering the container, use the rsdk source cloned in Method 1, or clone it again inside the container:
 
-<NewCodeBlock tip="Linux@host$" type="host">
+  <NewCodeBlock tip="Linux@host$" type="host">
 
-```bash
-git clone --recurse-submodules <git_repo_url>
-```
+  ```bash
+  git clone --recurse-submodules <git_repo_url>
+  ```
 
-</NewCodeBlock>
+  </NewCodeBlock>
 
-Replace `<git_repo_url>` with: {props.git_url}
+  Replace `<git_repo_url>` with: {props.git_url}
 
 </TabItem>
 </Tabs>
