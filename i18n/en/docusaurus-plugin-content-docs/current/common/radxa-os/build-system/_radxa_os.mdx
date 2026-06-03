@@ -2,16 +2,26 @@ import { Image } from "@site/src/utils/docs";
 
 ## Prerequisites
 
-You need to have Visual Studio Code and Docker environment set up in advance, then use Dev Container to run the RadxaOS SDK (rsdk) compilation environment.
+Radxa OS development environment offers two setup methods: **Method 1** is based on Dev Container (recommended for secondary development), and **Method 2** is based on the `rsdk-image` prebuilt container (recommended for build-only use). Both methods use the same `rsdk` tool to compile Radxa OS. Choose the one that fits your needs.
 
 :::info Reference Tutorial
 
-You can follow the tutorial below to complete the environment setup for RadxaOS SDK (rsdk) development.
+You can follow the tutorial below to install Docker / Visual Studio Code / Dev Containers and other base components.
 
 - [Environment Setup](./install-env)
   :::
 
-## Download rsdk Source Code
+- Hardware: x86_64 PC
+- Common dependencies: Docker
+- Method 1 additional requirements: Visual Studio Code + Dev Containers extension
+- Method 2 additional requirements: `apt` available, and network access to the Radxa `radxa-deb` repository
+
+## Choose Your Setup Method
+
+<Tabs queryString="setup-method">
+<TabItem value="devcontainer" label="Method 1: DevContainer">
+
+### Download rsdk Source Code
 
 Use the `git clone` command to clone the RadxaOS SDK (rsdk) source code.
 
@@ -25,7 +35,7 @@ git clone --recurse-submodules <git_repo_url>
 
 Replace `<git_repo_url>` with: {props.git_url}
 
-## Start Development Environment
+### Start Development Environment
 
 Open the Radxa OS SDK (rsdk) source code directory with Visual Studio Code: The `Dev Container` extension will usually automatically detect the configuration file in the folder and prompt you to reopen in the container development environment.
 
@@ -52,11 +62,86 @@ Wait for the container to automatically connect and initialize the environment. 
   />
 </div>
 
+</TabItem>
+<TabItem value="rsdk-image" label="Method 2: rsdk-image Container">
+
+### About rsdk-image
+
+`rsdk-image` is a prebuilt Docker image provided by Radxa. It comes with the `rsdk` command-line tool pre-installed, so you do not need to install Nix or build the deb package locally. This method **does not require** Visual Studio Code or Dev Containers; it only depends on Docker and access to the Radxa `radxa-deb` repository. It is suitable for users who only need to build system images and do not plan to modify `rsdk` itself.
+
+### Install rsdk-image
+
+#### Option A: Install via apt repository
+
+Add the Radxa `radxa-deb` repository (`rsdk-image` is currently published in the testing repository):
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```bash
+sudo tee /etc/apt/sources.list.d/70-radxa.list <<< "deb [trusted=yes] https://mirrors.hust.edu.cn/radxa-deb/rsdk-test/ rsdk-test main"
+sudo apt update
+```
+
+</NewCodeBlock>
+
+Install the `rsdk-image` deb package:
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```bash
+sudo apt install rsdk-image
+```
+
+</NewCodeBlock>
+
+#### Option B: Install via manual deb download
+
+Visit [`radxa-pkg/rsdk-image` Releases](https://github.com/radxa-pkg/rsdk-image/releases) to download the latest `rsdk-image_*_amd64.deb`, then install it locally:
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```bash
+sudo apt install ./rsdk-image_*_amd64.deb
+```
+
+</NewCodeBlock>
+
+### Run rsdk-image
+
+Use the `rsdk-image` command to launch a preconfigured container environment:
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```bash
+rsdk-image --name rsdk
+```
+
+</NewCodeBlock>
+
+- The `--name` parameter specifies the container name and can be customized.
+- If the container already exists, you will enter it directly. To rebuild the container, first run `docker rm -f rsdk` to remove the existing one.
+- You can also pass a command to execute inside the container: `rsdk-image --name rsdk -- <command>`.
+
+After entering the container, use the rsdk source cloned in Method 1, or clone it again inside the container:
+
+<NewCodeBlock tip="Linux@host$" type="host">
+
+```bash
+git clone --recurse-submodules <git_repo_url>
+```
+
+</NewCodeBlock>
+
+Replace `<git_repo_url>` with: {props.git_url}
+
+</TabItem>
+</Tabs>
+
 ## Compile Radxa OS
 
-After starting the development environment, use the `rsdk` command to run the TUI interface.
+After completing the environment setup, use the `rsdk` command to run the TUI interface:
 
-<NewCodeBlock tip="PC@host$" type="host">
+<NewCodeBlock tip="Linux@host$" type="host">
 
 ```bash
 rsdk
@@ -108,3 +193,9 @@ After compilation is complete, a folder corresponding to the board model and sys
 :::info Radxa Cubie A7A / A7Z / A7S Build System Options
 After selecting `Build system image`, choose the `radxa-a733` option from the board model list.
 :::
+
+## FAQ
+
+- During the build, if you encounter `rm: cannot remove ... rootfs/boot/efi: Device or resource busy`, it means `out/<board>/rootfs/boot/efi` is mounted. Run `sudo umount -l out/<board>/rootfs/boot/efi` to unmount it before removing the build artifacts in the `out` directory.
+- Method 1 related: Dev Container setup paused with the message `You might be rate limited by GitHub`; if the development container fails to start, edit `.devcontainer/devcontainer.json` and adjust `runArgs`.
+- Method 2 related: if the `rsdk-image` container fails to start, run `docker rm -f rsdk` to remove the existing container and try again.
