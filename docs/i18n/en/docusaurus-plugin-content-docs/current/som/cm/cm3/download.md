@@ -2,9 +2,9 @@
 sidebar_position: 99
 ---
 
-# 资源下载汇总
+# Resource Download
 
-## 官方引导加载程序和系统镜像
+## Official Bootloader and System Image
 
 ### SPL Loader
 
@@ -14,44 +14,44 @@ sidebar_position: 99
 
 - [SPI Image](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/radxa-cm3-io-spi-image-g8684d740b9f.img.gz)
 
-### 操作系统镜像
+### System Images
 
-Debian:
+Debian OS:
 
-- Radxa CM3 IO Board 系统镜像： [Radxa CM3 IO Bookworm KDE](https://github.com/radxa-build/radxa-cm3-io/releases/download/rsdk-r2/radxa-cm3-io_bookworm_kde_r2.output_512.img.xz)
+- System Image: [Radxa CM3 IO Bookworm KDE](https://github.com/radxa-build/radxa-cm3-io/releases/download/rsdk-r2/radxa-cm3-io_bookworm_kde_r2.output_512.img.xz)
 
-- Radxa CM3 + RPI CM4 IO Board 系统镜像： [Radxa CM3 With Raspberry CM4 IO Bookworm KDE](https://github.com/radxa-build/radxa-cm3-rpi-cm4-io/releases/download/rsdk-r2/radxa-cm3-rpi-cm4-io_bookworm_kde_r2.output_512.img.xz)
+- System Image: [Radxa CM3 With Raspberry CM4 IO Bookworm KDE](https://github.com/radxa-build/radxa-cm3-rpi-cm4-io/releases/download/rsdk-r2/radxa-cm3-rpi-cm4-io_bookworm_kde_r2.output_512.img.xz)
 
 Android:
 
 - [Radxa_CM3_Android11-rkr12-20240719-gpt.zip](https://github.com/radxa/manifests/releases/download/android11-radxa-20240719/Radxa_CM3_Android11-rkr12-20240719-gpt.zip)
 
-## 百度网盘下载
+## Baidu Netdisk Download
 
 :::tip
-百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
+The Baidu Netdisk share link is updated periodically. It is recommended to download the latest image via Baidu Netdisk.
 
-**版本说明：**
-- **R 版本**：经过测试的稳定版本，推荐使用
-- **T 版本**：测试版本（仅用于评估）
+**Version Note:**
+- **R Version**: Tested stable version, recommended.
+- **T Version**: Test version (for evaluation only).
 :::
-- [百度网盘下载（radxa-cm3-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-io&parentPath=%2Fsharelink3108273493-988411983016443)
-- [百度网盘下载（radxa-cm3-rpi-cm4-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-rpi-cm4-io&parentPath=%2Fsharelink3108273493-988411983016443)
-- [百度网盘下载（radxa-cm3-sodimm-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-sodimm-io&parentPath=%2Fsharelink3108273493-988411983016443)
+- [Baidu Netdisk Download (radxa-cm3-io)](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-io&parentPath=%2Fsharelink3108273493-988411983016443)
+- [Baidu Netdisk Download (radxa-cm3-rpi-cm4-io)](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-rpi-cm4-io&parentPath=%2Fsharelink3108273493-988411983016443)
+- [Baidu Netdisk Download (radxa-cm3-sodimm-io)](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm3-sodimm-io&parentPath=%2Fsharelink3108273493-988411983016443)
 
-## 第三方镜像
+## Third Party Images
 
 - [Radxa CM3 IO OpenWrt](https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=rockchip%2Farmv8&id=radxa_cm3-io)
-- [Radxa CM3 IO OpenWrt ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_cm3-io-ext4-sysupgrade.img.gz)
-- [Radxa CM3 IO OpenWrt squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_cm3-io-squashfs-sysupgrade.img.gz)
+- [Radxa CM3 IO OpenWrt ext4 sysupgrade Image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_cm3-io-ext4-sysupgrade.img.gz)
+- [Radxa CM3 IO OpenWrt squashfs sysupgrade Image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_cm3-io-squashfs-sysupgrade.img.gz)
 
-## 硬件设计
+## Hardware Design
 
-- 数据手册
+- Datasheet
 
   [Radxa CM3 Datasheet](https://dl.radxa.com/cm3/docs/radxa_cm3_datasheet.pdf)
 
-- 原理图
+- Schematic
 
   [Radxa CM3 V1.31 Schematic](https://dl.radxa.com/cm3/docs/hw/RADXA_CM3_V1.31A_SCH_20221010.pdf)
 
@@ -69,9 +69,9 @@ Android:
 
   [Radxa CM3 IO Board V1.36 Schematic](https://github.com/radxa/radxa-som-projects/blob/main/cm3/radxa-cm3-io-board-v1360/radxa_cm3_io_board_v1360_schematic.pdf)
 
-  [不同版本之间的修改历史](https://dl.radxa.com/cm3/io_board/revision_history)
+  [Revision history between different versions](https://dl.radxa.com/cm3/io_board/revision_history)
 
-- 位号图
+- Components Placement Map
 
   [Radxa CM3 V1.31 Components Placement Map](https://dl.radxa.com/cm3/docs/hw/RADXA_CM3_V1.31A_CAM_20220526.pdf)
 
@@ -89,7 +89,7 @@ Android:
 
   [Radxa CM3 IO Board V1.36 Components Placement Map](https://github.com/radxa/radxa-som-projects/blob/main/cm3/radxa-cm3-io-board-v1360/radxa_cm3_io_board_components_placement_map_v1360.pdf)
 
-- 2D 图
+- 2D Drawing
 
   [Radxa CM3 IO Board V1.1 2D DXF](https://dl.radxa.com/cm3/io_board/CM3_IO_V1.1_2D_dxf_20211208.zip)
 
@@ -97,17 +97,17 @@ Android:
 
   [B2B Connector Param](https://dl.radxa.com/cm3/io_board/radxa_cm3_io_board_b2b_connector_20230718.asc)
 
-- 3D 图
+- 3D Drawing
 
   [Radxa CM3 V1.31 3D](https://dl.radxa.com/cm3/docs/hw/radxa_cm3_pcba_3d.stp.zip)
 
-- 核心板连接器 PINOUT
+- Core Board Connector PINOUT
 
   - [Radxa CM3 V1.3 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1.3_pinout.xlsx)
 
-  - [Radxa CM3 V1300 To V1320 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1300_to_1320_pinout.xlsx)
+  - [Radxa CM3 V1300 To V1320 Pinout](https://dl.radxa.com/cm3/docs/radxa_cm3_v1300_to_v1320_pinout.xlsx)
 
-- [CM3 IO 板设计资料](https://github.com/radxa/radxa-som-projects/tree/main/cm3)
+- [CM3 IO Board Design Files](https://github.com/radxa/radxa-som-projects/tree/main/cm3)
 
 ## Quality certification
 
