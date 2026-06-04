@@ -123,17 +123,7 @@ Radxa OS 的开发环境提供两种搭建方式：**方式一**基于 Dev Conta
   - 如果容器已经存在，会直接进入容器；如果需要重建容器，请先执行 `docker rm -f rsdk` 删除旧容器。
   - 也可以传入需要执行的命令：`rsdk-image --name rsdk -- <command>`。
 
-  进入容器后，使用方式一中克隆的 rsdk 源码，或在容器内重新克隆：
-
-  <NewCodeBlock tip="Linux@host$" type="host">
-
-  ```bash
-  git clone --recurse-submodules <git_repo_url>
-  ```
-
-  </NewCodeBlock>
-
-  其中 `<git_repo_url>` 需要替换成：{props.git_url}
+  进入容器后无需再克隆仓库源码，容器内已自带 `rsdk` 工具与 SDK 工作目录，可以直接使用 `rsdk` 命令编译系统镜像。
 
 </TabItem>
 </Tabs>

@@ -122,17 +122,7 @@ You can follow the tutorial below to install Docker / Visual Studio Code / Dev C
   - If the container already exists, you will enter it directly. To rebuild the container, first run `docker rm -f rsdk` to remove the existing one.
   - You can also pass a command to execute inside the container: `rsdk-image --name rsdk -- <command>`.
 
-  After entering the container, use the rsdk source cloned in Method 1, or clone it again inside the container:
-
-  <NewCodeBlock tip="Linux@host$" type="host">
-
-  ```bash
-  git clone --recurse-submodules <git_repo_url>
-  ```
-
-  </NewCodeBlock>
-
-  Replace `<git_repo_url>` with: {props.git_url}
+  Once inside the container there is no need to clone the repository again. The container already ships with the `rsdk` tool and the SDK working directory, so you can run `rsdk` directly to build the system image.
 
 </TabItem>
 </Tabs>
