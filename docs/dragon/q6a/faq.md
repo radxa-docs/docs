@@ -137,6 +137,26 @@ vim /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.
 - 系统会以 `EL2` 而不是 `EL1` 启动，此时**可以**使用 KVM
 - `/dev/mtd0` 会消失，因此不能直接在板子上更新 SPI 固件
 
+## 为什么运行 `sudo apt upgrade` 后系统无法启动？
+
+直接使用 `sudo apt upgrade` 命令升级系统可能会导致更新不完全或系统异常（如无法启动）。建议使用 Rsetup 工具进行系统更新：
+
+<NewCodeBlock tip="radxa@dragon-q6a$" type="device">
+
+```bash
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+进入 Rsetup 后，选择 **System** -> **System Update** 完成更新。
+
+详细信息请参考：[系统更新](../system-config/system-update)。
+
+:::warning
+如果在更新过程中断电或更新失败，系统可能无法正常启动。此时需要重新刷写系统镜像。
+:::
+
 ## 7 寸屏显示花屏如何解决？
 
 7 寸屏默认会使用 1080p 分辨率，如果屏幕不支持该分辨率会导致花屏，需要手动设置屏幕分辨率。
