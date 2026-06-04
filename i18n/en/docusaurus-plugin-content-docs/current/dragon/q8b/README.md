@@ -40,7 +40,7 @@ Designed for edge computing, intelligent terminals, and similar applications, Dr
 | Audio                    | 1x 3.5 mm headphone jack<br/>1x microphone connector                                                                                                                                                                                                                            |
 | Power                    | 1x USB Type-C power port<br/>1x power input header<br/>- 12-20V power input<br/>- Supports external power button                                                                                                                                                                |
 | Other                    | 1x power button<br/>1x EDL button<br/>1x RTC connector<br/>1x fan connector<br/>1x FPC connector (PCIe 3.0 x1)<br/>1x 40-pin GPIO header<br/>- Supports UART / I2C / SPI / GPIO                                                                                                 |
-| Operating System         | Radxa OS<br/>Windows<br/>Ubuntu<br/>Armbian<br/>Arch Linux<br/>Nix OS                                                                                                                                                                                                           |
+| Operating System         | Radxa OS<br/>Windows<br/>Ubuntu<br/>Armbian<br/>Arch Linux<br/>Nix OS<br/>Debian<br/>······                                                                                                                                                                                     |
 | Dimensions               | 100 mm x 75 mm                                                                                                                                                                                                                                                                  |
 
 ## Interface Description
@@ -87,3 +87,5 @@ Based on the Qualcomm Snapdragon® 8cx Gen 3 SoC, Dragon Q8B supports multiple o
 - Armbian
 - Arch Linux
 - Nix OS
+- Debian
+- ······

@@ -40,7 +40,7 @@ sidebar_position: 2
 | 音频           | 1x 3.5mm 耳机接口<br/>1x 麦克风接口                                                                                                                                                                                                             |
 | 供电           | 1x USB Type-C 供电口<br/>1x 电源输入排针<br/>- 12-20V 电源输入<br/>- 支持外接电源按键                                                                                                                                                           |
 | 其他           | 1x 电源按键<br/>1x EDL 按键<br/>1x RTC 接口<br/>1x 风扇接口<br/>1x FPC 接口 (PCIe 3.0 x1)<br/>1x 40-Pin GPIO 排针<br/>- 支持 UART / I2C / SPI / GPIO                                                                                            |
-| 操作系统       | Radxa OS<br/>Windows<br/>Ubuntu<br/>Armbian<br/>Arch Linux<br/>Nix OS                                                                                                                                                                           |
+| 操作系统       | Radxa OS<br/>Windows<br/>Ubuntu<br/>Armbian<br/>Arch Linux<br/>Nix OS<br/>Debian<br/>······                                                                                                                                                                  |
 | 尺寸           | 100 mm x 75 mm                                                                                                                                                                                                                                  |
 
 ## 接口说明
@@ -87,3 +87,5 @@ sidebar_position: 2
 - Armbian
 - Arch Linux
 - Nix OS
+- Debian
+- ······
