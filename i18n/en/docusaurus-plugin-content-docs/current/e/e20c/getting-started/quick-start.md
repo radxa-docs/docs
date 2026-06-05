@@ -24,7 +24,7 @@ To start the Radxa E20C, you need the following equipment:
 
 <TabItem value="withemmc" label="with onBoard EMMC" default>
 
-E20C with onBoard EMMC is equipped with a pre-installed system [istoreos](../istoreos), no need to install os.
+E20C with onBoard EMMC is equipped with a pre-installed system [istoreos](../download), no need to install os.
 
 </TabItem>
 
