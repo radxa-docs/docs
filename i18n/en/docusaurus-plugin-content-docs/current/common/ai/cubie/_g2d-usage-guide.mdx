@@ -263,3 +263,9 @@ Rotation flags: `G2D_ROT_0` / `G2D_ROT_90` / `G2D_ROT_180` / `G2D_ROT_270` / `G2
 - **Target resolution should match source**, width and height swap when rotating 90°
 - **Format conversion** (e.g. RGB → YUV) is done by G2D hardware, just set source and destination format fields separately
 - **For debugging**, failure returns `-1`, `errno` records specific reason, use `perror()` to print
+
+### About 2.0 Interface vs 1.0 Interface
+
+The examples in this guide use the G2D 2.0 interface by default (`G2D_CMD_BITBLT_H`, struct `g2d_blt_h`). On some systems (such as certain older images or specific kernel configurations), the 2.0 interface may return "Operation not permitted" or "G2D irq pending flag timeout" errors.
+
+If you encounter this situation, you can try using the G2D 1.0 interface (`G2D_CMD_BITBLT`, struct `g2d_blt`) as a compatible fallback. The main difference between the two is the struct field naming (`flag_h`/`src_image_h` etc. are 2.0-specific fields that have different names in the 1.0 struct). Refer to the header file `/usr/include/bsp/linux/sunxi-g2d.h` for the `g2d_blt` definition.
