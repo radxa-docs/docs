@@ -1,0 +1,79 @@
+import { Image } from "@site/src/utils/docs";
+
+{props.product}'s onboard MIPI DSI interface can be used to connect the [Radxa 10-inch Display](https://radxa.com/products/accessories/display-10fhd) for video output.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/accessories/display-10fhd-view.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+## Interface Specifications
+
+### Display Interface
+
+The Radxa 10-inch Display interface specifications are as follows:
+
+- Interface type: 40-Pin 0.5 mm pitch SMD horizontal FPC connector
+- Connection method: Flip-lock, bottom contact
+
+### Board MIPI DSI Interface
+
+{props.product}'s board MIPI DSI interface specifications are as follows:
+
+- Interface type: {props.interface}
+- Connection method: {props.connect}
+
+### Display FPC Cable
+
+Uses a 40-Pin 0.5 mm pitch to {props.pins} {props.pitch}{props.orientation} FPC cable
+
+## Hardware Connection
+
+Insert the 40-Pin metal contact end of the FPC cable into the display interface, and insert the {props.pins} metal contact end of the FPC cable into the board's MIPI DSI interface.
+
+:::tip Precautions
+
+- Ensure both cable edges are flush with the socket edges, with no skew or partially exposed contacts
+- Confirm the cable has no creases, is not loose, and the lock is in the closed position
+
+:::
+
+<Image
+  src="/en/img/common/accessories/display-10fhd-#board#.webp"
+  board={props.board}
+  fallback={props.board}
+  width="1200"
+/>
+
+## Software Enable
+
+Use the Rsetup tool included with the Radxa system to enable the Radxa 10-inch Display.
+
+:::tip Rsetup Usage Guide
+
+- Select option: Corresponding option will be highlighted
+- Confirm selection: Press `Enter`
+- Cancel selection: Press `ESC`
+- Switch options: Use `Up`, `Down`, `Left`, `Right` keys to navigate
+- Multi-select interface: Press `Space` to select, press `Enter` to confirm selection; when a function is selected, an `*` will appear in the corresponding option box indicating the option is enabled
+
+:::
+
+Run the `rsetup` command in the terminal to launch the Rsetup tool:
+
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
+
+```bash
+rsetup
+```
+
+</NewCodeBlock>
+
+In the Rsetup tool, navigate to `Overlays` -> `Manage overlays`.
+
+1. Use arrow keys to locate the [ ] {props?.enable_display ?? 'Enable Radxa Display 10FHD'} option
+2. Press `Space` to show [*] {props?.enable_display ?? 'Enable Radxa Display 10FHD'}, indicating the feature is selected
+3. Press `Enter` to confirm and save the settings, enabling the display
+4. Restart the system to apply the configuration
