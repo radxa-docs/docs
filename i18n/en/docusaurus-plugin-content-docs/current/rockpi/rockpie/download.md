@@ -1,9 +1,13 @@
 ---
-sidebar_position: 5
+sidebar_position: 99
 title: Resource Download
 ---
 
 # Resource Download
+
+## Loader File
+
+- [rk3328_loader_ddr333_v1.16.250.bin](https://dl.radxa.com/rockpie/images/loader/rk3328_loader_ddr333_v1.16.250.bin)
 
 ## Official Operating System
 
