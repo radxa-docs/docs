@@ -52,6 +52,23 @@ make -j $(nproc)
 cp rkdeveloptool /opt/homebrew/bin/
 ```
 
+:::warning[macOS build error]
+On Apple Silicon (M1 / M2 / M3, etc.) with Apple Clang, the `BYTE pBuf[nSectorSize * DEFAULT_RW_LBA]` arrays in `main.cpp` are treated as a C++ VLA extension and the build fails under `-Werror`, with errors like:
+
+```text
+error: variable length arrays in C++ are a Clang extension [-Werror,-Wvla-cxx-extension]
+```
+
+Pass `CXXFLAGS` to `configure` to silence the warning:
+
+```bash
+./configure CXXFLAGS="-Wno-vla-cxx-extension"
+make -j $(nproc)
+```
+
+Alternatively, edit `main.cpp` and change the two `int nSectorSize = 512;` lines to `constexpr int nSectorSize = 512;`, then rebuild. See [Issue #1813](https://github.com/radxa-docs/docs/issues/1813).
+:::
+
 </TabItem>
 </Tabs>
 
