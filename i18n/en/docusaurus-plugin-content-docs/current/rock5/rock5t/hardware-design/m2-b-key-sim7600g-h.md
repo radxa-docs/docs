@@ -87,7 +87,7 @@ sudo minicom -D /dev/ttyUSB2 -b 115200
 
 In minicom, run the following AT commands:
 
-```
+```text
 AT+CPIN?           # → +CPIN: SIM PIN  (PIN required)
 AT+CPIN="1234"     # Enter your PIN
 AT+CPIN?           # → +CPIN: READY
@@ -120,7 +120,7 @@ sudo ip link set wwan0 up
 sudo nano /etc/qmi-network.conf
 ```
 
-```
+```text
 APN=INTERNET.TELEKOM
 PROFILE=2
 ```
