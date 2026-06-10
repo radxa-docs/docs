@@ -29,7 +29,7 @@ The default credentials for Radxa OS are:
 
 ## Using the System
 
-This section mainly provides usage suggestions for users without a monitor, making it easier to get started with Dragon Q8B.
+This section mainly provides usage suggestions for users without a monitor, making it easier for them to get started with Dragon Q8B.
 
 ### With a Monitor
 
