@@ -15,12 +15,12 @@ sidebar_position: 10
 SIM7600G-H 通过 RK3588 的 4 个 GPIO 引脚进行控制。  
 Linux GPIO编号的计算公式为: `Bank × 32 + Group × 8 + Bit`
 
-| Signal | GPIO Name | Calculation | Linux No. | 电平逻辑 |
-|---|---|---|---|---|
-| `4G_PWREN` | GPIO2_B1 | 2×32 + 1×8 + 1 | **73** | 高电平有效 |
-| `4G_WAKE_ON_HOST` | GPIO2_B2 | 2×32 + 1×8 + 2 | **74** | 高电平有效 |
-| `4G_RESET#` | GPIO2_B3 | 2×32 + 1×8 + 3 | **75** | 低电平有效 |
-| `4G_DISABLE#` | GPIO3_A6 | 3×32 + 0×8 + 6 | **102** | 低电平有效 |
+| Signal            | GPIO Name | Calculation    | Linux No. | 电平逻辑   |
+| ----------------- | --------- | -------------- | --------- | ---------- |
+| `4G_PWREN`        | GPIO2_B1  | 2×32 + 1×8 + 1 | **73**    | 高电平有效 |
+| `4G_WAKE_ON_HOST` | GPIO2_B2  | 2×32 + 1×8 + 2 | **74**    | 高电平有效 |
+| `4G_RESET#`       | GPIO2_B3  | 2×32 + 1×8 + 3 | **75**    | 低电平有效 |
+| `4G_DISABLE#`     | GPIO3_A6  | 3×32 + 0×8 + 6 | **102**   | 低电平有效 |
 
 :::caution
 `RESET#` 与 `W_DISABLE#`均为低电平有效信号。 低电平分别代表正在复位或射频已关闭。 把这两个引脚拉低会导致模组无法启动。
@@ -68,6 +68,7 @@ mmcli -m 0
 ```
 
 预期输出应包含:
+
 - `model: SIMCOM_SIM7600G-H`
 - `state: locked`（需要输入 SIM PIN）
 - `ports: cdc-wdm0 (qmi), ttyUSB0..4, wwan0 (net)`
@@ -284,10 +285,10 @@ nmcli radio wifi on         # Re-enable WiFi
 
 ##排障
 
-| 问题 |原因 |解决方案 |
-|---|---|---|
-| `lsusb` 中看不到模组 | RESET# 电平逻辑反了（低电平有效！） |正常工作时保持 gpio75 = HIGH |
-|出现 `unknown-apn`错误 | Telekom运营商配置阻止自定义 APN | 使用 `APN=INTERNET.TELEKOM` |
-|出现 `PDH already exists`错误 | /tmp 中残留旧的状态文件 | `rm -f /tmp/qmi-network-state-cdc-wdm0` |
-| 连接后没有 IPv4 | raw_ip模式下 DHCP 不生效 | 通过 `qmicli --wds-get-current-settings`手动设置 IP |
-|开机时服务失败 | ModemManager 占用了 cdc-wdm0 | 通过 systemctl禁用 ModemManager |
+| 问题                          | 原因                                | 解决方案                                            |
+| ----------------------------- | ----------------------------------- | --------------------------------------------------- |
+| `lsusb` 中看不到模组          | RESET# 电平逻辑反了（低电平有效！） | 正常工作时保持 gpio75 = HIGH                        |
+| 出现 `unknown-apn`错误        | Telekom运营商配置阻止自定义 APN     | 使用 `APN=INTERNET.TELEKOM`                         |
+| 出现 `PDH already exists`错误 | /tmp 中残留旧的状态文件             | `rm -f /tmp/qmi-network-state-cdc-wdm0`             |
+| 连接后没有 IPv4               | raw_ip模式下 DHCP 不生效            | 通过 `qmicli --wds-get-current-settings`手动设置 IP |
+| 开机时服务失败                | ModemManager 占用了 cdc-wdm0        | 通过 systemctl禁用 ModemManager                     |

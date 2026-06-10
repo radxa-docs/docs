@@ -16,12 +16,12 @@ description: "Setup guide for the SimCom SIM7600G-H LTE modem in the Rock5T M.2 
 The SIM7600G-H is controlled via 4 GPIO pins of the RK3588.  
 The Linux GPIO number is calculated as: `Bank × 32 + Group × 8 + Bit`
 
-| Signal | GPIO Name | Calculation | Linux No. | Logic |
-|---|---|---|---|---|
-| `4G_PWREN` | GPIO2_B1 | 2×32 + 1×8 + 1 | **73** | Active-HIGH |
-| `4G_WAKE_ON_HOST` | GPIO2_B2 | 2×32 + 1×8 + 2 | **74** | Active-HIGH |
-| `4G_RESET#` | GPIO2_B3 | 2×32 + 1×8 + 3 | **75** | Active-LOW |
-| `4G_DISABLE#` | GPIO3_A6 | 3×32 + 0×8 + 6 | **102** | Active-LOW |
+| Signal            | GPIO Name | Calculation    | Linux No. | Logic       |
+| ----------------- | --------- | -------------- | --------- | ----------- |
+| `4G_PWREN`        | GPIO2_B1  | 2×32 + 1×8 + 1 | **73**    | Active-HIGH |
+| `4G_WAKE_ON_HOST` | GPIO2_B2  | 2×32 + 1×8 + 2 | **74**    | Active-HIGH |
+| `4G_RESET#`       | GPIO2_B3  | 2×32 + 1×8 + 3 | **75**    | Active-LOW  |
+| `4G_DISABLE#`     | GPIO3_A6  | 3×32 + 0×8 + 6 | **102**   | Active-LOW  |
 
 :::caution
 `RESET#` and `W_DISABLE#` are Active-Low signals. A LOW level means reset active or RF disabled respectively. Setting these pins LOW will prevent the modem from starting.
@@ -69,6 +69,7 @@ mmcli -m 0
 ```
 
 Expected output shows:
+
 - `model: SIMCOM_SIM7600G-H`
 - `state: locked` (SIM PIN required)
 - `ports: cdc-wdm0 (qmi), ttyUSB0..4, wwan0 (net)`
@@ -285,10 +286,10 @@ nmcli radio wifi on         # Re-enable WiFi
 
 ## Troubleshooting
 
-| Problem | Cause | Solution |
-|---|---|---|
-| Modem not visible in `lsusb` | RESET# logic inverted (Active-Low!) | Keep gpio75 = HIGH during normal operation |
-| `unknown-apn` error | Telekom carrier config blocks custom APNs | Use `APN=INTERNET.TELEKOM` |
-| `PDH already exists` error | Stale state file in /tmp | `rm -f /tmp/qmi-network-state-cdc-wdm0` |
-| No IPv4 after connect | DHCP does not work in raw_ip mode | Set IP manually via `qmicli --wds-get-current-settings` |
-| Service fails at boot | ModemManager blocks cdc-wdm0 | Disable ModemManager via systemctl |
+| Problem                      | Cause                                     | Solution                                                |
+| ---------------------------- | ----------------------------------------- | ------------------------------------------------------- |
+| Modem not visible in `lsusb` | RESET# logic inverted (Active-Low!)       | Keep gpio75 = HIGH during normal operation              |
+| `unknown-apn` error          | Telekom carrier config blocks custom APNs | Use `APN=INTERNET.TELEKOM`                              |
+| `PDH already exists` error   | Stale state file in /tmp                  | `rm -f /tmp/qmi-network-state-cdc-wdm0`                 |
+| No IPv4 after connect        | DHCP does not work in raw_ip mode         | Set IP manually via `qmicli --wds-get-current-settings` |
+| Service fails at boot        | ModemManager blocks cdc-wdm0              | Disable ModemManager via systemctl                      |
