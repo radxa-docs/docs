@@ -1,35 +1,34 @@
 ---
 sidebar_position: 10
-description: "Setup guide for the SimCom SIM7600G-H LTE modem in the Rock5T M.2 B-Key slot, covering GPIO control, QMI connection, and automatic boot."
 ---
 
-# M.2 B Key - SIM7600G-H LTE Setup
+# M.2 B Key - SIM7600G-H LTE 配置指南
 
 **System:** Radxa Rock 5T · Ubuntu 24.04 · Kernel 6.1.115-3-rockchip  
-**Modem:** SimCom SIM7600G-H in M.2 B-Key slot  
-**Goal:** Automatic LTE connection on every boot
+**模组:** SimCom SIM7600G-H 安装在 M.2 B-Key插槽  
+**目标:**每次开机自动建立 LTE 连接
 
 ---
 
-## 1. Identify GPIO Pins
+##1.确认 GPIO 引脚
 
-The SIM7600G-H is controlled via 4 GPIO pins of the RK3588.  
-The Linux GPIO number is calculated as: `Bank × 32 + Group × 8 + Bit`
+SIM7600G-H 通过 RK3588 的 4 个 GPIO 引脚进行控制。  
+Linux GPIO编号的计算公式为: `Bank × 32 + Group × 8 + Bit`
 
-| Signal            | GPIO Name | Calculation    | Linux No. | Logic       |
-| ----------------- | --------- | -------------- | --------- | ----------- |
-| `4G_PWREN`        | GPIO2_B1  | 2×32 + 1×8 + 1 | **73**    | Active-HIGH |
-| `4G_WAKE_ON_HOST` | GPIO2_B2  | 2×32 + 1×8 + 2 | **74**    | Active-HIGH |
-| `4G_RESET#`       | GPIO2_B3  | 2×32 + 1×8 + 3 | **75**    | Active-LOW  |
-| `4G_DISABLE#`     | GPIO3_A6  | 3×32 + 0×8 + 6 | **102**   | Active-LOW  |
+| Signal            | GPIO Name | Calculation    | Linux No. | 电平逻辑   |
+| ----------------- | --------- | -------------- | --------- | ---------- |
+| `4G_PWREN`        | GPIO2_B1  | 2×32 + 1×8 + 1 | **73**    | 高电平有效 |
+| `4G_WAKE_ON_HOST` | GPIO2_B2  | 2×32 + 1×8 + 2 | **74**    | 高电平有效 |
+| `4G_RESET#`       | GPIO2_B3  | 2×32 + 1×8 + 3 | **75**    | 低电平有效 |
+| `4G_DISABLE#`     | GPIO3_A6  | 3×32 + 0×8 + 6 | **102**   | 低电平有效 |
 
 :::caution
-`RESET#` and `W_DISABLE#` are Active-Low signals. A LOW level means reset active or RF disabled respectively. Setting these pins LOW will prevent the modem from starting.
+`RESET#` 与 `W_DISABLE#`均为低电平有效信号。 低电平分别代表正在复位或射频已关闭。 把这两个引脚拉低会导致模组无法启动。
 :::
 
 ---
 
-## 2. Export GPIOs and Start Modem (Manual Test)
+##2.导出 GPIO 并启动模组（手动测试）
 
 ```bash
 # Export GPIOs and set as output
@@ -61,22 +60,22 @@ lsusb | grep -i sim
 
 ---
 
-## 3. Verify Modem
+##3.验证模组
 
 ```bash
 mmcli -L
 mmcli -m 0
 ```
 
-Expected output shows:
+预期输出应包含:
 
 - `model: SIMCOM_SIM7600G-H`
-- `state: locked` (SIM PIN required)
+- `state: locked`（需要输入 SIM PIN）
 - `ports: cdc-wdm0 (qmi), ttyUSB0..4, wwan0 (net)`
 
 ---
 
-## 4. Unlock SIM PIN and Disable PIN Lock
+##4. 解锁 SIM PIN 并关闭 PIN校验
 
 ```bash
 # Install minicom
@@ -86,7 +85,7 @@ sudo apt install minicom -y
 sudo minicom -D /dev/ttyUSB2 -b 115200
 ```
 
-In minicom, run the following AT commands:
+在 minicom 中执行以下 AT 命令:
 
 ```text
 AT+CPIN?           # → +CPIN: SIM PIN  (PIN required)
@@ -104,9 +103,9 @@ AT+COPS?           # Show network operator
 
 ---
 
-## 5. Solve APN Issue (Telekom Carrier Config)
+##5.解决 APN 问题（Telekom运营商配置）
 
-The modem ships with `carrier config: Commercial-DT`. The Deutsche Telekom network enforces `INTERNET.TELEKOM` as the only allowed APN. MVNOs running on the Telekom network (e.g. Congstar, Aldi Talk) must also use this APN.
+模组出厂默认携带 `carrier config: Commercial-DT`。Deutsche Telekom 网络强制要求使用 `INTERNET.TELEKOM` 作为唯一允许的 APN。依托 Telekom 网络的虚拟运营商（例如 Congstar、Aldi Talk）也必须使用该 APN。
 
 ```bash
 # Install libqmi
@@ -137,9 +136,9 @@ sudo qmicli -d /dev/cdc-wdm0 --wds-get-current-settings
 
 ---
 
-## 6. Automatic Boot Script
+##6.开机自动连接脚本
 
-Create the connection script:
+创建连接脚本:
 
 ```bash
 sudo nano /usr/local/bin/sim7600-connect.sh
@@ -211,7 +210,7 @@ sudo chmod +x /usr/local/bin/sim7600-connect.sh
 
 ---
 
-## 7. Create Systemd Service
+##7. 创建 Systemd 服务
 
 ```bash
 sudo nano /etc/systemd/system/sim7600-init.service
@@ -241,9 +240,9 @@ sudo systemctl disable ModemManager
 
 ---
 
-## 8. Toggle LTE Manually
+##8.手动切换 LTE
 
-Create a script to turn LTE off when using WiFi:
+创建一个在切换到 WiFi 时关闭 LTE 的脚本:
 
 ```bash
 sudo nano /usr/local/bin/lte-off.sh
@@ -269,7 +268,7 @@ sudo sim7600-connect.sh      # Turn LTE back on
 
 ---
 
-## 9. Test Connection
+##9. 测试连接
 
 ```bash
 # After reboot or manual start:
@@ -284,12 +283,12 @@ nmcli radio wifi on         # Re-enable WiFi
 
 ---
 
-## Troubleshooting
+##排障
 
-| Problem                      | Cause                                     | Solution                                                |
-| ---------------------------- | ----------------------------------------- | ------------------------------------------------------- |
-| Modem not visible in `lsusb` | RESET# logic inverted (Active-Low!)       | Keep gpio75 = HIGH during normal operation              |
-| `unknown-apn` error          | Telekom carrier config blocks custom APNs | Use `APN=INTERNET.TELEKOM`                              |
-| `PDH already exists` error   | Stale state file in /tmp                  | `rm -f /tmp/qmi-network-state-cdc-wdm0`                 |
-| No IPv4 after connect        | DHCP does not work in raw_ip mode         | Set IP manually via `qmicli --wds-get-current-settings` |
-| Service fails at boot        | ModemManager blocks cdc-wdm0              | Disable ModemManager via systemctl                      |
+| 问题                          | 原因                                | 解决方案                                            |
+| ----------------------------- | ----------------------------------- | --------------------------------------------------- |
+| `lsusb` 中看不到模组          | RESET# 电平逻辑反了（低电平有效！） | 正常工作时保持 gpio75 = HIGH                        |
+| 出现 `unknown-apn`错误        | Telekom运营商配置阻止自定义 APN     | 使用 `APN=INTERNET.TELEKOM`                         |
+| 出现 `PDH already exists`错误 | /tmp 中残留旧的状态文件             | `rm -f /tmp/qmi-network-state-cdc-wdm0`             |
+| 连接后没有 IPv4               | raw_ip模式下 DHCP 不生效            | 通过 `qmicli --wds-get-current-settings`手动设置 IP |
+| 开机时服务失败                | ModemManager 占用了 cdc-wdm0        | 通过 systemctl禁用 ModemManager                     |
