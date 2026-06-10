@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Qualcomm Linux Guide
+# Yocto Guide
 
 ## Qualcomm Linux Compilation Guide
 
@@ -11,3 +11,7 @@ Please refer [Qualcomm Linux Compilation Guide](https://docs.qualcomm.com/bundle
 ## Qualcomm Linux Yocto Guide
 
 Please refer [Qualcomm Linux Yocto Guide](https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-27/yocto_landing_page.html)
+
+## Radxa Dragon Q6A Yocto Guide
+
+Please refer [Radxa Dragon Q6A Yocto Guide](https://github.com/radxa/meta-radxa-dragon/wiki/dragon-q6a)
