@@ -1,5 +1,6 @@
 ---
 sidebar_position: 10
+description: "Setup guide for the SimCom SIM7600G-H LTE modem in the Rock5T M.2 B-Key slot, covering GPIO control, QMI connection, and automatic boot."
 ---
 
 # M.2 B Key - SIM7600G-H LTE Setup
