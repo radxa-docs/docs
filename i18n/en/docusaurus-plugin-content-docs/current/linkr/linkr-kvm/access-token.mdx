@@ -1,0 +1,167 @@
+---
+sidebar_position: 5
+---
+
+# Access Tokens
+
+Linkr KVM provides the **Access Token** feature for programmatically accessing some of the KVM's capabilities through the API without a web login session. It is suitable for automation scripts, monitoring integration, third-party tool calls, and similar scenarios.
+
+An access token is the equivalent of an API key. Once created, it can be used to call the device's public API endpoints.
+
+## Feature Overview
+
+| Capability | Description |
+| --- | --- |
+| Web UI management | Create, view name, and delete access tokens in System Settings |
+| Password verification | The KVM login password is required when generating a new token to prevent unauthorized creation |
+| One-time display | The plaintext token is only shown once at creation; it cannot be viewed again after the dialog is closed |
+| Persistent storage | Tokens are saved in the device's local configuration, remain valid after restart, and stay active until manually deleted |
+
+## Applicable Scenarios
+
+- **Remote screenshots**: Periodically capture the KVM's current screen snapshot for monitoring or inspection
+- **Remote control**: Send control commands (keyboard, mouse, etc.) through the API
+- **Automation integration**: Integrate the KVM into CI/CD, operations platforms, or custom scripts
+
+:::caution Security Notice
+Access tokens have API access permissions comparable to the creator. Please keep them safe; do not commit them to public code repositories or share them with untrusted parties. If a token is leaked, delete it in the management interface and generate a new one immediately.
+:::
+
+## Operation Steps
+
+### 1. Go to System Settings
+
+1. Open the KVM management web interface and log in.
+2. Click **System Settings** (the settings icon) in the left sidebar.
+3. Find the **Access Tokens** collapsible panel.
+
+### 2. Generate a New Token
+
+1. Click the **+ Generate** button, and the "Access Token" dialog will pop up.
+2. Fill in the **Secret Name** (required):
+   - Only lowercase letters `a-z`, digits `0-9`, and hyphens `-` are allowed
+   - Must start with a letter or digit, and cannot start or end with `-`
+   - Up to 20 characters
+   - Examples: `monitor-script`, `ci-deploy-01`
+3. Fill in the **User Password** (required): Enter the current KVM management account's login password for identity verification.
+4. Click the green **Generate** button.
+
+### 3. Save the Token
+
+After successful generation, the dialog will display the complete access token string (prefixed with `radxa_linkr_`).
+
+1. Click the **Copy** icon to the right of the token and save it to a secure location (password manager, secrets management system, etc.).
+2. Once you have confirmed it is safely saved, close the dialog.
+
+:::warning Important
+The plaintext token **is only shown once at creation**. After the dialog is closed, neither the UI nor the API can retrieve the full token. If the token is lost, you can only delete the old entry and generate a new one.
+:::
+
+### 4. Manage Existing Tokens
+
+In the **Access Tokens** panel, created tokens are shown as a list of **Secret Names**:
+
+- The list **does not display** the plaintext token, only the name, to make it easy to identify its purpose.
+- Click the **Delete** icon to the right of an entry and confirm to revoke the token. It will become invalid immediately.
+
+## Using Access Tokens to Call the API
+
+### Authentication
+
+Carry the access token in the HTTP request header:
+
+```
+Authorization: token <your access token>
+```
+
+Example:
+
+```bash
+curl -H "Authorization: token radxa_linkr_xxxxxxxx" \
+  https://<kvm-ip>/api/public/snapshot \
+  --output snapshot.jpg
+```
+
+Replace `<kvm-ip>` with the KVM's actual IP address or domain name (a LAN IP, Tailscale IP, etc. are all fine).
+
+### Available Public APIs
+
+The public endpoints currently supported for access-token-based authentication are listed below:
+
+| Endpoint | Method | Description |
+| --- | --- | --- |
+| `/api/public/snapshot` | GET | Get the current frame as a JPEG snapshot |
+| `/api/public/control` | POST | Send remote control commands (request body is the control protocol data) |
+
+#### Example: Get a Snapshot
+
+```bash
+curl -H "Authorization: token radxa_linkr_xxxxxxxx" \
+  "https://192.168.1.100/api/public/snapshot" \
+  -o snapshot.jpg
+```
+
+On success, an `image/jpeg` image is returned.
+
+#### Example: Send a Control Command
+
+```bash
+curl -X POST \
+  -H "Authorization: token radxa_linkr_xxxxxxxx" \
+  -H "Content-Type: application/json" \
+  -d '<control data>' \
+  "https://192.168.1.100/api/public/control"
+```
+
+The format of the control data depends on the KVM control protocol. Refer to the API documentation or the integration SDK for the specific fields.
+
+### Authentication Failure
+
+If the response is `403 No Permission`, please check:
+
+- The `Authorization` header is in the format `token <token>` (note there is a single space between `token` and the token)
+- The token is complete and not truncated
+- The token has not been deleted
+- The KVM device's IP address or network is reachable
+
+## Token Format
+
+- **Prefix**: `radxa_linkr_`
+- **Body**: A Base64 URL-encoded random string (about 86 characters)
+- **Example**: `radxa_linkr_-yDJ3JYDST0BygX5ltq1aFfOom0imn6hnfLTrl4-fDgHTkO8Uk0vdkf_Gxuia_T-fn07GJmZ_MDvhRLnLQ73WA`
+
+The name of each token must be unique on the device. You cannot create two tokens with the same name.
+
+## Security Recommendations
+
+1. **Principle of least privilege**: Create tokens with different names for different purposes so they can be revoked individually.
+2. **Rotate regularly**: Periodically delete old tokens and generate new ones, especially after personnel changes or script migrations.
+3. **Secure storage**: Use environment variables or secrets management tools to store tokens. Do not hardcode them in source code.
+4. **HTTPS access**: In production, access the KVM API over HTTPS to prevent tokens from being intercepted in transit.
+5. **Revoke promptly**: If a token is leaked or no longer used, delete it in System Settings immediately.
+
+## FAQ
+
+### "Invalid Name Format" Message
+
+The secret name does not follow the rules. Please make sure that:
+
+- It only contains `a-z`, `0-9`, and `-`
+- It starts with a letter or digit
+- It does not end with `-`
+
+### "Wrong Password" Message
+
+The user password entered when generating the token is not the KVM login password. Use the correct password of the current management account.
+
+### "Name Already Exists" Message
+
+You cannot create two tokens with the same name on the same device. Use a different secret name, or first delete the old one with the same name.
+
+### Copy Failed
+
+If the browser does not support the Clipboard API (for example, a non-HTTPS and non-localhost environment), manually select the token text to copy.
+
+### The Script Still Gets 403 After Deleting the Token
+
+The deletion takes effect immediately. Update the script or environment to use the new token, or regenerate and reconfigure it.
