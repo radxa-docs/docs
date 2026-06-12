@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "详细介绍 ROCK 3B / 3B+ 硬件信息"
 ---
 
 # 硬件接口说明
@@ -10,7 +11,14 @@ sidebar_position: 1
 
 ## 实物照片
 
-<img src="/img/rock3/3b/rock3b-interfaces.webp" alt="rk3568 chip block diagram" style={{ width: "80%" }} />
+<Tabs queryString="versions">
+    <TabItem value="ROCK 3B">
+        <img src="/img/rock3/3b/rock3b-interfaces.webp" alt="ROCK 3B interfaces" style={{ width: "80%" }} />
+    </TabItem>
+    <TabItem value="ROCK 3B+">
+        <img src="/img/rock3/3b/rock3b-plus-interfaces.webp" alt="ROCK 3B+ interfaces" style={{ width: "80%" }} />
+    </TabItem>
+</Tabs>
 
 ## 接口详情
 
@@ -99,40 +107,53 @@ ROCK 3B 提供一个 40 pin GPIO 扩展座，兼容市场上大多数传感器�
 
 ### eMMC && SPI Flash Connector
 
-| Pin |       Name       | Pin |       Name       |
-| :-: | :--------------: | :-: | :--------------: |
-|  1  |       GND        |  2  | eMMC_D5/FLASH_D5 |
-|  3  |       GND        |  4  | eMMC_D4/FLASH_D4 |
-|  5  |       GND        |  6  | eMMC_D0/FLASH_D0 |
-|  7  |       GND        |  8  |   eMMC_CLKOUT    |
-|  9  |       GND        | 10  | eMMC_D3/FLASH_D3 |
-| 11  |       GND        | 12  |    eMMC_RSTn     |
-| 13  |       GND        | 14  |       GND        |
-| 15  |                  | 16  |       GND        |
-| 17  |       GND        | 18  |       GND        |
-| 19  |       GND        | 20  |    VCC18_EMMC    |
-| 21  |    VCC18_EMMC    | 22  |   VCCIO_FLASH    |
-| 23  |   VCCIO_FLASH    | 24  |       GND        |
-| 25  |     eMMC_CMD     | 26  |       GND        |
-| 27  | eMMC_D2/FLASH_D2 | 28  |       GND        |
-| 29  | eMMC_D1/FLASH_D1 | 30  |       GND        |
-| 31  | eMMC_D7/FLASH_D7 | 32  |       GND        |
-| 33  | eMMC_D6/FLASH_D6 | 34  |       GND        |
-| 35  |       GND        | 36  |       GND        |
-| 37  |       GND        | 38  |       GND        |
-| 39  |       GND        | 40  |       GND        |
-| 41  |       GND        | 42  |       GND        |
-| 43  |       GND        | 44  |       GND        |
-| 45  |       GND        | 46  |       GND        |
-| 47  |       GND        | 48  |       GND        |
-| 49  |       GND        | 50  |       GND        |
-| 51  |       GND        | 52  |       GND        |
-| 53  |       GND        | 54  |       GND        |
-| 55  |       GND        | 56  |       GND        |
-| 57  |       GND        | 58  |       GND        |
-| 59  |       GND        | 60  |       GND        |
-| 61  |       GND        | 62  |       GND        |
-| 63  |       GND        | 64  |       GND        |
+<Tabs queryString="versions">
+    <TabItem value="ROCK 3B">
+
+        ROCK 3B 通过板载 eMMC 连接器外接 eMMC 模块。该连接器同时复用为 SPI Flash 接口。
+
+        | Pin |       Name       | Pin |       Name       |
+        | :-: | :--------------: | :-: | :--------------: |
+        |  1  |       GND        |  2  | eMMC_D5/FLASH_D5 |
+        |  3  |       GND        |  4  | eMMC_D4/FLASH_D4 |
+        |  5  |       GND        |  6  | eMMC_D0/FLASH_D0 |
+        |  7  |       GND        |  8  |   eMMC_CLKOUT    |
+        |  9  |       GND        | 10  | eMMC_D3/FLASH_D3 |
+        | 11  |       GND        | 12  |    eMMC_RSTn     |
+        | 13  |       GND        | 14  |       GND        |
+        | 15  |                  | 16  |       GND        |
+        | 17  |       GND        | 18  |       GND        |
+        | 19  |       GND        | 20  |    VCC18_EMMC    |
+        | 21  |    VCC18_EMMC    | 22  |   VCCIO_FLASH    |
+        | 23  |   VCCIO_FLASH    | 24  |       GND        |
+        | 25  |     eMMC_CMD     | 26  |       GND        |
+        | 27  | eMMC_D2/FLASH_D2 | 28  |       GND        |
+        | 29  | eMMC_D1/FLASH_D1 | 30  |       GND        |
+        | 31  | eMMC_D7/FLASH_D7 | 32  |       GND        |
+        | 33  | eMMC_D6/FLASH_D6 | 34  |       GND        |
+        | 35  |       GND        | 36  |       GND        |
+        | 37  |       GND        | 38  |       GND        |
+        | 39  |       GND        | 40  |       GND        |
+        | 41  |       GND        | 42  |       GND        |
+        | 43  |       GND        | 44  |       GND        |
+        | 45  |       GND        | 46  |       GND        |
+        | 47  |       GND        | 48  |       GND        |
+        | 49  |       GND        | 50  |       GND        |
+        | 51  |       GND        | 52  |       GND        |
+        | 53  |       GND        | 54  |       GND        |
+        | 55  |       GND        | 56  |       GND        |
+        | 57  |       GND        | 58  |       GND        |
+        | 59  |       GND        | 60  |       GND        |
+        | 61  |       GND        | 62  |       GND        |
+        | 63  |       GND        | 64  |       GND        |
+
+    </TabItem>
+    <TabItem value="ROCK 3B+">
+
+        ROCK 3B+ 使用板载 eMMC 模块，无需通过连接器外接 eMMC。如需使用 SPI Flash，请参考 [Maskrom 模式相关文档](../low-level-dev/maskrom/erase)。
+
+    </TabItem>
+</Tabs>
 
 ### FAN
 
