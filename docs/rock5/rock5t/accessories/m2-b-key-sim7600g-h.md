@@ -1,16 +1,16 @@
 ---
-sidebar_position: 10
+sidebar_position: 20
 ---
 
-# M.2 B Key - SIM7600G-H LTE 配置指南
+# SIM7600G-H 4G 模组使用指南
 
 **System:** Radxa Rock 5T · Ubuntu 24.04 · Kernel 6.1.115-3-rockchip  
 **模组:** SimCom SIM7600G-H 安装在 M.2 B-Key插槽  
-**目标:**每次开机自动建立 LTE 连接
+**目标:** 每次开机自动建立 LTE 连接
 
 ---
 
-##1.确认 GPIO 引脚
+## 确认 GPIO 引脚
 
 SIM7600G-H 通过 RK3588 的 4 个 GPIO 引脚进行控制。  
 Linux GPIO编号的计算公式为: `Bank × 32 + Group × 8 + Bit`
@@ -28,7 +28,7 @@ Linux GPIO编号的计算公式为: `Bank × 32 + Group × 8 + Bit`
 
 ---
 
-##2.导出 GPIO 并启动模组（手动测试）
+## 导出 GPIO 并启动模组（手动测试）
 
 ```bash
 # Export GPIOs and set as output
@@ -60,7 +60,7 @@ lsusb | grep -i sim
 
 ---
 
-##3.验证模组
+## 验证模组
 
 ```bash
 mmcli -L
@@ -75,7 +75,7 @@ mmcli -m 0
 
 ---
 
-##4. 解锁 SIM PIN 并关闭 PIN校验
+## 解锁 SIM PIN 并关闭 PIN 校验
 
 ```bash
 # Install minicom
@@ -103,7 +103,7 @@ AT+COPS?           # Show network operator
 
 ---
 
-##5.解决 APN 问题（Telekom运营商配置）
+## 解决 APN 问题（Telekom 运营商配置）
 
 模组出厂默认携带 `carrier config: Commercial-DT`。Deutsche Telekom 网络强制要求使用 `INTERNET.TELEKOM` 作为唯一允许的 APN。依托 Telekom 网络的虚拟运营商（例如 Congstar、Aldi Talk）也必须使用该 APN。
 
@@ -136,7 +136,7 @@ sudo qmicli -d /dev/cdc-wdm0 --wds-get-current-settings
 
 ---
 
-##6.开机自动连接脚本
+## 开机自动连接脚本
 
 创建连接脚本:
 
@@ -210,7 +210,7 @@ sudo chmod +x /usr/local/bin/sim7600-connect.sh
 
 ---
 
-##7. 创建 Systemd 服务
+## 创建 Systemd 服务
 
 ```bash
 sudo nano /etc/systemd/system/sim7600-init.service
@@ -240,7 +240,7 @@ sudo systemctl disable ModemManager
 
 ---
 
-##8.手动切换 LTE
+## 手动切换 LTE
 
 创建一个在切换到 WiFi 时关闭 LTE 的脚本:
 
@@ -268,7 +268,7 @@ sudo sim7600-connect.sh      # Turn LTE back on
 
 ---
 
-##9. 测试连接
+## 测试连接
 
 ```bash
 # After reboot or manual start:
@@ -283,7 +283,7 @@ nmcli radio wifi on         # Re-enable WiFi
 
 ---
 
-##排障
+## 排障
 
 | 问题                          | 原因                                | 解决方案                                            |
 | ----------------------------- | ----------------------------------- | --------------------------------------------------- |
