@@ -25,8 +25,6 @@ sidebar_position: 2
 <Tabs queryString="HardwareDesign">
     <TabItem value="ROCK 3B">
 
-### V1.5
-
 - 原理图
 
 [Radxa_ROCK_3B_V1.51_SCH](https://dl.radxa.com/rock3/docs/hw/3b/Radxa_ROCK_3B_V1.51_SCH.pdf)
@@ -51,8 +49,6 @@ sidebar_position: 2
 
     </TabItem>
     <TabItem value="ROCK 3B+">
-
-### V1.6
 
 - 原理图
 
