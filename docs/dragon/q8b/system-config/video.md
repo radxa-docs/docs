@@ -4,20 +4,10 @@ sidebar_position: 4
 
 # 视频编解码测试指南
 
-本文档用于记录 Radxa Dragon Q8B 在指定镜像与内核版本下的视频编解码测试方法和结果。
-
-:::info 测试环境
-
-- 系统镜像：[radxa-dragon-midstream rsdk-t2](https://github.com/radxa-build/radxa-dragon-midstream/releases/tag/rsdk-t2)
-- 内核版本：[linux-6.18.2](https://github.com/radxa/kernel/tree/linux-6.18.2)
-  :::
+本文介绍如何在 Radxa Dragon Q8B 上使用 FFmpeg 生成测试视频，并通过 GStreamer 验证硬件编解码能力。
 
 :::tip
-测试资源中的部分视频文件无法通过 GStreamer 正常播放。为保证测试条件一致，建议统一使用 FFmpeg 生成测试视频，再使用 GStreamer 调用硬件解码器进行验证。
-:::
-
-:::tip
-建议使用最新 BIOS 固件和系统进行测试！
+建议使用最新 BIOS 固件和系统进行测试。测试资源中的部分视频文件无法通过 GStreamer 正常播放，为保证测试条件一致，建议统一使用 FFmpeg 生成测试视频，再使用 GStreamer 调用硬件解码器进行验证。
 :::
 
 ## 前置准备

@@ -4,20 +4,10 @@ sidebar_position: 4
 
 # Video Codec Test Guide
 
-This document records the video codec test methods and results for Radxa Dragon Q8B under the specified image and kernel versions.
-
-:::info Test Environment
-
-- System image: [radxa-dragon-midstream rsdk-t2](https://github.com/radxa-build/radxa-dragon-midstream/releases/tag/rsdk-t2)
-- Kernel version: [linux-6.18.2](https://github.com/radxa/kernel/tree/linux-6.18.2)
-  :::
+This guide shows how to generate test videos with FFmpeg and validate hardware video encode/decode on Radxa Dragon Q8B using GStreamer.
 
 :::tip
-Some sample videos in the test resources cannot be played correctly with GStreamer. To keep the test conditions consistent, it is recommended to generate all test videos with FFmpeg first, and then validate hardware decoding with GStreamer.
-:::
-
-:::tip
-It is recommended to test with the latest BIOS firmware and system image!
+It is recommended to test with the latest BIOS firmware and system image. Some sample videos in the test resources cannot be played correctly with GStreamer. To keep the test conditions consistent, generate all test videos with FFmpeg first, and then validate hardware decoding with GStreamer.
 :::
 
 ## Preparation
