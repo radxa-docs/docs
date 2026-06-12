@@ -7,27 +7,11 @@ description: "Quick start with ROCK 3B / 3B+ to help you get started and explore
 
 ## Packing list
 
-<Tabs queryString="versions">
-    <TabItem value="ROCK 3B">
-        <img src="/img/rock3/3b/rock3b-package.webp" alt="ROCK 3B package" width="500" />
-    </TabItem>
-    <TabItem value="ROCK 3B+">
-        <img src="/img/rock3/3b/rock3b-plus-interfaces.webp" alt="ROCK 3B+ package" width="500" />
-    </TabItem>
-</Tabs>
+<img src="/img/rock3/3b/rock3b-package.webp" width="500" alt="ROCK 3B / 3B+ package" />
 
-<Tabs queryString="versions">
-    <TabItem value="ROCK 3B">
-        The ROCK 3B standard package includes the following items:
+The ROCK 3B / 3B+ standard package includes the following items:
 
-        - ROCK 3B motherboard
-    </TabItem>
-    <TabItem value="ROCK 3B+">
-        The ROCK 3B+ standard package includes the following items:
-
-        - ROCK 3B+ motherboard
-    </TabItem>
-</Tabs>
+- ROCK 3B / 3B+ motherboard
 
 To boot up the ROCK 3B / 3B+, you will also need the following:
 
