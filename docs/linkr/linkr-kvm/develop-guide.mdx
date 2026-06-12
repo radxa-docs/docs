@@ -1,0 +1,226 @@
+---
+sidebar_position: 8
+---
+
+# 开发者文档
+
+## AI Agent 接口
+
+通过调用 Linkr 提供的 HTTP 接口（包括屏幕截图、键盘与鼠标控制），来实现对被控机的远程自动化操作。
+
+**API Token获取参考使用指南中如何生成API Token章节。**
+
+### 截图接口
+
+- **URL**: `http://{linkr_ip}/api/public/snapshot`
+
+- **方法**: GET
+
+- **用途**: 获取当前被控机屏幕状态，供 AI 模型分析决策
+
+- **返回**: JPEG 格式的屏幕截图
+
+- **请求示例**：
+
+```Plain Text
+curl -X GET http://192.168.2.224:80/api/public/snapshot -H "Authorization: token {{your API Token}}" -o screen.jpeg
+```
+
+### 控制接口 
+
+- **URL**: `http://{linkr_ip}/api/``public/``control`
+
+- **方法**: POST
+
+- **用途：**下发键鼠、文本、延时等事件序列，远程控制被控机
+
+- **请求示例**:
+
+```Plain Text
+curl -X POST http://192.168.2.224:80/api/public/control \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token {{your API Token}}" \
+  -d '{
+    "events": [
+      // 控制接口事件列表，每个事件为一个数组，第一个元素表示事件类型
+      ["text", "Helloworld"],
+      ["delay", 300],
+      ["mouse_abs", 0, 0.1, 0.1, 0, 0],
+      ["keyboard", "MetaLeft", true],
+      ["keyboard", "MetaLeft", false],
+      ["mouse_abs", 0, 0.5, 0.5, 0, 0],
+      ["mouse_rel", 0, 100, 100, 0, 0]
+    ]
+  }'
+```
+
+- **响应：**
+
+```Plain Text
+{
+  "code": 0,                       //0，表示成功，非零，表示失败
+  "data": null,
+  "message": "Request succeeded!"  //返回错误信息
+}
+```
+
+
+
+## 控制接口参数详解 
+
+### 键盘事件 \(Keyboard\) 
+
+```Plain Text
+["keyboard", keyCode, isPressed]
+```
+
+**参数说明**:
+
+- 索引 0: 固定字符串 `"keyboard"`，表示按下或松开键盘上某个按键。
+
+- 索引 1: 字段类型：String。表示键盘按键标识符，采用 Web 标准的 [`KeyboardEvent.code`](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_code_values)值。
+
+- 索引 2: 字段类型：Boolean。表示按键状态，`true`表示按下，`false`表示释放。
+
+**常用按键标识符**:
+
+- `"MetaLeft"`\- 左 Meta 键 \(Windows 键/Command 键\)
+
+- `"KeyA"`\- A 键
+
+- `"KeyB"`\- B 键
+
+- `"KeyC"`\- C 键
+
+- `"KeyV"`\- V 键
+
+- `"Enter"`\- 回车键
+
+- `"Escape"`\- ESC 键
+
+- `"Tab"`\- Tab 键
+
+- `"Space"`\- 空格键
+
+- `"ControlLeft"`\- 左 Ctrl 键
+
+- `"AltLeft"`\- 左 Alt 键
+
+- `"ShiftLeft"`\- 左 Shift 键
+
+**示例**:
+
+```Plain Text
+["keyboard", "MetaLeft", true],   // 按下 Windows 键
+["keyboard", "MetaLeft", false]  // 释放 Windows 键
+["keyboard", "KeyR", true],       // 按下 R 键
+["keyboard", "KeyR", false],     // 释放 R 键
+
+```
+
+### 绝对坐标鼠标事件 \(mouse\_abs\) 
+
+```Plain Text
+["mouse_abs",0,0.1,0.1,0,0],
+```
+
+**参数说明**:
+
+- 索引 0: 固定字符串 `"mouse_abs"`，表示鼠标采用绝对坐标移动，原点为屏幕左上角， 横坐标和纵坐标取值范围\[0\.00, 1\.00\]。
+
+- 索引 1: 字段类型：Number。表示鼠标按键。0：表示无鼠标按键按下或松开鼠标所有按键。bit 0 位表示左键，bit 1 位表示右键，bit 2 位表示滚轮中键。同时按下多个按键时，其对应数值相加。例如，同时按下左键（1）和右键（2）时，结果为 3（即 1 \+ 2）。
+
+- 索引 2: 字段类型：Number。表示鼠标绝对坐标 X \(0\.00\-1\.00，左上角为原点\)
+
+- 索引 3: 字段类型：Number。表示鼠标绝对坐标 Y \(0\.00\-1\.00，左上角为原点\)
+
+- 索引 4: 字段类型：Number。表示鼠标垂直滚轮值。取值范围\[\-20, 20\]。例如，正值（如 n）表示鼠标垂直向下滚动 n 个像素，负值（如 \-n）表示鼠标垂直向上滚动 n 个像素。
+
+- 索引 5: 字段类型：Number。表示鼠标水平滚轮值。取值范围\[\-20, 20\]。例如，正值（如 n）表示鼠标水平向右滚动 n 个像素，负值（如 \-n）表示鼠标水平向左滚动 n 个像素。
+
+**示例**:
+
+```Plain Text
+["mouse_abs",0,0.5,0.5,0,0],      // 移动鼠标到屏幕中心
+["mouse_abs",1,0.5,0.5,0,0],      // 移动鼠标到屏幕中心，同时点击鼠标左键
+["mouse_abs",0,0.5,0.5,0,0],      // 移动鼠标到屏幕中心，同时松开上次操作的鼠标按键
+["mouse_abs",0,0.5,0.5,20,10],    // 移动鼠标到屏幕中心，同时鼠标垂直滚轮向下滚动20个像素，水平滚轮向右滚动10个像素。
+```
+
+### 相对坐标鼠标事件 \(mouse\_rel\) 
+
+```Plain Text
+["mouse_rel",0,100,100,0,0],
+```
+
+**参数说明**:
+
+- 索引 0: 固定字符串 `"mouse_rel"`，表示鼠标采用相对坐标移动，原点为屏幕左上角， 移动单位为像素。
+
+- 索引 1: 字段类型：Number。表示鼠标按键。0：表示无鼠标按键按下或松开所有鼠标按键。bit 0 位表示左键，bit 1 位表示右键，bit 2 位表示滚轮中键。同时按下多个按键时，其对应数值相加。例如，同时按下左键（1）和右键（2）时，结果为 3（即 1 \+ 2）。
+
+- 索引 2: 字段类型：Number。表示鼠标横坐标的相对移动像素值。正值（如 n）表示向右移动 n 像素，负值（如 \-n）表示向左移动 n 像素。
+
+- 索引 3: 字段类型：Number。表示鼠标纵坐标的相对移动像素值。正值（如 n）表示向下移动 n 像素，负值（如 \-n）表示向上移动 n 像素。
+
+- 索引 4: 字段类型：Number。表示鼠标垂直滚轮值。取值范围\[\-20, 20\]。例如，正值（如 n）表示鼠标垂直向下滚动 n 个像素，负值（如 \-n）表示鼠标垂直向上滚动 n 个像素。
+
+- 索引 5: 字段类型：Number。表示鼠标水平滚轮值。取值范围\[\-20, 20\]。例如，正值（如 n）表示鼠标水平向右滚动 n 个像素，负值（如 \-n）表示鼠标水平向左滚动 n 个像素。
+
+**示例**:
+
+```Plain Text
+["mouse_rel",0,10,10,0,0],        // 从鼠标当前位置，向右和向下各平移 10 像素。
+["mouse_abs",1,0,0,0,0],          // 在鼠标当前位置点击鼠标左键
+["mouse_abs",0,0,0,0,0],          // 在鼠标当前位置松开上次操作的鼠标按键
+["mouse_abs",0,10,10,20,10],      // 从鼠标当前位置，向右和向下各平移 10 像素，同时鼠标垂直滚轮向下滚动20个像素，水平滚轮向右滚动10个像素。
+```
+
+
+
+### 文本事件 \(text\) 
+
+```Plain Text
+["text", "text_to_type"]
+```
+
+**参数说明**:
+
+- 索引 0: 固定字符串 `"text"`，表示输入文本字符串。
+
+- 索引 1: 字段类型：String。表示要输入的文本字符串，最长为1024个字符。
+
+仅支持以下 ASCII 字符：
+
+- 控制字符：**9 \(Tab\)、10 \(Enter\)**
+
+- 可打印字符：**32 \~ 126**
+
+**示例**:
+
+```Plain Text
+["text", "https://www.baidu.com"] //在当前光标位置输入 https://www.baidu.com
+```
+
+### 暂停事件 \(delay\) 
+
+```Plain Text
+["delay", milliseconds]
+```
+
+**参数说明**:
+
+- 索引 0: 固定字符串 `"delay"`，表示暂停，确保IPKVM完成上一个操作。例如：用来确保长文本输入完整。
+
+- 索引 1: 字段类型：Number。表示是暂停时长，单位：毫秒。
+
+**注意**: 
+在文本输入事件后通常需要添加暂停事件，确保 IPKVM 有足够时间处理输入完整的长文本，如果IPKVM需要较长时间操作，则需要多次发送暂停事件。一般地输入文本长度为30时，就需要暂停1000毫秒。
+
+**示例**:
+
+```Plain Text
+["text", "https://www.baidu.com"] //在当前光标位置输入 https://www.baidu.com
+["delay", 1000]                   // 暂停 1000 毫秒，确保上面长文本输出完整
+```
+
