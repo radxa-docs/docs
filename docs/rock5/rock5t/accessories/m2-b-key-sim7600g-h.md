@@ -6,7 +6,7 @@ sidebar_position: 20
 
 **System:** Radxa Rock 5T · Ubuntu 24.04 · Kernel 6.1.115-3-rockchip  
 **模组:** SimCom SIM7600G-H 安装在 M.2 B-Key插槽  
-**目标:**每次开机自动建立 LTE 连接
+**目标:** 每次开机自动建立 LTE 连接
 
 ---
 
