@@ -215,6 +215,14 @@
     "message": "Network Computing",
     "description": "Navbar item with label 网络计算"
   },
+  "item.label.灵控系列": {
+    "message": "Linkr Series",
+    "description": "Navbar item with label 灵控系列"
+  },
+  "item.label.远程控制工具": {
+    "message": "Linkr KVM",
+    "description": "Navbar item with label 远程控制工具"
+  },
   "logo.alt": {
     "message": "Radxa",
     "description": "The alt text of navbar logo"
