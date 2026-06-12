@@ -1,0 +1,152 @@
+---
+sidebar_position: 2
+---
+
+# Wake on LAN Device Wakeup
+
+Linkr KVM supports **Wake on LAN (WOL)**, which lets you remotely power on a target computer that is shut down or in sleep mode by sending a Magic Packet from the KVM to the target's network card — no need to press the power button in person.
+
+The KVM and the target computer are usually in the same LAN through a network cable or a switch. After the wake-up packet is sent, the target machine will start up once it receives a broadcast packet that matches its MAC address.
+
+## Feature Overview
+
+| Capability | Description |
+| --- | --- |
+| Web UI operation | Enter the MAC address in the management interface and send the wake-up packet with one click |
+| Standard WOL protocol | Sends a 102-byte standard Magic Packet via UDP broadcast to `255.255.255.255:9` |
+| MAC address validation | Supports `:` or `-` separated 6-byte MAC format; invalid input is reported with an error |
+
+## Before You Start
+
+Before using the KVM to wake up the target computer, please confirm that WOL has been correctly configured on the target machine:
+
+### 1. Enable Wake on LAN in BIOS/UEFI
+
+Enter the target computer's BIOS/UEFI settings and find and enable the following options (names vary by motherboard vendor):
+
+- **Wake on LAN**
+- **Power On By PCI-E / PME**
+- **Resume by LAN**
+
+Some motherboards require that the network card stays powered when the system is off (ErP / deep energy-saving related options need to be disabled).
+
+### 2. Enable Network Card Wake in the Operating System
+
+**Windows:**
+
+1. Open "Device Manager" → Network adapters → target network card properties.
+2. In "Advanced", enable **Wake on Magic Packet** (or a similar option).
+3. In "Power Management", check **Allow this device to wake the computer**.
+
+**Linux:**
+
+Use `ethtool` to check and enable (using `eth0` as an example):
+
+```bash
+sudo ethtool eth0 | grep Wake-on
+sudo ethtool -s eth0 wol g
+```
+
+### 3. Network Connection Requirements
+
+- After the target computer is powered off, the **wired network card** must remain physically connected to the network (network cable, switch, or the same LAN segment as the KVM).
+- The KVM and the target computer should be in the **same Layer 2 broadcast domain** (same LAN or VLAN); the wake-up packet is sent as a UDP broadcast.
+- Wireless network cards generally have poor WOL support. It is recommended to use the MAC address of the wired network port.
+
+### 4. Get the Target MAC Address
+
+With the target computer powered on, view the network card MAC address through a system command or the router's admin page, for example:
+
+- Windows: `ipconfig /all`
+- Linux: `ip link show`
+- macOS: `ifconfig`
+
+Write down the MAC address of the network card that is connected to the KVM's LAN.
+
+## Operation Steps
+
+### 1. Go to Advanced Settings
+
+1. Open the KVM management web interface and log in.
+2. Click **Advanced Settings** (the gear icon) at the bottom of the left sidebar.
+3. Find and expand the **Device Wakeup** collapsible panel on the page.
+
+### 2. Enter the MAC Address
+
+Fill in the target computer's network card MAC address in the **MAC Address** input field.
+
+Supported format examples:
+
+```
+00-E0-0C-1F-30-F1
+00:E0:0C:1F:30:F1
+```
+
+Each section has two hexadecimal digits, for a total of 6 sections, separated by `-` or `:` (case-insensitive).
+
+### 3. Send the Wake-Up Packet
+
+1. Confirm that the MAC address is entered correctly.
+2. Click the green **Wake Up** button on the right.
+3. Wait for the operation to complete:
+   - **Sent successfully**: The interface shows success. The target computer should start up within a few seconds to tens of seconds (depending on hardware and power state).
+   - **Send failed**: Please check the network connection and the WOL configuration on the target side, then try again.
+
+:::tip Note
+"Sent successfully" means the KVM has successfully sent the Magic Packet. It does not guarantee that the target computer will start. If the target side has not correctly configured WOL or is not in the same broadcast domain, the computer may still not wake up.
+:::
+
+## How It Works
+
+Wake on LAN uses the standard Magic Packet format:
+
+1. The packet body consists of 6 bytes of `0xFF` header followed by 16 repetitions of the target MAC address, for a total of 102 bytes.
+2. The KVM broadcasts the packet via UDP to `255.255.255.255:9` (the standard WOL port).
+3. The target network card listens for link-layer traffic in a powered-off / sleeping state. Once it identifies its own MAC, the motherboard powers on.
+
+```
+KVM management interface → Enter MAC → Click "Wake Up"
+       ↓
+  Construct Magic Packet (102 bytes)
+       ↓
+  UDP broadcast → 255.255.255.255:9
+       ↓
+  Target network card receives → motherboard powers on
+```
+
+## FAQ
+
+### "Invalid MAC Address" Message
+
+- Check that it is exactly 6 sections of 2 hexadecimal digits each.
+- Confirm that `-` or `:` is used as the separator. Do not use spaces or other symbols.
+- Example: `AA-BB-CC-DD-EE-FF` or `aa:bb:cc:dd:ee:ff`.
+
+### "Sent Successfully" but the Computer Does Not Power On
+
+- Confirm that Wake on LAN is enabled in the BIOS, and the network card wake-up is enabled in the operating system.
+- Confirm that you are using the **wired network card** MAC, and the network cable remains connected to the same LAN after power-off.
+- Check whether the motherboard has disabled power to the network card after shutdown (ErP, EuP, and other energy-saving options).
+- Some computers only support wake from **sleep / hibernation**, not from a full power-off (S5) state.
+- If the KVM and the target computer are not in the same network segment or VLAN, the broadcast packet may not reach the target network card.
+
+### Send Failed
+
+- Confirm the KVM device's network is normal. Being able to access the management interface indicates basic connectivity.
+- Check whether switches and routers between the KVM and the target device allow broadcast traffic to pass through.
+- Try again later. If it continues to fail, restart the KVM's network service or check the firmware version.
+
+### How to Confirm Which Network Card's MAC Is Being Used
+
+If the computer has multiple network cards (wired, wireless, virtual), use the **MAC of the wired network card that is actually connected to the KVM's LAN**. You can temporarily disable other network cards and run `ipconfig` / `ip link` to confirm.
+
+## Difference from the "Prevent Sleep" Feature
+
+The KVM also provides a **Prevent Sleep** feature: when connected to a remote computer, it periodically sends a tiny mouse movement to prevent the system from going to sleep. This feature applies to a scenario where **the computer is already powered on and connected through the KVM**.
+
+**Wake on LAN (Device Wakeup)** is used to **remotely power on a computer that is already shut down or in deep sleep** by sending a magic packet over the network. The two features have different uses; choose the one that fits your scenario.
+
+## Related Links
+
+- [Wake-on-LAN (Wikipedia)](https://en.wikipedia.org/wiki/Wake-on-LAN)
+- [IEEE 802.3 Magic Packet](https://en.wikipedia.org/wiki/Wake-on-LAN#Magic_packet)

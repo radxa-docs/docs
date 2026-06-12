@@ -1,0 +1,156 @@
+---
+id: firmware-update
+sidebar_position: 3
+title: Firmware Update
+---
+
+# Firmware Update
+
+Linkr KVM supports **local upgrade** by uploading a firmware package through the web management interface, which is used to obtain new features, bug fixes, and security updates. The firmware file is downloaded from GitHub Releases, and the device automatically verifies, decrypts, and installs it after upload.
+
+:::info Current Version
+Firmware download page: [https://github.com/radxa-linkr/linkr/releases](https://github.com/radxa-linkr/linkr/releases)
+
+Latest release example: `linkr-ota-1.0.1.bin` (the version number in the file name changes with each release).
+:::
+
+## Before Updating
+
+1. **Check the current version**: In **About → Device Information**, view the "Current Firmware Version" and compare it with the version to be installed to make sure it is a higher version.
+2. **Download the firmware package**: Visit [GitHub Releases](https://github.com/radxa-linkr/linkr/releases), and download the `linkr-ota-<version>.bin` file from the **Assets** section of the corresponding version to your local computer.
+3. **Keep the network stable**: Please keep the connection between the browser and the KVM during the upgrade process; do not close the page or disconnect the network.
+4. **Reserve storage space**: The firmware package is about 50-60 MB, and the device needs to have enough free space. If space is insufficient, the message "Insufficient storage space" will be displayed.
+5. **Avoid interruption**: During the upgrade, the device's system indicator LED is **flashing white** (see [Product Overview](./product-introduction)). Do not power off or unplug cables.
+
+## Operation Steps
+
+### 1. Go to System Update
+
+1. Open the KVM management web interface and log in.
+2. Click **System Settings** (the settings icon) in the left sidebar.
+3. Find the **System Update** row, and click the **Update** button on the right.
+
+### 2. Open Local Upgrade
+
+In the **System Update** dialog that pops up:
+
+1. Confirm that the **Local Upgrade** tab is currently selected (the `?` icon next to the tab can be used to view the firmware download address).
+2. If you have not downloaded the firmware yet, you can click the link next to `?` to jump to [GitHub Releases](https://github.com/radxa-linkr/linkr/releases) to download.
+
+### 3. Upload the Firmware File
+
+In the **Click or drag a file to this area to upload** area:
+
+- **Click** the upload area and select the downloaded `linkr-ota-*.bin` file from your local disk; or
+- **Drag** the firmware file into the upload area.
+
+After upload starts, the interface will display a progress bar and the current stage.
+
+### 4. Wait for the Upgrade to Complete
+
+The upgrade is divided into the following stages:
+
+| Stage | UI Message | Description |
+| --- | --- | --- |
+| Uploading | Uploading... | The firmware file is transferred from the browser to the KVM device |
+| Upgrading | Upgrading... | The device verifies the signature, decrypts, and writes the firmware |
+| Complete | Upgraded, please restart the device | The installation is complete; takes effect after restart |
+
+You can click **Cancel** to abort the operation during the upgrade (it is recommended not to cancel once installation is nearly complete).
+
+### 5. Restart the Device
+
+When the progress reaches 100% and the message **Upgraded, please restart the device** is shown:
+
+1. Click the **Restart** button, and the device will restart automatically.
+2. After the restart, the browser will jump to the login page. Log in with your original username and password.
+3. In **About → Device Information**, confirm that the firmware version has been updated.
+
+:::caution Note
+A restart will briefly interrupt the KVM service and remote connection. Please perform the upgrade in an appropriate time window, and make sure that the target host will not be affected by the KVM restart.
+:::
+
+## Download the Firmware
+
+### Official Release Page
+
+[https://github.com/radxa-linkr/linkr/releases](https://github.com/radxa-linkr/linkr/releases)
+
+### How to Choose a Version
+
+1. Open the Releases page and look at the latest **Tag** (e.g. `v1.0.1`).
+2. Expand the **Assets** of that version, and download `linkr-ota-<version>.bin`.
+3. It is recommended to read the Release Notes for the changes and known issues.
+
+### File Description
+
+| Item | Description |
+| --- | --- |
+| File format | `linkr-ota-<semver>.bin` (encrypted OTA firmware package) |
+| Typical size | About 50-60 MB |
+| Source | Download only from the official GitHub Releases. Do not use files from unknown sources |
+
+## Version Rules
+
+The device automatically verifies the firmware version before installation:
+
+| Case | Result |
+| --- | --- |
+| Firmware version **higher than** the current version | Allowed to upgrade |
+| Firmware version **equal to** the current version | Rejected, with the message "The version number is the same as the current version" |
+| Firmware version **lower than** the current version | Rejected, with the message "The version number is lower than the current version" |
+
+Downgrade installation is not supported. To roll back to a previous version, please contact technical support.
+
+## FAQ
+
+### "A Restart Is Required Before Upgrading Again"
+
+If the previous upgrade has been installed but the device has not been restarted, attempting to upgrade again will prompt: **A previous upgrade operation was detected. The device needs to be restarted before another upgrade can be performed.**
+
+How to handle: Click **Restart** to complete the previous upgrade, and then perform the new upgrade operation after the restart.
+
+### Insufficient Storage Space
+
+The firmware package needs to be written to the device's local storage. Please delete unnecessary virtual disk images or other space-consuming files and try again.
+
+### Upload or Upgrade Failed
+
+- Confirm that the downloaded `linkr-ota-*.bin` file is complete and not corrupted. Try downloading it again.
+- Check whether the network connection between the browser and the KVM is stable.
+- Refresh the page and re-upload. Avoid running multiple upgrade tasks at the same time.
+- After an upgrade failure, the device usually still runs the original firmware. If there is an abnormality, you can long-press the FN key for 10 seconds to restore factory settings (this will clear all configuration).
+
+### Can I Close the Page During the Upgrade?
+
+Not recommended. Closing the page may cause the upload to be interrupted. If the upload is already complete and the "Upgrading" stage has been entered, the device will continue processing locally, but you will not be able to view the progress or perform the restart on the same page. It is recommended to keep the page open until the restart prompt appears.
+
+### How to View the Current Firmware Version?
+
+The sidebar where **System Settings** is located → **About** → **Device Information** → **Current Firmware Version**.
+
+### Is Online Upgrade Available?
+
+The current web interface is mainly **local upgrade**: first download the firmware from GitHub, and then upload it in the interface. The `?` icon next to the local upgrade tab provides a shortcut to the official download address.
+
+## Upgrade Process Overview
+
+```
+Download linkr-ota-*.bin from GitHub Releases
+        ↓
+System Settings → System Update → Update
+        ↓
+Local Upgrade → Click or drag to upload the firmware
+        ↓
+Uploading → Upgrading (device indicator LED flashing white)
+        ↓
+Upgraded, please restart the device → Click Restart
+        ↓
+Log in again and confirm the version number
+```
+
+## Related Links
+
+- [Firmware Download (GitHub Releases)](https://github.com/radxa-linkr/linkr/releases)
+- [Product Overview - LED Indicators](./product-introduction#led-indicators)
+- [FAQ](./faq)

@@ -1,0 +1,219 @@
+---
+sidebar_position: 7
+---
+
+# Developer Documentation
+
+## AI Agent Interface
+
+By calling the HTTP interfaces provided by Linkr (including screenshots, keyboard, and mouse control), you can remotely automate operations on the target machine.
+
+**Refer to the "How to generate an API Token" section in the user guide to obtain an API Token.**
+
+### Snapshot Interface
+
+- **URL**: `http://{linkr_ip}/api/public/snapshot`
+
+- **Method**: GET
+
+- **Purpose**: Get the current state of the target machine's screen for AI model analysis and decision making
+
+- **Returns**: A screen snapshot in JPEG format
+
+- **Request example:**
+
+```bash
+curl -X GET http://192.168.2.224:80/api/public/snapshot -H "Authorization: token {{your API Token}}" -o screen.jpeg
+```
+
+### Control Interface
+
+- **URL**: `http://{linkr_ip}/api/public/control`
+
+- **Method**: POST
+
+- **Purpose:** Send a sequence of events such as keyboard/mouse, text, and delay to remotely control the target machine
+
+- **Request example:**
+
+```bash
+curl -X POST http://192.168.2.224:80/api/public/control \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token {{your API Token}}" \
+  -d '{
+    "events": [
+      // Control interface event list. Each event is an array; the first element indicates the event type.
+      ["text", "Helloworld"],
+      ["delay", 300],
+      ["mouse_abs", 0, 0.1, 0.1, 0, 0],
+      ["keyboard", "MetaLeft", true],
+      ["keyboard", "MetaLeft", false],
+      ["mouse_abs", 0, 0.5, 0.5, 0, 0],
+      ["mouse_rel", 0, 100, 100, 0, 0]
+    ]
+  }'
+```
+
+- **Response:**
+
+```json
+{
+  "code": 0,                       // 0 indicates success; non-zero indicates failure
+  "data": null,
+  "message": "Request succeeded!"  // Returns error information on failure
+}
+```
+
+## Control Interface Parameter Details
+
+### Keyboard Event
+
+```bash
+["keyboard", keyCode, isPressed]
+```
+
+**Parameter description:**
+
+- Index 0: The fixed string `"keyboard"`, indicating pressing or releasing a key on the keyboard.
+
+- Index 1: Field type: String. The keyboard key identifier, using the web standard [`KeyboardEvent.code`](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_code_values) value.
+
+- Index 2: Field type: Boolean. The key state; `true` means pressed, `false` means released.
+
+**Common key identifiers:**
+
+- `"MetaLeft"` - Left Meta key (Windows key / Command key)
+
+- `"KeyA"` - A key
+
+- `"KeyB"` - B key
+
+- `"KeyC"` - C key
+
+- `"KeyV"` - V key
+
+- `"Enter"` - Enter key
+
+- `"Escape"` - ESC key
+
+- `"Tab"` - Tab key
+
+- `"Space"` - Space key
+
+- `"ControlLeft"` - Left Ctrl key
+
+- `"AltLeft"` - Left Alt key
+
+- `"ShiftLeft"` - Left Shift key
+
+**Example:**
+
+```bash
+["keyboard", "MetaLeft", true],   // Press the Windows key
+["keyboard", "MetaLeft", false],  // Release the Windows key
+["keyboard", "KeyR", true],       // Press the R key
+["keyboard", "KeyR", false],      // Release the R key
+```
+
+### Absolute Mouse Event (`mouse_abs`)
+
+```bash
+["mouse_abs", 0, 0.1, 0.1, 0, 0],
+```
+
+**Parameter description:**
+
+- Index 0: The fixed string `"mouse_abs"`, indicating that the mouse moves using absolute coordinates. The origin is the top-left corner of the screen, and the X and Y coordinates are in the range [0.00, 1.00].
+
+- Index 1: Field type: Number. The mouse button state. `0` means no mouse button is pressed, or all mouse buttons are released. Bit 0 is the left button, bit 1 is the right button, and bit 2 is the middle (scroll) button. When multiple buttons are pressed at the same time, the corresponding values are added. For example, pressing both the left button (1) and the right button (2) gives 3 (i.e. 1 + 2).
+
+- Index 2: Field type: Number. The mouse's absolute X coordinate (0.00-1.00, with the top-left corner as the origin).
+
+- Index 3: Field type: Number. The mouse's absolute Y coordinate (0.00-1.00, with the top-left corner as the origin).
+
+- Index 4: Field type: Number. The mouse's vertical scroll value, in the range [-20, 20]. For example, a positive value (e.g. `n`) means the mouse scrolls down vertically by `n` pixels; a negative value (e.g. `-n`) means the mouse scrolls up vertically by `n` pixels.
+
+- Index 5: Field type: Number. The mouse's horizontal scroll value, in the range [-20, 20]. For example, a positive value (e.g. `n`) means the mouse scrolls right horizontally by `n` pixels; a negative value (e.g. `-n`) means the mouse scrolls left horizontally by `n` pixels.
+
+**Example:**
+
+```bash
+["mouse_abs", 0, 0.5, 0.5, 0, 0],      // Move the mouse to the center of the screen
+["mouse_abs", 1, 0.5, 0.5, 0, 0],      // Move the mouse to the center of the screen and click the left button
+["mouse_abs", 0, 0.5, 0.5, 0, 0],      // Move the mouse to the center of the screen and release the previously held mouse button
+["mouse_abs", 0, 0.5, 0.5, 20, 10],    // Move the mouse to the center of the screen, scroll the vertical wheel down by 20 pixels and the horizontal wheel right by 10 pixels
+```
+
+### Relative Mouse Event (`mouse_rel`)
+
+```bash
+["mouse_rel", 0, 100, 100, 0, 0],
+```
+
+**Parameter description:**
+
+- Index 0: The fixed string `"mouse_rel"`, indicating that the mouse moves using relative coordinates. The origin is the top-left corner of the screen, and the movement unit is pixels.
+
+- Index 1: Field type: Number. The mouse button state. `0` means no mouse button is pressed, or all mouse buttons are released. Bit 0 is the left button, bit 1 is the right button, and bit 2 is the middle (scroll) button. When multiple buttons are pressed at the same time, the corresponding values are added. For example, pressing both the left button (1) and the right button (2) gives 3 (i.e. 1 + 2).
+
+- Index 2: Field type: Number. The relative X movement in pixels. A positive value (e.g. `n`) means moving right by `n` pixels; a negative value (e.g. `-n`) means moving left by `n` pixels.
+
+- Index 3: Field type: Number. The relative Y movement in pixels. A positive value (e.g. `n`) means moving down by `n` pixels; a negative value (e.g. `-n`) means moving up by `n` pixels.
+
+- Index 4: Field type: Number. The mouse's vertical scroll value, in the range [-20, 20]. For example, a positive value (e.g. `n`) means the mouse scrolls down vertically by `n` pixels; a negative value (e.g. `-n`) means the mouse scrolls up vertically by `n` pixels.
+
+- Index 5: Field type: Number. The mouse's horizontal scroll value, in the range [-20, 20]. For example, a positive value (e.g. `n`) means the mouse scrolls right horizontally by `n` pixels; a negative value (e.g. `-n`) means the mouse scrolls left horizontally by `n` pixels.
+
+**Example:**
+
+```bash
+["mouse_rel", 0, 10, 10, 0, 0],        // From the current mouse position, move 10 pixels right and 10 pixels down
+["mouse_abs", 1, 0, 0, 0, 0],          // Click the left mouse button at the current position
+["mouse_abs", 0, 0, 0, 0, 0],          // Release the previously held mouse button at the current position
+["mouse_abs", 0, 10, 10, 20, 10],      // From the current mouse position, move 10 pixels right and 10 pixels down, scroll the vertical wheel down by 20 pixels and the horizontal wheel right by 10 pixels
+```
+
+### Text Event (`text`)
+
+```bash
+["text", "text_to_type"]
+```
+
+**Parameter description:**
+
+- Index 0: The fixed string `"text"`, indicating that a text string is to be input.
+
+- Index 1: Field type: String. The text string to input, up to 1024 characters long.
+
+Only the following ASCII characters are supported:
+
+- Control characters: **9 (Tab), 10 (Enter)**
+
+- Printable characters: **32 ~ 126**
+
+**Example:**
+
+```bash
+["text", "https://www.baidu.com"] // Type "https://www.baidu.com" at the current cursor position
+```
+
+### Delay Event (`delay`)
+
+```bash
+["delay", milliseconds]
+```
+
+**Parameter description:**
+
+- Index 0: The fixed string `"delay"`, indicating a pause to ensure that the IPKVM completes the previous operation. For example, used to ensure that a long text input completes.
+
+- Index 1: Field type: Number. The duration of the pause, in milliseconds.
+
+**Note:**
+A delay event is usually required after a text input event to ensure that the IPKVM has enough time to fully process long text input. If the IPKVM needs a longer time to perform the operation, multiple delay events may be required. As a general rule, when the input text length is 30, a delay of 1000 milliseconds is needed.
+
+**Example:**
+
+```bash
+["text", "https://www.baidu.com"] // Type "https://www.baidu.com" at the current cursor position
+["delay", 1000]                   // Pause for 1000 milliseconds to ensure the long text above is fully output
