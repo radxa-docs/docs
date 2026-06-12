@@ -1,0 +1,14 @@
+---
+sidebar_position: 2
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/radxa-os/system-config/_rdp_remote.mdx
+---
+
+import RDP_LOGIN from '../../../common/radxa-os/system-config/_rdp-remote-gnome.mdx';
+
+# RDP 登录
+
+<RDP_LOGIN desktop="gnome" board="dragon-q8b" />
