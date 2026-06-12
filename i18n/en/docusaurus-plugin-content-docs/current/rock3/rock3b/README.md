@@ -1,7 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# ROCK 3B
+# ROCK 3B / 3B+
 
 <DocCardList />

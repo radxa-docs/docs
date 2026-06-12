@@ -22,6 +22,9 @@ Except for the above mirrors which have been fully tested officially, the other 
 
 ## Hardware Design
 
+<Tabs queryString="HardwareDesign">
+    <TabItem value="ROCK 3B">
+
 ### V1.5
 
 - Schematic
@@ -45,3 +48,27 @@ Except for the above mirrors which have been fully tested officially, the other 
 - 3D Files
 
 [ROCK_3B_V1_51_SBC_3d_top](https://dl.radxa.com/rock3/docs/hw/3b/radxa_rock_3b_sbc_3d_v1.51.stp.zip)
+
+    </TabItem>
+    <TabItem value="ROCK 3B+">
+
+### V1.6
+
+- Schematic
+
+[Radxa_ROCK_3B+_V1.61_Schematic](https://dl.radxa.com/rock3/docs/hw/3bp/radxa_rock3bp_schematic_v1.61.pdf)
+
+- Components Placement Map
+
+[Radxa_ROCK_3B+_V1.61_Components_Placement_Map](https://dl.radxa.com/rock3/docs/hw/3bp/radxa_rock3bp_components_placement_map_v1.61.pdf)
+
+- 2D Files
+
+[ROCK_3B+_V1.62_2D](https://dl.radxa.com/rock3/docs/hw/3bp/rock3bp_1.62_2d.zip)
+
+- 3D Files
+
+[ROCK_3B+_V1.61_PCBA_3D](https://dl.radxa.com/rock3/docs/hw/3bp/radxa_rock3bp_pcba_3d_stp_1.61_20241105.zip)
+
+    </TabItem>
+</Tabs>

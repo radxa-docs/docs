@@ -22,6 +22,9 @@ sidebar_position: 2
 
 ## 硬件设计
 
+<Tabs queryString="HardwareDesign">
+    <TabItem value="ROCK 3B">
+
 ### V1.5
 
 - 原理图
@@ -45,6 +48,30 @@ sidebar_position: 2
 - 3D 文件
 
 [ROCK_3B_V1_51_SBC_3d_top](https://dl.radxa.com/rock3/docs/hw/3b/radxa_rock_3b_sbc_3d_v1.51.stp.zip)
+
+    </TabItem>
+    <TabItem value="ROCK 3B+">
+
+### V1.6
+
+- 原理图
+
+[Radxa_ROCK_3B+_V1.61_Schematic](https://dl.radxa.com/rock3/docs/hw/3bp/radxa_rock3bp_schematic_v1.61.pdf)
+
+- 位号图
+
+[Radxa_ROCK_3B+_V1.61_Components_Placement_Map](https://dl.radxa.com/rock3/docs/hw/3bp/radxa_rock3bp_components_placement_map_v1.61.pdf)
+
+- 2D 图
+
+[ROCK_3B+_V1.62_2D](https://dl.radxa.com/rock3/docs/hw/3bp/rock3bp_1.62_2d.zip)
+
+- 3D 文件
+
+[ROCK_3B+_V1.61_PCBA_3D](https://dl.radxa.com/rock3/docs/hw/3bp/radxa_rock3bp_pcba_3d_stp_1.61_20241105.zip)
+
+    </TabItem>
+</Tabs>
 
 ## 质量认证
 
