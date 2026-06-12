@@ -106,55 +106,59 @@ This procedure requires soldering skills, and it is recommended that it be perfo
 
 :::
 
-### eMMC && SPI Flash Connector
+### eMMC
 
 <Tabs queryString="versions">
     <TabItem value="ROCK 3B">
 
-        ROCK 3B uses an onboard eMMC connector to attach an external eMMC module. This connector is also multiplexed as the SPI Flash interface.
+        ROCK 3B uses an onboard eMMC connector to attach an external eMMC module.
 
-        | Pin |       Name       | Pin |       Name       |
-        | :-: | :--------------: | :-: | :--------------: |
-        |  1  |       GND        |  2  | eMMC_D5/FLASH_D5 |
-        |  3  |       GND        |  4  | eMMC_D4/FLASH_D4 |
-        |  5  |       GND        |  6  | eMMC_D0/FLASH_D0 |
-        |  7  |       GND        |  8  |   eMMC_CLKOUT    |
-        |  9  |       GND        | 10  | eMMC_D3/FLASH_D3 |
-        | 11  |       GND        | 12  |    eMMC_RSTn     |
-        | 13  |       GND        | 14  |       GND        |
-        | 15  |                  | 16  |       GND        |
-        | 17  |       GND        | 18  |       GND        |
-        | 19  |       GND        | 20  |    VCC18_EMMC    |
-        | 21  |    VCC18_EMMC    | 22  |   VCCIO_FLASH    |
-        | 23  |   VCCIO_FLASH    | 24  |       GND        |
-        | 25  |     eMMC_CMD     | 26  |       GND        |
-        | 27  | eMMC_D2/FLASH_D2 | 28  |       GND        |
-        | 29  | eMMC_D1/FLASH_D1 | 30  |       GND        |
-        | 31  | eMMC_D7/FLASH_D7 | 32  |       GND        |
-        | 33  | eMMC_D6/FLASH_D6 | 34  |       GND        |
-        | 35  |       GND        | 36  |       GND        |
-        | 37  |       GND        | 38  |       GND        |
-        | 39  |       GND        | 40  |       GND        |
-        | 41  |       GND        | 42  |       GND        |
-        | 43  |       GND        | 44  |       GND        |
-        | 45  |       GND        | 46  |       GND        |
-        | 47  |       GND        | 48  |       GND        |
-        | 49  |       GND        | 50  |       GND        |
-        | 51  |       GND        | 52  |       GND        |
-        | 53  |       GND        | 54  |       GND        |
-        | 55  |       GND        | 56  |       GND        |
-        | 57  |       GND        | 58  |       GND        |
-        | 59  |       GND        | 60  |       GND        |
-        | 61  |       GND        | 62  |       GND        |
-        | 63  |       GND        | 64  |       GND        |
+        | Pin |  Name   | Pin |  Name   |
+        | :-: | :-----: | :-: | :-----: |
+        |  1  |   GND   |  2  | eMMC_D5 |
+        |  3  |   GND   |  4  | eMMC_D4 |
+        |  5  |   GND   |  6  | eMMC_D0 |
+        |  7  |   GND   |  8  | eMMC_CLKOUT |
+        |  9  |   GND   | 10  | eMMC_D3 |
+        | 11  |   GND   | 12  | eMMC_RSTn |
+        | 13  |   GND   | 14  |   GND   |
+        | 15  |         | 16  |   GND   |
+        | 17  |   GND   | 18  |   GND   |
+        | 19  |   GND   | 20  | VCC18_EMMC |
+        | 21  | VCC18_EMMC | 22  | VCCIO_FLASH |
+        | 23  | VCCIO_FLASH | 24  |   GND   |
+        | 25  | eMMC_CMD | 26  |   GND   |
+        | 27  | eMMC_D2 | 28  |   GND   |
+        | 29  | eMMC_D1 | 30  |   GND   |
+        | 31  | eMMC_D7 | 32  |   GND   |
+        | 33  | eMMC_D6 | 34  |   GND   |
+        | 35  |   GND   | 36  |   GND   |
+        | 37  |   GND   | 38  |   GND   |
+        | 39  |   GND   | 40  |   GND   |
+        | 41  |   GND   | 42  |   GND   |
+        | 43  |   GND   | 44  |   GND   |
+        | 45  |   GND   | 46  |   GND   |
+        | 47  |   GND   | 48  |   GND   |
+        | 49  |   GND   | 50  |   GND   |
+        | 51  |   GND   | 52  |   GND   |
+        | 53  |   GND   | 54  |   GND   |
+        | 55  |   GND   | 56  |   GND   |
+        | 57  |   GND   | 58  |   GND   |
+        | 59  |   GND   | 60  |   GND   |
+        | 61  |   GND   | 62  |   GND   |
+        | 63  |   GND   | 64  |   GND   |
 
     </TabItem>
     <TabItem value="ROCK 3B+">
 
-        ROCK 3B+ uses an onboard eMMC module and does not require an external eMMC connector. For SPI Flash usage, refer to the [Maskrom mode documentation](../low-level-dev/maskrom/erase).
+        ROCK 3B+ uses an onboard eMMC module and does not require an external eMMC connector.
 
     </TabItem>
 </Tabs>
+
+### SPI Flash
+
+The SPI Flash is onboard on both ROCK 3B and ROCK 3B+; no external connector is required.
 
 ### FAN
 
