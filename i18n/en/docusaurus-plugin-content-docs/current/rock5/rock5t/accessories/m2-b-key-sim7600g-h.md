@@ -1,9 +1,9 @@
 ---
-sidebar_position: 10
+sidebar_position: 20
 description: "Setup guide for the SimCom SIM7600G-H LTE modem in the Rock5T M.2 B-Key slot, covering GPIO control, QMI connection, and automatic boot."
 ---
 
-# M.2 B Key - SIM7600G-H LTE Setup
+# SIM7600G-H 4G Modem User Guide
 
 **System:** Radxa Rock 5T · Ubuntu 24.04 · Kernel 6.1.115-3-rockchip  
 **Modem:** SimCom SIM7600G-H in M.2 B-Key slot  
@@ -11,7 +11,7 @@ description: "Setup guide for the SimCom SIM7600G-H LTE modem in the Rock5T M.2 
 
 ---
 
-## 1. Identify GPIO Pins
+## Identify GPIO Pins
 
 The SIM7600G-H is controlled via 4 GPIO pins of the RK3588.  
 The Linux GPIO number is calculated as: `Bank × 32 + Group × 8 + Bit`
@@ -29,7 +29,7 @@ The Linux GPIO number is calculated as: `Bank × 32 + Group × 8 + Bit`
 
 ---
 
-## 2. Export GPIOs and Start Modem (Manual Test)
+## Export GPIOs and Start Modem (Manual Test)
 
 ```bash
 # Export GPIOs and set as output
@@ -61,7 +61,7 @@ lsusb | grep -i sim
 
 ---
 
-## 3. Verify Modem
+## Verify Modem
 
 ```bash
 mmcli -L
@@ -76,7 +76,7 @@ Expected output shows:
 
 ---
 
-## 4. Unlock SIM PIN and Disable PIN Lock
+## Unlock SIM PIN and Disable PIN Lock
 
 ```bash
 # Install minicom
@@ -104,7 +104,7 @@ AT+COPS?           # Show network operator
 
 ---
 
-## 5. Solve APN Issue (Telekom Carrier Config)
+## Solve APN Issue (Telekom Carrier Config)
 
 The modem ships with `carrier config: Commercial-DT`. The Deutsche Telekom network enforces `INTERNET.TELEKOM` as the only allowed APN. MVNOs running on the Telekom network (e.g. Congstar, Aldi Talk) must also use this APN.
 
@@ -137,7 +137,7 @@ sudo qmicli -d /dev/cdc-wdm0 --wds-get-current-settings
 
 ---
 
-## 6. Automatic Boot Script
+## Automatic Boot Script
 
 Create the connection script:
 
@@ -211,7 +211,7 @@ sudo chmod +x /usr/local/bin/sim7600-connect.sh
 
 ---
 
-## 7. Create Systemd Service
+## Create Systemd Service
 
 ```bash
 sudo nano /etc/systemd/system/sim7600-init.service
@@ -241,7 +241,7 @@ sudo systemctl disable ModemManager
 
 ---
 
-## 8. Toggle LTE Manually
+## Toggle LTE Manually
 
 Create a script to turn LTE off when using WiFi:
 
@@ -269,7 +269,7 @@ sudo sim7600-connect.sh      # Turn LTE back on
 
 ---
 
-## 9. Test Connection
+## Test Connection
 
 ```bash
 # After reboot or manual start:
