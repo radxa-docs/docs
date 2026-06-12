@@ -10,20 +10,17 @@ sidebar_position: 4
 
 - 系统镜像：[radxa-dragon-midstream rsdk-t2](https://github.com/radxa-build/radxa-dragon-midstream/releases/tag/rsdk-t2)
 - 内核版本：[linux-6.18.2](https://github.com/radxa/kernel/tree/linux-6.18.2)
-- SPI 固件：参考 [Dragon Q8B 资源汇总下载](../download) 中的 SPI 启动固件
   :::
 
 :::tip
 测试资源中的部分视频文件无法通过 GStreamer 正常播放。为保证测试条件一致，建议统一使用 FFmpeg 生成测试视频，再使用 GStreamer 调用硬件解码器进行验证。
 :::
 
+:::tip
+建议使用最新 BIOS 固件和系统进行测试！
+:::
+
 ## 前置准备
-
-### 硬件编码器 BIOS 配置
-
-在使用硬件编码器前，需要先在 BIOS 中启用以下选项：
-
-`Radxa Platform Configuration -> Hypervisor Settings -> Hypervisor Override in UEFI Setup`
 
 ### 安装 GStreamer
 

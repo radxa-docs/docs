@@ -10,20 +10,17 @@ This document records the video codec test methods and results for Radxa Dragon 
 
 - System image: [radxa-dragon-midstream rsdk-t2](https://github.com/radxa-build/radxa-dragon-midstream/releases/tag/rsdk-t2)
 - Kernel version: [linux-6.18.2](https://github.com/radxa/kernel/tree/linux-6.18.2)
-- SPI firmware: refer to the SPI firmware listed on the [Dragon Q8B download page](../download)
   :::
 
 :::tip
 Some sample videos in the test resources cannot be played correctly with GStreamer. To keep the test conditions consistent, it is recommended to generate all test videos with FFmpeg first, and then validate hardware decoding with GStreamer.
 :::
 
+:::tip
+It is recommended to test with the latest BIOS firmware and system image!
+:::
+
 ## Preparation
-
-### BIOS Setting for Hardware Encoder
-
-Before using the hardware encoder, enable the following BIOS option:
-
-`Radxa Platform Configuration -> Hypervisor Settings -> Hypervisor Override in UEFI Setup`
 
 ### Install GStreamer
 
