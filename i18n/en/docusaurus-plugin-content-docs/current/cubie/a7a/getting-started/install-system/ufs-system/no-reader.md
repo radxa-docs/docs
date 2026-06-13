@@ -77,9 +77,27 @@ Replace `[url]` with the actual download URL.
   Download the system image on your PC, then transfer it to the Cubie A7A using a USB drive, FTP, SCP, or other methods.
   :::
 
-### Install System Image
+:::tip Note
+The system images provided on the [Downloads](../../../download) page are `.img.xz` archives. They must be decompressed to `.img` before being written to the UFS module with `dd`.
+:::
 
-Use the `dd` command to install the extracted system image to the UFS module.
+### Extract System Image
+
+Use the `unxz` command to extract the system image.
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
+```bash
+sudo apt install xz-utils
+unxz [image_path]
+```
+
+</NewCodeBlock>
+
+Parameter explanation:
+
+- `[image_path]`: replace with the actual path of your `.img.xz` archive
+- Alternatively, pipe directly to skip extracting a separate `.img` (saves disk space): `xz -dc [image_path] | sudo dd of=/dev/sda bs=4M status=progress`
 
 ### Write System Image
 
