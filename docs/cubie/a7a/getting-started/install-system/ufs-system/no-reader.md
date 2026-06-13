@@ -80,9 +80,27 @@ wget [url]
 在 PC 上下载系统镜像，然后使用U盘、FTP、SCP 等方式将系统镜像文件传输到 Cubie A7A 上。
 :::
 
-### 安装系统镜像
+:::tip 说明
+[资源汇总下载](../../../download) 页面提供的系统镜像是 `.img.xz` 压缩包，需要先解压为 `.img` 后才能使用 `dd` 命令写入 UFS 模块。
+:::
 
-使用 `dd` 命令将解压好的系统镜像安装到 UFS 模块中。
+### 解压系统镜像
+
+使用 `unxz` 命令解压系统镜像文件。
+
+<NewCodeBlock tip="radxa@cubie-a7a$" type="device">
+
+```bash
+sudo apt install xz-utils
+unxz [image_path]
+```
+
+</NewCodeBlock>
+
+参数解释：
+
+- `[image_path]`：需要替换为实际的 `.img.xz` 镜像文件路径
+- 也可以直接管道写入：`xz -dc [image_path] | sudo dd of=/dev/sda bs=4M status=progress`，无需先解压出 `.img`，节省磁盘空间
 
 ### 写入系统镜像
 
