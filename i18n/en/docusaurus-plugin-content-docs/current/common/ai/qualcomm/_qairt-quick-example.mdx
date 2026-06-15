@@ -22,7 +22,7 @@ modelscope download --model radxa/resnet50_qairt --local ./resnet50_qairt
 Please import environment variables according to SoC
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -32,7 +32,17 @@ Please import environment variables according to SoC
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=8550
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash

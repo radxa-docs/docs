@@ -4,7 +4,7 @@ sidebar_position: 5
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_more_examples.mdx
+  - docs/common/ai/qualcomm/_more_examples.mdx
 ---
 
 # 更多模型

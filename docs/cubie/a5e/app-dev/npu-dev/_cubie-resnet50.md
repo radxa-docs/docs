@@ -4,7 +4,7 @@ sidebar_position: 5
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_cubie_resnet50.mdx
+  - docs/common/ai/qualcomm/_cubie_resnet50.mdx
 ---
 
 # 物体分类模型：ResNet50

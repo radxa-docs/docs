@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import LLAMA321BQAIRTV68 from '../../../../../common/ai/qualcomm/\_llama3.2-1b-qairt-v68.mdx';
 
-<LLAMA321BQAIRTV68 />
+<LLAMA321BQAIRTV68 tag="qcs6490"/>

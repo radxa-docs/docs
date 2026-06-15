@@ -5,7 +5,7 @@ description: "本地部署 OpenClaw"
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_openclaw.mdx
+  - docs/common/ai/qualcomm/_openclaw.mdx
 ---
 
 # OpenClaw

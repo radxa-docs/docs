@@ -1,0 +1,14 @@
+---
+sidebar_position: 17
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - i18n/en/docusaurus-plugin-content-docs/current/common/ai/qualcomm/_real-esrgan-x4plus_qai-app-builder.mdx
+---
+
+# Real-ESRGAN-x4plus Example
+
+import REALESRGANX4PLUSQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_real-esrgan-x4plus_qai-app-builder.mdx';
+
+<REALESRGANX4PLUSQAIAPPBUILDER tag="qcs8550"/>

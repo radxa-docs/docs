@@ -1,0 +1,14 @@
+---
+sidebar_position: 11
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/ai/qualcomm/_vit_qai-app-builder.mdx
+---
+
+# VIT 示例
+
+import VITQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_vit_qai-app-builder.mdx';
+
+<VITQAIAPPBUILDER tag="qcs8550"/>

@@ -35,7 +35,7 @@ This example demonstrates compiling [RealESRGAN_x4plus](https://github.com/xinnt
 providing a simple introduction to using Qualcomm® AI Hub Models for model compilation.
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -46,7 +46,17 @@ providing a simple introduction to using Qualcomm® AI Hub Models for model comp
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_CHIP=qualcomm-qcs8550-proxy
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash

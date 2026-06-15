@@ -4,7 +4,7 @@ sidebar_position: 10
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_cubie_nbinfo.mdx
+  - docs/common/ai/qualcomm/_cubie_nbinfo.mdx
 ---
 
 # NBG 模型测试工具：NBinfo

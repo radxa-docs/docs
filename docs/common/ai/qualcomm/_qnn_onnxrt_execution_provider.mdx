@@ -6,6 +6,8 @@ ONNX Runtime 的 **QNN Execution Provider** 可用于搭载 **高通平台 SoC**
 
 - [**瑞莎 Dragon Q6A**](/dragon/q6a/) (Linux)
 
+- [**瑞莎 Dragon Q8B**](/dragon/q8b/) (Linux)
+
 - [**瑞莎 Fogwise AIRbox Q900**](/fogwise/airbox-q900) (Linux)
 
 ## 安装方法
@@ -121,7 +123,7 @@ pip3 install ./build/Linux/Release/dist/onnxruntime_qnn-1.23.2-cp312-cp312-linux
 ### 导入环境变量
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -132,7 +134,17 @@ pip3 install ./build/Linux/Release/dist/onnxruntime_qnn-1.23.2-cp312-cp312-linux
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=8550 DSP_ARCH=68
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -140,7 +152,7 @@ pip3 install ./build/Linux/Release/dist/onnxruntime_qnn-1.23.2-cp312-cp312-linux
     ```
     </NewCodeBlock>
 
-</TabItem>
+    </TabItem>
 
 </Tabs>
 

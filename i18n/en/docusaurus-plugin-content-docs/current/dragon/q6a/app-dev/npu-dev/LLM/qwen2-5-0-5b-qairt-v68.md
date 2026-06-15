@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import QWEN2505BQAIRTV68 from '../../../../../common/ai/qualcomm/\_qwen2-5-0-5b-qairt-v68.mdx';
 
-<QWEN2505BQAIRTV68 />
+<QWEN2505BQAIRTV68 tag="qcs6490"/>

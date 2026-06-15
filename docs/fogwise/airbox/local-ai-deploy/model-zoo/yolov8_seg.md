@@ -4,7 +4,7 @@ sidebar_position: 4
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_yolov8_seg.mdx
+  - docs/common/ai/qualcomm/_yolov8_seg.mdx
 ---
 
 # YOLOv8-seg 目标分割

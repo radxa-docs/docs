@@ -1,0 +1,14 @@
+---
+sidebar_position: 18
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/ai/qualcomm/_sesr_m5_qai-app-builder.mdx
+---
+
+# SESR-M5 示例
+
+import SESRM5QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_sesr_m5_qai-app-builder.mdx';
+
+<SESRM5QAIAPPBUILDER tag="qcs8550"/>

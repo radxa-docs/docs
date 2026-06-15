@@ -17,6 +17,7 @@ Supports Python API / C++ API
 | Device               | SoC     |
 | -------------------- | ------- |
 | Dragon Q6A           | QCS6490 |
+| Dragon Q8B           | QCS8550 |
 | Fogwise® AIRbox Q900 | QCS9075 |
 
 ## Installation Methods
@@ -80,7 +81,7 @@ Please download and extract the QAIRT SDK according to [**Download QAIRT SDK Pac
 ##### Configure QAIRT Environment Variables
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -91,7 +92,7 @@ Please download and extract the QAIRT SDK according to [**Download QAIRT SDK Pac
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -100,6 +101,17 @@ Please download and extract the QAIRT SDK according to [**Download QAIRT SDK Pac
     </NewCodeBlock>
 
 </TabItem>
+
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=8550 DSP_ARCH=68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
 
 </Tabs>
 
@@ -174,7 +186,7 @@ qcom-qairt is a slimmed-down version of QAIRT-SDK, installing only the required 
 :::
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -185,7 +197,7 @@ qcom-qairt is a slimmed-down version of QAIRT-SDK, installing only the required 
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -194,6 +206,17 @@ qcom-qairt is a slimmed-down version of QAIRT-SDK, installing only the required 
     </NewCodeBlock>
 
 </TabItem>
+
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    sudo apt install qcom-qnn-sdk-v68 qcom-genie-sdk-v68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
 
 </Tabs>
 
@@ -252,7 +275,7 @@ If you installed the complete QAIRT-SDK, use the following command to create the
 :::
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -263,7 +286,7 @@ If you installed the complete QAIRT-SDK, use the following command to create the
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -272,6 +295,17 @@ If you installed the complete QAIRT-SDK, use the following command to create the
     </NewCodeBlock>
 
 </TabItem>
+
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=8550 DSP_ARCH=68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
 
 </Tabs>
 
@@ -291,7 +325,7 @@ export ADSP_LIBRARY_PATH=$(pwd)/lib/hexagon-v${DSP_ARCH}/unsigned
 ## Application Examples
 
 <Tabs queryString="platform">
-<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
 :::tip
 For QCS6490 Demos, please refer to [**Demo Examples**](./qai-appbuilder-demo)
@@ -347,7 +381,63 @@ cd ai-engine-direct-helper/samples/linux/python
 
 </TabItem>
 
-<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+<TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+:::tip
+For QCS8550 Demos, please refer to [**Demo Examples**](./qai-appbuilder-demo)
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ai-engine-direct-helper/samples/linux/python
+```
+
+</NewCodeBlock>
+
+- Object Recognition
+
+  | Model             | Run Command                                      |
+  | ----------------- | ------------------------------------------------ |
+  | convnext_base     | `python3 convnext_base/convnext_base.py`         |
+  | convnext_tiny     | `python3 convnext_tiny/convnext_tiny.py`         |
+  | efficientnet_b0   | `python3 efficientnet_b0/efficientnet_b0.py`     |
+  | efficientnet_b4   | `python3 efficientnet_b4/efficientnet_b4.py`     |
+  | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
+  | googlenet         | `python3 googlenet/googlenet.py`                 |
+  | inception_v3      | `python3 inception_v3/inception_v3.py`           |
+  | levit             | `python3 levit/levit.py`                         |
+  | regnet            | `python3 regnet/regnet.py`                       |
+  | shufflenet_v2     | `python3 shufflenet_v2/shufflenet_v2.py`         |
+  | squeezenet1_1     | `python3 squeezenet1_1/squeezenet1_1.py`         |
+  | vit               | `python3 vit/vit.py`                             |
+  | wideresnet50      | `python3 wideresnet50/wideresnet50.py`           |
+
+- Image Segmentation
+
+  | Model        | Run Command                            |
+  | ------------ | -------------------------------------- |
+  | fcn_resnet50 | `python3 fcn_resnet50/fcn_resnet50.py` |
+
+- Object Detection
+
+  | Model      | Run Command                        |
+  | ---------- | ---------------------------------- |
+  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
+
+- Image Super-Resolution
+
+  | Model                    | Run Command                                                    |
+  | ------------------------ | -------------------------------------------------------------- |
+  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
+  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
+  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
+  | sesr_m5                  | `python3 sesr_m5/sesr_m5.py`                                   |
+  | xlsr                     | `python3 xlsr/xlsr.py`                                         |
+
+</TabItem>
+
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
 :::tip
 For QCS9075 Demos, please refer to [**Demo Examples**](./qai-appbuilder-demo)

@@ -1,4 +1,4 @@
-本文档讲述如何在瑞莎 Dragon Q6A 上使用 NPU 推理 Llama3.2-1B 大语言模型
+本文档讲述如何在瑞莎 {props.tag === "qcs8550" ? "Dragon Q8B" : "Dragon Q6A"} 上使用 NPU 推理 Llama3.2-1B 大语言模型
 
 ## 下载示例
 
@@ -98,6 +98,9 @@ Using libGenie.so version 1.13.0
 ./genie-t2t-run -c ./htp-model-config-llama32-1b-gqa.json -p '<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nYou are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nPlease give a brief introduction to relativity.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n' --profile profile.txt
 ```
 
+<Tabs queryString="platform">
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+
 | Dragon Q6A             | CTX_LENGTH 1024             | CTX_LENGTH 4096             |
 | ---------------------- | --------------------------- | --------------------------- |
 | duration               | 5,290,527 us                | 7,399,282 us                |
@@ -107,3 +110,21 @@ Using libGenie.so version 1.13.0
 | num-generated-tokens   | 62                          | 66                          |
 | token-generation-rate  | 12.16189956665039 toks/sec  | 9.297395706176758 toks/sec  |
 | token-generation-time  | 5,097,917 us                | 7,098,792 us                |
+
+</TabItem>
+
+<TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+| Dragon Q8B             | CTX_LENGTH 1024            | CTX_LENGTH 4096             |
+| ---------------------- | -------------------------- | --------------------------- |
+| duration               | 3,105,622 us               | 4,481,219 us                |
+| num-prompt-tokens      | 33                         | 33                          |
+| prompt-processing-rate | 261.8486633300781 toks/sec | 159.362548828125 toks/sec   |
+| time-to-first-token    | 126,027 us                 | 207,097 us                  |
+| num-generated-tokens   | 62                         | 66                          |
+| token-generation-rate  | 20.82032012939453 toks/sec | 15.443061828613281 toks/sec |
+| token-generation-time  | 2,977,871 us               | 4,273,821 us                |
+
+</TabItem>
+
+</Tabs>

@@ -4,7 +4,7 @@ sidebar_position: 0
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_yolov8_det_qai-app-builder.mdx
+  - docs/common/ai/qualcomm/_yolov8_det_qai-app-builder.mdx
 ---
 
 # YOLOv8-det 示例

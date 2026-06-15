@@ -9,8 +9,6 @@ using NPU inference on a board running Ubuntu as an example, to fully explain th
   QAIRT WORKFLOW
 </div>
 
-## NPU Model Porting Steps
-
 To port mainstream AI model frameworks (PyTorch, TensorFlow, TFLite, ONNX) to Qualcomm NPU for hardware-accelerated inference, the model needs to be converted to the `Context-Binary` format specific to Qualcomm NPU. The following steps are required to convert to the Context-Binary format:
 
 1. Prepare a pre-trained floating-point model
@@ -20,16 +18,19 @@ To port mainstream AI model frameworks (PyTorch, TensorFlow, TFLite, ONNX) to Qu
 5. Convert the DLC model to Context-Binary format using QAIRT tools
 6. Perform NPU inference on the Context-Binary model using QAIRT tools
 
-## Model Conversion Example
+The following sections use resnet50 as an example to demonstrate the complete workflow.
 
-### Set Up QAIRT Development Environment
+## Part 1: Host-Side Model Conversion
 
-:::tip
+### Step 1: Set Up QAIRT Development Environment
 
-- Refer to [**QAIRT SDK Installation**](./qairt-install) to set up the QAIRT working environment
-  :::
+:::note[Prerequisites]
 
-### Prepare Pre-trained Model
+Refer to [**QAIRT SDK Installation**](./qairt-install) to set up the QAIRT working environment
+
+:::
+
+### Step 2: Prepare Pre-trained Model
 
 Clone the resnet50 example repository in the QAIRT SDK
 
@@ -55,27 +56,29 @@ python3 export_onnx.py
 
 The exported ONNX model is saved as `resnet50.onnx`
 
-### Model Quantization with AIMET (Optional)
+### Step 3: Model Quantization with AIMET (Optional)
 
 [AIMET](https://github.com/quic/aimet) is an independent open-source model quantization library not included in the QAIRT SDK. Before porting the model,
 it is recommended to use AIMET for model optimization and quantization of pre-trained models, which can maximize the model's inference performance while maintaining its original accuracy.
 
-:::tip
+:::info[AIMET vs QAIRT Quantization]
 
 Using AIMET for quantization doesn't conflict with QAIRT's quantization. AIMET provides advanced quantization, while QAIRT's quantization is standard linear quantization.
 
 - For AIMET installation, refer to [**AIMET Quantization Tool**](aimet)
 - For AIMET usage, refer to [**AIMET Usage Examples**](aimet#aimet-usage-examples)
-  :::
 
-### DLC Model Conversion
+:::
+
+### Step 4: DLC Model Conversion
 
 Using the `qairt-converter` in the QAIRT SDK, you can convert models from Onnx/TensorFlow/TFLite/PyTorch frameworks and [AIMET](aimet) output files into DLC (Deep Learning Container) model files.
 `qairt-converter` automatically recognizes the model framework based on the file extension.
 
-:::tip
+:::note[Two Conversion Paths]
 
 The following sections are divided into porting steps for models optimized and quantized with AIMET and original ONNX model files. Please note the distinction.
+
 :::
 
 <Tabs>
@@ -109,18 +112,18 @@ The following sections are divided into porting steps for models optimized and q
 
 </Tabs>
 
-:::tip
+:::note
 This DLC file can be used for CPU/GPU inference using the Qualcomm® Neural Processing SDK API. For details, please refer to the [SNPE Documentation](qairt-install#sdk-documentation-location)
 :::
 
-:::tip
-For more information on using `qairt-converter`, please refer to [**qairt-converter**](qairt-tools#qairt-converter)
-:::
+For more information on using `qairt-converter`, please refer to [**qairt-converter**](qairt-tools#qairt-converter).
 
-### Quantizing DLC Models
+### Step 5: Quantizing DLC Models
 
-:::tip
+:::info[AIMET Users Can Skip This Step]
+
 DLC models obtained from AIMET models through `qairt-converter` are already quantized. You can skip this quantization step when using AIMET models.
+
 :::
 
 NPU only supports quantized models. Before converting to the `Context-Binary` format, the floating-point DLC model needs to be quantized.
@@ -165,13 +168,9 @@ qairt-quantizer --input_dlc ./resnet50.dlc --input_list ./calib_list.txt  --outp
 
 </NewCodeBlock>
 
-The target quantized model is saved as `resnet50_quantized.dlc`
+The target quantized model is saved as `resnet50_quantized.dlc`. For more information on using `qairt-quantizer`, please refer to [**qairt-quantizer**](qairt-tools#qairt-quantizer).
 
-:::tip
-For more information on using `qairt-quantizer`, please refer to [**qairt-quantizer**](qairt-tools#qairt-quantizer)
-:::
-
-### Generate Context-Binary Model
+### Step 6: Generate Context-Binary Model
 
 Before using the quantized DLC model for NPU inference, the DLC model needs to be converted to the Context-Binary format. The purpose of this conversion is to prepare the instructions for running the DLC model graph on the target hardware in advance on the host.
 This enables inference on the NPU and reduces the model's initialization time and memory consumption on the board.
@@ -187,13 +186,14 @@ Since hardware-specific optimization is performed on the x86 host, two config fi
 | SoC     | dsp_arch | soc_id |
 | ------- | -------- | ------ |
 | QCS6490 | v68      | 35     |
+| QCS8550 | v68      | 37     |
 | QCS9075 | v73      | 77     |
 
 - config_backend.json
 
       <Tabs>
 
-  <TabItem value="QCS6490">
+  <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
           Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use QCS6490 SoC as an example
 
@@ -227,7 +227,41 @@ Since hardware-specific optimization is performed on the x86 host, two config fi
 
           </TabItem>
 
-          <TabItem value="QCS9075">
+              <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+          Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use QCS8550 SoC as an example
+
+          <NewCodeBlock tip="X86 Linux PC" type="PC">
+
+          ```bash
+          vim config_backend.json
+          ```
+
+          </NewCodeBlock>
+
+          ```vim
+          {
+              "graphs": [
+                  {
+                      "graph_names": [
+                          "resnet50"
+                      ],
+                      "vtcm_mb": 0
+                  }
+              ],
+              "devices": [
+                  {
+                      "dsp_arch": "v68",
+                      "soc_id": 37
+                  }
+              ]
+          }
+          ```
+
+
+          </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
           Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use QCS9075 SoC as an example
 
@@ -291,9 +325,7 @@ Since hardware-specific optimization is performed on the x86 host, two config fi
   }
   ```
 
-:::tip
-For detailed information on constructing the backend_extensions JSON file, please refer to [**qnn-htp-backend-extensions**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-50/htp_backend.html#qnn-htp-backend-extensions)
-:::
+For detailed information on constructing the backend_extensions JSON file, please refer to [**qnn-htp-backend-extensions**](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-50/htp_backend.html#qnn-htp-backend-extensions).
 
 #### Generate Context-Binary
 
@@ -323,15 +355,11 @@ For detailed information on constructing the backend_extensions JSON file, pleas
 
 </Tabs>
 
-The generated Context-Binary is saved in `output/resnet50_quantized.bin`
+The generated Context-Binary is saved in `output/resnet50_quantized.bin`. For more information on using `qnn-context-binary-generator`, please refer to [**qnn-context-binary-generator**](qairt-tools#qnn-context-binary-generator).
 
-:::tip
-For more information on using `qnn-context-binary-generator`, please refer to [**qnn-context-binary-generator**](qairt-tools#qnn-context-binary-generator)
-:::
+## Part 2: Device-Side NPU Inference
 
-## Model Inference
-
-Using the `qnn-net-run` tool from the QAIRT SDK, you can perform NPU inference of the Context-Binary model on the target board. This tool serves as a testing utility for model inference.
+After model conversion is complete, the following steps are executed on the target device. Using the `qnn-net-run` tool from the QAIRT SDK, you can perform NPU inference of the Context-Binary model on the target board. This tool serves as a testing utility for model inference.
 
 ### Clone Example Repository on Target Board
 
@@ -347,7 +375,7 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 ### Copy Required Files to Target Board
 
     <Tabs>
-        <TabItem value="QCS6490">
+        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
         <NewCodeBlock tip="X86 Linux PC" type="PC">
         ```bash
@@ -358,7 +386,18 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 
         </TabItem>
 
-        <TabItem value="QCS9075">
+            <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+        <NewCodeBlock tip="X86 Linux PC" type="PC">
+        ```bash
+        export PRODUCT_SOC=8550 DSP_ARCH=68
+        ```
+        </NewCodeBlock>
+
+
+        </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
         <NewCodeBlock tip="X86 Linux PC" type="PC">
         ```bash
@@ -444,13 +483,9 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 
     </NewCodeBlock>
 
-  The results are saved in the `output_bin` directory
+  The results are saved in the `output_bin` directory. For more information on using `qnn-net-run`, please refer to [**qnn-net-run**](qairt-tools#qnn-net-run).
 
-  :::tip
-  For more information on using `qnn-net-run`, please refer to [**qnn-net-run**](qairt-tools#qnn-net-run)
-  :::
-
-#### Result Verification
+### Result Verification
 
 You can use a Python script to verify the results
 

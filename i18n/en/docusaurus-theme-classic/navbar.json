@@ -1,5 +1,5 @@
 {
-  "item.label.主板": {
+  "item.label.单板计算机": {
     "message": "Single Board Computers",
     "description": "Navbar item with label SBC"
   },
@@ -86,6 +86,10 @@
   "item.label.Dragon 系列": {
     "message": "Dragon Series",
     "description": "Navbar item with label Dragon 系列"
+  },
+  "item.label.Dragon Q8B": {
+    "message": "Dragon Q8B",
+    "description": "Navbar item with label Dragon Q8B"
   },
   "item.label.核心模组": {
     "message": "Computer on Module",

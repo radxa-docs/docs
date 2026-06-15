@@ -4,7 +4,7 @@ sidebar_position: 0
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_real-esrgan-x4plus_qai-app-builder.mdx
+  - docs/common/ai/qualcomm/_real-esrgan-x4plus_qai-app-builder.mdx
 ---
 
 # Real-ESRGAN-x4plus 示例
