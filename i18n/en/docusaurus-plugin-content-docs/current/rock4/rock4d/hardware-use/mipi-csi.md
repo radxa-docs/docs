@@ -4,9 +4,19 @@ sidebar_position: 7
 
 # MIPI CSI Interface
 
-The Radxa ROCK 4D features two onboard MIPI CSI interfaces for connecting camera modules.
+The Radxa ROCK 4D features **2** onboard MIPI CSI interfaces for connecting camera modules:
 
-The two MIPI CSI interfaces include a 4-lane (4-channel) MIPI CSI and a 2-lane (2-channel) MIPI CSI. The 4-lane MIPI CSI interface supports higher resolution camera modules, allowing users to choose based on their specific requirements.
+- **1 x 4-lane MIPI CSI**: Radxa 31-Pin / 0.3mm pitch FPC connector (model FH35C-31S-0.3SHW(50))
+- **1 x 2-lane MIPI CSI**: Raspberry Pi 15-Pin / 1.0mm pitch FPC connector (model FPC1030-15S-TAG; pin-compatible with the official Raspberry Pi 15P CSI camera standard)
+
+The 4-lane MIPI CSI interface supports higher resolution camera modules, allowing users to choose based on their specific requirements.
+
+## Interface Overview
+
+| Interface   | Lanes | Connector Type                  | Connector Model         | Notes                                                                    |
+| :---------- | :---: | :------------------------------ | :---------------------- | :----------------------------------------------------------------------- |
+| 4-lane CSI  |   4   | Radxa 31-Pin / 0.3mm FPC        | FH35C-31S-0.3SHW(50)    | For high-resolution cameras (Camera 4K)                                  |
+| 2-lane CSI  |   2   | Raspberry Pi 15-Pin / 1.0mm FPC | FPC1030-15S-TAG         | Pin-compatible with the official Raspberry Pi 15P CSI camera standard    |
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rock4d-mipi-csi-2l.webp" style={{width: '100%', maxWidth: '1200px'}} alt="ROCK 4D 2-lane MIPI CSI Interface" />
@@ -77,7 +87,7 @@ For detailed interface specifications, please refer to the [Hardware Design: Sch
 
 <TabItem value="4-lane MIPI CSI">
 
-- 4-lane MIPI CSI Interface Specifications
+- 4-lane MIPI CSI Interface Specifications (**Radxa 31-Pin / 0.3mm FPC**)
   - Model: FH35C-31S-0.3SHW (50)
   - Pin Pitch: 0.3mm
   - Pin Count: 31 Pin
@@ -100,7 +110,7 @@ For detailed interface specifications, please refer to the [Hardware Design: Sch
 
 <TabItem value="2-lane MIPI CSI">
 
-- 2-lane MIPI CSI Interface Specifications
+- 2-lane MIPI CSI Interface Specifications (**Raspberry Pi 15-Pin / 1.0mm FPC; pin-compatible with the official Raspberry Pi 15P CSI camera standard**)
   - Model: FPC1030-15S-TAG
   - Pin Pitch: 1 mm
   - Pin Count: 15 Pin
