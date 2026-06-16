@@ -4,9 +4,19 @@ sidebar_position: 7
 
 # MIPI CSI 接口
 
-瑞莎 ROCK 4D 板载 两个MIPI CSI 接口，我们可以通过 MIPI CSI 接口连接摄像头。
+瑞莎 ROCK 4D 板载 **2 个** MIPI CSI 接口，我们可以通过 MIPI CSI 接口连接摄像头：
 
-其中两个 MIPI CSI 接口规格分别是 4-lane(4 通道)MIPI CSI 和 2-lane(2 通道) MIPI CSI，4-lane MIPI CSI 接口支持更高分辨率的摄像头模块，用户可以根据实际需求选择使用。
+- **1 个 4-lane MIPI CSI**：Radxa 31P / 0.3mm 间距 FPC 接口（型号 FH35C-31S-0.3SHW(50)）
+- **1 个 2-lane MIPI CSI**：树莓派 15P / 1.0mm 间距 FPC 接口（型号 FPC1030-15S-TAG，与树莓派官方 CSI 摄像头 15P pinout 兼容）
+
+4-lane MIPI CSI 接口支持更高分辨率的摄像头模块，用户可以根据实际需求选择使用。
+
+## 接口一览
+
+| 接口       | 通道数 | 连接器类型              | 连接器型号            | 备注                                                          |
+| :--------- | :----: | :---------------------- | :-------------------- | :------------------------------------------------------------ |
+| 4-lane CSI |   4    | Radxa 31P / 0.3mm FPC   | FH35C-31S-0.3SHW(50)  | 适用于高分辨率摄像头（Camera 4K）                             |
+| 2-lane CSI |   2    | 树莓派 15P / 1.0mm FPC  | FPC1030-15S-TAG       | 与树莓派官方 CSI 摄像头 15P pinout 兼容（8M 219 / 13M 214）  |
 
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rock4d-mipi-csi-2l.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -77,7 +87,7 @@ rsetup
 
 <TabItem value="4-lane MIPI CSI">
 
-- 4-lane MIPI CSI 接口规格
+- 4-lane MIPI CSI 接口规格（**Radxa 31P / 0.3mm FPC**）
   - 型号：FH35C-31S-0.3SHW（50）
   - 引脚间距：0.3mm
   - 引脚数：31 Pin
@@ -100,7 +110,7 @@ rsetup
 
 <TabItem value="2-lane MIPI CSI">
 
-- 2-lane MIPI CSI 接口规格
+- 2-lane MIPI CSI 接口规格（**树莓派 15P / 1.0mm FPC，与树莓派官方 CSI 摄像头 15P pinout 兼容**）
   - 型号：FPC1030-15S-TAG
   - 引脚间距：1 mm
   - 引脚数：15 Pin
