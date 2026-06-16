@@ -1,4 +1,4 @@
-This document describes how to use NPU for Qwen2.5-0.5B large language model inference on the Radxa Dragon Q6A
+This document describes how to use NPU for Qwen2.5-0.5B large language model inference on the Radxa {props.tag === "qcs8550" ? "Dragon Q8B" : "Dragon Q6A"}
 
 ## Download Example
 
@@ -66,6 +66,9 @@ You can use the `--profile` option to enable performance analysis:
 ./genie-t2t-run -c qwen2.5-0.5B-1k-htp.json  -p "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nPlease give a brief introduction to relativity.<|im_end|>\n<|im_start|>assistant\n" --profile profile.txt
 ```
 
+<Tabs queryString="platform">
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+
 | Dragon Q6A             | CTX_LENGTH 1024             |
 | ---------------------- | --------------------------- |
 | duration               | 4,781,040 us                |
@@ -75,3 +78,21 @@ You can use the `--profile` option to enable performance analysis:
 | num-generated-tokens   | 114                         |
 | token-generation-rate  | 24.327939987182617 toks/sec |
 | token-generation-time  | 4,686,046 us                |
+
+</TabItem>
+
+<TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+| Dragon Q8B             | CTX_LENGTH 1024             |
+| ---------------------- | --------------------------- |
+| duration               | 2,629,992 us                |
+| num-prompt-tokens      | 29                          |
+| prompt-processing-rate | 543.478271484375 toks/sec   |
+| time-to-first-token    | 53,388 us                   |
+| num-generated-tokens   | 114                         |
+| token-generation-rate  | 44.251705169677734 toks/sec |
+| token-generation-time  | 2,576,247 us                |
+
+</TabItem>
+
+</Tabs>

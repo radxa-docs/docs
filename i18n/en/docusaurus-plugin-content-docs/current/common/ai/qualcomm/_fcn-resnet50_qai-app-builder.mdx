@@ -6,6 +6,7 @@ image segmentation model using Qualcomm® Hexagon™ Processor (NPU).
 | Device     | SoC     |
 | ---------- | ------- |
 | Dragon Q6A | QCS6490 |
+| Dragon Q8B | QCS8550 |
 
 ## Install QAI AppBuilder
 
@@ -34,7 +35,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
     <Tabs>
 
-        <TabItem value="QCS6490">
+        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
        <NewCodeBlock tip="Device" type="device">
 
@@ -43,6 +44,18 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
          ```
 
         </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+       <NewCodeBlock tip="Device" type="device">
+
+        ```bash
+        cd ai-engine-direct-helper/samples/linux/python
+        ```
+
+       </NewCodeBlock>
 
     </TabItem>
 

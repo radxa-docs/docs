@@ -35,7 +35,7 @@ qai-hub configure --api_token API_TOKEN
 简单介绍使用 Qualcomm® AI Hub Models 进行模型编译的使用方法。
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -46,7 +46,17 @@ qai-hub configure --api_token API_TOKEN
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_CHIP=qualcomm-qcs8550-proxy
+    ```
+    </NewCodeBlock>
+
+    </TabItem>
+
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -54,7 +64,7 @@ qai-hub configure --api_token API_TOKEN
     ```
     </NewCodeBlock>
 
-</TabItem>
+    </TabItem>
 
 </Tabs>
 

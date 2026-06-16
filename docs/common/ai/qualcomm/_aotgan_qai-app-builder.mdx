@@ -34,7 +34,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
     <Tabs>
 
-        <TabItem value="QCS9075">
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
        <NewCodeBlock tip="Device" type="device">
 

@@ -4,7 +4,7 @@ sidebar_position: 0
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_face_attrib_net_qai-app-builder.mdx
+  - docs/common/ai/qualcomm/_face_attrib_net_qai-app-builder.mdx
 ---
 
 # Facial-Attribute-Detection 示例

@@ -168,11 +168,11 @@ The detailed documentation is available at the following locations:
 
 **Local Documentation**
 
-- `qairt/2.37.1.250807/docs/QNN`
+- `qairt/2.42.0.251225/docs/QNN`
 
-- `qairt/2.37.1.250807/docs/SNPE`
+- `qairt/2.42.0.251225/docs/SNPE`
 
-- `qairt/2.37.1.250807/docs/Genie`
+- `qairt/2.42.0.251225/docs/Genie`
 
 **Online Documentation**
 
@@ -196,7 +196,7 @@ Radxa provides a Docker image for using the QAIRT SDK on the board. Alternativel
 
   <Tabs queryString="platform">
 
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
       <NewCodeBlock tip="Device" type="device">
 
@@ -218,7 +218,30 @@ Radxa provides a Docker image for using the QAIRT SDK on the board. Alternativel
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+          <NewCodeBlock tip="Device" type="device">
+
+          ```bash
+          sudo docker pull radxazifeng278/qairt-npu-v68:v1.0
+          ```
+
+          </NewCodeBlock>
+
+          - 运行 docker 镜像
+
+          <NewCodeBlock tip="Device" type="device">
+
+          ```bash
+          sudo docker run --privileged -it -v /dev:/dev -v $(pwd):/workspace --name qairt-sdk radxazifeng278/qairt-npu-v68:v1.0 /bin/bash
+          ```
+
+          </NewCodeBlock>
+
+
+          </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
       <NewCodeBlock tip="Device" type="device">
 

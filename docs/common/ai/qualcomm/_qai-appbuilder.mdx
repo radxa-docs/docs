@@ -14,6 +14,7 @@
 | 设备                 | SoC     |
 | -------------------- | ------- |
 | Dragon Q6A           | QCS6490 |
+| Dragon Q8B           | QCS8550 |
 | Fogwise® AIRbox Q900 | QCS9075 |
 
 ## 安装方法
@@ -77,7 +78,7 @@ git submodule update --init --recursive
 ##### 配置 QAIRT 环境变量
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -88,7 +89,7 @@ git submodule update --init --recursive
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -97,6 +98,17 @@ git submodule update --init --recursive
     </NewCodeBlock>
 
 </TabItem>
+
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=8550 DSP_ARCH=68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
 
 </Tabs>
 
@@ -173,7 +185,7 @@ qcom-qairt 是一个体积缩小版的 QAIRT-SDK，仅安装所需的文件
 :::
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -184,7 +196,7 @@ qcom-qairt 是一个体积缩小版的 QAIRT-SDK，仅安装所需的文件
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -193,6 +205,17 @@ qcom-qairt 是一个体积缩小版的 QAIRT-SDK，仅安装所需的文件
     </NewCodeBlock>
 
 </TabItem>
+
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    sudo apt install qcom-qnn-sdk-v68 qcom-genie-sdk-v68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
 
 </Tabs>
 
@@ -251,7 +274,7 @@ export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
 :::
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -262,7 +285,7 @@ export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -271,6 +294,17 @@ export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
     </NewCodeBlock>
 
 </TabItem>
+
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+    ```bash
+    export PRODUCT_SOC=8550 DSP_ARCH=68
+    ```
+    </NewCodeBlock>
+
+
+    </TabItem>
 
 </Tabs>
 
@@ -290,7 +324,7 @@ export ADSP_LIBRARY_PATH=$(pwd)/lib/hexagon-v${DSP_ARCH}/unsigned
 ## 应用例子
 
 <Tabs queryString="platform">
-<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
 :::tip
 QCS6490 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
@@ -346,7 +380,63 @@ cd ai-engine-direct-helper/samples/linux/python
 
 </TabItem>
 
-<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+<TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+:::tip
+QCS8550 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
+:::
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd ai-engine-direct-helper/samples/linux/python
+```
+
+</NewCodeBlock>
+
+- 目标识别
+
+  | 模型              | 运行方法                                         |
+  | ----------------- | ------------------------------------------------ |
+  | convnext_base     | `python3 convnext_base/convnext_base.py`         |
+  | convnext_tiny     | `python3 convnext_tiny/convnext_tiny.py`         |
+  | efficientnet_b0   | `python3 efficientnet_b0/efficientnet_b0.py`     |
+  | efficientnet_b4   | `python3 efficientnet_b4/efficientnet_b4.py`     |
+  | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
+  | googlenet         | `python3 googlenet/googlenet.py`                 |
+  | inception_v3      | `python3 inception_v3/inception_v3.py`           |
+  | levit             | `python3 levit/levit.py`                         |
+  | regnet            | `python3 regnet/regnet.py`                       |
+  | shufflenet_v2     | `python3 shufflenet_v2/shufflenet_v2.py`         |
+  | squeezenet1_1     | `python3 squeezenet1_1/squeezenet1_1.py`         |
+  | vit               | `python3 vit/vit.py`                             |
+  | wideresnet50      | `python3 wideresnet50/wideresnet50.py`           |
+
+- 图像分割
+
+  | 模型         | 运行方法                               |
+  | ------------ | -------------------------------------- |
+  | fcn_resnet50 | `python3 fcn_resnet50/fcn_resnet50.py` |
+
+- 目标检测
+
+  | 模型       | 运行方法                           |
+  | ---------- | ---------------------------------- |
+  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
+
+- 图像超分辨率
+
+  | 模型                     | 运行方法                                                       |
+  | ------------------------ | -------------------------------------------------------------- |
+  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
+  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
+  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
+  | sesr_m5                  | `python3 sesr_m5/sesr_m5.py`                                   |
+  | xlsr                     | `python3 xlsr/xlsr.py`                                         |
+
+</TabItem>
+
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
 :::tip
 QCS9075 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)

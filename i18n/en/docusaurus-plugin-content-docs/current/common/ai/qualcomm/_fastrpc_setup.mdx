@@ -13,7 +13,7 @@ These packages depend on the Radxa APT source included in the official RadxaOS i
 :::
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
 
@@ -27,7 +27,21 @@ These packages depend on the Radxa APT source included in the official RadxaOS i
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    sudo apt update
+    sudo apt install fastrpc libcdsprpc1
+    ```
+
+    </NewCodeBlock>
+
+
+    </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
 
@@ -45,7 +59,7 @@ These packages depend on the Radxa APT source included in the official RadxaOS i
 Verify fastrpc status
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag === "qcs9075" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
 
@@ -105,7 +119,67 @@ Verify fastrpc status
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag === "qcs6490" && "tab_none"}}>
+        <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+
+    <NewCodeBlock tip="Device" type="device">
+
+    ```bash
+    sudo apt install fastrpc-test
+    fastrpc_test -a v68
+    ```
+
+    </NewCodeBlock>
+
+    ```bash
+    rock@radxa-dragon-q8b:~$ fastrpc_test -a v68
+
+    Allocate 4000 bytes from ION heap
+    Creating sequence of numbers from 0 to 999
+    Compute sum on domain 3
+
+    Call calculator_sum on the DSP
+    Sum = 499500
+
+    Call calculator_max on the DSP
+    Max value = 999
+    [PASS] libcalculator.so
+
+
+    Demonstrating FARF run-time logging
+
+    hap_example function PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+
+    Demonstrating HAP_mem.h APIs
+
+    hap_example function PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+
+    Demonstrating HAP_perf.h APIs
+
+    hap_example function PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+    [PASS] libhap_example.so
+
+    Test PASSED
+    Please look at the mini-dm logs or the adb logcat logs for DSP output
+    [PASS] libmultithreading.so
+
+
+    ========================================
+    Test Summary:
+      Total tests run:    3
+      Passed:             3
+      Failed:             0
+      Skipped:            0
+    ========================================
+
+    RESULT: All applicable tests PASSED
+    ```
+
+    </TabItem>
+
+    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
 

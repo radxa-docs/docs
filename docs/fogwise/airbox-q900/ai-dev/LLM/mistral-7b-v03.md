@@ -4,7 +4,7 @@ sidebar_position: 0
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
-  - docs/common/ai/_genie_mistral_7b_v_03.mdx
+  - docs/common/ai/qualcomm/_genie_mistral_7b_v_03.mdx
 ---
 
 # Mistral-7B-Instruct-v0.3
