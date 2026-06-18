@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import INCEPTIONV3QAIAPPBUILDER from '../../../../common/ai/qualcomm/\_inception_v3_qai-app-builder.mdx';
 
-<INCEPTIONV3QAIAPPBUILDER tag="q9075"/>
+<INCEPTIONV3QAIAPPBUILDER tag="qcs9075"/>

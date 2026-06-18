@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import REALESRGANX4PLUSQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_real-esrgan-x4plus_qai-app-builder.mdx';
 
-<REALESRGANX4PLUSQAIAPPBUILDER tag="q9075" />
+<REALESRGANX4PLUSQAIAPPBUILDER tag="qcs9075" />

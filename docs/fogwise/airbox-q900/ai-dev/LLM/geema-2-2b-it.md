@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import GRNIEGEMMA22BIT from '../../../../common/ai/qualcomm/\_genie_gemma_2_2b_it.mdx';
 
-<GRNIEGEMMA22BIT tag="q9075"/>
+<GRNIEGEMMA22BIT tag="qcs9075"/>

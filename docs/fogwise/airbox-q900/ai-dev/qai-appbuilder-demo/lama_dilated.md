@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import LAMADILATEDQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_lama_dilated_qai-app-builder.mdx';
 
-<LAMADILATEDQAIAPPBUILDER tag="q9075"/>
+<LAMADILATEDQAIAPPBUILDER tag="qcs9075"/>

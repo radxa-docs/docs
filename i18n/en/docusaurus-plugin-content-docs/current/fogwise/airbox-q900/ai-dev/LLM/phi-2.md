@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import GENIEPHI2 from '../../../../common/ai/qualcomm/\_genie_phi_2.mdx';
 
-<GENIEPHI2 tag="q9075"/>
+<GENIEPHI2 tag="qcs9075"/>

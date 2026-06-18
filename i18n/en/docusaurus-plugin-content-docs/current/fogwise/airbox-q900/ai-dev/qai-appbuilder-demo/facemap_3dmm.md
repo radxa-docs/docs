@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import FACEMAP3DMMQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_facemap_3dmm_qai-app-builder.mdx';
 
-<FACEMAP3DMMQAIAPPBUILDER tag="q9075" />
+<FACEMAP3DMMQAIAPPBUILDER tag="qcs9075" />

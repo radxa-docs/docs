@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import YOLOV8DETQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_yolov8_det_qai-app-builder.mdx';
 
-<YOLOV8DETQAIAPPBUILDER tag="q9075"/>
+<YOLOV8DETQAIAPPBUILDER tag="qcs9075"/>

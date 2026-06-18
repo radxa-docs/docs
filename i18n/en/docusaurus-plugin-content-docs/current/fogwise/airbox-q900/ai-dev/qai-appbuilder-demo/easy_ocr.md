@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import EASYOCRQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_easy_ocr_qai-app-builder.mdx';
 
-<EASYOCRQAIAPPBUILDER tag="q9075" />
+<EASYOCRQAIAPPBUILDER tag="qcs9075" />
