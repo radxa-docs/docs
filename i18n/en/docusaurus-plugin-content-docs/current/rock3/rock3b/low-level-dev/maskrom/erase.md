@@ -31,7 +31,7 @@ Notes:
 - To clear SPI Flash, remove the jumper cap or jumper wire shorting the DIS SPI and GND pins after powering on the board.
 - To clear the eMMC module, remove the jumper cap or jumper wire shorting the DIS eMMC and GND pins after powering on the board.
 
-<img src="/img/rock3/3b/rock3b-maskrom-pins.webp" alt="ROCK 3B maskrom pins" width="500" />
+<img src="/img/rock3/3b/rock3b-maskrom-pins.webp" alt="ROCK 3B maskrom pins" width="1200" />
 
     </TabItem>
     <TabItem value="ROCK 3B+">
@@ -49,7 +49,7 @@ Notes:
 - To clear SPI Flash, remove the jumper cap or jumper wire shorting the DIS SPI and GND pins after powering on the board.
 - To clear the eMMC module, remove the jumper cap or jumper wire shorting the DIS eMMC and GND pins after powering on the board.
 
-<img src="/img/rock3/3b/rock3b-plus-maskrom-pins.webp" alt="ROCK 3B+ maskrom pins" width="500" />
+<img src="/img/rock3/3b/rock3b-plus-maskrom-pins.webp" alt="ROCK 3B+ maskrom pins" width="1200" />
 
     </TabItem>
 
