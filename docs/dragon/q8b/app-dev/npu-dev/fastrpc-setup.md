@@ -13,7 +13,7 @@ import FASTRPCSETUP from '../../../../common/ai/qualcomm/\_fastrpc_setup.mdx';
 
 :::tip
 
-使用 R2 或更高版本的系统镜像时，NPU 运行环境已预装，无需额外安装。
+使用 T2 或更高版本的系统镜像时，NPU 运行环境已预装，无需额外安装。
 
 :::
 
