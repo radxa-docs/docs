@@ -35,32 +35,32 @@ This example demonstrates compiling [RealESRGAN_x4plus](https://github.com/xinnt
 providing a simple introduction to using Qualcomm® AI Hub Models for model compilation.
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
-    export PRODUCT_CHIP=qualcomm-qcs6490-proxy
+    export PRODUCT_CHIP=qualcomm-q6490-proxy
     ```
     </NewCodeBlock>
 
 
     </TabItem>
 
-    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+    <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
-    export PRODUCT_CHIP=qualcomm-qcs8550-proxy
+    export PRODUCT_CHIP=qualcomm-q8280-proxy
     ```
     </NewCodeBlock>
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+    <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
-    export PRODUCT_CHIP=qualcomm-qcs9075-proxy
+    export PRODUCT_CHIP=qualcomm-q9075-proxy
     ```
     </NewCodeBlock>
 
@@ -95,7 +95,7 @@ All model compilation information and logs can be viewed in the `JOBS` section o
 :::
 
 ```bash
-(.venv) (base) radxa@vms-max:/mnt/sda1/qualcomm/qai-hub/ai_hub_model$ python3 -m qai_hub_models.models.real_esrgan_x4plus.export --chipset "qualcomm-qcs6490-proxy" --target-runtime qnn_context_binary  --height 128 --width 128 --quantize w8a8 --num-calibration-samples 10
+(.venv) (base) radxa@vms-max:/mnt/sda1/qualcomm/qai-hub/ai_hub_model$ python3 -m qai_hub_models.models.real_esrgan_x4plus.export --chipset "qualcomm-q6490-proxy" --target-runtime qnn_context_binary  --height 128 --width 128 --quantize w8a8 --num-calibration-samples 10
 Quantizing model real_esrgan_x4plus.
 Uploading tmplaenxfnu.pt
 100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 64.8M/64.8M [00:06<00:00, 11.1MB/s]
@@ -137,7 +137,7 @@ Waiting for profile job (jp4d6n01p) completion. Type Ctrl+C to stop waiting at a
 ------------------------------------------------------------
 Performance results on-device for Real_Esrgan_X4Plus.
 ------------------------------------------------------------
-Device                          : QCS6490 (Proxy) (ANDROID 12)
+Device                          : Q6490 (Proxy) (ANDROID 12)
 Runtime                         : QNN_CONTEXT_BINARY
 Estimated inference time (ms)   : 171.8
 Estimated peak memory usage (MB): [0, 13]
@@ -160,7 +160,7 @@ Comparing on-device vs. local-cpu inference for Real_Esrgan_X4Plus.
 More details: https://app.aihub.qualcomm.com/jobs/jpx6892lp/
 
 Run compiled model on a hosted device on sample data using:
-python /mnt/sda1/qualcomm/qai-hub/.venv/lib/python3.10/site-packages/qai_hub_models/models/real_esrgan_x4plus/demo.py --eval-mode on-device --hub-model-id mm63gld2m --chipset qualcomm-qcs6490-proxy
+python /mnt/sda1/qualcomm/qai-hub/.venv/lib/python3.10/site-packages/qai_hub_models/models/real_esrgan_x4plus/demo.py --eval-mode on-device --hub-model-id mm63gld2m --chipset qualcomm-q6490-proxy
 ```
 
 ### QAI HUB MODELS Inference Demo
@@ -184,7 +184,7 @@ python3 -m qai_hub_models.models.real_esrgan_x4plus.demo --eval-mode on-device -
 </NewCodeBlock>
 
 ```bash
-(.venv) (gen_py3.10) radxa@vms-max:~/Job/git_clone/ai-hub-models$ python3 -m qai_hub_models.models.real_esrgan_x4plus.demo --eval-mode on-device --hub-model-id mm63gld2m --chipset qualcomm-qcs6490-proxy
+(.venv) (gen_py3.10) radxa@vms-max:~/Job/git_clone/ai-hub-models$ python3 -m qai_hub_models.models.real_esrgan_x4plus.demo --eval-mode on-device --hub-model-id mm63gld2m --chipset qualcomm-q6490-proxy
 /mnt/sda1/git_clone/ai-hub-models/.venv/lib/python3.10/site-packages/qai_hub_models/utils/onnx_torch_wrapper.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   import pkg_resources
 Model Loaded

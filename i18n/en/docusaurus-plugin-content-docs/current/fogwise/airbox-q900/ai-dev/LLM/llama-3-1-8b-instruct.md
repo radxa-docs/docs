@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import GENIELLAMA318B from '../../../../common/ai/qualcomm/\_genie_llama_31_8b.mdx';
 
-<GENIELLAMA318B tag="qcs9075"/>
+<GENIELLAMA318B tag="q9075"/>

@@ -34,10 +34,10 @@ aplay -l
 
 ```text
 **** List of PLAYBACK Hardware Devices ****
-card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 0: MultiMedia1 Playback (*) []
+card 0: Q6490RadxaDra [Q6490-Radxa-Dragon-Q6A], device 0: MultiMedia1 Playback (*) []
   Subdevices: 1/1
   Subdevice #0: subdevice #0
-card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 1: MultiMedia2 Playback (*) []
+card 0: Q6490RadxaDra [Q6490-Radxa-Dragon-Q6A], device 1: MultiMedia2 Playback (*) []
   Subdevices: 1/1
   Subdevice #0: subdevice #0
 ```
@@ -58,7 +58,7 @@ arecord -l
 
 ```bash
 **** List of CAPTURE Hardware Devices ****
-card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 2: MultiMedia3 Capture (*) []
+card 0: Q6490RadxaDra [Q6490-Radxa-Dragon-Q6A], device 2: MultiMedia3 Capture (*) []
   Subdevices: 1/1
   Subdevice #0: subdevice #0
 ```
@@ -77,7 +77,7 @@ sudo arecord -Dhw:0,2 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 
 </NewCodeBlock>
 
-- Dhw:0,2: 表示使用 `card 0: QCS6490RadxaDra` 的 `device 2`
+- Dhw:0,2: 表示使用 `card 0: Q6490RadxaDra` 的 `device 2`
 - d 20: 表示录制 20 秒
 - f cd: 表示使用 CD 音频格式
 - r 44100: 表示使用 44.1kHz 的采样率
@@ -99,7 +99,7 @@ sudo aplay -Dhw:0,1 /tmp/tmp.wav
 
 </NewCodeBlock>
 
-- Dhw:0,1: 表示使用 `card 0: QCS6490RadxaDra` 的 `device 1`
+- Dhw:0,1: 表示使用 `card 0: Q6490RadxaDra` 的 `device 1`
 - /tmp/tmp.wav: 表示输入文件路径
 
 注意：若不确定设备名称，可以更改命令的 `-Dhw:0,1` 参数来找到对应的播放设备。

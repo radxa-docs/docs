@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import OPENPOSEQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_openpose_qai-app-builder.mdx';
 
-<OPENPOSEQAIAPPBUILDER tag="qcs9075"/>
+<OPENPOSEQAIAPPBUILDER tag="q9075"/>

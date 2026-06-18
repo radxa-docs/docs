@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import GENIEPHI35MINI from '../../../../common/ai/qualcomm/\_genie_phi_3_5_mini.mdx';
 
-<GENIEPHI35MINI tag="qcs9075"/>
+<GENIEPHI35MINI tag="q9075"/>

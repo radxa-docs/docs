@@ -1,4 +1,4 @@
-This document describes how to use NPU to inference Llama3.2-1B large language model on Radxa {props.tag === "qcs8550" ? "Dragon Q8B" : "Dragon Q6A"}
+This document describes how to use NPU to inference Llama3.2-1B large language model on Radxa {props.tag === "q8280" ? "Dragon Q8B" : "Dragon Q6A"}
 
 ## Download Example
 
@@ -99,7 +99,7 @@ You can enable performance analysis using the `--profile` option
 ```
 
 <Tabs queryString="platform">
-<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+<TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
 | Dragon Q6A             | CTX_LENGTH 1024             | CTX_LENGTH 4096             |
 | ---------------------- | --------------------------- | --------------------------- |
@@ -113,7 +113,7 @@ You can enable performance analysis using the `--profile` option
 
 </TabItem>
 
-<TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+<TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
 | Dragon Q8B             | CTX_LENGTH 1024            | CTX_LENGTH 4096             |
 | ---------------------- | -------------------------- | --------------------------- |

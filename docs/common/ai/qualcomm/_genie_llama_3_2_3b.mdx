@@ -24,14 +24,14 @@
 
 - 运行设备
 
-  | 设备                 | SoC     | dsp_arch |
-  | -------------------- | ------- | -------- |
-  | Fogwise® AIRbox Q900 | QCS9075 | v73      |
+  | 设备                 | SoC   | dsp_arch |
+  | -------------------- | ----- | -------- |
+  | Fogwise® AIRbox Q900 | Q9075 | v73      |
 
 ## 下载 qcom-qairt 依赖
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -42,7 +42,7 @@
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+    <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -152,7 +152,7 @@ genie-t2t-run -c Meta-Llama-3.2-3B-Instruct-htp.json --prompt_file chat.txt
 </Tabs>
 
 ```bash
-(.venv) rock@radxa-airbox-q900:/mnt/ssd/qualcomm/Meta-Llama-3.2-3B-Instruct/QCS9075$ genie-t2t-run -c Meta-Llama-3.2-3B-Instruct-htp.json -p '<|begin_of_text|><|start_header_id|>system<|end_header_id|>You are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>'
+(.venv) rock@radxa-airbox-q900:/mnt/ssd/qualcomm/Meta-Llama-3.2-3B-Instruct/Q9075$ genie-t2t-run -c Meta-Llama-3.2-3B-Instruct-htp.json -p '<|begin_of_text|><|start_header_id|>system<|end_header_id|>You are a pirate chatbot who always responds in pirate speak!<|eot_id|><|start_header_id|>user<|end_header_id|>Who are you?<|eot_id|><|start_header_id|>assistant<|end_header_id|>'
 Using libGenie.so version 1.14.0
 
 /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.42.0/release/snpe_src/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc

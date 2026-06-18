@@ -21,7 +21,7 @@ modelscope download --model radxa/resnet50_qairt --local ./resnet50_qairt
 请根据 SoC 导入环境变量
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -31,17 +31,17 @@ modelscope download --model radxa/resnet50_qairt --local ./resnet50_qairt
 
     </TabItem>
 
-    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+    <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
-    export PRODUCT_SOC=8550
+    export PRODUCT_SOC=8280
     ```
     </NewCodeBlock>
 
     </TabItem>
 
-<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+<TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash

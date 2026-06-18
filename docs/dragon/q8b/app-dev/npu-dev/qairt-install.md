@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import QAIRTINSTALL from '../../../../common/ai/qualcomm/\_qairt-install.mdx';
 
-<QAIRTINSTALL tag="qcs8550"/>
+<QAIRTINSTALL tag="q8280"/>

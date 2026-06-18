@@ -2,11 +2,11 @@ This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Pytho
 
 **Supported Devices**
 
-| Device               | SoC     |
-| -------------------- | ------- |
-| Dragon Q6A           | QCS6490 |
-| Dragon Q8B           | QCS8550 |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Device               | SoC   |
+| -------------------- | ----- |
+| Dragon Q6A           | Q6490 |
+| Dragon Q8B           | Q8280 |
+| Fogwise® AIRbox Q900 | Q9075 |
 
 ## Install QAI AppBuilder
 
@@ -34,7 +34,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 - Navigate to the example directory
 
 <Tabs queryString="platform">
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+        <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
          <NewCodeBlock tip="Device" type="device">
 
@@ -47,7 +47,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
           </TabItem>
 
-          <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+          <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
        <NewCodeBlock tip="Device" type="device">
 
@@ -59,7 +59,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+    <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
          <NewCodeBlock tip="Device" type="device">
 

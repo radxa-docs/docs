@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import XLSRQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_xlsr_qai-app-builder.mdx';
 
-<XLSRQAIAPPBUILDER tag="qcs8550"/>
+<XLSRQAIAPPBUILDER tag="q8280"/>

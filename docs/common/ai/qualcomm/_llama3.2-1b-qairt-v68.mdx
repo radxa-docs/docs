@@ -1,4 +1,4 @@
-本文档讲述如何在瑞莎 {props.tag === "qcs8550" ? "Dragon Q8B" : "Dragon Q6A"} 上使用 NPU 推理 Llama3.2-1B 大语言模型
+本文档讲述如何在瑞莎 {props.tag === "q8280" ? "Dragon Q8B" : "Dragon Q6A"} 上使用 NPU 推理 Llama3.2-1B 大语言模型
 
 ## 下载示例
 
@@ -99,7 +99,7 @@ Using libGenie.so version 1.13.0
 ```
 
 <Tabs queryString="platform">
-<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+<TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
 | Dragon Q6A             | CTX_LENGTH 1024             | CTX_LENGTH 4096             |
 | ---------------------- | --------------------------- | --------------------------- |
@@ -113,7 +113,7 @@ Using libGenie.so version 1.13.0
 
 </TabItem>
 
-<TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+<TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
 | Dragon Q8B             | CTX_LENGTH 1024            | CTX_LENGTH 4096             |
 | ---------------------- | -------------------------- | --------------------------- |

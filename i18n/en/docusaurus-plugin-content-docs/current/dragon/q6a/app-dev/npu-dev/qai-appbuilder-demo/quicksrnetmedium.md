@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import QUICKSRNETMEDIUMQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_quicksrnetmedium_qai-app-builder.mdx';
 
-<QUICKSRNETMEDIUMQAIAPPBUILDER tag="qcs6490"/>
+<QUICKSRNETMEDIUMQAIAPPBUILDER tag="q6490"/>

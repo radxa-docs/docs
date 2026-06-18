@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import LEVITQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_levit_qai-app-builder.mdx';
 
-<LEVITQAIAPPBUILDER tag="qcs8550"/>
+<LEVITQAIAPPBUILDER tag="q8280"/>
