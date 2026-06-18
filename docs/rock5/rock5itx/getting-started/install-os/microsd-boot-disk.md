@@ -4,19 +4,19 @@ sidebar_position: 2
 
 import Images from "../../\_image.mdx"
 
-# SD 卡启动做启动盘安装到 eMMC
+# 通过 microSD 启动盘安装系统到 eMMC
 
-### 文件下载
+## 文件下载
 
 <Images loader={false} system_img={true} spi_img={false} />
 
 第三方系统请参考[资源下载汇总](../../download)
 
-### 制作启动盘
+## 制作启动盘
 
 参考上文 [制作 microSD 启动盘](./etcher)，接下来我们以此为基础，将系统安装到 eMMC 中。
 
-### 登录到系统
+## 登录到系统
 
 通过串口或者 HDMI 登录到系统。
 
@@ -24,18 +24,18 @@ import Images from "../../\_image.mdx"
 账号密码都为 radxa
 :::
 
-### 开启 Overlay
+## 开启 Overlay
 
 ROCK 5 ITX 的 eMMC 是默认关闭的，我们需要在系统中通过[设备树配置](../os-config/rsetup#overlays)来启用 eMMC。
 
 :::tip
 
-1. 请启用 `[] Enable EMMC` 项 Overlay。
-2. 在启用成功显示 `[*] Enable EMMC` 后退出重启才能使配置生效。
+1. 请启用 `[] Enable SDCHI` 项 Overlay。
+2. 在启用成功显示 `[*] Enable SDCHI` 后退出重启才能使配置生效。
 
 :::
 
-### 查看 eMMC 设备
+## 查看 eMMC 设备
 
 打开终端，用命令 lsblk 查看 mmc 设备
 
@@ -69,7 +69,7 @@ zram0        254:0    0  3.9G  0 disk [SWAP]
 
 eMMC 默认是 mmcblk0
 
-### 安装系统到 eMMC
+## 安装系统到 eMMC
 
 镜像文件详见 [文件下载](#文件下载)，下面以 rock-5-itx_debian_bullseye_kde_b3.img.xz 为例。
 
@@ -77,6 +77,6 @@ eMMC 默认是 mmcblk0
 radxa@rock-5-itx:~$ sudo xzcat /home/radxa/rock-5-itx_debian_bullseye_kde_b3.img.xz | dd of=/dev/mmcblk0 bs=1M status=progress
 ```
 
-### 启动系统
+## 启动系统
 
 关闭系统后，断电，拔掉 Micro SD 卡，然后上电，系统从 eMMC 启动。

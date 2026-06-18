@@ -4,19 +4,19 @@ sidebar_position: 2
 
 import Images from "../../\_image.mdx"
 
-# Boot from SD card to eMMC as boot disc
+# Install System to eMMC via microSD Boot Disk
 
-### File download
+## File download
 
 <Images loader={false} system_img={true} spi_img={false} />
 
 For third-party systems, please refer to [Resource Download](../../download)
 
-### Creating a boot disk
+## Creating a boot disk
 
 Refer to [Making a microSD boot disc](./etcher) above, we will use it as a base to install the system into eMMC.
 
-### Logging in to the system
+## Logging in to the system
 
 Login to the system via serial port or HDMI.
 
@@ -24,18 +24,18 @@ Login to the system via serial port or HDMI.
 The password is radxa.
 :::
 
-### Enable Overlay
+## Enable Overlay
 
 ROCK 5 ITX's eMMC is disabled by default, we need to enable overlay in the system via [Device Tree Configuration](../os-config/rsetup#overlays) to enable eMMC.
 
 :::tip
 
-1. Please enable the `[] Enable EMMC` item Overlay. 2.
-2. Quit and reboot after `[*] Enable EMMC` is successfully displayed for the configuration to take effect.
+1. Please enable the `[] Enable SDCHI` item Overlay. 2.
+2. Quit and reboot after `[*] Enable SDCHI` is successfully displayed for the configuration to take effect.
 
 :::.
 
-### Viewing eMMC devices
+## Viewing eMMC devices
 
 Open a terminal and use the command lsblk to view the mmc device.
 
@@ -69,7 +69,7 @@ zram0        254:0    0  3.9G  0 disk [SWAP]
 
 eMMC defaults to mmcblk0
 
-### Install the system to eMMC
+## Install the system to eMMC
 
 See [file download](#file download) for details of the image file, below is rock-5-itx_debian_bullseye_kde_b3.img.xz as an example.
 
@@ -77,6 +77,6 @@ See [file download](#file download) for details of the image file, below is rock
 radxa@rock-5-itx:~$ sudo xzcat /home/radxa/rock-5-itx_debian_bullseye_kde_b3.img.xz | dd of=/dev/mmcblk0 bs=1M status=progress
 ```
 
-### Booting the system
+## Booting the system
 
 After shutting down the system, powering down, disconnecting the Micro SD card, and then powering up, the system boots from eMMC.
