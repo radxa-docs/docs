@@ -16,7 +16,7 @@ Supports Python API / C++ API
 
 | Device               | SoC   |
 | -------------------- | ----- |
-| Dragon Q6A           | Q6490 |
+| Dragon Q6A           | QCS6490 |
 | Dragon Q8B           | Q8280 |
 | Fogwise® AIRbox Q900 | Q9075 |
 
@@ -81,7 +81,7 @@ Please download and extract the QAIRT SDK according to [**Download QAIRT SDK Pac
 ##### Configure QAIRT Environment Variables
 
 <Tabs queryString="platform">
-    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -186,7 +186,7 @@ qcom-qairt is a slimmed-down version of QAIRT-SDK, installing only the required 
 :::
 
 <Tabs queryString="platform">
-    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -275,7 +275,7 @@ If you installed the complete QAIRT-SDK, use the following command to create the
 :::
 
 <Tabs queryString="platform">
-    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -325,10 +325,10 @@ export ADSP_LIBRARY_PATH=$(pwd)/lib/hexagon-v${DSP_ARCH}/unsigned
 ## Application Examples
 
 <Tabs queryString="platform">
-<TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
 :::tip
-For Q6490 Demos, please refer to [**Demo Examples**](./qai-appbuilder-demo)
+For QCS6490 Demos, please refer to [**Demo Examples**](./qai-appbuilder-demo)
 :::
 
 <NewCodeBlock tip="Device" type="device">

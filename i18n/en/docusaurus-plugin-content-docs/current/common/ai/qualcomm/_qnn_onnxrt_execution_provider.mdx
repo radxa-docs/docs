@@ -122,7 +122,7 @@ Before verifying the QNN Execution Provider, follow [**Enable NPU on the device*
 ### Export environment variables
 
 <Tabs queryString="platform">
-    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
+    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -166,7 +166,7 @@ export ADSP_LIBRARY_PATH=$QNN_SDK_ROOT/lib/hexagon-v${DSP_ARCH}/unsigned
 
 ### Download an INT8-quantized ONNX model
 
-Download a w8a8 quantized model in ONNX Runtime format from [**Qualcomm AI Hub**](https://aihub.qualcomm.com/iot/models/resnet50?chipsets=qualcomm-q6490).
+Download a w8a8 quantized model in ONNX Runtime format from [**Qualcomm AI Hub**](https://aihub.qualcomm.com/iot/models/resnet50?chipsets=qualcomm-qcs6490).
 
 <div style={{ textAlign: "center" }}>
   <img

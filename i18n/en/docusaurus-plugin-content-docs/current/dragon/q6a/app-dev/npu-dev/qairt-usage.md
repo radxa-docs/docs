@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import QAIRTUSAGE from '../../../../common/ai/qualcomm/\_qairt-usage.mdx';
 
-<QAIRTUSAGE tag="q6490" />
+<QAIRTUSAGE tag="qcs6490" />
