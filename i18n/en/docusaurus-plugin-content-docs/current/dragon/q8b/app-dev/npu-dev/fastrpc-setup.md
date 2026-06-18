@@ -13,7 +13,7 @@ import FASTRPCSETUP from '../../../../common/ai/qualcomm/\_fastrpc_setup.mdx';
 
 :::tip
 
-When using system image version R2 or higher, the NPU runtime environment is pre-installed and no additional installation is required.
+When using system image version T2 or higher, the NPU runtime environment is pre-installed and no additional installation is required.
 
 :::
 
