@@ -94,7 +94,7 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 
 | Model                      | Description                                          |
 | -------------------------- | ---------------------------------------------------- |
-| [Dragon Q6A](/dragon/q6a/) | Qualcomm Q6490 based Mini Motherboard                |
+| [Dragon Q6A](/dragon/q6a/) | Qualcomm QCS6490 based Mini Motherboard              |
 | [Dragon Q8B](/dragon/q8b/) | Qualcomm Snapdragon 8cx Gen 3 based Mini Motherboard |
 
 ## Radxa Motherboards
@@ -140,7 +140,7 @@ Fogwise® Brand, Edge AI and IoT Mini Computing Devices
 | Model        | Description                         |
 | ------------ | ----------------------------------- |
 | rCore-RK3308 | RK3308 based Compute Module         |
-| rCore-Q9075  | Qualcomm Q6490 based Compute Module |
+| rCore-Q9075  | Qualcomm QCS9075 based Compute Module |
 
 ### AICore Series
 
