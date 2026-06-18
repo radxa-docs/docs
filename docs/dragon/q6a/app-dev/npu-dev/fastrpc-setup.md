@@ -17,4 +17,4 @@ import FASTRPCSETUP from '../../../../common/ai/qualcomm/\_fastrpc_setup.mdx';
 
 :::
 
-<FASTRPCSETUP tag="qcs6490" />
+<FASTRPCSETUP tag="q6490" />

@@ -183,19 +183,19 @@ Since hardware-specific optimization is performed on the x86 host, two config fi
 
 **SoC Architecture Reference Table**
 
-| SoC     | dsp_arch | soc_id |
-| ------- | -------- | ------ |
-| QCS6490 | v68      | 35     |
-| QCS8550 | v68      | 37     |
-| QCS9075 | v73      | 77     |
+| SoC   | dsp_arch | soc_id |
+| ----- | -------- | ------ |
+| Q6490 | v68      | 35     |
+| Q8280 | v68      | 37     |
+| Q9075 | v73      | 77     |
 
 - config_backend.json
 
       <Tabs>
 
-  <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+  <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
-          Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use QCS6490 SoC as an example
+          Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use Q6490 SoC as an example
 
           <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -227,9 +227,9 @@ Since hardware-specific optimization is performed on the x86 host, two config fi
 
           </TabItem>
 
-              <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+              <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
-          Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use QCS8550 SoC as an example
+          Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use Q8280 SoC as an example
 
           <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -261,9 +261,9 @@ Since hardware-specific optimization is performed on the x86 host, two config fi
 
           </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+    <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
-          Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use QCS9075 SoC as an example
+          Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use Q9075 SoC as an example
 
           <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -375,7 +375,7 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 ### Copy Required Files to Target Board
 
     <Tabs>
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+        <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
         <NewCodeBlock tip="X86 Linux PC" type="PC">
         ```bash
@@ -386,18 +386,18 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 
         </TabItem>
 
-            <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+            <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
         <NewCodeBlock tip="X86 Linux PC" type="PC">
         ```bash
-        export PRODUCT_SOC=8550 DSP_ARCH=68
+        export PRODUCT_SOC=8280 DSP_ARCH=68
         ```
         </NewCodeBlock>
 
 
         </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+    <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
         <NewCodeBlock tip="X86 Linux PC" type="PC">
         ```bash
@@ -443,7 +443,7 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 
 - Copy NPU architecture-specific dynamic library files to the target board
 
-  Select the appropriate hexagon folder based on your SoC NPU architecture. Here we use QCS6490 as an example
+  Select the appropriate hexagon folder based on your SoC NPU architecture. Here we use Q6490 as an example
 
     <NewCodeBlock tip="X86 Linux PC" type="PC">
 

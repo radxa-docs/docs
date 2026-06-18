@@ -122,7 +122,7 @@ Before verifying the QNN Execution Provider, follow [**Enable NPU on the device*
 ### Export environment variables
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -132,17 +132,17 @@ Before verifying the QNN Execution Provider, follow [**Enable NPU on the device*
 
     </TabItem>
 
-    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+    <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
-    export PRODUCT_SOC=8550 DSP_ARCH=68
+    export PRODUCT_SOC=8280 DSP_ARCH=68
     ```
     </NewCodeBlock>
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+    <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -166,7 +166,7 @@ export ADSP_LIBRARY_PATH=$QNN_SDK_ROOT/lib/hexagon-v${DSP_ARCH}/unsigned
 
 ### Download an INT8-quantized ONNX model
 
-Download a w8a8 quantized model in ONNX Runtime format from [**Qualcomm AI Hub**](https://aihub.qualcomm.com/iot/models/resnet50?chipsets=qualcomm-qcs6490).
+Download a w8a8 quantized model in ONNX Runtime format from [**Qualcomm AI Hub**](https://aihub.qualcomm.com/iot/models/resnet50?chipsets=qualcomm-q6490).
 
 <div style={{ textAlign: "center" }}>
   <img

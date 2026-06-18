@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import NOMICEMBEDTEXTQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_nomic_embed_text_qai-app-builder.mdx';
 
-<NOMICEMBEDTEXTQAIAPPBUILDER tag="qcs9075"/>
+<NOMICEMBEDTEXTQAIAPPBUILDER tag="q9075"/>

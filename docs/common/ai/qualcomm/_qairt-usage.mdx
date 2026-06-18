@@ -183,19 +183,19 @@ qairt-quantizer --input_dlc ./resnet50.dlc --input_list ./calib_list.txt  --outp
 
 **SoC 架构对照表**
 
-| SoC     | dsp_arch | soc_id |
-| ------- | -------- | ------ |
-| QCS6490 | v68      | 35     |
-| QCS8550 | v68      | 37     |
-| QCS9075 | v73      | 77     |
+| SoC   | dsp_arch | soc_id |
+| ----- | -------- | ------ |
+| Q6490 | v68      | 35     |
+| Q8280 | v68      | 37     |
+| Q9075 | v73      | 77     |
 
 - config_backend.json
 
       <Tabs>
 
-  <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+  <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
-          请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 QCS6490 SoC 为例子
+          请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 Q6490 SoC 为例子
 
           <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -227,9 +227,9 @@ qairt-quantizer --input_dlc ./resnet50.dlc --input_list ./calib_list.txt  --outp
 
           </TabItem>
 
-          <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+          <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
-          请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 QCS8550 SoC 为例子
+          请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 Q8280 SoC 为例子
 
           <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -261,9 +261,9 @@ qairt-quantizer --input_dlc ./resnet50.dlc --input_list ./calib_list.txt  --outp
 
           </TabItem>
 
-          <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+          <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
-          请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 QCS9075 SoC 为例子
+          请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 Q9075 SoC 为例子
 
           <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -375,7 +375,7 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 ### 拷贝所需文件到板端
 
     <Tabs>
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+        <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
         <NewCodeBlock tip="X86 Linux PC" type="PC">
         ```bash
@@ -386,18 +386,18 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 
         </TabItem>
 
-        <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+        <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
         <NewCodeBlock tip="X86 Linux PC" type="PC">
         ```bash
-        export PRODUCT_SOC=8550 DSP_ARCH=68
+        export PRODUCT_SOC=8280 DSP_ARCH=68
         ```
         </NewCodeBlock>
 
 
         </TabItem>
 
-        <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+        <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
         <NewCodeBlock tip="X86 Linux PC" type="PC">
         ```bash
@@ -443,7 +443,7 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 
 - 拷贝 NPU 架构专用动态库文件到板端
 
-  请根据 SoC NPU 架构选择相应的 hexagon 文件夹, 这里以 QCS6490 为例子
+  请根据 SoC NPU 架构选择相应的 hexagon 文件夹, 这里以 Q6490 为例子
 
     <NewCodeBlock tip="X86 Linux PC" type="PC">
 

@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import RESNET3DQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_resnet3d_qai-app-builder.mdx';
 
-<RESNET3DQAIAPPBUILDER tag="qcs9075"/>
+<RESNET3DQAIAPPBUILDER tag="q9075"/>

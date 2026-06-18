@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import DEPTHANYTHINGQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_depth_anything_qai-app-builder.mdx';
 
-<DEPTHANYTHINGQAIAPPBUILDER tag="qcs9075"/>
+<DEPTHANYTHINGQAIAPPBUILDER tag="q9075"/>

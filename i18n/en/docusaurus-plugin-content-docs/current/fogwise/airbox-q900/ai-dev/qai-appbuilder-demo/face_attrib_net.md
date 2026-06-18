@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import FACEATTRIBNETQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_face_attrib_net_qai-app-builder.mdx';
 
-<FACEATTRIBNETQAIAPPBUILDER tag="qcs9075" />
+<FACEATTRIBNETQAIAPPBUILDER tag="q9075" />

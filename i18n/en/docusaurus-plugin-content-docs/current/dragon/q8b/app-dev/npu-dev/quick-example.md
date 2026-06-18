@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import QAIRTQUICKEXAMPLE from '../../../../common/ai/qualcomm/\_qairt-quick-example.mdx';
 
-<QAIRTQUICKEXAMPLE tag="qcs8550"/>
+<QAIRTQUICKEXAMPLE tag="q8280"/>

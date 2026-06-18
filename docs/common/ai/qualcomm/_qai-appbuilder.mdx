@@ -11,11 +11,11 @@
 
 **支持设备**
 
-| 设备                 | SoC     |
-| -------------------- | ------- |
-| Dragon Q6A           | QCS6490 |
-| Dragon Q8B           | QCS8550 |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| 设备                 | SoC   |
+| -------------------- | ----- |
+| Dragon Q6A           | Q6490 |
+| Dragon Q8B           | Q8280 |
+| Fogwise® AIRbox Q900 | Q9075 |
 
 ## 安装方法
 
@@ -78,7 +78,7 @@ git submodule update --init --recursive
 ##### 配置 QAIRT 环境变量
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -89,7 +89,7 @@ git submodule update --init --recursive
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+    <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -99,11 +99,11 @@ git submodule update --init --recursive
 
 </TabItem>
 
-    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+    <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
-    export PRODUCT_SOC=8550 DSP_ARCH=68
+    export PRODUCT_SOC=8280 DSP_ARCH=68
     ```
     </NewCodeBlock>
 
@@ -185,7 +185,7 @@ qcom-qairt 是一个体积缩小版的 QAIRT-SDK，仅安装所需的文件
 :::
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -196,7 +196,7 @@ qcom-qairt 是一个体积缩小版的 QAIRT-SDK，仅安装所需的文件
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+    <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -206,7 +206,7 @@ qcom-qairt 是一个体积缩小版的 QAIRT-SDK，仅安装所需的文件
 
 </TabItem>
 
-    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+    <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -274,7 +274,7 @@ export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
 :::
 
 <Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+    <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -285,7 +285,7 @@ export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
 
     </TabItem>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+    <TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -295,11 +295,11 @@ export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
 
 </TabItem>
 
-    <TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+    <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
-    export PRODUCT_SOC=8550 DSP_ARCH=68
+    export PRODUCT_SOC=8280 DSP_ARCH=68
     ```
     </NewCodeBlock>
 
@@ -324,10 +324,10 @@ export ADSP_LIBRARY_PATH=$(pwd)/lib/hexagon-v${DSP_ARCH}/unsigned
 ## 应用例子
 
 <Tabs queryString="platform">
-<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+<TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
 
 :::tip
-QCS6490 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
+Q6490 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
 :::
 
 <NewCodeBlock tip="Device" type="device">
@@ -380,10 +380,10 @@ cd ai-engine-direct-helper/samples/linux/python
 
 </TabItem>
 
-<TabItem value="QCS8550" default={props.tag === "qcs8550"} attributes={{className: props.tag !== "qcs8550" && "tab_none"}}>
+<TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
 
 :::tip
-QCS8550 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
+Q8280 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
 :::
 
 <NewCodeBlock tip="Device" type="device">
@@ -436,10 +436,10 @@ cd ai-engine-direct-helper/samples/linux/python
 
 </TabItem>
 
-<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+<TabItem value="Q9075" default={props.tag === "q9075"} attributes={{className: props.tag !== "q9075" && "tab_none"}}>
 
 :::tip
-QCS9075 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
+Q9075 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
 :::
 
 <NewCodeBlock tip="Device" type="device">

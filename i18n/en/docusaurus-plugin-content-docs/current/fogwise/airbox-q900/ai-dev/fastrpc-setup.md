@@ -21,4 +21,4 @@ If the current system is not an official RadxaOS image, `apt install fastrpc` ma
 
 :::
 
-<FASTRPCSETUP tag="qcs9075" />
+<FASTRPCSETUP tag="q9075" />

@@ -8,7 +8,7 @@ sidebar_position: 150
 
 - [radxa-airbox-q900_noble_gnome_r1](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900_noble_gnome_r1_4096.tar.gz)
 
-- [qcs9075-provision](https://dl.radxa.com/fogwise/airbox-q900/images/qcs9075-provision.tar.gz)
+- [q9075-provision](https://dl.radxa.com/fogwise/airbox-q900/images/q9075-provision.tar.gz)
 
 ## Software Tools
 
