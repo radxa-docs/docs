@@ -6,7 +6,7 @@ image super-resolution model using Qualcomm® Hexagon™ Processor (NPU).
 | Device     | SoC   |
 | ---------- | ----- |
 | Dragon Q6A | QCS6490 |
-| Dragon Q8B | Q8280 |
+| Dragon Q8B | SC8280XP |
 
 ## Install QAI AppBuilder
 
@@ -47,7 +47,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matp
 
     </TabItem>
 
-    <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
+    <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
        <NewCodeBlock tip="Device" type="device">
 

@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import REGNETQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_regnet_qai-app-builder.mdx';
 
-<REGNETQAIAPPBUILDER tag="q8280"/>
+<REGNETQAIAPPBUILDER tag="sc8280xp"/>

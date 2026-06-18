@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import FCNRESNRT50QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_fcn-resnet50_qai-app-builder.mdx';
 
-<FCNRESNRT50QAIAPPBUILDER tag="q8280"/>
+<FCNRESNRT50QAIAPPBUILDER tag="sc8280xp"/>

@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import VITQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_vit_qai-app-builder.mdx';
 
-<VITQAIAPPBUILDER tag="q8280"/>
+<VITQAIAPPBUILDER tag="sc8280xp"/>

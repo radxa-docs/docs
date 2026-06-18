@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import CONVNEXTBASEQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_convnext_base_qai-app-builder.mdx';
 
-<CONVNEXTBASEQAIAPPBUILDER tag="q8280"/>
+<CONVNEXTBASEQAIAPPBUILDER tag="sc8280xp"/>

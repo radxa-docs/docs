@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import EFFICIENTNETV2SQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_efficientnet_v2s_qai-app-builder.mdx';
 
-<EFFICIENTNETV2SQAIAPPBUILDER tag="q8280"/>
+<EFFICIENTNETV2SQAIAPPBUILDER tag="sc8280xp"/>

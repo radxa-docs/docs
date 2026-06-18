@@ -14,7 +14,7 @@
 | 设备                 | SoC   |
 | -------------------- | ----- |
 | Dragon Q6A           | QCS6490 |
-| Dragon Q8B           | Q8280 |
+| Dragon Q8B           | SC8280XP |
 | Fogwise® AIRbox Q900 | QCS9075 |
 
 ## 安装方法
@@ -99,7 +99,7 @@ git submodule update --init --recursive
 
 </TabItem>
 
-    <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
+    <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -206,7 +206,7 @@ qcom-qairt 是一个体积缩小版的 QAIRT-SDK，仅安装所需的文件
 
 </TabItem>
 
-    <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
+    <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -295,7 +295,7 @@ export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
 
 </TabItem>
 
-    <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
+    <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
     <NewCodeBlock tip="Device" type="device">
     ```bash
@@ -380,10 +380,10 @@ cd ai-engine-direct-helper/samples/linux/python
 
 </TabItem>
 
-<TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
+<TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
 :::tip
-Q8280 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
+SC8280XP Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
 :::
 
 <NewCodeBlock tip="Device" type="device">

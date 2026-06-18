@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import SESRM5QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_sesr_m5_qai-app-builder.mdx';
 
-<SESRM5QAIAPPBUILDER tag="q8280"/>
+<SESRM5QAIAPPBUILDER tag="sc8280xp"/>

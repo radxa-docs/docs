@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import WIDERESNET50QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_wideresnet50_qai-app-builder.mdx';
 
-<WIDERESNET50QAIAPPBUILDER tag="q8280"/>
+<WIDERESNET50QAIAPPBUILDER tag="sc8280xp"/>
