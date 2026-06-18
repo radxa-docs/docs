@@ -95,7 +95,7 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 | Model                      | Description                                          |
 | -------------------------- | ---------------------------------------------------- |
 | [Dragon Q6A](/dragon/q6a/) | Qualcomm QCS6490 based Mini Motherboard              |
-| [Dragon Q8B](/dragon/q8b/) | Qualcomm Snapdragon 8cx Gen 3 based Mini Motherboard |
+| [Dragon Q8B](/dragon/q8b/) | Qualcomm Snapdragon 8cx Gen 3 (Qualcomm SC8280XP) based Mini Motherboard |
 
 ## Radxa Motherboards
 

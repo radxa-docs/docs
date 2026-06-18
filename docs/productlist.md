@@ -96,7 +96,7 @@ displayed_sidebar: home
 | 型号                       | 简介                              |
 | -------------------------- | --------------------------------- |
 | [Dragon Q6A](/dragon/q6a/) | 基于高通 QCS6490 的迷你主板       |
-| [Dragon Q8B](/dragon/q8b/) | 基于高通骁龙 8cx Gen 3 的迷你主板 |
+| [Dragon Q8B](/dragon/q8b/) | 基于高通骁龙 8cx Gen 3 (高通 SC8280XP) 的迷你主板 |
 
 ## 瑞莎主板
 
