@@ -18,7 +18,7 @@ sidebar_position: 1
 
 | No. | Description             | No. | Description                                                     | No. | Description           |
 | :-: | :---------------------- | :-: | :-------------------------------------------------------------- | :-: | :-------------------- |
-|  1  | Qualcomm Q6490          |  2  | 40-Pin GPIO Header                                              |  3  | M.2 M Key slot        |
+|  1  | Qualcomm QCS6490        |  2  | 40-Pin GPIO Header                                              |  3  | M.2 M Key slot        |
 |  4  | WiFi 6 / BT 5.4         |  5  | Antenna connector                                               |  6  | Power button          |
 |  7  | User LED                |  8  | Power LED                                                       |  9  | Type-C power input    |
 | 10  | Power input header      | 11  | MIPI CSI (4 Lane)                                               | 12  | microSD card slot     |

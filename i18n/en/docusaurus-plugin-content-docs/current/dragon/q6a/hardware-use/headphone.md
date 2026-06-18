@@ -34,10 +34,10 @@ The terminal outputs similar information:
 
 ```text
 **** List of PLAYBACK Hardware Devices ****
-card 0: Q6490RadxaDra [Q6490-Radxa-Dragon-Q6A], device 0: MultiMedia1 Playback (*) []
+card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 0: MultiMedia1 Playback (*) []
   Subdevices: 1/1
   Subdevice #0: subdevice #0
-card 0: Q6490RadxaDra [Q6490-Radxa-Dragon-Q6A], device 1: MultiMedia2 Playback (*) []
+card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 1: MultiMedia2 Playback (*) []
   Subdevices: 1/1
   Subdevice #0: subdevice #0
 ```
@@ -58,7 +58,7 @@ Output information similar to the following:
 
 ```bash
 **** List of CAPTURE Hardware Devices ****
-card 0: Q6490RadxaDra [Q6490-Radxa-Dragon-Q6A], device 2: MultiMedia3 Capture (*) []
+card 0: QCS6490RadxaDra [QCS6490-Radxa-Dragon-Q6A], device 2: MultiMedia3 Capture (*) []
   Subdevices: 1/1
   Subdevice #0: subdevice #0
 ```
@@ -77,7 +77,7 @@ sudo arecord -Dhw:0,2 -d 20 -f cd -r 44100 -c 2 -t wav  /tmp/tmp.wav
 
 </NewCodeBlock>
 
-- Dhw:0,2: Indicates using `device 2` with `card 0: Q6490RadxaDra`
+- Dhw:0,2: Indicates using `device 2` with `card 0: QCS6490RadxaDra`
 - d 20: Indicates recording for 20 seconds
 - f cd: Indicates using CD audio format
 - r 44100: Indicates using a sampling rate of 44.1kHz
@@ -99,7 +99,7 @@ sudo aplay -Dhw:0,1 /tmp/tmp.wav
 
 </NewCodeBlock>
 
-- Dhw:0,1: Indicates using `device 1` with `card 0: Q6490RadxaDra`
+- Dhw:0,1: Indicates using `device 1` with `card 0: QCS6490RadxaDra`
 - /tmp/tmp.wav: Indicates the input file path
 
 Note: If you are unsure of the device name, you can change the `-Dhw:0,1` parameter in the command to find the corresponding playback device.
