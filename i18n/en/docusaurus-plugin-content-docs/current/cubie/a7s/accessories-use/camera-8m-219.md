@@ -19,6 +19,17 @@ This tutorial applies to the Radxa OS system image.
 
 <Camera8M219 product='Radxa Cubie A7S' interface='31-pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='same side' board='cubie-a7s'/>
 
+## Install GStreamer
+
+<NewCodeBlock tip='radxa@cubie-a7s$' type="device">
+
+```bash
+sudo apt-get update
+sudo apt-get install -y gstreamer1.0-tools gstreamer1.0-plugins-base-apps
+```
+
+</NewCodeBlock>
+
 ## Preview the camera
 
 Use GStreamer to preview the camera stream.

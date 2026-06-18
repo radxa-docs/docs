@@ -13,6 +13,17 @@ import Camera13M214 from '../../../common/accessories/\_camera-13m-214.mdx';
 
 <Camera13M214 product='Radxa Cubie A7Z' interface='31-Pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='opposite side' board='cubie-a7z' />
 
+## Install GStreamer
+
+<NewCodeBlock tip='radxa@cubie-a7z$' type="device">
+
+```bash
+sudo apt-get update
+sudo apt-get install -y gstreamer1.0-tools gstreamer1.0-plugins-base-apps
+```
+
+</NewCodeBlock>
+
 ## Preview the camera
 
 Use GStreamer to preview the camera image.
