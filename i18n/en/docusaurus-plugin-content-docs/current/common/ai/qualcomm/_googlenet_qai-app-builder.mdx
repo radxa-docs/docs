@@ -1,10 +1,10 @@
-This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [GoogLeNet](https://aihub.qualcomm.com/models/googlenet?domain=Computer+Vision&useCase=Image+Classification&chipsets=qualcomm-q6490-proxy) object recognition model on Qualcomm® Hexagon™ Processor (NPU).
+This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [GoogLeNet](https://aihub.qualcomm.com/models/googlenet?domain=Computer+Vision&useCase=Image+Classification&chipsets=qualcomm-qcs6490-proxy) object recognition model on Qualcomm® Hexagon™ Processor (NPU).
 
 **Supported Devices**
 
 | Device               | SoC   |
 | -------------------- | ----- |
-| Dragon Q6A           | Q6490 |
+| Dragon Q6A           | QCS6490 |
 | Dragon Q8B           | Q8280 |
 | Fogwise® AIRbox Q900 | Q9075 |
 
@@ -34,7 +34,7 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
 - Navigate to the example directory
 
 <Tabs queryString="platform">
-        <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
+        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
          <NewCodeBlock tip="Device" type="device">
 

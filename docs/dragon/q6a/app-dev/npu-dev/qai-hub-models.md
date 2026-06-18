@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import QAIHUBMODELS from '../../../../common/ai/qualcomm/\_qai-hub-models.mdx';
 
-<QAIHUBMODELS tag="q6490"/>
+<QAIHUBMODELS tag="qcs6490"/>

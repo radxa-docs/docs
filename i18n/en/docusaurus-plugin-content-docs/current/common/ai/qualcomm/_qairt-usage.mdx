@@ -185,7 +185,7 @@ Since hardware-specific optimization is performed on the x86 host, two config fi
 
 | SoC   | dsp_arch | soc_id |
 | ----- | -------- | ------ |
-| Q6490 | v68      | 35     |
+| QCS6490 | v68      | 35     |
 | Q8280 | v68      | 37     |
 | Q9075 | v73      | 77     |
 
@@ -193,9 +193,9 @@ Since hardware-specific optimization is performed on the x86 host, two config fi
 
       <Tabs>
 
-  <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
+  <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-          Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use Q6490 SoC as an example
+          Please select the appropriate dsp_arch and soc_id based on your SoC NPU architecture. Here we use QCS6490 SoC as an example
 
           <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -375,7 +375,7 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 ### Copy Required Files to Target Board
 
     <Tabs>
-        <TabItem value="Q6490" default={props.tag === "q6490"} attributes={{className: props.tag !== "q6490" && "tab_none"}}>
+        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
         <NewCodeBlock tip="X86 Linux PC" type="PC">
         ```bash
@@ -443,7 +443,7 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 
 - Copy NPU architecture-specific dynamic library files to the target board
 
-  Select the appropriate hexagon folder based on your SoC NPU architecture. Here we use Q6490 as an example
+  Select the appropriate hexagon folder based on your SoC NPU architecture. Here we use QCS6490 as an example
 
     <NewCodeBlock tip="X86 Linux PC" type="PC">
 
