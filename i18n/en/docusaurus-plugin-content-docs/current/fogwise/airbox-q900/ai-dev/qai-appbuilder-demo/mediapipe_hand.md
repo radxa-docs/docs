@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import MEDIAPIPEHANDQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_mediapipe_hand_qai-app-builder.mdx';
 
-<MEDIAPIPEHANDQAIAPPBUILDER tag="q9075" />
+<MEDIAPIPEHANDQAIAPPBUILDER tag="qcs9075" />

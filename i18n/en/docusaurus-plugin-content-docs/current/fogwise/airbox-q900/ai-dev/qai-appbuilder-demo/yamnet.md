@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import YAMNETQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_yamnet_qai-app-builder.mdx';
 
-<YAMNETQAIAPPBUILDER tag="q9075" />
+<YAMNETQAIAPPBUILDER tag="qcs9075" />

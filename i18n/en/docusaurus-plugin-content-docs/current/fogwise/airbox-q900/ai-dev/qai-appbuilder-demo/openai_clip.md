@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import OPENAICLIPQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_openai_clip_qai-app-builder.mdx';
 
-<OPENAICLIPQAIAPPBUILDER tag="q9075" />
+<OPENAICLIPQAIAPPBUILDER tag="qcs9075" />

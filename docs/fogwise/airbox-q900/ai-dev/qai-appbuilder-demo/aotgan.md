@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import AOTGANQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_aotgan_qai-app-builder.mdx';
 
-<AOTGANQAIAPPBUILDER tag="q9075"/>
+<AOTGANQAIAPPBUILDER tag="qcs9075"/>

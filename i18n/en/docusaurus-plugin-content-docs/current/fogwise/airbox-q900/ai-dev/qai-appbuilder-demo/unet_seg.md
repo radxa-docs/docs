@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import UNETSEGQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_unet_seg_qai-app-builder.mdx';
 
-<UNETSEGQAIAPPBUILDER tag="q9075" />
+<UNETSEGQAIAPPBUILDER tag="qcs9075" />

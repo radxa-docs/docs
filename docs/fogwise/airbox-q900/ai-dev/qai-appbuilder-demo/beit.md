@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import BEITQAIAPPBUILDER from '../../../../common/ai/qualcomm/\_beit_qai-app-builder.mdx';
 
-<BEITQAIAPPBUILDER tag="q9075"/>
+<BEITQAIAPPBUILDER tag="qcs9075"/>
