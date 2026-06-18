@@ -31,7 +31,7 @@ import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
 - 若需要清除 SPI Flash，则主板上电后取下短接 DIS SPI 和 GND 引脚的跳线帽或杜邦线
 - 若需要清除 eMMC 模块，则主板上电后取下短接 DIS eMMC 和 GND 引脚的跳线帽或杜邦线
 
-<img src="/img/rock3/3b/rock3b-maskrom-pins.webp" alt="ROCK 3B maskrom pins" width="500" />
+<img src="/img/rock3/3b/rock3b-maskrom-pins.webp" alt="ROCK 3B maskrom pins" width="1200" />
 
     </TabItem>
     <TabItem value="ROCK 3B+">
@@ -49,7 +49,7 @@ import ERASE from "../../../../common/dev/\_erase-spi-emmc.mdx";
 - 若需要清除 SPI Flash，则主板上电后取下短接 DIS SPI 和 GND 引脚的跳线帽或杜邦线
 - 若需要清除 eMMC 模块，则主板上电后取下短接 DIS eMMC 和 GND 引脚的跳线帽或杜邦线
 
-<img src="/img/rock3/3b/rock3b-plus-maskrom-pins.webp" alt="ROCK 3B+ maskrom pins" width="500" />
+<img src="/img/rock3/3b/rock3b-plus-maskrom-pins.webp" alt="ROCK 3B+ maskrom pins" width="1200" />
 
     </TabItem>
 
