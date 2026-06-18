@@ -6,9 +6,9 @@ sidebar_position: 2
 
 ## Product Overview
 
-The Radxa Dragon Q6A is a high-performance, low-power embedded computing platform based on the Qualcomm® Q6490 processor, designed specifically for industrial IoT, edge AI, and smart devices.
+The Radxa Dragon Q6A is a high-performance, low-power embedded computing platform based on the Qualcomm® QCS6490 processor, designed specifically for industrial IoT, edge AI, and smart devices.
 
-The Dragon Q6A is equipped with the Qualcomm Q6490 SoC, featuring a “1+3+4” tri-cluster design (1× Kryo Prime @ 2.7GHz, 3× Kryo Gold @ 2.4GHz, 4× Kryo Silver @ 1.9GHz), balancing high performance with low power consumption; It integrates the Qualcomm® Adreno 643 GPU, VPU, and AI accelerator, offering advanced AI acceleration capabilities and multimedia processing capabilities.
+The Dragon Q6A is equipped with the Qualcomm QCS6490 SoC, featuring a “1+3+4” tri-cluster design (1× Kryo Prime @ 2.7GHz, 3× Kryo Gold @ 2.4GHz, 4× Kryo Silver @ 1.9GHz), balancing high performance with low power consumption; It integrates the Qualcomm® Adreno 643 GPU, VPU, and AI accelerator, offering advanced AI acceleration capabilities and multimedia processing capabilities.
 
 ## Product Appearance
 
@@ -24,7 +24,7 @@ The Dragon Q6A is equipped with the Qualcomm Q6490 SoC, featuring a “1+3+4” 
 
 | Category      | Specification Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Core Platform | System-on-Chip (SoC): Qualcomm Q6490 <br/> Central Processing Unit (CPU): 1x Kryo Gold Plus @2.7GHz + 3x Kryo Gold @2.4GHz + 4x Kryo Silver @1.9GHz <br/> Graphics Processing Unit (GPU): Qualcomm® Adreno 643, supporting OpenGL ES 3.2, Vulkan 1.3, OpenCL 2.2, DirectX 12 <br/> AI Accelerator: Hexagon DSP + Hexagon Tensor Accelerator, with a combined AI computing power of up to 12 TOPS <br/> Video Processing Unit (VPU): Supports up to 4K@60fps decoding (H.264/H.265/VP9) and 4K@30fps encoding (H.264/H.265), with HDR10/HDR10+ playback capability |
+| Core Platform | System-on-Chip (SoC): Qualcomm QCS6490 <br/> Central Processing Unit (CPU): 1x Kryo Gold Plus @2.7GHz + 3x Kryo Gold @2.4GHz + 4x Kryo Silver @1.9GHz <br/> Graphics Processing Unit (GPU): Qualcomm® Adreno 643, supporting OpenGL ES 3.2, Vulkan 1.3, OpenCL 2.2, DirectX 12 <br/> AI Accelerator: Hexagon DSP + Hexagon Tensor Accelerator, with a combined AI computing power of up to 12 TOPS <br/> Video Processing Unit (VPU): Supports up to 4K@60fps decoding (H.264/H.265/VP9) and 4K@30fps encoding (H.264/H.265), with HDR10/HDR10+ playback capability |
 | Memory        | LPDDR5, Options: 4GB / 6GB / 8GB / 12GB / 16GB                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Storage       | Boot Storage: Onboard 32MB QSPI Nor Flash <br/> Expandable Storage: Supports microSD card / eMMC module / UFS module / M.2 M Key 2230 NVMe SSD                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Networking    | Wired Connection: 1x Gigabit Ethernet port (PoE support requires an external PoE HAT) <br/> Wireless Connection: Wi-Fi 6, Bluetooth 5.4 (requires external antenna)                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -45,7 +45,7 @@ The Dragon Q6A is equipped with the Qualcomm Q6490 SoC, featuring a “1+3+4” 
 
 | No. | Description             | No. | Description                                                     | No. | Description           |
 | :-: | :---------------------- | :-: | :-------------------------------------------------------------- | :-: | :-------------------- |
-|  1  | Qualcomm Q6490          |  2  | 40-Pin GPIO Header                                              |  3  | M.2 M Key slot        |
+|  1  | Qualcomm QCS6490        |  2  | 40-Pin GPIO Header                                              |  3  | M.2 M Key slot        |
 |  4  | WiFi 6 / BT 5.4         |  5  | Antenna connector                                               |  6  | Power button          |
 |  7  | User LED                |  8  | Power LED                                                       |  9  | Type-C power input    |
 | 10  | Power input header      | 11  | MIPI CSI (4 Lane)                                               | 12  | microSD card slot     |
@@ -75,7 +75,7 @@ Built-in Hexagon DSP + Hexagon Tensor Accelerator, with a combined AI computing 
 
 ## System Platform
 
-Based on Qualcomm Q6490 SoC, supports multiple operating systems:
+Based on Qualcomm QCS6490 SoC, supports multiple operating systems:
 
 - Ubuntu Linux
 - Qualcomm Linux (Based on Yocto development)

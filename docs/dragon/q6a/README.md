@@ -6,9 +6,9 @@ sidebar_position: 2
 
 ## 产品概述
 
-瑞莎 Dragon Q6A 是一款基于高通® Q6490 处理器的高性能、低功耗嵌入式计算平台，专为工业物联网、边缘人工智能和智能终端设计。
+瑞莎 Dragon Q6A 是一款基于高通® QCS6490 处理器的高性能、低功耗嵌入式计算平台，专为工业物联网、边缘人工智能和智能终端设计。
 
-Dragon Q6A 搭载高通 Q6490 SoC，采用 “1+3+4” 三丛集设计（1× Kryo Prime @ 2.7GHz3× Kryo Gold @ 2.4GHz4× Kryo Silver @ 1.9GHz ），兼顾高性能与低功耗；集成 Qualcomm® Adreno 643 GPU 、VPU 以及 AI 加速器，具备先进 AI 加速能力和多媒体处理能力。
+Dragon Q6A 搭载高通 QCS6490 SoC，采用 “1+3+4” 三丛集设计（1× Kryo Prime @ 2.7GHz3× Kryo Gold @ 2.4GHz4× Kryo Silver @ 1.9GHz ），兼顾高性能与低功耗；集成 Qualcomm® Adreno 643 GPU 、VPU 以及 AI 加速器，具备先进 AI 加速能力和多媒体处理能力。
 
 ## 产品外观
 
@@ -24,7 +24,7 @@ Dragon Q6A 搭载高通 Q6490 SoC，采用 “1+3+4” 三丛集设计（1× Kry
 
 | 类别     | 规格描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 核心平台 | 系统级芯片（SoC）：Qualcomm Q6490 <br/> 中央处理器（CPU）：1x Kryo Gold Plus @2.7GHz + 3x Kryo Gold @2.4GHz + 4x Kryo Silver @1.9GHz <br/> 图形处理器（GPU）：Qualcomm® Adreno 643，支持OpenGL ES 3.2、Vulkan 1.3、OpenCL 2.2、DirectX 12 <br/> AI 加速器（AI Accelerator）：Hexagon DSP + Hexagon Tensor Accelerator，联合AI算力最高可达 12 TOPS <br/> 视频处理单元（VPU）：支持最高4K60帧解码（H.264/H.265/VP9格式）和4K30帧编码（H.264/H.265格式），并具备HDR10/HDR10+播放功能 |
+| 核心平台 | 系统级芯片（SoC）：Qualcomm QCS6490 <br/> 中央处理器（CPU）：1x Kryo Gold Plus @2.7GHz + 3x Kryo Gold @2.4GHz + 4x Kryo Silver @1.9GHz <br/> 图形处理器（GPU）：Qualcomm® Adreno 643，支持OpenGL ES 3.2、Vulkan 1.3、OpenCL 2.2、DirectX 12 <br/> AI 加速器（AI Accelerator）：Hexagon DSP + Hexagon Tensor Accelerator，联合AI算力最高可达 12 TOPS <br/> 视频处理单元（VPU）：支持最高4K60帧解码（H.264/H.265/VP9格式）和4K30帧编码（H.264/H.265格式），并具备HDR10/HDR10+播放功能 |
 | 内存     | LPDDR5，可选：4GB / 6GB / 8GB / 12 GB / 16GB                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | 存储     | 启动存储：板载 32MB QSPI Nor Flash <br/> 拓展存储：支持 microSD 卡 / eMMC 模块 / UFS 模块 / M.2 M Key 2230 NVMe SSD                                                                                                                                                                                                                                                                                                                                                               |
 | 网络     | 有线连接：1 个千兆以太网口（支持 PoE，需外接 PoE HAT）<br/> 无线连接：Wi-Fi 6、蓝牙 5.4，需外接天线                                                                                                                                                                                                                                                                                                                                                                               |
@@ -45,7 +45,7 @@ Dragon Q6A 搭载高通 Q6490 SoC，采用 “1+3+4” 三丛集设计（1× Kry
 
 | 序号 | 说明                   | 序号 | 说明                                                             | 序号 | 说明            |
 | :--: | :--------------------- | :--: | :--------------------------------------------------------------- | :--: | :-------------- |
-|  1   | 高通 Q6490             |  2   | 40-Pin GPIO 接口                                                 |  3   | M.2 M Key 插槽  |
+|  1   | 高通 QCS6490           |  2   | 40-Pin GPIO 接口                                                 |  3   | M.2 M Key 插槽  |
 |  4   | WiFi 6 / BT 5.4        |  5   | 天线接口                                                         |  6   | 电源按键        |
 |  7   | 用户指示灯             |  8   | 电源指示灯                                                       |  9   | Type-C 供电接口 |
 |  10  | 电源输入接口           |  11  | MIPI CSI（4 通道）                                               |  12  | microSD 卡槽    |
@@ -75,7 +75,7 @@ Dragon Q6A 搭载高通 Q6490 SoC，采用 “1+3+4” 三丛集设计（1× Kry
 
 ## 系统平台
 
-基于高通 Q6490 SoC，支持多种操作系统：
+基于高通 QCS6490 SoC，支持多种操作系统：
 
 - Ubuntu Linux
 - Qualcomm Linux（基于 Yocto 开发）
