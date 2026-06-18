@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Product Overview
 
-Radxa Dragon Q8B is a flagship motherboard based on the Qualcomm Snapdragon 8cx Gen 3 compute platform. Built on a 5 nm process, it integrates an 8-core CPU and Qualcomm AI Engine with 29+ TOPS, delivering flagship compute performance with excellent power efficiency.
+Radxa Dragon Q8B is a flagship motherboard based on the Qualcomm Snapdragon 8cx Gen 3 (Qualcomm SC8280XP) compute platform. Built on a 5 nm process, it integrates an 8-core CPU and Qualcomm AI Engine with 29+ TOPS, delivering flagship compute performance with excellent power efficiency.
 
 Designed for edge computing, intelligent terminals, and similar applications, Dragon Q8B provides dual 2.5GbE ports, three 4K120 display outputs, high-speed storage expansion, and rich peripheral interfaces to help products move quickly from prototype to scaled deployment.
 
@@ -24,7 +24,7 @@ Designed for edge computing, intelligent terminals, and similar applications, Dr
 
 | Item                     | Radxa Dragon Q8B                                                                                                                                                                                                                                                                |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SoC                      | Qualcomm Snapdragon 8cx Gen 3                                                                                                                                                                                                                                                   |
+| SoC                      | Qualcomm Snapdragon 8cx Gen 3 (Qualcomm SC8280XP)                                                                                                                                                                                                                              |
 | CPU                      | Qualcomm Kryo™ CPU<br/>- 8-core CPU, 4x Kryo Prime @3.0GHz + 4x Kryo Gold @2.4GHz<br/>- 64-bit CPU architecture                                                                                                                                                                 |
 | GPU                      | Qualcomm Adreno™ GPU<br/>- Supports DirectX<br/>- Supports DirectML                                                                                                                                                                                                             |
 | NPU                      | Qualcomm Hexagon™                                                                                                                                                                                                                                                               |
@@ -52,7 +52,7 @@ Designed for edge computing, intelligent terminals, and similar applications, Dr
 | No. | Description                            | No. | Description                       | No. | Description                      |
 | :-: | :------------------------------------- | :-: | :-------------------------------- | :-: | :------------------------------- |
 |  1  | 40-pin GPIO header                     |  2  | LPDDR4X memory                    |  3  | FPC connector                    |
-|  4  | Qualcomm Snapdragon 8cx Gen 3          |  5  | Microphone connector              |  6  | Power header                     |
+|  4  | Qualcomm Snapdragon 8cx Gen 3 (Qualcomm SC8280XP) |  5  | Microphone connector              |  6  | Power header                     |
 |  7  | 3.5 mm headphone jack                  |  8  | USB Type-C power port (20V)       |  9  | HDMI 2.1 port                    |
 | 10  | USB 2.0 Type-A port                    | 11  | UFS module connector              | 12  | 2x USB-C (DP Alt Mode supported) |
 | 13  | EDL button                             | 14  | Fan connector                     | 15  | M.2 E Key slot                   |
@@ -79,7 +79,7 @@ The built-in Qualcomm® AI Engine provides up to 29+ TOPS of comprehensive AI co
 
 ## System Platform
 
-Based on the Qualcomm Snapdragon® 8cx Gen 3 SoC, Dragon Q8B supports multiple operating systems:
+Based on the Qualcomm Snapdragon® 8cx Gen 3 (Qualcomm SC8280XP) SoC, Dragon Q8B supports multiple operating systems:
 
 - Radxa OS
 - Windows
