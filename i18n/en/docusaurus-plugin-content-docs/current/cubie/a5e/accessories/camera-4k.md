@@ -13,6 +13,17 @@ import Camera4K from '../../../common/accessories/\_camera-4k.mdx';
 
 <Camera4K product='Radxa Cubie A5E' interface='31-Pin 0.3 mm pitch SMD horizontal FPC connector' connect='Flip type, bottom contact' pins='31-Pin' pitch='0.3mm pitch' orientation='opposite side' board='cubie-a5e' enable_camera='Enable Radxa Camera 4K' />
 
+## Install GStreamer
+
+<NewCodeBlock tip='radxa@cubie-a5e$' type="device">
+
+```bash
+sudo apt-get update
+sudo apt-get install -y gstreamer1.0-tools gstreamer1.0-plugins-base-apps
+```
+
+</NewCodeBlock>
+
 ## Preview the camera
 
 Use GStreamer to preview the camera image.

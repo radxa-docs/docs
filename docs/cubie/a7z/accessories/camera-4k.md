@@ -13,6 +13,17 @@ import Camera4K from '../../../common/accessories/\_camera-4k.mdx';
 
 <Camera4K product='瑞莎 Cubie A7Z' interface='31-Pin 0.3 mm 间距 SMD 卧式 FPC 接口' connect='翻盖式，下接触' pins='31-Pin' pitch='0.3mm 间距' orientation='异面' board='cubie-a7z' enable_camera='Enable Radxa Camera 4K'/>
 
+## 安装 GStreamer
+
+<NewCodeBlock tip='radxa@cubie-a7z$' type="device">
+
+```bash
+sudo apt-get update
+sudo apt-get install -y gstreamer1.0-tools gstreamer1.0-plugins-base-apps
+```
+
+</NewCodeBlock>
+
 ## 预览摄像头
 
 使用 GStreamer 预览摄像头画面。
