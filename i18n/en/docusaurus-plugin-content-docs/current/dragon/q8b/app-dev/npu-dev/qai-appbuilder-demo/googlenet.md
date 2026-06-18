@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import GOOGLENETQAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_googlenet_qai-app-builder.mdx';
 
-<GOOGLENETQAIAPPBUILDER tag="q8280"/>
+<GOOGLENETQAIAPPBUILDER tag="sc8280xp"/>

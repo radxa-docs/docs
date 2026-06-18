@@ -17,4 +17,4 @@ When using system image version R2 or higher, the NPU runtime environment is pre
 
 :::
 
-<FASTRPCSETUP tag="q8280" />
+<FASTRPCSETUP tag="sc8280xp" />

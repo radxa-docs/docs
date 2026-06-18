@@ -186,7 +186,7 @@ qairt-quantizer --input_dlc ./resnet50.dlc --input_list ./calib_list.txt  --outp
 | SoC   | dsp_arch | soc_id |
 | ----- | -------- | ------ |
 | QCS6490 | v68      | 35     |
-| Q8280 | v68      | 37     |
+| SC8280XP | v68      | 37     |
 | QCS9075 | v73      | 77     |
 
 - config_backend.json
@@ -227,9 +227,9 @@ qairt-quantizer --input_dlc ./resnet50.dlc --input_list ./calib_list.txt  --outp
 
           </TabItem>
 
-          <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
+          <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
-          请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 Q8280 SoC 为例子
+          请根据 SoC NPU 架构选择相应的 dsp_arch 和 soc_id， 这里以 SC8280XP SoC 为例子
 
           <NewCodeBlock tip="X86 Linux PC" type="PC">
 
@@ -386,7 +386,7 @@ git clone https://github.com/ZIFENG278/resnet50_qairt_example.git
 
         </TabItem>
 
-        <TabItem value="Q8280" default={props.tag === "q8280"} attributes={{className: props.tag !== "q8280" && "tab_none"}}>
+        <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
         <NewCodeBlock tip="X86 Linux PC" type="PC">
         ```bash

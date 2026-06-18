@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import SQUEEZENET11QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_squeezenet1_1_qai-app-builder.mdx';
 
-<SQUEEZENET11QAIAPPBUILDER tag="q8280"/>
+<SQUEEZENET11QAIAPPBUILDER tag="sc8280xp"/>

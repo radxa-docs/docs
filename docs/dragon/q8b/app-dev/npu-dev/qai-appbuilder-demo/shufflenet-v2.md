@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import SHUFFLENETV2QAIAPPBUILDER from '../../../../../common/ai/qualcomm/\_shufflenet_v2_qai-app-builder.mdx';
 
-<SHUFFLENETV2QAIAPPBUILDER tag="q8280"/>
+<SHUFFLENETV2QAIAPPBUILDER tag="sc8280xp"/>
