@@ -31,3 +31,9 @@ Dragon Q8B ships with SPI boot firmware preinstalled. Normally you do not need t
 
 - SPI Boot Firmware (BIOS)
   - [Boot Firmware (BIOS)](https://dl.radxa.com/dragon/q8b/images/)
+
+## Hardware Design
+
+- [Component Placement Diagram V1.30](https://dl.radxa.com/dragon/q8b/hw/radxa_dragon_q8b_components_placement_map_v1.30.pdf)
+
+- [Schematic V1.30](https://dl.radxa.com/dragon/q8b/hw/radxa_dragon_q8b_schematic_v1.30.pdf)
