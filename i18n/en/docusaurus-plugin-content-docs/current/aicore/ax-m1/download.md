@@ -20,3 +20,7 @@ sidebar_position: 15
 
 - [Radxa AICore AX-M1 product brief (English)](https://dl.radxa.com/aicore/ax_m1/radxa_aicore_ax_m1_product_brief_en.pdf)
 - [Radxa AICore AX-M1 product brief (Chinese)](https://dl.radxa.com/aicore/ax_m1/radxa_aicore_ax_m1_product_brief_zh.pdf)
+
+## Hardware design
+
+- [Radxa AICore AX-M1 3D model](https://dl.radxa.com/aicore/ax_m1/radxa_aicore_ax_m1_3d_stp.zip)
