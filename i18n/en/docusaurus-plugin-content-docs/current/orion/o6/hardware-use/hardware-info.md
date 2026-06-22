@@ -31,8 +31,8 @@ sidebar_position: 10
 | 5   | UART Interface                                               | 15  | 2x 5G Ethernet                                                                          | 25  | 40-Pin GPIO Header                                                |
 | 6   | eDP Interface                                                | 16  | DisplayPort                                                                             | 26  | LPDDR5                                                            |
 | 7   | RTC Battery Holder                                           | 17  | HDMI Port                                                                               | 27  | ATX Power Connector                                               |
-| 8   | PCIe x16 Slot (PCIe Gen x4)                                  | 18  | 2x USB 3.2 Type-A                                                                       | 28  | 2x MIPI CSI 4-lane                                                |
-| 9   | M.2 M Key Slot                                               | 19  | 2x USB 2.0 Type-A                                                                       | 29  | TPM (Unsoldered)                                                  |
+| 8   | PCIe x16 Slot (PCIe Gen x4)                                  | 18  | 2x USB 3.2 Type-A                                                                       | 28  | TPM (Unsoldered)                                                  |
+| 9   | M.2 M Key Slot                                               | 19  | 2x USB 2.0 Type-A                                                                       | 29  | 2x MIPI CSI 4-lane                                                |
 | 10  | M.2 E Key 2230 Slot                                          | 20  | 2x USB Type-C<br/>- 20V Type-C Power Delivery (PD) Supported<br/>- Supports DP Alt Mode |     |                                                                   |
 
 ### Power Button

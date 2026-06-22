@@ -31,8 +31,8 @@ sidebar_position: 10
 | 5    | UART 接口                                                 | 15   | 2x 5G 以太网                                                             | 25   | 40-Pin GPIO 排针                         |
 | 6    | eDP 接口                                                  | 16   | DP 接口                                                                  | 26   | LPDDR5                                   |
 | 7    | RTC 电池座                                                | 17   | HDMI 接口                                                                | 27   | ATX 电源接口                             |
-| 8    | PCIe x16 插槽（PCIe Gen x4）                              | 18   | 2x USB 3.2 Type-A                                                        | 28   | 2x MIPI CSI 4-lane                       |
-| 9    | M.2 M Key 插槽                                            | 19   | 2x USB 2.0 Type-A                                                        | 29   | TPM (Unsoldered)                         |
+| 8    | PCIe x16 插槽（PCIe Gen x4）                              | 18   | 2x USB 3.2 Type-A                                                        | 28   | TPM (Unsoldered)                         |
+| 9    | M.2 M Key 插槽                                            | 19   | 2x USB 2.0 Type-A                                                        | 29   | 2x MIPI CSI 4-lane                       |
 | 10   | M.2 E Key 2230 插槽                                       | 20   | 2x USB Type-C<br/>- 20V Type-C 供电，支持 PD 协议<br/>- 支持 DP 视频输出 |      |                                          |
 
 ### 电源按键
