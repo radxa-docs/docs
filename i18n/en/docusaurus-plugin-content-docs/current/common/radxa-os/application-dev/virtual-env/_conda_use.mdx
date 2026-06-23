@@ -6,7 +6,7 @@ This section introduces some commonly used Conda commands.
 
 Open the terminal and use the `conda --help` command to view the usage of all Conda commands.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda --help
@@ -78,7 +78,7 @@ update (upgrade) Update conda packages to the latest compatible version.
 
 Open the terminal and use the `conda --version` command to check the Conda version.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda --version
@@ -96,7 +96,7 @@ conda 24.9.2
 
 Open the terminal and use the `conda info` command to view the current environment information.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda info
@@ -147,7 +147,7 @@ offline mode : False
 
 Open the terminal and use the `conda env list` command to view all environments.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda env list
@@ -169,7 +169,7 @@ base * /home/radxa/anaconda3
 
 ### Create a New Environment
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda create --name <env_name>
@@ -222,7 +222,7 @@ Executing transaction: done
 
 ### Create an Environment with a Specific Python Version
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda create --name <env_name> python=<python_version>
@@ -340,7 +340,7 @@ Executing transaction: done
 
 ## Activate Environment
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda activate <env_name>
@@ -356,7 +356,7 @@ After activating the environment, the terminal prompt will change to indicate th
 
 ## Deactivate Environment
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda deactivate
@@ -366,7 +366,7 @@ conda deactivate
 
 ## Delete Environment
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda remove --name <env_name> --all

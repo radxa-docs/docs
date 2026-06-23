@@ -37,7 +37,7 @@ Visit the [Anaconda Official Website](https://www.anaconda.com/) to download the
 
 After downloading, navigate to the download directory, open a terminal, and run the installation script. Replace the script name with the actual downloaded file name.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 bash Anaconda3-<version>-Linux-aarch64.sh
@@ -77,7 +77,7 @@ The `base` environment is Conda's default environment, which includes some commo
 
 Open the terminal and use the `conda --version` command to check the Conda version:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda --version
@@ -95,7 +95,7 @@ conda 24.9.2
 
 To exit the Conda environment, use the `conda deactivate` command.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda deactivate
@@ -111,7 +111,7 @@ Modify Conda's configuration to add Tsinghua University's mirror source for fast
 
 ### Generate Configuration File
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda config --set show_channel_urls yes
@@ -121,7 +121,7 @@ conda config --set show_channel_urls yes
 
 ### Edit Configuration File
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 vi ~/.condarc
@@ -131,7 +131,7 @@ vi ~/.condarc
 
 Add the following content to the configuration file:
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 channels:
@@ -153,7 +153,7 @@ channels:
 
 Use the `conda clean` command to clear the cache and temporary files.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda clean -i
@@ -165,7 +165,7 @@ conda clean -i
 
 Open the terminal and use the `conda config --show-sources` command to view all loaded configuration files and their priority order.
 
-<NewCodeBlock tip="radxa@device$" type="device">
+<NewCodeBlock tip={`radxa@${props?.board ?? 'device'}$`} type="device">
 
 ```bash
 conda config --show-sources
