@@ -118,6 +118,19 @@ After Windows installation, the system still lacks specific drivers (network, GP
 
 At this point, most hardware including networking, GPU, multimedia and audio should work properly under Windows.
 
+### 3.4 Wi-Fi and Bluetooth Driver
+
+The default Dragon Q6A driver package does not include Wi-Fi and Bluetooth drivers. To use Wi-Fi and Bluetooth on Windows, follow the steps below.
+
+1. Download the driver package [aicwlan_arm64_0935761.zip]([https://github.com/worproject/dldserv-mirror/releases/download/13%2F02%2F2024/aicwlan_arm64_0935761.zip](https://github.com/worproject/dldserv-mirror/releases/download/13%2F02%2F2024/aicwlan_arm64_0935761.zip))
+2. Extract the downloaded archive, right-click `aicwlan.inf` in the extracted folder, and select **Install** to install the driver.
+3. Check that Wi-Fi and Bluetooth work as expected.
+
+:::tip
+This driver is a **test-signed build** maintained by the community (Mario in [worproject/dldserv-mirror]([https://github.com/worproject/dldserv-mirror](https://github.com/worproject/dldserv-mirror))). It currently covers most client-mode Wi-Fi functionality. If you encounter connectivity, throughput, or stability issues, please report back in the original forum thread:
+- [Wi-Fi + BT support for Windows on Q6A - Radxa Community]([https://forum.radxa.com/t/wi-fi-bt-support-for-windows-on-arm-on-q6a/31091](https://forum.radxa.com/t/wi-fi-bt-support-for-windows-on-arm-on-q6a/31091))
+:::
+
 ## 4. Next Steps
 
 - Use Windows Update to check for and install the latest system updates;
