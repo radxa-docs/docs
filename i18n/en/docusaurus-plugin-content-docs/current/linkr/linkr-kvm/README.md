@@ -2,6 +2,6 @@
 sidebar_position: 2
 ---
 
-# Linkr KVM
+# Radxa Linkr
 
 <DocCardList />

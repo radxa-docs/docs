@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Access Tokens
 
-Linkr KVM provides the **Access Token** feature for programmatically accessing some of the KVM's capabilities through the API without a web login session. It is suitable for automation scripts, monitoring integration, third-party tool calls, and similar scenarios.
+Radxa Linkr provides the **Access Token** feature for programmatically accessing some of Linkr's capabilities through the API without a web login session. It is suitable for automation scripts, monitoring integration, third-party tool calls, and similar scenarios.
 
 An access token is the equivalent of an API key. Once created, it can be used to call the device's public API endpoints.
 
@@ -13,15 +13,15 @@ An access token is the equivalent of an API key. Once created, it can be used to
 | Capability | Description |
 | --- | --- |
 | Web UI management | Create, view name, and delete access tokens in System Settings |
-| Password verification | The KVM login password is required when generating a new token to prevent unauthorized creation |
+| Password verification | The Linkr login password is required when generating a new token to prevent unauthorized creation |
 | One-time display | The plaintext token is only shown once at creation; it cannot be viewed again after the dialog is closed |
 | Persistent storage | Tokens are saved in the device's local configuration, remain valid after restart, and stay active until manually deleted |
 
 ## Applicable Scenarios
 
-- **Remote screenshots**: Periodically capture the KVM's current screen snapshot for monitoring or inspection
+- **Remote screenshots**: Periodically capture Linkr's current screen snapshot for monitoring or inspection
 - **Remote control**: Send control commands (keyboard, mouse, etc.) through the API
-- **Automation integration**: Integrate the KVM into CI/CD, operations platforms, or custom scripts
+- **Automation integration**: Integrate Linkr into CI/CD, operations platforms, or custom scripts
 
 :::caution Security Notice
 Access tokens have API access permissions comparable to the creator. Please keep them safe; do not commit them to public code repositories or share them with untrusted parties. If a token is leaked, delete it in the management interface and generate a new one immediately.
@@ -31,7 +31,7 @@ Access tokens have API access permissions comparable to the creator. Please keep
 
 ### 1. Go to System Settings
 
-1. Open the KVM management web interface and log in.
+1. Open the Linkr management web interface and log in.
 2. Click **System Settings** (the settings icon) in the left sidebar.
 3. Find the **Access Tokens** collapsible panel.
 
@@ -43,7 +43,7 @@ Access tokens have API access permissions comparable to the creator. Please keep
    - Must start with a letter or digit, and cannot start or end with `-`
    - Up to 20 characters
    - Examples: `monitor-script`, `ci-deploy-01`
-3. Fill in the **User Password** (required): Enter the current KVM management account's login password for identity verification.
+3. Fill in the **User Password** (required): Enter the current Linkr management account's login password for identity verification.
 4. Click the green **Generate** button.
 
 ### 3. Save the Token
@@ -82,7 +82,7 @@ curl -H "Authorization: token radxa_linkr_xxxxxxxx" \
   --output snapshot.jpg
 ```
 
-Replace `<kvm-ip>` with the KVM's actual IP address or domain name (a LAN IP, Tailscale IP, etc. are all fine).
+Replace `<linkr-ip>` with Linkr's actual IP address or domain name (a LAN IP, Tailscale IP, etc. are all fine).
 
 ### Available Public APIs
 
@@ -113,7 +113,7 @@ curl -X POST \
   "https://192.168.1.100/api/public/control"
 ```
 
-The format of the control data depends on the KVM control protocol. Refer to the API documentation or the integration SDK for the specific fields.
+The format of the control data depends on the Linkr control protocol. Refer to the API documentation or the integration SDK for the specific fields.
 
 ### Authentication Failure
 
@@ -122,7 +122,7 @@ If the response is `403 No Permission`, please check:
 - The `Authorization` header is in the format `token <token>` (note there is a single space between `token` and the token)
 - The token is complete and not truncated
 - The token has not been deleted
-- The KVM device's IP address or network is reachable
+- The Linkr device's IP address or network is reachable
 
 ## Token Format
 
@@ -137,7 +137,7 @@ The name of each token must be unique on the device. You cannot create two token
 1. **Principle of least privilege**: Create tokens with different names for different purposes so they can be revoked individually.
 2. **Rotate regularly**: Periodically delete old tokens and generate new ones, especially after personnel changes or script migrations.
 3. **Secure storage**: Use environment variables or secrets management tools to store tokens. Do not hardcode them in source code.
-4. **HTTPS access**: In production, access the KVM API over HTTPS to prevent tokens from being intercepted in transit.
+4. **HTTPS access**: In production, access the Linkr API over HTTPS to prevent tokens from being intercepted in transit.
 5. **Revoke promptly**: If a token is leaked or no longer used, delete it in System Settings immediately.
 
 ## FAQ
@@ -152,7 +152,7 @@ The secret name does not follow the rules. Please make sure that:
 
 ### "Wrong Password" Message
 
-The user password entered when generating the token is not the KVM login password. Use the correct password of the current management account.
+The user password entered when generating the token is not the Linkr login password. Use the correct password of the current management account.
 
 ### "Name Already Exists" Message
 
