@@ -227,9 +227,9 @@
     "message": "Single Board Computers",
     "description": "Navbar item with label 主板"
   },
-  "item.label.远程控制工具": {
-    "message": "Linkr KVM",
-    "description": "Navbar item with label 远程控制工具"
+  "item.label.灵控": {
+    "message": "Linkr",
+    "description": "Navbar item with label 灵控"
   },
   "logo.alt": {
     "message": "Radxa",
