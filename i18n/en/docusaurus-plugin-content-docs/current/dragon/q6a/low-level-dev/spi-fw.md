@@ -119,10 +119,11 @@ Erasing the SPI boot firmware will prevent the device from booting. You will nee
     <NewCodeBlock tip="Windows$" type="host">
 
     ```text
-    .\edl-ng.exe --memory spinor erase-part ddr -l C:\path\to\prog_firehose_ddr.elf
-    .\edl-ng.exe --memory spinor erase-part uefi  -l C:\path\to\prog_firehose_ddr.elf
-    .\edl-ng.exe --memory spinor erase-part devcfg  -l C:\path\to\prog_firehose_ddr.elf
-    .\edl-ng.exe --memory spinor erase-part xbl  -l C:\path\to\prog_firehose_ddr.elf
+    .\edl-ng.exe --memory spinor -l prog_firehose_ddr.elf erase-part ddr
+    .\edl-ng.exe --memory spinor -l prog_firehose_ddr.elf erase-part uefi
+    .\edl-ng.exe --memory spinor -l prog_firehose_ddr.elf erase-part devcfg
+    .\edl-ng.exe --memory spinor -l prog_firehose_ddr.elf erase-part xbl
+    .\edl-ng.exe --memory spinor -l prog_firehose_ddr.elf erase-part VarStore
     ```
 
     </NewCodeBlock>
@@ -189,10 +190,11 @@ Erasing the SPI boot firmware will prevent the device from booting. You will nee
     <NewCodeBlock tip="Linux$" type="host">
 
     ```bash
-    sudo edl-ng --memory spinor erase-part ddr -l prog_firehose_ddr.elf
-    sudo edl-ng --memory spinor erase-part uefi  -l prog_firehose_ddr.elf
-    sudo edl-ng --memory spinor erase-part devcfg  -l prog_firehose_ddr.elf
-    sudo edl-ng --memory spinor erase-part xbl  -l prog_firehose_ddr.elf
+    sudo edl-ng --memory spinor -l prog_firehose_ddr.elf erase-part ddr
+    sudo edl-ng --memory spinor -l prog_firehose_ddr.elf erase-part uefi
+    sudo edl-ng --memory spinor -l prog_firehose_ddr.elf erase-part devcfg
+    sudo edl-ng --memory spinor -l prog_firehose_ddr.elf erase-part xbl
+    sudo edl-ng --memory spinor -l prog_firehose_ddr.elf erase-part VarStore
     ```
 
     </NewCodeBlock>
