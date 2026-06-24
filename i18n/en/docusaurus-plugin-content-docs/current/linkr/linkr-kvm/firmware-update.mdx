@@ -6,7 +6,7 @@ title: Firmware Update
 
 # Firmware Update
 
-Linkr KVM supports **local upgrade** by uploading a firmware package through the web management interface, which is used to obtain new features, bug fixes, and security updates. The firmware file is downloaded from GitHub Releases, and the device automatically verifies, decrypts, and installs it after upload.
+Radxa Linkr supports **local upgrade** by uploading a firmware package through the web management interface, which is used to obtain new features, bug fixes, and security updates. The firmware file is downloaded from GitHub Releases, and the device automatically verifies, decrypts, and installs it after upload.
 
 :::info Current Version
 Firmware download page: [https://github.com/radxa-linkr/linkr/releases](https://github.com/radxa-linkr/linkr/releases)
@@ -18,7 +18,7 @@ Latest release example: `linkr-ota-1.0.1.bin` (the version number in the file na
 
 1. **Check the current version**: In **About → Device Information**, view the "Current Firmware Version" and compare it with the version to be installed to make sure it is a higher version.
 2. **Download the firmware package**: Visit [GitHub Releases](https://github.com/radxa-linkr/linkr/releases), and download the `linkr-ota-<version>.bin` file from the **Assets** section of the corresponding version to your local computer.
-3. **Keep the network stable**: Please keep the connection between the browser and the KVM during the upgrade process; do not close the page or disconnect the network.
+3. **Keep the network stable**: Please keep the connection between the browser and Linkr during the upgrade process; do not close the page or disconnect the network.
 4. **Reserve storage space**: The firmware package is about 50-60 MB, and the device needs to have enough free space. If space is insufficient, the message "Insufficient storage space" will be displayed.
 5. **Avoid interruption**: During the upgrade, the device's system indicator LED is **flashing white** (see [Product Overview](./product-introduction)). Do not power off or unplug cables.
 
@@ -26,7 +26,7 @@ Latest release example: `linkr-ota-1.0.1.bin` (the version number in the file na
 
 ### 1. Go to System Update
 
-1. Open the KVM management web interface and log in.
+1. Open the Linkr management web interface and log in.
 2. Click **System Settings** (the settings icon) in the left sidebar.
 3. Find the **System Update** row, and click the **Update** button on the right.
 
@@ -52,7 +52,7 @@ The upgrade is divided into the following stages:
 
 | Stage | UI Message | Description |
 | --- | --- | --- |
-| Uploading | Uploading... | The firmware file is transferred from the browser to the KVM device |
+| Uploading | Uploading... | The firmware file is transferred from the browser to the Linkr device |
 | Upgrading | Upgrading... | The device verifies the signature, decrypts, and writes the firmware |
 | Complete | Upgraded, please restart the device | The installation is complete; takes effect after restart |
 
@@ -67,7 +67,7 @@ When the progress reaches 100% and the message **Upgraded, please restart the de
 3. In **About → Device Information**, confirm that the firmware version has been updated.
 
 :::caution Note
-A restart will briefly interrupt the KVM service and remote connection. Please perform the upgrade in an appropriate time window, and make sure that the target host will not be affected by the KVM restart.
+A restart will briefly interrupt the Linkr service and remote connection. Please perform the upgrade in an appropriate time window, and make sure that the target host will not be affected by the Linkr restart.
 :::
 
 ## Download the Firmware
@@ -130,7 +130,7 @@ The firmware package needs to be written to the device's local storage. Please d
 ### Upload or Upgrade Failed
 
 - Confirm that the downloaded `linkr-ota-*.bin` file is complete and not corrupted. Try downloading it again.
-- Check whether the network connection between the browser and the KVM is stable.
+- Check whether the network connection between the browser and Linkr is stable.
 - Refresh the page and re-upload. Avoid running multiple upgrade tasks at the same time.
 - After an upgrade failure, the device usually still runs the original firmware. If there is an abnormality, you can long-press the FN key for 10 seconds to restore factory settings (this will clear all configuration).
 
