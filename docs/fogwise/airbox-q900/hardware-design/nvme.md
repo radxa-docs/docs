@@ -61,7 +61,7 @@ sudo dd if=source_file/device of=target_file/device bs=block_size count=block_nu
 
 <details>
   <summary>演示示例：NVMe</summary>
-
+  <p>
 - 写入测试
 
 使用 `dd` 命令向 NVMe 设备写入 1G 的数据。
@@ -90,4 +90,5 @@ sudo dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1024
 
 读取完成后，终端会显示读取的字节数、耗时以及传输速率。
 
+ </p>
 </details>

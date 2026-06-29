@@ -17,7 +17,7 @@ jobs:
         stage: ["commit", "push"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Agent doc lint (changed files)
@@ -131,7 +131,7 @@ jobs:
         stage: ["manual"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: pre-commit check-external-links
@@ -187,18 +187,17 @@ jobs:
           fi
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
     if: github.event_name != 'pull_request'
     permissions:
       contents: read
     steps:
       - name: Checkout template
-        uses: actions/checkout@v7
+        uses: actions/checkout@v6
         with:
           token: "${{ secrets.PRIVATE_REPO_TOKEN }}"
           repository: "radxa-docs/docs-template"
       - name: Checkout contents
-        uses: actions/checkout@v7
+        uses: actions/checkout@v6
         with:
           path: "contents"
       - name: Install dependencies
@@ -216,33 +215,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
       - name: Build
-        shell: bash
-        env:
-          DOCUSAURUS_IGNORE_SSG_WARNINGS: true
-          DOCUSAURUS_PERF_LOGGER: true
-          DOCUSAURUS_SSG_WORKER_THREAD_COUNT: 1
         run: |
-          set -euo pipefail
-          export NODE_OPTIONS="--max-old-space-size=6144"
-
-          (
-            while true
-            do
-              sleep 60
-              echo "[heartbeat] Still building at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-            done
-          ) &
-          heartbeat_pid="$!"
-
-          set +e
+          export NODE_OPTIONS="--max-old-space-size=8192"
           yarn build
-          status="$?"
-          set -e
-
-          kill "${heartbeat_pid}" 2>/dev/null || true
-          wait "${heartbeat_pid}" 2>/dev/null || true
-
-          exit "${status}"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
