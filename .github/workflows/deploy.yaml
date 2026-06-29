@@ -216,31 +216,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
       - name: Build
-        shell: bash
-        env:
-          DOCUSAURUS_IGNORE_SSG_WARNINGS: true
         run: |
-          set -euo pipefail
           export NODE_OPTIONS="--max-old-space-size=8192"
-
-          (
-            while true
-            do
-              sleep 60
-              echo "[heartbeat] Still building at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-            done
-          ) &
-          heartbeat_pid="$!"
-
-          set +e
           yarn build
-          status="$?"
-          set -e
-
-          kill "${heartbeat_pid}" 2>/dev/null || true
-          wait "${heartbeat_pid}" 2>/dev/null || true
-
-          exit "${status}"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
