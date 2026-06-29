@@ -6,7 +6,7 @@ sidebar_position: 7
 
 ## AI Agent Interface
 
-By calling the HTTP interfaces provided by Radxa Linkr (including screenshots, keyboard, and mouse control), you can remotely automate operations on the target machine.
+By calling the HTTP interfaces provided by Linkr (including screenshots, keyboard, and mouse control), you can remotely automate operations on the target machine.
 
 **Refer to the "How to generate an API Token" section in the user guide to obtain an API Token.**
 
@@ -205,12 +205,12 @@ Only the following ASCII characters are supported:
 
 **Parameter description:**
 
-- Index 0: The fixed string `"delay"`, indicating a pause to ensure that Linkr completes the previous operation. For example, used to ensure that a long text input completes.
+- Index 0: The fixed string `"delay"`, indicating a pause to ensure that the IPKVM completes the previous operation. For example, used to ensure that a long text input completes.
 
 - Index 1: Field type: Number. The duration of the pause, in milliseconds.
 
 **Note:**
-A delay event is usually required after a text input event to ensure that Linkr has enough time to fully process long text input. If Linkr needs a longer time to perform the operation, multiple delay events may be required. As a general rule, when the input text length is 30, a delay of 1000 milliseconds is needed.
+A delay event is usually required after a text input event to ensure that the IPKVM has enough time to fully process long text input. If the IPKVM needs a longer time to perform the operation, multiple delay events may be required. As a general rule, when the input text length is 30, a delay of 1000 milliseconds is needed.
 
 **Example:**
 

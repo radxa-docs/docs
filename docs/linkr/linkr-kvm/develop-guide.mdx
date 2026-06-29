@@ -6,7 +6,7 @@ sidebar_position: 7
 
 ## AI Agent 接口
 
-通过调用 Radxa Linkr 提供的 HTTP 接口（包括屏幕截图、键盘与鼠标控制），来实现对被控机的远程自动化操作。
+通过调用 Linkr 提供的 HTTP 接口（包括屏幕截图、键盘与鼠标控制），来实现对被控机的远程自动化操作。
 
 **API Token获取参考使用指南中如何生成API Token章节。**
 
@@ -26,7 +26,7 @@ sidebar_position: 7
 curl -X GET http://192.168.2.224:80/api/public/snapshot -H "Authorization: token {{your API Token}}" -o screen.jpeg
 ```
 
-### 控制接口 
+### 控制接口
 
 - **URL**: `http://{linkr_ip}/api/``public/``control`
 
@@ -64,11 +64,9 @@ curl -X POST http://192.168.2.224:80/api/public/control \
 }
 ```
 
+## 控制接口参数详解
 
-
-## 控制接口参数详解 
-
-### 键盘事件 \(Keyboard\) 
+### 键盘事件 \(Keyboard\)
 
 ```Plain Text
 ["keyboard", keyCode, isPressed]
@@ -118,7 +116,7 @@ curl -X POST http://192.168.2.224:80/api/public/control \
 
 ```
 
-### 绝对坐标鼠标事件 \(mouse\_abs\) 
+### 绝对坐标鼠标事件 \(mouse_abs\)
 
 ```Plain Text
 ["mouse_abs",0,0.1,0.1,0,0],
@@ -147,7 +145,7 @@ curl -X POST http://192.168.2.224:80/api/public/control \
 ["mouse_abs",0,0.5,0.5,20,10],    // 移动鼠标到屏幕中心，同时鼠标垂直滚轮向下滚动20个像素，水平滚轮向右滚动10个像素。
 ```
 
-### 相对坐标鼠标事件 \(mouse\_rel\) 
+### 相对坐标鼠标事件 \(mouse_rel\)
 
 ```Plain Text
 ["mouse_rel",0,100,100,0,0],
@@ -176,9 +174,7 @@ curl -X POST http://192.168.2.224:80/api/public/control \
 ["mouse_abs",0,10,10,20,10],      // 从鼠标当前位置，向右和向下各平移 10 像素，同时鼠标垂直滚轮向下滚动20个像素，水平滚轮向右滚动10个像素。
 ```
 
-
-
-### 文本事件 \(text\) 
+### 文本事件 \(text\)
 
 ```Plain Text
 ["text", "text_to_type"]
@@ -202,7 +198,7 @@ curl -X POST http://192.168.2.224:80/api/public/control \
 ["text", "https://www.baidu.com"] //在当前光标位置输入 https://www.baidu.com
 ```
 
-### 暂停事件 \(delay\) 
+### 暂停事件 \(delay\)
 
 ```Plain Text
 ["delay", milliseconds]
@@ -210,12 +206,12 @@ curl -X POST http://192.168.2.224:80/api/public/control \
 
 **参数说明**:
 
-- 索引 0: 固定字符串 `"delay"`，表示暂停，确保灵控完成上一个操作。例如：用来确保长文本输入完整。
+- 索引 0: 固定字符串 `"delay"`，表示暂停，确保IPKVM完成上一个操作。例如：用来确保长文本输入完整。
 
 - 索引 1: 字段类型：Number。表示是暂停时长，单位：毫秒。
 
-**注意**: 
-在文本输入事件后通常需要添加暂停事件，确保灵控有足够时间处理输入完整的长文本，如果灵控需要较长时间操作，则需要多次发送暂停事件。一般地输入文本长度为30时，就需要暂停1000毫秒。
+**注意**:
+在文本输入事件后通常需要添加暂停事件，确保 IPKVM 有足够时间处理输入完整的长文本，如果IPKVM需要较长时间操作，则需要多次发送暂停事件。一般地输入文本长度为30时，就需要暂停1000毫秒。
 
 **示例**:
 
@@ -223,4 +219,3 @@ curl -X POST http://192.168.2.224:80/api/public/control \
 ["text", "https://www.baidu.com"] //在当前光标位置输入 https://www.baidu.com
 ["delay", 1000]                   // 暂停 1000 毫秒，确保上面长文本输出完整
 ```
-

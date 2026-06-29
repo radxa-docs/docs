@@ -4,30 +4,30 @@ sidebar_position: 1
 
 # Tailscale 远程访问
 
-瑞莎灵控（Radxa Linkr）内置了 [Tailscale](https://tailscale.com/) 客户端，可将设备加入你的 Tailscale 虚拟专用网络（VPN），在任意地点通过加密隧道安全访问灵控管理界面，无需公网 IP 或手动配置端口转发。
+Linkr KVM 内置了 [Tailscale](https://tailscale.com/) 客户端，可将设备加入你的 Tailscale 虚拟专用网络（VPN），在任意地点通过加密隧道安全访问 KVM 管理界面，无需公网 IP 或手动配置端口转发。
 
 Tailscale 基于 WireGuard 协议，由 Tailscale 协调服务器负责节点发现与密钥交换，设备之间建立点对点加密连接。
 
 ## 功能概述
 
-| 能力 | 说明 |
-| --- | --- |
-| 内置客户端 | 固件预装 `tailscale` / `tailscaled` 二进制，无需额外安装 |
-| Web 界面管理 | 在灵控管理界面中启用、登录、解绑 Tailscale 账号 |
-| 开机自启 | 启用后配置持久保存，设备重启后自动启动 `tailscaled` |
-| 安全组网 | 流量经 WireGuard 加密，仅同一 Tailnet 内的设备可互通 |
+| 能力         | 说明                                                     |
+| ------------ | -------------------------------------------------------- |
+| 内置客户端   | 固件预装 `tailscale` / `tailscaled` 二进制，无需额外安装 |
+| Web 界面管理 | 在 KVM 管理界面中启用、登录、解绑 Tailscale 账号         |
+| 开机自启     | 启用后配置持久保存，设备重启后自动启动 `tailscaled`      |
+| 安全组网     | 流量经 WireGuard 加密，仅同一 Tailnet 内的设备可互通     |
 
 ## 使用前准备
 
 1. **Tailscale 账号**：在 [tailscale.com](https://tailscale.com/) 注册个人或团队账号（免费套餐即可满足个人使用）。
-2. **网络连接**：灵控设备需能访问互联网（RJ45有线或Wi-Fi均可），以便与 Tailscale 协调服务器通信。
+2. **网络连接**：KVM 设备需能访问互联网（RJ45有线或Wi-Fi均可），以便与 Tailscale 协调服务器通信。
 3. **浏览器**：绑定账号时需在浏览器中完成 Tailscale 授权，请确保管理端浏览器允许弹出窗口。
 
 ## 操作步骤
 
 ### 1. 进入设置页面
 
-1. 打开灵控管理 Web 界面并登录。
+1. 打开 KVM 管理 Web 界面并登录。
 2. 在左侧边栏进入 **系统** → **高级设置**。
 3. 找到 **Tailscale** 配置项。
 
@@ -53,25 +53,24 @@ Tailscale 基于 WireGuard 协议，由 Tailscale 协调服务器负责节点发
 
 ![img](/img/linkr/tailscale-3.png)
 
-
-### 4. 通过 Tailscale 访问灵控
+### 4. 通过 Tailscale 访问 KVM
 
 绑定成功后，可在 [Tailscale 管理后台](https://login.tailscale.com/admin/machines) 查看设备分配的 Tailscale IP（通常为 `100.x.x.x` 网段）。
 
-在同一 Tailnet 内的任意设备上，使用以下地址访问灵控：
+在同一 Tailnet 内的任意设备上，使用以下地址访问 KVM：
 
-```
+```text
 https://<设备 Tailscale IP>
 ```
 
 也可使用 Tailscale MagicDNS 主机名（若已在 Tailnet 中启用）：
 
-```
+```text
 https://<设备主机名>.<你的-tailnet>.ts.net
 ```
 
 :::tip 提示
-通过 Tailscale 访问时，仍需使用灵控的本地登录凭据（用户名与密码），Tailscale 仅提供网络层连通性，不替代灵控的身份认证。
+通过 Tailscale 访问时，仍需使用 KVM 的本地登录凭据（用户名与密码），Tailscale 仅提供网络层连通性，不替代 KVM 的身份认证。
 :::
 
 ### 5. 解绑账号
@@ -84,12 +83,12 @@ https://<设备主机名>.<你的-tailnet>.ts.net
 
 ## 界面状态说明
 
-| 状态 | 含义 |
-| --- | --- |
-| 开关关闭 | Tailscale 功能未启用，`tailscaled` 未运行 |
-| 开关开启，未绑定 | 服务已启动，等待绑定 Tailscale 账号 |
+| 状态             | 含义                                             |
+| ---------------- | ------------------------------------------------ |
+| 开关关闭         | Tailscale 功能未启用，`tailscaled` 未运行        |
+| 开关开启，未绑定 | 服务已启动，等待绑定 Tailscale 账号              |
 | 开关开启，已绑定 | 设备已加入 Tailnet，可通过 Tailscale IP 远程访问 |
-| 版本号 | 显示当前固件内置的 Tailscale 客户端版本 |
+| 版本号           | 显示当前固件内置的 Tailscale 客户端版本          |
 
 ## 技术说明
 
@@ -99,13 +98,13 @@ Tailscale 客户端以内置二进制形式打包进固件：
 
 ### 与本地访问的关系
 
-启用 Tailscale 不会影响灵控的本地网络访问方式。设备仍可通过局域网 IP、Wi-Fi 或 USB 网络等方式访问，Tailscale 作为额外的远程访问通道叠加使用。
+启用 Tailscale 不会影响 KVM 的本地网络访问方式。设备仍可通过局域网 IP、Wi-Fi 或 USB 网络等方式访问，Tailscale 作为额外的远程访问通道叠加使用。
 
 ## 常见问题
 
 ### 绑定失败或长时间无响应
 
-- 确认灵控设备已连接互联网。
+- 确认 KVM 设备已连接互联网。
 - 检查浏览器是否拦截了弹出窗口。
 - 确认 Tailscale 协调服务器（`controlplane.tailscale.com`）未被防火墙阻断。
 - 尝试关闭后重新启用 Tailscale，再次绑定。
@@ -113,7 +112,7 @@ Tailscale 客户端以内置二进制形式打包进固件：
 ### 启用后无法通过 Tailscale IP 访问
 
 - 在 Tailscale 管理后台确认设备在线（Online）。
-- 确认访问端与灵控在同一 Tailnet 内。
+- 确认访问端与 KVM 在同一 Tailnet 内。
 - 检查访问端 Tailscale 客户端是否已连接。
 - 确认使用的是 `https://` 协议及正确的 Tailscale IP。
 

@@ -2,6 +2,6 @@
 sidebar_position: 2
 ---
 
-# 瑞莎灵控
+# Linkr KVM
 
 <DocCardList />
