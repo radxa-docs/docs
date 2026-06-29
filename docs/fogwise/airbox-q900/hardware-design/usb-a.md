@@ -33,7 +33,7 @@ lsusb
 
 <details>
   <summary>演示示例：U 盘</summary>
-  <p>
+
 - 未接 U 盘
 
 使用 `lsusb` 命令查看当前系统的 USB 设备信息。
@@ -81,7 +81,6 @@ Bus 005 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
 其中 `Bus 002 Device 002: ID 3535:6300 aigo U330` 就是 U 盘的设备信息。
 
-  </p>
 </details>
 
 ### 读写测试
@@ -107,7 +106,6 @@ sudo dd if=source_file/device of=target_file/device bs=block_size count=block_nu
 
 <details>
   <summary>演示示例：U 盘</summary>
-  <p>
 
 提前将 U 盘连接到任意 1 个 USB Type-A 接口。
 
@@ -165,5 +163,4 @@ sudo dd if=/dev/sdi of=/dev/null bs=1M count=1024
 
 读取完成后，终端会显示读取的字节数、耗时以及传输速率。
 
- </p>
 </details>
