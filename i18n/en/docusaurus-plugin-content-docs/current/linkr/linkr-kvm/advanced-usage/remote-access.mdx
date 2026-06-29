@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Tailscale Remote Access
 
-Radxa Linkr has a built-in [Tailscale](https://tailscale.com/) client that can join the device to your Tailscale virtual private network (VPN), allowing you to securely access the Linkr management interface from anywhere over an encrypted tunnel, with no public IP or manual port forwarding required.
+Linkr KVM has a built-in [Tailscale](https://tailscale.com/) client that can join the device to your Tailscale virtual private network (VPN), allowing you to securely access the KVM management interface from anywhere over an encrypted tunnel, with no public IP or manual port forwarding required.
 
 Tailscale is based on the WireGuard protocol. The Tailscale coordination server handles node discovery and key exchange, and devices establish point-to-point encrypted connections with each other.
 
@@ -13,21 +13,21 @@ Tailscale is based on the WireGuard protocol. The Tailscale coordination server 
 | Capability | Description |
 | --- | --- |
 | Built-in client | The firmware pre-installs the `tailscale` / `tailscaled` binaries; no extra installation is required |
-| Web UI management | Enable, log in, and unbind the Tailscale account in the Linkr management interface |
+| Web UI management | Enable, log in, and unbind the Tailscale account in the KVM management interface |
 | Auto-start on boot | Once enabled, the configuration persists and `tailscaled` starts automatically after the device reboots |
 | Secure networking | Traffic is encrypted by WireGuard; only devices within the same Tailnet can communicate with each other |
 
 ## Before You Start
 
 1. **Tailscale account**: Register a personal or team account on [tailscale.com](https://tailscale.com/) (the free plan is sufficient for personal use).
-2. **Network connection**: The Linkr device must be able to access the Internet (RJ45 wired or Wi-Fi is fine) in order to communicate with the Tailscale coordination server.
+2. **Network connection**: The KVM device must be able to access the Internet (RJ45 wired or Wi-Fi is fine) in order to communicate with the Tailscale coordination server.
 3. **Browser**: When binding an account, you need to complete Tailscale authorization in a browser. Please make sure the management browser allows pop-ups.
 
 ## Operation Steps
 
 ### 1. Go to the Settings Page
 
-1. Open the Linkr management web interface and log in.
+1. Open the KVM management web interface and log in.
 2. In the left sidebar, go to **System** → **Advanced Settings**.
 3. Find the **Tailscale** option.
 
@@ -53,11 +53,11 @@ If the pop-up is blocked by the browser, please allow pop-ups for the current si
 
 ![img](/img/linkr/tailscale-3.png)
 
-### 4. Access Linkr via Tailscale
+### 4. Access the KVM via Tailscale
 
 After a successful binding, you can view the Tailscale IP assigned to the device (usually in the `100.x.x.x` range) in the [Tailscale admin console](https://login.tailscale.com/admin/machines).
 
-On any device within the same Tailnet, use the following address to access Linkr:
+On any device within the same Tailnet, use the following address to access the KVM:
 
 ```
 https://<device's Tailscale IP>
@@ -70,7 +70,7 @@ https://<device hostname>.<your-tailnet>.ts.net
 ```
 
 :::tip Note
-When accessing through Tailscale, you still need to use Linkr's local login credentials (username and password). Tailscale only provides network-layer connectivity and does not replace Linkr authentication.
+When accessing through Tailscale, you still need to use the KVM's local login credentials (username and password). Tailscale only provides network-layer connectivity and does not replace KVM authentication.
 :::
 
 ### 5. Unbind the Account
@@ -98,13 +98,13 @@ The Tailscale client is packaged into the firmware as built-in binaries:
 
 ### Relationship with Local Access
 
-Enabling Tailscale does not affect Linkr's local network access. The device can still be accessed through the LAN IP, Wi-Fi, or USB network, and Tailscale works as an additional remote access channel on top of these.
+Enabling Tailscale does not affect the KVM's local network access. The device can still be accessed through the LAN IP, Wi-Fi, or USB network, and Tailscale works as an additional remote access channel on top of these.
 
 ## FAQ
 
 ### Binding Fails or Has No Response for a Long Time
 
-- Confirm that the Linkr device is connected to the Internet.
+- Confirm that the KVM device is connected to the Internet.
 - Check whether the browser has blocked pop-ups.
 - Confirm that the Tailscale coordination server (`controlplane.tailscale.com`) is not blocked by a firewall.
 - Try turning Tailscale off and on again, then re-bind.
@@ -112,7 +112,7 @@ Enabling Tailscale does not affect Linkr's local network access. The device can 
 ### Cannot Access via the Tailscale IP After Enabling
 
 - In the Tailscale admin console, confirm the device is online.
-- Confirm that the accessing client and Linkr are in the same Tailnet.
+- Confirm that the accessing client and the KVM are in the same Tailnet.
 - Check that the Tailscale client on the accessing device is connected.
 - Confirm that you are using the `https://` protocol and the correct Tailscale IP.
 
