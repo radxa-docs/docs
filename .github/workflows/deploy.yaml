@@ -219,9 +219,11 @@ jobs:
         shell: bash
         env:
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
+          DOCUSAURUS_PERF_LOGGER: true
+          DOCUSAURUS_SSG_WORKER_THREAD_COUNT: 1
         run: |
           set -euo pipefail
-          export NODE_OPTIONS="--max-old-space-size=8192"
+          export NODE_OPTIONS="--max-old-space-size=6144"
 
           (
             while true
