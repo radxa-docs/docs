@@ -12,12 +12,12 @@ For a more complete interface description, see the [Linkr Web User Guide](./usag
 
 ## What You Need
 
-| Item | Description |
-| --- | --- |
-| Radxa Linkr device | Includes an HDMI cable and a USB Type-C data cable |
-| Target computer | Has an HDMI output and a USB port (used for power and keyboard/mouse) |
-| Management computer / phone | Install Chrome or Edge browser (latest version recommended) |
-| Network | The same LAN, or connect via the device's hotspot first |
+| Item                        | Description                                                           |
+| --------------------------- | --------------------------------------------------------------------- |
+| Radxa Linkr device          | Includes an HDMI cable and a USB Type-C data cable                    |
+| Target computer             | Has an HDMI output and a USB port (used for power and keyboard/mouse) |
+| Management computer / phone | Install Chrome or Edge browser (latest version recommended)           |
+| Network                     | The same LAN, or connect via the device's hotspot first               |
 
 ## Step 1: Connect the Hardware
 
@@ -47,11 +47,11 @@ The OTG port is responsible for both powering Linkr and injecting keyboard/mouse
 
 After powering on, observe the **system status LED next to the FN key**:
 
-| Indicator | Meaning |
-| --- | --- |
-| Flashing blue | Starting up, please wait |
+| Indicator      | Meaning                             |
+| -------------- | ----------------------------------- |
+| Flashing blue  | Starting up, please wait            |
 | **Solid blue** | System is normal, you can access it |
-| Solid green | Someone is remotely using it |
+| Solid green    | Someone is remotely using it        |
 
 You can also observe the **HDMI-side video LED**: it lights up to indicate that a video signal from the target machine has been detected.
 
@@ -74,13 +74,13 @@ We recommend using [linkr.now](https://linkr.now) to discover the device on the 
 
 If linkr.now cannot discover the device, try the following:
 
-| Method | Address | Applicable Scenario |
-| --- | --- | --- |
-| mDNS (LAN) | `https://linkr.local` | The network Type-C is connected to a router, or already connected to the same LAN via Wi-Fi |
-| mDNS (USB direct) | `https://linkr-usb.local` | The network Type-C is directly connected to a management computer, no router required |
-| mDNS (initialized) | `https://linkr-<username>.local` | After the initial configuration is complete, this address can also be used in LAN mode |
-| Device IP | `https://<Linkr's IP address>` | Direct access when the IP is known |
-| Hotspot | Connect to the Wi-Fi `linkr-<device ID>` and then use the address above | Initial configuration when no router network is available |
+| Method             | Address                                                                 | Applicable Scenario                                                                         |
+| ------------------ | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| mDNS (LAN)         | `https://linkr.local`                                                   | The network Type-C is connected to a router, or already connected to the same LAN via Wi-Fi |
+| mDNS (USB direct)  | `https://linkr-usb.local`                                               | The network Type-C is directly connected to a management computer, no router required       |
+| mDNS (initialized) | `https://linkr-<username>.local`                                        | After the initial configuration is complete, this address can also be used in LAN mode      |
+| Device IP          | `https://<Linkr's IP address>`                                          | Direct access when the IP is known                                                          |
+| Hotspot            | Connect to the Wi-Fi `linkr-<device ID>` and then use the address above | Initial configuration when no router network is available                                   |
 
 #### mDNS Domain Name Description
 
@@ -103,11 +103,11 @@ If the page shows "Connection Lost", please check: whether Linkr's blue LED is s
 
 A factory-uninitialized device will enter the **Initial Configuration** page. Please set:
 
-| Item | Required | Description |
-| --- | --- | --- |
-| Username | Required | 1-20 characters, only letters, numbers, `-`; cannot start or end with `-`; cannot be `usb` |
-| Login password | Required | At least 6 characters; the page shows password strength |
-| Device name | Optional | Used to distinguish devices; the page validates domain name uniqueness after entry |
+| Item           | Required | Description                                                                                |
+| -------------- | -------- | ------------------------------------------------------------------------------------------ |
+| Username       | Required | 1-20 characters, only letters, numbers, `-`; cannot start or end with `-`; cannot be `usb` |
+| Login password | Required | At least 6 characters; the page shows password strength                                    |
+| Device name    | Optional | Used to distinguish devices; the page validates domain name uniqueness after entry         |
 
 Submit the form to complete initialization. In LAN mode, the device's mDNS name will become `linkr-<username>.local`; for direct USB connection to a management computer, `linkr-usb.local` is still used.
 
@@ -138,22 +138,22 @@ Quick verification that everything is working:
 2. Click and move on the screen to confirm that the mouse can control the target computer.
 3. Type on the keyboard to confirm that the input takes effect.
 
-For a detailed description of the functions, see the [User Interface Guide](./page-display).
+For a detailed description of the functions, see the [User Interface Guide](./usage).
 
 ## Recommended Initial Settings
 
 After completing the first connection, we recommend configuring the following as needed:
 
-| Setting | Entry | Documentation |
-| --- | --- | --- |
-| Connect to Wi-Fi | Left sidebar → Network Settings | [User Interface Guide](./page-display) |
-| Change device name | System Settings → Device Name | [User Interface Guide](./page-display) |
-| Remote access (external network) | Advanced Settings → Tailscale | [Tailscale Remote Access](./tailscale) |
-| Firmware upgrade | System Settings → System Update | [Firmware Update](./firmware-update) |
+| Setting                          | Entry                           | Documentation                                             |
+| -------------------------------- | ------------------------------- | --------------------------------------------------------- |
+| Connect to Wi-Fi                 | Left sidebar → Network Settings | [User Interface Guide](./usage)                           |
+| Change device name               | System Settings → Device Name   | [User Interface Guide](./usage)                           |
+| Remote access (external network) | Advanced Settings → Tailscale   | [Tailscale Remote Access](./advanced-usage/remote-access) |
+| Firmware upgrade                 | System Settings → System Update | [Firmware Update](./firmware-update)                      |
 
 ## Full Process Overview
 
-```
+```text
 Wiring (HDMI + OTG + Network)
         ↓
 Solid blue system LED + video LED on
@@ -201,10 +201,12 @@ Configure network, Tailscale, firmware, etc. as needed
 - Double-check the username case and the password.
 - If you forgot the password, long-press the FN key for 10 seconds to restore factory settings and reinitialize.
 
-For more questions, see [FAQ](./faq).
+For more questions, see [FAQ](#faq).
 
 ## Next Steps
 
-- [User Interface Guide](./page-display) — Complete interface and feature description
+- [User Interface Guide](./usage) — Complete interface and feature description
 - [Product Overview](./product-introduction) — Interfaces, indicator LEDs, specifications
-- [Feature Details](./feature-details) — Tailscale, WOL, access tokens, and other advanced features
+- [Tailscale Remote Access](./advanced-usage/remote-access) — Secure remote access
+- [Wake on LAN](./advanced-usage/wake-on-lan) — Remotely wake the target host
+- [Access Tokens](./access-token) — API access and automation

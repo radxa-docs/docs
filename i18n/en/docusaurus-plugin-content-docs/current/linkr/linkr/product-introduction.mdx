@@ -22,12 +22,12 @@ Compared with traditional rack-mount remote control appliances or pure-software 
 
 ## Target Users
 
-| User Group | Typical Scenarios |
-| --- | --- |
-| Developers and makers | Remotely debug development boards, install and troubleshoot systems without a display |
-| Home lab users | Manage home NAS, soft routers, and backup PCs without extra monitors or keyboards |
+| User Group                       | Typical Scenarios                                                                          |
+| -------------------------------- | ------------------------------------------------------------------------------------------ |
+| Developers and makers            | Remotely debug development boards, install and troubleshoot systems without a display      |
+| Home lab users                   | Manage home NAS, soft routers, and backup PCs without extra monitors or keyboards          |
 | Operations and technical support | Remotely assist users with computer operations, capture screens, and send control commands |
-| Education and training | Classroom demonstrations, unified remote access and management of lab environments |
+| Education and training           | Classroom demonstrations, unified remote access and management of lab environments         |
 
 ## Core Value
 
@@ -44,13 +44,13 @@ Linkr uses a compact design, with the HDMI port, USB Type-C ports, the FN functi
 
 ## Interfaces and Connections
 
-| Interface | Purpose |
-| --- | --- |
-| HDMI male port | Connects to the target host, captures the video signal |
-| USB Type-C (OTG) | Power supply and data transfer (emulates keyboard, mouse, and other HID devices on the target machine) |
-| USB Type-C (network) | Wired Ethernet communication |
-| Wi-Fi | Connect to a wireless network |
-| Hotspot | The device acts as an AP to share the network |
+| Interface            | Purpose                                                                                                |
+| -------------------- | ------------------------------------------------------------------------------------------------------ |
+| HDMI male port       | Connects to the target host, captures the video signal                                                 |
+| USB Type-C (OTG)     | Power supply and data transfer (emulates keyboard, mouse, and other HID devices on the target machine) |
+| USB Type-C (network) | Wired Ethernet communication                                                                           |
+| Wi-Fi                | Connect to a wireless network                                                                          |
+| Hotspot              | The device acts as an AP to share the network                                                          |
 
 ### Connection Description
 
@@ -71,30 +71,30 @@ There is one indicator LED on each side of the device's **FN key**:
 
 ### System Status LED
 
-| LED State | Description |
-| --- | --- |
-| Flashing blue | System is starting up |
-| Solid blue | System is running normally |
-| Solid green | In active use (an active connection exists) |
-| Flashing white | Firmware is being upgraded |
-| Solid white | System is being reset |
+| LED State      | Description                                 |
+| -------------- | ------------------------------------------- |
+| Flashing blue  | System is starting up                       |
+| Solid blue     | System is running normally                  |
+| Solid green    | In active use (an active connection exists) |
+| Flashing white | Firmware is being upgraded                  |
+| Solid white    | System is being reset                       |
 
 ### HDMI / Video Status LED
 
-| LED State | Description |
-| --- | --- |
-| Off | No video signal |
-| On | Video signal is present |
-| Flashing | Video link is abnormal or in error |
+| LED State | Description                        |
+| --------- | ---------------------------------- |
+| Off       | No video signal                    |
+| On        | Video signal is present            |
+| Flashing  | Video link is abnormal or in error |
 
 By observing the indicator LEDs, you can quickly determine the state of the device and the video link without opening the web interface.
 
 ## FN Button
 
-| Action | Function |
-| --- | --- |
-| **Long press for 10 seconds or more** | Reset the system (restore all configuration to factory defaults) |
-| **Short press once** | Device identification (used for the device discovery feature on [linkr.now](https://linkr.now)) |
+| Action                                | Function                                                                                        |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Long press for 10 seconds or more** | Reset the system (restore all configuration to factory defaults)                                |
+| **Short press once**                  | Device identification (used for the device discovery feature on [linkr.now](https://linkr.now)) |
 
 :::caution Note
 A long-press reset of the FN key clears all local configuration (including network, account, Tailscale bindings, etc.). Make sure to back up any required information before performing this action.
@@ -102,30 +102,31 @@ A long-press reset of the FN key clears all local configuration (including netwo
 
 ## Specifications
 
-| Item | Description |
-| --- | --- |
-| Video encoding | Up to 2K@30fps, supports H.264 or MJPEG |
-| Video transport | WebRTC, WebSocket |
-| Ethernet | 100 Mbps |
-| USB network | 100 Mbps |
-| Storage | 16 GB eMMC |
-| Onboard Wi-Fi | Supported |
-| USB | 1× USB (Host/Device) |
-| Power | USB 5 V |
+| Item            | Description                             |
+| --------------- | --------------------------------------- |
+| Video encoding  | Up to 2K@30fps, supports H.264 or MJPEG |
+| Video transport | WebRTC, WebSocket                       |
+| Ethernet        | 100 Mbps                                |
+| USB network     | 100 Mbps                                |
+| Storage         | 16 GB eMMC                              |
+| Onboard Wi-Fi   | Supported                               |
+| USB             | 1× USB (Host/Device)                    |
+| Power           | USB 5 V                                 |
 
 ## Software Capabilities Overview
 
 In addition to the hardware remote control capabilities, the Linkr firmware and the web management interface also provide:
 
-| Feature | Description | Documentation |
-| --- | --- | --- |
-| Web remote console | Video, keyboard/mouse, screenshots, recording, virtual keyboard, etc. | [User Interface Guide](./usage) |
-| Tailscale | Built-in VPN, access the device remotely without a public IP | [Tailscale Remote Access](./tailscale) |
-| Wake on LAN | Send a magic packet on the LAN to wake the target host | [Wake on LAN](./wake-on-lan) |
-| Access tokens | API keys that support screenshot and control endpoints | [Access Tokens](./access-token) |
+| Feature            | Description                                                           | Documentation                                             |
+| ------------------ | --------------------------------------------------------------------- | --------------------------------------------------------- |
+| Web remote console | Video, keyboard/mouse, screenshots, recording, virtual keyboard, etc. | [User Interface Guide](./usage)                           |
+| Tailscale          | Built-in VPN, access the device remotely without a public IP          | [Tailscale Remote Access](./advanced-usage/remote-access) |
+| Wake on LAN        | Send a magic packet on the LAN to wake the target host                | [Wake on LAN](./advanced-usage/wake-on-lan)               |
+| Access tokens      | API keys that support screenshot and control endpoints                | [Access Tokens](./access-token)                           |
 
 ## Related Links
 
 - [Getting Started Guide](./getting-started)
-- [Feature Details](./feature-details)
-- [FAQ](./faq)
+- [Tailscale Remote Access](./advanced-usage/remote-access)
+- [Wake on LAN](./advanced-usage/wake-on-lan)
+- [FAQ](./getting-started#faq)
