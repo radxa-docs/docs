@@ -15,17 +15,12 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
 
 ### 开启 Overlay
 
-<p>
-  请参照<a href="../../radxa-os/rsetup#overlays">设备树配置</a>启用 UART 相关
-  Overlay, eg: "Enable {props.uart1_name}"。
-</p>
+请参照<a href="../../radxa-os/rsetup#overlays">设备树配置</a>启用 UART 相关 Overlay, eg: "Enable {props.uart1_name}"。
 
 ### 连接
 
-<p>
-  如图所示，短接 {props.product_name} {props.uart1_name} 的 {props.tx1_pin} 和{" "}
-  {props.rx1_pin}{" "}
-</p>
+如图所示，短接 {props.product_name} {props.uart1_name} 的 {props.tx1_pin} 和{" "}
+{props.rx1_pin}{" "}
 
 <img
   src={props.uart_connection}
@@ -63,16 +58,11 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
 
 ### 开启 Overlay
 
-<p>
-  请参照<a href="../../radxa-os/rsetup#overlays">设备树配置</a>启用 UART 相关
-  Overlay, eg: "Enable {props.uart1_name}" 和"Enable {props.uart2_name}"。
-</p>
+请参照<a href="../../radxa-os/rsetup#overlays">设备树配置</a>启用 UART 相关 Overlay, eg: "Enable {props.uart1_name}" 和"Enable {props.uart2_name}"。
 
 ### 连接
 
-<p>
-  按照以下方式连接 {props.uart1_name} 和 {props.uart2_name}{" "}
-</p>
+按照以下方式连接 {props.uart1_name} 和 {props.uart2_name}{" "}
 
 <table>
   <tr>
@@ -119,9 +109,8 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
 
 - 在终端中，输入一下命令循环发送数据
 
-<p>
-  {props.uart1_name} 即 {props.uart_dev1} 作为发送端
-</p>
+{props.uart1_name} 即 {props.uart_dev1} 作为发送端
+
 <PreView
   params={{
     model: props.model,
@@ -136,9 +125,8 @@ UART（通用异步接收器/发送器）是一种带有编程功能的微型芯
 
 - 新建一个终端，输入以下命令进行接收数据
 
-<p>
-  {props.uart2_name} 即 {props.uart_dev2} 作为接收端
-</p>
+{props.uart2_name} 即 {props.uart_dev2} 作为接收端
+
 <PreView params={{ model: props.model, uart_dev2: props.uart_dev2 }}>
   {`
   radxa@#model#:~$ sudo cat  /dev/#uart_dev2#

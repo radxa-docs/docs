@@ -311,7 +311,6 @@ Create a new Python script named `oled_test.py` with the following content. Modi
 
 <details>
   <summary>oled_test.py</summary>
-  <p>
 
 ```python
 from periphery import I2C
@@ -391,7 +390,6 @@ for byte in hello_world_bytes:
 i2c.close()
 ```
 
-</p>
 </details>
 
 - Run the Script
@@ -461,7 +459,7 @@ Create a new C file named `spidev_test.c` with the following content. Modify `st
 
 <details>
   <summary>spidev_test.c</summary>
-  <p>
+
 ```text
 /\*
 
@@ -873,8 +871,8 @@ int fd;
 
 }
 
-````
-</p>
+```
+
 </details>
 
 - Compilation Tools
@@ -888,7 +886,7 @@ Open a terminal and enter the following commands to install the build tools:
 sudo apt update
 sudo apt install build-essential
 
-````
+```
 
 </NewCodeBlock>
 
