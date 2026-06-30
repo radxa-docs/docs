@@ -74,12 +74,12 @@ Plug in a mouse and keyboard into any USB port.
 <TabItem value="emmc" label="Install to eMMC">
 
 <ul>
-<p><li>Power on your device</li> </p>
+<li>Power on your device</li>
 
 <li>You can choose to perform any of the following:</li>
 <br/>
-<p>1. Activate eMMC: Before booting up, hold down the <InlineSuccess>eMMC Recovery button</InlineSuccess> and keep it pressed, simultaneously press and immediately release the <InlineSuccess>Power button</InlineSuccess>, and release the <InlineSuccess>eMMC Recovery button</InlineSuccess> when the display lights up.</p>
-<p>2. <a href="../bios/emmc-availability">Set eMMC activation status</a></p>
+<li>Activate eMMC: Before booting up, hold down the <InlineSuccess>eMMC Recovery button</InlineSuccess> and keep it pressed, simultaneously press and immediately release the <InlineSuccess>Power button</InlineSuccess>, and release the <InlineSuccess>eMMC Recovery button</InlineSuccess> when the display lights up.</li>
+<li><a href="../bios/emmc-availability">Set eMMC activation status</a></li>
 </ul>
 
 </TabItem>
