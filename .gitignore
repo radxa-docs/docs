@@ -1,7 +1,18 @@
+# OS files
+.DS_Store
+
+# Dependencies
+/node_modules/
+
+# IDE / editor local state
+/.vs/
+
+# Local agent configuration
+/.claude/
+/.opencode/
+/AGENTS.md
+/opencode.json
+
 # Auto-generated JSON files
 /static/json/baidu_tongji_data.json
 /static/json/commit_update_data.json
-.DS_Store
-/.vs
-node_modules
-.claude

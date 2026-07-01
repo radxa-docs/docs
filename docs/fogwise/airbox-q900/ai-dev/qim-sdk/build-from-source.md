@@ -1,35 +1,88 @@
 ---
-sidebar_position: 16
+sidebar_position: 18
 doc_kind: page
 locale: zh
 board: airbox-q900
 task_type: ai-dev
-last_verified: 2026-06-24
+last_verified: 2026-06-30
 ---
 
 # 源码编译
 
-QIM SDK 的所有 GStreamer 插件和示例应用已通过 [apt 安装](./README.md#安装) 提供预编译包，一般情况下无需自行编译。
+前面的 [Demo](./README.md#可用示例应用)（`gst-ai-*`）和 [Python 应用](./python-apps.md) 使用的是 apt 预编译的 GStreamer 插件。如果你需要**修改插件源码**（如定制后处理逻辑、添加自定义模型支持）或**写自己的 C/C++ 推理程序**，可以在设备上直接编译。
 
-你也可以在设备上直接编译源码，用于以下场景：
+## Hello-QIM：最小 C/C++ 示例
 
-- 修改插件源码，定制后处理逻辑或添加自定义模型支持
-- 调试插件内部行为
-- 需要与预编译包不同的编译选项
+Hello-QIM 是一个最小可运行的 GStreamer 应用，展示如何用 C++ 创建 pipeline 并获取摄像头帧。适合作为自定义应用的起点。
 
-编译产物包括 34 个 GStreamer 插件动态库（`.so`），覆盖 AI 推理引擎（`mltflite`、`mlqnn`、`mlsnpe`）、预处理（`mlvconverter`）、后处理（`mlpostprocess` 等）、视频处理（`vcomposer` 等）。详见下方步骤。
-
-## 前提条件
-
-- 已完成 [QIM SDK 安装](./README.md#安装)
-
-## 安装编译依赖
+### 下载源码
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
 ```bash
-sudo apt-add-repository -s ppa:ubuntu-qcom-iot/qcom-ppa
-sudo apt update
+git clone https://github.com/quic/sample-apps-for-qualcomm-linux
+cd sample-apps-for-qualcomm-linux/Hello-QIM
+```
+
+</NewCodeBlock>
+
+### 准备源文件
+
+<NewCodeBlock tip="radxa@airbox$" type="device">
+
+```bash
+cp main.cc gst-appsink.cc
+```
+
+</NewCodeBlock>
+
+### 创建 Makefile
+
+```makefile
+CC = g++
+CFLAGS = -Wall -g $(shell pkg-config --cflags gstreamer-1.0)
+LDFLAGS = $(shell pkg-config --libs gstreamer-1.0)
+
+all: gst-appsink
+
+gst-appsink: gst-appsink.o
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+gst-appsink.o: gst-appsink.cc
+	$(CC) $(CFLAGS) -c $<
+
+clean:
+	rm -f gst-appsink gst-appsink.o
+```
+
+### 编译并运行
+
+<NewCodeBlock tip="radxa@airbox$" type="device">
+
+```bash
+make
+./gst-appsink -w 1280 -h 720
+```
+
+</NewCodeBlock>
+
+预期输出：
+
+```text
+Hello-QIM: Success creating pipeline and received camera frame.
+```
+
+> 如果设备没有连接摄像头，pipeline 创建仍然会成功，只是收不到帧。
+
+## 编译 QIM 插件（进阶）
+
+如果需要修改 GStreamer 插件本身（而不仅仅是调用插件），可以从源码编译全部插件。
+
+### 安装编译依赖
+
+<NewCodeBlock tip="radxa@airbox$" type="device">
+
+```bash
 sudo apt install -y \
     qcom-adreno-dev \
     libgstreamer1.0-qcom-sample-apps-utils-dev
@@ -37,9 +90,7 @@ sudo apt install -y \
 
 </NewCodeBlock>
 
-## 编译 QIM 插件（从源码）
-
-### 步骤 1：下载 QIM 源码
+### 下载并编译
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -47,15 +98,6 @@ sudo apt install -y \
 cd ~
 apt source gst-plugins-qti-oss
 cd gst-plugins-qti-oss-*
-```
-
-</NewCodeBlock>
-
-### 步骤 2：CMake 编译
-
-<NewCodeBlock tip="radxa@airbox$" type="device">
-
-```bash
 mkdir build && cd build
 
 cmake \
@@ -71,27 +113,12 @@ cmake \
    ..
 
 make -j$(nproc)
-```
-
-</NewCodeBlock>
-
-### 步骤 3：安装
-
-<NewCodeBlock tip="radxa@airbox$" type="device">
-
-```bash
 sudo make install
 ```
 
 </NewCodeBlock>
 
-### 步骤 4：验证
-
-```bash
-ls /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstqti*.so | wc -l
-```
-
-编译安装约 34 个插件动态库，输出如 `libgstqtimltflite.so`、`libgstqtimlvclassification.so` 等。
+编译安装约 34 个插件动态库（`libgstqtimltflite.so`、`libgstqtimlvclassification.so` 等）。
 
 ## 排障
 
@@ -107,7 +134,7 @@ pkg-config --modversion gstreamer-1.0
 
 </NewCodeBlock>
 
-如果提示找不到，安装：
+如果提示找不到：
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -116,7 +143,3 @@ sudo apt install libgstreamer1.0-dev
 ```
 
 </NewCodeBlock>
-
-## 参考
-
-- [Python GStreamer 应用](./python-apps.md) — Python 开发方式

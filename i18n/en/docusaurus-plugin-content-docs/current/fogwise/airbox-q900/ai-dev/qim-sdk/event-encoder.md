@@ -1,5 +1,5 @@
 ---
-sidebar_position: 13
+sidebar_position: 15
 doc_kind: page
 locale: en
 board: airbox-q900
