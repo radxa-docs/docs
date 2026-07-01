@@ -126,14 +126,17 @@ gst-ai-classification --config-file=/etc/configs/config_classification.json
 | [事件编码器](./event-encoder.md)                             | 检测事件编码输出   | YOLOX                                    | DSP        |
 | [元数据解析](./metadata-parser.md)                           | 检测结果元数据导出 | YOLOX                                    | DSP        |
 | [多流推理](./multistream-inference.md)                       | 多路同步检测       | YOLOX                                    | DSP        |
+| [多流批量推理](./multistream-batch-inference.md)             | 批量多路检测       | YOLOv8 (batch=4)                         | DSP        |
+| [多输入多输出](./multi-input-output.md)                      | 多路输入输出检测   | YOLOv5                                   | DSP        |
 | [人脸检测](./face-detection.md)                              | 人脸关键点检测     | Lightweight Face Detection               | DSP        |
 
 > 完整列表参见 [IM SDK 参考手册](https://docs.qualcomm.com/doc/80-70020-50SC/topic/download-model-and-label-files.html) 第 3 章。
 
 ## 参考
 
-- [Python GStreamer 应用](./python-apps.md) — Python 绑定示例
-- [源码编译](./build-from-source.md) — 在设备上编译自定义 GStreamer 应用
+- [Python GStreamer 应用](./python-apps.md) — Python 方式，适合自定义前后处理
+- [源码编译](./build-from-source.md) — C/C++ 方式，适合深度定制插件
+- [模型导出](./model-export.md) — 自行导出 YOLOv5/YOLOv8 模型
 
 ## 排障
 
@@ -144,7 +147,7 @@ gst-ai-classification --config-file=/etc/configs/config_classification.json
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
 ```bash
-ls $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY
+ls $XDG_RUNTIME_DIR/wayland-0
 ```
 
 </NewCodeBlock>

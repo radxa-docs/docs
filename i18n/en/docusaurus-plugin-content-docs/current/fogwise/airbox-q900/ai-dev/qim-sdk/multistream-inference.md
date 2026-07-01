@@ -63,7 +63,7 @@ python3 -c "
 import json
 with open('/etc/configs/config-multistream-inference.json') as f:
     c = json.load(f)
-c['input-file-path'] = ['/etc/media/video_safe.mp4'] * 16
+c['input-file-path'] = ['/etc/media/video_safe.mp4'] * 32
 json.dump(c, open('/tmp/cfg_multistream.json', 'w'), indent=2)
 print('config written')
 "

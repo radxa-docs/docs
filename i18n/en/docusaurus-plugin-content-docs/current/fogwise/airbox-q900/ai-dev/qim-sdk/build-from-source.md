@@ -1,35 +1,88 @@
 ---
-sidebar_position: 16
+sidebar_position: 18
 doc_kind: page
 locale: en
 board: airbox-q900
 task_type: ai-dev
-last_verified: 2026-06-24
+last_verified: 2026-06-30
 ---
 
 # Build from Source
 
-All QIM SDK GStreamer plugins and sample applications are already available as pre-built packages via [apt installation](./README.md#installation). In most cases, source compilation is unnecessary.
+The [Demos](./README.md#available-sample-applications) (`gst-ai-*`) and [Python Apps](./python-apps.md) use precompiled GStreamer plugins from apt. If you need to **modify plugin source code** (e.g., customize postprocessing logic, add custom model support) or **write your own C/C++ inference programs**, you can compile directly on the device.
 
-You can also compile from source directly on the device, which is useful for:
+## Hello-QIM: Minimal C/C++ Example
 
-- Modifying plugin source code to customize post-processing logic or add custom model support
-- Debugging plugin internals
-- Using build options that differ from the pre-built packages
+Hello-QIM is a minimal runnable GStreamer application showing how to create a pipeline and capture camera frames in C++. Use it as a starting point for custom applications.
 
-The build produces 34 GStreamer plugin shared libraries (`.so`), covering AI inference engines (`mltflite`, `mlqnn`, `mlsnpe`), preprocessing (`mlvconverter`), post-processing (`mlpostprocess` and others), and video processing (`vcomposer` and others). See the steps below.
-
-## Prerequisites
-
-- Completed [QIM SDK Installation](./README.md#installation)
-
-## Install Build Dependencies
+### Download Source
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
 ```bash
-sudo apt-add-repository -s ppa:ubuntu-qcom-iot/qcom-ppa
-sudo apt update
+git clone https://github.com/quic/sample-apps-for-qualcomm-linux
+cd sample-apps-for-qualcomm-linux/Hello-QIM
+```
+
+</NewCodeBlock>
+
+### Prepare Source File
+
+<NewCodeBlock tip="radxa@airbox$" type="device">
+
+```bash
+cp main.cc gst-appsink.cc
+```
+
+</NewCodeBlock>
+
+### Create Makefile
+
+```makefile
+CC = g++
+CFLAGS = -Wall -g $(shell pkg-config --cflags gstreamer-1.0)
+LDFLAGS = $(shell pkg-config --libs gstreamer-1.0)
+
+all: gst-appsink
+
+gst-appsink: gst-appsink.o
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+gst-appsink.o: gst-appsink.cc
+	$(CC) $(CFLAGS) -c $<
+
+clean:
+	rm -f gst-appsink gst-appsink.o
+```
+
+### Compile and Run
+
+<NewCodeBlock tip="radxa@airbox$" type="device">
+
+```bash
+make
+./gst-appsink -w 1280 -h 720
+```
+
+</NewCodeBlock>
+
+Expected output:
+
+```text
+Hello-QIM: Success creating pipeline and received camera frame.
+```
+
+> If the device has no camera connected, pipeline creation still succeeds — it just won't receive frames.
+
+## Compiling QIM Plugins (Advanced)
+
+If you need to modify the GStreamer plugins themselves (not just call them), compile all plugins from source.
+
+### Install Build Dependencies
+
+<NewCodeBlock tip="radxa@airbox$" type="device">
+
+```bash
 sudo apt install -y \
     qcom-adreno-dev \
     libgstreamer1.0-qcom-sample-apps-utils-dev
@@ -37,9 +90,7 @@ sudo apt install -y \
 
 </NewCodeBlock>
 
-## Build QIM Plugins from Source
-
-### Step 1: Download QIM Source
+### Download and Compile
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -47,15 +98,6 @@ sudo apt install -y \
 cd ~
 apt source gst-plugins-qti-oss
 cd gst-plugins-qti-oss-*
-```
-
-</NewCodeBlock>
-
-### Step 2: CMake Build
-
-<NewCodeBlock tip="radxa@airbox$" type="device">
-
-```bash
 mkdir build && cd build
 
 cmake \
@@ -71,33 +113,18 @@ cmake \
    ..
 
 make -j$(nproc)
-```
-
-</NewCodeBlock>
-
-### Step 3: Install
-
-<NewCodeBlock tip="radxa@airbox$" type="device">
-
-```bash
 sudo make install
 ```
 
 </NewCodeBlock>
 
-### Step 4: Verify
-
-```bash
-ls /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstqti*.so | wc -l
-```
-
-Approximately 34 plugin shared libraries are installed, such as `libgstqtimltflite.so`, `libgstqtimlvclassification.so`, etc.
+This produces approximately 34 plugin shared libraries (`libgstqtimltflite.so`, `libgstqtimlvclassification.so`, etc.).
 
 ## Troubleshooting
 
 ### CMake cannot find GStreamer
 
-Verify GStreamer development packages are installed:
+Check that GStreamer development packages are installed:
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -107,7 +134,7 @@ pkg-config --modversion gstreamer-1.0
 
 </NewCodeBlock>
 
-If not found, install:
+If not found:
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
@@ -116,7 +143,3 @@ sudo apt install libgstreamer1.0-dev
 ```
 
 </NewCodeBlock>
-
-## Reference
-
-- [Python GStreamer Apps](./python-apps.md) — Python development approach

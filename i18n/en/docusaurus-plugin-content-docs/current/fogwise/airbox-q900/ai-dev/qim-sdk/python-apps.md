@@ -1,44 +1,40 @@
 ---
-sidebar_position: 15
+sidebar_position: 17
 doc_kind: page
 locale: en
 board: airbox-q900
 task_type: ai-dev
-last_verified: 2026-06-24
+last_verified: 2026-06-30
 ---
 
 # Python GStreamer Apps
 
-QIM SDK provides Python GStreamer binding examples, demonstrating how to build AI/ML and multimedia pipelines using Python.
+The [Demos](./README.md#available-sample-applications) (`gst-ai-*`) are precompiled CLI tools controlled via JSON config files. If you need to insert custom processing logic into the pipeline (e.g., OpenCV preprocessing, custom postprocessing), use the Python GStreamer bindings to build pipelines directly.
+
+QIM SDK Python examples are installed via the `gstreamer1.0-qcom-python-examples` package. Scripts are located in `/usr/bin/` and use the **same underlying GStreamer plugins** (`qtimltflite`, `qtimlvdetection`, `qtivcomposer`, etc.) as the `gst-ai-*` demos, but use argparse command-line arguments instead of config JSON.
 
 ## Prerequisites
 
 - Completed [QIM SDK Installation](./README.md#installation)
 
-Python examples are installed via the `gstreamer1.0-qcom-python-examples` package. Related Python dependencies (`python3-gst-1.0`, `python3-numpy`, `python3-opencv`) are installed automatically.
+Python dependencies (`python3-gst-1.0`, `python3-numpy`, `python3-opencv`) are installed automatically.
 
-## Available Examples
+## Representative Examples
 
-| Application                               | Description                              |
-| ----------------------------------------- | ---------------------------------------- |
-| Camera Encode                             | Capture from camera and encode to H.264  |
-| OpenCV Camera Stream                      | Read camera stream via OpenCV            |
-| OpenCV Video Convert                      | OpenCV video format conversion           |
-| Concurrent Video Playback (Video Wall)    | Multi-stream simultaneous playback       |
-| Multi-Camera Stream                       | Python-controlled multi-camera           |
-| Object Detection & Display                | Run object detection and display results |
-| RTSP Stream Decode & Detection            | Decode from RTSP and detect              |
-| JPEG Image Decode                         | Decode JPEG images                       |
-| Object Detection & Classification         | Cascaded detection + classification      |
-| Convert & Encode Camera Stream            | Camera stream transcoding                |
-| Camera Encode + Detection + Display       | End-to-end pipeline                      |
-| Detection + Classification + Segmentation | Multi-task AI                            |
-| Parallel Inference                        | Multi-model parallel                     |
-| Daisy-Chain Detection & Pose              | Cascaded detection + pose                |
+18 runnable scripts are installed. Here are a few representative ones:
+
+| Script                                    | Description                    | Example                                                                                                                                                       |
+| ----------------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `gst-ai-object-detection.py`              | Object detection               | `python3 /usr/bin/gst-ai-object-detection.py -s /etc/media/video.mp4 -f 2 -ml yolov5 -m /etc/models/yolov5m-int8.tflite -l /etc/labels/yolov5.json --use_dsp` |
+| `gst-parallel-inference.py`               | Multi-model parallel inference | Run detection + classification + segmentation simultaneously                                                                                                  |
+| `gst-daisychain-detection-pose.py`        | Cascaded detection + pose      | `--file /etc/media/video.mp4 --tflite-yolo-model ... --tflite-pose-model ...`                                                                                 |
+| `gst-concurrent-videoplay-composition.py` | Video wall                     | `--infile /etc/media/video.mp4 -c 4` (4 concurrent streams)                                                                                                   |
+
+Use `--help` on any script to see its full parameter list.
 
 ## Basic Structure
 
-Python GStreamer apps use PyGObject bindings:
+Python GStreamer apps use PyGObject bindings. Minimal example:
 
 ```python
 import gi
@@ -63,6 +59,8 @@ loop.run()
 
 ## Get Source Code
 
+Full source code for all Python examples is on GitHub:
+
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
 ```bash
@@ -73,4 +71,5 @@ git clone https://github.com/quic/sample-apps-for-qualcomm-linux
 
 ## Reference
 
-- [Build from Source](./build-from-source.md) — Compile custom C/C++ apps on-device
+- [Demos](./README.md#available-sample-applications) — Precompiled CLI, controlled via config JSON
+- [Build from Source](./build-from-source.md) — C/C++ approach for deep plugin customization

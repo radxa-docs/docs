@@ -107,8 +107,6 @@ On success, the display shows the test video with classification labels overlaid
 
 Press `Ctrl + C` to stop.
 
-> Normally you do **not** need to manually set `XDG_RUNTIME_DIR` or `WAYLAND_DISPLAY` — these are configured automatically on SSH login.
-
 ## Available Sample Applications
 
 The following apps have been verified on Q900 (QCS9075):
@@ -127,6 +125,8 @@ The following apps have been verified on Q900 (QCS9075):
 | [Daisy-Chain Detection & Pose](./daisychain-detection-pose.md)                     | Cascaded detection + pose           | YOLOX + HRNet                            | DSP           |
 | [Parallel AI Fusion](./parallel-inference.md)                                      | 4-model simultaneous inference      | YOLOX + InceptionV3 + HRNet + DeepLabV3+ | DSP           |
 | [Multistream Inference](./multistream-inference.md)                                | Multi-stream concurrent detection   | YOLOX                                    | DSP           |
+| [Multistream Batch](./multistream-batch-inference.md)                              | Batch multi-stream detection        | YOLOv8 (batch=4)                         | DSP           |
+| [Multi-Input Multi-Output](./multi-input-output.md)                                | Multi-input/output detection        | YOLOv5                                   | DSP           |
 | [Event Encoder](./event-encoder.md)                                                | Detection event encoding            | YOLOX                                    | DSP           |
 | [Metadata Parser](./metadata-parser.md)                                            | Detection metadata export           | YOLOX                                    | DSP           |
 
@@ -134,8 +134,9 @@ The following apps have been verified on Q900 (QCS9075):
 
 ## Reference
 
-- [Python GStreamer Apps](./python-apps.md) — Python binding examples
-- [Build from Source](./build-from-source.md) — Compile custom GStreamer apps on-device
+- [Python GStreamer Apps](./python-apps.md) — Python approach for custom pre/postprocessing
+- [Build from Source](./build-from-source.md) — C/C++ approach for deep plugin customization
+- [Model Export](./model-export.md) — Export custom YOLOv5/YOLOv8 models
 
 ## Troubleshooting
 
@@ -146,7 +147,7 @@ Check that the Wayland socket exists:
 <NewCodeBlock tip="radxa@airbox$" type="device">
 
 ```bash
-ls $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY
+ls $XDG_RUNTIME_DIR/wayland-0
 ```
 
 </NewCodeBlock>
