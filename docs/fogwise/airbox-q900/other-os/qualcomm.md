@@ -14,4 +14,4 @@ sidebar_position: 1
 
 ## 高通 Real-Time Subsystem 指南
 
-请参考 [高通 Real-Time Subsystem 指南](https://docs.qualcomm.com/doc/80-70029-42/topic/rtss-guide.html)
+请参考 [高通 Real-Time Subsystem 指南](https://dragonwingdocs.qualcomm.com/System/Boot/rtss-addendum-overview)

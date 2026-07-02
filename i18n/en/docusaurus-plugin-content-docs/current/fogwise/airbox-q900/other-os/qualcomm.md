@@ -14,4 +14,4 @@ Please refer to [Qualcomm Linux Yocto Guide](https://dragonwingdocs.qualcomm.com
 
 ## Qualcomm Real-Time Subsystem Guide
 
-Please refer to [Qualcomm Real-Time Subsystem Guide](https://docs.qualcomm.com/doc/80-70029-42/topic/rtss-guide.html)
+Please refer to [Qualcomm Real-Time Subsystem Guide](https://dragonwingdocs.qualcomm.com/System/Boot/rtss-addendum-overview)
