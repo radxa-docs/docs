@@ -22,7 +22,14 @@ last_verified: 2026-06-30
 
 智核 DX-M1 / DX-M1M 在 Windows 上通过 PCIe 接口通信，需安装配套驱动。
 
-1. 解压 `dx_rt_windows` 软件包，进入 `m1/v3.2.0/dxm1drv/` 目录
+首先克隆 `dx_rt_windows` 仓库，后续步骤中的相对路径（如 `m1\v3.2.0\...`）均基于该仓库根目录：
+
+```bash
+git clone https://github.com/DEEPX-AI/dx_rt_windows.git
+cd dx_rt_windows
+```
+
+1. 进入 `m1/v3.2.0/dxm1drv/` 目录
 2. 解压 `dxm1drv.zip`，得到 `dxm1drv.inf`、`dxm1drv.sys`、`dxm1drv.cat`
 3. 右键点击 `dxm1drv.inf`，选择 **安装**
 4. 安装完成后，打开设备管理器，在 **处理加速器 (Processing accelerators)** 下应能看到 **DEEPX DEVICE - M1 PCI CONTROLLER**
