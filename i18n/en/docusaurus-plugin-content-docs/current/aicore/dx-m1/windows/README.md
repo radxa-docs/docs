@@ -22,7 +22,14 @@ The DX-M1 / DX-M1M AI accelerator supports Windows 10 / 11 x64. This guide cover
 
 The DX-M1 / DX-M1M communicates over PCIe on Windows and requires a companion driver.
 
-1. Extract the `dx_rt_windows` package and navigate to `m1/v3.2.0/dxm1drv/`
+First, clone the `dx_rt_windows` repository. All relative paths in the following steps (such as `m1\v3.2.0\...`) are relative to the root of this repository:
+
+```bash
+git clone https://github.com/DEEPX-AI/dx_rt_windows.git
+cd dx_rt_windows
+```
+
+1. Navigate to `m1/v3.2.0/dxm1drv/`
 2. Extract `dxm1drv.zip` to obtain `dxm1drv.inf`, `dxm1drv.sys`, and `dxm1drv.cat`
 3. Right-click `dxm1drv.inf` and select **Install**
 4. After installation, open Device Manager. Under **Processing accelerators**, you should see **DEEPX DEVICE - M1 PCI CONTROLLER**
