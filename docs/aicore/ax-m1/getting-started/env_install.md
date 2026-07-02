@@ -43,7 +43,10 @@ sudo apt install gcc linux-headers-$(uname -r) make
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-sudo dpkg -i ./axcl_host_aarch64_V3.6.5_20250908154509_NO4973.deb
+sudo dpkg -i axclhost-firmware_3.6.5-1_all.deb
+sudo dpkg -i task-axclhost_3.6.5-1_all.deb
+sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
+sudo systemctl restart systemd-modules-load
 ```
 
 </NewCodeBlock>
