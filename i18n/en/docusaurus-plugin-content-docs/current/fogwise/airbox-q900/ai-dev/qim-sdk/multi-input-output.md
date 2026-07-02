@@ -89,6 +89,8 @@ print('config written')
 "
 ```
 
+</NewCodeBlock>
+
 ### 4. Run
 
 <NewCodeBlock tip="radxa@airbox$" type="device">
