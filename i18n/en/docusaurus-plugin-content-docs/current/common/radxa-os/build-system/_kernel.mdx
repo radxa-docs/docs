@@ -54,3 +54,15 @@ make deb
 ```
 
 </NewCodeBlock>
+
+## FAQ
+
+### How to use incremental compilation mode?
+
+To speed up validating code changes without doing a full build, you can enable incremental compilation by adding the `-nc` flag to the `debuild` command in the Makefile.
+
+```
+$(CUSTOM_DEBUILD_ENV) debuild --no-lintian --lintian-hook "lintian --fail-on error,warning --suppress-tags-from-file $(PWD)/debian/common-lintian-overrides -- %p_%v_*.changes" --no-sign -b $(CUSTOM_DEBUILD_ARG) -nc
+```
+
+After modifying and saving the file, re-run `make deb` to start the build.
