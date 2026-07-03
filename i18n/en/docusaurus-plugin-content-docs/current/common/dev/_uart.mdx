@@ -19,10 +19,8 @@ Please refer to <a href="../../radxa-os/rsetup#overlays"> Device Tree Configurat
 
 ### Connection
 
-<p>
-  As shown in the figure, short the {props.product_name} {props.uart1_name}'s{" "}
-  {props.tx1_pin} and {props.rx1_pin}{" "}
-</p>
+As shown in the figure, short the {props.product_name} {props.uart1_name}'s{" "}
+{props.tx1_pin} and {props.rx1_pin}{" "}
 
 <img
   src={props.uart_connection}
@@ -64,9 +62,7 @@ Please refer to <a href="../../radxa-os/rsetup#overlays"> Device Tree Configurat
 
 ### Connection
 
-<p>
-  Connect {props.uart1_name} and {props.uart2_name} as follows{" "}
-</p>
+Connect {props.uart1_name} and {props.uart2_name} as follows{" "}
 
 <table>
   <tr>
@@ -113,9 +109,8 @@ As shown:
 
 - In the terminal, enter the following command to send data cyclically
 
-<p>
-  {props.uart1_name} i.e {props.uart_dev1} as the sender
-</p>
+{props.uart1_name} i.e {props.uart_dev1} as the sender
+
 <PreView
   params={{
     model: props.model,
@@ -130,9 +125,8 @@ As shown:
 
 - Create a new terminal and enter the following command to receive data
 
-<p>
-  {props.uart2_name} i.e {props.uart_dev2} as the receiver
-</p>
+{props.uart2_name} i.e {props.uart_dev2} as the receiver
+
 <PreView params={{ model: props.model, uart_dev2: props.uart_dev2 }}>
   {`
   radxa@#model#:~$ sudo cat  /dev/#uart_dev2#

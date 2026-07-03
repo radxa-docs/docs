@@ -33,7 +33,7 @@ lsusb
 
 <details>
   <summary>Example: USB Flash Drive</summary>
-  <p>
+
 - Without USB flash drive connected
 
 Use the `lsusb` command to view the current system's USB device information.
@@ -81,7 +81,6 @@ Bus 005 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
 The line `Bus 002 Device 002: ID 3535:6300 aigo U330` shows the connected USB flash drive's device information.
 
-  </p>
 </details>
 
 ### Read/Write Testing
@@ -107,7 +106,6 @@ sudo dd if=source_file/device of=target_file/device bs=block_size count=block_nu
 
 <details>
   <summary>Example: USB Flash Drive</summary>
-  <p>
 
 First, connect a USB flash drive to any USB Type-A port.
 
@@ -165,5 +163,4 @@ sudo dd if=/dev/sdi of=/dev/null bs=1M count=1024
 
 After completion, the terminal will display the number of bytes read, time taken, and transfer rate.
 
- </p>
 </details>

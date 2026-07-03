@@ -24,4 +24,4 @@ This page lists the official accessories compatible with ROCK 5T.
 
 ## 3D-Printed Cases
 
-- [Third-Party 3D-Printed Cases](./3d-case): Community-designed cases for ROCK 5T
+- [Third-Party 3D-Printed Cases](/rock5/rock5t/accessories/3d-case): Community-designed cases for ROCK 5T

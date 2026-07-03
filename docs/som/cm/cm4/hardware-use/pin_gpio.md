@@ -311,7 +311,6 @@ sudo i2cdetect -y -r 8
 
 <details>
   <summary>oled_test.py</summary>
-  <p>
 
 ```text
 from periphery import I2C
@@ -391,7 +390,6 @@ i2c.transfer(I2C_ADDR, [I2C.Message([0x40, byte])])
 i2c.close()
 ```
 
-</p>
 </details>
 
 - 运行脚本
@@ -461,7 +459,7 @@ ls /dev/spidev\*
 
 <details>
   <summary>spidev_test.c</summary>
-  <p>
+
 ```text
 /\*
 
@@ -873,8 +871,8 @@ int fd;
 
 }
 
-````
-</p>
+```
+
 </details>
 
 - 编译工具
@@ -888,7 +886,7 @@ int fd;
 sudo apt update
 sudo apt install build-essential
 
-````
+```
 
 </NewCodeBlock>
 

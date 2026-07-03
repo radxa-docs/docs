@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # MIPI CSI 接口
 
-瑞莎 Cubie A7A 板载 1 个 4 通道 MIPI CSI 或 2 个 2 通道 MIPI CSI，我们可以通过 MIPI CSI 接口连接摄像头。
+瑞莎 Cubie A7A 板载 1 个 4 通道 MIPI CSI 接口，我们可以通过 MIPI CSI 接口连接摄像头。
 
 :::tip
 MIPI CSI 接口具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！

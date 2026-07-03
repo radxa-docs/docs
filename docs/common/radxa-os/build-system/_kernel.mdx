@@ -55,3 +55,15 @@ make deb
 ```
 
 </NewCodeBlock>
+
+## 常见问题 (FAQ)
+
+### 如何使用增量编译模式？
+
+为了加速验证改动的代码，不做全量编译，只进行增量编译，可以在 Makefile 文件的 debuild 指令增加 `-nc` 参数。
+
+```
+$(CUSTOM_DEBUILD_ENV) debuild --no-lintian --lintian-hook "lintian --fail-on error,warning --suppress-tags-from-file $(PWD)/debian/common-lintian-overrides -- %p_%v_*.changes" --no-sign -b $(CUSTOM_DEBUILD_ARG) -nc
+```
+
+修改并保存文件后，重新运行 `make deb` 编译。

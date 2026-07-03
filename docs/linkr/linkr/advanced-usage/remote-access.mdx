@@ -10,12 +10,12 @@ Tailscale 基于 WireGuard 协议，由 Tailscale 协调服务器负责节点发
 
 ## 功能概述
 
-| 能力 | 说明 |
-| --- | --- |
-| 内置客户端 | 固件预装 `tailscale` / `tailscaled` 二进制，无需额外安装 |
-| Web 界面管理 | 在灵控管理界面中启用、登录、解绑 Tailscale 账号 |
-| 开机自启 | 启用后配置持久保存，设备重启后自动启动 `tailscaled` |
-| 安全组网 | 流量经 WireGuard 加密，仅同一 Tailnet 内的设备可互通 |
+| 能力         | 说明                                                     |
+| ------------ | -------------------------------------------------------- |
+| 内置客户端   | 固件预装 `tailscale` / `tailscaled` 二进制，无需额外安装 |
+| Web 界面管理 | 在灵控管理界面中启用、登录、解绑 Tailscale 账号          |
+| 开机自启     | 启用后配置持久保存，设备重启后自动启动 `tailscaled`      |
+| 安全组网     | 流量经 WireGuard 加密，仅同一 Tailnet 内的设备可互通     |
 
 ## 使用前准备
 
@@ -53,20 +53,19 @@ Tailscale 基于 WireGuard 协议，由 Tailscale 协调服务器负责节点发
 
 ![img](/img/linkr/tailscale-3.png)
 
-
 ### 4. 通过 Tailscale 访问灵控
 
 绑定成功后，可在 [Tailscale 管理后台](https://login.tailscale.com/admin/machines) 查看设备分配的 Tailscale IP（通常为 `100.x.x.x` 网段）。
 
 在同一 Tailnet 内的任意设备上，使用以下地址访问灵控：
 
-```
+```text
 https://<设备 Tailscale IP>
 ```
 
 也可使用 Tailscale MagicDNS 主机名（若已在 Tailnet 中启用）：
 
-```
+```text
 https://<设备主机名>.<你的-tailnet>.ts.net
 ```
 
@@ -84,12 +83,12 @@ https://<设备主机名>.<你的-tailnet>.ts.net
 
 ## 界面状态说明
 
-| 状态 | 含义 |
-| --- | --- |
-| 开关关闭 | Tailscale 功能未启用，`tailscaled` 未运行 |
-| 开关开启，未绑定 | 服务已启动，等待绑定 Tailscale 账号 |
+| 状态             | 含义                                             |
+| ---------------- | ------------------------------------------------ |
+| 开关关闭         | Tailscale 功能未启用，`tailscaled` 未运行        |
+| 开关开启，未绑定 | 服务已启动，等待绑定 Tailscale 账号              |
 | 开关开启，已绑定 | 设备已加入 Tailnet，可通过 Tailscale IP 远程访问 |
-| 版本号 | 显示当前固件内置的 Tailscale 客户端版本 |
+| 版本号           | 显示当前固件内置的 Tailscale 客户端版本          |
 
 ## 技术说明
 
