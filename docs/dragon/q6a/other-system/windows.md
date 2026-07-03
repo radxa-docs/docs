@@ -118,13 +118,13 @@ Windows 安装完成后，系统仍然缺少诸如网络、GPU、音频等专用
 
 默认的 Dragon Q6A 驱动包中尚未包含 Wi-Fi 与蓝牙驱动。如需在 Windows 上使用 Wi-Fi 与蓝牙，可按以下步骤操作。
 
-1. 下载驱动包 [aicwlan_arm64_0935761.zip]([https://github.com/worproject/dldserv-mirror/releases/download/13%2F02%2F2024/aicwlan_arm64_0935761.zip](https://github.com/worproject/dldserv-mirror/releases/download/13%2F02%2F2024/aicwlan_arm64_0935761.zip))
+1. 下载驱动包 [aicwlan_arm64_0935761.zip](https://github.com/worproject/dldserv-mirror/releases/download/13%2F02%2F2024/aicwlan_arm64_0935761.zip)
 2. 解压下载的压缩包，右键解压目录中的 aicwlan.inf 文件，选择 install 进行驱动安装
 3. 检查 Wi-Fi 与蓝牙功能是否正常
 
 :::tip
 本驱动是社区（由 Mario 在 [worproject/dldserv-mirror]([https://github.com/worproject/dldserv-mirror](https://github.com/worproject/dldserv-mirror)) 维护）提供的**测试签名版本**，目前已覆盖大部分 client-mode Wi-Fi 能力；如果遇到连接、吞吐或稳定性问题，建议回到论坛原帖反馈：
-- [Wi-Fi + BT support for Windows on Q6A - Radxa Community]([https://forum.radxa.com/t/wi-fi-bt-support-for-windows-on-arm-on-q6a/31091](https://forum.radxa.com/t/wi-fi-bt-support-for-windows-on-arm-on-q6a/31091))
+- [Wi-Fi + BT support for Windows on Q6A - Radxa Community](https://forum.radxa.com/t/wi-fi-bt-support-for-windows-on-q6a/31091)
 :::
 
 ## 后续建议
