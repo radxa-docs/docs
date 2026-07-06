@@ -183,14 +183,18 @@ For RTSP, TCP transport (`-rtsp_transport tcp`) is recommended for better stabil
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-/usr/bin/axcl/ffmpeg/ffmpeg \
-  -framerate 30 \
+/usr/bin/axcl/ffmpeg/ffmpeg -hide_banner -y \
+  -init_hw_device axmm=ax:,device_index=0,alloc_blk=1 \
+  -f rawvideo \
+  -pix_fmt yuv420p \
   -s 1920x1080 \
-  -pix_fmt nv12 \
+  -r 24000/1001 \
   -i input.yuv \
+  -frames:v 300 \
+  -pix_fmt nv12 \
   -c:v h264_axenc \
   -b:v 2M \
-  output.mp4
+  output.h264
 ```
 
 </NewCodeBlock>
@@ -200,14 +204,18 @@ For RTSP, TCP transport (`-rtsp_transport tcp`) is recommended for better stabil
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-/usr/bin/axcl/ffmpeg/ffmpeg \
-  -framerate 30 \
-  -s 1920x1080 \
-  -pix_fmt nv12 \
+/usr/bin/axcl/ffmpeg/ffmpeg -hide_banner -y \
+  -init_hw_device axmm=ax:,device_index=0,alloc_blk=1 \
+  -f rawvideo \
+  -pix_fmt yuv420p \
+  -s 1280x720 \
+  -r 24000/1001 \
   -i input.yuv \
+  -frames:v 300 \
+  -pix_fmt nv12 \
   -c:v hevc_axenc \
   -b:v 2M \
-  output.mp4
+  output.hevc
 ```
 
 </NewCodeBlock>
@@ -283,7 +291,7 @@ Download FFmpeg n7.1 source from GitHub:
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-wget https://github.com/FFmpeg/FFmpeg/releases/download/n7.1/FFmpeg-n7.1.tar.gz
+wget https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n7.1.tar.gz
 ```
 
 </NewCodeBlock>
@@ -293,9 +301,9 @@ Copy the source package to the SDK directory:
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-cp FFmpeg-n7.1.tar.gz ${AXCL_SDK}/axcl/3rdparty/ffmpeg/
+cp n7.1.tar.gz ${AXCL_SDK}/axcl/3rdparty/ffmpeg/
 cd ${AXCL_SDK}/axcl/3rdparty/ffmpeg
-tar -zxvf FFmpeg-n7.1.tar.gz
+tar -zxvf n7.1.tar.gz
 ```
 
 </NewCodeBlock>
