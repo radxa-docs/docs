@@ -67,3 +67,31 @@ $(CUSTOM_DEBUILD_ENV) debuild --no-lintian --lintian-hook "lintian --fail-on err
 ```
 
 修改并保存文件后，重新运行 `make deb` 编译。
+
+### 如何修改本地构建出的 Debian 包的版本？
+
+以 [linux-qcom 仓库](https://github.com/radxa-pkg/linux-qcom) 为例，打开 `debian/changelog` 文件，修改第一行括号里的版本号。
+
+例如：原来文件内容是：
+
+```text
+linux-qcom (7.0.11-2) unstable; urgency=medium
+```
+
+把括号里的 `7.0.11-2` 改成你想要的版本号，比如：
+
+```text
+linux-qcom (7.0.11-99) unstable; urgency=medium
+```
+
+然后执行：
+
+<NewCodeBlock tip="PC@host$" type="host">
+
+```bash
+make deb
+```
+
+</NewCodeBlock>
+
+构建出来的 Debian 包版本就是 `7.0.11-99`。
