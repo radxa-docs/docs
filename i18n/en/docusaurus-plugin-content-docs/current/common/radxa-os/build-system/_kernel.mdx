@@ -66,3 +66,31 @@ $(CUSTOM_DEBUILD_ENV) debuild --no-lintian --lintian-hook "lintian --fail-on err
 ```
 
 After modifying and saving the file, re-run `make deb` to start the build.
+
+### How to modify the version of a locally built Debian package?
+
+Take the [linux-qcom repository](https://github.com/radxa-pkg/linux-qcom) as an example. Open the `debian/changelog` file and modify the version number inside the parentheses on the first line.
+
+For example, the original file content is:
+
+```text
+linux-qcom (7.0.11-2) unstable; urgency=medium
+```
+
+Change the `7.0.11-2` inside the parentheses to the version number you want, for example:
+
+```text
+linux-qcom (7.0.11-99) unstable; urgency=medium
+```
+
+Then run:
+
+<NewCodeBlock tip="PC@host$" type="host">
+
+```bash
+make deb
+```
+
+</NewCodeBlock>
+
+The resulting Debian package version will be `7.0.11-99`.
