@@ -10,9 +10,11 @@ sidebar_position: 1
 
 主板上电前，按住 EDL 按键；主板上电后，松开 EDL 按键，进入 EDL 模式。
 
-如果您不确定 EDL 按键的位置，可以先查看 [硬件信息](../hardware-use/hardware-info.md#接口说明) 页面，其中 EDL 按键对应接口图中的序号 `20`。
-
 具体操作步骤：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/common/radxa-os/install-system/qualcomm/enter-edl-mode-dragon-q6a.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ① ： 按住 EDL 按键
 

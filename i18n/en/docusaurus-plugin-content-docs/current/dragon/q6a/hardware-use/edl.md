@@ -12,9 +12,17 @@ During the power-on process of the motherboard, if the EDL button is detected as
 
 Detailed steps:
 
-1. Hold down the EDL button
-2. Connect a 12V Type-C power adapter (compatible with PD protocol)
-3. Release the EDL button
+<div style={{textAlign: 'center'}}>
+   <img src="/img/common/radxa-os/install-system/qualcomm/enter-edl-mode-dragon-q6a.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+① : Hold down the EDL button
+
+② : Connect a 12V Type-C power adapter (compatible with PD protocol)
+
+③ : Release the EDL button
+
+④ : Use a dual-head USB Type-A data cable to connect the USB 3.1 Type-A port of the Dragon Q6A to a USB Type-A port on the computer
 
 Under normal circumstances, the motherboard will enter EDL mode.
 

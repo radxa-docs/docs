@@ -12,9 +12,17 @@ sidebar_position: 16
 
 详细步骤：
 
-1. 按住 EDL 按键
-2. 连接 12V Type-C 电源适配器（兼容 PD 协议）
-3. 松开 EDL 按键
+<div style={{textAlign: 'center'}}>
+   <img src="/img/common/radxa-os/install-system/qualcomm/enter-edl-mode-dragon-q6a.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+① ： 按住 EDL 按键
+
+② ： 连接 12V Type-C 电源适配器（兼容 PD 协议）
+
+③ ： 松开 EDL 按键
+
+④ ： 使用双头 USB Type-A 数据线连接 Dragon Q6A 的 USB 3.1 Type-A 接口和电脑的 USB Type-A 接口
 
 正常情况下，主板会进入 EDL 模式。
 
