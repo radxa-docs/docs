@@ -9,6 +9,6 @@ imports_resolve_to:
 
 import SCREENLESS from '../../../common/radxa-os/system-config/\_screenless.mdx';
 
-# Headless mode
+# Headless Mode
 
 <SCREENLESS board="cubie-a7s" />
