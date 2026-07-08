@@ -37,3 +37,9 @@ Dragon Q8B ships with SPI boot firmware preinstalled. Normally you do not need t
 - [Component Placement Diagram V1.30](https://dl.radxa.com/dragon/q8b/hw/radxa_dragon_q8b_components_placement_map_v1.30.pdf)
 
 - [Schematic V1.30](https://dl.radxa.com/dragon/q8b/hw/radxa_dragon_q8b_schematic_v1.30.pdf)
+
+- [2D Dimensions Diagram V1.30](https://dl.radxa.com/dragon/q8b/hw/radxa_dragon_q8b_2d_dimensions_v1.30.pdf)
+
+- [2D DXF File V1.30](https://dl.radxa.com/dragon/q8b/hw/radxa_dragon_q8b_2d_dxf_v1.30.zip)
+
+- [3D STEP File V1.30](https://dl.radxa.com/dragon/q8b/hw/radxa_dragon_q8b_3d_stp_v1.30.zip)
