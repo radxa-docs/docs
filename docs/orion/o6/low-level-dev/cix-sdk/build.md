@@ -1,12 +1,11 @@
 ---
 title: 软件编译
-
-doc_kind: wrapper
-source_of_truth: common
-imports_resolve_to:
-  - docs/common/orion-common/low-level-dev/cix-sdk/_build.mdx
+sidebar_position: 1
+doc_kind: page
 ---
 
-import CIX_SDK_Build from '../../../../common/orion-common/low-level-dev/cix-sdk/\_build.mdx';
+:::info
+此芯 SDK 的系统编译流程已迁移到此芯官方文档维护。请参考：
 
-<CIX_SDK_Build />
+[https://github.com/cixtech/cix-manifest/wiki/guide_zh](https://github.com/cixtech/cix-manifest/wiki/guide_zh)
+:::
