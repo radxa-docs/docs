@@ -1,6 +1,7 @@
 ---
 sidebar_position: 10
 title: 此芯 SDK
+doc_kind: page
 ---
 
 :::info
@@ -9,5 +10,3 @@ title: 此芯 SDK
 - 中文：[https://github.com/cixtech/cix-manifest/wiki/guide_zh](https://github.com/cixtech/cix-manifest/wiki/guide_zh)
 - English: [https://github.com/cixtech/cix-manifest/wiki](https://github.com/cixtech/cix-manifest/wiki)
 :::
-
-<DocCardList />
