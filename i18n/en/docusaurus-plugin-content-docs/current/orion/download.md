@@ -150,7 +150,7 @@ FnNAS fnOS targets NAS use cases; its ARM build is currently in public beta. The
 
 - **Compatible Models**: Radxa Orion O6 / O6N (CIX P1 SoC)
 - **Use Case**: NAS / home storage use for advanced testers; the ARM build is a **public beta** and is not an officially maintained Radxa distribution
-- **User Guide**: see [Orion O6 / O6N FnNAS fnOS](./o6/other-os/fnos.md)
+- **User Guides**: [Orion O6 FnNAS fnOS](./o6/other-os/fnos.md) / [Orion O6N FnNAS fnOS](./o6n/other-os/fnos.md)
 - **Notes**: the ARM public beta may contain unresolved stability issues; test only on non-critical setups and read the [FnNAS ARM Public Beta Disclaimer](https://help.fnnas.com/articles/v1/contact/disclaimers.md) before installing
 
 **Image for CIX P1 (UEFI ARM Installation Image ISO)**
