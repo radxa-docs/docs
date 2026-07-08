@@ -1,0 +1,56 @@
+:::tip
+本文介绍的 RKDevelopTool-GUI 是社区维护的第三方图形界面工具，并非 Rockchip 或 Radxa 官方软件。
+:::
+
+RKDevelopTool-GUI 是社区为 [rkdeveloptool](./rkdeveloptool.md) 开发的跨平台图形界面前端，可用于固件烧录、分区管理和设备调试。
+
+RKDevelopTool-GUI 的 macOS 和 Linux 安装包中已经内置编译好的 rkdeveloptool，安装后即可直接使用，无需按照 [rkdeveloptool](./rkdeveloptool.md) 一文自行编译。
+
+---
+
+## 安装 RKDevelopTool-GUI
+
+前往项目的 [GitHub Releases](https://github.com/gahingwoo/RKDevelopTool-GUI/releases) 页面下载对应平台的安装包。
+
+<Tabs queryString="host-os">
+<TabItem value="macos" label="macOS">
+
+下载 `RKDevelopTool-GUI-arm64.dmg`（仅支持 Apple 芯片）。
+
+将 App 拖入 `Applications` 文件夹。如果首次打开时系统提示"文件已损坏"，请在终端执行：
+
+```bash
+xattr -cr /Applications/RKDevelopTool-GUI.app
+```
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+- Debian / Ubuntu（amd64 / arm64）：下载并安装 `rkdeveloptool-gui_*.deb`
+- Fedora / openSUSE（x86_64 / aarch64）：下载并安装 `rkdeveloptool-gui-*.rpm`
+- 免安装：下载 `RKDevelopTool-GUI-*-x86_64.AppImage` 或 `*-aarch64.AppImage`，添加可执行权限后运行
+- Arch Linux：可从 [AUR](https://aur.archlinux.org/packages/rkdeveloptool-gui) 安装 `rkdeveloptool-gui`
+
+以上安装包均已静态链接 rkdeveloptool 及其依赖。
+
+</TabItem>
+</Tabs>
+
+:::tip
+RKDevelopTool-GUI 暂无 Intel 版 macOS 和 Windows 的预编译包。这些平台可以从源码运行（需要 Python 与 PySide6，并自行安装 rkdeveloptool），具体步骤见项目 [README](https://github.com/gahingwoo/RKDevelopTool-GUI)。Windows 用户也可以直接使用 [RKDevTool](./rkdevtool.md)。
+:::
+
+---
+
+## 使用 RKDevelopTool-GUI
+
+将设备进入 Maskrom 模式并通过 USB 连接到电脑，RKDevelopTool-GUI 会自动检测已连接的设备。图形界面中可以完成：
+
+- 写入 Loader 与系统镜像
+- 查看、备份分区表
+- 读取芯片型号、Flash ID 等设备信息
+- 重启设备
+
+界面底部会显示当前操作对应的 rkdeveloptool 命令行。
+
+更多说明见项目 [README](https://github.com/gahingwoo/RKDevelopTool-GUI)。

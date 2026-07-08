@@ -1,0 +1,56 @@
+:::tip
+RKDevelopTool-GUI, covered in this article, is a community-maintained third-party graphical tool. It is not official Rockchip or Radxa software.
+:::
+
+RKDevelopTool-GUI is a cross-platform graphical front-end for [rkdeveloptool](./rkdeveloptool.md) built by the community. It can be used for firmware flashing, partition management, and device debugging.
+
+The macOS and Linux packages of RKDevelopTool-GUI already bundle a precompiled rkdeveloptool, so they work right after installation without compiling rkdeveloptool from source as described in [rkdeveloptool](./rkdeveloptool.md).
+
+---
+
+## Installing RKDevelopTool-GUI
+
+Download the package for your platform from the project's [GitHub Releases](https://github.com/gahingwoo/RKDevelopTool-GUI/releases) page.
+
+<Tabs queryString="host-os">
+<TabItem value="macos" label="macOS">
+
+Download `RKDevelopTool-GUI-arm64.dmg` (Apple Silicon only).
+
+Drag the app into `Applications`. If macOS reports the file is damaged the first time you open it, run:
+
+```bash
+xattr -cr /Applications/RKDevelopTool-GUI.app
+```
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+- Debian / Ubuntu (amd64 / arm64): download and install `rkdeveloptool-gui_*.deb`
+- Fedora / openSUSE (x86_64 / aarch64): download and install `rkdeveloptool-gui-*.rpm`
+- No installation needed: download `RKDevelopTool-GUI-*-x86_64.AppImage` or `*-aarch64.AppImage`, mark it executable, and run it
+- Arch Linux: install `rkdeveloptool-gui` from the [AUR](https://aur.archlinux.org/packages/rkdeveloptool-gui)
+
+All of the above packages statically link rkdeveloptool and its dependencies.
+
+</TabItem>
+</Tabs>
+
+:::tip
+RKDevelopTool-GUI does not provide prebuilt packages for Intel macOS or Windows. On those platforms it can be run from source (requires Python and PySide6, and a separately installed rkdeveloptool) — see the project [README](https://github.com/gahingwoo/RKDevelopTool-GUI) for steps. Windows users can also use [RKDevTool](./rkdevtool.md) directly.
+:::
+
+---
+
+## Using RKDevelopTool-GUI
+
+Put the device into Maskrom mode and connect it over USB — RKDevelopTool-GUI detects connected devices automatically. From the interface you can:
+
+- Write a Loader and system image
+- View and back up the partition table
+- Read chip model, Flash ID, and other device info
+- Reboot the device
+
+The bottom of the window shows the equivalent rkdeveloptool command line for the current action.
+
+See the project [README](https://github.com/gahingwoo/RKDevelopTool-GUI) for further details.
