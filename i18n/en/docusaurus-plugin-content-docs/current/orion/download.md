@@ -153,13 +153,9 @@ FnNAS fnOS targets NAS use cases; its ARM build is currently in public beta. The
 - **User Guides**: [Orion O6 FnNAS fnOS](./o6/other-os/fnos.md) / [Orion O6N FnNAS fnOS](./o6n/other-os/fnos.md)
 - **Notes**: the ARM public beta may contain unresolved stability issues; test only on non-critical setups and read the [FnNAS ARM Public Beta Disclaimer](https://help.fnnas.com/articles/v1/contact/disclaimers.md) before installing
 
-**Image for CIX P1 (UEFI ARM Installation Image ISO)**
+For the CIX P1 image, please visit the [FnNAS fnOS ARM Download Page](https://www.fnnas.com/download-arm) and find the **UEFI ARM Installation Image ISO** category (file tag `armsr`) in the device support list to download.
 
-| Filename                                       | Version           | Download Link                                                                                                                                                                          |
-| :--------------------------------------------- | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fnos_Mainland-PE_arm_1.1.31_armsr_1366.iso`    | `1.1.31 / 1366`    | [Download](https://iso.liveupdate.fnnas.com/arm/trim/1.1.31/armsr/fnos_Mainland-PE_arm_1.1.31_armsr_1366.iso)                                                                       |
-
-The image version and build number change with each FnNAS fnOS ARM public beta release. Always use the latest version published on the [FnNAS fnOS ARM Download Page](https://www.fnnas.com/download-arm).
+The image version and build number change with each FnNAS fnOS ARM public beta release. Always use the latest version published on the FnNAS fnOS ARM download page.
 
 ## Hardware Design
 

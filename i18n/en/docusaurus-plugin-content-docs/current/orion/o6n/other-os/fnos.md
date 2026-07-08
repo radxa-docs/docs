@@ -33,13 +33,8 @@ Find the image that supports **CIX P1** in the device support list:
 
 - Image category: **UEFI ARM Installation Image ISO** (file tag `armsr`)
 - That category explicitly lists **CIX P1** as supported (along with Apple M-series virtualization, Phytium, and Huawei Kunpeng on UEFI ARM platforms)
-- Download the latest version published on the page (for example, `1.1.31 / 1366`). The version changes with each fnOS release, so always trust the page
 
-Reference download link (example):
-
-| Category | Filename | Version | Download |
-| :--- | :--- | :--- | :--- |
-| UEFI ARM Installation Image ISO | `fnos_Mainland-PE_arm_1.1.31_armsr_1366.iso` | `1.1.31 / 1366` | [Download](https://iso.liveupdate.fnnas.com/arm/trim/1.1.31/armsr/fnos_Mainland-PE_arm_1.1.31_armsr_1366.iso) |
+After locating the image on the page, follow the on-page prompt to download the latest version yourself. Specific version and build numbers change with each public beta release; always trust the FnNAS ARM download page.
 
 :::tip Verify the Image
 After download, verify the MD5 hash published on the FnNAS page before writing it to the install media to avoid using a corrupted image.
