@@ -9,7 +9,7 @@ This page organizes the download resources for Radxa Orion O6 / O6N by use case.
 :::info Quick Navigation
 
 - [BIOS Firmware](#bios-firmware)
-- [System Images (Radxa OS / Android / OpenHarmony / Fedora / Debian 13)](#system-images)
+- [System Images (Radxa OS / Android / OpenHarmony / Fedora / Debian 13 / FnNAS fnOS)](#system-images)
 - [Hardware Design Resources](#hardware-design)
 - [Community Resources](#community-resources)
 - [Reference Manuals](#reference-manuals)
@@ -143,6 +143,23 @@ Debian 13 is intended for developers who want to use the CIX community open-sour
 - Orion O6N guide: [Orion O6N Debian 13](./o6n/other-os/debian13.md)
 - Suitable for: mainline kernel validation, NPU / VPU driver debugging, and community development testing
 - Note: this stack is based on the development kernel `7.0.0-rc5-generic`; enable `Enable ACPI SCMI` in BIOS before installation
+
+### FnNAS fnOS
+
+FnNAS fnOS targets NAS use cases; its ARM build is currently in public beta. The FnNAS ARM download page lists **CIX P1** (the SoC used by Radxa Orion O6 / O6N) as supported under the **UEFI ARM Installation Image ISO** category, so it can be flashed onto both Orion O6 and O6N.
+
+- **Compatible Models**: Radxa Orion O6 / O6N (CIX P1 SoC)
+- **Use Case**: NAS / home storage use for advanced testers; the ARM build is a **public beta** and is not an officially maintained Radxa distribution
+- **User Guide**: see [Orion O6 / O6N FnNAS fnOS](./o6/other-os/fnos.md)
+- **Notes**: the ARM public beta may contain unresolved stability issues; test only on non-critical setups and read the [FnNAS ARM Public Beta Disclaimer](https://help.fnnas.com/articles/v1/contact/disclaimers.md) before installing
+
+**Image for CIX P1 (UEFI ARM Installation Image ISO)**
+
+| Filename                                       | Version           | Download Link                                                                                                                                                                          |
+| :--------------------------------------------- | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fnos_Mainland-PE_arm_1.1.31_armsr_1366.iso`    | `1.1.31 / 1366`    | [Download](https://iso.liveupdate.fnnas.com/arm/trim/1.1.31/armsr/fnos_Mainland-PE_arm_1.1.31_armsr_1366.iso)                                                                       |
+
+The image version and build number change with each FnNAS fnOS ARM public beta release. Always use the latest version published on the [FnNAS fnOS ARM Download Page](https://www.fnnas.com/download-arm).
 
 ## Hardware Design
 
