@@ -2,20 +2,20 @@
 sidebar_position: 1
 
 doc_kind: wrapper
-source_of_truth: local
+source_of_truth: common
 imports_resolve_to:
-  - i18n/en/docusaurus-plugin-content-docs/current/rock3/rock3b/_image.mdx
   - i18n/en/docusaurus-plugin-content-docs/current/common/general/_etcherV2.mdx
 ---
 
-import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
-# Install the system on the microSD card
+# Install OS to microSD Card
 
-## File download
+This article explains how to install the operating system to a microSD card and boot the system from it on ROCK 3B.
 
-<Images loader={false} system_img={true} spi_img={false} />
+## File Download
+
+Download the [ROCK 3B system image](../../download) from the resource download page.
 
 ## microSD card preparation
 
