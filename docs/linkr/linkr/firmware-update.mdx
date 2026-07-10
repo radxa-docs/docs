@@ -6,166 +6,137 @@ title: 固件更新
 
 # 固件更新
 
-瑞莎灵控（Radxa Linkr）支持通过 Web 管理界面上传固件包进行**本地升级**，用于获取新功能、问题修复与安全更新。固件文件从 GitHub Releases 下载，上传后由设备自动校验、解密并安装。
+瑞莎灵控（Radxa Linkr）支持网页直接更新固件和线刷固件。
 
-:::info 当前版本
-固件下载页面：[https://github.com/radxa-linkr/linkr/releases](https://github.com/radxa-linkr/linkr/releases)
+对于网页更新固件失败或者无法正常使用，可以参考线刷固件的方式给灵控刷入最新固件。
 
-最新发布示例：`linkr-ota-1.0.1.bin`（文件名中的版本号随发布更新而变化）。
-:::
+## 固件下载
 
-## 更新前准备
+- GitHub 发布：[瑞莎灵控（Radxa Linkr）](https://github.com/radxa-linkr/linkr/releases)
 
-1. **确认当前版本**：在 **关于 → 设备信息** 中查看「当前固件版本」，与待安装版本对比，确保为更高版本。
-2. **下载固件包**：访问 [GitHub Releases](https://github.com/radxa-linkr/linkr/releases)，在对应版本的 **Assets** 区域下载 `linkr-ota-<版本号>.bin` 文件到本地电脑。
-3. **保持网络稳定**：升级过程中请保持浏览器与灵控的连接，避免关闭页面或断开网络。
-4. **预留存储空间**：固件包约 50～60 MB，设备需有足够可用空间；空间不足时会提示「存储空间不足」。
-5. **避免中断**：升级期间设备系统指示灯为**白色闪烁**（参见[产品概述](./product-introduction)），请勿断电或拔线。
+- 百度网盘下载：[瑞莎灵控（Radxa Linkr）：提取码 1234](https://pan.baidu.com/s/1AZgLUDaU8hJKhZjqTT_sMQ?pwd=1234)
 
-## 操作步骤
+说明：网页更新固件下载 `<system-image>.bin` 格式的文件，线刷固件下载 `<system-image>.img` 格式的文件。
 
-### 1. 进入系统更新
+## 固件更新
 
-1. 打开灵控管理 Web 界面并登录。
-2. 点击左侧边栏的 **系统设置**（设置图标）。
-3. 找到 **系统更新** 一行，点击右侧 **更新** 按钮。
+优先推荐使用网页更新固件的方式进行固件更新，若灵控固件更新失败或者无法正常使用，再使用线刷固件的方式更新固件。
 
-### 2. 打开本地升级
+<Tabs queryString="update-firmware">
 
-在弹出的 **系统更新** 对话框中：
+<TabItem value="网页更新固件">
 
-1. 确认当前选中 **本地升级** 标签页（标签旁 `?` 图标可查看固件下载地址）。
-2. 若尚未下载固件，可点击 `?` 旁的链接跳转至 [GitHub Releases](https://github.com/radxa-linkr/linkr/releases) 下载。
+网页更新固件需要主机可以正常访问灵控控制的设备，我们需要在 [linkr.now](https://linkr.now/) 的控制界面进行固件的上传与更新
 
-### 3. 上传固件文件
+- 访问被控设备界面
 
-在 **点击或拖拽文件到此区域上传** 区域：
+进入被控设备的控制界面进行灵控固件更新：
 
-- **点击**上传区域，从本地选择已下载的 `linkr-ota-*.bin` 文件；或
-- **拖拽**固件文件到上传区域。
+① : 进入设置选项
 
-上传开始后，界面会显示进度条与当前阶段。
+② : 选择 `System Update` 进行固件更新
 
-### 4. 等待升级完成
+③ : 将需要刷入的固件文件放进去
 
-升级分为以下阶段：
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/online_update_firmware_01.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-| 阶段   | 界面提示           | 说明                           |
-| ------ | ------------------ | ------------------------------ |
-| 上传中 | 上传中...          | 固件文件从浏览器传输到灵控设备 |
-| 升级中 | 升级中...          | 设备校验签名、解密并写入固件   |
-| 完成   | 已升级，请重启设备 | 安装完成，需重启后生效         |
+- 更新固件
 
-升级过程中可点击 **取消** 中止操作（安装接近完成时建议不要取消）。
+将固件文件放进去后，系统会自动上传、安装固件，最后重启设备后生效。
 
-### 5. 重启设备
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/online_update_firmware_02.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-当进度达到 100% 并提示 **已升级，请重启设备** 时：
+</TabItem>
 
-1. 点击 **重启** 按钮，设备将自动重启。
-2. 重启后浏览器会跳转到登录页，使用原账号密码重新登录。
-3. 在 **关于 → 设备信息** 中确认固件版本已更新。
+<TabItem value="线刷更新固件">
 
-:::caution 注意
-重启会短暂中断灵控服务与远程连接。请在合适的时间窗口执行升级，并确保被控主机不会因灵控重启而受影响。
-:::
+以线刷的方式更新固件需要在 Windows 平台下进行。
 
-## 下载固件
+电脑需要安装 [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip) 驱动和下载 [SocToolKit](https://github.com/radxa-linkr/linkr/releases/download/Tools/SocToolKit_V1.94.zip) 工具。
 
-### 官方发布页
+- 驱动安装
 
-[https://github.com/radxa-linkr/linkr/releases](https://github.com/radxa-linkr/linkr/releases)
+下载 [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip) 压缩包并解压，找到 `DriverInstall.exe` 并以管理员身份运行，点击 `Install Driver` 选项进行驱动安装。
 
-### 如何选择版本
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/tools/rkdevtool/rkdevtool-driver.webp"
+    style={{ width: "50%", maxWidth: "700" }}
+  />
+</div>
 
-1. 打开 Releases 页面，查看最新 **Tag**（如 `v1.0.1`）。
-2. 展开该版本的 **Assets**，下载 `linkr-ota-<版本号>.bin`。
-3. 建议阅读 Release Notes 了解变更内容与已知问题。
+- 进入 Maskrom 模式
 
-### 文件说明
+按住灵控上的用户按键，使用 USB-C 数据线连接灵控的侧边 USB-C 数据/供电接口和电脑，连接成功后松开用户按键。
 
-| 项目     | 说明                                                |
-| -------- | --------------------------------------------------- |
-| 文件格式 | `linkr-ota-<semver>.bin`（加密 OTA 固件包）         |
-| 典型大小 | 约 50～60 MB                                        |
-| 来源     | 仅从官方 GitHub Releases 下载，勿使用来历不明的文件 |
+详细步骤：
 
-### 国内镜像（百度网盘）
+① : 按住灵控上的用户按键
 
-如果从 GitHub Releases 下载速度较慢或访问不便，可以使用以下百度网盘镜像下载相同版本的固件包：
+② : 使用 USB-C 转 USB-A 数据线连接灵控和电脑
 
-- **链接**：[https://pan.baidu.com/s/1AZgLUDaU8hJKhZjqTT_sMQ?pwd=1234](https://pan.baidu.com/s/1AZgLUDaU8hJKhZjqTT_sMQ?pwd=1234)
-- **提取码**：`1234`
+③ : 松开灵控上的用户按键
 
-:::caution 校验与安全
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/linkr-maskrom.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-- 镜像中的固件版本与 GitHub Releases 保持一致；下载后请确认文件名仍为 `linkr-ota-<版本号>.bin`。
-- 如 GitHub Releases 页面提供了同版本固件的 SHA256，请优先比对哈希后再上传到设备。
-- 百度网盘分享链接如失效，请以 [GitHub Releases](https://github.com/radxa-linkr/linkr/releases) 为准。
-  :::
+- 工具下载
 
-## 版本规则
+下载 [SocToolKit](https://github.com/radxa-linkr/linkr/releases/download/Tools/SocToolKit_V1.94.zip) 压缩包并解压，找到 `SocToolKit.exe` 并以管理员身份运行。
 
-设备在安装前会自动校验固件版本：
+- 选择产品芯片
 
-| 情况                       | 结果                               |
-| -------------------------- | ---------------------------------- |
-| 固件版本 **高于** 当前版本 | 允许升级                           |
-| 固件版本 **等于** 当前版本 | 拒绝，提示「版本号与当前版本相同」 |
-| 固件版本 **低于** 当前版本 | 拒绝，提示「版本号低于当前版本」   |
+① : 选择 `RV1106` 芯片型号
 
-不支持降级安装。如需回退版本，请联系技术支持。
+② : 点击 `OK` 确认选项
 
-## 常见问题
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/usb_update_firmware_01.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-### 提示需要重启后才能再次升级
+- 更新固件
 
-若上次升级已完成安装但尚未重启，再次尝试升级时会提示：**检测到您之前有升级操作，需要重启后才能再次升级**。
+① : 确认软件已经识别到 Maskrom 设备
 
-处理方式：点击 **重启** 完成上次升级，重启后再进行新的升级操作。
+② : 点击 `Firmware ...` 选择需要刷入的固件
 
-### 存储空间不足
+③ : 点击 `Upgrade` 选项更新固件
 
-固件包需写入设备本地存储。请删除不必要的虚拟磁盘镜像或其他占用空间的文件后重试。
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/usb_update_firmware_02.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-### 上传或升级失败
+- 更新固件成功
 
-- 确认下载的是完整、未损坏的 `linkr-ota-*.bin` 文件，可尝试重新下载。
-- 检查浏览器与灵控之间的网络连接是否稳定。
-- 刷新页面后重新上传，避免同时开启多个升级任务。
-- 升级失败后，设备通常仍运行原固件；若出现异常，可长按 FN 键 10 秒恢复出厂设置（会清除所有配置）。
+软件的右边信息输出区提示 `... OK` 说明固件更新成功。
 
-### 升级过程中能否关闭页面？
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/usb_firmware_succ.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-不建议。关闭页面可能导致上传中断。若已上传完成并进入「升级中」阶段，设备会在本地继续处理，但无法在同一页面查看进度或执行重启操作。建议保持页面打开直至提示重启。
+</TabItem>
 
-### 如何查看当前固件版本？
-
-**系统设置** 所在侧边栏 → **关于** → **设备信息** → **当前固件版本**。
-
-### 在线升级是否可用？
-
-当前 Web 界面以 **本地升级** 为主：先从 GitHub 下载固件，再在界面上传。本地升级标签旁的 `?` 图标提供了官方下载地址快捷入口。
-
-## 升级流程示意
-
-```text
-GitHub Releases 下载 linkr-ota-*.bin
-        ↓
-系统设置 → 系统更新 → 更新
-        ↓
-本地升级 → 点击或拖拽上传固件
-        ↓
-上传中 → 升级中（设备指示灯白色闪烁）
-        ↓
-已升级，请重启设备 → 点击重启
-        ↓
-重新登录，确认版本号
-```
-
-## 相关链接
-
-- [固件下载（GitHub Releases）](https://github.com/radxa-linkr/linkr/releases)
-- [固件下载（百度网盘镜像，提取码 1234）](https://pan.baidu.com/s/1AZgLUDaU8hJKhZjqTT_sMQ?pwd=1234)
-- [产品概述 - LED 指示灯](./product-introduction#led-指示灯)
-- [常见问题](#常见问题)
+</Tabs>
