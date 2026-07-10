@@ -32,8 +32,8 @@ Radxa Orion O6 and O6N use different BIOS firmware.
 #### Radxa Orion O6N
         | Download Platform                                                             | Version   | Format | How to Access                                                                                            |
         | :------------------------------------------------------------------- | :-------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-2.zip)                      | `1.1.0-2` | `.zip`   | Firmware is inside the zip file                                                                                    |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-2) | `1.1.0-2` | `.deb`   | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` directory |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.2.4.zip)                      | `1.2.4` | `.zip`   | Firmware is inside the zip file                                                                                    |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.2.4) | `1.2.4` | `.deb`   | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` directory |
     </TabItem>
 </Tabs>
 
