@@ -19,25 +19,18 @@ See this guide for more information on writing images. [SPI Nor Flash](./getting
 
 No, the heatsink and fan are not included by default.
 
-## Q4：My new ROCK 5T won't boot/stuck in infinite boot loop
-
-The ROCK 5T supports negotiating USB PD power supplies to higher voltages such as 9V, 12V, 15V, 20V to meet total system power load requirements (~30W with WiFi, SSD, USB peripherals, etc.). Currently, the PD negotiation is implemented in the kernel driver and we need to boot into the kernel to start the negotiation, but some power supplies cannot wait for the ROCK 5T negotiation and cut off the power when the timeout occurs, resulting in an infinite boot loop. We offer the following suggestions:
-
-- Use the official power supply - Radxa Power PD 30W.(Highly recommended) The Radxa Power PD 30W has been tested for all conditions of ROCK 5T.
-- Use a faster SD card or eMMC module and disable the bootloader/kernel serial console.
-- Use a fake 12V USB C power supply
-- Check other power supply statuses reported by the community.
-- Wait for Radxa to port the PD negotiation to the bootloader (u-boot).
-- Double-check that your power supply is capable of delivering the required power, especially the 5V voltage. Many power supplies have a maximum 5V voltage of 3 amps (15W), while others may have a higher maximum 5V voltage.
-
-## Q5： My ROCK 5T won't start, how do I check if it's broken?
+## Q4： My ROCK 5T won't start, how do I check if it's broken?
 
 Follow the steps below to troubleshoot ROCK 5T:
 
 - Power off the ROCK 5T and remove the eMMC module, SD card, and NVMe SSD.
 - Press and hold the MASKROOM button [(tag 32)](. /hardware-design/hardware-interface)
-- Plug the ROCK 5T USB C connector into the computer using the USB A to C cable, the green LED should light up
+- Plug the ROCK 5T USB C connector into the computer using the USB A to C cable, then connect the DC 12V power adapter, the green LED should light up.
 - Check if there is a new USB device in the computer's Device Manager, if so, the ROCK 5T is active. If not, try another USB port, we recommend connecting the ROCK 5T to the rear panel of your computer.
+
+:::note Power supply note
+The ROCK 5T is powered by a DC 12V adapter (or PoE). The on-board USB Type-C port is only used for OTG/data and entering Maskrom mode; it does NOT power the board. When troubleshooting whether the board can start, make sure the DC 12V adapter is connected first.
+:::
 
 ## Q6： My ROCK 5B HDMI does not display anything!
 
