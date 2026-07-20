@@ -44,7 +44,6 @@ sidebar_position: 150
 - [Radxa OS - Debian 11 Bullseye KDE R7（最新）](https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-r7/radxa-cubie-a5e_bullseye_kde_r7.output_512.img.xz)
 - [Radxa OS - Debian 11 Bullseye CLI R7（最新）](https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-r7/radxa-cubie-a5e_bullseye_cli_r7.output_512.img.xz)
 - [Radxa OS - Debian 11 Bullseye KDE](https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-b1/radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz)
-- [Tina Linux - Debian 11 Bullseye XFCE](https://mega.nz/file/g7AWVBZJ#xkDOIJYHvgUngdKUgW7D_aSaVPifyYZDOG0fUOtgAMk) ⚠️ *MEGA 链接，部分地区可能无法访问*
 
 #### FEL 系统镜像
 
