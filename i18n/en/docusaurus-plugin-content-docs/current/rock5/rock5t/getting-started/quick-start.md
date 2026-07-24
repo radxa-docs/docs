@@ -13,7 +13,7 @@ ROCK 5T standard package includes the following items: - ROCK 5B+ motherboard - 
 
 To boot up the ROCK 5T, you'll also need the following:
 
-- A charger(DC 12V recommended), positive inside and ground outside. The ROCK 5T also supports PoE power supply. For more details on power supply, please refer to [power-supply](./power-supply).
+- A charger(supports DC 9-20V input, 12V recommended), positive inside and ground outside. The ROCK 5T also supports PoE power supply. For more details on power supply, please refer to [power-supply](./power-supply).
 - An HDMI cable and an HDMI-enabled monitor with a recommended resolution of 1080P or higher, a 4K / 8K monitor will provide the best experience.
 - A set of USB mouse and keyboard, common USB input devices support plug and play.
 - A network cable, you need to connect to the Internet to update your system.
