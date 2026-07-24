@@ -25,11 +25,11 @@ Follow the steps below to troubleshoot ROCK 5T:
 
 - Power off the ROCK 5T and remove the eMMC module, SD card, and NVMe SSD.
 - Press and hold the MASKROOM button [(tag 32)](. /hardware-design/hardware-interface)
-- Plug the ROCK 5T USB C connector into the computer using the USB A to C cable, then connect the DC 12V power adapter, the green LED should light up.
+- Plug the ROCK 5T USB C connector into the computer using the USB A to C cable, then connect the DC 12V power adapter (supports DC 9-20V input, 12V recommended), the green LED should light up.
 - Check if there is a new USB device in the computer's Device Manager, if so, the ROCK 5T is active. If not, try another USB port, we recommend connecting the ROCK 5T to the rear panel of your computer.
 
 :::note Power supply note
-The ROCK 5T is powered by a DC 12V adapter (or PoE). The on-board USB Type-C port is only used for OTG/data and entering Maskrom mode; it does NOT power the board. When troubleshooting whether the board can start, make sure the DC 12V adapter is connected first.
+The ROCK 5T is powered by a DC 12V adapter (or PoE). The actual input range is DC 9-20V and 12V is the recommended adapter voltage. The on-board USB Type-C port is only used for OTG/data and entering Maskrom mode; it does NOT power the board. When troubleshooting whether the board can start, make sure the DC adapter is connected first.
 :::
 
 ## Q6： My ROCK 5B HDMI does not display anything!
