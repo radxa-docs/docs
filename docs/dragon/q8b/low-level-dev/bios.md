@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# BIOS 介绍
+# BIOS 说明
 
 BIOS（Basic Input / Output System）是主板上的固件，通电后首先运行，用于唤醒硬件、完成自检并引导操作系统启动。它是连接硬件与操作系统的“桥梁”。
 

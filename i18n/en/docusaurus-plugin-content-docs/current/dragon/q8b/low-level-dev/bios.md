@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# BIOS Introduction
+# BIOS Description
 
 The BIOS (Basic Input / Output System) is the firmware on the motherboard. It runs first when power is applied, wakes up the hardware, performs the self-test, and boots the operating system. It acts as the "bridge" between the hardware and the OS.
 
