@@ -85,7 +85,7 @@ sidebar_position: 4
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4 Powered SATA Interfaces</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4 Powered SATA 3.0 Interfaces</a></th>
         <th>28</th>
         <th>Rockchip RK3588</th>
       </tr>
@@ -183,7 +183,7 @@ sidebar_position: 4
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4 Powered SATA Interfaces</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4 Powered SATA 3.0 Interfaces</a></th>
         <th>28</th>
         <th>Rockchip RK3588</th>
       </tr>
@@ -702,7 +702,7 @@ Spacing 2.54 mm
 
 RTC takes Lithium coin cell CR1220-3V.
 
-## SATA
+## SATA 3.0 {#sata}
 
 ### SATA PORT
 

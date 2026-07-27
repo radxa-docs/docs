@@ -48,7 +48,7 @@ sidebar_position: 7
 
 ### 安装 SATA 硬盘
 
-如果主板带有 SATA 接口，则请按以下方式接线。
+如果主板带有 SATA 3.0 接口，则请按以下方式接线。
 
 以下图片中偏上的那条为数据线，将该数据线插入[接口说明](../getting-started/introduction#主板概览)中标号 20 中的其中一个。
 

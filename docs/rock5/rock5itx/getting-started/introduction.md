@@ -92,8 +92,8 @@ ROCK 5 ITX 不仅是一款高性能的ARM基础PC板，更是一个多功能、�
     <th>2 个摄像头端口（2 个四通道 MIPI CSI 或 2 个双通道 MIPI CSI）</th>
   </tr>
   <tr>
-    <th>SATA</th>
-    <th>4x SATA 接口，带电源接头</th>
+    <th>SATA 3.0</th>
+    <th>4x SATA 3.0 接口，带电源接头</th>
   </tr>
   <tr>
     <th>供电</th>
@@ -178,7 +178,7 @@ ROCK 5 ITX 不仅是一款高性能的ARM基础PC板，更是一个多功能、�
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4个带供电的 SATA 接口</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4个带供电的 SATA 3.0 接口</a></th>
         <th>28</th>
         <th>Rockchip RK3588</th>
       </tr>
@@ -276,7 +276,7 @@ ROCK 5 ITX 不仅是一款高性能的ARM基础PC板，更是一个多功能、�
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4个带供电的 SATA 接口</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4个带供电的 SATA 3.0 接口</a></th>
         <th>28</th>
         <th>Rockchip RK3588</th>
       </tr>

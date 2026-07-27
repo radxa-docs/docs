@@ -2,9 +2,11 @@
 sidebar_position: 14
 ---
 
-# Sata
+# SATA 3.0
 
 SATA 是一种计算机总线接口，用于将主机总线适配器连接到硬盘驱动器、光驱和固态驱动器等大容量存储设备。串行 ATA 取代了早期的并行 ATA（PATA）标准，成为存储设备的主要接口。
+
+ROCK 5 ITX 板载 4 个 SATA 3.0 接口，单口最高速率 6 Gbps。
 
 ## 接口测试方法
 
@@ -30,7 +32,7 @@ sudo hdparm -tT --direct /dev/sdX
 
 ### 组 raid 5 阵列
 
-- 将 4 块 sata 硬盘插入 ROCK 5 ITX sata 接口
+- 将 4 块 sata 硬盘插入 ROCK 5 ITX SATA 3.0 接口
 
 - 安装 mdadm
 
