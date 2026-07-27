@@ -48,7 +48,7 @@ Insert the SSD into the [Interface Description](../getting-started/introduction#
 
 ### Install the SATA Hard Drive
 
-If the motherboard has a SATA interface, wire it as follows.
+If the motherboard has a SATA 3.0 interface, wire it as follows.
 
 The upper one in the picture below is the data cable. Plug this cable into one of the cables labelled 20 in [Interface Description](../getting-started/introduction#motherboard-overview).
 

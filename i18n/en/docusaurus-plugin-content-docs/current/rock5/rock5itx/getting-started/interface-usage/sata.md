@@ -2,9 +2,11 @@
 sidebar_position: 14
 ---
 
-# Sata
+# SATA 3.0
 
 SATA is a computer bus interface that connects host bus adapters to mass storage devices such as hard disk drives, optical drives, and solid-state drives. Serial ATA succeeded the earlier Parallel ATA (PATA) standard to become the predominant interface for storage devices.
+
+ROCK 5 ITX provides 4 onboard SATA 3.0 interfaces, each supporting up to 6 Gbps.
 
 ## Interface test methods
 
@@ -30,7 +32,7 @@ sudo hdparm -tT --direct /dev/sdX
 
 ### Group raid 5 array
 
-- Inserting 4 sata drives into the ROCK 5 ITX sata interface
+- Inserting 4 sata drives into the ROCK 5 ITX SATA 3.0 interface
 
 - Install mdadm
 
