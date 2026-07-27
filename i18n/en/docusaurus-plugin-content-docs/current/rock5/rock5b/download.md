@@ -31,7 +31,7 @@ Android：
 <pre>
     Loader: [MiniLoader.bin](https://dl.radxa.com/rock5/5itx/images/MiniLoaderAll.bin)
 
-    [ROCK 5B Android 12 GPT Image](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240419/Rock5B_Android12_rkr14_20240419-gpt.zip)(used for booting from sdcard/emmc)
+    [ROCK 5B Android 12_gpt](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240419/Rock5B_Android12_rkr14_20240419-gpt.zip)(used for booting from sdcard/emmc)
 
     [ROCK 5B Android 12 RKupdate Image](https://github.com/radxa/manifests/releases/download/Rock-android12-20221104/ROCK-5B-Android12-rkr10-20221103-spi-nvme-rkupdate.zip)(used for booting from SPI-NVME)
 
@@ -152,6 +152,16 @@ Android：
         <td align="center"><a href="https://forum.radxa.com/t/use-yolov8-in-rk3588-npu/15838">Use YoloV8 in RK3588 NPU</a></td>
     </tr>
 </table>
+
+## Software Tools
+
+- [Balena Etcher](https://etcher.balena.io/)
+
+- [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)
+
+- [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip)
+
+- [Upgrade Tool](https://dl.radxa.com/tools/linux/upgrade_tool_v2.30_for_linux.zip)
 
 ## Hardware Design
 
