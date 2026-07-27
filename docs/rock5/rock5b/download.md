@@ -31,7 +31,7 @@ Android：
 <pre>
     Loader: [MiniLoader.bin](https://dl.radxa.com/rock5/5itx/images/MiniLoaderAll.bin)
 
-    [ROCK 5B Android 12](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240419/Rock5B_Android12_rkr14_20240419-gpt.zip)(用于 sdcard/emmc 启动)
+    [ROCK 5B Android 12_gpt](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240419/Rock5B_Android12_rkr14_20240419-gpt.zip)(用于 sdcard/emmc 启动)
 
     [ROCK 5B Android 12_update](https://github.com/radxa/manifests/releases/download/Rock-android12-20221104/ROCK-5B-Android12-rkr10-20221103-spi-nvme-rkupdate.zip)(用于 nvme 启动)
 
@@ -159,12 +159,23 @@ Android：
 百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
 
 **版本说明：**
+
 - **R 版本**：经过测试的稳定版本，推荐使用
 - **T 版本**：测试版本（仅用于评估）
-:::
+  :::
 - [百度网盘下载（rock-5b）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5b&parentPath=%2Fsharelink3108273493-988411983016443)
 - [百度网盘下载（rock-5b-plus）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5b-plus&parentPath=%2Fsharelink3108273493-988411983016443)
 - [百度网盘下载（rock-5b-plus-6_1）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5b-plus-6_1&parentPath=%2Fsharelink3108273493-988411983016443)
+
+## 软件工具
+
+- [Balena Etcher](https://etcher.balena.io/)
+
+- [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)
+
+- [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip)
+
+- [Upgrade Tool](https://dl.radxa.com/tools/linux/upgrade_tool_v2.30_for_linux.zip)
 
 ## 硬件设计
 
