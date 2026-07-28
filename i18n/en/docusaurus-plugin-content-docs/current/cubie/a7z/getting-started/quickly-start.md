@@ -82,7 +82,7 @@ Password: radxa
 
 ### With Display
 
-For users with a monitor, you can connect to the display using a USB-C to HDMI/DP cable and operate the system with a mouse and keyboard.
+For users with a monitor, you can connect to the display using the Micro HDMI port or a USB-C cable that supports DP Alt mode, and operate the system with a mouse and keyboard.
 
 ### Without Display
 
