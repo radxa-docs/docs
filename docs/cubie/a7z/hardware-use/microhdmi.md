@@ -4,15 +4,15 @@ sidebar_position: 4
 
 # Micro HDMI 接口
 
-瑞莎 Cubie A7A 板载 1 个 HDMI 接口，可以使用 HDMI 接口进行视频输出，支持最高 4K@60fps 输出。
+瑞莎 Cubie A7Z 板载 1 个 Micro HDMI 接口，可以使用 Micro HDMI 接口进行视频输出，支持最高 4K@60fps 输出。
 
 :::info 接口位置
-HDMI 接口具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
+Micro HDMI 接口具体位置可以查看 [硬件接口](./hardware-info) 教程的接口说明部分！
 :::
 
 ## 使用指南
 
-使用显示器连接 Cubie A7A 的 HDMI 接口，可以测试视频输出是否正常。
+使用显示器连接 Cubie A7Z 的 Micro HDMI 接口，可以测试视频输出是否正常。
 
 :::tip
 部分显示器可能存在不兼容情况，可以尝试更换其他显示器测试

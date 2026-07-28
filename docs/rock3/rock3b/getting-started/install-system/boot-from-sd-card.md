@@ -2,20 +2,20 @@
 sidebar_position: 1
 
 doc_kind: wrapper
-source_of_truth: local
+source_of_truth: common
 imports_resolve_to:
-  - docs/rock3/rock3b/_image.mdx
   - docs/common/general/_etcherV2.mdx
 ---
 
-import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 # 安装系统到 microSD 卡
 
+本文介绍如何在 ROCK 3B 上将系统安装到 microSD 卡 中，并通过 microSD 卡 启动系统。
+
 ## 文件下载
 
-<Images loader={false} system_img={true} spi_img={false} />
+到资源下载汇总页面下载 [ROCK 3B 系统镜像](../../download)
 
 ## microSD 卡准备
 

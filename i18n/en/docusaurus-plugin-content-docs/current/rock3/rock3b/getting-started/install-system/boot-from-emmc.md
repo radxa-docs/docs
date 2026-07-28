@@ -2,24 +2,24 @@
 sidebar_position: 1
 
 doc_kind: wrapper
-source_of_truth: local
+source_of_truth: common
 imports_resolve_to:
-  - i18n/en/docusaurus-plugin-content-docs/current/rock3/rock3b/_image.mdx
   - i18n/en/docusaurus-plugin-content-docs/current/common/general/_etcherV2.mdx
 ---
 
-import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
-# Install the system to the EMMC Module
+# Install OS to eMMC Module
+
+This article explains how to install the operating system to an eMMC Module and boot the system from it on ROCK 3B.
 
 ## File Download
 
-<Images loader={false} system_img={true} spi_img={false} />
+Download the [ROCK 3B system image](../../download) from the resource download page.
 
-## EMMC Module preparation
+## eMMC Module preparation
 
-Insert [EMMC Module](../../../../accessories/emmc_module) into [EMMC Reader](accessories/emmc_reader), and then insert the reader into the USB port of your PC.
+Insert the [eMMC Module](../../../../accessories/emmc_module) into the [eMMC Reader](accessories/emmc_reader), and then insert the reader into the USB port of your PC.
 
 ## Image burning
 
@@ -27,7 +27,7 @@ Insert [EMMC Module](../../../../accessories/emmc_module) into [EMMC Reader](acc
 
 ## Boot the system
 
-After successfully burning the EMMC Module according to the above steps, insert the EMMC Module into the EMMC Module slot (as shown in the picture below), then power on the system, the system will start booting and HDMI will display the desktop.
+After successfully burning the eMMC Module according to the above steps, insert the eMMC Module into the eMMC Module slot (as shown in the picture below), then power on the system, the system will start booting and HDMI will display the desktop.
 
 <img
 src="/img/rock3/3b/rock3b_with_emmc_module.webp"

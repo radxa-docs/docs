@@ -8,12 +8,24 @@ sidebar_position: 1
 
 ## 产品实物
 
-<div style={{textAlign: 'center'}}>
-   瑞莎智核 AX-M1 模块正面
-   <img src="/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
-   瑞莎智核 AX-M1 模块背面
-    <img src="/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
-</div>
+<Tabs queryString="ax-m1-version">
+    <TabItem value="V1.0">
+        <div style={{textAlign: 'center'}}>
+            瑞莎智核 AX-M1 模块正面
+            <img src="/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
+            瑞莎智核 AX-M1 模块背面
+            <img src="/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
+        </div>
+    </TabItem>
+    <TabItem value="V1.1">
+        <div style={{textAlign: 'center'}}>
+            瑞莎智核 AX-M1 模块正面
+            <img src="/img/aicore-ax-m1/aicore_ax_m1_top_v11.webp" style={{width: '60%', maxWidth: '800px'}} />
+            瑞莎智核 AX-M1 模块背面
+            <img src="/img/aicore-ax-m1/aicore_ax_m1_bottom_v11.webp" style={{width: '60%', maxWidth: '800px'}} />
+        </div>
+    </TabItem>
+</Tabs>
 
 ## 使用前提
 

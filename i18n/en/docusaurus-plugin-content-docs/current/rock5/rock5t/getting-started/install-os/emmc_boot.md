@@ -18,12 +18,12 @@ You will need the following hardware:
 
 - Board: Radxa ROCK 5T
 - Boot medium: microSD card
-- Power adapter: Standard DC 12V/2A power adapter (DC-5525 interface)
+- Power adapter: Standard DC 12V/2A power adapter (DC-5525 interface; supports DC 9-20V input, 12V recommended)
 
 We will boot the system from the microSD card, download the system image file after entering the system, and then use the `dd` command to write the system image to eMMC.
 
 :::tip Recommended Accessories
-Radxa ROCK 5T only supports 12V power input, and a current of 2A or higher is recommended to ensure stable operation of all peripherals.
+Radxa ROCK 5T supports DC 9-20V power input (12V recommended). A current of 2A or higher is recommended to ensure stable operation of all peripherals.
 
 - [Radxa DC12 36W Power Adapter](https://radxa.com/products/accessories/power-dc12-36w) (Recommended)
 - [Radxa DC12 60W Power Adapter](https://radxa.com/products/accessories/power-dc12-60w)

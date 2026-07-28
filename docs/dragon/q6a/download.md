@@ -59,17 +59,35 @@ sudo dmidecode -s bios-version
 
 :::
 
-## 百度网盘下载
+### 百度网盘下载
 
 :::tip
 百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
 
 **版本说明：**
+
 - **R 版本**：经过测试的稳定版本，推荐使用
 - **T 版本**：测试版本（仅用于评估）
-:::
+  :::
 
 - [百度网盘下载（radxa-dragon-q6a）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-dragon-q6a&parentPath=%2Fsharelink3108273493-988411983016443)
+
+## Android 15
+
+Android 15 目前仅支持 SPI 固件搭配 eMMC 模块或 UFS 模块启动。
+
+说明：SPI 固件和系统镜像在同一个压缩包中，下载后解压可以得到系统镜像文件和 SPI 固件文件。
+
+### eMMC 系统镜像
+
+- [Android_15_eMMC_20260630-b1.7z](https://dl.radxa.com/q6a/images/android/Q6A-Android15-spi-emmc-boot-20260630-b1.7z)
+
+### UFS 系统镜像
+
+烧录 UFS 系统镜像相比于 eMMC 系统镜像，需要额外烧录 UFS 配置文件。
+
+- [provision_ufs31.xml](https://dl.radxa.com/q6a/images/android/provision_ufs31.xml)
+- [Android_15_UFS_20260630-b1.7z](https://dl.radxa.com/q6a/images/android/Q6A-Android15-spi-ufs-boot-20260630-b1.7z)
 
 ## 启动固件
 

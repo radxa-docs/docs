@@ -16,6 +16,7 @@ This page lists the official accessories compatible with ROCK 5B.
 | Camera   | Camera 4K              | 4K resolution camera module that connects over MIPI CSI                  | [Learn more](https://radxa.com/products/accessories/camera4k)           |
 | Camera   | Camera 8M 219          | 8 MP IMX219 camera module, a widely compatible option                    | [Learn more](https://radxa.com/products/accessories/camera-8m-219)      |
 | Wireless | Wireless Module A8     | Wi-Fi 6 and Bluetooth 5.2 wireless card module                           | [Learn more](https://radxa.com/products/accessories/wireless-module-a8) |
+| Wireless | LTE EC25 4G Module     | Quectel LTE EC25-AU 4G cellular module, connects via M.2 B Key            | [Learn more](https://docs.radxa.com/rock5/rock5b/getting-started/interface-usage/pcie-b-key) |
 | PoE      | 25W PoE+ HAT           | Power-over-Ethernet expansion board supporting IEEE 802.3at              | [Learn more](https://radxa.com/products/accessories/25w-poe-plus-hat)   |
 | Storage  | eMMC Module            | High-speed eMMC storage modules in 16/32/64/128 GB capacities            | [Learn more](https://radxa.com/products/accessories/emmc-module)        |
 | Storage  | eMMC to uSD            | eMMC to microSD card adapter                                             | [Learn more](https://radxa.com/products/accessories/emmc-to-usd)        |

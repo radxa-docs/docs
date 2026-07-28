@@ -19,23 +19,18 @@ SPI Nor Flash 存储引导程序。NVME 固态硬盘存储整个系统镜像（�
 
 不，默认情况下不包括散热片和风扇。
 
-## Q4：我的新 ROCK 5T 无法启动/卡在无限启动循环中
-
-ROCK 5T 支持将 USB PD 电源协商至更高的电压，如 9V、12V、15V、20V，以满足系统总功率负载要求（带 WiFi、SSD、USB 外围设备等时约为 30W）。目前 ROCK 5T 有一个专门供电的 TYPE-C 接口，我们提供以下建议：
-
-- 使用官方电源 - Radxa Power PD 30W。（强烈推荐）Radxa Power PD 30W 已通过 ROCK 5T 的所有条件测试。
-- 使用速度更快的 SD 卡，并禁用引导加载程序/内核串行控制台
-- 使用假的 12V USB C 电源
-- 仔细检查您的电源是否能提供所需的功率，尤其是 5V 电压。许多电源的最大 5V 电压为 3 安培（15W），而其他电压的最大 5V 电压可能更高。
-
-## Q5： 我的 ROCK 5T 无法启动，如何检查是否坏了
+## Q4： 我的 ROCK 5T 无法启动，如何检查是否坏了
 
 按以下步骤排除 ROCK 5T 故障：
 
 - 关闭 ROCK 5T 电源，SD 卡、NVMe SSD
 - 按住 MASKROOM 按钮 [（标签 32）](./hardware-design/hardware-interface)
-- 使用 USB A to C 电缆将 ROCK 5T USB C 接口插入电脑，绿色 LED 灯应亮起
+- 使用 USB A to C 电缆将 ROCK 5T USB C 接口插入电脑然后接上 DC 12V 适配器（支持 9-20V 输入，推荐 12V），绿色 LED 灯应亮起
 - 检查电脑 "设备管理器 "中是否有新的 USB 设备，如果有，说明 ROCK 5T 已激活。如果没有，请尝试其他 USB 端口，我们建议将 ROCK 5T 连接到电脑的后面板。
+
+:::note 供电说明
+ROCK 5T 由 DC 12V 适配器（或 PoE）供电（实际支持 9-20V 输入，推荐 12V），板上的 USB Type-C 接口仅用于 OTG/数据/进入 Maskrom 模式，不会为板子供电。因此在排查能否启动时，需要先确保 DC 适配器已经接入。
+:::
 
 ## Q6： 我的 ROCK 5T HDMI 不能显示任何内容
 

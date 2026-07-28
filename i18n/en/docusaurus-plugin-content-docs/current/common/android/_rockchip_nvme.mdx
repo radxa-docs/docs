@@ -1,0 +1,52 @@
+This guide explains how to install the Android system to an NVMe SSD.
+
+## Hardware Connection
+
+Install the NVMe SSD into the M.2 M Key slot of the board, then make the board <a href={props?.download_page ?? '../../../low-level-dev/install-os/rkdevtool_maskrom'}>enter Maskrom mode</a>.
+
+## Download System
+
+Use a PC to access the <a href={props?.download_page ?? '../../../download'}>Resource Download</a> page, download the system image, and extract it locally.
+
+## System Installation
+
+<Tabs>
+<TabItem value="os-1" label="Windows" default>
+
+- Install Driver
+
+Download and extract [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip), find `DriverInstall.exe`, and run it as administrator. Follow the prompts to install the driver.
+
+- Use RKDevTool
+
+Download and extract [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip). `RKDevTool.exe` is the executable program; you can double-click it to open the software.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/common/radxa-os/install-system/rkdevtool_android.webp"
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
+</div>
+
+1. Click the `Firmware` button and select the extracted system image file.
+
+2. Click the `Upgrade` button to start installing the system to the NVMe SSD.
+
+</TabItem>
+<TabItem value="os-2" label="Linux">
+
+Download [Update_Tool_V2.30](https://dl.radxa.com/tools/linux/upgrade_tool_v2.30_for_linux.zip) and extract it. Then enter the extracted directory in a terminal and execute the following commands:
+
+```bash
+sudo chmod +x upgrade_tool
+sudo ln -s "$(pwd)/upgrade_tool" /usr/local/bin/upgrade_tool
+```
+
+Use the following command to install the system to the NVMe SSD: replace `<image>` with the path of the extracted system image file.
+
+```bash
+sudo upgrade_tool uf <image>
+```
+
+</TabItem>
+</Tabs>

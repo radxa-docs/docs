@@ -92,8 +92,8 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
     <th>2x camera ports (2x four-channel MIPI CSI or 2x dual-channel MIPI CSI)</th>
   </tr>
   <tr>
-    <th>SATA</th>
-    <th>4x SATA interfaces with power connectors</th>
+    <th>SATA 3.0</th>
+    <th>4x SATA 3.0 interfaces with power connectors</th>
   </tr>
   <tr>
     <th>Power</th>
@@ -178,7 +178,7 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4 Powered SATA Interfaces</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4 Powered SATA 3.0 Interfaces</a></th>
         <th>28</th>
         <th>Rockchip RK3588</th>
       </tr>
@@ -276,7 +276,7 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
         <th>12</th>
         <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#usb-30--hdmi-11">USB 3.0 + HDMI</a></th>
         <th>20</th>
-        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4 Powered SATA Interfaces</a></th>
+        <th><a href="/rock5/rock5itx/hardware-design/hardware-interface#sata">4 Powered SATA 3.0 Interfaces</a></th>
         <th>28</th>
         <th>Rockchip RK3588</th>
       </tr>

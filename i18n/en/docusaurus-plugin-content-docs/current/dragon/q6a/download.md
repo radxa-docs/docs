@@ -59,6 +59,36 @@ If the system fails to boot properly, you can try re-flashing the latest SPI boo
 
 :::
 
+### Baidu Netdisk Download
+
+:::tip
+The Baidu Netdisk share link is regularly updated with the latest image files. It is recommended to download the latest images from Baidu Netdisk.
+
+**Version Notes:**
+
+- **R Version**: Tested stable version, recommended
+- **T Version**: Test version (for evaluation only)
+  :::
+
+- [Baidu Netdisk Download (radxa-dragon-q6a)](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-dragon-q6a&parentPath=%2Fsharelink3108273493-988411983016443)
+
+## Android 15
+
+Android 15 currently only supports booting with SPI firmware combined with eMMC module or UFS module.
+
+Note: The SPI firmware and system image are in the same compressed package. After downloading and extracting, you will get the system image file and SPI firmware file.
+
+### eMMC System Image
+
+- [Android_15_eMMC_20260630-b1.7z](https://dl.radxa.com/q6a/images/android/Q6A-Android15-spi-emmc-boot-20260630-b1.7z)
+
+### UFS System Image
+
+Compared with the eMMC system image, flashing the UFS system image requires additionally flashing the UFS configuration file.
+
+- [provision_ufs31.xml](https://dl.radxa.com/q6a/images/android/provision_ufs31.xml)
+- [Android_15_UFS_20260630-b1.7z](https://dl.radxa.com/q6a/images/android/Q6A-Android15-spi-ufs-boot-20260630-b1.7z)
+
 ## Boot Firmware
 
 The Dragon Q6A comes with the SPI boot firmware pre-flashed by default. Under normal circumstances, it is not necessary to re-flash the boot firmware. If the system fails to boot properly, you can try re-flashing the SPI boot firmware.

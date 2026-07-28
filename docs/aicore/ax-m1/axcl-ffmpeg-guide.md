@@ -183,14 +183,18 @@ RTSP 建议使用 TCP 传输（`-rtsp_transport tcp`），更稳定。
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-/usr/bin/axcl/ffmpeg/ffmpeg \
-  -framerate 30 \
+/usr/bin/axcl/ffmpeg/ffmpeg -hide_banner -y \
+  -init_hw_device axmm=ax:,device_index=0,alloc_blk=1 \
+  -f rawvideo \
+  -pix_fmt yuv420p \
   -s 1920x1080 \
-  -pix_fmt nv12 \
+  -r 24000/1001 \
   -i input.yuv \
+  -frames:v 300 \
+  -pix_fmt nv12 \
   -c:v h264_axenc \
   -b:v 2M \
-  output.mp4
+  output.h264
 ```
 
 </NewCodeBlock>
@@ -200,14 +204,18 @@ RTSP 建议使用 TCP 传输（`-rtsp_transport tcp`），更稳定。
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-/usr/bin/axcl/ffmpeg/ffmpeg \
-  -framerate 30 \
-  -s 1920x1080 \
-  -pix_fmt nv12 \
+/usr/bin/axcl/ffmpeg/ffmpeg -hide_banner -y \
+  -init_hw_device axmm=ax:,device_index=0,alloc_blk=1 \
+  -f rawvideo \
+  -pix_fmt yuv420p \
+  -s 1280x720 \
+  -r 24000/1001 \
   -i input.yuv \
+  -frames:v 300 \
+  -pix_fmt nv12 \
   -c:v hevc_axenc \
   -b:v 2M \
-  output.mp4
+  output.hevc
 ```
 
 </NewCodeBlock>
@@ -283,7 +291,7 @@ FFmpeg 7.x 的部分 API 参数类型与 5.x 不同，需注意：
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-wget https://github.com/FFmpeg/FFmpeg/releases/download/n7.1/FFmpeg-n7.1.tar.gz
+wget https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n7.1.tar.gz
 ```
 
 </NewCodeBlock>
@@ -293,9 +301,9 @@ wget https://github.com/FFmpeg/FFmpeg/releases/download/n7.1/FFmpeg-n7.1.tar.gz
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-cp FFmpeg-n7.1.tar.gz ${AXCL_SDK}/axcl/3rdparty/ffmpeg/
+cp n7.1.tar.gz ${AXCL_SDK}/axcl/3rdparty/ffmpeg/
 cd ${AXCL_SDK}/axcl/3rdparty/ffmpeg
-tar -zxvf FFmpeg-n7.1.tar.gz
+tar -zxvf n7.1.tar.gz
 ```
 
 </NewCodeBlock>

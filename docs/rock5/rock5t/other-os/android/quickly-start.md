@@ -12,12 +12,12 @@ sidebar_position: 1
 
 - 主板：瑞莎 ROCK 5T
 - 系统启动介质：microSD 卡
-- 供电设备：标准 DC 12V/2A 电源适配器（DC-5525 接口）
+- 供电设备：标准 DC 12V/2A 电源适配器（DC-5525 接口；支持 DC 9-20V 输入，推荐 12V）
 - 显示设备：显示器和 HDMI 数据线
 - 输入设备：键盘和鼠标（用于图形界面操作）
 
 :::tip 推荐配件
-瑞莎 ROCK 5T 支持 12V 电源输入，建议电流 2A 及以上，以确保所有外设稳定运行。
+瑞莎 ROCK 5T 支持 DC 9-20V 电源输入（推荐 12V），建议电流 2A 及以上，以确保所有外设稳定运行。
 
 - [瑞莎 DC12 36W电源适配器](https://radxa.com/products/accessories/power-dc12-36w)(推荐使用)
 - [瑞莎 DC12 60W电源适配器](https://radxa.com/products/accessories/power-dc12-60w)
@@ -135,4 +135,4 @@ sidebar_position: 1
 
 ## 启动系统
 
-完成系统的写入后，将 microSD 卡安装到 ROCK 5T 的 microSD 卡槽中，然后使用 12V DC 电源适配器给 ROCK 5T 供电，即可启动系统。
+完成系统的写入后，将 microSD 卡安装到 ROCK 5T 的 microSD 卡槽中，然后使用 DC 12V 电源适配器（支持 9-20V 输入，推荐 12V）给 ROCK 5T 供电，即可启动系统。

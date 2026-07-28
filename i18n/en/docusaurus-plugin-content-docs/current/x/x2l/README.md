@@ -25,7 +25,7 @@ The Radxa X2L is a new X86 SBC launched by Radxa, featuring the Intel J4125 proc
 |  Storage   | M.2 M Key Connector for M.2 M Key 2280 NVMe (Does not support SATA protocol.) <br/> Optional onboard eMMC        |
 |  Display   | 2x Standard HDMI up to 4K@30fps                                                                                  |
 |   Audio    | Headphone Jack with MIC IN                                                                                       |
-|  Wireless  | M.2 E Key Connector for Wi-Fi / BT, supports AX210 and [Radxa Wireless Module A8](../../accessories/wireless-a8) |
+|  Wireless  | M.2 E Key Connector for Wi-Fi / BT, supports AX210 and [Radxa Wireless Module A8](https://radxa.com/products/accessories/wireless-module-a8) |
 |    USB     | 2x USB3.0 Type A HOST ports, 2x USB2.0 Type A HOST ports                                                         |
 |  Ethernet  | 1x Gigabit Ethernet                                                                                              |
 |     IO     | 40-Pin GPIO Header                                                                                               |

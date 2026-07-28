@@ -8,12 +8,24 @@ Using ROCK 5B+ as the primary example, this guide explains how to pair the Radxa
 
 ## Product overview
 
-<div style={{textAlign: 'center'}}>
-   Radxa AICore AX-M1 (front)
-   <img src="/en/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
-   Radxa AICore AX-M1 (back)
-    <img src="/en/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
-</div>
+<Tabs queryString="ax-m1-version">
+    <TabItem value="V1.0">
+        <div style={{textAlign: 'center'}}>
+            Radxa AICore AX-M1 (front)
+            <img src="/en/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
+            Radxa AICore AX-M1 (back)
+            <img src="/en/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
+        </div>
+    </TabItem>
+    <TabItem value="V1.1">
+        <div style={{textAlign: 'center'}}>
+            Radxa AICore AX-M1 (front)
+            <img src="/en/img/aicore-ax-m1/aicore_ax_m1_top_v11.webp" style={{width: '60%', maxWidth: '800px'}} />
+            Radxa AICore AX-M1 (back)
+            <img src="/en/img/aicore-ax-m1/aicore_ax_m1_bottom_v11.webp" style={{width: '60%', maxWidth: '800px'}} />
+        </div>
+    </TabItem>
+</Tabs>
 
 ## Requirements
 

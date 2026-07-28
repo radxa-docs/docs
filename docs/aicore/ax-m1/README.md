@@ -29,20 +29,32 @@ sidebar_position: 1
 
 ## 产品外观
 
-<div style={{textAlign: 'center'}}>
-   瑞莎智核 AX-M1 模块正面
-   <img src="/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
-   瑞莎智核 AX-M1 模块背面
-    <img src="/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
-</div>
+<Tabs queryString="ax-m1-version">
+    <TabItem value="V1.0">
+        <div style={{textAlign: 'center'}}>
+            瑞莎智核 AX-M1 模块正面
+            <img src="/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
+            瑞莎智核 AX-M1 模块背面
+            <img src="/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
+        </div>
+    </TabItem>
+    <TabItem value="V1.1">
+        <div style={{textAlign: 'center'}}>
+            瑞莎智核 AX-M1 模块正面
+            <img src="/img/aicore-ax-m1/aicore_ax_m1_top_v11.webp" style={{width: '60%', maxWidth: '800px'}} />
+            瑞莎智核 AX-M1 模块背面
+            <img src="/img/aicore-ax-m1/aicore_ax_m1_bottom_v11.webp" style={{width: '60%', maxWidth: '800px'}} />
+        </div>
+    </TabItem>
+</Tabs>
 
 ## 产品规格
 
 | 类别     | 规格                                                     |
 | -------- | -------------------------------------------------------- |
 | CPU      | 八核 Cortex-A55，主频高达 1.5GHz                         |
-| 内存     | 8GB LPDDR4x                                              |
-| NPU      | 24TOPS@INT8；支持矩阵运算单元和智能视觉引擎              |
+| 内存     | 最高可选 8GB LPDDR4X                                      |
+| NPU      | 最高可达 24TOPS@INT8；支持矩阵运算单元和智能视觉引擎      |
 | VPU      | 支持 H.264/H.265 8K@30fps编解码和 16 路 1080p@30fps 解码 |
 | 硬件适配 | 支持 Intel、AMD、Rockchip 等主机平台                     |
 | 系统适配 | 支持 Ubuntu、Debian、CentOS 等主流 Linux 发行版          |

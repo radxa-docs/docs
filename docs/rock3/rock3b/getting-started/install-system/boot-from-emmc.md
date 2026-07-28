@@ -2,24 +2,24 @@
 sidebar_position: 1
 
 doc_kind: wrapper
-source_of_truth: local
+source_of_truth: common
 imports_resolve_to:
-  - docs/rock3/rock3b/_image.mdx
   - docs/common/general/_etcherV2.mdx
 ---
 
-import Images from "../../\_image.mdx"
 import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
-# 安装系统到 EMMC Module
+# 安装系统到 eMMC Module
+
+本文介绍如何在 ROCK 3B 上将系统安装到 eMMC Module 中，并通过 eMMC Module 启动系统。
 
 ## 文件下载
 
-<Images loader={false} system_img={true} spi_img={false} />
+到资源下载汇总页面下载 [ROCK 3B 系统镜像](../../download)
 
-## EMMC Module 准备
+## eMMC Module 准备
 
-将 [EMMC Module](../../../../accessories/emmc_module) 插入到 [EMMC Reader](../../../../accessories/emmc_reader) 中，然后将 Reader 插入到 PC 的 USB 端口上
+将 [eMMC Module](../../../../accessories/emmc_module) 插入到 [eMMC Reader](../../../../accessories/emmc_reader) 中，然后将 Reader 插入到 PC 的 USB 端口上
 
 ## 镜像烧录
 
@@ -27,7 +27,7 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 ## 启动系统
 
-按照上述步骤成功烧录 EMMC Module 后， 将 EMMC Module 插入到 EMMC Module 插槽内（如下图所示），然后上电，系统开始启动，HDMI显示桌面。
+按照上述步骤成功烧录 eMMC Module 后， 将 eMMC Module 插入到 eMMC Module 插槽内（如下图所示），然后上电，系统开始启动，HDMI显示桌面。
 
 <img
 src="/img/rock3/3b/rock3b_with_emmc_module.webp"

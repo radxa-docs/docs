@@ -9,7 +9,7 @@ This page organizes the download resources for Radxa Orion O6 / O6N by use case.
 :::info Quick Navigation
 
 - [BIOS Firmware](#bios-firmware)
-- [System Images (Radxa OS / Android / OpenHarmony / Fedora / Debian 13)](#system-images)
+- [System Images (Radxa OS / Android / OpenHarmony / Fedora / Debian 13 / FnNAS fnOS)](#system-images)
 - [Hardware Design Resources](#hardware-design)
 - [Community Resources](#community-resources)
 - [Reference Manuals](#reference-manuals)
@@ -32,8 +32,8 @@ Radxa Orion O6 and O6N use different BIOS firmware.
 #### Radxa Orion O6N
         | Download Platform                                                             | Version   | Format | How to Access                                                                                            |
         | :------------------------------------------------------------------- | :-------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-2.zip)                      | `1.1.0-2` | `.zip`   | Firmware is inside the zip file                                                                                    |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-2) | `1.1.0-2` | `.deb`   | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` directory |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.2.4.zip)                      | `1.2.4` | `.zip`   | Firmware is inside the zip file                                                                                    |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.2.4) | `1.2.4` | `.deb`   | Firmware is located in `edk2-cix_***_all.deb` package under `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` directory |
     </TabItem>
 </Tabs>
 
@@ -143,6 +143,19 @@ Debian 13 is intended for developers who want to use the CIX community open-sour
 - Orion O6N guide: [Orion O6N Debian 13](./o6n/other-os/debian13.md)
 - Suitable for: mainline kernel validation, NPU / VPU driver debugging, and community development testing
 - Note: this stack is based on the development kernel `7.0.0-rc5-generic`; enable `Enable ACPI SCMI` in BIOS before installation
+
+### FnNAS fnOS
+
+FnNAS fnOS targets NAS use cases; its ARM build is currently in public beta. The FnNAS ARM download page lists **CIX P1** (the SoC used by Radxa Orion O6 / O6N) as supported under the **UEFI ARM Installation Image ISO** category, so it can be flashed onto both Orion O6 and O6N.
+
+- **Compatible Models**: Radxa Orion O6 / O6N (CIX P1 SoC)
+- **Use Case**: NAS / home storage use for advanced testers; the ARM build is a **public beta** and is not an officially maintained Radxa distribution
+- **User Guides**: [Orion O6 FnNAS fnOS](./o6/other-os/fnos.md) / [Orion O6N FnNAS fnOS](./o6n/other-os/fnos.md)
+- **Notes**: the ARM public beta may contain unresolved stability issues; test only on non-critical setups and read the [FnNAS ARM Public Beta Disclaimer](https://help.fnnas.com/articles/v1/contact/disclaimers.md) before installing
+
+For the CIX P1 image, please visit the [FnNAS fnOS ARM Download Page](https://www.fnnas.com/download-arm) and find the **UEFI ARM Installation Image ISO** category (file tag `armsr`) in the device support list to download.
+
+The image version and build number change with each FnNAS fnOS ARM public beta release. Always use the latest version published on the FnNAS fnOS ARM download page.
 
 ## Hardware Design
 

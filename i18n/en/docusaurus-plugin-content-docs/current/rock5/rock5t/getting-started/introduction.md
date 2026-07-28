@@ -132,7 +132,7 @@ ROCK 5T/5T-Industrial provides complete hardware design schematics and software 
     </tr>
     <tr>
         <td align="center">Power Supply</td>
-        <td colspan="2" align="center">Supports DC 12V power adapter<br/>Provides 5V power to GPIO PINs 2 and 4</td>
+        <td colspan="2" align="center">Supports DC 9-20V power adapter<br/>Provides 5V power to GPIO PINs 2 and 4</td>
     </tr>
     <tr>
         <td align="center">Size</td>

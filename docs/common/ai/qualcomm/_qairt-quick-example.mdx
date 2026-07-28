@@ -7,6 +7,9 @@
 
 ## 下载示例
 
+<Tabs queryString="ubuntu">
+    <TabItem value="Ubuntu 24.04">
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
@@ -15,6 +18,23 @@ modelscope download --model radxa/resnet50_qairt --local ./resnet50_qairt
 ```
 
 </NewCodeBlock>
+
+    </TabItem>
+
+    <TabItem value="Ubuntu 26.04">
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install modelscope
+modelscope download --model radxa/resnet50_qairt --local-dir ./resnet50_qairt
+```
+
+</NewCodeBlock>
+
+    </TabItem>
+
+</Tabs>
 
 ## 运行示例
 

@@ -20,59 +20,87 @@ axllm is an LLM inference tool provided by AXERA, supporting command-line intera
 
 **Method 1: Clone the repo and run the install script**
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 git clone -b axllm https://github.com/AXERA-TECH/ax-llm.git
 cd ax-llm
 ./install.sh
 ```
 
+</NewCodeBlock>
+
 **Method 2: One-line install (default branch `axllm`)**
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 curl -fsSL https://raw.githubusercontent.com/AXERA-TECH/ax-llm/axllm/install.sh | bash
 ```
+
+</NewCodeBlock>
 
 **Method 3: Download executable from GitHub Actions CI**
 
 If you don't have a build environment, go to [ax-llm Actions](https://github.com/AXERA-TECH/ax-llm/actions?query=branch%3Aaxllm) to download the latest CI-exported executable:
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 chmod +x axllm
 sudo mv axllm /usr/bin/axllm
 ```
+
+</NewCodeBlock>
 
 ## Download Model
 
 ### Create virtual environment and install huggingface_hub
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install huggingface_hub
 ```
+
+</NewCodeBlock>
 
 ### Download model
 
 <Tabs groupId="qwen35-model" queryString>
 <TabItem value="08b">
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 hf download AXERA-TECH/Qwen3.5-0.8B-AX650-C128-P1152-CTX2047 --local-dir ./Qwen3.5-0.8B
 ```
+
+</NewCodeBlock>
 
 </TabItem>
 <TabItem value="2b" default>
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 hf download AXERA-TECH/Qwen3.5-2B-AX650-C128-P1152-CTX2047 --local-dir ./Qwen3.5-2B
 ```
+
+</NewCodeBlock>
 
 </TabItem>
 <TabItem value="4b">
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 hf download AXERA-TECH/Qwen3.5-4B-AX650-GPTQ-Int4-C128-P1152-CTX2047 --local-dir ./Qwen3.5-4B
 ```
+
+</NewCodeBlock>
 
 </TabItem>
 </Tabs>
@@ -84,23 +112,35 @@ hf download AXERA-TECH/Qwen3.5-4B-AX650-GPTQ-Int4-C128-P1152-CTX2047 --local-dir
 <Tabs groupId="qwen35-model" queryString>
 <TabItem value="08b">
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 axllm run Qwen3.5-0.8B/
 ```
+
+</NewCodeBlock>
 
 </TabItem>
 <TabItem value="2b" default>
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 axllm run Qwen3.5-2B/
 ```
+
+</NewCodeBlock>
 
 </TabItem>
 <TabItem value="4b">
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 axllm run Qwen3.5-4B/
 ```
+
+</NewCodeBlock>
 
 </TabItem>
 </Tabs>
@@ -190,23 +230,35 @@ Here are the specific details of the scene:
 <Tabs groupId="qwen35-model" queryString>
 <TabItem value="08b">
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 axllm serve Qwen3.5-0.8B/
 ```
+
+</NewCodeBlock>
 
 </TabItem>
 <TabItem value="2b" default>
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 axllm serve Qwen3.5-2B/
 ```
+
+</NewCodeBlock>
 
 </TabItem>
 <TabItem value="4b">
 
-```shell
+<NewCodeBlock tip="Host" type="device">
+
+```bash
 axllm serve Qwen3.5-4B/
 ```
+
+</NewCodeBlock>
 
 </TabItem>
 </Tabs>
@@ -219,7 +271,7 @@ After the server starts, you can call it via HTTP requests:
 ```python
 from openai import OpenAI
 
-API_URL = "http://127.0.0.1:8000/v1"
+API_URL = "http:" + "//127.0.0.1:8000/v1"
 MODEL = "Qwen3.5-0.8B"
 
 messages = [
@@ -242,7 +294,7 @@ print(completion.choices[0].message.content)
 ```python
 from openai import OpenAI
 
-API_URL = "http://127.0.0.1:8000/v1"
+API_URL = "http:" + "//127.0.0.1:8000/v1"
 MODEL = "Qwen3.5-2B"
 
 messages = [
@@ -265,7 +317,7 @@ print(completion.choices[0].message.content)
 ```python
 from openai import OpenAI
 
-API_URL = "http://127.0.0.1:8000/v1"
+API_URL = "http:" + "//127.0.0.1:8000/v1"
 MODEL = "Qwen3.5-4B"
 
 messages = [

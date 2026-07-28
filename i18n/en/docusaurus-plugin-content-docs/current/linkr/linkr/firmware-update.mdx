@@ -6,166 +6,137 @@ title: Firmware Update
 
 # Firmware Update
 
-Radxa Linkr supports **local upgrade** by uploading a firmware package through the web management interface, which is used to obtain new features, bug fixes, and security updates. The firmware file is downloaded from GitHub Releases, and the device automatically verifies, decrypts, and installs it after upload.
+Radxa Linkr supports firmware update directly via the web and flashing firmware via USB cable.
 
-:::info Current Version
-Firmware download page: [https://github.com/radxa-linkr/linkr/releases](https://github.com/radxa-linkr/linkr/releases)
+If the web firmware update fails or the device cannot work properly, you can refer to the firmware flashing method to flash the latest firmware onto Linkr.
 
-Latest release example: `linkr-ota-1.0.1.bin` (the version number in the file name changes with each release).
-:::
+## Firmware Download
 
-## Before Updating
+- GitHub Releases: [Radxa Linkr](https://github.com/radxa-linkr/linkr/releases)
 
-1. **Check the current version**: In **About → Device Information**, view the "Current Firmware Version" and compare it with the version to be installed to make sure it is a higher version.
-2. **Download the firmware package**: Visit [GitHub Releases](https://github.com/radxa-linkr/linkr/releases), and download the `linkr-ota-<version>.bin` file from the **Assets** section of the corresponding version to your local computer.
-3. **Keep the network stable**: Please keep the connection between the browser and Linkr during the upgrade process; do not close the page or disconnect the network.
-4. **Reserve storage space**: The firmware package is about 50-60 MB, and the device needs to have enough free space. If space is insufficient, the message "Insufficient storage space" will be displayed.
-5. **Avoid interruption**: During the upgrade, the device's system indicator LED is **flashing white** (see [Product Overview](./product-introduction)). Do not power off or unplug cables.
+- Baidu Pan Download: [Radxa Linkr: Extraction code 1234](https://pan.baidu.com/s/1AZgLUDaU8hJKhZjqTT_sMQ?pwd=1234)
 
-## Operation Steps
+Note: The web firmware update downloads a file in `<system-image>.bin` format, while the USB flashing downloads a file in `<system-image>.img` format.
 
-### 1. Go to System Update
+## Firmware Update
 
-1. Open the Linkr management web interface and log in.
-2. Click **System Settings** (the settings icon) in the left sidebar.
-3. Find the **System Update** row, and click the **Update** button on the right.
+It is recommended to use the web firmware update method first. If the Linkr firmware update fails or the device cannot work properly, then use the USB flashing method to update the firmware.
 
-### 2. Open Local Upgrade
+<Tabs queryString="update-firmware">
 
-In the **System Update** dialog that pops up:
+<TabItem value="Web Firmware Update">
 
-1. Confirm that the **Local Upgrade** tab is currently selected (the `?` icon next to the tab can be used to view the firmware download address).
-2. If you have not downloaded the firmware yet, you can click the link next to `?` to jump to [GitHub Releases](https://github.com/radxa-linkr/linkr/releases) to download.
+Web firmware update requires the host computer to be able to access the Linkr-controlled device. We need to upload and update firmware in the management interface at [linkr.now](https://linkr.now/).
 
-### 3. Upload the Firmware File
+- Access the controlled device interface
 
-In the **Click or drag a file to this area to upload** area:
+Enter the management interface of the controlled device to update the Linkr firmware:
 
-- **Click** the upload area and select the downloaded `linkr-ota-*.bin` file from your local disk; or
-- **Drag** the firmware file into the upload area.
+① : Go to the Settings option
 
-After upload starts, the interface will display a progress bar and the current stage.
+② : Select `System Update` for firmware update
 
-### 4. Wait for the Upgrade to Complete
+③ : Upload the firmware file that needs to be flashed
 
-The upgrade is divided into the following stages:
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/online_update_firmware_01.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-| Stage     | UI Message                          | Description                                                           |
-| --------- | ----------------------------------- | --------------------------------------------------------------------- |
-| Uploading | Uploading...                        | The firmware file is transferred from the browser to the Linkr device |
-| Upgrading | Upgrading...                        | The device verifies the signature, decrypts, and writes the firmware  |
-| Complete  | Upgraded, please restart the device | The installation is complete; takes effect after restart              |
+- Update Firmware
 
-You can click **Cancel** to abort the operation during the upgrade (it is recommended not to cancel once installation is nearly complete).
+After uploading the firmware file, the system will automatically upload, install the firmware, and finally restart the device for the changes to take effect.
 
-### 5. Restart the Device
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/online_update_firmware_02.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-When the progress reaches 100% and the message **Upgraded, please restart the device** is shown:
+</TabItem>
 
-1. Click the **Restart** button, and the device will restart automatically.
-2. After the restart, the browser will jump to the login page. Log in with your original username and password.
-3. In **About → Device Information**, confirm that the firmware version has been updated.
+<TabItem value="USB Firmware Flashing">
 
-:::caution Note
-A restart will briefly interrupt the Linkr service and remote connection. Please perform the upgrade in an appropriate time window, and make sure that the target host will not be affected by the Linkr restart.
-:::
+Flashing firmware via USB needs to be performed on a Windows platform.
 
-## Download the Firmware
+The computer needs to install the [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip) driver and download the [SocToolKit](https://github.com/radxa-linkr/linkr/releases/download/Tools/SocToolKit_V1.94.zip) tool.
 
-### Official Release Page
+- Driver Installation
 
-[https://github.com/radxa-linkr/linkr/releases](https://github.com/radxa-linkr/linkr/releases)
+Download and extract the [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip) package, find `DriverInstall.exe` and run it as administrator, then click the `Install Driver` option to install the driver.
 
-### How to Choose a Version
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/common/tools/rkdevtool/rkdevtool-driver.webp"
+    style={{ width: "50%", maxWidth: "700" }}
+  />
+</div>
 
-1. Open the Releases page and look at the latest **Tag** (e.g. `v1.0.1`).
-2. Expand the **Assets** of that version, and download `linkr-ota-<version>.bin`.
-3. It is recommended to read the Release Notes for the changes and known issues.
+- Enter Maskrom Mode
 
-### File Description
+Press and hold the user button on Linkr, use a USB-C data cable to connect the USB-C data/power port on the side of Linkr to the computer, and release the user button after the connection is successful.
 
-| Item         | Description                                                                            |
-| ------------ | -------------------------------------------------------------------------------------- |
-| File format  | `linkr-ota-<semver>.bin` (encrypted OTA firmware package)                              |
-| Typical size | About 50-60 MB                                                                         |
-| Source       | Download only from the official GitHub Releases. Do not use files from unknown sources |
+Detailed steps:
 
-### China Mirror (Baidu Pan)
+① : Press and hold the user button on Linkr
 
-For users in mainland China where GitHub access may be slow or limited, a Baidu Pan mirror of the same firmware package is also available:
+② : Use a USB-C to USB-A data cable to connect Linkr to the computer
 
-- **Link**: [https://pan.baidu.com/s/1AZgLUDaU8hJKhZjqTT_sMQ?pwd=1234](https://pan.baidu.com/s/1AZgLUDaU8hJKhZjqTT_sMQ?pwd=1234)
-- **Extraction code**: `1234`
+③ : Release the user button on Linkr
 
-:::caution Verification & Security
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/linkr-maskrom.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-- The mirror keeps the same firmware versions as the official GitHub Releases. After downloading, please confirm the file name is still `linkr-ota-<version>.bin`.
-- If the GitHub Releases page provides a SHA256 for the same version, please compare the hash before uploading to the device.
-- If the Baidu Pan share link is no longer valid, please use the [GitHub Releases](https://github.com/radxa-linkr/linkr/releases) as the source of truth.
-  :::
+- Tool Download
 
-## Version Rules
+Download and extract the [SocToolKit](https://github.com/radxa-linkr/linkr/releases/download/Tools/SocToolKit_V1.94.zip) package, find `SocToolKit.exe` and run it as administrator.
 
-The device automatically verifies the firmware version before installation:
+- Select Product Chip
 
-| Case                                                 | Result                                                                             |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Firmware version **higher than** the current version | Allowed to upgrade                                                                 |
-| Firmware version **equal to** the current version    | Rejected, with the message "The version number is the same as the current version" |
-| Firmware version **lower than** the current version  | Rejected, with the message "The version number is lower than the current version"  |
+① : Select the `RV1106` chip model
 
-Downgrade installation is not supported. To roll back to a previous version, please contact technical support.
+② : Click `OK` to confirm the selection
 
-## FAQ
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/usb_update_firmware_01.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-### "A Restart Is Required Before Upgrading Again"
+- Update Firmware
 
-If the previous upgrade has been installed but the device has not been restarted, attempting to upgrade again will prompt: **A previous upgrade operation was detected. The device needs to be restarted before another upgrade can be performed.**
+① : Confirm that the software has recognized the Maskrom device
 
-How to handle: Click **Restart** to complete the previous upgrade, and then perform the new upgrade operation after the restart.
+② : Click `Firmware ...` to select the firmware to be flashed
 
-### Insufficient Storage Space
+③ : Click the `Upgrade` option to update the firmware
 
-The firmware package needs to be written to the device's local storage. Please delete unnecessary virtual disk images or other space-consuming files and try again.
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/usb_update_firmware_02.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-### Upload or Upgrade Failed
+- Firmware Update Successful
 
-- Confirm that the downloaded `linkr-ota-*.bin` file is complete and not corrupted. Try downloading it again.
-- Check whether the network connection between the browser and Linkr is stable.
-- Refresh the page and re-upload. Avoid running multiple upgrade tasks at the same time.
-- After an upgrade failure, the device usually still runs the original firmware. If there is an abnormality, you can long-press the FN key for 10 seconds to restore factory settings (this will clear all configuration).
+The information output area on the right side of the software shows `... OK`, indicating that the firmware update has succeeded.
 
-### Can I Close the Page During the Upgrade?
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/usb_firmware_succ.webp"
+    style={{ width: "100%", maxWidth: "1200" }}
+  />
+</div>
 
-Not recommended. Closing the page may cause the upload to be interrupted. If the upload is already complete and the "Upgrading" stage has been entered, the device will continue processing locally, but you will not be able to view the progress or perform the restart on the same page. It is recommended to keep the page open until the restart prompt appears.
+</TabItem>
 
-### How to View the Current Firmware Version?
-
-The sidebar where **System Settings** is located → **About** → **Device Information** → **Current Firmware Version**.
-
-### Is Online Upgrade Available?
-
-The current web interface is mainly **local upgrade**: first download the firmware from GitHub, and then upload it in the interface. The `?` icon next to the local upgrade tab provides a shortcut to the official download address.
-
-## Upgrade Process Overview
-
-```text
-Download linkr-ota-*.bin from GitHub Releases
-        ↓
-System Settings → System Update → Update
-        ↓
-Local Upgrade → Click or drag to upload the firmware
-        ↓
-Uploading → Upgrading (device indicator LED flashing white)
-        ↓
-Upgraded, please restart the device → Click Restart
-        ↓
-Log in again and confirm the version number
-```
-
-## Related Links
-
-- [Firmware Download (GitHub Releases)](https://github.com/radxa-linkr/linkr/releases)
-- [Firmware Download (Baidu Pan mirror, extraction code 1234)](https://pan.baidu.com/s/1AZgLUDaU8hJKhZjqTT_sMQ?pwd=1234)
-- [Product Overview - LED Indicators](./product-introduction#led-indicators)
-- [FAQ](#faq)
+</Tabs>

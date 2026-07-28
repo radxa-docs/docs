@@ -4,15 +4,15 @@ sidebar_position: 4
 
 # Micro HDMI Interface
 
-The Radxa Cubie A7A features one onboard HDMI port for video output, supporting up to 4K@60fps resolution.
+The Radxa Cubie A7Z features one onboard Micro HDMI port for video output, supporting up to 4K@60fps resolution.
 
 :::info Interface Location
-For the specific location of the HDMI interface, please refer to the interface description section in the [Hardware Interface](./hardware-info) tutorial!
+For the specific location of the Micro HDMI interface, please refer to the interface description section in the [Hardware Interface](./hardware-info) tutorial!
 :::
 
 ## Usage Guide
 
-Connect a display to the Cubie A7A's HDMI port to test the video output.
+Connect a display to the Cubie A7Z's Micro HDMI port to test the video output.
 
 :::tip
 Some displays may have compatibility issues. If you encounter problems, try using a different display for testing.

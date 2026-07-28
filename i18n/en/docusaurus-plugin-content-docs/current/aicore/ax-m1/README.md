@@ -29,20 +29,32 @@ The Radxa AICore AX-M1 integrates a multi-core high-performance CPU and a high-c
 
 ## Product appearance
 
-<div style={{textAlign: 'center'}}>
-   Radxa AICore AX-M1 module (front)
-   <img src="/en/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
-   Radxa AICore AX-M1 module (back)
-    <img src="/en/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
-</div>
+<Tabs queryString="ax-m1-version">
+    <TabItem value="V1.0">
+        <div style={{textAlign: 'center'}}>
+            Radxa AICore AX-M1 module (front)
+            <img src="/en/img/aicore-ax-m1/aicore_ax_m1_top.webp" style={{width: '60%', maxWidth: '800px'}} />
+            Radxa AICore AX-M1 module (back)
+            <img src="/en/img/aicore-ax-m1/aicore_ax_m1_bottom.webp" style={{width: '60%', maxWidth: '800px'}} />
+        </div>
+    </TabItem>
+    <TabItem value="V1.1">
+        <div style={{textAlign: 'center'}}>
+            Radxa AICore AX-M1 module (front)
+            <img src="/en/img/aicore-ax-m1/aicore_ax_m1_top_v11.webp" style={{width: '60%', maxWidth: '800px'}} />
+            Radxa AICore AX-M1 module (back)
+            <img src="/en/img/aicore-ax-m1/aicore_ax_m1_bottom_v11.webp" style={{width: '60%', maxWidth: '800px'}} />
+        </div>
+    </TabItem>
+</Tabs>
 
 ## Specifications
 
 | Category               | Specification                                                                |
 | ---------------------- | ---------------------------------------------------------------------------- |
 | CPU                    | Octa-core Cortex-A55, up to 1.5 GHz                                          |
-| Memory                 | 8 GB LPDDR4x                                                                 |
-| NPU                    | 24 TOPS@INT8; supports matrix compute units and intelligent vision engine    |
+| Memory                 | Up to 8GB LPDDR4X                                                              |
+| NPU                    | Up to 24TOPS@INT8; supports matrix compute units and intelligent vision engine |
 | VPU                    | H.264/H.265 8K@30fps encode/decode and 16-channel 1080p@30fps decode support |
 | Hardware compatibility | Supports Intel, AMD, Rockchip host platforms                                 |
 | OS compatibility       | Supports Ubuntu, Debian, CentOS and other mainstream Linux distros           |

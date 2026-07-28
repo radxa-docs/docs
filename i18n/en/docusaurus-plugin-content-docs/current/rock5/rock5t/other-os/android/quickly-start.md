@@ -12,12 +12,12 @@ Prepare the following hardware:
 
 - Board: Radxa ROCK 5T
 - Boot media: microSD card
-- Power supply: DC 12V/2A power adapter (DC-5525)
+- Power supply: DC 12V/2A power adapter (DC-5525; supports DC 9-20V input, 12V recommended)
 - Display: monitor and HDMI cable
 - Input devices: keyboard and mouse (for GUI operation)
 
 :::tip Recommended accessories
-Radxa ROCK 5T supports 12V power input. A power adapter rated at 2A or higher is recommended to ensure stable operation of all peripherals.
+Radxa ROCK 5T supports DC 9-20V power input (12V recommended). A power adapter rated at 2A or higher is recommended to ensure stable operation of all peripherals.
 
 - [Radxa DC12 36W Power Adapter](https://radxa.com/products/accessories/power-dc12-36w) (recommended)
 - [Radxa DC12 60W Power Adapter](https://radxa.com/products/accessories/power-dc12-60w)
@@ -136,4 +136,4 @@ Click `Flash!` to start flashing the OS image to the microSD card.
 
 ## Boot
 
-After flashing, insert the microSD card into the ROCK 5T microSD card slot, then power the board with a 12V DC power adapter to boot the system.
+After flashing, insert the microSD card into the ROCK 5T microSD card slot, then power the board with a DC 12V power adapter (supports DC 9-20V input, 12V recommended) to boot the system.

@@ -9,7 +9,7 @@ sidebar_position: 150
 :::info 快速导航
 
 - [BIOS 固件](#bios-固件)
-- [系统镜像（Radxa OS / Android / OpenHarmony / Fedora / Debian 13）](#系统镜像)
+- [系统镜像（Radxa OS / Android / OpenHarmony / Fedora / Debian 13 / 飞牛 fnOS）](#系统镜像)
 - [硬件设计资料](#硬件设计)
 - [社区资源](#社区资源)
 - [参考手册](#参考手册)
@@ -32,8 +32,8 @@ sidebar_position: 150
 #### 瑞莎星睿 O6N
         | 下载平台                                                             | 版本       | 文件格式 | 获取方式                                                                                            |
         | :------------------------------------------------------------------- | :--------- | :------- | :-------------------------------------------------------------------------------------------------- |
-        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.1.0-2.zip)                      | `1.1.0-2` | `.zip`   | 固件位于压缩包内                                                                                                  |
-        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.1.0-2) | `1.1.0-2` | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` 目录下 |
+        | [**Radxa DL**](https://dl.radxa.com/orion/o6n/images/bios/orion-o6n-bios-1.2.4.zip)                      | `1.2.4` | `.zip`   | 固件位于压缩包内                                                                                                  |
+        | [**GitHub Release**](https://github.com/radxa-pkg/edk2-cix/releases/tag/1.2.4) | `1.2.4` | `.deb`   | 固件位于 `edk2-cix_***_all.deb` 包中的 `edk2-cix_***_all\data.tar\data\usr\share\edk2\radxa\orion-o6n` 目录下 |
     </TabItem>
 </Tabs>
 
@@ -142,6 +142,19 @@ Debian 13 适合需要使用 CIX 社区开源驱动栈的开发者。该方案�
 - Orion O6N 使用说明：[Orion O6N Debian 13](./o6n/other-os/debian13.md)
 - 适用场景：主线内核验证、NPU / VPU 驱动调试、社区开发测试
 - 注意：该方案基于开发内核 `7.0.0-rc5-generic`，安装前需在 BIOS 中启用 `Enable ACPI SCMI`
+
+### 飞牛 fnOS（FnNAS）
+
+飞牛 fnOS（FnNAS）面向 NAS 场景，ARM 版本目前处于公开测试阶段。该方案在飞牛 ARM 镜像下载页的「**UEFI ARM 安装镜像 ISO**」类别中明确支持 **此芯 P1**（瑞莎星睿 O6 / O6N 所用 SoC），因此可以在 Radxa Orion O6 / O6N 上刷入运行。
+
+- **适用型号**：瑞莎星睿 O6 / O6N（基于 CIX 此芯 P1 SoC）
+- **适用场景**：NAS / 家庭存储爱好者测试；当前为 **飞牛 ARM 公测版本**，不是 Radxa 官方维护的发行版
+- **使用说明**：[Orion O6 飞牛 fnOS](./o6/other-os/fnos.md) / [Orion O6N 飞牛 fnOS](./o6n/other-os/fnos.md)
+- **注意事项**：飞牛 ARM 公测版本仍可能包含尚未解决的稳定性问题，建议仅在非关键环境下测试，并在安装前通读 [飞牛 ARM 版本公测声明](https://help.fnnas.com/articles/v1/contact/disclaimers.md)
+
+适用于此芯 P1 的镜像请前往 [飞牛 fnOS ARM 镜像下载页](https://www.fnnas.com/download-arm) 的设备支持列表中查找 **UEFI ARM 安装镜像 ISO** 类别（文件标签 `armsr`）后自行下载。
+
+镜像版本号与构建号会随飞牛 fnOS ARM 公测版本迭代而变化，请以上述下载页发布的最新版本为准。
 
 ## 硬件设计
 
