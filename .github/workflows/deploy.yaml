@@ -21,6 +21,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
+          persist-credentials: false
       - name: Agent doc lint (changed files)
         shell: bash
         run: |
@@ -136,6 +137,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
+          persist-credentials: false
       - name: pre-commit check-external-links
         shell: bash
         run: |
@@ -204,6 +206,7 @@ jobs:
           path: "contents"
           fetch-depth: 0
           submodules: recursive
+          persist-credentials: false
       - name: Install dependencies
         run: yarn install
       - name: Fetch Baidu Tongji data
