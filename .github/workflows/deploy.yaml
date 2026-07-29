@@ -241,20 +241,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
 
-      - name: Build zh
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-        run: yarn build --locale zh
-
-      - name: Build en
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-        run: yarn build --locale en --out-dir build-en
-
-      - name: Merge locale builds
+      - name: Build
         run: |
-          mkdir -p build/en
-          rsync -a --delete build-en/ build/en/
+          export NODE_OPTIONS="--max-old-space-size=12288"
+          yarn build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
