@@ -20,6 +20,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          submodules: recursive
       - name: Agent doc lint (changed files)
         shell: bash
         run: |
@@ -134,6 +135,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          submodules: recursive
       - name: pre-commit check-external-links
         shell: bash
         run: |
@@ -200,6 +202,8 @@ jobs:
         uses: actions/checkout@v7
         with:
           path: "contents"
+          fetch-depth: 0
+          submodules: recursive
       - name: Install dependencies
         run: yarn install
       - name: Fetch Baidu Tongji data
