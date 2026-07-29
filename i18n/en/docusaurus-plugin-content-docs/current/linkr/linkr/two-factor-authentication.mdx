@@ -1,0 +1,124 @@
+---
+id: two-factor-authentication
+sidebar_position: 4
+title: Two-Factor Authentication (2FA)
+---
+
+# Two-Factor Authentication (2FA)
+
+Radxa Linkr supports two-factor authentication through an authenticator app. After 2FA is enabled, signing in requires both your username and password and a six-digit code from the authenticator. A password alone is no longer sufficient to access the device.
+
+## Before You Start
+
+Install an authenticator app on a phone or another trusted device. The app must support scanning a QR code or entering a secret manually.
+
+Common compatible applications include:
+
+- [Google Authenticator](https://support.google.com/accounts/answer/1066447?hl=en)
+- [Microsoft Authenticator](https://support.microsoft.com/en-us/authenticator/about-microsoft-authenticator)
+- [Bitwarden Authenticator](https://bitwarden.com/help/bitwarden-authenticator/)
+- [1Password](https://support.1password.com/one-time-passwords/)
+
+Linkr does not require a specific application. Any other authenticator that supports standard TOTP (time-based one-time passwords) and can scan a QR code or accept a secret manually can also be used.
+
+:::warning Important
+The current version does not provide recovery codes. Keep the authenticator and 2FA secret safe. Do not disclose the secret or QR code through chat, email, or screenshots.
+:::
+
+## Enable 2FA
+
+1. Sign in to the Linkr web interface.
+2. Select **System Settings** in the left sidebar.
+3. Expand **Safety**, then click **Enable** next to **Two-factor authentication**.
+4. Scan the QR code with your authenticator app.
+   - If the QR code is unavailable, copy the displayed **Secret** and add it to the authenticator manually.
+5. Enter the current six-digit code from the authenticator in the Linkr interface.
+6. Click **Confirm**. The setup is active when Linkr reports that two-factor authentication has been enabled.
+
+Expand **Safety** under **System Settings**:
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/2fa-settings.webp"
+    alt="Safety panel under System Settings"
+    style={{ width: "100%", maxWidth: "560px" }}
+  />
+</div>
+
+After clicking **Enable**, add Linkr to the authenticator with the QR code or secret:
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/2fa-setup.webp"
+    alt="Two-factor authentication setup"
+    style={{ width: "100%", maxWidth: "500px" }}
+  />
+</div>
+
+:::tip
+Before signing out, confirm that the Linkr entry in your authenticator continues to generate codes. Store the secret in a secure location such as a password manager.
+:::
+
+## Sign In with 2FA
+
+After 2FA is enabled, signing in has two stages:
+
+1. Enter your username and password on the sign-in page, then click **Login**.
+2. Linkr asks for 2FA verification and displays the **Verification code** field.
+3. Open your authenticator and enter the current six-digit code.
+4. Click **Verify and sign in**.
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/linkr/2fa-login.webp"
+    alt="Verification code field during two-factor sign-in"
+    style={{ width: "100%", maxWidth: "900px" }}
+  />
+</div>
+
+The field accepts six digits, and codes change periodically. If verification fails, wait for the authenticator to generate the next code and try again. If the verification page has been open for an extended period, refresh the sign-in page, enter the username and password again, and then retry verification.
+
+## Disable 2FA
+
+1. Sign in to the Linkr web interface.
+2. Open **System Settings** and expand **Safety**.
+3. Click **Disable** next to **Two-factor authentication**.
+4. Review the confirmation message, then click **Confirm**.
+
+Future sign-ins no longer require a verification code. The old Linkr entry in your authenticator is no longer used and can be deleted.
+
+## Security Recommendations
+
+- Store the 2FA secret in a protected location such as a password manager. Do not keep it with the login password in the same unencrypted record.
+- Never share the QR code, secret, or verification codes. Anyone with the secret can generate valid codes.
+- Before replacing your phone, add the account to the new device with the saved secret and verify that it generates valid codes.
+- Sign out after using Linkr on a shared device, and do not allow the browser to save sensitive information.
+
+## Troubleshooting
+
+### Verification Always Fails
+
+- Make sure you are using the code from the correct Linkr entry in the authenticator.
+- The code must contain six digits. If it is about to change, wait for the next code before entering it.
+- Enable automatic date and time on the device running the authenticator. A significant clock difference causes codes to be rejected.
+- If you reopened the setup panel, add the account again using the QR code or secret currently displayed. An earlier setup may no longer complete activation.
+
+### The QR Code Is Missing or Cannot Be Scanned
+
+Use the copy button next to the secret and enter the secret manually in the authenticator. If the browser cannot access the clipboard, select and copy the secret manually.
+
+### Moving to a New Phone
+
+If you still have the old phone, add the account to the new authenticator with your saved secret and verify its codes. If you did not save the secret but still have an active Linkr session, disable 2FA under **System Settings → Safety**, then enable it again with the new phone.
+
+### The Authenticator Is Lost
+
+The current version has no recovery codes, and 2FA cannot be bypassed from the sign-in page:
+
+- If an active signed-in session is still available, immediately open **System Settings → Safety**, disable 2FA, and then enable it again with a new authenticator.
+- If another authenticator has been configured with the same secret, use it to generate a verification code.
+- If neither option is available, press and hold the device's **Fn button** for 10 seconds to reset the device. After the reset, initialize the account and configure 2FA again.
+
+:::caution
+Resetting the device interrupts the current connection. Confirm that no other recovery method is available and be prepared to initialize the device again.
+:::
