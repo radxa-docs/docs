@@ -249,7 +249,10 @@ jobs:
       - name: Build en
         env:
           NODE_OPTIONS: --max-old-space-size=4096
-        run: yarn build --locale en
+        run: yarn build --locale en --out-dir build-en
+
+      - name: Merge locale builds
+        run: cp -r build-en/en build/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
