@@ -225,7 +225,7 @@ jobs:
             rspack-${{ runner.os }}-
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
       - name: Fetch Baidu Tongji data
         run: node ./contents/.github/scripts/baidu-tongji.js
