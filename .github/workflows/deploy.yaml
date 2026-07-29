@@ -252,7 +252,9 @@ jobs:
         run: yarn build --locale en --out-dir build-en
 
       - name: Merge locale builds
-        run: cp -r build-en/en build/
+        run: |
+          mkdir -p build/en
+          rsync -a --delete build-en/ build/en/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
