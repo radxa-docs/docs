@@ -244,12 +244,18 @@ jobs:
       - name: Build zh
         env:
           NODE_OPTIONS: --max-old-space-size=4096
-        run: yarn build --locale zh
+        run: yarn build --locale zh --out-dir build-zh
 
       - name: Build en
         env:
           NODE_OPTIONS: --max-old-space-size=4096
-        run: yarn build --locale en
+        run: yarn build --locale en --out-dir build-en
+
+      - name: Merge locale builds
+        run: |
+          mkdir -p build
+          cp -r build-zh/* build/
+          cp -r build-en/* build/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
