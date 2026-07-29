@@ -1,0 +1,6 @@
+[submodule "docs/linkr"]
+	path = docs/linkr
+	url = git@github.com:radxa-linkr/linkr-docs.git
+[submodule "i18n/en/docusaurus-plugin-content-docs/current/linkr"]
+	path = i18n/en/docusaurus-plugin-content-docs/current/linkr
+	url = git@github.com:radxa-linkr/linkr-docs-en.git
