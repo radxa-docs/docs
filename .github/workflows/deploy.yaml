@@ -207,8 +207,26 @@ jobs:
           fetch-depth: 0
           submodules: recursive
           persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - name: Cache Docusaurus bundler
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache/rspack
+          key: rspack-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ github.sha }}
+          restore-keys: |
+            rspack-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
+            rspack-${{ runner.os }}-
+
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
+
       - name: Fetch Baidu Tongji data
         run: node ./contents/.github/scripts/baidu-tongji.js
         env:
@@ -216,19 +234,26 @@ jobs:
           BAIDU_TONGJI_REFRESH_TOKEN: ${{ secrets.BAIDU_TONGJI_REFRESH_TOKEN }}
           BAIDU_TONGJI_CLIENT_ID: ${{ secrets.BAIDU_TONGJI_CLIENT_ID }}
           BAIDU_TONGJI_CLIENT_SECRET: ${{ secrets.BAIDU_TONGJI_CLIENT_SECRET }}
+
       - name: Generate latest updates JSON
         run: node ./contents/.github/scripts/latest-updates.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-      - name: Build
-        run: |
-          export NODE_OPTIONS="--max-old-space-size=12288"
-          yarn build
+
+      - name: Build zh
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: yarn build --locale zh
+
+      - name: Build en
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: yarn build --locale en
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          # Upload entire repository
           path: "./build"
   deploy:
     needs: build
