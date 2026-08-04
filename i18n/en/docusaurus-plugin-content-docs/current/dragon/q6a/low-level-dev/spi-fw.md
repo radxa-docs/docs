@@ -103,6 +103,13 @@ sudo edl-ng --memory=spinor rawprogram rawprogram0.xml patch0.xml --loader=prog_
   </TabItem>
 </Tabs>
 
+:::warning Restart the device after flashing
+After the SPI boot firmware is successfully flashed, please restart the device using either of the following methods:
+
+- Re-plug the device power
+- Run the `edl-ng reset` command in the terminal
+:::
+
 ## Erase SPI Boot Firmware
 
 Erasing the SPI boot firmware will prevent the device from booting. You will need to re-flash the SPI boot firmware to restore normal operation. Do not erase the SPI boot firmware unless absolutely necessary.
