@@ -69,6 +69,10 @@ Armbian 的默认凭据如下：
 - [百度网盘下载（rock-5-itx）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5-itx&parentPath=%2Fsharelink3108273493-988411983016443)
 - [百度网盘下载（rock-5-itx-6_1）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5-itx-6_1&parentPath=%2Fsharelink3108273493-988411983016443)
 
+## 软件工具
+
+- [RK3588 Camera Tuner](https://dl.radxa.com/tools/windows/RK3588_Camera_Tuner_V2.10.zip)：Rockchip RK3588 摄像头调试工具，适用于 RK3588 系列 SoC 的 ISP 参数调优。仅适用于 ROCK 5 ITX（基于 RK3588）；ROCK 5 ITX+（基于 RK3582）请使用对应工具。
+
 ## 质量认证
 
 ## 参考文档

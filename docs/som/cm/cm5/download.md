@@ -41,6 +41,10 @@ sidebar_position: 99
 3. [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip) - Windows 图形化刷机工具(内含中文使用文档)
 4. [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip) - Rockchip 平台 Windows 通用驱动
 
+### 摄像头工具
+
+- [RK3588 Camera Tuner](https://dl.radxa.com/tools/windows/RK3588_Camera_Tuner_V2.10.zip)：Rockchip RK3588 摄像头调试工具，适用于 RK3588S / RK3588S2 等 RK3588 系列 SoC 的 ISP 参数调优。
+
 ### Loader 文件
 
 USB 刷机使用，Loader 文件用于 USB 下载初始化。

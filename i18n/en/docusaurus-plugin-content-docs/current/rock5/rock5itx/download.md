@@ -57,6 +57,10 @@ Default Armbian credentials:
 - [Radxa ROCK 5 ITX OpenWrt ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5-itx-ext4-sysupgrade.img.gz)
 - [Radxa ROCK 5 ITX OpenWrt squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5-itx-squashfs-sysupgrade.img.gz)
 
+## Software Tools
+
+- [RK3588 Camera Tuner](https://dl.radxa.com/tools/windows/RK3588_Camera_Tuner_V2.10.zip): Rockchip RK3588 camera tuning tool for ISP parameter tuning on RK3588 series SoCs. Only applicable to ROCK 5 ITX (based on RK3588); ROCK 5 ITX+ (based on RK3582) should use a compatible tool.
+
 ## Quality Certification
 
 ## Reference Documentation

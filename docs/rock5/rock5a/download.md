@@ -59,6 +59,10 @@ OpenWRT 不是瑞莎官方维护的系统，瑞莎不能保证完整功能，如
 :::
 - [百度网盘下载（rock-5a）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5a&parentPath=%2Fsharelink3108273493-988411983016443)
 
+## 软件工具
+
+- [RK3588 Camera Tuner](https://dl.radxa.com/tools/windows/RK3588_Camera_Tuner_V2.10.zip)：Rockchip RK3588 摄像头调试工具，适用于 RK3588 / RK3588S / RK3588S2 等 RK3588 系列 SoC 的 ISP 参数调优。
+
 ## 质量认证
 
 | 文档                | 下载链接                                                                                               |
