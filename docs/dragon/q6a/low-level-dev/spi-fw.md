@@ -103,6 +103,13 @@ sudo edl-ng --memory=spinor rawprogram rawprogram0.xml patch0.xml --loader=prog_
   </TabItem>
 </Tabs>
 
+:::warning 烧录完成后请重启设备
+SPI 启动固件烧录成功后，请按以下任一方式重启设备：
+
+- 重新插拔设备电源
+- 在终端执行 `edl-ng reset` 命令
+:::
+
 ## 擦除 SPI 启动固件
 
 擦除 SPI 启动固件将导致设备无法启动，需要重新烧录 SPI 启动固件才可正常启动，若非必要，请勿擦除 SPI 启动固件。
