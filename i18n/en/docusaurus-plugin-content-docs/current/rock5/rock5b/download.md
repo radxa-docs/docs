@@ -163,6 +163,8 @@ Android：
 
 - [Upgrade Tool](https://dl.radxa.com/tools/linux/upgrade_tool_v2.30_for_linux.zip)
 
+- [RK3588 Camera Tuner](https://dl.radxa.com/tools/windows/RK3588_Camera_Tuner_V2.10.zip): Rockchip RK3588 camera tuning tool for ISP parameter tuning on RK3588 / RK3588S / RK3588S2 series SoCs.
+
 ## Hardware Design
 
 <Tabs queryString="HardwareDesign">

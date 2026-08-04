@@ -73,6 +73,10 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 - [Radxa ROCK 4D OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4d-ext4-sysupgrade.img.gz)
 - [Radxa ROCK 4D OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4d-squashfs-sysupgrade.img.gz)
 
+## 软件工具
+
+- [RKISP Tuner](https://dl.radxa.com/tools/windows/RKISP_Tuner_v3.4.4_Test.7z)：Rockchip RK3576 ISP 调参工具，适用于 RK3576 / RK3576J 系列产品的摄像头调试。
+
 ## 百度网盘下载
 
 :::tip

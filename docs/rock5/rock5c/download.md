@@ -38,6 +38,10 @@ Armbian 的默认凭据如下：
 - [Radxa ROCK 5C Kaihong OS for microSD HDMI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-HDMI-SD-GPT-20260121-0346.zip)：适用于 microSD 卡启动系统，支持 HDMI 显示。
 - [Radxa ROCK 5C Kaihong OS for microSD MIPI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-MIPI-SD-GPT-20260121-0531.zip)：适用于 microSD 卡启动系统，支持瑞莎 8 寸显示屏。
 
+## 软件工具
+
+- [RK3588 Camera Tuner](https://dl.radxa.com/tools/windows/RK3588_Camera_Tuner_V2.10.zip)：Rockchip RK3588 摄像头调试工具，适用于 RK3588S2 等 RK3588 系列 SoC 的 ISP 参数调优。仅适用于 ROCK 5C 标准版（RK3588S2），ROCK 5C Lite 版（RK3582）请使用对应工具。
+
 ## 百度网盘下载
 
 :::tip

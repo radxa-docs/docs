@@ -39,6 +39,10 @@ Kaihong OS Beta version firmware as follows:
 - [Radxa ROCK 5C Kaihong OS for microSD HDMI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-HDMI-SD-GPT-20260121-0346.zip): For booting from a microSD card with HDMI display.
 - [Radxa ROCK 5C Kaihong OS for microSD MIPI](https://github.com/radxa/KaihongOs/releases/download/kaihongos_v1.0_Beta/KHS_3588S_SBC-MIPI-SD-GPT-20260121-0531.zip): For booting from a microSD card with Radxa 8-inch display.
 
+## Software Tools
+
+- [RK3588 Camera Tuner](https://dl.radxa.com/tools/windows/RK3588_Camera_Tuner_V2.10.zip): Rockchip RK3588 camera tuning tool for ISP parameter tuning on RK3588S2 series SoCs. Only applicable to ROCK 5C Standard Edition (RK3588S2); ROCK 5C Lite Edition (RK3582) should use a compatible tool.
+
 ## Hardware Design
 
 ### V1.1

@@ -39,6 +39,8 @@ Default Armbian credentials:
 
 &emsp;&emsp; [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)（USB driver）
 
+&emsp;&emsp; [RK3588 Camera Tuner](https://dl.radxa.com/tools/windows/RK3588_Camera_Tuner_V2.10.zip): Rockchip RK3588 camera tuning tool for ISP parameter tuning on RK3588 / RK3588J series SoCs.
+
 ## Hardware Design
 
 ### V1.2
