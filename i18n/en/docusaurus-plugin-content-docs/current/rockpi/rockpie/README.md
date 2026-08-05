@@ -22,7 +22,7 @@ _The images presented depict a particular configuration of the Radxa ROCK Pi S0.
 | CPU         | Quad‑core ARM Cortex‑A53 64‑bit @ 1.3GHz                                                   |
 | RAM         | 512MB / 1GB / 2GB DDR3 OR DDR4 RAM                                                         |
 | Storage     | 0GB / 4GB / 8GB / 16GB Onboard eMMC / eMMC Connector and microSD Card Slot                 |
-| Wireless    | Onboard Wireless WiFi4 / WiFi5 and BT 5.0                                                  |
+| Wireless    | Optional wireless module (W-suffix SKUs only), Realtek RTL8821CU, Wi-Fi 5 and BT 5.0, with external antenna connector                                                  |
 | USB         | 1x USB 3.0 HOST Type-A Interface                                                           |
 | Audio       | 1x 4‑ring 3.5mm headphone jack                                                             |
 | Ethernet    | 1x 100Mbps Ethernet and 1x 1000Mbps Ethernet with PoE Support(Additional PoE HAT Required) |
