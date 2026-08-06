@@ -20,6 +20,14 @@ sidebar_position: 99
 
 - [Android11 Image](https://github.com/radxa/manifests/releases/download/android11-radxa-20240724/Radxa_CM3I_Android11_r12-20240724-gpt.zip)
 
+## 软件工具
+
+- [RKISP Tuner](https://dl.radxa.com/tools/windows/RKISP_Tuner_v2.3.7_Release.rar)：Rockchip RK356X ISP 调参工具，适用于 RK3566 / RK3568 系列产品的摄像头调试。
+
+:::tip
+使用 RK356X 平台 Debian12 系统调试 RKISP 效果时，需要手动更新系统中的 [camera_engine_rkaiq](https://dl.radxa.com/tools/windows/camera_engine_rkaiq_rk3568_rkaiq_v6.9.0_arm64.deb) 包。
+:::
+
 ## 硬件设计
 
 <Tabs queryString="model">
