@@ -22,7 +22,7 @@ sidebar_position: 55
 | CPU       | Quad‑core ARM Cortex‑A53 64‑bit @ 1.3GHz                                                  |
 | 运行内存  | 512MB / 1GB / 2GB DDR3 或 DDR4 RAM                                                        |
 | 存储介质  | 0GB / 4GB / 8GB / 16GB Onboard eMMC 或者 eMMC 连接座 和 microSD 卡槽                      |
-| 无线连接  | 可选无线模块（仅带 W 后缀的 SKU 配备），Realtek RTL8821CU，支持 Wi-Fi 5 及蓝牙 5.0，带外置天线连接器                                          |
+| 无线连接  | 可选板载无线模组，支持 Wi-Fi 5 和蓝牙 5                                          |
 | USB       | 1 个 USB 3.0 HOST Type-A 接口                                                             |
 | 音频      | 1 个 4 环 3.5 毫米耳机插孔                                                                |
 | 以太网    | 1 个 100Mbps 以太网接口和 1 个 1000Mbps 以太网接口带 PoE 支持 （需要额外的 PoE 供电模块） |
