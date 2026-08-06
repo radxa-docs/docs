@@ -38,7 +38,7 @@ sudo rsetup
 请注意 camera 排线的接口朝向！
 :::
 
-<img src="../../../img/rock3/3a/rock3a-rpi-imx219.webp" width = "500" alt="rock 3a rpi imx219"/>
+<img src="../../../img/rock3/3a/rock3a-rpi-imx219.webp" alt="rock 3a rpi imx219"/>
 
 ### 图像预览
 

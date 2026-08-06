@@ -38,7 +38,7 @@ The hardware connections are as follows.
 Please note the orientation of the camera cable!
 :::
 
-<img src="../../../img/rock3/3a/rock3a-rpi-imx219.webp" width = "500" alt="rock 3a rpi imx219"/>
+<img src="../../../img/rock3/3a/rock3a-rpi-imx219.webp" alt="rock 3a rpi imx219"/>
 
 ### Image preview
 
