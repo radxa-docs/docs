@@ -14,3 +14,7 @@ To change the boot medium to boot directly from UFS, adjust the onboard resistor
 :::warning
 This operation involves hardware soldering and may cause device damage or affect the warranty. Disconnect the device from power before performing the operation, and have it done by personnel with soldering experience.
 :::
+
+:::warning
+After completing the hardware modifications above, the Dragon Q6A will no longer be able to boot the system from a microSD card, eMMC module, or NVMe SSD.
+:::
