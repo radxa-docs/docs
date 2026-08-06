@@ -78,6 +78,14 @@ Armbian 的默认凭据如下：
 非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到 [OpenWRT 论坛](https://forum.openwrt.org/) 寻求帮助。
 :::
 
+## 软件工具
+
+- [RKISP Tuner](https://dl.radxa.com/tools/windows/RKISP_Tuner_v2.3.7_Release.rar)：Rockchip RK356X ISP 调参工具，适用于 RK3566 / RK3568 系列产品的摄像头调试。
+
+:::tip
+使用 RK356X 平台 Debian12 系统调试 RKISP 效果时，需要手动更新系统中的 [camera_engine_rkaiq](https://dl.radxa.com/tools/windows/camera_engine_rkaiq_rk3568_rkaiq_v6.9.0_arm64.deb) 包。
+:::
+
 ## 百度网盘下载
 
 :::tip

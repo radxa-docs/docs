@@ -20,6 +20,14 @@ sidebar_position: 2
 - [Radxa ROCK 3B OpenWrt](https://openwrt.org/toh/hwdata/radxa/radxa_rock_3b)
 - [Radxa ROCK 3B OpenWrt ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-3b-ext4-sysupgrade.img.gz)
 
+## 软件工具
+
+- [RKISP Tuner](https://dl.radxa.com/tools/windows/RKISP_Tuner_v2.3.7_Release.rar)：Rockchip RK356X ISP 调参工具，适用于 RK3566 / RK3568 系列产品的摄像头调试。
+
+:::tip
+使用 RK356X 平台 Debian12 系统调试 RKISP 效果时，需要手动更新系统中的 [camera_engine_rkaiq](https://dl.radxa.com/tools/windows/camera_engine_rkaiq_rk3568_rkaiq_v6.9.0_arm64.deb) 包。
+:::
+
 ## 硬件设计
 
 <Tabs queryString="HardwareDesign">
