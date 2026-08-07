@@ -1,10 +1,10 @@
 import { PreView } from "@site/src/utils/docs";
 
-### SSH
+## SSH
 
 本教程介绍如何使用 SSH 从另一台计算机远程访问电路板。
 
-#### 查看用户名
+### 查看用户名
 
 在电路板上打开终端，在终端中输入以下命令查看用户名
 
@@ -17,9 +17,9 @@ import { PreView } from "@site/src/utils/docs";
 
 该命令显示当前用户的用户名，如上图所示，当前用户的用户名为 radxa
 
-#### 查看 IP 地址
+### 查看 IP 地址
 
-##### 通过命令查看 IP
+#### 通过命令查看 IP
 
 在电路板上打开终端，在终端中输入以下命令查看 IP 地址：
 
@@ -46,7 +46,7 @@ import { PreView } from "@site/src/utils/docs";
        valid_lft forever preferred_lft forever
 ```
 
-##### 使用 Angryip 查找 IP
+#### 使用 Angryip 查找 IP
 
 在无法直接操作主板获取无屏幕或远程 IP 地址时，可以使用此方法查找 IP 地址。
 
@@ -58,7 +58,7 @@ import { PreView } from "@site/src/utils/docs";
 
 - Ctrl + F 查找 `rock` 关键字，找到主板的 IP 地址。
 
-#### 检查 SSH 服务状态
+### 检查 SSH 服务状态
 
 在终端中运行以下命令：
 
@@ -109,17 +109,17 @@ May 08 07:53:22 radxa-zero sshd[783]: pam_env(sshd:session): deprecated reading 
   `}
 </PreView>
 
-#### SSH 连接到电路板
+### SSH 连接到电路板
 
 ```bash
 ssh [username]@[IP address] # or ssh [username]@[hostname]
 ```
 
-### VNC
+## VNC
 
 本教程介绍如何使用 VNC 从 Windows 计算机远程访问系统。
 
-#### 安装 VNC 服务器
+### 安装 VNC 服务器
 
 1. 打开终端应用程序，输入以下命令更新软件包列表。
 
@@ -153,11 +153,11 @@ ssh [username]@[IP address] # or ssh [username]@[hostname]
   `}
 </PreView>
 
-::注意
+:::note
 您是否要输入只允许查看的密码（y/n）？ n 提示只允许查看，您是否要选择否并输入 n，这样您就可以根据自己的情况进行远程操作，而不仅仅是观看？
 :::
 
-#### 配置 VNC 服务器
+### 配置 VNC 服务器
 
 1. TigerVNC 启动后，将创建一个包含 VNC 服务器 IP 地址和端口号（通常为 5901）的 VNC 会话。要改变 VNC 服务器的配置方式，首先要使用以下命令停止运行在 5901 端口的 VNC 服务器实例：
 
@@ -216,20 +216,20 @@ ssh [username]@[IP address] # or ssh [username]@[hostname]
 
 5. 在 VNC 查看器上测试连接： 在 Windows PC 上打开 VNC 查看器，输入产品的 IP 地址和端口号，然后使用 VNC 服务器的用户名和密码进行验证。
 
-#### 在 Windows PC 上安装 VNC 查看器
+### 在 Windows PC 上安装 VNC 查看器
 
 1. 在浏览器上进入 VNC 查看器下载页面，如 https://www.realvnc.com/en/connect/download/viewer/。
 2. 下载并安装 VNC 查看器。
 
-#### 连接设置
+### 连接设置
 
 1. 在 VNC 查看器上输入产品的 IP 地址和端口号。2.
 2. 使用 VNC 服务器的用户名和密码进行验证。
 3. 连接成功后，即可进行远程控制。
 
-### TeamViewer
+## TeamViewer
 
-#### 安装 TeamViewer
+### 安装 TeamViewer
 
 <PreView params={{ model: props.model }}>
   {`
@@ -238,7 +238,7 @@ ssh [username]@[IP address] # or ssh [username]@[hostname]
   `}
 </PreView>
 
-#### 配置 TeamViewer
+### 配置 TeamViewer
 
 <PreView params={{ model: props.model }}>
   {`
@@ -246,7 +246,7 @@ ssh [username]@[IP address] # or ssh [username]@[hostname]
   `}
 </PreView>
 
-#### 卸载 xfce4-screensaver
+### 卸载 xfce4-screensaver
 
 :::info
 此程序修复了 TeamViewer 的键盘和鼠标控件因长时间挂起而无法工作的问题。
@@ -258,7 +258,7 @@ ssh [username]@[IP address] # or ssh [username]@[hostname]
   `}
 </PreView>
 
-#### 配置虚拟显示器
+### 配置虚拟显示器
 
 :::info
 如果已连接真实显示器，则此步骤为可选步骤。
@@ -298,6 +298,6 @@ Section "Screen"
 EndSection
 ```
 
-#### 连接到 TeamViewer
+### 连接到 TeamViewer
 
 您可以参考 [TeamViewer 官方文档](https://community.teamviewer.com/Chinese/kb/articles/109101-%E9%80%9A%E8%BF%87teamviewer-%E8%BF%9E%E6%8E%A5)。

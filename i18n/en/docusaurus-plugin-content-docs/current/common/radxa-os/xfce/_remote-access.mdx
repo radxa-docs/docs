@@ -1,10 +1,10 @@
 import { PreView } from "@site/src/utils/docs";
 
-### SSH
+## SSH
 
 This is a tutorial on how to access the board remotely from another computer using SSH.
 
-#### View username
+### View username
 
 Open a terminal on the board and enter the following command in the terminal to view the username
 
@@ -17,9 +17,9 @@ Open a terminal on the board and enter the following command in the terminal to 
 
 This command displays the username of the current user, as shown above, the current user's username is radxa
 
-#### View IP address
+### View IP address
 
-##### View IP by command
+#### View IP by command
 
 Open a terminal on the board and enter the following command in the terminal to view the IP address:
 
@@ -46,7 +46,7 @@ The ip address on the same network segment as the host is the ip address we need
        valid_lft forever preferred_lft forever
 ```
 
-##### Finding IPs with Angryip
+#### Finding IPs with Angryip
 
 This method can be used to look up an ip address when you can't operate the motherboard directly to get an ip address without a screen or remotely.
 
@@ -58,7 +58,7 @@ This method can be used to look up an ip address when you can't operate the moth
 
 - Ctrl + F Look for the `rock` keyword to find the IP address of the board.
 
-#### Checking SSH Service Status
+### Checking SSH Service Status
 
 Run the following command in a terminal:
 
@@ -109,17 +109,17 @@ May 08 07:53:22 radxa-zero sshd[783]: pam_env(sshd:session): deprecated reading 
   `}
 </PreView>
 
-#### SSH connection to the board
+### SSH connection to the board
 
 ```bash
 ssh [username]@[IP address] # or ssh [username]@[hostname]
 ```
 
-### VNC
+## VNC
 
 This is a tutorial on how to remotely access your system from a Windows computer using VNC.
 
-#### Installing VNC Server
+### Installing VNC Server
 
 1. Open the Terminal application and enter the following command to update the package list.
 
@@ -157,7 +157,7 @@ This is a tutorial on how to remotely access your system from a Windows computer
 Would you like to enter a view-only password (y/n)? n Prompt for view-only, would you like to select no and enter n so that you can operate remotely instead of just watching, depending on your situation?
 :::
 
-#### Configuring the VNC Server
+### Configuring the VNC Server
 
 1. Once TigerVNC starts, it will create a VNC session containing the IP address and port number (usually 5901) of the VNC server. To change the way the VNC server is configured, first stop the instance of the VNC server running on port 5901 with the following command:
 
@@ -216,20 +216,20 @@ Edit the xstartup configuration file as follows:
 
 5. Test the connection on the VNC viewer: On your Windows PC, open the VNC viewer, enter the IP address and port number of your product, and then authenticate with the VNC server's username and password.
 
-#### Installing the VNC Viewer on a Windows PC
+### Installing the VNC Viewer on a Windows PC
 
 1. Go to the VNC viewer download page on your web browser, e.g. https://www.realvnc.com/en/connect/download/viewer/
 2. Download and install the VNC viewer.
 
-#### Connection Setup
+### Connection Setup
 
 1. On the VNC viewer, enter the IP address and port number of the product. 2.
 2. Use the VNC server's user name and password to authenticate.
 3. After a successful connection, you can remote control.
 
-### TeamViewer
+## TeamViewer
 
-#### Installing TeamViewer
+### Installing TeamViewer
 
 <PreView params={{ model: props.model }}>
   {`
@@ -238,7 +238,7 @@ Edit the xstartup configuration file as follows:
   `}
 </PreView>
 
-#### configure TeamViewer
+### configure TeamViewer
 
 <PreView params={{ model: props.model }}>
   {`
@@ -246,7 +246,7 @@ Edit the xstartup configuration file as follows:
   `}
 </PreView>
 
-#### uninstall xfce4-screensaver
+### uninstall xfce4-screensaver
 
 :::info
 This procedure fixes a problem with TeamViewer's keyboard and mouse controls not working due to prolonged hang time.
@@ -258,7 +258,7 @@ This procedure fixes a problem with TeamViewer's keyboard and mouse controls not
   `}
 </PreView>
 
-#### Configuring virtual monitors
+### Configuring virtual monitors
 
 :::info
 This step is optional if a real monitor is connected.
@@ -298,6 +298,6 @@ Section "Screen"
 EndSection
 ```
 
-#### Connecting to TeamViewer
+### Connecting to TeamViewer
 
 You can refer to [TeamViewer official documentation](https://community.teamviewer.com/Chinese/kb/articles/109101-%E9%80%9A%E8%BF%87teamviewer-%E8%BF%9E%E6%8E%A5).
