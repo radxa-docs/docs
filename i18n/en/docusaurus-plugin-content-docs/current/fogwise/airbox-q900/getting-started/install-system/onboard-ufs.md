@@ -122,6 +122,62 @@ This section describes how to install the system onto the onboard UFS of the Fog
 
 Go to the [Resource Downloads](../../download.md) page to download the boot firmware and system image files.
 
+<Tabs queryString="download-platform">
+
+<TabItem value="Windows">
+
+Go to the [Resource Downloads](../../download.md) page to download the boot firmware, system image files, and the QDL tool.
+
+</TabItem>
+
+<TabItem value="Ubuntu 22.04 / 24.04">
+
+Go to the [Resource Downloads](../../download.md) page to download the boot firmware, system image files, and the QDL tool.
+
+</TabItem>
+
+<TabItem value="Ubuntu 26.04">
+
+For Ubuntu 26.04, you need to compile the QDL tool from source. For compilation steps, refer to the [official QDL documentation](https://github.com/linux-msm/qdl/blob/master/README.md).
+
+1. Install build dependencies
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```bash
+sudo apt install libxml2-dev libusb-1.0-0-dev libzip-dev meson ninja-build help2man
+```
+
+</NewCodeBlock>
+
+2. Download the QDL source code
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```bash
+git clone https://github.com/linux-msm/qdl.git
+cd qdl
+```
+
+</NewCodeBlock>
+
+3. Compile QDL
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```bash
+meson setup build
+meson compile -C build
+```
+
+</NewCodeBlock>
+
+After compilation, `build/qdl` is the QDL executable.
+
+</TabItem>
+
+</Tabs>
+
 ### Set Environment Variables
 
 Setting environment variables can simplify subsequent flashing operations and commands.
