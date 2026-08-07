@@ -121,6 +121,62 @@ Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
 进入 [资源汇总下载](../../download.md) 页面下载启动固件和系统镜像文件。
 
+<Tabs queryString="download-platform">
+
+<TabItem value="Windows">
+
+进入 [资源汇总下载](../../download.md) 页面下载启动固件和系统镜像文件和 QDL 工具。
+
+</TabItem>
+
+<TabItem value="Ubuntu 22.04 / 24.04">
+
+进入 [资源汇总下载](../../download.md) 页面下载启动固件和系统镜像文件和 QDL 工具。
+
+</TabItem>
+
+<TabItem value="Ubuntu 26.04">
+
+Ubuntu 26.04 需要自行编译 QDL 工具，编译步骤参考 [QDL 官方文档](https://github.com/linux-msm/qdl/blob/master/README.md)。
+
+1. 安装编译依赖
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```bash
+sudo apt install libxml2-dev libusb-1.0-0-dev libzip-dev meson ninja-build help2man
+```
+
+</NewCodeBlock>
+
+2. 下载 QDL 源码
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```bash
+git clone https://github.com/linux-msm/qdl.git
+cd qdl
+```
+
+</NewCodeBlock>
+
+3. 编译 QDL
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```bash
+meson setup build
+meson compile -C build
+```
+
+</NewCodeBlock>
+
+编译完成后，`build/qdl` 即为 QDL 可执行文件。
+
+</TabItem>
+
+</Tabs>
+
 ### 设置环境变量
 
 设置环境变量，可以简化后续的烧录操作，简化命令。
