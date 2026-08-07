@@ -12,7 +12,8 @@ sidebar_position: 150
 
 ## Software Tools
 
-- [QDL Tool](https://softwarecenter.qualcomm.com/catalog/item/Qualcomm_Device_Loader)
+- [QDL Tool (Qualcomm Software Center)](https://softwarecenter.qualcomm.com/catalog/item/Qualcomm_Device_Loader)
+- [QDL Tool (Qualcomm GitHub Repository)](https://github.com/linux-msm/qdl)
 
 Qualcomm Device Loader (QDL) is a tool provided by Qualcomm for flashing Qualcomm chips.
 

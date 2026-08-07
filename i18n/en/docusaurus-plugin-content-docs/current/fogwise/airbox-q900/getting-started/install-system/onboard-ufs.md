@@ -63,7 +63,38 @@ After successfully installing the driver, try unplugging and replugging the USB 
 
 <TabItem value="Ubuntu">
 
-Use the `lsusb` command to check if the device has entered QDL mode.
+1. Create a udev rules file
+
+Use the following command to create a udev rules file.
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```bash
+sudo nano /etc/udev/rules.d/51-qcom-usb.rules
+```
+
+</NewCodeBlock>
+
+2. Add the following content
+
+```text
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9008", MODE="0666", GROUP="plugdev"
+```
+
+3. After saving the file, reload the udev rules and trigger device detection
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+</NewCodeBlock>
+
+4. Replug the USB cable to apply the rules
+
+5. Use the `lsusb` command to check if the device has entered QDL mode
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 

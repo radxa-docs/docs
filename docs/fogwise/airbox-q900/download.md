@@ -24,7 +24,8 @@ sidebar_position: 150
 
 ## 软件工具
 
-- [QDL 工具](https://softwarecenter.qualcomm.com/catalog/item/Qualcomm_Device_Loader)
+- [QDL 工具（Qualcomm Software Center）](https://softwarecenter.qualcomm.com/catalog/item/Qualcomm_Device_Loader)
+- [QDL 工具（Qualcomm GitHub 仓库）](https://github.com/linux-msm/qdl)
 
 Qualcomm Device Loader (QDL) 是 Qualcomm 提供的用于刷写 Qualcomm 芯片的工具。
 

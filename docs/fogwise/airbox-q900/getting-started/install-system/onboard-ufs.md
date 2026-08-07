@@ -62,7 +62,38 @@ Fogwise® AIRbox Q900 板载 128GB UFS。
 
 <TabItem value="Ubuntu">
 
-使用 `lsusb` 命令查看设备是否进入 QDL 模式。
+1. 创建 udev 规则文件
+
+使用以下命令创建 udev 规则文件。
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```bash
+sudo nano /etc/udev/rules.d/51-qcom-usb.rules
+```
+
+</NewCodeBlock>
+
+2. 添加以下内容
+
+```text
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9008", MODE="0666", GROUP="plugdev"
+```
+
+3. 保存文件后，重新加载 udev 规则并触发设备检测
+
+<NewCodeBlock tip="Ubuntu$" type="host">
+
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+</NewCodeBlock>
+
+4. 重新插拔 USB 数据线，使规则生效
+
+5. 使用 `lsusb` 命令查看设备是否进入 QDL 模式
 
 <NewCodeBlock tip="Ubuntu$" type="host">
 
