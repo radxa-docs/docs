@@ -3,11 +3,11 @@
 
 **示例支持设备**
 
-| 设备                 | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| 设备                 | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
 ## 安装 QAI AppBuilder
 
@@ -22,133 +22,95 @@
 
 ### 安装依赖
 
+在已激活的虚拟环境中安装示例依赖：
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
 ### 运行脚本
 
-- 进入示例目录
+- 进入上游示例目录
 
-        <Tabs queryString="platform">
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
-
-
-         <NewCodeBlock tip="Device" type="device">
-
-         ```bash
-         cd ai-engine-direct-helper/samples/linux/python
-         ```
-
-          </NewCodeBlock>
-
-
-          </TabItem>
-
-          <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
-
-       <NewCodeBlock tip="Device" type="device">
-
-        ```bash
-        cd ai-engine-direct-helper/samples/linux/python
-        ```
-
-       </NewCodeBlock>
-
-    </TabItem>
-
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
-
-         <NewCodeBlock tip="Device" type="device">
-
-          ```bash
-          cd ai-engine-direct-helper/samples/python
-          ```
-
-          </NewCodeBlock>
-
-      </TabItem>
-
-      </Tabs>
-
-- 准备输入图片，这里以以下图片为输入示例
-
-  {" "}
-
-  <div style={{ textAlign: "center" }}>
-    <img src="/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
-    input image
-  </div>
-
-- 执行推理
-
-    <NewCodeBlock tip="Device" type="device">
+  <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 googlenet/googlenet.py
+  cd qai-appbuilder/samples
   ```
 
-    </NewCodeBlock>
+  </NewCodeBlock>
 
-  ```bash
-  $ python3 googlenet/googlenet.py
-       0.0ms [WARNING]  <W> Initializing HtpProvider
+执行推理（Linux 需指定 `--chipset`；首次运行会自动下载测试图 `dog.jpg`、标签与模型）
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::tip
+若自动下载的 `dog.jpg` 为空或损坏，可用本地有效图片覆盖，或通过 `--image /path/to/image.jpg` 指定输入。
+:::
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<Tabs queryString="platform">
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<NewCodeBlock tip="Device" type="device">
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 6490
+```
 
-     157.6ms [WARNING] Time: Read model file to memory. 8.91
+</NewCodeBlock>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</TabItem>
+<TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::tip
+SC8280XP 与 QCS6490 同为 Hexagon V68，下载模型时使用 `--chipset 6490`。
+:::
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<NewCodeBlock tip="Device" type="device">
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 6490
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</NewCodeBlock>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</TabItem>
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<NewCodeBlock tip="Device" type="device">
 
-     180.6ms [WARNING] Time: contextCreateFromBinary. 22.97
+```bash
+python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 9075
+```
 
-     180.7ms [WARNING] Time: UnmapViewOfFile. 0.00
+</NewCodeBlock>
 
-     181.6ms [WARNING] Time: model_initialize googlenet 181.55
+</TabItem>
+</Tabs>
 
-     255.7ms [WARNING] Time: model_inference googlenet 2.67
+### 预期结果
 
-  Top 5 predictions for image:
+在 Dragon Q6A（`--chipset 6490`）上，默认测试图输出类似：
 
-  Samoyed 0.948613584
-  West Highland White Terrier 0.0060515446
-  Alaskan tundra wolf 0.0052576731
-  Pomeranian 0.0047871661
-  Chow Chow 0.0035575195
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```text
+Top 5 predictions for image:
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+Samoyed 0.9282982349
+West Highland White Terrier 0.0102122389
+Pomeranian 0.0064557223
+Pyrenean Mountain Dog 0.0059806537
+Chow Chow 0.0051328284
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+日志中可能出现 HTP / FastRPC 相关 WARNING，推理成功时可忽略。
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::tip
+也可使用启动器：
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     353.7ms [WARNING] Time: model_destroy googlenet 93.43
+```bash
+python3 run_inference.py --model googlenet --args "--chipset 6490"
+```
 
-  ```
-
-  打印结果可以看到 `Samoyed` 置信度最高，这与输入图片内容吻合。
+:::

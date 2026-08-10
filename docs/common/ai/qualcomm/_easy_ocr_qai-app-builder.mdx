@@ -3,8 +3,8 @@
 
 **示例支持设备**
 
-| 设备                 | SoC   |
-| -------------------- | ----- |
+| 设备                 | SoC     |
+| -------------------- | ------- |
 | Fogwise® AIRbox Q900 | QCS9075 |
 
 ## 安装 QAI AppBuilder
@@ -20,93 +20,78 @@
 
 ### 安装依赖
 
+在已激活的虚拟环境中安装示例依赖：
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matplotlib easyocr qai_hub_models
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless easyocr
 ```
 
 </NewCodeBlock>
 
 ### 运行脚本
 
-- 进入示例目录
+- 进入上游示例目录
 
-    <Tabs>
+  <NewCodeBlock tip="Device" type="device">
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+  ```bash
+  cd qai-appbuilder/samples
+  ```
 
-       <NewCodeBlock tip="Device" type="device">
+  </NewCodeBlock>
 
-        ```bash
-        cd ai-engine-direct-helper/samples/python
-        ```
+- 准备输入数据（示例自带 `ch_en.png` / `english.png`；也可通过 `--Image_Path` 指定）
 
-        </NewCodeBlock>
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/fogwise/airbox-q900/qairt_easy_ocr_input.webp"
+    style={{ width: "65%" }}
+  />
+  input image
+</div>
 
-    </TabItem>
+:::warning
+在 AIRbox Q900（QCS9075）上实测：上游 `easy_ocr.py` 里 `DataLoader(..., num_workers=1)` 会 **fork 子进程**，导致 QNN HTP context 被释放，识别阶段报错：
 
-    </Tabs>
+```text
+RuntimeError: Cannot perform 'Inference': context 'EasyOCRRecognizer' has been released.
+```
 
-- 准备输入图片，这里以以下图片为输入示例
-
-  {" "}
-
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/fogwise/airbox-q900/qairt_easy_ocr_input.webp"
-      style={{ width: "65%" }}
-    />
-    input image
-  </div>
+运行前请将 `Multimodal/Image_To_Text/easy_ocr/easy_ocr.py` 中所有 `num_workers=int(workers)` 改为 **`num_workers=0`**（或把 `recognizer_get_text` 的 `workers` 默认值改为 `0`）。
+:::
 
 - 执行推理
 
     <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 easy_ocr/easy_ocr.py
+  python3 Multimodal/Image_To_Text/easy_ocr/easy_ocr.py --chipset 9075
   ```
 
     </NewCodeBlock>
 
-  ```bash
-  $ python3 easy_ocr/easy_ocr.py
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-  Calling EasyOCR_Detector::Inference on NPU
-  Calling EasyOCR_Recognizer::Inference on NPU
-  Calling EasyOCR_Recognizer::Inference on NPU
-  Calling EasyOCR_Recognizer::Inference on NPU
-  Calling EasyOCR_Recognizer::Inference on NPU
-  Calling EasyOCR_Recognizer::Inference on NPU
-  Calling EasyOCR_Recognizer::Inference on NPU
-  Calling EasyOCR_Recognizer::Inference on NPU
-  Calling EasyOCR_Recognizer::Inference on NPU
-  白日依山尽
-  黄河入海流
-  欲穷千里目
-  更上一层楼
-  The sun beyond the mountain glows,
-  The Yellow River seawards flows_
-  You can enjoy a grander sight,
-  By climbing to a greater height。
+成功时终端会打印识别到的中英文文本，例如（默认中英对照输入图）：
 
-  Demo image display is disabled by default for remote servers. To override, set `QAIHM_ALWAYS_DISPLAY_OUTPUT=1` in your environment.
+```text
+白日依山尽
+黄河入海流
+欲穷千里目
+更上一层楼
+The sun beyond the mountain glows,
+The Yellow River seawards flows_
+You can enjoy a grander sight,
+By climbing to a greater height。
+Saving image to .../samples/build/image.png
+```
 
-  Saving image to /mnt/ssd/qualcomm/702/zzf_fork/test/ai-engine-direct-helper/samples/python/build/image.png
-   <W> Logs will be sent to the system's default channel
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-  ```
+:::tip
+首次运行会通过 Qualcomm® AI Hub 下载 Detector / Recognizer（含中英）模型，体积较大。也可在 `samples` 目录使用启动器（仍需先完成 `num_workers=0` 修改）：
 
-  识别结果
+```bash
+python3 run_inference.py --list
+python3 run_inference.py --model easy_ocr --args "--chipset 9075"
+```
 
-  ```bash
-  白日依山尽
-  黄河入海流
-  欲穷千里目
-  更上一层楼
-  The sun beyond the mountain glows,
-  The Yellow River seawards flows_
-  You can enjoy a grander sight,
-  By climbing to a greater height。
-  ```
+:::

@@ -1,4 +1,4 @@
-[**Quick AI Application Builder**](https://github.com/quic/ai-engine-direct-helper) (QAI AppBuilder) 可帮助开发者轻松使用基于 [Qualcomm® AI Runtime SDK ](qairt-sdk#qairt)
+[**Quick AI Application Builder**](https://github.com/qualcomm/qai-appbuilder) (QAI AppBuilder) 可帮助开发者轻松使用基于 [Qualcomm® AI Runtime SDK](qairt-sdk#qairt)
 在搭载 Qualcomm® Hexagon™ Processor (NPU) 的 Qualcomm® SoC 平台上部署 AI 模型和设计 AI 应用。
 它将模型部署 API 封装成一组简化的接口，用于将模型加载到 NPU 并执行推理。QAI AppBuilder 大大降低了开发者部署模型的复杂性并且提供多个 demo 让开发者参考设计自己的 AI 应用。
 
@@ -11,16 +11,16 @@
 
 **支持设备**
 
-| 设备                 | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| 设备                 | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
 ## 安装方法
 
 :::tip
-可 [**使用 wheel 包安装**](#使用-wheel-包安装) 或 [**源码编译**](#源码编译) 进行安装
+推荐 [**使用 wheel 包安装**](#使用-wheel-包安装)。如需自行编译，可参考 [**源码编译**](#源码编译)。
 :::
 
 ### 克隆仓库
@@ -28,7 +28,7 @@
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-git clone -b radxa-dev https://github.com/ZIFENG278/ai-engine-direct-helper.git && cd ai-engine-direct-helper
+git clone https://github.com/qualcomm/qai-appbuilder.git && cd qai-appbuilder
 ```
 
 </NewCodeBlock>
@@ -38,7 +38,7 @@ git clone -b radxa-dev https://github.com/ZIFENG278/ai-engine-direct-helper.git 
 ##### 创建虚拟环境
 
 :::tip
-安装 python 库前需要创建虚拟环境进行环境隔
+安装 Python 库前需要创建虚拟环境进行环境隔离。
 :::
 
 <NewCodeBlock tip="Device" type="device">
@@ -51,483 +51,307 @@ source .venv/bin/activate
 
 </NewCodeBlock>
 
+##### 安装 qai_appbuilder
+
+从 [**GitHub Release**](https://github.com/qualcomm/qai-appbuilder/releases) 下载与 Python 版本匹配的 Linux aarch64 wheel，例如 Python 3.12：
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/radxa-dev-2.38.0/qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
+pip3 install https://github.com/qualcomm/qai-appbuilder/releases/download/v2.48.40/qai_appbuilder-2.48.40-cp312-cp312-manylinux_2_39_aarch64.whl
+```
+
+</NewCodeBlock>
+
+:::tip
+从 v2.0.0 起，Python wheel 已内置运行所需的 Qualcomm® AI Runtime 库（如 `libQnnHtp.so`、Hexagon skel 等），一般无需再单独安装完整 QAIRT SDK 即可做 Python 推理。
+:::
+
+验证安装：
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python3 -c "import qai_appbuilder; print(qai_appbuilder.__file__)"
 ```
 
 </NewCodeBlock>
 
 ### 源码编译
 
-<NewCodeBlock tip="Device" type="device">
+如需从源码编译，请先安装构建依赖，并准备 [**QAIRT SDK**](./qairt-install#下载-qairt-sdk-压缩包)。
 
-```bash
-git submodule update --init --recursive
-```
-
-</NewCodeBlock>
-
-#### 下载 QAIRT SDK
-
-:::tip
-请根据 [**下载 QAIRT SDK 压缩包**](./qairt-install#下载-qairt-sdk-压缩包) 下载 QAIRT SDK 并解压
-:::
-
-##### 配置 QAIRT 环境变量
-
-<Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=6490 DSP_ARCH=68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=9075 DSP_ARCH=73
-    ```
-    </NewCodeBlock>
-
-</TabItem>
-
-    <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=8280 DSP_ARCH=68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-</Tabs>
+#### 安装构建依赖
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd qairt/2.42.0.251225
-source bin/envsetup.sh
-export ADSP_LIBRARY_PATH=$QNN_SDK_ROOT/lib/hexagon-v${DSP_ARCH}/unsigned
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-oe-linux-gcc11.2
-```
-
-</NewCodeBlock>
-
-#### 编译 qai_appbuilder
-
-##### 创建虚拟环境
-
-:::tip
-安装 python 库前需要创建虚拟环境进行环境隔
-:::
-
-<NewCodeBlock tip="Device" type="device">
-
-```bash
-sudo apt install python3-venv python3-dev cmake gcc g++
+sudo apt update
+sudo apt install -y cmake build-essential python3-dev python3-venv
+git clone https://github.com/qualcomm/qai-appbuilder.git --recursive
+cd qai-appbuilder
 python3 -m venv .venv
 source .venv/bin/activate
+pip3 install wheel==0.45.1 setuptools==80.9.0 pybind11==2.13.6 build==1.4.0
 ```
 
 </NewCodeBlock>
 
-##### 编译 qai_appbuilder wheel
+#### 配置 QAIRT 环境变量
+
+请先完成 QAIRT SDK 解压。将 `<path_to_qairt>` 替换为实际 SDK 路径：
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install setuptools
-cd ai-engine-direct-helper
-python3 setup.py bdist_wheel
+export QNN_SDK_ROOT=<path_to_qairt>
+export QAI_TOOLCHAINS=aarch64-oe-linux-gcc11.2
 ```
 
 </NewCodeBlock>
 
-编译完成会在 `dist` 目录下生成一个 `qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
-
-` 文件
-
-#### 安装 qai_appbuilder
-
-##### 安装 qai_appbuilder wheel
+#### 编译并安装 qai_appbuilder wheel
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd dist
-pip3 install ./qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
+python3 -m build -w
+python3 -m pip install dist/qai_appbuilder-*.whl
 ```
 
 </NewCodeBlock>
-
-### 创建 QAIRT SDK LIB 软链接
-
-请在 `ai-engine-direct-helper/samples/python` 下创建 `qai_libs` 软链接，用于链接 QAIRT SDK 里的 lib 目录
-
-<Tabs>
-
-<TabItem value="qcom-qairt">
 
 :::tip
-如果没有下载完整的 QAIRT_SDK 可以安装 `qcom-qairt` 后进行软链接
-
-qcom-qairt 是一个体积缩小版的 QAIRT-SDK，仅安装所需的文件
+wheel 版本号会随所链接的 QAIRT SDK 版本变化。官方构建说明见 [**BUILD.md**](https://github.com/qualcomm/qai-appbuilder/blob/main/BUILD.md)。
 :::
-
-<Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    sudo apt install qcom-qnn-sdk-v68 qcom-genie-sdk-v68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    sudo apt install qcom-qnn-sdk-v73 qcom-genie-sdk-v73
-    ```
-    </NewCodeBlock>
-
-</TabItem>
-
-    <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    sudo apt install qcom-qnn-sdk-v68 qcom-genie-sdk-v68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-</Tabs>
-
-<NewCodeBlock tip="Device" type="device">
-
-```bash
-ln -s /usr/lib/aarch64-linux-gnu samples/python/qai_libs
-```
-
-</NewCodeBlock>
-
-</TabItem>
-
-<TabItem value="QAIRT-SDK">
-
-:::tip
-如果用户已经下载了完整版本的 QAIRT-SDK， 可以链接 QAIRT-SDK 下的 `lib/aarch64-oe-linux-gcc11.2/`
-:::
-
-<NewCodeBlock tip="Device" type="device">
-
-```bash
-ln -s qairt/2.42.0.251225/lib/aarch64-oe-linux-gcc11.2/ samples/python/qai_libs
-```
-
-</NewCodeBlock>
-
-</TabItem>
-
-</Tabs>
 
 ### 创建 ADSP 环境变量
 
-<Tabs>
+在 Linux 设备上运行 NPU 推理前，需要设置 `ADSP_LIBRARY_PATH`，指向包含 Hexagon skel（如 `libQnnHtpV68Skel.so` / `libQnnHtpV73Skel.so`）的目录。
 
-<TabItem value="qcom-qairt">
+#### 使用 wheel 内置库（推荐）
 
-:::tip
-如果安装 `qcom-qairt` 包的用户，可以使用以下命令创建 `ADSP_LIBRARY_PATH` 环境变量
-:::
+安装 wheel 后，可直接指向包内 `libs` 目录：
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
+export ADSP_LIBRARY_PATH=$(python3 -c "import os, qai_appbuilder; print(os.path.join(os.path.dirname(qai_appbuilder.__file__), 'libs'))")
 ```
 
 </NewCodeBlock>
 
-</TabItem>
+#### 使用系统 QAIRT 包
 
-<TabItem value="QAIRT-SDK">
-
-:::tip
-如果安装了完整的 QAIRT-SDK 的用户，可以使用以下命令创建 `ADSP_LIBRARY_PATH` 环境变量
-:::
-
-<Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=6490 DSP_ARCH=68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=9075 DSP_ARCH=73
-    ```
-    </NewCodeBlock>
-
-</TabItem>
-
-    <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=8280 DSP_ARCH=68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-</Tabs>
+`qairt-libs`、`qairt-dsp-binaries` 等系统包来自高通 apt 软件源（`ppa:ubuntu-qcom-iot/qcom-ppa`）。该软件源**默认未配置**，需先手动添加后再安装：
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd qairt/2.42.0.251225
-export ADSP_LIBRARY_PATH=$(pwd)/lib/hexagon-v${DSP_ARCH}/unsigned
+sudo apt update && sudo apt install -y software-properties-common
+sudo add-apt-repository -y ppa:ubuntu-qcom-iot/qcom-ppa
+sudo apt update
+sudo apt install -y qairt-libs qairt-dsp-binaries
 ```
 
 </NewCodeBlock>
 
-</TabItem>
+若系统已安装 `qairt-dsp-binaries` 等包，也可将 `ADSP_LIBRARY_PATH` 指向对应平台的 DSP 目录，例如 QCS6490：
 
-</Tabs>
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+export ADSP_LIBRARY_PATH=/usr/share/qcom/qcm6490/Thundercomm/RB3gen2/dsp/cdsp
+```
+
+</NewCodeBlock>
+
+:::tip
+可在 `~/.bashrc` 中写入上述 `export`，并执行 `source ~/.bashrc` 使其长期生效。
+:::
 
 ## 应用例子
+
+:::tip
+上游示例已按任务类型重新组织目录。Linux 上运行示例脚本时，需要通过 `--chipset` 指定芯片，以便自动下载对应模型：
+
+- QCS6490 / SC8280XP：`--chipset 6490`
+- QCS9075：`--chipset 9075`
+
+更多示例说明见上游 [**samples/README.md**](https://github.com/qualcomm/qai-appbuilder/blob/main/samples/README.md)。也可参考本地 [**Demos 示例**](./qai-appbuilder-demo)。
+:::
+
+### 安装示例依赖
+
+在已激活的虚拟环境中安装示例常用依赖：
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
+```
+
+</NewCodeBlock>
+
+### 进入示例目录
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qai-appbuilder/samples
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+可直接运行示例脚本，也可使用交互式启动器：
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python3 run_inference.py --list
+python3 run_inference.py --model inception_v3 --args "--chipset 6490"
+```
+
+</NewCodeBlock>
 
 <Tabs queryString="platform">
 <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-:::tip
-QCS6490 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
-:::
+- 图像分类
 
-<NewCodeBlock tip="Device" type="device">
-
-```bash
-cd ai-engine-direct-helper/samples/linux/python
-```
-
-</NewCodeBlock>
-
-- 目标识别
-
-  | 模型              | 运行方法                                         |
-  | ----------------- | ------------------------------------------------ |
-  | convnext_base     | `python3 convnext_base/convnext_base.py`         |
-  | convnext_tiny     | `python3 convnext_tiny/convnext_tiny.py`         |
-  | efficientnet_b0   | `python3 efficientnet_b0/efficientnet_b0.py`     |
-  | efficientnet_b4   | `python3 efficientnet_b4/efficientnet_b4.py`     |
-  | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
-  | googlenet         | `python3 googlenet/googlenet.py`                 |
-  | inception_v3      | `python3 inception_v3/inception_v3.py`           |
-  | levit             | `python3 levit/levit.py`                         |
-  | regnet            | `python3 regnet/regnet.py`                       |
-  | shufflenet_v2     | `python3 shufflenet_v2/shufflenet_v2.py`         |
-  | squeezenet1_1     | `python3 squeezenet1_1/squeezenet1_1.py`         |
-  | vit               | `python3 vit/vit.py`                             |
-  | wideresnet50      | `python3 wideresnet50/wideresnet50.py`           |
-
-- 图像分割
-
-  | 模型         | 运行方法                               |
-  | ------------ | -------------------------------------- |
-  | fcn_resnet50 | `python3 fcn_resnet50/fcn_resnet50.py` |
+  | 模型         | 运行方法                                                                                  |
+  | ------------ | ----------------------------------------------------------------------------------------- |
+  | googlenet    | `python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 6490`       |
+  | inception_v3 | `python3 ComputerVision/Image_Classification/inception_v3/inception_v3.py --chipset 6490` |
 
 - 目标检测
 
-  | 模型       | 运行方法                           |
-  | ---------- | ---------------------------------- |
-  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
+  | 模型       | 运行方法                                                                          |
+  | ---------- | --------------------------------------------------------------------------------- |
+  | yolov8_det | `python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 6490` |
 
 - 图像超分辨率
 
-  | 模型                     | 运行方法                                                       |
-  | ------------------------ | -------------------------------------------------------------- |
-  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
-  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
-  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
-  | sesr_m5                  | `python3 sesr_m5/sesr_m5.py`                                   |
-  | xlsr                     | `python3 xlsr/xlsr.py`                                         |
+  | 模型                     | 运行方法                                                                                                          |
+  | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+  | quicksrnetmedium         | `python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 6490`                     |
+  | real_esrgan_general_x4v3 | `python3 ComputerVision/Super_Resolution/real_esrgan_general_x4v3/real_esrgan_general_x4v3.py --chipset 6490`     |
+  | real_esrgan_x4plus       | `python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 6490 --bin --no_show` |
 
 </TabItem>
 
 <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
 :::tip
-SC8280XP Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
+上游 Linux 示例脚本目前通过 `--chipset 6490` / `--chipset 9075` 选择模型包。SC8280XP 与 QCS6490 同为 Hexagon V68，下载模型时使用 `--chipset 6490`。QCS6490 上 `real_esrgan_x4plus` 需加 `--bin`。
 :::
 
-<NewCodeBlock tip="Device" type="device">
+- 图像分类
 
-```bash
-cd ai-engine-direct-helper/samples/linux/python
-```
-
-</NewCodeBlock>
-
-- 目标识别
-
-  | 模型              | 运行方法                                         |
-  | ----------------- | ------------------------------------------------ |
-  | convnext_base     | `python3 convnext_base/convnext_base.py`         |
-  | convnext_tiny     | `python3 convnext_tiny/convnext_tiny.py`         |
-  | efficientnet_b0   | `python3 efficientnet_b0/efficientnet_b0.py`     |
-  | efficientnet_b4   | `python3 efficientnet_b4/efficientnet_b4.py`     |
-  | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
-  | googlenet         | `python3 googlenet/googlenet.py`                 |
-  | inception_v3      | `python3 inception_v3/inception_v3.py`           |
-  | levit             | `python3 levit/levit.py`                         |
-  | regnet            | `python3 regnet/regnet.py`                       |
-  | shufflenet_v2     | `python3 shufflenet_v2/shufflenet_v2.py`         |
-  | squeezenet1_1     | `python3 squeezenet1_1/squeezenet1_1.py`         |
-  | vit               | `python3 vit/vit.py`                             |
-  | wideresnet50      | `python3 wideresnet50/wideresnet50.py`           |
-
-- 图像分割
-
-  | 模型         | 运行方法                               |
-  | ------------ | -------------------------------------- |
-  | fcn_resnet50 | `python3 fcn_resnet50/fcn_resnet50.py` |
+  | 模型         | 运行方法                                                                                  |
+  | ------------ | ----------------------------------------------------------------------------------------- |
+  | googlenet    | `python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 6490`       |
+  | inception_v3 | `python3 ComputerVision/Image_Classification/inception_v3/inception_v3.py --chipset 6490` |
 
 - 目标检测
 
-  | 模型       | 运行方法                           |
-  | ---------- | ---------------------------------- |
-  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
+  | 模型       | 运行方法                                                                          |
+  | ---------- | --------------------------------------------------------------------------------- |
+  | yolov8_det | `python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 6490` |
 
 - 图像超分辨率
 
-  | 模型                     | 运行方法                                                       |
-  | ------------------------ | -------------------------------------------------------------- |
-  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
-  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
-  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
-  | sesr_m5                  | `python3 sesr_m5/sesr_m5.py`                                   |
-  | xlsr                     | `python3 xlsr/xlsr.py`                                         |
+  | 模型                     | 运行方法                                                                                                          |
+  | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+  | quicksrnetmedium         | `python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 6490`                     |
+  | real_esrgan_general_x4v3 | `python3 ComputerVision/Super_Resolution/real_esrgan_general_x4v3/real_esrgan_general_x4v3.py --chipset 6490`     |
+  | real_esrgan_x4plus       | `python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 6490 --bin --no_show` |
 
 </TabItem>
 
 <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
-:::tip
-QCS9075 Demos 运行示例可参考 [**Demos 示例**](./qai-appbuilder-demo)
-:::
-
-<NewCodeBlock tip="Device" type="device">
-
-```bash
-cd ai-engine-direct-helper/samples/python
-```
-
-</NewCodeBlock>
-
 - 图像生成 / 图像修复
 
-  | 模型                  | 运行方法                                                                                  |
-  | --------------------- | ----------------------------------------------------------------------------------------- |
-  | stable_diffusion_v2_1 | `python3 stable_diffusion_v2_1/stable_diffusion_v2_1.py --prompt "the prompt string ..."` |
-  | stable_diffusion_v1_5 | `python3 stable_diffusion_v1_5/stable_diffusion_v1_5.py --prompt "the prompt string ..."` |
-  | lama_dilated          | `python3 lama_dilated/lama_dilated.py`                                                    |
-  | aotgan                | `python3 aotgan/aotgan.py`                                                                |
+  | 模型                  | 运行方法                                                                                                                               |
+  | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+  | stable_diffusion_v2_1 | `python3 GenerativeAI/Image_Generation/stable_diffusion_v2_1/stable_diffusion_v2_1.py --chipset 9075 --prompt "the prompt string ..."` |
+  | stable_diffusion_v1_5 | `python3 GenerativeAI/Image_Generation/stable_diffusion_v1_5/stable_diffusion_v1_5.py --chipset 9075 --prompt "the prompt string ..."` |
+  | lama_dilated          | `python3 ComputerVision/Image_Editing/lama_dilated/lama_dilated.py --chipset 9075`                                                     |
+  | aotgan                | `python3 ComputerVision/Image_Editing/aotgan/aotgan.py --chipset 9075`                                                                 |
 
 - 图像超分辨率
 
-  | 模型                     | 运行方法                                                       |
-  | ------------------------ | -------------------------------------------------------------- |
-  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
-  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
-  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
+  | 模型                     | 运行方法                                                                                                      |
+  | ------------------------ | ------------------------------------------------------------------------------------------------------------- |
+  | real_esrgan_x4plus       | `python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 9075`             |
+  | real_esrgan_general_x4v3 | `python3 ComputerVision/Super_Resolution/real_esrgan_general_x4v3/real_esrgan_general_x4v3.py --chipset 9075` |
+  | quicksrnetmedium         | `python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 9075`                 |
 
 - 图像识别
 
-  | 模型         | 运行方法                               |
-  | ------------ | -------------------------------------- |
-  | inception_v3 | `python3 inception_v3/inception_v3.py` |
-  | beit         | `python3 beit/beit.py`                 |
-  | googlenet    | `python3 googlenet/googlenet.py`       |
+  | 模型         | 运行方法                                                                                  |
+  | ------------ | ----------------------------------------------------------------------------------------- |
+  | inception_v3 | `python3 ComputerVision/Image_Classification/inception_v3/inception_v3.py --chipset 9075` |
+  | beit         | `python3 ComputerVision/Image_Classification/beit/beit.py --chipset 9075`                 |
+  | googlenet    | `python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 9075`       |
 
 - 姿态识别
 
-  | 模型           | 运行方法                                   |
-  | -------------- | ------------------------------------------ |
-  | openpose       | `python3 openpose/openpose.py`             |
-  | mediapipe_hand | `python3 mediapipe_hand/mediapipe_hand.py` |
+  | 模型           | 运行方法                                                                                 |
+  | -------------- | ---------------------------------------------------------------------------------------- |
+  | openpose       | `python3 ComputerVision/Pose_Estimation/openpose/openpose.py --chipset 9075`             |
+  | mediapipe_hand | `python3 ComputerVision/Pose_Estimation/mediapipe_hand/mediapipe_hand.py --chipset 9075` |
 
 - 图像分割 / 深度估计
 
-  | 模型              | 运行方法                                         |
-  | ----------------- | ------------------------------------------------ |
-  | unet_segmentation | `python3 unet_segmentation/unet_segmentation.py` |
-  | depth_anything    | `python3 depth_anything/depth_anything.py`       |
+  | 模型              | 运行方法                                                                                             |
+  | ----------------- | ---------------------------------------------------------------------------------------------------- |
+  | unet_segmentation | `python3 ComputerVision/Semantic_Segmentation/unet_segmentation/unet_segmentation.py --chipset 9075` |
+  | depth_anything    | `python3 ComputerVision/Depth_Estimation/depth_anything/depth_anything.py --chipset 9075`            |
 
 - 目标检测
 
-  | 模型       | 运行方法                           |
-  | ---------- | ---------------------------------- |
-  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
+  | 模型       | 运行方法                                                                          |
+  | ---------- | --------------------------------------------------------------------------------- |
+  | yolov8_det | `python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 9075` |
 
 - 三维建模
 
-  | 模型            | 运行方法                                     |
-  | --------------- | -------------------------------------------- |
-  | facemap_3dmm    | `python3 facemap_3dmm/facemap_3dmm.py`       |
-  | face_attrib_net | `python3 face_attrib_net/face_attrib_net.py` |
+  | 模型            | 运行方法                                                                                    |
+  | --------------- | ------------------------------------------------------------------------------------------- |
+  | facemap_3dmm    | `python3 ComputerVision/Face_Recognition/facemap_3dmm/facemap_3dmm.py --chipset 9075`       |
+  | face_attrib_net | `python3 ComputerVision/Face_Recognition/face_attrib_net/face_attrib_net.py --chipset 9075` |
 
 - 音频模型
 
-  | 模型            | 运行方法                                     |
-  | --------------- | -------------------------------------------- |
-  | yamnet          | `python3 yamnet/yamnet.py`                   |
-  | whisper_base_en | `python3 whisper_base_en/whisper_base_en.py` |
-  | whisper_tiny_en | `python3 whisper_tiny_en/whisper_tiny_en.py` |
+  | 模型            | 运行方法                                                                             |
+  | --------------- | ------------------------------------------------------------------------------------ |
+  | yamnet          | `python3 audio/Audio_Classification/yamnet/yamnet.py --chipset 9075`                 |
+  | whisper_base_en | `python3 audio/Speech_Recognition/whisper_base_en/whisper_base_en.py --chipset 9075` |
+  | whisper_tiny_en | `python3 audio/Speech_Recognition/whisper_tiny_en/whisper_tiny_en.py --chipset 9075` |
 
 - 文本 / 多模态嵌入
 
-  | 模型             | 运行方法                                               |
-  | ---------------- | ------------------------------------------------------ |
-  | nomic_embed_text | `python3 nomic_embed_text/nomic_embed_text.py`         |
-  | openai_clip      | `python3 openai_clip/openai_clip.py --text "mountain"` |
+  | 模型             | 运行方法                                                                                              |
+  | ---------------- | ----------------------------------------------------------------------------------------------------- |
+  | nomic_embed_text | `python3 Multimodal/Text_Generation/nomic_embed_text/nomic_embed_text.py --chipset 9075`              |
+  | openai_clip      | `python3 Multimodal/Image_Classification/openai_clip/openai_clip.py --chipset 9075 --text "mountain"` |
+  | qwen_vl          | 需先下载模型包；`python3 Multimodal/qwen_vl/qwen_vl.py --model qwen2 --path ./qwen2vl2b`（见示例页）  |
 
 - 三维动作识别
 
-  | 模型      | 运行方法                         |
-  | --------- | -------------------------------- |
-  | resnet_3d | `python3 resnet_3d/resnet_3d.py` |
+  | 模型      | 运行方法                                                                            |
+  | --------- | ----------------------------------------------------------------------------------- |
+  | resnet_3d | `python3 ComputerVision/Video_Classification/resnet_3d/resnet_3d.py --chipset 9075` |
 
 - OCR（文字识别）
 
-  | 模型     | 运行方法                       |
-  | -------- | ------------------------------ |
-  | easy_ocr | `python3 easy_ocr/easy_ocr.py` |
+  | 模型     | 运行方法                                                               |
+  | -------- | ---------------------------------------------------------------------- |
+  | easy_ocr | `python3 Multimodal/Image_To_Text/easy_ocr/easy_ocr.py --chipset 9075` |
 
 </TabItem>
 

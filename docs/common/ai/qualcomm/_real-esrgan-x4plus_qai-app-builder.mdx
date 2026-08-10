@@ -3,11 +3,11 @@
 
 **示例支持设备**
 
-| 设备                 | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| 设备                 | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
 ## 安装 QAI AppBuilder
 
@@ -22,141 +22,105 @@
 
 ### 安装依赖
 
+在已激活的虚拟环境中安装示例依赖：
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
 ### 运行脚本
 
-- 进入示例目录
+- 进入上游示例目录
 
-        <Tabs queryString="platform">
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
-
-
-         <NewCodeBlock tip="Device" type="device">
-
-         ```bash
-         cd ai-engine-direct-helper/samples/linux/python
-         ```
-
-          </NewCodeBlock>
-
-
-          </TabItem>
-
-          <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
-
-       <NewCodeBlock tip="Device" type="device">
-
-        ```bash
-        cd ai-engine-direct-helper/samples/linux/python
-        ```
-
-       </NewCodeBlock>
-
-    </TabItem>
-
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
-
-         <NewCodeBlock tip="Device" type="device">
-
-          ```bash
-          cd ai-engine-direct-helper/samples/python
-          ```
-
-          </NewCodeBlock>
-
-      </TabItem>
-
-      </Tabs>
-
-- 准备输入图片，这里以以下图片为输入示例
-
-  {" "}
-
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/fogwise/airbox-q900/qairt_real_esrganx4plus_input.webp"
-      style={{ width: "65%" }}
-    />
-    input image
-  </div>
-
-- 执行推理
-
-    <NewCodeBlock tip="Device" type="device">
+  <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 real_esrgan_x4plus/real_esrgan_x4plus.py
+  cd qai-appbuilder/samples
   ```
 
-    </NewCodeBlock>
+  </NewCodeBlock>
 
-  ```bash
-  $ python3 real_esrgan_x4plus/real_esrgan_x4plus.py
-       0.0ms [WARNING]  <W> Initializing HtpProvider
+- 准备输入数据（示例自带输入文件时可直接运行；也可按脚本参数指定）
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/fogwise/airbox-q900/qairt_real_esrganx4plus_input.webp"
+    style={{ width: "65%" }}
+  />
+  input image
+</div>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+执行推理
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::warning
+在 QCS6490 / SC8280XP 上，**不要使用默认 float DLC**。默认 `.dlc` 会报 `The SocModel doesn't support FP16` 并导致加载失败。请使用 **`--bin`** 下载预编译 HTP context binary。
+:::
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<Tabs queryString="platform">
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-     152.5ms [WARNING] Time: Read model file to memory. 44.96
+<NewCodeBlock tip="Device" type="device">
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 6490 --bin --no_show
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</NewCodeBlock>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</TabItem>
+<TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::tip
+SC8280XP 与 QCS6490 同为 Hexagon V68，下载模型时使用 `--chipset 6490`，并加 `--bin`。
+:::
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<NewCodeBlock tip="Device" type="device">
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 6490 --bin --no_show
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</NewCodeBlock>
 
-     631.4ms [WARNING] Time: contextCreateFromBinary. 478.81
+</TabItem>
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
-     631.4ms [WARNING] Time: UnmapViewOfFile. 0.00
+<NewCodeBlock tip="Device" type="device">
 
-     633.3ms [WARNING] Time: model_initialize realesrgan 633.22
+```bash
+python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 9075 --no_show
+```
 
-    2532.0ms [WARNING] Time: model_inference realesrgan 1851.89
+</NewCodeBlock>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::tip
+QCS9075 上 Hub 默认下发 `.bin`（HTP context）即可运行。`--no_show` 用于无头环境。
+:::
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</TabItem>
+</Tabs>
 
-  /usr/bin/xdg-open: 882: www-browser: not found
-  /usr/bin/xdg-open: 882: links2: not found
-  /usr/bin/xdg-open: 882: elinks: not found
-  /usr/bin/xdg-open: 882: links: not found
-  /usr/bin/xdg-open: 882: lynx: not found
-  /usr/bin/xdg-open: 882: w3m: not found
-  xdg-open: no method available for opening '/tmp/tmpczsph22w.PNG'
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+`--no_show` 用于无图形界面的 SSH/无头环境，避免弹出看图窗口。
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+### 预期结果
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-    8196.8ms [WARNING] Time: model_destroy realesrgan 164.68
-  ```
+推理成功后会生成：
 
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/fogwise/airbox-q900/qairt_real_esrganx4plus_output.webp"
-      style={{ width: "65%" }}
-    />
-    output image
-  </div>
+```text
+ComputerVision/Super_Resolution/real_esrgan_x4plus/output.png
+```
+
+日志中可见类似 `Inference completed` 与输出路径信息。
+
+:::tip
+也可使用启动器：
+
+```bash
+python3 run_inference.py --model real_esrgan_x4plus --args "--chipset 6490 --bin --no_show"
+```
+
+:::

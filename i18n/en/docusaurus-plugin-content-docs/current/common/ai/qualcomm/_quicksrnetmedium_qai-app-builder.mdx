@@ -1,165 +1,109 @@
-This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [QuickSRNetMedium](https://aihub.qualcomm.com/models/quicksrnetmedium) image super-resolution model on Qualcomm® Hexagon™ Processor (NPU).
+This document describes using the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [QuickSRNetMedium](https://aihub.qualcomm.com/models/quicksrnetmedium) super-resolution model on the Qualcomm® Hexagon™ Processor (NPU).
 
-**Supported Devices**
+**Supported devices**
 
-| Device               | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| Device               | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
 ## Install QAI AppBuilder
 
 :::tip
 
-1. Please install QAI AppBuilder according to [**QAI AppBuilder Installation Guide**](../qai-appbuilder#installation-methods).
+1. Install QAI AppBuilder by following the [**QAI AppBuilder installation guide**](../qai-appbuilder).
 
-2. Please configure QAIRT environment variables according to [**Configure QAIRT Environment Variables**](../qai-appbuilder#configure-qairt-environment-variables).
+2. Configure ADSP environment variables as described in [**Create ADSP environment variables**](../qai-appbuilder#create-adsp-environment-variables).
    :::
 
-## Run the Example
+## Run the sample
 
-### Install Dependencies
+### Install dependencies
+
+Install sample dependencies in the activated virtual environment:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matplotlib easyocr qai_hub_models transformers openai-clip
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
-### Run the Script
+### Run the script
 
-- Navigate to the example directory
+- Enter the upstream samples directory
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd qai-appbuilder/samples
+  ```
+
+  </NewCodeBlock>
+
+Run inference (Linux requires `--chipset`; the first run downloads `input.png` and the model)
 
 <Tabs queryString="platform">
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-         <NewCodeBlock tip="Device" type="device">
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-         ```bash
-         cd ai-engine-direct-helper/samples/linux/python
-         ```
+<NewCodeBlock tip="Device" type="device">
 
-          </NewCodeBlock>
+```bash
+python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 6490
+```
 
+</NewCodeBlock>
 
-          </TabItem>
+</TabItem>
 
-          <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
+<TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
-       <NewCodeBlock tip="Device" type="device">
+:::tip
+SC8280XP and QCS6490 both use Hexagon V68. Use `--chipset 6490` when downloading models.
+:::
 
-        ```bash
-        cd ai-engine-direct-helper/samples/linux/python
-        ```
+<NewCodeBlock tip="Device" type="device">
 
-       </NewCodeBlock>
+```bash
+python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 6490
+```
 
-    </TabItem>
+</NewCodeBlock>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+</TabItem>
 
-         <NewCodeBlock tip="Device" type="device">
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
-          ```bash
-          cd ai-engine-direct-helper/samples/python
-          ```
+<NewCodeBlock tip="Device" type="device">
 
-          </NewCodeBlock>
+```bash
+python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 9075
+```
 
-      </TabItem>
+</NewCodeBlock>
 
-      </Tabs>
+</TabItem>
 
-- Prepare input image. The following image is used as an example:
+</Tabs>
 
-  {" "}
+### Expected result
 
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/fogwise/airbox-q900/qairt_quicksrnetmedium_input.webp"
-      style={{ width: "65%" }}
-    />
-    input image
-  </div>
+On Dragon Q6A, a successful run writes:
 
-- Run inference
+```text
+ComputerVision/Super_Resolution/quicksrnetmedium/output.png
+```
 
-    <NewCodeBlock tip="Device" type="device">
+Without a display (`DISPLAY` unset), you may see `Error: no DISPLAY environment variable specified`. If `output.png` exists and the process exits 0, ignore that message.
 
-  ```bash
-  python3 quicksrnetmedium/quicksrnetmedium.py
-  ```
+:::tip
+Launcher alternative:
 
-    </NewCodeBlock>
+```bash
+python3 run_inference.py --model quicksrnetmedium --args "--chipset 6490"
+```
 
-  ```bash
-    $ python3 quicksrnetmedium/quicksrnetmedium.py
-    Current file directory: /mnt/ssd/qualcomm/701/zzf_fork/ai-engine-direct-helper/samples/linux/python/quicksrnetmedium
-    Init
-         0.0ms [WARNING]  <W> Initializing HtpProvider
-
-    /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       112.4ms [WARNING] Time: Read model file to memory. 0.12
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       118.0ms [WARNING] Time: contextCreateFromBinary. 5.51
-
-       118.0ms [WARNING] Time: UnmapViewOfFile. 0.00
-
-       118.3ms [WARNING] Time: model_initialize quicksrnetmedium 118.21
-
-       174.0ms [WARNING] Time: model_inference quicksrnetmedium 25.10
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-    /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-       353.0ms [WARNING] Time: model_destroy quicksrnetmedium 18.10
-
-    /usr/bin/xdg-open: 882: www-browser: not found
-    /usr/bin/xdg-open: 882: links2: not found
-    /usr/bin/xdg-open: 882: elinks: not found
-    /usr/bin/xdg-open: 882: links: not found
-    /usr/bin/xdg-open: 882: lynx: not found
-    /usr/bin/xdg-open: 882: w3m: not found
-    xdg-open: no method available for opening '/tmp/tmp751e_f48.PNG'
-  ```
-
-  {" "}
-
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/en/img/fogwise/airbox-q900/qairt_quicksrnetmedium_output.webp"
-      style={{ width: "65%" }}
-    />
-    output image
-  </div>
+:::

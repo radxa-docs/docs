@@ -3,8 +3,8 @@
 
 **示例支持设备**
 
-| 设备                 | SoC   |
-| -------------------- | ----- |
+| 设备                 | SoC     |
+| -------------------- | ------- |
 | Fogwise® AIRbox Q900 | QCS9075 |
 
 ## 安装 QAI AppBuilder
@@ -20,107 +20,51 @@
 
 ### 安装依赖
 
+在已激活的虚拟环境中安装示例依赖：
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
 ### 运行脚本
 
-- 进入示例目录
+- 进入上游示例目录
 
-    <Tabs>
+  <NewCodeBlock tip="Device" type="device">
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+  ```bash
+  cd qai-appbuilder/samples
+  ```
 
-       <NewCodeBlock tip="Device" type="device">
+  </NewCodeBlock>
 
-        ```bash
-        cd ai-engine-direct-helper/samples/python
-        ```
+- 准备输入数据（示例自带输入文件时可直接运行；也可按脚本参数指定）
 
-        </NewCodeBlock>
-
-    </TabItem>
-
-    </Tabs>
-
-- 准备输入图片，这里以以下图片为输入示例
-
-  {" "}
-
-  <div style={{ textAlign: "center" }}>
-    <img src="/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
-    input image
-  </div>
+<div style={{ textAlign: "center" }}>
+  <img src="/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
+  input image
+</div>
 
 - 执行推理
 
     <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 beit/beit.py
+  python3 ComputerVision/Image_Classification/beit/beit.py --chipset 9075
   ```
 
     </NewCodeBlock>
 
-  ```bash
-  $ python3 beit/beit.py
-       0.0ms [WARNING]  <W> Initializing HtpProvider
+:::tip
+首次运行会通过 Qualcomm® AI Hub 自动下载模型，耗时取决于网络。也可在 `samples` 目录使用启动器：
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 run_inference.py --list
+python3 run_inference.py --model beit --args "--chipset 9075"
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     179.0ms [WARNING] Time: Read model file to memory. 60.05
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     284.7ms [WARNING] Time: contextCreateFromBinary. 105.62
-
-     284.8ms [WARNING] Time: UnmapViewOfFile. 0.00
-
-     288.1ms [WARNING] Time: model_initialize beit 288.01
-
-     365.3ms [WARNING] Time: model_inference beit 17.72
-
-  Top 5 predictions for image:
-
-  "Samoyed", 0.6322221756
-  "Pomeranian", 0.1098636836
-  "Keeshond", 0.0410530604
-  "Japanese Chin", 0.0093044275
-  "Chow Chow", 0.0058453484
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     483.8ms [WARNING] Time: model_destroy beit 113.14
-  ```
-
-  打印结果可以看到 `Samoyed` 置信度最高，这与输入图片内容吻合。
+:::

@@ -3,11 +3,11 @@
 
 **示例支持设备**
 
-| 设备                 | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| 设备                 | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
 ## 安装 QAI AppBuilder
 
@@ -15,153 +15,92 @@
 
 1. 请根据 [**QAI AppBuilder 安装方法**](../qai-appbuilder) 安装 QAI AppBuilder。
 
-2. 请根据 [**配置 QAIRT 环境变量**](../qai-appbuilder#配置-qairt-环境变量) 配置 QAIRT 环境变量。
+2. 请根据 [**创建 ADSP 环境变量**](../qai-appbuilder#创建-adsp-环境变量) 配置 ADSP 环境变量。
    :::
 
 ## 运行示例
 
 ### 安装依赖
 
+在已激活的虚拟环境中安装示例依赖：
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matplotlib easyocr qai_hub_models transformers openai-clip
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
 ### 运行脚本
 
-- 进入示例目录
+- 进入上游示例目录
 
-        <Tabs queryString="platform">
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
-
-
-         <NewCodeBlock tip="Device" type="device">
-
-         ```bash
-         cd ai-engine-direct-helper/samples/linux/python
-         ```
-
-          </NewCodeBlock>
-
-
-          </TabItem>
-
-          <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
-
-       <NewCodeBlock tip="Device" type="device">
-
-        ```bash
-        cd ai-engine-direct-helper/samples/linux/python
-        ```
-
-       </NewCodeBlock>
-
-    </TabItem>
-
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
-
-         <NewCodeBlock tip="Device" type="device">
-
-          ```bash
-          cd ai-engine-direct-helper/samples/python
-          ```
-
-          </NewCodeBlock>
-
-      </TabItem>
-
-      </Tabs>
-
-- 准备输入图片，这里以以下图片为输入示例
-
-  {" "}
-
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/fogwise/airbox-q900/qairt_quicksrnetmedium_input.webp"
-      style={{ width: "65%" }}
-    />
-    input image
-  </div>
-
-- 执行推理
-
-    <NewCodeBlock tip="Device" type="device">
+  <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 quicksrnetmedium/quicksrnetmedium.py
+  cd qai-appbuilder/samples
   ```
 
-    </NewCodeBlock>
+  </NewCodeBlock>
 
-  ```bash
-    $ python3 quicksrnetmedium/quicksrnetmedium.py
-    Current file directory: /mnt/ssd/qualcomm/701/zzf_fork/ai-engine-direct-helper/samples/linux/python/quicksrnetmedium
-    Init
-         0.0ms [WARNING]  <W> Initializing HtpProvider
+执行推理（Linux 需指定 `--chipset`；首次运行会自动下载 `input.png` 与模型）
 
-    /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<Tabs queryString="platform">
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<NewCodeBlock tip="Device" type="device">
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 6490
+```
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</NewCodeBlock>
 
-       112.4ms [WARNING] Time: Read model file to memory. 0.12
+</TabItem>
+<TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::tip
+SC8280XP 与 QCS6490 同为 Hexagon V68，下载模型时使用 `--chipset 6490`。
+:::
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<NewCodeBlock tip="Device" type="device">
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 6490
+```
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</NewCodeBlock>
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</TabItem>
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<NewCodeBlock tip="Device" type="device">
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 9075
+```
 
-       118.0ms [WARNING] Time: contextCreateFromBinary. 5.51
+</NewCodeBlock>
 
-       118.0ms [WARNING] Time: UnmapViewOfFile. 0.00
+</TabItem>
+</Tabs>
 
-       118.3ms [WARNING] Time: model_initialize quicksrnetmedium 118.21
+### 预期结果
 
-       174.0ms [WARNING] Time: model_inference quicksrnetmedium 25.10
+在 Dragon Q6A 上推理成功后，会在示例目录生成：
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```text
+ComputerVision/Super_Resolution/quicksrnetmedium/output.png
+```
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+无图形界面（无 `DISPLAY`）时可能打印 `Error: no DISPLAY environment variable specified`，只要 `output.png` 已生成且进程退出码为 0，可忽略该提示。
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::tip
+也可使用启动器：
 
-         0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 run_inference.py --model quicksrnetmedium --args "--chipset 6490"
+```
 
-    /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.4.0/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-       353.0ms [WARNING] Time: model_destroy quicksrnetmedium 18.10
-
-    /usr/bin/xdg-open: 882: www-browser: not found
-    /usr/bin/xdg-open: 882: links2: not found
-    /usr/bin/xdg-open: 882: elinks: not found
-    /usr/bin/xdg-open: 882: links: not found
-    /usr/bin/xdg-open: 882: lynx: not found
-    /usr/bin/xdg-open: 882: w3m: not found
-    xdg-open: no method available for opening '/tmp/tmp751e_f48.PNG'
-  ```
-
-  {" "}
-
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/fogwise/airbox-q900/qairt_quicksrnetmedium_output.webp"
-      style={{ width: "65%" }}
-    />
-    output image
-  </div>
+:::

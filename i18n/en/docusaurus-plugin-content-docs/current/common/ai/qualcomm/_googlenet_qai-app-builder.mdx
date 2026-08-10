@@ -1,152 +1,115 @@
-This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [GoogLeNet](https://aihub.qualcomm.com/models/googlenet?domain=Computer+Vision&useCase=Image+Classification&chipsets=qualcomm-qcs6490-proxy) object recognition model on Qualcomm® Hexagon™ Processor (NPU).
+This document describes using the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [GoogLeNet](https://aihub.qualcomm.com/models/googlenet?domain=Computer+Vision&useCase=Image+Classification&chipsets=qualcomm-qcs6490-proxy) image classification model on the Qualcomm® Hexagon™ Processor (NPU).
 
-**Supported Devices**
+**Supported devices**
 
-| Device               | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| Device               | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
 ## Install QAI AppBuilder
 
 :::tip
 
-1. Please install QAI AppBuilder according to [**QAI AppBuilder Installation Guide**](../qai-appbuilder#installation-methods).
+1. Install QAI AppBuilder by following the [**QAI AppBuilder installation guide**](../qai-appbuilder).
 
-2. Please configure ADSP environment variables according to [**Create ADSP Environment Variables**](../qai-appbuilder#create-adsp-environment-variables).
+2. Configure ADSP environment variables as described in [**Create ADSP environment variables**](../qai-appbuilder#create-adsp-environment-variables).
    :::
 
-## Run the Example
+## Run the sample
 
-### Install Dependencies
+### Install dependencies
+
+Install sample dependencies in the activated virtual environment:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
-### Run the Script
+### Run the script
 
-- Navigate to the example directory
+- Enter the upstream samples directory
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd qai-appbuilder/samples
+  ```
+
+  </NewCodeBlock>
+
+Run inference (Linux requires `--chipset`; the first run downloads `dog.jpg`, labels, and the model)
+
+:::tip
+If the auto-downloaded `dog.jpg` is empty or corrupt, replace it with a valid local image or pass `--image /path/to/image.jpg`.
+:::
 
 <Tabs queryString="platform">
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-         <NewCodeBlock tip="Device" type="device">
+<NewCodeBlock tip="Device" type="device">
 
-         ```bash
-         cd ai-engine-direct-helper/samples/linux/python
-         ```
+```bash
+python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 6490
+```
 
-          </NewCodeBlock>
+</NewCodeBlock>
 
+</TabItem>
+<TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
-          </TabItem>
+:::tip
+SC8280XP and QCS6490 both use Hexagon V68. Use `--chipset 6490` when downloading models.
+:::
 
-          <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
+<NewCodeBlock tip="Device" type="device">
 
-       <NewCodeBlock tip="Device" type="device">
+```bash
+python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 6490
+```
 
-        ```bash
-        cd ai-engine-direct-helper/samples/linux/python
-        ```
+</NewCodeBlock>
 
-       </NewCodeBlock>
+</TabItem>
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
-    </TabItem>
+<NewCodeBlock tip="Device" type="device">
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+```bash
+python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 9075
+```
 
-         <NewCodeBlock tip="Device" type="device">
+</NewCodeBlock>
 
-          ```bash
-          cd ai-engine-direct-helper/samples/python
-          ```
+</TabItem>
+</Tabs>
 
-          </NewCodeBlock>
+### Expected result
 
-      </TabItem>
+On Dragon Q6A (`--chipset 6490`), the default test image produces output similar to:
 
-      </Tabs>
+```text
+Top 5 predictions for image:
 
-- Prepare input image. The following image is used as an example:
+Samoyed 0.9282982349
+West Highland White Terrier 0.0102122389
+Pomeranian 0.0064557223
+Pyrenean Mountain Dog 0.0059806537
+Chow Chow 0.0051328284
+```
 
-  {" "}
+HTP / FastRPC WARNING lines may appear and can be ignored when inference succeeds.
 
-  <div style={{ textAlign: "center" }}>
-    <img src="/en/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
-    input image
-  </div>
+:::tip
+Launcher alternative:
 
-- Run inference
+```bash
+python3 run_inference.py --model googlenet --args "--chipset 6490"
+```
 
-    <NewCodeBlock tip="Device" type="device">
-
-  ```bash
-  python3 googlenet/googlenet.py
-  ```
-
-    </NewCodeBlock>
-
-  ```bash
-  $ python3 googlenet/googlenet.py
-       0.0ms [WARNING]  <W> Initializing HtpProvider
-
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     157.6ms [WARNING] Time: Read model file to memory. 8.91
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     180.6ms [WARNING] Time: contextCreateFromBinary. 22.97
-
-     180.7ms [WARNING] Time: UnmapViewOfFile. 0.00
-
-     181.6ms [WARNING] Time: model_initialize googlenet 181.55
-
-     255.7ms [WARNING] Time: model_inference googlenet 2.67
-
-  Top 5 predictions for image:
-
-  Samoyed 0.948613584
-  West Highland White Terrier 0.0060515446
-  Alaskan tundra wolf 0.0052576731
-  Pomeranian 0.0047871661
-  Chow Chow 0.0035575195
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     353.7ms [WARNING] Time: model_destroy googlenet 93.43
-
-  ```
-
-  The output shows that `Samoyed` has the highest confidence score, which matches the content of the input image.
+:::

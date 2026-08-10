@@ -1,160 +1,123 @@
-This document explains how to use the [QAI AppBuilder](../qai-appbuilder) Python API to perform inference with the [Real-ESRGAN-x4plus](https://aihub.qualcomm.com/models/real_esrgan_x4plus?domain=Computer+Vision&useCase=Super+Resolution&chipsets=qualcomm-qcs6490-proxy) image super-resolution model using the Qualcomm® Hexagon™ Processor (NPU).
+This document describes using the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [Real-ESRGAN-x4plus](https://aihub.qualcomm.com/models/real_esrgan_x4plus?domain=Computer+Vision&useCase=Super+Resolution&chipsets=qualcomm-qcs6490-proxy) super-resolution model on the Qualcomm® Hexagon™ Processor (NPU).
 
-**Supported Devices**
+**Supported devices**
 
-| Device               | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| Device               | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
 ## Install QAI AppBuilder
 
 :::tip
 
-1. Please install QAI AppBuilder according to the [**QAI AppBuilder Installation Guide**](../qai-appbuilder).
+1. Install QAI AppBuilder by following the [**QAI AppBuilder installation guide**](../qai-appbuilder).
 
-2. Please configure the ADSP environment variables according to [**Configuring ADSP Environment Variables**](../qai-appbuilder#create-adsp-environment-variables).
+2. Configure ADSP environment variables as described in [**Create ADSP environment variables**](../qai-appbuilder#create-adsp-environment-variables).
    :::
 
-## Run Example
+## Run the sample
 
-### Install Dependencies
+### Install dependencies
+
+Install sample dependencies in the activated virtual environment:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
-### Run the Script
+### Run the script
 
-- Navigate to the example directory
+- Enter the upstream samples directory
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd qai-appbuilder/samples
+  ```
+
+  </NewCodeBlock>
+
+- Prepare input data (the sample provides a default image)
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/fogwise/airbox-q900/qairt_real_esrganx4plus_input.webp"
+    style={{ width: "65%" }}
+  />
+  input image
+</div>
+
+Run inference
+
+:::warning
+On QCS6490 / SC8280XP, **do not use the default float DLC**. The default `.dlc` path fails with `The SocModel doesn't support FP16`. Use **`--bin`** to download the precompiled HTP context binary.
+:::
 
 <Tabs queryString="platform">
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-         <NewCodeBlock tip="Device" type="device">
+<NewCodeBlock tip="Device" type="device">
 
-         ```bash
-         cd ai-engine-direct-helper/samples/linux/python
-         ```
+```bash
+python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 6490 --bin --no_show
+```
 
-          </NewCodeBlock>
+</NewCodeBlock>
 
+</TabItem>
+<TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
-          </TabItem>
+:::tip
+SC8280XP and QCS6490 both use Hexagon V68. Use `--chipset 6490` with `--bin`.
+:::
 
-          <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
+<NewCodeBlock tip="Device" type="device">
 
-       <NewCodeBlock tip="Device" type="device">
+```bash
+python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 6490 --bin --no_show
+```
 
-        ```bash
-        cd ai-engine-direct-helper/samples/linux/python
-        ```
+</NewCodeBlock>
 
-       </NewCodeBlock>
+</TabItem>
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
-    </TabItem>
+<NewCodeBlock tip="Device" type="device">
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+```bash
+python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 9075 --no_show
+```
 
-         <NewCodeBlock tip="Device" type="device">
+</NewCodeBlock>
 
-          ```bash
-          cd ai-engine-direct-helper/samples/python
-          ```
+:::tip
+On QCS9075 the Hub default is a `.bin` HTP context that runs as-is. Use `--no_show` on headless sessions.
+:::
 
-          </NewCodeBlock>
+</TabItem>
+</Tabs>
 
-      </TabItem>
+`--no_show` avoids opening an image viewer on headless SSH sessions.
 
-      </Tabs>
+### Expected result
 
-- Prepare the input image. The following image is used as an example:
+A successful run writes:
 
-  {" "}
+```text
+ComputerVision/Super_Resolution/real_esrgan_x4plus/output.png
+```
 
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/en/img/fogwise/airbox-q900/qairt_real_esrganx4plus_input.webp"
-      style={{ width: "65%" }}
-    />
-    Input image
-  </div>
+:::tip
+Launcher alternative:
 
-- Execute inference
+```bash
+python3 run_inference.py --model real_esrgan_x4plus --args "--chipset 6490 --bin --no_show"
+```
 
-    <NewCodeBlock tip="Device" type="device">
-
-  ```bash
-  python3 real_esrgan_x4plus/real_esrgan_x4plus.py
-  ```
-
-    </NewCodeBlock>
-
-  ```bash
-  $ python3 real_esrgan_x4plus/real_esrgan_x4plus.py
-       0.0ms [WARNING]  <W> Initializing HtpProvider
-
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     152.5ms [WARNING] Time: Read model file to memory. 44.96
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     631.4ms [WARNING] Time: contextCreateFromBinary. 478.81
-
-     631.4ms [WARNING] Time: UnmapViewOfFile. 0.00
-
-     633.3ms [WARNING] Time: model_initialize realesrgan 633.22
-
-    2532.0ms [WARNING] Time: model_inference realesrgan 1851.89
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-  /usr/bin/xdg-open: 882: www-browser: not found
-  /usr/bin/xdg-open: 882: links2: not found
-  /usr/bin/xdg-open: 882: elinks: not found
-  /usr/bin/xdg-open: 882: links: not found
-  /usr/bin/xdg-open: 882: lynx: not found
-  /usr/bin/xdg-open: 882: w3m: not found
-  xdg-open: no method available for opening '/tmp/tmpczsph22w.PNG'
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-    8196.8ms [WARNING] Time: model_destroy realesrgan 164.68
-  ```
-
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/en/img/fogwise/airbox-q900/qairt_real_esrganx4plus_output.webp"
-      style={{ width: "65%" }}
-    />
-    Output image
-  </div>
+:::

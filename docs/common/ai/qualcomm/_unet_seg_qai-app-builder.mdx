@@ -3,8 +3,8 @@
 
 **示例支持设备**
 
-| 设备                 | SoC   |
-| -------------------- | ----- |
+| 设备                 | SoC     |
+| -------------------- | ------- |
 | Fogwise® AIRbox Q900 | QCS9075 |
 
 ## 安装 QAI AppBuilder
@@ -20,126 +20,64 @@
 
 ### 安装依赖
 
+在已激活的虚拟环境中安装示例依赖：
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision matplotlib easyocr qai_hub_models transformers
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
 ### 运行脚本
 
-- 进入示例目录
+- 进入上游示例目录
 
-    <Tabs>
+  <NewCodeBlock tip="Device" type="device">
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+  ```bash
+  cd qai-appbuilder/samples
+  ```
 
-       <NewCodeBlock tip="Device" type="device">
+  </NewCodeBlock>
 
-        ```bash
-        cd ai-engine-direct-helper/samples/python
-        ```
+- 准备输入数据（示例自带输入文件时可直接运行；也可按脚本参数指定）
 
-        </NewCodeBlock>
-
-    </TabItem>
-
-    </Tabs>
-
-- 准备输入图片，这里以以下图片为输入示例
-
-  {" "}
-
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/fogwise/airbox-q900/qairt_unet_seg_input.webp"
-      style={{ width: "65%" }}
-    />
-    input image
-  </div>
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/fogwise/airbox-q900/qairt_unet_seg_input.webp"
+    style={{ width: "65%" }}
+  />
+  input image
+</div>
 
 - 执行推理
 
     <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 unet_segmentation/unet_segmentation.py
+  python3 ComputerVision/Semantic_Segmentation/unet_segmentation/unet_segmentation.py --chipset 9075
   ```
 
     </NewCodeBlock>
 
-  ```bash
-  $ python3 unet_segmentation/unet_segmentation.py
-       0.0ms [WARNING]  <W> Initializing HtpProvider
+- 运行结果示意
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/fogwise/airbox-q900/qairt_unet_seg_output.webp"
+    style={{ width: "65%" }}
+  />
+  output image
+</div>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::tip
+首次运行会通过 Qualcomm® AI Hub 自动下载模型，耗时取决于网络。也可在 `samples` 目录使用启动器：
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 run_inference.py --list
+python3 run_inference.py --model unet_segmentation --args "--chipset 9075"
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     153.4ms [WARNING] Time: Read model file to memory. 35.26
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     264.9ms [WARNING] Time: contextCreateFromBinary. 111.40
-
-     265.0ms [WARNING] Time: UnmapViewOfFile. 0.00
-
-     267.2ms [WARNING] Time: model_initialize unet_segmentation 267.13
-
-     627.1ms [WARNING] Time: model_inference unet_segmentation 246.67
-
-  /usr/bin/xdg-open: 882: www-browser: not found
-  /usr/bin/xdg-open: 882: links2: not found
-  /usr/bin/xdg-open: 882: elinks: not found
-  /usr/bin/xdg-open: 882: links: not found
-  /usr/bin/xdg-open: 882: lynx: not found
-  /usr/bin/xdg-open: 882: w3m: not found
-  xdg-open: no method available for opening '/tmp/tmp99xq_ell.PNG'
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-  /usr/bin/xdg-open: 882: www-browser: not found
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-    2383.4ms [WARNING] Time: model_destroy unet_segmentation 67.34
-
-  /usr/bin/xdg-open: 882: links2: not found
-  /usr/bin/xdg-open: 882: elinks: not found
-  /usr/bin/xdg-open: 882: links: not found
-  /usr/bin/xdg-open: 882: lynx: not found
-  /usr/bin/xdg-open: 882: w3m: not found
-  xdg-open: no method available for opening '/tmp/tmp0hq03xtm.PNG'
-  ```
-
-  {" "}
-
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/fogwise/airbox-q900/qairt_unet_seg_output.webp"
-      style={{ width: "65%" }}
-    />
-    output image
-  </div>
+:::

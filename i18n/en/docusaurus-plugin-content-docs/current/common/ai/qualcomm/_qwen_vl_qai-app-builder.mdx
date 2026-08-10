@@ -1,0 +1,90 @@
+This document describes running the upstream [Qwen VL](https://github.com/qualcomm/qai-appbuilder/tree/main/samples/Multimodal/qwen_vl) multimodal vision-language sample with [QAI AppBuilder](../qai-appbuilder) on Linux aarch64 (Gradio UI or in-script `Inference`).
+
+**Supported devices**
+
+| Device               | SoC     |
+| -------------------- | ------- |
+| Fogwise® AIRbox Q900 | QCS9075 |
+
+## Install QAI AppBuilder
+
+:::tip
+
+1. Install QAI AppBuilder by following the [**QAI AppBuilder installation guide**](../qai-appbuilder).
+
+2. Configure ADSP environment variables as described in [**Create ADSP environment variables**](../qai-appbuilder#create-adsp-environment-variables).
+   :::
+
+## Run the sample
+
+### Install dependencies
+
+Install sample dependencies in the activated virtual environment:
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install "transformers==4.57.0" qwen-vl-utils gradio Pillow torch torchvision opencv-python-headless
+```
+
+</NewCodeBlock>
+
+:::tip
+`qwen_vl.py` imports Qwen3-related modules, so you need **transformers ≥ 4.57** (includes `transformers.models.qwen3_vl`). Also install `qwen-vl-utils`.
+:::
+
+### Prepare the model
+
+This sample does **not** auto-download Qwen weights via `--chipset` / AI Hub. Follow the upstream README for a pre-quantized package, for example Qwen2-VL 2B:
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qai-appbuilder/samples/Multimodal/qwen_vl
+wget -c https://www.aidevhome.com/data/adh2/models/suggested/qwen2vl2b.zip
+unzip -o qwen2vl2b.zip
+# Example extract layout: ./qwen2vl2b/ (veg.serialized.bin, weight_sharing_model_1_of_1.serialized.bin, tokenizer.json, ...)
+```
+
+</NewCodeBlock>
+
+The zip is about 1.8 GB; extracted size is about 2.6 GB. Reserve disk space accordingly.
+
+### Run the script
+
+- Enter the sample directory and set ADSP (same as the install page)
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd qai-appbuilder/samples/Multimodal/qwen_vl
+  export ADSP_LIBRARY_PATH=$(python3 -c "import os, qai_appbuilder; print(os.path.join(os.path.dirname(qai_appbuilder.__file__), 'libs'))")
+  ```
+
+  </NewCodeBlock>
+
+- Start the Gradio web UI (default `0.0.0.0:7861`)
+
+    <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  python3 qwen_vl.py --model qwen2 --path ./qwen2vl2b --host 0.0.0.0 --port 7861
+  ```
+
+    </NewCodeBlock>
+
+Open `http://<device-ip>:7861`, upload an image, and enter a question.
+
+- Optional headless check: after loading the model, call `Inference` once. On AIRbox Q900, with sample image `vlm_demo.png` and prompt _Describe this image in one sentence._, a response similar to the following was observed:
+
+```text
+A webpage with a form for uploading files.
+```
+
+:::warning
+`run_inference.py --model qwen_vl` does **not** replace model download. The entrypoint requires `--path` to the model directory and has **no** `--chipset 9075` argument.
+:::
+
+:::tip
+If TBB is installed, some setups set `LD_PRELOAD` to `libtbb.so` per the upstream README; on Q900 a one-shot inference also succeeded without it.
+:::

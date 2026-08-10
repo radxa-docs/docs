@@ -2,8 +2,10 @@
 sidebar_position: 99
 ---
 
-# CV Demos
+# QAI AppBuilder samples
 
-A collection of example models using NPU inference with the Qai-APPBuilder Python API.
+Samples from upstream [QAI AppBuilder](https://github.com/qualcomm/qai-appbuilder) `samples` that can use `--chipset 6490` (Hexagon V68) on SC8280XP. For the full menu, run `python3 run_inference.py --list`.
+
+Complete [**QAI AppBuilder installation**](../qai-appbuilder) first.
 
 <DocCardList />
