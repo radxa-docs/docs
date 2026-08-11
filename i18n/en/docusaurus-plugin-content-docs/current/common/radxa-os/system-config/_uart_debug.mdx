@@ -83,6 +83,22 @@ Click the run button to log in to the serial port device.
   />
 </div>
 
+:::tip Serial Port Cannot Be Opened
+If you see the error `Error: Permission denied, cannot open /dev/ttyUSB*`, the current user does not have permission to access the serial port device. First confirm the serial device number corresponding to your board, e.g. `/dev/ttyUSB0`, then run:
+
+```bash
+sudo chmod 666 /dev/ttyUSB0
+```
+
+This method may no longer work after a reboot or replugging the device. It is recommended to permanently add the current user to the serial port user group:
+
+```bash
+sudo usermod -aG dialout "$USER"
+```
+
+After that, log out and log back in for the permission change to take effect.
+:::
+
 After a successful connection, press Enter to display the login prompt. Then use the corresponding system username and password to log in (the password will not be displayed as you type; press Enter after entering the password).
 
 :::tip Android System Login
