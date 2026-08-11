@@ -33,7 +33,7 @@ description: "Detailed hardware information for ROCK 5T"
 | GPIO       | Voltage | MAX   |
 | ---------- | ------- | ----- |
 | All GPIO   | 3.3V    | 3.63V |
-| SARADC_IN4 | 3.3V    | 1.8V  |
+| SARADC_IN4 | 1.8V    | 1.98V |
 
 - GPIO Pinout
 
