@@ -107,7 +107,7 @@ description: "详细介绍 ROCK 5B/5B+ 硬件信息"
 | GPIO       | 电压 | 最高  |
 | ---------- | ---- | ----- |
 | 所有的GPIO | 3.3V | 3.63V |
-| SARADC_IN4 | 3.3V | 1.8V  |
+| SARADC_IN4 | 1.8V | 1.98V |
 
 - GPIO Pinout
 
