@@ -24,7 +24,11 @@ sidebar_position: 5
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
 :::
 
-- [Radxa ROCK 3A Armbian](https://www.armbian.com/rock-3a/)
+- [Radxa ROCK 3A Armbian](https://armbian.com/boards/rock-3a/)
+
+:::tip
+如需其他类型的 Armbian 镜像，请前往 [Armbian 官网](https://armbian.com/boards/rock-3a/) 获取。
+:::
 
 Armbian 的默认凭据如下：
 
