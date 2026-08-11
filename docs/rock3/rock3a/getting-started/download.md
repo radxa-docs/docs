@@ -18,7 +18,7 @@ sidebar_position: 5
 
 ## 操作系统镜像
 
-- [Radxa ROCK 3A Debian Build 25](https://github.com/radxa-build/rock-3a/releases/download/b25/rock-3a_debian_bullseye_xfce_b25.img.xz)
+- [Radxa ROCK 3A Bookworm KDE R2](https://github.com/radxa-build/rock-3a/releases/download/rsdk-r2/rock-3a_bookworm_kde_r2.output_512.img.xz)
 
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
