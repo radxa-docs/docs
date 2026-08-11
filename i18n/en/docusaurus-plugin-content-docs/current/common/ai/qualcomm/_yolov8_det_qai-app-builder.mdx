@@ -1,161 +1,179 @@
-This document explains how to use the [QAI AppBuilder](../qai-appbuilder) Python API to perform inference with the [YOLOv8-det](https://aihub.qualcomm.com/models/yolov8_det?domain=Computer+Vision&useCase=Object+Detection) object detection model using the Qualcomm® Hexagon™ Processor (NPU).
+This document describes using the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [YOLOv8-det](https://aihub.qualcomm.com/models/yolov8_det?domain=Computer+Vision&useCase=Object+Detection) object detection model on the Qualcomm® Hexagon™ Processor (NPU).
 
-**Supported Devices**
+**Supported devices**
 
-| Device               | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| Device               | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
 ## Install QAI AppBuilder
 
 :::tip
 
-1. Please install QAI AppBuilder according to the [**QAI AppBuilder Installation Guide**](../qai-appbuilder).
+1. Install QAI AppBuilder by following the [**QAI AppBuilder installation guide**](../qai-appbuilder).
 
-2. Please configure the ADSP environment variables according to [**Configuring ADSP Environment Variables**](../qai-appbuilder#create-adsp-environment-variables).
+2. Configure ADSP environment variables as described in [**Create ADSP environment variables**](../qai-appbuilder#create-adsp-environment-variables).
    :::
 
-## Run Example
+## Run the sample
 
-### Install Dependencies
+### Install dependencies
+
+Install sample dependencies in the activated virtual environment:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
-### Run the Script
+### Run the script
 
-- Navigate to the example directory
+- Enter the upstream samples directory
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd qai-appbuilder/samples
+  ```
+
+  </NewCodeBlock>
+
+- Prepare input data (use the bundled sample input when available)
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/fogwise/airbox-q900/qairt_yolov8-det_input.webp"
+    style={{ width: "65%" }}
+  />
+  input image
+</div>
+
+### Fix output order (required on QCS6490 / SC8280XP / QCS9075)
+
+Verified on Dragon Q6A (`--chipset 6490`) and AIRbox Q900 (`--chipset 9075`): AI Hub packages often use this layout:
+
+| Output index | Shape          | Meaning   |
+| ------------ | -------------- | --------- |
+| `0`          | `[1, 8400]`    | scores    |
+| `1`          | `[1, 8400]`    | class_idx |
+| `2`          | `[1, 8400, 4]` | boxes     |
+
+Upstream `yolov8_det.py` assumes `[boxes, scores, class_idx]`, which leads to an NMS failure:
+
+```text
+IndexError: index ... is out of bounds for dimension 0 with size ...
+```
+
+Before running, update the output parsing in `Inference()` inside `ComputerVision/Object_Detection/yolov8_det/yolov8_det.py` (back up the file first).
+
+Replace:
+
+```python
+    # Run the inference.
+    model_output = yolov8.Inference(image)
+
+    pred_boxes = torch.tensor(model_output[0].reshape(1, -1, 4))
+    pred_scores = torch.tensor(model_output[1].reshape(1, -1))
+    pred_class_idx = torch.tensor(model_output[2].reshape(1, -1))
+```
+
+with:
+
+```python
+    # Run the inference.
+    model_output = yolov8.Inference(image)
+
+    # Output layout differs by model package:
+    # - some packages: [boxes, scores, class_idx]
+    # - QCS6490 / QCS9075 hub packages often: [scores, class_idx, boxes]
+    import numpy as _np
+    a0, a1, a2 = _np.array(model_output[0]), _np.array(model_output[1]), _np.array(model_output[2])
+    if a2.ndim == 3 and a2.shape[-1] == 4:
+        pred_scores = torch.tensor(a0.reshape(1, -1))
+        pred_class_idx = torch.tensor(a1.reshape(1, -1))
+        pred_boxes = torch.tensor(a2.reshape(1, -1, 4))
+    else:
+        pred_boxes = torch.tensor(a0.reshape(1, -1, 4))
+        pred_scores = torch.tensor(a1.reshape(1, -1))
+        pred_class_idx = torch.tensor(a2.reshape(1, -1))
+```
+
+This auto-selects the layout when the last tensor is `[..., 4]`, and keeps compatibility with 6490 / 9075 and other packages.
+
+### Run inference
 
 <Tabs queryString="platform">
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-         <NewCodeBlock tip="Device" type="device">
+<NewCodeBlock tip="Device" type="device">
 
-         ```bash
-         cd ai-engine-direct-helper/samples/linux/python
-         ```
+```bash
+python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 6490
+```
 
-          </NewCodeBlock>
+</NewCodeBlock>
 
+</TabItem>
+<TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
-          </TabItem>
+:::tip
+SC8280XP and QCS6490 both use Hexagon V68. Use `--chipset 6490`, and apply the same output-order fix above.
+:::
 
-          <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
+<NewCodeBlock tip="Device" type="device">
 
-       <NewCodeBlock tip="Device" type="device">
+```bash
+python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 6490
+```
 
-        ```bash
-        cd ai-engine-direct-helper/samples/linux/python
-        ```
+</NewCodeBlock>
 
-       </NewCodeBlock>
+</TabItem>
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
-    </TabItem>
+<NewCodeBlock tip="Device" type="device">
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+```bash
+python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 9075
+```
 
-         <NewCodeBlock tip="Device" type="device">
+</NewCodeBlock>
 
-          ```bash
-          cd ai-engine-direct-helper/samples/python
-          ```
+</TabItem>
+</Tabs>
 
-          </NewCodeBlock>
+### Expected result
 
-      </TabItem>
+After the output-order fix, a successful run on QCS6490 or QCS9075 writes:
 
-      </Tabs>
+```text
+ComputerVision/Object_Detection/yolov8_det/output.png
+```
 
-- Prepare the input image. The following image is used as an example:
+Without a display, `Error: no DISPLAY environment variable specified` may appear; ignore it if `output.png` exists and the exit code is 0.
 
-  {" "}
+- Example result (illustrative; actual result depends on the input and model package)
 
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/en/img/fogwise/airbox-q900/qairt_yolov8-det_input.webp"
-      style={{ width: "65%" }}
-    />
-    input image
-  </div>
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/en/img/fogwise/airbox-q900/qairt_yolov8-det_output.webp"
+    style={{ width: "65%" }}
+  />
+  output image
+</div>
 
-- Execute inference
+:::tip
+Launcher alternative (still apply the output-order fix first):
 
-    <NewCodeBlock tip="Device" type="device">
+```bash
+python3 run_inference.py --model yolov8_det --args "--chipset 6490"
+# or on QCS9075:
+# python3 run_inference.py --model yolov8_det --args "--chipset 9075"
+```
 
-  ```bash
-  python3 yolov8_det/yolov8_det.py
-  ```
-
-    </NewCodeBlock>
-
-  ```bash
-  $ python3 yolov8_det/yolov8_det.py
-       0.0ms [WARNING]  <W> Initializing HtpProvider
-
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     121.1ms [WARNING] Time: Read model file to memory. 6.22
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     151.3ms [WARNING] Time: contextCreateFromBinary. 30.09
-
-     151.4ms [WARNING] Time: UnmapViewOfFile. 0.00
-
-     152.3ms [WARNING] Time: model_initialize yolov8 152.21
-
-     230.4ms [WARNING] Time: model_inference yolov8 10.35
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     650.0ms [WARNING] Time: model_destroy yolov8 61.01
-
-  /usr/bin/xdg-open: 882: www-browser: not found
-  /usr/bin/xdg-open: 882: links2: not found
-  /usr/bin/xdg-open: 882: elinks: not found
-  /usr/bin/xdg-open: 882: links: not found
-  /usr/bin/xdg-open: 882: lynx: not found
-  /usr/bin/xdg-open: 882: w3m: not found
-  xdg-open: no method available for opening '/tmp/tmpqk93qmdb.PNG'
-  ```
-
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/en/img/fogwise/airbox-q900/qairt_yolov8-det_output.webp"
-      style={{ width: "65%" }}
-    />
-    output image
-  </div>
+:::

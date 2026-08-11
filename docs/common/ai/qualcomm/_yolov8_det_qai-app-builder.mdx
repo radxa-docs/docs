@@ -3,11 +3,11 @@
 
 **示例支持设备**
 
-| 设备                 | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| 设备                 | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
 ## 安装 QAI AppBuilder
 
@@ -22,142 +22,159 @@
 
 ### 安装依赖
 
+在已激活的虚拟环境中安装示例依赖：
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
 ### 运行脚本
 
-- 进入示例目录
+- 进入上游示例目录
 
-        <Tabs queryString="platform">
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
-
-
-         <NewCodeBlock tip="Device" type="device">
-
-         ```bash
-         cd ai-engine-direct-helper/samples/linux/python
-         ```
-
-          </NewCodeBlock>
-
-
-          </TabItem>
-
-          <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
-
-       <NewCodeBlock tip="Device" type="device">
-
-        ```bash
-        cd ai-engine-direct-helper/samples/linux/python
-        ```
-
-       </NewCodeBlock>
-
-    </TabItem>
-
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
-
-         <NewCodeBlock tip="Device" type="device">
-
-          ```bash
-          cd ai-engine-direct-helper/samples/python
-          ```
-
-          </NewCodeBlock>
-
-      </TabItem>
-
-      </Tabs>
-
-- 准备输入图片，这里以以下图片为输入示例
-
-  {" "}
-
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/fogwise/airbox-q900/qairt_yolov8-det_input.webp"
-      style={{ width: "65%" }}
-    />
-    input image
-  </div>
-
-- 执行推理
-
-    <NewCodeBlock tip="Device" type="device">
+  <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 yolov8_det/yolov8_det.py
+  cd qai-appbuilder/samples
   ```
 
-    </NewCodeBlock>
+  </NewCodeBlock>
 
-  ```bash
-  $ python3 yolov8_det/yolov8_det.py
-       0.0ms [WARNING]  <W> Initializing HtpProvider
+- 准备输入数据（示例自带输入文件时可直接运行；也可按脚本参数指定）
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/fogwise/airbox-q900/qairt_yolov8-det_input.webp"
+    style={{ width: "65%" }}
+  />
+  input image
+</div>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+### 修正输出顺序（QCS6490 / SC8280XP / QCS9075 必做）
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+在 Dragon Q6A（`--chipset 6490`）与 AIRbox Q900（`--chipset 9075`）上实测：AI Hub 下发的包常为下列布局：
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+| 输出下标 | 形状           | 含义      |
+| -------- | -------------- | --------- |
+| `0`      | `[1, 8400]`    | scores    |
+| `1`      | `[1, 8400]`    | class_idx |
+| `2`      | `[1, 8400, 4]` | boxes     |
 
-     121.1ms [WARNING] Time: Read model file to memory. 6.22
+而上游 `yolov8_det.py` 默认按 `[boxes, scores, class_idx]` 解析，会导致 NMS 阶段：
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```text
+IndexError: index ... is out of bounds for dimension 0 with size ...
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+在运行前，对 `ComputerVision/Object_Detection/yolov8_det/yolov8_det.py` 中 `Inference()` 内解析输出的代码做如下替换（建议先备份）：
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+将：
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```python
+    # Run the inference.
+    model_output = yolov8.Inference(image)
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+    pred_boxes = torch.tensor(model_output[0].reshape(1, -1, 4))
+    pred_scores = torch.tensor(model_output[1].reshape(1, -1))
+    pred_class_idx = torch.tensor(model_output[2].reshape(1, -1))
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+替换为：
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```python
+    # Run the inference.
+    model_output = yolov8.Inference(image)
 
-     151.3ms [WARNING] Time: contextCreateFromBinary. 30.09
+    # Output layout differs by model package:
+    # - some packages: [boxes, scores, class_idx]
+    # - QCS6490 / QCS9075 hub packages often: [scores, class_idx, boxes]
+    import numpy as _np
+    a0, a1, a2 = _np.array(model_output[0]), _np.array(model_output[1]), _np.array(model_output[2])
+    if a2.ndim == 3 and a2.shape[-1] == 4:
+        pred_scores = torch.tensor(a0.reshape(1, -1))
+        pred_class_idx = torch.tensor(a1.reshape(1, -1))
+        pred_boxes = torch.tensor(a2.reshape(1, -1, 4))
+    else:
+        pred_boxes = torch.tensor(a0.reshape(1, -1, 4))
+        pred_scores = torch.tensor(a1.reshape(1, -1))
+        pred_class_idx = torch.tensor(a2.reshape(1, -1))
+```
 
-     151.4ms [WARNING] Time: UnmapViewOfFile. 0.00
+该写法会按最后一个输出是否为 `[..., 4]` 自动选择布局，兼容 6490 / 9075 与其它输出顺序。
 
-     152.3ms [WARNING] Time: model_initialize yolov8 152.21
+### 执行推理
 
-     230.4ms [WARNING] Time: model_inference yolov8 10.35
+<Tabs queryString="platform">
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+<NewCodeBlock tip="Device" type="device">
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 6490
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</NewCodeBlock>
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+</TabItem>
+<TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     650.0ms [WARNING] Time: model_destroy yolov8 61.01
+:::tip
+SC8280XP 与 QCS6490 同为 Hexagon V68，下载模型时使用 `--chipset 6490`，并同样建议应用上方输出顺序修正。
+:::
 
-  /usr/bin/xdg-open: 882: www-browser: not found
-  /usr/bin/xdg-open: 882: links2: not found
-  /usr/bin/xdg-open: 882: elinks: not found
-  /usr/bin/xdg-open: 882: links: not found
-  /usr/bin/xdg-open: 882: lynx: not found
-  /usr/bin/xdg-open: 882: w3m: not found
-  xdg-open: no method available for opening '/tmp/tmpqk93qmdb.PNG'
-  ```
+<NewCodeBlock tip="Device" type="device">
 
-  <div style={{ textAlign: "center" }}>
-    <img
-      src="/img/fogwise/airbox-q900/qairt_yolov8-det_output.webp"
-      style={{ width: "65%" }}
-    />
-    output image
-  </div>
+```bash
+python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 6490
+```
+
+</NewCodeBlock>
+
+</TabItem>
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 9075
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+### 预期结果
+
+完成输出顺序修正后，在 QCS6490 / QCS9075 上推理成功均会生成：
+
+```text
+ComputerVision/Object_Detection/yolov8_det/output.png
+```
+
+无图形界面时可能打印 `Error: no DISPLAY environment variable specified`；只要 `output.png` 已生成且退出码为 0，可忽略。
+
+- 运行结果示意（示意图片，实际结果取决于输入与模型版本）
+
+<div style={{ textAlign: "center" }}>
+  <img
+    src="/img/fogwise/airbox-q900/qairt_yolov8-det_output.webp"
+    style={{ width: "65%" }}
+  />
+  output image
+</div>
+
+:::tip
+也可使用启动器（仍需先完成脚本中的输出顺序修正）：
+
+```bash
+python3 run_inference.py --model yolov8_det --args "--chipset 6490"
+# 或 QCS9075：
+# python3 run_inference.py --model yolov8_det --args "--chipset 9075"
+```
+
+:::

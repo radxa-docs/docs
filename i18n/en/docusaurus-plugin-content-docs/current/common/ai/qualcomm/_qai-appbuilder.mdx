@@ -1,47 +1,44 @@
-[**Quick AI Application Builder**](https://github.com/quic/ai-engine-direct-helper) (QAI AppBuilder) helps developers easily use the [Qualcomm® AI Runtime SDK](qairt-sdk#qairt)
-to deploy AI models and design AI applications on Qualcomm® SoC platforms equipped with Qualcomm® Hexagon™ Processor (NPU).
+[**Quick AI Application Builder**](https://github.com/qualcomm/qai-appbuilder) (QAI AppBuilder) helps developers easily use the [Qualcomm® AI Runtime SDK](qairt-sdk#qairt)
+to deploy AI models and design AI applications on Qualcomm® SoC platforms equipped with the Qualcomm® Hexagon™ Processor (NPU).
 It encapsulates model deployment APIs into a set of simplified interfaces for loading models to the NPU and performing inference. QAI AppBuilder significantly reduces the complexity of model deployment for developers and provides multiple demos as references for designing their own AI applications.
 
 Supports Python API / C++ API
 
 <div style={{ textAlign: "center" }}>
-  <img
-    src="/en/img/dragon/q6a/qai_app_builder_1.webp"
-    style={{ width: "65%" }}
-  />
-  QAI-APPBUILDER Architecture
+  <img src="/img/dragon/q6a/qai_app_builder_1.webp" style={{ width: "65%" }} />
+  QAI-APPBUILDER architecture
 </div>
 
-**Supported Devices**
+**Supported devices**
 
-| Device               | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| Device               | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
-## Installation Methods
+## Installation methods
 
 :::tip
-You can [**install via wheel package**](#install-via-wheel-package) or [**build from source**](#build-from-source)
+[**Install with a wheel package**](#install-with-a-wheel-package) is recommended. To build from source, see [**Build from source**](#build-from-source).
 :::
 
-### Clone the Repository
+### Clone the repository
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-git clone -b radxa-dev https://github.com/ZIFENG278/ai-engine-direct-helper.git && cd ai-engine-direct-helper
+git clone https://github.com/qualcomm/qai-appbuilder.git && cd qai-appbuilder
 ```
 
 </NewCodeBlock>
 
-### Install via Wheel Package
+### Install with a wheel package
 
-##### Create a Virtual Environment
+##### Create a virtual environment
 
 :::tip
-Create a virtual environment to isolate the Python libraries
+Create a virtual environment before installing Python packages for isolation.
 :::
 
 <NewCodeBlock tip="Device" type="device">
@@ -54,481 +51,307 @@ source .venv/bin/activate
 
 </NewCodeBlock>
 
-<NewCodeBlock tip="Device" type="device">
+##### Install qai_appbuilder
 
-```bash
-pip3 install https://github.com/ZIFENG278/ai-engine-direct-helper/releases/download/radxa-dev-2.38.0/qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
-```
-
-</NewCodeBlock>
-
-### Build from Source
+Download the Linux aarch64 wheel that matches your Python version from [**GitHub Releases**](https://github.com/qualcomm/qai-appbuilder/releases). For Python 3.12, for example:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-git submodule update --init --recursive
+pip3 install https://github.com/qualcomm/qai-appbuilder/releases/download/v2.48.40/qai_appbuilder-2.48.40-cp312-cp312-manylinux_2_39_aarch64.whl
 ```
 
 </NewCodeBlock>
-
-#### Download QAIRT SDK
 
 :::tip
-Please download and extract the QAIRT SDK according to [**Download QAIRT SDK Package**](./qairt-install#download-qairt-sdk-package)
+Starting from v2.0.0, the Python wheel bundles the required Qualcomm® AI Runtime libraries (such as `libQnnHtp.so` and Hexagon skels). You usually do not need a full QAIRT SDK install for Python inference.
 :::
 
-##### Configure QAIRT Environment Variables
-
-<Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=6490 DSP_ARCH=68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=9075 DSP_ARCH=73
-    ```
-    </NewCodeBlock>
-
-</TabItem>
-
-    <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=8280 DSP_ARCH=68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-</Tabs>
+Verify the installation:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd qairt/2.42.0.251225
-source bin/envsetup.sh
-export ADSP_LIBRARY_PATH=$QNN_SDK_ROOT/lib/hexagon-v${DSP_ARCH}/unsigned
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QNN_SDK_ROOT/lib/aarch64-oe-linux-gcc11.2
+python3 -c "import qai_appbuilder; print(qai_appbuilder.__file__)"
 ```
 
 </NewCodeBlock>
 
-#### Compile qai_appbuilder
+### Build from source
 
-##### Create a Virtual Environment
+To build from source, install build dependencies and prepare the [**QAIRT SDK**](./qairt-install#download-qairt-sdk-package).
 
-:::tip
-Create a virtual environment to isolate the Python libraries
-:::
+#### Install build dependencies
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-sudo apt install python3-venv python3-dev cmake gcc g++
+sudo apt update
+sudo apt install -y cmake build-essential python3-dev python3-venv
+git clone https://github.com/qualcomm/qai-appbuilder.git --recursive
+cd qai-appbuilder
 python3 -m venv .venv
 source .venv/bin/activate
+pip3 install wheel==0.45.1 setuptools==80.9.0 pybind11==2.13.6 build==1.4.0
 ```
 
 </NewCodeBlock>
 
-##### Compile qai_appbuilder Wheel
+#### Configure QAIRT environment variables
+
+Extract the QAIRT SDK first. Replace `<path_to_qairt>` with the actual SDK path:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install setuptools
-cd ai-engine-direct-helper
-python3 setup.py bdist_wheel
+export QNN_SDK_ROOT=<path_to_qairt>
+export QAI_TOOLCHAINS=aarch64-oe-linux-gcc11.2
 ```
 
 </NewCodeBlock>
 
-After compilation, a `qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl` file will be generated in the `dist` directory
-
-#### Install qai_appbuilder
-
-##### Install qai_appbuilder Wheel
+#### Build and install the qai_appbuilder wheel
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd dist
-pip3 install ./qai_appbuilder-2.38.0-cp312-cp312-linux_aarch64.whl
+python3 -m build -w
+python3 -m pip install dist/qai_appbuilder-*.whl
 ```
 
 </NewCodeBlock>
-
-### Create QAIRT SDK LIB Symlink
-
-Create a `qai_libs` symlink in `ai-engine-direct-helper/samples/python` to link to the lib directory of the QAIRT SDK
-
-<Tabs>
-
-<TabItem value="qcom-qairt">
 
 :::tip
-If you haven't downloaded the complete QAIRT_SDK, you can install `qcom-qairt` and then create the symlink.
-
-qcom-qairt is a slimmed-down version of QAIRT-SDK, installing only the required files
+The wheel version follows the linked QAIRT SDK version. See the official [**BUILD.md**](https://github.com/qualcomm/qai-appbuilder/blob/main/BUILD.md) for details.
 :::
 
-<Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
+### Create ADSP environment variables
 
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    sudo apt install qcom-qnn-sdk-v68 qcom-genie-sdk-v68
-    ```
-    </NewCodeBlock>
+Before running NPU inference on Linux, set `ADSP_LIBRARY_PATH` to a directory that contains the Hexagon skel libraries (for example `libQnnHtpV68Skel.so` / `libQnnHtpV73Skel.so`).
 
+#### Use the bundled wheel libraries (recommended)
 
-    </TabItem>
-
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    sudo apt install qcom-qnn-sdk-v73 qcom-genie-sdk-v73
-    ```
-    </NewCodeBlock>
-
-</TabItem>
-
-    <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    sudo apt install qcom-qnn-sdk-v68 qcom-genie-sdk-v68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-</Tabs>
+After installing the wheel, point to the package `libs` directory:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-ln -s /usr/lib/aarch64-linux-gnu samples/python/qai_libs
+export ADSP_LIBRARY_PATH=$(python3 -c "import os, qai_appbuilder; print(os.path.join(os.path.dirname(qai_appbuilder.__file__), 'libs'))")
 ```
 
 </NewCodeBlock>
 
-</TabItem>
+#### Use system QAIRT packages
 
-<TabItem value="QAIRT-SDK">
+System packages such as `qairt-libs` and `qairt-dsp-binaries` come from the Qualcomm apt repository (`ppa:ubuntu-qcom-iot/qcom-ppa`). **This repository is not configured by default** — add it manually before installing the packages:
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+sudo apt update && sudo apt install -y software-properties-common
+sudo add-apt-repository -y ppa:ubuntu-qcom-iot/qcom-ppa
+sudo apt update
+sudo apt install -y qairt-libs qairt-dsp-binaries
+```
+
+</NewCodeBlock>
+
+If packages such as `qairt-dsp-binaries` are already installed, you can also point `ADSP_LIBRARY_PATH` to the platform DSP directory. For QCS6490, for example:
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+export ADSP_LIBRARY_PATH=/usr/share/qcom/qcm6490/Thundercomm/RB3gen2/dsp/cdsp
+```
+
+</NewCodeBlock>
 
 :::tip
-If you have already downloaded the complete QAIRT-SDK, you can link to the `lib/aarch64-oe-linux-gcc11.2/` directory under QAIRT-SDK
+You can add the `export` line to `~/.bashrc` and run `source ~/.bashrc` to make it persistent.
 :::
 
-<NewCodeBlock tip="Device" type="device">
-
-```bash
-ln -s qairt/2.42.0.251225/lib/aarch64-oe-linux-gcc11.2/ samples/python/qai_libs
-```
-
-</NewCodeBlock>
-
-</TabItem>
-
-</Tabs>
-
-### Create ADSP Environment Variables
-
-<Tabs>
-
-<TabItem value="qcom-qairt">
+## Application examples
 
 :::tip
-If you installed the `qcom-qairt` package, use the following command to create the `ADSP_LIBRARY_PATH` environment variable
+Upstream samples are reorganized by task type. On Linux, pass `--chipset` so the script can download the matching model package:
+
+- QCS6490 / SC8280XP: `--chipset 6490`
+- QCS9075: `--chipset 9075`
+
+For more samples, see the upstream [**samples/README.md**](https://github.com/qualcomm/qai-appbuilder/blob/main/samples/README.md). You can also refer to local [**Demo examples**](./qai-appbuilder-demo).
 :::
+
+### Install sample dependencies
+
+Install common sample dependencies in the activated virtual environment:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-export ADSP_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
-</TabItem>
-
-<TabItem value="QAIRT-SDK">
-
-:::tip
-If you installed the complete QAIRT-SDK, use the following command to create the `ADSP_LIBRARY_PATH` environment variable
-:::
-
-<Tabs queryString="platform">
-    <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=6490 DSP_ARCH=68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=9075 DSP_ARCH=73
-    ```
-    </NewCodeBlock>
-
-</TabItem>
-
-    <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
-
-    <NewCodeBlock tip="Device" type="device">
-    ```bash
-    export PRODUCT_SOC=8280 DSP_ARCH=68
-    ```
-    </NewCodeBlock>
-
-
-    </TabItem>
-
-</Tabs>
+### Enter the samples directory
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-cd qairt/2.42.0.251225
-export ADSP_LIBRARY_PATH=$(pwd)/lib/hexagon-v${DSP_ARCH}/unsigned
+cd qai-appbuilder/samples
 ```
 
 </NewCodeBlock>
 
-</TabItem>
+### Run samples
 
-</Tabs>
+You can run a sample script directly, or use the interactive launcher:
 
-## Application Examples
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+python3 run_inference.py --list
+python3 run_inference.py --model inception_v3 --args "--chipset 6490"
+```
+
+</NewCodeBlock>
 
 <Tabs queryString="platform">
 <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-:::tip
-For QCS6490 Demos, please refer to [**Demo Examples**](./qai-appbuilder-demo)
-:::
+- Image classification
 
-<NewCodeBlock tip="Device" type="device">
+  | Model        | How to run                                                                                |
+  | ------------ | ----------------------------------------------------------------------------------------- |
+  | googlenet    | `python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 6490`       |
+  | inception_v3 | `python3 ComputerVision/Image_Classification/inception_v3/inception_v3.py --chipset 6490` |
 
-```bash
-cd ai-engine-direct-helper/samples/linux/python
-```
+- Object detection
 
-</NewCodeBlock>
+  | Model      | How to run                                                                        |
+  | ---------- | --------------------------------------------------------------------------------- |
+  | yolov8_det | `python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 6490` |
 
-- Object Recognition
+- Super resolution
 
-  | Model             | Run Command                                      |
-  | ----------------- | ------------------------------------------------ |
-  | convnext_base     | `python3 convnext_base/convnext_base.py`         |
-  | convnext_tiny     | `python3 convnext_tiny/convnext_tiny.py`         |
-  | efficientnet_b0   | `python3 efficientnet_b0/efficientnet_b0.py`     |
-  | efficientnet_b4   | `python3 efficientnet_b4/efficientnet_b4.py`     |
-  | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
-  | googlenet         | `python3 googlenet/googlenet.py`                 |
-  | inception_v3      | `python3 inception_v3/inception_v3.py`           |
-  | levit             | `python3 levit/levit.py`                         |
-  | regnet            | `python3 regnet/regnet.py`                       |
-  | shufflenet_v2     | `python3 shufflenet_v2/shufflenet_v2.py`         |
-  | squeezenet1_1     | `python3 squeezenet1_1/squeezenet1_1.py`         |
-  | vit               | `python3 vit/vit.py`                             |
-  | wideresnet50      | `python3 wideresnet50/wideresnet50.py`           |
-
-- Image Segmentation
-
-  | Model        | Run Command                            |
-  | ------------ | -------------------------------------- |
-  | fcn_resnet50 | `python3 fcn_resnet50/fcn_resnet50.py` |
-
-- Object Detection
-
-  | Model      | Run Command                        |
-  | ---------- | ---------------------------------- |
-  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
-
-- Image Super-Resolution
-
-  | Model                    | Run Command                                                    |
-  | ------------------------ | -------------------------------------------------------------- |
-  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
-  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
-  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
-  | sesr_m5                  | `python3 sesr_m5/sesr_m5.py`                                   |
-  | xlsr                     | `python3 xlsr/xlsr.py`                                         |
+  | Model                    | How to run                                                                                                        |
+  | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+  | quicksrnetmedium         | `python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 6490`                     |
+  | real_esrgan_general_x4v3 | `python3 ComputerVision/Super_Resolution/real_esrgan_general_x4v3/real_esrgan_general_x4v3.py --chipset 6490`     |
+  | real_esrgan_x4plus       | `python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 6490 --bin --no_show` |
 
 </TabItem>
 
 <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
 :::tip
-For SC8280XP Demos, please refer to [**Demo Examples**](./qai-appbuilder-demo)
+Upstream Linux sample scripts currently select model packages with `--chipset 6490` / `--chipset 9075`. SC8280XP and QCS6490 both use Hexagon V68, so use `--chipset 6490` when downloading models.
 :::
 
-<NewCodeBlock tip="Device" type="device">
+- Image classification
 
-```bash
-cd ai-engine-direct-helper/samples/linux/python
-```
+  | Model        | How to run                                                                                |
+  | ------------ | ----------------------------------------------------------------------------------------- |
+  | googlenet    | `python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 6490`       |
+  | inception_v3 | `python3 ComputerVision/Image_Classification/inception_v3/inception_v3.py --chipset 6490` |
 
-</NewCodeBlock>
+- Object detection
 
-- Object Recognition
+  | Model      | How to run                                                                        |
+  | ---------- | --------------------------------------------------------------------------------- |
+  | yolov8_det | `python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 6490` |
 
-  | Model             | Run Command                                      |
-  | ----------------- | ------------------------------------------------ |
-  | convnext_base     | `python3 convnext_base/convnext_base.py`         |
-  | convnext_tiny     | `python3 convnext_tiny/convnext_tiny.py`         |
-  | efficientnet_b0   | `python3 efficientnet_b0/efficientnet_b0.py`     |
-  | efficientnet_b4   | `python3 efficientnet_b4/efficientnet_b4.py`     |
-  | efficientnet_v2_s | `python3 efficientnet_v2_s/efficientnet_v2_s.py` |
-  | googlenet         | `python3 googlenet/googlenet.py`                 |
-  | inception_v3      | `python3 inception_v3/inception_v3.py`           |
-  | levit             | `python3 levit/levit.py`                         |
-  | regnet            | `python3 regnet/regnet.py`                       |
-  | shufflenet_v2     | `python3 shufflenet_v2/shufflenet_v2.py`         |
-  | squeezenet1_1     | `python3 squeezenet1_1/squeezenet1_1.py`         |
-  | vit               | `python3 vit/vit.py`                             |
-  | wideresnet50      | `python3 wideresnet50/wideresnet50.py`           |
+- Super resolution
 
-- Image Segmentation
-
-  | Model        | Run Command                            |
-  | ------------ | -------------------------------------- |
-  | fcn_resnet50 | `python3 fcn_resnet50/fcn_resnet50.py` |
-
-- Object Detection
-
-  | Model      | Run Command                        |
-  | ---------- | ---------------------------------- |
-  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
-
-- Image Super-Resolution
-
-  | Model                    | Run Command                                                    |
-  | ------------------------ | -------------------------------------------------------------- |
-  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
-  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
-  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
-  | sesr_m5                  | `python3 sesr_m5/sesr_m5.py`                                   |
-  | xlsr                     | `python3 xlsr/xlsr.py`                                         |
+  | Model                    | How to run                                                                                                        |
+  | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+  | quicksrnetmedium         | `python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 6490`                     |
+  | real_esrgan_general_x4v3 | `python3 ComputerVision/Super_Resolution/real_esrgan_general_x4v3/real_esrgan_general_x4v3.py --chipset 6490`     |
+  | real_esrgan_x4plus       | `python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 6490 --bin --no_show` |
 
 </TabItem>
 
 <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
-:::tip
-For QCS9075 Demos, please refer to [**Demo Examples**](./qai-appbuilder-demo)
-:::
+- Image generation / image editing
 
-<NewCodeBlock tip="Device" type="device">
+  | Model                 | How to run                                                                                                                             |
+  | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+  | stable_diffusion_v2_1 | `python3 GenerativeAI/Image_Generation/stable_diffusion_v2_1/stable_diffusion_v2_1.py --chipset 9075 --prompt "the prompt string ..."` |
+  | stable_diffusion_v1_5 | `python3 GenerativeAI/Image_Generation/stable_diffusion_v1_5/stable_diffusion_v1_5.py --chipset 9075 --prompt "the prompt string ..."` |
+  | lama_dilated          | `python3 ComputerVision/Image_Editing/lama_dilated/lama_dilated.py --chipset 9075`                                                     |
+  | aotgan                | `python3 ComputerVision/Image_Editing/aotgan/aotgan.py --chipset 9075`                                                                 |
 
-```bash
-cd ai-engine-direct-helper/samples/python
-```
+- Super resolution
 
-</NewCodeBlock>
+  | Model                    | How to run                                                                                                    |
+  | ------------------------ | ------------------------------------------------------------------------------------------------------------- |
+  | real_esrgan_x4plus       | `python3 ComputerVision/Super_Resolution/real_esrgan_x4plus/real_esrgan_x4plus.py --chipset 9075`             |
+  | real_esrgan_general_x4v3 | `python3 ComputerVision/Super_Resolution/real_esrgan_general_x4v3/real_esrgan_general_x4v3.py --chipset 9075` |
+  | quicksrnetmedium         | `python3 ComputerVision/Super_Resolution/quicksrnetmedium/quicksrnetmedium.py --chipset 9075`                 |
 
-- Image Generation / Inpainting
+- Image recognition
 
-  | Model                 | Run Command                                                                               |
-  | --------------------- | ----------------------------------------------------------------------------------------- |
-  | stable_diffusion_v2_1 | `python3 stable_diffusion_v2_1/stable_diffusion_v2_1.py --prompt "the prompt string ..."` |
-  | stable_diffusion_v1_5 | `python3 stable_diffusion_v1_5/stable_diffusion_v1_5.py --prompt "the prompt string ..."` |
-  | lama_dilated          | `python3 lama_dilated/lama_dilated.py`                                                    |
-  | aotgan                | `python3 aotgan/aotgan.py`                                                                |
+  | Model        | How to run                                                                                |
+  | ------------ | ----------------------------------------------------------------------------------------- |
+  | inception_v3 | `python3 ComputerVision/Image_Classification/inception_v3/inception_v3.py --chipset 9075` |
+  | beit         | `python3 ComputerVision/Image_Classification/beit/beit.py --chipset 9075`                 |
+  | googlenet    | `python3 ComputerVision/Image_Classification/googlenet/googlenet.py --chipset 9075`       |
 
-- Image Super-Resolution
+- Pose estimation
 
-  | Model                    | Run Command                                                    |
-  | ------------------------ | -------------------------------------------------------------- |
-  | real_esrgan_x4plus       | `python3 real_esrgan_x4plus/real_esrgan_x4plus.py`             |
-  | real_esrgan_general_x4v3 | `python3 real_esrgan_general_x4v3/real_esrgan_general_x4v3.py` |
-  | quicksrnetmedium         | `python3 quicksrnetmedium/quicksrnetmedium.py`                 |
+  | Model          | How to run                                                                               |
+  | -------------- | ---------------------------------------------------------------------------------------- |
+  | openpose       | `python3 ComputerVision/Pose_Estimation/openpose/openpose.py --chipset 9075`             |
+  | mediapipe_hand | `python3 ComputerVision/Pose_Estimation/mediapipe_hand/mediapipe_hand.py --chipset 9075` |
 
-- Image Recognition
+- Segmentation / depth estimation
 
-  | Model        | Run Command                            |
-  | ------------ | -------------------------------------- |
-  | inception_v3 | `python3 inception_v3/inception_v3.py` |
-  | beit         | `python3 beit/beit.py`                 |
-  | googlenet    | `python3 googlenet/googlenet.py`       |
+  | Model             | How to run                                                                                           |
+  | ----------------- | ---------------------------------------------------------------------------------------------------- |
+  | unet_segmentation | `python3 ComputerVision/Semantic_Segmentation/unet_segmentation/unet_segmentation.py --chipset 9075` |
+  | depth_anything    | `python3 ComputerVision/Depth_Estimation/depth_anything/depth_anything.py --chipset 9075`            |
 
-- Pose Estimation
+- Object detection
 
-  | Model          | Run Command                                |
-  | -------------- | ------------------------------------------ |
-  | openpose       | `python3 openpose/openpose.py`             |
-  | mediapipe_hand | `python3 mediapipe_hand/mediapipe_hand.py` |
+  | Model      | How to run                                                                        |
+  | ---------- | --------------------------------------------------------------------------------- |
+  | yolov8_det | `python3 ComputerVision/Object_Detection/yolov8_det/yolov8_det.py --chipset 9075` |
 
-- Image Segmentation / Depth Estimation
+- 3D face modeling
 
-  | Model             | Run Command                                      |
-  | ----------------- | ------------------------------------------------ |
-  | unet_segmentation | `python3 unet_segmentation/unet_segmentation.py` |
-  | depth_anything    | `python3 depth_anything/depth_anything.py`       |
+  | Model           | How to run                                                                                  |
+  | --------------- | ------------------------------------------------------------------------------------------- |
+  | facemap_3dmm    | `python3 ComputerVision/Face_Recognition/facemap_3dmm/facemap_3dmm.py --chipset 9075`       |
+  | face_attrib_net | `python3 ComputerVision/Face_Recognition/face_attrib_net/face_attrib_net.py --chipset 9075` |
 
-- Object Detection
+- Audio models
 
-  | Model      | Run Command                        |
-  | ---------- | ---------------------------------- |
-  | yolov8_det | `python3 yolov8_det/yolov8_det.py` |
+  | Model           | How to run                                                                           |
+  | --------------- | ------------------------------------------------------------------------------------ |
+  | yamnet          | `python3 audio/Audio_Classification/yamnet/yamnet.py --chipset 9075`                 |
+  | whisper_base_en | `python3 audio/Speech_Recognition/whisper_base_en/whisper_base_en.py --chipset 9075` |
+  | whisper_tiny_en | `python3 audio/Speech_Recognition/whisper_tiny_en/whisper_tiny_en.py --chipset 9075` |
 
-- 3D Modeling
+- Text / multimodal embedding
 
-  | Model           | Run Command                                  |
-  | --------------- | -------------------------------------------- |
-  | facemap_3dmm    | `python3 facemap_3dmm/facemap_3dmm.py`       |
-  | face_attrib_net | `python3 face_attrib_net/face_attrib_net.py` |
+  | Model            | How to run                                                                                                               |
+  | ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
+  | nomic_embed_text | `python3 Multimodal/Text_Generation/nomic_embed_text/nomic_embed_text.py --chipset 9075`                                 |
+  | openai_clip      | `python3 Multimodal/Image_Classification/openai_clip/openai_clip.py --chipset 9075 --text "mountain"`                    |
+  | qwen_vl          | Download model package first; `python3 Multimodal/qwen_vl/qwen_vl.py --model qwen2 --path ./qwen2vl2b` (see sample page) |
 
-- Audio Models
+- 3D action recognition
 
-  | Model           | Run Command                                  |
-  | --------------- | -------------------------------------------- |
-  | yamnet          | `python3 yamnet/yamnet.py`                   |
-  | whisper_base_en | `python3 whisper_base_en/whisper_base_en.py` |
-  | whisper_tiny_en | `python3 whisper_tiny_en/whisper_tiny_en.py` |
+  | Model     | How to run                                                                          |
+  | --------- | ----------------------------------------------------------------------------------- |
+  | resnet_3d | `python3 ComputerVision/Video_Classification/resnet_3d/resnet_3d.py --chipset 9075` |
 
-- Text / Multimodal Embeddings
+- OCR
 
-  | Model            | Run Command                                            |
-  | ---------------- | ------------------------------------------------------ |
-  | nomic_embed_text | `python3 nomic_embed_text/nomic_embed_text.py`         |
-  | openai_clip      | `python3 openai_clip/openai_clip.py --text "mountain"` |
-
-- 3D Action Recognition
-
-  | Model     | Run Command                      |
-  | --------- | -------------------------------- |
-  | resnet_3d | `python3 resnet_3d/resnet_3d.py` |
-
-- OCR (Text Recognition)
-
-  | Model    | Run Command                    |
-  | -------- | ------------------------------ |
-  | easy_ocr | `python3 easy_ocr/easy_ocr.py` |
+  | Model    | How to run                                                             |
+  | -------- | ---------------------------------------------------------------------- |
+  | easy_ocr | `python3 Multimodal/Image_To_Text/easy_ocr/easy_ocr.py --chipset 9075` |
 
 </TabItem>
 

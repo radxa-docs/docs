@@ -1,0 +1,90 @@
+此文档讲述使用 [QAI AppBuilder](../qai-appbuilder) 运行上游 [Qwen VL](https://github.com/qualcomm/qai-appbuilder/tree/main/samples/Multimodal/qwen_vl) 多模态视觉语言示例（Linux aarch64；Gradio UI 或脚本内 `Inference`）。
+
+**示例支持设备**
+
+| 设备                 | SoC     |
+| -------------------- | ------- |
+| Fogwise® AIRbox Q900 | QCS9075 |
+
+## 安装 QAI AppBuilder
+
+:::tip
+
+1. 请根据 [**QAI AppBuilder 安装方法**](../qai-appbuilder) 安装 QAI AppBuilder。
+
+2. 请根据 [**创建 ADSP 环境变量**](../qai-appbuilder#创建-adsp-环境变量) 配置 ADSP 环境变量。
+   :::
+
+## 运行示例
+
+### 安装依赖
+
+在已激活的虚拟环境中安装示例依赖：
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+pip3 install "transformers==4.57.0" qwen-vl-utils gradio Pillow torch torchvision opencv-python-headless
+```
+
+</NewCodeBlock>
+
+:::tip
+`qwen_vl.py` 会 import Qwen3 相关模块，因此需要 **transformers ≥ 4.57**（含 `transformers.models.qwen3_vl`）。另需 `qwen-vl-utils`。
+:::
+
+### 准备模型
+
+该示例**不会**通过 `--chipset` / AI Hub 自动下载 Qwen 权重。请按上游 README 获取预量化包，例如 Qwen2-VL 2B：
+
+<NewCodeBlock tip="Device" type="device">
+
+```bash
+cd qai-appbuilder/samples/Multimodal/qwen_vl
+wget -c https://www.aidevhome.com/data/adh2/models/suggested/qwen2vl2b.zip
+unzip -o qwen2vl2b.zip
+# 解压后目录示例：./qwen2vl2b/（含 veg.serialized.bin、weight_sharing_model_1_of_1.serialized.bin、tokenizer.json 等）
+```
+
+</NewCodeBlock>
+
+压缩包约 1.8 GB，解压后约 2.6 GB，请预留磁盘空间。
+
+### 运行脚本
+
+- 进入示例目录并设置 ADSP（与安装页相同）
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd qai-appbuilder/samples/Multimodal/qwen_vl
+  export ADSP_LIBRARY_PATH=$(python3 -c "import os, qai_appbuilder; print(os.path.join(os.path.dirname(qai_appbuilder.__file__), 'libs'))")
+  ```
+
+  </NewCodeBlock>
+
+- 启动 Gradio Web UI（默认 `0.0.0.0:7861`）
+
+    <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  python3 qwen_vl.py --model qwen2 --path ./qwen2vl2b --host 0.0.0.0 --port 7861
+  ```
+
+    </NewCodeBlock>
+
+浏览器访问 `http://<设备IP>:7861`，上传图片并输入问题即可。
+
+- 无界面自检（可选）：在已加载模型后调用 `Inference` 做一次问答。AIRbox Q900 上对示例图 `vlm_demo.png` 提问 _Describe this image in one sentence._ 时，曾得到类似：
+
+```text
+A webpage with a form for uploading files.
+```
+
+:::warning
+`run_inference.py --model qwen_vl` **不能**代替模型下载；且入口需要 `--path` 指向模型目录，**没有** `--chipset 9075` 参数。
+:::
+
+:::tip
+若系统存在 TBB 库，部分环境可按上游 README 设置 `LD_PRELOAD` 指向 `libtbb.so`；Q900 上未设置亦可完成一次推理。
+:::

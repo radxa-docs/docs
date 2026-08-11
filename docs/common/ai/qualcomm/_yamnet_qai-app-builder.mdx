@@ -3,8 +3,8 @@
 
 **示例支持设备**
 
-| 设备                 | SoC   |
-| -------------------- | ----- |
+| 设备                 | SoC     |
+| -------------------- | ------- |
 | Fogwise® AIRbox Q900 | QCS9075 |
 
 ## 安装 QAI AppBuilder
@@ -20,46 +20,38 @@
 
 ### 安装依赖
 
+在已激活的虚拟环境中安装示例依赖：
+
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision resampy soundfile
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless soxr soundfile resampy
 ```
 
 </NewCodeBlock>
 
 ### 运行脚本
 
-- 进入示例目录
+- 进入上游示例目录
 
-    <Tabs>
+  <NewCodeBlock tip="Device" type="device">
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+  ```bash
+  cd qai-appbuilder/samples
+  ```
 
-       <NewCodeBlock tip="Device" type="device">
+  </NewCodeBlock>
 
-        ```bash
-        cd ai-engine-direct-helper/samples/python
-        ```
+- 准备输入数据（示例自带输入文件时可直接运行；也可按脚本参数指定）
 
-        </NewCodeBlock>
-
-    </TabItem>
-
-    </Tabs>
-
-- 准备输入图片，这里以以下图片为输入示例
-
-  {" "}
-
-          <div style={{ textAlign: "center" }}>
+<div style={{ textAlign: "center" }}>
 
       <audio
 
-  src="https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-models/models/yamnet/v1/speech_whistling2.wav"
-  controls
+src="https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-models/models/yamnet/v1/speech_whistling2.wav"
+controls
 
-  >
+>
 
               </audio>
               <p><em>input audio</em></p>
@@ -71,66 +63,24 @@ pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision resa
     <NewCodeBlock tip="Device" type="device">
 
   ```bash
-  python3 yamnet/yamnet.py
+  python3 audio/Audio_Classification/yamnet/yamnet.py --chipset 9075
   ```
 
     </NewCodeBlock>
 
-  ```bash
-  $ python3 yamnet/yamnet.py
-       0.0ms [WARNING]  <W> Initializing HtpProvider
+默认输入为示例自带的 `input.wav`。成功时终端会打印 Top 5 类别，例如：
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```text
+Top 5 predictions:
+Whistling | Alarm | Whistle | Field recording | Rattle (instrument)
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::tip
+首次运行会通过 Qualcomm® AI Hub 自动下载模型，并依赖 `soxr` 等音频库。也可在 `samples` 目录使用启动器：
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 run_inference.py --list
+python3 run_inference.py --model yamnet --args "--chipset 9075"
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     113.7ms [WARNING] Time: Read model file to memory. 4.55
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     127.6ms [WARNING] Time: contextCreateFromBinary. 13.42
-
-     128.0ms [WARNING] Time: UnmapViewOfFile. 0.00
-
-     129.0ms [WARNING] Time: model_initialize yamnet 128.97
-
-     145.8ms [WARNING] Time: model_inference yamnet 0.80
-
-  Top 5 predictions:
-  Whistling | Alarm | Whistle | Field recording | Rattle (instrument)
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     229.1ms [WARNING] Time: model_destroy yamnet 79.87
-  ```
-
-  识别结果
-
-  ```bash
-  Top 5 predictions:
-  Whistling | Alarm | Whistle | Field recording | Rattle (instrument)
-  ```
+:::

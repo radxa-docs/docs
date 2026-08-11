@@ -1,151 +1,121 @@
-This document describes how to use the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [Inception-v3](https://aihub.qualcomm.com/models/inception_v3?domain=Computer+Vision&useCase=Image+Classification&chipsets=qualcomm-qcs6490-proxy) object recognition model on Qualcomm® Hexagon™ Processor (NPU).
+This document describes using the [QAI AppBuilder](../qai-appbuilder) Python API to run inference with the [Inception-v3](https://aihub.qualcomm.com/models/inception_v3?domain=Computer+Vision&useCase=Image+Classification&chipsets=qualcomm-qcs6490-proxy) image classification model on the Qualcomm® Hexagon™ Processor (NPU).
 
-**Supported Devices**
+**Supported devices**
 
-| Device               | SoC   |
-| -------------------- | ----- |
-| Dragon Q6A           | QCS6490 |
+| Device               | SoC      |
+| -------------------- | -------- |
+| Dragon Q6A           | QCS6490  |
 | Dragon Q8B           | SC8280XP |
-| Fogwise® AIRbox Q900 | QCS9075 |
+| Fogwise® AIRbox Q900 | QCS9075  |
 
 ## Install QAI AppBuilder
 
 :::tip
 
-1. Please install QAI AppBuilder according to [**QAI AppBuilder Installation Guide**](../qai-appbuilder#installation-methods).
+1. Install QAI AppBuilder by following the [**QAI AppBuilder installation guide**](../qai-appbuilder).
 
-2. Please configure ADSP environment variables according to [**Create ADSP Environment Variables**](../qai-appbuilder#create-adsp-environment-variables).
+2. Configure ADSP environment variables as described in [**Create ADSP environment variables**](../qai-appbuilder#create-adsp-environment-variables).
    :::
 
-## Run the Example
+## Run the sample
 
-### Install Dependencies
+### Install dependencies
+
+Install sample dependencies in the activated virtual environment:
 
 <NewCodeBlock tip="Device" type="device">
 
 ```bash
-pip3 install requests tqdm qai-hub py3_wget opencv-python torch torchvision
+pip3 install requests tqdm qai-hub py3-wget Pillow torch torchvision opencv-python-headless
 ```
 
 </NewCodeBlock>
 
-### Run the Script
+### Run the script
 
-- Navigate to the example directory
+- Enter the upstream samples directory
+
+  <NewCodeBlock tip="Device" type="device">
+
+  ```bash
+  cd qai-appbuilder/samples
+  ```
+
+  </NewCodeBlock>
+
+Run inference (Linux requires `--chipset`; the sample ships with `input.jpg`)
 
 <Tabs queryString="platform">
-        <TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-         <NewCodeBlock tip="Device" type="device">
+<TabItem value="QCS6490" default={props.tag === "qcs6490"} attributes={{className: props.tag !== "qcs6490" && "tab_none"}}>
 
-         ```bash
-         cd ai-engine-direct-helper/samples/linux/python
-         ```
+<NewCodeBlock tip="Device" type="device">
 
-          </NewCodeBlock>
+```bash
+python3 ComputerVision/Image_Classification/inception_v3/inception_v3.py --chipset 6490
+```
 
+</NewCodeBlock>
 
-          </TabItem>
+</TabItem>
 
-         <TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
+<TabItem value="SC8280XP" default={props.tag === "sc8280xp"} attributes={{className: props.tag !== "sc8280xp" && "tab_none"}}>
 
-       <NewCodeBlock tip="Device" type="device">
+:::tip
+SC8280XP and QCS6490 both use Hexagon V68. Use `--chipset 6490` when downloading models.
+:::
 
-        ```bash
-        cd ai-engine-direct-helper/samples/linux/python
-        ```
+<NewCodeBlock tip="Device" type="device">
 
-       </NewCodeBlock>
+```bash
+python3 ComputerVision/Image_Classification/inception_v3/inception_v3.py --chipset 6490
+```
 
-    </TabItem>
+</NewCodeBlock>
 
-    <TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
+</TabItem>
 
-         <NewCodeBlock tip="Device" type="device">
+<TabItem value="QCS9075" default={props.tag === "qcs9075"} attributes={{className: props.tag !== "qcs9075" && "tab_none"}}>
 
-          ```bash
-          cd ai-engine-direct-helper/samples/python
-          ```
+<NewCodeBlock tip="Device" type="device">
 
-          </NewCodeBlock>
+```bash
+python3 ComputerVision/Image_Classification/inception_v3/inception_v3.py --chipset 9075
+```
 
-      </TabItem>
+</NewCodeBlock>
 
-      </Tabs>
+</TabItem>
 
-- Prepare input image. The following image is used as an example:
+</Tabs>
 
-  {" "}
+Optional image path:
 
-  <div style={{ textAlign: "center" }}>
-    <img src="/en/img/dragon/q6a/test_image.webp" style={{ width: "65%" }} />
-    input image
-  </div>
+```bash
+python3 ComputerVision/Image_Classification/inception_v3/inception_v3.py --chipset 6490 --image ComputerVision/Image_Classification/inception_v3/input.jpg
+```
 
-- Run inference
+### Expected result
 
-    <NewCodeBlock tip="Device" type="device">
+On Dragon Q6A (`--chipset 6490`), the default input produces output similar to:
 
-  ```bash
-  python3 inception_v3/inception_v3.py --image ./inception_v3/input.jpg
-  ```
+```text
+Top 5 predictions for image:
 
-    </NewCodeBlock>
+Samoyed 0.999714911
+white wolf 0.0001396882
+Arctic fox 0.0001165446
+Pomeranian 0.000006424
+Great Pyrenees 0.000006424
+```
 
-  ```bash
-  $ python3 inception_v3/inception_v3.py --image ./inception_v3/input.jpg
-       0.0ms [WARNING]  <W> Initializing HtpProvider
+HTP / FastRPC WARNING lines may appear and can be ignored when inference succeeds.
 
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:38:dummy call to rpcmem_init, rpcmem APIs will be used from libxdsprpc
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+:::tip
+Launcher alternative:
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
+```bash
+python3 run_inference.py --model inception_v3 --args "--chipset 6490"
+```
 
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     221.6ms [WARNING] Time: Read model file to memory. 17.28
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-     258.5ms [WARNING] Time: contextCreateFromBinary. 36.82
-
-     258.5ms [WARNING] Time: UnmapViewOfFile. 0.00
-
-     260.2ms [WARNING] Time: model_initialize inceptionV3 260.14
-
-     332.1ms [WARNING] Time: model_inference inceptionV3 3.50
-
-  Top 5 predictions for image:
-
-  Samoyed 0.9998983145
-  Arctic fox 0.000054331
-  white wolf 0.0000345349
-  Eskimo dog 0.0000035142
-  Pomeranian 0.0000030651
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-       0.0ms [WARNING]  <W> This META does not have Alloc2 Support
-
-  /prj/qct/webtech_scratch20/mlg_user_admin/qaisw_source_repo/rel/qairt-2.37.1/point_release/SNPE_SRC/avante-tools/prebuilt/dsp/hexagon-sdk-5.5.5/ipc/fastrpc/rpcmem/src/rpcmem_android.c:42:dummy call to rpcmem_deinit, rpcmem APIs will be used from libxdsprpc
-     443.3ms [WARNING] Time: model_destroy inceptionV3 105.74
-  ```
-
-  The output shows that `Samoyed` has the highest confidence score, which matches the content of the input image.
+:::
