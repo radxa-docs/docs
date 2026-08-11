@@ -83,6 +83,22 @@ import { Image } from "@site/src/utils/docs";
   />
 </div>
 
+:::tip 串口无法打开
+若出现 `Error: Permission denied, cannot open /dev/ttyUSB*` 错误提示，说明当前用户没有串口设备的访问权限。请先确认主板对应的串口设备号，例如 `/dev/ttyUSB0`，然后执行：
+
+```bash
+sudo chmod 666 /dev/ttyUSB0
+```
+
+此方法重启或重新插拔设备后可能失效。建议将当前用户永久加入串口用户组：
+
+```bash
+sudo usermod -aG dialout "$USER"
+```
+
+执行后注销并重新登录，使权限配置生效。
+:::
+
 连接成功后，按回车会出现登陆信息，然后使用对应系统的用户账号和密码进行登陆（终端输入密码不会显示出来，输入完密码按回车登陆）。
 
 :::tip Android 系统登录
