@@ -19,7 +19,7 @@ title: Resource Download
 
 ## Operating system images
 
-- [Radxa ROCK 3A Debian Build 25](https://github.com/radxa-build/rock-3a/releases/download/b25/rock-3a_debian_bullseye_xfce_b25.img.xz)
+- [Radxa ROCK 3A Bookworm KDE R2](https://github.com/radxa-build/rock-3a/releases/download/rsdk-r2/rock-3a_bookworm_kde_r2.output_512.img.xz)
 
 :::caution
 Except for the above images which have been fully tested officially, the other images have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
