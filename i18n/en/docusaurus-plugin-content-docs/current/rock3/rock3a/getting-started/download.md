@@ -25,7 +25,11 @@ title: Resource Download
 Except for the above images which have been fully tested officially, the other images have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
 :::
 
-- [Radxa ROCK 3A Armbian](https://www.armbian.com/rock-3a/)
+- [Radxa ROCK 3A Armbian](https://armbian.com/boards/rock-3a/)
+
+:::tip
+For other types of Armbian images, please visit the [Armbian official website](https://armbian.com/boards/rock-3a/).
+:::
 
 Default Armbian credentials:
 
