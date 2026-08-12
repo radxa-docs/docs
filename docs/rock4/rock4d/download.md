@@ -94,6 +94,8 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 - [原理图 v1.12](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SCH_V1.12.pdf)
 - [位号图 v1.11](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SMD_V1.11.pdf)
 - [位号图 v1.12](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_SMD_v1.12.pdf)
+- [2D 机械图 v1.11](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_2D_V1.11_20250328.pdf)
+- [2D 机械图 DXF v1.11](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_2D_DXF_V1.11_20250328.zip)
 - [3D 模型](https://dl.radxa.com/rock4/4d/docs/hw/Radxa_ROCK_4D_3D_v1_11_20250328.stp)
 
 ## 参考文档
