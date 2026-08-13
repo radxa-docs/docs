@@ -216,7 +216,7 @@ jobs:
           cache-dependency-path: yarn.lock
 
       - name: Cache Docusaurus bundler
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: node_modules/.cache/rspack
           key: rspack-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ github.sha }}
