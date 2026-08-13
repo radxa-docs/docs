@@ -42,4 +42,11 @@ After the system starts up normally, the green power indicator light stays on an
 
 ## Interface Pin Definitions
 
-Please refer to the hardware schematic diagram on the [Resource Summary Download](../download) page.
+The external power input interface is a 2-pin header with the following pinout:
+
+| Pin | Definition |
+| :-: | :--------: |
+|  1  | 12V        |
+|  2  | GND        |
+
+For more detailed hardware design information, please refer to the hardware schematic on the [Resource Summary Download](../download) page.
