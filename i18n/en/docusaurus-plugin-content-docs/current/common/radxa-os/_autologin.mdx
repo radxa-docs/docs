@@ -29,6 +29,22 @@ Select `gdm.service` by the space, and then select `OK` to complete the automati
 
 ![ROCK5T_Auto_Login](/img/rock5t/rock5t-autologin-3.webp)
 
+:::tip KDE Plasma Desktop Autologin Note
+If you are using the KDE Plasma desktop, autologin may still fail after configuring it via the `rsetup` GUI (e.g. the system gets stuck at the login screen after reboot).
+
+This is usually caused by the session name being written as `plasma`, while KDE Plasma actually requires `plasma.desktop`.
+
+Manually edit the autologin configuration file (KDE Plasma typically uses SDDM, and the config file is usually located at `/etc/sddm.conf.d/kde_settings.conf`) and change the session name to `plasma.desktop`, for example:
+
+```ini
+[Autologin]
+Session=plasma.desktop
+User=radxa
+```
+
+After editing, restart the system — autologin should work normally.
+:::
+
 </TabItem>
 
 </Tabs>
