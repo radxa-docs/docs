@@ -167,4 +167,68 @@ Step 3：将卡扣向下按紧，固定排线
 6. 重启 SBC 以启用 overlay，显示屏将会输出画面
 
 </TabItem>
+<TabItem value="rpi" label="Raspberry Pi">
+
+瑞莎 8 寸高清触摸屏同样支持在 Raspberry Pi 4B 上使用。完整教程维护在 [radxa-displays-on-raspberry-pi](https://github.com/radxa/radxa-displays-on-raspberry-pi) 仓库中。
+
+### 准备
+
+- Raspberry Pi 4B
+- Radxa Display 8 HD 显示面板
+- 15 pin 转 40 pin FPC 连接线
+
+### 硬件连接
+
+使用 15 pin 转 40 pin FPC 连接线，将额外的 7 pin 排针与 Raspberry Pi 4B 的 40 pin GPIO 按下表连接：
+
+| Radxa Display 8 HD | Raspberry Pi 4B |
+| :----------------- | :-------------- |
+| VCC-5V             | PIN 2: 5V Power |
+| GND                | PIN 6: GND      |
+| BL-PWM             | PIN 1: 3V3 Power |
+| TP-RST             | PIN 11: GPIO 17 |
+| TP-INT             | PIN 7: GPIO 4   |
+| LCD-RESET          | PIN 17: 3V3 Power |
+
+*第七个引脚目前未使用。*
+
+### 软件设置
+
+1. 安装所需软件包：
+
+   ```bash
+   sudo apt update
+   sudo apt install dkms raspberrypi-kernel-headers
+   ```
+
+2. 安装内核驱动（可从 [releases 页面](https://github.com/radxa/radxa-displays-on-raspberry-pi/releases) 下载，或使用 wget）：
+
+   ```bash
+   wget https://github.com/radxa/radxa-displays-on-raspberry-pi/releases/download/1.0.0/panel-radxa-dsi-dkms_1.0.0_all.deb
+   sudo dpkg -i panel-radxa-dsi-dkms_1.0.0_all.deb
+   ```
+
+3. 修改配置文件 `/boot/firmware/config.txt`，在 `[all]` 之后添加以下内容：
+
+   ```
+   [all]
+   display_auto_detect=0
+   dtoverlay=vc4-kms-v3d
+   dtoverlay=vc4-kms-dsi-radxa-panel
+   ```
+
+4. 保存并重启：
+
+   ```bash
+   sync
+   sudo reboot
+   ```
+
+重启后屏幕即可正常显示。
+
+:::note
+最新操作步骤请参考 [radxa-displays-on-raspberry-pi](https://github.com/radxa/radxa-displays-on-raspberry-pi) 仓库。
+:::
+
+</TabItem>
 </Tabs>

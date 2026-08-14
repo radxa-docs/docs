@@ -167,4 +167,68 @@ The physical connection diagram is referenced below:
 6. Reboot the SBC to apply overlay and the display will output a screen.
 
 </TabItem>
+<TabItem value="rpi" label="Raspberry Pi">
+
+Radxa Display 8 HD also works with Raspberry Pi 4B. The full guide is maintained in the [radxa-displays-on-raspberry-pi](https://github.com/radxa/radxa-displays-on-raspberry-pi) repository.
+
+### Preparations
+
+- Raspberry Pi 4B
+- Radxa Display 8 HD panel
+- 15-pin to 40-pin FPC cable
+
+### Hardware connection
+
+Use the 15-pin to 40-pin FPC cable and connect the 7-pin holder to the Raspberry Pi 4B 40-pin GPIO as follows:
+
+| Radxa Display 8 HD | Raspberry Pi 4B |
+| :----------------- | :-------------- |
+| VCC-5V             | PIN 2: 5V Power |
+| GND                | PIN 6: GND      |
+| BL-PWM             | PIN 1: 3V3 Power |
+| TP-RST             | PIN 11: GPIO 17 |
+| TP-INT             | PIN 7: GPIO 4   |
+| LCD-RESET          | PIN 17: 3V3 Power |
+
+*The seventh pin is currently unused.*
+
+### Software settings
+
+1. Install the required packages:
+
+   ```bash
+   sudo apt update
+   sudo apt install dkms raspberrypi-kernel-headers
+   ```
+
+2. Install the kernel driver (download from the [releases page](https://github.com/radxa/radxa-displays-on-raspberry-pi/releases) or use wget):
+
+   ```bash
+   wget https://github.com/radxa/radxa-displays-on-raspberry-pi/releases/download/1.0.0/panel-radxa-dsi-dkms_1.0.0_all.deb
+   sudo dpkg -i panel-radxa-dsi-dkms_1.0.0_all.deb
+   ```
+
+3. Modify the configuration file `/boot/firmware/config.txt` and add the following lines after `[all]`:
+
+   ```
+   [all]
+   display_auto_detect=0
+   dtoverlay=vc4-kms-v3d
+   dtoverlay=vc4-kms-dsi-radxa-panel
+   ```
+
+4. Save and reboot:
+
+   ```bash
+   sync
+   sudo reboot
+   ```
+
+After restarting, the display should work normally.
+
+:::note
+For the latest instructions, please refer to the [radxa-displays-on-raspberry-pi](https://github.com/radxa/radxa-displays-on-raspberry-pi) repository.
+:::
+
+</TabItem>
 </Tabs>
