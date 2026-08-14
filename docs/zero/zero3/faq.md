@@ -104,7 +104,9 @@ sudo apt autoremove
 
 是的，Radxa ZERO 3 支持 Wi-Fi 和蓝牙：
 - **Wi-Fi**：支持 2.4GHz 和 5GHz 频段
-- **蓝牙**：支持 Bluetooth 5.0
+- **蓝牙**：支持 Bluetooth 5.4
+
+> **注意**：ZERO 3 系列存在硬件版本差异。早期版本（如 AP6212 模块）仅支持 2.4GHz（802.11 b/g/n）和 Bluetooth 4.0；当前在售版本（V1.12I）已换用双频 Wi-Fi 6 模块（如 BL-M8800DS2 / FCS960KAAMD），硬件支持 2.4GHz / 5GHz 双频和 Bluetooth 5.4。5GHz 下具体信道（如 112 信道）是否可用取决于驱动、固件与监管域（regulatory domain）配置，需结合实测确认。
 
 如果遇到连接问题：
 1. 检查天线是否连接（如有）

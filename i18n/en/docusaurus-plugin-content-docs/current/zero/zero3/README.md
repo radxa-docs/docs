@@ -72,7 +72,7 @@ sidebar_position: 5
     </tr>
     <tr>
         <td align="center">Wireless</td>
-        <td align="center">Wi-Fi 6 (802.11 b/g/n) BT 5.0 with BLE</td>
+        <td align="center">Wi-Fi 6 (802.11 a/b/g/n/ac/ax) BT 5.4 with BLE</td>
         <td align="center">/</td>
     </tr>
     <tr>
