@@ -16,6 +16,14 @@ sidebar_position: 4
 
 ## 调试串口
 
+ZERO 3 的调试串口使用 **UART2_M0**（40 PIN GPIO 的 Pin 8：TX，Pin 10：RX），默认波特率为 1500000n8。
+
+:::warning 不建议将 UART2_M0 用作普通串口
+UART2_M0 同时也是默认的 U-Boot 控制台。如果通过 rsetup 的 overlay 将 UART2_M0 启用为普通串口，串口上的输入会中断启动过程，导致设备无法正常启动。
+
+如果您确实需要使用 UART2_M0，请先通过 `rsetup` 进行系统更新和 bootloader 更新，然后编辑 `/etc/default/u-boot`，将 `prompt` 和 `timeout` 取消注释并设置为 0，最后运行 `sudo u-boot-update` 重新生成启动配置。
+:::
+
 ## 有线网口
 
 ## 40 PIN GPIO
