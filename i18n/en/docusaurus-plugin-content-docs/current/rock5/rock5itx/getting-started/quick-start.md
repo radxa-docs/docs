@@ -50,4 +50,8 @@ Peripherals that are not required but can enhance the basic functions of the ROC
 <img src="/img/rock5itx/rock5itx-fan-wifi-pcie.webp" width="700" alt="rock 5 itx ssd/wifi-bt" />
 
 6. Plug the 12V DC adapter into the DC socket of the ROCK 5 ITX. The unit will automatically power up and start up, and the power indicator will light up.
-7. The ROCK 5 ITX is equipped with 8GB eMMC with Radxa's own ROOBI OS pre-installed. a few seconds after powering up, the HDMI display will show the ROOBI OS interface.
+7. The ROCK 5 ITX is equipped with 8GB eMMC with Radxa's own ROOBI OS pre-installed. A few seconds after powering up, the HDMI display will show the ROOBI OS interface.
+
+:::warning Cannot boot after powering on?
+If the power indicator lights up but the HDMI display stays blank for a long time, the ROOBI OS may not be pre-installed on the eMMC. In this case, please refer to the [Manual reinstallation](./install-os/README) section to install the system manually via a microSD boot disk or Maskrom mode.
+:::

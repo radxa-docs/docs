@@ -51,3 +51,7 @@ ROCK 5 ITX 标准包装包括以下物品：
 5. 如果有 2.5/3.5 英寸的 SATA 硬盘，连接 SATA 线和硬盘电源线。
 6. 将 12V DC 适配器插入 ROCK 5 ITX 的 DC 接口。设备会自动上电启动，电源指示灯将亮起。
 7. ROCK 5 ITX 配备了预装的 Radxa 自研 ROOBI OS 的 8GB eMMC。上电后几秒钟，HDMI 显示器将显示 ROOBI OS 的界面。
+
+:::warning 上电后无法启动？
+如果电源指示灯亮起但 HDMI 显示器长时间没有画面，可能是 eMMC 中没有预装 ROOBI OS。此时请参考[手动重装系统](./install-os/README)章节，通过 microSD 启动盘或 Maskrom 模式手动安装系统。
+:::
