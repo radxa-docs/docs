@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## 必备线材
 
-** Radxa ROCK Pi S0 必须配置专用线材才可以使用 **
+**Radxa ROCK Pi S0 必须配置专用线材才可以使用**
 
 ### 线材信号定义
 
