@@ -24,6 +24,15 @@ It has the following features:
 - Electrical Interface: MIPI
 - Built-in Gravity Sensor
 
+## Backlight Physical Parameters
+
+| PARAMETER          | Minimum | Typical | Maximum | Unit   | Test Condition |
+| ------------------ | ------- | ------- | ------- | ------ | -------------- |
+| LED Current        |         | 180     | 200     | mA     |                |
+| LED Voltage        | 12      | 12.8    | 14      | V      | I = 180mA      |
+| Luminous Intensity |         | 300     | 350     | Cd/m²  | I = 180mA      |
+| Life Time          |         | 20000   |         | Hr     | I = 180mA      |
+
 ## Pinout
 
 | PIN | Name     | Description                                | PIN | Name     | Description                            |
