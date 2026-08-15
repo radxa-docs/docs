@@ -15,9 +15,7 @@ import MCP2515 from "../../../common/dev/\_pico-mcp2515.mdx";
 
 # Control RP2040 on Linux
 
-## OverView
-
-## Relation introduction between J4215 and 40-PIN GPIO
+## Overview
 
 <RELATION />
 
