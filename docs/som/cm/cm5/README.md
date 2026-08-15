@@ -18,14 +18,14 @@ Radxa CM5 是基于 Rockchip RK3588S 片上系统 (SoC) 的系统模块 (SoM)。
 
 #### 特性
 
-| Features | Description                                                                                                                                                                   |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SoC      | Rockchip RK3588S2                                                                                                                                                             |
+| Features | Description                                                                                                                                                               |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SoC      | Rockchip RK3588S2                                                                                                                                                         |
 | CPU      | Quad Cortex®‑A76 @ 2.2~2.4GHz and a quad Cortex®‑A55 @ 1.8GHz<br/>based on Arm® DynamIQ™ configuration                                                                    |
 | GPU      | Arm Mali™ G610MP4 GPU ‑ OpenGL® ES1.1, ES2.0, and ES3.2 ‑ OpenCL®<br/>1.1, 1.2 and 2.2 ‑ Vulkan® 1.1 and 1.2 ‑ Embedded high performance 2D<br/>image acceleration module |
-| NPU      | NPU supporting INT4 / INT8 / INT16 / FP16 / BF16 and TF32 acceleration<br/>and computing power is up to 6TOPs                                                                 |
-| Memory   | 1GB, 2GB, 4GB, 8GB or 16GB LPDDR4X (depending on SKU)                                                                                                                         |
-| Storage  | Optional 4GB / 8GB / 16GB / 32GB, up to 512GB Onboard eMMC Compatible with eMMC 5.1<br />Supports SDMMC interface for data storage and OS booting using<br />SD cards         |
+| NPU      | NPU supporting INT4 / INT8 / INT16 / FP16 / BF16 and TF32 acceleration<br/>and computing power is up to 6TOPs                                                             |
+| Memory   | 1GB, 2GB, 4GB, 8GB or 16GB LPDDR4X (depending on SKU)                                                                                                                     |
+| Storage  | Optional 4GB / 8GB / 16GB / 32GB, up to 512GB Onboard eMMC Compatible with eMMC 5.1<br />Supports SDMMC interface for data storage and OS booting using<br />SD cards     |
 
 </TabItem>
 
@@ -55,6 +55,16 @@ Radxa CM5 是基于 Rockchip RK3588S 片上系统 (SoC) 的系统模块 (SoM)。
 </TabItem>
 
 </Tabs>
+
+### 供电
+
+Radxa CM5 模块输入电压（VCC_SYSIN）范围为 3.6V-5.2V，在 4V 时效率最高。若输入电压达到或超过 5V，电压调节电路可能产生可闻的嗡鸣声。
+
+典型工作电流为 2A。设计载板供电电路时，推荐使用 4V 3A 电源。
+
+:::note
+Rockchip 官方推荐为 RK806 PMU 提供 4V 电源，以确保最佳效率和峰值性能。使用 5V 电源可能降低效率，并可能导致 DC-DC 啸叫问题。
+:::
 
 ### 芯片框图
 
