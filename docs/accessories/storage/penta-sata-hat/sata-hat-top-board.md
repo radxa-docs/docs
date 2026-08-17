@@ -89,3 +89,54 @@ f-temp = false
 ```
 
 修改配置后，执行 `sudo systemctl restart rockpi-penta.service` 命令，重启服务使配置生效。
+
+## 常见问题
+
+### 顶板 OLED 一直显示 "ROCKPI SATA HAT loading..."，或风扇不转 / 一直满速？
+
+不同产品型号的顶板 I2C 总线不同（见下表），在较新的 Radxa OS (Debian Bookworm) 镜像上，部分型号对应的 I2C overlay 默认未启用。安装 `rockpi-penta` 后如果出现以下现象，说明对应的 I2C overlay 未启用（以下以 ROCK 4 系列为例）：
+
+- OLED 一直显示 "ROCKPI SATA HAT loading..."
+- 风扇不转，或一直满速运行
+- 服务日志报错：`FileNotFoundError: /sys/class/pwm/pwmchip1/pwm0/period` 或 `Device or resource busy`
+
+启用方法：
+
+```bash
+sudo rsetup
+```
+
+在 Overlays 菜单中勾选顶板对应的 I2C overlay（以 ROCK 4 系列为例：勾选 `I2C7`；若风扇仍异常，同时勾选 `PWM1`），保存后重启。
+
+| 产品型号 | 顶板使用的 I2C | 需要启用的 overlay |
+| --- | --- | --- |
+| ROCK 4 系列（含 ROCK Pi 4） | I2C7 | `I2C7`（风扇：`PWM1`） |
+| ROCK 5A | I2C8 (M4) | `I2C8` |
+| ROCK 3A | I2C3 (M0) | `I2C3` |
+| ROCK 3C | GPIO 软件 I2C（GPIO1_A0/A1） | 无需 overlay |
+| Raspberry Pi 4 / 5 | I2C1（GPIO 引脚 3/5） | 系统默认启用，无需额外配置 |
+
+> 注意：上表为 rockpi-penta 软件包中各型号的默认配置。实际总线编号请以 `sudo i2cdetect -l` 输出为准，不要假设固定编号。
+
+### 如何检查 Penta SATA HAT 顶板挂载在哪条 I2C 总线？
+
+顶板 OLED (SSD1306) 的 I2C 地址为 `0x3c`，可用以下命令确认顶板是否被识别、以及挂载在哪条总线上：
+
+```bash
+# 列出系统所有 I2C 总线
+sudo i2cdetect -l
+
+# 依次扫描各总线，出现 0x3c 的那条即为顶板所在总线
+sudo i2cdetect -y <bus_number>
+```
+
+以 ROCK 4 系列为例，启用 I2C7 overlay 后，扫描对应总线可以看到 OLED 设备：
+
+```bash
+# 以 ROCK 4 系列为例，启用 I2C7 overlay 后通常对应 i2c-7
+sudo i2cdetect -y 7
+```
+
+> 注意：不同产品型号的总线编号不同（例如 ROCK 5A 通常为 i2c-8、ROCK 3A 通常为 i2c-3），请以 `sudo i2cdetect -l` 输出为准，示例中的编号仅供参考。
+
+输出中出现 `3c` 即表示顶板 OLED 已被识别。
