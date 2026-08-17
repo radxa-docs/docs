@@ -30,7 +30,7 @@ Use a standard 12V USB Type-C power adapter (compatible with PD protocol) to con
 
 ### Powered by a 12V external power supply input interface
 
-Connect the positive and negative terminals of the 12V power supply to the 12V and GND pins on the motherboard.
+Connect the positive and negative terminals of the 12V power supply to the 12V and GND pins on the motherboard to power the board.
 
 :::danger
 Please do not connect the power supply incorrectly or backwards, as improper operation may result in damage to the device hardware.
@@ -42,11 +42,24 @@ After the system starts up normally, the green power indicator light stays on an
 
 ## Interface Pin Definitions
 
-The external power input interface is a 2-pin header with the following pinout:
+The external power input interface is a 3-pin header with the following pin functions:
 
 | Pin | Definition |
 | :-: | :--------: |
 |  1  | 12V        |
 |  2  | GND        |
+|  3  | PWR        |
+
+#### External power supply
+
+Connect the positive and negative terminals of the 12V power supply to the 12V and GND pins on the motherboard to power the board.
+
+:::danger
+Please do not connect the power supply incorrectly or in reverse, as improper operation may cause hardware damage.
+:::
+
+#### External power button
+
+By default, when the motherboard is powered off, briefly short the PWR and GND pins to start the board; when the motherboard is powered on, briefly short the PWR and GND pins to bring up the shutdown menu.
 
 For more detailed hardware design information, please refer to the hardware schematic on the [Resource Summary Download](../download) page.

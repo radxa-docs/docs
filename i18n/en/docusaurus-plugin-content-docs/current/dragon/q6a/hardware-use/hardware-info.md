@@ -30,13 +30,22 @@ sidebar_position: 1
 
 ### Power Input Header Pinout
 
-No. 10 is the 12V external power input interface, a 2-pin header with the following pinout:
+No. 10 is the 12V external power input interface, a 3-pin header with the following pin functions:
 
 | Pin | Definition |
 | :-: | :--------: |
 |  1  | 12V        |
 |  2  | GND        |
+|  3  | PWR        |
+
+#### External power supply
+
+Connect the positive and negative terminals of the 12V power supply to the 12V and GND pins on the motherboard to power the board.
 
 :::danger
 Please do not connect the power supply incorrectly or in reverse, as improper operation may cause hardware damage.
 :::
+
+#### External power button
+
+By default, when the motherboard is powered off, briefly short the PWR and GND pins to start the board; when the motherboard is powered on, briefly short the PWR and GND pins to bring up the shutdown menu.
