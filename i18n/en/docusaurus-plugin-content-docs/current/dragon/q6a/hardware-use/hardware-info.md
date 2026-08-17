@@ -40,7 +40,7 @@ No. 10 is the 12V external power input interface, a 3-pin header with the follow
 
 #### External power supply
 
-Connect the positive and negative terminals of the 12V power supply to the 12V and GND pins on the motherboard to power the board.
+Connect the positive and negative terminals of the 12V power supply to the 12V and GND pins on the Dragon Q6A to power it.
 
 :::danger
 Please do not connect the power supply incorrectly or in reverse, as improper operation may cause hardware damage.
@@ -48,4 +48,4 @@ Please do not connect the power supply incorrectly or in reverse, as improper op
 
 #### External power button
 
-By default, when the motherboard is powered off, briefly short the PWR and GND pins to start the board; when the motherboard is powered on, briefly short the PWR and GND pins to bring up the shutdown menu.
+By default, when the Dragon Q6A is powered off, briefly short the PWR and GND pins to start it; when the Dragon Q6A is powered on, briefly short the PWR and GND pins to bring up the shutdown menu.

@@ -20,7 +20,7 @@ The Dragon Q6A supports three power supply methods:
 
 ### Power supply via 12V USB Type-C port (recommended)
 
-Use a standard 12V USB Type-C power adapter (compatible with PD protocol) to connect to the USB Type-C port on the motherboard.
+Use a standard 12V USB Type-C power adapter (compatible with PD protocol) to connect to the USB Type-C port on the Dragon Q6A.
 
 :::tip Recommended accessories
 
@@ -30,7 +30,7 @@ Use a standard 12V USB Type-C power adapter (compatible with PD protocol) to con
 
 ### Powered by a 12V external power supply input interface
 
-Connect the positive and negative terminals of the 12V power supply to the 12V and GND pins on the motherboard to power the board.
+Connect the positive and negative terminals of the 12V power supply to the 12V and GND pins on the Dragon Q6A to power it.
 
 :::danger
 Please do not connect the power supply incorrectly or backwards, as improper operation may result in damage to the device hardware.
@@ -52,7 +52,7 @@ The external power input interface is a 3-pin header with the following pin func
 
 #### External power supply
 
-Connect the positive and negative terminals of the 12V power supply to the 12V and GND pins on the motherboard to power the board.
+Connect the positive and negative terminals of the 12V power supply to the 12V and GND pins on the Dragon Q6A to power it.
 
 :::danger
 Please do not connect the power supply incorrectly or in reverse, as improper operation may cause hardware damage.
@@ -60,6 +60,6 @@ Please do not connect the power supply incorrectly or in reverse, as improper op
 
 #### External power button
 
-By default, when the motherboard is powered off, briefly short the PWR and GND pins to start the board; when the motherboard is powered on, briefly short the PWR and GND pins to bring up the shutdown menu.
+By default, when the Dragon Q6A is powered off, briefly short the PWR and GND pins to start it; when the Dragon Q6A is powered on, briefly short the PWR and GND pins to bring up the shutdown menu.
 
 For more detailed hardware design information, please refer to the hardware schematic on the [Resource Summary Download](../download) page.
