@@ -6,7 +6,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # 从 microSD 卡启动并将系统安装到 NVMe SSD
 
-<InstallSystem boot_device="microSD 卡" board="e24c" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-t2/radxa-rk3528_bookworm_kde_t2.output.img.xz" path_to_image_unxz="radxa-rk3528_bookworm_kde_t2.output.img.xz" path_to_image="radxa-rk3528_bookworm_kde_t2.output.img" />
+<InstallSystem boot_device="microSD 卡" board="e24c" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-r3/radxa-rk3528_bookworm_kde_r3.output_512.img.xz" path_to_image_unxz="radxa-rk3528_bookworm_kde_r3.output_512.img.xz" path_to_image="radxa-rk3528_bookworm_kde_r3.output_512.img" />
 
 ## 启动系统
 

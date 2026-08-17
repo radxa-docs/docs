@@ -6,7 +6,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # Boot from microSD card and install the system to NVMe SSD
 
-<InstallSystem boot_device="microSD card" board="e24c" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-t2/radxa-rk3528_bookworm_kde_t2.output.img.xz" path_to_image_unxz="radxa-rk3528_bookworm_kde_t2.output.img.xz" path_to_image="radxa-rk3528_bookworm_kde_t2.output.img" />
+<InstallSystem boot_device="microSD card" board="e24c" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-rk3528/releases/download/rsdk-r3/radxa-rk3528_bookworm_kde_r3.output_512.img.xz" path_to_image_unxz="radxa-rk3528_bookworm_kde_r3.output_512.img.xz" path_to_image="radxa-rk3528_bookworm_kde_r3.output_512.img" />
 
 ## Boot the system
 

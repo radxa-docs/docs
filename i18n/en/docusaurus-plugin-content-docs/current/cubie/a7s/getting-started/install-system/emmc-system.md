@@ -10,7 +10,7 @@ import DDUse from '../../../../common/radxa-os/install-system/\_use_dd_emmc.mdx'
 This guide applies to Cubie A7S variants with onboard eMMC.
 :::
 
-<DDUse tag="emmc_board" board="cubie-a7s" download_url="https://github.com/radxa-build/radxa-a733/releases/download/rsdk-t2/radxa-a733_bullseye_kde_t2.output_512.img.xz" path_to_image_unxz="radxa-a733_bullseye_kde_t2.output_512.img.xz" path_to_image="radxa-a733_bullseye_kde_t2.output_512.img"  download_page="../../download"/>
+<DDUse tag="emmc_board" board="cubie-a7s" download_url="https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_512.img.xz" path_to_image_unxz="radxa-a733_bullseye_kde_r6.output_512.img.xz" path_to_image="radxa-a733_bullseye_kde_r6.output_512.img"  download_page="../../download"/>
 
 ## Boot the system
 
