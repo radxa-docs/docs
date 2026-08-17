@@ -94,7 +94,7 @@ After modifying the configuration, run the `sudo systemctl restart rockpi-penta.
 
 ### The top board OLED stays on "ROCKPI SATA HAT loading...", or the fan does not spin / always runs at full speed?
 
-On newer Radxa OS (Debian Bookworm) images, the **I2C7** bus used by the top board is not enabled by default. After installing `rockpi-penta`, if you see any of the following symptoms, the I2C7 overlay is likely not enabled:
+Different product models use different I2C buses for the top board (see the table below). On newer Radxa OS (Debian Bookworm) images, the corresponding I2C overlay is not enabled by default on some models. After installing `rockpi-penta`, if you see any of the following symptoms, the corresponding I2C overlay is likely not enabled (using ROCK 4 series as an example):
 
 - The OLED stays on "ROCKPI SATA HAT loading..."
 - The fan does not spin, or always runs at full speed
@@ -106,7 +106,17 @@ To enable it:
 sudo rsetup
 ```
 
-Select `I2C7` in the Overlays menu (also select `PWM1` if the fan still misbehaves), save and reboot.
+Select the I2C overlay for your model in the Overlays menu (using ROCK 4 series as an example: select `I2C7`; also select `PWM1` if the fan still misbehaves), save and reboot.
+
+| Model | I2C used by the top board | Overlay to enable |
+| --- | --- | --- |
+| ROCK 4 series (incl. ROCK Pi 4) | I2C7 | `I2C7` (fan: `PWM1`) |
+| ROCK 5A | I2C8 (M4) | `I2C8` |
+| ROCK 3A | I2C3 (M0) | `I2C3` |
+| ROCK 3C | Software I2C via GPIO (GPIO1_A0/A1) | No overlay needed |
+| Raspberry Pi 4 / 5 | I2C1 (GPIO pins 3/5) | Enabled by default, no extra config needed |
+
+> Note: The table above shows the default configuration in the rockpi-penta package for each model. Always check the actual bus number with `sudo i2cdetect -l` instead of assuming a fixed number.
 
 ### How to check which I2C bus the Penta SATA HAT top board is attached to?
 
@@ -120,10 +130,13 @@ sudo i2cdetect -l
 sudo i2cdetect -y <bus_number>
 ```
 
-After enabling the I2C7 overlay, scanning the corresponding bus should show the OLED device (usually i2c-7 on ROCK 4; check the `i2cdetect -l` output):
+Using ROCK 4 series as an example, after enabling the I2C7 overlay, scanning the corresponding bus should show the OLED device:
 
 ```bash
+# ROCK 4 series example: usually i2c-7 after enabling the I2C7 overlay
 sudo i2cdetect -y 7
 ```
+
+> Note: The bus number differs between models (e.g. usually i2c-8 on ROCK 5A and i2c-3 on ROCK 3A). Always check the `sudo i2cdetect -l` output; the number in the example is for reference only.
 
 Seeing `3c` in the output means the top board OLED is detected.
