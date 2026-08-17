@@ -6,7 +6,7 @@ import InstallSystem from '../../../../../../common/radxa-os/install-system/\_us
 
 # 从 SD 卡安装系统到 NVMe
 
-<InstallSystem tag="m2_2230" board="cubie-a5e" download_url="https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-b1/radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz" path_to_image_unxz="radxa-cubie-a5e_bullseye_kde_b1.output_512.img.xz" path_to_image="radxa-cubie-a5e_bullseye_kde_b1.output_512.img" />
+<InstallSystem tag="m2_2230" board="cubie-a5e" download_url="https://github.com/radxa-build/radxa-cubie-a5e/releases/download/rsdk-r7/radxa-cubie-a5e_bullseye_kde_r7.output_512.img.xz" path_to_image_unxz="radxa-cubie-a5e_bullseye_kde_r7.output_512.img.xz" path_to_image="radxa-cubie-a5e_bullseye_kde_r7.output_512.img" />
 
 ## 启动系统
 

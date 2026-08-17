@@ -46,7 +46,7 @@ sidebar_position: 3
 sudo apt install wget
 wget [url]
 # 示例
-wget https://github.com/radxa-build/rock-5t/releases/download/rsdk-b2/rock-5t_bookworm_kde_b2.output.img.xz
+wget https://github.com/radxa-build/rock-5t/releases/download/rsdk-r7/rock-5t_bookworm_kde_r7.output_512.img.xz
 ```
 </NewCodeBlock>
 参数解释：其中 `[url]` 需要替换成实际的系统镜像文件下载链接。
@@ -75,7 +75,7 @@ wget https://github.com/radxa-build/rock-5t/releases/download/rsdk-b2/rock-5t_bo
 sudo apt install xz-utils
 unxz [image_path]
 # 示例
-unxz ~/rock-5t_bookworm_kde_b2.output.img.xz
+unxz ~/rock-5t_bookworm_kde_r7.output_512.img.xz
 ```
 
 </NewCodeBlock>
@@ -96,7 +96,7 @@ sudo dd if=[image_path] of=/dev/mmcblk0 bs=4M status=progress
 
 # 示例
 
-sudo dd if=~/rock-5t_bookworm_kde_b2.output.img of=/dev/mmcblk0 bs=4M status=progress
+sudo dd if=~/rock-5t_bookworm_kde_r7.output_512.img of=/dev/mmcblk0 bs=4M status=progress
 ```
 
 </NewCodeBlock>

@@ -21,4 +21,4 @@ import USBSystem from '../../../../../common/radxa-os/install-system/qualcomm/\_
 
 3. 配置 EDL 工具环境 --> 可参考 [使用 EDL 工具](./set-edl-variable.md) 教程
 
-<USBSystem download_page="../../../download" board="dragon-q6a" spi_path="\flat_build\spinor\dragon-q6a\" loader="prog_firehose_ddr.elf" storage_type="Sdcc --slot 1" start_sector="0" image_file="radxa-dragon-q6a_noble_kde_t4.output_512.img"/>
+<USBSystem download_page="../../../download" board="dragon-q6a" spi_path="\flat_build\spinor\dragon-q6a\" loader="prog_firehose_ddr.elf" storage_type="Sdcc --slot 1" start_sector="0" image_file="radxa-dragon-q6a_noble_gnome_r2.output_512.img"/>

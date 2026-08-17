@@ -46,7 +46,7 @@ You can copy the system image file link from the [Resource Download Center](../.
 sudo apt install wget
 wget [url]
 # Example
-wget https://github.com/radxa-build/rock-5t/releases/download/rsdk-b2/rock-5t_bookworm_kde_b2.output.img.xz
+wget https://github.com/radxa-build/rock-5t/releases/download/rsdk-r7/rock-5t_bookworm_kde_r7.output_512.img.xz
 ```
 </NewCodeBlock>
 Parameter explanation: Replace `[url]` with the actual system image download link.
@@ -74,7 +74,7 @@ Use the `unxz` command to extract the system image file.
 sudo apt install xz-utils
 unxz [image_path]
 # Example
-unxz ~/rock-5t_bookworm_kde_b2.output.img.xz
+unxz ~/rock-5t_bookworm_kde_r7.output_512.img.xz
 ```
 </NewCodeBlock>
 Parameter explanation: Replace `[image_path]` with the actual path to the system image file.
@@ -91,7 +91,7 @@ When using the `dd` command, make sure to select the correct device file to avoi
 ```bash
 sudo dd if=[image_path] of=/dev/mmcblk0 bs=4M status=progress
 # Example
-sudo dd if=~/rock-5t_bookworm_kde_b2.output.img of=/dev/mmcblk0 bs=4M status=progress
+sudo dd if=~/rock-5t_bookworm_kde_r7.output_512.img of=/dev/mmcblk0 bs=4M status=progress
 ```
 </NewCodeBlock>
 Parameter explanation:
