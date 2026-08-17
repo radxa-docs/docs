@@ -105,6 +105,11 @@ Android：
         <td align="center">OpenWRT is a Linux operating system for embedded devices. It provides a fully writable filesystem with package management, allowing you to freely choose and customize applications and features on your device.</td>
         <td align="center"><a href="https://openwrt.org/toh/hwdata/radxa/radxa_rock_5b" >OpenWRT Technical Data Page: Radxa Rock 5B</a><br /><br /><a href="https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5b-ext4-sysupgrade.img.gz" >ROCK 5B OpenWRT ext4 sysupgrade image</a><br /><br /><a href="https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5b-squashfs-sysupgrade.img.gz" >ROCK 5B OpenWRT squashfs sysupgrade image</a><br /><br /><a href="https://openwrt.org/" >OpenWRT Official Website</a><br /><br /><a href="https://forum.openwrt.org/" >OpenWRT Forum</a></td>
     </tr>
+    <tr>
+        <td align="center"><img src="/img/rock5b/downloads/vyos.webp" alt="VyOS" style={{ width: "70%" }} /></td>
+        <td align="center">VyOS is an open source network operating system based on Debian GNU/Linux, providing routing, firewall, and VPN functionality. This is a community-built rolling release image for ROCK 5B.</td>
+        <td align="center"><a href="https://github.com/frogro/vyos-build" >VyOS Build GitHub Repository</a><br /><br /><a href="https://github.com/frogro/vyos-build/releases" >VyOS ROCK 5B Image Downloads</a><br /><br /><a href="https://forum.radxa.com/t/community-build-vyos-rolling-for-radxa-rock-5b/31293" >Radxa Forum Discussion</a></td>
+    </tr>
 
 </table>
 
