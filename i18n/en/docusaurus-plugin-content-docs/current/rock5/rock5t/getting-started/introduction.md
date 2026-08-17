@@ -115,7 +115,7 @@ ROCK 5T/5T-Industrial provides complete hardware design schematics and software 
     </tr>
     <tr>
         <td align="center">USB</td>
-        <td colspan="2" align="center">2x USB 2 ports<br/>2x USB 3 HOST/OTG ports</td>
+        <td colspan="2" align="center">2x USB 2 ports<br/>2x USB 3 HOST ports<br/>1x USB Type-C port (OTG/DP)</td>
     </tr>
     <tr>
         <td align="center">Camera</td>
