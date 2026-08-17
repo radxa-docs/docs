@@ -114,7 +114,7 @@ ROCK 5T/5T-Industrial 提供了完整的硬件设计原理图和软件源代码�
     </tr>
     <tr>
         <td align="center">USB</td>
-        <td colspan="2" align="center">2x USB 2 端口<br/>2x USB 3 HOST/OTG 端口</td>
+        <td colspan="2" align="center">2x USB 2 端口<br/>2x USB 3 HOST 端口<br/>1x USB Type-C 端口（支持 OTG/DP）</td>
     </tr>
     <tr>
         <td align="center">摄像头</td>
