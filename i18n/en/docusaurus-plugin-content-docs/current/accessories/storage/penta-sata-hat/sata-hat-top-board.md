@@ -34,6 +34,42 @@ wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta
 sudo apt install -y ./rockpi-penta-0.2.2.deb
 ```
 
+### ROCK 4 series: Enable the I2C7 overlay
+
+On newer Radxa OS (Debian Bookworm) images, the **I2C7** bus used by the top board is not enabled by default. After installing `rockpi-penta`, if you see any of the following symptoms, the I2C7 overlay is likely not enabled:
+
+- The OLED stays on "ROCKPI SATA HAT loading..."
+- The fan does not spin, or always runs at full speed
+- Service logs show errors like `FileNotFoundError: /sys/class/pwm/pwmchip1/pwm0/period` or `Device or resource busy`
+
+To enable it:
+
+```bash
+sudo rsetup
+```
+
+Select `I2C7` in the Overlays menu (also select `PWM1` if the fan still misbehaves), save and reboot.
+
+### Check which I2C bus the top board is on
+
+The top board OLED (SSD1306) uses I2C address `0x3c`. Use the following commands to check whether the top board is detected and which bus it is on:
+
+```bash
+# List all I2C buses
+sudo i2cdetect -l
+
+# Scan each bus; the one showing 0x3c is where the top board is connected
+sudo i2cdetect -y <bus_number>
+```
+
+After enabling the I2C7 overlay, scanning the corresponding bus should show the OLED device (usually i2c-7 on ROCK 4; check the `i2cdetect -l` output):
+
+```bash
+sudo i2cdetect -y 7
+```
+
+Seeing `3c` in the output means the top board OLED is detected.
+
 ### Software configuration
 
 :::note

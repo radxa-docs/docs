@@ -34,6 +34,42 @@ wget https://github.com/radxa/rockpi-penta/releases/download/v0.2.2/rockpi-penta
 sudo apt install -y ./rockpi-penta-0.2.2.deb
 ```
 
+### ROCK 4 系列：启用 I2C7 overlay
+
+在较新的 Radxa OS (Debian Bookworm) 镜像上，顶板使用的 **I2C7** 总线默认未启用。安装 `rockpi-penta` 后如果出现以下现象，说明 I2C7 overlay 未启用：
+
+- OLED 一直显示 "ROCKPI SATA HAT loading..."
+- 风扇不转，或一直满速运行
+- 服务日志报错：`FileNotFoundError: /sys/class/pwm/pwmchip1/pwm0/period` 或 `Device or resource busy`
+
+启用方法：
+
+```bash
+sudo rsetup
+```
+
+在 Overlays 菜单中勾选 `I2C7`（若风扇仍异常，同时勾选 `PWM1`），保存后重启。
+
+### 检查顶板挂载在哪条 I2C 总线
+
+顶板 OLED (SSD1306) 的 I2C 地址为 `0x3c`，可用以下命令确认顶板是否被识别、以及挂载在哪条总线上：
+
+```bash
+# 列出系统所有 I2C 总线
+sudo i2cdetect -l
+
+# 依次扫描各总线，出现 0x3c 的那条即为顶板所在总线
+sudo i2cdetect -y <bus_number>
+```
+
+启用 I2C7 overlay 后，扫描对应总线可以看到 OLED 设备（ROCK 4 上通常为 i2c-7，以 `i2cdetect -l` 输出为准）：
+
+```bash
+sudo i2cdetect -y 7
+```
+
+输出中出现 `3c` 即表示顶板 OLED 已被识别。
+
 ### 软件配置
 
 :::note
