@@ -11,6 +11,14 @@ Radxa ZERO 3W has an onboard Radxa D8 / AP6212 WiFi&BT module, an onboard antenn
 - **1: Onboard antenna**
 - **2: External antenna**
 
+## External antenna connector specifications
+
+| Item | Specification |
+| ---- | ------------- |
+| Connector type | U.FL (compatible with IPEX MHF1 / 1st-gen IPEX) |
+| Characteristic impedance | 50Ω |
+| Compatible antenna | U.FL / IPEX MHF1 antenna (WiFi 2.4GHz / 5GHz dual-band) |
+
 ## Use external antenna
 
 If you need to use an external antenna, you need to enable the external antenna overlay, Use rsetup [Device Tree Configuration](../os-config/rsetup#overlays).
