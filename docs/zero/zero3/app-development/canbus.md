@@ -11,4 +11,4 @@ imports_resolve_to:
 
 import CANBUS from '../../../common/dev/\_canbus.mdx';
 
-<CANBUS />
+<CANBUS rsetup_link="../radxa-os/rsetup#overlays" />
