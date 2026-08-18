@@ -15,15 +15,13 @@ import MCP2515 from "../../../common/dev/\_pico-mcp2515.mdx";
 
 # Control RP2040 on Linux
 
-## OverView
-
-## Relation introduction between J4215 and 40-PIN GPIO
+## Overview
 
 <RELATION />
 
 ## Tools Introduction
 
-In order to operate the IO resources on RP2040, we need a complete software environment, here we mainly introduce a set of C/C++ SDKs, namely pico-sdk and pico-examples. pico-sdk mainly provides some APIs to operate the RP2040, while pico-examples provides a compilation framework for us to add our own programs according to the compilation framework provided by pico-examples. pico-sdk provides some APIs to operate the RP2040, while pico-examples provides a compilation framework for us to add our own programs according to the compilation framework provided by pico-examples.
+In order to operate the IO resources on the RP2040, we need a complete software environment. Here we mainly introduce a set of C/C++ SDKs, namely pico-sdk and pico-examples. pico-sdk mainly provides some APIs for operating the RP2040, while pico-examples provides a compilation framework, and we can add our own programs based on the compilation framework provided by pico-examples.
 
 <SDK_EXAMPLE flash_url="./flash" product_name="Radxa X4" />
 
@@ -33,7 +31,10 @@ In order to operate the IO resources on RP2040, we need a complete software envi
 
 <Tabs queryString="type">
     <TabItem value="GPIO">
-       <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" platform="Linux" />
+       <GPIO flash_url="./flash" gpio_definition="./gpio" product_name="Radxa X4"  led_pin="PIN_5" cmd= "cd pico-examples/build
+       rm -rf *
+       cmake -G ''Ninja'' ..
+       ninja" />
     </TabItem>
     <TabItem value="I2C">
         <I2C flash_url="./flash" product_name="Radxa X4"  scl_pin="PIN_5" sda_pin="PIN_3" platform="Linux" />
