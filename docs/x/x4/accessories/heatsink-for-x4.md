@@ -46,3 +46,7 @@ sidebar_position: 15
 - 最后，用 6 颗 KM2x4 螺钉固定散热器支架。
 
 ![install_heatsink_05](/img/x/x4/heatsink_for_x4_05.webp)
+
+## 资料下载
+
+- [3D 文件](https://dl.radxa.com/accessories/heatsink-for-x4/radxa_heatsink_for_x4_3d.zip)
