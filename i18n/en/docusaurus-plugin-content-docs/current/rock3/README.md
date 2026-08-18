@@ -17,6 +17,6 @@ ROCK3 is a series of Rockchip RK3566/RK3568 based SBC(Single Board Computer) and
 
 For hardware resources (schematic, component placement map, 2D/3D drawings, etc.) of each model, please visit the corresponding resource download page:
 
-- [ROCK 3A Resource Download](/rock3/rock3a/getting-started/download)
+- [ROCK 3A Resource Download](/rock3/rock3a/download)
 - [ROCK 3B Resource Download](/rock3/rock3b/download)
-- [ROCK 3C Resource Download](/rock3/rock3c/getting-started/download)
+- [ROCK 3C Resource Download](/rock3/rock3c/download)

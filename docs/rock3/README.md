@@ -17,6 +17,6 @@ ROCK 3 系列是瑞莎基于Rockchip RK3566/RK3568研发的一系列SBC（单板
 
 各型号的硬件资料（原理图、位号图、2D/3D 图纸等）请前往对应产品的资源下载页：
 
-- [ROCK 3A 资源下载](/rock3/rock3a/getting-started/download)
+- [ROCK 3A 资源下载](/rock3/rock3a/download)
 - [ROCK 3B 资源下载](/rock3/rock3b/download)
-- [ROCK 3C 资源下载](/rock3/rock3c/getting-started/download)
+- [ROCK 3C 资源下载](/rock3/rock3c/download)

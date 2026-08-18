@@ -50,7 +50,7 @@ Radxa ROCK 3A supports QC 3.0/2.0 adapter, 9V/2A, 12V/1.5A. Radxa recommends usi
 
 ### Prepare the image file
 
-Please go to [Download Summary](../../getting-started/download) to download image.
+Please go to [Download Summary](../../download) to download image.
 
 ## System installation
 
