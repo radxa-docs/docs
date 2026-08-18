@@ -29,6 +29,22 @@
 
 ![ROCK5T_Auto_Login](/img/rock5t/rock5t-autologin-3.webp)
 
+:::tip KDE Plasma 桌面自动登录注意事项
+若您使用的是 KDE Plasma 桌面，通过 `rsetup` 的 GUI 完成自动登录配置后，自动登录仍可能失效（例如重启后卡在登录界面）。
+
+这通常是因为配置中写入的会话名称为 `plasma`，而 KDE Plasma 实际需要的会话名称为 `plasma.desktop`。
+
+可手动编辑自动登录配置文件（KDE Plasma 通常使用 SDDM，配置文件一般位于 `/etc/sddm.conf.d/kde_settings.conf`），将会话名称修改为 `plasma.desktop`，示例：
+
+```ini
+[Autologin]
+Session=plasma.desktop
+User=radxa
+```
+
+修改后重启系统即可正常自动登录。
+:::
+
 </TabItem>
 
 </Tabs>
