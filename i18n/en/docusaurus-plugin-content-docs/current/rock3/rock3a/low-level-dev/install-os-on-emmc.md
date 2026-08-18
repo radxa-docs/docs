@@ -13,7 +13,7 @@ sidebar_position: 1
 
 ## Image Download
 
-Please go to [Download Summary](../getting-started/download) to download the corresponding image file.
+Please go to [Download Summary](../download) to download the corresponding image file.
 
 ## Enter Maskrom mode
 
