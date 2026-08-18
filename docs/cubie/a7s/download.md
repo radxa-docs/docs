@@ -38,12 +38,6 @@ sidebar_position: 8
 
 :::
 
-- Radxa OS
-
-[radxa-a733-bullseye-kde-r6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_kde_r6.output_512.img.xz)：支持 microSD 卡和板载 eMMC 启动系统。
-
-[radxa-a733-bullseye-kde-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_kde_r2.output_512.img.xz)：支持 microSD 卡和板载 eMMC 启动系统。
-
 - Radxa OS Lite
 
 :::tip
@@ -55,8 +49,6 @@ Radxa OS Lite 系统镜像不包含图形桌面环境。
 :::
 
 [radxa-a733-bullseye-cli-r6（最新）](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r6/radxa-a733_bullseye_cli_r6.output_512.img.xz)：支持 microSD 卡和板载 eMMC 启动系统。
-
-[radxa-a733-bullseye-cli-r2](https://github.com/radxa-build/radxa-a733/releases/download/rsdk-r2/radxa-a733_bullseye_cli_r2.output_512.img.xz)：支持 microSD 卡和板载 eMMC 启动系统。
 
 :::tip 内置 OpenClaw 环境镜像
 
