@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Required Cables
 
-** Radxa ROCK Pi S0 must be configured with a specialized cable in order to be used. **
+**Radxa ROCK Pi S0 must be configured with a specialized cable in order to be used.**
 
 ### Wire Signal Definition
 

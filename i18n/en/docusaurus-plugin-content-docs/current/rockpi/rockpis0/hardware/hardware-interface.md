@@ -53,7 +53,7 @@ Can be used as system boot media or storage media
 
 The ROCK Pi S0 provides a 40 pin GPIO socket that is compatible with most SBC accessories on the market.
 
-**Hint: Actual compatibility is subject to usage. **
+**Hint: Actual compatibility is subject to usage.**
 
 <TabItem value="GPIO">
      <div className='gpio_style' style={{ overflow :"auto"}} >
