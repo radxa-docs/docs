@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Download the System Image
 
-Go to the [Downloads Summary](../../../download) page to download the corresponding operating system image archive. After downloading, extract the archive to get the `*.img` file needed for system installation.
+Go to the [Downloads Summary](../../download) page to download the corresponding operating system image archive. After downloading, extract the archive to get the `*.img` file needed for system installation.
 
 :::tip
 The downloaded system image is a compressed file that needs to be extracted before it can be written to the SD card using imaging software.

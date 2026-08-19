@@ -113,4 +113,4 @@ sudo rkdeveloptool rd
 
 ### Using the System
 
-Refer to the [Quick Start](../../introduction) guide for system login instructions!
+Refer to the [Quick Start](../../quick-start) guide for system login instructions!

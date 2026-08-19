@@ -113,4 +113,4 @@ sudo rkdeveloptool rd
 
 ### 使用系统
 
-参考[快速上手](../../introduction)教程的登陆系统操作！
+参考[快速上手](../../quick-start)教程的登陆系统操作！
