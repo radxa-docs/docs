@@ -16,7 +16,7 @@ sidebar_position: 7
 
 [HuggingFaceTB](https://huggingface.co/collections/AXERA-TECH/huggingfacetb-67caf2fbf7d505f443ac9b3d) : SmolLM, SmolVLM
 
-[Multimodal Models](https://huggingface.co/collections/AXERA-TECH/multimodal-models-67b0befd36aa53b5903d351d) : CLIP, StableDiffusion, Qwen2.5-VL-3B, InternalVL3-2B, Janus-Pro-1B
+[Multimodal Models](https://huggingface.co/collections/AXERA-TECH/multimodal-models-67b0befd36aa53b5903d351d) : CLIP, StableDiffusion, Qwen2.5-VL-3B, InternVL3-2B, Janus-Pro-1B
 
 [Vision Models](https://huggingface.co/collections/AXERA-TECH/vision-models-67b0bce92ddc61229e8e94ed) : Ultralytics, Depth-Anything-V2, MixFormerV2, LivePortrait, Real-ESRGAN
 

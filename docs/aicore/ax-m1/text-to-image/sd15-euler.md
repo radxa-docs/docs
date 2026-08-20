@@ -7,7 +7,7 @@ sidebar_position: 1
 此文档讲解如何在安装了瑞莎智核 AX-M1 的 host 设备上运行 Stable Diffusion 1.5 Euler 模型进行文生图推理。
 
 :::tip
-本示例基于社区用户 [SHANKAR_THAKUR](https://forum.radxa.com/t/radxa-axm1-projects/30411) 提供的方案，感谢其贡献。
+本示例基于社区用户 [SHANKAR_THAKUR](https://github.com/Mojo24x7/SD1.5_AXM1-AX8850_Euler) 提供的方案，感谢其贡献。
 :::
 
 ## 环境准备
@@ -73,7 +73,7 @@ pyaxengine 是爱芯元智官方提供的 Python API 库，用于在 AX-M1 上�
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-wget https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc2/axengine-0.1.3-py3-none-any.whl
+wget https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc3/axengine-0.1.3-py3-none-any.whl
 pip install axengine-0.1.3-py3-none-any.whl
 ```
 

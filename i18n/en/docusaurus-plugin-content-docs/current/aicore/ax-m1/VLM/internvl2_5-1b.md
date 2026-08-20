@@ -63,7 +63,7 @@ None None 151645 <|im_end|>
 310
 [151644, 8948, 198, 56568, 104625, 100633, 104455, 104800, 101101, 32022, 102022, 99602, 100013, 9370, 90286, 21287, 42140, 53772, 35243, 26288, 104949, 3837, 105205, 109641, 67916, 30698, 11, 54851, 46944, 115404, 42192, 99441, 100623, 48692, 100168, 110498, 1773, 151645, 151644, 872, 198, 14990, 1879, 151645, 151644, 77091, 198]
 47
-http://0.0.0.0:12345
+http:""//0.0.0.0:12345
 ```
 
 ### Model inference
@@ -83,14 +83,14 @@ Please check whether the tokenizer_model port in the run_xxx.sh script matches t
 
 ```bash
 (.venv) rock@rock-5b-plus:~/ssd/axera/InternVL2_5-1B$ cat run_internvl2_5_448_axcl_aarch64.sh
-./main_aarch64_axcl \
+./main_axcl_aarch64 \
 --template_filename_axmodel "internvl2_5_1b_448_ax650/qwen2_p320_l%d_together.axmodel" \
 --axmodel_num 24 \
 --filename_image_encoder_axmodedl "internvl2_5_1b_448_ax650/vit_intern_2_5_sim_space2depth_nhwc.axmodel" \
 --tokenizer_type 2 \
 --bos 0 --eos 0 \
 --use_mmap_load_embed 0 \
---filename_tokenizer_model "http://127.0.0.1:12345" \
+--filename_tokenizer_model "http:""//127.0.0.1:12345" \
 --filename_post_axmodel "internvl2_5_1b_448_ax650/qwen2_post.axmodel" \
 --filename_tokens_embed "internvl2_5_1b_448_ax650/model.embed_tokens.weight.bfloat16.bin" \
 --tokens_embed_num 151674 \
@@ -98,9 +98,13 @@ Please check whether the tokenizer_model port in the run_xxx.sh script matches t
 --live_print 1 \
 --devices "0" \
 --continue 1 \
---prompt "" --image ""(.venv) rock@rock-5b-plus:~/ssd/axera/InternVL2_5-1B$ bash run_internvl2_5_448_axcl_aarch64.sh
+--prompt "" --image ""
+```
+
+```bash
+(.venv) rock@rock-5b-plus:~/ssd/axera/InternVL2_5-1B$ bash run_internvl2_5_448_axcl_aarch64.sh
 [I][                            Init][ 128]: LLM init start
-[I][                            Init][ 321]: connect http://127.0.0.1:12345 ok
+[I][                            Init][ 321]: connect http:""//127.0.0.1:12345 ok
 bos_id: -1, eos_id: 151645
   7% | ███                               |   2 /  27 [0.33s<4.40s, 6.13 count/s] embed_selector init ok
 [I][                             run][  30]: AXCLWorker start with devid 0

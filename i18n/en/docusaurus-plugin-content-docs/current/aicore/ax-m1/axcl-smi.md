@@ -31,13 +31,13 @@ axcl-smi
 ```bash
 rock@rock-5b-plus:~$ axcl-smi
 +------------------------------------------------------------------------------------------------+
-| AXCL-SMI  V3.0.2_20250326020141                                  Driver  V3.0.2_20250326020141 |
+| AXCL-SMI  V3.6.5_20250908154509                                  Driver  V3.6.5_20250908154509 |
 +-----------------------------------------+--------------+---------------------------------------+
 | Card  Name                     Firmware | Bus-Id       |                          Memory-Usage |
 | Fan   Temp                Pwr:Usage/Cap | CPU      NPU |                             CMM-Usage |
 |=========================================+==============+=======================================|
-|    0  AX650N                     V3.0.2 | 0000:01:00.0 |                149 MiB /      945 MiB |
-|   --   66C                      -- / -- | 1%        0% |                 18 MiB /     7040 MiB |
+|    0  AX650N                     V3.6.5 | 0001:11:00.0 |                152 MiB /      945 MiB |
+|   --   81C                      -- / -- | 1%        0% |                 18 MiB /     7040 MiB |
 +-----------------------------------------+--------------+---------------------------------------+
 
 +------------------------------------------------------------------------------------------------+
@@ -77,7 +77,7 @@ axcl-smi -h
 rock@rock-5b-plus:~$ axcl-smi -h
 usage: axcl-smi [<command> [<args>]] [--device] [--version] [--help]
 
-axcl-smi System Management Interface V3.0.2_20250326020141
+axcl-smi System Management Interface V3.6.5_20250908154509
 
 Commands
     info                                    Show device information
@@ -123,7 +123,7 @@ axcl-smi -v
 
 ```bash
 rock@rock-5b-plus:~$ axcl-smi -v
-AXCL-SMI V3.0.2_20250326020141 BUILD: Mar 26 2025 02:27:24
+AXCL-SMI V3.6.5_20250908154509 BUILD: Sep  8 2025 16:14:02
 ```
 
 ### Options
@@ -160,7 +160,7 @@ axcl-smi info --cmm -d 0
 
 ```bash
 rock@rock-5b-plus:~$ axcl-smi info --cmm -d 0
-Device ID           : 1 (0x1)
+Device ID           : 17 (0x11)
 CMM Total           :  7208960 KiB
 CMM Used            :    18876 KiB
 CMM Remain          :  7190084 kiB
@@ -195,7 +195,7 @@ axcl-smi proc --vdec -d 0
 ```bash
 rock@rock-5b-plus:~$ axcl-smi proc --vdec -d 0
 --------AX VDEC VERSION ------------------------
-[Axera version]: ax_vdec V3.0.2_20250326020141 Mar 26 2025 02:20:01 JK
+[Axera version]: ax_vdec V3.6.5_20250908154509 Sep  8 2025 16:05:36 JK
 ```
 
 ### Parameter settings (set)
@@ -260,7 +260,7 @@ axcl-smi sh cat /proc/ax_proc/mem_cmm_info -d 0
 ```bash
 rock@rock-5b-plus:~$ axcl-smi sh cat /proc/ax_proc/mem_cmm_info -d 0
 --------------------SDK VERSION-------------------
-[Axera version]: ax_cmm V3.0.2_20250326020141 Mar 26 2025 02:19:19 JK
+[Axera version]: ax_cmm V3.6.5_20250908154509 Sep  8 2025 16:04:54 JK
 +---PARTITION: Phys(0x148000000, 0x2FFFFFFFF), Size=7208960KB(7040MB),    NAME="anonymous"
  nBlock(Max=0, Cur=23, New=0, Free=0)  nbytes(Max=0B(0KB,0MB), Cur=19329024B(18876KB,18MB), New=0B(0KB,0MB), Free=0B(0KB,0MB))  Block(Max=0B(0KB,0MB), Min=0B(0KB,0MB), Avg=0B(0KB,0MB))
    |-Block: phys(0x148000000, 0x148013FFF), cache =non-cacheable, length=80KB(0MB),    name="TDP_DEV"

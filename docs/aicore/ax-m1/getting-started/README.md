@@ -71,4 +71,4 @@ sidebar_position: 1
 
 ## 快速验证
 
-您可以参考 [快速验证](/aicore/ax-m1/getting-started/quick_example) 教程使用智核 AX-M1 进行模型推理。
+您可以参考 [快速验证](/aicore/ax-m1/getting-started/quick-example) 教程确认智核 AX-M1 的 NPU 可以正常推理。
