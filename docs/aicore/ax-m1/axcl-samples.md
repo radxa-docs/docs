@@ -49,26 +49,25 @@ make install -j4
 
 编译完成后在 `./install/bin` 下看到相关示例程序，即为编译成功
 
-```bash
-radxa@rock-5b-plus:/Workspace/ax-sdk-demo/axcl-samples/build/install/bin$ tree ./
-./
-├── axcl_classification
-├── axcl_depth_anything
-├── axcl_yolo11
-├── axcl_yolo11_pose
-├── axcl_yolo11_seg
-├── axcl_yolov10
-├── axcl_yolov10_u
-├── axcl_yolov5_face
-├── axcl_yolov5s
-├── axcl_yolov5s_seg
-├── axcl_yolov7_face
-├── axcl_yolov8
-├── axcl_yolov8_pose
-├── axcl_yolov8_seg
-├── axcl_yolov9
-├── axcl_yolov9_u
-└── axcl_yolo_world_open_vocabulary
+```text
+axera@raspberrypi:~/temp/axcl-samples/build $ tree install
+install
+└── bin
+    ├── ax_classification
+    ├── ax_depth_anything
+    ├── ax_yolo11
+    ├── ax_yolo11_pose
+    ├── ax_yolo11_seg
+    ├── ax_yolov10
+    ├── ax_yolov10_u
+    ├── ax_yolov5_face
+    ├── ax_yolov5s
+    ├── ax_yolov5s_seg
+    ├── ax_yolov8
+    ├── ax_yolov8_pose
+    ├── ax_yolov8_seg
+    ├── ax_yolov9
+    └── ax_yolov9_u
 ```
 
 :::tip[点击跳转到模型 Demo 页面]
@@ -76,12 +75,12 @@ radxa@rock-5b-plus:/Workspace/ax-sdk-demo/axcl-samples/build/install/bin$ tree .
 
 ##### 视觉模型
 
-- **Depth-Anything-V2:** [axcl_depth_anything](./vision-models/depth-anything-v2.md)
-- **YOLOv11:** [axcl_yolo11](./vision-models/yolov11.md) · [axcl_yolo11_seg](./vision-models/yolov11-seg.md) · [axcl_yolo11_pose](./vision-models/yolov11-pose.md)
-- **YOLOv8:** [axcl_yolov8](./vision-models/yolov8s.md) · [axcl_yolov8_seg](./vision-models/yolov8-seg.md)
+- **Depth-Anything-V2:** [ax_depth_anything](./vision-models/depth-anything-v2.md)
+- **YOLOv11:** [ax_yolo11](./vision-models/yolov11.md) · [ax_yolo11_seg](./vision-models/yolov11-seg.md) · [ax_yolo11_pose](./vision-models/yolov11-pose.md)
+- **YOLOv8:** [ax_yolov8](./vision-models/yolov8s.md) · [ax_yolov8_seg](./vision-models/yolov8-seg.md)
 
 ##### 多模态模型
 
-- **YOLO-World-V2:** [axcl_yolo_world_open_vocabulary](./VLM/yolo-world-v2.md)
+- **YOLO-World-V2:** [YOLO-World-V2](./VLM/yolo-world-v2.md)
 
 :::

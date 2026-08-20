@@ -47,7 +47,7 @@ sudo apt-get install libsndfile1-dev libmecab-dev
 ```bash
 cd python
 pip3 install -r requirements.txt
-pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc1/axengine-0.1.3-py3-none-any.whl
+pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc3/axengine-0.1.3-py3-none-any.whl
 ```
 
 </NewCodeBlock>

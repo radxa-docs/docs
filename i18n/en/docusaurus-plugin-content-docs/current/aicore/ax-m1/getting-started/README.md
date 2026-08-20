@@ -71,4 +71,4 @@ See [environment setup](/aicore/ax-m1/getting-started/env_install) to prepare th
 
 ## Quick validation
 
-Use [quick validation](/aicore/ax-m1/getting-started/quick_example) to run inference with the Radxa AICore AX-M1.
+Use [quick validation](/aicore/ax-m1/getting-started/quick-example) to confirm that the Radxa AICore AX-M1 NPU can run inference.

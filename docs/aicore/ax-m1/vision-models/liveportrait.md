@@ -47,7 +47,7 @@ sudo apt install ffmpeg
 
 ```bash
 pip3 install -r python/requirements.txt
-pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc1/axengine-0.1.3-py3-none-any.whl
+pip3 install https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc3/axengine-0.1.3-py3-none-any.whl
 
 ```
 

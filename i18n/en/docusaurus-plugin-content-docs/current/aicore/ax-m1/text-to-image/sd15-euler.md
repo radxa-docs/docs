@@ -7,7 +7,7 @@ sidebar_position: 1
 This document explains how to run the Stable Diffusion 1.5 Euler model for text-to-image inference on a host device equipped with Radxa AX-M1.
 
 :::tip
-This example is based on the solution provided by community user [SHANKAR_THAKUR](https://forum.radxa.com/t/radxa-axm1-projects/30411), thanks for their contribution.
+This example is based on the solution provided by community user [SHANKAR_THAKUR](https://github.com/Mojo24x7/SD1.5_AXM1-AX8850_Euler), thanks for their contribution.
 :::
 
 ## Environment Preparation
@@ -73,7 +73,7 @@ pyaxengine is the official Python API library provided by AXERA for running infe
 <NewCodeBlock tip="Host" type="device">
 
 ```bash
-wget https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc2/axengine-0.1.3-py3-none-any.whl
+wget https://github.com/AXERA-TECH/pyaxengine/releases/download/0.1.3.rc3/axengine-0.1.3-py3-none-any.whl
 pip install axengine-0.1.3-py3-none-any.whl
 ```
 
