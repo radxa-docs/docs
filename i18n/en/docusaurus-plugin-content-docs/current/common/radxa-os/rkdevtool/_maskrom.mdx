@@ -43,6 +43,12 @@ On Windows, open the RKDevTool. The software will automatically detect if the bo
 
 If the board is in Maskrom mode, the bottom left corner of the software will display `Found One MASKROM Device`.
 
+:::tip
+If RKDevTool reports `No Device Found` and Windows Device Manager shows an "Unknown device", the Rockchip USB driver has not been installed on your computer.
+
+Install the driver first: download and extract [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip), right-click `DriverInstall.exe` and run it as administrator, then click `Install Driver`. After the driver is installed, reconnect the USB cable (or re-enter Maskrom mode) and reopen RKDevTool — the device should then be detected.
+:::
+
 <div style={{ textAlign: "center" }}>
   <img
     src="/en/img/common/tools/rkdevtool/maskrom-mode.webp"
