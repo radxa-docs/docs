@@ -27,7 +27,17 @@ Dragon Q8B ships with SPI boot firmware preinstalled. Normally you do not need t
   - [Qualcomm Device Driver](https://dl.radxa.com/dragon/q6a/images/QUD_CustomInst_1.00.91.7.zip)
 
 - EDL Tool
-  - [EDL-NG](https://dl.radxa.com/q6a/images/edl-ng-dist.zip)
+
+  :::info Latest EDL Tool Release Page
+
+  - [EDL-NG](https://github.com/strongtz/edl-ng/releases)
+
+  This page releases the latest versions of the EDL-NG tool.
+
+  :::
+
+  - [EDL-NG v1.6.0 (GitHub)](https://github.com/strongtz/edl-ng/releases/tag/v1.6.0)
+  - [EDL-NG v1.6.0 (dl.radxa.com)](https://dl.radxa.com/q6a/images/edl-ng-dist-v1.6.0.zip)
 
 - SPI Boot Firmware (BIOS)
   - [Boot Firmware (BIOS)](https://dl.radxa.com/dragon/q8b/images/)

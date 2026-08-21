@@ -101,7 +101,16 @@ For detailed steps on flashing the SPI boot firmware, please refer to the [Flash
 
 - EDL Tools
 
-  - [EDL-NG](https://dl.radxa.com/q6a/images/edl-ng-dist.zip)
+  :::info Latest EDL Tool Release Page
+
+  - [EDL-NG](https://github.com/strongtz/edl-ng/releases)
+
+  This page releases the latest versions of the EDL-NG tool.
+
+  :::
+
+  - [EDL-NG v1.6.0 (GitHub)](https://github.com/strongtz/edl-ng/releases/tag/v1.6.0)
+  - [EDL-NG v1.6.0 (dl.radxa.com)](https://dl.radxa.com/q6a/images/edl-ng-dist-v1.6.0.zip)
 
 - SPI Boot Firmware
 
