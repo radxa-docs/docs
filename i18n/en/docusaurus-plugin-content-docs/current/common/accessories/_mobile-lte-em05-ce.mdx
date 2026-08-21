@@ -32,10 +32,8 @@ First of all, you need to plug the Quectel LTE EM05-CE into the B-key connector 
 
 You can check if the device is connected with the following command:
 
-<pre>
-  radxa@{props.model}:~$ lsusb | grep -i Quectel Bus 002 Device 002: ID
-  2c7c:0125 Quectel Wireless Solutions Co. EC25 LTE modem
-</pre>
+<pre>{`radxa@${props.model}:~$ lsusb | grep -i Quectel Bus 002 Device 002: ID
+2c7c:0125 Quectel Wireless Solutions Co. EC25 LTE modem`}</pre>
 
 The modem usually communicates with the host via the serial port. Please check that the system enumerates the corresponding serial devices correctly:
 

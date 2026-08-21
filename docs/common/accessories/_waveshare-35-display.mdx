@@ -33,22 +33,20 @@ sudo mv /usr/share/X11/xorg.conf.d/20-modesetting.conf /usr/share/X11/xorg.conf.
 
 - 在 `/etc/X11/xorg.conf.d` 下添加一个配置文件 `20-modesetting.conf`，内容如下：
 
-<pre>
-  Section "Device" &nbsp;&nbsp;&nbsp;&nbsp;Identifier "Rockchip Graphics"
-  &nbsp;&nbsp;&nbsp;&nbsp;Driver "fbdev" &nbsp;&nbsp;&nbsp;&nbsp;Option "fbdev"
-  "/dev/{props.fbdev}" &nbsp;&nbsp;&nbsp;&nbsp;Option "DRI" "2" EndSection
-</pre>
+<pre>{`Section "Device"     Identifier "Rockchip Graphics"
+    Driver "fbdev"     Option "fbdev"
+"/dev/${props.fbdev}"     Option "DRI" "2" EndSection`}</pre>
 
 - 配置触摸
 
 在 /etc/X11/xorg.conf.d 下添加一个配置文件 99-touchscreen-calibration.conf，内容如下：
 
-<pre>
-  Section "InputClass" &nbsp;&nbsp;&nbsp;&nbsp;Identifier "calibration"
-  &nbsp;&nbsp;&nbsp;&nbsp;MatchProduct "ADS7846 Touchscreen"
-  &nbsp;&nbsp;&nbsp;&nbsp;Option "TransformationMatrix" "-1 0 1 0 1 0 0 0 1"
-  EndSection
-</pre>
+```text
+Section "InputClass"     Identifier "calibration"
+    MatchProduct "ADS7846 Touchscreen"
+    Option "TransformationMatrix" "-1 0 1 0 1 0 0 0 1"
+EndSection
+```
 
 - 重启系统
 
