@@ -13,7 +13,7 @@ sidebar_position: 3
 
 2. 要求网线另一端的交换机 / 路由器支持 PoE供电。
 
-3. ** 以太网端口的线序，1、2、3 和 6 用于供电和数据传输，而 4、5、7 和 8 仅用于数据传输。**
+3. **以太网端口的线序，1、2、3 和 6 用于供电和数据传输，而 4、5、7 和 8 仅用于数据传输。**
 
 4. Radxa ZERO 3E 的 PoE 功能的实现是涉及螺丝和铜柱的，需要将铜柱和螺丝固定牢固，不装上铜柱和螺丝是不能使用 PoE 功能的。
 
@@ -27,7 +27,7 @@ sidebar_position: 3
 
 ![zero 3e poe hat 02](/img/zero/zero3/zero_3e_poe_hat_02.webp)
 
-- 然后，如图所示，固定 Radxa ZERO 3E PoE 帽上方的螺丝。** 需要将螺丝和铜柱拧紧 **
+- 然后，如图所示，固定 Radxa ZERO 3E PoE 帽上方的螺丝。**需要将螺丝和铜柱拧紧**
 
 ![zero 3e poe hat 03](/img/zero/zero3/zero_3e_poe_hat_03.webp)
 
