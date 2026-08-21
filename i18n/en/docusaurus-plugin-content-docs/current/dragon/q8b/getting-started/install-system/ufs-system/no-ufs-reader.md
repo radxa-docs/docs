@@ -6,7 +6,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # Boot from MicroSD Card and Install System to UFS
 
-<InstallSystem tag="ufs_module" board="dragon-q8b" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r4/radxa-dragon-midstream_noble_gnome_r4.output_4096.img.xz" path_to_image_unxz="radxa-dragon-midstream_noble_gnome_r4.output_4096.img.xz" path_to_image="radxa-dragon-midstream_noble_gnome_r4.output_4096.img" ufs_module_img="/en/img/dragon/q8b/dragon-q8b-ufs-module-board.webp" />
+<InstallSystem tag="ufs_module" board="dragon-q8b" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz" path_to_image_unxz="radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz" path_to_image="radxa-dragon-midstream_resolute_gnome_r5.output_4096.img" ufs_module_img="/en/img/dragon/q8b/dragon-q8b-ufs-module-board.webp" />
 
 ## Booting the System
 

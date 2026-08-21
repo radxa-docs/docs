@@ -6,7 +6,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # Booting from MicroSD Card and Installing System to NVMe SSD
 
-<InstallSystem tag="m2_2280" board="dragon-q8b" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r4/radxa-dragon-midstream_noble_gnome_r4.output_512. img.xz" path_to_image_unxz="radxa-dragon-midstream_noble_gnome_r4.output_512. img.xz" path_to_image="radxa-dragon-midstream_noble_gnome_r4.output_512. img" />
+<InstallSystem tag="m2_2280" board="dragon-q8b" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz" path_to_image_unxz="radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz" path_to_image="radxa-dragon-midstream_resolute_gnome_r5.output_512.img" />
 
 ## Booting the System
 

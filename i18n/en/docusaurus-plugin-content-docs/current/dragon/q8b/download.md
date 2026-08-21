@@ -16,8 +16,8 @@ This page publishes the latest stable and test system images. Test releases star
 
 ### Radxa OS
 
-- [radxa-dragon-midstream_noble_gnome_t2.output_512. img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r4/radxa-dragon-midstream_noble_gnome_r4.output_512.img.xz): Suitable for booting from a microSD card or NVMe SSD
-- [radxa-dragon-midstream_noble_gnome_r4.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r4/radxa-dragon-midstream_noble_gnome_r4.output_4096.img.xz): Suitable for booting from UFS
+- [radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz): Suitable for booting from a microSD card or NVMe SSD
+- [radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz): Suitable for booting from UFS
 
 ## Boot Firmware
 
