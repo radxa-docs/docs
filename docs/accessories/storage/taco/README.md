@@ -55,7 +55,7 @@ sidebar_position: 1
 | USB        | 2x USB 3.2 Gen1 Type-A 端口<br />1x USB Type-C 端口，用于烧录系统                                                               |
 | 供电       | 12V DC 供电插孔或 12V DC 供电排针                                                                                               |
 | 风扇       | 1x 风扇接口，支持 PWM 转速控制                                                                                                  |
-| RTC        | 1x RTC 纽扣电池座，断电时间保持                                                                                                 |
+| RTC        | 1x RTC 纽扣电池座（CR1220），断电时间保持                                                                                   |
 | 其他       | 1x 8-Pin 1.25mm GPIO 排针（GPIO、I2C 和 PWM）<br />1x 电源按键<br />1x 电源指示灯<br />5x SATA 状态指示灯<br />1x RPI BOOT 按键 |
 | 兼容核心板 | 树莓派 CM5                                                                                                                      |
 | 连接器     | 2x 100-Pin B2B 接口                                                                                                             |
