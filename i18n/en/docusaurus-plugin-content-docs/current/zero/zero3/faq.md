@@ -104,7 +104,9 @@ sudo apt autoremove
 
 Yes, Radxa ZERO 3 supports Wi-Fi and Bluetooth:
 - **Wi-Fi**: Supports 2.4GHz and 5GHz bands
-- **Bluetooth**: Supports Bluetooth 5.0
+- **Bluetooth**: Supports Bluetooth 5.4
+
+> **Note**: There are hardware version differences across the ZERO 3 series. Early versions (e.g. the AP6212 module) only support 2.4GHz (802.11 b/g/n) and Bluetooth 4.0; the current shipping version (V1.12I) uses a dual-band Wi-Fi 6 module (e.g. BL-M8800DS2 / FCS960KAAMD) with hardware support for 2.4GHz / 5GHz dual-band and Bluetooth 5.4. Whether a specific 5GHz channel (e.g. channel 112) is usable depends on the driver, firmware and regulatory domain configuration, and should be confirmed by actual testing.
 
 If experiencing connection issues:
 1. Check if antenna is connected (if applicable)
