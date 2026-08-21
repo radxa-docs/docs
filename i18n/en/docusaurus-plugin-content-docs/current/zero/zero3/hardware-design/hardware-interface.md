@@ -16,6 +16,14 @@ sidebar_position: 4
 
 ## Debug Serial Port
 
+The debug serial port of ZERO 3 uses **UART2_M0** (40-pin GPIO Pin 8: TX, Pin 10: RX), with a default baud rate of 1500000n8.
+
+:::warning UART2_M0 is not recommended for use as a normal UART
+UART2_M0 is also the default U-Boot console. If you enable UART2_M0 as a normal serial port through the rsetup overlay, input on the serial port will interrupt the boot process and the device may fail to boot.
+
+If you really need to use UART2_M0, first update the system and bootloader via `rsetup`, then edit `/etc/default/u-boot` to uncomment `prompt` and `timeout` and set them to 0, and finally run `sudo u-boot-update` to rebuild the boot configuration.
+:::
+
 ## Ethernet Port
 
 ## 40 PIN GPIO
