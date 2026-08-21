@@ -33,7 +33,6 @@ adb（调试桥）安装：
 ```bash
 
 set HTTP_PROXY=myserver:1981
-
 ```
 
 方式二：打开系统设置，修改环境变量：![3b adb](/img/nx5/adb_config.webp)
@@ -47,7 +46,6 @@ set HTTP_PROXY=myserver:1981
 ```bash
 
 sudo apt install adb
-
 ```
 
 </TabItem>
@@ -60,7 +58,6 @@ sudo apt install adb
 ```bash
 
 export PATH=${path}:~/platform-tools('~'代表解压出来的工具包路径)
-
 ```
 
 </TabItem>
@@ -90,7 +87,6 @@ $ adb devices
 
 $ adb shell
   radxa:rock-android11:/ $
-
 ```
 
 </TabItem>
