@@ -217,7 +217,7 @@ ROCK 5C 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 
 </div>
 
-参考 [摄像头配件](../accessories/camera)
+参考 [摄像头配件](../accessories)
 
 ### MIPI DSI
 
@@ -255,7 +255,7 @@ ROCK 5C 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传
 
 </div>
 
-参考 [屏幕配件](../accessories/display)
+参考 [屏幕配件](../accessories)
 
 ### microSD
 

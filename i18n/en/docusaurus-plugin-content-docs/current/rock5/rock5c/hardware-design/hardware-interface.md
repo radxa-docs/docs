@@ -218,7 +218,7 @@ MIPI camera support. Utilizes a 31-pin, 0.3 mm pitch, gold-plated connector, mod
 
 </div>
 
-Refer [Camera accessories](../accessories/camera)
+Refer [Camera accessories](../accessories)
 
 ### MIPI DSI
 
@@ -256,7 +256,7 @@ MIPI screen support. Utilizes a 39-pin, 0.3 mm pitch, gold-plated connector, mod
 
 </div>
 
-Refer [Display accessories](../accessories/display)
+Refer [Display accessories](../accessories)
 
 ### microSD
 
