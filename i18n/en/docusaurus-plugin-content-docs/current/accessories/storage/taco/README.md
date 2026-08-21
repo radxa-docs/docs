@@ -55,7 +55,7 @@ Note: Image shows only the Taco package contents. 12V DC power adapter is packag
 | USB               | 2x USB 3.2 Gen1 Type-A ports<br />1x USB Type-C port for system flashing                                                                |
 | Power             | 12V DC power jack or 12V DC power header                                                                                                |
 | Fan               | 1x fan header with PWM speed control                                                                                                    |
-| RTC               | 1x RTC coin cell holder for time retention                                                                                              |
+| RTC               | 1x RTC coin cell holder (CR1220) for time retention                                                                                    |
 | Other             | 1x 8-Pin 1.25mm GPIO header (GPIO, I2C and PWM)<br />1x power button<br />1x power LED<br />5x SATA status LEDs<br />1x RPI BOOT button |
 | Compatible Module | Raspberry Pi CM5                                                                                                                        |
 | Connectors        | 2x 100-Pin B2B interfaces                                                                                                               |
