@@ -30,9 +30,9 @@ import Maskrom from "./maskrom/\_maskrom.mdx"
 
     3. Flash the Loader
 
-        <pre>
+        ```bash
         sudo rkdeveloptool db rk356x_spl_loader_ddr1056_v1.12.109_no_check_todly.bin
-        </pre>
+        ```
 
     4. Erase eMMC
 
@@ -84,9 +84,9 @@ import Maskrom from "./maskrom/\_maskrom.mdx"
 
     3. Flash the Loader
 
-        <pre>
+        ```bash
         sudo rkdeveloptool db rk356x_spl_loader_ddr1056_v1.12.109_no_check_todly.bin
-        </pre>
+        ```
 
     4. Erase SPI Flash
 

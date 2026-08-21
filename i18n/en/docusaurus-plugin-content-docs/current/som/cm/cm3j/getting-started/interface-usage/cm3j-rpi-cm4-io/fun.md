@@ -54,24 +54,22 @@ As shown in the figure, connect the fan to the Raspberry Pi Compute Module 4 IO 
 
   - Locate the fan device with the following command.
 
-    <pre>
-        ls /sys/class/thermal/cooling_device*/type <br />
-        cat /sys/class/thermal/cooling_device*/type
-    </pre>
+    ```text
+    ls /sys/class/thermal/cooling_device*/type
+    cat /sys/class/thermal/cooling_device*/type
+    ```
 
 - Turn off the fan
 
-  <pre style={{ whiteSpace: "nowrap" }}>
-    <!-- prettier-ignore -->
-    echo 0 | sudo tee /sys/class/thermal/cooling_device1/cur_state  
-  </pre>
+  ```bash
+  echo 0 | sudo tee /sys/class/thermal/cooling_device1/cur_state
+  ```
 
 - Set the fan to the highest setting.
 
-  <pre style={{ whiteSpace: "nowrap" }}>
-    <!-- prettier-ignore -->
-    sudo cp /sys/class/thermal/cooling_device1/max_state /sys/class/thermal/cooling_device1/cur_state  
-  </pre>
+  ```bash
+  sudo cp /sys/class/thermal/cooling_device1/max_state /sys/class/thermal/cooling_device1/cur_state
+  ```
 
 - step_wise
 
