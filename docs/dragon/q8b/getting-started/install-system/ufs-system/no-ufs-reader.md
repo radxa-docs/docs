@@ -6,7 +6,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # 从 microSD 卡启动并将系统安装到 UFS
 
-<InstallSystem tag="ufs_module" board="dragon-q8b" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r4/radxa-dragon-midstream_noble_gnome_r4.output_4096.img.xz" path_to_image_unxz="radxa-dragon-midstream_noble_gnome_r4.output_4096.img.xz" path_to_image="radxa-dragon-midstream_noble_gnome_r4.output_4096.img" ufs_module_img="/img/dragon/q8b/dragon-q8b-ufs-module-board.webp" />
+<InstallSystem tag="ufs_module" board="dragon-q8b" download_page="../../../download" download_url="https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz" path_to_image_unxz="radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz" path_to_image="radxa-dragon-midstream_resolute_gnome_r5.output_4096.img" ufs_module_img="/img/dragon/q8b/dragon-q8b-ufs-module-board.webp" />
 
 ## 启动系统
 
