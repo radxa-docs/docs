@@ -88,17 +88,13 @@ git clone https://github.com/raspberrypi/pico-examples.git --branch master
 
 - Compile
 
-<pre>
-  export PICO_SDK_PATH=path/to/pico-sdk
-  <!-- prettier-ignore -->
-  cd pico-examples
-  <!-- prettier-ignore -->
-  mkdir build
-  <!-- prettier-ignore -->
-  cd build
-  <!-- prettier-ignore -->
-  cmake .. -DPICO_PLATFORM=<b>rp2350-riscv</b> && make -j4
-</pre>
+```bash
+export PICO_SDK_PATH=path/to/pico-sdk
+cd pico-examples
+mkdir build
+cd build
+cmake .. -DPICO_PLATFORM=rp2350-riscv && make -j4
+```
 
 - Verify that the compiled program is for riscv 32
 
