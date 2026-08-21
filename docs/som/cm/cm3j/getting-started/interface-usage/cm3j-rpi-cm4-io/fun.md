@@ -54,24 +54,22 @@ sidebar_position: 8
 
   - 通过以下命令找到风扇设备
 
-    <pre>
-        ls /sys/class/thermal/cooling_device*/type <br />
-        cat /sys/class/thermal/cooling_device*/type
-    </pre>
+    ```text
+    ls /sys/class/thermal/cooling_device*/type
+    cat /sys/class/thermal/cooling_device*/type
+    ```
 
 - 关闭风扇
 
-  <pre style={{ whiteSpace: "nowrap" }}>
-    <!-- prettier-ignore -->
-    echo 0 | sudo tee /sys/class/thermal/cooling_device1/cur_state  
-  </pre>
+  ```bash
+  echo 0 | sudo tee /sys/class/thermal/cooling_device1/cur_state
+  ```
 
 - 将风扇调至最高档
 
-  <pre style={{ whiteSpace: "nowrap" }}>
-    <!-- prettier-ignore -->
-    sudo cp /sys/class/thermal/cooling_device1/max_state /sys/class/thermal/cooling_device1/cur_state  
-  </pre>
+  ```bash
+  sudo cp /sys/class/thermal/cooling_device1/max_state /sys/class/thermal/cooling_device1/cur_state
+  ```
 
 - step_wise
 
