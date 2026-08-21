@@ -68,6 +68,12 @@ Maskrom 模式是 Rockchip 芯片内置的底层恢复模式，当设备无法�
 
 若主板进入 Maskrom 模式，软件左下角会显示 `Found One MASKROM Device`。
 
+:::tip
+如果 RKDevTool 提示 `没有发现设备`，且 Windows 设备管理器中显示为“未知设备”，说明电脑尚未安装 Rockchip USB 驱动。
+
+请先安装驱动：下载并解压 [DriverAssistant v5.14](https://dl.radxa.com/tools/windows/DriverAssitant_v5.14.zip)，右键以管理员身份运行 `DriverInstall.exe`，点击 `Install Driver`。安装完成后重新插拔 USB 数据线（或重新进入 Maskrom 模式），再打开 RKDevTool 即可识别设备。
+:::
+
 <div style={{ textAlign: "center" }}>
   <img
     src="/img/common/tools/rkdevtool/maskrom-mode.webp"
