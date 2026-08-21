@@ -57,17 +57,17 @@ Download the [ROCK 4A/4B/4SE system images](../../../../download) from the resou
             <br />
             <li>Confirm that the Radxa ROCK 4AB SE has entered Maskrom mode</li>
             <br />
-            <pre>
-                $ sudo upgrade_tool ld
-                Program Log will save in the /root/upgrade_tool/log/
-                List of rockusb connected(1)
-                DevNo=1	Vid=0x2207,Pid=0x330c,LocationID=19	Mode=Maskrom
-                            </pre>
+            ```bash
+            $ sudo upgrade_tool ld
+            Program Log will save in the /root/upgrade_tool/log/
+            List of rockusb connected(1)
+            DevNo=1	Vid=0x2207,Pid=0x330c,LocationID=19	Mode=Maskrom
+            ```
                             <li>Flash the update system image</li>
                             <br />
-                            <pre>
-                $ sudo upgrade_tool uf rock4xx-android-xx-update.img
-            </pre>
+                            ```bash
+                            $ sudo upgrade_tool uf rock4xx-android-xx-update.img
+                            ```
             <li>The system will automatically boot after flashing is complete</li>
         </ul>
     </TabItem>

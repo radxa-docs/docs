@@ -61,17 +61,17 @@ import UPGRADE_TOOL from "../../../../../../common/dev/\_upgrade-tool.mdx";
             <br />
             <li>确认瑞莎 ROCK 4AB SE已经进入 Maskrom 模式</li>
             <br />
-            <pre>
-                $ sudo upgrade_tool ld
-                Program Log will save in the /root/upgrade_tool/log/
-                List of rockusb connected(1)
-                DevNo=1	Vid=0x2207,Pid=0x330c,LocationID=19	Mode=Maskrom
-                            </pre>
+            ```bash
+            $ sudo upgrade_tool ld
+            Program Log will save in the /root/upgrade_tool/log/
+            List of rockusb connected(1)
+            DevNo=1	Vid=0x2207,Pid=0x330c,LocationID=19	Mode=Maskrom
+            ```
                             <li>烧录 update 系统镜像</li>
                             <br />
-                            <pre>
-                $ sudo upgrade_tool uf rock4xx-android-xx-update.img
-            </pre>
+                            ```bash
+                            $ sudo upgrade_tool uf rock4xx-android-xx-update.img
+                            ```
             <li>烧录完成后系统会自动启动</li>
         </ul>
     </TabItem>
