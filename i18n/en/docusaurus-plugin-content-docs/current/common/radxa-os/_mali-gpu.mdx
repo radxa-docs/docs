@@ -210,3 +210,17 @@ sudo apt list libmali-* --installed
 Listing... Done
 libmali-bifrost-g52-g13p0-x11-wayland-gbm/rk3566-bookworm-test,now 1.9-1 arm64 [installed]
 ```
+
+### Verify the OpenGL renderer
+
+Run the following commands to check the currently active OpenGL / OpenGL ES renderer:
+
+```bash
+glxinfo | grep "OpenGL renderer"
+es2_info | grep "OpenGL ES renderer"
+```
+
+- When using the Mali driver, `es2_info` should show the corresponding Mali GPU name, for example `Mali-G610` (RK3588 series) or `Mali-G52` (RK356X/RK3576 series).
+- Since the Mali driver does not support desktop OpenGL (see the feature table above), it is normal for `glxinfo` to show `llvmpipe`; rely on the `es2_info` output instead.
+- When using the Panfrost/Panthor driver, both `glxinfo` and `es2_info` should show `Panfrost` or `Panthor`.
+- If `es2_info` shows `llvmpipe`, the GPU driver is not active and software rendering is in use; check whether all the steps above have been completed.

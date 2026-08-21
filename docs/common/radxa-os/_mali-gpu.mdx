@@ -208,3 +208,17 @@ sudo apt list libmali-* --installed
 Listing... Done
 libmali-bifrost-g52-g13p0-x11-wayland-gbm/rk3566-bookworm-test,now 1.9-1 arm64 [installed]
 ```
+
+### 验证 OpenGL 渲染器
+
+运行以下命令，查看当前生效的 OpenGL / OpenGL ES 渲染器：
+
+```bash
+glxinfo | grep "OpenGL renderer"
+es2_info | grep "OpenGL ES renderer"
+```
+
+- 使用 Mali 驱动时，`es2_info` 应显示对应的 Mali GPU 名称，例如 `Mali-G610`（RK3588 系列）或 `Mali-G52`（RK356X/RK3576 系列）。
+- 由于 Mali 驱动不支持桌面 OpenGL（见上文特性表），`glxinfo` 显示 `llvmpipe` 属于正常现象，请以 `es2_info` 的输出为准。
+- 使用 Panfrost/Panthor 驱动时，`glxinfo` 与 `es2_info` 应显示 `Panfrost` 或 `Panthor`。
+- 如果 `es2_info` 显示 `llvmpipe`，说明 GPU 驱动未生效，当前为软件渲染，请检查上述步骤是否完整执行。
