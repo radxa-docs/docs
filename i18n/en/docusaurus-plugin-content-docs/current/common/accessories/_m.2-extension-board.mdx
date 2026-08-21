@@ -60,9 +60,6 @@
 
   1. You can check if the SSD card is recognised by `lsblk`.
 
-  <pre>{`radxa@${props.model}:~$ lsblk NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT mmcblk0
-179:0 0 14.5G 0 disk ├─mmcblk0p1 179:1 0 16M 0 part /config └─mmcblk0p2
-179:2 0 14.4G 0 part / mmcblk0boot0 179:32 0 4M 1 disk mmcblk0boot1 179:64 0
-4M 1 disk zram0 254:0 0 3.8G 0 disk [SWAP] nvme0n1 259:0 0 238.5G 0 disk`}</pre>
+  <pre>{`radxa@${props.model}:~$ lsblk NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT mmcblk0\n179:0 0 14.5G 0 disk ├─mmcblk0p1 179:1 0 16M 0 part /config └─mmcblk0p2\n179:2 0 14.4G 0 part / mmcblk0boot0 179:32 0 4M 1 disk mmcblk0boot1 179:64 0\n4M 1 disk zram0 254:0 0 3.8G 0 disk [SWAP] nvme0n1 259:0 0 238.5G 0 disk`}</pre>
 
   2. At this point you can see that the system has recognised the SSD (**nvme0n1**).

@@ -32,8 +32,7 @@
 
 你可以通过以下命令检查设备是否已连接：
 
-<pre>{`radxa@${props.model}:~$ lsusb | grep -i Quectel Bus 002 Device 002: ID
-2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem`}</pre>
+<pre>{`radxa@${props.model}:~$ lsusb | grep -i Quectel Bus 002 Device 002: ID\n2c7c:0125 Quectel Wireless Solutions Co., Ltd. EC25 LTE modem`}</pre>
 
 调制解调器通常是通过串口和宿主机进行通信。请检查系统是否正确枚举出对应的串口设备：
 

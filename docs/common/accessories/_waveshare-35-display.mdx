@@ -33,9 +33,7 @@ sudo mv /usr/share/X11/xorg.conf.d/20-modesetting.conf /usr/share/X11/xorg.conf.
 
 - 在 `/etc/X11/xorg.conf.d` 下添加一个配置文件 `20-modesetting.conf`，内容如下：
 
-<pre>{`Section "Device"     Identifier "Rockchip Graphics"
-    Driver "fbdev"     Option "fbdev"
-"/dev/${props.fbdev}"     Option "DRI" "2" EndSection`}</pre>
+<pre>{`Section "Device"     Identifier "Rockchip Graphics"\n    Driver "fbdev"     Option "fbdev"\n"/dev/${props.fbdev}"     Option "DRI" "2" EndSection`}</pre>
 
 - 配置触摸
 

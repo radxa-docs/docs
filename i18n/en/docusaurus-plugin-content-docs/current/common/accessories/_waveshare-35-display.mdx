@@ -33,9 +33,7 @@ sudo mv /usr/share/X11/xorg.conf.d/20-modesetting.conf /usr/share/X11/xorg.conf.
 
 - Add a configuration file `20-modesetting.conf` under `/etc/X11/xorg.conf.d` with the following contents:
 
-<pre>{`Section "Device"     Identifier "Rockchip Graphics"
-    Driver "fbdev"     Option "fbdev"
-"/dev/${props.fbdev}"     Option "DRI" "2" EndSection`}</pre>
+<pre>{`Section "Device"     Identifier "Rockchip Graphics"\n    Driver "fbdev"     Option "fbdev"\n"/dev/${props.fbdev}"     Option "DRI" "2" EndSection`}</pre>
 
 -
 
