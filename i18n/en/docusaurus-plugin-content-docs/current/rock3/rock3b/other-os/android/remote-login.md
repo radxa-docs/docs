@@ -29,7 +29,6 @@ Method 1:Enter the following command in the terminal window:
 ```bash
 
 set HTTP_PROXY=myserver:1981
-
 ```
 
 Method 2:Open system settings and modify environment variables:![rock3b adb](/img/nx5/adb_config_en.webp)
@@ -43,7 +42,6 @@ Use the following command to install:
 ```bash
 
 sudo apt install adb
-
 ```
 
 </TabItem>
@@ -83,7 +81,6 @@ $ adb devices
 
 $ adb shell
   RadxaRock3B:/ $
-
 ```
 
 </TabItem>
@@ -110,7 +107,6 @@ Wireless ADB is supported on Android 11 and later.
 $ adb connect 10.0.0.16:45613
 $ adb shell
   RadxaRock3B:/ $
-
 ```
 
 </TabItem>

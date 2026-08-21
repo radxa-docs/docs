@@ -18,7 +18,6 @@ lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \
 libgl1-mesa-dev libxml2-utils xsltproc unzip mtools u-boot-tools \
 htop iotop sysstat iftop pigz bc device-tree-compiler lunzip \
 dosfstools vim-common parted udev libssl-dev python3 python-pip lzop swig
-
 ```
 
 ### Repo
@@ -32,7 +31,6 @@ Repo 是 Android 开发中用于管理多个 Git 仓库的工具，它是一个P
 wget https://storage.googleapis.com/git-repo-downloads/repo -P ~/bin/
 or
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-
 ```
 
 ## 源码下载
@@ -41,7 +39,6 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 
 $ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-r-release.xml
 $ repo sync -d --no-tags -j4
-
 ```
 
 ## 镜像编译
@@ -59,7 +56,6 @@ radxa:rock-android11 $ source build/envsetup.sh
 radxa:rock-android11 $ lunch rk356x_rock_3b_r-userdebug
 
 radxa:rock-android11 $ ./build.sh -UACKu
-
 ```
 
 等待编译完成就可以在 IMAGE 目录找到镜像
