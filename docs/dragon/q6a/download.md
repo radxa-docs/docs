@@ -101,7 +101,16 @@ Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
 
 - EDL 工具
 
-  - [EDL-NG](https://dl.radxa.com/q6a/images/edl-ng-dist.zip)
+  :::info 最新 EDL 工具发布页面
+
+  - [EDL-NG](https://github.com/strongtz/edl-ng/releases)
+
+  该页面会发布最新版本的 EDL-NG 工具。
+
+  :::
+
+  - [EDL-NG v1.6.0（GitHub）](https://github.com/strongtz/edl-ng/releases/tag/v1.6.0)
+  - [EDL-NG v1.6.0（dl.radxa.com）](https://dl.radxa.com/q6a/images/edl-ng-dist-v1.6.0.zip)
 
 - SPI 启动固件
 
