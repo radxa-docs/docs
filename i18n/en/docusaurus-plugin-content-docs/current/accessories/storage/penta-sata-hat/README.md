@@ -16,6 +16,7 @@ Currently supported Radxa ROCK Series products:
 - ROCK 3C
 - ROCK 4A / 4B
 - ROCK 4A+ / 4B+
+- ROCK 4D
 - ROCK 4SE
 - ROCK 5A
 - ROCK 5C
