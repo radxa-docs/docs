@@ -80,12 +80,10 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
   识别存储设备
 
-  <pre>
-    $ lsusb
-    <strong>
-      Bus 001 Device 003: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
-    </strong>
-  </pre>
+  ```bash
+  $ lsusb
+    Bus 001 Device 003: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
+  ```
 
   如上所示，这里已经成功识别到了 Micro-SD Card Reader
 
@@ -105,23 +103,23 @@ Maskrom 按键，用以进入 Maskrom 模式完成刷机。
 
   2. 读取测试
 
-  <pre>
-    $ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
-    100+0 records in
-    100+0 records out
-    104857600 bytes (105 MB, 100 MiB) copied, 1.14358 s, 91.7 MB/s
-  </pre>
+  ```bash
+  $ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
+  100+0 records in
+  100+0 records out
+  104857600 bytes (105 MB, 100 MiB) copied, 1.14358 s, 91.7 MB/s
+  ```
 
   这个命令将会从 USB 设备读取数据，并将其写入 /dev/null，以便测试读取速度。这里指定了写入的块的大小为 1M，指定了读取 100 个块，因此总共读取了 100 MB 的数据，读取速度为 91.7 MB/s
 
   3. 写入测试
 
-  <pre>
-    $ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
-    100+0 records in
-    100+0 records out
-    104857600 bytes (105 MB, 100 MiB) copied, 2.22391 s, 45.7 MB/s
-  </pre>
+  ```bash
+  $ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
+  100+0 records in
+  100+0 records out
+  104857600 bytes (105 MB, 100 MiB) copied, 2.22391 s, 45.7 MB/s
+  ```
 
   这里指定了写入的块的大小为 1M，写入了 100 个块，总共写入了 100 M 的数据，写入速度为 45.7 MB/s
 

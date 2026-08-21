@@ -81,12 +81,10 @@ Maskrom button to enter Maskrom mode to complete the flashing.
 
   Identifying storage devices
 
-  <pre>
-    $ lsusb
-    <strong>
-      Bus 001 Device 003: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
-    </strong>
-  </pre>
+  ```bash
+  $ lsusb
+    Bus 001 Device 003: ID 067b:2731 Prolific Technology, Inc. USB SD Card Reader
+  ```
 
   As you can see above, the Micro-SD Card Reader has been successfully recognised here.
 
@@ -106,23 +104,23 @@ Maskrom button to enter Maskrom mode to complete the flashing.
 
   2. Read Test
 
-  <pre>
-    $ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
-    100+0 records in
-    100+0 records out
-    104857600 bytes (105 MB, 100 MiB) copied, 1.14358 s, 91.7 MB/s
-  </pre>
+  ```bash
+  $ sudo dd if=/dev/sda of=/dev/null bs=1M count=100
+  100+0 records in
+  100+0 records out
+  104857600 bytes (105 MB, 100 MiB) copied, 1.14358 s, 91.7 MB/s
+  ```
 
   This command will read data from the USB device and write it to /dev/null to test the read speed. The block size specified here is 1M, and 100 blocks are specified to be read, so a total of 100 MB of data is read, and the read speed is 91.7 MB/s.
 
   3. Write test
 
-  <pre>
-    $ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
-    100+0 records in
-    100+0 records out
-    104857600 bytes (105 MB, 100 MiB) copied, 2.22391 s, 45.7 MB/s
-  </pre>
+  ```bash
+  $ sudo dd if=/dev/zero of=/dev/sda bs=1M count=100
+  100+0 records in
+  100+0 records out
+  104857600 bytes (105 MB, 100 MiB) copied, 2.22391 s, 45.7 MB/s
+  ```
 
   The block size specified here is 1M, 100 blocks were written, a total of 100M of data was written, and the write speed was 45.7 MB/s.
 
