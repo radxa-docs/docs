@@ -238,8 +238,8 @@ Users can connect various sensors, actuators, communication modules, displays, a
 | Function3 | Function2    | Function1      |               Pin#               |              Pin#               | Function1 | Function2        | Function3 |
 | --------- | ------------ | -------------- | :------------------------------: | :-----------------------------: | --------- | ---------------- | --------- |
 |           |              | 3.3V           | <div className='yellow'>1</div>  |  <div className='red'>2</div>   | 5V        |                  |           |
-|           | GPIO061      | I2C4_SDA       |  <div className='green'>3</div>  |  <div className='red'>4</div>   | 5V        |                  |           |
-|           | GPIO062      | I2C4_CLK       |  <div className='green'>5</div>  | <div className='black'>6</div>  | GND       |                  |           |
+|           | GPIO062      | I2C4_SDA       |  <div className='green'>3</div>  |  <div className='red'>4</div>   | 5V        |                  |           |
+|           | GPIO061      | I2C4_CLK       |  <div className='green'>5</div>  | <div className='black'>6</div>  | GND       |                  |           |
 |           | GPIO071      |                |  <div className='green'>7</div>  | <div className='green'>8</div>  | UART3_TXD | GPIO105          |           |
 |           |              | GND            |  <div className='black'>9</div>  | <div className='green'>10</div> | UART3_RXD | GPIO106          |           |
 | GPIO095   | PWM0         | UART0_TXD      | <div className='green'>11</div>  | <div className='green'>12</div> | GPIO091   | I2S4_SCK_LB      |           |
