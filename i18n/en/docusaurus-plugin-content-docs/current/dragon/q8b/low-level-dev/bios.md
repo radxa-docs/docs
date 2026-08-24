@@ -20,8 +20,8 @@ The top of the BIOS screen displays the board model, processor model and frequen
 
 ```plaintext
 Radxa Dragon Q8B
-Snapdragon (TM) 8cx Gen 3 @ 3.0 GHz                              1.53 GHz
-6.0.260701.BOOT.MXF.1.1.c1-00167-MAKENA-1                        16384 MB RAM
+Snapdragon (TM) 8cx Gen 3 @ 3.0 GHz                              2.99 GHz
+6.0.260821.BOOT.MXF.1.1.c1-00167-MAKENA-1                        16384 MB RAM
 
    Select Language                  <English>
  ► Radxa Platform Configuration
@@ -64,15 +64,17 @@ The top of the screen shows the Dragon Q8B board information, including manufact
 └────────────────────────────────────────────────────────────────────────────────────┘
 
    Manufacturer               Radxa Computer             Configure the PCIe settings.
-   Product Name               RS782-D16S32W0
-   Version                    V1.20B
-   Serial Number              33JBEYIO
+   Product Name               RS782-D16S32W0X110
+   Version                    V1.305
+   Serial Number              WGAEZ0HF
 
    Configuration Options
 
  ► GPIO
+ ► DRAM Settings
  ► PCI Express Settings
  ► USB / Type-C Settings
+ ► Real-Time Clock (RTC) Settings
  ► Debugging Settings
  ► Hypervisor Settings
  ► Boot Device Order
@@ -89,11 +91,15 @@ The top of the screen shows the Dragon Q8B board information, including manufact
 ```
 
 - **GPIO**: Configure the 40-pin GPIO.
+- **DRAM Settings**: View and set the DDR frequency.
 - **PCI Express Settings**: Configure PCIe.
 - **USB / Type-C Settings**: Configure the speed and output voltage of the USB-A / USB-C ports.
   - You can configure the Type-C 0/1 ports to output a higher voltage, for example 9V.
   - You can configure the Type-C 0/1 ports to a maximum speed of 10 Gbps or 5 Gbps. The default is **10 Gbps**.
   - You can configure the Type-A 3.0 ports to a maximum speed of 10 Gbps or 5 Gbps. The default is **5 Gbps**.
+- **Real-Time Clock (RTC) Settings**: Configure the RTC time.
+  - You can configure the I2C RTC date and time.
+  - You can configure the RTC sync policy: I2C RTC to PMIC RTC / PMIC RTC to I2C RTC / Do not sync.
 - **Debugging Settings**: Configure the serial debugging functions.
   - **Synchronous Debug UART in UEFI**: Disabled by default.
   - **Debug Print Level**: You can configure the debug print level: Default, Error Only, Error + Warn, or Debug. The default is **Default**.
@@ -170,3 +176,86 @@ Use this menu for finer-grained boot option management. You can create, modify, 
 - **Driver Options**: Modify the boot driver options.
 - **Boot From File**: Boot the system from a file or device.
 - **Boot Device Order**: Modify the boot device order.
+
+## FAQs
+
+### Custom Logo Example
+
+#### Key Points
+
+1. Supported image formats: **JPEG**, **PNG**, **BMP**.
+2. There is no limit on the size or resolution of the image you provide. The BIOS automatically scales the image to 960x960 or below, and it must not exceed the logo partition size.
+
+#### Steps
+
+1. Using Radxa OS as an example, place the logo JPG file in the first partition of Radxa OS, the config partition.
+
+```plaintext
+root@radxa-dragon-q8b:~# ls /config/test_logo.jpg
+/config/test_logo.jpg
+```
+
+2. Reboot the system and enter the `Select Logo Image` screen in the BIOS.
+
+```plaintext
+-> Radxa Platform Configuration
+    -> Custom Logo
+        -> Select Logo Image...
+```
+
+3. Find the config partition in the File Explorer page and select it.
+
+```plaintext
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                          File Explorer                                           │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+ ► config,                                                                                          │
+   [VenHw(D1531D41-3F80-4091-8D0A-541F59236D66)/HD(1,GPT,0CDE56A9-52                                │
+   32-43CD-A74C-709EDE794C8F,0x8000,0x8000)]                                                        │
+ ► efi,                                                                                             │
+   [VenHw(D1531D41-3F80-4091-8D0A-541F59236D66)/HD(2,GPT,AB7482D2-52                                │
+   D5-41EB-AA7A-9D967C1BA1A4,0x10000,0x200000)]                                                     │
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ↑↓=Move Highlight              <Enter>=Select Entry             Esc=Exit                         │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+4. Select `test_logo.jpg`.
+
+```plaintext
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                          File Explorer                                           │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+ ► ***NEW FILE***                                                     This menu used to create a    │
+ ► ***NEW FOLDER***                                                   new file in current           │
+                                                                      directory, jump to next page  │
+                                                                      to name the new file          │
+   config.txt                                                         │
+   logo.bmp                                                           │
+   test_logo.jpg                                                      │
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ↑↓=Move Highlight              <Enter>=Select Entry             Esc=Exit                         │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+5. After selecting the `test_logo.jpg` file, the following output is shown:
+
+```plaintext
+Loading selected image...
+Converting and writing logo (1134485 bytes)...
+Decoding image...
+Resizing 1920x1080 -> 960x540
+Encoding BMP...
+Writing Logo...
+Writing BMP to flash...
+Writing Stamp to flash...
+Logo written successfully!
+
+Press any key to continue...
+```
+
+6. Press `Esc` to go back to the main screen, select `Reset` to reboot the BIOS, then verify the new logo on the HDMI monitor.

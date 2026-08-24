@@ -27,6 +27,23 @@ Radxa OS 的默认凭据如下：
 | 用户名 | `radxa` |
 | 密码   | `radxa` |
 
+### 查看 BIOS 版本
+
+在系统中输入以下命令可以查看当前主板的 BIOS 版本：
+
+```bash
+radxa@radxa-dragon-q8b:~$ sudo dmidecode -s bios-version
+6.0.260818.BOOT.MXF.1.1.c1-00167-MAKENA-1
+```
+
+### 单独升级内核
+
+如果只想单独升级内核，而不升级整个系统，可以执行以下命令：
+
+```bash
+radxa@radxa-dragon-q8b:~$ sudo apt install linux-image-radxa-dragon-midstream linux-headers-radxa-dragon-midstream
+```
+
 ## 使用系统
 
 主要为无显示器的用户提供一些使用建议，方便大家更好的上手使用我们的 Dragon Q8B。

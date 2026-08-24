@@ -20,8 +20,8 @@ BIOS 界面的上方会显示主板型号、处理器型号、运行频率、固
 
 ```plaintext
 Radxa Dragon Q8B
-Snapdragon (TM) 8cx Gen 3 @ 3.0 GHz                              1.53 GHz
-6.0.260701.BOOT.MXF.1.1.c1-00167-MAKENA-1                        16384 MB RAM
+Snapdragon (TM) 8cx Gen 3 @ 3.0 GHz                              2.99 GHz
+6.0.260821.BOOT.MXF.1.1.c1-00167-MAKENA-1                        16384 MB RAM
 
    Select Language                  <English>
  ► Radxa Platform Configuration
@@ -64,15 +64,17 @@ Snapdragon (TM) 8cx Gen 3 @ 3.0 GHz                              1.53 GHz
 └────────────────────────────────────────────────────────────────────────────────────┘
 
    Manufacturer               Radxa Computer             Configure the PCIe settings.
-   Product Name               RS782-D16S32W0
-   Version                    V1.20B
-   Serial Number              33JBEYIO
+   Product Name               RS782-D16S32W0X110
+   Version                    V1.305
+   Serial Number              WGAEZ0HF
 
    Configuration Options
 
  ► GPIO
+ ► DRAM Settings
  ► PCI Express Settings
  ► USB / Type-C Settings
+ ► Real-Time Clock (RTC) Settings
  ► Debugging Settings
  ► Hypervisor Settings
  ► Boot Device Order
@@ -89,11 +91,15 @@ Snapdragon (TM) 8cx Gen 3 @ 3.0 GHz                              1.53 GHz
 ```
 
 - **GPIO**：用于配置 40-Pin GPIO 功能。
+- **DRAM Settings**：用于查看和设置 DDR 频率。
 - **PCI Express Settings**：配置 PCIe 功能。
 - **USB / Type-C Settings**：配置 USB-A / USB-C 接口速率和输出电压等功能。
   - 用户可配置 Type-C 0/1 口输出高电压，如 9V。
   - 用户可配置 Type-C 0/1 口最大速率为 10 Gbps 或 5 Gbps。默认为 **10 Gbps**。
   - 用户可配置 Type-A 3.0 口最大速率为 10 Gbps 或 5 Gbps。默认为 **5 Gbps**。
+- **Real-Time Clock (RTC) Settings**：配置 RTC 时间。
+  - 用户可配置 I2C RTC 日期和时间。
+  - 用户可配置 RTC 同步策略：I2C RTC to PMIC RTC / PMIC RTC to I2C RTC / Do not sync。
 - **Debugging Settings**：配置串口调试功能。
   - **Synchronous Debug UART in UEFI**：默认是关闭状态。
   - **Debug Print Level**：用户可配置调试打印等级：Default、Error Only、Error + Warn、Debug。默认是 **Default**。
@@ -170,3 +176,86 @@ Snapdragon (TM) 8cx Gen 3 @ 3.0 GHz                              1.53 GHz
 - **Driver Options**：修改启动驱动选项。
 - **Boot From File**：从文件或者设备启动系统。
 - **Boot Device Order**：修改启动设备顺序。
+
+## FAQs
+
+### 定制 Logo 示例
+
+#### 要点
+
+1. 支持的图片格式：**JPEG**、**PNG**、**BMP**。
+2. 不限制用户提供的图片大小和分辨率，BIOS 会将图片自动缩放到 960x960 以下，不超过 logo 分区大小。
+
+#### 步骤
+
+1. 以 Radxa OS 为例，把 Logo jpg 文件放在 Radxa OS 的第一个分区，config 分区。
+
+```plaintext
+root@radxa-dragon-q8b:~# ls /config/test_logo.jpg
+/config/test_logo.jpg
+```
+
+2. 重启系统，进入 BIOS 的 `Select Logo Image` 界面。
+
+```plaintext
+-> Radxa Platform Configuration
+    -> Custom Logo
+        -> Select Logo Image...
+```
+
+3. 在 File explorer 页面找到 config 分区，并选中。
+
+```plaintext
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                          File Explorer                                           │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+ ► config,                                                                                          │
+   [VenHw(D1531D41-3F80-4091-8D0A-541F59236D66)/HD(1,GPT,0CDE56A9-52                                │
+   32-43CD-A74C-709EDE794C8F,0x8000,0x8000)]                                                        │
+ ► efi,                                                                                             │
+   [VenHw(D1531D41-3F80-4091-8D0A-541F59236D66)/HD(2,GPT,AB7482D2-52                                │
+   D5-41EB-AA7A-9D967C1BA1A4,0x10000,0x200000)]                                                     │
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ↑↓=Move Highlight              <Enter>=Select Entry             Esc=Exit                         │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+4. 选中 `test_logo.jpg`。
+
+```plaintext
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                          File Explorer                                           │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+ ► ***NEW FILE***                                                     This menu used to create a    │
+ ► ***NEW FOLDER***                                                   new file in current           │
+                                                                      directory, jump to next page  │
+                                                                      to name the new file          │
+   config.txt                                                         │
+   logo.bmp                                                           │
+   test_logo.jpg                                                      │
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ↑↓=Move Highlight              <Enter>=Select Entry             Esc=Exit                         │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+5. 选择 `test_logo.jpg` 文件后，会出现如下打印：
+
+```plaintext
+Loading selected image...
+Converting and writing logo (1134485 bytes)...
+Decoding image...
+Resizing 1920x1080 -> 960x540
+Encoding BMP...
+Writing Logo...
+Writing BMP to flash...
+Writing Stamp to flash...
+Logo written successfully!
+
+Press any key to continue...
+```
+
+6. 按 `Esc` 键回退到主界面，选中 `Reset` 重启 BIOS，然后在 HDMI 显示器上确认新的 Logo。
