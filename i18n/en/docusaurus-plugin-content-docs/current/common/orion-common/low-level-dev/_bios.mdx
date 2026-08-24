@@ -235,7 +235,10 @@ For advanced users who need to recover from a corrupted BIOS or prefer direct ha
 
 - Programmer: CH341A / CH341B programmer recommended
 - 1.8V adapter
-- SOP8 clip
+- Connection accessory (recommended):
+  - Orion O6: SOP8 208mil chip socket
+  - Orion O6N: programming pins
+- Fallback connection accessory: SOP8 clip (not recommended as the first choice, see note below)
 - Linux PC
 
 2. Download BIOS firmware
@@ -263,7 +266,16 @@ sudo apt-get install flashrom
 
 </NewCodeBlock>
 
-### Assemble the Programming Clip
+### Assemble the Programming Clip (Fallback Option)
+
+:::caution The clip is only a fallback option
+
+- Clamping the chip with the clip risks damaging the chip
+- Repeated clamping can wear out the clip, so it may no longer grip the chip firmly on the board
+
+We recommend using the SOP8 208mil chip socket (Orion O6) or programming pins (Orion O6N) to connect the SPI programmer instead.
+
+:::
 
 1. Set the CH341A/B programmer to flash mode
    Set the programmer's jumper to flash mode. Refer to the programmer's manual for the specific position.
