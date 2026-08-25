@@ -27,23 +27,6 @@ The default credentials for Radxa OS are:
 | Username | `radxa` |
 | Password | `radxa` |
 
-### Check the BIOS Version
-
-Run the following command in the system to check the current BIOS version:
-
-```bash
-radxa@radxa-dragon-q8b:~$ sudo dmidecode -s bios-version
-6.0.260818.BOOT.MXF.1.1.c1-00167-MAKENA-1
-```
-
-### Upgrade the Kernel Only
-
-If you only want to upgrade the kernel without upgrading the whole system, run the following command:
-
-```bash
-radxa@radxa-dragon-q8b:~$ sudo apt install linux-image-radxa-dragon-midstream linux-headers-radxa-dragon-midstream
-```
-
 ## Using the System
 
 This section mainly provides usage suggestions for users without a monitor, making it easier for them to get started with Dragon Q8B.
