@@ -1,0 +1,329 @@
+本文档讲述如何在 NPU 上运行 Lite Transformer 英译中示例。
+
+:::info
+参考 [Model Zoo 下载](./model-zoo-download)获取示例。
+:::
+
+Lite Transformer 包含 encoder 和 decoder 两个子模型。
+
+Lite Transformer 示例目录结构：
+
+```bash
+$ tree ./
+./
+├── CMakeLists.txt
+├── convert_model_decoder
+├── convert_model_encoder
+├── include
+├── model
+│   ├── bpe_order.txt
+│   ├── cw_token_map_order.txt
+│   ├── dict_order.txt
+│   ├── lite_transformer_decoder_16_int16_a733.nb
+│   ├── lite_transformer_encoder_16_int16_a733.nb
+│   ├── position_embed.bin
+│   └── token_embed.bin
+├── src
+└── README.md
+```
+
+## 模型转换
+
+需要先进入容器开发环境。可以参考 Model Zoo 下载中[创建容器](./model-zoo-download#创建并启动容器)这一部分。
+
+:::info
+不同平台请使用对应的 Docker 镜像：
+
+- A733：ubuntu-npu:v2.0.10.2
+- T527：ubuntu-npu:v1.8.13
+  :::
+
+ONNX 浮点模型可从全志网盘获取：
+
+- encoder：[http://netstorage.allwinnertech.com:5000/sharing/48BkHmEFh](http://netstorage.allwinnertech.com:5000/sharing/48BkHmEFh)
+- decoder：[http://netstorage.allwinnertech.com:5000/sharing/QHfBh3imH](http://netstorage.allwinnertech.com:5000/sharing/QHfBh3imH)
+- BPE / 字典等：[http://netstorage.allwinnertech.com:5000/sharing/ctkG9jW4t](http://netstorage.allwinnertech.com:5000/sharing/ctkG9jW4t)
+
+将 BPE、字典等文件解压后放到 `lite_transformer` 目录。
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+### 转换 encoder
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/lite_transformer/convert_model_encoder/
+./convert_model_env.sh
+./pegasus_import.sh lite_transformer_encoder_16
+./pegasus_quantize.sh lite_transformer_encoder_16 int16 2
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh lite_transformer_encoder_16 int16 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh lite_transformer_encoder_16 int16 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+### 转换 decoder
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/lite_transformer/convert_model_decoder/
+./convert_model_env.sh
+./pegasus_import.sh lite_transformer_decoder_16
+./pegasus_quantize.sh lite_transformer_decoder_16 int16 4
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh lite_transformer_decoder_16 int16 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh lite_transformer_decoder_16 int16 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+导出的模型文件存放在 `../model` 目录。
+
+### 编译示例
+
+接下来可以编译示例，**先 exit 退出容器**，然后执行下面的命令编译示例。
+
+首先需要配置交叉编译工具链。
+
+:::info
+如果你已经在其他示例中配置过交叉编译工具链则可以跳过这一步。
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../../../0-toolchains/
+```
+
+</NewCodeBlock>
+
+需要先手动[点击链接](http://netstorage.allwinnertech.com:5000/sharing/e2nD8YwB4)下载之后放到 `0-toolchains/` 再执行下面的命令：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+cd ../examples/lite_transformer/
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t a733 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t t527 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+## 模型部署
+
+编译示例完成之后，示例会安装到 install 目录，可以使用 scp 传输到板端。
+
+### 配置 NPU 驱动
+
+:::info
+如果你已经在其他示例中配置过 NPU 驱动则可以跳过这一步。
+:::
+
+将驱动库 scp 传输到板端的 lib 目录。
+
+- A733 对应 common/npuruntime/lib_linux_aarch64/A733 目录
+- T527 对应 common/npuruntime/lib_linux_aarch64/T527 目录
+
+然后执行下面的命令导出到环境变量。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+配置好驱动之后就可以运行示例了。
+
+:::tip
+对于 T527 平台，你还需要参考 A5E 的`板端启用 NPU`文档先启用 NPU ，然后使用下面的命令增加当前用户使用 /dev/vipcore 的权限。
+:::
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd lite_transformer_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./lite_transformer_demo_a733
+./lite_transformer_demo_a733 -nb0 model/lite_transformer_encoder_16_int16_a733.nb -nb1 model/lite_transformer_decoder_16_int16_a733.nb -i "so big"
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./lite_transformer_demo_a733 -nb0 model/lite_transformer_encoder_16_int16_a733.nb -nb1 model/lite_transformer_decoder_16_int16_a733.nb -i "so big"
+encoder_path=model/lite_transformer_encoder_16_int16_a733.nb, decoder_path=model/lite_transformer_decoder_16_int16_a733.nb, input_strings=so big
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+nbg name=model/lite_transformer_encoder_16_int16_a733.nb, size: 3838272.
+create network 0: 2533 us.
+prepare network: 442 us.
+nbg name=model/lite_transformer_decoder_16_int16_a733.nb, size: 19421952.
+create network 1: 11027 us.
+prepare network: 406 us.
+
+input sentence:so big
+output token: 2 83 139 676 84 2
+output_strings: 如此巨大
+inference time: 24.000 ms
+destroy npu finished.
+~NpuUint.
+```
+
+此性能数据仅计算模型推理的时间消耗。如无特别说明，不包含预处理和后处理的时间消耗。
+
+| SoC       | NPU             | 模型             | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
+| :-------- | :-------------- | :--------------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
+| 全志 A733 | Vivante VIP9000 | lite-transformer | 16 tokens  | 13.6 ms      | 0.8 ms       | 24.0 ms      |            | 38.4 ms | 41.7 FPS |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd lite_transformer_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./lite_transformer_demo_t527
+./lite_transformer_demo_t527 -nb0 model/lite_transformer_encoder_16_int16_t527.nb -nb1 model/lite_transformer_decoder_16_int16_t527.nb -i "so big"
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./lite_transformer_demo_t527 -nb0 model/lite_transformer_encoder_16_int16_t527.nb -nb1 model/lite_transformer_decoder_16_int16_t527.nb -i "so big"
+encoder_path=model/lite_transformer_encoder_16_int16_t527.nb, decoder_path=model/lite_transformer_decoder_16_int16_t527.nb, input_strings=so big
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+nbg name=model/lite_transformer_encoder_16_int16_t527.nb, size: 3755712.
+create network 0: 5054 us.
+prepare network: 836 us.
+nbg name=model/lite_transformer_decoder_16_int16_t527.nb, size: 19121536.
+create network 1: 23573 us.
+prepare network: 2658 us.
+
+input sentence:so big
+output token: 2 83 139 676 84 2
+output_strings: 如此巨大
+inference time: 64.000 ms
+destroy npu finished.
+~NpuUint.
+```
+
+此性能数据仅计算模型推理的时间消耗。如无特别说明，不包含预处理和后处理的时间消耗。
+
+| SoC       | NPU             | 模型             | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
+| :-------- | :-------------- | :--------------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
+| 全志 T527 | Vivante VIP9000 | lite-transformer | 16 tokens  | 28.6 ms      | 3.5 ms       | 64.0 ms      |            | 96.1 ms | 15.6 FPS |
+
+</TabItem>
+</Tabs>

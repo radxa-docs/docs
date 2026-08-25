@@ -1,0 +1,381 @@
+本文档讲述如何在 NPU 上运行 Zipformer ASR 示例。
+
+:::info
+参考 [Model Zoo 下载](./model-zoo-download)获取示例。
+:::
+
+Zipformer 包含 encoder、decoder、joiner 三个子模型，用于自动语音识别。
+
+Zipformer 示例目录结构：
+
+```bash
+$ tree ./
+./
+├── CMakeLists.txt
+├── convert_model_decoder
+├── convert_model_encoder
+├── convert_model_joiner
+├── model
+│   ├── decoder_int16_a733.nb
+│   ├── encoder_int16_a733.nb
+│   ├── joiner_int16_a733.nb
+│   ├── test.wav
+│   └── tokens.txt
+└── README.md
+```
+
+## 模型转换
+
+需要先进入容器开发环境。可以参考 Model Zoo 下载中[创建容器](./model-zoo-download#创建并启动容器)这一部分。
+
+:::info
+不同平台请使用对应的 Docker 镜像：
+
+- A733：ubuntu-npu:v2.0.10.2
+- T527：ubuntu-npu:v1.8.13
+  :::
+
+ONNX 浮点模型可从全志网盘获取：
+
+- encoder：[http://netstorage.allwinnertech.com:5000/sharing/8WWXoUfoy](http://netstorage.allwinnertech.com:5000/sharing/8WWXoUfoy)
+- decoder：[http://netstorage.allwinnertech.com:5000/sharing/1km0Q1YgK](http://netstorage.allwinnertech.com:5000/sharing/1km0Q1YgK)
+- joiner：[http://netstorage.allwinnertech.com:5000/sharing/GUTAIo774](http://netstorage.allwinnertech.com:5000/sharing/GUTAIo774)
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+转换 encoder 前先设置环境变量：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+export VIV_VX_ENABLE_GRAPH_TRANSFORM="-Dump[transform.rewrite.gather_to_stride_slice=0]"
+```
+
+</NewCodeBlock>
+
+### 转换 encoder
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/zipformer/convert_model_encoder/
+./convert_model_env.sh
+./pegasus_import.sh encoder
+./pegasus_quantize.sh encoder int16 10
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh encoder int16 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh encoder int16 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+### 转换 decoder
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/zipformer/convert_model_decoder/
+./convert_model_env.sh
+./pegasus_import.sh decoder
+./pegasus_quantize.sh decoder int16 10
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh decoder int16 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh decoder int16 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+### 转换 joiner
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/zipformer/convert_model_joiner/
+./convert_model_env.sh
+./pegasus_import.sh joiner
+./pegasus_quantize.sh joiner int16 10
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh joiner int16 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh joiner int16 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+导出的模型文件存放在 `../model` 目录。
+
+### 编译示例
+
+接下来可以编译示例，**先 exit 退出容器**，然后执行下面的命令编译示例。
+
+首先需要配置交叉编译工具链。
+
+:::info
+如果你已经在其他示例中配置过交叉编译工具链则可以跳过这一步。
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../../../0-toolchains/
+```
+
+</NewCodeBlock>
+
+需要先手动[点击链接](http://netstorage.allwinnertech.com:5000/sharing/e2nD8YwB4)下载之后放到 `0-toolchains/` 再执行下面的命令：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+cd ../examples/zipformer/
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t a733 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t t527 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+## 模型部署
+
+编译示例完成之后，示例会安装到 install 目录，可以使用 scp 传输到板端。
+
+### 配置 NPU 驱动
+
+:::info
+如果你已经在其他示例中配置过 NPU 驱动则可以跳过这一步。
+:::
+
+将驱动库 scp 传输到板端的 lib 目录。
+
+- A733 对应 common/npuruntime/lib_linux_aarch64/A733 目录
+- T527 对应 common/npuruntime/lib_linux_aarch64/T527 目录
+
+然后执行下面的命令导出到环境变量。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+配置好驱动之后就可以运行示例了。
+
+:::tip
+对于 T527 平台，你还需要参考 A5E 的`板端启用 NPU`文档先启用 NPU ，然后使用下面的命令增加当前用户使用 /dev/vipcore 的权限。
+:::
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd zipformer_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./zipformer_demo_a733
+./zipformer_demo_a733 -nb0 model/encoder_int16_a733.nb -nb1 model/decoder_int16_a733.nb -nb2 model/joiner_int16_a733.nb -i model/test.wav
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./zipformer_demo_a733 -nb0 model/encoder_int16_a733.nb -nb1 model/decoder_int16_a733.nb -nb2 model/joiner_int16_a733.nb -i model/test.wav
+encoder_path=model/encoder_int16_a733.nb, decoder_path=model/decoder_int16_a733.nb, joiner_path=model/joiner_int16_a733.nb, audio_path=model/test.wav
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+nbg name=model/encoder_int16_a733.nb, size: 37228136.
+create network 0: 25435 us.
+prepare network: 3858 us.
+nbg name=model/decoder_int16_a733.nb, size: 6973440.
+create network 1: 3971 us.
+prepare network: 244 us.
+nbg name=model/joiner_int16_a733.nb, size: 5509168.
+create network 2: 2820 us.
+prepare network: 56 us.
+
+Real Time Factor(RTF): 0.053 = 0.309s(infer_time) / 5.840s(audio_length)
+
+Timestamp (s): 0.96, 1.04, 1.24, 1.32, 1.44, 1.72, 1.80, 2.04, 2.56, 3.04, 3.08, 3.48, 3.84, 4.68, 4.76, 5.00, 5.24, 5.48
+
+Zipformer output: 这是第一种第二种叫呃嗯与 ALWAYS什么意思啊
+destroy npu finished.
+~NpuUint.
+```
+
+此性能数据仅计算模型推理的时间消耗。如无特别说明，不包含预处理和后处理的时间消耗。
+
+| SoC       | NPU             | 模型      | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时   | 帧率      |
+| :-------- | :-------------- | :-------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------- | :-------- |
+| 全志 A733 | Vivante VIP9000 | zipformer | 5.84 s     | 32.2 ms      | 4.2 ms       | 309.0 ms     |            | 345.4 ms | RTF 0.053 |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd zipformer_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./zipformer_demo_t527
+./zipformer_demo_t527 -nb0 model/encoder_int16_t527.nb -nb1 model/decoder_int16_t527.nb -nb2 model/joiner_int16_t527.nb -i model/test.wav
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./zipformer_demo_t527 -nb0 model/encoder_int16_t527.nb -nb1 model/decoder_int16_t527.nb -nb2 model/joiner_int16_t527.nb -i model/test.wav
+encoder_path=model/encoder_int16_t527.nb, decoder_path=model/decoder_int16_t527.nb, joiner_path=model/joiner_int16_t527.nb, audio_path=model/test.wav
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+nbg name=model/encoder_int16_t527.nb, size: 37232320.
+create network 0: 48424 us.
+prepare network: 8934 us.
+nbg name=model/decoder_int16_t527.nb, size: 7010624.
+create network 1: 9543 us.
+prepare network: 1251 us.
+nbg name=model/joiner_int16_t527.nb, size: 5539648.
+create network 2: 5803 us.
+prepare network: 763 us.
+
+Real Time Factor(RTF): 0.161 = 0.942s(infer_time) / 5.840s(audio_length)
+
+Timestamp (s): 0.96, 1.04, 1.24, 1.32, 1.44, 1.72, 1.80, 2.04, 2.56, 3.04, 3.08, 3.48, 3.84, 4.68, 4.76, 5.00, 5.24, 5.48
+
+Zipformer output: 这是第一种第二种叫呃嗯与 ALWAYS什么意思啊
+destroy npu finished.
+~NpuUint.
+```
+
+此性能数据仅计算模型推理的时间消耗。如无特别说明，不包含预处理和后处理的时间消耗。
+
+| SoC       | NPU             | 模型      | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时    | 帧率      |
+| :-------- | :-------------- | :-------- | :--------- | :----------- | :----------- | :----------- | :--------- | :-------- | :-------- |
+| 全志 T527 | Vivante VIP9000 | zipformer | 5.84 s     | 63.8 ms      | 10.9 ms      | 942.0 ms     |            | 1016.7 ms | RTF 0.161 |
+
+</TabItem>
+</Tabs>

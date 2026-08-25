@@ -8,7 +8,7 @@
 
 ![点击资源下载](/img/cubie/allwinnertech-model-zoo-download-guide1.webp)
 
-点击左侧工具查询下的 AI 开发 SDK，然后找到 v0.9.0 版本的 Model Zoo 下载到本地即可。
+点击左侧工具查询下的 AI 开发 SDK，然后找到 v1.0.0 版本的 Model Zoo 下载到本地即可。
 
 ![下载 Model Zoo](/img/cubie/allwinnertech-model-zoo-download-guide2.webp)
 
@@ -35,8 +35,8 @@ wget https://dl.radxa.com/cubie/allwinner-model-zoo.tar.gz
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-tar -xvf 1768567762439_awnpu_model_zoo-v0.9.0-20260116-83a67d4b.tar.gz
-cd awnpu_model_zoo-v0.9.0-20260116-83a67d4b/
+tar -xvf 1776931919742_awnpu_model_zoo-v1.0.0-20260423-f562dd16.tar.gz
+cd awnpu_model_zoo-v1.0.0-20260423-f562dd16/
 ```
 
 </NewCodeBlock>
@@ -49,7 +49,7 @@ cd awnpu_model_zoo-v0.9.0-20260116-83a67d4b/
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-sudo docker run --ipc=host -d -v ${PWD}:/workspace --name model-zoo ubuntu-npu:v2.0.10.1 tail -f /dev/null
+sudo docker run --ipc=host -d -v ${PWD}:/workspace --name model-zoo ubuntu-npu:v2.0.10.2 tail -f /dev/null
 ```
 
 </NewCodeBlock>
@@ -61,7 +61,7 @@ sudo docker run --ipc=host -d -v ${PWD}:/workspace --name model-zoo ubuntu-npu:v
 <NewCodeBlock tip="X86 Linux PC" type="PC">
 
 ```bash
-sudo docker run --ipc=host -d -v ${PWD}:/workspace --name model-zoo ubuntu-npu:v1.8.11 tail -f /dev/null
+sudo docker run --ipc=host -d -v ${PWD}:/workspace --name model-zoo ubuntu-npu:v1.8.13 tail -f /dev/null
 ```
 
 </NewCodeBlock>
@@ -96,17 +96,17 @@ ls -al
 
 ```bash
 /workspace# ls -al
-total 52
-drwxrwxr-x 10 1000 1000 4096 Apr  2 19:09 .
-drwxr-xr-x  1 root root 4096 Apr  2 18:48 ..
-drwxrwxr-x  4 1000 1000 4096 Apr  3 12:03 0-toolchains              # 交叉编译工具链
-drwxrwxr-x  3 1000 1000 4096 Jan 16 20:44 3rdparty                  # 第三方工具链
--rwxrwxr-x  1 1000 1000 4976 Jan 16 20:44 README.md                 # README文档
-drwxrwxr-x  2 1000 1000 4096 Apr  3 12:06 cmake_toolchain           # 编译工具链配置
-drwxrwxr-x  3 1000 1000 4096 Jan 16 20:44 common                    # 通用库
-drwxrwxr-x  2 1000 1000 4096 Jan 16 20:44 docs                      # 文档
-drwxrwxr-x 26 1000 1000 4096 Jan 16 20:44 examples                  # 示例目录
-drwxrwxr-x  6 1000 1000 4096 Jan 16 20:44 functions                 # 特色功能
-drwxrwxr-x  2 1000 1000 4096 Jan 16 20:44 scripts_model_convert     # 转换脚本
--rwxrwxr-x  1 1000 1000    6 Jan 16 20:44 version                   # 版本号
+total 56
+drwxrwxr-x 10 1000 1000 4096 Aug  6 12:05 .
+-rw-rw-r--  1 1000 1000   10 Apr 23 15:56 .gitignore
+drwxrwxr-x  3 1000 1000 4096 Aug  3 11:33 0-toolchains              # 交叉编译工具链
+drwxrwxr-x  4 1000 1000 4096 Apr 23 15:56 3rdparty                  # 第三方工具链
+-rwxrwxr-x  1 1000 1000 5095 Apr 23 15:56 README.md                 # README文档
+drwxrwxr-x  2 1000 1000 4096 Apr 23 15:56 cmake_toolchain           # 编译工具链配置
+drwxrwxr-x  3 1000 1000 4096 Apr 23 15:56 common                    # 通用库
+drwxrwxr-x  2 1000 1000 4096 Apr 23 15:56 docs                      # 文档
+drwxrwxr-x 41 1000 1000 4096 Aug 20 18:11 examples                  # 示例目录
+drwxrwxr-x  6 1000 1000 4096 Apr 23 15:56 functions                 # 特色功能
+drwxrwxr-x  3 1000 1000 4096 Aug  3 15:41 scripts_model_convert     # 转换脚本
+-rwxrwxr-x  1 1000 1000    6 Apr 23 15:56 version                   # 版本号
 ```
