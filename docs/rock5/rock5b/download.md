@@ -20,7 +20,7 @@ Linux：
 
 - ROCK 5B 系统镜像 (5.10 内核): [rock-5b_debian_bullseye_kde_b39](https://github.com/radxa-build/rock-5b/releases/download/b39/rock-5b_debian_bullseye_kde_b39.img.xz)
 - ROCK 5B 系统镜像 (6.1 内核): [rock-5b_bookworm_kde_b5](https://github.com/radxa-build/rock-5b/releases/download/rsdk-b5/rock-5b_bookworm_kde_b5.output.img.xz)
-- ROCK 5B+ 系统镜像: [rock-5b-plus_bookworm_kde_b2](https://github.com/radxa-build/rock-5b-plus/releases/download/rsdk-b2/rock-5b-plus_bookworm_kde_b2.output.img.xz)
+- ROCK 5B+ 系统镜像: [rock-5b-plus_bookworm_kde_r7](https://github.com/radxa-build/rock-5b-plus/releases/download/rsdk-r7/rock-5b-plus_bookworm_kde_r7.output_512.img.xz)
 
 Android：
 
