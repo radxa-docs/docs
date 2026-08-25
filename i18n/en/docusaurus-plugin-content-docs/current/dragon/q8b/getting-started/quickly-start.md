@@ -21,7 +21,7 @@ This guide helps you quickly get started with the Radxa Dragon Q8B.
 Prepare the following hardware before use:
 
 - Board: Radxa Dragon Q8B
-- Power: 20V Type-C power adapter (PD compatible)
+- Power: 20V USB PD or fixed 20V Type-C power adapter (with a Type-C to Type-C cable)
 - System boot media: microSD card (for installing and booting the system)
 - Display device: HDMI or dual-ended USB-C cable and monitor
 - Input devices: keyboard and mouse (for GUI operation)
@@ -30,7 +30,7 @@ Prepare the following hardware before use:
 :::tip Recommended Accessories
 
 - [Radxa PD 65W Power Adapter (recommended)](https://radxa.com/products/accessories/power-pd-65w)
-- Standard 20V Type-C power adapter; 3A or higher is recommended
+- Use a 20V USB PD or fixed 20V Type-C power adapter with a Type-C to Type-C cable. An output current of at least 3A (60W) is recommended. Do not use a Type-C to Type-A cable.
 
 :::
 

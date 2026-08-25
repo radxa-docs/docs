@@ -21,7 +21,7 @@ sidebar_position: 1
 您需要提前准备以下硬件设备：
 
 - 主板：瑞莎 Dragon Q8B
-- 供电：20V Type-C 电源适配器（兼容 PD 协议）
+- 供电：20V USB PD 或固定 20V Type-C 电源适配器（搭配 Type-C to Type-C 数据线）
 - 系统启动介质：microSD 卡（用于安装系统与启动）
 - 显示设备：HDMI 或 双头 USB-C 数据线和显示器
 - 输入设备：键盘和鼠标（用于图形界面操作）
@@ -30,7 +30,7 @@ sidebar_position: 1
 :::tip 推荐配件
 
 - [瑞莎 PD 65W 电源适配器(推荐使用)](https://radxa.com/products/accessories/power-pd-65w)
-- 标准 20V Type-C 电源适配器，建议电流 3A 及以上
+- 推荐使用 20V USB PD 或固定 20V Type-C 电源适配器，并搭配 Type-C to Type-C 数据线；建议输出电流不低于 3A（60W），请勿使用 Type-C to Type-A 数据线
 
 :::
 
