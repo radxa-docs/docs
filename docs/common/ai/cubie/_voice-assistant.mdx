@@ -1,0 +1,176 @@
+本文档介绍如何在全志 A733 的 Cubie 开发板上运行离线中文语音助手：唤醒词检测（KWS）→ 语音识别（ASR）→ 语音合成（TTS）。
+
+示例仓库：[https://github.com/Ronin-1124/cubie-a7a-voice-assistant](https://github.com/Ronin-1124/cubie-a7a-voice-assistant)
+
+该示例在 Cubie A7A 上开发和验证。Cubie A7S / Cubie A7Z 同样搭载 A733 NPU，软件流程相同，麦克风和耳机对应的 ALSA 声卡编号可能不同。
+
+```text
+麦克风 / 离线 wav
+  → 唤醒 KWS（Zipformer，默认 NPU）
+  → 识别 ASR（Zipformer，默认 NPU）
+  → 合成 TTS（Matcha CPU + HiFi-GAN NPU）
+  → 耳机播放
+```
+
+NPU（Vivante VIP9000）同一时间只能加载一个网络。助手在进入识别或 NPU 声码器前会卸掉其它 NBG。
+
+:::info
+Matcha-baker 使用的 Baker 数据集仅限非商用。量产请更换声学模型数据。
+:::
+
+## 准备环境
+
+### 硬件与系统
+
+- 搭载全志 A733 的 Cubie 开发板（推荐 Cubie A7A）
+- 已写入 Radxa OS，并能 SSH 登录
+- 耳机接到板载 3.5 mm 口（不要走 HDMI 声卡）
+
+### NPU 运行库
+
+将 Model Zoo 中 `common/npuruntime/lib_linux_aarch64/A733` 目录的库拷到板端 `~/lib`，并加入动态库搜索路径。若已在其它 NPU 示例中配置过，可跳过。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+source ~/.bashrc
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
+
+NPU 识别默认调用 [Zipformer](./model-zoo/zipformer) 安装目录 `~/npu_demos/zipformer_demo_linux_a733`。请先按该文档编译并部署 A733 版本，且 `./zipformer_demo_a733 -h` 中应包含 `--stdin`（助手按帧喂音频）。
+
+## 获取示例
+
+在板端克隆仓库到 `~/npu_demos/voice_assistant`：
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+mkdir -p ~/npu_demos
+git clone https://github.com/Ronin-1124/cubie-a7a-voice-assistant.git ~/npu_demos/voice_assistant
+cd ~/npu_demos/voice_assistant
+```
+
+</NewCodeBlock>
+
+安装 Python 依赖：
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+pip3 install --user -r requirements.txt
+```
+
+</NewCodeBlock>
+
+`requirements.txt` 中为 `numpy` 和 `onnxruntime`。
+
+## 准备模型
+
+ONNX 体积较大，不在 git 中。在仓库根目录下载 TTS 声学模型（Matcha-baker）：
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+bash scripts/download_models.sh
+```
+
+</NewCodeBlock>
+
+仓库 `prebuilt/` 里是已经转好的 A733 NBG：
+
+| 路径                                     | 用途                                          |
+| ---------------------------------------- | --------------------------------------------- |
+| `prebuilt/kws/encoder_float_a733.nb` 等  | 唤醒 NPU（float 三件套；不要用 int16 joiner） |
+| `prebuilt/vocoder/vocoder_int16_a733.nb` | TTS 声码器（int16；不要用 uint8）             |
+
+将唤醒 NBG 放到助手默认搜索的目录：
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+mkdir -p ~/npu_demos/kws_npu_demo/model
+cp prebuilt/kws/*.nb prebuilt/kws/tokens.txt ~/npu_demos/kws_npu_demo/model/
+```
+
+</NewCodeBlock>
+
+NPU 唤醒还需要可执行文件 `kws_npu_demo_a733`，源码在仓库 `convert/kws/`。编译后与 VIPLite 库一起放到 `~/npu_demos/kws_npu_demo/`。
+
+TTS NPU 声码器会被复制到 `models/tts/vocoder_int16_a733.nb`。
+
+## 运行示例
+
+NPU 唤醒 + NPU 识别 + Matcha NPU 声码器。先用仓库自带的 16 kHz wav 验证软件，不必对着麦克风喊。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd ~/npu_demos/voice_assistant
+python3 assistant_fast.py --from-wav samples/pipe_nihao_xiaorui_openlight_16k.wav
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ python3 assistant_fast.py --from-wav samples/pipe_nihao_xiaorui_openlight_16k.wav
+[09:45:53] wav 1 file(s) 6.6s
+[09:45:53] kws=npu asr=npu tts=npu  ready 0.1s
+[09:45:53] listening…
+[09:45:53] WAKE 你好小瑞
+[09:46:01] TEXT 帮我打开灯  8.4s
+[09:46:17] TTS 15.3s
+```
+
+麦克风实时运行：
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+python3 assistant_fast.py
+```
+
+</NewCodeBlock>
+
+| 需求              | 参数                              |
+| ----------------- | --------------------------------- |
+| 不播报            | `--no-tts`                        |
+| 离线 wav 测整条链 | `--from-wav <wake.wav> <cmd.wav>` |
+
+单独合成：
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+python3 tools/matcha_npu.py --text "识别完成" --play
+```
+
+</NewCodeBlock>
+
+默认唤醒词在 `keywords_wake.txt`：「你好小瑞」「小瑞小瑞」「小瑞」。没有单独的「你好」，以免短词误唤醒。
+
+## 麦克风和播放
+
+Cubie A7A **没有板载麦克风**。音频输入是 3.5 mm 四段插孔的耳机麦（原理图 HS-MIC → codec **MIC4**）。听筒走同一插孔的 HPOUT。
+
+先确认声卡，使用名称含 `sunxi-ac101b` 的设备，不要用 `allwinner-hdmi`。当前镜像上耳机编解码器通常是 **card 0**，HDMI 是 card 1。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+aplay -l
+arecord -l
+```
+
+</NewCodeBlock>
+
+插好**四段带麦**耳机，对着**耳机咪头**说话（咪头常在右耳罩上）。I2S 上麦能量可能在左槽，和耳罩左右不是一回事。TTS 合成结果是单声道，助手会复制到左右耳再播放。
+
+不要用会把麦克风实时送回耳机的网页（例如 mictest.com）来调音：咪头贴着喇叭会啸叫，音量可能突然变得很大。
+
+现场喊麦不稳定时，优先用上面的 `--from-wav` 验证软件。详情见示例仓库 `docs/AUDIO_耳机与麦克风.md`。

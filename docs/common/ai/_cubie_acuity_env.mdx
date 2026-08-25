@@ -92,8 +92,8 @@ unzip docker_images_v1.8.x.zip
 
 ```bash
 cd docker_images_v2.0.x
-unzip ubuntu-npu_v2.0.10.1.tar.zip
-sudo docker load -i ubuntu-npu_v2.0.10.1.tar
+unzip ubuntu-npu_v2.0.10.2.tar.zip
+sudo docker load -i ubuntu-npu_v2.0.10.2.tar
 ```
 
 </NewCodeBlock>
@@ -103,15 +103,15 @@ sudo docker load -i ubuntu-npu_v2.0.10.1.tar
 
 ```bash
 cd docker_images_v1.8.x
-unzip ubuntu-npu_v1.8.11.tar.zip
-sudo docker load -i ubuntu-npu_v1.8.11.tar
+unzip ubuntu-npu_v1.8.13.tar.zip
+sudo docker load -i ubuntu-npu_v1.8.13.tar
 ```
 
 </NewCodeBlock>
 </TabItem>
 </Tabs>
 
-当 docker 镜像载入完成后可以在 `docker images` 中看到此镜像， 名字为 `ubuntu‑npu:v2.0.10.1` (A733) 或 `ubuntu-npu:v1.8.11` (T527)
+当 docker 镜像载入完成后可以在 `docker images` 中看到此镜像， 名字为 `ubuntu‑npu:v2.0.10.2` (A733) 或 `ubuntu-npu:v1.8.13` (T527)
 
 ### 创建 docker 容器
 
@@ -121,7 +121,7 @@ sudo docker load -i ubuntu-npu_v1.8.11.tar
 
 ```bash
 mkdir docker_data && cd docker_data
-sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v2.0.10.1 ubuntu-npu:v2.0.10.1 /bin/bash
+sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v2.0.10.2 ubuntu-npu:v2.0.10.2 /bin/bash
 ```
 
 </NewCodeBlock>
@@ -131,14 +131,14 @@ sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v2.0.10.1 
 
 ```bash
 mkdir docker_data && cd docker_data
-sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v1.8.11 ubuntu-npu:v1.8.11 /bin/bash
+sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v1.8.13 ubuntu-npu:v1.8.13 /bin/bash
 ```
 
 </NewCodeBlock>
 </TabItem>
 </Tabs>
 
-当 docker 容器创建完成后可以在 `docker ps -a` 中看到此容器， 名字为 `allwinner_v2.0.10.1` (A733) 或 `allwinner_v1.8.11` (T527)
+当 docker 容器创建完成后可以在 `docker ps -a` 中看到此容器， 名字为 `allwinner_v2.0.10.2` (A733) 或 `allwinner_v1.8.13` (T527)
 
 ### 进入 docker 容器
 

@@ -1,0 +1,262 @@
+本文档讲述如何在 NPU 上运行 LSTM 示例。
+
+:::info
+参考 [Model Zoo 下载](./model-zoo-download)获取示例。
+:::
+
+LSTM 示例目录结构：
+
+```bash
+$ tree ./
+./
+├── CMakeLists.txt
+├── convert_model
+│   └── dataset
+├── main.cpp
+├── model
+│   ├── iter_0_c1_26_out0_1_1_128.tensor
+│   ├── iter_0_c2_28_out0_1_1_128.tensor
+│   ├── iter_0_h1_25_out0_1_1_128.tensor
+│   ├── iter_0_h2_27_out0_1_1_128.tensor
+│   ├── iter_0_input_24_out0_1_3_32_32.tensor
+│   └── lstm_model_uint8_a733.nb
+└── README.md
+```
+
+## 模型转换
+
+需要先进入容器开发环境。可以参考 Model Zoo 下载中[创建容器](./model-zoo-download#创建并启动容器)这一部分。
+
+:::info
+不同平台请使用对应的 Docker 镜像：
+
+- A733：ubuntu-npu:v2.0.10.2
+- T527：ubuntu-npu:v1.8.13
+  :::
+
+ONNX 浮点模型可从全志网盘获取：[http://netstorage.allwinnertech.com:5000/sharing/AmbdcCS7O](http://netstorage.allwinnertech.com:5000/sharing/AmbdcCS7O)
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+docker exec -it model-zoo /bin/bash
+cd /workspace/examples/lstm_model/convert_model/
+./convert_model_env.sh
+./pegasus_import.sh lstm_model
+./pegasus_quantize.sh lstm_model uint8 1
+export VIV_VX_ENABLE_WB_SHARE=1
+```
+
+</NewCodeBlock>
+
+`VIV_VX_ENABLE_WB_SHARE=1` 用于 LSTM / RNN 内部权重共享，减小导出的 nb 文件体积。
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh lstm_model uint8 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh lstm_model uint8 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+导出的模型文件存放在 `../model` 目录。
+
+### 编译示例
+
+接下来可以编译示例，**先 exit 退出容器**，然后执行下面的命令编译示例。
+
+首先需要配置交叉编译工具链。
+
+:::info
+如果你已经在其他示例中配置过交叉编译工具链则可以跳过这一步。
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../../../0-toolchains/
+```
+
+</NewCodeBlock>
+
+需要先手动[点击链接](http://netstorage.allwinnertech.com:5000/sharing/e2nD8YwB4)下载之后放到 `0-toolchains/` 再执行下面的命令：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+cd ../examples/lstm_model/
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t a733 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t t527 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+## 模型部署
+
+编译示例完成之后，示例会安装到 install 目录，可以使用 scp 传输到板端。
+
+### 配置 NPU 驱动
+
+:::info
+如果你已经在其他示例中配置过 NPU 驱动则可以跳过这一步。
+:::
+
+将驱动库 scp 传输到板端的 lib 目录。
+
+- A733 对应 common/npuruntime/lib_linux_aarch64/A733 目录
+- T527 对应 common/npuruntime/lib_linux_aarch64/T527 目录
+
+然后执行下面的命令导出到环境变量。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+配置好驱动之后就可以运行示例了。
+
+:::tip
+对于 T527 平台，你还需要参考 A5E 的`板端启用 NPU`文档先启用 NPU ，然后使用下面的命令增加当前用户使用 /dev/vipcore 的权限。
+:::
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd lstm_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./lstm_demo_a733
+./lstm_demo_a733 -nb model/lstm_model_uint8_a733.nb -i model/iter_0_input_24_out0_1_3_32_32.tensor,model/iter_0_h1_25_out0_1_1_128.tensor,model/iter_0_c1_26_out0_1_1_128.tensor,model/iter_0_h2_27_out0_1_1_128.tensor,model/iter_0_c2_28_out0_1_1_128.tensor -st 2
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./lstm_demo_a733 -nb model/lstm_model_uint8_a733.nb -i model/iter_0_input_24_out0_1_3_32_32.tensor,model/iter_0_h1_25_out0_1_1_128.tensor,model/iter_0_c1_26_out0_1_1_128.tensor,model/iter_0_h2_27_out0_1_1_128.tensor,model/iter_0_c2_28_out0_1_1_128.tensor -st 2
+model_file=model/lstm_model_uint8_a733.nb
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+nbg name=model/lstm_model_uint8_a733.nb, size: 1068496.
+create network 0: 2785 us.
+prepare network: 742 us.
+network: 0, loop count: 1
+run time for this network 0: 1221 us.
+destroy npu finished.
+~NpuUint.
+```
+
+此性能数据仅计算模型推理的时间消耗。如无特别说明，不包含预处理和后处理的时间消耗。
+
+| SoC       | NPU             | 模型       | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时 | 帧率      |
+| :-------- | :-------------- | :--------- | :--------- | :----------- | :----------- | :----------- | :--------- | :----- | :-------- |
+| 全志 A733 | Vivante VIP9000 | lstm_model | 32×32      | 2.8 ms       | 0.7 ms       | 1.2 ms       |            | 4.7 ms | 819.0 FPS |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd lstm_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./lstm_demo_t527
+./lstm_demo_t527 -nb model/lstm_model_uint8_t527.nb -i model/iter_0_input_24_out0_1_3_32_32.tensor,model/iter_0_h1_25_out0_1_1_128.tensor,model/iter_0_c1_26_out0_1_1_128.tensor,model/iter_0_h2_27_out0_1_1_128.tensor,model/iter_0_c2_28_out0_1_1_128.tensor -st 2
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./lstm_demo_t527 -nb model/lstm_model_uint8_t527.nb -i model/iter_0_input_24_out0_1_3_32_32.tensor,model/iter_0_h1_25_out0_1_1_128.tensor,model/iter_0_c1_26_out0_1_1_128.tensor,model/iter_0_h2_27_out0_1_1_128.tensor,model/iter_0_c2_28_out0_1_1_128.tensor -st 2
+model_file=model/lstm_model_uint8_t527.nb
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+nbg name=model/lstm_model_uint8_t527.nb, size: 1864000.
+create network 0: 2375 us.
+prepare network: 235 us.
+network: 0, loop count: 1
+run time for this network 0: 790 us.
+destroy npu finished.
+~NpuUint.
+```
+
+此性能数据仅计算模型推理的时间消耗。如无特别说明，不包含预处理和后处理的时间消耗。
+
+| SoC       | NPU             | 模型       | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时 | 帧率       |
+| :-------- | :-------------- | :--------- | :--------- | :----------- | :----------- | :----------- | :--------- | :----- | :--------- |
+| 全志 T527 | Vivante VIP9000 | lstm_model | 32×32      | 2.4 ms       | 0.2 ms       | 0.8 ms       |            | 3.4 ms | 1265.8 FPS |
+
+</TabItem>
+</Tabs>

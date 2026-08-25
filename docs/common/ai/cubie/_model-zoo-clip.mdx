@@ -1,0 +1,330 @@
+本文档讲述如何在 NPU 上运行 CLIP。
+
+:::info
+参考 [Model Zoo 下载](./model-zoo-download)获取示例。
+:::
+
+CLIP 示例将图像模型和文本模型分别转换后，在板端计算图文相似度。
+
+CLIP 示例目录结构：
+
+```bash
+$ tree ./
+./
+├── CMakeLists.txt
+├── images_convert_model
+├── text_convert_model
+│   └── python
+├── model
+│   ├── clip-images_uint8_a733.nb
+│   ├── clip-text_int16_a733.nb
+│   ├── demo.png
+│   ├── demo.txt
+│   └── merges.txt
+├── main.cpp
+└── README.md
+```
+
+## 模型转换
+
+需要先进入容器开发环境。可以参考 Model Zoo 下载中[创建容器](./model-zoo-download#创建并启动容器)这一部分。
+
+:::info
+不同平台请使用对应的 Docker 镜像：
+
+- A733：ubuntu-npu:v2.0.10.2
+- T527：ubuntu-npu:v1.8.13
+  :::
+
+ONNX 浮点模型可从全志网盘获取：
+
+- clip-images：[http://netstorage.allwinnertech.com:5000/sharing/DPFhNJzGl](http://netstorage.allwinnertech.com:5000/sharing/DPFhNJzGl)
+- clip-text：[http://netstorage.allwinnertech.com:5000/sharing/neeTHfl6P](http://netstorage.allwinnertech.com:5000/sharing/neeTHfl6P)
+
+将 `clip-images.onnx` 放到 `images_convert_model` 目录，将 `clip-text.onnx` 放到 `text_convert_model` 目录。
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+docker exec -it model-zoo /bin/bash
+```
+
+</NewCodeBlock>
+
+### 转换 clip-images
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/clip/images_convert_model/
+./convert_model_env.sh
+./pegasus_import.sh clip-images
+./pegasus_quantize.sh clip-images uint8 10
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh clip-images uint8 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh clip-images uint8 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+### 转换 clip-text
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd /workspace/examples/clip/text_convert_model/
+./convert_model_env.sh
+./pegasus_import.sh clip-text
+./pegasus_quantize.sh clip-text int16 10
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh clip-text int16 a733
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+./pegasus_export_ovx_nbg.sh clip-text int16 t527
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+导出的模型文件存放在 `../model` 目录。
+
+### 编译示例
+
+接下来可以编译示例，**先 exit 退出容器**，然后执行下面的命令编译示例。
+
+首先需要配置第三方库和交叉编译工具链。
+
+:::info
+如果你已经在其他示例中配置过第三方库和交叉编译工具链则可以跳过这一步。
+:::
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+cd ../../../3rdparty/opencv/
+unzip opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
+cd ../../0-toolchains/
+```
+
+</NewCodeBlock>
+
+需要先手动[点击链接](http://netstorage.allwinnertech.com:5000/sharing/e2nD8YwB4)下载之后放到 `0-toolchains/` 再执行下面的命令：
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+tar -xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz
+cd ../examples/clip/
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t a733 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="X86 Linux PC" type="PC">
+
+```bash
+../build_linux.sh -t t527 -s debian11
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
+
+## 模型部署
+
+编译示例完成之后，示例会安装到 install 目录，可以使用 scp 传输到板端。
+
+### 配置 NPU 驱动
+
+:::info
+如果你已经在其他示例中配置过 NPU 驱动则可以跳过这一步。
+:::
+
+将驱动库 scp 传输到板端的 lib 目录。
+
+- A733 对应 common/npuruntime/lib_linux_aarch64/A733 目录
+- T527 对应 common/npuruntime/lib_linux_aarch64/T527 目录
+
+然后执行下面的命令导出到环境变量。
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+
+</NewCodeBlock>
+
+### 运行示例
+
+配置好驱动之后就可以运行示例了。
+
+:::tip
+对于 T527 平台，你还需要参考 A5E 的`板端启用 NPU`文档先启用 NPU ，然后使用下面的命令增加当前用户使用 /dev/vipcore 的权限。
+:::
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
+
+<Tabs groupId="npu-version">
+<TabItem value="A733" label="A733" defaultValue="A733">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd clip_demo_linux_a733/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./clip_demo_a733
+./clip_demo_a733 -ib model/clip-images_uint8_a733.nb -tb model/clip-text_int16_a733.nb -i model/demo.png -t model/demo.txt
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./clip_demo_a733 -ib model/clip-images_uint8_a733.nb -tb model/clip-text_int16_a733.nb -i model/demo.png -t model/demo.txt
+text_model_file=model/clip-text_int16_a733.nb, images_model_file=model/clip-images_uint8_a733.nb, input_images_file=model/demo.png, input_text_file=model/demo.txt, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 2.0.3.2-AW-2024-08-30
+nbg name=model/clip-images_uint8_a733.nb, size: 63747488.
+create network 0: 34340 us.
+nbg name=model/clip-text_int16_a733.nb, size: 115039816.
+create network 1: 60155 us.
+prepare network: 2633 us.
+prepare network: 1587 us.
+images: model/demo.png
+text  : a photo of a motorcycle
+score : 0.998
+clip-text total infer time: 35368 us.
+clip-images total infer time: 13695 us.
+destroy npu finished.
+~NpuUint.
+```
+
+此性能数据仅计算模型推理的时间消耗。如无特别说明，不包含预处理和后处理的时间消耗。
+
+| SoC       | NPU             | 模型        | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时  | 帧率     |
+| :-------- | :-------------- | :---------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------ | :------- |
+| 全志 A733 | Vivante VIP9000 | clip-images | 224×224    | 34.3 ms      | 2.6 ms       | 13.7 ms      |            | 50.6 ms | 73.0 FPS |
+| 全志 A733 | Vivante VIP9000 | clip-text   | 1×20       | 60.2 ms      | 1.6 ms       | 35.4 ms      |            | 97.2 ms | 28.3 FPS |
+
+</TabItem>
+
+<TabItem value="T527" label="T527">
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd clip_demo_linux_t527/
+```
+
+</NewCodeBlock>
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+chmod +x ./clip_demo_t527
+./clip_demo_t527 -ib model/clip-images_uint8_t527.nb -tb model/clip-text_int16_t527.nb -i model/demo.png -t model/demo.txt
+```
+
+</NewCodeBlock>
+
+运行结果如下：
+
+```bash
+$ ./clip_demo_t527 -ib model/clip-images_uint8_t527.nb -tb model/clip-text_int16_t527.nb -i model/demo.png -t model/demo.txt
+text_model_file=model/clip-text_int16_t527.nb, images_model_file=model/clip-images_uint8_t527.nb, input_images_file=model/demo.png, input_text_file=model/demo.txt, loop_count=1, malloc_mbyte=10
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+nbg name=model/clip-images_uint8_t527.nb, size: 64787840.
+create network 0: 74736 us.
+nbg name=model/clip-text_int16_t527.nb, size: 114667200.
+create network 1: 131392 us.
+prepare network: 8988 us.
+prepare network: 12743 us.
+clip-text total infer time: 113006 us.
+images: model/demo.png
+text  : a photo of a motorcycle
+score : 0.997
+clip-images total infer time: 78735 us.
+destroy npu finished.
+~NpuUint.
+```
+
+此性能数据仅计算模型推理的时间消耗。如无特别说明，不包含预处理和后处理的时间消耗。
+
+| SoC       | NPU             | 模型        | 输入分辨率 | 网络创建耗时 | 网络准备耗时 | 单帧推理耗时 | 后处理耗时 | 总耗时   | 帧率     |
+| :-------- | :-------------- | :---------- | :--------- | :----------- | :----------- | :----------- | :--------- | :------- | :------- |
+| 全志 T527 | Vivante VIP9000 | clip-images | 224×224    | 74.7 ms      | 9.0 ms       | 78.7 ms      |            | 162.4 ms | 12.7 FPS |
+| 全志 T527 | Vivante VIP9000 | clip-text   | 1×20       | 131.4 ms     | 12.7 ms      | 113.0 ms     |            | 257.1 ms | 8.8 FPS  |
+
+</TabItem>
+</Tabs>

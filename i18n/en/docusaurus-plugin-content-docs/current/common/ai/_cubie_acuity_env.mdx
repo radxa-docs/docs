@@ -92,8 +92,8 @@ unzip docker_images_v1.8.x.zip
 
 ```bash
 cd docker_images_v2.0.x
-unzip ubuntu-npu_v2.0.10.1.tar.zip
-sudo docker load -i ubuntu-npu_v2.0.10.1.tar
+unzip ubuntu-npu_v2.0.10.2.tar.zip
+sudo docker load -i ubuntu-npu_v2.0.10.2.tar
 ```
 
 </NewCodeBlock>
@@ -103,15 +103,15 @@ sudo docker load -i ubuntu-npu_v2.0.10.1.tar
 
 ```bash
 cd docker_images_v1.8.x
-unzip ubuntu-npu_v1.8.11.tar.zip
-sudo docker load -i ubuntu-npu_v1.8.11.tar
+unzip ubuntu-npu_v1.8.13.tar.zip
+sudo docker load -i ubuntu-npu_v1.8.13.tar
 ```
 
 </NewCodeBlock>
 </TabItem>
 </Tabs>
 
-After the Docker image is loaded, you can see it with `docker images`. The image name is `ubuntu‑npu:v2.0.10.1` (A733) or `ubuntu-npu:v1.8.11` (T527).
+After the Docker image is loaded, you can see it with `docker images`. The image name is `ubuntu‑npu:v2.0.10.2` (A733) or `ubuntu-npu:v1.8.13` (T527).
 
 ### Create a Docker Container
 
@@ -121,7 +121,7 @@ After the Docker image is loaded, you can see it with `docker images`. The image
 
 ```bash
 mkdir docker_data && cd docker_data
-sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v2.0.10.1 ubuntu-npu:v2.0.10.1 /bin/bash
+sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v2.0.10.2 ubuntu-npu:v2.0.10.2 /bin/bash
 ```
 
 </NewCodeBlock>
@@ -131,14 +131,14 @@ sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v2.0.10.1 
 
 ```bash
 mkdir docker_data && cd docker_data
-sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v1.8.11 ubuntu-npu:v1.8.11 /bin/bash
+sudo docker run --ipc=host -itd -v ${PWD}:/workspace --name allwinner_v1.8.13 ubuntu-npu:v1.8.13 /bin/bash
 ```
 
 </NewCodeBlock>
 </TabItem>
 </Tabs>
 
-After the Docker container is created, you can see it with `docker ps -a`. The container name is `allwinner_v2.0.10.1` (A733) or `allwinner_v1.8.11` (T527).
+After the Docker container is created, you can see it with `docker ps -a`. The container name is `allwinner_v2.0.10.2` (A733) or `allwinner_v1.8.13` (T527).
 
 ### Enter the Docker Container
 

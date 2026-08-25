@@ -1,0 +1,176 @@
+This document describes how to run an offline Chinese voice assistant on Cubie boards with Allwinner A733: keyword spotting (KWS) → automatic speech recognition (ASR) → text-to-speech (TTS).
+
+Example repository: [https://github.com/Ronin-1124/cubie-a7a-voice-assistant](https://github.com/Ronin-1124/cubie-a7a-voice-assistant)
+
+The example is developed and verified on Cubie A7A. Cubie A7S and Cubie A7Z use the same A733 NPU, so the software flow is the same. The ALSA card index for the microphone and headphone jack may differ.
+
+```text
+Microphone / offline wav
+  → Wake-word KWS (Zipformer, NPU by default)
+  → Recognition ASR (Zipformer, NPU by default)
+  → TTS (Matcha on CPU + HiFi-GAN on NPU)
+  → Headphone playback
+```
+
+The NPU (Vivante VIP9000) can load only one network at a time. The assistant unloads other NBG graphs before ASR or the NPU vocoder.
+
+:::info
+Matcha-baker uses the Baker dataset, which is non-commercial. Replace the acoustic data for production use.
+:::
+
+## Prepare the environment
+
+### Hardware and system
+
+- A Cubie board with Allwinner A733 (Cubie A7A recommended)
+- Radxa OS installed, with SSH access
+- Headphones plugged into the onboard 3.5 mm jack (do not use the HDMI sound card)
+
+### NPU runtime
+
+Copy the libraries from Model Zoo `common/npuruntime/lib_linux_aarch64/A733` to `~/lib` on the board and add them to the dynamic linker path. Skip this if you already did it for another NPU example.
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+echo 'export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+source ~/.bashrc
+sudo chmod 777 /dev/vipcore
+```
+
+</NewCodeBlock>
+
+NPU ASR calls the [Zipformer](./model-zoo/zipformer) install directory `~/npu_demos/zipformer_demo_linux_a733` by default. Build and deploy the A733 Zipformer example first. `./zipformer_demo_a733 -h` should list `--stdin` (the assistant feeds audio frame by frame).
+
+## Get the example
+
+Clone the repository to `~/npu_demos/voice_assistant` on the board:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+mkdir -p ~/npu_demos
+git clone https://github.com/Ronin-1124/cubie-a7a-voice-assistant.git ~/npu_demos/voice_assistant
+cd ~/npu_demos/voice_assistant
+```
+
+</NewCodeBlock>
+
+Install Python dependencies:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+pip3 install --user -r requirements.txt
+```
+
+</NewCodeBlock>
+
+`requirements.txt` lists `numpy` and `onnxruntime`.
+
+## Prepare models
+
+ONNX files are large and are not stored in git. Download the TTS acoustic model (Matcha-baker) from the repository root:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+bash scripts/download_models.sh
+```
+
+</NewCodeBlock>
+
+`prebuilt/` contains converted A733 NBG files:
+
+| Path                                                   | Purpose                                                         |
+| ------------------------------------------------------ | --------------------------------------------------------------- |
+| `prebuilt/kws/encoder_float_a733.nb` and related files | KWS NPU (float encoder/decoder/joiner; do not use int16 joiner) |
+| `prebuilt/vocoder/vocoder_int16_a733.nb`               | TTS vocoder (int16; do not use uint8)                           |
+
+Copy the KWS NBG files to the directory the assistant searches by default:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+mkdir -p ~/npu_demos/kws_npu_demo/model
+cp prebuilt/kws/*.nb prebuilt/kws/tokens.txt ~/npu_demos/kws_npu_demo/model/
+```
+
+</NewCodeBlock>
+
+NPU KWS also needs the `kws_npu_demo_a733` binary. Source is in `convert/kws/`. After building, place it with the VIPLite libraries under `~/npu_demos/kws_npu_demo/`.
+
+The TTS NPU vocoder is copied to `models/tts/vocoder_int16_a733.nb`.
+
+## Run the example
+
+NPU KWS + NPU ASR + Matcha with the NPU vocoder. Verify the software with the bundled 16 kHz wav files first. You do not need to speak into the microphone.
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+cd ~/npu_demos/voice_assistant
+python3 assistant_fast.py --from-wav samples/pipe_nihao_xiaorui_openlight_16k.wav
+```
+
+</NewCodeBlock>
+
+The running result is as follows:
+
+```bash
+$ python3 assistant_fast.py --from-wav samples/pipe_nihao_xiaorui_openlight_16k.wav
+[09:45:53] wav 1 file(s) 6.6s
+[09:45:53] kws=npu asr=npu tts=npu  ready 0.1s
+[09:45:53] listening…
+[09:45:53] WAKE 你好小瑞
+[09:46:01] TEXT 帮我打开灯  8.4s
+[09:46:17] TTS 15.3s
+```
+
+Live microphone:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+python3 assistant_fast.py
+```
+
+</NewCodeBlock>
+
+| Goal                           | Option                            |
+| ------------------------------ | --------------------------------- |
+| Disable playback               | `--no-tts`                        |
+| Offline full-pipeline wav test | `--from-wav <wake.wav> <cmd.wav>` |
+
+Synthesize speech only:
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+python3 tools/matcha_npu.py --text "识别完成" --play
+```
+
+</NewCodeBlock>
+
+Default wake words in `keywords_wake.txt` are 你好小瑞, 小瑞小瑞, and 小瑞. The short word 你好 is not included, to avoid false wakes.
+
+## Microphone and playback
+
+Cubie A7A has **no onboard MEMS microphone**. Capture is the 3.5 mm 4-pole jack headset mic (schematic HS-MIC → codec **MIC4**). Playback uses the same jack (HPOUT).
+
+List sound cards and use the device whose name contains `sunxi-ac101b`. Do not use `allwinner-hdmi`. On the current image the headphone codec is usually **card 0** and HDMI is card 1.
+
+<NewCodeBlock tip="Radxa SBC" type="device">
+
+```bash
+aplay -l
+arecord -l
+```
+
+</NewCodeBlock>
+
+Plug in a **4-pole headset with a mic** and speak into the **boom mic** (often on the right earcup). The analog mic is mono; on this image its energy shows up on the I2S left slot, which is not the same as “left earcup”. TTS wav files are mono; the assistant duplicates them to both ears before playback.
+
+Do not use sites that monitor the microphone through the headphones (for example mictest.com) to tune levels: the boom sits next to a driver and can howl at high volume.
+
+If live wake is unreliable, use `--from-wav` above to verify the software. Details: `docs/AUDIO_耳机与麦克风.md` in the example repository.
