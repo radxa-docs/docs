@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: /cubie
 ---
 
-# Cubie Series
+# Radxa Cubie Series
 
 The Cubie series is a line of single-board computers from Radxa based on Allwinner SoCs.
 
