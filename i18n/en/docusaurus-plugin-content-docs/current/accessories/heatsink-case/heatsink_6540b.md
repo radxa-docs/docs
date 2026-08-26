@@ -4,12 +4,12 @@ sidebar_position: 5
 
 # Radxa Heatsink 6540B
 
-The Radxa Heatsink 6540B is a specially designed for the ROCK 5C, measuring 60mm long, 40mm wide and 12mm high.
+The Radxa Heatsink 6540B is an active heatsink designed for the ROCK 5C and Cubie A7A, measuring 65mm long, 40mm wide and 10mm high. The latest version V3.0 is compatible with the ROCK 5C and Cubie A7A. You can check your heatsink version on the [product page](https://radxa.com/products/accessories/heatsink-6540b#overview).
 
 ## Spec
 
 - Material: Aluminum
-- Dimensions: 60 x 40 x 12 mm
+- Dimensions: 65 x 40 x 10 mm
 - Speed: 7000rpm ± 10%
 - Connector: 2-Pin 1.25mm Pitch Connector
 - Input voltage: 5V
@@ -17,6 +17,8 @@ The Radxa Heatsink 6540B is a specially designed for the ROCK 5C, measuring 60mm
 ![Heatsink 6540B](/img/accessories/heatsink-case/heatsink-6540b-01.webp)
 
 ## Installation Guide
+
+> The installation guide below uses the ROCK 5C as an example; the same steps apply to the Cubie A7A (V3.0).
 
 - First, remove the plastic protective film from the thermal silicone pad.
 
