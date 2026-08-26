@@ -227,73 +227,58 @@ startup.nsh
 
 ## 使用编程器刷写 BIOS 固件（仅在无法启动系统时使用）
 
-对于需要从损坏的 BIOS 中恢复或偏好直接硬件访问的高级用户，可以使用 Serial Flash 编程器（如 CH341A）将 BIOS 固件（cix_flash_all.bin）直接刷写到 SPI NOR Flash 芯片中。此方法完全绕过操作系统，即使在设备无法启动的情况下也能工作。
+对于 BIOS 损坏导致设备无法启动，或需要直接访问 SPI NOR Flash 的高级用户，可以使用 CH347T 编程器，将完整 BIOS 固件直接写入 BIOS 芯片。
 
-### 准备工作
+### 使用前提
 
 1. 准备硬件
 
-- 编程器：推荐使用 CH341A / CH341B 编程器
-- 1.8V 转换器
-- SOP8 烧录夹
-- linux 系统的电脑
+- CH347T 编程器
+- 1.8 V 输出或 1.8 V 电平转换器
+- SOP8 208mil 烧录针（星睿 O6N）/ SOP8 208mil 芯片座（星睿 O6）
+- Ubuntu 系统
 
-2. 下载 BIOS 固件
+2. 安装环境
 
-访问 <a href={props?.download_page ?? '../download.md'}>资源汇总下载</a> 页面，下载 BIOS 固件。
-从 radxa-dl 网站上下载的固件是 zip 格式，需要进行两次解压：
-
-<NewCodeBlock tip="user@linux$" type="host">
-
-```bash
-unzip orion-o6-bios-v1.x.x.zip # orion o6n 的 bios 名称与之类似
-cd orion-o6-bios-v1.x.x # 进入解压后的目录
-gzip -d cix_flash_all.bin.gz
-```
-
-</NewCodeBlock>
-
-3. 安装 flashrom 工具
+在 Ubuntu 下需要提前安装好以下环境：
 
 <NewCodeBlock tip="user@linux$" type="host">
 
 ```bash
-sudo apt-get install flashrom
+sudo apt update
+sudo apt install -y git gcc meson ninja-build pkg-config libusb-1.0-0-dev
+
+git clone https://review.coreboot.org/flashrom
+cd flashrom
+
+meson setup build -Dprogrammer=ch347_spi
+meson compile -C build
 ```
 
 </NewCodeBlock>
 
-### 组装烧录夹
+3. 下载固件
 
-1. 将 CH341A/B 编程器设置为刷机模式
-   将编程器的跳线帽设置为刷机模式，具体位置请参考编程器说明书。
+访问 <a href={props?.download_page ?? '../download.md'}>资源汇总下载</a> 页面下载最新 BIOS 固件。
 
-   <div style={{ textAlign: "center" }}>
-     <img
-       src="/img/orion/o6/bios/orion-o6-ch341-pin.webp"
-       style={{ width: "100%", maxWidth: "1200px" }}
-     />
-   </div>
+### 烧录模式
 
-2. 将 1.8V 转换器放在 CH341A/B 编程器的烧录夹上并锁定压杠
+将烧录器的电压切换到 1.8V，打开烧录器编程模式。
+
+:::danger
+
+BIOS 芯片工作电压 1.8 V，连接前必须确认 CH347T 输出为 1.8 V；错误使用 3.3 V 可能永久损坏 Flash 芯片。
+
+:::
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="/img/orion/o6/bios/orion-o6-ch341-adapter-clamp.webp"
+    src="/img/orion/o6/bios/orion-o6-ch347-mode.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
 
-3. 将 SOP8 烧录夹放在 1.8V 转换器的脚端并锁定压杠
-
-   <div style={{ textAlign: "center" }}>
-     <img
-       src="/img/orion/o6/bios/orion-o6-adapter-sop8-clamp-lock.webp"
-       style={{ width: "100%", maxWidth: "1200px" }}
-     />
-   </div>
-
-4. 使用夹具夹住 Flash ROM 芯片
+### 硬件连接
 
 <Tabs queryString="type">
   <TabItem
@@ -301,12 +286,10 @@ sudo apt-get install flashrom
     default={props.tag === "o6"}
     attributes={{ className: props.tag === "o6n" && "tab_none" }}
   >
-    将烧录夹夹住主板上的 Flash ROM
-    芯片确保夹具的引脚与芯片的引脚对应正确，红色的线为 SOP8 的 1
-    号引脚，和芯片上圆形点标注的引脚对应。
+    将 SOP8 208mil 芯片座安装到 CH347T 烧录器上，将 BIOS 芯片放到 SOP8 208mil 芯片座，确保 BIOS 芯片的引脚 1 和 CH347T 烧录器上的引脚 1 对齐。
     <div style={{ textAlign: "center" }}>
       <img
-        src="/img/orion/o6/bios/orion-o6-ch341-eeprom-clamp.webp"
+        src="/img/orion/o6/bios/orion-o6-ch347-socket.webp"
         style={{ width: "100%", maxWidth: "1200px" }}
       />
     </div>
@@ -316,77 +299,74 @@ sudo apt-get install flashrom
     default={props.tag === "o6n"}
     attributes={{ className: props.tag === "o6" && "tab_none" }}
   >
-    将烧录夹夹住取下来的 Flash ROM
-    芯片，确保夹具的引脚与芯片的引脚对应正确，红色的线为 SOP8 的 1
-    号引脚，和芯片上圆形点标注的引脚对应。 拆卸安装 BIOS
-    芯片的步骤请参考下方的“拆卸 SPI Flash 芯片”和“安装 SPI Flash 芯片”章节。
+    将 SOP8 208mil 烧录针连接 CH347T 烧录器和 BIOS 芯片，将 SOP8 208mil 烧录针的引脚 1 和 CH347T 烧录器的引脚 1 对齐安装，将 SOP8 208mil 烧录针的针头引脚 1 和 BIOS 芯片的引脚 1 对准并适当按压使之接触紧密。
+
+    :::tip
+
+    烧录器和烧录针一般会使用圆圈或者三角形标注引脚 1，主板使用三角形标注 BIOS 芯片的引脚 1。
+
+    :::
+
     <div style={{ textAlign: "center" }}>
       <img
-        src="/img/orion/o6/bios/orion-o6n-ch341-eeprom-clamp.webp"
+        src="/img/orion/o6/bios/orion-o6n-ch347-pins.webp"
+        style={{ width: "100%", maxWidth: "1200px" }}
+      />
+    </div>
+
+    <div style={{ textAlign: "center" }}>
+      <img
+        src="/img/orion/o6/bios/orion-o6n-ch347-real.webp"
         style={{ width: "100%", maxWidth: "1200px" }}
       />
     </div>
   </TabItem>
 </Tabs>
 
-### 刷写 BIOS 固件
+### 验证硬件
 
-1. 插入编程器并启动电脑
-
-将组装好的编程器插入 linux 系统的电脑 USB 接口。
-
-2. 查看编程器识别情况
+使用数据线连接烧录器和电脑，然后进入 flashrom 文件夹，使用以下命令检查系统是否正确识别 BIOS 芯片：
 
 <NewCodeBlock tip="user@linux$" type="host">
 
 ```bash
-sudo flashrom -L | grep ch341
+sudo ./build/flashrom -p ch347_spi
 ```
 
 </NewCodeBlock>
 
-如果显示类似如下信息，表示编程器识别成功：
+若正确识别，终端会输出以下类似信息：
 
 ```text
-Supported USB devices for the ch34la_spi programmer
+flashrom v1.8.0-rc2 (git:v1.8.0-rc2) on Linux 7.0.0-28-generic (x86_64)
+flashrom is free software, get the source code at https://flashrom.org
+
+CH347 SPI clock set to 15MHz.
+Found Winbond flash chip "W25Q64.W" (8192 kB, SPI) on ch347_spi.
+No operations were specified.
 ```
 
-3. 查看芯片识别情况
+### 烧录 BIOS 固件
+
+将提前下载的 BIOS 固件放到 flashrom 文件夹下，然后使用命令烧录 BIOS 固件：
 
 <NewCodeBlock tip="user@linux$" type="host">
 
 ```bash
-sudo flashrom -p ch341a_spi -n
+sudo ./build/flashrom -p ch347_spi:spispeed=15M -w cix_flash_all.bin
 ```
 
 </NewCodeBlock>
 
-如果显示类似如下信息，表示芯片识别成功：
+烧录固件成功后，终端会出现以下类似信息：
 
 ```text
-Found Winbond flash chip "W25Q64.W" (8192 kB, SPI) on ch341a_spi.
-```
+flashrom v1.8.0-rc2 (git:v1.8.0-rc2) on Linux 7.0.0-28-generic (x86_64)
+flashrom is free software, get the source code at https://flashrom.org
 
-4. 刷写 BIOS 固件
-
-确保进行此步骤时，编程器和芯片连接稳定，避免刷写过程中断电或连接不稳定导致刷写失败。
-
-当前目录下有需要刷写的 `cix_flash_all.bin` 文件。
-
-<NewCodeBlock tip="user@linux$" type="host">
-
-```bash
-sudo flashrom -p ch341a_spi -w cix_flash_all.bin
-```
-
-</NewCodeBlock>
-
-等待刷写完成，显示如下信息表示刷写成功：
-
-```text
+CH347 SPI clock set to 15MHz.
+Found Winbond flash chip "W25Q64.W" (8192 kB, SPI) on ch347_spi.
+Reading old flash chip contents... done.
+Updating flash chip contents... Erase/write done from 0 to 7fffff
 Verifying flash... VERIFIED.
 ```
-
-5. 重启系统
-
-更新完成后，重新插拔电源适配器启动系统！
