@@ -4,7 +4,11 @@ sidebar_position: 1
 
 # 进入 EDL 模式
 
-Dragon Q8B 进入 EDL 模式的方法与 Q6A 不同，请参考 [进入 EDL 模式](../../../low-level-dev/edl-mode) 教程。
+主板上电前，按住 EDL 按键；主板上电后，松开 EDL 按键，进入 EDL 模式。
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/dragon/q8b/dragon-q8b-enter-edl-mode.webp" style={{width: '100%', maxWidth: '1200px'}} />
+</div>
 
 ① : 按住主板上的 `EDL` 按键
 
