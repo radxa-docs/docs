@@ -2,13 +2,13 @@
 sidebar_position: 4
 ---
 
-# Radxa Camera 4K
+# 瑞莎 4K 摄像头
 
 ![Camera-4K 安装](/img/cm5/cm5io-4k-camera-connected.webp)
 
-- 准备好 Radxa Camera 4K，通过 FPC 线接上 Radxa CM5 IO板Camera 1接口。
+- 准备好瑞莎 4K 摄像头，通过 FPC 排线连接到瑞莎 CM5 载板的 Camera 1 接口。
 
-- 通过左下角 Application Launcher 打开 Kconsole 终端, 运行 `rsetup` 命令：
+- 单击左下角的 Application Launcher（应用程序启动器），打开 Konsole 终端并运行 `rsetup` 命令：
 
 ```bash
 radxa@radxa-cm5-io:~$ rsetup
@@ -19,11 +19,11 @@ radxa@radxa-cm5-io:~$ rsetup
 :::caution [注意]
 
 1. 请启用 `[] Enable Radxa Camera 4K` 项 Overlay。
-2. 在启用成功显示 `[*] Enable Radxa Camera 4K` 后退出reboot重启才能使配置生效。
+2. 显示 `[*] Enable Radxa Camera 4K` 表示启用成功。退出配置界面并重启系统，使配置生效。
 
 :::
 
-## 测试 Radxa Camera 4K
+## 测试瑞莎 4K 摄像头
 
 你也可以使用终端命令打开相机预览:
 

@@ -4,8 +4,8 @@ sidebar_position: 2
 
 # U-boot 开发
 
-[bsp](https://github.com/radxa-repo/bsp) 是 Radxa 提供的一套快速构建 U-Boot Kernel 的工具，使用 bsp 非常方便就能构建出自己的 U-Boot 和 Kernel.  
-下面将为您展示如何使用 bsp 构建 Radxa CM5 IO 的 U-Boot
+[bsp](https://github.com/radxa-repo/bsp) 是瑞莎提供的一套快速构建 U-Boot 和 Kernel 的工具，可以方便地构建自定义 U-Boot 和 Kernel。  
+下面将为您展示如何使用 bsp 构建瑞莎 CM5 载板的 U-Boot
 
 ## [bsp 环境配置](https://radxa-repo.github.io/bsp/)
 

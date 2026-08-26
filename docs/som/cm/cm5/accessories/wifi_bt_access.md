@@ -2,47 +2,48 @@
 sidebar_position: 2
 ---
 
-# WIFI & BT
+# Wi-Fi 与蓝牙
 
-## WIFI & BT 支持模块列表
+## Wi-Fi 与蓝牙支持模块列表
 
-| NO. | Model                    | Chip        | WiFi          | BT  | WIFI Throughput                      | Remark |
-| --- | ------------------------ | ----------- | ------------- | --- | ------------------------------------ | ------ |
-| 1   | Radxa wireless A8        | RTL8852BE   | 2.4G&5G&WIFI6 | 5.0 | up:600 Mbits/sec down: 900 Mbits/sec |        |
-| 2   | Intel 0MHK36 (PCIE+USB)  | Intel 3165  | 2.4G&5G       | 4.2 | up:283 Mbits/sec down: 334 Mbits/sec |        |
-| 3   | Intel 7265NGW (PCIE+USB) | Intel 7265  | 2.4G&5G       | 4.2 | up:363 Mbits/sec down: 619 Mbits/sec |        |
-| 4   | Intel AX210 (PCIE+USB)   | Intel AX210 | WiFi 6        | 5.2 | up:859 Mbits/sec down: 813 Mbits/sec |        |
+| 序号 | 模块                     | 芯片        | Wi-Fi             | 蓝牙 | Wi-Fi 传输速率                     | 备注 |
+| ---- | ------------------------ | ----------- | ----------------- | ---- | ---------------------------------- | ---- |
+| 1    | 瑞莎无线模块 A8          | RTL8852BE   | 2.4G、5G、Wi-Fi 6 | 5.0  | 上行：600 Mbit/s；下行：900 Mbit/s |      |
+| 2    | Intel 0MHK36 (PCIe+USB)  | Intel 3165  | 2.4G、5G          | 4.2  | 上行：283 Mbit/s；下行：334 Mbit/s |      |
+| 3    | Intel 7265NGW (PCIe+USB) | Intel 7265  | 2.4G、5G          | 4.2  | 上行：363 Mbit/s；下行：619 Mbit/s |      |
+| 4    | Intel AX210 (PCIe+USB)   | Intel AX210 | Wi-Fi 6           | 5.2  | 上行：859 Mbit/s；下行：813 Mbit/s |      |
 
-- Radxa CM5 搭配 Radxa CM5 IO 板，没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
-- 这里演示的 M.2 无线模块是： Radxa 无线模块 A8。
+- 瑞莎 CM5 搭配瑞莎 CM5 载板时没有板载 Wi-Fi/蓝牙模块，需要外接模块。以上是经过支持性测试的 Wi-Fi/蓝牙卡。
 
-![Radxa 无线模块A8](/img/accessories/network/a8-module-01.webp)
+- 本教程以瑞莎无线模块 A8 为例。
+
+![瑞莎无线模块 A8](/img/accessories/network/a8-module-01.webp)
 
 - 安装如图所示：
 
-![Radxa 无线模块A8](/img/accessories/network/a8-module-02.webp)
+![瑞莎无线模块 A8](/img/accessories/network/a8-module-02.webp)
 
-## WIFI 使用
+## Wi-Fi 使用
 
-1. 首先进入ROOT用户模式。
+1. 首先进入 root 用户模式。
 
 ```bash
 sudo su
 ```
 
-2. 打开WIFI
+2. 启用 Wi-Fi。
 
 ```bash
 nmcli r wifi on
 ```
 
-3. 扫描WIFI
+3. 扫描 Wi-Fi 网络。
 
 ```bash
 nmcli dev wifi
 ```
 
-1. 连接wifi网络
+4. 连接 Wi-Fi 网络。
 
 ```bash
 nmcli dev wifi connect "wifi_name" password "wifi_password"
@@ -50,7 +51,7 @@ nmcli dev wifi connect "wifi_name" password "wifi_password"
 
 ## 蓝牙使用
 
-- 使用Radxa无线A8模块时，必须添加以下黑名单才能使BT正常工作。
+- 使用瑞莎无线模块 A8 时，必须添加以下黑名单才能使蓝牙正常工作。
 
 ```text
 root@radxa-cm5-io:~# cat /etc/modprobe.d/blacklist.conf

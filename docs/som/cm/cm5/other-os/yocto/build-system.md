@@ -11,4 +11,4 @@ import BuildSystem from '../../../../../common/yocto/\_build-system.mdx';
 
 # 构建系统
 
-<BuildSystem board="Radxa CM5 IO" board_conf="rockchip-rk3588s-radxa-cm5-io.conf" soc="rk3588s" board_name="radxa-cm5-io" />
+<BuildSystem board="瑞莎 CM5 载板" board_conf="rockchip-rk3588s-radxa-cm5-io.conf" soc="rk3588s" board_name="radxa-cm5-io" />

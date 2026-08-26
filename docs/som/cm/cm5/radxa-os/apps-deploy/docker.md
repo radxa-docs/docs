@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Docker
 
-Radxa Debian 在内核已经开启 Docker 相关的配置，只需安装 Docker 应用即可开始使用。
+瑞莎 Debian 的内核已启用 Docker 相关配置，只需安装 Docker 应用即可开始使用。
 
 1. 安装 Docker
 

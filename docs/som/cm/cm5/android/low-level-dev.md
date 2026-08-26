@@ -69,9 +69,9 @@ $ docker build -t android-builder:12.x --build-arg USER_ID=`id -u` --build-arg G
 
 ```
 
-## 下载 Radxa Android SDK
+## 下载瑞莎 Android SDK
 
-Radxa Android SDK 包含数百个 Git 仓库，如果不用 repo 逐个下载会非常繁琐。
+瑞莎 Android SDK 包含数百个 Git 仓库，如果不使用 repo 而逐个下载，会非常繁琐。
 
 ### Repo
 

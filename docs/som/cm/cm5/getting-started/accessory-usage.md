@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ## 接口总览
 
-<img src="/img/cm5/cm5-block-diagram.webp" width="700" alt="Radxa-CM5-IO interfaces overview" />
+<img src="/img/cm5/cm5-block-diagram.webp" width="700" alt="瑞莎 CM5 载板接口概览" />
 
 ## 摄像头
 
@@ -91,16 +91,16 @@ MIPI CSI 摄像头接口（2 lane, 15-pin）连接摄像头使用，可以参考
 MIPI DSI 接口（4 lane, 39-pin）连接屏幕使用，可以参考 [瑞莎 8 寸显示屏使用教程](../accessories/8hd-display_use)  
 MIPI DSI 接口（2 lane, 15-pin）连接屏幕使用，可以参考 [树莓派 7 寸显示屏使用教程](../accessories/rpi-7inch-display)
 
-## WIFI & BT 支持模块列表
+## Wi-Fi 与蓝牙支持模块列表
 
-| NO. | 模块名称                 | 芯片        | WiFi          | 蓝牙 | WIFI 传输速率                        | 备注 |
-| --- | ------------------------ | ----------- | ------------- | ---- | ------------------------------------ | ---- |
-| 1   | 瑞莎 A8 模块             | RTL8852BE   | 2.4G&5G&WIFI6 | 5.0  | up:600 Mbits/sec down: 900 Mbits/sec |      |
-| 2   | Intel 0MHK36 (PCIE+USB)  | Intel 3165  | 2.4G&5G       | 4.2  | up:283 Mbits/sec down: 334 Mbits/sec |      |
-| 3   | Intel 7265NGW (PCIE+USB) | Intel 7265  | 2.4G&5G       | 4.2  | up:363 Mbits/sec down: 619 Mbits/sec |      |
-| 4   | Intel AX210 (PCIE+USB)   | Intel AX210 | WiFi 6        | 5.2  | up:859 Mbits/sec down: 813 Mbits/sec |      |
+| 序号 | 模块名称                 | 芯片        | Wi-Fi             | 蓝牙 | Wi-Fi 传输速率                     | 备注 |
+| ---- | ------------------------ | ----------- | ----------------- | ---- | ---------------------------------- | ---- |
+| 1    | 瑞莎 A8 模块             | RTL8852BE   | 2.4G、5G、Wi-Fi 6 | 5.0  | 上行：600 Mbit/s；下行：900 Mbit/s |      |
+| 2    | Intel 0MHK36 (PCIe+USB)  | Intel 3165  | 2.4G、5G          | 4.2  | 上行：283 Mbit/s；下行：334 Mbit/s |      |
+| 3    | Intel 7265NGW (PCIe+USB) | Intel 7265  | 2.4G、5G          | 4.2  | 上行：363 Mbit/s；下行：619 Mbit/s |      |
+| 4    | Intel AX210 (PCIe+USB)   | Intel AX210 | Wi-Fi 6           | 5.2  | 上行：859 Mbit/s；下行：813 Mbit/s |      |
 
-- 瑞莎 CM5 搭配瑞莎 CM5 载板，没有板载WiFi/BT模块，需要外接模块。以上是支持并测试过的 WITI/BT 卡。
-  无线模块使用请参见[WIFI/BT教程](../accessories/wifi_bt_access)
+- 瑞莎 CM5 搭配瑞莎 CM5 载板时没有板载 Wi-Fi/蓝牙模块，需要外接模块。以上是经过支持性测试的 Wi-Fi/蓝牙卡。
+  无线模块的使用方法请参见 [Wi-Fi 与蓝牙教程](../accessories/wifi_bt_access)。
 
 更多配件信息可参考 [配件列表](../accessories)
