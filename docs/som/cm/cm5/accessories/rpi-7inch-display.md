@@ -2,18 +2,18 @@
 sidebar_position: 3
 ---
 
-# RPI 7 inch Display
+# 树莓派 7 英寸显示屏
 
-瑞莎 CM5 载板 LCD0 接口，使用反向15pin排线，兼容的5寸和7寸屏。
+瑞莎 CM5 载板的 LCD0 接口使用 15-pin 反向排线，兼容 5 英寸和 7 英寸显示屏。
 
-## 以连接树莓派7寸屏为例：
+## 连接树莓派 7 英寸显示屏
 
-- 准备好 RPI 7 inch Display，通过 15pin 反向FPC 线接上瑞莎 CM5 载板。
+- 准备好树莓派 7 英寸显示屏，通过 15-pin 反向 FPC 排线连接到瑞莎 CM5 载板。
 
 ![显示屏安装-01](/img/cm5/cm5io-rpi-display-7inch-FPC.webp)  
 ![显示屏安装-02](/img/cm5/cm5io-rpi-display-7inch-connected.webp)
 
-- 通过左下角 Application Launcher 打开 Kconsole 终端, 运行 `rsetup` 命令：
+- 单击左下角的 Application Launcher（应用程序启动器），打开 Konsole 终端并运行 `rsetup` 命令：
 
 ```bash
 radxa@radxa-cm5-io:~$ rsetup
@@ -24,6 +24,6 @@ radxa@radxa-cm5-io:~$ rsetup
 :::caution [注意]
 
 1. 请启用 `[] Enable Raspberry Pi 7-inch Touchscreen on DSI0` 项 Overlay。
-2. 在启用成功显示 `[*] Enable Raspberry Pi 7-inch Touchscreen on DSI0` 后退出reboot重启才能使配置生效。
+2. 显示 `[*] Enable Raspberry Pi 7-inch Touchscreen on DSI0` 表示启用成功。退出配置界面并重启系统，使配置生效。
 
 :::

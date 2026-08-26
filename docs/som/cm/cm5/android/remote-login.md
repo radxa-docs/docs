@@ -18,7 +18,7 @@ import Serial from "../../../../common/general/\_serial.mdx"
 
 <TabItem value="adb" label="adb登录">
 
-ADB（android debugbridge）是你的Android设备和电脑之间的桥梁，用于在电脑上全面操作和管理你的Android设备。
+ADB（Android Debug Bridge，安卓调试桥）是 Android 设备与电脑之间的通信工具，可用于在电脑上操作和管理 Android 设备。
 
 ### 准备工作
 

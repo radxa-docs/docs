@@ -2,18 +2,18 @@
 sidebar_position: 5
 ---
 
-# Radxa Camera 8M
+# 瑞莎 8M 摄像头
 
 瑞莎 CM5 载板 Camera0 接口，使用反向15pin排线，兼容的摄像头有：  
-Radxa Camera 8M、OKDO 5MP、RPI Camera V13、RPI Camera V2。
+瑞莎 8M 摄像头、OKDO 5MP 摄像头、树莓派 V1.3 摄像头和树莓派 V2 摄像头。
 
-## 以连接Radxa Camera 8M为例：
+## 连接瑞莎 8M 摄像头
 
 ![Camera-8M 安装](/img/cm5/cm5io-8m-camera-connected.webp)
 
-- 准备好 Radxa Camera 8M，通过 FPC 线接上瑞莎 CM5 载板的Camera 0接口。
+- 准备好瑞莎 8M 摄像头，通过 FPC 排线连接到瑞莎 CM5 载板的 Camera 0 接口。
 
-- 通过左下角 Application Launcher 打开 Kconsole 终端, 运行 `rsetup` 命令：
+- 单击左下角的 Application Launcher（应用程序启动器），打开 Konsole 终端并运行 `rsetup` 命令：
 
 ```bash
 radxa@radxa-cm5-io:~$ rsetup
@@ -24,11 +24,11 @@ radxa@radxa-cm5-io:~$ rsetup
 :::caution [注意]
 
 1. 请启用 `[] Enable Radxa Camera 8M 219 on CSI0` 项 Overlay。
-2. 在启用成功显示 `[*] Enable Radxa Camera 8M 219 on CSI0` 后退出reboot重启才能使配置生效。
+2. 显示 `[*] Enable Radxa Camera 8M 219 on CSI0` 表示启用成功。退出配置界面并重启系统，使配置生效。
 
 :::
 
-## 测试 Radxa Camera 8M
+## 测试瑞莎 8M 摄像头
 
 你也可以使用终端命令打开相机预览:
 

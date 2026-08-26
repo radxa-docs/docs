@@ -2,7 +2,7 @@
 sidebar_position: 20
 ---
 
-# FAQ
+# 常见问题
 
 ### 1.瑞莎 CM5 能直接在 Radxa CM3 IO 上使用吗
 

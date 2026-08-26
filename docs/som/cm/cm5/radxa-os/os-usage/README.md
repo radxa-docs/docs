@@ -10,7 +10,7 @@ import Serial from "../../../../../common/general/\_serial.mdx"
 
 ## 用户名和密码
 
-Radxa ROCK 系列默认添加的用户名和密码为：
+瑞莎 ROCK 系列默认的用户名和密码为：
 
 ```text
 用户名：radxa/rock

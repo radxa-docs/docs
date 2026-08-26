@@ -6,7 +6,7 @@ sidebar_position: 4
 
 ## 产品介绍
 
-瑞莎 CM5 是基于 Rockchip RK3588S 片上系统 (SoC) 的系统模块 (SoM)。瑞莎 CM5 集成了中央处理器 (CPU)、图形处理器 (GPU)、神经处理单元 (NPU)、电源管理单元 (PMU)、LPDDR4X DRAM Memory 和板载 eMMC 存储器，外形小巧，仅为 55mm x 40mm。瑞莎 CM5 为多种用途的应用提供了开箱即用的高性能解决方案，加速了客户的产品开发。
+瑞莎 CM5 是基于 Rockchip RK3588S 片上系统 (SoC) 的系统模块 (SoM)。瑞莎 CM5 集成了中央处理器 (CPU)、图形处理器 (GPU)、神经处理单元 (NPU)、电源管理单元 (PMU)、LPDDR4X DRAM 内存和板载 eMMC 存储器，外形小巧，仅为 55mm x 40mm。瑞莎 CM5 为多种用途的应用提供了开箱即用的高性能解决方案，加速了客户的产品开发。
 
 <Tabs queryString="target">
   <TabItem value="cm5" label="CM5 核心板">
@@ -38,19 +38,19 @@ sidebar_position: 4
 
 #### 外设概述
 
-- 1x USB3.0 Host
-- 2x USB2.0 Host
-- 1x Type-C
-- 2x MIPI DSI
-- 2x MIPI CSI
-- 1x M.2 E Key
-- 1x TF Card Slot
-- 1x HDMI
-- 1x Gigabit Ethernet
-- 1x 40 PIN IO
-- 1x Fan Header
-- 2x LED Light
-- 1x Power Input
+- 1x USB 3.0 主机接口
+- 2x USB 2.0 主机接口
+- 1x Type-C 接口
+- 2x MIPI DSI 接口
+- 2x MIPI CSI 接口
+- 1x M.2 E Key 接口
+- 1x microSD 卡槽
+- 1x HDMI 接口
+- 1x 千兆以太网接口
+- 1x 40-pin GPIO 接口
+- 1x 风扇接口
+- 2x LED 指示灯
+- 1x 电源输入接口
 
 </TabItem>
 
@@ -68,11 +68,11 @@ Rockchip 官方推荐为 RK806 PMU 提供 4V 电源，以确保最佳效率和�
 
 ### 芯片框图
 
-![RK3588s block diagram](/img/cm5/rk3588s-block-diagram.webp)
+![RK3588S 芯片框图](/img/cm5/rk3588s-block-diagram.webp)
 
 ### 系统框图
 
-![瑞莎 CM5 block diagram](/img/cm5/cm5-block-diagram.webp)
+![瑞莎 CM5 系统框图](/img/cm5/cm5-block-diagram.webp)
 
 ## 文档使用指引
 
@@ -82,8 +82,8 @@ Rockchip 官方推荐为 RK806 PMU 提供 4V 电源，以确保最佳效率和�
 
 ### [Radxa OS](/compute-module/cm5/radxa-os)
 
-瑞莎系统 (Radxa OS) 是 Radxa 基于Debian OS 定制的一套操作系统，这里主要介绍 系统登录，网络连接等内容，
-方便用户快速的熟悉并使用系统。
+瑞莎系统 (Radxa OS) 是瑞莎基于 Debian OS 定制的一套操作系统。这里主要介绍系统登录、网络连接等内容，
+方便用户快速熟悉并使用系统。
 
 ### [Android](/compute-module/cm5/android)
 
