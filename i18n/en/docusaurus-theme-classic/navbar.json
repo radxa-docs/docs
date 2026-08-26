@@ -103,6 +103,14 @@
     "message": "NX Series",
     "description": "Navbar item with label NX 系列"
   },
+  "item.label.VMARC 系列": {
+    "message": "VMARC Series",
+    "description": "Navbar item with label VMARC 系列"
+  },
+  "item.label.VMARC-Q9075": {
+    "message": "VMARC-Q9075",
+    "description": "Navbar item with label VMARC-Q9075"
+  },
   "item.label.X 系列": {
     "message": "X Series",
     "description": "Navbar item with label X 系列"
