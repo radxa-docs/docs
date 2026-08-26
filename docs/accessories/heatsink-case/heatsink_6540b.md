@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # 瑞莎 6540B 散热器
 
-瑞莎 6540B 散热器是一款适用于 ROCK 5C 和 Cubie A7A 的主动散热器，长 65mm，宽 40mm，高 10mm。最新版本 V3.0 适配 ROCK 5C 和 Cubie A7A，你可以通过[产品页面](https://radxa.com/products/accessories/heatsink-6540b#overview)判断自己的散热器版本。
+瑞莎 6540B 散热器（最新版本 V3.0）适用于 ROCK 5C 和 Cubie A7A，长 65mm，宽 40mm，高 10mm。你可以通过[产品页面](https://radxa.com/products/accessories/heatsink-6540b#overview)判断自己的散热器版本。
 
 ## 物理规格
 
@@ -18,7 +18,7 @@ sidebar_position: 5
 
 ## 安装说明
 
-> 以下安装教程以 ROCK 5C 为例，安装步骤同样适用于 Cubie A7A（V3.0）。
+> 本安装教程以 ROCK 5C 为例。
 
 - 首先，**撕下导热硅胶片上的塑料保护膜**。
 
