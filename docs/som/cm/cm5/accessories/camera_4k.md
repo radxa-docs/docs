@@ -6,7 +6,7 @@ sidebar_position: 4
 
 ![Camera-4K 安装](/img/cm5/cm5io-4k-camera-connected.webp)
 
-- 准备好 Radxa Camera 4K，通过 FPC 线接上 Radxa CM5 IO板Camera 1接口。
+- 准备好 Radxa Camera 4K，通过 FPC 线接上瑞莎 CM5 载板Camera 1接口。
 
 - 通过左下角 Application Launcher 打开 Kconsole 终端, 运行 `rsetup` 命令：
 

@@ -57,17 +57,17 @@ export PATH=${path}:~/platform-tools(~代表解压出来的工具包路径)
 
 1. 一条 USB 线
 2. 一台有安装 ADB 工具的电脑或笔记本
-3. 一个 Radxa CM5
+3. 一个瑞莎 CM5
 
 #### 步骤
 
-1. 启动 Radxa CM5
+1. 启动瑞莎 CM5
 
-2. 用 USB 线连接计算机的 USB 接口和 Radxa CM5 的 OTG Type C 接口
+2. 用 USB 线连接计算机的 USB 接口和瑞莎 CM5 的 OTG Type C 接口
 
 ![cm5](/img/cm5/cm5io-otg-connect.webp)
 
-3. 打开计算机终端输入 adb devices 确认识别到 Radxa CM5 ,输入 adb shell 登录
+3. 打开计算机终端输入 adb devices 确认识别到瑞莎 CM5 ,输入 adb shell 登录
 
 ```bash
 $ adb devices
@@ -87,15 +87,15 @@ Android 11 及以上版本支持 ADB 无线登录。
 #### 要求
 
 1. 一台有安装 ADB 工具的电脑或笔记本 ，ADB 版本需要大于 31.0.0
-2. 一个Radxa CM5，安卓镜像需要大于或等于 11
-3. 计算机和 Radxa CM5 需要在同一个局域网
+2. 一个瑞莎 CM5，安卓镜像需要大于或等于 11
+3. 计算机和瑞莎 CM5 需要在同一个局域网
 
 #### 步骤
 
-1. 启动 Radxa CM5 ，使用 wifi 连接 网络
+1. 启动瑞莎 CM5 ，使用 wifi 连接 网络
 2. 进入开发着模式，点击7次版本号可进入开发着模式（设置 -> 关于平板电脑 -> 版本号）
 3. 进入开发着选项（设置 -> 系统 -> 开发着选项），打开无线调试，记住IP地址和接(例：10.0.0.16:45613)
-4. 打开计算机终端输入 adb connect 10.0.0.16:45613 连接 Radxa CM5 ，输入 adb shell 登录
+4. 打开计算机终端输入 adb connect 10.0.0.16:45613 连接瑞莎 CM5 ，输入 adb shell 登录
 
 ```bash
 $ adb connect 10.0.0.16:45613

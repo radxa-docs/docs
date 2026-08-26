@@ -12,34 +12,34 @@ sidebar_position: 99
 
 官方
 
-- [Radxa CM5 2D dxf](https://dl.radxa.com/cm5/v2200/radxa_cm5_v2200_2d_dxf.zip) - 下载 Radxa CM5 V2.21 2D 文件
-- [Radxa CM5 3D stp](https://dl.radxa.com/cm5/radxa_cm5_pcba_3d.stp.zip) - 下载 Radxa CM5 V2.21 2D 文件
-- [Radxa CM5 V2.21 原理图 pdf](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_schematic.pdf) - 下载 Radxa CM5 V2.21 的原理图
-- [Radxa CM5 V2.21 位号图 pdf](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_components_placement_map.pdf) - 下载 Radxa CM5 V2.21 的元器件位置参考表
-- [Radxa CM5 V2.21 引脚定义表](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_pinout.xlsx) - 下载 Radxa CM5 V2.21 的 连接座引脚定义表
+- [瑞莎 CM5 2D dxf](https://dl.radxa.com/cm5/v2200/radxa_cm5_v2200_2d_dxf.zip) - 下载瑞莎 CM5 V2.21 2D 文件
+- [瑞莎 CM5 3D stp](https://dl.radxa.com/cm5/radxa_cm5_pcba_3d.stp.zip) - 下载瑞莎 CM5 V2.21 2D 文件
+- [瑞莎 CM5 V2.21 原理图 pdf](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_schematic.pdf) - 下载瑞莎 CM5 V2.21 的原理图
+- [瑞莎 CM5 V2.21 位号图 pdf](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_components_placement_map.pdf) - 下载瑞莎 CM5 V2.21 的元器件位置参考表
+- [瑞莎 CM5 V2.21 引脚定义表](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_pinout.xlsx) - 下载瑞莎 CM5 V2.21 的 连接座引脚定义表
 
 社区
 
-- [Radxa CM5 KiCAD symbol, footprint, and 3D Model](https://github.com/swdee/radxa-cm5-kicad) - 社区设计 KiCAD CM5 符号和 3D 模型，来自用户 [@swdee](https://github.com/swdee)
+- [瑞莎 CM5 KiCAD symbol, footprint, and 3D Model](https://github.com/swdee/radxa-cm5-kicad) - 社区设计 KiCAD CM5 符号和 3D 模型，来自用户 [@swdee](https://github.com/swdee)
 
-#### 底板
+#### 载板
 
-##### CM5 IO V2.2 版本
+##### CM5 载板 V2.2 版本
 
 官方
 
-- [Radxa CM5 IO V2.2 原理图 pdf](https://dl.radxa.com/cm5/v2200/radxa_cm5_io_v2200_schematic.pdf) - 下载 Radxa CM5 V2.2 的原理图
-- [Radxa CM5 IO V2.2 位号图 pdf](https://dl.radxa.com/cm5/v2200/radxa_cm5_io_v2200_Components_Placement_map.pdf) - 下载 Radxa CM5 IO V2.2 的元器件位置参考表
-- [Radxa CM5 IO 2D dxf](https://dl.radxa.com/cm5/v2200/radxa_cm5_io_board_v2200_2d_dxf.zip) - 下载 Radxa CM5 IO V2.2 2D 文件
-- [Radxa CM5 IO 3D stp](https://dl.radxa.com/cm5/io_board_v2200/radxa_cm5_io_board_3d_pcb_v2.2_stp_20250208.zip) - 下载 Radxa CM5 IO V2.2 3D 文件
-- [Radxa CM5 IO 板设计资料](https://github.com/radxa/radxa-cm-projects/tree/main/cm5/radxa-cm5-io-board) - 包含 CM5 IO OrCAD 原理图，PADs Layout 以及导出的 Altium Designer 工程文件
+- [瑞莎 CM5 载板 V2.2 原理图 pdf](https://dl.radxa.com/cm5/v2200/radxa_cm5_io_v2200_schematic.pdf) - 下载瑞莎 CM5 载板 V2.2 的原理图
+- [瑞莎 CM5 载板 V2.2 位号图 pdf](https://dl.radxa.com/cm5/v2200/radxa_cm5_io_v2200_Components_Placement_map.pdf) - 下载瑞莎 CM5 载板 V2.2 的元器件位置参考表
+- [瑞莎 CM5 载板 2D dxf](https://dl.radxa.com/cm5/v2200/radxa_cm5_io_board_v2200_2d_dxf.zip) - 下载瑞莎 CM5 载板 V2.2 2D 文件
+- [瑞莎 CM5 载板 3D stp](https://dl.radxa.com/cm5/io_board_v2200/radxa_cm5_io_board_3d_pcb_v2.2_stp_20250208.zip) - 下载瑞莎 CM5 载板 V2.2 3D 文件
+- [瑞莎 CM5 载板设计资料](https://github.com/radxa/radxa-cm-projects/tree/main/cm5/radxa-cm5-io-board) - 包含 CM5 载板 OrCAD 原理图，PADs Layout 以及导出的 Altium Designer 工程文件
 
 ### 刷机工具
 
 1. [Etcher](https://etcher.balena.io/#download-etcher/) - SD 卡镜像烧录工具
 2. [rkdeveloptool](https://opensource.rock-chips.com/wiki_Rkdeveloptool) - 开源命令行 USB 刷机工具
 3. [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip) - Windows 图形化刷机工具(内含中文使用文档)
-4. [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip) - Rockchip 平台 Windows 通用驱动
+4. [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip) - Rockchip 平台 Windows 通用驱动
 
 ### 摄像头工具
 
@@ -55,15 +55,15 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 
 - Radxa OS
 
-  CM5 搭载 CM5 IO: [Desktop 系统镜像](https://github.com/radxa-build/radxa-cm5-io/releases/download/rsdk-b3/radxa-cm5-io_bookworm_kde_b3.output.img.xz)  
-  CM5 Lite 搭载 CM5 IO: [CLI 系统镜像](https://github.com/radxa-build/radxa-cm5-io/releases/download/rsdk-b3/radxa-cm5-io_bookworm_cli_b3.output.img.xz)
+  CM5 搭载 CM5 载板: [Desktop 系统镜像](https://github.com/radxa-build/radxa-cm5-io/releases/download/rsdk-b3/radxa-cm5-io_bookworm_kde_b3.output.img.xz)  
+  CM5 Lite 搭载 CM5 载板: [CLI 系统镜像](https://github.com/radxa-build/radxa-cm5-io/releases/download/rsdk-b3/radxa-cm5-io_bookworm_cli_b3.output.img.xz)
 
   CM5 搭载 RPI CM4 IO : [Desktop 系统镜像](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/rsdk-b3/radxa-cm5-rpi-cm4-io_bookworm_kde_b3.output.img.xz)  
   CM5 Lite 搭载 RPI CM4 IO : [CLI 系统镜像](https://github.com/radxa-build/radxa-cm5-rpi-cm4-io/releases/download/rsdk-b3/radxa-cm5-rpi-cm4-io_bookworm_cli_b3.output.img.xz)
 
 - Android
 
-  CM5 搭载 CM5 IO: [radxa-cm5-io-android12_rkr14](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240511/Radxa_CM5_Android12_rkr14_GMS_20240511-gpt.zip)
+  CM5 搭载 CM5 载板: [radxa-cm5-io-android12_rkr14](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240511/Radxa_CM5_Android12_rkr14_GMS_20240511-gpt.zip)
 
 ## 百度网盘下载
 
@@ -71,9 +71,10 @@ USB 刷机使用，Loader 文件用于 USB 下载初始化。
 百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
 
 **版本说明：**
+
 - **R 版本**：经过测试的稳定版本，推荐使用
 - **T 版本**：测试版本（仅用于评估）
-:::
+  :::
 - [百度网盘下载（radxa-cm5-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm5-io&parentPath=%2Fsharelink3108273493-988411983016443)
 - [百度网盘下载（radxa-cm5-io-6_1）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm5-io-6_1&parentPath=%2Fsharelink3108273493-988411983016443)
 - [百度网盘下载（radxa-cm5-rpi-cm4-io）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-cm5-rpi-cm4-io&parentPath=%2Fsharelink3108273493-988411983016443)

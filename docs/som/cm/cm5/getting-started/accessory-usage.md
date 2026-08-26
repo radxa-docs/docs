@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ## 接口总览
 
-<img src="/img/cm5/cm5-block-diagram.webp" width="700" alt="Radxa-CM5-IO interfaces overview" />
+<img src="/img/cm5/cm5-block-diagram.webp" width="700" alt="瑞莎 CM5 载板接口概览" />
 
 ## 摄像头
 

@@ -4,14 +4,14 @@ sidebar_position: 5
 
 # Radxa Camera 8M
 
-Radxa CM5 IO Camera0 接口，使用反向15pin排线，兼容的摄像头有：  
+瑞莎 CM5 载板 Camera0 接口，使用反向15pin排线，兼容的摄像头有：  
 Radxa Camera 8M、OKDO 5MP、RPI Camera V13、RPI Camera V2。
 
 ## 以连接Radxa Camera 8M为例：
 
 ![Camera-8M 安装](/img/cm5/cm5io-8m-camera-connected.webp)
 
-- 准备好 Radxa Camera 8M，通过 FPC 线接上 Radxa CM5 IO板的Camera 0接口。
+- 准备好 Radxa Camera 8M，通过 FPC 线接上瑞莎 CM5 载板的Camera 0接口。
 
 - 通过左下角 Application Launcher 打开 Kconsole 终端, 运行 `rsetup` 命令：
 

@@ -9,7 +9,7 @@ sidebar_position: 4
 The Radxa CM5 is a System on Module (SoM) based on a the Rockchip RK3588S System onChip (SoC). The Radxa CM5 integrates the Central Process Unit (CPU), Graphics ProcessingUnit (GPU), Neural Processing Unit (NPU), Power Management Unit (PMU), LPDDR4X DRAM Memory, and Onboard eMMC Storage in a small form factor of just 55mm x 40mm. RadxaCM5 offers out of box high performance solution for multiple purpose applications, accel‑erates customer’s product development.
 
 <Tabs queryString="target">
-  <TabItem value="cm5" label="CM5 Core">
+  <TabItem value="cm5" label="Radxa CM5">
 
 - Radxa CM5
   ![Radxa CM5](/img/cm5/cm5-overview.webp)
@@ -18,7 +18,7 @@ The Radxa CM5 is a System on Module (SoM) based on a the Rockchip RK3588S System
 
 | Features | Description                                                                                                                                                               |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SoC      | Rockchip RK3588S/RK3588S2                                                                                                                                                 |
+| SoC      | Rockchip RK3588S2                                                                                                                                                         |
 | CPU      | Quad Cortex®‑A76 @ 2.2~2.4GHz and a quad Cortex®‑A55 @ 1.8GHz<br/>based on Arm® DynamIQ™ configuration                                                                    |
 | GPU      | Arm Mali™ G610MP4 GPU ‑ OpenGL® ES1.1, ES2.0, and ES3.2 ‑ OpenCL®<br/>1.1, 1.2 and 2.2 ‑ Vulkan® 1.1 and 1.2 ‑ Embedded high performance 2D<br/>image acceleration module |
 | NPU      | NPU supporting INT4 / INT8 / INT16 / FP16 / BF16 and TF32 acceleration<br/>and computing power is up to 6TOPs                                                             |

@@ -4,12 +4,13 @@ sidebar_position: 8
 
 # Maskrom 模式
 
-Radxa CM5 支持 Maskrom 模式，这是 CPU 通过 USB OTG 端口接收命令的一种特殊操作模式。
-本指南将会指导您如何将 Radxa CM5 进入 Maskrom 模式进行操作。
+瑞莎 CM5 支持 Maskrom 模式，这是 CPU 通过 USB OTG 端口接收命令的一种特殊操作模式。
+本指南将会指导您如何将瑞莎 CM5 进入 Maskrom 模式进行操作。
 
 ## 准备工作
 
-- Radxa CM5 SBC
+-瑞莎 CM5 SBC
+
 - 12V DC 电源适配器
 - USB-A 转 USB-C 转接线
 
@@ -33,7 +34,7 @@ Radxa CM5 支持 Maskrom 模式，这是 CPU 通过 USB OTG 端口接收命令�
 
 2. 移除 microSD 卡等存储设备
 
-3. 将 USB-A 转 USB-C 转接线的USB-A端接到主机端口，USB-C端接到 Radxa CM5 的 OTG 端口 (耳机口旁边的type-c口)，如下图所示
+3. 将 USB-A 转 USB-C 转接线的USB-A端接到主机端口，USB-C端接到瑞莎 CM5 的 OTG 端口 (耳机口旁边的type-c口)，如下图所示
 
    ![OTG connection](/img/cm5/cm5io-otg-connect.webp)
 

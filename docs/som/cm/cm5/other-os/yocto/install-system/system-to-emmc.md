@@ -11,4 +11,4 @@ import SystemToEmmc from '../../../../../../common/yocto/\_system-to-onboard-emm
 
 # 安装系统到板载 eMMC
 
-<SystemToEmmc board="Radxa CM5 IO" board_conf="rockchip-rk3588s-radxa-cm5-io.conf" soc="rk3588s" board_name="radxa-cm5-io" />
+<SystemToEmmc board="瑞莎 CM5 载板" board_conf="rockchip-rk3588s-radxa-cm5-io.conf" soc="rk3588s" board_name="radxa-cm5-io" />

@@ -4,11 +4,11 @@ sidebar_position: 3
 
 # RPI 7 inch Display
 
-Radxa CM5 IO LCD0 接口，使用反向15pin排线，兼容的5寸和7寸屏。
+瑞莎 CM5 载板 LCD0 接口，使用反向15pin排线，兼容的5寸和7寸屏。
 
 ## 以连接树莓派7寸屏为例：
 
-- 准备好 RPI 7 inch Display，通过 15pin 反向FPC 线接上 Radxa CM5 IO。
+- 准备好 RPI 7 inch Display，通过 15pin 反向FPC 线接上瑞莎 CM5 载板。
 
 ![显示屏安装-01](/img/cm5/cm5io-rpi-display-7inch-FPC.webp)  
 ![显示屏安装-02](/img/cm5/cm5io-rpi-display-7inch-connected.webp)

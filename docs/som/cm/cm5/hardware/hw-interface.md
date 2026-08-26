@@ -10,13 +10,13 @@ sidebar_position: 4
 
 ## 接口总览
 
-![Radxa CM5](/img/cm5/cm5-overview.webp)
+![瑞莎 CM5](/img/cm5/cm5-overview.webp)
 
-![Radxa CM5 IO Board](/img/cm5/cm5-io-board-overview.webp)
+![瑞莎 CM5 载板](/img/cm5/cm5-io-board-overview.webp)
 
 ## 电源接口
 
-Radxa CM5 IO 采用 DC 电源接口供电，支持 5V、12V 输入，推荐使用12V，这样供电比较稳定。
+瑞莎 CM5 载板采用 DC 电源接口供电，支持 5V、12V 输入，推荐使用12V，这样供电比较稳定。
 
 ## 调试串口
 
@@ -24,7 +24,7 @@ Radxa CM5 IO 采用 DC 电源接口供电，支持 5V、12V 输入，推荐使�
 
 ## 有线网口
 
-Radxa CM5 IO 提供以太网口可接入1000M 以太网
+瑞莎 CM5 载板提供以太网口可接入1000M 以太网
 
 ## WIFI/BT
 
@@ -32,12 +32,12 @@ Radxa CM5 IO 提供以太网口可接入1000M 以太网
 
 ## HDMI
 
-Radxa CM5 IO 配备了全尺寸 HDMI 接口。建议使用具有 HDMI 功能的显示器。  
-Radxa CM5 IO 最高支持 8K 分辨率，以及常规的4K、2K、1080P等分辨率。
+瑞莎 CM5 载板配备了全尺寸 HDMI 接口。建议使用具有 HDMI 功能的显示器。  
+瑞莎 CM5 载板最高支持 8K 分辨率，以及常规的4K、2K、1080P等分辨率。
 
 ## Type-C
 
-Radxa CM5 IO 配备了全功能typec接口。支持DP显示，以及连接 USB-Hub 设备。
+瑞莎 CM5 载板配备了全功能typec接口。支持DP显示，以及连接 USB-Hub 设备。
 
 ## USB
 
@@ -45,11 +45,11 @@ Radxa CM5 IO 配备了全功能typec接口。支持DP显示，以及连接 USB-H
 
 ## MIPI CSI
 
-Radxa CM5 IO 支持摄像头功能
+瑞莎 CM5 载板支持摄像头功能
 
 ## MIPI DSI
 
-Radxa CM5 IO 支持 MIPI DSI 显示功能。
+瑞莎 CM5 载板支持 MIPI DSI 显示功能。
 :::tip
 瑞莎建议使用 [Radxa Display 8 HD](/accessories/display/lcd-8-hd) 或 [Radxa Display 10 FHD](../../../accessories/display/lcd-10-fhd)。
 :::
@@ -64,7 +64,7 @@ Radxa CM5 IO 支持 MIPI DSI 显示功能。
 
 ## RTC
 
-连接 RTC 电池, CM5 IO 使用的 RTC 电池型号：CR1220
+连接 RTC 电池, CM5 载板使用的 RTC 电池型号：CR1220
 
 ## 40 PIN GPIO
 
@@ -77,7 +77,7 @@ Radxa CM5 IO 支持 MIPI DSI 显示功能。
 
 ### GPIO 接口
 
-Radxa CM5 IO 提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传感器的应用。
+瑞莎 CM5 载板提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传感器的应用。
 **_提示:_ 实际兼容情况以使用为准。**
 
 <Tabs queryString="revision">
