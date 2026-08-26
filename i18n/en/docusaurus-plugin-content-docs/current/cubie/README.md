@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: /cubie
 ---
 
-# Cubie Series
+# Radxa Cubie Series
 
 The Cubie series is a line of single-board computers from Radxa based on Allwinner SoCs.
 
@@ -14,6 +14,7 @@ The Cubie series is a line of single-board computers from Radxa based on Allwinn
 | Cubie A5E | Allwinner A527 / T527, 8× Cortex-A55, up to 2.0GHz           | T527 variant: 2 TOPS | LPDDR4/4x: 1GB / 2GB / 4GB                  | SPI Flash, onboard eMMC (optional 0–32GB) | microSD, M.2 M-Key NVMe (2230)   | Dual Gigabit Ethernet (one PoE via PoE HAT), Wi‑Fi 6, Bluetooth 5.4 | HDMI 4K@60, 1× MIPI DSI, 1× MIPI CSI         | 40-pin GPIO, USB 3.0 Type‑A, USB‑C OTG |
 | Cubie A7A | Allwinner A733, 2× A76 + 6× A55, up to 2.0GHz                | 3 TOPS               | LPDDR5: 2GB / 4GB / 6GB / 8GB / 12GB / 16GB | 8MB SPI NOR Flash                         | microSD, eMMC module, UFS module | Gigabit Ethernet (PoE via PoE HAT), Wi‑Fi 6, Bluetooth 5.4          | HDMI 4K@60, 1× MIPI DSI, 1×/2× MIPI CSI      | 40-pin GPIO, PCIe 3.0 FPC, rich USB    |
 | Cubie A7Z | Allwinner A733, 2× A76 + 6× A55, ultra-compact 65×30mm board | 3 TOPS@INT8          | LPDDR4/4x: 1GB / 2GB / 4GB / 8GB / 16GB     | Optional onboard UFS (up to 1TB)          | microSD, PCIe 3.0 FPC (1-lane)   | Onboard Wi‑Fi 6, Bluetooth 5.4                                      | Micro HDMI 4K@60, USB‑C 3.0 DP Alt, MIPI CSI | 40-pin GPIO, dual USB‑C                |
+| Cubie A7S | Allwinner A733, 2× A76 + 6× A55, up to 2.0GHz                | 3 TOPS@INT8          | LPDDR5: up to 16 GB                          | Optional eMMC (up to 256 GB)             | microSD, PCIe 3.0 FPC (x1, NVMe)   | Gigabit Ethernet, Wi‑Fi 6, Bluetooth 5.4                            | USB‑C DP Alt 4K@60, 1× MIPI CSI              | 15/30-pin GPIO, dual USB‑C, USB 2.0 Type‑A |
 
 ## Model Highlights and Selection Advice
 
@@ -41,5 +42,13 @@ The Cubie series is a line of single-board computers from Radxa based on Allwinn
 - Dual USB‑C (one with USB 3.0 + DP Alt), suitable for compact enclosures or modular products.
 - Onboard Wi‑Fi 6 / Bluetooth 5.4, 40-pin GPIO and PCIe 3.0 FPC keep expansion capabilities despite small size.
 - Best for: space-constrained designs requiring onboard high-speed storage and high integration for edge AI or embedded products.
+
+### Cubie A7S: Pocket-sized high-performance edge AI board
+
+- Ultra-compact 51×51mm board that packs an Allwinner A733 octa-core CPU (2× A76 + 6× A55) and a 3 TOPS NPU into a pocket-sized form factor, balancing performance, power, and size.
+- LPDDR5 up to 16 GB, USB‑C DisplayPort 4K output and 4K encode/decode make it suitable for AI vision, smart terminals, and HMI applications.
+- Gigabit Ethernet + Wi‑Fi 6 / Bluetooth 5.4, and PCIe 3.0 x1 FPC for NVMe SSD high-speed storage expansion.
+- 15-pin and 30-pin GPIO headers supporting UART, I2C, I2S, PWM and more for flexible expansion.
+- Best for: space-constrained embedded and robotics projects that need solid edge AI compute, multimedia output, and high-speed storage expansion.
 
 <DocCardList />
