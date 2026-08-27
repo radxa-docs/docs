@@ -281,12 +281,12 @@ sudo apt-get update
   <TabItem value="default" label="Restore Defaults">
 
 ```bash
-sudo sed -i 's/mirrors.ustc.edu.cn/deb.debian.org/g' /etc/apt/sources.list.d/*
-sudo sed -i 's/mirrors.ustc.edu.cn/deb.ubuntu.com/g' /etc/apt/sources.list.d/*
-sudo sed -i 's/mirrors.tuna.tsinghua.edu.cn/deb.debian.org/g' /etc/apt/sources.list.d/*
-sudo sed -i 's/mirrors.tuna.tsinghua.edu.cn/deb.ubuntu.com/g' /etc/apt/sources.list.d/*
-sudo sed -i 's/mirrors.cqu.edu.cn/deb.debian.org/g' /etc/apt/sources.list.d/*
-sudo sed -i 's/mirrors.cqu.edu.cn/deb.ubuntu.com/g' /etc/apt/sources.list.d/*
+sudo sed -i 's|mirrors.ustc.edu.cn/debian|deb.debian.org/debian|g' /etc/apt/sources.list.d/*
+sudo sed -i 's|mirrors.ustc.edu.cn/ubuntu|deb.ubuntu.com/ubuntu|g' /etc/apt/sources.list.d/*
+sudo sed -i 's|mirrors.tuna.tsinghua.edu.cn/debian|deb.debian.org/debian|g' /etc/apt/sources.list.d/*
+sudo sed -i 's|mirrors.tuna.tsinghua.edu.cn/ubuntu|deb.ubuntu.com/ubuntu|g' /etc/apt/sources.list.d/*
+sudo sed -i 's|mirrors.cqu.edu.cn/debian|deb.debian.org/debian|g' /etc/apt/sources.list.d/*
+sudo sed -i 's|mirrors.cqu.edu.cn/ubuntu|deb.ubuntu.com/ubuntu|g' /etc/apt/sources.list.d/*
 sudo apt-get update
 ```
 
