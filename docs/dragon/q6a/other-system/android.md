@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Android 15
 
-目前瑞莎 Dragon Q6A 的 Android 15 系统启动需要烧录 SPI 固件启动，且系统启动介质仅支持 eMMC 模块或 UFS 模块启动系统。
+目前瑞莎 Dragon Q6A 的 Android 15 系统启动需要烧录 BIOS 固件启动，且系统启动介质仅支持 eMMC 模块或 UFS 模块启动系统。
 
 ## 产品实物
 
@@ -35,7 +35,7 @@ sidebar_position: 1
 
 ## 软件准备
 
-我们需要提前下载好系统镜像、SPI 固件和高通工具。
+我们需要提前下载好系统镜像、BIOS 固件和高通工具。
 
 :::tip 推荐配件
 目前 Dragon Q6A 的 Android 系统镜像只支持使用使用高通官方工具进行系统镜像烧录。
@@ -43,7 +43,7 @@ sidebar_position: 1
 
 ### 下载文件
 
-系统镜像和 SPI 固件在同一个压缩包中，可以在[资源汇总下载](../download)页面下载。
+系统镜像和 BIOS 固件在同一个压缩包中，可以在[资源汇总下载](../download)页面下载。
 
 ### 高通工具
 
@@ -137,9 +137,9 @@ UFS 模块安装步骤：
    <img src="/img/dragon/q8b/xpcatapp_connect.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### 烧录 SPI 固件
+### 烧录 BIOS 固件
 
-主板启动 Android 系统镜像需要烧录对应的 SPI 固件，系统镜像和 SPI 固件压缩在同一个文件，解压系统镜像压缩包的 `spinor` 文件夹就是 SPI 固件文件夹。
+主板启动 Android 系统镜像需要烧录对应的 BIOS 固件，系统镜像和 BIOS 固件压缩在同一个文件，解压系统镜像压缩包的 `spinor` 文件夹就是 BIOS 固件文件夹。
 
 详细步骤如下：
 

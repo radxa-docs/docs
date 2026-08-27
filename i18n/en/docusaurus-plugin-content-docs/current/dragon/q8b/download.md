@@ -31,7 +31,7 @@ To boot a third-party OS (such as Ubuntu, Fedora, or Debian), enable all the fea
 
 ## Boot Firmware
 
-Dragon Q8B ships with SPI boot firmware preinstalled. Normally you do not need to flash the boot firmware. If the system fails to boot properly, you can try reflashing the SPI boot firmware.
+Dragon Q8B ships with BIOS firmware preinstalled. Normally you do not need to flash the boot firmware. If the system fails to boot properly, you can try reflashing the BIOS firmware.
 
 - Qualcomm Device Driver
   - [Qualcomm Device Driver](https://dl.radxa.com/dragon/q6a/images/QUD_CustomInst_1.00.91.7.zip)
@@ -49,17 +49,17 @@ Dragon Q8B ships with SPI boot firmware preinstalled. Normally you do not need t
   - [EDL-NG v1.6.0 (GitHub)](https://github.com/strongtz/edl-ng/releases/tag/v1.6.0)
   - [EDL-NG v1.6.0 (dl.radxa.com)](https://dl.radxa.com/q6a/images/edl-ng-dist-v1.6.0.zip)
 
-- SPI Boot Firmware (BIOS)
+- BIOS Firmware
 
-  :::info Latest SPI Boot Firmware Release Page
+  :::info Latest BIOS Firmware Release Page
 
-  - [SPI Boot Firmware (BIOS)](https://dl.radxa.com/dragon/q8b/images/)
+  - [BIOS Firmware](https://dl.radxa.com/dragon/q8b/images/)
 
-  This page releases the latest versions of the SPI boot firmware. For the changelog, see [SPI Boot Firmware Changelog](https://dl.radxa.com/dragon/q8b/images/dragon-q8b-bios-changelog.md).
+  This page releases the latest versions of the BIOS firmware. For the changelog, see [BIOS Firmware Changelog](https://dl.radxa.com/dragon/q8b/images/dragon-q8b-bios-changelog.md).
 
   :::
 
-  - [Boot Firmware (BIOS)](https://dl.radxa.com/dragon/q8b/images/dragon-q8b_flat_build_wp_260821.zip)
+  - [BIOS Firmware](https://dl.radxa.com/dragon/q8b/images/dragon-q8b_flat_build_wp_260821.zip)
 
 ## Windows Driver
 

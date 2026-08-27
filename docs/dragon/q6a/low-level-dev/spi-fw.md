@@ -2,26 +2,26 @@
 sidebar_position: 5
 ---
 
-# 烧录 SPI 启动固件
+# 烧录 BIOS 固件
 
 :::tip 固件说明
-瑞莎 Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启动固件，若系统启动异常，可以尝试重新烧录 SPI 启动固件。
+瑞莎 Dragon Q6A 出厂默认烧录 BIOS 固件，正常情况下无需烧录启动固件，若系统启动异常，可以尝试重新烧录 BIOS 固件。
 
-SPI启动固件（BootROM + 引导程序）的核心任务是分阶段初始化硬件（CPU → 内存 → 存储），最终通过存储设备加载操作系统内核。
+BIOS 固件（BootROM + 引导程序）的核心任务是分阶段初始化硬件（CPU → 内存 → 存储），最终通过存储设备加载操作系统内核。
 :::
 
-当设备无法正常启动时，我们可以让设备进入 [EDL 模式](./edl-mode)，然后通过 EDL 工具烧录 SPI 启动固件。
+当设备无法正常启动时，我们可以让设备进入 [EDL 模式](./edl-mode)，然后通过 EDL 工具烧录 BIOS 固件。
 
-进入 [资源汇总下载](../download) 页面，下载 `edl-ng` 压缩包并解压，然后根据自己的系统平台选择对应的版本进行 SPI 固件的下载。
+进入 [资源汇总下载](../download) 页面，下载 `edl-ng` 压缩包并解压，然后根据自己的系统平台选择对应的版本进行 BIOS 固件的下载。
 
-## 烧录 SPI 启动固件
+## 烧录 BIOS 固件
 
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
 
     - [进入 EDL mode](edl-mode)
 
-    - 输入以下命令进行 SPI 启动固件的烧录
+    - 输入以下命令进行 BIOS 固件的烧录
 
     <NewCodeBlock tip="Windows$" type="host">
 
@@ -88,9 +88,9 @@ edl-ng --version
 
 - [进入 EDL mode](edl-mode)
 
-- 烧录 SPI 启动固件
+- 烧录 BIOS 固件
 
-进入 [资源汇总下载](../../download) 页面，下载 `spi firmware` 文件,然后解压进入到 `prog_firehose_ddr.elf` 文件所在目录并打开终端，使用 `edl-ng` 命令烧录 SPI 启动固件。
+进入 [资源汇总下载](../../download) 页面，下载 BIOS 固件文件,然后解压进入到 `prog_firehose_ddr.elf` 文件所在目录并打开终端，使用 `edl-ng` 命令烧录 BIOS 固件。
 
 <NewCodeBlock tip="Linux$" type="host">
 
@@ -104,22 +104,22 @@ sudo edl-ng --memory=spinor rawprogram rawprogram0.xml patch0.xml --loader=prog_
 </Tabs>
 
 :::warning 烧录完成后请重启设备
-SPI 启动固件烧录成功后，请按以下任一方式重启设备：
+BIOS 固件烧录成功后，请按以下任一方式重启设备：
 
 - 重新插拔设备电源
 - 在终端执行 `edl-ng reset` 命令
 :::
 
-## 擦除 SPI 启动固件
+## 擦除 BIOS 固件
 
-擦除 SPI 启动固件将导致设备无法启动，需要重新烧录 SPI 启动固件才可正常启动，若非必要，请勿擦除 SPI 启动固件。
+擦除 BIOS 固件将导致设备无法启动，需要重新烧录 BIOS 固件才可正常启动，若非必要，请勿擦除 BIOS 固件。
 
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
 
     - [进入 EDL mode](edl-mode)
 
-    - 擦除 SPI 启动固件
+    - 擦除 BIOS 固件
 
     打开终端，输入以下命令进行擦除：
 
@@ -190,7 +190,7 @@ SPI 启动固件烧录成功后，请按以下任一方式重启设备：
 
     终端若是打印出版本信息，说明 `edl-ng` 工具设置软链接成功。
 
-    - 擦除 SPI 启动固件
+    - 擦除 BIOS 固件
 
     进入 `prog_firehose_ddr.elf` 文件所在目录打开终端，输入以下命令进行擦除
 

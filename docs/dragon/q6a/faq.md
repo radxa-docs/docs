@@ -135,7 +135,7 @@ vim /usr/share/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.
 启用硬件编码器后，会有以下影响：
 
 - 系统会以 `EL2` 而不是 `EL1` 启动，此时**可以**使用 KVM
-- `/dev/mtd0` 会消失，因此不能直接在板子上更新 SPI 固件
+- `/dev/mtd0` 会消失，因此不能直接在板子上更新 BIOS 固件
 
 ## 为什么运行 `sudo apt upgrade` 后系统无法启动？
 

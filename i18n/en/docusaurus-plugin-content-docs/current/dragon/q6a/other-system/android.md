@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Android 15
 
-The Radxa Dragon Q6A's Android 15 system requires flashing SPI firmware to boot, and the system boot media only supports the eMMC module or UFS module.
+The Radxa Dragon Q6A's Android 15 system requires flashing BIOS firmware to boot, and the system boot media only supports the eMMC module or UFS module.
 
 ## Product Overview
 
@@ -35,7 +35,7 @@ You need to prepare the following hardware in advance:
 
 ## Software Preparation
 
-We need to download the system image, SPI firmware, and Qualcomm tools in advance.
+We need to download the system image, BIOS firmware, and Qualcomm tools in advance.
 
 :::tip Recommended Accessories
 Currently, the Dragon Q6A's Android system image only supports flashing using the official Qualcomm tools.
@@ -43,7 +43,7 @@ Currently, the Dragon Q6A's Android system image only supports flashing using th
 
 ### Download Files
 
-The system image and SPI firmware are in the same compressed package, which can be downloaded from the [Resource Summary Download](../download) page.
+The system image and BIOS firmware are in the same compressed package, which can be downloaded from the [Resource Summary Download](../download) page.
 
 ### Qualcomm Tools
 
@@ -137,9 +137,9 @@ Open the `xPCATApp` application (after completing the Qualcomm official tools st
    <img src="/img/dragon/q8b/xpcatapp_connect.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-### Flash SPI Firmware
+### Flash BIOS Firmware
 
-The motherboard requires flashing the corresponding SPI firmware to boot the Android system image. The system image and SPI firmware are compressed in the same file. The `spinor` folder extracted from the system image compressed package is the SPI firmware folder.
+The motherboard requires flashing the corresponding BIOS firmware to boot the Android system image. The system image and BIOS firmware are compressed in the same file. The `spinor` folder extracted from the system image compressed package is the BIOS firmware folder.
 
 Detailed steps are as follows:
 

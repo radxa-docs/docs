@@ -10,7 +10,7 @@ sidebar_position: 4
 
 - 系统镜像：[radxa-dragon-q6a rsdk-r2](https://github.com/radxa-build/radxa-dragon-q6a/releases/tag/rsdk-r2)
 - 内核版本：[linux-6.18.2](https://github.com/radxa/kernel/tree/linux-6.18.2)
-- SPI 固件：[dragon-q6a_flat_build_wp_260120.zip](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260120.zip)
+- BIOS 固件：[dragon-q6a_flat_build_wp_260120.zip](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260120.zip)
   :::
 
 :::tip

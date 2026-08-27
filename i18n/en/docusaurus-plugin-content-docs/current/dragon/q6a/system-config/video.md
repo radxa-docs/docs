@@ -10,7 +10,7 @@ This document records the video codec test methods and results for Radxa Dragon 
 
 - System image: [radxa-dragon-q6a rsdk-r2](https://github.com/radxa-build/radxa-dragon-q6a/releases/tag/rsdk-r2)
 - Kernel version: [linux-6.18.2](https://github.com/radxa/kernel/tree/linux-6.18.2)
-- SPI firmware: [dragon-q6a_flat_build_wp_260120.zip](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260120.zip)
+- BIOS firmware: [dragon-q6a_flat_build_wp_260120.zip](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260120.zip)
   :::
 
 :::tip
