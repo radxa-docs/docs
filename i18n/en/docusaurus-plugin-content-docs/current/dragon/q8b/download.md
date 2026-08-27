@@ -42,6 +42,10 @@ Dragon Q8B ships with SPI boot firmware preinstalled. Normally you do not need t
 - SPI Boot Firmware (BIOS)
   - [Boot Firmware (BIOS)](https://dl.radxa.com/dragon/q8b/images/)
 
+## Windows Driver
+
+- [Dragon Q8B Windows Driver Pack v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z): For installing Windows 11 (ARM64) on the Q8B. For installation steps, refer to [Windows 11 (ARM64)](other-system/windows-11)
+
 ## Hardware Design
 
 - [Component Placement Diagram V1.30](https://dl.radxa.com/dragon/q8b/hw/radxa_dragon_q8b_components_placement_map_v1.30.pdf)
