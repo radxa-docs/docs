@@ -81,7 +81,7 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
   </tr>
   <tr>
     <th>FAN</th>
-    <th>Provides 4 heatsink mounting holes at a distance of 75mm, compatible with Intel LGA 151x type heatsinks. ATX standard fan socket is provided for fan-equipped heatsinks. Does not support fan speed code table.</th>
+    <th>Provides 4 heatsink mounting holes at a distance of 75mm, compatible with Intel LGA 115x type heatsinks. ATX standard fan socket is provided for fan-equipped heatsinks. Does not support fan speed code table.<br/>Note: The mounting holes are 3.5mm in diameter, not the standard LGA 115x 4.03mm, because the SoC sits lower than a typical Intel processor. As a result, heatsink backplates protrude slightly more than usual; please account for this when installing in a case, or choose a case whose motherboard tray has an opening.</th>
   </tr>
   <tr>
     <th>Display Interface</th>
