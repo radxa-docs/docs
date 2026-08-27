@@ -40,7 +40,16 @@ Dragon Q8B ships with SPI boot firmware preinstalled. Normally you do not need t
   - [EDL-NG v1.6.0 (dl.radxa.com)](https://dl.radxa.com/q6a/images/edl-ng-dist-v1.6.0.zip)
 
 - SPI Boot Firmware (BIOS)
-  - [Boot Firmware (BIOS)](https://dl.radxa.com/dragon/q8b/images/)
+
+  :::info Latest SPI Boot Firmware Release Page
+
+  - [SPI Boot Firmware (BIOS)](https://dl.radxa.com/dragon/q8b/images/)
+
+  This page releases the latest versions of the SPI boot firmware. For the changelog, see [SPI Boot Firmware Changelog](https://dl.radxa.com/dragon/q8b/images/dragon-q8b-bios-changelog.md).
+
+  :::
+
+  - [Boot Firmware (BIOS)](https://dl.radxa.com/dragon/q8b/images/dragon-q8b_flat_build_wp_260821.zip)
 
 ## Windows Driver
 
