@@ -6,11 +6,11 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 # Install OS to eMMC Module
 
-This article explains how to install the operating system to an eMMC Module and boot the system from it on ROCK 4A/4B/4SE.
+This article explains how to install the operating system to an eMMC Module and boot the system from it on ROCK 4A/4A+/4B/4B+/4SE.
 
 ## File Download
 
-Download the [ROCK 4A/4B/4SE system image](../../download) from the resource download page.
+Download the [ROCK 4A/4A+/4B/4B+/4SE system image](../../download) from the resource download page.
 
 ## Prepare eMMC Module
 

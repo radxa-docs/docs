@@ -11,11 +11,11 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 # 安装系统到 eMMC Module
 
-本文介绍如何在 ROCK 4A/4B/4SE 上将系统安装到 eMMC Module 中，并通过 eMMC Module 启动系统。
+本文介绍如何在 ROCK 4A/4A+/4B/4B+/4SE 上将系统安装到 eMMC Module 中，并通过 eMMC Module 启动系统。
 
 ## 文件下载
 
-到资源下载汇总页面下载 [ROCK 4A/4B/4SE 系统镜像](../../download)
+到资源下载汇总页面下载 [ROCK 4A/4A+/4B/4B+/4SE 系统镜像](../../download)
 
 ## eMMC Module 准备
 
