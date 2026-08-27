@@ -10,7 +10,6 @@
 # Local agent configuration
 /.claude/
 /.opencode/
-/AGENTS.md
 /opencode.json
 
 # Auto-generated JSON files

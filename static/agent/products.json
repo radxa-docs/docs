@@ -1,0 +1,659 @@
+{
+  "schema_version": 1,
+  "description": "Non-exhaustive navigation pointers for linked product cards in the Radxa documentation home catalog. Product specifications remain in the linked content.",
+  "fallback_discovery": {
+    "published_routes": "https://docs.radxa.com/sitemap.xml",
+    "en_source_tree": "https://github.com/radxa-docs/docs/tree/main/i18n/en/docusaurus-plugin-content-docs/current",
+    "zh_source_tree": "https://github.com/radxa-docs/docs/tree/main/docs"
+  },
+  "generated_from": [
+    "docs/Home.md",
+    "i18n/en/docusaurus-plugin-content-docs/current/Home.md"
+  ],
+  "unlinked_catalog_products": [
+    {
+      "id": "radxa-cm3s",
+      "name": "Radxa CM3S",
+      "family": "Compute Module"
+    }
+  ],
+  "products": [
+    {
+      "id": "rock-2a",
+      "name": "ROCK 2A",
+      "family": "ROCK 2 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock2/rock2a",
+        "zh": "https://docs.radxa.com/rock2/rock2a"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock2/rock2a/README.md",
+        "zh": "docs/rock2/rock2a/README.md"
+      }
+    },
+    {
+      "id": "rock-2f",
+      "name": "ROCK 2F",
+      "family": "ROCK 2 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock2/rock2f",
+        "zh": "https://docs.radxa.com/rock2/rock2f"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock2/rock2f/README.md",
+        "zh": "docs/rock2/rock2f/README.md"
+      }
+    },
+    {
+      "id": "rock-3a",
+      "name": "ROCK 3A",
+      "family": "ROCK 3 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock3/rock3a",
+        "zh": "https://docs.radxa.com/rock3/rock3a"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock3/rock3a/README.md",
+        "zh": "docs/rock3/rock3a/README.md"
+      }
+    },
+    {
+      "id": "rock-3b",
+      "name": "ROCK 3B",
+      "family": "ROCK 3 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock3/rock3b",
+        "zh": "https://docs.radxa.com/rock3/rock3b"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock3/rock3b/README.md",
+        "zh": "docs/rock3/rock3b/README.md"
+      }
+    },
+    {
+      "id": "rock-3c",
+      "name": "ROCK 3C",
+      "family": "ROCK 3 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock3/rock3c",
+        "zh": "https://docs.radxa.com/rock3/rock3c"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock3/rock3c/README.md",
+        "zh": "docs/rock3/rock3c/README.md"
+      }
+    },
+    {
+      "id": "rock-4a",
+      "name": "ROCK 4A",
+      "family": "ROCK 4 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock4/rock4ab-se",
+        "zh": "https://docs.radxa.com/rock4/rock4ab-se"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock4/rock4ab-se/README.md",
+        "zh": "docs/rock4/rock4ab-se/README.md"
+      }
+    },
+    {
+      "id": "rock-4b",
+      "name": "ROCK 4B",
+      "family": "ROCK 4 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock4/rock4ab-se",
+        "zh": "https://docs.radxa.com/rock4/rock4ab-se"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock4/rock4ab-se/README.md",
+        "zh": "docs/rock4/rock4ab-se/README.md"
+      }
+    },
+    {
+      "id": "rock-4c-plus",
+      "name": "ROCK 4C+",
+      "family": "ROCK 4 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock4/rock4c+",
+        "zh": "https://docs.radxa.com/rock4/rock4c+"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock4/rock4c+/README.md",
+        "zh": "docs/rock4/rock4c+/README.md"
+      }
+    },
+    {
+      "id": "rock-4se",
+      "name": "ROCK 4SE",
+      "family": "ROCK 4 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock4/rock4ab-se",
+        "zh": "https://docs.radxa.com/rock4/rock4ab-se"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock4/rock4ab-se/README.md",
+        "zh": "docs/rock4/rock4ab-se/README.md"
+      }
+    },
+    {
+      "id": "rock-4d",
+      "name": "ROCK 4D",
+      "family": "ROCK 4 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock4/rock4d",
+        "zh": "https://docs.radxa.com/rock4/rock4d"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock4/rock4d/README.md",
+        "zh": "docs/rock4/rock4d/README.md"
+      }
+    },
+    {
+      "id": "rock-5a",
+      "name": "ROCK 5A",
+      "family": "ROCK 5 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock5/rock5a",
+        "zh": "https://docs.radxa.com/rock5/rock5a"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5a/README.md",
+        "zh": "docs/rock5/rock5a/README.md"
+      }
+    },
+    {
+      "id": "rock-5b",
+      "name": "ROCK 5B",
+      "family": "ROCK 5 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock5/rock5b",
+        "zh": "https://docs.radxa.com/rock5/rock5b"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5b/README.md",
+        "zh": "docs/rock5/rock5b/README.md"
+      }
+    },
+    {
+      "id": "rock-5b-plus",
+      "name": "ROCK 5B+",
+      "family": "ROCK 5 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock5/rock5b",
+        "zh": "https://docs.radxa.com/rock5/rock5b"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5b/README.md",
+        "zh": "docs/rock5/rock5b/README.md"
+      }
+    },
+    {
+      "id": "rock-5c",
+      "name": "ROCK 5C",
+      "family": "ROCK 5 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock5/rock5c",
+        "zh": "https://docs.radxa.com/rock5/rock5c"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5c/README.md",
+        "zh": "docs/rock5/rock5c/README.md"
+      }
+    },
+    {
+      "id": "rock-5t",
+      "name": "ROCK 5T",
+      "family": "ROCK 5 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock5/rock5t",
+        "zh": "https://docs.radxa.com/rock5/rock5t"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5t/README.md",
+        "zh": "docs/rock5/rock5t/README.md"
+      }
+    },
+    {
+      "id": "rock-5-itx",
+      "name": "ROCK 5 ITX",
+      "family": "ROCK 5 Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rock5/rock5itx",
+        "zh": "https://docs.radxa.com/rock5/rock5itx"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rock5/rock5itx/README.md",
+        "zh": "docs/rock5/rock5itx/README.md"
+      }
+    },
+    {
+      "id": "rock-pi-e",
+      "name": "ROCK Pi E",
+      "family": "ROCK Pi Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rockpi/rockpie",
+        "zh": "https://docs.radxa.com/rockpi/rockpie"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rockpi/rockpie/README.md",
+        "zh": "docs/rockpi/rockpie/README.md"
+      }
+    },
+    {
+      "id": "rock-pi-s",
+      "name": "ROCK Pi S",
+      "family": "ROCK Pi Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rockpi/rockpis",
+        "zh": "https://docs.radxa.com/rockpi/rockpis"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rockpi/rockpis/README.md",
+        "zh": "docs/rockpi/rockpis/README.md"
+      }
+    },
+    {
+      "id": "rock-pi-s0",
+      "name": "ROCK Pi S0",
+      "family": "ROCK Pi Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/rockpi/rockpis0",
+        "zh": "https://docs.radxa.com/rockpi/rockpis0"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/rockpi/rockpis0/README.md",
+        "zh": "docs/rockpi/rockpis0/README.md"
+      }
+    },
+    {
+      "id": "radxa-cm4",
+      "name": "Radxa CM4",
+      "family": "Compute Module",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/compute-module/cm4",
+        "zh": "https://docs.radxa.com/compute-module/cm4"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/som/cm/cm4/README.md",
+        "zh": "docs/som/cm/cm4/README.md"
+      }
+    },
+    {
+      "id": "radxa-cm5",
+      "name": "Radxa CM5",
+      "family": "Compute Module",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/compute-module/cm5",
+        "zh": "https://docs.radxa.com/compute-module/cm5"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/som/cm/cm5/README.md",
+        "zh": "docs/som/cm/cm5/README.md"
+      }
+    },
+    {
+      "id": "radxa-cm3",
+      "name": "Radxa CM3",
+      "family": "Compute Module",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/compute-module/cm3",
+        "zh": "https://docs.radxa.com/compute-module/cm3"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/som/cm/cm3/README.md",
+        "zh": "docs/som/cm/cm3/README.md"
+      }
+    },
+    {
+      "id": "radxa-cm3i",
+      "name": "Radxa CM3I",
+      "family": "Compute Module",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/compute-module/cm3i",
+        "zh": "https://docs.radxa.com/compute-module/cm3i"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/som/cm/cm3i/README.md",
+        "zh": "docs/som/cm/cm3i/README.md"
+      }
+    },
+    {
+      "id": "radxa-cm3j",
+      "name": "Radxa CM3J",
+      "family": "Compute Module",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/compute-module/cm3j",
+        "zh": "https://docs.radxa.com/compute-module/cm3j"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/som/cm/cm3j/README.md",
+        "zh": "docs/som/cm/cm3j/README.md"
+      }
+    },
+    {
+      "id": "radxa-nx5",
+      "name": "Radxa NX5",
+      "family": "Compute Module",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/compute-module/nx5",
+        "zh": "https://docs.radxa.com/compute-module/nx5"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/som/nx/nx5/README.md",
+        "zh": "docs/som/nx/nx5/README.md"
+      }
+    },
+    {
+      "id": "zero",
+      "name": "ZERO",
+      "family": "ZERO Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/zero/zero",
+        "zh": "https://docs.radxa.com/zero/zero"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/zero/zero/README.md",
+        "zh": "docs/zero/zero/README.md"
+      }
+    },
+    {
+      "id": "zero-3e",
+      "name": "ZERO 3E",
+      "family": "ZERO Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/zero/zero3?model=zero-3e",
+        "zh": "https://docs.radxa.com/zero/zero3?model=zero-3e"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/zero/zero3/README.md",
+        "zh": "docs/zero/zero3/README.md"
+      }
+    },
+    {
+      "id": "zero-3w",
+      "name": "ZERO 3W",
+      "family": "ZERO Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/zero/zero3",
+        "zh": "https://docs.radxa.com/zero/zero3"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/zero/zero3/README.md",
+        "zh": "docs/zero/zero3/README.md"
+      }
+    },
+    {
+      "id": "zero-2-pro",
+      "name": "ZERO 2 PRO",
+      "family": "ZERO Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/zero/zero2pro",
+        "zh": "https://docs.radxa.com/zero/zero2pro"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/zero/zero2pro/README.md",
+        "zh": "docs/zero/zero2pro/README.md"
+      }
+    },
+    {
+      "id": "nio-12l",
+      "name": "NIO 12L",
+      "family": "NIO Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/nio/12l",
+        "zh": "https://docs.radxa.com/nio/12l"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/nio/nio12l/README.md",
+        "zh": "docs/nio/nio12l/README.md"
+      }
+    },
+    {
+      "id": "radxa-x2l",
+      "name": "Radxa X2L",
+      "family": "X Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/x/x2l",
+        "zh": "https://docs.radxa.com/x/x2l"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/x/x2l/README.md",
+        "zh": "docs/x/x2l/README.md"
+      }
+    },
+    {
+      "id": "radxa-x4",
+      "name": "Radxa X4",
+      "family": "X Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/x/x4",
+        "zh": "https://docs.radxa.com/x/x4"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/x/x4/README.md",
+        "zh": "docs/x/x4/README.md"
+      }
+    },
+    {
+      "id": "fogwise-airbox",
+      "name": "Fogwise® AirBox",
+      "family": "Fogwise® Family",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/fogwise/airbox",
+        "zh": "https://docs.radxa.com/fogwise/airbox"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/fogwise/airbox/README.md",
+        "zh": "docs/fogwise/airbox/README.md"
+      }
+    },
+    {
+      "id": "fogwise-airbox-q900",
+      "name": "Fogwise® AIRbox Q900",
+      "family": "Fogwise® Family",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/fogwise/airbox-q900",
+        "zh": "https://docs.radxa.com/fogwise/airbox-q900"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/fogwise/airbox-q900/README.md",
+        "zh": "docs/fogwise/airbox-q900/README.md"
+      }
+    },
+    {
+      "id": "radxa-e20c",
+      "name": "Radxa E20C",
+      "family": "E Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/e/e20c",
+        "zh": "https://docs.radxa.com/e/e20c"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/e/e20c/README.md",
+        "zh": "docs/e/e20c/README.md"
+      }
+    },
+    {
+      "id": "radxa-e24c",
+      "name": "Radxa E24C",
+      "family": "E Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/e/e24c",
+        "zh": "https://docs.radxa.com/e/e24c"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/e/e24c/README.md",
+        "zh": "docs/e/e24c/README.md"
+      }
+    },
+    {
+      "id": "radxa-e52c",
+      "name": "Radxa E52C",
+      "family": "E Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/e/e52c",
+        "zh": "https://docs.radxa.com/e/e52c"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/e/e52c/README.md",
+        "zh": "docs/e/e52c/README.md"
+      }
+    },
+    {
+      "id": "radxa-e54c",
+      "name": "Radxa E54C",
+      "family": "E Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/e/e54c",
+        "zh": "https://docs.radxa.com/e/e54c"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/e/e54c/README.md",
+        "zh": "docs/e/e54c/README.md"
+      }
+    },
+    {
+      "id": "sirider-s1",
+      "name": "SiRider S1",
+      "family": "SiRider Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/sirider/s1",
+        "zh": "https://docs.radxa.com/sirider/s1"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/sirider/s1/README.md",
+        "zh": "docs/sirider/s1/README.md"
+      }
+    },
+    {
+      "id": "orion-o6",
+      "name": "Orion O6",
+      "family": "Orion Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/orion/o6",
+        "zh": "https://docs.radxa.com/orion/o6"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/orion/o6/README.md",
+        "zh": "docs/orion/o6/README.md"
+      }
+    },
+    {
+      "id": "cubie-a5e",
+      "name": "Cubie A5E",
+      "family": "Cubie Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/cubie/a5e",
+        "zh": "https://docs.radxa.com/cubie/a5e"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/cubie/a5e/README.md",
+        "zh": "docs/cubie/a5e/README.md"
+      }
+    },
+    {
+      "id": "cubie-a7a",
+      "name": "Cubie A7A",
+      "family": "Cubie Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/cubie/a7a",
+        "zh": "https://docs.radxa.com/cubie/a7a"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/cubie/a7a/README.md",
+        "zh": "docs/cubie/a7a/README.md"
+      }
+    },
+    {
+      "id": "cubie-a7z",
+      "name": "Cubie A7Z",
+      "family": "Cubie Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/cubie/a7z",
+        "zh": "https://docs.radxa.com/cubie/a7z"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/cubie/a7z/README.md",
+        "zh": "docs/cubie/a7z/README.md"
+      }
+    },
+    {
+      "id": "cubie-a7s",
+      "name": "Cubie A7S",
+      "family": "Cubie Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/cubie/a7s",
+        "zh": "https://docs.radxa.com/cubie/a7s"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/cubie/a7s/README.md",
+        "zh": "docs/cubie/a7s/README.md"
+      }
+    },
+    {
+      "id": "dragon-q6a",
+      "name": "Dragon Q6A",
+      "family": "Dragon Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/dragon/q6a",
+        "zh": "https://docs.radxa.com/dragon/q6a"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/dragon/q6a/README.md",
+        "zh": "docs/dragon/q6a/README.md"
+      }
+    },
+    {
+      "id": "dragon-q8b",
+      "name": "Dragon Q8B",
+      "family": "Dragon Series",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/dragon/q8b",
+        "zh": "https://docs.radxa.com/dragon/q8b"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/dragon/q8b/README.md",
+        "zh": "docs/dragon/q8b/README.md"
+      }
+    },
+    {
+      "id": "ax-m1",
+      "name": "AX-M1",
+      "family": "AICore Family",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/aicore/ax-m1",
+        "zh": "https://docs.radxa.com/aicore/ax-m1"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/aicore/ax-m1/README.md",
+        "zh": "docs/aicore/ax-m1/README.md"
+      }
+    },
+    {
+      "id": "dx-m1",
+      "name": "DX-M1",
+      "family": "AICore Family",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/aicore/dx-m1",
+        "zh": "https://docs.radxa.com/aicore/dx-m1"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/aicore/dx-m1/README.md",
+        "zh": "docs/aicore/dx-m1/README.md"
+      }
+    },
+    {
+      "id": "sg2300x",
+      "name": "SG2300X",
+      "family": "AICore Family",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/aicore/sg2300x",
+        "zh": "https://docs.radxa.com/aicore/sg2300x"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/aicore/sg2300x/README.md",
+        "zh": "docs/aicore/sg2300x/README.md"
+      }
+    }
+  ]
+}

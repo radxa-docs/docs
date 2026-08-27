@@ -139,6 +139,14 @@ repos:
         files: '^(docs|i18n/en/docusaurus-plugin-content-docs/current)/.*\.(md|mdx)$'
         stages:
           - pre-commit
+      - id: agent-product-index
+        name: Agent product index
+        language: system
+        entry: python3 scripts/generate-agent-product-index.py --check
+        pass_filenames: false
+        files: '^(docs/Home\.md|i18n/en/docusaurus-plugin-content-docs/current/Home\.md|scripts/generate-agent-product-index\.py|static/agent/products\.json)$'
+        stages:
+          - pre-commit
       - id: agent-doc-drift-guard
         name: Agent doc drift guard
         language: system

@@ -22,6 +22,8 @@ jobs:
           fetch-depth: 0
           submodules: recursive
           persist-credentials: false
+      - name: Agent product index guard
+        run: python3 scripts/generate-agent-product-index.py --check
       - name: Agent doc lint (changed files)
         shell: bash
         run: |

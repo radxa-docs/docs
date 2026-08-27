@@ -49,6 +49,9 @@
 
 ## 6. Related Files
 
+- 仓库级入口：`AGENTS.md`
+- 产品导航索引：`static/agent/products.json`（生成文件，不作为规格真源）
+- 公开 Agent 入口：`static/llms.txt`
 - 规范：`AGENT-DOC-SPEC.md`
 - 页面模板：`.github/agent-doc-page-template.md`
 - 校验脚本：`scripts/agent-doc-lint.sh`

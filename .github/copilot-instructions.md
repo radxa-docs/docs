@@ -1,5 +1,7 @@
 # Copilot 编码助手说明（本仓库）
 
+仓库级入口先读 `AGENTS.md`；本文件补充 Copilot 的具体写作与校验约束。
+
 目标：以最小改动维护 Docusaurus 文档站点；文档简明、可读性好、专业；并保证能通过 pre-commit/CI 校验。
 
 ## 本地开发

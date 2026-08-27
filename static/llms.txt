@@ -1,0 +1,26 @@
+# Radxa Documentation
+
+> Official Radxa product and technical documentation for single-board computers, compute modules, AI accelerators, network devices, edge systems, accessories, and supported software workflows. Content is available in English and Chinese.
+
+Start with the machine-readable Home-catalog index, select the exact model and language, then follow its product documentation. This index is intentionally non-exhaustive. If a model is absent, search the sitemap for its exact name or route, then search the English and Chinese source trees below. Absence from the Home catalog does not mean documentation is absent. The index and catalog pages are navigation aids, not specification sources. Product-specific pages take precedence over shared `common` procedures for hardware support claims. Some source pages are MDX wrappers; follow `imports_resolve_to` as described in the Agent reading guide.
+
+## Product Discovery
+
+- [Machine-readable Home-catalog index](https://docs.radxa.com/agent/products.json): Non-exhaustive product names, families, public URLs, repository entry files, and fallback discovery links without duplicated specifications.
+- [English product catalog](https://docs.radxa.com/en/productlist): Human-readable product categories and summaries.
+- [Chinese product catalog](https://docs.radxa.com/productlist): 中文产品分类与简介。
+- [Complete sitemap](https://docs.radxa.com/sitemap.xml): All published documentation routes.
+
+## Source Content
+
+- [English product catalog source](https://raw.githubusercontent.com/radxa-docs/docs/main/i18n/en/docusaurus-plugin-content-docs/current/productlist.md): Clean Markdown source for the English catalog.
+- [Chinese product catalog source](https://raw.githubusercontent.com/radxa-docs/docs/main/docs/productlist.md): 中文产品目录的 Markdown 源文件。
+- [English documentation source tree](https://github.com/radxa-docs/docs/tree/main/i18n/en/docusaurus-plugin-content-docs/current): English Markdown and MDX content.
+- [Chinese documentation source tree](https://github.com/radxa-docs/docs/tree/main/docs): Chinese Markdown and MDX content.
+- [Agent reading guide](https://raw.githubusercontent.com/radxa-docs/docs/main/.github/agent-reading-guide.md): Rules for wrappers, partials, imports, and source precedence.
+
+## Optional
+
+- [English documentation home](https://docs.radxa.com/en/welcome): General documentation entry.
+- [Chinese documentation home](https://docs.radxa.com/welcome): 中文文档入口。
+- [Source repository and issue tracker](https://github.com/radxa-docs/docs): Content history, provenance, and issue reporting.
