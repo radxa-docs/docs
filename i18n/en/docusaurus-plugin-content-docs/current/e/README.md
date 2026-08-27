@@ -16,6 +16,7 @@ The E Series is a series of high-performance network computing products launched
 | --------------------- | --------- | --------------------- | ----------------------------------------------------------- | -------------------------------------------------- |
 | [E20C](../en/e/e20c/) | RK3528A   | Dual Gigabit Ethernet | Entry-level network device with high cost-performance ratio | Home gateway, small office network                 |
 | [E24C](../en/e/e24c/) | RK3528A   | Quad Gigabit Ethernet | High-performance compact network device                     | Multi-WAN load balancing, network security device  |
+| [E25](../en/rock3/e25/) | RK3568 | Dual 2.5G Ethernet | Portable network computer with 4G/5G support                 | Portable gateway, mobile network sharing          |
 | [E52C](../en/e/e52c/) | RK3582    | Dual 2.5G Ethernet    | High-performance compact network powerhouse                 | Enterprise gateway, edge server                    |
 | [E54C](../en/e/e54c/) | RK3582    | Quad Gigabit Ethernet | Multi-port network device with AI acceleration support      | Multi-WAN load balancing, network security devices |
 
