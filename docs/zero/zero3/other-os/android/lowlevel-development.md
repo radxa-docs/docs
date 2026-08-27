@@ -80,7 +80,7 @@ Repo 是 Android 开发中用于管理多个 Git 仓库的工具，它是一个P
 ## 代码下载
 
 ```bash
-$ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk11 -m rockchip-r-release.xml
+$ repo init -u https://github.com/radxa/manifests.git -b Android11_Radxa_rk12 -m rockchip-r-release.xml
 $ repo sync -d --no-tags -j4
 ```
 
