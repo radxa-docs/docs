@@ -111,6 +111,62 @@ Snapdragon (TM) 8cx Gen 3 @ 3.0 GHz                              2.99 GHz
 - **Blue User LED State**：蓝色用户指示灯状态。支持开启和关闭 LED 操作。
 - **Auto Boot Time-out**：自动启动超时时间，单位是秒。默认是 **5 秒**。
 
+#### Third-party OS Compatibility Settings
+
+默认情况下，为启动 Radxa OS，如下功能是关闭的：
+
+```plaintext
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                              Third-party OS Compatibility Settings               │
+└──────────────────────────────────────────────────────────────────────────────────┘
+
+   Ignore unused clocks for Linux   <Enabled>          Append clk_ignore_unused to
+                                                       Linux bootargs when enabled.
+   These options are not recommended when using
+   RadxaOS or other supported systems.                 Enabled: Add clk_ignore_unused
+                                                       Disabled: Do not add this
+   Workaround for missing           <Disabled>         argument.
+   simple-bridge driver
+   Workaround for broken            <Disabled>
+   gpio-shared support
+   Workaround for broken PCIe port  <Disabled>
+   node parsing
+   Force smaller PCIe BAR windows   <Disabled>
+   Support efivars by patching      <Disabled>
+   compatible value
+   Ignore unused power domains      <Disabled>
+   (PD) for Linux
+
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ ↑↓=Move Highlight              <Enter>=Select Entry             Esc=Exit         │
+└──────────────────────────────────────────────────────────────────────────────────┘
+```
+
+为了启动第三方系统，如 Ubuntu 26 ISO、Fedora ISO、Debian 14 ISO 等，需要开启全部功能配置：
+
+```plaintext
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                              Third-party OS Compatibility Settings               │
+└──────────────────────────────────────────────────────────────────────────────────┘
+
+   Ignore unused clocks for Linux   <Enabled>
+   Workaround for missing           <Enabled>
+   simple-bridge driver
+   Workaround for broken            <Enabled>
+   gpio-shared support
+   Workaround for broken PCIe port  <Enabled>
+   node parsing
+   Force smaller PCIe BAR windows   <Enabled>
+   Support efivars by patching      <Enabled>
+   compatible value
+   Ignore unused power domains      <Enabled>
+   (PD) for Linux
+
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ ↑↓=Move Highlight              <Enter>=Select Entry             Esc=Exit         │
+└──────────────────────────────────────────────────────────────────────────────────┘
+```
+
 ### Device Manager
 
 ```plaintext
