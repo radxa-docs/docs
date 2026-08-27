@@ -10,9 +10,9 @@ This guide explains how to perform a clean installation of Windows 11 ARM64 on t
 This tutorial covers installing Windows to an **NVMe SSD** or a **UFS module**. The installation process will erase all data on the selected target storage device. Please back up your data in advance.
 :::
 
-## 1. Before You Begin
+## Before You Begin
 
-### 1.1 Supported Windows Versions
+### Supported Windows Versions
 
 - Recommended: Windows 11 **25H2 (build family: 26200)** ARM64.
 - Minimum supported: Windows 11 **24H2 (build family: 26100)** ARM64.
@@ -20,7 +20,7 @@ This tutorial covers installing Windows to an **NVMe SSD** or a **UFS module**. 
 
 We recommend downloading the ISO from the [Microsoft Windows 11 ARM64 download page](https://www.microsoft.com/en-us/software-download/windows11arm64). UUP dump is an alternative source, but the official Microsoft image is preferred.
 
-### 1.2 Windows Driver Feature Overview
+### Windows Driver Feature Overview
 
 The features below assume the Q8B drivers from Section 6 have been installed; availability also depends on the connected display, storage, wireless card, and other peripherals.
 
@@ -43,7 +43,7 @@ USB-C DP Alt Mode displays only work after the drivers are installed; the curren
 - 40-Pin GPIO.
 - Wake-on-LAN on the 2.5GbE Ethernet interface.
 
-### 1.3 Check the BIOS Version
+### Check the BIOS Version
 
 Installing Windows requires Q8B BIOS version **260825 or newer**. If this condition is not met, upgrade the BIOS first before continuing.
 
@@ -56,7 +56,7 @@ Installing Windows requires Q8B BIOS version **260825 or newer**. If this condit
 Keep the power supply stable during the BIOS upgrade and do not interrupt the process. Only enter EDL mode and upgrade the SPI boot firmware via the official procedure when the BIOS version is older than 260825.
 :::
 
-### 1.4 Hardware and Files You Will Need
+### Hardware and Files You Will Need
 
 | Item | Requirement |
 | --- | --- |
@@ -79,16 +79,16 @@ The Q8B provides HDMI and USB-C display output with DisplayPort Alt Mode; the po
 The Q8B's onboard microSD slot **cannot boot the Windows ISO installer**. Use the USB installation drive created in this guide to boot the Windows installer.
 :::
 
-### 1.5 Important Notes
+### Important Notes
 
 - Only delete and format the NVMe SSD or UFS module where Windows will be installed; do not delete partitions on the installation USB drive or any other storage device.
 - This guide does not require manually injecting manufacturer drivers into the Windows ISO.
 - The Q8B is a development board. The current driver package is not WHQL signed, so you must disable "Smart App Control" before installing the drivers. Only use the Q8B driver package provided by Radxa.
 - If the BIOS is already 260825 or newer, there is no need to enter EDL mode or update the SPI boot firmware; only upgrade via the official procedure in Section 1.3 when the BIOS version is older than required.
 
-## 2. Create the Windows Installation USB Drive
+## Create the Windows Installation USB Drive
 
-### 2.1 Download the Windows 11 ARM64 ISO
+### Download the Windows 11 ARM64 ISO
 
 Download the Windows 11 ARM64 ISO from the [Microsoft Windows 11 ARM64 download page](https://www.microsoft.com/en-us/software-download/windows11arm64) and save it to the PC used to create the installation drive.
 
@@ -96,7 +96,7 @@ Make sure the file name or download page contains `ARM64`. The `x64` image is fo
 
 <img src="/img/dragon/q8b/windows/01-download-iso.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-### 2.2 Write the Installation USB Drive with Rufus
+### Write the Installation USB Drive with Rufus
 
 1. Download and open Rufus 4.15 or newer from the [Rufus website](https://rufus.ie/).
 2. Insert a blank USB drive and confirm it is selected under "Device". The write process will erase all data on the USB drive.
@@ -116,7 +116,7 @@ Make sure the file name or download page contains `ARM64`. The `x64` image is fo
 
 <img src="/img/dragon/q8b/windows/03-rufus-windows-ux.webp" style={{width: '100%', maxWidth: '800px'}} />
 
-## 3. Connect the Q8B and Boot from the USB Drive
+## Connect the Q8B and Boot from the USB Drive
 
 1. Make sure the NVMe SSD or UFS module is installed on the Q8B.
 2. Connect a keyboard, mouse, and an **HDMI display** to the Q8B. USB-C display output is not supported in the current BIOS or before Windows drivers are installed.
@@ -134,7 +134,7 @@ Make sure the file name or download page contains `ARM64`. The `x64` image is fo
 If the USB drive does not appear in the boot menu, power off, reinsert the USB drive, make sure it was created per Section 2 with an ARM64 ISO, GPT, and UEFI, then power on and press F12 again.
 :::
 
-## 4. Install Windows to the NVMe SSD or UFS
+## Install Windows to the NVMe SSD or UFS
 
 <img src="/img/dragon/q8b/windows/06-win-installer.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
@@ -153,7 +153,7 @@ If the USB drive does not appear in the boot menu, power off, reinsert the USB d
 If the installer does not show the NVMe SSD or UFS module, power off and check that the storage device is seated properly. Do not delete partitions on other disks before confirming the cause.
 :::
 
-## 5. Complete the First Boot Setup
+## Complete the First Boot Setup
 
 After Windows installation completes and the device reboots, follow the on-screen prompts to complete OOBE (Out-of-Box Experience).
 
@@ -165,9 +165,9 @@ The OOBE wording and layout may differ slightly between Windows versions. After 
 
 <img src="/img/dragon/q8b/windows/07-oobe-local-account.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-## 6. Install the Q8B Drivers
+## Install the Q8B Drivers
 
-### 6.1 Extract the Driver Package
+### Extract the Driver Package
 
 Download the Q8B Windows driver package from the [Q8B download page](../download) (or directly download the [Q8B Windows driver pack v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z)), copy it to local storage on the Q8B, and extract it with Windows File Explorer.
 
@@ -175,7 +175,7 @@ Download the Q8B Windows driver package from the [Q8B download page](../download
 
 <img src="/img/dragon/q8b/windows/09-driver-extract.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-### 6.2 Disable Smart App Control
+### Disable Smart App Control
 
 The current Q8B driver package is not WHQL signed; you must disable Windows "Smart App Control" so the driver installer can run.
 
@@ -188,7 +188,7 @@ The current Q8B driver package is not WHQL signed; you must disable Windows "Sma
 
 <img src="/img/dragon/q8b/windows/11-smart-app-control.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-### 6.3 Run the Driver Installer
+### Run the Driver Installer
 
 Return to the driver installer, click "Install", and wait for the installer to finish the current stage.
 
@@ -198,7 +198,7 @@ The system will restart automatically. Do not disconnect the power. After reboot
 
 <img src="/img/dragon/q8b/windows/13-reboot-complete.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-## 7. Post-Installation Checks
+## Post-Installation Checks
 
 After driver installation and reboot, check the following:
 
@@ -215,7 +215,7 @@ After driver installation and reboot, check the following:
 The Radxa Dragon Q8B uses Windows on ARM. Peripherals that require additional drivers should provide ARM64 versions of Windows drivers; confirm compatibility before purchasing or installing third-party peripherals.
 :::
 
-### 7.1 Fan Control and Hardware Monitoring
+### Fan Control and Hardware Monitoring
 
 #### Radxa Control Center
 
@@ -230,7 +230,7 @@ The Radxa Dragon Q8B uses Windows on ARM. Peripherals that require additional dr
 
 For more detailed temperature sensor data, download the ARM64 version from the [HWiNFO download page](https://www.hwinfo.com/download/). If using the portable version, extract it and open `HWiNFO_ARM64.exe`, then view sensor data in HWiNFO.
 
-## 8. Using an M.2 E-Key Wireless Card (Optional)
+## Using an M.2 E-Key Wireless Card (Optional)
 
 The Q8B's M.2 E-Key slot supports the wireless cards listed below. Confirm Wi-Fi and Bluetooth functionality after installing Windows and the Q8B drivers.
 
@@ -242,7 +242,7 @@ The Q8B's M.2 E-Key slot supports the wireless cards listed below. Confirm Wi-Fi
 
 <img src="/img/dragon/q8b/windows/16-wifi-cards.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-### 8.1 Set Bluetooth Mode When Using the NCM865A
+### Set Bluetooth Mode When Using the NCM865A
 
 The NCM865A's Bluetooth connects via UART. When using this module, you must set the Windows Bluetooth mode to `UART` in the BIOS; the other two USB Bluetooth modules do not require this change.
 
@@ -256,7 +256,7 @@ The NCM865A's Bluetooth connects via UART. When using this module, you must set 
 If the NCM865A's Bluetooth is not recognized, first confirm this BIOS setting is saved as `UART`, then check that the Q8B drivers are installed.
 :::
 
-## 9. Troubleshooting
+## Troubleshooting
 
 ### Cannot Boot the Windows Installer from the USB Drive
 

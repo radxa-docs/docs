@@ -10,9 +10,9 @@ sidebar_position: 2
 本教程适用于将 Windows 安装到 **NVMe SSD** 或 **UFS 模块**的场景。安装过程会清除所选目标存储设备上的全部数据，请提前备份。
 :::
 
-## 1. 安装前须知
+## 安装前须知
 
-### 1.1 支持的 Windows 版本
+### 支持的 Windows 版本
 
 - 推荐：Windows 11 **25H2（构建版本系列：26200）** ARM64。
 - 最低支持：Windows 11 **24H2（构建版本系列：26100）** ARM64。
@@ -20,7 +20,7 @@ sidebar_position: 2
 
 建议优先从[微软 Windows 11 ARM64 下载页](https://www.microsoft.com/zh-cn/software-download/windows11arm64)下载 ISO。UUP dump 可作为替代下载方式，但优先使用微软官方镜像。
 
-### 1.2 Windows 驱动功能概览
+### Windows 驱动功能概览
 
 以下功能以已完成第 6 节 Q8B 驱动安装为前提；功能可用性也取决于所连接的显示器、存储设备、无线网卡和其他外设。
 
@@ -43,7 +43,7 @@ USB-C DP Alt Mode 显示器仅在驱动安装完成后可用；当前版本 BIOS
 - 40-Pin GPIO。
 - 2.5GbE 以太网接口的 Wake-on-LAN（网络唤醒）。
 
-### 1.3 确认 BIOS 版本
+### 确认 BIOS 版本
 
 安装 Windows 需要 Q8B 的 BIOS 版本为 **260825 或更新版本**。未满足此条件时，请先升级 BIOS，再继续本教程。
 
@@ -56,7 +56,7 @@ USB-C DP Alt Mode 显示器仅在驱动安装完成后可用；当前版本 BIOS
 BIOS 升级期间请保持供电稳定，不要中断操作。仅在 BIOS 版本低于 260825 时，才需要按官方流程进入 EDL 模式并升级 SPI 启动固件。
 :::
 
-### 1.4 需要准备的硬件和文件
+### 需要准备的硬件和文件
 
 | 项目 | 要求 |
 | --- | --- |
@@ -79,16 +79,16 @@ Q8B 提供 HDMI 和支持 DisplayPort Alt Mode 的 USB-C 显示输出；供电 T
 Q8B 的板载 microSD 卡槽**不支持启动 Windows ISO 安装程序**。请使用本教程制作的 USB 安装盘启动 Windows 安装程序。
 :::
 
-### 1.5 重要提示
+### 重要提示
 
 - 仅删除和格式化要安装 Windows 的 NVMe SSD 或 UFS 模块；不要删除安装 U 盘或其他存储设备上的分区。
 - 本教程不需要将设备制造商驱动手动注入 Windows ISO。
 - Q8B 是开发板。当前驱动包未通过 WHQL 签名，因此安装驱动前必须关闭"智能应用控制"。请仅使用 Radxa 提供的 Q8B 驱动包。
 - BIOS 已为 260825 或更新版本时，无需进入 EDL 模式或更新 SPI 启动固件；仅当 BIOS 版本低于要求时，才按第 1.3 节的官方流程升级。
 
-## 2. 制作 Windows 安装 U 盘
+## 制作 Windows 安装 U 盘
 
-### 2.1 下载 Windows 11 ARM64 ISO
+### 下载 Windows 11 ARM64 ISO
 
 从[微软 Windows 11 ARM64 下载页](https://www.microsoft.com/zh-cn/software-download/windows11arm64)下载 Windows 11 ARM64 ISO，并保存到制作安装盘的电脑。
 
@@ -96,7 +96,7 @@ Q8B 的板载 microSD 卡槽**不支持启动 Windows ISO 安装程序**。请�
 
 <img src="/img/dragon/q8b/windows/01-download-iso.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-### 2.2 使用 Rufus 写入安装 U 盘
+### 使用 Rufus 写入安装 U 盘
 
 1. 从 [Rufus 官网](https://rufus.ie/) 下载并打开 Rufus 4.15 或更新版本。
 2. 插入空白 U 盘，并在"设备"中确认选择的是该 U 盘。写入过程会清除 U 盘上的所有数据。
@@ -117,7 +117,7 @@ Q8B 的板载 microSD 卡槽**不支持启动 Windows ISO 安装程序**。请�
 
 7. 点击"OK"，等待 Rufus 写入完成后安全弹出 U 盘。
 
-## 3. 连接 Q8B 并从 U 盘启动
+## 连接 Q8B 并从 U 盘启动
 
 1. 确认 NVMe SSD 或 UFS 模块已安装在 Q8B 上。
 2. 将键盘、鼠标和 **HDMI 显示器**接入 Q8B。当前 BIOS 界面和 Windows 驱动安装前不支持 USB-C 显示输出。
@@ -135,7 +135,7 @@ Q8B 的板载 microSD 卡槽**不支持启动 Windows ISO 安装程序**。请�
 如果启动菜单中没有 U 盘，请关机后重新插拔 U 盘，确认安装盘按第 2 节所述使用 ARM64 ISO、GPT 和 UEFI 方式制作，再重新开机按 F12。
 :::
 
-## 4. 安装 Windows 到 NVMe SSD 或 UFS
+## 安装 Windows 到 NVMe SSD 或 UFS
 
 <img src="/img/dragon/q8b/windows/06-win-installer.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
@@ -154,7 +154,7 @@ Q8B 的板载 microSD 卡槽**不支持启动 Windows ISO 安装程序**。请�
 若安装程序未显示 NVMe SSD 或 UFS 模块，请先关机并检查存储设备是否安装牢固。请勿在未确认原因的情况下删除其他磁盘分区。
 :::
 
-## 5. 完成首次开机设置
+## 完成首次开机设置
 
 Windows 安装完成并重启后，按屏幕提示完成 OOBE（首次开机设置）。
 
@@ -166,9 +166,9 @@ Windows 安装完成并重启后，按屏幕提示完成 OOBE（首次开机设�
 
 <img src="/img/dragon/q8b/windows/07-oobe-local-account.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-## 6. 安装 Q8B 驱动
+## 安装 Q8B 驱动
 
-### 6.1 解压驱动包
+### 解压驱动包
 
 从 [Q8B 资源下载页](../download) 下载 Q8B Windows 驱动包（或直接下载 [Q8B Windows 驱动包 v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z)），将其复制到 Q8B 的本地存储，然后使用 Windows 文件资源管理器解压。
 
@@ -176,7 +176,7 @@ Windows 安装完成并重启后，按屏幕提示完成 OOBE（首次开机设�
 
 <img src="/img/dragon/q8b/windows/09-driver-extract.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-### 6.2 关闭智能应用控制
+### 关闭智能应用控制
 
 当前 Q8B 驱动包未通过 WHQL 签名；为使驱动安装器能够运行，必须先关闭 Windows 的"智能应用控制"。
 
@@ -189,7 +189,7 @@ Windows 安装完成并重启后，按屏幕提示完成 OOBE（首次开机设�
 
 <img src="/img/dragon/q8b/windows/11-smart-app-control.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-### 6.3 运行驱动安装器
+### 运行驱动安装器
 
 返回驱动安装器界面，点击"安装"，等待安装器完成当前阶段。
 
@@ -199,7 +199,7 @@ Windows 安装完成并重启后，按屏幕提示完成 OOBE（首次开机设�
 
 <img src="/img/dragon/q8b/windows/13-reboot-complete.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-## 7. 安装完成后的检查
+## 安装完成后的检查
 
 完成驱动安装并重启后，请检查以下项目：
 
@@ -216,7 +216,7 @@ Windows 安装完成并重启后，按屏幕提示完成 OOBE（首次开机设�
 Radxa Dragon Q8B 使用 Windows on ARM。需要额外安装驱动的外设应提供 ARM64 版 Windows 驱动；请在购买或安装第三方外设前确认兼容性。
 :::
 
-### 7.1 风扇控制与硬件监控
+### 风扇控制与硬件监控
 
 #### Radxa Control Center
 
@@ -231,7 +231,7 @@ Radxa Dragon Q8B 使用 Windows on ARM。需要额外安装驱动的外设应提
 
 如需查看更详细的温度传感器数据，可从 [HWiNFO 下载页](https://www.hwinfo.com/download/) 下载 ARM64 版本。使用便携版时，解压后打开 `HWiNFO_ARM64.exe`；随后在 HWiNFO 中查看传感器数据。
 
-## 8. 使用 M.2 E-Key 无线网卡（可选）
+## 使用 M.2 E-Key 无线网卡（可选）
 
 Q8B 的 M.2 E-Key 插槽可安装下列已支持的无线网卡。请在安装 Windows 和 Q8B 驱动后，再确认 Wi-Fi 与蓝牙功能。
 
@@ -243,7 +243,7 @@ Q8B 的 M.2 E-Key 插槽可安装下列已支持的无线网卡。请在安装 W
 
 <img src="/img/dragon/q8b/windows/16-wifi-cards.webp" style={{width: '100%', maxWidth: '1200px'}} />
 
-### 8.1 使用 NCM865A 时设置蓝牙模式
+### 使用 NCM865A 时设置蓝牙模式
 
 NCM865A 的蓝牙通过 UART 连接。使用该模块时，必须在 BIOS 中将 Windows 蓝牙模式设置为 `UART`；其他两款 USB 蓝牙模块无需修改此设置。
 
@@ -257,7 +257,7 @@ NCM865A 的蓝牙通过 UART 连接。使用该模块时，必须在 BIOS 中将
 若 NCM865A 的蓝牙无法识别，请先确认此 BIOS 设置已保存为 `UART`，再检查 Q8B 驱动是否已完成安装。
 :::
 
-## 9. 常见问题
+## 常见问题
 
 ### 无法从 U 盘进入 Windows 安装程序
 
