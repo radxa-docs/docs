@@ -19,6 +19,16 @@ This page publishes the latest stable and test system images. Test releases star
 - [radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz): Suitable for booting from a microSD card or NVMe SSD
 - [radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz): Suitable for booting from UFS
 
+### Third-party OS Images
+
+:::tip
+To boot a third-party OS (such as Ubuntu, Fedora, or Debian), enable all the features in [Third-party OS Compatibility Settings](low-level-dev/bios#third-party-os-compatibility-settings) in the BIOS.
+:::
+
+- [Ubuntu 26.04 Desktop arm64 ISO](https://cdimage.ubuntu.com/ubuntu/releases/resolute/release/ubuntu-26.04-desktop-arm64.iso)
+- [Fedora Workstation 44 aarch64 ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/44/Workstation/aarch64/iso/Fedora-Workstation-Live-44-1.7.aarch64.iso)
+- [Debian testing arm64 DVD ISO](https://cdimage.debian.org/cdimage/weekly-builds/arm64/iso-dvd/debian-testing-arm64-DVD-1.iso)
+
 ## Boot Firmware
 
 Dragon Q8B ships with SPI boot firmware preinstalled. Normally you do not need to flash the boot firmware. If the system fails to boot properly, you can try reflashing the SPI boot firmware.

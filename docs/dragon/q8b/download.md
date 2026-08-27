@@ -19,6 +19,16 @@ sidebar_position: 150
 - [radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz)：适用于 microSD 卡 / NVMe SSD 启动
 - [radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz)：适用于 UFS 启动
 
+### 第三方系统镜像
+
+:::tip
+若启动第三方系统（如 Ubuntu、Fedora、Debian 等），需要在 BIOS 中开启 [Third-party OS Compatibility Settings](low-level-dev/bios#third-party-os-compatibility-settings) 内的所有功能。
+:::
+
+- [Ubuntu 26.04 Desktop arm64 ISO](https://cdimage.ubuntu.com/ubuntu/releases/resolute/release/ubuntu-26.04-desktop-arm64.iso)
+- [Fedora Workstation 44 aarch64 ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/44/Workstation/aarch64/iso/Fedora-Workstation-Live-44-1.7.aarch64.iso)
+- [Debian testing arm64 DVD ISO](https://cdimage.debian.org/cdimage/weekly-builds/arm64/iso-dvd/debian-testing-arm64-DVD-1.iso)
+
 ## 启动固件
 
 Dragon Q8B 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启动固件，若系统启动异常，可以尝试重新烧录 SPI 启动固件。

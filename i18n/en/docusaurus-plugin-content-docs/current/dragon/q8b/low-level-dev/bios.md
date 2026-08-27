@@ -111,6 +111,62 @@ The top of the screen shows the Dragon Q8B board information, including manufact
 - **Blue User LED State**: State of the blue user LED. You can turn the LED on or off.
 - **Auto Boot Time-out**: Auto boot time-out in seconds. The default is **5 seconds**.
 
+#### Third-party OS Compatibility Settings
+
+By default, the following features are disabled to boot Radxa OS:
+
+```plaintext
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                              Third-party OS Compatibility Settings               │
+└──────────────────────────────────────────────────────────────────────────────────┘
+
+   Ignore unused clocks for Linux   <Enabled>          Append clk_ignore_unused to
+                                                       Linux bootargs when enabled.
+   These options are not recommended when using
+   RadxaOS or other supported systems.                 Enabled: Add clk_ignore_unused
+                                                       Disabled: Do not add this
+   Workaround for missing           <Disabled>         argument.
+   simple-bridge driver
+   Workaround for broken            <Disabled>
+   gpio-shared support
+   Workaround for broken PCIe port  <Disabled>
+   node parsing
+   Force smaller PCIe BAR windows   <Disabled>
+   Support efivars by patching      <Disabled>
+   compatible value
+   Ignore unused power domains      <Disabled>
+   (PD) for Linux
+
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ ↑↓=Move Highlight              <Enter>=Select Entry             Esc=Exit         │
+└──────────────────────────────────────────────────────────────────────────────────┘
+```
+
+To boot third-party operating systems such as Ubuntu 26 ISO, Fedora ISO, or Debian 14 ISO, you need to enable all the options:
+
+```plaintext
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                              Third-party OS Compatibility Settings               │
+└──────────────────────────────────────────────────────────────────────────────────┘
+
+   Ignore unused clocks for Linux   <Enabled>
+   Workaround for missing           <Enabled>
+   simple-bridge driver
+   Workaround for broken            <Enabled>
+   gpio-shared support
+   Workaround for broken PCIe port  <Enabled>
+   node parsing
+   Force smaller PCIe BAR windows   <Enabled>
+   Support efivars by patching      <Enabled>
+   compatible value
+   Ignore unused power domains      <Enabled>
+   (PD) for Linux
+
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│ ↑↓=Move Highlight              <Enter>=Select Entry             Esc=Exit         │
+└──────────────────────────────────────────────────────────────────────────────────┘
+```
+
 ### Device Manager
 
 ```plaintext
