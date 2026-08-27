@@ -50,10 +50,10 @@ Installing Windows requires Q8B BIOS version **260825 or newer**. If this condit
 1. Connect an HDMI display to the Q8B, power on, and press **F2** to enter the BIOS.
 2. Check the BIOS version at the top of the BIOS screen. The six-digit date portion should be `260825` or higher, e.g. `6.0.260825.BOOT...`.
 3. If the current version is 260825 or newer, continue to Section 1.4.
-4. If the current version is older than 260825, follow the official instructions in [Check BIOS Version](../system-config/check-bios-version) and [Flash SPI Boot Firmware](../low-level-dev/spi-fw) to upgrade the BIOS; verify the version again after the upgrade.
+4. If the current version is older than 260825, follow the official instructions in [Check BIOS Version](../system-config/check-bios-version) and [Flash BIOS Firmware](../low-level-dev/spi-fw) to upgrade the BIOS; verify the version again after the upgrade.
 
 :::warning
-Keep the power supply stable during the BIOS upgrade and do not interrupt the process. Only enter EDL mode and upgrade the SPI boot firmware via the official procedure when the BIOS version is older than 260825.
+Keep the power supply stable during the BIOS upgrade and do not interrupt the process. Only enter EDL mode and upgrade the BIOS firmware via the official procedure when the BIOS version is older than 260825.
 :::
 
 ### Hardware and Files You Will Need
@@ -84,7 +84,7 @@ The Q8B's onboard microSD slot **cannot boot the Windows ISO installer**. Use th
 - Only delete and format the NVMe SSD or UFS module where Windows will be installed; do not delete partitions on the installation USB drive or any other storage device.
 - This guide does not require manually injecting manufacturer drivers into the Windows ISO.
 - The Q8B is a development board. The current driver package is not WHQL signed, so you must disable "Smart App Control" before installing the drivers. Only use the Q8B driver package provided by Radxa.
-- If the BIOS is already 260825 or newer, there is no need to enter EDL mode or update the SPI boot firmware; only upgrade via the official procedure in Section 1.3 when the BIOS version is older than required.
+- If the BIOS is already 260825 or newer, there is no need to enter EDL mode or update the BIOS firmware; only upgrade via the official procedure in Section 1.3 when the BIOS version is older than required.
 
 ## Create the Windows Installation USB Drive
 

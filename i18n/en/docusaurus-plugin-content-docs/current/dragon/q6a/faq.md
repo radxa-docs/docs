@@ -133,7 +133,7 @@ If this option is not enabled, calling the hardware encoder may cause the system
 After enabling the hardware encoder, the following changes apply:
 
 - The system boots in `EL2` instead of `EL1`, and KVM **can** be used
-- `/dev/mtd0` disappears, so you cannot update the SPI firmware directly on the board
+- `/dev/mtd0` disappears, so you cannot update the BIOS firmware directly on the board
 
 ## Why does the system fail to boot after running `sudo apt upgrade`?
 

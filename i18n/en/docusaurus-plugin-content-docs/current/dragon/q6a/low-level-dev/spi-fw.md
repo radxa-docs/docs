@@ -2,26 +2,26 @@
 sidebar_position: 5
 ---
 
-# Flashing SPI Boot Firmware
+# Flashing BIOS Firmware
 
 :::tip Firmware Information
-The Radxa Dragon Q6A comes with SPI boot firmware pre-installed by default. Under normal circumstances, there is no need to flash the boot firmware. However, if the system fails to boot properly, you may try re-flashing the SPI boot firmware.
+The Radxa Dragon Q6A comes with BIOS firmware pre-installed by default. Under normal circumstances, there is no need to flash the boot firmware. However, if the system fails to boot properly, you may try re-flashing the BIOS firmware.
 
-The core function of the SPI boot firmware (BootROM + Bootloader) is to initialize hardware in stages (CPU → Memory → Storage) and ultimately load the operating system kernel from the storage device.
+The core function of the BIOS firmware (BootROM + Bootloader) is to initialize hardware in stages (CPU → Memory → Storage) and ultimately load the operating system kernel from the storage device.
 :::
 
-When the device cannot boot normally, you can put the device into [EDL Mode](./edl-mode) and then use the EDL tool to flash the SPI boot firmware.
+When the device cannot boot normally, you can put the device into [EDL Mode](./edl-mode) and then use the EDL tool to flash the BIOS firmware.
 
-Go to the [Resource Download](../download) page, download the `edl-ng` package and extract it. Then select the appropriate version for your system platform to download the SPI firmware.
+Go to the [Resource Download](../download) page, download the `edl-ng` package and extract it. Then select the appropriate version for your system platform to download the BIOS firmware.
 
-## Flashing SPI Boot Firmware
+## Flashing BIOS Firmware
 
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
 
     - [Enter EDL mode](edl-mode)
 
-    - Enter the following command to flash the SPI boot firmware
+    - Enter the following command to flash the BIOS firmware
 
     <NewCodeBlock tip="Windows$" type="host">
 
@@ -88,9 +88,9 @@ If the terminal prints the version information, the `edl-ng` tool symbolic link 
 
 - [Enter EDL mode](edl-mode)
 
-- Flash SPI Boot Firmware
+- Flash BIOS Firmware
 
-Go to the [Resource Download](../../download) page, download the `spi firmware` file, then extract it and navigate to the directory containing the `prog_firehose_ddr.elf` file. Open a terminal in this directory and use the `edl-ng` command to flash the SPI boot firmware.
+Go to the [Resource Download](../../download) page, download the BIOS firmware file, then extract it and navigate to the directory containing the `prog_firehose_ddr.elf` file. Open a terminal in this directory and use the `edl-ng` command to flash the BIOS firmware.
 
 <NewCodeBlock tip="Linux$" type="host">
 
@@ -104,22 +104,22 @@ sudo edl-ng --memory=spinor rawprogram rawprogram0.xml patch0.xml --loader=prog_
 </Tabs>
 
 :::warning Restart the device after flashing
-After the SPI boot firmware is successfully flashed, please restart the device using either of the following methods:
+After the BIOS firmware is successfully flashed, please restart the device using either of the following methods:
 
 - Re-plug the device power
 - Run the `edl-ng reset` command in the terminal
 :::
 
-## Erase SPI Boot Firmware
+## Erase BIOS Firmware
 
-Erasing the SPI boot firmware will prevent the device from booting. You will need to re-flash the SPI boot firmware to restore normal operation. Do not erase the SPI boot firmware unless absolutely necessary.
+Erasing the BIOS firmware will prevent the device from booting. You will need to re-flash the BIOS firmware to restore normal operation. Do not erase the BIOS firmware unless absolutely necessary.
 
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
 
     - [Enter EDL mode](edl-mode)
 
-    - Erase SPI Boot Firmware
+    - Erase BIOS Firmware
 
     Open a terminal and enter the following commands to erase:
 
@@ -190,7 +190,7 @@ Erasing the SPI boot firmware will prevent the device from booting. You will nee
 
     If the terminal prints the version information, the `edl-ng` tool symbolic link has been set up successfully.
 
-    - Erase SPI Boot Firmware
+    - Erase BIOS Firmware
 
     Enter the `prog_firehose_ddr.elf` file directory and open a terminal, input the following command to erase
 

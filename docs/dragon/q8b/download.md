@@ -31,7 +31,7 @@ sidebar_position: 150
 
 ## 启动固件
 
-Dragon Q8B 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启动固件，若系统启动异常，可以尝试重新烧录 SPI 启动固件。
+Dragon Q8B 出厂默认烧录 BIOS 固件，正常情况下无需烧录启动固件，若系统启动异常，可以尝试重新烧录 BIOS 固件。
 
 - 高通设备驱动
   - [高通设备驱动](https://dl.radxa.com/dragon/q6a/images/QUD_CustomInst_1.00.91.7.zip)
@@ -49,17 +49,17 @@ Dragon Q8B 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
   - [EDL-NG v1.6.0（GitHub）](https://github.com/strongtz/edl-ng/releases/tag/v1.6.0)
   - [EDL-NG v1.6.0（dl.radxa.com）](https://dl.radxa.com/q6a/images/edl-ng-dist-v1.6.0.zip)
 
-- SPI 启动固件（BIOS）
+- BIOS 固件
 
-  :::info 最新 SPI 启动固件发布页面
+  :::info 最新 BIOS 固件发布页面
 
-  - [SPI 启动固件（BIOS）](https://dl.radxa.com/dragon/q8b/images/)
+  - [BIOS 固件](https://dl.radxa.com/dragon/q8b/images/)
 
-  该页面会发布最新版本的 SPI 启动固件，更新日志请查看 [SPI 启动固件更新日志](https://dl.radxa.com/dragon/q8b/images/dragon-q8b-bios-changelog.md)。
+  该页面会发布最新版本的 BIOS 固件，更新日志请查看 [BIOS 固件更新日志](https://dl.radxa.com/dragon/q8b/images/dragon-q8b-bios-changelog.md)。
 
   :::
 
-  - [启动固件（BIOS）](https://dl.radxa.com/dragon/q8b/images/dragon-q8b_flat_build_wp_260821.zip)
+  - [BIOS 固件](https://dl.radxa.com/dragon/q8b/images/dragon-q8b_flat_build_wp_260821.zip)
 
 ## Windows 驱动
 

@@ -16,7 +16,7 @@ sidebar_position: 150
 
 ### Radxa OS
 
-**说明**：R1 或更高版本的系统镜像时，请使用 20251230 或更新版本的 [SPI 启动固件](#启动固件)。
+**说明**：R1 或更高版本的系统镜像时，请使用 20251230 或更新版本的 [BIOS 固件](#启动固件)。
 
 - [radxa-dragon-q6a_noble_gnome_r2.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r2/radxa-dragon-q6a_noble_gnome_r2.output_512.img.xz)：适用于 microSD 卡 / U 盘 / eMMC / NVMe 启动系统
 - [radxa-dragon-q6a_noble_gnome_r2.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r2/radxa-dragon-q6a_noble_gnome_r2.output_4096.img.xz)：适用于 UFS 启动系统
@@ -31,11 +31,11 @@ sidebar_position: 150
 
 :::tip 固件信息
 
-可以根据以下方式判断系统 SPI 固件版本信息：
+可以根据以下方式判断系统 BIOS 固件版本信息：
 
 1. 命令查询
 
-若系统可以正常启动，可以使用以下命令查询 SPI 启动固件版本信息：
+若系统可以正常启动，可以使用以下命令查询 BIOS 固件版本信息：
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
@@ -45,7 +45,7 @@ sudo dmidecode -s bios-version
 
 </NewCodeBlock>
 
-终端会输出类似信息：其中 260120 表示 SPI 启动固件的版本日期。
+终端会输出类似信息：其中 260120 表示 BIOS 固件的版本日期。
 
 ```text
 
@@ -55,7 +55,7 @@ sudo dmidecode -s bios-version
 
 2. 系统启动异常
 
-若系统无法正常启动，可以尝试重新烧录最新 SPI 启动固件。
+若系统无法正常启动，可以尝试重新烧录最新 BIOS 固件。
 
 :::
 
@@ -74,9 +74,9 @@ sudo dmidecode -s bios-version
 
 ## Android 15
 
-Android 15 目前仅支持 SPI 固件搭配 eMMC 模块或 UFS 模块启动。
+Android 15 目前仅支持 BIOS 固件搭配 eMMC 模块或 UFS 模块启动。
 
-说明：SPI 固件和系统镜像在同一个压缩包中，下载后解压可以得到系统镜像文件和 SPI 固件文件。
+说明：BIOS 固件和系统镜像在同一个压缩包中，下载后解压可以得到系统镜像文件和 BIOS 固件文件。
 
 ### eMMC 系统镜像
 
@@ -91,9 +91,9 @@ Android 15 目前仅支持 SPI 固件搭配 eMMC 模块或 UFS 模块启动。
 
 ## 启动固件
 
-Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启动固件，若系统启动异常，可以尝试重新烧录 SPI 启动固件。
+Dragon Q6A 出厂默认烧录 BIOS 固件，正常情况下无需烧录启动固件，若系统启动异常，可以尝试重新烧录 BIOS 固件。
 
-烧录 SPI 启动固件的详细步骤参考 [烧录 SPI 启动固件](../q6a/low-level-dev/spi-fw/) 教程。
+烧录 BIOS 固件的详细步骤参考 [烧录 BIOS 固件](../q6a/low-level-dev/spi-fw/) 教程。
 
 - 高通设备驱动
 
@@ -112,7 +112,7 @@ Dragon Q6A 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
   - [EDL-NG v1.6.0（GitHub）](https://github.com/strongtz/edl-ng/releases/tag/v1.6.0)
   - [EDL-NG v1.6.0（dl.radxa.com）](https://dl.radxa.com/q6a/images/edl-ng-dist-v1.6.0.zip)
 
-- SPI 启动固件
+- BIOS 固件
 
   - [flat_build_260120](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260120.zip)
 

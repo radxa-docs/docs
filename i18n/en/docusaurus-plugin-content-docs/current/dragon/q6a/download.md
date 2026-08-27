@@ -16,7 +16,7 @@ This page hosts the latest official and test system images. Test releases begin 
 
 ### Radxa OS
 
-**Note**: When using R1 or higher version system images, please use [SPI boot firmware](#boot-firmware) version 20251230 or newer.
+**Note**: When using R1 or higher version system images, please use [BIOS firmware](#boot-firmware) version 20251230 or newer.
 
 - [radxa-dragon-q6a_noble_gnome_r2.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r2/radxa-dragon-q6a_noble_gnome_r2.output_512.img.xz): For booting from microSD card / USB drive / eMMC / NVMe
 - [radxa-dragon-q6a_noble_gnome_r2.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-q6a/releases/download/rsdk-r2/radxa-dragon-q6a_noble_gnome_r2.output_4096.img.xz): For booting from UFS
@@ -31,11 +31,11 @@ For the complete procedure, see [Quick Start](./getting-started/quickly-start) o
 
 :::tip Firmware Information
 
-You can determine the system SPI firmware version using the following methods:
+You can determine the system BIOS firmware version using the following methods:
 
 1. Command Query
 
-If the system can boot normally, you can use the following command to check the SPI boot firmware version:
+If the system can boot normally, you can use the following command to check the BIOS firmware version:
 
 <NewCodeBlock tip="radxa@dragon-q6a$" type="device">
 
@@ -45,7 +45,7 @@ sudo dmidecode -s bios-version
 
 </NewCodeBlock>
 
-The terminal will output something like the following. The `260120` portion indicates the SPI boot firmware date/version.
+The terminal will output something like the following. The `260120` portion indicates the BIOS firmware date/version.
 
 ```text
 
@@ -55,7 +55,7 @@ The terminal will output something like the following. The `260120` portion indi
 
 2. System Boot Issues
 
-If the system fails to boot properly, you can try re-flashing the latest SPI boot firmware.
+If the system fails to boot properly, you can try re-flashing the latest BIOS firmware.
 
 :::
 
@@ -74,9 +74,9 @@ The Baidu Netdisk share link is regularly updated with the latest image files. I
 
 ## Android 15
 
-Android 15 currently only supports booting with SPI firmware combined with eMMC module or UFS module.
+Android 15 currently only supports booting with BIOS firmware combined with eMMC module or UFS module.
 
-Note: The SPI firmware and system image are in the same compressed package. After downloading and extracting, you will get the system image file and SPI firmware file.
+Note: The BIOS firmware and system image are in the same compressed package. After downloading and extracting, you will get the system image file and BIOS firmware file.
 
 ### eMMC System Image
 
@@ -91,9 +91,9 @@ Compared with the eMMC system image, flashing the UFS system image requires addi
 
 ## Boot Firmware
 
-The Dragon Q6A comes with the SPI boot firmware pre-flashed by default. Under normal circumstances, it is not necessary to re-flash the boot firmware. If the system fails to boot properly, you can try re-flashing the SPI boot firmware.
+The Dragon Q6A comes with the BIOS firmware pre-flashed by default. Under normal circumstances, it is not necessary to re-flash the boot firmware. If the system fails to boot properly, you can try re-flashing the BIOS firmware.
 
-For detailed steps on flashing the SPI boot firmware, please refer to the [Flashing SPI Boot Firmware](../q6a/low-level-dev/spi-fw/) tutorial.
+For detailed steps on flashing the BIOS firmware, please refer to the [Flashing BIOS Firmware](../q6a/low-level-dev/spi-fw/) tutorial.
 
 - Qualcomm device driver
 
@@ -112,7 +112,7 @@ For detailed steps on flashing the SPI boot firmware, please refer to the [Flash
   - [EDL-NG v1.6.0 (GitHub)](https://github.com/strongtz/edl-ng/releases/tag/v1.6.0)
   - [EDL-NG v1.6.0 (dl.radxa.com)](https://dl.radxa.com/q6a/images/edl-ng-dist-v1.6.0.zip)
 
-- SPI Boot Firmware
+- BIOS Firmware
 
   - [flat_build_260120](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260120.zip)
 

@@ -2,26 +2,26 @@
 sidebar_position: 5
 ---
 
-# Flashing SPI Boot Firmware
+# Flashing BIOS Firmware
 
 :::tip Firmware Notes
-Radxa Dragon Q8B ships with SPI boot firmware preinstalled. Normally you do not need to flash the boot firmware. If the system fails to boot properly, you can try reflashing the SPI boot firmware.
+Radxa Dragon Q8B ships with BIOS firmware preinstalled. Normally you do not need to flash the boot firmware. If the system fails to boot properly, you can try reflashing the BIOS firmware.
 
-The core task of SPI boot firmware (BootROM + bootloader) is to initialize hardware in stages (CPU -> memory -> storage), then load the operating system kernel from the storage device.
+The core task of BIOS firmware (BootROM + bootloader) is to initialize hardware in stages (CPU -> memory -> storage), then load the operating system kernel from the storage device.
 :::
 
-When the device cannot boot properly, enter [EDL Mode](./edl-mode), then use the EDL tool to flash the SPI boot firmware.
+When the device cannot boot properly, enter [EDL Mode](./edl-mode), then use the EDL tool to flash the BIOS firmware.
 
-Go to the [Resource Downloads](../download) page, download and extract the `edl-ng` archive, then select the corresponding version for your system platform to download the SPI firmware.
+Go to the [Resource Downloads](../download) page, download and extract the `edl-ng` archive, then select the corresponding version for your system platform to download the BIOS firmware.
 
-## Flashing SPI Boot Firmware
+## Flashing BIOS Firmware
 
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
 
     - [Enter EDL Mode](edl-mode)
 
-    - Run the following command to flash the SPI boot firmware
+    - Run the following command to flash the BIOS firmware
 
     <NewCodeBlock tip="Windows$" type="host">
 
@@ -88,9 +88,9 @@ If the terminal prints version information, the symbolic link for `edl-ng` was c
 
 - [Enter EDL Mode](edl-mode)
 
-- Flash SPI Boot Firmware
+- Flash BIOS Firmware
 
-Go to the [Resource Downloads](../../download) page, download the `spi firmware` file, extract it, open a terminal in the directory containing `prog_firehose_ddr.elf`, and use `edl-ng` to flash the SPI boot firmware.
+Go to the [Resource Downloads](../../download) page, download the BIOS firmware file, extract it, open a terminal in the directory containing `prog_firehose_ddr.elf`, and use `edl-ng` to flash the BIOS firmware.
 
 <NewCodeBlock tip="Linux$" type="host">
 
@@ -104,22 +104,22 @@ sudo edl-ng --memory=spinor rawprogram rawprogram0.xml patch0.xml --loader=prog_
 </Tabs>
 
 :::warning Restart the device after flashing
-After the SPI boot firmware is successfully flashed, please restart the device using either of the following methods:
+After the BIOS firmware is successfully flashed, please restart the device using either of the following methods:
 
 - Re-plug the device power
 - Run the `edl-ng reset` command in the terminal
 :::
 
-## Erase SPI Boot Firmware
+## Erase BIOS Firmware
 
-Erasing the SPI boot firmware will prevent the device from booting. You must reflash the SPI boot firmware before the device can boot normally. Do not erase the SPI boot firmware unless necessary.
+Erasing the BIOS firmware will prevent the device from booting. You must reflash the BIOS firmware before the device can boot normally. Do not erase the BIOS firmware unless necessary.
 
 <Tabs queryString = "EDLplatform">
   <TabItem value="Windows" label="Windows" default>
 
     - [Enter EDL Mode](edl-mode)
 
-    - Erase SPI Boot Firmware
+    - Erase BIOS Firmware
 
     Open a terminal and run the following commands to erase it:
 
@@ -190,7 +190,7 @@ Erasing the SPI boot firmware will prevent the device from booting. You must ref
 
     If the terminal prints version information, the symbolic link for `edl-ng` was created successfully.
 
-    - Erase SPI Boot Firmware
+    - Erase BIOS Firmware
 
     Open a terminal in the directory containing `prog_firehose_ddr.elf`, then run the following commands to erase it
 
