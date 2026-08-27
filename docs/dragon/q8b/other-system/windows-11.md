@@ -67,7 +67,7 @@ BIOS 升级期间请保持供电稳定，不要中断操作。仅在 BIOS 版本
 | 安装 U 盘 | 空白 U 盘，容量至少 8 GB，建议 16 GB 或以上 |
 | 制作安装盘的电脑 | 可联网的 Windows 电脑，且具有管理员权限 |
 | 显示与输入设备 | 安装过程需要 HDMI 显示器和 USB 键盘鼠标；驱动安装完成后可使用支持 DP Alt Mode 的 USB-C 显示器 |
-| 软件和文件 | Windows 11 ARM64 ISO、Rufus 4.15 或更新版本、[Q8B Windows 驱动包](../download) |
+| 软件和文件 | Windows 11 ARM64 ISO、Rufus 4.15 或更新版本、[Q8B Windows 驱动包 v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z)（也可从[资源下载页](../download)获取） |
 
 Q8B 提供 HDMI 和支持 DisplayPort Alt Mode 的 USB-C 显示输出；供电 Type-C 接口仅用于 20 V 供电，请勿将电源接入 USB-C 数据/显示接口。有关接口位置，请参考 [Q8B 官方接口说明](../)。
 
@@ -170,7 +170,7 @@ Windows 安装完成并重启后，按屏幕提示完成 OOBE（首次开机设�
 
 ### 6.1 解压驱动包
 
-从 [Q8B 资源下载页](../download) 下载 Q8B Windows 驱动包，将其复制到 Q8B 的本地存储，然后使用 Windows 文件资源管理器解压。
+从 [Q8B 资源下载页](../download) 下载 Q8B Windows 驱动包（或直接下载 [Q8B Windows 驱动包 v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z)），将其复制到 Q8B 的本地存储，然后使用 Windows 文件资源管理器解压。
 
 <img src="/img/dragon/q8b/windows/08-driver-download.webp" style={{width: '100%', maxWidth: '1200px'}} />
 

@@ -67,7 +67,7 @@ Keep the power supply stable during the BIOS upgrade and do not interrupt the pr
 | Installation USB drive | A blank USB drive of at least 8 GB, 16 GB or more recommended |
 | PC for creating the installer | A Windows PC with internet access and administrator privileges |
 | Display and input devices | HDMI display and USB keyboard/mouse for installation; a USB-C display with DP Alt Mode can be used after driver installation |
-| Software and files | Windows 11 ARM64 ISO, Rufus 4.15 or newer, [Q8B Windows driver package](../download) |
+| Software and files | Windows 11 ARM64 ISO, Rufus 4.15 or newer, [Q8B Windows driver pack v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z) (also available from the [download page](../download)) |
 
 The Q8B provides HDMI and USB-C display output with DisplayPort Alt Mode; the power Type-C port is for 20 V power input only — do not connect power to the USB-C data/display port. For port locations, refer to the [Q8B official interface description](../).
 
@@ -169,7 +169,7 @@ The OOBE wording and layout may differ slightly between Windows versions. After 
 
 ### 6.1 Extract the Driver Package
 
-Download the Q8B Windows driver package from the [Q8B download page](../download), copy it to local storage on the Q8B, and extract it with Windows File Explorer.
+Download the Q8B Windows driver package from the [Q8B download page](../download) (or directly download the [Q8B Windows driver pack v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z)), copy it to local storage on the Q8B, and extract it with Windows File Explorer.
 
 <img src="/img/dragon/q8b/windows/08-driver-download.webp" style={{width: '100%', maxWidth: '1200px'}} />
 

@@ -42,6 +42,10 @@ Dragon Q8B 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
 - SPI 启动固件（BIOS）
   - [启动固件（BIOS）](https://dl.radxa.com/dragon/q8b/images/)
 
+## Windows 驱动
+
+- [Dragon Q8B Windows 驱动包 v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z)：适用于在 Q8B 上安装 Windows 11 (ARM64)，具体安装步骤请参考 [Windows 11 (ARM64)](other-system/windows-11)
+
 ## 硬件设计
 
 - [位号图 V1.30](https://dl.radxa.com/dragon/q8b/hw/radxa_dragon_q8b_components_placement_map_v1.30.pdf)
