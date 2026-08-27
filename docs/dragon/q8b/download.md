@@ -40,7 +40,16 @@ Dragon Q8B 出厂默认烧录 SPI 启动固件，正常情况下无需烧录启�
   - [EDL-NG v1.6.0（dl.radxa.com）](https://dl.radxa.com/q6a/images/edl-ng-dist-v1.6.0.zip)
 
 - SPI 启动固件（BIOS）
-  - [启动固件（BIOS）](https://dl.radxa.com/dragon/q8b/images/)
+
+  :::info 最新 SPI 启动固件发布页面
+
+  - [SPI 启动固件（BIOS）](https://dl.radxa.com/dragon/q8b/images/)
+
+  该页面会发布最新版本的 SPI 启动固件，更新日志请查看 [SPI 启动固件更新日志](https://dl.radxa.com/dragon/q8b/images/dragon-q8b-bios-changelog.md)。
+
+  :::
+
+  - [启动固件（BIOS）](https://dl.radxa.com/dragon/q8b/images/dragon-q8b_flat_build_wp_260821.zip)
 
 ## Windows 驱动
 
