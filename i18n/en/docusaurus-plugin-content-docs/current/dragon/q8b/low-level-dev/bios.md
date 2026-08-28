@@ -18,7 +18,7 @@ The top of the BIOS screen displays the board model, processor model and frequen
   - Enter: enter or confirm the current option
   - ESC: return to the previous level or exit the setup screen
 
-```plaintext
+```biosscreen
 Radxa Dragon Q8B
 Snapdragon (TM) 8cx Gen 3 @ 3.0 GHz                              2.99 GHz
 6.0.260821.BOOT.MXF.1.1.c1-00167-MAKENA-1                        16384 MB RAM
@@ -58,7 +58,7 @@ Use this menu to configure Radxa board-specific hardware such as GPIO, PCIe, USB
 
 The top of the screen shows the Dragon Q8B board information, including manufacturer, SKU, hardware version, and serial number.
 
-```plaintext
+```biosscreen
 ┌────────────────────────────────────────────────────────────────────────────────────┐
 │                                  Radxa Platform Configuration                      ｜
 └────────────────────────────────────────────────────────────────────────────────────┘
@@ -115,7 +115,7 @@ The top of the screen shows the Dragon Q8B board information, including manufact
 
 By default, the following features are disabled to boot Radxa OS:
 
-```plaintext
+```biosscreen
 ┌──────────────────────────────────────────────────────────────────────────────────┐
 │                              Third-party OS Compatibility Settings               │
 └──────────────────────────────────────────────────────────────────────────────────┘
@@ -144,7 +144,7 @@ By default, the following features are disabled to boot Radxa OS:
 
 To boot third-party operating systems such as Ubuntu 26 ISO, Fedora ISO, or Debian 14 ISO, you need to enable all the options:
 
-```plaintext
+```biosscreen
 ┌──────────────────────────────────────────────────────────────────────────────────┐
 │                              Third-party OS Compatibility Settings               │
 └──────────────────────────────────────────────────────────────────────────────────┘
@@ -169,7 +169,7 @@ To boot third-party operating systems such as Ubuntu 26 ISO, Fedora ISO, or Debi
 
 ### Device Manager
 
-```plaintext
+```biosscreen
 ┌──────────────────────────────────────────────────────────────────────────────────┐
 │                                         Device Manager                           │
 └──────────────────────────────────────────────────────────────────────────────────┘
@@ -190,7 +190,7 @@ To boot third-party operating systems such as Ubuntu 26 ISO, Fedora ISO, or Debi
 
 Use this menu to temporarily adjust how the system boots. You can also see which media the BIOS has detected here, for example SPI Nor Flash and NVMe SSD.
 
-```plaintext
+```biosscreen
 ┌──────────────────────────────────────────────────────────────────────────────────┐
 │                                       Boot Manager                               │
 └──────────────────────────────────────────────────────────────────────────────────┘
@@ -213,7 +213,7 @@ Use this menu to temporarily adjust how the system boots. You can also see which
 
 Use this menu for finer-grained boot option management. You can create, modify, or delete custom boot options and control driver and console behavior.
 
-```plaintext
+```biosscreen
 ┌──────────────────────────────────────────────────────────────────────────────────┐
 │                           Boot Maintenance Manager                               │
 └──────────────────────────────────────────────────────────────────────────────────┘
@@ -261,7 +261,7 @@ root@radxa-dragon-q8b:~# ls /config/test_logo.jpg
 
 3. Find the config partition in the File Explorer page and select it.
 
-```plaintext
+```biosscreen
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                          File Explorer                                           │
 └──────────────────────────────────────────────────────────────────────────────────────────────────┘
@@ -280,7 +280,7 @@ root@radxa-dragon-q8b:~# ls /config/test_logo.jpg
 
 4. Select `test_logo.jpg`.
 
-```plaintext
+```biosscreen
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                          File Explorer                                           │
 └──────────────────────────────────────────────────────────────────────────────────────────────────┘
