@@ -1,27 +1,19 @@
 {
-  "schema_version": 1,
   "description": "Non-exhaustive navigation pointers for linked product cards in the Radxa documentation home catalog. Product specifications remain in the linked content.",
   "fallback_discovery": {
-    "published_routes": "https://docs.radxa.com/sitemap.xml",
     "en_source_tree": "https://github.com/radxa-docs/docs/tree/main/i18n/en/docusaurus-plugin-content-docs/current",
+    "published_routes": "https://docs.radxa.com/sitemap.xml",
     "zh_source_tree": "https://github.com/radxa-docs/docs/tree/main/docs"
   },
   "generated_from": [
     "docs/Home.md",
     "i18n/en/docusaurus-plugin-content-docs/current/Home.md"
   ],
-  "unlinked_catalog_products": [
-    {
-      "id": "radxa-cm3s",
-      "name": "Radxa CM3S",
-      "family": "Compute Module"
-    }
-  ],
   "products": [
     {
+      "family": "ROCK 2 Series",
       "id": "rock-2a",
       "name": "ROCK 2A",
-      "family": "ROCK 2 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock2/rock2a",
         "zh": "https://docs.radxa.com/rock2/rock2a"
@@ -32,9 +24,9 @@
       }
     },
     {
+      "family": "ROCK 2 Series",
       "id": "rock-2f",
       "name": "ROCK 2F",
-      "family": "ROCK 2 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock2/rock2f",
         "zh": "https://docs.radxa.com/rock2/rock2f"
@@ -45,9 +37,9 @@
       }
     },
     {
+      "family": "ROCK 3 Series",
       "id": "rock-3a",
       "name": "ROCK 3A",
-      "family": "ROCK 3 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock3/rock3a",
         "zh": "https://docs.radxa.com/rock3/rock3a"
@@ -58,9 +50,9 @@
       }
     },
     {
+      "family": "ROCK 3 Series",
       "id": "rock-3b",
       "name": "ROCK 3B",
-      "family": "ROCK 3 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock3/rock3b",
         "zh": "https://docs.radxa.com/rock3/rock3b"
@@ -71,9 +63,9 @@
       }
     },
     {
+      "family": "ROCK 3 Series",
       "id": "rock-3c",
       "name": "ROCK 3C",
-      "family": "ROCK 3 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock3/rock3c",
         "zh": "https://docs.radxa.com/rock3/rock3c"
@@ -84,9 +76,9 @@
       }
     },
     {
+      "family": "ROCK 4 Series",
       "id": "rock-4a",
       "name": "ROCK 4A",
-      "family": "ROCK 4 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock4/rock4ab-se",
         "zh": "https://docs.radxa.com/rock4/rock4ab-se"
@@ -97,9 +89,9 @@
       }
     },
     {
+      "family": "ROCK 4 Series",
       "id": "rock-4b",
       "name": "ROCK 4B",
-      "family": "ROCK 4 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock4/rock4ab-se",
         "zh": "https://docs.radxa.com/rock4/rock4ab-se"
@@ -110,9 +102,9 @@
       }
     },
     {
+      "family": "ROCK 4 Series",
       "id": "rock-4c-plus",
       "name": "ROCK 4C+",
-      "family": "ROCK 4 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock4/rock4c+",
         "zh": "https://docs.radxa.com/rock4/rock4c+"
@@ -123,9 +115,9 @@
       }
     },
     {
+      "family": "ROCK 4 Series",
       "id": "rock-4se",
       "name": "ROCK 4SE",
-      "family": "ROCK 4 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock4/rock4ab-se",
         "zh": "https://docs.radxa.com/rock4/rock4ab-se"
@@ -136,9 +128,9 @@
       }
     },
     {
+      "family": "ROCK 4 Series",
       "id": "rock-4d",
       "name": "ROCK 4D",
-      "family": "ROCK 4 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock4/rock4d",
         "zh": "https://docs.radxa.com/rock4/rock4d"
@@ -149,9 +141,9 @@
       }
     },
     {
+      "family": "ROCK 5 Series",
       "id": "rock-5a",
       "name": "ROCK 5A",
-      "family": "ROCK 5 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock5/rock5a",
         "zh": "https://docs.radxa.com/rock5/rock5a"
@@ -162,9 +154,9 @@
       }
     },
     {
+      "family": "ROCK 5 Series",
       "id": "rock-5b",
       "name": "ROCK 5B",
-      "family": "ROCK 5 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock5/rock5b",
         "zh": "https://docs.radxa.com/rock5/rock5b"
@@ -175,9 +167,9 @@
       }
     },
     {
+      "family": "ROCK 5 Series",
       "id": "rock-5b-plus",
       "name": "ROCK 5B+",
-      "family": "ROCK 5 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock5/rock5b",
         "zh": "https://docs.radxa.com/rock5/rock5b"
@@ -188,9 +180,9 @@
       }
     },
     {
+      "family": "ROCK 5 Series",
       "id": "rock-5c",
       "name": "ROCK 5C",
-      "family": "ROCK 5 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock5/rock5c",
         "zh": "https://docs.radxa.com/rock5/rock5c"
@@ -201,9 +193,9 @@
       }
     },
     {
+      "family": "ROCK 5 Series",
       "id": "rock-5t",
       "name": "ROCK 5T",
-      "family": "ROCK 5 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock5/rock5t",
         "zh": "https://docs.radxa.com/rock5/rock5t"
@@ -214,9 +206,9 @@
       }
     },
     {
+      "family": "ROCK 5 Series",
       "id": "rock-5-itx",
       "name": "ROCK 5 ITX",
-      "family": "ROCK 5 Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rock5/rock5itx",
         "zh": "https://docs.radxa.com/rock5/rock5itx"
@@ -227,9 +219,9 @@
       }
     },
     {
+      "family": "ROCK Pi Series",
       "id": "rock-pi-e",
       "name": "ROCK Pi E",
-      "family": "ROCK Pi Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rockpi/rockpie",
         "zh": "https://docs.radxa.com/rockpi/rockpie"
@@ -240,9 +232,9 @@
       }
     },
     {
+      "family": "ROCK Pi Series",
       "id": "rock-pi-s",
       "name": "ROCK Pi S",
-      "family": "ROCK Pi Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rockpi/rockpis",
         "zh": "https://docs.radxa.com/rockpi/rockpis"
@@ -253,9 +245,9 @@
       }
     },
     {
+      "family": "ROCK Pi Series",
       "id": "rock-pi-s0",
       "name": "ROCK Pi S0",
-      "family": "ROCK Pi Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/rockpi/rockpis0",
         "zh": "https://docs.radxa.com/rockpi/rockpis0"
@@ -266,9 +258,9 @@
       }
     },
     {
+      "family": "Compute Module",
       "id": "radxa-cm4",
       "name": "Radxa CM4",
-      "family": "Compute Module",
       "public_urls": {
         "en": "https://docs.radxa.com/en/compute-module/cm4",
         "zh": "https://docs.radxa.com/compute-module/cm4"
@@ -279,9 +271,9 @@
       }
     },
     {
+      "family": "Compute Module",
       "id": "radxa-cm5",
       "name": "Radxa CM5",
-      "family": "Compute Module",
       "public_urls": {
         "en": "https://docs.radxa.com/en/compute-module/cm5",
         "zh": "https://docs.radxa.com/compute-module/cm5"
@@ -292,9 +284,9 @@
       }
     },
     {
+      "family": "Compute Module",
       "id": "radxa-cm3",
       "name": "Radxa CM3",
-      "family": "Compute Module",
       "public_urls": {
         "en": "https://docs.radxa.com/en/compute-module/cm3",
         "zh": "https://docs.radxa.com/compute-module/cm3"
@@ -305,9 +297,9 @@
       }
     },
     {
+      "family": "Compute Module",
       "id": "radxa-cm3i",
       "name": "Radxa CM3I",
-      "family": "Compute Module",
       "public_urls": {
         "en": "https://docs.radxa.com/en/compute-module/cm3i",
         "zh": "https://docs.radxa.com/compute-module/cm3i"
@@ -318,9 +310,9 @@
       }
     },
     {
+      "family": "Compute Module",
       "id": "radxa-cm3j",
       "name": "Radxa CM3J",
-      "family": "Compute Module",
       "public_urls": {
         "en": "https://docs.radxa.com/en/compute-module/cm3j",
         "zh": "https://docs.radxa.com/compute-module/cm3j"
@@ -331,9 +323,9 @@
       }
     },
     {
+      "family": "Compute Module",
       "id": "radxa-nx5",
       "name": "Radxa NX5",
-      "family": "Compute Module",
       "public_urls": {
         "en": "https://docs.radxa.com/en/compute-module/nx5",
         "zh": "https://docs.radxa.com/compute-module/nx5"
@@ -344,9 +336,9 @@
       }
     },
     {
+      "family": "ZERO Series",
       "id": "zero",
       "name": "ZERO",
-      "family": "ZERO Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/zero/zero",
         "zh": "https://docs.radxa.com/zero/zero"
@@ -357,9 +349,9 @@
       }
     },
     {
+      "family": "ZERO Series",
       "id": "zero-3e",
       "name": "ZERO 3E",
-      "family": "ZERO Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/zero/zero3?model=zero-3e",
         "zh": "https://docs.radxa.com/zero/zero3?model=zero-3e"
@@ -370,9 +362,9 @@
       }
     },
     {
+      "family": "ZERO Series",
       "id": "zero-3w",
       "name": "ZERO 3W",
-      "family": "ZERO Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/zero/zero3",
         "zh": "https://docs.radxa.com/zero/zero3"
@@ -383,9 +375,9 @@
       }
     },
     {
+      "family": "ZERO Series",
       "id": "zero-2-pro",
       "name": "ZERO 2 PRO",
-      "family": "ZERO Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/zero/zero2pro",
         "zh": "https://docs.radxa.com/zero/zero2pro"
@@ -396,9 +388,9 @@
       }
     },
     {
+      "family": "NIO Series",
       "id": "nio-12l",
       "name": "NIO 12L",
-      "family": "NIO Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/nio/12l",
         "zh": "https://docs.radxa.com/nio/12l"
@@ -409,9 +401,9 @@
       }
     },
     {
+      "family": "X Series",
       "id": "radxa-x2l",
       "name": "Radxa X2L",
-      "family": "X Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/x/x2l",
         "zh": "https://docs.radxa.com/x/x2l"
@@ -422,9 +414,9 @@
       }
     },
     {
+      "family": "X Series",
       "id": "radxa-x4",
       "name": "Radxa X4",
-      "family": "X Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/x/x4",
         "zh": "https://docs.radxa.com/x/x4"
@@ -435,9 +427,9 @@
       }
     },
     {
+      "family": "Fogwise® Family",
       "id": "fogwise-airbox",
       "name": "Fogwise® AirBox",
-      "family": "Fogwise® Family",
       "public_urls": {
         "en": "https://docs.radxa.com/en/fogwise/airbox",
         "zh": "https://docs.radxa.com/fogwise/airbox"
@@ -448,9 +440,9 @@
       }
     },
     {
+      "family": "Fogwise® Family",
       "id": "fogwise-airbox-q900",
       "name": "Fogwise® AIRbox Q900",
-      "family": "Fogwise® Family",
       "public_urls": {
         "en": "https://docs.radxa.com/en/fogwise/airbox-q900",
         "zh": "https://docs.radxa.com/fogwise/airbox-q900"
@@ -461,9 +453,9 @@
       }
     },
     {
+      "family": "E Series",
       "id": "radxa-e20c",
       "name": "Radxa E20C",
-      "family": "E Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/e/e20c",
         "zh": "https://docs.radxa.com/e/e20c"
@@ -474,9 +466,9 @@
       }
     },
     {
+      "family": "E Series",
       "id": "radxa-e24c",
       "name": "Radxa E24C",
-      "family": "E Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/e/e24c",
         "zh": "https://docs.radxa.com/e/e24c"
@@ -487,9 +479,9 @@
       }
     },
     {
+      "family": "E Series",
       "id": "radxa-e52c",
       "name": "Radxa E52C",
-      "family": "E Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/e/e52c",
         "zh": "https://docs.radxa.com/e/e52c"
@@ -500,9 +492,9 @@
       }
     },
     {
+      "family": "E Series",
       "id": "radxa-e54c",
       "name": "Radxa E54C",
-      "family": "E Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/e/e54c",
         "zh": "https://docs.radxa.com/e/e54c"
@@ -513,9 +505,9 @@
       }
     },
     {
+      "family": "SiRider Series",
       "id": "sirider-s1",
       "name": "SiRider S1",
-      "family": "SiRider Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/sirider/s1",
         "zh": "https://docs.radxa.com/sirider/s1"
@@ -526,9 +518,9 @@
       }
     },
     {
+      "family": "Orion Series",
       "id": "orion-o6",
       "name": "Orion O6",
-      "family": "Orion Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/orion/o6",
         "zh": "https://docs.radxa.com/orion/o6"
@@ -539,9 +531,9 @@
       }
     },
     {
+      "family": "Cubie Series",
       "id": "cubie-a5e",
       "name": "Cubie A5E",
-      "family": "Cubie Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/cubie/a5e",
         "zh": "https://docs.radxa.com/cubie/a5e"
@@ -552,9 +544,9 @@
       }
     },
     {
+      "family": "Cubie Series",
       "id": "cubie-a7a",
       "name": "Cubie A7A",
-      "family": "Cubie Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/cubie/a7a",
         "zh": "https://docs.radxa.com/cubie/a7a"
@@ -565,9 +557,9 @@
       }
     },
     {
+      "family": "Cubie Series",
       "id": "cubie-a7z",
       "name": "Cubie A7Z",
-      "family": "Cubie Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/cubie/a7z",
         "zh": "https://docs.radxa.com/cubie/a7z"
@@ -578,9 +570,9 @@
       }
     },
     {
+      "family": "Cubie Series",
       "id": "cubie-a7s",
       "name": "Cubie A7S",
-      "family": "Cubie Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/cubie/a7s",
         "zh": "https://docs.radxa.com/cubie/a7s"
@@ -591,9 +583,9 @@
       }
     },
     {
+      "family": "Dragon Series",
       "id": "dragon-q6a",
       "name": "Dragon Q6A",
-      "family": "Dragon Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/dragon/q6a",
         "zh": "https://docs.radxa.com/dragon/q6a"
@@ -604,9 +596,9 @@
       }
     },
     {
+      "family": "Dragon Series",
       "id": "dragon-q8b",
       "name": "Dragon Q8B",
-      "family": "Dragon Series",
       "public_urls": {
         "en": "https://docs.radxa.com/en/dragon/q8b",
         "zh": "https://docs.radxa.com/dragon/q8b"
@@ -617,9 +609,9 @@
       }
     },
     {
+      "family": "AICore Family",
       "id": "ax-m1",
       "name": "AX-M1",
-      "family": "AICore Family",
       "public_urls": {
         "en": "https://docs.radxa.com/en/aicore/ax-m1",
         "zh": "https://docs.radxa.com/aicore/ax-m1"
@@ -630,9 +622,9 @@
       }
     },
     {
+      "family": "AICore Family",
       "id": "dx-m1",
       "name": "DX-M1",
-      "family": "AICore Family",
       "public_urls": {
         "en": "https://docs.radxa.com/en/aicore/dx-m1",
         "zh": "https://docs.radxa.com/aicore/dx-m1"
@@ -643,9 +635,9 @@
       }
     },
     {
+      "family": "AICore Family",
       "id": "sg2300x",
       "name": "SG2300X",
-      "family": "AICore Family",
       "public_urls": {
         "en": "https://docs.radxa.com/en/aicore/sg2300x",
         "zh": "https://docs.radxa.com/aicore/sg2300x"
@@ -654,6 +646,14 @@
         "en": "i18n/en/docusaurus-plugin-content-docs/current/aicore/sg2300x/README.md",
         "zh": "docs/aicore/sg2300x/README.md"
       }
+    }
+  ],
+  "schema_version": 1,
+  "unlinked_catalog_products": [
+    {
+      "family": "Compute Module",
+      "id": "radxa-cm3s",
+      "name": "Radxa CM3S"
     }
   ]
 }

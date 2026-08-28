@@ -169,7 +169,9 @@ def build_index() -> dict[str, object]:
 
 
 def render() -> str:
-    return json.dumps(build_index(), ensure_ascii=False, indent=2) + "\n"
+    return json.dumps(
+        build_index(), ensure_ascii=False, indent=2, sort_keys=True
+    ) + "\n"
 
 
 def main() -> int:

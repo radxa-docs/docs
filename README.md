@@ -25,7 +25,7 @@ git submodule update --init --recursive
   navigation index; it intentionally contains no product specifications and
   points to the sitemap and source trees as fallbacks.
 - `static/llms.txt` — public discovery entry published as
-  [docs.radxa.com/llms.txt](https://docs.radxa.com/llms.txt).
+  [docs.radxa.com/llms.txt](/llms.txt).
 - `.github/agent-reading-guide.md` — wrapper, partial, and source-resolution
   rules.
 - `AGENT-DOC-SPEC.md` — authoring requirements for Agent-friendly pages.
