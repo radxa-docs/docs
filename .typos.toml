@@ -9,7 +9,8 @@ extend-ignore-identifiers-re = [
     "NOE",
     "BA",
     "lin2-rin2",
-    "SME"
+    "SME",
+    "709EDE794C8F"
 ]
 extend-ignore-re = [
     "lin2-rin2",
