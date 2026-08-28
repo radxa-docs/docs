@@ -59,7 +59,7 @@ Dragon Q8B 出厂默认烧录 BIOS 固件，正常情况下无需烧录启动固
 
   :::
 
-  - [BIOS 固件](https://dl.radxa.com/dragon/q8b/images/dragon-q8b_flat_build_wp_260821.zip)
+  - [BIOS 固件（2026-08-25）](https://dl.radxa.com/dragon/q8b/images/dragon-q8b_flat_build_wp_260825.zip)
 
 ## Windows 驱动
 
