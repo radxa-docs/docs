@@ -22,7 +22,7 @@ How to enter Maskrom Mode of Radxa ROCK Pi S0
 2. Press and hold the Maskrom button on the front of the device.
 3. Connect the OTG cable to the USB of the host PC, if the green light of the power supply is always on, it will enter the Maskrom mode successfully.
 
-In Maskrom mode, you can use [rkdevtool](../low-level-dev/rkdevtool) or [upgrade-tool](../low-level-dev/upgrade-tool) to erase, wire-flash, etc. your product.
+In Maskrom mode, you can use [rkdevtool](../low-level-dev/rkdevtool) to erase, wire-flash, etc. your product.
 
 ## Install the system to eMMC
 
