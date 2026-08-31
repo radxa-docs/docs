@@ -14,4 +14,4 @@ sidebar_position: 1
 
 ## Radxa Dragon Q6A Yocto 编译指南
 
-请参考 [Radxa Dragon Q6A Yocto 编译指南](https://github.com/radxa/meta-radxa-dragon/wiki/dragon-q6a)
+请参考 [Radxa Dragon Q6A Yocto 编译指南](https://github.com/radxa/meta-radxa-dragon/wiki)

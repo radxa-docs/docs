@@ -14,4 +14,4 @@ Please refer [Qualcomm Linux Yocto Guide](https://docs.qualcomm.com/bundle/publi
 
 ## Radxa Dragon Q6A Yocto Guide
 
-Please refer [Radxa Dragon Q6A Yocto Guide](https://github.com/radxa/meta-radxa-dragon/wiki/dragon-q6a)
+Please refer [Radxa Dragon Q6A Yocto Guide](https://github.com/radxa/meta-radxa-dragon/wiki)
