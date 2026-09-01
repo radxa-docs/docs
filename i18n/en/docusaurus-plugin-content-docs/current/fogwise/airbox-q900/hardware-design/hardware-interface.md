@@ -17,6 +17,12 @@ The Fogwise® AIRbox Q900 integrates a rich set of hardware interfaces to meet t
 | 5   | 2.5GbE RJ45 WAN     | 11  | Mini PCIe Slot            |     |                |
 | 6   | Type-C Console Port | 12  | eMMC & UFS Connector (NC) |     |                |
 
+:::note I2S Expansion Limitation
+
+The AIRbox Q900 does not expose an I2S interface or provide a general-purpose GPIO expansion header. Therefore, even though the platform SoC supports I2S, I2S microphones, codecs, or amplifiers cannot be connected through the product's standard external interfaces.
+
+:::
+
 ## Power Interface
 
 DC power input interface, featuring a standard DC jack with 2.5mm inner diameter and 5.5mm outer diameter, center-positive polarity. Supports power adapters of 12V/5.4A or higher. It is recommended to use the original or compatible power adapter to ensure stable operation of the device.
