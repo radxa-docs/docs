@@ -8,6 +8,14 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 This article explains how to install the operating system to an eMMC Module and boot the system from it on ROCK 4A/4B/4SE.
 
+:::tip Supported models
+
+This page applies to **ROCK 4A/4B/4SE**, which use a removable eMMC Module through the eMMC Module slot on the board.
+
+**ROCK 4A+/4B+** feature onboard eMMC (no eMMC Module slot), so the module removal/installation steps on this page do not apply. To install the system to the onboard eMMC, please refer to [Flashing via USB (Maskrom mode)](/rock4/rock4ab-se/low-level-dev/maskrom).
+
+:::
+
 ## File Download
 
 Download the [ROCK 4A/4B/4SE system image](../../download) from the resource download page.
