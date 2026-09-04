@@ -167,6 +167,10 @@ Snapdragon (TM) 8cx Gen 3 @ 3.0 GHz                              2.99 GHz
 └──────────────────────────────────────────────────────────────────────────────────┘
 ```
 
+:::note
+切换回 Radxa OS 前，请将上述功能恢复为默认配置。若未逐项复原，可以进入 BIOS 主界面，选择 **Reset BIOS to default settings** 选项恢复默认配置。
+:::
+
 ### Device Manager
 
 ```biosscreen

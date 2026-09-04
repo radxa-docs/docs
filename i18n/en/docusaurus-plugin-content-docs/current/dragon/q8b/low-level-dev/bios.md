@@ -167,6 +167,10 @@ To boot third-party operating systems such as Ubuntu 26 ISO, Fedora ISO, or Debi
 └──────────────────────────────────────────────────────────────────────────────────┘
 ```
 
+:::note
+Before switching back to Radxa OS, restore the options above to their default settings. If you have not reverted them individually, enter the BIOS main screen and select **Reset BIOS to default settings** to restore the default configuration.
+:::
+
 ### Device Manager
 
 ```biosscreen
