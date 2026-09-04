@@ -49,28 +49,132 @@ Dragon Q8B supports connecting external devices to the onboard GPIO pins and pro
 
 ## GPIO Usage
 
-The GPIO controller device number and line offset may vary between system images or kernel versions. Before controlling a GPIO, identify the GPIO controller and line information exposed by the current system.
+This section demonstrates common GPIO usage through the onboard 40-pin GPIO interface.
 
-### Install Tools
+### Install Python Library
+
+Use the `python-periphery` library to control GPIO pins.
 
 <NewCodeBlock tip="radxa@dragon-q8b$" type="device">
 
 ```bash
 sudo apt update
-sudo apt install -y gpiod python3-periphery
+sudo apt install -y python3-periphery
 ```
 
 </NewCodeBlock>
 
-### Identify the GPIO Controller
+### GPIO Output/Input
 
-<NewCodeBlock tip="radxa@dragon-q8b$" type="device">
+#### Hardware Requirements
 
-```bash
-gpiodetect
-gpioinfo
+- Board
+- Dupont wire
+
+#### Software Requirements
+
+- python-periphery library
+
+#### Test Code
+
+The following code uses the python-periphery library to control the GPIO_42 pin for outputting high/low levels and reads the GPIO_42 pin's state through the GPIO_175 pin.
+
+<details>
+<summary>gpio_output_input.py</summary>
+
+```text
+from periphery import GPIO
+import time
+
+def gpio_output_with_feedback():
+    # GPIO Configuration (modify pin numbers based on your hardware)
+    # GPIO_42 (output)  → maps to line 42 of /dev/gpiochip4
+    # GPIO_175 (input)  → maps to line 175 of /dev/gpiochip4
+    OUTPUT_PIN_CHIP = "/dev/gpiochip4"
+    OUTPUT_PIN_NUMBER = 42    # GPIO_42 (output pin, controlled by the script)
+    INPUT_PIN_NUMBER = 175    # GPIO_175 (input pin, reads GPIO_42's output state)
+
+    # Initialize GPIO objects as None first (for safe release later)
+    gpio_out = None
+    gpio_in = None
+
+    try:
+        # Initialize GPIO_42 as OUTPUT mode
+        gpio_out = GPIO(OUTPUT_PIN_CHIP, OUTPUT_PIN_NUMBER, "out")
+        # Initialize GPIO_175 as INPUT mode
+        gpio_in = GPIO(OUTPUT_PIN_CHIP, INPUT_PIN_NUMBER, "in")
+
+        # Print test initialization info
+        print("=== GPIO Output-Input Feedback Test Started ===")
+        print(f"Controlled Pin (GPIO_42): {OUTPUT_PIN_CHIP} - Line {OUTPUT_PIN_NUMBER} (OUTPUT)")
+        print(f"Monitoring Pin (GPIO_175): {OUTPUT_PIN_CHIP} - Line {INPUT_PIN_NUMBER} (INPUT)")
+        print("Test Behavior: GPIO_42 toggles HIGH/LOW every 1s; GPIO_175 verifies GPIO_42's state")
+        print("Press Ctrl+C to stop the test\n")
+
+        # Main loop: Toggle GPIO_42 and read GPIO_175 feedback
+        while True:
+            # 1. Set GPIO_42 to HIGH level
+            gpio_out.write(True)
+            time.sleep(0.1)  # Short delay for signal stabilization (avoid read lag)
+            gpio175_reading = gpio_in.read()
+            print(f"GPIO_42 Output: HIGH (True) | GPIO_175 Reading: {gpio175_reading}")
+
+            # Keep GPIO_42 HIGH for 1 second
+            time.sleep(1)
+
+            # 2. Set GPIO_42 to LOW level
+            gpio_out.write(False)
+            time.sleep(0.1)  # Short delay for signal stabilization
+            gpio175_reading = gpio_in.read()
+            print(f"GPIO_42 Output: LOW (False) | GPIO_175 Reading: {gpio175_reading}")
+
+            # Keep GPIO_42 LOW for 1 second
+            time.sleep(1)
+
+    # Handle user-initiated exit (Ctrl+C)
+    except KeyboardInterrupt:
+        print("\n\nTest stopped by user (Ctrl+C)")
+    # Handle other unexpected errors (e.g., GPIO access failure)
+    except Exception as e:
+        print(f"\nError during test: {str(e)}")
+    # Ensure GPIO resources are released even if an error occurs
+    finally:
+        print("\nReleasing GPIO resources...")
+        # Safely close GPIO_42 (set to LOW first to avoid residual high level)
+        if gpio_out:
+            try:
+                gpio_out.write(False)
+                gpio_out.close()
+                print(f"Successfully closed GPIO_42 (Line {OUTPUT_PIN_NUMBER})")
+            except Exception as close_err:
+                print(f"Failed to close GPIO_42 (Line {OUTPUT_PIN_NUMBER}): {str(close_err)}")
+        # Safely close GPIO_175
+        if gpio_in:
+            try:
+                gpio_in.close()
+                print(f"Successfully closed GPIO_175 (Line {INPUT_PIN_NUMBER})")
+            except Exception as close_err:
+                print(f"Failed to close GPIO_175 (Line {INPUT_PIN_NUMBER}): {str(close_err)}")
+        print("Resource release complete.")
+
+# Run the test when the script is executed directly
+if __name__ == "__main__":
+    gpio_output_with_feedback()
 ```
 
-</NewCodeBlock>
+</details>
 
-Use the command output to determine the `/dev/gpiochipN` device and line offset for the target GPIO before controlling it with `libgpiod` or `python-periphery`. Do not reuse GPIO controller numbers or line offsets from another board.
+#### Test Steps
+
+1. Short-circuit the GPIO_42 and GPIO_175 pins using a Dupont wire (these are pins 5 and 7 of the 40-pin header, respectively)
+
+2. Save the code as `gpio_output_input.py`
+
+3. Run the test code using the command: `sudo python3 gpio_output_input.py`
+
+### Expected Results
+
+The terminal will display the output level of GPIO_42 and the level read by GPIO_175.
+
+- False represents a LOW level
+- True represents a HIGH level
