@@ -13,6 +13,14 @@ import Etcher from '../../../../common/general/\_etcherV2.mdx';
 
 本文介绍如何在 ROCK 4A/4B/4SE 上将系统安装到 eMMC Module 中，并通过 eMMC Module 启动系统。
 
+:::tip 适用型号
+
+本页流程适用于 **ROCK 4A/4B/4SE**，这三款型号通过主板上的 eMMC Module 插槽使用可拆卸的 eMMC Module。
+
+**ROCK 4A+/4B+** 为板载 eMMC（无 eMMC Module 插槽），不支持按本页方式拆装 eMMC Module。请参考[通过 USB 刷机（Maskrom 模式）](/rock4/rock4ab-se/low-level-dev/maskrom)将系统安装到板载 eMMC。
+
+:::
+
 ## 文件下载
 
 到资源下载汇总页面下载 [ROCK 4A/4B/4SE 系统镜像](../../download)
