@@ -6,9 +6,16 @@ sidebar_position: 150
 
 ## 系统镜像
 
-- [radxa-airbox-q900_noble_gnome_r1](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900_noble_gnome_r1_4096.tar.gz)
+- [radxa-airbox-q900_noble_gnome_r1](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900_noble_gnome_r1_4096.tar.gz)：Ubuntu 24.04（Noble）+ GNOME 桌面系统镜像（r1 稳定版）
 
-- [qcs9075-provision](https://dl.radxa.com/fogwise/airbox-q900/images/qcs9075-provision.tar.gz)
+:::note 镜像命名说明
+
+- `noble` 表示 Ubuntu 24.04（Noble Numbat）操作系统，`gnome` 表示 GNOME 桌面环境
+- 前缀 `r` 表示稳定版（如 r1），前缀 `t` 表示测试版（如 t1）
+
+:::
+
+- [qcs9075-provision](https://dl.radxa.com/fogwise/airbox-q900/images/qcs9075-provision.tar.gz)：UFS 配置工具包（非操作系统镜像），用于安装系统到板载 UFS 前的存储配置步骤。完整安装步骤请参考[安装系统到板载 UFS](./getting-started/install-system/onboard-ufs)
 
 ## 百度网盘下载
 
