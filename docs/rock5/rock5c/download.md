@@ -56,11 +56,20 @@ Armbian 的默认凭据如下：
 
 ## 硬件设计
 
+### V2.1
+
+- [位号图 V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_components_placement_map_v2.10.pdf)
+- [原理图 V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_schematic_v2.10.pdf)
+- [尺寸标注图 V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_2d_dimensions_v2.10.pdf)
+- [2D DXF 模型文件（顶部）V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_2d_top_v2.10.dxf.zip)
+- [2D DXF 模型文件（底部）V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_2d_bottom_v2.10.dxf.zip)
+- [3D 模型 V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_3d_stp_v2.10.stp.zip)
+
 ### V1.1
 
-- [v1.1 schematic pdf](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_schematic_v1100.pdf)
-- [v1.1 SMD pdf](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_components_placement_map_v1100.pdf)
-- [v1.1 2D Top&Bottom dxf](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_2d_dxf_v1100.zip)
-- [5C PCBA_3D](https://dl.radxa.com/rock5/5c/docs/hw/dimension/5c_pcba.stp.zip)
-- [底部尺寸](https://dl.radxa.com/rock5/5c/docs/hw/dimension/BOT_%5bRS131%5dRadxa%20ROCK%205C_V1.pdf)
-- [顶部尺寸](https://dl.radxa.com/rock5/5c/docs/hw/dimension/TOP_%5bRS131%5dRadxa%20ROCK%205C_V1.pdf)
+- [位号图 V1.1](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_components_placement_map_v1100.pdf)
+- [原理图 V1.1](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_schematic_v1100.pdf)
+- [2D DXF 模型文件（顶部和底部）V1.1](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_2d_dxf_v1100.zip)
+- [3D 模型 V1.1](https://dl.radxa.com/rock5/5c/docs/hw/dimension/5c_pcba.stp.zip)
+- [底部尺寸标注图 V1.1](https://dl.radxa.com/rock5/5c/docs/hw/dimension/BOT_%5bRS131%5dRadxa%20ROCK%205C_V1.pdf)
+- [顶部尺寸标注图 V1.1](https://dl.radxa.com/rock5/5c/docs/hw/dimension/TOP_%5bRS131%5dRadxa%20ROCK%205C_V1.pdf)

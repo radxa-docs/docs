@@ -45,11 +45,20 @@ Kaihong OS Beta version firmware as follows:
 
 ## Hardware Design
 
+### V2.1
+
+- [Component Placement Map V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_components_placement_map_v2.10.pdf)
+- [Schematic V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_schematic_v2.10.pdf)
+- [2D Dimensions Diagram V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_2d_dimensions_v2.10.pdf)
+- [2D DXF Model File (Top) V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_2d_top_v2.10.dxf.zip)
+- [2D DXF Model File (Bottom) V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_2d_bottom_v2.10.dxf.zip)
+- [3D Model V2.10](https://dl.radxa.com/rock5/5c/docs/radxa_rock_5c_3d_stp_v2.10.stp.zip)
+
 ### V1.1
 
-- [v1.1 Schematic pdf](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_schematic_v1100.pdf)
-- [v1.1 SMD pdf](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_components_placement_map_v1100.pdf)
-- [v1.1 2D Top&Bottom dxf](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_2d_dxf_v1100.zip)
-- [5C PCBA_3D](https://dl.radxa.com/rock5/5c/docs/hw/dimension/5c_pcba.stp.zip)
-- [BOT Size](https://dl.radxa.com/rock5/5c/docs/hw/dimension/BOT_%5bRS131%5dRadxa%20ROCK%205C_V1.pdf)
-- [TOP Size](https://dl.radxa.com/rock5/5c/docs/hw/dimension/TOP_%5bRS131%5dRadxa%20ROCK%205C_V1.pdf)
+- [Component Placement Map V1.1](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_components_placement_map_v1100.pdf)
+- [Schematic V1.1](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_schematic_v1100.pdf)
+- [2D DXF Model File (Top & Bottom) V1.1](https://dl.radxa.com/rock5/5c/docs/hw/v1100/radxa_rock_5c_2d_dxf_v1100.zip)
+- [3D Model V1.1](https://dl.radxa.com/rock5/5c/docs/hw/dimension/5c_pcba.stp.zip)
+- [Bottom Dimensions Diagram V1.1](https://dl.radxa.com/rock5/5c/docs/hw/dimension/BOT_%5bRS131%5dRadxa%20ROCK%205C_V1.pdf)
+- [Top Dimensions Diagram V1.1](https://dl.radxa.com/rock5/5c/docs/hw/dimension/TOP_%5bRS131%5dRadxa%20ROCK%205C_V1.pdf)
