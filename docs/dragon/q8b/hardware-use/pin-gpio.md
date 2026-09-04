@@ -49,28 +49,131 @@ Dragon Q8B 支持通过板载 GPIO 引脚连接外部设备，并支持 UART、S
 
 ## GPIO 使用
 
-GPIO 控制器的设备编号和引脚偏移量可能随系统镜像或内核版本变化。控制 GPIO 前，请先确认当前系统中的 GPIO 控制器及对应引脚信息。
+通过板载的 40-Pin GPIO 接口，演示常见的 GPIO 使用方法。
 
-### 安装工具
+### 安装 Python 库
+
+使用 `python-periphery` 库控制 GPIO 引脚。
 
 <NewCodeBlock tip="radxa@dragon-q8b$" type="device">
 
 ```bash
 sudo apt update
-sudo apt install -y gpiod python3-periphery
+sudo apt install -y python3-periphery
 ```
 
 </NewCodeBlock>
 
-### 确认 GPIO 控制器
+### GPIO 输出/输入
 
-<NewCodeBlock tip="radxa@dragon-q8b$" type="device">
+#### 硬件准备
 
-```bash
-gpiodetect
-gpioinfo
+- 主板
+- 杜邦线
+
+#### 软件准备
+
+- python-periphery 库
+
+#### 测试代码
+
+以下代码是使用 python-periphery 库来控制 GPIO_42 引脚输出高低电平，然后通过 GPIO_175 引脚读取 GPIO_42 引脚的高低电平。
+
+<details>
+<summary>gpio_output_input.py</summary>
+
+```text
+from periphery import GPIO
+import time
+
+def gpio_output_with_feedback():
+    # GPIO Configuration (modify pin numbers based on your hardware)
+    # GPIO_42 (output)  → maps to line 42 of /dev/gpiochip4
+    # GPIO_175 (input)  → maps to line 175 of /dev/gpiochip4
+    OUTPUT_PIN_CHIP = "/dev/gpiochip4"
+    OUTPUT_PIN_NUMBER = 42    # GPIO_42 (output pin, controlled by the script)
+    INPUT_PIN_NUMBER = 175    # GPIO_175 (input pin, reads GPIO_42's output state)
+
+    # Initialize GPIO objects as None first (for safe release later)
+    gpio_out = None
+    gpio_in = None
+
+    try:
+        # Initialize GPIO_42 as OUTPUT mode
+        gpio_out = GPIO(OUTPUT_PIN_CHIP, OUTPUT_PIN_NUMBER, "out")
+        # Initialize GPIO_175 as INPUT mode
+        gpio_in = GPIO(OUTPUT_PIN_CHIP, INPUT_PIN_NUMBER, "in")
+
+        # Print test initialization info
+        print("=== GPIO Output-Input Feedback Test Started ===")
+        print(f"Controlled Pin (GPIO_42): {OUTPUT_PIN_CHIP} - Line {OUTPUT_PIN_NUMBER} (OUTPUT)")
+        print(f"Monitoring Pin (GPIO_175): {OUTPUT_PIN_CHIP} - Line {INPUT_PIN_NUMBER} (INPUT)")
+        print("Test Behavior: GPIO_42 toggles HIGH/LOW every 1s; GPIO_175 verifies GPIO_42's state")
+        print("Press Ctrl+C to stop the test\n")
+
+        # Main loop: Toggle GPIO_42 and read GPIO_175 feedback
+        while True:
+            # 1. Set GPIO_42 to HIGH level
+            gpio_out.write(True)
+            time.sleep(0.1)  # Short delay for signal stabilization (avoid read lag)
+            gpio175_reading = gpio_in.read()
+            print(f"GPIO_42 Output: HIGH (True) | GPIO_175 Reading: {gpio175_reading}")
+
+            # Keep GPIO_42 HIGH for 1 second
+            time.sleep(1)
+
+            # 2. Set GPIO_42 to LOW level
+            gpio_out.write(False)
+            time.sleep(0.1)  # Short delay for signal stabilization
+            gpio175_reading = gpio_in.read()
+            print(f"GPIO_42 Output: LOW (False) | GPIO_175 Reading: {gpio175_reading}")
+
+            # Keep GPIO_42 LOW for 1 second
+            time.sleep(1)
+
+    # Handle user-initiated exit (Ctrl+C)
+    except KeyboardInterrupt:
+        print("\n\nTest stopped by user (Ctrl+C)")
+    # Handle other unexpected errors (e.g., GPIO access failure)
+    except Exception as e:
+        print(f"\nError during test: {str(e)}")
+    # Ensure GPIO resources are released even if an error occurs
+    finally:
+        print("\nReleasing GPIO resources...")
+        # Safely close GPIO_42 (set to LOW first to avoid residual high level)
+        if gpio_out:
+            try:
+                gpio_out.write(False)
+                gpio_out.close()
+                print(f"Successfully closed GPIO_42 (Line {OUTPUT_PIN_NUMBER})")
+            except Exception as close_err:
+                print(f"Failed to close GPIO_42 (Line {OUTPUT_PIN_NUMBER}): {str(close_err)}")
+        # Safely close GPIO_175
+        if gpio_in:
+            try:
+                gpio_in.close()
+                print(f"Successfully closed GPIO_175 (Line {INPUT_PIN_NUMBER})")
+            except Exception as close_err:
+                print(f"Failed to close GPIO_175 (Line {INPUT_PIN_NUMBER}): {str(close_err)}")
+        print("Resource release complete.")
+
+# Run the test when the script is executed directly
+if __name__ == "__main__":
+    gpio_output_with_feedback()
 ```
 
-</NewCodeBlock>
+</details>
 
-根据命令输出确认目标 GPIO 所属的 `/dev/gpiochipN` 和 line offset 后，再通过 `libgpiod` 或 `python-periphery` 控制对应引脚。请勿直接套用其他主板的 GPIO 控制器编号和引脚偏移量。
+#### 测试步骤
+
+1. 将 GPIO_42 引脚和 GPIO_175 引脚进行短接（分别为 40-Pin 排针的第 5 脚和第 7 脚）
+
+2. 将代码保存为 `gpio_output_input.py`
+
+3. 使用 `sudo python3 gpio_output_input.py` 命令运行测试代码
+
+### 实验现象
+
+终端会输出 GPIO_42 输出的电平和 GPIO_175 读取的电平信息。
+
+False 代表低电平，True 代表高电平。
