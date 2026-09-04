@@ -28,7 +28,7 @@ sidebar_position: 1
 | No. | Description    | No. | Description             | No. | Description       | No. | Description               |
 | --- | -------------- | --- | ----------------------- | --- | ----------------- | --- | ------------------------- |
 | ①   | LPDDR4X RAM    | ③   | SoC: Rockchip RK3576(J) | ⑤   | Antenna Connector | ⑦   | Onboard eMMC              |
-| ②   | Maskrom Button | ④   | SPI Flash               | ⑥   | WiFi/BT Chip      | ⑧   | 3x 100 Pin B2B Connectors |
+| ②   | Maskrom Button | ④   | SPI Flash (unsoldered)       | ⑥   | WiFi/BT Chip      | ⑧   | 3x 100 Pin B2B Connectors |
 
 </TabItem>
 

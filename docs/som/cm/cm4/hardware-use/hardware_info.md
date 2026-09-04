@@ -28,7 +28,7 @@ sidebar_position: 1
 | 序号 | 说明         | 序号 | 说明                   | 序号 | 说明         | 序号 | 说明                  |
 | ---- | ------------ | ---- | ---------------------- | ---- | ------------ | ---- | --------------------- |
 | ①    | LPDDR4X 内存 | ③    | SoC:Rockchip RK3576(J) | ⑤    | 天线接口     | ⑦    | 板载 eMMC             |
-| ②    | Maskrom 按键 | ④    | SPI Flash              | ⑥    | WiFi/BT 芯片 | ⑧    | 3x 100 Pin B2B 连接器 |
+| ②    | Maskrom 按键 | ④    | SPI Flash（未焊接）        | ⑥    | WiFi/BT 芯片 | ⑧    | 3x 100 Pin B2B 连接器 |
 
 </TabItem>
 

@@ -101,7 +101,7 @@ Radxa CM4 is available in two product versions, differing in their SoC and opera
 | No. | Description    | No. | Description             | No. | Description       | No. | Description               |
 | --- | -------------- | --- | ----------------------- | --- | ----------------- | --- | ------------------------- |
 | ①   | LPDDR4X Memory | ③   | SoC: Rockchip RK3576(J) | ⑤   | Antenna Interface | ⑦   | Onboard eMMC              |
-| ②   | Maskrom Button | ④   | SPI Flash               | ⑥   | WiFi/BT Module    | ⑧   | 3x 100 Pin B2B Connectors |
+| ②   | Maskrom Button | ④   | SPI Flash (unsoldered)       | ⑥   | WiFi/BT Module    | ⑧   | 3x 100 Pin B2B Connectors |
 
 </TabItem>
 
