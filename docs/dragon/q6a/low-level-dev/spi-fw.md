@@ -33,6 +33,10 @@ BIOS 固件（BootROM + 引导程序）的核心任务是分阶段初始化硬�
 
     </NewCodeBlock>
 
+    参数说明：
+
+    - `C:\path\to\` : 需要替换成解压后的 BIOS 固件实际路径
+
   </TabItem>
   <TabItem value="Linux" label="Linux">
 

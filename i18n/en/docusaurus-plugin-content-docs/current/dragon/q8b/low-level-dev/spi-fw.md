@@ -33,6 +33,10 @@ Go to the [Resource Downloads](../download) page, download and extract the `edl-
 
     </NewCodeBlock>
 
+    Parameter description:
+
+    - `C:\path\to\` : Replace with the actual path of the extracted BIOS firmware
+
   </TabItem>
   <TabItem value="Linux" label="Linux">
 
