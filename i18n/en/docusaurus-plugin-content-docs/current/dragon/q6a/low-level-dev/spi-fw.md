@@ -33,6 +33,10 @@ Go to the [Resource Download](../download) page, download the `edl-ng` package a
 
     </NewCodeBlock>
 
+    Parameter description:
+
+    - `C:\path\to\` : Replace with the actual path of the extracted BIOS firmware
+
   </TabItem>
   <TabItem value="Linux" label="Linux">
 
