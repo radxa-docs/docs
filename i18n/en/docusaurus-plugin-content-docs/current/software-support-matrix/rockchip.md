@@ -20,6 +20,8 @@ This page summarizes operating system support across Radxa products based on Roc
 System and kernel versions listed here correspond to current public images and are updated with the image release cycle. For image downloads and installation, please refer to the corresponding product pages and system documentation.
 :::
 
+<div className='gpio_style' style={{ overflow :"auto"}} >
+
 | SoC         | Board                      | Yocto                                                                                                             | Radxa OS (Debian)                                        | OpenWrt                                                       | Armbian   | Android               | FnOS      |
 | ----------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------- | --------- | --------------------- | --------- |
 | PX30        | ROCK Pi PX30               | Radxa Yocto 3.1 \| RK 4.4                                                                                         |                                                          |                                                               |           |                       |           |
@@ -68,3 +70,5 @@ System and kernel versions listed here correspond to current public images and a
 | RK358x      | NX5 + NX5 IO               | Radxa Yocto 4.0 \| RK 5.10,Radxa Yocto 5.0 \| RK 6.1                                                              | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |                                                               |           | Android 12            |           |
 | RK358x      | E52C                       | Radxa Yocto 5.0 \| RK 6.1                                                                                         | Debian 12 Cli \| RK 6.1                                  | iStoreOS \| ML 6.6,LEDE(Lean) \| ML 6.12                      | Standard  | N/A                   | Available |
 | RK358x      | E54C                       | Radxa Yocto 5.0 \| RK 6.1                                                                                         | Debian 12 Cli \| RK 6.1                                  | iStoreOS \| ML 6.6,LEDE(Lean) \| ML 6.12                      | Standard  | N/A                   | Available |
+
+</div>
