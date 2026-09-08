@@ -20,6 +20,8 @@ sidebar_position: 2
 表中的系统与内核版本为当前公开镜像对应的版本，随镜像发布周期更新；具体镜像下载与安装方式请以对应产品页面和系统文档为准。
 :::
 
+<div className='gpio_style' style={{ overflow :"auto"}} >
+
 | SoC         | Board                      | Yocto                                                                                                             | Radxa OS (Debian)                                        | OpenWrt                                                       | Armbian   | Android               | FnOS      |
 | ----------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------- | --------- | --------------------- | --------- |
 | PX30        | ROCK Pi PX30               | Radxa Yocto 3.1 \| RK 4.4                                                                                         |                                                          |                                                               |           |                       |           |
@@ -68,3 +70,5 @@ sidebar_position: 2
 | RK358x      | NX5 + NX5 IO               | Radxa Yocto 4.0 \| RK 5.10,Radxa Yocto 5.0 \| RK 6.1                                                              | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |                                                               |           | Android 12            |           |
 | RK358x      | E52C                       | Radxa Yocto 5.0 \| RK 6.1                                                                                         | Debian 12 Cli \| RK 6.1                                  | iStoreOS \| ML 6.6,LEDE(Lean) \| ML 6.12                      | Standard  | N/A                   | Available |
 | RK358x      | E54C                       | Radxa Yocto 5.0 \| RK 6.1                                                                                         | Debian 12 Cli \| RK 6.1                                  | iStoreOS \| ML 6.6,LEDE(Lean) \| ML 6.12                      | Standard  | N/A                   | Available |
+
+</div>
