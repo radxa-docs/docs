@@ -1,0 +1,69 @@
+---
+sidebar_position: 1
+---
+
+# Rockchip Software Support Matrix
+
+This page summarizes operating system support across Radxa products based on Rockchip (RK) platforms, covering Yocto, Radxa OS (Debian), OpenWrt, Armbian, Android, FnOS, OpenHarmony and Deepin. Products are grouped by SoC and listed row by row.
+
+:::tip How to read this table
+- Cell format: `System version | Kernel version`, e.g. `Debian 12 Desktop | RK 6.1` means Debian 12 desktop with the RK 6.1 kernel
+- Multiple entries in one cell are separated by commas
+- `N/A`: the system is not officially provided
+- `Available`: official images are provided
+- In the Armbian column, `Standard` / `Community` / `Platinum` are official Armbian support tiers
+- Empty cell: no public support information yet
+:::
+
+:::caution Version note
+System and kernel versions listed here correspond to current public images and are updated with the image release cycle. For image downloads and installation, please refer to the corresponding product pages and system documentation.
+:::
+
+| SoC | Board | Yocto | Radxa OS (Debian) | OpenWrt | Armbian | Android | FnOS | OpenHarmony | Deepin |
+|---|---|---|---|---|---|---|---|---|---|
+| PX30 | ROCK Pi PX30 | Radxa Yocto 3.1 \| RK 4.4 |  |  |  |  |  |  |  |
+| RK3308 | ROCK Pi S | Radxa Yocto 3.1 \| RK 4.4,Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 | Debian 12 Cli \| ML 6.1,Debian 12 Cli \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 | Standard | N/A |  |  |  |
+| RK3308 | ROCK Pi S Core |  | Debian 12 Cli \| RK 6.1 |  |  | N/A |  |  |  |
+| RK3308 | ROCK S0 |  | Debian 12 Cli \| ML 6.1,Debian 12 Cli \| RK 6.1 |  | Standard | N/A |  |  |  |
+| RK3328 | ROCK Pi E | Radxa Yocto 3.1 \| RK 4.4,Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 |  | OpenWrt 24.10 \| ML 6.6 | Standard | N/A | Available |  |  |
+| RK3399x/OP1 | ROCK Pi 4A | Radxa Yocto 3.1 \| RK 4.4,Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 | Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 | Community | Android 11 |  |  |  |
+| RK3399x/OP1 | ROCK Pi 4A+ | Radxa Yocto 3.1 \| RK 4.4,Community Yocto 5.0 \| ML 6.6 | Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 |  | Android 11 |  |  |  |
+| RK3399x/OP1 | ROCK Pi 4B | Radxa Yocto 3.1 \| RK 4.4,Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 | Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 | Community | Android 11 |  |  |  |
+| RK3399x/OP1 | ROCK Pi 4B+ | Radxa Yocto 3.1 \| RK 4.4,Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 | Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 |  | Android 11 |  |  |  |
+| RK3399x/OP1 | ROCK Pi 4C | Radxa Yocto 3.1 \| RK 4.4 |  |  | Community | Android 11 |  |  |  |
+| RK3399x/OP1 | ROCK 4C+ | Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 | Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 | Community | Android 11 |  |  |  |
+| RK3399x/OP1 | ROCK 4 SE | Radxa Yocto 4.0 \| RK 5.10 | Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 | Community | Android 11 |  |  |  |
+| RK3399PRO | ROCK Pi N10 | Radxa Yocto 3.1 \| RK 4.4 |  |  | Community | N/A |  |  |  |
+| RK3528A | ROCK 2A | Radxa Yocto 5.0 \| RK 6.1 | Debian 12 Desktop \| RK 6.1 |  | Standard | Android 13 | Available |  |  |
+| RK3528A | ROCK 2F | Radxa Yocto 5.0 \| RK 6.1 | Debian 12 Desktop \| RK 6.1 |  | Standard | Android 13 | Available |  |  |
+| RK3528A | E20C | Radxa Yocto 5.0 \| RK 6.1 | Debian 12 Desktop \| RK 6.1 | iStoreOS \| ML 6.6,LEDE(Lean) \| ML 6.12,FlippyWrt \| ML 6.12 | Community | N/A | Available |  |  |
+| RK3528A | E24C |  | Debian 12 Desktop \| RK 6.1 | iStoreOS \| ML 6.6,LEDE(Lean) \| ML 6.12 | Standard | N/A | Available |  |  |
+| RK356x | ROCK 3A | Radxa Yocto 4.0 \| RK 5.10,Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 | Standard | Android 11 |  |  |  |
+| RK356x | ROCK 3B |  | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 |  | Android 11 |  |  |  |
+| RK356x | ROCK 3C with AP6256 |  | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 |  | Android 14,Android 11 |  |  |  |
+| RK356x | ROCK 3C with AIC8800D80 |  | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 | Community | Android 14,Android 11 |  |  |  |
+| RK356x | CM3 + CM3 IO | Radxa Yocto 4.0 \| RK 5.10 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 |  | Android 11 |  |  |  |
+| RK356x | CM3 + RPI CM4 IO |  | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  |  | Android 11 |  |  |  |
+| RK356x | CM3I(AP6256) + CM3I IO |  | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  |  | Android 11 |  |  |  |
+| RK356x | CM3I(AP6745) + CM3I IO |  | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  |  | Android 11 |  |  |  |
+| RK356x | CM3I(AIC8800D80) + CM3I IO |  | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  |  | Android 11 |  |  |  |
+| RK356x | CM3J + RPI CM4 IO |  | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  |  | N/A |  |  |  |
+| RK356x | E25 |  | Debian 11 Desktop \| RK 5.10 | OpenWrt 24.10 \| ML 6.6 | Standard | N/A | Available |  |  |
+| RK356x | Zero 3E | Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 |  | Android 11 |  |  |  |
+| RK356x | Zero 3W with AP6256 | Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 |  | Android 11 |  |  |  |
+| RK356x | Zero 3W with AIC8800D80 |  | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 | Standard | Android 11 |  |  |  |
+| RK3576 | ROCK 4D | Radxa Yocto 5.0 \| RK 6.1 | Debian 12 Desktop \| RK 6.1 |  | Standard | Android 14 | Available |  |  |
+| RK3576 | CM4 + CM4 IO |  | Debian 12 Desktop \| RK 6.1 |  | Platinum | Android 14 |  |  |  |
+| RK3576 | CM4 + RPI CM4 IO |  | Debian 12 Desktop \| RK 6.1 |  |  | N/A |  |  |  |
+| RK3576 | NX4 + Radxa C200 |  | Debian 12 Desktop \| RK 6.1 |  |  | Android 14 |  |  |  |
+| RK358x | ROCK 5A | Radxa Yocto 4.0 \| RK 5.10,Radxa Yocto 5.0 \| RK 6.1,Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 | Standard | Android 12 | Available |  |  |
+| RK358x | ROCK 5B | Radxa Yocto 4.0 \| RK 5.10,Radxa Yocto 5.0 \| RK 6.1,Community Yocto 5.0 \| ML 6.6,Community Yocto 6.0 \| ML 6.18 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 | OpenWrt 24.10 \| ML 6.6 | Standard | Android 12 | Available |  |  |
+| RK358x | ROCK 5B+ | Radxa Yocto 5.0 \| RK 6.1 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  | Platinum | Android 12 | Available |  |  |
+| RK358x | ROCK 5C | Radxa Yocto 5.0 \| RK 6.1 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  | Platinum | Android 12,Android 14 | Available |  |  |
+| RK358x | ROCK 5T | Radxa Yocto 5.0 \| RK 6.1 | Debian 12 Desktop \| RK 6.1 |  | Platinum | Android 12 | Available |  |  |
+| RK358x | ROCK 5 ITX | Radxa Yocto 5.0 \| RK 6.1 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  | Standard | Android 12 | Available |  |  |
+| RK358x | CM5 + CM5 IO | Radxa Yocto 5.0 \| RK 6.1 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  | Platinum | Android 12 |  |  |  |
+| RK358x | CM5 + RPI CM4 IO | Radxa Yocto 5.0 \| RK 6.1 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  | Community | Android 12 |  |  |  |
+| RK358x | NX5 + NX5 IO | Radxa Yocto 4.0 \| RK 5.10,Radxa Yocto 5.0 \| RK 6.1 | Debian 11 Desktop \| RK 5.10,Debian 12 Desktop \| RK 6.1 |  |  | Android 12 |  |  |  |
+| RK358x | E52C | Radxa Yocto 5.0 \| RK 6.1 | Debian 12 Cli \| RK 6.1 | iStoreOS \| ML 6.6,LEDE(Lean) \| ML 6.12 | Standard | N/A | Available |  |  |
+| RK358x | E54C | Radxa Yocto 5.0 \| RK 6.1 | Debian 12 Cli \| RK 6.1 | iStoreOS \| ML 6.6,LEDE(Lean) \| ML 6.12 | Standard | N/A | Available |  |  |
