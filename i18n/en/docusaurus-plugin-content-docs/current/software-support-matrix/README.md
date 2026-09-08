@@ -1,6 +1,5 @@
 ---
-sidebar_position: 4
-displayed_sidebar: home
+sidebar_position: 1
 ---
 
 # Software Support Matrix
@@ -9,6 +8,6 @@ This page summarizes operating system support across Radxa platforms, with a ded
 
 ## Covered platforms
 
-- **Rockchip**: [Rockchip Software Support Matrix](./rockchip) — covering Yocto, Radxa OS (Debian), OpenWrt, Armbian, Android and FnOS
+- **Rockchip**: [Rockchip Software Support Matrix](./rockchip.md) — covering Yocto, Radxa OS (Debian), OpenWrt, Armbian, Android and FnOS
 
 More platforms (e.g. Allwinner, Qualcomm) will be added over time.

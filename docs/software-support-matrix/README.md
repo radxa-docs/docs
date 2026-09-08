@@ -1,6 +1,5 @@
 ---
-sidebar_position: 4
-displayed_sidebar: home
+sidebar_position: 1
 ---
 
 # 系统软件支持矩阵
@@ -9,6 +8,6 @@ displayed_sidebar: home
 
 ## 已收录平台
 
-- **Rockchip（瑞芯微）**：[瑞芯微软件支持矩阵](./rockchip) — 覆盖 Yocto、Radxa OS（Debian）、OpenWrt、Armbian、Android 与 FnOS
+- **Rockchip（瑞芯微）**：[瑞芯微软件支持矩阵](./rockchip.md) — 覆盖 Yocto、Radxa OS（Debian）、OpenWrt、Armbian、Android 与 FnOS
 
 更多平台（如 Allwinner、Qualcomm 等）将陆续补充。
