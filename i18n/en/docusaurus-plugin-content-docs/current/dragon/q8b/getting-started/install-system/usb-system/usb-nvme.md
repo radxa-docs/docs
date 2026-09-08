@@ -21,4 +21,12 @@ This guide explains how to flash a system image to an NVMe SSD using a USB Type-
 
 3. Set up the EDL tool environment --> Refer to the [Using EDL Tool](./set-edl-variable) guide
 
+:::warning Note
+When flashing the system image to the NVMe SSD via USB, the SSD must be installed in the **M.2 M Key 2280 slot close to the microSD card slot**, as shown in the figure below:
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/dragon/q8b/dragon-q8b-usb-flash-nvme-slot.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+:::
+
 <USBSystem download_page="../../../download" board="dragon-q8b" spi_path="\flat_build\spinor\dragon-q8b\" loader="prog_firehose_ddr.elf" storage_type="nvme" start_sector="0" image_file="radxa-dragon-midstream_resolute_gnome_r5.output_512.img"/>

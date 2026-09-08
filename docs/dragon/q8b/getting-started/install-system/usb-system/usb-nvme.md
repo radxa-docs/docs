@@ -21,4 +21,12 @@ import USBSystem from '../../../../../common/radxa-os/install-system/qualcomm/\_
 
 3. 配置 EDL 工具环境 --> 可参考 [使用 EDL 工具](./set-edl-variable.md) 教程
 
+:::warning 注意
+通过 USB 线刷系统镜像到 NVMe 固态硬盘时，必须将硬盘安装在**靠近 microSD 卡槽的 M.2 M Key 2280 插槽**中，具体安装位置如下图所示：
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/dragon/q8b/dragon-q8b-usb-flash-nvme-slot.webp" style={{width: '100%', maxWidth: '600px'}} />
+</div>
+:::
+
 <USBSystem download_page="../../../download" board="dragon-q8b" spi_path="\flat_build\spinor\dragon-q8b\" loader="prog_firehose_ddr.elf" storage_type="nvme" start_sector="0" image_file="radxa-dragon-midstream_resolute_gnome_r5.output_512.img"/>
