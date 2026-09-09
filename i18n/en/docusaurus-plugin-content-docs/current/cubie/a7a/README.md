@@ -28,19 +28,20 @@ Powered by the Allwinner A733 SoC, the Cubie A7A features a hybrid octa-core hig
 
 ## Product Specifications
 
-| Category   | Specifications                                                                                                                                                                            |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Processor  | SoC: Allwinner A733 <br/> CPU: 2× Cortex-A76 + 6× Cortex-A55 <br/> GPU: Imagination BXM-4-64 MC1; Supports OpenGL ES 3.2, Vulkan 1.3, OpenCL 3.0 <br/> NPU: 3 TOPS AI Acceleration Engine |
-| Memory     | LPDDR5, Options: 2GB / 4GB / 6GB / 8GB / 12GB / 16GB                                                                                                                                      |
-| Storage    | Boot: 8MB SPI NOR Flash <br/> System Storage: Supports microSD card / eMMC module / UFS module                                                                                            |
-| Network    | Wired: 1× Gigabit Ethernet (PoE supported with external PoE HAT) <br/> Wireless: Wi-Fi 6, Bluetooth 5.4, external antenna interface                                                       |
-| Video Out  | HDMI: 1× HDMI port, up to 4K@60fps <br/> MIPI DSI: 1× 4-lane MIPI DSI                                                                                                                     |
-| Camera     | 1× 4-lane MIPI CSI                                                                                                                                                                |
-| Audio      | Audio Interface: 3.5mm 4-pole headphone jack with microphone input <br/> Audio Output: Supports stereo output, can directly drive 32Ω headphones                                          |
-| USB        | USB 3.1: 1× Type-A HOST <br/> USB 2.0: 3× Type-A HOST, 1× Type-C OTG/Power                                                                                                                |
-| Expansion  | 40-pin GPIO header: Supports UART, SPI, I2C, etc. <br/> PCIe slot: 1× single-lane PCIe 3.0 via FPC interface <br/> Fan header: 1× 2-pin 1.25mm <br/> RTC header: 1× 2-pin 1.25mm          |
-| Power      | USB Type-C 5V power supply <br/> PoE power supply (requires external PoE HAT) <br/> 5V power supply via GPIO pins (pins 2 & 4)                                                            |
-| OS Support | Debian Linux, Android 13                                                                                                                                                                  |
+| Category    | Specifications                                                                                                                                                                            |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Processor   | SoC: Allwinner A733 <br/> CPU: 2× Cortex-A76 + 6× Cortex-A55 <br/> GPU: Imagination BXM-4-64 MC1; Supports OpenGL ES 3.2, Vulkan 1.3, OpenCL 3.0 <br/> NPU: 3 TOPS AI Acceleration Engine |
+| Memory      | LPDDR5, Options: 2GB / 4GB / 6GB / 8GB / 12GB / 16GB                                                                                                                                      |
+| Storage     | Boot: 8MB SPI NOR Flash <br/> System Storage: Supports microSD card / eMMC module / UFS module                                                                                            |
+| Network     | Wired: 1× Gigabit Ethernet (PoE supported with external PoE HAT) <br/> Wireless: Wi-Fi 6, Bluetooth 5.4, external antenna interface                                                       |
+| Video Out   | HDMI: 1× HDMI port, up to 4K@60fps <br/> MIPI DSI: 1× 4-lane MIPI DSI                                                                                                                     |
+| Video codec | Encode<br />- H.264 / H.265 up to 4K@30fps<br />Decode<br />- H.265 / VP9 / AVS2 up to 4K@60fps<br />- H.264 up to 4K@30fps                                                               |
+| Camera      | 1× 4-lane MIPI CSI                                                                                                                                                                        |
+| Audio       | Audio Interface: 3.5mm 4-pole headphone jack with microphone input <br/> Audio Output: Supports stereo output, can directly drive 32Ω headphones                                          |
+| USB         | USB 3.1: 1× Type-A HOST <br/> USB 2.0: 3× Type-A HOST, 1× Type-C OTG/Power                                                                                                                |
+| Expansion   | 40-pin GPIO header: Supports UART, SPI, I2C, etc. <br/> PCIe slot: 1× single-lane PCIe 3.0 via FPC interface <br/> Fan header: 1× 2-pin 1.25mm <br/> RTC header: 1× 2-pin 1.25mm          |
+| Power       | USB Type-C 5V power supply <br/> PoE power supply (requires external PoE HAT) <br/> 5V power supply via GPIO pins (pins 2 & 4)                                                            |
+| OS Support  | Debian Linux, Android 13                                                                                                                                                                  |
 
 ## Interface Description
 
