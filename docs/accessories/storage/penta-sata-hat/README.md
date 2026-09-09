@@ -122,9 +122,24 @@ Penta SATA HAT 系列通常由以下部分组成：
 | 9   | GND      | 10  | NC         |
 
 **技术规格：**
+
 - **连接器类型：** 2x5 针座子
 - **针距 (Pitch)：** 2.0mm
 - **兼容连接器：** 标准 2.0mm 间距 2x5 针排针 (2x5 pin header, 2.0mm pitch)
+
+## 板载风扇接口
+
+Penta SATA HAT 底板在 12V DC 电源座旁提供了一个 2-pin 风扇接口（位于板底），规格如下：
+
+- **连接器类型：** JST GH 1.25mm 2-pin 公座
+- **针距 (Pitch)：** 1.25mm
+- **兼容连接器：** JST GH 1.25mm 2-pin 母座（线对板连接器）
+- **输出电压：** 固定 5V（5V + GND），请使用 5V 风扇，上电前注意极性
+- **控制方式：** 非 PWM，上电即常转；如需 PWM 调速，请使用可选的 [Penta SATA HAT TOP 板](./sata-hat-top-board.md)（通过 2x5 座子上的 PWM 信号控制）
+
+:::caution
+请不要强行插入 2.0mm 间距（如 JST PH）的插头，1.25mm 与 2.0mm 不兼容。
+:::
 
 ## 用户指南
 
