@@ -8,124 +8,99 @@ import Camera8M219 from '../../../common/accessories/\_camera-8m-219.mdx';
 
 <Camera8M219 product='Radxa Dragon Q6A' interface='15-pin 1.0 mm pitch SMD Horizontal FPC connector' connect='Flip type, bottom contact' pins='15-Pin' pitch='1.0mm pitch' orientation='opposite sides' board='dragon-q6a' />
 
-## Preview the camera
+## Using the camera
 
-Use libcamera to preview the camera image.
+Use GStreamer or the libcamera qcam tool to preview or record the camera image. Run the following preview commands in the system desktop terminal.
 
-### Install dependencies
+### System update
+
+Go to `Rsetup -> System -> System Update` to update the system.
+
+### Using GStreamer
+
+#### Install dependencies
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-sudo apt update
-sudo apt install build-essential git pkg-config -y
-sudo apt install meson ninja-build -y
-sudo apt install python3-pip python3-yaml python3-jinja2 python3-ply python3-pyparsing -y
-sudo apt install libyaml-dev libevent-dev -y
-sudo apt install libudev-dev libgnutls28-dev openssl libexpat1-dev -y
-sudo apt install libdrm-dev -y
-sudo apt install libjpeg-dev -y
-sudo apt install libglib2.0-dev -y
-sudo apt install qt6-base-dev qt6-base-dev-tools qt6-wayland-dev -y
-sudo apt install \
-    qtbase5-dev \
-    qtbase5-dev-tools \
-    qtchooser \
-    qt5-qmake \
-    qttools5-dev \
-    qtdeclarative5-dev \
-    libqt5opengl5-dev \
-    qml-module-qtquick-controls \
-    libgles2-mesa-dev \
-    qml-module-qtquick2 -y
+sudo apt install -y \
+    gstreamer1.0-tools \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-bad
 ```
 
 </NewCodeBlock>
 
-### Build and install libcamera
+#### Preview the camera
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-git clone https://git.linuxtv.org/libcamera.git
-cd libcamera
-git checkout 02277d4c1a5ae7fee582f635936877435a12db64 # Optional. The following test steps are based on this version of libcamera.
-meson setup build --wipe \
-    -Dpipelines=simple \
-    -Dcam=enabled \
-    -Dgstreamer=disabled \
-    -Dv4l2=enabled \
-    -Dlc-compliance=disabled \
-    -Dqcam=enabled
-ninja -C build -j$(nproc)
-sudo ninja -C build install
-sudo ldconfig
+gst-launch-1.0 libcamerasrc ! video/x-raw,width=1920,height=1080,framerate=30/1 ! queue ! videoconvert ! queue ! autovideosink
 ```
 
 </NewCodeBlock>
 
-### Modify configuration file
+#### Record video
 
-Enter the `libcamera` directory and edit `libcamera/src/ipa/simple/data/imx219.yaml`.
+Software encoding (x264enc) - 1080p:
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-cd libcamera
-sudo nano src/ipa/simple/data/imx219.yaml
+gst-launch-1.0 -e libcamerasrc \
+    ! videoconvert ! video/x-raw,format=I420,width=1920,height=1080,framerate=30/1 \
+    ! x264enc bitrate=8000 speed-preset=fast \
+    ! mp4mux ! filesink location=/tmp/camera-x264.mp4
 ```
 
 </NewCodeBlock>
 
-Copy the following content into `src/ipa/simple/data/imx219.yaml`.
-
-```bash
-# SPDX-License-Identifier: CC0-1.0
-%YAML 1.1
----
-version: 1
-algorithms:
-  - BlackLevel:
-  - Awb:
-      # Manual white balance guidance (important)
-      gains:
-        red: 1.8
-        green: 1.0
-        blue: 1.4
-  - Ccm:
-      ccms:
-        - ct: 6500
-          ccm: [
-            1.35, -0.25, -0.10,
-           -0.10,  0.80, -0.10,
-           -0.05, -0.30,  1.35
-          ]
-  - Agc:
-      # Prevent grayish auto exposure
-      target: 0.55
-      speed: 0.2
-...
-```
-
-### Set permissions
+Hardware encoding H264 (Venus) - 1080p:
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-sudo chmod 666 /dev/dma_heap/*
+gst-launch-1.0 -e libcamerasrc \
+    ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080,framerate=30/1 \
+    ! v4l2h264enc ! h264parse ! mp4mux \
+    ! filesink location=/tmp/camera-h264.mp4
 ```
 
 </NewCodeBlock>
 
-### Start the camera
-
-Open the system desktop terminal, go to the libcamera build directory, and start qcam.
+Hardware encoding H265 (Venus) - 1080p:
 
 <NewCodeBlock tip='radxa@dragon-q6a$' type="device">
 
 ```bash
-cd libcamera/build/src/apps/qcam/
-./qcam --stream pixelformat=YUYV,width=1920,height=1080
+gst-launch-1.0 -e libcamerasrc \
+    ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080,framerate=30/1 \
+    ! v4l2h265enc ! h265parse ! mp4mux \
+    ! filesink location=/tmp/camera-h265.mp4
+```
+
+</NewCodeBlock>
+
+### Using libcamera
+
+#### Install dependencies
+
+<NewCodeBlock tip='radxa@dragon-q6a$' type="device">
+
+```bash
+sudo apt install -y libcamera-tools gstreamer1.0-libcamera libcamera-ipa
+```
+
+</NewCodeBlock>
+
+#### Preview the camera
+
+<NewCodeBlock tip='radxa@dragon-q6a$' type="device">
+
+```bash
+qcam --stream pixelformat=YUYV,width=1920,height=1080
 ```
 
 </NewCodeBlock>
