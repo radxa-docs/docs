@@ -171,6 +171,14 @@ description: "Detailed hardware information for ROCK 5B/5B+"
 
 </Tabs>
 
+:::note No power-on / wake-up signal on the 40-pin header
+
+The 40-pin header on ROCK 5B/5B+ does not expose the PMIC power-on signal (PWRON), nor any wake-up signal, so **an external hardware power-on or wake-up cannot be implemented through a pin on the 40-pin header**. That trigger signal exists only in the PMIC circuit and is not routed to the 40-pin header.
+
+If you need to control power-on from external circuitry, switch the 5V / USB-PD supply that feeds the board. Applying 5V to the 40-pin 5V pins (PIN 2 / PIN 4) will start the board, but that is a supply power-up, not a pin-controlled power-on trigger.
+
+:::
+
 ### Gigabit Ethernet
 
 - ROCK 5B/5B+
