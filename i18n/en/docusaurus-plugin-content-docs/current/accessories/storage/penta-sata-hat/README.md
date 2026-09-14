@@ -122,9 +122,24 @@ If you run into installation or boot problems, identify which combination you ar
 | 9   | GND      | 10  | NC         |
 
 **Technical Specifications:**
+
 - **Connector Type:** 2x5 pin header
 - **Pitch:** 2.0mm
 - **Compatible Connectors:** Standard 2.0mm pitch 2x5 pin header (2x5 pin header, 2.0mm pitch)
+
+## Onboard Fan Header
+
+The Penta SATA HAT base board provides a 2-pin fan header right next to the 12V DC power jack (on the underside of the board). Its specification is as follows:
+
+- **Connector Type:** JST GH 1.25mm 2-pin male header
+- **Pitch:** 1.25mm
+- **Compatible Connector:** JST GH 1.25mm 2-pin female connector (wire-to-board)
+- **Output Voltage:** Fixed 5V (5V + GND) - use a 5V fan and check polarity before powering on
+- **Control:** Non-PWM, always on when powered; for PWM fan speed control, use the optional [Penta SATA HAT top board](./sata-hat-top-board.md) (PWM signal via the 2x5 header)
+
+:::caution
+Do not force a 2.0mm pitch plug (e.g. JST PH) into this header - 1.25mm and 2.0mm are not interchangeable.
+:::
 
 ## User Guide
 
