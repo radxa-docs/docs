@@ -24,4 +24,4 @@ Used to make system boot disk
 
 ### Internet
 
-Radca E25 has two 2.5G Ethernet interfaces onboard
+Radxa E25 has two 2.5G Ethernet interfaces onboard
