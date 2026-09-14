@@ -14,6 +14,12 @@ sidebar_position: 4
 
 ## 电源接口
 
+ZERO 3W / 3E 通过 **USB-C 1** 接口（USB 2.0 OTG）供电，仅支持 **5V** 输入，建议使用 5V/2A 及以上电源适配器。
+
+:::tip
+瑞莎推荐使用 [Radxa Power PD30W](../accessories/pd-30w)。
+:::
+
 ## 调试串口
 
 ZERO 3 的调试串口使用 **UART2_M0**（40 PIN GPIO 的 Pin 8：TX，Pin 10：RX），默认波特率为 1500000n8。
@@ -97,13 +103,15 @@ Pin 3、Pin 5、Pin 27 和 Pin 28 为 I2C 设备供电添加了额外的上拉�
 
 ## USB C 口
 
-共有两个 USB TYPE-C 口，分别为 USB 2.0 OTG 口 和 USB3.0 HOST 口，其中供电使用 USB 2.0 OTG口
+共有两个 USB Type-C 口：**USB-C 1**（USB 2.0 OTG，支持供电与 OTG）和 **USB-C 2**（USB 3.0 HOST）。其中**供电使用 USB-C 1 接口**。
 
 ## HDMI接口
 
 提供一个 Micro HDMI 接口
 
 ## MIPI CSI
+
+ZERO 3W / 3E 提供 1 个 **4-lane MIPI CSI** 接口，使用 **22-Pin、0.5mm 间距** 的 FPC 连接器。
 
 | PIN | Name              |
 | --- | ----------------- |

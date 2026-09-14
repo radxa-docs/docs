@@ -23,7 +23,7 @@ sidebar_position: 4
 
 ## 摄像头
 
-Radxa ZERO 3 带有一个 2-lane 22-pin 的 CSI 接口,以下是目前支持的摄像头列表：
+Radxa ZERO 3 带有一个 **4-lane 22-Pin（0.5mm 间距）** 的 MIPI CSI 接口,以下是目前支持的摄像头列表：
 
 <table>
   <tr>

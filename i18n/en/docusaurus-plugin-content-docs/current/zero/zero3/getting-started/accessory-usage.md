@@ -23,7 +23,7 @@ This section focuses on the accessories supported by ZERO 3 and how to use them.
 
 ## Camera
 
-The Radxa ZERO 3 comes with a 4-lane 22-pin CSI connector.
+The Radxa ZERO 3 comes with a 4-lane, 22-Pin (0.5mm pitch) MIPI CSI connector.
 
 <table>
   <tr>

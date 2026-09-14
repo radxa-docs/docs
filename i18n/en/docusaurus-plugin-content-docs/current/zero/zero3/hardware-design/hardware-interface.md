@@ -14,6 +14,12 @@ sidebar_position: 4
 
 ## Power
 
+The ZERO 3W / 3E is powered via the **USB-C 1** port (USB 2.0 OTG) and only supports **5V** input. A 5V/2A or higher power adapter is recommended.
+
+:::tip
+Radxa recommends [Radxa Power PD30W](../accessories/pd-30w).
+:::
+
 ## Debug Serial Port
 
 The debug serial port of ZERO 3 uses **UART2_M0** (40-pin GPIO Pin 8: TX, Pin 10: RX), with a default baud rate of 1500000n8.
@@ -98,13 +104,15 @@ This procedure requires soldering skills, and it is recommended that it be perfo
 
 ## USB C
 
-There are two USB TYPE-C ports, one is USB 2.0 OTG port and the other is USB3.0 HOST port. The power supply is USB 2.0 OTG port.
+There are two USB Type-C ports: **USB-C 1** (USB 2.0 OTG, supports power and OTG) and **USB-C 2** (USB 3.0 HOST). The board is **powered via the USB-C 1 port**.
 
 ## HDMI
 
 Provides a Micro HDMI port.
 
 ## MIPI CSI
+
+The ZERO 3W / 3E provides one **4-lane MIPI CSI** interface with a **22-Pin, 0.5mm pitch** FPC connector.
 
 | PIN | Name              |
 | --- | ----------------- |

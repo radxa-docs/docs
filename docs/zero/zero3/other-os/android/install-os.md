@@ -94,12 +94,12 @@ sidebar_position: 2
 
 #### 从 SD 卡启动
 
-- 插入刚烧录过系统的 SD 卡到板子的 SD 卡槽，连接板子的 [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface) 到电源适配器上，
+- 插入刚烧录过系统的 SD 卡到板子的 SD 卡槽，连接板子的 [USB-C 1 接口（USB 2.0 OTG）](../../hardware-design/hardware-interface) 到电源适配器上，
   然后系统开始启动，状态灯闪烁。
 
 #### 从板载 EMMC 启动
 
-- 直接连接板子的 [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface) 到电源适配器上，然后系统开始启动，状态灯闪烁。
+- 直接连接板子的 [USB-C 1 接口（USB 2.0 OTG）](../../hardware-design/hardware-interface) 到电源适配器上，然后系统开始启动，状态灯闪烁。
 
 :::tip
 Radxa ZERO 3 只支持 `5V` 供电。瑞莎推荐使用 [Radxa Power PD30W](../../accessories/pd-30w)。

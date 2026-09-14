@@ -16,7 +16,7 @@ sidebar_position: 60
 - 确保使用 **5V** 电源适配器
 - 推荐使用 [Radxa Power PD30W](accessories/pd-30w)
 - 检查 Type-C 线缆是否正常工作
-- 确保电源接口连接正确（USB 2.0 OTG Type-C 端口）
+- 确保电源接口连接正确（USB-C 1 端口）
 
 ### 检查 microSD 卡
 1. **卡质量**：使用高质量、品牌可靠的 microSD 卡
@@ -51,7 +51,7 @@ Radxa ZERO 3 支持从以下设备启动：
 Radxa ZERO 3 **只支持 5V 供电**：
 - **输入电压**：5V DC
 - **推荐功率**：≥15W（用于稳定运行）
-- **接口**：USB 2.0 OTG Type-C 端口
+- **接口**：USB-C 1（USB 2.0 OTG）端口
 
 :::warning 重要提示
 请勿使用高于 5V 的电源适配器，这可能会损坏设备。
