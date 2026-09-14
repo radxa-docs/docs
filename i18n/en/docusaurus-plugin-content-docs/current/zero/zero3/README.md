@@ -81,7 +81,7 @@ sidebar_position: 5
     </tr>
     <tr>
         <td align="center">Camera</td>
-        <td colspan="2" align="center">1x4 lane MIPI CSI</td>
+        <td colspan="2" align="center">1x4 lane MIPI CSI (22-Pin, 0.5mm pitch)</td>
     </tr>
     <tr>
         <td align="center">Others</td>
@@ -89,7 +89,7 @@ sidebar_position: 5
     </tr>
     <tr>
         <td align="center">Power</td>
-        <td colspan="2" align="center">Requires 5V/2A power adapter</td>
+        <td colspan="2" align="center">Powered via the USB-C 1 port, requires 5V/2A power adapter</td>
     </tr>
     <tr>
         <td align="center">Size</td>

@@ -96,11 +96,11 @@ Press the [Maskrom Button](../../hardware-design/hardware-interface), and then c
 #### Boot from SDcard
 
 - Insert the SDCard (System OS inside) on the board's sdcard slot, and power the board via
-  [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface). Then board will start up with the led blink.
+  [USB-C 1 port (USB 2.0 OTG)](../../hardware-design/hardware-interface). Then board will start up with the led blink.
 
 #### Boot from eMMC
 
-- Power the board via [USB 2.0 OTG Type C port](../../hardware-design/hardware-interface). Then board will start up with the led blink.
+- Power the board via [USB-C 1 port (USB 2.0 OTG)](../../hardware-design/hardware-interface). Then board will start up with the led blink.
 
 :::tip
 Radxa ZERO 3 only supports `5V` power supply.Radxa Recommended [Radxa Power PD30W](../../accessories/pd-30w).

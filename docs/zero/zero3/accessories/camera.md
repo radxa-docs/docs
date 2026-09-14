@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## CSI 接口定义
 
-Radxa ZERO 3 拥有一个22 PIN 的CSI 接口,接口定义如下:
+Radxa ZERO 3 拥有一个 **4-lane 22-Pin（0.5mm 间距）** 的 MIPI CSI 接口，接口定义如下：
 
 ![zero3w csi1](/img/zero/zero3/zero3w-csi1.webp)
 

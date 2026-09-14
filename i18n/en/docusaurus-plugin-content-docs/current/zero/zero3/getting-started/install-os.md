@@ -29,7 +29,7 @@ Please go to [Resource Download](../download.md) to download the corresponding i
 
 - After successfully burning the microSD card according to the above steps, insert the microSD card into the microSD Card Slot.
 
-- The Radxa ZERO 3 is powered by a [USB 2.0 OTG Type C port](../hardware-design/hardware-interface), using a Type C cable to connect the power port to the adapter.
+- The Radxa ZERO 3 is powered by the [USB-C 1 port (USB 2.0 OTG)](../hardware-design/hardware-interface), using a Type C cable to connect the power port to the adapter.
 
 :::tip
 Radxa ZERO 3 only supports `5V` power supply. Radxa Recommended [Radxa Power PD30W](../accessories/pd-30w).

@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## CSI Interface Definition
 
-The ZERO 3 has a 22 PIN CSI interface defined as follows.
+The ZERO 3 has a **4-lane 22-Pin (0.5mm pitch)** MIPI CSI interface, defined as follows.
 
 ![zero3w csi1](/img/zero/zero3/zero3w-csi1.webp)
 

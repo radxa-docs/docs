@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ### 供电
 
-ZERO 3W/3E 采用 Type-C 接口供电，仅支持 5V 输入。建议最低使用 5V/2A 电源适配器。
+ZERO 3W/3E 采用 **USB-C 1** 接口（USB 2.0 OTG）供电，仅支持 5V 输入。建议最低使用 5V/2A 电源适配器。
 
 :::tip
 瑞莎推荐使用 [Radxa Power PD30W](../../accessories/pd-30w)。

@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ### Power Supply
 
-Radxa ZERO 3 is powered via Type-C port and only supports 5V input. It is recommended to use a minimum 5V/2A power adapter.
+The Radxa ZERO 3W / 3E is powered via the **USB-C 1** port (USB 2.0 OTG) and only supports 5V input. It is recommended to use a minimum 5V/2A power adapter.
 
 :::tip
 Radxa recommends [Radxa Power PD30W](../accessories/pd-30w).

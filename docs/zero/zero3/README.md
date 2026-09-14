@@ -82,7 +82,7 @@ sidebar_position: 5
     </tr>
     <tr>
         <td align="center">摄像头</td>
-        <td colspan="2" align="center">1x4 通道 MIPI CSI</td>
+        <td colspan="2" align="center">1x4 通道 MIPI CSI（22-Pin，0.5mm 间距）</td>
     </tr>
     <tr>
         <td align="center">其他</td>
@@ -90,7 +90,7 @@ sidebar_position: 5
     </tr>
     <tr>
         <td align="center">供电</td>
-        <td colspan="2" align="center">需要 5V/2A 电源适配器</td>
+        <td colspan="2" align="center">USB-C 1 接口供电，需要 5V/2A 电源适配器</td>
     </tr>
     <tr>
         <td align="center">尺寸</td>
