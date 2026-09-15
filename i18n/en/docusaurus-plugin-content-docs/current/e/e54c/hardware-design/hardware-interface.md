@@ -41,7 +41,7 @@ E54C adopts a compact and efficient hardware design, integrating multiple interf
 
 The above diagram shows the data channels and connection methods between the RK3582 SoC and various hardware components:
 
-- **Gigabit Network Interface**: 4 gigabit Ethernet ports directly connected to the SoC through built-in controllers
+- **Gigabit Network Interface**: The 4 gigabit Ethernet ports are extended by the on-board RTL8367RB switch chip (U20), which is uplinked to the SoC's GMAC1 through a single RGMII link
 - **USB Interface**: USB 3.0 and USB 2.0 interfaces connected to the main processor through independent buses
 - **Display Output**: HDMI 2.1 interface providing high-resolution output through dedicated controllers
 - **Storage Interface**:
@@ -54,9 +54,19 @@ The above diagram shows the data channels and connection methods between the RK3
 
 The hardware design of E54C has the following advantages over other similar products:
 
-- **Independent Network Bus**: Each gigabit port has an independent data channel, avoiding network congestion
+- **Hardware Port-to-Port Forwarding**: Layer-2 forwarding between the 4 ports is done by the switch chip in hardware without using the CPU; traffic that must pass through the CPU shares the same 1 Gbps RGMII uplink
 - **High-Speed Storage Access**: M.2 PCIe interface extends storage performance through high-speed bus
 - **Multi-Interface Parallel Access**: Different interfaces use independent data channels, improving overall system throughput
+
+:::note The 4 ports share a single uplink
+
+The 4 RJ45 ports of E54C are not 4 independent MACs brought out directly from the SoC. They are extended by the on-board switch chip (RTL8367RB, U20): the SoC only uses a single GMAC1 (RGMII, 1 Gbps), which the switch chip fans out to the 4 ports.
+
+- Layer-2 forwarding between ports is done in hardware by the switch chip, so port-to-port traffic runs at line rate without CPU involvement.
+- Traffic that has to pass through the CPU (routing / NAT / firewall / multi-WAN load balancing / VLAN traffic punted to the CPU) shares this single 1 Gbps uplink, so running routing on all four ports at the same time is limited to about 1 Gbps in total, not 4 Gbps.
+- WAN / LAN separation is done in software (VLAN / switch chip configuration, e.g. iStoreOS, OpenWrt) rather than by 4 independent NICs.
+
+:::
 
 ## Hardware Interface Overview
 
@@ -275,7 +285,7 @@ E54C is equipped with 4 gigabit Ethernet ports, which are the core functional co
 
 #### Gigabit Network Controller
 
-The gigabit network interfaces of E54C are driven by the network controller integrated in the Rockchip RK3582 SoC, with main features including:
+The 4 gigabit network interfaces of E54C are extended by the on-board RTL8367RB switch chip, which is connected to the gigabit network controller (GMAC1) integrated in the Rockchip RK3582 SoC via RGMII. Related features include:
 
 - **Full-Duplex Gigabit Ethernet**: Each port supports 10/100/1000 Mbps rates
 - **MDI/MDIX Auto-Detection**: Automatically identifies straight-through and crossover cables
