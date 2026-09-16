@@ -22,6 +22,7 @@ This camera is suitable for the following applications:
 - Sensor Size: 5.867mm diagonal (1/3.06 inch)
 - Total Pixels: 4224 (H) x 3200 (V)
 - Active Pixels: 4208 (H) x 3120 (V)
+- Shutter Type: Rolling Shutter
 - Imaging Performance:
   - Full resolution @30fps (Normal/HDR mode)
   - 4K2K @30fps (Normal/HDR mode)
