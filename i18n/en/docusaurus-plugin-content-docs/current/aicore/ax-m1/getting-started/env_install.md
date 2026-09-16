@@ -36,9 +36,7 @@ sudo apt install gcc linux-headers-$(uname -r) make
 
 - Install the AXCL driver
 
-:::tip
-Download the driver package from the resources section on the left panel. Choose the 4GB or 8GB version according to the memory capacity of your Radxa AICore AX-M1.
-:::
+Go to the [Downloads](https://docs.radxa.com/aicore/ax-m1/download) page to download the required software packages, and place them in the same directory. Choose the 4GB or 8GB version according to the memory capacity of your Radxa AICore AX-M1.
 
 <NewCodeBlock tip="Host" type="device">
 

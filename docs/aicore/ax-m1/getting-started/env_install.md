@@ -36,9 +36,7 @@ sudo apt install gcc linux-headers-$(uname -r) make
 
 - 安装 AXCL 驱动
 
-:::tip
-驱动安装包在左侧资源汇总下载，请根据智核 AX-M1 的内存容量选择 4GB 或 8GB 版本
-:::
+访问 [资源汇总下载](https://docs.radxa.com/aicore/ax-m1/download) 页面下载所需的软件安装包，并将安装包放在同一目录下。请根据智核 AX-M1 的内存容量选择 4GB 或 8GB 版本。
 
 <NewCodeBlock tip="Host" type="device">
 
