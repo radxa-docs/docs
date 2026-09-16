@@ -36,18 +36,32 @@ sudo apt install gcc linux-headers-$(uname -r) make
 
 - Install the AXCL driver
 
-:::tip
-Download the driver package from the resources section on the left panel.
-:::
+Go to the [Downloads](https://docs.radxa.com/aicore/ax-m1/download) page to download the required software packages, and place them in the same directory. Choose the 4GB or 8GB version according to the memory capacity of your Radxa AICore AX-M1.
 
 <NewCodeBlock tip="Host" type="device">
 
+<Tabs queryString groupId="ax-m1-capacity">
+<TabItem value="4gb" label="4GB" default>
+
 ```bash
-sudo dpkg -i axclhost-firmware_3.6.5-1_all.deb
+sudo dpkg -i axclhost-firmware_3.6.5-1_all_4gb.deb
 sudo dpkg -i task-axclhost_3.6.5-1_all.deb
 sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
 sudo systemctl restart systemd-modules-load
 ```
+
+</TabItem>
+<TabItem value="8gb" label="8GB">
+
+```bash
+sudo dpkg -i axclhost-firmware_3.6.5-1_all_8gb.deb
+sudo dpkg -i task-axclhost_3.6.5-1_all.deb
+sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
+sudo systemctl restart systemd-modules-load
+```
+
+</TabItem>
+</Tabs>
 
 </NewCodeBlock>
 

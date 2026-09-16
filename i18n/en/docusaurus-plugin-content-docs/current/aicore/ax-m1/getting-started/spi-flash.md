@@ -13,18 +13,38 @@ Update the SPI Flash firmware of Radxa AICore AX-M1 from the host board.
 
 ## Install software
 
-Go to the [Downloads](../download.md) page to download the required software packages, and place them in the same directory.
+Go to the [Downloads](../download.md) page to download the required software packages, and place them in the same directory. Choose the version that matches the memory capacity of your Radxa AICore AX-M1.
+
+<Tabs queryString groupId="ax-m1-capacity">
+<TabItem value="4gb" label="4GB" default>
 
 <NewCodeBlock tip="Host" type="host">
 
 ```bash
-sudo dpkg -i axclhost-firmware_3.6.5-1_all.deb
+sudo dpkg -i axclhost-firmware_3.6.5-1_all_4gb.deb
 sudo dpkg -i task-axclhost_3.6.5-1_all.deb
 sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
 sudo systemctl restart systemd-modules-load
 ```
 
 </NewCodeBlock>
+
+</TabItem>
+<TabItem value="8gb" label="8GB">
+
+<NewCodeBlock tip="Host" type="host">
+
+```bash
+sudo dpkg -i axclhost-firmware_3.6.5-1_all_8gb.deb
+sudo dpkg -i task-axclhost_3.6.5-1_all.deb
+sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
+sudo systemctl restart systemd-modules-load
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
 
 ## Detect the device
 
@@ -42,15 +62,32 @@ If the output shows that `/dev/mtd0` exists, the device node is present.
 
 ## Update firmware
 
-Go to the [Downloads](../download.md) page to download the SPI Flash firmware file, and make sure the firmware filename matches the command arguments.
+Go to the [Downloads](../download.md) page to download the SPI Flash firmware file, and make sure the firmware filename matches the command arguments. Choose the firmware that matches the memory capacity of your Radxa AICore AX-M1.
+
+<Tabs queryString groupId="ax-m1-capacity">
+<TabItem value="4gb" label="4GB" default>
 
 <NewCodeBlock tip="Host" type="host">
 
 ```bash
-axcl_spl_update -i spl_AX650_card_signed.bin -d 0
+axcl_spl_update -i spl_AX650_card_signed_4gb.bin -d 0
 ```
 
 </NewCodeBlock>
+
+</TabItem>
+<TabItem value="8gb" label="8GB">
+
+<NewCodeBlock tip="Host" type="host">
+
+```bash
+axcl_spl_update -i spl_AX650_card_signed_8gb.bin -d 0
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
 
 `-d 0` selects the device with index 0.
 

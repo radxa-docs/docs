@@ -13,18 +13,38 @@ sidebar_position: 5
 
 ## 安装软件
 
-访问 [资源汇总下载](../download.md) 页面下载所需的软件安装包，并将安装包放在同一目录下。
+访问 [资源汇总下载](../download.md) 页面下载所需的软件安装包，并将安装包放在同一目录下。请根据智核 AX-M1 的实际内存容量选择对应版本。
+
+<Tabs queryString groupId="ax-m1-capacity">
+<TabItem value="4gb" label="4GB" default>
 
 <NewCodeBlock tip="Host" type="host">
 
 ```bash
-sudo dpkg -i axclhost-firmware_3.6.5-1_all.deb
+sudo dpkg -i axclhost-firmware_3.6.5-1_all_4gb.deb
 sudo dpkg -i task-axclhost_3.6.5-1_all.deb
 sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
 sudo systemctl restart systemd-modules-load
 ```
 
 </NewCodeBlock>
+
+</TabItem>
+<TabItem value="8gb" label="8GB">
+
+<NewCodeBlock tip="Host" type="host">
+
+```bash
+sudo dpkg -i axclhost-firmware_3.6.5-1_all_8gb.deb
+sudo dpkg -i task-axclhost_3.6.5-1_all.deb
+sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
+sudo systemctl restart systemd-modules-load
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
 
 ## 识别设备
 
@@ -42,15 +62,32 @@ axcl-smi sh "ls /dev/mtd0"
 
 ## 升级固件
 
-访问 [资源汇总下载](../download.md) 页面下载对应的 SPI Flash 固件文件，并确认固件文件名与命令参数一致。
+访问 [资源汇总下载](../download.md) 页面下载对应的 SPI Flash 固件文件，并确认固件文件名与命令参数一致。请选择与智核 AX-M1 内存容量匹配的固件。
+
+<Tabs queryString groupId="ax-m1-capacity">
+<TabItem value="4gb" label="4GB" default>
 
 <NewCodeBlock tip="Host" type="host">
 
 ```bash
-axcl_spl_update -i spl_AX650_card_signed.bin -d 0
+axcl_spl_update -i spl_AX650_card_signed_4gb.bin -d 0
 ```
 
 </NewCodeBlock>
+
+</TabItem>
+<TabItem value="8gb" label="8GB">
+
+<NewCodeBlock tip="Host" type="host">
+
+```bash
+axcl_spl_update -i spl_AX650_card_signed_8gb.bin -d 0
+```
+
+</NewCodeBlock>
+
+</TabItem>
+</Tabs>
 
 其中 `-d 0` 表示选择编号为 0 的设备。
 

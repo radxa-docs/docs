@@ -36,18 +36,32 @@ sudo apt install gcc linux-headers-$(uname -r) make
 
 - 安装 AXCL 驱动
 
-:::tip
-驱动安装包在左侧资源汇总下载
-:::
+访问 [资源汇总下载](https://docs.radxa.com/aicore/ax-m1/download) 页面下载所需的软件安装包，并将安装包放在同一目录下。请根据智核 AX-M1 的内存容量选择 4GB 或 8GB 版本。
 
 <NewCodeBlock tip="Host" type="device">
 
+<Tabs queryString groupId="ax-m1-capacity">
+<TabItem value="4gb" label="4GB" default>
+
 ```bash
-sudo dpkg -i axclhost-firmware_3.6.5-1_all.deb
+sudo dpkg -i axclhost-firmware_3.6.5-1_all_4gb.deb
 sudo dpkg -i task-axclhost_3.6.5-1_all.deb
 sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
 sudo systemctl restart systemd-modules-load
 ```
+
+</TabItem>
+<TabItem value="8gb" label="8GB">
+
+```bash
+sudo dpkg -i axclhost-firmware_3.6.5-1_all_8gb.deb
+sudo dpkg -i task-axclhost_3.6.5-1_all.deb
+sudo dpkg -i axclhost-dkms_3.6.5-1_all.deb
+sudo systemctl restart systemd-modules-load
+```
+
+</TabItem>
+</Tabs>
 
 </NewCodeBlock>
 
