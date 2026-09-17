@@ -8,6 +8,10 @@ Radxa 为 ROCK 5 Model B 单板电脑设计了特别定制的金属外壳，是�
 
 ![Radxa Metal Case for ROCK 5B](/img/accessories/heatsink-case/metal-case-1.webp)
 
+:::note
+本金属外壳仅适用于 ROCK 5B。ROCK 5B+ 的 SD 卡槽位置与 ROCK 5B 不同，本外壳不兼容 ROCK 5B+。ROCK 5B+ 请使用专用外壳 [Radxa Metal Case for ROCK 5B+](https://radxa.com/products/accessories/metal-case-for-rock5bp)。
+:::
+
 # 规格
 
 - 尺寸：120 x 82 x 40 unit mm.
