@@ -8,6 +8,10 @@ Radxa has designed a specially customized metal case for the ROCK 5 Model B sing
 
 ![Radxa Metal Case for ROCK 5B](/img/accessories/heatsink-case/metal-case-1.webp)
 
+:::note
+This metal case is designed for ROCK 5B only. The SD card slot is located in a different position on the ROCK 5B+, so this case does not fit the ROCK 5B+. For ROCK 5B+, please use the dedicated [Radxa Metal Case for ROCK 5B+](https://radxa.com/products/accessories/metal-case-for-rock5bp).
+:::
+
 # Specification
 
 - Dimension: 120 x 82 x 40 unit mm.
