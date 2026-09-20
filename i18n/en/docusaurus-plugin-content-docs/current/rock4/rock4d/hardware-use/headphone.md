@@ -97,6 +97,16 @@ sudo aplay -Dhw:1,0 /tmp/tmp.wav
 For detailed interface specifications, please refer to the [Hardware Design: Schematics](../download) in the download section.
 :::
 
+:::note
+The ROCK 4D **ships without the speaker amplifier populated**. The signals listed below come from the reserved speaker amplifier circuit on the board: the amplifier ICs, the speaker connectors and their peripheral components (ferrite beads, filter capacitors, etc.) are left unpopulated (NC) in production. Therefore the "Speaker Reserved Pads" **cannot drive a speaker directly**.
+
+To use an external speaker, you can:
+
+① Connect powered speakers to the 3.5mm headphone jack (the jack can directly drive 32Ω headphones);
+② Use an external amplifier module, taking the `AUD_LINEOUT_L` / `AUD_LINEOUT_R` analog audio signals from the reserved pads;
+③ Populate the reserved amplifier circuit yourself (amplifier ICs, `VCC_SPK_AMP` supply, `SPK_CTL_H` enable and output filter components), then connect the speaker.
+:::
+
 | Left Channel Pin# | Left Channel Name | Right Channel Pin# | Right Channel Name |
 | :---------------: | :---------------- | :----------------: | :----------------- |
 |         1         | SPK_CTL_H         |         1          | SPK_CTL_H          |
