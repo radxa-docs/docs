@@ -1,0 +1,268 @@
+The 4-lane MIPI CSI connector on {props.product} can be used with the Radxa 4K HDMI IN to MIPI CSI-2 Adapter to capture HDMI video. The adapter's I2S connector outputs the digital audio extracted from the HDMI signal.
+
+- Video: captured through the 4-lane MIPI CSI connector on {props.product}
+- Audio: captured through {props.audio_bus} (I2S) on {props.product}
+
+## Hardware connection
+
+You can capture HDMI video and/or HDMI audio as needed.
+
+### Capture HDMI video
+
+Connect an HDMI output device (for example the HDMI output of a PC) to the HDMI IN connector on the adapter, then use an FPC cable (AC006, 31P 0.3 mm to 31P 0.3 mm, opposite side) to connect the 4-lane MIPI CSI connector on the adapter to the MIPI CSI connector on the board.
+
+<div style={{textAlign: 'center'}}>
+    <img src={props.video_connection_img} style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+### Capture HDMI audio
+
+Use Dupont wires to connect the I2S connectors on the board and the adapter.
+
+:::info Note
+
+The FPC cable between the board and the adapter already shares the ground, so no extra GND connection is required when capturing HDMI audio.
+
+:::
+
+<div style={{textAlign: 'center'}}>
+    <img src={props.audio_connection_img} style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+## Software enablement
+
+Update the `Rsetup` tool shipped with Radxa OS, then enable the `Overlays` related to the adapter.
+
+### Update the system
+
+Go to `System` → `System Update` and follow the prompts to finish the update. The update may include a new kernel, the RK628 driver and new overlays.
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+### Enable the devices
+
+Go to `Overlays` → `Manage overlays` and select the corresponding options:
+
+- Capture HDMI video: <code>{props.video_overlay}</code>
+- Capture HDMI audio: <code>{props.audio_overlay}</code>
+
+:::note Note
+
+- If you only capture video, you can enable the video option alone; when audio is needed, both options must be enabled.
+- Do not enable other overlays that occupy the same MIPI CSI connector or the {props.audio_bus} pins.
+
+:::
+
+Save the settings and reboot:
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+sudo reboot
+```
+
+</NewCodeBlock>
+
+## Check the devices
+
+Use the following command to check whether the RK628 is recognized:
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+sudo dmesg | grep -i rk628
+```
+
+</NewCodeBlock>
+
+When it is recognized correctly, output similar to the following appears. Once `rk628-csi-v4l2 found` and `New format` show up, you can continue testing:
+
+```text
+RK628 I2C driver version: 00.01.00
+rk628 version is: RK628F/H (20230321)
+rk628-csi-v4l2 found @ 0xa0 (rk3x-i2c)
+rk628_csi_format_change: New format: 1920x1080p60.00 (2200x1125)
+```
+
+## Capture HDMI video and audio
+
+### Capture HDMI video
+
+Run the following command in the desktop terminal of the board:
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`gst-launch-1.0 -e -v \\
+  v4l2src device=${props.video_dev} do-timestamp=true ! \\
+    video/x-raw,format=NV16,width=1920,height=1080,framerate=30/1 ! \\
+    queue ! videoconvert ! glimagesink sync=true`}
+</pre>
+
+The HDMI preview should appear on the desktop. Press `Ctrl+C` to stop it.
+
+If the picture is corrupted, power off the board, recheck the hardware connection and test again.
+
+<div style={{textAlign: 'center'}}>
+    <img src={props.preview_img} style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+### Record HDMI audio
+
+Make sure a headphone or speaker is connected to the board, and that the audio of the HDMI output device is routed to HDMI.
+
+The following command keeps the video stream running in the background for about 8 seconds and records a 5-second WAV file. Because the RK628 audio output requires the video capture pipeline to keep running, the video stream must not be stopped while recording.
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`v4l2-ctl -d ${props.video_dev} \\
+  --set-fmt-video=width=1920,height=1080,pixelformat=NV12 \\
+  --stream-mmap=3 --stream-poll \\
+  --stream-count=480 --stream-to=/dev/null \\
+  >/dev/null 2>&1 &
+VIDEO_PID=$!
+
+sleep 1
+
+arecord \\
+  -D hw:CARD=${props.audio_capture_card},DEV=0 \\
+  -f S16_LE -r 48000 -c 2 \\
+  -d 5 -t wav \\
+  rk628-audio.wav
+
+wait "$VIDEO_PID"`}
+</pre>
+
+The video data is written to `/dev/null`, so no video file is generated.
+
+### Play the recording
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`aplay -D plughw:CARD=${props.audio_playback_card},DEV=0 rk628-audio.wav`}
+</pre>
+
+### Play video and audio at the same time
+
+Make sure a headphone or speaker is connected to the board, and that the audio of the HDMI output device is routed to HDMI. Then run the following command in the desktop terminal of the board:
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`gst-launch-1.0 -e -v \\
+  v4l2src device=${props.video_dev} do-timestamp=true ! \\
+    video/x-raw,format=NV16,width=1920,height=1080,framerate=30/1 ! \\
+    queue ! videoconvert ! glimagesink sync=true \\
+  alsasrc device="hw:CARD=${props.audio_capture_card},DEV=0" do-timestamp=true ! \\
+    audio/x-raw,format=S16LE,rate=48000,channels=2 ! \\
+    queue ! audioconvert ! audioresample ! \\
+    alsasink device="plughw:CARD=${props.audio_playback_card},DEV=0" sync=true`}
+</pre>
+
+The HDMI picture is displayed on the desktop and the HDMI audio is played through the board's audio output.
+
+## FAQ
+
+### No RK628 log?
+
+Check whether the overlay has been saved:
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+grep fdtoverlays /boot/extlinux/extlinux.conf
+```
+
+</NewCodeBlock>
+
+For video and audio capture it should contain:
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`${props.audio_dtbo}\n${props.video_dtbo}`}
+</pre>
+
+If the RK628 video overlay is missing, go back to `rsetup` and enable it again, then check whether the hardware connection is correct.
+
+### It keeps showing "no signal" or "lock failed"?
+
+These logs may briefly appear during early boot and do not necessarily indicate a fault. If `New format` never appears afterwards, check:
+
+- whether the HDMI source is powered on and already outputting a signal
+- whether the HDMI cable is reliable
+- whether the FPC cable is connected correctly
+
+### Not sure which video node the RK628 maps to?
+
+The video node number may change between systems or overlay configurations. Use the following steps to find it.
+
+Find the media device that contains the RK628:
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+for m in /dev/media*; do media-ctl -p -d "$m" 2>/dev/null | grep -qi rk628 && echo "RK628 is on $m"; done
+```
+
+</NewCodeBlock>
+
+Query the main video capture node:
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+media-ctl -d /dev/media0 -e 'stream_cif_mipi_id0'
+```
+
+</NewCodeBlock>
+
+If the output node is not <code>{props.video_dev}</code>, replace the video node in the tutorial commands with the actual one.
+
+Capture 30 frames to verify the node:
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`v4l2-ctl --verbose -d ${props.video_dev} --set-fmt-video=width=1920,height=1080,pixelformat=NV12 --stream-mmap=3 --stream-poll --stream-count=30 --stream-to=/dev/null`}
+</pre>
+
+If the terminal keeps printing `cap dqbuf` frame information and finishes normally, the video node is correct.
+
+### Not sure which device the HDMI audio maps to?
+
+The sound card number may differ between system versions or hardware configurations, and may also change after a reboot. Use the following steps to find it.
+
+Find the HDMI audio capture device:
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+arecord -l
+```
+
+</NewCodeBlock>
+
+After the audio overlay is enabled, a device containing <code>{props.audio_capture_card}</code> should be listed:
+
+- Card name: <code>{props.audio_capture_card}</code>
+- Device number: <code>0</code>
+- The recording command should use <code>hw:CARD={props.audio_capture_card},DEV=0</code>
+
+:::info Note
+
+The `card N` number shown by `arecord -l` is assigned dynamically by the system and may change after a reboot, so it is not recommended to hard-code `hw:N,0` in commands.
+
+:::
+
+If `arecord -l` does not list <code>{props.audio_capture_card}</code>, check whether the audio overlay is enabled and reboot after saving.
+
+Find the audio playback device:
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+aplay -l
+```
+
+</NewCodeBlock>
+
+A device containing <code>{props.audio_playback_card}</code> should be listed, and the corresponding playback device is <code>plughw:CARD={props.audio_playback_card},DEV=0</code>.
+
+If you use a USB sound card or another playback device, replace the playback device in the tutorial commands with the actual one shown by `aplay -l`. If you only record audio and play it elsewhere, no playback device lookup is needed.

@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# 高清显示屏
+# 高清显示
 
 <DocCardList />

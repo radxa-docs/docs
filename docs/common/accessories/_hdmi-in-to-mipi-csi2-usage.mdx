@@ -1,0 +1,268 @@
+{props.product} 的 4-lane MIPI CSI 接口可以连接瑞莎 4K HDMI IN 转 MIPI CSI-2 转接板采集 HDMI 视频，转接板的 I2S 接口可以从 HDMI 信号中提取并输出数字音频。
+
+- 视频：通过 {props.product} 的 4-lane MIPI CSI 采集
+- 音频：通过 {props.product} 的 {props.audio_bus}（I2S）采集
+
+## 硬件连接
+
+可以根据需要采集 HDMI 视频或音频。
+
+### 采集 HDMI 视频
+
+将 HDMI 输出设备（例如 PC 的 HDMI 输出口）连接到转接板的 HDMI IN 接口，再使用 FPC 排线（AC006，31P 0.3 mm 转 31P 0.3 mm，异面）把转接板的 4-lane MIPI CSI 接口连接到主板的 MIPI CSI 接口。
+
+<div style={{textAlign: 'center'}}>
+    <img src={props.video_connection_img} style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+### 采集 HDMI 音频
+
+使用杜邦线连接主板和转接板的 I2S 接口。
+
+:::info 说明
+
+主板与转接板之间的排线已经共地，因此采集 HDMI 音频时不需要额外连接 GND。
+
+:::
+
+<div style={{textAlign: 'center'}}>
+    <img src={props.audio_connection_img} style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+## 软件使能
+
+更新 Radxa OS 自带的 `Rsetup` 工具，并启用转接板相关的 `Overlays`。
+
+### 更新系统
+
+进入 `System` → `System Update`，按提示完成更新。更新内容可能包含新的内核、RK628 驱动和 Overlay。
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+sudo rsetup
+```
+
+</NewCodeBlock>
+
+### 启用设备
+
+进入 `Overlays` → `Manage overlays`，勾选对应的选项：
+
+- 采集 HDMI 视频：<code>{props.video_overlay}</code>
+- 采集 HDMI 音频：<code>{props.audio_overlay}</code>
+
+:::note 说明
+
+- 只采集视频时可以只启用视频项；需要音频时必须同时启用两项。
+- 不要同时启用其他占用同一个 MIPI CSI 接口或 {props.audio_bus} 引脚的 Overlay。
+
+:::
+
+保存设置后重启系统：
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+sudo reboot
+```
+
+</NewCodeBlock>
+
+## 检查设备
+
+使用以下命令确认 RK628 是否被正确识别：
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+sudo dmesg | grep -i rk628
+```
+
+</NewCodeBlock>
+
+正确识别时会输出类似信息，出现 `rk628-csi-v4l2 found` 和 `New format` 后即可继续测试：
+
+```text
+RK628 I2C driver version: 00.01.00
+rk628 version is: RK628F/H (20230321)
+rk628-csi-v4l2 found @ 0xa0 (rk3x-i2c)
+rk628_csi_format_change: New format: 1920x1080p60.00 (2200x1125)
+```
+
+## 采集 HDMI 音视频
+
+### 采集 HDMI 视频
+
+在主板的图形桌面终端运行以下命令：
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`gst-launch-1.0 -e -v \\
+  v4l2src device=${props.video_dev} do-timestamp=true ! \\
+    video/x-raw,format=NV16,width=1920,height=1080,framerate=30/1 ! \\
+    queue ! videoconvert ! glimagesink sync=true`}
+</pre>
+
+正常情况下桌面会出现 HDMI 预览画面，按 `Ctrl+C` 停止运行。
+
+如果画面出现花屏等现象，可以关闭主板电源，重新检查硬件连接后再次测试。
+
+<div style={{textAlign: 'center'}}>
+    <img src={props.preview_img} style={{width: '100%', maxWidth: '1200px'}} />
+</div>
+
+### 录制 HDMI 音频
+
+确认主板已连接耳机或音箱，并且 HDMI 输出设备的音频已经输出到 HDMI。
+
+以下命令在后台保持约 8 秒视频取流，同时录制 5 秒 WAV 文件。由于 RK628 的音频输出需要视频采集链路保持运行，录制期间不能停止视频取流。
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`v4l2-ctl -d ${props.video_dev} \\
+  --set-fmt-video=width=1920,height=1080,pixelformat=NV12 \\
+  --stream-mmap=3 --stream-poll \\
+  --stream-count=480 --stream-to=/dev/null \\
+  >/dev/null 2>&1 &
+VIDEO_PID=$!
+
+sleep 1
+
+arecord \\
+  -D hw:CARD=${props.audio_capture_card},DEV=0 \\
+  -f S16_LE -r 48000 -c 2 \\
+  -d 5 -t wav \\
+  rk628-audio.wav
+
+wait "$VIDEO_PID"`}
+</pre>
+
+视频数据写入 `/dev/null`，不会生成视频文件。
+
+### 播放录音
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`aplay -D plughw:CARD=${props.audio_playback_card},DEV=0 rk628-audio.wav`}
+</pre>
+
+### 同时播放视频和声音
+
+确认主板已连接耳机或音箱，并且 HDMI 输出设备的音频已经输出到 HDMI，然后在主板的图形桌面终端运行：
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`gst-launch-1.0 -e -v \\
+  v4l2src device=${props.video_dev} do-timestamp=true ! \\
+    video/x-raw,format=NV16,width=1920,height=1080,framerate=30/1 ! \\
+    queue ! videoconvert ! glimagesink sync=true \\
+  alsasrc device="hw:CARD=${props.audio_capture_card},DEV=0" do-timestamp=true ! \\
+    audio/x-raw,format=S16LE,rate=48000,channels=2 ! \\
+    queue ! audioconvert ! audioresample ! \\
+    alsasink device="plughw:CARD=${props.audio_playback_card},DEV=0" sync=true`}
+</pre>
+
+正常情况下，桌面会显示 HDMI 画面，主板音频输出口会播放 HDMI 声音。
+
+## 常见问题
+
+### 没有 RK628 日志？
+
+检查 Overlay 是否已经保存：
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+grep fdtoverlays /boot/extlinux/extlinux.conf
+```
+
+</NewCodeBlock>
+
+音视频采集应该包含：
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`${props.audio_dtbo}\n${props.video_dtbo}`}
+</pre>
+
+如果没有 RK628 视频 Overlay，请返回 `rsetup` 重新启用，并检查硬件连接是否正确。
+
+### 一直显示 no signal 或 lock failed？
+
+开机早期短暂出现这些日志不一定是故障。如果后续始终没有 `New format`，请检查：
+
+- HDMI 信号源是否已经开机并开始输出
+- HDMI 线是否可靠
+- FPC 排线是否正确连接
+
+### 不确定 RK628 对应哪个视频节点？
+
+不同系统或 Overlay 配置下，视频节点编号可能变化，可以按以下步骤查找。
+
+查找 RK628 所在的媒体设备：
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+for m in /dev/media*; do media-ctl -p -d "$m" 2>/dev/null | grep -qi rk628 && echo "RK628 位于 $m"; done
+```
+
+</NewCodeBlock>
+
+查询主视频采集节点：
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+media-ctl -d /dev/media0 -e 'stream_cif_mipi_id0'
+```
+
+</NewCodeBlock>
+
+如果输出的节点不是 <code>{props.video_dev}</code>，请把教程命令中的视频节点替换为实际节点。
+
+采集 30 帧验证节点：
+
+<pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
+  {`v4l2-ctl --verbose -d ${props.video_dev} --set-fmt-video=width=1920,height=1080,pixelformat=NV12 --stream-mmap=3 --stream-poll --stream-count=30 --stream-to=/dev/null`}
+</pre>
+
+如果终端连续输出 `cap dqbuf` 帧信息并正常结束，说明视频节点选择正确。
+
+### 不确定 HDMI 音频对应哪个设备？
+
+不同系统版本或硬件配置下，声卡编号可能不同，重启后也可能变化，可以按以下步骤查找。
+
+查找 HDMI 音频采集设备：
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+arecord -l
+```
+
+</NewCodeBlock>
+
+启用音频 Overlay 后，应该能找到包含 <code>{props.audio_capture_card}</code> 的设备：
+
+- 声卡名称：<code>{props.audio_capture_card}</code>
+- 设备编号：<code>0</code>
+- 录音命令应使用 <code>hw:CARD={props.audio_capture_card},DEV=0</code>
+
+:::info 说明
+
+`arecord -l` 显示的 `card N` 编号由系统临时分配，重启后可能改变，因此不建议在命令中固定写成 `hw:N,0`。
+
+:::
+
+如果 `arecord -l` 中没有 <code>{props.audio_capture_card}</code>，请检查是否启用了音频 Overlay，并在保存后重启系统。
+
+查找声音播放设备：
+
+<NewCodeBlock tip={`radxa@${props.board}$`} type="device">
+
+```bash
+aplay -l
+```
+
+</NewCodeBlock>
+
+应能找到包含 <code>{props.audio_playback_card}</code> 的设备，对应的播放设备为 <code>plughw:CARD={props.audio_playback_card},DEV=0</code>。
+
+如果使用 USB 声卡或其他播放设备，请把教程命令中的播放设备替换为 `aplay -l` 显示的实际设备。只录制音频、不在主板上播放时，无需查找播放设备。
