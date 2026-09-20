@@ -115,25 +115,10 @@ If the picture is corrupted, power off the board, recheck the hardware connectio
 
 Make sure a headphone or speaker is connected to the board, and that the audio of the HDMI output device is routed to HDMI.
 
-The following command keeps the video stream running in the background for about 8 seconds and records a 5-second WAV file. Because the RK628 audio output requires the video capture pipeline to keep running, the video stream must not be stopped while recording.
+The following is a single-line command you can copy and run directly: it keeps the video stream running in the background for about 8 seconds while recording a 5-second WAV file. Because the RK628 audio output requires the video capture pipeline to keep running, the video stream must not be stopped while recording.
 
 <pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
-  {`v4l2-ctl -d ${props.video_dev} \\
-  --set-fmt-video=width=1920,height=1080,pixelformat=NV12 \\
-  --stream-mmap=3 --stream-poll \\
-  --stream-count=480 --stream-to=/dev/null \\
-  >/dev/null 2>&1 &
-VIDEO_PID=$!
-
-sleep 1
-
-arecord \\
-  -D hw:CARD=${props.audio_capture_card},DEV=0 \\
-  -f S16_LE -r 48000 -c 2 \\
-  -d 5 -t wav \\
-  rk628-audio.wav
-
-wait "$VIDEO_PID"`}
+  {`bash -c 'v4l2-ctl -d ${props.video_dev} --set-fmt-video=width=1920,height=1080,pixelformat=NV12 --stream-mmap=3 --stream-poll --stream-count=480 --stream-to=/dev/null >/dev/null 2>&1 & video_pid=$!; sleep 1; arecord -D hw:CARD=${props.audio_capture_card},DEV=0 -f S16_LE -r 48000 -c 2 -d 5 -t wav rk628-audio.wav; wait "$video_pid"'`}
 </pre>
 
 The video data is written to `/dev/null`, so no video file is generated.

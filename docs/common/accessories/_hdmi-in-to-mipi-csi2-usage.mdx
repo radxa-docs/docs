@@ -115,25 +115,10 @@ rk628_csi_format_change: New format: 1920x1080p60.00 (2200x1125)
 
 确认主板已连接耳机或音箱，并且 HDMI 输出设备的音频已经输出到 HDMI。
 
-以下命令在后台保持约 8 秒视频取流，同时录制 5 秒 WAV 文件。由于 RK628 的音频输出需要视频采集链路保持运行，录制期间不能停止视频取流。
+以下为单行命令，可直接复制执行：在后台保持约 8 秒视频取流，同时录制 5 秒 WAV 文件。由于 RK628 的音频输出需要视频采集链路保持运行，录制期间不能停止视频取流。
 
 <pre style={{ whiteSpace: "pre-wrap", overflowX: "auto" }}>
-  {`v4l2-ctl -d ${props.video_dev} \\
-  --set-fmt-video=width=1920,height=1080,pixelformat=NV12 \\
-  --stream-mmap=3 --stream-poll \\
-  --stream-count=480 --stream-to=/dev/null \\
-  >/dev/null 2>&1 &
-VIDEO_PID=$!
-
-sleep 1
-
-arecord \\
-  -D hw:CARD=${props.audio_capture_card},DEV=0 \\
-  -f S16_LE -r 48000 -c 2 \\
-  -d 5 -t wav \\
-  rk628-audio.wav
-
-wait "$VIDEO_PID"`}
+  {`bash -c 'v4l2-ctl -d ${props.video_dev} --set-fmt-video=width=1920,height=1080,pixelformat=NV12 --stream-mmap=3 --stream-poll --stream-count=480 --stream-to=/dev/null >/dev/null 2>&1 & video_pid=$!; sleep 1; arecord -D hw:CARD=${props.audio_capture_card},DEV=0 -f S16_LE -r 48000 -c 2 -d 5 -t wav rk628-audio.wav; wait "$video_pid"'`}
 </pre>
 
 视频数据写入 `/dev/null`，不会生成视频文件。
