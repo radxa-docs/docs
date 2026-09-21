@@ -59,7 +59,7 @@ Dragon Q8B ships with BIOS firmware preinstalled. Normally you do not need to fl
 
   :::
 
-  - [BIOS Firmware - 260825](https://dl.radxa.com/dragon/q8b/images/dragon-q8b_flat_build_wp_260825.zip)
+  - [BIOS Firmware - 260916](https://dl.radxa.com/dragon/q8b/images/dragon-q8b_flat_build_wp_260916.zip)
 
 ## Windows Driver
 
