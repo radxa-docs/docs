@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Windows 11 (ARM64)
+# 安装 Windows 11
 
 本文介绍如何在 Radxa Dragon Q8B 上全新安装 Windows 11 ARM64，并安装 Q8B Windows 驱动。
 
