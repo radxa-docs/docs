@@ -19,6 +19,19 @@ sidebar_position: 150
 - [radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz)：适用于 microSD 卡 / NVMe SSD 启动
 - [radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz)：适用于 UFS 启动
 
+### Arch Linux
+
+:::info 最新 Arch Linux 系统镜像发布页面
+
+- [Arch Linux](https://github.com/archlinux-aarch64-test-pkgs/image-radxa-qcom/releases)
+
+该页面会发布最新版本的 Arch Linux 系统镜像。
+
+:::
+
+- [ArchLinux-Ports-Radxa-Qualcomm-KDE-20260916060112.7z](https://github.com/archlinux-aarch64-test-pkgs/image-radxa-qcom/releases/download/v20260916060112/ArchLinux-Ports-Radxa-Qualcomm-KDE-20260916060112.7z)：适用于 microSD 卡 / NVMe SSD 启动
+- [ArchLinux-Ports-Radxa-Qualcomm-KDE-UFS-20260916060112.7z](https://github.com/archlinux-aarch64-test-pkgs/image-radxa-qcom/releases/download/v20260916060112/ArchLinux-Ports-Radxa-Qualcomm-KDE-UFS-20260916060112.7z)：适用于 UFS 启动
+
 ### 第三方系统镜像
 
 :::tip
@@ -28,6 +41,7 @@ sidebar_position: 150
 - [Ubuntu 26.04 Desktop arm64 ISO](https://cdimage.ubuntu.com/ubuntu/releases/resolute/release/ubuntu-26.04-desktop-arm64.iso)
 - [Fedora Workstation 44 aarch64 ISO](https://download.fedoraproject.org/pub/fedora/linux/releases/44/Workstation/aarch64/iso/Fedora-Workstation-Live-44-1.7.aarch64.iso)
 - [Debian testing arm64 DVD ISO](https://cdimage.debian.org/cdimage/weekly-builds/arm64/iso-dvd/debian-testing-arm64-DVD-1.iso)
+- [Windows 11 ARM64 ISO（微软官方下载）](https://www.microsoft.com/zh-cn/software-download/windows11arm64)
 
 ## 启动固件
 
@@ -63,7 +77,7 @@ Dragon Q8B 出厂默认烧录 BIOS 固件，正常情况下无需烧录启动固
 
 ## Windows 驱动
 
-- [Dragon Q8B Windows 驱动包 v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z)：适用于在 Q8B 上安装 Windows 11 (ARM64)，具体安装步骤请参考 [Windows 11 (ARM64)](other-system/windows-11)
+- [Dragon Q8B Windows 驱动包 v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z)：适用于在 Q8B 上安装 Windows 11 (ARM64)，具体安装步骤请参考 [安装 Windows 11](other-system/windows-11)
 
 ## 硬件设计
 
