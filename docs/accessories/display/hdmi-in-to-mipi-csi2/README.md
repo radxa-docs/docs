@@ -22,7 +22,7 @@ sidebar_position: 1
 
 - **MIPI CSI-2 输出**
 
-提供 2-lane 和 4-lane MIPI CSI-2 接口，其中 4-lane 接口最高支持 4K@30fps 视频输出。
+提供 2-lane 和 4-lane MIPI CSI-2 接口：4-lane 接口最高支持 4K@30fps 视频输出，2-lane 接口最高支持 2K@30fps（2560 x 1440）视频输出。
 
 - **RK628H 视频桥接**
 
@@ -50,7 +50,7 @@ sidebar_position: 1
 | -------- | ---------------------------------------------------------------------------------------------------------- |
 | 处理器   | 瑞芯微 RK628H                                                                                               |
 | 视频输入 | HDMI 输入，最高支持 4K@30fps                                                                                |
-| 视频输出 | 1x 2-lane MIPI CSI（15-Pin，1.0 mm 间距）；1x 4-lane MIPI CSI（31-Pin，0.3 mm 间距），最高输出 4K@30fps      |
+| 视频输出 | 1x 2-lane MIPI CSI（15-Pin，1.0 mm 间距），最高输出 2K@30fps（2560 x 1440）；1x 4-lane MIPI CSI（31-Pin，0.3 mm 间距），最高输出 4K@30fps；单 lane 最高 1.3 Gbps |
 | 音频输出 | I2S 数字音频输出，引脚：DOUT、LRCK、SCLK、MCLK                                                              |
 | 辅助信号 | HDMI 检测、系统中断，信号：DET、INT                                                                         |
 | 机械尺寸 | 30 x 65 mm                                                                                                  |
