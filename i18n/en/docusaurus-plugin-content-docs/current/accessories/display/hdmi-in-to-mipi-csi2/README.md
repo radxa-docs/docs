@@ -22,7 +22,7 @@ Supports HDMI video input up to 4K@30fps, meeting high-definition video capture 
 
 - **MIPI CSI-2 output**
 
-Provides 2-lane and 4-lane MIPI CSI-2 connectors, and the 4-lane connector supports video output up to 4K@30fps.
+Provides 2-lane and 4-lane MIPI CSI-2 connectors: the 4-lane connector supports video output up to 4K@30fps, and the 2-lane connector supports video output up to 2K@30fps (2560 x 1440).
 
 - **RK628H video bridge**
 
@@ -50,7 +50,7 @@ Suitable for HDMI video capture, image processing, video analysis and embedded v
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | Processor        | Rockchip RK628H                                                                                                                     |
 | Video input      | HDMI input, up to 4K@30fps                                                                                                          |
-| Video output     | 1x 2-lane MIPI CSI (15-Pin, 1.0 mm pitch); 1x 4-lane MIPI CSI (31-Pin, 0.3 mm pitch), up to 4K@30fps output                        |
+| Video output     | 1x 2-lane MIPI CSI (15-Pin, 1.0 mm pitch), up to 2K@30fps (2560 x 1440); 1x 4-lane MIPI CSI (31-Pin, 0.3 mm pitch), up to 4K@30fps; up to 1.3 Gbps per lane |
 | Audio output     | I2S digital audio output; pins: DOUT, LRCK, SCLK, MCLK                                                                              |
 | Auxiliary signal | HDMI detection and system interrupt; signals: DET, INT                                                                              |
 | Dimensions       | 30 x 65 mm                                                                                                                          |
