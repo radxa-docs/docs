@@ -11,8 +11,11 @@ You can capture HDMI video and/or HDMI audio as needed.
 
 Connect an HDMI output device (for example the HDMI output of a PC) to the HDMI IN connector on the adapter, then use an FPC cable (AC006, 31P 0.3 mm to 31P 0.3 mm, opposite side) to connect the 4-lane MIPI CSI connector on the adapter to the MIPI CSI connector on the board.
 
-<div style={{textAlign: 'center'}}>
-    <img src={props.video_connection_img} style={{width: '100%', maxWidth: '1200px'}} />
+<div style={{ textAlign: "center" }}>
+  <img
+    src={props.video_connection_img}
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
 </div>
 
 ### Capture HDMI audio
@@ -25,8 +28,11 @@ The FPC cable between the board and the adapter already shares the ground, so no
 
 :::
 
-<div style={{textAlign: 'center'}}>
-    <img src={props.audio_connection_img} style={{width: '100%', maxWidth: '1200px'}} />
+<div style={{ textAlign: "center" }}>
+  <img
+    src={props.audio_connection_img}
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
 </div>
 
 ## Software enablement
@@ -90,6 +96,14 @@ rk628-csi-v4l2 found @ 0xa0 (rk3x-i2c)
 rk628_csi_format_change: New format: 1920x1080p60.00 (2200x1125)
 ```
 
+:::note Resolution
+
+The MIPI CSI output resolution of the adapter is negotiated between the EDID built into the driver and the HDMI source: the default EDID already contains several common resolutions, and Radxa OS does not currently provide a way to set the output resolution manually on the system side. The `New format` line in `dmesg` is the negotiated resolution, and the `width` / `height` values in the capture commands must match it.
+
+To change the default EDID (for example to fix a specific output resolution), the driver has to be modified, or the driver needs to expose an interface that loads an EDID dynamically. Please contact Radxa support to confirm.
+
+:::
+
 ## Capture HDMI video and audio
 
 ### Capture HDMI video
@@ -107,8 +121,8 @@ The HDMI preview should appear on the desktop. Press `Ctrl+C` to stop it.
 
 If the picture is corrupted, power off the board, recheck the hardware connection and test again.
 
-<div style={{textAlign: 'center'}}>
-    <img src={props.preview_img} style={{width: '100%', maxWidth: '1200px'}} />
+<div style={{ textAlign: "center" }}>
+  <img src={props.preview_img} style={{ width: "100%", maxWidth: "1200px" }} />
 </div>
 
 ### Record HDMI audio

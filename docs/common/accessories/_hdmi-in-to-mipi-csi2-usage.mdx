@@ -11,8 +11,11 @@
 
 将 HDMI 输出设备（例如 PC 的 HDMI 输出口）连接到转接板的 HDMI IN 接口，再使用 FPC 排线（AC006，31P 0.3 mm 转 31P 0.3 mm，异面）把转接板的 4-lane MIPI CSI 接口连接到主板的 MIPI CSI 接口。
 
-<div style={{textAlign: 'center'}}>
-    <img src={props.video_connection_img} style={{width: '100%', maxWidth: '1200px'}} />
+<div style={{ textAlign: "center" }}>
+  <img
+    src={props.video_connection_img}
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
 </div>
 
 ### 采集 HDMI 音频
@@ -25,8 +28,11 @@
 
 :::
 
-<div style={{textAlign: 'center'}}>
-    <img src={props.audio_connection_img} style={{width: '100%', maxWidth: '1200px'}} />
+<div style={{ textAlign: "center" }}>
+  <img
+    src={props.audio_connection_img}
+    style={{ width: "100%", maxWidth: "1200px" }}
+  />
 </div>
 
 ## 软件使能
@@ -90,6 +96,14 @@ rk628-csi-v4l2 found @ 0xa0 (rk3x-i2c)
 rk628_csi_format_change: New format: 1920x1080p60.00 (2200x1125)
 ```
 
+:::note 分辨率说明
+
+转接板的 MIPI CSI 输出分辨率由驱动内置的 EDID 与 HDMI 信号源协商决定：默认 EDID 已集成若干常见分辨率，Radxa OS 当前不提供在系统侧手动设置输出分辨率的方法。`dmesg` 中的 `New format` 即当前协商出的分辨率，采集命令中的 `width` / `height` 需要与之一致。
+
+如需修改默认 EDID（例如固定输出某个分辨率），需要修改驱动，或由驱动提供接口动态加载 EDID，请联系瑞莎技术支持确认。
+
+:::
+
 ## 采集 HDMI 音视频
 
 ### 采集 HDMI 视频
@@ -107,8 +121,8 @@ rk628_csi_format_change: New format: 1920x1080p60.00 (2200x1125)
 
 如果画面出现花屏等现象，可以关闭主板电源，重新检查硬件连接后再次测试。
 
-<div style={{textAlign: 'center'}}>
-    <img src={props.preview_img} style={{width: '100%', maxWidth: '1200px'}} />
+<div style={{ textAlign: "center" }}>
+  <img src={props.preview_img} style={{ width: "100%", maxWidth: "1200px" }} />
 </div>
 
 ### 录制 HDMI 音频
