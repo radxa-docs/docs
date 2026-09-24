@@ -64,7 +64,7 @@ BIOS 升级期间请保持供电稳定，不要中断操作。仅在 BIOS 版本
 | BIOS | 260825 或更新版本；请按第 1.3 节确认 |
 | 电源 | 20 V USB PD 或固定 20 V Type-C 电源适配器；建议电流不低于 3 A，并使用 Type-C to Type-C 线缆 |
 | 系统盘 | 已安装的 NVMe SSD 或 UFS 模块；Windows 将安装到其中之一 |
-| 安装 U 盘 | 空白 U 盘，容量至少 8 GB，建议 16 GB 或以上 |
+| 安装 U 盘 | 空白 U 盘，容量至少 16 GB |
 | 制作安装盘的电脑 | 可联网的 Windows 电脑，且具有管理员权限 |
 | 显示与输入设备 | 安装过程需要 HDMI 显示器和 USB 键盘鼠标；驱动安装完成后可使用支持 DP Alt Mode 的 USB-C 显示器 |
 | 软件和文件 | Windows 11 ARM64 ISO、Rufus 4.15 或更新版本、[Q8B Windows 驱动包 v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z)（也可从[资源下载页](../download)获取） |

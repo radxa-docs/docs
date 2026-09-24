@@ -64,7 +64,7 @@ Keep the power supply stable during the BIOS upgrade and do not interrupt the pr
 | BIOS | 260825 or newer; verify per Section 1.3 |
 | Power supply | 20 V USB PD or fixed 20 V Type-C power adapter; at least 3 A recommended, using a Type-C to Type-C cable |
 | System drive | Installed NVMe SSD or UFS module; Windows will be installed to one of them |
-| Installation USB drive | A blank USB drive of at least 8 GB, 16 GB or more recommended |
+| Installation USB drive | A blank USB drive of at least 16 GB |
 | PC for creating the installer | A Windows PC with internet access and administrator privileges |
 | Display and input devices | HDMI display and USB keyboard/mouse for installation; a USB-C display with DP Alt Mode can be used after driver installation |
 | Software and files | Windows 11 ARM64 ISO, Rufus 4.15 or newer, [Q8B Windows driver pack v1.0.0](https://dl.radxa.com/dragon/q8b/driver/dragon-q8b_win_driver_pack_v1.0.0.7z) (also available from the [download page](../download)) |
