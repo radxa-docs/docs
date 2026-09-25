@@ -33,20 +33,20 @@ Two versions are available: the commercial-grade ROCK 4D based on RK3576, and th
 
 ## Specifications
 
-| Category     | Specification                                                                                                                                                                                                       |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Processor    | System on Chip (SoC): Rockchip RK3576 / RK3576J <br/> CPU: 4x Cortex-A72 + 4x Cortex-A53 <br/> GPU: Arm Mali-G52 MC3 <br/> Neural Processing Unit (NPU): 6 TOPS (supports INT4 / INT8 / INT16 / FP16 / BF16 / TF32) |
-| Memory (RAM) | LPDDR5, options: 2GB / 4GB / 8GB / 16GB                                                                                                                                                                             |
-| Storage      | Boot: 16MB SPI NOR Flash <br/> Expandable: eMMC / UFS module interface, microSD card slot                                                                                                                           |
-| Networking   | Wired: 1x Gigabit Ethernet (PoE supported with external HAT) <br/> Wireless: Wi-Fi 6, Bluetooth 5.4, external antenna interface                                                                                     |
-| Video Output | HDMI: 1× HDMI 2.1, up to 4K@120fps <br/> MIPI DSI: 1× 4-lane MIPI DSI                                                                                                                                               |
-| Camera Input | MIPI CSI: 1× 4-lane (configurable as 2× 2-lane) + 1× 2-lane CSI                                                                                                                                                     |
-| Audio        | Audio Jack: 3.5mm 4-pole headphone jack with mic input <br/> Audio Output: Supports stereo output, can drive 32Ω headphones directly                                                                                |
-| USB Ports    | USB 3.0: 1× Type-A HOST, 1× Type-A OTG/HOST <br/> USB 2.0: 2× Type-A HOST                                                                                                                                           |
-| Expansion    | GPIO Header: Supports UART, SPI, I2C, I2S, PWM, CAN, ADC, etc. <br/> PCIe Slot: PCIe 2.1 x1 via FPC interface <br/> Fan Connector: 1× 2-pin 1.25mm PWM controlled fan header                                        |
-| Power Input  | Power Supply: USB Type-C or via GPIO header                                                                                                                                                                         |
-| OS Support   | Operating Systems: Debian Linux, Android 14, Yocto, Buildroot                                                                                                                                                       |
-| Temperature  | Commercial: 0°C ~ 60°C (RK3576) <br/> Industrial: -40°C ~ 85°C (RK3576J)                                                                                                                                            |
+| Category     | Specification                                                                                                                                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Processor    | System on Chip (SoC): Rockchip RK3576 / RK3576J <br/> CPU: 4x Cortex-A72 + 4x Cortex-A53 <br/> GPU: Arm Mali-G52 MC3 <br/> Neural Processing Unit (NPU): 6 TOPS@INT8 (supports INT4 / INT8 / INT16 / FP16 / BF16 / TF32) |
+| Memory (RAM) | LPDDR5, options: 2GB / 4GB / 8GB / 16GB                                                                                                                                                                                  |
+| Storage      | Boot: 16MB SPI NOR Flash <br/> Expandable: eMMC / UFS module interface, microSD card slot                                                                                                                                |
+| Networking   | Wired: 1x Gigabit Ethernet (PoE supported with external HAT) <br/> Wireless: Wi-Fi 6, Bluetooth 5.4, external antenna interface                                                                                          |
+| Video Output | HDMI: 1× HDMI 2.1, up to 4K@120fps <br/> MIPI DSI: 1× 4-lane MIPI DSI                                                                                                                                                    |
+| Camera Input | MIPI CSI: 1× 4-lane (configurable as 2× 2-lane) + 1× 2-lane CSI                                                                                                                                                          |
+| Audio        | Audio Jack: 3.5mm 4-pole headphone jack with mic input <br/> Audio Output: Supports stereo output, can drive 32Ω headphones directly                                                                                     |
+| USB Ports    | USB 3.0: 1× Type-A HOST, 1× Type-A OTG/HOST <br/> USB 2.0: 2× Type-A HOST                                                                                                                                                |
+| Expansion    | GPIO Header: Supports UART, SPI, I2C, I2S, PWM, CAN, ADC, etc. <br/> PCIe Slot: PCIe 2.1 x1 via FPC interface <br/> Fan Connector: 1× 2-pin 1.25mm PWM controlled fan header                                             |
+| Power Input  | Power Supply: USB Type-C or via GPIO header                                                                                                                                                                              |
+| OS Support   | Operating Systems: Debian Linux, Android 14, Yocto, Buildroot                                                                                                                                                            |
+| Temperature  | Commercial: 0°C ~ 60°C (RK3576) <br/> Industrial: -40°C ~ 85°C (RK3576J)                                                                                                                                                 |
 
 ## Interface Description
 
