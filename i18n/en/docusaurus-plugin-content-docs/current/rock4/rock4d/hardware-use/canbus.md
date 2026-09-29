@@ -12,3 +12,9 @@ imports_resolve_to:
 import CANBUS from '../../../common/dev/\_canbus.mdx';
 
 <CANBUS rsetup_link="../system-config/rsetup#overlays" />
+
+:::tip
+The CAN controller on ROCK 4D supports CAN FD (CAN with Flexible Data-Rate), and you can use `fd on` and `dbitrate` in the example commands to configure the data phase bitrate.
+
+ROCK 4D **does not have an on-board CAN transceiver**, so an external CAN transceiver module is required. If you need the higher data phase bitrates of CAN FD, make sure the external transceiver module itself supports CAN FD.
+:::
