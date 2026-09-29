@@ -164,3 +164,9 @@ sudo lspci -vvv -s 0000:01:00.1 | grep LnkSta
 | Radxa Penta Case   | <img src="/img/accessories/storage/penta/case/case-5.webp" width="480" alt="case-5" /> | [Printables](https://www.printables.com/model/980955-radxa-sata-hat-case-w-80mm-fan)                      | [Patrick Friedel](https://www.printables.com/@PatrickFriede_243003) | 8CM 风扇，散热优秀                                                                                                                                                                    |
 | Pi 5 NAS 2.5" 3.5" | <img src="/img/accessories/storage/penta/case/case-6.webp" width="480" alt="case-6" /> | [Printables](https://www.printables.com/model/1183731-raxda-penta-3525-drives-nas-case)                   | [Whyzard](https://www.printables.com/@whyzard_2435863)              | 简易外壳，支持 2.5/3.5 寸硬盘                                                                                                                                                         |
 | AnaNAS (PiNASpple) | <img src="/img/accessories/storage/penta/case/case-7.webp" width="480" alt="case-7" /> | [Printables](https://www.printables.com/model/1468673-ananas-pinaspple-raspberry-pi-5-radxa-penta-sata-h) | [Ingo H](https://www.printables.com/@IngoH_455080)                  | 一个大大的菠萝 🍍                                                                                                                                                                     |
+
+## 社区 NAS 软件
+
+[PaNasMs（Pavlo's NAS Management System）](https://panasms.github.io/) 是一个独立维护的 DIY ARM64 NAS Web 管理面板。项目提供了使用 4 块 SATA 硬盘的 [Raspberry Pi 5 与 Radxa Penta SATA HAT 构建记录](https://panasms.github.io/hardware/rpi_radxa_penta/)，包括组装照片和硬盘散热接线说明。其功能包括磁盘与软件 RAID 管理、SMART 监控、SMB/NFS 共享、Linux 用户管理，以及可选的文件管理器、终端和 Google Drive 同步模块。
+
+PaNasMs 以 Debian 软件包形式安装在现有 Linux 系统上，而不是独立的可启动操作系统镜像。项目仍在积极开发中，安装要求和当前限制请参阅[项目仓库](https://github.com/PaNasMs/panasms)。这是社区项目，并非 Radxa 官方软件发行版。
