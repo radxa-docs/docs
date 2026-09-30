@@ -60,7 +60,7 @@ sidebar_position: 4
     <img src="/img/accessories/camera-8m-219-03.webp" style={{ width: '50%', maxWidth: '1200px' }} />
   </div>
 
-- 支持 ROCK 3C / ROCK 4SE / Dragon Q6A
+- 支持 ROCK 3C / ROCK 4SE / ROCK 4D / Dragon Q6A
 
   排线规格：15-Pin 1.0 mm 间距 → 15-Pin 1.0 mm 间距（异面）FPC 排线
 

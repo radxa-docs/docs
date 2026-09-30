@@ -60,7 +60,7 @@ Radxa Camera 8M 219 is an high resolution camera module for Radxa products power
     <img src="/en/img/accessories/camera-8m-219-03.webp" style={{ width: '50%', maxWidth: '1200px' }} />
   </div>
 
-- Supports ROCK 3C / ROCK 4SE / Dragon Q6A
+- Supports ROCK 3C / ROCK 4SE / ROCK 4D / Dragon Q6A
 
   Cable spec: 15-Pin 1.0 mm pitch → 15-Pin 1.0 mm pitch (opposite side) FPC cable
 
