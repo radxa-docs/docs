@@ -113,6 +113,41 @@ sudo reboot
 
 重启完成后，可以通过 `uname -a` 查看当前启动的内核版本号，来查看是否安装成功
 
+## 编译外部内核模块
+
+如果只需要验证自定义驱动，不需要重新编译整个内核。先使用 `bsp` 获取并配置与目标板匹配的内核源码，然后在驱动目录中创建一个最小的 `Makefile`：
+
+```makefile
+obj-m += my_driver.o
+```
+
+将 `my_driver.c` 和 `Makefile` 放在同一目录后，在主机上的 `bsp` 构建环境中执行：
+
+```bash
+cd /path/to/bsp
+./bsp linux rk2410 --no-build
+
+cd /path/to/your-driver
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+  -C /path/to/bsp/.src/linux M=$PWD modules
+```
+
+编译完成后会在驱动目录生成 `my_driver.ko`。将它复制到开发板后，可以先使用 `insmod` 临时加载进行验证：
+
+```bash
+scp my_driver.ko user@board:/tmp/
+ssh user@board
+sudo insmod /tmp/my_driver.ko
+```
+
+也可以先按照上面的步骤生成并安装 `linux-headers` 软件包，然后直接在开发板上编译：
+
+```bash
+make -C /lib/modules/$(uname -r)/build M=$PWD modules
+```
+
+开发板上运行的内核版本必须与编译模块使用的内核及 headers 完全匹配，否则加载模块时可能出现 `version magic` 不匹配。若修改了 `bsp/.src/linux` 中的内核源码，重新构建时请保留 `--no-prepare-source` 参数，否则 `bsp` 可能会同步远程源码并覆盖本地修改。
+
 ## 手动编译
 
 :::tip
