@@ -16,8 +16,8 @@ sidebar_position: 150
 
 ### Radxa OS
 
-- [radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_512.img.xz)：适用于 microSD 卡 / NVMe SSD 启动
-- [radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r5/radxa-dragon-midstream_resolute_gnome_r5.output_4096.img.xz)：适用于 UFS 启动
+- [radxa-dragon-midstream_resolute_gnome_r7.output_512.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r7/radxa-dragon-midstream_resolute_gnome_r7.output_512.img.xz)：适用于 microSD 卡 / NVMe SSD 启动
+- [radxa-dragon-midstream_resolute_gnome_r7.output_4096.img.xz](https://github.com/radxa-build/radxa-dragon-midstream/releases/download/rsdk-r7/radxa-dragon-midstream_resolute_gnome_r7.output_4096.img.xz)：适用于 UFS 启动
 
 ### Arch Linux
 
