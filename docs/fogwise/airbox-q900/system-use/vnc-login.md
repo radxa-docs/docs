@@ -317,7 +317,7 @@ vncserver -kill :1
 
 <div style={{ textAlign: "center" }}>
   <img
-    src="\img\fogwise\airbox-q900\airbox-q900-vnc-login.webp"
+    src="/img/fogwise/airbox-q900/airbox-q900-vnc-login.webp"
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
