@@ -361,6 +361,31 @@ sidebar_custom_props:
             ],
         },
         {
+          series_en: "OSM Compute Modules",
+          series_zh: "OSM 核心模组",
+          series_introduction_en: "OSM compute modules for integration into complete systems.",
+          series_introduction_zh: "用于整机集成的 OSM 核心模组。",
+          products:
+            [
+              {
+                products_name: "Radxa OM-G720-L",
+                products_photo_url: "/home/overview.svg",
+                products_link: "/osm/om-g720-l",
+                docs:
+                  [
+                    {
+                      docs_link: "/osm/om-g720-l",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa OM-G720-L 概览",
+                      docs_info_en: "Overview of the Radxa OM-G720-L",
+                      docs_info_zh: "Radxa OM-G720-L 概览",
+                    },
+                  ],
+              },
+            ],
+        },
+        {
           series_en: "Compute Module",
           series_zh: "计算模块系列",
           series_introduction_en: "Compute Module is a compact series of computing modules implemented by Rockchip SoC, known for their small size and compact layout.",
@@ -621,14 +646,39 @@ sidebar_custom_props:
             ],
         },
         {
-          series_en: "Fogwise® Family",
-          series_zh: "Fogwise® 系列",
-          series_introduction_en: "The FogWise® Edge Computing Series by Radxa is built on an open ecosystem and industrial-grade design, delivering integrated capabilities from device-side inference to cloud-edge collaboration. The product lineup includes edge AI computing boxes, industrial gateways, and edge servers, empowering enterprises to rapidly deploy stable and scalable edge intelligence across diverse scenarios.",
-          series_introduction_zh: "瑞莎 FogWise® 边缘计算系列以开放生态和工业级设计为底座，提供从设备端推理到云边协同的一体化能力；产品覆盖边缘智算盒、工业网关、边缘服务器，助力企业在多场景快速落地稳定、可规模化的边缘智能。",
+          series_en: "Fogwise Industrial Computers",
+          series_zh: "Fogwise 工业电脑",
+          series_introduction_en: "Industrial computers for industrial connectivity, device integration and field deployment. Fogwise and AIRbox are parallel product series under Radxa.",
+          series_introduction_zh: "面向工业接口连接、设备连接与现场部署的工业电脑。Fogwise 与 AIRbox 是 Radxa 品牌下的平行产品系列。",
           products:
             [
               {
-                products_name: "Fogwise® AirBox",
+                products_name: "Radxa Fogwise G720",
+                products_photo_url: "/home/overview.svg",
+                products_link: "/fogwise/g720",
+                docs:
+                  [
+                    {
+                      docs_link: "/fogwise/g720",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa Fogwise G720 概览",
+                      docs_info_en: "Overview of the Radxa Fogwise G720",
+                      docs_info_zh: "Radxa Fogwise G720 概览",
+                    },
+                  ],
+              },
+            ],
+        },
+        {
+          series_en: "AIRbox Edge AI Computers",
+          series_zh: "AIRbox AI 算力盒子",
+          series_introduction_en: "The AIRbox Edge AI Computers series focuses on edge AI inference, model execution and compute deployment. AIRbox and Fogwise are parallel product series under Radxa.",
+          series_introduction_zh: "AIRbox AI 算力盒子系列面向边缘 AI 推理、模型运行与算力部署。AIRbox 与 Fogwise 是 Radxa 品牌下的平行产品系列。",
+          products:
+            [
+              {
+                products_name: "Radxa AIRbox",
                 products_photo_url: "/en/home/product-pictures/airbox.webp",
                 products_link: "/fogwise/airbox",
                 docs:
@@ -637,14 +687,14 @@ sidebar_custom_props:
                       docs_link: "/fogwise/airbox",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
-                      docs_name_zh: "Radxa Fogwise® AirBox 概览",
-                      docs_info_en: "Overview of the Radxa Fogwise® AirBox",
-                      docs_info_zh: "Radxa Fogwise® AirBox 概览",
+                      docs_name_zh: "Radxa AIRbox 概览",
+                      docs_info_en: "Overview of the Radxa AIRbox",
+                      docs_info_zh: "Radxa AIRbox 概览",
                     },
                   ],
               },
               {
-                products_name: "Fogwise® AIRbox Q900",
+                products_name: "Radxa AIRbox Q900",
                 products_photo_url: "/en/home/product-pictures/airbox-q900.webp",
                 products_link: "/fogwise/airbox-q900",
                 docs:
@@ -653,9 +703,9 @@ sidebar_custom_props:
                       docs_link: "/fogwise/airbox-q900",
                       docs_photo_type: "Overview",
                       docs_name_en: "Overview",
-                      docs_name_zh: "Radxa Fogwise® AIRbox Q900 概览",
-                      docs_info_en: "Overview of the Radxa Fogwise® AIRbox Q900",
-                      docs_info_zh: "Radxa Fogwise® AIRbox Q900 概览",
+                      docs_name_zh: "Radxa AIRbox Q900 概览",
+                      docs_info_en: "Overview of the Radxa AIRbox Q900",
+                      docs_info_zh: "Radxa AIRbox Q900 概览",
                     },
                   ],
               },
@@ -958,3 +1008,5 @@ sidebar_custom_props:
       ],
   }
 ---
+
+# 产品文档目录

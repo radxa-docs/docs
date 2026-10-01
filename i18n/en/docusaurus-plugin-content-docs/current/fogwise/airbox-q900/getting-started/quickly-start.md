@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Quick Start
 
-This tutorial is designed to help you quickly get started with the Fogwise® AIRbox Q900 product.
+This tutorial is designed to help you quickly get started with the AIRbox Q900 product.
 
 :::tip Usage Instructions
 
@@ -14,12 +14,12 @@ The AIRbox Q900 comes with a pre-installed system, so you can start using it rig
 
 ## Product Overview
 
-|        Product        | No. |   View   | No. |    View     | No. |    View     |
-| :-------------------: | :-: | :------: | :-: | :---------: | :-: | :---------: |
-| Fogwise® AIRbox Q900 |  ①  | Top View |  ②  | Side View 1 |  ③  | Side View 2 |
+|   Product   | No. |   View   | No. |    View     | No. |    View     |
+| :---------: | :-: | :------: | :-: | :---------: | :-: | :---------: |
+| AIRbox Q900 |  ①  | Top View |  ②  | Side View 1 |  ③  | Side View 2 |
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/fogwise/airbox-q900/airbox-q900-product.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Fogwise® AIRbox Q900 Product Overview" />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-product.webp" style={{width: '100%', maxWidth: '1200px'}} alt="AIRbox Q900 Product Overview" />
 </div>
 
 ## Prerequisites
@@ -28,7 +28,7 @@ The AIRbox Q900 comes with a pre-installed system, so you can start using it rig
 
 You will need to prepare the following hardware:
 
-- Board: Fogwise® AIRbox Q900
+- Board: AIRbox Q900
 - Power Supply: 12V DC power adapter
 - Input Devices: Keyboard and mouse
 - Display: Monitor with HDMI cable for system interface
@@ -46,10 +46,10 @@ The AIRbox Q900 is powered by a 12V DC power supply. For stable operation with a
 
 ### Hardware Connection
 
-Connect your monitor, keyboard, mouse, and Ethernet cable to the Fogwise® AIRbox Q900, then power it on using the 12V DC power adapter.
+Connect your monitor, keyboard, mouse, and Ethernet cable to the AIRbox Q900, then power it on using the 12V DC power adapter.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/fogwise/airbox-q900/airbox-q900-hardware-connect.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Fogwise® AIRbox Q900 Hardware Connection" />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-hardware-connect.webp" style={{width: '100%', maxWidth: '1200px'}} alt="AIRbox Q900 Hardware Connection" />
 </div>
 
 ① : Connect the monitor to the board using an HDMI cable
@@ -68,7 +68,7 @@ If you need more USB Type-A ports, you can use a USB hub to easily expand the nu
 
 ## Powering On
 
-Connect the 12V DC power adapter to the Fogwise® AIRbox Q900. After a successful boot, you'll see the system interface on your monitor.
+Connect the 12V DC power adapter to the AIRbox Q900. After a successful boot, you'll see the system interface on your monitor.
 
 ## System Login
 

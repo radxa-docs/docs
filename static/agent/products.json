@@ -258,6 +258,19 @@
       }
     },
     {
+      "family": "OSM Compute Modules",
+      "id": "radxa-om-g720-l",
+      "name": "Radxa OM-G720-L",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/osm/om-g720-l",
+        "zh": "https://docs.radxa.com/osm/om-g720-l"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/osm/om-g720-l/README.md",
+        "zh": "docs/osm/om-g720-l/README.md"
+      }
+    },
+    {
       "family": "Compute Module",
       "id": "radxa-cm4",
       "name": "Radxa CM4",
@@ -427,9 +440,22 @@
       }
     },
     {
-      "family": "Fogwise® Family",
-      "id": "fogwise-airbox",
-      "name": "Fogwise® AirBox",
+      "family": "Fogwise Industrial Computers",
+      "id": "radxa-fogwise-g720",
+      "name": "Radxa Fogwise G720",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/fogwise/g720",
+        "zh": "https://docs.radxa.com/fogwise/g720"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/fogwise/g720/README.md",
+        "zh": "docs/fogwise/g720/README.md"
+      }
+    },
+    {
+      "family": "AIRbox Edge AI Computers",
+      "id": "radxa-airbox",
+      "name": "Radxa AIRbox",
       "public_urls": {
         "en": "https://docs.radxa.com/en/fogwise/airbox",
         "zh": "https://docs.radxa.com/fogwise/airbox"
@@ -440,9 +466,9 @@
       }
     },
     {
-      "family": "Fogwise® Family",
-      "id": "fogwise-airbox-q900",
-      "name": "Fogwise® AIRbox Q900",
+      "family": "AIRbox Edge AI Computers",
+      "id": "radxa-airbox-q900",
+      "name": "Radxa AIRbox Q900",
       "public_urls": {
         "en": "https://docs.radxa.com/en/fogwise/airbox-q900",
         "zh": "https://docs.radxa.com/fogwise/airbox-q900"

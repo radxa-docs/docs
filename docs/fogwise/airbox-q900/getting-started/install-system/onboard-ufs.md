@@ -4,10 +4,10 @@ sidebar_position: 1
 
 # 安装系统到板载 UFS
 
-主要介绍如何将系统安装到 Fogwise® AIRbox Q900 的板载 UFS 上。
+主要介绍如何将系统安装到 AIRbox Q900 的板载 UFS 上。
 
 :::info 配置说明
-Fogwise® AIRbox Q900 板载 128GB UFS。
+AIRbox Q900 板载 128GB UFS。
 :::
 
 ## 使用前提
@@ -115,7 +115,7 @@ Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
 ## 安装系统
 
-主要介绍 Windows 和 Ubuntu 系统下安装系统到 Fogwise® AIRbox Q900 的板载 UFS 上的方法。
+主要介绍 Windows 和 Ubuntu 系统下安装系统到 AIRbox Q900 的板载 UFS 上的方法。
 
 ### 下载文件
 
@@ -431,7 +431,7 @@ partition 1 is now bootable
 
 ## 使用系统
 
-完成以上操作，可以按照 [快速上手](../quickly-start.md) 教程使用 Fogwise® AIRbox Q900。
+完成以上操作，可以按照 [快速上手](../quickly-start.md) 教程使用 AIRbox Q900。
 
 ## 其他操作
 

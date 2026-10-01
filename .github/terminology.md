@@ -17,6 +17,11 @@
 | microSD / SD card |                                     microSD 卡 | microSD / SD card                              | 存储卡命名；写作 `microSD 卡` 时保留大小写。                           |
 | GPIO              |                                           GPIO | GPIO                                           | 通用 I/O，首现可扩展为“通用输入输出（GPIO）”。                         |
 | PCIe              |                                           PCIe | PCIe                                           | e 必须是小写 ｜                                                        |
+| Fogwise           |                               Fogwise 工业电脑 | Fogwise Industrial Computers                   | 与 AIRbox 平行的 Radxa 产品系列。                                      |
+| AIRbox            |                             AIRbox AI 算力盒子 | AIRbox Edge AI Computers                       | 保留 AIRbox 大小写，不继承 Fogwise 的商标符号。                        |
+| Fogwise G720      |                             Radxa Fogwise G720 | Radxa Fogwise G720                             | 基于 OM-G720-L OSM 模组的工业整机。                                    |
+| AIRbox Q900       |                              Radxa AIRbox Q900 | Radxa AIRbox Q900                              | AIRbox 系列产品；既有技术标识和下载路径保留。                          |
+| OM-G720-L         |                                Radxa OM-G720-L | Radxa OM-G720-L                                | 用于整机集成的 OSM 核心模组。                                          |
 
 ---
 

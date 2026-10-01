@@ -4,14 +4,14 @@ sidebar_position: 11
 
 # RTC Battery Interface
 
-The Radxa Fogwise® AIRbox Q900 features an onboard RTC battery interface for connecting a coin cell battery.
+The Radxa AIRbox Q900 features an onboard RTC battery interface for connecting a coin cell battery.
 
 ## Hardware Connection
 
-Connect a coin cell battery with the appropriate connector to the RTC battery interface on the Radxa Fogwise® AIRbox Q900. Please observe the correct polarity (positive/negative) when installing the battery.
+Connect a coin cell battery with the appropriate connector to the RTC battery interface on the Radxa AIRbox Q900. Please observe the correct polarity (positive/negative) when installing the battery.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/fogwise/airbox-q900/airbox-q900-rtc-battery.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Fogwise® AIRbox Q900 RTC Battery Connection" />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-rtc-battery.webp" style={{width: '100%', maxWidth: '1200px'}} alt="AIRbox Q900 RTC Battery Connection" />
 </div>
 
 :::info Coin Cell Battery Specifications

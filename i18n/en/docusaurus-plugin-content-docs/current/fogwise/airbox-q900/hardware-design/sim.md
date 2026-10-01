@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Nano SIM Card Slot
 
-The Radxa Fogwise® AIRbox Q900 features 1 onboard Nano SIM card slot that supports Nano SIM card installation.
+The Radxa AIRbox Q900 features 1 onboard Nano SIM card slot that supports Nano SIM card installation.
 
 ## Hardware Connection
 
@@ -13,7 +13,7 @@ To enable mobile network connectivity, you need to install both a Nano SIM card 
 Note: This tutorial uses the Quectel LTE EC20 as an example.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/fogwise/airbox-q900/airbox-q900-5g.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Fogwise® AIRbox Q900 5G Module Installation" />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-5g.webp" style={{width: '100%', maxWidth: '1200px'}} alt="AIRbox Q900 5G Module Installation" />
 </div>
 
 ## Usage Guide

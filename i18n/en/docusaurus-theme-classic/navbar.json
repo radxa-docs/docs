@@ -3,10 +3,6 @@
     "message": "Single Board Computers",
     "description": "Navbar item with label SBC"
   },
-  "item.label.Airbox": {
-    "message": "Airbox",
-    "description": "Navbar item with label Airbox"
-  },
   "item.label.CM3": {
     "message": "CM3",
     "description": "Navbar item with label CM3"
@@ -242,5 +238,25 @@
   "logo.alt": {
     "message": "Radxa",
     "description": "The alt text of navbar logo"
+  },
+  "item.label.Fogwise 工业电脑": {
+    "message": "Fogwise Industrial Computers",
+    "description": "Navbar item with label Fogwise 工业电脑"
+  },
+  "item.label.AIRbox AI 算力盒子": {
+    "message": "AIRbox Edge AI Computers",
+    "description": "Navbar item with label AIRbox AI 算力盒子"
+  },
+  "item.label.AIRbox": {
+    "message": "AIRbox",
+    "description": "Navbar item with label AIRbox"
+  },
+  "item.label.Fogwise G720": {
+    "message": "Fogwise G720",
+    "description": "Navbar item with label Fogwise G720"
+  },
+  "item.label.OSM 核心模组": {
+    "message": "OSM Compute Modules",
+    "description": "Navbar item with label OSM 核心模组"
   }
 }

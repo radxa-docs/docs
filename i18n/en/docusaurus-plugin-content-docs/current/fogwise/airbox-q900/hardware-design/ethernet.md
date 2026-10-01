@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # 2.5G Ethernet Interface
 
-The Radxa Fogwise® AIRbox Q900 features two onboard 2.5G Ethernet interfaces (1 WAN port and 1 LAN port), supporting multiple auto-negotiated speeds including 10M/100M/1000M/2500M. These interfaces are primarily used to connect PC devices or local area network (LAN) devices to the AIRbox Q900.
+The Radxa AIRbox Q900 features two onboard 2.5G Ethernet interfaces (1 WAN port and 1 LAN port), supporting multiple auto-negotiated speeds including 10M/100M/1000M/2500M. These interfaces are primarily used to connect PC devices or local area network (LAN) devices to the AIRbox Q900.
 
 Port Identification: The port closer to the USB Type-C interface is the WAN port, while the one further away is the LAN port.
 

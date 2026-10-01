@@ -4,7 +4,7 @@ sidebar_position: 9
 
 # Mini PCIe 插槽
 
-瑞莎 Fogwise® AIRbox Q900 板载 1 个 Mini PCIe 插槽，支持安装无线网卡和 4G/5G 模块。
+Radxa AIRbox Q900 板载 1 个 Mini PCIe 插槽，支持安装无线网卡和 4G/5G 模块。
 
 ## 硬件连接
 

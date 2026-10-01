@@ -4,11 +4,11 @@ sidebar_position: 11
 
 # RTC 电池接口
 
-瑞莎 Fogwise® AIRbox Q900 板载 RTC 电池接口，用于连接纽扣电池。
+Radxa AIRbox Q900 板载 RTC 电池接口，用于连接纽扣电池。
 
 ## 硬件连接
 
-将带连接接口的纽扣电池安装到瑞莎 Fogwise® AIRbox Q900 的 RTC 电池接口，安装时请注意电池正负极。
+将带连接接口的纽扣电池安装到Radxa AIRbox Q900 的 RTC 电池接口，安装时请注意电池正负极。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/fogwise/airbox-q900/airbox-q900-rtc-battery.webp" style={{width: '100%', maxWidth: '1200px'}} />

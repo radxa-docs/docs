@@ -4,7 +4,7 @@ sidebar_position: 13
 
 # Power Button
 
-The Radxa Fogwise® AIRbox Q900 features a built-in power button for system shutdown control.
+The Radxa AIRbox Q900 features a built-in power button for system shutdown control.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/fogwise/airbox-q900/airbox-q900-power-button.webp" style={{width: '75%', maxWidth: '1200px'}} />

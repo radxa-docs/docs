@@ -5,7 +5,7 @@ title: System Installation
 
 # System Installation
 
-This document describes how to install an OS image into AirBox.
+This document describes how to install an OS image into AIRbox.
 
 ## Preparation
 
@@ -52,7 +52,7 @@ Balena Etcher is a cross-platform and user-friendly image burning tool that we r
 
 ### 2.SD Card Brush
 
-Please power off the Fogwise® AirBox, insert the SD card, and connect the serial terminal (use usb type-a to type-c cable, type-c connects to the debug port of the Fogwise® AirBox, type a connects to the computer, the baud rate is set to 115200, and the location of the debug port is in the [hardware-interface](../hardware-design/hardware-interface) to find it, then power up the whole machine. You will see
+Please power off the AIRbox, insert the SD card, and connect the serial terminal (use usb type-a to type-c cable, type-c connects to the debug port of the AIRbox, type a connects to the computer, the baud rate is set to 115200, and the location of the debug port is in the [hardware-interface](../hardware-design/hardware-interface) to find it, then power up the whole machine. You will see
 The SG2300X automatically enters the flashing process:
 
 ```text
@@ -101,7 +101,7 @@ If the burning process fails, usually caused by the chip is hot, then please wai
 
 ## System Startup
 
-- After successfully burning the image to emmc as described above, remove the microSD card and power up the Fogwise® AirBox.
+- After successfully burning the image to emmc as described above, remove the microSD card and power up the AIRbox.
 
 ## Precautions
 

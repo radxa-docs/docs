@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 安装串口驱动
 
-在 Windows 电脑，AirBox 需要安装 CP210 的串口驱动程序，驱动下载地址：https://www.silabs.com/documents/public/software/CP210x_Universal_Windows_Driver.zip
+在 Windows 电脑，AIRbox 需要安装 CP210 的串口驱动程序，驱动下载地址：https://www.silabs.com/documents/public/software/CP210x_Universal_Windows_Driver.zip
 
 下载好压缩文件后解压再参照下图安装
 

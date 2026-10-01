@@ -1,26 +1,32 @@
 ---
 sidebar_position: 10
+title: Radxa AIRbox Q900
+description: 面向边缘 AI 推理、模型运行与算力部署的 AIRbox AI 算力盒子。
 ---
 
-# Fogwise® AIRbox Q900
+# Radxa AIRbox Q900
 
 ## 产品介绍
 
-Fogwise® AIRbox Q900 是一款嵌入式人工智能微型服务器，支持高达 200TOPS@INT8 稀疏算力，支持多种精度（INT8、FP16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备散热铝合金外壳，可在恶劣环境中部署。
+Radxa AIRbox Q900 属于 [AIRbox AI 算力盒子系列](../../airbox/README.md)，面向边缘 AI 推理、模型运行与算力部署。
+
+AIRbox Q900 是一款嵌入式人工智能微型服务器，支持高达 200TOPS@INT8 稀疏算力，支持多种精度（INT8、FP16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备散热铝合金外壳，可在恶劣环境中部署。
+
+[Radxa AIRbox Q900 官网产品页](https://radxa.com/zh-CN/products/fogwise/airbox-q900/)
 
 ## 产品实物
 
-|       产品实物        | 序号 |  视图  | 序号 |   视图   | 序号 |   视图   |
-| :-------------------: | :--: | :----: | :--: | :------: | :--: | :------: |
-| Fogwise® AIRbox Q900 |  ①   | 俯视图 |  ②   | 侧视图 1 |  ③   | 侧视图 2 |
+|  产品实物   | 序号 |  视图  | 序号 |   视图   | 序号 |   视图   |
+| :---------: | :--: | :----: | :--: | :------: | :--: | :------: |
+| AIRbox Q900 |  ①   | 俯视图 |  ②   | 侧视图 1 |  ③   | 侧视图 2 |
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-product.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/img/fogwise/airbox-q900/airbox-q900-product.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Radxa AIRbox Q900 product overview" />
 </div>
 
 ## 产品规格
 
-| 产品型号   | Fogwise® AIRbox Q900                                                                                                                                                                                                                                                                                                                |
+| 产品型号   | AIRbox Q900                                                                                                                                                                                                                                                                                                                          |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | CPU        | 八大核 Kryo 第六代（基于 Cortex-A78C）架构 @2.36 GHz                                                                                                                                                                                                                                                                                 |
 | GPU        | Adreno 663 图形处理器<br/> • 支持安全通用 GPU 计算，1.2 TFLOPS FP32 算力<br/>• 支持 Vulkan 1.2, OpenGL ES 3.2, OpenCL 2.0 FP<br/>• 支持 Adreno NN Direct                                                                                                                                                                             |
@@ -43,7 +49,7 @@ Fogwise® AIRbox Q900 是一款嵌入式人工智能微型服务器，支持高�
 ## 接口概览
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-ports.webp" style={{width: '75%', maxWidth: '1200px'}} />
+   <img src="/img/fogwise/airbox-q900/airbox-q900-ports.webp" style={{width: '75%', maxWidth: '1200px'}} alt="AIRbox Q900 interface overview" />
 </div>
 
 | 序号 | 说明                                                               | 序号 | 说明              | 序号 | 说明              |
@@ -59,15 +65,15 @@ Fogwise® AIRbox Q900 是一款嵌入式人工智能微型服务器，支持高�
 </div>
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/iq-9075-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/img/fogwise/airbox-q900/iq-9075-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} alt="IQ-9075 chip block diagram" />
 </div>
 
 ## 系统框图
 
 <div style={{textAlign: 'center'}}>
-**Fogwise® AIRbox Q900 硬件系统框图**
+**AIRbox Q900 硬件系统框图**
 </div>
 
 <div style={{textAlign: 'center'}}>
-   <img src="/img/fogwise/airbox-q900/airbox-q900-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/img/fogwise/airbox-q900/airbox-q900-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} alt="AIRbox Q900 hardware system block diagram" />
 </div>

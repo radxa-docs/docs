@@ -4,15 +4,15 @@ sidebar_position: 3
 
 # USB Type-A Ports
 
-The Radxa Fogwise® AIRbox Q900 features 2 onboard USB Type-A ports (1x USB 3.1 Gen2 OTG Type-A and 1x USB 3.1 Gen2 HOST Type-A) for connecting USB devices.
+The Radxa AIRbox Q900 features 2 onboard USB Type-A ports (1x USB 3.1 Gen2 OTG Type-A and 1x USB 3.1 Gen2 HOST Type-A) for connecting USB devices.
 
-Note: The orientation of the Fogwise® AIRbox Q900 board is reversed when installed in the metal enclosure, causing the OTG and HOST port positions to be swapped:
+Note: The orientation of the AIRbox Q900 board is reversed when installed in the metal enclosure, causing the OTG and HOST port positions to be swapped:
 
 - Without enclosure: USB 3.1 Gen2 OTG Type-A (top), USB 3.1 Gen2 HOST Type-A (bottom)
 - With enclosure: USB 3.1 Gen2 OTG Type-A (bottom), USB 3.1 Gen2 HOST Type-A (top)
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/fogwise/airbox-q900/airbox-q900-usb-a-port.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Fogwise® AIRbox Q900 USB Type-A Ports" />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-usb-a-port.webp" style={{width: '100%', maxWidth: '1200px'}} alt="AIRbox Q900 USB Type-A Ports" />
 </div>
 
 ## Usage Guide

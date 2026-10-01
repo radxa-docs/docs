@@ -4,7 +4,7 @@ sidebar_position: 10
 
 # eMMC / UFS Module Interface
 
-The Radxa Fogwise® AIRbox Q900 features a combined eMMC/UFS module interface that supports the installation of either eMMC or UFS modules.
+The Radxa AIRbox Q900 features a combined eMMC/UFS module interface that supports the installation of either eMMC or UFS modules.
 
 ## Usage Guide
 

@@ -24,7 +24,7 @@ sidebar_position: 4
 |  Specification   | AICore SG2300X                                                                                                                                                                                                                                                                        |
 | :--------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |     **尺寸**     | 55 mm × 60 mm                                                                                                                                                                                                                                                                         |
-|    **处理器**    | SOPHON SG2300X SoC，八核 Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                          |
+|    **处理器**    | SOPHON SG2300X SoC，八核 Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                            |
 | **张量处理单元** | 张量处理单元计算能力：最高32TOPS (INT8)，16TFLOPS (FP16/BF16) 和2TFLOPS (FP32)<br/>支持主流深度学习框架，包括 TensorFlow、Caffe、PyTorch、Paddle、ONNX、MXNet、Tengine 和 DarkNet                                                                                                     |
 |     **内存**     | 支持16GB LPDDR4X 内存选项                                                                                                                                                                                                                                                             |
 |     **储存**     | 支持32GB、64GB 和 128GB 的 eMMC 储存选项<br/>内置16MB SPI 闪存<br/>支持使用 SD 卡进行数据存储和操作系统引导的 SDMMC 接口                                                                                                                                                              |
@@ -39,20 +39,20 @@ sidebar_position: 4
 
 </TabItem>
 
-<TabItem value="Fogwise® AirBox" label="Fogwise® AirBox">
+<TabItem value="AIRbox" label="AIRbox">
 
 ## 产品介绍
 
-Fogwise® AirBox 是一款基于 **AICore SG2300X 核心板** 的嵌入式人工智能微型服务器，算力高达 32TOPS@INT8，支持多种精度（INT8、FP16/BF16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备铝合金外壳，可在恶劣环境中部署。
+AIRbox 是一款基于 **AICore SG2300X 核心板** 的嵌入式人工智能微型服务器，算力高达 32TOPS@INT8，支持多种精度（INT8、FP16/BF16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备铝合金外壳，可在恶劣环境中部署。
 
-**这个介绍 Fogwise® AirBox 是为了方便介绍 AICore SG2300X 的功能。**
+**这个介绍 AIRbox 是为了方便介绍 AICore SG2300X 的功能。**
 
 #### 特性
 
-|       模块       | Fogwise® AirBox                                                                                                                                                                                                                                                                  |
+|       模块       | AIRbox                                                                                                                                                                                                                                                                            |
 | :--------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     **尺寸**     | 104 mm × 84 mm × 50.2 mm                                                                                                                                                                                                                                                          |
-|    **处理器**    | SOPHON SG2300X SoC，八核 Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                      |
+|    **处理器**    | SOPHON SG2300X SoC，八核 Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                        |
 | **张量处理单元** | 张量处理单元，计算能力：最高32TOPS (INT8)，16TFLOPS (FP16/BF16) 和2TFLOPS (FP32)<br/>支持主流深度学习框架，包括 TensorFlow、Caffe、PyTorch、Paddle、ONNX、MXNet、Tengine 和 DarkNet                                                                                               |
 |     **内存**     | 16GB LPDDR4X                                                                                                                                                                                                                                                                      |
 |     **储存**     | 64GB eMMC<br/>16MB SPI 闪存<br/>提供高速 SD 卡插槽                                                                                                                                                                                                                                |
@@ -64,7 +64,7 @@ Fogwise® AirBox 是一款基于 **AICore SG2300X 核心板** 的嵌入式人工
 
 #### 实物照片
 
-![Fogwise® AirBox Overview](/img/airbox/radxa_fogwise_airbox.webp)
+![AIRbox Overview](/img/airbox/radxa_fogwise_airbox.webp)
 
 ### 芯片框图
 

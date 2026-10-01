@@ -4,7 +4,7 @@ sidebar_position: 13
 
 # 关机键
 
-瑞莎 Fogwise® AIRbox Q900 板载关机键，用于控制主板系统关机。
+Radxa AIRbox Q900 板载关机键，用于控制主板系统关机。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/fogwise/airbox-q900/airbox-q900-power-button.webp" style={{width: '75%', maxWidth: '1200px'}} />

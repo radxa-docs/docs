@@ -4,9 +4,9 @@ sidebar_position: 1
 
 # 硬件接口说明
 
-Fogwise® AIRbox Q900 集成了丰富的硬件接口，满足工业物联网、边缘计算等多种应用场景的连接需求。
+AIRbox Q900 集成了丰富的硬件接口，满足工业物联网、边缘计算等多种应用场景的连接需求。
 
-![Fogwise® AIRbox Q900 Interfaces](/img/fogwise/airbox-q900/airbox-q900-interfaces.webp)
+![AIRbox Q900 Interfaces](/img/fogwise/airbox-q900/airbox-q900-interfaces.webp)
 
 | 编号 | 接口                   | 编号 | 接口                   | 编号 | 接口           |
 | ---- | ---------------------- | ---- | ---------------------- | ---- | -------------- |

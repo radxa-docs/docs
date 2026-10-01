@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Nano SIM 卡槽
 
-瑞莎 Fogwise® AIRbox Q900 板载 1 个 Nano SIM 卡槽，支持安装 Nano SIM 卡。
+Radxa AIRbox Q900 板载 1 个 Nano SIM 卡槽，支持安装 Nano SIM 卡。
 
 ## 硬件连接
 

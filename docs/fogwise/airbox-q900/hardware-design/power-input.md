@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # DC 电源输入接口
 
-Fogwise® AIRbox Q900 使用 12V DC 电源适配器进行供电。
+AIRbox Q900 使用 12V DC 电源适配器进行供电。
 
 ## 接口规格
 

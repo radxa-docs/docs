@@ -4,7 +4,7 @@ sidebar_position: 8
 
 # HDMI Interface
 
-The Radxa Fogwise® AIRbox Q900 features one standard HDMI 2.0 interface for display connectivity, supporting up to 4K@60fps (3840×2160@60Hz) resolution output.
+The Radxa AIRbox Q900 features one standard HDMI 2.0 interface for display connectivity, supporting up to 4K@60fps (3840×2160@60Hz) resolution output.
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/fogwise/airbox-q900/airbox-q900-hdmi.webp" style={{width: '100%', maxWidth: '1200px'}} />

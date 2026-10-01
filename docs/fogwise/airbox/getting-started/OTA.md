@@ -3,7 +3,9 @@ sidebar_position: 5
 title: OTA 升级
 ---
 
-Airbox 支持 OTA 软件更新，可以更新新版本的 SOPHON SDK，
+# OTA 升级
+
+AIRbox 支持 OTA 软件更新，可以更新新版本的 SOPHON SDK，
 在 [资源下载](./download) 提供的下载镜像中默认 SDK 版本为 v23.10.01
 
 使用 `bm_version` 可以查看那当前 SDK 软件版本
@@ -29,8 +31,8 @@ MCUVersion: 0x02
 libsophon 升级为 0.5.1。
 
 - 在[算能官网](https://developer.sophgo.com/site/index/material/90/all.html)下载目标版本 SDK， 并解压得到 `SDK-23.09_LTS_SP3`
-- 打开 SDK 目录下的 sophon-img 子文件夹，将 bsp_update.tgz 和 system.tgz 压缩包复制到 Airbox 上(如路径 `/home/linaro`)
-- 在 Airbox 上解压 bsp_update.tgz，并执行升级脚本
+- 打开 SDK 目录下的 sophon-img 子文件夹，将 bsp_update.tgz 和 system.tgz 压缩包复制到 AIRbox 上(如路径 `/home/linaro`)
+- 在 AIRbox 上解压 bsp_update.tgz，并执行升级脚本
   ```bash
   tar zxvf bsp_update.tgz
   cd bsp_update
@@ -48,7 +50,7 @@ libsophon 升级为 0.5.1。
 若用户对新版 sophon-mw 有硬性要求可以通过下载新版 SDK，使用附带的 deb 包进行安装，这里以 [SDK-23.09 LTS SP3](https://developer.sophgo.com/site/index/material/90/all.html) 为例子将
 sophon-mw 升级为 0.12.0
 
-- 将 SDK 里 sophon-mw 里的 sophon-mw-soc-sophon\*.deb 复制到 Airbox 上（如路径 `/home/linaro`）
+- 将 SDK 里 sophon-mw 里的 sophon-mw-soc-sophon\*.deb 复制到 AIRbox 上（如路径 `/home/linaro`）
 - 卸载当前版本的 sophon-mw
   ```bash
   sudo apt remove sophon-mw-soc-sophon-ffmpeg

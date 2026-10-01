@@ -4,10 +4,10 @@ sidebar_position: 4
 
 # USB Type-C Interface
 
-The Radxa Fogwise® AIRbox Q900 features 1 onboard USB Type-C port, primarily used for system log viewing and command-line interaction.
+The Radxa AIRbox Q900 features 1 onboard USB Type-C port, primarily used for system log viewing and command-line interaction.
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/fogwise/airbox-q900/airbox-q900-usb-c-port.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Fogwise® AIRbox Q900 USB Type-C Port" />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-usb-c-port.webp" style={{width: '100%', maxWidth: '1200px'}} alt="AIRbox Q900 USB Type-C Port" />
 </div>
 
 ## Usage Guide

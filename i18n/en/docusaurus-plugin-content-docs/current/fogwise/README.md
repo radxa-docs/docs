@@ -1,9 +1,15 @@
 ---
-sidebar_position: 30
-sidebar_class_name: hidden
-slug: /sophon
+sidebar_position: 1
+doc_kind: page
+title: Fogwise Industrial Computers
+description: Fogwise Industrial Computers
+slug: /fogwise
+displayed_sidebar: fogwise
 ---
 
-# Fogwise® Edge Computing Series
+# Fogwise Industrial Computers
 
-The FogWise® Edge Computing Series by Lisha is built on an open ecosystem and industrial-grade design, delivering integrated capabilities from device-side inference to cloud-edge collaboration. The product lineup includes edge AI computing boxes, industrial gateways, and edge servers, empowering enterprises to rapidly deploy stable and scalable edge intelligence across diverse scenarios.
+The Fogwise Industrial Computers series focuses on industrial connectivity, device integration and field deployment. Fogwise and AIRbox are parallel product series under the Radxa brand.
+
+- [Radxa Fogwise G720](./g720/README.md): an industrial computer based on the Radxa OM-G720-L OSM compute module.
+- [AIRbox Edge AI Computers](../airbox/README.md): edge AI inference, model execution and compute deployment.

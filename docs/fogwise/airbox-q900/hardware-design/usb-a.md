@@ -4,9 +4,9 @@ sidebar_position: 3
 
 # USB Type-A 接口
 
-瑞莎 Fogwise® AIRbox Q900 板载 2 个 USB Type-A 接口（其中 1 个为 USB 3.1 Gen2 OTG Type-A，1 个为 USB 3.1 Gen2 HOST Type-A），用于连接 USB 设备。
+Radxa AIRbox Q900 板载 2 个 USB Type-A 接口（其中 1 个为 USB 3.1 Gen2 OTG Type-A，1 个为 USB 3.1 Gen2 HOST Type-A），用于连接 USB 设备。
 
-由于 Fogwise® AIRbox Q900 主板在安装到金属外壳后方向会反转，导致 OTG 和 HOST 端口位置对调：
+由于 AIRbox Q900 主板在安装到金属外壳后方向会反转，导致 OTG 和 HOST 端口位置对调：
 
 - 无外壳时：USB 3.1 Gen2 OTG Type-A（上），USB 3.1 Gen2 HOST Type-A（下）
 - 有外壳时：USB 3.1 Gen2 OTG Type-A（下），USB 3.1 Gen2 HOST Type-A（上）

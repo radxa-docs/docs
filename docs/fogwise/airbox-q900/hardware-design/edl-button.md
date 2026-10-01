@@ -4,7 +4,7 @@ sidebar_position: 14
 
 # EDL 按键
 
-Fogwise® AIRbox Q900 板载 EDL 按键，主要用于进入紧急下载模式（Emergency Download Mode），进行系统固件刷写、系统恢复等场景。
+AIRbox Q900 板载 EDL 按键，主要用于进入紧急下载模式（Emergency Download Mode），进行系统固件刷写、系统恢复等场景。
 
 ## 介绍 EDL 模式
 

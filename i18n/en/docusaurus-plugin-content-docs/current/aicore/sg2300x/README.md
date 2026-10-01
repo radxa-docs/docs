@@ -21,10 +21,10 @@ The Radxa AICore SG2300X operates in SOC mode as well as in PCIe mode, i.e. the 
 
 #### Features
 
-|         Specification         | Radxa AICore SG2300X                                                                                                                                                                                                                                                                                                                                                                                                  |
+|         Specification         | Radxa AICore SG2300X                                                                                                                                                                                                                                                                                                                                                                                            |
 | :---------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |           **sizes**           | 55 mm × 60 mm                                                                                                                                                                                                                                                                                                                                                                                                   |
-|      **processing unit**      | SOPHON SG2300X SoC，octa-core Arm® Cortex®-A53 (ARMv8) @ 2.3GHz.                                                                                                                                                                                                                                                                                                                                              |
+|      **processing unit**      | SOPHON SG2300X SoC，octa-core Arm® Cortex®-A53 (ARMv8) @ 2.3GHz.                                                                                                                                                                                                                                                                                                                                                |
 |  **tensor processing unit**   | Tensor Processing Unit Computing Power: Up to 32TOPS (INT8), 16TFLOPS (FP16/BF16) and 2TFLOPS (FP32)<br/>Support for major deep learning frameworks including TensorFlow, Caffe, PyTorch, Paddle, ONNX, MXNet, Tengine and DarkNet.                                                                                                                                                                             |
 |          **memory**           | Supports 16GB LPDDR4X memory.option                                                                                                                                                                                                                                                                                                                                                                             |
 |          **storage**          | Supports 32GB, 64GB, and 128GB eMMC storage options<br/>Built-in 16MB of SPI flash memory<br/>Supports SDMMC interface with SD card for data storage and operating system booting.                                                                                                                                                                                                                              |
@@ -39,18 +39,18 @@ The Radxa AICore SG2300X operates in SOC mode as well as in PCIe mode, i.e. the 
 
 </TabItem>
 
-<TabItem value=" Fogwise® AirBox" label=" Fogwise® AirBox">
+<TabItem value=" AIRbox" label=" AIRbox">
 
 ## Products
 
-Fogwise® AirBox is an embedded AI micro-server with arithmetic power up to 32TOPS@INT8, supports multiple precision (INT8, FP16/BF16, FP32), supports private GPT, text-to-image, and other mainstream AI model deployments, and is equipped with an aluminum alloy casing for deployment in harsh environments.
+AIRbox is an embedded AI micro-server with arithmetic power up to 32TOPS@INT8, supports multiple precision (INT8, FP16/BF16, FP32), supports private GPT, text-to-image, and other mainstream AI model deployments, and is equipped with an aluminum alloy casing for deployment in harsh environments.
 
 #### Characterization
 
-|           module           | Fogwise® AirBox                                                                                                                                                                                                                                                                                                                                                                                              |
+|           module           | AIRbox                                                                                                                                                                                                                                                                                                                                                                                                        |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |         **sizes**          | 104 mm × 84 mm × 50.2 mm                                                                                                                                                                                                                                                                                                                                                                                      |
-|    **processing unit**     | SOPHON SG2300X SoC，octa-core Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                                                                                                                                             |
+|    **processing unit**     | SOPHON SG2300X SoC，octa-core Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                                                                                                                                               |
 | **tensor processing unit** | Tensor Processing Unit, computational power: up to 32TOPS (INT8), 16TFLOPS (FP16/BF16) and 2TFLOPS (FP32)<br/>Support for major deep learning frameworks including TensorFlow, Caffe, PyTorch, Paddle, ONNX, MXNet, Tengine and DarkNet.                                                                                                                                                                      |
 |         **memory**         | 16GB LPDDR4X                                                                                                                                                                                                                                                                                                                                                                                                  |
 |        **storage**         | 64GB eMMC<br/>16MB SPI Flash<br/>High Speed SD Card Slot Available                                                                                                                                                                                                                                                                                                                                            |
@@ -62,7 +62,7 @@ Fogwise® AirBox is an embedded AI micro-server with arithmetic power up to 32TO
 
 #### Photograph of sth.
 
-![Fogwise® AirBox Overview](/img/airbox/radxa_fogwise_airbox.webp)
+![AIRbox Overview](/img/airbox/radxa_fogwise_airbox.webp)
 
 ### Chip block diagram
 
@@ -70,7 +70,7 @@ Fogwise® AirBox is an embedded AI micro-server with arithmetic power up to 32TO
 
 ### System block diagram
 
-![Fogwise® AirBox Block Diagram](/img/airbox/airbox-block-diagram.webp)
+![AIRbox Block Diagram](/img/airbox/airbox-block-diagram.webp)
 
 </TabItem>
 

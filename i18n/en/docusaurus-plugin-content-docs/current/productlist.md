@@ -92,9 +92,9 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 
 ### Dragon Series
 
-| Model                      | Description                                          |
-| -------------------------- | ---------------------------------------------------- |
-| [Dragon Q6A](/dragon/q6a/) | Qualcomm QCS6490 based Mini Motherboard              |
+| Model                      | Description                                                              |
+| -------------------------- | ------------------------------------------------------------------------ |
+| [Dragon Q6A](/dragon/q6a/) | Qualcomm QCS6490 based Mini Motherboard                                  |
 | [Dragon Q8B](/dragon/q8b/) | Qualcomm Snapdragon 8cx Gen 3 (Qualcomm SC8280XP) based Mini Motherboard |
 
 ## Radxa Motherboards
@@ -113,16 +113,30 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 | [ROCK 5 ITX](/rock5/rock5itx/)  | RK3588 based ITX Form Factor Board |
 | [ROCK 5 ITX+](/rock5/rock5itx/) | RK3582 based ITX Form Factor Board |
 
-## Radxa Edge Computing
+## Fogwise Industrial Computers
 
-Fogwise® Brand, Edge AI and IoT Mini Computing Devices
+Industrial computers for industrial connectivity, device integration and field deployment.
 
-| Model       | Description                                     |
-| ----------- | ----------------------------------------------- |
-| AirBox      | SOPHON SG2300x based Edge AI Mini Host          |
-| AIRbox Q900 | Qualcomm IQ-9075 based Edge AI Computing Device |
+| Model                               | Description                                                      |
+| ----------------------------------- | ---------------------------------------------------------------- |
+| [Radxa Fogwise G720](/fogwise/g720) | An industrial computer based on the OM-G720-L OSM compute module |
+
+## AIRbox Edge AI Computers
+
+Edge AI inference, model execution and compute deployment. AIRbox and Fogwise are parallel product series under Radxa.
+
+| Model                                     | Description                               |
+| ----------------------------------------- | ----------------------------------------- |
+| [Radxa AIRbox](/fogwise/airbox)           | A SOPHON SG2300x based edge AI computer   |
+| [Radxa AIRbox Q900](/fogwise/airbox-q900) | A Qualcomm IQ-9075 based edge AI computer |
 
 ## Radxa Compute Modules
+
+### OSM Compute Modules
+
+| Model                             | Description                                  |
+| --------------------------------- | -------------------------------------------- |
+| [Radxa OM-G720-L](/osm/om-g720-l) | An OSM compute module for system integration |
 
 ### CM Series
 
@@ -137,9 +151,9 @@ Fogwise® Brand, Edge AI and IoT Mini Computing Devices
 
 ### rCore Series
 
-| Model        | Description                         |
-| ------------ | ----------------------------------- |
-| rCore-RK3308 | RK3308 based Compute Module         |
+| Model        | Description                           |
+| ------------ | ------------------------------------- |
+| rCore-RK3308 | RK3308 based Compute Module           |
 | rCore-Q9075  | Qualcomm QCS9075 based Compute Module |
 
 ### AICore Series

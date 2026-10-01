@@ -8,7 +8,7 @@ This guide provides instructions on how to use the system, including system star
 
 ## Starting the System
 
-Power on the Fogwise® AIRbox Q900 using the 12V DC power adapter. If the system boot medium contains a valid operating system, it will start automatically.
+Power on the AIRbox Q900 using the 12V DC power adapter. If the system boot medium contains a valid operating system, it will start automatically.
 
 ## System Information
 

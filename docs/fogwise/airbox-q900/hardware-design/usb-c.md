@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # USB Type-C 接口
 
-瑞莎 Fogwise® AIRbox Q900 板载 1 个 USB Type-C 接口，主要用于系统日志查看和命令行交互。
+Radxa AIRbox Q900 板载 1 个 USB Type-C 接口，主要用于系统日志查看和命令行交互。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/fogwise/airbox-q900/airbox-q900-usb-c-port.webp" style={{width: '100%', maxWidth: '1200px'}} />

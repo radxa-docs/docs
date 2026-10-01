@@ -4,7 +4,7 @@ sidebar_position: 9
 
 # Mini PCIe Slot
 
-The Radxa Fogwise® AIRbox Q900 features one onboard Mini PCIe slot that supports wireless network cards and 4G/5G modules.
+The Radxa AIRbox Q900 features one onboard Mini PCIe slot that supports wireless network cards and 4G/5G modules.
 
 ## Hardware Connection
 

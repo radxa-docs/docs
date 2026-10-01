@@ -4,7 +4,7 @@ sidebar_position: 10
 
 # eMMC / UFS 模块接口
 
-瑞莎 Fogwise® AIRbox Q900 板载 1 个 eMMC / UFS 模块二合一接口，支持安装 eMMC / UFS 模块。
+Radxa AIRbox Q900 板载 1 个 eMMC / UFS 模块二合一接口，支持安装 eMMC / UFS 模块。
 
 ## 使用指南
 

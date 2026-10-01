@@ -4,7 +4,7 @@ sidebar_position: 14
 
 # EDL Button
 
-The Fogwise® AIRbox Q900 features an onboard EDL (Emergency Download Mode) button, primarily used for entering emergency download mode to perform tasks such as system firmware flashing and system recovery.
+The AIRbox Q900 features an onboard EDL (Emergency Download Mode) button, primarily used for entering emergency download mode to perform tasks such as system firmware flashing and system recovery.
 
 ## About EDL Mode
 

@@ -4,10 +4,10 @@ sidebar_position: 1
 
 # Install System to Onboard UFS
 
-This guide explains how to install the system onto the onboard UFS of the Fogwise® AIRbox Q900.
+This guide explains how to install the system onto the onboard UFS of the AIRbox Q900.
 
 :::info Configuration Note
-Fogwise® AIRbox Q900 comes with 128GB onboard UFS.
+AIRbox Q900 comes with 128GB onboard UFS.
 :::
 
 ## Prerequisites
@@ -116,7 +116,7 @@ Bus 001 Device 012: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
 
 ## Installing the System
 
-This section describes how to install the system onto the onboard UFS of the Fogwise® AIRbox Q900 on both Windows and Ubuntu systems.
+This section describes how to install the system onto the onboard UFS of the AIRbox Q900 on both Windows and Ubuntu systems.
 
 ### Download Files
 
@@ -432,7 +432,7 @@ partition 1 is now bootable
 
 ## Using the System
 
-After completing the above operations, you can use the Fogwise® AIRbox Q900 by following the [Quick Start](../quickly-start.md) guide.
+After completing the above operations, you can use the AIRbox Q900 by following the [Quick Start](../quickly-start.md) guide.
 
 ## Other Operation
 

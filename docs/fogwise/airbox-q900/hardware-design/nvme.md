@@ -4,7 +4,7 @@ sidebar_position: 8
 
 # M.2 M Key 2230 插槽
 
-瑞莎 Fogwise® AIRbox Q900 板载 1 个 M.2 M Key 2230 插槽，支持 M.2 2230 SSD，用于存储系统数据。
+Radxa AIRbox Q900 板载 1 个 M.2 M Key 2230 插槽，支持 M.2 2230 SSD，用于存储系统数据。
 
 ## 硬件连接
 

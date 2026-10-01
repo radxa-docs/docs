@@ -4,7 +4,7 @@ sidebar_position: 8
 
 # M.2 M Key 2230 Slot
 
-The Radxa Fogwise® AIRbox Q900 features one onboard M.2 M Key 2230 slot that supports M.2 2230 SSDs for system data storage.
+The Radxa AIRbox Q900 features one onboard M.2 M Key 2230 slot that supports M.2 2230 SSDs for system data storage.
 
 ## Hardware Connection
 

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 快速上手
 
-本节教程目的是为了让大家快速上手使用 Fogwise® AIRbox Q900 产品。
+本节教程目的是为了让大家快速上手使用 AIRbox Q900 产品。
 
 :::tip 使用说明
 
@@ -14,9 +14,9 @@ sidebar_position: 1
 
 ## 产品实物
 
-|       产品实物        | 序号 |  视图  | 序号 |   视图   | 序号 |   视图   |
-| :-------------------: | :--: | :----: | :--: | :------: | :--: | :------: |
-| Fogwise® AIRbox Q900 |  ①   | 俯视图 |  ②   | 侧视图 1 |  ③   | 侧视图 2 |
+|  产品实物   | 序号 |  视图  | 序号 |   视图   | 序号 |   视图   |
+| :---------: | :--: | :----: | :--: | :------: | :--: | :------: |
+| AIRbox Q900 |  ①   | 俯视图 |  ②   | 侧视图 1 |  ③   | 侧视图 2 |
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/fogwise/airbox-q900/airbox-q900-product.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -28,7 +28,7 @@ sidebar_position: 1
 
 您需要提前准备以下硬件设备：
 
-- 主板：Fogwise® AIRbox Q900
+- 主板：AIRbox Q900
 - 供电：12V DC 电源适配器
 - 输入设备：键盘和鼠标
 - 显示设备：显示器和 HDMI 数据线，用于显示系统界面
@@ -46,7 +46,7 @@ AIRbox Q900 通过 12V DC 电源供电，建议电流 5A 以上，确保所有�
 
 ### 硬件连接
 
-将显示器、键盘、鼠标、以太网数据线等外设连接到 Fogwise® AIRbox Q900 上，最后使用 12V DC 电源适配器给 Fogwise® AIRbox Q900 供电。
+将显示器、键盘、鼠标、以太网数据线等外设连接到 AIRbox Q900 上，最后使用 12V DC 电源适配器给 AIRbox Q900 供电。
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/fogwise/airbox-q900/airbox-q900-hardware-connect.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -68,7 +68,7 @@ AIRbox Q900 通过 12V DC 电源供电，建议电流 5A 以上，确保所有�
 
 ## 启动系统
 
-使用 12V DC 电源适配器给 Fogwise® AIRbox Q900 通电，成功启动系统后，你可以看到显示器显示系统界面。
+使用 12V DC 电源适配器给 AIRbox Q900 通电，成功启动系统后，你可以看到显示器显示系统界面。
 
 ## 登录系统
 

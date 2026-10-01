@@ -1,26 +1,32 @@
 ---
 sidebar_position: 10
+title: Radxa AIRbox Q900
+description: An AIRbox Edge AI Computer for edge inference, model execution and compute deployment.
 ---
 
-# Fogwise® AIRbox Q900
+# Radxa AIRbox Q900
 
 ## Product Introduction
 
-Fogwise® AIRbox Q900 is an embedded AI micro-server that supports up to 200 TOPS@INT8 sparse computing power, multiple precisions (INT8, FP16, FP32), deployment of various mainstream AI models such as private GPT and text-to-image, and features a heat-dissipating aluminum alloy enclosure for deployment in harsh environments.
+Radxa AIRbox Q900 belongs to the [AIRbox Edge AI Computers series](../../airbox/README.md), focused on edge AI inference, model execution and compute deployment.
+
+AIRbox Q900 is an embedded AI micro-server that supports up to 200 TOPS@INT8 sparse computing power, multiple precisions (INT8, FP16, FP32), deployment of various mainstream AI models such as private GPT and text-to-image, and features a heat-dissipating aluminum alloy enclosure for deployment in harsh environments.
+
+[Radxa AIRbox Q900 product page](https://radxa.com/products/fogwise/airbox-q900/)
 
 ## Product Image
 
-|     Product Image     | No. |   View   | No. |    View     | No. |    View     |
-| :-------------------: | :-: | :------: | :-: | :---------: | :-: | :---------: |
-| Fogwise® AIRbox Q900 |  ①  | Top View |  ②  | Side View 1 |  ③  | Side View 2 |
+| Product Image | No. |   View   | No. |    View     | No. |    View     |
+| :-----------: | :-: | :------: | :-: | :---------: | :-: | :---------: |
+|  AIRbox Q900  |  ①  | Top View |  ②  | Side View 1 |  ③  | Side View 2 |
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/fogwise/airbox-q900/airbox-q900-product.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-product.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Radxa AIRbox Q900 product overview" />
 </div>
 
 ## Product Specifications
 
-| Model                 | Fogwise® AIRbox Q900                                                                                                                                                                                                                                                                                                                                                |
+| Model                 | AIRbox Q900                                                                                                                                                                                                                                                                                                                                                          |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CPU                   | Octa-core Kryo 6th Gen (Cortex-A78C based) architecture @2.36 GHz                                                                                                                                                                                                                                                                                                    |
 | GPU                   | Adreno 663 Graphics Processor<br/> • Supports secure general-purpose GPU computing, 1.2 TFLOPS FP32 computing power<br/>• Supports Vulkan 1.2, OpenGL ES 3.2, OpenCL 2.0 FP<br/>• Supports Adreno NN Direct                                                                                                                                                          |
@@ -43,7 +49,7 @@ Fogwise® AIRbox Q900 is an embedded AI micro-server that supports up to 200 TOP
 ## Interface Overview
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/fogwise/airbox-q900/airbox-q900-ports.webp" style={{width: '75%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-ports.webp" style={{width: '75%', maxWidth: '1200px'}} alt="AIRbox Q900 interface overview" />
 </div>
 
 | No. | Description                                                                 | No. | Description        | No. | Description                     |
@@ -59,15 +65,15 @@ Fogwise® AIRbox Q900 is an embedded AI micro-server that supports up to 200 TOP
 </div>
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/fogwise/airbox-q900/iq-9075-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/iq-9075-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} alt="IQ-9075 chip block diagram" />
 </div>
 
 ## System Block Diagram
 
 <div style={{textAlign: 'center'}}>
-**Fogwise® AIRbox Q900 Hardware System Block Diagram**
+**AIRbox Q900 Hardware System Block Diagram**
 </div>
 
 <div style={{textAlign: 'center'}}>
-   <img src="/en/img/fogwise/airbox-q900/airbox-q900-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/fogwise/airbox-q900/airbox-q900-block-diagram.webp" style={{width: '100%', maxWidth: '1200px'}} alt="AIRbox Q900 hardware system block diagram" />
 </div>

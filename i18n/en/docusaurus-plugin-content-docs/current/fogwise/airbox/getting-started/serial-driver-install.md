@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Installation of Serial Driver
 
-On Windows PC, AirBox needs to install the serial driver of CP210, the driver download address:https://www.silabs.com/documents/public/software/CP210x_Universal_Windows_Driver.zip
+On Windows PC, AIRbox needs to install the serial driver of CP210, the driver download address:https://www.silabs.com/documents/public/software/CP210x_Universal_Windows_Driver.zip
 
 Download the zip file and unzip it and then refer to the following picture to install it.
 

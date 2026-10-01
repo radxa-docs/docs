@@ -4,9 +4,9 @@ sidebar_position: 1
 
 # Hardware Interface Overview
 
-The Fogwise® AIRbox Q900 integrates a rich set of hardware interfaces to meet the connectivity requirements of various application scenarios such as Industrial IoT and edge computing.
+The AIRbox Q900 integrates a rich set of hardware interfaces to meet the connectivity requirements of various application scenarios such as Industrial IoT and edge computing.
 
-![Fogwise® AIRbox Q900 Interfaces](/img/fogwise/airbox-q900/airbox-q900-interfaces.webp)
+![AIRbox Q900 Interfaces](/img/fogwise/airbox-q900/airbox-q900-interfaces.webp)
 
 | No. | Interface           | No. | Interface                 | No. | Interface      |
 | --- | ------------------- | --- | ------------------------- | --- | -------------- |

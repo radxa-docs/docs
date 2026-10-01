@@ -3,7 +3,9 @@ sidebar_position: 5
 title: OTA Upgrade
 ---
 
-Airbox supports OTA software updates, allowing you to update to a new version of the SOPHON SDK.
+# OTA Upgrade
+
+AIRbox supports OTA software updates, allowing you to update to a new version of the SOPHON SDK.
 The default SDK version in the [Resource Download](./download) section is v23.10.01.
 
 You can check the current SDK software version using `bm_version`:
@@ -29,8 +31,8 @@ If your application requires a newer SDK version, you can update the SDK softwar
 Here, we use [SDK-23.09 LTS SP3](https://developer.sophgo.com/site/index/material/90/all.html) as an example to upgrade libsophon to 0.5.1.
 
 - Download the target SDK version from the [SOPHGO official website](https://developer.sophgo.com/site/index/material/90/all.html) and extract it to obtain `SDK-23.09_LTS_SP3`.
-- Open the `sophon-img` subfolder in the SDK directory, and copy the `bsp_update.tgz` and `system.tgz` files to Airbox (e.g., to `/home/linaro`).
-- Extract `bsp_update.tgz` on Airbox and execute the upgrade script:
+- Open the `sophon-img` subfolder in the SDK directory, and copy the `bsp_update.tgz` and `system.tgz` files to AIRbox (e.g., to `/home/linaro`).
+- Extract `bsp_update.tgz` on AIRbox and execute the upgrade script:
 
   ```bash
   tar zxvf bsp_update.tgz
@@ -52,7 +54,7 @@ Here, we use [SDK-23.09 LTS SP3](https://developer.sophgo.com/site/index/materia
 If your application requires a newer version of `sophon-mw`, you can install the updated `.deb` packages included in the latest SDK.
 Here, we use [SDK-23.09 LTS SP3](https://developer.sophgo.com/site/index/material/90/all.html) as an example to upgrade `sophon-mw` to version 0.12.0.
 
-- Copy the `sophon-mw-soc-sophon*.deb` files from the SDK `sophon-mw` directory to Airbox (e.g., to `/home/linaro`).
+- Copy the `sophon-mw-soc-sophon*.deb` files from the SDK `sophon-mw` directory to AIRbox (e.g., to `/home/linaro`).
 - Uninstall the current version of `sophon-mw`:
 
   ```bash

@@ -1,23 +1,27 @@
 ---
 sidebar_position: 10
+title: Radxa AIRbox
+description: 面向边缘 AI 推理、模型运行与算力部署的 AIRbox AI 算力盒子。
 ---
 
-# Fogwise® AirBox
+# Radxa AIRbox
 
 <Tabs queryString="target">
 
-<TabItem value="Fogwise® AirBox" label="Fogwise® AirBox">
+<TabItem value="AIRbox" label="AIRbox">
 
 ## 产品介绍
 
-Fogwise® AirBox 是一款嵌入式人工智能微型服务器，算力高达 32TOPS@INT8，支持多种精度（INT8、FP16/BF16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备铝合金外壳，可在恶劣环境中部署。
+Radxa AIRbox 属于 [AIRbox AI 算力盒子系列](../../airbox/README.md)，面向边缘 AI 推理、模型运行与算力部署。
+
+AIRbox 是一款嵌入式人工智能微型服务器，算力高达 32TOPS@INT8，支持多种精度（INT8、FP16/BF16、FP32），支持私有 GPT、文本到图像等多种主流人工智能模型部署，并配备铝合金外壳，可在恶劣环境中部署。
 
 #### 特性
 
-|       模块       | Fogwise® AirBox                                                                                                                                                                                                                                                                  |
+|       模块       | AIRbox                                                                                                                                                                                                                                                                            |
 | :--------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     **尺寸**     | 104 mm × 84 mm × 50.2 mm                                                                                                                                                                                                                                                          |
-|    **处理器**    | SOPHON SG2300X SoC，八核 Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                      |
+|    **处理器**    | SOPHON SG2300X SoC，八核 Arm® Cortex®-A53 (ARMv8) @ 2.3GHz                                                                                                                                                                                                                        |
 | **张量处理单元** | 张量处理单元，计算能力：最高32TOPS (INT8)，16TFLOPS (FP16/BF16) 和2TFLOPS (FP32)<br/>支持主流深度学习框架，包括 TensorFlow、Caffe、PyTorch、Paddle、ONNX、MXNet、Tengine 和 DarkNet                                                                                               |
 |     **内存**     | 16GB LPDDR4X                                                                                                                                                                                                                                                                      |
 |     **储存**     | 64GB eMMC<br/>16MB SPI 闪存<br/>提供高速 SD 卡插槽                                                                                                                                                                                                                                |
@@ -29,7 +33,7 @@ Fogwise® AirBox 是一款嵌入式人工智能微型服务器，算力高达 32
 
 #### 实物照片
 
-![Fogwise® AirBox Overview](/img/airbox/radxa_fogwise_airbox.webp)
+![AIRbox Overview](/img/airbox/radxa_fogwise_airbox.webp)
 
 ### 芯片框图
 
@@ -37,7 +41,7 @@ Fogwise® AirBox 是一款嵌入式人工智能微型服务器，算力高达 32
 
 ### 系统框图
 
-![Fogwise® AirBox Block Diagram](/img/airbox/airbox-block-diagram.webp)
+![AIRbox Block Diagram](/img/airbox/airbox-block-diagram.webp)
 
 </TabItem>
 

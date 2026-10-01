@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # DC Power Input
 
-The Fogwise® AIRbox Q900 is powered by a 12V DC power adapter.
+The AIRbox Q900 is powered by a 12V DC power adapter.
 
 ## Interface Specifications
 

@@ -511,10 +511,6 @@
     "message": "AICore SG2300X",
     "description": "The label for category AICore SG2300X in sidebar sophon"
   },
-  "sidebar.sophon.category.Fogwise® AirBox": {
-    "message": "Fogwise® AirBox",
-    "description": "The label for category Fogwise® AirBox in sidebar sophon"
-  },
   "sidebar.sophon.category.Getting Started": {
     "message": "Getting Started",
     "description": "The label for category Getting Started in sidebar sophon"
@@ -646,5 +642,13 @@
   "sidebar.compute-module.category.Android OS": {
     "message": "Android OS",
     "description": "The label for category Android OS in sidebar compute-module"
+  },
+  "sidebar.fogwise.category.Fogwise 工业电脑": {
+    "message": "Fogwise Industrial Computers",
+    "description": "Product series label in the edge computer sidebar"
+  },
+  "sidebar.fogwise.category.AIRbox AI 算力盒子": {
+    "message": "AIRbox Edge AI Computers",
+    "description": "Product series label in the edge computer sidebar"
   }
 }

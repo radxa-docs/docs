@@ -1,9 +1,15 @@
 ---
 sidebar_position: 1
-title: Fogwise® 边缘计算
+doc_kind: page
+title: Fogwise 工业电脑
+description: Fogwise 工业电脑
 slug: /fogwise
+displayed_sidebar: fogwise
 ---
 
-# Fogwise® 边缘计算
+# Fogwise 工业电脑
 
-瑞莎 FogWise® 边缘计算系列以开放生态和工业级设计为底座，提供从设备端推理到云边协同的一体化能力；产品覆盖边缘智算盒、工业网关、边缘服务器，助力企业在多场景快速落地稳定、可规模化的边缘智能。
+Fogwise 工业电脑系列面向工业接口连接、设备连接与现场部署。Fogwise 与 AIRbox 是 Radxa 品牌下的平行产品系列。
+
+- [Radxa Fogwise G720](./g720/README.md)：基于 Radxa OM-G720-L OSM 核心模组的工业电脑。
+- [AIRbox AI 算力盒子](../airbox/README.md)：面向边缘 AI 推理、模型运行与算力部署。
