@@ -40,4 +40,16 @@ import UART_DEBUG from '../../../common/radxa-os/system-config/\_uart_debug.mdx'
 - 流控：无
   :::
 
+:::warning 串口输出乱码 / 疑似无法开机
+部分串口终端软件（例如 Tabby）在设备频繁重绘输出时可能丢失串口数据，例如启动菜单会反复重绘界面、`apt` / `dpkg` 等进度输出会不断改写同一行或移动光标。此时启动日志会显示为大量半截行与重复信息，登录提示符也不可见，看起来像是系统启动失败或卡住，但实际系统已正常启动。
+
+这类现象属于终端软件的显示问题，不是主板故障。如果遇到，建议改用 `picocom` 等已验证可以完整显示输出的串口终端：
+
+```bash
+picocom -b 115200 /dev/ttyUSB0
+```
+
+使用 `Ctrl+A` `Ctrl+X` 退出 `picocom`。
+:::
+
 <UART_DEBUG baud="115200"/>

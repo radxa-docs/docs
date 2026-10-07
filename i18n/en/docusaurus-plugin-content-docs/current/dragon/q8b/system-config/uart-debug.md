@@ -40,4 +40,16 @@ Serial communication parameters
 - Flow control: none
   :::
 
+:::warning Garbled serial output / board appears not to boot
+Some serial terminal applications (for example Tabby) can drop serial data when the device redraws its output frequently, such as a boot menu that keeps redrawing itself, or `apt` / `dpkg` style progress output that rewrites the same line or repositions the cursor. The boot log then shows many half-finished lines and repeated messages, the login prompt never appears, and the board looks like it failed to boot or hung — even though the system actually booted normally.
+
+This is a display issue in the terminal application, not a board fault. If you hit it, use a serial terminal that has been verified to render the same output correctly, such as `picocom`:
+
+```bash
+picocom -b 115200 /dev/ttyUSB0
+```
+
+Press `Ctrl+A` `Ctrl+X` to exit `picocom`.
+:::
+
 <UART_DEBUG baud="115200"/>
