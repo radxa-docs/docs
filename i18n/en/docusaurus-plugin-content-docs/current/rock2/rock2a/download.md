@@ -36,6 +36,17 @@ Armbian:
 
 [Armbian](https://www.armbian.com/rock-2a/) (Including Ubuntu and Debian systems)
 
+## Baidu Netdisk Download
+
+:::tip
+The Baidu Netdisk share link is updated with the latest images regularly. We recommend downloading the latest images from Baidu Netdisk.
+
+**Version notes:**
+- **R version**: tested and stable, recommended
+- **T version**: testing version (for evaluation only)
+:::
+- [Baidu Netdisk download (rk3528)](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-rk3528&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## Hardware Design
 
 Radxa ROCK 2A V1.2 Version
