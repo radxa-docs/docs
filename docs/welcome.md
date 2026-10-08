@@ -9,7 +9,7 @@ displayed_sidebar: home
 
 # 遇到问题
 
-在使用本文档的过程中，如果遇到相关问题，请通过 Github 提交 issue，我们会第一时间回复。
+在使用本文档的过程中，如果遇到相关问题，请通过 GitHub 提交 [issue](https://github.com/radxa-docs/docs/issues)，我们会第一时间回复。
 
 # 加入社区
 
@@ -20,7 +20,7 @@ displayed_sidebar: home
 
 注意:
 
-我们不推荐在封闭的软件如(微信群 / QQ群等不能被搜索引擎抓取内容的APP)讨论技术问题或者寻求帮助，技术讨论尽量在开放的场所如官方论坛或者 Github issue 进行。微信 / QQ群的主要用途是社交和快速找到志趣相投的小伙伴。
+我们不推荐在封闭的软件如(微信群 / QQ群等不能被搜索引擎抓取内容的APP)讨论技术问题或者寻求帮助，技术讨论尽量在开放的场所如官方论坛或者 GitHub [issue](https://github.com/radxa-docs/docs/issues) 进行。微信 / QQ群的主要用途是社交和快速找到志趣相投的小伙伴。
 
 # 贡献力量
 
