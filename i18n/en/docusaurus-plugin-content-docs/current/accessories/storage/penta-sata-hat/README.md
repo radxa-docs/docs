@@ -50,7 +50,7 @@ Currently supported Raspberry Pi models:
 - Optional OLED display for IP/Storage info
 
 :::tip
-If you use large capacity 3.5-inch mechanical hard drives on the Penta SATA HAT, you need to check the hard drive specification to determine the peak current of the hard drive. We recommend using a hard drive with a peak current less than 2.2A.
+If you use large capacity 3.5-inch mechanical hard drives on the Penta SATA HAT, you need to check the hard drive specification to determine the peak current of the hard drive. The peak current of the hard drive must be less than 2.2A.
 :::
 
 ## Package List
