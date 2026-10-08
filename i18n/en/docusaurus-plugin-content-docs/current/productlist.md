@@ -16,18 +16,18 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 
 ### ROCK 2 Series
 
-| Model                     | Description                                      |
-| ------------------------- | ------------------------------------------------ |
-| [ROCK 2A](/rock2/rock2a/) | RK3288 based Mini Board                          |
-| [ROCK 2F](/rock2/rock2f/) | RK3288 based Mini Board with Dual Camera Support |
+| Model                     | Description              |
+| ------------------------- | ------------------------ |
+| [ROCK 2A](/rock2/rock2a/) | RK3528A based Mini Board |
+| [ROCK 2F](/rock2/rock2f/) | RK3528A based Mini Board |
 
 ### ROCK 3 Series
 
-| Model                     | Description                                        |
-| ------------------------- | -------------------------------------------------- |
-| [ROCK 3A](/rock3/rock3a/) | RK3568 Credit-Card Size Mini Board                 |
-| [ROCK 3B](/rock3/rock3b/) | RK3568(J) 2.5-inch Mini Board with Multi-Interface |
-| [ROCK 3C](/rock3/rock3c/) | RK3566 Credit-Card Size Mini Board                 |
+| Model                           | Description                                        |
+| ------------------------------- | -------------------------------------------------- |
+| [ROCK 3A](/rock3/rock3a/)       | RK3568 Credit-Card Size Mini Board                 |
+| [ROCK 3B / 3B+](/rock3/rock3b/) | RK3568(J) 2.5-inch Mini Board with Multi-Interface |
+| [ROCK 3C](/rock3/rock3c/)       | RK3566 Credit-Card Size Mini Board                 |
 
 ### ROCK 4 Series
 
@@ -40,12 +40,12 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 
 ### ROCK 5 Series
 
-| Model                           | Description                                 |
-| ------------------------------- | ------------------------------------------- |
-| [ROCK 5A](/rock5/rock5a/)       | RK3588S Credit-Card Size 8K + 4K Mini Board |
-| [ROCK 5B / 5B+](/rock5/rock5b/) | RK3588 8K Mini Board with Quad Display      |
-| [ROCK 5C](/rock5/rock5c/)       | 8K Mini Board for Versatile Applications    |
-| [ROCK 5T](/rock5/rock5t/)       | 8K Industrial-Grade Mini Board              |
+| Model                                     | Description                                                   |
+| ----------------------------------------- | ------------------------------------------------------------- |
+| [ROCK 5A](/rock5/rock5a/)                 | RK3588S Credit-Card Size 8K + 4K Mini Board                   |
+| [ROCK 5B / 5B+](/rock5/rock5b/)           | RK3588 8K Mini Board with Quad Display                        |
+| [ROCK 5C](/rock5/rock5c/)                 | RK3588S2 / RK3582 based 8K Mini Board                         |
+| [ROCK 5T / 5T-Industrial](/rock5/rock5t/) | 8K Mini Boards based on RK3588 (5T) / RK3588J (5T-Industrial) |
 
 ### ROCK Pi Series
 
@@ -59,24 +59,25 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 | Model                    | Description                                    |
 | ------------------------ | ---------------------------------------------- |
 | [Cubie A5E](/cubie/a5e/) | Allwinner A527/T527, Wi-Fi 6, Dual GbE, AI NPU |
-| [Cubie A7A](/cubie/a7a/) | Allwinner A527, Edge AI Innovation Platform    |
-| [Cubie A7Z](/cubie/a7z/) | Allwinner A527, Ultra-Tiny Size, Powerful AI   |
-| [Cubie A7S](/cubie/a7s/) | Allwinner A527, Pocket-Sized AI Platform       |
+| [Cubie A7A](/cubie/a7a/) | Allwinner A733, Edge AI Innovation Platform    |
+| [Cubie A7Z](/cubie/a7z/) | Allwinner A733, Ultra-Tiny Size, Powerful AI   |
+| [Cubie A7S](/cubie/a7s/) | Allwinner A733, Pocket-Sized AI Platform       |
 
 ### ZERO Series
 
-| Model                         | Description                     |
-| ----------------------------- | ------------------------------- |
-| [ZERO](/zero/zero/)           | Ultra-Compact ARM Mini Board    |
-| [ZERO 2 Pro](/zero/zero2pro/) | RK3566 Ultra-Compact Mini Board |
-| [ZERO 3W / 3E](/zero/zero3/)  | RK3566 Ultra-Compact Mini Board |
+| Model                         | Description                             |
+| ----------------------------- | --------------------------------------- |
+| [ZERO](/zero/zero/)           | Amlogic S905Y2 Ultra-Compact Mini Board |
+| [ZERO 2 Pro](/zero/zero2pro/) | Amlogic A311D Ultra-Compact Mini Board  |
+| [ZERO 3W / 3E](/zero/zero3/)  | RK3566 Ultra-Compact Mini Board         |
 
 ### X Series
 
-| Model         | Description                                       |
-| ------------- | ------------------------------------------------- |
-| [X2L](/x/x2l) | Intel J4125 with RPi 2040 Form Factor             |
-| [X4](/x/x4)   | Intel Processor with Enhanced Graphics Mini Board |
+| Model         | Description                                                   |
+| ------------- | ------------------------------------------------------------- |
+| [X2L](/x/x2l) | Intel J4125 based Mini Board with RP2040                      |
+| [X4](/x/x4)   | Intel N100 based Mini Board with RP2040 and Enhanced Graphics |
+| [X5](/x/x5)   | Intel N150 based Mini Board with RP2350                       |
 
 ### NIO Series
 
@@ -92,19 +93,19 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 
 ### Dragon Series
 
-| Model                      | Description                                          |
-| -------------------------- | ---------------------------------------------------- |
-| [Dragon Q6A](/dragon/q6a/) | Qualcomm QCS6490 based Mini Motherboard              |
+| Model                      | Description                                                              |
+| -------------------------- | ------------------------------------------------------------------------ |
+| [Dragon Q6A](/dragon/q6a/) | Qualcomm QCS6490 based Mini Motherboard                                  |
 | [Dragon Q8B](/dragon/q8b/) | Qualcomm Snapdragon 8cx Gen 3 (Qualcomm SC8280XP) based Mini Motherboard |
 
 ## Radxa Motherboards
 
 ### Orion Series
 
-| Model     | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| Orion O6  | World's First Open Source Arm V9 Motherboard (Mini ITX)      |
-| Orion O6N | World's First Open Source Arm V9 Mini Motherboard (Nano ITX) |
+| Model                    | Description                                                                   |
+| ------------------------ | ----------------------------------------------------------------------------- |
+| [Orion O6](/orion/o6/)   | World's First Open Source Arm V9 Motherboard (Mini ITX), based on CIX P1      |
+| [Orion O6N](/orion/o6n/) | World's First Open Source Arm V9 Mini Motherboard (Nano ITX), based on CIX P1 |
 
 ### ROCK 5 ITX Series
 
@@ -117,10 +118,10 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 
 Fogwise® Brand, Edge AI and IoT Mini Computing Devices
 
-| Model       | Description                                     |
-| ----------- | ----------------------------------------------- |
-| AirBox      | SOPHON SG2300x based Edge AI Mini Host          |
-| AIRbox Q900 | Qualcomm IQ-9075 based Edge AI Computing Device |
+| Model                                | Description                                     |
+| ------------------------------------ | ----------------------------------------------- |
+| [AirBox](/fogwise/airbox/)           | SOPHON SG2300x based Edge AI Mini Host          |
+| [AIRbox Q900](/fogwise/airbox-q900/) | Qualcomm IQ-9075 based Edge AI Computing Device |
 
 ## Radxa Compute Modules
 
@@ -133,32 +134,32 @@ Fogwise® Brand, Edge AI and IoT Mini Computing Devices
 | [Radxa CM3J](/som/cm/cm3j/) | RK3568J Compute Module with B2B Interface   |
 | [Radxa CM3S](/som/cm/cm3/)  | RK3566 Compute Module with SODIMM Interface |
 | [Radxa CM4](/som/cm/cm4/)   | RK3576(J) Compute Module with B2B Interface |
-| [Radxa CM5](/som/cm/cm5/)   | RK3588S Compute Module with B2B Interface   |
+| [Radxa CM5](/som/cm/cm5/)   | RK3588S2 Compute Module with B2B Interface  |
 
 ### rCore Series
 
-| Model        | Description                         |
-| ------------ | ----------------------------------- |
-| rCore-RK3308 | RK3308 based Compute Module         |
+| Model        | Description                           |
+| ------------ | ------------------------------------- |
+| rCore-RK3308 | RK3308 based Compute Module           |
 | rCore-Q9075  | Qualcomm QCS9075 based Compute Module |
 
 ### AICore Series
 
-| Model                          | Description                                  |
-| ------------------------------ | -------------------------------------------- |
-| [AICore AX-M1](/aicore/ax-m1/) | AX650N based AI Compute Module               |
-| [AICore DX-M1](/aicore/dx-m1/) | RK3588 based AI Compute Module               |
-| AICore DX-M1M                  | RK3588 based AI Compute Module, Mini Version |
-| AICore SG2300x                 | SG2300x based AI Compute Module              |
+| Model                              | Description                                  |
+| ---------------------------------- | -------------------------------------------- |
+| [AICore AX-M1](/aicore/ax-m1/)     | AXERA AX8850 based AI Compute Module         |
+| [AICore DX-M1](/aicore/dx-m1/)     | RK3588 based AI Compute Module               |
+| [AICore DX-M1M](/aicore/dx-m1/)    | RK3588 based AI Compute Module, Mini Version |
+| [AICore SG2300x](/aicore/sg2300x/) | SOPHON SG2300x based AI Compute Module       |
 
 ## Radxa Network Computing Devices
 
 E Series, Multi-GbE Design for Routers, Firewalls, and Edge Gateways
 
-| Model                    | Description                              |
-| ------------------------ | ---------------------------------------- |
-| [Radxa E20C](/e/e20c/)   | RK3528A based Dual GbE Network Computer  |
-| [Radxa E24C](/e/e24c/)   | RK3528A based Quad GbE Network Computer  |
-| [Radxa E25](/rock3/e25/) | RK3528A based Penta GbE Network Computer |
-| [Radxa E52C](/e/e52c/)   | RK3582 based Dual GbE Network Computer   |
-| [Radxa E54C](/e/e54c/)   | RK3582 based Quad GbE Network Computer   |
+| Model                    | Description                               |
+| ------------------------ | ----------------------------------------- |
+| [Radxa E20C](/e/e20c/)   | RK3528A based Dual GbE Network Computer   |
+| [Radxa E24C](/e/e24c/)   | RK3528A based Quad GbE Network Computer   |
+| [Radxa E25](/rock3/e25/) | RK3568 based Dual 2.5GbE Network Computer |
+| [Radxa E52C](/e/e52c/)   | RK3582 based Dual 2.5GbE Network Computer |
+| [Radxa E54C](/e/e54c/)   | RK3582 based Quad GbE Network Computer    |
