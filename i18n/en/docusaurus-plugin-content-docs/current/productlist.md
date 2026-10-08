@@ -159,6 +159,6 @@ E Series, Multi-GbE Design for Routers, Firewalls, and Edge Gateways
 | ------------------------ | ---------------------------------------- |
 | [Radxa E20C](/e/e20c/)   | RK3528A based Dual GbE Network Computer  |
 | [Radxa E24C](/e/e24c/)   | RK3528A based Quad GbE Network Computer  |
-| [Radxa E25](/rock3/e25/) | RK3528A based Penta GbE Network Computer |
+| [Radxa E25](/e/e25/) | RK3528A based Penta GbE Network Computer |
 | [Radxa E52C](/e/e52c/)   | RK3582 based Dual GbE Network Computer   |
 | [Radxa E54C](/e/e54c/)   | RK3582 based Quad GbE Network Computer   |

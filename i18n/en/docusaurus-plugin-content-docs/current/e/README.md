@@ -18,6 +18,7 @@ The E Series is a series of high-performance network computing products launched
 | [E24C](../en/e/e24c/) | RK3528A   | Quad Gigabit Ethernet | High-performance compact network device                     | Multi-WAN load balancing, network security device  |
 | [E52C](../en/e/e52c/) | RK3582    | Dual 2.5G Ethernet    | High-performance compact network powerhouse                 | Enterprise gateway, edge server                    |
 | [E54C](../en/e/e54c/) | RK3582    | Quad Gigabit Ethernet | Multi-port network device with AI acceleration support      | Multi-WAN load balancing, network security devices |
+| [E25](../en/e/e25/) | RK3528A   | Dual 2.5G Ethernet    | CM3I expansion board with mini-PCIe / B-Key                 | Network expansion, edge gateway                    |
 
 ## System Support
 
