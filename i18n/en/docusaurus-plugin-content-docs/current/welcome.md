@@ -9,7 +9,7 @@ The Radxa Documentation Center is the place for tutorials and guides for support
 
 ## Problems encountered
 
-If you encounter any problems while using this documentation, please [submit an issue via Github](https://github.com/radxa-docs/documentation/issues) and we will respond as soon as possible.
+If you encounter any problems while using this documentation, please [submit an issue via GitHub](https://github.com/radxa-docs/docs/issues) and we will respond as soon as possible.
 
 ## Join the community
 
@@ -21,7 +21,7 @@ If you encounter any problems while using this documentation, please [submit an 
 
 ## Attention
 
-We do not recommend discussing technical issues or seeking help in closed environment such as (WeChat group / QQ group and other APPs that cannot be crawled by search engines), but try to discuss technical issues in open places such as official forums or Github issues. The main purpose of WeChat / QQ group is to socialize and quickly find like-minded people.
+We do not recommend discussing technical issues or seeking help in closed environment such as (WeChat group / QQ group and other APPs that cannot be crawled by search engines), but try to discuss technical issues in open places such as official forums or GitHub [issues](https://github.com/radxa-docs/docs/issues). The main purpose of WeChat / QQ group is to socialize and quickly find like-minded people.
 
 ## Contribute
 
