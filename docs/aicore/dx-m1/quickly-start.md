@@ -62,6 +62,7 @@ sidebar_position: 1
 - ROCK 5A
 - ROCK 5B
 - ROCK 5B+
+- ROCK 5T
 - ROCK 5 ITX
 ```
 
