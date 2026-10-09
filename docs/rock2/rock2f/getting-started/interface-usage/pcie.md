@@ -11,22 +11,9 @@ description: ""
 
 <img src="/img/rock2f/rock-2f-pcie.webp" width="800" alt="radxa-e20c pack" />
 
-- 开启 Overlay
-
-  1. 打开 Kconsole 终端, 运行 rsetup 命令：
-
-  <pre> $ rsetup </pre>
-
-  2. 通过 [设备树配置](../../radxa-os/rsetup)。来启用 Enable PCIe 的 Overlay。
-
-  :::tip
-
-  请启用 [] Enable PCIe 项 Overlay。<br/>
-  在启用成功显示 [*] Enable PCIe 后退出重启才能使配置生效。
-
-  :::
-
-  3. 重启系统
+:::tip
+ROCK 2F 默认已开启 PCIe，无需通过 rsetup 开启 Overlay。
+:::
 
 - 测试
 
@@ -52,7 +39,7 @@ description: ""
   2147483648 bytes (2.1 GB, 2.0 GiB) copied, 5.94583 s, 361 MB/s
   ```
 
-  2. 写入设备
+  3. 写入设备
 
   ```bash
   # dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=2048 status=progress
