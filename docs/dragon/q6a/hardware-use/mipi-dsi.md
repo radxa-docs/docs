@@ -17,6 +17,15 @@ sidebar_position: 11
 仅支持上表列出的瑞莎官方显示器。第三方显示器（例如 Raspberry Pi 7\" 触控屏）未经官方适配：即使通过转接排线完成物理连接，显示与触控功能仍取决于系统镜像中是否包含匹配的 panel driver / 设备树，无法保证兼容。
 :::
 
+:::note
+上表为屏幕兼容列表，但**并非所有系统镜像都包含全部型号的面板配置**：
+
+- **Radxa OS（Linux）**：上表中的 Display 10 FHD 与 Display 8 HD 均可正常使用。
+- **Android**：当前 Dragon Q6A 的 Android 镜像未包含 Display 10 FHD 的面板配置，**Display 10 FHD 在 Android 下暂不支持**（连接后可能出现黑屏）。
+
+各系统镜像实际支持的屏幕型号以其发布说明为准。
+:::
+
 ## 硬件连接
 
 将 MIPI 显示屏通过 FPC 排线连接到 Dragon Q6A 的 MIPI DSI 接口（39-Pin / 0.3mm 间距 FPC 接口）。
