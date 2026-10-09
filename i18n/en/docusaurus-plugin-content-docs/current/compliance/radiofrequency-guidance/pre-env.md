@@ -93,7 +93,7 @@ sudo hcitool cmd 0x03 0x003 # No error, means Bluetooth is working.
 
 ```bash
 sudo mv /lib/firmware/brcm/cyw43455.bin /lib/firmware/brcm/cyw43455.bin.bak
-sudo wget -O /lib/firmware/brcm/cyw43455.bin hhttps://dl.radxa.com/fix_freq_docs/cm256/cyw43455-mfgtest-7.45.100.18.bin
+sudo wget -O /lib/firmware/brcm/cyw43455.bin https://dl.radxa.com/fix_freq_docs/cm256/cyw43455-mfgtest-7.45.100.18.bin
 reboot
 sudo wl ver                 # The word WLTEST appears, indicating that the firmware replacement was successful.
 sudo hcitool cmd 0x03 0x003 # No error, means Bluetooth is working.
