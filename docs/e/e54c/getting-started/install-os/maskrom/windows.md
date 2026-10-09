@@ -24,6 +24,6 @@ import Maskrom from "./\_maskrom.mdx"
 
 你可以根据自己的需求选择不同的系统镜像，比如istoreos, debian cli等等， 但是loader文件是一样的
 
-<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3582_spl_loader_v1.15.113.bin" emmc={false} pcie={false} sata={false} >
+<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3588_spl_loader_recommended.bin" emmc={false} pcie={false} sata={false} >
 <Maskrom/>
 </Rkdevtool>

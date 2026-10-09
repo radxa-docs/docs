@@ -30,7 +30,7 @@ Flippy OpenWrt 镜像文件，解压后可直接写入 SD 卡 / eMMC / SSD
 
 USB 刷机使用，Loader 文件用于 USB 下载初始化，写入 SD 卡无需下载
 
-[rk3588_spl_loader_v1.15.113.bin](https://dl.radxa.com/e/e52c/images/rk3588_spl_loader_v1.15.113.bin)
+[rk3588_spl_loader_recommended.bin](https://dl.radxa.com/rockchip/loaders/rk3588/rk3588_spl_loader_recommended.bin)
 
 ## SPI 启动固件文件
 
@@ -44,9 +44,10 @@ SPI 启动固件文件，用于刷入 SPI Flash
 百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
 
 **版本说明：**
+
 - **R 版本**：经过测试的稳定版本，推荐使用
 - **T 版本**：测试版本（仅用于评估）
-:::
+  :::
 - [百度网盘下载（radxa-e54c）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-e54c&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 硬件设计
