@@ -24,9 +24,9 @@ sidebar_position: 2
 
 | 产品名称       | 瑞莎 Dragon Q8B                                                                                                                                                                                                                                 |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 主控型号       | 高通骁龙 8cx Gen 3 (高通 SC8280XP)                                                                                                                                                                                                          |
+| 主控型号       | 高通骁龙 8cx Gen 3 (高通 SC8280XP)                                                                                                                                                                                                              |
 | 中央处理器     | 高通 Kryo™ CPU<br/>- 8 核 CPU, 4x Kryo Prime @3.0GHz + 4x Kryo Gold @2.4GHz<br/>- 64 位 CPU 架构                                                                                                                                                |
-| 图形处理器     | 高通 Adreno™ 690 GPU<br/>- 支持 DirectX<br/>- 支持 DirectML                                                                                                                                                                                         |
+| 图形处理器     | 高通 Adreno™ 690 GPU<br/>- 支持 OpenGL ES 3.2<br/>- 支持 Vulkan 1.3<br/>- 支持 OpenCL 2.0<br/>- 支持 DirectX<br/>- 支持 DirectML                                                                                                                |
 | 神经网络处理器 | 高通 Hexagon™                                                                                                                                                                                                                                   |
 | AI 性能        | 高通 AI Engine<br/>- 高达 29+ TOPS                                                                                                                                                                                                              |
 | 感知与加速     | 高通 Hexagon 处理器<br/>高通 感知中枢                                                                                                                                                                                                           |
@@ -40,7 +40,7 @@ sidebar_position: 2
 | 音频           | 1x 3.5mm 耳机接口<br/>1x 麦克风接口                                                                                                                                                                                                             |
 | 供电           | 1x USB Type-C 供电口<br/>1x 电源输入排针<br/>- 12-20V 电源输入<br/>- 支持外接电源按键                                                                                                                                                           |
 | 其他           | 1x 电源按键<br/>1x EDL 按键<br/>1x RTC 接口<br/>1x 风扇接口<br/>1x FPC 接口 (PCIe 3.0 x1)<br/>1x 40-Pin GPIO 排针<br/>- 支持 UART / I2C / SPI / GPIO                                                                                            |
-| 操作系统       | Radxa OS<br/>Windows<br/>Ubuntu<br/>Armbian<br/>Arch Linux<br/>Nix OS<br/>Debian<br/>······                                                                                                                                                                  |
+| 操作系统       | Radxa OS<br/>Windows<br/>Ubuntu<br/>Armbian<br/>Arch Linux<br/>Nix OS<br/>Debian<br/>······                                                                                                                                                     |
 | 尺寸           | 100 mm x 75 mm                                                                                                                                                                                                                                  |
 
 ## 接口说明
@@ -49,16 +49,16 @@ sidebar_position: 2
    <img src="/img/dragon/q8b/q8b_interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-| 序号 | 说明                                   | 序号 | 说明                              | 序号 | 说明                         |
-| :--: | :------------------------------------- | :--: | :-------------------------------- | :--: | :--------------------------- |
-|  1   | 40-Pin GPIO 排针                       |  2   | EDL 按键                          |  3   | LPDDR4X 内存                  |
-|  4   | FPC 接口                               |  5   | 高通骁龙 8cx Gen 3 (高通 SC8280XP) |  6   | 麦克风接口                  |
-|  7   | 电源排针                               |  8   | 3.5 mm 耳机插孔                    |  9   | USB Type-C 供电接口（20V）   |
-|  10  | HDMI 2.1 接口                          |  11  | USB 2.0 Type-A 接口                |  12  | UFS 模块接口                |
-|  13  | 2x USB-C（支持 DP Alt 模式）           |  14  | 电源按键                          |  15  | 风扇接口                    |
-|  16  | M.2 E Key 插槽                         |  17  | RTC 电池接口                      |  18  | 2.5GbE 以太网接口            |
-|  19  | 2x USB 3.2 Gen2 Type-A 接口            |  20  | M.2 M Key 2280 插槽 <br/>- PCIe 3.0 x2 |  21  | M.2 M Key 插槽 <br/>- PCIe 3.0 x4 |
-|  22  | microSD 卡槽                           |      |                                   |      |                              |
+| 序号 | 说明                         | 序号 | 说明                                   | 序号 | 说明                              |
+| :--: | :--------------------------- | :--: | :------------------------------------- | :--: | :-------------------------------- |
+|  1   | 40-Pin GPIO 排针             |  2   | EDL 按键                               |  3   | LPDDR4X 内存                      |
+|  4   | FPC 接口                     |  5   | 高通骁龙 8cx Gen 3 (高通 SC8280XP)     |  6   | 麦克风接口                        |
+|  7   | 电源排针                     |  8   | 3.5 mm 耳机插孔                        |  9   | USB Type-C 供电接口（20V）        |
+|  10  | HDMI 2.1 接口                |  11  | USB 2.0 Type-A 接口                    |  12  | UFS 模块接口                      |
+|  13  | 2x USB-C（支持 DP Alt 模式） |  14  | 电源按键                               |  15  | 风扇接口                          |
+|  16  | M.2 E Key 插槽               |  17  | RTC 电池接口                           |  18  | 2.5GbE 以太网接口                 |
+|  19  | 2x USB 3.2 Gen2 Type-A 接口  |  20  | M.2 M Key 2280 插槽 <br/>- PCIe 3.0 x2 |  21  | M.2 M Key 插槽 <br/>- PCIe 3.0 x4 |
+|  22  | microSD 卡槽                 |      |                                        |      |                                   |
 
 ## 应用场景
 
