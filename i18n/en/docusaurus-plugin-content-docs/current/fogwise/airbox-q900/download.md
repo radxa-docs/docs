@@ -17,6 +17,10 @@ sidebar_position: 150
 
 - [qcs9075-provision](https://dl.radxa.com/fogwise/airbox-q900/images/qcs9075-provision.tar.gz): UFS provisioning toolkit (not an OS image), used for the storage provisioning step before installing the system to the onboard UFS. For the full installation steps, see [Install System to Onboard UFS](./getting-started/install-system/onboard-ufs)
 
+## Baidu Netdisk Download
+
+- [Baidu Netdisk download (radxa-airbox-q900)](https://pan.baidu.com/s/18V09femgW_JlldR1nKKlHw?pwd=q68i#list/path=%2Fsharelink3108273493-428944760906613%2Ffile-downloads%2Ffogwise%2Fairbox-q900%2Fimages&parentPath=%2Fsharelink3108273493-428944760906613)
+
 ## Software Tools
 
 - [QDL Tool (Qualcomm Software Center)](https://softwarecenter.qualcomm.com/catalog/item/Qualcomm_Device_Loader)
