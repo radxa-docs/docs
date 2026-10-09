@@ -18,7 +18,7 @@ import Images from "../../\_image.mdx"
 
 <Images loader={true} system_img={true} spi_img={false} />
 
-<Rkdeveloptool model="rock-5c" release_num="2" desktop="kde" platform="linux" loader="rk3588_spl_loader_v1.08.111.bin">
+<Rkdeveloptool model="rock-5c" release_num="2" desktop="kde" platform="linux" loader="rk3588_spl_loader_recommended.bin">
 
 <ol>
     <li>Remove the microSD card and power cord</li>
