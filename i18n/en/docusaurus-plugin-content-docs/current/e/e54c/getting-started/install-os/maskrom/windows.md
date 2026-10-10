@@ -24,6 +24,6 @@ Note:
 
 You can choose different system images according to your needs, such as iStoreOS, Debian CLI, etc., but the loader file is the same
 
-<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3582_spl_loader_v1.15.113.bin" emmc={false} pcie={false} sata={false} >
+<Rkdevtool rkdevtool_emmc_img="/img/rkdevtool/emmc-path.webp" loader_name="rk3588_spl_loader_recommended.bin" emmc={false} pcie={false} sata={false} >
 <Maskrom/>
 </Rkdevtool>
