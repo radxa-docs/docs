@@ -732,6 +732,22 @@ sidebar_custom_props:
                     },
                   ],
               },
+              {
+                products_name: "Radxa E25",
+                products_photo_url: "/home/product-pictures/e25.webp",
+                products_link: "/e/e25",
+                docs:
+                  [
+                    {
+                      docs_link: "/e/e25",
+                      docs_photo_type: "Overview",
+                      docs_name_en: "Overview",
+                      docs_name_zh: "Radxa E25 概览",
+                      docs_info_en: "Overview of the E25",
+                      docs_info_zh: "Radxa E25 概览",
+                    },
+                  ],
+              },
             ],
         },
         {

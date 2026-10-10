@@ -224,7 +224,7 @@ zh/compute-module/nx5/radxa-os/install-os.mdx @peterwang2050 @vamrs-feng
 en/zero/zero3/low-level-dev/upgrade-tool.md @u7985
 zh/rock4/rock4c+/getting-started/before-start.md @Maycides
 zh/zero/zero3/radxa-os/user.md @u7985
-en/rock3/e25/os-config/rsetup.md @u7985
+i18n/en/docusaurus-plugin-content-docs/current/e/e25/os-config/rsetup.md @u7985
 zh/template/sbc/low-level-dev/kernel.md @peterwang2050
 zh/template/module/radxa-os/install-os.mdx @peterwang2050
 zh/zero/zero/accessories/README.md @CodeChenL

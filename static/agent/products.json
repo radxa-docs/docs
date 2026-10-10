@@ -505,6 +505,19 @@
       }
     },
     {
+      "family": "E Series",
+      "id": "radxa-e25",
+      "name": "Radxa E25",
+      "public_urls": {
+        "en": "https://docs.radxa.com/en/e/e25",
+        "zh": "https://docs.radxa.com/e/e25"
+      },
+      "source_entries": {
+        "en": "i18n/en/docusaurus-plugin-content-docs/current/e/e25/README.md",
+        "zh": "docs/e/e25/README.md"
+      }
+    },
+    {
       "family": "SiRider Series",
       "id": "sirider-s1",
       "name": "SiRider S1",
