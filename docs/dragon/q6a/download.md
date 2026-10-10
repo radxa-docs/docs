@@ -80,14 +80,23 @@ Android 15 目前仅支持 BIOS 固件搭配 eMMC 模块或 UFS 模块启动。
 
 ### eMMC 系统镜像
 
-- [Android_15_eMMC_20260630-b1.7z](https://dl.radxa.com/q6a/images/android/Q6A-Android15-spi-emmc-boot-20260630-b1.7z)
+- [Q6A-Android15-spi-emmc-boot-20261008-RC.7z](https://dl.radxa.com/dragon/q6a/images/android/Q6A-Android15-spi-emmc-boot-20261008-RC.7z)
 
 ### UFS 系统镜像
 
 烧录 UFS 系统镜像相比于 eMMC 系统镜像，需要额外烧录 UFS 配置文件。
 
 - [provision_ufs31.xml](https://dl.radxa.com/q6a/images/android/provision_ufs31.xml)
-- [Android_15_UFS_20260630-b1.7z](https://dl.radxa.com/q6a/images/android/Q6A-Android15-spi-ufs-boot-20260630-b1.7z)
+- [Q6A-Android15-spi-ufs-boot-20261008-RC.7z](https://dl.radxa.com/dragon/q6a/images/android/Q6A-Android15-spi-ufs-boot-20261008-RC.7z)
+
+### 20261008 RC 更新内容
+
+- 新增 NTFS 格式外部存储支持
+- 新增 USB 摄像头支持
+- 新增板载蓝牙音频支持
+- 新增无麦克风视频录制功能
+- M.2 M-KEY 限制为 PCIe 2.0，提高兼容性
+- 优化部分 UI 显示逻辑、启动时长及系统卡顿问题
 
 ## 启动固件
 

@@ -80,14 +80,23 @@ Note: The BIOS firmware and system image are in the same compressed package. Aft
 
 ### eMMC System Image
 
-- [Android_15_eMMC_20260630-b1.7z](https://dl.radxa.com/q6a/images/android/Q6A-Android15-spi-emmc-boot-20260630-b1.7z)
+- [Q6A-Android15-spi-emmc-boot-20261008-RC.7z](https://dl.radxa.com/dragon/q6a/images/android/Q6A-Android15-spi-emmc-boot-20261008-RC.7z)
 
 ### UFS System Image
 
 Compared with the eMMC system image, flashing the UFS system image requires additionally flashing the UFS configuration file.
 
 - [provision_ufs31.xml](https://dl.radxa.com/q6a/images/android/provision_ufs31.xml)
-- [Android_15_UFS_20260630-b1.7z](https://dl.radxa.com/q6a/images/android/Q6A-Android15-spi-ufs-boot-20260630-b1.7z)
+- [Q6A-Android15-spi-ufs-boot-20261008-RC.7z](https://dl.radxa.com/dragon/q6a/images/android/Q6A-Android15-spi-ufs-boot-20261008-RC.7z)
+
+### 20261008 RC Changes
+
+- Added support for NTFS-formatted external storage
+- Added support for USB cameras
+- Added support for onboard Bluetooth audio
+- Added video recording without a microphone
+- Limited the M.2 M-Key slot to PCIe 2.0 to improve compatibility
+- Improved some UI display behavior, boot time, and system responsiveness
 
 ## Boot Firmware
 
