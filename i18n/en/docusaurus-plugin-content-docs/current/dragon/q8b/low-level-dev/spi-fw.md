@@ -12,6 +12,8 @@ The core task of BIOS firmware (BootROM + bootloader) is to initialize hardware 
 
 When the device cannot boot properly, enter [EDL Mode](./edl-mode), then use the EDL tool to flash the BIOS firmware.
 
+If the system boots normally, you can also [update the BIOS firmware from the system using Rsetup](../system-config/update-bios). The EDL flashing method on this page does not depend on the OS booting, so it can be used when the system cannot start.
+
 Go to the [Resource Downloads](../download) page, download and extract the `edl-ng` archive, then select the corresponding version for your system platform to download the BIOS firmware.
 
 ## Flashing BIOS Firmware
@@ -112,6 +114,7 @@ After the BIOS firmware is successfully flashed, please restart the device using
 
 - Re-plug the device power
 - Run the `edl-ng reset` command in the terminal
+
 :::
 
 ## Erase BIOS Firmware
