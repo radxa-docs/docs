@@ -141,16 +141,16 @@ Fogwise® Brand, Edge AI and IoT Mini Computing Devices
 | Model        | Description                           |
 | ------------ | ------------------------------------- |
 | rCore-RK3308 | RK3308 based Compute Module           |
-| rCore-Q9075  | Qualcomm QCS9075 based Compute Module |
+| rCore-Q9075  | Qualcomm IQ-9075 based Compute Module |
 
 ### AICore Series
 
-| Model                              | Description                                  |
-| ---------------------------------- | -------------------------------------------- |
-| [AICore AX-M1](/aicore/ax-m1/)     | AXERA AX8850 based AI Compute Module         |
-| [AICore DX-M1](/aicore/dx-m1/)     | RK3588 based AI Compute Module               |
-| [AICore DX-M1M](/aicore/dx-m1/)    | RK3588 based AI Compute Module, Mini Version |
-| [AICore SG2300x](/aicore/sg2300x/) | SOPHON SG2300x based AI Compute Module       |
+| Model                              | Description                                        |
+| ---------------------------------- | -------------------------------------------------- |
+| [AICore AX-M1](/aicore/ax-m1/)     | AXERA AX8850 based AI Compute Module               |
+| [AICore DX-M1](/aicore/dx-m1/)     | DEEPX DX-M1 based AI Compute Module                |
+| [AICore DX-M1M](/aicore/dx-m1/)    | DEEPX DX-M1M based AI Compute Module, Mini Version |
+| [AICore SG2300x](/aicore/sg2300x/) | SOPHON SG2300x based AI Compute Module             |
 
 ## Radxa Network Computing Devices
 

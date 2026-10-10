@@ -141,16 +141,16 @@ Fogwise® 品牌，边缘 AI 与物联网迷你主机
 | 型号         | 简介                        |
 | ------------ | --------------------------- |
 | rCore-RK3308 | 基于 RK3308 的计算模块      |
-| rCore-Q9075  | 基于高通 QCS9075 的计算模块 |
+| rCore-Q9075  | 基于高通 IQ-9075 的计算模块 |
 
 ### AICore 系列
 
-| 型号                               | 简介                                |
-| ---------------------------------- | ----------------------------------- |
-| [AICore AX-M1](/aicore/ax-m1/)     | 基于爱芯元智 AX8850 的 AI 计算模块  |
-| [AICore DX-M1](/aicore/dx-m1/)     | 基于 RK3588 的 AI 计算模块          |
-| [AICore DX-M1M](/aicore/dx-m1/)    | 基于 RK3588 的 AI 计算模块，Mini 版 |
-| [AICore SG2300x](/aicore/sg2300x/) | 基于算能 SG2300x 的 AI 计算模块     |
+| 型号                               | 简介                                      |
+| ---------------------------------- | ----------------------------------------- |
+| [AICore AX-M1](/aicore/ax-m1/)     | 基于爱芯元智 AX8850 的 AI 计算模块        |
+| [AICore DX-M1](/aicore/dx-m1/)     | 基于 DEEPX DX-M1 的 AI 计算模块           |
+| [AICore DX-M1M](/aicore/dx-m1/)    | 基于 DEEPX DX-M1M 的 AI 计算模块，Mini 版 |
+| [AICore SG2300x](/aicore/sg2300x/) | 基于算能 SG2300x 的 AI 计算模块           |
 
 ## 瑞莎网络计算设备
 
