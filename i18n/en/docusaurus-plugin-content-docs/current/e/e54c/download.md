@@ -30,7 +30,7 @@ Flippy OpenWrt image file, can be directly written to SD card / eMMC / SSD after
 
 Used for USB flashing, Loader file is used for USB download initialization, no need to download when writing to SD card
 
-[rk3588_spl_loader_v1.15.113.bin](https://dl.radxa.com/e/e52c/images/rk3588_spl_loader_v1.15.113.bin)
+[rk3588_spl_loader_recommended.bin](https://dl.radxa.com/rockchip/loaders/rk3588/rk3588_spl_loader_recommended.bin)
 
 ## SPI Flash Image File
 

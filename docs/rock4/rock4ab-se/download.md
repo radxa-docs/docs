@@ -85,9 +85,8 @@ ROCK 4SE:
 - **T 版本**：测试版本（仅用于评估）
 :::
 - [百度网盘下载（rock-4se）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-4se&parentPath=%2Fsharelink3108273493-988411983016443)
-- [百度网盘下载（rock-pi-4a）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-pi-4a&parentPath=%2Fsharelink3108273493-988411983016443)
-- [百度网盘下载（rock-pi-4a-plus）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-pi-4a-plus&parentPath=%2Fsharelink3108273493-988411983016443)
-- [百度网盘下载（rock-pi-4b）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-pi-4b&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（rock-pi-4a / rock-pi-4b）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-pi-4b&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（rock-pi-4a-plus / rock-pi-4b-plus）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-pi-4b-plus&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## Datasheet
 

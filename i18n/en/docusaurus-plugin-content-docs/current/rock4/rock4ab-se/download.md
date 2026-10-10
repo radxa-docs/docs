@@ -75,6 +75,21 @@ Third-party Systems:
 - [Radxa ROCK 4SE OpenWRT ext4 sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4se-ext4-sysupgrade.img.gz)
 - [Radxa ROCK 4SE OpenWRT squashfs sysupgrade image](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-4se-squashfs-sysupgrade.img.gz)
 
+## Baidu Netdisk Download
+
+:::tip
+The Baidu Netdisk share link is regularly updated with the latest image files. It is recommended to download the latest images from Baidu Netdisk.
+
+**Version Notes:**
+
+- **R Version**: Tested stable version, recommended
+- **T Version**: Test version (for evaluation only)
+  :::
+
+- [Baidu Netdisk Download (rock-4se)](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-4se&parentPath=%2Fsharelink3108273493-988411983016443)
+- [Baidu Netdisk Download (rock-pi-4a / rock-pi-4b)](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-pi-4b&parentPath=%2Fsharelink3108273493-988411983016443)
+- [Baidu Netdisk Download (rock-pi-4a-plus / rock-pi-4b-plus)](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-pi-4b-plus&parentPath=%2Fsharelink3108273493-988411983016443)
+
 ## Datasheet
 
 - [ROCK 4A/B SOC RK3399 datasheet](http://rockchip.fr/RK3399%20datasheet%20V1.8.pdf)

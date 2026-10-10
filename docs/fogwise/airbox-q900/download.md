@@ -27,7 +27,7 @@ sidebar_position: 150
 - **R 版本**：经过测试的稳定版本，推荐使用
 - **T 版本**：测试版本（仅用于评估）
   :::
-- [百度网盘下载（radxa-airbox-q900）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-airbox-q900&parentPath=%2Fsharelink3108273493-988411983016443)
+- [百度网盘下载（radxa-airbox-q900）](https://pan.baidu.com/s/18V09femgW_JlldR1nKKlHw?pwd=q68i#list/path=%2Fsharelink3108273493-428944760906613%2Ffile-downloads%2Ffogwise%2Fairbox-q900%2Fimages&parentPath=%2Fsharelink3108273493-428944760906613)
 
 ## 软件工具
 

@@ -10,27 +10,9 @@ Follow the diagram below to connect the PCIE to M.2 adapter board properly, and 
 
 <img src="/img/rock2f/rock-2f-pcie.webp" width="800" alt="radxa-e20c pack" />
 
-- Open Overlay
-
-  1. Open Kconsole Terminal, Run rsetup command：
-
-  <pre> $ rsetup </pre>
-
-  2. Enable PCIe's Overlay via [Device Tree Configuration](../../radxa-os/rsetup).
-
-  :::tip
-
-  Select the PCIe Overlay:
-
-  [] Enable PCIe Overlay。<br/>
-
-  Please confirm whether the overlay is enabled successful like below, then save and exit the configuration.
-
-  [*] Enable PCIe
-
-  :::
-
-  3. Reboot System
+:::tip
+PCIe is enabled by default on ROCK 2F. There is no need to enable the PCIe Overlay via rsetup.
+:::
 
 - Test
 
@@ -56,7 +38,7 @@ Follow the diagram below to connect the PCIE to M.2 adapter board properly, and 
   2147483648 bytes (2.1 GB, 2.0 GiB) copied, 5.94583 s, 361 MB/s
   ```
 
-  2. Write Test
+  3. Write Test
 
   ```bash
   # dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=2048 status=progress

@@ -62,6 +62,7 @@ AIcore DX-M1 / DX-M1M has been verified to work with multiple Radxa single-board
 - ROCK 5A
 - ROCK 5B
 - ROCK 5B+
+- ROCK 5T
 - ROCK 5 ITX
 ```
 
