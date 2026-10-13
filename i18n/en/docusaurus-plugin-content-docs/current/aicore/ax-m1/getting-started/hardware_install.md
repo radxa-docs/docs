@@ -38,6 +38,8 @@ Once the Radxa AICore AX-M1 is aligned in the slot, press the free end down and 
 
 The Radxa AICore AX-M1 can generate substantial heat under load. For reliable thermals, we recommend active cooling or a metal enclosure for passive dissipation (see section 3.1).
 
+Before installing an active cooler, check whether your AX-M1 module actually has a fan connector fitted. Connector availability may differ between production batches. A module without this connector cannot directly power the cooler's fan; do not solder on a connector or use an unverified power point.
+
 ### Installation example
 
 When pairing the Radxa AICore AX-M1 with a metal enclosure, ensure the thermal pads on both sides are aligned symmetrically. This prevents uneven mechanical stress or bending.
