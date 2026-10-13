@@ -10,7 +10,7 @@ The Radxa eMMC module utilizes the eMMC 5.1 specification and offers four capaci
 
 ## Read/write speed test
 
-The eMMC chip's we use are Foresee, made by Longsys, a Shenzhen-based embedded storage company who acquired the Lexar brand in 2017.
+The eMMC chips we use are Foresee, made by Longsys, a Shenzhen-based embedded storage company that acquired the Lexar brand in 2017.
 
 Here are the tests we did on different brands of eMMC chips.
 

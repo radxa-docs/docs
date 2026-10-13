@@ -11,7 +11,7 @@ The ROCK 5B/5B+ supports a variety of power supply technologies, including smart
 
 - The USB-C power connector should output a fixed voltage between 5V and 20V, with a power rating greater than 30W for the ROCK 5B or 40W for the ROCK 5B+. For example, a 12V/4A USB-C power adapter would be suitable.
 
-- 5V power supply for GPIO PINs 2 and 4
+- 5V power supply for GPIO PINs 2 and 4.
 
 :::caution
 The ROCK 5B and ROCK 5B+ have different power adapter requirements. The two SSD drives require more power. The 4G module also needs additional power. The ROCK 5B+ specifically requires a 40W power adapter.
