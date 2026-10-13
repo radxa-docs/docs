@@ -18,7 +18,7 @@ sidebar_position: 4
 
 ## GPIO 功能
 
-ROCK 4D 支持给板载的 GPIO 引脚外接外部设备，支持 UART、SPI、I2C、I2S、PWM、CAN、ADC 等。
+ROCK 4D 支持给板载的 GPIO 引脚外接外部设备，支持 UART、SPI、I2C、I2S、PWM、CAN 等。
 
 <TabItem value="ROCK 4D">
      <div className='gpio_style' style={{ overflow :"auto"}} >
