@@ -18,7 +18,7 @@ When using the 40-Pin GPIO interface, please pay attention to the pin connection
 
 ## GPIO Features
 
-The ROCK 4D supports connecting external devices to its onboard GPIO pins, with support for UART, SPI, I2C, I2S, PWM, CAN, ADC, and more.
+The ROCK 4D supports connecting external devices to its onboard GPIO pins, with support for UART, SPI, I2C, I2S, PWM, CAN, and more.
 
 <TabItem value="ROCK 4D">
      <div className='gpio_style' style={{ overflow :"auto"}} >
