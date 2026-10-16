@@ -85,7 +85,8 @@ ROCK 5T/5T-Industrial 提供了完整的硬件设计原理图和软件源代码�
     </tr>
     <tr>
         <td align="center">内存</td>
-        <td colspan="2" align="center">4/8/16/24/32 64 位 LPDDR5</td>
+        <td align="center">4/8/12/16/24/32 GB 64 位 LPDDR5</td>
+        <td align="center">4/8/16/24/32 GB 64 位 LPDDR5</td>
     </tr>
     <tr>
         <td align="center">存储</td>
