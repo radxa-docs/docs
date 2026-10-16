@@ -57,7 +57,7 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
   </tr>
   <tr>
     <th>Memory</th>
-    <th>64-bit LPDDR5 memory 5500MT/S; Optional: 8/16/24/32GB</th>
+    <th>64-bit LPDDR5 memory 5500MT/S; Optional: 8/12/16/24/32GB</th>
   </tr>
   <tr>
     <th>Storage</th>
@@ -104,6 +104,8 @@ The ROCK 5 ITX is not only a high-performance ARM-based PC board but also a vers
     <th>170mm x 170mm</th>
   </tr>
 </table>
+
+ROCK 5 ITX+ is also available with 12GB LPDDR5 memory.
 
 ## Motherboard Overview
 
