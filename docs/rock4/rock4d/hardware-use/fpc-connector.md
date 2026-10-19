@@ -8,6 +8,8 @@ sidebar_position: 9
 
 我们可以通过 FPC 接口连接 PCIe 转 M.2 M Key HAT，搭配 M.2 NVMe SSD 使用，实现 NVMe SSD 启动系统或拓展存储空间。
 
+本页介绍的是 NVMe SSD 用法，不能据此认定其他 M.2 PCIe 设备（如算力卡）也已适配。使用其他设备前，需核对设备与转接板的键位、供电电压及峰值功耗；下方引脚表虽列出 5V 电源引脚，但未给出该接口可用的电流或功率上限。还需在目标系统镜像上验证 PCIe 枚举、驱动加载和实际应用运行。
+
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rock4d-fpc.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
