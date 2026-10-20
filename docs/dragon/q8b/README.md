@@ -55,7 +55,7 @@ sidebar_position: 2
 |  4   | FPC 接口                          |  5   | 高通骁龙 8cx Gen 3 (高通 SC8280XP) |  6   | 麦克风接口                             |
 |  7   | 电源排针                          |  8   | 3.5 mm 耳机插孔                    |  9   | USB Type-C 供电接口（20V）             |
 |  10  | HDMI 2.1 接口                     |  11  | USB 2.0 Type-A 接口                |  12  | UFS 模块接口                           |
-|  13  | 50-Pin B2B 接口                   |  14  | 2x USB-C（支持 DP Alt 模式）       |  15  | 电源按键                               |
+|  13  | 50-Pin B2B 接口 (MIPI CSI / PCIe) |  14  | 2x USB-C（支持 DP Alt 模式）       |  15  | 电源按键                               |
 |  16  | 风扇接口                          |  17  | M.2 E Key 插槽                     |  18  | RTC 电池接口                           |
 |  19  | 2.5GbE 以太网接口                 |  20  | 2x USB 3.2 Gen2 Type-A 接口        |  21  | M.2 M Key 2280 插槽 <br/>- PCIe 3.0 x2 |
 |  22  | M.2 M Key 插槽 <br/>- PCIe 3.0 x4 |  23  | microSD 卡槽                       |      |                                        |
