@@ -17,6 +17,15 @@ The Dragon Q6A has one 4-lane MIPI DSI interface on board for connecting MIPI di
 Only the Radxa official displays listed above are supported. Third-party displays (e.g., the Raspberry Pi 7\" touchscreen) are not officially adapted: even if a physical connection is made with an adapter cable, display and touch functionality depend on whether the system image includes a matching panel driver / device tree, and compatibility cannot be guaranteed.
 :::
 
+:::note
+The table above lists the compatible display models, but **not every system image includes the panel configuration for every model**:
+
+- **Radxa OS (Linux)**: both Display 10 FHD and Display 8 HD in the table above work normally.
+- **Android**: the current Dragon Q6A Android images do not include the panel configuration for Display 10 FHD, so **Display 10 FHD is not currently supported under Android** (it may show a black screen after connection).
+
+The displays actually supported by each system image are subject to the release notes of that image.
+:::
+
 ## Hardware Connection
 
 Connect the MIPI display to the Dragon Q6A's MIPI DSI interface (39-Pin / 0.3mm pitch FPC connector) via an FPC ribbon cable.
