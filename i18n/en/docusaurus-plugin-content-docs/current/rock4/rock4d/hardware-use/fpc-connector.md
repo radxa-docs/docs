@@ -8,6 +8,8 @@ The Radxa ROCK 4D features an onboard FPC (Flexible Printed Circuit) connector t
 
 You can connect a PCIe to M.2 M Key HAT to the FPC interface and use it with an M.2 NVMe SSD to boot the system or expand storage capacity.
 
+This page describes the NVMe SSD use case; it does not establish compatibility with other M.2 PCIe devices, such as accelerator cards. Before using another device, check the device and adapter keying, supply voltage, and peak power requirements. Although the pin table below lists 5V supply pins, it does not specify the current or power available from this connector. Also verify PCIe enumeration, driver loading, and the intended application on the target system image.
+
 <div style={{textAlign: 'center'}}>
   <img src="/img/rock4/4d/rock4d-fpc.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
