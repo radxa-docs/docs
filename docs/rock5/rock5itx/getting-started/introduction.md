@@ -57,7 +57,7 @@ ROCK 5 ITX 不仅是一款高性能的ARM基础PC板，更是一个多功能、�
   </tr>
   <tr>
     <th>内存</th>
-    <th>64 位 LPDDR5 内存 5500MT/S<br/>可选：8/16/24/32GB </th>
+    <th>64 位 LPDDR5 内存 5500MT/S<br/>可选：8/12/16/24/32GB </th>
   </tr>
   <tr>
     <th>存储</th>
@@ -104,6 +104,8 @@ ROCK 5 ITX 不仅是一款高性能的ARM基础PC板，更是一个多功能、�
     <th>170mm x 170mm</th>
   </tr>
 </table>
+
+ROCK 5 ITX+ 另提供 12GB LPDDR5 内存版本。
 
 ## 主板概览
 
