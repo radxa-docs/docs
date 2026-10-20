@@ -113,6 +113,41 @@ sudo reboot
 
 After the reboot is complete, you can check if the installation was successful by checking the version number of the currently booted kernel with `uname -a`.
 
+## Build an out-of-tree kernel module
+
+If you only need to verify a custom driver, you do not need to rebuild the entire kernel. First use `bsp` to fetch and configure the kernel source for the target board, then create a minimal `Makefile` in the driver directory:
+
+```makefile
+obj-m += my_driver.o
+```
+
+Put `my_driver.c` and `Makefile` in the same directory, then run the following commands in the host `bsp` build environment:
+
+```bash
+cd /path/to/bsp
+./bsp linux rk2410 --no-build
+
+cd /path/to/your-driver
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+  -C /path/to/bsp/.src/linux M=$PWD modules
+```
+
+After the build completes, `my_driver.ko` will be generated in the driver directory. Copy it to the board and use `insmod` to load it temporarily for verification:
+
+```bash
+scp my_driver.ko user@board:/tmp/
+ssh user@board
+sudo insmod /tmp/my_driver.ko
+```
+
+You can also generate and install the `linux-headers` package using the steps above, then build the module directly on the board:
+
+```bash
+make -C /lib/modules/$(uname -r)/build M=$PWD modules
+```
+
+The kernel running on the board must exactly match the kernel and headers used to build the module. Otherwise, loading the module may fail because of a `version magic` mismatch. If you modify the kernel source under `bsp/.src/linux`, keep the `--no-prepare-source` option when rebuilding; otherwise, `bsp` may synchronize the remote source and overwrite your local changes.
+
 ## Compile manually
 
 :::tip
