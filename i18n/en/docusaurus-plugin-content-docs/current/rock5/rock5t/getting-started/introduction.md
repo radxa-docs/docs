@@ -86,7 +86,8 @@ ROCK 5T/5T-Industrial provides complete hardware design schematics and software 
     </tr>
     <tr>
         <td align="center">Ram</td>
-        <td colspan="2" align="center">4/8/16/24/32 64 bits LPDDR5</td>
+        <td align="center">4/8/12/16/24/32 GB 64-bit LPDDR5</td>
+        <td align="center">4/8/16/24/32 GB 64-bit LPDDR5</td>
     </tr>
     <tr>
         <td align="center">Storage</td>
