@@ -31,6 +31,8 @@ description: "简单介绍 CM3/CM3 IO Board"
     ### 兼容性强
 
     兼容 Radxa CM3 IO Board 的同时，也兼容了 [Raspberry Pi CM4 IO Board](https://www.raspberrypi.com/products/compute-module-4-io-board/)/[Seeed Studio Dual Gigabit Ethernet Carrier Board](https://www.seeedstudio.com/Dual-GbE-Carrier-Board-with-4GB-RAM-32GB-eMMC-RPi-CM4-Case-p-5029.html)/[Waveshare CM4 IO Base](https://www.waveshare.com/wiki/CM4-IO-BASE-B)/[Mcuzone CM4 Mini](https://www.aliexpress.com/item/1005001972265702.html)/[Mcuzone CM4 Tiny](https://www.aliexpress.com/item/1005002206178734.html)
+
+    上述底板适配不表示 CM3 与 Raspberry Pi CM4 逐脚或全功能兼容。设计自研 CM4 底板或替换模块前，请按实际 CM3 硬件版本的[连接器引脚表](../download)逐项核对所用信号，尤其是显示、相机和启动控制引脚。
     </TabItem>
     <TabItem value="CM3 IO 板">
     ### 接口丰富
