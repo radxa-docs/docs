@@ -21,6 +21,7 @@ ROCK 4A/4B/4A+/4B+ 支持多种供电方式、智能电源适配器以及固定�
         - USB Type-C™ PD 2.0、9V/2A、12V/2A
         - Qualcomm® Quick Charge™ 2.0 QC3.0/2.0 适配器，9V/2A、12V/1.5A
         - USB C 电源端口上有 6V 至 12V 固定电压的电源适配器
+        - ROCK 4B+ 的 USB-C 输入不得使用 20V PD 档位或直接接入 20V 电池输出；上方 ROCK 4B 的 20V/24V 供电范围不适用于 ROCK 4B+
         - 来自 GPIO 引脚 2 和 4 的 5V 电源
         - ROCK 4B+ 千兆以太网端口（靠近 USB）支持 PoE，带有附加 瑞莎 23 W PoE HAT
 
