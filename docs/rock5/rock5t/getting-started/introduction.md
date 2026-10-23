@@ -77,7 +77,7 @@ ROCK 5T/5T-Industrial 提供了完整的硬件设计原理图和软件源代码�
     </tr>
     <tr>
         <td align="center">GPU</td>
-        <td colspan="2" align="center">Mali G610MP4 GPU，支持 OpenGLES 1.1/2.0/3.2<br />OpenCL 1.1/1.2/2.2 <br/> Vulkan 1.1 和 1.2</td>
+        <td colspan="2" align="center">Mali G610 MC4 GPU，支持 OpenGL ES 1.1/2.0/3.2<br />OpenCL 1.1/1.2/2.2 <br/> Vulkan 1.1 和 1.2</td>
     </tr>
     <tr>
     <td align="center">NPU</td>

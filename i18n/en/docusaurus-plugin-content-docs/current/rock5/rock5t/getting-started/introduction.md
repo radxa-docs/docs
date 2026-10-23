@@ -78,7 +78,7 @@ ROCK 5T/5T-Industrial provides complete hardware design schematics and software 
     </tr>
     <tr>
         <td align="center">GPU</td>
-        <td colspan="2" align="center">Mali G610MP4 supports OpenGLES 1.1/2.0/3.2<br />OpenCL 1.1/1.2/2.2 <br/> Vulkan 1.1 and 1.2</td>
+        <td colspan="2" align="center">Mali G610 MC4 supports OpenGL ES 1.1/2.0/3.2<br />OpenCL 1.1/1.2/2.2 <br/> Vulkan 1.1 and 1.2</td>
     </tr>
     <tr>
     <td align="center">NPU</td>
