@@ -20,6 +20,7 @@ ROCK 4A/4B/4A+/4B+ supports multiple power supply methods, smart power adapters,
         - USB Type-C™ PD 2.0, 9V/2A, 12V/2A
         - Qualcomm® Quick Charge™ 2.0 QC3.0/2.0 adapters, 9V/2A, 12V/1.5A
         - Power adapter with fixed voltage from 6V to 12V on USB C power port
+        - Do not use a 20V PD profile or connect a 20V battery output directly to the ROCK 4B+ USB-C input; the 20V/24V input range above for ROCK 4B does not apply to ROCK 4B+
         - 5V power from GPIO pins 2 and 4
         - ROCK 4B+ Gigabit Ethernet port (near USB) supports PoE with additional Radxa 23W PoE HAT
     </TabItem>
