@@ -31,6 +31,8 @@ description: "A brief introduction to the CM3/CM3 IO Board"
     ### Strong Compatibility
 
     It is compatible not only with Radxa CM3 IO Board but also with [Raspberry Pi CM4 IO Board](https://www.raspberrypi.com/products/compute-module-4-io-board/), [Seeed Studio Dual Gigabit Ethernet Carrier Board](https://www.seeedstudio.com/Dual-GbE-Carrier-Board-with-4GB-RAM-32GB-eMMC-RPi-CM4-Case-p-5029.html), [Waveshare CM4 IO Base](https://www.waveshare.com/wiki/CM4-IO-BASE-B), [Mcuzone CM4 Mini](https://www.aliexpress.com/item/1005001972265702.html), and [Mcuzone CM4 Tiny](https://www.aliexpress.com/item/1005002206178734.html).
+
+    Compatibility with the listed carrier boards does not mean that CM3 and Raspberry Pi CM4 are pin-for-pin or functionally identical. Before designing a custom CM4 carrier or substituting a module, check every signal in use against the [connector pinout](../download) for the actual CM3 hardware revision, especially display, camera, and boot-control pins.
     </TabItem>
     <TabItem value="CM3 IO Board">
     ### Rich Interface Options
