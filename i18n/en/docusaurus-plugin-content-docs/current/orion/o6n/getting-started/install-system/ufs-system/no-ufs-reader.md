@@ -6,7 +6,7 @@ import InstallSystem from '../../../../../common/radxa-os/install-system/\_use_d
 
 # Boot from USB and Install System to UFS
 
-This tutorial is only applicable to Radxa Orion O6N. The Radxa Orion O6 does not have a UFS module connector.
+This tutorial applies only to Radxa Orion O6N hardware revisions V1.11 and earlier with a UFS module connector. Check the board revision and physical connector first. The Radxa Orion O6 does not have a UFS module connector.
 
 <InstallSystem boot_device="USB drive" tag="ufs_module" board="orion-o6n" download_page="../../../../download" download_url="https://github.com/radxa-build/orion-o6/releases/download/rsdk-t2/orion-o6_bookworm_gnome_t2.output_4096.img.xz" path_to_image_unxz="orion-o6_bookworm_gnome_t2.output_4096.img.xz" path_to_image="orion-o6_bookworm_gnome_t2.output_4096.img" />
 
