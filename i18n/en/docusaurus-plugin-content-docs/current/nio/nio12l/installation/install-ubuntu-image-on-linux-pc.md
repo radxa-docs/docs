@@ -172,4 +172,4 @@ You must first execute the step "Run genio-flash" and then do the step "Enter Do
 
 ## Reference document
 
-[MT8395 (Genio 1200) development manual](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/hw/mt8395-soc.html)
+[MT8395 (Genio 1200) Platform Overview](https://genio.mediatek.com/doc/iot-yocto/release/v25.0/hw/mt8395-soc.html)
