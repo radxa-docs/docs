@@ -27,8 +27,8 @@ Android：
 - Loader: [MiniLoader.bin](https://dl.radxa.com/rock5/5itx/images/MiniLoaderAll.bin)
 - [ROCK 5B Android 12_gpt](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240419/Rock5B_Android12_rkr14_20240419-gpt.zip)(used for booting from sdcard/emmc)
 - [ROCK 5B Android 12 RKupdate Image](https://github.com/radxa/manifests/releases/download/Rock-android12-20221104/ROCK-5B-Android12-rkr10-20221103-spi-nvme-rkupdate.zip)(used for booting from SPI-NVME)
-- [ROCK_5B+_Android12_gpt](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SD-or-eMMC-20240705-1-gpt.zip)(used for booting from sdcard/emmc)
-- [ROCK_5B+_Android12_update](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SPI_NVME-20240705-update.zip)(used for booting from SPI-NVME)
+- [ROCK_5B+\_Android12_gpt](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SD-or-eMMC-20240705-1-gpt.zip)(used for booting from sdcard/emmc)
+- [ROCK_5B+\_Android12_update](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SPI_NVME-20240705-update.zip)(used for booting from SPI-NVME)
 
 ### Third-party Image
 
@@ -203,6 +203,12 @@ L2203 L2205 L2300 L2301 L2303 Converted to 3225 RHP322512T-R24M
 
 Changed the package of 31P holder:
 Pins 1-31 widened to 0.3mm, two locator pins widened to 0.7mm
+
+### V2.20
+
+- [ROCK 5B V2.20 Schematic PDF](https://dl.radxa.com/rock5/5b/docs/hw/radxa_rock_5b_schematic_v2.20.pdf)
+- [ROCK 5B V2.20 Components Placement Map PDF](https://dl.radxa.com/rock5/5b/docs/hw/radxa_rock_5b_components_placement_map_v2.20.pdf)
+
 </TabItem>
 
 <TabItem value="ROCK 5B+">
@@ -215,6 +221,11 @@ The block diagram inside the `v1.2 Schematic pdf` still shows an older interface
 - [v1.2 Components Placement Map pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_components_placement_map.pdf)
 - [v1.2 2D DXF](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v12_2d.zip)
 - [v1.2 3D STP](https://dl.radxa.com/rock5/5b+/docs/hw/rock5bp_pcba_3d_V1_2_20250314.stp)
+
+### V1.21
+
+- [ROCK 5B+ V1.21 Schematic PDF](https://dl.radxa.com/rock5/5b%2B/docs/hw/radxa_rock_5b%2B_schematic_v1.21.pdf)
+- [ROCK 5B+ V1.21 Components Placement Map PDF](https://dl.radxa.com/rock5/5b%2B/docs/hw/radxa_rock_5b%2B_components_placement_map_v1.21.pdf)
 
 </TabItem>
 </Tabs>
