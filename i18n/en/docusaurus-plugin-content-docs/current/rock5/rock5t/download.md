@@ -37,7 +37,7 @@ Default Armbian credentials:
 
 &emsp;&emsp; [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip) (Windows flash tool)
 
-&emsp;&emsp; [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)（USB driver）
+&emsp;&emsp; [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)（USB driver）
 
 &emsp;&emsp; [RK3588 Camera Tuner](https://dl.radxa.com/tools/windows/RK3588_Camera_Tuner_V2.10.zip): Rockchip RK3588 camera tuning tool for ISP parameter tuning on RK3588 / RK3588J series SoCs.
 
@@ -52,6 +52,12 @@ Default Armbian credentials:
 &emsp;&emsp; [ROCK 5T V1.2 2D dxf](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_2d_dxf_v1.2.zip)
 
 &emsp;&emsp; [ROCK 5T V1.2 3D stp](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_3d_pcba_stp_v1.2_20250207.zip)
+
+### V1.24
+
+&emsp;&emsp; [ROCK 5T V1.24 Schematic PDF](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock_5t_schematic_v1.24.pdf)
+
+&emsp;&emsp; [ROCK 5T V1.24 Components Placement Map PDF](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock_5t_components_placement_map_v1.24.pdf)
 
 ### V2.01
 
