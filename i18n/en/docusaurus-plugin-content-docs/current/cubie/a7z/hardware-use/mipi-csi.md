@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # MIPI CSI Interface
 
-The Radxa Cubie A7Z features one 4-lane MIPI CSI interface, allowing you to connect cameras via the MIPI CSI interface.
+The Radxa Cubie A7Z V1.10 / V1.11 has one 4-lane MIPI CSI interface; V2.00 has two 4-lane MIPI CSI interfaces for connecting cameras.
 
 :::info Interface Location
 For the specific location of the MIPI CSI interface, please refer to the interface description section in the [Hardware Interface](./hardware-info) tutorial!

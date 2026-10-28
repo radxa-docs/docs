@@ -8,12 +8,22 @@ This tutorial helps you get up and running with the Cubie A7Z Android system as 
 
 # Hardware Overview
 
+<Tabs queryString="a7z-revision">
+<TabItem value="v1" label="V1.10 / V1.11" default>
+
 <div style={{textAlign: 'center'}}>
-   Cubie A7Z front
-   <img src="/en/img/cubie/a7z/a7z-bottom.webp" style={{width: '100%', maxWidth: '1200px'}} />
-   Cubie A7Z back
-   <img src="/en/img/cubie/a7z/a7z-top.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/cubie/a7z/a7z-appearance-v1.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Cubie A7Z V1.10 / V1.11 front and back" />
 </div>
+
+</TabItem>
+<TabItem value="v2" label="V2.00">
+
+<div style={{textAlign: 'center'}}>
+   <img src="/en/img/cubie/a7z/a7z-appearance-v2.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Cubie A7Z V2.00 front and back" />
+</div>
+
+</TabItem>
+</Tabs>
 
 ## Requirements
 

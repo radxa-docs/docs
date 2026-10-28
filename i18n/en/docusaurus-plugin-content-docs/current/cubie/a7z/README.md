@@ -2,6 +2,9 @@
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Radxa Cubie A7Z
 
 ## Product Overview
@@ -14,12 +17,22 @@ With its compact size and powerful performance, it can efficiently handle comple
 
 ## Product Appearance
 
+<Tabs queryString="a7z-revision">
+<TabItem value="v1" label="V1.10 / V1.11" default>
+
 <div style={{textAlign: 'center'}}>
-   Cubie A7Z Front View
-   <img src="/en/img/cubie/a7z/a7z-bottom.webp" style={{width: '100%', maxWidth: '1200px'}} />
-   Cubie A7Z Back View
-   <img src="/en/img/cubie/a7z/a7z-top.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/en/img/cubie/a7z/a7z-appearance-v1.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Cubie A7Z V1.10 / V1.11 front and back" />
 </div>
+
+</TabItem>
+<TabItem value="v2" label="V2.00">
+
+<div style={{textAlign: 'center'}}>
+   <img src="/en/img/cubie/a7z/a7z-appearance-v2.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Cubie A7Z V2.00 front and back" />
+</div>
+
+</TabItem>
+</Tabs>
 
 ## Package Contents
 
@@ -38,7 +51,6 @@ With its compact size and powerful performance, it can efficiently handle comple
 | Networking            | Onboard Wi-Fi 6, Bluetooth 5.4 chip, external antenna supported for enhanced signal                                                                                                                                                                                     |
 | Video Output          | 1x Micro HDMI port, supports up to 4K@60fps <br/> 1x USB-C 3.0 port with DisplayPort Alt Mode support for external high-definition displays                                                                                                                             |
 | Video codec           | Encode<br />- H.264 / H.265 up to 4K@30fps<br />Decode<br />- H.265 / VP9 / AVS2 up to 4K@60fps<br />- H.264 up to 4K@30fps                                                                                                                                             |
-| Camera                | 1x 4-lane MIPI CSI                                                                                                                                                                                                                                                      |
 | USB                   | 1x USB-C 2.0 OTG for power and data transfer <br/> 1x USB-C 3.0 OTG with DisplayPort Alt Mode support                                                                                                                                                                   |
 | Expansion             | Standard 40-Pin GPIO interface: Supports PWM, UART, SPI, I2C, etc. <br/> PCIe Gen3.0 FPC interface: 1-lane PCIe 3.0 for expanding NVMe SSDs, AI accelerator cards, and other high-speed devices <br/> Fan interface: 1x 3-Pin 0.8mm Pitch 180° Horizontal SMD Connector |
 | Power Supply          | USB Type-C 5V power supply <br/> GPIO pin 5V power supply (pins 2 and 4)                                                                                                                                                                                                |
@@ -46,7 +58,15 @@ With its compact size and powerful performance, it can efficiently handle comple
 | Dimensions            | 65 x 30mm                                                                                                                                                                                                                                                               |
 | Operating Temperature | Recommended 0°C ~ 50°C                                                                                                                                                                                                                                                  |
 
+| Interface | V1.10 / V1.11      | V2.00              |
+| --------- | ------------------ | ------------------ |
+| MIPI CSI  | 1x 4-lane MIPI CSI | 2x 4-lane MIPI CSI |
+| MIPI DSI  | None               | 1x 4-lane MIPI DSI |
+
 ## Interface Description
+
+<Tabs queryString="a7z-revision">
+<TabItem value="v1" label="V1.10 / V1.11" default>
 
 <div style={{textAlign: 'center'}}>
    <img src="/en/img/cubie/a7z/a7z-interface.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Cubie A7Z Interface Diagram" />
@@ -59,6 +79,24 @@ With its compact size and powerful performance, it can efficiently handle comple
 | ③   | Allwinner A733 SoC               | ⑧   | 4-lane MIPI CSI Interface | ⑬   | LPDDR4/4x RAM          |
 | ④   | Micro HDMI Port                  | ⑨   | Onboard UFS               | ⑭   | microSD Card Slot      |
 | ⑤   | Fan Connector                    | ⑩   | U-Boot Button             |     |                        |
+
+</TabItem>
+<TabItem value="v2" label="V2.00">
+
+<div style={{textAlign: 'center'}}>
+   <img src="/en/img/cubie/a7z/a7z-interface-v2.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Cubie A7Z V2.00 Interface Diagram" />
+</div>
+
+| No. | Description                      | No. | Description                | No. | Description        |
+| --- | -------------------------------- | --- | -------------------------- | --- | ------------------ |
+| ①   | USB-C 2.0 OTG & Power Port       | ⑥   | Antenna Connector          | ⑪   | 4-lane MIPI DSI    |
+| ②   | USB-C 3.1 OTG & DP Alt Mode Port | ⑦   | WiFi 6 / BT5 Module        | ⑫   | 2x 4-lane MIPI CSI |
+| ③   | Allwinner A733 SoC               | ⑧   | FPC Connector (PCIe Gen 3) | ⑬   | 40-Pin GPIO Header |
+| ④   | Micro HDMI Port                  | ⑨   | Onboard UFS                | ⑭   | LPDDR4/4x RAM      |
+| ⑤   | Fan Connector                    | ⑩   | USB BOOT Button            | ⑮   | microSD Card Slot  |
+
+</TabItem>
+</Tabs>
 
 - Power Indicator
 

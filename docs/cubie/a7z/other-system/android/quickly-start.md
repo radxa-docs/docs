@@ -8,12 +8,22 @@ sidebar_position: 1
 
 # 产品实物
 
+<Tabs queryString="a7z-revision">
+<TabItem value="v1" label="V1.10 / V1.11" default>
+
 <div style={{textAlign: 'center'}}>
-   Cubie A7Z 正面
-   <img src="/img/cubie/a7z/a7z-bottom.webp" style={{width: '100%', maxWidth: '1200px'}} />
-   Cubie A7Z 背面
-   <img src="/img/cubie/a7z/a7z-top.webp" style={{width: '100%', maxWidth: '1200px'}} />
+   <img src="/img/cubie/a7z/a7z-appearance-v1.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Cubie A7Z V1.10 / V1.11 正反面" />
 </div>
+
+</TabItem>
+<TabItem value="v2" label="V2.00">
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7z/a7z-appearance-v2.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Cubie A7Z V2.00 正反面" />
+</div>
+
+</TabItem>
+</Tabs>
 
 ## 使用前提
 
