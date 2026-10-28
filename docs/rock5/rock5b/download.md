@@ -27,8 +27,8 @@ Android：
 - Loader: [MiniLoader.bin](https://dl.radxa.com/rock5/5itx/images/MiniLoaderAll.bin)
 - [ROCK 5B Android 12_gpt](https://github.com/radxa/manifests/releases/download/Android12_rkr14_20240419/Rock5B_Android12_rkr14_20240419-gpt.zip)(用于 sdcard/emmc 启动)
 - [ROCK 5B Android 12_update](https://github.com/radxa/manifests/releases/download/Rock-android12-20221104/ROCK-5B-Android12-rkr10-20221103-spi-nvme-rkupdate.zip)(用于 nvme 启动)
-- [ROCK_5B+_Android12_gpt](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SD-or-eMMC-20240705-1-gpt.zip)(用于 sdcard/emmc 启动)
-- [ROCK_5B+_Android12_update](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SPI_NVME-20240705-update.zip)(用于 SPI-NVME 启动)
+- [ROCK_5B+\_Android12_gpt](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SD-or-eMMC-20240705-1-gpt.zip)(用于 sdcard/emmc 启动)
+- [ROCK_5B+\_Android12_update](https://github.com/radxa/manifests/releases/download/android12-radxa-20240708/Rock5BPlus-Android12-rkr14-SPI_NVME-20240705-update.zip)(用于 SPI-NVME 启动)
 
 ### 第三方镜像
 
@@ -216,6 +216,12 @@ L2203 L2205 L2300 L2301 L2303 改成 3225 封装的 RHP322512T-R24M
 
 更改了 31P 座子的封装：
 1-31脚加宽到0.3mm，两个定位脚加宽到0.7mm
+
+### V2.20
+
+- [ROCK 5B V2.20 原理图 PDF](https://dl.radxa.com/rock5/5b/docs/hw/radxa_rock_5b_schematic_v2.20.pdf)
+- [ROCK 5B V2.20 位号图 PDF](https://dl.radxa.com/rock5/5b/docs/hw/radxa_rock_5b_components_placement_map_v2.20.pdf)
+
 </TabItem>
 
 <TabItem value="ROCK 5B+">
@@ -230,6 +236,11 @@ L2203 L2205 L2300 L2301 L2303 改成 3225 封装的 RHP322512T-R24M
 - [v1.2 位号图 pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_components_placement_map.pdf)
 - [v1.2 2D DXF](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v12_2d.zip)
 - [v1.2 3D STP](https://dl.radxa.com/rock5/5b+/docs/hw/rock5bp_pcba_3d_V1_2_20250314.stp)
+
+### V1.21
+
+- [ROCK 5B+ V1.21 原理图 PDF](https://dl.radxa.com/rock5/5b%2B/docs/hw/radxa_rock_5b%2B_schematic_v1.21.pdf)
+- [ROCK 5B+ V1.21 位号图 PDF](https://dl.radxa.com/rock5/5b%2B/docs/hw/radxa_rock_5b%2B_components_placement_map_v1.21.pdf)
 
 </TabItem>
 </Tabs>
