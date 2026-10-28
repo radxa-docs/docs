@@ -6,7 +6,7 @@ import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use
 
 # Install System Using a Card Reader
 
-This tutorial is only applicable to Radxa Orion O6N. The Radxa Orion O6 does not have a UFS module connector.
+This tutorial applies only to Radxa Orion O6N hardware revisions V1.11 and earlier with a UFS module connector. Check the board revision and physical connector first. The Radxa Orion O6 does not have a UFS module connector.
 
 <BalenaEtcherUse download_page="../../../../download"/>
 

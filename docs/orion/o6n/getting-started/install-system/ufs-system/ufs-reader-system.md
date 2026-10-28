@@ -6,7 +6,7 @@ import BalenaEtcherUse from '../../../../../common/radxa-os/install-system/\_use
 
 # 使用读卡器安装系统
 
-教程仅适用于星睿 O6N，星睿 O6 无 UFS 模块连接座。
+教程仅适用于配有 UFS 模块接口的星睿 O6N V1.11 及更早硬件版本。请先核对主板版本和实际接口；星睿 O6 无 UFS 模块连接座。
 
 <BalenaEtcherUse download_page="../../../../download"/>
 

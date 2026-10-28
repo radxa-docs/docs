@@ -36,11 +36,13 @@ Note: The actual package contents are subject to the purchase platform's specifi
 
 ## Product Specifications
 
+Note: The UFS module connector listed below is present only on hardware revisions V1.11 and earlier. Before using a UFS module, check the board revision marking and the physical connector. Use a USB drive or NVMe SSD on boards without a UFS module connector.
+
 | Category                       | Specifications                                                                                                                                                                                                        |
 | :----------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | System on Chip (SoC)           | CIX P1                                                                                                                                                                                                                |
-| Central Processing Unit (CPU)  | 4x Big Cores Cortex®-A720, up to 2.6 GHz<br/>4x Middle Cores Cortex®-A720, up to 2.4 GHz<br/>4x Small Cores Cortex®-A520, up to 1.8 GHz<br/>System Cache: 12MB L3 cache shared across all cores                    |
-| Graphics Processing Unit (GPU) | Arm® Immortals™ G720 MC10<br/>- Hardware-accelerated ray tracing<br/>- OpenGL ES 3.2 support<br/>- Vulkan 1.3 support<br/>- OpenCL 2.2 support<br/>- DirectX 12 support                                             |
+| Central Processing Unit (CPU)  | 4x Big Cores Cortex®-A720, up to 2.6 GHz<br/>4x Middle Cores Cortex®-A720, up to 2.4 GHz<br/>4x Small Cores Cortex®-A520, up to 1.8 GHz<br/>System Cache: 12MB L3 cache shared across all cores                       |
+| Graphics Processing Unit (GPU) | Arm® Immortals™ G720 MC10<br/>- Hardware-accelerated ray tracing<br/>- OpenGL ES 3.2 support<br/>- Vulkan 1.3 support<br/>- OpenCL 2.2 support<br/>- DirectX 12 support                                               |
 | Neural Processing Unit (NPU)   | 30 TOPS computing power<br/>- Supports INT4 / INT8 / INT16 / FP16 / BF16 / TF32 precisions                                                                                                                            |
 | Video Codec                    | Decoding:<br/>- Supports AV1 / H.265 / H.264 / VP9 / VP8 / H.263 / MPEG-4 / MPEG-2 formats<br/>- Up to 8K@60fps decoding<br/>Encoding:<br/>- Supports H.265 / H.264 / VP9 / VP8 formats<br/>- Up to 8K@30fps encoding |
 | Memory                         | LPDDR5<br/>- 128-bit data bus width<br/>- Transfer speed: 5000 MT/s or 6000 MT/s options<br/>- Capacity options: 8GB / 16GB / 24GB / 32GB / 48GB / 64GB                                                               |

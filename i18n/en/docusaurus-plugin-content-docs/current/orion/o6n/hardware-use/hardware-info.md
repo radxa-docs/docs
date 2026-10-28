@@ -155,7 +155,7 @@ Note: The SIM card detection pin (CD) is connected to GND.
 
 ### UFS Module Connector
 
-Onboard UFS module connector for connecting UFS storage modules, which can be used to expand system storage or as a boot device.
+Hardware revisions V1.11 and earlier have a UFS module connector for storage expansion or use as a boot device. Check the board revision and confirm that the connector is physically present before installing a UFS module; revisions without this connector cannot use a UFS module.
 
 ### MIPI CSI Interfaces
 
