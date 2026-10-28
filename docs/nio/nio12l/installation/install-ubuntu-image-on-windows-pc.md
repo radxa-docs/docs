@@ -164,4 +164,4 @@ fastboot: OK
 
 ## 参考文档
 
-[MT8395 (Genio 1200) 开发手册](https://mediatek.gitlab.io/aiot/doc/aiot-dev-guide/master/hw/mt8395-soc.html)
+[MT8395 (Genio 1200) 平台介绍](https://genio.mediatek.com/doc/iot-yocto/release/v25.0/hw/mt8395-soc.html)
