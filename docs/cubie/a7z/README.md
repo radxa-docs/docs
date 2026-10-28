@@ -2,6 +2,9 @@
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 瑞莎 Cubie A7Z
 
 ## 产品概述
@@ -38,7 +41,6 @@ Cubie A7Z 搭载全志 A733 SoC，内置混合架构高性能八核 CPU（双核
 | 网络       | 板载 Wi-Fi 6、蓝牙 5.4 芯片，可外接天线增强信号                                                                                                                                                                                            |
 | 视频输出   | 1 个 Micro HDMI 接口，最高支持 4K@60fps <br/> 1 个 USB-C 3.0 接口，兼容 DisplayPort Alt 模式.可外接高清显示屏                                                                                                                              |
 | 视频编解码 | 视频编码<br />- H.264 / H.265 编码，最高支持 4K@30fps<br />视频解码<br />- H.265 / VP9 / AVS2 解码，最高支持 4K@60fps<br />- H.264 解码，最高支持 4K@30fps                                                                                 |
-| 摄像头     | 1 个 4-lane MIPI CSI                                                                                                                                                                                                                       |
 | USB        | 1 个 USB-C 2.0 OTG，支持供电和传输数据 <br/> 1 个 USB-C 3.0 OTG，兼容 DisplayPort Alt 模式                                                                                                                                                 |
 | 拓展       | 标准 40 Pin GPIO 接口： 支持 PWM、UART、SPI、I2C 等功能 <br/> PCIe Gen3.0 FPC 接口： 1-lane PCIe 3.0，支持拓展 NVMe SSD、AI 加速卡等高速设备 <br/> 风扇接口： 1× 3-Pin 180° 卧贴 0.8mm 接口                                                |
 | 供电方式   | 支持 USB Type-C 5V 供电 <br/> 支持 GPIO 引脚5V 供电（引脚 2 与 4）                                                                                                                                                                         |
@@ -46,7 +48,15 @@ Cubie A7Z 搭载全志 A733 SoC，内置混合架构高性能八核 CPU（双核
 | 尺寸规格   | 65 x 30mm                                                                                                                                                                                                                                  |
 | 工作温度   | 推荐 0°C ~ 50°C                                                                                                                                                                                                                            |
 
+| 接口     | V1.10 / V1.11        | V2.00                |
+| -------- | -------------------- | -------------------- |
+| MIPI CSI | 1 个 4-lane MIPI CSI | 2 个 4-lane MIPI CSI |
+| MIPI DSI | 无                   | 1 个 4-lane MIPI DSI |
+
 ## 接口说明
+
+<Tabs queryString="a7z-revision">
+<TabItem value="v1" label="V1.10 / V1.11" default>
 
 <div style={{textAlign: 'center'}}>
    <img src="/img/cubie/a7z/a7z-interface.webp" style={{width: '100%', maxWidth: '1200px'}} />
@@ -59,6 +69,24 @@ Cubie A7Z 搭载全志 A733 SoC，内置混合架构高性能八核 CPU（双核
 | ③    | Allwinner A733                  | ⑧    | 4-lane MIPI CSI 接口 | ⑬    | LPDDR4/4x RAM     |
 | ④    | Micro HDMI 接口                 | ⑨    | 板载 UFS             | ⑭    | microSD 卡槽      |
 | ⑤    | FAN 接口                        | ⑩    | UBOOT 按键           |      |                   |
+
+</TabItem>
+<TabItem value="v2" label="V2.00">
+
+<div style={{textAlign: 'center'}}>
+   <img src="/img/cubie/a7z/a7z-interface-v2.webp" style={{width: '100%', maxWidth: '1200px'}} alt="Cubie A7Z V2.00 接口标注图" />
+</div>
+
+| 序号 | 说明                            | 序号 | 说明                  | 序号 | 说明                 |
+| ---- | ------------------------------- | ---- | --------------------- | ---- | -------------------- |
+| ①    | USB-C 2.0 OTG & Power 接口      | ⑥    | 天线接口              | ⑪    | 4 通道 MIPI DSI      |
+| ②    | USB-C 3.1 OTG & DP Alt 模式接口 | ⑦    | WiFi 6 / BT5 模组     | ⑫    | 2 个 4 通道 MIPI CSI |
+| ③    | Allwinner A733                  | ⑧    | FPC 接口 (PCIe Gen 3) | ⑬    | 40-Pin GPIO 排针     |
+| ④    | Micro HDMI 接口                 | ⑨    | 板载 UFS              | ⑭    | LPDDR4/4x 内存       |
+| ⑤    | FAN 接口                        | ⑩    | USB BOOT 按键         | ⑮    | microSD 卡槽         |
+
+</TabItem>
+</Tabs>
 
 - 电源指示灯
 
