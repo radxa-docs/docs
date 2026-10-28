@@ -37,7 +37,7 @@ Armbian 的默认凭据如下：
 
 &emsp;&emsp; [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip) (烧录工具)
 
-&emsp;&emsp; [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)（USB驱动）
+&emsp;&emsp; [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)（USB驱动）
 
 &emsp;&emsp; [RK3588 Camera Tuner](https://dl.radxa.com/tools/windows/RK3588_Camera_Tuner_V2.10.zip)：Rockchip RK3588 摄像头调试工具，适用于 RK3588 / RK3588J 等 RK3588 系列 SoC 的 ISP 参数调优。
 
@@ -47,9 +47,12 @@ Armbian 的默认凭据如下：
 百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
 
 **版本说明：**
+
 - **R 版本**：经过测试的稳定版本，推荐使用
 - **T 版本**：测试版本（仅用于评估）
+
 :::
+
 - [百度网盘下载（rock-5t）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Frock-5t&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 硬件设计
@@ -63,6 +66,12 @@ Armbian 的默认凭据如下：
 &emsp;&emsp; [ROCK 5T V1.2 2D dxf](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_2d_dxf_v1.2.zip)
 
 &emsp;&emsp; [ROCK 5T V1.2 3D stp](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock5t_3d_pcba_stp_v1.2_20250207.zip)
+
+### V1.24
+
+&emsp;&emsp; [ROCK 5T V1.24 原理图 PDF](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock_5t_schematic_v1.24.pdf)
+
+&emsp;&emsp; [ROCK 5T V1.24 位号图 PDF](https://dl.radxa.com/rock5/5t/docs/hw/radxa_rock_5t_components_placement_map_v1.24.pdf)
 
 ### V2.01
 
