@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 99
 ---
 
 # 资源下载汇总
@@ -10,7 +10,8 @@ sidebar_position: 4
 
 ## 官方操作系统镜像
 
-- [Radxa ROCK PI S Debian Build 40](https://github.com/radxa-build/rock-pi-s/releases/download/b40/rock-pi-s_debian_bookworm_cli_b40.img.xz)
+- [Radxa ROCK Pi S Debian 12 CLI R1（2026-10-27）](https://github.com/radxa-build/rock-pi-s/releases/download/rsdk-r1/rock-pi-s_bookworm_cli_r1.output_512.img.xz)
+- [Radxa ROCK PI S Debian Build 40（2024-01-24）](https://github.com/radxa-build/rock-pi-s/releases/download/b40/rock-pi-s_debian_bookworm_cli_b40.img.xz)
 
 更多镜像请查看：[Radxa ROCK PI S Release](https://github.com/radxa-build/rock-pi-s/releases)
 
