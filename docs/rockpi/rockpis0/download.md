@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 60
 ---
 
 # 资源下载汇总
@@ -32,14 +32,15 @@ ROCK Pi S0 v1.2 版本
 
 3. [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip)
 
-   [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)（相关驱动）
+   [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip)（相关驱动）
 
 ## 操作系统镜像
 
 ### 官方操作系统镜像
 
 - [Loader](https://dl.radxa.com/rockpis/images/loader/rk3308_loader_ddr589MHz_uart0_m0_v2.06.136sd.bin)
-- [Radxa ROCK Pi S0 Debian Build 6](https://github.com/radxa-build/rock-s0/releases/download/b6/rock-s0_debian_bookworm_cli_b6.img.xz)
+- [Radxa ROCK Pi S0 Debian 12 CLI R1（2026-10-27）](https://github.com/radxa-build/rock-s0/releases/download/rsdk-r1/rock-s0_bookworm_cli_r1.output_512.img.xz)
+- [Radxa ROCK Pi S0 Debian Build 6（2024-01-23）](https://github.com/radxa-build/rock-s0/releases/download/b6/rock-s0_debian_bookworm_cli_b6.img.xz)
 
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。

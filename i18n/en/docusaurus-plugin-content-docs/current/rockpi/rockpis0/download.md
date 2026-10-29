@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 60
 title: Resource Download
 ---
 
@@ -30,14 +30,15 @@ ROCK Pi S0 v1.2 Version
 1. [Etcher](https://etcher.balena.io/#download-etcher/)
 2. [rkdeveloptool open source version](https://opensource.rock-chips.com/wiki_Rkdeveloptool)
 3. [RKDevTool](https://dl.radxa.com/tools/windows/RKDevTool_Release.zip)  
-   [DriverAssitant](https://dl.radxa.com/tools/windows/DriverAssitant.zip) (related driver)
+   [DriverAssistant](https://dl.radxa.com/tools/windows/DriverAssitant.zip) (related driver)
 
 ## Operating system images
 
 ### Official Operating System Image
 
 - [Loader](https://dl.radxa.com/rockpis/images/loader/rk3308_loader_ddr589MHz_uart0_m0_v2.06.136sd.bin)
-- [Radxa ROCK Pi S0 Debian Build 6](https://github.com/radxa-build/rock-s0/releases/download/b6/rock-s0_debian_bookworm_cli_b6.img.xz)
+- [Radxa ROCK Pi S0 Debian 12 CLI R1 (2026-10-27)](https://github.com/radxa-build/rock-s0/releases/download/rsdk-r1/rock-s0_bookworm_cli_r1.output_512.img.xz)
+- [Radxa ROCK Pi S0 Debian Build 6 (2024-01-23)](https://github.com/radxa-build/rock-s0/releases/download/b6/rock-s0_debian_bookworm_cli_b6.img.xz)
 
 :::caution
 Except for the above images, which have been fully tested officially, the other images have not been rigorously tested, may have unknown issues, and are for evaluation use only.
