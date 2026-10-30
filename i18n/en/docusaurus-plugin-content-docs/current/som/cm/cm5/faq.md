@@ -25,3 +25,7 @@ No, as the 3 pins (94/96/98) (USB_5V_IN) of the current CM3 + Radxa CM3 IO board
    - Not support 3.5mm headphone audio, external CODEC is needed
    - Not support EDP: 15/17/21/23/27/29/33/35 pin, CM3 supports EDP, while CM5 is TYPE C
    - USB2_HOST3 not supported: 69/71 PIN CM3 is USB, while CM5 is I2C
+
+### 3. Can CM5 directly replace CM3J on an existing carrier board?
+
+Do not treat CM5 as a pin-for-pin replacement for CM3J. Even where the connectors have the same placement, some connector pins have different functions. Before replacing the module, compare the carrier schematic against the [CM3J V1.2 pinout](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_pinout_v1.2.xlsx) and [CM5 V2.21 pinout](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_pinout.xlsx), checking power and every interface used by the carrier. Do not power on the assembly until these checks are complete. The CM3 carrier replacement guidance above does not apply to CM3J.
