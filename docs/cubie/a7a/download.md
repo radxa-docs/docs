@@ -165,6 +165,6 @@ SD卡启动盘制作工具：
 
 ## 认证与合规
 
-- [Radxa Cubie A7A CE-RED 测试符合性验证](https://dl.radxa.com/compliance/cubie-a7a/radxa-cubie-a7a-ce-red-verification.pdf)
+- 欧盟 RED 测试符合性验证文件（CE-RED）。
 
-适用型号以文件中的 Model/Type reference 为准。
+具体型号的适用范围以对应文件为准。需要合规资料时，请提供产品型号，联系瑞莎：[support@radxa.com](mailto:support@radxa.com)。
