@@ -80,9 +80,12 @@ sidebar_position: 150
 百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
 
 **版本说明：**
+
 - **R 版本**：经过测试的稳定版本，推荐使用
 - **T 版本**：测试版本（仅用于评估）
+
 :::
+
 - [百度网盘下载（radxa-a733）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-a733&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 刷机工具
@@ -159,3 +162,9 @@ SD卡启动盘制作工具：
 - 产线问题排查指南：覆盖启动烧写、MMC/eMMC 存储、IO 接口、显示、安全等核心场景的故障定位步骤，附典型问题案例与解决方案，提升产线问题解决效率。
 
 - 量产流程规范：提供全志 T 系列芯片生产指南、ESD（静电防护）操作规范、不良品分析流程，明确生产各环节的标准操作与合规要求，保障量产过程的一致性与产品良率。
+
+## 认证与合规
+
+- [Radxa Cubie A7A CE-RED 测试符合性验证](https://dl.radxa.com/compliance/cubie-a7a/radxa-cubie-a7a-ce-red-verification.pdf)
+
+适用型号以文件中的 Model/Type reference 为准。
