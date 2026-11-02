@@ -137,6 +137,6 @@ Offers end-to-end solutions for common production line challenges.
 
 ## Certification and Compliance
 
-- [Radxa Cubie A7Z CE-RED test verification](https://dl.radxa.com/compliance/cubie-a7z/radxa-cubie-a7z-ce-red-verification.pdf)
+- EU RED test verification document (CE-RED).
 
-Refer to the Model/Type reference in the document for the applicable variants.
+Refer to the applicable document for the exact model coverage. To request compliance documentation, provide your product model and contact Radxa at [support@radxa.com](mailto:support@radxa.com).
