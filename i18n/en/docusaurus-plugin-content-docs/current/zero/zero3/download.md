@@ -88,6 +88,13 @@ When debugging RKISP effects on an RK356X platform with a Debian12 system, you n
 
 ## Quality Certification
 
+The following documents apply to Radxa ZERO 3W only; they do not establish the certification status of ZERO 3E:
+
+- Wi-Fi 6 variants (model suffix W15): FCC equipment authorization (FCC ID) and Part 15B Supplier's Declaration of Conformity (SDoC), EU RED test verification, RoHS compliance verification, REACH SVHC test report, and Japanese radio equipment type certification.
+- Earlier Wi-Fi 5 variants: FCC equipment authorization (FCC ID) and Part 15B Supplier's Declaration of Conformity (SDoC). Their FCC ID differs from that of the Wi-Fi 6 variants.
+
+Refer to the applicable documents for the exact model coverage. To request a certificate, report, or FCC ID, provide your product model and wireless variant and contact Radxa at [support@radxa.com](mailto:support@radxa.com).
+
 ## Enclosures
 
 - [Case For Radxa Zero 3W/3E](https://www.printables.com/model/1076539-case-for-radxa-zero-series3w3e2pro) by [@leavic](https://www.printables.com/@leavic)

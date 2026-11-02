@@ -92,12 +92,22 @@ Armbian 的默认凭据如下：
 百度网盘分享链接会定期更新镜像文件，推荐通过百度网盘下载获取最新镜像。
 
 **版本说明：**
+
 - **R 版本**：经过测试的稳定版本，推荐使用
 - **T 版本**：测试版本（仅用于评估）
+
 :::
+
 - [百度网盘下载（radxa-zero3）](https://pan.baidu.com/s/56vG8RCxe-5T_27AWQcREGA#list/path=%2Fsharelink3108273493-988411983016443%2Fimage-release%2Fradxa-zero3&parentPath=%2Fsharelink3108273493-988411983016443)
 
 ## 质量认证
+
+以下资料仅适用于 Radxa ZERO 3W，不代表 ZERO 3E 的认证情况：
+
+- Wi-Fi 6 版本（型号后缀为 W15）：FCC 无线设备授权（FCC ID）及 Part 15B 供应商符合性声明（SDoC）、欧盟 RED 测试符合性文件、RoHS 符合性验证文件、REACH SVHC 测试报告、日本无线设备型式认证。
+- 较早的 Wi-Fi 5 版本：FCC 无线设备授权（FCC ID）及 Part 15B 供应商符合性声明（SDoC）。其 FCC ID 与 Wi-Fi 6 版本不同。
+
+具体型号的适用范围以对应文件为准。需要证书、报告或 FCC ID 时，请提供产品型号及无线版本，联系瑞莎：[support@radxa.com](mailto:support@radxa.com)。
 
 ## 外壳
 
