@@ -25,3 +25,7 @@ sidebar_position: 20
    - 不支持3.5耳机音频，需要外加CODEC
    - 不支持EDP:15/17/21/23/27/29/33/35 pin,CM3是支持EDP，而CM5是TYPE C
    - USB2_HOST3不支持：69/71 PIN CM3是USB，而CM5是I2C
+
+### 3. CM5 能否直接替换 CM3J 安装在原有底板上？
+
+不能将 CM5 视为 CM3J 的逐引脚兼容替代品。即使连接器位置相同，两者部分连接器引脚的功能仍不同。更换模块前，请按底板原理图逐项对照 [CM3J V1.2 引脚定义表](https://dl.radxa.com/cm3j/docs/hw/radxa_cm3j_pinout_v1.2.xlsx)和 [CM5 V2.21 引脚定义表](https://dl.radxa.com/cm5/v2210/radxa_cm5_v2210_pinout.xlsx)，核对供电及实际使用的接口；未经核对不要直接上电。上面的 CM3 底板替换说明不适用于 CM3J。
