@@ -134,3 +134,9 @@ Offers end-to-end solutions for common production line challenges.
 - **Production Line Troubleshooting Guide**: Covers fault diagnosis steps for critical scenarios such as bootloader programming, MMC/eMMC storage, I/O interfaces, display, and security. Includes typical case studies and solutions to enhance production line issue resolution efficiency.
 
 - **Mass Production Process Standards**: Provides production guidelines for Allwinner T-series chips, ESD (Electrostatic Discharge) operation specifications, and defective product analysis procedures. Defines standard operations and compliance requirements for each production stage to ensure consistency and product yield.
+
+## Certification and Compliance
+
+- [Radxa Cubie A7Z CE-RED test verification](https://dl.radxa.com/compliance/cubie-a7z/radxa-cubie-a7z-ce-red-verification.pdf)
+
+Refer to the Model/Type reference in the document for the applicable variants.
