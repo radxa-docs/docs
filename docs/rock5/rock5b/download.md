@@ -242,6 +242,13 @@ L2203 L2205 L2300 L2301 L2303 改成 3225 封装的 RHP322512T-R24M
 - [ROCK 5B+ V1.21 原理图 PDF](https://dl.radxa.com/rock5/5b%2B/docs/hw/radxa_rock_5b%2B_schematic_v1.21.pdf)
 - [ROCK 5B+ V1.21 位号图 PDF](https://dl.radxa.com/rock5/5b%2B/docs/hw/radxa_rock_5b%2B_components_placement_map_v1.21.pdf)
 
+版本更新说明：
+
+1. HDMI 1 CEC 电路优化（电路和 BOM 调整）。
+2. HDMI 2 CEC 电平匹配优化（电路调整）。
+3. HDMI 电源保护设计（增加限流保护电路）。
+4. HDMI IN CEC 电平匹配优化（电路和 BOM 调整）。
+
 </TabItem>
 </Tabs>
 
