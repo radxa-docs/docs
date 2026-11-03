@@ -227,6 +227,13 @@ The block diagram inside the `v1.2 Schematic pdf` still shows an older interface
 - [ROCK 5B+ V1.21 Schematic PDF](https://dl.radxa.com/rock5/5b%2B/docs/hw/radxa_rock_5b%2B_schematic_v1.21.pdf)
 - [ROCK 5B+ V1.21 Components Placement Map PDF](https://dl.radxa.com/rock5/5b%2B/docs/hw/radxa_rock_5b%2B_components_placement_map_v1.21.pdf)
 
+Revision notes:
+
+1. Optimized the HDMI 1 CEC circuit (circuit and BOM changes).
+2. Optimized HDMI 2 CEC logic-level matching (circuit changes).
+3. Added current-limiting protection to the HDMI power supply.
+4. Optimized HDMI IN CEC logic-level matching (circuit and BOM changes).
+
 </TabItem>
 </Tabs>
 
