@@ -6,6 +6,7 @@ sidebar_position: 150
 
 ## System Images
 
+- [radxa-airbox-q900_noble_gnome_r2](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900_noble_gnome_r2_4096.tar.gz): Ubuntu 24.04 (Noble) + GNOME desktop system image (r2 stable release)
 - [radxa-airbox-q900_noble_gnome_r1](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900_noble_gnome_r1_4096.tar.gz): Ubuntu 24.04 (Noble) + GNOME desktop system image (r1 stable release)
 
 :::note Image naming convention
