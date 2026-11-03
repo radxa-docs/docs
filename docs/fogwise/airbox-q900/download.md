@@ -6,6 +6,7 @@ sidebar_position: 150
 
 ## 系统镜像
 
+- [radxa-airbox-q900_noble_gnome_r2](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900_noble_gnome_r2_4096.tar.gz)：Ubuntu 24.04（Noble）+ GNOME 桌面系统镜像（r2 稳定版）
 - [radxa-airbox-q900_noble_gnome_r1](https://dl.radxa.com/fogwise/airbox-q900/images/radxa-airbox-q900_noble_gnome_r1_4096.tar.gz)：Ubuntu 24.04（Noble）+ GNOME 桌面系统镜像（r1 稳定版）
 
 :::note 镜像命名说明
