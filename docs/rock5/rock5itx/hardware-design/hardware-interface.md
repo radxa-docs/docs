@@ -505,6 +505,22 @@ LCD 座子采用的是 FH35C-39S-0.3SHW（50），间距 0.3 mm。
 
 间距 2.54 mm
 
+## F_PANEL
+
+| Pin |    Name    |
+| :-: | :--------: |
+|  1  | HDD_LED+  |
+|  2  | PWR_LED+  |
+|  3  | HDD_LED-  |
+|  4  | PWR_LED-  |
+|  5  |  RESET -  |
+|  6  |  PWR_ON   |
+|  7  |  RESET +  |
+|  8  | PWR_GND   |
+|  9  |   RSV     |
+
+具体接线方法请参阅[安装 F_PANEL 排线](../getting-started/assembly-guide#安装-f_panel-排线)。
+
 ## F_USB
 
 | Pin |     Name     |         Description         |

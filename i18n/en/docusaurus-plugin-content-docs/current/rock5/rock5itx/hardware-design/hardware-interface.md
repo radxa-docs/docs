@@ -505,6 +505,22 @@ Spacing 2.54 mm
 
 Spacing 2.54 mm
 
+## F_PANEL
+
+| Pin |    Name    |
+| :-: | :--------: |
+|  1  | HDD_LED+  |
+|  2  | PWR_LED+  |
+|  3  | HDD_LED-  |
+|  4  | PWR_LED-  |
+|  5  |  RESET -  |
+|  6  |  PWR_ON   |
+|  7  |  RESET +  |
+|  8  | PWR_GND   |
+|  9  |   RSV     |
+
+See [Install the F_PANEL cable](../getting-started/assembly-guide#install-the-f_panel-cable) for installation instructions.
+
 ## F_USB
 
 | Pin |     Name     |         Description         |
