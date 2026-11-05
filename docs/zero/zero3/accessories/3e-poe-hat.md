@@ -4,6 +4,10 @@ sidebar_position: 3
 
 # ZERO 3E PoE 供电模块
 
+## 外设供电端子
+
+PoE HAT 上的螺丝接线端子在[官方接口标注图](https://radxa.com/poe-hat/ra023/marked_radxa_zero_3e_poe_hat.webp)中标为 **12V DC Output**，不是 5V 输出。连接外设前，请确认外设的输入电压要求和可用的输出电流；不要用 ZERO 3E 主板的 5V 适配器建议值推算该端子的供电能力。
+
 ## 注意事项
 
 1. 如果连接了以太网电缆到 Radxa ZERO 3E 的以太网端口但未能启动 Radxa ZERO 3E，请检查以下事项：
