@@ -40,6 +40,8 @@ title: Resource Download
 
 [Radxa ROCK 3C Android 14 microSD and eMMC Image](https://github.com/radxa/manifests/releases/download/Android14-rkr6-ROCK3c/ROCK3C-Android14-20250718-HDMI-gpt.zip)：Suitable for booting from microSD card or eMMC module.
 
+For Android 14 development, see the [ROCK 3C Android 14 source manifest branch](https://github.com/radxa/manifests/tree/Android14-rkr6-rock3c); this branch does not apply to the Android 11 image above.
+
 :::caution
 Except for the above mirrors which have been fully tested officially, the other mirrors have not been rigorously tested and may have unknown issues and are for evaluation purposes only.
 :::
