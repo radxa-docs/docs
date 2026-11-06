@@ -80,6 +80,9 @@ System Flashing Tools:
 - [Schematic V1.11](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_schematic_v1.11.pdf)
 - [Component Placement Map V1.11](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_components_placement_map_v1.11.pdf)
 
+- [Schematic V2.00](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_schematic_v2.00.pdf)
+- [Component Placement Map V2.00](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_components_placement_map_v2.00.pdf)
+
 ## References Documentation
 
 ### [Tina5.0 AIoT Documentation](https://gitlab.com/tina5.0_aiot/product/docs/)
