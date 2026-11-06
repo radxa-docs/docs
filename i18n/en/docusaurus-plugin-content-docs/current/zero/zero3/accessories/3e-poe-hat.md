@@ -4,6 +4,10 @@ sidebar_position: 3
 
 # ZERO 3E PoE HAT
 
+## External Power Terminal
+
+The screw terminal on the PoE HAT is labeled **12V DC Output** in the [official annotated interface image](https://radxa.com/poe-hat/ra023/marked_radxa_zero_3e_poe_hat.webp); it is not a 5V output. Before connecting a peripheral, check its input voltage requirements and the available output current. Do not infer this terminal's power capacity from the ZERO 3E board's 5V power adapter recommendation.
+
 ## Precaution
 
 1. If a Ethernet cable is connected to the Ethernet port of Radxa ZERO 3E but Radxa ZERO 3E fails to start, please check the following:
