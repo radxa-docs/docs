@@ -54,6 +54,8 @@ For connectivity, it provides Gigabit Ethernet, Wi‑Fi 6, and Bluetooth 5.4. St
 | Dimensions            | 51 mm × 51 mm                                                                                                                                      |
 | Operating temperature | 0–60°C                                                                                                                                             |
 
+**Note:** The RISC-V Xuantie E902 is currently used for low-power management, handling system sleep and wake-up. Due to its limited core performance, use cases for running an RTOS on the E902 alone are limited. An Arm core can currently be allocated to run an RTOS independently.
+
 ## Interface overview
 
 <div style={{textAlign: 'center'}}>
