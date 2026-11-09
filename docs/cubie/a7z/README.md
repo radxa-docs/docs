@@ -63,6 +63,8 @@ Cubie A7Z 搭载全志 A733 SoC，内置混合架构高性能八核 CPU（双核
 | MIPI CSI | 1 个 4-lane MIPI CSI | 2 个 4-lane MIPI CSI |
 | MIPI DSI | 无                   | 1 个 4-lane MIPI DSI |
 
+**说明：** RISC-V 玄铁 E902 当前用于低功耗管理，负责系统休眠与唤醒。受核心性能限制，E902 单独运行 RTOS 时，适用场景较为有限。目前可分配一个 Arm 核心独立运行 RTOS。
+
 ## 接口说明
 
 <Tabs queryString="a7z-revision">
