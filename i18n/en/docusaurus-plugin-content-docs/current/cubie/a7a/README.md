@@ -43,6 +43,8 @@ Powered by the Allwinner A733 SoC, the Cubie A7A features a hybrid octa-core hig
 | Power       | USB Type-C 5V power supply <br/> PoE power supply (requires external PoE HAT) <br/> 5V power supply via GPIO pins (pins 2 & 4)                                                            |
 | OS Support  | Debian Linux, Android 13                                                                                                                                                                  |
 
+**Note:** The RISC-V Xuantie E902 is currently used for low-power management, handling system sleep and wake-up. Due to its limited core performance, use cases for running an RTOS on the E902 alone are limited. An Arm core can currently be allocated to run an RTOS independently.
+
 ## Interface Description
 
 <div style={{textAlign: 'center'}}>

@@ -43,6 +43,8 @@ Cubie A7A 搭载全志 A733 SoC，采用混合八核高性能 CPU（双核 Arm C
 | 供电方式   | 支持 USB Type-C 5V 供电 <br/> 支持 PoE 供电(需外接 PoE HAT) <br/> 支持 GPIO 引脚5V 供电（引脚 2 与 4）                                                                                                                                |
 | 操作系统   | 支持 Debian Linux、Android 13 系统                                                                                                                                                                                                    |
 
+**说明：** RISC-V 玄铁 E902 当前用于低功耗管理，负责系统休眠与唤醒。受核心性能限制，E902 单独运行 RTOS 时，适用场景较为有限。目前可分配一个 Arm 核心独立运行 RTOS。
+
 ## 接口说明
 
 <div style={{textAlign: 'center'}}>
