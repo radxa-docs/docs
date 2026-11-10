@@ -12,7 +12,7 @@ sidebar_position: 1
 
 ### 供电
 
-ROCK 5C 支持 9V/2A、12V/2A、15V/2A 和 20V/2A 的 USB Type-C PD 2.0。瑞莎推荐使用 [Radxa Power PD30W](https://radxa.com/products/accessories/power-pd-30w)。
+ROCK 5C 的 USB Type-C 供电接口仅支持 5V 输入。请使用 5V/3A 的 USB Type-C 电源适配器。
 
 ### 存储（二选一）
 

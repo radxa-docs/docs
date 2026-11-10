@@ -12,7 +12,7 @@ sidebar_position: 1
 
 ### Power supply
 
-The ROCK 5C supports USB Type-C PD 2.0 at 9V/2A, 12V/2A, 15V/2A and 20V/2A. Radxa recommends using [Radxa Power PD30W](https://radxa.com/products/accessories/power-pd-30w).
+The ROCK 5C supports 5V-only power input via USB Type-C. Use a 5V/3A USB Type-C power adapter.
 
 ### Storage (either one or the other)
 
