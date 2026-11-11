@@ -2,14 +2,14 @@
 sidebar_position: 2
 ---
 
-# 瑞莎 10 寸高清触摸屏使用指南
+# 瑞莎 10 FHD 高清触摸屏使用指南
 
 我们需要使用专门的排线链接主板和触摸屏，确认硬件连接正确后，使用 Rsetup 工具使能 10 寸显示屏。
 
 ## 硬件准备
 
 - FPC 排线
-- 瑞莎 10 寸高清触摸屏
+- 瑞莎 10 FHD 高清触摸屏
 - 适配的主板
 
 ## 硬件连接
@@ -46,7 +46,7 @@ rsetup
   <img src="/img/rock4/4d/rsetup-overlays-dsi-2.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
-3. 通过方向键选择 `Enable Radxa Display 10 HD` 选项，然后按空格键勾选 `Enable Radxa Display 10HD` 选项，最后按回车确认选择。
+3. 通过方向键选择 `Enable Radxa Display 10FHD` 选项，然后按空格键勾选，最后按回车确认选择。
 
 :::tip
 选项框中出现 `*` 表示该选项已启用
