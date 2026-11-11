@@ -82,6 +82,9 @@ SD卡启动盘制作工具：
 
 - [原理图 V2.00](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_schematic_v2.00.pdf)
 - [位号图 V2.00](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_components_placement_map_v2.00.pdf)
+- [2D DXF 顶部图 V2.00](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_2d_dxf_top_v2.00.dxf.zip)
+- [2D DXF 整板图 V2.00](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_2d_dxf_v2.00.dxf.zip)
+- [3D STP 模型 V2.00](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_3d_stp_v2.00.stp.zip)
 
 ## 参考资料
 
