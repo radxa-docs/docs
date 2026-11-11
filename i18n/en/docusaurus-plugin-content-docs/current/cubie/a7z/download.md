@@ -76,6 +76,8 @@ System Flashing Tools:
 
 - [Schematic V1.10](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_Cubie_A7Z_v1100__schematic.pdf)
 - [Component Placement Map V1.10](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_Cubie_A7Z_v1100_Components_Placement_map.pdf)
+- [2D DXF Drawing V1.10](https://dl.radxa.com/cubie/a7z/docs/hw/Radxa_Cubie_A7Z_2D_DXF_V1.10.zip)
+- [3D STP Model V1.10](https://dl.radxa.com/cubie/a7z/docs/hw/Radxa_Cubie_A7Z_3D_STP_V1.10.zip)
 
 - [Schematic V1.11](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_schematic_v1.11.pdf)
 - [Component Placement Map V1.11](https://dl.radxa.com/cubie/a7z/docs/hw/radxa_cubie_a7z_components_placement_map_v1.11.pdf)
