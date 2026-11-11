@@ -45,7 +45,7 @@ import DISPLAY from "../../../../common/accessories/\_display-usage.mdx";
         </tr>
         <tr>
           <td>Radxa Display 10HD</td>
-          <td>1200x1920 pixels </td>
+          <td>1280x800 pixels </td>
         </tr>
         <tr>
           <td>Radxa Display 10FHD</td>
