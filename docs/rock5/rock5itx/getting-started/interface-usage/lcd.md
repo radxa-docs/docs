@@ -25,7 +25,7 @@ ROCK 5 ITX 带有一个 4-lane 的 DSI 接口。以下是目前支持的屏幕�
   </tr>
   <tr>
     <td>Radxa Display 10HD</td>
-    <td>1200x1920 像素 </td>
+    <td>1280x800 像素 </td>
   </tr>
 </table>
 

@@ -25,7 +25,7 @@ The ROCK 5 ITX comes with a 4-lane DSI interface. The following is a list of cur
   </tr>
   <tr>
     <td>Radxa Display 10HD</td>
-    <td>1200x1920 pixels </td>
+    <td>1280x800 pixels </td>
   </tr>
 </table>
 
