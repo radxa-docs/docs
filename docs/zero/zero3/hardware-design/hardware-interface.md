@@ -47,6 +47,8 @@ ZERO 3W/3E 提供了一个40 pin 针脚的 GPIO 座子，与市场上大多数�
 
 **提示：实际兼容性以实际使用情况为准。**
 
+ZERO 3W **V1.11** 的[官方 2D 图纸](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_2d_dxf.zip)显示，GPIO 排孔为 2 排各 20 孔，同排相邻孔及两排之间的孔中心距均为 **2.54 mm**。该图纸未提供可用于确定适配排针针脚截面的成品孔径及公差；选配排针前请按实际板版本向硬件方确认孔径、公差并验证装配。上述机械尺寸仅依据 V1.11 图纸，不代表其他板版本已逐一验证。
+
 <TabItem value="Zero 3">
      <div className='gpio_style' style={{ overflow :"auto"}}  >
 

@@ -47,6 +47,8 @@ Radxa ZERO 3 provides a 40-pin GPIO header, which is compatible with most SBC ac
 
 **Tip: Actual compatibility depends on the use case.**
 
+The [official ZERO 3W V1.11 2D drawing](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_2d_dxf.zip) shows two rows of 20 GPIO holes, with **2.54 mm** center-to-center spacing between adjacent holes in each row and between the rows. It does not specify the finished hole diameter or tolerance needed to determine a compatible header pin cross-section. Before selecting a header, confirm the hole diameter and tolerance for the actual board revision with the hardware team and verify the assembly. These dimensions are based on the V1.11 drawing only; other board revisions have not been individually verified.
+
 :::tip
 Pin 3, Pin 5, Pin 27, and Pin 28 add extra pull-up resistors for I2C device power supply, so they work abnormally when used as GPIOs.
 :::
