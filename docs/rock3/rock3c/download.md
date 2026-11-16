@@ -39,6 +39,8 @@ sidebar_position: 2
 
 [Radxa ROCK 3C Android 14 microSD and eMMC Image](https://github.com/radxa/manifests/releases/download/Android14-rkr6-ROCK3c/ROCK3C-Android14-20250718-HDMI-gpt.zip)：适用于 microSD 卡、eMMC 模块启动系统。
 
+Android 14 开发请参考 [ROCK 3C Android 14 源码清单分支](https://github.com/radxa/manifests/tree/Android14-rkr6-rock3c)；上方 Android 11 镜像不适用此分支。
+
 :::caution
 除了上面的镜像经过官方充分测试外，其他镜像未经过严格测试，可能会存在未知问题，仅用于评估使用。
 :::
