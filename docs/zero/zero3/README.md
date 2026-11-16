@@ -98,6 +98,8 @@ sidebar_position: 5
     </tr>
 </table>
 
+ZERO 3W 的 40 针 GPIO 排针有预焊和未焊两种规格，并非所有板卡都已安装排针。例如，4GB 内存、无 eMMC 的 `RS107-D4E0H1W15` 为预焊排针版，`RS107-D4E0H0W15` 为未焊排针版。选购时请核对具体 SKU，详见 [ZERO 3W 产品说明中的型号表](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_product_brief.pdf)。
+
 ### 系统框图
 
 <Tabs queryString="model">

@@ -97,6 +97,8 @@ sidebar_position: 5
     </tr>
 </table>
 
+The ZERO 3W is available with or without a pre-soldered 40-pin GPIO header; not every board has header pins installed. For example, the 4 GB RAM, no-eMMC `RS107-D4E0H1W15` variant has a pre-soldered header, while `RS107-D4E0H0W15` has no header installed. Check the SKU before ordering; see the [ZERO 3W Product Brief model table](https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_product_brief.pdf).
+
 ### System block diagram
 
 <Tabs queryString="model">
