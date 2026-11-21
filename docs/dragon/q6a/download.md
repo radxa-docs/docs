@@ -123,7 +123,21 @@ Dragon Q6A 出厂默认烧录 BIOS 固件，正常情况下无需烧录启动固
 
 - BIOS 固件
 
-  - [flat_build_260120](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260120.zip)
+  :::info 最新 BIOS 固件发布页面
+
+  - [BIOS 固件](https://dl.radxa.com/dragon/q6a/images/)
+
+  该页面会发布最新版本的 BIOS 固件，更新日志请查看 [BIOS 固件更新日志](https://dl.radxa.com/dragon/q6a/images/dragon-q6a-bios-changelog.md)。
+
+  :::
+
+  - [BIOS 固件 - 260916](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260916.zip)
+
+  :::warning 版本兼容性
+
+  260916 更新日志标注其已测试适配 Radxa OS (Ubuntu 26)，并明确**不兼容 Radxa OS (Ubuntu 24)**。刷入前请先核对当前系统版本，确认与 BIOS 版本匹配。
+
+  :::
 
 ## 硬件设计
 

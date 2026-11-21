@@ -123,7 +123,21 @@ For detailed steps on flashing the BIOS firmware, please refer to the [Flashing 
 
 - BIOS Firmware
 
-  - [flat_build_260120](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260120.zip)
+  :::info Latest BIOS firmware release page
+
+  - [BIOS Firmware](https://dl.radxa.com/dragon/q6a/images/)
+
+  This page publishes the latest BIOS firmware versions. For the changelog, see the [BIOS Firmware Changelog](https://dl.radxa.com/dragon/q6a/images/dragon-q6a-bios-changelog.md).
+
+  :::
+
+  - [BIOS Firmware - 260916](https://dl.radxa.com/dragon/q6a/images/dragon-q6a_flat_build_wp_260916.zip)
+
+  :::warning Version compatibility
+
+  The 260916 changelog states that it is compatible with and tested on Radxa OS (Ubuntu 26), and explicitly **not compatible with Radxa OS (Ubuntu 24)**. Check your current OS version before flashing to confirm it matches the BIOS version.
+
+  :::
 
 ## Hardware Design
 
