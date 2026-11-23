@@ -7,6 +7,10 @@ doc_kind: page
 
 Armbian Imager is the official image download and flashing utility from Armbian. It can download official images online or write a local image file. The utility automatically downloads, decompresses, writes, and verifies the image.
 
+:::note
+Armbian 26.11 now officially supports the Dragon Q8B, with Debian and Ubuntu-based images. The mainline kernel for this release is Linux 7.3 (edge kernel 7.3.5 on Q8B), and a vendor kernel 7.0.11 is also provided, along with weekly security updates with CVE backports. Available images include Ubuntu 26.04 and Debian 13/14 desktop and minimal variants, as well as UFS-specific images.
+:::
+
 :::caution
 Flashing erases all data on the target storage device. Back up important files and carefully confirm the target device before continuing.
 :::
