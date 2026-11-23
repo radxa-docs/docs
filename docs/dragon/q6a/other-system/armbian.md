@@ -12,27 +12,35 @@ Radxa Dragon Q6A 需要最新的 UEFI 固件才能运行 Armbian。固件下载�
 
 ## 系统镜像下载
 
-Armbian 为 Radxa Dragon Q6A 提供多个版本的系统镜像：
+Armbian 26.11 已正式支持 Radxa Dragon Q6A，提供基于 Debian 和 Ubuntu 的系统镜像。该版本主线内核为 Linux 7.3（Q6A 的 edge 内核为 7.3.1），同时提供 vendor 内核 7.0.11：
 
-### 稳定版镜像
+### 推荐镜像
 
-基于 Linux 内核 6.18，提供稳定的使用体验：
+由 Armbian 团队测试并挑选的稳定镜像（Armbian 26.11.2，2026-11-20 构建）：
 
-- **Ubuntu 24.04 (Noble) - Gnome 桌面版**：完整的桌面环境，适合日常使用
-- **Ubuntu 24.04 (Noble) - 最小化版**：轻量级系统，适合物联网应用
+- **Ubuntu 26.04 (Resolute) - Gnome 桌面版**：完整的桌面环境，适合日常使用
+- **Debian 13 (Trixie) - 最小化版**：轻量级系统，适合物联网应用
 
-### 滚动发布版
+### 桌面版镜像
 
-适合喜欢尝鲜的 Linux 爱好者，包含最新的软件包：
+- **Ubuntu 26.04 (Resolute) - Gnome / KDE Plasma**：edge 主线内核 7.3.1 或 vendor 内核 7.0.11
+- **Debian 14 (Forky) - Hyprland**：edge 主线内核 7.3.1
 
-- **Debian 14 (Forky) - 最小化版**
-- **Ubuntu 25.04 (Plucky) - 最小化版**
+### 最小化 / IoT 镜像
 
-:::warning
-滚动发布版仅适合有经验的 Linux 用户，不推荐在生产环境中使用。
+- **Ubuntu 26.04 (Resolute) - 最小化版**：edge 主线内核 7.3.1 或 vendor 内核 7.0.11
+- **Debian 13 (Trixie) - 最小化版**：edge 主线内核 7.3.1 或 vendor 内核 7.0.11
+
+### 专用应用镜像
+
+- **Home Assistant**（Debian 13）
+- **OpenMediaVault**（Debian 13）
+
+:::note
+Armbian 提供每周安全更新（包含 CVE 补丁回移）。Qualcomm 硬件支持仍在持续完善中，部分功能可能随版本更新逐步可用。具体可用镜像以下载页面为准。
 :::
 
-下载地址：[Armbian Dragon Q6A 下载页面](https://www.armbian.com/radxa-dragon-q6a/)
+下载地址：[Armbian Dragon Q6A 下载页面](https://www.armbian.com/boards/radxa-dragon-q6a)
 
 ## 烧录到 UFS 存储
 
