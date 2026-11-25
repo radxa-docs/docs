@@ -12,27 +12,35 @@ Radxa Dragon Q6A requires the latest UEFI firmware to run Armbian. Firmware down
 
 ## System Image Downloads
 
-Armbian provides multiple system images for Radxa Dragon Q6A:
+Armbian 26.11 now officially supports the Radxa Dragon Q6A, with Debian and Ubuntu-based images. The mainline kernel for this release is Linux 7.3 (edge kernel 7.3.1 on Q6A), and a vendor kernel 7.0.11 is also available:
 
-### Stable Release Images
+### Recommended Images
 
-Based on Linux kernel 6.18, providing a stable user experience:
+Tested and stable images hand-selected by the Armbian team (Armbian 26.11.2, built on Nov 20, 2026):
 
-- **Ubuntu 24.04 (Noble) - Gnome Desktop**: Full desktop environment for daily use
-- **Ubuntu 24.04 (Noble) - Minimal**: Lightweight system for IoT applications
+- **Ubuntu 26.04 (Resolute) - Gnome Desktop**: Full desktop environment for daily use
+- **Debian 13 (Trixie) - Minimal**: Lightweight system for IoT applications
 
-### Rolling Release Images
+### Desktop Images
 
-For Linux enthusiasts who want cutting-edge packages:
+- **Ubuntu 26.04 (Resolute) - Gnome / KDE Plasma**: edge mainline kernel 7.3.1 or vendor kernel 7.0.11
+- **Debian 14 (Forky) - Hyprland**: edge mainline kernel 7.3.1
 
-- **Debian 14 (Forky) - Minimal**
-- **Ubuntu 25.04 (Plucky) - Minimal**
+### Minimal / IoT Images
 
-:::warning
-Rolling releases are only suitable for experienced Linux users and not recommended for production environments.
+- **Ubuntu 26.04 (Resolute) - Minimal**: edge mainline kernel 7.3.1 or vendor kernel 7.0.11
+- **Debian 13 (Trixie) - Minimal**: edge mainline kernel 7.3.1 or vendor kernel 7.0.11
+
+### Dedicated Application Images
+
+- **Home Assistant** (Debian 13)
+- **OpenMediaVault** (Debian 13)
+
+:::note
+Armbian provides weekly security updates with CVE backports. Qualcomm hardware enablement is ongoing, and some features may become available in later releases. Refer to the download page for the current list of images.
 :::
 
-Download: [Armbian Dragon Q6A Download Page](https://www.armbian.com/radxa-dragon-q6a/)
+Download: [Armbian Dragon Q6A Download Page](https://www.armbian.com/boards/radxa-dragon-q6a)
 
 ## Flashing to UFS Storage
 
