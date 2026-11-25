@@ -139,9 +139,13 @@ sidebar_position: 10
 
 板载 2 个 M.2 M Key 插槽，支持 PCIe Gen4 x4，可安装 2280 尺寸的 M.2 NVMe 固态硬盘，方便用户扩展存储需求。
 
+主板硬件版本 V1.20 支持在正面的 M.2 M Key 插槽安装一张兼容的 AI 加速卡。安装前请核对主板版本和插槽位置。详见[产品简报第 8 页](https://dl.radxa.com/orion/o6n/docs/radxa_orion_o6n_product_brief_en.pdf#page=8)。
+
 ### M.2 E Key 插槽
 
 板载 1 个 M.2 E Key 插槽，支持 PCIe Gen4 x2，可安装 2230 尺寸的 WiFi/蓝牙网卡，方便用户拓展 WiFi 和蓝牙功能。
+
+2230 表示模块尺寸。选购模块时，请同时核对键位。M Key NVMe 固态硬盘应安装在匹配的 M Key 插槽中，并确认该插槽支持硬盘尺寸。
 
 ### M.2 B Key 插槽
 

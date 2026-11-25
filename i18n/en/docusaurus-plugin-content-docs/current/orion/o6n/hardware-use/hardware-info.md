@@ -139,9 +139,13 @@ Users can connect various sensors, actuators, communication modules, displays, a
 
 Onboard 2x M.2 M Key slots, supporting PCIe Gen4 x4, compatible with 2280-sized M.2 NVMe SSDs for expanding storage needs.
 
+On hardware revision V1.20, the M.2 M Key slot on the front of the board supports one compatible AI accelerator card. Check the board revision and slot location before installation. See the [product brief, page 8](https://dl.radxa.com/orion/o6n/docs/radxa_orion_o6n_product_brief_en.pdf#page=8).
+
 ### M.2 E Key Slot
 
 Onboard 1x M.2 E Key slot, supporting PCIe Gen4 x2, compatible with 2230-sized WiFi/Bluetooth modules for wireless connectivity.
+
+2230 indicates the module size. Check the keying as well when choosing a module. Install an M Key NVMe SSD in a matching M Key slot that supports the SSD's size.
 
 ### M.2 B Key Slot
 
