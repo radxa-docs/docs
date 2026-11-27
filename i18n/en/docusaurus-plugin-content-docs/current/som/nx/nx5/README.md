@@ -62,7 +62,7 @@ The Radxa NX5 Development Kit consists of the Radxa NX5 compute module and Radxa
 | PCIe             | PCIe2.0                                                                                                                                                                                         |
 | Other interfaces | Supports UART, I2C, I2S, CAN, PWM, GPIOs and more                                                                                                                                               |
 | Connector        | 260-pin SO-DIMM connector                                                                                                                                                                       |
-| OS               | Supports Debian, Yocto, Buildroot, Android 14                                                                                                                                                   |
+| OS               | Supports Debian, Yocto, Buildroot, Android                                                                                                                                                      |
 | Dimensions       | 70 mm x 45 mm                                                                                                                                                                                   |
 
 ## Interface Description
