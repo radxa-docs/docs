@@ -114,7 +114,7 @@ Welcome to the Radxa Product Center! We specialize in mini PCs, compute modules,
 | Model                           | Description                        |
 | ------------------------------- | ---------------------------------- |
 | [ROCK 5 ITX](/rock5/rock5itx/)  | RK3588 based ITX Form Factor Board |
-| [ROCK 5 ITX+](/rock5/rock5itx/) | RK3582 based ITX Form Factor Board |
+| [ROCK 5 ITX+](/rock5/rock5itx/) | RK3588 based ITX Form Factor Board |
 
 ## Radxa Edge Computing
 
