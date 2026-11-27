@@ -4,6 +4,11 @@ sidebar_position: 99
 
 # 资源下载汇总
 
+## 硬件资料
+
+- [ROCK Pi E V3.0 原理图（PDF）](https://dl.radxa.com/rockpie/docs/hw/v3.0/radxa_rockpi_e_v3.0_schematic.pdf)
+- [ROCK Pi E V3.0 2D 图纸（DXF，ZIP 压缩包）](https://dl.radxa.com/rockpie/docs/hw/v3.0/radxa_rockpi_e_v3.0_2d_dxf.zip)
+
 ## Loader 文件
 
 - [rk3328_loader_ddr333_v1.16.250.bin](https://dl.radxa.com/rockpie/images/loader/rk3328_loader_ddr333_v1.16.250.bin)

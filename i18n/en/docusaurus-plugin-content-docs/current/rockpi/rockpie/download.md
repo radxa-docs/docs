@@ -5,6 +5,11 @@ title: Resource Download
 
 # Resource Download
 
+## Hardware Resources
+
+- [ROCK Pi E V3.0 Schematic (PDF)](https://dl.radxa.com/rockpie/docs/hw/v3.0/radxa_rockpi_e_v3.0_schematic.pdf)
+- [ROCK Pi E V3.0 2D Drawing (DXF in ZIP)](https://dl.radxa.com/rockpie/docs/hw/v3.0/radxa_rockpi_e_v3.0_2d_dxf.zip)
+
 ## Loader File
 
 - [rk3328_loader_ddr333_v1.16.250.bin](https://dl.radxa.com/rockpie/images/loader/rk3328_loader_ddr333_v1.16.250.bin)
