@@ -115,7 +115,7 @@ displayed_sidebar: home
 | 型号                            | 简介                        |
 | ------------------------------- | --------------------------- |
 | [ROCK 5 ITX](/rock5/rock5itx/)  | 基于 RK3588 的 ITX 规格主板 |
-| [ROCK 5 ITX+](/rock5/rock5itx/) | 基于 RK3582 的 ITX 规格主板 |
+| [ROCK 5 ITX+](/rock5/rock5itx/) | 基于 RK3588 的 ITX 规格主板 |
 
 ## 瑞莎边缘计算
 
