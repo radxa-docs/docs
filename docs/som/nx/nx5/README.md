@@ -62,7 +62,7 @@ sidebar_position: 3
 | PCIe                  | PCIe2.0                                                                                                                                                      |
 | 其它接口              | 支持 UART, I2C, I2S, CAN, PWM, GPIOs 等功能                                                                                                                  |
 | 连接器                | 260-pin SO-DIMM 连接器                                                                                                                                       |
-| 操作系统              | 支持 Debian, Yocto, Buildroot, Android 14                                                                                                                    |
+| 操作系统              | 支持 Debian, Yocto, Buildroot, Android                                                                                                                       |
 | 机械尺寸              | 70 毫米 x 45 毫米                                                                                                                                            |
 
 ## 接口说明
