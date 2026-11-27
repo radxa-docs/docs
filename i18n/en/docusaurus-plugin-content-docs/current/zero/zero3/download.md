@@ -28,7 +28,7 @@ ZERO 3E V1.2 Production Version
 - [v1.2 3D stp](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_3d_stp.zip)
 - [v1.2 Schematic pdf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_v1200_schematic.pdf)
 - [v1.2 Component Placement Diagram zip](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_v1200_components_placement_map.zip)
-- [Product brief pdf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_product_brief_rev1.2.pdf)
+- [Product brief pdf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_product_brief.pdf)
 
 </TabItem>
 </Tabs>

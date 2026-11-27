@@ -28,7 +28,7 @@ Radxa ZERO 3E V1.2 量产版本
 - [v1.2 3D stp](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_3d_stp.zip)
 - [v1.2 原理图 pdf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_v1200_schematic.pdf)
 - [v1.2 位号图 pdf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_v1200_components_placement_map.zip)
-- [产品简介 pdf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_product_brief_rev1.2.pdf)
+- [产品简介 pdf](https://dl.radxa.com/zero3/docs/hw/3e/radxa_zero_3e_product_brief.pdf)
 
 </TabItem>
 </Tabs>
