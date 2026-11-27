@@ -24,6 +24,8 @@ doc_kind: page
 | `INT`      | 11             | GPIO17   |
 | `DET`      | 22             | GPIO25   |
 
+![树莓派 4B 的 HDMI、CSI-2、INT 和 DET 接线示意图](/img/accessories/display/hdmi-in-to-mipi-csi2/hdmi-in-to-mipi-csi2-raspberry-pi-4b-video.webp)
+
 更多接线信息见 [RK628 驱动的硬件连接说明](https://github.com/NujoulDev/rk628-rpi-driver#hardware-connections)。
 
 若要采集音频，再按下表接线。`I2S_MCLK` 留空，`GND` 可接树莓派任一地针。
@@ -34,6 +36,8 @@ doc_kind: page
 | `I2S_LRCK`（帧时钟） | 35             | GPIO19            |
 | `I2S_SCLK`（位时钟） | 12             | GPIO18            |
 | `GND`                | 39（示例）     | —                 |
+
+![树莓派 4B 的 I2S 和 GND 接线示意图](/img/accessories/display/hdmi-in-to-mipi-csi2/hdmi-in-to-mipi-csi2-raspberry-pi-4b-audio.webp)
 
 ## 安装驱动并启用 overlay
 

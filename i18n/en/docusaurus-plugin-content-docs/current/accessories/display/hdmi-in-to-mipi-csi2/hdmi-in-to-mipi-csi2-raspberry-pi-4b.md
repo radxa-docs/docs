@@ -24,6 +24,8 @@ Shut down the Raspberry Pi and disconnect its power before wiring. You need an H
 | `INT`          | 11                 | GPIO17   |
 | `DET`          | 22                 | GPIO25   |
 
+![Raspberry Pi 4B HDMI, CSI-2, INT, and DET wiring diagram](/img/accessories/display/hdmi-in-to-mipi-csi2/hdmi-in-to-mipi-csi2-raspberry-pi-4b-video.webp)
+
 For additional wiring information, see the [RK628 driver hardware instructions](https://github.com/NujoulDev/rk628-rpi-driver#hardware-connections).
 
 For audio capture, also connect the pins below. Leave `I2S_MCLK` unconnected. You can connect `GND` to any ground pin on the Pi 4B.
@@ -34,6 +36,8 @@ For audio capture, also connect the pins below. Leave `I2S_MCLK` unconnected. Yo
 | `I2S_LRCK` (frame clock) | 35                 | GPIO19           |
 | `I2S_SCLK` (bit clock)   | 12                 | GPIO18           |
 | `GND`                    | 39 (example)       | Ground           |
+
+![Raspberry Pi 4B I2S and ground wiring diagram](/img/accessories/display/hdmi-in-to-mipi-csi2/hdmi-in-to-mipi-csi2-raspberry-pi-4b-audio.webp)
 
 ## Install the driver and enable the overlay
 
