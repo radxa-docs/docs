@@ -19,6 +19,12 @@ import UART from '../../../../common/dev/\_uart.mdx';
 
 # 40-PIN 功能测试
 
+:::note ROCK 5B+ 的 CAN 支持
+
+ROCK 5B+ 的 [Debian 12 r5 镜像](https://github.com/radxa-build/rock-5b-plus/releases/tag/rsdk-r5)（内核 `6.1.84-8-rk2410`）未启用 RK3588 的原生 CAN 和 CAN FD 驱动。`rsetup` 的 Overlays 菜单不会列出这些 CAN overlay，手动导入 overlay 也无法启用原生 CAN 或 CAN FD。
+
+:::
+
 ## GPIO
 
 <GPIO product_name="Radxa ROCK 5B+" model="rock-5b-plus" gpio_pin="27" chip="4" line="22" gpio_connection="/img/rock5b/rock-5bp-pwm_connection.webp" />

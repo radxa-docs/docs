@@ -19,6 +19,12 @@ import UART from '../../../../common/dev/\_uart.mdx';
 
 # 40-PIN Functional Testing
 
+:::note CAN support on ROCK 5B+
+
+The [Debian 12 r5 image](https://github.com/radxa-build/rock-5b-plus/releases/tag/rsdk-r5) for ROCK 5B+ (kernel `6.1.84-8-rk2410`) does not enable the native RK3588 CAN and CAN FD drivers. The Overlays menu in `rsetup` does not list these CAN overlays, and importing an overlay manually cannot enable native CAN or CAN FD.
+
+:::
+
 ## GPIO
 
 <GPIO product_name="Radxa ROCK 5B+" model="rock-5b-plus" gpio_pin="27" chip="4" line="22" gpio_connection="/img/rock5b/rock-5bp-pwm_connection.webp" />
